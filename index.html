@@ -904,24 +904,43 @@ const RETELL_CONFIG = {
     toastTimer = setTimeout(() => toast.classList.remove("show"), 4500);
   }
 
-  /* Demo — apre il widget vocale Retell montato dallo script ufficiale in fondo alla pagina */
+  /* Demo — il bottone principale avvia/apre DIRETTAMENTE il widget vocale Retell.
+     Senza server, Retell monta un proprio launcher: qui lo cerchiamo (anche
+     dentro eventuali shadow DOM) e lo attiviamo dal nostro bottone, senza
+     rimandare a nessun pulsante laterale. */
+  function findRetellLauncher() {
+    const roots = [document];
+    document.querySelectorAll("*").forEach((el) => { if (el.shadowRoot) roots.push(el.shadowRoot); });
+    const clickableSel = 'button, [role="button"], .fab, [class*="fab" i]';
+    for (const root of roots) {
+      const scoped = root.querySelectorAll(
+        '[id*="retell" i] ' + clickableSel + ', [class*="retell" i] ' + clickableSel
+      );
+      if (scoped.length) return scoped[0];
+      const host = root.querySelector('[id*="retell" i], [class*="retell" i]');
+      if (host) {
+        if (host.tagName === "BUTTON" || host.getAttribute("role") === "button") return host;
+        const inner = host.querySelector && host.querySelector(clickableSel);
+        if (inner) return inner;
+      }
+    }
+    return null;
+  }
+  function openRetellWidget() {
+    const g = window.RetellWidget || window.retellWidget || window.Retell || window.retell;
+    for (const fn of ["startCall", "start", "open", "toggle", "show"]) {
+      try { if (g && typeof g[fn] === "function") { g[fn](); return true; } } catch (e) {}
+    }
+    const launcher = findRetellLauncher();
+    if (launcher) { try { launcher.click(); return true; } catch (e) {} }
+    return false;
+  }
   document.getElementById("demoCallBtn").addEventListener("click", () => {
     if (!RETELL_CONFIG.publicKey || !RETELL_CONFIG.agentId) {
-      showToast("Demo in configurazione: inserisci Public Key e Agent ID Retell per attivarla.");
+      showToast("Demo in configurazione: inserisci le chiavi Retell.");
       return;
     }
-    // Il widget espone un global e/o monta un proprio launcher: proviamo ad aprirlo.
-    const w = window.RetellWidget || window.retellWidget || window.Retell;
-    try {
-      if (w && typeof w.open === "function") { w.open(); return; }
-      if (w && typeof w.start === "function") { w.start(); return; }
-      if (w && typeof w.startCall === "function") { w.startCall(); return; }
-      const launcher = document.querySelector(
-        '#retell-widget-launcher, .retell-widget-launcher, [id*="retell"] button, [class*="retell"] button'
-      );
-      if (launcher) { launcher.click(); return; }
-    } catch (e) { /* fallback sotto */ }
-    showToast("Avvia la chiamata dal pulsante Rispondo che compare in basso a destra.");
+    openRetellWidget();
   });
 
   /* Scroll reveal */
