@@ -16,16 +16,18 @@
 <!-- Favicon (inline, no external request) -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230A6DD8'/%3E%3Cpath d='M11 20c2.8 0 5-3 5-8m0 8c2.8 0 5-3 5-8M8 16.5c1.6 0 2.8-1.6 2.8-4.2M24 16.5c-1.6 0-2.8-1.6-2.8-4.2' stroke='white' stroke-width='2.2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E" />
 
-<!-- Type: Inter Tight (display grotesque) + Inter (UI) + Space Mono (label editoriali) -->
+<!-- Type: stack Helvetica / Neue Haas Grotesk.
+     Sui dispositivi Apple usa l'Helvetica Neue di sistema (font autentico);
+     altrove carica Arimo, il clone Helvetica di Google Fonts. -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 <style>
 /* ============================================================
    Rispondo — Landing assistente vocale AI
-   Direzione: fondo chiaro editoriale · grotesque bold (Inter Tight)
-   · label mono tra parentesi · effetto fluido blu animato.
+   Direzione: fondo chiaro editoriale · Helvetica / Neue Haas Grotesk
+   · label tra parentesi · effetto fluido blu animato.
    Palette: navy + blu cobalto (no nero/neon "AI generica").
    Tutto self-contained.
    ============================================================ */
@@ -68,10 +70,10 @@
   --on-dark: #F8FAFC;
   --on-dark-2: #A9BAD3;
 
-  /* Font */
-  --font-display: "Inter Tight", "Inter", system-ui, sans-serif;
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "Space Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  /* Font — stack Helvetica / Neue Haas Grotesk (Arimo come clone webfont) */
+  --font-display: "Helvetica Neue", "Helvetica", "Arimo", Arial, system-ui, sans-serif;
+  --font-sans: "Helvetica Neue", "Helvetica", "Arimo", Arial, system-ui, sans-serif;
+  --font-mono: "Helvetica Neue", "Helvetica", "Arimo", Arial, sans-serif;
 
   /* Raggi / ombre */
   --r-sm: 10px; --r-md: 14px; --r-lg: 20px; --r-xl: 26px; --r-pill: 999px;
@@ -118,7 +120,7 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.03;
   color: var(--navy-900);
 }
-h1.display { font-size: clamp(2.7rem, 1.3rem + 5.4vw, 5rem); font-weight: 800; letter-spacing: -0.045em; line-height: .98; }
+h1.display { font-size: clamp(2.7rem, 1.3rem + 5.4vw, 5rem); font-weight: 700; letter-spacing: -0.045em; line-height: .98; }
 h2.display { font-size: clamp(2.1rem, 1.3rem + 3vw, 3.4rem); letter-spacing: -0.04em; line-height: 1.02; }
 h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
 
@@ -189,7 +191,7 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
 }
 .nav.scrolled { border-bottom-color: var(--border); background: rgba(245,247,251,.92); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-.brand { display: inline-flex; align-items: center; gap: .6rem; font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; letter-spacing: -.03em; color: var(--navy-900); }
+.brand { display: inline-flex; align-items: center; gap: .6rem; font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; letter-spacing: -.03em; color: var(--navy-900); }
 .brand .mark { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(150deg, var(--accent-2), var(--accent) 55%, var(--accent-ink)); display: grid; place-items: center; box-shadow: var(--shadow-sm); flex: none; }
 .brand .mark svg { width: 20px; height: 20px; }
 .nav-links { display: flex; align-items: center; gap: .35rem; }
@@ -238,7 +240,7 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
 .hero-trust .live { display: inline-flex; align-items: center; gap: .45rem; font-weight: 600; color: var(--success); }
 .hero-trust .live::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--success); box-shadow: 0 0 0 4px var(--success-soft); }
 .hero-stats { display: flex; flex-wrap: wrap; gap: 1.75rem; margin-top: 2.4rem; padding-top: 1.9rem; border-top: 1px solid var(--border); }
-.hero-stats .stat strong { display: block; font-family: var(--font-display); font-weight: 800; font-size: 1.9rem; color: var(--navy-900); line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.hero-stats .stat strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1.9rem; color: var(--navy-900); line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
 .hero-stats .stat span { font-size: .88rem; color: var(--text-3); }
 
 /* ---------- Call card ---------- */
@@ -253,6 +255,8 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
 .cc-status .rec { width: 7px; height: 7px; border-radius: 50%; background: var(--success); animation: pulse-g 1.6s infinite; }
 @keyframes pulse-g { 0%,100%{opacity:1} 50%{opacity:.35} }
 .cc-body { padding: 1.25rem 0 0; display: flex; flex-direction: column; gap: .7rem; }
+.cc-tlabel { display: flex; align-items: center; gap: .4rem; font-size: .66rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--slate-400); margin-bottom: .15rem; }
+.cc-tlabel svg { width: 13px; height: 13px; }
 .bubble { max-width: 82%; padding: .7rem .95rem; border-radius: 16px; font-size: .92rem; line-height: 1.45; }
 .bubble.them { align-self: flex-start; background: var(--muted); color: var(--slate-700); border-bottom-left-radius: 5px; }
 .bubble.ai { align-self: flex-end; background: var(--accent); color: #fff; border-bottom-right-radius: 5px; }
@@ -293,7 +297,7 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
 .problem .lead { color: var(--on-dark-2); }
 .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.75rem; }
 .problem-card { position: relative; z-index: 2; background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.1); border-radius: var(--r-lg); padding: 1.6rem; }
-.problem-card .big { font-family: var(--font-display); font-weight: 800; font-size: 2.7rem; line-height: 1; color: #fff; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.problem-card .big { font-family: var(--font-display); font-weight: 700; font-size: 2.7rem; line-height: 1; color: #fff; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
 .problem-card .big.accent { color: #6FB4FF; }
 .problem-card p { margin: .8rem 0 0; color: var(--on-dark-2); font-size: .98rem; }
 
@@ -370,7 +374,7 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
 .plan h3 { margin: 0; font-size: 1.4rem; color: var(--navy-900); letter-spacing: -.02em; }
 .plan .plan-sub { margin: .3rem 0 0; color: var(--text-3); font-size: .92rem; }
 .plan-price { margin: 1.5rem 0 .2rem; display: flex; align-items: baseline; gap: .3rem; }
-.plan-price .amount { font-family: var(--font-display); font-weight: 800; font-size: 3rem; color: var(--navy-900); line-height: 1; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.plan-price .amount { font-family: var(--font-display); font-weight: 700; font-size: 3rem; color: var(--navy-900); line-height: 1; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
 .plan-price .per { color: var(--text-3); font-size: .95rem; font-weight: 500; }
 .plan-billed { font-size: .86rem; color: var(--text-3); min-height: 1.2em; }
 .plan-billed b { color: var(--accent-ink); font-weight: 600; }
@@ -533,6 +537,7 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
           <span class="cc-status"><span class="rec"></span> LIVE</span>
         </div>
         <div class="cc-body">
+          <div class="cc-tlabel" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3Z"/><path d="M19 10a7 7 0 0 1-14 0M12 19v4"/></svg> Trascrizione della chiamata · in tempo reale</div>
           <div class="bubble them"><small>CHI CHIAMA</small>Buongiorno, vorrei prenotare per giovedì pomeriggio.</div>
           <div class="bubble ai"><small>Rispondo</small>Certo. Giovedì alle 16:30 è libero — le va bene?</div>
           <div class="bubble them"><small>CHI CHIAMA</small>Perfetto, sì.</div>
@@ -804,20 +809,25 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
 </div>
 
 <!-- ============================================================
-     WIDGET VOCALE RETELL (ufficiale, single script tag, no backend)
-     Chiavi già inserite. Se la demo mostra una chat invece della voce,
-     o non parte la chiamata, l'agente è probabilmente un "voice agent":
-     in tal caso sostituisci data-agent-id con data-voice-agent-id
-     (e, se richiesto, aggiungi data-voice-public-key).
-     In produzione: abilita reCAPTCHA v3 sulla Public Key dal pannello Retell.
+     WIDGET VOCALE RETELL — MODALITÀ SOLO VOCE (no chat testuale)
+     Widget ufficiale, single script tag, senza backend.
+     Sono impostati SOLO gli attributi voice (data-voice-agent-id /
+     data-voice-public-key): il prodotto è un voice-agent, quindi
+     NON viene passato alcun chat-agent e non compare nessuna chat scritta.
+     NOTE:
+     - reCAPTCHA v3: da abilitare più avanti, quando ci sarà un dominio.
+     - Retell può richiedere di autorizzare il dominio del sito per la
+       chiave pubblica: la demo andrà verificata una volta online.
      Riferimento: https://docs.retellai.com/deploy/chat-widget
      ============================================================ -->
 <script
   id="retell-widget"
   src="https://dashboard.retellai.com/retell-widget-v2.js"
   type="module"
+  data-voice-agent-id="agent_238b916f761b4882738071d0b5"
+  data-voice-public-key="public_key_30f48a75179b4474a40e7"
   data-public-key="public_key_30f48a75179b4474a40e7"
-  data-agent-id="agent_238b916f761b4882738071d0b5"
+  data-mode="voice"
   data-title="Rispondo"
   data-bot-name="Rispondo"
   data-color="#0A6DD8"
