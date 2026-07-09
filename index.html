@@ -131,8 +131,11 @@ h2.display{font-size:clamp(2.2rem,1.4rem + 3vw,3.8rem);letter-spacing:-.04em}
 @media (prefers-reduced-motion:reduce){.call-card{animation:none}}
 .cc-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:1.15rem;border-bottom:1px solid var(--border)}
 .cc-caller{display:flex;align-items:center;gap:.75rem}
-.cc-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(150deg,var(--accent-2),var(--accent-ink));display:grid;place-items:center;color:#fff;flex:none}
-.cc-avatar svg{width:22px;height:22px}
+.cc-avatar{position:relative;width:46px;height:46px;border-radius:50%;flex:none;overflow:hidden;background:radial-gradient(circle at 32% 28%,#8FCBFF,#2C93FF 44%,#0A6DD8 74%,#063E7E);box-shadow:inset 0 -3px 7px rgba(0,20,60,.25),0 3px 8px rgba(10,109,216,.4)}
+.cc-avatar::before{content:"";position:absolute;inset:-30%;background:conic-gradient(from 0deg,#2C93FF,#00C2FF,#7FC0FF,#0A6DD8,#2C93FF);opacity:.6;mix-blend-mode:screen;animation:orbspin 4.5s linear infinite}
+.cc-avatar::after{content:"";position:absolute;top:15%;left:20%;width:36%;height:28%;border-radius:50%;background:rgba(255,255,255,.55);filter:blur(2px)}
+@keyframes orbspin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.cc-avatar::before{animation:none}}
 .cc-caller b{display:block;font-size:.98rem;color:var(--navy-900)}
 .cc-caller span{font-size:.82rem;color:var(--text-3)}
 .cc-status{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:700;letter-spacing:.04em;color:var(--success);background:var(--success-soft);padding:.35rem .65rem;border-radius:var(--r-pill)}
@@ -349,7 +352,7 @@ h2.display{font-size:clamp(2.2rem,1.4rem + 3vw,3.8rem);letter-spacing:-.04em}
       <div class="call-card">
         <div class="cc-head">
           <div class="cc-caller">
-            <span class="cc-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg></span>
+            <span class="cc-avatar" aria-hidden="true"></span>
             <span><b>Chiamata in arrivo</b><span>Numero sconosciuto</span></span>
           </div>
           <span class="cc-status"><span class="rec"></span> LIVE</span>
@@ -618,7 +621,25 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
   demoBtns.forEach(b=>b.addEventListener("click",()=>{
     const target = fab || findRetellFab();
     if(target){ try{ target.click(); }catch(e){} }
+    setTimeout(hideRetellBranding, 300); setTimeout(hideRetellBranding, 1200);
   }));
+
+  // Nasconde eventuali diciture di branding "Retell" nel widget (anche shadow DOM aperti)
+  function hideRetellBranding(){
+    try {
+      const roots=[document];
+      document.querySelectorAll("*").forEach(el=>{ if(el.shadowRoot) roots.push(el.shadowRoot); });
+      for(const root of roots){
+        root.querySelectorAll("*").forEach(el=>{
+          if(el.children && el.children.length===0){
+            const t=(el.textContent||"").trim().toLowerCase();
+            if(t && t.length<40 && t.indexOf("retell")!==-1){ el.style.setProperty("display","none","important"); }
+          }
+        });
+      }
+    } catch(e){}
+  }
+  setInterval(hideRetellBranding, 1000);
 
   // Reveal + stagger (più evidenti)
   const items = document.querySelectorAll(".reveal, .stagger");
