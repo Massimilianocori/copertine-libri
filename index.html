@@ -58,7 +58,7 @@ h2.display{font-size:clamp(2rem,1.3rem+2.8vw,3.2rem);letter-spacing:-.04em}
 
 /* Titolo in gradiente animato (tocco premium) */
 .grad{
-  background:linear-gradient(100deg,#0A6DD8 0%,#2C93FF 45%,#0AB0E6 60%,#0A6DD8 100%);
+  background:linear-gradient(100deg,#0A2E6E 0%,#0F5AC0 45%,#0A6DD8 60%,#0A2E6E 100%);
   background-size:220% 100%;
   -webkit-background-clip:text;background-clip:text;color:transparent;
   animation:gradShift 7s ease-in-out infinite;
@@ -112,7 +112,7 @@ h2.display{font-size:clamp(2rem,1.3rem+2.8vw,3.2rem);letter-spacing:-.04em}
 .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,4vw,4rem);align-items:center}
 .hero-visual{position:relative;z-index:2}
 .hero-copy{position:relative}
-.hero-copy::before{content:"";position:absolute;inset:-20% -30% -20% -40%;z-index:-1;background:radial-gradient(60% 60% at 30% 45%,rgba(245,247,251,.92),rgba(245,247,251,0) 75%)}
+.hero-copy::before{content:"";position:absolute;inset:-25% -35% -25% -45%;z-index:-1;background:radial-gradient(80% 80% at 26% 42%,rgba(245,247,251,.97) 0%,rgba(245,247,251,.86) 46%,rgba(245,247,251,0) 82%)}
 .hero h1{margin:1.2rem 0 0}
 .hero .lead{margin-top:1.4rem;max-width:36ch}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2rem}
@@ -312,7 +312,7 @@ h2.display{font-size:clamp(2rem,1.3rem+2.8vw,3.2rem);letter-spacing:-.04em}
         <filter id="liquid"><feTurbulence type="fractalNoise" baseFrequency="0.008 0.012" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="95" xChannelSelector="R" yChannelSelector="G"/><feGaussianBlur stdDeviation="7"/></filter>
       </defs>
       <g filter="url(#liquid)">
-        <ellipse class="blob blob-1" cx="820" cy="320" rx="370" ry="300" fill="url(#g1)" opacity="0.6"/>
+        <ellipse class="blob blob-1" cx="910" cy="320" rx="350" ry="290" fill="url(#g1)" opacity="0.52"/>
         <ellipse class="blob blob-2" cx="980" cy="510" rx="290" ry="250" fill="url(#g2)" opacity="0.5"/>
       </g>
     </svg>
