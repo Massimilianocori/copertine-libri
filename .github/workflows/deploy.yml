@@ -8,7 +8,6 @@ on:
   push:
     branches:
       - main
-      - claude/script-explanation-structure-eefj7y
   workflow_dispatch: {}
 
 permissions:
@@ -16,9 +15,10 @@ permissions:
   pages: write
   id-token: write
 
+# Deploy solo da main; le run non si annullano a vicenda (evita i "cancelled").
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
