@@ -839,6 +839,7 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
   data-mode="voice"
   data-title="Rispondo"
   data-bot-name="Rispondo"
+  data-fab-text="Chiamata demo"
   data-color="#0A6DD8"
 ></script>
 
@@ -904,43 +905,49 @@ const RETELL_CONFIG = {
     toastTimer = setTimeout(() => toast.classList.remove("show"), 4500);
   }
 
-  /* Demo — il bottone principale avvia/apre DIRETTAMENTE il widget vocale Retell.
-     Senza server, Retell monta un proprio launcher: qui lo cerchiamo (anche
-     dentro eventuali shadow DOM) e lo attiviamo dal nostro bottone, senza
-     rimandare a nessun pulsante laterale. */
-  function findRetellLauncher() {
+  /* Demo — il widget Retell monta un proprio pulsante flottante funzionante.
+     Colleghiamo il NOSTRO bottone a quel launcher se raggiungibile via codice;
+     se non lo è (es. widget in iframe/closed shadow DOM), nascondiamo il nostro
+     bottone per non lasciarne uno non funzionante — resta attivo il pulsante
+     flottante del widget, rinominato "Chiamata demo". */
+  const demoBtn = document.getElementById("demoCallBtn");
+  function isClickable(el) {
+    return !!el && (el.tagName === "BUTTON" || el.tagName === "A" || el.getAttribute("role") === "button");
+  }
+  function findRetellFab() {
     const roots = [document];
     document.querySelectorAll("*").forEach((el) => { if (el.shadowRoot) roots.push(el.shadowRoot); });
-    const clickableSel = 'button, [role="button"], .fab, [class*="fab" i]';
+    // 1) un vero bottone dentro un contenitore "retell"
     for (const root of roots) {
-      const scoped = root.querySelectorAll(
-        '[id*="retell" i] ' + clickableSel + ', [class*="retell" i] ' + clickableSel
+      const el = root.querySelector(
+        '[id*="retell" i] button, [class*="retell" i] button, button[id*="retell" i], button[class*="retell" i], [id*="retell" i] [role="button"], [class*="retell" i] [role="button"]'
       );
-      if (scoped.length) return scoped[0];
-      const host = root.querySelector('[id*="retell" i], [class*="retell" i]');
-      if (host) {
-        if (host.tagName === "BUTTON" || host.getAttribute("role") === "button") return host;
-        const inner = host.querySelector && host.querySelector(clickableSel);
-        if (inner) return inner;
+      if (isClickable(el)) return el;
+    }
+    // 2) un vero bottone riconosciuto dal testo del launcher
+    for (const root of roots) {
+      for (const el of root.querySelectorAll('button, [role="button"], a')) {
+        if (el === demoBtn) continue;
+        const t = (el.textContent || "").trim().toLowerCase();
+        if (t.includes("chiamata demo") || t.includes("need support") || t.includes("parla con")) return el;
       }
     }
     return null;
   }
-  function openRetellWidget() {
-    const g = window.RetellWidget || window.retellWidget || window.Retell || window.retell;
-    for (const fn of ["startCall", "start", "open", "toggle", "show"]) {
-      try { if (g && typeof g[fn] === "function") { g[fn](); return true; } } catch (e) {}
-    }
-    const launcher = findRetellLauncher();
-    if (launcher) { try { launcher.click(); return true; } catch (e) {} }
-    return false;
-  }
-  document.getElementById("demoCallBtn").addEventListener("click", () => {
+  let retellFab = null, fabTries = 0;
+  const fabWatch = setInterval(() => {
+    fabTries++;
+    retellFab = findRetellFab();
+    if (retellFab) { clearInterval(fabWatch); }
+    else if (fabTries >= 25) { clearInterval(fabWatch); if (demoBtn) demoBtn.style.display = "none"; }
+  }, 400);
+  if (demoBtn) demoBtn.addEventListener("click", () => {
     if (!RETELL_CONFIG.publicKey || !RETELL_CONFIG.agentId) {
       showToast("Demo in configurazione: inserisci le chiavi Retell.");
       return;
     }
-    openRetellWidget();
+    const target = retellFab || findRetellFab();
+    if (target) { try { target.click(); } catch (e) {} }
   });
 
   /* Scroll reveal */
