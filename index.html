@@ -4,21 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rispondo — L'assistente vocale AI che risponde al telefono della tua attività, 24/7</title>
-<meta name="description" content="Rispondo risponde alle chiamate della tua attività 24 ore su 24, capisce cosa serve, controlla il calendario e prenota l'appuntamento durante la telefonata. Setup su misura, non un pannello da configurare da solo." />
-<meta name="theme-color" content="#F6F8FC" />
-
-<!-- Open Graph -->
+<meta name="description" content="Rispondo risponde alle chiamate della tua attività 24 ore su 24, capisce cosa serve e prenota l'appuntamento in agenda durante la telefonata. Configurato su misura per te." />
+<meta name="theme-color" content="#F5F7FB" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Rispondo — L'assistente vocale AI per la tua attività" />
-<meta property="og:description" content="Risponde 24/7, capisce, prenota in agenda durante la chiamata. Un servizio su misura, non un self-service da configurare da solo." />
+<meta property="og:description" content="Risponde 24/7, capisce, prenota in agenda durante la chiamata. Configurato su misura, non un self-service." />
 <meta property="og:locale" content="it_IT" />
-
-<!-- Favicon (inline, no external request) -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230A6DD8'/%3E%3Cpath d='M11 20c2.8 0 5-3 5-8m0 8c2.8 0 5-3 5-8M8 16.5c1.6 0 2.8-1.6 2.8-4.2M24 16.5c-1.6 0-2.8-1.6-2.8-4.2' stroke='white' stroke-width='2.2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E" />
-
-<!-- Type: Arimo (clone Helvetica / Neue Haas Grotesk) incorporato come
-     data URI qui sotto nel <style>: font garantito e identico ovunque,
-     senza richieste esterne. -->
 
 <style>
 /* Font incorporato (Arimo, subset latino) */
@@ -27,428 +19,273 @@
 
 /* ============================================================
    Rispondo — Landing assistente vocale AI
-   Direzione: fondo chiaro editoriale · Helvetica / Neue Haas Grotesk
-   · label tra parentesi · effetto fluido blu animato.
-   Palette: navy + blu cobalto (no nero/neon "AI generica").
-   Tutto self-contained.
+   Helvetica/Neue Haas (Arimo incorporato) · fondo chiaro editoriale
+   · accento blu con titoli in gradiente animato · movimento evidente.
    ============================================================ */
-
 :root {
-  /* Neutrali */
-  --navy-900: #0A1220;
-  --navy-800: #0F1B30;
-  --navy-700: #1E2C44;
-  --slate-700: #334155;
-  --slate-600: #475569;
-  --slate-500: #64748B;
-  --slate-400: #94A3B8;
-  --slate-300: #CBD5E1;
-
-  /* Superfici */
-  --bg: #F5F7FB;
-  --surface: #FFFFFF;
-  --muted: #EDF1F7;
-  --border: #E3E9F2;
-  --border-strong: #D1DAE8;
-
-  /* Accento */
-  --accent: #0A6DD8;
-  --accent-2: #2C93FF;
-  --accent-strong: #085AB4;
-  --accent-ink: #073E7E;
-  --accent-soft: #E9F1FE;
-  --accent-soft-2: #F2F7FE;
-
-  /* Semantici */
-  --success: #0E7C5A;
-  --success-soft: #E4F5EE;
-  --danger: #DC2626;
-
-  /* Testo */
-  --text: #0C1626;
-  --text-2: #475569;
-  --text-3: #667085;
-  --on-dark: #F8FAFC;
-  --on-dark-2: #A9BAD3;
-
-  /* Font — stack Helvetica / Neue Haas Grotesk (Arimo come clone webfont) */
-  --font-display: "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-sans: "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-mono: "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-  /* Raggi / ombre */
-  --r-sm: 10px; --r-md: 14px; --r-lg: 20px; --r-xl: 26px; --r-pill: 999px;
-  --shadow-xs: 0 1px 2px rgba(12,22,38,.06);
-  --shadow-sm: 0 2px 8px rgba(12,22,38,.06), 0 1px 2px rgba(12,22,38,.04);
-  --shadow-md: 0 12px 30px -12px rgba(12,22,38,.18), 0 4px 10px -6px rgba(12,22,38,.10);
-  --shadow-lg: 0 34px 60px -22px rgba(10,18,32,.30), 0 12px 24px -14px rgba(10,18,32,.16);
-  --shadow-accent: 0 14px 30px -10px rgba(10,109,216,.45);
-
-  --section-y: clamp(4.5rem, 9vw, 8rem);
-  --container: 1200px;
-  --ease: cubic-bezier(.22,.61,.36,1);
+  --navy-900:#0A1220; --navy-800:#0F1B30; --slate-700:#334155; --slate-600:#475569;
+  --slate-500:#64748B; --slate-400:#94A3B8; --slate-300:#CBD5E1;
+  --bg:#F5F7FB; --surface:#FFFFFF; --muted:#EDF1F7; --border:#E3E9F2; --border-strong:#D1DAE8;
+  --accent:#0A6DD8; --accent-2:#2C93FF; --accent-strong:#085AB4; --accent-ink:#073E7E;
+  --accent-soft:#E9F1FE; --accent-soft-2:#F2F7FE;
+  --success:#0E7C5A; --success-soft:#E4F5EE; --danger:#DC2626;
+  --text:#0C1626; --text-2:#475569; --text-3:#667085; --on-dark:#F8FAFC; --on-dark-2:#A9BAD3;
+  --font:"Arimo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --r-sm:10px; --r-md:14px; --r-lg:20px; --r-xl:26px; --r-pill:999px;
+  --shadow-xs:0 1px 2px rgba(12,22,38,.06);
+  --shadow-sm:0 2px 8px rgba(12,22,38,.06),0 1px 2px rgba(12,22,38,.04);
+  --shadow-md:0 14px 32px -14px rgba(12,22,38,.20),0 4px 10px -6px rgba(12,22,38,.10);
+  --shadow-lg:0 40px 70px -24px rgba(10,18,32,.34),0 14px 28px -16px rgba(10,18,32,.18);
+  --shadow-accent:0 16px 34px -10px rgba(10,109,216,.5);
+  --section-y:clamp(3.5rem,6.5vw,5.5rem); --container:1140px; --ease:cubic-bezier(.22,.61,.36,1);
 }
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;font-family:var(--font);color:var(--text);background:var(--bg);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+::selection{background:var(--accent);color:#fff}
+.container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:clamp(1.15rem,4vw,2.5rem)}
+.section{padding-block:var(--section-y)}
 
-*, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+/* Tipografia */
+.display{font-weight:700;letter-spacing:-.04em;line-height:1.02;color:var(--navy-900)}
+h1.display{font-size:clamp(2.6rem,1.3rem+5vw,4.8rem);letter-spacing:-.045em;line-height:.98}
+h2.display{font-size:clamp(2rem,1.3rem+2.8vw,3.2rem);letter-spacing:-.04em}
+.lead{font-size:clamp(1.12rem,1.02rem+.5vw,1.3rem);color:var(--text-2);line-height:1.6}
 
-body {
-  margin: 0;
-  font-family: var(--font-sans);
-  color: var(--text);
-  background: var(--bg);
-  font-size: 17px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+/* Titolo in gradiente animato (tocco premium) */
+.grad{
+  background:linear-gradient(100deg,#0A6DD8 0%,#2C93FF 45%,#0AB0E6 60%,#0A6DD8 100%);
+  background-size:220% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:gradShift 7s ease-in-out infinite;
 }
-img, svg { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-button { font-family: inherit; cursor: pointer; }
-::selection { background: var(--accent); color: #fff; }
+@keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@media (prefers-reduced-motion:reduce){.grad{animation:none}}
 
-/* ---------- Layout ---------- */
-.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: clamp(1.15rem, 4vw, 2.5rem); }
-.section { padding-block: var(--section-y); }
+.kicker{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.section-head{max-width:640px}
+.section-head.center{margin-inline:auto;text-align:center}
+.section-head h2{margin:.85rem 0 0}
+.section-head .lead{margin-top:1rem}
 
-/* ---------- Tipografia ---------- */
-.display {
-  font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1.03;
-  color: var(--navy-900);
+/* Bottoni */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-weight:700;font-size:1rem;line-height:1;padding:1rem 1.6rem;border-radius:var(--r-pill);border:1px solid transparent;transition:transform .18s var(--ease),box-shadow .25s var(--ease),background .2s,border-color .2s}
+.btn:focus-visible{outline:3px solid rgba(10,109,216,.5);outline-offset:2px}
+.btn svg{width:1.15em;height:1.15em}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:var(--shadow-accent)}
+.btn-primary:hover{background:var(--accent-strong);transform:translateY(-3px);box-shadow:0 22px 40px -12px rgba(10,109,216,.6)}
+.btn-primary:active{transform:translateY(-1px)}
+.btn-ghost{background:var(--surface);color:var(--navy-800);border-color:var(--border-strong);box-shadow:var(--shadow-xs)}
+.btn-ghost:hover{border-color:var(--slate-400);transform:translateY(-3px);box-shadow:var(--shadow-sm)}
+.btn-light{background:#fff;color:var(--navy-900)}
+.btn-light:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.btn-lg{padding:1.15rem 2rem;font-size:1.06rem}
+.btn-block{width:100%}
+
+/* Navbar (senza hamburger) */
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,247,251,.8);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
+.nav.scrolled{border-bottom-color:var(--border);background:rgba(245,247,251,.93)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:inline-flex;align-items:center;gap:.6rem;font-weight:700;font-size:1.35rem;letter-spacing:-.03em;color:var(--navy-900)}
+.brand .mark{width:34px;height:34px;border-radius:9px;background:linear-gradient(150deg,var(--accent-2),var(--accent) 55%,var(--accent-ink));display:grid;place-items:center;box-shadow:var(--shadow-sm);flex:none}
+.brand .mark svg{width:20px;height:20px}
+.nav-links{display:flex;align-items:center;gap:.4rem}
+.nav-links a{font-size:.95rem;font-weight:500;color:var(--slate-600);padding:.5rem .85rem;border-radius:var(--r-sm);transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--navy-900);background:var(--muted)}
+
+/* Effetto fluido blu (più evidente) */
+.fluid{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.fluid svg{position:absolute;width:135%;height:135%;top:-17%;left:-15%}
+.blob{mix-blend-mode:multiply;transform-origin:center}
+.blob-1{animation:drift1 20s var(--ease) infinite}
+.blob-2{animation:drift2 26s var(--ease) infinite}
+@keyframes drift1{0%,100%{transform:translate(0,0) scale(1) rotate(0)}33%{transform:translate(5%,-4%) scale(1.12) rotate(10deg)}66%{transform:translate(-4%,5%) scale(.94) rotate(-8deg)}}
+@keyframes drift2{0%,100%{transform:translate(0,0) scale(1) rotate(0)}50%{transform:translate(-6%,4%) scale(1.16) rotate(-12deg)}}
+@media (prefers-reduced-motion:reduce){.blob-1,.blob-2{animation:none}}
+
+/* Hero */
+.hero{position:relative;padding-top:clamp(2.5rem,4vw,4rem);padding-bottom:clamp(3.5rem,6vw,5.5rem);overflow:hidden}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,4vw,4rem);align-items:center}
+.hero-visual{position:relative;z-index:2}
+.hero-copy{position:relative}
+.hero-copy::before{content:"";position:absolute;inset:-20% -30% -20% -40%;z-index:-1;background:radial-gradient(60% 60% at 30% 45%,rgba(245,247,251,.92),rgba(245,247,251,0) 75%)}
+.hero h1{margin:1.2rem 0 0}
+.hero .lead{margin-top:1.4rem;max-width:36ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2rem}
+.hero-trust{margin-top:1.7rem;display:flex;align-items:center;gap:.7rem;color:var(--text-3);font-size:.92rem}
+.hero-trust .live{display:inline-flex;align-items:center;gap:.45rem;font-weight:700;color:var(--success)}
+.hero-trust .live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--success);box-shadow:0 0 0 4px var(--success-soft)}
+.hero-stats{display:flex;flex-wrap:wrap;gap:1.9rem;margin-top:2.3rem;padding-top:1.8rem;border-top:1px solid var(--border)}
+.hero-stats .stat strong{display:block;font-weight:700;font-size:1.95rem;color:var(--navy-900);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.hero-stats .stat span{font-size:.88rem;color:var(--text-3)}
+
+/* Call card (visualizzazione solo voce) */
+.call-card{position:relative;z-index:2;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);box-shadow:var(--shadow-lg);padding:1.5rem;animation:floaty 6s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@media (prefers-reduced-motion:reduce){.call-card{animation:none}}
+.cc-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:1.15rem;border-bottom:1px solid var(--border)}
+.cc-caller{display:flex;align-items:center;gap:.75rem}
+.cc-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(150deg,var(--accent-2),var(--accent-ink));display:grid;place-items:center;color:#fff;flex:none}
+.cc-avatar svg{width:22px;height:22px}
+.cc-caller b{display:block;font-size:.98rem;color:var(--navy-900)}
+.cc-caller span{font-size:.82rem;color:var(--text-3)}
+.cc-status{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:700;letter-spacing:.04em;color:var(--success);background:var(--success-soft);padding:.35rem .65rem;border-radius:var(--r-pill)}
+.cc-status .rec{width:7px;height:7px;border-radius:50%;background:var(--success);animation:pulse-g 1.4s infinite}
+@keyframes pulse-g{0%,100%{opacity:1}50%{opacity:.3}}
+.cc-body{padding:1.25rem 0 0;display:flex;flex-direction:column;gap:.7rem}
+.cc-voice{display:flex;flex-direction:column;align-items:center;gap:1rem;padding:1.4rem 0 1.6rem}
+.cc-voice-label{font-size:.86rem;color:var(--text-3);text-align:center;max-width:30ch}
+.cc-outcomes{display:flex;flex-direction:column;gap:.55rem}
+.cc-out{display:flex;align-items:center;gap:.6rem;font-size:.86rem;color:var(--slate-700);background:var(--muted);border:1px solid var(--border);border-radius:var(--r-md);padding:.7rem .85rem}
+.cc-out .ico{width:30px;height:30px;border-radius:8px;flex:none;background:var(--surface);border:1px solid var(--border);color:var(--accent);display:grid;place-items:center}
+.cc-out .ico svg{width:16px;height:16px}
+.cc-confirm{display:flex;align-items:center;gap:.75rem;background:var(--success-soft);border:1px solid #C6E9D9;border-radius:var(--r-md);padding:.85rem 1rem}
+.cc-confirm .ico{width:34px;height:34px;border-radius:9px;flex:none;background:var(--success);color:#fff;display:grid;place-items:center}
+.cc-confirm .ico svg{width:18px;height:18px}
+.cc-confirm b{display:block;font-size:.9rem;color:#0A5C43}
+.cc-confirm span{font-size:.8rem;color:#157355}
+.cc-foot{margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.cc-timer{font-size:.74rem;color:var(--text-3);font-variant-numeric:tabular-nums}
+.wave{display:flex;align-items:center;gap:3px;height:26px}
+.wave span{width:3px;border-radius:3px;background:var(--accent);height:30%;animation:wave 1s ease-in-out infinite}
+.wave.big{height:60px;gap:4px}
+.wave.big span{width:4px}
+@keyframes wave{0%,100%{height:18%}50%{height:100%}}
+@media (prefers-reduced-motion:reduce){.wave span,.cc-status .rec{animation:none}.wave span{height:55%}}
+.float-badge{position:absolute;left:-18px;bottom:30px;z-index:3;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--shadow-md);padding:.7rem .9rem;display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-weight:600;color:var(--navy-800)}
+.float-badge .ico{width:28px;height:28px;border-radius:8px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;flex:none}
+.float-badge .ico svg{width:16px;height:16px}
+
+/* Strip differenziale (breve) */
+.trust{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.trust .container{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;padding-block:2.5rem}
+.trust .ti{display:flex;gap:.9rem;align-items:flex-start}
+.trust .ti .ico{width:44px;height:44px;border-radius:12px;flex:none;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.trust .ti .ico svg{width:23px;height:23px}
+.trust .ti b{display:block;color:var(--navy-900);font-size:1.02rem;margin-bottom:.15rem}
+.trust .ti p{margin:0;color:var(--text-2);font-size:.93rem;line-height:1.5}
+
+/* Settori */
+.sectors-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.75rem}
+.sector{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:1.3rem 1.2rem;display:flex;flex-direction:column;gap:.75rem;transition:transform .22s var(--ease),box-shadow .25s,border-color .2s}
+.sector:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:var(--border-strong)}
+.sector .ico{width:46px;height:46px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.sector .ico svg{width:24px;height:24px}
+.sector b{color:var(--navy-900);font-size:1rem}
+.sector.more{background:linear-gradient(155deg,var(--navy-800),var(--navy-900));color:var(--on-dark);border-color:var(--navy-800);justify-content:center}
+.sector.more b{color:#fff;font-size:1.05rem}
+.sector.more p{margin:.3rem 0 0;font-size:.88rem;color:var(--on-dark-2)}
+
+/* Come funziona */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.75rem;counter-reset:step}
+.step{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:2rem 1.6rem 1.7rem;transition:transform .22s var(--ease),box-shadow .25s}
+.step:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+.step .num{counter-increment:step;font-weight:700;font-size:.85rem;color:var(--accent);letter-spacing:.05em}
+.step .num::before{content:"0" counter(step)}
+.step .ico{width:52px;height:52px;border-radius:14px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin:.9rem 0 1.1rem}
+.step .ico svg{width:27px;height:27px}
+.step h3{margin:0 0 .5rem;font-size:1.25rem;color:var(--navy-900);letter-spacing:-.02em}
+.step p{margin:0;color:var(--text-2);font-size:.97rem}
+
+/* Prezzi */
+.pricing-toggle{display:inline-flex;align-items:center;gap:.35rem;background:var(--muted);border:1px solid var(--border);padding:.3rem;border-radius:var(--r-pill);margin:1.9rem auto 0}
+.pricing-toggle button{border:none;background:transparent;color:var(--slate-600);font-weight:700;font-size:.95rem;padding:.6rem 1.15rem;border-radius:var(--r-pill);transition:all .2s var(--ease);display:inline-flex;align-items:center;gap:.5rem}
+.pricing-toggle button.active{background:var(--surface);color:var(--navy-900);box-shadow:var(--shadow-sm)}
+.toggle-save{font-size:.7rem;font-weight:700;background:var(--success-soft);color:var(--success);padding:.15rem .45rem;border-radius:var(--r-pill)}
+.plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin-top:2.5rem;max-width:800px;margin-inline:auto;align-items:stretch}
+.plan{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:2rem;display:flex;flex-direction:column;transition:transform .22s var(--ease),box-shadow .25s}
+.plan:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+.plan.featured{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),var(--shadow-md)}
+.plan-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.35rem .85rem;border-radius:var(--r-pill);box-shadow:var(--shadow-accent)}
+.plan h3{margin:0;font-size:1.4rem;color:var(--navy-900);letter-spacing:-.02em}
+.plan .plan-sub{margin:.3rem 0 0;color:var(--text-3);font-size:.92rem}
+.plan-price{margin:1.4rem 0 .2rem;display:flex;align-items:baseline;gap:.3rem}
+.plan-price .amount{font-weight:700;font-size:3rem;color:var(--navy-900);line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.plan-price .per{color:var(--text-3);font-size:.95rem;font-weight:500}
+.plan-billed{font-size:.86rem;color:var(--text-3);min-height:1.2em}
+.plan-billed b{color:var(--accent-ink);font-weight:700}
+.plan-activation{margin:1.05rem 0;padding:.8rem 1rem;border-radius:var(--r-md);background:var(--accent-soft-2);border:1px dashed #BFDBFB;font-size:.88rem;color:var(--accent-ink);display:flex;align-items:center;gap:.55rem}
+.plan-activation svg{width:18px;height:18px;flex:none}
+.plan-activation .free{font-weight:700;color:var(--success)}
+.plan-activation s{color:var(--text-3)}
+.plan-features{list-style:none;margin:.5rem 0 1.6rem;padding:0;display:flex;flex-direction:column;gap:.7rem}
+.plan-features li{display:flex;gap:.6rem;font-size:.95rem;color:var(--slate-700)}
+.plan-features li svg{width:20px;height:20px;color:var(--success);flex:none}
+.plan .btn{margin-top:auto}
+.pricing-fine{margin:2rem auto 0;max-width:680px;text-align:center;color:var(--text-3);font-size:.88rem;line-height:1.6}
+.pricing-fine .row{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:center;margin-bottom:.7rem}
+.pricing-fine .row span{display:inline-flex;align-items:center;gap:.4rem}
+.pricing-fine .row svg{width:15px;height:15px;color:var(--accent)}
+
+/* CTA finale */
+.final-cta{padding-block:0}
+.final-cta .inner{position:relative;overflow:hidden;background:linear-gradient(155deg,#0E2A55 0%,var(--navy-900) 60%);border-radius:var(--r-xl);padding:clamp(2.75rem,6vw,5rem);text-align:center;color:var(--on-dark)}
+.final-cta .inner>*{position:relative;z-index:2}
+.final-cta .inner::before{content:"";position:absolute;inset:0;background:radial-gradient(45% 55% at 50% 0%,rgba(44,147,255,.35),transparent 70%)}
+.final-cta h2{color:#fff}
+.final-cta .grad{background:linear-gradient(100deg,#7FC0FF,#2C93FF 50%,#7FC0FF);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradShift 7s ease-in-out infinite}
+.final-cta p{color:var(--on-dark-2);max-width:46ch;margin:1.1rem auto 0;font-size:1.1rem}
+.final-cta .hero-cta{justify-content:center;margin-top:2.25rem}
+
+/* Footer */
+.footer{background:var(--navy-900);color:var(--on-dark-2);padding-block:3rem 2.25rem;margin-top:var(--section-y)}
+.footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem}
+.footer .brand{color:#fff}
+.footer-blurb{max-width:34ch;margin-top:1rem;font-size:.92rem;color:var(--on-dark-2)}
+.footer-links{display:flex;gap:3rem;flex-wrap:wrap}
+.footer-col h4{color:#fff;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 1rem}
+.footer-col a{display:block;padding:.3rem 0;font-size:.95rem;color:var(--on-dark-2);transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{margin-top:2.5rem;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;font-size:.85rem}
+.footer-bottom .vat{background:rgba(255,255,255,.06);padding:.35rem .75rem;border-radius:var(--r-pill)}
+
+/* Reveal (più evidente + stagger) */
+.js .reveal{opacity:0;transform:translateY(34px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
+.js .stagger>*{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .stagger.in>*{opacity:1;transform:none}
+.js .stagger.in>*:nth-child(1){transition-delay:.05s}
+.js .stagger.in>*:nth-child(2){transition-delay:.12s}
+.js .stagger.in>*:nth-child(3){transition-delay:.19s}
+.js .stagger.in>*:nth-child(4){transition-delay:.26s}
+.js .stagger.in>*:nth-child(5){transition-delay:.33s}
+.js .stagger.in>*:nth-child(6){transition-delay:.40s}
+.js .stagger.in>*:nth-child(7){transition-delay:.47s}
+.js .stagger.in>*:nth-child(8){transition-delay:.54s}
+@media (prefers-reduced-motion:reduce){.js .reveal,.js .stagger>*{opacity:1;transform:none;transition:none}}
+
+/* Ingrandisce (best-effort) il pulsante flottante del widget Retell */
+[id*="retell" i] [class*="fab" i],[class*="retell" i] [class*="fab" i]{transform:scale(1.12);transform-origin:bottom right}
+
+/* Responsive */
+@media (max-width:1024px){.sectors-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:900px){
+  .nav-links{display:none}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-visual{order:-1}
+  .hero .lead{max-width:48ch}
+  .trust .container,.steps{grid-template-columns:1fr}
+  .float-badge{left:auto;right:14px;bottom:-16px}
 }
-h1.display { font-size: clamp(2.7rem, 1.3rem + 5.4vw, 5rem); font-weight: 700; letter-spacing: -0.045em; line-height: .98; }
-h2.display { font-size: clamp(2.1rem, 1.3rem + 3vw, 3.4rem); letter-spacing: -0.04em; line-height: 1.02; }
-h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
-
-.lead { font-size: clamp(1.12rem, 1.02rem + 0.5vw, 1.3rem); color: var(--text-2); line-height: 1.6; }
-
-/* Label editoriali mono tra parentesi */
-.kicker {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: .74rem; font-weight: 700;
-  letter-spacing: .08em; text-transform: uppercase;
-  color: var(--accent);
+@media (max-width:640px){
+  body{font-size:16px}
+  .sectors-grid{grid-template-columns:repeat(2,1fr)}
+  .plans{grid-template-columns:1fr}
+  .hero-cta .btn,.final-cta .hero-cta .btn{width:100%}
+  .hero-stats{gap:1.25rem 1.9rem}
+  .footer-top{flex-direction:column}
 }
-.kicker::before { content: "[ "; opacity: .55; }
-.kicker::after  { content: " ]"; opacity: .55; }
-.kicker.on-dark { color: #7DB8FF; }
-
-/* Pill eyebrow con dot live */
-.eyebrow {
-  display: inline-flex; align-items: center; gap: .55rem;
-  font-family: var(--font-mono);
-  font-size: .74rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
-  color: var(--accent-ink);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: .45rem .85rem; border-radius: var(--r-pill);
-  box-shadow: var(--shadow-xs);
-}
-.eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(10,109,216,.16); animation: pulse 2.4s var(--ease) infinite; }
-@keyframes pulse { 0%,100%{ box-shadow: 0 0 0 3px rgba(10,109,216,.20);} 50%{ box-shadow: 0 0 0 7px rgba(10,109,216,.04);} }
-
-.section-head { max-width: 660px; }
-.section-head.center { margin-inline: auto; text-align: center; }
-.section-head h2 { margin: .95rem 0 0; }
-.section-head .lead { margin-top: 1.05rem; }
-
-/* ---------- Bottoni ---------- */
-.btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
-  font-family: var(--font-sans); font-weight: 600; font-size: 1rem; line-height: 1;
-  padding: .95rem 1.5rem; border-radius: var(--r-pill);
-  border: 1px solid transparent;
-  transition: transform .18s var(--ease), box-shadow .25s var(--ease), background .2s, border-color .2s;
-  white-space: nowrap;
-}
-.btn:focus-visible { outline: 3px solid rgba(10,109,216,.5); outline-offset: 2px; }
-.btn svg { width: 1.15em; height: 1.15em; }
-.btn-primary { background: var(--accent); color: #fff; box-shadow: var(--shadow-accent); }
-.btn-primary:hover { background: var(--accent-strong); transform: translateY(-2px); box-shadow: 0 18px 34px -10px rgba(10,109,216,.55); }
-.btn-primary:active { transform: translateY(0); }
-.btn-ghost { background: var(--surface); color: var(--navy-800); border-color: var(--border-strong); box-shadow: var(--shadow-xs); }
-.btn-ghost:hover { border-color: var(--slate-400); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
-.btn-dark { background: var(--navy-800); color: #fff; }
-.btn-dark:hover { background: var(--navy-900); transform: translateY(-2px); }
-.btn-light { background: #fff; color: var(--navy-900); }
-.btn-light:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.btn-lg { padding: 1.1rem 1.9rem; font-size: 1.05rem; }
-.btn-block { width: 100%; }
-
-/* ---------- Navbar ---------- */
-.nav {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(245,247,251,.78);
-  backdrop-filter: saturate(160%) blur(14px);
-  -webkit-backdrop-filter: saturate(160%) blur(14px);
-  border-bottom: 1px solid transparent;
-  transition: border-color .3s var(--ease), background .3s var(--ease);
-}
-.nav.scrolled { border-bottom-color: var(--border); background: rgba(245,247,251,.92); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-.brand { display: inline-flex; align-items: center; gap: .6rem; font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; letter-spacing: -.03em; color: var(--navy-900); }
-.brand .mark { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(150deg, var(--accent-2), var(--accent) 55%, var(--accent-ink)); display: grid; place-items: center; box-shadow: var(--shadow-sm); flex: none; }
-.brand .mark svg { width: 20px; height: 20px; }
-.nav-links { display: flex; align-items: center; gap: .35rem; }
-.nav-links a { font-family: var(--font-sans); font-size: .95rem; font-weight: 500; color: var(--slate-600); padding: .5rem .8rem; border-radius: var(--r-sm); transition: color .2s, background .2s; }
-.nav-links a:hover { color: var(--navy-900); background: var(--muted); }
-.nav-cta { display: flex; align-items: center; gap: .75rem; }
-.nav-toggle { display: none; background: var(--surface); border: 1px solid var(--border-strong); border-radius: var(--r-sm); width: 44px; height: 44px; align-items: center; justify-content: center; color: var(--navy-800); }
-.mobile-menu { display: none; border-top: 1px solid var(--border); background: var(--surface); }
-.mobile-menu.open { display: block; }
-.mobile-menu a { display: block; padding: 1rem 0; font-size: 1.05rem; font-weight: 500; color: var(--navy-800); border-bottom: 1px solid var(--border); }
-.mobile-menu .btn { margin-top: 1.1rem; }
-
-/* ---------- Effetto fluido blu ---------- */
-.fluid {
-  position: absolute; inset: 0; z-index: 0;
-  overflow: hidden; pointer-events: none;
-}
-.fluid svg { position: absolute; width: 130%; height: 130%; top: -15%; left: -15%; }
-.blob { transform-origin: center; mix-blend-mode: multiply; }
-.blob-1 { animation: drift1 26s var(--ease) infinite; }
-.blob-2 { animation: drift2 32s var(--ease) infinite; }
-@keyframes drift1 {
-  0%,100% { transform: translate(0,0) scale(1) rotate(0deg); }
-  33% { transform: translate(4%, -3%) scale(1.08) rotate(8deg); }
-  66% { transform: translate(-3%, 4%) scale(.96) rotate(-6deg); }
-}
-@keyframes drift2 {
-  0%,100% { transform: translate(0,0) scale(1) rotate(0deg); }
-  50% { transform: translate(-5%, 3%) scale(1.12) rotate(-10deg); }
-}
-@media (prefers-reduced-motion: reduce) { .blob-1, .blob-2 { animation: none; } }
-
-/* ---------- Hero ---------- */
-.hero { position: relative; padding-top: clamp(2.5rem, 4vw, 4.5rem); padding-bottom: clamp(3.5rem, 6vw, 6rem); overflow: hidden; }
-.hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; }
-.hero-copy { position: relative; }
-/* scrim per leggibilità copy sopra il fluido */
-.hero-copy::before {
-  content: ""; position: absolute; inset: -20% -30% -20% -40%; z-index: -1;
-  background: radial-gradient(60% 60% at 30% 45%, rgba(245,247,251,.9), rgba(245,247,251,0) 75%);
-}
-.hero h1 { margin: 1.3rem 0 0; }
-.hero .lead { margin-top: 1.5rem; max-width: 35ch; }
-.hero-cta { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 2rem; }
-.hero-trust { margin-top: 1.9rem; display: flex; align-items: center; gap: .7rem; color: var(--text-3); font-size: .92rem; }
-.hero-trust .live { display: inline-flex; align-items: center; gap: .45rem; font-weight: 600; color: var(--success); }
-.hero-trust .live::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--success); box-shadow: 0 0 0 4px var(--success-soft); }
-.hero-stats { display: flex; flex-wrap: wrap; gap: 1.75rem; margin-top: 2.4rem; padding-top: 1.9rem; border-top: 1px solid var(--border); }
-.hero-stats .stat strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1.9rem; color: var(--navy-900); line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
-.hero-stats .stat span { font-size: .88rem; color: var(--text-3); }
-
-/* ---------- Call card ---------- */
-.call-card { position: relative; z-index: 2; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-xl); box-shadow: var(--shadow-lg); padding: 1.5rem; will-change: transform; }
-.cc-head { display: flex; align-items: center; justify-content: space-between; padding-bottom: 1.15rem; border-bottom: 1px solid var(--border); }
-.cc-caller { display: flex; align-items: center; gap: .75rem; }
-.cc-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(150deg, var(--accent-2), var(--accent-ink)); display: grid; place-items: center; color: #fff; flex: none; }
-.cc-avatar svg { width: 22px; height: 22px; }
-.cc-caller b { display: block; font-size: .98rem; color: var(--navy-900); }
-.cc-caller span { font-size: .82rem; color: var(--text-3); }
-.cc-status { display: inline-flex; align-items: center; gap: .4rem; font-family: var(--font-mono); font-size: .72rem; font-weight: 700; color: var(--success); background: var(--success-soft); padding: .35rem .65rem; border-radius: var(--r-pill); }
-.cc-status .rec { width: 7px; height: 7px; border-radius: 50%; background: var(--success); animation: pulse-g 1.6s infinite; }
-@keyframes pulse-g { 0%,100%{opacity:1} 50%{opacity:.35} }
-.cc-body { padding: 1.25rem 0 0; display: flex; flex-direction: column; gap: .7rem; }
-/* Visualizzazione vocale (nessuna chat scritta) */
-.cc-voice { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 1.6rem 0 1.7rem; }
-.cc-voice .wave.big { height: 58px; gap: 4px; }
-.cc-voice .wave.big span { width: 4px; }
-.cc-voice-label { font-size: .86rem; color: var(--text-3); text-align: center; max-width: 30ch; }
-.cc-outcomes { display: flex; flex-direction: column; gap: .55rem; }
-.cc-out { display: flex; align-items: center; gap: .6rem; font-size: .86rem; color: var(--slate-700); background: var(--muted); border: 1px solid var(--border); border-radius: var(--r-md); padding: .7rem .85rem; }
-.cc-out .ico { width: 30px; height: 30px; border-radius: 8px; flex: none; background: var(--surface); border: 1px solid var(--border); color: var(--accent); display: grid; place-items: center; }
-.cc-out .ico svg { width: 16px; height: 16px; }
-.cc-confirm { display: flex; align-items: center; gap: .75rem; background: var(--success-soft); border: 1px solid #C6E9D9; border-radius: var(--r-md); padding: .85rem 1rem; }
-.cc-confirm .ico { width: 34px; height: 34px; border-radius: 9px; flex: none; background: var(--success); color: #fff; display: grid; place-items: center; }
-.cc-confirm .ico svg { width: 18px; height: 18px; }
-.cc-confirm b { display: block; font-size: .9rem; color: #0A5C43; }
-.cc-confirm span { font-size: .8rem; color: #157355; }
-.cc-foot { margin-top: 1.15rem; padding-top: 1.05rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-.cc-timer { font-family: var(--font-mono); font-size: .74rem; color: var(--text-3); font-variant-numeric: tabular-nums; }
-
-/* Waveform */
-.wave { display: flex; align-items: center; gap: 3px; height: 26px; }
-.wave span { width: 3px; border-radius: 3px; background: var(--accent); height: 30%; animation: wave 1.1s ease-in-out infinite; }
-.wave.on-dark span { background: rgba(255,255,255,.9); }
-@keyframes wave { 0%,100%{height:22%} 50%{height:100%} }
-@media (prefers-reduced-motion: reduce) { .wave span, .eyebrow .dot, .cc-status .rec { animation: none; } .wave span { height: 55%; } }
-
-.float-badge { position: absolute; left: -18px; bottom: 34px; z-index: 3; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); box-shadow: var(--shadow-md); padding: .7rem .9rem; display: flex; align-items: center; gap: .6rem; font-size: .82rem; font-weight: 600; color: var(--navy-800); }
-.float-badge .ico { width: 28px; height: 28px; border-radius: 8px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; flex: none; }
-.float-badge .ico svg { width: 16px; height: 16px; }
-
-/* ---------- Settori ---------- */
-.sectors-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 3rem; }
-.sector { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); padding: 1.35rem 1.25rem; display: flex; flex-direction: column; gap: .8rem; transition: transform .2s var(--ease), box-shadow .25s var(--ease), border-color .2s; }
-.sector:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--border-strong); }
-.sector .ico { width: 46px; height: 46px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; }
-.sector .ico svg { width: 24px; height: 24px; }
-.sector b { color: var(--navy-900); font-size: 1rem; }
-.sector.more { background: linear-gradient(155deg, var(--navy-800), var(--navy-900)); color: var(--on-dark); border-color: var(--navy-800); justify-content: center; }
-.sector.more b { color: #fff; font-size: 1.05rem; }
-.sector.more p { margin: .3rem 0 0; font-size: .88rem; color: var(--on-dark-2); }
-
-/* ---------- Problema ---------- */
-.problem { position: relative; background: linear-gradient(160deg, var(--navy-800), var(--navy-900)); color: var(--on-dark); overflow: hidden; }
-.problem h2 { color: #fff; }
-.problem .lead { color: var(--on-dark-2); }
-.problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.75rem; }
-.problem-card { position: relative; z-index: 2; background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.1); border-radius: var(--r-lg); padding: 1.6rem; }
-.problem-card .big { font-family: var(--font-display); font-weight: 700; font-size: 2.7rem; line-height: 1; color: #fff; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
-.problem-card .big.accent { color: #6FB4FF; }
-.problem-card p { margin: .8rem 0 0; color: var(--on-dark-2); font-size: .98rem; }
-
-/* ---------- Come funziona ---------- */
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3rem; counter-reset: step; }
-.step { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 2rem 1.6rem 1.7rem; transition: transform .2s var(--ease), box-shadow .25s; }
-.step:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.step .num { counter-increment: step; font-family: var(--font-mono); font-weight: 700; font-size: .85rem; color: var(--accent); letter-spacing: .05em; }
-.step .num::before { content: "[ 0" counter(step) " ]"; }
-.step .ico { width: 52px; height: 52px; border-radius: 14px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; margin: 1rem 0 1.15rem; }
-.step .ico svg { width: 27px; height: 27px; }
-.step h3 { margin: 0 0 .5rem; font-size: 1.25rem; color: var(--navy-900); }
-.step p { margin: 0; color: var(--text-2); font-size: .97rem; }
-.step .connector { position: absolute; top: 2.65rem; right: -1.05rem; z-index: 2; color: var(--slate-300); }
-.step:last-child .connector { display: none; }
-
-/* ---------- Demo ---------- */
-.demo-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 3.5rem); align-items: center; margin-top: 3rem; }
-.demo-panel { position: relative; overflow: hidden; background: linear-gradient(165deg, #12213B, var(--navy-900)); border-radius: var(--r-xl); padding: clamp(2rem, 4vw, 3rem); color: var(--on-dark); box-shadow: var(--shadow-lg); text-align: center; }
-.demo-panel::before { content: ""; position: absolute; inset: 0; background: radial-gradient(50% 40% at 50% 0%, rgba(44,147,255,.35), transparent 70%); pointer-events: none; }
-.demo-orb { position: relative; z-index: 2; width: 130px; height: 130px; margin: 0 auto 1.75rem; border-radius: 50%; background: radial-gradient(circle at 50% 40%, var(--accent-2), var(--accent) 55%, var(--accent-ink)); display: grid; place-items: center; box-shadow: 0 0 0 10px rgba(10,109,216,.14), 0 20px 50px -10px rgba(10,109,216,.6); }
-.demo-orb::after { content: ""; position: absolute; inset: -14px; border-radius: 50%; border: 2px solid rgba(44,147,255,.4); animation: ring 2.6s var(--ease) infinite; }
-@keyframes ring { 0%{transform:scale(1);opacity:.7} 100%{transform:scale(1.35);opacity:0} }
-@media (prefers-reduced-motion: reduce){ .demo-orb::after{animation:none} }
-.demo-panel h3 { position: relative; z-index: 2; font-size: 1.6rem; margin: 0 0 .6rem; color: #fff; letter-spacing: -.03em; }
-.demo-panel p { position: relative; z-index: 2; color: var(--on-dark-2); margin: 0 auto 1.75rem; max-width: 34ch; }
-.demo-panel .btn { position: relative; z-index: 2; }
-.demo-note { position: relative; z-index: 2; margin-top: 1.5rem; font-size: .82rem; color: var(--on-dark-2); display: inline-flex; align-items: center; gap: .45rem; }
-.demo-note svg { width: 15px; height: 15px; flex: none; }
-.demo-feature { display: flex; flex-direction: column; gap: 1.35rem; }
-.demo-feature .fp { display: flex; gap: .95rem; }
-.demo-feature .fp .ico { width: 42px; height: 42px; border-radius: 11px; flex: none; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; }
-.demo-feature .fp .ico svg { width: 21px; height: 21px; }
-.demo-feature .fp b { color: var(--navy-900); display: block; margin-bottom: .15rem; }
-.demo-feature .fp p { margin: 0; color: var(--text-2); font-size: .95rem; }
-
-/* Toast */
-.toast { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%) translateY(20px); background: var(--navy-900); color: #fff; padding: .95rem 1.3rem; border-radius: var(--r-pill); box-shadow: var(--shadow-lg); font-size: .92rem; font-weight: 500; display: flex; align-items: center; gap: .6rem; opacity: 0; pointer-events: none; transition: opacity .3s, transform .3s var(--ease); z-index: 300; max-width: calc(100vw - 2rem); }
-.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-.toast svg { width: 18px; height: 18px; color: #6FB4FF; flex: none; }
-
-/* ---------- Perché noi ---------- */
-.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
-.compare-col { border-radius: var(--r-xl); padding: clamp(1.75rem, 3vw, 2.5rem); }
-.compare-col.them { background: var(--surface); border: 1px solid var(--border); }
-.compare-col.us { background: linear-gradient(160deg, #12213B, var(--navy-900)); color: var(--on-dark); box-shadow: var(--shadow-lg); position: relative; }
-.compare-tag { display: inline-flex; align-items: center; gap: .5rem; font-family: var(--font-mono); font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: .35rem .8rem; border-radius: var(--r-pill); margin-bottom: 1.25rem; }
-.compare-col.them .compare-tag { background: var(--muted); color: var(--slate-600); }
-.compare-col.us .compare-tag { background: rgba(111,180,255,.16); color: #9CCBFF; }
-.compare-col h3 { font-size: 1.45rem; margin: 0 0 .35rem; letter-spacing: -.02em; }
-.compare-col.them h3 { color: var(--navy-900); }
-.compare-col.us h3 { color: #fff; }
-.compare-col .price-hint { font-size: .92rem; margin: 0 0 1.5rem; }
-.compare-col.them .price-hint { color: var(--text-3); }
-.compare-col.us .price-hint { color: var(--on-dark-2); }
-.compare-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .95rem; }
-.compare-list li { display: flex; gap: .7rem; font-size: .97rem; line-height: 1.45; }
-.compare-list li svg { width: 21px; height: 21px; flex: none; margin-top: 1px; }
-.compare-col.them li { color: var(--slate-600); }
-.compare-col.them li svg { color: var(--slate-400); }
-.compare-col.us li { color: #E6EEF9; }
-.compare-col.us li svg { color: #56D6A2; }
-
-/* ---------- Prezzi ---------- */
-.pricing-toggle { display: inline-flex; align-items: center; gap: .35rem; background: var(--muted); border: 1px solid var(--border); padding: .3rem; border-radius: var(--r-pill); margin: 2rem auto 0; }
-.pricing-toggle button { border: none; background: transparent; color: var(--slate-600); font-weight: 600; font-size: .95rem; padding: .6rem 1.15rem; border-radius: var(--r-pill); transition: all .2s var(--ease); display: inline-flex; align-items: center; gap: .5rem; }
-.pricing-toggle button.active { background: var(--surface); color: var(--navy-900); box-shadow: var(--shadow-sm); }
-.toggle-save { font-family: var(--font-mono); font-size: .68rem; font-weight: 700; background: var(--success-soft); color: var(--success); padding: .15rem .45rem; border-radius: var(--r-pill); }
-.plans { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.5rem; margin-top: 2.75rem; max-width: 820px; margin-inline: auto; align-items: stretch; }
-.plan { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-xl); padding: 2rem; display: flex; flex-direction: column; transition: transform .2s var(--ease), box-shadow .25s; }
-.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.plan.featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--shadow-md); }
-.plan-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-family: var(--font-mono); font-size: .68rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: .35rem .85rem; border-radius: var(--r-pill); box-shadow: var(--shadow-accent); }
-.plan h3 { margin: 0; font-size: 1.4rem; color: var(--navy-900); letter-spacing: -.02em; }
-.plan .plan-sub { margin: .3rem 0 0; color: var(--text-3); font-size: .92rem; }
-.plan-price { margin: 1.5rem 0 .2rem; display: flex; align-items: baseline; gap: .3rem; }
-.plan-price .amount { font-family: var(--font-display); font-weight: 700; font-size: 3rem; color: var(--navy-900); line-height: 1; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
-.plan-price .per { color: var(--text-3); font-size: .95rem; font-weight: 500; }
-.plan-billed { font-size: .86rem; color: var(--text-3); min-height: 1.2em; }
-.plan-billed b { color: var(--accent-ink); font-weight: 600; }
-.plan-activation { margin: 1.1rem 0; padding: .8rem 1rem; border-radius: var(--r-md); background: var(--accent-soft-2); border: 1px dashed #BFDBFB; font-size: .88rem; color: var(--accent-ink); display: flex; align-items: center; gap: .55rem; }
-.plan-activation svg { width: 18px; height: 18px; flex: none; }
-.plan-activation .free { font-weight: 700; color: var(--success); }
-.plan-activation s { color: var(--text-3); }
-.plan-features { list-style: none; margin: .5rem 0 1.75rem; padding: 0; display: flex; flex-direction: column; gap: .75rem; }
-.plan-features li { display: flex; gap: .6rem; font-size: .95rem; color: var(--slate-700); }
-.plan-features li svg { width: 20px; height: 20px; color: var(--success); flex: none; }
-.plan .btn { margin-top: auto; }
-.pricing-fine { margin: 2.25rem auto 0; max-width: 720px; text-align: center; color: var(--text-3); font-size: .88rem; line-height: 1.6; }
-.pricing-fine .row { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: center; margin-bottom: .75rem; }
-.pricing-fine .row span { display: inline-flex; align-items: center; gap: .4rem; }
-.pricing-fine .row svg { width: 15px; height: 15px; color: var(--accent); }
-
-/* ---------- CTA finale ---------- */
-.final-cta { padding-block: 0; }
-.final-cta .inner { position: relative; overflow: hidden; background: linear-gradient(155deg, #0E2A55 0%, var(--navy-900) 60%); border-radius: var(--r-xl); padding: clamp(2.75rem, 6vw, 5rem); text-align: center; color: var(--on-dark); }
-.final-cta .inner > * { position: relative; z-index: 2; }
-.final-cta h2 { color: #fff; }
-.final-cta p { color: var(--on-dark-2); max-width: 46ch; margin: 1.1rem auto 0; font-size: 1.1rem; }
-.final-cta .hero-cta { justify-content: center; margin-top: 2.25rem; }
-
-/* ---------- Footer ---------- */
-.footer { background: var(--navy-900); color: var(--on-dark-2); padding-block: 3.5rem 2.5rem; margin-top: var(--section-y); }
-.footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; }
-.footer .brand { color: #fff; }
-.footer-blurb { max-width: 34ch; margin-top: 1rem; font-size: .92rem; color: var(--on-dark-2); }
-.footer-links { display: flex; gap: 3rem; flex-wrap: wrap; }
-.footer-col h4 { color: #fff; font-family: var(--font-mono); font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 1rem; }
-.footer-col a { display: block; padding: .3rem 0; font-size: .95rem; color: var(--on-dark-2); transition: color .2s; }
-.footer-col a:hover { color: #fff; }
-.footer-bottom { margin-top: 2.75rem; padding-top: 1.75rem; border-top: 1px solid rgba(255,255,255,.1); display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center; font-size: .85rem; }
-.footer-bottom .vat { font-family: var(--font-mono); font-size: .78rem; background: rgba(255,255,255,.06); padding: .35rem .75rem; border-radius: var(--r-pill); }
-
-/* ---------- Scroll reveal (attivo solo con JS: senza JS il contenuto resta visibile) ---------- */
-.js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
-.js .reveal.in { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { .js .reveal { opacity: 1; transform: none; transition: none; } }
-
-/* ============================================================ Responsive ============================================================ */
-@media (max-width: 1024px) { .sectors-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 900px) {
-  .nav-links, .nav-cta .btn { display: none; }
-  .nav-toggle { display: inline-flex; }
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero-visual { order: -1; }
-  .hero .lead { max-width: 48ch; }
-  .demo-wrap, .compare, .problem-grid, .steps { grid-template-columns: 1fr; }
-  .step .connector { display: none; }
-  .float-badge { left: auto; right: 16px; bottom: -16px; }
-}
-@media (max-width: 640px) {
-  body { font-size: 16px; }
-  .sectors-grid { grid-template-columns: repeat(2, 1fr); }
-  .plans { grid-template-columns: 1fr; }
-  .hero-cta .btn { width: 100%; }
-  .final-cta .hero-cta .btn { width: 100%; }
-  .hero-stats { gap: 1.25rem 1.75rem; }
-  .footer-top { flex-direction: column; }
-  .plan-badge { top: -12px; }
-}
-@media (max-width: 380px) { .sectors-grid { grid-template-columns: 1fr; } }
+@media (max-width:380px){.sectors-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<script>document.documentElement.className += " js";</script>
+<script>document.documentElement.className+=" js";</script>
 
-<!-- ============================== NAV ============================== -->
+<!-- NAV -->
 <header class="nav" id="nav">
   <div class="container nav-inner">
     <a href="#top" class="brand" aria-label="Rispondo — home">
@@ -458,71 +295,43 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
     <nav class="nav-links" aria-label="Principale">
       <a href="#settori">Settori</a>
       <a href="#come-funziona">Come funziona</a>
-      <a href="#demo">Demo</a>
       <a href="#prezzi">Prezzi</a>
     </nav>
-    <div class="nav-cta">
-      <a href="#demo" class="btn btn-primary">Prova la demo</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="mobileMenu">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-    </div>
-  </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="container">
-      <a href="#settori">Settori</a>
-      <a href="#come-funziona">Come funziona</a>
-      <a href="#demo">Demo</a>
-      <a href="#prezzi">Prezzi</a>
-      <a href="#demo" class="btn btn-primary btn-block">Prova la demo vocale</a>
-    </div>
   </div>
 </header>
 
 <main id="top">
 
-<!-- ============================== HERO ============================== -->
+<!-- HERO -->
 <section class="hero">
-  <!-- Effetto fluido blu animato -->
   <div class="fluid" id="fluid" aria-hidden="true">
     <svg viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice">
       <defs>
-        <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#2C93FF"/>
-          <stop offset="1" stop-color="#0A6DD8"/>
-        </linearGradient>
-        <linearGradient id="grad2" x1="1" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#7FC0FF"/>
-          <stop offset="1" stop-color="#1E88F0"/>
-        </linearGradient>
-        <filter id="liquid">
-          <feTurbulence type="fractalNoise" baseFrequency="0.008 0.012" numOctaves="2" seed="7" result="noise"/>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="90" xChannelSelector="R" yChannelSelector="G"/>
-          <feGaussianBlur stdDeviation="8"/>
-        </filter>
+        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2C93FF"/><stop offset="1" stop-color="#0A6DD8"/></linearGradient>
+        <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FC0FF"/><stop offset="1" stop-color="#1E88F0"/></linearGradient>
+        <filter id="liquid"><feTurbulence type="fractalNoise" baseFrequency="0.008 0.012" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="95" xChannelSelector="R" yChannelSelector="G"/><feGaussianBlur stdDeviation="7"/></filter>
       </defs>
       <g filter="url(#liquid)">
-        <ellipse class="blob blob-1" cx="820" cy="330" rx="360" ry="300" fill="url(#grad1)" opacity="0.5"/>
-        <ellipse class="blob blob-2" cx="980" cy="500" rx="280" ry="240" fill="url(#grad2)" opacity="0.42"/>
+        <ellipse class="blob blob-1" cx="820" cy="320" rx="370" ry="300" fill="url(#g1)" opacity="0.6"/>
+        <ellipse class="blob blob-2" cx="980" cy="510" rx="290" ry="250" fill="url(#g2)" opacity="0.5"/>
       </g>
     </svg>
   </div>
-
   <div class="container hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow"><span class="dot"></span> Assistente vocale AI · 24/7</span>
-      <h1 class="display">Il telefono della tua attività non resta mai senza risposta.</h1>
-      <p class="lead">Rispondo risponde a ogni chiamata — anche a più persone insieme — capisce cosa serve, controlla l'agenda in tempo reale e prenota l'appuntamento durante la telefonata.</p>
+      <span class="kicker">Assistente vocale AI · 24/7</span>
+      <h1 class="display"><span class="grad">Il telefono della tua attività non resta mai senza risposta.</span></h1>
+      <p class="lead">Rispondo alza la cornetta a ogni chiamata, capisce cosa serve e prenota l'appuntamento in agenda mentre parla. Configurato su misura per la tua attività.</p>
       <div class="hero-cta">
-        <a href="#demo" class="btn btn-primary btn-lg">
+        <button class="btn btn-primary btn-lg js-demo" type="button">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 2.5a2 2 0 0 1 1.8 1.1l1 2a2 2 0 0 1-.4 2.3l-1 1a12 12 0 0 0 4.9 4.9l1-1a2 2 0 0 1 2.3-.4M22 16.9v2.6a2 2 0 0 1-2.2 2A18 18 0 0 1 3.5 6.2 2 2 0 0 1 5.5 4h2.6"/></svg>
-          Prova la demo vocale
-        </a>
+          Prova la voce
+        </button>
         <a href="#prezzi" class="btn btn-ghost btn-lg">Vedi i prezzi</a>
       </div>
       <div class="hero-trust">
         <span class="live">In produzione</span>
-        <span>già al lavoro su un'attività reale — non un prototipo.</span>
+        <span>già al lavoro su un'attività reale.</span>
       </div>
       <div class="hero-stats">
         <div class="stat"><strong>24/7</strong><span>Sempre attivo, anche nei picchi</span></div>
@@ -530,9 +339,8 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
         <div class="stat"><strong>∞</strong><span>Chiamate in contemporanea</span></div>
       </div>
     </div>
-
     <div class="hero-visual reveal">
-      <div class="call-card" id="callCard">
+      <div class="call-card">
         <div class="cc-head">
           <div class="cc-caller">
             <span class="cc-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg></span>
@@ -542,9 +350,7 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
         </div>
         <div class="cc-body">
           <div class="cc-voice">
-            <div class="wave big" aria-hidden="true">
-              <span style="animation-delay:0s"></span><span style="animation-delay:.12s"></span><span style="animation-delay:.24s"></span><span style="animation-delay:.36s"></span><span style="animation-delay:.18s"></span><span style="animation-delay:.06s"></span><span style="animation-delay:.30s"></span><span style="animation-delay:.42s"></span><span style="animation-delay:.15s"></span><span style="animation-delay:.27s"></span><span style="animation-delay:.09s"></span><span style="animation-delay:.33s"></span><span style="animation-delay:.21s"></span><span style="animation-delay:.03s"></span><span style="animation-delay:.39s"></span><span style="animation-delay:.12s"></span><span style="animation-delay:.24s"></span>
-            </div>
+            <div class="wave big" aria-hidden="true"><span style="animation-delay:0s"></span><span style="animation-delay:.12s"></span><span style="animation-delay:.24s"></span><span style="animation-delay:.36s"></span><span style="animation-delay:.18s"></span><span style="animation-delay:.06s"></span><span style="animation-delay:.30s"></span><span style="animation-delay:.42s"></span><span style="animation-delay:.15s"></span><span style="animation-delay:.27s"></span><span style="animation-delay:.09s"></span><span style="animation-delay:.33s"></span><span style="animation-delay:.21s"></span><span style="animation-delay:.03s"></span><span style="animation-delay:.39s"></span><span style="animation-delay:.12s"></span><span style="animation-delay:.24s"></span></div>
             <div class="cc-voice-label">Chiamata vocale in corso · sta prendendo l'appuntamento</div>
           </div>
           <div class="cc-outcomes">
@@ -568,167 +374,83 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
   </div>
 </section>
 
-<!-- ============================== SETTORI ============================== -->
+<!-- STRIP DIFFERENZIALE -->
+<section class="trust">
+  <div class="container stagger reveal">
+    <div class="ti"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span><div><b>Setup su misura</b><p>Il prompt è scritto sulla tua attività specifica, non un modello generico.</p></div></div>
+    <div class="ti"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></span><div><b>Configurato da noi</b><p>Colleghiamo noi calendario ed email: tu non devi impostare niente.</p></div></div>
+    <div class="ti"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg></span><div><b>Assistenza umana</b><p>Quando qualcosa si rompe, c'è una persona che risponde. Non un ticket.</p></div></div>
+  </div>
+</section>
+
+<!-- SETTORI -->
 <section class="section" id="settori">
   <div class="container">
     <div class="section-head center reveal">
-      <span class="kicker">01 — Settori</span>
-      <h2 class="display">Non è pensato per un solo tipo di attività.</h2>
-      <p class="lead">Se ricevi telefonate e prendi appuntamenti, Rispondo lavora per te. Il setup viene scritto sulla tua attività specifica.</p>
+      <span class="kicker">Un prodotto, molti settori</span>
+      <h2 class="display"><span class="grad">Funziona per ogni attività che riceve chiamate.</span></h2>
+      <p class="lead">Se prendi appuntamenti al telefono, Rispondo lavora per te — dal salone allo studio, dall'officina al ristorante.</p>
     </div>
-    <div class="sectors-grid">
-      <div class="sector reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M6 21h12"/><path d="M12 15v6"/></svg></span><b>Saloni e parrucchieri</b></div>
-      <div class="sector reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 1 5 5c0 3-2 4-2 7H9c0-3-2-4-2-7a5 5 0 0 1 5-5Z"/><path d="M9 21h6"/></svg></span><b>Centri estetici</b></div>
-      <div class="sector reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v18M4 8h9a3 3 0 0 1 0 6H4"/><path d="M18 3v18"/></svg></span><b>Ristoranti</b></div>
-      <div class="sector reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="14" rx="2"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></span><b>Studi professionali</b></div>
-      <div class="sector reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg></span><b>Cliniche e ambulatori</b></div>
-      <div class="sector reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M6 17l1.5-5h9L18 17M7 12l1-4h8l1 4"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="16.5" cy="19" r="1.5"/></svg></span><b>Autofficine</b></div>
-      <div class="sector reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg></span><b>Agenzie immobiliari</b></div>
-      <div class="sector more reveal"><b>…e ogni attività che riceve chiamate.</b><p>Se c'è un telefono che squilla, c'è un appuntamento da non perdere.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== PROBLEMA ============================== -->
-<section class="section problem">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="kicker on-dark">02 — Il problema</span>
-      <h2 class="display">Chi non risponde, perde il cliente. Letteralmente.</h2>
-      <p class="lead">Ogni telefonata senza risposta nei momenti di picco è un cliente che, il più delle volte, chiama semplicemente il concorrente.</p>
-    </div>
-    <div class="problem-grid">
-      <div class="problem-card reveal"><div class="big accent">62%</div><p>delle chiamate in entrata delle piccole imprese resta senza risposta nei momenti di picco.</p></div>
-      <div class="problem-card reveal"><div class="big">↺</div><p>Chi trova la segreteria telefonica riaggancia e chiama il concorrente. La chiamata non torna.</p></div>
-      <div class="problem-card reveal"><div class="big">8h</div><p>Una receptionist umana costa migliaia di euro al mese, lavora 8 ore, si ammala e va in ferie.</p></div>
+    <div class="sectors-grid stagger reveal">
+      <div class="sector"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M6 21h12M12 15v6"/></svg></span><b>Saloni e parrucchieri</b></div>
+      <div class="sector"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 1 5 5c0 3-2 4-2 7H9c0-3-2-4-2-7a5 5 0 0 1 5-5Z"/><path d="M9 21h6"/></svg></span><b>Centri estetici</b></div>
+      <div class="sector"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v18M4 8h9a3 3 0 0 1 0 6H4M18 3v18"/></svg></span><b>Ristoranti</b></div>
+      <div class="sector"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="14" rx="2"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></span><b>Studi professionali</b></div>
+      <div class="sector"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg></span><b>Cliniche e ambulatori</b></div>
+      <div class="sector"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M6 17l1.5-5h9L18 17M7 12l1-4h8l1 4"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="16.5" cy="19" r="1.5"/></svg></span><b>Autofficine</b></div>
+      <div class="sector"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6"/></svg></span><b>Agenzie immobiliari</b></div>
+      <div class="sector more"><b>…e molto altro.</b><p>Se il telefono squilla, c'è un appuntamento da non perdere.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ============================== COME FUNZIONA ============================== -->
+<!-- COME FUNZIONA -->
 <section class="section" id="come-funziona">
   <div class="container">
     <div class="section-head center reveal">
-      <span class="kicker">03 — Come funziona</span>
-      <h2 class="display">Risponde, capisce, agisce.</h2>
-      <p class="lead">Tre passaggi che avvengono in un'unica telefonata, senza che tu debba fare nulla.</p>
+      <span class="kicker">Come funziona</span>
+      <h2 class="display"><span class="grad">Risponde, capisce, agisce.</span></h2>
+      <p class="lead">Tre passaggi in un'unica telefonata, senza che tu debba fare nulla.</p>
     </div>
-    <div class="steps">
-      <div class="step reveal">
+    <div class="steps stagger reveal">
+      <div class="step">
         <div class="num"></div>
         <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 2.5a2 2 0 0 1 1.8 1.1l1 2a2 2 0 0 1-.4 2.3l-1 1a12 12 0 0 0 4.9 4.9l1-1a2 2 0 0 1 2.3-.4M22 16.9v2.6a2 2 0 0 1-2.2 2A18 18 0 0 1 3.5 6.2 2 2 0 0 1 5.5 4h2.6"/></svg></div>
         <h3>Risponde</h3>
-        <p>Alza la cornetta a ogni chiamata, 24 ore su 24, anche a più persone contemporaneamente. Mai più una segreteria telefonica.</p>
-        <span class="connector" aria-hidden="true"><svg width="34" height="24" viewBox="0 0 34 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h28m0 0-6-6m6 6-6 6"/></svg></span>
+        <p>Alza la cornetta a ogni chiamata, 24 ore su 24, anche a più persone insieme. Mai più segreteria.</p>
       </div>
-      <div class="step reveal">
+      <div class="step">
         <div class="num"></div>
         <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 0 1-13.3 7.9L3 21l1.1-4.7A9 9 0 1 1 21 12Z"/></svg></div>
         <h3>Capisce</h3>
-        <p>Ascolta in linguaggio naturale cosa serve a chi chiama e distingue clienti, fornitori e urgenze — senza menù a toni o attese.</p>
-        <span class="connector" aria-hidden="true"><svg width="34" height="24" viewBox="0 0 34 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h28m0 0-6-6m6 6-6 6"/></svg></span>
+        <p>Ascolta in linguaggio naturale cosa serve e distingue clienti, fornitori e urgenze — senza menù a toni.</p>
       </div>
-      <div class="step reveal">
+      <div class="step">
         <div class="num"></div>
         <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg></div>
         <h3>Agisce</h3>
-        <p>Controlla la disponibilità reale in agenda, prenota l'appuntamento, invia una notifica email per ogni contatto e avvisa te solo quando serve davvero.</p>
+        <p>Controlla l'agenda in tempo reale, prenota, invia l'email per ogni contatto e ti avvisa solo quando serve.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================== DEMO ============================== -->
-<section class="section" id="demo">
-  <div class="container">
-    <div class="section-head center reveal">
-      <span class="kicker">04 — Demo dal vivo</span>
-      <h2 class="display">Sentilo rispondere. Adesso.</h2>
-      <p class="lead">Non un video: una vera chiamata vocale nel tuo browser. Parla con Rispondo come farebbe un tuo cliente.</p>
-    </div>
-    <div class="demo-wrap">
-      <!--
-        ============================================================
-        INTEGRAZIONE WIDGET RETELL — INCOLLA QUI LE TUE CHIAVI
-        1. Genera Public Key e Agent ID dal pannello Retell.
-        2. Inseriscili in RETELL_CONFIG (vedi <script> in fondo alla pagina).
-        3. In produzione, abilita reCAPTCHA v3 sulla Public Key.
-        Finché le chiavi non sono presenti, il pulsante mostra
-        uno stato "demo in configurazione" senza errori.
-        ============================================================
-      -->
-      <div class="demo-panel reveal">
-        <div class="demo-orb" aria-hidden="true">
-          <div class="wave on-dark" style="height:34px"><span style="animation-delay:0s"></span><span style="animation-delay:.15s"></span><span style="animation-delay:.3s"></span><span style="animation-delay:.1s"></span><span style="animation-delay:.22s"></span></div>
-        </div>
-        <h3>Prova una chiamata reale</h3>
-        <p>Clicca, consenti l'accesso al microfono e inizia a parlare. Nessuna installazione.</p>
-        <button class="btn btn-light btn-lg" id="demoCallBtn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 2.5a2 2 0 0 1 1.8 1.1l1 2a2 2 0 0 1-.4 2.3l-1 1a12 12 0 0 0 4.9 4.9l1-1a2 2 0 0 1 2.3-.4M22 16.9v2.6a2 2 0 0 1-2.2 2A18 18 0 0 1 3.5 6.2 2 2 0 0 1 5.5 4h2.6"/></svg>
-          Avvia la chiamata demo
-        </button>
-        <div class="demo-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg> Preferisci essere richiamato? Lascia il numero e ricevi una vera telefonata.</div>
-      </div>
-      <div class="demo-feature reveal">
-        <div class="fp"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3Z"/><path d="M19 10a7 7 0 0 1-14 0M12 19v4"/></svg></span><div><b>Voce naturale, in tempo reale</b><p>Conversazione fluida via WebRTC, con visualizzatore audio dal vivo. Sembra una persona, non un risponditore.</p></div></div>
-        <div class="fp"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Provala come un tuo cliente</b><p>Chiedi un appuntamento, un orario, un'informazione: vedrai come gestisce la richiesta dall'inizio alla fine.</p></div></div>
-        <div class="fp"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></span><div><b>Sicura e senza abusi</b><p>La demo usa una chiave pubblica pensata per il frontend, protetta con reCAPTCHA v3 in produzione.</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== PERCHÉ NOI ============================== -->
-<section class="section" id="perche-noi">
-  <div class="container">
-    <div class="section-head center reveal">
-      <span class="kicker">05 — Perché noi</span>
-      <h2 class="display">Non un pannello da configurare da solo. Un servizio.</h2>
-      <p class="lead">I concorrenti self-service costano meno — ma ti consegnano un cruscotto e ti lasciano lì. La differenza è tutta in chi fa il lavoro.</p>
-    </div>
-    <div class="compare">
-      <div class="compare-col them reveal">
-        <span class="compare-tag">Self-service (fai da te)</span>
-        <h3>Il pannello e basta</h3>
-        <p class="price-hint">Es. fonio.ai da 99 €/mese · MrCall da 50 €/mese</p>
-        <ul class="compare-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> Configuri tu il prompt e i flussi, da zero</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> Colleghi tu calendario ed email, e speri che regga</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> Se qualcosa si rompe, apri un ticket e aspetti</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> Generico: non conosce la tua attività</li>
-        </ul>
-      </div>
-      <div class="compare-col us reveal">
-        <span class="compare-tag">Rispondo · servizio gestito</span>
-        <h3>Lo costruiamo noi, su di te</h3>
-        <p class="price-hint">Setup su misura incluso — pronto all'uso</p>
-        <ul class="compare-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Prompt scritto sulla tua attività specifica</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Collegamento a calendario ed email configurato da noi</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Una persona risponde quando qualcosa si rompe</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Su misura: parla la lingua dei tuoi clienti</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== PREZZI ============================== -->
+<!-- PREZZI -->
 <section class="section" id="prezzi">
   <div class="container">
     <div class="section-head center reveal">
-      <span class="kicker">06 — Prezzi</span>
-      <h2 class="display">Due piani. Nessuna sorpresa.</h2>
-      <p class="lead">Tutti i prezzi sono IVA esclusa. Il piano annuale conviene — e ti azzera il costo di attivazione.</p>
+      <span class="kicker">Prezzi trasparenti</span>
+      <h2 class="display"><span class="grad">Due piani. Nessuna sorpresa.</span></h2>
+      <p class="lead">Prezzi IVA esclusa. Il piano annuale conviene e ti azzera il costo di attivazione.</p>
       <div class="pricing-toggle" role="tablist" aria-label="Ciclo di fatturazione">
         <button id="btnMonthly" class="active" role="tab" aria-selected="true">Mensile</button>
         <button id="btnAnnual" role="tab" aria-selected="false">Annuale <span class="toggle-save">–17% · attivazione gratis</span></button>
       </div>
     </div>
-    <div class="plans">
-      <div class="plan reveal">
+    <div class="plans reveal">
+      <div class="plan">
         <h3>Standard</h3>
-        <p class="plan-sub">Per chi vuole non perdere più una chiamata.</p>
+        <p class="plan-sub">Per non perdere più una chiamata.</p>
         <div class="plan-price"><span class="amount" data-monthly="129" data-annual="109">€ 129</span><span class="per">/ mese</span></div>
         <div class="plan-billed" data-monthly="Disdicibile dopo il primo mese." data-annual="Fatturato annualmente · <b>risparmi il 16%</b>">Disdicibile dopo il primo mese.</div>
         <div class="plan-activation">
@@ -736,17 +458,17 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
           <span class="act-text" data-monthly='Attivazione <b>€ 149</b> una tantum' data-annual='Attivazione <s>€ 149</s> <span class="free">gratis</span>'>Attivazione <b>€ 149</b> una tantum</span>
         </div>
         <ul class="plan-features">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <span><b>500 minuti</b> di chiamata inclusi al mese</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <span><b>500 minuti</b> inclusi al mese</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Risposta 24/7 e chiamate in contemporanea</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Prenotazione in agenda e notifiche email</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Setup su misura e assistenza umana</li>
         </ul>
         <a href="#final" class="btn btn-ghost btn-block btn-lg">Inizia con Standard</a>
       </div>
-      <div class="plan featured reveal">
+      <div class="plan featured">
         <span class="plan-badge">Il più scelto</span>
         <h3>Pro</h3>
-        <p class="plan-sub">Per chi vive di telefonate e ha più volume.</p>
+        <p class="plan-sub">Per chi vive di telefonate.</p>
         <div class="plan-price"><span class="amount" data-monthly="229" data-annual="189">€ 229</span><span class="per">/ mese</span></div>
         <div class="plan-billed" data-monthly="Disdicibile dopo il primo mese." data-annual="Fatturato annualmente · <b>risparmi il 17%</b>">Disdicibile dopo il primo mese.</div>
         <div class="plan-activation">
@@ -754,9 +476,9 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
           <span class="act-text" data-monthly='Attivazione <b>€ 149</b> una tantum' data-annual='Attivazione <s>€ 149</s> <span class="free">gratis</span>'>Attivazione <b>€ 149</b> una tantum</span>
         </div>
         <ul class="plan-features">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <span><b>1.000 minuti</b> inclusi al mese — costano meno al minuto</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <span><b>1.000 minuti</b> inclusi — meno al minuto</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Tutto ciò che c'è in Standard</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Smistamento avanzato di clienti, fornitori e urgenze</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Smistamento avanzato di contatti e urgenze</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Priorità nel supporto</li>
         </ul>
         <a href="#final" class="btn btn-primary btn-block btn-lg">Inizia con Pro</a>
@@ -764,27 +486,26 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
     </div>
     <div class="pricing-fine reveal">
       <div class="row">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Minuti extra: pacchetti da 100 minuti a € 25</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Mensile disdicibile dopo il primo mese</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Annuale con impegno di 12 mesi</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Minuti extra: 100 minuti a € 25</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Annuale con impegno 12 mesi</span>
       </div>
-      <p>Tutti i prezzi sono <b>IVA esclusa</b>, come da standard B2B. Il costo di attivazione (€ 149 una tantum) è azzerato scegliendo il piano annuale.</p>
+      <p>Tutti i prezzi sono <b>IVA esclusa</b>. L'attivazione (€ 149) è gratuita con il piano annuale.</p>
     </div>
   </div>
 </section>
 
-<!-- ============================== CTA FINALE ============================== -->
+<!-- CTA FINALE -->
 <section class="section final-cta" id="final">
   <div class="container">
     <div class="inner reveal">
-      <h2 class="display">Ogni chiamata persa è un cliente<br>dato al concorrente.</h2>
-      <p>Attiva Rispondo e trasforma ogni telefonata in un appuntamento — anche mentre dormi, anche quando sei già al telefono con qualcun altro.</p>
+      <h2 class="display"><span class="grad">Ogni chiamata persa è un cliente<br>dato al concorrente.</span></h2>
+      <p>Prova la voce di Rispondo adesso, direttamente dal browser: parla come farebbe un tuo cliente.</p>
       <div class="hero-cta">
-        <a href="#demo" class="btn btn-light btn-lg">
+        <button class="btn btn-light btn-lg js-demo" type="button">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 2.5a2 2 0 0 1 1.8 1.1l1 2a2 2 0 0 1-.4 2.3l-1 1a12 12 0 0 0 4.9 4.9l1-1a2 2 0 0 1 2.3-.4M22 16.9v2.6a2 2 0 0 1-2.2 2A18 18 0 0 1 3.5 6.2 2 2 0 0 1 5.5 4h2.6"/></svg>
-          Prova la demo vocale
-        </a>
-        <a href="#prezzi" class="btn btn-dark btn-lg" style="border:1px solid rgba(255,255,255,.2)">Scegli un piano</a>
+          Prova la voce
+        </button>
+        <a href="#prezzi" class="btn btn-ghost btn-lg" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.3)">Vedi i prezzi</a>
       </div>
     </div>
   </div>
@@ -792,7 +513,7 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
 
 </main>
 
-<!-- ============================== FOOTER ============================== -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-top">
@@ -801,8 +522,7 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
         <p class="footer-blurb">L'assistente vocale AI che risponde al telefono della tua attività, capisce e prenota — 24 ore su 24.</p>
       </div>
       <div class="footer-links">
-        <div class="footer-col"><h4>Prodotto</h4><a href="#come-funziona">Come funziona</a><a href="#settori">Settori</a><a href="#demo">Demo</a><a href="#prezzi">Prezzi</a></div>
-        <div class="footer-col"><h4>Contatti</h4><a href="#demo">Prova la demo</a><a href="#final">Parla con noi</a></div>
+        <div class="footer-col"><h4>Prodotto</h4><a href="#come-funziona">Come funziona</a><a href="#settori">Settori</a><a href="#prezzi">Prezzi</a></div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -812,22 +532,15 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
   </div>
 </footer>
 
-<div class="toast" id="toast" role="status" aria-live="polite">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg>
+<div class="toast" id="toast" role="status" aria-live="polite" style="position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--navy-900);color:#fff;padding:.95rem 1.3rem;border-radius:var(--r-pill);box-shadow:var(--shadow-lg);font-size:.92rem;font-weight:500;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s var(--ease);z-index:300;max-width:calc(100vw - 2rem)">
   <span id="toastMsg"></span>
 </div>
 
 <!-- ============================================================
      WIDGET VOCALE RETELL — MODALITÀ SOLO VOCE (no chat testuale)
-     Widget ufficiale, single script tag, senza backend.
-     Sono impostati SOLO gli attributi voice (data-voice-agent-id /
-     data-voice-public-key): il prodotto è un voice-agent, quindi
-     NON viene passato alcun chat-agent e non compare nessuna chat scritta.
-     NOTE:
-     - reCAPTCHA v3: da abilitare più avanti, quando ci sarà un dominio.
-     - Retell può richiedere di autorizzare il dominio del sito per la
-       chiave pubblica: la demo andrà verificata una volta online.
-     Riferimento: https://docs.retellai.com/deploy/chat-widget
+     Il pulsante flottante ("Chiamata demo") è il launcher reale del widget.
+     I bottoni .js-demo della pagina provano ad attivarlo; se non è
+     raggiungibile via codice si nascondono (nessun bottone non funzionante).
      ============================================================ -->
 <script
   id="retell-widget"
@@ -844,139 +557,76 @@ h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
 ></script>
 
 <script>
-/* ============================================================
-   CONFIGURAZIONE DEMO RETELL
-   Incolla Public Key e Agent ID generati dal pannello Retell.
-   Lasciando i campi vuoti, il pulsante mostra uno stato
-   "demo in configurazione" invece di dare errore.
-   ============================================================ */
-const RETELL_CONFIG = {
-  publicKey: "public_key_30f48a75179b4474a40e7",   // <-- Public Key Retell
-  agentId:   "agent_238b916f761b4882738071d0b5",   // <-- Agent ID Retell
-};
-
-(function () {
+const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"agent_238b916f761b4882738071d0b5" };
+(function(){
   "use strict";
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  /* Nav shadow */
+  // Nav shadow
   const nav = document.getElementById("nav");
-  const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 8);
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
+  const onScroll = () => nav.classList.toggle("scrolled", scrollY > 8);
+  onScroll(); addEventListener("scroll", onScroll, { passive:true });
 
-  /* Menu mobile */
-  const toggle = document.getElementById("navToggle");
-  const menu = document.getElementById("mobileMenu");
-  toggle.addEventListener("click", () => {
-    const open = menu.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", String(open));
-  });
-  menu.querySelectorAll("a").forEach((a) =>
-    a.addEventListener("click", () => { menu.classList.remove("open"); toggle.setAttribute("aria-expanded", "false"); })
-  );
-
-  /* Toggle prezzi */
-  const btnM = document.getElementById("btnMonthly");
-  const btnA = document.getElementById("btnAnnual");
-  function setBilling(mode) {
+  // Toggle prezzi
+  const btnM = document.getElementById("btnMonthly"), btnA = document.getElementById("btnAnnual");
+  function setBilling(mode){
     const annual = mode === "annual";
-    btnA.classList.toggle("active", annual);
-    btnM.classList.toggle("active", !annual);
-    btnA.setAttribute("aria-selected", String(annual));
-    btnM.setAttribute("aria-selected", String(!annual));
-    document.querySelectorAll(".plan-price .amount").forEach((el) => { el.textContent = "€ " + el.dataset[mode]; });
-    document.querySelectorAll(".plan-billed").forEach((el) => { el.innerHTML = el.dataset[mode]; });
-    document.querySelectorAll(".act-text").forEach((el) => { el.innerHTML = el.dataset[mode]; });
+    btnA.classList.toggle("active", annual); btnM.classList.toggle("active", !annual);
+    btnA.setAttribute("aria-selected", String(annual)); btnM.setAttribute("aria-selected", String(!annual));
+    document.querySelectorAll(".plan-price .amount").forEach(el => el.textContent = "€ " + el.dataset[mode]);
+    document.querySelectorAll(".plan-billed").forEach(el => el.innerHTML = el.dataset[mode]);
+    document.querySelectorAll(".act-text").forEach(el => el.innerHTML = el.dataset[mode]);
   }
   btnM.addEventListener("click", () => setBilling("monthly"));
   btnA.addEventListener("click", () => setBilling("annual"));
 
-  /* Toast */
-  const toast = document.getElementById("toast");
-  const toastMsg = document.getElementById("toastMsg");
-  let toastTimer;
-  function showToast(msg) {
-    toastMsg.textContent = msg;
-    toast.classList.add("show");
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove("show"), 4500);
-  }
+  // Toast
+  const toast = document.getElementById("toast"), toastMsg = document.getElementById("toastMsg");
+  let tt; function showToast(m){ toastMsg.textContent = m; toast.style.opacity="1"; toast.style.transform="translateX(-50%) translateY(0)"; clearTimeout(tt); tt=setTimeout(()=>{toast.style.opacity="0";toast.style.transform="translateX(-50%) translateY(20px)";},4500); }
 
-  /* Demo — il widget Retell monta un proprio pulsante flottante funzionante.
-     Colleghiamo il NOSTRO bottone a quel launcher se raggiungibile via codice;
-     se non lo è (es. widget in iframe/closed shadow DOM), nascondiamo il nostro
-     bottone per non lasciarne uno non funzionante — resta attivo il pulsante
-     flottante del widget, rinominato "Chiamata demo". */
-  const demoBtn = document.getElementById("demoCallBtn");
-  function isClickable(el) {
-    return !!el && (el.tagName === "BUTTON" || el.tagName === "A" || el.getAttribute("role") === "button");
-  }
-  function findRetellFab() {
-    const roots = [document];
-    document.querySelectorAll("*").forEach((el) => { if (el.shadowRoot) roots.push(el.shadowRoot); });
-    // 1) un vero bottone dentro un contenitore "retell"
-    for (const root of roots) {
-      const el = root.querySelector(
-        '[id*="retell" i] button, [class*="retell" i] button, button[id*="retell" i], button[class*="retell" i], [id*="retell" i] [role="button"], [class*="retell" i] [role="button"]'
-      );
-      if (isClickable(el)) return el;
+  // Demo: collega i bottoni .js-demo al launcher del widget Retell
+  const demoBtns = Array.from(document.querySelectorAll(".js-demo"));
+  function isClickable(el){ return !!el && (el.tagName==="BUTTON"||el.tagName==="A"||el.getAttribute("role")==="button"); }
+  function findRetellFab(){
+    const roots=[document]; document.querySelectorAll("*").forEach(el=>{ if(el.shadowRoot) roots.push(el.shadowRoot); });
+    for(const root of roots){
+      const el = root.querySelector('[id*="retell" i] button,[class*="retell" i] button,button[id*="retell" i],button[class*="retell" i],[id*="retell" i] [role="button"],[class*="retell" i] [role="button"]');
+      if(isClickable(el)) return el;
     }
-    // 2) un vero bottone riconosciuto dal testo del launcher
-    for (const root of roots) {
-      for (const el of root.querySelectorAll('button, [role="button"], a')) {
-        if (el === demoBtn) continue;
-        const t = (el.textContent || "").trim().toLowerCase();
-        if (t.includes("chiamata demo") || t.includes("need support") || t.includes("parla con")) return el;
+    for(const root of roots){
+      for(const el of root.querySelectorAll('button,[role="button"],a')){
+        if(demoBtns.includes(el)) continue;
+        const t=(el.textContent||"").trim().toLowerCase();
+        if(t.includes("chiamata demo")||t.includes("need support")||t.includes("parla con")) return el;
       }
     }
     return null;
   }
-  let retellFab = null, fabTries = 0;
-  const fabWatch = setInterval(() => {
-    fabTries++;
-    retellFab = findRetellFab();
-    if (retellFab) { clearInterval(fabWatch); }
-    else if (fabTries >= 25) { clearInterval(fabWatch); if (demoBtn) demoBtn.style.display = "none"; }
-  }, 400);
-  if (demoBtn) demoBtn.addEventListener("click", () => {
-    if (!RETELL_CONFIG.publicKey || !RETELL_CONFIG.agentId) {
-      showToast("Demo in configurazione: inserisci le chiavi Retell.");
-      return;
-    }
-    const target = retellFab || findRetellFab();
-    if (target) { try { target.click(); } catch (e) {} }
-  });
+  let fab=null, tries=0;
+  const watch=setInterval(()=>{
+    tries++; fab=findRetellFab();
+    if(fab){ clearInterval(watch); }
+    else if(tries>=25){ clearInterval(watch); demoBtns.forEach(b=>{ b.style.display="none"; }); }
+  },400);
+  demoBtns.forEach(b=>b.addEventListener("click",()=>{
+    const target = fab || findRetellFab();
+    if(target){ try{ target.click(); }catch(e){} }
+  }));
 
-  /* Scroll reveal */
-  const reveals = document.querySelectorAll(".reveal");
-  if (reduce || !("IntersectionObserver" in window)) {
-    reveals.forEach((el) => el.classList.add("in"));
-  } else {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-    reveals.forEach((el) => io.observe(el));
+  // Reveal + stagger (più evidenti)
+  const items = document.querySelectorAll(".reveal, .stagger");
+  if(reduce || !("IntersectionObserver" in window)){ items.forEach(el=>el.classList.add("in")); }
+  else {
+    const io = new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }); }, { threshold:0.14, rootMargin:"0px 0px -50px 0px" });
+    items.forEach(el=>io.observe(el));
   }
 
-  /* Parallax dolce: fluido + call card seguono il mouse (solo desktop, no reduced-motion) */
+  // Parallax dolce del fluido (desktop)
   const fluid = document.getElementById("fluid");
-  const card = document.getElementById("callCard");
-  if (!reduce && window.matchMedia("(pointer:fine)").matches) {
-    let raf = null, tx = 0, ty = 0;
-    window.addEventListener("mousemove", (e) => {
-      const cx = (e.clientX / window.innerWidth - 0.5);
-      const cy = (e.clientY / window.innerHeight - 0.5);
-      tx = cx; ty = cy;
-      if (!raf) raf = requestAnimationFrame(apply);
-    }, { passive: true });
-    function apply() {
-      raf = null;
-      if (fluid) fluid.style.transform = `translate(${tx * 22}px, ${ty * 22}px)`;
-      if (card) card.style.transform = `translate(${tx * -10}px, ${ty * -10}px)`;
-    }
+  if(!reduce && matchMedia("(pointer:fine)").matches && fluid){
+    let raf=null,tx=0,ty=0;
+    addEventListener("mousemove",e=>{ tx=e.clientX/innerWidth-0.5; ty=e.clientY/innerHeight-0.5; if(!raf) raf=requestAnimationFrame(()=>{ raf=null; fluid.style.transform=`translate(${tx*26}px,${ty*26}px)`; }); },{passive:true});
   }
 })();
 </script>
