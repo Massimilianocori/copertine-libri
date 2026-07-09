@@ -621,25 +621,37 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
   demoBtns.forEach(b=>b.addEventListener("click",()=>{
     const target = fab || findRetellFab();
     if(target){ try{ target.click(); }catch(e){} }
-    setTimeout(hideRetellBranding, 300); setTimeout(hideRetellBranding, 1200);
+    [200,600,1200,2200].forEach(d=>setTimeout(tuneRetellWidget,d));
   }));
 
-  // Nasconde eventuali diciture di branding "Retell" nel widget (anche shadow DOM aperti)
-  function hideRetellBranding(){
+  // Localizza il widget Retell in italiano e rimuove il branding
+  // (esplora anche gli shadow DOM aperti; il widget aggiorna il DOM dinamicamente)
+  function tuneRetellWidget(){
     try {
       const roots=[document];
       document.querySelectorAll("*").forEach(el=>{ if(el.shadowRoot) roots.push(el.shadowRoot); });
       for(const root of roots){
         root.querySelectorAll("*").forEach(el=>{
-          if(el.children && el.children.length===0){
-            const t=(el.textContent||"").trim().toLowerCase();
-            if(t && t.length<40 && t.indexOf("retell")!==-1){ el.style.setProperty("display","none","important"); }
+          const raw=(el.textContent||"").trim();
+          if(!raw) return;
+          const t=raw.toLowerCase();
+          const leaf=!el.children||el.children.length===0;
+          // Traduci i pulsanti (solo su elementi foglia, per non toccare icone)
+          if(leaf){
+            if(t==="start to call"||t==="start call"||t==="start"){ el.textContent="Avvia la chiamata"; return; }
+            if(t==="end call"||t==="end"||t==="hang up"){ el.textContent="Termina la chiamata"; return; }
+            if(t==="connecting..."||t==="connecting"){ el.textContent="Connessione…"; return; }
+            if(t==="type a message"||t==="type your message"){ el.textContent="Scrivi un messaggio"; return; }
           }
+          // Rimuovi il branding "Powered by ..." (elemento piccolo, anche con logo dentro)
+          if(t.length<40 && t.indexOf("powered by")!==-1){ el.style.setProperty("display","none","important"); return; }
+          // Rimuovi eventuali diciture "Retell" residue (foglia)
+          if(leaf && t.length<40 && t.indexOf("retell")!==-1){ el.style.setProperty("display","none","important"); }
         });
       }
     } catch(e){}
   }
-  setInterval(hideRetellBranding, 1000);
+  setInterval(tuneRetellWidget, 800);
 
   // Reveal + stagger (più evidenti)
   const items = document.querySelectorAll(".reveal, .stagger");
