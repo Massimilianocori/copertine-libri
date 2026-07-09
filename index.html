@@ -616,8 +616,7 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
   let fab=null, tries=0;
   const watch=setInterval(()=>{
     tries++; fab=findRetellFab();
-    if(fab){ clearInterval(watch); }
-    else if(tries>=25){ clearInterval(watch); demoBtns.forEach(b=>{ b.style.display="none"; }); }
+    if(fab||tries>=40){ clearInterval(watch); }
   },400);
   demoBtns.forEach(b=>b.addEventListener("click",()=>{
     const target = fab || findRetellFab();
