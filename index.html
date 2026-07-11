@@ -736,41 +736,68 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
   document.querySelectorAll(".js-plan").forEach(b=>b.addEventListener("click",()=>{
     showToast("Piano " + (b.dataset.plan||"") + ": a breve il checkout sicuro con PayPal e carta.");
   }));
-  // Chat AI demo: apre il widget Retell (agente chat collegato)
-  document.querySelectorAll(".js-chat").forEach(b=>b.addEventListener("click",()=>{
-    const target = (typeof fab!=="undefined" && fab) ? fab : findRetellFab();
-    if(target){ try{ target.click(); }catch(e){} }
-    [200,600,1200,2200].forEach(d=>setTimeout(tuneRetellWidget,d));
-  }));
-
-  // Demo: collega i bottoni .js-demo al launcher del widget Retell
+  // Bottoni della pagina che devono aprire il widget Retell
   const demoBtns = Array.from(document.querySelectorAll(".js-demo"));
+  const chatBtns = Array.from(document.querySelectorAll(".js-chat"));
+  const ownBtns  = demoBtns.concat(chatBtns);
   function isClickable(el){ return !!el && (el.tagName==="BUTTON"||el.tagName==="A"||el.getAttribute("role")==="button"); }
+  // È il launcher flottante (o un suo antenato è position:fixed)?
+  function isFixedish(el){
+    let n=el, hops=0;
+    while(n && hops<6){ try{ if(getComputedStyle(n).position==="fixed") return true; }catch(e){} n = n.parentElement || (n.getRootNode && n.getRootNode().host) || null; hops++; }
+    return false;
+  }
+  function widgetRoots(){
+    const roots=[document];
+    document.querySelectorAll("*").forEach(el=>{ if(el.shadowRoot) roots.push(el.shadowRoot); });
+    return roots;
+  }
+  // Trova il LAUNCHER del widget (il FAB flottante), non i controlli interni al pannello.
   function findRetellFab(){
-    const roots=[document]; document.querySelectorAll("*").forEach(el=>{ if(el.shadowRoot) roots.push(el.shadowRoot); });
-    for(const root of roots){
-      const el = root.querySelector('[id*="retell" i] button,[class*="retell" i] button,button[id*="retell" i],button[class*="retell" i],[id*="retell" i] [role="button"],[class*="retell" i] [role="button"]');
-      if(isClickable(el)) return el;
+    const cands=[];
+    for(const root of widgetRoots()){
+      root.querySelectorAll('[id*="retell" i] button,[class*="retell" i] button,button[id*="retell" i],button[class*="retell" i],[id*="retell" i] [role="button"],[class*="retell" i] [role="button"]').forEach(el=>{
+        if(isClickable(el) && !ownBtns.includes(el)) cands.push(el);
+      });
     }
-    for(const root of roots){
+    // Preferisci il pulsante flottante fisso: è il launcher che apre/chiude il widget.
+    const fixed = cands.find(isFixedish);
+    if(fixed) return fixed;
+    if(cands.length) return cands[0];
+    // Fallback per testo (versioni del widget senza classi "retell")
+    for(const root of widgetRoots()){
       for(const el of root.querySelectorAll('button,[role="button"],a')){
-        if(demoBtns.includes(el)) continue;
+        if(ownBtns.includes(el)) continue;
         const t=(el.textContent||"").trim().toLowerCase();
-        if(t.includes("chiamata demo")||t.includes("need support")||t.includes("parla con")) return el;
+        if(t.includes("prova la demo")||t.includes("chiamata demo")||t.includes("need support")||t.includes("parla con")) return el;
       }
     }
     return null;
+  }
+  // Il widget è già aperto? (c'è un pannello/dialog nel container Retell)
+  function isWidgetOpen(){
+    for(const root of widgetRoots()){
+      if(root.querySelector('[class*="retell" i] [role="dialog"],[id*="retell" i] [role="dialog"],[class*="retell" i] textarea,[id*="retell" i] textarea,[class*="retell" i] input,[id*="retell" i] input')) return true;
+    }
+    return false;
   }
   let fab=null, tries=0;
   const watch=setInterval(()=>{
     tries++; fab=findRetellFab();
     if(fab||tries>=40){ clearInterval(watch); }
   },400);
-  demoBtns.forEach(b=>b.addEventListener("click",()=>{
-    const target = fab || findRetellFab();
-    if(target){ try{ target.click(); }catch(e){} }
-    [200,600,1200,2200].forEach(d=>setTimeout(tuneRetellWidget,d));
-  }));
+  // Apre il widget (senza richiuderlo se è già aperto) e prova a riprovare finché compare.
+  function openRetellWidget(){
+    if(isWidgetOpen()){ [150,500,1200].forEach(d=>setTimeout(tuneRetellWidget,d)); return; }
+    let n=0;
+    (function attempt(){
+      const target = fab || findRetellFab();
+      if(target){ try{ target.click(); }catch(e){} }
+      [150,500,1200,2200].forEach(d=>setTimeout(tuneRetellWidget,d));
+      if(!target && n++ < 8){ setTimeout(attempt, 350); }   // il widget potrebbe non essere ancora montato
+    })();
+  }
+  ownBtns.forEach(b=>b.addEventListener("click", openRetellWidget));
 
   // Localizza il widget Retell in italiano e rimuove il branding
   // (esplora anche gli shadow DOM aperti; il widget aggiorna il DOM dinamicamente)
@@ -791,6 +818,9 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
             if(t==="connecting..."||t==="connecting"){ el.textContent="Connessione…"; return; }
             if(t==="type a message"||t==="type your message"){ el.textContent="Scrivi un messaggio"; return; }
           }
+          // Non nascondere mai un pulsante/launcher o un controllo interattivo.
+          const interactive = el.tagName==="BUTTON"||el.tagName==="A"||el.tagName==="INPUT"||el.tagName==="TEXTAREA"||el.getAttribute("role")==="button"||el.getAttribute("role")==="dialog";
+          if(interactive || isFixedish(el)) return;
           // Rimuovi il branding "Powered by ..." (elemento piccolo, anche con logo dentro)
           if(t.length<40 && t.indexOf("powered by")!==-1){ el.style.setProperty("display","none","important"); return; }
           // Rimuovi eventuali diciture "Retell" residue (foglia)
