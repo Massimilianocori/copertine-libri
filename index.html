@@ -656,13 +656,13 @@ h2.display{font-size:clamp(2.2rem,1.4rem + 3vw,3.8rem);letter-spacing:-.04em}
   id="retell-widget"
   src="https://dashboard.retellai.com/retell-widget-v2.js"
   type="module"
+  data-agent-id="agent_003d2188ae48906eb0bf581cd7"
   data-voice-agent-id="agent_238b916f761b4882738071d0b5"
-  data-voice-public-key="public_key_30f48a75179b4474a40e7"
   data-public-key="public_key_30f48a75179b4474a40e7"
-  data-mode="voice"
+  data-voice-public-key="public_key_30f48a75179b4474a40e7"
   data-title="Rispondoio"
   data-bot-name="Rispondoio"
-  data-fab-text="Chiamata demo"
+  data-fab-text="Prova la demo"
   data-color="#0A6DD8"
 ></script>
 
@@ -699,9 +699,11 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
   document.querySelectorAll(".js-plan").forEach(b=>b.addEventListener("click",()=>{
     showToast("Piano " + (b.dataset.plan||"") + ": a breve il checkout sicuro con PayPal e carta.");
   }));
-  // Chat AI demo (da attivare con l'agente chat Retell)
+  // Chat AI demo: apre il widget Retell (agente chat collegato)
   document.querySelectorAll(".js-chat").forEach(b=>b.addEventListener("click",()=>{
-    showToast("Demo chat in arrivo: stiamo collegando l'agente chat di Rispondoio.");
+    const target = (typeof fab!=="undefined" && fab) ? fab : findRetellFab();
+    if(target){ try{ target.click(); }catch(e){} }
+    [200,600,1200,2200].forEach(d=>setTimeout(tuneRetellWidget,d));
   }));
 
   // Demo: collega i bottoni .js-demo al launcher del widget Retell
