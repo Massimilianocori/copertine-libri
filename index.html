@@ -808,6 +808,20 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
 const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"agent_238b916f761b4882738071d0b5" };
 (function(){
   "use strict";
+
+  // Ogni apertura del sito parte con una chat pulita: cancella la conversazione
+  // che il widget Retell salva nel browser (altrimenti riappare la chat di ieri).
+  // Questo script classico gira prima del modulo del widget, che è "deferred".
+  try{
+    [localStorage, sessionStorage].forEach(function(store){
+      if(!store) return;
+      for(var i=store.length-1;i>=0;i--){
+        var k=store.key(i);
+        if(k && /retell|rispond|agent_|public_key_|chat/i.test(k)) store.removeItem(k);
+      }
+    });
+  }catch(e){}
+
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.getElementById("year").textContent = new Date().getFullYear();
 
