@@ -227,7 +227,8 @@ h2.display{font-size:clamp(2.2rem,1.4rem + 3vw,3.8rem);letter-spacing:-.04em}
 .pricing-fine .row svg{width:15px;height:15px;color:var(--accent)}
 
 /* Piano Chat AI + bundle */
-.chat-plan-band{max-width:1080px;margin:1.35rem auto 0;display:grid;grid-template-columns:1fr 1.12fr;gap:1.35rem;align-items:stretch}
+.chat-pricing{background:#F1FBF6}
+.chat-plan-band{max-width:1080px;margin:2.5rem auto 0;display:grid;grid-template-columns:1fr 1.12fr;gap:1.35rem;align-items:stretch}
 .chat-plan{position:relative;background:var(--surface);border:1px solid #CDEBDC;border-radius:var(--r-xl);padding:2rem;display:flex;flex-direction:column;box-shadow:0 0 0 1px #DDEFE6}
 .chat-plan-tag,.bundle-tag{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.35rem .7rem;border-radius:var(--r-pill);margin-bottom:1rem}
 .chat-plan-tag{background:#E1F5EC;color:#0B8A54}
@@ -529,85 +530,14 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
   </div>
 </section>
 
-<!-- CHAT AI (tema verde) -->
-<section class="section chat-demo" id="chat">
-  <div class="fluid" aria-hidden="true">
-    <svg viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <linearGradient id="gc1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34D399"/><stop offset="1" stop-color="#0FA968"/></linearGradient>
-        <linearGradient id="gc2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8BEFC2"/><stop offset="1" stop-color="#12B981"/></linearGradient>
-      </defs>
-      <g filter="url(#liquid)">
-        <ellipse class="blob blob-1" cx="910" cy="320" rx="350" ry="290" fill="url(#gc1)" opacity="0.52"/>
-        <ellipse class="blob blob-2" cx="980" cy="510" rx="290" ry="250" fill="url(#gc2)" opacity="0.5"/>
-      </g>
-    </svg>
-  </div>
-  <div class="container chat-grid">
-    <div class="chat-copy">
-      <span class="kicker kicker-green">Chat AI · sul tuo sito</span>
-      <h2 class="display"><span class="grad-green">Non solo voce: risponde anche in chat.</span></h2>
-      <p class="lead">La stessa intelligenza risponde ai messaggi sul tuo sito — informazioni, orari, preventivi, prenotazioni — 24 ore su 24. Il cliente scrive, Rispondoio risolve.</p>
-      <div class="hero-cta">
-        <button type="button" class="btn btn-green btn-lg js-chat">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          Prova la chat
-        </button>
-        <a href="#prezzi" class="btn btn-ghost btn-lg">Vedi i prezzi</a>
-      </div>
-      <div class="hero-trust chat-trust">
-        <span class="live">Sempre attiva</span>
-        <span>risponde ai messaggi in meno di un secondo.</span>
-      </div>
-      <div class="hero-does chat-does">
-        <span class="lbl">In una sola conversazione</span>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Risponde ai messaggi in linguaggio naturale</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Dà informazioni, orari e preventivi</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Prende la prenotazione e la scrive in agenda</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Invia l'email di conferma dell'appuntamento</li>
-        </ul>
-      </div>
-    </div>
-    <div class="chat-visual reveal">
-      <div class="chat-card">
-        <div class="ch-head">
-          <span class="ch-avatar" aria-hidden="true"></span>
-          <span><b>Rispondoio</b><span class="sub">Chat sul sito · risponde subito</span></span>
-          <span class="ch-status">ONLINE</span>
-        </div>
-        <div class="ch-body">
-          <div class="ch-bubble them">Buonasera, siete aperti sabato?</div>
-          <div class="ch-bubble ai">Sì! Sabato dalle 9 alle 19. Vuole che le fissi un appuntamento?</div>
-          <div class="ch-bubble them">Sì, verso le 15</div>
-          <div class="ch-confirm">
-            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-            <span><b>Appuntamento confermato</b><span>Sabato · 15:00 — aggiunto in agenda</span></span>
-          </div>
-        </div>
-        <div class="ch-input">
-          <span class="ph">Scrivi un messaggio…</span>
-          <button class="ch-send js-chat" type="button" aria-label="Invia">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg>
-          </button>
-        </div>
-      </div>
-      <div class="float-badge">
-        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span>
-        Sul tuo sito, sempre online
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PREZZI -->
+<!-- PREZZI VOCE (sotto la sezione blu dell'assistente vocale) -->
 <section class="section" id="prezzi">
   <div class="container">
     <div class="section-head center reveal">
-      <span class="kicker">Prezzi trasparenti</span>
-      <h2 class="display"><span class="grad">Piani chiari. Nessuna sorpresa.</span></h2>
-      <p class="lead">Prezzi IVA esclusa. Con il piano annuale spendi meno ogni mese. La chat è un'aggiunta opzionale ai piani voce.</p>
-      <div class="pricing-toggle" role="tablist" aria-label="Ciclo di fatturazione">
+      <span class="kicker">Prezzi · Assistente vocale</span>
+      <h2 class="display"><span class="grad">Piani per l'assistente vocale.</span></h2>
+      <p class="lead">Prezzi IVA esclusa. Con il piano annuale spendi meno ogni mese.</p>
+      <div class="pricing-toggle" role="tablist" aria-label="Ciclo di fatturazione voce">
         <button id="btnMonthly" class="active" role="tab" aria-selected="true">Mensile</button>
         <button id="btnAnnual" role="tab" aria-selected="false">Annuale <span class="toggle-save">fino a –17%</span></button>
       </div>
@@ -666,6 +596,99 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
         <button type="button" class="btn btn-primary btn-block btn-lg js-plan" data-plan="Pro">Inizia con Pro</button>
       </div>
     </div>
+    <div class="pricing-fine reveal">
+      <div class="row">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Minuti extra: 100 minuti a € 25</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Annuale con impegno 12 mesi</span>
+      </div>
+      <p>Tutti i prezzi sono <b>IVA esclusa</b>. Con il piano annuale l'attivazione (€ 149) è <b>gratuita</b> su Standard e Pro e <b>scontata del 50%</b> sul Basic.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CHAT AI (tema verde) -->
+<section class="section chat-demo" id="chat">
+  <div class="fluid" aria-hidden="true">
+    <svg viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="gc1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34D399"/><stop offset="1" stop-color="#0FA968"/></linearGradient>
+        <linearGradient id="gc2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8BEFC2"/><stop offset="1" stop-color="#12B981"/></linearGradient>
+      </defs>
+      <g filter="url(#liquid)">
+        <ellipse class="blob blob-1" cx="910" cy="320" rx="350" ry="290" fill="url(#gc1)" opacity="0.52"/>
+        <ellipse class="blob blob-2" cx="980" cy="510" rx="290" ry="250" fill="url(#gc2)" opacity="0.5"/>
+      </g>
+    </svg>
+  </div>
+  <div class="container chat-grid">
+    <div class="chat-copy">
+      <span class="kicker kicker-green">Chat AI · sul tuo sito</span>
+      <h2 class="display"><span class="grad-green">Non solo voce: risponde anche in chat.</span></h2>
+      <p class="lead">La stessa intelligenza risponde ai messaggi sul tuo sito — informazioni, orari, preventivi, prenotazioni — 24 ore su 24. Il cliente scrive, Rispondoio risolve.</p>
+      <div class="hero-cta">
+        <button type="button" class="btn btn-green btn-lg js-chat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Prova la chat
+        </button>
+        <a href="#prezzi-chat" class="btn btn-ghost btn-lg">Prezzo chat</a>
+      </div>
+      <div class="hero-trust chat-trust">
+        <span class="live">Sempre attiva</span>
+        <span>risponde ai messaggi in meno di un secondo.</span>
+      </div>
+      <div class="hero-does chat-does">
+        <span class="lbl">In una sola conversazione</span>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Risponde ai messaggi in linguaggio naturale</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Dà informazioni, orari e preventivi</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Prende la prenotazione e la scrive in agenda</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Invia l'email di conferma dell'appuntamento</li>
+        </ul>
+      </div>
+    </div>
+    <div class="chat-visual reveal">
+      <div class="chat-card">
+        <div class="ch-head">
+          <span class="ch-avatar" aria-hidden="true"></span>
+          <span><b>Rispondoio</b><span class="sub">Chat sul sito · risponde subito</span></span>
+          <span class="ch-status">ONLINE</span>
+        </div>
+        <div class="ch-body">
+          <div class="ch-bubble them">Buonasera, siete aperti sabato?</div>
+          <div class="ch-bubble ai">Sì! Sabato dalle 9 alle 19. Vuole che le fissi un appuntamento?</div>
+          <div class="ch-bubble them">Sì, verso le 15</div>
+          <div class="ch-confirm">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span><b>Appuntamento confermato</b><span>Sabato · 15:00 — aggiunto in agenda</span></span>
+          </div>
+        </div>
+        <div class="ch-input">
+          <span class="ph">Scrivi un messaggio…</span>
+          <button class="ch-send js-chat" type="button" aria-label="Invia">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="float-badge">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span>
+        Sul tuo sito, sempre online
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREZZI CHAT (sotto la sezione verde della chat) -->
+<section class="section chat-pricing" id="prezzi-chat">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="kicker kicker-green">Prezzi · Chat AI</span>
+      <h2 class="display"><span class="grad-green">Aggiungi la chat al tuo sito.</span></h2>
+      <p class="lead">Il piano chat si affianca a un piano voce oppure funziona da solo. Prezzi IVA esclusa.</p>
+      <div class="pricing-toggle" role="tablist" aria-label="Ciclo di fatturazione chat">
+        <button id="btnMonthlyChat" class="active" role="tab" aria-selected="true">Mensile</button>
+        <button id="btnAnnualChat" role="tab" aria-selected="false">Annuale <span class="toggle-save">–17%</span></button>
+      </div>
+    </div>
     <div class="chat-plan-band reveal">
       <div class="chat-plan">
         <span class="chat-plan-tag">Aggiungi la chat</span>
@@ -698,11 +721,7 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
       </div>
     </div>
     <div class="pricing-fine reveal">
-      <div class="row">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Minuti extra: 100 minuti a € 25</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Annuale con impegno 12 mesi</span>
-      </div>
-      <p>Tutti i prezzi sono <b>IVA esclusa</b>. Con il piano annuale l'attivazione (€ 149) è <b>gratuita</b> su Standard e Pro e <b>scontata del 50%</b> sul Basic.</p>
+      <p>Prezzi <b>IVA esclusa</b>. Con un piano voce annuale, in bundle, l'<b>attivazione della chat è gratuita</b> e il canone scende a € 39/mese.</p>
     </div>
   </div>
 </section>
@@ -797,18 +816,24 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
   const onScroll = () => nav.classList.toggle("scrolled", scrollY > 8);
   onScroll(); addEventListener("scroll", onScroll, { passive:true });
 
-  // Toggle prezzi
-  const btnM = document.getElementById("btnMonthly"), btnA = document.getElementById("btnAnnual");
+  // Toggle prezzi — due toggle (voce + chat) tenuti in sincronia su un'unica modalità
+  const billToggles = [["btnMonthly","btnAnnual"],["btnMonthlyChat","btnAnnualChat"]]
+    .map(([m,a]) => ({ m: document.getElementById(m), a: document.getElementById(a) }))
+    .filter(t => t.m && t.a);
   function setBilling(mode){
     const annual = mode === "annual";
-    btnA.classList.toggle("active", annual); btnM.classList.toggle("active", !annual);
-    btnA.setAttribute("aria-selected", String(annual)); btnM.setAttribute("aria-selected", String(!annual));
+    billToggles.forEach(({m,a}) => {
+      a.classList.toggle("active", annual); m.classList.toggle("active", !annual);
+      a.setAttribute("aria-selected", String(annual)); m.setAttribute("aria-selected", String(!annual));
+    });
     document.querySelectorAll(".plan-price .amount").forEach(el => el.textContent = "€ " + el.dataset[mode]);
     document.querySelectorAll(".plan-billed").forEach(el => el.innerHTML = el.dataset[mode]);
     document.querySelectorAll(".act-text").forEach(el => el.innerHTML = el.dataset[mode]);
   }
-  btnM.addEventListener("click", () => setBilling("monthly"));
-  btnA.addEventListener("click", () => setBilling("annual"));
+  billToggles.forEach(({m,a}) => {
+    m.addEventListener("click", () => setBilling("monthly"));
+    a.addEventListener("click", () => setBilling("annual"));
+  });
 
   // Toast
   const toast = document.getElementById("toast"), toastMsg = document.getElementById("toastMsg");
