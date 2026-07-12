@@ -226,6 +226,31 @@ h2.display{font-size:clamp(2.2rem,1.4rem + 3vw,3.8rem);letter-spacing:-.04em}
 .pricing-fine .row span{display:inline-flex;align-items:center;gap:.4rem}
 .pricing-fine .row svg{width:15px;height:15px;color:var(--accent)}
 
+/* Piano Chat AI + bundle */
+.chat-plan-band{max-width:1080px;margin:1.35rem auto 0;display:grid;grid-template-columns:1fr 1.12fr;gap:1.35rem;align-items:stretch}
+.chat-plan{position:relative;background:var(--surface);border:1px solid #CDEBDC;border-radius:var(--r-xl);padding:2rem;display:flex;flex-direction:column;box-shadow:0 0 0 1px #DDEFE6}
+.chat-plan-tag,.bundle-tag{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.35rem .7rem;border-radius:var(--r-pill);margin-bottom:1rem}
+.chat-plan-tag{background:#E1F5EC;color:#0B8A54}
+.chat-plan h3,.bundle h3{margin:0;font-size:1.4rem;color:var(--navy-900);letter-spacing:-.02em}
+.chat-plan .plan-price .amount{color:#0A5C43}
+.plan-activation.green{background:#EAF9F1;border-color:#BFE6D2;color:#0A5C43}
+.plan-activation.green svg{color:#0FA968}
+.chat-plan .plan-features li svg{color:#0FA968}
+.bundle{position:relative;overflow:hidden;border-radius:var(--r-xl);padding:2rem;color:#fff;background:linear-gradient(150deg,#0B8A54,#0FA968 55%,#0AA35F);display:flex;flex-direction:column}
+.bundle-tag{background:rgba(255,255,255,.18);color:#fff}
+.bundle h3{color:#fff}
+.bundle p{margin:.6rem 0 0;color:rgba(255,255,255,.92);font-size:.98rem;line-height:1.55}
+.bundle p b{color:#fff}
+.bundle-price{margin:1.3rem 0 .2rem;display:flex;align-items:baseline;gap:.5rem}
+.bundle-price .was{color:rgba(255,255,255,.6);text-decoration:line-through;font-size:1.15rem}
+.bundle-price .now{font-weight:700;font-size:3rem;color:#fff;line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.bundle-price .per{color:rgba(255,255,255,.82);font-size:.95rem;font-weight:500}
+.bundle ul{list-style:none;margin:1.1rem 0 1.6rem;padding:0;display:flex;flex-direction:column;gap:.6rem}
+.bundle li{display:flex;gap:.6rem;font-size:.95rem;color:rgba(255,255,255,.94)}
+.bundle li b{color:#fff}
+.bundle li svg{width:20px;height:20px;color:#fff;flex:none}
+.bundle .btn{margin-top:auto}
+
 /* CTA finale */
 .final-cta{padding-block:0}
 .final-cta .inner{position:relative;overflow:hidden;background:linear-gradient(155deg,#0E2A55 0%,var(--navy-900) 60%);border-radius:var(--r-xl);padding:clamp(2.75rem,6vw,5rem);text-align:center;color:var(--on-dark)}
@@ -277,6 +302,13 @@ h2.display{font-size:clamp(2.2rem,1.4rem + 3vw,3.8rem);letter-spacing:-.04em}
 .grad-green{background:linear-gradient(100deg,#065F3C,#0FA968 45%,#0AA35F 60%,#065F3C);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradShift 7s ease-in-out infinite}
 .chat-copy .lead{margin-top:1.4rem;max-width:36ch}
 .chat-cta{margin-top:2rem}
+/* Elementi ereditati dalla hero, ricolorati in verde per uniformare le due sezioni */
+.chat-demo .hero-trust .live{color:#0B8A54}
+.chat-demo .hero-trust .live::before{background:#0FA968;box-shadow:0 0 0 4px rgba(15,169,104,.2)}
+.chat-demo .hero-does .lbl{color:#0B8A54}
+.chat-demo .hero-does li svg{color:#0FA968}
+.chat-demo .float-badge{left:auto;right:22px;top:-18px;bottom:auto}
+.chat-demo .float-badge .ico{background:#E1F5EC;color:#0FA968}
 .btn-green{background:#0FA968;color:#fff;box-shadow:0 14px 30px -10px rgba(15,169,104,.5)}
 .btn-green:hover{background:#0B8A54;transform:translateY(-3px);box-shadow:0 20px 38px -12px rgba(15,169,104,.6)}
 .chat-visual{position:relative;z-index:2}
@@ -322,6 +354,7 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
   .hero .lead{max-width:48ch}
   .trust .container,.steps{grid-template-columns:1fr}
   .plans{grid-template-columns:1fr;max-width:460px}
+  .chat-plan-band{grid-template-columns:1fr;max-width:460px}
   .chat-grid{grid-template-columns:1fr}
   .chat-visual{margin-top:2.5rem}
   .float-badge{left:auto;right:14px;bottom:-16px}
@@ -388,7 +421,7 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
       </div>
       <div class="hero-trust">
         <span class="live">In produzione</span>
-        <span>già al lavoro su un'attività reale.</span>
+        <span>costruito e testato sul campo, non un demo statico.</span>
       </div>
       <div class="hero-does">
         <span class="lbl">In una sola telefonata</span>
@@ -515,11 +548,25 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
       <span class="kicker kicker-green">Chat AI · sul tuo sito</span>
       <h2 class="display"><span class="grad-green">Non solo voce: risponde anche in chat.</span></h2>
       <p class="lead">La stessa intelligenza risponde ai messaggi sul tuo sito — informazioni, orari, preventivi, prenotazioni — 24 ore su 24. Il cliente scrive, Rispondoio risolve.</p>
-      <div class="chat-cta">
+      <div class="hero-cta">
         <button type="button" class="btn btn-green btn-lg js-chat">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           Prova la chat
         </button>
+        <a href="#prezzi" class="btn btn-ghost btn-lg">Vedi i prezzi</a>
+      </div>
+      <div class="hero-trust chat-trust">
+        <span class="live">Sempre attiva</span>
+        <span>risponde ai messaggi in meno di un secondo.</span>
+      </div>
+      <div class="hero-does chat-does">
+        <span class="lbl">In una sola conversazione</span>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Risponde ai messaggi in linguaggio naturale</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Dà informazioni, orari e preventivi</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Prende la prenotazione e la scrive in agenda</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Invia l'email di conferma dell'appuntamento</li>
+        </ul>
       </div>
     </div>
     <div class="chat-visual reveal">
@@ -545,6 +592,10 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
           </button>
         </div>
       </div>
+      <div class="float-badge">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span>
+        Sul tuo sito, sempre online
+      </div>
     </div>
   </div>
 </section>
@@ -554,8 +605,8 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
   <div class="container">
     <div class="section-head center reveal">
       <span class="kicker">Prezzi trasparenti</span>
-      <h2 class="display"><span class="grad">Tre piani. Nessuna sorpresa.</span></h2>
-      <p class="lead">Prezzi IVA esclusa. Con il piano annuale spendi meno ogni mese.</p>
+      <h2 class="display"><span class="grad">Piani chiari. Nessuna sorpresa.</span></h2>
+      <p class="lead">Prezzi IVA esclusa. Con il piano annuale spendi meno ogni mese. La chat è un'aggiunta opzionale ai piani voce.</p>
       <div class="pricing-toggle" role="tablist" aria-label="Ciclo di fatturazione">
         <button id="btnMonthly" class="active" role="tab" aria-selected="true">Mensile</button>
         <button id="btnAnnual" role="tab" aria-selected="false">Annuale <span class="toggle-save">fino a –17%</span></button>
@@ -613,6 +664,37 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Priorità nel supporto</li>
         </ul>
         <button type="button" class="btn btn-primary btn-block btn-lg js-plan" data-plan="Pro">Inizia con Pro</button>
+      </div>
+    </div>
+    <div class="chat-plan-band reveal">
+      <div class="chat-plan">
+        <span class="chat-plan-tag">Aggiungi la chat</span>
+        <h3>Chat AI</h3>
+        <p class="plan-sub">Stessa intelligenza di Rispondoio, sul tuo sito, in chat.</p>
+        <div class="plan-price"><span class="amount" data-monthly="69" data-annual="57">€ 69</span><span class="per">/ mese</span></div>
+        <div class="plan-billed" data-monthly="Disdicibile dopo il primo mese." data-annual="Fatturato annualmente · <b>risparmi il 17%</b>">Disdicibile dopo il primo mese.</div>
+        <div class="plan-activation green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+          <span class="act-text" data-monthly='Attivazione <b>€ 99</b> una tantum' data-annual='Attivazione <b>€ 99</b> una tantum'>Attivazione <b>€ 99</b> una tantum</span>
+        </div>
+        <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Widget chat sul tuo sito, installato da noi</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Risposta immediata 24/7 a ogni messaggio</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Prenotazione in agenda e notifiche email</li>
+        </ul>
+        <button type="button" class="btn btn-green btn-block btn-lg js-plan" data-plan="Chat AI">Aggiungi Chat AI</button>
+      </div>
+      <div class="bundle">
+        <span class="bundle-tag">Bundle voce + chat</span>
+        <h3>Rispondi su ogni canale.</h3>
+        <p>Prendi un piano voce annuale insieme alla Chat annuale: la Chat scende a <b>€ 39/mese</b> e l'<b>attivazione chat è gratuita</b>. Un unico assistente, al telefono e sul sito.</p>
+        <div class="bundle-price"><span class="was">€ 69</span><span class="now">€ 39</span><span class="per">/ mese</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Voce e chat gestite dallo stesso assistente</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Attivazione della chat <b>gratuita</b> (–€ 99)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Risparmio di <b>€ 360 l'anno</b> sulla chat</li>
+        </ul>
+        <button type="button" class="btn btn-light btn-block btn-lg js-plan" data-plan="Bundle voce + chat">Attiva il bundle</button>
       </div>
     </div>
     <div class="pricing-fine reveal">
@@ -829,7 +911,47 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
       }
     } catch(e){}
   }
-  setInterval(tuneRetellWidget, 800);
+  // Rende fluida la chat: rimuove il markdown (asterischi **grassetto**, *corsivo*,
+  // elenchi con "* ") che l'agente potrebbe produrre, così il cliente legge testo naturale.
+  function deMarkdown(s){
+    return s
+      .replace(/\*\*([^*]+)\*\*/g, "$1")                       // **grassetto**
+      .replace(/(^|[\s(])\*([^*\n]+)\*(?=$|[\s).,;:!?])/g, "$1$2") // *corsivo*
+      .replace(/^\s*[\*•\-]\s+/gm, "• ")                   // elenco puntato
+      .replace(/\*+/g, "");                                     // asterischi residui
+  }
+  function cleanRetellText(){
+    try{
+      // Raccoglie SOLO i contenitori del widget Retell (mai l'intera pagina: altrimenti
+      // corromperebbe il testo di <style>/<script> che contiene asterischi).
+      const scopes=[];
+      for(const root of widgetRoots()){
+        if(root===document){
+          document.querySelectorAll('[class*="retell" i],[id*="retell" i]').forEach(el=>{
+            if(el.tagName!=="SCRIPT" && el.tagName!=="STYLE") scopes.push(el);
+          });
+        } else {
+          scopes.push(root.querySelector('[class*="retell" i],[id*="retell" i]') || root);
+        }
+      }
+      for(const scope of scopes){
+        const walker=document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, null);
+        const edits=[]; let n;
+        while((n=walker.nextNode())){
+          const v=n.nodeValue;
+          if(!v || v.indexOf("*")===-1) continue;
+          const p=n.parentElement;
+          if(!p) continue;
+          const tag=p.tagName;
+          if(tag==="STYLE"||tag==="SCRIPT"||tag==="TEXTAREA"||tag==="INPUT"||p.isContentEditable) continue;
+          const c=deMarkdown(v);
+          if(c!==v) edits.push([n,c]);
+        }
+        edits.forEach(([node,val])=>{ node.nodeValue=val; });
+      }
+    }catch(e){}
+  }
+  setInterval(function(){ tuneRetellWidget(); cleanRetellText(); }, 600);
 
   // Reveal + stagger (più evidenti)
   const items = document.querySelectorAll(".reveal, .stagger");
