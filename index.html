@@ -1000,8 +1000,9 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
       const confirmed = /(appuntament|prenotazion)/.test(txt) && /(confermat|registrat|fissat|prenotat)/.test(txt);
       const ended = txt.indexOf("chat ended")!==-1 || txt.indexOf("chat conclusa")!==-1 || txt.indexOf("conversazione conclusa")!==-1;
       if((confirmed || ended) && !closeTimer){
-        // chiudi automaticamente qualche secondo dopo la conferma e il ringraziamento
-        closeTimer=setTimeout(function(){ closeTimer=null; wasOpen=false; resetRetellWidget(); }, 5000);
+        // chiudi automaticamente ~1 minuto dopo la conferma, così il cliente ha
+        // tutto il tempo di leggere il riassunto dell'appuntamento
+        closeTimer=setTimeout(function(){ closeTimer=null; wasOpen=false; resetRetellWidget(); }, 60000);
       }
     } else if(wasOpen){
       // chiuso manualmente: ricrea il widget così alla riapertura è di nuovo vuoto
