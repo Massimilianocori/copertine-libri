@@ -1099,7 +1099,12 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
   // non puo' intercettare). Su richiesta: "Retell" deve sparire, anche vuoto.
   const HIDE_CSS = 'a[href*="retell" i],[class*="poweredBy" i],[class*="powered-by" i],'
     + '[class*="watermark" i],[class*="branding" i],[class*="brandName" i],'
-    + '[aria-label*="retell" i]{display:none!important;visibility:hidden!important}';
+    + '[aria-label*="retell" i]{display:none!important;visibility:hidden!important}'
+    // Logo "Retell" nell\'header del widget (SVG in ._headerBrand_*, senza testo):
+    // nascondo l\'SVG e metto "Rispondoio" al suo posto. Regge i re-render (e\' CSS).
+    + '[class*="headerBrand" i] svg,[class*="headerBrand" i] img{display:none!important}'
+    + '[class*="headerBrand" i]::after{content:"Rispondoio";font:700 15px/1.1 inherit;'
+    + 'color:#0F7A85;letter-spacing:-.01em;white-space:nowrap}';
   function injectHideCss(root){
     try{
       const host = (root===document) ? document.head : root;
