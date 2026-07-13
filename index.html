@@ -223,6 +223,10 @@ h2.display{font-size:clamp(2.2rem,1.4rem + 3vw,3.8rem);letter-spacing:-.02em}
 .pricing-toggle button.active{background:var(--surface);color:var(--navy-900);box-shadow:var(--shadow-sm)}
 .toggle-save{font-size:.7rem;font-weight:700;background:var(--success-soft);color:var(--success);padding:.15rem .45rem;border-radius:var(--r-pill)}
 .plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.35rem;margin-top:2.5rem;max-width:1080px;margin-inline:auto;align-items:stretch}
+/* Evidenzia i piani voce quando si arriva dal bundle (outline: non tocca bordo/ombra) */
+.plans.flash .plan{animation:planflash 1.2s var(--ease) 2}
+@keyframes planflash{0%,100%{outline:2px solid rgba(10,109,216,0);outline-offset:2px}50%{outline:2px solid rgba(10,109,216,.55);outline-offset:5px}}
+@media (prefers-reduced-motion:reduce){.plans.flash .plan{animation:none;outline:2px solid rgba(10,109,216,.5);outline-offset:4px}}
 .plan{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:2rem;display:flex;flex-direction:column;transition:transform .22s var(--ease),box-shadow .25s}
 .plan:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
 .plan.featured{border-color:var(--brand-orange);box-shadow:0 0 0 1px var(--brand-orange),var(--shadow-md)}
@@ -884,7 +888,25 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
   let tt; function showToast(m){ toastMsg.textContent = m; toast.style.opacity="1"; toast.style.transform="translateX(-50%) translateY(0)"; clearTimeout(tt); tt=setTimeout(()=>{toast.style.opacity="0";toast.style.transform="translateX(-50%) translateY(20px)";},4500); }
 
   // Abbonamenti: alla scelta del piano (checkout con pagamento — da collegare)
+  const plansGrid = document.querySelector(".plans");
+  const voicePricing = document.getElementById("prezzi");
+  let flashTimer;
+  function flashVoicePlans(){
+    if(!plansGrid) return;
+    plansGrid.classList.remove("flash"); void plansGrid.offsetWidth; // riavvia l'animazione
+    plansGrid.classList.add("flash");
+    clearTimeout(flashTimer); flashTimer=setTimeout(()=>plansGrid.classList.remove("flash"), 2600);
+  }
   document.querySelectorAll(".js-plan").forEach(b=>b.addEventListener("click",()=>{
+    // Il bundle richiede un piano VOCE annuale: invece del checkout, porta il cliente
+    // alla scelta del piano voce, in modalità annuale, così vede subito il costo.
+    if((b.dataset.plan||"") === "Bundle voce + chat"){
+      setBilling("annual");
+      if(voicePricing) voicePricing.scrollIntoView({behavior:"smooth", block:"start"});
+      setTimeout(flashVoicePlans, 500);
+      showToast("Scegli il tuo piano voce annuale: con il bundle la Chat è a € 39/mese e l'attivazione è gratuita.");
+      return;
+    }
     showToast("Piano " + (b.dataset.plan||"") + ": a breve il checkout sicuro con PayPal e carta.");
   }));
   // Bottoni della pagina che devono aprire il widget Retell
@@ -1190,60 +1212,6 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
     let raf=null,tx=0,ty=0;
     addEventListener("mousemove",e=>{ tx=e.clientX/innerWidth-0.5; ty=e.clientY/innerHeight-0.5; if(!raf) raf=requestAnimationFrame(()=>{ raf=null; fluid.style.transform=`translate(${tx*26}px,${ty*26}px)`; }); },{passive:true});
   }
-})();
-</script>
-<!-- DIAGNOSTICA TEMPORANEA: attiva solo con ?diag=1. Mostra la struttura del widget
-     per capire dov'e' "Retell" (iframe vs shadow DOM). Da rimuovere dopo. -->
-<script>
-(function(){
-  if(!/[?&]diag=1/.test(location.search)) return;
-  function roots(){ var out=[]; (function c(r){ out.push(r); var s=(r===document)?document:r; if(s.querySelectorAll) s.querySelectorAll("*").forEach(function(el){ if(el.shadowRoot) c(el.shadowRoot); }); })(document); return out; }
-  var box=document.createElement("div"); box.id="rbDiag";
-  box.style.cssText="position:fixed;top:8px;left:8px;z-index:2147483647;max-width:44vw;max-height:92vh;overflow:auto;background:#0A1220;color:#8CE0C0;font:11px/1.4 ui-monospace,Menlo,Consolas,monospace;padding:10px 12px;border:2px solid #1FA5B0;border-radius:8px;white-space:pre-wrap;box-shadow:0 10px 40px rgba(0,0,0,.5)";
-  document.body.appendChild(box);
-  function skip(el){ return el.tagName==="SCRIPT"||el.tagName==="STYLE"||el.id==="rbDiag"||el.closest&&el.closest("#rbDiag"); }
-  function esc(s){ return String(s).replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
-  function scan(){ try{ scanInner(); }catch(e){ box.textContent="DIAG ERR: "+(e&&e.message||e); } }
-  function scanInner(){
-    var L=[]; var rs=roots();
-    L.push("== DIAGNOSTICA WIDGET =="); L.push("shadow roots: "+(rs.length-1));
-    var ifr=document.querySelectorAll("iframe");
-    L.push("iframe: "+ifr.length);
-    ifr.forEach(function(f,i){ L.push("  iframe#"+i+" src="+esc((f.getAttribute("src")||"").slice(0,80))); });
-    var textHits=0, attrHits=0, dumps=[];
-    rs.forEach(function(r){
-      var scope=(r===document)?document.body:r;
-      if(!scope||!scope.querySelectorAll) return;
-      scope.querySelectorAll("*").forEach(function(el){
-        if(skip(el)) return;
-        var leaf=!el.children||el.children.length===0;
-        if(leaf){ var t=(el.textContent||"").trim(); if(/retell/i.test(t)){ textHits++; if(dumps.length<8) dumps.push("TXT <"+el.tagName.toLowerCase()+" class='"+esc((el.className&&el.className.baseVal!=null?el.className.baseVal:el.className)||"")+"'>"+esc(t.slice(0,30))); } }
-        ["src","href","alt","aria-label","title","data-testid"].forEach(function(a){ var v=el.getAttribute&&el.getAttribute(a); if(v&&/retell/i.test(v)){ attrHits++; if(dumps.length<14) dumps.push("ATTR <"+el.tagName.toLowerCase()+" "+a+"='"+esc(v.slice(0,50))+"'>"); } });
-      });
-    });
-    L.push("hit TESTO 'retell': "+textHits);
-    L.push("hit ATTRIBUTI 'retell': "+attrHits);
-    L.push(""); L.push(dumps.length?dumps.join("\n"):"(nessun 'retell' trovato nel DOM/shadow → probabile IFRAME cross-origin)");
-    // Dump della struttura di ogni shadow root SENZA style/script (per vedere il logo SVG)
-    rs.forEach(function(r,i){
-      if(r===document) return;
-      // elenco di tutti gli svg/img col loro class + class del genitore (il logo header)
-      var media=[];
-      r.querySelectorAll("svg,img").forEach(function(m){
-        var cn=(m.className&&m.className.baseVal!=null)?m.className.baseVal:(m.getAttribute&&m.getAttribute("class")||"");
-        var pc=m.parentElement?((m.parentElement.className&&m.parentElement.className.baseVal!=null)?m.parentElement.className.baseVal:(m.parentElement.getAttribute&&m.parentElement.getAttribute("class")||"")):"";
-        var rect=m.getBoundingClientRect();
-        if(media.length<12) media.push("  "+m.tagName.toLowerCase()+" class='"+esc(cn)+"' parent.class='"+esc(pc)+"' top="+Math.round(rect.top));
-      });
-      // struttura pulita (rimuovo style/script dal testo HTML)
-      var html=(r.innerHTML||"").replace(/<style[\s\S]*?<\/style>/gi,"").replace(/<script[\s\S]*?<\/script>/gi,"").replace(/\s+/g," ").trim().slice(0,900);
-      L.push(""); L.push("SHADOW#"+i+" SVG/IMG:"); L.push(media.length?media.join("\n"):"  (nessuno)");
-      L.push("SHADOW#"+i+" HTML:"); L.push(esc(html)||"(vuoto)");
-    });
-    box.innerHTML="";
-    box.appendChild(document.createTextNode(L.join("\n")));
-  }
-  setInterval(scan, 1000); scan();
 })();
 </script>
 </body>
