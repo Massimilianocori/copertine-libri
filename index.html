@@ -895,10 +895,14 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
     }
     return null;
   }
-  // Il widget è già aperto? (c'è un pannello/dialog nel container Retell)
+  // Il widget è aperto? La pagina non ha campi di testo propri: un textarea / campo
+  // editabile / dialog VISIBILE = pannello del widget aperto (ignora elementi nascosti).
+  function isVisibleEl(el){ try{ const r=el.getBoundingClientRect(); return r.width>2 && r.height>2; }catch(e){ return false; } }
   function isWidgetOpen(){
     for(const root of widgetRoots()){
-      if(root.querySelector('[class*="retell" i] [role="dialog"],[id*="retell" i] [role="dialog"],[class*="retell" i] textarea,[id*="retell" i] textarea,[class*="retell" i] input,[id*="retell" i] input')) return true;
+      if(!root.querySelectorAll) continue;
+      const els=root.querySelectorAll('textarea,[contenteditable]:not([contenteditable="false"]),input[type="text"],[role="dialog"]');
+      for(const el of els){ if(isVisibleEl(el)) return true; }
     }
     return false;
   }
@@ -919,6 +923,68 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
     })();
   }
   ownBtns.forEach(b=>b.addEventListener("click", openRetellWidget));
+
+  // ---- Chat sempre pulita: ricrea il widget alla chiusura + chiusura automatica dopo la conferma ----
+  const RETELL_WIDGET_URL = "https://dashboard.retellai.com/retell-widget-v2.js";
+  // Nodi del body presenti all'origine: tutto ciò che non è qui è stato creato dal widget.
+  const baseBodyNodes = new Set(Array.prototype.slice.call(document.body.children));
+  function clearRetellStorage(){
+    try{ [localStorage,sessionStorage].forEach(function(s){ if(!s) return; for(var i=s.length-1;i>=0;i--){ var k=s.key(i); if(k && /retell|rispond|agent_|public_key_|chat/i.test(k)) s.removeItem(k); } }); }catch(e){}
+  }
+  // Testo SOLO del widget (shadow DOM + contenitori retell) — mai la pagina, che contiene già
+  // un mock "Appuntamento confermato".
+  function widgetText(){
+    let out="";
+    for(const root of widgetRoots()){
+      if(root===document){
+        document.querySelectorAll('[class*="retell" i],[id*="retell" i]').forEach(function(el){ if(el.tagName!=="SCRIPT") out += " " + (el.textContent||""); });
+      } else { out += " " + (root.textContent||""); }
+    }
+    return out.toLowerCase();
+  }
+  let resetting=false;
+  function resetRetellWidget(){
+    if(resetting) return; resetting=true;
+    try{
+      // 1) rimuovi i nodi creati dal widget nel body
+      Array.prototype.slice.call(document.body.children).forEach(function(el){ if(!baseBodyNodes.has(el)) el.remove(); });
+      // 2) rimuovi eventuali residui con classe/id/tag "retell"
+      document.querySelectorAll('body [class*="retell" i], body [id*="retell" i]').forEach(function(el){ if(el.id!=="retell-widget") el.remove(); });
+      document.querySelectorAll('body *').forEach(function(el){ const t=(el.tagName||"").toLowerCase(); if(t.indexOf("-")>-1 && t.indexOf("retell")>-1) el.remove(); });
+      // 3) ricrea lo <script> del widget (cache-bust) per ripartire da una chat vuota
+      const old=document.getElementById("retell-widget");
+      const attrs={};
+      if(old){ for(const a of old.attributes) attrs[a.name]=a.value; old.remove(); baseBodyNodes.delete(old); }
+      clearRetellStorage();
+      const s=document.createElement("script");
+      Object.keys(attrs).forEach(function(n){ if(n!=="src"&&n!=="id") s.setAttribute(n,attrs[n]); });
+      s.id="retell-widget"; s.type="module";
+      s.src=(attrs.src||RETELL_WIDGET_URL).split("?")[0]+"?t="+Date.now();
+      document.body.appendChild(s);
+      baseBodyNodes.add(s);
+      fab=null;
+    }catch(e){}
+    setTimeout(function(){ resetting=false; }, 2500);
+  }
+  // Sorveglia apertura/chiusura e conferma appuntamento
+  let wasOpen=false, closeTimer=null;
+  setInterval(function(){
+    const open=isWidgetOpen();
+    if(open){
+      const txt=widgetText();
+      const confirmed = /(appuntament|prenotazion)/.test(txt) && /(confermat|registrat|fissat|prenotat)/.test(txt);
+      const ended = txt.indexOf("chat ended")!==-1 || txt.indexOf("chat conclusa")!==-1 || txt.indexOf("conversazione conclusa")!==-1;
+      if((confirmed || ended) && !closeTimer){
+        // chiudi automaticamente qualche secondo dopo la conferma e il ringraziamento
+        closeTimer=setTimeout(function(){ closeTimer=null; wasOpen=false; resetRetellWidget(); }, 5000);
+      }
+    } else if(wasOpen){
+      // chiuso manualmente: ricrea il widget così alla riapertura è di nuovo vuoto
+      if(closeTimer){ clearTimeout(closeTimer); closeTimer=null; }
+      resetRetellWidget();
+    }
+    wasOpen=open;
+  }, 700);
 
   // Localizza il widget Retell in italiano e rimuove il branding
   // (esplora anche gli shadow DOM aperti; il widget aggiorna il DOM dinamicamente)
