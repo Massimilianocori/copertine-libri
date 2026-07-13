@@ -371,6 +371,13 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
 .contact-card.is-soon .co-ico{background:var(--muted);color:var(--slate-400)}
 .contact-card.is-soon .co-value{color:var(--text-3);font-weight:600}
 
+/* Bordo arancione del brand su TUTTE le "finestre" (card) del sito.
+   Posizionato dopo le definizioni delle card così vince nella cascata. */
+.call-card,.chat-card,.sector,.step,.plan,.chat-plan,.contact-card{border-color:var(--brand-orange)}
+.bundle{border:1px solid var(--brand-orange)}
+.sector:hover,.step:hover,.plan:hover,.contact-card:hover,a.contact-card:hover{border-color:var(--brand-orange-strong)}
+.plan.featured{border-color:var(--brand-orange);box-shadow:0 0 0 1px var(--brand-orange),var(--shadow-md)}
+
 /* Responsive */
 /* Chat: layout speculare rispetto alla voce (card a sinistra, testo a destra)
    così la sezione chat non e' semplicemente quella voce ricolorata. Solo desktop:
@@ -572,7 +579,7 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
       <h2 class="display"><span class="grad">Piani per l'assistente vocale.</span></h2>
       <p class="lead">Prezzi IVA esclusa. Con il piano annuale spendi meno ogni mese.</p>
       <div class="pricing-toggle" role="tablist" aria-label="Ciclo di fatturazione voce">
-        <button id="btnMonthly" class="active" role="tab" aria-selected="true">Mensile</button>
+        <button id="btnMonthly" class="active" role="tab" aria-selected="true">Trimestrale</button>
         <button id="btnAnnual" role="tab" aria-selected="false">Annuale <span class="toggle-save">fino a –17%</span></button>
       </div>
     </div>
@@ -581,7 +588,7 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
         <h3>Basic</h3>
         <p class="plan-sub">Per iniziare, senza pensieri.</p>
         <div class="plan-price"><span class="amount" data-monthly="79" data-annual="67">€ 79</span><span class="per">/ mese</span></div>
-        <div class="plan-billed" data-monthly="Disdicibile dopo il primo mese." data-annual="Fatturato annualmente · <b>risparmi il 15%</b>">Disdicibile dopo il primo mese.</div>
+        <div class="plan-billed" data-monthly="Impegno minimo 3 mesi." data-annual="Fatturato annualmente · <b>risparmi il 15%</b>">Impegno minimo 3 mesi.</div>
         <div class="plan-activation">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
           <span class="act-text" data-monthly='Attivazione <b>€ 149</b> una tantum' data-annual='Attivazione <s>€ 149</s> <b>€ 74,50</b> (–50%)'>Attivazione <b>€ 149</b> una tantum</span>
@@ -598,7 +605,7 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
         <h3>Standard</h3>
         <p class="plan-sub">Per non perdere più una chiamata.</p>
         <div class="plan-price"><span class="amount" data-monthly="129" data-annual="109">€ 129</span><span class="per">/ mese</span></div>
-        <div class="plan-billed" data-monthly="Disdicibile dopo il primo mese." data-annual="Fatturato annualmente · <b>risparmi il 16%</b>">Disdicibile dopo il primo mese.</div>
+        <div class="plan-billed" data-monthly="Impegno minimo 3 mesi." data-annual="Fatturato annualmente · <b>risparmi il 16%</b>">Impegno minimo 3 mesi.</div>
         <div class="plan-activation">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
           <span class="act-text" data-monthly='Attivazione <b>€ 149</b> una tantum' data-annual='Attivazione <s>€ 149</s> <span class="free">gratis</span>'>Attivazione <b>€ 149</b> una tantum</span>
@@ -616,7 +623,7 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
         <h3>Pro</h3>
         <p class="plan-sub">Per chi vive di telefonate.</p>
         <div class="plan-price"><span class="amount" data-monthly="229" data-annual="189">€ 229</span><span class="per">/ mese</span></div>
-        <div class="plan-billed" data-monthly="Disdicibile dopo il primo mese." data-annual="Fatturato annualmente · <b>risparmi il 17%</b>">Disdicibile dopo il primo mese.</div>
+        <div class="plan-billed" data-monthly="Impegno minimo 3 mesi." data-annual="Fatturato annualmente · <b>risparmi il 17%</b>">Impegno minimo 3 mesi.</div>
         <div class="plan-activation">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
           <span class="act-text" data-monthly='Attivazione <b>€ 149</b> una tantum' data-annual='Attivazione <s>€ 149</s> <span class="free">gratis</span>'>Attivazione <b>€ 149</b> una tantum</span>
@@ -719,7 +726,7 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
       <h2 class="display"><span class="grad-green">Aggiungi la chat al tuo sito.</span></h2>
       <p class="lead">Il piano chat si affianca a un piano voce oppure funziona da solo. Prezzi IVA esclusa.</p>
       <div class="pricing-toggle" role="tablist" aria-label="Ciclo di fatturazione chat">
-        <button id="btnMonthlyChat" class="active" role="tab" aria-selected="true">Mensile</button>
+        <button id="btnMonthlyChat" class="active" role="tab" aria-selected="true">Trimestrale</button>
         <button id="btnAnnualChat" role="tab" aria-selected="false">Annuale <span class="toggle-save">–17%</span></button>
       </div>
     </div>
@@ -729,7 +736,7 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
         <h3>Chat AI</h3>
         <p class="plan-sub">Stessa intelligenza di Rispondoio, sul tuo sito, in chat.</p>
         <div class="plan-price"><span class="amount" data-monthly="69" data-annual="57">€ 69</span><span class="per">/ mese</span></div>
-        <div class="plan-billed" data-monthly="Disdicibile dopo il primo mese." data-annual="Fatturato annualmente · <b>risparmi il 17%</b>">Disdicibile dopo il primo mese.</div>
+        <div class="plan-billed" data-monthly="Impegno minimo 3 mesi." data-annual="Fatturato annualmente · <b>risparmi il 17%</b>">Impegno minimo 3 mesi.</div>
         <div class="plan-activation green">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
           <span class="act-text" data-monthly='Attivazione <b>€ 99</b> una tantum' data-annual='Attivazione <b>€ 99</b> una tantum'>Attivazione <b>€ 99</b> una tantum</span>
