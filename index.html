@@ -2,6 +2,24 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8" />
+<script>
+/* Forza in modalità "open" ogni shadow root creato dopo (il widget Retell monta
+   l'header "Retell" dentro uno shadow DOM "closed" che nessuno script di pagina
+   potrebbe leggere). Deve girare PRIMA che il widget si monti → va qui in testa,
+   prima dello <script type="module"> del widget (che è deferito). Così la scansione
+   ricorsiva in fondo alla pagina raggiunge anche l'header e lo riscrive in Rispondoio. */
+(function(){
+  try{
+    var orig = Element.prototype.attachShadow;
+    Element.prototype.attachShadow = function(init){
+      if(init && init.mode === "closed"){
+        try{ init = Object.assign({}, init, { mode:"open" }); }catch(e){}
+      }
+      return orig.call(this, init);
+    };
+  }catch(e){}
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rispondoio — L'assistente vocale AI che risponde al telefono della tua attività, 24/7</title>
 <meta name="description" content="Rispondoio risponde alle chiamate della tua attività 24 ore su 24, capisce cosa serve e prenota l'appuntamento in agenda durante la telefonata. Configurato su misura per te." />
