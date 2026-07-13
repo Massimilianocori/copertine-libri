@@ -1010,8 +1010,7 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
           if(interactive || isFixedish(el)) return;
           // Rimuovi il branding "Powered by ..." (elemento piccolo, anche con logo dentro)
           if(t.length<40 && t.indexOf("powered by")!==-1){ el.style.setProperty("display","none","important"); return; }
-          // Rimuovi eventuali diciture "Retell" residue (foglia)
-          if(leaf && t.length<40 && t.indexOf("retell")!==-1){ el.style.setProperty("display","none","important"); }
+          // La sostituzione "Retell" → "Rispondoio" è gestita da rebrandRetell()
         });
       }
     } catch(e){}
@@ -1056,7 +1055,45 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
       }
     }catch(e){}
   }
-  setInterval(function(){ tuneRetellWidget(); cleanRetellText(); }, 600);
+  // Sostituisce ogni occorrenza di "Retell" con "Rispondoio" nel widget (testo, attributi)
+  // e nasconde eventuali loghi Retell. "Retell" non deve mai comparire sul sito.
+  function rebrandRetell(){
+    try{
+      const RX=/retell\s*\.?\s*ai|retellai|retell/gi, REPL="Rispondoio";
+      const scopes=[];
+      for(const root of widgetRoots()){
+        if(root===document){
+          document.querySelectorAll('[class*="retell" i],[id*="retell" i]').forEach(el=>{ if(el.tagName!=="SCRIPT"&&el.tagName!=="STYLE") scopes.push(el); });
+        } else scopes.push(root);
+      }
+      for(const scope of scopes){
+        // testo
+        const walker=document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, null);
+        const edits=[]; let n;
+        while((n=walker.nextNode())){
+          const p=n.parentElement; if(!p) continue;
+          if(p.tagName==="SCRIPT"||p.tagName==="STYLE") continue;
+          const v=n.nodeValue; if(!v) continue;
+          const c=v.replace(RX,REPL);
+          if(c!==v) edits.push([n,c]);
+        }
+        edits.forEach(([node,val])=>{ node.nodeValue=val; });
+        // attributi visibili
+        if(scope.querySelectorAll) scope.querySelectorAll("*").forEach(el=>{
+          ["alt","aria-label","title","placeholder"].forEach(a=>{
+            const v=el.getAttribute && el.getAttribute(a);
+            if(v && RX.test(v)){ el.setAttribute(a, v.replace(RX,REPL)); } RX.lastIndex=0;
+          });
+          // nascondi loghi/immagini Retell
+          if((el.tagName==="IMG"||el.tagName==="SVG"||el.tagName==="svg")){
+            const s=((el.getAttribute&&(el.getAttribute("src")||el.getAttribute("alt")||el.getAttribute("aria-label")))||"");
+            if(/retell/i.test(s)) el.style.setProperty("display","none","important");
+          }
+        });
+      }
+    }catch(e){}
+  }
+  setInterval(function(){ tuneRetellWidget(); cleanRetellText(); rebrandRetell(); }, 500);
 
   // Reveal + stagger (più evidenti)
   const items = document.querySelectorAll(".reveal, .stagger");
