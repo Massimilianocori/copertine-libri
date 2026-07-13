@@ -223,10 +223,6 @@ h2.display{font-size:clamp(2.2rem,1.4rem + 3vw,3.8rem);letter-spacing:-.02em}
 .pricing-toggle button.active{background:var(--surface);color:var(--navy-900);box-shadow:var(--shadow-sm)}
 .toggle-save{font-size:.7rem;font-weight:700;background:var(--success-soft);color:var(--success);padding:.15rem .45rem;border-radius:var(--r-pill)}
 .plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.35rem;margin-top:2.5rem;max-width:1080px;margin-inline:auto;align-items:stretch}
-/* Evidenzia i piani voce quando si arriva dal bundle (outline: non tocca bordo/ombra) */
-.plans.flash .plan{animation:planflash 1.2s var(--ease) 2}
-@keyframes planflash{0%,100%{outline:2px solid rgba(10,109,216,0);outline-offset:2px}50%{outline:2px solid rgba(10,109,216,.55);outline-offset:5px}}
-@media (prefers-reduced-motion:reduce){.plans.flash .plan{animation:none;outline:2px solid rgba(10,109,216,.5);outline-offset:4px}}
 .plan{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:2rem;display:flex;flex-direction:column;transition:transform .22s var(--ease),box-shadow .25s}
 .plan:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
 .plan.featured{border-color:var(--brand-orange);box-shadow:0 0 0 1px var(--brand-orange),var(--shadow-md)}
@@ -376,6 +372,41 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
 .call-card,.chat-card,.sector,.step,.plan,.chat-plan,.contact-card{border-color:var(--brand-orange)}
 .bundle{border:1px solid var(--brand-orange)}
 .sector:hover,.step:hover,.plan:hover,.contact-card:hover,a.contact-card:hover{border-color:var(--brand-orange-strong)}
+
+/* Modal configuratore bundle */
+.modal-overlay{position:fixed;inset:0;z-index:400;display:flex;align-items:center;justify-content:center;padding:1.2rem;background:rgba(10,18,32,.55);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);opacity:0;transition:opacity .25s var(--ease)}
+.modal-overlay[hidden]{display:none}
+.modal-overlay.open{opacity:1}
+.modal{position:relative;background:var(--surface);border:1px solid var(--brand-orange);border-radius:var(--r-xl);box-shadow:var(--shadow-lg);width:min(560px,100%);max-height:92vh;overflow:auto;padding:clamp(1.5rem,3vw,2.4rem);transform:translateY(14px) scale(.98);transition:transform .25s var(--ease)}
+.modal-overlay.open .modal{transform:none}
+.modal-close{position:absolute;top:.85rem;right:1rem;width:34px;height:34px;border:none;background:var(--muted);border-radius:50%;font-size:1.25rem;color:var(--slate-600);display:grid;place-items:center;line-height:1}
+.modal-close:hover{background:var(--border);color:var(--navy-900)}
+.modal h3{margin:0 0 .3rem;font-family:var(--font-display);font-size:clamp(1.5rem,1rem + 1.6vw,1.9rem);color:var(--navy-900);letter-spacing:-.02em;line-height:1.1;padding-right:2rem}
+.modal-sub{margin:0 0 1.3rem;color:var(--text-2);font-size:.97rem}
+.bm-included{display:flex;gap:.7rem;align-items:center;background:var(--success-soft);border:1px solid #BFE6D2;border-radius:var(--r-md);padding:.85rem 1rem;margin-bottom:1.2rem}
+.bm-included .bm-check{width:26px;height:26px;border-radius:50%;background:var(--success);color:#fff;display:grid;place-items:center;flex:none}
+.bm-included .bm-check svg{width:15px;height:15px}
+.bm-included b{display:block;color:var(--navy-900);font-size:1rem}
+.bm-included small{font-size:.85rem;color:var(--text-2)}
+.bm-label{display:block;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:.6rem}
+.bm-plans{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.4rem}
+.bm-plan{display:flex;align-items:center;gap:.85rem;border:1.5px solid var(--border);border-radius:var(--r-md);padding:.85rem 1rem;cursor:pointer;transition:border-color .18s,background .18s}
+.bm-plan:hover{border-color:var(--brand-orange)}
+.bm-plan.selected{border-color:var(--brand-orange);background:var(--brand-orange-soft)}
+.bm-plan input{accent-color:var(--brand-orange);width:18px;height:18px;flex:none;margin:0}
+.bm-plan .bm-pname{font-weight:700;color:var(--navy-900)}
+.bm-plan .bm-pmeta{display:block;font-size:.84rem;color:var(--text-3);font-weight:500}
+.bm-plan .bm-pprice{margin-left:auto;text-align:right;font-weight:700;color:var(--navy-900);white-space:nowrap}
+.bm-plan .bm-pprice small{display:block;font-weight:500;font-size:.72rem;color:var(--text-3)}
+.bm-back{background:none;border:none;color:var(--accent);font-weight:700;font-size:.9rem;padding:0;margin-bottom:.8rem;display:inline-flex;align-items:center;gap:.3rem}
+.bm-summary{border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;margin-bottom:1.3rem}
+.bm-row{display:flex;justify-content:space-between;gap:1rem;padding:.8rem 1rem;font-size:.95rem;color:var(--slate-700);border-bottom:1px solid var(--border)}
+.bm-row:last-child{border-bottom:none}
+.bm-row .bm-v{font-weight:600;color:var(--navy-900);white-space:nowrap;text-align:right}
+.bm-row.total{background:var(--muted);font-size:1.08rem}
+.bm-row.total .bm-v,.bm-row.total span{font-weight:700;color:var(--navy-900)}
+.bm-free{color:var(--success);font-weight:700}
+.bm-note{margin:.9rem 0 0;text-align:center;font-size:.82rem;color:var(--text-3)}
 .plan.featured{border-color:var(--brand-orange);box-shadow:0 0 0 1px var(--brand-orange),var(--shadow-md)}
 
 /* Responsive */
@@ -599,7 +630,7 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Prenotazione in agenda e notifiche email</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Setup su misura e assistenza umana</li>
         </ul>
-        <button type="button" class="btn btn-ghost btn-block btn-lg js-plan" data-plan="Basic">Inizia con Basic</button>
+        <button type="button" class="btn btn-primary btn-block btn-lg js-plan" data-plan="Basic">Inizia con Basic</button>
       </div>
       <div class="plan">
         <h3>Standard</h3>
@@ -616,7 +647,7 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Prenotazione in agenda e notifiche email</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Setup su misura e assistenza umana</li>
         </ul>
-        <button type="button" class="btn btn-ghost btn-block btn-lg js-plan" data-plan="Standard">Inizia con Standard</button>
+        <button type="button" class="btn btn-primary btn-block btn-lg js-plan" data-plan="Standard">Inizia con Standard</button>
       </div>
       <div class="plan featured">
         <span class="plan-badge">Il più scelto</span>
@@ -821,6 +852,52 @@ a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);bord
   </div>
 </footer>
 
+<!-- MODALE CONFIGURATORE BUNDLE -->
+<div class="modal-overlay" id="bundleModal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="bmTitle">
+    <button class="modal-close" id="bmClose" type="button" aria-label="Chiudi">&times;</button>
+
+    <!-- STEP 1 · scelta piano voce -->
+    <div class="modal-step" data-step="1">
+      <h3 id="bmTitle">Attiva il bundle voce&nbsp;+&nbsp;chat</h3>
+      <p class="modal-sub">La <b>Chat AI</b> è inclusa. Scegli il piano voce annuale per completare il bundle.</p>
+      <div class="bm-included">
+        <span class="bm-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <div><b>Chat AI — inclusa nel bundle</b><small>€ 39/mese · attivazione gratuita</small></div>
+      </div>
+      <span class="bm-label">Scegli il piano voce annuale</span>
+      <div class="bm-plans" role="radiogroup" aria-label="Piano voce annuale">
+        <label class="bm-plan">
+          <input type="radio" name="bmVoice" value="Basic">
+          <span><span class="bm-pname">Basic</span><span class="bm-pmeta">200 minuti/mese</span></span>
+          <span class="bm-pprice">€ 67<small>/ mese</small></span>
+        </label>
+        <label class="bm-plan">
+          <input type="radio" name="bmVoice" value="Standard">
+          <span><span class="bm-pname">Standard</span><span class="bm-pmeta">500 minuti/mese</span></span>
+          <span class="bm-pprice">€ 109<small>/ mese</small></span>
+        </label>
+        <label class="bm-plan selected">
+          <input type="radio" name="bmVoice" value="Pro" checked>
+          <span><span class="bm-pname">Pro <span style="color:var(--brand-orange)">· il più scelto</span></span><span class="bm-pmeta">1.000 minuti/mese</span></span>
+          <span class="bm-pprice">€ 189<small>/ mese</small></span>
+        </label>
+      </div>
+      <button class="btn btn-primary btn-block btn-lg" id="bmNext" type="button">Vai al riepilogo</button>
+    </div>
+
+    <!-- STEP 2 · riepilogo / checkout -->
+    <div class="modal-step" data-step="2" hidden>
+      <button class="bm-back" id="bmBack" type="button">&larr; Modifica la scelta</button>
+      <h3>Riepilogo e pagamento</h3>
+      <p class="modal-sub">Bundle voce + chat · impegno annuale (12 mesi).</p>
+      <div class="bm-summary" id="bmSummary"></div>
+      <button class="btn btn-primary btn-block btn-lg" id="bmPay" type="button">Procedi al pagamento</button>
+      <p class="bm-note">Pagamento sicuro con carta e PayPal. Prezzi IVA esclusa.</p>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast" role="status" aria-live="polite" style="position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--navy-900);color:#fff;padding:.95rem 1.3rem;border-radius:var(--r-pill);box-shadow:var(--shadow-lg);font-size:.92rem;font-weight:500;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s var(--ease);z-index:300;max-width:calc(100vw - 2rem)">
   <span id="toastMsg"></span>
 </div>
@@ -894,26 +971,51 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
   const toast = document.getElementById("toast"), toastMsg = document.getElementById("toastMsg");
   let tt; function showToast(m){ toastMsg.textContent = m; toast.style.opacity="1"; toast.style.transform="translateX(-50%) translateY(0)"; clearTimeout(tt); tt=setTimeout(()=>{toast.style.opacity="0";toast.style.transform="translateX(-50%) translateY(20px)";},4500); }
 
-  // Abbonamenti: alla scelta del piano (checkout con pagamento — da collegare)
-  const plansGrid = document.querySelector(".plans");
-  const voicePricing = document.getElementById("prezzi");
-  let flashTimer;
-  function flashVoicePlans(){
-    if(!plansGrid) return;
-    plansGrid.classList.remove("flash"); void plansGrid.offsetWidth; // riavvia l'animazione
-    plansGrid.classList.add("flash");
-    clearTimeout(flashTimer); flashTimer=setTimeout(()=>plansGrid.classList.remove("flash"), 2600);
-  }
+  // ---- Modale configuratore bundle: scegli il piano voce annuale → riepilogo/checkout ----
+  const BM_PLANS = {
+    Basic:    { price:67,  min:"200 minuti/mese",   act:74.5 },
+    Standard: { price:109, min:"500 minuti/mese",   act:0 },
+    Pro:      { price:189, min:"1.000 minuti/mese", act:0 }
+  };
+  const BM_CHAT = 39;
+  function eur(n){ return "€ " + n.toLocaleString("it-IT",{ minimumFractionDigits:(n%1===0?0:2), maximumFractionDigits:2 }); }
+  const bmModal = document.getElementById("bundleModal");
+  function bmStep(n){ bmModal.querySelectorAll(".modal-step").forEach(s=>{ s.hidden = (parseInt(s.dataset.step,10)!==n); }); }
+  function bmOpen(){ bmStep(1); bmModal.hidden=false; requestAnimationFrame(()=>bmModal.classList.add("open")); document.body.style.overflow="hidden"; }
+  function bmClose(){ bmModal.classList.remove("open"); document.body.style.overflow=""; setTimeout(()=>{ bmModal.hidden=true; }, 250); }
+  // evidenzia la card del piano selezionato
+  bmModal.querySelectorAll('input[name="bmVoice"]').forEach(r=>r.addEventListener("change",()=>{
+    bmModal.querySelectorAll(".bm-plan").forEach(l=>l.classList.toggle("selected", l.querySelector("input").checked));
+  }));
+  function bmRow(l,v,cls){ return '<div class="bm-row'+(cls?" "+cls:"")+'"><span>'+l+'</span><span class="bm-v">'+v+'</span></div>'; }
+  document.getElementById("bmNext").addEventListener("click",()=>{
+    const sel = bmModal.querySelector('input[name="bmVoice"]:checked');
+    const name = sel ? sel.value : "Pro";
+    const P = BM_PLANS[name];
+    const monthly = P.price + BM_CHAT;
+    const annual = monthly*12 + P.act;
+    const actVoice = P.act ? eur(P.act) : '<span class="bm-free">Gratuita</span>';
+    document.getElementById("bmSummary").innerHTML =
+      bmRow("Assistente vocale "+name+" · annuale", eur(P.price)+" /mese") +
+      bmRow("Chat AI · bundle", eur(BM_CHAT)+" /mese") +
+      bmRow("Attivazione voce", actVoice) +
+      bmRow("Attivazione chat", '<span class="bm-free">Gratuita</span>') +
+      bmRow("Canone mensile", eur(monthly)+" /mese") +
+      bmRow("Totale primo anno", eur(annual), "total");
+    bmStep(2);
+  });
+  document.getElementById("bmBack").addEventListener("click",()=>bmStep(1));
+  document.getElementById("bmPay").addEventListener("click",()=>{
+    showToast("Checkout sicuro in arrivo: a breve completerai il pagamento con carta e PayPal.");
+  });
+  document.getElementById("bmClose").addEventListener("click",bmClose);
+  bmModal.addEventListener("click",e=>{ if(e.target===bmModal) bmClose(); });
+  addEventListener("keydown",e=>{ if(e.key==="Escape" && !bmModal.hidden) bmClose(); });
+
+  // Abbonamenti: click sui pulsanti dei piani
   document.querySelectorAll(".js-plan").forEach(b=>b.addEventListener("click",()=>{
-    // Il bundle richiede un piano VOCE annuale: invece del checkout, porta il cliente
-    // alla scelta del piano voce, in modalità annuale, così vede subito il costo.
-    if((b.dataset.plan||"") === "Bundle voce + chat"){
-      setBilling("annual");
-      if(voicePricing) voicePricing.scrollIntoView({behavior:"smooth", block:"start"});
-      setTimeout(flashVoicePlans, 500);
-      showToast("Scegli il tuo piano voce annuale: con il bundle la Chat è a € 39/mese e l'attivazione è gratuita.");
-      return;
-    }
+    // Il bundle apre il configuratore: scegli il piano voce annuale → riepilogo con totale.
+    if((b.dataset.plan||"") === "Bundle voce + chat"){ bmOpen(); return; }
     showToast("Piano " + (b.dataset.plan||"") + ": a breve il checkout sicuro con PayPal e carta.");
   }));
   // Bottoni della pagina che devono aprire il widget Retell
