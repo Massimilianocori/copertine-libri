@@ -1198,7 +1198,8 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
   document.body.appendChild(box);
   function skip(el){ return el.tagName==="SCRIPT"||el.tagName==="STYLE"||el.id==="rbDiag"||el.closest&&el.closest("#rbDiag"); }
   function esc(s){ return String(s).replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
-  function scan(){
+  function scan(){ try{ scanInner(); }catch(e){ box.textContent="DIAG ERR: "+(e&&e.message||e); } }
+  function scanInner(){
     var L=[]; var rs=roots();
     L.push("== DIAGNOSTICA WIDGET =="); L.push("shadow roots: "+(rs.length-1));
     var ifr=document.querySelectorAll("iframe");
@@ -1218,12 +1219,21 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
     L.push("hit TESTO 'retell': "+textHits);
     L.push("hit ATTRIBUTI 'retell': "+attrHits);
     L.push(""); L.push(dumps.length?dumps.join("\n"):"(nessun 'retell' trovato nel DOM/shadow → probabile IFRAME cross-origin)");
-    // Dump grezzo della struttura di ogni shadow root (per vedere loghi SVG senza testo)
+    // Dump della struttura di ogni shadow root SENZA style/script (per vedere il logo SVG)
     rs.forEach(function(r,i){
       if(r===document) return;
-      var html=(r.innerHTML||"").replace(/\s+/g," ").trim().slice(0,240);
-      L.push(""); L.push("SHADOW#"+i+" host=<"+(r.host?r.host.tagName.toLowerCase():"?")+">:");
-      L.push(esc(html)||"(vuoto)");
+      // elenco di tutti gli svg/img col loro class + class del genitore (il logo header)
+      var media=[];
+      r.querySelectorAll("svg,img").forEach(function(m){
+        var cn=(m.className&&m.className.baseVal!=null)?m.className.baseVal:(m.getAttribute&&m.getAttribute("class")||"");
+        var pc=m.parentElement?((m.parentElement.className&&m.parentElement.className.baseVal!=null)?m.parentElement.className.baseVal:(m.parentElement.getAttribute&&m.parentElement.getAttribute("class")||"")):"";
+        var rect=m.getBoundingClientRect();
+        if(media.length<12) media.push("  "+m.tagName.toLowerCase()+" class='"+esc(cn)+"' parent.class='"+esc(pc)+"' top="+Math.round(rect.top));
+      });
+      // struttura pulita (rimuovo style/script dal testo HTML)
+      var html=(r.innerHTML||"").replace(/<style[\s\S]*?<\/style>/gi,"").replace(/<script[\s\S]*?<\/script>/gi,"").replace(/\s+/g," ").trim().slice(0,900);
+      L.push(""); L.push("SHADOW#"+i+" SVG/IMG:"); L.push(media.length?media.join("\n"):"  (nessuno)");
+      L.push("SHADOW#"+i+" HTML:"); L.push(esc(html)||"(vuoto)");
     });
     box.innerHTML="";
     box.appendChild(document.createTextNode(L.join("\n")));
