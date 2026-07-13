@@ -1187,5 +1187,49 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
   }
 })();
 </script>
+<!-- DIAGNOSTICA TEMPORANEA: attiva solo con ?diag=1. Mostra la struttura del widget
+     per capire dov'e' "Retell" (iframe vs shadow DOM). Da rimuovere dopo. -->
+<script>
+(function(){
+  if(!/[?&]diag=1/.test(location.search)) return;
+  function roots(){ var out=[]; (function c(r){ out.push(r); var s=(r===document)?document:r; if(s.querySelectorAll) s.querySelectorAll("*").forEach(function(el){ if(el.shadowRoot) c(el.shadowRoot); }); })(document); return out; }
+  var box=document.createElement("div"); box.id="rbDiag";
+  box.style.cssText="position:fixed;top:8px;left:8px;z-index:2147483647;max-width:44vw;max-height:92vh;overflow:auto;background:#0A1220;color:#8CE0C0;font:11px/1.4 ui-monospace,Menlo,Consolas,monospace;padding:10px 12px;border:2px solid #1FA5B0;border-radius:8px;white-space:pre-wrap;box-shadow:0 10px 40px rgba(0,0,0,.5)";
+  document.body.appendChild(box);
+  function skip(el){ return el.tagName==="SCRIPT"||el.tagName==="STYLE"||el.id==="rbDiag"||el.closest&&el.closest("#rbDiag"); }
+  function esc(s){ return String(s).replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
+  function scan(){
+    var L=[]; var rs=roots();
+    L.push("== DIAGNOSTICA WIDGET =="); L.push("shadow roots: "+(rs.length-1));
+    var ifr=document.querySelectorAll("iframe");
+    L.push("iframe: "+ifr.length);
+    ifr.forEach(function(f,i){ L.push("  iframe#"+i+" src="+esc((f.getAttribute("src")||"").slice(0,80))); });
+    var textHits=0, attrHits=0, dumps=[];
+    rs.forEach(function(r){
+      var scope=(r===document)?document.body:r;
+      if(!scope||!scope.querySelectorAll) return;
+      scope.querySelectorAll("*").forEach(function(el){
+        if(skip(el)) return;
+        var leaf=!el.children||el.children.length===0;
+        if(leaf){ var t=(el.textContent||"").trim(); if(/retell/i.test(t)){ textHits++; if(dumps.length<8) dumps.push("TXT <"+el.tagName.toLowerCase()+" class='"+esc((el.className&&el.className.baseVal!=null?el.className.baseVal:el.className)||"")+"'>"+esc(t.slice(0,30))); } }
+        ["src","href","alt","aria-label","title","data-testid"].forEach(function(a){ var v=el.getAttribute&&el.getAttribute(a); if(v&&/retell/i.test(v)){ attrHits++; if(dumps.length<14) dumps.push("ATTR <"+el.tagName.toLowerCase()+" "+a+"='"+esc(v.slice(0,50))+"'>"); } });
+      });
+    });
+    L.push("hit TESTO 'retell': "+textHits);
+    L.push("hit ATTRIBUTI 'retell': "+attrHits);
+    L.push(""); L.push(dumps.length?dumps.join("\n"):"(nessun 'retell' trovato nel DOM/shadow → probabile IFRAME cross-origin)");
+    // Dump grezzo della struttura di ogni shadow root (per vedere loghi SVG senza testo)
+    rs.forEach(function(r,i){
+      if(r===document) return;
+      var html=(r.innerHTML||"").replace(/\s+/g," ").trim().slice(0,240);
+      L.push(""); L.push("SHADOW#"+i+" host=<"+(r.host?r.host.tagName.toLowerCase():"?")+">:");
+      L.push(esc(html)||"(vuoto)");
+    });
+    box.innerHTML="";
+    box.appendChild(document.createTextNode(L.join("\n")));
+  }
+  setInterval(scan, 1000); scan();
+})();
+</script>
 </body>
 </html>
