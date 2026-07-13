@@ -1094,11 +1094,26 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
   }
   // Sostituisce ogni occorrenza di "Retell" con "Rispondoio" nel widget (testo, attributi)
   // e nasconde eventuali loghi Retell. "Retell" non deve mai comparire sul sito.
+  // CSS di sicurezza iniettato in OGNI shadow root: nasconde loghi/marchi Retell
+  // anche quando sono SVG/immagini/link senza testo (che la sostituzione testuale
+  // non puo' intercettare). Su richiesta: "Retell" deve sparire, anche vuoto.
+  const HIDE_CSS = 'a[href*="retell" i],[class*="poweredBy" i],[class*="powered-by" i],'
+    + '[class*="watermark" i],[class*="branding" i],[class*="brandName" i],'
+    + '[aria-label*="retell" i]{display:none!important;visibility:hidden!important}';
+  function injectHideCss(root){
+    try{
+      const host = (root===document) ? document.head : root;
+      if(!host || host.querySelector('style[data-rb="1"]')) return;
+      const st=document.createElement("style"); st.setAttribute("data-rb","1"); st.textContent=HIDE_CSS;
+      host.appendChild(st);
+    }catch(e){}
+  }
   function rebrandRetell(){
     try{
       const RX=/retell\s*\.?\s*ai|retellai|retell/gi, REPL="Rispondoio";
       const scopes=[];
       for(const root of widgetRoots()){
+        injectHideCss(root);
         if(root===document){
           document.querySelectorAll('[class*="retell" i],[id*="retell" i]').forEach(el=>{ if(el.tagName!=="SCRIPT"&&el.tagName!=="STYLE") scopes.push(el); });
         } else scopes.push(root);
@@ -1115,22 +1130,46 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
           if(c!==v) edits.push([n,c]);
         }
         edits.forEach(([node,val])=>{ node.nodeValue=val; });
-        // attributi visibili
+        // attributi + hiding di marchi non testuali
         if(scope.querySelectorAll) scope.querySelectorAll("*").forEach(el=>{
           ["alt","aria-label","title","placeholder"].forEach(a=>{
             const v=el.getAttribute && el.getAttribute(a);
             if(v && RX.test(v)){ el.setAttribute(a, v.replace(RX,REPL)); } RX.lastIndex=0;
           });
-          // nascondi loghi/immagini Retell
-          if((el.tagName==="IMG"||el.tagName==="SVG"||el.tagName==="svg")){
-            const s=((el.getAttribute&&(el.getAttribute("src")||el.getAttribute("alt")||el.getAttribute("aria-label")))||"");
-            if(/retell/i.test(s)) el.style.setProperty("display","none","important");
+          const interactive = el.tagName==="BUTTON"||el.getAttribute&&el.getAttribute("role")==="button"
+            ||el.tagName==="INPUT"||el.tagName==="TEXTAREA";
+          const hide=function(x){ if(x.style && x.style.display!=="none") x.style.setProperty("display","none","important"); };
+          // 1) link al sito Retell (spesso il logo di header) → nascondi
+          const href=(el.getAttribute&&el.getAttribute("href"))||"";
+          if(/retell/i.test(href)){ hide(el); return; }
+          // 2) loghi/immagini con "retell" negli attributi
+          if(el.tagName==="IMG"||el.tagName==="SVG"||el.tagName==="svg"){
+            const s=((el.getAttribute&&(el.getAttribute("src")||el.getAttribute("alt")||el.getAttribute("aria-label")||el.getAttribute("data-testid")))||"");
+            if(/retell/i.test(s)) hide(el);
+          }
+          // 3) foglia il cui testo e' esattamente il marchio "Retell" (testo impostato
+          //    via proprieta'/render che lo scan dei nodi testo non ha catturato)
+          if(!interactive && (!el.children||el.children.length===0)){
+            const t=(el.textContent||"").trim();
+            if(/^retell\s*\.?\s*(ai)?$/i.test(t)){ el.textContent="Rispondoio"; }
           }
         });
       }
     }catch(e){}
   }
-  setInterval(function(){ tuneRetellWidget(); cleanRetellText(); rebrandRetell(); }, 500);
+  function scrubRetell(){ tuneRetellWidget(); cleanRetellText(); rebrandRetell(); }
+  setInterval(scrubRetell, 300);
+  // Reagisce quando il widget monta/aggiorna l'header (invece di aspettare il tick),
+  // così "Retell" non fa in tempo a comparire. Debounce via rAF per non rilanciare
+  // su ogni mousemove/animazione.
+  try{
+    let scheduled=false;
+    const mo=new MutationObserver(function(){
+      if(scheduled) return; scheduled=true;
+      requestAnimationFrame(function(){ scheduled=false; scrubRetell(); });
+    });
+    mo.observe(document.documentElement, { childList:true, subtree:true, attributes:true, characterData:true });
+  }catch(e){}
 
   // Reveal + stagger (più evidenti)
   const items = document.querySelectorAll(".reveal, .stagger");
