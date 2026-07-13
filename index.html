@@ -868,9 +868,16 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
     while(n && hops<6){ try{ if(getComputedStyle(n).position==="fixed") return true; }catch(e){} n = n.parentElement || (n.getRootNode && n.getRootNode().host) || null; hops++; }
     return false;
   }
+  // Raccoglie document + TUTTI gli shadow root, anche quelli annidati dentro altri
+  // shadow root (il widget Retell usa web component annidati: l'header "Retell" vive
+  // in uno shadow root interno che una scansione a un solo livello non raggiunge).
   function widgetRoots(){
-    const roots=[document];
-    document.querySelectorAll("*").forEach(el=>{ if(el.shadowRoot) roots.push(el.shadowRoot); });
+    const roots=[];
+    (function collect(root){
+      roots.push(root);
+      const scope = root===document ? document : root;
+      if(scope.querySelectorAll) scope.querySelectorAll("*").forEach(el=>{ if(el.shadowRoot) collect(el.shadowRoot); });
+    })(document);
     return roots;
   }
   // Trova il LAUNCHER del widget (il FAB flottante), non i controlli interni al pannello.
@@ -990,8 +997,7 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
   // (esplora anche gli shadow DOM aperti; il widget aggiorna il DOM dinamicamente)
   function tuneRetellWidget(){
     try {
-      const roots=[document];
-      document.querySelectorAll("*").forEach(el=>{ if(el.shadowRoot) roots.push(el.shadowRoot); });
+      const roots=widgetRoots();
       for(const root of roots){
         root.querySelectorAll("*").forEach(el=>{
           const raw=(el.textContent||"").trim();
