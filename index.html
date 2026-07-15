@@ -993,15 +993,13 @@ const RETELL_CONFIG = { publicKey:"public_key_30f48a75179b4474a40e7", agentId:"a
     const name = sel ? sel.value : "Pro";
     const P = BM_PLANS[name];
     const monthly = P.price + BM_CHAT;
-    const annual = monthly*12 + P.act;
     const actVoice = P.act ? eur(P.act) : '<span class="bm-free">Gratuita</span>';
     document.getElementById("bmSummary").innerHTML =
       bmRow("Assistente vocale "+name+" · annuale", eur(P.price)+" /mese") +
       bmRow("Chat AI · bundle", eur(BM_CHAT)+" /mese") +
       bmRow("Attivazione voce", actVoice) +
       bmRow("Attivazione chat", '<span class="bm-free">Gratuita</span>') +
-      bmRow("Canone mensile", eur(monthly)+" /mese") +
-      bmRow("Totale primo anno", eur(annual), "total");
+      bmRow("Canone mensile", eur(monthly)+" /mese");
     bmStep(2);
   });
   document.getElementById("bmBack").addEventListener("click",()=>bmStep(1));
