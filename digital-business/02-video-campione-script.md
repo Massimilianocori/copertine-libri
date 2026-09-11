@@ -61,11 +61,28 @@ Higgsfield: sequenza di dettagli ravvicinati, movimento minimo, tono rassicurant
 
 ---
 
-## Come personalizzarlo per l'outreach (2 minuti a clinica)
+## Come fare un campione "specifico" senza conoscere la clinica
 
-1. Cambia solo il testo della CTA col nome vero della clinica e la città.
-2. Se hanno un trattamento in evidenza nel profilo, usa quello nel Campione 2.
-3. Esporta e invia col messaggio del file 01.
+Non serve conoscere la sede dal vivo: la si "conosce" dal loro **Instagram/Google pubblico** — lo
+stesso profilo che si sta per contattare. Tre livelli, per tempo crescente:
 
-Batch: genera una libreria di 10–15 clip base riutilizzabili; per ogni clinica cambi solo testo e
-CTA. Così 20 campioni al giorno diventano fattibili.
+**Livello 1 — veloce (esempio di stile).** Visual AI generici (i prompt sopra) + a schermo **nome,
+città e trattamento** letti dalla loro bio. È un esempio dello stile, NON la loro sede filmata: va
+presentato come "prova/esempio" (vedi file 01), mai come riprese reali.
+
+**Livello 2 — il più forte (l'arma vera).** Prendere **3–4 foto pubbliche dal loro Instagram**
+(interni, un trattamento, un dettaglio, il logo) e **animarle con Higgsfield** (immagine → video:
+push-in, parallax) + hook + testo + CTA col loro nome. ~10 minuti a clinica. È davvero "loro",
+costruito da materiale pubblico → conversione molto più alta.
+
+**Livello 3 — finale.** Solo per chi risponde interessato: chiedere 2–3 foto in alta risoluzione +
+logo e produrre la versione definitiva.
+
+Onestà: le foto prese dal loro Instagram si usano **solo per una demo privata inviata a loro**, non
+si ripubblicano come proprie.
+
+## Ritmo realistico
+
+Il Livello 2 richiede ~10 min a campione → puntare a **10–15 contatti personalizzati al giorno**,
+non 20–30. Meglio pochi e su misura: qui il campione È la vendita. Tenere comunque una libreria di
+10–15 clip AI generiche di base per velocizzare i Livelli 1 e i riempimenti.

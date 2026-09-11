@@ -1,8 +1,8 @@
 # Kit di outreach — medicina estetica / centri estetici (Italia)
 
-Obiettivo: 20–30 contatti personalizzati al giorno, ognuno accompagnato da **un mini-video
-campione già fatto per quella clinica** (l'arma di conversione). Tono: professionale, concreto,
-niente superlativi vuoti, niente emoji.
+Obiettivo: 10–15 contatti personalizzati al giorno, ognuno accompagnato da **un mini-video
+campione costruito dal loro profilo Instagram pubblico** (l'arma di conversione — metodo a 3
+livelli nel file 02). Tono: professionale, concreto, niente superlativi vuoti, niente emoji.
 
 Regola d'oro: **non vendere, mostrare.** Il campione fa il lavoro. Il messaggio serve solo a far
 guardare il video.
@@ -11,9 +11,10 @@ guardare il video.
 
 ## Processo giornaliero (30–45 min)
 
-1. Trova 20–30 cliniche su Instagram/Google Maps in una zona (parti da una città, es. Milano).
-2. Per ognuna: genera in AI **un Reel campione di 8–15 sec** col loro nome/servizio (workflow nel
-   file 02). Batch: produrne 20 in blocco è veloce con la pipeline.
+1. Trova 10–15 cliniche su Instagram/Google Maps in una zona (parti da una città, es. Milano).
+2. Per ognuna, dal loro profilo pubblico: genera **un Reel campione di 8–15 sec** — idealmente
+   Livello 2 (animando 3–4 loro foto pubbliche con Higgsfield) o Livello 1 (visual AI + loro
+   nome/città/trattamento). Workflow completo nel file 02.
 3. Invia DM Instagram (o email se hanno indirizzo in bio) con il video allegato/linkato.
 4. Segna tutto in un foglio: data, clinica, canale, risposta, follow-up.
 5. Follow-up dopo 3 giorni e dopo 7 giorni a chi non risponde.
