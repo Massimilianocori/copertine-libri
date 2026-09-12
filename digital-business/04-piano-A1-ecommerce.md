@@ -13,20 +13,41 @@ Servizio done-for-you: **creatività pubblicitarie UGC generate in AI** per bran
 a retainer mensile (con opzione primo ingaggio per-progetto). Percorso servizio → prodotto: la
 parte ripetibile diventa micro-tool/SaaS in fase 2.
 
-## 2. Chi serviamo
+## 2. Chi serviamo + mercato (globale, USA-first)
 
 Brand DTC (Shopify) che **già spendono in ads** su Meta/TikTok ma senza team creativo interno.
 Nicchie prioritarie (prodotti che si vendono con video problema→soluzione): **skincare/beauty,
-integratori, gadget, casa, pet, wellness**. Partire da UNA sotto-nicchia (es. skincare) per
-messaggi e campioni coerenti.
+integratori, gadget, casa, pet, wellness**. Partire da UNA sotto-nicchia (es. skincare).
 
-## 3. Offerta
+**Mercato `[VERIFICATO]`:** A1 è globale, non legato all'Italia.
+- **USA = mercato primario:** ~40% della spesa pubblicitaria mondiale, DTC USA $212,9B, il flusso
+  più alto di brand DTC piccoli/medi nuovi (13,4% creatività attive, 20,8% nuove); gli USA pagano
+  di più per creatività.
+- **Secondari inglesi:** UK, Canada, Australia.
+- **Italia/EU:** solo opportunistico (brand DTC EU spendono comunque €1.500–3.000/mese in
+  creatività, ma volumi e prezzi USA sono superiori).
+- Modello già diffuso: agenzie con base in Europa che servono USA/UK/CA.
+
+## 3. Offerta e prezzi (in USD, livello USA)
 
 Un pacchetto chiaro: **12–20 ad UGC AI/mese** (video stile UGC + varianti per A/B test), pronte per
-le loro campagne. 
-- Prezzo `[VERIFICATO mercato: AI UGC $2–5k/mo retainer o $50–500/video]`: ingresso **€500–1.000/mese**;
-  primo "sì" possibile **per-progetto €300–500 una tantum**.
+le loro campagne.
+- Prezzo `[VERIFICATO mercato]`: UGC per uso-ad **$150–400+ a video**; pacchetto mensile
+  **$1.000–2.500/mese** a cliente; primo "sì" possibile **per-progetto ($300–800 una tantum)**.
+  (Le cifre USA quasi raddoppiano l'ipotesi Italia €400–600 → utile run-rate fine anno 1 verso la
+  fascia alta: mesi 7–12 ~€8–15k/mese.)
 - Upsell: più volume, gestione campagne, foto-prodotto AI.
+
+## 3bis. Operatività internazionale
+
+- **Lingua:** tutto in inglese (già in uso con PressedHeart).
+- **Fuso:** outreach asincrono (email/DM) → il fuso non conta; call live nel pomeriggio USA (sera
+  IT) o sostituite da pitch video (Loom).
+- **Incassi:** Stripe / Wise / PayPal + accordo scritto via email.
+- **Fisco `[IPOTESI — confermare col commercialista]`:** partita IVA quando gli incassi diventano
+  reali (regime forfettario conveniente all'avvio); servizi B2B verso aziende fuori UE (USA) fuori
+  campo IVA. Da sistemare prima della prima fattura, non blocca campioni/outreach.
+- **Lead in entrata:** affiancare le UGC marketplace all'outreach (i brand cercano loro i creator).
 
 ## 4. Vantaggio ingiusto + arma di acquisizione
 
@@ -77,6 +98,10 @@ Midjourney per visual + montaggio. Ripetibile e veloce. Costo marginale per clie
 Run-rate realistico a fine anno 1: **~€5.000–10.000/mese di utile** (margine altissimo → utile ≈
 fatturato). Dipende da: mantenere l'outreach e tenere basso il churn.
 
+**Nota mercato USA:** ai prezzi USA ($1.000–2.500/mese a cliente vs €400–600 IT) la tabella si
+sposta verso l'alto — mesi 7–12 realistici ~€8.000–15.000/mese — a fronte di un mercato più freddo
+e competitivo (campione gratis + portfolio ancora più decisivi).
+
 ## 10. Piano 90 giorni
 
 - Sett. 1–2: scegli sotto-nicchia; produci 3–5 ad campione (portfolio); offerta + pagina portfolio
@@ -100,3 +125,6 @@ nicchia.
 - Shhots AI — AI UGC ads / generators 2026: https://shhots.ai/blog/best-ai-ad-generator/
 - FindSkill — AI UGC ads for e-commerce: https://findskill.ai/courses/ai-ugc-ads-for-ecommerce/
 - Ciela AI — AAA profitability/timeline: https://ciela.ai/blogs/ai-automation-agency-niches-most-profitable
+- SaleHoo — digital ad spend by country 2026: https://www.salehoo.com/learn/digital-ad-spend-by-country
+- Ringly — DTC ecommerce statistics 2026: https://www.ringly.io/blog/dtc-ecommerce-statistics-2026
+- inBeat / PPC.io — UGC rates 2026: https://ppc.io/blog/ugc-pricing
