@@ -120,6 +120,37 @@ caricare un fermo-immagine della clip A prima di generare la clip B
 
 ---
 
+## 3bis. Ciclo completo verificato end-to-end (2026-09-14) — `1.mp4` pubblicato
+
+Primo video completato e online. Percorso reale, comprese le soluzioni ai problemi incontrati:
+
+1. Generata una clip di prova (`@` libero, senza personaggio) → volto scelto.
+2. Personaggio **Raj bathroom** creato da 3 fotogrammi + voce **Zubenelgenubi personalizzata**
+   ("Low, flat, unenthusiastic delivery") bloccata.
+3. Errore incontrato: un tentativo di generazione ha perso un riferimento immagine interno
+   all'agente ("couldn't find one of the reference images") — risolto aprendo una **sessione di
+   chat nuova** invece di insistere su quella che aveva perso il riferimento. Il personaggio stesso
+   non va mai perso: e' un asset separato dalla sessione di chat.
+4. Generate **clip A e clip B da 8 secondi ciascuna** richiamando `@Raj bathroom` — durata totale
+   preferita a una singola clip da 8s perche' rispetta lo standard 15-45s (vedi `09-piano-
+   produzione-video.md` §3) invece di una battuta unica compressa.
+5. Montate in **Final Cut** (non CapCut, per scelta dell'utente) con un taglio secco tra A e B —
+   nessun bisogno di dissolvenza, la giunzione non si vede.
+6. **Problema emerso: export troppo pesante per il web.** L'export "Web Hosting" di Final Cut ha
+   prodotto un .mov da **39,6 MB a 14,7 Mbps di bitrate** — troppo per allegare o scaricare via
+   Drive (limite riscontrato: 30 MB in chat, 10 MB per lo strumento Drive). Risolto ricomprimendo
+   con **ffmpeg** (`libx264, preset slow, crf 24, faststart, aac 128k`) → **5,7 MB**, nessuna
+   perdita percepibile su schermo telefono.
+   `[VERIFICATO in sessione]` **Bitrate target per un export da destinare al web: 3-5 Mbps**, non il
+   14+ Mbps di un master di editing. Se Final Cut non permette di impostarlo a mano nell'export,
+   ricomprimere con HandBrake (preset "Fast 1080p30", Constant Quality RF 24) o ffmpeg dopo
+   l'esportazione.
+
+**Esito:** volto, ambiente e voce coerenti su tutti i 15,6 secondi, nessun artefatto di lip-sync.
+`1.mp4` sostituisce il placeholder sulla pagina.
+
+---
+
 ## 4. I 4 video della pagina — prompt pronti (men's grooming)
 
 **Nota:** i prompt qui sotto sono nella versione a 2 clip. Per i video della pagina si usa la
