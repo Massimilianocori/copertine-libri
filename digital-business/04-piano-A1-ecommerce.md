@@ -44,9 +44,15 @@ le loro campagne.
 - **Fuso:** outreach asincrono (email/DM) → il fuso non conta; call live nel pomeriggio USA (sera
   IT) o sostituite da pitch video (Loom).
 - **Incassi:** Stripe / Wise / PayPal + accordo scritto via email.
-- **Fisco `[IPOTESI — confermare col commercialista]`:** partita IVA quando gli incassi diventano
-  reali (regime forfettario conveniente all'avvio); servizi B2B verso aziende fuori UE (USA) fuori
-  campo IVA. Da sistemare prima della prima fattura, non blocca campioni/outreach.
+- **Fisco `[VERIFICATO 2026-09, da confermare nel dettaglio col commercialista]`:** l'utente ha già
+  una P.IVA forfettaria (ATECO fotografo 74.20.19). A1 è attività economicamente distinta
+  (pubblicità/marketing digitale, ATECO 73.11.01/73.11.02, coefficiente redditività 78%) → **va
+  aggiunto un secondo codice ATECO come attività secondaria** (comunicazione Agenzia Entrate entro
+  30gg dall'avvio, si aggiunge alla P.IVA esistente, non serve aprirne una nuova). Il tetto
+  forfettario €85.000/anno è unico e cumula fotografia + A1. Fare l'aggiunta ATECO **prima della
+  prima fattura A1**, in parallelo a Creatify/campioni — non blocca outreach o produzione.
+  Servizi B2B verso aziende fuori UE (USA) restano fuori campo IVA (art. 7-ter), da confermare nel
+  dettaglio col commercialista insieme al codice ATECO.
 - **Lead in entrata:** affiancare le UGC marketplace all'outreach (i brand cercano loro i creator).
 
 ## 4. Vantaggio ingiusto + arma di acquisizione
@@ -149,3 +155,8 @@ nicchia.
 - inBeat / PPC.io — UGC rates 2026: https://ppc.io/blog/ugc-pricing
 - Tagshop — best AI UGC tools 2026: https://tagshop.ai/blog/best-ai-ugc-tools/
 - HyperFX — Arcads vs Creatify vs Higgsfield vs Hyper 2026: https://www.hyperfx.ai/blog/arcads-vs-creatify-vs-higgs-field-vs-hyper-2026
+- Fiscozen / Quickfisco / Pyva — codici ATECO pubblicità e coefficienti forfettario 2026:
+  https://www.fiscozen.it/guide/codice-ateco-pubblicita-e-marketing/ ,
+  https://quickfisco.it/blog/regime-forfettario/regime-forfettario-e-coefficiente-di-redditivita/
+- RegimeForfettario.it — aggiungere codice ATECO alla P.IVA 2026:
+  https://www.regimeforfettario.it/quanti-codici-ateco-posso-aggiungere-alla-partita-iva/
