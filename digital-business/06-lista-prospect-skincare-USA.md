@@ -191,3 +191,32 @@ rete; i dati sono stati quindi raccolti tramite ricerche web mirate (WebSearch) 
 restituiti dal motore di ricerca, non tramite lettura integrale delle pagine. Questo è motivo in più
 per marcare con cura cosa è [VERIFICATO] da una fonte specifica e cosa resta [DA VERIFICARE]
 manualmente prima dell'invio dei messaggi di outreach.
+
+---
+
+## Aggiornamento 2026-09-15 — restringimento a men's grooming
+
+`[VERIFICATO]` Skincare/beauty generico è risultato il settore PIÙ saturo per servizi UGC (troppi
+creator/agenzie, prezzi in calo $75-350/video, ad che si consumano più in fretta). **Men's grooming
+è invece segnalato esplicitamente come mercato underserved da $20 miliardi.** Decisione: restringere
+il focus outreach da skincare generico a men's grooming, riusando la sotto-categoria già presente
+sopra (Oars+Alps, Blu Atlas, Marlowe) ed espandendola.
+
+**Nuovi brand verificati (men's grooming):**
+
+| Brand | Sito | Instagram/social | Prodotto | Note |
+|---|---|---|---|---|
+| **Tiege Hanley** | tiege.com [VERIFICATO] | presenza IG confermata, handle non verificato con certezza | Kit skincare per uomo (routine cleanse/serum/moisturizer) | Brand affermato, ingredienti dermo (niacinamide, retinolo) [VERIFICATO] |
+| **Stryx** | stryx.com [VERIFICATO] | TikTok ~193K follower [VERIFICATO, fonte modernretail.co] | Concealer/cosmetici funzionali per uomo | Fondato 2019, acquisito da Foundry (operatore di brand, non gruppo beauty corporate) nel 2023 [VERIFICATO] |
+| **Manscaped** | manscaped.com [VERIFICATO] | brand molto affermato | Grooming/hygiene per uomo | Priorità 2 — dimensione grande, valutare se ha già team creativo interno prima di contattare |
+
+**Escluso**: **Faculty** (nail polish/grooming per uomo) — finanziata da Estée Lauder
+[VERIFICATO, beautypackaging.com] → esclusa per la stessa regola già applicata ai brand legati a
+grandi gruppi beauty corporate.
+
+**Da verificare in un secondo momento** (nomi trovati ma sito/social non confermati con certezza in
+questa ricerca, non inseriti nel tracker per non rischiare dati inventati): War Paint, Crowned Skin,
+FORGE SKIN, Skin by Zaron, Trademark.
+
+Fonti aggiuntive: modernretail.co (Stryx), beautypackaging.com (Faculty/Estée Lauder), gravelai.com
+(trend men's skincare 2026), 1800dtc.com (elenco brand men's grooming 2026).

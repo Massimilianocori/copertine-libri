@@ -8,18 +8,21 @@ riferimento sintetico). Segue lo stesso protocollo: `[VERIFICATO]` con fonte, `[
 
 ## 1. Strategia — quanti video, in che ordine
 
-**Totale mese 1: ~14 video**, dentro il budget Starter (100 crediti/mese, vedi `04-piano-A1-
+**Aggiornamento 2026-09-15**: nicchia ristretta da skincare generico a **men's grooming**
+(sotto-categoria meno satura, mercato underserved da $20 miliardi — vedi nota in
+`06-lista-prospect-skincare-USA.md`). Tracker e checklist sotto sono già aggiornati di conseguenza.
+
+**Totale mese 1: ~10 video**, ben dentro il budget Starter (100 crediti/mese, vedi `04-piano-A1-
 ecommerce.md` §5 per la nota crediti).
 
 | Priorità | Cosa | Quanti | Quando |
 |---|---|---|---|
 | 1 | Video generici per la pagina (slot già pronti: hook demo, problem/solution, testimonial, unboxing) | 4 | Prima di tutto — sbloccano la pagina e diventano anche il "campione di stile" di riserva |
-| 2 | Video personalizzati per i 10 prospect priorità 1 nel tracker (`07-outreach-tracker.csv`) | 10 | Uno al giorno o a coppie, seguendo il ritmo di outreach (2-3/giorno) |
+| 2 | Video personalizzati per i 6 prospect men's grooming nel tracker (`07-outreach-tracker.csv`) | 6 | Uno al giorno o a coppie, seguendo il ritmo di outreach (2-3/giorno) |
 
 **Budget crediti `[IPOTESI, stima prudente]`:** puntando a impostazioni leggere (durata corta,
-avatar standard non premium — vedi §3), stimare **~7 crediti/video** in media → 14 video ≈ **98
-crediti**, quasi tutto il piano Starter del primo mese. Motivo in più per non produrre di più del
-necessario ora: fare bene questi 14, guardare i risultati, poi decidere se upgrade a Pro.
+avatar standard non premium — vedi §3), stimare **~7 crediti/video** in media → 10 video ≈ **70
+crediti**, con margine residuo sul piano Starter del primo mese per qualche extra o ritocco.
 
 ---
 
@@ -84,7 +87,7 @@ usali come traccia se personalizzi a voce.
 > calm. Worth trying if you're dealing with the same thing.
 
 ### Video 3 — Testimonial / Skeptic Journey (`3.mp4`)
-> Okay I need to talk about this. I was SO skeptical when I first got this — like, another skincare
+> Okay I need to talk about this. I was SO skeptical when I first got this — like, another grooming
 > product, sure. But three weeks in? I'm not going back. The texture, the way it feels on my skin...
 > yeah. Just wanted to put this on your radar.
 
@@ -103,13 +106,14 @@ usali come traccia se personalizzi a voce.
 > claim REALE che trovi sul sito/Instagram del brand, riformulata in linguaggio non-clinico] —
 > [chiusura con nome del brand a schermo].
 
-**Esempio lavorato — Topicals (priorità 1 nel tracker):**
-Dal sito di Topicals: prodotto "Faded" serum per iperpigmentazione/eczema/pelle acneica
-`[VERIFICATO, fonte 1 in 06-lista-prospect-skincare-USA.md]`.
+**Esempio lavorato — Blu Atlas (priorità 1 nel tracker, aggiornato dopo restringimento a men's
+grooming, vedi §0 e nota 2026-09-15 in `06-lista-prospect-skincare-USA.md`):**
+Blu Atlas: skincare/grooming premium uomo (viso, capelli, corpo, rasatura, fragranza)
+`[VERIFICATO, fonte 51 in 06-lista-prospect-skincare-USA.md]`.
 
-> Struggling with dark spots that just won't fade? Here's what actually helped. [mostra il
-> prodotto/texture] This one's been part of my routine for a few weeks now and the difference in my
-> skin tone is honestly noticeable. — **Topicals**
+> Struggling with skin that feels dry no matter what you use? Here's what actually worked. [mostra
+> il prodotto/texture] Been using this for a few weeks now and it's the first routine that didn't
+> feel like a chore. — **Blu Atlas**
 
 Passi per replicarlo su ogni prospect del tracker:
 1. Apri il sito del brand (link in `06-lista-prospect-skincare-USA.md`).
@@ -126,16 +130,12 @@ Passi per replicarlo su ogni prospect del tracker:
 
 - [ ] Video 1-4 (pagina) — vedi §4
 - [ ] Mandami/carica `1.mp4`…`4.mp4` in `digital-business/portfolio/` → aggancio alla pagina
-- [ ] Video personalizzato Topicals (usa l'esempio in §5 così com'è)
-- [ ] Video personalizzato Starface
-- [ ] Video personalizzato SolaWave
-- [ ] Video personalizzato Saie
-- [ ] Video personalizzato Merit Beauty
-- [ ] Video personalizzato Vacation Inc.
-- [ ] Video personalizzato OSEA Malibu
-- [ ] Video personalizzato Blu Atlas
-- [ ] Video personalizzato Pattern Beauty
-- [ ] Video personalizzato Act+Acre
+- [ ] Video personalizzato Blu Atlas (usa l'esempio in §5 così com'è)
+- [ ] Video personalizzato Tiege Hanley
+- [ ] Video personalizzato Stryx
+- [ ] Video personalizzato Oars+Alps
+- [ ] Video personalizzato Marlowe
+- [ ] Video personalizzato Manscaped (priorità 2 — valutare prima se ha già team interno)
 
 Dopo ogni video personalizzato: invia subito il messaggio di outreach (script in
 `05-A1-outreach-offer-EN.md`) e segna la riga corrispondente sul tracker — non accumulare video
