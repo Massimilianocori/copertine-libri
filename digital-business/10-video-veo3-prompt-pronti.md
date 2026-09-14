@@ -28,10 +28,15 @@ attenuato: non esiste come categoria.
 
 | Via | Costo | Resa |
 |---|---|---|
-| **Google Flow, gratis** | €0 | **50 crediti/giorno** ai non abbonati → usare questa per il test |
-| **Google AI Pro** | $19,99/mese | 1.000 crediti Flow ≈ 100 clip Lite / 50 Fast / 10 Quality |
+| **Google Flow, gratis** | €0 | **50 crediti/giorno** ai non abbonati → **2 video/giorno** |
+| **Google AI Pro** | $19,99/mese | 1.000 crediti Flow → **50 video/mese** |
 | Google AI Ultra | $249,99/mese | 25.000 crediti — fuori scala per ora |
 | API Gemini | $0,40–4,80 per clip da 8s | solo se automatizziamo in fase 2 |
+
+**Costo reale misurato `[VERIFICATO in sessione, 2026-09-14]`: 20 crediti per video** con Veo 3.1 Fast,
+9:16, 8 secondi, 1 risultato. Quindi: free tier = 2 video/giorno; AI Pro = 50 video/mese.
+Il fabbisogno del mese 1 (4 video pagina + 6 campioni personalizzati, piu' ~50% di rigenerazioni) e'
+di **~15 generazioni = 300 crediti** → il free tier richiederebbe 8 giorni, AI Pro li copre in una sera.
 
 Arcads, scartato `[VERIFICATO]`: $110/mese per **10 video** ($11/video), nessun free trial, nessuno
 sconto annuale, pricing page non pubblica. 5,5× il costo di Veo per 1/10 dei video, ed è comunque
@@ -41,10 +46,47 @@ lip-sync.
 
 ---
 
-## 2. Vincolo di formato `[VERIFICATO]`
+## 2. Vincolo di formato e scelta di struttura `[VERIFICATO in sessione]`
 
-Veo 3.1 genera clip da **8 secondi** (durata richiesta da Google per l'output 1080p). Un ad UGC da
-16-18s = **2 clip concatenate in CapCut**. Impostazioni: **1080p, 9:16**.
+Veo 3.1 genera clip da **8 secondi**. Con Veo 3.1 Fast l'uscita e' **720p** (il 1080p richiede
+Quality, che costa piu' crediti). Impostazioni usate: **Veo 3.1 Fast, 9:16, x1**.
+
+**Il 720p si tiene.** Nello slot verticale della pagina si vede a dimensione telefono, e la UGC vera
+e' girata male: l'eccesso di definizione e' uno dei segnali che fanno leggere un video come
+pubblicita' anziche' come contenuto.
+
+**Struttura scelta: clip singole da 8 secondi per i 4 video della pagina.** Concatenare due clip
+introduce due problemi di continuita' — volto e voce — e ciascuno costa crediti da risolvere. Un ad
+UGC da 8 secondi con hook + chiusura e' un formato normale, e **quattro volti diversi comunicano
+meglio di uno solo ripetuto quattro volte** (un portfolio con la stessa faccia sembra un cliente
+unico). Il formato a 2 clip resta per i **campioni personalizzati ai prospect**, dove il video deve
+reggere 16 secondi e la spesa e' giustificata.
+
+Copione da 8 secondi = **~23 parole** a ritmo parlato naturale.
+
+---
+
+## 2bis. Personaggi e voce — il passaggio da fare SEMPRE per primo `[VERIFICATO in sessione]`
+
+Errore commesso e da non ripetere: generate due clip prima di bloccare personaggio e voce. Risultato:
+volti simili ma diversi, e due voci diverse. Quaranta crediti buttati.
+
+**Ordine corretto, prima di qualunque generazione:**
+
+1. Genera **una** clip di prova per ottenere un volto che ti piace (20 crediti).
+2. Estrai 2-3 fotogrammi frontali da quella clip.
+3. Barra a sinistra → **Personaggi** → nuovo personaggio → carica i fotogrammi → nome.
+4. **Seleziona una voce.** Criteri: maschile/femminile coerente, accento americano, etichette da
+   preferire `casual`, `conversational`, `relaxed`, `deadpan`, `low/mid-low pitch`; da evitare
+   `energetic`, `enthusiastic`, `professional`, `narrator`, `announcer`, `commercial`.
+   Criterio d'ascolto in una frase: **se sembra che stia leggendo, e' sbagliata.**
+   In "Personalizza le prestazioni": *"Low, flat, unenthusiastic delivery. Talking to a friend, not
+   reading an ad. Natural pauses, no upward inflection at the end of sentences, no salesy warmth."*
+5. **Crea corpo**, con descrizione volutamente ordinaria (fisico normale, maglietta vissuta, postura
+   rilassata): un corpo atletico e curato produce un personaggio da pubblicita'.
+6. Da qui in poi richiama il personaggio nel prompt con **@nome**.
+
+Un personaggio con voce bloccata e' riutilizzabile all'infinito: e' un asset, non un costo ripetuto.
 
 ---
 
@@ -80,8 +122,13 @@ caricare un fermo-immagine della clip A prima di generare la clip B
 
 ## 4. I 4 video della pagina — prompt pronti (men's grooming)
 
-Ogni video = clip A + clip B, montate in CapCut. Prodotto sempre **generico e senza marchio**: questi
-sono campioni di stile, non ad di un brand reale.
+**Nota:** i prompt qui sotto sono nella versione a 2 clip. Per i video della pagina si usa la
+**versione condensata a clip singola** (vedi §2): si fondono le due battute in un unico copione da
+~23 parole e si genera una sola clip. Le versioni a 2 clip restano valide per i campioni
+personalizzati ai prospect.
+
+Prodotto sempre **generico e senza marchio**: questi sono campioni di stile, non ad di un brand
+reale.
 
 ### VIDEO 1 — Skeptic hook (sostituisce `1.mp4`)
 
