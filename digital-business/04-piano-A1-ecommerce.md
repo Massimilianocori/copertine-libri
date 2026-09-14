@@ -79,9 +79,19 @@ Stack minimo, si aggiunge solo su necessità:
 | Higgsfield | B-roll / cinematico prodotto | $9–65/mese | Solo se il cliente lo chiede |
 | Midjourney | Still d'effetto (già posseduto per PressedHeart) | opzionale | Opzionale |
 
-Partenza reale: **Creatify $39 + CapCut gratis ≈ $39/mese.** Il URL-to-video di Creatify È l'arma di
-vendita (campione gratis dall'URL prodotto del brand). Aggiungere altri tool solo quando un cliente
-pagante lo giustifica — non abbonarsi a più tool "per sicurezza".
+Partenza reale: **Creatify Starter, annuale ≈ $19-20/mese** (sconto ~50% vs $39 mensile) + CapCut
+gratis. Il URL-to-video di Creatify È l'arma di vendita (campione gratis dall'URL prodotto del brand).
+
+**Nota crediti `[VERIFICATO, 2026-09-15]`:** Starter dà 100 crediti/mese, ogni video costa 2-20
+crediti → **~5-15 video/mese** ad alta qualità. Il ritmo outreach previsto (2-3 campioni
+personalizzati/giorno, 40-60/mese) **probabilmente eccede Starter entro 1-2 settimane**. Segnale per
+upgrade a **Pro** (300 crediti, ~$99/mese, sceso con annuale `[IPOTESI, sconto non confermato per
+questo piano]`): crediti sotto il 20-30% o primo cliente pagante acquisito (un retainer da $1.000+/
+mese ripaga l'upgrade più volte). Per allungare i crediti in fase di test, usare impostazioni più
+leggere/brevi sui campioni di outreach (non sono il deliverable finale per un cliente).
+
+Aggiungere altri tool solo quando un cliente pagante lo giustifica — non abbonarsi a più tool "per
+sicurezza".
 
 Nota (autocorrezione): la versione precedente indicava "Higgsfield + Midjourney" come stack; la
 ricerca 2026 lo corregge — il cuore è un tool UGC-attore (Creatify/Arcads), Higgsfield è
@@ -160,3 +170,4 @@ nicchia.
   https://quickfisco.it/blog/regime-forfettario/regime-forfettario-e-coefficiente-di-redditivita/
 - RegimeForfettario.it — aggiungere codice ATECO alla P.IVA 2026:
   https://www.regimeforfettario.it/quanti-codici-ateco-posso-aggiungere-alla-partita-iva/
+- Fastio / G2 / Wireflow — Creatify pricing & credit math 2026: https://www.wireflow.ai/blog/creatify-pricing
