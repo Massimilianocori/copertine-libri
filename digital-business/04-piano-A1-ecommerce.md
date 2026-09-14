@@ -58,10 +58,28 @@ le loro campagne.
   solo con l'AI. Quasi nessuno lo fa → conversione molto alta.
 - `[VERIFICATO domanda]` un brand ha fatto $1,3M da UGC AI (stesso prodotto, stesso script).
 
-## 5. Produzione
+## 5. Produzione — stack tool (aggiornato 2026-09-14 su ricerca)
 
-Higgsfield ("Click to Ad" da URL prodotto, UGC factory con avatar, 100 varianti per A/B) +
-Midjourney per visual + montaggio. Ripetibile e veloce. Costo marginale per cliente ~quasi zero.
+`[VERIFICATO]` I tool AI UGC sono specializzati: nessuno fa tutto bene. Il formato che vende (attore
+AI che parla del prodotto) NON è il punto di forza di Higgsfield (che eccelle su cinematico/b-roll).
+
+Stack minimo, si aggiunge solo su necessità:
+
+| Tool | Ruolo | Costo | Quando |
+|---|---|---|---|
+| **Creatify (Lite)** | Cuore UGC-ad: URL→video, batch, varianti A/B (~$3,90/video 30s) | $39/mese | Ora |
+| **CapCut** | Montaggio, sottotitoli, musica | Gratis | Ora |
+| Arcads | Attori AI più convincenti (~$11/video) per campioni che devono stupire | $110/mese | Solo se Creatify non convince |
+| Higgsfield | B-roll / cinematico prodotto | $9–65/mese | Solo se il cliente lo chiede |
+| Midjourney | Still d'effetto (già posseduto per PressedHeart) | opzionale | Opzionale |
+
+Partenza reale: **Creatify $39 + CapCut gratis ≈ $39/mese.** Il URL-to-video di Creatify È l'arma di
+vendita (campione gratis dall'URL prodotto del brand). Aggiungere altri tool solo quando un cliente
+pagante lo giustifica — non abbonarsi a più tool "per sicurezza".
+
+Nota (autocorrezione): la versione precedente indicava "Higgsfield + Midjourney" come stack; la
+ricerca 2026 lo corregge — il cuore è un tool UGC-attore (Creatify/Arcads), Higgsfield è
+complementare per il cinematico.
 
 ## 6. Acquisizione (deterministica)
 
@@ -72,7 +90,8 @@ Midjourney per visual + montaggio. Ripetibile e veloce. Costo marginale per clie
 
 ## 7. Economia unitaria
 
-- Costi fissi tool (Higgsfield + Midjourney + outreach): ~€100–150/mese in tutto (non per cliente).
+- Costi fissi tool all'avvio: **~$39/mese (Creatify) + CapCut gratis**; con outreach tool ~$50–70/mese
+  in tutto (non per cliente). Salgono solo aggiungendo Arcads/Higgsfield quando i clienti lo giustificano.
 - Costo marginale per cliente ~€0–20 → **margine ~90%+**. Utile ≈ fatturato − ~€150 fissi.
 - Capacità da solo: ~15–20 clienti prima di sistematizzare/delegare.
 - Churn `[IPOTESI]`: ~5–10%/mese; si abbassa consegnando creatività che vendono.
@@ -128,3 +147,5 @@ nicchia.
 - SaleHoo — digital ad spend by country 2026: https://www.salehoo.com/learn/digital-ad-spend-by-country
 - Ringly — DTC ecommerce statistics 2026: https://www.ringly.io/blog/dtc-ecommerce-statistics-2026
 - inBeat / PPC.io — UGC rates 2026: https://ppc.io/blog/ugc-pricing
+- Tagshop — best AI UGC tools 2026: https://tagshop.ai/blog/best-ai-ugc-tools/
+- HyperFX — Arcads vs Creatify vs Higgsfield vs Hyper 2026: https://www.hyperfx.ai/blog/arcads-vs-creatify-vs-higgs-field-vs-hyper-2026
