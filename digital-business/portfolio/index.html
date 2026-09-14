@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reelforge — AI UGC video ads for DTC brands</title>
+<meta name="description" content="UGC-style video ads for e-commerce brands, made with AI. Shipped in days, built for A/B testing on Meta and TikTok.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   BRAND — change these two things and the whole page updates:
+   1) --accent below   2) every "Reelforge" text on the page
+   ============================================================ */
+:root{
+  --bg:#0b0d10; --bg2:#12151a; --card:#161a20; --line:#232a33;
+  --text:#eef2f6; --muted:#9aa6b2; --accent:#c6ff3a; --accent-ink:#0b0d10;
+  --radius:16px; --max:1100px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.55;
+  -webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:20px}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);font-weight:700;
+  text-decoration:none;padding:14px 22px;border-radius:999px;border:0;cursor:pointer;
+  transition:transform .15s ease,filter .15s ease;font-size:15px}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:12px}
+.muted{color:var(--muted)}
+section{padding-block:72px}
+h1,h2,h3{line-height:1.1;margin:0 0 .5em}
+h2{font-size:clamp(26px,4vw,40px);font-weight:800}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(11,13,16,.8);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:20px;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.nav .btn{padding:10px 18px}
+
+/* hero */
+.hero{padding-block:84px 40px;background:
+  radial-gradient(900px 400px at 80% -10%,rgba(198,255,58,.10),transparent 60%),var(--bg)}
+.hero h1{font-size:clamp(34px,6vw,60px);font-weight:800;letter-spacing:-.02em;max-width:15ch}
+.hero p.lead{font-size:clamp(17px,2.4vw,21px);color:var(--muted);max-width:56ch;margin:0 0 28px}
+.hero .cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .note{margin-top:16px;font-size:13px}
+
+/* trust strip */
+.trust{border-block:1px solid var(--line);background:var(--bg2)}
+.trust .wrap{display:flex;gap:28px;flex-wrap:wrap;align-items:center;justify-content:center;
+  padding-block:18px;color:var(--muted);font-size:14px;text-align:center}
+.trust b{color:var(--text)}
+
+/* reels grid */
+.reels{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.reel{position:relative;aspect-ratio:9/16;background:linear-gradient(160deg,#1a1f27,#0f1216);
+  border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.reel video{width:100%;height:100%;object-fit:cover}
+.reel .ph{position:absolute;inset:0;display:flex;flex-direction:column;gap:8px;
+  align-items:center;justify-content:center;color:var(--muted);text-align:center;padding:14px;font-size:13px}
+.reel .ph .dot{width:44px;height:44px;border-radius:50%;border:2px solid var(--accent);
+  display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:18px}
+.reel figcaption{position:absolute;left:10px;bottom:10px;right:10px;font-size:12px;
+  background:rgba(0,0,0,.45);padding:6px 8px;border-radius:8px}
+
+/* steps + pricing + why grids */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.step .n{color:var(--accent);font-weight:800;font-size:14px;letter-spacing:.1em}
+.price{display:flex;flex-direction:column}
+.price.featured{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.price .amt{font-size:34px;font-weight:800;margin:.2em 0}
+.price .amt small{font-size:15px;color:var(--muted);font-weight:500}
+.price ul{list-style:none;padding:0;margin:14px 0 22px;display:grid;gap:9px}
+.price li{padding-left:24px;position:relative;color:var(--muted);font-size:15px}
+.price li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
+.price .btn{margin-top:auto;text-align:center}
+.tag{display:inline-block;font-size:11px;font-weight:700;color:var(--accent-ink);
+  background:var(--accent);padding:3px 10px;border-radius:999px;letter-spacing:.06em;margin-bottom:10px;width:fit-content}
+.why .big{font-size:30px;font-weight:800;color:var(--accent)}
+
+/* faq */
+.faq details{border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:10px;background:var(--card)}
+.faq summary{cursor:pointer;font-weight:600;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--accent);font-weight:800}
+.faq details[open] summary::after{content:"–"}
+.faq p{color:var(--muted);margin:12px 0 0}
+
+/* contact */
+.contact{background:var(--bg2);border-top:1px solid var(--line)}
+.contact .box{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+form{display:grid;gap:12px}
+input,textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;
+  padding:13px 14px;color:var(--text);font:inherit}
+input:focus,textarea:focus{outline:2px solid var(--accent);border-color:transparent}
+
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);font-size:13px}
+.footrow{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* responsive */
+@media(max-width:900px){
+  .reels{grid-template-columns:repeat(2,1fr)}
+  .grid3{grid-template-columns:1fr}
+  .contact .box{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  section{padding-block:52px}
+  .reels{grid-template-columns:repeat(2,1fr);gap:12px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">Reel<span>forge</span></div>
+    <a href="#contact" class="btn">Get a free sample</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">UGC video ads · made with AI</p>
+    <h1>Scroll-stopping video ads for your brand — shipped in days, not weeks.</h1>
+    <p class="lead">We produce UGC-style video ads for DTC e-commerce brands using AI: a fraction of the cost of traditional UGC, and enough volume to actually test winners on Meta and TikTok.</p>
+    <div class="cta-row">
+      <a href="#contact" class="btn">Get a free ad for your product</a>
+      <a href="#work" class="btn btn-ghost">See sample ads</a>
+    </div>
+    <p class="note muted">No commitment. Reply and we make one ad for your product, free.</p>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="wrap">
+    <span><b>Same-day</b> turnaround</span>
+    <span><b>10–20</b> ad variants / month</span>
+    <span>Built for <b>Meta &amp; TikTok</b></span>
+    <span><b>A/B-ready</b> hooks &amp; angles</span>
+  </div>
+</div>
+
+<!-- WORK / REELS -->
+<section id="work">
+  <div class="wrap">
+    <p class="eyebrow">Sample work</p>
+    <h2>Ads that look native to the feed.</h2>
+    <p class="muted" style="max-width:60ch;margin-top:-6px">Vertical 9:16, hook-first, made to stop the scroll and drive the click.</p>
+    <br>
+    <!-- ============================================================
+         SAMPLE VIDEOS — replace each slot:
+         Put your mp4 files in this same folder as 1.mp4 … 5.mp4
+         (vertical 9:16). The <video> will show automatically.
+         Until then the placeholder is shown. Edit figcaption text.
+         ============================================================ -->
+    <div class="reels">
+      <figure class="reel">
+        <video src="1.mp4" poster="" controls playsinline preload="metadata"></video>
+        <div class="ph"><div class="dot">▶</div>Sample 1<br>Skincare — hook demo</div>
+      </figure>
+      <figure class="reel">
+        <video src="2.mp4" poster="" controls playsinline preload="metadata"></video>
+        <div class="ph"><div class="dot">▶</div>Sample 2<br>Problem / solution</div>
+      </figure>
+      <figure class="reel">
+        <video src="3.mp4" poster="" controls playsinline preload="metadata"></video>
+        <div class="ph"><div class="dot">▶</div>Sample 3<br>Testimonial style</div>
+      </figure>
+      <figure class="reel">
+        <video src="4.mp4" poster="" controls playsinline preload="metadata"></video>
+        <div class="ph"><div class="dot">▶</div>Sample 4<br>Unboxing / demo</div>
+      </figure>
+      <figure class="reel">
+        <video src="5.mp4" poster="" controls playsinline preload="metadata"></video>
+        <div class="ph"><div class="dot">▶</div>Sample 5<br>Offer / CTA</div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section style="background:var(--bg2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>From product link to ready-to-run ads.</h2>
+    <br>
+    <div class="grid3">
+      <div class="card step"><div class="n">01</div><h3>Send your product</h3><p class="muted">A product URL and a few brand notes. That's all we need to start.</p></div>
+      <div class="card step"><div class="n">02</div><h3>We produce the batch</h3><p class="muted">12–20 UGC-style ads with multiple hooks and angles, shipped in days.</p></div>
+      <div class="card step"><div class="n">03</div><h3>You test &amp; scale</h3><p class="muted">Run them on Meta/TikTok, keep the winners, we iterate on what performs.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <p class="eyebrow">Pricing</p>
+    <h2>Simple monthly plans.</h2>
+    <br>
+    <div class="grid3">
+      <div class="card price">
+        <h3>First Project</h3>
+        <div class="amt">$400 <small>one-time</small></div>
+        <ul><li>5 UGC-style ads</li><li>Multiple hooks</li><li>No commitment — test us first</li></ul>
+        <a href="#contact" class="btn btn-ghost">Start a test batch</a>
+      </div>
+      <div class="card price featured">
+        <span class="tag">Most popular</span>
+        <h3>Starter</h3>
+        <div class="amt">$1,000 <small>/ month</small></div>
+        <ul><li>12 ad variants / month</li><li>A/B-ready hooks &amp; angles</li><li>Ready for Meta &amp; TikTok</li><li>1 revision round</li></ul>
+        <a href="#contact" class="btn">Get started</a>
+      </div>
+      <div class="card price">
+        <h3>Growth</h3>
+        <div class="amt">$1,800 <small>/ month</small></div>
+        <ul><li>20 ad variants / month</li><li>Priority turnaround</li><li>Product b-roll add-ons</li><li>1 revision round</li></ul>
+        <a href="#contact" class="btn btn-ghost">Scale up</a>
+      </div>
+    </div>
+    <p class="muted" style="font-size:13px;margin-top:18px">We sell creative production and testing volume — not guaranteed ad results.</p>
+  </div>
+</section>
+
+<!-- WHY AI -->
+<section class="why" style="background:var(--bg2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <p class="eyebrow">Why AI UGC</p>
+    <h2>More creative, faster, for less.</h2>
+    <br>
+    <div class="grid3">
+      <div class="card"><div class="big">Days</div><p class="muted">Turnaround instead of the 1–2 weeks a traditional UGC shoot takes.</p></div>
+      <div class="card"><div class="big">10×</div><p class="muted">The volume of ad variants for the same budget — so you can actually find winners.</p></div>
+      <div class="card"><div class="big">Native</div><p class="muted">Feed-native, hook-first creative designed for paid performance, not brand fluff.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap" style="max-width:760px">
+    <p class="eyebrow">FAQ</p>
+    <h2>Questions, answered.</h2>
+    <br>
+    <details><summary>Does AI UGC actually convert?</summary><p>It's running on real ad accounts today. We focus on feed-native, hook-first creative and give you the volume to test — you keep what performs. We sell creative and testing volume, not guaranteed ROAS.</p></details>
+    <details><summary>What do you need from me?</summary><p>A product URL and a few brand notes. If you have brand photos or guidelines, even better — but they're not required to start.</p></details>
+    <details><summary>Which platforms are the ads for?</summary><p>Vertical 9:16, ready to upload to Meta (Facebook/Instagram) and TikTok ads.</p></details>
+    <details><summary>Can I test before committing?</summary><p>Yes — the First Project batch is a one-time $400 for 5 ads, no monthly commitment.</p></details>
+    <details><summary>How fast do I get them?</summary><p>Most batches ship within a few days. Growth plan gets priority turnaround.</p></details>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="box">
+      <div>
+        <p class="eyebrow">Get started</p>
+        <h2>Get a free ad for your product.</h2>
+        <p class="muted">Tell us your product and we'll send one UGC-style ad, free — no strings. If you like it, we'll take it from there.</p>
+        <p class="muted" style="font-size:14px">Or email us directly:<br><b>hello@reelforge.example</b></p>
+        <!-- Replace the email above and, if you use Calendly, add your link as a button. -->
+      </div>
+      <!-- ============================================================
+           FORM: replace action with your Formspree (or similar) endpoint.
+           Get a free endpoint at formspree.io, paste the URL below.
+           Until then the form won't submit — it's a placeholder.
+           ============================================================ -->
+      <form action="https://formspree.io/f/your-id" method="POST">
+        <input type="text" name="brand" placeholder="Brand name" required>
+        <input type="url" name="product" placeholder="Product URL" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="notes" rows="3" placeholder="Anything we should know? (optional)"></textarea>
+        <button class="btn" type="submit">Send me a free sample</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footrow">
+    <div>© <span id="yr"></span> Reelforge — AI UGC video ads for DTC brands.</div>
+    <div><a href="#work">Work</a> · <a href="#pricing">Pricing</a> · <a href="#contact">Contact</a></div>
+  </div>
+</footer>
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+// Hide a slot's placeholder once its real video loads; keep it if the file is missing.
+document.querySelectorAll('.reel').forEach(function(r){
+  var v=r.querySelector('video'), ph=r.querySelector('.ph');
+  if(!v||!ph) return;
+  v.addEventListener('loadedmetadata',function(){ if(v.videoWidth>0) ph.hidden=true; });
+  v.addEventListener('error',function(){ ph.hidden=false; });
+});
+</script>
+</body>
+</html>
