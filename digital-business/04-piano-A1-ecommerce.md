@@ -137,7 +137,7 @@ nicchia.
 1. Pagina portfolio (HTML, Netlify/Vercel) dove incorporare le ad campione — link per l'outreach.
 2. One-pager offerta per chi chiede il dettaglio.
 3. Script outreach specifici e-commerce (email/DM) + foglio di tracciamento.
-4. 3–5 ad campione (le produce l'utente in Higgsfield/Midjourney).
+4. 3–5 ad campione (le produce l'utente in Creatify; Higgsfield/Midjourney solo per b-roll/still).
 
 ## Fonti
 
