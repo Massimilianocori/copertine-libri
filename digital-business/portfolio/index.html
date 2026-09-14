@@ -1,180 +1,178 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Scrollcraft — AI UGC video ads for DTC brands</title>
-<meta name="description" content="Scroll-stopping UGC-style video ads for DTC e-commerce brands, made with AI. Shipped in days, built to A/B test on Meta and TikTok.">
+<meta name="description" content="UGC-style video ads for DTC e-commerce brands, made with AI. Shipped in days, built to A/B test on Meta and TikTok.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   SCROLLCRAFT — sales page. Design: Video-First Hero + Kinetic
-   Brutalism (ui-ux-pro-max). To rebrand: change --accent and every
-   "Scrollcraft" text. Drop hero.mp4 + 1.mp4..5.mp4 in this folder.
+   SCROLLCRAFT — light editorial redesign (reference: icon.com).
+   To rebrand: change --accent and every "Scrollcraft" text.
+   Drop hero.mp4 + 1.mp4..5.mp4 in this folder for real samples.
    ============================================================ */
 :root{
-  --bg:#0a0a0b; --bg2:#0f0f11; --card:#141417; --line:#2a2a30;
-  --text:#f5f5f6; --muted:#b9c0c8; --accent:#d6ff3f; --accent-ink:#0a0a0b;
-  --violet:#8b7bff; --max:1120px; --r:4px;
-  --space:clamp(64px,9vw,120px);
+  --bg:#FAFAF7; --bg2:#F1EFE7; --card:#FFFFFF; --line:#E7E4DA;
+  --text:#15140F; --muted:#6B6A60; --accent:#C6FF3A; --accent-ink:#0A0A0A;
+  --max:1160px; --r:10px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--text);
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  -webkit-font-smoothing:antialiased}
 img,video{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--max);margin:0 auto;padding-inline:22px}
-.disp{font-family:"Space Grotesk",Inter,sans-serif;letter-spacing:-.02em;line-height:1.02}
-.eyebrow{font-family:"Space Grotesk",sans-serif;color:var(--accent);font-weight:600;
-  letter-spacing:.22em;text-transform:uppercase;font-size:12px}
+.disp{font-family:"Space Grotesk",Inter,sans-serif;letter-spacing:-.02em;line-height:1.05}
+.eyebrow{font-family:"Space Grotesk",sans-serif;color:var(--text);font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;font-size:11px;opacity:.55}
 .muted{color:var(--muted)}
-section{padding-block:var(--space)}
-h2.disp{font-size:clamp(30px,5.2vw,54px);font-weight:700;margin:0 0 .35em;text-transform:uppercase}
+section{padding-block:88px}
+h2.disp{font-size:clamp(28px,4vw,44px);font-weight:600;margin:0 0 .3em;letter-spacing:-.02em}
+mark{background:var(--accent);color:var(--accent-ink);padding:.02em .18em;border-radius:3px}
+em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400}
 
-/* buttons — flood invert */
-.btn{--bd:var(--accent);display:inline-flex;align-items:center;gap:8px;
-  font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:15px;
-  background:var(--accent);color:var(--accent-ink);border:2px solid var(--accent);
-  padding:14px 24px;border-radius:var(--r);cursor:pointer;
-  transition:background .12s ease,color .12s ease,transform .12s ease}
-.btn:hover{background:transparent;color:var(--accent);transform:translateY(-2px)}
-.btn:focus-visible{outline:3px solid var(--violet);outline-offset:3px}
-.btn-ghost{background:transparent;color:var(--text);border:2px solid var(--line)}
-.btn-ghost:hover{border-color:var(--accent);color:var(--accent);background:transparent}
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;
+  background:var(--accent-ink);color:#fff;border:1.5px solid var(--accent-ink);
+  padding:13px 22px;border-radius:999px;cursor:pointer;
+  transition:background .15s ease,color .15s ease,transform .15s ease}
+.btn:hover{background:transparent;color:var(--accent-ink);transform:translateY(-1px)}
+.btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn-ghost{background:transparent;color:var(--accent-ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--accent-ink)}
 
 /* header */
-header{position:sticky;top:0;z-index:50;background:rgba(10,10,11,.72);
-  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:66px}
-.logo{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:21px;
-  letter-spacing:-.03em;text-transform:uppercase}
-.logo span{color:var(--accent)}
-.nav .btn{padding:9px 18px}
+header{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.85);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:19px;letter-spacing:-.02em}
+.logo span{color:var(--accent-ink);border-bottom:3px solid var(--accent)}
+.nav .btn{padding:9px 18px;font-size:14px}
 
-/* hero — video first */
-.hero{position:relative;min-height:88vh;min-height:88svh;display:flex;align-items:center;
-  overflow:hidden;border-bottom:1px solid var(--line)}
-.hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg video{width:100%;height:100%;object-fit:cover;opacity:.34}
-.hero-bg::after{content:"";position:absolute;inset:0;
-  background:
-    radial-gradient(80% 60% at 75% 10%,rgba(214,255,63,.14),transparent 60%),
-    linear-gradient(180deg,rgba(10,10,11,.55),rgba(10,10,11,.92) 85%)}
-.hero-fallback{position:absolute;inset:0;background:
-  radial-gradient(70% 55% at 78% 8%,rgba(214,255,63,.12),transparent 60%),
-  radial-gradient(60% 50% at 10% 100%,rgba(139,123,255,.12),transparent 60%),var(--bg)}
-.hero .wrap{position:relative;z-index:2;padding-block:100px}
-.hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;text-transform:uppercase;
-  font-size:clamp(40px,8vw,88px);line-height:.98;letter-spacing:-.03em;margin:0 0 22px;max-width:16ch}
-.hero h1 em{font-style:normal;color:var(--accent)}
-.hero p.lead{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:52ch;margin:0 0 30px}
-.cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.hero .note{margin-top:16px;font-size:13px}
+/* hero */
+.hero{padding-block:64px 30px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.hero h1{font-family:"Space Grotesk",sans-serif;font-weight:600;
+  font-size:clamp(34px,4.6vw,58px);line-height:1.04;letter-spacing:-.025em;margin:.3em 0 20px;max-width:14ch}
+.hero p.lead{font-size:clamp(16px,1.7vw,18px);color:var(--muted);max-width:48ch;margin:0 0 26px}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .note{margin-top:14px;font-size:13px;color:var(--muted)}
+.hero .note b{color:var(--text)}
 
-/* marquee */
-.marquee{background:var(--accent);color:var(--accent-ink);border-block:2px solid var(--accent-ink);
-  overflow:hidden;white-space:nowrap}
-.marquee .track{display:inline-flex;gap:26px;padding-block:12px;
-  font-family:"Space Grotesk",sans-serif;font-weight:700;text-transform:uppercase;
-  letter-spacing:.02em;font-size:15px;animation:scroll 26s linear infinite}
-.marquee .track span{display:inline-flex;align-items:center;gap:26px}
-.marquee .track span::after{content:"◆";font-size:11px}
-@keyframes scroll{to{transform:translateX(-50%)}}
+/* phone-style video mock */
+.phones{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.phones .reel:first-child{grid-column:1 / -1}
+.reel{position:relative;aspect-ratio:9/13;background:linear-gradient(160deg,#EDEBE2,#DFDCCF);
+  border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 18px 40px -20px rgba(20,20,15,.25)}
+.reel video{width:100%;height:100%;object-fit:cover}
+.reel .chrome{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(0,0,0,.38) 0%,transparent 22%,transparent 68%,rgba(0,0,0,.55) 100%)}
+.reel .who{position:absolute;top:12px;left:12px;right:12px;display:flex;align-items:center;gap:8px;color:#fff}
+.reel .avatar{width:24px;height:24px;border-radius:50%;background:var(--accent);
+  display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--accent-ink);flex:none}
+.reel .who .handle{font-size:12px;font-weight:600}
+.reel .who .followers{font-size:10.5px;opacity:.85;display:block;margin-top:-2px}
+.reel .caption{position:absolute;left:12px;right:12px;bottom:12px;color:#fff;font-size:12px;font-weight:500;
+  line-height:1.35}
+.reel .ph{position:absolute;inset:0;display:flex;flex-direction:column;gap:8px;
+  align-items:center;justify-content:center;color:var(--muted);text-align:center;padding:14px;font-size:11.5px}
+.reel .ph .dot{width:38px;height:38px;border-radius:50%;border:2px solid var(--accent-ink);
+  display:flex;align-items:center;justify-content:center;color:var(--accent-ink);font-size:14px;background:#fff}
+
+/* trust strip */
+.trust{border-block:1px solid var(--line);background:var(--bg2)}
+.trust .wrap{display:flex;gap:30px;flex-wrap:wrap;align-items:center;justify-content:center;
+  padding-block:16px;color:var(--muted);font-size:13.5px;text-align:center}
+.trust b{color:var(--text)}
+
+/* work grid */
+.head-row{max-width:60ch}
+.work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.work-grid .reel{aspect-ratio:9/16}
+.reel .label{position:absolute;left:12px;top:12px;background:#fff;color:var(--accent-ink);
+  font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:999px;letter-spacing:.02em}
 
 /* generic grid + cards */
-.head-row{max-width:62ch}
-.grid{display:grid;gap:18px}
+.grid{display:grid;gap:16px}
 .g3{grid-template-columns:repeat(3,1fr)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px}
-.card.hoverflood{transition:background .12s,color .12s,border-color .12s}
-.card.hoverflood:hover{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.card.hoverflood:hover .muted{color:rgba(10,10,11,.78)}
-.card.hoverflood:hover .n{color:var(--accent-ink)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px}
+.step .n{font-family:"Space Grotesk",sans-serif;color:var(--muted);font-weight:600;font-size:12px;
+  letter-spacing:.1em;text-transform:uppercase}
+.step h3{margin:.5em 0 .3em;font-size:18px;font-weight:600}
 
-/* reels */
-.reels{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-.reel{position:relative;aspect-ratio:9/16;background:linear-gradient(160deg,#17171b,#0d0d10);
-  border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.reel video{width:100%;height:100%;object-fit:cover}
-.reel .ph{position:absolute;inset:0;display:flex;flex-direction:column;gap:10px;
-  align-items:center;justify-content:center;color:var(--muted);text-align:center;padding:14px;font-size:12px}
-.reel .ph .dot{width:46px;height:46px;border-radius:50%;border:2px solid var(--accent);
-  display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:16px}
-.reel .tag-n{position:absolute;top:10px;left:10px;font-family:"Space Grotesk",sans-serif;
-  font-weight:700;font-size:12px;background:var(--accent);color:var(--accent-ink);padding:2px 8px;border-radius:2px}
-
-/* steps */
-.step .n{font-family:"Space Grotesk",sans-serif;color:var(--accent);font-weight:700;font-size:34px;line-height:1}
-.step h3{margin:.4em 0 .3em;font-size:20px}
+/* comparison — dark band for rhythm */
+.compare-section{background:var(--accent-ink);color:#fff}
+.compare-section .eyebrow{color:#fff;opacity:.55}
+.compare-section .muted{color:#B9B8AF}
+.compare-section h2.disp{color:#fff}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.compare .card{background:#1C1B16;border-color:#33322A}
+.compare .card b{display:block;font-family:"Space Grotesk",sans-serif;font-size:26px;margin-bottom:6px;color:#fff}
+.compare .card.them{opacity:.6}
+.compare .card.us{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.compare .card.us b{color:var(--accent)}
+.compare .card p.muted{color:#B9B8AF}
 
 /* pricing */
-.g3.pricing{align-items:stretch}
 .price{display:flex;flex-direction:column}
-.price.featured{border-color:var(--accent);background:linear-gradient(180deg,rgba(214,255,63,.06),transparent)}
-.price h3{font-family:"Space Grotesk",sans-serif;text-transform:uppercase;letter-spacing:.02em;font-size:15px;color:var(--muted);margin:0}
-.price .amt{font-family:"Space Grotesk",sans-serif;font-size:40px;font-weight:700;margin:.15em 0 .1em}
-.price .amt small{font-size:15px;color:var(--muted);font-weight:500}
-.price ul{list-style:none;padding:0;margin:16px 0 24px;display:grid;gap:10px}
-.price li{padding-left:26px;position:relative;color:var(--muted);font-size:15px}
-.price li::before{content:"";position:absolute;left:0;top:9px;width:12px;height:2px;background:var(--accent)}
+.price.featured{border-color:var(--accent-ink);box-shadow:0 0 0 1px var(--accent-ink) inset}
+.price h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:16px;margin:0}
+.price .amt{font-family:"Space Grotesk",sans-serif;font-size:36px;font-weight:600;margin:.2em 0 .1em}
+.price .amt small{font-size:14px;color:var(--muted);font-weight:500}
+.price ul{list-style:none;padding:0;margin:14px 0 22px;display:grid;gap:9px}
+.price li{padding-left:22px;position:relative;color:var(--muted);font-size:14.5px}
+.price li::before{content:"→";position:absolute;left:0;color:var(--accent-ink);font-weight:700}
 .price .btn{margin-top:auto;justify-content:center}
 .tag{align-self:flex-start;font-family:"Space Grotesk",sans-serif;font-size:11px;font-weight:700;
-  color:var(--accent-ink);background:var(--accent);padding:4px 10px;border-radius:2px;
-  letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+  color:#fff;background:var(--accent-ink);padding:4px 10px;border-radius:999px;
+  letter-spacing:.04em;margin-bottom:14px}
 
-/* why - big stats */
-.why .g3{gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.why .cell{padding:34px 28px;border-right:1px solid var(--line)}
-.why .cell:last-child{border-right:0}
-.why .big{font-family:"Space Grotesk",sans-serif;font-size:clamp(38px,6vw,60px);font-weight:700;color:var(--accent);line-height:1}
-.why h3{margin:.5em 0 .3em;font-size:18px;text-transform:uppercase;letter-spacing:.02em;font-family:"Space Grotesk",sans-serif}
+/* why */
+.why .cell{padding:0}
+.why .big{font-family:"Space Grotesk",sans-serif;font-size:clamp(32px,5vw,46px);font-weight:600}
+.why h3{margin:.35em 0 .3em;font-size:16px;font-weight:600}
 
 /* faq */
-.faq details{border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin-bottom:12px;background:var(--card)}
-.faq summary{cursor:pointer;font-weight:600;list-style:none;font-family:"Space Grotesk",sans-serif;
-  display:flex;justify-content:space-between;gap:16px;align-items:center}
+.faq details{border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin-bottom:10px;background:var(--card)}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";color:var(--accent);font-size:22px;font-weight:700;line-height:1}
+.faq summary::after{content:"+";color:var(--muted);font-size:20px;font-weight:400}
 .faq details[open] summary::after{content:"–"}
-.faq p{color:var(--muted);margin:14px 0 0}
+.faq p{color:var(--muted);margin:14px 0 0;font-size:14.5px}
 
 /* contact */
-.contact{border-top:1px solid var(--line);background:
-  radial-gradient(60% 80% at 85% 0%,rgba(214,255,63,.06),transparent 60%),var(--bg2)}
-.contact .box{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start}
+.contact{border-top:1px solid var(--line);background:var(--bg2)}
+.contact .box{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start}
 form{display:grid;gap:12px}
 label{font-size:13px;color:var(--muted);font-weight:500}
-input,textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:var(--r);
-  padding:14px;color:var(--text);font:inherit;min-height:48px}
-input:focus,textarea:focus{outline:3px solid var(--violet);outline-offset:1px;border-color:transparent}
+input,textarea{width:100%;background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:13px 14px;color:var(--text);font:inherit;min-height:46px}
+input:focus,textarea:focus{outline:3px solid var(--accent);outline-offset:1px;border-color:transparent}
 
-footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);font-size:13px}
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);font-size:13px}
 .footrow{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
-.footrow a:hover{color:var(--accent)}
+.footrow a:hover{color:var(--text)}
 
 /* responsive */
 @media(max-width:920px){
+  .hero-grid{grid-template-columns:1fr}
   .g3{grid-template-columns:1fr}
-  .why .g3{grid-template-columns:1fr}
-  .why .cell{border-right:0;border-bottom:1px solid var(--line)}
-  .why .cell:last-child{border-bottom:0}
-  .reels{grid-template-columns:repeat(2,1fr)}
-  .contact .box{grid-template-columns:1fr;gap:30px}
+  .compare{grid-template-columns:1fr}
+  .work-grid{grid-template-columns:repeat(2,1fr)}
+  .contact .box{grid-template-columns:1fr;gap:28px}
 }
 @media(max-width:520px){
-  .reels{grid-template-columns:repeat(2,1fr);gap:10px}
-  .hero{min-height:82vh}
+  section{padding-block:56px}
+  .phones{grid-template-columns:1fr 1fr}
 }
 
-/* accessibility: reduced motion */
 @media(prefers-reduced-motion:reduce){
-  *{animation-duration:.001ms!important;animation-iteration-count:1!important;
-    transition-duration:.001ms!important;scroll-behavior:auto!important}
-  .hero-bg video{display:none}
+  *{transition-duration:.001ms!important;scroll-behavior:auto!important}
 }
 </style>
 </head>
@@ -183,35 +181,50 @@ footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);fo
 <header>
   <div class="wrap nav">
     <div class="logo">Scroll<span>craft</span></div>
-    <a href="#contact" class="btn">Free sample</a>
+    <a href="#contact" class="btn">Get a free sample</a>
   </div>
 </header>
 
-<!-- HERO (video-first) -->
+<!-- HERO -->
 <section class="hero">
-  <!-- Drop hero.mp4 (a muted looping reel) in this folder for the bg video.
-       Until then the gradient fallback shows. -->
-  <div class="hero-fallback"></div>
-  <div class="hero-bg">
-    <video src="hero.mp4" autoplay muted loop playsinline preload="metadata"></video>
-  </div>
-  <div class="wrap">
-    <p class="eyebrow">UGC video ads · made with AI</p>
-    <h1>Scroll-stopping <em>video ads</em> for your brand.</h1>
-    <p class="lead">We produce UGC-style ads for DTC e-commerce brands using AI — a fraction of the cost of traditional UGC, and the volume to actually find winners on Meta &amp; TikTok.</p>
-    <div class="cta-row">
-      <a href="#contact" class="btn">Get a free ad for your product</a>
-      <a href="#work" class="btn btn-ghost">See sample ads</a>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">UGC video ads · made with AI</p>
+      <h1>Scroll-stopping video ads, <em>shipped in days</em>.</h1>
+      <p class="lead">We produce UGC-style video ads for DTC e-commerce brands using AI — a fraction of the cost of a traditional UGC shoot, with enough volume to actually find winners on Meta &amp; TikTok.</p>
+      <div class="cta-row">
+        <a href="#contact" class="btn">Get a free ad for your product</a>
+        <a href="#work" class="btn btn-ghost">See sample ads</a>
+      </div>
+      <p class="note"><b>No commitment.</b> We make one ad for your product first — you decide from there.</p>
     </div>
-    <p class="note muted">No commitment — we make one ad for your product, free.</p>
+    <!-- HERO SAMPLES: drop 1.mp4/2.mp4 in this folder — placeholder shows until then. -->
+    <div class="phones">
+      <figure class="reel">
+        <video src="1.mp4" controls playsinline preload="metadata"></video>
+        <div class="chrome"></div>
+        <div class="who"><div class="avatar">S</div><div><span class="handle">@yourbrand</span><span class="followers">Sponsored</span></div></div>
+        <div class="caption">"I wasn't expecting this to actually work..."</div>
+        <div class="ph"><div class="dot">▶</div>Sample ad 1</div>
+      </figure>
+      <figure class="reel">
+        <video src="2.mp4" controls playsinline preload="metadata"></video>
+        <div class="chrome"></div>
+        <div class="who"><div class="avatar">S</div><div><span class="handle">@yourbrand</span><span class="followers">Sponsored</span></div></div>
+        <div class="caption">3 things nobody tells you before you buy this.</div>
+        <div class="ph"><div class="dot">▶</div>Sample ad 2</div>
+      </figure>
+    </div>
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee" aria-hidden="true">
-  <div class="track">
-    <span>Shipped in days&nbsp;&nbsp;Same-day turnaround&nbsp;&nbsp;10–20 variants / month&nbsp;&nbsp;Built for Meta &amp; TikTok&nbsp;&nbsp;A/B-ready hooks&nbsp;&nbsp;</span>
-    <span>Shipped in days&nbsp;&nbsp;Same-day turnaround&nbsp;&nbsp;10–20 variants / month&nbsp;&nbsp;Built for Meta &amp; TikTok&nbsp;&nbsp;A/B-ready hooks&nbsp;&nbsp;</span>
+<!-- TRUST -->
+<div class="trust">
+  <div class="wrap">
+    <span><b>Days</b>, not weeks, to deliver</span>
+    <span><b>10–20</b> ad variants / month</span>
+    <span>Built for <b>Meta &amp; TikTok</b></span>
+    <span><b>A/B-ready</b> hooks &amp; angles</span>
   </div>
 </div>
 
@@ -219,18 +232,17 @@ footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);fo
 <section id="work">
   <div class="wrap">
     <div class="head-row">
-      <p class="eyebrow">Sample work</p>
-      <h2 class="disp">Ads that look native to the feed</h2>
+      <p class="eyebrow">Sample formats</p>
+      <h2 class="disp">Ads that look native to the feed.</h2>
       <p class="muted">Vertical 9:16, hook-first, made to stop the scroll and earn the click.</p>
     </div>
     <br>
-    <!-- SAMPLE VIDEOS: drop 1.mp4 … 5.mp4 (9:16) in this folder; slots fill in automatically. -->
-    <div class="reels">
-      <figure class="reel"><span class="tag-n">01</span><video src="1.mp4" controls playsinline preload="metadata"></video><div class="ph"><div class="dot">▶</div>Skincare — hook demo</div></figure>
-      <figure class="reel"><span class="tag-n">02</span><video src="2.mp4" controls playsinline preload="metadata"></video><div class="ph"><div class="dot">▶</div>Problem / solution</div></figure>
-      <figure class="reel"><span class="tag-n">03</span><video src="3.mp4" controls playsinline preload="metadata"></video><div class="ph"><div class="dot">▶</div>Testimonial style</div></figure>
-      <figure class="reel"><span class="tag-n">04</span><video src="4.mp4" controls playsinline preload="metadata"></video><div class="ph"><div class="dot">▶</div>Unboxing / demo</div></figure>
-      <figure class="reel"><span class="tag-n">05</span><video src="5.mp4" controls playsinline preload="metadata"></video><div class="ph"><div class="dot">▶</div>Offer / CTA</div></figure>
+    <!-- SAMPLE VIDEOS: drop 1.mp4 … 5.mp4 (9:16) in this folder; placeholders fade out when a real file loads. -->
+    <div class="work-grid">
+      <figure class="reel"><span class="label">Hook demo</span><video src="1.mp4" controls playsinline preload="metadata"></video><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Skincare — hook demo</div></figure>
+      <figure class="reel"><span class="label">Problem/solution</span><video src="2.mp4" controls playsinline preload="metadata"></video><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Problem / solution</div></figure>
+      <figure class="reel"><span class="label">Testimonial</span><video src="3.mp4" controls playsinline preload="metadata"></video><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Testimonial style</div></figure>
+      <figure class="reel"><span class="label">Unboxing</span><video src="4.mp4" controls playsinline preload="metadata"></video><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Unboxing / demo</div></figure>
     </div>
   </div>
 </section>
@@ -238,22 +250,43 @@ footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);fo
 <!-- HOW IT WORKS -->
 <section style="background:var(--bg2);border-block:1px solid var(--line)">
   <div class="wrap">
-    <div class="head-row"><p class="eyebrow">How it works</p><h2 class="disp">Product link in, ads out</h2></div>
+    <div class="head-row"><p class="eyebrow">How it works</p><h2 class="disp">Product link in, <em>ads out</em>.</h2></div>
     <br>
     <div class="grid g3">
-      <div class="card hoverflood step"><div class="n">01</div><h3>Send your product</h3><p class="muted">A product URL and a few brand notes. That's all we need to start.</p></div>
-      <div class="card hoverflood step"><div class="n">02</div><h3>We produce the batch</h3><p class="muted">12–20 UGC-style ads with multiple hooks and angles, shipped in days.</p></div>
-      <div class="card hoverflood step"><div class="n">03</div><h3>You test &amp; scale</h3><p class="muted">Run them, keep the winners, we iterate on what performs.</p></div>
+      <div class="card step"><div class="n">Day 1</div><h3>Send your product</h3><p class="muted">A product URL and a few brand notes. That's all we need to start.</p></div>
+      <div class="card step"><div class="n">Day 2–4</div><h3>We produce the batch</h3><p class="muted">12–20 UGC-style ads with multiple hooks and angles.</p></div>
+      <div class="card step"><div class="n">Day 5</div><h3>You test &amp; scale</h3><p class="muted">Run them on Meta/TikTok, keep the winners, we iterate on what performs.</p></div>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
-<section id="pricing">
+<!-- COMPARISON -->
+<section class="compare-section">
   <div class="wrap">
-    <div class="head-row"><p class="eyebrow">Pricing</p><h2 class="disp">Simple monthly plans</h2></div>
+    <div class="head-row"><p class="eyebrow">Why AI UGC</p><h2 class="disp">The same format, <em>without the shoot</em>.</h2></div>
     <br>
-    <div class="grid g3 pricing">
+    <div class="compare">
+      <div class="card them">
+        <b>$150–500 / video</b>
+        <p class="muted" style="margin:0 0 10px">Traditional UGC creator shoot</p>
+        <p class="muted" style="margin:0;font-size:14px">5–7 day turnaround per video. One creator, one video, one take on the product.</p>
+      </div>
+      <div class="card us">
+        <b>A fraction of that</b>
+        <p class="muted" style="margin:0 0 10px">Scrollcraft, AI-produced</p>
+        <p class="muted" style="margin:0;font-size:14px">Shipped in days, with enough variants per batch to actually A/B test hooks and angles.</p>
+      </div>
+    </div>
+    <p class="muted" style="font-size:12.5px;margin-top:14px;color:#8E8D82">Traditional UGC pricing based on published 2026 creator-rate benchmarks. We sell creative production and testing volume — not guaranteed ad results.</p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="background:var(--bg2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="head-row"><p class="eyebrow">Pricing</p><h2 class="disp">Simple monthly plans.</h2></div>
+    <br>
+    <div class="grid g3">
       <div class="card price">
         <h3>First Project</h3>
         <div class="amt">$400 <small>one-time</small></div>
@@ -274,27 +307,14 @@ footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);fo
         <a href="#contact" class="btn btn-ghost">Scale up</a>
       </div>
     </div>
-    <p class="muted" style="font-size:13px;margin-top:18px">We sell creative production and testing volume — not guaranteed ad results.</p>
-  </div>
-</section>
-
-<!-- WHY AI -->
-<section class="why" style="background:var(--bg2);border-block:1px solid var(--line)">
-  <div class="wrap">
-    <div class="head-row"><p class="eyebrow">Why AI UGC</p><h2 class="disp">More creative, faster, for less</h2></div>
-    <br>
-    <div class="grid g3">
-      <div class="cell"><div class="big">Days</div><h3>Not weeks</h3><p class="muted">Turnaround instead of the 1–2 weeks a traditional UGC shoot takes.</p></div>
-      <div class="cell"><div class="big">10×</div><h3>The volume</h3><p class="muted">More ad variants for the same budget — so you can actually find winners.</p></div>
-      <div class="cell"><div class="big">Native</div><h3>Feed-first</h3><p class="muted">Hook-first creative built for paid performance, not brand fluff.</p></div>
-    </div>
+    <p class="muted" style="font-size:12.5px;margin-top:16px">We sell creative production and testing volume — not guaranteed ad results.</p>
   </div>
 </section>
 
 <!-- FAQ -->
 <section class="faq">
-  <div class="wrap" style="max-width:780px">
-    <div class="head-row"><p class="eyebrow">FAQ</p><h2 class="disp">Questions, answered</h2></div>
+  <div class="wrap" style="max-width:760px">
+    <div class="head-row"><p class="eyebrow">FAQ</p><h2 class="disp">Questions, answered.</h2></div>
     <br>
     <details><summary>Does AI UGC actually convert?</summary><p>It's running on real ad accounts today. We focus on feed-native, hook-first creative and give you the volume to test — you keep what performs. We sell creative and testing volume, not guaranteed ROAS.</p></details>
     <details><summary>What do you need from me?</summary><p>A product URL and a few brand notes. Brand photos or guidelines help but aren't required to start.</p></details>
@@ -310,9 +330,9 @@ footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);fo
     <div class="box">
       <div>
         <p class="eyebrow">Get started</p>
-        <h2 class="disp">Get a free ad<br>for your product</h2>
+        <h2 class="disp">Get a free ad<br>for your product.</h2>
         <p class="muted">Tell us your product and we'll send one UGC-style ad, free — no strings. If you like it, we'll take it from there.</p>
-        <p class="muted" style="font-size:14px">Prefer email?<br><b style="color:var(--text)">hello@scrollcraft.com</b></p>
+        <p class="muted" style="font-size:14px">Prefer email?<br><b style="color:var(--text)">hello@scrollcraft.design</b></p>
       </div>
       <!-- FORM: replace action with your Formspree endpoint (formspree.io). -->
       <form action="https://formspree.io/f/your-id" method="POST">
@@ -320,7 +340,7 @@ footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);fo
         <div><label for="product">Product URL</label><input id="product" type="url" name="product" placeholder="https://" required></div>
         <div><label for="email">Your email</label><input id="email" type="email" name="email" required></div>
         <div><label for="notes">Anything we should know? (optional)</label><textarea id="notes" name="notes" rows="3"></textarea></div>
-        <button class="btn" type="submit">Send me a free sample</button>
+        <button class="btn" type="submit" style="width:100%;justify-content:center">Send me a free sample</button>
       </form>
     </div>
   </div>
@@ -328,23 +348,19 @@ footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);fo
 
 <footer>
   <div class="wrap footrow">
-    <div><span class="logo" style="font-size:16px">Scroll<span style="color:var(--accent)">craft</span></span> · © <span id="yr"></span></div>
+    <div><span class="logo" style="font-size:15px">Scroll<span>craft</span></span> · © <span id="yr"></span></div>
     <div><a href="#work">Work</a> &nbsp;·&nbsp; <a href="#pricing">Pricing</a> &nbsp;·&nbsp; <a href="#contact">Contact</a></div>
   </div>
 </footer>
 
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
-// Reveal a slot's video once it actually loads; keep placeholder if the file is missing.
 document.querySelectorAll('.reel').forEach(function(r){
   var v=r.querySelector('video'), ph=r.querySelector('.ph');
   if(!v||!ph) return;
   v.addEventListener('loadedmetadata',function(){ if(v.videoWidth>0) ph.hidden=true; });
   v.addEventListener('error',function(){ ph.hidden=false; });
 });
-// Hide hero bg video cleanly if hero.mp4 is missing (fallback gradient stays).
-(function(){var hv=document.querySelector('.hero-bg video');
-  if(hv) hv.addEventListener('error',function(){ hv.style.display='none'; });})();
 </script>
 </body>
 </html>
