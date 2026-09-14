@@ -1,11 +1,11 @@
-# Portfolio page A1 (Reelforge — placeholder)
+# Portfolio page A1 (Scrollcraft — placeholder)
 
 Pagina di vendita per l'outreach A1 (AI UGC video ads per brand DTC). Sito statico, un file.
 
 ## Personalizzare (3 punti)
-1. **Nome brand:** in `index.html` cambia il testo "Reelforge" (header, footer) e il `<title>`.
+1. **Nome brand:** in `index.html` cambia il testo "Scrollcraft" (header, footer) e il `<title>`.
 2. **Colore accento:** in `<style>`, variabile `--accent`.
-3. **Email/form:** sostituisci `hello@reelforge.example` e l'`action` del form con un endpoint
+3. **Email/form:** sostituisci `hello@scrollcraft.com` e l'`action` del form con un endpoint
    Formspree (gratis su formspree.io). Aggiungi il link Calendly se vuoi le call.
 
 ## Aggiungere i video campione
