@@ -69,18 +69,27 @@ le loro campagne.
 `[VERIFICATO]` I tool AI UGC sono specializzati: nessuno fa tutto bene. Il formato che vende (attore
 AI che parla del prodotto) NON è il punto di forza di Higgsfield (che eccelle su cinematico/b-roll).
 
-Stack minimo, si aggiunge solo su necessità:
+**Revisione 2026-09-14 (seconda autocorrezione, dopo il primo campione prodotto).** Il video con
+avatar parlante generato in Creatify è risultato inaccettabile per la vetrina. Causa verificata,
+non di impostazione: Creatify **compete sul volume, non sul realismo** per posizionamento dichiarato
+(*"Creatify isn't trying to win on realism. It's trying to win on throughput"*), e come Arcads e
+HeyGen usa **avatar + lip-sync**, la tecnica che produce proprio i difetti osservati (*"teeth can
+swim and the mouth shapes appear rubbery"*). Lo stack si divide quindi in due ruoli.
 
 | Tool | Ruolo | Costo | Quando |
 |---|---|---|---|
-| **Creatify (Lite)** | Cuore UGC-ad: URL→video, batch, varianti A/B (~$3,90/video 30s) | $39/mese | Ora |
-| **CapCut** | Montaggio, sottotitoli, musica | Gratis | Ora |
-| Arcads | Attori AI più convincenti (~$11/video) per campioni che devono stupire | $110/mese | Solo se Creatify non convince |
+| **Veo 3.1** (Google Flow / AI Pro) | Video con **persona che parla**: audio-video generati insieme, nessun lip-sync | **gratis** (50 crediti/gg) → $19,99/mese | Ora — prima il test gratuito |
+| **Creatify (Starter)** | Volume: URL→video per i campioni outreach quotidiani, video solo-prodotto, varianti A/B | $19-39/mese (già attivo) | Ora |
+| **CapCut** | Montaggio (Veo genera clip da 8s → si concatenano), sottotitoli, musica | Gratis | Ora |
+| ~~Arcads~~ | Scartato: $110/mese per 10 video ($11/video), nessun free trial, ed è comunque lip-sync | — | Mai, salvo fallimento di Veo |
 | Higgsfield | B-roll / cinematico prodotto | $9–65/mese | Solo se il cliente lo chiede |
 | Midjourney | Still d'effetto (già posseduto per PressedHeart) | opzionale | Opzionale |
 
-Partenza reale: **Creatify Starter, annuale ≈ $19-20/mese** (sconto ~50% vs $39 mensile) + CapCut
-gratis. Il URL-to-video di Creatify È l'arma di vendita (campione gratis dall'URL prodotto del brand).
+Prompt pronti e procedura completa: **`10-video-veo3-prompt-pronti.md`**.
+
+L'abbonamento Creatify non è sprecato — cambia ruolo: da video-vetrina a produzione di massa, dove il
+throughput è esattamente la qualità richiesta. Il URL-to-video resta l'arma di velocità nell'outreach
+(campione dall'URL prodotto del brand in pochi minuti).
 
 **Nota crediti `[VERIFICATO, 2026-09-15]`:** Starter dà 100 crediti/mese, ogni video costa 2-20
 crediti → **~5-15 video/mese** ad alta qualità. Il ritmo outreach previsto (2-3 campioni

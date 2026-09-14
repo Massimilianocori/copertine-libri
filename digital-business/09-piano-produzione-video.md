@@ -1,5 +1,13 @@
 # Piano di produzione video — Creatify (guida completa)
 
+> **Superato in parte, 2026-09-14.** I §2/§4 di questo file (workflow Creatify per i 4 video della
+> pagina) sono sostituiti da **`10-video-veo3-prompt-pronti.md`**: i video con persona che parla si
+> generano in **Veo 3.1**, non in Creatify, perché Creatify compete sul volume e non sul realismo e
+> il primo campione prodotto non ha retto la soglia della vetrina.
+> Restano validi e in uso: §1 (strategia e quantità), §3 (regole hook), §5 (personalizzazione per
+> prospect), §6 (checklist). Creatify resta lo strumento per i campioni di outreach in volume e per i
+> video solo-prodotto.
+
 Documento operativo unico per produrre tutti i video necessari: i 4 campioni della pagina + i primi
 10 video personalizzati per l'outreach. Sostituisce come guida pratica il file 08 (che resta come
 riferimento sintetico). Segue lo stesso protocollo: `[VERIFICATO]` con fonte, `[IPOTESI]` altrimenti.
