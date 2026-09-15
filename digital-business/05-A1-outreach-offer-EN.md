@@ -22,9 +22,9 @@ faster and cheaper than a traditional UGC pipeline.
 test winners — instead of 1–2 videos a month.
 
 **Packages (USD):**
-- Starter — 12 videos/month — $1,000/mo
-- Growth — 20 videos/month + priority turnaround — $1,800/mo
-- First project (no commitment): a batch of 5 ads — $400 one-time.
+- Starter — 18 videos/month — $999/mo ($55/ad — 31% less than a one-off batch)
+- Growth — 36 videos/month + priority turnaround — $1,799/mo ($50/ad — our lowest cost per ad)
+- First project (no commitment): a batch of 5 ads — $400 one-time ($80/ad).
 
 **How it works:** 1) you send product + brand notes → 2) we produce the batch → 3) you get files
 ready to run → 4) we iterate on what performs.
@@ -69,8 +69,8 @@ Subject: made you a free ad for [Brand]
 
 ## OBJECTION HANDLING
 
-- **"How much?"** → "Starter is $1,000/mo for 12 ad variants ready to run; first batch of 5 is $400
-  one-time if you want to test me first. No long contract."
+- **"How much?"** → "Starter is $999/mo for 18 ad variants — that's $55 a piece, cheaper than testing
+  solo. First batch of 5 is $400 one-time if you want to test me first. Cancel anytime, no contract."
 - **"We already have a UGC/creative team."** → "Great — this is for volume and speed on ad variants.
   Keep the sample; if you ever need more test creative fast, I'm here."
 - **"Does AI UGC actually convert?"** → "It's running on real ad accounts in 2026; one brand did
