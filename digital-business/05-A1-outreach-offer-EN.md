@@ -44,36 +44,33 @@ performance claims.
 
 ---
 
-## COLD EMAIL (with free sample)
+## COLD EMAIL (offer of a free sample)
 
-Subject: made you a sample ad for [Brand]
+Subject: an ad for [Product]
 
 > Hi [First name],
 > I make UGC-style video ads for [niche] brands, using AI so they ship in days and cost a fraction
-> of traditional UGC.
-> To show the quality, I already made **a free sample ad for [Product]** — here it is: [link]. It's
-> watermarked, so it's a preview rather than something you can run, but it's exactly what you'd get.
-> If it's useful, I run packages from a single ad up to 25 a month — every video comes with a free
-> second hook, so you can test the opening without paying for a whole extra video.
-> Want me to send two more angles for [Product]?
-> [Name] — [portfolio link]
+> of traditional UGC. A few samples here: [portfolio link].
+> Reply and I'll make one free, specifically for [Product] — watermarked preview, but exactly what
+> you'd get.
+> Packages start at a single ad, up to 25 a month — every video comes with a free second hook, so
+> you can test the opening without paying for a whole extra video.
+> [Name]
 
 ## INSTAGRAM / LINKEDIN DM
 
-> Hi [Brand] — I made a free UGC-style video ad for [Product]: [link]. It's a watermarked preview,
-> but it's exactly what you'd get.
-> I produce these with AI, so I can ship a whole month of ad variants in days. If you like it, happy
-> to send a couple more angles to test.
+> Hi [Brand] — I make UGC-style video ads for [niche] brands with AI, shipped in days. Samples
+> here: [portfolio link]. Reply and I'll make one free for [Product].
 
 ## FOLLOW-UP 1 (day 3)
 
-> Hi [First name], did you get a chance to see the sample ad? If you'd prefer a different hook or a
-> different product, I'll make another one — no cost.
+> Hi [First name], following up in case this got buried — happy to make that free sample for
+> [Product] whenever you want it, no cost either way.
 
 ## FOLLOW-UP 2 (day 7)
 
-> Last note so I'm not a bother: the sample is there whenever you want to look at it, and the clean
-> file is one order away. If creative ever becomes a bottleneck, I'm here. Good luck with [Brand].
+> Last note so I'm not a bother: the offer stands whenever it's useful. If creative ever becomes a
+> bottleneck, I'm here. Good luck with [Brand].
 
 ---
 

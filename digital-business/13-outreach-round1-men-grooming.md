@@ -1,12 +1,18 @@
 # Outreach round 1 — 5 messaggi pronti (men's grooming)
 
-Preparato 2026-09-15. Segue il template in `05-A1-outreach-offer-EN.md` §COLD EMAIL/DM: un solo
-beneficio reale dichiarato dal brand stesso, riformulato in prima persona tono-recensione, mai
-clinico, mai inventato. Ogni claim è marcato con la fonte pubblica da cui viene.
+Preparato 2026-09-15, **corretto lo stesso giorno**: la prima versione prometteva un campione video
+"già fatto" per ogni prospect, da generare prima ancora di sapere se rispondono — costo in tempo
+insostenibile su contatti freddi non provati (giustamente contestato). Versione corretta: il
+messaggio **linka il portfolio già pubblico** (la prova di qualità è già lì, non va rimandata) e
+**offre** il campione su misura solo come invito a rispondere — si genera solo per chi risponde
+davvero, non per tutti e cinque in anticipo.
 
-**Cosa manca prima di inviare, per ognuno**: il campione video personalizzato (Veo 3.1, con lo
-script indicato) e il contatto verificato (il tracker segna "verificare su sito/Instagram" per
-tutti — nessun indirizzo è stato inventato).
+Ogni claim resta un beneficio reale dichiarato dal brand stesso, riformulato in prima persona
+tono-recensione, con la fonte pubblica indicata. Gli script "per il campione video" sotto **non vanno
+generati ora** — servono solo per quando un prospect risponde SAMPLE/interessato.
+
+**Contatto**: il tracker segna "verificare su sito/Instagram" per tutti — nessun indirizzo è stato
+inventato, va trovato a mano prima di inviare.
 
 ---
 
@@ -21,9 +27,9 @@ ingredienti, contro il 2-3× dei competitor `[VERIFICATO, bluatlas.com/Beautytap
 > like a chore.
 
 **DM Instagram** (@bluatlas):
-> Hi Blu Atlas — I made a free UGC-style video ad for your face moisturizer, no strings: [link].
-> I produce these with AI, so I can ship a whole month of ad variants in days. If you like it, happy
-> to send a couple more angles to test.
+> Hi Blu Atlas — I make UGC-style video ads for men's grooming brands with AI, shipped in days. A
+> few samples here: [portfolio link]. If you want, reply and I'll make one free, made specifically
+> for your face moisturizer.
 
 ---
 
@@ -37,17 +43,15 @@ poche settimane, idratante non unto `[VERIFICATO, tiege.com/FashionBeans]`.
 > and it actually feels different by week two.
 
 **Cold email**:
-> Subject: made you a sample ad for Tiege Hanley
+> Subject: an ad for Tiege Hanley's Level 1 routine
 >
 > Hi [First name],
-> I make UGC-style video ads for men's grooming brands, using AI so they ship in days.
-> To show the quality, I already made a free sample ad for your Level 1 Essential routine — here it
-> is: [link]. It's watermarked, so it's a preview rather than something you can run, but it's
-> exactly what you'd get.
-> If it's useful, I run packages from a single ad up to 25 a month — every video comes with a free
-> second hook.
-> Want me to send two more angles?
-> [Name] — [portfolio link]
+> I make UGC-style video ads for men's grooming brands, using AI so they ship in days. A few
+> samples here: [portfolio link].
+> Reply and I'll make one free, specifically for your Level 1 Essential routine — watermarked
+> preview, but exactly what you'd get.
+> Packages start at a single ad, up to 25 a month with a free hook variant on every video.
+> [Name]
 
 ---
 
@@ -61,8 +65,8 @@ indistinguibile, tutte le tonalità di pelle, premiato GQ 2025 `[VERIFICATO, str
 > like makeup. Covers the razor burn and you genuinely can't tell it's there.
 
 **DM Instagram/TikTok**:
-> Hi Stryx — made a free UGC-style ad for your concealer tool, no strings: [link]. AI-produced, so I
-> can ship a whole month of variants in days. Happy to send more angles if this one lands.
+> Hi Stryx — I make UGC-style video ads for men's grooming brands with AI, shipped in days. Samples
+> here: [portfolio link]. Reply and I'll make one free for your concealer tool.
 
 ---
 
@@ -76,14 +80,14 @@ indistinguibile, tutte le tonalità di pelle, premiato GQ 2025 `[VERIFICATO, str
 > the puffiness — added it to my routine a few weeks ago and it's the one thing people noticed.
 
 **Cold email**:
-> Subject: made you a sample ad for Oars + Alps
+> Subject: an ad for the Oars + Alps eye stick
 >
 > Hi [First name],
-> I make UGC-style video ads for men's grooming brands, using AI so they ship in days.
-> Already made a free sample ad for your Wake Up Eye Stick — here it is: [link]. Watermarked
-> preview, but exactly what you'd get.
+> I make UGC-style video ads for men's grooming brands, using AI so they ship in days. Samples
+> here: [portfolio link].
+> Reply and I'll make one free, specifically for your Wake Up Eye Stick.
 > Packages start at a single ad, up to 25 a month with a free hook variant on every video.
-> [Name] — [portfolio link]
+> [Name]
 
 ---
 
@@ -97,8 +101,8 @@ stelle su Amazon `[VERIFICATO, marloweskin.com/Amazon]`.
 > ago and it's the first one that actually disappears into your skin.
 
 **DM Instagram** (@marlowe.skin):
-> Hi Marlowe — made a free UGC-style ad for your No. 203 moisturizer, no strings (well, watermarked
-> — it's a preview): [link]. AI-produced, ships in days. Happy to send more angles.
+> Hi Marlowe — I make UGC-style video ads for men's grooming brands with AI, shipped in days.
+> Samples here: [portfolio link]. Reply and I'll make one free for your No. 203 moisturizer.
 
 ---
 
@@ -112,11 +116,12 @@ script per non anticipare una ricerca che il tracker stesso segna come da fare d
 
 ## Prossimi passi operativi
 
-1. Per ciascuno dei 5: genera il campione video su Veo 3.1 con lo script sopra (personaggio nuovo o
-   riutilizzato, prodotto **generico senza marchio** in mano — lo script parla del beneficio, non
-   serve mostrare la confezione reale del brand)
-2. Applica la filigrana (`watermark/`, vedi `12-campione-gratuito.md`)
-3. Trova il contatto reale (sito "Contact/PR" o DM Instagram) — nessun indirizzo qui è stato
-   inventato, va verificato a mano
-4. Invia, segna su `07-outreach-tracker.csv`: data, link campione, "Messaggio inviato: S"
-5. Follow-up day 3 e day 7 secondo gli script in `05-A1-outreach-offer-EN.md`
+1. Trova il contatto reale per ciascuno dei 5 (sito "Contact/PR" o DM Instagram) — nessun indirizzo
+   qui è stato inventato, va verificato a mano
+2. Invia il messaggio con il link al portfolio (nessun video da generare prima) — segna su
+   `07-outreach-tracker.csv`: data, "Messaggio inviato: S"
+3. **Solo per chi risponde interessato o scrive "SAMPLE"**: genera il campione video su Veo 3.1 con
+   lo script indicato sopra per quel brand (personaggio riutilizzato tra i cinque per non pagare di
+   nuovo il costo di setup, prodotto generico senza marchio), applica la filigrana, mandalo
+4. Follow-up day 3 e day 7 (solo testo, nessun video) secondo gli script in
+   `05-A1-outreach-offer-EN.md` — per chi non ha ancora risposto
