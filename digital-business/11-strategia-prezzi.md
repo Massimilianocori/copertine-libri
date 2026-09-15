@@ -89,6 +89,20 @@ costano quanto quella vincente ($175–398 l'una sul mercato `[VERIFICATO]`).
 crediti validi 90 giorni. Nessuno è costretto a un impegno mensile — l'abbonamento è semplicemente la
 casella più conveniente.
 
+**Il singolo a $179 non è il primo acquisto** `[corretto 2026-09-15]`. Il primo contatto è il
+**campione gratuito**, che è la CTA principale del sito e di tutto l'outreach: finché regaliamo un
+video, nessuno paga $179 per il primo. Il singolo a pagamento serve al passo *dopo* — "già avuto il
+campione? ordinane uno su tuo brief" — e la differenza dev'essere detta esplicitamente:
+
+| | Campione gratuito | Singolo a $179 |
+|---|---|---|
+| Chi sceglie il prodotto | noi | il cliente |
+| Chi scrive il copione | noi | su brief del cliente |
+| Revisioni | nessuna | una |
+| Scopo | dimostrare la qualità | un ad vero su un prodotto specifico |
+
+Senza questa distinzione il tier singolo è morto: è la prima cosa che un prospect fa notare.
+
 ### Verifica contro il mercato
 
 | | Noi | Mercato AI UGC `[VERIFICATO]` | Scarto |
@@ -163,6 +177,16 @@ Tre conseguenze operative:
   stato vero.
 - Diritti d'uso inclusi ripetuti su ogni scheda e in una voce FAQ dedicata: è gratis per noi e
   costoso per tutti gli altri.
+- Una voce FAQ dedicata alla domanda che arriverà di sicuro: *"se il campione è gratis, cosa sto
+  pagando?"* — vedi la tabella in §3.
+
+**Trappola tecnica scoperta sul campo `[VERIFICATO 2026-09-15]`:** la riga del video singolo era
+invisibile sul sito pur essendo presente nell'HTML. Causa: la classe CSS si chiamava `single-ad`, e
+**gli ad blocker nascondono gli elementi con "ad" nel nome della classe** (EasyList e simili hanno
+regole generiche su `-ad`, `ad-`, `banner`, `sponsor`, `promo`). Rinominata in `.oneoff`.
+**Regola per il futuro:** su un sito che vende pubblicità, mai usare `ad`, `banner`, `promo` o
+`sponsor` nei nomi di classi e id. Un'opzione di prezzo nascosta da un ad blocker non dà nessun
+errore — semplicemente non incassi, e non te ne accorgi.
 
 ---
 

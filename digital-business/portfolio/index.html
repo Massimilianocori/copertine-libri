@@ -134,11 +134,12 @@ header{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.85);
 .tag{align-self:flex-start;font-family:"Space Grotesk",sans-serif;font-size:11px;font-weight:700;
   color:#fff;background:var(--accent-ink);padding:4px 10px;border-radius:999px;
   letter-spacing:.04em;margin-bottom:14px}
-.single-ad{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:16px;
+/* class name deliberately avoids "ad" — ad blockers hide elements matching .*-ad */
+.oneoff{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:16px;
   padding:18px 20px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
-.single-ad .sa-amt{font-family:"Space Grotesk",sans-serif;font-size:24px;font-weight:600}
-.single-ad p{margin:0;font-size:14px;color:var(--muted);flex:1;min-width:200px}
-.single-ad .btn{flex-shrink:0}
+.oneoff .oneoff-amt{font-family:"Space Grotesk",sans-serif;font-size:24px;font-weight:600}
+.oneoff p{margin:0;font-size:14px;color:var(--muted);flex:1;min-width:200px}
+.oneoff .btn{flex-shrink:0}
 
 /* why */
 .why .cell{padding:0}
@@ -330,10 +331,10 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
         <p class="muted" style="font-size:12px;margin-top:10px;text-align:center"><a href="#contact" style="color:var(--muted)">or talk to us first</a></p>
       </div>
     </div>
-    <div class="single-ad">
-      <span class="sa-amt">$179</span>
-      <p><strong style="color:var(--text)">Just testing?</strong> One ad, one concept, one revision, full usage rights. No commitment.</p>
-      <a href="https://buy.stripe.com/REPLACE_SINGLE" class="btn btn-ghost">Buy a single ad</a>
+    <div class="oneoff">
+      <span class="oneoff-amt">$179</span>
+      <p><strong style="color:var(--text)">Already had your free sample?</strong> Order a one-off ad to your brief — your product, your angle, one revision, full usage rights.</p>
+      <a href="https://buy.stripe.com/REPLACE_SINGLE" class="btn btn-ghost">Order a one-off ad</a>
     </div>
     <p class="muted" style="font-size:12.5px;margin-top:16px">Want Growth or Scale without a subscription? Same batch as a one-time purchase, +15%, credits valid 90 days — just ask. We sell creative production and testing volume — not guaranteed ad results. Monthly plans, cancel anytime — no annual lock-in.</p>
   </div>
@@ -347,7 +348,8 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
     <details><summary>Does AI UGC actually convert?</summary><p>It's running on real ad accounts today. We focus on feed-native, hook-first creative and give you the volume to test — you keep what performs. We sell creative and testing volume, not guaranteed ROAS.</p></details>
     <details><summary>What do you need from me?</summary><p>A product URL and a few brand notes. Brand photos or guidelines help but aren't required to start.</p></details>
     <details><summary>Which platforms are the ads for?</summary><p>Vertical 9:16, ready to upload to Meta (Facebook/Instagram) and TikTok ads.</p></details>
-    <details><summary>Can I test before committing?</summary><p>Yes — a single ad is $179, or the Starter batch is a one-time $845 for 5 videos plus 5 hook variants. Neither is a subscription.</p></details>
+    <details><summary>If the sample is free, what am I paying for?</summary><p>The free sample is one ad we make on our own initiative — we pick the product and write the script, and you get it with no strings. A paid order is to your brief: your product, your angle, a revision round, and the hook variants you need to actually test. The sample shows you the quality; the paid work is the quality pointed at what you're selling.</p></details>
+    <details><summary>Can I test before committing?</summary><p>Start with the free sample — it costs you nothing. After that, a one-off ad to your brief is $179, or the Starter batch is a one-time $845 for 5 videos plus 5 hook variants. Neither is a subscription.</p></details>
     <details><summary>What is a hook variant?</summary><p>The same video with a different opening line — the first three seconds re-shot. Hooks decide whether an ad works, so you need more than one to test. Every plan includes them free; on their own they're $49 each.</p></details>
     <details><summary>Do I own the ads?</summary><p>Yes. Full usage rights are included on every plan, at no extra cost — no per-month licensing, no whitelisting fees.</p></details>
     <details><summary>How fast do I get them?</summary><p>Most batches ship within a few days. Growth gets priority queue, Scale can request 24h rush.</p></details>
