@@ -179,10 +179,15 @@ tappo stesso non si vede mai posato, si fonde/sparisce. Causa probabile: l'azion
 copre l'oggetto con le mani per un istante e il modello non lo ricostruisce identico — limite noto dei
 modelli di generazione video su oggetti piccoli manipolati, non solo un problema di prompt. Anche il
 tentativo con dispenser a pompetta (senza tappo removibile) non è stato verificato risolutivo.
-Aggiornamento 2026-09-15 ter — tentativo finale: elimina del tutto la manipolazione dell'oggetto
-nell'inquadratura. Nessun prodotto viene tenuto/maneggiato in dettaglio davanti alla camera; il
-prodotto ha già erogato sulle dita fuori scena. Se anche questo fallisce, il difetto è strutturale e
-non conviene insistere con altre rigenerazioni.]`
+Aggiornamento 2026-09-15 ter — tentativo finale, RIUSCITO: eliminata del tutto la manipolazione
+dell'oggetto nell'inquadratura. Nessun prodotto viene tenuto/maneggiato in dettaglio davanti alla
+camera; il prodotto ha già erogato sulle dita fuori scena, la bottiglia resta ferma e sfocata sullo
+sfondo. Verificato a fotogrammi: contatto dito-guancia con bordo netto (niente più fusione/
+risucchio), anatomia della mano corretta, nessun oggetto che cambia forma. Audio confermato
+dall'utente. Pubblicato come `1.mp4`. **Lezione da riusare**: quando un modello di generazione video
+continua a rovinare un piccolo oggetto manipolato a mano (tappi, cursori, oggetti piccoli coperti
+dalle dita), la soluzione più affidabile non è affinare il prompt sull'oggetto ma **toglierlo di
+scena** — mostrare l'azione solo con le mani/il viso, senza l'oggetto in primo piano.]`
 > Selfie-style handheld video shot on a phone front camera at arm's length, around 28mm, slightly
 > off-center eyeline, subtle handheld micro-shake. The same man in his early thirties, short dark
 > hair, light stubble, plain grey t-shirt, same small ordinary bathroom with white tile and a
