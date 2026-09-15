@@ -172,18 +172,25 @@ reale.
 > "I'll be honest with you, I did not think a moisturizer was going to fix anything." Natural room
 > tone, faint bathroom reverb, no music. [NEG]
 
-**Clip B** `[corretto 2026-09-15: il dialogo qui sotto è quello EFFETTIVAMENTE usato in generazione e
-pubblicato in 1.mp4 — la versione precedente di questa riga in questo file era sbagliata/non
-corrispondente]`
+**Clip B** `[corretto 2026-09-15: dialogo effettivamente usato in generazione/pubblicato in 1.mp4.
+Aggiornamento 2026-09-15 bis: due tentativi di rigenerazione con tubetto+tappo hanno prodotto lo
+stesso difetto — il tubetto cambia forma/si rimpicciolisce durante l'azione di svitare il tappo, e il
+tappo stesso non si vede mai posato, si fonde/sparisce. Causa probabile: l'azione fine di svitare
+copre l'oggetto con le mani per un istante e il modello non lo ricostruisce identico. Fix: cambiato
+il prodotto in un dispenser a pompetta SENZA tappo removibile, così l'azione di apertura/tappo non
+esiste più nel prompt.]`
 > Selfie-style handheld video shot on a phone front camera at arm's length, around 28mm, slightly
 > off-center eyeline, subtle handheld micro-shake. The same man in his early thirties, short dark
 > hair, light stubble, plain grey t-shirt, same small ordinary bathroom with white tile and a
-> cluttered counter, same overhead light. He unscrews the cap, squeezes a small amount onto his
-> fingers, and pats it onto his cheek in two quick, distinct pats — his hand clearly lifting fully
-> away from his face between each pat, no held or frozen pose — while still looking at the camera,
-> and says casually: "No breakouts, no irritation, nothing dramatic. It just quietly did its job.
-> That's why I'm still using it." He shrugs slightly and lowers the phone. Natural room tone, faint
-> bathroom reverb, no music. [NEG]
+> cluttered counter, same overhead light. He is holding a small unbranded white pump-top skincare
+> bottle — a fixed pump dispenser with no cap and no lid, nothing to remove or unscrew. He presses
+> the pump once with one finger to dispense a small amount onto his other hand's fingers, then pats
+> it onto his cheek in two quick, distinct pats — his hand clearly lifting fully away from his face
+> between each pat, no held or frozen pose — while still looking at the camera, and says casually:
+> "No breakouts, no irritation, nothing dramatic. It just quietly did its job. That's why I'm still
+> using it." He shrugs slightly and lowers the phone. The bottle keeps the exact same size, shape
+> and proportions throughout the entire clip. Natural room tone, faint bathroom reverb, no music.
+> [NEG]
 
 ### VIDEO 2 — Problem/solution (`2.mp4`)
 
