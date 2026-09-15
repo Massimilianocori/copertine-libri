@@ -67,40 +67,41 @@ Tre difetti:
 
 ---
 
-## 3. Listino proposto
+## 3. Il listino — versione finale `[approvata 2026-09-15]`
 
-### A. Video singolo — **$149**
+Principio che risolve la tensione tra due vincoli in conflitto — *stare in linea col mercato* e
+*non far mai salire il prezzo unitario salendo di tier*: **le varianti di hook sono incluse nei
+pacchetti**. Costano 10 minuti l'una e cambiano la metrica che il cliente guarda davvero.
 
-Un ad, un concept, una revisione, diritti d'uso inclusi. È il gradino d'ingresso: dopo il campione
-gratuito dell'outreach è il "sì" più facile da dare, e trasforma in cliente chi altrimenti non
-comprerebbe niente. Sta **sotto la soglia psicologica dei $150** e sotto il minimo del range UGC
-tipico ($150–500), quindi si legge come conveniente pur essendo il prezzo/unità più alto del listino.
+| Tier | Video | Varianti incluse | Asset totali | Prezzo | $/video | **$/asset** |
+|---|---|---|---|---|---|---|
+| Singolo | 1 | — | 1 | $179 una tantum | $179 | $179 |
+| Starter | 5 | 5 | 10 | $845 una tantum | $169 | **$85** |
+| **Growth** | 12/mese | 12 | 24 | $1.890/mese | $158 | **$79** |
+| Scale | 25/mese | 30 | 55 | $3.490/mese | $140 | **$63** |
 
-### B. Pacchetti una tantum — crediti, validità 90 giorni (180 per il pacchetto da 25)
+Il prezzo per video **scende** a ogni gradino (179 → 169 → 158 → 140), quindi non si ripresenta il
+difetto del listino vecchio. Ma il numero che il cliente confronta con i concorrenti è il **costo per
+asset utilizzabile**, che crolla da $179 a $63 — perché nel testing di hook le varianti perdenti
+costano quanto quella vincente ($175–398 l'una sul mercato `[VERIFICATO]`).
 
-| Pacchetto | Video | Prezzo | $/video | vs singolo |
-|---|---|---|---|---|
-| Test | 5 | $595 | $119 | −20% |
-| Volume | 12 | $1.190 | $99 | −34% |
-| Scale | 25 | $2.250 | $90 | −40% |
+**Una tantum anche sui tier alti:** Growth e Scale si possono comprare senza abbonamento a **+15%**,
+crediti validi 90 giorni. Nessuno è costretto a un impegno mensile — l'abbonamento è semplicemente la
+casella più conveniente.
 
-Gli scalini sono **ripidi apposta**: −20 / −34 / −40% dà un motivo reale per salire. Uno sconto del
-7% non fa salire nessuno.
+### Verifica contro il mercato
 
-### C. Abbonamento — stessi tagli, **−16%**, disdetta libera
-
-| Piano | Video/mese | Prezzo | $/video |
+| | Noi | Mercato AI UGC `[VERIFICATO]` | Scarto |
 |---|---|---|---|
-| Test | 5/mese | $499 | $100 |
-| Volume | 12/mese | $999 | $83 |
-| Scale | 25/mese | $1.899 | $76 |
+| Video singolo | $179 | $140–200 (benchmark $150 per testimonial con avatar) | **in linea** |
+| 12 video/mese | $158/video | ~$212/video (AI Vidia) | −25% |
+| 25 video/mese | $3.490/mese | retainer tipici $2.000–10.000/mese | **dentro la fascia** |
+| Scale per video | $140 | $212 | −34% |
 
-Il punto di coerenza che rende il listino leggibile in una riga: **l'abbonamento da 12 costa a video
-meno del pacchetto una tantum da 25** ($83 contro $90). Cioè: *"abbonarti a dodici ti costa meno, a
-video, che comprarne venticinque in blocco."*
-
-L'abbonamento non è più l'unica strada, è **la casella più economica della tabella**. Chi non vuole
-vincoli compra il pacchetto e paga il 16% in più: è una scelta, non un muro.
+Posizione scelta: **in linea sul singolo, 25–34% sotto sui tier alti.** Abbastanza sotto da essere il
+preventivo più conveniente sul tavolo, non così sotto da far sospettare che il lavoro sia di serie B.
+Il riferimento a $4.500 per 12 video (pacchetti full-service) non è comparabile: quelli includono
+strategia e media buying che noi non vendiamo.
 
 ---
 
@@ -108,12 +109,13 @@ vincoli compra il pacchetto e paga il 16% in più: è una scelta, non un muro.
 
 | Add-on | Prezzo | Perché |
 |---|---|---|
-| **Variante di hook** su un video già prodotto | **$39** | Si rigenerano i primi 3 secondi, il resto si riusa: ~10 minuti di lavoro. Il mercato fa pagare l'asset pieno ($175–398) per ogni hook testato `[VERIFICATO]`. |
+| **Variante di hook** oltre quelle incluse | **$49** | Si rigenerano i primi 3 secondi, il resto si riusa: ~10 minuti di lavoro. Il mercato fa pagare l'asset pieno ($175–398) per ogni hook testato `[VERIFICATO]`. |
 | **Rush 24h** | **+40%** | Standard di mercato 25–50% `[VERIFICATO]`. Stesso lavoro, solo prima in coda. |
 | **Diritti d'uso pubblicitari** | **inclusi** | Il mercato li fa pagare +30–50%, i perpetui +100–150% `[VERIFICATO]`. A noi non costano niente: non c'è un creator umano da pagare. |
 
-**La variante a $39 è il prodotto a resa più alta del listino** — vedi §5. Ed è anche quello di cui
-il cliente ha più bisogno, perché il testing di hook è il motivo per cui compra creative.
+**La variante è il prodotto a resa più alta del listino** — vedi §5. Ed è anche quello di cui il
+cliente ha più bisogno, perché il testing di hook è il motivo per cui compra creative. Per questo ne
+includiamo una per video in ogni pacchetto: è il regalo che ci costa meno e vale di più.
 
 I diritti inclusi sono un differenziatore gratuito per noi e costoso per i concorrenti: da dire
 esplicitamente in ogni trattativa.
@@ -122,52 +124,88 @@ esplicitamente in ogni trattativa.
 
 ## 5. Resa per ora — la tabella che decide tutto
 
-A 45 minuti per video (10 minuti per una variante):
+A 45 minuti per video e 10 minuti per variante:
 
-| Prodotto | $/video | $/ora |
-|---|---|---|
-| **Variante di hook** | $39 | **~$234** |
-| Video singolo | $149 | ~$199 |
-| Pacchetto Test (5) | $119 | ~$159 |
-| Pacchetto Volume (12) | $99 | ~$132 |
-| Abbonamento Test (5/mese) | $100 | ~$133 |
-| Pacchetto Scale (25) | $90 | ~$120 |
-| Abbonamento Volume (12/mese) | $83 | ~$111 |
-| Abbonamento Scale (25/mese) | $76 | ~$101 |
-| *(vecchio Growth 36/mese)* | *$50* | *~$67* |
+| Prodotto | Ore di lavoro | Ricavo | **$/ora** |
+|---|---|---|---|
+| **Variante di hook singola** | 0,17 | $49 | **~$294** |
+| Video singolo | 0,75 | $179 | ~$239 |
+| Starter (5 + 5) | 4,6 | $845 | ~$184 |
+| Growth (12 + 12) | 11,0 | $1.890 | ~$172 |
+| Scale (25 + 30) | 23,75 | $3.490 | ~$147 |
+| *(vecchio Growth, 36/mese)* | *27,0* | *$1.799* | *~$67* |
 
-Due conseguenze operative:
+Tre conseguenze operative:
 
-1. **Il pavimento si alza da ~$67 a ~$101/ora.** Il tier peggiore del listino nuovo rende il 50% in
-   più del tier peggiore di quello vecchio.
-2. **Per crescere, vendi varianti, non video nuovi.** Con ~25 ore/mese di produzione sostenibili
-   accanto all'outreach, il tetto è **~33 video/mese** (~$3.100). Superarlo non si fa producendo di
-   più: si fa vendendo varianti su quello che hai già prodotto, che valgono più al minuto di
-   qualunque altra cosa nel listino.
+1. **Il pavimento si alza da ~$67 a ~$147/ora.** Il tier peggiore del listino nuovo rende più del
+   doppio del tier peggiore di quello vecchio.
+2. **Il tetto realistico è ~$3.800/mese da solo.** Con ~25 ore/mese di produzione sostenibili accanto
+   all'outreach: un cliente Scale (23,75 ore → $3.490) oppure **due clienti Growth** (22 ore →
+   $3.780, la combinazione migliore). Non servono dieci clienti: ne servono due giusti.
+3. **Le varianti restano il prodotto migliore al minuto.** Includerle nei pacchetti non è generosità:
+   è il modo di alzare il valore percepito senza toccare il prezzo per video, e di tenersi la leva
+   dell'upsell a $49 per chi ne vuole ancora.
 
 ---
 
-## 6. Come presentarlo sul sito
+## 6. Come è presentato sul sito `[FATTO 2026-09-15]`
 
-- **Quattro caselle visibili**: Singolo / Test / Volume / Scale, con il prezzo una tantum in
-  evidenza e un interruttore "**Subscribe & save −16%**" che cambia i numeri sul posto (pattern
-  Amazon Subscribe & Save). Una sola scala, non due listini che si fanno concorrenza.
-- **Badge "Most popular" su Volume** (12), che è il punto di equilibrio tra resa oraria e dimensione
-  dell'ordine.
-- Gli **add-on sotto la tabella**, non dentro: sono upsell post-acquisto, non criteri di scelta.
-- Dire sempre due frasi: *"crediti validi 90 giorni"* e *"diritti d'uso inclusi"*.
+- **Tre schede** Starter / Growth / Scale, con badge "Most popular" su Growth (miglior equilibrio tra
+  resa oraria e dimensione dell'ordine), più una **riga singola sotto la griglia** per il video da
+  $179 — messa dopo, non prima, così le tre schede fanno da ancora e i $179 si leggono come
+  accessibili.
+- Il titolo della sezione dice la cosa differenziante, non "Pricing": *"Every video ships with a
+  second hook, free."*
+- La metrica in evidenza su ogni scheda è il **costo per ad asset** ($85 / $79 / $63), non il costo
+  per video: è il numero su cui vinciamo il confronto.
+- Nel confronto col mercato la riga nostra dice **"From $63 / ad asset"** contro i $150–500 per video
+  dei creator umani. Prima diceva "a fraction of that", che con $179 sul singolo non sarebbe più
+  stato vero.
+- Diritti d'uso inclusi ripetuti su ogni scheda e in una voce FAQ dedicata: è gratis per noi e
+  costoso per tutti gli altri.
 
 ---
 
 ## 7. Cosa resta da verificare
 
-- I $149 del singolo sono `[IPOTESI]`: vanno testati. Se converte troppo facilmente, è basso —
-  alzare a $179 prima di toccare il resto della scala.
-- I 45 minuti/video sono `[IPOTESI]` da rimisurare sui primi 10 video reali. Se scendono a 30, tutta
-  la colonna $/ora sale del 50% e si può valutare un tier più aggressivo.
-- La validità 90 giorni è più stretta dello standard di mercato (6–12 mesi) `[VERIFICATO]`: crea
-  urgenza e margine su crediti non usati, ma aumenta l'attrito all'acquisto. Se un prospect obietta,
-  concederla a 180 giorni è una leva di chiusura a costo zero.
+- I **$179 del singolo** sono al limite alto del range di mercato ($140–200) `[VERIFICATO]`. Sono
+  stati scelti per dare spazio alla scala sopra: essendo la scala decrescente, il singolo fa da
+  soffitto a tutto il listino. Se il singolo non converte mai in outreach, è il primo numero da
+  rivedere — ma prima di abbassarlo, testare un'offerta a tempo sul primo acquisto, che non intacca
+  l'ancora.
+- I **45 minuti/video** sono `[IPOTESI]` da rimisurare sui primi 10 video reali. Se scendono a 30,
+  tutta la colonna $/ora sale del 50%.
+- La **validità 90 giorni** è più stretta dello standard di mercato (6–12 mesi) `[VERIFICATO]`: crea
+  urgenza e margine su crediti non usati, ma aumenta l'attrito. Se un prospect obietta, concederla a
+  180 giorni è una leva di chiusura a costo zero.
+- **Il vincolo vero non è il prezzo, è la capacità.** A due clienti Growth siamo pieni. Il terzo
+  cliente o alza i prezzi o richiede di velocizzare la produzione: non esiste una terza via
+  sostenibile da solo.
+
+---
+
+## 8. Incasso — Stripe Payment Links `[DA COMPLETARE dall'utente]`
+
+Il sito è statico su Netlify: niente backend, quindi la via corretta sono i **Payment Links** di
+Stripe (link generati dalla dashboard, nessun codice da scrivere). I bottoni del sito puntano già a
+quattro segnaposto `https://buy.stripe.com/REPLACE_*` da sostituire.
+
+Quattro link da creare su dashboard.stripe.com → Payment links:
+
+| Bottone nel sito | Tipo | Importo |
+|---|---|---|
+| `REPLACE_SINGLE` | pagamento singolo | $179 |
+| `REPLACE_STARTER` | pagamento singolo | $845 |
+| `REPLACE_GROWTH` | **ricorrente mensile** | $1.890 |
+| `REPLACE_SCALE` | **ricorrente mensile** | $3.490 |
+
+Su ogni link attivare i **campi personalizzati** "Product URL" e "Brand notes", così il brief arriva
+insieme al pagamento e non serve una mail di andata e ritorno.
+
+**Prerequisito fiscale `[DA VERIFICARE col commercialista]`:** per incassare serve una posizione
+fiscale in regola (partita IVA) — Stripe in Italia richiede i dati dell'attività. Per servizi B2B a
+clienti USA l'IVA di norma non si applica (operazione fuori campo), ma la fattura va comunque emessa
+secondo le regole italiane. Questo è l'unico punto della strategia che non si risolve dal sito.
 
 ## Fonti
 

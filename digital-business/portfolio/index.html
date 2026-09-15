@@ -134,6 +134,11 @@ header{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.85);
 .tag{align-self:flex-start;font-family:"Space Grotesk",sans-serif;font-size:11px;font-weight:700;
   color:#fff;background:var(--accent-ink);padding:4px 10px;border-radius:999px;
   letter-spacing:.04em;margin-bottom:14px}
+.single-ad{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:16px;
+  padding:18px 20px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.single-ad .sa-amt{font-family:"Space Grotesk",sans-serif;font-size:24px;font-weight:600}
+.single-ad p{margin:0;font-size:14px;color:var(--muted);flex:1;min-width:200px}
+.single-ad .btn{flex-shrink:0}
 
 /* why */
 .why .cell{padding:0}
@@ -257,7 +262,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
     <br>
     <div class="grid g3">
       <div class="card step"><div class="n">Day 1</div><h3>Send your product</h3><p class="muted">A product URL and a few brand notes. That's all we need to start.</p></div>
-      <div class="card step"><div class="n">Day 2–4</div><h3>We produce the batch</h3><p class="muted">12–20 UGC-style ads with multiple hooks and angles.</p></div>
+      <div class="card step"><div class="n">Day 2–4</div><h3>We produce the batch</h3><p class="muted">Your videos plus a free hook variant of each, ready to A/B test.</p></div>
       <div class="card step"><div class="n">Day 5</div><h3>You test &amp; scale</h3><p class="muted">Run them on Meta/TikTok, keep the winners, we iterate on what performs.</p></div>
     </div>
   </div>
@@ -275,9 +280,9 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
         <p class="muted" style="margin:0;font-size:14px">5–7 day turnaround per video. One creator, one video, one take on the product.</p>
       </div>
       <div class="card us">
-        <b>A fraction of that</b>
+        <b>From $63 / ad asset</b>
         <p class="muted" style="margin:0 0 10px">Scrollcraft, AI-produced</p>
-        <p class="muted" style="margin:0;font-size:14px">Shipped in days, with enough variants per batch to actually A/B test hooks and angles.</p>
+        <p class="muted" style="margin:0;font-size:14px">Shipped in days, and every video comes with a second hook — so a failed test doesn't cost you a whole video.</p>
       </div>
     </div>
     <p class="muted" style="font-size:12.5px;margin-top:14px;color:#8E8D82">Traditional UGC pricing based on published 2026 creator-rate benchmarks. We sell creative production and testing volume — not guaranteed ad results.</p>
@@ -287,34 +292,50 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 <!-- PRICING -->
 <section id="pricing" style="background:var(--bg2);border-block:1px solid var(--line)">
   <div class="wrap">
-    <div class="head-row"><p class="eyebrow">Pricing</p><h2 class="disp">Simple monthly plans.</h2></div>
+    <div class="head-row"><p class="eyebrow">Pricing</p><h2 class="disp">Every video ships with a second hook, <em>free</em>.</h2></div>
     <br>
+    <!--
+      STRIPE PAYMENT LINKS — replace the four href="https://buy.stripe.com/..." below with the
+      real links from dashboard.stripe.com > Payment links. One link per tier:
+        Starter  → one-time $845
+        Growth   → recurring $1,890 / month
+        Scale    → recurring $3,490 / month
+        Single   → one-time $179
+      On each link enable the custom fields "Product URL" and "Brand notes" so the brief
+      arrives with the payment.
+    -->
     <div class="grid g3">
       <div class="card price">
-        <h3>First Project</h3>
-        <div class="amt">$400 <small>one-time</small></div>
-        <p class="muted" style="margin:-8px 0 14px;font-size:13px">$80 / ad</p>
-        <ul><li>5 UGC-style ads</li><li>Multiple hooks</li><li>No commitment — test us first</li></ul>
-        <a href="#contact" class="btn btn-ghost">Start a test batch</a>
-        <p class="muted" style="font-size:12px;margin-top:10px">One-time sample. For ongoing creative, the plans below cost less per ad.</p>
+        <h3>Starter</h3>
+        <div class="amt">$845 <small>one-time</small></div>
+        <p style="margin:-8px 0 14px;font-size:13px;font-weight:600;color:var(--accent-ink)">5 videos + 5 hook variants — $85 / ad asset</p>
+        <ul><li>10 ready-to-run assets</li><li>Multiple hooks per concept</li><li>Ready for Meta &amp; TikTok</li><li>1 revision round</li><li>Full usage rights included</li><li>Credits valid 90 days</li></ul>
+        <a href="https://buy.stripe.com/REPLACE_STARTER" class="btn btn-ghost">Buy the Starter batch</a>
       </div>
       <div class="card price featured">
         <span class="tag">Most popular</span>
-        <h3>Starter</h3>
-        <div class="amt">$999 <small>/ month</small></div>
-        <p style="margin:-8px 0 14px;font-size:13px;font-weight:600;color:var(--accent-ink)">$55 / ad — 31% less than a one-off batch</p>
-        <ul><li>18 ad variants / month</li><li>A/B-ready hooks &amp; angles</li><li>Ready for Meta &amp; TikTok</li><li>2 revision rounds</li><li>Monthly check-in call</li><li>Cancel anytime</li></ul>
-        <a href="#contact" class="btn">Get started</a>
+        <h3>Growth</h3>
+        <div class="amt">$1,890 <small>/ month</small></div>
+        <p style="margin:-8px 0 14px;font-size:13px;font-weight:600;color:var(--accent-ink)">12 videos + 12 hook variants — $79 / ad asset</p>
+        <ul><li>24 ready-to-run assets / month</li><li>A/B-ready hooks &amp; angles</li><li>Priority queue</li><li>2 revision rounds</li><li>Monthly winners report</li><li>Full usage rights included</li><li>Cancel anytime</li></ul>
+        <a href="https://buy.stripe.com/REPLACE_GROWTH" class="btn">Start Growth</a>
+        <p class="muted" style="font-size:12px;margin-top:10px;text-align:center"><a href="#contact" style="color:var(--muted)">or talk to us first</a></p>
       </div>
       <div class="card price">
-        <h3>Growth</h3>
-        <div class="amt">$1,799 <small>/ month</small></div>
-        <p style="margin:-8px 0 14px;font-size:13px;font-weight:600;color:var(--accent-ink)">$50 / ad — our lowest cost per ad</p>
-        <ul><li>36 ad variants / month</li><li>Priority 48h turnaround</li><li>Product b-roll included</li><li>2 revision rounds</li><li>Dedicated channel + quarterly strategy call</li><li>Cancel anytime</li></ul>
-        <a href="#contact" class="btn btn-ghost">Scale up</a>
+        <h3>Scale</h3>
+        <div class="amt">$3,490 <small>/ month</small></div>
+        <p style="margin:-8px 0 14px;font-size:13px;font-weight:600;color:var(--accent-ink)">25 videos + 30 hook variants — $63 / ad asset</p>
+        <ul><li>55 ready-to-run assets / month</li><li>Rush 24h on request</li><li>Product b-roll included</li><li>2 revision rounds</li><li>Dedicated channel + strategy call</li><li>Full usage rights included</li><li>Cancel anytime</li></ul>
+        <a href="https://buy.stripe.com/REPLACE_SCALE" class="btn btn-ghost">Start Scale</a>
+        <p class="muted" style="font-size:12px;margin-top:10px;text-align:center"><a href="#contact" style="color:var(--muted)">or talk to us first</a></p>
       </div>
     </div>
-    <p class="muted" style="font-size:12.5px;margin-top:16px">We sell creative production and testing volume — not guaranteed ad results. Monthly plans, cancel anytime — no annual lock-in.</p>
+    <div class="single-ad">
+      <span class="sa-amt">$179</span>
+      <p><strong style="color:var(--text)">Just testing?</strong> One ad, one concept, one revision, full usage rights. No commitment.</p>
+      <a href="https://buy.stripe.com/REPLACE_SINGLE" class="btn btn-ghost">Buy a single ad</a>
+    </div>
+    <p class="muted" style="font-size:12.5px;margin-top:16px">Want Growth or Scale without a subscription? Same batch as a one-time purchase, +15%, credits valid 90 days — just ask. We sell creative production and testing volume — not guaranteed ad results. Monthly plans, cancel anytime — no annual lock-in.</p>
   </div>
 </section>
 
@@ -326,8 +347,10 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
     <details><summary>Does AI UGC actually convert?</summary><p>It's running on real ad accounts today. We focus on feed-native, hook-first creative and give you the volume to test — you keep what performs. We sell creative and testing volume, not guaranteed ROAS.</p></details>
     <details><summary>What do you need from me?</summary><p>A product URL and a few brand notes. Brand photos or guidelines help but aren't required to start.</p></details>
     <details><summary>Which platforms are the ads for?</summary><p>Vertical 9:16, ready to upload to Meta (Facebook/Instagram) and TikTok ads.</p></details>
-    <details><summary>Can I test before committing?</summary><p>Yes — the First Project batch is a one-time $400 for 5 ads, no monthly commitment.</p></details>
-    <details><summary>How fast do I get them?</summary><p>Most batches ship within a few days. Growth gets priority turnaround.</p></details>
+    <details><summary>Can I test before committing?</summary><p>Yes — a single ad is $179, or the Starter batch is a one-time $845 for 5 videos plus 5 hook variants. Neither is a subscription.</p></details>
+    <details><summary>What is a hook variant?</summary><p>The same video with a different opening line — the first three seconds re-shot. Hooks decide whether an ad works, so you need more than one to test. Every plan includes them free; on their own they're $49 each.</p></details>
+    <details><summary>Do I own the ads?</summary><p>Yes. Full usage rights are included on every plan, at no extra cost — no per-month licensing, no whitelisting fees.</p></details>
+    <details><summary>How fast do I get them?</summary><p>Most batches ship within a few days. Growth gets priority queue, Scale can request 24h rush.</p></details>
   </div>
 </section>
 

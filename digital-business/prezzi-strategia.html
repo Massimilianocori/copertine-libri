@@ -159,16 +159,6 @@
   }
   .pill.warm{color:var(--coral);background:var(--coral-soft)}
 
-  /* entry card */
-  .entry{
-    display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;
-    background:var(--surface);box-shadow:var(--shadow);
-    padding:22px 24px;margin-top:22px;border-radius:4px;
-  }
-  .entry .price{font-family:Archivo,sans-serif;font-weight:800;font-size:40px;letter-spacing:-.03em;line-height:1}
-  .entry .per{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--muted)}
-  .entry .note{flex-basis:100%;margin:6px 0 0;font-size:15px;color:var(--muted)}
-
   /* toggle */
   .toggle{display:inline-flex;gap:4px;background:var(--surface-2);padding:4px;border-radius:4px;margin-top:22px}
   .toggle button{
@@ -198,7 +188,6 @@
     .num{transition:color .2s}
   }
   @media (max-width:520px){
-    .entry .price{font-size:32px}
     body{font-size:16px}
   }
 </style>
@@ -206,11 +195,11 @@
 <div class="wrap">
   <header class="col">
     <span class="label">Scrollcraft · Listino · 15 settembre 2026</span>
-    <h1>Un listino a scala, non un abbonamento obbligato</h1>
-    <p class="lede">Quattro modi di comprare lo stesso lavoro — da un video singolo a 25 al mese — costruiti su un vincolo solo: il tempo di produzione, non il costo degli strumenti.</p>
+    <h1>In linea col mercato, senza abbonamento obbligato</h1>
+    <p class="lede">Quattro modi di comprare lo stesso lavoro — da un video singolo a venticinque al mese — con una variante di hook inclusa in ogni video, che è quello che rende il confronto coi concorrenti vincibile.</p>
     <div class="meta">
-      <span>Sostituisce: 05-A1-outreach-offer-EN.md</span>
-      <span>Stato: da approvare</span>
+      <span>In vigore su scrollcraft.design</span>
+      <span>Stato: approvato</span>
     </div>
   </header>
 
@@ -235,38 +224,25 @@
 
   <section>
     <div class="col">
-      <span class="label">Ingresso</span>
-      <h2>Video singolo</h2>
-      <p>Il gradino d'ingresso: dopo il campione gratuito dell'outreach è il "sì" più facile da dare. Sta sotto la soglia dei $150 e sotto il minimo del range UGC tipico ($150–500), quindi si legge come conveniente pur essendo il prezzo unitario più alto del listino.</p>
-    </div>
-    <div class="entry">
-      <span class="price">$149</span>
-      <span class="per">un ad · un concept · una revisione · diritti inclusi</span>
-      <p class="note">Nessun pacchetto, nessun vincolo. È anche l'ancora che fa leggere tutti i prezzi sotto come sconti reali.</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="col">
       <span class="label">La scala</span>
-      <h2>Pacchetti e abbonamento, una tabella sola</h2>
-      <p>Gli scalini sono ripidi apposta: −20 / −34 / −40% rispetto al singolo. Uno sconto del 7% non fa salire nessuno. L'abbonamento è la stessa scala, meno il 16%: non è l'unica strada, è solo la casella più economica.</p>
+      <h2>Quattro gradini, e le varianti incluse</h2>
+      <p>Due vincoli in conflitto: stare in linea col mercato, e non far mai salire il prezzo unitario salendo di tier. Si risolvono includendo le varianti di hook nei pacchetti — costano dieci minuti l'una e cambiano la metrica che il cliente confronta davvero.</p>
     </div>
 
-    <div class="toggle" role="group" aria-label="Modalità di acquisto">
-      <button id="mode-once" type="button" aria-pressed="true">Una tantum</button>
-      <button id="mode-sub" type="button" aria-pressed="false">Abbonamento −16%</button>
+    <div class="toggle" role="group" aria-label="Metrica mostrata">
+      <button id="mode-asset" type="button" aria-pressed="true">Costo per asset</button>
+      <button id="mode-video" type="button" aria-pressed="false">Costo per video</button>
     </div>
 
     <div class="tablewrap">
       <table>
-        <caption id="cap">Crediti validi 90 giorni (180 per Scale). Diritti d'uso inclusi in ogni riga.</caption>
+        <caption id="cap">Il costo per asset è quello che il cliente confronta: nel testing di hook le varianti perdenti costano quanto quella vincente.</caption>
         <thead>
           <tr>
             <th scope="col">Tier</th>
-            <th scope="col">Video</th>
+            <th scope="col">Contenuto</th>
             <th scope="col">Prezzo</th>
-            <th scope="col">Costo per video</th>
+            <th scope="col" id="metric-head">Costo per asset</th>
           </tr>
         </thead>
         <tbody id="ladder"></tbody>
@@ -274,7 +250,30 @@
     </div>
 
     <div class="col" style="margin-top:22px">
-      <p>Il punto che rende il listino leggibile in una frase: <strong>l'abbonamento da 12 costa a video quanto il pacchetto da 25</strong> ($83 contro $90). Abbonarsi a dodici rende come comprarne venticinque in blocco.</p>
+      <p>Il prezzo per video <strong>scende a ogni gradino</strong> — $179, $169, $158, $140 — quindi non torna il difetto del listino vecchio, dove salire di piano costava di più a unità. Ma il numero che conta nel confronto coi concorrenti è il costo per asset utilizzabile, e quello <strong>crolla da $179 a $63</strong>.</p>
+      <p>Growth e Scale si comprano anche senza abbonamento, a <strong>+15%</strong>, crediti validi 90 giorni. Nessuno è costretto a un impegno mensile: l'abbonamento è solo la casella più conveniente.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col">
+      <span class="label">Confronto</span>
+      <h2>Dove ci colloca rispetto al mercato</h2>
+      <p>La posizione scelta: in linea sul video singolo, dal 25 al 34% sotto sui tier alti. Abbastanza sotto da essere il preventivo più conveniente sul tavolo, non così sotto da far sospettare lavoro di serie B.</p>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <caption>I pacchetti full-service da $4.500 per 12 video non sono comparabili: includono strategia e media buying che non vendiamo.</caption>
+        <thead>
+          <tr><th scope="col">Voce</th><th scope="col">Noi</th><th scope="col">Mercato AI UGC</th><th scope="col">Scarto</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="tier">Video singolo</td><td class="num">$179</td><td class="num">$140–200</td><td class="num" style="color:var(--accent)">in linea</td></tr>
+          <tr><td class="tier">12 video / mese</td><td class="num">$158 / video</td><td class="num">~$212 / video</td><td class="num">−25%</td></tr>
+          <tr><td class="tier">25 video / mese</td><td class="num">$3.490 / mese</td><td class="num">$2.000–10.000 / mese</td><td class="num" style="color:var(--accent)">nella fascia</td></tr>
+          <tr><td class="tier">Scale, per video</td><td class="num">$140</td><td class="num">$212</td><td class="num">−34%</td></tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
@@ -286,9 +285,9 @@
     </div>
     <div class="addons">
       <div class="addon key">
-        <span class="num">$39</span>
-        <h3>Variante di hook<span class="pill warm">margine più alto</span></h3>
-        <p>Si rigenerano i primi 3 secondi, il resto si riusa. Il mercato fa pagare l'asset pieno per ognuna.</p>
+        <span class="num">$49</span>
+        <h3>Variante extra<span class="pill warm">margine più alto</span></h3>
+        <p>Oltre a quelle già incluse nel pacchetto. Si rigenerano i primi 3 secondi, il resto si riusa: il mercato fa pagare l'asset pieno per ognuna.</p>
       </div>
       <div class="addon">
         <span class="num">+40%</span>
@@ -315,25 +314,23 @@
         <thead>
           <tr>
             <th scope="col">Prodotto</th>
-            <th scope="col">Per video</th>
+            <th scope="col">Ore</th>
+            <th scope="col">Ricavo</th>
             <th scope="col">Resa oraria</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="hot"><td class="tier">Variante di hook</td><td class="num">$39</td><td><div class="bar warm"><div class="track"><span class="fill" style="width:100%"></span></div><span class="v">$234</span></div></td></tr>
-          <tr><td class="tier">Video singolo</td><td class="num">$149</td><td><div class="bar"><div class="track"><span class="fill" style="width:85%"></span></div><span class="v">$199</span></div></td></tr>
-          <tr><td class="tier">Pacchetto Test · 5</td><td class="num">$119</td><td><div class="bar"><div class="track"><span class="fill" style="width:68%"></span></div><span class="v">$159</span></div></td></tr>
-          <tr><td class="tier">Abbonamento Test · 5/mese</td><td class="num">$100</td><td><div class="bar"><div class="track"><span class="fill" style="width:57%"></span></div><span class="v">$133</span></div></td></tr>
-          <tr><td class="tier">Pacchetto Volume · 12</td><td class="num">$99</td><td><div class="bar"><div class="track"><span class="fill" style="width:56%"></span></div><span class="v">$132</span></div></td></tr>
-          <tr><td class="tier">Pacchetto Scale · 25</td><td class="num">$90</td><td><div class="bar"><div class="track"><span class="fill" style="width:51%"></span></div><span class="v">$120</span></div></td></tr>
-          <tr><td class="tier">Abbonamento Volume · 12/mese</td><td class="num">$83</td><td><div class="bar"><div class="track"><span class="fill" style="width:47%"></span></div><span class="v">$111</span></div></td></tr>
-          <tr><td class="tier">Abbonamento Scale · 25/mese</td><td class="num">$76</td><td><div class="bar"><div class="track"><span class="fill" style="width:43%"></span></div><span class="v">$101</span></div></td></tr>
-          <tr class="past"><td class="tier">Vecchio Growth · 36/mese</td><td class="num">$50</td><td><div class="bar"><div class="track"><span class="fill" style="width:29%"></span></div><span class="v">$67</span></div></td></tr>
+          <tr class="hot"><td class="tier">Variante extra</td><td class="num">0,17</td><td class="num">$49</td><td><div class="bar warm"><div class="track"><span class="fill" style="width:100%"></span></div><span class="v">$294</span></div></td></tr>
+          <tr><td class="tier">Video singolo</td><td class="num">0,75</td><td class="num">$179</td><td><div class="bar"><div class="track"><span class="fill" style="width:81%"></span></div><span class="v">$239</span></div></td></tr>
+          <tr><td class="tier">Starter · 5 + 5</td><td class="num">4,6</td><td class="num">$845</td><td><div class="bar"><div class="track"><span class="fill" style="width:63%"></span></div><span class="v">$184</span></div></td></tr>
+          <tr><td class="tier">Growth · 12 + 12</td><td class="num">11,0</td><td class="num">$1.890</td><td><div class="bar"><div class="track"><span class="fill" style="width:59%"></span></div><span class="v">$172</span></div></td></tr>
+          <tr><td class="tier">Scale · 25 + 30</td><td class="num">23,75</td><td class="num">$3.490</td><td><div class="bar"><div class="track"><span class="fill" style="width:50%"></span></div><span class="v">$147</span></div></td></tr>
+          <tr class="past"><td class="tier">Vecchio Growth · 36/mese</td><td class="num">27,0</td><td class="num">$1.799</td><td><div class="bar"><div class="track"><span class="fill" style="width:23%"></span></div><span class="v">$67</span></div></td></tr>
         </tbody>
       </table>
     </div>
     <div class="col" style="margin-top:22px">
-      <p>Due conseguenze operative. <strong>Il pavimento sale da ~$67 a ~$101 l'ora</strong>: il tier peggiore del listino nuovo rende il 50% in più del peggiore di quello vecchio. E <strong>per crescere si vendono varianti, non video nuovi</strong>: con ~25 ore al mese sostenibili accanto all'outreach il tetto è ~33 video (~$3.100), e si supera solo riusando quello che hai già prodotto.</p>
+      <p><strong>Il pavimento sale da ~$67 a ~$147 l'ora</strong>: il tier peggiore del listino nuovo rende più del doppio del peggiore di quello vecchio. E il tetto realistico da solo è <strong>~$3.800 al mese</strong> — un cliente Scale (23,75 ore) oppure due clienti Growth (22 ore, $3.780, la combinazione migliore). Non servono dieci clienti: ne servono due giusti.</p>
     </div>
   </section>
 
@@ -341,10 +338,24 @@
     <span class="label">Aperto</span>
     <h2>Cosa resta da verificare</h2>
     <ul class="open">
-      <li><b>I $149 del singolo sono un'ipotesi.</b> Se converte troppo facilmente è basso: alzare a $179 prima di toccare il resto della scala.</li>
+      <li><b>I $179 del singolo stanno al limite alto del mercato</b> ($140–200), scelti per dare spazio alla scala sopra: essendo decrescente, il singolo fa da soffitto a tutto il listino. Se non converte mai in outreach, prima di abbassarlo prova un'offerta a tempo sul primo acquisto — non intacca l'ancora.</li>
       <li><b>I 45 minuti per video vanno rimisurati</b> sui primi dieci video reali. Se scendono a 30, tutta la colonna della resa sale del 50%.</li>
       <li><b>La validità a 90 giorni è più stretta dello standard</b> (6–12 mesi). Crea urgenza e margine sui crediti non usati, ma aggiunge attrito: concederla a 180 giorni è una leva di chiusura a costo zero.</li>
+      <li><b>Il vincolo vero non è il prezzo, è la capacità.</b> A due clienti Growth siamo pieni. Il terzo cliente o alza i prezzi o velocizza la produzione: non esiste una terza via sostenibile da solo.</li>
     </ul>
+  </section>
+
+  <section class="col">
+    <span class="label">Incasso</span>
+    <h2>Quattro link Stripe da creare</h2>
+    <p>Il sito è statico su Netlify, quindi niente backend: la via corretta sono i <strong>Payment Links</strong> di Stripe, generati dalla dashboard senza scrivere codice. I bottoni del sito puntano già a quattro segnaposto da sostituire.</p>
+    <ul class="open">
+      <li><b>Singolo</b> — pagamento singolo, $179</li>
+      <li><b>Starter</b> — pagamento singolo, $845</li>
+      <li><b>Growth</b> — ricorrente mensile, $1.890</li>
+      <li><b>Scale</b> — ricorrente mensile, $3.490</li>
+    </ul>
+    <p style="margin-top:20px">Su ogni link vanno attivati i campi personalizzati <strong>Product URL</strong> e <strong>Brand notes</strong>, così il brief arriva insieme al pagamento invece che con una mail di andata e ritorno. L'unico punto che non si risolve dal sito è quello fiscale: per incassare serve la partita IVA, e la fattura va emessa secondo le regole italiane anche quando l'IVA non si applica perché il cliente è un'azienda americana.</p>
   </section>
 
   <footer class="col">
@@ -354,28 +365,32 @@
 
 <script>
   var TIERS = [
-    {name:"Test",   sub:"prova il sistema",    n:5,  once:595,  subm:499,  pop:false},
-    {name:"Volume", sub:"il punto di equilibrio", n:12, once:1190, subm:999,  pop:true},
-    {name:"Scale",  sub:"volume alto",          n:25, once:2250, subm:1899, pop:false}
+    {name:"Singolo", sub:"una tantum",  videos:1,  variants:0,  price:179,  rec:false, pop:false},
+    {name:"Starter", sub:"una tantum",  videos:5,  variants:5,  price:845,  rec:false, pop:false},
+    {name:"Growth",  sub:"il punto di equilibrio", videos:12, variants:12, price:1890, rec:true, pop:true},
+    {name:"Scale",   sub:"volume alto", videos:25, variants:30, price:3490, rec:true,  pop:false}
   ];
-  var MAXPV = 149; // single video sets the scale
+  var MAX = 179; // the single ad sets the scale for both metrics
   var body = document.getElementById("ladder");
   var cap = document.getElementById("cap");
-  var bOnce = document.getElementById("mode-once");
-  var bSub = document.getElementById("mode-sub");
+  var head = document.getElementById("metric-head");
+  var bAsset = document.getElementById("mode-asset");
+  var bVideo = document.getElementById("mode-video");
 
   function money(v){ return "$" + v.toLocaleString("en-US"); }
 
-  function render(mode){
+  function render(metric){
+    var perAsset = metric === "asset";
     body.innerHTML = "";
+
     TIERS.forEach(function(t){
-      var price = mode === "sub" ? t.subm : t.once;
-      var pv = Math.round(price / t.n);
+      var assets = t.videos + t.variants;
+      var unit = Math.round(t.price / (perAsset ? assets : t.videos));
       var tr = document.createElement("tr");
 
       var td1 = document.createElement("td");
       td1.className = "tier";
-      td1.textContent = t.name;
+      td1.appendChild(document.createTextNode(t.name));
       if (t.pop){
         var pill = document.createElement("span");
         pill.className = "pill";
@@ -388,11 +403,13 @@
 
       var td2 = document.createElement("td");
       td2.className = "num";
-      td2.textContent = t.n + (mode === "sub" ? " / mese" : "");
+      td2.textContent = t.variants
+        ? t.videos + " video + " + t.variants + " varianti"
+        : t.videos + " video";
 
       var td3 = document.createElement("td");
       td3.className = "num";
-      td3.textContent = money(price) + (mode === "sub" ? " / mese" : "");
+      td3.textContent = money(t.price) + (t.rec ? " / mese" : "");
 
       var td4 = document.createElement("td");
       var bar = document.createElement("div");
@@ -401,11 +418,11 @@
       track.className = "track";
       var fill = document.createElement("span");
       fill.className = "fill";
-      fill.style.width = Math.round(pv / MAXPV * 100) + "%";
+      fill.style.width = Math.round(unit / MAX * 100) + "%";
       track.appendChild(fill);
       var v = document.createElement("span");
       v.className = "v";
-      v.textContent = money(pv);
+      v.textContent = money(unit);
       bar.appendChild(track);
       bar.appendChild(v);
       td4.appendChild(bar);
@@ -414,15 +431,16 @@
       body.appendChild(tr);
     });
 
-    cap.textContent = mode === "sub"
-      ? "Disdetta libera, nessun contratto annuale. Diritti d'uso inclusi in ogni riga."
-      : "Crediti validi 90 giorni (180 per Scale). Diritti d'uso inclusi in ogni riga.";
+    head.textContent = perAsset ? "Costo per asset" : "Costo per video";
+    cap.textContent = perAsset
+      ? "Il costo per asset è quello che il cliente confronta: nel testing di hook le varianti perdenti costano quanto quella vincente."
+      : "Il costo per video scende a ogni gradino — salire di piano non costa mai di più a unità.";
 
-    bOnce.setAttribute("aria-pressed", String(mode !== "sub"));
-    bSub.setAttribute("aria-pressed", String(mode === "sub"));
+    bAsset.setAttribute("aria-pressed", String(perAsset));
+    bVideo.setAttribute("aria-pressed", String(!perAsset));
   }
 
-  bOnce.addEventListener("click", function(){ render("once"); });
-  bSub.addEventListener("click", function(){ render("sub"); });
-  render("once");
+  bAsset.addEventListener("click", function(){ render("asset"); });
+  bVideo.addEventListener("click", function(){ render("video"); });
+  render("asset");
 </script>

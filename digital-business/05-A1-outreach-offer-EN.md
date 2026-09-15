@@ -12,19 +12,24 @@ Lingua di tutto ciò che è cliente-facing: inglese. Tono: concreto, niente supe
 **Who it's for:** DTC e-commerce brands already running Meta/TikTok ads who need fresh ad creative
 faster and cheaper than a traditional UGC pipeline.
 
-**What you get (monthly):**
-- 12–20 UGC-style video ads (hook / problem / demo / proof / CTA), vertical 9:16.
-- Multiple hook and angle variants per concept for A/B testing.
+**What you get:**
+- UGC-style video ads (hook / problem / demo / proof / CTA), vertical 9:16.
+- **A free hook variant of every video** — the same ad with a different opening, so you can A/B test
+  the thing that actually decides performance without paying twice.
 - Ready-to-upload files for Meta and TikTok Ads.
-- One revision round per batch.
+- **Full usage rights included** — no licensing add-on, no whitelisting fee.
 
-**Why AI:** same-day turnaround, a fraction of the cost of human UGC, and enough volume to actually
-test winners — instead of 1–2 videos a month.
+**Why AI:** turnaround in days, and enough variants to actually test winners — instead of 1–2 videos
+a month where every failed hook costs you a full production.
 
 **Packages (USD):**
-- Starter — 18 videos/month — $999/mo ($55/ad — 31% less than a one-off batch)
-- Growth — 36 videos/month + priority turnaround — $1,799/mo ($50/ad — our lowest cost per ad)
-- First project (no commitment): a batch of 5 ads — $400 one-time ($80/ad).
+- Single ad — $179 one-time. One concept, one revision, no commitment.
+- Starter — 5 videos + 5 hook variants (10 assets) — $845 one-time ($85/asset).
+- Growth — 12 videos + 12 variants (24 assets) — $1,890/mo ($79/asset). Most popular.
+- Scale — 25 videos + 30 variants (55 assets) — $3,490/mo ($63/asset).
+
+Growth and Scale are available as one-time batches at +15% if you don't want a subscription.
+Monthly plans cancel anytime.
 
 **How it works:** 1) you send product + brand notes → 2) we produce the batch → 3) you get files
 ready to run → 4) we iterate on what performs.
@@ -45,7 +50,8 @@ Subject: made you a free ad for [Brand]
 > of traditional UGC.
 > To show the quality, I already made **one free ad for [Product]** — here it is: [link]. Use it
 > however you like.
-> If it's useful, I run a monthly package (12–20 ad variants for A/B testing, ready for Meta/TikTok).
+> If it's useful, I run packages from a single ad up to 25 a month — every video comes with a free
+> second hook, so you can test the opening without paying for a whole extra video.
 > Want me to send two more angles for [Product]?
 > [Name] — [portfolio link]
 
@@ -69,8 +75,9 @@ Subject: made you a free ad for [Brand]
 
 ## OBJECTION HANDLING
 
-- **"How much?"** → "Starter is $999/mo for 18 ad variants — that's $55 a piece, cheaper than testing
-  solo. First batch of 5 is $400 one-time if you want to test me first. Cancel anytime, no contract."
+- **"How much?"** → "Growth is $1,890/mo — 12 videos plus a free hook variant of each, so 24 ad assets
+  at $79 apiece. A single ad is $179 if you just want to see one, or a 5-video batch is $845 one-time.
+  Cancel anytime, no contract, and usage rights are included."
 - **"We already have a UGC/creative team."** → "Great — this is for volume and speed on ad variants.
   Keep the sample; if you ever need more test creative fast, I'm here."
 - **"Does AI UGC actually convert?"** → "It's running on real ad accounts in 2026; one brand did
