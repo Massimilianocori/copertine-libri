@@ -34,7 +34,8 @@ Monthly plans cancel anytime.
 **How it works:** 1) you send product + brand notes → 2) we produce the batch → 3) you get files
 ready to run → 4) we iterate on what performs.
 
-**CTA:** Reply "SAMPLE" and I'll send a free ad made for one of your products.
+**CTA:** Reply "SAMPLE" and I'll make a free sample ad for one of your products — watermarked
+preview, clean file comes with any order.
 
 Note (honesty): we sell creative production and testing volume, not guaranteed ROAS. No false
 performance claims.
@@ -43,13 +44,13 @@ performance claims.
 
 ## COLD EMAIL (with free sample)
 
-Subject: made you a free ad for [Brand]
+Subject: made you a sample ad for [Brand]
 
 > Hi [First name],
 > I make UGC-style video ads for [niche] brands, using AI so they ship in days and cost a fraction
 > of traditional UGC.
-> To show the quality, I already made **one free ad for [Product]** — here it is: [link]. Use it
-> however you like.
+> To show the quality, I already made **a free sample ad for [Product]** — here it is: [link]. It's
+> watermarked, so it's a preview rather than something you can run, but it's exactly what you'd get.
 > If it's useful, I run packages from a single ad up to 25 a month — every video comes with a free
 > second hook, so you can test the opening without paying for a whole extra video.
 > Want me to send two more angles for [Product]?
@@ -57,7 +58,8 @@ Subject: made you a free ad for [Brand]
 
 ## INSTAGRAM / LINKEDIN DM
 
-> Hi [Brand] — I made a free UGC-style video ad for [Product], no strings: [link].
+> Hi [Brand] — I made a free UGC-style video ad for [Product]: [link]. It's a watermarked preview,
+> but it's exactly what you'd get.
 > I produce these with AI, so I can ship a whole month of ad variants in days. If you like it, happy
 > to send a couple more angles to test.
 
@@ -68,8 +70,8 @@ Subject: made you a free ad for [Brand]
 
 ## FOLLOW-UP 2 (day 7)
 
-> Last note so I'm not a bother: the sample ad is yours to keep and run. If creative ever becomes a
-> bottleneck, I'm here. Good luck with [Brand].
+> Last note so I'm not a bother: the sample is there whenever you want to look at it, and the clean
+> file is one order away. If creative ever becomes a bottleneck, I'm here. Good luck with [Brand].
 
 ---
 
@@ -79,7 +81,10 @@ Subject: made you a free ad for [Brand]
   at $79 apiece. A single ad is $179 if you just want to see one, or a 5-video batch is $845 one-time.
   Cancel anytime, no contract, and usage rights are included."
 - **"We already have a UGC/creative team."** → "Great — this is for volume and speed on ad variants.
-  Keep the sample; if you ever need more test creative fast, I'm here."
+  The sample's there if you ever want it; if test creative becomes a bottleneck, I'm here."
+- **"Why is the free one watermarked?"** → "Because it's a demo, not the job. I pick the product and
+  write the script — you get to see the quality for free. A paid order is your product, your angle,
+  a revision, and a clean file with full usage rights."
 - **"Does AI UGC actually convert?"** → "It's running on real ad accounts in 2026; one brand did
   $1.3M from AI UGC. I sell creative and test volume, not guaranteed ROAS — you keep what performs."
 - **"Send more examples."** → send 2 immediately. It's a buying signal.
@@ -91,12 +96,18 @@ Subject: made you a free ad for [Brand]
 - Sell creative production + testing volume. Never promise ROAS or specific results.
 - Product/brand assets used in a sample are the brand's; the sample is a private demo sent to them,
   not republished as ours.
+- **The free sample always ships watermarked** (`watermark/sample-overlay-1080x1920.png`), and no
+  message ever describes it as free to use, "no strings", or "yours to keep and run" — see
+  `12-campione-gratuito.md`. The clean file is delivered only against an order.
 - Respect platform disclosure rules for AI-generated content where required.
 
 ## DAILY PROCESS
 
 1. Meta Ad Library (US filter) → list 10–15 brands actively running ads in the niche.
-2. For each: pull product visuals from their site → generate a UGC sample in Creatify (URL-to-video).
-3. Send cold email + DM with the sample link.
-4. Log in tracker: date, brand, channel, reply, follow-up.
-5. Follow up day 3 and day 7.
+2. For each: pull product visuals from their site → generate a UGC sample (Creatify per il volume
+   quotidiano, Veo 3.1 per i prospect grossi — vedi `10-video-veo3-prompt-pronti.md` §6).
+3. **Applica la filigrana** prima di inviare (`12-campione-gratuito.md` §3). Nessun campione esce
+   pulito.
+4. Send cold email + DM with the sample link.
+5. Log in tracker: date, brand, channel, reply, follow-up.
+6. Follow up day 3 and day 7.
