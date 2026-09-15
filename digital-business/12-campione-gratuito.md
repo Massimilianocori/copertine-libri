@@ -40,12 +40,22 @@ La distinzione va detta esplicitamente in ogni messaggio, altrimenti la prima do
 
 ## 3. Come si applica la filigrana
 
-L'overlay è pronto: **`watermark/sample-overlay-1080x1920.png`**, trasparente, già nel formato dei
-nostri video. Due modi, stesso risultato.
+Gli overlay sono pronti, **uno per rapporto d'aspetto** — il campione si genera nel formato che serve
+al cliente (vedi `10-video-veo3-prompt-pronti.md` §2), quindi la filigrana deve esistere in tutti:
+
+| File | Formato |
+|---|---|
+| `watermark/sample-overlay-1080x1920.png` | 9:16 |
+| `watermark/sample-overlay-1080x1350.png` | 4:5 |
+| `watermark/sample-overlay-1080x1080.png` | 1:1 |
+
+Per un 16:9 rigenerare con `genera-watermark.py` aggiungendo `(1920, 1080)` alla lista `SIZES`.
+
+Due modi per applicarlo, stesso risultato.
 
 ### Final Cut (consigliato, nessun comando da scrivere)
 
-1. Importa `sample-overlay-1080x1920.png` nella libreria.
+1. Importa nella libreria l'overlay **del formato del video** (tabella sopra).
 2. Trascinalo sulla timeline **sopra** la traccia video, per tutta la durata della clip.
 3. Verifica che sia a dimensione piena (la risoluzione coincide già: nessuna scalatura).
 4. Esporta come al solito, poi ricomprimi per il web (vedi `10-video-veo3-prompt-pronti.md` §3bis:
@@ -54,6 +64,7 @@ nostri video. Due modi, stesso risultato.
 ### ffmpeg (per applicarlo a più video in serie)
 
 ```sh
+# l'overlay deve avere la stessa risoluzione del video
 ffmpeg -i pulito.mp4 -i watermark/sample-overlay-1080x1920.png \
   -filter_complex "[0:v][1:v]overlay=0:0" \
   -c:v libx264 -preset slow -crf 24 -pix_fmt yuv420p \

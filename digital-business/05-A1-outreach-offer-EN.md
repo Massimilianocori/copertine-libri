@@ -13,7 +13,9 @@ Lingua di tutto ciò che è cliente-facing: inglese. Tono: concreto, niente supe
 faster and cheaper than a traditional UGC pipeline.
 
 **What you get:**
-- UGC-style video ads (hook / problem / demo / proof / CTA), vertical 9:16.
+- UGC-style video ads (hook / problem / demo / proof / CTA), **produced in whatever ratio your
+  placement needs** — 9:16 for Reels/Stories/TikTok, 4:5 for the Meta feed, 1:1, 16:9. You tell us
+  the placement, we shoot it that way; nothing is cropped down from another format.
 - **A free hook variant of every video** — the same ad with a different opening, so you can A/B test
   the thing that actually decides performance without paying twice.
 - Ready-to-upload files for Meta and TikTok Ads.

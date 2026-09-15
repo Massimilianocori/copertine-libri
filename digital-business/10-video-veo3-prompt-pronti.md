@@ -48,8 +48,27 @@ lip-sync.
 
 ## 2. Vincolo di formato e scelta di struttura `[VERIFICATO in sessione]`
 
+**Il rapporto d'aspetto si sceglie prima di generare, per ogni commessa.** Non produciamo in 9:16 e
+poi ritagliamo: il cliente dichiara il placement (campo "Format you need" nel form del sito) e si
+genera direttamente in quel formato. I quattro che servono:
+
+| Formato | Placement |
+|---|---|
+| 9:16 | Reels, Stories, TikTok |
+| 4:5 | feed Meta — `[VERIFICATO]` è il formato raccomandato per il feed, occupa il 25% di schermo in più del quadrato su mobile |
+| 1:1 | placement quadrati |
+| 16:9 | YouTube in-stream, embed sul sito |
+
+`[VERIFICATO 2026-09-15]` Meta **non** ridimensiona bene da sola: caricare asset costruiti per il
+rapporto giusto fa una differenza reale. E ricavare un 16:9 da un master verticale non è
+un'alternativa — restano 1080×608 con la fronte tagliata, contro i 1920×1080 richiesti. Provato.
+
+Safe zone da rispettare nel 9:16 `[VERIFICATO]`: il **14% in alto** e il **20% in basso** vengono
+coperti dall'interfaccia di Meta (profilo, didascalie, pulsante CTA). Niente di importante lì dentro.
+
 Veo 3.1 genera clip da **8 secondi**. Con Veo 3.1 Fast l'uscita e' **720p** (il 1080p richiede
-Quality, che costa piu' crediti). Impostazioni usate: **Veo 3.1 Fast, 9:16, x1**.
+Quality, che costa piu' crediti). Impostazioni usate per i video della vetrina: **Veo 3.1 Fast,
+9:16, x1** — il 9:16 perché la pagina ha slot verticali, non perché sia l'unico formato che facciamo.
 
 **Il 720p si tiene.** Nello slot verticale della pagina si vede a dimensione telefono, e la UGC vera
 e' girata male: l'eccesso di definizione e' uno dei segnali che fanno leggere un video come
@@ -263,7 +282,8 @@ naturalmente imperfetto: luce mista, riflessi, rumore di fondo.
 
 1. Apri **Google Flow** (labs.google/flow), accedi col tuo account Google. Non abbonarti: usa i
    **50 crediti gratis giornalieri**.
-2. Genera la **clip A**. Impostazioni: **9:16, 1080p, 8 secondi**. Modello: parti da **Veo 3.1 Fast**
+2. Genera la **clip A**. Impostazioni: **il rapporto richiesto dal cliente** (vedi §2 — 9:16 solo se
+   è quello che serve a lui), **1080p, 8 secondi**. Modello: parti da **Veo 3.1 Fast**
    (rapporto crediti/qualità migliore per il test); se il parlato non convince, rigenera quella clip
    in **Quality**.
 3. Guarda la clip con l'unico criterio che conta: **bocca, denti, occhi**. Se uno dei tre non regge,
