@@ -212,7 +212,35 @@ errore — semplicemente non incassi, e non te ne accorgi.
 
 ---
 
-## 8. Incasso — Stripe Payment Links `[DA COMPLETARE dall'utente]`
+## 8. Incasso — Stripe Payment Links `[FATTO 2026-09-15]`
+
+I quattro link sono creati e collegati ai bottoni del sito:
+
+| Piano | Prezzo | Link |
+|---|---|---|
+| Single ad | $179 una tantum | `https://buy.stripe.com/bJe4gzaOh35mlqD0zp1B601` |
+| Starter | $845 una tantum | `https://buy.stripe.com/4gM14n1dHbBS3yL5TJ1B602` |
+| Growth | $1.890/mese | `https://buy.stripe.com/bJe6oHe0tfS86KX6XN1B603` |
+| Scale | $3.490/mese | `https://buy.stripe.com/aFa00j2hL49q6KX6XN1B604` |
+
+Ogni link raccoglie nome cliente, ragione sociale, e due campi personalizzati (Product URL
+obbligatorio, Brand notes facoltativo — su Scale il campo Brand notes è rimasto per errore
+obbligatorio, da correggere quando serve). Tasse automatiche disattivate ovunque, coerente con la
+scelta di fatturare manualmente (§7 sotto).
+
+**Errore incontrato e corretto in sessione**: il primo tentativo di creare il link "Single ad" ha
+prodotto un prodotto con prezzo di tipo "il cliente sceglie l'importo" invece di prezzo fisso — la
+UI di Stripe per la creazione rapida del link non rende ovvia la differenza tra i due tipi. Il primo
+link è stato disattivato e ricreato passando esplicitamente dal Catalogo prodotti, dove la scelta tra
+"Una tantum"/"Ricorrente" (con prezzo scritto a mano) è inequivocabile. **Verificare sempre, prima di
+pubblicare un link, che l'anteprima della pagina di pagamento non mostri un pulsante "Modifica
+importo".**
+
+Resta da fare, non bloccante per continuare a lavorare: verificare se l'account è ancora in modalità
+test o è passato a Live (l'attivazione richiede la verifica di partita IVA, documento e IBAN già
+avviata) — i link sopra funzionano per soldi veri solo in modalità Live.
+
+## 8bis. Note originali `[storico]`
 
 Il sito è statico su Netlify: niente backend, quindi la via corretta sono i **Payment Links** di
 Stripe (link generati dalla dashboard, nessun codice da scrivere). I bottoni del sito puntano già a
