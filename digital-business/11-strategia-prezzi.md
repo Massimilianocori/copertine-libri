@@ -164,10 +164,14 @@ Tre conseguenze operative:
 
 ## 6. Come è presentato sul sito `[FATTO 2026-09-15]`
 
-- **Tre schede** Starter / Growth / Scale, con badge "Most popular" su Growth (miglior equilibrio tra
-  resa oraria e dimensione dell'ordine), più una **riga singola sotto la griglia** per il video da
-  $179 — messa dopo, non prima, così le tre schede fanno da ancora e i $179 si leggono come
-  accessibili.
+- **Quattro schede pari** Single ad / Starter / Growth / Scale, in ordine di prezzo crescente, con
+  badge "Most popular" su Growth (miglior equilibrio tra resa oraria e dimensione dell'ordine).
+  `[corretto 2026-09-15]` Il singolo era stato messo come riga stretta sotto la griglia: sbagliato,
+  è un prodotto che vendiamo come gli altri e va presentato allo stesso modo. Il suo posizionamento
+  rispetto al campione gratuito si dice nella nota sotto il bottone ("The step after your free
+  sample"), non rimpicciolendo la scheda.
+- Le schede senza badge riservano comunque l'altezza del badge (`.price:not(.featured)::before`), così
+  titoli, prezzi e bottoni restano allineati su tutta la riga.
 - Il titolo della sezione dice la cosa differenziante, non "Pricing": *"Every video ships with a
   second hook, free."*
 - La metrica in evidenza su ogni scheda è il **costo per ad asset** ($85 / $79 / $63), non il costo

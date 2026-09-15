@@ -103,6 +103,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.85);
 /* generic grid + cards */
 .grid{display:grid;gap:16px}
 .g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g4 .price{padding:24px 22px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px}
 .step .n{font-family:"Space Grotesk",sans-serif;color:var(--muted);font-weight:600;font-size:12px;
   letter-spacing:.1em;text-transform:uppercase}
@@ -133,13 +135,12 @@ header{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.85);
 .price .btn{margin-top:auto;justify-content:center}
 .tag{align-self:flex-start;font-family:"Space Grotesk",sans-serif;font-size:11px;font-weight:700;
   color:#fff;background:var(--accent-ink);padding:4px 10px;border-radius:999px;
-  letter-spacing:.04em;margin-bottom:14px}
-/* class name deliberately avoids "ad" — ad blockers hide elements matching .*-ad */
-.oneoff{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:16px;
-  padding:18px 20px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
-.oneoff .oneoff-amt{font-family:"Space Grotesk",sans-serif;font-size:24px;font-weight:600}
-.oneoff p{margin:0;font-size:14px;color:var(--muted);flex:1;min-width:200px}
-.oneoff .btn{flex-shrink:0}
+  letter-spacing:.04em;margin-bottom:14px;line-height:1.4}
+/* riserva l'altezza del badge sulle schede che non ce l'hanno, così titoli e
+   prezzi restano allineati su tutta la riga */
+.price:not(.featured)::before{content:"";display:block;height:23px;margin-bottom:14px}
+/* nota: mai "ad", "banner", "promo" o "sponsor" nei nomi di classi — gli ad blocker
+   nascondono gli elementi che vi corrispondono, senza dare nessun errore */
 
 /* why */
 .why .cell{padding:0}
@@ -174,6 +175,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 @media(max-width:920px){
   .hero-grid{grid-template-columns:1fr}
   .g3{grid-template-columns:1fr}
+  .g4{grid-template-columns:repeat(2,1fr)}
   .compare{grid-template-columns:1fr}
   .work-grid{grid-template-columns:repeat(2,1fr)}
   .contact .box{grid-template-columns:1fr;gap:28px}
@@ -181,6 +183,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 @media(max-width:520px){
   section{padding-block:56px}
   .phones{grid-template-columns:1fr 1fr}
+  .g4{grid-template-columns:1fr}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -308,13 +311,22 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
       On each link enable the custom fields "Product URL" and "Brand notes" so the brief
       arrives with the payment.
     -->
-    <div class="grid g3">
+    <div class="grid g4">
+      <div class="card price">
+        <h3>Single ad</h3>
+        <div class="amt">$179 <small>one-time</small></div>
+        <p style="margin:-8px 0 14px;font-size:13px;font-weight:600;color:var(--accent-ink)">1 video — $179 / ad asset</p>
+        <ul><li>1 ready-to-run asset</li><li>Made to your brief</li><li>Your product, your angle</li><li>1 revision round</li><li>Full usage rights included</li><li>No commitment</li></ul>
+        <a href="https://buy.stripe.com/REPLACE_SINGLE" class="btn btn-ghost">Order a one-off ad</a>
+        <p class="muted" style="font-size:12px;margin-top:10px;text-align:center">The step after your free sample</p>
+      </div>
       <div class="card price">
         <h3>Starter</h3>
         <div class="amt">$845 <small>one-time</small></div>
         <p style="margin:-8px 0 14px;font-size:13px;font-weight:600;color:var(--accent-ink)">5 videos + 5 hook variants — $85 / ad asset</p>
         <ul><li>10 ready-to-run assets</li><li>Multiple hooks per concept</li><li>Ready for Meta &amp; TikTok</li><li>1 revision round</li><li>Full usage rights included</li><li>Credits valid 90 days</li></ul>
-        <a href="https://buy.stripe.com/REPLACE_STARTER" class="btn btn-ghost">Buy the Starter batch</a>
+        <a href="https://buy.stripe.com/REPLACE_STARTER" class="btn btn-ghost">Buy the batch</a>
+        <p class="muted" style="font-size:12px;margin-top:10px;text-align:center"><a href="#contact" style="color:var(--muted)">or talk to us first</a></p>
       </div>
       <div class="card price featured">
         <span class="tag">Most popular</span>
@@ -333,11 +345,6 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
         <a href="https://buy.stripe.com/REPLACE_SCALE" class="btn btn-ghost">Start Scale</a>
         <p class="muted" style="font-size:12px;margin-top:10px;text-align:center"><a href="#contact" style="color:var(--muted)">or talk to us first</a></p>
       </div>
-    </div>
-    <div class="oneoff">
-      <span class="oneoff-amt">$179</span>
-      <p><strong style="color:var(--text)">Already had your free sample?</strong> Order a one-off ad to your brief — your product, your angle, one revision, full usage rights.</p>
-      <a href="https://buy.stripe.com/REPLACE_SINGLE" class="btn btn-ghost">Order a one-off ad</a>
     </div>
     <p class="muted" style="font-size:12.5px;margin-top:16px">Want Growth or Scale without a subscription? Same batch as a one-time purchase, +15%, credits valid 90 days — just ask. We sell creative production and testing volume — not guaranteed ad results. Monthly plans, cancel anytime — no annual lock-in.</p>
   </div>
