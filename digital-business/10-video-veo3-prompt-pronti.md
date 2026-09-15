@@ -172,14 +172,18 @@ reale.
 > "I'll be honest with you, I did not think a moisturizer was going to fix anything." Natural room
 > tone, faint bathroom reverb, no music. [NEG]
 
-**Clip B**
+**Clip B** `[corretto 2026-09-15: il dialogo qui sotto è quello EFFETTIVAMENTE usato in generazione e
+pubblicato in 1.mp4 — la versione precedente di questa riga in questo file era sbagliata/non
+corrispondente]`
 > Selfie-style handheld video shot on a phone front camera at arm's length, around 28mm, slightly
 > off-center eyeline, subtle handheld micro-shake. The same man in his early thirties, short dark
 > hair, light stubble, plain grey t-shirt, same small ordinary bathroom with white tile and a
 > cluttered counter, same overhead light. He unscrews the cap, squeezes a small amount onto his
-> fingers, pats it onto his cheek while still looking at the camera, and says casually: "Three weeks
-> in, my face just doesn't feel tight anymore. That's it. That's the whole review." He shrugs
-> slightly and lowers the phone. Natural room tone, faint bathroom reverb, no music. [NEG]
+> fingers, and pats it onto his cheek in two quick, distinct pats — his hand clearly lifting fully
+> away from his face between each pat, no held or frozen pose — while still looking at the camera,
+> and says casually: "No breakouts, no irritation, nothing dramatic. It just quietly did its job.
+> That's why I'm still using it." He shrugs slightly and lowers the phone. Natural room tone, faint
+> bathroom reverb, no music. [NEG]
 
 ### VIDEO 2 — Problem/solution (`2.mp4`)
 
