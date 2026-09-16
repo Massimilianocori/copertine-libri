@@ -26,7 +26,7 @@ inventate — vedi tabella sotto e il tracker Google Sheets condiviso.
 | Huron | help@usehuron.com | ricerca pubblica; VC-backed da fondi piccoli (Morrison Seger, Atacama Ventures, Atlas Capital Ventures, Consumer Ventures), non PE, nessuna agenzia retainer trovata |
 | Beardbrand | support@beardbrand.com | support.beardbrand.com; founder-owned dal 2012, funding totale solo $150K, nessun segnale PE/agenzia |
 
-Tracker: [Scrollcraft - Outreach Tracker (Google Sheets)](https://docs.google.com/spreadsheets/d/1uKoHhYMpo5_wWPwVveoOqZO5qAmZpaD8cXd_K12k69U/edit)
+Tracker: [Scrollcraft - Outreach Tracker (Google Sheets)](https://docs.google.com/spreadsheets/d/18qSyY6WKVBWwS0Yu4Zh1tMud_q7e6j-Vz0inn6oBEHM/edit)
 
 ---
 
