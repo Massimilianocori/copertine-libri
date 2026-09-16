@@ -83,6 +83,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.85);
 .reel .ph{position:absolute;inset:0;display:flex;flex-direction:column;gap:8px;
   align-items:center;justify-content:center;color:var(--muted);text-align:center;padding:14px;font-size:11.5px}
 .reel .ph[hidden]{display:none!important;pointer-events:none}
+.reel .fs-btn{position:absolute;right:10px;bottom:10px;width:34px;height:34px;border-radius:50%;
+  background:rgba(0,0,0,.55);color:#fff;border:none;display:flex;align-items:center;justify-content:center;
+  font-size:15px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .15s;z-index:2}
+.reel.playing .fs-btn{opacity:1;pointer-events:auto}
 .reel .ph .dot{width:38px;height:38px;border-radius:50%;border:2px solid var(--accent-ink);
   display:flex;align-items:center;justify-content:center;color:var(--accent-ink);font-size:14px;background:#fff}
 
@@ -214,14 +218,16 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
     <!-- HERO SAMPLES: drop 1.mp4/2.mp4 in this folder — placeholder shows until then. -->
     <div class="phones">
       <figure class="reel">
-        <video src="1.mp4" controls controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video>
+        <video src="1.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video>
+        <button class="fs-btn" aria-label="Fullscreen">&#x2922;</button>
         <div class="chrome"></div>
         <div class="who"><div class="avatar">S</div><div><span class="handle">@yourbrand</span><span class="followers">Sponsored</span></div></div>
         <div class="caption">"I wasn't expecting this to actually work..."</div>
         <div class="ph"><div class="dot">▶</div>Sample ad 1</div>
       </figure>
       <figure class="reel">
-        <video src="2.mp4" controls controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video>
+        <video src="2.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video>
+        <button class="fs-btn" aria-label="Fullscreen">&#x2922;</button>
         <div class="chrome"></div>
         <div class="who"><div class="avatar">S</div><div><span class="handle">@yourbrand</span><span class="followers">Sponsored</span></div></div>
         <div class="caption">3 things nobody tells you before you buy this.</div>
@@ -252,11 +258,11 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
     <br>
     <!-- SAMPLE VIDEOS: drop 1.mp4 … 5.mp4 (9:16) in this folder; placeholders fade out when a real file loads. -->
     <div class="work-grid">
-      <figure class="reel"><span class="label">Hook demo</span><video src="1.mp4" controls controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Skincare — hook demo</div></figure>
-      <figure class="reel"><span class="label">Problem/solution</span><video src="2.mp4" controls controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Problem / solution</div></figure>
-      <figure class="reel"><span class="label">Product macro</span><video src="3.mp4" controls controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Product macro</div></figure>
-      <figure class="reel"><span class="label">Unboxing</span><video src="4.mp4" controls controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Unboxing / demo</div></figure>
-      <figure class="reel"><span class="label">Full spot</span><video src="5.mp4" controls controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Complete ad: hook + product + CTA</div></figure>    </div>
+      <figure class="reel"><span class="label">Hook demo</span><video src="1.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Skincare — hook demo</div></figure>
+      <figure class="reel"><span class="label">Problem/solution</span><video src="2.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Problem / solution</div></figure>
+      <figure class="reel"><span class="label">Product macro</span><video src="3.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Product macro</div></figure>
+      <figure class="reel"><span class="label">Unboxing</span><video src="4.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Unboxing / demo</div></figure>
+      <figure class="reel"><span class="label">Full spot</span><video src="5.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Complete ad: hook + product + CTA</div></figure>    </div>
   </div>
 </section>
 
@@ -391,10 +397,28 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
 document.querySelectorAll('.reel').forEach(function(r){
-  var v=r.querySelector('video'), ph=r.querySelector('.ph');
+  var v=r.querySelector('video'), ph=r.querySelector('.ph'), fs=r.querySelector('.fs-btn');
   if(!v||!ph) return;
-  v.addEventListener('loadedmetadata',function(){ if(v.videoWidth>0) ph.hidden=true; });
-  v.addEventListener('error',function(){ ph.hidden=false; });
+
+  function play(){ v.play(); }
+  function togglePlay(){ if(v.paused) v.play(); else v.pause(); }
+
+  ph.addEventListener('click', play);
+  v.addEventListener('click', togglePlay);
+
+  v.addEventListener('play', function(){ ph.hidden=true; r.classList.add('playing'); });
+  v.addEventListener('pause', function(){ r.classList.remove('playing'); });
+  v.addEventListener('ended', function(){ ph.hidden=false; r.classList.remove('playing'); });
+  v.addEventListener('error', function(){ ph.hidden=false; r.classList.remove('playing'); });
+
+  if(fs){
+    fs.addEventListener('click', function(e){
+      e.stopPropagation();
+      if(v.requestFullscreen) v.requestFullscreen();
+      else if(v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+      else if(v.webkitRequestFullscreen) v.webkitRequestFullscreen();
+    });
+  }
 });
 </script>
 </body>
