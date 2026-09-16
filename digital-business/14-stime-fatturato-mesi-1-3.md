@@ -76,19 +76,24 @@ Higgsfield ($15) è escluso: cancellazione già decisa.
 | Base | ~7 | ~$2.807 | +$1.890 (1 Growth da mese 1) | **~$4.550** |
 | Ottimistico | ~13 | ~$8.483 | +$1.890 | **~$10.100** |
 
-### Mese 3 — ~800 email, regime — **qui interviene il tetto di capacità**
+### Mese 3 — ~800 email, regime
 
-`[VERIFICATO in sessione]` Con ~25 ore/mese sostenibili da soli, il tetto produttivo è **~33
-video/mese**, circa **$3.800/mese** in valore consegnabile (due clienti Growth, o equivalente).
-**Lo scenario ottimistico del mese 3 supera questo tetto**: non è più un problema di domanda, è un
-problema di produzione — o si alzano i prezzi, o si rifiutano lead, o si comincia a valutare aiuto
-esterno.
+`[CORRETTO 2026-09-16]` Il tetto di capacità usato in una versione precedente di questo file
+(~25 ore/mese, ~$3.800/mese) era un residuo dell'ipotesi "side project part-time" e non riflette
+la disponibilità reale: **~40 ore/settimana** (~173h/mese). Con la stessa ripartizione già usata
+per lo scenario full-time (~65% produzione, resto outreach/admin) → **~112h/mese di produzione
+effettiva**, a ~45 min/video → **~150 video/mese teorici**, scontati per iterazioni/tentativi
+falliti a un tetto realistico di **~$12.000-17.000/mese**.
 
-| Scenario | Domanda stimata (senza tetto) | **Ricavo realistico col tetto di ~25h/mese** |
+Con questo tetto corretto, **la produzione non è più il collo di bottiglia nei primi 3 mesi**,
+nemmeno nello scenario ottimistico — resta la domanda (trovare abbastanza clienti) il vincolo
+reale, non le ore disponibili.
+
+| Scenario | Domanda stimata | **Ricavo realistico col tetto corretto (~$12-17k/mese)** |
 |---|---|---|
-| Pessimistico | ~$1.400 | ~$1.400 (sotto il tetto, nessun problema) |
-| Base | ~$6.700 | ~$4.500 (limitato dalla capacità produttiva) |
-| Ottimistico | ~$16.000 | **~$3.800-4.500** (fortemente limitato — il vero collo di bottiglia diventano le ore, non i clienti) |
+| Pessimistico | ~$1.400 | ~$1.400 (ben sotto il tetto) |
+| Base | ~$6.700 | ~$6.700 (sotto il tetto, nessun problema) |
+| Ottimistico | ~$16.000 | ~$16.000 (dentro o al limite superiore del tetto — non più "fortemente limitato") |
 
 ---
 
@@ -97,10 +102,11 @@ esterno.
 - **Lo scenario pessimistico è il più probabile finché non abbiamo dati veri**: siamo un dominio
   nuovo, zero track record, zero recensioni. Aspettarsi lo scenario base o ottimistico al mese 1 è
   ottimismo non supportato da dati.
-- **Il vincolo reale dal mese 3 in poi non è più "trovare clienti", è "avere ore per servirli"** —
-  se lo scenario base/ottimistico si avvicina anche solo in parte, il problema successivo è
-  aumentare i prezzi (già pianificato: pacchetti una tantum a +15% assorbono parte della domanda in
-  eccesso) o trovare un modo di produrre più velocemente.
+- **Il vincolo reale resta "trovare clienti", non "avere ore per servirli"** — corretto il tetto
+  di capacità (~$12-17k/mese, non ~$3.800), anche lo scenario ottimistico del mese 3 rientra quasi
+  del tutto nella produzione disponibile. Il problema di capacità tornerebbe rilevante solo oltre
+  questi volumi, o se emerge la strada dei contatti diretti/warm intro discussa in sessione (che
+  punta a riempire la capacità con pochi clienti di qualità invece che centinaia di email fredde).
 - **Il numero da monitorare per primo non è il fatturato, è il tasso di risposta reale** dei primi
   100-150 email mandate — quello ci dice in quale scenario siamo, molto prima che si vedano i
   risultati in fatturato.
