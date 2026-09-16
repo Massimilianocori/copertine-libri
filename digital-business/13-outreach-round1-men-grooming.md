@@ -11,8 +11,18 @@ Ogni claim resta un beneficio reale dichiarato dal brand stesso, riformulato in 
 tono-recensione, con la fonte pubblica indicata. Gli script "per il campione video" sotto **non vanno
 generati ora** — servono solo per quando un prospect risponde SAMPLE/interessato.
 
-**Contatto**: il tracker segna "verificare su sito/Instagram" per tutti — nessun indirizzo è stato
-inventato, va trovato a mano prima di inviare.
+**Contatto**: email verificate via ricerca pubblica (pagine contatto/press ufficiali), non
+inventate — vedi tabella sotto e il tracker Google Sheets condiviso.
+
+| Brand | Email | Fonte |
+|---|---|---|
+| Blu Atlas | support@bluatlas.com | bluatlas.com/pages/contact (generale, nessun contatto press dedicato trovato) |
+| Tiege Hanley | press@tiege.com | tiege.com/pages/press-inquiry (dedicata press/partnership) |
+| Stryx | support@stryx.com | stryx.com/pages/contact (stesso indirizzo per press e partnership, dichiarato dal brand) |
+| Oars + Alps | hi@oarsandalps.com | ricerca pubblica; alternativa agenzia PR: oarsandalps@behrmancesa.com |
+| Marlowe | info@marloweskin.com | marloweskin.com/pages/contact (risposta dichiarata ~48h lavorative) |
+
+Tracker: [Scrollcraft - Outreach Tracker (Google Sheets)](https://docs.google.com/spreadsheets/d/18N4EUBVZcZIFj7lB83fSiUkOmj6j1Qhen_ro8bPFaok/edit)
 
 ---
 
