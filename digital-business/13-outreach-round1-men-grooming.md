@@ -39,15 +39,22 @@ indistinguibile, tutte le tonalità di pelle, premiato GQ 2025 `[VERIFICATO, str
 > I was so skeptical about a concealer made for guys — turns out it's the only one that doesn't feel
 > like makeup. Covers the razor burn and you genuinely can't tell it's there.
 
-**Cold email pronta**:
-> Subject: an ad for your concealer tool
+**Cold email pronta** `[riscritta 2026-09-16, tono più caldo/meno da template]`:
+> Subject: loved the GQ mention — quick idea for Stryx
 >
-> Hi Stryx team,
-> I make UGC-style video ads for men's grooming brands with AI, shipped in days and at a fraction
-> of traditional UGC cost. A few samples here: https://scrollcraft.design
-> Reply and I'll make one free, specifically for your concealer tool — the one that covers razor
-> burn and scars without looking like makeup — watermarked preview, but exactly what you'd get.
-> Packages start at a single ad, up to 25 a month, every video comes with a free hook variant.
+> Hey Stryx team,
+>
+> I came across Stryx reading about your GQ 2025 pick, and honestly "the concealer that doesn't
+> feel like makeup" is one of the best product hooks I've seen in men's grooming — it practically
+> writes itself as a video ad.
+>
+> I'm Massimiliano, I make short UGC-style video ads for brands like yours using AI, so they're
+> ready in days instead of weeks. A few examples here: https://scrollcraft.design
+>
+> If it's useful, happy to put together a free sample built around your concealer tool — no strings
+> attached, just reply and let me know.
+>
+> Best,
 > Massimiliano
 
 ---
@@ -61,15 +68,21 @@ stelle su Amazon `[VERIFICATO, marloweskin.com/Amazon]`.
 > Every guy's moisturizer feels heavy after five minutes — this one doesn't. Added it a few weeks
 > ago and it's the first one that actually disappears into your skin.
 
-**Cold email pronta**:
-> Subject: an ad for your No. 203 moisturizer
+**Cold email pronta** `[riscritta 2026-09-16, tono più caldo/meno da template]`:
+> Subject: your No. 203 reviews are wild
 >
 > Hi Marlowe team,
-> I make UGC-style video ads for men's grooming brands with AI, shipped in days. Samples here:
-> https://scrollcraft.design
-> Reply and I'll make one free for your No. 203 moisturizer — the one with 20,000+ five-star
-> reviews on Amazon.
-> Packages start at a single ad, up to 25 a month, every video comes with a free hook variant.
+>
+> I was looking through the No. 203 reviews and 20,000+ five-star ratings on Amazon is a genuinely
+> rare thing for a moisturizer — that's the kind of proof most brands would kill for in an ad.
+>
+> I'm Massimiliano — I put together short UGC-style video ads with AI, usually ready in a few days.
+> A few samples here: https://scrollcraft.design
+>
+> Happy to build a free one around the No. 203 if you want to see how it'd look — just reply and
+> I'll get started.
+>
+> Best,
 > Massimiliano
 
 ---
@@ -83,15 +96,21 @@ poche settimane, idratante non unto `[VERIFICATO, tiege.com/FashionBeans]`.
 > POV: you just added a skincare routine that doesn't take ten steps to figure out. Three products,
 > and it actually feels different by week two.
 
-**Cold email pronta**:
-> Subject: an ad for Tiege Hanley's Level 1 routine
+**Cold email pronta** `[riscritta 2026-09-16, tono più caldo/meno da template]`:
+> Subject: quick idea for your Level 1 routine
 >
 > Hi Tiege Hanley team,
-> I make UGC-style video ads for men's grooming brands, using AI so they ship in days. A few
-> samples here: https://scrollcraft.design
-> Reply and I'll make one free, specifically for your Level 1 Essential routine — watermarked
-> preview, but exactly what you'd get.
-> Packages start at a single ad, up to 25 a month with a free hook variant on every video.
+>
+> What stood out to me about Level 1 Essential is how simple it is — three products, no ten-step
+> routine — that "keep it simple" message translates really well into a short video ad.
+>
+> I'm Massimiliano, I make UGC-style video ads with AI so they're ready in days rather than weeks.
+> A few examples here: https://scrollcraft.design
+>
+> If you're open to it, I'll put together a free sample built around Level 1 — no commitment, just
+> reply and let me know.
+>
+> Best,
 > Massimiliano
 
 ---
@@ -106,15 +125,22 @@ segnalano zero irritazione anche con pelle sensibile rispetto ad altri deodorant
 > I'm sensitive to basically every deodorant out there — this is the first one that lasted all day
 > without irritating my skin. Didn't expect that from something aluminum-free.
 
-**Cold email pronta**:
-> Subject: an ad for your deodorant
+**Cold email pronta** `[riscritta 2026-09-16, tono più caldo/meno da template]`:
+> Subject: the sensitive-skin angle on your deodorant
 >
 > Hi Huron team,
-> I make UGC-style video ads for men's grooming brands with AI, shipped in days. A few samples
-> here: https://scrollcraft.design
-> Reply and I'll make one free, specifically for your aluminum-free deodorant — the 48-hour one
-> that doesn't irritate sensitive skin.
-> Packages start at a single ad, up to 25 a month, every video comes with a free hook variant.
+>
+> I noticed a few reviewers specifically calling out that your deodorant didn't irritate their skin
+> the way others do — that's a strong, specific claim, and exactly the kind of detail that makes a
+> good ad instead of a generic one.
+>
+> I'm Massimiliano, I make short UGC-style video ads using AI, ready in days. A few samples here:
+> https://scrollcraft.design
+>
+> Happy to put together a free one around the deodorant if it's useful — just reply and I'll get
+> started.
+>
+> Best,
 > Massimiliano
 
 ---
@@ -128,15 +154,21 @@ barbe/setole ruvide, pluripremiato `[VERIFICATO, beardbrand.com]`.
 > Beard itch made me want to shave the whole thing off in week two — this oil actually fixed it.
 > Softer beard, zero flaking, and it doesn't feel greasy.
 
-**Cold email pronta**:
-> Subject: an ad for your beard oil
+**Cold email pronta** `[riscritta 2026-09-16, tono più caldo/meno da template]`:
+> Subject: the beard itch angle
 >
 > Hi Beardbrand team,
-> I make UGC-style video ads for men's grooming brands with AI, shipped in days. Samples here:
-> https://scrollcraft.design
-> Reply and I'll make one free for your beard oil — the jojoba one that kills the itch and
-> dandruff without leaving it greasy.
-> Packages start at a single ad, up to 25 a month, every video comes with a free hook variant.
+>
+> The beard itch/dandruff problem your oil solves is such a relatable pain point — it's the kind of
+> thing that makes for a genuinely good "before/after" video ad instead of just another product
+> shot.
+>
+> I'm Massimiliano, I make UGC-style video ads with AI, ready in days rather than weeks. A few
+> examples here: https://scrollcraft.design
+>
+> If it's useful, I'll build a free sample around the beard oil — just reply and let me know.
+>
+> Best,
 > Massimiliano
 
 ---
