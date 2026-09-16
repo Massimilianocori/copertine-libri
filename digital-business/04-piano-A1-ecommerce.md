@@ -55,6 +55,31 @@ le loro campagne.
   dettaglio col commercialista insieme al codice ATECO.
 - **Lead in entrata:** affiancare le UGC marketplace all'outreach (i brand cercano loro i creator).
 
+### Fisco — dettaglio operativo `[IPOTESI, ricostruito 2026-09-16 via ricerca AI, da confermare col commercialista]`
+
+- **Natura del servizio confermata**: i clienti pagano annunci pubblicitari fatti su misura per il
+  loro prodotto specifico (servizio su commessa), non pacchetti pre-generati scaricabili in
+  self-service. Questo è rilevante per due scelte fiscali sotto.
+- **Codice ATECO**: 73.11.02 (conduzione campagne pubblicitarie) resta il più aderente, dato che il
+  servizio è legato a una strategia pubblicitaria e non alla sola fornitura di un asset grafico
+  isolato (che sarebbe invece 74.10.29 — scartato per il nostro caso).
+- **INPS — Gestione Separata vs Commercianti**: essendo un servizio su commessa/intellettuale e non
+  e-commerce automatizzato di digital download, dovrebbe restare corretta la **Gestione Separata**
+  già in uso come fotografo (non la Gestione Commercianti, che si applicherebbe a una vendita
+  automatizzata di template). Da confermare col commercialista.
+- **Fatturazione via Stripe, per tipo cliente**:
+  - **B2B Italia**: fattura elettronica via SDI obbligatoria.
+  - **B2B UE**: fattura senza IVA, dicitura "Inversione contabile / Reverse charge", previa verifica
+    del VAT ID del cliente su VIES.
+  - **B2B extra-UE (USA, il nostro mercato principale)**: fattura senza IVA, dicitura "Operazione
+    non soggetta ad IVA art. 7-ter DPR 633/72" (coerente con quanto già scritto sopra).
+  - **B2C (privati)**: fattura non obbligatoria salvo richiesta esplicita al checkout; basta
+    l'annotazione nel registro dei corrispettivi. Se si vendesse a privati UE oltre €10.000/anno,
+    valutare l'iscrizione OSS (One Stop Shop) — scenario improbabile nel nostro caso essendo B2B.
+  - **Stripe Tax**: da attivare nelle impostazioni Stripe — calcola automaticamente imposta/esenzione
+    in base a indirizzo e VAT ID inserito al checkout. Raccogliere sempre ragione sociale, indirizzo
+    completo e Tax ID nel checkout per distinguere B2B da B2C.
+
 ## 4. Vantaggio ingiusto + arma di acquisizione
 
 - **Meta Ad Library** mostra quali brand stanno spendendo in ads adesso → compratori già provati,
