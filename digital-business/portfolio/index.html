@@ -205,6 +205,10 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
   section{padding-block:56px}
   .phones{grid-template-columns:1fr 1fr}
   .g4{grid-template-columns:1fr}
+  .work-grid{grid-template-columns:1fr;max-width:340px;margin-inline:auto}
+  .work-grid .label{display:none}
+  .work-grid .ph .cap{display:none}
+  .work-grid .ph .dot{width:56px;height:56px;font-size:20px;border-width:0;background:#fff}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -268,14 +272,15 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
     <br>
     <!-- SAMPLE VIDEOS: drop 1.mp4 … 5.mp4 (9:16) in this folder; placeholders fade out when a real file loads. -->
     <div class="work-grid">
-      <figure class="reel"><span class="label">Hook demo</span><video src="6.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Fragrance — hook demo</div></figure>
-      <figure class="reel"><span class="label">Problem/solution</span><video src="2.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Problem / solution</div></figure>
-      <figure class="reel"><span class="label">Product macro</span><video src="3.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Product macro</div></figure>
-      <figure class="reel"><span class="label">Unboxing</span><video src="4.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Unboxing / demo</div></figure>
-      <figure class="reel"><span class="label">Full spot</span><video src="5.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Complete ad: hook + product + CTA</div></figure>
-      <figure class="reel"><span class="label">UGC talking</span><video src="7.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Men's grooming — UGC talking</div></figure>
-      <figure class="reel"><span class="label">UGC talking</span><video src="8.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Pet supplements — UGC talking</div></figure>
-      <figure class="reel"><span class="label">Social proof</span><video src="9.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div>Product B-roll with review overlay</div></figure>    </div>
+      <figure class="reel"><span class="label">Hook demo</span><video src="6.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div><span class="cap">Fragrance — hook demo</span></div></figure>
+      <figure class="reel"><span class="label">Problem/solution</span><video src="2.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div><span class="cap">Problem / solution</span></div></figure>
+      <figure class="reel"><span class="label">Product macro</span><video src="3.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div><span class="cap">Product macro</span></div></figure>
+      <figure class="reel"><span class="label">Unboxing</span><video src="4.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div><span class="cap">Unboxing / demo</span></div></figure>
+      <figure class="reel"><span class="label">Full spot</span><video src="5.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div><span class="cap">Complete ad: hook + product + CTA</span></div></figure>
+      <figure class="reel"><span class="label">UGC talking</span><video src="7.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div><span class="cap">Men's grooming — UGC talking</span></div></figure>
+      <figure class="reel"><span class="label">UGC talking</span><video src="8.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div><span class="cap">Pet supplements — UGC talking</span></div></figure>
+      <figure class="reel"><span class="label">Social proof</span><video src="9.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div><span class="cap">Product B-roll with review overlay</span></div></figure>
+    </div>
   </div>
 </section>
 
@@ -417,7 +422,12 @@ document.querySelectorAll('.reel').forEach(function(r){
   var v=r.querySelector('video'), ph=r.querySelector('.ph'), fs=r.querySelector('.fs-btn');
   if(!v||!ph) return;
 
-  function play(){ v.play(); }
+  function enterFullscreen(){
+    if(v.requestFullscreen) v.requestFullscreen();
+    else if(v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+    else if(v.webkitRequestFullscreen) v.webkitRequestFullscreen();
+  }
+  function play(){ v.play(); enterFullscreen(); }
   function togglePlay(){ if(v.paused) v.play(); else v.pause(); }
 
   ph.addEventListener('click', play);
@@ -431,9 +441,7 @@ document.querySelectorAll('.reel').forEach(function(r){
   if(fs){
     fs.addEventListener('click', function(e){
       e.stopPropagation();
-      if(v.requestFullscreen) v.requestFullscreen();
-      else if(v.webkitEnterFullscreen) v.webkitEnterFullscreen();
-      else if(v.webkitRequestFullscreen) v.webkitRequestFullscreen();
+      enterFullscreen();
     });
   }
 });
