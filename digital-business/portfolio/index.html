@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Scrollcraft — AI UGC video ads for DTC brands</title>
 <meta name="description" content="UGC-style video ads for DTC e-commerce brands, made with AI. Shipped in days, built to A/B test on Meta and TikTok.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Scrollcraft — AI UGC video ads for DTC brands">
+<meta property="og:description" content="UGC-style video ads for DTC e-commerce brands, made with AI. Shipped in days, built to A/B test on Meta and TikTok.">
+<meta property="og:image" content="https://www.scrollcraft.design/og-image.png">
+<meta property="og:url" content="https://www.scrollcraft.design/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scrollcraft — AI UGC video ads for DTC brands">
+<meta name="twitter:description" content="UGC-style video ads for DTC e-commerce brands, made with AI. Shipped in days, built to A/B test on Meta and TikTok.">
+<meta name="twitter:image" content="https://www.scrollcraft.design/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
@@ -50,8 +62,9 @@ em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:40
 header{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.85);
   backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:center;height:76px}
-.logo{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:26px;letter-spacing:-.02em}
+.logo{display:inline-flex;align-items:center;gap:10px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:26px;letter-spacing:-.02em}
 .logo span{color:var(--accent-ink);border-bottom:3px solid var(--accent)}
+.logo .mark{width:30px;height:30px;flex:none}
 
 /* hero */
 .hero{padding-block:64px 30px}
@@ -198,7 +211,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 
 <header>
   <div class="wrap nav">
-    <div class="logo">Scroll<span>craft</span></div>
+    <div class="logo"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#0A0A0A"/><path d="M15.4 12.4 L28.2 20 L15.4 27.6 Z" fill="#C6FF3A"/></svg>Scroll<span>craft</span></div>
   </div>
 </header>
 
@@ -367,6 +380,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
         <p class="eyebrow">Get started</p>
         <h2 class="disp">Get a free sample<br>for your product.</h2>
         <p class="muted">Tell us your product and we'll make one UGC-style ad for it, free. It arrives watermarked — a preview, not a file you can run — so you can judge the quality before spending anything. The clean version comes with any order.</p>
+        <p class="muted" style="font-size:14px">Run by one person, Massimiliano — no agency layers, no account managers. You're talking directly to whoever makes your ads.</p>
         <p class="muted" style="font-size:14px">Prefer email?<br><a href="mailto:hello@scrollcraft.design" style="color:var(--text);font-weight:600;text-decoration:underline">hello@scrollcraft.design</a></p>
       </div>
       <!-- FORM: Formspree endpoint connected, notifications go to corimassimiliano@gmail.com -->
@@ -384,7 +398,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 
 <footer>
   <div class="wrap footrow">
-    <div><span class="logo" style="font-size:15px">Scroll<span>craft</span></span> · © <span id="yr"></span></div>
+    <div><span class="logo" style="font-size:15px"><svg class="mark" style="width:18px;height:18px" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#0A0A0A"/><path d="M15.4 12.4 L28.2 20 L15.4 27.6 Z" fill="#C6FF3A"/></svg>Scroll<span>craft</span></span> · © <span id="yr"></span></div>
     <div><a href="#work">Work</a> &nbsp;·&nbsp; <a href="#pricing">Pricing</a> &nbsp;·&nbsp; <a href="#contact">Contact</a></div>
   </div>
 </footer>
