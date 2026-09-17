@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy &amp; Terms — Scrollcraft</title>
+<meta name="description" content="Privacy policy and terms of service for Scrollcraft.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFAF7; --bg2:#F1EFE7; --card:#FFFFFF; --line:#E7E4DA;
+  --text:#15140F; --muted:#6B6A60; --accent:#C6FF3A; --accent-ink:#0A0A0A;
+  --max:760px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;
+  -webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:22px}
+header{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.85);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:center;height:76px}
+.logo img{height:38px;width:auto;display:block}
+main{padding-block:56px 80px}
+h1{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:clamp(28px,4vw,40px);
+  letter-spacing:-.02em;margin:0 0 6px}
+.updated{color:var(--muted);font-size:13.5px;margin:0 0 40px}
+h2{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:20px;margin:40px 0 12px}
+p,li{color:var(--text);font-size:15px}
+p.muted{color:var(--muted)}
+ul{padding-left:22px}
+a.link{color:var(--text);font-weight:600;text-decoration:underline}
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);font-size:13px}
+.footrow{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;max-width:1160px;margin:0 auto;padding-inline:22px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav" style="max-width:1160px">
+    <a href="index.html" class="logo"><img src="logo.png" alt="Scrollcraft"></a>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Privacy &amp; Terms</h1>
+  <p class="updated">Last updated: September 2026</p>
+
+  <h2>Who we are</h2>
+  <p>Scrollcraft (<a href="https://www.scrollcraft.design" class="link">www.scrollcraft.design</a>) is a one-person service producing AI-made UGC-style video ads for DTC brands, run by Massimiliano. For anything on this page, email <a href="mailto:hello@scrollcraft.design" class="link">hello@scrollcraft.design</a>.</p>
+
+  <h2>What we collect</h2>
+  <p>When you use the contact form, we collect the brand name, product URL, your email, the format you need, and any notes you add. This is sent via Formspree and delivered to our inbox — we use it only to prepare your free sample or reply to your request. We don't sell or share it with anyone else.</p>
+  <p>If you place an order, payment is handled entirely by Stripe. We never see or store your card details — Stripe's own <a href="https://stripe.com/privacy" class="link">privacy policy</a> covers that data.</p>
+
+  <h2>Cookies &amp; analytics</h2>
+  <p>This site does not use tracking cookies or third-party analytics. The only external services it talks to are Formspree (contact form) and Stripe (checkout), both only when you actively submit a form or click to pay.</p>
+
+  <h2>What you get when you order</h2>
+  <p>Every paid order comes with full usage rights to the video(s) you receive — you can run them on any ad platform, with no extra licensing or whitelisting fees. The free sample is a watermarked preview only, meant to show quality before you spend anything; it isn't a file you're licensed to publish.</p>
+
+  <h2>Cancellations &amp; refunds</h2>
+  <p>One-off orders (Single ad, Starter batch) are made to your brief once you confirm the details — if we haven't started production yet, we'll refund you in full; once we've started, we'll work with you on revisions before considering a refund, since the free sample already let you judge quality upfront at no risk.</p>
+  <p>Monthly plans (Growth, Scale) can be cancelled anytime — you keep whatever's already been delivered, and you won't be charged again after cancelling.</p>
+
+  <h2>Changes</h2>
+  <p class="muted">We may update this page as the service evolves. Material changes will be reflected here with an updated date above.</p>
+</main>
+
+<footer>
+  <div class="footrow">
+    <div><span class="logo" style="display:inline-flex"><img src="logo.png" alt="Scrollcraft" style="height:28px"></span> · © <span id="yr"></span></div>
+    <div><a href="index.html#work">Work</a> &nbsp;·&nbsp; <a href="index.html#pricing">Pricing</a> &nbsp;·&nbsp; <a href="index.html#contact">Contact</a></div>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
