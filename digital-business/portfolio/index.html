@@ -62,9 +62,8 @@ em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:40
 header{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.85);
   backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:center;height:76px}
-.logo{display:inline-flex;align-items:center;gap:10px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:26px;letter-spacing:-.02em}
-.logo span{color:var(--accent-ink);border-bottom:3px solid var(--accent)}
-.logo .mark{width:30px;height:30px;flex:none}
+.logo{display:inline-flex;align-items:center}
+.logo img{height:38px;width:auto;display:block}
 
 /* hero */
 .hero{padding-block:64px 30px}
@@ -211,7 +210,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 
 <header>
   <div class="wrap nav">
-    <div class="logo"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#0A0A0A"/><path d="M15.4 12.4 L28.2 20 L15.4 27.6 Z" fill="#C6FF3A"/></svg>Scroll<span>craft</span></div>
+    <div class="logo"><img src="logo.png" alt="Scrollcraft"></div>
   </div>
 </header>
 
@@ -398,7 +397,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 
 <footer>
   <div class="wrap footrow">
-    <div><span class="logo" style="font-size:15px"><svg class="mark" style="width:18px;height:18px" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#0A0A0A"/><path d="M15.4 12.4 L28.2 20 L15.4 27.6 Z" fill="#C6FF3A"/></svg>Scroll<span>craft</span></span> · © <span id="yr"></span></div>
+    <div><span class="logo"><img src="logo.png" alt="Scrollcraft" style="height:28px"></span> · © <span id="yr"></span></div>
     <div><a href="#work">Work</a> &nbsp;·&nbsp; <a href="#pricing">Pricing</a> &nbsp;·&nbsp; <a href="#contact">Contact</a></div>
   </div>
 </footer>
