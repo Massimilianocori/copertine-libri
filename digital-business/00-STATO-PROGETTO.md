@@ -92,6 +92,12 @@ Massimiliano
 - Lo STESSO asset mostrato sul portfolio pubblico per attirare ALTRI clienti è un uso diverso e più rischioso (rischio di endorsement/affiliazione implicita).
 - Soluzione adottata: **due versioni** dello stesso video — una col branding reale del cliente (solo per outreach privato diretto a quel cliente), una de-brandizzata con end card generica Scrollcraft (per il portfolio pubblico su scrollcraft.design). Sfondo end card generica: beige del sito (`#F1EFE7` / `--bg2`), non nero, per leggibilità.
 
+## Sito web Scrollcraft (portfolio) e Stripe
+
+- Sito: `digital-business/portfolio/index.html`, deploy su Netlify (base directory `digital-business/portfolio`, vedi `portfolio/README.md`), verosimilmente agganciato a questo branch.
+- **20/9 — controllo UI/UX fatto** (browser headless, screenshot desktop/mobile, contrasti, anchor link): struttura solida, nessun bug di layout trovato. Corretti 2 problemi di contenuto: (1) FAQ affermava falsamente "It's running on real ad accounts today" nonostante zero clienti reali — sostituito con risposta onesta basata sul free sample; (2) trust strip diceva "10-20 ad variants/month" ma i piani reali offrono 24-55 — allineato. Pushato su `claude/digital-files-business-plan-f8y8gd`.
+- **20/9 — Stripe verificato e confermato in modalità LIVE**: checklist "Verifica il tuo account" e "Attiva la modalità live" entrambe completate (chiave pubblicabile `pk_live_...`). I 4 Payment Link nella sezione prezzi del sito sono pronti a incassare soldi veri. Rimane aperta solo "Configura le fatture" (modulo Stripe Invoicing, prodotto separato dai Payment Link — non necessario per il checkout del sito, lasciato apposta incompleto).
+
 ## Outlier.ai
 
 - Massimiliano si è iscritto come valutatore per Outlier.ai (piattaforma di training/valutazione AI).
