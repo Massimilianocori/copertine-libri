@@ -104,7 +104,8 @@ Massimiliano
 - Gli è stato preparato e consegnato un CV adattato (reframed per enfatizzare esperienza pratica con AI generativa nel business Scrollcraft, mantenendo tutti i fatti veri) — caricato su Google Drive come **"CV Massimiliano Cori - Outlier.docx"** (fileId `11Ki01V1kMHDYR99WF_E7T585Sw2JMlCQ`) e consegnato anche come file in chat.
 - Consiglio dato: fare prima lo screening/test di competenza in **italiano** (madrelingua, unico disponibile al momento), poi eventualmente quello in inglese quando sarà sbloccato (più volume di progetti ma più competizione).
 - Le istruzioni/interfaccia della piattaforma sono in inglese; i contenuti specifici del test di una competenza linguistica (es. italiano) sono verosimilmente nella lingua testata.
-- **Aggiornamento 20/9**: verifica d'identità **approvata** da Outlier (email di conferma ricevuta). Esito del test di screening in italiano ancora da verificare — nessuna email di risultato trovata finora.
+- **Aggiornamento 20/9**: verifica d'identità **approvata** da Outlier (email di conferma ricevuta).
+- **CHIUSO — test di screening in italiano NON superato.** Pista abbandonata, non riproporla. CV/registrazione restano fatti ma non più rilevanti per il lavoro.
 
 ## Cose in sospeso / da verificare
 
@@ -116,7 +117,6 @@ Massimiliano
 - [ ] **20/9 — dubbio sollevato da Massimiliano**: zero clienti finora dopo ~40 email inviate in 3 giorni (17-18-20/9), preoccupazione di investire tempo/soldi senza prova che il canale funzioni. Prima di giudicare: Massimiliano sta controllando manualmente la webmail privateemail.com per vere risposte umane (non solo autorisponditori/bounce) che non sono mai arrivate su Gmail — il risultato reale della campagna potrebbe essere diverso da quello visto finora. Creato le 9 bozze di follow-up (day 3) per il batch del 17/9 nel frattempo (Fera Pets escluso, già gestito a parte). Follow-up del batch 18/9 in scadenza il 21/9, non ancora preparati.
 - [ ] **Decisione presa**: fermare la spesa su nuovi domini/mailbox finché non si completa un ciclo pieno (invio + follow-up day 3 + day 7) sui batch già mandati — a quel punto, e solo a quel punto, valutare se il canale funziona.
 - [ ] Risposta ticket Upwork VAT ID: escalato per verifica manuale il 19/9, ETA 48h (~21/9) — ricontrollare la mail/il ticket #55547453.
-- [ ] Verificare risultato del test di screening Outlier in italiano (identità già approvata il 20/9).
 - [ ] La routine daily outreach scatterà di nuovo domani (21/9, 07:00 UTC) — controllare risultato ed eventualmente completare manualmente se sotto le 15 bozze target (c'è backlog pronto nel tracker, vedi sopra).
 - [ ] Se si apre una nuova chat "leggera": ricordarsi di ri-agganciare il trigger `trig_01FQTjpGhpFALewwcAE4ac8V` alla nuova sessione (delete_trigger + create_trigger, vedi sezione Routine sopra), altrimenti la routine giornaliera si ferma.
 - [x] **20/9 — video AI di produzione, chiarito**: il video cinematografico "DownRange" (featured project sul sito) è stato fatto con **Cinema Studio 4.0** di Higgsfield (non Kling), il modello cinematografico più avanzato della piattaforma (fino a 50 immagini di riferimento per bloccare volto/stile, generazioni fino a 30s, 4K nativo) — confermato che è la scelta giusta, nessun motivo per cambiare strumento. Per i lavori UGC standard (12-15s, singola inquadratura) resta corretto usare **Marketing Studio Video**. Kling 3.0 resta un'alternativa valida (terzo posto nei benchmark Elo pubblici) ma non superiore a quello già in uso.
