@@ -60,9 +60,10 @@ Massimiliano
 
 ## Routine automatica giornaliera
 
-- Trigger id: `trig_01FyXBJeb5FXSqyZMLTseYAJ`, nome "Scrollcraft daily outreach research + drafts".
+- Trigger id: `trig_01FQTjpGhpFALewwcAE4ac8V`, nome "Scrollcraft daily outreach research + drafts" (ri-agganciato il 20/9, il precedente `trig_01FyXBJeb5FXSqyZMLTseYAJ` puntava a una sessione ormai chiusa ed è stato eliminato e ricreato — `update_trigger` non permette di cambiare la sessione agganciata, va rifatto con delete_trigger + create_trigger).
 - Cron: `0 7 * * *` (UTC, le 07:00 ogni giorno).
-- **È agganciato a UNA sessione specifica** (persistent_session_id = questa sessione: `session_01FzG9nraXJVRxk7nSUrF1r7`). Se si abbandona questa sessione/chat, la routine smette di funzionare finché non viene ri-agganciata a una nuova sessione con `update_trigger`.
+- **È agganciato a UNA sessione specifica** (persistent_session_id = questa sessione: `session_01N4SsNUgx6UyDCxNf1LooSj`). Se si abbandona questa sessione/chat, la routine smette di funzionare finché non viene ri-agganciata (elimina il trigger e ricrealo con lo stesso nome/cron/prompt, dalla nuova sessione).
+- Nota tecnica: `create_trigger` non passa i connector (Gmail/Drive) della sessione chiamante per questa organizzazione — è normale, il prompt del trigger include già il controllo che si ferma e segnala il problema se i tool non sono disponibili al risveglio, invece di fallire in silenzio.
 - Obiettivo: 15 nuove bozze/giorno, seguendo i criteri sopra. **Non invia mai da sola** — crea solo bozze in Gmail Drafts, poi manda un messaggio di riepilogo chiedendo revisione/approvazione a Massimiliano.
 - Limite noto della piattaforma: non è garantito che l'accesso ai connector (Gmail/Drive) sia sempre disponibile al momento dello scatto del trigger — il prompt del trigger include un controllo esplicito che si ferma e segnala il problema invece di fallire in silenzio.
 - Storico: nei primi run reali la routine ha prodotto meno bozze del target (5/15, poi 9/15) — cause diagnosticate: abbandono troppo rapido della ricerca email su candidati validi, e limite ambientale (vedi sotto) sul recupero di contatti per domini piccoli. Il prompt del trigger è stato aggiornato con il protocollo di ricerca email più rigoroso sopra descritto per correggere questo.
@@ -76,7 +77,7 @@ Massimiliano
 ## Upwork
 
 - Partita IVA e registrazione VIES (Comunicazione operatore intracomunitario via Agenzia Entrate) completate — verificate anche sul checker ufficiale UE (ec.europa.eu/taxation_customs/vies/).
-- Stato validazione VAT ID su Upwork: bloccato su "Invalid" nonostante VIES lo dia valido — diagnosticato come probabile lag/cache lato Upwork. Ticket di supporto inviato da Massimiliano, risposta non ancora arrivata (verificare stato).
+- Stato validazione VAT ID su Upwork: bloccato su "Invalid" nonostante VIES lo dia valido. Ticket #55547453: il supporto Upwork ha risposto il 19/9 (17:59 CET) confermando che il VAT risulta ancora "rejected" internamente e ha escalato per **verifica manuale**, con ETA dichiarata di 48h (quindi risposta attesa entro ~21/9 pomeriggio) — non ripresentare il VAT nel frattempo, aspettare la risposta sullo stesso ticket.
 - Criteri di valutazione lavori Upwork usati finora: preferire fixed-price a hourly; guardare la **tariffa media oraria realmente pagata dal cliente** (storico reale), non il range dichiarato nell'annuncio — è il segnale vero; distinguere "AI video generation" da "traditional video editing" (skill mismatch); trattare "$0 spesi / 0% hire rate" come rischio reale ma talvolta da tentare comunque; preferire iniziare con una milestone/test a pagamento piccola invece di impegno hourly open-ended con clienti non verificati; **uno storico di tariffa media bassa predice un lowball futuro indipendentemente da come è scritto l'annuncio specifico** (intuizione corretta di Massimiliano, confermata).
 
 ## Politica trademark/endorsement sui video del portfolio pubblico
@@ -91,12 +92,14 @@ Massimiliano
 - Gli è stato preparato e consegnato un CV adattato (reframed per enfatizzare esperienza pratica con AI generativa nel business Scrollcraft, mantenendo tutti i fatti veri) — caricato su Google Drive come **"CV Massimiliano Cori - Outlier.docx"** (fileId `11Ki01V1kMHDYR99WF_E7T585Sw2JMlCQ`) e consegnato anche come file in chat.
 - Consiglio dato: fare prima lo screening/test di competenza in **italiano** (madrelingua, unico disponibile al momento), poi eventualmente quello in inglese quando sarà sbloccato (più volume di progetti ma più competizione).
 - Le istruzioni/interfaccia della piattaforma sono in inglese; i contenuti specifici del test di una competenza linguistica (es. italiano) sono verosimilmente nella lingua testata.
+- **Aggiornamento 20/9**: verifica d'identità **approvata** da Outlier (email di conferma ricevuta). Esito del test di screening in italiano ancora da verificare — nessuna email di risultato trovata finora.
 
 ## Cose in sospeso / da verificare
 
-- [ ] Le 15 bozze outreach del 20/9 sono in Gmail Drafts in attesa di revisione/invio manuale da parte di Massimiliano.
-- [ ] Aggiornare manualmente il tracker Google Sheet per ogni invio effettivo (Claude non può scrivere sul foglio).
-- [ ] Verificare se è arrivata risposta al ticket di supporto Upwork sul VAT ID.
-- [ ] Verificare risultato del test di screening Outlier in italiano una volta completato.
-- [ ] La routine daily outreach scatterà di nuovo domani (07:00 UTC) — controllare risultato ed eventualmente completare manualmente se sotto le 15 bozze target (c'è backlog pronto nel tracker, vedi sopra).
-- [ ] Se si apre una nuova chat "leggera": ricordarsi di ri-agganciare il trigger `trig_01FyXBJeb5FXSqyZMLTseYAJ` alla nuova sessione con `update_trigger`, altrimenti la routine giornaliera si ferma.
+- [x] Le 15 bozze outreach del 20/9 confermate presenti in Gmail Drafts (verificato 20/9) — ancora in attesa di revisione/invio manuale da parte di Massimiliano.
+- [x] Trigger daily outreach ri-agganciato il 20/9 a questa sessione (`trig_01FQTjpGhpFALewwcAE4ac8V` → `session_01N4SsNUgx6UyDCxNf1LooSj`).
+- [ ] Aggiornare manualmente il tracker Google Sheet con le 15 bozze del 20/9 (non ancora presenti, ultimo aggiornamento foglio: 18/9) e per ogni invio effettivo (Claude non può scrivere sul foglio).
+- [ ] Risposta ticket Upwork VAT ID: escalato per verifica manuale il 19/9, ETA 48h (~21/9) — ricontrollare la mail/il ticket #55547453.
+- [ ] Verificare risultato del test di screening Outlier in italiano (identità già approvata il 20/9).
+- [ ] La routine daily outreach scatterà di nuovo domani (21/9, 07:00 UTC) — controllare risultato ed eventualmente completare manualmente se sotto le 15 bozze target (c'è backlog pronto nel tracker, vedi sopra).
+- [ ] Se si apre una nuova chat "leggera": ricordarsi di ri-agganciare il trigger `trig_01FQTjpGhpFALewwcAE4ac8V` alla nuova sessione (delete_trigger + create_trigger, vedi sezione Routine sopra), altrimenti la routine giornaliera si ferma.
