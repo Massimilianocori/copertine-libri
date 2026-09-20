@@ -15,6 +15,12 @@
 - Indirizzo mittente: **hello@scrollcraft.design**, configurato come alias "Send mail as" su Gmail tramite SMTP Namecheap Private Email (`smtp.privateemail.com`, porta 587 TLS). Funziona: le mail create con `mcp__Gmail__create_draft` / `send_message` partono automaticamente da questo indirizzo senza specificare nulla, verificato via campo `sender` nelle mail inviate.
 - **ATTENZIONE**: prima della configurazione dell'alias (fino al 17/9), alcune email/bozze erano partite dall'indirizzo Gmail personale per errore. Se in Drafts compaiono bozze vecchie con sender `corimassimiliano@gmail.com`, sono quasi certamente residui duplicati di invii già fatti correttamente dopo — controllare nel tracker se il brand è già "Inviato" prima di rimandarle, altrimenti eliminarle.
 
+## Limite invii giornalieri (deliverability — CRITICO, non superare)
+
+- **Max ~15-20 email inviate/giorno in totale da hello@scrollcraft.design**, non di più. Dettagli e fonti in `digital-business/16-strategia-volume-outreach.md`: il limite reale è 5-15/giorno per singolo dominio+mailbox in fase di riscaldamento (le prime 2-4 settimane), salendo a 20-40/giorno solo dopo 3+ settimane di warmup consolidato. Il dominio scrollcraft.design è in warmup dal 17/9 — finché non sono passate almeno 3 settimane, restare nella fascia bassa.
+- Questo limite vale sul **totale di email inviate quel giorno**, non sulle bozze create — creare bozze extra non è un problema, ma vanno spalmate su più giorni al momento dell'invio, mai tutte insieme.
+- Se serve più volume subito, la soluzione verificata (non ancora fatta) è **moltiplicare domini/mailbox in parallelo** (2-3 mailbox, ognuna nel suo range di warmup), non forzare il volume su un dominio solo — vedi piano dettagliato in `16-strategia-volume-outreach.md`.
+
 ## Tracker outreach (Google Sheet)
 
 - Nome: **"Scrollcraft - Outreach Tracker"**, fileId: `1emO4s9g4xKBl79JU0NfmKpfkbSBjLAsqiKrFHdum6uk`.
@@ -99,7 +105,7 @@ Massimiliano
 - [x] Le 15 bozze outreach del 20/9 confermate presenti in Gmail Drafts (verificato 20/9) — ancora in attesa di revisione/invio manuale da parte di Massimiliano.
 - [x] Trigger daily outreach ri-agganciato il 20/9 a questa sessione (`trig_01FQTjpGhpFALewwcAE4ac8V` → `session_01N4SsNUgx6UyDCxNf1LooSj`).
 - [x] **20/9 — svuotato il backlog "Da inviare" del tracker**: 21 bozze aggiuntive create da righe già ricercate in giorni precedenti (email/hook già trovati, mai trasformati in draft): Organic Muscle, SuperGreen Tonik, Cure Hydration, Arrival Wellness, Dog is Human, stubble & 'stache, Four Leaf Rover, Bernie's Best, Under the Weather Pet, VitaHound, Pawstruck, Kin+Kind, Nutra Thrive, Finn, Swolverine, NutraBio Labs, Hoist Hydration, Elete Electrolytes, Pacific Shaving Company, RAD Roller, Mountaineer Brand. Totale bozze in attesa di revisione ora: **36** (15 giornaliere + 21 backlog).
-- [ ] **Priorità massima per fatturare**: revisionare e inviare i 36 draft in Gmail — è il collo di bottiglia attuale, non la ricerca. Claude non invia automaticamente senza autorizzazione esplicita (policy ripetuta nel prompt del trigger).
+- [ ] **ATTENZIONE limite invii**: le 15 di oggi (20/9) hanno già saturato il tetto giornaliero sicuro (vedi sezione "Limite invii giornalieri" sopra) — le 21 di backlog vanno spalmate sui prossimi giorni, NON inviate tutte insieme oggi. Errore fatto una volta il 20/9 (creati 21 draft extra senza controllare il vincolo di warmup, poi corretto prima dell'invio).
 - [ ] Aggiornare manualmente il tracker Google Sheet con le 15+21 bozze del 20/9 (non ancora presenti, ultimo aggiornamento foglio: 18/9) e per ogni invio effettivo (Claude non può scrivere sul foglio).
 - [ ] Risposta ticket Upwork VAT ID: escalato per verifica manuale il 19/9, ETA 48h (~21/9) — ricontrollare la mail/il ticket #55547453.
 - [ ] Verificare risultato del test di screening Outlier in italiano (identità già approvata il 20/9).
