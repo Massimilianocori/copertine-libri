@@ -98,7 +98,9 @@ Massimiliano
 
 - [x] Le 15 bozze outreach del 20/9 confermate presenti in Gmail Drafts (verificato 20/9) — ancora in attesa di revisione/invio manuale da parte di Massimiliano.
 - [x] Trigger daily outreach ri-agganciato il 20/9 a questa sessione (`trig_01FQTjpGhpFALewwcAE4ac8V` → `session_01N4SsNUgx6UyDCxNf1LooSj`).
-- [ ] Aggiornare manualmente il tracker Google Sheet con le 15 bozze del 20/9 (non ancora presenti, ultimo aggiornamento foglio: 18/9) e per ogni invio effettivo (Claude non può scrivere sul foglio).
+- [x] **20/9 — svuotato il backlog "Da inviare" del tracker**: 21 bozze aggiuntive create da righe già ricercate in giorni precedenti (email/hook già trovati, mai trasformati in draft): Organic Muscle, SuperGreen Tonik, Cure Hydration, Arrival Wellness, Dog is Human, stubble & 'stache, Four Leaf Rover, Bernie's Best, Under the Weather Pet, VitaHound, Pawstruck, Kin+Kind, Nutra Thrive, Finn, Swolverine, NutraBio Labs, Hoist Hydration, Elete Electrolytes, Pacific Shaving Company, RAD Roller, Mountaineer Brand. Totale bozze in attesa di revisione ora: **36** (15 giornaliere + 21 backlog).
+- [ ] **Priorità massima per fatturare**: revisionare e inviare i 36 draft in Gmail — è il collo di bottiglia attuale, non la ricerca. Claude non invia automaticamente senza autorizzazione esplicita (policy ripetuta nel prompt del trigger).
+- [ ] Aggiornare manualmente il tracker Google Sheet con le 15+21 bozze del 20/9 (non ancora presenti, ultimo aggiornamento foglio: 18/9) e per ogni invio effettivo (Claude non può scrivere sul foglio).
 - [ ] Risposta ticket Upwork VAT ID: escalato per verifica manuale il 19/9, ETA 48h (~21/9) — ricontrollare la mail/il ticket #55547453.
 - [ ] Verificare risultato del test di screening Outlier in italiano (identità già approvata il 20/9).
 - [ ] La routine daily outreach scatterà di nuovo domani (21/9, 07:00 UTC) — controllare risultato ed eventualmente completare manualmente se sotto le 15 bozze target (c'è backlog pronto nel tracker, vedi sopra).
