@@ -159,6 +159,28 @@ workflow start/end frame resta identico):
 
 ---
 
+## 8. Codec di esportazione — SEMPRE convertire prima di pubblicare sul web
+
+**Scoperto il 21/9/2026 su un caso reale.** Higgsfield esporta i video in **HEVC / H.265 a 10 bit**.
+Molti browser (Chrome incluso, a seconda di piattaforma e build) **non riproducono quel codec**: il
+risultato è che si sente l'audio ma non si vede l'immagine. Tutti i video già pubblicati sul sito
+Scrollcraft sono invece **H.264**, che funziona ovunque.
+
+**Regola**: prima di mettere online un video generato con Higgsfield, o di mandarlo a un cliente,
+convertirlo sempre in H.264:
+
+```
+ffmpeg -i input.mp4 -c:v libx264 -profile:v high -pix_fmt yuv420p -crf 20 -preset slow \
+       -c:a aac -b:a 160k -movflags +faststart output.mp4
+```
+
+`-movflags +faststart` sposta l'indice all'inizio del file: serve perché parta subito in streaming
+nel browser invece di dover scaricare tutto prima. Con `-crf 20` la qualità resta praticamente
+indistinguibile dall'originale e il file resta nell'ordine dei 5-9 MB per 15 secondi verticali,
+in linea con gli altri video del sito.
+
+---
+
 ## Istruzioni operative per Claude (da seguire sempre nei progetti Higgsfield)
 
 1. Chiedere prima se esiste già un Character Sheet e gli ambienti di riferimento. Se
