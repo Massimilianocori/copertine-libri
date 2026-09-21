@@ -51,6 +51,8 @@
 
 ## Formato email di outreach (fisso, usato sempre)
 
+**IMPORTANTE (21/9)**: niente punto subito dopo `www.scrollcraft.design` — va a capo, la frase successiva parte su una nuova riga. Motivo: un punto attaccato al link rischia di essere selezionato insieme al link quando il destinatario lo copia, rompendolo. Già corretto in tutte le bozze non ancora inviate e nel prompt della routine automatica giornaliera.
+
 ```
 Oggetto: [hook specifico in poche parole]
 
@@ -58,7 +60,8 @@ Hi [Brand] team,
 
 [1-2 frasi che citano il dettaglio/hook specifico trovato]
 
-I'm Massimiliano, I make short AI video ads for DTC brands — a few examples here: www.scrollcraft.design. Happy to build a free sample around it if useful.
+I'm Massimiliano, I make short AI video ads for DTC brands — a few examples here: www.scrollcraft.design
+Happy to build a free sample around it if useful.
 
 Best,
 Massimiliano
@@ -126,3 +129,5 @@ Massimiliano
 - [x] **20/9 — profilo LinkedIn personale riattivato**: headline, sommario, esperienza (Founder @ Scrollcraft aggiunta come attuale, "photographer" chiuso come passato), 5 competenze (Video Production, Social Media Marketing, Digital Marketing, E-commerce, Artificial Intelligence), link al sito con anteprima aggiunto all'esperienza. Iniziato outreach manuale (Massimiliano manda a mano, nessun connector LinkedIn disponibile) — scoperto che molti founder/CEO hanno "Connetti" disabilitato (solo "Segui" o messaggio a pagamento con Premium): strategia corretta è puntare a ruoli meno esposti nella stessa azienda (marketing/social/ecommerce manager) invece del founder. LinkedIn Premium valutato e scartato per ora (5-15 InMail/mese non bastano per volume, non conviene).
 - [x] **21/9 — altre 2 disqualifiche trovate durante ricerca contatti LinkedIn**: **Fera Pets acquisita da General Mills** (Gold Medal Ventures) e **Natural Dog Company acquisita da FoodScience** (aprile 2025) — entrambe non più founder-owned, tolte dai target attivi (email e LinkedIn), erano già "Inviato" via email in passato ma non ripetere/fare follow-up.
 - [x] **21/9 — routine daily outreach eseguita**: backlog tracker ormai esaurito (tutte le righe "Da inviare" trasformate in bozze il 20/9), quindi fatta ricerca vera di brand nuovi. Target 15, raggiunti **12** (qualità alta, tutti verificati con email reale + hook genuino, nessuna scorciatoia): Camille Rose Naturals, Alikay Naturals, Fable & Mane, Innersense, Rizos Curls (haircare — prima volta coperta, zero pezzi prima d'oggi), Three Ships Beauty, Then I Met You, Bee Friendly Skincare, cocokind, May Lindstrom Skin (women's skincare), Satya Organic, Noodle & Boo (baby/skincare, entrambe storie di eczema del figlio). Scartati durante la ricerca per segnali VC/PE/acquisizione: Vegamour ($80M General Atlantic), Bread Beauty Supply (acquisita 2025), Mielle Organics (acquisita da P&G $640M nel 2023), Tubby Todd (investitore PE NexPhase Capital), CurlMix/The Mane Choice (troppo grandi, non più "founder legge la posta"), True Botanicals (store SF chiuso, status incerto). Non raggiunti i 15 per esaurimento di candidati validi in tempo ragionevole, non per pigrizia — spiegato a Massimiliano nel riepilogo.
+- [x] **21/9 — invii del giorno**: mandate 19 email in totale rispettando il tetto giornaliero (9 follow-up day 3 del batch 17/9 + 10 nuove dal backlog 20/9), tetto raggiunto per la giornata.
+- [x] **21/9 — fix formato link**: su richiesta di Massimiliano, tolto il punto subito dopo `www.scrollcraft.design` in tutte le 23 bozze rimaste non inviate (rischio: il destinatario copia il link e seleziona anche il punto finale, rompendolo) — frase successiva ora va a capo. Applicato anche al prompt della routine automatica giornaliera (`trig_01FQTjpGhpFALewwcAE4ac8V`, aggiornato via `update_trigger`), quindi le bozze generate da domani in poi useranno già il formato corretto. Vedi sezione "Formato email di outreach" sopra per il nuovo standard.
