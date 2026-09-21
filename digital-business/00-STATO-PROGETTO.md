@@ -8,8 +8,20 @@
 - Business: **Scrollcraft** (scrollcraft.design) — produzione solista di video ad UGC generati con AI per brand DTC (e-commerce) americani.
 - Repo di lavoro: `massimilianocori/copertine-libri`, branch `claude/digital-files-business-plan-f8y8gd`.
 - Sito live: `digital-business/portfolio/index.html` (+ video `1.mp4`...`10.mp4`, logo, favicon, `privacy.html`).
-- Altri documenti di piano nella cartella `digital-business/`: outreach kit, script video campione, comparativa business, piano ecommerce, lista prospect skincare, strategia prezzi, stime fatturato, ecc. (file numerati `01-...` a `17-...`).
+- Altri documenti di piano nella cartella `digital-business/`: outreach kit, script video campione, comparativa business, piano ecommerce, lista prospect skincare, strategia prezzi, stime fatturato, ecc. (file numerati `01-...` a `18-...`).
 
+## Higgsfield AI — knowledge base operativa (FISSA, sempre valida)
+
+**Prima di pianificare/generare qualsiasi immagine o video su Higgsfield, leggere
+`digital-business/18-higgsfield-workflow-guida.md`** — è la lezione tecnica fissata il
+21/9/2026 su richiesta di Massimiliano (fonte: guida pratica Youri van Hofwegen).
+Contiene il workflow completo: draft 480p + upscale per risparmiare crediti, Character
+Sheet split-frame come base per la coerenza del volto, ambienti generati separatamente
+con relighting esplicito nel prompt, regole di prompting video (mai ridescrivere
+volto/vestiti/luci già fissati in un'immagine di riferimento, mai nominare
+l'attrezzatura tipo "drone"), workflow Cinema Studio start/end frame per il 21:9, e
+Soul ID per volto permanente (solo still, non video). Da applicare sempre, non solo la
+prima volta che viene letto.
 ## Email di outreach — configurazione tecnica
 
 - Indirizzo mittente: **hello@scrollcraft.design**, configurato come alias "Send mail as" su Gmail tramite SMTP Namecheap Private Email (`smtp.privateemail.com`, porta 587 TLS). Funziona: le mail create con `mcp__Gmail__create_draft` / `send_message` partono automaticamente da questo indirizzo senza specificare nulla, verificato via campo `sender` nelle mail inviate.
