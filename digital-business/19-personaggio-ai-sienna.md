@@ -144,8 +144,10 @@ altri concept di recensione, stesso principio: cercare prima, scrivere lo script
    per un "would I repurchase this" onesto, non scontato.
    **Foto reali salvate**: elemento `laneige-lip-sleeping-mask` (id `c820da72-1f0a-4f23-93e3-c7e39e4a1d8c`) —
    vasetto Berry Fruits Rouges su sfondo bianco.
-7. **La Roche-Posay Anthelios (SPF)** — SALTATO (nessuna foto reale disponibile, non usare in concept con
-   prodotto reale in mano; eventuali menzioni generiche vanno riviste).
+7. **Supergoop! Unseen Sunscreen SPF 40** — $38-44, filtri chimici (avobenzone 3%, octisalate 5%, homosalate
+   10%). Pro reale: finish completamente invisibile anche su pelli scure, texture gel leggera, ottima base
+   trucco. Contro reale: prezzo alto, non resistente all'acqua, può pizzicare gli occhi, contiene irritanti
+   comuni senza benefici aggiuntivi per la pelle.
 8. **Youth To The People Superfood Cleanser** — detergente delicato (tensioattivi da cocco, non solfati
    aggressivi), kale/spinaci/tè verde. Pro: best-seller reale da Sephora, adatto a pelle sensibile. Contro:
    gli antiossidanti vegetali si degradano in fretta nella formula, contiene comunque profumo/conservanti.
@@ -161,10 +163,12 @@ altri concept di recensione, stesso principio: cercare prima, scrivere lo script
     — niente peptidi/ceramidi/niacinamide, va abbinato ad altro se servono attivi specifici.
     **Foto reali salvate**: elemento `bubble-slamdunk-moisturizer` (id `653126a3-85fa-4571-8969-b5fe7d1f9290`) —
     flacone su sfondo bianco, e affiancato alla scatola.
-11. **Differin Adapalene Gel 0.1%** — retinoide da banco (ex-prescrizione). Pro: fino all'87% di riduzione
-    acne in 12 settimane secondo gli studi citati. Contro reale: secchezza/desquamazione significativa nelle
-    prime settimane, serve introdurlo gradualmente (max 2 volte/settimana all'inizio) e SPF obbligatorio di
-    giorno.
+11. **Mario Badescu Drying Lotion** — $17-20, formula bifasica (alcol isopropilico + acqua sopra, calamina +
+    zolfo colloidale + acido salicilico sul fondo). Pro reale: riduce brufoli superficiali in poche ore,
+    rituale iconico — **non va agitata**, si intinge un cotton fioc solo nel sedimento rosa sul fondo e si
+    applica a puntini sul brufolo prima di dormire (da non confondere: agitarla diluisce il sedimento e la
+    rende meno efficace). Contro reale: troppo seccante per pelli sensibili, poco efficace su acne cistica
+    profonda, contiene alcol e profumo.
 
 ## Lista concept per la giornata di produzione (55)
 
@@ -174,7 +178,7 @@ Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Capelli | Co
 
 1. Routine | Video 12s | L1 | O4 | H1 | **GRWM**: "My actual 5-step morning routine, no fluff" (+ "step 3 I skip half the time")
 2. Routine | Video 10s | L2 | O14 | H4 | "What my skin looks like before any product touches it"
-3. Routine | Foto | L4 | O9 | H2 | Scaffale con **CeraVe Moisturizing Cream, The Ordinary Niacinamide, La Roche-Posay Anthelios** visibili, caption sulla routine serale
+3. Routine | Foto | L4 | O9 | H2 | Scaffale con **CeraVe Moisturizing Cream, The Ordinary Niacinamide, Supergoop! Unseen Sunscreen** visibili, caption sulla routine serale
 4. Routine | Video 15s | L3 | O12 | H6 | "Skincare while my coffee brews"
 5. Routine | Video 30s | L5 | O6 | H8 | **GRWM sera**, passo-passo, "ngl some nights I just wash my face and go to bed"
 6. Routine | Foto | L6 | O13 | H10 | SPF applicata al tramonto, caption su costanza quotidiana
@@ -201,7 +205,7 @@ Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Capelli | Co
 24. Ingredienti | Video 25s | L11 | O17 | H7 | Come costruire una routine da zero, ordine corretto
 25. Ingredienti | Video 15s | L5 | O11 | H10 | Cos'è davvero la "barriera cutanea"
 26. Ingredienti | Video 10s | L1 | O7 | H3 | Mito: "più costoso = meglio"? Spiegazione breve
-27. Ingredienti | Foto | L9 | O13 | H11 | **La Roche-Posay Anthelios** in borsa al parco (stesso prodotto del concept 44, la porta sempre con sé), caption su riapplicazione
+27. Ingredienti | Foto | L9 | O13 | H11 | **Supergoop! Unseen Sunscreen** in borsa al parco (stesso prodotto del concept 44, la porta sempre con sé), caption su riapplicazione
 
 ### Myth-busting / opinioni (11)
 
@@ -220,16 +224,16 @@ Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Capelli | Co
 ### Demo/recensione prodotto (11)
 
 39. Demo | Video 20s | L4 | O16 | H4 | **The Ordinary Niacinamide 10%+Zinc 1%** — prima applicazione, reazione onesta
-40. Demo | Video 15s | L5 | O1 | H9 | **The Ordinary Granactive Retinoid 2%** vs **Differin Adapalene 0.1%** — confronto reale tra i due retinoidi
+40. Demo | Video 15s | L5 | O1 | H9 | **The Ordinary Granactive Retinoid 2%** vs **Mario Badescu Drying Lotion** — chiarisce la differenza: uno è un trattamento anti-età da usare su tutto il viso, l'altro uno spot treatment mirato solo sui brufoli, non sono intercambiabili
 41. Demo | Foto | L11 | O7 | H2 | **CeraVe Moisturizing Cream** — texture ricca in primo piano, ceramidi spiegate
 42. Demo | Video 30s | L1 | O6 | H6 | **Bubble Skincare Slam Dunk** — routine completa economica con questo come protagonista
 43. Demo | Video 12s | L12 | O9 | H1 | **The Ordinary Granactive Retinoid 2% Emulsion**, un mese dopo — contro reale: più forte della versione in Squalane, ha dato irritazione iniziale nonostante il nome "delicato"
-44. Demo | Foto | L15 | O18 | H3 | **La Roche-Posay Anthelios** in borsa prima di uscire, caption su riapplicazione
+44. Demo | Foto | L15 | O18 | H3 | **Supergoop! Unseen Sunscreen** in borsa prima di uscire, caption su riapplicazione
 45. Demo | Video 18s | L4 | O17 | H8 | **Glow Recipe Watermelon Dew Drops** — pro/contro onesti (profumo forte, risultati non per tutti)
 46. Demo | Video 10s | L2 | O11 | H5 | **Paula's Choice 2% BHA** — reazione al primo utilizzo
 47. Demo | Foto | L3 | O12 | H10 | **Youth To The People Superfood Cleanser** — caption sulla formulazione "natural-leaning"
 48. Demo | Video 15s | L1 | O3 | H7 | **Laneige Lip Sleeping Mask** — "would I repurchase this?" onesto, non scontato
-49. Demo | Video 25s | L5 | O13 | H11 | **Differin Adapalene 0.1%** — demo passo-passo di applicazione corretta (quantità, frequenza iniziale, SPF il giorno dopo)
+49. Demo | Video 25s | L5 | O13 | H11 | **Mario Badescu Drying Lotion** — il rituale iconico passo-passo: NON si agita, si intinge il cotton fioc solo nel sedimento rosa sul fondo e si applica a puntini prima di dormire
 
 ### Personale/vulnerabile (6, ma intrecciato anche sopra)
 
