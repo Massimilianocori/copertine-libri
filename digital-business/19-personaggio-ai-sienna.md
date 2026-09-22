@@ -142,9 +142,10 @@ altri concept di recensione, stesso principio: cercare prima, scrivere lo script
 6. **Laneige Lip Sleeping Mask** — fascia prezzo medio-alta. Opinioni reali divise: chi lo trova
    trasformativo, chi nota solo un miglioramento modesto e lo trova troppo denso per uso diurno. Perfetto
    per un "would I repurchase this" onesto, non scontato.
-7. **La Roche-Posay Anthelios (SPF)** — $30-40, schermo minerale/misto, resistente all'acqua, reef-safe.
-   Pro: non unge, non lascia profumo da protezione solare. Contro: cast bianco visibile su pelli più scure,
-   prezzo alto.
+   **Foto reali salvate**: elemento `laneige-lip-sleeping-mask` (id `c820da72-1f0a-4f23-93e3-c7e39e4a1d8c`) —
+   vasetto Berry Fruits Rouges su sfondo bianco.
+7. **La Roche-Posay Anthelios (SPF)** — SALTATO (nessuna foto reale disponibile, non usare in concept con
+   prodotto reale in mano; eventuali menzioni generiche vanno riviste).
 8. **Youth To The People Superfood Cleanser** — detergente delicato (tensioattivi da cocco, non solfati
    aggressivi), kale/spinaci/tè verde. Pro: best-seller reale da Sephora, adatto a pelle sensibile. Contro:
    gli antiossidanti vegetali si degradano in fretta nella formula, contiene comunque profumo/conservanti.
