@@ -477,7 +477,7 @@ citato solo a parole.
 
 29. Assurdo | Video 20s | L7 | O5 | H10 | Dramma teatrale per un contagocce lento — "I felt things"
 30. Assurdo | Video 18s | L2 | O4 | H5 | Monologo assurdo su una crema come fosse una rottura sentimentale
-31. Assurdo | Foto | L6 | O13 | H10 | Posa da copertina di rivista esagerata davanti allo specchio, nessun prodotto in scena, tutto il dramma sta nella posa
+31. Assurdo | Foto | L6 | O13 | H10 | Posa da copertina di rivista esagerata sul balcone al tramonto, nessun prodotto in scena, tutto il dramma sta nella posa
 32. Assurdo | Video 25s | L8 | O10 | H7 | Paragone assurdo tra la sua routine skincare e un allenamento in palestra
 33. Assurdo | Foto | L14 | O5 | H12 | Espressione shockata leggendo un'etichetta, caption "POV: reagisco a un'etichetta INCI come se fosse un plot twist"
 34. Assurdo | Foto | L3 | O12 | H1 | Espressione shockata guardando un prezzo, nessun prodotto specifico nominato
