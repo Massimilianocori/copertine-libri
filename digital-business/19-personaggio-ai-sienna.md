@@ -50,6 +50,17 @@ istruttivi; il 4° ha funzionato. Regole emerse, da rispettare per **tutti** i 5
    Per i concept "solo parlato" senza coreografia complessa (routine semplici, myth-busting,
    spiegazioni ingredienti), Kling 3.0 con la ricetta sopra (punti 1-4) resta valido e più
    economico.
+9. **Anche il parametro nativo `multi_shots`/`multi_prompt` di Kling (documentato per l'API Kling
+   diretta: fino a 6 scene, ognuna con prompt e durata propria) non funziona in modo affidabile
+   tramite questo strumento** — testato con 4 scene da 15s totali, il risultato è stato quasi
+   completamente statico (solo il volto fermo che sbatte le palpebre, nessun prodotto, nessuna
+   delle azioni richieste), come se i parametri fossero stati ignorati. **Verdetto chiuso dopo 3
+   tentativi diversi** (storyboard-immagine, multi_shots nativo, e in precedenza start/end image):
+   **Kling 3.0 non supporta cambi di inquadratura/tagli multipli in modo affidabile tramite questo
+   strumento.** L'unica tecnica verificata che funziona per dare dinamismo dentro un piano Kling è
+   il movimento diretto nel prompt (es. "si gira verso la camera nei primi 2 secondi", vedi sezione
+   sul cambio di inquadratura sopra) — un solo piano continuo, non tagli veri. Per contenuti che
+   richiedono davvero più inquadrature separate in un video, usare Seedance 2.5.
 
 ---
 
