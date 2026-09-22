@@ -420,6 +420,17 @@ Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Capelli | Co
       hands"). Per i concept Kling che comunque coinvolgono un prodotto in mano, controllare le mani
       per prime in fase di QC, non solo il volto. Seedance con la tecnica storyboard non ha mostrato
       questo problema nei test.
+- [x] **Nano Banana Pro Unlimited per le foto — attivo ma solo dal sito web** (verificato 23/9): lo
+      strumento usato da Claude per generare (`use_unlim: true`) lo rifiuta ("Unlimited generations
+      aren't supported for nano_banana_pro"), ma **generando direttamente su higgsfield.ai con il
+      toggle "Unlimited" acceso, il test reale ha consumato 0 crediti**. Per tutte le foto/carousel
+      (30-40% del piano), generare dal sito, non tramite Claude, per sfruttare le foto gratis.
+- [ ] **Limite di Nano Banana Pro sul testo piccolo/denso** (verificato 23/9): in un test con
+      etichetta INCI, il titolo principale ("Niacinamide 10% + Zinc 1%") è uscito corretto, ma il
+      testo fine della lista ingredienti è uscito illeggibile/inventato (non sono ingredienti veri).
+      Per i concept che richiedono un'etichetta leggibile in scena (es. #19), non contare sul
+      modello per renderla giusta — sovrapporre l'etichetta reale in post, o inquadrare senza
+      pretendere che il testo fine sia leggibile.
 - [ ] Definire Personaggio 2 (non ancora iniziato)
 
 ---
