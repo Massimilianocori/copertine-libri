@@ -152,6 +152,8 @@ altri concept di recensione, stesso principio: cercare prima, scrivere lo script
 9. **Vaseline (petrolatum puro)** — economicissimo (~$5). Alla base del trend "slugging": i dermatologi
    confermano che riduce davvero la perdita d'acqua transepidermica fino al 98%, ma **sconsigliato su pelle
    incline all'acne** secondo l'American Academy of Dermatology — buon equilibrio pro/contro reale.
+   **Foto reali salvate**: elemento `vaseline-petroleum-jelly` (id `bd8bf5b0-72a6-47b2-8c42-048d74ee1d93`) —
+   vasetto chiuso e aperto (due angolazioni), su sfondo bianco.
 10. **Bubble Skincare Slam Dunk Hydrating Moisturizer** — $16, brand rivolto a teenager (Walmart), aloe +
     olio di avocado. Pro: idrata bene, prezzo accessibile. Contro onesto: **non è un prodotto trattamento**
     — niente peptidi/ceramidi/niacinamide, va abbinato ad altro se servono attivi specifici.
