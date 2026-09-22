@@ -104,6 +104,45 @@ L11 bagno con finestra grande, luce naturale, piante sul davanzale · L12 toelet
 specchio con luci · L13 isola cucina, sera, luce calda a sospensione · L14 ingresso/veranda,
 appendiabiti, luce del mattino · L15 specchio bagno d'hotel (contenuti "pronta per uscire")
 
+## Prodotti reali per le recensioni (verificati il 22/9 — mai inventare un prodotto o un claim)
+
+Ogni riga "Demo" e le due righe "Myth" che citano un trend/prodotto specifico sono ancorate a un
+prodotto vero, con fatti verificati tramite ricerca — non un placeholder. Se in futuro si aggiungono
+altri concept di recensione, stesso principio: cercare prima, scrivere lo script dopo.
+
+1. **The Ordinary Niacinamide 10% + Zinc 1%** — $6, niente profumo/parabeni, ottimo per pelle grassa/pori.
+   Pro: prezzo bassissimo per la concentrazione. Contro: il 10% può irritare pelli sensibili, non ideale su pelle secca.
+2. **Paula's Choice 2% BHA Liquid Exfoliant** — $35 (formato pieno), acido salicilico 2%, fragrance-free.
+   Pro: risultati clinicamente provati in 48h su pori/texture. Contro: prezzo alto, leggero odore residuo per alcuni.
+3. **The Ordinary Granactive Retinoid 2% in Squalane** — fascia economica The Ordinary. Retinoide più
+   delicato in commercio. Pro: bassa irritazione anche a inizio uso. Contro: assorbe lentamente, shelf-life
+   corta (3 mesi dopo apertura), possibile purging nei primi mesi.
+4. **CeraVe Moisturizing Cream** — $18-20, 3 ceramidi + acido ialuronico + MVE technology. Pro: prodotto
+   "cult" della community skincare, adatto quasi a tutti i tipi di pelle. Contro: texture ricca, poco adatta
+   sotto trucco per chi ha pelle grassa.
+5. **Glow Recipe Watermelon Glow Niacinamide Dew Drops** — fascia prezzo medio-alta. Recensioni polarizzate:
+   molti lodano l'effetto "glow"/glass skin, ma critiche reali su profumazione forte e alcuni report di
+   irritazione/orticaria. Buon prodotto per un pro/contro onesto, non solo entusiasmo.
+6. **Laneige Lip Sleeping Mask** — fascia prezzo medio-alta. Opinioni reali divise: chi lo trova
+   trasformativo, chi nota solo un miglioramento modesto e lo trova troppo denso per uso diurno. Perfetto
+   per un "would I repurchase this" onesto, non scontato.
+7. **La Roche-Posay Anthelios (SPF)** — $30-40, schermo minerale/misto, resistente all'acqua, reef-safe.
+   Pro: non unge, non lascia profumo da protezione solare. Contro: cast bianco visibile su pelli più scure,
+   prezzo alto.
+8. **Youth To The People Superfood Cleanser** — detergente delicato (tensioattivi da cocco, non solfati
+   aggressivi), kale/spinaci/tè verde. Pro: best-seller reale da Sephora, adatto a pelle sensibile. Contro:
+   gli antiossidanti vegetali si degradano in fretta nella formula, contiene comunque profumo/conservanti.
+9. **Vaseline (petrolatum puro)** — economicissimo (~$5). Alla base del trend "slugging": i dermatologi
+   confermano che riduce davvero la perdita d'acqua transepidermica fino al 98%, ma **sconsigliato su pelle
+   incline all'acne** secondo l'American Academy of Dermatology — buon equilibrio pro/contro reale.
+10. **Bubble Skincare Slam Dunk Hydrating Moisturizer** — $16, brand rivolto a teenager (Walmart), aloe +
+    olio di avocado. Pro: idrata bene, prezzo accessibile. Contro onesto: **non è un prodotto trattamento**
+    — niente peptidi/ceramidi/niacinamide, va abbinato ad altro se servono attivi specifici.
+11. **Differin Adapalene Gel 0.1%** — retinoide da banco (ex-prescrizione). Pro: fino all'87% di riduzione
+    acne in 12 settimane secondo gli studi citati. Contro reale: secchezza/desquamazione significativa nelle
+    prime settimane, serve introdurlo gradualmente (max 2 volte/settimana all'inizio) e SPF obbligatorio di
+    giorno.
+
 ## Lista concept per la giornata di produzione (55)
 
 Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Capelli | Concept/hook**
@@ -144,9 +183,9 @@ Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Capelli | Co
 ### Myth-busting / opinioni (11)
 
 28. Myth | Video 12s | L10 | O3 | H9 | "Trend che non funzionano come TikTok dice"
-29. Myth | Video 15s | L1 | O9 | H4 | "I tried the viral slugging trend, honest results"
+29. Myth | Video 15s | L1 | O9 | H4 | "I tried the viral slugging trend, honest results" — **Vaseline**, con il vero avvertimento dermatologico: non per pelle acneica
 30. Myth | Video 10s | L3 | O12 | H6 | Hot take: il "clean girl" skincare è più hype che scienza
-31. Myth | Foto | L12 | O1 | H2 | Prodotto virale con caption scettica ma onesta
+31. Myth | Foto | L12 | O1 | H2 | **Bubble Skincare Slam Dunk** — caption scettica ma onesta: idrata bene ma non è un trattamento
 32. Myth | Video 20s | L4 | O6 | H8 | Perché il "purging" non è sempre quello che pensi
 33. Myth | Video 12s | L5 | O17 | H1 | "Prodotti che TikTok ama ma io no"
 34. Myth | Video 15s | L6 | O18 | H3 | Reagisce a un consiglio virale di skincare, al tramonto
@@ -157,17 +196,17 @@ Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Capelli | Co
 
 ### Demo/recensione prodotto (11)
 
-39. Demo | Video 20s | L4 | O16 | H4 | Prima applicazione di un nuovo siero, reazione onesta
-40. Demo | Video 15s | L5 | O1 | H9 | Confronto tra due prodotti simili
-41. Demo | Foto | L11 | O7 | H2 | Texture del prodotto in primo piano
-42. Demo | Video 30s | L1 | O6 | H6 | Routine completa con un prodotto protagonista
-43. Demo | Video 12s | L12 | O9 | H1 | "Been using this for a month, here's the truth" (almeno un contro reale, non solo lodi)
-44. Demo | Foto | L15 | O18 | H3 | Prodotto in borsa prima di uscire, caption da recensione rapida
-45. Demo | Video 18s | L4 | O17 | H8 | Pro e contro onesti di un prodotto popolare
-46. Demo | Video 10s | L2 | O11 | H5 | Reazione al primo utilizzo, formato breve
-47. Demo | Foto | L3 | O12 | H10 | Prodotto con ingredienti naturali, caption su formulazione
-48. Demo | Video 15s | L1 | O3 | H7 | "Would I repurchase this?" formato rapido
-49. Demo | Video 25s | L5 | O13 | H11 | Demo passo-passo di applicazione corretta
+39. Demo | Video 20s | L4 | O16 | H4 | **The Ordinary Niacinamide 10%+Zinc 1%** — prima applicazione, reazione onesta
+40. Demo | Video 15s | L5 | O1 | H9 | **The Ordinary Granactive Retinoid 2%** vs **Differin Adapalene 0.1%** — confronto reale tra i due retinoidi
+41. Demo | Foto | L11 | O7 | H2 | **CeraVe Moisturizing Cream** — texture ricca in primo piano, ceramidi spiegate
+42. Demo | Video 30s | L1 | O6 | H6 | **Bubble Skincare Slam Dunk** — routine completa economica con questo come protagonista
+43. Demo | Video 12s | L12 | O9 | H1 | **The Ordinary Granactive Retinoid 2%**, un mese dopo — contro reale: assorbe lento, shelf-life corta
+44. Demo | Foto | L15 | O18 | H3 | **La Roche-Posay Anthelios** in borsa prima di uscire, caption su riapplicazione
+45. Demo | Video 18s | L4 | O17 | H8 | **Glow Recipe Watermelon Dew Drops** — pro/contro onesti (profumo forte, risultati non per tutti)
+46. Demo | Video 10s | L2 | O11 | H5 | **Paula's Choice 2% BHA** — reazione al primo utilizzo
+47. Demo | Foto | L3 | O12 | H10 | **Youth To The People Superfood Cleanser** — caption sulla formulazione "natural-leaning"
+48. Demo | Video 15s | L1 | O3 | H7 | **Laneige Lip Sleeping Mask** — "would I repurchase this?" onesto, non scontato
+49. Demo | Video 25s | L5 | O13 | H11 | **Differin Adapalene 0.1%** — demo passo-passo di applicazione corretta (quantità, frequenza iniziale, SPF il giorno dopo)
 
 ### Personale/vulnerabile (6, ma intrecciato anche sopra)
 
