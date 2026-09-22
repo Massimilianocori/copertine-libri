@@ -34,7 +34,22 @@ istruttivi; il 4° ha funzionato. Regole emerse, da rispettare per **tutti** i 5
 5. **La durata breve (5s) non è il problema** — anzi, le clip corte mantengono la coerenza meglio
    di quelle lunghe (il drift aumenta col tempo). Nessun bisogno di allungare i test per stabilità.
 6. Modalità **std** (non pro/4k) è già la più economica disponibile per Kling 3.0 in questa API —
-   non esiste un'opzione 480p più leggera da scegliere.
+   non esiste un'opzione 480p più leggera da scegliere. È anche già il punto giusto per Instagram:
+   produce 720x1280, e IG comprime comunque tutto in upload — nessun motivo di pagare pro/4k.
+7. **Kling 3.0 genera voce vera sincronizzata dal testo tra virgolette nel prompt** (`sound: "on"`),
+   non solo audio ambientale — verificato con un test dedicato il 23/9. La banca voce di Sienna
+   (sezione sotto) è quindi utilizzabile direttamente nei prompt di produzione.
+8. **Limite reale confermato, non uno pseudo-limite**: la tecnica "storyboard a 8 pannelli →
+   video" che garantisce la sequenza causale corretta (es. goccia→dito→guancia) **funziona solo
+   con Seedance 2.5** (`mode: "omni_reference"`), non con Kling 3.0. Testato passando la storyboard
+   come `start_image` a Kling: il risultato è la storyboard stessa quasi statica, nel formato
+   orizzontale 21:9 originale (ignora l'aspect_ratio richiesto), non un video verticale animato.
+   Kling non ha un meccanismo equivalente a `omni_reference` per leggere una sequenza di pannelli
+   come tagli da animare. **Per i concept con meccanica prodotto precisa e multi-step, usare
+   Seedance 2.5, non Kling**, anche se questo esce dal piano economico del pass illimitato Kling.
+   Per i concept "solo parlato" senza coreografia complessa (routine semplici, myth-busting,
+   spiegazioni ingredienti), Kling 3.0 con la ricetta sopra (punti 1-4) resta valido e più
+   economico.
 
 ---
 
