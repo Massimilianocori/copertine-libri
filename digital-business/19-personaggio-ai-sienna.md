@@ -75,21 +75,26 @@ Location, outfit e pettinatura vanno curati come farebbe una persona vera — ma
 combinazione ripetuta, dettagli specifici (non "casual" generico, ma il capo esatto). Vedi i pool
 dettagliati subito sotto la lista concept, usati per assegnare ogni singola riga.
 
-### Come si gestisce il "cambio di inquadratura" (decisione presa il 23/9)
+### Come si gestisce il "cambio di inquadratura" (rivisto il 23/9, verificato su un video di riferimento reale)
 
-Ogni generazione Kling produce **un piano sequenza continuo, un'inquadratura, una location** — non
-è possibile un cambio di camera dentro la stessa generazione video. Due strade, usate entrambe a
-seconda del concept:
+Ogni generazione Kling resta **una sola clip continua di una location** — non è un editor, non
+può tagliare tra due scene diverse dentro la stessa generazione. Ma **il soggetto può muoversi
+dentro l'inquadratura**, e questo basta per dare la sensazione di "cambio di camera" senza
+montaggio. Verificato su un video di riferimento reale (UGC skincare, 15s): comincia con Sienna
+di spalle/profilo, capelli bagnati; nei primi 1-2s **si gira verso la camera** con un movimento
+naturale; poi resta in un unico piano selfie fisso per il resto della clip mentre applica il
+prodotto. Nessun taglio, nessuna clip separata — solo un'azione diretta nel prompt.
 
-1. **Video = piano fisso unico** (default per la maggior parte dei concept). Coerente con lo stile
-   nativo UGC reale — la maggior parte dei creator veri non monta multi-camera, un piano fisso
-   selfie/treppiede è normale e credibile, non un compromesso.
-2. **"Sequenza foto" (carosello di 3-6 immagini)** per i concept che sono intrinsecamente a più
-   step/momenti (GRWM multi-step, rituali di applicazione, prima/dopo) — si generano più immagini
-   separate ancorate allo stesso elemento `skincare-creator`, ciascuna con angolazione/momento
-   diverso, esattamente come fatto il 22/9 per le foto di riferimento del personaggio. Questo
-   sostituisce il "cambio di inquadratura dentro un video" con più scatti distinti, senza bisogno di
-   un editor video. I concept già convertiti a questo formato sono marcati **Sequenza foto** sotto.
+Quindi, per la produzione:
+
+1. **Default**: piano fisso, il prompt include un movimento/reveal iniziale quando ha senso per il
+   concept (es. "si gira per guardare in camera", "solleva lo sguardo dallo specchio", "si volta
+   mentre finisce di parlare al telefono") — dà dinamismo senza bisogno di editing.
+2. **Sequenza foto (carosello di 3-6 immagini)** resta utile ma per un motivo diverso: non per
+   simulare un cambio di inquadratura (che il video fa già da solo), ma per contenuti che coprono
+   **momenti/location davvero distinti e non contigui** nel tempo (es. un GRWM che passa dal bagno
+   alla camera, o un prima/dopo a settimane di distanza) — lì un'unica generazione video non basta
+   perché non è la stessa scena continua.
 
 ---
 
@@ -119,6 +124,47 @@ sfondo · L9 panchina in un parco, foglie autunnali · L10 divano soggiorno, pla
 L11 bagno con finestra grande, luce naturale, piante sul davanzale · L12 toeletta in camera,
 specchio con luci · L13 isola cucina, sera, luce calda a sospensione · L14 ingresso/veranda,
 appendiabiti, luce del mattino · L15 specchio bagno d'hotel (contenuti "pronta per uscire")
+
+## Voce di Sienna — perché deve seguirla per come parla, non solo per il topic
+
+Il punto sollevato il 23/9: un elenco di 55 hook/topic non basta a rendere Sienna un personaggio da
+seguire — serve un modo di parlare riconoscibile, coerente con la character bible (calda, diretta,
+un po' nerd sugli ingredienti, onesta fino alla schiettezza, mai clinica). Non si scrivono qui i 55
+script completi (restano da scrivere al momento della produzione, per non bloccarsi su testo che
+può cambiare), ma si fissa ora una banca di frasi reali che danno il timbro esatto della sua voce,
+da riusare/adattare in ogni script:
+
+**Aperture (i primi 2 secondi decidono se si continua a guardare)**:
+- "Okay so I need to talk about this because I was WRONG about it for months."
+- "Nobody asked but I'm going to tell you anyway."
+- "Day 47 of just being honest about my skin on the internet."
+- "This is not sponsored, I just have opinions."
+
+**Transizioni/marche di stile (durante il parlato)**:
+- "...and honestly? Kind of annoying, because it actually works."
+- "Not gonna lie, I almost didn't post this because the results are so boring/normal."
+- "This is the part where I'd normally lie to you and say it's perfect. It's not."
+- "Real talk—" (seguito da un'ammissione onesta o un dato)
+
+**Recensioni/demo (il punto sponsor-style, mai solo entusiasmo)**:
+- "The formula is genuinely good. The price is not. That's the whole review."
+- "It did what it said it would do, which honestly should not be as rare as it is."
+- "I wanted to hate this because everyone won't shut up about it. I don't hate it."
+- "Three stars. Would repurchase only on sale, and I'm telling you that for free."
+
+**Chiusure/CTA (mai da comunicato stampa)**:
+- "That's it, that's the whole tip."
+- "Anyway. Use sunscreen. Bye."
+- "Tell me I'm wrong, I have time today."
+
+**Regole di scrittura per tutti gli script (da applicare quando si trasformano le 55 righe in
+prompt completi)**:
+- Frasi brevi, mai un periodo che spiega tre cose insieme
+- Almeno un'ammissione onesta/vulnerabile per script, anche nei Demo e Routine, non solo nel
+  pilastro Personale (vedi nota sui pilastri sopra)
+- Zero superlativi assoluti ("the best", "life-changing") salvo per prenderli in giro
+- Se non ha un'opinione netta su qualcosa, meglio non forzarla — la schiettezza selettiva è più
+  credibile di un'opinione su tutto
 
 ## Prodotti reali per le recensioni (verificati il 22/9 — mai inventare un prodotto o un claim)
 
