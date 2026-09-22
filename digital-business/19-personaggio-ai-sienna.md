@@ -119,6 +119,8 @@ altri concept di recensione, stesso principio: cercare prima, scrivere lo script
    all'elemento `skincare-creator` con placeholder multipli nello stesso prompt.
 2. **Paula's Choice 2% BHA Liquid Exfoliant** — $35 (formato pieno), acido salicilico 2%, fragrance-free.
    Pro: risultati clinicamente provati in 48h su pori/texture. Contro: prezzo alto, leggero odore residuo per alcuni.
+   **Foto reali salvate**: elemento `paulaschoice-bha` (id `24d2c6d3-a437-4213-a4c1-c5104e76fa46`) —
+   vista frontale, vista da dietro, in mano con texture sul palmo.
 3. **The Ordinary Granactive Retinoid 2% in Squalane** — fascia economica The Ordinary. Retinoide più
    delicato in commercio. Pro: bassa irritazione anche a inizio uso. Contro: assorbe lentamente, shelf-life
    corta (3 mesi dopo apertura), possibile purging nei primi mesi.
