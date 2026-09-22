@@ -220,7 +220,12 @@ crediti/settimana ≈ 26-44€/settimana ≈ 105-175€/mese — molto meno del 
 di scartare/rigenerare le singole clip che non riescono (come il difetto del contagocce del primo
 test) senza sprecare un pass a tempo.
 
-- **30-40% del totale in foto/carousel**, non solo video, per varietà e velocità di produzione
+- **Mix 60% foto/carousel — 40% video** (rivisto il 23/9, non più 30-40%): i dati mostrano che i
+  carousel hanno ~4x l'engagement medio dei reel, e la raccomandazione per crescere un profilo AI è
+  minimo 2 carousel/foto ogni 1-2 reel a settimana. Il video resta comunque necessario dove il
+  parlato/movimento è il punto del concept (GRWM, rant con ritmo, bit comici che vivono di
+  tempismo) — non tutto può diventare foto senza perdere forza. Mix effettivo nella lista sotto: 22
+  video (40%), 33 foto/carousel (60%)
 
 Location, outfit e pettinatura vanno curati come farebbe una persona vera — mai la stessa
 combinazione ripetuta, dettagli specifici (non "casual" generico, ma il capo esatto). Vedi i pool
@@ -415,10 +420,10 @@ suo ruolo è oggetto dell'ossessione/opinione/scena, mai soggetto di un test per
 2. Ossessioni | Video 28s | L3 | O12 | H6 | **GRWM**: monologo ossessivo sul perché ha comprato tre doppioni dello stesso siero
 3. Ossessioni | Foto | L4 | O9 | H2 | Scaffale con **CeraVe Moisturizing Cream, The Ordinary Niacinamide, Supergoop! Unseen Sunscreen** allineati con cura maniacale, caption sull'ossessione del momento
 4. Ossessioni | Video 30s | L5 | O6 | H8 | "The retinoid obsession update: still going strong, my skincare shelf is not" — **The Ordinary Granactive Retinoid 2% Emulsion**, fatto oggettivo: più forte della versione in Squalane secondo l'INCI
-5. Ossessioni | Video 25s | L2 | O14 | H4 | "Explaining my $6 serum like it's a personality trait" — Niacinamide
+5. Ossessioni | Foto | L2 | O14 | H4 | Siero in mano, espressione da "sto per spiegarti la mia vita", caption "$6 and it's basically my whole personality now" — Niacinamide
 6. Ossessioni | Foto | L11 | O7 | H2 | **CeraVe Moisturizing Cream** tenuta come un trofeo, caption ironica sulle ceramidi spiegate
 7. Ossessioni | Video 30s | L12 | O1 | H3 | **GRWM sera**, monologo ossessivo su "the dropper technique" — **Paula's Choice 2% BHA**
-8. Ossessioni | Video 20s | L1 | O16 | H4 | "This is the part where I explain the zinc thing again" — Niacinamide+Zinc, tono da lezione con troppo entusiasmo
+8. Ossessioni | Foto | L1 | O16 | H4 | Flacone in primo piano, dito puntato verso l'etichetta, caption da lezione con troppo entusiasmo sullo zinco — Niacinamide+Zinc
 9. Ossessioni | Foto | L15 | O18 | H3 | **Supergoop! Unseen Sunscreen** sempre in borsa, caption sulla fissazione per la riapplicazione
 10. Ossessioni | Video 28s | L5 | O13 | H11 | Rituale ossessivo passo-passo **Mario Badescu Drying Lotion** — NON si agita, si intinge il cotton fioc solo nel sedimento rosa sul fondo
 11. Ossessioni | Video 30s | L1 | O3 | H7 | "Laneige lip mask szn is back and I have no chill about it" — **Laneige Lip Sleeping Mask**
@@ -426,20 +431,20 @@ suo ruolo è oggetto dell'ossessione/opinione/scena, mai soggetto di un test per
 13. Ossessioni | Video 22s | L2 | O6 | H8 | "The Bubble Skincare obsession that snuck up on me" — **Bubble Skincare Slam Dunk**, fatto onesto: non è un trattamento, solo idratante
 14. Ossessioni | Video 30s | L10 | O9 | H2 | Unboxing ossessivo di **Paula's Choice 2% BHA** e **Youth To The People Superfood Cleanser**
 15. Ossessioni | Foto | L13 | O17 | H11 | Formati da viaggio di **CeraVe** e **The Ordinary Niacinamide** disposti con cura maniacale
-16. Ossessioni | Video 28s | L4 | O11 | H1 | "Explaining Granactive Retinoid to my mirror like she asked"
+16. Ossessioni | Foto | L4 | O11 | H1 | Selfie allo specchio con il prodotto in mano, caption "Explaining Granactive Retinoid to my mirror like she asked" — **The Ordinary Granactive Retinoid 2% Emulsion**
 
 ### Rant anticonformista (12)
 
-17. Rant | Video 20s | L10 | O3 | H9 | "Trend che il marketing vende come miracolosi e non lo sono"
+17. Rant | Foto | L10 | O3 | H9 | Espressione scettica in primo piano, caption con l'elenco di trend sopravvalutati
 18. Rant | Video 25s | L1 | O9 | H4 | Rant sul trend "slugging" — **Vaseline**, avvertimento vero secondo l'American Academy of Dermatology: non per pelle acneica
-19. Rant | Video 15s | L3 | O12 | H6 | Hot take: il "clean girl" skincare è più hype che scienza
+19. Rant | Foto | L3 | O12 | H6 | Sguardo diretto in camera, caption con l'hot take per intero: il "clean girl" skincare è più hype che scienza
 20. Rant | Foto | L12 | O1 | H2 | **Bubble Skincare Slam Dunk** — caption diretta: idrata bene ma non è un trattamento, punto
 21. Rant | Video 25s | L4 | O6 | H8 | Perché il "purging" non è sempre quello che i video virali dicono
-22. Rant | Video 18s | L5 | O17 | H1 | "Prodotti che il marketing ama e io no" — solo a parole, nessun prodotto specifico mostrato in scena
+22. Rant | Foto | L5 | O17 | H1 | Espressione neutra/annoiata, caption "Prodotti che il marketing ama e io no" con la lista nel testo, nessun prodotto in scena
 23. Rant | Video 20s | L6 | O18 | H3 | Rant al tramonto su un consiglio virale di skincare
 24. Rant | Foto | L11 | O7 | H5 | **The Ordinary Niacinamide ($6)** vs **Glow Recipe Dew Drops (fascia alta)** — confronto prezzo/INCI, caption tagliente
 25. Rant | Video 22s | L2 | O14 | H7 | Perché "natural" non vuol dire automaticamente sicuro
-26. Rant | Video 15s | L13 | O11 | H10 | "Unpopular skincare opinion" formato rapido
+26. Rant | Foto | L13 | O11 | H10 | Primo piano con sopracciglio alzato, caption "unpopular skincare opinion" formato rapido
 27. Rant | Video 30s | L1 | O9 | H11 | Rant con fonti su un mito virale specifico, tono da arringa
 28. Rant | Video 25s | L1 | O7 | H3 | "Più costoso = meglio"? Smontato con i numeri, senza pietà
 
@@ -449,7 +454,7 @@ suo ruolo è oggetto dell'ossessione/opinione/scena, mai soggetto di un test per
 30. Assurdo | Video 18s | L2 | O4 | H5 | Monologo assurdo su una crema come fosse una rottura sentimentale
 31. Assurdo | Foto | L6 | O13 | H10 | Posa da copertina di rivista con un vasetto di **Vaseline**, caption ironica sul contrasto
 32. Assurdo | Video 25s | L8 | O10 | H7 | Paragone assurdo tra la sua routine skincare e un allenamento in palestra
-33. Assurdo | Video 15s | L14 | O5 | H12 | "POV: reagisco a un'etichetta INCI come se fosse un plot twist"
+33. Assurdo | Foto | L14 | O5 | H12 | Espressione shockata leggendo un'etichetta, caption "POV: reagisco a un'etichetta INCI come se fosse un plot twist"
 34. Assurdo | Foto | L3 | O12 | H1 | Espressione shockata guardando un prezzo, nessun prodotto specifico nominato
 35. Assurdo | Video 20s | L1 | O16 | H9 | Sketch veloce: si fa un'autointervista assurda sul rituale serale
 36. Assurdo | Video 22s | L9 | O10 | H7 | Racconta con dramma sproporzionato un banale contrattempo (la crema finita nel momento sbagliato)
@@ -462,7 +467,7 @@ suo ruolo è oggetto dell'ossessione/opinione/scena, mai soggetto di un test per
 40. Random | Video 20s | L7 | O5 | H10 | Racconta un aneddoto legato all'interesse random mentre è in auto
 41. Random | Video 28s | L3 | O12 | H1 | L'hobby ricorrente diventa la scusa per procrastinare la routine serale
 42. Random | Foto | L14 | O5 | H12 | Still life legato all'interesse ricorrente, tono nostalgico
-43. Random | Video 22s | L8 | O10 | H7 | Confronta scherzosamente l'hobby ricorrente con "l'ossessione skincare del mese"
+43. Random | Foto | L8 | O10 | H7 | Still life che accosta l'hobby ricorrente a un prodotto skincare, caption che li confronta scherzosamente
 
 ### Estetica/mood del giorno (12, prevalentemente foto/carousel)
 
