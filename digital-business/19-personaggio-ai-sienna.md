@@ -144,10 +144,14 @@ altri concept di recensione, stesso principio: cercare prima, scrivere lo script
    per un "would I repurchase this" onesto, non scontato.
    **Foto reali salvate**: elemento `laneige-lip-sleeping-mask` (id `c820da72-1f0a-4f23-93e3-c7e39e4a1d8c`) —
    vasetto Berry Fruits Rouges su sfondo bianco.
-7. **Supergoop! Unseen Sunscreen SPF 40** — $38-44, filtri chimici (avobenzone 3%, octisalate 5%, homosalate
-   10%). Pro reale: finish completamente invisibile anche su pelli scure, texture gel leggera, ottima base
-   trucco. Contro reale: prezzo alto, non resistente all'acqua, può pizzicare gli occhi, contiene irritanti
-   comuni senza benefici aggiuntivi per la pelle.
+7. **Supergoop! Unseen Sunscreen** — versione EU/UK in mano (etichetta **SPF 30**, water resistant — stessa
+   formula della SPF 40 venduta USA, differenza dovuta solo ai criteri di test SPF diversi tra le due
+   normative), $38-44, filtri chimici (avobenzone 3%, octisalate 5%, homosalate 10%). Pro reale: finish
+   completamente invisibile anche su pelli scure, texture gel leggera, ottima base trucco. Contro reale:
+   prezzo alto, può pizzicare gli occhi, contiene irritanti comuni senza benefici aggiuntivi per la pelle.
+   **Foto reali salvate**: elemento `supergoop-unseen-sunscreen` (id `9f6059b9-ed4b-4e16-834f-3e4902061c9f`) —
+   tubo su sfondo bianco. Esclusa una seconda foto (swirl di texture) perché l'etichetta risultava speculare/
+   capovolta.
 8. **Youth To The People Superfood Cleanser** — detergente delicato (tensioattivi da cocco, non solfati
    aggressivi), kale/spinaci/tè verde. Pro: best-seller reale da Sephora, adatto a pelle sensibile. Contro:
    gli antiossidanti vegetali si degradano in fretta nella formula, contiene comunque profumo/conservanti.
