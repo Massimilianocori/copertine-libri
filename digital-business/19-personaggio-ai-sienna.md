@@ -131,6 +131,9 @@ altri concept di recensione, stesso principio: cercare prima, scrivere lo script
 4. **CeraVe Moisturizing Cream** — $18-20, 3 ceramidi + acido ialuronico + MVE technology. Pro: prodotto
    "cult" della community skincare, adatto quasi a tutti i tipi di pelle. Contro: texture ricca, poco adatta
    sotto trucco per chi ha pelle grassa.
+   **Foto reali salvate**: elemento `cerave-moisturizing-cream` (id `e65570a6-cd7f-4df8-878d-ea87d9639533`) —
+   fronte, retro con ingredienti, texture isolata. Esclusa una quarta foto con scritta pubblicitaria
+   incorporata nell'immagine.
 5. **Glow Recipe Watermelon Glow Niacinamide Dew Drops** — fascia prezzo medio-alta. Recensioni polarizzate:
    molti lodano l'effetto "glow"/glass skin, ma critiche reali su profumazione forte e alcuni report di
    irritazione/orticaria. Buon prodotto per un pro/contro onesto, non solo entusiasmo.
