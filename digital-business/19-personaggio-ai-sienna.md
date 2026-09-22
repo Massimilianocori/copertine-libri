@@ -1,8 +1,40 @@
 # Sienna — Personaggio 1 (AI creator, legata a Scrollcraft)
 
-Creato il 22/9. Nicchia: skincare/beauty. Volto fissato come Elemento riutilizzabile Higgsfield
-(`skincare-creator`, id `061d0104-b580-46fa-967a-1ecb4590c491`). Vedi `00-STATO-PROGETTO.md` per
-il contesto strategico completo (perché legato a Scrollcraft, perché dichiarato AI, ecc.).
+Creato il 22/9. Nicchia: skincare/beauty. Volto fissato come Elemento riutilizzabile Higgsfield.
+**Usare `skincare-creator-v2` (id `6246992b-bae7-4de9-93d0-3286a70ccb48`)**, non il vecchio
+`skincare-creator` (id `061d0104-b580-46fa-967a-1ecb4590c491`, ancora presente ma con una sola
+foto di riferimento — sostituito il 23/9 perché insufficiente per il lock di identità nei video,
+vedi sotto). Vedi `00-STATO-PROGETTO.md` per il contesto strategico completo (perché legato a
+Scrollcraft, perché dichiarato AI, ecc.).
+
+## Ricetta verificata per i video Kling 3.0 (23/9 — testata con crediti, prima di comprare il pass)
+
+Prima di aprire il pass illimitato, abbiamo testato la fattibilità reale con 4 generazioni a
+crediti (Ordinary Niacinamide + Sienna). I primi 3 tentativi hanno fallito in modi diversi e
+istruttivi; il 4° ha funzionato. Regole emerse, da rispettare per **tutti** i 55 concept:
+
+1. **Sempre passare un `start_image` esplicito** (una foto reale di Sienna, non solo il placeholder
+   `<<<element_id>>>` nel prompt) — il solo placeholder testuale ha prodotto un volto completamente
+   diverso nel primo test (capelli scuri invece che rame). Il placeholder da solo non basta a
+   bloccare l'identità nei video, nelle immagini sì.
+2. **Elemento personaggio con più foto** (`skincare-creator-v2`, 5 angolazioni: mirror selfie
+   originale, frontale, 3/4, profilo, corpo intero) invece di una sola — rinforza il lock insieme
+   allo start_image.
+3. **Mai una scena con il telefono in mano se c'è anche un prodotto da manipolare.** Causa
+   confermata del difetto più grave visto: con telefono in una mano e flacone+tappo+contagocce
+   nell'altra, il modello perde l'oggetto a metà video (il flacone sparisce, resta il tappo
+   "fluttuante"). Tolto il telefono dalla scena (fotocamera fissa/treppiede, entrambe le mani
+   libere per il prodotto), il problema è sparito. Fonte: i props tenuti in mano sono il punto più
+   fragile per i modelli video — meglio generare il soggetto senza l'oggetto, poi introdurlo nella
+   scena vera, non farli comparire insieme dal primo frame con altro già in mano.
+4. **Descrivere esplicitamente texture/colore del prodotto nel prompt** (es. "liquido trasparente e
+   incolore come l'acqua, mai bianco o opaco, una goccia dal contagocce") — senza questa
+   descrizione il modello ha reso un siero trasparente come una crema bianca densa applicata a
+   mano, ignorando la foto di riferimento del prodotto.
+5. **La durata breve (5s) non è il problema** — anzi, le clip corte mantengono la coerenza meglio
+   di quelle lunghe (il drift aumenta col tempo). Nessun bisogno di allungare i test per stabilità.
+6. Modalità **std** (non pro/4k) è già la più economica disponibile per Kling 3.0 in questa API —
+   non esiste un'opzione 480p più leggera da scegliere.
 
 ---
 
