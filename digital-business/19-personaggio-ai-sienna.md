@@ -131,15 +131,23 @@ la pelle fa quello che vuole lei"), non solo confinato al 10% originale.
 5. **Contenuto personale/vulnerabile** (~10% dedicato, ma presente anche trasversalmente negli altri
    4) — giornate di pelle brutta, dubbi, percorso reale
 
-## Formato e lunghezza (aggiornato: pass illimitato Kling cambia i vincoli di costo, non quelli di attenzione)
+## Formato e lunghezza (rivisto il 23/9 con dati reali Instagram, non più un mix generico)
 
-Anche con generazione illimitata, la lunghezza va decisa per performance sui social, non perché
-"tanto è gratis" — un video lungo e abbandonato a metà penalizza comunque nell'algoritmo. Mix:
+Anche con abbonamento illimitato (costo di generazione uguale a 30s o 1 minuto), la lunghezza va
+decisa per performance sui social, non a caso. Dati reali (studio su 6 milioni di Reels, fonti in
+fondo): **45-60s è la fascia con più visualizzazioni ed engagement in assoluto**; sotto i 30s le
+view/engagement sono circa dimezzate ma il completamento è più alto (buono per reach/trend); i
+tutorial/contenuti educational sopra i 60s generano più salvataggi e condivisioni. Quindi **la
+durata dipende dal tipo di contenuto**, non da un mix fisso uguale per tutti:
 
-- **60% brevi (8-15s)**: hook rapido, routine, opinioni, myth-busting — il grosso del volume
-- **25% medi (20-40s)**: demo prodotto con più passaggi, prima/dopo, piccoli tutorial
-- **15% più lunghi (45-90s)**: approfondimenti su ingredienti, spiegazioni più tecniche — questi
-  raddoppiano anche come materiale portfolio/LinkedIn per Scrollcraft, essendo più dimostrativi
+| Pilastro | Natura del contenuto | Durata |
+|---|---|---|
+| Demo/recensione prodotto | sponsor-style, hook veloce, reach | 15-30s |
+| Myth-busting/opinioni | hot-take, reach | 15-30s |
+| Routine/lifestyle | tutorial leggero | 30-60s |
+| Educazione ingredienti | vero educational, salvataggi | 45-90s |
+| Personale/vulnerabile | storytelling | 30-60s |
+
 - **30-40% del totale in foto/carousel**, non solo video, per varietà e velocità di produzione
 
 Location, outfit e pettinatura vanno curati come farebbe una persona vera — mai la stessa
@@ -313,73 +321,73 @@ Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Capelli | Co
 
 ### Routine / lifestyle (16)
 
-1. Routine | Video 12s | L1 | O4 | H1 | **GRWM**: "My actual 5-step morning routine, no fluff" (+ "step 3 I skip half the time")
-2. Routine | Video 10s | L2 | O14 | H4 | "What my skin looks like before any product touches it"
+1. Routine | Video 45s | L1 | O4 | H1 | **GRWM**: "My actual 5-step morning routine, no fluff" (+ "step 3 I skip half the time")
+2. Routine | Video 30s | L2 | O14 | H4 | "What my skin looks like before any product touches it"
 3. Routine | Foto | L4 | O9 | H2 | Scaffale con **CeraVe Moisturizing Cream, The Ordinary Niacinamide, Supergoop! Unseen Sunscreen** visibili, caption sulla routine serale
-4. Routine | Video 15s | L3 | O12 | H6 | "Skincare while my coffee brews"
-5. Routine | Video 30s | L5 | O6 | H8 | **GRWM sera**, passo-passo, "ngl some nights I just wash my face and go to bed"
+4. Routine | Video 35s | L3 | O12 | H6 | "Skincare while my coffee brews"
+5. Routine | Video 55s | L5 | O6 | H8 | **GRWM sera**, passo-passo, "ngl some nights I just wash my face and go to bed"
 6. Routine | Foto | L6 | O13 | H10 | SPF applicata al tramonto, caption su costanza quotidiana
-7. Routine | Video 8s | L11 | — (avvolta in asciugamano) | capelli raccolti sotto asciugamano | "POV: skin after a good night's sleep"
-8. Routine | Video 20s | L12 | O1 | H3 | Come cambia la routine in inverno vs estate
+7. Routine | Video 30s | L11 | — (avvolta in asciugamano) | capelli raccolti sotto asciugamano | "POV: skin after a good night's sleep"
+8. Routine | Video 50s | L12 | O1 | H3 | Come cambia la routine in inverno vs estate
 9. Routine | Foto | L1 | O16 | H9 | Formati da viaggio di **CeraVe Moisturizing Cream** e **The Ordinary Niacinamide**, caption su routine minimal
-10. Routine | Video 12s | L9 | O10 | H7 | "Skincare on days I actually leave the house"
-11. Routine | Video 10s | L2 | O4 | H5 | "Things I stopped doing to my skin"
+10. Routine | Video 35s | L9 | O10 | H7 | "Skincare on days I actually leave the house"
+11. Routine | Video 30s | L2 | O4 | H5 | "Things I stopped doing to my skin"
 12. Routine | Foto | L13 | O17 | H11 | Solo bicchiere d'acqua in mano, nessun integratore mostrato/nominato (evitiamo claim su prodotti non verificati) — caption su idratazione e costanza
-13. Routine | Video 15s | L4 | O11 | H1 | "My 2-minute routine on lazy days"
-14. Routine | Video 25s | L10 | O9 | H2 | Unboxing con **Paula's Choice 2% BHA** e **Youth To The People Superfood Cleanser**
+13. Routine | Video 40s | L4 | O11 | H1 | "My 2-minute routine on lazy days"
+14. Routine | Video 45s | L10 | O9 | H2 | Unboxing con **Paula's Choice 2% BHA** e **Youth To The People Superfood Cleanser**
 15. Routine | Foto | L15 | O18 | H3 | Pelle al naturale prima di uscire, caption su fiducia senza trucco
-16. Routine | Video 10s | L7 | O5 | H10 | "Reapplying SPF in the car, don't judge"
+16. Routine | Video 30s | L7 | O5 | H10 | "Reapplying SPF in the car, don't judge"
 
 ### Educazione ingredienti (11)
 
-17. Ingredienti | Video 20s | L11 | O7 | H4 | Come funziona la niacinamide, in parole semplici
-18. Ingredienti | Video 15s | L5 | O3 | H9 | Errore comune: mischiare retinolo e vitamina C
+17. Ingredienti | Video 60s | L11 | O7 | H4 | Come funziona la niacinamide, in parole semplici
+18. Ingredienti | Video 50s | L5 | O3 | H9 | Errore comune: mischiare retinolo e vitamina C
 19. Ingredienti | Foto | L1 | O16 | H6 | Etichetta INCI reale di **The Ordinary Niacinamide** con evidenziatore, caption didattica
-20. Ingredienti | Video 30s | L2 | O6 | H8 | Perché l'SPF va usato anche in casa
-21. Ingredienti | Video 18s | L3 | O12 | H1 | Differenza tra esfoliante chimico e fisico
-22. Ingredienti | Video 12s | L4 | O9 | H2 | "The ingredient everyone's obsessed with right now, explained"
+20. Ingredienti | Video 55s | L2 | O6 | H8 | Perché l'SPF va usato anche in casa
+21. Ingredienti | Video 50s | L3 | O12 | H1 | Differenza tra esfoliante chimico e fisico
+22. Ingredienti | Video 45s | L4 | O9 | H2 | "The ingredient everyone's obsessed with right now, explained"
 23. Ingredienti | Foto | L12 | O1 | H5 | **CeraVe Moisturizing Cream** vs **Youth To The People Superfood Cleanser** a confronto, caption su come leggere le etichette
-24. Ingredienti | Video 25s | L11 | O17 | H7 | Come costruire una routine da zero, ordine corretto
-25. Ingredienti | Video 15s | L5 | O11 | H10 | Cos'è davvero la "barriera cutanea"
-26. Ingredienti | Video 10s | L1 | O7 | H3 | Mito: "più costoso = meglio"? Spiegazione breve
+24. Ingredienti | Video 70s | L11 | O17 | H7 | Come costruire una routine da zero, ordine corretto
+25. Ingredienti | Video 60s | L5 | O11 | H10 | Cos'è davvero la "barriera cutanea"
+26. Ingredienti | Video 45s | L1 | O7 | H3 | Mito: "più costoso = meglio"? Spiegazione breve
 27. Ingredienti | Foto | L9 | O13 | H11 | **Supergoop! Unseen Sunscreen** in borsa al parco (stesso prodotto del concept 44, la porta sempre con sé), caption su riapplicazione
 
 ### Myth-busting / opinioni (11)
 
-28. Myth | Video 12s | L10 | O3 | H9 | "Trend che non funzionano come TikTok dice"
-29. Myth | Video 15s | L1 | O9 | H4 | "I tried the viral slugging trend, honest results" — **Vaseline**, con il vero avvertimento dermatologico: non per pelle acneica
-30. Myth | Video 10s | L3 | O12 | H6 | Hot take: il "clean girl" skincare è più hype che scienza
+28. Myth | Video 20s | L10 | O3 | H9 | "Trend che non funzionano come TikTok dice"
+29. Myth | Video 25s | L1 | O9 | H4 | "I tried the viral slugging trend, honest results" — **Vaseline**, con il vero avvertimento dermatologico: non per pelle acneica
+30. Myth | Video 15s | L3 | O12 | H6 | Hot take: il "clean girl" skincare è più hype che scienza
 31. Myth | Foto | L12 | O1 | H2 | **Bubble Skincare Slam Dunk** — caption scettica ma onesta: idrata bene ma non è un trattamento
-32. Myth | Video 20s | L4 | O6 | H8 | Perché il "purging" non è sempre quello che pensi
-33. Myth | Video 12s | L5 | O17 | H1 | "Prodotti che TikTok ama ma io no" — solo a parole, nessun prodotto specifico mostrato in scena
-34. Myth | Video 15s | L6 | O18 | H3 | Reagisce a un consiglio virale di skincare, al tramonto
+32. Myth | Video 25s | L4 | O6 | H8 | Perché il "purging" non è sempre quello che pensi
+33. Myth | Video 18s | L5 | O17 | H1 | "Prodotti che TikTok ama ma io no" — solo a parole, nessun prodotto specifico mostrato in scena
+34. Myth | Video 20s | L6 | O18 | H3 | Reagisce a un consiglio virale di skincare, al tramonto
 35. Myth | Foto | L11 | O7 | H5 | **The Ordinary Niacinamide ($6)** vs **Glow Recipe Dew Drops (fascia alta)** — confronto prezzo/efficacia reale, caption diretta
-36. Myth | Video 18s | L2 | O14 | H7 | Perché "natural" non vuol dire automaticamente sicuro
-37. Myth | Video 10s | L13 | O11 | H10 | "Unpopular skincare opinion" formato rapido
-38. Myth | Video 25s | L1 | O9 | H11 | Debunk di un mito virale specifico, con fonti
+36. Myth | Video 22s | L2 | O14 | H7 | Perché "natural" non vuol dire automaticamente sicuro
+37. Myth | Video 15s | L13 | O11 | H10 | "Unpopular skincare opinion" formato rapido
+38. Myth | Video 30s | L1 | O9 | H11 | Debunk di un mito virale specifico, con fonti
 
 ### Demo/recensione prodotto (11)
 
-39. Demo | Video 20s | L4 | O16 | H4 | **The Ordinary Niacinamide 10%+Zinc 1%** — prima applicazione, reazione onesta
-40. Demo | Video 15s | L5 | O1 | H9 | **The Ordinary Granactive Retinoid 2%** vs **Mario Badescu Drying Lotion** — chiarisce la differenza: uno è un trattamento anti-età da usare su tutto il viso, l'altro uno spot treatment mirato solo sui brufoli, non sono intercambiabili
+39. Demo | Video 25s | L4 | O16 | H4 | **The Ordinary Niacinamide 10%+Zinc 1%** — prima applicazione, reazione onesta
+40. Demo | Video 20s | L5 | O1 | H9 | **The Ordinary Granactive Retinoid 2%** vs **Mario Badescu Drying Lotion** — chiarisce la differenza: uno è un trattamento anti-età da usare su tutto il viso, l'altro uno spot treatment mirato solo sui brufoli, non sono intercambiabili
 41. Demo | Foto | L11 | O7 | H2 | **CeraVe Moisturizing Cream** — texture ricca in primo piano, ceramidi spiegate
 42. Demo | Video 30s | L1 | O6 | H6 | **Bubble Skincare Slam Dunk** — routine completa economica con questo come protagonista
-43. Demo | Video 12s | L12 | O9 | H1 | **The Ordinary Granactive Retinoid 2% Emulsion**, un mese dopo — contro reale: più forte della versione in Squalane, ha dato irritazione iniziale nonostante il nome "delicato"
+43. Demo | Video 18s | L12 | O9 | H1 | **The Ordinary Granactive Retinoid 2% Emulsion**, un mese dopo — contro reale: più forte della versione in Squalane, ha dato irritazione iniziale nonostante il nome "delicato"
 44. Demo | Foto | L15 | O18 | H3 | **Supergoop! Unseen Sunscreen** in borsa prima di uscire, caption su riapplicazione
-45. Demo | Video 18s | L4 | O17 | H8 | **Glow Recipe Watermelon Dew Drops** — pro/contro onesti (profumo forte, risultati non per tutti)
-46. Demo | Video 10s | L2 | O11 | H5 | **Paula's Choice 2% BHA** — reazione al primo utilizzo
+45. Demo | Video 22s | L4 | O17 | H8 | **Glow Recipe Watermelon Dew Drops** — pro/contro onesti (profumo forte, risultati non per tutti)
+46. Demo | Video 15s | L2 | O11 | H5 | **Paula's Choice 2% BHA** — reazione al primo utilizzo
 47. Demo | Foto | L3 | O12 | H10 | **Youth To The People Superfood Cleanser** — caption sulla formulazione "natural-leaning"
-48. Demo | Video 15s | L1 | O3 | H7 | **Laneige Lip Sleeping Mask** — "would I repurchase this?" onesto, non scontato
-49. Demo | Video 25s | L5 | O13 | H11 | **Mario Badescu Drying Lotion** — il rituale iconico passo-passo: NON si agita, si intinge il cotton fioc solo nel sedimento rosa sul fondo e si applica a puntini prima di dormire
+48. Demo | Video 20s | L1 | O3 | H7 | **Laneige Lip Sleeping Mask** — "would I repurchase this?" onesto, non scontato
+49. Demo | Video 28s | L5 | O13 | H11 | **Mario Badescu Drying Lotion** — il rituale iconico passo-passo: NON si agita, si intinge il cotton fioc solo nel sedimento rosa sul fondo e si applica a puntini prima di dormire
 
 ### Personale/vulnerabile (6, ma intrecciato anche sopra)
 
-50. Personale | Video 15s | L2 | O14 | H4 | "Bad skin day, being honest about it"
+50. Personale | Video 35s | L2 | O14 | H4 | "Bad skin day, being honest about it"
 51. Personale | Foto | L11 | — (viso pulito, senza trucco) | H12 | Pelle al naturale senza filtro, caption su accettazione
-52. Personale | Video 12s | L5 | O6 | H8 | Come gestisce uno stress-breakout
-53. Personale | Video 20s | L9 | O13 | H7 | Il suo percorso con l'acne da adolescente, breve racconto
+52. Personale | Video 30s | L5 | O6 | H8 | Come gestisce uno stress-breakout
+53. Personale | Video 45s | L9 | O13 | H7 | Il suo percorso con l'acne da adolescente, breve racconto
 54. Personale | Foto | L12 | O4 | H1 | Specchio, caption su costanza e pazienza con la pelle
-55. Personale | Video 15s | L1 | O9 | H2 | "What actually helped me, not what I wish worked"
+55. Personale | Video 35s | L1 | O9 | H2 | "What actually helped me, not what I wish worked"
 
 ---
 
@@ -408,3 +416,10 @@ Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Capelli | Co
 - Studio su parasocial interaction e beauty influencer: l'attrattiva fisica non predice il legame
   parasociale, conta l'attrattiva sociale/onestà nelle recensioni; formato GRWM citato come il più
   efficace per intimità parasociale nel beauty specifico
+
+## Fonti (durata ottimale Reels per tipo di contenuto, verificate 23/9)
+
+- [SocialInsider — Instagram Reels Length](https://www.socialinsider.io/blog/instagram-reels-length/) —
+  studio su 6 milioni di Reels: 45-60s = più view/engagement in assoluto
+- [ByteCap — Best Instagram Reels Length 2026](https://www.bytecap.io/research/best-instagram-reels-length) —
+  7-30s per reach/completamento, 60-180s per tutorial/educational (salvataggi/condivisioni)
