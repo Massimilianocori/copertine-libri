@@ -159,6 +159,8 @@ altri concept di recensione, stesso principio: cercare prima, scrivere lo script
 10. **Bubble Skincare Slam Dunk Hydrating Moisturizer** — $16, brand rivolto a teenager (Walmart), aloe +
     olio di avocado. Pro: idrata bene, prezzo accessibile. Contro onesto: **non è un prodotto trattamento**
     — niente peptidi/ceramidi/niacinamide, va abbinato ad altro se servono attivi specifici.
+    **Foto reali salvate**: elemento `bubble-slamdunk-moisturizer` (id `653126a3-85fa-4571-8969-b5fe7d1f9290`) —
+    flacone su sfondo bianco, e affiancato alla scatola.
 11. **Differin Adapalene Gel 0.1%** — retinoide da banco (ex-prescrizione). Pro: fino all'87% di riduzione
     acne in 12 settimane secondo gli studi citati. Contro reale: secchezza/desquamazione significativa nelle
     prime settimane, serve introdurlo gradualmente (max 2 volte/settimana all'inizio) e SPF obbligatorio di
