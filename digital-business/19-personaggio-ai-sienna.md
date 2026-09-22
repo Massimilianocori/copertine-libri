@@ -112,6 +112,11 @@ altri concept di recensione, stesso principio: cercare prima, scrivere lo script
 
 1. **The Ordinary Niacinamide 10% + Zinc 1%** — $6, niente profumo/parabeni, ottimo per pelle grassa/pori.
    Pro: prezzo bassissimo per la concentrazione. Contro: il 10% può irritare pelli sensibili, non ideale su pelle secca.
+   **Foto reali salvate**: elemento `ordinary-niacinamide` (id `13013370-8421-4d68-a60b-6a7305c39dd4`) —
+   flacone chiuso, contagocce aperto, confezione con scatola. Processo per gli altri 10: Massimiliano
+   manda foto pulite del prodotto (senza interfaccia del sito) → upload su Higgsfield (`media_upload` →
+   PUT → `media_confirm`) → salvataggio come Elemento categoria `prop` → agganciabile nei prompt insieme
+   all'elemento `skincare-creator` con placeholder multipli nello stesso prompt.
 2. **Paula's Choice 2% BHA Liquid Exfoliant** — $35 (formato pieno), acido salicilico 2%, fragrance-free.
    Pro: risultati clinicamente provati in 48h su pori/texture. Contro: prezzo alto, leggero odore residuo per alcuni.
 3. **The Ordinary Granactive Retinoid 2% in Squalane** — fascia economica The Ordinary. Retinoide più
