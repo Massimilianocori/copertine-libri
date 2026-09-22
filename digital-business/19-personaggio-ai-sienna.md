@@ -151,18 +151,18 @@ Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Capelli | Co
 
 1. Routine | Video 12s | L1 | O4 | H1 | **GRWM**: "My actual 5-step morning routine, no fluff" (+ "step 3 I skip half the time")
 2. Routine | Video 10s | L2 | O14 | H4 | "What my skin looks like before any product touches it"
-3. Routine | Foto | L4 | O9 | H2 | Scaffale prodotti ordinato, caption sulla routine serale
+3. Routine | Foto | L4 | O9 | H2 | Scaffale con **CeraVe Moisturizing Cream, The Ordinary Niacinamide, La Roche-Posay Anthelios** visibili, caption sulla routine serale
 4. Routine | Video 15s | L3 | O12 | H6 | "Skincare while my coffee brews"
 5. Routine | Video 30s | L5 | O6 | H8 | **GRWM sera**, passo-passo, "ngl some nights I just wash my face and go to bed"
 6. Routine | Foto | L6 | O13 | H10 | SPF applicata al tramonto, caption su costanza quotidiana
 7. Routine | Video 8s | L11 | — (avvolta in asciugamano) | capelli raccolti sotto asciugamano | "POV: skin after a good night's sleep"
 8. Routine | Video 20s | L12 | O1 | H3 | Come cambia la routine in inverno vs estate
-9. Routine | Foto | L1 | O16 | H9 | Prodotti da viaggio, caption su routine minimal
+9. Routine | Foto | L1 | O16 | H9 | Formati da viaggio di **CeraVe Moisturizing Cream** e **The Ordinary Niacinamide**, caption su routine minimal
 10. Routine | Video 12s | L9 | O10 | H7 | "Skincare on days I actually leave the house"
 11. Routine | Video 10s | L2 | O4 | H5 | "Things I stopped doing to my skin"
-12. Routine | Foto | L13 | O17 | H11 | Integratori/acqua sera, caption su skin-from-within
+12. Routine | Foto | L13 | O17 | H11 | Solo bicchiere d'acqua in mano, nessun integratore mostrato/nominato (evitiamo claim su prodotti non verificati) — caption su idratazione e costanza
 13. Routine | Video 15s | L4 | O11 | H1 | "My 2-minute routine on lazy days"
-14. Routine | Video 25s | L10 | O9 | H2 | Unboxing ordine skincare mensile
+14. Routine | Video 25s | L10 | O9 | H2 | Unboxing con **Paula's Choice 2% BHA** e **Youth To The People Superfood Cleanser**
 15. Routine | Foto | L15 | O18 | H3 | Pelle al naturale prima di uscire, caption su fiducia senza trucco
 16. Routine | Video 10s | L7 | O5 | H10 | "Reapplying SPF in the car, don't judge"
 
@@ -170,15 +170,15 @@ Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Capelli | Co
 
 17. Ingredienti | Video 20s | L11 | O7 | H4 | Come funziona la niacinamide, in parole semplici
 18. Ingredienti | Video 15s | L5 | O3 | H9 | Errore comune: mischiare retinolo e vitamina C
-19. Ingredienti | Foto | L1 | O16 | H6 | Etichetta INCI con evidenziatore, caption didattica
+19. Ingredienti | Foto | L1 | O16 | H6 | Etichetta INCI reale di **The Ordinary Niacinamide** con evidenziatore, caption didattica
 20. Ingredienti | Video 30s | L2 | O6 | H8 | Perché l'SPF va usato anche in casa
 21. Ingredienti | Video 18s | L3 | O12 | H1 | Differenza tra esfoliante chimico e fisico
 22. Ingredienti | Video 12s | L4 | O9 | H2 | "The ingredient everyone's obsessed with right now, explained"
-23. Ingredienti | Foto | L12 | O1 | H5 | Due prodotti a confronto, caption su come leggere le etichette
+23. Ingredienti | Foto | L12 | O1 | H5 | **CeraVe Moisturizing Cream** vs **Youth To The People Superfood Cleanser** a confronto, caption su come leggere le etichette
 24. Ingredienti | Video 25s | L11 | O17 | H7 | Come costruire una routine da zero, ordine corretto
 25. Ingredienti | Video 15s | L5 | O11 | H10 | Cos'è davvero la "barriera cutanea"
 26. Ingredienti | Video 10s | L1 | O7 | H3 | Mito: "più costoso = meglio"? Spiegazione breve
-27. Ingredienti | Foto | L9 | O13 | H11 | Prodotto con SPF in borsa al parco, caption su riapplicazione
+27. Ingredienti | Foto | L9 | O13 | H11 | **La Roche-Posay Anthelios** in borsa al parco (stesso prodotto del concept 44, la porta sempre con sé), caption su riapplicazione
 
 ### Myth-busting / opinioni (11)
 
@@ -187,9 +187,9 @@ Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Capelli | Co
 30. Myth | Video 10s | L3 | O12 | H6 | Hot take: il "clean girl" skincare è più hype che scienza
 31. Myth | Foto | L12 | O1 | H2 | **Bubble Skincare Slam Dunk** — caption scettica ma onesta: idrata bene ma non è un trattamento
 32. Myth | Video 20s | L4 | O6 | H8 | Perché il "purging" non è sempre quello che pensi
-33. Myth | Video 12s | L5 | O17 | H1 | "Prodotti che TikTok ama ma io no"
+33. Myth | Video 12s | L5 | O17 | H1 | "Prodotti che TikTok ama ma io no" — solo a parole, nessun prodotto specifico mostrato in scena
 34. Myth | Video 15s | L6 | O18 | H3 | Reagisce a un consiglio virale di skincare, al tramonto
-35. Myth | Foto | L11 | O7 | H5 | Confronto prezzo/efficacia, caption diretta
+35. Myth | Foto | L11 | O7 | H5 | **The Ordinary Niacinamide ($6)** vs **Glow Recipe Dew Drops (fascia alta)** — confronto prezzo/efficacia reale, caption diretta
 36. Myth | Video 18s | L2 | O14 | H7 | Perché "natural" non vuol dire automaticamente sicuro
 37. Myth | Video 10s | L13 | O11 | H10 | "Unpopular skincare opinion" formato rapido
 38. Myth | Video 25s | L1 | O9 | H11 | Debunk di un mito virale specifico, con fonti
