@@ -137,6 +137,8 @@ altri concept di recensione, stesso principio: cercare prima, scrivere lo script
 5. **Glow Recipe Watermelon Glow Niacinamide Dew Drops** — fascia prezzo medio-alta. Recensioni polarizzate:
    molti lodano l'effetto "glow"/glass skin, ma critiche reali su profumazione forte e alcuni report di
    irritazione/orticaria. Buon prodotto per un pro/contro onesto, non solo entusiasmo.
+   **Foto reali salvate**: elemento `glowrecipe-watermelon-dewdrops` (id `3ea3c42c-4a3e-40c7-8350-44d9d5159138`) —
+   bottiglia su sfondo bianco, shot lifestyle con anguria.
 6. **Laneige Lip Sleeping Mask** — fascia prezzo medio-alta. Opinioni reali divise: chi lo trova
    trasformativo, chi nota solo un miglioramento modesto e lo trova troppo denso per uso diurno. Perfetto
    per un "would I repurchase this" onesto, non scontato.
