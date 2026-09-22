@@ -75,6 +75,22 @@ Location, outfit e pettinatura vanno curati come farebbe una persona vera — ma
 combinazione ripetuta, dettagli specifici (non "casual" generico, ma il capo esatto). Vedi i pool
 dettagliati subito sotto la lista concept, usati per assegnare ogni singola riga.
 
+### Come si gestisce il "cambio di inquadratura" (decisione presa il 23/9)
+
+Ogni generazione Kling produce **un piano sequenza continuo, un'inquadratura, una location** — non
+è possibile un cambio di camera dentro la stessa generazione video. Due strade, usate entrambe a
+seconda del concept:
+
+1. **Video = piano fisso unico** (default per la maggior parte dei concept). Coerente con lo stile
+   nativo UGC reale — la maggior parte dei creator veri non monta multi-camera, un piano fisso
+   selfie/treppiede è normale e credibile, non un compromesso.
+2. **"Sequenza foto" (carosello di 3-6 immagini)** per i concept che sono intrinsecamente a più
+   step/momenti (GRWM multi-step, rituali di applicazione, prima/dopo) — si generano più immagini
+   separate ancorate allo stesso elemento `skincare-creator`, ciascuna con angolazione/momento
+   diverso, esattamente come fatto il 22/9 per le foto di riferimento del personaggio. Questo
+   sostituisce il "cambio di inquadratura dentro un video" con più scatti distinti, senza bisogno di
+   un editor video. I concept già convertiti a questo formato sono marcati **Sequenza foto** sotto.
+
 ---
 
 ## Pool di varietà (usati per costruire ogni riga sotto — mai la stessa combinazione due volte)
