@@ -35,17 +35,30 @@ works (and what doesn't)"
 
 ---
 
-## Pilastri di contenuto (mix 70/30 confermato da Massimiliano)
+## Pilastri di contenuto (mix 70/30 confermato da Massimiliano, aggiustato il 22/9 con dati reali)
+
+Ricerca su cosa crea davvero legame con il pubblico (fonti: studi su parasocial interaction e beauty
+influencer, vedi note in fondo): **l'attrattiva fisica non è il fattore che spiega il legame con
+chi segue un creator — conta l'"attrattiva sociale"** (personalità coinvolgente, sembrare vicini),
+e nel settore skincare specifico **il pubblico si fida di chi fa recensioni oneste**, non di chi è
+semplicemente bella. La vulnerabilità/onestà su difficoltà reali è il fattore più citato per
+costruire fiducia — soprattutto per un account che parte da zero, dove relazionabilità conta più
+del polish.
+
+Di conseguenza: il contenuto "vulnerabile" non resta isolato in un pilastro a parte, va intrecciato
+anche dentro routine e demo (piccole ammissioni oneste ovunque — "questo non mi ha convinta", "oggi
+la pelle fa quello che vuole lei"), non solo confinato al 10% originale.
 
 1. **Routine/lifestyle senza prodotto specifico** (~30%) — routine mattina/sera, cambio stagionale,
-   giornata nella vita da skincare-obsessed
+   giornata nella vita da skincare-obsessed. Include formato **GRWM (get ready with me)** — tutorial
+   + narrazione casual, il formato con più prova di funzionare nel beauty specificamente
 2. **Educazione ingredienti** (~20%) — come funziona un attivo, errori comuni di combinazione, SPF
 3. **Myth-busting / opinioni nette** (~20%) — "questo trend è marketing, non scienza", hot take su
-   prodotti virali
+   prodotti virali — qui la componente "recensione onesta" è centrale, non decorativa
 4. **Demo/recensione prodotto specifico** (~20%, la fetta "sponsor-style" dichiarata) — test reale,
-   pro/contro onesti
-5. **Contenuto personale/vulnerabile** (~10%) — giornate di pelle brutta, dubbi, percorso reale —
-   umanizza il personaggio ed è quello che lo rende relazionabile, non un demo bot
+   pro/contro onesti, mai solo positivi
+5. **Contenuto personale/vulnerabile** (~10% dedicato, ma presente anche trasversalmente negli altri
+   4) — giornate di pelle brutta, dubbi, percorso reale
 
 ## Formato e lunghezza (aggiornato: pass illimitato Kling cambia i vincoli di costo, non quelli di attenzione)
 
@@ -70,11 +83,11 @@ Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Concept/hook
 
 ### Routine / lifestyle (16)
 
-1. Routine | Video 12s | Bagno, luce mattutina | Loungewear crema | "My actual 5-step morning routine, no fluff"
+1. Routine | Video 12s | Bagno, luce mattutina | Loungewear crema | **GRWM**: "My actual 5-step morning routine, no fluff" (+ ammissione onesta: "step 3 I skip half the time")
 2. Routine | Video 10s | Camera | Pigiama | "What my skin looks like before any product touches it"
 3. Routine | Foto | Bagno | T-shirt bianca | Scaffale prodotti ordinato, caption sulla routine serale
 4. Routine | Video 15s | Cucina | Casual giorno | "Skincare while my coffee brews"
-5. Routine | Video 30s | Camera | Loungewear | Routine sera completa passo-passo
+5. Routine | Video 30s | Camera | Loungewear | **GRWM sera**, passo-passo, con un momento onesto tipo "ngl some nights I just wash my face and go to bed"
 6. Routine | Foto | Esterno, balcone | Felpa | SPF applicata, caption su costanza quotidiana
 7. Routine | Video 8s | Bagno | Asciugamano in testa | "POV: skin after a good night's sleep"
 8. Routine | Video 20s | Camera | Casual | Come cambia la routine in inverno vs estate
@@ -121,7 +134,7 @@ Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Concept/hook
 40. Demo | Video 15s | Camera | Loungewear | Confronto tra due prodotti simili
 41. Demo | Foto | Bagno | — | Texture del prodotto in primo piano
 42. Demo | Video 30s | Bagno | Casual | Routine completa con un prodotto protagonista
-43. Demo | Video 12s | Camera | T-shirt | "Been using this for a month, here's the truth"
+43. Demo | Video 12s | Camera | T-shirt | "Been using this for a month, here's the truth" (deve includere almeno un contro reale, non solo lodi)
 44. Demo | Foto | Esterno | Outfit per uscire | Prodotto in borsa, caption da recensione rapida
 45. Demo | Video 18s | Bagno | Casual | Pro e contro onesti di un prodotto popolare
 46. Demo | Video 10s | Camera | Loungewear | Reazione al primo utilizzo, formato breve
@@ -149,3 +162,12 @@ Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Concept/hook
 - [ ] Durante la produzione: controllo qualità per coerenza volto e assenza di artefatti,
       aspettarsi scarto 20-40%
 - [ ] Definire Personaggio 2 (non ancora iniziato)
+
+---
+
+## Fonti (personalità/attrattiva per il pubblico, verificate 22/9)
+
+- UAB — studio su personalità e efficacia degli influencer: autenticità, vulnerabilità, fiducia
+- Studio su parasocial interaction e beauty influencer: l'attrattiva fisica non predice il legame
+  parasociale, conta l'attrattiva sociale/onestà nelle recensioni; formato GRWM citato come il più
+  efficace per intimità parasociale nel beauty specifico
