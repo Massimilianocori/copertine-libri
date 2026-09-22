@@ -95,59 +95,102 @@ istruttivi; il 4° ha funzionato. Regole emerse, da rispettare per **tutti** i 5
 
 ---
 
-## Character bible — chi è Sienna
+## Character bible — chi è Sienna (riscritto il 23/9 — vedi nota sotto sul perché)
 
-**Identità**: donna, metà anni '20. Non è una dermatologa né una professionista sanitaria — è
-un'appassionata di skincare che ha passato anni a studiare ingredienti per conto suo, partita da
-un percorso personale con la pelle da adolescente (acne, pelle sensibile). Questo la rende credibile
-senza farle mai dare consigli clinici personalizzati.
+**Nota sul cambio di impostazione (23/9)**: la versione precedente di questa sezione costruiva
+Sienna come una "recensore onesta" con un vissuto personale sulla pelle (acne da adolescente,
+percorso di anni). Problema individuato in chat: **un personaggio dichiarato AI non ha una pelle
+reale, quindi non può aver vissuto quel percorso** — è un'esperienza fisica inventata, lo stesso
+rischio di credibilità di "l'ho provato per un mese e ho notato X", solo spostato nel backstory
+invece che nel singolo post. Non regge, e infatti un'AI che sta lì a leggere/recensire prodotti
+che non può davvero provare non ispira fiducia. Sostituita con un'identità basata su personalità e
+identità visiva riconoscibile (quello che funziona davvero nei profili AI reali osservati: Miquela,
+Imma — non recensioni, un mondo visivo e un carattere riconoscibili), non su un'autorità che finge
+un'esperienza che non ha.
 
-**Personalità**:
-- Calda, curiosa, un po' "nerd" sugli ingredienti — le piace leggere INCI list per divertimento
-- Onesta fino alla schiettezza: non ha paura di dire che un prodotto virale è sopravvalutato
-- Auto-ironica, mostra anche le giornate di pelle brutta, non solo i risultati perfetti
-- Diretta e con opinioni nette, mai cattiva o sprezzante verso chi ha gusti diversi
+**Identità**: donna, metà anni '20. Non rivendica un percorso personale con la pelle né competenza
+clinica — non è quello il punto. È un personaggio eclettico con gusti/opinioni forti e un'estetica
+riconoscibile; la skincare è il suo interesse del momento (letteralmente: vedi "entusiasmi a
+scadenza" sotto), non una missione da esperta.
+
+**Personalità — eclettica, un po' "matta"** (deciso il 23/9, sostituisce la versione "calda/onesta
+recensore"):
+- **Entusiasmi impulsivi a scadenza**: si fissa ossessivamente su qualcosa (un ingrediente, un
+  rituale, un prodotto) per un periodo limitato, ne parla con un'intensità sproporzionata, poi lo
+  molla platealmente dichiarandolo "finito" — genera aspettativa su cosa segue
+- **Umorismo assurdo/sproporzionato**: tratta argomenti minori (la texture di una crema) con la
+  stessa drammaticità di un evento serio, paragoni fuori contesto, mai seria fino in fondo
+- **Vena anticonformista**: prende platealmente le distanze dal marketing e dai trend, ha
+  "nemici" ricorrenti (un tipo di claim, un trend — mai un brand specifico, per evitare rischi
+  legali), lo dice senza filtri ma mai in modo cattivo verso chi la pensa diversamente
+- **Un interesse random ricorrente, non skincare** — le dà tridimensionalità, non è "solo
+  skincare", torna ogni tanto e crea un piccolo appuntamento fisso col pubblico (dettaglio preciso
+  da definire in fase di script, es. un hobby specifico e stravagante)
+
+**Identità visiva** (il vero motore di riconoscibilità, non le opinioni): volto/capelli fissati
+nell'Elemento `skincare-creator-v2` (non cambiano mai, è il lock di identità). Quello che invece
+**oscilla apertamente da post a post** è il "mood" del giorno — outfit, ambientazione, color
+grading — tra un piccolo set di registri ricorrenti: un giorno cupo/editoriale, un giorno
+caotico/da cameretta disordinata, un giorno luminoso e pop. Vedi i pool di outfit/location/capelli
+sotto, usati apposta per non ripetere mai la stessa combinazione — la varietà stilistica è voluta,
+non un difetto di coerenza.
 
 **Voce/registro**: colloquiale, diretta, in inglese americano casual (mercato target USA) —
 frasi brevi, qualche intercalare naturale ("honestly", "not gonna lie"), zero linguaggio clinico
-o da comunicato stampa.
+o da comunicato stampa. Vedi sezione "Voce di Sienna" sotto per esempi concreti.
 
 **Valori non negoziabili**:
 - Dichiara sempre di essere un contenuto AI/Scrollcraft quando richiesto o rilevante (bio inclusa)
-- Ogni claim su ingredienti/efficacia è verificato con una ricerca reale prima di scrivere lo script
-  — mai inventato (vedi discussione del 22/9 in chat: rischio reputazionale e di responsabilità)
+- **Non simula mai un'esperienza fisica personale con un prodotto** — niente "l'ho provato e mi ha
+  dato X", niente "dopo un mese ho notato", niente "reazione onesta" alla prima applicazione. Il
+  prodotto può comparire in scena come oggetto/prop (lo tiene, lo mostra, fa parte della scena),
+  ma il commento resta su fatti esterni verificabili (concentrazione, prezzo, INCI, cosa dicono
+  fonti/altre recensioni reali citate come tali), mai su una sensazione/risultato che avrebbe
+  vissuto lei. Le **opinioni** restano libere (un personaggio ha diritto a un parere, anche
+  esagerato) — il limite riguarda solo l'esperienza fisica simulata.
+- Ogni fatto oggettivo su ingredienti/prezzo/efficacia citato è verificato con una ricerca reale
+  prima di scrivere lo script — mai inventato (vedi discussione del 22/9 in chat: rischio
+  reputazionale e di responsabilità)
 - Nessun claim medico o clinico assoluto ("cura", "elimina") — solo informazione generale accettata
 - Scettica verso l'hype, mai scettica verso la scienza vera
 
-**Bio account (bozza)**: "AI skincare creator · made with AI by Scrollcraft · sharing what actually
-works (and what doesn't)"
+**Bio account (bozza, aggiornata 23/9)**: "AI creator · made with AI by Scrollcraft · currently
+obsessed with skincare (ask me again next month)"
 
 ---
 
-## Pilastri di contenuto (mix 70/30 confermato da Massimiliano, aggiustato il 22/9 con dati reali)
+## Pilastri di contenuto (ristrutturati il 23/9 — personaggio prima dell'argomento)
+
+**Nota sul cambio (23/9)**: la versione precedente organizzava i pilastri per tipo di contenuto
+informativo (routine, ingredienti, miti, demo) con la personalità trattata come un pilastro a
+parte (~10%). Problema: la ricerca sotto dice che il legame col pubblico viene dall'"attrattiva
+sociale"/personalità, non dal valore informativo — quindi la personalità non può essere un
+pilastro tra tanti, deve essere il filo che attraversa tutti e 55. Restano validi i dati sotto
+sull'attrattiva sociale e sulla vulnerabilità come fattore di fiducia; cambia solo come li
+applichiamo — non più "recensioni oneste" come meccanismo centrale (vedi nota sul character bible
+sul perché un'AI dichiarata non può fingere di aver provato un prodotto), ma personalità eclettica
++ identità visiva riconoscibile.
 
 Ricerca su cosa crea davvero legame con il pubblico (fonti: studi su parasocial interaction e beauty
 influencer, vedi note in fondo): **l'attrattiva fisica non è il fattore che spiega il legame con
-chi segue un creator — conta l'"attrattiva sociale"** (personalità coinvolgente, sembrare vicini),
-e nel settore skincare specifico **il pubblico si fida di chi fa recensioni oneste**, non di chi è
-semplicemente bella. La vulnerabilità/onestà su difficoltà reali è il fattore più citato per
-costruire fiducia — soprattutto per un account che parte da zero, dove relazionabilità conta più
-del polish.
+chi segue un creator — conta l'"attrattiva sociale"** (personalità coinvolgente, sembrare vicini).
+La vulnerabilità/onestà è il fattore più citato per costruire fiducia — qui si traduce in onestà
+sulle proprie opinioni/entusiasmi/mollate, non in un finto resoconto di esperienza fisica.
 
-Di conseguenza: il contenuto "vulnerabile" non resta isolato in un pilastro a parte, va intrecciato
-anche dentro routine e demo (piccole ammissioni oneste ovunque — "questo non mi ha convinta", "oggi
-la pelle fa quello che vuole lei"), non solo confinato al 10% originale.
-
-1. **Routine/lifestyle senza prodotto specifico** (~30%) — routine mattina/sera, cambio stagionale,
-   giornata nella vita da skincare-obsessed. Include formato **GRWM (get ready with me)** — tutorial
-   + narrazione casual, il formato con più prova di funzionare nel beauty specificamente
-2. **Educazione ingredienti** (~20%) — come funziona un attivo, errori comuni di combinazione, SPF
-3. **Myth-busting / opinioni nette** (~20%) — "questo trend è marketing, non scienza", hot take su
-   prodotti virali — qui la componente "recensione onesta" è centrale, non decorativa
-4. **Demo/recensione prodotto specifico** (~20%, la fetta "sponsor-style" dichiarata) — test reale,
-   pro/contro onesti, mai solo positivi
-5. **Contenuto personale/vulnerabile** (~10% dedicato, ma presente anche trasversalmente negli altri
-   4) — giornate di pelle brutta, dubbi, percorso reale
+1. **Ossessioni a scadenza** (~16) — l'entusiasmo impulsivo del momento (un ingrediente, un
+   prodotto, un rituale), raccontato con intensità sproporzionata; include il formato **GRWM (get
+   ready with me)** come cornice naturale per mostrare l'ossessione in azione. I prodotti reali
+   compaiono qui come oggetto della fissazione, con fatti oggettivi (non esperienza simulata)
+2. **Rant anticonformista** (~12) — opinioni nette contro marketing/trend/claim gonfiati, hot take,
+   confronti prezzo/ingredienti — territorio di opinione libera, zero bisogno di aver "provato"
+   qualcosa
+3. **Assurdo/umorismo** (~9) — reazioni sproporzionate, paragoni fuori contesto, bit comici che
+   trattano la skincare con più dramma di quanto meriti
+4. **Interesse random ricorrente** (~6) — il suo hobby/ossessione non-skincare che torna ogni
+   tanto, dà tridimensionalità e crea un piccolo appuntamento fisso col pubblico
+5. **Estetica/mood del giorno** (~12, prevalentemente foto/carousel) — puro contenuto visivo,
+   varietà di outfit/location/color grading, prodotto come elemento di stile senza commento su
+   efficacia — qui il mondo visivo di Sienna si costruisce, non si spiega
 
 ## Formato e lunghezza (rivisto il 23/9, poi corretto lo stesso giorno per un tetto tecnico reale)
 
@@ -165,11 +208,11 @@ più clip insieme, complessità in più non necessaria per il ritmo settimanale)
 
 | Pilastro | Natura del contenuto | Durata reale (cap 30s Seedance / 15s Kling) |
 |---|---|---|
-| Demo/recensione prodotto | sponsor-style, hook veloce, reach | 15-30s |
-| Myth-busting/opinioni | hot-take, reach | 15-30s |
-| Routine/lifestyle | tutorial leggero | 20-30s |
-| Educazione ingredienti | educational, compresso rispetto all'ideale | 25-30s |
-| Personale/vulnerabile | storytelling | 20-30s |
+| Rant anticonformista | hot-take, hook veloce, reach | 15-30s |
+| Assurdo/umorismo | bit comico, reach | 15-25s |
+| Ossessioni a scadenza | GRWM/racconto dell'entusiasmo del momento | 20-30s |
+| Interesse random ricorrente | storytelling breve | 20-30s |
+| Estetica/mood del giorno | prevalentemente foto/carousel, poco video | — |
 
 **Costo reale a 720p** (verificato 23/9, `seedance_2_5`, `omni_reference`, audio on): ~7
 crediti/secondo, lineare. Una clip da 25s ≈ 175 crediti. A 3-5 video/settimana ≈ 525-875
@@ -254,11 +297,20 @@ da riusare/adattare in ogni script:
 - "This is the part where I'd normally lie to you and say it's perfect. It's not."
 - "Real talk—" (seguito da un'ammissione onesta o un dato)
 
-**Recensioni/demo (il punto sponsor-style, mai solo entusiasmo)**:
-- "The formula is genuinely good. The price is not. That's the whole review."
-- "It did what it said it would do, which honestly should not be as rare as it is."
-- "I wanted to hate this because everyone won't shut up about it. I don't hate it."
-- "Three stars. Would repurchase only on sale, and I'm telling you that for free."
+**Ossessione del momento (mai come esperienza fisica provata — sempre come fissazione/opinione)**:
+- "I am so normal about this ingredient right now. Completely normal."
+- "We're one week into the [prodotto] obsession. I'll let you know when it's over, historically that's about 10 days."
+- "$6 and it's a better formula than things that cost 40. I don't make the rules, I just read labels."
+- "This is going to be a whole personality trait for me until it isn't, so, enjoy it while it lasts."
+
+**Anticonformista (mai cattiva, ma senza filtri sulle opinioni)**:
+- "'Clean girl' isn't a skin type, it's a marketing team."
+- "Cannot be bought, I don't have a face to break out, I just have opinions and a search engine."
+- "Ask me why 'natural' means nothing on a label. I'll wait."
+
+**Assurdo/umorismo (dramma sproporzionato su cose minori)**:
+- "This dropper moved in slow motion and I felt things."
+- "Not me having a whole emotional arc about a moisturizer."
 
 **Chiusure/CTA (mai da comunicato stampa)**:
 - "That's it, that's the whole tip."
@@ -268,17 +320,22 @@ da riusare/adattare in ogni script:
 **Regole di scrittura per tutti gli script (da applicare quando si trasformano le 55 righe in
 prompt completi)**:
 - Frasi brevi, mai un periodo che spiega tre cose insieme
-- Almeno un'ammissione onesta/vulnerabile per script, anche nei Demo e Routine, non solo nel
-  pilastro Personale (vedi nota sui pilastri sopra)
+- **Mai simulare un'esperienza fisica con il prodotto** — niente "l'ho provato/mi ha dato/ho
+  notato dopo". Il prodotto resta un oggetto in scena o argomento di opinione/fatto oggettivo
+  (vedi "Valori non negoziabili" nel character bible)
 - Zero superlativi assoluti ("the best", "life-changing") salvo per prenderli in giro
 - Se non ha un'opinione netta su qualcosa, meglio non forzarla — la schiettezza selettiva è più
   credibile di un'opinione su tutto
 
-## Prodotti reali per le recensioni (verificati il 22/9 — mai inventare un prodotto o un claim)
+## Prodotti reali usati in scena (verificati il 22/9 — mai inventare un prodotto o un claim)
 
-Ogni riga "Demo" e le due righe "Myth" che citano un trend/prodotto specifico sono ancorate a un
-prodotto vero, con fatti verificati tramite ricerca — non un placeholder. Se in futuro si aggiungono
-altri concept di recensione, stesso principio: cercare prima, scrivere lo script dopo.
+Dopo il cambio di impostazione del 23/9 (vedi character bible), questi prodotti non sono più
+"recensiti" da un'esperienza fisica che Sienna non ha — compaiono come oggetto delle sue
+ossessioni a scadenza, dei rant anticonformisti (confronti prezzo/ingredienti), o semplicemente
+come prop nelle foto estetiche. I fatti sotto (prezzo, concentrazioni, pro/contro da fonti reali)
+restano utilizzabili negli script **come fatti oggettivi citati**, mai come "cosa mi è successo
+usandolo". Se in futuro si aggiungono altri prodotti, stesso principio: cercare prima, scrivere lo
+script dopo.
 
 1. **The Ordinary Niacinamide 10% + Zinc 1%** — $6, niente profumo/parabeni, ottimo per pelle grassa/pori.
    Pro: prezzo bassissimo per la concentrazione. Contro: il 10% può irritare pelli sensibili, non ideale su pelle secca.
@@ -344,84 +401,94 @@ altri concept di recensione, stesso principio: cercare prima, scrivere lo script
     rende meno efficace). Contro reale: troppo seccante per pelli sensibili, poco efficace su acne cistica
     profonda, contiene alcol e profumo.
 
-## Lista concept per la giornata di produzione (55)
+## Lista concept per la giornata di produzione (55) — riscritta il 23/9 sui nuovi pilastri
 
 Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Capelli | Concept/hook**
 
-### Routine / lifestyle (16)
+Nessuna riga descrive un'esperienza fisica vissuta da Sienna (niente "l'ho provato", "mi ha dato
+X", "dopo un mese ho notato") — vedi la regola nel character bible. Dove un prodotto compare, il
+suo ruolo è oggetto dell'ossessione/opinione/scena, mai soggetto di un test personale.
 
-1. Routine | Video 30s | L1 | O4 | H1 | **GRWM**: "My actual 5-step morning routine, no fluff" (+ "step 3 I skip half the time")
-2. Routine | Video 30s | L2 | O14 | H4 | "What my skin looks like before any product touches it"
-3. Routine | Foto | L4 | O9 | H2 | Scaffale con **CeraVe Moisturizing Cream, The Ordinary Niacinamide, Supergoop! Unseen Sunscreen** visibili, caption sulla routine serale
-4. Routine | Video 28s | L3 | O12 | H6 | "Skincare while my coffee brews"
-5. Routine | Video 30s | L5 | O6 | H8 | **GRWM sera**, passo-passo, "ngl some nights I just wash my face and go to bed"
-6. Routine | Foto | L6 | O13 | H10 | SPF applicata al tramonto, caption su costanza quotidiana
-7. Routine | Video 30s | L11 | — (avvolta in asciugamano) | capelli raccolti sotto asciugamano | "POV: skin after a good night's sleep"
-8. Routine | Video 30s | L12 | O1 | H3 | Come cambia la routine in inverno vs estate
-9. Routine | Foto | L1 | O16 | H9 | Formati da viaggio di **CeraVe Moisturizing Cream** e **The Ordinary Niacinamide**, caption su routine minimal
-10. Routine | Video 28s | L9 | O10 | H7 | "Skincare on days I actually leave the house"
-11. Routine | Video 30s | L2 | O4 | H5 | "Things I stopped doing to my skin"
-12. Routine | Foto | L13 | O17 | H11 | Solo bicchiere d'acqua in mano, nessun integratore mostrato/nominato (evitiamo claim su prodotti non verificati) — caption su idratazione e costanza
-13. Routine | Video 30s | L4 | O11 | H1 | "My 2-minute routine on lazy days"
-14. Routine | Video 30s | L10 | O9 | H2 | Unboxing con **Paula's Choice 2% BHA** e **Youth To The People Superfood Cleanser**
-15. Routine | Foto | L15 | O18 | H3 | Pelle al naturale prima di uscire, caption su fiducia senza trucco
-16. Routine | Video 30s | L7 | O5 | H10 | "Reapplying SPF in the car, don't judge"
+### Ossessioni a scadenza (16)
 
-### Educazione ingredienti (11)
+1. Ossessioni | Video 30s | L1 | O4 | H1 | "Day 3 of being insufferable about niacinamide" — **The Ordinary Niacinamide 10%+Zinc 1%**, $6, fatto: il 10% è una concentrazione alta, non ideale per pelli sensibili
+2. Ossessioni | Video 28s | L3 | O12 | H6 | **GRWM**: monologo ossessivo sul perché ha comprato tre doppioni dello stesso siero
+3. Ossessioni | Foto | L4 | O9 | H2 | Scaffale con **CeraVe Moisturizing Cream, The Ordinary Niacinamide, Supergoop! Unseen Sunscreen** allineati con cura maniacale, caption sull'ossessione del momento
+4. Ossessioni | Video 30s | L5 | O6 | H8 | "The retinoid obsession update: still going strong, my skincare shelf is not" — **The Ordinary Granactive Retinoid 2% Emulsion**, fatto oggettivo: più forte della versione in Squalane secondo l'INCI
+5. Ossessioni | Video 25s | L2 | O14 | H4 | "Explaining my $6 serum like it's a personality trait" — Niacinamide
+6. Ossessioni | Foto | L11 | O7 | H2 | **CeraVe Moisturizing Cream** tenuta come un trofeo, caption ironica sulle ceramidi spiegate
+7. Ossessioni | Video 30s | L12 | O1 | H3 | **GRWM sera**, monologo ossessivo su "the dropper technique" — **Paula's Choice 2% BHA**
+8. Ossessioni | Video 20s | L1 | O16 | H4 | "This is the part where I explain the zinc thing again" — Niacinamide+Zinc, tono da lezione con troppo entusiasmo
+9. Ossessioni | Foto | L15 | O18 | H3 | **Supergoop! Unseen Sunscreen** sempre in borsa, caption sulla fissazione per la riapplicazione
+10. Ossessioni | Video 28s | L5 | O13 | H11 | Rituale ossessivo passo-passo **Mario Badescu Drying Lotion** — NON si agita, si intinge il cotton fioc solo nel sedimento rosa sul fondo
+11. Ossessioni | Video 30s | L1 | O3 | H7 | "Laneige lip mask szn is back and I have no chill about it" — **Laneige Lip Sleeping Mask**
+12. Ossessioni | Foto | L9 | O13 | H11 | **Supergoop! Unseen Sunscreen** al parco, ossessione da riapplicazione ogni due ore
+13. Ossessioni | Video 22s | L2 | O6 | H8 | "The Bubble Skincare obsession that snuck up on me" — **Bubble Skincare Slam Dunk**, fatto onesto: non è un trattamento, solo idratante
+14. Ossessioni | Video 30s | L10 | O9 | H2 | Unboxing ossessivo di **Paula's Choice 2% BHA** e **Youth To The People Superfood Cleanser**
+15. Ossessioni | Foto | L13 | O17 | H11 | Formati da viaggio di **CeraVe** e **The Ordinary Niacinamide** disposti con cura maniacale
+16. Ossessioni | Video 28s | L4 | O11 | H1 | "Explaining Granactive Retinoid to my mirror like she asked"
 
-17. Ingredienti | Video 30s | L11 | O7 | H4 | Come funziona la niacinamide, in parole semplici
-18. Ingredienti | Video 30s | L5 | O3 | H9 | Errore comune: mischiare retinolo e vitamina C
-19. Ingredienti | Foto | L1 | O16 | H6 | Etichetta INCI reale di **The Ordinary Niacinamide** con evidenziatore, caption didattica
-20. Ingredienti | Video 30s | L2 | O6 | H8 | Perché l'SPF va usato anche in casa
-21. Ingredienti | Video 28s | L3 | O12 | H1 | Differenza tra esfoliante chimico e fisico
-22. Ingredienti | Video 28s | L4 | O9 | H2 | "The ingredient everyone's obsessed with right now, explained"
-23. Ingredienti | Foto | L12 | O1 | H5 | **CeraVe Moisturizing Cream** vs **Youth To The People Superfood Cleanser** a confronto, caption su come leggere le etichette
-24. Ingredienti | Video 30s | L11 | O17 | H7 | Come costruire una routine da zero, ordine corretto
-25. Ingredienti | Video 30s | L5 | O11 | H10 | Cos'è davvero la "barriera cutanea"
-26. Ingredienti | Video 25s | L1 | O7 | H3 | Mito: "più costoso = meglio"? Spiegazione breve
-27. Ingredienti | Foto | L9 | O13 | H11 | **Supergoop! Unseen Sunscreen** in borsa al parco (stesso prodotto del concept 44, la porta sempre con sé), caption su riapplicazione
+### Rant anticonformista (12)
 
-### Myth-busting / opinioni (11)
+17. Rant | Video 20s | L10 | O3 | H9 | "Trend che il marketing vende come miracolosi e non lo sono"
+18. Rant | Video 25s | L1 | O9 | H4 | Rant sul trend "slugging" — **Vaseline**, avvertimento vero secondo l'American Academy of Dermatology: non per pelle acneica
+19. Rant | Video 15s | L3 | O12 | H6 | Hot take: il "clean girl" skincare è più hype che scienza
+20. Rant | Foto | L12 | O1 | H2 | **Bubble Skincare Slam Dunk** — caption diretta: idrata bene ma non è un trattamento, punto
+21. Rant | Video 25s | L4 | O6 | H8 | Perché il "purging" non è sempre quello che i video virali dicono
+22. Rant | Video 18s | L5 | O17 | H1 | "Prodotti che il marketing ama e io no" — solo a parole, nessun prodotto specifico mostrato in scena
+23. Rant | Video 20s | L6 | O18 | H3 | Rant al tramonto su un consiglio virale di skincare
+24. Rant | Foto | L11 | O7 | H5 | **The Ordinary Niacinamide ($6)** vs **Glow Recipe Dew Drops (fascia alta)** — confronto prezzo/INCI, caption tagliente
+25. Rant | Video 22s | L2 | O14 | H7 | Perché "natural" non vuol dire automaticamente sicuro
+26. Rant | Video 15s | L13 | O11 | H10 | "Unpopular skincare opinion" formato rapido
+27. Rant | Video 30s | L1 | O9 | H11 | Rant con fonti su un mito virale specifico, tono da arringa
+28. Rant | Video 25s | L1 | O7 | H3 | "Più costoso = meglio"? Smontato con i numeri, senza pietà
 
-28. Myth | Video 20s | L10 | O3 | H9 | "Trend che non funzionano come TikTok dice"
-29. Myth | Video 25s | L1 | O9 | H4 | "I tried the viral slugging trend, honest results" — **Vaseline**, con il vero avvertimento dermatologico: non per pelle acneica
-30. Myth | Video 15s | L3 | O12 | H6 | Hot take: il "clean girl" skincare è più hype che scienza
-31. Myth | Foto | L12 | O1 | H2 | **Bubble Skincare Slam Dunk** — caption scettica ma onesta: idrata bene ma non è un trattamento
-32. Myth | Video 25s | L4 | O6 | H8 | Perché il "purging" non è sempre quello che pensi
-33. Myth | Video 18s | L5 | O17 | H1 | "Prodotti che TikTok ama ma io no" — solo a parole, nessun prodotto specifico mostrato in scena
-34. Myth | Video 20s | L6 | O18 | H3 | Reagisce a un consiglio virale di skincare, al tramonto
-35. Myth | Foto | L11 | O7 | H5 | **The Ordinary Niacinamide ($6)** vs **Glow Recipe Dew Drops (fascia alta)** — confronto prezzo/efficacia reale, caption diretta
-36. Myth | Video 22s | L2 | O14 | H7 | Perché "natural" non vuol dire automaticamente sicuro
-37. Myth | Video 15s | L13 | O11 | H10 | "Unpopular skincare opinion" formato rapido
-38. Myth | Video 30s | L1 | O9 | H11 | Debunk di un mito virale specifico, con fonti
+### Assurdo/umorismo (9)
 
-### Demo/recensione prodotto (11)
+29. Assurdo | Video 20s | L7 | O5 | H10 | Dramma teatrale per un contagocce lento — "I felt things"
+30. Assurdo | Video 18s | L2 | O4 | H5 | Monologo assurdo su una crema come fosse una rottura sentimentale
+31. Assurdo | Foto | L6 | O13 | H10 | Posa da copertina di rivista con un vasetto di **Vaseline**, caption ironica sul contrasto
+32. Assurdo | Video 25s | L8 | O10 | H7 | Paragone assurdo tra la sua routine skincare e un allenamento in palestra
+33. Assurdo | Video 15s | L14 | O5 | H12 | "POV: reagisco a un'etichetta INCI come se fosse un plot twist"
+34. Assurdo | Foto | L3 | O12 | H1 | Espressione shockata guardando un prezzo, nessun prodotto specifico nominato
+35. Assurdo | Video 20s | L1 | O16 | H9 | Sketch veloce: si fa un'autointervista assurda sul rituale serale
+36. Assurdo | Video 22s | L9 | O10 | H7 | Racconta con dramma sproporzionato un banale contrattempo (la crema finita nel momento sbagliato)
+37. Assurdo | Foto | L2 | O14 | H4 | Espressione esasperata al risveglio, caption comica, nessun prodotto in scena
 
-39. Demo | Video 25s | L4 | O16 | H4 | **The Ordinary Niacinamide 10%+Zinc 1%** — prima applicazione, reazione onesta
-40. Demo | Video 20s | L5 | O1 | H9 | **The Ordinary Granactive Retinoid 2%** vs **Mario Badescu Drying Lotion** — chiarisce la differenza: uno è un trattamento anti-età da usare su tutto il viso, l'altro uno spot treatment mirato solo sui brufoli, non sono intercambiabili
-41. Demo | Foto | L11 | O7 | H2 | **CeraVe Moisturizing Cream** — texture ricca in primo piano, ceramidi spiegate
-42. Demo | Video 30s | L1 | O6 | H6 | **Bubble Skincare Slam Dunk** — routine completa economica con questo come protagonista
-43. Demo | Video 18s | L12 | O9 | H1 | **The Ordinary Granactive Retinoid 2% Emulsion**, un mese dopo — contro reale: più forte della versione in Squalane, ha dato irritazione iniziale nonostante il nome "delicato"
-44. Demo | Foto | L15 | O18 | H3 | **Supergoop! Unseen Sunscreen** in borsa prima di uscire, caption su riapplicazione
-45. Demo | Video 22s | L4 | O17 | H8 | **Glow Recipe Watermelon Dew Drops** — pro/contro onesti (profumo forte, risultati non per tutti)
-46. Demo | Video 15s | L2 | O11 | H5 | **Paula's Choice 2% BHA** — reazione al primo utilizzo
-47. Demo | Foto | L3 | O12 | H10 | **Youth To The People Superfood Cleanser** — caption sulla formulazione "natural-leaning"
-48. Demo | Video 20s | L1 | O3 | H7 | **Laneige Lip Sleeping Mask** — "would I repurchase this?" onesto, non scontato
-49. Demo | Video 28s | L5 | O13 | H11 | **Mario Badescu Drying Lotion** — il rituale iconico passo-passo: NON si agita, si intinge il cotton fioc solo nel sedimento rosa sul fondo e si applica a puntini prima di dormire
+### Interesse random ricorrente (6)
 
-### Personale/vulnerabile (6, ma intrecciato anche sopra)
+38. Random | Video 25s | L6 | O13 | H10 | Torna il suo hobby stravagante ricorrente, con un commento di striscio sulla skincare
+39. Random | Foto | L9 | O13 | H11 | Momento dedicato all'hobby ricorrente, ambientazione esterna, nessun prodotto in scena
+40. Random | Video 20s | L7 | O5 | H10 | Racconta un aneddoto legato all'interesse random mentre è in auto
+41. Random | Video 28s | L3 | O12 | H1 | L'hobby ricorrente diventa la scusa per procrastinare la routine serale
+42. Random | Foto | L14 | O5 | H12 | Still life legato all'interesse ricorrente, tono nostalgico
+43. Random | Video 22s | L8 | O10 | H7 | Confronta scherzosamente l'hobby ricorrente con "l'ossessione skincare del mese"
 
-50. Personale | Video 28s | L2 | O14 | H4 | "Bad skin day, being honest about it"
-51. Personale | Foto | L11 | — (viso pulito, senza trucco) | H12 | Pelle al naturale senza filtro, caption su accettazione
-52. Personale | Video 30s | L5 | O6 | H8 | Come gestisce uno stress-breakout
-53. Personale | Video 30s | L9 | O13 | H7 | Il suo percorso con l'acne da adolescente, breve racconto
-54. Personale | Foto | L12 | O4 | H1 | Specchio, caption su costanza e pazienza con la pelle
-55. Personale | Video 28s | L1 | O9 | H2 | "What actually helped me, not what I wish worked"
+### Estetica/mood del giorno (12, prevalentemente foto/carousel)
+
+44. Estetica | Foto | L2 | O15 | H9 | Mood cupo/editoriale, luce del mattino tra le tende, nessuna caption informativa
+45. Estetica | Foto | L6 | O18 | H3 | Mood luminoso/pop al tramonto, outfit da uscita
+46. Estetica | Foto | L10 | O6 | H8 | Mood caotico da cameretta, plaid e candela accesa
+47. Estetica | Carosello 3 foto | L1 | O2 | H4 | Piccola sequenza GRWM mattina, solo visivo, nessuna spiegazione
+48. Estetica | Foto | L12 | O1 | H5 | Toeletta, luci allo specchio, still life con un prodotto come elemento di stile (nessun commento su efficacia)
+49. Estetica | Foto | L7 | O5 | H10 | Interno auto, specchietto abbassato, mood "pronta per uscire"
+50. Estetica | Foto | L8 | O10 | H7 | Spogliatoio palestra, mood energico, capelli raccolti
+51. Estetica | Carosello 3 foto | L11 | O7 | H2 | Sequenza in bagno con luce naturale, dettagli texture/pelle senza parlare di prodotti
+52. Estetica | Foto | L14 | O5 | H12 | Ingresso/veranda, luce del mattino, mood quieto
+53. Estetica | Foto | L3 | O12 | H1 | Cucina, piano in marmo, still life con pianta aromatica, mood casalingo
+54. Estetica | Foto | L15 | O18 | H3 | Specchio bagno d'hotel, mood da viaggio
+55. Estetica | Carosello 4 foto | L2 | O14 | H4 | Sequenza risveglio→pronta, arco narrativo solo visivo
 
 ---
 
 ## Prossimi passi
 
+- [x] **Ripensato il personaggio da "recensore onesta" a "eclettica/personalità-first" (23/9)**:
+      dopo aver notato che i profili AI di successo (Miquela, Imma) vincono per identità visiva e
+      personalità, non per credibilità da recensione — e che un'AI dichiarata non può comunque
+      fingere di aver provato fisicamente un prodotto — character bible, pilastri e i 55 concept
+      sono stati riscritti da zero su questa base. Vedi le note "cambio di impostazione" nelle
+      rispettive sezioni sopra per il ragionamento completo.
 - [x] ~~Aprire il pass illimitato Kling 3.0~~ — **deciso il 23/9: niente pass, si produce a crediti
       normali** al ritmo di 3-5 video/settimana (dati reali: è il volume ottimale per la crescita,
       non serve di più) invece che 55 in un giorno solo. Permette di curare ogni video singolarmente
