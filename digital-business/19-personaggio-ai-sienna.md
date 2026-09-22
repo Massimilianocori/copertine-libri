@@ -61,6 +61,19 @@ istruttivi; il 4° ha funzionato. Regole emerse, da rispettare per **tutti** i 5
    il movimento diretto nel prompt (es. "si gira verso la camera nei primi 2 secondi", vedi sezione
    sul cambio di inquadratura sopra) — un solo piano continuo, non tagli veri. Per contenuti che
    richiedono davvero più inquadrature separate in un video, usare Seedance 2.5.
+10. **Seedance 2.5 con la tecnica storyboard funziona, verificato il 23/9**: stessa storyboard di
+    Sienna+Ordinary Niacinamide passata a `seedance_2_5` (`mode: "omni_reference"`, 15s, 1080p,
+    audio on) invece che a Kling — risultato nettamente superiore, formato verticale corretto
+    rispettato, macro fotorealistiche (dettaglio pelle a livello di poro sul polpastrello). Due
+    difetti minori rilevati nel frame della pressione del bulbo: (a) il livello del liquido nel
+    flacone scende in modo poco realistico (troppo, per una sola goccia), (b) l'etichetta del
+    flacone diventa testo confuso invece di "The Ordinary" in quel frame specifico. Rientra nello
+    scarto normale atteso in produzione (20-40%), non un fallimento strutturale — probabilmente
+    basta rigenerare la singola clip in produzione, non serve ripensare l'approccio.
+11. **Costo Seedance 2.5**: 70 crediti per 10s a 720p (contro 20 di Kling std) — circa 3,5x più
+    caro a generazione. Nessun pass illimitato per Seedance risulta nel listino visibile tramite
+    questo strumento (solo Kling 3.0 e Nano Banana hanno "7-Day Unlimited"); Massimiliano riporta
+    di aver trovato sul sito un'offerta Seedance illimitata a 120€/24h non visibile da qui.
 
 ---
 
