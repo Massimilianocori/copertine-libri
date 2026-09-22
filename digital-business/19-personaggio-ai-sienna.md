@@ -74,6 +74,24 @@ istruttivi; il 4° ha funzionato. Regole emerse, da rispettare per **tutti** i 5
     caro a generazione. Nessun pass illimitato per Seedance risulta nel listino visibile tramite
     questo strumento (solo Kling 3.0 e Nano Banana hanno "7-Day Unlimited"); Massimiliano riporta
     di aver trovato sul sito un'offerta Seedance illimitata a 120€/24h non visibile da qui.
+12. **Seedance 2.0 (65€) vs Seedance 2.5 (120€) — verificato il 23/9 tramite specifiche modello,
+    non con un test video reale**: 2.0 ha gli stessi ruoli media di 2.5 (`start_image`, `end_image`,
+    `image_references`, `video_references`, `audio_references`), quindi la tecnica storyboard
+    con riferimenti multipli è disponibile in linea di principio anche su 2.0, non è esclusiva
+    di 2.5. Differenze reali che contano per Sienna: (a) **2.0 è limitato a 15s per generazione,
+    2.5 arriva a 30s** — esattamente il cap che oggi ci ha già costretto a tagliare Routine/
+    Ingredienti/Personale da 45-90s a 20-30s; con 2.0 tornerebbero tutti a un tetto di 15s, come
+    Kling; (b) **2.0 non ha le modalità `video_edit`/`video_extension`** che 2.5 offre (2.0 non ha
+    nemmeno il parametro `mode` — niente `omni_reference` esplicito, i riferimenti multipli si
+    passano comunque ma senza quella modalità dedicata), quindi manca lo strumento per allungare
+    una clip già fatta oltre il suo limite; (c) 2.0 guadagna 4K e una modalità "fast" più economica,
+    entrambe irrilevanti dato che produciamo a 720p. **Conclusione**: 65€ non è semplicemente lo
+    stesso prodotto a un prezzo più basso — è un tetto di durata più stretto (15s, come Kling) e
+    nessun modo nativo di estendere una clip. Dato che il piano attuale è comunque produzione a
+    crediti standard e non pass illimitato (vedi punto 11 e sezione "Formato e lunghezza"), la
+    scelta tra i due pass da comprare non si pone nell'immediato; se in futuro si riconsiderasse
+    un pass illimitato, 2.5 resta la scelta corretta per il contenuto con inquadrature multiple
+    più lunghe di 15s, non 2.0.
 
 ---
 
