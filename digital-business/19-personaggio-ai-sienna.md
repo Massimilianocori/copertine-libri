@@ -320,6 +320,13 @@ Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Capelli | Co
       potrebbero cambiare
 - [ ] Durante la produzione: controllo qualità per coerenza volto e assenza di artefatti,
       aspettarsi scarto 20-40%
+- [ ] **Attenzione extra sulle mani** (verificato 23/9): il video di riferimento usato per Sienna era
+      generato con Seedance 2.5, ma in produzione useremo Kling 3.0 (per il pass illimitato). Kling 3.0
+      è forte su fotorealismo/coerenza volto (migliorato molto rispetto a 2.6), ma ha un difetto noto e
+      documentato su mani/dita/oggetti in mano durante il movimento ("floating arms, morphing hands").
+      Molti concept della lista sono esattamente "tiene il prodotto", "applica sul viso", "intinge il
+      cotton fioc" — quindi scarto atteso più alto del solito su questi, controllare le mani per prime
+      in fase di QC, non solo il volto.
 - [ ] Definire Personaggio 2 (non ancora iniziato)
 
 ---
