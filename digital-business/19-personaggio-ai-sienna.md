@@ -131,22 +131,33 @@ la pelle fa quello che vuole lei"), non solo confinato al 10% originale.
 5. **Contenuto personale/vulnerabile** (~10% dedicato, ma presente anche trasversalmente negli altri
    4) — giornate di pelle brutta, dubbi, percorso reale
 
-## Formato e lunghezza (rivisto il 23/9 con dati reali Instagram, non più un mix generico)
+## Formato e lunghezza (rivisto il 23/9, poi corretto lo stesso giorno per un tetto tecnico reale)
 
-Anche con abbonamento illimitato (costo di generazione uguale a 30s o 1 minuto), la lunghezza va
-decisa per performance sui social, non a caso. Dati reali (studio su 6 milioni di Reels, fonti in
-fondo): **45-60s è la fascia con più visualizzazioni ed engagement in assoluto**; sotto i 30s le
-view/engagement sono circa dimezzate ma il completamento è più alto (buono per reach/trend); i
-tutorial/contenuti educational sopra i 60s generano più salvataggi e condivisioni. Quindi **la
-durata dipende dal tipo di contenuto**, non da un mix fisso uguale per tutti:
+**Decisione di produzione (23/9)**: niente pass illimitato — si produce a crediti normali,
+**720p** (non 1080p, IG comprime comunque tutto in upload — stesso ragionamento già fatto per
+Kling), al ritmo di 3-5 video/settimana curati singolarmente, non 55 in un giorno solo.
 
-| Pilastro | Natura del contenuto | Durata |
+Dati reali (studio su 6 milioni di Reels, fonti in fondo) dicono che 45-60s è la fascia con più
+engagement e che l'educational sopra i 60s genera più salvataggi — **ma questo si scontra con un
+tetto tecnico reale**: **Seedance 2.5 non supera i 30s per singola generazione, Kling 3.0 non
+supera i 15s** (verificato: chiedere 60s a Seedance viene silenziosamente ridotto a 30s). Quindi
+la durata "ideale" da dati Instagram non è sempre raggiungibile in una generazione sola — si
+cappa al massimo tecnico, senza inseguire i 45-90s per gli approfondimenti (richiederebbe cucire
+più clip insieme, complessità in più non necessaria per il ritmo settimanale):
+
+| Pilastro | Natura del contenuto | Durata reale (cap 30s Seedance / 15s Kling) |
 |---|---|---|
 | Demo/recensione prodotto | sponsor-style, hook veloce, reach | 15-30s |
 | Myth-busting/opinioni | hot-take, reach | 15-30s |
-| Routine/lifestyle | tutorial leggero | 30-60s |
-| Educazione ingredienti | vero educational, salvataggi | 45-90s |
-| Personale/vulnerabile | storytelling | 30-60s |
+| Routine/lifestyle | tutorial leggero | 20-30s |
+| Educazione ingredienti | educational, compresso rispetto all'ideale | 25-30s |
+| Personale/vulnerabile | storytelling | 20-30s |
+
+**Costo reale a 720p** (verificato 23/9, `seedance_2_5`, `omni_reference`, audio on): ~7
+crediti/secondo, lineare. Una clip da 25s ≈ 175 crediti. A 3-5 video/settimana ≈ 525-875
+crediti/settimana ≈ 26-44€/settimana ≈ 105-175€/mese — molto meno del pass a 120€/24h, e permette
+di scartare/rigenerare le singole clip che non riescono (come il difetto del contagocce del primo
+test) senza sprecare un pass a tempo.
 
 - **30-40% del totale in foto/carousel**, non solo video, per varietà e velocità di produzione
 
@@ -321,35 +332,35 @@ Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Capelli | Co
 
 ### Routine / lifestyle (16)
 
-1. Routine | Video 45s | L1 | O4 | H1 | **GRWM**: "My actual 5-step morning routine, no fluff" (+ "step 3 I skip half the time")
+1. Routine | Video 30s | L1 | O4 | H1 | **GRWM**: "My actual 5-step morning routine, no fluff" (+ "step 3 I skip half the time")
 2. Routine | Video 30s | L2 | O14 | H4 | "What my skin looks like before any product touches it"
 3. Routine | Foto | L4 | O9 | H2 | Scaffale con **CeraVe Moisturizing Cream, The Ordinary Niacinamide, Supergoop! Unseen Sunscreen** visibili, caption sulla routine serale
-4. Routine | Video 35s | L3 | O12 | H6 | "Skincare while my coffee brews"
-5. Routine | Video 55s | L5 | O6 | H8 | **GRWM sera**, passo-passo, "ngl some nights I just wash my face and go to bed"
+4. Routine | Video 28s | L3 | O12 | H6 | "Skincare while my coffee brews"
+5. Routine | Video 30s | L5 | O6 | H8 | **GRWM sera**, passo-passo, "ngl some nights I just wash my face and go to bed"
 6. Routine | Foto | L6 | O13 | H10 | SPF applicata al tramonto, caption su costanza quotidiana
 7. Routine | Video 30s | L11 | — (avvolta in asciugamano) | capelli raccolti sotto asciugamano | "POV: skin after a good night's sleep"
-8. Routine | Video 50s | L12 | O1 | H3 | Come cambia la routine in inverno vs estate
+8. Routine | Video 30s | L12 | O1 | H3 | Come cambia la routine in inverno vs estate
 9. Routine | Foto | L1 | O16 | H9 | Formati da viaggio di **CeraVe Moisturizing Cream** e **The Ordinary Niacinamide**, caption su routine minimal
-10. Routine | Video 35s | L9 | O10 | H7 | "Skincare on days I actually leave the house"
+10. Routine | Video 28s | L9 | O10 | H7 | "Skincare on days I actually leave the house"
 11. Routine | Video 30s | L2 | O4 | H5 | "Things I stopped doing to my skin"
 12. Routine | Foto | L13 | O17 | H11 | Solo bicchiere d'acqua in mano, nessun integratore mostrato/nominato (evitiamo claim su prodotti non verificati) — caption su idratazione e costanza
-13. Routine | Video 40s | L4 | O11 | H1 | "My 2-minute routine on lazy days"
-14. Routine | Video 45s | L10 | O9 | H2 | Unboxing con **Paula's Choice 2% BHA** e **Youth To The People Superfood Cleanser**
+13. Routine | Video 30s | L4 | O11 | H1 | "My 2-minute routine on lazy days"
+14. Routine | Video 30s | L10 | O9 | H2 | Unboxing con **Paula's Choice 2% BHA** e **Youth To The People Superfood Cleanser**
 15. Routine | Foto | L15 | O18 | H3 | Pelle al naturale prima di uscire, caption su fiducia senza trucco
 16. Routine | Video 30s | L7 | O5 | H10 | "Reapplying SPF in the car, don't judge"
 
 ### Educazione ingredienti (11)
 
-17. Ingredienti | Video 60s | L11 | O7 | H4 | Come funziona la niacinamide, in parole semplici
-18. Ingredienti | Video 50s | L5 | O3 | H9 | Errore comune: mischiare retinolo e vitamina C
+17. Ingredienti | Video 30s | L11 | O7 | H4 | Come funziona la niacinamide, in parole semplici
+18. Ingredienti | Video 30s | L5 | O3 | H9 | Errore comune: mischiare retinolo e vitamina C
 19. Ingredienti | Foto | L1 | O16 | H6 | Etichetta INCI reale di **The Ordinary Niacinamide** con evidenziatore, caption didattica
-20. Ingredienti | Video 55s | L2 | O6 | H8 | Perché l'SPF va usato anche in casa
-21. Ingredienti | Video 50s | L3 | O12 | H1 | Differenza tra esfoliante chimico e fisico
-22. Ingredienti | Video 45s | L4 | O9 | H2 | "The ingredient everyone's obsessed with right now, explained"
+20. Ingredienti | Video 30s | L2 | O6 | H8 | Perché l'SPF va usato anche in casa
+21. Ingredienti | Video 28s | L3 | O12 | H1 | Differenza tra esfoliante chimico e fisico
+22. Ingredienti | Video 28s | L4 | O9 | H2 | "The ingredient everyone's obsessed with right now, explained"
 23. Ingredienti | Foto | L12 | O1 | H5 | **CeraVe Moisturizing Cream** vs **Youth To The People Superfood Cleanser** a confronto, caption su come leggere le etichette
-24. Ingredienti | Video 70s | L11 | O17 | H7 | Come costruire una routine da zero, ordine corretto
-25. Ingredienti | Video 60s | L5 | O11 | H10 | Cos'è davvero la "barriera cutanea"
-26. Ingredienti | Video 45s | L1 | O7 | H3 | Mito: "più costoso = meglio"? Spiegazione breve
+24. Ingredienti | Video 30s | L11 | O17 | H7 | Come costruire una routine da zero, ordine corretto
+25. Ingredienti | Video 30s | L5 | O11 | H10 | Cos'è davvero la "barriera cutanea"
+26. Ingredienti | Video 25s | L1 | O7 | H3 | Mito: "più costoso = meglio"? Spiegazione breve
 27. Ingredienti | Foto | L9 | O13 | H11 | **Supergoop! Unseen Sunscreen** in borsa al parco (stesso prodotto del concept 44, la porta sempre con sé), caption su riapplicazione
 
 ### Myth-busting / opinioni (11)
@@ -382,30 +393,33 @@ Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Capelli | Co
 
 ### Personale/vulnerabile (6, ma intrecciato anche sopra)
 
-50. Personale | Video 35s | L2 | O14 | H4 | "Bad skin day, being honest about it"
+50. Personale | Video 28s | L2 | O14 | H4 | "Bad skin day, being honest about it"
 51. Personale | Foto | L11 | — (viso pulito, senza trucco) | H12 | Pelle al naturale senza filtro, caption su accettazione
 52. Personale | Video 30s | L5 | O6 | H8 | Come gestisce uno stress-breakout
-53. Personale | Video 45s | L9 | O13 | H7 | Il suo percorso con l'acne da adolescente, breve racconto
+53. Personale | Video 30s | L9 | O13 | H7 | Il suo percorso con l'acne da adolescente, breve racconto
 54. Personale | Foto | L12 | O4 | H1 | Specchio, caption su costanza e pazienza con la pelle
-55. Personale | Video 35s | L1 | O9 | H2 | "What actually helped me, not what I wish worked"
+55. Personale | Video 28s | L1 | O9 | H2 | "What actually helped me, not what I wish worked"
 
 ---
 
 ## Prossimi passi
 
-- [ ] Aprire il pass illimitato Kling 3.0 1080p (35€/24h) su Higgsfield quando pronti a produrre
-- [ ] Trasformare ogni riga sopra in un prompt completo (ancorato all'elemento `skincare-creator`)
-      solo al momento della produzione, non prima — evita di scrivere 55 prompt completi che
-      potrebbero cambiare
+- [x] ~~Aprire il pass illimitato Kling 3.0~~ — **deciso il 23/9: niente pass, si produce a crediti
+      normali** al ritmo di 3-5 video/settimana (dati reali: è il volume ottimale per la crescita,
+      non serve di più) invece che 55 in un giorno solo. Permette di curare ogni video singolarmente
+      e scartare/rigenerare senza sprecare un pass a tempo. Modello: Seedance 2.5 con la tecnica
+      storyboard per i concept con meccanica prodotto precisa (Demo, alcuni Ingredienti/Routine),
+      Kling 3.0 per il resto (parlato semplice, piano singolo). Sempre **720p**, mai 1080p/pro/4k.
+- [ ] Trasformare ogni riga sopra in un prompt completo (storyboard 8-slot per Seedance, prompt
+      singolo per Kling) — farlo con calma prima di produrre, non improvvisare durante, per evitare
+      errori costosi come quelli scoperti nei test del 23/9 (medias mancanti, aspect ratio ignorato)
 - [ ] Durante la produzione: controllo qualità per coerenza volto e assenza di artefatti,
       aspettarsi scarto 20-40%
-- [ ] **Attenzione extra sulle mani** (verificato 23/9): il video di riferimento usato per Sienna era
-      generato con Seedance 2.5, ma in produzione useremo Kling 3.0 (per il pass illimitato). Kling 3.0
-      è forte su fotorealismo/coerenza volto (migliorato molto rispetto a 2.6), ma ha un difetto noto e
-      documentato su mani/dita/oggetti in mano durante il movimento ("floating arms, morphing hands").
-      Molti concept della lista sono esattamente "tiene il prodotto", "applica sul viso", "intinge il
-      cotton fioc" — quindi scarto atteso più alto del solito su questi, controllare le mani per prime
-      in fase di QC, non solo il volto.
+- [ ] **Attenzione extra sulle mani con Kling** (verificato 23/9): Kling 3.0 ha un difetto noto e
+      documentato su mani/dita/oggetti in mano durante il movimento ("floating arms, morphing
+      hands"). Per i concept Kling che comunque coinvolgono un prodotto in mano, controllare le mani
+      per prime in fase di QC, non solo il volto. Seedance con la tecnica storyboard non ha mostrato
+      questo problema nei test.
 - [ ] Definire Personaggio 2 (non ancora iniziato)
 
 ---
