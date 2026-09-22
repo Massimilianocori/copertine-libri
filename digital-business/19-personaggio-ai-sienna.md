@@ -121,9 +121,13 @@ altri concept di recensione, stesso principio: cercare prima, scrivere lo script
    Pro: risultati clinicamente provati in 48h su pori/texture. Contro: prezzo alto, leggero odore residuo per alcuni.
    **Foto reali salvate**: elemento `paulaschoice-bha` (id `24d2c6d3-a437-4213-a4c1-c5104e76fa46`) —
    vista frontale, vista da dietro, in mano con texture sul palmo.
-3. **The Ordinary Granactive Retinoid 2% in Squalane** — fascia economica The Ordinary. Retinoide più
-   delicato in commercio. Pro: bassa irritazione anche a inizio uso. Contro: assorbe lentamente, shelf-life
-   corta (3 mesi dopo apertura), possibile purging nei primi mesi.
+3. **The Ordinary Granactive Retinoid 2% Emulsion** (NON la versione "in Squalane" — packaging diverso,
+   verificato il 23/9 dalle foto reali) — 0,2% Hydroxypinacolone Retinoate + retinolo incapsulato,
+   arricchito con glicerina, texture cremosa/latte non oleosa, assorbe in pochi secondi lasciando finish
+   satinato. Pro: risultati su pelle luminosa/pori/linee sottili senza desquamazione per la maggior parte
+   degli utenti. Contro reale: **più forte della versione in Squalane** a parità di dicitura "2%" — può
+   irritare pelli sensibili più di quanto ci si aspetti dal nome.
+   **Foto reali salvate**: elemento `ordinary-granactive-emulsion` (id `08c56ff0-9e25-4e9b-8194-db6b1f79504f`).
 4. **CeraVe Moisturizing Cream** — $18-20, 3 ceramidi + acido ialuronico + MVE technology. Pro: prodotto
    "cult" della community skincare, adatto quasi a tutti i tipi di pelle. Contro: texture ricca, poco adatta
    sotto trucco per chi ha pelle grassa.
@@ -207,7 +211,7 @@ Formato per riga: **Pilastro | Formato/durata | Location | Outfit | Capelli | Co
 40. Demo | Video 15s | L5 | O1 | H9 | **The Ordinary Granactive Retinoid 2%** vs **Differin Adapalene 0.1%** — confronto reale tra i due retinoidi
 41. Demo | Foto | L11 | O7 | H2 | **CeraVe Moisturizing Cream** — texture ricca in primo piano, ceramidi spiegate
 42. Demo | Video 30s | L1 | O6 | H6 | **Bubble Skincare Slam Dunk** — routine completa economica con questo come protagonista
-43. Demo | Video 12s | L12 | O9 | H1 | **The Ordinary Granactive Retinoid 2%**, un mese dopo — contro reale: assorbe lento, shelf-life corta
+43. Demo | Video 12s | L12 | O9 | H1 | **The Ordinary Granactive Retinoid 2% Emulsion**, un mese dopo — contro reale: più forte della versione in Squalane, ha dato irritazione iniziale nonostante il nome "delicato"
 44. Demo | Foto | L15 | O18 | H3 | **La Roche-Posay Anthelios** in borsa prima di uscire, caption su riapplicazione
 45. Demo | Video 18s | L4 | O17 | H8 | **Glow Recipe Watermelon Dew Drops** — pro/contro onesti (profumo forte, risultati non per tutti)
 46. Demo | Video 10s | L2 | O11 | H5 | **Paula's Choice 2% BHA** — reazione al primo utilizzo
