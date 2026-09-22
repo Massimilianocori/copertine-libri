@@ -149,9 +149,9 @@ altri concept di recensione, stesso principio: cercare prima, scrivere lo script
    normative), $38-44, filtri chimici (avobenzone 3%, octisalate 5%, homosalate 10%). Pro reale: finish
    completamente invisibile anche su pelli scure, texture gel leggera, ottima base trucco. Contro reale:
    prezzo alto, può pizzicare gli occhi, contiene irritanti comuni senza benefici aggiuntivi per la pelle.
-   **Foto reali salvate**: elemento `supergoop-unseen-sunscreen` (id `9f6059b9-ed4b-4e16-834f-3e4902061c9f`) —
-   tubo su sfondo bianco. Esclusa una seconda foto (swirl di texture) perché l'etichetta risultava speculare/
-   capovolta.
+   **Foto reali salvate**: elemento `supergoop-unseen-sunscreen-1` (id `3758938a-112d-4620-ad50-be28683a9f05`) —
+   tubo su sfondo bianco, e swirl di texture dal tubo (la seconda foto era capovolta, corretta con rotazione
+   180° prima di salvarla).
 8. **Youth To The People Superfood Cleanser** — detergente delicato (tensioattivi da cocco, non solfati
    aggressivi), kale/spinaci/tè verde. Pro: best-seller reale da Sephora, adatto a pelle sensibile. Contro:
    gli antiossidanti vegetali si degradano in fretta nella formula, contiene comunque profumo/conservanti.
