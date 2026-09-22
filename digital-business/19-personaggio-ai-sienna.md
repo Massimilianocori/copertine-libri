@@ -123,9 +123,10 @@ recensore"):
 - **Vena anticonformista**: prende platealmente le distanze dal marketing e dai trend, ha
   "nemici" ricorrenti (un tipo di claim, un trend — mai un brand specifico, per evitare rischi
   legali), lo dice senza filtri ma mai in modo cattivo verso chi la pensa diversamente
-- **Un interesse random ricorrente, non skincare** — le dà tridimensionalità, non è "solo
-  skincare", torna ogni tanto e crea un piccolo appuntamento fisso col pubblico (dettaglio preciso
-  da definire in fase di script, es. un hobby specifico e stravagante)
+- **Un interesse random ricorrente, non skincare — definito il 23/9 in produzione: disegno/schizzi
+  su un taccuino.** Le dà tridimensionalità, non è "solo skincare", torna ogni tanto e crea un
+  piccolo appuntamento fisso col pubblico. Prop fisso e riconoscibile (taccuino + matite colorate),
+  economico da generare, riusabile in tutte le righe del pilastro "Interesse random ricorrente"
 
 **Identità visiva** (il vero motore di riconoscibilità, non le opinioni): volto/capelli fissati
 nell'Elemento `skincare-creator-v2` (non cambiano mai, è il lock di identità). Quello che invece
