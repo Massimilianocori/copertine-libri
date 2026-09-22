@@ -149,6 +149,8 @@ altri concept di recensione, stesso principio: cercare prima, scrivere lo script
 8. **Youth To The People Superfood Cleanser** — detergente delicato (tensioattivi da cocco, non solfati
    aggressivi), kale/spinaci/tè verde. Pro: best-seller reale da Sephora, adatto a pelle sensibile. Contro:
    gli antiossidanti vegetali si degradano in fretta nella formula, contiene comunque profumo/conservanti.
+   **Foto reali salvate**: elemento `youth-to-the-people-cleanser` (id `d8f45538-fad8-44ba-aa63-ded0fc7cd84b`) —
+   flacone con dispenser + scatola, e flacone singolo, su sfondo bianco.
 9. **Vaseline (petrolatum puro)** — economicissimo (~$5). Alla base del trend "slugging": i dermatologi
    confermano che riduce davvero la perdita d'acqua transepidermica fino al 98%, ma **sconsigliato su pelle
    incline all'acne** secondo l'American Academy of Dermatology — buon equilibrio pro/contro reale.
