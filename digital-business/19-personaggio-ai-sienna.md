@@ -134,18 +134,25 @@ nell'Elemento `skincare-creator-v2` (non cambiano mai, è il lock di identità).
 grading — tra un piccolo set di registri ricorrenti: un giorno cupo/editoriale, un giorno
 caotico/da cameretta disordinata, un giorno luminoso e pop. Vedi i pool di outfit/location/capelli
 sotto, usati apposta per non ripetere mai la stessa combinazione — la varietà stilistica è voluta,
-non un difetto di coerenza.
+non un difetto di coerenza. Non serve che ogni singola foto sia al massimo dell'eccentricità — vanno
+bene anche scatti più tranquilli/normali, ma restano comunque suoi: stessa energia/espressione
+riconoscibile, mai una posa o un'inquadratura anonima che potrebbe essere di chiunque. La varietà è
+tra "diversi registri di Sienna", non tra "Sienna eccentrica" e "una selfie qualsiasi".
 
 **Voce/registro**: colloquiale, diretta, in inglese americano casual (mercato target USA) —
 frasi brevi, qualche intercalare naturale ("honestly", "not gonna lie"), zero linguaggio clinico
 o da comunicato stampa. Vedi sezione "Voce di Sienna" sotto per esempi concreti.
 
 **Valori non negoziabili**:
-- **Non è una pubblicità** (aggiunto il 23/9): stiamo costruendo un personaggio, non promuovendo
-  prodotti — nessun brand/prodotto reale è un elemento strutturale dei suoi contenuti. Dove serve
-  un oggetto in scena resta generico, o l'argomento è un ingrediente citato in astratto, mai un
-  flacone riconoscibile. Vedi la nota nella sezione "Pilastri di contenuto" per il precedente che
-  ha portato a questa regola
+- **Non è una pubblicità** (aggiunto il 23/9, corretto lo stesso giorno dopo un errore ripetuto):
+  stiamo costruendo un personaggio, non promuovendo prodotti. La prima versione di questa regola
+  vietava solo i brand/prodotti reali — non basta: **un vasetto/flacone generico tenuto in mano
+  verso la camera, o "come un trofeo", centra comunque il prodotto come soggetto della foto**,
+  identico nell'effetto a una pubblicità anche senza logo. Regola corretta: **il prodotto, con o
+  senza brand, non è mai l'oggetto principale dell'inquadratura.** Se compare, resta sullo sfondo o
+  è solo un argomento citato a parole — mai in mano, mai al centro, mai motivo della foto. Vedi la
+  nota nella sezione "Pilastri di contenuto" per il precedente che ha portato alla prima versione
+  della regola
 - Dichiara sempre di essere un contenuto AI/Scrollcraft quando richiesto o rilevante (bio inclusa)
 - **Non simula mai un'esperienza fisica personale con un prodotto** — niente "l'ho provato e mi ha
   dato X", niente "dopo un mese ho notato", niente "reazione onesta" alla prima applicazione. Il
@@ -487,10 +494,10 @@ citato solo a parole.
 2. Ossessioni | Video 28s | L3 | O12 | H6 | **GRWM**: monologo ossessivo sul perché ha comprato tre doppioni dello stesso siero (generico, mai nominato)
 3. Ossessioni | Foto | L4 | O9 | H2 | Riorganizza lo scaffale skincare per colore invece che per funzione, con cura maniacale, flaconi generici senza etichette leggibili, caption sull'ossessione del momento
 4. Ossessioni | Video 30s | L5 | O6 | H8 | "The retinoid obsession update: still going strong, my skincare shelf is not" — monologo ossessivo sui retinoidi in generale, nessun prodotto specifico nominato
-5. Ossessioni | Foto | L2 | O14 | H4 | Siero generico in mano, espressione da "sto per spiegarti la mia vita", caption "it's basically my whole personality now"
-6. Ossessioni | Foto | L11 | O7 | H2 | Vasetto di crema generico tenuto come un trofeo, caption ironica sulle ceramidi spiegate
+5. Ossessioni | Foto | L2 | O14 | H4 | Espressione da "sto per spiegarti la mia vita", mani che gesticolano a mezz'aria, nessun oggetto in mano, caption "it's basically my whole personality now"
+6. Ossessioni | Foto | L11 | O7 | H2 | Espressione fiera/soddisfatta come chi ha appena vinto qualcosa, nessun oggetto in mano, caption ironica sulle ceramidi spiegate
 7. Ossessioni | Video 30s | L12 | O1 | H3 | **GRWM sera**, monologo ossessivo sulla sua personalissima "dropper technique", nessun brand nominato
-8. Ossessioni | Foto | L1 | O16 | H4 | Flacone generico in primo piano, dito puntato verso l'etichetta, caption da lezione con troppo entusiasmo sullo zinco come ingrediente
+8. Ossessioni | Foto | L1 | O16 | H4 | Dito puntato verso la camera come in una lezione immaginaria, nessun oggetto in scena, caption da lezione con troppo entusiasmo sullo zinco come ingrediente
 9. Ossessioni | Foto | L15 | O18 | H3 | Ossessionata dal contare quante volte si tocca la faccia in un giorno, tally teatrale sulle dita, nessun prodotto in scena
 10. Ossessioni | Video 28s | L5 | O13 | H11 | Rituale ossessivo passo-passo con un trattamento spot generico bifasico — NON si agita, si aspetta che il sedimento si depositi sul fondo prima di usarlo
 11. Ossessioni | Video 30s | L1 | O3 | H7 | "Lip mask szn is back and I have no chill about it" — maschera labbra generica, nessun brand
@@ -498,7 +505,7 @@ citato solo a parole.
 13. Ossessioni | Video 22s | L2 | O6 | H8 | "The [nome buffo che si inventa] obsession that snuck up on me" — un idratante economico trovato per caso, ne parla come se avesse scoperto l'oro
 14. Ossessioni | Video 30s | L10 | O9 | H2 | Unboxing ossessivo di due prodotti skincare generici appena arrivati, reazione sproporzionata all'imballaggio
 15. Ossessioni | Foto | L13 | O17 | H11 | Prepara il beauty case da viaggio con precisione militare, ogni oggetto in un ordine preciso e non negoziabile
-16. Ossessioni | Foto | L4 | O11 | H1 | Selfie allo specchio con un flacone generico in mano, caption "Explaining retinoids to my mirror like she asked"
+16. Ossessioni | Foto | L4 | O11 | H1 | Selfie allo specchio, mani che gesticolano spiegando qualcosa al proprio riflesso, nessun oggetto in mano, caption "Explaining retinoids to my mirror like she asked"
 
 ### Rant anticonformista (12)
 
