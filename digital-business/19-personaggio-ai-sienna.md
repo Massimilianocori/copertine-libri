@@ -344,6 +344,13 @@ da riusare/adattare in ogni script:
 
 **Regole di scrittura per tutti gli script (da applicare quando si trasformano le 55 righe in
 prompt completi)**:
+- **Ogni script deve avere un punto preciso a cui arriva, non solo un'apertura** (regola aggiunta
+  il 23/9 dopo un test reale fallito su questo: lo script usava l'apertura "I need to talk about
+  this because I was wrong about it for months", poi mostrava solo l'azione e finiva — mai detto
+  su cosa esattamente avesse torto. Un'apertura da sola promette una rivelazione/opinione/fatto,
+  non lo sostituisce). Le frasi della banca sopra sono ganci per i primi secondi, **non uno script
+  completo** — vanno sempre chiuse con l'informazione/opinione/battuta specifica a cui portano.
+  Stesso test già usato altrove nel documento: se togli l'apertura, deve restare qualcosa in piedi
 - Frasi brevi, mai un periodo che spiega tre cose insieme
 - **Mai simulare un'esperienza fisica con il prodotto** — niente "l'ho provato/mi ha dato/ho
   notato dopo". Il prodotto resta un oggetto in scena o argomento di opinione/fatto oggettivo
