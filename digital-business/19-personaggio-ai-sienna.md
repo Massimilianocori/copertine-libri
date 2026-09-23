@@ -252,7 +252,10 @@ test) senza sprecare un pass a tempo.
   minimo 2 carousel/foto ogni 1-2 reel a settimana. Il video resta comunque necessario dove il
   parlato/movimento è il punto del concept (GRWM, rant con ritmo, bit comici che vivono di
   tempismo) — non tutto può diventare foto senza perdere forza. Mix effettivo nella lista sotto: 22
-  video (40%), 33 foto/carousel (60%)
+  video (40%), 33 foto/carousel (60%). **Aggiornamento 23/9**: il mix 60/40 resta l'obiettivo a
+  lungo termine, ma per l'apertura delle pagine si parte **100% foto/carousel** — vedi nota in
+  "Prossimi passi" sul video Kling messo in pausa per problemi di affidabilità/realismo. Le 22 righe
+  video della lista restano scritte ma non si producono finché il video non viene ripreso.
 
 Location, outfit e pettinatura vanno curati come farebbe una persona vera — mai la stessa
 combinazione ripetuta, dettagli specifici (non "casual" generico, ma il capo esatto). Vedi i pool
@@ -562,6 +565,19 @@ citato solo a parole.
 
 ## Prossimi passi
 
+- [x] **Video in pausa, si punta solo sulle foto per l'apertura (23/9)**: due test video Kling con
+      il nuovo pool eclettico — uno (Ossessioni, angolo lettura) ha seguito la scena correttamente,
+      l'altro (Rant, diner) ha ignorato completamente la scena richiesta e ha solo animato la foto
+      di partenza (bagno/specchio/telefono), probabilmente per un'interferenza del sistema di
+      raccomandazione preset di Higgsfield ("IN THE DARK" si attivava sul prompt col diner/neon).
+      Anche il video riuscito aveva un problema più di fondo: pelle e denti troppo lisci/perfetti,
+      lettura da "generato" anche a scena corretta — un tentativo di correggerlo con linguaggio
+      esplicito da realismo (grana fotocamera telefono, texture pelle imperfetta, non patinato) era
+      in corso quando si è deciso di fermarsi. **Conclusione: il modello video attuale non è ancora
+      abbastanza affidabile/realistico per l'apertura delle pagine** — le foto invece hanno retto
+      bene tutta la giornata (identità stabile, texture credibile). Si riprende il video in futuro,
+      quando i modelli migliorano o si vuole investire più tempo nel debug; **per ora si procede
+      solo con contenuto fotografico** per aprire Instagram/TikTok.
 - [x] **Tolti i brand/prodotti reali dai 55 concept (23/9)**: il primo banco di 6 foto di prova ha
       mostrato che i concept con un prodotto reale finivano centrati sul flacone come una
       pubblicità — punto sollevato in chat ("stiamo costruendo un personaggio, non facendo
