@@ -282,24 +282,35 @@ H6 treccia laterale morbida · H7 onde da spiaggia leggermente umide · H8 tirat
 effetto slick · H9 due space bun · H10 coda bassa, riga laterale · H11 raccolti con pinza ad
 artiglio, ciocche libere davanti · H12 sciolti al naturale, dietro l'orecchio
 
-**Outfit (18)**: O1 cardigan color avena a trecce su top bianco · O2 canotta a coste verde salvia ·
-O3 felpa grigia oversize, maniche tirate su · O4 pigiama in raso color crema · O5 giacca di jeans su
-t-shirt bianca · O6 vestaglia in pile lilla · O7 maglia a manica lunga nera a coste · O8 camicia di
-lino terracotta, bottoni alti slacciati · O9 t-shirt oversize slavata · O10 leggings neri da
-allenamento + top sportivo · O11 maglione lavorato a maglia panna · O12 camicia chambray azzurra,
-maniche arrotolate · O13 giacca utility verde oliva su canotta · O14 camicia da notte a righe ·
-O15 completo homewear in velluto bordeaux · O16 canotta bianca con collanina dorata sottile ·
-O17 camicia di flanella oversize a quadri rosso/nero · O18 slip dress nero semplice (uscire)
+**Outfit (18) — riscritto il 23/9, deve restare eclettico/stonato, mai homewear generico da
+"selfie a casa"**: O1 pelliccia sintetica leopardata aperta su semplice top bianco · O2 kimono
+vintage patchwork a stampe miste sopra pigiama a righe · O3 tuta ginnica anni '80 fluo con collant
+a righe spaiati · O4 vestito fiorito vintage con collant colorati non abbinati · O5 giacca di jeans
+ricoperta di spille/pin improbabili su abito nero semplice · O6 vestaglia in velluto bordeaux con
+boa di piume · O7 maglione natalizio fuori stagione su gonna di paillettes · O8 salopette denim con
+una gamba arrotolata, bandana annodata al collo · O9 slip dress in seta stampa animalier con
+blazer oversize completamente spaiato · O10 tuta da lavoro vintage dipinta a mano · O11 cardigan
+"da nonna" a righe multicolore su reggiseno sportivo · O12 vestito a pois anni '50 con occhiali da
+sole a farfalla giganti · O13 giacca utility militare ricoperta di toppe improbabili · O14
+vestaglia di raso con turbante coordinato vistoso · O15 completo homewear in velluto smeraldo con
+collana vistosa di perle finte oversize · O16 canotta bianca con collane a strati totalmente
+spaiate (una di corda, una di plastica, una di metallo) · O17 camicia hawaiana sopra pigiama a
+quadri · O18 abito da sera nero con anfibi da combattimento e calzini spaiati a vista
 
-**Location (15)**: L1 bagno piccolo, piastrelle bianche, specchio tondo, rubinetteria ottone ·
-L2 camera, lenzuola di lino disfatte, luce del mattino tra le tende · L3 cucina, piano in marmo,
-piantina aromatica · L4 bagno con vasca su piedini, pavimento piastrellato vintage · L5 angolo
-lettura in camera, poltrona, lampada calda · L6 balcone con lucine, vista città al tramonto ·
-L7 interno auto, parcheggiata, specchietto abbassato · L8 spogliatoio palestra, armadietti sullo
-sfondo · L9 panchina in un parco, foglie autunnali · L10 divano soggiorno, plaid, candela accesa ·
-L11 bagno con finestra grande, luce naturale, piante sul davanzale · L12 toeletta in camera,
-specchio con luci · L13 isola cucina, sera, luce calda a sospensione · L14 ingresso/veranda,
-appendiabiti, luce del mattino · L15 specchio bagno d'hotel (contenuti "pronta per uscire")
+**Location (15) — riscritto il 23/9, deve restare un posto specifico e riconoscibile, mai "casa
+generica"**: L1 negozio di dischi vintage, neon rosa/blu, palla da discoteca, scaffali di vinili ·
+L2 camera con carta da parati anni '70 a fiori, poster ovunque, lampada lava accesa · L3 cucina
+retrò anni '50, elettrodomestici pastello, pavimento a scacchi · L4 bagno con vasca vittoriana su
+piedini, piante enormi ovunque, carta da parati botanica · L5 angolo lettura massimalista, libri
+impilati ovunque, luci di Natale accese tutto l'anno · L6 balcone con lucine, tappeti sovrapposti,
+vista città al tramonto · L7 interno di un maggiolino Volkswagen decappottabile d'epoca, parcheggiato
+· L8 camerino/backstage teatrale, specchi con lampadine tonde, costumi di scena appesi · L9
+mercatino vintage/dell'usato all'aperto, bancarelle colorate · L10 salotto massimalista, stampe
+multiple che non si abbinano, piante enormi, luce calda · L11 serra botanica, luce naturale filtrata,
+piante tropicali enormi · L12 toeletta anni '20, specchio ovale, lampadine teatrali intorno · L13
+diner/tavola calda vintage, sedute in vinile colorato, insegne al neon · L14 ingresso di un cinema
+d'epoca, insegne al neon accese, locandine vintage · L15 bagno di un hotel boutique eccentrico,
+carta da parati animalier, vasca freestanding colorata
 
 ## Voce di Sienna — perché deve seguirla per come parla, non solo per il topic
 
