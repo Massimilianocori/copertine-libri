@@ -633,6 +633,24 @@ citato solo a parole.
       Per i concept che richiedono un'etichetta leggibile in scena (es. #19), non contare sul
       modello per renderla giusta — sovrapporre l'etichetta reale in post, o inquadrare senza
       pretendere che il testo fine sia leggibile.
+- [ ] **Idea futura: mini-serie "Palm Springs" (non prioritaria, pianificata il 23/9)** — vlog-style
+      in 3 post separati (non un video unico, il tetto di 30s/generazione lo impedirebbe comunque):
+      1. Arrivo al motel vintage midcentury (Ossessioni, ~15-18s, scende dal Maggiolino, foulard/
+         occhiali oversize, entusiasmo genuino)
+      2. Piscina midcentury, costume vintage anni '60, poco/nessun parlato (Estetica, ~18-20s,
+         editoriale/sicura di sé, non esplicito — vedi nota sotto sul perché)
+      3. Gelato che cola mentre prende il sole, reazione teatrale deadpan (Assurdo, ~15-18s, stesso
+         registro "documentario applicato a niente" del video del contagocce)
+      **Nota su "sexy" (23/9)**: richiesta esplicita di un corpo "molto sexy" — rifiutato di
+      reinventare il corpo (resta quello fissato nell'Elemento `skincare-creator-v2`, mai rigenerato)
+      e di spingere verso contenuto esplicito: rischio concreto di penalizzazione/rimozione su IG e
+      soprattutto TikTok per un account ancora senza base di follower. Tenuto un registro
+      editoriale/sicuro di sé (stesso tono della foto alla toeletta anni '20), non esplicito.
+      **Vincolo tecnico**: location con testo/insegne in lingua straniera scartate (rischio "AI slop"
+      sul testo, già visto coi caratteri latini figurarsi con altri sistemi di scrittura) — per questo
+      scelta una destinazione USA (Palm Springs, non un paese estero), coerente anche con l'identità
+      già newyorkese/americana di Sienna. Costo stimato ~140 crediti a scena a 720p — da fare quando
+      il budget lo permette, non con gli ultimi ~5 crediti di oggi.
 - [ ] Definire Personaggio 2 (non ancora iniziato)
 
 ---
