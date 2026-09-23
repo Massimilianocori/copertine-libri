@@ -578,6 +578,22 @@ citato solo a parole.
       bene tutta la giornata (identità stabile, texture credibile). Si riprende il video in futuro,
       quando i modelli migliorano o si vuole investire più tempo nel debug; **per ora si procede
       solo con contenuto fotografico** per aprire Instagram/TikTok.
+- [x] **Aggiornamento stesso giorno: il video torna nel banco di lancio, ma solo con Seedance 2.5 +
+      storyboard + de-slop, mai Kling per il parlato** (23/9): la pausa sopra è durata poco — Kling
+      non era il problema di fondo, era la tecnica usata. Scrollcraft produce già tutti i suoi video
+      con Seedance 2.5, quindi il modello è affidabile; il primo test con Seedance però era stato
+      fatto scorciando il metodo (una sola foto di riferimento + testo lungo, senza storyboard),
+      risultando comunque innaturale. Rifatto con la tecnica completa e validata: storyboard a 3
+      pannelli (gpt_image_2) → de-slop obbligatorio (seedream_v5_pro, prompt esatto del workflow
+      `ugc-review-video`) → video finale (`seedance_2_5`, `mode: "omni_reference"`,
+      `generate_audio: true`, **9:16, 720p** — mai più dimenticare l'aspect ratio, è già successo
+      una volta e ha sprecato 70 crediti in un video orizzontale inutilizzabile). Risultato: identità
+      stabile, movimento naturale, buono. **Unico avvertimento da tenere per ogni script futuro:
+      calcolare le parole rispetto alla durata reale** (~2,5 parole/secondo a ritmo naturale) — il
+      primo tentativo aveva uno script troppo lungo per i 10s dati, risultato in un parlato innaturalmente
+      veloce; corretto accorciando il testo, non allungando la durata (costa di più). **Banco di
+      lancio finale: 6 foto + 2 video da 10s = 8 contenuti**, dentro il target 8-12. Budget: partiti
+      da 415 crediti nella sessione video di oggi, restano circa 118.
 - [x] **Tolti i brand/prodotti reali dai 55 concept (23/9)**: il primo banco di 6 foto di prova ha
       mostrato che i concept con un prodotto reale finivano centrati sul flacone come una
       pubblicità — punto sollevato in chat ("stiamo costruendo un personaggio, non facendo
