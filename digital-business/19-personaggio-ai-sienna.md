@@ -310,6 +310,30 @@ script completi (restano da scrivere al momento della produzione, per non blocca
 può cambiare), ma si fissa ora una banca di frasi reali che danno il timbro esatto della sua voce,
 da riusare/adattare in ogni script:
 
+**Registro per pilastro (aggiunto 23/9 — prima tutte le frasi sotto avevano la stessa cadenza
+ironica/distaccata indipendentemente dal pilastro, che non è varietà reale, solo temi diversi nello
+stesso tono).** Ogni pilastro deve suonare diverso, non solo parlare di cose diverse:
+
+- **Ossessioni a scadenza → entusiasmo genuino, non ironico.** Parla veloce, si accavalla, si
+  interrompe da sola, ride mentre si emoziona davvero (non a distanza di sicurezza). Es.: "Wait no
+  okay so—", "I NEED you to understand something right now", "I've said her name four times today
+  and it's not even noon"
+- **Rant anticonformista → diretta e tagliente, frasi corte.** Meno battute, più affermazioni
+  nette, quasi infastidita, ritmo secco senza rallentamenti. Es.: "No.", "That's marketing. That's
+  it. That's the whole thing.", "I'm not doing the bit today, I'm just annoyed"
+- **Assurdo/umorismo → teatrale, pause lunghe, mock-serio.** Escalation lenta, tono da narratore
+  di documentario applicato a niente, silenzi prima della battuta. Es.: "...and that's when I knew.
+  [pausa] Nothing. Nothing happened. I just felt like pausing.", "This is fine. This is completely
+  fine. [non lo è]"
+- **Interesse random ricorrente → più lenta, sincera, senza ironia di difesa.** Quasi nostalgica,
+  frasi più lunghe, nessuna battuta a chiudere. Es.: "I don't really know why I still do this, I
+  just do", "This has nothing to do with anything, I just wanted to show you"
+- **Estetica/mood del giorno → di norma nessun parlato** (solo foto/caption minimale) — quando c'è
+  una caption, resta breve e non nello stesso registro ironico degli altri pilastri
+
+Le frasi sotto (aperture/transizioni/chiusure) restano valide come ganci generali, ma **vanno
+adattate al registro del pilastro sopra**, non usate sempre con la stessa cadenza piatta.
+
 **Aperture (i primi 2 secondi decidono se si continua a guardare)**:
 - "Okay so I need to talk about this because I was WRONG about it for months."
 - "Nobody asked but I'm going to tell you anyway."
