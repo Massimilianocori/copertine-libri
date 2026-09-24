@@ -653,6 +653,66 @@ citato solo a parole.
       il budget lo permette, non con gli ultimi ~5 crediti di oggi.
 - [ ] Definire Personaggio 2 (non ancora iniziato)
 
+## Produzione mini-serie "Palm Springs" — vlog cinematografico (24/9)
+
+Ripresa dell'idea sospesa sopra (vedi "Prossimi passi", 23/9), portata in produzione reale.
+
+**Banco foto Palm Springs (24/9, prima della sessione vlog)**: 6+ foto generate con
+`skincare-creator-v2`, approvate: salto in piscina (`6849a0b3-7d12-4d57-94c5-1aeed5435ff4`), uscita
+dal diner al neon (`c1a21c83-e170-41cd-960c-b5a1ee631204`), gelato che cola (`25b44362-aad7-48b5-
+9a52-e87dea4284e9`), parete neon (`3f16fafb-b364-435a-9640-00f3dbd191a5`). Formato 4:5, non 9:16 —
+**da ricontrollare/rigenerare in 9:16 prima di usarle come frame di partenza video**, disallineamento
+non ancora risolto.
+
+**Decisione di formato (24/9)**: niente più piano-sequenza singolo alla Kling. Vlog da 45s = **8
+shot separati da 4-7s cuciti in Final Cut dall'utente** (non da noi), non un'unica generazione lunga
+(cap tecnico Seedance 30s comunque lo impedirebbe). Shot list completa (scena piscina + scena
+diner/gelato, inquadrature/luce/camera per ognuno) discussa e approvata in chat il 24/9 — **da
+trascrivere qui per intero alla prossima sessione**, non ancora fatto.
+
+**Regola nuova: niente più selfie POV.** Su richiesta esplicita, tutta la sequenza è girata come da
+operatore esterno (documentario/movie), non telefono in mano — coerente con l'osservazione che un
+telefono in scena è comunque un rischio (vedi punto 3 nella ricetta Kling sopra, anche se lì per
+motivi di continuità oggetto, non di stile). **Regola aggiuntiva**: mai un operatore/ombra/riflesso
+di chi filma visibile in scena, salvo che non abbia un senso narrativo — non ancora definito un
+personaggio "amico che filma", quindi per ora sempre invisibile per convenzione cinematografica.
+
+**Lezioni tecniche nuove (24/9)**:
+- **Mai scrivere il dialogo in italiano nel prompt** anche se la conversazione in chat è in
+  italiano — Sienna è un personaggio americano (vedi character bible), il modello sintetizza la
+  lingua letterale del prompt. Già successo una volta, riconosciuto e corretto.
+- **`audio_references` con un job_id di un video intero non funziona** (422 "mode omni_reference
+  requires at least one reference media item" prima, poi 422 generico dopo aver aggiunto il ref)
+  — il campo si aspetta un audio isolato già estratto/caricato (`media_confirm(type='audio')`), non
+  un video. **Non esiste ancora una voce clonata/ancorata per Sienna** nonostante i video precedenti
+  la facciano parlare — quella voce è sintetizzata al volo dal modello ogni volta dal testo del
+  prompt, mai salvata come asset. Per un vero voice-lock servirebbe `create_voice_from_confirmed_
+  audio` con un file audio isolato (costo di clonazione extra, non ancora fatto) — rimandato:
+  non conviene per un solo video con 2 battute, da rivalutare se il formato "Sienna che parla"
+  diventa ricorrente.
+- **Filtro NSFW su `nano_banana_2`/`nano_banana_flash` sembra reagire all'inquadratura, non al
+  costume**: stesso bikini nero (`plain solid black triangle bikini`, già usato senza problemi nelle
+  foto approvate) bloccato ripetutamente su primi piani/campo medio ravvicinato ("mouth open
+  mid-speech", "water level", "eyes closed"), passato senza problemi appena allargato a campo
+  largo/campo medio-largo con soggetto a distanza. **Non risolvere cambiando il costume** (rischio
+  di finire su un costume "da nonna" fuori personaggio, già successo e corretto) — risolvere
+  allargando l'inquadratura o ammorbidendo il fraseggio sul volto/corpo.
+- **Costo Seedance 2.5 per risoluzione, confermato 24/9**: ~3 crediti/sec a 480p, ~7/sec a 720p,
+  ~12/sec a 1080p — lineare, coerente col punto 11 sopra. **480p poi upscale non conviene**: costo
+  upscale non prevedibile (nessun `get_cost` su quello strumento) e comunque parte da un source
+  480p — soffitto qualitativo più basso di un 720p nativo, a parità di costo stimato. Deciso: 720p
+  diretto per contenuto che deve sembrare reale (facce/pelle/acqua in primo piano).
+- **Job in coda ancora cancellabile senza addebito**: dalla UI web (hover sul tile → Cancel) finché
+  è in stato "queued"; se già "processing" e fallisce, rimborso automatico comunque. Nessun tool
+  MCP equivalente disponibile per farlo da qui.
+
+**Stato al 24/9 (sessione interrotta, da riprendere)**: shot 1 (piscina, arrivo, battuta in inglese,
+720p) generato con successo (job `579939d2-1b96-4633-a26c-40a92a97428a`, non ancora verificato/
+mostrato). 5 storyboard di riferimento per gli shot 1/3/4/6/8 generati e approvati (dopo correzione
+costume). Shot 2/5/7 usano le foto Palm Springs già approvate come frame di partenza. **Prossimo
+passo concordato**: generare 1 shot pilota completo (video, non solo storyboard) per validare lo
+stile "da operatore" prima di lanciare tutti gli 8 — non ancora fatto.
+
 ---
 
 ## Fonti (personalità/attrattiva per il pubblico, verificate 22/9)
