@@ -207,6 +207,51 @@ sulle proprie opinioni/entusiasmi/mollate, non in un finto resoconto di esperien
    varietà di outfit/location/color grading, nessun prodotto reale richiesto — qui il mondo visivo
    di Sienna si costruisce, non si spiega
 
+## Correzione pesi pilastri e stile — confronto con Lil Mayo (25/9)
+
+Analizzato in chat il profilo @lilmayo (alieno fotorealistico su corpo umano in scenari reali
+assurdi — jail, casinò, pool hall, yacht, party — 1,4M follower, 259 post, engagement 19-63k
+like/post). Non è un profilo skincare, ma è il caso più chiaro visto finora di un personaggio AI
+che sfrutta a pieno i meccanismi di attrattività/riconoscibilità che la ricerca in fondo a questo
+documento già indicava. Cinque leve identificate, con cosa cambia per Sienna da qui in avanti:
+
+1. **Segno visivo distintivo fisso, non solo i capelli.** La testa da alieno è impossibile da
+   confondere, sempre presente a prescindere da outfit/location. I capelli rame di Sienna sono un
+   inizio ma non bastano da soli a fare da "firma" a colpo d'occhio. **Regola nuova**: il taccuino/
+   matite colorate del pilastro "Interesse random ricorrente" (già introdotto il 23/9) va trattato
+   come secondo segno fisso, non solo come prop occasionale — va reintrodotto più spesso, anche fuori
+   dalle righe dedicate a quel pilastro, come elemento che torna a prescindere dal registro del giorno.
+2. **Il pilastro Assurdo è il motore principale del profilo comp, non un pilastro tra tanti.**
+   Nella distribuzione attuale dei 55 concept è solo ~16% (9/55), il più piccolo dopo Random.
+   **Correzione di peso per le prossime produzioni**: aumentare sensibilmente la quota di Assurdo/
+   umorismo a scapito di Estetica/mood (che resta utile per costruire il mondo visivo ma non deve
+   restare il pilastro più numeroso) — indicativamente riportare Assurdo verso il 25-30% del totale
+   nel prossimo batch di concept, Estetica verso il 15-20%. Non riscritta la lista dei 55 esistente
+   (resta valida per l'uso corrente), ma il prossimo batch di concept da scrivere segue questo nuovo
+   equilibrio.
+3. **Stile "candid", non editoriale, per almeno metà della produzione futura.** Le foto di Lil Mayo
+   leggono come scattate da un passante/con un telefono, non come un servizio fotografico — è
+   proprio questa "imperfezione" a renderle credibili invece che leggersi come "prodotte". Le foto/
+   video di Sienna finora (compreso lo stile Palm Springs "da operatore cinematografico") vanno nella
+   direzione opposta. **Regola nuova**: per almeno metà dei prossimi concept, specificare
+   esplicitamente nel prompt un'inquadratura da foto scattata al volo (leggermente storta, meno
+   simmetrica, luce meno curata, meno profondità di campo cercata) invece del linguaggio cinematico
+   di default (35mm, dolly, chiaroscuro) — soprattutto per il pilastro Assurdo, dove l'effetto
+   "sembra reale" amplifica la gag.
+4. **Comparse che reagiscono in scena.** Lil Mayo interagisce spesso con persone reali (polizia,
+   commessi, sconosciuti) che reagiscono visibilmente a lui — dà l'idea di un mondo che la nota, non
+   un set vuoto. **Regola nuova**: dove la scena lo permette, includere una comparsa sullo sfondo con
+   una reazione leggibile (sorpresa, distrazione, un'occhiata) invece di scene sempre a soggetto
+   singolo — da usare soprattutto nei concept Assurdo con location pubbliche (L1 negozio dischi, L9
+   mercatino, L13 diner, L14 cinema).
+5. **Caption a battuta/testo diretto sull'immagine**, non descrittive — già in parte in uso (vedi
+   "Voce di Sienna"), va confermato come standard per Assurdo e Ossessioni: la caption è la battuta
+   stessa o una riga di finto dialogo, mai una didascalia che spiega la foto.
+
+Non adottato: il volume di pubblicazione di Lil Mayo (259 post) non è comparabile al nostro ritmo
+3-5/settimana per vincoli di budget — si compensa con gag più dense per post (vedi caroselli-
+storia), non inseguendo il volume.
+
 **Nota sui prodotti reali (23/9, seconda correzione della giornata)**: nel primo banco di prova
 generato, i concept che citavano un prodotto reale sono finiti visivamente centrati sul flacone
 (tenuto in mano verso la camera, confrontato, allineato su una mensola) — esattamente
@@ -652,6 +697,11 @@ citato solo a parole.
       già newyorkese/americana di Sienna. Costo stimato ~140 crediti a scena a 720p — da fare quando
       il budget lo permette, non con gli ultimi ~5 crediti di oggi.
 - [ ] Definire Personaggio 2 (non ancora iniziato)
+- [ ] **Prossimo batch di concept da scrivere secondo la correzione di peso del 25/9** (vedi
+      "Correzione pesi pilastri e stile — confronto con Lil Mayo"): più Assurdo (25-30%), meno
+      Estetica (15-20%), stile candid per almeno metà delle righe, comparse che reagiscono dove la
+      location lo permette, taccuino/matite come secondo segno visivo ricorrente anche fuori dal
+      pilastro Random. Non ancora scritto, i 55 concept attuali restano validi per l'uso corrente.
 
 ## Produzione mini-serie "Palm Springs" — vlog cinematografico (24/9)
 
