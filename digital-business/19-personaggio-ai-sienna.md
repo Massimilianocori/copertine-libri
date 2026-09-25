@@ -252,6 +252,62 @@ Non adottato: il volume di pubblicazione di Lil Mayo (259 post) non è comparabi
 3-5/settimana per vincoli di budget — si compensa con gag più dense per post (vedi caroselli-
 storia), non inseguendo il volume.
 
+## Format ricorrente "Scoperta della settimana" (25/9) — sotto-formato di Ossessioni
+
+Introdotto per coprire una metrica che nessun pilastro esistente copriva: i pilastri Assurdo/Rant/
+Ossessioni generano like e commenti (legame parasociale), ma nessuno punta ai **salvataggi** — che i
+dati (SocialInsider, ByteCap, vedi fonti in fondo) associano specificamente ai contenuti
+educational. Non diventa un settimo pilastro: resta un sotto-formato di Ossessioni, con cadenza
+fissa (1 episodio a settimana) invece che sparso nella lista dei 55 concept.
+
+**Perché non è un tip-tutorial generico**: un fatto verificato raccontato in tono da lezione la
+metterebbe nel ruolo di "esperta che dispensa consigli", esattamente il posizionamento escluso dal
+character bible (non ha competenza clinica dichiarata, è un personaggio con opinioni/entusiasmi, non
+un'autorità). Stesso fatto, stessa fonte verificata — cambia solo l'inquadratura: non "il tip che ti
+serve", ma "la sua scoperta/entusiasmo della settimana", nel registro genuino già definito per
+Ossessioni (veloce, si accavalla, mai ironico a distanza).
+
+**Meccanica dell'episodio (20-30s)**:
+1. Hook genuino stile Ossessioni — "Okay wait, I did NOT know this—"
+2. Il fatto, verificato con ricerca reale prima di scrivere lo script (stessa regola non negoziabile
+   di sempre — mai un brand/prodotto reale nominato, resta un ingrediente/meccanismo in astratto)
+3. Lo scrive nel taccuino mentre parla, negli ultimi secondi del piano — nessun testo sovrimpresso
+   (il modello lo rende illeggibile sui dettagli fini, già verificato altrove nel documento): la
+   pagina scritta a mano è il frame pensato per essere salvato, e rinforza il taccuino come secondo
+   segno visivo fisso (vedi correzione Lil Mayo sopra)
+4. Chiusura con la sua reazione/opinione personale, mai un imperativo da tutorial ("salvalo!" — la
+   sua vena anticonformista lo prenderebbe in giro)
+
+**Maschera**: se in scena, sempre una sheet mask leggera in tessuto, mai la maschera rigida
+bianca/peel-off usata nella serie spa — quella si muove male con la bocca che parla, la sheet mask
+invece è il tipo che si vede addosso a chi fa altro nel frattempo (coerente con lo stile candid).
+
+**Location fissa, non a rotazione** (a differenza di tutti gli altri concept, dove location/outfit
+cambiano apposta ogni volta): un format settimanale ricorrente funziona al contrario — stesso angolo
+di casa ogni volta, rinforza la sensazione di appuntamento fisso. Definita: **bagno di casa sua**,
+specchio ovale anni '20 con lampadine tonde intorno (stesso registro della toeletta L12 del pool, ma
+personalizzato come suo spazio privato, non un camerino pubblico), carta da parati botanica vintage
+sullo sfondo, mensola con oggetti personali disordinati ma caratteristici (boccette assortite, uno
+specchietto, gioielli lasciati lì), taccuino e matite sempre appoggiati pronti sulla mensola, luce
+calda dalle lampadine intorno allo specchio.
+
+**Tecnico**: `seedance_2_5`, `mode: "omni_reference"`, non Kling 3.0 — verificato il 25/9 che Kling
+non regge l'identità di Sienna in modo coerente (stesso esito già emerso con la mini-serie Palm
+Springs il 24/9). Tutti i riferimenti buoni dell'elemento passati esplicitamente come `medias`
+(`image_references`), escludendo quello scartato ("corpo intero") — stessa tecnica appena validata
+per le foto. Piano fisso con un piccolo movimento/reveal iniziale (es. si china verso lo specchio),
+9:16, 720p, audio on. Costo stimato ~140-175 crediti a episodio (20-25s × ~7 crediti/sec) — con il
+saldo reale verificato il 25/9 (1465 crediti), un episodio a settimana è ampiamente sostenibile.
+
+**Caption tipo**: breve, mai da post educativo — *"wrote this down so I don't forget it again"*
+
+**Esempi di episodi (stile, non script completi)**:
+- Perché il retinolo si applica la sera, non prima del sole (fotosensibilità — fatto dermatologico
+  reale)
+- La differenza vera tra "fragrance-free" e "unscented" (quasi nessuno la conosce, verificabile da
+  INCI)
+- Perché il "purging" dura davvero 4-6 settimane, non mesi (ciclo di rinnovamento cellulare)
+
 **Nota sui prodotti reali (23/9, seconda correzione della giornata)**: nel primo banco di prova
 generato, i concept che citavano un prodotto reale sono finiti visivamente centrati sul flacone
 (tenuto in mano verso la camera, confrontato, allineato su una mensola) — esattamente
