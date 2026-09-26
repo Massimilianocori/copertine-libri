@@ -666,6 +666,19 @@ citato solo a parole.
 
 ## Prossimi passi
 
+- [ ] **CORREZIONE WORKFLOW DA APPLICARE SEMPRE D'ORA IN POI (26/9)**: tutte le foto di Sienna
+      generate in questa sessione (spa, negozio dischi, test corpo) sono state fatte nel modo
+      sbagliato — personaggio, location e outfit generati **tutti insieme in un solo prompt**,
+      ignorando il workflow già fissato il 21/9 in `18-higgsfield-workflow-guida.md` (sezione 3-4),
+      che dice esplicitamente di **generare l'ambiente separatamente** (solo testo, senza
+      personaggio) e poi **combinarlo con il Character Sheet + un'istruzione di relighting
+      esplicita** (es. "relight the subject with amber key light from above and cyan rim light
+      behind"), altrimenti il personaggio rischia di sembrare "ritagliato e incollato" sullo sfondo.
+      **Da questa data in poi, per ogni nuova location**: (1) generare l'ambiente vuoto da solo,
+      (2) generarlo di nuovo insieme ai riferimenti di Sienna con relighting esplicito nel prompt,
+      mai più tutto insieme dal primo tentativo. Le location già usate senza questo metodo
+      (bagno spa, sala tè, negozio dischi versione originale) restano valide così come sono uscite,
+      non vanno rifatte tutte — il metodo corretto si applica alle produzioni successive.
 - [x] **Video in pausa, si punta solo sulle foto per l'apertura (23/9)**: due test video Kling con
       il nuovo pool eclettico — uno (Ossessioni, angolo lettura) ha seguito la scena correttamente,
       l'altro (Rant, diner) ha ignorato completamente la scena richiesta e ha solo animato la foto
