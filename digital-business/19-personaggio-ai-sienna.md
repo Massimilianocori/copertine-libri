@@ -832,6 +832,13 @@ costume). Shot 2/5/7 usano le foto Palm Springs già approvate come frame di par
 passo concordato**: generare 1 shot pilota completo (video, non solo storyboard) per validare lo
 stile "da operatore" prima di lanciare tutti gli 8 — non ancora fatto.
 
+**Nota 26/9 — chi genera i video**: come da regola nuova in `18-higgsfield-workflow-guida.md`
+(sezione 9), i video vanno generati da Massimiliano direttamente sul sito higgsfield.ai (per
+sfruttare pass illimitati/tariffa fissa quando conviene), non da Claude tramite i tool MCP —
+generare da qui consumerebbe sempre crediti a pagamento anche con un pass attivo. Il ruolo di
+Claude su questo shot pilota resta preparare il prompt esatto e gli id di reference da incollare,
+non lanciare la generazione.
+
 ---
 
 ## Fonti (personalità/attrattiva per il pubblico, verificate 22/9)

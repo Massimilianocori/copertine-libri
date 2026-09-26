@@ -181,6 +181,26 @@ in linea con gli altri video del sito.
 
 ---
 
+## 9. Pass "Unlimited"/illimitati — funzionano solo generando dal sito web, mai tramite Claude
+
+**Scoperto il 23/9 sulle foto (Nano Banana Pro), confermato valere anche per i video (26/9).** I pass
+"Unlimited"/generazioni gratuite illimitate (es. toggle "Unlimited" su Nano Banana Pro, pass Kling
+3.0/Seedance a tariffa fissa) sono legati all'interfaccia **higgsfield.ai**, non allo strumento MCP
+usato da Claude in questa chat: passare `use_unlim: true` a `generate_image` viene rifiutato
+esplicitamente ("Unlimited generations aren't supported for..."), e lo stesso vincolo si applica ai
+video. Se Claude genera un video/immagine tramite i propri tool, **consuma sempre crediti a
+pagamento**, anche quando esiste un pass illimitato attivo sull'account.
+
+**Regola operativa**: per qualunque generazione che deve sfruttare un pass illimitato/gratuito
+(tipicamente tutte le foto, e i video quando conviene usare un pass Kling/Seedance a tempo),
+Massimiliano genera direttamente dal sito con l'account collegato — Claude prepara solo il
+materiale pronto da incollare (prompt esatto, reference/element id da allegare, storyboard) ma non
+lancia la generazione con i propri tool in quei casi. I tool MCP restano lo strumento giusto solo
+per le generazioni a crediti normali già preventivate, o quando serve automazione/batch che non ha
+un corrispettivo pratico da fare a mano sul sito.
+
+---
+
 ## Istruzioni operative per Claude (da seguire sempre nei progetti Higgsfield)
 
 1. Chiedere prima se esiste già un Character Sheet e gli ambienti di riferimento. Se
