@@ -196,3 +196,11 @@ in poi.
 - **Salvato come Elemento riutilizzabile** (non Soul — Soul V2/Cinema non è compatibile con Kling 3.0 che useremo per la produzione massiva, un Elemento sì): nome `skincare-creator`, id `061d0104-b580-46fa-967a-1ecb4590c491`.
 - **Da fare**: dare un nome al personaggio, generare altre immagini di riferimento (angolazioni diverse) ancorate allo stesso elemento per costruire un set coerente, poi passare alla scrittura dei 50-60 concept prima di aprire il pass Kling da 35€.
 - **Personaggio 2**: non ancora iniziato — da definire dopo aver consolidato il Personaggio 1.
+- **Soul V2 addestrato il 26/9** (solo per foto editoriali stile Vogue, dove serve più fedeltà
+  di posa/luce di quanta l'Elemento non offra): nome **Sienna**, `soul_id
+  d205f954-3d8b-4dae-a8a9-d5d49cd4dddd`, tipo `soul_2`, stato in training al momento della
+  creazione. Dataset: 25 foto neutre generate apposta con `skincare-creator-v2` come reference
+  (non foto reali) — frontale/3-4/profilo/macro pelle/corpo intero vestito e in bikini (campo
+  largo per evitare il filtro NSFW sui primi piani). Uso: `generate_image` con `model: "soul_2"`
+  + questo `soul_id`. Resta comunque incompatibile con Kling 3.0/video — per quello si continua
+  a usare l'Elemento `skincare-creator-v2`.
