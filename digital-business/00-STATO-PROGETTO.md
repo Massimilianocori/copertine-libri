@@ -168,6 +168,28 @@ Decisione presa il 22/9: creare 1-2 personaggi AI per Instagram/TikTok, ripensan
 - **Consigli skincare del Personaggio 1**: devono essere reali, verificati con ricerca prima di ogni script — mai inventati. Il pubblico skincare è tra i più preparati a smascherare claim falsi, e un consiglio sbagliato che causa una reazione allergica reale è anche un rischio di responsabilità legale, non solo di immagine.
 - **Nessuna stima di crescita percentuale data** — sarebbe stata inventata senza dati reali. Dato concreto trovato: Aitana López (The Clueless, Barcellona) è passata da 0 a 300.000 follower in 6 mesi, ma con un team di 11 persone — non comparabile 1:1 con un progetto solo. Dati di settore (fonti miste, alcune di qualità bassa) indicano beauty come seconda categoria più vista su TikTok dopo entertainment, ed engagement rate medio dei virtual influencer 3x superiore ai creator umani (5,67% contro 1,89%) quando il contenuto è buono.
 
+### Personaggio 1 — account social live (scoperto mancante in questa sessione il 26/9)
+
+**ATTENZIONE**: questa sezione non era mai stata scritta prima, nonostante l'account esista da
+qualche giorno — persa per mancanza di aggiornamento del file, causa di un errore reale in questa
+sessione (ho detto a Massimiliano che l'account non esisteva). Da tenere sempre aggiornata da qui
+in poi.
+
+- **Instagram**: [`instagram.com/sienna.ai.scrollcraft`](https://instagram.com/sienna.ai.scrollcraft)
+  — attivo, **12 post, 7 follower, 9 following** (verificato 26/9 da screenshot di Massimiliano).
+  Bio in uso: *"AI creator · made with AI by Scrollcraft · currently obsessed with skincare (ask me
+  again next month)"* — identica alla bozza fissata nel character bible in `19-personaggio-ai-
+  sienna.md`. I 12 post visibili corrispondono al banco fotografico Palm Springs + location varie
+  già approvate (piscina, diner al neon, maggiolino, toeletta anni '20, terrazza con palla da
+  discoteca, GRWM bagno, ecc.) — coerente con la decisione "100% foto/carousel per l'apertura" del
+  23/9.
+- **TikTok**: connector Higgsfield attivo (`connector_id 2b372411-7003-44d7-98f1-91a4b085b9f4`,
+  connesso il 23/9, via `tiktok_accounts`/`tiktok_prepare_publish`) — Claude ha accesso per
+  pubblicare. **Non esiste però un tool per elencare i post già pubblicati** (nessun equivalente di
+  "list" per lo storico), quindi il conteggio/contenuto reale visibile sul profilo TikTok va
+  verificato guardando l'app/sito direttamente, come fatto per Instagram — non dare per scontato
+  che rispecchi 1:1 i 12 post Instagram.
+
 ### Personaggio 1 — creato
 
 - **Volto scelto**: generato 4 varianti (stesso identikit testuale: donna fine anni 20-primi 30, capelli rosso rame, lentiggini, occhi verdi, pelle con texture reale non ritoccata) via `gpt_image_2`, Massimiliano ha scelto il volto della variante "mirror selfie" (job id `c6db8206-dc18-4a6b-aa24-67bdaf220688`).
