@@ -839,6 +839,18 @@ generare da qui consumerebbe sempre crediti a pagamento anche con un pass attivo
 Claude su questo shot pilota resta preparare il prompt esatto e gli id di reference da incollare,
 non lanciare la generazione.
 
+**Completato 26/9**: Massimiliano ha montato lui stesso in Final Cut il vlog Palm Springs (38s,
+piscina all'alba/tramonto + gelato al neon + altre scene), pubblicato su
+`digital-business/portfolio/index.html` (`sienna.mp4`, sezione griglia standard, id `sienna`).
+Sostituiva un clip sbagliato da 4s finito online per errore (job isolato `48aa8b7b...`, generato
+con `duration:4` esplicito — non era un taglio del video giusto, era proprio un'altra generazione).
+File originale caricato in `.mov` (H.264 video + audio PCM non compresso) convertito da Claude in
+H.264+AAC con `movflags +faststart` prima della pubblicazione, stessa regola già fissata in
+`18-higgsfield-workflow-guida.md` sezione 8. Nota tecnica: **`ffmpeg` non è installato come
+binario di sistema in questo ambiente, ma il pacchetto Python `imageio-ffmpeg` lo include** —
+eseguibile trovato via `python3 -c "import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())"`,
+utilizzabile per future conversioni quando serve senza dover installare altro.
+
 ## Esperimento "spin/reveal" Genjutsu (26/9) — accantonato
 
 Test di motion transfer (Higgsfield Genjutsu) partendo da un video di riferimento trovato online
