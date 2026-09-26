@@ -839,6 +839,17 @@ generare da qui consumerebbe sempre crediti a pagamento anche con un pass attivo
 Claude su questo shot pilota resta preparare il prompt esatto e gli id di reference da incollare,
 non lanciare la generazione.
 
+## Esperimento "spin/reveal" Genjutsu (26/9) — accantonato
+
+Test di motion transfer (Higgsfield Genjutsu) partendo da un video di riferimento trovato online
+(soggetto anime che ruota su un piedistallo, sfondo a gel colorato ciclico) per recastare Sienna
+sopra. Due tentativi fatti da Massimiliano sul sito: il primo con espressione/location sbagliate
+(errore di prompt di Claude — scritto "studio backdrop" invece del negozio dischi, ed espressione
+dimenticata), il secondo non ancora tentato con la versione corretta del prompt. **Decisione presa
+da Massimiliano il 26/9: non rigenerare, non ne vale la pena** — è un contenuto accessorio, non
+nella lista dei 55 concept né nel banco già pubblicato, e i crediti vanno riservati a produzione
+che serve davvero. Non riprendere questa pista salvo richiesta esplicita futura.
+
 ---
 
 ## Fonti (personalità/attrattiva per il pubblico, verificate 22/9)
