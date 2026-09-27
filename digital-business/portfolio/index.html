@@ -115,6 +115,18 @@ header{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.85);
 .reel .label{position:absolute;left:12px;top:12px;background:#fff;color:var(--accent-ink);
   font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:999px;letter-spacing:.02em}
 
+/* stills grid (bonus add-on, not a full second offering) */
+.stills-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.still{position:relative;aspect-ratio:3/4;border:1px solid var(--line);border-radius:16px;
+  overflow:hidden;box-shadow:0 18px 40px -20px rgba(20,20,15,.25);display:block}
+.still img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+.still:hover img{transform:scale(1.03)}
+.still .chrome{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(0,0,0,.30) 0%,transparent 26%,transparent 66%,rgba(0,0,0,.6) 100%)}
+.still .label{position:absolute;left:12px;top:12px;background:#fff;color:var(--accent-ink);
+  font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:999px;letter-spacing:.02em}
+.still .cap{position:absolute;left:12px;right:12px;bottom:12px;color:#fff;font-size:12px;font-weight:500;line-height:1.35}
+
 /* generic grid + cards */
 .grid{display:grid;gap:16px}
 .g3{grid-template-columns:repeat(3,1fr)}
@@ -199,6 +211,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
   .g4{grid-template-columns:repeat(2,1fr)}
   .compare{grid-template-columns:1fr}
   .work-grid{grid-template-columns:repeat(2,1fr)}
+  .stills-grid{grid-template-columns:repeat(3,1fr)}
   .contact .box{grid-template-columns:1fr;gap:28px}
 }
 @media(max-width:520px){
@@ -209,6 +222,8 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
   .work-grid .label{display:none}
   .work-grid .ph .cap{display:none}
   .work-grid .ph .dot{width:56px;height:56px;font-size:20px;border-width:0;background:#fff}
+  .stills-grid{grid-template-columns:repeat(2,1fr)}
+  .still .label,.still .cap{display:none}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -282,6 +297,26 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
       <figure class="reel"><span class="label">Social proof</span><video src="9.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div><span class="cap">Product B-roll with review overlay</span></div></figure>
       <figure class="reel" id="skincare"><span class="label">UGC talking</span><video src="11.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div><span class="cap">Skincare — UGC talking</span></div></figure>
       <figure class="reel" id="sienna"><span class="label">AI creator vlog</span><video src="sienna.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video><button class="fs-btn" aria-label="Fullscreen">&#x2922;</button><div class="chrome"></div><div class="ph"><div class="dot">▶</div><span class="cap">Sienna — fully AI-generated creator vlog</span></div></figure>
+    </div>
+  </div>
+</section>
+
+<!-- STILLS: bonus add-on to the video offering, not a parallel service —
+     kept visually lighter-weight than #work on purpose. -->
+<section id="stills" style="padding-block:56px">
+  <div class="wrap">
+    <div class="head-row">
+      <p class="eyebrow">Bonus, included with your package</p>
+      <h2 class="disp" style="font-size:clamp(22px,3vw,32px)">Same pipeline shoots stills too.</h2>
+      <p class="muted">High-fidelity editorial photography of your AI creator — for feed posts, product pages, and packaging mockups.</p>
+    </div>
+    <br>
+    <div class="stills-grid">
+      <a class="still" href="photo-1.webp" target="_blank" rel="noopener"><span class="label">Beauty</span><img src="photo-1.webp" alt="AI-generated editorial beauty photograph" loading="lazy"><div class="chrome"></div><span class="cap">Beauty editorial</span></a>
+      <a class="still" href="photo-2.webp" target="_blank" rel="noopener"><span class="label">Editorial</span><img src="photo-2.webp" alt="AI-generated avant-garde editorial photograph" loading="lazy"><div class="chrome"></div><span class="cap">Avant-garde editorial</span></a>
+      <a class="still" href="photo-3.webp" target="_blank" rel="noopener"><span class="label">Fashion</span><img src="photo-3.webp" alt="AI-generated color-block fashion photograph" loading="lazy"><div class="chrome"></div><span class="cap">Color-block fashion story</span></a>
+      <a class="still" href="photo-4.webp" target="_blank" rel="noopener"><span class="label">Cover mock</span><img src="photo-4.webp" alt="AI-generated magazine cover mockup photograph" loading="lazy"><div class="chrome"></div><span class="cap">Magazine cover mock-up</span></a>
+      <a class="still" href="photo-5.webp" target="_blank" rel="noopener"><span class="label">B&amp;W</span><img src="photo-5.webp" alt="AI-generated black and white studio photograph" loading="lazy"><div class="chrome"></div><span class="cap">Black &amp; white studio</span></a>
     </div>
   </div>
 </section>
