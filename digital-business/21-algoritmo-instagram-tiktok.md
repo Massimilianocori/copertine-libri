@@ -68,12 +68,21 @@ algoritmo:
 1. **Ogni video prodotto per Instagram (3-5/settimana, budget invariato ~105-175€/mese) va
    ripubblicato su TikTok lo stesso giorno o il giorno dopo**, usando lo stesso file. Zero
    produzione aggiuntiva.
-2. **Ogni foto/carosello prodotto per Instagram (2-3/settimana) va pubblicato anche su TikTok come
-   post fotografico/slideshow** (TikTok supporta post multi-foto con musica) — questo è il modo di
-   aumentare gratis il volume TikTok senza produrre nulla in più: le foto sono già pagate per IG.
-3. **Risultato**: da 5 video/mese su TikTok a 5-8 post/settimana totali (video + foto) senza un
-   euro in più di produzione — non è il ritmo ideale da studio (1 video/giorno), ma è sostenibile e
-   comunque un salto netto rispetto a oggi.
+2. **Solo le foto/carousel di tipo educational/informativo vanno anche su TikTok come post
+   fotografico/slideshow** — non tutte le foto. Dati 2026 (aggiornati dopo un confronto diretto con
+   Massimiliano, che aveva già scartato le foto su TikTok in passato): il photo mode di TikTok ha
+   reach alto **solo per contenuti educational/informativi**, ma **fallisce per contenuti
+   personality-driven/intrattenimento** — che è la natura della maggior parte dei pilastri di
+   Sienna (Ossessioni, Rant, Assurdo). Quindi:
+   - **Estetica/mood, Ossessioni, Rant, Assurdo** → restano solo su Instagram (carosello), su
+     TikTok andrebbero comunque male.
+   - **Solo il formato settimanale "Scoperta della settimana"** (l'episodio educational/informativo
+     già previsto, un fatto verificato raccontato una volta a settimana) è adatto anche a TikTok
+     come slideshow — è l'unico contenuto della lista che è davvero informativo, non
+     personalità/intrattenimento.
+3. **Risultato**: i video restano il grosso del volume cross-postato (3-5/settimana), più 1
+   episodio educational/settimana anche come foto su TikTok — non tutte le 2-3 foto/settimana come
+   avevo detto in una prima versione di questo file, corretto dopo il confronto con Massimiliano.
 
 ### Cosa cambia solo in fase di pubblicazione (costo zero)
 
@@ -106,7 +115,9 @@ algoritmo:
 ### Giorni foto/carosello (2-3 volte/settimana)
 1. Genero le foto come già previsto.
 2. Pubblico su Instagram come carosello.
-3. Pubblico le stesse foto su TikTok come post fotografico con musica.
+3. **Solo se è l'episodio settimanale "Scoperta della settimana" (educational)**: pubblico le
+   stesse foto anche su TikTok come post fotografico con musica. Tutti gli altri caroselli
+   (Estetica, Ossessioni, Rant, Assurdo) restano solo su Instagram.
 
 ### Ogni giorno, a prescindere dalla produzione
 - Controllo risposte/commenti in sospeso su entrambe le piattaforme (5 min).
