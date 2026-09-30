@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Gmail__create_draft",
+      "mcp__Gmail__update_draft",
+      "mcp__Gmail__list_drafts",
+      "mcp__Gmail__get_draft",
+      "mcp__Gmail__search_threads",
+      "mcp__Gmail__get_thread",
+      "mcp__Vibe_Prospecting__autocomplete",
+      "mcp__Vibe_Prospecting__fetch-entities",
+      "mcp__Vibe_Prospecting__fetch-entities-statistics",
+      "mcp__Vibe_Prospecting__show-sample",
+      "mcp__Vibe_Prospecting__get-dataset",
+      "mcp__Vibe_Prospecting__enrich-prospects",
+      "mcp__Vibe_Prospecting__export-to-csv",
+      "mcp__Vibe_Prospecting__match-prospects",
+      "mcp__Vibe_Prospecting__match-business"
+    ]
+  }
+}
