@@ -15,7 +15,8 @@
       "mcp__Vibe_Prospecting__enrich-prospects",
       "mcp__Vibe_Prospecting__export-to-csv",
       "mcp__Vibe_Prospecting__match-prospects",
-      "mcp__Vibe_Prospecting__match-business"
+      "mcp__Vibe_Prospecting__match-business",
+      "mcp__Gmail__send_message"
     ]
   }
 }
