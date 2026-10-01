@@ -28,3 +28,10 @@ Obiettivo: ottenere lavoro. Le email devono arrivare ai destinatari giusti, esse
 ## Ordine primo giro (10)
 Glamnetic (Esther), Farmacy (Patricia), DIBS (Alexandra), Eva NYC (Janie), Topicals (Helena), ARMRA (Amanda), Curie (Sarah), Clearstem (Kayleigh), Womaness (Sally), Slate Brands (Judah).
 Fermi: Organic Muscle, Warlord (indirizzo non verificato), cocokind (indirizzo 2016).
+
+## Foto prodotto: regole decise il 1/10
+- Foto prodotto solo su prodotti REALI, uso privato (solo al brand destinatario), dichiarate come AI, mai sul sito pubblico senza decisione di Massimiliano.
+- Ogni creazione foto la dirige Massimiliano (e fotografo): estetica, luce, inquadratura. Claude prepara la parte tecnica (prompt, riferimenti, costi) e propone, non decide l'estetica.
+- Prima foto: Topicals (Helena), da fare piu tardi con una foto prodotto scaricata dal sito di Topicals.
+- Priorita categorie: skincare (contatti pronti), poi home/lifestyle (serve ricarica Vibe per nuovi contatti).
+- Vibe: crediti gratuiti finiti, ricarica il mese prossimo. Higgsfield: ~990 crediti.
