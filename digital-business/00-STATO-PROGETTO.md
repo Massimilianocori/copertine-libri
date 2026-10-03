@@ -103,6 +103,8 @@ Massimiliano
 
 ## Politica trademark/endorsement sui video del portfolio pubblico
 
+- **Aggiornamento 3/10/2026 (decisione di Massimiliano):** sui contenuti editoriali pubblici (Instagram, LinkedIn, sito) si possono usare prodotti di brand reali, come fanno gli editoriali AI. Condizioni: dicitura "Concept / spec work. Not affiliated with [brand]"; nessuna affermazione di collaborazione; evitare gruppi lusso molto litigiosi (LVMH, Chanel); rimozione immediata su richiesta del brand. Preferire brand DTC della taglia dei nostri clienti (il post vale anche come pitch).
+
 - Un video "spec ad" fatto su misura per un brand specifico, mandato in privato a QUEL brand come pitch, è a basso rischio.
 - Lo STESSO asset mostrato sul portfolio pubblico per attirare ALTRI clienti è un uso diverso e più rischioso (rischio di endorsement/affiliazione implicita).
 - Soluzione adottata: **due versioni** dello stesso video — una col branding reale del cliente (solo per outreach privato diretto a quel cliente), una de-brandizzata con end card generica Scrollcraft (per il portfolio pubblico su scrollcraft.design). Sfondo end card generica: beige del sito (`#F1EFE7` / `--bg2`), non nero, per leggibilità.
