@@ -231,48 +231,45 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 }
 
 /* ===== IDEAS CAROUSEL (opening) ===== */
-.ideas{padding:0;background:#111;color:#fff;position:relative;overflow:hidden}
-.ideas .stage{position:relative;margin:0 auto;height:min(86vh,820px);min-height:560px}
-.ideas .slide{position:absolute;inset:0;display:grid;grid-template-columns:1fr minmax(0,42%);opacity:0;visibility:hidden;transition:opacity .9s ease,visibility .9s}
+.ideas{padding:0;position:relative;overflow:hidden;background:var(--c,#111);transition:background-color .9s ease}
+.ideas .stage{position:relative;height:min(88vh,920px);min-height:560px}
+.ideas .slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:28px 0 72px;opacity:0;visibility:hidden;transition:opacity .9s ease,visibility .9s}
 .ideas .slide.on{opacity:1;visibility:visible}
-.ideas .copy{display:flex;flex-direction:column;justify-content:center;padding:56px clamp(24px,6vw,96px);background:var(--c,#111);color:var(--t,#fff)}
-.ideas .kicker{font-family:"Space Grotesk",sans-serif;font-size:11px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;opacity:.7;margin:0 0 22px}
-.ideas h2{font-family:"Space Grotesk",Inter,sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(38px,5.6vw,84px);line-height:.92;letter-spacing:-.03em;margin:0 0 26px}
+.ideas .card{position:relative;height:100%;aspect-ratio:3/4;max-width:calc(100vw - 32px);overflow:hidden;border-radius:4px;box-shadow:0 30px 80px rgba(0,0,0,.25);background:#000}
+.ideas .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.05);transition:transform 6.5s ease}
+.ideas .slide.on .card img{transform:scale(1)}
+.ideas .copy{position:absolute;left:0;right:0;padding:7% 7%;color:#fff;z-index:2;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.ideas .top{top:0;background:linear-gradient(to bottom,rgba(0,0,0,.55),rgba(0,0,0,0))}
+.ideas .bottom{bottom:0;padding-bottom:9%;background:linear-gradient(to top,rgba(0,0,0,.7),rgba(0,0,0,0))}
+.ideas .mid{top:50%;transform:translateY(-50%);right:auto;width:62%}
+.ideas .kicker{font-family:"Space Grotesk",sans-serif;font-size:10px;font-weight:600;letter-spacing:.42em;text-transform:uppercase;opacity:.85;margin:0 0 14px}
+.ideas h2{font-family:"Space Grotesk",Inter,sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(30px,4.4vh,58px);line-height:.92;letter-spacing:-.03em;margin:0 0 16px}
 .ideas h2 em{text-transform:none;font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
-.ideas .truth{font-family:"Space Grotesk",sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;line-height:1.9;opacity:.85;margin:0;max-width:440px}
+.ideas .truth{font-family:"Space Grotesk",sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;line-height:1.8;margin:0;max-width:92%;text-shadow:0 1px 3px rgba(0,0,0,.85),0 0 14px rgba(0,0,0,.6)}
 .ideas .truth b{font-weight:700}
-.ideas .pic{position:relative;margin:0;overflow:hidden}
-.ideas .pic img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 6s ease}
-.ideas .slide.on .pic img{transform:scale(1)}
-.ideas .credit{position:absolute;right:14px;bottom:12px;font-size:10px;letter-spacing:.06em;color:#fff;opacity:.75;text-shadow:0 1px 3px rgba(0,0,0,.6)}
-.ideas .final{grid-template-columns:1fr;text-align:center}
-.ideas .final .copy{align-items:center}
-.ideas .final h2{font-size:clamp(44px,7vw,110px)}
-.ideas .final .btn{background:#0A0A0A;color:#fff;border-color:#0A0A0A;margin-top:18px;padding:16px 30px;font-size:16px}
-.ideas .final .btn:hover{background:transparent;color:#0A0A0A}
-.ideas .final .truth{opacity:.75}
-.ideas .ctrl{position:absolute;left:clamp(24px,6vw,96px);bottom:28px;display:flex;align-items:center;gap:14px;z-index:5}
+.ideas .credit{position:absolute;right:10px;bottom:8px;z-index:3;font-size:9px;letter-spacing:.05em;color:#fff;opacity:.7}
+.ideas .final .card{background:#C6FF3A;box-shadow:none;display:flex;align-items:center;justify-content:center;text-align:center}
+.ideas .final .copy{position:static;color:#0A0A0A;text-shadow:none;padding:10%}
+.ideas .final h2{font-size:clamp(36px,6vh,76px)}
+.ideas .final .btn{margin-top:22px;padding:16px 30px;font-size:16px}
+.ideas .ctrl{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;align-items:center;gap:14px;z-index:5}
 .ideas .dots{display:flex;gap:8px}
-.ideas .dots button{width:26px;height:3px;border:0;padding:0;background:rgba(255,255,255,.35);cursor:pointer;border-radius:2px}
+.ideas .dots button{width:26px;height:3px;border:0;padding:0;background:rgba(255,255,255,.4);cursor:pointer;border-radius:2px}
 .ideas .dots button.on{background:#fff}
-.ideas .arrow{background:none;border:1px solid rgba(255,255,255,.4);color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:14px}
-.ideas .slide[data-dark] ~ .ctrl{color:#111}
-/* controls on the light final slide */
+.ideas .arrow{background:none;border:1px solid rgba(255,255,255,.5);color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:14px}
 .ideas.lite .dots button{background:rgba(0,0,0,.25)}
 .ideas.lite .dots button.on{background:#0A0A0A}
 .ideas.lite .arrow{border-color:rgba(0,0,0,.35);color:#0A0A0A}
 @media (max-width:820px){
-  .ideas .stage{height:auto;min-height:0;aspect-ratio:3/4.6}
-  .ideas .slide{grid-template-columns:1fr;grid-template-rows:1fr}
-  .ideas .pic{grid-area:1/1}
-  .ideas .copy{grid-area:1/1;z-index:2;justify-content:flex-end;padding:28px 22px 74px;background:linear-gradient(to top,rgba(0,0,0,.82) 0%,rgba(0,0,0,.35) 45%,rgba(0,0,0,0) 70%);color:#fff}
-  .ideas .final .copy{justify-content:center;background:var(--c);color:var(--t)}
-  .ideas h2{font-size:clamp(34px,10vw,52px);margin-bottom:16px}
-  .ideas .truth{font-size:10.5px}
-  .ideas .ctrl{left:22px;bottom:22px}
-  .ideas .credit{top:10px;bottom:auto}
+  .ideas .stage{height:auto;min-height:0;aspect-ratio:3/4.35}
+  .ideas .slide{padding:0 0 56px}
+  .ideas .card{height:auto;width:100%;max-width:none;border-radius:0;box-shadow:none}
+  .ideas h2{font-size:clamp(28px,8.6vw,44px)}
+  .ideas .truth{font-size:10px}
+  .ideas .mid{width:78%}
+  .ideas .ctrl{bottom:12px}
 }
-@media (prefers-reduced-motion:reduce){.ideas .slide,.ideas .pic img{transition:none}}
+@media (prefers-reduced-motion:reduce){.ideas .slide,.ideas .card img{transition:none}}
 </style>
 </head>
 <body>
@@ -284,30 +281,35 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 </header>
 
 <!-- IDEAS CAROUSEL -->
-<section class="ideas" aria-roledescription="carousel" aria-label="Why ideas matter">
+<section class="ideas" style="--c:#E8541E" aria-roledescription="carousel" aria-label="Why ideas matter">
   <div class="stage">
-    <div class="slide on" style="--c:#E8541E;--t:#fff" role="group" aria-label="1 of 6">
-      <div class="copy"><p class="kicker">S C R O L L C R A F T</p><h2>AI can draw <em>anything.</em></h2><p class="truth">Truth: Coke tastes best ice-cold.<br><b>Idea: put it where everything melts.</b></p></div>
-      <figure class="pic"><img src="idea-1.webp" alt="Coca-Cola bottle frozen in a melting desert" fetchpriority="high" width="1200" height="1600"><span class="credit">Concept · not affiliated with The Coca-Cola Company</span></figure>
+    <div class="slide on" data-c="#E8541E" role="group" aria-label="1 of 6">
+      <figure class="card"><img src="idea-1.webp" alt="Coca-Cola bottle frozen in a melting desert" fetchpriority="high" width="1200" height="1600">
+        <div class="copy top"><p class="kicker">Scrollcraft</p><h2>AI can draw <em>anything.</em></h2><p class="truth">Truth: Coke tastes best ice-cold.<br><b>Idea: put it where everything melts.</b></p></div>
+        <span class="credit">Concept · not affiliated with The Coca-Cola Company</span></figure>
     </div>
-    <div class="slide" style="--c:#C8102E;--t:#fff" role="group" aria-label="2 of 6">
-      <div class="copy"><p class="kicker">S C R O L L C R A F T</p><h2>But it can't <em>think</em> for you.</h2><p class="truth">Truth: Heinz pours famously slow.<br><b>Idea: make the wait the show.</b></p></div>
-      <figure class="pic"><img src="idea-2.webp" alt="Giant Heinz ketchup bottle pouring slowly onto a mountain of fries" loading="lazy" width="1200" height="1600"><span class="credit">Concept · not affiliated with Kraft Heinz</span></figure>
+    <div class="slide" data-c="#B8102A" role="group" aria-label="2 of 6">
+      <figure class="card"><img src="idea-2.webp" alt="Giant Heinz ketchup bottle pouring slowly onto a mountain of fries" loading="lazy" width="1200" height="1600">
+        <div class="copy mid"><p class="kicker">Scrollcraft</p><h2>But it can't <em>think</em> for you.</h2><p class="truth">Truth: Heinz pours famously slow.<br><b>Idea: make the wait the show.</b></p></div>
+        <span class="credit">Concept · not affiliated with Kraft Heinz</span></figure>
     </div>
-    <div class="slide" style="--c:#1FB5B0;--t:#0b1f1f" role="group" aria-label="3 of 6">
-      <div class="copy"><p class="kicker">S C R O L L C R A F T</p><h2>Every great ad starts with <em>a truth.</em></h2><p class="truth">Truth: Crocs actually float.<br><b>Idea: the shoe becomes the pool toy.</b></p></div>
-      <figure class="pic"><img src="idea-3.webp" alt="Woman lounging on a giant yellow Crocs clog in a pool of floating Crocs" loading="lazy" width="1200" height="1600"><span class="credit">Concept · not affiliated with Crocs Inc.</span></figure>
+    <div class="slide" data-c="#1A9E9A" role="group" aria-label="3 of 6">
+      <figure class="card"><img src="idea-3.webp" alt="Woman lounging on a giant yellow Crocs clog in a pool of floating Crocs" loading="lazy" width="1200" height="1600">
+        <div class="copy bottom"><p class="kicker">Scrollcraft</p><h2>Every great ad starts with <em>a truth.</em></h2><p class="truth">Truth: Crocs actually float.<br><b>Idea: the shoe becomes the pool toy.</b></p></div>
+        <span class="credit">Concept · not affiliated with Crocs Inc.</span></figure>
     </div>
-    <div class="slide" style="--c:#F2A541;--t:#2a1606" role="group" aria-label="4 of 6">
-      <div class="copy"><p class="kicker">S C R O L L C R A F T</p><h2>Then <em>a wild</em> idea.</h2><p class="truth">Truth: the moka launches every Italian morning.<br><b>Idea: launch it like a rocket.</b></p></div>
-      <figure class="pic"><img src="idea-4.webp" alt="Bialetti moka pot launching like a rocket over Naples at dawn" loading="lazy" width="1200" height="1600"><span class="credit">Concept · not affiliated with Bialetti</span></figure>
+    <div class="slide" data-c="#D98A2B" role="group" aria-label="4 of 6">
+      <figure class="card"><img src="idea-4.webp" alt="Bialetti moka pot launching like a rocket over Naples at dawn" loading="lazy" width="1200" height="1600">
+        <div class="copy top"><p class="kicker">Scrollcraft</p><h2>Then <em>a wild</em> idea.</h2><p class="truth">Truth: the moka launches every Italian morning.<br><b>Idea: launch it like a rocket.</b></p></div>
+        <span class="credit">Concept · not affiliated with Bialetti</span></figure>
     </div>
-    <div class="slide" style="--c:#E8417A;--t:#fff" role="group" aria-label="5 of 6">
-      <div class="copy"><p class="kicker">S C R O L L C R A F T</p><h2>Then a frame that <em>stops the thumb.</em></h2><p class="truth">Truth: they silence the world.<br><b>Idea: the loudest room on earth, gone quiet.</b></p></div>
-      <figure class="pic"><img src="idea-5.webp" alt="Calm woman in a pink suit wearing headphones in the middle of a loud confetti party" loading="lazy" width="1200" height="1600"><span class="credit">Concept · not affiliated with Apple Inc.</span></figure>
+    <div class="slide" data-c="#D93B70" role="group" aria-label="5 of 6">
+      <figure class="card"><img src="idea-5.webp" alt="Calm woman in a pink suit wearing headphones in the middle of a loud confetti party" loading="lazy" width="1200" height="1600">
+        <div class="copy bottom"><p class="kicker">Scrollcraft</p><h2>Then a frame that <em>stops the thumb.</em></h2><p class="truth">Truth: they silence the world.<br><b>Idea: the loudest room on earth, gone quiet.</b></p></div>
+        <span class="credit">Concept · not affiliated with Apple Inc.</span></figure>
     </div>
-    <div class="slide final" style="--c:#C6FF3A;--t:#0A0A0A" role="group" aria-label="6 of 6">
-      <div class="copy"><p class="kicker">Ideas · Direction · Craft</p><h2>Your product, <em>unforgettable.</em></h2><p class="truth">Anyone can generate an image. We build the idea behind it.</p><a href="#contact" class="btn">Get a free sample</a></div>
+    <div class="slide final" data-c="#0A0A0A" role="group" aria-label="6 of 6">
+      <div class="card"><div class="copy"><p class="kicker">Ideas · Direction · Craft</p><h2>Your product, <em>unforgettable.</em></h2><p class="truth">Anyone can generate an image. We build the idea behind it.</p><a href="#contact" class="btn">Get a free sample</a></div></div>
     </div>
   </div>
   <div class="ctrl"><button class="arrow" data-dir="-1" aria-label="Previous">&#8592;</button><div class="dots"></div><button class="arrow" data-dir="1" aria-label="Next">&#8594;</button></div>
@@ -315,12 +317,11 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 <script>
 (function(){
   var root=document.querySelector('.ideas'); if(!root) return;
-  var slides=[].slice.call(root.querySelectorAll('.slide')), dots=root.querySelector('.dots'), i=0, timer, paused=false;
+  var slides=[].slice.call(root.querySelectorAll('.slide')), dots=root.querySelector('.dots'), i=0, timer;
   slides.forEach(function(_,k){var b=document.createElement('button');b.setAttribute('aria-label','Slide '+(k+1));b.onclick=function(){go(k);restart();};dots.appendChild(b);});
-  function go(k){slides[i].classList.remove('on');dots.children[i].classList.remove('on');i=(k+slides.length)%slides.length;slides[i].classList.add('on');dots.children[i].classList.add('on');root.classList.toggle('lite',slides[i].classList.contains('final'));}
-  function restart(){clearInterval(timer);if(!matchMedia('(prefers-reduced-motion: reduce)').matches){timer=setInterval(function(){if(!paused)go(i+1);},5200);}}
+  function go(k){slides[i].classList.remove('on');dots.children[i].classList.remove('on');i=(k+slides.length)%slides.length;slides[i].classList.add('on');dots.children[i].classList.add('on');root.style.setProperty('--c',slides[i].dataset.c);}
+  function restart(){clearInterval(timer);timer=setInterval(function(){if(!document.hidden)go(i+1);},5000);}
   [].forEach.call(root.querySelectorAll('.arrow'),function(a){a.onclick=function(){go(i+ +a.dataset.dir);restart();};});
-  root.addEventListener('mouseenter',function(){paused=true;});root.addEventListener('mouseleave',function(){paused=false;});
   var x0=null;root.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
   root.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){go(i+(dx<0?1:-1));restart();}x0=null;});
   go(0);restart();
