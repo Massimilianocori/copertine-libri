@@ -1,6 +1,6 @@
 # Strategia parallela 3: mercato italiano ed europeo (5/10/2026)
 
-> **Correzione del 5/10 (Massimiliano):** ha già la partita IVA in **regime forfettario**; per iniziare questa attività deve solo aggiungere il **codice ATECO** adatto. Il dubbio fiscale (b) di questo studio è quindi ridotto a: scegliere il codice ATECO giusto. Resta valido il punto (a), art. 130 per le email a freddo.
+> **Correzione del 5/10 (Massimiliano):** ha già la partita IVA in **regime forfettario**; per iniziare questa attività deve solo aggiungere il **codice ATECO** adatto: ha indicato **73.11.02** (secondo la mia conoscenza: conduzione di campagne di marketing e altri servizi pubblicitari; non verificato in sessione, da confermare con il commercialista o l'Agenzia delle Entrate). Il dubbio fiscale (b) di questo studio è quindi ridotto a: scegliere il codice ATECO giusto. Resta valido il punto (a), art. 130 per le email a freddo.
 
 Studio solo ricerca web e lettura file. Nessuna generazione, nessun invio, nessun commit. **NON è consulenza legale/fiscale**: i punti [AVVOCATO] e [COMMERCIALISTA] vanno confermati.
 Legenda: **[V]** verificato in una fonte (URL in fondo) · **[V debole]** blog o riassunto di ricerca, pagina non aperta · **[I]** ipotesi mia.
