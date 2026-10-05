@@ -5,12 +5,13 @@ Qui va tutto quello che funziona e che abbiamo imparato. Gli errori vanno in `ER
 ## Produzione video (spot)
 
 1. **Storyboard visivo, sempre.** Per ogni inquadratura si genera un fotogramma chiave (stesso volto del casting, stesso outfit), lo si controlla affiancato al casting, si mostra a Massimiliano la sequenza come storyboard e, solo dopo l'approvazione, ogni video parte dal suo fotogramma. Uno storyboard solo scritto in un prompt unico porta il modello a saltare inquadrature (spot Tom Ford: 4 su 12 saltate).
-2. **Coerenza del volto.** Partire sempre da un fotogramma che ha già il volto giusto (es. primo piano del casting). La modalità *video_extension* di Cinema Studio 4.0 continua la stessa persona dalla clip precedente: utile per sequenze lunghe.
-3. **Prima bozza a 480p, poi upscale.** La bozza 480p costa un quarto della 1080p. Se approvata, si porta a 1080p (o 2160p) con l'upscale Topaz: contenuto identico. Rigenerare in 1080p produce invece un video diverso (generazione casuale).
-4. **Costi verificati (ottobre 2026):** Cinema Studio 4.0 = 3 crediti/s a 480p, 12 crediti/s a 1080p; immagine Nano Banana Pro ≈ 2 crediti; upscale Topaz 1080p ≈ 0,75 crediti/s. Usare `get_cost` prima di ogni generazione.
-5. **Controllare il modello usato.** Higgsfield può sostituire il modello richiesto (es. Nano Banana Pro → Nano Banana 2): verificarlo nel risultato del job.
-6. **Gusto di Massimiliano sugli spot:** ritmo veloce, inquadrature che cambiano spesso, più movimento che pose statiche, mai l'effetto "foto animate"; nessuna scritta dentro lo spot, solo una grafica finale su nero dopo lo spot; la storia deve capirsi senza spiegazioni (prima/dopo chiaro).
-7. **4K:** i modelli video arrivano a 1080p; il 4K si ottiene con upscale Topaz 2160p. Serve solo per TV, cinema, schermi o lusso: offrirlo come extra a pagamento.
+2. **Il casting in ogni generazione.** Il ritratto del casting approvato va passato come riferimento volto in OGNI generazione (immagini, video, correzioni), insieme al riferimento outfit. Mai correggere partendo da un'immagine derivata già spostata (copia di copia): si rigenera dal casting.
+3. **Coerenza del volto.** Partire sempre da un fotogramma che ha già il volto giusto (es. primo piano del casting). La modalità *video_extension* di Cinema Studio 4.0 continua la stessa persona dalla clip precedente: utile per sequenze lunghe.
+4. **Prima bozza a 480p, poi upscale.** La bozza 480p costa un quarto della 1080p. Se approvata, si porta a 1080p (o 2160p) con l'upscale Topaz: contenuto identico. Rigenerare in 1080p produce invece un video diverso (generazione casuale).
+5. **Costi verificati (ottobre 2026):** Cinema Studio 4.0 = 3 crediti/s a 480p, 12 crediti/s a 1080p; immagine Nano Banana Pro ≈ 2 crediti; upscale Topaz 1080p ≈ 0,75 crediti/s. Usare `get_cost` prima di ogni generazione.
+6. **Controllare il modello usato.** Higgsfield può sostituire il modello richiesto (es. Nano Banana Pro → Nano Banana 2): verificarlo nel risultato del job.
+7. **Gusto di Massimiliano sugli spot:** ritmo veloce, inquadrature che cambiano spesso, più movimento che pose statiche, mai l'effetto "foto animate"; nessuna scritta dentro lo spot, solo una grafica finale su nero dopo lo spot; la storia deve capirsi senza spiegazioni (prima/dopo chiaro).
+8. **4K:** i modelli video arrivano a 1080p; il 4K si ottiene con upscale Topaz 2160p. Serve solo per TV, cinema, schermi o lusso: offrirlo come extra a pagamento.
 
 ## File e consegne
 
