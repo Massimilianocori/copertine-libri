@@ -21,3 +21,7 @@ Ogni riga: errore → regola permanente.
 12. **Font diverso da quello richiesto** (anteprime con font di ripiego) → Usare i font reali in locale per le anteprime e verificare che coincidano con il sito.
 13. **Anteprima diversa dal risultato approvato** → Mostrare esattamente quello che andrà online.
 14. **Deploy Netlify troppo frequenti** (sito sospeso) → Massimo 1 pubblicazione al giorno.
+
+## Email
+
+15. **Indirizzo email scritto a memoria e sbagliato** (tim@somnee.com invece di tim@somneesleep.com, 5/10) → Prima di ogni invio leggo la riga della coda (`invii-*.tsv`) nello stesso passaggio e copio l'indirizzo da lì, carattere per carattere. Dopo ogni invio confronto il destinatario con la coda.
