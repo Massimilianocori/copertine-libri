@@ -30,6 +30,13 @@ Qui va tutto quello che funziona e che abbiamo imparato. Gli errori vanno in `ER
 9. **4K:** i modelli video arrivano a 1080p; il 4K si ottiene con upscale Topaz 2160p. Serve solo per TV, cinema, schermi o lusso: offrirlo come extra a pagamento.
 10. **Un unico video lungo o tanti pezzi? (5/10, da verificare con una prova).** Nello spot Tom Ford i pezzi singoli hanno fatto derivare il volto (immagini di partenza non coerenti); una generazione unica da 15 s con 12 inquadrature nel prompt ha mantenuto volto e abito, ma ha saltato 4 inquadrature su 12 e ha deciso da sola i tagli. Metodo consigliato (ipotesi): blocchi da 10-15 s con 4-6 inquadrature ciascuno, ogni blocco con fotogramma di partenza (e finale) dallo storyboard approvato, concatenati con video_extension, poi montaggio. Il video unico da 30 s (Cinema Studio 4.0 arriva a 30 s) non è mai stato provato: farne una bozza 480p (circa 90 crediti a 3 crediti/s) prima di scegliere, con il permesso di Massimiliano.
 
+## UGC con avatar parlante (verificato sugli schemi, 5/10; da provare con un test)
+
+- **Scheda voce nel brief, da far approvare:** tono, energia, ritmo, età/accento, intercalari, emozione frase per frase. Il tono dipende molto anche dal copione: frasi corte, contrazioni, registro parlato.
+- **Controllo della voce (modelli audio Higgsfield):** Qwen Audio 3.0 TTS Flash ha il campo `instruction` in linguaggio naturale (emozione, stile, velocità) più `speech_rate` e `pitch_rate`; Seed Audio 1.0 ha `speech_rate`, `pitch_rate`, `loudness_rate`; ElevenLabs v4 ha `stability` e `similarity_boost`; Text to Speech V2 permette di scegliere il motore (ElevenLabs, MiniMax, ecc.). Le voci si ascoltano in anteprima con `list_voices`, e si può clonare una voce da un audio di riferimento.
+- **Nel video:** Cinema Studio 4.0 e Seedance 2.5 accettano `generate_audio` e un audio di riferimento (`audio_references`); il tono si può descrivere anche nel prompt del video. Quanto il labiale segua un audio esterno e quanto il modello rispetti il tono scritto NON è verificato: fare prima una prova di una frase, con costo controllato (`get_cost`), e confrontarla con Massimiliano.
+- Esistono anche `voice_change` (cambia la voce di una clip) e `dubbing`.
+
 ## File e consegne
 
 - In chat si possono inviare file fino a 30 MB: comprimere prima (H.264, ~7–8 Mbps per 1080p da 30 s).
