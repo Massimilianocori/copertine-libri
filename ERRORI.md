@@ -25,3 +25,7 @@ Ogni riga: errore → regola permanente.
 ## Email
 
 15. **Indirizzo email scritto a memoria e sbagliato** (tim@somnee.com invece di tim@somneesleep.com, 5/10) → Prima di ogni invio leggo la riga della coda (`invii-*.tsv`) nello stesso passaggio e copio l'indirizzo da lì, carattere per carattere. Dopo ogni invio confronto il destinatario con la coda.
+
+## Spot (continua)
+
+16. **Immagine di partenza con un'immagine di composizione vecchia come riferimento** (spruzzo rifatto: il volto resta quello vecchio, il riferimento di composizione domina sul casting) → Per cambiare volto non dare mai l'immagine col volto sbagliato come riferimento. Partire da un fotogramma che ha già il volto giusto.
