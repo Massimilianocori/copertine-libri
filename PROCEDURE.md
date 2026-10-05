@@ -2,6 +2,11 @@
 
 Qui va tutto quello che funziona e che abbiamo imparato. Gli errori vanno in `ERRORI.md`.
 
+## INDICE DEGLI STUDI (5/10/2026, tutti a costo zero)
+
+- `30` strumenti e motori Higgsfield, costi reali · `31` regole ufficiali UGC · `32` catalogo dei workflow Higgsfield · `33` catalogo modelli, preset, app e costi · `34` Marketing Studio e Ads Studio · `35` playbook per tipo di lavoro (con i costi reali: lo spot Tom Ford è costato circa 1.017 crediti, circa 51 €, contro 715 preventivati) · `36` outreach playbook · `37` conformità e diritti (da far verificare a un avvocato).
+- Per ogni lavoro: leggere la scheda del tipo di lavoro in `35`, poi le regole in `31` (UGC) o la checklist qui sotto (spot). Una sola strada: la migliore.
+
 ## CHECKLIST SPOT: i passaggi, in ordine (da seguire ogni volta)
 
 1. **Leggere** `CLAUDE.md`, `ERRORI.md` e `PROCEDURE.md`.
@@ -61,4 +66,7 @@ Qui va tutto quello che funziona e che abbiamo imparato. Gli errori vanno in `ER
 - Politica dal 5/10: niente lavoro gratis. Offerta d'ingresso: pilota 3 video $450; Holiday Ad Pack 10 video + 10 hook $1.490 (ordine entro 24/10, consegna entro 10/11). Agenzie white-label: $150/$130/$115 a video per 10/50/100; hook $35/$30/$25.
 - Su LinkedIn con account gratuito le note personalizzate negli inviti sono poche al mese; i profili aperti si possono contattare subito con messaggio diretto. Chi riceve il DM non riceve l'email lo stesso giorno.
 - Per i preventivi su misura: fattura Stripe (Invoice) o Payment Link, con acconto 50%.
+- **Conformità email (dal doc 37, 5/10):** ogni email di outreach ha in fondo il footer di `outreach-footer.txt` (indirizzo postale, dichiarazione di email promozionale, fonte dei dati, disiscrizione con risposta "no", rispettata subito); mai frasi che suggeriscono clienti, risultati o esperienze che non abbiamo (es. "We work with DTC brands"); contatti a freddo solo con Paese = United States (UE e UK esclusi finché un avvocato non conferma); nessun campione gratuito. Senza indirizzo nel footer non si invia.
+- **Conformità sito e campioni:** niente recensioni, valutazioni o conteggi inventati (rimosso il reel con "4.9, 2.300+ verified reviews"); i campioni parlati sono "Scripted AI sample"; nessun marchio di terzi senza la formula "concept" e piano di rimozione; la musica Pixabay richiede la ricevuta di licenza conservata.
+- **Rischi noti da far vedere a un avvocato:** concept con marchi di lusso in homepage, cold email da mittente italiano (art. 130 Codice Privacy), informativa privacy e strumento visitatori Apollo, "full usage rights" nei preventivi (usare la clausola di licenza del doc 37).
 - Decidere con i numeri: test A/B tra segmenti (es. agenzie vs moda), confronto dopo 7 giorni.

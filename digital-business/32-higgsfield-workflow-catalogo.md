@@ -28,7 +28,7 @@ Regola trasversale di tutti i workflow ([V], appendice `use_unlim`): `use_unlim`
 | Cosa fanno i workflow | Regola Scrollcraft | Come si risolve |
 |---|---|---|
 | Modalità "full auto / go ahead / no questions" con default decisi dal workflow (varianti, stile, voce) | Niente iniziative, brief approvato prima; nessuna generazione senza "sì" | Non usare le modalità automatiche. Presentare il brief e il preventivo, aspettare il "sì" per ogni generazione |
-| Modelli bloccati (es. `nano_banana_pro`, `minimax_h3`, `seedance_2_5`, `ad_multiplier`) | ERRORI n. 19: il modello lo decide Massimiliano dopo prova affiancata | Dire a Massimiliano quale modello il workflow blocca prima di partire; se non lo vuole, non usare il workflow ma la procedura manuale (PROCEDURE.md) |
+| Modelli bloccati (es. `nano_banana_pro`, `minimax_h3`, `seedance_2_5`, `ad_multiplier`) | CLAUDE.md (5/10): il modello lo sceglie Claude dopo lo studio e Massimiliano approva prima di generare | Dire a Massimiliano quale modello il workflow blocca e perché è il migliore per quel lavoro; si parte solo dopo il suo "sì" |
 | Voce predefinita (faceless: Cillian) o scelta in autonomia | Mai decidere un elemento di propria iniziativa | La voce va approvata nella scheda voce |
 | Il workflow decide tagli, ritmo, "mostra solo il risultato finale" | Controllo fotogramma per fotogramma, confronto affiancato col casting | Aggiungere sempre i controlli di CLAUDE.md dopo ogni output |
 | Il workflow sostituisce o rigenera da sé (retry automatici) | Ogni generazione = permesso + costo | I retry vanno comunicati e approvati; un retry costa crediti |
