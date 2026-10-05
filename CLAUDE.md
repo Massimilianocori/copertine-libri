@@ -1,6 +1,7 @@
 # Regole di lavoro (Scrollcraft)
 
 - **DIVIETO DI GENERARE senza permesso.** Nessuna generazione Higgsfield (immagini, video, audio) e nessuna spesa di crediti finché Massimiliano non dà il permesso esplicito per quella specifica generazione. Prima si propone per iscritto (prodotto, scena, quante varianti, costo stimato), poi si aspetta il "sì". Un messaggio con esempi o screenshot NON è un permesso.
+- **IL MODELLO AI LO DECIDE MASSIMILIANO.** Mai scegliere da solo il modello video (o immagine) da usare. Prima si presenta il confronto tra i modelli possibili (qualità, con prova affiancata se serve, e costo in crediti verificato), poi decide Massimiliano.
 - Risposte brevi, in italiano.
 - **COERENZA ASSOLUTA IN OGNI VIDEO E SERIE DI FOTO.** Stessa modella (stesso volto), stesso outfit, stesso trucco, capelli, unghie, accessori, prodotto e luce in ogni inquadratura. Prima di generare qualsiasi video: confronto affiancato di ogni immagine di partenza con il casting approvato; se il volto o un dettaglio non è identico, si scarta e si rifà. Riferimento volto = sempre e solo il casting approvato. Dopo ogni video: controllo fotogramma per fotogramma (tagli automatici, altre persone, volto cambiato, outfit cambiato, sorrisi non voluti).
 - **REGISTRO ERRORI.** Ogni errore segnalato da Massimiliano va scritto in `ERRORI.md` con la regola per non ripeterlo. Leggere `ERRORI.md` prima di ogni lavoro creativo.
