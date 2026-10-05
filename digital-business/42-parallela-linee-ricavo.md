@@ -1,5 +1,7 @@
 # Strategia parallela 2: linee di ricavo parallele con le stesse competenze (5/10/2026)
 
+> **Decisione di Massimiliano (5/10):** l'extra "foto prodotto" (b1) è **scartato**. Motivi suoi, validi: (1) le foto prodotto sono troppo varie: per mostrare un portfolio bisogna scegliere pochi prodotti, e questo penalizza chi vende altri prodotti non rappresentati; (2) l'idea di come fotografare il prodotto è soggettiva: un cliente che la vede in modo diverso ci penalizza. Ne segue che oggi **non si avvia nessuna linea parallela** e si resta sul core (video ads). Le soglie per rivalutare restano quelle di §4 (2 retainer attivi da 2 mesi, margine 75%).
+
 Legenda: **[V]** = riportato da una fonte con URL · **[V debole]** = blog di venditore/consulente o solo riassunto di WebSearch · **[I]** = ipotesi nostra.
 Limite onesto: pond5.com e helpx.adobe.com non erano apribili (egress bloccato). Tutti i numeri vengono da riassunti di WebSearch, non da pagine lette per intero. Sono ordini di grandezza. Legge con `03`, `29`, `37`, `38`, `40`. Nessuna generazione, nessuna spesa.
 
