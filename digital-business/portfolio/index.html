@@ -74,6 +74,17 @@ header{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.85);
 .cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .hero .note{margin-top:14px;font-size:13px;color:var(--muted)}
 .hero .note b{color:var(--text)}
+.hero-grid:has(.spot){grid-template-columns:.85fr 1.15fr;gap:44px}
+.spot{position:relative;margin:0;aspect-ratio:16/9;background:#0b0606;border-radius:16px;overflow:hidden;
+  box-shadow:0 22px 48px -22px rgba(20,20,15,.45)}
+.spot video{width:100%;height:100%;object-fit:cover;display:block}
+@media(min-width:921px){.spot{margin-right:min(0px,calc((var(--max) - 100vw)/2 + 40px))}}
+.spot-sound{position:absolute;right:12px;bottom:12px;display:inline-flex;align-items:center;gap:6px;
+  padding:7px 12px;border:0;border-radius:999px;background:rgba(0,0,0,.55);color:#fff;font:600 12px/1 inherit;cursor:pointer;
+  backdrop-filter:blur(6px)}
+.spot-sound:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.spot figcaption{position:absolute;left:14px;bottom:14px;color:rgba(255,255,255,.75);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;pointer-events:none}
 
 /* phone-style video mock */
 .phones{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -206,7 +217,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 
 /* responsive */
 @media(max-width:920px){
-  .hero-grid{grid-template-columns:1fr}
+  .hero-grid,.hero-grid:has(.spot){grid-template-columns:1fr}
   .g3{grid-template-columns:1fr}
   .g4{grid-template-columns:repeat(2,1fr)}
   .compare{grid-template-columns:1fr}
@@ -350,17 +361,12 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
       </div>
       <p class="note"><b>No commitment.</b> We make one ad for your product first — a watermarked preview, so you can judge it before spending anything.</p>
     </div>
-    <!-- HERO SAMPLES: drop 1.mp4/2.mp4 in this folder — placeholder shows until then. -->
-    <div class="phones">
-      <figure class="reel">
-        <video src="5.mp4" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback playsinline preload="metadata"></video>
-        <button class="fs-btn" aria-label="Fullscreen">&#x2922;</button>
-        <div class="chrome"></div>
-        <div class="who"><div class="avatar">S</div><div><span class="handle">@yourbrand</span><span class="followers">Sponsored</span></div></div>
-        <div class="caption">"This is why I can push like this."</div>
-        <div class="ph"><div class="dot">▶</div>Full spot — hook + product + CTA</div>
-      </figure>
-    </div>
+    <!-- HERO SPOT: 16:9, autoplay muted loop (browsers only allow muted autoplay); sound toggle. -->
+    <figure class="spot">
+      <video id="heroSpot" src="spot-lostcherry.mp4" poster="spot-lostcherry.jpg" autoplay muted loop playsinline preload="auto" controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback></video>
+      <button class="spot-sound" type="button" aria-label="Turn sound on" aria-pressed="false"><span class="ico">&#x1F507;</span><span class="txt">Sound on</span></button>
+      <figcaption>Tom Ford Lost Cherry — concept, not affiliated</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -557,6 +563,18 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
+(function(){
+  var v=document.getElementById('heroSpot'); if(!v) return;
+  var b=document.querySelector('.spot-sound');
+  var p=v.play(); if(p&&p.catch) p.catch(function(){});
+  b.addEventListener('click',function(){
+    v.muted=!v.muted; if(!v.muted){ v.currentTime=0; v.play(); }
+    b.setAttribute('aria-pressed',String(!v.muted));
+    b.setAttribute('aria-label',v.muted?'Turn sound on':'Turn sound off');
+    b.querySelector('.ico').innerHTML=v.muted?'&#x1F507;':'&#x1F50A;';
+    b.querySelector('.txt').textContent=v.muted?'Sound on':'Sound off';
+  });
+})();
 document.querySelectorAll('.reel').forEach(function(r){
   var v=r.querySelector('video'), ph=r.querySelector('.ph'), fs=r.querySelector('.fs-btn');
   if(!v||!ph) return;
