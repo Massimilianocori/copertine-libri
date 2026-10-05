@@ -2,6 +2,21 @@
 
 Qui va tutto quello che funziona e che abbiamo imparato. Gli errori vanno in `ERRORI.md`.
 
+## CHECKLIST SPOT: i passaggi, in ordine (da seguire ogni volta)
+
+1. **Leggere** `CLAUDE.md`, `ERRORI.md` e `PROCEDURE.md`.
+2. **Ricerca e brief** (niente iniziative): idea, prodotto dalle sole foto ufficiali, casting, outfit, trucco e capelli, location, luce, inquadrature e movimenti di camera, suono, testi. Nessun oggetto che non sia nel brief. Massimiliano approva.
+3. **Modello AI: lo decide Massimiliano.** Presentare il confronto qualità (prova affiancata della stessa inquadratura) e costo verificato (`get_cost`).
+4. **Preventivo scritto di tutto il progetto** (immagini, bozze, finali, upscale), con il saldo crediti. Poi il "sì" per ogni generazione. Nessuna generazione senza permesso.
+5. **Casting e look:** ritratti, Massimiliano approva; poi outfit. Il casting è il riferimento volto in OGNI generazione.
+6. **Storyboard visivo:** un'immagine per inquadratura, confrontata affiancata col casting; controllo di sorrisi non voluti, anatomia, barre nere, scritte finte, oggetti non previsti, continuità (capelli, oggetti, posizione). Si mostra la sequenza e Massimiliano approva.
+7. **Video:** ogni inquadratura parte dalla sua immagine; bozza a 480p; controllo fotogramma per fotogramma (tagli automatici, altre persone, volto, outfit, azione chiave visibile, sorrisi). Poi presentare le due strade con i costi: upscale o 1080p nativa.
+8. **Montaggio:** ritmo veloce, tagli frequenti, più movimento che pose statiche, mai effetto "foto animate"; nessuna scritta dentro lo spot, solo la grafica finale su nero; colori come approvati (curva `curves=all='0/0 0.25/0.19 0.5/0.44 0.75/0.72 1/1'`, `vignette=angle=PI/4.5`, `noise=alls=7:allf=t+u`). Si manda la versione senza musica.
+9. **Musica:** la mette Massimiliano. Posso proporre brani con licenza chiara (Pixabay) ma non posso scaricarli da qui.
+10. **Consegna:** master 1080p (o 2160p solo su richiesta, a pagamento), versione compressa sotto i 30 MB per la chat e versione web per il sito.
+11. **Sito (solo se richiesto):** una sola pubblicazione al giorno, video muto in loop con pulsante audio.
+12. **A fine lavoro:** scrivere in `ERRORI.md` ogni errore e in `PROCEDURE.md` ogni cosa imparata.
+
 ## Produzione video (spot)
 
 1. **Storyboard visivo, sempre.** Per ogni inquadratura si genera un fotogramma chiave (stesso volto del casting, stesso outfit), lo si controlla affiancato al casting, si mostra a Massimiliano la sequenza come storyboard e, solo dopo l'approvazione, ogni video parte dal suo fotogramma. Uno storyboard solo scritto in un prompt unico porta il modello a saltare inquadrature (spot Tom Ford: 4 su 12 saltate).
