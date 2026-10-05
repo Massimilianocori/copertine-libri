@@ -11,7 +11,8 @@ Qui va tutto quello che funziona e che abbiamo imparato. Gli errori vanno in `ER
 5. **Costi verificati (ottobre 2026):** Cinema Studio 4.0 = 3 crediti/s a 480p, 12 crediti/s a 1080p; immagine Nano Banana Pro ≈ 2 crediti; upscale Topaz 1080p ≈ 0,75 crediti/s. Usare `get_cost` prima di ogni generazione.
 6. **Controllare il modello usato.** Higgsfield può sostituire il modello richiesto (es. Nano Banana Pro → Nano Banana 2): verificarlo nel risultato del job.
 7. **Gusto di Massimiliano sugli spot:** ritmo veloce, inquadrature che cambiano spesso, più movimento che pose statiche, mai l'effetto "foto animate"; nessuna scritta dentro lo spot, solo una grafica finale su nero dopo lo spot; la storia deve capirsi senza spiegazioni (prima/dopo chiaro).
-8. **4K:** i modelli video arrivano a 1080p; il 4K si ottiene con upscale Topaz 2160p. Serve solo per TV, cinema, schermi o lusso: offrirlo come extra a pagamento.
+8. **Scelta del modello video:** prima di ogni progetto, test della stessa inquadratura su Cinema Studio 4.0 e Seedance 2.5 e confronto affiancato a Massimiliano. Seedance 2.5 ha la modalità bozza (`draft`): 480p da finalizzare entro 7 giorni in 1080p nativo con lo stesso video (meglio dell'upscale Topaz); è anche indicato per la coerenza dell'identità.
+9. **4K:** i modelli video arrivano a 1080p; il 4K si ottiene con upscale Topaz 2160p. Serve solo per TV, cinema, schermi o lusso: offrirlo come extra a pagamento.
 
 ## File e consegne
 

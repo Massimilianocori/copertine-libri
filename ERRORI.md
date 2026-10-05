@@ -34,3 +34,4 @@ Ogni riga: errore → regola permanente.
 
 17. **Ogni push sul branch pubblica il sito** (Netlify fa il deploy automatico in produzione su `claude/digital-files-business-plan-f8y8gd`; i push di `ERRORI.md` e la hero provvisoria senza musica sono andati online, 5/10) → Raggruppare tutte le modifiche e fare un solo push al giorno. Non fare push di file provvisori del sito.
 18. **Script di aggiornamento CSV sulla colonna sbagliata** ("inviata" scritto in `Stato` invece di `Stato invio`, 5/10) → Negli script selezionare le colonne per nome esatto (`h.index('Stato invio')`), mai per parola contenuta.
+19. **Modello video scelto senza confronto** (spot Tom Ford fatto tutto con Cinema Studio 4.0 senza testare Seedance 2.5, che era nel brief e ha la modalità bozza 480p → finale 1080p nativo dello stesso video, 5/10) → Prima di ogni progetto video: stessa inquadratura di prova su 2 modelli, confronto affiancato a Massimiliano, decide lui.
