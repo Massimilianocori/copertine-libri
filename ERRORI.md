@@ -29,3 +29,7 @@ Ogni riga: errore → regola permanente.
 ## Spot (continua)
 
 16. **Immagine di partenza con un'immagine di composizione vecchia come riferimento** (spruzzo rifatto: il volto resta quello vecchio, il riferimento di composizione domina sul casting) → Per cambiare volto non dare mai l'immagine col volto sbagliato come riferimento. Partire da un fotogramma che ha già il volto giusto.
+
+## Sito (continua)
+
+17. **Ogni push sul branch pubblica il sito** (Netlify fa il deploy automatico in produzione su `claude/digital-files-business-plan-f8y8gd`; i push di `ERRORI.md` e la hero provvisoria senza musica sono andati online, 5/10) → Raggruppare tutte le modifiche e fare un solo push al giorno. Non fare push di file provvisori del sito.
