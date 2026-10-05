@@ -5,6 +5,8 @@
 Legenda: **[V]** = riportato da una fonte con URL · **[V debole]** = blog di venditore/consulente o solo riassunto di WebSearch · **[I]** = ipotesi nostra.
 Limite onesto: pond5.com e helpx.adobe.com non erano apribili (egress bloccato). Tutti i numeri vengono da riassunti di WebSearch, non da pagine lette per intero. Sono ordini di grandezza. Legge con `03`, `29`, `37`, `38`, `40`. Nessuna generazione, nessuna spesa.
 
+> **Precisazione di Massimiliano (5/10, 20 anni di esperienza nel settore; non verificata con fonti):** un'azienda non affida all'AI le **foto prodotto da catalogo** (packshot). L'AI ha senso per **immagini di campagna** (idee, scene, stile editoriale) come quelle del carosello del sito. Va quindi distinto: catalogo = non offerto; campagna = unico uso sensato delle immagini AI, sempre dentro un'idea, mai come servizio autonomo.
+
 ## 0. Contesto che pesa sulla decisione
 
 - Zero clienti; l'unico dato che decide tutto è l'imbuto del core (`40` §5: positive >=0,5-1% su 500-1.000 contatti). [V, file interni]

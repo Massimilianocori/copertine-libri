@@ -70,3 +70,5 @@ Qui va tutto quello che funziona e che abbiamo imparato. Gli errori vanno in `ER
 - **Conformità sito e campioni:** niente recensioni, valutazioni o conteggi inventati (rimosso il reel con "4.9, 2.300+ verified reviews"); i campioni parlati sono "Scripted AI sample"; nessun marchio di terzi senza la formula "concept" e piano di rimozione; la musica Pixabay richiede la ricevuta di licenza conservata.
 - **Rischi noti da far vedere a un avvocato:** concept con marchi di lusso in homepage, cold email da mittente italiano (art. 130 Codice Privacy), informativa privacy e strumento visitatori Apollo, "full usage rights" nei preventivi (usare la clausola di licenza del doc 37).
 - Decidere con i numeri: test A/B tra segmenti (es. agenzie vs moda), confronto dopo 7 giorni.
+
+- **Immagini AI: campagna sì, catalogo no (Massimiliano, 5/10).** Le aziende non affidano all'AI le foto prodotto da catalogo; le immagini AI si propongono solo come immagini di campagna dentro un'idea (come il carosello del sito). Non offrire 'foto prodotto' come servizio autonomo. Fonte: esperienza di Massimiliano, non verificata con studi.
