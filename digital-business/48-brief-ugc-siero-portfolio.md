@@ -1,5 +1,7 @@
 # Brief v2: "Angle Test" MERIDIAN, 3 UGC da 12 s per il portfolio (6/10/2026) — DA APPROVARE, nessuna generazione fatta
 
+> **STATO 6/10 sera: FERMO per decisione di Massimiliano.** La clip A (720p, 84 crediti, job `8b9bd342-8b13-4429-b6fb-55e55df044a4`) ha la voce fuori campo per un errore del prompt (ERRORI 24). Massimiliano non autorizza altre spese per questo progetto. Nessuna nuova generazione senza una sua richiesta esplicita.
+
 > **CASTING APPROVATO (Massimiliano, 6/10): ritratto n. 3**, job Higgsfield `7cf0287b-13a7-4025-9723-78e8a845b3d3` (Soul 2, 3:4, 2k), file `scratchpad/angle/r3.png`. È il riferimento volto unico per ogni generazione. L'outfit si adegua al casting: **maglia color avena a costine con collo alto morbido (mock neck)**, maniche lunghe; molletta tartarugata sulla sommità della testa, ricci raccolti con qualche ciocca alle tempie; nessun gioiello. Nel ritratto c'è un lieve sorriso a labbra chiuse: nei video l'espressione resta neutra e rilassata, nessun sorriso (ERRORI 3).
 
 Storia: la v1 (un solo UGC da 15 s con Sienna) è stata sospesa e poi sostituita da questa v2, approvata come direzione da Massimiliano il 6/10 ("sì ok facciamolo"). Basato su: `31` regole ufficiali Higgsfield, `46` cosa funziona, `47` voce naturale, `45` concorrenza, `34` e `37` difetti dei reel attuali, ERRORI.md (1-22), PROCEDURE.md. Le fonti web sono deboli; le ipotesi sono indicate.
