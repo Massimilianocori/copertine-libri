@@ -1,5 +1,7 @@
 # Brief: UGC siero 15 s per il portfolio (6/10/2026) — DA APPROVARE, nessuna generazione fatta
 
+> **STATO 6/10: SOSPESO.** Valutato con Massimiliano: il video nuovo non serve ora. Dopo aver tolto i due reel deboli (8 e 11) il portfolio ha comunque 6 reel più lo spot in hero, e la skincare è coperta da 3 reel (2, 4, 12). Non ci sono dati che un video in più porti clienti, e i crediti (529,88) servono per consegnare il primo pilota pagato. Si riapre se un cliente di moda/lusso risponde o se i reel restano un ostacolo nelle risposte. Il brief resta pronto.
+
 Sostituisce nel portfolio il reel skincare con lo specchio (`11.mp4`). Basato su: `31` (regole ufficiali Higgsfield), `46` (cosa funziona), `47` (voce naturale), `45` (confronto concorrenza), `19` (scheda Sienna), ERRORI.md e PROCEDURE.md. Le fonti web sono deboli (riassunti di blog); dove è ipotesi è scritto.
 
 ## 1. Concept
