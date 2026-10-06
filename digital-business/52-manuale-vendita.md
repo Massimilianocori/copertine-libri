@@ -327,3 +327,6 @@ Email ≤ 80 parole, problema prima, una offerta, CTA d'interesse → risposta i
 - FTC, regola su recensioni e testimonianze false: https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials
 
 **Nostri file:** `CLAUDE.md`, `ERRORI.md`, `PROCEDURE.md`, `digital-business/36`, `37`, `38`, `39`, `40`, `44`, `45`, `46`; `scratchpad/code/build_queue.py`, `scratchpad/invii-6ott.json`, `scratchpad/outreach-footer.txt`, `scratchpad/LinkedIn-descrizione.txt`.
+
+## Nota dal campo (6/10): brand che usano già UGC AI scadenti
+Rhute (brand capelli) ha risposto "not looking to explore this type of collaboration" a un'email generica del 29/9, pur avendo UGC AI con labiale fuori sincrono e scritte finte sui prodotti. [I] Chi pubblica UGC AI scadenti di solito li produce in casa con strumenti self-serve economici e giudica il risultato "sufficiente": il prezzo pesa più della qualità. Regola per quando si torna a scrivere ai brand: aprire con il difetto specifico visibile nei loro video, con tatto (es. "the label text on your bottle shifts between shots; we keep it locked"), mai con una presentazione generica; e solo a una persona con nome, mai a hello@/info@.
