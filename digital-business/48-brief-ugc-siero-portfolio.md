@@ -10,8 +10,8 @@ I reel parlati attuali (Meridian problem/solution, pet supplements, fragrance, g
 ## 1. Concept
 Stessa creator, stesso prodotto, stessa location e stesso outfit; **tre angoli diversi**, presentati sul sito come "Angle Test · 3 angles, one product". La creator è una **presentatrice**, mai una cliente: nessun "lo uso da", nessun risultato, nessuna recensione (doc 31 §6). Solo gesti e sensazioni osservabili.
 
-## 2. Prodotto
-Flacone in vetro smerigliato con contagocce, etichetta crema con sola scritta serif **MERIDIAN** (marchio inventato già usato nei reel 2 e 4). Un solo flacone in ogni fotogramma, etichetta frontale verso la camera, mai ruotato (doc 34: in Meridian parlato l'etichetta si specchiava quando il vasetto girava). L'immagine del prodotto va creata e approvata prima di tutto il resto (ERRORI 5: si usa solo il riferimento prodotto approvato). Nessun altro oggetto con testo in scena (doc 31; ERRORI 4 e 8).
+## 2. Prodotto (aggiornato 6/10: stick, approvato da Massimiliano)
+**Balsamo viso in stick**, tubo cilindrico color crema opaco con tappo, balsamo traslucido bianco a cupola; sul tubo solo la scritta serif **MERIDIAN**, orizzontale. Motivo: varietà (contagocce già presente in altri reel, PROCEDURE 6/10), gesti diversi (ruotare, passare sullo zigomo, picchiettare), nessun liquido da rendere, etichetta ferma. Riferimento prodotto: `scratchpad/angle/stick1.png` (job `d899ee6e-fb91-4d33-afad-48ff95efd116`, scritta più grande e leggibile) — da confermare da Massimiliano. Un solo stick in ogni fotogramma, scritta frontale, mai ruotata né specchiata (doc 34). Nessun altro oggetto con testo in scena (ERRORI 4, 8).
 
 ## 3. Casting (da studio `49`)
 Volto nuovo (Sienna esclusa). Profilo raccomandato dallo studio `49` (fonti deboli, vedi lì): donna, età apparente 28-33, persona comune e non da modella, pelle bruna calda medio-scura con texture visibile (pori, peli fini, nessuna lucidità), ricci naturali raccolti con molletta tartarugata, viso senza trucco, espressione calma, bocca chiusa, nessun sorriso. Motivi: è la fascia del pubblico DTC skincare; "persona comune" batte "aspirazionale"; Meta riporta più ricordo con protagoniste non bianche. Rischio verificato (studi accademici): i modelli rendono peggio pelle scura e ricci, quindi i 2 ritratti candidati (prompt in `49` §6) servono anche da prova di resa prima di spendere altro. Il ritratto scelto è il riferimento volto in **ogni** generazione (ERRORI 1, 16). Età mai descritta nei prompt video (doc 31).
@@ -25,17 +25,17 @@ Bagno chiaro con piastrelle bianche opache e finestra laterale, luce diurna morb
 ## 6. Camera e ritmo
 9:16, aspetto da telefono a mano con micromovimento; tagli netti; ogni clip 12 s con 8 tagli da circa 1,5 s; un'interazione col prodotto per taglio, massimo 2 mani, il prodotto entra entro il 40% (doc 31, 46). Il primo taglio parte già in movimento e la prima parola arriva entro 0,4 s. Un momento a bocca chiusa per clip. Nessun sorriso (ERRORI 3): espressione calma e concentrata.
 
-## 7. I tre copioni (inglese americano, 17-20 parole: ritmo calmo, doc 47)
-**Clip A, dimostrazione.** Gancio: svita il contagocce già in movimento.
-"Here's the whole routine. One drop. Fingertip. Press it in, cheek outward. Then the other side. That's it." (19 parole) + taglio finale a bocca chiusa con il flacone accanto al viso.
+## 7. I tre copioni (inglese americano, 16-19 parole, ritmo calmo, doc 47)
+**Clip A, dimostrazione.** Gancio: ruota lo stick per farlo salire, già in movimento.
+"Twist it up. Swipe once across the cheekbone. Down the nose, over the chin. Then pat it in." (17) + taglio finale a bocca chiusa con lo stick accanto al viso.
 
-**Clip B, texture.** Gancio: macro della goccia che cade sul polpastrello.
-"Watch the texture. Clear, a little slippery. One drop covers the whole cheek. Meridian, the dropper serum." (17)
+**Clip B, texture.** Gancio: macro dello stick che scivola sul dorso della mano.
+"Look at the texture. It glides, no tugging. Clear on the skin, a soft sheen. Meridian, the balm stick." (19)
 
 **Clip C, routine del mattino.** Gancio: tampona il viso con l'asciugamano, già in movimento.
-"Morning, before makeup. Pat dry, then this. One drop, warmed between the fingertips, pressed in. Done." (16)
+"Morning, before makeup. Pat dry, uncap, twist up. Cheekbones first, then everywhere that feels dry. Done." (16)
 
-Nessuna parola vietata (doc 31 §5), prima parola mai "Okay/So/Wait/Hey". "A little slippery" e "covers the whole cheek" sono solo osservazioni visibili. Il nome del marchio è detto in una clip sola (B) per non sembrare spot.
+Nessuna parola vietata (doc 31 §5), prima parola mai "Okay/So/Wait/Hey". Solo gesti e osservazioni visibili, nessun risultato. Il nome del marchio è detto solo nella clip B.
 
 ## 8. Voce
 Voce nativa di Seedance 2.5 (workflow ufficiale), con un campione audio di 5-10 s come riferimento di timbro, identico nelle 3 clip. Persona (identica in ogni prompt): "A warm, easy-going presenter with a relaxed, slightly low voice, speaking at a calm conversational pace with a gentle melody, genuine and never salesy." Accento americano neutro. **La voce la sceglie Massimiliano** ascoltando le anteprime femminili nell'app Higgsfield (zero crediti); poi si genera una battuta di prova (1,1 crediti) che approva.
