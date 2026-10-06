@@ -37,8 +37,24 @@ Bagno chiaro con piastrelle bianche opache e finestra laterale, luce diurna morb
 
 Nessuna parola vietata (doc 31 §5), prima parola mai "Okay/So/Wait/Hey". Solo gesti e osservazioni visibili, nessun risultato. Il nome del marchio è detto solo nella clip B.
 
-## 8. Voce
-Voce nativa di Seedance 2.5 (workflow ufficiale), con un campione audio di 5-10 s come riferimento di timbro, identico nelle 3 clip. Persona (identica in ogni prompt): "A warm, easy-going presenter with a relaxed, slightly low voice, speaking at a calm conversational pace with a gentle melody, genuine and never salesy." Accento americano neutro. **La voce la sceglie Massimiliano** ascoltando le anteprime femminili nell'app Higgsfield (zero crediti); poi si genera una battuta di prova (1,1 crediti) che approva.
+## 8. Voce: scheda tono e parlato (aggiornata 6/10, richiesta di Massimiliano: naturale, tono descritto)
+Voce nativa di Seedance 2.5. La clip A si genera solo con questa scheda; se Massimiliano approva la voce, 5-10 s dell'audio di A diventano il riferimento per B e C (stessa donna, stessa voce). Nessuna scelta da elenco voci.
+
+**Persona (identica in ogni prompt):** "A warm, easy-going presenter with a relaxed, slightly low voice, speaking at a calm conversational pace with a gentle melody, genuine and never salesy."
+
+**Come parla (da mettere nel prompt, in inglese):**
+- Talks to one friend standing next to her, not to an audience or a camera crew.
+- Adult woman's voice, mid-low register, soft but clear; natural American English, neutral accent; uses contractions.
+- Calm pace, about two and a half words per second; tiny natural pauses between steps; a soft breath before the first line.
+- Sentences end with a gentle falling intonation: no upspeak, no announcer lift, no TV-ad energy.
+- Steady volume, close phone-mic sound, quiet bathroom room tone; no music.
+- Speaks only the script words: no added fillers, no laughter, no giggle, no "mm-hmm".
+- Avoid: excitement, hype, whispering ASMR, exaggerated vocal fry, robotic flatness, rushing.
+
+**Emozione battuta per battuta:**
+- A: "Twist it up." pratica, gentile, mentre lo fa → "Swipe once across the cheekbone." concentrata, più lenta → "Down the nose, over the chin." leggera, scorrevole → "Then pat it in." più morbida, chiude; poi bocca chiusa.
+- B: "Look at the texture." sommessa, invita a guardare da vicino → "It glides, no tugging." osservazione calma, piccola pausa dopo "glides" → "Clear on the skin, a soft sheen." apprezzamento misurato → "Meridian, the balm stick." semplice, come dire il nome a un'amica, nessun tono da annunciatore.
+- C: "Morning, before makeup." rilassata, un po' assonnata → "Pat dry, uncap, twist up." ritmica, un verbo per battito → "Cheekbones first, then everywhere that feels dry." pratica, tranquilla → "Done." breve, morbida, in discesa.
 
 ## 9. Modello (scelto da Claude, da approvare)
 **Seedance 2.5**, modalità riferimenti (casting + prodotto + tavola pulita), audio nativo, bozza 480p, poi upscale Topaz. Motivo: è il motore del workflow ufficiale UGC di Higgsfield, ha la bozza economica e accetta audio di riferimento. ERRORI 19 impone un confronto: prima del set, **il taglio del gancio della clip A (4 s) su Seedance 2.5 e su Kling 3.0**, affiancati; si sceglie il migliore per qualità.
