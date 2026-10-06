@@ -1,5 +1,7 @@
 # Parallela 1: social organico (IG Reels, TikTok, YouTube Shorts, X) per Scrollcraft (5/10/2026)
 
+> **Decisione di Massimiliano (6/10):** Instagram **non si apre ora**. Motivi: nei primi 90 giorni lo studio stesso stima 0 lead e 0-1 messaggio, e un profilo con pochi contenuti rischia di restare vuoto; nessun credito Higgsfield va speso per generare video solo per Instagram (si userebbero solo spot e reel già esistenti). Si rivaluta quando c'è almeno 1 pilota pagato o 3 conversazioni con agenzie, con materiale vero da mostrare.
+
 Solo ricerca web e lettura file; nessuna generazione, invio o commit. Chiude il "Instagram messo da parte per ora" senza studio (CLAUDE.md: ogni strategia si studia prima).
 Legenda: **[V]** letto in una fonte (URL in fondo) · **[V debole]** blog/vendor/aggregatore, ordine di grandezza · **[I]** ipotesi mia.
 Limite onesto: ho letto solo i riassunti di WebSearch, nessuna pagina aperta (techrepublic.com bloccato dal proxy). Nessuna fonte parla di "studio solo di video ads AI che prende clienti da IG/TikTok": tutta la parte sui risultati per noi è [I].
