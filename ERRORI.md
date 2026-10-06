@@ -39,3 +39,5 @@ Ogni riga: errore → regola permanente.
 ## Memoria del lavoro già fatto
 
 20. **Dubbi e proposte senza controllare lo storico** (5/10: ho detto di non poter verificare il labiale con voce esterna e la finalizzazione 1080p di Seedance, ma erano già stati usati per Sienna il 1/10) → Prima di proporre un metodo o dichiarare un limite, controllare lo storico delle generazioni (normali e Marketing Studio) e i documenti in `digital-business/`.
+
+21. **Conclusione sull'autenticazione email tratta solo dal DNS, senza vedere come parte la posta** (6/10: ho scritto che l'SPF non copriva le email perché partivano "via Gmail"; lo screenshot di Gmail mostra invece che `hello@scrollcraft.design` invia tramite `smtp.privateemail.com` porta 587, quindi l'SPF di Namecheap è quello giusto) → Prima di dichiarare un problema di consegna, verificare l'intero percorso (impostazioni di invio, header di un'email reale: `spf/dkim/dmarc=pass`), non solo i record DNS. Resta aperto solo il DKIM, da verificare dagli header.
