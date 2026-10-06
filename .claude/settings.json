@@ -23,7 +23,13 @@
       "Agent",
       "Skill",
       "ToolSearch",
-      "SendUserFile"
+      "SendUserFile",
+      "mcp__Gmail__*",
+      "mcp__Gmail__send_message",
+      "mcp__Gmail__create_draft",
+      "mcp__Gmail__update_draft",
+      "mcp__Apollo_io__*",
+      "mcp__Higgsfield__*"
     ]
   }
 }
