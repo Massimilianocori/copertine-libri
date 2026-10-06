@@ -81,3 +81,30 @@ Qui va tutto quello che funziona e che abbiamo imparato. Gli errori vanno in `ER
 - **Filtro "nsfw" falso positivo:** evitare "bare", "skin" accanto a parti del corpo, "bathroom"; usare "white-tiled washroom", "natural skin texture", "no jewelry", "fully covered, high-neck sweater". Con queste parole le tavole sono passate.
 - **Caricare un file su Higgsfield da qui:** il proxy blocca `upload.higgsfield.ai`; fare download, modifica e PUT dentro `sandbox_exec` (header `If-None-Match: *`), poi `media_confirm`.
 - **Costo reale 3 tavole UGC pulite:** 29,5 crediti (3 × 6,5 + 4 × 2,5, una pulizia rifatta).
+
+## Studio quotidiano 6/10: deriva del volto e come evitarla con Seedance 2.5 (tema D1, costo zero, solo fonti web; da verificare con una prova)
+
+Fonti (lette dai riassunti di ricerca: le pagine complete sono bloccate dal proxy): Runware, guida multi-reference Seedance 2.5 (runware.ai/docs/models/bytedance-seedance-2-5/guides/multi-reference-production); Atlas Cloud (atlascloud.ai/blog/guides/seedance-2-5-ai-video-generator-character-consistency); Kinovi (kinovi.ai/en/blogs/seedance-2-5-character-consistency-ai-video); Kapwing e Luma, guide di prompt Seedance 2.5; Magic Hour, OpenArt, Kling (guide sulla deriva), Higgsfield blog "seedance-2-5-prompting-guide".
+
+**Cause tipiche della deriva (concordi tra le fonti):**
+1. Solo testo o riferimento debole: il prompt da solo non tiene un volto; serve l'immagine.
+2. Inquadrature che "stressano" l'identità: primi piani stretti, profili e giri di testa, espressioni estreme, movimenti veloci, grandi cambi di luce (direzione o colore della luce diversi = il modello "rifà" il volto).
+3. Clip lunghe con prompt che finisce prima: la deriva compare tardi ("se crolla al secondo 22, le istruzioni si fermavano al 18").
+4. Catene di copie: ripartire da un fotogramma già spostato (coincide con ERRORI 1 e 16).
+5. Riferimenti senza ruolo: se non si dice quale immagine comanda il volto e quale lo stile/ambiente, il modello mescola (coincide con ERRORI 16: la composizione vecchia domina sul casting).
+
+**Cosa fare con Seedance 2.5 (ipotesi operative dalle fonti):**
+- **Pacchetto personaggio**: volto pulito frontale (il casting approvato), profilo/3/4, outfit, corpo intero, più un riferimento di stile; fino a 30 immagini per chiamata.
+- **Ruoli espliciti nel prompt**: richiamare ogni riferimento per posizione (@Image1...) e legarlo a un ruolo ("@Image1 is SIENNA: face and identity"; "@Image3 controls wardrobe only"), poi usare sempre il nome del ruolo nel resto del prompt.
+- **Primo fotogramma fissato**: sezione "FIRST FRAME AND BLOCKING" con posizioni e direzione dello sguardo prima di ogni movimento; l'immagine iniziale deve avere già il volto giusto.
+- **Prompt a sezioni in un unico blocco** (GLOBAL STYLE con luce e cosa NON deve comparire, poi tagli in ordine) che copra tutta la durata della clip.
+- **Prima la prova prudente**: movimento di camera e luce stabili; solo quando il volto regge si aggiungono primi piani, profili e movimento.
+- **Luce coerente** tra le inquadrature (stessa direzione e temperatura).
+- **Concatenare** con un fotogramma pulito e frontale della clip precedente, mai con uno in cui il volto è già cambiato.
+
+**Da verificare (non provato da noi):** quanto i ruoli @Image migliorino davvero il volto su Higgsfield (lo schema di generate_video accetta più immagini di riferimento, ma la sintassi @Image è documentata da Runware/Atlas, non da Higgsfield). Prova più economica proposta: una clip 5 s a 480p con lo stesso casting, con e senza ruoli espliciti, confronto affiancato (serve il sì di Massimiliano).
+
+## Limite orario della casella (verificato 6/10)
+
+- **Namecheap Private Email (smtp.privateemail.com) accetta circa 20 messaggi in 60 minuti.** Il 6/10 i primi 20 invii (13:17-13:50 UTC, uno ogni 1-2 minuti) sono partiti; i 5 follow-up successivi sono stati rifiutati subito con `554 5.7.1 ... too many messages from sender in last 60 minutes` (Gmail mostra "Invia messaggio come ... non configurate": è lo stesso rifiuto, non un problema di impostazioni). Non è un rimbalzo per indirizzo inesistente: non ferma il giro, ma il messaggio NON è recapitato.
+- Regola: con 25 invii al giorno distanziare di almeno 3 minuti (20 in 60 min al massimo) oppure fare due blocchi separati da un'ora; con i tetti di 30 e 40 (dal 12/10 e 19/10) servono almeno 2 ore di invio. Dopo il giro controllare `from:mailer-daemon` anche per i rifiuti 554 e reinviare solo dopo che è passata un'ora.
