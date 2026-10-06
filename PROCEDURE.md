@@ -72,3 +72,6 @@ Qui va tutto quello che funziona e che abbiamo imparato. Gli errori vanno in `ER
 - Decidere con i numeri: test A/B tra segmenti (es. agenzie vs moda), confronto dopo 7 giorni.
 
 - **Immagini AI: campagna sì, catalogo no (Massimiliano, 5/10).** Le aziende non affidano all'AI le foto prodotto da catalogo; le immagini AI si propongono solo come immagini di campagna dentro un'idea (come il carosello del sito). Non offrire 'foto prodotto' come servizio autonomo. Fonte: esperienza di Massimiliano, non verificata con studi.
+- **Costi verificati 6/10 (transazioni):** Soul 2 (`soul_2`, 2k, 3:4) = **0,12 crediti a immagine**; GPT Image 2.5 = 0,25 per un'immagine prodotto semplice, 4,25 nella versione "Flare". I ritratti di casting costano quasi nulla: farne sempre almeno 2-4.
+- **Gusto di Massimiliano sul casting (6/10):** la creator deve essere bella e piacevole in camera, pur con pelle vera. "Persona comune, non modella, lineamenti asimmetrici" nel prompt ha prodotto volti giudicati brutti: non usarlo. Formula giusta: "naturally attractive, camera-friendly real creator" con texture della pelle reale.
+- **Varietà dei prodotti nel portfolio (6/10):** troppi video con flacone a contagocce (serum arancione, skincare bianco, brief Angle Test). Ogni nuovo video deve usare un formato di prodotto diverso da quelli già presenti.
