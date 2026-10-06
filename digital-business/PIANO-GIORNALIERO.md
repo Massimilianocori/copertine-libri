@@ -9,7 +9,8 @@ Obiettivo di Massimiliano: crescere il più in fretta possibile e diventare un'a
 3. **LinkedIn:** nei giorni lun, mer, ven prepara 1 bozza di post in `digital-business/linkedin-post/AAAA-MM-GG.md` (testo in inglese, solo materiale vero: spot, processo, lezioni; niente clienti o risultati inventati; AI dichiarata). Non può pubblicarlo: lo pubblica Massimiliano.
 4. **Metriche:** aggiorna `METRICHE.md` (invii, risposte, risposte positive, preventivi, piloti pagati, crediti Higgsfield e Apollo, minuti e crediti reali per video) e confronta con le soglie del doc 40.
 5. **Studio quotidiano a costo zero:** un tema al giorno dalla lista sotto, con fonti, scritto in `PROCEDURE.md` (cosa funziona) o `ERRORI.md` (cosa evitare). Mai generazioni.
-6. **Report breve in italiano:** cosa è stato fatto, numeri del giorno, e la sezione **"Tocca a te"** (massimo 3 punti).
+6. **Visitatori del sito (Apollo):** controllare le visite delle aziende contattate negli ultimi 14 giorni (strumento `apollo_website_visitors_domain_aggregates` sul dominio `scrollcraft.design`) e riportare chi ha visitato e quali pagine (in particolare lo spot Tom Ford). Se lo strumento non permette di ottenere la lista, dirlo nel report e chiedere a Massimiliano di guardare la sezione Website Visitors di Apollo.
+7. **Report breve in italiano:** cosa è stato fatto, numeri del giorno, e la sezione **"Tocca a te"** (massimo 3 punti).
 
 ## B. Massimiliano (solo ciò che Claude non può fare)
 
