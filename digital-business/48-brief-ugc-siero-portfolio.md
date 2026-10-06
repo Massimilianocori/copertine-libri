@@ -1,60 +1,64 @@
-# Brief: UGC siero 15 s per il portfolio (6/10/2026) — DA APPROVARE, nessuna generazione fatta
+# Brief v2: "Angle Test" MERIDIAN, 3 UGC da 12 s per il portfolio (6/10/2026) — DA APPROVARE, nessuna generazione fatta
 
-> **STATO 6/10: SOSPESO.** Valutato con Massimiliano: il video nuovo non serve ora. Dopo aver tolto i due reel deboli (8 e 11) il portfolio ha comunque 6 reel più lo spot in hero, e la skincare è coperta da 3 reel (2, 4, 12). Non ci sono dati che un video in più porti clienti, e i crediti (529,88) servono per consegnare il primo pilota pagato. Si riapre se un cliente di moda/lusso risponde o se i reel restano un ostacolo nelle risposte. Il brief resta pronto.
+Storia: la v1 (un solo UGC da 15 s con Sienna) è stata sospesa e poi sostituita da questa v2, approvata come direzione da Massimiliano il 6/10 ("sì ok facciamolo"). Basato su: `31` regole ufficiali Higgsfield, `46` cosa funziona, `47` voce naturale, `45` concorrenza, `34` e `37` difetti dei reel attuali, ERRORI.md (1-22), PROCEDURE.md. Le fonti web sono deboli; le ipotesi sono indicate.
 
-Sostituisce nel portfolio il reel skincare con lo specchio (`11.mp4`). Basato su: `31` (regole ufficiali Higgsfield), `46` (cosa funziona), `47` (voce naturale), `45` (confronto concorrenza), `19` (scheda Sienna), ERRORI.md e PROCEDURE.md. Le fonti web sono deboli (riassunti di blog); dove è ipotesi è scritto.
+## 0. Perché
+I reel parlati attuali (Meridian problem/solution, pet supplements, fragrance, grooming) contengono testimonianze inventate in prima persona (doc 34, 37; vietate dalla FTC dal 21/10/2024), e il reel skincare bianco ha una seconda persona nello specchio. Nessun reel mostra ciò che vendiamo: il pilota da $450 è "3 angoli diversi sullo stesso prodotto". Questo set lo mostra e sostituisce quei 5 reel.
 
 ## 1. Concept
-Review-demo da presentatrice (non cliente), forma "dimostrazione": azione d'impatto in apertura, un solo siero, cinque gesti diversi, texture e etichetta leggibili. Nessun claim su risultati, nessuna esperienza in prima persona (FTC, doc 37). Obiettivo portfolio: mostrare gesti, coerenza, prodotto leggibile, ritmo (doc 46 §4, ipotesi).
+Stessa creator, stesso prodotto, stessa location e stesso outfit; **tre angoli diversi**, presentati sul sito come "Angle Test · 3 angles, one product". La creator è una **presentatrice**, mai una cliente: nessun "lo uso da", nessun risultato, nessuna recensione (doc 31 §6). Solo gesti e sensazioni osservabili.
 
 ## 2. Prodotto
-Flacone smerigliato con contagocce, etichetta crema con scritta serif **MERIDIAN** (stesso marchio inventato dei reel 2 e 4, nessuna scritta in più). Nessun marchio reale. Riferimento prodotto: **non esiste ancora** un'immagine del flacone con contagocce con questa etichetta: va creata e approvata prima del video (immagine, circa 2-4 crediti).
+Flacone in vetro smerigliato con contagocce, etichetta crema con sola scritta serif **MERIDIAN** (marchio inventato già usato nei reel 2 e 4). Un solo flacone in ogni fotogramma, etichetta frontale verso la camera, mai ruotato (doc 34: in Meridian parlato l'etichetta si specchiava quando il vasetto girava). L'immagine del prodotto va creata e approvata prima di tutto il resto (ERRORI 5: si usa solo il riferimento prodotto approvato). Nessun altro oggetto con testo in scena (doc 31; ERRORI 4 e 8).
 
-## 3. Modella (casting) — AGGIORNATO 6/10
-Sienna **esclusa**: è già nel reel "serum demo" (Massimiliano, 6/10). Serve un volto nuovo, da approvare prima di tutto. Proposta (una sola): donna adulta con **pelle scura e capelli ricci naturali raccolti**. Motivo (ipotesi): il portfolio ha oggi due donne asiatiche, una bruna (reel 11, da togliere), una rossa (Sienna) e due uomini; manca una donna con pelle scura e capelli ricci, e mostrare la texture della pelle su una carnagione scura è un caso difficile che alle agenzie fa vedere la gamma del lavoro. Rischio: il modello può rendere la pelle scura in modo meno convincente; il controllo fotogramma per fotogramma è più severo. Il casting si crea con 2 immagini candidate da cui Massimiliano sceglie; la scelta diventa il riferimento volto unico per tutto il video. Età non descritta nel prompt del video (doc 31).
+## 3. Casting
+Volto nuovo (Sienna esclusa: è già nel serum arancione). Proposta unica: **donna adulta con pelle scura e capelli ricci naturali raccolti con una molletta**. Motivo (ipotesi): il portfolio, tolti i 5 reel, ha Sienna (rossa), un uomo (VOLT) e la modella dello spot Tom Ford; la pelle scura con texture visibile mostra la gamma del lavoro. Rischio: resa meno convincente, quindi controllo più severo. Si generano 2 ritratti candidati (frontale, luce di finestra, viso nudo, espressione neutra, nessun sorriso); Massimiliano sceglie; il ritratto scelto è il riferimento volto in **ogni** generazione (ERRORI 1, 16). Età non descritta nei prompt video (doc 31).
 
 ## 4. Styling, trucco, capelli, unghie
-Maglia a costine color avena, nessun gioiello; capelli raccolti con molletta dal primo taglio; trucco assente (pelle con texture visibile); unghie corte naturali. Identici in tutti i tagli (regola di coerenza). Da approvare.
+Maglia a costine color avena, girocollo, maniche lunghe; nessun gioiello; capelli ricci raccolti con una molletta tartarugata, identica in tutte le clip; viso senza trucco, pelle con texture; unghie corte naturali. Identici in tutti i tagli e nelle 3 clip (ERRORI 6, 11).
 
 ## 5. Location e luce
-Bagno luminoso con luce di finestra morbida, **nessuno specchio né riflessi** (doc 31), nessun'altra persona, nessun telefono visibile (la camera è il telefono). Luce unica, diurna, senza bagliore HDR né bokeh da cinema.
+Bagno chiaro con piastrelle bianche opache e finestra laterale, luce diurna morbida da sinistra. **Nessuno specchio nell'inquadratura, nessun riflesso, nessun'altra persona, nessun telefono visibile** (la camera è il telefono). Mensola con un asciugamano bianco piegato e basta: nessun altro prodotto (ERRORI 4).
 
-## 6. Inquadrature e movimento
-Tavola da 8 riquadri 9:16 (doc 31): mezzo busto, primo piano guancia, mezzo busto con respiro, flacone all'altezza del mento, macro contagocce, macro polpastrello, guancia, mezzo busto di chiusura. Camera con micromovimento a mano, prodotto fermo. Tagli netti, un'interazione col prodotto per taglio, massimo 2 mani, il prodotto entra al 40% (secondo 6).
+## 6. Camera e ritmo
+9:16, aspetto da telefono a mano con micromovimento; tagli netti; ogni clip 12 s con 8 tagli da circa 1,5 s; un'interazione col prodotto per taglio, massimo 2 mani, il prodotto entra entro il 40% (doc 31, 46). Il primo taglio parte già in movimento e la prima parola arriva entro 0,4 s. Un momento a bocca chiusa per clip. Nessun sorriso (ERRORI 3): espressione calma e concentrata.
 
-## 7. Copione (inglese americano, 29 parole) e tempi
-| Taglio | Secondi | Azione | Voce |
-|---|---|---|---|
-| 1 | 0,0-2,0 | Già in movimento: fissa la molletta, sguardo in camera | "Hair back. Here's the routine." |
-| 2 | 2,0-4,0 | Punte delle dita sulla pelle asciutta | "Clean, dry skin." |
-| 3 | 4,0-6,0 | Respiro, mano aperta, sguardo di lato | (bocca chiusa) |
-| 4 | 6,0-7,8 | Alza il flacone, etichetta frontale | "This is Meridian, the dropper serum." |
-| 5 | 7,8-9,6 | Una goccia sul polpastrello | "One drop on the fingertip." |
-| 6 | 9,6-11,4 | Macro texture, pollice e indice | "Light, a little slippery." |
-| 7 | 11,4-13,2 | Stesa sulla guancia, un gesto | "Press in, cheek outward." |
-| 8 | 13,2-15,0 | Flacone accanto al viso, sguardo in camera | "Link's below." |
-"Light, a little slippery" è solo una sensazione osservabile: non esiste una lista di claim approvata per questo marchio inventato, quindi nessun'altra affermazione. Nessuna parola vietata (doc 31 §5). La prima parola non è "Okay/So/Wait".
+## 7. I tre copioni (inglese americano, 17-20 parole: ritmo calmo, doc 47)
+**Clip A, dimostrazione.** Gancio: svita il contagocce già in movimento.
+"Here's the whole routine. One drop. Fingertip. Press it in, cheek outward. Then the other side. That's it." (19 parole) + taglio finale a bocca chiusa con il flacone accanto al viso.
+
+**Clip B, texture.** Gancio: macro della goccia che cade sul polpastrello.
+"Watch the texture. Clear, a little slippery. One drop covers the whole cheek. Meridian, the dropper serum." (17)
+
+**Clip C, routine del mattino.** Gancio: tampona il viso con l'asciugamano, già in movimento.
+"Morning, before makeup. Pat dry, then this. One drop, warmed between the fingertips, pressed in. Done." (16)
+
+Nessuna parola vietata (doc 31 §5), prima parola mai "Okay/So/Wait/Hey". "A little slippery" e "covers the whole cheek" sono solo osservazioni visibili. Il nome del marchio è detto in una clip sola (B) per non sembrare spot.
 
 ## 8. Voce
-Voce nativa di Seedance 2.5, con un campione audio di 5-10 s come riferimento di timbro. Persona (una frase, identica in ogni prompt): "A warm, easy-going presenter with a relaxed, slightly low voice, speaking at a calm conversational pace with a gentle melody, genuine and never salesy." Con un volto nuovo **`sienna-1` non va usata** (sarebbe la voce di Sienna su un'altra donna). La voce si sceglie ascoltando le anteprime dei preset nell'app Higgsfield (nessun credito): Massimiliano indica quella che gli sembra più naturale per il personaggio; poi si genera la battuta di prova. Prima del video si genera un campione di una battuta (1,1 crediti) con la voce scelta, che Massimiliano ascolta e approva. L'italiano non è previsto. Accento: americano neutro (da approvare).
+Voce nativa di Seedance 2.5 (workflow ufficiale), con un campione audio di 5-10 s come riferimento di timbro, identico nelle 3 clip. Persona (identica in ogni prompt): "A warm, easy-going presenter with a relaxed, slightly low voice, speaking at a calm conversational pace with a gentle melody, genuine and never salesy." Accento americano neutro. **La voce la sceglie Massimiliano** ascoltando le anteprime femminili nell'app Higgsfield (zero crediti); poi si genera una battuta di prova (1,1 crediti) che approva.
 
-## 9. Suono, testi, post
-Nessuna musica nel modello; ambiente (room tone) nativo. In post: sottotitoli sul parlato in fascia centrale, riga finale "AI creator · scripted brand demo". Nessun testo generato dal modello.
+## 9. Modello (scelto da Claude, da approvare)
+**Seedance 2.5**, modalità riferimenti (casting + prodotto + tavola pulita), audio nativo, bozza 480p, poi upscale Topaz. Motivo: è il motore del workflow ufficiale UGC di Higgsfield, ha la bozza economica e accetta audio di riferimento. ERRORI 19 impone un confronto: prima del set, **il taglio del gancio della clip A (4 s) su Seedance 2.5 e su Kling 3.0**, affiancati; si sceglie il migliore per qualità.
 
-## 10. Modello, costi, passi (un "sì" per ogni passo che spende)
-Modello: **Seedance 2.5** in modalità riferimenti (workflow `ugc-video`), bozza 480p, finalizzazione 1080p con `draft_job_id` oppure upscale Topaz.
+## 10. Post (zero crediti)
+Sottotitoli in sovrimpressione sul parlato (fascia centrale), presi dal copione e controllati sull'audio da Massimiliano (non posso ascoltare l'audio da qui). Riga finale "AI creator · scripted brand demo". Nessun testo generato dal modello. Sul sito: un blocco "Angle Test" con le 3 clip affiancate.
+
+## 11. Preventivo (un "sì" per ogni passo che spende)
 | Passo | Cosa | Crediti (stima) |
 |---|---|---|
-| 0 | Casting: 2 immagini candidate del volto nuovo (poi riferimento unico) | circa 4-8 (da verificare) |
-| A | Campione voce, 1 battuta, voce scelta da Massimiliano | 1,1 |
-| B | Immagine prodotto (flacone MERIDIAN con contagocce) | 2-4 |
-| C | Tavola da 8 riquadri + pulizia Seedream 5 Pro | tavola 3-4; pulizia **non verificata** |
-| D | Bozza video 15 s a 480p | circa 45 |
-| E | Upscale Topaz | circa 5 |
-Un tentativo completo: circa 65-80 crediti compreso il casting; due tentativi: circa 135-160 (restano circa 370 su 529,88).
+| 0 | 2 ritratti candidati per il casting | 4-8 |
+| 1 | Immagine prodotto MERIDIAN con contagocce | 2-4 |
+| 2 | Battuta di prova con la voce scelta | 1,1 |
+| 3 | Confronto gancio 4 s: Seedance 2.5 (12) e Kling 3.0 (7) | 19 |
+| 4 | 3 tavole da 8 riquadri + pulizia Seedream 5 Pro | 9-13 + pulizia non verificata |
+| 5 | 3 bozze da 12 s a 480p | 108 |
+| 6 | 3 upscale Topaz | 9-15 |
+| | **Totale un tentativo** | **circa 155-170** |
+Saldo attuale 529,88; dopo un tentativo restano circa 360. Un rifacimento di una clip costa circa 40.
 
-## 11. Controlli prima e dopo
-Prima: ogni immagine di partenza confrontata con il casting (volto, outfit, molletta, unghie); etichetta leggibile. Dopo, fotogramma per fotogramma: tagli automatici, altre persone, volto, outfit, mani (massimo 2), un solo flacone, etichetta in ogni taglio, sorrisi non voluti, voce con lo stesso timbro dal primo all'ultimo secondo, labiale, parole identiche al copione. Se un punto fallisce si scarta e si rifà prima di altri crediti.
+## 12. Controlli
+Prima di ogni video: confronto affiancato di ogni riquadro della tavola con il casting e col prodotto (volto, molletta, maglia, unghie, etichetta; niente specchi, persone, scritte finte, barre nere). Dopo ogni video, fotogramma per fotogramma: tagli automatici, altre persone, volto, outfit, mani (max 2, anatomia), un solo flacone, etichetta mai specchiata, azione visibile (la goccia cade davvero), nessun sorriso, timbro della voce costante, labiale, parole uguali al copione. Se un punto fallisce si scarta e si rifà prima di spendere altro.
 
-## 12. Cosa non è verificato
-Che l'ordine hook-prodotto-texture batta altre sequenze; che 15 s sia la durata ottima; il timbro della voce che sceglierà Massimiliano; la resa della pelle scura e dei capelli ricci nel modello; il costo della pulizia Seedream; la resa dell'etichetta MERIDIAN sul flacone con contagocce.
+## 13. Non verificato
+Resa della pelle scura e dei ricci; costo della pulizia Seedream; resa dell'etichetta MERIDIAN sul contagocce; parole esatte dette dall'audio nativo; che 3 angoli convincano le agenzie più di un video singolo (ipotesi coerente col doc 38).

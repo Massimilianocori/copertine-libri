@@ -11,7 +11,7 @@ Qui va tutto quello che funziona e che abbiamo imparato. Gli errori vanno in `ER
 
 1. **Leggere** `CLAUDE.md`, `ERRORI.md` e `PROCEDURE.md`.
 2. **Ricerca e brief** (niente iniziative): idea, prodotto dalle sole foto ufficiali, casting, outfit, trucco e capelli, location, luce, inquadrature e movimenti di camera, suono, testi. Nessun oggetto che non sia nel brief. Massimiliano approva.
-3. **Modello AI: lo decide Massimiliano.** Presentare il confronto qualità (prova affiancata della stessa inquadratura) e costo verificato (`get_cost`).
+3. **Modello AI: lo sceglie Claude e lo propone con la motivazione; Massimiliano approva** (regola SCELTA DEL MODELLO in CLAUDE.md). Prima del progetto, confronto affiancato della stessa inquadratura su 2 modelli (ERRORI 19); costi dai crediti già spesi (niente `get_cost` su generate_video).
 4. **Preventivo scritto di tutto il progetto** (immagini, bozze, finali, upscale), con il saldo crediti. Poi il "sì" per ogni generazione. Nessuna generazione senza permesso.
 5. **Casting e look:** ritratti, Massimiliano approva; poi outfit. Il casting è il riferimento volto in OGNI generazione.
 6. **Storyboard visivo:** un'immagine per inquadratura, confrontata affiancata col casting; controllo di sorrisi non voluti, anatomia, barre nere, scritte finte, oggetti non previsti, continuità (capelli, oggetti, posizione). Si mostra la sequenza e Massimiliano approva.
