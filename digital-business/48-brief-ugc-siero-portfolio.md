@@ -80,3 +80,6 @@ Prima di ogni video: confronto affiancato di ogni riquadro della tavola con il c
 
 ## 13. Non verificato
 Resa della pelle scura e dei ricci; costo della pulizia Seedream; resa dell'etichetta MERIDIAN sul contagocce; parole esatte dette dall'audio nativo; che 3 angoli convincano le agenzie più di un video singolo (ipotesi coerente col doc 38).
+
+## 14. Risoluzione video (decisione 6/10)
+Massimiliano propone 720p nativo; Claude concorda. Motivo: i due punti più a rischio sono la texture della pelle scura e la scritta MERIDIAN sullo stick; a 480p con upscale Topaz il dettaglio fine (pori, lettere piccole) non viene ricostruito, a 720p nativo sì. Il portfolio mostra i reel verticali a larghezza ridotta, quindi 720p basta. Costo verificato: 7 crediti/s → 84 per clip da 12 s, 252 per le tre (contro circa 120 con 480p + Topaz). Saldo prima dei video: 326,41 (crediti condivisi con un'altra sessione). Ordine: clip A a 720p come prova (voce e qualità); se passa il controllo, B e C. Margine dopo le tre: circa 60-70, cioè un solo rifacimento.
