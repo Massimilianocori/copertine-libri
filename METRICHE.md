@@ -17,12 +17,17 @@ Soglie di riferimento: doc 40 §5 (tutte ipotesi). Decisioni solo con volumi min
 
 **Confronto con le soglie del doc 40:** volume ancora sotto il minimo di 500 contatti: nessuna decisione possibile. Consegnabilità: 0 rimbalzi per indirizzo inesistente; SPF/DKIM/DMARC = pass (ERRORI 21). Nuovo vincolo trovato il 6/10: Namecheap Private Email rifiuta oltre ~20 messaggi in 60 minuti (errore 554 5.7.1 "too many messages from sender in last 60 minutes"): gli invii vanno distribuiti su più di un'ora.
 
+## 7/10
+
+Inviate 40 email nuove (tetto alzato da 25 a 40 su richiesta di Massimiliano): 37 agenzie dalla coda 6ott + 3 agenzie "segnale" che stanno assumendo ruoli creativi (Odyssey, Sweat Pants, Silverback; doc 53). 0 rimbalzi. Risposte vere: 0 (1 risposta automatica fuori ufficio, Y'all). Restano in coda 339 (coda2 50, coda3 289): circa 8 giorni lavorativi a 40-50 al giorno.
+
 ## Crediti
 
 | Data | Higgsfield (piano Ultra) | Apollo lead credit (ciclo 3/10-3/11) |
 |---|---|---|
 | 5/10 | 529,88 | n.d. |
 | 6/10 | 219,17 | 974 rimasti su 2.610 (1.636 usati) |
+| 7/10 | 219,17 | 445 (profilo Apollo 449, poi 4 usati per la coda segnale); piano Basic disdetto, attivo fino al 3/11 |
 
 ## Produzione video (minuti e crediti reali per video)
 
