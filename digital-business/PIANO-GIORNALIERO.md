@@ -36,3 +36,8 @@ Ordine fisso, già nel CHECKLIST SPOT di PROCEDURE.md: brief con ricerca approva
 8. Pubblicità con creator AI: regole delle piattaforme (Meta, TikTok) e obblighi di dichiarazione.
 9. Casi di agenzie piccole che sono cresciute: cosa hanno fatto davvero.
 10. Struttura di un caso studio onesto con numeri (da usare dopo il primo pilota).
+
+## E. Scadenze decise
+
+- **31/10/2026: rinnovo Apollo.** Portare a Massimiliano i numeri (invii, risposte vere, preventivi chiesti) e chiedere sì o no. Regola decisa il 7/10: se almeno un'agenzia ha chiesto un preventivo si rinnova; se nessuno ha risposto non si rinnova e si cambia il messaggio prima di spendere ancora.
+- **Circa 16/10: nuova estrazione Apollo**, solo quando in coda restano email per meno di 5 giorni.
