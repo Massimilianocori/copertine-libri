@@ -1,12 +1,12 @@
-# LinkedIn pronto all'uso (2026-10-03)
+# LinkedIn pronto all'uso (2026-10-03, testi aggiornati 7/10: niente campione gratis, niente foto prodotto, nessun pitch dopo l'accettazione; doc 52 §7.3)
 
 Senza email verificate, questo canale non richiede strumenti a pagamento. Per ogni persona: apri il link, invia la richiesta di collegamento con la nota qui sotto (max 300 caratteri), poi il messaggio dopo l'accettazione.
 
 ## Nota di collegamento (da incollare, cambia solo {Nome})
-Hi {Nome}, I run Scrollcraft: AI-made short-form video ads and product photos for DTC brands. Happy to make a free sample on one of your products. Worth a look?
+Hi {Nome}, I run Scrollcraft, an AI video production studio (20 years in advertising). We make finished 9:16 video ads, white-label for agencies. Would be glad to connect.
 
 ## Messaggio dopo l'accettazione
-Thanks for connecting, {Nome}. We produce UGC-style 9:16 video ads and product photography with AI, delivered in days and formatted for Meta, TikTok and Reels. Examples: www.scrollcraft.design. If useful, reply with a product and I'll send a free sample ad. No commitment.
+Thanks for connecting, {Nome}. Curious: when your clients need new video creative fast, what usually slows it down?
 
 ## Persone (clic = ricerca LinkedIn già compilata)
 1. Kirsten Walpert, Jones Road Beauty: https://www.linkedin.com/search/results/people/?keywords=Kirsten%20Walpert%20Jones%20Road%20Beauty
