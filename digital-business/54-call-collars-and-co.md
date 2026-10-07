@@ -1,5 +1,7 @@
 # Call di vendita 15' con Justin Baer, Collars & Co. (7/10/2026)
 
+> **CALL FISSATA: giovedì 8/10/2026, 19:30-19:50 ora italiana (13:30 ET), Calendly, videochiamata (link nell'invito arrivato a hello@scrollcraft.design).** Nessun follow-up automatico a Justin.
+
 Legenda: **[V debole]** = riassunto di WebSearch, pagina non aperta · **[S]** = letto nei nostri file o in Gmail · **[I]** = ipotesi nostra.
 Limite onesto: WebFetch bloccato dal proxy su collarsandco.com e calendly.com. Tutti i fatti esterni vengono dai riassunti di WebSearch.
 
