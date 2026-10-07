@@ -62,7 +62,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
   <p>If you place an order, payment is handled entirely by Stripe. We never see or store your card details — Stripe's own <a href="https://stripe.com/privacy" class="link">privacy policy</a> covers that data.</p>
 
   <h2>Cookies &amp; analytics</h2>
-  <p>This site uses Apollo.io's website visitor tool, which identifies the company a visit comes from (based on IP address) so we can follow up with businesses interested in our services. It does not identify you personally. The other external services are Formspree (contact form) and Stripe (checkout), used only when you actively submit a form or click to pay.</p>
+  <p>This site uses Apollo.io's website visitor tool, which identifies the company a visit comes from (based on IP address) so we can follow up with businesses interested in our services. It does not identify you personally. We also use Cloudflare Web Analytics to count visits and page views; it sets no cookies, uses no persistent identifiers and does not track you across sites. The other external services are Formspree (contact form) and Stripe (checkout), used only when you actively submit a form or click to pay.</p>
 
   <h2>What you get when you order</h2>
   <p>Every paid order comes with full usage rights to the video(s) you receive — you can run them on any ad platform, with no extra licensing or whitelisting fees.</p>
@@ -83,5 +83,6 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 </footer>
 
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "96752726a92943cbb6ada15383915e5d"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
