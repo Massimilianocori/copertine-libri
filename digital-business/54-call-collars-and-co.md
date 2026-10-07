@@ -2,6 +2,8 @@
 
 > **CALL FISSATA: giovedì 8/10/2026, 19:30-19:50 ora italiana (13:30 ET), Calendly, videochiamata (link nell'invito arrivato a hello@scrollcraft.design).** Nessun follow-up automatico a Justin.
 
+> **DECISIONE DI MASSIMILIANO (7/10): in call si ascolta e NON si danno prezzi.** Obiettivo della call: capire cosa gli serve (video, immagini di campagna, catalogo indossato; quanti prodotti e colori; tempi; chi decide; budget se lo dice lui). Frase se chiede il prezzo: "Let me put together a proper proposal based on what you need. I'll email it to you within 24 hours." Dopo la call: Massimiliano mi passa gli appunti, io scrivo l'email con la proposta dettagliata (doc 55 per il catalogo, doc 38 per i video) entro 24 ore.
+
 Legenda: **[V debole]** = riassunto di WebSearch, pagina non aperta · **[S]** = letto nei nostri file o in Gmail · **[I]** = ipotesi nostra.
 Limite onesto: WebFetch bloccato dal proxy su collarsandco.com e calendly.com. Tutti i fatti esterni vengono dai riassunti di WebSearch.
 
