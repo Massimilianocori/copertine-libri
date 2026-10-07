@@ -39,5 +39,5 @@ Ordine fisso, già nel CHECKLIST SPOT di PROCEDURE.md: brief con ricerca approva
 
 ## E. Scadenze decise
 
-- **31/10/2026: rinnovo Apollo.** Portare a Massimiliano i numeri (invii, risposte vere, preventivi chiesti) e chiedere sì o no. Regola decisa il 7/10: se almeno un'agenzia ha chiesto un preventivo si rinnova; se nessuno ha risposto non si rinnova e si cambia il messaggio prima di spendere ancora.
-- **Circa 16/10: nuova estrazione Apollo**, solo quando in coda restano email per meno di 5 giorni.
+- **Apollo (decisione 7/10): disdetta del rinnovo automatico, si riattiva solo quando servono contatti.** I 449 crediti vanno usati entro il 3/11 (fine del periodo pagato). Prima di riattivare: numeri (invii, risposte vere, preventivi) e sì o no di Massimiliano; se nessuno ha risposto, prima si cambia il messaggio.
+- **Entro il 3/11: nuova estrazione Apollo** con tutti i crediti rimasti (non si perdono a vuoto), verso il 16/10 o quando in coda restano email per meno di 5 giorni.
