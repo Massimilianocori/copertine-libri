@@ -1,8 +1,9 @@
 # Rispondo — Landing page
 
-Landing page dell'assistente vocale AI **Rispondo**: un unico file
-`index.html` autonomo (HTML + CSS + JS inline, font e widget caricati via
-CDN). Nessuna build, nessun backend.
+Sito dell'assistente vocale AI **Rispondoio**: sito statico (homepage
+`index.html`, pagine per settore in `per/`, file condivisi in `assets/`).
+Nessuna build, nessun backend: il modulo di attivazione usa Netlify Forms.
+Piano del business e decisioni aperte: vedi `PIANO.md`.
 
 > **Nota sul nome:** "Rispondo" è un nome temporaneo. È sostituibile ovunque
 > con un semplice *find-and-replace* della parola `Rispondo` in `index.html`.
@@ -35,7 +36,7 @@ locale**: Retell richiede un dominio autorizzato (vedi sotto).
 ### Modo A — Netlify Drop (il più veloce, zero configurazione)
 
 1. Vai su **https://app.netlify.com/drop**
-2. Trascina il file `index.html` nella pagina.
+2. Trascina **l'intera cartella** del sito nella pagina (non solo `index.html`).
 3. In pochi secondi ottieni un indirizzo tipo `https://<nome>.netlify.app`.
 
 Il file `netlify.toml` è già incluso: se preferisci collegare l'intero repo
@@ -83,12 +84,32 @@ Per farla funzionare online:
 ## Struttura del progetto
 
 ```
-index.html                     Il sito (tutto qui dentro)
-netlify.toml                   Config Netlify
-vercel.json                    Config Vercel
+index.html                     Homepage (modulo attivazione + calcolatore inclusi)
+per/                           Pagine per settore (GENERATE, non modificare a mano)
+assets/rispondoio-lead.*       Modulo di attivazione e calcolatore (condivisi)
+assets/rispondoio-settori.css  Stili delle pagine per settore
+assets/rispondoio.css          CSS estratto da index.html (GENERATO)
+privacy.html                   Informativa privacy
+sitemap.xml, robots.txt        SEO (GENERATI)
+strumenti/settori.py           Testi delle pagine per settore
+strumenti/genera_pagine.py     Rigenera per/, assets/rispondoio.css, sitemap
+netlify.toml / vercel.json     Config hosting
 .github/workflows/deploy.yml   Deploy automatico su GitHub Pages
 copertina.py                   Script Python separato (non legato al sito)
 ```
+
+Dopo ogni modifica a `index.html` o a `strumenti/settori.py`:
+
+```bash
+python3 strumenti/genera_pagine.py
+```
+
+### Modulo di attivazione (Netlify Forms)
+
+Le richieste arrivano solo se il sito è pubblicato su **Netlify**: in Netlify →
+Forms attiva *Enable form detection*, poi in *Form notifications* aggiungi
+l'email dove ricevere le richieste. Su altri hosting il modulo apre un'email
+già compilata verso io@rispondoio.net.
 
 ---
 
@@ -96,6 +117,8 @@ copertina.py                   Script Python separato (non legato al sito)
 
 - [ ] Scegliere il nome definitivo e sostituire `Rispondo`
 - [ ] Verificare la disponibilità del dominio (`.it`, `.ai`, `.io`)
-- [ ] Mettere il sito online e autorizzare il dominio in Retell
+- [ ] Mettere il sito online su Netlify e autorizzare il dominio in Retell
+- [ ] Attivare Netlify Forms e la notifica email delle richieste
+- [ ] Aggiungere P.IVA e dati legali nel footer, rivedere `privacy.html`
 - [ ] Abilitare reCAPTCHA v3 sulla chiave pubblica
 - [ ] Far verificare a un legale le clausole di recesso dei piani con vincolo

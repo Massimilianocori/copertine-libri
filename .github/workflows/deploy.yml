@@ -28,8 +28,8 @@ jobs:
       - name: Prepara la cartella del sito (solo i file pubblici)
         run: |
           mkdir -p _site
-          cp index.html _site/
-          # eventuali asset futuri (immagini, favicon, ecc.) vanno copiati qui
+          cp index.html privacy.html sitemap.xml robots.txt _site/
+          cp -r assets per _site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
