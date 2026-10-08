@@ -1,0 +1,686 @@
+[
+ {
+  "slug": "nuova-impresa-2026-lombardia",
+  "titolo": "Nuova Impresa 2026",
+  "ente": "Regione Lombardia e Unioncamere Lombardia (Camere di commercio lombarde)",
+  "ambito": "regionale",
+  "regioni": [
+   "Lombardia"
+  ],
+  "beneficiari": [
+   "micro",
+   "piccole",
+   "medie",
+   "nuove imprese",
+   "professionisti"
+  ],
+  "finanzia": [
+   "avvio attività",
+   "macchinari",
+   "digitale"
+  ],
+  "tipo": "fondo perduto",
+  "importo": "fino a 10.000 € per impresa (dotazione 8 milioni €, poi incrementata)",
+  "agevolazione": "50% a fondo perduto delle spese di avvio",
+  "apertura": "2026-04-30",
+  "scadenza": "2027-01-29",
+  "stato": "aperto",
+  "sintesi": "Contributo a fondo perduto per chi ha aperto una nuova impresa o partita IVA in Lombardia dal 1° giugno 2025 al 31 dicembre 2026. Rimborsa metà delle spese di avvio, fino a 10.000 euro. È a sportello: le domande vengono finanziate in ordine di arrivo finché ci sono fondi.",
+  "requisiti": [
+   "Micro, piccola o media impresa o libero professionista con sede in Lombardia",
+   "Nuova attività avviata dal 1° giugno 2025 al 31 dicembre 2026, iscritta e attiva al Registro imprese",
+   "Professionisti iscritti agli Ordini: partita IVA da non più di 4 anni",
+   "Spese sostenute dopo l'apertura della partita IVA ed entro il 31 dicembre 2026",
+   "Una sola domanda per impresa"
+  ],
+  "cosa_preparare": [
+   "Accesso alla piattaforma Restart di InfoCamere (SPID/CNS e firma digitale)",
+   "Fatture delle spese già sostenute e quietanzate (fino a 10 fatture, ciascuna di almeno 250 € + IVA)",
+   "Rendicontazione delle spese da allegare alla domanda",
+   "Visura camerale o attestazione della partita IVA",
+   "Verifica del testo ufficiale del bando sul sito di Unioncamere Lombardia"
+  ],
+  "fonte_ufficiale": "https://www.bandi.regione.lombardia.it/servizi/servizio/bandi/dettaglio/attivita-produttive-imprese/start-up-impresa/nuova-impresa-2026-UC2025051184",
+  "fonti_verifica": [
+   "https://www.unioncamerelombardia.it/fileadmin/bandi/2026/NUOVA_IMPRESA_2026/Bando_Nuova_impresa_2026_def.pdf",
+   "https://www.fiscozen.it/guide/guida-bando-nuova-impresa-2026-regione-lombardia/",
+   "https://bergamo.cna.it/wp-content/uploads/2026/03/Scheda-Sintesi_Bando-Nuova-Impresa-2026.pdf",
+   "https://www.ticonsiglio.com/bando-nuova-impresa-2026-lombardia/"
+  ],
+  "affidabilita": "alta"
+ },
+ {
+  "slug": "nuova-impresa-piccoli-comuni-frazioni-2026-lombardia",
+  "titolo": "Nuova Impresa – Piccoli Comuni e Frazioni 2026",
+  "ente": "Regione Lombardia",
+  "ambito": "regionale",
+  "regioni": [
+   "Lombardia"
+  ],
+  "beneficiari": [
+   "micro",
+   "piccole",
+   "medie",
+   "nuove imprese"
+  ],
+  "finanzia": [
+   "avvio attività",
+   "commercio",
+   "macchinari"
+  ],
+  "tipo": "fondo perduto",
+  "importo": "fino a 40.000 € (20.000 € se nel territorio esistono già altre attività)",
+  "agevolazione": "fino all'80% a fondo perduto della spesa ammissibile",
+  "apertura": "2026-01-28",
+  "scadenza": "2026-11-12",
+  "stato": "aperto",
+  "sintesi": "Sostiene l'apertura di nuovi negozi di alimentari e beni di prima necessità nei comuni lombardi fino a 3.000 abitanti e nelle frazioni di tutti i comuni. Il contributo copre fino all'80% delle spese. È a sportello fino al 12 novembre 2026 o fino a esaurimento fondi.",
+  "requisiti": [
+   "Nuova attività di commercio al dettaglio in sede fissa di alimentari o beni di prima necessità avviata dal 1° giugno 2025",
+   "Sede in un comune lombardo fino a 3.000 abitanti o in una frazione",
+   "Il Comune deve certificare l'assenza del servizio sul territorio",
+   "Investimento minimo di 3.000 €, spese correnti non oltre il 20% del progetto"
+  ],
+  "cosa_preparare": [
+   "Attestazione del Comune sull'assenza del servizio nel territorio",
+   "Preventivi o fatture delle spese di avvio (spese entro il 31 dicembre 2026)",
+   "Visura camerale con codice ATECO ammesso",
+   "Accesso alla piattaforma Bandi e Servizi di Regione Lombardia"
+  ],
+  "fonte_ufficiale": "https://www.bandi.regione.lombardia.it/servizi/servizio/bandi/download/8a5aa2929b2ee1d8019b321c86fb0019?fileName=Allegato+A+Decreto+Approvazione+Bando+Nuova+Impresa+Piccoli+Comuni+e+Frazioni.pdf",
+  "fonti_verifica": [
+   "https://www.confartigianato.bs.it/news/nuovo-bando-regione-lombardia-fino-a-40-000-euro-a-fondo-perduto-per-il-commercio-nei-piccoli-comuni/",
+   "https://ghedi-api.municipiumapp.it/s3/3110/allegati/avviso-attivazione-misura-nuova-impresa-piccoli-comuni-e-frazioni-2026.pdf",
+   "https://www.businessonline.it/news/regione-lombardia-nuovo-bando-2026-per-aiutare-ad-aprire-negozi-alimentari-nei-comuni-funzionamento-procedura-e-importi_n82367.html"
+  ],
+  "affidabilita": "alta"
+ },
+ {
+  "slug": "fiere-internazionali-aggregate-2026-2028-lombardia",
+  "titolo": "Contributi per la partecipazione delle MPMI a fiere internazionali in forma aggregata – Edizione 2026-2028",
+  "ente": "Regione Lombardia e Unioncamere Lombardia",
+  "ambito": "regionale",
+  "regioni": [
+   "Lombardia"
+  ],
+  "beneficiari": [
+   "micro",
+   "piccole",
+   "medie"
+  ],
+  "finanzia": [
+   "export"
+  ],
+  "tipo": "fondo perduto",
+  "importo": "fino a 200.000 € per aggregazione",
+  "agevolazione": "90% a fondo perduto delle spese ammissibili",
+  "apertura": "2026-05-19",
+  "scadenza": "2027-09-30",
+  "stato": "aperto",
+  "sintesi": "Aiuta gruppi di almeno 5 micro, piccole e medie imprese a partecipare insieme a fiere internazionali. Copre il 90% delle spese, fino a 200.000 euro per gruppo. È a sportello fino al 30 settembre 2027 o fino a esaurimento fondi.",
+  "requisiti": [
+   "Aggregazione di almeno 5 MPMI e/o associazioni (ogni impresa in una sola aggregazione)",
+   "Sede operativa in Lombardia al momento dell'erogazione",
+   "Esclusi settori agricoltura, silvicoltura e pesca, finanza e assicurazioni, immobiliare",
+   "Fiere svolte entro marzo 2028"
+  ],
+  "cosa_preparare": [
+   "Accordo tra le imprese partecipanti all'aggregazione",
+   "Elenco delle fiere internazionali e piano delle spese",
+   "Preventivi per spazi espositivi e servizi",
+   "Accesso alla piattaforma di presentazione indicata nel bando"
+  ],
+  "fonte_ufficiale": "https://www.unioncamerelombardia.it/fileadmin/bandi/2026/Bando_fiere_in_aggregazione_2026-2028/Determinazione_D.O._n._135-2026.pdf",
+  "fonti_verifica": [
+   "https://www.assolombarda.it/servizi/credito-finanza-e-incentivi/informazioni/fiere-internazionali-contributi-per-mpmi-aggregate",
+   "https://lombardia.ance.it/2026/05/20/contributi-per-la-partecipazione-delle-mpmi-a-fiere-internazionali-in-forma-aggregata-edizione-2026-2028/?print=pdf",
+   "https://www.reteagevolazioni.it/bando-fiere-internazionali-lombardia/"
+  ],
+  "affidabilita": "media"
+ },
+ {
+  "slug": "distretti-commercio-2026-veneto",
+  "titolo": "Bando a supporto di progetti finalizzati alla rigenerazione urbana e alla ripresa economica nell'ambito dei Distretti del commercio – Anno 2026",
+  "ente": "Regione del Veneto (PR FESR 2021-2027, Azione 1.3.7)",
+  "ambito": "regionale",
+  "regioni": [
+   "Veneto"
+  ],
+  "beneficiari": [
+   "micro",
+   "piccole",
+   "medie"
+  ],
+  "finanzia": [
+   "commercio",
+   "digitale",
+   "macchinari",
+   "energia"
+  ],
+  "tipo": "fondo perduto",
+  "importo": "fino a 150.000 € per Distretto (dotazione 10 milioni €)",
+  "agevolazione": "50% a fondo perduto sulle spese delle imprese, 100% su promozione e animazione del Distretto",
+  "apertura": "2026-09-22",
+  "scadenza": "2027-01-12",
+  "stato": "aperto",
+  "sintesi": "Finanzia progetti di gruppi di negozi e attività di servizio che operano nei Distretti del commercio riconosciuti dalla Regione. Si possono rinnovare locali, comprare attrezzature, software, e-commerce e impianti rinnovabili. Serve aggregarsi con almeno altre due imprese e con il Comune; c'è una graduatoria.",
+  "requisiti": [
+   "PMI del commercio, della somministrazione o dei servizi con sede in un Distretto del commercio riconosciuto",
+   "Aggregazione di almeno 3 imprese",
+   "Accordo operativo firmato anche dal Comune",
+   "Una sola domanda per Distretto, presentata dal soggetto promotore"
+  ],
+  "cosa_preparare": [
+   "Contattare il Comune o il manager del Distretto per aderire al progetto",
+   "Accordo operativo tra imprese e Comune",
+   "Preventivi degli investimenti (beni strumentali, software, lavori, impianti)",
+   "Verificare nel bando (Allegato A alla DGR 484/2026) l'elenco dei distretti e delle attività escluse"
+  ],
+  "fonte_ufficiale": "https://bandi.regione.veneto.it/Public/Dettaglio?idAtto=13135",
+  "fonti_verifica": [
+   "https://www.regione.veneto.it/web/attivita-produttive/bandi-e-finanziamenti",
+   "https://www.comune.riesepiox.tv.it/novita/bando-regionale-distretti-del-commercio-2026/",
+   "https://www.incentivimpresa.it/bando-distretti-commercio-veneto-2026-fondo-perduto-pmi/"
+  ],
+  "affidabilita": "alta"
+ },
+ {
+  "slug": "voucher-digitalizzazione-pmi-2026-piemonte",
+  "titolo": "Voucher digitalizzazione PMI 2026",
+  "ente": "Regione Piemonte e Unioncamere Piemonte (PR FESR 2021-2027)",
+  "ambito": "regionale",
+  "regioni": [
+   "Piemonte"
+  ],
+  "beneficiari": [
+   "micro",
+   "piccole",
+   "medie"
+  ],
+  "finanzia": [
+   "digitale"
+  ],
+  "tipo": "voucher",
+  "importo": "dotazione complessiva 19,2 milioni €; un voucher per impresa",
+  "agevolazione": "fondo perduto: 65% micro, 60% piccole, 50% medie imprese",
+  "apertura": "2026-10-22",
+  "scadenza": "2026-12-15",
+  "stato": "in apertura",
+  "sintesi": "Voucher a fondo perduto per le micro, piccole e medie imprese piemontesi che investono in tecnologie e servizi digitali. Le domande si inviano dal 22 ottobre al 15 dicembre 2026 su Restart, in ordine di arrivo; il pre-caricamento è possibile dal 12 ottobre.",
+  "requisiti": [
+   "MPMI con sede o unità locale operativa in Piemonte",
+   "Codice ATECO tra quelli ammessi (Allegato 1 del bando)",
+   "Nessuna fornitura in essere con Unioncamere Piemonte",
+   "Una sola domanda per impresa"
+  ],
+  "cosa_preparare": [
+   "Accesso alla piattaforma Restart di InfoCamere con firma digitale",
+   "Preventivi dei fornitori per beni e servizi digitali",
+   "Verifica del codice ATECO nell'Allegato 1",
+   "Documenti caricabili in anticipo dal 12 ottobre 2026"
+  ],
+  "fonte_ufficiale": "https://www.regione.piemonte.it/web/temi/fondi-progetti-europei/fondo-europeo-sviluppo-regionale-fesr/pubblicato-bando-voucher-digitalizzazione-pmi-2026-webinar-presentazione",
+  "fonti_verifica": [
+   "https://pie.camcom.it/sites/default/files/contenuto_redazione/FESR%2021-27/Scheda%20informativa%20Voucher%20digitalizzazione%20PMI%202026.pptx.pdf",
+   "https://www.regione.piemonte.it/web/pinforma/notizie/voucher-digitalizzazione-al-via-terza-edizione-bando-pmi",
+   "https://www.reteagevolazioni.it/voucher-digitalizzazione-piemonte/"
+  ],
+  "affidabilita": "alta"
+ },
+ {
+  "slug": "digitalizzazione-efficientamento-produttivo-2026-piemonte",
+  "titolo": "Agevolazioni per progetti di digitalizzazione ed efficientamento produttivo delle imprese 2026",
+  "ente": "Regione Piemonte – gestione Finpiemonte S.p.A. (PR FESR 2021-2027)",
+  "ambito": "regionale",
+  "regioni": [
+   "Piemonte"
+  ],
+  "beneficiari": [
+   "micro",
+   "piccole",
+   "medie",
+   "professionisti"
+  ],
+  "finanzia": [
+   "digitale",
+   "macchinari",
+   "sicurezza",
+   "energia"
+  ],
+  "tipo": "misto",
+  "importo": "progetti da 50.000 a 3.000.000 € (dotazione 80 milioni € su due linee)",
+  "agevolazione": "finanziamento a tasso zero + contributo a fondo perduto, con copertura fino al 100% delle spese insieme al prestito bancario",
+  "apertura": "2026-07-07",
+  "scadenza": "2028-10-29",
+  "stato": "aperto",
+  "sintesi": "Strumento combinato di prestito agevolato e fondo perduto per investimenti digitali (Linea A, sportello dal 13 ottobre 2026) e di efficientamento produttivo, economia circolare e sicurezza sul lavoro (Linea B, aperta dal 7 luglio 2026). È a sportello fino al 29 ottobre 2028 o fino a esaurimento fondi. Serve la delibera di una banca convenzionata.",
+  "requisiti": [
+   "PMI o libero professionista con sede o unità locale in Piemonte (mid-cap solo per progetti green)",
+   "Investimento tra 50.000 e 3.000.000 €",
+   "Lavori non avviati prima della domanda",
+   "Progetto da concludere entro 18 mesi dalla concessione"
+  ],
+  "cosa_preparare": [
+   "Lettera di delibera di una banca convenzionata (obbligatoria per l'invio)",
+   "Progetto di investimento con preventivi",
+   "Domanda sul portale regionale (Linea A dalle 9:00 del 13 ottobre 2026)",
+   "Verifica dei fondi residui sul sito di Finpiemonte"
+  ],
+  "fonte_ufficiale": "https://www.regione.piemonte.it/web/temi/fondi-progetti-europei/fondo-europeo-sviluppo-regionale-fesr/programma-regionale-fesr-2021-2027/agevolazioni-per-progetti-digitalizzazione-efficientamento-produttivo-delle-imprese",
+  "fonti_verifica": [
+   "https://www.finpiemonte.it/sites/default/files/agevolazioni/por%20fesr%2021-27/digitalizzazione/2026/dd19maggio2026_n228riapertura_sportelli.pdf",
+   "https://torino.ance.it/2026/06/22/circolare-190-2026-regione-piemonte-bando-digitalizzazioni-ed-efficientamento-produttivo-delle-imprese-apertura-dal-7-luglio-2026/?print=pdf",
+   "https://www.reteagevolazioni.it/piemonte-digitalizzazione-e-efficientamento-produttivo/"
+  ],
+  "affidabilita": "media"
+ },
+ {
+  "slug": "bando-fiere-artigiani-2026-ii-semestre-piemonte",
+  "titolo": "Bando Fiere 2026 per le imprese artigiane – sportello II semestre",
+  "ente": "Regione Piemonte e Unioncamere Piemonte",
+  "ambito": "regionale",
+  "regioni": [
+   "Piemonte"
+  ],
+  "beneficiari": [
+   "micro",
+   "piccole"
+  ],
+  "finanzia": [
+   "export",
+   "commercio"
+  ],
+  "tipo": "fondo perduto",
+  "importo": "contributo richiesto tra 2.000 e 5.000 € (dotazione 200.000 € a semestre, aumentata a settembre 2026)",
+  "agevolazione": "rimborso a fondo perduto delle spese per lo spazio espositivo",
+  "apertura": "2026-09-28",
+  "scadenza": "2026-11-01",
+  "stato": "aperto",
+  "sintesi": "Rimborsa alle imprese artigiane piemontesi le spese dello stand per partecipare a una fiera nazionale o internazionale in Italia nel secondo semestre 2026. Le domande si caricano su Restart in ordine di arrivo fino al 1° novembre 2026 o fino a esaurimento fondi. Lo sportello del primo semestre si è chiuso in anticipo, quindi conviene muoversi presto.",
+  "requisiti": [
+   "Impresa artigiana con sede in Piemonte",
+   "Fiera nazionale o internazionale in presenza in Italia, inserita nel calendario della Conferenza delle Regioni",
+   "Un solo semestre per impresa",
+   "Esposizione nello stand della comunicazione del contributo regionale"
+  ],
+  "cosa_preparare": [
+   "Accesso alla piattaforma Restart di Unioncamere Piemonte",
+   "Contratto o fattura per lo spazio espositivo",
+   "Dati della fiera (date, calendario ufficiale)",
+   "Visura con iscrizione all'albo artigiani"
+  ],
+  "fonte_ufficiale": "https://www.regione.piemonte.it/web/temi/sviluppo/artigianato/sportello-bando-fiere-2026-riapertura-sportello-fino-al-1deg-novembre-2026-per-fiere-ii-semestre",
+  "fonti_verifica": [
+   "https://pie.camcom.it/sites/default/files/contenuto_redazione/Bando%20Fiere%202025_26.pdf",
+   "https://www.regione.piemonte.it/web/temi/sviluppo/artigianato/sportello-bando-fiere-2026-chiuso-14-maggio-2026-raggiunta-soglia-delle-risorse-disponibili",
+   "https://www.aa.camcom.it/sites/default/files/contenuto_redazione/editor/Internazionalizzazione_attrazione_investimenti_transizione_digitale_ed_ecologica/Brochure%20misure%20internazionalizzazione/Brochure%20misure%20internazionalizzazione%202026.pdf"
+  ],
+  "affidabilita": "media"
+ },
+ {
+  "slug": "fondo-starter-2026-emilia-romagna",
+  "titolo": "Fondo StartER – Fondo regionale multiscopo, riapertura ottobre 2026",
+  "ente": "Regione Emilia-Romagna – gestione Artigiancredito (PR FESR 2021-2027)",
+  "ambito": "regionale",
+  "regioni": [
+   "Emilia-Romagna"
+  ],
+  "beneficiari": [
+   "micro",
+   "piccole",
+   "medie",
+   "nuove imprese",
+   "startup",
+   "donne"
+  ],
+  "finanzia": [
+   "avvio attività",
+   "macchinari",
+   "digitale"
+  ],
+  "tipo": "finanziamento agevolato",
+  "importo": "finanziamenti da 20.000 a 500.000 €, durata fino a 96 mesi",
+  "agevolazione": "75% del prestito a tasso zero (80% per imprese femminili), resto a tasso convenzionato non oltre Euribor 6 mesi + 4,99%",
+  "apertura": "2026-10-12",
+  "scadenza": "2026-11-30",
+  "stato": "in apertura",
+  "sintesi": "Prestiti agevolati per imprese nate da meno di 5 anni che investono in Emilia-Romagna. Gran parte del prestito è a tasso zero. Domande dalle 11:00 del 12 ottobre alle 16:00 del 30 novembre 2026, in ordine di arrivo e fino a esaurimento fondi; precompilazione dal 5 ottobre.",
+  "requisiti": [
+   "Impresa costituita da meno di 5 anni alla data della domanda",
+   "Sede o unità locale in Emilia-Romagna dove si realizza l'investimento",
+   "Progetto di investimento tra 20.000 e 500.000 €",
+   "Valutazione cronologica: conta l'invio definitivo"
+  ],
+  "cosa_preparare": [
+   "Registrazione sul portale fondostarter.artigiancredito.it",
+   "Piano di investimento con preventivi",
+   "Bilanci o situazione contabile dell'impresa",
+   "Domanda precompilata e inviata appena aperto lo sportello"
+  ],
+  "fonte_ufficiale": "https://fondostarter.artigiancredito.it/",
+  "fonti_verifica": [
+   "https://www.mo.camcom.it/promozione/incentivi/news/regione-emilia-romagna-fondo-starter-riapertura-2026",
+   "https://www.confartigianato-er.it/apertura-ottobre-fondi-energia-starter-regione-emilia-romagna/",
+   "https://www.reteagevolazioni.it/fondo-starter-emilia-romagna/",
+   "https://ferrara.cna.it/wp-content/uploads/2026/03/SCHEDA-SINTETICA-FONDO-STARTER-2026-OK.pdf"
+  ],
+  "affidabilita": "alta"
+ },
+ {
+  "slug": "fondo-energia-2026-emilia-romagna",
+  "titolo": "Fondo Energia – Fondo regionale multiscopo, riapertura ottobre 2026",
+  "ente": "Regione Emilia-Romagna (PR FESR 2021-2027)",
+  "ambito": "regionale",
+  "regioni": [
+   "Emilia-Romagna"
+  ],
+  "beneficiari": [
+   "micro",
+   "piccole",
+   "medie",
+   "grandi"
+  ],
+  "finanzia": [
+   "energia"
+  ],
+  "tipo": "misto",
+  "importo": "finanziamenti da 25.000 a 1.000.000 €, durata fino a 96 mesi",
+  "agevolazione": "75% del prestito a tasso zero + quota a fondo perduto dopo la rendicontazione (percentuale da verificare nelle linee guida)",
+  "apertura": "2026-10-12",
+  "scadenza": "2026-11-30",
+  "stato": "in apertura",
+  "sintesi": "Prestiti agevolati per interventi di efficienza energetica e fonti rinnovabili nelle imprese dell'Emilia-Romagna. Il 75% del prestito è a tasso zero e si aggiunge un piccolo contributo a fondo perduto. Domande dal 12 ottobre al 30 novembre 2026, in ordine di arrivo e fino a esaurimento fondi.",
+  "requisiti": [
+   "Impresa con sede legale o unità locale in Emilia-Romagna dove si realizza il progetto",
+   "Codice ATECO principale nelle sezioni ammesse (B–J, L–N, P–S)",
+   "Progetto di efficientamento energetico o rinnovabili tra 25.000 e 1.000.000 €",
+   "Ammesse anche le ESCo"
+  ],
+  "cosa_preparare": [
+   "Diagnosi o relazione tecnica energetica del progetto",
+   "Preventivi degli interventi",
+   "Precompilazione online (dal 5 ottobre) e invio definitivo dalle 11:00 del 12 ottobre",
+   "Documentazione contabile dell'impresa"
+  ],
+  "fonte_ufficiale": "https://fesr.regione.emilia-romagna.it/",
+  "fonti_verifica": [
+   "https://www.edilizia.com/bandi-e-concorsi/fondo-energia-emilia-romagna-ottobre-2026-domande/",
+   "https://www.confartigianato-er.it/apertura-ottobre-fondi-energia-starter-regione-emilia-romagna/",
+   "https://www.assimprese.bo.it/fondo-energia-starter-idrocarburi-regione-emilia-romagna/",
+   "https://www.goldengroup.biz/fondo-energia-fondo-starter-riapertura/"
+  ],
+  "affidabilita": "media"
+ },
+ {
+  "slug": "prodotti-sfusi-green-corner-emilia-romagna",
+  "titolo": "Bando per la promozione della vendita di prodotti sfusi e alla spina (L.R. 6/2024)",
+  "ente": "Regione Emilia-Romagna",
+  "ambito": "regionale",
+  "regioni": [
+   "Emilia-Romagna"
+  ],
+  "beneficiari": [
+   "micro",
+   "piccole",
+   "medie",
+   "grandi",
+   "nuove imprese"
+  ],
+  "finanzia": [
+   "commercio",
+   "avvio attività"
+  ],
+  "tipo": "fondo perduto",
+  "importo": "fino a 5.000 € per esercente",
+  "agevolazione": "40% a fondo perduto del costo ammissibile",
+  "apertura": "2025-09-15",
+  "scadenza": "2026-12-31",
+  "stato": "aperto",
+  "sintesi": "Contributo per aprire un negozio di prodotti sfusi e alla spina o creare un 'green corner' dedicato in un negozio già esistente. Copre il 40% della spesa, fino a 5.000 euro. Le domande si presentano online fino alle 14:00 del 31 dicembre 2026.",
+  "requisiti": [
+   "Esercizio di vicinato o media/grande struttura di vendita al dettaglio in Emilia-Romagna",
+   "Apertura di un nuovo punto vendita di prodotti sfusi o realizzazione di uno spazio 'green corner'",
+   "Spese ammissibili secondo le linee guida regionali (DGR 1173/2025)",
+   "Accesso con SPID, CNS o CIE"
+  ],
+  "cosa_preparare": [
+   "Fatture e documenti delle spese per lo spazio di vendita sfusa",
+   "Descrizione dell'intervento realizzato",
+   "Credenziali SPID/CNS/CIE per la piattaforma regionale",
+   "Verifica dei fondi residui sulla pagina della Regione"
+  ],
+  "fonte_ufficiale": "https://ambiente.regione.emilia-romagna.it/it/bandi/bandi-2025/vendita-prodotti-sfusi/approfondimenti/gpg20251185-linee-guida.pdf/@@download/file/GPG20251185%20-%20linee%20guida.pdf",
+  "fonti_verifica": [
+   "https://www.bo.camcom.gov.it/sites/default/files/promozione-interna/contributi/Bollettini_IHD/Altre_misure-07_26.pdf",
+   "https://ascom.bo.it/wp-content/uploads/2025/10/Testo_delibera_GPG20251185.pdf"
+  ],
+  "affidabilita": "media"
+ },
+ {
+  "slug": "cata-contributi-artigiani-2026-friuli-venezia-giulia",
+  "titolo": "Contributi CATA Artigianato FVG 2026 alle imprese artigiane",
+  "ente": "Regione Friuli Venezia Giulia tramite CATA Artigianato FVG",
+  "ambito": "regionale",
+  "regioni": [
+   "Friuli Venezia Giulia"
+  ],
+  "beneficiari": [
+   "micro",
+   "piccole",
+   "nuove imprese",
+   "startup"
+  ],
+  "finanzia": [
+   "macchinari",
+   "digitale",
+   "export",
+   "avvio attività"
+  ],
+  "tipo": "fondo perduto",
+  "importo": "variabile per canale (es. ammodernamento tecnologico: spesa ammissibile 3.000–25.000 €)",
+  "agevolazione": "contributo a fondo perduto in percentuale delle spese (es. 40% per ammodernamento tecnologico, +5% con rating di legalità, secondo fonti di settore)",
+  "apertura": "2026-03-31",
+  "scadenza": "2026-12-31",
+  "stato": "aperto",
+  "sintesi": "Le imprese artigiane del Friuli Venezia Giulia possono chiedere contributi a fondo perduto per spese già sostenute dal 1° gennaio 2025. Ci sono sette canali: macchinari e tecnologie, e-commerce, consulenze, fiere fuori regione, laboratori artistici, imprese piccolissime e start up artigiane. Domande online fino alle 16:00 del 31 dicembre 2026, fondi permettendo.",
+  "requisiti": [
+   "Impresa artigiana iscritta all'Albo delle imprese artigiane del FVG",
+   "Micro o piccola impresa",
+   "Spese sostenute dal 1° gennaio 2025, da rendicontare insieme alla domanda",
+   "Per l'ammodernamento tecnologico: iscrizione all'Albo da almeno 3 anni (secondo fonti di settore)"
+  ],
+  "cosa_preparare": [
+   "Fatture e pagamenti delle spese già sostenute",
+   "Modulistica e fac-simile disponibili sul sito della Regione e del CATA",
+   "Accesso al sistema online per la domanda telematica",
+   "Scelta del canale contributivo corretto"
+  ],
+  "fonte_ufficiale": "https://www.regione.fvg.it/rafvg/cms/RAFVG/hp-new/in-evidenza/ultime/2945_d.html",
+  "fonti_verifica": [
+   "https://www.reteagevolazioni.it/contributi-artigiani-friuli/",
+   "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/artigianato/news/120.html"
+  ],
+  "affidabilita": "alta"
+ },
+ {
+  "slug": "energia-allo-sviluppo-2026-trento",
+  "titolo": "Bando Energia allo Sviluppo – L.p. 6/2023",
+  "ente": "Provincia autonoma di Trento – APIAE",
+  "ambito": "regionale",
+  "regioni": [
+   "Trentino-Alto Adige"
+  ],
+  "beneficiari": [
+   "piccole",
+   "medie",
+   "grandi"
+  ],
+  "finanzia": [
+   "energia",
+   "macchinari"
+  ],
+  "tipo": "fondo perduto",
+  "importo": "dotazione 10 milioni €",
+  "agevolazione": "30% a fondo perduto, fino al 40% con maggiorazione (de minimis)",
+  "apertura": "2026-10-01",
+  "scadenza": "2026-11-30",
+  "stato": "aperto",
+  "sintesi": "Contributo per le imprese trentine che investono in risparmio energetico, fonti rinnovabili e riduzione dei consumi di carburante. Il contributo base è il 30%, più 10% se i costi energetici superano il 30% dei costi di produzione o più 5% in casi specifici. Domande via PEC dal 1° ottobre al 30 novembre 2026.",
+  "requisiti": [
+   "Impresa iscritta e attiva al Registro imprese entro il 30 novembre 2025",
+   "Attività svolta in prevalenza in provincia di Trento",
+   "Investimenti avviati dal 1° giugno 2026 e conclusi entro 18 mesi dalla concessione",
+   "Miglioramento dei consumi energetici annui di almeno il 2%, certificato in rendicontazione"
+  ],
+  "cosa_preparare": [
+   "Diagnosi energetica pre-intervento da allegare alla domanda",
+   "Facsimile di domanda della Provincia compilato",
+   "Preventivi di impianti, macchinari, software e consulenze tecniche",
+   "Bilancio 2025 (per la maggiorazione legata ai costi energetici)",
+   "Invio via PEC all'APIAE"
+  ],
+  "fonte_ufficiale": "https://www.provincia.tn.it/Servizi/Bando-Energia-Sviluppo-L.p.-6-2023",
+  "fonti_verifica": [
+   "https://www.ufficiostampa.provincia.tn.it/content/view/pdf/310873",
+   "https://www.provincia.tn.it/content/download/87205/6265689/file/FACSIMILE_DOMANDA_-_Bando_Energia_Sviluppo.pdf"
+  ],
+  "affidabilita": "alta"
+ },
+ {
+  "slug": "fare-impresa-desertificazione-commerciale-trento",
+  "titolo": "Bando Fare impresa in aree a rischio desertificazione commerciale – L.p. 6/2023",
+  "ente": "Provincia autonoma di Trento – istruttoria Trentino Sviluppo S.p.A.",
+  "ambito": "regionale",
+  "regioni": [
+   "Trentino-Alto Adige"
+  ],
+  "beneficiari": [
+   "micro",
+   "piccole",
+   "medie",
+   "nuove imprese",
+   "donne",
+   "giovani",
+   "under 35"
+  ],
+  "finanzia": [
+   "avvio attività",
+   "commercio",
+   "macchinari"
+  ],
+  "tipo": "fondo perduto",
+  "importo": "investimenti da 25.000 a 300.000 €",
+  "agevolazione": "50% a fondo perduto, fino al 70% con le maggiorazioni (impresa femminile/giovanile, assunzione)",
+  "apertura": "2026-11-02",
+  "scadenza": "2027-06-30",
+  "stato": "in apertura",
+  "sintesi": "Contributo per aprire un negozio o un locale, una nuova sede o trasferirsi nei comuni trentini a rischio di restare senza commercio. Il contributo base è il 50%, con +10% per imprese femminili o giovanili under 35 e +10% per chi assume un dipendente a tempo pieno per almeno tre anni. Domande a Trentino Sviluppo dalle 12:00 del 2 novembre 2026 al 30 giugno 2027.",
+  "requisiti": [
+   "Unità operativa in un comune dell'elenco (Allegato 1): massimo 4 attività attive tra commercio al dettaglio e ristorazione al 31/12/2025",
+   "Prima unità operativa, unità aggiuntiva o trasferimento nell'area a rischio",
+   "Investimento tra 25.000 e 300.000 €, avviato dal 1° gennaio 2026",
+   "Conclusione entro 18 mesi dalla concessione"
+  ],
+  "cosa_preparare": [
+   "Verifica del comune e del codice ATECO negli allegati del bando",
+   "Piano di investimento con preventivi",
+   "Documentazione su conduzione femminile o giovanile, se si chiede la maggiorazione",
+   "Impegno all'assunzione a tempo pieno per 3 anni, se previsto"
+  ],
+  "fonte_ufficiale": "https://www.provincia.tn.it/Servizi/Bando-Fare-impresa-in-aree-a-rischio-desertificazione-commerciale-L.p.-6-2023",
+  "fonti_verifica": [
+   "https://www.ufficiostampa.provincia.tn.it/Comunicati/Fare-impresa-contributi-per-nuove-attivita-in-aree-a-rischio-di-desertificazione-commerciale",
+   "https://www.ildolomiti.it/economia/2026/desertificazione-commerciale-contributo-fino-al-70-per-le-nuove-attivita-nelle-aree-a-rischio-aiuti-alle-imprese-per-rivitalizzare-il-tessuto-produttivo-nelle-zone-vulnerabili",
+   "https://www.ladige.it/territori/trento/negozi-e-locali-nelle-aree-periferiche-la-provincia-finanzia-il-50-degli-investimenti-lhmidhb4"
+  ],
+  "affidabilita": "alta"
+ },
+ {
+  "slug": "efficientamento-energetico-imprese-valle-aosta",
+  "titolo": "Avviso per la realizzazione di interventi per l'efficientamento energetico delle imprese",
+  "ente": "Regione autonoma Valle d'Aosta (PR FESR 2021-2027) con COA energia di Finaosta",
+  "ambito": "regionale",
+  "regioni": [
+   "Valle d'Aosta"
+  ],
+  "beneficiari": [
+   "piccole",
+   "medie",
+   "grandi"
+  ],
+  "finanzia": [
+   "energia"
+  ],
+  "tipo": "fondo perduto",
+  "importo": "spesa ammissibile da 150.000 a 2.000.000 € (dotazione 4 milioni €)",
+  "agevolazione": "contributo a fondo perduto con intensità variabile per dimensione d'impresa e tipo di intervento",
+  "apertura": "2025-10-01",
+  "scadenza": "2026-11-30",
+  "stato": "aperto",
+  "sintesi": "Contributi alle imprese industriali e artigiane valdostane che riducono consumi energetici ed emissioni, anche con fotovoltaico, accumuli e strumenti digitali per gestire i consumi. È a sportello fino al 30 novembre 2026 o fino a esaurimento fondi; una fonte di stampa segnala una proroga al 31 dicembre 2026, da verificare. Adatto a progetti medio-grandi (spesa minima 150.000 euro).",
+  "requisiti": [
+   "Impresa industriale o artigiana iscritta e attiva da almeno 6 mesi, con ATECO nell'Allegato 1",
+   "Progetto su un solo sito produttivo esistente in Valle d'Aosta",
+   "Unità operativa in Valle d'Aosta alla prima richiesta di pagamento",
+   "Una sola domanda per impresa; esclusi ATI e reti d'impresa"
+  ],
+  "cosa_preparare": [
+   "Diagnosi o progetto energetico dell'intervento",
+   "Preventivi degli interventi (spesa tra 150.000 e 2 milioni €)",
+   "Polizza catastrofale obbligatoria per legge",
+   "Contatto con lo Sportello Info Energia Chez Nous (800 60 41 10) per conferma di scadenza e fondi"
+  ],
+  "fonte_ufficiale": "https://new.regione.vda.it/europa/bandi/avviso-per-la-realizzazione-di-interventi-per-l-efficientamento-energetico-delle-imprese",
+  "fonti_verifica": [
+   "https://www.solareb2b.it/regione-valle-daosta-bando-imprese-fv-storage-tra-gli-interventi/",
+   "https://edunews24.it/bandi/contributi-imprese-industriali-efficienza-energetica-rinnovabili-valle-aosta",
+   "https://www.ao.camcom.it/sites/default/files/contenuto_redazione/eventi/uploads/documents/INGRID_BAL.pdf"
+  ],
+  "affidabilita": "media"
+ },
+ {
+  "slug": "bonus-affitto-nuove-imprese-entroterra-liguria",
+  "titolo": "Bonus affitto per le nuove imprese dell'entroterra (L.R. 6/2025)",
+  "ente": "Regione Liguria – domande alla Camera di Commercio di Genova",
+  "ambito": "regionale",
+  "regioni": [
+   "Liguria"
+  ],
+  "beneficiari": [
+   "micro",
+   "piccole",
+   "nuove imprese"
+  ],
+  "finanzia": [
+   "avvio attività",
+   "commercio",
+   "liquidità"
+  ],
+  "tipo": "fondo perduto",
+  "importo": "fino a 300 € al mese per 5 anni (dotazione circa 4,85 milioni €)",
+  "agevolazione": "contributo a fondo perduto su affitto e costi di gestione",
+  "apertura": "2025-09-15",
+  "scadenza": "2026-12-31",
+  "stato": "aperto",
+  "sintesi": "Contributo mensile per le nuove attività di commercio, artigianato, ristorazione e servizi (e cooperative di comunità) che aprono nei piccoli comuni non costieri della Liguria. Copre fino a 300 euro al mese per cinque anni di affitto e spese di gestione. Il bando è stato prorogato fino al 31 dicembre 2026.",
+  "requisiti": [
+   "Nuova impresa o nuova sede avviata dal 6 maggio 2025, o attività da avviare nell'entroterra",
+   "Comune non costiero con non più di 2.500 abitanti",
+   "Locale sfitto con vetrina e accesso diretto su strada o spazio pubblico",
+   "Settori: commercio, artigianato, ristorazione, servizi, cooperative di comunità"
+  ],
+  "cosa_preparare": [
+   "Contratto di affitto del locale",
+   "Visura camerale o documentazione di avvio attività",
+   "Verifica che il comune rientri nei requisiti (popolazione e non costiero)",
+   "Domanda alla Camera di Commercio di Genova secondo l'avviso regionale"
+  ],
+  "fonte_ufficiale": "https://www.regione.liguria.it/homepage-sviluppo-economico/servizi-canale/bandi-sviluppo-economico-tutti/category/sviluppo-economico.html",
+  "fonti_verifica": [
+   "https://www.rivlig.camcom.gov.it/print/pdf/node/5087",
+   "https://www.rivlig.camcom.gov.it/print/pdf/node/4066",
+   "https://www.rivlig.camcom.gov.it/print/pdf/node/5397"
+  ],
+  "affidabilita": "media"
+ }
+]
