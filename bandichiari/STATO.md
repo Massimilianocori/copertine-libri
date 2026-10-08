@@ -4,7 +4,7 @@ Aggiornato: 8 ottobre 2026.
 
 ## Decisioni
 - Gratis per le imprese; si paga solo il piano Studio per commercialisti e consulenti (49 €/mese o 490 €/anno, fino a 20 clienti). Motivo: le informazioni sui bandi sono gratis ovunque, il bisogno ricorrente è di chi segue molti clienti.
-- Massimiliano **ha già una partita IVA da fotografo**. Per BandiChiari non se ne apre una nuova: si **aggiunge un codice ATECO** (variazione gratuita, entro 30 giorni dall'inizio della nuova attività), da fare con il suo commercialista quando arrivano le prime richieste a pagamento (3 studi o la prima pratica "Ti prepariamo la domanda").
+- Massimiliano **ha già una partita IVA da fotografo**. Per BandiChiari non se ne apre una nuova: si **aggiunge un codice ATECO** (variazione gratuita, entro 30 giorni dall'inizio della nuova attività), da fare con un servizio online per forfettari (Massimiliano non ha un commercialista: ~40 €/mese, già previsto nella previsione) quando arrivano le prime richieste a pagamento (3 studi o la prima pratica "Ti prepariamo la domanda").
 - Pagamenti Stripe **non attivi** fino alla variazione: i moduli raccolgono le richieste.
 - Da chiedere al commercialista: (1) la nuova attività fa scattare l'iscrizione alla Gestione Commercianti INPS (minimo ~3.000 €/anno) o resta nella gestione attuale? (2) aliquota forfettaria (5% solo se la P.IVA ha meno di 5 anni, altrimenti 15%) e coefficiente del nuovo codice; (3) il limite di 85.000 € vale sulla somma di fotografia + BandiChiari.
 - Dominio bandichiari.it: si compra con i primi iscritti; fino ad allora bandichiari.netlify.app.
