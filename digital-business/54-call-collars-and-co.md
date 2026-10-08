@@ -2,7 +2,7 @@
 
 > **CALL FISSATA: giovedì 8/10/2026, 19:30-19:50 ora italiana (13:30 ET), Calendly, videochiamata (link nell'invito arrivato a hello@scrollcraft.design).** Nessun follow-up automatico a Justin.
 
-> **8/10: Justin non si è presentato alla call (19:30-19:45).** Alle 19:46 mandata email nel thread: proposta di riprovare alle 20:45 ora italiana o un altro giorno. Nessuna risposta per ora. Prossimo passo: 9/10 mattina, se non ha risposto, una sola email breve con 2 orari; se tace ancora, ultimo tentativo la settimana dopo, poi stop.
+> **8/10: Justin non si è presentato alla call (19:30-19:45).** Alle 19:46 mandata email nel thread: proposta di riprovare alle 20:45 ora italiana o un altro giorno. Nessuna risposta per ora. **Decisione di Massimiliano (8/10): non gli si scrive più.** Si risponde solo se scrive lui.
 
 > **DECISIONE DI MASSIMILIANO (7/10): in call si ascolta e NON si danno prezzi.** Obiettivo della call: capire cosa gli serve (video, immagini di campagna, catalogo indossato; quanti prodotti e colori; tempi; chi decide; budget se lo dice lui). Frase se chiede il prezzo: "Let me put together a proper proposal based on what you need. I'll email it to you within 24 hours." Dopo la call: Massimiliano mi passa gli appunti, io scrivo l'email con la proposta dettagliata (doc 55 per il catalogo, doc 38 per i video) entro 24 ore.
 
