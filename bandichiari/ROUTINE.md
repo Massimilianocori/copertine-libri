@@ -19,13 +19,13 @@ Pubblicare `bandichiari/sito/` sul progetto Netlify **bandichiari** (site id `c5
 ## 3. Email agli iscritti
 
 - **Iscritti:** email di notifica di Netlify Forms (form "iscrizione") arrivate nella casella del servizio. Profilo = regione, dimensione, attività, temi, piano.
-- **Studio (paganti):** moduli "studio" di Netlify Forms + email di Stripe "pagamento riuscito" con lo stesso indirizzo. A ogni nuovo abbonato Studio scrivere per chiedere i profili dei clienti (regione, dimensione, settore, investimenti previsti, massimo 20) e salvarli in `dati/studi/` (fuori dal sito pubblico).
+- **Studio (paganti):** moduli "studio" di Netlify Forms + email di Stripe "pagamento riuscito" con lo stesso indirizzo. A ogni nuovo abbonato Studio scrivere per chiedere i profili dei clienti (regione, dimensione, settore, investimenti previsti, massimo 20) e salvarli in un file Google Drive privato "BandiChiari - profili Studio", mai nel repository (sono dati personali).
 - **Cancellati:** chi ha risposto "CANCELLA" non riceve più nulla; si annota in `dati/cancellati.txt` (solo l'hash dell'email, non l'indirizzo).
 - **Imprese (gratis):** solo i bandi compatibili con regione, dimensione e temi, ciascuno con importo, 2 righe di spiegazione, documenti da preparare e link alla scheda; in cima quelli che scadono entro 15 giorni. In fondo una riga: "Il tuo commercialista segue molti clienti? Digli di BandiChiari Studio."
 - **Studio:** un'unica email con una sezione per ogni cliente, stessa logica.
 - Ogni email finisce con: "Per non ricevere più queste email rispondi CANCELLA."
 - Se non c'è niente di nuovo per un iscritto, non si manda nulla.
-- Rispondere alle domande degli abbonati Su misura arrivate per email, solo con informazioni presenti nei bandi ufficiali.
+- Rispondere alle domande degli abbonati Studio arrivate per email, solo con informazioni presenti nei bandi ufficiali.
 
 ## 4. Rapporto
 
