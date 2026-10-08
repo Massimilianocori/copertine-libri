@@ -20,7 +20,7 @@
 <header class="nav"><div class="wrap">
   <a class="logo" href="/"><span class="mk" aria-hidden="true">B</span>BandiChiari</a>
   <nav class="nav-links" aria-label="Principale">
-    <a href="/#cerca">Cerca bandi</a><a href="/#prezzi">Prezzi</a>
+    <a href="/#cerca">Cerca bandi</a><a href="/per-commercialisti/">Per commercialisti</a>
     <a class="btn btn-primary btn-sm" href="/#iscriviti">Ricevili ogni settimana</a>
   </nav>
 </div></header>
@@ -60,27 +60,24 @@
 </div></section>
 
 <section class="section" id="prezzi"><div class="wrap">
-  <div class="section-head center"><span class="kicker">Prezzi</span><h2>Un bando trovato vale molto più dell'abbonamento.</h2>
-    <p class="lead">Un contributo a fondo perduto vale spesso migliaia di euro. Saperlo in tempo è la parte che conta.</p></div>
-  <div class="plans">
-    <div class="plan"><h3>Gratis</h3><div class="price">0 €</div><div class="sub">per sempre</div>
-      <ul><li>Ricerca su tutti i bandi del sito</li><li>Schede spiegate in parole semplici</li><li>Email settimanale con i nuovi bandi della tua regione</li></ul>
-      <a class="btn btn-ghost btn-block" href="#iscriviti" data-scegli-piano="gratis">Iscriviti gratis</a></div>
-    <div class="plan"><h3>Su misura</h3><div class="price">19 €<small> / mese</small></div><div class="sub">disdici quando vuoi</div>
-      <ul><li>Solo i bandi adatti al tuo profilo</li><li>Avviso 15 giorni prima di ogni scadenza</li><li>Lista dei documenti da preparare per ogni bando</li><li>Risposta via email alle tue domande sui bandi</li></ul>
-      <a class="btn btn-primary btn-block" href="#iscriviti" data-scegli-piano="mensile">Attiva su misura</a></div>
-    <div class="plan top"><h3>Su misura annuale</h3><div class="price">149 €<small> / anno</small></div><div class="sub">12.42 € al mese, risparmi 79 €</div>
-      <ul><li>Tutto il piano Su misura</li><li>12 mesi di bandi selezionati</li><li>Un solo pagamento</li></ul>
-      <a class="btn btn-primary btn-block" href="#iscriviti" data-scegli-piano="annuale">Attiva l'annuale</a></div>
+  <div class="section-head center"><span class="kicker">Prezzi</span><h2>Per le imprese è gratis. Sempre.</h2>
+    <p class="lead">Paga solo chi segue i bandi per lavoro, per decine di clienti.</p></div>
+  <div class="plans plans-2">
+    <div class="plan"><h3>Imprese e professionisti</h3><div class="price">0 €</div><div class="sub">per sempre</div>
+      <ul><li>Ricerca su tutti i bandi aperti</li><li>Schede spiegate in parole semplici</li><li>Email settimanale con i bandi adatti alla tua impresa</li><li>Scadenze in arrivo sempre in evidenza</li></ul>
+      <a class="btn btn-ghost btn-block" href="#iscriviti">Iscriviti gratis</a></div>
+    <div class="plan top"><h3>Studio · commercialisti e consulenti</h3><div class="price">49 €<small> / mese</small></div><div class="sub">oppure 490 € l'anno (2 mesi gratis)</div>
+      <ul><li>Fino a 20 clienti, ognuno con il suo profilo</li><li>Ogni settimana, per ogni cliente, i bandi compatibili</li><li>Scadenze in arrivo e documenti da preparare</li><li>Domande sui bandi via email</li></ul>
+      <a class="btn btn-primary btn-block" href="/per-commercialisti/">Scopri il piano Studio</a></div>
   </div>
-  <p style="text-align:center;color:var(--ink-3);font-size:.9rem;margin-top:1rem">Prezzi IVA inclusa. Pagamento sicuro con Stripe.</p>
+  <p style="text-align:center;color:var(--ink-3);font-size:.9rem;margin-top:1rem">Prezzi IVA inclusa. Pagamento sicuro con Stripe, disdici quando vuoi.</p>
 </div></section>
 
 <section class="section" id="iscriviti"><div class="wrap narrow">
-  <div class="section-head center"><span class="kicker">Iscrizione</span><h2>Dicci chi sei, al resto pensiamo noi.</h2></div>
+  <div class="section-head center"><span class="kicker">Iscrizione gratuita</span><h2>Dicci chi sei, al resto pensiamo noi.</h2></div>
   <div class="form-box" data-form-box>
     <div data-step="form">
-    <form class="form" name="iscrizione" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" data-stripe-mensile="" data-stripe-annuale="">
+    <form class="form" name="iscrizione" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="iscrizione">
       <p class="hp"><label>Non compilare <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
       <label class="field"><span>Email</span><input type="email" name="email" required autocomplete="email"></label>
@@ -89,14 +86,10 @@
       <label class="field"><span>Dimensione</span><select name="dimensione" required><option value="">Scegli…</option><option>Devo ancora aprire</option><option>Libero professionista</option><option>Micro (fino a 9 addetti)</option><option>Piccola (10–49)</option><option>Media (50–249)</option></select></label>
       <label class="field full"><span>Settore e attività</span><input type="text" name="attivita" required placeholder="Es. ristorante, officina meccanica, studio di grafica…"></label>
       <div class="field full"><span>Cosa vorresti finanziare</span><div class="checks"><label><input type="checkbox" name="finanzia" value="avvio attività"> Avvio attività</label><label><input type="checkbox" name="finanzia" value="macchinari"> Macchinari</label><label><input type="checkbox" name="finanzia" value="digitale"> Digitale</label><label><input type="checkbox" name="finanzia" value="energia"> Energia</label><label><input type="checkbox" name="finanzia" value="assunzioni"> Assunzioni</label><label><input type="checkbox" name="finanzia" value="export"> Export</label><label><input type="checkbox" name="finanzia" value="formazione"> Formazione</label><label><input type="checkbox" name="finanzia" value="ricerca e sviluppo"> Ricerca e sviluppo</label><label><input type="checkbox" name="finanzia" value="sicurezza"> Sicurezza</label><label><input type="checkbox" name="finanzia" value="turismo"> Turismo</label><label><input type="checkbox" name="finanzia" value="agricoltura"> Agricoltura</label><label><input type="checkbox" name="finanzia" value="commercio"> Commercio</label><label><input type="checkbox" name="finanzia" value="liquidità"> Liquidità</label></div></div>
-      <div class="field full"><span>Piano</span><div class="checks">
-        <label><input type="radio" name="piano" value="gratis" checked> Gratis</label>
-        <label><input type="radio" name="piano" value="mensile"> Su misura 19 €/mese</label>
-        <label><input type="radio" name="piano" value="annuale"> Su misura 149 €/anno</label></div></div>
       <label class="consent full"><input type="checkbox" name="privacy" value="accettata" required><span>Ho letto l'<a href="/privacy.html" target="_blank">informativa privacy e le condizioni</a> e voglio ricevere le email di BandiChiari. Posso annullare in qualsiasi momento.</span></label>
       <div class="full"><button class="btn btn-primary btn-block" type="submit">Iscriviti</button>
         <p data-errore hidden style="color:var(--red);text-align:center;margin:.6rem 0 0">Invio non riuscito: controlla la connessione e riprova.</p>
-        <p style="text-align:center;color:var(--ink-3);font-size:.85rem;margin:.6rem 0 0">Con i piani Su misura passi al pagamento sicuro con Stripe.</p></div>
+        <p style="text-align:center;color:var(--ink-3);font-size:.85rem;margin:.6rem 0 0">Gratis. Una email a settimana, solo se ci sono bandi per te.</p></div>
     </form>
     </div>
     <div class="done" data-step="ok" hidden><h3>Iscrizione ricevuta.</h3><p>Grazie! La prima email arriva con il prossimo aggiornamento settimanale.</p></div>
@@ -105,7 +98,7 @@
 
 <section class="section"><div class="wrap narrow">
   <div class="section-head center"><span class="kicker">Domande frequenti</span><h2>Prima di iscriverti.</h2></div>
-  <div class="faq"><details><summary>Presentate voi la domanda per il bando?</summary><p>No. BandiChiari ti dice quali bandi fanno per te, quanto puoi ottenere, i requisiti e cosa preparare. La domanda la presenti tu o il tuo commercialista o consulente, che potrà partire già sapendo cosa serve.</p></details><details><summary>Da dove prendete le informazioni?</summary><p>Dalle fonti ufficiali: ministeri, Invitalia, regioni, Camere di commercio e il portale nazionale degli incentivi. Ogni scheda riporta il link alla fonte ufficiale e la data dell&#x27;ultima verifica.</p></details><details><summary>Ogni quanto aggiornate?</summary><p>Ogni settimana cerchiamo i bandi nuovi e ricontrolliamo date e stato di quelli già pubblicati. Gli iscritti ricevono il riepilogo per email.</p></details><details><summary>Posso disdire quando voglio?</summary><p>Sì. L&#x27;abbonamento mensile si disdice in qualsiasi momento e non si rinnova più; l&#x27;annuale vale 12 mesi. La newsletter gratuita si annulla con un clic.</p></details><details><summary>Quanto costa?</summary><p>La ricerca sul sito e la newsletter settimanale per regione sono gratis. Il servizio su misura costa 19 € al mese oppure 149 € l&#x27;anno.</p></details></div>
+  <div class="faq"><details><summary>Presentate voi la domanda per il bando?</summary><p>No. BandiChiari ti dice quali bandi fanno per te, quanto puoi ottenere, i requisiti e cosa preparare. La domanda la presenti tu o il tuo commercialista o consulente, che potrà partire già sapendo cosa serve.</p></details><details><summary>Da dove prendete le informazioni?</summary><p>Dalle fonti ufficiali: ministeri, Invitalia, regioni, Camere di commercio e il portale nazionale degli incentivi. Ogni scheda riporta il link alla fonte ufficiale e la data dell&#x27;ultima verifica.</p></details><details><summary>Ogni quanto aggiornate?</summary><p>Ogni settimana cerchiamo i bandi nuovi e ricontrolliamo date e stato di quelli già pubblicati. Gli iscritti ricevono il riepilogo per email.</p></details><details><summary>È davvero gratis per le imprese?</summary><p>Sì. Ricerca, schede ed email settimanale con i bandi adatti alla tua impresa sono gratis. Paga solo il piano Studio, pensato per commercialisti e consulenti che seguono molti clienti.</p></details><details><summary>Sono un commercialista: cosa cambia con il piano Studio?</summary><p>Inserisci fino a 20 clienti, ognuno con regione, dimensione e investimenti previsti. Ogni settimana ricevi per ciascuno i bandi compatibili, le scadenze in arrivo e i documenti da preparare: 49 € al mese o 490 € l&#x27;anno, disdici quando vuoi.</p></details></div>
 </div></section>
 
 <section class="section"><div class="wrap">
@@ -118,7 +111,7 @@
   <div class="cols">
     <div><a class="logo" href="/"><span class="mk" aria-hidden="true">B</span>BandiChiari</a>
       <p>BandiChiari è un servizio di informazione indipendente: non è un ente pubblico e non presenta domande per conto delle imprese. Le schede riassumono i bandi ufficiali; prima di partecipare verifica sempre il testo del bando sulla fonte ufficiale.</p></div>
-    <div><p><a href="/#cerca">Cerca bandi</a><br><a href="/regioni/">Bandi per regione</a><br><a href="/temi/">Bandi per tema</a><br><a href="/privacy.html">Privacy e condizioni</a></p></div>
+    <div><p><a href="/#cerca">Cerca bandi</a><br><a href="/regioni/">Bandi per regione</a><br><a href="/temi/">Bandi per tema</a><br><a href="/per-commercialisti/">Per commercialisti</a><br><a href="/privacy.html">Privacy e condizioni</a></p></div>
   </div>
   <p>© 2026 BandiChiari · Ultimo aggiornamento: 8 ottobre 2026</p>
 </div></footer>

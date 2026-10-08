@@ -169,3 +169,7 @@ h3{font-size:1.2rem;margin:0}
   .facts div:nth-child(odd){border-right:none}
   .hero-cta .btn{width:100%}
 }
+.plans-2{grid-template-columns:repeat(2,1fr);max-width:880px;margin-inline:auto}
+@media (max-width:900px){.plans-2{grid-template-columns:1fr}}
+.cta-box a:not(.btn){text-decoration:underline}
+.checks input{width:auto;padding:0}

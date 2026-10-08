@@ -39,45 +39,37 @@
     filtra();
   }
 
-  /* ---------- Pulsanti piano: preselezionano il piano nel modulo ---------- */
-  document.addEventListener("click", function (e) {
-    var t = e.target.closest("[data-scegli-piano]");
-    if (!t) return;
-    var radio = document.querySelector('input[name="piano"][value="' + t.getAttribute("data-scegli-piano") + '"]');
-    if (radio) radio.checked = true;
-  });
-
-  /* ---------- Modulo di iscrizione (Netlify Forms → Stripe) ---------- */
-  var form = document.querySelector("form[name=iscrizione]");
-  if (!form) return;
-  var box = form.closest("[data-form-box]");
-  // ?regione=Lombardia (dai link delle pagine regionali) precompila la regione
+  /* ---------- Moduli (Netlify Forms; piano Studio → Stripe) ---------- */
   var regioneUrl = new URLSearchParams(location.search).get("regione");
-  if (regioneUrl) form.elements.regione.value = regioneUrl;
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    if (!form.reportValidity()) return;
-    var data = new FormData(form);
-    var piano = data.get("piano");
-    var btn = form.querySelector('[type="submit"]');
-    btn.disabled = true; btn.textContent = "Invio in corso…";
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(data).toString()
-    }).then(function (res) {
-      if (!res.ok) throw new Error(res.status);
-      var link = form.getAttribute("data-stripe-" + piano);
-      if (link) {
-        location.href = link + (link.indexOf("?") > -1 ? "&" : "?") +
-          "prefilled_email=" + encodeURIComponent(data.get("email"));
-        return;
-      }
-      box.querySelector("[data-step=form]").hidden = true;
-      box.querySelector("[data-step=ok]").hidden = false;
-    }).catch(function () {
-      btn.disabled = false; btn.textContent = "Riprova";
-      box.querySelector("[data-errore]").hidden = false;
+  document.querySelectorAll("form[name=iscrizione], form[name=studio]").forEach(function (form) {
+    var box = form.closest("[data-form-box]");
+    // ?regione=Lombardia (dai link delle pagine regionali) precompila la regione
+    if (regioneUrl && form.elements.regione) form.elements.regione.value = regioneUrl;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      var data = new FormData(form);
+      var btn = form.querySelector('[type="submit"]');
+      var testo = btn.textContent;
+      btn.disabled = true; btn.textContent = "Invio in corso…";
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(data).toString()
+      }).then(function (res) {
+        if (!res.ok) throw new Error(res.status);
+        var link = data.get("piano") && form.getAttribute("data-stripe-" + data.get("piano"));
+        if (link) {
+          location.href = link + (link.indexOf("?") > -1 ? "&" : "?") +
+            "prefilled_email=" + encodeURIComponent(data.get("email"));
+          return;
+        }
+        box.querySelector("[data-step=form]").hidden = true;
+        box.querySelector("[data-step=ok]").hidden = false;
+      }).catch(function () {
+        btn.disabled = false; btn.textContent = testo;
+        box.querySelector("[data-errore]").hidden = false;
+      });
     });
   });
 })();

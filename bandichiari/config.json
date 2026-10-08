@@ -1,9 +1,11 @@
 {
   "nome": "BandiChiari",
   "sito": "https://bandichiari.it",
-  "prezzo_mensile": 19,
-  "prezzo_annuale": 149,
+  "studio_mensile": 49,
+  "studio_annuale": 490,
+  "studio_clienti": 20,
   "stripe_link_mensile": "",
   "stripe_link_annuale": "",
-  "titolare": "Massimiliano Cori"
+  "titolare": "Massimiliano Cori",
+  "email": ""
 }

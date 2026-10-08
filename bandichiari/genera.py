@@ -135,7 +135,7 @@ def pagina(titolo, descrizione, percorso, corpo, ld=None, noindex=False):
 <header class="nav"><div class="wrap">
   <a class="logo" href="/"><span class="mk" aria-hidden="true">B</span>BandiChiari</a>
   <nav class="nav-links" aria-label="Principale">
-    <a href="/#cerca">Cerca bandi</a><a href="/#prezzi">Prezzi</a>
+    <a href="/#cerca">Cerca bandi</a><a href="/per-commercialisti/">Per commercialisti</a>
     <a class="btn btn-primary btn-sm" href="/#iscriviti">Ricevili ogni settimana</a>
   </nav>
 </div></header>
@@ -146,7 +146,7 @@ def pagina(titolo, descrizione, percorso, corpo, ld=None, noindex=False):
   <div class="cols">
     <div><a class="logo" href="/"><span class="mk" aria-hidden="true">B</span>BandiChiari</a>
       <p>{e(DISCLAIMER)}</p></div>
-    <div><p><a href="/#cerca">Cerca bandi</a><br><a href="/regioni/">Bandi per regione</a><br><a href="/temi/">Bandi per tema</a><br><a href="/privacy.html">Privacy e condizioni</a></p></div>
+    <div><p><a href="/#cerca">Cerca bandi</a><br><a href="/regioni/">Bandi per regione</a><br><a href="/temi/">Bandi per tema</a><br><a href="/per-commercialisti/">Per commercialisti</a><br><a href="/privacy.html">Privacy e condizioni</a></p></div>
   </div>
   <p>© {OGGI.year} BandiChiari · Ultimo aggiornamento: {e(data_it(OGGI.isoformat()))}</p>
 </div></footer>
@@ -187,14 +187,15 @@ def cta_box(regione=None):
     return f"""<div class="cta-box">
       <h2>Non perdere il prossimo bando{dove}.</h2>
       <p>Ogni settimana leggiamo i nuovi bandi e ti mandiamo solo quelli adatti alla tua impresa, spiegati chiari, con la scadenza in evidenza.</p>
-      <a class="btn btn-primary" href="/{q}#iscriviti">Ricevili ogni settimana</a>
+      <a class="btn btn-primary" href="/{q}#iscriviti">Ricevili gratis ogni settimana</a>
+      <p style="margin:1rem 0 0;font-size:.9rem">Sei un commercialista o un consulente? <a href="/per-commercialisti/" style="color:#fff">Segui fino a 20 clienti con il piano Studio</a>.</p>
     </div>"""
 
 
 # ---------------------------------------------------------------- pagine
 def home(bandi):
     n_aperti = sum(1 for b in bandi if b["stato_ora"] != "chiuso")
-    m, a = CFG["prezzo_mensile"], CFG["prezzo_annuale"]
+    sm, sa, nc = CFG["studio_mensile"], CFG["studio_annuale"], CFG["studio_clienti"]
     opt_r = "".join(f"<option>{e(r)}</option>" for r in REGIONI)
     checks = "".join(f'<label><input type="checkbox" name="finanzia" value="{e(t)}"> {e(t.capitalize())}</label>' for t in TEMI)
     regioni_chips = "".join(f'<a href="/regioni/{slugify(r)}/">{e(r)}</a>' for r in REGIONI)
@@ -204,12 +205,10 @@ def home(bandi):
         ("Presentate voi la domanda per il bando?", "No. BandiChiari ti dice quali bandi fanno per te, quanto puoi ottenere, i requisiti e cosa preparare. La domanda la presenti tu o il tuo commercialista o consulente, che potrà partire già sapendo cosa serve."),
         ("Da dove prendete le informazioni?", "Dalle fonti ufficiali: ministeri, Invitalia, regioni, Camere di commercio e il portale nazionale degli incentivi. Ogni scheda riporta il link alla fonte ufficiale e la data dell'ultima verifica."),
         ("Ogni quanto aggiornate?", "Ogni settimana cerchiamo i bandi nuovi e ricontrolliamo date e stato di quelli già pubblicati. Gli iscritti ricevono il riepilogo per email."),
-        ("Posso disdire quando voglio?", f"Sì. L'abbonamento mensile si disdice in qualsiasi momento e non si rinnova più; l'annuale vale 12 mesi. La newsletter gratuita si annulla con un clic."),
-        ("Quanto costa?", f"La ricerca sul sito e la newsletter settimanale per regione sono gratis. Il servizio su misura costa {m} € al mese oppure {a} € l'anno."),
+        ("È davvero gratis per le imprese?", "Sì. Ricerca, schede ed email settimanale con i bandi adatti alla tua impresa sono gratis. Paga solo il piano Studio, pensato per commercialisti e consulenti che seguono molti clienti."),
+        ("Sono un commercialista: cosa cambia con il piano Studio?", f"Inserisci fino a {nc} clienti, ognuno con regione, dimensione e investimenti previsti. Ogni settimana ricevi per ciascuno i bandi compatibili, le scadenze in arrivo e i documenti da preparare: {sm} € al mese o {sa} € l'anno, disdici quando vuoi."),
     ]
     faq_html = "".join(f"<details><summary>{e(q)}</summary><p>{e(r)}</p></details>" for q, r in faq)
-    stripe_m = e(CFG.get("stripe_link_mensile") or "")
-    stripe_a = e(CFG.get("stripe_link_annuale") or "")
     corpo = f"""
 <section class="hero"><div class="wrap">
   <span class="kicker">Bandi e contributi per le imprese · {e(mese_anno())}</span>
@@ -233,27 +232,24 @@ def home(bandi):
 </div></section>
 
 <section class="section" id="prezzi"><div class="wrap">
-  <div class="section-head center"><span class="kicker">Prezzi</span><h2>Un bando trovato vale molto più dell'abbonamento.</h2>
-    <p class="lead">Un contributo a fondo perduto vale spesso migliaia di euro. Saperlo in tempo è la parte che conta.</p></div>
-  <div class="plans">
-    <div class="plan"><h3>Gratis</h3><div class="price">0 €</div><div class="sub">per sempre</div>
-      <ul><li>Ricerca su tutti i bandi del sito</li><li>Schede spiegate in parole semplici</li><li>Email settimanale con i nuovi bandi della tua regione</li></ul>
-      <a class="btn btn-ghost btn-block" href="#iscriviti" data-scegli-piano="gratis">Iscriviti gratis</a></div>
-    <div class="plan"><h3>Su misura</h3><div class="price">{m} €<small> / mese</small></div><div class="sub">disdici quando vuoi</div>
-      <ul><li>Solo i bandi adatti al tuo profilo</li><li>Avviso 15 giorni prima di ogni scadenza</li><li>Lista dei documenti da preparare per ogni bando</li><li>Risposta via email alle tue domande sui bandi</li></ul>
-      <a class="btn btn-primary btn-block" href="#iscriviti" data-scegli-piano="mensile">Attiva su misura</a></div>
-    <div class="plan top"><h3>Su misura annuale</h3><div class="price">{a} €<small> / anno</small></div><div class="sub">{round(a / 12, 2):.2f} € al mese, risparmi {m * 12 - a} €</div>
-      <ul><li>Tutto il piano Su misura</li><li>12 mesi di bandi selezionati</li><li>Un solo pagamento</li></ul>
-      <a class="btn btn-primary btn-block" href="#iscriviti" data-scegli-piano="annuale">Attiva l'annuale</a></div>
+  <div class="section-head center"><span class="kicker">Prezzi</span><h2>Per le imprese è gratis. Sempre.</h2>
+    <p class="lead">Paga solo chi segue i bandi per lavoro, per decine di clienti.</p></div>
+  <div class="plans plans-2">
+    <div class="plan"><h3>Imprese e professionisti</h3><div class="price">0 €</div><div class="sub">per sempre</div>
+      <ul><li>Ricerca su tutti i bandi aperti</li><li>Schede spiegate in parole semplici</li><li>Email settimanale con i bandi adatti alla tua impresa</li><li>Scadenze in arrivo sempre in evidenza</li></ul>
+      <a class="btn btn-ghost btn-block" href="#iscriviti">Iscriviti gratis</a></div>
+    <div class="plan top"><h3>Studio · commercialisti e consulenti</h3><div class="price">{sm} €<small> / mese</small></div><div class="sub">oppure {sa} € l'anno (2 mesi gratis)</div>
+      <ul><li>Fino a {nc} clienti, ognuno con il suo profilo</li><li>Ogni settimana, per ogni cliente, i bandi compatibili</li><li>Scadenze in arrivo e documenti da preparare</li><li>Domande sui bandi via email</li></ul>
+      <a class="btn btn-primary btn-block" href="/per-commercialisti/">Scopri il piano Studio</a></div>
   </div>
-  <p style="text-align:center;color:var(--ink-3);font-size:.9rem;margin-top:1rem">Prezzi IVA inclusa. Pagamento sicuro con Stripe.</p>
+  <p style="text-align:center;color:var(--ink-3);font-size:.9rem;margin-top:1rem">Prezzi IVA inclusa. Pagamento sicuro con Stripe, disdici quando vuoi.</p>
 </div></section>
 
 <section class="section" id="iscriviti"><div class="wrap narrow">
-  <div class="section-head center"><span class="kicker">Iscrizione</span><h2>Dicci chi sei, al resto pensiamo noi.</h2></div>
+  <div class="section-head center"><span class="kicker">Iscrizione gratuita</span><h2>Dicci chi sei, al resto pensiamo noi.</h2></div>
   <div class="form-box" data-form-box>
     <div data-step="form">
-    <form class="form" name="iscrizione" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" data-stripe-mensile="{stripe_m}" data-stripe-annuale="{stripe_a}">
+    <form class="form" name="iscrizione" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="iscrizione">
       <p class="hp"><label>Non compilare <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
       <label class="field"><span>Email</span><input type="email" name="email" required autocomplete="email"></label>
@@ -262,14 +258,10 @@ def home(bandi):
       <label class="field"><span>Dimensione</span><select name="dimensione" required><option value="">Scegli…</option><option>Devo ancora aprire</option><option>Libero professionista</option><option>Micro (fino a 9 addetti)</option><option>Piccola (10–49)</option><option>Media (50–249)</option></select></label>
       <label class="field full"><span>Settore e attività</span><input type="text" name="attivita" required placeholder="Es. ristorante, officina meccanica, studio di grafica…"></label>
       <div class="field full"><span>Cosa vorresti finanziare</span><div class="checks">{checks}</div></div>
-      <div class="field full"><span>Piano</span><div class="checks">
-        <label><input type="radio" name="piano" value="gratis" checked> Gratis</label>
-        <label><input type="radio" name="piano" value="mensile"> Su misura {m} €/mese</label>
-        <label><input type="radio" name="piano" value="annuale"> Su misura {a} €/anno</label></div></div>
       <label class="consent full"><input type="checkbox" name="privacy" value="accettata" required><span>Ho letto l'<a href="/privacy.html" target="_blank">informativa privacy e le condizioni</a> e voglio ricevere le email di BandiChiari. Posso annullare in qualsiasi momento.</span></label>
       <div class="full"><button class="btn btn-primary btn-block" type="submit">Iscriviti</button>
         <p data-errore hidden style="color:var(--red);text-align:center;margin:.6rem 0 0">Invio non riuscito: controlla la connessione e riprova.</p>
-        <p style="text-align:center;color:var(--ink-3);font-size:.85rem;margin:.6rem 0 0">Con i piani Su misura passi al pagamento sicuro con Stripe.</p></div>
+        <p style="text-align:center;color:var(--ink-3);font-size:.85rem;margin:.6rem 0 0">Gratis. Una email a settimana, solo se ci sono bandi per te.</p></div>
     </form>
     </div>
     <div class="done" data-step="ok" hidden><h3>Iscrizione ricevuta.</h3><p>Grazie! La prima email arriva con il prossimo aggiornamento settimanale.</p></div>
@@ -382,6 +374,73 @@ def elenco(titolo, percorso, voci, base):
                   percorso, corpo)
 
 
+def pagina_studio(bandi):
+    sm, sa, nc = CFG["studio_mensile"], CFG["studio_annuale"], CFG["studio_clienti"]
+    n_aperti = sum(1 for b in bandi if b["stato_ora"] != "chiuso")
+    opt_r = "".join(f"<option>{e(r)}</option>" for r in REGIONI)
+    faq = [
+        ("Come inserisco i miei clienti?", f"Dopo l'attivazione ti scriviamo: ci mandi per ogni cliente regione, dimensione, settore e investimenti previsti (anche un semplice elenco). Fino a {nc} clienti; puoi cambiarli quando vuoi rispondendo alle nostre email."),
+        ("Cosa ricevo ogni settimana?", "Un'email con, per ogni cliente, i bandi aperti o in apertura compatibili con il suo profilo: importo, agevolazione, requisiti principali, documenti da preparare, scadenza e link alla fonte ufficiale. In cima, le scadenze dei prossimi 15 giorni."),
+        ("Presentate voi le domande?", "No: siamo un servizio di monitoraggio e selezione. La consulenza e la presentazione restano a te, che conosci i clienti. Noi ti facciamo risparmiare le ore di ricerca e lettura."),
+        ("Le informazioni sono affidabili?", "Ogni scheda riporta la fonte ufficiale e la data dell'ultima verifica; i bandi con dettagli ancora incerti sono segnalati. Prima di presentare una domanda verifica sempre il testo ufficiale del bando."),
+        ("Posso disdire?", f"Sì. Il mensile ({sm} €) si disdice quando vuoi e non si rinnova più; l'annuale ({sa} €) copre 12 mesi."),
+    ]
+    faq_html = "".join(f"<details><summary>{e(q)}</summary><p>{e(r)}</p></details>" for q, r in faq)
+    corpo = f"""
+<section class="hero"><div class="wrap">
+  <span class="kicker">Per commercialisti e consulenti</span>
+  <h1>I bandi giusti per ogni tuo cliente,<br>ogni lunedì nella tua casella.</h1>
+  <p class="lead">Tu conosci i clienti, noi leggiamo i bandi. Ogni settimana controlliamo le misure nazionali e regionali e ti mandiamo, cliente per cliente, solo quelle compatibili: importi, requisiti, documenti e scadenze.</p>
+  <div class="hero-cta"><a class="btn btn-primary" href="#attiva">Attiva il piano Studio</a><a class="btn btn-ghost" href="/#cerca">Guarda i {n_aperti} bandi aperti</a></div>
+  <div class="hero-facts"><span><b>{sm} €</b> al mese</span><span><b>{nc}</b> clienti inclusi</span><span>Disdici quando vuoi</span></div>
+</div></section>
+
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="steps">
+    <div class="step"><span class="n">1</span><h3>Ci dai i profili</h3><p>Per ogni cliente: regione, dimensione, settore e cosa vuole finanziare.</p></div>
+    <div class="step"><span class="n">2</span><h3>Noi incrociamo i bandi</h3><p>Ogni settimana confrontiamo i profili con tutti i bandi aperti e in apertura.</p></div>
+    <div class="step"><span class="n">3</span><h3>Tu proponi il bando</h3><p>Arrivi dal cliente con l'opportunità già pronta: un servizio in più per lui, lavoro in più per te.</p></div>
+  </div>
+</div></section>
+
+<section class="section" id="attiva"><div class="wrap narrow">
+  <div class="section-head center"><span class="kicker">Piano Studio</span><h2>Attivalo in un minuto.</h2></div>
+  <div class="form-box" data-form-box>
+    <div data-step="form">
+    <form class="form" name="studio" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" data-ajax
+      data-stripe-mensile="{e(CFG.get('stripe_link_mensile') or '')}" data-stripe-annuale="{e(CFG.get('stripe_link_annuale') or '')}">
+      <input type="hidden" name="form-name" value="studio">
+      <p class="hp"><label>Non compilare <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <label class="field"><span>Nome dello studio</span><input type="text" name="studio" required autocomplete="organization"></label>
+      <label class="field"><span>Nome e cognome</span><input type="text" name="nome" required autocomplete="name"></label>
+      <label class="field"><span>Email</span><input type="email" name="email" required autocomplete="email"></label>
+      <label class="field"><span>Telefono <small>(facoltativo)</small></span><input type="tel" name="telefono" autocomplete="tel"></label>
+      <label class="field"><span>Regione principale dei clienti</span><select name="regione" required><option value="">Scegli…</option>{opt_r}<option>Più regioni</option></select></label>
+      <label class="field"><span>Quanti clienti vuoi seguire</span><select name="clienti" required><option>Fino a 5</option><option>6–10</option><option selected>11–20</option><option>Più di 20</option></select></label>
+      <div class="field full"><span>Piano</span><div class="checks">
+        <label><input type="radio" name="piano" value="mensile" checked> {sm} € al mese</label>
+        <label><input type="radio" name="piano" value="annuale"> {sa} € l'anno</label></div></div>
+      <label class="consent full"><input type="checkbox" name="privacy" value="accettata" required><span>Ho letto l'<a href="/privacy.html" target="_blank">informativa privacy e le condizioni</a>.</span></label>
+      <div class="full"><button class="btn btn-primary btn-block" type="submit">Continua al pagamento</button>
+        <p data-errore hidden style="color:var(--red);text-align:center;margin:.6rem 0 0">Invio non riuscito: controlla la connessione e riprova.</p>
+        <p style="text-align:center;color:var(--ink-3);font-size:.85rem;margin:.6rem 0 0">Pagamento sicuro con Stripe. Prezzi IVA inclusa.</p></div>
+    </form>
+    </div>
+    <div class="done" data-step="ok" hidden><h3>Richiesta ricevuta.</h3><p>Grazie! Ti scriviamo per attivare il piano e raccogliere i profili dei tuoi clienti.</p></div>
+  </div>
+</div></section>
+
+<section class="section"><div class="wrap narrow">
+  <div class="section-head center"><span class="kicker">Domande frequenti</span><h2>Prima di attivare.</h2></div>
+  <div class="faq">{faq_html}</div>
+</div></section>
+"""
+    return pagina("Monitoraggio bandi per commercialisti e consulenti | BandiChiari",
+                  f"Ogni settimana, per ognuno dei tuoi clienti, i bandi e contributi compatibili con importi, requisiti e scadenze. "
+                  f"Piano Studio a {sm} € al mese, fino a {nc} clienti.",
+                  "/per-commercialisti/", corpo)
+
+
 def privacy():
     corpo = f"""<section class="section"><div class="wrap narrow doc">
   <h1>Privacy e condizioni</h1>
@@ -390,7 +449,7 @@ def privacy():
   <p>Titolare del trattamento è {e(CFG['titolare'])}, che gestisce BandiChiari. Per qualsiasi richiesta sui tuoi dati rispondi a una delle nostre email{(' o scrivi a <a href="mailto:' + e(CFG['email']) + '">' + e(CFG['email']) + '</a>') if CFG.get('email') else ''}.</p>
   <h2>Quali dati e perché</h2>
   <ul>
-    <li><b>Iscrizione:</b> email, nome, regione, dimensione, attività, temi di interesse e piano scelto. Servono a selezionare e inviarti i bandi adatti (base giuridica: il servizio che richiedi, art. 6.1.b GDPR, e il tuo consenso alle email, art. 6.1.a).</li>
+    <li><b>Iscrizione:</b> email, nome, regione, dimensione, attività e temi di interesse; per il piano Studio anche nome dello studio, telefono e profili dei clienti che ci invii. Servono a selezionare e inviarti i bandi adatti (base giuridica: il servizio che richiedi, art. 6.1.b GDPR, e il tuo consenso alle email, art. 6.1.a).</li>
     <li><b>Pagamenti:</b> gestiti da Stripe. Non vediamo né conserviamo i dati della tua carta.</li>
   </ul>
   <p>Non vendiamo i dati e non li cediamo a terzi per pubblicità.</p>
@@ -404,7 +463,7 @@ def privacy():
   <ul>
     <li>{e(DISCLAIMER)}</li>
     <li>Non garantiamo che un bando sia adatto o che la domanda venga accolta: la valutazione finale spetta a te e all'ente che gestisce il bando.</li>
-    <li>Il piano mensile si rinnova ogni mese e si disdice quando vuoi; il piano annuale copre 12 mesi. La disdetta ferma i rinnovi successivi.</li>
+    <li>Il servizio per le imprese è gratuito. Il piano Studio mensile si rinnova ogni mese e si disdice quando vuoi; l'annuale copre 12 mesi. La disdetta ferma i rinnovi successivi.</li>
   </ul>
 </div></section>"""
     return pagina("Privacy e condizioni | BandiChiari", "Informativa privacy e condizioni del servizio BandiChiari.",
@@ -432,7 +491,8 @@ def main():
     scrivi("regioni/index.html", elenco("Bandi per regione", "/regioni/", REGIONI, "regioni"))
     scrivi("temi/index.html", elenco("Bandi per tema", "/temi/", temi_usati, "temi"))
     scrivi("privacy.html", privacy())
-    urls = (["/", "/regioni/", "/temi/"] + [f"/bandi/{b['slug']}/" for b in bandi]
+    scrivi("per-commercialisti/index.html", pagina_studio(bandi))
+    urls = (["/", "/per-commercialisti/", "/regioni/", "/temi/"] + [f"/bandi/{b['slug']}/" for b in bandi]
             + [f"/regioni/{slugify(r)}/" for r in REGIONI] + [f"/temi/{slugify(t)}/" for t in temi_usati])
     scrivi("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
            + "".join(f"  <url><loc>{CFG['sito']}{u}</loc><lastmod>{OGGI.isoformat()}</lastmod></url>\n" for u in urls)
