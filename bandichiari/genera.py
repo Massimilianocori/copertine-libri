@@ -64,7 +64,7 @@ def carica():
         if b["slug"] in visti:
             sys.exit(f"Slug duplicato: {b['slug']}")
         visti.add(b["slug"])
-        b["regioni"] = ["tutte"] if b.get("ambito") == "nazionale" or "tutte" in b["regioni"] else b["regioni"]
+        b["regioni"] = ["tutte"] if "tutte" in b["regioni"] else b["regioni"]
         for r in b["regioni"]:
             if r != "tutte" and r not in REGIONI:
                 sys.exit(f"Bando {b['slug']}: regione sconosciuta {r!r}")
@@ -101,7 +101,7 @@ def badge_stato(b):
 
 
 def card(b):
-    reg = "Tutta Italia" if b["regioni"] == ["tutte"] else ", ".join(b["regioni"])
+    reg = "Tutta Italia" if b["regioni"] == ["tutte"] else ", ".join(b["regioni"]) if len(b["regioni"]) <= 3 else f'{len(b["regioni"])} regioni'
     return (f'<a class="card" href="/bandi/{b["slug"]}/" data-regioni="{e("|".join(b["regioni"]))}" '
             f'data-finanzia="{e("|".join(b["finanzia"]))}" data-benef="{e("|".join(b["beneficiari"]))}">'
             f'<h3>{e(b["titolo"])}</h3><span class="ente">{e(b["ente"])} · {e(reg)}</span>'
@@ -198,7 +198,8 @@ def home(bandi):
     opt_r = "".join(f"<option>{e(r)}</option>" for r in REGIONI)
     checks = "".join(f'<label><input type="checkbox" name="finanzia" value="{e(t)}"> {e(t.capitalize())}</label>' for t in TEMI)
     regioni_chips = "".join(f'<a href="/regioni/{slugify(r)}/">{e(r)}</a>' for r in REGIONI)
-    temi_chips = "".join(f'<a href="/temi/{slugify(t)}/">{e(t.capitalize())}</a>' for t in TEMI)
+    temi_chips = "".join(f'<a href="/temi/{slugify(t)}/">{e(t.capitalize())}</a>' for t in TEMI
+                         if any(t in b["finanzia"] for b in bandi))
     faq = [
         ("Presentate voi la domanda per il bando?", "No. BandiChiari ti dice quali bandi fanno per te, quanto puoi ottenere, i requisiti e cosa preparare. La domanda la presenti tu o il tuo commercialista o consulente, che potrà partire già sapendo cosa serve."),
         ("Da dove prendete le informazioni?", "Dalle fonti ufficiali: ministeri, Invitalia, regioni, Camere di commercio e il portale nazionale degli incentivi. Ogni scheda riporta il link alla fonte ufficiale e la data dell'ultima verifica."),

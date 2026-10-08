@@ -36,6 +36,7 @@ h3{font-size:1.2rem;margin:0}
 .nav-links{display:flex;gap:.3rem;align-items:center}
 .nav-links a{color:var(--ink-2);text-decoration:none;font-size:.95rem;font-weight:600;padding:.45rem .75rem;border-radius:10px}
 .nav-links a:hover{background:var(--muted);color:var(--ink)}
+.nav-links a.btn-primary,.nav-links a.btn-primary:hover{color:#fff;background:var(--green)}
 
 /* Bottoni */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:inherit;font-weight:700;font-size:1rem;line-height:1;padding:.95rem 1.4rem;border-radius:var(--pill);border:1.5px solid transparent;text-decoration:none;cursor:pointer;transition:transform .15s,background .15s,box-shadow .15s}
