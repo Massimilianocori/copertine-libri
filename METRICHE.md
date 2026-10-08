@@ -21,6 +21,10 @@ Soglie di riferimento: doc 40 §5 (tutte ipotesi). Decisioni solo con volumi min
 
 Inviate 40 email nuove (tetto alzato da 25 a 40 su richiesta di Massimiliano): 37 agenzie dalla coda 6ott + 3 agenzie "segnale" che stanno assumendo ruoli creativi (Odyssey, Sweat Pants, Silverback; doc 53). 0 rimbalzi. Risposte vere: 0 (1 risposta automatica fuori ufficio, Y'all). Restano in coda 339 (coda2 50, coda3 289): circa 8 giorni lavorativi a 40-50 al giorno.
 
+## 8/10
+
+Inviate 40 email: 5 agenzie "segnale" (Story Co, Informal, Mass FX Media, Social Scout, Lasting Media; 5 crediti Apollo) + 35 coda2. 0 rimbalzi. Risposte vere: 0 nuove; call con Justin Baer (Collars & Co.) alle 19:30. Guasto webmail Namecheap in mattinata (invio non toccato). Restano 304 in coda (coda2 15, coda3 289): circa 6-7 giorni a 40-50 al giorno.
+
 ## Crediti
 
 | Data | Higgsfield (piano Ultra) | Apollo lead credit (ciclo 3/10-3/11) |
