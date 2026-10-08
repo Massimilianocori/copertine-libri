@@ -17,3 +17,9 @@ Aggiornato: 8 ottobre 2026.
 - Pubblicare il sito su Netlify appena la rete lo permette.
 - Completare i bandi di Umbria, Abruzzo, Molise, Campania, Calabria, Basilicata.
 - Con la partita IVA: inserirla nel footer e cambiare "IVA inclusa" in "operazione senza IVA, regime forfettario".
+
+## Previsione economica (dettaglio: `python3 bandichiari/previsione.py`)
+- Prima della partita IVA: spesa massima circa 40 €/anno (dominio + email). Hosting, routine e lavoro di Claude: 0 € extra.
+- Pareggio con INPS Commercianti: **7 studi abbonati** (costi fissi circa 290 €/mese). Con Gestione Separata: 1–2 studi.
+- 12 mesi (ott 26 - set 27), INPS Commercianti: Pessimista -40 €, Prudente -498 €, Realistico +2.641 €, Ottimista +10.701 €.
+- Regola di stop: se 3 mesi dopo l'apertura della partita IVA gli studi abbonati sono meno di 7, si rivede il piano (prezzo, canale o chiusura) prima di spendere altro.
