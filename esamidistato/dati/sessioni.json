@@ -1,0 +1,237 @@
+[
+ {
+  "id": "mur694-i-a",
+  "professioni": [
+   "ingegnere",
+   "architetto",
+   "psicologo",
+   "biologo",
+   "geologo",
+   "chimico",
+   "agronomo",
+   "assistente-sociale",
+   "attuario"
+  ],
+  "sessione": "Prima sessione 2026",
+  "data": "2026-07-27",
+  "chi": "Laurea magistrale, specialistica o vecchio ordinamento (sezione A)",
+  "nota_data": "",
+  "scadenza": "2026-06-24",
+  "apertura": null,
+  "nota_scadenza": "Termine dell'ordinanza per consegnare la domanda all'università. Il bando dell'ateneo può chiedere passaggi online prima: controllalo.",
+  "fonte": "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+  "articolo": "art. 3 e 8 dell'OM 694/2026",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "id": "mur694-i-b",
+  "professioni": [
+   "ingegnere",
+   "architetto",
+   "psicologo",
+   "biologo",
+   "geologo",
+   "chimico",
+   "agronomo",
+   "assistente-sociale",
+   "attuario"
+  ],
+  "sessione": "Prima sessione 2026",
+  "data": "2026-07-31",
+  "chi": "Laurea triennale o diploma universitario (sezione B, titoli «iunior»)",
+  "nota_data": "",
+  "scadenza": "2026-06-24",
+  "apertura": null,
+  "nota_scadenza": "Termine dell'ordinanza per consegnare la domanda all'università. Il bando dell'ateneo può chiedere passaggi online prima: controllalo.",
+  "fonte": "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+  "articolo": "art. 3 e 8 dell'OM 694/2026",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "id": "mur693-i",
+  "professioni": [
+   "farmacista",
+   "odontoiatra",
+   "veterinario",
+   "fisico",
+   "tecnologo-alimentare"
+  ],
+  "sessione": "Prima sessione 2026",
+  "data": "2026-07-27",
+  "chi": "Tutti i candidati",
+  "nota_data": "",
+  "scadenza": "2026-06-24",
+  "apertura": null,
+  "nota_scadenza": "Termine dell'ordinanza per consegnare la domanda all'università. Il bando dell'ateneo può chiedere passaggi online prima: controllalo.",
+  "fonte": "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+  "articolo": "art. 3 e 6 dell'OM 693/2026",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "id": "mur692-i-a",
+  "professioni": [
+   "commercialista"
+  ],
+  "sessione": "Prima sessione 2026",
+  "data": "2026-07-27",
+  "chi": "Dottore commercialista (sezione A)",
+  "nota_data": "",
+  "scadenza": "2026-06-24",
+  "apertura": null,
+  "nota_scadenza": "Termine dell'ordinanza per consegnare la domanda all'università. Il bando dell'ateneo può chiedere passaggi online prima: controllalo.",
+  "fonte": "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf",
+  "articolo": "art. 3 e 5 dell'OM 692/2026",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "id": "mur692-i-b",
+  "professioni": [
+   "commercialista"
+  ],
+  "sessione": "Prima sessione 2026",
+  "data": "2026-07-31",
+  "chi": "Esperto contabile (sezione B)",
+  "nota_data": "",
+  "scadenza": "2026-06-24",
+  "apertura": null,
+  "nota_scadenza": "Termine dell'ordinanza per consegnare la domanda all'università. Il bando dell'ateneo può chiedere passaggi online prima: controllalo.",
+  "fonte": "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf",
+  "articolo": "art. 3 e 5 dell'OM 692/2026",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "id": "mur694-ii-a",
+  "professioni": [
+   "ingegnere",
+   "architetto",
+   "psicologo",
+   "biologo",
+   "geologo",
+   "chimico",
+   "agronomo",
+   "assistente-sociale",
+   "attuario"
+  ],
+  "sessione": "Seconda sessione 2026",
+  "data": "2026-11-16",
+  "chi": "Laurea magistrale, specialistica o vecchio ordinamento (sezione A)",
+  "nota_data": "",
+  "scadenza": "2026-10-21",
+  "apertura": null,
+  "nota_scadenza": "Termine dell'ordinanza per consegnare la domanda all'università. Il bando dell'ateneo può chiedere passaggi online prima: controllalo.",
+  "fonte": "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+  "articolo": "art. 3 e 8 dell'OM 694/2026",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "id": "mur694-ii-b",
+  "professioni": [
+   "ingegnere",
+   "architetto",
+   "psicologo",
+   "biologo",
+   "geologo",
+   "chimico",
+   "agronomo",
+   "assistente-sociale",
+   "attuario"
+  ],
+  "sessione": "Seconda sessione 2026",
+  "data": "2026-11-20",
+  "chi": "Laurea triennale o diploma universitario (sezione B, titoli «iunior»)",
+  "nota_data": "",
+  "scadenza": "2026-10-21",
+  "apertura": null,
+  "nota_scadenza": "Termine dell'ordinanza per consegnare la domanda all'università. Il bando dell'ateneo può chiedere passaggi online prima: controllalo.",
+  "fonte": "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+  "articolo": "art. 3 e 8 dell'OM 694/2026",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "id": "mur693-ii",
+  "professioni": [
+   "farmacista",
+   "odontoiatra",
+   "veterinario",
+   "fisico",
+   "tecnologo-alimentare"
+  ],
+  "sessione": "Seconda sessione 2026",
+  "data": "2026-11-16",
+  "chi": "Tutti i candidati",
+  "nota_data": "",
+  "scadenza": "2026-10-21",
+  "apertura": null,
+  "nota_scadenza": "Termine dell'ordinanza per consegnare la domanda all'università. Il bando dell'ateneo può chiedere passaggi online prima: controllalo.",
+  "fonte": "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+  "articolo": "art. 3 e 6 dell'OM 693/2026",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "id": "mur692-ii-a",
+  "professioni": [
+   "commercialista"
+  ],
+  "sessione": "Seconda sessione 2026",
+  "data": "2026-11-16",
+  "chi": "Dottore commercialista (sezione A)",
+  "nota_data": "",
+  "scadenza": "2026-10-21",
+  "apertura": null,
+  "nota_scadenza": "Termine dell'ordinanza per consegnare la domanda all'università. Il bando dell'ateneo può chiedere passaggi online prima: controllalo.",
+  "fonte": "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf",
+  "articolo": "art. 3 e 5 dell'OM 692/2026",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "id": "mur692-ii-b",
+  "professioni": [
+   "commercialista"
+  ],
+  "sessione": "Seconda sessione 2026",
+  "data": "2026-11-20",
+  "chi": "Esperto contabile (sezione B)",
+  "nota_data": "",
+  "scadenza": "2026-10-21",
+  "apertura": null,
+  "nota_scadenza": "Termine dell'ordinanza per consegnare la domanda all'università. Il bando dell'ateneo può chiedere passaggi online prima: controllalo.",
+  "fonte": "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf",
+  "articolo": "art. 3 e 5 dell'OM 692/2026",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "id": "mim-2026",
+  "professioni": [
+   "geometra",
+   "perito-agrario",
+   "agrotecnico"
+  ],
+  "sessione": "Sessione unica 2026",
+  "data": "2026-11-18",
+  "chi": "Diplomati e laureati",
+  "nota_data": "16 novembre: insediamento delle commissioni; 17 novembre: riunione preliminare; 18 e 19 novembre alle 8.30: le due prove scritte (o scritto-grafiche). Poi la prova orale, con calendario affisso all'istituto sede d'esame.",
+  "scadenza": "2026-06-15",
+  "apertura": null,
+  "nota_scadenza": "Termine perentorio: 30 giorni dalla pubblicazione in Gazzetta Ufficiale (15 maggio 2026), cioè il 15 giugno 2026 secondo la nota dell'Ufficio scolastico regionale del Veneto del 13/5/2026.",
+  "fonte": "https://istruzioneveneto.gov.it/20260513_41372/?download=41374",
+  "articolo": "art. 4 e 5 delle OM 76, 77 e 78 del 9/5/2026",
+  "verificato_il": "2026-10-09",
+  "fonte_scadenza": "https://vicenza.istruzioneveneto.gov.it/wp-content/uploads/2026/05/aBILITAZIONE-LIBERA-PROFESSIONE-m_pi.AOOUSPVI.REGISTRO-UFFICIALEE.0005826.13-05-2026.pdf"
+ },
+ {
+  "id": "avvocato-2026",
+  "professioni": [
+   "avvocato"
+  ],
+  "sessione": "Sessione 2026",
+  "data": "2026-12-15",
+  "chi": "Praticanti con pratica finita entro il 10 novembre 2026",
+  "nota_data": "Prove scritte il 15 e il 16 dicembre 2026 dalle 9.00, nelle sedi delle Corti di appello. Poi la prova orale.",
+  "scadenza": "2026-11-11",
+  "apertura": "2026-10-01",
+  "nota_scadenza": "Domanda solo online, dal 1° ottobre all'11 novembre 2026; anche il pagamento va fatto entro l'11 novembre, altrimenti sei escluso.",
+  "fonte": "https://www.giustizia.it/giustizia/it/mg_1_6_1.page?contentId=SCE1520061",
+  "articolo": "art. 3 e 4 del decreto 3 settembre 2026",
+  "verificato_il": "2026-10-09"
+ }
+]

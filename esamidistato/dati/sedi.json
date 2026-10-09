@@ -1,0 +1,2291 @@
+[
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi “Gabriele d’Annunzio” Chieti-Pescara",
+  "citta": "Chieti",
+  "provincia": "Chieti",
+  "sigla": "CH",
+  "regione": "Abruzzo",
+  "professioni": [
+   "geologo",
+   "psicologo",
+   "assistente-sociale",
+   "odontoiatra",
+   "farmacista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unich.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi dell’Aquila",
+  "citta": "L'Aquila",
+  "provincia": "L'Aquila",
+  "sigla": "AQ",
+  "regione": "Abruzzo",
+  "professioni": [
+   "ingegnere",
+   "biologo",
+   "psicologo",
+   "assistente-sociale",
+   "odontoiatra",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.univaq.it/",
+  "url_esami_stato": "https://www.univaq.it/section.php?id=416",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di L’Aquila",
+  "citta": "L'Aquila",
+  "provincia": "L'Aquila",
+  "sigla": "AQ",
+  "regione": "Abruzzo",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-laquila.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi “Gabriele d’Annunzio” Chieti-Pescara",
+  "citta": "Pescara",
+  "provincia": "Pescara",
+  "sigla": "PE",
+  "regione": "Abruzzo",
+  "professioni": [
+   "architetto",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unich.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Teramo",
+  "citta": "Teramo",
+  "provincia": "Teramo",
+  "sigla": "TE",
+  "regione": "Abruzzo",
+  "professioni": [
+   "veterinario",
+   "tecnologo-alimentare",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unite.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi della Basilicata",
+  "citta": "Matera",
+  "provincia": "Matera",
+  "sigla": "MT",
+  "regione": "Basilicata",
+  "professioni": [
+   "architetto"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://portale.unibas.it/",
+  "url_esami_stato": "https://portale.unibas.it/site/home/didattica/esami-di-stato.html",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi della Basilicata",
+  "citta": "Potenza",
+  "provincia": "Potenza",
+  "sigla": "PZ",
+  "regione": "Basilicata",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "biologo",
+   "geologo",
+   "agronomo",
+   "farmacista",
+   "tecnologo-alimentare",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://portale.unibas.it/",
+  "url_esami_stato": "https://portale.unibas.it/site/home/didattica/esami-di-stato.html",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Potenza",
+  "citta": "Potenza",
+  "provincia": "Potenza",
+  "sigla": "PZ",
+  "regione": "Basilicata",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-potenza.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Catanzaro “Magna Graecia”",
+  "citta": "Catanzaro",
+  "provincia": "Catanzaro",
+  "sigla": "CZ",
+  "regione": "Calabria",
+  "professioni": [
+   "psicologo",
+   "assistente-sociale",
+   "odontoiatra",
+   "farmacista",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unicz.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Catanzaro",
+  "citta": "Catanzaro",
+  "provincia": "Catanzaro",
+  "sigla": "CZ",
+  "regione": "Calabria",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-catanzaro.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università della Calabria",
+  "citta": "Cosenza",
+  "provincia": "Cosenza",
+  "sigla": "CS",
+  "regione": "Calabria",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "architetto",
+   "biologo",
+   "geologo",
+   "assistente-sociale",
+   "farmacista",
+   "fisico",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unical.it/",
+  "url_esami_stato": "https://www.unical.it/didattica/offerta-formativa/esami-di-stato/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi Mediterranea di Reggio Calabria",
+  "citta": "Reggio di Calabria",
+  "provincia": "Reggio Calabria",
+  "sigla": "RC",
+  "regione": "Calabria",
+  "professioni": [
+   "ingegnere",
+   "architetto",
+   "agronomo",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unirc.it/",
+  "url_esami_stato": "https://www.unirc.it/studiare/esami-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Reggio Calabria",
+  "citta": "Reggio di Calabria",
+  "provincia": "Reggio Calabria",
+  "sigla": "RC",
+  "regione": "Calabria",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-reggiocalabria.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi del Sannio",
+  "citta": "Benevento",
+  "provincia": "Benevento",
+  "sigla": "BN",
+  "regione": "Campania",
+  "professioni": [
+   "ingegnere",
+   "biologo",
+   "geologo",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unisannio.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi Suor Orsola Benincasa",
+  "citta": "Napoli",
+  "provincia": "Napoli",
+  "sigla": "NA",
+  "regione": "Campania",
+  "professioni": [
+   "assistente-sociale"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unisob.na.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi della Campania “Luigi Vanvitelli”",
+  "citta": "Napoli",
+  "provincia": "Napoli",
+  "sigla": "NA",
+  "regione": "Campania",
+  "professioni": [
+   "ingegnere",
+   "architetto",
+   "biologo",
+   "psicologo",
+   "odontoiatra",
+   "farmacista",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unicampania.it/",
+  "url_esami_stato": "https://www.unicampania.it/index.php/ateneo/amministrazione/divisione-gestione-carriere-studenti/ufficio-esami-di-stato-e-scuole-di-specializzazione",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Napoli “Federico II”",
+  "citta": "Napoli",
+  "provincia": "Napoli",
+  "sigla": "NA",
+  "regione": "Campania",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "architetto",
+   "biologo",
+   "geologo",
+   "psicologo",
+   "agronomo",
+   "assistente-sociale",
+   "odontoiatra",
+   "farmacista",
+   "veterinario",
+   "fisico",
+   "tecnologo-alimentare",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unina.it/",
+  "url_esami_stato": "https://www.unina.it/it/w/esami-di-stato-seconda-sessione",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Napoli “Parthenope”",
+  "citta": "Napoli",
+  "provincia": "Napoli",
+  "sigla": "NA",
+  "regione": "Campania",
+  "professioni": [
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Napoli",
+  "citta": "Napoli",
+  "provincia": "Napoli",
+  "sigla": "NA",
+  "regione": "Campania",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-napoli.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Salerno",
+  "citta": "Salerno",
+  "provincia": "Salerno",
+  "sigla": "SA",
+  "regione": "Campania",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "architetto",
+   "agronomo",
+   "assistente-sociale",
+   "farmacista",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unisa.it/",
+  "url_esami_stato": "https://web.unisa.it/home/bandi/esami-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Salerno",
+  "citta": "Salerno",
+  "provincia": "Salerno",
+  "sigla": "SA",
+  "regione": "Campania",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-salerno.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Bologna “Alma Mater Studiorum”",
+  "citta": "Bologna",
+  "provincia": "Bologna",
+  "sigla": "BO",
+  "regione": "Emilia-Romagna",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "biologo",
+   "geologo",
+   "psicologo",
+   "agronomo",
+   "assistente-sociale",
+   "odontoiatra",
+   "farmacista",
+   "veterinario",
+   "fisico",
+   "tecnologo-alimentare"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unibo.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Bologna",
+  "citta": "Bologna",
+  "provincia": "Bologna",
+  "sigla": "BO",
+  "regione": "Emilia-Romagna",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-bologna.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Bologna “Alma Mater Studiorum”",
+  "citta": "Cesena",
+  "provincia": "Forlì-Cesena",
+  "sigla": "FC",
+  "regione": "Emilia-Romagna",
+  "professioni": [
+   "architetto"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unibo.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Ferrara",
+  "citta": "Ferrara",
+  "provincia": "Ferrara",
+  "sigla": "FE",
+  "regione": "Emilia-Romagna",
+  "professioni": [
+   "chimico",
+   "architetto",
+   "biologo",
+   "odontoiatra",
+   "farmacista",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unife.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Bologna “Alma Mater Studiorum” - Campus di Forlì",
+  "citta": "Forlì",
+  "provincia": "Forlì-Cesena",
+  "sigla": "FC",
+  "regione": "Emilia-Romagna",
+  "professioni": [
+   "commercialista"
+  ],
+  "note": {
+   "commercialista": "Nell'ordinanza: «Università degli Studi di Bologna “Alma Mater Studiorum” - Campus di Rimini, Università degli Studi di Bologna “Alma Mater Studiorum”»"
+  },
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unibo.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi UNIMORE",
+  "citta": "Modena",
+  "provincia": "Modena",
+  "sigla": "MO",
+  "regione": "Emilia-Romagna",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "biologo",
+   "odontoiatra",
+   "farmacista",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unimore.it/",
+  "url_esami_stato": "https://www.unimore.it/it/didattica/esami-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Parma",
+  "citta": "Parma",
+  "provincia": "Parma",
+  "sigla": "PR",
+  "regione": "Emilia-Romagna",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "architetto",
+   "biologo",
+   "geologo",
+   "psicologo",
+   "assistente-sociale",
+   "odontoiatra",
+   "farmacista",
+   "veterinario",
+   "fisico",
+   "tecnologo-alimentare",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unipr.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università Cattolica del Sacro Cuore",
+  "citta": "Piacenza",
+  "provincia": "Piacenza",
+  "sigla": "PC",
+  "regione": "Emilia-Romagna",
+  "professioni": [
+   "agronomo",
+   "tecnologo-alimentare",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unicatt.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Trieste",
+  "citta": "Trieste",
+  "provincia": "Trieste",
+  "sigla": "TS",
+  "regione": "Friuli-Venezia Giulia",
+  "professioni": [
+   "attuario",
+   "chimico",
+   "ingegnere",
+   "architetto",
+   "biologo",
+   "geologo",
+   "psicologo",
+   "assistente-sociale",
+   "odontoiatra",
+   "farmacista",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://portale.units.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Trieste",
+  "citta": "Trieste",
+  "provincia": "Trieste",
+  "sigla": "TS",
+  "regione": "Friuli-Venezia Giulia",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-trieste.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Udine",
+  "citta": "Udine",
+  "provincia": "Udine",
+  "sigla": "UD",
+  "regione": "Friuli-Venezia Giulia",
+  "professioni": [
+   "ingegnere",
+   "agronomo",
+   "tecnologo-alimentare",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.uniud.it/",
+  "url_esami_stato": "https://www.uniud.it/it/manual-links/info-per/laureati/specializzazioni-e-abilitazioni/esami-di-stato-di-abilitazione-allesercizio-professionale",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Cassino e del Lazio Meridionale",
+  "citta": "Cassino",
+  "provincia": "Frosinone",
+  "sigla": "FR",
+  "regione": "Lazio",
+  "professioni": [
+   "ingegnere",
+   "assistente-sociale",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unicas.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Libera Università Internazionale degli Studi Sociali Guido Carli – LUISS",
+  "citta": "Roma",
+  "provincia": "Roma",
+  "sigla": "RM",
+  "regione": "Lazio",
+  "professioni": [
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.luiss.it/",
+  "url_esami_stato": "https://www.luiss.it/it/esami-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Libera Università Maria Santissima Assunta LUMSA",
+  "citta": "Roma",
+  "provincia": "Roma",
+  "sigla": "RM",
+  "regione": "Lazio",
+  "professioni": [
+   "assistente-sociale"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.lumsa.it/",
+  "url_esami_stato": "https://lumsa.it/it/esami-di-stato-per-assistenti-sociali",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università Campus Bio-Medico di Roma",
+  "citta": "Roma",
+  "provincia": "Roma",
+  "sigla": "RM",
+  "regione": "Lazio",
+  "professioni": [
+   "ingegnere"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unicampus.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università Cattolica del Sacro Cuore",
+  "citta": "Roma",
+  "provincia": "Roma",
+  "sigla": "RM",
+  "regione": "Lazio",
+  "professioni": [
+   "odontoiatra",
+   "farmacista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unicatt.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Roma “La Sapienza”",
+  "citta": "Roma",
+  "provincia": "Roma",
+  "sigla": "RM",
+  "regione": "Lazio",
+  "professioni": [
+   "attuario",
+   "chimico",
+   "ingegnere",
+   "architetto",
+   "biologo",
+   "psicologo",
+   "odontoiatra",
+   "farmacista",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.uniroma1.it/",
+  "url_esami_stato": "https://www.uniroma1.it/it/pagina/esami-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Roma “Tor Vergata”",
+  "citta": "Roma",
+  "provincia": "Roma",
+  "sigla": "RM",
+  "regione": "Lazio",
+  "professioni": [
+   "ingegnere",
+   "biologo",
+   "odontoiatra",
+   "farmacista",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://web.uniroma2.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi “Link Campus University”",
+  "citta": "Roma",
+  "provincia": "Roma",
+  "sigla": "RM",
+  "regione": "Lazio",
+  "professioni": [
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unilink.it/",
+  "url_esami_stato": "https://www.unilink.it/ateneo/esame-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi “Roma Tre”",
+  "citta": "Roma",
+  "provincia": "Roma",
+  "sigla": "RM",
+  "regione": "Lazio",
+  "professioni": [
+   "ingegnere",
+   "geologo",
+   "assistente-sociale",
+   "commercialista"
+  ],
+  "note": {
+   "geologo": "Nell'ordinanza: «Università degli Studi di Roma “La Sapienza”»"
+  },
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.uniroma3.it/",
+  "url_esami_stato": "https://www.uniroma3.it/didattica/esami-di-stato/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Roma",
+  "citta": "Roma",
+  "provincia": "Roma",
+  "sigla": "RM",
+  "regione": "Lazio",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-roma.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi della Tuscia",
+  "citta": "Viterbo",
+  "provincia": "Viterbo",
+  "sigla": "VT",
+  "regione": "Lazio",
+  "professioni": [
+   "biologo",
+   "agronomo",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unitus.it/",
+  "url_esami_stato": "https://www.unitus.it/post-laurea/esami-di-stato/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Genova",
+  "citta": "Genova",
+  "provincia": "Genova",
+  "sigla": "GE",
+  "regione": "Liguria",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "architetto",
+   "biologo",
+   "geologo",
+   "psicologo",
+   "assistente-sociale",
+   "odontoiatra",
+   "farmacista",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://unige.it/",
+  "url_esami_stato": "https://unige.it/postlaurea/esamistato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Genova",
+  "citta": "Genova",
+  "provincia": "Genova",
+  "sigla": "GE",
+  "regione": "Liguria",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-genova.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Bergamo",
+  "citta": "Bergamo",
+  "provincia": "Bergamo",
+  "sigla": "BG",
+  "regione": "Lombardia",
+  "professioni": [
+   "ingegnere",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unibg.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Brescia",
+  "citta": "Brescia",
+  "provincia": "Brescia",
+  "sigla": "BS",
+  "regione": "Lombardia",
+  "professioni": [
+   "ingegnere",
+   "odontoiatra",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unibs.it/",
+  "url_esami_stato": "https://www.unibs.it/it/didattica/post-laurea/esami-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Brescia",
+  "citta": "Brescia",
+  "provincia": "Brescia",
+  "sigla": "BS",
+  "regione": "Lombardia",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-brescia.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università Carlo Cattaneo - LIUC",
+  "citta": "Castellanza",
+  "provincia": "Varese",
+  "sigla": "VA",
+  "regione": "Lombardia",
+  "professioni": [
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.liuc.it/",
+  "url_esami_stato": "https://www.liuc.it/corsi-di-studio/esami-di-stato/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi dell’Insubria",
+  "citta": "Como",
+  "provincia": "Como",
+  "sigla": "CO",
+  "regione": "Lombardia",
+  "professioni": [
+   "chimico"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.uninsubria.it/",
+  "url_esami_stato": "https://www.uninsubria.it/formazione/opportunita-e-agevolazioni/esami-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Milano",
+  "citta": "Lodi",
+  "provincia": "Lodi",
+  "sigla": "LO",
+  "regione": "Lombardia",
+  "professioni": [
+   "veterinario"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unimi.it/",
+  "url_esami_stato": "https://www.unimi.it/it/corsi/esami-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Politecnico di Milano",
+  "citta": "Milano",
+  "provincia": "Milano",
+  "sigla": "MI",
+  "regione": "Lombardia",
+  "professioni": [
+   "ingegnere",
+   "architetto"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.polimi.it/",
+  "url_esami_stato": "https://www.polimi.it/studenti/esami-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università Bocconi",
+  "citta": "Milano",
+  "provincia": "Milano",
+  "sigla": "MI",
+  "regione": "Lombardia",
+  "professioni": [
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unibocconi.it/",
+  "url_esami_stato": "https://www.unibocconi.it/it/candidati-esami-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università Cattolica del Sacro Cuore",
+  "citta": "Milano",
+  "provincia": "Milano",
+  "sigla": "MI",
+  "regione": "Lombardia",
+  "professioni": [
+   "attuario",
+   "psicologo",
+   "assistente-sociale",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unicatt.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Milano",
+  "citta": "Milano",
+  "provincia": "Milano",
+  "sigla": "MI",
+  "regione": "Lombardia",
+  "professioni": [
+   "chimico",
+   "biologo",
+   "geologo",
+   "agronomo",
+   "odontoiatra",
+   "farmacista",
+   "tecnologo-alimentare"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unimi.it/",
+  "url_esami_stato": "https://www.unimi.it/it/corsi/esami-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Milano Bicocca",
+  "citta": "Milano",
+  "provincia": "Milano",
+  "sigla": "MI",
+  "regione": "Lombardia",
+  "professioni": [
+   "psicologo",
+   "assistente-sociale",
+   "fisico",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unimib.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Milano",
+  "citta": "Milano",
+  "provincia": "Milano",
+  "sigla": "MI",
+  "regione": "Lombardia",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-milano.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Pavia",
+  "citta": "Pavia",
+  "provincia": "Pavia",
+  "sigla": "PV",
+  "regione": "Lombardia",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "architetto",
+   "biologo",
+   "geologo",
+   "psicologo",
+   "agronomo",
+   "odontoiatra",
+   "farmacista",
+   "fisico",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://portale.unipv.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi dell’Insubria",
+  "citta": "Varese",
+  "provincia": "Varese",
+  "sigla": "VA",
+  "regione": "Lombardia",
+  "professioni": [
+   "biologo",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.uninsubria.it/",
+  "url_esami_stato": "https://www.uninsubria.it/formazione/opportunita-e-agevolazioni/esami-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università Politecnica delle Marche",
+  "citta": "Ancona",
+  "provincia": "Ancona",
+  "sigla": "AN",
+  "regione": "Marche",
+  "professioni": [
+   "ingegnere",
+   "biologo",
+   "agronomo",
+   "assistente-sociale",
+   "odontoiatra",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.univpm.it/",
+  "url_esami_stato": "https://www.univpm.it/Entra/Telaio_-Menu_a_scomparsa/Esami_di_Stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Ancona",
+  "citta": "Ancona",
+  "provincia": "Ancona",
+  "sigla": "AN",
+  "regione": "Marche",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-ancona.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università di Camerino",
+  "citta": "Camerino",
+  "provincia": "Macerata",
+  "sigla": "MC",
+  "regione": "Marche",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "architetto",
+   "biologo",
+   "geologo",
+   "farmacista",
+   "veterinario",
+   "commercialista"
+  ],
+  "note": {
+   "ingegnere": "Nell'ordinanza: «settore “ingegneria dell’informazione”»"
+  },
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unicam.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Macerata",
+  "citta": "Macerata",
+  "provincia": "Macerata",
+  "sigla": "MC",
+  "regione": "Marche",
+  "professioni": [
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unimc.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Urbino “Carlo Bo”",
+  "citta": "Urbino",
+  "provincia": "Pesaro e Urbino",
+  "sigla": "PU",
+  "regione": "Marche",
+  "professioni": [
+   "biologo",
+   "geologo",
+   "psicologo",
+   "assistente-sociale",
+   "farmacista",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.uniurb.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi del Molise",
+  "citta": "Campobasso",
+  "provincia": "Campobasso",
+  "sigla": "CB",
+  "regione": "Molise",
+  "professioni": [
+   "ingegnere",
+   "biologo",
+   "agronomo",
+   "assistente-sociale",
+   "tecnologo-alimentare",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unimol.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Campobasso",
+  "citta": "Campobasso",
+  "provincia": "Campobasso",
+  "sigla": "CB",
+  "regione": "Molise",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-campobasso.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Politecnico di Torino",
+  "citta": "Torino",
+  "provincia": "Torino",
+  "sigla": "TO",
+  "regione": "Piemonte",
+  "professioni": [
+   "ingegnere",
+   "architetto"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.polito.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Torino",
+  "citta": "Torino",
+  "provincia": "Torino",
+  "sigla": "TO",
+  "regione": "Piemonte",
+  "professioni": [
+   "chimico",
+   "biologo",
+   "geologo",
+   "psicologo",
+   "agronomo",
+   "assistente-sociale",
+   "odontoiatra",
+   "farmacista",
+   "veterinario",
+   "fisico",
+   "tecnologo-alimentare",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unito.it/",
+  "url_esami_stato": "https://www.unito.it/didattica/esami-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Torino",
+  "citta": "Torino",
+  "provincia": "Torino",
+  "sigla": "TO",
+  "regione": "Piemonte",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-torino.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi del Piemonte Orientale “Amedeo Avogadro”",
+  "citta": "Vercelli",
+  "provincia": "Vercelli",
+  "sigla": "VC",
+  "regione": "Piemonte",
+  "professioni": [
+   "biologo",
+   "assistente-sociale",
+   "farmacista",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.uniupo.it/",
+  "url_esami_stato": "https://www.uniupo.it/it/corsi/esami-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Politecnico di Bari",
+  "citta": "Bari",
+  "provincia": "Bari",
+  "sigla": "BA",
+  "regione": "Puglia",
+  "professioni": [
+   "ingegnere",
+   "architetto"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf"
+  ],
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Bari “Aldo Moro”",
+  "citta": "Bari",
+  "provincia": "Bari",
+  "sigla": "BA",
+  "regione": "Puglia",
+  "professioni": [
+   "chimico",
+   "biologo",
+   "geologo",
+   "psicologo",
+   "agronomo",
+   "assistente-sociale",
+   "odontoiatra",
+   "farmacista",
+   "veterinario",
+   "fisico",
+   "tecnologo-alimentare",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.uniba.it/",
+  "url_esami_stato": "https://www.uniba.it/it/didattica/esami-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Bari",
+  "citta": "Bari",
+  "provincia": "Bari",
+  "sigla": "BA",
+  "regione": "Puglia",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-bari.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Foggia",
+  "citta": "Foggia",
+  "provincia": "Foggia",
+  "sigla": "FG",
+  "regione": "Puglia",
+  "professioni": [
+   "odontoiatra",
+   "tecnologo-alimentare",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unifg.it/",
+  "url_esami_stato": "https://www.unifg.it/it/studiare/post-lauream/esame-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università del Salento",
+  "citta": "Lecce",
+  "provincia": "Lecce",
+  "sigla": "LE",
+  "regione": "Puglia",
+  "professioni": [
+   "ingegnere",
+   "biologo",
+   "assistente-sociale",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unisalento.it/",
+  "url_esami_stato": "https://www.unisalento.it/ufficio-master-formazione-esami-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Lecce",
+  "citta": "Lecce",
+  "provincia": "Lecce",
+  "sigla": "LE",
+  "regione": "Puglia",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-lecce.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Cagliari",
+  "citta": "Cagliari",
+  "provincia": "Cagliari",
+  "sigla": "CA",
+  "regione": "Sardegna",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "architetto",
+   "biologo",
+   "geologo",
+   "psicologo",
+   "odontoiatra",
+   "farmacista",
+   "fisico",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unica.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Cagliari",
+  "citta": "Cagliari",
+  "provincia": "Cagliari",
+  "sigla": "CA",
+  "regione": "Sardegna",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-cagliari.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Sassari",
+  "citta": "Sassari",
+  "provincia": "Sassari",
+  "sigla": "SS",
+  "regione": "Sardegna",
+  "professioni": [
+   "chimico",
+   "architetto",
+   "biologo",
+   "agronomo",
+   "assistente-sociale",
+   "odontoiatra",
+   "farmacista",
+   "veterinario",
+   "tecnologo-alimentare",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.uniss.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Caltanissetta",
+  "citta": "Caltanissetta",
+  "provincia": "Caltanissetta",
+  "sigla": "CL",
+  "regione": "Sicilia",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-caltanissetta.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Catania",
+  "citta": "Catania",
+  "provincia": "Catania",
+  "sigla": "CT",
+  "regione": "Sicilia",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "architetto",
+   "biologo",
+   "psicologo",
+   "agronomo",
+   "assistente-sociale",
+   "odontoiatra",
+   "farmacista",
+   "tecnologo-alimentare",
+   "commercialista"
+  ],
+  "note": {
+   "psicologo": "Nell'ordinanza: «Università degli Studi di Enna “Kore”»"
+  },
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unict.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Catania",
+  "citta": "Catania",
+  "provincia": "Catania",
+  "sigla": "CT",
+  "regione": "Sicilia",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-catania.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Enna “Kore”",
+  "citta": "Enna",
+  "provincia": "Enna",
+  "sigla": "EN",
+  "regione": "Sicilia",
+  "professioni": [
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://unikore.it/",
+  "url_esami_stato": "https://uke.it/it/didattica/esami-di-stato-abilitanti",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Messina",
+  "citta": "Messina",
+  "provincia": "Messina",
+  "sigla": "ME",
+  "regione": "Sicilia",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "biologo",
+   "psicologo",
+   "assistente-sociale",
+   "odontoiatra",
+   "farmacista",
+   "veterinario",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unime.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Messina",
+  "citta": "Messina",
+  "provincia": "Messina",
+  "sigla": "ME",
+  "regione": "Sicilia",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-messina.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Palermo",
+  "citta": "Palermo",
+  "provincia": "Palermo",
+  "sigla": "PA",
+  "regione": "Sicilia",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "architetto",
+   "biologo",
+   "geologo",
+   "psicologo",
+   "agronomo",
+   "assistente-sociale",
+   "odontoiatra",
+   "farmacista",
+   "tecnologo-alimentare",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unipa.it/",
+  "url_esami_stato": "https://www.unipa.it/servizi/esamidistato/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Palermo",
+  "citta": "Palermo",
+  "provincia": "Palermo",
+  "sigla": "PA",
+  "regione": "Sicilia",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-palermo.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Firenze",
+  "citta": "Firenze",
+  "provincia": "Firenze",
+  "sigla": "FI",
+  "regione": "Toscana",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "architetto",
+   "biologo",
+   "geologo",
+   "psicologo",
+   "agronomo",
+   "assistente-sociale",
+   "odontoiatra",
+   "farmacista",
+   "tecnologo-alimentare",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unifi.it/",
+  "url_esami_stato": "https://www.unifi.it/it/studia-con-noi/dopo-la-laurea/esami-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Firenze",
+  "citta": "Firenze",
+  "provincia": "Firenze",
+  "sigla": "FI",
+  "regione": "Toscana",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-firenze.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università di Pisa",
+  "citta": "Pisa",
+  "provincia": "Pisa",
+  "sigla": "PI",
+  "regione": "Toscana",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "biologo",
+   "geologo",
+   "agronomo",
+   "assistente-sociale",
+   "odontoiatra",
+   "farmacista",
+   "veterinario",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unipi.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università di Siena",
+  "citta": "Siena",
+  "provincia": "Siena",
+  "sigla": "SI",
+  "regione": "Toscana",
+  "professioni": [
+   "biologo",
+   "geologo",
+   "assistente-sociale",
+   "farmacista",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unisi.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Libera Università di Bolzano",
+  "citta": "Bolzano",
+  "provincia": "Bolzano/Bozen",
+  "sigla": "BZ",
+  "regione": "Trentino-Alto Adige/Südtirol",
+  "professioni": [
+   "agronomo",
+   "tecnologo-alimentare"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unibz.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Trento – Sezione distaccata di Bolzano",
+  "citta": "Bolzano",
+  "provincia": "Bolzano/Bozen",
+  "sigla": "BZ",
+  "regione": "Trentino-Alto Adige/Südtirol",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Trento",
+  "citta": "Trento",
+  "provincia": "Trento",
+  "sigla": "TN",
+  "regione": "Trentino-Alto Adige/Südtirol",
+  "professioni": [
+   "ingegnere",
+   "assistente-sociale",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unitn.it/",
+  "url_esami_stato": "https://www.unitn.it/it/esami-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Trento",
+  "citta": "Trento",
+  "provincia": "Trento",
+  "sigla": "TN",
+  "regione": "Trentino-Alto Adige/Südtirol",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-trento.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Perugia",
+  "citta": "Perugia",
+  "provincia": "Perugia",
+  "sigla": "PG",
+  "regione": "Umbria",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "architetto",
+   "biologo",
+   "geologo",
+   "agronomo",
+   "assistente-sociale",
+   "odontoiatra",
+   "farmacista",
+   "veterinario",
+   "tecnologo-alimentare",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unipg.it/",
+  "url_esami_stato": "https://www.unipg.it/didattica/percorsi-post-laurea/esami-di-stato",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Perugia",
+  "citta": "Perugia",
+  "provincia": "Perugia",
+  "sigla": "PG",
+  "regione": "Umbria",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-perugia.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Padova",
+  "citta": "Padova",
+  "provincia": "Padova",
+  "sigla": "PD",
+  "regione": "Veneto",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "biologo",
+   "geologo",
+   "psicologo",
+   "agronomo",
+   "assistente-sociale",
+   "odontoiatra",
+   "farmacista",
+   "veterinario",
+   "tecnologo-alimentare",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unipd.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università Ca’ Foscari di Venezia",
+  "citta": "Venezia",
+  "provincia": "Venezia",
+  "sigla": "VE",
+  "regione": "Veneto",
+  "professioni": [
+   "chimico",
+   "ingegnere",
+   "assistente-sociale",
+   "commercialista"
+  ],
+  "note": {
+   "ingegnere": "Nell'ordinanza: «settore “ingegneria dell’informazione”»"
+  },
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.unive.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università IUAV di Venezia",
+  "citta": "Venezia",
+  "provincia": "Venezia",
+  "sigla": "VE",
+  "regione": "Veneto",
+  "professioni": [
+   "architetto"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.iuav.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "corte_appello",
+  "ateneo": "Corte di appello di Venezia",
+  "citta": "Venezia",
+  "provincia": "Venezia",
+  "sigla": "VE",
+  "regione": "Veneto",
+  "professioni": [
+   "avvocato"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.giustizia.it/giustizia/page/it/provvedimento_ministeriale_selezionato?contentId=SDC1519988"
+  ],
+  "sito": "https://ca-venezia.giustizia.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "tipo": "ateneo",
+  "ateneo": "Università degli Studi di Verona",
+  "citta": "Verona",
+  "provincia": "Verona",
+  "sigla": "VR",
+  "regione": "Veneto",
+  "professioni": [
+   "assistente-sociale",
+   "odontoiatra",
+   "commercialista"
+  ],
+  "note": {},
+  "fonti": [
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf",
+   "https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf"
+  ],
+  "sito": "https://www.univr.it/",
+  "siti_verificati_il": "2026-10-09",
+  "verificato_il": "2026-10-09"
+ }
+]
