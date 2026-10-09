@@ -7,6 +7,13 @@ Fonte (verificata il 9/10/2026): portale Liferay burp.regione.puglia.it
 
 Uso:
   python3 -I bur_puglia.py <cartella_download> <file_json_uscita> [anno]
+
+Particolarità pugliese (L.R. 24/2015, art. 30): i Comuni inviano i bandi per i posteggi liberi alla
+Regione entro il 30 aprile e il 30 settembre e la Regione li pubblica tutti insieme nel BURP in un
+unico atto ("Bandi Comunali per la copertura dei Posteggi Liberi ... Prima/Seconda sessione").
+Lo script scarica quel PDF e lo divide nei singoli bandi (cambio dell'intestazione "COMUNE DI" /
+"CITTÀ DI"). Le scadenze sono quasi sempre relative ("entro 60 giorni dalla pubblicazione sul
+BURP"): si calcolano con comune.scadenza_da_relativa().
 """
 import html
 import json
@@ -23,7 +30,30 @@ ELENCO = ("https://burp.regione.puglia.it/bollettini?p_p_id=" + P + "&p_p_lifecy
           "&_" + P + "_bolanno={anno}&_" + P + "_cur={p}&_" + P + "_resetCur=false&_" + P + "_delta=60")
 DETTAGLIO = ("https://burp.regione.puglia.it/bollettini?p_p_id=" + P + "&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view"
              "&_" + P + "_mvcRenderCommandName=%2Fview-burp%2Fbollettino%2Fdetail&_" + P + "_currentURL=%2F&_" + P + "_burpId={id}")
-RX_FORTE = re.compile(r"posteggi|posteggio|commercio su aree? pubblic|ambulant|chiosc|edicol|spunt|\bfiera\b|mercato settimanale", re.I)
+# niente "fiera": a Bari la "Fiera del Levante" compare in decine di atti estranei (indirizzi, padiglioni)
+RX_FORTE = re.compile(r"posteggi|posteggio|commercio su aree? pubblic|ambulant|chiosc|edicol|spunt|mercato settimanale", re.I)
+RX_ENTE = re.compile(r"^\s*(?:COMUNE|CITTÀ|CITTA') D[IE']\s*([A-ZÀ-Ü' ]{3,40})\s*$", re.M)
+MESI_IT = {m: i for i, m in enumerate(["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto",
+                                       "settembre", "ottobre", "novembre", "dicembre"], 1)}
+
+
+def data_iso(d):
+    m = re.match(r"(\d{1,2}) (\w+) (\d{4})", d or "")
+    return f"{m.group(3)}-{MESI_IT[m.group(2).lower()]:02d}-{int(m.group(1)):02d}" if m and m.group(2).lower() in MESI_IT else None
+
+
+def dividi_raccolta(testo):
+    """Divide l'atto regionale che raccoglie più bandi comunali: un pezzo per ogni cambio di Comune."""
+    pezzi, corrente, inizio = [], None, 0
+    for m in RX_ENTE.finditer(testo):
+        nome = m.group(1).strip()
+        if nome != corrente:
+            if corrente:
+                pezzi.append((corrente, testo[inizio:m.start()]))
+            corrente, inizio = nome, m.start()
+    if corrente:
+        pezzi.append((corrente, testo[inizio:]))
+    return pezzi
 
 
 def pulisci(s):
@@ -54,7 +84,11 @@ def main():
     risultati, log = [], []
     for bid, info in sorted(numeri.items()):
         url = DETTAGLIO.format(id=bid)
-        st, _, dati = C.scarica(url, os.path.join(cartella, f"burp-{bid}.htm"))
+        loc_html = os.path.join(cartella, f"burp-{bid}.htm")
+        if os.path.exists(loc_html):  # cache: i numeri pubblicati non cambiano
+            st, dati = 200, open(loc_html, "rb").read()
+        else:
+            st, _, dati = C.scarica(url, loc_html)
         s = dati.decode("utf-8", "replace")
         atti = s.split('<div class="doc-element">')[1:]
         trovati = 0
@@ -65,8 +99,22 @@ def main():
             if not RX_FORTE.search(titolo + " " + ogg) or C.ESCLUDI.search(titolo + " " + ogg):
                 continue
             trovati += 1
-            risultati.append({"burpId": bid, "numero_bu": info["numero"], "data_bu": info["data"], "ente": titolo,
-                              "oggetto": ogg[:600], "pagina": url, "pdf": html.unescape(pdf.group(1)) if pdf else None})
+            pdf_url = html.unescape(pdf.group(1)) if pdf else None
+            testo = ""
+            if pdf_url:
+                loc = os.path.join(cartella, "pdf", f"{bid}-{trovati}.pdf")
+                sp, _, _ = C.scarica(pdf_url, loc) if not os.path.exists(loc) else (200, "", b"")
+                testo = C.testo_pdf(loc, max_pagine=80) if sp == 200 else ""
+            dbu = data_iso(info["data"])
+            pezzi = dividi_raccolta(testo) if re.search(r"Bandi Comunali", ogg, re.I) else [(None, testo)]
+            for ente_c, t in pezzi:
+                risultati.append({"burpId": bid, "numero_bu": info["numero"], "data_bu": dbu, "ente": titolo,
+                                  "comune": ente_c.title() if ente_c else None, "da_raccolta_regionale": ente_c is not None,
+                                  "oggetto": ogg[:600], "pagina": url, "pdf": pdf_url,
+                                  "tipo_auto": C.estrai_tipo(ogg + "\n" + t), "posteggi_auto": C.estrai_numero(t[:6000] or ogg),
+                                  "scadenza_auto": C.estrai_scadenza(t[:15000]) or C.scadenza_da_relativa(t, dbu),
+                                  "scadenza_relativa_giorni": C.estrai_termine_relativo(t),
+                                  "testo": C.normalizza(t[:3000])})
         log.append({"burpId": bid, **info, "http": st, "atti": len(atti), "candidati": trovati})
         print(bid, info, st, len(atti), trovati, flush=True)
     with open(uscita, "w", encoding="utf-8") as f:

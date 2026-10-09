@@ -79,7 +79,9 @@ def lombardia(cartella):
         for r in testo.split("\n"):
             # righe con una data gg/mm/aaaa del 2026: una per manifestazione
             if re.search(r"\b\d{1,2}/\d{1,2}/2026\b", r):
-                out.append({"regione": "Lombardia", "riga": r.strip()[:200], "anno": 2026,
+                # niente recapiti (telefoni, email) degli organizzatori
+                r = re.sub(r"(?i)\b(?:tel|fax|cell)\.?\s*[\d /.+-]{6,}|\S+@\S+|-\s*$", " ", r)
+                out.append({"regione": "Lombardia", "riga": re.sub(r"\s+", " ", r).strip()[:200], "anno": 2026,
                             "categoria": "manifestazione fieristica (allegato " + x.upper() + ")", "fonte": url})
     return stati, out
 
@@ -96,6 +98,16 @@ def abruzzo(cartella):
     return st, out
 
 
+NOTE = [
+    "Piemonte ed Emilia-Romagna elencano fiere e sagre su area pubblica (con posteggi per ambulanti): pertinenti per BandiPosteggi.",
+    "Lombardia e Abruzzo elencano manifestazioni fieristiche in quartieri fieristici (fiere di settore): poco pertinenti per gli ambulanti;"
+    " per la Lombardia le righe sono testo grezzo dell'allegato, non ancora divise in campi.",
+    "Il PDF del calendario lombardo 2027 citato nello studio (Dec. 9712 del 17/07/2026, URL regione.lombardia.it/content/dam/rl/Dec.%209712...)"
+    " risponde 404 il 9/10/2026.",
+    "Gli eventi non sono avvisi di assegnazione: indicano dove e quando si terrà una fiera, non le scadenze delle domande.",
+]
+
+
 def main():
     cartella, uscita = sys.argv[1], sys.argv[2]
     os.makedirs(cartella, exist_ok=True)
@@ -110,7 +122,7 @@ def main():
     with open(uscita, "w", encoding="utf-8") as fo:
         json.dump({"descrizione": "Calendari regionali 2026 di fiere e sagre (eventi, non avvisi di assegnazione)",
                    "verificato_il": time.strftime("%Y-%m-%d"), "secondi": round(time.time() - t0),
-                   "fonti": fonti, "eventi": eventi}, fo, ensure_ascii=False, indent=1)
+                   "fonti": fonti, "note": NOTE, "eventi": eventi}, fo, ensure_ascii=False, indent=1)
 
 
 if __name__ == "__main__":

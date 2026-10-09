@@ -1,0 +1,439 @@
+{
+ "descrizione": "Ricerche per parola chiave nei BUR con motore di ricerca/API, anno 2026",
+ "verificato_il": "2026-10-09",
+ "secondi": 282,
+ "fonti": {
+  "Emilia-Romagna": [
+   {
+    "parola": "posteggi",
+    "modo": "titolo",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "posteggi",
+    "modo": "testo",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "posteggio",
+    "modo": "titolo",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "posteggio",
+    "modo": "testo",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "aree pubbliche",
+    "modo": "titolo",
+    "http": 200,
+    "risultati": 161,
+    "pertinenti": []
+   },
+   {
+    "parola": "aree pubbliche",
+    "modo": "testo",
+    "http": 200,
+    "risultati": 747,
+    "pertinenti": []
+   },
+   {
+    "parola": "ambulante",
+    "modo": "titolo",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "ambulante",
+    "modo": "testo",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "spunta",
+    "modo": "titolo",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "spunta",
+    "modo": "testo",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "chioschi",
+    "modo": "titolo",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "chioschi",
+    "modo": "testo",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "edicola",
+    "modo": "titolo",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "edicola",
+    "modo": "testo",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "fiera",
+    "modo": "titolo",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "fiera",
+    "modo": "testo",
+    "http": 200,
+    "risultati": 41,
+    "pertinenti": []
+   }
+  ],
+  "Lombardia": [
+   {
+    "parola": "posteggi",
+    "http": 200,
+    "risultati": 1,
+    "pertinenti": [
+     {
+      "data": "2026-04-01",
+      "numero": 14,
+      "serie": "Serie Avvisi e Concorsi",
+      "idBurl": 458090158,
+      "titolo": "Comune di Borgosatollo (BS) - Bando per l?assegnazione di n. 2 posteggi vacanti nel mercato settimanale di Borgosatollo ? Settore non alimentare"
+     }
+    ]
+   },
+   {
+    "parola": "posteggio",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "aree pubbliche",
+    "http": 200,
+    "risultati": 1,
+    "pertinenti": []
+   },
+   {
+    "parola": "ambulante",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "spunta",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "chioschi",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "edicola",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "fiera",
+    "http": 200,
+    "risultati": 1,
+    "pertinenti": []
+   },
+   {
+    "parola": "mercato",
+    "http": 200,
+    "risultati": 34,
+    "pertinenti": [
+     {
+      "data": "2026-04-01",
+      "numero": 14,
+      "serie": "Serie Avvisi e Concorsi",
+      "idBurl": 458090158,
+      "titolo": "Comune di Borgosatollo (BS) - Bando per l?assegnazione di n. 2 posteggi vacanti nel mercato settimanale di Borgosatollo ? Settore non alimentare"
+     }
+    ]
+   }
+  ],
+  "Veneto": [
+   {
+    "parola": "posteggi",
+    "http": 200,
+    "risultati": 1,
+    "pertinenti": [
+     "AVVISO / COMUNE DI NERVESA DELLA BATTAGLIA (BUR n. 51 del 24/04/2026) Avviso di avvio delle procedure di selezione per l'assegnazione delle concessioni pluriennali per l'esercizio del commercio su aree pubbliche relative ai posteggi liberi presso il mercato settimanale del venerdì pomeriggio di Bavaria centro (Nervesa della Battaglia) ai sensi della legge regionale n. 10 del 2001 e s.m.i."
+    ],
+    "nota": "la pagina dei risultati è paginata: si legge solo la prima pagina"
+   },
+   {
+    "parola": "posteggio",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": [],
+    "nota": "la pagina dei risultati è paginata: si legge solo la prima pagina"
+   },
+   {
+    "parola": "aree pubbliche",
+    "http": 200,
+    "risultati": 2,
+    "pertinenti": [
+     "AVVISO / COMUNE DI NERVESA DELLA BATTAGLIA (BUR n. 51 del 24/04/2026) Avviso di avvio delle procedure di selezione per l'assegnazione delle concessioni pluriennali per l'esercizio del commercio su aree pubbliche relative ai posteggi liberi presso il mercato settimanale del venerdì pomeriggio di Bavaria centro (Nervesa della Battaglia) ai sensi della legge regionale n. 10 del 2001 e s.m.i. Atti di Enti Vari"
+    ],
+    "nota": "la pagina dei risultati è paginata: si legge solo la prima pagina"
+   },
+   {
+    "parola": "ambulante",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": [],
+    "nota": "la pagina dei risultati è paginata: si legge solo la prima pagina"
+   },
+   {
+    "parola": "spunta",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": [],
+    "nota": "la pagina dei risultati è paginata: si legge solo la prima pagina"
+   },
+   {
+    "parola": "chioschi",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": [],
+    "nota": "la pagina dei risultati è paginata: si legge solo la prima pagina"
+   },
+   {
+    "parola": "edicola",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": [],
+    "nota": "la pagina dei risultati è paginata: si legge solo la prima pagina"
+   },
+   {
+    "parola": "fiera",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": [],
+    "nota": "la pagina dei risultati è paginata: si legge solo la prima pagina"
+   }
+  ],
+  "Sardegna": [
+   {
+    "parola": "posteggi",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "posteggio",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "aree pubbliche",
+    "http": 200,
+    "risultati": 1,
+    "pertinenti": []
+   },
+   {
+    "parola": "ambulante",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "spunta",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "chioschi",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "edicola",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "fiera",
+    "http": 200,
+    "risultati": 0,
+    "pertinenti": []
+   }
+  ],
+  "Abruzzo": [
+   {
+    "parola": "posteggi",
+    "http": 200,
+    "risultati": 5,
+    "risultati_anno": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "posteggio",
+    "http": 200,
+    "risultati": 0,
+    "risultati_anno": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "aree pubbliche",
+    "http": 200,
+    "risultati": 10,
+    "risultati_anno": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "ambulante",
+    "http": 200,
+    "risultati": 0,
+    "risultati_anno": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "spunta",
+    "http": 200,
+    "risultati": 0,
+    "risultati_anno": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "chioschi",
+    "http": 200,
+    "risultati": 0,
+    "risultati_anno": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "edicola",
+    "http": 200,
+    "risultati": 0,
+    "risultati_anno": 0,
+    "pertinenti": []
+   },
+   {
+    "parola": "fiera",
+    "http": 200,
+    "risultati": 1,
+    "risultati_anno": 0,
+    "pertinenti": []
+   }
+  ],
+  "Marche": {
+   "http_indice": 200,
+   "numeri_letti": [
+    {
+     "pdf": "https://bur.regione.marche.it/bur/PDF/2026/N92%20del%209%20ottobre%202026.pdf",
+     "http": 200,
+     "caratteri": 29926,
+     "occorrenze": []
+    },
+    {
+     "pdf": "https://bur.regione.marche.it/bur/PDF/2026/N91%20del%208%20ottobre%202026.pdf",
+     "http": 200,
+     "caratteri": 452044,
+     "occorrenze": []
+    },
+    {
+     "pdf": "https://bur.regione.marche.it/bur/PDF/2026/N90%20del%202%20ottobre%202026.pdf",
+     "http": 200,
+     "caratteri": 46710,
+     "occorrenze": []
+    },
+    {
+     "pdf": "https://bur.regione.marche.it/bur/PDF/2026/N89%20del%201%20ottobre%202026.pdf",
+     "http": 200,
+     "caratteri": 1399795,
+     "occorrenze": [
+      "2. Chiunque eserciti l'attività di commercio su aree pubbliche in area demaniale senza il",
+      "2. I posteggi riservati di cui al comma 1, qualora occasionalmente non occupati dagli",
+      "4. Il Comune può destinare posteggi riservati a merceologie mancanti o carenti nella fiera",
+      "del 5 per cento del totale dei posteggi.",
+      "dell’attività con titolo autorizzatorio sospeso o concessione di posteggio sospesa.",
+      "necessario titolo autorizzatorio o concessione di posteggio ovvero senza i requisiti di cui",
+      "percentuale del 3 per cento del totale dei posteggi;",
+      "posteggi;",
+      "posteggio riservato nello stesso mercato o fiera. Il posteggio riservato non è cedibile.",
+      "prevedere una riserva di posteggi nei mercati e nelle fiere da destinare:"
+     ]
+    },
+    {
+     "pdf": "https://bur.regione.marche.it/bur/PDF/2026/N88%20del%2028%20settembre%202026.pdf",
+     "http": 200,
+     "caratteri": 657551,
+     "occorrenze": []
+    },
+    {
+     "pdf": "https://bur.regione.marche.it/bur/PDF/2026/N87%20del%2025%20settembre%202026.pdf",
+     "http": 200,
+     "caratteri": 48427,
+     "occorrenze": []
+    },
+    {
+     "pdf": "https://bur.regione.marche.it/bur/PDF/2026/N86%20del%2024%20settembre%202026.pdf",
+     "http": 200,
+     "caratteri": 1170332,
+     "occorrenze": []
+    },
+    {
+     "pdf": "https://bur.regione.marche.it/bur/PDF/2026/N85%20del%2018%20settembre%202026.pdf",
+     "http": 200,
+     "caratteri": 68851,
+     "occorrenze": []
+    },
+    {
+     "pdf": "https://bur.regione.marche.it/bur/PDF/2026/N84%20del%2017%20settembre%202026.pdf",
+     "http": 200,
+     "caratteri": 623526,
+     "occorrenze": []
+    },
+    {
+     "pdf": "https://bur.regione.marche.it/bur/PDF/2026/N83%20del%2011%20settembre%202026.pdf",
+     "http": 200,
+     "caratteri": 78370,
+     "occorrenze": []
+    }
+   ]
+  }
+ }
+}

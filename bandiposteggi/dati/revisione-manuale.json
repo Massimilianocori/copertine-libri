@@ -1,0 +1,534 @@
+{
+ "descrizione": "Revisione manuale dei candidati automatici (9/10/2026). Le chiavi sono quelle prodotte da consolida.py.",
+ "escludi": {
+  "https://www.regione.piemonte.it/governo/bollettino/abbonati/2026/02/annunci/00000014.htm": "selezione del soggetto organizzatore di un mercatino, non assegnazione di posteggi agli operatori",
+  "https://www.regione.piemonte.it/governo/bollettino/abbonati/2026/13/annunci/00000031.htm": "falso positivo: ordinanza su derivazione di acqua pubblica",
+  "https://www.regione.piemonte.it/governo/bollettino/abbonati/2026/19/annunci/00000030.htm": "falso positivo: alienazione di un terreno",
+  "https://rivolta-d-adda-api.municipiumapp.it/s3/5786/allegati/bando-2026-per-pubblicazione.pdf": "pubblicato nel 2025 (domande entro il 10/12/2025) per la fiera di febbraio 2026",
+  "https://seregno-api.municipiumapp.it/s3/6802/allegati/avviso_2026.pdf": "pubblicato nel 2025 (bando prot. 87703 del 22/12/2025)",
+  "https://valbrembilla-api.municipiumapp.it/s3/20029/allegati/avviso-fiera-2026.pdf": "file rimosso dal server: Municipium risponde 307 verso /resize con 0 byte (verificato 9/10/2026)",
+  "https://gandino-api.municipiumapp.it/s3/3034/allegati/news/bando-concessione-posteggio-fiera-san-giuseppe-gandino-2026_2030.pdf": "pubblicato nel 2025 (bando datato 3/12/2025)",
+  "https://www.comune.melzo.mi.it/it/news/avviso-pubblico-per-la-domanda-di-miglioria-dei-posteggi-nel-mercato-settimanale-del-martedi-riservato-agli-operatori-gia-titolari-di-concessione": "pagina rimossa: HTTP 410",
+  "https://comune.magenta.mi.it/mercati-e-fiere/fiera-di-san-biagio-2024-2/": "pubblicato nel 2025 (albo pretorio 05/11/2025)",
+  "https://cloud.municipiumapp.it/s3/5285/allegati/commercio/d-d-n-2652-del-24_12_2025.pdf": "doppione dell'avviso pubblicato sul BURT Parte III n. 1/2026 (determina del 24/12/2025)",
+  "https://www.comune.venezia.it/it/content/avviso-pubblico-l-assegnazione-delle-concessioni-posteggi-liberi-mercato-giornaliero-0": "HTTP 403 allo script: contenuto non verificabile",
+  "https://www.comune.genova.it/novita/avvisi/avviso-pubblico-manifestazione-di-interesse-alla-riassegnazione-di-n-18-concessioni": "pubblicato nel 2025 (17/12/2025)",
+  "https://www.comune.roma.it/web/it/bando-concorso.page?contentId=BEC1496430": "pubblicato nel 2025 (4/12/2025) per la spunta 2026",
+  "https://www.comune.napoli.it/novita/avviso-110-posteggi-mercato-via-califano/": "pagina rimossa: HTTP 404 (l'avviso è riportato nella pagina 'Avvisi del Servizio Mercati')",
+  "https://www.comune.taranto.it/it/news/avviso-pubblico-per-lassegnazione-dei-posteggi-nei-mercati-di-orsini-e-lama": "doppione dell'avviso pubblicato nella raccolta BURP n. 41/2026",
+  "https://www.comune.ostuni.br.it/novita/avviso-pubblico-per-lassegnazione-ed-il-rilascio-di-concessioni-di-posteggi-nellambito-della-fiera-di-santoronzo-2026/": "pagina dell'avviso non più disponibile: l'URL rimanda alla home del Comune",
+  "https://www.comune.palermo.it/wp-content/uploads/2026/07/084458d4-c335-4717-957a-b59d92c4b6ea.pdf": "seconda copia dello stesso PDF (stesso avviso, URL diverso)",
+  "https://caltanissetta-api.municipiumapp.it/s3/1099/allegati/avviso-pubblico-mercatini-di-natale-2026.pdf": "selezione del soggetto organizzatore dei mercatini, non assegnazione di posteggi agli operatori",
+  "https://www.comune.perugia.it/novita/avviso-pubblico-per-lassegnazione-temporanea-dei-posteggi-liberi-in-occasione-della-fiera-dei-morti-del-1-5-novembre-2026/": "HTTP 503 (prima esecuzione) e HTTP 403 (seconda esecuzione) allo script: contenuto non verificabile",
+  "https://www.comune.torino.it/novita/avvisi/assegnazione-diritto-superficie-chioschi-esistenti-sul-territorio-comunale": "HTTP 403 allo script: contenuto non verificabile",
+  "https://montichiari-api.municipiumapp.it/s3/4447/allegati/bando_assegnazioni_posteggi.pdf": "pubblicato nel 2025 (bando datato 9/10/2025)",
+  "https://www.comune.pontida.bg.it/novita/avvisi/avviso-pubblico-di-assegnazione-posteggi-fiera-madonna-di-ca-de-rizzi-0": "pubblicato nel 2025 (pagina comunale: pubblicazione 24/11/2025, domande dal 24/11/2025 al 23/01/2026); scoperto durante il controllo a campione e sostituito con un'estrazione supplementare"
+ },
+ "correggi": {
+  "https://www.regione.lazio.it/urp/sintesi-concorsi-bur/sintesi-del-bollettino-ufficiale-n8-del-27012026#0": {
+   "comune": "Roma",
+   "provincia": "RM",
+   "tipo_rivisto": "mercato",
+   "nota": "Municipio XII, mercato Nuovo Bravetta"
+  },
+  "https://www.regione.lazio.it/urp/sintesi-concorsi-bur/sintesi-del-bollettino-ufficiale-n-12-del-10022026#1": {
+   "provincia": "RM",
+   "tipo_rivisto": "chiosco"
+  },
+  "https://www.regione.lazio.it/urp/sintesi-concorsi-bur/sintesi-del-bollettino-ufficiale-n-20-del-10032026#2": {
+   "provincia": "LT",
+   "tipo_rivisto": "mercato"
+  },
+  "https://www.regione.lazio.it/urp/sintesi-concorsi-bur/sintesi-del-bollettino-ufficiale-n-26-del-31032026#3": {
+   "provincia": "LT",
+   "tipo_rivisto": "isolato"
+  },
+  "https://www.regione.lazio.it/urp/sintesi-concorsi-bur/sintesi-del-bollettino-ufficiale-n36-del-05052026#4": {
+   "comune": "Roma",
+   "provincia": "RM",
+   "tipo_rivisto": "mercato",
+   "nota": "Municipio V, posteggi per produttori agricoli"
+  },
+  "https://www.regione.lazio.it/urp/sintesi-concorsi-bur/sintesi-del-bollettino-ufficiale-n-39-del-14052026#5": {
+   "provincia": "RM",
+   "tipo_rivisto": "mercato"
+  },
+  "https://www.regione.lazio.it/urp/sintesi-concorsi-bur/sintesi-del-bollettino-ufficiale-n-40-del-19052026#6": {
+   "provincia": "RM",
+   "tipo_rivisto": "mercato"
+  },
+  "https://burp.regione.puglia.it/documents/20135/2792459/ATTI_REGIONE.pdf/e3b0959d-2689-44de-6f90-e68b4a77b402?version=1.0&t=1779709206975#Bisceglie": {
+   "provincia": "BT",
+   "tipo_rivisto": "chiosco"
+  },
+  "https://burp.regione.puglia.it/documents/20135/2792459/ATTI_REGIONE.pdf/e3b0959d-2689-44de-6f90-e68b4a77b402?version=1.0&t=1779709206975#Taranto": {
+   "provincia": "TA",
+   "tipo_rivisto": "mercato"
+  },
+  "https://burp.regione.puglia.it/documents/20135/2792459/ATTI_REGIONE.pdf/e3b0959d-2689-44de-6f90-e68b4a77b402?version=1.0&t=1779709206975#Vieste": {
+   "provincia": "FG",
+   "tipo_rivisto": "mercato",
+   "nota": "2 box nel mercato giornaliero di Piazzale Jenner"
+  },
+  "https://burp.regione.puglia.it/documents/20135/2814426/ATTI_MASSAFRA.pdf/16152f39-12b5-ca60-636a-ce46f84bfbda?version=1.0&t=1784567126396#Massafra": {
+   "provincia": "TA",
+   "tipo_rivisto": "chiosco"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-1-del-08-01-2026_compressed#p20": {
+   "tipo_rivisto": "mercato"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-1-del-08-01-2026_compressed#p26": {
+   "provincia": "PT",
+   "tipo_rivisto": "mercato"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-15-del-15-04-2026#p8": {
+   "tipo_rivisto": "isolato"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-15-del-15-04-2026#p20": {
+   "tipo_rivisto": "isolato"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-16-del-22-04-2026#p7": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-18-del-06-05-2026#p8": {
+   "tipo_rivisto": "isolato"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-19-del-13-05-2026#p9": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-21-del-27-05-2026#p26": {
+   "tipo_rivisto": "mercato"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-24-del-17-06-2026#p6": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-27-del-08-07-2026#p11": {
+   "tipo_rivisto": "mercato"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-33-del-19-08-2026#p7": {
+   "provincia": "SI",
+   "tipo_rivisto": "isolato"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-37-del-16-09-2026#p8": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-39-del-30-09-2026#p10": {
+   "tipo_rivisto": "isolato"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-40-del-07-10-2026_compressed#p10": {
+   "provincia": "SI",
+   "tipo_rivisto": "isolato"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-7-del-18-02-2026#p7": {
+   "tipo_rivisto": "mercato"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-8-del-25-02-2026#p22": {
+   "tipo_rivisto": "mercato"
+  },
+  "burl-458090158": {
+   "tipo_rivisto": "mercato"
+  },
+  "burv-580357": {
+   "tipo_rivisto": "mercato"
+  },
+  "https://rivolta-d-adda-api.municipiumapp.it/s3/5786/allegati/bando-sant-alberto-2026.pdf": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://ossona-api.municipiumapp.it/s3/4850/allegati/avvisoall1.pdf": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://monticello-brianza-api.municipiumapp.it/s3/4444/allegati/ut/prot_n_0002243_2026_stampa-copia.pdf": {
+   "tipo_rivisto": "mercato"
+  },
+  "https://curtatone-api.municipiumapp.it/s3/2504/allegati/bando_fiera_2026_completo.pdf": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://brugherio-api.municipiumapp.it/s3/947/allegati/avvisi-suap/bando-mercato-agricolo-piazza-roma-25022026.pdf": {
+   "tipo_rivisto": "mercato"
+  },
+  "https://comune.gorgonzola.mi.it/novita/notizia/domanda-partecipazione-fiera-2026/": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://www.comune.pontida.bg.it/novita/avvisi/avviso-pubblico-di-assegnazione-posteggi-fiera-madonna-di-ca-de-rizzi-0": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://comune.sedriano.mi.it/novita/notizia/avviso-pubblico-per-la-formazione-di-una-graduatoria-per-lassegnazione-temporanea-dei-posteggi-occasionalmente-liberi-nel-mercato-settimanale-primo-semetre-2026/": {
+   "tipo_rivisto": "spunta"
+  },
+  "https://turate-api.municipiumapp.it/s3/7500/allegati/ff-2026/informativa-presentazione-domanda-commercio-ambulanti.pdf": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://www.comune.almenno-san-salvatore.bg.it/novita/avvisi/avviso-della-modalita-di-partecipazione-alla-formazione-della-graduatoria-di-spunta-occasione-della-fiera-degli-uccelli-2026": {
+   "tipo_rivisto": "spunta"
+  },
+  "https://firenzuola-api.municipiumapp.it/s3/2797/allegati/1-bando-avviso-fiera-di-san-bartolomeo.pdf": {
+   "tipo_rivisto": "spunta"
+  },
+  "https://firenzuola-api.municipiumapp.it/s3/2797/allegati/1-bando-avviso-fiera-di-pasquetta_signed.pdf": {
+   "tipo_rivisto": "spunta"
+  },
+  "https://carrara-api.municipiumapp.it/s3/1421/allegati/all-a-bando-notte-blu-2026.pdf": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://www2.comune.prato.it/avvisi/2026/archivio17_21_893.html": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://www.comune.firenze.it/riscossioneonline/system/files/attachments/avviso-pubblico-fiera-di-primavera-2026.pdf": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://cloud.municipiumapp.it/s3/6467/allegati/modalita-assegnazione-whatsapp.pdf": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://www.comune.castelfrancoveneto.tv.it/novita/assegnazione-dei-posteggi-liberi-nei-mercati-settimanali-del-martedi-e-del-venerdi-pubblicato-il-bando/": {
+   "tipo_rivisto": "mercato"
+  },
+  "https://orgiano-api.municipiumapp.it/s3/4779/allegati/bando-di-gara-26_signed.pdf": {
+   "tipo_rivisto": "chiosco"
+  },
+  "https://acquapendente-api.municipiumapp.it/s3/31/allegati/bando-assegnazioni-posteggi-mercato-aprile2026.pdf": {
+   "tipo_rivisto": "mercato"
+  },
+  "https://www.comune.roma.it/web/it/bando-concorso.page?contentId=BEC1557456": {
+   "tipo_rivisto": "spunta",
+   "nota": "graduatoria definitiva spuntisti Municipio X: solo link (dati personali)"
+  },
+  "https://www.comune.napoli.it/articolo_tematico/commercio-e-artigianato/servizio-mercati/avvisi/": {
+   "tipo_rivisto": "mercato",
+   "nota": "pagina con 2 bandi (Via Califano A e B, 110 posteggi ciascuno), contati come 1 avviso"
+  },
+  "https://trani-api.municipiumapp.it/s3/7382/allegati/avviso-pubblico-posteggi-feste-2026.pdf": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://www.comune.taranto.it/it/news/avviso-pubblico-per-il-commercio-su-aree-pubbliche-stagione-estiva-2026": {
+   "tipo_rivisto": "isolato",
+   "nota": "postazioni food truck stagione estiva"
+  },
+  "https://www.comune.modugno.ba.it/notizia/fiera-del-crocifisso-2026-pubblicato-il-bando-per-lassegnazione-dei-posteggi/": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://castellana-grotte-api.municipiumapp.it/s3/1666/allegati/modulistica/ufficio-suap/caroseno-26/bando-feste-2026.pdf": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://www.comune.catanzaro.it/files/Bandi/Avvisi%20vari/2026/Festa%20San%20Vitaliano/AVVISO%20PUBBLICO%20fiera%20SAN%20VITALIANO.pdf": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://www.comune.catanzaro.it/files/Bandi/Avvisi%20vari/2026/Fiera%20Madonna%20di%20Porto%20Salvo/AVVISO%20PUBBLICO%20FIERA%20MADONNA%20DI%20PORTO%20SALVO.pdf": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://paola-api.municipiumapp.it/s3/4969/allegati/avviso-fiera-maggio_2026_signed.pdf": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://comune.castrovillari.cs.it/notizie/3545924/bando-assegnazione-posteggi-fiera-san-giovanni": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://www.comune.palermo.it/wp-content/uploads/2026/07/95f973c0-7bd5-4f1d-bfc6-2b2d5c0d35cb.pdf": {
+   "tipo_rivisto": "mercato"
+  },
+  "https://www.comune.palermo.it/novita/avviso-pubblico-per-la-concessione-temporanea-di-occupazione-di-suolo-pubblico-per-lo-svolgimento-della-fiera-mercato-dei-ss-cosma-e-damiano-24-28-settembre-2026/": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://www.comune.ragusa.it/en/news/132542/bando-posteggi-piazza-cappuccini": {
+   "tipo_rivisto": "isolato"
+  },
+  "https://www.comune.caltanissetta.it/it/news/settimana-santa-2026-al-via-le-domande-per-lassegnazione-delle-postazioni-commerciali": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://custonaci-api.municipiumapp.it/s3/2511/allegati/bando-pubblico-per-chioschi.pdf": {
+   "tipo_rivisto": "chiosco"
+  },
+  "https://comune.sestu.ca.it/wp-content/uploads/2026/01/Avviso-pubblico-spuntisti-2026.pdf": {
+   "tipo_rivisto": "spunta"
+  },
+  "https://comune.sestu.ca.it/wp-content/uploads/2026/08/Bando-pubblico-posteggi-San-Gemiliano.pdf": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://comune.sestu.ca.it/wp-content/uploads/2026/02/Det.162_16.02.2026_graduatoria-spuntisti.pdf": {
+   "tipo_rivisto": "spunta",
+   "nota": "graduatoria con nomi: solo link"
+  },
+  "https://www.comune.jesi.an.it/w/avviso-pubblico-per-le-assegnazioni-di-posteggi-liberi-alla-fiera-di-san-settimio-per-l-anno-2026": {
+   "tipo_rivisto": "fiera"
+  },
+  "https://casalbordino-api.municipiumapp.it/s3/1449/allegati/avvisi/streetfood2026/avviso_signed.pdf": {
+   "tipo_rivisto": "isolato",
+   "nota": "5 postazioni street food"
+  },
+  "https://aosta-api.municipiumapp.it/s3/266/allegati/sport/avviso-edizione-2026_con-data_signed.pdf": {
+   "tipo_rivisto": "fiera",
+   "nota": "mercatini di Natale"
+  },
+  "https://www.comune.modena.it/novita/notizie/2026/mercato-del-lunedi-pubblicata-la-graduatoria-di-spunta-per-lassegnazione-temporanea-dei-posteggi-lasciati-liberi-dai-titolari/su_det_dete_195_2026.pdf/@@download/file": {
+   "tipo_rivisto": "spunta",
+   "nota": "graduatoria con nomi: solo link"
+  },
+  "https://www.comune.modena.it/servizi/imprese-e-commercio/commercio-su-area-pubblica-fiera-di-santantonio-e-san-geminiano/allegati/su_det_dete_1811_2026-graduatoria.pdf/@@download/file": {
+   "tipo_rivisto": "spunta",
+   "nota": "graduatoria con nomi: solo link"
+  },
+  "https://www.comune.torino.it/novita/notizie/bando-per-concessione-n-19-posteggi-isolati-destinati-allesercizio-dellattivita": {
+   "tipo_rivisto": "isolato"
+  },
+  "https://www.comune.genova.it/novita/avvisi/fiera-di-ss-cosma-e-damiano-2026-avviso-agli-operatori-commerciali-e-graduatoria": {
+   "tipo_rivisto": "spunta",
+   "nota": "avviso e graduatoria spuntisti di una fiera: solo link (dati personali)"
+  },
+  "https://www.comune.genova.it/novita/avvisi/fiera-di-s-antonio-2026-avviso-agli-operatori-commerciali-e-graduatoria-spuntisti": {
+   "tipo_rivisto": "spunta",
+   "nota": "avviso e graduatoria spuntisti di una fiera: solo link (dati personali)"
+  },
+  "https://www.comune.genova.it/novita/avvisi/fiera-di-maggio-2026-avviso-agli-operatori-commerciali-e-graduatoria-spuntisti": {
+   "tipo_rivisto": "spunta",
+   "nota": "avviso e graduatoria spuntisti di una fiera: solo link (dati personali)"
+  },
+  "https://www.comune.genova.it/novita/avvisi/fiera-di-pontedecimo-2026-avviso-agli-operatori-commerciali-e-graduatoria-spuntisti": {
+   "tipo_rivisto": "spunta",
+   "nota": "avviso e graduatoria spuntisti di una fiera: solo link (dati personali)"
+  },
+  "https://www.comune.genova.it/novita/avvisi/fiera-di-cornigliano-2026-avviso-agli-operatori-commerciali-e-graduatoria-spuntisti": {
+   "tipo_rivisto": "spunta",
+   "nota": "avviso e graduatoria spuntisti di una fiera: solo link (dati personali)"
+  },
+  "https://www.comune.genova.it/novita/avvisi/fiera-di-struppa-2026-avviso-agli-operatori-commerciali-e-graduatoria-spuntisti": {
+   "tipo_rivisto": "spunta",
+   "nota": "avviso e graduatoria spuntisti di una fiera: solo link (dati personali)"
+  },
+  "https://www.comune.genova.it/novita/avvisi/fiera-del-mare-2026-avviso-agli-operatori-commerciali-e-graduatoria-spuntisti": {
+   "tipo_rivisto": "spunta",
+   "nota": "avviso e graduatoria spuntisti di una fiera: solo link (dati personali)"
+  },
+  "https://www.comune.genova.it/novita/avvisi/fiera-di-s-pietro-foce-2026-avviso-agli-operatori-commerciali-e-graduatoria-spuntisti": {
+   "tipo_rivisto": "spunta",
+   "nota": "avviso e graduatoria spuntisti di una fiera: solo link (dati personali)"
+  },
+  "https://www.comune.genova.it/novita/avvisi/fiera-di-s-pietro-pra-2026-avviso-agli-operatori-commerciali-e-graduatoria-spuntisti": {
+   "tipo_rivisto": "spunta",
+   "nota": "avviso e graduatoria spuntisti di una fiera: solo link (dati personali)"
+  },
+  "https://www.comune.genova.it/novita/avvisi/fiera-di-s-salvatore-2026-avviso-agli-operatori-commerciali-e-graduatoria-spuntisti": {
+   "tipo_rivisto": "spunta",
+   "nota": "avviso e graduatoria spuntisti di una fiera: solo link (dati personali)"
+  }
+ },
+ "verifica": {
+  "https://www.regione.lazio.it/urp/sintesi-concorsi-bur/sintesi-del-bollettino-ufficiale-n-12-del-10022026#1": {
+   "posteggi_auto": null,
+   "posteggi_letto": "16 aree per chioschi ('n. 16 Aree da destinare a Punti Ristoro')",
+   "posteggi_ok": false,
+   "scadenza_auto": null,
+   "scadenza_letta": "non presente nella sintesi HTML del BUR: il bando completo è solo in un archivio .rar allegato",
+   "scadenza_ok": false,
+   "nota": "il numero è scritto come 'Aree', non 'posteggi'",
+   "riletto_il": "2026-10-09",
+   "documento": "https://www.regione.lazio.it/urp/sintesi-concorsi-bur/sintesi-del-bollettino-ufficiale-n-12-del-10022026"
+  },
+  "https://burp.regione.puglia.it/documents/20135/2792459/ATTI_REGIONE.pdf/e3b0959d-2689-44de-6f90-e68b4a77b402?version=1.0&t=1779709206975#Bisceglie": {
+   "posteggi_auto": 2,
+   "posteggi_letto": "2 posteggi per chioschi",
+   "posteggi_ok": true,
+   "scadenza_auto": "2026-07-24",
+   "scadenza_letta": "24/07/2026 (60 giorni dalla pubblicazione nel BURP del 25/05/2026)",
+   "scadenza_ok": true,
+   "nota": "scadenza calcolata dalla regola dei termini relativi",
+   "riletto_il": "2026-10-09",
+   "documento": "https://burp.regione.puglia.it/documents/20135/2792459/ATTI_REGIONE.pdf/e3b0959d-2689-44de-6f90-e68b4a77b402?version=1.0&t=1779709206975"
+  },
+  "https://burp.regione.puglia.it/documents/20135/2792459/ATTI_REGIONE.pdf/e3b0959d-2689-44de-6f90-e68b4a77b402?version=1.0&t=1779709206975#Vieste": {
+   "posteggi_auto": null,
+   "posteggi_letto": "2 box nel mercato giornaliero di Piazzale Jenner",
+   "posteggi_ok": false,
+   "scadenza_auto": null,
+   "scadenza_letta": "24/07/2026 (60 giorni dalla pubblicazione nel BURP del 25/05/2026)",
+   "scadenza_ok": false,
+   "nota": "la divisione della raccolta regionale ha attribuito il testo del bando di Vieste al pezzo di Taranto",
+   "riletto_il": "2026-10-09",
+   "documento": "https://burp.regione.puglia.it/documents/20135/2792459/ATTI_REGIONE.pdf/e3b0959d-2689-44de-6f90-e68b4a77b402?version=1.0&t=1779709206975"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-15-del-15-04-2026#p20": {
+   "posteggi_auto": 1,
+   "posteggi_letto": "1 posteggio fuori mercato",
+   "posteggi_ok": true,
+   "scadenza_auto": null,
+   "scadenza_letta": "15/05/2026 (30 giorni dalla pubblicazione nel BURT del 15/04/2026)",
+   "scadenza_ok": false,
+   "nota": "termine relativo; la regola dei termini relativi non è applicata dallo script del BURT",
+   "riletto_il": "2026-10-09",
+   "documento": "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-15-del-15-04-2026"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-33-del-19-08-2026#p7": {
+   "posteggi_auto": 2,
+   "posteggi_letto": "2 posteggi fuori mercato",
+   "posteggi_ok": true,
+   "scadenza_auto": "2026-09-21",
+   "scadenza_letta": "21/09/2026",
+   "scadenza_ok": true,
+   "nota": "",
+   "riletto_il": "2026-10-09",
+   "documento": "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-33-del-19-08-2026"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-37-del-16-09-2026#p8": {
+   "posteggi_auto": 22,
+   "posteggi_letto": "13 posteggi assegnabili (22 previsti dal regolamento)",
+   "posteggi_ok": false,
+   "scadenza_auto": null,
+   "scadenza_letta": "31/10/2026 (dal 20° al 45° giorno dalla pubblicazione nel BURT del 16/09/2026)",
+   "scadenza_ok": false,
+   "nota": "l'estrazione ha preso il totale del regolamento invece dei posteggi messi a bando",
+   "riletto_il": "2026-10-09",
+   "documento": "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-37-del-16-09-2026"
+  },
+  "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-8-del-25-02-2026#p22": {
+   "posteggi_auto": 1,
+   "posteggi_letto": "1 posteggio alimentare",
+   "posteggi_ok": true,
+   "scadenza_auto": null,
+   "scadenza_letta": "06/04/2026 (dal 20° al 40° giorno dalla pubblicazione nel BURT del 25/02/2026)",
+   "scadenza_ok": false,
+   "nota": "termine relativo scritto come '40° (quarantesimo) giorno'",
+   "riletto_il": "2026-10-09",
+   "documento": "https://www.regione.toscana.it/documents/d/guest/parte-iii-n-8-del-25-02-2026"
+  },
+  "https://ossona-api.municipiumapp.it/s3/4850/allegati/avvisoall1.pdf": {
+   "posteggi_auto": 2,
+   "posteggi_letto": "non indicato nel testo (posteggi nell'Allegato A, planimetria)",
+   "posteggi_ok": false,
+   "scadenza_auto": "2026-07-10",
+   "scadenza_letta": "10/07/2026",
+   "scadenza_ok": true,
+   "nota": "l'estrazione ha letto '2' da 'più di 2 concessioni'",
+   "riletto_il": "2026-10-09",
+   "documento": "https://ossona-api.municipiumapp.it/s3/4850/allegati/avvisoall1.pdf"
+  },
+  "https://firenzuola-api.municipiumapp.it/s3/2797/allegati/1-bando-avviso-fiera-di-san-bartolomeo.pdf": {
+   "posteggi_auto": 39,
+   "posteggi_letto": "16 posteggi liberi (39 in totale)",
+   "posteggi_ok": false,
+   "scadenza_auto": "2026-08-08",
+   "scadenza_letta": "08/08/2026",
+   "scadenza_ok": true,
+   "nota": "l'estrazione ha preso il totale della fiera invece dei posteggi liberi",
+   "riletto_il": "2026-10-09",
+   "documento": "https://firenzuola-api.municipiumapp.it/s3/2797/allegati/1-bando-avviso-fiera-di-san-bartolomeo.pdf"
+  },
+  "https://firenzuola-api.municipiumapp.it/s3/2797/allegati/1-bando-avviso-fiera-di-pasquetta_signed.pdf": {
+   "posteggi_auto": 39,
+   "posteggi_letto": "14 posteggi liberi (39 in totale)",
+   "posteggi_ok": false,
+   "scadenza_auto": "2026-03-12",
+   "scadenza_letta": "12/03/2026",
+   "scadenza_ok": true,
+   "nota": "come sopra",
+   "riletto_il": "2026-10-09",
+   "documento": "https://firenzuola-api.municipiumapp.it/s3/2797/allegati/1-bando-avviso-fiera-di-pasquetta_signed.pdf"
+  },
+  "https://orgiano-api.municipiumapp.it/s3/4779/allegati/bando-di-gara-26_signed.pdf": {
+   "posteggi_auto": null,
+   "posteggi_letto": "1 area per un chiosco bar",
+   "posteggi_ok": false,
+   "scadenza_auto": "2026-03-09",
+   "scadenza_letta": "09/03/2026 ore 12:00",
+   "scadenza_ok": true,
+   "nota": "numero scritto come 'un'area ... un chiosco'",
+   "riletto_il": "2026-10-09",
+   "documento": "https://orgiano-api.municipiumapp.it/s3/4779/allegati/bando-di-gara-26_signed.pdf"
+  },
+  "https://www.comune.genova.it/novita/avvisi/fiera-del-mare-2026-avviso-agli-operatori-commerciali-e-graduatoria-spuntisti": {
+   "posteggi_auto": null,
+   "posteggi_letto": "non applicabile: avviso di spunta con graduatoria (nessuna domanda da presentare)",
+   "posteggi_ok": true,
+   "scadenza_auto": null,
+   "scadenza_letta": "non applicabile (spunta il 23/07/2026)",
+   "scadenza_ok": true,
+   "nota": "estrazione supplementare al posto di Pontida; 'corretto' = nessun valore inventato",
+   "riletto_il": "2026-10-09",
+   "documento": "https://www.comune.genova.it/novita/avvisi/fiera-del-mare-2026-avviso-agli-operatori-commerciali-e-graduatoria-spuntisti"
+  },
+  "https://www.comune.genova.it/novita/avvisi/fiera-di-s-salvatore-2026-avviso-agli-operatori-commerciali-e-graduatoria-spuntisti": {
+   "posteggi_auto": null,
+   "posteggi_letto": "non applicabile: avviso di spunta con graduatoria",
+   "posteggi_ok": true,
+   "scadenza_auto": null,
+   "scadenza_letta": "non applicabile (spunta il 30/04/2026)",
+   "scadenza_ok": true,
+   "nota": "'corretto' = nessun valore inventato",
+   "riletto_il": "2026-10-09",
+   "documento": "https://www.comune.genova.it/novita/avvisi/fiera-di-s-salvatore-2026-avviso-agli-operatori-commerciali-e-graduatoria-spuntisti"
+  },
+  "https://acquapendente-api.municipiumapp.it/s3/31/allegati/bando-assegnazioni-posteggi-mercato-aprile2026.pdf": {
+   "posteggi_auto": 9,
+   "posteggi_letto": "9 posteggi",
+   "posteggi_ok": true,
+   "scadenza_auto": null,
+   "scadenza_letta": "21/05/2026 ore 12:00",
+   "scadenza_ok": false,
+   "nota": "la data è spezzata da un'intestazione di pagina del PDF",
+   "riletto_il": "2026-10-09",
+   "documento": "https://acquapendente-api.municipiumapp.it/s3/31/allegati/bando-assegnazioni-posteggi-mercato-aprile2026.pdf"
+  },
+  "https://www.comune.catanzaro.it/files/Bandi/Avvisi%20vari/2026/Fiera%20Madonna%20di%20Porto%20Salvo/AVVISO%20PUBBLICO%20FIERA%20MADONNA%20DI%20PORTO%20SALVO.pdf": {
+   "posteggi_auto": 70,
+   "posteggi_letto": "70 posteggi (45 non alimentari, 15 alimentari, 10 hobbisti)",
+   "posteggi_ok": true,
+   "scadenza_auto": "2026-07-12",
+   "scadenza_letta": "12/07/2026 ore 23:59",
+   "scadenza_ok": true,
+   "nota": "",
+   "riletto_il": "2026-10-09",
+   "documento": "https://www.comune.catanzaro.it/files/Bandi/Avvisi%20vari/2026/Fiera%20Madonna%20di%20Porto%20Salvo/AVVISO%20PUBBLICO%20FIERA%20MADONNA%20DI%20PORTO%20SALVO.pdf"
+  },
+  "https://paola-api.municipiumapp.it/s3/4969/allegati/avviso-fiera-maggio_2026_signed.pdf": {
+   "posteggi_auto": 1,
+   "posteggi_letto": "non indicato nel testo (posteggi nelle planimetrie)",
+   "posteggi_ok": false,
+   "scadenza_auto": "2026-03-16",
+   "scadenza_letta": "16/03/2026 ore 12:00",
+   "scadenza_ok": true,
+   "nota": "l'estrazione ha letto '1' da un'altra frase",
+   "riletto_il": "2026-10-09",
+   "documento": "https://paola-api.municipiumapp.it/s3/4969/allegati/avviso-fiera-maggio_2026_signed.pdf"
+  },
+  "https://www.comune.ragusa.it/en/news/132542/bando-posteggi-piazza-cappuccini": {
+   "posteggi_auto": 5,
+   "posteggi_letto": "5 posteggi (dal bando allegato)",
+   "posteggi_ok": true,
+   "scadenza_auto": "2026-05-12",
+   "scadenza_letta": "12/05/2026",
+   "scadenza_ok": true,
+   "nota": "valori presi dal PDF allegato alla pagina",
+   "riletto_il": "2026-10-09",
+   "documento": "https://www.comune.ragusa.it/en/news/132542/bando-posteggi-piazza-cappuccini"
+  },
+  "https://comune.sestu.ca.it/wp-content/uploads/2026/08/Bando-pubblico-posteggi-San-Gemiliano.pdf": {
+   "posteggi_auto": null,
+   "posteggi_letto": "non indicato nel testo (planimetria allegata)",
+   "posteggi_ok": true,
+   "scadenza_auto": "2026-08-24",
+   "scadenza_letta": "24/08/2026",
+   "scadenza_ok": true,
+   "nota": "",
+   "riletto_il": "2026-10-09",
+   "documento": "https://comune.sestu.ca.it/wp-content/uploads/2026/08/Bando-pubblico-posteggi-San-Gemiliano.pdf"
+  },
+  "https://comune.sestu.ca.it/wp-content/uploads/2026/02/Det.162_16.02.2026_graduatoria-spuntisti.pdf": {
+   "posteggi_auto": 17,
+   "posteggi_letto": "non applicabile: determina di approvazione della graduatoria spuntisti",
+   "posteggi_ok": false,
+   "scadenza_auto": "2026-02-11",
+   "scadenza_letta": "non applicabile: le domande erano dal 21/01 al 05/02/2026",
+   "scadenza_ok": false,
+   "nota": "l'estrazione ha letto 17 posteggi alimentari del mercato e la data di un'istanza tardiva (11/02/2026)",
+   "riletto_il": "2026-10-09",
+   "documento": "https://comune.sestu.ca.it/wp-content/uploads/2026/02/Det.162_16.02.2026_graduatoria-spuntisti.pdf"
+  },
+  "https://www.comune.modena.it/servizi/imprese-e-commercio/commercio-su-area-pubblica-fiera-di-santantonio-e-san-geminiano/allegati/su_det_dete_1811_2026-graduatoria.pdf/@@download/file": {
+   "posteggi_auto": null,
+   "posteggi_letto": "non applicabile: graduatoria provvisoria di spunta",
+   "posteggi_ok": true,
+   "scadenza_auto": "2026-12-18",
+   "scadenza_letta": "18/12/2026 (domande di spunta accodate fino a questa data)",
+   "scadenza_ok": true,
+   "nota": "",
+   "riletto_il": "2026-10-09",
+   "documento": "https://www.comune.modena.it/servizi/imprese-e-commercio/commercio-su-area-pubblica-fiera-di-santantonio-e-san-geminiano/allegati/su_det_dete_1811_2026-graduatoria.pdf/@@download/file"
+  }
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "fonte": "Elenco 'Avvisi' dei siti Municipium",
+ "verificato_il": "2026-10-09",
+ "secondi": 73,
+ "domini": [
+  {
+   "dominio": "www.comune.ragusa.it",
+   "http": 200,
+   "pagine_lette": 7,
+   "avvisi_2026": 102,
+   "avvisi_posteggi_2026": 3,
+   "pertinenti": [
+    {
+     "data": "2026-05-07",
+     "url": "https://www.comune.ragusa.it/it/news/manifestazione-di-interesse-sagra-della-scaccia",
+     "titolo": "Manifestazione di interesse Sagra della Scaccia"
+    },
+    {
+     "data": "2026-04-28",
+     "url": "https://www.comune.ragusa.it/it/news/bando-posteggi-piazza-cappuccini",
+     "titolo": "Bando posteggi Piazza Cappuccini"
+    },
+    {
+     "data": "2026-03-02",
+     "url": "https://www.comune.ragusa.it/it/news/avviso-concessione-chiosco-piazza-matteotti",
+     "titolo": "Avviso concessione chiosco Piazza Matteotti"
+    }
+   ]
+  },
+  {
+   "dominio": "www.comune.taranto.it",
+   "http": 200,
+   "pagine_lette": 11,
+   "avvisi_2026": 157,
+   "avvisi_posteggi_2026": 9,
+   "pertinenti": [
+    {
+     "data": "2026-09-28",
+     "url": "https://www.comune.taranto.it/it/news/avviso-n-6-del-28-09-2026-proroga-termine-manifestazione-di-interesse-per-aree-pubbliche-comunali-destinate-a-parcheggi-temporanei",
+     "titolo": "Avviso n. 6 del 28/09/2026 – Proroga termine manifestazione di interesse per aree pubbliche comunali destinate a parcheggi temporanei."
+    },
+    {
+     "data": "2026-09-22",
+     "url": "https://www.comune.taranto.it/it/news/avviso-di-manifestazione-di-interesse-e-ricognizione-dei-posteggi-mercato-settimanale-archimede",
+     "titolo": "Avviso di manifestazione di interesse e ricognizione dei posteggi Mercato settimanale “Archimede”"
+    },
+    {
+     "data": "2026-08-18",
+     "url": "https://www.comune.taranto.it/it/news/avviso-di-revoca-della-procedura-per-laffidamento-in-concessione-del-chiosco-bar-sul-lungomare-vittorio-emanuele-iii",
+     "titolo": "Avviso di Revoca della procedura per l’affidamento in concessione del chiosco bar sul Lungomare Vittorio Emanuele III"
+    },
+    {
+     "data": "2026-07-21",
+     "url": "https://www.comune.taranto.it/it/news/avviso-pubblico-per-il-commercio-su-aree-pubbliche-stagione-estiva-2026",
+     "titolo": "Avviso pubblico per il commercio su aree pubbliche – Stagione estiva 2026"
+    },
+    {
+     "data": "2026-06-08",
+     "url": "https://www.comune.taranto.it/it/news/avviso-pubblico-per-postazioni-di-vendita-da-assegnare-temporaneamente-ad-operatori-commerciali-food-truck-stagione-estiva-2026",
+     "titolo": "Avviso pubblico per postazioni di vendita da assegnare temporaneamente ad operatori commerciali “Food Truck” – Stagione estiva 2026"
+    },
+    {
+     "data": "2026-05-26",
+     "url": "https://www.comune.taranto.it/it/news/avviso-pubblico-per-lassegnazione-dei-posteggi-nei-mercati-di-orsini-e-lama",
+     "titolo": "Avviso pubblico per l’assegnazione dei posteggi nei mercati di Orsini e Lama"
+    },
+    {
+     "data": "2026-05-18",
+     "url": "https://www.comune.taranto.it/it/news/avviso-pubblico-per-lassegnazione-temporanea-di-postazioni-di-vendita-per-la-stagione-estiva-2026",
+     "titolo": "Avviso pubblico per l’assegnazione temporanea di postazioni di vendita per la stagione estiva 2026."
+    },
+    {
+     "data": "2026-04-09",
+     "url": "https://www.comune.taranto.it/it/news/avviso-di-spostamento-delle-postazioni-del-mercato-archimede-ordinanza-sindacale-n-17-del-07-04-2026",
+     "titolo": "Avviso di spostamento delle postazioni del mercato “Archimede” Ordinanza Sindacale n. 17 del 07.04.2026"
+    },
+    {
+     "data": "2026-01-29",
+     "url": "https://www.comune.taranto.it/it/news/mercato-salinella-avviso-relativo-alla-miglioria-dei-posteggi",
+     "titolo": "Mercato Salinella: Avviso relativo alla miglioria dei posteggi"
+    }
+   ]
+  },
+  {
+   "dominio": "www.comune.caltanissetta.it",
+   "http": 200,
+   "pagine_lette": 4,
+   "avvisi_2026": 51,
+   "avvisi_posteggi_2026": 0,
+   "pertinenti": []
+  },
+  {
+   "dominio": "www.comune.firenzuola.fi.it",
+   "http": 200,
+   "pagine_lette": 3,
+   "avvisi_2026": 33,
+   "avvisi_posteggi_2026": 0,
+   "pertinenti": []
+  },
+  {
+   "dominio": "www.comune.carrara.ms.it",
+   "http": 200,
+   "pagine_lette": 1,
+   "avvisi_2026": 14,
+   "avvisi_posteggi_2026": 0,
+   "pertinenti": []
+  },
+  {
+   "dominio": "www.comune.trani.bt.it",
+   "http": 200,
+   "pagine_lette": 6,
+   "avvisi_2026": 80,
+   "avvisi_posteggi_2026": 4,
+   "pertinenti": [
+    {
+     "data": "2026-06-18",
+     "url": "https://www.comune.trani.bt.it/it/news/posteggi-temporanei-per-festa-del-carmine-e-san-nicola-proroga-scadenza",
+     "titolo": "Posteggi temporanei per festa del Carmine e San Nicola: proroga scadenza"
+    },
+    {
+     "data": "2026-05-26",
+     "url": "https://www.comune.trani.bt.it/it/news/avviso-per-lassegnazione-di-posteggi-per-le-festivita-del-carmine-e-per-la-festa-patronale",
+     "titolo": "Avviso per l’assegnazione di posteggi per le festività del Carmine e per la festa patronale"
+    },
+    {
+     "data": "2026-05-21",
+     "url": "https://www.comune.trani.bt.it/it/news/assegnazione-posteggi-fuori-mercato-temporanei-prorogati-i-termini",
+     "titolo": "Assegnazione posteggi fuori mercato temporanei, prorogati i termini"
+    },
+    {
+     "data": "2026-04-28",
+     "url": "https://www.comune.trani.bt.it/it/news/avviso-per-l-assegnazione-di-posteggi-fuori-mercato-temporanei-per-lanno-2026",
+     "titolo": "Avviso per l'assegnazione di posteggi fuori mercato temporanei per l’anno 2026"
+    }
+   ]
+  },
+  {
+   "dominio": "www.comune.paola.cs.it",
+   "http": 200,
+   "pagine_lette": 7,
+   "avvisi_2026": 96,
+   "avvisi_posteggi_2026": 5,
+   "pertinenti": [
+    {
+     "data": "2026-08-20",
+     "url": "https://www.comune.paola.cs.it/it/news/ordinanza-del-sindaco-n-72-del-20-8-2026-chiusura-mercato-settimanale-del-6-9-2026",
+     "titolo": "Ordinanza del Sindaco n. 72 del 20-8-2026 - Chiusura mercato settimanale del 6-9-2026"
+    },
+    {
+     "data": "2026-08-20",
+     "url": "https://www.comune.paola.cs.it/it/news/avviso-fiera-madonna-di-montevergine-giorni-6-7-8-settembre-2026-assegnazione-posteggi-modalita-di-pagamento",
+     "titolo": "Avviso - Fiera Madonna di Montevergine giorni 6-7-8 settembre 2026 - Assegnazione posteggi - Modalita' di pagamento"
+    },
+    {
+     "data": "2026-06-18",
+     "url": "https://www.comune.paola.cs.it/it/news/avviso-domanda-partecipazione-fiera-6-7-8-settembre-2026",
+     "titolo": "Avviso domanda partecipazione fiera 6-7-8- Settembre 2026"
+    },
+    {
+     "data": "2026-04-27",
+     "url": "https://www.comune.paola.cs.it/it/news/festa-patronale-in-onore-di-san-francesco-di-paola-pubblicazione-graduatoria-definitiva",
+     "titolo": "Avviso Pubblico - Assegnazione di concessioni temporanee di posteggi nell'ambito della Festa Patronale San Francesco di Paola fiera commerciale giorni 1, 2, 3, 4 maggio 2026"
+    },
+    {
+     "data": "2026-03-11",
+     "url": "https://www.comune.paola.cs.it/it/news/avviso-pubblico-per-la-concessione-temporanea-di-posteggi-per-la-festa-patronale-anno-2026",
+     "titolo": "Avviso pubblico per la concessione temporanea di posteggi per la “Festa Patronale anno 2026”"
+    }
+   ]
+  },
+  {
+   "dominio": "www.comune.aosta.it",
+   "http": 200,
+   "pagine_lette": 1,
+   "avvisi_2026": 8,
+   "avvisi_posteggi_2026": 0,
+   "pertinenti": []
+  },
+  {
+   "dominio": "www.comune.seregno.mb.it",
+   "http": 200,
+   "pagine_lette": 1,
+   "avvisi_2026": 0,
+   "avvisi_posteggi_2026": 0,
+   "pertinenti": []
+  },
+  {
+   "dominio": "www.comune.brugherio.mb.it",
+   "http": 200,
+   "pagine_lette": 1,
+   "avvisi_2026": 4,
+   "avvisi_posteggi_2026": 0,
+   "pertinenti": []
+  },
+  {
+   "dominio": "www.comune.acquapendente.vt.it",
+   "http": 200,
+   "pagine_lette": 3,
+   "avvisi_2026": 34,
+   "avvisi_posteggi_2026": 3,
+   "pertinenti": [
+    {
+     "data": "2026-04-28",
+     "url": "https://www.comune.acquapendente.vt.it/it/news/avviso-pubblico-per-lassegnazione-di-n-9-posteggi-disponibili-presso-il-mercato-settimanale-del-venerdi-di-acquapendente",
+     "titolo": "Avviso pubblico per l’assegnazione di n. 9 posteggi disponibili presso il mercato settimanale del venerdì di Acquapendente"
+    },
+    {
+     "data": "2026-04-07",
+     "url": "https://www.comune.acquapendente.vt.it/it/news/xiv-concorso-antica-fiera-delle-campanelle",
+     "titolo": "XIV Concorso “Antica Fiera delle Campanelle”"
+    },
+    {
+     "data": "2026-02-17",
+     "url": "https://www.comune.acquapendente.vt.it/it/news/avviso-pubblico-per-lassegnazione-di-n-2-posteggi-disponibili-presso-la-fiera-dei-campanelli-di-acquapendente",
+     "titolo": "Avviso pubblico per l’assegnazione di n. 2 posteggi disponibili presso la Fiera dei Campanelli di Acquapendente"
+    }
+   ]
+  },
+  {
+   "dominio": "www.comune.casalbordino.ch.it",
+   "http": 200,
+   "pagine_lette": 2,
+   "avvisi_2026": 26,
+   "avvisi_posteggi_2026": 1,
+   "pertinenti": [
+    {
+     "data": "2026-01-12",
+     "url": "https://www.comune.casalbordino.ch.it/it/news/avviso-agli-operatori-del-commercio-su-area-pubblica-carta-di-esercizio-ed-attestazione-annuale",
+     "titolo": "Avviso agli operatori del commercio su area pubblica: carta di esercizio ed attestazione annuale"
+    }
+   ]
+  }
+ ]
+}

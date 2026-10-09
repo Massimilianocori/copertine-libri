@@ -124,6 +124,44 @@ def estrai_scadenza(testo):
     return None
 
 
+_ORDINALI = {"quindicesimo": 15, "ventesimo": 20, "trentesimo": 30, "quarantacinquesimo": 45, "sessantesimo": 60, "novantesimo": 90}
+_GIORNI_PAROLE = {"quindici": 15, "venti": 20, "trenta": 30, "quarantacinque": 45, "sessanta": 60, "novanta": 90}
+_RX_REL = [
+    re.compile(r"(?:entro|non oltre)[^.;]{0,40}?\b(\d{1,3}|" + "|".join(_GIORNI_PAROLE) + r")\s*(?:\(\s*\w+\s*\)\s*)?giorni[^.;]{0,60}?"
+               r"(?:dalla|dal giorno|successiv\w*|decorrenti)[^.;]{0,40}?pubblicazion[^.;]{0,80}?(?:B\.?\s?U\.?\s?R|Bollettino)", re.I),
+    re.compile(r"\b(" + "|".join(_ORDINALI) + r")\s+giorno\s+successivo\s+alla\s+(?:data\s+di\s+)?pubblicazion[^.;]{0,80}?(?:B\.?\s?U\.?\s?R|Bollettino)", re.I),
+]
+
+
+def estrai_termine_relativo(testo):
+    """Giorni di un termine espresso rispetto alla pubblicazione sul BUR, o None.
+
+    Esempi riconosciuti: "entro 60 (sessanta) giorni dalla data di pubblicazione sul B.U.R. Puglia",
+    "entro le ore 12.00 del trentesimo giorno successivo alla pubblicazione ... sul Bollettino".
+    La scadenza è allora data_bu + giorni (con un'incertezza di un giorno: alcuni bandi contano
+    anche il giorno di pubblicazione).
+    """
+    t = normalizza(testo).replace("\n", " ")
+    for rx in _RX_REL:
+        m = rx.search(t)
+        if m:
+            v = m.group(1).lower()
+            n = int(v) if v.isdigit() else _GIORNI_PAROLE.get(v) or _ORDINALI.get(v)
+            if n and 5 <= n <= 120:
+                return n
+    return None
+
+
+def scadenza_da_relativa(testo, data_bu_iso):
+    """Scadenza ISO calcolata da un termine relativo e dalla data del BUR, o None."""
+    import datetime
+    n = estrai_termine_relativo(testo)
+    if not n or not data_bu_iso or len(data_bu_iso) != 10:
+        return None
+    d = datetime.date.fromisoformat(data_bu_iso) + datetime.timedelta(days=n)
+    return d.isoformat()
+
+
 _NUM_PAROLE = {"uno": 1, "un": 1, "due": 2, "tre": 3, "quattro": 4, "cinque": 5, "sei": 6, "sette": 7,
                "otto": 8, "nove": 9, "dieci": 10, "undici": 11, "dodici": 12, "tredici": 13,
                "quattordici": 14, "quindici": 15, "venti": 20, "trenta": 30}
