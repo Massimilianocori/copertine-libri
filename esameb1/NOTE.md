@@ -1,6 +1,7 @@
 # EsameB1 — note di costruzione
 
-## Fase 1 (9 ottobre 2026): sito pronto, da pubblicare
+## Fase 1 (9 ottobre 2026): ONLINE su https://esameb1.netlify.app
+- Pubblicato da Massimiliano con Netlify Drop il 9/10/2026. Form `avvisami` id `6ac93ed49dcb990008cd22da`: prova d'invio riuscita e cancellata (contatore a 0).
 - Progetto Netlify **esameb1**: site id `08c6548f-00a5-454d-a0bd-a3a029128b58`, indirizzo https://esameb1.netlify.app, moduli attivati.
 - Pubblicazione: Massimiliano carica `esameb1-sito.zip` con Netlify Drop nella pagina del progetto (il deploy dalla sessione riceve 403). Poi Forms → Submission notifications → email per il modulo `avvisami`.
 - Dopo la pubblicazione: Search Console (verifica con file HTML `google*.html` da mettere in `esameb1/sito/`; `genera.py` lo conserva) e invio di `sitemap.xml`.
@@ -22,7 +23,7 @@
 - **Continua** se: ≥20 pagine indicizzate, ≥300 clic da Google, ≥100 iscritti, almeno 5 pagine città tra i primi 20 risultati.
 - **Candidata B** (esami di Stato) se l'indicizzazione è ok ma gli iscritti sono <40.
 - **Stop** se <100 clic e <20 iscritti.
-- Data di inizio: il giorno della pubblicazione (da annotare qui).
+- Data di inizio: **9/10/2026** (pubblicazione). Il conteggio dei 45 giorni parte da quando Google indicizza (Search Console collegata): verifica intermedia il 23/11/2026.
 
 ## Scelte fatte
 - Mostrate anche le sessioni B1 "generali" (CELI 2, PLIDA B1, CERT.IT B1), etichettate "B1 valido per la cittadinanza": la Prefettura chiede una certificazione almeno B1 di uno dei 4 enti.
