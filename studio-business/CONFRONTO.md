@@ -43,3 +43,4 @@ Non conta se pochi clienti che pagano molto o tanti che pagano poco. Massimilian
 - Massimiliano: niente vincoli alla sua attività o all'Italia; "prima un business buono, poi la strategia di vendita"; si può spendere **a patto che l'investimento torni**.
 - Regola di spesa: solo test con tetto fissato prima, dopo i canali gratuiti; se un cliente costa più di quanto paga in 3 mesi, stop; se torna, si aumenta a passi piccoli.
 - In corso 3 studi: nicchie SaaS con ricavi dichiarati, lacune da lamentele utenti e nuovi obblighi di legge, canali che portano i primi 100 clienti.
+- 9/10, Massimiliano: "ho detto SaaS ma devi scegliere tu in base a cosa può fatturare di più". Criterio di scelta finale = fatturato potenziale provato, non la forma.
