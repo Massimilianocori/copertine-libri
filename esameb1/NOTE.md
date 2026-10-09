@@ -4,7 +4,7 @@
 - Pubblicato da Massimiliano con Netlify Drop il 9/10/2026. Form `avvisami` id `6ac93ed49dcb990008cd22da`: prova d'invio riuscita e cancellata (contatore a 0).
 - Progetto Netlify **esameb1**: site id `08c6548f-00a5-454d-a0bd-a3a029128b58`, indirizzo https://esameb1.netlify.app, moduli attivati.
 - Pubblicazione: Massimiliano carica `esameb1-sito.zip` con Netlify Drop nella pagina del progetto (il deploy dalla sessione riceve 403). Poi Forms → Submission notifications → email per il modulo `avvisami`.
-- Dopo la pubblicazione: Search Console (verifica con file HTML `google*.html` da mettere in `esameb1/sito/`; `genera.py` lo conserva) e invio di `sitemap.xml`.
+- **Search Console verificata il 9/10/2026** (metodo: tag HTML, costante `GOOGLE_VERIFICA` in `genera.py` — non rimuoverla) e `sitemap.xml` inviata. Notifica email del modulo `avvisami` attiva.
 
 ## Cosa c'è
 - `raccolta/raccogli.py`: scarica le fonti ufficiali e rigenera `dati/sedi.json` (644 sedi: 375 CILS, 155 CELI, 82 PLIDA, 32 CERT.IT); controlla le impronte delle pagine-calendario (`dati/impronte.json`) e avvisa se cambiano.
