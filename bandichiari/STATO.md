@@ -1,5 +1,13 @@
 # BandiChiari — stato e decisioni
 
+## REGOLE FISSE (decise il 9 ottobre 2026, non cambiano senza richiesta di Massimiliano)
+- **Massimiliano fa solo, una volta:** (1) sblocco rete della sessione, (2) repository + connettori Netlify/Gmail sulla routine, (3) link di pagamento Stripe, (4) variazione partita IVA con un servizio online per forfettari quando arrivano i primi abbonati.
+- **Claude fa tutto il resto:** software SaaS per studi, schede bandi, aggiornamenti settimanali, email agli iscritti, assistenza, scheda Capterra pronta da registrare.
+- **Clienti solo da canali gratuiti gestiti da Claude:** Google (schede bandi), anteprima gratuita, newsletter degli iscritti, siti di confronto software. Niente email a freddo.
+- **Mai chiedere soldi o tempo in più come condizione.** Pubblicità e LinkedIn sono facoltativi: solo se li propone Massimiliano.
+- Prodotto: SaaS per commercialisti e per chi vende beni/servizi finanziati dai bandi. Anteprima gratuita con soli numeri; dettagli e rapporti PDF con logo dello studio solo in abbonamento (79 €/mese fino a 30 clienti, 149 €/mese fino a 100). Prezzi concorrenti verificati: Muffin 119-525 €/mese, BandzAI da 59 €/mese per azienda, BandoPilot 34,90-129,90 €/mese.
+
+
 Aggiornato: 8 ottobre 2026.
 
 ## Decisioni
