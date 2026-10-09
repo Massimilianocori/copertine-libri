@@ -490,6 +490,8 @@ def extra(urls):
     (SITO / "netlify.toml").write_text("""[build]
   publish = "."
   command = ""
+  # Pubblica solo se è cambiato qualcosa in esameb1/sito (ogni pubblicazione consuma crediti Netlify).
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ."
 
 [[headers]]
   for = "/*"
