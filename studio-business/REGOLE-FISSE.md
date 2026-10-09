@@ -23,3 +23,11 @@ Il nodo fiscale (regola 2) decide quale business è possibile. Si chiude con UNA
 1. Prima l'**intelaiatura**: risolvere un problema a qualcuno o rendergli la vita più facile.
 2. Per farsi conoscere: **informazioni e vantaggi gratis**, raccogliendo più dati possibile (email, profili). Dare buone informazioni ma non tutte; quando c'è pubblico, abbonamento per le informazioni complete.
 3. Poi, con il pubblico, un'**app da intermediario** tra domanda e offerta, con una quota da entrambe le parti.
+
+## Mandato del 9/10/2026 (sera): "fai tutto quello che serve, il goal è fatturare il più possibile"
+Strategia a catena di montaggio, decisa con Massimiliano:
+1. **Più campi d'azione in parallelo**, ognuno verificato con i 5 controlli prima di costruire; costo fisso fiscale unico condiviso; motore comune (esameb1/genera.py + raccoglia).
+2. **Pipeline:** ricerca continua di candidate (Italia e altri Paesi) → un sito nuovo ogni 2-3 settimane dalla migliore in lista → chiudere ciò che non passa i test a 45 giorni.
+3. **Ordine attuale:** EsameB1 (online 9/10) → BandiPosteggi (test tecnico in corso; se passa, costruzione ~10 giorni; tetto più alto: 8k anno 1, 18k a regime) → EsamiDiStato (in costruzione, riuso motore) → cloni esteri (ricerca in corso) → D agente immobiliare, F JLPT.
+4. **Pagamenti** solo quando i ricavi attesi superano con margine il costo fisso (~2-3k €/anno); prima si costruisce la lista. Posizione fiscale (Italia o Paese della moglie) da decidere ai primi incassi con un professionista.
+5. Massimiliano fa solo: pubblicazione Netlify/collegamento GitHub, Search Console, notifiche email. Tutto il resto è di Claude.
