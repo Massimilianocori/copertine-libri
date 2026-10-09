@@ -3,7 +3,7 @@
 Da controllare PRIMA di proporre un business, non dopo.
 
 1. **Zero spese finché non c'è un ritorno.** Niente pubblicità a pagamento, niente abbonamenti a strumenti.
-2. **Niente Camera di Commercio, niente contributi fissi INPS** (Gestione Commercianti ≈ 3.000 €/anno). Deve bastare la P.IVA forfettaria da fotografo (ATECO 74.20.19) più al massimo un codice ATECO aggiuntivo in Gestione Separata.
+2. ~~Niente Camera di Commercio, niente contributi fissi INPS~~ **Allentata il 9/10 (sera):** se il business incassa, aprire/variare la P.IVA e pagare i contributi non è un problema. Resta: niente costi fissi PRIMA degli incassi (i pagamenti si attivano quando arrivano le prime richieste a pagamento).
 3. **Niente rincorsa di piccoli clienti**, niente cold email (illegale in Italia senza consenso).
 4. Ogni proposta va con prove che la gente paga e con almeno un'alternativa a confronto.
 5. Le regole non si cambiano a metà.
@@ -18,3 +18,8 @@ Il nodo fiscale (regola 2) decide quale business è possibile. Si chiude con UNA
 > "Ho P.IVA forfettaria da fotografo (74.20.19) senza Camera di Commercio. Vendo già prodotti digitali su Etsy. Se vendo in abbonamento un software che ho fatto io, tramite un negozio di app (Pipedrive/Google), posso aggiungere il codice 62.10.00 e restare in Gestione Separata senza Camera di Commercio e senza contributi fissi? Sì o no?"
 - **Se SÌ** → si costruisce l'app Pipedrive per Gmail (studio 4-marketplace-candidati.md): traffico gratuito dal negozio di app, zero spese.
 - **Se NO** → l'unica strada automatica e a costo zero che rispetta tutte le regole sono i **diritti d'autore**: catalogo KDP già avviato (Amazon vende, incassa e porta traffico), senza Amazon Ads e senza crediti Higgsfield (copertine con codice). Crescita lenta: dipende dal numero di titoli in nicchie verificate.
+
+## Visione di Massimiliano (9/10, sera) — da rispettare nelle proposte
+1. Prima l'**intelaiatura**: risolvere un problema a qualcuno o rendergli la vita più facile.
+2. Per farsi conoscere: **informazioni e vantaggi gratis**, raccogliendo più dati possibile (email, profili). Dare buone informazioni ma non tutte; quando c'è pubblico, abbonamento per le informazioni complete.
+3. Poi, con il pubblico, un'**app da intermediario** tra domanda e offerta, con una quota da entrambe le parti.
