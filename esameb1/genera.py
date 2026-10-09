@@ -17,6 +17,7 @@ DATI = RADICE / "dati"
 SITO = RADICE / "sito"
 URL_SITO = "https://esameb1.netlify.app"  # cambiare qui se il nome del sito su Netlify è diverso
 NOME = "EsameB1"
+GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console, proprietà https://esameb1.netlify.app
 OGGI = date.today()
 
 MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto",
@@ -196,6 +197,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None):
 <meta property="og:type" content="website">
 <meta property="og:url" content="{canonico}">
 <meta name="theme-color" content="#0E6E55">
+<meta name="google-site-verification" content="{GOOGLE_VERIFICA}">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E6E55'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' text-anchor='middle' fill='white'%3EB1%3C/text%3E%3C/svg%3E">
 <style>{CSS}</style>
 {ld}
