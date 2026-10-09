@@ -3,7 +3,8 @@
 ## Fase 1 (9 ottobre 2026): ONLINE su https://esameb1.netlify.app
 - Pubblicato da Massimiliano con Netlify Drop il 9/10/2026. Form `avvisami` id `6ac93ed49dcb990008cd22da`: prova d'invio riuscita e cancellata (contatore a 0).
 - Progetto Netlify **esameb1**: site id `08c6548f-00a5-454d-a0bd-a3a029128b58`, indirizzo https://esameb1.netlify.app, moduli attivati.
-- Pubblicazione: Massimiliano carica `esameb1-sito.zip` con Netlify Drop nella pagina del progetto (il deploy dalla sessione riceve 403). Poi Forms → Submission notifications → email per il modulo `avvisami`.
+- **Pubblicazione automatica da GitHub** (collegata il 9/10/2026): branch `ccr-b7fd6b9e-n096cr`, base e publish `esameb1/sito`. Netlify pubblica solo se cambia `esameb1/sito` (regola `ignore` in `netlify.toml`): ogni pubblicazione consuma crediti del piano gratuito, quindi al massimo un push del sito a settimana.
+- **Routine settimanale** `trig_017HFNXZX5fKYcerETVg5zq4` (lunedì 7:59 ora italiana, nuova sessione, notifiche email e push): raccoglie le sedi, controlla i calendari, rigenera, aggiorna `METRICHE.md`, fa un push. Senza connettori: gli iscritti si leggono solo se la sessione ha gli strumenti Netlify.
 - **Search Console verificata il 9/10/2026** (metodo: tag HTML, costante `GOOGLE_VERIFICA` in `genera.py` — non rimuoverla) e `sitemap.xml` inviata. Notifica email del modulo `avvisami` attiva.
 
 ## Cosa c'è
@@ -16,7 +17,7 @@
 ## Mancano / da fare
 - Calendari 2027 di **PLIDA** e **CERT.IT**: non ancora pubblicati dagli enti (controllati il 9/10/2026). La routine li cerca ogni settimana.
 - Le sessioni passate restano nel JSON (storico) ma non si vedono nel sito.
-- Routine settimanale (da attivare): `python3 esameb1/raccolta/raccogli.py` → se "CALENDARI CAMBIATI", aggiornare `dati/sessioni.json` a mano con fonte → `python3 esameb1/genera.py` → commit e push → nuovo zip per Massimiliano (oppure deploy automatico se Netlify viene collegato a GitHub con base `esameb1/sito`).
+- Routine settimanale (attiva, vedi sopra): `python3 esameb1/raccolta/raccogli.py` → se "CALENDARI CAMBIATI", aggiornare `dati/sessioni.json` a mano con fonte → `python3 esameb1/genera.py` → commit e push → nuovo zip per Massimiliano (oppure deploy automatico se Netlify viene collegato a GitHub con base `esameb1/sito`).
 - Email agli iscritti del modulo "avvisami": solo quando c'è una data nuova o una scadenza entro 15 giorni nella loro città. Da costruire quando ci sono iscritti.
 
 ## Test (45 giorni dalla pubblicazione)
