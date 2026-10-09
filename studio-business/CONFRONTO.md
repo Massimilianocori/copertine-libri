@@ -16,3 +16,10 @@ Voti 0-10 dagli studi (più alto = meglio). Fatturati: scenario realistico, IPOT
 - Scelta: **Scheda Google gestita** come business principale (incassa in settimane, ricorrente, rischio basso, quasi tutto automatizzabile, e la fotografia di Massimiliano è un vantaggio che i concorrenti non hanno).
 - BandiChiari resta acceso in automatico a costo zero (routine del lunedì) come canale secondario.
 - Scartati: lead generation (rischio Garante e tasse nel forfettario), prodotti personalizzati (rischio capitale per un utile piccolo), pratiche bandi come business principale (cassa troppo lenta).
+
+## Aggiornamento 9 ottobre: scheda Google scartata, nuovo filtro "prova di pagamento"
+- Scheda Google gestita **scartata** (Massimiliano: nessuna attività locale paga un abbonamento per questo).
+- Nuovo filtro: solo idee con prova che la gente paga già (ordini visibili, prezzi reali) e clienti che arrivano da soli. Dettagli in `D-prova-di-domanda.md`.
+- Supera il filtro con le prove più forti: **restauro e ritocco foto con AI + rifinitura del fotografo** su Etsy/Fiverr (es. 4.100 vendite per un singolo negozio Etsy). Stima 8-18k € il primo anno, costo di partenza ~0.
+- Business plan per bandi: alto prezzo (1.200-1.400 €) ma poca domanda online verificata (164 clienti/anno su ProntoPro in tutta Italia) e tutoraggio gratuito Invitalia.
+- Lezione: per un solista senza capitale né vendita diretta il primo anno sta tra ~10 e ~30k €. Per andare oltre serve rischiare soldi in pubblicità o tempo di vendita.
