@@ -1,5 +1,7 @@
 # BandiChiari — stato e decisioni
 
+> **9 ottobre 2026: il SaaS per commercialisti è SCARTATO** dallo studio di fattibilità (`studio-business/fattibilita-saas/VERDETTO.md`). Il sito gratuito resta com'è; la routine settimanale va sospesa finché non si decide il business.
+
 ## REGOLE FISSE (decise il 9 ottobre 2026, non cambiano senza richiesta di Massimiliano)
 - **Massimiliano fa solo, una volta:** (1) sblocco rete della sessione, (2) repository + connettori Netlify/Gmail sulla routine, (3) link di pagamento Stripe, (4) variazione partita IVA con un servizio online per forfettari quando arrivano i primi abbonati.
 - **Claude fa tutto il resto:** software SaaS per studi, schede bandi, aggiornamenti settimanali, email agli iscritti, assistenza, scheda Capterra pronta da registrare.
