@@ -11,7 +11,7 @@ Obiettivo: 30 iscritti alla lista d'attesa in 14 giorni. Le pubblica Massimilian
 6. Mettere nel link un `?ref=` diverso per ogni posto, così sappiamo da dove arrivano gli iscritti: es. `?ref=reddit-freelance`, `?ref=g2-harvest`.
 
 ## Account e comunità
-- Account Reddit di Massimiliano: u/Agitated-Prize4495 (creato il 9/10/2026, accesso con Google). Iscritto a r/freelance e r/freelancing.
+- Account Reddit di Massimiliano: u/Agitated-Prize4495 (creato il 9/10/2026, accesso con Google). Iscritto a r/freelance, r/freelancing, r/smallbusiness, r/agency, r/web_design, r/graphic_design, r/photography, r/AskPhotography. Primi giorni: risposte da fotografo in r/AskPhotography per far crescere il karma (Massimiliano scrive in italiano, Claude traduce).
 - **r/freelancing: regola 1 "No advertising or self-promotion" → mai link a orelab, solo commenti utili.**
 - r/freelance: chi viola le regole viene bannato per sempre → leggere le regole prima di qualsiasi link.
 - La sessione di Claude non può leggere Reddit (403): i thread li trova Massimiliano e li manda a Claude.
