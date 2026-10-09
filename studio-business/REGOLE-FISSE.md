@@ -12,3 +12,9 @@ Da controllare PRIMA di proporre un business, non dopo.
 - orelab (time tracking a prezzo fisso): pagina online fino al 23/10, test non attivo di fatto (zero canali gratuiti utilizzabili subito; concorrenti già posizionati: TimeCamp). **Di fatto abbandonato.**
 - App Pipedrive per Gmail: **non costruita**, bloccata dalla regola 2 (vendita di software in abbonamento = probabile attività commerciale → CCIAA).
 - Nodo aperto: nessuna vendita di prodotto a molti clienti (SaaS, app, digitale) è sicura rispetto alla regola 2 senza il parere di un professionista.
+
+## Strategia decisa il 9/10/2026 (Fable)
+Il nodo fiscale (regola 2) decide quale business è possibile. Si chiude con UNA domanda a un servizio online per forfettari (prima consulenza gratuita: Fiscozen, Flextax), prima di costruire qualsiasi cosa:
+> "Ho P.IVA forfettaria da fotografo (74.20.19) senza Camera di Commercio. Vendo già prodotti digitali su Etsy. Se vendo in abbonamento un software che ho fatto io, tramite un negozio di app (Pipedrive/Google), posso aggiungere il codice 62.10.00 e restare in Gestione Separata senza Camera di Commercio e senza contributi fissi? Sì o no?"
+- **Se SÌ** → si costruisce l'app Pipedrive per Gmail (studio 4-marketplace-candidati.md): traffico gratuito dal negozio di app, zero spese.
+- **Se NO** → l'unica strada automatica e a costo zero che rispetta tutte le regole sono i **diritti d'autore**: catalogo KDP già avviato (Amazon vende, incassa e porta traffico), senza Amazon Ads e senza crediti Higgsfield (copertine con codice). Crescita lenta: dipende dal numero di titoli in nicchie verificate.
