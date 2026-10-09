@@ -18,7 +18,7 @@ DATI = RADICE / "dati"
 SITO = RADICE / "sito"
 URL_SITO = "https://esamidistato.netlify.app"  # cambiare qui se il nome del sito su Netlify è diverso
 NOME = "EsamiDiStato"
-GOOGLE_VERIFICA = ""  # Search Console: incollare qui il codice del tag HTML quando Massimiliano verifica il sito
+GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console, proprietà https://esamidistato.netlify.app — non rimuovere
 OGGI = date.today()
 
 MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto",
