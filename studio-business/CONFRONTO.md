@@ -23,3 +23,10 @@ Voti 0-10 dagli studi (più alto = meglio). Fatturati: scenario realistico, IPOT
 - Supera il filtro con le prove più forti: **restauro e ritocco foto con AI + rifinitura del fotografo** su Etsy/Fiverr (es. 4.100 vendite per un singolo negozio Etsy). Stima 8-18k € il primo anno, costo di partenza ~0.
 - Business plan per bandi: alto prezzo (1.200-1.400 €) ma poca domanda online verificata (164 clienti/anno su ProntoPro in tutta Italia) e tutoraggio gratuito Invitalia.
 - Lezione: per un solista senza capitale né vendita diretta il primo anno sta tra ~10 e ~30k €. Per andare oltre serve rischiare soldi in pubblicità o tempo di vendita.
+
+## Criteri ufficiali per il business 2 (Massimiliano, 9 ottobre 2026)
+1. Domanda provata: la gente paga già (concorrenti che incassano, ordini, prezzi reali).
+2. Crescita: fatturato che sale senza che le ore di Massimiliano crescano in proporzione; potenziale realistico ≥ 5.000 €/mese entro 12-18 mesi.
+3. Clienti senza email a freddo e senza rincorrere piccoli clienti uno per uno; Massimiliano può fare telefonate, incontri e LinkedIn con clienti già interessati.
+4. Produzione fatta in gran parte da Claude.
+Non conta se pochi clienti che pagano molto o tanti che pagano poco. Massimiliano segue il lavoro attivamente.
