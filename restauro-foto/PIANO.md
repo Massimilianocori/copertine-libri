@@ -1,5 +1,7 @@
 # Restauro foto d'epoca con AI — piano (9 ottobre 2026)
 
+> **SCARTATO il 9 ottobre 2026 da Massimiliano.**
+
 Business 2 (insieme a BandiChiari, business 1). Scelta basata su `studio-business/D-prova-di-domanda.md`:
 domanda provata (es. negozio Etsy con 4.100 vendite; venditore Fiverr con oltre 1.000 recensioni a 20-25 $).
 
