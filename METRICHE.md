@@ -25,6 +25,10 @@ Inviate 40 email nuove (tetto alzato da 25 a 40 su richiesta di Massimiliano): 3
 
 Inviate 40 email: 5 agenzie "segnale" (Story Co, Informal, Mass FX Media, Social Scout, Lasting Media; 5 crediti Apollo) + 35 coda2. 0 rimbalzi. Risposte vere: 0 nuove; call con Justin Baer (Collars & Co.) alle 19:30. Guasto webmail Namecheap in mattinata (invio non toccato). Restano 304 in coda (coda2 15, coda3 289): circa 6-7 giorni a 40-50 al giorno.
 
+## 9/10
+
+34 invii: 10 follow-up 1 (brand del 5/10) + 24 nuovi (coda2 14, coda3 10). Esclusi 2 indirizzi UK (Brick) e 4 seconde persone di aziende già contattate nello stesso giorno. 1 rimbalzo (emily@d1approved.com, invio 8/10): ~1% su ~120 invii. Risposte vere: 0.
+
 ## Crediti
 
 | Data | Higgsfield (piano Ultra) | Apollo lead credit (ciclo 3/10-3/11) |
