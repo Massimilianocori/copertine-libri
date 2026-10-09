@@ -12,6 +12,9 @@
 1. ~~Rete della sessione~~ (risolto 9/10; il deploy da sessione resta bloccato con 403, quindi si pubblica con Netlify Drop o collegando GitHub). Prima: `api.netlify.com` e `netlify-mcp.netlify.app` sono bloccati (verificato di nuovo il 9/10). Serve "Network access" completo nelle impostazioni dell'ambiente. Poi: creare il progetto Netlify `orelab` (o simile), attivare i moduli (update-forms), pubblicare `orelab/sito/`.
 2. ~~Notifica email delle iscrizioni~~ (attivata da Massimiliano il 9/10: Forms → Submission notifications → email su "New form submission" del form waitlist).
 
+## Regola di spesa (decisa da Massimiliano il 9/10/2026)
+- **Zero spese finché non c'è un ritorno.** Niente annunci a pagamento (test Google Ads da 100 € rifiutato). Solo canali gratuiti: Reddit, SEO (calcolatore + pagine "alternativa a Harvest"), vetrine gratuite (BetaList, AlternativeTo, Product Hunt).
+
 ## Scelte fatte qui (da confermare se serve)
 - **Contatore iscritti:** non mostrato in pagina. Le regole Netlify sconsigliano contatori su Blobs, e un contatore basso farebbe più danno che bene. Il conteggio per la soglia (30 in 14 giorni) si legge dalle submission con lo strumento Netlify (manage-form-submissions) o dal pannello.
 - **Contatto in privacy:** "rispondendo a una nostra email". Prima di raccogliere molti dati conviene un indirizzo dedicato (es. sul dominio definitivo).
