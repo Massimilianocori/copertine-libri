@@ -1,7 +1,9 @@
 ## ONLINE dal 10/10/2026 su https://esamidistato.netlify.app
 - Progetto Netlify **esamidistato**: site id `daea196d-6628-4035-8e5f-0e7e0980db78`, moduli attivi, form `avvisami` id `6ac969aacc2e230008015795` (prova d'invio riuscita e cancellata).
 - Pubblicazione automatica da GitHub: branch `ccr-b7fd6b9e-n096cr`, base/publish `esamidistato/sito` (regola `ignore` nel netlify.toml).
-- Da fare: notifica email del modulo (Massimiliano), Search Console (tag HTML → costante `GOOGLE_VERIFICA` in `genera.py`), routine settimanale.
+- **Search Console verificata e sitemap inviata il 10/10/2026** (costante `GOOGLE_VERIFICA` in `genera.py`, non rimuoverla).
+- **Routine settimanale** condivisa con EsameB1: `trig_017HFNXZX5fKYcerETVg5zq4` (lunedì 7:59 ora italiana).
+- **Test a 45 giorni: verdetto il 24/11/2026.**
 
 # EsamiDiStato — note di costruzione
 
