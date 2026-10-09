@@ -38,3 +38,8 @@ Non conta se pochi clienti che pagano molto o tanti che pagano poco. Massimilian
 | Pacchetto DVR + HACCP via commercialisti | Sì | Incerto | Non provato | Sì | Non passa (`G-documenti-obbligatori.md`) |
 | App Shopify fiscale italiana | Sì, tetto basso | No | Sì | Sì | Non passa: 1-3k€/mese realistici (`H-software-marketplace.md`) |
 | White-label per agenzie | Debole | Sì | Sì | Sì | Da validare |
+
+## Svolta del 9 ottobre: SaaS per il mercato mondiale
+- Massimiliano: niente vincoli alla sua attività o all'Italia; "prima un business buono, poi la strategia di vendita"; si può spendere **a patto che l'investimento torni**.
+- Regola di spesa: solo test con tetto fissato prima, dopo i canali gratuiti; se un cliente costa più di quanto paga in 3 mesi, stop; se torna, si aumenta a passi piccoli.
+- In corso 3 studi: nicchie SaaS con ricavi dichiarati, lacune da lamentele utenti e nuovi obblighi di legge, canali che portano i primi 100 clienti.
