@@ -21,3 +21,13 @@ https://www.reddit.com/r/Architects/comments/1uja4cl/alternatives_to_harvest_for
 4. **La domanda è confermata, ma l'offerta è affollata**: altri sviluppatori indipendenti propongono già alternative, anche gratis (Timen). Il prezzo fisso da solo non basta: il nostro vantaggio deve essere *import da Harvest in un clic + integrazione QuickBooks/Xero + prezzo fisso*. Lo dirà il test (30 iscritti entro il 23/10).
 5. Sul prezzo Solo ($19) siamo più cari di actiTIME ($6/utente) e Clockify per 1 persona: siamo convenienti per team da 3–5 persone con molti progetti, cioè il target vero.
 6. Da aggiungere in pagina al prossimo aggiornamento: il caso "$1,200 → $21,000 a year" (con link al thread).
+
+## Verifica SEO "Harvest pricing" (9/10/2026)
+Le ricerche "Harvest price increase / pricing / alternative" sono già presidiate da concorrenti affermati con contenuti dedicati:
+- Projectworks: "Harvest Pricing Calculator: What You'll Actually Pay in 2026" (calcolatore già esistente).
+- TimeCamp: "Harvest Pricing 2026 explained (+ flat-rate alternative & migration)" → **TimeCamp si propone già come alternativa a prezzo fisso con migrazione**.
+- Productive.io, OneSuite, Timen (gratis), Operating.app, TimeQuorum, Voltasis: articoli "Harvest price increase / alternatives".
+- Harvest non pubblica le tariffe per unità (Flex) né il canone fisso Unlimited: un calcolatore preciso non è possibile.
+
+**Conclusione:** un dominio nuovo (orelab.netlify.app) non si posiziona contro questi siti in tempi utili. Calcolatore e pagine SEO **non** si fanno. Il nostro elemento distintivo (prezzo fisso + migrazione) è già offerto da TimeCamp.
+Lezione per la prossima candidata: scegliere un prodotto con un canale di distribuzione gratuito incorporato (marketplace di app con traffico proprio), perché senza budget pubblicitario e senza pubblico il collo di bottiglia è la distribuzione, non la costruzione.
