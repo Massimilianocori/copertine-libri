@@ -10,6 +10,12 @@ Obiettivo: 30 iscritti alla lista d'attesa in 14 giorni. Le pubblica Massimilian
 5. Leggere il regolamento di ogni subreddit prima di postare: alcuni vietano qualsiasi autopromozione.
 6. Mettere nel link un `?ref=` diverso per ogni posto, così sappiamo da dove arrivano gli iscritti: es. `?ref=reddit-freelance`, `?ref=g2-harvest`.
 
+## Account e comunità
+- Account Reddit di Massimiliano: u/Agitated-Prize4495 (creato il 9/10/2026, accesso con Google). Iscritto a r/freelance e r/freelancing.
+- **r/freelancing: regola 1 "No advertising or self-promotion" → mai link a orelab, solo commenti utili.**
+- r/freelance: chi viola le regole viene bannato per sempre → leggere le regole prima di qualsiasi link.
+- La sessione di Claude non può leggere Reddit (403): i thread li trova Massimiliano e li manda a Claude.
+
 ## Dove cercare (ogni giorno)
 - Reddit: r/freelance, r/web_design, r/agency, r/consulting, r/smallbusiness, r/Entrepreneur, r/graphic_design, r/userexperience — ricerca: "Harvest price", "Harvest alternative", "Harvest renewal", "Clockify free plan", "time tracking invoicing".
 - Recensioni recenti di Harvest e Clockify su G2/Capterra (si risponde solo dove la piattaforma lo consente).
