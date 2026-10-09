@@ -31,3 +31,7 @@
 - CELI: usato il calendario ufficiale CVCL (9 giugno 2026), non quello della sede CEIS (10 giugno).
 - CERT.IT: la data è "disponibilità della piazza telematica"; in pagina si chiede di confermare il giorno con il centro.
 - Nessun prezzo inventato: solo due esempi reali con fonte (UniMi 90 €, Padova 100 €).
+
+## Fisco (nodo aperto, decide quando attivare i pagamenti)
+- Gli incassi previsti (avvisi a pagamento, quote dalle scuole, prenotazioni) sono di natura commerciale: con ogni probabilità servono Camera di Commercio e INPS Gestione Commercianti (minimo ~3.000 €/anno, ridotto del 35% per i forfettari ≈ 2.000 €), non basta aggiungere un codice ATECO alla P.IVA da fotografo. Da confermare con la consulenza gratuita di un servizio per forfettari PRIMA del primo incasso.
+- Conseguenza: nessuna funzione a pagamento finché i ricavi attesi non superano chiaramente il costo fisso. La fase 1 resta gratuita e serve a costruire la lista; si attiva il pagamento quando una città ha abbastanza iscritti da vendere alle scuole/sedi.
