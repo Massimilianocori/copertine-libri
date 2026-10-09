@@ -30,3 +30,11 @@ Voti 0-10 dagli studi (più alto = meglio). Fatturati: scenario realistico, IPOT
 3. Clienti senza email a freddo e senza rincorrere piccoli clienti uno per uno; Massimiliano può fare telefonate, incontri e LinkedIn con clienti già interessati.
 4. Produzione fatta in gran parte da Claude.
 Non conta se pochi clienti che pagano molto o tanti che pagano poco. Massimiliano segue il lavoro attivamente.
+
+## Classifica finale con i criteri ufficiali (9 ottobre 2026)
+| Idea | Domanda provata | Crescita ≥5k€/mese | Clienti senza email a freddo | Produzione AI | Esito |
+|---|---|---|---|---|---|
+| Immagini + schede prodotto per venditori Amazon/Shopify (canale: Amazon SPN + agenzie) | Sì | Sì (ipotesi) | Sì | Sì | **Unica che passa, con riserva** (`F-servizi-ai-b2b.md`). Stesso mercato di Scrollcraft, ma con un canale in entrata |
+| Pacchetto DVR + HACCP via commercialisti | Sì | Incerto | Non provato | Sì | Non passa (`G-documenti-obbligatori.md`) |
+| App Shopify fiscale italiana | Sì, tetto basso | No | Sì | Sì | Non passa: 1-3k€/mese realistici (`H-software-marketplace.md`) |
+| White-label per agenzie | Debole | Sì | Sì | Sì | Da validare |
