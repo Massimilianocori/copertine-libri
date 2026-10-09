@@ -282,3 +282,11 @@ Il dubbio che conta è se il Pipedrive Marketplace porta installazioni da solo. 
 - Lo scope `gmail.addons.current.message.readonly` (leggere l'email aperta mentre l'add-on è attivo) è classificato **Sensitive**, non Restricted: https://developers.google.com/workspace/gmail/api/auth/scopes
 - Gli scope Sensitive richiedono la verifica OAuth di Google (gratuita); la valutazione di sicurezza CASA (a pagamento) riguarda gli scope Restricted (`gmail.readonly`, `gmail.modify`, `mail.google.com`) — fonte non ufficiale: https://www.unipile.com/gmail-api-scopes-guide/
 - **Vincolo di progetto:** usare solo scope add-on (current message), mai scope Restricted, per restare a costo zero. Da riconfermare nella console Google prima della pubblicazione.
+
+## BLOCCO FISCALE (9/10/2026) — vale per qualsiasi SaaS
+Regola di Massimiliano: si procede solo se basta aggiungere un codice ATECO alla P.IVA da fotografo (74.20.19, Gestione Separata); **no** se servono Camera di Commercio e contributi fissi (~3.000 €/anno).
+- Vendere abbonamenti a un software proprio a molti clienti = probabilmente "edizione di software" (ATECO 58.29.00), attività commerciale → iscrizione CCIAA + INPS Gestione Commercianti con minimale fisso. Fonti: https://fidocommercialista.it/edizione-di-software , https://www.studiomicera.it/vendere-saas-partita-iva-developer-2026/
+- 62.10.00 (programmazione, ex 62.01) resta in Gestione Separata ma copre lo sviluppo su commessa, non la vendita di un prodotto a catalogo: https://www.fiscozen.it/guide/codice-ateco-programmatore-informatico/
+- Le fonti non sono concordi; serve parere di un professionista prima di costruire.
+- Strada da far verificare: vendita tramite "merchant of record" (Paddle / Lemon Squeezy) con compensi come licenza/diritti d'autore sul software. NON verificata.
+**Stato: costruzione sospesa finché un professionista non conferma la strada senza CCIAA.**
