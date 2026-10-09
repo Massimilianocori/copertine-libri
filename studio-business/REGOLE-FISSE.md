@@ -31,3 +31,9 @@ Strategia a catena di montaggio, decisa con Massimiliano:
 3. **Ordine attuale:** EsameB1 (online 9/10) → BandiPosteggi (test tecnico in corso; se passa, costruzione ~10 giorni; tetto più alto: 8k anno 1, 18k a regime) → EsamiDiStato (in costruzione, riuso motore) → cloni esteri (ricerca in corso) → D agente immobiliare, F JLPT.
 4. **Pagamenti** solo quando i ricavi attesi superano con margine il costo fisso (~2-3k €/anno); prima si costruisce la lista. Posizione fiscale (Italia o Paese della moglie) da decidere ai primi incassi con un professionista.
 5. Massimiliano fa solo: pubblicazione Netlify/collegamento GitHub, Search Console, notifiche email. Tutto il resto è di Claude.
+
+## Stato della pipeline (10/10/2026, notte)
+- **EsameB1**: online, Google collegato, routine lunedì. Verdetto 23/11/2026.
+- **EsamiDiStato**: online dal 10/10, Google collegato, stessa routine. Verdetto 24/11/2026.
+- **BandiPosteggi**: test tecnico **NON SUPERATO** (studio-business/intelaiatura/posteggi-test-tecnico.md): i BUR coprono ~1% dei bandi, estrazione corretta 55-65% contro 80% richiesto. Non si costruisce. Si riapre solo con le due condizioni della sez. 7.3 del rapporto.
+- **Prossimo sito** (dal 23-24/10, dopo i primi segnali di Search Console): Francia × M1 (TCF IRN + examen civique, obbligo nuovo dall'1/1/2026) oppure Agente immobiliare (D), scelta in base ai dati di indicizzazione dei primi due siti. Poi Polonia × M1, Germania × M1.
