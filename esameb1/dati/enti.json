@@ -1,0 +1,42 @@
+[
+ {
+  "sigla": "CILS",
+  "nome": "CILS – Certificazione di Italiano come Lingua Straniera",
+  "ente": "Università per Stranieri di Siena",
+  "sito": "https://cils.unistrasi.it/",
+  "pagina_date": "https://cils.unistrasi.it/1/211/415/Le_date_degli_esami_2026.htm",
+  "pagina_sedi": "https://cils.unistrasi.it/1/84/16/Le_sedi_di_esami.htm",
+  "cittadinanza": "Esiste un esame dedicato: CILS B1 Cittadinanza, con 6 sessioni l'anno. Vale anche il CILS B1 standard.",
+  "iscrizione": "Ci si iscrive presso la sede d'esame scelta, che indica costi e documenti."
+ },
+ {
+  "sigla": "CELI",
+  "nome": "CELI – Certificati di Lingua Italiana",
+  "ente": "Università per Stranieri di Perugia",
+  "sito": "https://cvcl.unistrapg.it/",
+  "pagina_date": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
+  "pagina_sedi": "https://cvcl.unistrapg.it/pagine/centri-desame-convenzionati-celi-000",
+  "cittadinanza": "Esiste un esame dedicato: CELI 2 i cittadinanza (B1), solo nei centri in Italia. Vale anche il CELI 2 generale (B1).",
+  "iscrizione": "Ci si iscrive presso il centro d'esame convenzionato, che indica costi e documenti."
+ },
+ {
+  "sigla": "PLIDA",
+  "nome": "PLIDA – Progetto Lingua Italiana Dante Alighieri",
+  "ente": "Società Dante Alighieri",
+  "sito": "https://plida.dante.global/",
+  "pagina_date": "https://plida.dante.global/it/esami-plida/",
+  "pagina_sedi": "https://www.dante.global/it/contatti/lista-contatti",
+  "cittadinanza": "Per la cittadinanza si usa il PLIDA B1 (4 sessioni nel 2026, date uguali in tutti i centri).",
+  "iscrizione": "Ci si iscrive direttamente presso il centro PLIDA, che fissa la scadenza."
+ },
+ {
+  "sigla": "CERT.IT",
+  "nome": "CERT.IT – Certificazione dell'italiano",
+  "ente": "Università degli Studi Roma Tre",
+  "sito": "https://certificazioneitaliano.uniroma3.it/",
+  "pagina_date": "https://certificazioneitaliano.uniroma3.it/gli-esami/iscrizione-agli-esami/",
+  "pagina_sedi": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/",
+  "cittadinanza": "Per la cittadinanza si usa la certificazione di livello B1 (sessioni A2/B1).",
+  "iscrizione": "Ci si iscrive presso il centro convenzionato oppure alla sede di Roma (Via Ostiense 123-129) tramite il portale."
+ }
+]

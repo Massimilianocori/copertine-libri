@@ -1,0 +1,378 @@
+[
+ {
+  "ente": "PLIDA",
+  "data": "2026-02-11",
+  "esami": [
+   "PLIDA B1"
+  ],
+  "tipo": "generale",
+  "scadenza": null,
+  "nota_scadenza": "La scadenza la decide ogni centro PLIDA: chiedila al centro scelto.",
+  "fonte": "https://cms.plida.dante.global/wp-content/uploads/2025/11/Calendario-esami-PLIDA-2026-per-il-sito-1.pdf",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CELI",
+  "data": "2026-02-18",
+  "esami": [
+   "CELI 2 i cittadinanza (B1)"
+  ],
+  "tipo": "cittadinanza",
+  "scadenza": "2026-01-16",
+  "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
+  "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CILS",
+  "data": "2026-02-19",
+  "esami": [
+   "CILS B1 Cittadinanza"
+  ],
+  "tipo": "cittadinanza",
+  "scadenza": "2026-01-19",
+  "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
+  "fonte": "https://cils.unistrasi.it/public/articoli/415/Calendario%20esami%20CILS%202026.pdf",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CERT.IT",
+  "data": "2026-03-03",
+  "esami": [
+   "CERT.IT B1 (sessione A2/B1)"
+  ],
+  "tipo": "generale",
+  "scadenza": null,
+  "nota_scadenza": "Iscrizioni aperte dal 12 gennaio 2026 presso i centri convenzionati, che fissano la scadenza. Data indicata come disponibilità della piazza telematica: conferma il giorno esatto con il centro.",
+  "fonte": "https://certificazioneitaliano.uniroma3.it/wp-content/uploads/sites/30/file_locked/2025/10/Calendario-Certit_2026_sito-3.pdf",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CELI",
+  "data": "2026-03-11",
+  "esami": [
+   "CELI 2 (B1)"
+  ],
+  "tipo": "generale",
+  "scadenza": "2026-02-13",
+  "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
+  "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CILS",
+  "data": "2026-04-14",
+  "esami": [
+   "CILS B1 Cittadinanza"
+  ],
+  "tipo": "cittadinanza",
+  "scadenza": "2026-03-14",
+  "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
+  "fonte": "https://cils.unistrasi.it/public/articoli/415/Calendario%20esami%20CILS%202026.pdf",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CELI",
+  "data": "2026-05-06",
+  "esami": [
+   "CELI 2 i cittadinanza (B1)"
+  ],
+  "tipo": "cittadinanza",
+  "scadenza": "2026-04-10",
+  "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
+  "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CELI",
+  "data": "2026-06-09",
+  "esami": [
+   "CELI 2 (B1)"
+  ],
+  "tipo": "generale",
+  "scadenza": "2026-05-05",
+  "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
+  "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "PLIDA",
+  "data": "2026-06-10",
+  "esami": [
+   "PLIDA B1"
+  ],
+  "tipo": "generale",
+  "scadenza": null,
+  "nota_scadenza": "La scadenza la decide ogni centro PLIDA: chiedila al centro scelto.",
+  "fonte": "https://cms.plida.dante.global/wp-content/uploads/2025/11/Calendario-esami-PLIDA-2026-per-il-sito-1.pdf",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CILS",
+  "data": "2026-06-16",
+  "esami": [
+   "CILS B1 Cittadinanza",
+   "CILS B1 standard"
+  ],
+  "tipo": "cittadinanza",
+  "scadenza": "2026-05-07",
+  "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
+  "fonte": "https://cils.unistrasi.it/public/articoli/415/Calendario%20esami%20CILS%202026.pdf",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CERT.IT",
+  "data": "2026-06-25",
+  "esami": [
+   "CERT.IT B1 (sessione A2/B1)"
+  ],
+  "tipo": "generale",
+  "scadenza": null,
+  "nota_scadenza": "Iscrizioni aperte dall'8 aprile 2026 presso i centri convenzionati, che fissano la scadenza. Data indicata come disponibilità della piazza telematica: conferma il giorno esatto con il centro.",
+  "fonte": "https://certificazioneitaliano.uniroma3.it/wp-content/uploads/sites/30/file_locked/2025/10/Calendario-Certit_2026_sito-3.pdf",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CILS",
+  "data": "2026-07-22",
+  "esami": [
+   "CILS B1 Cittadinanza"
+  ],
+  "tipo": "cittadinanza",
+  "scadenza": "2026-06-22",
+  "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
+  "fonte": "https://cils.unistrasi.it/public/articoli/415/Calendario%20esami%20CILS%202026.pdf",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "PLIDA",
+  "data": "2026-09-09",
+  "esami": [
+   "PLIDA B1"
+  ],
+  "tipo": "generale",
+  "scadenza": null,
+  "nota_scadenza": "La scadenza la decide ogni centro PLIDA: chiedila al centro scelto.",
+  "fonte": "https://cms.plida.dante.global/wp-content/uploads/2025/11/Calendario-esami-PLIDA-2026-per-il-sito-1.pdf",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CELI",
+  "data": "2026-09-16",
+  "esami": [
+   "CELI 2 i cittadinanza (B1)"
+  ],
+  "tipo": "cittadinanza",
+  "scadenza": "2026-08-14",
+  "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
+  "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CERT.IT",
+  "data": "2026-10-06",
+  "esami": [
+   "CERT.IT B1 (sessione A2/B1)"
+  ],
+  "tipo": "generale",
+  "scadenza": null,
+  "nota_scadenza": "Iscrizioni aperte dal 27 agosto 2026 presso i centri convenzionati, che fissano la scadenza. Data indicata come disponibilità della piazza telematica: conferma il giorno esatto con il centro.",
+  "fonte": "https://certificazioneitaliano.uniroma3.it/wp-content/uploads/sites/30/file_locked/2025/10/Calendario-Certit_2026_sito-3.pdf",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CILS",
+  "data": "2026-10-21",
+  "esami": [
+   "CILS B1 Cittadinanza"
+  ],
+  "tipo": "cittadinanza",
+  "scadenza": "2026-09-21",
+  "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
+  "fonte": "https://cils.unistrasi.it/public/articoli/415/Calendario%20esami%20CILS%202026.pdf",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CELI",
+  "data": "2026-11-11",
+  "esami": [
+   "CELI 2 (B1)"
+  ],
+  "tipo": "generale",
+  "scadenza": "2026-10-09",
+  "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
+  "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "PLIDA",
+  "data": "2026-11-18",
+  "esami": [
+   "PLIDA B1"
+  ],
+  "tipo": "generale",
+  "scadenza": null,
+  "nota_scadenza": "La scadenza la decide ogni centro PLIDA: chiedila al centro scelto.",
+  "fonte": "https://cms.plida.dante.global/wp-content/uploads/2025/11/Calendario-esami-PLIDA-2026-per-il-sito-1.pdf",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CILS",
+  "data": "2026-12-03",
+  "esami": [
+   "CILS B1 Cittadinanza",
+   "CILS B1 standard"
+  ],
+  "tipo": "cittadinanza",
+  "scadenza": "2026-10-24",
+  "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
+  "fonte": "https://cils.unistrasi.it/public/articoli/415/Calendario%20esami%20CILS%202026.pdf",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CELI",
+  "data": "2027-02-17",
+  "esami": [
+   "CELI 2 i cittadinanza (B1)"
+  ],
+  "tipo": "cittadinanza",
+  "scadenza": "2027-01-22",
+  "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
+  "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CILS",
+  "data": "2027-02-18",
+  "esami": [
+   "CILS B1 Cittadinanza"
+  ],
+  "tipo": "cittadinanza",
+  "scadenza": "2027-01-18",
+  "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
+  "fonte": "https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CELI",
+  "data": "2027-03-09",
+  "esami": [
+   "CELI 2 (B1)"
+  ],
+  "tipo": "generale",
+  "scadenza": "2027-02-09",
+  "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
+  "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CILS",
+  "data": "2027-04-08",
+  "esami": [
+   "CILS B1 Cittadinanza"
+  ],
+  "tipo": "cittadinanza",
+  "scadenza": "2027-03-08",
+  "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
+  "fonte": "https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CELI",
+  "data": "2027-05-20",
+  "esami": [
+   "CELI 2 i cittadinanza (B1)"
+  ],
+  "tipo": "cittadinanza",
+  "scadenza": "2027-04-20",
+  "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
+  "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CILS",
+  "data": "2027-06-10",
+  "esami": [
+   "CILS B1 Cittadinanza",
+   "CILS B1 standard"
+  ],
+  "tipo": "cittadinanza",
+  "scadenza": "2027-05-01",
+  "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
+  "fonte": "https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CELI",
+  "data": "2027-06-11",
+  "esami": [
+   "CELI 2 (B1)"
+  ],
+  "tipo": "generale",
+  "scadenza": "2027-05-11",
+  "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
+  "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CILS",
+  "data": "2027-07-22",
+  "esami": [
+   "CILS B1 Cittadinanza"
+  ],
+  "tipo": "cittadinanza",
+  "scadenza": "2027-06-22",
+  "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
+  "fonte": "https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CELI",
+  "data": "2027-09-15",
+  "esami": [
+   "CELI 2 i cittadinanza (B1)"
+  ],
+  "tipo": "cittadinanza",
+  "scadenza": "2027-08-17",
+  "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
+  "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CILS",
+  "data": "2027-10-21",
+  "esami": [
+   "CILS B1 Cittadinanza"
+  ],
+  "tipo": "cittadinanza",
+  "scadenza": "2027-09-21",
+  "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
+  "fonte": "https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CELI",
+  "data": "2027-11-16",
+  "esami": [
+   "CELI 2 (B1)"
+  ],
+  "tipo": "generale",
+  "scadenza": "2027-10-16",
+  "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
+  "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
+  "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CILS",
+  "data": "2027-12-02",
+  "esami": [
+   "CILS B1 Cittadinanza",
+   "CILS B1 standard"
+  ],
+  "tipo": "cittadinanza",
+  "scadenza": "2027-10-23",
+  "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
+  "fonte": "https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf",
+  "verificato_il": "2026-10-09"
+ }
+]

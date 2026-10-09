@@ -1,0 +1,107 @@
+[
+ {
+  "nome": "Milano",
+  "slug": "milano",
+  "provincia": "Milano"
+ },
+ {
+  "nome": "Roma",
+  "slug": "roma",
+  "provincia": "Roma"
+ },
+ {
+  "nome": "Torino",
+  "slug": "torino",
+  "provincia": "Torino"
+ },
+ {
+  "nome": "Napoli",
+  "slug": "napoli",
+  "provincia": "Napoli"
+ },
+ {
+  "nome": "Bologna",
+  "slug": "bologna",
+  "provincia": "Bologna"
+ },
+ {
+  "nome": "Firenze",
+  "slug": "firenze",
+  "provincia": "Firenze"
+ },
+ {
+  "nome": "Genova",
+  "slug": "genova",
+  "provincia": "Genova"
+ },
+ {
+  "nome": "Bari",
+  "slug": "bari",
+  "provincia": "Bari"
+ },
+ {
+  "nome": "Palermo",
+  "slug": "palermo",
+  "provincia": "Palermo"
+ },
+ {
+  "nome": "Catania",
+  "slug": "catania",
+  "provincia": "Catania"
+ },
+ {
+  "nome": "Verona",
+  "slug": "verona",
+  "provincia": "Verona"
+ },
+ {
+  "nome": "Padova",
+  "slug": "padova",
+  "provincia": "Padova"
+ },
+ {
+  "nome": "Brescia",
+  "slug": "brescia",
+  "provincia": "Brescia"
+ },
+ {
+  "nome": "Venezia",
+  "slug": "venezia",
+  "provincia": "Venezia"
+ },
+ {
+  "nome": "Bergamo",
+  "slug": "bergamo",
+  "provincia": "Bergamo"
+ },
+ {
+  "nome": "Modena",
+  "slug": "modena",
+  "provincia": "Modena"
+ },
+ {
+  "nome": "Parma",
+  "slug": "parma",
+  "provincia": "Parma"
+ },
+ {
+  "nome": "Reggio Emilia",
+  "slug": "reggio-emilia",
+  "provincia": "Reggio nell'Emilia"
+ },
+ {
+  "nome": "Prato",
+  "slug": "prato",
+  "provincia": "Prato"
+ },
+ {
+  "nome": "Perugia",
+  "slug": "perugia",
+  "provincia": "Perugia"
+ },
+ {
+  "nome": "Ravenna",
+  "slug": "ravenna",
+  "provincia": "Ravenna"
+ }
+]
