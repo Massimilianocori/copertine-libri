@@ -1,5 +1,7 @@
 # Business 2 — Schede prodotto Amazon/Shopify con AI (avviato 9 ottobre 2026)
 
+> **SCARTATO il 9 ottobre 2026:** Amazon offre gratis ai venditori strumenti AI per schede, testi e contenuto A+ (https://sell.amazon.com/blog/amazon-listing-ai). Obiezione di Massimiliano: chi può mandarci le foto può fare da solo.
+
 Scelto con i criteri ufficiali (`studio-business/CONFRONTO.md`, `F-servizi-ai-b2b.md`).
 
 ## Verifiche fatte prima di partire
