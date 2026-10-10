@@ -28,6 +28,7 @@ GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Consol
 # Satelliti (calcolatore codice fiscale, guida multe ZTL): spenti finché Massimiliano non dice sì alla pubblicazione.
 # Per vederli in prova senza pubblicarli: ITALYSTRIKES_SATELLITI=1 python3 italystrikes/genera.py (in una copia).
 SATELLITI_ATTIVI = True  # sì di Massimiliano il 10/10/2026
+IMPACT_VERIFICA = "30566286-17ab-476e-b7be-3af44af9c845"  # Impact (programma affiliati Airalo), aggiunto il 10/10/2026: non rimuoverlo
 URL_DATI_LIVE = ("https://raw.githubusercontent.com/Massimilianocori/copertine-libri/"
                  "ccr-b7fd6b9e-n096cr/italystrikes/dati/vista.json")
 URL_REGISTRO = "https://scioperi.mit.gov.it/mit2/public/scioperi"
@@ -540,6 +541,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
         dati = {"letto_il": LETTO, "registro_aggiornato_al": AGGIORNATO, "scioperi": recenti()}
         dati_html = '<script type="application/json" id="dati">' + json.dumps(dati, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>"
     verifica = f'<meta name="google-site-verification" content="{GOOGLE_VERIFICA}">' if GOOGLE_VERIFICA else ""
+    verifica += f'<meta name="impact-site-verification" value="{IMPACT_VERIFICA}">' if IMPACT_VERIFICA else ""
     robots = "" if indicizza else '<meta name="robots" content="noindex">'
     testo = f"""<!DOCTYPE html>
 <html lang="en">
