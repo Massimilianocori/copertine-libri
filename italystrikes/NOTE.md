@@ -27,8 +27,8 @@
 
 ## Aggiornamento automatico
 - `italystrikes/workflow/italystrikes.yml` è il file GitHub Actions pronto: due volte al giorno (07:17 e 17:17 ora italiana) legge il registro, aggiorna `dati/`, decide se ripubblicare e fa commit e push sul branch `ccr-b7fd6b9e-n096cr`.
-- **I workflow programmati partono solo dal branch principale `main`**: il file va copiato in `.github/workflows/italystrikes.yml` su `main`. Serve il permesso esplicito di Massimiliano (le regole della sessione vietano push su altri branch senza permesso). Il file non tocca nient'altro di `main`.
-- Finché non c'è: la routine settimanale `trig_017HFNXZX5fKYcerETVg5zq4` (lunedì) aggiorna i dati e controlla il workflow. Con un solo aggiornamento a settimana gli scioperi nuovi compaiono comunque prima della data (preavviso minimo 10 giorni), ma le revoche possono arrivare in ritardo.
+- **ATTIVO dal 10/10/2026**: Massimiliano ha aggiunto lui stesso `.github/workflows/italystrikes.yml` su `main` (i workflow programmati partono solo da lì; il filtro di sicurezza della sessione impedisce a Claude di farlo). Prima esecuzione manuale riuscita il 10/10/2026 alle 16:35: commit del bot "Italy strikes: registro del 10/10/2026 (pubblicazione: no)". Se si modifica il workflow, aggiornare sia la copia in `italystrikes/workflow/` sia quella su `main` (quest'ultima a mano da GitHub).
+- Se il workflow si ferma: la routine settimanale `trig_017HFNXZX5fKYcerETVg5zq4` (lunedì) aggiorna i dati e controlla il workflow. Con un solo aggiornamento a settimana gli scioperi nuovi compaiono comunque prima della data (preavviso minimo 10 giorni), ma le revoche possono arrivare in ritardo.
 
 ## Mancano / da fare
 - **Invio degli avvisi email** agli iscritti del modulo `alerts`: da costruire quando arrivano i primi iscritti (confronto giornaliero date/luogo con `vista.json`; serve un servizio di invio gratuito o la casella Gmail di Massimiliano con il suo sì). Fino ad allora la promessa in pagina va mantenuta a mano dalla routine settimanale.
