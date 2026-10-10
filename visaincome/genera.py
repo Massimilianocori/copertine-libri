@@ -22,6 +22,7 @@ RADICE = Path(__file__).resolve().parent
 DATI = RADICE / "dati"
 SITO = RADICE / "sito"
 URL_SITO = "https://visa-income-checker.netlify.app"  # unico punto da cambiare se il nome del sito su Netlify è diverso
+GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console (stesso account degli altri siti), 10/10/2026: non rimuoverlo
 URL_CAMBI_LIVE = ("https://raw.githubusercontent.com/Massimilianocori/copertine-libri/"
                   "ccr-b7fd6b9e-n096cr/italystrikes/dati/cambi-bce.json")  # aggiornata 2 volte al giorno dal workflow di Italy Strikes
 NOME = "Visa Income Checker"
@@ -580,6 +581,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="{GOOGLE_VERIFICA}">
 <title>{escape(titolo)}</title>
 <meta name="description" content="{escape(descrizione)}">
 {canonico}
