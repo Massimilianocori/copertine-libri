@@ -41,3 +41,4 @@ Ordine fisso, già nel CHECKLIST SPOT di PROCEDURE.md: brief con ricerca approva
 
 - **Apollo (decisione 7/10): disdetta del rinnovo automatico, si riattiva solo quando servono contatti.** I 449 crediti vanno usati entro il 3/11 (fine del periodo pagato). Prima di riattivare: numeri (invii, risposte vere, preventivi) e sì o no di Massimiliano; se nessuno ha risposto, prima si cambia il messaggio.
 - **Entro il 3/11: nuova estrazione Apollo** con tutti i crediti rimasti (non si perdono a vuoto), verso il 16/10 o quando in coda restano email per meno di 5 giorni.
+- **16/10/2026: ricordare a Massimiliano di disdire il rinnovo automatico di Higgsfield Ultra** (si rinnova il 17/10). Si riattiva quando serve. Promemoria programmato per le 9:40 del 16/10.
