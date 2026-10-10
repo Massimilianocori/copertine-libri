@@ -26,7 +26,8 @@ Il cancello fiscale si apre **una volta sola**, quando la somma dei ricavi attes
 Ordine deciso dalla domanda misurata (autocomplete USA del 10/10: "france/germany/spain/greece strike today", "europe strikes today" hanno lo stesso schema dell'Italia):
 1. **Italia** (fatto): scioperi; poi satelliti **codice fiscale calculator for foreigners** e **ZTL fines by city** (domanda confermata, 2-4 ore ciascuno, stesso pubblico).
 2. **Retire / Move to Italy** (sito EN, motore EsameB1): comuni flat tax 7 %, requisiti visto, calcolatore reddito, modulo partner. Si costruisce solo con la commissione scritta.
-3. **Francia** → hub **"Europe strikes today"**: test tecnico delle fonti (SNCF, RATP, DGAC/aviazione civile) prima di costruire; passa solo con ≥ 3 fonti ufficiali leggibili in automatico. Poi Germania, Spagna, Grecia, una alla volta, ognuna dopo che la precedente è indicizzata.
+3. **Francia** → hub **"Europe strikes today"**: test tecnico fatto il 10/10/2026 → **NON PASSA** (`intelaiatura/10-francia-test-fonti.md`). Treni sì (SNCF SIRI/GTFS-RT, aperto, testo anche in inglese; Eurostar sì), Parigi solo con token IDFM PRIM (account di Massimiliano), voli nessuna fonte ufficiale leggibile; soprattutto **non esiste un registro come quello del MIT**: gli scioperi compaiono 1-3 giorni prima (obbligo di informazione 24 ore), quindi niente pagine "mese" e poco vantaggio su Google. Si riprova solo se un lettore silenzioso del flusso SNCF (4-6 settimane) mostrerà un anticipo utile.
+   **Prossimo Paese da testare: Spagna** (ipotesi da verificare: il Ministero dei Trasporti pubblica per ogni sciopero una risoluzione di servizi minimi, quindi potrebbe esistere una fonte unica con anticipo). Poi Grecia/Germania solo se c'è una fonte con preavviso pubblico.
 4. **Versione italiana degli scioperi** ("sciopero domani [città]", domanda 4-8 volte quella inglese) solo se il test del sito inglese fallisce sulla quota Tier 1 ma Google indicizza.
 Regola della catena: **una costruzione nuova ogni 2-3 settimane, mai due insieme; ogni nuova pagina deve avere fonte ufficiale unica o ≤ 3 fonti leggibili in automatico; tutto ciò che non passa il test a 45 giorni si chiude e si scrive perché.**
 
@@ -34,8 +35,8 @@ Regola della catena: **una costruzione nuova ogni 2-3 settimane, mai due insieme
 | Quando | Cosa | Chi |
 |---|---|---|
 | 10-23/10 | Iscrizioni affiliati, candidatura Smart Move Italy (`DA-FARE-MASSIMILIANO.md`). Domanda fiscale **rinviata al primo pagamento in arrivo** (decisione di Massimiliano del 10/10) | Massimiliano (1,5 ore in tutto) |
-| 10-23/10 | Riquadro affiliati online al primo deploy utile; satelliti codice fiscale + ZTL pronti; test tecnico fonti Francia | Claude |
-| 23/10 | Lettura Search Console (indicizzazione dei tre siti) → decisione: Francia dentro il sito scioperi oppure "Retire/Move to Italy" per primo (dipende dalla risposta di Smart Move Italy) | Claude propone, Massimiliano dice sì/no |
+| 10-23/10 | Riquadro affiliati online al primo deploy utile; satelliti codice fiscale + ZTL **pronti e spenti (10/10)**, si accendono col sì di Massimiliano; test fonti Francia **fatto: non passa**; test fonti Spagna | Claude |
+| 23/10 | Lettura Search Console (indicizzazione dei tre siti) → decisione: Spagna (se passa il test) oppure "Retire/Move to Italy" per primo (dipende dalla risposta di Smart Move Italy) | Claude propone, Massimiliano dice sì/no |
 | ~30/10 | Richiesta AdSense per Italy Strikes Today (se ≥ 20 pagine indicizzate) | Massimiliano (10 min) |
 | 23-24/11 | Verdetti a 45 giorni dei tre siti; chiusura di ciò che non passa; eventuale test annunci ≤ 50-100 € sul sito che passa (sì esplicito) | Claude + Massimiliano |
 | dic 2026 - feb 2027 | Costruzione Francia (+ Germania/Spagna se la Francia indicizza); Retire/Move to Italy; versione IT scioperi se serve | Claude |
