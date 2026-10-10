@@ -17,7 +17,7 @@ per il confronto "sopra/sotto la soglia").
 |---|---|
 | `genera.py` | genera tutte le pagine; contiene il motore di calcolo in Python e lo stesso in JS |
 | `dati/programmi.json` | indici ufficiali e programmi, con regole, fonti (URL, data del controllo, risposta HTTP) |
-| `dati/cambi.json` | cambi BCE (scritto da `raccolta/cambi.py`) |
+| `dati/cambi.json` | cambi BCE di riserva, scritti nelle pagine alla generazione (`raccolta/cambi.py`) |
 | `dati/affiliati.json` | riquadro affiliati: compare solo quando un URL è compilato |
 | `raccolta/cambi.py` | scarica `eurofxref-daily.xml` della BCE; se qualcosa non va non tocca il file |
 | `verifica.py` | esempi a mano, confronto JS/Python, link, fonti sotto la cifra, parole vietate |
