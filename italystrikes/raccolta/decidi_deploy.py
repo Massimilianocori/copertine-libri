@@ -49,7 +49,7 @@ def main():
         motivo = "settimanale"
     elif giorni >= 2 and imp != stato.get("impronta"):
         motivo = "sciopero importante cambiato"
-    if motivo and ultima != oggi:
+    if motivo and (ultima != oggi or motivo == "forzata"):
         stato["pubblicazioni"].append(oggi.isoformat())
         stato["pubblicazioni"] = stato["pubblicazioni"][-60:]
         stato["impronta"] = imp
