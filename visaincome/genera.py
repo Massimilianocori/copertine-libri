@@ -539,21 +539,23 @@ AVVISO = ('<p class="avviso"><strong>Not immigration or legal advice.</strong> T
 
 def blocco_dati():
     """Dati per il calcolatore: programmi (campi utili), indici, cambi di riserva, nomi delle valute."""
-    campi_v = ("id", "nome", "base", "fattore", "regola", "famiglia", "tetto")
-    progs = [{"slug": P["slug"], "paese": P["paese"], "nome": P["nome"],
-              "varianti": [{k: V[k] for k in campi_v if k in V} for V in P["varianti"]],
-              "fonti": [{k: P["fonti"][0][k] for k in ("titolo", "url", "controllato_il")}]} for P in PROG]
-    ind = {k: {c: v[c] for c in ("valore", "valuta", "periodo", "nome_breve")} for k, v in INDICI.items()}
+    campi_v = ("id", "nome", "base", "fattore", "regola", "famiglia", "tetto", "etichetta_principale")
+    campi_p = ("esito", "condizioni", "confronto", "nota_pagamenti")
+    progs = [dict({"slug": P["slug"], "paese": P["paese"], "nome": P["nome"],
+                   "varianti": [{k: V[k] for k in campi_v if k in V} for V in P["varianti"]],
+                   "fonti": [{k: P["fonti"][0][k] for k in ("titolo", "url", "controllato_il")}]},
+                  **{k: P[k] for k in campi_p if k in P}) for P in PROG]
+    ind = {k: {c: v[c] for c in ("valore", "valuta", "periodo", "nome_breve", "pagamenti") if c in v} for k, v in INDICI.items()}
     d = {"programmi": progs, "indici": ind, "cambi": {"data": CAMBI["data"], "tassi": CAMBI["tassi"]},
          "nomi_valute": {k: v[0] for k, v in VALUTE.items()}, "url_cambi": URL_CAMBI_LIVE}
     return ('<script type="application/json" id="dati-visti">' +
             json.dumps(d, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>")
 
 
-def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, calcolatore=False, jsonld_extra=None):
+def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, calcolatore=False, jsonld_extra=None, assoluto=False):
     file = percorso if percorso.endswith(".html") else (percorso + "index.html")
     profondita = file.count("/")
-    rel = "../" * profondita or "./"
+    rel = "/" if assoluto else ("../" * profondita or "./")  # 404: link assoluti, Netlify la serve a qualsiasi profondità
     url_pag = URL_SITO + "/" + percorso
     if indicizza:
         URLS.append(percorso)
@@ -570,6 +572,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
         ld.append(jsonld_extra)
     ld_html = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
     robots = "" if indicizza else '<meta name="robots" content="noindex">'
+    canonico = f'<link rel="canonical" href="{url_pag}">' if indicizza else ""
     js = f"<script>{MOTORE_JS}{APP_JS}</script>" if calcolatore else f"<script>{FORM_JS}</script>"
     dati = blocco_dati() if calcolatore else ""
     testo = f"""<!DOCTYPE html>
@@ -579,7 +582,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(titolo)}</title>
 <meta name="description" content="{escape(descrizione)}">
-<link rel="canonical" href="{url_pag}">
+{canonico}
 <meta property="og:title" content="{escape(titolo)}">
 <meta property="og:description" content="{escape(descrizione)}">
 <meta property="og:type" content="website">
@@ -642,15 +645,18 @@ def modulo_calcolatore(rel="", programma="", paese="", valuta="USD"):
 <label>Children under 18<input type="number" name="figli" min="0" max="20" value="0" inputmode="numeric"></label>
 <label>Show amounts also in<select name="valuta"></select></label>
 <label><span>Your monthly income (optional)</span><input type="number" name="reddito" min="0" step="any" placeholder="e.g. 3500" inputmode="decimal"></label>
+<label>Your income is paid<select name="pagamenti"><option value="12">12 times a year</option><option value="13">13 times a year</option><option value="14">14 times a year</option></select></label>
+<p class="small pieno" data-nota-pagamenti hidden style="margin:0"></p>
 </div>
 </form>
 <div class="risultato" data-out aria-live="polite"><noscript>Turn on JavaScript to use the calculator. The tables below show the official amounts.</noscript></div>
 </div>"""
 
 
-def importo_live(x, da, a):
-    """Importo convertito, rigenerato nel browser con i cambi aggiornati."""
-    return f'<span data-importo="{x}" data-da="{da}" data-a="{a}">{soldi(converti(x, da, a, CAMBI["tassi"]), a)}</span>'
+def importo_live(x, da, a, molt=1, div=1):
+    """Importo convertito (poi × molt ÷ div), rigenerato nel browser con i cambi aggiornati."""
+    extra = (f' data-molt="{molt}"' if molt != 1 else "") + (f' data-div="{div}"' if div != 1 else "")
+    return f'<span data-importo="{x}" data-da="{da}" data-a="{a}"{extra}>{soldi(converti_scalato(x, da, a, CAMBI["tassi"], molt, div), a)}</span>'
 
 
 def box_affiliati():
@@ -665,6 +671,23 @@ def box_affiliati():
 
 
 # ---------------------------------------------------------------- pagine
+def live_mese(o, a):
+    """Importo mensile (per mensilità) convertito, coerente con convertiImporti del JS."""
+    if o["periodo"] == "month":
+        return importo_live(o["mensile"], o["valuta"], a)
+    return importo_live(o["annuale"], o["valuta"], a, div=12)
+
+
+def live_anno(o, a):
+    if o["periodo"] == "month":
+        return importo_live(o["mensile"], o["valuta"], a, molt=o["pagamenti"])
+    return importo_live(o["annuale"], o["valuta"], a)
+
+
+def x_pag(o):
+    return f" × {o['pagamenti']}" if o["periodo"] == "month" and o["pagamenti"] != 12 else ""
+
+
 FAMIGLIE = [("Single applicant", 1, 0), ("Couple", 2, 0), ("Couple + 1 child", 2, 1), ("Couple + 2 children (family of 4)", 2, 2),
             ("Couple + 3 children", 2, 3), ("Single parent + 1 child", 1, 1)]
 
@@ -677,9 +700,11 @@ def tabella_famiglie(P, V):
     for nome, a, c in FAMIGLIE:
         o = calcola(P, V["id"], a, c)
         val = o["valuta"]
-        righe.append(f'<tr><td>{nome}</td><td class="n">{soldi(o["mensile"], val)}</td><td class="n">{soldi(o["annuale"], val)}</td>'
-                     f'<td class="n">{importo_live(o["mensile"], val, "USD")}</td></tr>')
-    return ('<div class="tab"><table><thead><tr><th>Household</th><th class="n">A month</th><th class="n">A year</th><th class="n">A month in USD</th></tr></thead>'
+        righe.append(f'<tr><td>{nome}</td><td class="n">{soldi(o["mensile"], val)}{x_pag(o)}</td><td class="n">{soldi(o["annuale"], val)}</td>'
+                     f'<td class="n">{live_mese(o, "USD")}{x_pag(o)}</td></tr>')
+    o1 = calcola(P, V["id"], 1, 0)
+    mese = "A month" + (f" (× {o1['pagamenti']} payments)" if x_pag(o1) else "")
+    return (f'<div class="tab"><table><thead><tr><th>Household</th><th class="n">{mese}</th><th class="n">A year</th><th class="n">A month in USD</th></tr></thead>'
             f'<tbody>{"".join(righe)}</tbody></table></div>')
 
 
@@ -690,8 +715,8 @@ def tabella_valute(P, V):
     for c in VALUTE_TABELLA:
         if c != "EUR" and c not in CAMBI["tassi"]:
             continue
-        righe.append(f'<tr><td>{c} <span class="small">{escape(VALUTE[c][0])}</span></td><td class="n">{importo_live(o1["mensile"], val, c)}</td>'
-                     f'<td class="n">{importo_live(o1["annuale"], val, c)}</td></tr>')
+        righe.append(f'<tr><td>{c} <span class="small">{escape(VALUTE[c][0])}</span></td><td class="n">{live_mese(o1, c)}{x_pag(o1)}</td>'
+                     f'<td class="n">{live_anno(o1, c)}</td></tr>')
     return ('<div class="tab"><table><thead><tr><th>Currency</th><th class="n">Main applicant, a month</th><th class="n">A year</th></tr></thead>'
             f'<tbody>{"".join(righe)}</tbody></table></div><p class="fonte">{cambi_nota()}</p>')
 
@@ -700,7 +725,8 @@ def blocco_indice(V):
     if "indice" not in V["base"]:
         return ""
     I = INDICI[V["base"]["indice"]]
-    return (f'<div class="indice"><strong>{escape(I["nome"])}: {soldi(I["valore"], I["valuta"])} {periodo_testo(I["periodo"])}</strong>'
+    pag = f" × {I['pagamenti']} payments" if I.get("pagamenti", 12) != 12 else ""
+    return (f'<div class="indice"><strong>{escape(I["nome"])}: {soldi(I["valore"], I["valuta"])} {periodo_testo(I["periodo"])}{pag}</strong>'
             f'<br>{escape(I["calcolo"])}<br><span class="small">In force: {escape(I["in_vigore"])}. {escape(I["ricontrollo"])}</span>'
             f'<p class="fonte">Source of the index: ' + "; ".join(
                 f'<a href="{escape(f["url"])}" rel="noopener">{escape(f["titolo"])}</a>, checked on {data_lunga(f["controllato_il"])}' for f in I["fonti"]) + "</p></div>")
@@ -711,21 +737,20 @@ def pagina_programma(P):
     V0 = P["varianti"][0]
     o = calcola(P, V0["id"], 1, 0)
     val = o["valuta"]
-    figura = (f'<strong>{soldi(o["mensile"], val)}</strong> a month (<strong>{soldi(o["annuale"], val)}</strong> a year)'
-              if o["periodo"] == "month" else f'<strong>{soldi(o["annuale"], val)}</strong> a year ({soldi(o["mensile"], val)} a month)')
+    figura = figura_testo(o)
     altre_var = ""
     if len(P["varianti"]) > 1:
         righe = []
         for V in P["varianti"]:
             ov = calcola(P, V["id"], 1, 0)
-            righe.append(f'<tr><td>{escape(V["nome"])}</td><td class="n">{soldi(ov["mensile"], val)}</td><td class="n">{soldi(ov["annuale"], val)}</td>'
-                         f'<td class="n">{importo_live(ov["annuale"], val, "USD")}</td></tr>')
+            righe.append(f'<tr><td>{escape(V["nome"])}</td><td class="n">{soldi(ov["mensile"], val)}{x_pag(ov)}</td><td class="n">{soldi(ov["annuale"], val)}</td>'
+                         f'<td class="n">{live_anno(ov, "USD")}</td></tr>')
         altre_var = ('<h2>All categories</h2><div class="tab"><table><thead><tr><th>Category</th><th class="n">A month</th><th class="n">A year</th><th class="n">A year in USD</th></tr></thead>'
                      f'<tbody>{"".join(righe)}</tbody></table></div><p class="small">Rules: ' +
                      " ".join(f'<strong>{escape(V["nome"])}:</strong> {escape(V["regola"])}' for V in P["varianti"]) + "</p>")
     eur_eq = ""
     if val != "EUR":
-        eur_eq = f'<p class="small">In euros: about {importo_live(o["annuale"], val, "EUR")} a year ({cambi_nota()})</p>'
+        eur_eq = f'<p class="small">In euros: about {live_anno(o, "EUR")} a year ({cambi_nota()})</p>'
     sorelle = [p for p in PROG if p["paese_slug"] == P["paese_slug"] and p["slug"] != P["slug"]]
     simili = [p for p in PROG if p["categoria"] == P["categoria"] and p["paese_slug"] != P["paese_slug"]]
     link_sorelle = ""
@@ -746,6 +771,7 @@ def pagina_programma(P):
 <p class="formula"><strong>Rule:</strong> {escape(V0['regola'])}</p>
 {blocco_indice(V0)}
 <p class="small"><strong>Income that counts:</strong> {escape(P['reddito'])}</p>
+{('<p class="avviso">' + escape(P['condizioni']) + '</p>') if P.get('condizioni') else ''}
 <h2>Calculator</h2>
 {modulo_calcolatore(rel=rel, programma=P['slug'])}
 {AVVISO}
@@ -781,14 +807,14 @@ def pagina_paese(slug):
             o = calcola(P, V["id"], 1, 0)
             o4 = calcola(P, V["id"], 2, 2)
             val = o["valuta"]
-            fam = soldi(o4["mensile"], val) if V["famiglia"]["tipo"] != "nessuno" else "same"
+            fam = (soldi(o4["mensile"], val) + x_pag(o4)) if V["famiglia"]["tipo"] != "nessuno" else "not set"
             righe.append(f'<tr><td><a href="{rel}{P["slug"]}/">{escape(P["nome"])}</a>{(" – " + escape(V["nome"])) if len(P["varianti"]) > 1 else ""}</td>'
-                         f'<td class="n">{soldi(o["mensile"], val)}</td><td class="n">{soldi(o["annuale"], val)}</td><td class="n">{fam}</td>'
+                         f'<td class="n">{soldi(o["mensile"], val)}{x_pag(o)}</td><td class="n">{soldi(o["annuale"], val)}</td><td class="n">{fam}</td>'
                          f'<td><a href="{escape(P["fonti"][0]["url"])}" rel="noopener">official</a>, {data_lunga(P["fonti"][0]["controllato_il"])}</td></tr>')
     corpo = f"""<section class="hero"><h1>Visa income requirements in {escape(nome)} {ANNO}</h1>
 <p class="lead">The official minimum income or salary for each {escape(nome)} visa we cover, calculated from the official rule, with a calculator for family members and other currencies.</p></section>
 <div class="tab"><table><thead><tr><th>Visa or permit</th><th class="n">Main applicant, a month</th><th class="n">A year</th><th class="n">Family of 4, a month</th><th>Source</th></tr></thead><tbody>{''.join(righe)}</tbody></table></div>
-<p class="small">Monthly amounts for annual thresholds are the annual amount divided by 12. "Same": the rule sets no extra amount for family members.</p>
+<p class="small">Monthly amounts for annual thresholds are the annual amount divided by 12. "× 14": the amount is paid 14 times a year. "Not set": the official rule sets no amount for family members (see each page).</p>
 {modulo_calcolatore(rel=rel, paese=nome)}
 {AVVISO}
 {AD}
@@ -806,7 +832,7 @@ def home():
         gruppi.append(f'<a href="country/{slug}/">{escape(nome)}<small>{len(pp)} visa{"s" if len(pp) > 1 else ""}</small></a>')
     lista = "".join(f'<a href="{p["slug"]}/">{escape(nome_prog(p))}<small>{escape(riassunto(p))}</small></a>' for p in PROG)
     corpo = f"""<section class="hero"><h1>Visa income checker {ANNO}: how much income do you need for a digital nomad, retirement or work visa?</h1>
-<p class="lead">The official minimum income for {len(PROG)} visas and permits in {len(PAESI)} countries, calculated from the official base (minimum wage, IPREM, average salary, legal salary thresholds) for you and each family member, and converted into your currency with today's European Central Bank rates.</p></section>
+<p class="lead">The official minimum income for {len(PROG)} visas and permits in {len(PAESI)} countries, calculated from the official base (minimum wage, IPREM, average salary, legal salary thresholds) for you and each family member, and converted into your currency with the latest European Central Bank reference rates.</p></section>
 {modulo_calcolatore(rel='', paese='Spain')}
 {AVVISO}
 {AD}
@@ -817,7 +843,7 @@ def home():
 <h2>Compare</h2>
 <p><a href="digital-nomad-visa-income-requirements/">Digital nomad visa income requirements {ANNO}</a> (with passive income visas) · <a href="work-visa-salary-thresholds/">EU Blue Card and work visa salary thresholds {ANNO}</a></p>
 <h2>Why our numbers can differ from other sites</h2>
-<p>Many thresholds are a percentage of an index that changes every year. When the index changes, the amount changes, and pages that copied last year's number become wrong. Examples on {data_lunga('2026-10-10')}: Spain's digital nomad visa is €2,849 a month with the 2026 minimum wage (not €2,762, the 2025 figure); Croatia's is €3,622.50 (not €3,295); Portugal's D8 is €3,680 (4 × €920, not €3,480). We recalculate from the official index and show the source and the date under every figure.</p>
+<p>Many thresholds are a percentage of an index that changes every year (a minimum wage, an average salary), so pages that still show last year's figure are out of date. With the {ANNO} indices, on {data_lunga('2026-10-10')}: Spain's digital nomad visa is 200% of the {ANNO} minimum wage, €2,442 a month over 14 payments (€34,188 a year, the same as €2,849 a month over 12 payments); Croatia's is 2.5 × the 2025 average net salary, €3,622.50 a month; Portugal's D8 is 4 × €920 = €3,680 a month. We recalculate from the official index and show the source and the date under every figure.</p>
 {box_affiliati()}"""
     pagina("", f"Visa Income Checker {ANNO}: minimum income for digital nomad, retirement and work visas (calculator)",
            f"How much income do you need? Official {ANNO} minimum income for {len(PROG)} visas (Spain, Portugal, Croatia, Italy, Hungary, Blue Cards, UK) for you and your family, in USD, GBP, INR, PHP and more.",
@@ -832,11 +858,11 @@ def riga_confronto(P, V, rel):
     nessuno = V["famiglia"]["tipo"] == "nessuno"
     f = P["fonti"][0]
     nome = escape(nome_prog(P)) + ((" – " + escape(V["nome"])) if len(P["varianti"]) > 1 else "")
-    return (o1["mensile"] if val == "EUR" else converti(o1["mensile"], val, "EUR", CAMBI["tassi"]),
-            f'<tr><td><a href="{rel}{P["slug"]}/">{nome}</a></td><td class="n">{soldi(o1["mensile"], val)}</td>'
-            f'<td class="n">{"not allowed / not set" if nessuno else soldi(o2["mensile"], val)}</td>'
-            f'<td class="n">{"not allowed / not set" if nessuno else soldi(o4["mensile"], val)}</td>'
-            f'<td class="n">{importo_live(o1["mensile"], val, "USD")}</td>'
+    return (converti_importi(o1, "EUR", CAMBI["tassi"])["mensile12"],
+            f'<tr><td><a href="{rel}{P["slug"]}/">{nome}</a></td><td class="n">{soldi(o1["mensile"], val)}{x_pag(o1)}</td>'
+            f'<td class="n">{"not set" if nessuno else soldi(o2["mensile"], val) + x_pag(o2)}</td>'
+            f'<td class="n">{"not set" if nessuno else soldi(o4["mensile"], val) + x_pag(o4)}</td>'
+            f'<td class="n">{live_mese(o1, "USD")}{x_pag(o1)}</td>'
             f'<td><a href="{escape(f["url"])}" rel="noopener">official</a>, {data_lunga(f["controllato_il"])}</td></tr>')
 
 
@@ -850,7 +876,7 @@ def pagina_confronto_nomadi():
 <p class="lead">The official minimum monthly income for each digital nomad visa we cover, for a single applicant, a couple and a family of four, calculated from the official rule. Sorted from the lowest to the highest.</p></section>
 <div class="tab"><table>{testa}<tbody>{''.join(r[1] for r in dn)}</tbody></table></div>
 <p class="fonte">{cambi_nota()}</p>
-<p class="small">"Couple" and "family of 4" (2 adults, 2 children) add the official amounts for family members. "Not allowed / not set": the official rule sets no amount for family members (Hungary does not allow family reunification for White Card holders; Italy applies the separate family reunification rules).</p>
+<p class="small">"Couple" and "family of 4" (2 adults, 2 children) add the official amounts for family members. "Not set": the official rule sets no amount for family members (Hungary does not allow family reunification for White Card holders; Italy applies the separate family reunification rules; for Portugal's D8 the Ministry does not say how family means combine with the applicant's amount). "× 14": Spain's amount is quoted per payment, 14 payments a year; the table is sorted by the yearly total.</p>
 {AVVISO}
 {AD}
 <h2>Passive income and retirement visas</h2>
@@ -868,23 +894,23 @@ def pagina_confronto_lavoro():
     rel = "../"
     righe = []
     for P in PROG:
-        if P["categoria"] not in ("work", "family"):
+        if P["categoria"] != "work":
             continue
         for V in P["varianti"]:
             o = calcola(P, V["id"], 1, 0)
             val = o["valuta"]
-            eur = o["annuale"] if val == "EUR" else converti(o["annuale"], val, "EUR", CAMBI["tassi"])
+            eur = converti_importi(o, "EUR", CAMBI["tassi"])["annuale"]
             f = P["fonti"][0]
             righe.append((eur, f'<tr><td><a href="{rel}{P["slug"]}/">{escape(nome_prog(P))}</a>{(" – " + escape(V["nome"])) if len(P["varianti"]) > 1 else ""}</td>'
-                               f'<td class="n">{soldi(o["annuale"], val)}</td><td class="n">{importo_live(o["annuale"], val, "EUR")}</td>'
-                               f'<td class="n">{importo_live(o["annuale"], val, "USD")}</td>'
+                               f'<td class="n">{soldi(o["annuale"], val)}</td><td class="n">{live_anno(o, "EUR")}</td>'
+                               f'<td class="n">{live_anno(o, "USD")}</td>'
                                f'<td><a href="{escape(f["url"])}" rel="noopener">official</a>, {data_lunga(f["controllato_il"])}</td></tr>'))
     righe.sort(key=lambda x: x[0])
     corpo = f"""<section class="hero"><h1>EU Blue Card and work visa salary thresholds {ANNO}</h1>
 <p class="lead">The official minimum gross salary for the EU Blue Card and similar work permits in the countries we cover, sorted from the lowest to the highest (converted to euros where needed).</p></section>
 <div class="tab"><table><thead><tr><th>Permit</th><th class="n">A year (official currency)</th><th class="n">In EUR</th><th class="n">In USD</th><th>Source</th></tr></thead><tbody>{''.join(r[1] for r in righe)}</tbody></table></div>
 <p class="fonte">{cambi_nota()}</p>
-<p class="small">Salary thresholds are for the job holder and do not change with family members. The UK spouse visa is a family visa: its minimum is a combined income.</p>
+<p class="small">Salary thresholds are for the job holder and do not change with family members. Netherlands: the IND amounts exclude the 8% holiday allowance, so the yearly figure (monthly × 12) is lower than a full gross annual salary. UK: £33,400 and £37,500 are floors; the going rate for the occupation also applies. Family visas (such as the <a href="{rel}uk-spouse-visa/">UK spouse visa</a>) are not in this table.</p>
 {AVVISO}
 {AD}
 <h2>Calculator</h2>
@@ -896,7 +922,7 @@ def pagina_confronto_lavoro():
 
 def pagina_come_funziona():
     rel = "../"
-    indici = "".join(f'<h3>{escape(I["nome"])}: {soldi(I["valore"], I["valuta"])} {periodo_testo(I["periodo"])}</h3><p>{escape(I["calcolo"])} {escape(I["ricontrollo"])}</p>{fonti_html(I["fonti"])}'
+    indici = "".join(f'<h3>{escape(I["nome"])}: {soldi(I["valore"], I["valuta"])} {periodo_testo(I["periodo"])}{(" × " + str(I["pagamenti"]) + " payments") if I.get("pagamenti", 12) != 12 else ""}</h3><p>{escape(I["calcolo"])} {escape(I["ricontrollo"])}</p>{fonti_html(I["fonti"])}'
                      for I in INDICI.values())
     corpo = f"""<section class="hero"><h1>How the Visa Income Checker works</h1>
 <p class="lead">How we turn official rules into amounts, where the numbers come from and what can make them change.</p></section>
@@ -907,9 +933,9 @@ def pagina_come_funziona():
 <p>When the rule depends on an index, we take the index from the law that sets it or from the statistics office, and show how we got the monthly figure:</p>
 {indici}
 <h2>3. Family members</h2>
-<p>Some rules add an amount for each family member (Spain, Portugal, Croatia, the UK partner visa when extending under the pre-2024 rules). Others set no amount for family members, and we say so instead of inventing one. The calculator counts "adults including you" and "children under 18".</p>
+<p>Some rules add an amount for each family member (Spain, Portugal's D7, Croatia, the UK partner visa when extending under the pre-2024 rules). Others set no amount for family members, and we say so instead of inventing one. The calculator counts "adults including you" and "children under 18". If you type your income, the calculator compares it with the minimum: monthly rules are compared month by month, yearly thresholds with your yearly total (your monthly income × 12, 13 or 14 payments). For the UK visas it shows the other conditions instead of a yes/no, because the going rate for your occupation also counts.</p>
 <h2>4. Monthly and yearly amounts</h2>
-<p>When a rule is monthly, the yearly figure is the monthly amount × 12. When a rule is yearly (most salary thresholds), the monthly figure is the yearly amount ÷ 12. In countries that pay 13th and 14th salaries, the monthly payslip is lower than this figure.</p>
+<p>When a rule is monthly, the yearly figure is the monthly amount × 12, except where the official wording counts 14 payments (Spain's digital nomad visa: €2,442 × 14 = €34,188, which equals €2,849 × 12). When a rule is yearly (most salary thresholds), the monthly figure is the yearly amount ÷ 12. In countries that pay 13th and 14th salaries, the monthly payslip is lower than this figure.</p>
 <h2>5. Currency conversion</h2>
 <p>We convert with the euro foreign exchange reference rates published by the European Central Bank every working day at around 16:00 CET. The rates are read again by your browser when you open a page, so the conversion follows the latest published rate. For an amount in another currency (for example pounds), we first convert it to euros and then to your currency. Conversions are indicative: consulates usually check the amount in the official currency, sometimes with their own rate, and exchange rates move.</p>
 <p class="small">Source: ECB statistics – euro foreign exchange reference rates (<a href="https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml" rel="noopener">daily XML</a>). The reference rates are published for information purposes only.</p>
@@ -997,7 +1023,7 @@ def extra():
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 """)
     pagina("404.html", f"Page not found | {NOME}", "Page not found.",
-           '<section class="hero"><h1>Page not found</h1><p class="lead">Go to the <a href="/">visa income calculator</a>.</p></section>', indicizza=False)
+           '<section class="hero"><h1>Page not found</h1><p class="lead">Go to the <a href="/">visa income calculator</a>.</p></section>', indicizza=False, assoluto=True)
 
 
 def controlli():
@@ -1024,7 +1050,7 @@ def controlli():
             b = V["base"]
             if "indice" in b and b["indice"] not in INDICI:
                 errori.append(f"{P['slug']}/{V['id']}: indice sconosciuto")
-            _, val, per = unita(V)
+            _, val, per, _np = unita(V)
             if val not in VALUTE or (val != "EUR" and val not in CAMBI["tassi"]):
                 errori.append(f"{P['slug']}/{V['id']}: valuta {val} senza cambio BCE")
             if per not in ("month", "year"):
