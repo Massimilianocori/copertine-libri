@@ -27,7 +27,7 @@ NOME = "Italy Strikes Today"
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console, proprietà https://italy-strikes-today.netlify.app (non rimuoverla)
 # Satelliti (calcolatore codice fiscale, guida multe ZTL): spenti finché Massimiliano non dice sì alla pubblicazione.
 # Per vederli in prova senza pubblicarli: ITALYSTRIKES_SATELLITI=1 python3 italystrikes/genera.py (in una copia).
-SATELLITI_ATTIVI = False
+SATELLITI_ATTIVI = True  # sì di Massimiliano il 10/10/2026
 URL_DATI_LIVE = ("https://raw.githubusercontent.com/Massimilianocori/copertine-libri/"
                  "ccr-b7fd6b9e-n096cr/italystrikes/dati/vista.json")
 URL_REGISTRO = "https://scioperi.mit.gov.it/mit2/public/scioperi"
@@ -741,6 +741,13 @@ def griglia_mesi(rel):
         for y, m in mesi_da_mostrare() if (y, m) >= (OGGI.year, OGGI.month)) + "</div>"
 
 
+def strumenti_home():
+    if not satelliti_attivi():
+        return ""
+    return ('<h2>Tools for visitors</h2><div class="griglia"><a href="codice-fiscale-calculator/">Codice fiscale calculator'
+            '<small>Italian tax code for foreigners</small></a><a href="ztl-fines/">ZTL fines in Italy<small>amounts, deadlines, how to pay</small></a></div>')
+
+
 # ---------------------------------------------------------------- pagine
 def home():
     rel = "./"
@@ -777,6 +784,7 @@ def home():
 <h2>Airports</h2>
 <div class="griglia">{"".join(f'<a href="airports/{a["slug"]}/">{escape(a["nome"])}<small>{a["iata"]}</small></a>' for a in AEROPORTI)}</div>
 {modulo(rel)}
+{strumenti_home()}
 <h2>Good to know</h2>
 <div class="testo">
 <p>Strikes in Italian public transport must be announced at least 10 days in advance and are listed in the register of the Ministry of Infrastructure and Transport. During most strikes some services are guaranteed: <a href="guides/guaranteed-trains/">guaranteed trains</a>, <a href="guides/flights-during-strikes/">guaranteed flights</a> and <a href="guides/local-transport-strike-hours/">guaranteed hours for buses and metro</a>.</p>
