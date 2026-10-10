@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About and sources | Visa Income Checker</title>
+<meta name="description" content="Who runs the Visa Income Checker and the official sources for every visa income requirement.">
+<link rel="canonical" href="https://visa-income-checker.netlify.app/about/">
+<meta property="og:title" content="About and sources | Visa Income Checker">
+<meta property="og:description" content="Who runs the Visa Income Checker and the official sources for every visa income requirement.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://visa-income-checker.netlify.app/about/">
+<meta name="theme-color" content="#1E6B52">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E6B52'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='white'%3E%E2%82%AC%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#F6F7F4;--card:#FFFFFF;--ink:#17201B;--ink-2:#46534B;--ink-3:#66746B;--line:#DCE2DC;
+--accent:#1E6B52;--accent-2:#E5F2EC;--ok:#1E6B47;--ok-2:#E6F2EB;--warn:#8A4B00;--warn-2:#FFF2DF;--no:#9B2C2C;--no-2:#FBE9E9;--mute:#EEF1EE;--radius:14px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1512;--card:#17201B;--ink:#ECF2EE;--ink-2:#B8C6BD;
+--ink-3:#8C9B92;--line:#28362F;--accent:#7FD1B0;--accent-2:#17302A;--ok:#7FD3A6;--ok-2:#173226;--warn:#FFB867;--warn-2:#33250F;--no:#FF9C9C;--no-2:#3A1D1D;--mute:#1E2924}}
+:root[data-theme="dark"]{--bg:#0F1512;--card:#17201B;--ink:#ECF2EE;--ink-2:#B8C6BD;--ink-3:#8C9B92;--line:#28362F;--accent:#7FD1B0;
+--accent-2:#17302A;--ok:#7FD3A6;--ok-2:#173226;--warn:#FFB867;--warn-2:#33250F;--no:#FF9C9C;--no-2:#3A1D1D;--mute:#1E2924}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.6}
+a{color:var(--accent)}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+header.top{border-bottom:1px solid var(--line);background:var(--card)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px}
+.logo{font-weight:800;font-size:1.12rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.logo span{color:var(--accent)}
+nav.menu{display:flex;gap:14px;flex-wrap:wrap;font-size:.95rem}
+nav.menu a{color:var(--ink-2);text-decoration:none}
+nav.menu a:hover{color:var(--accent)}
+.hero{padding:28px 0 4px}
+h1{font-size:clamp(1.45rem,4.6vw,2.15rem);line-height:1.18;letter-spacing:-.02em;margin:0 0 12px}
+h2{font-size:1.3rem;margin:32px 0 12px;letter-spacing:-.01em}
+h3{font-size:1.05rem;margin:20px 0 8px}
+.lead{font-size:1.07rem;color:var(--ink-2);max-width:740px;margin:0 0 6px}
+.small{font-size:.88rem;color:var(--ink-3)}
+.avviso{background:var(--warn-2);border-left:4px solid var(--warn);padding:11px 14px;border-radius:8px;font-size:.94rem;margin:16px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;min-width:0}
+.cifra{font-size:1.05rem;margin:12px 0 0}
+.cifra strong{font-size:1.5rem;color:var(--accent)}
+.fonte{font-size:.85rem;color:var(--ink-3);margin:6px 0 0;overflow-wrap:anywhere}
+.fonte a{color:var(--ink-3)}
+.calc{display:grid;gap:12px}
+.calc .campi{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.calc label{display:grid;gap:4px;font-weight:600;font-size:.93rem;min-width:0}
+.calc input,.calc select{font:inherit;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;min-width:0}
+.calc .pieno{grid-column:1/-1}
+.risultato{background:var(--accent-2);border-radius:12px;padding:14px 16px;min-width:0;overflow-wrap:anywhere}
+.risultato .tot{font-size:1.6rem;font-weight:800;color:var(--accent);line-height:1.2}
+.risultato .conv{font-size:1.05rem;font-weight:700;margin-top:2px}
+.risultato ul{margin:8px 0 0;padding-left:20px;font-size:.93rem}
+.esito{margin-top:10px;padding:9px 12px;border-radius:10px;font-weight:600;font-size:.95rem}
+.esito.si{background:var(--ok-2);color:var(--ok)}
+.esito.no{background:var(--no-2);color:var(--no)}
+.formula{font-size:.9rem;color:var(--ink-2);margin:8px 0 0}
+.tab{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n,th.n{text-align:right;white-space:nowrap}
+th{background:var(--mute);font-size:.85rem}
+tr:last-child td{border-bottom:0}
+.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.griglia a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;text-decoration:none;color:var(--ink);font-weight:600;min-width:0;overflow-wrap:anywhere}
+.griglia a small{display:block;font-weight:400;color:var(--ink-3)}
+.griglia a:hover{border-color:var(--accent)}
+.testo p,.testo li{max-width:760px}
+.fonti li{margin-bottom:8px;overflow-wrap:anywhere}
+.form{display:grid;gap:12px}
+.form label{display:grid;gap:4px;font-weight:600;font-size:.95rem}
+.form input,.form select,.form textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+.form .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem;color:var(--ink-2)}
+.form .check input{width:auto;margin-top:4px}
+.btn{font:inherit;font-weight:700;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:12px 18px;cursor:pointer}
+:root[data-theme="dark"] .btn{color:#0F1512}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:#0F1512}}
+.btn:disabled{opacity:.6;cursor:wait}
+.hp{position:absolute;left:-9999px}
+.ok{background:var(--ok-2);border:1px solid var(--ok);padding:14px;border-radius:10px}
+.errore{color:var(--warn);font-weight:600}
+.ad-slot:empty{display:none}
+.briciole{font-size:.85rem;color:var(--ink-3);margin-top:14px}
+.briciole a{color:var(--ink-3)}
+.indice{border-left:4px solid var(--accent);padding:10px 14px;background:var(--card);border-radius:0 10px 10px 0;margin:12px 0}
+footer{margin-top:50px;border-top:1px solid var(--line);padding:22px 0 40px;font-size:.88rem;color:var(--ink-3)}
+footer a{color:var(--ink-3)}
+@media (max-width:760px){.calc .campi{grid-template-columns:1fr}
+header.top .wrap{flex-direction:column;align-items:flex-start;gap:4px;padding-top:10px;padding-bottom:10px}nav.menu{gap:12px;font-size:.92rem}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://visa-income-checker.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "About", "item": "https://visa-income-checker.netlify.app/about/"}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="logo" href="../">Visa Income <span>Checker</span></a>
+<nav class="menu" aria-label="Menu">
+<a href="../">Calculator</a><a href="../digital-nomad-visa-income-requirements/">Digital nomad visas</a><a href="../work-visa-salary-thresholds/">Work visas</a><a href="../how-it-works/">How it works</a><a href="../about/">About</a>
+</nav>
+</div></header>
+<main class="wrap">
+<nav class="briciole" aria-label="Breadcrumb"><a href="../">Home</a> › About</nav>
+<section class="hero"><h1>About Visa Income Checker</h1></section><div class="testo">
+<p>Visa Income Checker is an independent project that turns official visa income rules into a simple calculator, for the main applicant and each family member, in your currency. We are not affiliated with any government, consulate, immigration authority, law firm or visa agency.</p>
+<h2>Rules we follow</h2>
+<ul><li>Every amount comes from an official source (law, official gazette, ministry, consulate, immigration authority or statistics office). The link and the date we checked it are printed under the figure.</li>
+<li>No blogs, agencies or other visa sites are used as sources. If we cannot read the official rule, the visa is not published.</li>
+<li>This is information, not immigration or legal advice. Requirements change and consulates can ask for more: always check the official page or ask the consulate.</li></ul>
+<h2>All sources, visa by visa</h2>
+<h3><a href="../spain-digital-nomad-visa/">Spain digital nomad visa</a></h3><ul class="fonti"><li><a href="https://bibliovirtual.inclusion.gob.es/documents/d/unidadgrandesempresas/nomadas-digitales-faqs-espanol" rel="noopener">Preguntas frecuentes – Autorizaciones de residencia y trabajo de teletrabajadores internacionales (question 19)</a> – Unidad de Grandes Empresas y Colectivos Estratégicos, Ministry of Inclusion, ministry PDF, checked on 10 October 2026<br><span class="small">What it says: Holders: monthly 200% of the SMI; household of two (holder + family member): at least 75% of the SMI; 25% of the SMI for each further member.</span></li><li><a href="https://exteriores.gob.es/Consulados/santiagodechile/es/ServiciosConsulares/Documents/Requisitos%20visado%20TEL.pdf" rel="noopener">Requisitos visado de teletrabajo de carácter internacional (TEL)</a> – Consulate General of Spain in Santiago de Chile, consulate PDF, checked on 10 October 2026<br><span class="small">What it says: 200% of the SMI for the applicant, 75% for the first family member, 25% for each further one; the SMI is quoted in gross annual terms (its 2023 example is out of date).</span></li><li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-3815" rel="noopener">Real Decreto 126/2026, de 18 de febrero, por el que se fija el salario mínimo interprofesional para 2026 (BOE-A-2026-3815)</a> – Boletín Oficial del Estado, official gazette, checked on 10 October 2026<br><span class="small">What it says: Article 1: €1,221 a month. Article 3: the annual amount cannot be lower than €17,094.</span></li><li><a href="https://www.sepe.es/HomeSepe/es/prestaciones-desempleo/Cuantias-anuales.html" rel="noopener">SEPE – Cuantías anuales (SMI and IPREM 2026)</a> – Servicio Público de Empleo Estatal, ministry page, checked on 10 October 2026<br><span class="small">What it says: SMI 2026: €1,221.00 a month, €17,094.00 a year (14 payments).</span></li></ul><h3><a href="../spain-non-lucrative-visa/">Spain non-lucrative visa</a></h3><ul class="fonti"><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2024-24099" rel="noopener">Real Decreto 1155/2024, Reglamento de la Ley Orgánica 4/2000 – artículo 62 (BOE-A-2024-24099)</a> – Boletín Oficial del Estado, official gazette (consolidated text), checked on 10 October 2026<br><span class="small">What it says: Article 62(1): 400% of the IPREM a month for the applicant; 100% of the IPREM a month for each family member, in addition.</span></li><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-22128" rel="noopener">Ley 31/2022, de Presupuestos Generales del Estado para el año 2023, disposición adicional nonagésima (BOE-A-2022-22128)</a> – Boletín Oficial del Estado, official gazette (consolidated text), checked on 10 October 2026<br><span class="small">What it says: Monthly IPREM: €600; annual: €7,200.</span></li><li><a href="https://www.sepe.es/HomeSepe/es/prestaciones-desempleo/Cuantias-anuales.html" rel="noopener">SEPE – Cuantías anuales (SMI and IPREM 2026)</a> – Servicio Público de Empleo Estatal, ministry page, checked on 10 October 2026<br><span class="small">What it says: IPREM in 2026: €600.00 a month, €7,200.00 a year, set by Law 31/2022.</span></li></ul><h3><a href="../portugal-d8-digital-nomad-visa/">Portugal D8 digital nomad visa</a></h3><ul class="fonti"><li><a href="https://vistos.mne.gov.pt/en/national-visas/necessary-documentation/residency" rel="noopener">Residency visa – necessary documentation (remote professional activity: digital nomads; accompanying family members)</a> – Ministry of Foreign Affairs of Portugal, ministry page, checked on 10 October 2026<br><span class="small">What it says: Proof of average monthly income for the last three months of at least four monthly minimum guaranteed remunerations; family members: means under Ordinance 1563/2007, art. 2(2).</span></li><li><a href="https://vistos.mne.gov.pt/en/national-visas/necessary-documentation/means-of-subsistence" rel="noopener">Means of subsistence – National visas</a> – Ministry of Foreign Affairs of Portugal, ministry page, checked on 10 October 2026<br><span class="small">What it says: RMMG 2026: €920; first adult 100%, further adults 50%, children 30%.</span></li></ul><h3><a href="../portugal-d7-visa/">Portugal D7 visa (passive income and retirement)</a></h3><ul class="fonti"><li><a href="https://vistos.mne.gov.pt/en/national-visas/necessary-documentation/means-of-subsistence" rel="noopener">Means of subsistence – National visas</a> – Ministry of Foreign Affairs of Portugal, ministry page, checked on 10 October 2026<br><span class="small">What it says: Minimum monthly salary in 2026: €920; first adult 100%, second and additional adults 50%, children under 18 and non-minor dependent children 30%.</span></li><li><a href="https://vistos.mne.gov.pt/en/national-visas/necessary-documentation/residency" rel="noopener">Residency visa – retirement, religious purposes or people living from passive income</a> – Ministry of Foreign Affairs of Portugal, ministry page, checked on 10 October 2026<br><span class="small">What it says: Documents certifying the pension or the passive income; family members under Ordinance 1563/2007.</span></li></ul><h3><a href="../croatia-digital-nomad-visa/">Croatia digital nomad residence permit</a></h3><ul class="fonti"><li><a href="https://mup.gov.hr/aliens-281621/stay-and-work/temporary-stay-of-digital-nomads/286833" rel="noopener">Temporary stay of digital nomads</a> – Ministry of the Interior of the Republic of Croatia (MUP), ministry page, checked on 10 October 2026<br><span class="small">What it says: At least 2.5 average monthly net salaries of the previous year; currently €3,622.50 a month; +10% of the average monthly net salary for each additional family member or partner; €43,470 for 12 months, €65,205 for 18 months.</span></li></ul><h3><a href="../hungary-white-card/">Hungary White Card (digital nomad)</a></h3><ul class="fonti"><li><a href="https://oif.gov.hu/tajekoztatok/feher-kartya-digitalis-nomad-tartozkodas" rel="noopener">Fehér Kártya – digitális nomád tartózkodás (information sheet)</a> – National Directorate-General for Aliens Policing (OIF), Hungary, immigration authority page, checked on 10 October 2026<br><span class="small">What it says: Means are proven if the lawful income reached at least €3,000 net a month in the 6 months before entry; family members of a White Card holder cannot get a residence permit for family reunification.</span></li></ul><h3><a href="../italy-digital-nomad-visa/">Italy digital nomad visa</a></h3><ul class="fonti"><li><a href="https://www.gazzettaufficiale.it/eli/gu/2024/04/04/79/sg/pdf" rel="noopener">Decreto 29 febbraio 2024 – Modalità e requisiti per l&#x27;ingresso ed il soggiorno dei cittadini di Stati non appartenenti all&#x27;Unione europea che svolgono un&#x27;attività lavorativa altamente qualificata da remoto (G.U. Serie Generale n. 79 del 4 aprile 2024)</a> – Gazzetta Ufficiale della Repubblica Italiana, official gazette (PDF of the issue), checked on 10 October 2026<br><span class="small">What it says: Art. 3: minimum annual income from lawful sources not lower than three times the minimum level for exemption from healthcare co-payments; family reunification under art. 29 of the Consolidated Act.</span></li><li><a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1993-12-24;537~art8" rel="noopener">Legge 24 dicembre 1993, n. 537, art. 8, comma 16</a> – Normattiva (Italian State legislation portal), official legislation database, checked on 10 October 2026<br><span class="small">What it says: Exemption for households with total income below ITL 16 million (raised for a spouse and children).</span></li><li><a href="https://www.ecb.europa.eu/euro/intro/html/index.en.html" rel="noopener">Euro conversion rates of the former national currencies</a> – European Central Bank, central bank page, checked on 10 October 2026<br><span class="small">What it says: €1 = ITL 1,936.27.</span></li></ul><h3><a href="../germany-eu-blue-card/">Germany EU Blue Card</a></h3><ul class="fonti"><li><a href="https://www.bundesanzeiger.de/pub/publication/REViP4bN6jVdpGxPaiQ/content/REViP4bN6jVdpGxPaiQ/BAnz%20AT%2018.12.2025%20B3.pdf" rel="noopener">Bekanntmachung zu § 18g des Aufenthaltsgesetzes über die Mindestgehälter für die Blaue Karte EU vom 2. Dezember 2025 (BAnz AT 18.12.2025 B3)</a> – Federal Ministry of the Interior, Bundesanzeiger, official gazette PDF, checked on 10 October 2026<br><span class="small">What it says: Minimum gross salary 2026: €50,700 a year (§ 18g(1) sentence 1); €45,934.20 a year (§ 18g(1) sentence 2 and § 18g(2)).</span></li><li><a href="https://service.berlin.de/dienstleistung/324659/en/" rel="noopener">Blaue Karte EU – Erteilung (Service Berlin)</a> – State of Berlin, immigration office, authority page, checked on 10 October 2026<br><span class="small">What it says: 2026: €4,225.00 gross a month (€50,700 a year); shortage occupations €3,827.85 a month (€45,934.20 a year).</span></li></ul><h3><a href="../netherlands-highly-skilled-migrant/">Netherlands highly skilled migrant permit</a></h3><ul class="fonti"><li><a href="https://ind.nl/en/required-amounts-income-requirements" rel="noopener">Required amounts income requirements – highly skilled migrant and European Blue Card</a> – Immigration and Naturalisation Service (IND), immigration authority page, checked on 10 October 2026<br><span class="small">What it says: 2026, gross per month: 30 or older €5,942; younger than 30 €4,357; reduced salary criterion €3,122.</span></li></ul><h3><a href="../netherlands-eu-blue-card/">Netherlands EU Blue Card</a></h3><ul class="fonti"><li><a href="https://ind.nl/en/required-amounts-income-requirements" rel="noopener">Required amounts income requirements – highly skilled migrant and European Blue Card</a> – Immigration and Naturalisation Service (IND), immigration authority page, checked on 10 October 2026<br><span class="small">What it says: 2026, gross per month: European Blue Card €5,942; reduced salary criterion European Blue Card €4,754.</span></li></ul><h3><a href="../austria-eu-blue-card/">Austria EU Blue Card</a></h3><ul class="fonti"><li><a href="https://www.migration.gv.at/en/types-of-immigration/permanent-immigration/eu-blue-card/" rel="noopener">EU Blue Card</a> – Migration.gv.at – official website of the Austrian Federal Government on migration, government page, checked on 10 October 2026<br><span class="small">What it says: In 2026 at least €55,678 (annual salary plus special payments).</span></li></ul><h3><a href="../france-eu-blue-card/">France EU Blue Card (talent residence card)</a></h3><ul class="fonti"><li><a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F16922" rel="noopener">Carte talent : carte de séjour pluriannuelle d&#x27;un étranger en France (verified 1 June 2026)</a> – Service-Public.fr (Direction de l&#x27;information légale et administrative), government page, checked on 10 October 2026<br><span class="small">What it says: Talent – carte bleue européenne: gross annual pay at least 1.5 times the reference average gross annual salary, i.e. €59,373.00.</span></li></ul><h3><a href="../sweden-eu-blue-card/">Sweden EU Blue Card</a></h3><ul class="fonti"><li><a href="https://www.migrationsverket.se/en/you-want-to-apply/work/employee-or-self-employed/eu-blue-cards.html" rel="noopener">EU Blue Cards</a> – Swedish Migration Agency (Migrationsverket), immigration authority page, checked on 10 October 2026<br><span class="small">What it says: Since 15 July 2026, the salary threshold is SEK 53,625 per month (1.25 × the average gross salary).</span></li></ul><h3><a href="../denmark-pay-limit-scheme/">Denmark Pay Limit Scheme</a></h3><ul class="fonti"><li><a href="https://www.nyidanmark.dk/en-GB/You-want-to-apply/Work/Pay-limit-scheme" rel="noopener">Pay Limit Scheme</a> – New to Denmark – Danish Agency for International Recruitment and Integration (SIRI), immigration authority page, checked on 10 October 2026<br><span class="small">What it says: The minimum amount is DKK 552,000 (2026 level), regulated every year on 1 January.</span></li></ul><h3><a href="../ireland-critical-skills-employment-permit/">Ireland Critical Skills Employment Permit</a></h3><ul class="fonti"><li><a href="https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/" rel="noopener">Critical Skills Employment Permit</a> – Department of Enterprise, Tourism and Employment, ministry page, checked on 10 October 2026<br><span class="small">What it says: €40,904 (Critical Skills Occupations List); €36,848 (qualified within 12 months); over €68,911 (other eligible occupations).</span></li></ul><h3><a href="../uk-skilled-worker-visa/">United Kingdom Skilled Worker visa</a></h3><ul class="fonti"><li><a href="https://www.gov.uk/skilled-worker-visa/your-job" rel="noopener">Skilled Worker visa: your job</a> – GOV.UK (Home Office), government page, checked on 10 October 2026<br><span class="small">What it says: Standard salary rate at least £41,700 per year or the going rate, whichever is higher; at least £33,400 when you can be paid less.</span></li></ul><h3><a href="../uk-spouse-visa/">United Kingdom spouse / partner visa</a></h3><ul class="fonti"><li><a href="https://www.gov.uk/uk-family-visa/proof-income-partner" rel="noopener">Family visas: apply, extend or switch – financial requirements if you&#x27;re applying as a partner or spouse</a> – GOV.UK (Home Office), government page, checked on 10 October 2026<br><span class="small">What it says: Combined income at least £29,000 a year; extending (first applied before 11 April 2024): £18,600, plus £3,800 for the first child and £2,400 for each additional child, capped at £29,000.</span></li></ul>
+<h2>Corrections</h2>
+<p>Spotted a change or a mistake? <a href="../contact/?ref=about">Tell us</a>.</p></div>
+</main>
+<footer><div class="wrap">
+<p><strong>Visa Income Checker</strong> is an independent site, not affiliated with any government, consulate or immigration authority. Every amount is calculated from an official source (law, official gazette, ministry, immigration authority or statistics office) linked under the figure with the date we checked it.
+<strong>Requirements change, and consulates can ask for more: always check the official page or the consulate.</strong> Nothing on this site is immigration, legal or tax advice.</p>
+<p>Exchange rates: euro foreign exchange reference rates of the European Central Bank (source: ECB), for information only.</p>
+<p><a href="../about/">About</a> · <a href="../how-it-works/">How it works and sources</a> · <a href="../contact/">Contact</a> · <a href="../privacy.html">Privacy</a> · <a href="../contact/?ref=spotted-a-change">Spotted a change? Tell us</a></p>
+</div></footer>
+
+<script>
+(function(){
+  var src=document.querySelectorAll('input[name=source]');var ref='';try{var qs=new URLSearchParams(location.search);ref=qs.get('ref')||document.referrer||'direct';}catch(e){ref='direct';}
+  src.forEach(function(i){i.value=String(ref).slice(0,200);});
+  document.querySelectorAll('form.ajax').forEach(function(form){form.addEventListener('submit',function(ev){ev.preventDefault();
+    var err=form.querySelector('[data-errore]');err.hidden=true;if(!form.checkValidity()){form.reportValidity();return;}
+    var bt=form.querySelector('button');bt.disabled=true;
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+    .then(function(r){if(!r.ok)throw new Error(r.status);form.hidden=true;form.parentNode.querySelector('[data-ok]').hidden=false;})
+    .catch(function(){err.hidden=false;bt.disabled=false;});});});
+})();
+</script>
+</body>
+</html>

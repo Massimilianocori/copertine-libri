@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How it works: official rules, indices and ECB exchange rates | Visa Income Checker</title>
+<meta name="description" content="How the Visa Income Checker calculates minimum income for visas: official rules, official indices (SMI, IPREM, RMMG, average salary), family members and ECB exchange rates.">
+<link rel="canonical" href="https://visa-income-checker.netlify.app/how-it-works/">
+<meta property="og:title" content="How it works: official rules, indices and ECB exchange rates | Visa Income Checker">
+<meta property="og:description" content="How the Visa Income Checker calculates minimum income for visas: official rules, official indices (SMI, IPREM, RMMG, average salary), family members and ECB exchange rates.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://visa-income-checker.netlify.app/how-it-works/">
+<meta name="theme-color" content="#1E6B52">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E6B52'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='white'%3E%E2%82%AC%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#F6F7F4;--card:#FFFFFF;--ink:#17201B;--ink-2:#46534B;--ink-3:#66746B;--line:#DCE2DC;
+--accent:#1E6B52;--accent-2:#E5F2EC;--ok:#1E6B47;--ok-2:#E6F2EB;--warn:#8A4B00;--warn-2:#FFF2DF;--no:#9B2C2C;--no-2:#FBE9E9;--mute:#EEF1EE;--radius:14px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1512;--card:#17201B;--ink:#ECF2EE;--ink-2:#B8C6BD;
+--ink-3:#8C9B92;--line:#28362F;--accent:#7FD1B0;--accent-2:#17302A;--ok:#7FD3A6;--ok-2:#173226;--warn:#FFB867;--warn-2:#33250F;--no:#FF9C9C;--no-2:#3A1D1D;--mute:#1E2924}}
+:root[data-theme="dark"]{--bg:#0F1512;--card:#17201B;--ink:#ECF2EE;--ink-2:#B8C6BD;--ink-3:#8C9B92;--line:#28362F;--accent:#7FD1B0;
+--accent-2:#17302A;--ok:#7FD3A6;--ok-2:#173226;--warn:#FFB867;--warn-2:#33250F;--no:#FF9C9C;--no-2:#3A1D1D;--mute:#1E2924}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.6}
+a{color:var(--accent)}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+header.top{border-bottom:1px solid var(--line);background:var(--card)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px}
+.logo{font-weight:800;font-size:1.12rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.logo span{color:var(--accent)}
+nav.menu{display:flex;gap:14px;flex-wrap:wrap;font-size:.95rem}
+nav.menu a{color:var(--ink-2);text-decoration:none}
+nav.menu a:hover{color:var(--accent)}
+.hero{padding:28px 0 4px}
+h1{font-size:clamp(1.45rem,4.6vw,2.15rem);line-height:1.18;letter-spacing:-.02em;margin:0 0 12px}
+h2{font-size:1.3rem;margin:32px 0 12px;letter-spacing:-.01em}
+h3{font-size:1.05rem;margin:20px 0 8px}
+.lead{font-size:1.07rem;color:var(--ink-2);max-width:740px;margin:0 0 6px}
+.small{font-size:.88rem;color:var(--ink-3)}
+.avviso{background:var(--warn-2);border-left:4px solid var(--warn);padding:11px 14px;border-radius:8px;font-size:.94rem;margin:16px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;min-width:0}
+.cifra{font-size:1.05rem;margin:12px 0 0}
+.cifra strong{font-size:1.5rem;color:var(--accent)}
+.fonte{font-size:.85rem;color:var(--ink-3);margin:6px 0 0;overflow-wrap:anywhere}
+.fonte a{color:var(--ink-3)}
+.calc{display:grid;gap:12px}
+.calc .campi{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.calc label{display:grid;gap:4px;font-weight:600;font-size:.93rem;min-width:0}
+.calc input,.calc select{font:inherit;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;min-width:0}
+.calc .pieno{grid-column:1/-1}
+.risultato{background:var(--accent-2);border-radius:12px;padding:14px 16px;min-width:0;overflow-wrap:anywhere}
+.risultato .tot{font-size:1.6rem;font-weight:800;color:var(--accent);line-height:1.2}
+.risultato .conv{font-size:1.05rem;font-weight:700;margin-top:2px}
+.risultato ul{margin:8px 0 0;padding-left:20px;font-size:.93rem}
+.esito{margin-top:10px;padding:9px 12px;border-radius:10px;font-weight:600;font-size:.95rem}
+.esito.si{background:var(--ok-2);color:var(--ok)}
+.esito.no{background:var(--no-2);color:var(--no)}
+.formula{font-size:.9rem;color:var(--ink-2);margin:8px 0 0}
+.tab{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n,th.n{text-align:right;white-space:nowrap}
+th{background:var(--mute);font-size:.85rem}
+tr:last-child td{border-bottom:0}
+.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.griglia a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;text-decoration:none;color:var(--ink);font-weight:600;min-width:0;overflow-wrap:anywhere}
+.griglia a small{display:block;font-weight:400;color:var(--ink-3)}
+.griglia a:hover{border-color:var(--accent)}
+.testo p,.testo li{max-width:760px}
+.fonti li{margin-bottom:8px;overflow-wrap:anywhere}
+.form{display:grid;gap:12px}
+.form label{display:grid;gap:4px;font-weight:600;font-size:.95rem}
+.form input,.form select,.form textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+.form .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem;color:var(--ink-2)}
+.form .check input{width:auto;margin-top:4px}
+.btn{font:inherit;font-weight:700;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:12px 18px;cursor:pointer}
+:root[data-theme="dark"] .btn{color:#0F1512}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:#0F1512}}
+.btn:disabled{opacity:.6;cursor:wait}
+.hp{position:absolute;left:-9999px}
+.ok{background:var(--ok-2);border:1px solid var(--ok);padding:14px;border-radius:10px}
+.errore{color:var(--warn);font-weight:600}
+.ad-slot:empty{display:none}
+.briciole{font-size:.85rem;color:var(--ink-3);margin-top:14px}
+.briciole a{color:var(--ink-3)}
+.indice{border-left:4px solid var(--accent);padding:10px 14px;background:var(--card);border-radius:0 10px 10px 0;margin:12px 0}
+footer{margin-top:50px;border-top:1px solid var(--line);padding:22px 0 40px;font-size:.88rem;color:var(--ink-3)}
+footer a{color:var(--ink-3)}
+@media (max-width:760px){.calc .campi{grid-template-columns:1fr}
+header.top .wrap{flex-direction:column;align-items:flex-start;gap:4px;padding-top:10px;padding-bottom:10px}nav.menu{gap:12px;font-size:.92rem}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://visa-income-checker.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "How it works", "item": "https://visa-income-checker.netlify.app/how-it-works/"}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="logo" href="../">Visa Income <span>Checker</span></a>
+<nav class="menu" aria-label="Menu">
+<a href="../">Calculator</a><a href="../digital-nomad-visa-income-requirements/">Digital nomad visas</a><a href="../work-visa-salary-thresholds/">Work visas</a><a href="../how-it-works/">How it works</a><a href="../about/">About</a>
+</nav>
+</div></header>
+<main class="wrap">
+<nav class="briciole" aria-label="Breadcrumb"><a href="../">Home</a> › How it works</nav>
+<section class="hero"><h1>How the Visa Income Checker works</h1>
+<p class="lead">How we turn official rules into amounts, where the numbers come from and what can make them change.</p></section>
+<div class="testo">
+<h2>1. The official rule</h2>
+<p>For each visa we read the rule in an official source: a law or decree in the official gazette, a ministry or consulate page, or the immigration authority's page. The rule is either a fixed amount (for example €3,000 net a month for Hungary's White Card, €50,700 a year for Germany's Blue Card) or a percentage of an official index (for example 200% of Spain's minimum wage).</p>
+<h2>2. The official index</h2>
+<p>When the rule depends on an index, we take the index from the law that sets it or from the statistics office, and show how we got the monthly figure:</p>
+<h3>Spanish minimum wage (SMI) 2026, monthly equivalent: €1,424.50 a month</h3><p>€1,221 a month paid 14 times a year = €17,094 a year (Royal Decree 126/2026, articles 1 and 3); €17,094 ÷ 12 = €1,424.50 a month. Spain sets a new SMI every year by royal decree (the 2026 decree was published on 19 February 2026, retroactive to 1 January).</p><ul class="fonti"><li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-3815" rel="noopener">Real Decreto 126/2026, de 18 de febrero, por el que se fija el salario mínimo interprofesional para 2026 (BOE-A-2026-3815)</a> – Boletín Oficial del Estado, official gazette, checked on 10 October 2026<br><span class="small">What it says: Article 1: €1,221 a month. Article 3: the annual amount cannot be lower than €17,094.</span></li><li><a href="https://www.sepe.es/HomeSepe/es/prestaciones-desempleo/Cuantias-anuales.html" rel="noopener">SEPE – Cuantías anuales (SMI and IPREM 2026)</a> – Servicio Público de Empleo Estatal, ministry page, checked on 10 October 2026<br><span class="small">What it says: SMI 2026: €1,221.00 a month, €17,094.00 a year (14 payments).</span></li></ul><h3>Spanish IPREM 2026 (public income indicator), monthly: €600.00 a month</h3><p>IPREM = €600 a month (€7,200 a year), set by the 2023 State Budget Law and still in force in 2026. The IPREM changes only when a new State Budget Law (or a decree) sets it: check every January.</p><ul class="fonti"><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-22128" rel="noopener">Ley 31/2022, de Presupuestos Generales del Estado para el año 2023, disposición adicional nonagésima (BOE-A-2022-22128)</a> – Boletín Oficial del Estado, official gazette (consolidated text), checked on 10 October 2026<br><span class="small">What it says: Monthly IPREM: €600; annual: €7,200.</span></li><li><a href="https://www.sepe.es/HomeSepe/es/prestaciones-desempleo/Cuantias-anuales.html" rel="noopener">SEPE – Cuantías anuales (SMI and IPREM 2026)</a> – Servicio Público de Empleo Estatal, ministry page, checked on 10 October 2026<br><span class="small">What it says: IPREM in 2026: €600.00 a month, €7,200.00 a year, set by Law 31/2022.</span></li></ul><h3>Portuguese guaranteed minimum monthly wage (RMMG) 2026: €920.00 a month</h3><p>RMMG 2026 = €920 a month (decree no. 139/2025 of 29 December, as cited by the Ministry of Foreign Affairs). Portugal raises the minimum wage every January.</p><ul class="fonti"><li><a href="https://vistos.mne.gov.pt/en/national-visas/necessary-documentation/means-of-subsistence" rel="noopener">Means of subsistence – National visas (Portal das Comunidades / Vistos)</a> – Ministry of Foreign Affairs of Portugal, ministry page, checked on 10 October 2026<br><span class="small">What it says: Minimum monthly salary in 2026: €920; first adult 100%, second and further adults 50%, children under 18 and dependent children 30%.</span></li></ul><h3>Croatian average monthly net salary for 2025: €1,449.00 a month</h3><p>The Ministry of the Interior states the digital nomad amount as €3,622.50 = 2.5 average monthly net salaries of the previous year; €3,622.50 ÷ 2.5 = €1,449, the 2025 average published by the Croatian Bureau of Statistics (DZS). The average for the previous year changes each year (DZS publishes it early in the year); the Ministry then updates the amount.</p><ul class="fonti"><li><a href="https://mup.gov.hr/aliens-281621/stay-and-work/temporary-stay-of-digital-nomads/286833" rel="noopener">Temporary stay of digital nomads</a> – Ministry of the Interior of the Republic of Croatia (MUP), ministry page, checked on 10 October 2026<br><span class="small">What it says: 2.5 average monthly net salaries of the previous year (Official Gazette 14/21 and 3/26); currently at least €3,622.50 a month; +10% of the average monthly net salary for each family member.</span></li></ul><h3>Italian income level for exemption from healthcare co-payments: €8,263.31 a year</h3><p>Law 537/1993, art. 8(16): ITL 16,000,000 a year; at the fixed conversion rate of ITL 1,936.27 per euro = €8,263.31 a year. Fixed in the law: changes only if the law or the decree is amended.</p><ul class="fonti"><li><a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1993-12-24;537~art8" rel="noopener">Legge 24 dicembre 1993, n. 537, art. 8, comma 16</a> – Normattiva (Italian State legislation portal), official legislation database, checked on 10 October 2026<br><span class="small">What it says: Exemption for households with total income below ITL 16 million (raised for a spouse and children).</span></li><li><a href="https://www.ecb.europa.eu/euro/intro/html/index.en.html" rel="noopener">Euro conversion rates of the former national currencies</a> – European Central Bank, central bank page, checked on 10 October 2026<br><span class="small">What it says: €1 = ITL 1,936.27.</span></li></ul>
+<h2>3. Family members</h2>
+<p>Some rules add an amount for each family member (Spain, Portugal, Croatia, the UK partner visa when extending under the pre-2024 rules). Others set no amount for family members, and we say so instead of inventing one. The calculator counts "adults including you" and "children under 18".</p>
+<h2>4. Monthly and yearly amounts</h2>
+<p>When a rule is monthly, the yearly figure is the monthly amount × 12. When a rule is yearly (most salary thresholds), the monthly figure is the yearly amount ÷ 12. In countries that pay 13th and 14th salaries, the monthly payslip is lower than this figure.</p>
+<h2>5. Currency conversion</h2>
+<p>We convert with the euro foreign exchange reference rates published by the European Central Bank every working day at around 16:00 CET. The rates are read again by your browser when you open a page, so the conversion follows the latest published rate. For an amount in another currency (for example pounds), we first convert it to euros and then to your currency. Conversions are indicative: consulates usually check the amount in the official currency, sometimes with their own rate, and exchange rates move.</p>
+<p class="small">Source: ECB statistics – euro foreign exchange reference rates (<a href="https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml" rel="noopener">daily XML</a>). The reference rates are published for information purposes only.</p>
+<h2>6. Checking and updating</h2>
+<p>Every source shows the date we checked it. We re-check all programmes every January, when minimum wages, the Dutch and German salary thresholds, Denmark's pay limit and many other amounts change, and whenever an official page changes. If we cannot read an official source, we do not publish the visa.</p>
+<h2>Licences and attributions</h2>
+<ul><li>Laws, decrees and official notices (BOE, Gazzetta Ufficiale, Bundesanzeiger, Normattiva) are cited as facts with a link to the official text; we do not reproduce the documents.</li>
+<li>Exchange rates: European Central Bank, euro foreign exchange reference rates (source: ECB).</li>
+<li>UK: contains public sector information licensed under the Open Government Licence v3.0 (GOV.UK).</li>
+<li>Other ministry and immigration authority pages are cited with links; the amounts are facts taken from them.</li></ul>
+<h2>Not covered yet</h2>
+<p>Greece (digital nomad visa and financially independent person visa), Cyprus, Malta, Estonia, Czechia, Romania, Latvia, Iceland, Costa Rica, Brazil, Panama, Colombia, Thailand, the United Arab Emirates and Mexico: the official page could not be read by our checks, gave conflicting figures, or (Mexico) the amount depends on the consulate. Colombia's rule is in Colombian pesos, a currency the ECB does not publish.</p>
+</div>
+<p class="avviso"><strong>Not immigration or legal advice.</strong> These are the minimum amounts written in the official rules on the date we checked them. Requirements change, and consulates and immigration offices can ask for more or assess your documents differently: always check the official page or ask the consulate before you apply.</p>
+<div class="ad-slot" aria-hidden="true"></div>
+</main>
+<footer><div class="wrap">
+<p><strong>Visa Income Checker</strong> is an independent site, not affiliated with any government, consulate or immigration authority. Every amount is calculated from an official source (law, official gazette, ministry, immigration authority or statistics office) linked under the figure with the date we checked it.
+<strong>Requirements change, and consulates can ask for more: always check the official page or the consulate.</strong> Nothing on this site is immigration, legal or tax advice.</p>
+<p>Exchange rates: euro foreign exchange reference rates of the European Central Bank (source: ECB), for information only.</p>
+<p><a href="../about/">About</a> · <a href="../how-it-works/">How it works and sources</a> · <a href="../contact/">Contact</a> · <a href="../privacy.html">Privacy</a> · <a href="../contact/?ref=spotted-a-change">Spotted a change? Tell us</a></p>
+</div></footer>
+
+<script>
+(function(){
+  var src=document.querySelectorAll('input[name=source]');var ref='';try{var qs=new URLSearchParams(location.search);ref=qs.get('ref')||document.referrer||'direct';}catch(e){ref='direct';}
+  src.forEach(function(i){i.value=String(ref).slice(0,200);});
+  document.querySelectorAll('form.ajax').forEach(function(form){form.addEventListener('submit',function(ev){ev.preventDefault();
+    var err=form.querySelector('[data-errore]');err.hidden=true;if(!form.checkValidity()){form.reportValidity();return;}
+    var bt=form.querySelector('button');bt.disabled=true;
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+    .then(function(r){if(!r.ok)throw new Error(r.status);form.hidden=true;form.parentNode.querySelector('[data-ok]').hidden=false;})
+    .catch(function(){err.hidden=false;bt.disabled=false;});});});
+})();
+</script>
+</body>
+</html>

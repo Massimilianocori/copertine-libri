@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://visa-income-checker.netlify.app/sitemap.xml
