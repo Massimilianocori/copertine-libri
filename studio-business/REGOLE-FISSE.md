@@ -53,3 +53,9 @@ Strategia a catena di montaggio, decisa con Massimiliano:
 - **Negozi per sviluppatori** (7-modelli-diversi.md): solo Apify regge, ma mediana 4 utenti/Actor e 1 su 1.000 nuovi arriva a 10 utenti. Test passivo al massimo.
 - **Siti con pubblicità** (7-...): antismog NON regge (100-300 €/anno). La migliore: **"Italy strikes today/tomorrow" in inglese** (fonte unica RSS MIT, pubblico USA/UK/CA/AU, 0 €, 10-15 h; 3-5k €/anno a 18 mesi) + satelliti EN (codice fiscale calculator, ZTL). Nessun modello arriva a 10k/anno con stime prudenti.
 - **Conclusione generale dopo 8 studi**: nessuna singola idea supera i 10k €/anno prudenti con le regole date; la somma di 4-6 progetti piccoli + lead-gen è la strada. Nodo fiscale (CCIAA/commercianti) uguale per tutti i modelli: si apre al primo incasso.
+
+## Esito della ricerca "business con investimento" (10/10/2026, sera) — `intelaiatura/9-investimenti.md`
+- Nessuna delle 20 candidate (acquisto siti, vending, photo booth, lead-gen cittadinanza/relocation, affiliazione, YouTube, domini, EV…) unisce alto rendimento e alta probabilità con 0-10k €. Il costo fisso fiscale (~3.000 €/anno commercianti) rende in perdita qualunque attività commerciale sotto i 3.000 €/anno di utile.
+- Fascia A (0-3k): A1 affiliazione viaggi/lingua sui siti online (0 €); A2 sito EN "Retire/Move to Italy" con partner relocation (0 €); A3 il mestiere di fotografo venduto meglio (Ads matrimoni 300 € + photo booth extra ≤ 800 € dopo 3 acconti).
+- Fascia B (3-10k): B1 riserva fiscale + annunci sui siti che passano il test di novembre; B2 un sito-test ≤ 3.000 $ solo dopo risposta fiscale scritta; B3 cabina photo booth solo dopo una stagione con ≥ 10 eventi. Vending e simili: no, con i numeri.
+- Prossimo passo che dipende da Massimiliano: domanda fiscale gratuita (Fiscozen/Flextax) e iscrizioni ai programmi di affiliazione.
