@@ -431,7 +431,10 @@ def scrivi_calendari():
         voci = [v for v in recenti() if (tipo == "passengers" and any(x in PASSEGGERI for x in v["settori"]))
                 or (tipo == "sector" and val in v["settori"]) or (tipo == "city" and val in v["citta"])]
         nuovo = calendario(nome, voci, url)
-        vecchio = (cart / f).read_text(encoding="utf-8") if (cart / f).exists() else ""
+        vecchio = ""
+        if (cart / f).exists():
+            with open(cart / f, encoding="utf-8", newline="") as fh:  # newline="": tiene i \r\n, altrimenti il confronto fallisce sempre
+                vecchio = fh.read()
         # DTSTAMP cambia a ogni scrittura: si riscrive solo se cambia qualcos'altro (meno commit inutili)
         if re.sub(r"DTSTAMP:\S+", "", vecchio) != re.sub(r"DTSTAMP:\S+", "", nuovo):
             with open(cart / f, "w", encoding="utf-8", newline="") as fh:
