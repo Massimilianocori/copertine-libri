@@ -369,6 +369,75 @@ def scrivi_vista():
     (DATI / "vista.json").write_text(json.dumps(vista, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
 
 
+# ---------------------------------------------------------------- calendari (iCal)
+# File .ics in dati/calendari/, riscritti a ogni lettura del registro (due volte al giorno) e serviti da GitHub:
+# così restano aggiornati anche tra una pubblicazione Netlify e l'altra.
+URL_CAL_BASE = URL_DATI_LIVE.rsplit("/", 1)[0] + "/calendari/"
+CAL_SETTORI = {"trains": "Train strikes", "flights": "Flight and airport strikes", "local-transport": "Bus, metro and tram strikes"}
+
+
+def _ics_testo(t):
+    return t.replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", "\\n")
+
+
+def _ics_riga(r):
+    b = r.encode("utf-8")
+    out, cur = [], b""
+    for ch in r:
+        c = ch.encode("utf-8")
+        if len(cur) + len(c) > (75 if not out else 74):
+            out.append(cur)
+            cur = b""
+        cur += c
+    out.append(cur)
+    return "\r\n ".join(x.decode("utf-8") for x in out) if len(b) > 75 else r
+
+
+def calendario(nome, voci, pagina_url):
+    stamp = datetime.now(ZoneInfo("UTC")).strftime("%Y%m%dT%H%M%SZ")
+    righe = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Italy Strikes Today//Strike calendar//EN", "CALSCALE:GREGORIAN",
+             "METHOD:PUBLISH", f"X-WR-CALNAME:{_ics_testo(nome)}", "X-WR-TIMEZONE:Europe/Rome",
+             "REFRESH-INTERVAL;VALUE=DURATION:PT6H", "X-PUBLISHED-TTL:PT6H"]
+    for v in voci:
+        fine = (d(v["fine"]) + timedelta(days=1)).strftime("%Y%m%d")
+        annullato = v["stato"] in ("revocato", "rimosso dal registro")
+        titolo = ("Called off? " if v["stato"] == "rimosso dal registro" else "Called off: " if v["stato"] == "revocato" else "Strike: ") + v["titolo"]
+        desc = (f"Hours: {v.get('ore_en') or v['ore']}\nOriginal: {v['ore']}\nWho: {(v['chi'] + ' (' + v['categoria'] + ')') if v['chi'] else v['categoria']}\nWhere: {v['dove']}\n"
+                + (f"Register note: {v['nota_en'] or v['note']}\n" if v["note"] else "")
+                + ("No longer listed in the official register: probably called off, check with the operator.\n" if v["stato"] == "rimosso dal registro" else "")
+                + f"Strikes can be called off or changed: always check with your operator.\n{pagina_url}\n"
+                f"Source: MIT strike register (CC BY 4.0), id {v['id']}")
+        righe += ["BEGIN:VEVENT", f"UID:mit-{v['id']}@italy-strikes-today.netlify.app", f"DTSTAMP:{stamp}",
+                  f"DTSTART;VALUE=DATE:{v['inizio'].replace('-', '')}", f"DTEND;VALUE=DATE:{fine}",
+                  f"SUMMARY:{_ics_testo(titolo)}", f"DESCRIPTION:{_ics_testo(desc)}", f"URL:{pagina_url}",
+                  "TRANSP:TRANSPARENT", f"STATUS:{'CANCELLED' if annullato else 'CONFIRMED'}", "END:VEVENT"]
+    righe.append("END:VCALENDAR")
+    return "\r\n".join(_ics_riga(r) for r in righe) + "\r\n"
+
+
+def elenco_calendari():
+    """(file, nome, filtro, url pagina) per tutti i calendari pubblicati."""
+    out = [("italy.ics", "Italy transport strikes (all passenger strikes)", "passengers", URL_SITO + "/")]
+    out += [(f"sector-{k}.ics", f"Italy: {n}", f"sector:{k}", f"{URL_SITO}/{k}/") for k, n in CAL_SETTORI.items()]
+    out += [(f"city-{c['slug']}.ics", f"{c['nome']} transport strikes", f"city:{c['slug']}", f"{URL_SITO}/{c['slug']}/") for c in CITTA]
+    return out
+
+
+def scrivi_calendari():
+    cart = DATI / "calendari"
+    cart.mkdir(exist_ok=True)
+    for f, nome, filtro, url in elenco_calendari():
+        tipo, _, val = filtro.partition(":")
+        voci = [v for v in recenti() if (tipo == "passengers" and any(x in PASSEGGERI for x in v["settori"]))
+                or (tipo == "sector" and val in v["settori"]) or (tipo == "city" and val in v["citta"])]
+        nuovo = calendario(nome, voci, url)
+        vecchio = (cart / f).read_text(encoding="utf-8") if (cart / f).exists() else ""
+        # DTSTAMP cambia a ogni scrittura: si riscrive solo se cambia qualcos'altro (meno commit inutili)
+        if re.sub(r"DTSTAMP:\S+", "", vecchio) != re.sub(r"DTSTAMP:\S+", "", nuovo):
+            with open(cart / f, "w", encoding="utf-8", newline="") as fh:
+                fh.write(nuovo)
+
+
 # ---------------------------------------------------------------- filtri (uguali nel JS)
 def nel_giorno(v, giorno):
     return v["inizio"] <= giorno.isoformat() <= v["fine"]
@@ -672,7 +741,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
 <p><strong>{NOME}</strong> is an independent site. Data from the <a href="{URL_REGISTRO}" rel="noopener">official strike register of the Italian Ministry of Infrastructure and Transport (MIT)</a>, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>; we are not affiliated with MIT, unions or transport operators.
 <strong>Strikes can be called off or changed at short notice. Always check with your train operator, airline or local transport company before travelling.</strong> Nothing on this site is legal advice.</p>
 <p>Official register last updated: <span data-reg>{data_breve(d(AGGIORNATO))}</span> · checked <span data-letto>{escape(LETTO)} (Italy time)</span><br>
-<a href="{rel}about/">About and sources</a> · <a href="{rel}contact/">Contact</a> · <a href="{rel}privacy.html">Privacy</a> · <a href="{rel}guides/">Guides</a></p>
+<a href="{rel}about/">About and sources</a> · <a href="{rel}contact/">Contact</a> · <a href="{rel}privacy.html">Privacy</a> · <a href="{rel}guides/">Guides</a> · <a href="{rel}calendar/">Strikes calendar</a> · <a href="{rel}for-businesses/">For businesses</a></p>
 </div></footer>
 {dati_html}
 <script>{JS}</script>
@@ -1003,12 +1072,75 @@ def pagina_acqua_alta():
            corpo, briciole=[("Venice", "venice/"), ("Acqua alta", "venice-acqua-alta/")])
 
 
+def pagina_calendari():
+    from urllib.parse import quote
+    rel = "../"
+
+    def riga(f, nome):
+        https = URL_CAL_BASE + f
+        webcal = "webcal://" + https.split("://", 1)[1]
+        google = "https://calendar.google.com/calendar/render?cid=" + quote(webcal, safe="")
+        return (f'<li><strong>{escape(nome)}</strong><br><a href="{escape(google)}" rel="noopener">Add to Google Calendar</a> · '
+                f'<a href="{escape(webcal)}">Apple / Outlook</a> · <a href="{escape(https)}" rel="noopener">calendar link (.ics)</a></li>')
+    cal = elenco_calendari()
+    corpo = f"""<section class="hero"><h1>Italy strikes calendar: add strikes to Google Calendar, Apple or Outlook</h1>
+<p class="lead">Subscribe once and every transport strike for Italy, your city or your type of transport appears in your own calendar, updated automatically from the official register.</p></section>
+<div class="testo">
+<h2>All of Italy and by type of transport</h2>
+<ul>{"".join(riga(f, n) for f, n, _, _ in cal[:4])}</ul>
+<h2>By city</h2>
+<ul>{"".join(riga(f, n) for f, n, _, _ in cal[4:])}</ul>
+<h2>How it works</h2>
+<ul><li>Each strike is an all-day event with the hours, who is striking and a link to our page. National rail strikes often start at 21:00 the evening before: the hours are in the event.</li>
+<li>Calendars are rebuilt twice a day from the official register. Your calendar app checks for changes on its own schedule: Google Calendar can take several hours.</li>
+<li>If a strike is called off, the event is marked as cancelled.</li>
+<li>On a phone: Google Calendar subscriptions are added from a computer; on iPhone, tap "Apple / Outlook".</li></ul>
+<p class="small">Data from the strike register of the Italian Ministry of Infrastructure and Transport (CC BY 4.0). Strikes can be called off or changed at short notice: always check with your operator before travelling.</p>
+</div>
+{AD}
+{modulo(rel)}"""
+    pagina("calendar/", "Italy strikes calendar: subscribe in Google Calendar, Apple or Outlook",
+           "Add Italian transport strikes to your calendar: all of Italy, trains, flights, buses and metro, or your city. Free, updated twice a day from the official register.",
+           corpo, briciole=[("Strikes calendar", "calendar/")])
+
+
+def pagina_aziende():
+    rel = "../"
+    corpo = f"""<section class="hero"><h1>Italy strike data for travel businesses</h1>
+<p class="lead">For tour operators, travel agencies, hotels, relocation services and travel apps: every Italian transport strike from the official register, in English, as a calendar or as data, updated twice a day.</p></section>
+<div class="testo">
+<h2>What you can use today, free</h2>
+<ul><li><strong>Calendars (iCal)</strong> for all of Italy, trains, flights, local transport and 15 cities: see the <a href="{rel}calendar/">strikes calendar</a>. Add them to a shared team calendar.</li>
+<li><strong>JSON data</strong> with every strike of the last weeks and the months ahead, in English and Italian, with sectors, cities and airports already worked out: <a href="{escape(URL_DATI_LIVE)}" rel="noopener">vista.json</a>.</li>
+<li><strong>Pages to link</strong> for your customers: <a href="{rel}today/">today</a>, <a href="{rel}tomorrow/">tomorrow</a>, each <a href="{rel}#cities">city</a> and <a href="{rel}airports/">airport</a>.</li></ul>
+<p class="small">The data comes from the strike register of the Italian Ministry of Infrastructure and Transport, licensed under CC BY 4.0. If you reuse it, credit the Ministry's register and link to {NOME}.</p>
+<h2>Need something specific?</h2>
+<p>A feed for your destinations only, alerts by email or webhook to your team, data in your format, or a widget for your website. Tell us what you need: we will reply by email.</p>
+<form class="form ajax" name="business" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="business">
+<p class="hp"><label>Do not fill this in <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+<label>Your work email<input type="email" name="email" required autocomplete="email"></label>
+<label>Company and website<input type="text" name="company" required></label>
+<label>What do you need?<textarea name="need" rows="4" required placeholder="e.g. strikes for Rome, Florence and Venice by email to our ops team"></textarea></label>
+<label class="check"><input type="checkbox" name="consent" value="yes" required>
+<span>I agree that {NOME} uses these details to reply to this request. I have read the <a href="{rel}privacy.html">privacy notice</a>.</span></label>
+<button class="btn" type="submit">Send request</button>
+<p class="errore" data-errore hidden>Sorry, it did not work. Please try again in a moment.</p>
+</form>
+<div class="ok" data-ok hidden><strong>Thank you!</strong> We will reply by email.</div>
+</div>"""
+    pagina("for-businesses/", "Italy strike data for travel businesses: calendars, JSON, alerts",
+           "Italian transport strike data for tour operators, travel agencies and apps: iCal calendars, JSON feed and custom alerts, from the official register.",
+           corpo, briciole=[("For businesses", "for-businesses/")])
+
+
 def strumenti_home():
     if not satelliti_attivi():
         return ""
     return ('<h2>Tools for visitors</h2><div class="griglia"><a href="codice-fiscale-calculator/">Codice fiscale calculator'
             '<small>Italian tax code for foreigners</small></a><a href="ztl-fines/">ZTL fines in Italy<small>amounts, deadlines, how to pay</small></a>'
-            '<a href="venice-acqua-alta/">Venice acqua alta<small>high tide forecast today and tomorrow</small></a></div>')
+            '<a href="venice-acqua-alta/">Venice acqua alta<small>high tide forecast today and tomorrow</small></a>'
+            '<a href="calendar/">Strikes calendar<small>add strikes to Google, Apple or Outlook</small></a></div>')
 
 
 # ---------------------------------------------------------------- pagine
@@ -1591,11 +1723,11 @@ def contatti():
 def privacy():
     corpo = f"""<section class="hero"><h1>Privacy notice</h1><p class="small">Last updated: October 2026</p></section><div class="testo">
 <h2>Who is responsible</h2><p>The data controller is Massimiliano Cori (Italy), who runs {NOME} as an independent project. You can contact us through the <a href="contact/">contact form</a> or by replying to any email we send.</p>
-<h2>What we collect</h2><p>Only what you type in our forms: for strike alerts, your email, travel dates and place; for the contact form, your email and message. We also record the page or link you came from, to understand which channels work.</p>
+<h2>What we collect</h2><p>Only what you type in our forms: for strike alerts, your email, travel dates and place; for the contact form, your email and message; for the business request form, your work email, company and request. We also record the page or link you came from, to understand which channels work.</p>
 <h2>Why</h2><p>To send you strike alerts for your travel dates, and to answer your messages. The legal basis is your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time.</p>
 <h2>Who processes data for us</h2><p>The site and its forms are hosted by Netlify, Inc., which stores form data on our behalf and may process it outside the EU with the safeguards required by the GDPR (standard contractual clauses). We do not sell or share your data.</p>
 <h2>Cookies</h2><p>This site does not use profiling cookies or analytics tools. If we add advertising in the future, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>
-<h2>How long</h2><p>Alert data is kept until your travel dates have passed, and then deleted within 60 days, unless you ask us to delete it earlier.</p>
+<h2>How long</h2><p>Alert data is kept until your travel dates have passed, and then deleted within 60 days, unless you ask us to delete it earlier. Contact and business requests are kept for up to 12 months after our last exchange.</p>
 <h2>Your rights</h2><p>You can ask for access, correction, deletion, restriction, portability and objection (Articles 15–22 GDPR) and you can complain to the Italian data protection authority (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>) or the authority in your country.</p></div>"""
     pagina("privacy.html", f"Privacy | {NOME}", f"Privacy notice of {NOME}.", corpo)
 
@@ -1641,6 +1773,7 @@ def controlli():
 def main():
     controlli()
     scrivi_vista()
+    scrivi_calendari()
     if "--solo-dati" in sys.argv:
         print(f"vista.json aggiornato: {len(recenti())} scioperi.")
         return
@@ -1672,6 +1805,8 @@ def main():
         pagina_aeroporto(a)
     guide()
     pagina_guida_pdf()
+    pagina_calendari()
+    pagina_aziende()
     if satelliti_attivi():
         pagina_codice_fiscale()
         pagina_ztl()

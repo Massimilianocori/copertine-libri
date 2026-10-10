@@ -1,0 +1,67 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Italy Strikes Today//Strike calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Palermo transport strikes
+X-WR-TIMEZONE:Europe/Rome
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:mit-8590@italy-strikes-today.netlify.app
+DTSTAMP:20261010T190851Z
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:Strike: National general strike
+DESCRIPTION:Hours: Whole day\; rail: from 21:00 on 29 Oct to 20:59 on 30 Oc
+ t\; motorways: from 22:00 on 29 Oct\nOriginal: INTERA GIORNATA - FERROVIAR
+ IO: DALLE 21.00 DEL 29/10 ALLE 20.59 DEL 30/10\; AUTOSTRADE: DALLE 22.00 D
+ EL 29/10\nWho: SCIOPERO GENERALE SETTORI PUBBLICI E PRIVATI\nWhere: Whole 
+ of Italy\nStrikes can be called off or changed: always check with your ope
+ rator.\nhttps://italy-strikes-today.netlify.app/palermo/\nSource: MIT stri
+ ke register (CC BY 4.0)\, id 8590
+URL:https://italy-strikes-today.netlify.app/palermo/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:mit-8592@italy-strikes-today.netlify.app
+DTSTAMP:20261010T190851Z
+DTSTART;VALUE=DATE:20261120
+DTEND;VALUE=DATE:20261122
+SUMMARY:Strike: National multi-sector strike
+DESCRIPTION:Hours: Rail\, rail freight 23 hours: from 21:00 on 20 Nov to 20
+ :00 on 21 Nov\; local transport: whole shift on 21 Nov\nOriginal: SETTORE 
+ FERROVIARIO\, TRASPORTO MERCI SU ROTAIA 23 ORE: DALLE 21.00 DEL 20/11 ALLE
+  20.00 DEL 21/11\; *TPL: INTERA PRESTAZIONE DEL 21/11\nWho: PERSONALE IMPR
+ ESE CHE SVOLGONO ATTIVITA' FERROVIARIA\nWhere: Whole of Italy\nRegister no
+ te: The part marked * applies only to the companies listed in the register
+  note.\nStrikes can be called off or changed: always check with your opera
+ tor.\nhttps://italy-strikes-today.netlify.app/palermo/\nSource: MIT strike
+  register (CC BY 4.0)\, id 8592
+URL:https://italy-strikes-today.netlify.app/palermo/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:mit-8575@italy-strikes-today.netlify.app
+DTSTAMP:20261010T190851Z
+DTSTART;VALUE=DATE:20261204
+DTEND;VALUE=DATE:20261205
+SUMMARY:Strike: National general strike
+DESCRIPTION:Hours: Whole day\; air: times not announced\; rail from 21:00 o
+ n 3 Dec to 21:00 on 4 Dec\; motorways: from 22:00 on 3 Dec to 22:00 on 4 D
+ ec\, local transport: times set locally\nOriginal: INTERA GIORNATA - AEREO
+ : MODALITA' NON COMUNICATE\; FERROVIARIO DALLE 21.00 DEL 3/12 ALLE 21.00 D
+ EL 4/12\; AUTOSTRADE: DALLE 22.00 DEL 3/12 ALLE 22.00 DEL 4/12\, TPL: MODA
+ LITA' TERRITORIALI\nWho: SCIOPERO GENERALE CATEGORIE PUBBLICHE E PRIVATE\n
+ Where: Whole of Italy\nRegister note: A general strike can involve all pub
+ lic transport\; the register gives specific hours for: rail\, local transp
+ ort\, air\, motorways.\nStrikes can be called off or changed: always check
+  with your operator.\nhttps://italy-strikes-today.netlify.app/palermo/\nSo
+ urce: MIT strike register (CC BY 4.0)\, id 8575
+URL:https://italy-strikes-today.netlify.app/palermo/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

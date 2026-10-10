@@ -75,3 +75,8 @@ Data di inizio: **10/10/2026** (pubblicato da GitHub, progetto Netlify `italy-st
 - Pagine `venice-acqua-alta/` (EN) e `it/acqua-alta-venezia/` (IT), hreflang collegati; link da home (strumenti) e pagina Venezia.
 - Dati: `raccolta/maree.py` scarica la previsione ICPSM (dati.venezia.it, CC BY) in `dati/maree.json`; lo chiama `raccogli.py` alla fine (se fallisce non ferma gli scioperi), quindi si aggiorna due volte al giorno con il workflow. ATTENZIONE: senza `?t=` la fonte restituisce una copia vecchia (21/09). La pagina rilegge `maree.json` da GitHub nel browser.
 - Soglie (80/110/140 cm) dalla pagina del Centro Maree del Comune, letta tramite motore di ricerca: il sito del Comune blocca i robot (403 Incapsula). Da ricontrollare se si riesce ad aprirla.
+
+## Calendari iCal e pagina per le aziende (10/10/2026)
+- `genera.py` scrive 19 calendari in `dati/calendari/` (Italia, treni, voli, trasporto locale, 15 città) a ogni lettura del registro (anche con `--solo-dati`), serviti da raw.githubusercontent: restano aggiornati senza pubblicazioni Netlify. Si riscrivono solo se cambia un evento (DTSTAMP escluso dal confronto).
+- Pagine `calendar/` (link Google Calendar, webcal per Apple/Outlook, .ics) e `for-businesses/` (calendari, JSON `vista.json`, modulo Netlify `business` per richieste di feed personalizzati: nessun prezzo). Privacy aggiornata con il modulo business.
+- Se arrivano richieste dal modulo `business`: prezzo e offerta solo con il sì di Massimiliano e dopo la risposta fiscale.
