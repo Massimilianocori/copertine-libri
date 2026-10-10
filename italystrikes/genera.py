@@ -20,6 +20,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 RADICE = Path(__file__).resolve().parent
+sys.path.insert(0, str(RADICE))
 DATI = RADICE / "dati"
 SITO = RADICE / "sito"
 URL_SITO = "https://italy-strikes-today.netlify.app"  # cambiare qui se il nome del sito su Netlify è diverso
@@ -28,6 +29,9 @@ GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Consol
 # Satelliti (calcolatore codice fiscale, guida multe ZTL): spenti finché Massimiliano non dice sì alla pubblicazione.
 # Per vederli in prova senza pubblicarli: ITALYSTRIKES_SATELLITI=1 python3 italystrikes/genera.py (in una copia).
 SATELLITI_ATTIVI = True  # sì di Massimiliano il 10/10/2026
+# Versione italiana in /it/ (genera_it.py): spenta finché Massimiliano non dice sì alla pubblicazione.
+# Anteprima senza pubblicare: ITALYSTRIKES_IT=1 python3 italystrikes/genera.py (in una copia della cartella).
+VERSIONE_IT_ATTIVA = False
 IMPACT_VERIFICA = "30566286-17ab-476e-b7be-3af44af9c845"  # Impact (programma affiliati Airalo), aggiunto il 10/10/2026: non rimuoverlo
 URL_DATI_LIVE = ("https://raw.githubusercontent.com/Massimilianocori/copertine-libri/"
                  "ccr-b7fd6b9e-n096cr/italystrikes/dati/vista.json")
@@ -49,6 +53,7 @@ operatori = json.loads((DATI / "operatori.json").read_text(encoding="utf-8"))
 LINK = json.loads((DATI / "link.json").read_text(encoding="utf-8")) if (DATI / "link.json").exists() else {}
 AFFILIATI = json.loads((DATI / "affiliati.json").read_text(encoding="utf-8")) if (DATI / "affiliati.json").exists() else {}
 CITTA = luoghi["citta"]
+CITTA_IT = luoghi.get("citta_it", [])
 AEROPORTI = luoghi["aeroporti"]
 APT = {a["slug"]: a for a in AEROPORTI}
 REG_EN = luoghi["regioni_en"]
@@ -144,14 +149,34 @@ def ore_en(testo):
     return t[0].upper() + t[1:] if t else ""
 
 
-def operatore(cat):
+def operatore(cat, lingua="en"):
     up = cat.upper()
     for o in operatori:
         if re.search(o["re"], up):
+            if lingua == "it":
+                if o.get("navigante_it") and "NAVIGANTE" in up:
+                    return o["navigante_it"]
+                return o.get("it", "")
             if o.get("navigante") and "NAVIGANTE" in up:
                 return o["navigante"]
             return o["en"]
     return ""
+
+
+SETT_TIT_IT = {"Aereo": "trasporto aereo", "Ferroviario": "treni", "Trasporto pubblico locale": "trasporto pubblico locale",
+               "Marittimo": "traghetti e porti", "Trasporto merci": "trasporto merci", "Taxi": "taxi", "Ncc": "NCC",
+               "Circolazione e sicurezza stradale": "autostrade e soccorso stradale", "Appalti ferroviari": "appalti ferroviari",
+               "Elicotteri": "elicotteri"}
+NOMI_SETT_IT = {"trains": "treni", "flights": "aerei", "local-transport": "trasporto locale", "ferries": "traghetti",
+                "taxis": "taxi", "motorways": "autostrade", "freight": "merci"}
+
+
+def ore_leggibili(testo):
+    """Colonna 'modalità' del registro in minuscolo leggibile (stesso contenuto)."""
+    t = testo.lower().replace("modalita'", "modalità")
+    for sigla in ("tpl", "ncc", "rfi", "enav"):
+        t = re.sub(rf"\b{sigla}\b", sigla.upper(), t)
+    return t[:1].upper() + t[1:] if t else t
 
 
 def aeroporti_in(testo):
@@ -253,6 +278,61 @@ def leggi(s):
         nota_en.append("Public transport is not expected to be involved, according to the register.")
     if "CARGO" in s["categoria"].upper():
         nota_en.append("This strike concerns a cargo operator.")
+    # --- versione italiana
+    citta_it = []
+    for c in CITTA_IT:
+        if not passeggeri:
+            continue
+        if passeggeri == ["flights"]:
+            if any(a in apt for a in c["aeroporti"]):
+                citta_it.append(c["slug"])
+            continue
+        if nazionale or (reg == c["regione"] and (tutta_regione or prov == c["provincia"])) or any(a in apt for a in c["aeroporti"]):
+            citta_it.append(c["slug"])
+    if nazionale:
+        dove_it = "Tutta Italia"
+    elif tutta_regione:
+        dove_it = f"Regione {reg}"
+    else:
+        dove_it = f"Provincia di {prov} ({reg})"
+    if apt or apt_altri:
+        nomi = [APT[a]["nome_it"] for a in apt] if (apt and len(apt) < len(AEROPORTI)) else []
+        nomi += [x.title() for x in apt_altri]
+        if nomi:
+            dove_it = ("Aeroporto: " if len(nomi) == 1 else "Aeroporti: ") + ", ".join(nomi)
+    chi_it = operatore(s["categoria"], "it")
+    if generale:
+        titolo_it = "sciopero generale" if sett == "Generale" else "sciopero plurisettoriale"
+    else:
+        titolo_it = f"sciopero {SETT_TIT_IT.get(sett, sett.lower())}"
+        if chi_it:
+            titolo_it += f" – {chi_it}"
+    if ambito == "national":
+        if generale:
+            titolo_it = titolo_it[0].upper() + titolo_it[1:] + " nazionale"
+        else:
+            titolo_it = titolo_it.replace("sciopero", "Sciopero nazionale", 1)
+    elif ambito == "regional":
+        titolo_it = f"{reg}: {titolo_it}"
+    elif ambito == "local":
+        titolo_it = f"{prov}: {titolo_it}"
+    else:
+        titolo_it = titolo_it[0].upper() + titolo_it[1:]
+    nota_it = []
+    if generale and generico and not esclusi:
+        if menzionati:
+            nota_it.append("Uno sciopero generale può coinvolgere tutti i trasporti; il registro indica orari specifici per: "
+                           + ", ".join(NOMI_SETT_IT[x] for x in menzionati) + ".")
+        else:
+            nota_it.append("Il registro non elenca i settori: uno sciopero generale può coinvolgere tutti i trasporti.")
+    if s["note"].lstrip().startswith("*") and "*" in s["modalita"]:
+        nota_it.append("La parte con l'asterisco vale solo per le aziende elencate nella nota del registro.")
+    if esclusi:
+        nota_it.append("La nota del registro esclude: " + ", ".join(NOMI_SETT_IT[x] for x in esclusi) + ".")
+    if generale and not [x for x in settori if x in PASSEGGERI]:
+        nota_it.append("Secondo il registro i trasporti pubblici non sono coinvolti.")
+    if "CARGO" in s["categoria"].upper():
+        nota_it.append("Riguarda un operatore di trasporto merci.")
     stato = s["stato"]
     return {
         "id": s["id"], "inizio": s["inizio"], "fine": s["fine"], "stato": stato,
@@ -261,6 +341,8 @@ def leggi(s):
         "rilevanza": RIL_EN.get(ril, ril), "settore_it": sett, "settore_en": SETTORE_EN.get(sett, sett),
         "note": s["note"], "nota_en": " ".join(nota_en), "proclamazione": s["proclamazione"],
         "rimosso_il": s.get("rimosso_il", ""), "regione": reg, "provincia": prov,
+        "titolo_it": titolo_it, "dove_it": dove_it, "chi_it": chi_it, "nota_it": " ".join(nota_it),
+        "ore_it": ore_leggibili(s["modalita"]), "citta_it": citta_it,
     }
 
 
@@ -541,6 +623,13 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
         dati = {"letto_il": LETTO, "registro_aggiornato_al": AGGIORNATO, "scioperi": recenti()}
         dati_html = '<script type="application/json" id="dati">' + json.dumps(dati, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>"
     verifica = f'<meta name="google-site-verification" content="{GOOGLE_VERIFICA}">' if GOOGLE_VERIFICA else ""
+    alt_it = None
+    if italiano_attivo():
+        import genera_it
+        alt_it = genera_it.percorso_it(percorso)
+        if alt_it is not None:
+            verifica += (f'<link rel="alternate" hreflang="en" href="{url_pag}"><link rel="alternate" hreflang="it" href="{URL_SITO}/{alt_it}">'
+                         f'<link rel="alternate" hreflang="x-default" href="{url_pag}">')
     verifica += f'<meta name="impact-site-verification" value="{IMPACT_VERIFICA}">' if IMPACT_VERIFICA else ""
     robots = "" if indicizza else '<meta name="robots" content="noindex">'
     testo = f"""<!DOCTYPE html>
@@ -567,7 +656,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
 <header class="top"><div class="wrap">
 <a class="logo" href="{rel}">Italy Strikes <span>Today</span></a>
 <nav class="menu" aria-label="Menu">
-<a href="{rel}today/">Today</a><a href="{rel}tomorrow/">Tomorrow</a><a href="{rel}this-week/">This week</a><a href="{rel}#cities">Cities</a><a href="{rel}airports/">Airports</a><a href="{rel}guides/">Guides</a>
+<a href="{rel}today/">Today</a><a href="{rel}tomorrow/">Tomorrow</a><a href="{rel}this-week/">This week</a><a href="{rel}#cities">Cities</a><a href="{rel}airports/">Airports</a><a href="{rel}guides/">Guides</a>{f'<a href="{rel}{alt_it}" hreflang="it" lang="it">Italiano</a>' if alt_it is not None else ""}
 </nav>
 </div></header>
 <main class="wrap">
@@ -1074,6 +1163,10 @@ def guide():
 
 
 # ---------------------------------------------------------------- satelliti
+def italiano_attivo():
+    return VERSIONE_IT_ATTIVA or os.environ.get("ITALYSTRIKES_IT") == "1"
+
+
 def satelliti_attivi():
     return SATELLITI_ATTIVI or os.environ.get("ITALYSTRIKES_SATELLITI") == "1"
 
@@ -1322,6 +1415,9 @@ def main():
     about()
     contatti()
     privacy()
+    if italiano_attivo():
+        import genera_it
+        genera_it.costruisci(sys.modules[__name__])
     extra()
     print(f"Sito generato in {SITO}: {len(URLS)} pagine; {len(filtra('upcoming', 'all'))} scioperi in programma, "
           f"{len(VOCI)} nell'archivio. Registro aggiornato al {AGGIORNATO}.")

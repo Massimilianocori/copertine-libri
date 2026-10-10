@@ -194,7 +194,9 @@
    "parole": [
     "FIUMICINO"
    ],
-   "link": "apt_fco"
+   "link": "apt_fco",
+   "slug_it": "roma-fiumicino",
+   "nome_it": "Roma Fiumicino"
   },
   {
    "slug": "milan-malpensa",
@@ -205,7 +207,9 @@
    "parole": [
     "MALPENSA"
    ],
-   "link": "apt_mxp_lin"
+   "link": "apt_mxp_lin",
+   "slug_it": "milano-malpensa",
+   "nome_it": "Milano Malpensa"
   },
   {
    "slug": "milan-linate",
@@ -216,7 +220,9 @@
    "parole": [
     "LINATE"
    ],
-   "link": "apt_mxp_lin"
+   "link": "apt_mxp_lin",
+   "slug_it": "milano-linate",
+   "nome_it": "Milano Linate"
   },
   {
    "slug": "bergamo",
@@ -228,7 +234,9 @@
     "ORIO AL SERIO",
     "BERGAMO"
    ],
-   "link": "apt_bgy"
+   "link": "apt_bgy",
+   "slug_it": "bergamo-orio-al-serio",
+   "nome_it": "Bergamo Orio al Serio"
   },
   {
    "slug": "venice",
@@ -241,7 +249,9 @@
     "VENEZIA",
     "TESSERA"
    ],
-   "link": "apt_vce"
+   "link": "apt_vce",
+   "slug_it": "venezia-marco-polo",
+   "nome_it": "Venezia Marco Polo"
   },
   {
    "slug": "naples",
@@ -253,7 +263,9 @@
     "CAPODICHINO",
     "NAPOLI"
    ],
-   "link": "apt_nap"
+   "link": "apt_nap",
+   "slug_it": "napoli-capodichino",
+   "nome_it": "Napoli Capodichino"
   },
   {
    "slug": "bologna",
@@ -264,7 +276,9 @@
    "parole": [
     "BOLOGNA"
    ],
-   "link": "apt_blq"
+   "link": "apt_blq",
+   "slug_it": "bologna-marconi",
+   "nome_it": "Bologna Marconi"
   },
   {
    "slug": "pisa",
@@ -275,7 +289,9 @@
    "parole": [
     "PISA"
    ],
-   "link": "apt_psa"
+   "link": "apt_psa",
+   "slug_it": "pisa-galilei",
+   "nome_it": "Pisa Galileo Galilei"
   },
   {
    "slug": "florence",
@@ -287,7 +303,9 @@
     "PERETOLA",
     "FIRENZE"
    ],
-   "link": "apt_flr"
+   "link": "apt_flr",
+   "slug_it": "firenze-peretola",
+   "nome_it": "Firenze Peretola"
   }
  ],
  "altri_aeroporti": [
@@ -354,5 +372,273 @@
   "Padova": "Padua",
   "Siracusa": "Syracuse",
   "Mantova": "Mantua"
- }
+ },
+ "citta_it": [
+  {
+   "slug": "roma",
+   "nome": "Roma",
+   "provincia": "Roma",
+   "regione": "Lazio",
+   "aeroporti": [
+    "rome-fiumicino"
+   ],
+   "operatori": [
+    "op_atac"
+   ],
+   "en": "rome"
+  },
+  {
+   "slug": "milano",
+   "nome": "Milano",
+   "provincia": "Milano",
+   "regione": "Lombardia",
+   "aeroporti": [
+    "milan-malpensa",
+    "milan-linate",
+    "bergamo"
+   ],
+   "operatori": [
+    "op_atm"
+   ],
+   "en": "milan"
+  },
+  {
+   "slug": "napoli",
+   "nome": "Napoli",
+   "provincia": "Napoli",
+   "regione": "Campania",
+   "aeroporti": [
+    "naples"
+   ],
+   "operatori": [
+    "op_anm"
+   ],
+   "en": "naples"
+  },
+  {
+   "slug": "torino",
+   "nome": "Torino",
+   "provincia": "Torino",
+   "regione": "Piemonte",
+   "aeroporti": [],
+   "operatori": [
+    "op_gtt"
+   ],
+   "en": "turin"
+  },
+  {
+   "slug": "firenze",
+   "nome": "Firenze",
+   "provincia": "Firenze",
+   "regione": "Toscana",
+   "aeroporti": [
+    "florence",
+    "pisa"
+   ],
+   "operatori": [
+    "op_firenze",
+    "op_gest"
+   ],
+   "en": "florence"
+  },
+  {
+   "slug": "bologna",
+   "nome": "Bologna",
+   "provincia": "Bologna",
+   "regione": "Emilia-Romagna",
+   "aeroporti": [
+    "bologna"
+   ],
+   "operatori": [
+    "op_tper"
+   ],
+   "en": "bologna"
+  },
+  {
+   "slug": "venezia",
+   "nome": "Venezia",
+   "provincia": "Venezia",
+   "regione": "Veneto",
+   "aeroporti": [
+    "venice"
+   ],
+   "operatori": [
+    "op_actv"
+   ],
+   "en": "venice"
+  },
+  {
+   "slug": "genova",
+   "nome": "Genova",
+   "provincia": "Genova",
+   "regione": "Liguria",
+   "aeroporti": [],
+   "operatori": [
+    "op_amt_genova"
+   ],
+   "en": "genoa"
+  },
+  {
+   "slug": "bari",
+   "nome": "Bari",
+   "provincia": "Bari",
+   "regione": "Puglia",
+   "aeroporti": [],
+   "operatori": [
+    "op_amtab"
+   ],
+   "en": "bari"
+  },
+  {
+   "slug": "palermo",
+   "nome": "Palermo",
+   "provincia": "Palermo",
+   "regione": "Sicilia",
+   "aeroporti": [],
+   "operatori": [
+    "op_amat_palermo"
+   ],
+   "en": "palermo"
+  },
+  {
+   "slug": "catania",
+   "nome": "Catania",
+   "provincia": "Catania",
+   "regione": "Sicilia",
+   "aeroporti": [],
+   "operatori": [
+    "op_amts"
+   ],
+   "en": "catania"
+  },
+  {
+   "slug": "verona",
+   "nome": "Verona",
+   "provincia": "Verona",
+   "regione": "Veneto",
+   "aeroporti": [],
+   "operatori": [
+    "op_atv"
+   ],
+   "en": "verona"
+  },
+  {
+   "slug": "padova",
+   "nome": "Padova",
+   "provincia": "Padova",
+   "regione": "Veneto",
+   "aeroporti": [],
+   "operatori": [
+    "op_busitalia_veneto"
+   ],
+   "en": "padua"
+  },
+  {
+   "slug": "trieste",
+   "nome": "Trieste",
+   "provincia": "Trieste",
+   "regione": "Friuli-Venezia Giulia",
+   "aeroporti": [],
+   "operatori": [
+    "op_trieste"
+   ],
+   "en": "trieste"
+  },
+  {
+   "slug": "pisa",
+   "nome": "Pisa",
+   "provincia": "Pisa",
+   "regione": "Toscana",
+   "aeroporti": [
+    "pisa"
+   ],
+   "operatori": [
+    "op_firenze"
+   ],
+   "en": "pisa"
+  },
+  {
+   "slug": "bergamo",
+   "nome": "Bergamo",
+   "provincia": "Bergamo",
+   "regione": "Lombardia",
+   "aeroporti": [
+    "bergamo"
+   ],
+   "operatori": [],
+   "en": ""
+  },
+  {
+   "slug": "brescia",
+   "nome": "Brescia",
+   "provincia": "Brescia",
+   "regione": "Lombardia",
+   "aeroporti": [],
+   "operatori": [],
+   "en": ""
+  },
+  {
+   "slug": "cagliari",
+   "nome": "Cagliari",
+   "provincia": "Cagliari",
+   "regione": "Sardegna",
+   "aeroporti": [],
+   "operatori": [],
+   "en": ""
+  },
+  {
+   "slug": "messina",
+   "nome": "Messina",
+   "provincia": "Messina",
+   "regione": "Sicilia",
+   "aeroporti": [],
+   "operatori": [],
+   "en": ""
+  },
+  {
+   "slug": "salerno",
+   "nome": "Salerno",
+   "provincia": "Salerno",
+   "regione": "Campania",
+   "aeroporti": [],
+   "operatori": [],
+   "en": ""
+  },
+  {
+   "slug": "modena",
+   "nome": "Modena",
+   "provincia": "Modena",
+   "regione": "Emilia-Romagna",
+   "aeroporti": [],
+   "operatori": [],
+   "en": ""
+  },
+  {
+   "slug": "parma",
+   "nome": "Parma",
+   "provincia": "Parma",
+   "regione": "Emilia-Romagna",
+   "aeroporti": [],
+   "operatori": [],
+   "en": ""
+  },
+  {
+   "slug": "perugia",
+   "nome": "Perugia",
+   "provincia": "Perugia",
+   "regione": "Umbria",
+   "aeroporti": [],
+   "operatori": [],
+   "en": ""
+  },
+  {
+   "slug": "ancona",
+   "nome": "Ancona",
+   "provincia": "Ancona",
+   "regione": "Marche",
+   "aeroporti": [],
+   "operatori": [],
+   "en": ""
+  }
+ ]
 }
