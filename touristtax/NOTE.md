@@ -115,3 +115,7 @@ destinazione interessata, commit (Netlify pubblica da solo).
 2. Netlify → Forms: attivare il rilevamento dei moduli (modulo "contact") e le notifiche email.
 3. Google Search Console: aggiungere la proprietà `https://tourist-tax-calculator.netlify.app/`, verificare con il file
    HTML (va in `touristtax/sito/`, `genera.py` lo conserva) e inviare `sitemap.xml`.
+
+## Pubblicazione (10/10/2026)
+- Online su https://tourist-tax-calculator.netlify.app (Netlify, base `touristtax/sito`, pubblica solo se cambia `touristtax/sito`). Search Console verificata con il meta tag `GOOGLE_VERIFICA` in `genera.py` (non rimuoverlo) e sitemap inviata il 10/10/2026.
+- Test: al giorno 60 (9/12/2026) servono ≥ 200 impression a settimana in Search Console, altrimenti si rivede o si chiude.
