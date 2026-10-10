@@ -31,7 +31,7 @@ GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Consol
 SATELLITI_ATTIVI = True  # sì di Massimiliano il 10/10/2026
 # Versione italiana in /it/ (genera_it.py): spenta finché Massimiliano non dice sì alla pubblicazione.
 # Anteprima senza pubblicare: ITALYSTRIKES_IT=1 python3 italystrikes/genera.py (in una copia della cartella).
-VERSIONE_IT_ATTIVA = False
+VERSIONE_IT_ATTIVA = True  # sì di Massimiliano il 10/10/2026: esce con la pubblicazione settimanale del 17/10
 IMPACT_VERIFICA = "30566286-17ab-476e-b7be-3af44af9c845"  # Impact (programma affiliati Airalo), aggiunto il 10/10/2026: non rimuoverlo
 URL_DATI_LIVE = ("https://raw.githubusercontent.com/Massimilianocori/copertine-libri/"
                  "ccr-b7fd6b9e-n096cr/italystrikes/dati/vista.json")
