@@ -42,6 +42,7 @@ registro = json.loads((DATI / "registro.json").read_text(encoding="utf-8"))
 luoghi = json.loads((DATI / "luoghi.json").read_text(encoding="utf-8"))
 operatori = json.loads((DATI / "operatori.json").read_text(encoding="utf-8"))
 LINK = json.loads((DATI / "link.json").read_text(encoding="utf-8")) if (DATI / "link.json").exists() else {}
+AFFILIATI = json.loads((DATI / "affiliati.json").read_text(encoding="utf-8")) if (DATI / "affiliati.json").exists() else {}
 CITTA = luoghi["citta"]
 AEROPORTI = luoghi["aeroporti"]
 APT = {a["slug"]: a for a in AEROPORTI}
@@ -657,6 +658,20 @@ AVVISO = ('<p class="avviso">Strikes can be called off or changed at short notic
 AD = '<div class="ad-slot" aria-hidden="true"></div>'
 
 
+def box_affiliati():
+    """Riquadro 'Stuck by a strike?' con i link di affiliazione; vuoto finché non ci sono URL (vedi dati/affiliati.json)."""
+    voci = [v for k, v in AFFILIATI.items() if not k.startswith("_") and v.get("url")]
+    if not voci:
+        return ""
+    righe = "".join(
+        f'<li><a href="{escape(v["url"])}" rel="sponsored noopener" target="_blank">{escape(v["titolo"])}</a> '
+        f'<span class="small">({escape(v["nome"])}) {escape(v["testo"])}</span></li>' for v in voci)
+    return (f'<section class="card" style="margin-top:22px"><h2 style="margin-top:0">Stuck by a strike? Alternatives</h2>'
+            f'<ul style="margin:0 0 8px;padding-left:20px">{righe}</ul>'
+            f'<p class="small" style="margin:0">Some of these are affiliate links: if you book through them we may earn a small commission, '
+            f'at no extra cost to you. It helps keep this site free.</p></section>')
+
+
 def opzioni_luoghi():
     o = '<option value="Anywhere in Italy">Anywhere in Italy</option>'
     o += "".join(f'<option value="{escape(c["nome"])}">{escape(c["nome"])}</option>' for c in CITTA)
@@ -738,6 +753,7 @@ def home():
 {blocco("today", "passengers")}
 <h3>Tomorrow</h3>
 {blocco("tomorrow", "passengers")}
+{box_affiliati()}
 <h2 id="next">Next 30 days</h2>
 <div class="filtri" data-per="prossimi" role="group" aria-label="Filter by type">
 <button type="button" data-filtro="passengers" aria-pressed="true">All passenger transport</button>
@@ -776,6 +792,7 @@ def pagina_finestra(slug, nome, h1, titolo, descr):
 {fresco()}</section>
 {AVVISO}
 {blocco(nome, "passengers")}
+{box_affiliati()}
 {AD}
 <h2>Other strikes in the register</h2>
 <p class="small">Freight, motorway services and other strikes that do not normally affect passengers.</p>
@@ -803,6 +820,7 @@ def pagina_mese(y, m):
 {AVVISO}
 <h2>Strikes affecting travellers</h2>
 {blocco(chiave, "passengers")}
+{box_affiliati()}
 {AD}
 <h2>Freight and other strikes</h2>
 {blocco(chiave, "sector:freight")}
@@ -840,6 +858,7 @@ def pagina_settore(slug):
 {AVVISO}
 <h2>Upcoming {escape(nome.lower())} strikes</h2>
 {blocco("upcoming", "sector:" + slug)}
+{box_affiliati()}
 {AD}
 <h2>Other types of transport</h2>
 {griglia_settori(rel)}
@@ -869,6 +888,7 @@ def pagina_citta(c):
 {AVVISO}
 <h2>Upcoming strikes affecting {escape(c["nome"])}</h2>
 {blocco("upcoming", "city:" + c["slug"])}
+{box_affiliati()}
 {AD}
 <h2>Useful links for {escape(c["nome"])}</h2>
 <ul>
@@ -896,6 +916,7 @@ def pagina_aeroporto(a):
 {AVVISO}
 <h2>Upcoming strikes</h2>
 {blocco("upcoming", "airport:" + a["slug"])}
+{box_affiliati()}
 {AD}
 <h2>What to do</h2>
 <ul>

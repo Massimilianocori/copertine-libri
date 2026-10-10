@@ -31,6 +31,7 @@
 - Se il workflow si ferma: la routine settimanale `trig_017HFNXZX5fKYcerETVg5zq4` (lunedì) aggiorna i dati e controlla il workflow. Con un solo aggiornamento a settimana gli scioperi nuovi compaiono comunque prima della data (preavviso minimo 10 giorni), ma le revoche possono arrivare in ritardo.
 
 ## Mancano / da fare
+- **Affiliazione (decisa il 10/10)**: riquadro "Stuck by a strike? Alternatives" in `genera.py` (`box_affiliati`), su home, oggi/domani/settimane, mesi, settori, città, aeroporti; compare solo per le voci di `dati/affiliati.json` con URL. Massimiliano si iscrive (Travelpayouts: Omio, Welcome Pickups, EKTA; SafetyWing; Airalo/Impact) e manda i link; link con `rel="sponsored"` e dicitura di affiliazione. Verrà pubblicato alla prima pubblicazione utile (non sprecare un deploy solo per questo).
 - **Invio degli avvisi email** agli iscritti del modulo `alerts`: da costruire quando arrivano i primi iscritti (confronto giornaliero date/luogo con `vista.json`; serve un servizio di invio gratuito o la casella Gmail di Massimiliano con il suo sì). Fino ad allora la promessa in pagina va mantenuta a mano dalla routine settimanale.
 - `GOOGLE_VERIFICA` inserito il 10/10/2026 (stesso codice degli altri due siti: è legato all'account Google). Non rimuoverlo.
 - AdSense: richiesta al giorno ~20 se Search Console mostra pagine indicizzate e impression in crescita. Prima: privacy con sezione pubblicità e CMP di Google per il consenso UE.

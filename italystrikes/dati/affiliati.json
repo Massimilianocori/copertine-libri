@@ -1,0 +1,8 @@
+{
+ "_nota": "Link di affiliazione del sito. Il riquadro 'Stuck by a strike?' compare solo per le voci con url non vuoto. Inserire gli URL tracciati che Massimiliano riceve dopo l'iscrizione (Travelpayouts: Omio, Welcome Pickups, EKTA; SafetyWing Ambassador; Airalo via Impact). Mai inventare URL.",
+ "omio": {"url": "", "nome": "Omio", "titolo": "Find another train or bus", "testo": "Compare trains, buses and flights for the same day, including Italo and FlixBus."},
+ "welcome": {"url": "", "nome": "Welcome Pickups", "titolo": "Book an airport transfer", "testo": "A fixed-price driver when airport trains and buses are not running."},
+ "airalo": {"url": "", "nome": "Airalo", "titolo": "Get an eSIM before you land", "testo": "Data on your phone to check strike updates and rebook on the go."},
+ "safetywing": {"url": "", "nome": "SafetyWing", "titolo": "Travel insurance", "testo": "Covers trip delays and cancellations, depending on the plan."},
+ "ekta": {"url": "", "nome": "EKTA", "titolo": "Travel insurance (alternative)", "testo": "Short-term travel cover, bought online in minutes."}
+}
