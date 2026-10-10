@@ -1,0 +1,119 @@
+{
+ "controllato_il": "2026-10-10",
+ "pagine": {
+  "smart_borders": {
+   "url": "https://home-affairs.ec.europa.eu/policies/schengen/smart-borders_en",
+   "titolo": "European Commission – Smart Borders",
+   "http": 200,
+   "modificata": "2026-07-14"
+  },
+  "ees": {
+   "url": "https://home-affairs.ec.europa.eu/policies/schengen/smart-borders/entry-exit-system_en",
+   "titolo": "European Commission – Entry/Exit System (EES)",
+   "http": 200,
+   "modificata": "2026-04-10"
+  },
+  "notizia": {
+   "url": "https://home-affairs.ec.europa.eu/news/entryexit-system-will-become-fully-operational-10-april-2026-2026-03-30_en",
+   "titolo": "European Commission news, 30 March 2026 – The Entry/Exit System will become fully operational on 10 April 2026",
+   "http": 200,
+   "modificata": "2026-03-30"
+  }
+ },
+ "frasi": [
+  {
+   "pagina": "smart_borders",
+   "argomento": "etias",
+   "frase": "ETIAS is currently not in operation and no applications for travel authorisations are collected at this point.",
+   "trovata": true
+  },
+  {
+   "pagina": "smart_borders",
+   "argomento": "etias",
+   "frase": "The European Union will inform about the specific date for the start of ETIAS several months prior to its launch.",
+   "trovata": true
+  },
+  {
+   "pagina": "smart_borders",
+   "argomento": "ees",
+   "frase": "The Entry Exit System is fully operational since 10 April 2026.",
+   "trovata": true
+  },
+  {
+   "pagina": "ees",
+   "argomento": "ees",
+   "frase": "The EES is an automated IT system for registering non-EU nationals travelling for a short stay, each time they cross the external borders of 29 European countries using the system.",
+   "trovata": true
+  },
+  {
+   "pagina": "ees",
+   "argomento": "ees",
+   "frase": "The system registers the person's name, travel document data, biometric data (fingerprints and captured facial images) and the date and place of entry and exit, in full respect of fundamental rights and data protection.",
+   "trovata": true
+  },
+  {
+   "pagina": "ees",
+   "argomento": "ees",
+   "frase": "As of 10 April 2026, the EES replaces the stamping of passports allowing the automatic detection of overstayers (travellers who have exceeded the maximum duration of their authorised stay).",
+   "trovata": true
+  },
+  {
+   "pagina": "ees",
+   "argomento": "ees",
+   "frase": "On 30 July 2025, the Commission set 12 October 2025 as the launch date for the progressive start of operations of the Entry/Exit System (EES). The system became fully operational on 10 April 2026.",
+   "trovata": true
+  },
+  {
+   "pagina": "notizia",
+   "argomento": "ees",
+   "frase": "The EU’s new Entry/Exit System (EES) started operations on 12 October 2025 with a progressive roll-out in 29 European countries.",
+   "trovata": true
+  }
+ ],
+ "govuk": {
+  "url": "https://www.gov.uk/foreign-travel-advice/spain/entry-requirements",
+  "api": "https://www.gov.uk/api/content/foreign-travel-advice/spain",
+  "titolo": "GOV.UK (FCDO) – Spain travel advice, Entry requirements: 'New Schengen entry requirements'",
+  "aggiornata": "2026-08-12",
+  "frasi": [
+   {
+    "frase": "This means that when you travel into the Schengen area for short stays, you may need to register your biometric details, such as fingerprints and a photo. There is no cost for EES registration.",
+    "trovata": true
+   },
+   {
+    "frase": "On your first visit into a Schengen country, you may be asked to register your details at a special booth before proceeding to the immigration desk.",
+    "trovata": true
+   },
+   {
+    "frase": "Children aged 11 or younger will not have their fingerprints scanned but can be required to have their photo taken.",
+    "trovata": true
+   },
+   {
+    "frase": "You do not need to take any action before you arrive at the border on entry to the Schengen area, but EES may take each passenger extra time to complete so be prepared to wait longer than usual at the border and to allow more time for immigration controls when you depart the Schengen area.",
+    "trovata": true
+   },
+   {
+    "frase": "If you are departing the Schengen area by plane, allow extra time to reach your departure gate as EES checks may take place before boarding.",
+    "trovata": true
+   },
+   {
+    "frase": "If you enter the Schengen area through the Port of Dover, Eurotunnel at Folkestone or Eurostar at St Pancras International, any information will be taken at the border before you leave the UK.",
+    "trovata": true
+   },
+   {
+    "frase": "Your digital EES record is valid for 3 years.",
+    "trovata": true
+   },
+   {
+    "frase": "If you are long-term resident in a Schengen country, you are exempt from EES in all Schengen countries.",
+    "trovata": true
+   }
+  ],
+  "licenza": "Open Government Licence v3.0"
+ },
+ "sito_ufficiale": {
+  "ees": "https://travel-europe.europa.eu/ees_en",
+  "etias": "https://travel-europe.europa.eu/etias_en",
+  "nota": "Official EU website for EES and ETIAS. Not readable from our server (incomplete TLS certificate chain), so we link to it but quote the European Commission pages above."
+ }
+}

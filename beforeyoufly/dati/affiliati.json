@@ -1,0 +1,6 @@
+{
+ "_nota": "RIQUADRO AFFILIATI (segnaposto). Compare sul sito solo per le voci con 'url' non vuoto. Inserire qui gli URL tracciati che Massimiliano riceve dopo l'iscrizione ai programmi (assicurazione di viaggio, eSIM, parcheggi/lounge in aeroporto). Mai inventare URL.",
+ "assicurazione": {"url": "", "nome": "", "titolo": "Travel insurance", "testo": "Compare cover for medical costs and cancellations before you fly."},
+ "esim": {"url": "", "nome": "", "titolo": "Mobile data abroad (eSIM)", "testo": "Set up a data plan for your destination before you land."},
+ "aeroporto": {"url": "", "nome": "", "titolo": "Airport parking and lounges", "testo": "Book parking or a lounge at your departure airport."}
+}

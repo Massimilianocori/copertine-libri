@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://before-you-fly.netlify.app/sitemap.xml

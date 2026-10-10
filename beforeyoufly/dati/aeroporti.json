@@ -1,0 +1,881 @@
+{
+ "_nota": "Regole sui liquidi lette A MANO sulla pagina ufficiale di ogni aeroporto (o del gestore/autorità indicati) il 10/10/2026. Le frasi in 'citazioni' e 'eccezioni' sono copiate parola per parola. regola: '2l' = fino a 2 litri per contenitore ai controlli indicati; '100ml' = contenitori fino a 100 ml; 'dipende' = cambia per terminal/varco; 'contraddice' = due pagine ufficiali dicono cose diverse (mostrate entrambe). lettura: 'diretta' = pagina scaricata con richiesta HTTP normale (200); 'browser' = pagina letta con un browser automatico perché il sito blocca le richieste semplici o carica il testo con JavaScript. Ricontrollo: mensile (raccolta/liquidi.py + lettura a mano).",
+ "controllato_il": "2026-10-10",
+ "aeroporti": [
+  {
+   "slug": "heathrow",
+   "iata": "LHR",
+   "nome": "London Heathrow",
+   "citta": "London",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "2l",
+   "sintesi": "Up to 2 litres per container at Terminals 2, 3, 4 and 5; liquids stay in your bag",
+   "citazioni": [
+    "You can carry liquids in containers of up to 2 litres through security at Heathrow.",
+    "This applies at Terminals 2, 3, 4 and 5.",
+    "Leave liquids in your cabin bag when you go through security. You don't need to remove them for screening."
+   ],
+   "eccezioni": [
+    "Liquids in containers over 100ml can't be taken on flights to Australia.",
+    "Many airports outside Heathrow still have a 100ml liquids limit. Check the rules before your return journey."
+   ],
+   "url": "https://www.heathrow.com/at-the-airport/security-and-baggage/hand-baggage-and-liquids",
+   "titolo_fonte": "Heathrow – Hand baggage and liquids",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "gatwick",
+   "iata": "LGW",
+   "nome": "London Gatwick",
+   "citta": "London",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "2l",
+   "sintesi": "Up to 2 litres per container; not in metal or double-walled containers",
+   "citazioni": [
+    "Liquids can now be brought through security in containers of up to two litres, provided they are not in metal or double walled containers, these still need to be emptied prior to going through security."
+   ],
+   "eccezioni": [
+    "Please be aware that not all airports have the same equipment as London Gatwick, and these rules apply only to passengers departing from our airport."
+   ],
+   "url": "https://www.gatwickairport.com/passenger-guides/security.html",
+   "titolo_fonte": "London Gatwick – Security",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "edinburgh",
+   "iata": "EDI",
+   "nome": "Edinburgh",
+   "citta": "Edinburgh",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "2l",
+   "sintesi": "Up to 2 litres per container; liquids stay in your bag",
+   "citazioni": [
+    "You can now bring through up to two litres of liquids through security.",
+    "Liquids can stay in your bag - there's no longer any need to remove these.",
+    "You can bring multiple containers, as long as the containers are up to two litres."
+   ],
+   "eccezioni": [
+    "And frozen liquids and foodstuffs are not permitted to go in cabin baggage."
+   ],
+   "url": "https://www.edinburghairport.com/prepare/airport-security/liquids-food-items-electricals",
+   "titolo_fonte": "Edinburgh Airport – Liquids, food items and electricals",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "bristol",
+   "iata": "BRS",
+   "nome": "Bristol",
+   "citta": "Bristol",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "2l",
+   "sintesi": "Up to 2 litres per container; no plastic bag needed",
+   "citazioni": [
+    "Liquid Restrictions: The current maximum size of each liquid container at Bristol Airport is 2 litres. Keep your liquids in your bag (there's no need to use a clear plastic bag)."
+   ],
+   "eccezioni": [],
+   "url": "https://www.bristolairport.co.uk/at-the-airport/security",
+   "titolo_fonte": "Bristol Airport – Security",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "manchester",
+   "iata": "MAN",
+   "nome": "Manchester",
+   "citta": "Manchester",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "100ml",
+   "sintesi": "Containers under 100 ml; no plastic bag needed, liquids can stay in your bag",
+   "citazioni": [
+    "You can pack liquids, gels, and aerosols under 100ml each in your hand luggage. Liquids under 100ml no longer need to be in a plastic bag and can be left in your hand luggage.",
+    "Please note: Liquids, aerosols, and gels over 100ml each are not permitted through Security."
+   ],
+   "eccezioni": [],
+   "url": "https://www.manchesterairport.co.uk/help/security/",
+   "titolo_fonte": "Manchester Airport – Security",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "stansted",
+   "iata": "STN",
+   "nome": "London Stansted",
+   "citta": "London",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "100ml",
+   "sintesi": "Containers of 100 ml or less; liquids can stay in your bag",
+   "citazioni": [
+    "You can pack liquids in your hand luggage, as long as each liquid is under 100ml . These can be left in your hand luggage during the Security search.",
+    "Please note: Liquids, aerosols, and gels over 100ml each are not permitted through security."
+   ],
+   "eccezioni": [],
+   "url": "https://www.stanstedairport.com/help/security/",
+   "titolo_fonte": "London Stansted – Security",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "luton",
+   "iata": "LTN",
+   "nome": "London Luton",
+   "citta": "London",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "100ml",
+   "sintesi": "Containers up to 100 ml; no plastic bag, liquids stay in your bag",
+   "citazioni": [
+    "Liquids and gels should be kept in your hand luggage. They are allowed in containers of up to 100ml",
+    "You don’t need a plastic bag for your liquids anymore, and you don’t need to remove them from your luggage."
+   ],
+   "eccezioni": [],
+   "url": "https://www.london-luton.co.uk/inside-lla/security",
+   "titolo_fonte": "London Luton Airport – Security",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "east-midlands",
+   "iata": "EMA",
+   "nome": "East Midlands",
+   "citta": "Nottingham / Derby / Leicester",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "100ml",
+   "sintesi": "Containers under 100 ml; no plastic bag needed",
+   "citazioni": [
+    "You can pack liquids, gels and aerosols under 100ml each in your hand luggage. Liquids under 100ml no longer need to be in a plastic bag and can be left in your hand luggage.",
+    "Please note: Liquids, aerosols and gels greater than 100ml each are not permitted through security."
+   ],
+   "eccezioni": [],
+   "url": "https://www.eastmidlandsairport.com/help/security/",
+   "titolo_fonte": "East Midlands Airport – Security",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "aberdeen",
+   "iata": "ABZ",
+   "nome": "Aberdeen",
+   "citta": "Aberdeen",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "100ml",
+   "sintesi": "Containers up to 100 ml",
+   "citazioni": [
+    "Passengers are required to ensure that all liquids carried in cabin baggage do not exceed 100ml to help get you through the security checkpoint at Aberdeen International Airport."
+   ],
+   "eccezioni": [
+    "Please note: Rules on liquids in your cabin/hand baggage may differ between airports."
+   ],
+   "url": "https://www.aberdeenairport.com/aberdeen-airport-guide/airport-security/security-faqs/",
+   "titolo_fonte": "Aberdeen Airport – Security FAQs",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-10",
+   "nota": "The same page still shows an older notice about the Department for Transport reintroducing the 100ml limit 'from midnight on Saturday 8 June'. Both texts say 100ml."
+  },
+  {
+   "slug": "dublin",
+   "iata": "DUB",
+   "nome": "Dublin",
+   "citta": "Dublin",
+   "paese": "Ireland",
+   "area": "UK and Ireland",
+   "regola": "2l",
+   "sintesi": "Up to 2 litres per container; no limit on the number; no plastic bag",
+   "citazioni": [
+    "The previous 100ml maximum limit on liquids and gels no longer applies, and items in containers up to 2 litres can be brought through security.",
+    "There is no limit on the number of liquids and gels that can be carried in your carry-on baggage.",
+    "Liquids and gels no longer need to be packed inside clear plastic bags."
+   ],
+   "eccezioni": [],
+   "url": "https://www.dublinairport.com/at-the-airport/security/carry-on-baggage",
+   "titolo_fonte": "Dublin Airport – Carry-on baggage",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "frankfurt",
+   "iata": "FRA",
+   "nome": "Frankfurt",
+   "citta": "Frankfurt",
+   "paese": "Germany",
+   "area": "Europe",
+   "regola": "contraddice",
+   "sintesi": "Security page: 2 litres at most checkpoints (100 ml at some); the airport's downloadable leaflet still says 100 ml",
+   "citazioni": [
+    "At most security checkpoints in Terminal 1 and at all checkpoints in Terminal 3 , modern CT scanners are in use.",
+    "Therefore, you may carry liquids of up to 2 liters in your hand luggage. Packing them in a transparent, resealable bag is not required."
+   ],
+   "eccezioni": [
+    "The previous regulations for liquids still apply at the following checkpoints:",
+    "Gates C1, C2, C4, C6",
+    "Transfer checkpoints (for connecting passengers)",
+    "Here, liquids may only be carried in individual containers of up to 100 ml, packed in a transparent, resealable plastic bag with a total capacity of up to 1 liter."
+   ],
+   "contrasto": {
+    "citazione": "Liquids, aerosols and gels in containers of 100ml or less packed in a single, transparent, re-sealable 1-litre plastic bag.",
+    "url": "https://www.frankfurt-airport.com/content/dam/fraport-travel/airport/dokumente/reisevorbereitung/Gep%C3%A4ck/_EU_Provisions_Liquids%20EN.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/_EU_Provisions_Liquids%20EN.pdf",
+    "titolo": "Frankfurt Airport leaflet 'Flying with liquids is easy' (PDF linked from the security page)"
+   },
+   "url": "https://www.frankfurt-airport.com/en/travel-planning/check-in-luggage-controls/security-check.html",
+   "titolo_fonte": "Frankfurt Airport – Security check",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "munich",
+   "iata": "MUC",
+   "nome": "Munich",
+   "citta": "Munich",
+   "paese": "Germany",
+   "area": "Europe",
+   "regola": "contraddice",
+   "sintesi": "The page says 2 litres per container with CT scanners, but an image caption on the same page says 100 ml",
+   "citazioni": [
+    "state-of-the-art computed tomography (CT) scanners are being used at screening checkpoints in Terminals 1 and 2.",
+    "Liquids (up to two liters per container) and electronic devices may remain in carry-on luggage"
+   ],
+   "eccezioni": [
+    "At airports without CT technology, the 100-ml rule for liquids still applies."
+   ],
+   "contrasto": {
+    "citazione": "Electronic devices and liquids up to 100 ml may remain in your carry-on luggage.",
+    "url": "https://www.munich-airport.com/security-screening-and-passport-control-3949908",
+    "titolo": "Same Munich Airport page, caption under the CT scanner pictures"
+   },
+   "url": "https://www.munich-airport.com/security-screening-and-passport-control-3949908",
+   "titolo_fonte": "Munich Airport – Security screening and passport control",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "berlin",
+   "iata": "BER",
+   "nome": "Berlin Brandenburg",
+   "citta": "Berlin",
+   "paese": "Germany",
+   "area": "Europe",
+   "regola": "dipende",
+   "sintesi": "2 litres at CT checkpoints (T1 areas 1 and 5, T2); 100 ml at T1 areas 2 and 4 – the airport recommends 100 ml",
+   "citazioni": [
+    "Currently, security areas 1 and 5 in Terminal 1 and the security area in Terminal 2 are equipped with new security technology, known as CT scanner.",
+    "The other control areas 2 and 4 in Terminal 1 still have conventional control technology.",
+    "Liquid containers with a capacity of up to 2 litres may be carried in your hand baggage. Please note: double-walled containers (such as insulated flasks) should be empty."
+   ],
+   "eccezioni": [
+    "However, since it is not possible to predict which security checkpoint you will pass through, we still recommend following the general rule (maximum 100 ml per container in a 1-liter bag) to ensure a smooth screening process."
+   ],
+   "url": "https://ber.berlin-airport.de/en/flying/controls/security-control.html",
+   "titolo_fonte": "BER Airport – Security control",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "vienna",
+   "iata": "VIE",
+   "nome": "Vienna",
+   "citta": "Vienna",
+   "paese": "Austria",
+   "area": "Europe",
+   "regola": "2l",
+   "sintesi": "Containers up to 2,000 ml can stay in your cabin bag",
+   "citazioni": [
+    "Liquids (up to a container size of 2000 ml) and electrical/electronic devices may remain in cabin bag."
+   ],
+   "eccezioni": [
+    "Find out about the security regulations of the destination airports before departure. Other national laws may be stricter in some cases."
+   ],
+   "url": "https://viennaairport.com/en/passengers/airport/security_control",
+   "titolo_fonte": "Vienna Airport – Security control",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "rome-fiumicino",
+   "iata": "FCO",
+   "nome": "Rome Fiumicino",
+   "citta": "Rome",
+   "paese": "Italy",
+   "area": "Europe",
+   "regola": "2l",
+   "sintesi": "Up to 2 litres per container; 100 ml for direct US/Israel flights from Terminal 1 and some transfers",
+   "citazioni": [
+    "Starting from 26 July 2025, in compliance with the new provisions of the European Commission, liquids in hand baggage may be carried in containers with a capacity of up to 2 litres."
+   ],
+   "eccezioni": [
+    "Traditional rules apply on direct flights to the USA or Israel for airlines that check in at Terminal 1 and for transit passengers from non-Schengen countries not covered by “one stop security” agreements. In these cases, liquids must be separated, carried in containers up to 100 ml and placed in a transparent bag up to a maximum of 1L."
+   ],
+   "url": "https://www.adr.it/web/aeroporti-di-roma-en/pax-fco-cheks",
+   "titolo_fonte": "Aeroporti di Roma – Fiumicino security checks",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "milan-linate",
+   "iata": "LIN",
+   "nome": "Milan Linate",
+   "citta": "Milan",
+   "paese": "Italy",
+   "area": "Europe",
+   "regola": "2l",
+   "sintesi": "Up to 2 litres per container, no need to take them out",
+   "citazioni": [
+    "At Milan Linate and Milan Malpensa Terminal 1, it is once again permitted to carry liquids, aerosols, and gels in individual containers with a maximum capacity of 2 litres, without the need to separate them from hand luggage."
+   ],
+   "eccezioni": [],
+   "url": "https://milanolinate-airport.com/en/assistance/check-in-security",
+   "titolo_fonte": "Milano Linate – Check-in and security",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "milan-malpensa",
+   "iata": "MXP",
+   "nome": "Milan Malpensa",
+   "citta": "Milan",
+   "paese": "Italy",
+   "area": "Europe",
+   "regola": "dipende",
+   "sintesi": "Terminal 1: up to 2 litres; Terminal 2: 100 ml in a plastic bag",
+   "citazioni": [
+    "At Milan Linate and Milan Malpensa Terminal 1, it is once again permitted to carry liquids, aerosols, and gels in individual containers with a maximum capacity of 2 litres, without the need to separate them from hand luggage.",
+    "At Milan Malpensa Terminal 2, the transport of liquids, aerosols, and gels is allowed in individual containers not exceeding 100 millilitres, placed inside transparent plastic bags and separated from hand luggage."
+   ],
+   "eccezioni": [],
+   "url": "https://milanomalpensa-airport.com/en/assistance/check-in-security",
+   "titolo_fonte": "Milano Malpensa – Check-in and security",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "helsinki",
+   "iata": "HEL",
+   "nome": "Helsinki",
+   "citta": "Helsinki",
+   "paese": "Finland",
+   "area": "Europe",
+   "regola": "100ml",
+   "sintesi": "Containers up to 100 ml, up to 2 litres in total; transfer security: 100 ml in a 1-litre bag",
+   "citazioni": [
+    "Liquids: Leave your liquids in your bag. New EU regulation limits the amount of liquids passengers can carry in their hand luggage to 100-millilitre or 100 gram containers when travelling through EU airports, including Helsinki Airport, beginning September 1, 2024. The total amount of liquids allowed in hand luggage at Helsinki Airport will remain two litres per passenger."
+   ],
+   "eccezioni": [],
+   "url": "https://www.finavia.fi/en/airport/security-control",
+   "titolo_fonte": "Finavia – Security control (Helsinki Airport)",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-10",
+   "fonte2": {
+    "url": "https://customerservice.finavia.fi/en/support/solutions/articles/79000119601-how-much-liquids-can-i-take-in-hand-luggage-",
+    "titolo": "Finavia customer service – How much liquids can I take in hand luggage?",
+    "citazioni": [
+     "In the security control for transfer passengers at Helsinki Airport and in the security control of Finavia’s regional airports, carrying liquids in hand baggage is allowed if the product is in a package no larger than 100 ml and it is placed in a resealable transparent plastic bag no larger than one litre."
+    ]
+   }
+  },
+  {
+   "slug": "stockholm-arlanda",
+   "iata": "ARN",
+   "nome": "Stockholm Arlanda",
+   "citta": "Stockholm",
+   "paese": "Sweden",
+   "area": "Europe",
+   "regola": "100ml",
+   "sintesi": "100 ml containers everywhere; at the new Terminal 5 checkpoint they can stay in your bag",
+   "citazioni": [
+    "Liquids must be removed from hand baggage and presented separately. The maximum size for containers of liquid is 100 ml and these must be placed in a one-litre bag which is available at the security checkpoint.",
+    "Liquids can stay in hand baggage. The maximum size for containers of liquid is 100 ml. You can have an unlimited number of 100 ml containers and they do not need to be placed in a one-litre bag."
+   ],
+   "eccezioni": [
+    "Be attentive to what the rules are for the security control you're in line for. If you're unsure of which rules applies, you can find them on signs in the line to the security control."
+   ],
+   "nota": "On the official page the first sentence is under 'Terminal 2' and the second under 'Terminal 5'.",
+   "url": "https://www.swedavia.com/arlanda/security-control/",
+   "titolo_fonte": "Swedavia – Stockholm Arlanda security control",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "gothenburg-landvetter",
+   "iata": "GOT",
+   "nome": "Gothenburg Landvetter",
+   "citta": "Gothenburg",
+   "paese": "Sweden",
+   "area": "Europe",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag",
+   "citazioni": [
+    "Each container that holds liquid may hold up to 100 ml (1 dl). The plastic bag must be clear, reclosable and may hold at most 1 litre of liquids. It is only allowed to bring one (1) bag per person."
+   ],
+   "eccezioni": [],
+   "url": "https://www.swedavia.com/landvetter/security-control/",
+   "titolo_fonte": "Swedavia – Göteborg Landvetter security control",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "malmo",
+   "iata": "MMX",
+   "nome": "Malmö",
+   "citta": "Malmö",
+   "paese": "Sweden",
+   "area": "Europe",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag",
+   "citazioni": [
+    "Each container that holds liquid may hold up to 100 ml (1 dl). The plastic bag must be clear, reclosable and may hold at most 1 litre of liquids. It is only allowed to bring one (1) bag per person."
+   ],
+   "eccezioni": [],
+   "url": "https://www.swedavia.com/malmo/security-control/",
+   "titolo_fonte": "Swedavia – Malmö Airport security control",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "copenhagen",
+   "iata": "CPH",
+   "nome": "Copenhagen",
+   "citta": "Copenhagen",
+   "paese": "Denmark",
+   "area": "Europe",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag, shown in a tray",
+   "citazioni": [
+    "You may carry a clear, resealable 1-litre bag with as many containers of liquid as you can carry in the bag, as long as none of the containers exceed 100 ml. You may only bring one of these bags per person."
+   ],
+   "eccezioni": [
+    "Please note: Your 1-liter liquid bag must always be placed visibly in a tray at the security check and next to your hand luggage."
+   ],
+   "url": "https://public.cph.dk/en/practical/baggage/liquids-in-carry-on-baggage",
+   "titolo_fonte": "Copenhagen Airport – Liquids in carry-on baggage",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "eindhoven",
+   "iata": "EIN",
+   "nome": "Eindhoven",
+   "citta": "Eindhoven",
+   "paese": "Netherlands",
+   "area": "Europe",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in a 1-litre bag",
+   "citazioni": [
+    "You are allowed to bring liquids in your carry-on luggage, provided they are in containers of no more than 100 milliliters each. We kindly ask you to place these liquids in a clear, resealable 1-liter plastic bag."
+   ],
+   "eccezioni": [],
+   "url": "https://www.eindhovenairport.nl/en/security",
+   "titolo_fonte": "Eindhoven Airport – Security",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "prague",
+   "iata": "PRG",
+   "nome": "Prague",
+   "citta": "Prague",
+   "paese": "Czechia",
+   "area": "Europe",
+   "regola": "dipende",
+   "sintesi": "Terminal 1: 100 ml in a 1-litre bag; Terminal 2: the same plus one container up to 2 litres",
+   "citazioni": [
+    "When departing from Terminal 1, you are allowed to carry in your hand baggage:",
+    "When departing from Terminal 2, you are allowed to carry in your hand baggage:",
+    "It is allowed to transport one container with liquids, aerosols, and gels over 100 millilitres / grams and up to a volume of 2 litres / kilos per person."
+   ],
+   "eccezioni": [
+    "Liquids, aerosols, and gels may be transported in individual containers with a maximum content of 100 ml / g.",
+    "All containers must be placed together in one transparent, resealable plastic bag with a maximum volume of 1 litre."
+   ],
+   "nota": "On the official page the 'one container up to 2 litres' line appears only under Terminal 2.",
+   "url": "https://www.prg.aero/en/security-check",
+   "titolo_fonte": "Prague Airport – Security check",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "krakow",
+   "iata": "KRK",
+   "nome": "Kraków",
+   "citta": "Kraków",
+   "paese": "Poland",
+   "area": "Europe",
+   "regola": "2l",
+   "sintesi": "Any quantity, containers up to 2 litres each, kept in your bag",
+   "citazioni": [
+    "Liquids can be transported in any quantity, in containers with a maximum capacity of 2 liters per container. They do not need to be removed from your carry-on luggage."
+   ],
+   "eccezioni": [],
+   "url": "https://krakowairport.pl/en/passenger/departure/security-control",
+   "titolo_fonte": "Kraków Airport – Security control",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "lisbon",
+   "iata": "LIS",
+   "nome": "Lisbon",
+   "citta": "Lisbon",
+   "paese": "Portugal",
+   "area": "Europe",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in a 1-litre bag, shown separately",
+   "citazioni": [
+    "At this airport, the usual rules for carrying liquids in hand luggage remain in force: containers of up to 100 ml must be placed in a transparent plastic bag with a maximum capacity of 1 litre per person and presented separately from your baggage at security screening."
+   ],
+   "eccezioni": [],
+   "url": "https://www.lisbonairport.pt/en/lis/passenger-guide/plan-your-trip/security-screening",
+   "titolo_fonte": "Lisbon Airport (ANA) – Security screening",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "porto",
+   "iata": "OPO",
+   "nome": "Porto",
+   "citta": "Porto",
+   "paese": "Portugal",
+   "area": "Europe",
+   "regola": "dipende",
+   "sintesi": "Some checkpoints allow 2 litres; the airport recommends 100 ml because you cannot choose the checkpoint",
+   "citazioni": [
+    "At this airport, some security checkpoints already use new X-ray equipment, which allows passengers to carry up to 2 litres of liquids and does not require them to be carried in a resealable bag."
+   ],
+   "eccezioni": [
+    "However, as it is not possible to predict which security checkpoint you will pass through, we continue to recommend that you comply with the general rules: containers of up to 100 ml, placed in a transparent plastic bag with a maximum capacity of 1 litre per person, and presented separately from your baggage at security screening."
+   ],
+   "url": "https://www.portoairport.pt/en/opo/passenger-guide/plan-your-trip/security-screening",
+   "titolo_fonte": "Porto Airport (ANA) – Security screening",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "faro",
+   "iata": "FAO",
+   "nome": "Faro",
+   "citta": "Faro (Algarve)",
+   "paese": "Portugal",
+   "area": "Europe",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in a 1-litre bag, shown separately",
+   "citazioni": [
+    "At this airport, the usual rules for carrying liquids in hand luggage remain in force: containers of up to 100 ml must be placed in a transparent plastic bag with a maximum capacity of 1 litre per person and presented separately from your baggage at security screening."
+   ],
+   "eccezioni": [],
+   "url": "https://www.faroairport.pt/en/fao/passenger-guide/plan-your-trip/security-screening",
+   "titolo_fonte": "Faro Airport (ANA) – Security screening",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "madeira",
+   "iata": "FNC",
+   "nome": "Madeira (Funchal)",
+   "citta": "Funchal",
+   "paese": "Portugal",
+   "area": "Europe",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in a 1-litre bag, shown separately",
+   "citazioni": [
+    "At this airport, the usual rules for carrying liquids in hand luggage remain in force: containers of up to 100 ml must be placed in a transparent plastic bag with a maximum capacity of 1 litre per person and presented separately from your baggage at security screening."
+   ],
+   "eccezioni": [],
+   "url": "https://www.madeiraairport.pt/en/fnc/passenger-guide/plan-your-trip/security-screening",
+   "titolo_fonte": "Madeira Airport (ANA) – Security screening",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "madrid",
+   "iata": "MAD",
+   "nome": "Madrid-Barajas",
+   "citta": "Madrid",
+   "paese": "Spain",
+   "area": "Europe",
+   "gestore": "aena",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag (Aena rule for its airports)",
+   "citazioni": [
+    "Liquids, perfumes, creams, aerosols, foams, gels, shampoo and toothpaste: in individual containers not exceeding 100 ml, placed in individual containers with a capacity of less than 100 ml. These containers must be carried in a transparent plastic bag that can be resealed, with a capacity of not more than 1 litre (a bag approximately 20 x 20 cm in size)."
+   ],
+   "eccezioni": [],
+   "nota": "Source: the hand luggage page of Aena, the operator of Spain's public airports. It applies to all Aena airports; we found no airport-specific liquids page.",
+   "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
+   "titolo_fonte": "Aena – What am I allowed to travel with on an aircraft?",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "barcelona",
+   "iata": "BCN",
+   "nome": "Barcelona-El Prat",
+   "citta": "Barcelona",
+   "paese": "Spain",
+   "area": "Europe",
+   "gestore": "aena",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag (Aena rule for its airports)",
+   "citazioni": [
+    "Liquids, perfumes, creams, aerosols, foams, gels, shampoo and toothpaste: in individual containers not exceeding 100 ml, placed in individual containers with a capacity of less than 100 ml. These containers must be carried in a transparent plastic bag that can be resealed, with a capacity of not more than 1 litre (a bag approximately 20 x 20 cm in size)."
+   ],
+   "eccezioni": [],
+   "nota": "Source: the hand luggage page of Aena, the operator of Spain's public airports. It applies to all Aena airports; we found no airport-specific liquids page.",
+   "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
+   "titolo_fonte": "Aena – What am I allowed to travel with on an aircraft?",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "malaga",
+   "iata": "AGP",
+   "nome": "Málaga-Costa del Sol",
+   "citta": "Málaga",
+   "paese": "Spain",
+   "area": "Europe",
+   "gestore": "aena",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag (Aena rule for its airports)",
+   "citazioni": [
+    "Liquids, perfumes, creams, aerosols, foams, gels, shampoo and toothpaste: in individual containers not exceeding 100 ml, placed in individual containers with a capacity of less than 100 ml. These containers must be carried in a transparent plastic bag that can be resealed, with a capacity of not more than 1 litre (a bag approximately 20 x 20 cm in size)."
+   ],
+   "eccezioni": [],
+   "nota": "Source: the hand luggage page of Aena, the operator of Spain's public airports. It applies to all Aena airports; we found no airport-specific liquids page.",
+   "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
+   "titolo_fonte": "Aena – What am I allowed to travel with on an aircraft?",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "palma-de-mallorca",
+   "iata": "PMI",
+   "nome": "Palma de Mallorca",
+   "citta": "Palma",
+   "paese": "Spain",
+   "area": "Europe",
+   "gestore": "aena",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag (Aena rule for its airports)",
+   "citazioni": [
+    "Liquids, perfumes, creams, aerosols, foams, gels, shampoo and toothpaste: in individual containers not exceeding 100 ml, placed in individual containers with a capacity of less than 100 ml. These containers must be carried in a transparent plastic bag that can be resealed, with a capacity of not more than 1 litre (a bag approximately 20 x 20 cm in size)."
+   ],
+   "eccezioni": [],
+   "nota": "Source: the hand luggage page of Aena, the operator of Spain's public airports. It applies to all Aena airports; we found no airport-specific liquids page.",
+   "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
+   "titolo_fonte": "Aena – What am I allowed to travel with on an aircraft?",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "alicante",
+   "iata": "ALC",
+   "nome": "Alicante-Elche",
+   "citta": "Alicante",
+   "paese": "Spain",
+   "area": "Europe",
+   "gestore": "aena",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag (Aena rule for its airports)",
+   "citazioni": [
+    "Liquids, perfumes, creams, aerosols, foams, gels, shampoo and toothpaste: in individual containers not exceeding 100 ml, placed in individual containers with a capacity of less than 100 ml. These containers must be carried in a transparent plastic bag that can be resealed, with a capacity of not more than 1 litre (a bag approximately 20 x 20 cm in size)."
+   ],
+   "eccezioni": [],
+   "nota": "Source: the hand luggage page of Aena, the operator of Spain's public airports. It applies to all Aena airports; we found no airport-specific liquids page.",
+   "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
+   "titolo_fonte": "Aena – What am I allowed to travel with on an aircraft?",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "istanbul",
+   "iata": "IST",
+   "nome": "Istanbul",
+   "citta": "Istanbul",
+   "paese": "Türkiye",
+   "area": "Middle East and Asia",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in a 1-litre bag, taken out at airside security",
+   "citazioni": [
+    "Remove the 1-liter transparent, re-sealable bag containing liquid containers (up to 100 ml each) from your bag and place it in a separate plastic tray."
+   ],
+   "eccezioni": [
+    "There is no restriction on liquids (except dangerous liquids) at terminal entrance security checkpoints."
+   ],
+   "url": "https://www.istairport.com/en/flights/airport-guides/departing-passenger-guide/services/complimentary-services/security-and-baggage-restrictions",
+   "titolo_fonte": "Istanbul Airport – Security and baggage restrictions",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "doha",
+   "iata": "DOH",
+   "nome": "Doha Hamad",
+   "citta": "Doha",
+   "paese": "Qatar",
+   "area": "Middle East and Asia",
+   "regola": "100ml",
+   "sintesi": "Containers of 100 ml or less in a re-sealable bag",
+   "citazioni": [
+    "Pack any liquid containers in a clear, re-sealable plastic bag. Each liquid container must be 100ml or less."
+   ],
+   "eccezioni": [],
+   "url": "https://www.dohahamadairport.com/airport-guide/at-the-airport/security-customs",
+   "titolo_fonte": "Hamad International Airport – Security and customs",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "hong-kong",
+   "iata": "HKG",
+   "nome": "Hong Kong",
+   "citta": "Hong Kong",
+   "paese": "Hong Kong",
+   "area": "Middle East and Asia",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in a bag of up to 1 litre (Civil Aviation Department rule)",
+   "citazioni": [
+    "All liquids, gels, aerosols in cabin baggage have to be carried in containers with a capacity not greater than 100 ml. Liquids, gels, aerosols carried in containers larger than 100 ml will not be accepted, even if the container is only part-filled.",
+    "Containers have to be placed in a transparent re-sealable plastic bag of a maximum capacity not exceeding one litre."
+   ],
+   "eccezioni": [],
+   "nota": "Source: the Hong Kong Civil Aviation Department (the aviation authority), not the airport operator's site.",
+   "url": "https://www.cad.gov.hk/english/packing_tips.html",
+   "titolo_fonte": "Civil Aviation Department, Hong Kong – Packing tips for air passengers",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "brisbane",
+   "iata": "BNE",
+   "nome": "Brisbane",
+   "citta": "Brisbane",
+   "paese": "Australia",
+   "area": "Australia and North America",
+   "regola": "100ml",
+   "sintesi": "International flights: 100 ml containers in a 20 x 20 cm bag; domestic flights: no limit",
+   "citazioni": [
+    "Passengers are only able to take liquids, aerosols and gels in containers up to 100ml or 100g in size in carry-on baggage.",
+    "Liquid, aerosol and gel items must be stored in a resealable transparent plastic bag that measures approximately 20cm x 20cm."
+   ],
+   "eccezioni": [
+    "Domestic flights within Australia are not subject to restrictions on how much powder, liquids, aerosols and gels you can carry onboard, however all aerosol containers must have a fitted cap, or locking device and be presented at belongings screening."
+   ],
+   "url": "https://www.bne.com.au/passenger/passenger-information/security-screening/powders-liquids-aerosols-and-gels",
+   "titolo_fonte": "Brisbane Airport – Powders, liquids, aerosols and gels",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  }
+ ],
+ "nazionali": [
+  {
+   "slug": "us-airports-tsa",
+   "nome": "United States (all airports, TSA)",
+   "paese": "United States",
+   "ente": "Transportation Security Administration (TSA)",
+   "regola": "100ml",
+   "sintesi": "3.4 oz (100 ml) or less per item, in one quart-sized bag",
+   "citazioni": [
+    "You are allowed to bring a quart-sized bag of liquids, aerosols, gels, creams and pastes in your carry-on bag and through the checkpoint. These are limited to travel-sized containers that are 3.4 ounces (100 milliliters) or less per item.",
+    "Pack items that are in containers larger than 3.4 ounces or 100 milliliters in checked baggage."
+   ],
+   "eccezioni": [
+    "Liquids more than 3.4 oz or 100 ml not in a secure, tamper-evident bag must be packed in checked baggage."
+   ],
+   "url": "https://www.tsa.gov/travel/security-screening/liquids-aerosols-gels-rule",
+   "titolo_fonte": "TSA – Liquids, Aerosols, and Gels Rule",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "canada-airports-catsa",
+   "nome": "Canada (all airports, CATSA)",
+   "paese": "Canada",
+   "ente": "Canadian Air Transport Security Authority (CATSA)",
+   "regola": "100ml",
+   "sintesi": "100 ml / 100 g (3.4 oz) or less per container, in one 1-litre bag",
+   "citazioni": [
+    "Containers of liquids, non-solid food and personal items in your carry-on must be 100 ml/100 g (3.4 oz) or less. All containers must fit in one clear, resealable plastic bag no more than 1L in capacity."
+   ],
+   "eccezioni": [
+    "Any containers over 100 ml/100 g (3.4 oz) can be placed in your checked baggage as long as they are not prohibited items."
+   ],
+   "url": "https://www.catsa-acsta.gc.ca/en/what-can-bring/liquids-non-solid-food-personal-items",
+   "titolo_fonte": "CATSA – Liquids, non-solid food and personal items",
+   "lettura": "browser",
+   "controllato_il": "2026-10-10"
+  }
+ ],
+ "contesto": [
+  {
+   "id": "uk",
+   "ente": "UK Government (GOV.UK)",
+   "titolo": "Hand luggage restrictions at UK airports – Liquids",
+   "citazioni": [
+    "The rules for carrying liquids in your hand luggage depend on the airport.",
+    "At most airports, you cannot take liquids in containers larger than 100ml through security. This still applies if the container is only part full.",
+    "Some airports may allow you to take liquid in containers that hold up to 2 litres of liquid."
+   ],
+   "url": "https://www.gov.uk/hand-luggage-restrictions/liquids",
+   "lettura": "diretta (GOV.UK Content API)",
+   "controllato_il": "2026-10-10",
+   "licenza": "Open Government Licence v3.0"
+  },
+  {
+   "id": "eu",
+   "ente": "European Union (Your Europe portal)",
+   "titolo": "Luggage restrictions – Your Europe",
+   "citazioni": [
+    "Liquids carried in the aircraft cabin such as aerosols, drinks, toothpaste, cosmetic creams or gels must be carried in a transparent plastic bag - maximum capacity 1 litre - and no container may hold more than 100 ml."
+   ],
+   "nota": "The Your Europe page shows 'Last checked: 16/06/2026' and states the general EU rule. It does not mention the airports that use approved CT scanners: Rome Fiumicino's official page says those airports may allow up to 2 litres 'in compliance with the new provisions of the European Commission' from 26 July 2025. Follow your departure airport's own page.",
+   "url": "https://europa.eu/youreurope/citizens/travel/carry/luggage-restrictions/index_en.htm",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-10"
+  }
+ ],
+ "esclusi": [
+  {
+   "nome": "Amsterdam Schiphol",
+   "motivo": "Official page blocks automated reading (HTTP 403) even in a browser."
+  },
+  {
+   "nome": "Paris CDG and Orly (Paris Aéroport)",
+   "motivo": "Official page blocks automated reading (HTTP 403)."
+  },
+  {
+   "nome": "Birmingham, Glasgow, Newcastle, London City",
+   "motivo": "Official pages block automated reading (HTTP 403)."
+  },
+  {
+   "nome": "Belfast International, Belfast City, Bournemouth, Liverpool, Cardiff, Leeds Bradford, Southend, Exeter",
+   "motivo": "Official security page not found (404), not reachable, empty, or with no liquids sentence readable."
+  },
+  {
+   "nome": "Athens",
+   "motivo": "Official page blocks automated reading (HTTP 403) / redirects in the browser."
+  },
+  {
+   "nome": "Brussels",
+   "motivo": "Official security page read, but it contains no liquids sentence."
+  },
+  {
+   "nome": "Zurich, Geneva, Oslo, Hamburg, Düsseldorf, Cologne-Bonn, Stuttgart",
+   "motivo": "Official liquids page not found or blocked (404/403)."
+  },
+  {
+   "nome": "Nice, Lyon, Venice, Naples, Bologna, Budapest, Warsaw, Bucharest, Malta",
+   "motivo": "Official liquids page not found, blocked or behind an anti-robot check."
+  },
+  {
+   "nome": "Dubai, Singapore, Auckland, Sydney, Melbourne, Toronto (own page)",
+   "motivo": "Official page not found, blocked, or with no clear container limit (Singapore). Toronto Pearson sends travellers to CATSA, covered as the Canada national rule."
+  }
+ ]
+}
