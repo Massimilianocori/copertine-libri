@@ -5,11 +5,12 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
 
 1. Esempi calcolati a mano (TEST.md): il motore Python deve dare esattamente il risultato atteso
    (cambi fissi BCE del 9 ottobre 2026, così il test non cambia ogni giorno).
-2. Il motore JS (lo stesso testo che va nelle pagine) deve dare gli stessi importi del Python,
-   sugli esempi e su 3.000 casi casuali (serve node).
+2. Il motore JS (lo stesso testo che va nelle pagine) deve dare gli stessi importi, conversioni ed esiti del Python,
+   sugli esempi e su 3.000 casi casuali, anche con valori fuori scala (serve node).
 3. Nessun link interno rotto in sito/.
 4. Ogni pagina di programma mostra la fonte ufficiale (URL) e la data del controllo sotto la cifra.
 5. Nessun nome di modelli o servizi di intelligenza artificiale nei file del sito.
+6. Le correzioni della revisione indipendente del 10/10/2026 sono presenti nelle pagine.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -31,27 +32,36 @@ T = {"USD": 1.1206, "GBP": 0.84763, "CAD": 1.5942, "AUD": 1.6052, "PHP": 70.397,
      "DKK": 7.4751, "JPY": 177.34}
 
 # (descrizione, programma, variante, adulti, figli, campo, valuta di arrivo o None, atteso calcolato a mano)
+# campo: "mensile" (importo mensile della regola, per mensilità), "annuale", "mensile12" (annuale / 12).
+# Con una valuta di arrivo si usa converti_importi: si converte l'importo del periodo della regola e si ricava l'altro.
 ESEMPI = [
-    ("ES nomadi, 1 adulto: 2 × 1.424,50", "spain-digital-nomad-visa", "std", 1, 0, "mensile", None, 2849.00),
-    ("ES nomadi, 1 adulto, annuo: 2.849 × 12", "spain-digital-nomad-visa", "std", 1, 0, "annuale", None, 34188.00),
-    ("ES nomadi, coppia: 2.849 + 75% × 1.424,50 (1.068,375 → 1.068,38)", "spain-digital-nomad-visa", "std", 2, 0, "mensile", None, 3917.38),
-    ("ES nomadi, coppia + 2 figli: 2.849 + 1.068,38 + 2 × 356,13", "spain-digital-nomad-visa", "std", 2, 2, "mensile", None, 4629.64),
+    ("ES nomadi, 1 adulto: 200% × 1.221 = 2.442 al mese (× 14)", "spain-digital-nomad-visa", "std", 1, 0, "mensile", None, 2442.00),
+    ("ES nomadi, 1 adulto, annuo: 2.442 × 14", "spain-digital-nomad-visa", "std", 1, 0, "annuale", None, 34188.00),
+    ("ES nomadi, 1 adulto, su 12 mesi: 34.188 / 12", "spain-digital-nomad-visa", "std", 1, 0, "mensile12", None, 2849.00),
+    ("ES nomadi, coppia: (2.442 + 75% × 1.221 = 915,75) × 14 = 47.008,50 / 12 = 3.917,375", "spain-digital-nomad-visa", "std", 2, 0, "mensile12", None, 3917.38),
+    ("ES nomadi, coppia + 2 figli: 2.442 + 915,75 + 2 × 305,25", "spain-digital-nomad-visa", "std", 2, 2, "mensile", None, 3968.25),
+    ("ES nomadi, coppia + 2 figli, annuo: 3.968,25 × 14", "spain-digital-nomad-visa", "std", 2, 2, "annuale", None, 55555.50),
     ("ES non lucrativo, coppia + 2 figli: 4 × 600 + 3 × 600", "spain-non-lucrative-visa", "std", 2, 2, "mensile", None, 4200.00),
     ("PT D8, 1 adulto: 4 × 920", "portugal-d8-digital-nomad-visa", "std", 1, 0, "mensile", None, 3680.00),
-    ("PT D8, coppia + 1 figlio: 3.680 + 50% × 920 + 30% × 920", "portugal-d8-digital-nomad-visa", "std", 2, 1, "mensile", None, 4416.00),
+    ("PT D8, coppia + 1 figlio: nessun importo familiare ufficiale, resta 3.680", "portugal-d8-digital-nomad-visa", "std", 2, 1, "mensile", None, 3680.00),
     ("PT D7, coppia + 2 figli, annuo: (920 + 460 + 2 × 276) × 12", "portugal-d7-visa", "std", 2, 2, "annuale", None, 23184.00),
     ("HR nomadi, 2 adulti + 1 figlio: 2,5 × 1.449 + 2 × 10% × 1.449", "croatia-digital-nomad-visa", "std", 2, 1, "mensile", None, 3912.30),
     ("HU White Card, coppia: i familiari non contano, 3.000", "hungary-white-card", "std", 2, 0, "mensile", None, 3000.00),
     ("IT nomadi, mensile: 3 × 8.263,31 = 24.789,93 / 12 = 2.065,8275", "italy-digital-nomad-visa", "std", 1, 0, "mensile", None, 2065.83),
     ("DE Blue Card ridotta, mensile: 45.934,20 / 12", "germany-eu-blue-card", "red", 1, 0, "mensile", None, 3827.85),
     ("NL kennismigrant 30+, annuo: 5.942 × 12", "netherlands-highly-skilled-migrant", "30plus", 1, 0, "annuale", None, 71304.00),
+    ("UK Skilled Worker, dottorato non STEM: soglia minima 37.500", "uk-skilled-worker-visa", "phd", 1, 0, "annuale", None, 37500.00),
     ("UK coniuge (proroga regole pre-2024), 3 figli: 18.600 + 3.800 + 2 × 2.400", "uk-spouse-visa", "legacy", 2, 3, "annuale", None, 27200.00),
     ("UK coniuge (proroga), 4 figli: 18.600 + 3.800 + 3 × 2.400 = 29.600 → tetto 29.000", "uk-spouse-visa", "legacy", 2, 4, "annuale", None, 29000.00),
-    ("ES nomadi in USD: 2.849 × 1,1206 = 3.192,5894", "spain-digital-nomad-visa", "std", 1, 0, "mensile", "USD", 3192.59),
-    ("ES nomadi in PHP: 2.849 × 70,397 = 200.561,053", "spain-digital-nomad-visa", "std", 1, 0, "mensile", "PHP", 200561.05),
-    ("ES nomadi famiglia di 4 in USD: 4.629,64 × 1,1206", "spain-digital-nomad-visa", "std", 2, 2, "mensile", "USD", 5187.97),
+    ("Valori fuori scala: 0 adulti e -3 figli diventano 1 e 0 (ES nomadi = 2.442)", "spain-digital-nomad-visa", "std", 0, -3, "mensile", None, 2442.00),
+    ("Valori fuori scala: 50 adulti diventano 20 (HR: 3.622,50 + 19 × 144,90)", "croatia-digital-nomad-visa", "std", 50, 0, "mensile", None, 6375.60),
+    ("ES nomadi in USD per mensilità: 2.442 × 1,1206 = 2.736,5052", "spain-digital-nomad-visa", "std", 1, 0, "mensile", "USD", 2736.51),
+    ("ES nomadi in USD all'anno: 2.736,51 × 14 (coerente col mese)", "spain-digital-nomad-visa", "std", 1, 0, "annuale", "USD", 38311.14),
+    ("ES nomadi in PHP su 12 mesi: 2.442 × 70,397 = 171.909,47 × 14 = 2.406.732,58 / 12", "spain-digital-nomad-visa", "std", 1, 0, "mensile12", "PHP", 200561.05),
+    ("ES nomadi famiglia di 4 in USD per mensilità: 3.968,25 × 1,1206 = 4.446,82", "spain-digital-nomad-visa", "std", 2, 2, "mensile", "USD", 4446.82),
     ("PT D8 in INR: 3.680 × 108,3965", "portugal-d8-digital-nomad-visa", "std", 1, 0, "mensile", "INR", 398899.12),
-    ("HR nomadi in GBP: 3.622,50 × 0,84763", "croatia-digital-nomad-visa", "std", 1, 0, "mensile", "GBP", 3070.54),
+    ("HR nomadi in GBP: 3.622,50 × 0,84763 = 3.070,5397", "croatia-digital-nomad-visa", "std", 1, 0, "mensile", "GBP", 3070.54),
+    ("HR nomadi in GBP all'anno: 3.070,54 × 12 (non 3.622,50 × 12 convertito a parte)", "croatia-digital-nomad-visa", "std", 1, 0, "annuale", "GBP", 36846.48),
     ("UK Skilled Worker da GBP a INR: 41.700 / 0,84763 × 108,3965", "uk-skilled-worker-visa", "std", 1, 0, "annuale", "INR", 5332673.51),
     ("SE Blue Card da SEK a USD: 53.625 / 11,1675 × 1,1206", "sweden-eu-blue-card", "std", 1, 0, "mensile", "USD", 5380.99),
     ("DK pay limit da DKK a USD: 552.000 / 7,4751 × 1,1206", "denmark-pay-limit-scheme", "std", 1, 0, "annuale", "USD", 82750.89),
@@ -59,10 +69,28 @@ ESEMPI = [
     ("ES non lucrativo famiglia di 4 in AUD: 4.200 × 1,6052", "spain-non-lucrative-visa", "std", 2, 2, "mensile", "AUD", 6741.84),
 ]
 
+# Confronto con il reddito: (descrizione, programma, variante, reddito al mese, mensilità, valuta, esito atteso)
+ESITI = [
+    ("AT Blue Card: 3.977 × 14 = 55.678 = soglia → sì", "austria-eu-blue-card", "std", 3977, 14, "EUR", "si"),
+    ("AT Blue Card: 3.977 × 12 = 47.724 → no", "austria-eu-blue-card", "std", 3977, 12, "EUR", "no"),
+    ("ES nomadi: 2.442 × 14 = 34.188 → sì", "spain-digital-nomad-visa", "std", 2442, 14, "EUR", "si"),
+    ("ES nomadi: 2.849 × 12 = 34.188 → sì", "spain-digital-nomad-visa", "std", 2849, 12, "EUR", "si"),
+    ("ES nomadi: 2.500 × 12 = 30.000 (mese sì, anno no) → parziale", "spain-digital-nomad-visa", "std", 2500, 12, "EUR", "parziale"),
+    ("ES nomadi: 2.400 × 14 → no", "spain-digital-nomad-visa", "std", 2400, 14, "EUR", "no"),
+    ("ES nomadi in USD: 2.736,51 USD × 14 → 2.442,00 € × 14 → sì", "spain-digital-nomad-visa", "std", 2736.51, 14, "USD", "si"),
+    ("HU White Card, regola mensile: 2.600 × 14 = 36.400 > 36.000 ma 2.600 < 3.000 → no", "hungary-white-card", "std", 2600, 14, "EUR", "no"),
+    ("HU White Card: 3.000 × 12 → sì", "hungary-white-card", "std", 3000, 12, "EUR", "si"),
+    ("DE Blue Card: 4.225 × 12 = 50.700 → sì", "germany-eu-blue-card", "std", 4225, 12, "EUR", "si"),
+    ("DE Blue Card: 4.224 × 12 → no", "germany-eu-blue-card", "std", 4224, 12, "EUR", "no"),
+    ("IT nomadi: 2.100 × 12 = 25.200 ≥ 24.789,93 → sì", "italy-digital-nomad-visa", "std", 2100, 12, "EUR", "si"),
+    ("UK Skilled Worker standard: nessun verdetto (conta anche il going rate)", "uk-skilled-worker-visa", "std", 5000, 12, "GBP", "nd"),
+    ("UK Skilled Worker ridotto: nessun verdetto", "uk-skilled-worker-visa", "lower", 2800, 12, "GBP", "nd"),
+    ("UK coniuge: nessun verdetto", "uk-spouse-visa", "std", 3000, 12, "GBP", "nd"),
+]
+
 
 def valore(o, campo, a):
-    x = o[campo]
-    return x if a is None else G.converti(x, o["valuta"], a, T)
+    return o[campo] if a is None else G.converti_importi(o, a, T)[campo]
 
 
 def controlla_esempi():
@@ -71,6 +99,10 @@ def controlla_esempi():
         v = valore(G.calcola(P[slug], vid, ad, fi), campo, a)
         if abs(v - atteso) > 0.001:
             errori.append(f"ESEMPIO SBAGLIATO: {descr}: atteso {atteso}, calcolato {v}")
+    for descr, slug, vid, x, k, cur, atteso in ESITI:
+        e = G.esito(P[slug], G.calcola(P[slug], vid, 1, 0), x, k, cur, T)
+        if e != atteso:
+            errori.append(f"ESITO SBAGLIATO: {descr}: atteso {atteso}, calcolato {e}")
     return errori
 
 
@@ -80,7 +112,8 @@ def casi_casuali(n=3000, seme=11):
     casi = []
     for _ in range(n):
         p = rnd.choice(G.PROG)
-        casi.append([p["slug"], rnd.choice(p["varianti"])["id"], rnd.randint(1, 6), rnd.randint(0, 6), rnd.choice(valute)])
+        casi.append([p["slug"], rnd.choice(p["varianti"])["id"], rnd.randint(-2, 25), rnd.randint(-3, 25), rnd.choice(valute),
+                     round(rnd.uniform(0, 3000000), 2), rnd.choice([12, 13, 14, 11, 15]), rnd.choice(valute)])
     return casi
 
 
@@ -88,11 +121,13 @@ def controlla_js(casi):
     """Esegue il motore JS con node sugli stessi casi e confronta i risultati con il Python."""
     dati = {"programmi": G.PROG, "indici": G.INDICI}
     script = ("var D=" + json.dumps(dati) + ";var T=" + json.dumps(G.CAMBI["tassi"]) + ";var TT=" + json.dumps(T) + ";\n" + G.MOTORE_JS +
-              "\nvar casi=" + json.dumps(casi) + ";var es=" + json.dumps([[e[1], e[2], e[3], e[4], e[5], e[6]] for e in ESEMPI]) + ";\n"
+              "\nvar casi=" + json.dumps(casi) + ";var es=" + json.dumps([[e[1], e[2], e[3], e[4], e[5], e[6]] for e in ESEMPI]) +
+              ";var esiti=" + json.dumps([[e[1], e[2], e[3], e[4], e[5]] for e in ESITI]) + ";\n"
               "function trova(s){for(var i=0;i<D.programmi.length;i++)if(D.programmi[i].slug===s)return D.programmi[i];}\n"
-              "var out={casi:casi.map(function(c){var o=calcola(D,trova(c[0]),c[1],c[2],c[3]);"
-              "return [o.mensile,o.annuale,converti(o.mensile,o.valuta,c[4],T),converti(o.annuale,o.valuta,c[4],T)];}),"
-              "es:es.map(function(e){var o=calcola(D,trova(e[0]),e[1],e[2],e[3]);var x=o[e[4]];return e[5]?converti(x,o.valuta,e[5],TT):x;})};"
+              "var out={casi:casi.map(function(c){var P=trova(c[0]);var o=calcola(D,P,c[1],c[2],c[3]);var cv=convertiImporti(o,c[4],T);"
+              "return [o.mensile,o.annuale,o.mensile12,cv.mensile,cv.annuale,cv.mensile12,esito(P,o,c[5],c[6],c[7],T)];}),"
+              "es:es.map(function(e){var o=calcola(D,trova(e[0]),e[1],e[2],e[3]);return e[5]?convertiImporti(o,e[5],TT)[e[4]]:o[e[4]];}),"
+              "esiti:esiti.map(function(e){var P=trova(e[0]);return esito(P,calcola(D,P,e[1],1,0),e[2],e[3],e[4],TT);})};"
               "console.log(JSON.stringify(out));")
     with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as fh:
         fh.write(script)
@@ -107,14 +142,64 @@ def controlla_js(casi):
     errori = []
     for c, j in zip(casi, js["casi"]):
         o = G.calcola(P[c[0]], c[1], c[2], c[3])
-        py = [o["mensile"], o["annuale"], G.converti(o["mensile"], o["valuta"], c[4], G.CAMBI["tassi"]),
-              G.converti(o["annuale"], o["valuta"], c[4], G.CAMBI["tassi"])]
-        if any(abs(a - b) > 0.001 for a, b in zip(py, j)):
+        cv = G.converti_importi(o, c[4], G.CAMBI["tassi"])
+        py = [o["mensile"], o["annuale"], o["mensile12"], cv["mensile"], cv["annuale"], cv["mensile12"]]
+        if any(abs(a - b) > 0.001 for a, b in zip(py, j[:6])) or G.esito(P[c[0]], o, c[5], c[6], c[7], G.CAMBI["tassi"]) != j[6]:
             errori.append(f"JS diverso dal Python per {c}: py {py} js {j}")
     for e, j in zip(ESEMPI, js["es"]):
         if abs(j - e[7]) > 0.001:
             errori.append(f"JS sbaglia l'esempio {e[0]}: {j}")
+    for e, j in zip(ESITI, js["esiti"]):
+        if j != e[6]:
+            errori.append(f"JS sbaglia l'esito {e[0]}: {j}")
     return errori[:20]
+
+
+def leggi(rel):
+    return (SITO / rel).read_text(encoding="utf-8")
+
+
+def controlla_contenuti():
+    """Correzioni della revisione indipendente del 10/10/2026: devono restare."""
+    errori = []
+    tutto = "\n".join(f.read_text(encoding="utf-8") for f in SITO.rglob("*.html"))
+    def deve(cond, msg):
+        if not cond:
+            errori.append(msg)
+    es = leggi("spain-digital-nomad-visa/index.html")
+    deve("€2,442.00</strong> a month × 14 payments" in es and "€2,849.00 a month if spread over 12 payments" in es, "ES: manca la forma ufficiale 2.442 × 14 con l'equivalente su 12")
+    deve("consulados/buenosaires" in es.lower() and "HANOI" in es, "ES: mancano le fonti dei consolati (Buenos Aires, Hanoi)")
+    deve("€1,221.00 a month × 14 payments" in es, "ES: SMI non indicato come 1.221 × 14")
+    deve("Santiago" not in tutto, "Attribuzione a Santiago del Cile ancora presente")
+    deve("not €2,762" not in tutto and "not €3,295" not in tutto, "Frase 'not €…' ancora in home")
+    it = leggi("italy-digital-nomad-visa/index.html")
+    deve("passive income such as social security, rents or stocks is not considered" in it and "consboston.esteri.it" in it, "IT: manca la regola sul reddito passivo (consolato di Boston)")
+    pt = leggi("portugal-d8-digital-nomad-visa/index.html")
+    deve("How much for a family" not in pt and "does not say how this combines" in pt, "PT D8: righe familiari ancora presenti o nota mancante")
+    uk = leggi("uk-skilled-worker-visa/index.html")
+    deve("£37,500" in uk and "70% to 90% of the going rate" in uk and "100% of the going rate" in uk and "We do not give a yes/no" in uk, "UK SW: condizioni del going rate mancanti")
+    sp = leggi("uk-spouse-visa/index.html")
+    deve("There is no income requirement" not in sp and "without relying on additional public funds" in sp, "UK coniuge: frase sui sussidi non corretta")
+    deve("Couple (combined income)" in sp and "pre-settled status" in sp, "UK coniuge: etichetta di coppia o pre-settled mancanti")
+    nf = leggi("404.html")
+    hrefs = re.findall(r'href="([^"]+)"', nf)
+    rel_rotti = [h for h in hrefs if not h.startswith(("/", "http", "data:", "#", "mailto:"))]
+    deve(not rel_rotti, f"404: link relativi {rel_rotti[:3]}")
+    deve('rel="canonical"' not in nf, "404: canonical da togliere (pagina noindex)")
+    wk = leggi("work-visa-salary-thresholds/index.html")
+    tb = re.search(r"<tbody>.*?</tbody>", wk, re.S).group(0)
+    deve("spouse" not in tb.lower(), "Lavoro: righe del visto coniuge ancora nella tabella")
+    deve("8% holiday allowance" in wk, "Lavoro: nota olandese mancante")
+    deve("latest European Central Bank reference rates" in leggi("index.html") and "today's European Central Bank" not in tutto, "Home: 'today's ECB rates' da correggere")
+    deve("IT specialists" in leggi("germany-eu-blue-card/index.html"), "DE: specialisti IT mancanti nella soglia ridotta")
+    deve("at least one year earlier" in es, "ES: regola dell'azienda con almeno un anno mancante")
+    deve("child born in Hungary" in leggi("hungary-white-card/index.html"), "HU: eccezione del figlio nato in Ungheria mancante")
+    deve("podaci.dzs.hr" in leggi("croatia-digital-nomad-visa/index.html"), "HR: fonte DZS mancante")
+    for s in ("netherlands-highly-skilled-migrant", "netherlands-eu-blue-card"):
+        deve("8% holiday allowance" in leggi(f"{s}/index.html"), f"{s}: nota sull'indennità di ferie mancante")
+    deve('name="pagamenti"' in es, "Calcolatore: scelta 12/13/14 mensilità mancante")
+    deve("italystrikes/dati/cambi-bce.json" in es, "URL dei cambi dal vivo non aggiornato")
+    return errori
 
 
 class Link(HTMLParser):
@@ -179,7 +264,7 @@ def controlla_parole():
 
 def main():
     errori = controlla_esempi()
-    print(f"1. Esempi a mano: {len(ESEMPI)} controllati, {len(errori)} errori")
+    print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
     e2 = controlla_js(casi_casuali())
     print(f"2. Motore JS contro Python: {len(e2)} differenze")
     e3, n = controlla_link()
@@ -188,7 +273,9 @@ def main():
     print(f"4. Fonte e data sotto la cifra: {len(G.PROG)} programmi, {len(e4)} errori")
     e5 = controlla_parole()
     print(f"5. Parole vietate: {len(e5)}")
-    tutti = errori + e2 + e3 + e4 + e5
+    e6 = controlla_contenuti()
+    print(f"6. Correzioni della revisione presenti nelle pagine: {len(e6)} errori")
+    tutti = errori + e2 + e3 + e4 + e5 + e6
     for e in tutti:
         print(" -", e)
     if tutti:

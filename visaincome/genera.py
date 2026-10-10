@@ -1011,7 +1011,8 @@ def extra():
   publish = "."
   command = ""
   # Pubblica solo se è cambiato qualcosa in visaincome/sito (ogni pubblicazione consuma crediti Netlify).
-  # I cambi BCE (visaincome/dati/cambi.json) arrivano alle pagine da GitHub e non richiedono pubblicazioni.
+  # I cambi BCE arrivano alle pagine da GitHub (italystrikes/dati/cambi-bce.json, aggiornato due volte al giorno dal workflow
+  # di Italy Strikes) e non richiedono pubblicazioni; visaincome/dati/cambi.json è solo il valore di riserva scritto nelle pagine.
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ."
 
 [[headers]]
