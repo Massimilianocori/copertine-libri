@@ -788,7 +788,7 @@ def pagina_guida_pdf():
         shutil.copy(f, dest / f.name)
     galleria = "".join(f'<img src="{f.name}" alt="Sample page {i + 1} of the guide" loading="lazy" width="432" height="648" '
                        f'style="width:100%;height:auto;border:1px solid var(--line);border-radius:6px">' for i, f in enumerate(immagini))
-    capitoli = ["Why a strike need not ruin your trip", "How strikes work in Italy (the 10-day rule, minimum services, the register)",
+    capitoli = ["Why a strike need not ruin your trip", "How strikes work in Italy (the 10-day rule, strike-free periods, why rail strikes start at 21:00)",
                 "Reading the official strike register, with five real entries decoded", "Trains: what still runs (Trenitalia, Trenord, Italo)",
                 "The guaranteed list, decoded, with a real excerpt of Trenitalia's list", "Your train is cancelled: refunds, re-routing, compensation (EU rules)",
                 "Flights and airports: protected windows and your rights", "Buses, metro, trams and taxis in 15 cities", "Driving: ZTL zones and fines",
