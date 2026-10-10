@@ -19,13 +19,14 @@ Cosa scrivere nel modulo (in inglese, puoi incollare):
 > Before I build the page I need, in writing: (1) the commission per service (ERV, citizenship, property) in € or %; (2) how long the referral tracking lasts; (3) when and how partners are paid; (4) whether a tracked link or a lead form is used.
 **Regola**: il sito "Retire / Move to Italy" si costruisce solo con la cifra scritta e solo se la commissione è **≥ 150 € per cliente**. Sotto, o senza risposta, non si costruisce.
 
-## 3. Domanda fiscale gratuita (15 minuti) — RINVIATA al primo incasso (o al primo pagamento in arrivo da AdSense/affiliati/partner)
+## 3. Domanda fiscale gratuita (15 minuti) — DA FARE ORA, prima di mettere in vendita la guida PDF (aggiornato il 10/10/2026)
 Dove: **Fiscozen** https://www.fiscozen.it/ (pulsante "Consulenza gratuita" / "Parla con un esperto") oppure **Flextax** https://flextax.it/ (contatto o chat). Chiedi la risposta **per iscritto** (email o chat), non solo a voce.
 Testo da incollare:
-> Ho una partita IVA in regime forfettario come fotografo (codice ATECO 74.20.19), iscritto alla Gestione Separata INPS, senza iscrizione alla Camera di Commercio. Ho tre domande.
+> Ho una partita IVA in regime forfettario come fotografo (codice ATECO 74.20.19), iscritto alla Gestione Separata INPS, senza iscrizione alla Camera di Commercio. Ho quattro domande.
 > 1) Gestisco alcuni siti web informativi gratuiti. Se incasso ricavi da pubblicità (Google AdSense) e da link di affiliazione (commissioni su prenotazioni di viaggio) per qualche centinaio o migliaio di euro l'anno, posso dichiararli come attività accessoria alla mia attività professionale, restando in Gestione Separata e senza Camera di Commercio e Gestione Commercianti? Se no, da quale importo conviene aprire la posizione commerciale e quanto costa all'anno con la riduzione del 35%?
 > 2) Se ricevo una commissione da un'agenzia di servizi (relocation) per ogni cliente che le presento tramite il mio sito, vale la stessa risposta della domanda 1?
-> 3) Se acquistassi un piccolo sito web già avviato (circa 3.000 €) da un venditore estero, dovrei versare l'IVA al 22% con reverse charge? E i ricavi di quel sito rientrano nel caso 1?
+> 3) Ho scritto una guida di viaggio in PDF (in inglese) che vorrei vendere online tramite Payhip, una piattaforma che incassa e versa per me l'IVA europea e britannica e le tasse USA; i soldi mi arrivano su Stripe/PayPal. Vendo anche qualche file digitale su Etsy (finora 20 € in tutto) e libri su Amazon KDP. Posso fatturare/dichiarare questi incassi nella mia partita IVA attuale, restando in Gestione Separata e senza Camera di Commercio? Devo aggiungere un codice ATECO (quale?) e comunicarlo entro 30 giorni? I diritti d'autore sui miei libri e sulla guida si possono trattare come diritti d'autore invece che come vendita?
+> 4) Se acquistassi un piccolo sito web già avviato (circa 3.000 €) da un venditore estero, dovrei versare l'IVA al 22% con reverse charge? E i ricavi di quel sito rientrano nel caso 1?
 Mandami la risposta: decide quali strade della fascia 3.000-10.000 € restano aperte (vedi `intelaiatura/9-investimenti.md`).
 
 ## Cose che NON devi fare
