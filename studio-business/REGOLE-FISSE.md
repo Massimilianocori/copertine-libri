@@ -39,3 +39,9 @@ Strategia a catena di montaggio, decisa con Massimiliano:
 - **Affidamenti ANAC**: test tecnico **NON SUPERATO** il 10/10 (studio-business/intelaiatura/affidamenti-test-tecnico.md): i dati ANAC contengono solo il 33% degli affidamenti citati nelle determine comunali (15-49% per gli affidamenti diretti piccoli) e la domanda Google nei Comuni medi è zero. Non si costruisce. Riapertura: copertura affidamenti diretti >80% per due trimestri (prima verifica utile gennaio 2027 con il file annuale 2026).
 - **Conclusione delle due ricerche "opportunità grandi"**: in Italia i dati in poche fonti sono già presidiati; quelli non presidiati sono sparsi. La strada principale resta la somma dei siti piccoli verificati (2-4k €/anno l'uno) + fase 2 (intermediazione) sui siti che passano il test.
 - **Prossimo sito** (dal 23-24/10, dopo i primi segnali di Search Console): Francia × M1 (TCF IRN + examen civique, obbligo nuovo dall'1/1/2026) oppure Agente immobiliare (D), scelta in base ai dati di indicizzazione dei primi due siti. Poi Polonia × M1, Germania × M1.
+
+## Regola di spesa aggiornata (10/10/2026, Massimiliano): "se l'idea porta molto risultato si può investire"
+- Spesa ammessa SOLO come **test con tetto** (es. 100 €), con un ritorno misurabile e una soglia scritta prima (es. costo per iscritto ≤ 1/5 del valore di vendita). Mai budget "per farsi conoscere".
+- Ogni spesa parte solo con il sì esplicito di Massimiliano su quella cifra.
+- Con la spesa ammessa cambia la pipeline: gli annunci a pagamento servono a verificare la domanda in giorni invece di aspettare Google per mesi.
+- Idee aperte il 10/10: (1) lead-gen per scuole di italiano via annunci (fase 2 di EsameB1 accelerata); (2) SaaS per obblighi di legge nuovi per le imprese (es. RENTRI); (3) acquisto di siti con traffico esistente (cautela); (4) scalare KDP con Amazon Ads. Ricerca in corso su 1 e 2.
