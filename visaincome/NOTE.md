@@ -120,3 +120,6 @@ Revisione in `scratchpad/visaincome/REVISIONE.md`: tutte le 17 cifre principali 
 8. Tabella delle soglie di lavoro senza il visto coniuge; nota sulle cifre olandesi senza indennità di ferie.
 9. Altro: "latest ECB rates"; i valori fuori scala nel calcolatore vengono corretti e segnalati; specialisti IT nella soglia ridotta tedesca; regola dell'azienda con almeno un anno (Spagna); eccezione del figlio nato in Ungheria; fonte DZS per la Croazia; conversioni di mese e anno coerenti (l'anno si ricava dal mese convertito, o viceversa).
 
+
+## Pubblicazione (10/10/2026)
+- Online su https://visa-income-checker.netlify.app (Netlify, base `visaincome/sito`). Meta tag Search Console `GOOGLE_VERIFICA` in `genera.py` (non rimuoverlo). Test: al 9/12/2026 servono ≥ 200 impression a settimana.
