@@ -50,6 +50,8 @@ Regola della catena: **una costruzione nuova ogni 2-3 settimane, mai due insieme
 ## 6. Numeri prudenti (da non vendere a nessuno come promessa)
 - 12 mesi (ott 2027): **500-2.000 €** complessivi (pubblicità + affiliati + 0-2 commissioni relocation), con 1-2 siti chiusi e 4-6 pagine/siti attivi.
 - 18-24 mesi: **4-8k €/anno** se sito scioperi (inglese + italiano) e satelliti indicizzano e passano Journey (l'hub europeo è sospeso: stima ridotta); sotto i 3k €/anno il cancello fiscale resta chiuso e si continua a costo zero.
+- Scenario alto a 18-24 mesi, **9-15k €/anno lordi**: solo se tutti e tre i siti passano i test E si attivano anche gli avvisi a pagamento e le affiliazioni ai corsi sui siti italiani (stime degli studi: EsameB1 2,5-3,5k, EsamiDiStato 2-2,5k, scioperi EN 3-5k, scioperi IT 1-2k, satelliti 0,2-0,7k, relocation 0-2k). È il tetto, non l'attesa: di solito non tutti i siti passano.
+- Tutti i numeri sono lordi: al netto vanno tolti ~3.000 €/anno di contributi fissi (quando si apre la posizione) e l'imposta forfettaria.
 - Probabilità onesta: alta che il sistema renda qualcosa, media che superi i 5k €/anno, bassa che arrivi a un reddito pieno. È la somma di molte pagine piccole, non un colpo solo.
 
 ## 7. Soldi: come si usano
