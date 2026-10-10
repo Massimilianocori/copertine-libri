@@ -1,0 +1,1153 @@
+"""Genera il sito statico Tourist Tax Calculator in touristtax/sito/ da touristtax/dati/.
+
+Uso (dalla radice del repository):
+    python3 touristtax/genera.py
+
+Dati:
+    dati/destinazioni.json  una voce per destinazione, con tariffe, regole e fonti ufficiali (URL + data del controllo)
+    dati/francia.json       tariffe 2026 di tutte le comuni francesi (raccolta/francia.py, dataset DGFiP DELTA)
+    dati/francia_top.json   le 150 comuni con pagina propria (criterio INSEE, vedi raccolta/francia.py)
+    dati/affiliati.json     riquadro affiliati (vuoto finché non ci sono URL)
+
+Il calcolatore gira nel browser (JS in pagina, nessuno script esterno). La stessa logica è scritta qui in Python
+(calcola) per gli esempi statici e per i controlli di verifica.py, che confronta Python e JS.
+"""
+import json
+import math
+import re
+import shutil
+import sys
+import unicodedata
+from datetime import date, timedelta
+from html import escape
+from pathlib import Path
+
+RADICE = Path(__file__).resolve().parent
+DATI = RADICE / "dati"
+SITO = RADICE / "sito"
+URL_SITO = "https://tourist-tax-calculator.netlify.app"  # unico punto da cambiare se il nome del sito su Netlify è diverso
+NOME = "Tourist Tax Calculator"
+ANNO = 2026
+OGGI = date.today()
+
+DEST = json.loads((DATI / "destinazioni.json").read_text(encoding="utf-8"))["destinazioni"]
+FR = json.loads((DATI / "francia.json").read_text(encoding="utf-8"))
+FR_TOP = json.loads((DATI / "francia_top.json").read_text(encoding="utf-8"))
+AFFILIATI = json.loads((DATI / "affiliati.json").read_text(encoding="utf-8")) if (DATI / "affiliati.json").exists() else {}
+
+PAESI = {  # slug paese -> (nome, aggettivo/nota breve)
+    "france": "France", "spain": "Spain", "greece": "Greece", "turkey": "Turkey", "netherlands": "Netherlands",
+    "germany": "Germany", "austria": "Austria", "czech-republic": "Czech Republic", "united-kingdom": "United Kingdom",
+    "italy": "Italy", "japan": "Japan", "indonesia": "Indonesia", "iceland": "Iceland"}
+EUROPA = {"france", "spain", "greece", "netherlands", "germany", "austria", "czech-republic", "united-kingdom", "italy", "iceland", "turkey"}
+VALUTE = {"EUR": ("€", "", 2), "GBP": ("£", "", 2), "JPY": ("¥", "", 0), "CZK": ("", " CZK", 0), "ISK": ("ISK ", "", 0),
+          "IDR": ("IDR ", "", 0), "TRY": ("TRY ", "", 2)}
+MESI = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+
+# ---------------------------------------------------------------- utilità
+def r2(x):
+    """Arrotondamento al centesimo, mezzo in su (uguale nel JS)."""
+    return math.floor(x * 100 + 0.5 + 1e-9) / 100
+
+
+def soldi(v, valuta):
+    pre, post, dec = VALUTE[valuta]
+    if dec == 0:
+        testo = f"{int(math.floor(v + 0.5 + 1e-9)):,}"
+    else:
+        testo = f"{r2(v):,.2f}"
+    return f"{pre}{testo}{post}"
+
+
+def num(v):
+    """Numero senza zeri inutili (12.5 -> 12.5, 3.0 -> 3)."""
+    return ("%g" % v) if isinstance(v, (int, float)) else str(v)
+
+
+def data_lunga(iso):
+    d = date.fromisoformat(iso)
+    return f"{d.day} {MESI[d.month - 1]} {d.year}"
+
+
+def dep_nome(dep):
+    dep = dep if len(dep) > 1 else "0" + dep
+    return FR["dipartimenti"].get(dep, dep)
+
+
+def slugify(t):
+    t = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode()
+    return re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")
+
+
+# ---------------------------------------------------------------- Francia: voce "regola" per una comune
+def fr_regola(code):
+    nome_dgfip, dep, vi, posti, flag, nome_insee = FR["comuni"][code]
+    vett = FR["vettori"][vi]
+    nome = nome_insee or nome_dgfip.title()
+    categorie, tariffe, cap = [], [], 0.0
+    for (cid, lab, _fr), riga in zip(FR["categorie"], vett):
+        if riga is None:
+            continue
+        t, u, tot, add, reg, per = riga
+        if u == "€" and t is not None:
+            cap = max(cap, t)
+        categorie.append({"id": cid, "label": lab})
+        tariffe.append({"cat": cid, "dal": f"{ANNO}-01-01", "al": f"{ANNO}-12-31",
+                        "fr": {"t": t, "u": u, "tot": tot, "add": add, "reg": reg, "per": per}})
+    return {"slug": "", "name": nome, "country": "France", "country_slug": "france", "currency": "EUR", "tipo": "france",
+            "categorie": categorie, "tariffe": tariffe, "cap": cap, "esenti_sotto_eta": 18, "dep": dep,
+            "dep_nome": dep_nome(dep), "code": code, "flag": flag,
+            "nome_dgfip": nome_dgfip, "posti": posti,
+            "etichetta_prezzo": "Price per night for the accommodation, excluding taxes (only for unclassified accommodation)"}
+
+
+# ---------------------------------------------------------------- motore di calcolo (uguale al JS)
+def _riga(R, cat, d_iso):
+    m = int(d_iso[5:7])
+    for t in R["tariffe"]:
+        if t["cat"] != cat:
+            continue
+        if t.get("dal") and d_iso < t["dal"]:
+            continue
+        if t.get("al") and d_iso > t["al"]:
+            continue
+        if t.get("mesi") and m not in t["mesi"]:
+            continue
+        return t
+    return None
+
+
+def _in_periodo(periodi, d_iso):
+    if not periodi:
+        return True
+    md = int(d_iso[5:7]) * 100 + int(d_iso[8:10])
+    for p in periodi:
+        mm = re.match(r"(\d\d)-(\d\d)\s*-\s*(\d\d)-(\d\d)", p)
+        if not mm:
+            return True
+        a = int(mm.group(2)) * 100 + int(mm.group(1))
+        b = int(mm.group(4)) * 100 + int(mm.group(3))
+        if (a <= b and a <= md <= b) or (a > b and (md >= a or md <= b)):
+            return True
+    return False
+
+
+def _banda(bande, pp):
+    for i, (lo, hi, v) in enumerate(bande):
+        if pp >= lo and (hi is None or pp < hi):
+            return i, v
+    return -1, 0
+
+
+def calcola(R, cat, checkin, notti, paganti, esenti=0, stanze=1, prezzo=0.0):
+    """Restituisce {'totale', 'righe': [[testo, notti, importo]], 'escluse', 'sconosciute', 'fuori', 'note'}."""
+    val = R["currency"]
+    out = {"totale": 0.0, "righe": [], "escluse": 0, "sconosciute": 0, "fuori": 0, "note": []}
+    gruppi = {}
+
+    def aggiungi(testo, importo):
+        g = gruppi.setdefault(testo, [testo, 0, 0.0])
+        g[1] += 1
+        g[2] += importo
+
+    meta = {c["id"]: c for c in R["categorie"]}
+    if R["tipo"] == "per_trip":
+        t = _riga(R, cat, checkin)
+        if t is None:
+            out["sconosciute"] = 1
+        else:
+            imp = t["valore"] * paganti
+            out["righe"] = [[f"{soldi(t['valore'], val)} × {paganti} traveller(s), once per trip", 1, imp]]
+            out["totale"] = imp
+        return out
+    if R.get("max_soggiorno") and notti > R["max_soggiorno"]:
+        out["note"].append(f"Stays longer than {R['max_soggiorno']} consecutive days are not subject to the fee.")
+        return out
+    max_n = meta.get(cat, {}).get("max_notti") or R.get("max_notti")
+    persone = paganti + esenti
+    d0 = date.fromisoformat(checkin)
+    for i in range(notti):
+        d = (d0 + timedelta(days=i)).isoformat()
+        n = i + 1
+        if max_n and n > max_n:
+            out["escluse"] += 1
+            continue
+        t = _riga(R, cat, d)
+        if t is None:
+            out["sconosciute"] += 1
+            continue
+        tipo = R["tipo"]
+        if tipo == "per_person":
+            imp = t["valore"] * paganti
+            testo = f"{soldi(t['valore'], val)} per person × {paganti} paying guest(s)"
+        elif tipo == "per_room":
+            imp = t["valore"] * stanze
+            testo = f"{soldi(t['valore'], val)} per room/unit × {stanze} room(s)/unit(s)"
+            if t.get("stagione"):
+                testo += f" ({t['stagione']} rate)"
+        elif tipo == "percent":
+            f = t.get("fattore_base", 1)
+            imp = prezzo * f * t["valore"] / 100
+            testo = f"{num(t['valore'])}% of {soldi(prezzo, val)}" + (f" after a {num(round((1 - f) * 100, 4))}% deduction" if f != 1 else "")
+        elif tipo == "bands":
+            pp = prezzo / persone if persone else 0
+            _, b = _banda(t["valore"], pp)
+            imp = b * persone
+            testo = f"{soldi(b, val)} per person (band for {soldi(pp, val)} per person) × {persone} guest(s)"
+        elif tipo == "france":
+            fr = t["fr"]
+            if not _in_periodo(fr["per"], d):
+                out["fuori"] += 1
+                continue
+            if fr["reg"] == "F":
+                out["note"].append("This category is taxed with the flat-rate scheme (taxe forfaitaire): the host pays it, it is not charged per guest.")
+                aggiungi("flat-rate scheme, paid by the host", 0.0)
+                continue
+            if fr["u"] == "€":
+                per = fr["tot"]
+                imp = per * paganti
+                testo = f"{soldi(per, val)} per person ({soldi(fr['t'], val)} + {num(fr['add'])}% additional taxes) × {paganti} paying guest(s)"
+            else:
+                costo = prezzo / persone if persone else 0
+                base = min(r2(fr["t"] / 100 * costo), R["cap"])
+                per = r2(base * (1 + fr["add"] / 100))
+                imp = per * paganti
+                testo = (f"{soldi(per, val)} per person ({num(fr['t'])}% of {soldi(costo, val)} per person, capped at {soldi(R['cap'], val)}"
+                         f", + {num(fr['add'])}% additional taxes) × {paganti} paying guest(s)")
+        else:
+            raise ValueError(tipo)
+        for rid in R.get("riduzioni", []):
+            if rid["tipo"] == "mesi" and int(d[5:7]) in rid["mesi"]:
+                imp *= (1 - rid["percento"] / 100)
+                testo += f", {rid['testo']}"
+            elif rid["tipo"] == "dal_giorno" and n >= rid["giorno"]:
+                imp *= (1 - rid["percento"] / 100)
+                testo += f", {rid['testo']}"
+        aggiungi(testo, imp)
+    out["righe"] = list(gruppi.values())
+    out["totale"] = sum(g[2] for g in out["righe"])
+    return out
+
+
+# ---------------------------------------------------------------- testi derivati dalle regole
+def righe_correnti(R, giorno=None):
+    """Tariffe valide alla data indicata (o la prima data coperta, se la data è fuori)."""
+    giorno = giorno or OGGI.isoformat()
+    ok = [t for t in R["tariffe"] if (not t.get("dal") or t["dal"] <= giorno) and (not t.get("al") or giorno <= t["al"])]
+    if not ok:
+        future = sorted({t["dal"] for t in R["tariffe"] if t.get("dal") and t["dal"] > giorno})
+        if future:
+            ok = [t for t in R["tariffe"] if t.get("dal") == future[0]]
+        else:
+            ok = R["tariffe"]
+    return ok
+
+
+def riassunto(R):
+    val = R["currency"]
+    tt = righe_correnti(R)
+    tipo = R["tipo"]
+    if tipo == "france":
+        vals = [t["fr"]["tot"] for t in tt if t["fr"]["u"] == "€" and t["fr"]["reg"] == "R"]
+        nc = [t for t in tt if t["fr"]["u"] == "%"]
+        s = f"{soldi(min(vals), val)}–{soldi(max(vals), val)} per person per night" if vals else "flat-rate only"
+        if nc:
+            s += f"; unclassified: {num(nc[0]['fr']['t'])}% of the price"
+        return s
+    if tipo in ("per_person", "per_room"):
+        vals = [t["valore"] for t in tt]
+        unit = "per person per night" if tipo == "per_person" else "per room per night"
+        if min(vals) == max(vals):
+            return f"{soldi(min(vals), val)} {unit}"
+        return f"{soldi(min(vals), val)}–{soldi(max(vals), val)} {unit}"
+    if tipo == "percent":
+        vals = sorted({t["valore"] for t in tt})
+        return " / ".join(f"{num(v)}%" for v in vals) + " of the room price"
+    if tipo == "bands":
+        vals = [b[2] for t in tt for b in t["valore"]]
+        nz = [v for v in vals if v > 0]
+        return f"{soldi(min(nz), val)}–{soldi(max(nz), val)} per person per night (by price band)"
+    if tipo == "per_trip":
+        return f"{soldi(tt[0]['valore'], val)} per person, once per trip"
+    return ""
+
+
+def formula(R):
+    tipo = R["tipo"]
+    eta = R.get("esenti_sotto_eta")
+    maxn = R.get("max_notti")
+    pag = f"guests aged {eta} or over" if eta else "guests"
+    if tipo == "per_person":
+        f = f"Tax = rate per person per night × {pag} × taxable nights"
+    elif tipo == "per_room":
+        f = "Tax = rate per room (or unit) per night × rooms × nights"
+    elif tipo == "percent":
+        f = "Tax = rate % × price per night (as defined below) × taxable nights"
+    elif tipo == "bands":
+        f = "Tax = band amount (from the price per person per night = room price ÷ guests) × guests × nights"
+    elif tipo == "per_trip":
+        f = "Levy = amount per person × travellers (once per trip)"
+    else:
+        f = ("Classified accommodation: tax = (municipal rate + additional taxes) × guests aged 18 or over × nights. "
+             "Unclassified: rate % × (price per night excluding taxes ÷ all occupants), capped at the highest rate adopted by the town, "
+             "+ additional taxes, × guests aged 18 or over × nights")
+    extra = []
+    if maxn:
+        extra.append(f"maximum {maxn} taxable nights per stay")
+    if any(c.get("max_notti") for c in R["categorie"]):
+        extra.append("some categories have their own maximum (see the table)")
+    for rid in R.get("riduzioni", []):
+        extra.append(rid["testo"])
+    if R.get("max_soggiorno"):
+        extra.append(f"stays longer than {R['max_soggiorno']} consecutive days are not covered")
+    return f + (" (" + "; ".join(extra) + ")" if extra else "") + "."
+
+
+def tabella_tariffe(R):
+    val = R["currency"]
+    tipo = R["tipo"]
+    cat = {c["id"]: c for c in R["categorie"]}
+    if tipo == "bands":
+        h = []
+        for t in R["tariffe"]:
+            per = periodo_testo(t)
+            righe = []
+            for i, (lo, hi, v) in enumerate(t["valore"]):
+                fascia = f"{soldi(lo, val)} – {soldi(hi - 1, val)}" if hi else f"{soldi(lo, val)} or more"
+                if lo == 0 and hi:
+                    fascia = f"under {soldi(hi, val)}"
+                parti = ""
+                if t.get("parti_bande") and t["parti_bande"][i]:
+                    parti = f' <span class="small">({" + ".join(escape(p) for p in t["parti_bande"][i])})</span>'
+                righe.append(f"<tr><td>{fascia}</td><td><strong>{soldi(v, val) if v else 'no tax'}</strong>{parti}</td></tr>")
+            nota = f'<p class="small">{escape(t["nota"])}</p>' if t.get("nota") else ""
+            h.append(f'<h3>{escape(per)}</h3><div class="tab"><table><thead><tr><th>Price per person per night</th><th>Tax per person per night</th></tr></thead>'
+                     f'<tbody>{"".join(righe)}</tbody></table></div>{nota}')
+        return "".join(h)
+    if tipo == "france":
+        righe = []
+        for t in R["tariffe"]:
+            fr = t["fr"]
+            lab = escape(cat[t["cat"]]["label"])
+            if fr["u"] == "%":
+                tassa = f"{num(fr['t'])}% of the price per person (cap {soldi(R['cap'], val)}) + {num(fr['add'])}%"
+                tot = f"{num(fr['t'])}% × price, max {soldi(r2(R['cap'] * (1 + fr['add'] / 100)), val)}"
+            else:
+                tassa = f"{soldi(fr['t'], val)} + {num(fr['add'])}%"
+                tot = soldi(fr["tot"], val)
+            if fr["reg"] == "F":
+                tot += ' <span class="small">(flat-rate: paid by the host)</span>'
+            per = ", ".join(escape(p) for p in fr["per"]) if fr["per"] and fr["per"] != ["01-01 - 31-12"] else "all year"
+            righe.append(f"<tr><td>{lab}</td><td>{tassa}</td><td><strong>{tot}</strong></td><td>{per}</td></tr>")
+        return ('<div class="tab"><table><thead><tr><th>Accommodation</th><th>Municipal rate + additional taxes</th><th>Total per person per night</th>'
+                f'<th>Collection period (day-month)</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>')
+    # per_person, per_room, percent, per_trip: righe = categorie, colonne = periodi/stagioni
+    colonne = []
+    for t in R["tariffe"]:
+        k = periodo_testo(t)
+        if k not in colonne:
+            colonne.append(k)
+    unit = {"per_person": "per person per night", "per_room": "per room per night", "percent": "of the price", "per_trip": "per person"}[tipo]
+    righe = []
+    for c in R["categorie"]:
+        celle = []
+        for k in colonne:
+            t = next((x for x in R["tariffe"] if x["cat"] == c["id"] and periodo_testo(x) == k), None)
+            if t is None:
+                celle.append("<td>–</td>")
+                continue
+            v = f"{num(t['valore'])}%" if tipo == "percent" else soldi(t["valore"], val)
+            if t.get("parti"):
+                v += ' <span class="small">(' + " + ".join(f"{escape(a)} {soldi(b, val)}" for a, b in t["parti"].items()) + ")</span>"
+            if t.get("nota"):
+                v += f' <span class="small">({escape(t["nota"])})</span>'
+            celle.append(f"<td><strong>{v}</strong></td>")
+        mx = f' <span class="small">(max {c["max_notti"]} nights)</span>' if c.get("max_notti") else ""
+        righe.append(f"<tr><td>{escape(c['label'])}{mx}</td>{''.join(celle)}</tr>")
+    testa = "".join(f"<th>{escape(k)}</th>" for k in colonne)
+    return (f'<div class="tab"><table><thead><tr><th>Accommodation ({unit})</th>{testa}</tr></thead>'
+            f'<tbody>{"".join(righe)}</tbody></table></div>')
+
+
+def periodo_testo(t):
+    if t.get("stagione"):
+        return t["stagione"]
+    a, b = t.get("dal"), t.get("al")
+    if a and b:
+        return f"{data_lunga(a)} – {data_lunga(b)}"
+    if a:
+        return f"From {data_lunga(a)}"
+    if b:
+        return f"Until {data_lunga(b)}"
+    return "Current rate"
+
+
+# ---------------------------------------------------------------- CSS e JS
+CSS = """
+:root{--bg:#F5F7FA;--card:#FFFFFF;--ink:#14202E;--ink-2:#45556A;--ink-3:#66768A;--line:#DCE3EC;
+--accent:#1F5FBF;--accent-2:#E7F0FC;--ok:#1E6B47;--ok-2:#E6F2EB;--warn:#8A4B00;--warn-2:#FFF2DF;--mute:#EDF1F6;--radius:14px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F151C;--card:#17202A;--ink:#EDF2F7;--ink-2:#B9C6D3;
+--ink-3:#8D9BAA;--line:#283545;--accent:#8DB6FF;--accent-2:#1A2A40;--ok:#7FD3A6;--ok-2:#173226;--warn:#FFB867;--warn-2:#33250F;--mute:#1E2935}}
+:root[data-theme="dark"]{--bg:#0F151C;--card:#17202A;--ink:#EDF2F7;--ink-2:#B9C6D3;--ink-3:#8D9BAA;--line:#283545;--accent:#8DB6FF;
+--accent-2:#1A2A40;--ok:#7FD3A6;--ok-2:#173226;--warn:#FFB867;--warn-2:#33250F;--mute:#1E2935}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.6}
+a{color:var(--accent)}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+header.top{border-bottom:1px solid var(--line);background:var(--card)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px}
+.logo{font-weight:800;font-size:1.12rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.logo span{color:var(--accent)}
+nav.menu{display:flex;gap:14px;flex-wrap:wrap;font-size:.95rem}
+nav.menu a{color:var(--ink-2);text-decoration:none}
+nav.menu a:hover{color:var(--accent)}
+.hero{padding:28px 0 4px}
+h1{font-size:clamp(1.5rem,4.6vw,2.2rem);line-height:1.18;letter-spacing:-.02em;margin:0 0 12px}
+h2{font-size:1.3rem;margin:32px 0 12px;letter-spacing:-.01em}
+h3{font-size:1.05rem;margin:20px 0 8px}
+.lead{font-size:1.07rem;color:var(--ink-2);max-width:740px;margin:0 0 6px}
+.small{font-size:.88rem;color:var(--ink-3)}
+.avviso{background:var(--warn-2);border-left:4px solid var(--warn);padding:11px 14px;border-radius:8px;font-size:.94rem;margin:16px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;min-width:0}
+.cifra{font-size:1.05rem;margin:12px 0}
+.cifra strong{font-size:1.5rem;color:var(--accent)}
+.fonte{font-size:.85rem;color:var(--ink-3);margin:6px 0 0;overflow-wrap:anywhere}
+.fonte a{color:var(--ink-3)}
+.calc{display:grid;gap:12px}
+.calc .campi{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.calc label{display:grid;gap:4px;font-weight:600;font-size:.93rem;min-width:0}
+.calc input,.calc select{font:inherit;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;min-width:0}
+.calc .pieno{grid-column:1/-1}
+.risultato{background:var(--accent-2);border-radius:12px;padding:14px 16px;min-width:0;overflow-wrap:anywhere}
+.risultato .tot{font-size:1.7rem;font-weight:800;color:var(--accent);line-height:1.2}
+.risultato ul{margin:8px 0 0;padding-left:20px;font-size:.93rem}
+.formula{font-size:.88rem;color:var(--ink-2);margin:8px 0 0}
+.tab{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--mute);font-size:.85rem}
+tr:last-child td{border-bottom:0}
+.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}
+.griglia a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;text-decoration:none;color:var(--ink);font-weight:600;min-width:0;overflow-wrap:anywhere}
+.griglia a small{display:block;font-weight:400;color:var(--ink-3)}
+.griglia a:hover{border-color:var(--accent)}
+.cerca{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);width:100%;margin:6px 0 12px}
+.testo p,.testo li{max-width:760px}
+.form{display:grid;gap:12px}
+.form label{display:grid;gap:4px;font-weight:600;font-size:.95rem}
+.form input,.form select,.form textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+.form .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem;color:var(--ink-2)}
+.form .check input{width:auto;margin-top:4px}
+.btn{font:inherit;font-weight:700;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:12px 18px;cursor:pointer}
+.btn:disabled{opacity:.6;cursor:wait}
+.hp{position:absolute;left:-9999px}
+.ok{background:var(--ok-2);border:1px solid var(--ok);padding:14px;border-radius:10px}
+.errore{color:var(--warn);font-weight:600}
+.ad-slot:empty{display:none}
+.briciole{font-size:.85rem;color:var(--ink-3);margin-top:14px}
+.briciole a{color:var(--ink-3)}
+.risultati-fr{display:grid;gap:6px;margin:0 0 12px}
+.risultati-fr button{font:inherit;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px;color:var(--ink);cursor:pointer}
+.risultati-fr button:hover{border-color:var(--accent)}
+footer{margin-top:50px;border-top:1px solid var(--line);padding:22px 0 40px;font-size:.88rem;color:var(--ink-3)}
+footer a{color:var(--ink-3)}
+@media (max-width:760px){.calc .campi{grid-template-columns:1fr}
+header.top .wrap{flex-direction:column;align-items:flex-start;gap:4px;padding-top:10px;padding-bottom:10px}nav.menu{gap:12px;font-size:.92rem}}
+"""
+
+# Motore di calcolo in JS: deve dare gli stessi risultati di calcola() (verifica.py li confronta).
+MOTORE_JS = r"""
+var VAL={"EUR":["€","",2],"GBP":["£","",2],"JPY":["¥","",0],"CZK":[""," CZK",0],"ISK":["ISK ","",0],"IDR":["IDR ","",0],"TRY":["TRY ","",2]};
+function r2(x){return Math.floor(x*100+0.5+1e-9)/100;}
+function grp(n,dec){var s=dec?r2(n).toFixed(2):String(Math.floor(n+0.5+1e-9));var p=s.split('.');p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,',');return p.join('.');}
+function soldi(v,c){var x=VAL[c];return x[0]+grp(v,x[2])+x[1];}
+function num(v){var s=String(Math.round(v*1e6)/1e6);return s;}
+function riga(R,cat,d){var m=+d.slice(5,7);for(var i=0;i<R.tariffe.length;i++){var t=R.tariffe[i];if(t.cat!==cat)continue;
+  if(t.dal&&d<t.dal)continue;if(t.al&&d>t.al)continue;if(t.mesi&&t.mesi.indexOf(m)<0)continue;return t;}return null;}
+function inPeriodo(per,d){if(!per||!per.length)return true;var md=(+d.slice(5,7))*100+(+d.slice(8,10));
+  for(var i=0;i<per.length;i++){var m=/(\d\d)-(\d\d)\s*-\s*(\d\d)-(\d\d)/.exec(per[i]);if(!m)return true;
+    var a=(+m[2])*100+(+m[1]),b=(+m[4])*100+(+m[3]);if((a<=b&&a<=md&&md<=b)||(a>b&&(md>=a||md<=b)))return true;}return false;}
+function banda(b,pp){for(var i=0;i<b.length;i++){if(pp>=b[i][0]&&(b[i][1]===null||pp<b[i][1]))return b[i][2];}return 0;}
+function addDays(iso,n){var p=iso.split('-');var x=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]+n));return x.toISOString().slice(0,10);}
+function calcola(R,cat,checkin,notti,paganti,esenti,stanze,prezzo){
+  esenti=esenti||0;stanze=stanze||1;prezzo=prezzo||0;var val=R.currency;
+  var out={totale:0,righe:[],escluse:0,sconosciute:0,fuori:0,note:[]};var gruppi={},ordine=[];
+  function agg(t,imp){if(!gruppi[t]){gruppi[t]=[t,0,0];ordine.push(t);}gruppi[t][1]+=1;gruppi[t][2]+=imp;}
+  var meta={};R.categorie.forEach(function(c){meta[c.id]=c;});
+  if(R.tipo==='per_trip'){var t0=riga(R,cat,checkin);if(!t0){out.sconosciute=1;return out;}
+    var im=t0.valore*paganti;out.righe=[[soldi(t0.valore,val)+' × '+paganti+' traveller(s), once per trip',1,im]];out.totale=im;return out;}
+  if(R.max_soggiorno&&notti>R.max_soggiorno){out.note.push('Stays longer than '+R.max_soggiorno+' consecutive days are not subject to the fee.');return out;}
+  var maxN=(meta[cat]&&meta[cat].max_notti)||R.max_notti;var persone=paganti+esenti;
+  for(var i=0;i<notti;i++){var d=addDays(checkin,i),n=i+1;
+    if(maxN&&n>maxN){out.escluse++;continue;}
+    var t=riga(R,cat,d);if(!t){out.sconosciute++;continue;}
+    var imp,testo,tp=R.tipo;
+    if(tp==='per_person'){imp=t.valore*paganti;testo=soldi(t.valore,val)+' per person × '+paganti+' paying guest(s)';}
+    else if(tp==='per_room'){imp=t.valore*stanze;testo=soldi(t.valore,val)+' per room/unit × '+stanze+' room(s)/unit(s)';if(t.stagione)testo+=' ('+t.stagione+' rate)';}
+    else if(tp==='percent'){var f=(t.fattore_base===undefined)?1:t.fattore_base;imp=prezzo*f*t.valore/100;
+      testo=num(t.valore)+'% of '+soldi(prezzo,val)+(f!==1?' after a '+num(Math.round((1-f)*100*1e4)/1e4)+'% deduction':'');}
+    else if(tp==='bands'){var pp=persone?prezzo/persone:0;var b=banda(t.valore,pp);imp=b*persone;
+      testo=soldi(b,val)+' per person (band for '+soldi(pp,val)+' per person) × '+persone+' guest(s)';}
+    else if(tp==='france'){var fr=t.fr;if(!inPeriodo(fr.per,d)){out.fuori++;continue;}
+      if(fr.reg==='F'){var nf='This category is taxed with the flat-rate scheme (taxe forfaitaire): the host pays it, it is not charged per guest.';
+        if(out.note.indexOf(nf)<0)out.note.push(nf);agg('flat-rate scheme, paid by the host',0);continue;}
+      if(fr.u==='€'){imp=fr.tot*paganti;testo=soldi(fr.tot,val)+' per person ('+soldi(fr.t,val)+' + '+num(fr.add)+'% additional taxes) × '+paganti+' paying guest(s)';}
+      else{var costo=persone?prezzo/persone:0;var base=Math.min(r2(fr.t/100*costo),R.cap);var per=r2(base*(1+fr.add/100));imp=per*paganti;
+        testo=soldi(per,val)+' per person ('+num(fr.t)+'% of '+soldi(costo,val)+' per person, capped at '+soldi(R.cap,val)+', + '+num(fr.add)+'% additional taxes) × '+paganti+' paying guest(s)';}}
+    (R.riduzioni||[]).forEach(function(rd){if(rd.tipo==='mesi'&&rd.mesi.indexOf(+d.slice(5,7))>=0){imp*=(1-rd.percento/100);testo+=', '+rd.testo;}
+      else if(rd.tipo==='dal_giorno'&&n>=rd.giorno){imp*=(1-rd.percento/100);testo+=', '+rd.testo;}});
+    agg(testo,imp);}
+  out.righe=ordine.map(function(k){return gruppi[k];});out.totale=out.righe.reduce(function(s,g){return s+g[2];},0);return out;}
+"""
+
+APP_JS = r"""
+(function(){
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function oggi(){var x=new Date();return new Date(Date.UTC(x.getFullYear(),x.getMonth(),x.getDate())).toISOString().slice(0,10);}
+  function primaData(R){var o=oggi();var ok=R.tariffe.some(function(t){return (!t.dal||t.dal<=o)&&(!t.al||o<=t.al);});
+    if(ok||R.tipo==='per_trip')return o;var ds=R.tariffe.map(function(t){return t.dal;}).filter(function(x){return x&&x>o;}).sort();return ds[0]||o;}
+  function monta(box,R){
+    var f=box.querySelector('form');var q=function(n){return f.querySelector('[name='+n+']');};
+    var vis=function(n,on){var el=f.querySelector('[data-campo='+n+']');if(el)el.hidden=!on;};
+    var cat=q('cat');cat.innerHTML=R.categorie.map(function(c){return '<option value="'+esc(c.id)+'">'+esc(c.label)+'</option>';}).join('');
+    if(box.dataset.cat&&R.categorie.some(function(c){return c.id===box.dataset.cat;}))cat.value=box.dataset.cat;
+    vis('cat',R.categorie.length>1);
+    if(!q('checkin').value||box.dataset.reset){q('checkin').value=primaData(R);}
+    if(!box.dataset.prezzoToccato||box.dataset.reset){q('prezzo').value=R.prezzo_esempio||150;}
+    if(!box.dataset.legatoPrezzo){q('prezzo').addEventListener('input',function(){box.dataset.prezzoToccato='1';});box.dataset.legatoPrezzo='1';}
+    var eta=R.esenti_sotto_eta;
+    f.querySelector('[data-lab=paganti]').textContent=R.tipo==='per_trip'?'Travellers':(eta?'Guests aged '+eta+' or over':'Guests');
+    f.querySelector('[data-lab=esenti]').textContent=eta?'Children under '+eta+' (exempt)':'';
+    var lp=f.querySelector('[data-lab=prezzo]');lp.textContent=(R.etichetta_prezzo||'Price per night')+' ('+R.currency+')';
+    function aggiorna(){
+      var tp=R.tipo,isNC=false;
+      if(tp==='france'){var t=R.tariffe.filter(function(x){return x.cat===cat.value;})[0];isNC=t&&t.fr.u==='%';}
+      vis('checkin',tp!=='per_trip');vis('notti',tp!=='per_trip');
+      vis('paganti',tp!=='per_room'&&tp!=='percent');vis('esenti',!!eta&&tp!=='per_room'&&tp!=='percent');
+      vis('stanze',tp==='per_room');vis('prezzo',tp==='percent'||tp==='bands'||isNC);
+      var notti=Math.max(1,Math.min(365,parseInt(q('notti').value,10)||1));
+      var pag=Math.max(0,parseInt(q('paganti').value,10)||0),es=Math.max(0,parseInt(q('esenti').value,10)||0);
+      var st=Math.max(1,parseInt(q('stanze').value,10)||1),pr=Math.max(0,parseFloat(q('prezzo').value)||0);
+      var ci=q('checkin').value||primaData(R);
+      var o=calcola(R,cat.value,ci,notti,pag,eta?es:0,st,pr);
+      var h='<div class="small">Estimated tax for this stay</div><div class="tot">'+soldi(o.totale,R.currency)+'</div><ul>';
+      o.righe.forEach(function(g){h+='<li>'+g[1]+' night'+(g[1]>1?'s':'')+' × '+esc(g[0])+' = <strong>'+soldi(g[2],R.currency)+'</strong></li>';});
+      if(R.tipo==='per_trip'&&!o.righe.length)h+='<li>No verified amount.</li>';
+      if(o.escluse)h+='<li>'+o.escluse+' night(s) beyond the maximum number of taxable nights: no tax.</li>';
+      if(o.fuori)h+='<li>'+o.fuori+' night(s) outside the collection period: no tax.</li>';
+      if(o.sconosciute)h+='<li>'+o.sconosciute+' night(s) with no verified official rate for that date (not counted).</li>';
+      o.note.forEach(function(n){h+='<li>'+esc(n)+'</li>';});
+      h+='</ul>';box.querySelector('[data-out]').innerHTML=h;}
+    if(!f.dataset.legato){var ag=function(e){if(e&&e.target&&e.target.name==='dest')return;box.__aggiorna();};
+      f.addEventListener('input',ag);f.addEventListener('change',ag);f.addEventListener('submit',function(e){e.preventDefault();});f.dataset.legato='1';}
+    box.__aggiorna=aggiorna;aggiorna();}
+  window.TTC_monta=monta;
+  document.querySelectorAll('[data-calcolatore]').forEach(function(box){
+    var D=JSON.parse(document.getElementById(box.dataset.calcolatore).textContent);
+    var sel=box.querySelector('[name=dest]');
+    if(sel){sel.innerHTML=D.map(function(R,i){return '<option value="'+i+'">'+esc(R.name+(R.country!==R.name?' ('+R.country+')':''))+'</option>';}).join('');
+      var cur=function(){box.dataset.reset='1';box.dataset.cat='';var R=D[+sel.value];monta(box,R);
+        var l=box.querySelector('[data-link]');if(l){l.href=l.dataset.base+R.slug+'/';l.textContent='Full rules and official source for '+R.name;}};
+      sel.addEventListener('change',cur);cur();}
+    else monta(box,D[0]);});
+  document.querySelectorAll('[data-filtro]').forEach(function(inp){var lista=document.getElementById(inp.dataset.filtro);
+    inp.addEventListener('input',function(){var v=inp.value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+      lista.querySelectorAll('a').forEach(function(a){var t=a.textContent.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');a.hidden=v&&t.indexOf(v)<0;});});});
+  var src=document.querySelectorAll('input[name=source]');var ref='';try{var qs=new URLSearchParams(location.search);ref=qs.get('ref')||document.referrer||'direct';}catch(e){ref='direct';}
+  src.forEach(function(i){i.value=String(ref).slice(0,200);});
+  document.querySelectorAll('form.ajax').forEach(function(form){form.addEventListener('submit',function(ev){ev.preventDefault();
+    var err=form.querySelector('[data-errore]');err.hidden=true;if(!form.checkValidity()){form.reportValidity();return;}
+    var bt=form.querySelector('button');bt.disabled=true;
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+    .then(function(r){if(!r.ok)throw new Error(r.status);form.hidden=true;form.parentNode.querySelector('[data-ok]').hidden=false;})
+    .catch(function(){err.hidden=false;bt.disabled=false;});});});
+})();
+"""
+
+# Ricerca su tutte le comuni francesi: carica /data/fr.json solo quando serve.
+FR_JS = r"""
+(function(){
+  var box=document.getElementById('fr-cerca');if(!box)return;
+  var inp=box.querySelector('input[type=search]'),res=box.querySelector('.risultati-fr'),det=document.getElementById('fr-dettaglio');var DATA=null,caricando=false;
+  function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,' ').trim();}
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  var attesa=null;
+  function carica(cb){if(DATA)return cb();attesa=cb;if(caricando)return;caricando=true;res.innerHTML='<p class="small">Loading the list of 10,900 towns…</p>';
+    fetch(box.dataset.url).then(function(r){return r.json();}).then(function(d){DATA=d;d.c.forEach(function(c){c.push(norm(c[1]));});if(attesa)attesa();})
+    .catch(function(){res.innerHTML='<p class="errore">Could not load the list. Please try again.</p>';caricando=false;});}
+  function regola(c){var v=DATA.v[c[3]],cats=[],tar=[],cap=0;
+    DATA.cat.forEach(function(k,i){var r=v[i];if(!r)return;if(r[1]==='€'&&r[0]!==null)cap=Math.max(cap,r[0]);cats.push({id:k[0],label:k[1]});
+      tar.push({cat:k[0],dal:DATA.anno+'-01-01',al:DATA.anno+'-12-31',fr:{t:r[0],u:r[1],tot:r[2],add:r[3],reg:r[4],per:r[5]}});});
+    return {name:c[1],country:'France',currency:'EUR',tipo:'france',categorie:cats,tariffe:tar,cap:cap,esenti_sotto_eta:18,
+      etichetta_prezzo:'Price per night for the accommodation, excluding taxes (only for unclassified accommodation)'};}
+  function mostra(c){
+    if(c[4]==='C'){det.innerHTML='<div class="card"><h2 style="margin-top:0">'+esc(c[1])+'</h2><p>The official file has conflicting lines for this town, so we do not show a rate. Please check with the town hall or tourist office.</p></div>';return;}
+    var R=regola(c);var righe=R.tariffe.map(function(t){var lab=R.categorie.filter(function(x){return x.id===t.cat;})[0].label;var fr=t.fr;
+      var tot=fr.u==='%'?(num(fr.t)+'% of the price per person (max '+soldi(r2(R.cap*(1+fr.add/100)),'EUR')+')'):soldi(fr.tot,'EUR');
+      if(fr.reg==='F')tot+=' (flat-rate: paid by the host)';return '<tr><td>'+esc(lab)+'</td><td><strong>'+tot+'</strong></td></tr>';}).join('');
+    det.innerHTML='<div class="card"><h2 style="margin-top:0">'+esc(c[1])+' ('+esc(DATA.dep[c[2]]||c[2])+') tourist tax 2026</h2>'+
+      '<div class="tab"><table><thead><tr><th>Accommodation</th><th>Total per person per night (incl. additional taxes)</th></tr></thead><tbody>'+righe+'</tbody></table></div>'+
+      '<p class="fonte">Source: <a href="'+esc(DATA.fonte)+'" rel="noopener">DGFiP open dataset "Tarifs taxe de séjour – DELTA"</a> (Licence Ouverte 2.0), 2026 rates, dataset updated '+esc(DATA.mod)+', checked '+esc(DATA.chk)+'.</p>'+
+      '<div id="fr-calc"></div></div>';
+    var tpl=document.getElementById('tpl-calc');var nodo=tpl.content.cloneNode(true);document.getElementById('fr-calc').appendChild(nodo);
+    var cb=document.querySelector('#fr-calc [data-calc]');cb.dataset.cat=R.categorie.some(function(x){return x.id==='h3';})?'h3':'';window.TTC_monta(cb,R);
+    det.scrollIntoView({behavior:'smooth',block:'start'});}
+  function cerca(){var v=norm(inp.value);if(v.length<2){res.innerHTML='';return;}
+    carica(function(){var out=[];for(var i=0;i<DATA.c.length&&out.length<12;i++){var c=DATA.c[i];if(c[c.length-1].indexOf(v)===0)out.push(c);}
+      if(out.length<12)for(var j=0;j<DATA.c.length&&out.length<12;j++){var c2=DATA.c[j];if(c2[c2.length-1].indexOf(v)>0&&out.indexOf(c2)<0)out.push(c2);}
+      res.innerHTML=out.length?'':'<p class="small">No town with 2026 rates in the official file matches "'+esc(inp.value)+'". It may not levy the tax, or its rate may date from an earlier year: check with the town hall.</p>';
+      out.forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent=c[1]+' ('+(DATA.dep[c[2]]||c[2])+')';b.addEventListener('click',function(){mostra(c);});res.appendChild(b);});});}
+  inp.addEventListener('input',cerca);inp.addEventListener('focus',function(){carica(cerca);},{once:true});
+})();
+"""
+
+URLS = []
+AD = '<div class="ad-slot" aria-hidden="true"></div>'
+AVVISO = ('<p class="avviso"><strong>Not tax advice.</strong> Tourist taxes are set by local or national authorities and can change. '
+          'They are usually collected by your hotel or host, who applies the official rules: check the final amount with your accommodation.</p>')
+
+
+def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, extra_js="", jsonld_extra=None):
+    file = percorso if percorso.endswith(".html") else (percorso + "index.html")
+    profondita = file.count("/")
+    rel = "../" * profondita or "./"
+    url_pag = URL_SITO + "/" + (percorso if not percorso.endswith("index.html") else percorso[:-10])
+    if indicizza:
+        URLS.append(percorso)
+    ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": NOME, "url": URL_SITO + "/"}] if percorso == "" else []
+    bc = ""
+    if briciole:
+        voci = [{"@type": "ListItem", "position": 1, "name": "Home", "item": URL_SITO + "/"}]
+        for i, (n, p) in enumerate(briciole, start=2):
+            voci.append({"@type": "ListItem", "position": i, "name": n, "item": URL_SITO + "/" + p})
+        ld.append({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": voci})
+        bc = ('<nav class="briciole" aria-label="Breadcrumb"><a href="' + rel + '">Home</a>' +
+              "".join(f' › <a href="{rel}{p}">{escape(n)}</a>' for n, p in briciole[:-1]) + f" › {escape(briciole[-1][0])}</nav>")
+    if jsonld_extra:
+        ld.append(jsonld_extra)
+    ld_html = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
+    robots = "" if indicizza else '<meta name="robots" content="noindex">'
+    alt = (f'<link rel="alternate" hreflang="en" href="{url_pag}"><link rel="alternate" hreflang="x-default" href="{url_pag}">'
+           if indicizza else "")
+    testo = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{escape(titolo)}</title>
+<meta name="description" content="{escape(descrizione)}">
+<link rel="canonical" href="{url_pag}">
+{alt}
+<meta property="og:title" content="{escape(titolo)}">
+<meta property="og:description" content="{escape(descrizione)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{url_pag}">
+<meta name="theme-color" content="#1F5FBF">
+{robots}
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F5FBF'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='white'%3E%25%3C/text%3E%3C/svg%3E">
+<style>{CSS}</style>
+{ld_html}
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="logo" href="{rel}">Tourist Tax <span>Calculator</span></a>
+<nav class="menu" aria-label="Menu">
+<a href="{rel}">Calculator</a><a href="{rel}tourist-taxes-europe-2026/">Europe 2026</a><a href="{rel}france/">France</a><a href="{rel}country/japan/">Japan</a><a href="{rel}how-tourist-taxes-work/">How it works</a><a href="{rel}about/">Sources</a>
+</nav>
+</div></header>
+<main class="wrap">
+{bc}
+{corpo}
+</main>
+<footer><div class="wrap">
+<p><strong>{NOME}</strong> is an independent site, not affiliated with any government or tax authority. Every rate comes from an official source (law, ordinance, tax authority page or official open data) linked under the figure with the date we checked it.
+<strong>Tourist taxes are set by local or national authorities and can change. Your accommodation collects the tax: check the exact amount with them.</strong> Nothing on this site is tax or legal advice.</p>
+<p><a href="{rel}about/">About and sources</a> · <a href="{rel}contact/">Contact</a> · <a href="{rel}privacy.html">Privacy</a> · <a href="{rel}how-tourist-taxes-work/">How tourist taxes work</a> · <a href="{rel}tourist-taxes-europe-2026/">Tourist taxes in Europe 2026</a> · <a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></p>
+</div></footer>
+<script>{MOTORE_JS}{APP_JS}{extra_js}</script>
+</body>
+</html>
+"""
+    dest = SITO / file
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(testo, encoding="utf-8")
+
+
+def modulo_calcolatore(id_dati, con_destinazione=False, rel="", cat_default=""):
+    sel = (f'<label class="pieno">Destination<select name="dest"></select></label>' if con_destinazione else "")
+    link = (f'<p class="small" style="margin:0"><a data-link data-base="{rel}" href="{rel}">Full rules and official source</a></p>' if con_destinazione else "")
+    return f"""<div class="card calc" data-calcolatore="{id_dati}" data-calc data-cat="{escape(cat_default)}">
+<form class="calc" autocomplete="off">
+<div class="campi">
+{sel}
+<label class="pieno" data-campo="cat">Type of accommodation<select name="cat"></select></label>
+<label data-campo="checkin">Check-in date<input type="date" name="checkin"></label>
+<label data-campo="notti">Nights<input type="number" name="notti" min="1" max="365" value="3" inputmode="numeric"></label>
+<label data-campo="paganti"><span data-lab="paganti">Guests</span><input type="number" name="paganti" min="0" max="50" value="2" inputmode="numeric"></label>
+<label data-campo="esenti"><span data-lab="esenti">Children</span><input type="number" name="esenti" min="0" max="50" value="0" inputmode="numeric"></label>
+<label data-campo="stanze">Rooms or units<input type="number" name="stanze" min="1" max="50" value="1" inputmode="numeric"></label>
+<label class="pieno" data-campo="prezzo"><span data-lab="prezzo">Price per night</span><input type="number" name="prezzo" min="0" step="any" value="150" inputmode="decimal"></label>
+</div>
+</form>
+<div class="risultato" data-out aria-live="polite"><noscript>Turn on JavaScript to use the calculator. The rate table below shows every official rate.</noscript></div>
+{link}
+</div>"""
+
+
+CAMPI_MOTORE = ("name", "country", "slug", "currency", "tipo", "categorie", "tariffe", "esenti_sotto_eta", "max_notti", "max_soggiorno",
+                "riduzioni", "etichetta_prezzo", "cap", "prezzo_esempio")
+
+
+def blocco_dati(id_, dati):
+    dati = [{k: d[k] for k in CAMPI_MOTORE if k in d} for d in dati]
+    return (f'<script type="application/json" id="{id_}">' +
+            json.dumps(dati, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>")
+
+
+def box_affiliati():
+    """Riquadro affiliati: vuoto (non mostrato) finché dati/affiliati.json non ha URL."""
+    voci = [v for k, v in AFFILIATI.items() if not k.startswith("_") and isinstance(v, dict) and v.get("url")]
+    if not voci:
+        return ""
+    righe = "".join(f'<li><a href="{escape(v["url"])}" rel="sponsored noopener" target="_blank">{escape(v["titolo"])}</a> '
+                    f'<span class="small">{escape(v.get("nome", ""))} {escape(v["testo"])}</span></li>' for v in voci)
+    return (f'<section class="card" style="margin-top:22px"><h2 style="margin-top:0">Planning your stay</h2><ul style="margin:0 0 8px;padding-left:20px">{righe}</ul>'
+            '<p class="small" style="margin:0">Some of these are affiliate links: if you book through them we may earn a small commission, at no extra cost to you.</p></section>')
+
+
+def fonti_html(R):
+    out = []
+    for f in R["fonti"]:
+        stato = "" if f["http"] == 200 else f" (the site blocks automated reading: HTTP {f['http']}; checked by hand)"
+        out.append(f'<li><a href="{escape(f["url"])}" rel="noopener">{escape(f["titolo"])}</a> – {escape(f["formato"])}, checked {data_lunga(f["controllato_il"])}{stato}'
+                   + (f'<br><span class="small">{escape(f["nota"])}</span>' if f.get("nota") else "") + "</li>")
+    return "<ul>" + "".join(out) + "</ul>"
+
+
+def fonte_breve(R):
+    f = next((x for x in R["fonti"] if x["http"] == 200), R["fonti"][0])
+    return (f'<p class="fonte">Official source: <a href="{escape(f["url"])}" rel="noopener">{escape(f["titolo"])}</a> · checked on '
+            f'{data_lunga(f["controllato_il"])}</p>')
+
+
+# ---------------------------------------------------------------- esempio statico (stesso motore)
+def esempio(R):
+    cat = R["categorie"][0]["id"]
+    if R["tipo"] == "france":
+        cat = "h3" if any(c["id"] == "h3" for c in R["categorie"]) else cat
+    giorno = OGGI.isoformat()
+    if not any((not t.get("dal") or t["dal"] <= giorno) and (not t.get("al") or giorno <= t["al"]) for t in R["tariffe"]):
+        future = sorted(t["dal"] for t in R["tariffe"] if t.get("dal") and t["dal"] > giorno)
+        giorno = future[0] if future else giorno
+    prezzo = R.get("prezzo_esempio", 150)
+    o = calcola(R, cat, giorno, 3, 2, 0, 1, prezzo)
+    lab = next(c["label"] for c in R["categorie"] if c["id"] == cat)
+    val = R["currency"]
+    chi = {"per_room": "1 room", "percent": f"price {soldi(prezzo, val)} per night", "bands": f"2 guests, room price {soldi(prezzo, val)} per night",
+           "per_trip": "2 travellers"}.get(R["tipo"], "2 adults")
+    if R["tipo"] == "per_trip":
+        return f"Example: 2 travellers pay <strong>{soldi(o['totale'], val)}</strong> in total."
+    return (f"Example: {chi}, 3 nights from {data_lunga(giorno)}, {escape(lab)} → "
+            f"<strong>{soldi(o['totale'], val)}</strong> in total.")
+
+
+# ---------------------------------------------------------------- pagine
+def titolo_dest(nome):
+    return f"{nome} tourist tax {ANNO}: how much per night (calculator)"
+
+
+def pagina_destinazione(R):
+    slug = R["slug"]
+    rel = "../"
+    val = R["currency"]
+    cat_def = R["categorie"][0]["id"]
+    id_dati = "regola"
+    paese = PAESI[R["country_slug"]]
+    note = "".join(f"<li>{escape(n)}</li>" for n in R["note"])
+    esenzioni = ("<ul>" + "".join(f"<li>{escape(e)}</li>" for e in R["esenzioni"]) + "</ul>") if R["esenzioni"] else \
+        "<p>We list exemptions only when the official source states them: see the practical notes above, and ask your accommodation.</p>"
+    sorelle = [d for d in DEST if d["country_slug"] == R["country_slug"] and d["slug"] != slug]
+    link_sorelle = ""
+    if sorelle:
+        link_sorelle = (f'<h2>Other destinations in {escape(paese)}</h2><div class="griglia">' +
+                        "".join(f'<a href="{rel}{d["slug"]}/">{escape(d["name"])}<small>{escape(riassunto(d))}</small></a>' for d in sorelle) + "</div>")
+    corpo = f"""<section class="hero"><h1>{escape(titolo_dest(R['name']))}</h1>
+<p class="lead">{escape(R['official_name'])}. The calculator below uses the official rates and rules: rate by accommodation type{', season' if any(t.get('mesi') for t in R['tariffe']) or R.get('riduzioni') else ''}{', maximum taxable nights' if R.get('max_notti') or any(c.get('max_notti') for c in R['categorie']) else ''}{', age exemption' if R.get('esenti_sotto_eta') else ''}.</p>
+<p class="cifra">{escape(R['name'])} {ANNO}: <strong>{escape(riassunto(R))}</strong></p>
+{fonte_breve(R)}
+</section>
+{modulo_calcolatore(id_dati, rel=rel, cat_default=cat_def)}
+<p class="formula"><strong>Formula used:</strong> {escape(formula(R))}</p>
+<p class="small">{esempio(R)}</p>
+{AVVISO}
+{AD}
+<h2>Official rates</h2>
+{tabella_tariffe(R)}
+{fonte_breve(R)}
+<h2>Practical notes</h2>
+<ul>{note}</ul>
+<p><strong>Who collects it:</strong> {escape(R['chi_riscuote'])}</p>
+<h2>Exemptions (official)</h2>
+{esenzioni}
+<h2>Official sources</h2>
+{fonti_html(R)}
+<p class="small">Spotted a change in the official rate? <a href="{rel}contact/?ref={slug}">Tell us</a>.</p>
+{box_affiliati()}
+{link_sorelle}
+<p><a href="{rel}country/{R['country_slug']}/">All tourist taxes in {escape(paese)}</a> · <a href="{rel}tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a></p>
+{blocco_dati(id_dati, [R])}"""
+    descr = f"{R['name']} tourist tax {ANNO}: {riassunto(R)}. Official rates, rules and a calculator, with the official source and the date we checked it."
+    pagina(f"{slug}/", titolo_dest(R["name"]), descr, corpo,
+           briciole=[(paese, f"country/{R['country_slug']}/"), (R["name"], f"{slug}/")])
+
+
+def fr_slug_map():
+    m, usati = {}, set()
+    for code, nome, dep, _ in FR_TOP["comuni"]:
+        s = slugify(nome)
+        if s in usati:
+            s = f"{s}-{dep.lower()}"
+        usati.add(s)
+        m[code] = s
+    return m
+
+
+FR_SLUG = {}
+
+
+def pagina_francia_comune(code):
+    R = fr_regola(code)
+    R["slug"] = "france/" + FR_SLUG[code]
+    rel = "../../"
+    dep = R["dep_nome"] or R["dep"]
+    fonte = (f'<p class="fonte">Official source: <a href="{escape(FR["fonte"])}" rel="noopener">DGFiP open dataset "Tarifs taxe de séjour – DELTA"</a> '
+             f'(Licence Ouverte 2.0), {ANNO} rates for {escape(R["nome_dgfip"])} (INSEE code {code}), dataset updated {data_lunga(FR["dataset_modificato"])}, '
+             f'checked on {data_lunga(FR["controllato_il"])}</p>')
+    vicini = [c for c in FR_TOP["comuni"] if c[2] == R["dep"] and c[0] != code][:8]
+    link_vicini = ""
+    if vicini:
+        link_vicini = (f"<h2>Other towns in {escape(dep)}</h2><div class=\"griglia\">" +
+                       "".join(f'<a href="{rel}france/{FR_SLUG[c[0]]}/">{escape(c[1])}</a>' for c in vicini) + "</div>")
+    seas = any(t["fr"]["per"] and t["fr"]["per"] != ["01-01 - 31-12"] for t in R["tariffe"])
+    corpo = f"""<section class="hero"><h1>{escape(titolo_dest(R['name']))}</h1>
+<p class="lead">Taxe de séjour in {escape(R['name'])} ({escape(dep)}), {ANNO}: the official municipal rates plus the additional departmental and regional taxes, from the French tax administration's open data.</p>
+<p class="cifra">{escape(R['name'])} {ANNO}: <strong>{escape(riassunto(R))}</strong></p>
+{fonte}
+</section>
+{modulo_calcolatore('regola', rel=rel, cat_default='h3')}
+<p class="formula"><strong>Formula used:</strong> {escape(formula(R))}</p>
+<p class="small">{esempio(R)}</p>
+{AVVISO}
+{AD}
+<h2>Official rates {ANNO}</h2>
+{tabella_tariffe(R)}
+{fonte}
+<h2>Practical notes</h2>
+<ul><li>The tax is charged per person and per night by the accommodation, on top of the room price{' during the collection period shown in the table' if seas else ''}.</li>
+<li>Under-18s are exempt by law (art. L. 2333-31 of the General Code of Local Authorities), as are seasonal workers employed in the town and people in emergency or temporary housing.</li>
+<li>For unclassified accommodation (most Airbnb-type rentals) the tax is a percentage of the price per person per night excluding taxes, capped at the highest rate adopted by the town ({soldi(R['cap'], 'EUR')} before additional taxes).</li>
+<li>Additional taxes are set by the department and, in some regions, by the region or transport authority: they are already included in the totals.</li></ul>
+<p class="small">How the cap and the per-person cost work is explained in the official guide of the French Directorate General for Local Authorities (<a href="https://www.collectivites-locales.gouv.fr/gerer-les-finances-publiques-locales/fiscalite-locale/fiscalite-indirecte-locale/taxe-de-sejour/guide-pratique-les-taxes-de-sejour" rel="noopener">guide pratique, fiches 4 and 6, June 2026</a>).</p>
+<p class="small">Spotted a change? <a href="{rel}contact/?ref=fr-{code}">Tell us</a>.</p>
+{box_affiliati()}
+{link_vicini}
+<p><a href="{rel}france/">Search all 10,900 French towns</a> · <a href="{rel}tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a></p>
+{blocco_dati('regola', [R])}"""
+    descr = f"{R['name']} tourist tax (taxe de séjour) {ANNO}: {riassunto(R)}. Official DGFiP rates and a calculator."
+    pagina(f"france/{FR_SLUG[code]}/", titolo_dest(R["name"]), descr, corpo,
+           briciole=[("France", "france/"), (R["name"], f"france/{FR_SLUG[code]}/")])
+
+
+def pagina_francia():
+    rel = "../"
+    top = FR_TOP["comuni"]
+    griglia = "".join(f'<a href="{rel}france/{FR_SLUG[c[0]]}/">{escape(c[1])}<small>{escape(dep_nome(c[2]))}</small></a>' for c in top)
+    parigi = fr_regola("75056")
+    corpo = f"""<section class="hero"><h1>France tourist tax {ANNO}: rates for every town (taxe de séjour calculator)</h1>
+<p class="lead">In France each town (or group of towns) sets its own taxe de séjour per person per night, within a national scale. Search any of the {len(FR['comuni']):,} towns with {ANNO} rates in the official DGFiP file, or open one of the {len(top)} most visited.</p>
+<p class="fonte">Source: <a href="{escape(FR['fonte'])}" rel="noopener">DGFiP open dataset "Tarifs taxe de séjour – DELTA"</a> (Licence Ouverte 2.0, {ANNO} rates, updated {data_lunga(FR['dataset_modificato'])}), checked on {data_lunga(FR['controllato_il'])}.</p>
+</section>
+<section class="card" id="fr-cerca" data-url="{rel}data/fr.json"><label for="fr-q"><strong>Find your town</strong></label>
+<input id="fr-q" class="cerca" type="search" placeholder="Type a town name, e.g. Nice, Chamonix, Biarritz" autocomplete="off">
+<div class="risultati-fr" aria-live="polite"></div></section>
+<div id="fr-dettaglio" style="margin-top:14px"></div>
+<template id="tpl-calc">{modulo_calcolatore('regola-vuota')}</template>
+{AVVISO}
+{AD}
+<h2>National scale {ANNO} (per person per night, before additional taxes)</h2>
+<p>Towns choose a rate between the legal minimum and maximum for each category; unclassified accommodation pays 1% to 5% of the price per person, capped. In Île-de-France a 200% additional tax for public transport and a 15% tax for the Grand Paris projects apply on top, plus 10% for the department; other departments and regions may add their own.</p>
+<p class="small">Official national scale: <a href="https://entreprendre.service-public.gouv.fr/vosdroits/F31635" rel="noopener">Service Public Entreprendre – Taxe de séjour touristique : quels sont les tarifs ? (verified 1 January 2026)</a>, checked on {data_lunga('2026-10-10')}.</p>
+<h2>Example: Paris {ANNO}</h2>
+{tabella_tariffe(parigi)}
+<p><a href="{rel}france/paris/">Paris tourist tax {ANNO} with calculator</a></p>
+<h2>The {len(top)} most visited towns</h2>
+<p class="small">{escape('Chosen with an official criterion: the towns with the most tourist accommodation places (hotel rooms, other tourist accommodation units and campsite pitches) in INSEE 2026 data, among those with 2026 rates in the DGFiP file.')}</p>
+<input class="cerca" type="search" placeholder="Filter the list" data-filtro="fr-lista" aria-label="Filter the list of towns">
+<div class="griglia" id="fr-lista">{griglia}</div>
+<h2>Towns not in the list</h2>
+<p>Some large cities (for example Nice, Marseille and Toulouse) have no line with a {ANNO} effective date in the official DGFiP file: their rates were adopted in earlier years. We do not show those older rates; check with the town hall or tourist office.</p>
+{blocco_dati('regola-vuota', [])}"""
+    pagina("france/", f"France tourist tax {ANNO}: taxe de séjour by town (calculator)",
+           f"Taxe de séjour {ANNO} for {len(FR['comuni']):,} French towns from the official DGFiP open data: search your town and calculate the tax.",
+           corpo, briciole=[("France", "france/")], extra_js=FR_JS)
+
+
+def pagina_paese(slug):
+    rel = "../../"
+    nome = PAESI[slug]
+    dd = [d for d in DEST if d["country_slug"] == slug]
+    righe = "".join(f'<tr><td><a href="{rel}{d["slug"]}/">{escape(d["name"])}</a></td><td>{escape(riassunto(d))}</td>'
+                    f'<td>{d.get("max_notti") or "–"}</td><td>{("under " + str(d["esenti_sotto_eta"])) if d.get("esenti_sotto_eta") else "–"}</td></tr>' for d in dd)
+    testo_extra = {
+        "greece": "Greece has one national fee, the climate crisis resilience fee, charged per room per night with a high-season and a low-season rate. The amount is the same on every island and in Athens.",
+        "spain": "Spain has no national tourist tax. Catalonia (with a Barcelona city surcharge) and the Balearic Islands levy their own regional taxes, covered here.",
+        "turkey": "Turkey's accommodation tax is national: a percentage of the accommodation price excluding VAT, the same everywhere.",
+        "japan": "In Japan accommodation taxes are set by prefectures and cities. Some places have both (for example Hokkaido and Sapporo, Nagano and Hakuba). The Ministry of Internal Affairs and Communications publishes the official list of all of them.",
+        "italy": "In Italy each city sets its own imposta (or contributo) di soggiorno per person per night, with its own maximum nights and age exemptions.",
+    }.get(slug, "")
+    corpo = f"""<section class="hero"><h1>Tourist taxes in {escape(nome)} {ANNO}</h1>
+<p class="lead">{escape(testo_extra) if testo_extra else f'Official tourist tax rates in {escape(nome)}, with a calculator for each destination.'}</p></section>
+<div class="tab"><table><thead><tr><th>Destination</th><th>Rate {ANNO}</th><th>Max taxable nights</th><th>Exempt</th></tr></thead><tbody>{righe}</tbody></table></div>
+{AVVISO}
+{AD}
+<h2>Calculators</h2>
+<div class="griglia">{''.join(f'<a href="{rel}{d["slug"]}/">{escape(d["name"])}<small>{escape(riassunto(d))}</small></a>' for d in dd)}</div>
+<p><a href="{rel}tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a> · <a href="{rel}">All destinations</a></p>"""
+    pagina(f"country/{slug}/", f"Tourist taxes in {nome} {ANNO}: rates and calculators",
+           f"Official tourist tax rates in {nome} for {ANNO}, destination by destination, with calculators and official sources.",
+           corpo, briciole=[(nome, f"country/{slug}/")])
+
+
+def home():
+    gruppi = {}
+    for d in DEST:
+        gruppi.setdefault(d["country_slug"], []).append(d)
+    griglia = "".join(f'<a href="{d["slug"]}/">{escape(d["name"])}<small>{escape(PAESI[d["country_slug"]])} · {escape(riassunto(d))}</small></a>' for d in DEST)
+    griglia += "".join(f'<a href="france/{FR_SLUG[c[0]]}/">{escape(c[1])}<small>France</small></a>' for c in FR_TOP["comuni"][:24])
+    corpo = f"""<section class="hero"><h1>Tourist tax calculator {ANNO}: how much will you pay per night?</h1>
+<p class="lead">Official tourist tax rates for {len(DEST)} destinations and {len(FR['comuni']):,} French towns, with a calculator that applies the real rules: rate by hotel category, percentage of the room price, price bands, seasons, maximum taxable nights and age exemptions. Every figure links to its official source.</p></section>
+{modulo_calcolatore('tutte', con_destinazione=True, rel='')}
+<p class="small">France: <a href="france/">search your town among {len(FR['comuni']):,} French towns</a>.</p>
+{AVVISO}
+{AD}
+<h2>Find a destination</h2>
+<input class="cerca" type="search" placeholder="Type a place, e.g. Mallorca, Kyoto, Paris" data-filtro="lista-dest" aria-label="Search destinations">
+<div class="griglia" id="lista-dest">{griglia}</div>
+<p><a href="france/">All French towns</a> · <a href="tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a> · <a href="how-tourist-taxes-work/">How tourist taxes work</a></p>
+<h2>Countries</h2>
+<div class="griglia">{''.join(f'<a href="{"france" if s == "france" else "country/" + s}/">{escape(PAESI[s])}<small>{len(gruppi.get(s, [])) if s != "france" else len(FR_TOP["comuni"])} destination pages</small></a>' for s in PAESI)}</div>
+{box_affiliati()}
+{blocco_dati('tutte', DEST)}"""
+    pagina("", f"Tourist Tax Calculator {ANNO}: official rates per night for {len(DEST)} destinations and 10,900 French towns",
+           f"How much is the tourist tax? Official {ANNO} rates and a calculator for Barcelona, Mallorca, Greece, Turkey, Amsterdam, Rome, Kyoto, Paris and more, with sources.",
+           corpo)
+
+
+def pagina_europa():
+    rel = "../"
+    righe = []
+    for d in DEST:
+        if d["country_slug"] not in EUROPA or d.get("gruppo") in ("greece", "turkey", "balearics") and d["slug"] not in ("athens", "turkey", "mallorca"):
+            continue
+        f = next((x for x in d["fonti"] if x["http"] == 200), d["fonti"][0])
+        nome = {"athens": "Greece (all destinations)", "turkey": "Turkey (all destinations)", "mallorca": "Balearic Islands (Mallorca, Ibiza, Menorca, Formentera)"}.get(d["slug"], d["name"])
+        righe.append(f'<tr><td><a href="{rel}{d["slug"]}/">{escape(nome)}</a></td><td>{escape(PAESI[d["country_slug"]])}</td><td>{escape(riassunto(d))}</td>'
+                     f'<td>{d.get("max_notti") or "–"}</td><td>{("under " + str(d["esenti_sotto_eta"])) if d.get("esenti_sotto_eta") else "–"}</td>'
+                     f'<td><a href="{escape(f["url"])}" rel="noopener">official</a>, {data_lunga(f["controllato_il"])}</td></tr>')
+    parigi = fr_regola("75056")
+    righe.insert(0, f'<tr><td><a href="{rel}france/paris/">Paris</a></td><td>France</td><td>{escape(riassunto(parigi))}</td><td>–</td><td>under 18</td>'
+                    f'<td><a href="{escape(FR["fonte"])}" rel="noopener">official</a>, {data_lunga(FR["controllato_il"])}</td></tr>')
+    corpo = f"""<section class="hero"><h1>Tourist taxes in Europe {ANNO}: rates by city and country</h1>
+<p class="lead">The official {ANNO} tourist tax in the European destinations we cover, side by side. Each row links to a calculator and to the official source, with the date we checked it.</p></section>
+<div class="tab"><table><thead><tr><th>Destination</th><th>Country</th><th>Rate {ANNO}</th><th>Max nights</th><th>Exempt</th><th>Source</th></tr></thead><tbody>{''.join(righe)}</tbody></table></div>
+<p class="small">"Rate" shows the rates in force on the date this page was generated. Some places change rates during the year (for example Vienna on 1 July, Catalonia and Barcelona on 1 April, Turkey on 1 May 2026): see each page.</p>
+{AVVISO}
+{AD}
+<h2>Not covered yet</h2>
+<p>We only publish a destination when we can read a complete official source. Not covered on the date we checked: Venice, Lisbon, Porto and the Algarve, Budapest, Dubrovnik and Split, Glasgow. See <a href="{rel}about/">About and sources</a>.</p>"""
+    pagina("tourist-taxes-europe-2026/", f"Tourist taxes in Europe {ANNO}: city by city table (official rates)",
+           f"Tourist taxes in Europe {ANNO}: official rates for Paris, Barcelona, Mallorca, Greece, Amsterdam, Berlin, Vienna, Prague, Edinburgh, Rome, Florence, Milan, Iceland and Turkey.",
+           corpo, briciole=[(f"Tourist taxes in Europe {ANNO}", "tourist-taxes-europe-2026/")])
+
+
+def pagina_come_funziona():
+    rel = "../"
+    corpo = f"""<section class="hero"><h1>How tourist taxes work</h1>
+<p class="lead">A tourist tax (city tax, visitor levy, taxe de séjour, imposta di soggiorno, accommodation tax) is a charge on overnight stays set by a city, region or country. The rules differ a lot from place to place. These are the main types, with real examples from this site.</p></section>
+<div class="testo">
+<h2>1. A fixed amount per person per night</h2>
+<p>The most common type. The amount usually depends on the hotel category (stars) or the type of accommodation. Examples: <a href="{rel}rome/">Rome</a>, <a href="{rel}florence/">Florence</a>, <a href="{rel}milan/">Milan</a>, <a href="{rel}barcelona/">Barcelona</a>, <a href="{rel}prague/">Prague</a>, and most <a href="{rel}france/">French towns</a>.</p>
+<h2>2. A fixed amount per room per night</h2>
+<p>Charged per room or apartment, whatever the number of guests. Examples: <a href="{rel}athens/">Greece</a> (climate resilience fee) and <a href="{rel}iceland/">Iceland</a>.</p>
+<h2>3. A percentage of the room price</h2>
+<p>Usually calculated on the price before VAT and without breakfast. Examples: <a href="{rel}amsterdam/">Amsterdam</a> 12.5%, <a href="{rel}berlin/">Berlin</a> 7.5%, <a href="{rel}vienna/">Vienna</a> 5%, <a href="{rel}edinburgh/">Edinburgh</a> 5%, <a href="{rel}turkey/">Turkey</a> and <a href="{rel}kutchan-niseko/">Kutchan (Niseko)</a>. In France, unclassified accommodation pays a percentage of the price per person, capped.</p>
+<h2>4. Price bands</h2>
+<p>A fixed amount per person that depends on how much the room costs per person per night. Examples: <a href="{rel}kyoto/">Kyoto</a>, <a href="{rel}tokyo/">Tokyo</a>, <a href="{rel}sapporo/">Sapporo</a>, <a href="{rel}hakuba/">Hakuba</a>.</p>
+<h2>5. A one-off levy per trip</h2>
+<p>Paid once, not per night. Example: <a href="{rel}bali/">Bali</a>.</p>
+<h2>Seasons, maximum nights and exemptions</h2>
+<ul><li><strong>Seasons:</strong> lower rates in low season (Balearic Islands -75% from November to April; Greece November-March rates).</li>
+<li><strong>Maximum nights:</strong> many places stop charging after a number of nights (Barcelona and Florence 7, Rome 10, Edinburgh 5); the Balearics halve the tax from the 9th day.</li>
+<li><strong>Age:</strong> children are often exempt, but the age limit varies (Rome under 10, Florence under 12, Balearics under 16, Barcelona under 17, France, Milan and Prague under 18). Japan and Amsterdam have no age exemption.</li>
+<li><strong>Two layers:</strong> sometimes a region and a city both charge (Barcelona: Catalan rate + city surcharge; Sapporo: city + Hokkaido; France: town + department, sometimes region).</li></ul>
+<h2>Who collects it and when</h2>
+<p>In most places the hotel or host collects the tax, often at check-out and separately from the room price; booking platforms sometimes collect it in advance. Bali is different: you pay online before or on arrival. Always check the final amount with your accommodation.</p>
+<h2>How we check the rates</h2>
+<p>Every rate on this site comes from an official source: a law, an ordinance, a tax authority page or official open data. We show the link and the date we checked it under the figure. We re-check every quarter and before 1 January and 1 April, when many rates change. If we cannot read an official source, we do not publish the destination.</p>
+</div>
+{AVVISO}
+{AD}"""
+    pagina("how-tourist-taxes-work/", "How tourist taxes work: per person, per room, percentage and price bands",
+           "How tourist taxes are calculated around the world: fixed per person, per room, percentage of the price, price bands, seasons, maximum nights and age exemptions.",
+           corpo, briciole=[("How tourist taxes work", "how-tourist-taxes-work/")])
+
+
+def about():
+    rel = "../"
+    elenco = "".join(f'<h3><a href="{rel}{d["slug"]}/">{escape(d["name"])}</a></h3>{fonti_html(d)}' for d in DEST)
+    corpo = f"""<section class="hero"><h1>About {NOME} and our sources</h1></section><div class="testo">
+<p>{NOME} is an independent project that collects official tourist tax rates and turns them into a simple calculator. We are not affiliated with any government, tax authority, hotel or booking site.</p>
+<h2>Rules we follow</h2>
+<ul><li>Every rate comes from an official source (law, ordinance, municipal/regional/national tax authority page or official open data). The link and the date we checked it are printed under the figure.</li>
+<li>No blogs or aggregators are used as sources. If we cannot read an official source, the destination is not published.</li>
+<li>Rates are set by local authorities and can change. The accommodation collects the tax and applies the official rules: this site is information, not tax advice.</li></ul>
+<h2>Licences and attributions</h2>
+<ul><li>France: "Tarifs taxe de séjour – DELTA", Direction générale des Finances publiques (DGFiP), <a href="{escape(FR['fonte'])}" rel="noopener">data.economie.gouv.fr</a>, Licence Ouverte / Open Licence version 2.0 (Etalab). Dataset updated {data_lunga(FR['dataset_modificato'])}; we keep only rates with a {ANNO} effective date. Modified: rates are reorganised and the totals for unclassified accommodation are calculated by us.</li>
+<li>France, choice of town pages: INSEE, <a href="{escape(FR['insee'])}" rel="noopener">Capacité des communes en hébergement touristique 2026</a>, Licence Ouverte / Open Licence.</li>
+<li>Laws, ordinances and official decisions are cited as facts with a link to the official text; we do not reproduce the documents.</li></ul>
+<h2>Destinations not published (official source not readable or incomplete)</h2>
+<p>Venice, Lisbon, Porto, the Algarve, Budapest, Dubrovnik, Split, Osaka, Glasgow, Quintana Roo (Visitax), Okinawa (starts 1 February 2027), Egypt, Morocco and the Canary Islands. We will add them when we can verify a complete official source.</p>
+<h2>Sources, destination by destination</h2>
+<p>France: see the <a href="{rel}france/">France page</a>.</p>
+{elenco}
+<h2>Corrections</h2>
+<p>Spotted a change or a mistake? <a href="{rel}contact/?ref=about">Tell us</a>.</p></div>"""
+    pagina("about/", f"About and sources | {NOME}", "Where our tourist tax rates come from: official sources, check dates and licences.",
+           corpo, briciole=[("About and sources", "about/")])
+
+
+def contatti():
+    rel = "../"
+    corpo = f"""<section class="hero"><h1>Contact</h1><p class="lead">Spotted a change in a tourist tax, a mistake, or a destination you would like us to add? Write to us here.</p></section>
+<section class="card"><form class="form ajax" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="contact"><input type="hidden" name="source" value="">
+<p class="hp"><label>Do not fill this in <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+<label>Your email<input type="email" name="email" required autocomplete="email"></label>
+<label>Destination (optional)<input type="text" name="destination" maxlength="200"></label>
+<label>Message<textarea name="message" rows="6" required maxlength="4000"></textarea></label>
+<label class="check"><input type="checkbox" name="consent" value="yes" required><span>I have read the <a href="{rel}privacy.html">privacy notice</a>.</span></label>
+<button class="btn" type="submit">Send</button><p class="errore" data-errore hidden>Sorry, it did not work. Please try again.</p></form>
+<div class="ok" data-ok hidden><strong>Thank you.</strong> We will check the official source and reply by email.</div></section>"""
+    pagina("contact/", f"Contact | {NOME}", f"Contact {NOME}: report a change in a tourist tax or ask for a destination.", corpo,
+           briciole=[("Contact", "contact/")])
+
+
+def privacy():
+    corpo = f"""<section class="hero"><h1>Privacy notice</h1><p class="small">Last updated: October 2026</p></section><div class="testo">
+<h2>Who is responsible</h2><p>The data controller is Massimiliano Cori (Italy), who runs {NOME} as an independent project. You can contact us through the <a href="contact/">contact form</a>.</p>
+<h2>What we collect</h2><p>Only what you type in the contact form: your email, the destination and your message. We also record the page or link you came from, to understand which pages need corrections. The calculator runs in your browser: what you type in it is not sent to us.</p>
+<h2>Why</h2><p>To answer your messages and correct the site. The legal basis is your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time.</p>
+<h2>Who processes data for us</h2><p>The site and its form are hosted by Netlify, Inc., which stores form data on our behalf and may process it outside the EU with the safeguards required by the GDPR (standard contractual clauses). We do not sell or share your data.</p>
+<h2>Cookies</h2><p>This site does not use profiling cookies or analytics tools. If we add advertising or affiliate links in the future, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>
+<h2>How long</h2><p>Messages are kept for up to 12 months after our last exchange.</p>
+<h2>Your rights</h2><p>You can ask for access, correction, deletion, restriction, portability and objection (Articles 15–22 GDPR) and you can complain to the Italian data protection authority (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>) or the authority in your country.</p></div>"""
+    pagina("privacy.html", f"Privacy | {NOME}", f"Privacy notice of {NOME}.", corpo)
+
+
+def dati_francia_client():
+    d = {"anno": ANNO, "fonte": FR["fonte"], "mod": data_lunga(FR["dataset_modificato"]), "chk": data_lunga(FR["controllato_il"]),
+         "cat": [[c[0], c[1]] for c in FR["categorie"]], "v": FR["vettori"], "dep": FR["dipartimenti"],
+         "c": sorted(([code, v[5] or v[0].title(), v[1] if len(v[1]) > 1 else "0" + v[1], v[2], v[4]] for code, v in FR["comuni"].items()),
+                    key=lambda x: (-FR["comuni"][x[0]][3], x[1]))}
+    (SITO / "data").mkdir(exist_ok=True)
+    (SITO / "data" / "fr.json").write_text(json.dumps(d, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+
+
+def extra():
+    (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
+    voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{OGGI.isoformat()}</lastmod></url>" for u in URLS)
+    (SITO / "sitemap.xml").write_text(
+        f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{voci}</urlset>\n')
+    (SITO / "netlify.toml").write_text("""[build]
+  publish = "."
+  command = ""
+  # Pubblica solo se è cambiato qualcosa in touristtax/sito (ogni pubblicazione consuma crediti Netlify).
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+""")
+    pagina("404.html", f"Page not found | {NOME}", "Page not found.",
+           '<section class="hero"><h1>Page not found</h1><p class="lead">Go to the <a href="/">tourist tax calculator</a>.</p></section>', indicizza=False)
+
+
+def controlli():
+    errori = []
+    for d in DEST:
+        for k in ("slug", "name", "country_slug", "currency", "tipo", "categorie", "tariffe", "fonti", "chi_riscuote"):
+            if not d.get(k):
+                errori.append(f"{d.get('slug')}: manca {k}")
+        if not any(f["http"] == 200 for f in d["fonti"]):
+            errori.append(f"{d['slug']}: nessuna fonte ufficiale leggibile (200)")
+        ids = {c["id"] for c in d["categorie"]}
+        for t in d["tariffe"]:
+            if t["cat"] not in ids:
+                errori.append(f"{d['slug']}: tariffa per categoria sconosciuta {t['cat']}")
+        for c in d["categorie"]:
+            if not any(t["cat"] == c["id"] for t in d["tariffe"]):
+                errori.append(f"{d['slug']}: categoria senza tariffa {c['id']}")
+        if d["country_slug"] not in PAESI:
+            errori.append(f"{d['slug']}: paese sconosciuto")
+    if len({d["slug"] for d in DEST}) != len(DEST):
+        errori.append("slug duplicati")
+    if errori:
+        raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
+
+
+def main():
+    controlli()
+    global FR_SLUG
+    FR_SLUG = fr_slug_map()
+    if SITO.exists():
+        conserva = {p.name: p.read_bytes() for p in SITO.glob("google*.html")}
+        shutil.rmtree(SITO)
+    else:
+        conserva = {}
+    SITO.mkdir()
+    for nome, contenuto in conserva.items():
+        (SITO / nome).write_bytes(contenuto)
+    home()
+    for d in DEST:
+        pagina_destinazione(d)
+    pagina_francia()
+    for c in FR_TOP["comuni"]:
+        pagina_francia_comune(c[0])
+    for s in PAESI:
+        if s != "france":
+            pagina_paese(s)
+    pagina_europa()
+    pagina_come_funziona()
+    about()
+    contatti()
+    privacy()
+    dati_francia_client()
+    extra()
+    print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili; {len(DEST)} destinazioni, {len(FR_TOP['comuni'])} pagine comunali francesi, "
+          f"{len(FR['comuni'])} comuni nella ricerca.")
+
+
+if __name__ == "__main__":
+    main()

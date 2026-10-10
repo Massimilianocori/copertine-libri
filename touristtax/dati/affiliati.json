@@ -1,0 +1,6 @@
+{
+ "_nota": "RIQUADRO AFFILIATI (segnaposto). Compare sul sito solo per le voci con 'url' non vuoto. Inserire qui gli URL tracciati che Massimiliano riceve dopo l'iscrizione ai programmi (Stay22, Booking via CJ/Awin, assicurazione viaggio). Mai inventare URL.",
+ "stay22": {"url": "", "nome": "Stay22", "titolo": "Find a place to stay", "testo": "Compare hotels and apartments for your dates on one map."},
+ "booking": {"url": "", "nome": "Booking.com", "titolo": "Book your hotel", "testo": "Hotels and apartments with free cancellation on many rooms."},
+ "assicurazione": {"url": "", "nome": "", "titolo": "Travel insurance", "testo": "Cover for medical emergencies and travel problems abroad. Check what the plan covers before you buy."}
+}

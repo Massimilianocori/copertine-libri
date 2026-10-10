@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>France tourist tax 2026: taxe de séjour by town (calculator)</title>
+<meta name="description" content="Taxe de séjour 2026 for 10,908 French towns from the official DGFiP open data: search your town and calculate the tax.">
+<link rel="canonical" href="https://tourist-tax-calculator.netlify.app/france/">
+<link rel="alternate" hreflang="en" href="https://tourist-tax-calculator.netlify.app/france/"><link rel="alternate" hreflang="x-default" href="https://tourist-tax-calculator.netlify.app/france/">
+<meta property="og:title" content="France tourist tax 2026: taxe de séjour by town (calculator)">
+<meta property="og:description" content="Taxe de séjour 2026 for 10,908 French towns from the official DGFiP open data: search your town and calculate the tax.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tourist-tax-calculator.netlify.app/france/">
+<meta name="theme-color" content="#1F5FBF">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F5FBF'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='white'%3E%25%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#F5F7FA;--card:#FFFFFF;--ink:#14202E;--ink-2:#45556A;--ink-3:#66768A;--line:#DCE3EC;
+--accent:#1F5FBF;--accent-2:#E7F0FC;--ok:#1E6B47;--ok-2:#E6F2EB;--warn:#8A4B00;--warn-2:#FFF2DF;--mute:#EDF1F6;--radius:14px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F151C;--card:#17202A;--ink:#EDF2F7;--ink-2:#B9C6D3;
+--ink-3:#8D9BAA;--line:#283545;--accent:#8DB6FF;--accent-2:#1A2A40;--ok:#7FD3A6;--ok-2:#173226;--warn:#FFB867;--warn-2:#33250F;--mute:#1E2935}}
+:root[data-theme="dark"]{--bg:#0F151C;--card:#17202A;--ink:#EDF2F7;--ink-2:#B9C6D3;--ink-3:#8D9BAA;--line:#283545;--accent:#8DB6FF;
+--accent-2:#1A2A40;--ok:#7FD3A6;--ok-2:#173226;--warn:#FFB867;--warn-2:#33250F;--mute:#1E2935}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.6}
+a{color:var(--accent)}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+header.top{border-bottom:1px solid var(--line);background:var(--card)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px}
+.logo{font-weight:800;font-size:1.12rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.logo span{color:var(--accent)}
+nav.menu{display:flex;gap:14px;flex-wrap:wrap;font-size:.95rem}
+nav.menu a{color:var(--ink-2);text-decoration:none}
+nav.menu a:hover{color:var(--accent)}
+.hero{padding:28px 0 4px}
+h1{font-size:clamp(1.5rem,4.6vw,2.2rem);line-height:1.18;letter-spacing:-.02em;margin:0 0 12px}
+h2{font-size:1.3rem;margin:32px 0 12px;letter-spacing:-.01em}
+h3{font-size:1.05rem;margin:20px 0 8px}
+.lead{font-size:1.07rem;color:var(--ink-2);max-width:740px;margin:0 0 6px}
+.small{font-size:.88rem;color:var(--ink-3)}
+.avviso{background:var(--warn-2);border-left:4px solid var(--warn);padding:11px 14px;border-radius:8px;font-size:.94rem;margin:16px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;min-width:0}
+.cifra{font-size:1.05rem;margin:12px 0}
+.cifra strong{font-size:1.5rem;color:var(--accent)}
+.fonte{font-size:.85rem;color:var(--ink-3);margin:6px 0 0;overflow-wrap:anywhere}
+.fonte a{color:var(--ink-3)}
+.calc{display:grid;gap:12px}
+.calc .campi{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.calc label{display:grid;gap:4px;font-weight:600;font-size:.93rem;min-width:0}
+.calc input,.calc select{font:inherit;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;min-width:0}
+.calc .pieno{grid-column:1/-1}
+.risultato{background:var(--accent-2);border-radius:12px;padding:14px 16px;min-width:0;overflow-wrap:anywhere}
+.risultato .tot{font-size:1.7rem;font-weight:800;color:var(--accent);line-height:1.2}
+.risultato ul{margin:8px 0 0;padding-left:20px;font-size:.93rem}
+.formula{font-size:.88rem;color:var(--ink-2);margin:8px 0 0}
+.tab{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--mute);font-size:.85rem}
+tr:last-child td{border-bottom:0}
+.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}
+.griglia a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;text-decoration:none;color:var(--ink);font-weight:600;min-width:0;overflow-wrap:anywhere}
+.griglia a small{display:block;font-weight:400;color:var(--ink-3)}
+.griglia a:hover{border-color:var(--accent)}
+.cerca{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);width:100%;margin:6px 0 12px}
+.testo p,.testo li{max-width:760px}
+.form{display:grid;gap:12px}
+.form label{display:grid;gap:4px;font-weight:600;font-size:.95rem}
+.form input,.form select,.form textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+.form .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem;color:var(--ink-2)}
+.form .check input{width:auto;margin-top:4px}
+.btn{font:inherit;font-weight:700;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:12px 18px;cursor:pointer}
+.btn:disabled{opacity:.6;cursor:wait}
+.hp{position:absolute;left:-9999px}
+.ok{background:var(--ok-2);border:1px solid var(--ok);padding:14px;border-radius:10px}
+.errore{color:var(--warn);font-weight:600}
+.ad-slot:empty{display:none}
+.briciole{font-size:.85rem;color:var(--ink-3);margin-top:14px}
+.briciole a{color:var(--ink-3)}
+.risultati-fr{display:grid;gap:6px;margin:0 0 12px}
+.risultati-fr button{font:inherit;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px;color:var(--ink);cursor:pointer}
+.risultati-fr button:hover{border-color:var(--accent)}
+footer{margin-top:50px;border-top:1px solid var(--line);padding:22px 0 40px;font-size:.88rem;color:var(--ink-3)}
+footer a{color:var(--ink-3)}
+@media (max-width:760px){.calc .campi{grid-template-columns:1fr}
+header.top .wrap{flex-direction:column;align-items:flex-start;gap:4px;padding-top:10px;padding-bottom:10px}nav.menu{gap:12px;font-size:.92rem}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tourist-tax-calculator.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "France", "item": "https://tourist-tax-calculator.netlify.app/france/"}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="logo" href="../">Tourist Tax <span>Calculator</span></a>
+<nav class="menu" aria-label="Menu">
+<a href="../">Calculator</a><a href="../tourist-taxes-europe-2026/">Europe 2026</a><a href="../france/">France</a><a href="../country/japan/">Japan</a><a href="../how-tourist-taxes-work/">How it works</a><a href="../about/">Sources</a>
+</nav>
+</div></header>
+<main class="wrap">
+<nav class="briciole" aria-label="Breadcrumb"><a href="../">Home</a> › France</nav>
+<section class="hero"><h1>France tourist tax 2026: rates for every town (taxe de séjour calculator)</h1>
+<p class="lead">In France each town (or group of towns) sets its own taxe de séjour per person per night, within a national scale. Search any of the 10,908 towns with 2026 rates in the official DGFiP file, or open one of the 150 most visited.</p>
+<p class="fonte">Source: <a href="https://data.economie.gouv.fr/explore/dataset/delta_deliberation_ts_tarif0/" rel="noopener">DGFiP open dataset "Tarifs taxe de séjour – DELTA"</a> (Licence Ouverte 2.0, 2026 rates, updated 29 June 2026), checked on 10 October 2026.</p>
+</section>
+<section class="card" id="fr-cerca" data-url="../data/fr.json"><label for="fr-q"><strong>Find your town</strong></label>
+<input id="fr-q" class="cerca" type="search" placeholder="Type a town name, e.g. Nice, Chamonix, Biarritz" autocomplete="off">
+<div class="risultati-fr" aria-live="polite"></div></section>
+<div id="fr-dettaglio" style="margin-top:14px"></div>
+<template id="tpl-calc"><div class="card calc" data-calcolatore="regola-vuota" data-calc data-cat="">
+<form class="calc" autocomplete="off">
+<div class="campi">
+
+<label class="pieno" data-campo="cat">Type of accommodation<select name="cat"></select></label>
+<label data-campo="checkin">Check-in date<input type="date" name="checkin"></label>
+<label data-campo="notti">Nights<input type="number" name="notti" min="1" max="365" value="3" inputmode="numeric"></label>
+<label data-campo="paganti"><span data-lab="paganti">Guests</span><input type="number" name="paganti" min="0" max="50" value="2" inputmode="numeric"></label>
+<label data-campo="esenti"><span data-lab="esenti">Children</span><input type="number" name="esenti" min="0" max="50" value="0" inputmode="numeric"></label>
+<label data-campo="stanze">Rooms or units<input type="number" name="stanze" min="1" max="50" value="1" inputmode="numeric"></label>
+<label class="pieno" data-campo="prezzo"><span data-lab="prezzo">Price per night</span><input type="number" name="prezzo" min="0" step="any" value="150" inputmode="decimal"></label>
+</div>
+</form>
+<div class="risultato" data-out aria-live="polite"><noscript>Turn on JavaScript to use the calculator. The rate table below shows every official rate.</noscript></div>
+
+</div></template>
+<p class="avviso"><strong>Not tax advice.</strong> Tourist taxes are set by local or national authorities and can change. They are usually collected by your hotel or host, who applies the official rules: check the final amount with your accommodation.</p>
+<div class="ad-slot" aria-hidden="true"></div>
+<h2>National scale 2026 (per person per night, before additional taxes)</h2>
+<p>Towns choose a rate between the legal minimum and maximum for each category; unclassified accommodation pays 1% to 5% of the price per person, capped. In Île-de-France a 200% additional tax for public transport and a 15% tax for the Grand Paris projects apply on top, plus 10% for the department; other departments and regions may add their own.</p>
+<p class="small">Official national scale: <a href="https://entreprendre.service-public.gouv.fr/vosdroits/F31635" rel="noopener">Service Public Entreprendre – Taxe de séjour touristique : quels sont les tarifs ? (verified 1 January 2026)</a>, checked on 10 October 2026.</p>
+<h2>Example: Paris 2026</h2>
+<div class="tab"><table><thead><tr><th>Accommodation</th><th>Municipal rate + additional taxes</th><th>Total per person per night</th><th>Collection period (day-month)</th></tr></thead><tbody><tr><td>Palace</td><td>€4.90 + 225%</td><td><strong>€15.93</strong></td><td>all year</td></tr><tr><td>Hotel 5 stars</td><td>€3.60 + 225%</td><td><strong>€11.70</strong></td><td>all year</td></tr><tr><td>Hotel 4 stars</td><td>€2.60 + 225%</td><td><strong>€8.45</strong></td><td>all year</td></tr><tr><td>Hotel 3 stars</td><td>€1.70 + 225%</td><td><strong>€5.53</strong></td><td>all year</td></tr><tr><td>Hotel 2 stars</td><td>€1.00 + 225%</td><td><strong>€3.25</strong></td><td>all year</td></tr><tr><td>Hotel 1 star</td><td>€0.80 + 225%</td><td><strong>€2.60</strong></td><td>all year</td></tr><tr><td>Tourist residence 5 stars</td><td>€3.60 + 225%</td><td><strong>€11.70</strong></td><td>all year</td></tr><tr><td>Tourist residence 4 stars</td><td>€2.60 + 225%</td><td><strong>€8.45</strong></td><td>all year</td></tr><tr><td>Tourist residence 3 stars</td><td>€1.70 + 225%</td><td><strong>€5.53</strong></td><td>all year</td></tr><tr><td>Tourist residence 2 stars</td><td>€1.00 + 225%</td><td><strong>€3.25</strong></td><td>all year</td></tr><tr><td>Tourist residence 1 star</td><td>€0.80 + 225%</td><td><strong>€2.60</strong></td><td>all year</td></tr><tr><td>Classified holiday rental (meublé) 5 stars</td><td>€3.60 + 225%</td><td><strong>€11.70</strong></td><td>all year</td></tr><tr><td>Classified holiday rental (meublé) 4 stars</td><td>€2.60 + 225%</td><td><strong>€8.45</strong></td><td>all year</td></tr><tr><td>Classified holiday rental (meublé) 3 stars</td><td>€1.70 + 225%</td><td><strong>€5.53</strong></td><td>all year</td></tr><tr><td>Classified holiday rental (meublé) 2 stars</td><td>€1.00 + 225%</td><td><strong>€3.25</strong></td><td>all year</td></tr><tr><td>Classified holiday rental (meublé) 1 star</td><td>€0.80 + 225%</td><td><strong>€2.60</strong></td><td>all year</td></tr><tr><td>Holiday village 4-5 stars</td><td>€1.00 + 225%</td><td><strong>€3.25</strong></td><td>all year</td></tr><tr><td>Holiday village 1-3 stars</td><td>€0.80 + 225%</td><td><strong>€2.60</strong></td><td>all year</td></tr><tr><td>Chambre d&#x27;hôtes (B&amp;B)</td><td>€0.80 + 225%</td><td><strong>€2.60</strong></td><td>all year</td></tr><tr><td>Hostel (auberge collective)</td><td>€0.80 + 225%</td><td><strong>€2.60</strong></td><td>all year</td></tr><tr><td>Unclassified accommodation (most Airbnb-type rentals)</td><td>5% of the price per person (cap €4.90) + 225%</td><td><strong>5% × price, max €15.93</strong></td><td>all year</td></tr><tr><td>Campsite 3-5 stars</td><td>€0.60 + 225%</td><td><strong>€1.95</strong></td><td>all year</td></tr><tr><td>Campsite 1-2 stars</td><td>€0.20 + 225%</td><td><strong>€0.65</strong></td><td>all year</td></tr><tr><td>Motorhome area (per 24 h)</td><td>€0.60 + 225%</td><td><strong>€1.95</strong></td><td>all year</td></tr><tr><td>Marina</td><td>€0.20 + 225%</td><td><strong>€0.65</strong></td><td>all year</td></tr></tbody></table></div>
+<p><a href="../france/paris/">Paris tourist tax 2026 with calculator</a></p>
+<h2>The 150 most visited towns</h2>
+<p class="small">Chosen with an official criterion: the towns with the most tourist accommodation places (hotel rooms, other tourist accommodation units and campsite pitches) in INSEE 2026 data, among those with 2026 rates in the DGFiP file.</p>
+<input class="cerca" type="search" placeholder="Filter the list" data-filtro="fr-lista" aria-label="Filter the list of towns">
+<div class="griglia" id="fr-lista"><a href="../france/paris/">Paris<small>Paris</small></a><a href="../france/argeles-sur-mer/">Argelès-sur-Mer<small>Pyrénées-Orientales</small></a><a href="../france/lyon/">Lyon<small>Rhône</small></a><a href="../france/bordeaux/">Bordeaux<small>Gironde</small></a><a href="../france/saint-jean-de-monts/">Saint-Jean-de-Monts<small>Vendée</small></a><a href="../france/les-mathes/">Les Mathes<small>Charente-Maritime</small></a><a href="../france/strasbourg/">Strasbourg<small>Bas-Rhin</small></a><a href="../france/le-grau-du-roi/">Le Grau-du-Roi<small>Gard</small></a><a href="../france/saint-hilaire-de-riez/">Saint-Hilaire-de-Riez<small>Vendée</small></a><a href="../france/cannes/">Cannes<small>Alpes-Maritimes</small></a><a href="../france/vendays-montalivet/">Vendays-Montalivet<small>Gironde</small></a><a href="../france/biscarrosse/">Biscarrosse<small>Landes</small></a><a href="../france/dolus-d-oleron/">Dolus-d&#x27;Oléron<small>Charente-Maritime</small></a><a href="../france/les-belleville/">Les Belleville<small>Savoie</small></a><a href="../france/la-tranche-sur-mer/">La Tranche-sur-Mer<small>Vendée</small></a><a href="../france/saint-georges-d-oleron/">Saint-Georges-d&#x27;Oléron<small>Charente-Maritime</small></a><a href="../france/nantes/">Nantes<small>Loire-Atlantique</small></a><a href="../france/montpellier/">Montpellier<small>Hérault</small></a><a href="../france/bourg-saint-maurice/">Bourg-Saint-Maurice<small>Savoie</small></a><a href="../france/messanges/">Messanges<small>Landes</small></a><a href="../france/chamonix-mont-blanc/">Chamonix-Mont-Blanc<small>Haute-Savoie</small></a><a href="../france/lege-cap-ferret/">Lège-Cap-Ferret<small>Gironde</small></a><a href="../france/lacanau/">Lacanau<small>Gironde</small></a><a href="../france/clermont-ferrand/">Clermont-Ferrand<small>Puy-de-Dôme</small></a><a href="../france/dijon/">Dijon<small>Côte-d&#x27;Or</small></a><a href="../france/tignes/">Tignes<small>Savoie</small></a><a href="../france/carnac/">Carnac<small>Morbihan</small></a><a href="../france/quend/">Quend<small>Somme</small></a><a href="../france/coupvray/">Coupvray<small>Seine-et-Marne</small></a><a href="../france/carcans/">Carcans<small>Gironde</small></a><a href="../france/vielle-saint-girons/">Vielle-Saint-Girons<small>Landes</small></a><a href="../france/grayan-et-l-hopital/">Grayan-et-l&#x27;Hôpital<small>Gironde</small></a><a href="../france/annecy/">Annecy<small>Haute-Savoie</small></a><a href="../france/ramatuelle/">Ramatuelle<small>Var</small></a><a href="../france/soulac-sur-mer/">Soulac-sur-Mer<small>Gironde</small></a><a href="../france/saint-cyprien/">Saint-Cyprien<small>Pyrénées-Orientales</small></a><a href="../france/canet-en-roussillon/">Canet-en-Roussillon<small>Pyrénées-Orientales</small></a><a href="../france/la-teste-de-buch/">La Teste-de-Buch<small>Gironde</small></a><a href="../france/biarritz/">Biarritz<small>Pyrénées-Atlantiques</small></a><a href="../france/fouesnant/">Fouesnant<small>Finistère</small></a><a href="../france/les-deux-alpes/">Les Deux Alpes<small>Isère</small></a><a href="../france/bailly-romainvilliers/">Bailly-Romainvilliers<small>Seine-et-Marne</small></a><a href="../france/tours/">Tours<small>Indre-et-Loire</small></a><a href="../france/la-grande-motte/">La Grande-Motte<small>Hérault</small></a><a href="../france/hourtin/">Hourtin<small>Gironde</small></a><a href="../france/morzine/">Morzine<small>Haute-Savoie</small></a><a href="../france/vallon-pont-d-arc/">Vallon-Pont-d&#x27;Arc<small>Ardèche</small></a><a href="../france/pornic/">Pornic<small>Loire-Atlantique</small></a><a href="../france/longeville-sur-mer/">Longeville-sur-Mer<small>Vendée</small></a><a href="../france/chessy/">Chessy<small>Seine-et-Marne</small></a><a href="../france/merignac/">Mérignac<small>Gironde</small></a><a href="../france/arles/">Arles<small>Bouches-du-Rhône</small></a><a href="../france/saint-georges-de-didonne/">Saint-Georges-de-Didonne<small>Charente-Maritime</small></a><a href="../france/torreilles/">Torreilles<small>Pyrénées-Orientales</small></a><a href="../france/greoux-les-bains/">Gréoux-les-Bains<small>Alpes-de-Haute-Provence</small></a><a href="../france/benodet/">Bénodet<small>Finistère</small></a><a href="../france/carcassonne/">Carcassonne<small>Aude</small></a><a href="../france/la-tremblade/">La Tremblade<small>Charente-Maritime</small></a><a href="../france/saint-palais-sur-mer/">Saint-Palais-sur-Mer<small>Charente-Maritime</small></a><a href="../france/rouen/">Rouen<small>Seine-Maritime</small></a><a href="../france/magny-le-hongre/">Magny-le-Hongre<small>Seine-et-Marne</small></a><a href="../france/metz/">Metz<small>Moselle</small></a><a href="../france/le-lavandou/">Le Lavandou<small>Var</small></a><a href="../france/la-baule-escoublac/">La Baule-Escoublac<small>Loire-Atlantique</small></a><a href="../france/bretignolles-sur-mer/">Bretignolles-sur-Mer<small>Vendée</small></a><a href="../france/val-d-isere/">Val-d&#x27;Isère<small>Savoie</small></a><a href="../france/rang-du-fliers/">Rang-du-Fliers<small>Pas-de-Calais</small></a><a href="../france/colmar/">Colmar<small>Haut-Rhin</small></a><a href="../france/martigues/">Martigues<small>Bouches-du-Rhône</small></a><a href="../france/huez/">Huez<small>Isère</small></a><a href="../france/le-havre/">Le Havre<small>Seine-Maritime</small></a><a href="../france/la-londe-les-maures/">La Londe-les-Maures<small>Var</small></a><a href="../france/sanguinet/">Sanguinet<small>Landes</small></a><a href="../france/saint-denis-d-oleron/">Saint-Denis-d&#x27;Oléron<small>Charente-Maritime</small></a><a href="../france/capbreton/">Capbreton<small>Landes</small></a><a href="../france/nancy/">Nancy<small>Meurthe-et-Moselle</small></a><a href="../france/perpignan/">Perpignan<small>Pyrénées-Orientales</small></a><a href="../france/mulhouse/">Mulhouse<small>Haut-Rhin</small></a><a href="../france/brest/">Brest<small>Finistère</small></a><a href="../france/issy-les-moulineaux/">Issy-les-Moulineaux<small>Hauts-de-Seine</small></a><a href="../france/noirmoutier-en-l-ile/">Noirmoutier-en-l&#x27;Île<small>Vendée</small></a><a href="../france/beaune/">Beaune<small>Côte-d&#x27;Or</small></a><a href="../france/bagnolet/">Bagnolet<small>Seine-Saint-Denis</small></a><a href="../france/notre-dame-de-monts/">Notre-Dame-de-Monts<small>Vendée</small></a><a href="../france/saint-cast-le-guildo/">Saint-Cast-le-Guildo<small>Côtes-d&#x27;Armor</small></a><a href="../france/mandelieu-la-napoule/">Mandelieu-la-Napoule<small>Alpes-Maritimes</small></a><a href="../france/lattes/">Lattes<small>Hérault</small></a><a href="../france/araches-la-frasse/">Arâches-la-Frasse<small>Haute-Savoie</small></a><a href="../france/nanterre/">Nanterre<small>Hauts-de-Seine</small></a><a href="../france/ghisonaccia/">Ghisonaccia<small>Haute-Corse</small></a><a href="../france/les-allues/">Les Allues<small>Savoie</small></a><a href="../france/pornichet/">Pornichet<small>Loire-Atlantique</small></a><a href="../france/la-barre-de-monts/">La Barre-de-Monts<small>Vendée</small></a><a href="../france/lit-et-mixe/">Lit-et-Mixe<small>Landes</small></a><a href="../france/jard-sur-mer/">Jard-sur-Mer<small>Vendée</small></a><a href="../france/ivry-sur-seine/">Ivry-sur-Seine<small>Val-de-Marne</small></a><a href="../france/leucate/">Leucate<small>Aude</small></a><a href="../france/saint-pierre-d-oleron/">Saint-Pierre-d&#x27;Oléron<small>Charente-Maritime</small></a><a href="../france/anglet/">Anglet<small>Pyrénées-Atlantiques</small></a><a href="../france/parentis-en-born/">Parentis-en-Born<small>Landes</small></a><a href="../france/amiens/">Amiens<small>Somme</small></a><a href="../france/besancon/">Besançon<small>Doubs</small></a><a href="../france/saint-julien-en-born/">Saint-Julien-en-Born<small>Landes</small></a><a href="../france/piriac-sur-mer/">Piriac-sur-Mer<small>Loire-Atlantique</small></a><a href="../france/la-foret-fouesnant/">La Forêt-Fouesnant<small>Finistère</small></a><a href="../france/orleans/">Orléans<small>Loiret</small></a><a href="../france/ruoms/">Ruoms<small>Ardèche</small></a><a href="../france/menton/">Menton<small>Alpes-Maritimes</small></a><a href="../france/sainte-marie-la-mer/">Sainte-Marie-la-Mer<small>Pyrénées-Orientales</small></a><a href="../france/boulogne-billancourt/">Boulogne-Billancourt<small>Hauts-de-Seine</small></a><a href="../france/deauville/">Deauville<small>Calvados</small></a><a href="../france/royan/">Royan<small>Charente-Maritime</small></a><a href="../france/leon/">Léon<small>Landes</small></a><a href="../france/fort-mahon-plage/">Fort-Mahon-Plage<small>Somme</small></a><a href="../france/saint-michel-chef-chef/">Saint-Michel-Chef-Chef<small>Loire-Atlantique</small></a><a href="../france/aix-les-bains/">Aix-les-Bains<small>Savoie</small></a><a href="../france/sampzon/">Sampzon<small>Ardèche</small></a><a href="../france/cholet/">Cholet<small>Maine-et-Loire</small></a><a href="../france/saint-etienne/">Saint-Étienne<small>Loire</small></a><a href="../france/le-crotoy/">Le Crotoy<small>Somme</small></a><a href="../france/givrand/">Givrand<small>Vendée</small></a><a href="../france/meschers-sur-gironde/">Meschers-sur-Gironde<small>Charente-Maritime</small></a><a href="../france/arcachon/">Arcachon<small>Gironde</small></a><a href="../france/saint-trojan-les-bains/">Saint-Trojan-les-Bains<small>Charente-Maritime</small></a><a href="../france/crozon/">Crozon<small>Finistère</small></a><a href="../france/anduze/">Anduze<small>Gard</small></a><a href="../france/saint-nazaire/">Saint-Nazaire<small>Loire-Atlantique</small></a><a href="../france/quimper/">Quimper<small>Finistère</small></a><a href="../france/soustons/">Soustons<small>Landes</small></a><a href="../france/chartres/">Chartres<small>Eure-et-Loir</small></a><a href="../france/la-clusaz/">La Clusaz<small>Haute-Savoie</small></a><a href="../france/guerande/">Guérande<small>Loire-Atlantique</small></a><a href="../france/saint-julien-des-landes/">Saint-Julien-des-Landes<small>Vendée</small></a><a href="../france/frehel/">Fréhel<small>Côtes-d&#x27;Armor</small></a><a href="../france/montvalezan/">Montvalezan<small>Savoie</small></a><a href="../france/saint-brevin-les-pins/">Saint-Brevin-les-Pins<small>Loire-Atlantique</small></a><a href="../france/gassin/">Gassin<small>Var</small></a><a href="../france/montrouge/">Montrouge<small>Hauts-de-Seine</small></a><a href="../france/ota/">Ota<small>Corse-du-Sud</small></a><a href="../france/saumur/">Saumur<small>Maine-et-Loire</small></a><a href="../france/saint-augustin/">Saint-Augustin<small>Charente-Maritime</small></a><a href="../france/saint-herblain/">Saint-Herblain<small>Loire-Atlantique</small></a><a href="../france/gastes/">Gastes<small>Landes</small></a><a href="../france/bayonne/">Bayonne<small>Pyrénées-Atlantiques</small></a><a href="../france/berrias-et-casteljau/">Berrias-et-Casteljau<small>Ardèche</small></a><a href="../france/evian-les-bains/">Évian-les-Bains<small>Haute-Savoie</small></a><a href="../france/mauguio/">Mauguio<small>Hérault</small></a><a href="../france/embrun/">Embrun<small>Hautes-Alpes</small></a><a href="../france/chorges/">Chorges<small>Hautes-Alpes</small></a><a href="../france/le-chateau-d-oleron/">Le Château-d&#x27;Oléron<small>Charente-Maritime</small></a></div>
+<h2>Towns not in the list</h2>
+<p>Some large cities (for example Nice, Marseille and Toulouse) have no line with a 2026 effective date in the official DGFiP file: their rates were adopted in earlier years. We do not show those older rates; check with the town hall or tourist office.</p>
+<script type="application/json" id="regola-vuota">[]</script>
+</main>
+<footer><div class="wrap">
+<p><strong>Tourist Tax Calculator</strong> is an independent site, not affiliated with any government or tax authority. Every rate comes from an official source (law, ordinance, tax authority page or official open data) linked under the figure with the date we checked it.
+<strong>Tourist taxes are set by local or national authorities and can change. Your accommodation collects the tax: check the exact amount with them.</strong> Nothing on this site is tax or legal advice.</p>
+<p><a href="../about/">About and sources</a> · <a href="../contact/">Contact</a> · <a href="../privacy.html">Privacy</a> · <a href="../how-tourist-taxes-work/">How tourist taxes work</a> · <a href="../tourist-taxes-europe-2026/">Tourist taxes in Europe 2026</a> · <a href="../contact/?ref=spotted-a-change">Spotted a change? Tell us</a></p>
+</div></footer>
+<script>
+var VAL={"EUR":["€","",2],"GBP":["£","",2],"JPY":["¥","",0],"CZK":[""," CZK",0],"ISK":["ISK ","",0],"IDR":["IDR ","",0],"TRY":["TRY ","",2]};
+function r2(x){return Math.floor(x*100+0.5+1e-9)/100;}
+function grp(n,dec){var s=dec?r2(n).toFixed(2):String(Math.floor(n+0.5+1e-9));var p=s.split('.');p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,',');return p.join('.');}
+function soldi(v,c){var x=VAL[c];return x[0]+grp(v,x[2])+x[1];}
+function num(v){var s=String(Math.round(v*1e6)/1e6);return s;}
+function riga(R,cat,d){var m=+d.slice(5,7);for(var i=0;i<R.tariffe.length;i++){var t=R.tariffe[i];if(t.cat!==cat)continue;
+  if(t.dal&&d<t.dal)continue;if(t.al&&d>t.al)continue;if(t.mesi&&t.mesi.indexOf(m)<0)continue;return t;}return null;}
+function inPeriodo(per,d){if(!per||!per.length)return true;var md=(+d.slice(5,7))*100+(+d.slice(8,10));
+  for(var i=0;i<per.length;i++){var m=/(\d\d)-(\d\d)\s*-\s*(\d\d)-(\d\d)/.exec(per[i]);if(!m)return true;
+    var a=(+m[2])*100+(+m[1]),b=(+m[4])*100+(+m[3]);if((a<=b&&a<=md&&md<=b)||(a>b&&(md>=a||md<=b)))return true;}return false;}
+function banda(b,pp){for(var i=0;i<b.length;i++){if(pp>=b[i][0]&&(b[i][1]===null||pp<b[i][1]))return b[i][2];}return 0;}
+function addDays(iso,n){var p=iso.split('-');var x=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]+n));return x.toISOString().slice(0,10);}
+function calcola(R,cat,checkin,notti,paganti,esenti,stanze,prezzo){
+  esenti=esenti||0;stanze=stanze||1;prezzo=prezzo||0;var val=R.currency;
+  var out={totale:0,righe:[],escluse:0,sconosciute:0,fuori:0,note:[]};var gruppi={},ordine=[];
+  function agg(t,imp){if(!gruppi[t]){gruppi[t]=[t,0,0];ordine.push(t);}gruppi[t][1]+=1;gruppi[t][2]+=imp;}
+  var meta={};R.categorie.forEach(function(c){meta[c.id]=c;});
+  if(R.tipo==='per_trip'){var t0=riga(R,cat,checkin);if(!t0){out.sconosciute=1;return out;}
+    var im=t0.valore*paganti;out.righe=[[soldi(t0.valore,val)+' × '+paganti+' traveller(s), once per trip',1,im]];out.totale=im;return out;}
+  if(R.max_soggiorno&&notti>R.max_soggiorno){out.note.push('Stays longer than '+R.max_soggiorno+' consecutive days are not subject to the fee.');return out;}
+  var maxN=(meta[cat]&&meta[cat].max_notti)||R.max_notti;var persone=paganti+esenti;
+  for(var i=0;i<notti;i++){var d=addDays(checkin,i),n=i+1;
+    if(maxN&&n>maxN){out.escluse++;continue;}
+    var t=riga(R,cat,d);if(!t){out.sconosciute++;continue;}
+    var imp,testo,tp=R.tipo;
+    if(tp==='per_person'){imp=t.valore*paganti;testo=soldi(t.valore,val)+' per person × '+paganti+' paying guest(s)';}
+    else if(tp==='per_room'){imp=t.valore*stanze;testo=soldi(t.valore,val)+' per room/unit × '+stanze+' room(s)/unit(s)';if(t.stagione)testo+=' ('+t.stagione+' rate)';}
+    else if(tp==='percent'){var f=(t.fattore_base===undefined)?1:t.fattore_base;imp=prezzo*f*t.valore/100;
+      testo=num(t.valore)+'% of '+soldi(prezzo,val)+(f!==1?' after a '+num(Math.round((1-f)*100*1e4)/1e4)+'% deduction':'');}
+    else if(tp==='bands'){var pp=persone?prezzo/persone:0;var b=banda(t.valore,pp);imp=b*persone;
+      testo=soldi(b,val)+' per person (band for '+soldi(pp,val)+' per person) × '+persone+' guest(s)';}
+    else if(tp==='france'){var fr=t.fr;if(!inPeriodo(fr.per,d)){out.fuori++;continue;}
+      if(fr.reg==='F'){var nf='This category is taxed with the flat-rate scheme (taxe forfaitaire): the host pays it, it is not charged per guest.';
+        if(out.note.indexOf(nf)<0)out.note.push(nf);agg('flat-rate scheme, paid by the host',0);continue;}
+      if(fr.u==='€'){imp=fr.tot*paganti;testo=soldi(fr.tot,val)+' per person ('+soldi(fr.t,val)+' + '+num(fr.add)+'% additional taxes) × '+paganti+' paying guest(s)';}
+      else{var costo=persone?prezzo/persone:0;var base=Math.min(r2(fr.t/100*costo),R.cap);var per=r2(base*(1+fr.add/100));imp=per*paganti;
+        testo=soldi(per,val)+' per person ('+num(fr.t)+'% of '+soldi(costo,val)+' per person, capped at '+soldi(R.cap,val)+', + '+num(fr.add)+'% additional taxes) × '+paganti+' paying guest(s)';}}
+    (R.riduzioni||[]).forEach(function(rd){if(rd.tipo==='mesi'&&rd.mesi.indexOf(+d.slice(5,7))>=0){imp*=(1-rd.percento/100);testo+=', '+rd.testo;}
+      else if(rd.tipo==='dal_giorno'&&n>=rd.giorno){imp*=(1-rd.percento/100);testo+=', '+rd.testo;}});
+    agg(testo,imp);}
+  out.righe=ordine.map(function(k){return gruppi[k];});out.totale=out.righe.reduce(function(s,g){return s+g[2];},0);return out;}
+
+(function(){
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function oggi(){var x=new Date();return new Date(Date.UTC(x.getFullYear(),x.getMonth(),x.getDate())).toISOString().slice(0,10);}
+  function primaData(R){var o=oggi();var ok=R.tariffe.some(function(t){return (!t.dal||t.dal<=o)&&(!t.al||o<=t.al);});
+    if(ok||R.tipo==='per_trip')return o;var ds=R.tariffe.map(function(t){return t.dal;}).filter(function(x){return x&&x>o;}).sort();return ds[0]||o;}
+  function monta(box,R){
+    var f=box.querySelector('form');var q=function(n){return f.querySelector('[name='+n+']');};
+    var vis=function(n,on){var el=f.querySelector('[data-campo='+n+']');if(el)el.hidden=!on;};
+    var cat=q('cat');cat.innerHTML=R.categorie.map(function(c){return '<option value="'+esc(c.id)+'">'+esc(c.label)+'</option>';}).join('');
+    if(box.dataset.cat&&R.categorie.some(function(c){return c.id===box.dataset.cat;}))cat.value=box.dataset.cat;
+    vis('cat',R.categorie.length>1);
+    if(!q('checkin').value||box.dataset.reset){q('checkin').value=primaData(R);}
+    if(!box.dataset.prezzoToccato||box.dataset.reset){q('prezzo').value=R.prezzo_esempio||150;}
+    if(!box.dataset.legatoPrezzo){q('prezzo').addEventListener('input',function(){box.dataset.prezzoToccato='1';});box.dataset.legatoPrezzo='1';}
+    var eta=R.esenti_sotto_eta;
+    f.querySelector('[data-lab=paganti]').textContent=R.tipo==='per_trip'?'Travellers':(eta?'Guests aged '+eta+' or over':'Guests');
+    f.querySelector('[data-lab=esenti]').textContent=eta?'Children under '+eta+' (exempt)':'';
+    var lp=f.querySelector('[data-lab=prezzo]');lp.textContent=(R.etichetta_prezzo||'Price per night')+' ('+R.currency+')';
+    function aggiorna(){
+      var tp=R.tipo,isNC=false;
+      if(tp==='france'){var t=R.tariffe.filter(function(x){return x.cat===cat.value;})[0];isNC=t&&t.fr.u==='%';}
+      vis('checkin',tp!=='per_trip');vis('notti',tp!=='per_trip');
+      vis('paganti',tp!=='per_room'&&tp!=='percent');vis('esenti',!!eta&&tp!=='per_room'&&tp!=='percent');
+      vis('stanze',tp==='per_room');vis('prezzo',tp==='percent'||tp==='bands'||isNC);
+      var notti=Math.max(1,Math.min(365,parseInt(q('notti').value,10)||1));
+      var pag=Math.max(0,parseInt(q('paganti').value,10)||0),es=Math.max(0,parseInt(q('esenti').value,10)||0);
+      var st=Math.max(1,parseInt(q('stanze').value,10)||1),pr=Math.max(0,parseFloat(q('prezzo').value)||0);
+      var ci=q('checkin').value||primaData(R);
+      var o=calcola(R,cat.value,ci,notti,pag,eta?es:0,st,pr);
+      var h='<div class="small">Estimated tax for this stay</div><div class="tot">'+soldi(o.totale,R.currency)+'</div><ul>';
+      o.righe.forEach(function(g){h+='<li>'+g[1]+' night'+(g[1]>1?'s':'')+' × '+esc(g[0])+' = <strong>'+soldi(g[2],R.currency)+'</strong></li>';});
+      if(R.tipo==='per_trip'&&!o.righe.length)h+='<li>No verified amount.</li>';
+      if(o.escluse)h+='<li>'+o.escluse+' night(s) beyond the maximum number of taxable nights: no tax.</li>';
+      if(o.fuori)h+='<li>'+o.fuori+' night(s) outside the collection period: no tax.</li>';
+      if(o.sconosciute)h+='<li>'+o.sconosciute+' night(s) with no verified official rate for that date (not counted).</li>';
+      o.note.forEach(function(n){h+='<li>'+esc(n)+'</li>';});
+      h+='</ul>';box.querySelector('[data-out]').innerHTML=h;}
+    if(!f.dataset.legato){var ag=function(e){if(e&&e.target&&e.target.name==='dest')return;box.__aggiorna();};
+      f.addEventListener('input',ag);f.addEventListener('change',ag);f.addEventListener('submit',function(e){e.preventDefault();});f.dataset.legato='1';}
+    box.__aggiorna=aggiorna;aggiorna();}
+  window.TTC_monta=monta;
+  document.querySelectorAll('[data-calcolatore]').forEach(function(box){
+    var D=JSON.parse(document.getElementById(box.dataset.calcolatore).textContent);
+    var sel=box.querySelector('[name=dest]');
+    if(sel){sel.innerHTML=D.map(function(R,i){return '<option value="'+i+'">'+esc(R.name+(R.country!==R.name?' ('+R.country+')':''))+'</option>';}).join('');
+      var cur=function(){box.dataset.reset='1';box.dataset.cat='';var R=D[+sel.value];monta(box,R);
+        var l=box.querySelector('[data-link]');if(l){l.href=l.dataset.base+R.slug+'/';l.textContent='Full rules and official source for '+R.name;}};
+      sel.addEventListener('change',cur);cur();}
+    else monta(box,D[0]);});
+  document.querySelectorAll('[data-filtro]').forEach(function(inp){var lista=document.getElementById(inp.dataset.filtro);
+    inp.addEventListener('input',function(){var v=inp.value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+      lista.querySelectorAll('a').forEach(function(a){var t=a.textContent.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');a.hidden=v&&t.indexOf(v)<0;});});});
+  var src=document.querySelectorAll('input[name=source]');var ref='';try{var qs=new URLSearchParams(location.search);ref=qs.get('ref')||document.referrer||'direct';}catch(e){ref='direct';}
+  src.forEach(function(i){i.value=String(ref).slice(0,200);});
+  document.querySelectorAll('form.ajax').forEach(function(form){form.addEventListener('submit',function(ev){ev.preventDefault();
+    var err=form.querySelector('[data-errore]');err.hidden=true;if(!form.checkValidity()){form.reportValidity();return;}
+    var bt=form.querySelector('button');bt.disabled=true;
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+    .then(function(r){if(!r.ok)throw new Error(r.status);form.hidden=true;form.parentNode.querySelector('[data-ok]').hidden=false;})
+    .catch(function(){err.hidden=false;bt.disabled=false;});});});
+})();
+
+(function(){
+  var box=document.getElementById('fr-cerca');if(!box)return;
+  var inp=box.querySelector('input[type=search]'),res=box.querySelector('.risultati-fr'),det=document.getElementById('fr-dettaglio');var DATA=null,caricando=false;
+  function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,' ').trim();}
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  var attesa=null;
+  function carica(cb){if(DATA)return cb();attesa=cb;if(caricando)return;caricando=true;res.innerHTML='<p class="small">Loading the list of 10,900 towns…</p>';
+    fetch(box.dataset.url).then(function(r){return r.json();}).then(function(d){DATA=d;d.c.forEach(function(c){c.push(norm(c[1]));});if(attesa)attesa();})
+    .catch(function(){res.innerHTML='<p class="errore">Could not load the list. Please try again.</p>';caricando=false;});}
+  function regola(c){var v=DATA.v[c[3]],cats=[],tar=[],cap=0;
+    DATA.cat.forEach(function(k,i){var r=v[i];if(!r)return;if(r[1]==='€'&&r[0]!==null)cap=Math.max(cap,r[0]);cats.push({id:k[0],label:k[1]});
+      tar.push({cat:k[0],dal:DATA.anno+'-01-01',al:DATA.anno+'-12-31',fr:{t:r[0],u:r[1],tot:r[2],add:r[3],reg:r[4],per:r[5]}});});
+    return {name:c[1],country:'France',currency:'EUR',tipo:'france',categorie:cats,tariffe:tar,cap:cap,esenti_sotto_eta:18,
+      etichetta_prezzo:'Price per night for the accommodation, excluding taxes (only for unclassified accommodation)'};}
+  function mostra(c){
+    if(c[4]==='C'){det.innerHTML='<div class="card"><h2 style="margin-top:0">'+esc(c[1])+'</h2><p>The official file has conflicting lines for this town, so we do not show a rate. Please check with the town hall or tourist office.</p></div>';return;}
+    var R=regola(c);var righe=R.tariffe.map(function(t){var lab=R.categorie.filter(function(x){return x.id===t.cat;})[0].label;var fr=t.fr;
+      var tot=fr.u==='%'?(num(fr.t)+'% of the price per person (max '+soldi(r2(R.cap*(1+fr.add/100)),'EUR')+')'):soldi(fr.tot,'EUR');
+      if(fr.reg==='F')tot+=' (flat-rate: paid by the host)';return '<tr><td>'+esc(lab)+'</td><td><strong>'+tot+'</strong></td></tr>';}).join('');
+    det.innerHTML='<div class="card"><h2 style="margin-top:0">'+esc(c[1])+' ('+esc(DATA.dep[c[2]]||c[2])+') tourist tax 2026</h2>'+
+      '<div class="tab"><table><thead><tr><th>Accommodation</th><th>Total per person per night (incl. additional taxes)</th></tr></thead><tbody>'+righe+'</tbody></table></div>'+
+      '<p class="fonte">Source: <a href="'+esc(DATA.fonte)+'" rel="noopener">DGFiP open dataset "Tarifs taxe de séjour – DELTA"</a> (Licence Ouverte 2.0), 2026 rates, dataset updated '+esc(DATA.mod)+', checked '+esc(DATA.chk)+'.</p>'+
+      '<div id="fr-calc"></div></div>';
+    var tpl=document.getElementById('tpl-calc');var nodo=tpl.content.cloneNode(true);document.getElementById('fr-calc').appendChild(nodo);
+    var cb=document.querySelector('#fr-calc [data-calc]');cb.dataset.cat=R.categorie.some(function(x){return x.id==='h3';})?'h3':'';window.TTC_monta(cb,R);
+    det.scrollIntoView({behavior:'smooth',block:'start'});}
+  function cerca(){var v=norm(inp.value);if(v.length<2){res.innerHTML='';return;}
+    carica(function(){var out=[];for(var i=0;i<DATA.c.length&&out.length<12;i++){var c=DATA.c[i];if(c[c.length-1].indexOf(v)===0)out.push(c);}
+      if(out.length<12)for(var j=0;j<DATA.c.length&&out.length<12;j++){var c2=DATA.c[j];if(c2[c2.length-1].indexOf(v)>0&&out.indexOf(c2)<0)out.push(c2);}
+      res.innerHTML=out.length?'':'<p class="small">No town with 2026 rates in the official file matches "'+esc(inp.value)+'". It may not levy the tax, or its rate may date from an earlier year: check with the town hall.</p>';
+      out.forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent=c[1]+' ('+(DATA.dep[c[2]]||c[2])+')';b.addEventListener('click',function(){mostra(c);});res.appendChild(b);});});}
+  inp.addEventListener('input',cerca);inp.addEventListener('focus',function(){carica(cerca);},{once:true});
+})();
+</script>
+</body>
+</html>

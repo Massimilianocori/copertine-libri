@@ -1,0 +1,5643 @@
+{
+ "_nota": "Una voce per destinazione. Ogni tariffa viene da una fonte ufficiale (vedi 'fonti', con data del controllo). tipo: per_person | per_room | percent | bands | per_trip. Le date 'dal'/'al' sono le notti a cui la tariffa si applica. Per la Francia i dati sono in francia.json (raccolta/francia.py).",
+ "destinazioni": [
+  {
+   "slug": "barcelona",
+   "name": "Barcelona",
+   "country": "Spain",
+   "country_slug": "spain",
+   "region": "Catalonia",
+   "currency": "EUR",
+   "official_name": "Tax on stays in tourist establishments (IEET) + Barcelona city surcharge",
+   "tipo": "per_person",
+   "categorie": [
+    {
+     "id": "eb1",
+     "label": "Hotel 5 stars, grand luxury, luxury campsite or equivalent"
+    },
+    {
+     "id": "eb2",
+     "label": "Hotel 4 stars or 4 stars superior, or equivalent"
+    },
+    {
+     "id": "eb4",
+     "label": "Tourist apartment (habitatge d'ús turístic)"
+    },
+    {
+     "id": "eb5",
+     "label": "Youth hostel (alberg de joventut)"
+    },
+    {
+     "id": "eb3",
+     "label": "Other establishments (3 stars and below, other campsites)"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "eb1",
+     "dal": "2026-04-01",
+     "al": "2027-03-31",
+     "valore": 12.0,
+     "parti": {
+      "Catalan rate": 7.0,
+      "Barcelona surcharge": 5.0
+     }
+    },
+    {
+     "cat": "eb2",
+     "dal": "2026-04-01",
+     "al": "2027-03-31",
+     "valore": 8.4,
+     "parti": {
+      "Catalan rate": 3.4,
+      "Barcelona surcharge": 5.0
+     }
+    },
+    {
+     "cat": "eb4",
+     "dal": "2026-04-01",
+     "al": "2027-03-31",
+     "valore": 9.5,
+     "parti": {
+      "Catalan rate": 4.5,
+      "Barcelona surcharge": 5.0
+     }
+    },
+    {
+     "cat": "eb5",
+     "dal": "2026-04-01",
+     "al": "2027-03-31",
+     "valore": 6.0,
+     "parti": {
+      "Catalan rate": 1.0,
+      "Barcelona surcharge": 5.0
+     }
+    },
+    {
+     "cat": "eb3",
+     "dal": "2026-04-01",
+     "al": "2027-03-31",
+     "valore": 7.0,
+     "parti": {
+      "Catalan rate": 2.0,
+      "Barcelona surcharge": 5.0
+     }
+    }
+   ],
+   "max_notti": 7,
+   "esenti_sotto_eta": 17,
+   "valid_from": "2026-04-01",
+   "chi_riscuote": "The hotel or apartment operator, who pays it to the Catalan Tax Agency.",
+   "fonti": [
+    {
+     "titolo": "Agència Tributària de Catalunya - IEET: rates and municipal surcharges (table 'Barcelona', 1 Apr 2026 - 31 Mar 2027)",
+     "url": "https://atc.gencat.cat/ca/tributs/ieet/quota-tributaria/",
+     "http": 200,
+     "formato": "HTML (Catalan)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Agència Tributària de Catalunya - IEET overview: exemptions (under 17), 7-day maximum, list of surcharges",
+     "url": "https://atc.gencat.cat/ca/tributs/ieet/",
+     "http": 200,
+     "formato": "HTML (Catalan)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "The amount per person per night is the Catalan rate plus the Barcelona surcharge (€5.00 from 1 April 2026 to 31 March 2027).",
+    "Charged for a maximum of 7 days per stay. Under-17s do not pay.",
+    "The surcharge rises to €6.00 from 1 April 2027 and €7.00 from 1 April 2028 (official table). The general rate for Barcelona from April 2027 is not yet in the official table, so the calculator stops at 31 March 2027.",
+    "If you book and pay in advance (including the tax), the rate in force on the booking date applies.",
+    "Cruise passengers pay a separate rate (not covered by this calculator)."
+   ],
+   "esenzioni": [
+    "Children under 17",
+    "Stays for health reasons that meet the official requirements"
+   ],
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "catalonia",
+   "name": "Catalonia (outside Barcelona)",
+   "country": "Spain",
+   "country_slug": "spain",
+   "region": "Catalonia",
+   "currency": "EUR",
+   "official_name": "Tax on stays in tourist establishments (IEET), general rate for the rest of Catalonia",
+   "tipo": "per_person",
+   "categorie": [
+    {
+     "id": "et1",
+     "label": "Hotel 5 stars, grand luxury, luxury campsite or equivalent"
+    },
+    {
+     "id": "et2",
+     "label": "Hotel 4 stars or 4 stars superior, or equivalent"
+    },
+    {
+     "id": "et4",
+     "label": "Tourist apartment (habitatge d'ús turístic)"
+    },
+    {
+     "id": "et5",
+     "label": "Youth hostel"
+    },
+    {
+     "id": "et3",
+     "label": "Other establishments (3 stars and below, other campsites)"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "et1",
+     "dal": "2026-04-01",
+     "al": "2027-03-31",
+     "valore": 4.5
+    },
+    {
+     "cat": "et2",
+     "dal": "2026-04-01",
+     "al": "2027-03-31",
+     "valore": 1.8
+    },
+    {
+     "cat": "et4",
+     "dal": "2026-04-01",
+     "al": "2027-03-31",
+     "valore": 1.75
+    },
+    {
+     "cat": "et5",
+     "dal": "2026-04-01",
+     "al": "2027-03-31",
+     "valore": 0.8
+    },
+    {
+     "cat": "et3",
+     "dal": "2026-04-01",
+     "al": "2027-03-31",
+     "valore": 0.9
+    },
+    {
+     "cat": "et1",
+     "dal": "2027-04-01",
+     "valore": 6.0
+    },
+    {
+     "cat": "et2",
+     "dal": "2027-04-01",
+     "valore": 2.4
+    },
+    {
+     "cat": "et4",
+     "dal": "2027-04-01",
+     "valore": 2.5
+    },
+    {
+     "cat": "et5",
+     "dal": "2027-04-01",
+     "valore": 1.0
+    },
+    {
+     "cat": "et3",
+     "dal": "2027-04-01",
+     "valore": 1.2
+    }
+   ],
+   "max_notti": 7,
+   "esenti_sotto_eta": 17,
+   "valid_from": "2026-04-01",
+   "chi_riscuote": "The hotel or apartment operator.",
+   "fonti": [
+    {
+     "titolo": "Agència Tributària de Catalunya - IEET: general rate for the rest of Catalonia (2026-27 and from 1 April 2027)",
+     "url": "https://atc.gencat.cat/ca/tributs/ieet/quota-tributaria/",
+     "http": 200,
+     "formato": "HTML (Catalan)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Agència Tributària de Catalunya - IEET overview (exemptions, 7-day maximum)",
+     "url": "https://atc.gencat.cat/ca/tributs/ieet/",
+     "http": 200,
+     "formato": "HTML (Catalan)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "Covers the Costa Brava, Costa Daurada, Sitges, Girona, Tarragona and the Pyrenees: everywhere in Catalonia except the city of Barcelona.",
+    "Seven municipalities add their own surcharge from 1 October 2026: Castelldefels, Esplugues, L'Hospitalet de Llobregat, El Prat de Llobregat, Sabadell, Sant Cugat del Vallès and Sant Just Desvern. The calculator does not add these surcharges.",
+    "A higher special rate applies only to establishments inside the gaming areas of a tourist recreation centre (e.g. PortAventura's casino area).",
+    "Charged for a maximum of 7 days per stay. Under-17s do not pay. New rates apply from 1 April 2027."
+   ],
+   "esenzioni": [
+    "Children under 17",
+    "Stays for health reasons that meet the official requirements"
+   ],
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "mallorca",
+   "name": "Mallorca",
+   "country": "Spain",
+   "country_slug": "spain",
+   "region": "Balearic Islands",
+   "currency": "EUR",
+   "official_name": "Tourist stay tax (impuesto sobre estancias turísticas, 'ecotasa')",
+   "tipo": "per_person",
+   "categorie": [
+    {
+     "id": "h4",
+     "label": "Hotel 5 stars, 5 stars grand luxury or 4 stars superior (incl. city hotels and hotel-apartments)"
+    },
+    {
+     "id": "h3",
+     "label": "Hotel 4 stars or 3 stars superior"
+    },
+    {
+     "id": "h2",
+     "label": "Hotel 1, 2 or 3 stars"
+    },
+    {
+     "id": "a4",
+     "label": "Tourist apartments 4 keys or 4 keys superior"
+    },
+    {
+     "id": "a3",
+     "label": "Tourist apartments 3 keys superior"
+    },
+    {
+     "id": "a2",
+     "label": "Tourist apartments 1, 2 or 3 keys"
+    },
+    {
+     "id": "vt",
+     "label": "Holiday homes and tourist rentals (viviendas turísticas)"
+    },
+    {
+     "id": "rural",
+     "label": "Rural hotels, agrotourism, hostelries, inland tourism"
+    },
+    {
+     "id": "hostal",
+     "label": "Hostales, pensions, inns, guesthouses and campsites"
+    },
+    {
+     "id": "alb",
+     "label": "Hostels (albergues) and mountain refuges"
+    },
+    {
+     "id": "etr",
+     "label": "Non-residential accommodation of tourist-residential companies"
+    },
+    {
+     "id": "otros",
+     "label": "Other tourist establishments or homes"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "h4",
+     "dal": "2018-01-01",
+     "valore": 4
+    },
+    {
+     "cat": "h3",
+     "dal": "2018-01-01",
+     "valore": 3
+    },
+    {
+     "cat": "h2",
+     "dal": "2018-01-01",
+     "valore": 2
+    },
+    {
+     "cat": "a4",
+     "dal": "2018-01-01",
+     "valore": 4
+    },
+    {
+     "cat": "a3",
+     "dal": "2018-01-01",
+     "valore": 3
+    },
+    {
+     "cat": "a2",
+     "dal": "2018-01-01",
+     "valore": 2
+    },
+    {
+     "cat": "vt",
+     "dal": "2018-01-01",
+     "valore": 2
+    },
+    {
+     "cat": "rural",
+     "dal": "2018-01-01",
+     "valore": 2
+    },
+    {
+     "cat": "hostal",
+     "dal": "2018-01-01",
+     "valore": 1
+    },
+    {
+     "cat": "alb",
+     "dal": "2018-01-01",
+     "valore": 1
+    },
+    {
+     "cat": "etr",
+     "dal": "2018-01-01",
+     "valore": 4
+    },
+    {
+     "cat": "otros",
+     "dal": "2018-01-01",
+     "valore": 2
+    }
+   ],
+   "riduzioni": [
+    {
+     "tipo": "mesi",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+     ],
+     "percento": 75,
+     "testo": "low season (1 Nov - 30 Apr): -75%"
+    },
+    {
+     "tipo": "dal_giorno",
+     "giorno": 9,
+     "percento": 50,
+     "testo": "9th day onwards: -50%"
+    }
+   ],
+   "esenti_sotto_eta": 16,
+   "valid_from": "2018-01-01",
+   "chi_riscuote": "The hotel or rental operator, usually at check-out.",
+   "fonti": [
+    {
+     "titolo": "Law 2/2016 of 30 March on the tourist stay tax in the Balearic Islands - consolidated text, Boletín Oficial del Estado (BOE-A-2016-4175)",
+     "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2016-4175",
+     "http": 200,
+     "formato": "HTML (Spanish)",
+     "controllato_il": "2026-10-10",
+     "nota": "Art. 13 (rates and reductions) in force since 1 January 2018; art. 5 (exemptions). Consolidated text last updated 17/05/2025."
+    }
+   ],
+   "note": [
+    "Low season (1 November to 30 April): the tax is reduced by 75%.",
+    "From the 9th day of a stay in the same establishment: a further 50% reduction (on top of the low-season reduction, if any).",
+    "Under-16s do not pay. Stays for reasons of force majeure are also exempt.",
+    "The tax is charged per person and per day (or fraction) of stay, and collected by the establishment.",
+    "The same Balearic rate applies in Palma, Alcúdia, Magaluf and the rest of Mallorca."
+   ],
+   "esenzioni": [
+    "Children under 16",
+    "Stays due to force majeure"
+   ],
+   "gruppo": "balearics",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "ibiza",
+   "name": "Ibiza",
+   "country": "Spain",
+   "country_slug": "spain",
+   "region": "Balearic Islands",
+   "currency": "EUR",
+   "official_name": "Tourist stay tax (impuesto sobre estancias turísticas, 'ecotasa')",
+   "tipo": "per_person",
+   "categorie": [
+    {
+     "id": "h4",
+     "label": "Hotel 5 stars, 5 stars grand luxury or 4 stars superior (incl. city hotels and hotel-apartments)"
+    },
+    {
+     "id": "h3",
+     "label": "Hotel 4 stars or 3 stars superior"
+    },
+    {
+     "id": "h2",
+     "label": "Hotel 1, 2 or 3 stars"
+    },
+    {
+     "id": "a4",
+     "label": "Tourist apartments 4 keys or 4 keys superior"
+    },
+    {
+     "id": "a3",
+     "label": "Tourist apartments 3 keys superior"
+    },
+    {
+     "id": "a2",
+     "label": "Tourist apartments 1, 2 or 3 keys"
+    },
+    {
+     "id": "vt",
+     "label": "Holiday homes and tourist rentals (viviendas turísticas)"
+    },
+    {
+     "id": "rural",
+     "label": "Rural hotels, agrotourism, hostelries, inland tourism"
+    },
+    {
+     "id": "hostal",
+     "label": "Hostales, pensions, inns, guesthouses and campsites"
+    },
+    {
+     "id": "alb",
+     "label": "Hostels (albergues) and mountain refuges"
+    },
+    {
+     "id": "etr",
+     "label": "Non-residential accommodation of tourist-residential companies"
+    },
+    {
+     "id": "otros",
+     "label": "Other tourist establishments or homes"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "h4",
+     "dal": "2018-01-01",
+     "valore": 4
+    },
+    {
+     "cat": "h3",
+     "dal": "2018-01-01",
+     "valore": 3
+    },
+    {
+     "cat": "h2",
+     "dal": "2018-01-01",
+     "valore": 2
+    },
+    {
+     "cat": "a4",
+     "dal": "2018-01-01",
+     "valore": 4
+    },
+    {
+     "cat": "a3",
+     "dal": "2018-01-01",
+     "valore": 3
+    },
+    {
+     "cat": "a2",
+     "dal": "2018-01-01",
+     "valore": 2
+    },
+    {
+     "cat": "vt",
+     "dal": "2018-01-01",
+     "valore": 2
+    },
+    {
+     "cat": "rural",
+     "dal": "2018-01-01",
+     "valore": 2
+    },
+    {
+     "cat": "hostal",
+     "dal": "2018-01-01",
+     "valore": 1
+    },
+    {
+     "cat": "alb",
+     "dal": "2018-01-01",
+     "valore": 1
+    },
+    {
+     "cat": "etr",
+     "dal": "2018-01-01",
+     "valore": 4
+    },
+    {
+     "cat": "otros",
+     "dal": "2018-01-01",
+     "valore": 2
+    }
+   ],
+   "riduzioni": [
+    {
+     "tipo": "mesi",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+     ],
+     "percento": 75,
+     "testo": "low season (1 Nov - 30 Apr): -75%"
+    },
+    {
+     "tipo": "dal_giorno",
+     "giorno": 9,
+     "percento": 50,
+     "testo": "9th day onwards: -50%"
+    }
+   ],
+   "esenti_sotto_eta": 16,
+   "valid_from": "2018-01-01",
+   "chi_riscuote": "The hotel or rental operator, usually at check-out.",
+   "fonti": [
+    {
+     "titolo": "Law 2/2016 of 30 March on the tourist stay tax in the Balearic Islands - consolidated text, Boletín Oficial del Estado (BOE-A-2016-4175)",
+     "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2016-4175",
+     "http": 200,
+     "formato": "HTML (Spanish)",
+     "controllato_il": "2026-10-10",
+     "nota": "Art. 13 (rates and reductions) in force since 1 January 2018; art. 5 (exemptions). Consolidated text last updated 17/05/2025."
+    }
+   ],
+   "note": [
+    "Low season (1 November to 30 April): the tax is reduced by 75%.",
+    "From the 9th day of a stay in the same establishment: a further 50% reduction (on top of the low-season reduction, if any).",
+    "Under-16s do not pay. Stays for reasons of force majeure are also exempt.",
+    "The tax is charged per person and per day (or fraction) of stay, and collected by the establishment.",
+    "The same Balearic rate applies in Ibiza town, Sant Antoni and the rest of the island."
+   ],
+   "esenzioni": [
+    "Children under 16",
+    "Stays due to force majeure"
+   ],
+   "gruppo": "balearics",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "menorca",
+   "name": "Menorca",
+   "country": "Spain",
+   "country_slug": "spain",
+   "region": "Balearic Islands",
+   "currency": "EUR",
+   "official_name": "Tourist stay tax (impuesto sobre estancias turísticas, 'ecotasa')",
+   "tipo": "per_person",
+   "categorie": [
+    {
+     "id": "h4",
+     "label": "Hotel 5 stars, 5 stars grand luxury or 4 stars superior (incl. city hotels and hotel-apartments)"
+    },
+    {
+     "id": "h3",
+     "label": "Hotel 4 stars or 3 stars superior"
+    },
+    {
+     "id": "h2",
+     "label": "Hotel 1, 2 or 3 stars"
+    },
+    {
+     "id": "a4",
+     "label": "Tourist apartments 4 keys or 4 keys superior"
+    },
+    {
+     "id": "a3",
+     "label": "Tourist apartments 3 keys superior"
+    },
+    {
+     "id": "a2",
+     "label": "Tourist apartments 1, 2 or 3 keys"
+    },
+    {
+     "id": "vt",
+     "label": "Holiday homes and tourist rentals (viviendas turísticas)"
+    },
+    {
+     "id": "rural",
+     "label": "Rural hotels, agrotourism, hostelries, inland tourism"
+    },
+    {
+     "id": "hostal",
+     "label": "Hostales, pensions, inns, guesthouses and campsites"
+    },
+    {
+     "id": "alb",
+     "label": "Hostels (albergues) and mountain refuges"
+    },
+    {
+     "id": "etr",
+     "label": "Non-residential accommodation of tourist-residential companies"
+    },
+    {
+     "id": "otros",
+     "label": "Other tourist establishments or homes"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "h4",
+     "dal": "2018-01-01",
+     "valore": 4
+    },
+    {
+     "cat": "h3",
+     "dal": "2018-01-01",
+     "valore": 3
+    },
+    {
+     "cat": "h2",
+     "dal": "2018-01-01",
+     "valore": 2
+    },
+    {
+     "cat": "a4",
+     "dal": "2018-01-01",
+     "valore": 4
+    },
+    {
+     "cat": "a3",
+     "dal": "2018-01-01",
+     "valore": 3
+    },
+    {
+     "cat": "a2",
+     "dal": "2018-01-01",
+     "valore": 2
+    },
+    {
+     "cat": "vt",
+     "dal": "2018-01-01",
+     "valore": 2
+    },
+    {
+     "cat": "rural",
+     "dal": "2018-01-01",
+     "valore": 2
+    },
+    {
+     "cat": "hostal",
+     "dal": "2018-01-01",
+     "valore": 1
+    },
+    {
+     "cat": "alb",
+     "dal": "2018-01-01",
+     "valore": 1
+    },
+    {
+     "cat": "etr",
+     "dal": "2018-01-01",
+     "valore": 4
+    },
+    {
+     "cat": "otros",
+     "dal": "2018-01-01",
+     "valore": 2
+    }
+   ],
+   "riduzioni": [
+    {
+     "tipo": "mesi",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+     ],
+     "percento": 75,
+     "testo": "low season (1 Nov - 30 Apr): -75%"
+    },
+    {
+     "tipo": "dal_giorno",
+     "giorno": 9,
+     "percento": 50,
+     "testo": "9th day onwards: -50%"
+    }
+   ],
+   "esenti_sotto_eta": 16,
+   "valid_from": "2018-01-01",
+   "chi_riscuote": "The hotel or rental operator, usually at check-out.",
+   "fonti": [
+    {
+     "titolo": "Law 2/2016 of 30 March on the tourist stay tax in the Balearic Islands - consolidated text, Boletín Oficial del Estado (BOE-A-2016-4175)",
+     "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2016-4175",
+     "http": 200,
+     "formato": "HTML (Spanish)",
+     "controllato_il": "2026-10-10",
+     "nota": "Art. 13 (rates and reductions) in force since 1 January 2018; art. 5 (exemptions). Consolidated text last updated 17/05/2025."
+    }
+   ],
+   "note": [
+    "Low season (1 November to 30 April): the tax is reduced by 75%.",
+    "From the 9th day of a stay in the same establishment: a further 50% reduction (on top of the low-season reduction, if any).",
+    "Under-16s do not pay. Stays for reasons of force majeure are also exempt.",
+    "The tax is charged per person and per day (or fraction) of stay, and collected by the establishment.",
+    "The same Balearic rate applies everywhere on Menorca."
+   ],
+   "esenzioni": [
+    "Children under 16",
+    "Stays due to force majeure"
+   ],
+   "gruppo": "balearics",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "formentera",
+   "name": "Formentera",
+   "country": "Spain",
+   "country_slug": "spain",
+   "region": "Balearic Islands",
+   "currency": "EUR",
+   "official_name": "Tourist stay tax (impuesto sobre estancias turísticas, 'ecotasa')",
+   "tipo": "per_person",
+   "categorie": [
+    {
+     "id": "h4",
+     "label": "Hotel 5 stars, 5 stars grand luxury or 4 stars superior (incl. city hotels and hotel-apartments)"
+    },
+    {
+     "id": "h3",
+     "label": "Hotel 4 stars or 3 stars superior"
+    },
+    {
+     "id": "h2",
+     "label": "Hotel 1, 2 or 3 stars"
+    },
+    {
+     "id": "a4",
+     "label": "Tourist apartments 4 keys or 4 keys superior"
+    },
+    {
+     "id": "a3",
+     "label": "Tourist apartments 3 keys superior"
+    },
+    {
+     "id": "a2",
+     "label": "Tourist apartments 1, 2 or 3 keys"
+    },
+    {
+     "id": "vt",
+     "label": "Holiday homes and tourist rentals (viviendas turísticas)"
+    },
+    {
+     "id": "rural",
+     "label": "Rural hotels, agrotourism, hostelries, inland tourism"
+    },
+    {
+     "id": "hostal",
+     "label": "Hostales, pensions, inns, guesthouses and campsites"
+    },
+    {
+     "id": "alb",
+     "label": "Hostels (albergues) and mountain refuges"
+    },
+    {
+     "id": "etr",
+     "label": "Non-residential accommodation of tourist-residential companies"
+    },
+    {
+     "id": "otros",
+     "label": "Other tourist establishments or homes"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "h4",
+     "dal": "2018-01-01",
+     "valore": 4
+    },
+    {
+     "cat": "h3",
+     "dal": "2018-01-01",
+     "valore": 3
+    },
+    {
+     "cat": "h2",
+     "dal": "2018-01-01",
+     "valore": 2
+    },
+    {
+     "cat": "a4",
+     "dal": "2018-01-01",
+     "valore": 4
+    },
+    {
+     "cat": "a3",
+     "dal": "2018-01-01",
+     "valore": 3
+    },
+    {
+     "cat": "a2",
+     "dal": "2018-01-01",
+     "valore": 2
+    },
+    {
+     "cat": "vt",
+     "dal": "2018-01-01",
+     "valore": 2
+    },
+    {
+     "cat": "rural",
+     "dal": "2018-01-01",
+     "valore": 2
+    },
+    {
+     "cat": "hostal",
+     "dal": "2018-01-01",
+     "valore": 1
+    },
+    {
+     "cat": "alb",
+     "dal": "2018-01-01",
+     "valore": 1
+    },
+    {
+     "cat": "etr",
+     "dal": "2018-01-01",
+     "valore": 4
+    },
+    {
+     "cat": "otros",
+     "dal": "2018-01-01",
+     "valore": 2
+    }
+   ],
+   "riduzioni": [
+    {
+     "tipo": "mesi",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+     ],
+     "percento": 75,
+     "testo": "low season (1 Nov - 30 Apr): -75%"
+    },
+    {
+     "tipo": "dal_giorno",
+     "giorno": 9,
+     "percento": 50,
+     "testo": "9th day onwards: -50%"
+    }
+   ],
+   "esenti_sotto_eta": 16,
+   "valid_from": "2018-01-01",
+   "chi_riscuote": "The hotel or rental operator, usually at check-out.",
+   "fonti": [
+    {
+     "titolo": "Law 2/2016 of 30 March on the tourist stay tax in the Balearic Islands - consolidated text, Boletín Oficial del Estado (BOE-A-2016-4175)",
+     "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2016-4175",
+     "http": 200,
+     "formato": "HTML (Spanish)",
+     "controllato_il": "2026-10-10",
+     "nota": "Art. 13 (rates and reductions) in force since 1 January 2018; art. 5 (exemptions). Consolidated text last updated 17/05/2025."
+    }
+   ],
+   "note": [
+    "Low season (1 November to 30 April): the tax is reduced by 75%.",
+    "From the 9th day of a stay in the same establishment: a further 50% reduction (on top of the low-season reduction, if any).",
+    "Under-16s do not pay. Stays for reasons of force majeure are also exempt.",
+    "The tax is charged per person and per day (or fraction) of stay, and collected by the establishment.",
+    "The same Balearic rate applies on Formentera."
+   ],
+   "esenzioni": [
+    "Children under 16",
+    "Stays due to force majeure"
+   ],
+   "gruppo": "balearics",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "athens",
+   "name": "Athens",
+   "country": "Greece",
+   "country_slug": "greece",
+   "region": "Attica",
+   "currency": "EUR",
+   "official_name": "Climate crisis resilience fee (τέλος ανθεκτικότητας στην κλιματική κρίση)",
+   "tipo": "per_room",
+   "categorie": [
+    {
+     "id": "h12",
+     "label": "Hotel 1-2 stars"
+    },
+    {
+     "id": "h3",
+     "label": "Hotel 3 stars"
+    },
+    {
+     "id": "h4",
+     "label": "Hotel 4 stars"
+    },
+    {
+     "id": "h5",
+     "label": "Hotel 5 stars"
+    },
+    {
+     "id": "rooms",
+     "label": "Rented rooms / apartments (enoikiazomena)"
+    },
+    {
+     "id": "str",
+     "label": "Short-term rental (e.g. Airbnb), not a detached house over 80 m²"
+    },
+    {
+     "id": "str80",
+     "label": "Short-term rental: detached house over 80 m²"
+    },
+    {
+     "id": "villa",
+     "label": "Tourist furnished villa"
+    },
+    {
+     "id": "tfr",
+     "label": "Tourist furnished residence under 80 m²"
+    },
+    {
+     "id": "tfr80",
+     "label": "Tourist furnished residence 80 m² or more"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "h12",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 2,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h3",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 5,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h4",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 10,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h5",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "rooms",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 2,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "str",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 8,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "str80",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "villa",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "tfr",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 8,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "tfr80",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h12",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 0.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h3",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 1.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h4",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 3,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h5",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "rooms",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 0.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "str",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 2,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "str80",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "villa",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "tfr",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 2,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "tfr80",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    }
+   ],
+   "valid_from": "2025-01-01",
+   "chi_riscuote": "The hotel, rental host or property manager, at the end of the stay.",
+   "fonti": [
+    {
+     "titolo": "Law 5162/2024, art. 24 (amending art. 53 of Law 4389/2016) - Government Gazette ΦΕΚ Α' 198/05.12.2024",
+     "url": "https://ia37rg02wpsa01.blob.core.windows.net/fek/01/2024/20240100198.pdf",
+     "http": 200,
+     "formato": "PDF (Greek)",
+     "controllato_il": "2026-10-10",
+     "nota": "Official copy of the Government Gazette served by search.et.gr (National Printing House). Applies from tax year 2025 (art. 136 par. 7)."
+    },
+    {
+     "titolo": "Independent Authority for Public Revenue (AADE) - climate resilience fee page",
+     "url": "https://www.aade.gr/epiheiriseis/forologikes-ypohreoseis/telos-anthektikotitas-stin-klimatiki-krisi",
+     "http": 403,
+     "formato": "HTML",
+     "controllato_il": "2026-10-10",
+     "nota": "Blocks automated reading (403): checked by hand each quarter."
+    }
+   ],
+   "note": [
+    "The fee is charged per room or apartment per night, not per person: two people sharing a room pay one fee.",
+    "April to October is the high-season rate; November to March the low-season rate. For stays across two months with different rates, the receipt is issued per month.",
+    "The guest pays it at the property after the stay and before departure, and receives a separate receipt. It is not subject to VAT.",
+    "The same national rate applies everywhere in Greece. Cruise passengers pay a separate cruise fee (not covered here)."
+   ],
+   "esenzioni": [],
+   "gruppo": "greece",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "santorini",
+   "name": "Santorini",
+   "country": "Greece",
+   "country_slug": "greece",
+   "region": "Cyclades",
+   "currency": "EUR",
+   "official_name": "Climate crisis resilience fee (τέλος ανθεκτικότητας στην κλιματική κρίση)",
+   "tipo": "per_room",
+   "categorie": [
+    {
+     "id": "h12",
+     "label": "Hotel 1-2 stars"
+    },
+    {
+     "id": "h3",
+     "label": "Hotel 3 stars"
+    },
+    {
+     "id": "h4",
+     "label": "Hotel 4 stars"
+    },
+    {
+     "id": "h5",
+     "label": "Hotel 5 stars"
+    },
+    {
+     "id": "rooms",
+     "label": "Rented rooms / apartments (enoikiazomena)"
+    },
+    {
+     "id": "str",
+     "label": "Short-term rental (e.g. Airbnb), not a detached house over 80 m²"
+    },
+    {
+     "id": "str80",
+     "label": "Short-term rental: detached house over 80 m²"
+    },
+    {
+     "id": "villa",
+     "label": "Tourist furnished villa"
+    },
+    {
+     "id": "tfr",
+     "label": "Tourist furnished residence under 80 m²"
+    },
+    {
+     "id": "tfr80",
+     "label": "Tourist furnished residence 80 m² or more"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "h12",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 2,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h3",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 5,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h4",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 10,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h5",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "rooms",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 2,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "str",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 8,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "str80",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "villa",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "tfr",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 8,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "tfr80",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h12",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 0.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h3",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 1.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h4",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 3,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h5",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "rooms",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 0.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "str",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 2,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "str80",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "villa",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "tfr",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 2,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "tfr80",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    }
+   ],
+   "valid_from": "2025-01-01",
+   "chi_riscuote": "The hotel, rental host or property manager, at the end of the stay.",
+   "fonti": [
+    {
+     "titolo": "Law 5162/2024, art. 24 (amending art. 53 of Law 4389/2016) - Government Gazette ΦΕΚ Α' 198/05.12.2024",
+     "url": "https://ia37rg02wpsa01.blob.core.windows.net/fek/01/2024/20240100198.pdf",
+     "http": 200,
+     "formato": "PDF (Greek)",
+     "controllato_il": "2026-10-10",
+     "nota": "Official copy of the Government Gazette served by search.et.gr (National Printing House). Applies from tax year 2025 (art. 136 par. 7)."
+    },
+    {
+     "titolo": "Independent Authority for Public Revenue (AADE) - climate resilience fee page",
+     "url": "https://www.aade.gr/epiheiriseis/forologikes-ypohreoseis/telos-anthektikotitas-stin-klimatiki-krisi",
+     "http": 403,
+     "formato": "HTML",
+     "controllato_il": "2026-10-10",
+     "nota": "Blocks automated reading (403): checked by hand each quarter."
+    }
+   ],
+   "note": [
+    "The fee is charged per room or apartment per night, not per person: two people sharing a room pay one fee.",
+    "April to October is the high-season rate; November to March the low-season rate. For stays across two months with different rates, the receipt is issued per month.",
+    "The guest pays it at the property after the stay and before departure, and receives a separate receipt. It is not subject to VAT.",
+    "The same national rate applies everywhere in Greece. Cruise passengers pay a separate cruise fee (not covered here)."
+   ],
+   "esenzioni": [],
+   "gruppo": "greece",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "mykonos",
+   "name": "Mykonos",
+   "country": "Greece",
+   "country_slug": "greece",
+   "region": "Cyclades",
+   "currency": "EUR",
+   "official_name": "Climate crisis resilience fee (τέλος ανθεκτικότητας στην κλιματική κρίση)",
+   "tipo": "per_room",
+   "categorie": [
+    {
+     "id": "h12",
+     "label": "Hotel 1-2 stars"
+    },
+    {
+     "id": "h3",
+     "label": "Hotel 3 stars"
+    },
+    {
+     "id": "h4",
+     "label": "Hotel 4 stars"
+    },
+    {
+     "id": "h5",
+     "label": "Hotel 5 stars"
+    },
+    {
+     "id": "rooms",
+     "label": "Rented rooms / apartments (enoikiazomena)"
+    },
+    {
+     "id": "str",
+     "label": "Short-term rental (e.g. Airbnb), not a detached house over 80 m²"
+    },
+    {
+     "id": "str80",
+     "label": "Short-term rental: detached house over 80 m²"
+    },
+    {
+     "id": "villa",
+     "label": "Tourist furnished villa"
+    },
+    {
+     "id": "tfr",
+     "label": "Tourist furnished residence under 80 m²"
+    },
+    {
+     "id": "tfr80",
+     "label": "Tourist furnished residence 80 m² or more"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "h12",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 2,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h3",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 5,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h4",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 10,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h5",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "rooms",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 2,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "str",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 8,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "str80",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "villa",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "tfr",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 8,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "tfr80",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h12",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 0.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h3",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 1.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h4",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 3,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h5",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "rooms",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 0.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "str",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 2,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "str80",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "villa",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "tfr",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 2,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "tfr80",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    }
+   ],
+   "valid_from": "2025-01-01",
+   "chi_riscuote": "The hotel, rental host or property manager, at the end of the stay.",
+   "fonti": [
+    {
+     "titolo": "Law 5162/2024, art. 24 (amending art. 53 of Law 4389/2016) - Government Gazette ΦΕΚ Α' 198/05.12.2024",
+     "url": "https://ia37rg02wpsa01.blob.core.windows.net/fek/01/2024/20240100198.pdf",
+     "http": 200,
+     "formato": "PDF (Greek)",
+     "controllato_il": "2026-10-10",
+     "nota": "Official copy of the Government Gazette served by search.et.gr (National Printing House). Applies from tax year 2025 (art. 136 par. 7)."
+    },
+    {
+     "titolo": "Independent Authority for Public Revenue (AADE) - climate resilience fee page",
+     "url": "https://www.aade.gr/epiheiriseis/forologikes-ypohreoseis/telos-anthektikotitas-stin-klimatiki-krisi",
+     "http": 403,
+     "formato": "HTML",
+     "controllato_il": "2026-10-10",
+     "nota": "Blocks automated reading (403): checked by hand each quarter."
+    }
+   ],
+   "note": [
+    "The fee is charged per room or apartment per night, not per person: two people sharing a room pay one fee.",
+    "April to October is the high-season rate; November to March the low-season rate. For stays across two months with different rates, the receipt is issued per month.",
+    "The guest pays it at the property after the stay and before departure, and receives a separate receipt. It is not subject to VAT.",
+    "The same national rate applies everywhere in Greece. Cruise passengers pay a separate cruise fee (not covered here)."
+   ],
+   "esenzioni": [],
+   "gruppo": "greece",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "crete",
+   "name": "Crete",
+   "country": "Greece",
+   "country_slug": "greece",
+   "region": "Crete",
+   "currency": "EUR",
+   "official_name": "Climate crisis resilience fee (τέλος ανθεκτικότητας στην κλιματική κρίση)",
+   "tipo": "per_room",
+   "categorie": [
+    {
+     "id": "h12",
+     "label": "Hotel 1-2 stars"
+    },
+    {
+     "id": "h3",
+     "label": "Hotel 3 stars"
+    },
+    {
+     "id": "h4",
+     "label": "Hotel 4 stars"
+    },
+    {
+     "id": "h5",
+     "label": "Hotel 5 stars"
+    },
+    {
+     "id": "rooms",
+     "label": "Rented rooms / apartments (enoikiazomena)"
+    },
+    {
+     "id": "str",
+     "label": "Short-term rental (e.g. Airbnb), not a detached house over 80 m²"
+    },
+    {
+     "id": "str80",
+     "label": "Short-term rental: detached house over 80 m²"
+    },
+    {
+     "id": "villa",
+     "label": "Tourist furnished villa"
+    },
+    {
+     "id": "tfr",
+     "label": "Tourist furnished residence under 80 m²"
+    },
+    {
+     "id": "tfr80",
+     "label": "Tourist furnished residence 80 m² or more"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "h12",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 2,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h3",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 5,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h4",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 10,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h5",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "rooms",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 2,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "str",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 8,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "str80",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "villa",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "tfr",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 8,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "tfr80",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h12",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 0.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h3",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 1.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h4",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 3,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h5",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "rooms",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 0.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "str",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 2,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "str80",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "villa",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "tfr",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 2,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "tfr80",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    }
+   ],
+   "valid_from": "2025-01-01",
+   "chi_riscuote": "The hotel, rental host or property manager, at the end of the stay.",
+   "fonti": [
+    {
+     "titolo": "Law 5162/2024, art. 24 (amending art. 53 of Law 4389/2016) - Government Gazette ΦΕΚ Α' 198/05.12.2024",
+     "url": "https://ia37rg02wpsa01.blob.core.windows.net/fek/01/2024/20240100198.pdf",
+     "http": 200,
+     "formato": "PDF (Greek)",
+     "controllato_il": "2026-10-10",
+     "nota": "Official copy of the Government Gazette served by search.et.gr (National Printing House). Applies from tax year 2025 (art. 136 par. 7)."
+    },
+    {
+     "titolo": "Independent Authority for Public Revenue (AADE) - climate resilience fee page",
+     "url": "https://www.aade.gr/epiheiriseis/forologikes-ypohreoseis/telos-anthektikotitas-stin-klimatiki-krisi",
+     "http": 403,
+     "formato": "HTML",
+     "controllato_il": "2026-10-10",
+     "nota": "Blocks automated reading (403): checked by hand each quarter."
+    }
+   ],
+   "note": [
+    "The fee is charged per room or apartment per night, not per person: two people sharing a room pay one fee.",
+    "April to October is the high-season rate; November to March the low-season rate. For stays across two months with different rates, the receipt is issued per month.",
+    "The guest pays it at the property after the stay and before departure, and receives a separate receipt. It is not subject to VAT.",
+    "The same national rate applies everywhere in Greece. Cruise passengers pay a separate cruise fee (not covered here).",
+    "Applies in Heraklion, Chania, Rethymno, Agios Nikolaos and everywhere on the island."
+   ],
+   "esenzioni": [],
+   "gruppo": "greece",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "rhodes",
+   "name": "Rhodes",
+   "country": "Greece",
+   "country_slug": "greece",
+   "region": "Dodecanese",
+   "currency": "EUR",
+   "official_name": "Climate crisis resilience fee (τέλος ανθεκτικότητας στην κλιματική κρίση)",
+   "tipo": "per_room",
+   "categorie": [
+    {
+     "id": "h12",
+     "label": "Hotel 1-2 stars"
+    },
+    {
+     "id": "h3",
+     "label": "Hotel 3 stars"
+    },
+    {
+     "id": "h4",
+     "label": "Hotel 4 stars"
+    },
+    {
+     "id": "h5",
+     "label": "Hotel 5 stars"
+    },
+    {
+     "id": "rooms",
+     "label": "Rented rooms / apartments (enoikiazomena)"
+    },
+    {
+     "id": "str",
+     "label": "Short-term rental (e.g. Airbnb), not a detached house over 80 m²"
+    },
+    {
+     "id": "str80",
+     "label": "Short-term rental: detached house over 80 m²"
+    },
+    {
+     "id": "villa",
+     "label": "Tourist furnished villa"
+    },
+    {
+     "id": "tfr",
+     "label": "Tourist furnished residence under 80 m²"
+    },
+    {
+     "id": "tfr80",
+     "label": "Tourist furnished residence 80 m² or more"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "h12",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 2,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h3",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 5,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h4",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 10,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h5",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "rooms",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 2,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "str",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 8,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "str80",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "villa",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "tfr",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 8,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "tfr80",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h12",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 0.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h3",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 1.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h4",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 3,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h5",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "rooms",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 0.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "str",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 2,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "str80",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "villa",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "tfr",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 2,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "tfr80",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    }
+   ],
+   "valid_from": "2025-01-01",
+   "chi_riscuote": "The hotel, rental host or property manager, at the end of the stay.",
+   "fonti": [
+    {
+     "titolo": "Law 5162/2024, art. 24 (amending art. 53 of Law 4389/2016) - Government Gazette ΦΕΚ Α' 198/05.12.2024",
+     "url": "https://ia37rg02wpsa01.blob.core.windows.net/fek/01/2024/20240100198.pdf",
+     "http": 200,
+     "formato": "PDF (Greek)",
+     "controllato_il": "2026-10-10",
+     "nota": "Official copy of the Government Gazette served by search.et.gr (National Printing House). Applies from tax year 2025 (art. 136 par. 7)."
+    },
+    {
+     "titolo": "Independent Authority for Public Revenue (AADE) - climate resilience fee page",
+     "url": "https://www.aade.gr/epiheiriseis/forologikes-ypohreoseis/telos-anthektikotitas-stin-klimatiki-krisi",
+     "http": 403,
+     "formato": "HTML",
+     "controllato_il": "2026-10-10",
+     "nota": "Blocks automated reading (403): checked by hand each quarter."
+    }
+   ],
+   "note": [
+    "The fee is charged per room or apartment per night, not per person: two people sharing a room pay one fee.",
+    "April to October is the high-season rate; November to March the low-season rate. For stays across two months with different rates, the receipt is issued per month.",
+    "The guest pays it at the property after the stay and before departure, and receives a separate receipt. It is not subject to VAT.",
+    "The same national rate applies everywhere in Greece. Cruise passengers pay a separate cruise fee (not covered here)."
+   ],
+   "esenzioni": [],
+   "gruppo": "greece",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "corfu",
+   "name": "Corfu",
+   "country": "Greece",
+   "country_slug": "greece",
+   "region": "Ionian Islands",
+   "currency": "EUR",
+   "official_name": "Climate crisis resilience fee (τέλος ανθεκτικότητας στην κλιματική κρίση)",
+   "tipo": "per_room",
+   "categorie": [
+    {
+     "id": "h12",
+     "label": "Hotel 1-2 stars"
+    },
+    {
+     "id": "h3",
+     "label": "Hotel 3 stars"
+    },
+    {
+     "id": "h4",
+     "label": "Hotel 4 stars"
+    },
+    {
+     "id": "h5",
+     "label": "Hotel 5 stars"
+    },
+    {
+     "id": "rooms",
+     "label": "Rented rooms / apartments (enoikiazomena)"
+    },
+    {
+     "id": "str",
+     "label": "Short-term rental (e.g. Airbnb), not a detached house over 80 m²"
+    },
+    {
+     "id": "str80",
+     "label": "Short-term rental: detached house over 80 m²"
+    },
+    {
+     "id": "villa",
+     "label": "Tourist furnished villa"
+    },
+    {
+     "id": "tfr",
+     "label": "Tourist furnished residence under 80 m²"
+    },
+    {
+     "id": "tfr80",
+     "label": "Tourist furnished residence 80 m² or more"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "h12",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 2,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h3",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 5,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h4",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 10,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h5",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "rooms",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 2,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "str",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 8,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "str80",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "villa",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "tfr",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 8,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "tfr80",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h12",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 0.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h3",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 1.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h4",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 3,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h5",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "rooms",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 0.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "str",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 2,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "str80",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "villa",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "tfr",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 2,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "tfr80",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    }
+   ],
+   "valid_from": "2025-01-01",
+   "chi_riscuote": "The hotel, rental host or property manager, at the end of the stay.",
+   "fonti": [
+    {
+     "titolo": "Law 5162/2024, art. 24 (amending art. 53 of Law 4389/2016) - Government Gazette ΦΕΚ Α' 198/05.12.2024",
+     "url": "https://ia37rg02wpsa01.blob.core.windows.net/fek/01/2024/20240100198.pdf",
+     "http": 200,
+     "formato": "PDF (Greek)",
+     "controllato_il": "2026-10-10",
+     "nota": "Official copy of the Government Gazette served by search.et.gr (National Printing House). Applies from tax year 2025 (art. 136 par. 7)."
+    },
+    {
+     "titolo": "Independent Authority for Public Revenue (AADE) - climate resilience fee page",
+     "url": "https://www.aade.gr/epiheiriseis/forologikes-ypohreoseis/telos-anthektikotitas-stin-klimatiki-krisi",
+     "http": 403,
+     "formato": "HTML",
+     "controllato_il": "2026-10-10",
+     "nota": "Blocks automated reading (403): checked by hand each quarter."
+    }
+   ],
+   "note": [
+    "The fee is charged per room or apartment per night, not per person: two people sharing a room pay one fee.",
+    "April to October is the high-season rate; November to March the low-season rate. For stays across two months with different rates, the receipt is issued per month.",
+    "The guest pays it at the property after the stay and before departure, and receives a separate receipt. It is not subject to VAT.",
+    "The same national rate applies everywhere in Greece. Cruise passengers pay a separate cruise fee (not covered here)."
+   ],
+   "esenzioni": [],
+   "gruppo": "greece",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "zakynthos",
+   "name": "Zakynthos",
+   "country": "Greece",
+   "country_slug": "greece",
+   "region": "Ionian Islands",
+   "currency": "EUR",
+   "official_name": "Climate crisis resilience fee (τέλος ανθεκτικότητας στην κλιματική κρίση)",
+   "tipo": "per_room",
+   "categorie": [
+    {
+     "id": "h12",
+     "label": "Hotel 1-2 stars"
+    },
+    {
+     "id": "h3",
+     "label": "Hotel 3 stars"
+    },
+    {
+     "id": "h4",
+     "label": "Hotel 4 stars"
+    },
+    {
+     "id": "h5",
+     "label": "Hotel 5 stars"
+    },
+    {
+     "id": "rooms",
+     "label": "Rented rooms / apartments (enoikiazomena)"
+    },
+    {
+     "id": "str",
+     "label": "Short-term rental (e.g. Airbnb), not a detached house over 80 m²"
+    },
+    {
+     "id": "str80",
+     "label": "Short-term rental: detached house over 80 m²"
+    },
+    {
+     "id": "villa",
+     "label": "Tourist furnished villa"
+    },
+    {
+     "id": "tfr",
+     "label": "Tourist furnished residence under 80 m²"
+    },
+    {
+     "id": "tfr80",
+     "label": "Tourist furnished residence 80 m² or more"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "h12",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 2,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h3",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 5,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h4",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 10,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h5",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "rooms",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 2,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "str",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 8,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "str80",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "villa",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "tfr",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 8,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "tfr80",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h12",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 0.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h3",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 1.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h4",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 3,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h5",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "rooms",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 0.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "str",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 2,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "str80",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "villa",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "tfr",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 2,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "tfr80",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    }
+   ],
+   "valid_from": "2025-01-01",
+   "chi_riscuote": "The hotel, rental host or property manager, at the end of the stay.",
+   "fonti": [
+    {
+     "titolo": "Law 5162/2024, art. 24 (amending art. 53 of Law 4389/2016) - Government Gazette ΦΕΚ Α' 198/05.12.2024",
+     "url": "https://ia37rg02wpsa01.blob.core.windows.net/fek/01/2024/20240100198.pdf",
+     "http": 200,
+     "formato": "PDF (Greek)",
+     "controllato_il": "2026-10-10",
+     "nota": "Official copy of the Government Gazette served by search.et.gr (National Printing House). Applies from tax year 2025 (art. 136 par. 7)."
+    },
+    {
+     "titolo": "Independent Authority for Public Revenue (AADE) - climate resilience fee page",
+     "url": "https://www.aade.gr/epiheiriseis/forologikes-ypohreoseis/telos-anthektikotitas-stin-klimatiki-krisi",
+     "http": 403,
+     "formato": "HTML",
+     "controllato_il": "2026-10-10",
+     "nota": "Blocks automated reading (403): checked by hand each quarter."
+    }
+   ],
+   "note": [
+    "The fee is charged per room or apartment per night, not per person: two people sharing a room pay one fee.",
+    "April to October is the high-season rate; November to March the low-season rate. For stays across two months with different rates, the receipt is issued per month.",
+    "The guest pays it at the property after the stay and before departure, and receives a separate receipt. It is not subject to VAT.",
+    "The same national rate applies everywhere in Greece. Cruise passengers pay a separate cruise fee (not covered here)."
+   ],
+   "esenzioni": [],
+   "gruppo": "greece",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "kos",
+   "name": "Kos",
+   "country": "Greece",
+   "country_slug": "greece",
+   "region": "Dodecanese",
+   "currency": "EUR",
+   "official_name": "Climate crisis resilience fee (τέλος ανθεκτικότητας στην κλιματική κρίση)",
+   "tipo": "per_room",
+   "categorie": [
+    {
+     "id": "h12",
+     "label": "Hotel 1-2 stars"
+    },
+    {
+     "id": "h3",
+     "label": "Hotel 3 stars"
+    },
+    {
+     "id": "h4",
+     "label": "Hotel 4 stars"
+    },
+    {
+     "id": "h5",
+     "label": "Hotel 5 stars"
+    },
+    {
+     "id": "rooms",
+     "label": "Rented rooms / apartments (enoikiazomena)"
+    },
+    {
+     "id": "str",
+     "label": "Short-term rental (e.g. Airbnb), not a detached house over 80 m²"
+    },
+    {
+     "id": "str80",
+     "label": "Short-term rental: detached house over 80 m²"
+    },
+    {
+     "id": "villa",
+     "label": "Tourist furnished villa"
+    },
+    {
+     "id": "tfr",
+     "label": "Tourist furnished residence under 80 m²"
+    },
+    {
+     "id": "tfr80",
+     "label": "Tourist furnished residence 80 m² or more"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "h12",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 2,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h3",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 5,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h4",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 10,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h5",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "rooms",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 2,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "str",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 8,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "str80",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "villa",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "tfr",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 8,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "tfr80",
+     "dal": "2025-01-01",
+     "mesi": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "valore": 15,
+     "stagione": "April-October"
+    },
+    {
+     "cat": "h12",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 0.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h3",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 1.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h4",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 3,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "h5",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "rooms",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 0.5,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "str",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 2,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "str80",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "villa",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "tfr",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 2,
+     "stagione": "November-March"
+    },
+    {
+     "cat": "tfr80",
+     "dal": "2025-01-01",
+     "mesi": [
+      11,
+      12,
+      1,
+      2,
+      3
+     ],
+     "valore": 4,
+     "stagione": "November-March"
+    }
+   ],
+   "valid_from": "2025-01-01",
+   "chi_riscuote": "The hotel, rental host or property manager, at the end of the stay.",
+   "fonti": [
+    {
+     "titolo": "Law 5162/2024, art. 24 (amending art. 53 of Law 4389/2016) - Government Gazette ΦΕΚ Α' 198/05.12.2024",
+     "url": "https://ia37rg02wpsa01.blob.core.windows.net/fek/01/2024/20240100198.pdf",
+     "http": 200,
+     "formato": "PDF (Greek)",
+     "controllato_il": "2026-10-10",
+     "nota": "Official copy of the Government Gazette served by search.et.gr (National Printing House). Applies from tax year 2025 (art. 136 par. 7)."
+    },
+    {
+     "titolo": "Independent Authority for Public Revenue (AADE) - climate resilience fee page",
+     "url": "https://www.aade.gr/epiheiriseis/forologikes-ypohreoseis/telos-anthektikotitas-stin-klimatiki-krisi",
+     "http": 403,
+     "formato": "HTML",
+     "controllato_il": "2026-10-10",
+     "nota": "Blocks automated reading (403): checked by hand each quarter."
+    }
+   ],
+   "note": [
+    "The fee is charged per room or apartment per night, not per person: two people sharing a room pay one fee.",
+    "April to October is the high-season rate; November to March the low-season rate. For stays across two months with different rates, the receipt is issued per month.",
+    "The guest pays it at the property after the stay and before departure, and receives a separate receipt. It is not subject to VAT.",
+    "The same national rate applies everywhere in Greece. Cruise passengers pay a separate cruise fee (not covered here)."
+   ],
+   "esenzioni": [],
+   "gruppo": "greece",
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "turkey",
+   "name": "Turkey",
+   "country": "Turkey",
+   "country_slug": "turkey",
+   "region": "",
+   "currency": "TRY",
+   "official_name": "Accommodation tax (Konaklama Vergisi), Law 6802 art. 34 as amended by Law 7194",
+   "tipo": "percent",
+   "etichetta_prezzo": "Accommodation price per night, excluding VAT (all rooms booked)",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "Hotels, holiday villages, guesthouses and other paid accommodation"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "all",
+     "dal": "2026-01-01",
+     "al": "2026-04-30",
+     "valore": 2
+    },
+    {
+     "cat": "all",
+     "dal": "2026-05-01",
+     "al": "2026-12-31",
+     "valore": 1
+    },
+    {
+     "cat": "all",
+     "dal": "2027-01-01",
+     "valore": 2,
+     "nota": "Rate in Law 6802 art. 34 once Decision 11263 expires on 31/12/2026, unless a new decision changes it."
+    }
+   ],
+   "valid_from": "2026-05-01",
+   "chi_riscuote": "The accommodation provider, on the invoice.",
+   "fonti": [
+    {
+     "titolo": "Presidential Decision No. 11263, Official Gazette (Resmî Gazete) No. 33240, 1 May 2026: accommodation tax rate set at 1% until 31/12/2026",
+     "url": "https://www.resmigazete.gov.tr/eskiler/2026/05/20260501-6.pdf",
+     "http": 200,
+     "formato": "PDF (Turkish, scanned text)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Revenue Administration (GİB) - accommodation tax return guide: rate 2%, base = invoice amount excluding VAT",
+     "url": "https://intvrg.gib.gov.tr/KONAKLAMA_VERGISI_BEYANNAMESI_DUZENLEME_KILAVUZU.pdf",
+     "http": 200,
+     "formato": "PDF (Turkish)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "The accommodation tax (konaklama vergisi) is a percentage of the price excluding VAT of the overnight stay and of the other services sold together with it at the property (food, drinks, activities, entertainment, pool, spa and similar), so with board or all-inclusive the base is wider than the room alone.",
+    "From 1 May 2026 to 31 December 2026 the rate is 1% (Presidential Decision 11263). Before that it was 2%, the rate in the law.",
+    "If you booked a package, check with your tour operator or hotel whether the tax is already included.",
+    "The tax is national: the same rate applies in Istanbul, Antalya, Bodrum, Dalaman, Fethiye, Marmaris and Cappadocia."
+   ],
+   "esenzioni": [],
+   "gruppo": "turkey",
+   "prezzo_esempio": 5000,
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "istanbul",
+   "name": "Istanbul",
+   "country": "Turkey",
+   "country_slug": "turkey",
+   "region": "Marmara",
+   "currency": "TRY",
+   "official_name": "Accommodation tax (Konaklama Vergisi), Law 6802 art. 34 as amended by Law 7194",
+   "tipo": "percent",
+   "etichetta_prezzo": "Accommodation price per night, excluding VAT (all rooms booked)",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "Hotels, holiday villages, guesthouses and other paid accommodation"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "all",
+     "dal": "2026-01-01",
+     "al": "2026-04-30",
+     "valore": 2
+    },
+    {
+     "cat": "all",
+     "dal": "2026-05-01",
+     "al": "2026-12-31",
+     "valore": 1
+    },
+    {
+     "cat": "all",
+     "dal": "2027-01-01",
+     "valore": 2,
+     "nota": "Rate in Law 6802 art. 34 once Decision 11263 expires on 31/12/2026, unless a new decision changes it."
+    }
+   ],
+   "valid_from": "2026-05-01",
+   "chi_riscuote": "The accommodation provider, on the invoice.",
+   "fonti": [
+    {
+     "titolo": "Presidential Decision No. 11263, Official Gazette (Resmî Gazete) No. 33240, 1 May 2026: accommodation tax rate set at 1% until 31/12/2026",
+     "url": "https://www.resmigazete.gov.tr/eskiler/2026/05/20260501-6.pdf",
+     "http": 200,
+     "formato": "PDF (Turkish, scanned text)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Revenue Administration (GİB) - accommodation tax return guide: rate 2%, base = invoice amount excluding VAT",
+     "url": "https://intvrg.gib.gov.tr/KONAKLAMA_VERGISI_BEYANNAMESI_DUZENLEME_KILAVUZU.pdf",
+     "http": 200,
+     "formato": "PDF (Turkish)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "The accommodation tax (konaklama vergisi) is a percentage of the price excluding VAT of the overnight stay and of the other services sold together with it at the property (food, drinks, activities, entertainment, pool, spa and similar), so with board or all-inclusive the base is wider than the room alone.",
+    "From 1 May 2026 to 31 December 2026 the rate is 1% (Presidential Decision 11263). Before that it was 2%, the rate in the law.",
+    "If you booked a package, check with your tour operator or hotel whether the tax is already included."
+   ],
+   "esenzioni": [],
+   "gruppo": "turkey",
+   "prezzo_esempio": 5000,
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "antalya",
+   "name": "Antalya",
+   "country": "Turkey",
+   "country_slug": "turkey",
+   "region": "Mediterranean coast",
+   "currency": "TRY",
+   "official_name": "Accommodation tax (Konaklama Vergisi), Law 6802 art. 34 as amended by Law 7194",
+   "tipo": "percent",
+   "etichetta_prezzo": "Accommodation price per night, excluding VAT (all rooms booked)",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "Hotels, holiday villages, guesthouses and other paid accommodation"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "all",
+     "dal": "2026-01-01",
+     "al": "2026-04-30",
+     "valore": 2
+    },
+    {
+     "cat": "all",
+     "dal": "2026-05-01",
+     "al": "2026-12-31",
+     "valore": 1
+    },
+    {
+     "cat": "all",
+     "dal": "2027-01-01",
+     "valore": 2,
+     "nota": "Rate in Law 6802 art. 34 once Decision 11263 expires on 31/12/2026, unless a new decision changes it."
+    }
+   ],
+   "valid_from": "2026-05-01",
+   "chi_riscuote": "The accommodation provider, on the invoice.",
+   "fonti": [
+    {
+     "titolo": "Presidential Decision No. 11263, Official Gazette (Resmî Gazete) No. 33240, 1 May 2026: accommodation tax rate set at 1% until 31/12/2026",
+     "url": "https://www.resmigazete.gov.tr/eskiler/2026/05/20260501-6.pdf",
+     "http": 200,
+     "formato": "PDF (Turkish, scanned text)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Revenue Administration (GİB) - accommodation tax return guide: rate 2%, base = invoice amount excluding VAT",
+     "url": "https://intvrg.gib.gov.tr/KONAKLAMA_VERGISI_BEYANNAMESI_DUZENLEME_KILAVUZU.pdf",
+     "http": 200,
+     "formato": "PDF (Turkish)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "The accommodation tax (konaklama vergisi) is a percentage of the price excluding VAT of the overnight stay and of the other services sold together with it at the property (food, drinks, activities, entertainment, pool, spa and similar), so with board or all-inclusive the base is wider than the room alone.",
+    "From 1 May 2026 to 31 December 2026 the rate is 1% (Presidential Decision 11263). Before that it was 2%, the rate in the law.",
+    "If you booked a package, check with your tour operator or hotel whether the tax is already included.",
+    "Applies in Antalya city, Belek, Side, Kemer, Alanya and the rest of the province."
+   ],
+   "esenzioni": [],
+   "gruppo": "turkey",
+   "prezzo_esempio": 5000,
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "bodrum",
+   "name": "Bodrum",
+   "country": "Turkey",
+   "country_slug": "turkey",
+   "region": "Aegean coast",
+   "currency": "TRY",
+   "official_name": "Accommodation tax (Konaklama Vergisi), Law 6802 art. 34 as amended by Law 7194",
+   "tipo": "percent",
+   "etichetta_prezzo": "Accommodation price per night, excluding VAT (all rooms booked)",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "Hotels, holiday villages, guesthouses and other paid accommodation"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "all",
+     "dal": "2026-01-01",
+     "al": "2026-04-30",
+     "valore": 2
+    },
+    {
+     "cat": "all",
+     "dal": "2026-05-01",
+     "al": "2026-12-31",
+     "valore": 1
+    },
+    {
+     "cat": "all",
+     "dal": "2027-01-01",
+     "valore": 2,
+     "nota": "Rate in Law 6802 art. 34 once Decision 11263 expires on 31/12/2026, unless a new decision changes it."
+    }
+   ],
+   "valid_from": "2026-05-01",
+   "chi_riscuote": "The accommodation provider, on the invoice.",
+   "fonti": [
+    {
+     "titolo": "Presidential Decision No. 11263, Official Gazette (Resmî Gazete) No. 33240, 1 May 2026: accommodation tax rate set at 1% until 31/12/2026",
+     "url": "https://www.resmigazete.gov.tr/eskiler/2026/05/20260501-6.pdf",
+     "http": 200,
+     "formato": "PDF (Turkish, scanned text)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Revenue Administration (GİB) - accommodation tax return guide: rate 2%, base = invoice amount excluding VAT",
+     "url": "https://intvrg.gib.gov.tr/KONAKLAMA_VERGISI_BEYANNAMESI_DUZENLEME_KILAVUZU.pdf",
+     "http": 200,
+     "formato": "PDF (Turkish)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "The accommodation tax (konaklama vergisi) is a percentage of the price excluding VAT of the overnight stay and of the other services sold together with it at the property (food, drinks, activities, entertainment, pool, spa and similar), so with board or all-inclusive the base is wider than the room alone.",
+    "From 1 May 2026 to 31 December 2026 the rate is 1% (Presidential Decision 11263). Before that it was 2%, the rate in the law.",
+    "If you booked a package, check with your tour operator or hotel whether the tax is already included."
+   ],
+   "esenzioni": [],
+   "gruppo": "turkey",
+   "prezzo_esempio": 5000,
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "amsterdam",
+   "name": "Amsterdam",
+   "country": "Netherlands",
+   "country_slug": "netherlands",
+   "region": "North Holland",
+   "currency": "EUR",
+   "official_name": "Tourist tax (toeristenbelasting)",
+   "tipo": "percent",
+   "etichetta_prezzo": "Overnight price per night, excluding VAT and breakfast (all rooms booked)",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "Hotels, holiday rentals, B&Bs, campsites and all other paid overnight stays"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "all",
+     "dal": "2024-01-01",
+     "valore": 12.5
+    }
+   ],
+   "valid_from": "2024-01-01",
+   "chi_riscuote": "The accommodation provider is liable for the tax and may pass it on to the guest.",
+   "fonti": [
+    {
+     "titolo": "Verordening Toeristenbelasting 2024 (Amsterdam tourist tax ordinance), official regulations repository CVDR703815 - art. 4 (base) and art. 5 (12.5%)",
+     "url": "https://repository.officiele-overheidspublicaties.nl/cvdr/CVDR703815/1/xml/CVDR703815_1.xml",
+     "http": 200,
+     "formato": "XML (Dutch)",
+     "controllato_il": "2026-10-10",
+     "nota": "Still the version in force in the national CVDR register on the check date (no later version)."
+    },
+    {
+     "titolo": "City of Amsterdam - tourist tax page",
+     "url": "https://www.amsterdam.nl/en/municipal-taxes/tourist-tax/",
+     "http": 403,
+     "formato": "HTML",
+     "controllato_il": "2026-10-10",
+     "nota": "Blocks automated reading: checked by hand."
+    }
+   ],
+   "note": [
+    "12.5% of the price of the overnight stay, excluding VAT and excluding the tourist tax itself. Charges closely linked to the stay (cleaning, bed linen, towels) count even if invoiced separately; breakfast, food and drinks do not.",
+    "There is no age exemption and no cap on the number of nights.",
+    "Amsterdam also has a separate day-tourist tax (dagtoeristenbelasting), not covered here."
+   ],
+   "esenzioni": [
+    "People staying in recognised care institutions",
+    "Government-arranged shelter for refugees and homeless people"
+   ],
+   "prezzo_esempio": 200,
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "berlin",
+   "name": "Berlin",
+   "country": "Germany",
+   "country_slug": "germany",
+   "region": "Berlin",
+   "currency": "EUR",
+   "official_name": "Overnight stay tax (Übernachtungsteuer, 'City Tax')",
+   "tipo": "percent",
+   "etichetta_prezzo": "Price of the overnight stay per night, excluding VAT and other services (all rooms booked)",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "Hotels, guesthouses, holiday flats and all paid short-term accommodation"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "all",
+     "dal": "2025-01-01",
+     "valore": 7.5
+    }
+   ],
+   "valid_from": "2025-01-01",
+   "chi_riscuote": "The accommodation business, which owes the tax and passes it on to the guest.",
+   "fonti": [
+    {
+     "titolo": "Senate Department for Finance - official City Tax return form ÜnSt 2a ('Ab dem 1. Januar 2025 gilt der Steuersatz von 7,5 %')",
+     "url": "https://www.berlin.de/sen/finanzen/steuern/downloads/uebernachtungsteuer/uenst-2a-anmeldung-uebernachtungsteuer-01-25.pdf",
+     "http": 200,
+     "formato": "PDF (German)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Berlin House of Representatives - bill amending the Overnight Stay Tax Act (§4 base, §5 rate 7.5%, 21-night rule abolished)",
+     "url": "https://parlament-berlin.de/adosservice/19/Haupt/vorgang/h19-2027-v.pdf",
+     "http": 200,
+     "formato": "PDF (German)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "7.5% of the price of the overnight stay, excluding VAT and excluding other services such as breakfast.",
+    "Business trips are taxed too. The old rule that ended the tax after 21 nights was abolished from 2025; stays offered for less than six months are covered.",
+    "There is no age exemption in the law."
+   ],
+   "esenzioni": [],
+   "prezzo_esempio": 150,
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "vienna",
+   "name": "Vienna",
+   "country": "Austria",
+   "country_slug": "austria",
+   "region": "Vienna",
+   "currency": "EUR",
+   "official_name": "Ortstaxe (local accommodation tax)",
+   "tipo": "percent",
+   "etichetta_prezzo": "Accommodation price per night, excluding VAT and breakfast (all rooms booked)",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "All paid accommodation in Vienna"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "all",
+     "dal": "2026-01-01",
+     "al": "2026-06-30",
+     "valore": 3.2,
+     "fattore_base": 0.89,
+     "nota": "3.2% after a flat 11% deduction from the price"
+    },
+    {
+     "cat": "all",
+     "dal": "2026-07-01",
+     "al": "2027-06-30",
+     "valore": 5
+    },
+    {
+     "cat": "all",
+     "dal": "2027-07-01",
+     "valore": 8
+    }
+   ],
+   "valid_from": "2026-07-01",
+   "chi_riscuote": "The accommodation owner, who collects it and pays it to the City of Vienna by the 15th of the following month.",
+   "fonti": [
+    {
+     "titolo": "City of Vienna - Ortstaxe (rates until 30 June 2026, from 1 July 2026 and from 1 July 2027; exemptions)",
+     "url": "https://www.wien.gv.at/amtswege/ortstaxe",
+     "http": 200,
+     "formato": "HTML (German)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "From 1 July 2026 to 30 June 2027: 5% of the price of the stay, excluding VAT and breakfast.",
+    "Until 30 June 2026 it was 3.2% after a flat 11% deduction; from 1 July 2027 it will be 8%.",
+    "The City of Vienna also publishes an official online Ortstaxe calculator for hosts."
+   ],
+   "esenzioni": [
+    "Minors staying for school or vocational training, or in youth hostels",
+    "People staying more than 3 months without interruption"
+   ],
+   "prezzo_esempio": 150,
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "prague",
+   "name": "Prague",
+   "country": "Czech Republic",
+   "country_slug": "czech-republic",
+   "region": "Prague",
+   "currency": "CZK",
+   "official_name": "Local fee for stay (místní poplatek z pobytu)",
+   "tipo": "per_person",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "Hotels, apartments, hostels and all paid stays"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "all",
+     "dal": "2022-01-01",
+     "valore": 50
+    }
+   ],
+   "esenti_sotto_eta": 18,
+   "max_soggiorno": 60,
+   "valid_from": "2022-01-01",
+   "chi_riscuote": "The accommodation provider, who pays it to the City or the city district.",
+   "fonti": [
+    {
+     "titolo": "Prague ordinance No. 19/2021 amending ordinance 18/2019 (rate 21 CZK -> 50 CZK; stays up to 60 consecutive days), Collection of Legal Regulations of Local Authorities",
+     "url": "https://sbirkapp.gov.cz/detail/SPPT2LCJU5OPC5JY/text",
+     "http": 200,
+     "formato": "PDF (Czech)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Prague ordinance No. 18/2019 on the local fee for stay (original text: per person per day except the day of arrival)",
+     "url": "https://sbirkapp.gov.cz/detail/SPP3LKRRXBRGXIGC/text",
+     "http": 200,
+     "formato": "PDF (Czech)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Act No. 565/1990 on local fees, current version (§3b exemptions incl. persons under 18; §3c base = days of stay except arrival day), e-Sbírka",
+     "url": "https://e-sbirka.gov.cz/sb/1990/565",
+     "http": 200,
+     "formato": "JSON/HTML (Czech)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "50 CZK per person for each day of the stay except the day of arrival (so one fee per night).",
+    "Paid stays of up to 60 consecutive days with the same provider are covered; under-18s are exempt by national law.",
+    "Other exemptions in national law include blind and severely disabled people (ZTP/P) with a companion, and people hospitalised in the city."
+   ],
+   "esenzioni": [
+    "Persons under 18",
+    "Blind people, ZTP/P card holders and their companion",
+    "Hospitalised patients (except spa care)",
+    "Seasonal workers",
+    "Some social and emergency stays"
+   ],
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "edinburgh",
+   "name": "Edinburgh",
+   "country": "United Kingdom",
+   "country_slug": "united-kingdom",
+   "region": "Scotland",
+   "currency": "GBP",
+   "official_name": "Edinburgh Visitor Levy",
+   "tipo": "percent",
+   "etichetta_prezzo": "Accommodation cost per night before VAT, without extras (all rooms booked)",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "Hotels, B&Bs, guest houses, short-term lets, hostels, caravan and campsites"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "all",
+     "dal": "2026-07-24",
+     "valore": 5
+    }
+   ],
+   "max_notti": 5,
+   "valid_from": "2026-07-24",
+   "chi_riscuote": "The accommodation provider.",
+   "fonti": [
+    {
+     "titolo": "City of Edinburgh Council - Visitor Levy in Edinburgh (5%, before VAT, first 5 nights, from 24 July 2026)",
+     "url": "https://www.edinburgh.gov.uk/business/visitor-levy-edinburgh",
+     "http": 200,
+     "formato": "HTML (English)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "City of Edinburgh Council - Visitor Levy exemptions",
+     "url": "https://www.edinburgh.gov.uk/business/information-visitors-exemptions/1",
+     "http": 200,
+     "formato": "HTML (English)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "5% of the cost of the overnight accommodation, charged before VAT and not on extras like parking, meals, drinks or transport.",
+    "Only the first 5 nights of a stay are charged. Same rate every day of the year.",
+    "Stays from 24 July 2026 that were booked and paid (in part or in full) before 1 October 2025 are not charged.",
+    "People receiving certain disability benefits can claim a refund from the Council after the stay."
+   ],
+   "esenzioni": [
+    "People who are homeless or at risk of homelessness, asylum seekers and refugees",
+    "Refund for recipients of listed disability benefits"
+   ],
+   "prezzo_esempio": 150,
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "rome",
+   "name": "Rome",
+   "country": "Italy",
+   "country_slug": "italy",
+   "region": "Lazio",
+   "currency": "EUR",
+   "official_name": "Contributo di soggiorno (Roma Capitale)",
+   "tipo": "per_person",
+   "categorie": [
+    {
+     "id": "h5",
+     "label": "Hotel 5 stars or higher"
+    },
+    {
+     "id": "h4",
+     "label": "Hotel 4 stars"
+    },
+    {
+     "id": "h3",
+     "label": "Hotel 3 stars"
+    },
+    {
+     "id": "h2",
+     "label": "Hotel 2 stars"
+    },
+    {
+     "id": "h1",
+     "label": "Hotel 1 star"
+    },
+    {
+     "id": "gh1",
+     "label": "Guest house / affittacamere - category 1"
+    },
+    {
+     "id": "gh2",
+     "label": "Guest house / affittacamere - category 2"
+    },
+    {
+     "id": "gh3",
+     "label": "Guest house / affittacamere - category 3"
+    },
+    {
+     "id": "cav1",
+     "label": "Holiday homes and apartments - category 1"
+    },
+    {
+     "id": "cav2",
+     "label": "Holiday homes and apartments - category 2"
+    },
+    {
+     "id": "bb",
+     "label": "Bed and breakfast"
+    },
+    {
+     "id": "str",
+     "label": "Short-term rental (locazione breve, e.g. Airbnb)"
+    },
+    {
+     "id": "aut",
+     "label": "Tourist lodging (alloggio per uso turistico)"
+    },
+    {
+     "id": "rta",
+     "label": "Tourist hotel residence (RTA)"
+    },
+    {
+     "id": "agri",
+     "label": "Agriturismo"
+    },
+    {
+     "id": "cpf",
+     "label": "Case per ferie"
+    },
+    {
+     "id": "country",
+     "label": "Country house"
+    },
+    {
+     "id": "ost",
+     "label": "Hostel"
+    },
+    {
+     "id": "camp",
+     "label": "Campsite, holiday village or motorhome area",
+     "max_notti": 5
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "h5",
+     "dal": "2023-10-01",
+     "valore": 10
+    },
+    {
+     "cat": "h4",
+     "dal": "2023-10-01",
+     "valore": 7.5
+    },
+    {
+     "cat": "h3",
+     "dal": "2023-10-01",
+     "valore": 6
+    },
+    {
+     "cat": "h2",
+     "dal": "2023-10-01",
+     "valore": 5
+    },
+    {
+     "cat": "h1",
+     "dal": "2023-10-01",
+     "valore": 4
+    },
+    {
+     "cat": "gh1",
+     "dal": "2023-10-01",
+     "valore": 7
+    },
+    {
+     "cat": "gh2",
+     "dal": "2023-10-01",
+     "valore": 6
+    },
+    {
+     "cat": "gh3",
+     "dal": "2023-10-01",
+     "valore": 5
+    },
+    {
+     "cat": "cav1",
+     "dal": "2023-10-01",
+     "valore": 6
+    },
+    {
+     "cat": "cav2",
+     "dal": "2023-10-01",
+     "valore": 5
+    },
+    {
+     "cat": "bb",
+     "dal": "2023-10-01",
+     "valore": 6
+    },
+    {
+     "cat": "str",
+     "dal": "2023-10-01",
+     "valore": 6
+    },
+    {
+     "cat": "aut",
+     "dal": "2023-10-01",
+     "valore": 6
+    },
+    {
+     "cat": "rta",
+     "dal": "2023-10-01",
+     "valore": 6
+    },
+    {
+     "cat": "agri",
+     "dal": "2023-10-01",
+     "valore": 6
+    },
+    {
+     "cat": "cpf",
+     "dal": "2023-10-01",
+     "valore": 6
+    },
+    {
+     "cat": "country",
+     "dal": "2023-10-01",
+     "valore": 6
+    },
+    {
+     "cat": "ost",
+     "dal": "2023-10-01",
+     "valore": 3.5
+    },
+    {
+     "cat": "camp",
+     "dal": "2023-10-01",
+     "valore": 3
+    }
+   ],
+   "max_notti": 10,
+   "esenti_sotto_eta": 10,
+   "valid_from": "2023-10-01",
+   "chi_riscuote": "The hotel, B&B or rental host (and booking platforms for short-term rentals).",
+   "fonti": [
+    {
+     "titolo": "Roma Capitale - Contributo di soggiorno tariffs from 1 October 2023 (Giunta resolution 255/2023), with maximum nights",
+     "url": "https://www.comune.roma.it/web-resources/cms/documents/Nuove_tariffe_contributo_di_soggiorno_dal_01.10.2023_logo.pdf",
+     "http": 200,
+     "formato": "PDF (Italian)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Roma Capitale - Contributo di soggiorno service page (tariffs = Annex A of the regulation in force)",
+     "url": "https://www.comune.roma.it/web/it/scheda-servizi.page?contentId=INF41430",
+     "http": 200,
+     "formato": "HTML (Italian)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Regulation on the Contributo di soggiorno, Assemblea Capitolina resolution 34/2024 (art. 5: children up to their 10th birthday exempt)",
+     "url": "https://www.comune.roma.it/web-resources/cms/documents/Assemblea_Capitolina_34_2024.pdf",
+     "http": 200,
+     "formato": "PDF (Italian)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "Paid per person per night by non-residents, up to 10 consecutive nights in the same property (5 for campsites).",
+    "Children are exempt until their 10th birthday."
+   ],
+   "esenzioni": [
+    "Children up to their 10th birthday",
+    "Guests of youth hostels (ostelli della gioventù)",
+    "People needing medical care and one companion per hospitalised patient (signed declaration)",
+    "Coach drivers and tour leaders of organised groups (one per 25 participants)",
+    "Police and armed forces on public-order duty",
+    "Other cases listed in art. 5 of the regulation"
+   ],
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "florence",
+   "name": "Florence",
+   "country": "Italy",
+   "country_slug": "italy",
+   "region": "Tuscany",
+   "currency": "EUR",
+   "official_name": "Imposta di soggiorno (Comune di Firenze)",
+   "tipo": "per_person",
+   "categorie": [
+    {
+     "id": "h5",
+     "label": "Hotel or RTA 5 stars"
+    },
+    {
+     "id": "h4",
+     "label": "Hotel or RTA 4 stars"
+    },
+    {
+     "id": "h3",
+     "label": "Hotel or RTA 3 stars"
+    },
+    {
+     "id": "h2",
+     "label": "Hotel or RTA 2 stars"
+    },
+    {
+     "id": "h1",
+     "label": "Hotel or RTA 1 star"
+    },
+    {
+     "id": "str",
+     "label": "Short-term tourist rental (e.g. Airbnb)"
+    },
+    {
+     "id": "bb",
+     "label": "Bed and breakfast / affittacamere"
+    },
+    {
+     "id": "cav",
+     "label": "Holiday homes and apartments (CAV)"
+    },
+    {
+     "id": "epoca",
+     "label": "Historic residence (residenza d'epoca)"
+    },
+    {
+     "id": "res4",
+     "label": "Residence 4 keys"
+    },
+    {
+     "id": "res3",
+     "label": "Residence 3 keys"
+    },
+    {
+     "id": "res2",
+     "label": "Residence 2 keys"
+    },
+    {
+     "id": "ost",
+     "label": "Youth hostel or case per ferie"
+    },
+    {
+     "id": "camp",
+     "label": "Campsite"
+    },
+    {
+     "id": "agri5",
+     "label": "Agriturismo 5 sunflowers"
+    },
+    {
+     "id": "agri4",
+     "label": "Agriturismo 4 sunflowers"
+    },
+    {
+     "id": "agri3",
+     "label": "Agriturismo 3 sunflowers"
+    },
+    {
+     "id": "agri2",
+     "label": "Agriturismo 2 sunflowers"
+    },
+    {
+     "id": "agri1",
+     "label": "Agriturismo 1 sunflower"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "h5",
+     "dal": "2025-02-01",
+     "valore": 8
+    },
+    {
+     "cat": "h4",
+     "dal": "2025-02-01",
+     "valore": 7
+    },
+    {
+     "cat": "h3",
+     "dal": "2025-02-01",
+     "valore": 6
+    },
+    {
+     "cat": "h2",
+     "dal": "2025-02-01",
+     "valore": 4.5
+    },
+    {
+     "cat": "h1",
+     "dal": "2025-02-01",
+     "valore": 3.5
+    },
+    {
+     "cat": "str",
+     "dal": "2025-02-01",
+     "valore": 6
+    },
+    {
+     "cat": "bb",
+     "dal": "2025-02-01",
+     "valore": 6
+    },
+    {
+     "cat": "cav",
+     "dal": "2025-02-01",
+     "valore": 6
+    },
+    {
+     "cat": "epoca",
+     "dal": "2025-02-01",
+     "valore": 7
+    },
+    {
+     "cat": "res4",
+     "dal": "2025-02-01",
+     "valore": 7
+    },
+    {
+     "cat": "res3",
+     "dal": "2025-02-01",
+     "valore": 6
+    },
+    {
+     "cat": "res2",
+     "dal": "2025-02-01",
+     "valore": 4.5
+    },
+    {
+     "cat": "ost",
+     "dal": "2025-02-01",
+     "valore": 4
+    },
+    {
+     "cat": "camp",
+     "dal": "2025-02-01",
+     "valore": 3.5
+    },
+    {
+     "cat": "agri5",
+     "dal": "2025-02-01",
+     "valore": 8
+    },
+    {
+     "cat": "agri4",
+     "dal": "2025-02-01",
+     "valore": 7
+    },
+    {
+     "cat": "agri3",
+     "dal": "2025-02-01",
+     "valore": 6
+    },
+    {
+     "cat": "agri2",
+     "dal": "2025-02-01",
+     "valore": 4.5
+    },
+    {
+     "cat": "agri1",
+     "dal": "2025-02-01",
+     "valore": 3.5
+    }
+   ],
+   "max_notti": 7,
+   "esenti_sotto_eta": 12,
+   "valid_from": "2025-02-01",
+   "chi_riscuote": "The property manager, who must give a receipt.",
+   "fonti": [
+    {
+     "titolo": "Comune di Firenze - Giunta resolution 535 of 10/12/2024: tariffs valid from 1 February 2025",
+     "url": "https://servizi.comune.fi.it/sites/www.comune.fi.it/files/deliberazione_di_giunta_completa-dg_2024_00599_00535-1.pdf",
+     "http": 200,
+     "formato": "PDF (Italian)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Comune di Firenze - Imposta di soggiorno information page (max 7 nights, exemptions incl. children up to 12)",
+     "url": "https://servizi.comune.fi.it/servizi/imposta-di-soggiorno-informati",
+     "http": 200,
+     "formato": "HTML (Italian)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "Paid per person per night by non-residents, for a maximum of 7 consecutive nights.",
+    "Children are exempt until their 12th birthday.",
+    "People staying for documented work reasons pay for at most 7 nights in a calendar year."
+   ],
+   "esenzioni": [
+    "Children up to their 12th birthday",
+    "Up to 2 people assisting a hospitalised patient",
+    "Day-hospital patients",
+    "Students enrolled at the University of Florence",
+    "People with severe disability (Law 104/92 art. 3(3)) and one companion",
+    "Police, fire brigade and civil protection on duty"
+   ],
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "milan",
+   "name": "Milan",
+   "country": "Italy",
+   "country_slug": "italy",
+   "region": "Lombardy",
+   "currency": "EUR",
+   "official_name": "Imposta di soggiorno (Comune di Milano)",
+   "tipo": "per_person",
+   "categorie": [
+    {
+     "id": "h5",
+     "label": "Hotel 5 stars"
+    },
+    {
+     "id": "h4",
+     "label": "Hotel 4 stars"
+    },
+    {
+     "id": "h3",
+     "label": "Hotel 3 stars"
+    },
+    {
+     "id": "h2",
+     "label": "Hotel 2 stars"
+    },
+    {
+     "id": "h1",
+     "label": "Hotel 1 star"
+    },
+    {
+     "id": "rta4",
+     "label": "Tourist hotel residence (RTA) 4 stars",
+     "max_notti": 14
+    },
+    {
+     "id": "rta3",
+     "label": "Tourist hotel residence (RTA) 3 stars",
+     "max_notti": 14
+    },
+    {
+     "id": "rta2",
+     "label": "Tourist hotel residence (RTA) 2 stars",
+     "max_notti": 14
+    },
+    {
+     "id": "cav",
+     "label": "Holiday homes and apartments, short-term rentals (e.g. Airbnb)",
+     "max_notti": 14
+    },
+    {
+     "id": "bb",
+     "label": "Bed & breakfast"
+    },
+    {
+     "id": "aff",
+     "label": "Affittacamere / foresterie lombarde"
+    },
+    {
+     "id": "loc",
+     "label": "Locande"
+    },
+    {
+     "id": "cpf",
+     "label": "Case per ferie",
+     "max_notti": 14
+    },
+    {
+     "id": "ost",
+     "label": "Youth hostel"
+    },
+    {
+     "id": "camp",
+     "label": "Open-air accommodation (campsites)"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "h5",
+     "dal": "2026-01-01",
+     "al": "2026-03-31",
+     "valore": 10
+    },
+    {
+     "cat": "h4",
+     "dal": "2026-01-01",
+     "al": "2026-03-31",
+     "valore": 10
+    },
+    {
+     "cat": "h3",
+     "dal": "2026-01-01",
+     "al": "2026-03-31",
+     "valore": 7.4
+    },
+    {
+     "cat": "h2",
+     "dal": "2026-01-01",
+     "al": "2026-03-31",
+     "valore": 5
+    },
+    {
+     "cat": "h1",
+     "dal": "2026-01-01",
+     "al": "2026-03-31",
+     "valore": 4
+    },
+    {
+     "cat": "rta4",
+     "dal": "2026-01-01",
+     "al": "2026-03-31",
+     "valore": 10
+    },
+    {
+     "cat": "rta3",
+     "dal": "2026-01-01",
+     "al": "2026-03-31",
+     "valore": 7.4
+    },
+    {
+     "cat": "rta2",
+     "dal": "2026-01-01",
+     "al": "2026-03-31",
+     "valore": 5
+    },
+    {
+     "cat": "cav",
+     "dal": "2026-01-01",
+     "al": "2026-03-31",
+     "valore": 9.5
+    },
+    {
+     "cat": "bb",
+     "dal": "2026-01-01",
+     "al": "2026-03-31",
+     "valore": 9.5
+    },
+    {
+     "cat": "aff",
+     "dal": "2026-01-01",
+     "al": "2026-03-31",
+     "valore": 9.5
+    },
+    {
+     "cat": "loc",
+     "dal": "2026-01-01",
+     "al": "2026-03-31",
+     "valore": 9.5
+    },
+    {
+     "cat": "cpf",
+     "dal": "2026-01-01",
+     "al": "2026-03-31",
+     "valore": 7
+    },
+    {
+     "cat": "ost",
+     "dal": "2026-01-01",
+     "al": "2026-03-31",
+     "valore": 3
+    },
+    {
+     "cat": "camp",
+     "dal": "2026-01-01",
+     "al": "2026-03-31",
+     "valore": 3
+    },
+    {
+     "cat": "h5",
+     "dal": "2026-04-01",
+     "al": "2026-12-31",
+     "valore": 12
+    },
+    {
+     "cat": "h4",
+     "dal": "2026-04-01",
+     "al": "2026-12-31",
+     "valore": 10
+    },
+    {
+     "cat": "h3",
+     "dal": "2026-04-01",
+     "al": "2026-12-31",
+     "valore": 7
+    },
+    {
+     "cat": "h2",
+     "dal": "2026-04-01",
+     "al": "2026-12-31",
+     "valore": 4
+    },
+    {
+     "cat": "h1",
+     "dal": "2026-04-01",
+     "al": "2026-12-31",
+     "valore": 3
+    },
+    {
+     "cat": "rta4",
+     "dal": "2026-04-01",
+     "al": "2026-12-31",
+     "valore": 10
+    },
+    {
+     "cat": "rta3",
+     "dal": "2026-04-01",
+     "al": "2026-12-31",
+     "valore": 7
+    },
+    {
+     "cat": "rta2",
+     "dal": "2026-04-01",
+     "al": "2026-12-31",
+     "valore": 4
+    },
+    {
+     "cat": "cav",
+     "dal": "2026-04-01",
+     "al": "2026-12-31",
+     "valore": 9.5
+    },
+    {
+     "cat": "bb",
+     "dal": "2026-04-01",
+     "al": "2026-12-31",
+     "valore": 9.5
+    },
+    {
+     "cat": "aff",
+     "dal": "2026-04-01",
+     "al": "2026-12-31",
+     "valore": 9.5
+    },
+    {
+     "cat": "loc",
+     "dal": "2026-04-01",
+     "al": "2026-12-31",
+     "valore": 9.5
+    },
+    {
+     "cat": "cpf",
+     "dal": "2026-04-01",
+     "al": "2026-12-31",
+     "valore": 7
+    },
+    {
+     "cat": "ost",
+     "dal": "2026-04-01",
+     "al": "2026-12-31",
+     "valore": 3
+    },
+    {
+     "cat": "camp",
+     "dal": "2026-04-01",
+     "al": "2026-12-31",
+     "valore": 3
+    }
+   ],
+   "esenti_sotto_eta": 18,
+   "valid_from": "2026-04-01",
+   "chi_riscuote": "The property, which must give a separate receipt or show the tax on the invoice.",
+   "fonti": [
+    {
+     "titolo": "Comune di Milano - Imposta di soggiorno tariffs 2026 from 1 April 2026",
+     "url": "https://www.comune.milano.it/documents/20118/1016509/Tariffe+2026+decorrenza+1%C2%B0aprile+2026.pdf/d101078f-26b0-4446-d16b-787845b76bca?version=1.1&t=1771602332605&download=true",
+     "http": 200,
+     "formato": "PDF (Italian)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Comune di Milano - Imposta di soggiorno tariffs 2026 (1 January - 31 March 2026)",
+     "url": "https://www.comune.milano.it/documents/20118/89692/Imposta+di+soggiorno+-+Tariffe+2026.pdf/bca1a050-9aee-49ff-c0ec-9e394072971c?version=1.0&t=1769615644638&download=true",
+     "http": 200,
+     "formato": "PDF (Italian)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Comune di Milano - official guest notice on the tax: exemptions (under 18; from the 15th day in RTA, holiday homes and case per ferie)",
+     "url": "https://www.comune.milano.it/en/documents/20118/1016509/Espositore+2025+-+Imposta+di+soggiorno.pdf/70201c68-43fe-aa56-dbf1-3406b894d874?version=1.0&t=1754056696155&download=true",
+     "http": 200,
+     "formato": "PDF (Italian)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "Paid per person per night. Under-18s are exempt.",
+    "In tourist hotel residences, holiday homes/apartments and case per ferie, nights from the 15th day onwards are exempt. In hotels every night is charged.",
+    "The 2026 rates changed on 1 April 2026. Rates for 2027 are not published yet: the calculator stops at 31 December 2026."
+   ],
+   "esenzioni": [
+    "Under-18s",
+    "Young people up to 30 in social-purpose youth hostels",
+    "Companions of patients and people continuing hospital care in the province of Milan",
+    "University students up to 26 in student residences",
+    "People with disabilities and their companions",
+    "Police and armed forces on duty"
+   ],
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "kyoto",
+   "name": "Kyoto",
+   "country": "Japan",
+   "country_slug": "japan",
+   "region": "Kyoto Prefecture",
+   "currency": "JPY",
+   "official_name": "Kyoto City accommodation tax (宿泊税)",
+   "tipo": "bands",
+   "etichetta_prezzo": "Room-only price per night for the whole room or unit (no meals, before consumption tax)",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "Hotels, ryokan, guesthouses and private lodging (minpaku), including unlicensed ones"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "all",
+     "dal": "2026-03-01",
+     "valore": [
+      [
+       0,
+       6000,
+       200
+      ],
+      [
+       6000,
+       20000,
+       400
+      ],
+      [
+       20000,
+       50000,
+       1000
+      ],
+      [
+       50000,
+       100000,
+       4000
+      ],
+      [
+       100000,
+       null,
+       10000
+      ]
+     ]
+    }
+   ],
+   "valid_from": "2026-03-01",
+   "chi_riscuote": "The accommodation (special collection). Booking sites may include it in the price.",
+   "fonti": [
+    {
+     "titolo": "Kyoto City - accommodation tax overview and 2026 rate revision (in force 1 March 2026)",
+     "url": "https://www.city.kyoto.lg.jp/gyozai/page/0000236942.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "Charged per guest per night. The band depends on the room-only price per person per night (service charge included; meals and consumption tax excluded).",
+    "From 1 March 2026 the top band is ¥10,000 per person per night for prices of ¥100,000 or more.",
+    "There is no age exemption: only school trips and some nursery-school events are exempt."
+   ],
+   "esenzioni": [
+    "Pupils and teachers on school trips (not universities)",
+    "Children aged 3+ and staff on events of nurseries and certified centres"
+   ],
+   "prezzo_esempio": 30000,
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "tokyo",
+   "name": "Tokyo",
+   "country": "Japan",
+   "country_slug": "japan",
+   "region": "Tokyo",
+   "currency": "JPY",
+   "official_name": "Tokyo Metropolitan accommodation tax (宿泊税)",
+   "tipo": "bands",
+   "etichetta_prezzo": "Room-only price per night for the whole room (no meals, before consumption tax)",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "Hotels and ryokan (licensed hotel/ryokan business)"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "all",
+     "dal": "2026-01-01",
+     "al": "2027-03-31",
+     "valore": [
+      [
+       0,
+       10000,
+       0
+      ],
+      [
+       10000,
+       15000,
+       100
+      ],
+      [
+       15000,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "valid_from": "2026-01-01",
+   "chi_riscuote": "The hotel or ryokan, which pays it to the Tokyo Metropolitan Government.",
+   "fonti": [
+    {
+     "titolo": "Tokyo Metropolitan Government Bureau of Taxation - accommodation tax FAQ (current rates, planned April 2027 change, children)",
+     "url": "https://www.tax.metro.tokyo.lg.jp/shitsumon/leisure/general_01",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "Charged per guest per night when the room-only price per person is ¥10,000 or more: ¥100 up to ¥14,999, ¥200 from ¥15,000.",
+    "For twin and shared rooms the price is divided by the number of guests. Children pay too if their share reaches ¥10,000.",
+    "Planned change from 1 April 2027 (fiscal year 2027 revision): no tax below ¥13,000 per person, 3% above, and simple lodging and minpaku will also be covered. The calculator stops at 31 March 2027."
+   ],
+   "esenzioni": [
+    "Stays below ¥10,000 per person per night"
+   ],
+   "prezzo_esempio": 30000,
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "kutchan-niseko",
+   "name": "Kutchan (Niseko Hirafu)",
+   "country": "Japan",
+   "country_slug": "japan",
+   "region": "Hokkaido",
+   "currency": "JPY",
+   "official_name": "Kutchan Town accommodation tax + Hokkaido accommodation tax (宿泊税)",
+   "tipo": "percent",
+   "etichetta_prezzo": "Accommodation charge per night (all guests, all rooms)",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "Hotels, ryokan, simple lodging and minpaku in Kutchan Town"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "all",
+     "dal": "2026-04-01",
+     "valore": 3
+    }
+   ],
+   "valid_from": "2026-04-01",
+   "chi_riscuote": "The accommodation (special collection).",
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent to the change of the Kutchan Town accommodation tax (3% of the accommodation charge, from 1 April 2026), 31 July 2025",
+     "url": "https://www.soumu.go.jp/main_content/001022974.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Hokkaido Government - accommodation tax poster for Kutchan Town: Hokkaido tax + Kutchan tax = uniform 3% (as of September 2025)",
+     "url": "https://hokkaido-shukuhakuzei.pref.hokkaido.lg.jp/poster/PDF/tax_B2pos_C-05kuchan.pdf",
+     "http": 200,
+     "formato": "PDF/JPG (Japanese and English)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - list of non-statutory taxes as of 1 October 2026 (Hokkaido and Kutchan taxes in force)",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "In Kutchan Town (which includes the Niseko Hirafu ski area) the Hokkaido tax and the town tax together are a uniform 3% of the accommodation charge, from 1 April 2026.",
+    "Other Niseko-area resorts are in different municipalities (Niseko Town, Rusutsu, Akaigawa) with their own rules: this page covers Kutchan only.",
+    "There is no age exemption: only school trips and some nursery events are exempt."
+   ],
+   "esenzioni": [
+    "School trips and their staff",
+    "Nursery and certified centre events"
+   ],
+   "prezzo_esempio": 60000,
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "sapporo",
+   "name": "Sapporo",
+   "country": "Japan",
+   "country_slug": "japan",
+   "region": "Hokkaido",
+   "currency": "JPY",
+   "official_name": "Sapporo City accommodation tax + Hokkaido accommodation tax (宿泊税)",
+   "tipo": "bands",
+   "etichetta_prezzo": "Accommodation charge per night for the whole room or unit",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "Hotels, ryokan, simple lodging and minpaku in Sapporo"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "all",
+     "dal": "2026-04-01",
+     "valore": [
+      [
+       0,
+       20000,
+       300
+      ],
+      [
+       20000,
+       50000,
+       400
+      ],
+      [
+       50000,
+       null,
+       1000
+      ]
+     ],
+     "parti_bande": [
+      [
+       "Sapporo ¥200",
+       "Hokkaido ¥100"
+      ],
+      [
+       "Sapporo ¥200",
+       "Hokkaido ¥200"
+      ],
+      [
+       "Sapporo ¥500",
+       "Hokkaido ¥500"
+      ]
+     ]
+    }
+   ],
+   "valid_from": "2026-04-01",
+   "chi_riscuote": "The accommodation (special collection).",
+   "fonti": [
+    {
+     "titolo": "City of Sapporo - accommodation tax (city + Hokkaido amounts, from 1 April 2026, exemptions)",
+     "url": "https://www.city.sapporo.jp/citytax/shukuhakuzei/index.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent to the new Hokkaido accommodation tax (¥100/¥200/¥500), 31 July 2025",
+     "url": "https://www.soumu.go.jp/main_content/001022967.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "Since 1 April 2026 guests in Sapporo pay both the city tax and the Hokkaido tax, per person per night: ¥300 in total below ¥20,000, ¥400 from ¥20,000 to ¥49,999 and ¥1,000 from ¥50,000.",
+    "Applies even if the booking was made before 1 April 2026.",
+    "No age exemption: only school trips and some nursery events are exempt."
+   ],
+   "esenzioni": [
+    "School trips and their staff",
+    "Nursery and certified centre events"
+   ],
+   "prezzo_esempio": 24000,
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "hakuba",
+   "name": "Hakuba",
+   "country": "Japan",
+   "country_slug": "japan",
+   "region": "Nagano",
+   "currency": "JPY",
+   "official_name": "Hakuba Village accommodation tax + Nagano Prefecture accommodation tax (宿泊税)",
+   "tipo": "bands",
+   "etichetta_prezzo": "Accommodation charge per night for the whole room or unit",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "Hotels, ryokan, simple lodging (pensions, lodges) and minpaku in Hakuba Village"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "all",
+     "dal": "2026-06-01",
+     "al": "2029-05-31",
+     "valore": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       20000,
+       200
+      ],
+      [
+       20000,
+       50000,
+       400
+      ],
+      [
+       50000,
+       100000,
+       900
+      ],
+      [
+       100000,
+       null,
+       1900
+      ]
+     ],
+     "parti_bande": [
+      [],
+      [
+       "Hakuba ¥100",
+       "Nagano ¥100"
+      ],
+      [
+       "Hakuba ¥300",
+       "Nagano ¥100"
+      ],
+      [
+       "Hakuba ¥800",
+       "Nagano ¥100"
+      ],
+      [
+       "Hakuba ¥1,800",
+       "Nagano ¥100"
+      ]
+     ],
+     "nota": "First three years after introduction (reduced rates)"
+    },
+    {
+     "cat": "all",
+     "dal": "2029-06-01",
+     "valore": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       20000,
+       300
+      ],
+      [
+       20000,
+       50000,
+       500
+      ],
+      [
+       50000,
+       100000,
+       1000
+      ],
+      [
+       100000,
+       null,
+       2000
+      ]
+     ],
+     "parti_bande": [
+      [],
+      [
+       "Hakuba ¥150",
+       "Nagano ¥150"
+      ],
+      [
+       "Hakuba ¥350",
+       "Nagano ¥150"
+      ],
+      [
+       "Hakuba ¥850",
+       "Nagano ¥150"
+      ],
+      [
+       "Hakuba ¥1,850",
+       "Nagano ¥150"
+      ]
+     ]
+    }
+   ],
+   "valid_from": "2026-06-01",
+   "chi_riscuote": "The accommodation (special collection).",
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent to the new Hakuba Village accommodation tax (bands; reduced for the first 3 years; in force 1 June 2026)",
+     "url": "https://www.soumu.go.jp/main_content/001033236.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent to the new Nagano Prefecture accommodation tax (¥300, ¥200 for 3 years; half in Hakuba)",
+     "url": "https://www.soumu.go.jp/main_content/001040415.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - list of non-statutory taxes as of 1 October 2026 (Nagano and Hakuba in force since 1 June 2026)",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "Since 1 June 2026 guests in Hakuba pay a village tax and a prefectural tax, per person per night, based on the accommodation charge per person per night.",
+    "Nagano Prefecture charges half its normal rate in Hakuba (because the village has its own tax): ¥100 for the first three years, then ¥150.",
+    "No tax below ¥6,000 per person per night. Totals shown are village + prefecture.",
+    "Nozawa Onsen also introduced its own tax on 1 June 2026 (a percentage): not covered on this page."
+   ],
+   "esenzioni": [
+    "Stays below ¥6,000 per person per night",
+    "Educational and research stays of kindergarten to university students (and staff)",
+    "Nursery and certified centre events"
+   ],
+   "prezzo_esempio": 40000,
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "bali",
+   "name": "Bali",
+   "country": "Indonesia",
+   "country_slug": "indonesia",
+   "region": "Bali",
+   "currency": "IDR",
+   "official_name": "Levy for international tourists (Pungutan Wisatawan Asing, 'Love Bali')",
+   "tipo": "per_trip",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "International (foreign) tourists entering Bali"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "all",
+     "valore": 150000
+    }
+   ],
+   "valid_from": "",
+   "chi_riscuote": "Paid online on the official Love Bali portal (or through its authorised collecting agents), not at the hotel.",
+   "fonti": [
+    {
+     "titolo": "Province of Bali - Love Bali official levy portal (IDR 150,000; Provincial Regulation 2/2025 amending Regulation 6/2023)",
+     "url": "https://lovebali.baliprov.go.id/",
+     "http": 200,
+     "formato": "HTML (English)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "A one-off levy of IDR 150,000 per international tourist, not a nightly tax. Domestic tourists do not pay it.",
+    "Pay only on the official portal lovebali.baliprov.go.id (or via an authorised agent): you receive a voucher by email.",
+    "The official portal has an 'Apply Exemption' form for exempt categories; the list of exemptions is set by the regulation and is not reproduced here."
+   ],
+   "esenzioni": [],
+   "senza_notti": true,
+   "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "iceland",
+   "name": "Iceland",
+   "country": "Iceland",
+   "country_slug": "iceland",
+   "region": "",
+   "currency": "ISK",
+   "official_name": "Accommodation tax (gistináttaskattur)",
+   "tipo": "per_room",
+   "categorie": [
+    {
+     "id": "hotel",
+     "label": "Hotel, guesthouse or other licensed accommodation (room, apartment or house)"
+    },
+    {
+     "id": "camp",
+     "label": "Campsite or pitch for motorhomes, caravans and tents"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "hotel",
+     "dal": "2026-01-01",
+     "valore": 800
+    },
+    {
+     "cat": "camp",
+     "dal": "2026-01-01",
+     "valore": 400
+    }
+   ],
+   "valid_from": "2026-01-01",
+   "chi_riscuote": "The accommodation operator, who pays it to Iceland Revenue and Customs (Skatturinn).",
+   "fonti": [
+    {
+     "titolo": "Act No. 87/2011 on accommodation tax and infrastructure fee, Icelandic law collection as of 1 October 2026 (edition 158a), art. 2",
+     "url": "https://www.althingi.is/lagas/nuna/2011087.html",
+     "http": 200,
+     "formato": "HTML (Icelandic)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Iceland Revenue and Customs (Skatturinn) - accommodation tax: amounts and what counts as one unit",
+     "url": "https://www.skatturinn.is/atvinnurekstur/skattar-og-gjold/gistinattaskattur/",
+     "http": 200,
+     "formato": "HTML (Icelandic)",
+     "controllato_il": "2026-10-10"
+    }
+   ],
+   "note": [
+    "ISK 800 per unit per night for hotels, guesthouses and other licensed accommodation; ISK 400 per unit per night on campsites and motorhome pitches.",
+    "A unit is what is rented: a hotel room, an apartment, or a whole guesthouse or holiday house rented as one. Beds rented separately in a dorm count one each.",
+    "Not charged on accommodation sold without VAT. Cruise passengers pay ISK 400 per started day on board (not covered here)."
+   ],
+   "esenzioni": [
+    "Accommodation sold without VAT"
+   ],
+   "controllato_il": "2026-10-10"
+  }
+ ]
+}

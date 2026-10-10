@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tourist-tax-calculator.netlify.app/sitemap.xml

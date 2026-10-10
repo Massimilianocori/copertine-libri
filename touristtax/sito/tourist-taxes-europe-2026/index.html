@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tourist taxes in Europe 2026: city by city table (official rates)</title>
+<meta name="description" content="Tourist taxes in Europe 2026: official rates for Paris, Barcelona, Mallorca, Greece, Amsterdam, Berlin, Vienna, Prague, Edinburgh, Rome, Florence, Milan, Iceland and Turkey.">
+<link rel="canonical" href="https://tourist-tax-calculator.netlify.app/tourist-taxes-europe-2026/">
+<link rel="alternate" hreflang="en" href="https://tourist-tax-calculator.netlify.app/tourist-taxes-europe-2026/"><link rel="alternate" hreflang="x-default" href="https://tourist-tax-calculator.netlify.app/tourist-taxes-europe-2026/">
+<meta property="og:title" content="Tourist taxes in Europe 2026: city by city table (official rates)">
+<meta property="og:description" content="Tourist taxes in Europe 2026: official rates for Paris, Barcelona, Mallorca, Greece, Amsterdam, Berlin, Vienna, Prague, Edinburgh, Rome, Florence, Milan, Iceland and Turkey.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tourist-tax-calculator.netlify.app/tourist-taxes-europe-2026/">
+<meta name="theme-color" content="#1F5FBF">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F5FBF'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='white'%3E%25%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#F5F7FA;--card:#FFFFFF;--ink:#14202E;--ink-2:#45556A;--ink-3:#66768A;--line:#DCE3EC;
+--accent:#1F5FBF;--accent-2:#E7F0FC;--ok:#1E6B47;--ok-2:#E6F2EB;--warn:#8A4B00;--warn-2:#FFF2DF;--mute:#EDF1F6;--radius:14px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F151C;--card:#17202A;--ink:#EDF2F7;--ink-2:#B9C6D3;
+--ink-3:#8D9BAA;--line:#283545;--accent:#8DB6FF;--accent-2:#1A2A40;--ok:#7FD3A6;--ok-2:#173226;--warn:#FFB867;--warn-2:#33250F;--mute:#1E2935}}
+:root[data-theme="dark"]{--bg:#0F151C;--card:#17202A;--ink:#EDF2F7;--ink-2:#B9C6D3;--ink-3:#8D9BAA;--line:#283545;--accent:#8DB6FF;
+--accent-2:#1A2A40;--ok:#7FD3A6;--ok-2:#173226;--warn:#FFB867;--warn-2:#33250F;--mute:#1E2935}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.6}
+a{color:var(--accent)}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+header.top{border-bottom:1px solid var(--line);background:var(--card)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px}
+.logo{font-weight:800;font-size:1.12rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.logo span{color:var(--accent)}
+nav.menu{display:flex;gap:14px;flex-wrap:wrap;font-size:.95rem}
+nav.menu a{color:var(--ink-2);text-decoration:none}
+nav.menu a:hover{color:var(--accent)}
+.hero{padding:28px 0 4px}
+h1{font-size:clamp(1.5rem,4.6vw,2.2rem);line-height:1.18;letter-spacing:-.02em;margin:0 0 12px}
+h2{font-size:1.3rem;margin:32px 0 12px;letter-spacing:-.01em}
+h3{font-size:1.05rem;margin:20px 0 8px}
+.lead{font-size:1.07rem;color:var(--ink-2);max-width:740px;margin:0 0 6px}
+.small{font-size:.88rem;color:var(--ink-3)}
+.avviso{background:var(--warn-2);border-left:4px solid var(--warn);padding:11px 14px;border-radius:8px;font-size:.94rem;margin:16px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;min-width:0}
+.cifra{font-size:1.05rem;margin:12px 0}
+.cifra strong{font-size:1.5rem;color:var(--accent)}
+.fonte{font-size:.85rem;color:var(--ink-3);margin:6px 0 0;overflow-wrap:anywhere}
+.fonte a{color:var(--ink-3)}
+.calc{display:grid;gap:12px}
+.calc .campi{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.calc label{display:grid;gap:4px;font-weight:600;font-size:.93rem;min-width:0}
+.calc input,.calc select{font:inherit;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;min-width:0}
+.calc .pieno{grid-column:1/-1}
+.risultato{background:var(--accent-2);border-radius:12px;padding:14px 16px;min-width:0;overflow-wrap:anywhere}
+.risultato .tot{font-size:1.7rem;font-weight:800;color:var(--accent);line-height:1.2}
+.risultato ul{margin:8px 0 0;padding-left:20px;font-size:.93rem}
+.formula{font-size:.88rem;color:var(--ink-2);margin:8px 0 0}
+.tab{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--mute);font-size:.85rem}
+tr:last-child td{border-bottom:0}
+.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}
+.griglia a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;text-decoration:none;color:var(--ink);font-weight:600;min-width:0;overflow-wrap:anywhere}
+.griglia a small{display:block;font-weight:400;color:var(--ink-3)}
+.griglia a:hover{border-color:var(--accent)}
+.cerca{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);width:100%;margin:6px 0 12px}
+.testo p,.testo li{max-width:760px}
+.form{display:grid;gap:12px}
+.form label{display:grid;gap:4px;font-weight:600;font-size:.95rem}
+.form input,.form select,.form textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+.form .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem;color:var(--ink-2)}
+.form .check input{width:auto;margin-top:4px}
+.btn{font:inherit;font-weight:700;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:12px 18px;cursor:pointer}
+.btn:disabled{opacity:.6;cursor:wait}
+.hp{position:absolute;left:-9999px}
+.ok{background:var(--ok-2);border:1px solid var(--ok);padding:14px;border-radius:10px}
+.errore{color:var(--warn);font-weight:600}
+.ad-slot:empty{display:none}
+.briciole{font-size:.85rem;color:var(--ink-3);margin-top:14px}
+.briciole a{color:var(--ink-3)}
+.risultati-fr{display:grid;gap:6px;margin:0 0 12px}
+.risultati-fr button{font:inherit;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px;color:var(--ink);cursor:pointer}
+.risultati-fr button:hover{border-color:var(--accent)}
+footer{margin-top:50px;border-top:1px solid var(--line);padding:22px 0 40px;font-size:.88rem;color:var(--ink-3)}
+footer a{color:var(--ink-3)}
+@media (max-width:760px){.calc .campi{grid-template-columns:1fr}
+header.top .wrap{flex-direction:column;align-items:flex-start;gap:4px;padding-top:10px;padding-bottom:10px}nav.menu{gap:12px;font-size:.92rem}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tourist-tax-calculator.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Tourist taxes in Europe 2026", "item": "https://tourist-tax-calculator.netlify.app/tourist-taxes-europe-2026/"}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="logo" href="../">Tourist Tax <span>Calculator</span></a>
+<nav class="menu" aria-label="Menu">
+<a href="../">Calculator</a><a href="../tourist-taxes-europe-2026/">Europe 2026</a><a href="../france/">France</a><a href="../country/japan/">Japan</a><a href="../how-tourist-taxes-work/">How it works</a><a href="../about/">Sources</a>
+</nav>
+</div></header>
+<main class="wrap">
+<nav class="briciole" aria-label="Breadcrumb"><a href="../">Home</a> › Tourist taxes in Europe 2026</nav>
+<section class="hero"><h1>Tourist taxes in Europe 2026: rates by city and country</h1>
+<p class="lead">The official 2026 tourist tax in the European destinations we cover, side by side. Each row links to a calculator and to the official source, with the date we checked it.</p></section>
+<div class="tab"><table><thead><tr><th>Destination</th><th>Country</th><th>Rate 2026</th><th>Max nights</th><th>Exempt</th><th>Source</th></tr></thead><tbody><tr><td><a href="../france/paris/">Paris</a></td><td>France</td><td>€0.65–€15.93 per person per night; unclassified: 5% of the price</td><td>–</td><td>under 18</td><td><a href="https://data.economie.gouv.fr/explore/dataset/delta_deliberation_ts_tarif0/" rel="noopener">official</a>, 10 October 2026</td></tr><tr><td><a href="../barcelona/">Barcelona</a></td><td>Spain</td><td>€6.00–€12.00 per person per night</td><td>7</td><td>under 17</td><td><a href="https://atc.gencat.cat/ca/tributs/ieet/quota-tributaria/" rel="noopener">official</a>, 10 October 2026</td></tr><tr><td><a href="../catalonia/">Catalonia (outside Barcelona)</a></td><td>Spain</td><td>€0.80–€4.50 per person per night</td><td>7</td><td>under 17</td><td><a href="https://atc.gencat.cat/ca/tributs/ieet/quota-tributaria/" rel="noopener">official</a>, 10 October 2026</td></tr><tr><td><a href="../mallorca/">Balearic Islands (Mallorca, Ibiza, Menorca, Formentera)</a></td><td>Spain</td><td>€1.00–€4.00 per person per night</td><td>–</td><td>under 16</td><td><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2016-4175" rel="noopener">official</a>, 10 October 2026</td></tr><tr><td><a href="../athens/">Greece (all destinations)</a></td><td>Greece</td><td>€0.50–€15.00 per room per night</td><td>–</td><td>–</td><td><a href="https://ia37rg02wpsa01.blob.core.windows.net/fek/01/2024/20240100198.pdf" rel="noopener">official</a>, 10 October 2026</td></tr><tr><td><a href="../turkey/">Turkey (all destinations)</a></td><td>Turkey</td><td>1% of the room price</td><td>–</td><td>–</td><td><a href="https://www.resmigazete.gov.tr/eskiler/2026/05/20260501-6.pdf" rel="noopener">official</a>, 10 October 2026</td></tr><tr><td><a href="../amsterdam/">Amsterdam</a></td><td>Netherlands</td><td>12.5% of the room price</td><td>–</td><td>–</td><td><a href="https://repository.officiele-overheidspublicaties.nl/cvdr/CVDR703815/1/xml/CVDR703815_1.xml" rel="noopener">official</a>, 10 October 2026</td></tr><tr><td><a href="../berlin/">Berlin</a></td><td>Germany</td><td>7.5% of the room price</td><td>–</td><td>–</td><td><a href="https://www.berlin.de/sen/finanzen/steuern/downloads/uebernachtungsteuer/uenst-2a-anmeldung-uebernachtungsteuer-01-25.pdf" rel="noopener">official</a>, 10 October 2026</td></tr><tr><td><a href="../vienna/">Vienna</a></td><td>Austria</td><td>5% of the room price</td><td>–</td><td>–</td><td><a href="https://www.wien.gv.at/amtswege/ortstaxe" rel="noopener">official</a>, 10 October 2026</td></tr><tr><td><a href="../prague/">Prague</a></td><td>Czech Republic</td><td>50 CZK per person per night</td><td>–</td><td>under 18</td><td><a href="https://sbirkapp.gov.cz/detail/SPPT2LCJU5OPC5JY/text" rel="noopener">official</a>, 10 October 2026</td></tr><tr><td><a href="../edinburgh/">Edinburgh</a></td><td>United Kingdom</td><td>5% of the room price</td><td>5</td><td>–</td><td><a href="https://www.edinburgh.gov.uk/business/visitor-levy-edinburgh" rel="noopener">official</a>, 10 October 2026</td></tr><tr><td><a href="../rome/">Rome</a></td><td>Italy</td><td>€3.00–€10.00 per person per night</td><td>10</td><td>under 10</td><td><a href="https://www.comune.roma.it/web-resources/cms/documents/Nuove_tariffe_contributo_di_soggiorno_dal_01.10.2023_logo.pdf" rel="noopener">official</a>, 10 October 2026</td></tr><tr><td><a href="../florence/">Florence</a></td><td>Italy</td><td>€3.50–€8.00 per person per night</td><td>7</td><td>under 12</td><td><a href="https://servizi.comune.fi.it/sites/www.comune.fi.it/files/deliberazione_di_giunta_completa-dg_2024_00599_00535-1.pdf" rel="noopener">official</a>, 10 October 2026</td></tr><tr><td><a href="../milan/">Milan</a></td><td>Italy</td><td>€3.00–€12.00 per person per night</td><td>–</td><td>under 18</td><td><a href="https://www.comune.milano.it/documents/20118/1016509/Tariffe+2026+decorrenza+1%C2%B0aprile+2026.pdf/d101078f-26b0-4446-d16b-787845b76bca?version=1.1&amp;t=1771602332605&amp;download=true" rel="noopener">official</a>, 10 October 2026</td></tr><tr><td><a href="../iceland/">Iceland</a></td><td>Iceland</td><td>ISK 400–ISK 800 per room per night</td><td>–</td><td>–</td><td><a href="https://www.althingi.is/lagas/nuna/2011087.html" rel="noopener">official</a>, 10 October 2026</td></tr></tbody></table></div>
+<p class="small">"Rate" shows the rates in force on the date this page was generated. Some places change rates during the year (for example Vienna on 1 July, Catalonia and Barcelona on 1 April, Turkey on 1 May 2026): see each page.</p>
+<p class="avviso"><strong>Not tax advice.</strong> Tourist taxes are set by local or national authorities and can change. They are usually collected by your hotel or host, who applies the official rules: check the final amount with your accommodation.</p>
+<div class="ad-slot" aria-hidden="true"></div>
+<h2>Not covered yet</h2>
+<p>We only publish a destination when we can read a complete official source. Not covered on the date we checked: Venice, Lisbon, Porto and the Algarve, Budapest, Dubrovnik and Split, Glasgow. See <a href="../about/">About and sources</a>.</p>
+</main>
+<footer><div class="wrap">
+<p><strong>Tourist Tax Calculator</strong> is an independent site, not affiliated with any government or tax authority. Every rate comes from an official source (law, ordinance, tax authority page or official open data) linked under the figure with the date we checked it.
+<strong>Tourist taxes are set by local or national authorities and can change. Your accommodation collects the tax: check the exact amount with them.</strong> Nothing on this site is tax or legal advice.</p>
+<p><a href="../about/">About and sources</a> · <a href="../contact/">Contact</a> · <a href="../privacy.html">Privacy</a> · <a href="../how-tourist-taxes-work/">How tourist taxes work</a> · <a href="../tourist-taxes-europe-2026/">Tourist taxes in Europe 2026</a> · <a href="../contact/?ref=spotted-a-change">Spotted a change? Tell us</a></p>
+</div></footer>
+<script>
+var VAL={"EUR":["€","",2],"GBP":["£","",2],"JPY":["¥","",0],"CZK":[""," CZK",0],"ISK":["ISK ","",0],"IDR":["IDR ","",0],"TRY":["TRY ","",2]};
+function r2(x){return Math.floor(x*100+0.5+1e-9)/100;}
+function grp(n,dec){var s=dec?r2(n).toFixed(2):String(Math.floor(n+0.5+1e-9));var p=s.split('.');p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,',');return p.join('.');}
+function soldi(v,c){var x=VAL[c];return x[0]+grp(v,x[2])+x[1];}
+function num(v){var s=String(Math.round(v*1e6)/1e6);return s;}
+function riga(R,cat,d){var m=+d.slice(5,7);for(var i=0;i<R.tariffe.length;i++){var t=R.tariffe[i];if(t.cat!==cat)continue;
+  if(t.dal&&d<t.dal)continue;if(t.al&&d>t.al)continue;if(t.mesi&&t.mesi.indexOf(m)<0)continue;return t;}return null;}
+function inPeriodo(per,d){if(!per||!per.length)return true;var md=(+d.slice(5,7))*100+(+d.slice(8,10));
+  for(var i=0;i<per.length;i++){var m=/(\d\d)-(\d\d)\s*-\s*(\d\d)-(\d\d)/.exec(per[i]);if(!m)return true;
+    var a=(+m[2])*100+(+m[1]),b=(+m[4])*100+(+m[3]);if((a<=b&&a<=md&&md<=b)||(a>b&&(md>=a||md<=b)))return true;}return false;}
+function banda(b,pp){for(var i=0;i<b.length;i++){if(pp>=b[i][0]&&(b[i][1]===null||pp<b[i][1]))return b[i][2];}return 0;}
+function addDays(iso,n){var p=iso.split('-');var x=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]+n));return x.toISOString().slice(0,10);}
+function calcola(R,cat,checkin,notti,paganti,esenti,stanze,prezzo){
+  esenti=esenti||0;stanze=stanze||1;prezzo=prezzo||0;var val=R.currency;
+  var out={totale:0,righe:[],escluse:0,sconosciute:0,fuori:0,note:[]};var gruppi={},ordine=[];
+  function agg(t,imp){if(!gruppi[t]){gruppi[t]=[t,0,0];ordine.push(t);}gruppi[t][1]+=1;gruppi[t][2]+=imp;}
+  var meta={};R.categorie.forEach(function(c){meta[c.id]=c;});
+  if(R.tipo==='per_trip'){var t0=riga(R,cat,checkin);if(!t0){out.sconosciute=1;return out;}
+    var im=t0.valore*paganti;out.righe=[[soldi(t0.valore,val)+' × '+paganti+' traveller(s), once per trip',1,im]];out.totale=im;return out;}
+  if(R.max_soggiorno&&notti>R.max_soggiorno){out.note.push('Stays longer than '+R.max_soggiorno+' consecutive days are not subject to the fee.');return out;}
+  var maxN=(meta[cat]&&meta[cat].max_notti)||R.max_notti;var persone=paganti+esenti;
+  for(var i=0;i<notti;i++){var d=addDays(checkin,i),n=i+1;
+    if(maxN&&n>maxN){out.escluse++;continue;}
+    var t=riga(R,cat,d);if(!t){out.sconosciute++;continue;}
+    var imp,testo,tp=R.tipo;
+    if(tp==='per_person'){imp=t.valore*paganti;testo=soldi(t.valore,val)+' per person × '+paganti+' paying guest(s)';}
+    else if(tp==='per_room'){imp=t.valore*stanze;testo=soldi(t.valore,val)+' per room/unit × '+stanze+' room(s)/unit(s)';if(t.stagione)testo+=' ('+t.stagione+' rate)';}
+    else if(tp==='percent'){var f=(t.fattore_base===undefined)?1:t.fattore_base;imp=prezzo*f*t.valore/100;
+      testo=num(t.valore)+'% of '+soldi(prezzo,val)+(f!==1?' after a '+num(Math.round((1-f)*100*1e4)/1e4)+'% deduction':'');}
+    else if(tp==='bands'){var pp=persone?prezzo/persone:0;var b=banda(t.valore,pp);imp=b*persone;
+      testo=soldi(b,val)+' per person (band for '+soldi(pp,val)+' per person) × '+persone+' guest(s)';}
+    else if(tp==='france'){var fr=t.fr;if(!inPeriodo(fr.per,d)){out.fuori++;continue;}
+      if(fr.reg==='F'){var nf='This category is taxed with the flat-rate scheme (taxe forfaitaire): the host pays it, it is not charged per guest.';
+        if(out.note.indexOf(nf)<0)out.note.push(nf);agg('flat-rate scheme, paid by the host',0);continue;}
+      if(fr.u==='€'){imp=fr.tot*paganti;testo=soldi(fr.tot,val)+' per person ('+soldi(fr.t,val)+' + '+num(fr.add)+'% additional taxes) × '+paganti+' paying guest(s)';}
+      else{var costo=persone?prezzo/persone:0;var base=Math.min(r2(fr.t/100*costo),R.cap);var per=r2(base*(1+fr.add/100));imp=per*paganti;
+        testo=soldi(per,val)+' per person ('+num(fr.t)+'% of '+soldi(costo,val)+' per person, capped at '+soldi(R.cap,val)+', + '+num(fr.add)+'% additional taxes) × '+paganti+' paying guest(s)';}}
+    (R.riduzioni||[]).forEach(function(rd){if(rd.tipo==='mesi'&&rd.mesi.indexOf(+d.slice(5,7))>=0){imp*=(1-rd.percento/100);testo+=', '+rd.testo;}
+      else if(rd.tipo==='dal_giorno'&&n>=rd.giorno){imp*=(1-rd.percento/100);testo+=', '+rd.testo;}});
+    agg(testo,imp);}
+  out.righe=ordine.map(function(k){return gruppi[k];});out.totale=out.righe.reduce(function(s,g){return s+g[2];},0);return out;}
+
+(function(){
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function oggi(){var x=new Date();return new Date(Date.UTC(x.getFullYear(),x.getMonth(),x.getDate())).toISOString().slice(0,10);}
+  function primaData(R){var o=oggi();var ok=R.tariffe.some(function(t){return (!t.dal||t.dal<=o)&&(!t.al||o<=t.al);});
+    if(ok||R.tipo==='per_trip')return o;var ds=R.tariffe.map(function(t){return t.dal;}).filter(function(x){return x&&x>o;}).sort();return ds[0]||o;}
+  function monta(box,R){
+    var f=box.querySelector('form');var q=function(n){return f.querySelector('[name='+n+']');};
+    var vis=function(n,on){var el=f.querySelector('[data-campo='+n+']');if(el)el.hidden=!on;};
+    var cat=q('cat');cat.innerHTML=R.categorie.map(function(c){return '<option value="'+esc(c.id)+'">'+esc(c.label)+'</option>';}).join('');
+    if(box.dataset.cat&&R.categorie.some(function(c){return c.id===box.dataset.cat;}))cat.value=box.dataset.cat;
+    vis('cat',R.categorie.length>1);
+    if(!q('checkin').value||box.dataset.reset){q('checkin').value=primaData(R);}
+    if(!box.dataset.prezzoToccato||box.dataset.reset){q('prezzo').value=R.prezzo_esempio||150;}
+    if(!box.dataset.legatoPrezzo){q('prezzo').addEventListener('input',function(){box.dataset.prezzoToccato='1';});box.dataset.legatoPrezzo='1';}
+    var eta=R.esenti_sotto_eta;
+    f.querySelector('[data-lab=paganti]').textContent=R.tipo==='per_trip'?'Travellers':(eta?'Guests aged '+eta+' or over':'Guests');
+    f.querySelector('[data-lab=esenti]').textContent=eta?'Children under '+eta+' (exempt)':'';
+    var lp=f.querySelector('[data-lab=prezzo]');lp.textContent=(R.etichetta_prezzo||'Price per night')+' ('+R.currency+')';
+    function aggiorna(){
+      var tp=R.tipo,isNC=false;
+      if(tp==='france'){var t=R.tariffe.filter(function(x){return x.cat===cat.value;})[0];isNC=t&&t.fr.u==='%';}
+      vis('checkin',tp!=='per_trip');vis('notti',tp!=='per_trip');
+      vis('paganti',tp!=='per_room'&&tp!=='percent');vis('esenti',!!eta&&tp!=='per_room'&&tp!=='percent');
+      vis('stanze',tp==='per_room');vis('prezzo',tp==='percent'||tp==='bands'||isNC);
+      var notti=Math.max(1,Math.min(365,parseInt(q('notti').value,10)||1));
+      var pag=Math.max(0,parseInt(q('paganti').value,10)||0),es=Math.max(0,parseInt(q('esenti').value,10)||0);
+      var st=Math.max(1,parseInt(q('stanze').value,10)||1),pr=Math.max(0,parseFloat(q('prezzo').value)||0);
+      var ci=q('checkin').value||primaData(R);
+      var o=calcola(R,cat.value,ci,notti,pag,eta?es:0,st,pr);
+      var h='<div class="small">Estimated tax for this stay</div><div class="tot">'+soldi(o.totale,R.currency)+'</div><ul>';
+      o.righe.forEach(function(g){h+='<li>'+g[1]+' night'+(g[1]>1?'s':'')+' × '+esc(g[0])+' = <strong>'+soldi(g[2],R.currency)+'</strong></li>';});
+      if(R.tipo==='per_trip'&&!o.righe.length)h+='<li>No verified amount.</li>';
+      if(o.escluse)h+='<li>'+o.escluse+' night(s) beyond the maximum number of taxable nights: no tax.</li>';
+      if(o.fuori)h+='<li>'+o.fuori+' night(s) outside the collection period: no tax.</li>';
+      if(o.sconosciute)h+='<li>'+o.sconosciute+' night(s) with no verified official rate for that date (not counted).</li>';
+      o.note.forEach(function(n){h+='<li>'+esc(n)+'</li>';});
+      h+='</ul>';box.querySelector('[data-out]').innerHTML=h;}
+    if(!f.dataset.legato){var ag=function(e){if(e&&e.target&&e.target.name==='dest')return;box.__aggiorna();};
+      f.addEventListener('input',ag);f.addEventListener('change',ag);f.addEventListener('submit',function(e){e.preventDefault();});f.dataset.legato='1';}
+    box.__aggiorna=aggiorna;aggiorna();}
+  window.TTC_monta=monta;
+  document.querySelectorAll('[data-calcolatore]').forEach(function(box){
+    var D=JSON.parse(document.getElementById(box.dataset.calcolatore).textContent);
+    var sel=box.querySelector('[name=dest]');
+    if(sel){sel.innerHTML=D.map(function(R,i){return '<option value="'+i+'">'+esc(R.name+(R.country!==R.name?' ('+R.country+')':''))+'</option>';}).join('');
+      var cur=function(){box.dataset.reset='1';box.dataset.cat='';var R=D[+sel.value];monta(box,R);
+        var l=box.querySelector('[data-link]');if(l){l.href=l.dataset.base+R.slug+'/';l.textContent='Full rules and official source for '+R.name;}};
+      sel.addEventListener('change',cur);cur();}
+    else monta(box,D[0]);});
+  document.querySelectorAll('[data-filtro]').forEach(function(inp){var lista=document.getElementById(inp.dataset.filtro);
+    inp.addEventListener('input',function(){var v=inp.value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+      lista.querySelectorAll('a').forEach(function(a){var t=a.textContent.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');a.hidden=v&&t.indexOf(v)<0;});});});
+  var src=document.querySelectorAll('input[name=source]');var ref='';try{var qs=new URLSearchParams(location.search);ref=qs.get('ref')||document.referrer||'direct';}catch(e){ref='direct';}
+  src.forEach(function(i){i.value=String(ref).slice(0,200);});
+  document.querySelectorAll('form.ajax').forEach(function(form){form.addEventListener('submit',function(ev){ev.preventDefault();
+    var err=form.querySelector('[data-errore]');err.hidden=true;if(!form.checkValidity()){form.reportValidity();return;}
+    var bt=form.querySelector('button');bt.disabled=true;
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+    .then(function(r){if(!r.ok)throw new Error(r.status);form.hidden=true;form.parentNode.querySelector('[data-ok]').hidden=false;})
+    .catch(function(){err.hidden=false;bt.disabled=false;});});});
+})();
+</script>
+</body>
+</html>
