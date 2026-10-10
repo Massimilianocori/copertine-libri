@@ -1,6 +1,6 @@
 # Da fare (Massimiliano) — aggiornato il 10/10/2026, sera
 
-Tre cose, tutte a costo zero. Le decisioni del 10/10: **sì** ad affiliazione, partner relocation e domanda fiscale; **no** al lavoro da fotografo (annunci matrimoni, photo booth).
+Due cose, tutte a costo zero (la domanda fiscale è rinviata: decisione di Massimiliano del 10/10, "fino a quando non ci sono incassi non c'è niente da preoccuparsi"). Le decisioni del 10/10: **sì** ad affiliazione, partner relocation e domanda fiscale; **no** al lavoro da fotografo (annunci matrimoni, photo booth).
 
 ## 1. Iscrizioni ai programmi di affiliazione (circa 1 ora, a tuo nome)
 Serve il sito: `https://italy-strikes-today.netlify.app` (categoria: travel / informazione viaggi; pubblico: turisti in Italia; traffico: nuovo, da Google).
@@ -17,7 +17,7 @@ Cosa scrivere nel modulo (in inglese, puoi incollare):
 > Before I build the page I need, in writing: (1) the commission per service (ERV, citizenship, property) in € or %; (2) how long the referral tracking lasts; (3) when and how partners are paid; (4) whether a tracked link or a lead form is used.
 **Regola**: il sito "Retire / Move to Italy" si costruisce solo con la cifra scritta e solo se la commissione è **≥ 150 € per cliente**. Sotto, o senza risposta, non si costruisce.
 
-## 3. Domanda fiscale gratuita (15 minuti)
+## 3. Domanda fiscale gratuita (15 minuti) — RINVIATA al primo incasso (o al primo pagamento in arrivo da AdSense/affiliati/partner)
 Dove: **Fiscozen** https://www.fiscozen.it/ (pulsante "Consulenza gratuita" / "Parla con un esperto") oppure **Flextax** https://flextax.it/ (contatto o chat). Chiedi la risposta **per iscritto** (email o chat), non solo a voce.
 Testo da incollare:
 > Ho una partita IVA in regime forfettario come fotografo (codice ATECO 74.20.19), iscritto alla Gestione Separata INPS, senza iscrizione alla Camera di Commercio. Ho tre domande.

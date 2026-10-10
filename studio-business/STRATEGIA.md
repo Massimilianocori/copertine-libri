@@ -33,7 +33,7 @@ Regola della catena: **una costruzione nuova ogni 2-3 settimane, mai due insieme
 ## 5. Calendario
 | Quando | Cosa | Chi |
 |---|---|---|
-| 10-23/10 | Iscrizioni affiliati, candidatura Smart Move Italy, domanda fiscale scritta (`DA-FARE-MASSIMILIANO.md`) | Massimiliano (2 ore in tutto) |
+| 10-23/10 | Iscrizioni affiliati, candidatura Smart Move Italy (`DA-FARE-MASSIMILIANO.md`). Domanda fiscale **rinviata al primo pagamento in arrivo** (decisione di Massimiliano del 10/10) | Massimiliano (1,5 ore in tutto) |
 | 10-23/10 | Riquadro affiliati online al primo deploy utile; satelliti codice fiscale + ZTL pronti; test tecnico fonti Francia | Claude |
 | 23/10 | Lettura Search Console (indicizzazione dei tre siti) → decisione: Francia dentro il sito scioperi oppure "Retire/Move to Italy" per primo (dipende dalla risposta di Smart Move Italy) | Claude propone, Massimiliano dice sì/no |
 | ~30/10 | Richiesta AdSense per Italy Strikes Today (se ≥ 20 pagine indicizzate) | Massimiliano (10 min) |
@@ -50,7 +50,7 @@ Regola della catena: **una costruzione nuova ogni 2-3 settimane, mai due insieme
 ## 7. Soldi: come si usano
 - **Riserva 3.000 €** per il cancello fiscale: non si tocca per altro.
 - **Test annunci**: ≤ 50-100 € per sito, solo dopo l'approvazione AdSense o un accordo partner scritto, con soglia (RPM ≥ 6 $, costo per lead ≤ 1/5 della commissione) e sì esplicito sull'importo.
-- **Nessun acquisto** (siti, macchine, abbonamenti, directory) finché il professionista non risponde per iscritto; il sito-test ≤ 3.000 $ (studio 9) solo con risposta "Gestione Separata".
+- **Nessun acquisto** (siti, macchine, abbonamenti, directory): la domanda fiscale è rinviata al primo pagamento in arrivo, quindi il sito-test ≤ 3.000 $ (studio 9) resta fermo fino ad allora. Quando arriva il primo pagamento (AdSense, affiliati o partner) si fa la consulenza gratuita PRIMA di incassarlo.
 - Crediti Netlify: max 6 pubblicazioni/mese per sito; se la banda cresce, piano Personal (9 $/mese) pagato dai ricavi, non prima.
 
 ## 8. Cosa fa chi
