@@ -80,3 +80,6 @@ Data di inizio: **10/10/2026** (pubblicato da GitHub, progetto Netlify `italy-st
 - `genera.py` scrive 19 calendari in `dati/calendari/` (Italia, treni, voli, trasporto locale, 15 città) a ogni lettura del registro (anche con `--solo-dati`), serviti da raw.githubusercontent: restano aggiornati senza pubblicazioni Netlify. Si riscrivono solo se cambia un evento (DTSTAMP escluso dal confronto).
 - Pagine `calendar/` (link Google Calendar, webcal per Apple/Outlook, .ics) e `for-businesses/` (calendari, JSON `vista.json`, modulo Netlify `business` per richieste di feed personalizzati: nessun prezzo). Privacy aggiornata con il modulo business.
 - Se arrivano richieste dal modulo `business`: prezzo e offerta solo con il sì di Massimiliano e dopo la risposta fiscale.
+
+## Cambi BCE per Visa Income Checker (10/10/2026)
+- `raccogli.py` alla fine scrive anche `dati/cambi-bce.json` (cambi BCE) per il sito `visaincome/`, che lo legge da GitHub. Se fallisce non ferma la raccolta degli scioperi.

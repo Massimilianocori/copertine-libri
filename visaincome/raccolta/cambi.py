@@ -19,7 +19,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 URL_BCE = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
-FILE = Path(__file__).resolve().parent.parent / "dati" / "cambi.json"
+import os
+# CAMBI_FILE permette di scrivere altrove: il workflow automatico (che salva solo italystrikes/dati) lo usa
+# per tenere aggiornata la copia italystrikes/dati/cambi-bce.json letta dalle pagine.
+FILE = Path(os.environ["CAMBI_FILE"]) if os.environ.get("CAMBI_FILE") else Path(__file__).resolve().parent.parent / "dati" / "cambi.json"
 NS = "{http://www.ecb.int/vocabulary/2002-08-01/eurofxref}"
 OBBLIGATORIE = ("USD", "GBP", "CAD", "AUD", "PHP", "INR")  # senza queste il file non si aggiorna
 

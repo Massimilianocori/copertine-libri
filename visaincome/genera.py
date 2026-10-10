@@ -23,7 +23,7 @@ DATI = RADICE / "dati"
 SITO = RADICE / "sito"
 URL_SITO = "https://visa-income-checker.netlify.app"  # unico punto da cambiare se il nome del sito su Netlify è diverso
 URL_CAMBI_LIVE = ("https://raw.githubusercontent.com/Massimilianocori/copertine-libri/"
-                  "ccr-b7fd6b9e-n096cr/visaincome/dati/cambi.json")
+                  "ccr-b7fd6b9e-n096cr/italystrikes/dati/cambi-bce.json")  # aggiornata 2 volte al giorno dal workflow di Italy Strikes
 NOME = "Visa Income Checker"
 ANNO = 2026
 OGGI = date.today()

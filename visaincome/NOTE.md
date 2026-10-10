@@ -104,3 +104,6 @@ Possibili aggiunte quando le fonti diventano leggibili: Grecia (molto cercata), 
 2. Search Console: aggiungere la proprietà con l'URL del sito, verificare con il file HTML (metterlo in `visaincome/sito/`: il generatore conserva i file `google*.html`), inviare `sitemap.xml`.
 3. Facoltativo ma consigliato: copiare `visaincome/workflow/visaincome-cambi.yml` in `.github/workflows/` sul branch `main` per i cambi giornalieri.
 4. Affiliati: quando arrivano gli URL (assicurazione sanitaria per il visto, Wise o simili, studio legale), inserirli in `dati/affiliati.json` e rigenerare.
+
+## Cambi aggiornati senza workflow nuovo (10/10/2026)
+- Le pagine leggono `italystrikes/dati/cambi-bce.json`, aggiornato due volte al giorno dal workflow di Italy Strikes (`italystrikes/raccolta/raccogli.py` chiama `visaincome/raccolta/cambi.py` con `CAMBI_FILE`). Non serve copiare `workflow/visaincome-cambi.yml` su main. `dati/cambi.json` resta il valore di riserva scritto nelle pagine alla generazione.

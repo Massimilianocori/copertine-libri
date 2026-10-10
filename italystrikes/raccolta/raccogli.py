@@ -220,6 +220,20 @@ def maree():
         print(f"ATTENZIONE: previsione maree non aggiornata ({e}).")
 
 
+def cambi_bce():
+    """Cambi BCE per il sito Visa Income Checker (visaincome/): il workflow salva solo italystrikes/dati, quindi
+    la copia viva sta qui (italystrikes/dati/cambi-bce.json). Se fallisce non ferma la raccolta degli scioperi."""
+    import os
+    import subprocess
+    script = Path(__file__).resolve().parent.parent.parent / "visaincome" / "raccolta" / "cambi.py"
+    if not script.exists():
+        return
+    env = dict(os.environ, CAMBI_FILE=str(Path(__file__).resolve().parent.parent / "dati" / "cambi-bce.json"))
+    r = subprocess.run([sys.executable, str(script)], env=env, capture_output=True, text=True)
+    print((r.stdout or r.stderr).strip() or "Cambi BCE: nessun messaggio")
+
+
 if __name__ == "__main__":
     main()
     maree()
+    cambi_bce()
