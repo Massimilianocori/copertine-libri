@@ -26,6 +26,7 @@ RADICE = Path(__file__).resolve().parent
 DATI = RADICE / "dati"
 SITO = RADICE / "sito"
 URL_SITO = "https://tourist-tax-calculator.netlify.app"  # unico punto da cambiare se il nome del sito su Netlify è diverso
+GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console, aggiunto il 10/10/2026: non rimuoverlo
 NOME = "Tourist Tax Calculator"
 ANNO = 2026
 OGGI = date.today()
@@ -708,6 +709,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="{GOOGLE_VERIFICA}">
 <title>{escape(titolo)}</title>
 <meta name="description" content="{escape(descrizione)}">
 <link rel="canonical" href="{url_pag}">
