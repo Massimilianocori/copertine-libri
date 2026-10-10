@@ -33,7 +33,8 @@ Ordine deciso dalla domanda misurata (autocomplete USA del 10/10: "france/german
    a. **Versione italiana degli scioperi** ("sciopero domani [città]", "sciopero treni [mese]"): stessa fonte, domanda 4-8 volte quella inglese (studio 7, sez. 3.5), RPM più basso ma volume alto. **FATTA il 10/10/2026** (sezione `/it/`, 56 pagine, 24 città), accesa con il sì di Massimiliano: online con la pubblicazione settimanale del 17/10, senza crediti in più.
    b. **Satelliti in inglese per lo stesso pubblico** (codice fiscale e ZTL già pronti; poi altri strumenti con fonte ufficiale unica da cercare nella ricerca del mercoledì).
    c. **Retire / Move to Italy** con partner (invariato, serve la cifra scritta).
-Regola della catena: **una costruzione nuova ogni 2-3 settimane, mai due insieme; ogni nuova pagina deve avere fonte ufficiale unica o ≤ 3 fonti leggibili in automatico; tutto ciò che non passa il test a 45 giorni si chiude e si scrive perché.**
+Regola della catena (cambiata il 10/10/2026 da Massimiliano: "qualsiasi cosa si possa aggiungere lo si faccia se porta maggiore guadagno. il gol è guadagnare"): **si costruisce subito tutto ciò che a costo zero può aumentare i ricavi, anche più cose insieme**, purché ogni nuova pagina abbia fonte ufficiale unica o ≤ 3 fonti leggibili in automatico e sia controllata (link, telefono, fatti) prima della pubblicazione; le pagine escono con la pubblicazione settimanale (nessun credito in più). Restano: zero spese senza sì, niente vendite dirette prima della risposta fiscale, chiusura e motivazione scritta di ciò che non passa il test a 45 giorni.
+Fatto il 10/10/2026 con questa regola: guide gratuite su franchigie e regole degli scioperi (EN/IT), acqua alta Venezia (EN/IT, dati ICPSM), 19 calendari iCal e pagina "For businesses".
 
 ## 5. Calendario
 | Quando | Cosa | Chi |
