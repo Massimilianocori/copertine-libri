@@ -3,6 +3,8 @@
 Due cose, tutte a costo zero (la domanda fiscale è rinviata: decisione di Massimiliano del 10/10, "fino a quando non ci sono incassi non c'è niente da preoccuparsi"). Le decisioni del 10/10: **sì** ad affiliazione, partner relocation e domanda fiscale; **no** al lavoro da fotografo (annunci matrimoni, photo booth).
 
 ## 1. Iscrizioni ai programmi di affiliazione (circa 1 ora, a tuo nome)
+**Stato al 10/10/2026, sera:** SafetyWing FATTO (link nel sito, campagna `italy-strikes-today`); Airalo/Impact domanda INVIATA (sito verificato con meta tag), in attesa di approvazione: poi mandare il link; Travelpayouts IN PAUSA (obbliga a installare lo script "Drive" con cookie di tracciamento: non compatibile con la nostra privacy senza banner dei cookie).
+
 Serve il sito: `https://italy-strikes-today.netlify.app` (categoria: travel / informazione viaggi; pubblico: turisti in Italia; traffico: nuovo, da Google).
 1. **Travelpayouts** (copre Omio, Welcome Pickups, EKTA e altri): https://www.travelpayouts.com/en/ → Sign up (email + password). Dentro: "Programs" → cerca **Omio**, **Welcome Pickups**, **EKTA** → "Join" → quando approvati, "Tools → Links" → copia il link tracciato di ciascuno (inizia con `https://tp.media/...` o simile).
 2. **SafetyWing Ambassador**: https://safetywing.com/ambassador/signup → compila (tipo: website) → dopo l'approvazione copia il tuo link referral dal pannello.
@@ -10,7 +12,7 @@ Serve il sito: `https://italy-strikes-today.netlify.app` (categoria: travel / in
 4. Mandami i link (anche uno alla volta): li metto in `italystrikes/dati/affiliati.json` e il riquadro "Stuck by a strike? Alternatives" compare da solo alla pubblicazione successiva. Niente Booking.com (chiude gli affiliati piccoli) e niente DiscoverCars per ora (minimo di pagamento 100-200 $).
 **Dati di pagamento**: i programmi pagano con PayPal o bonifico quando si raggiunge una soglia (di solito 50-100 $). Al primo pagamento scatta il nodo fiscale: non prima.
 
-## 2. Candidatura partner Smart Move Italy (30 minuti)
+## 2. Candidatura partner Smart Move Italy (30 minuti) — IN SOSPESO: il 10/10/2026 il sito risponde "403 Forbidden" sia dal server di Claude sia dal browser di Massimiliano (anche in incognito). Si riprova il 23/10.
 Pagina: https://smartmoveitaly.com/partner (si apre dal tuo browser; dal mio server è bloccata).
 Cosa scrivere nel modulo (in inglese, puoi incollare):
 > I run independent English-language information sites for people travelling to or moving to Italy (italy-strikes-today.netlify.app is live; a "Retire / Move to Italy" guide with the list of 7% flat-tax towns and elective residence visa requirements is in preparation). Readers are mainly from the US, UK, Canada and Australia. I would like to refer readers who need help with the elective residence visa or relocation to your services, with a separate opt-in on my site.
