@@ -1,5 +1,7 @@
 # Guida in PDF "Italy by Train: the strike-proof guide" — istruzioni di costruzione
 
+**STATO (10/10/2026): IN PAUSA per decisione di Massimiliano** ("non avendo partita IVA dedicata è solo un rischio"). La guida è finita e revisionata (68 pagine), ma non si vende: niente Payhip, `dati/prodotti.json` resta con `url` vuoto, quindi nessuna pagina di vendita sul sito. Si riapre solo con una risposta fiscale scritta favorevole e un nuovo sì di Massimiliano.
+
 Decisione del 10/10/2026 (Massimiliano: "per le guide sei tu il cervello, se pensi sia una buona idea falla"; Claude: sì, come test a costo zero). Chi costruisce legge prima `studio-business/STRATEGIA.md`, `studio-business/REGOLE-FISSE.md`, `italystrikes/NOTE.md`.
 
 ## Cosa

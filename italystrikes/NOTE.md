@@ -58,7 +58,8 @@ Data di inizio: **10/10/2026** (pubblicato da GitHub, progetto Netlify `italy-st
 2. Forms → Enable form detection; poi Forms → Form notifications → email per il modulo `alerts` (e `contact`).
 3. Search Console → Aggiungi proprietà "Prefisso URL" `https://italy-strikes-today.netlify.app/` → metodo **Tag HTML** → mandare il tag a Claude → dopo la pubblicazione premere Verifica → Sitemap: `sitemap.xml`.
 
-## Guida PDF "Italy by Train: the strike-proof guide" (10/10/2026)
+## Guida PDF "Italy by Train: the strike-proof guide" (10/10/2026) — IN PAUSA
+- **Decisione di Massimiliano del 10/10/2026: non si vende per ora** (nessuna partita IVA dedicata alla vendita di prodotti: rischio fiscale/INPS). Riaprire solo con risposta fiscale scritta favorevole e nuovo sì.
 - Sorgenti in `prodotti/italy-by-train/` (`contenuto.html`, `copertina.html`, `extra.json`, `build.py`, `font/`, `fonti/`); il PDF esce in `out/` (escluso da git: il repository è pubblico, il PDF non va pubblicato qui né in `sito/`). Ricostruire: `python3 italystrikes/prodotti/italy-by-train/build.py`.
 - Edizione 1, 68 pagine 6×9. Revisione indipendente dei fatti fatta il 10/10/2026, tutte le correzioni applicate (treni garantiti: Tabella A 146, Tabella B 62, letti con `fonti/leggi_tabelle.py`).
 - La Tabella A Trenitalia vale fino al 12/12/2026: a dicembre scaricare le nuove tabelle, rilanciare `leggi_tabelle.py` e `build.py`, aggiornare l'edizione e mandarla agli acquirenti.
