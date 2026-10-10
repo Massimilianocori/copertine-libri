@@ -27,25 +27,29 @@ Ordine deciso dalla domanda misurata (autocomplete USA del 10/10: "france/german
 1. **Italia** (fatto): scioperi; poi satelliti **codice fiscale calculator for foreigners** e **ZTL fines by city** (domanda confermata, 2-4 ore ciascuno, stesso pubblico).
 2. **Retire / Move to Italy** (sito EN, motore EsameB1): comuni flat tax 7 %, requisiti visto, calcolatore reddito, modulo partner. Si costruisce solo con la commissione scritta.
 3. **Francia** → hub **"Europe strikes today"**: test tecnico fatto il 10/10/2026 → **NON PASSA** (`intelaiatura/10-francia-test-fonti.md`). Treni sì (SNCF SIRI/GTFS-RT, aperto, testo anche in inglese; Eurostar sì), Parigi solo con token IDFM PRIM (account di Massimiliano), voli nessuna fonte ufficiale leggibile; soprattutto **non esiste un registro come quello del MIT**: gli scioperi compaiono 1-3 giorni prima (obbligo di informazione 24 ore), quindi niente pagine "mese" e poco vantaggio su Google. Si riprova solo se un lettore silenzioso del flusso SNCF (4-6 settimane) mostrerà un anticipo utile.
-   **Prossimo Paese da testare: Spagna** (ipotesi da verificare: il Ministero dei Trasporti pubblica per ogni sciopero una risoluzione di servizi minimi, quindi potrebbe esistere una fonte unica con anticipo). Poi Grecia/Germania solo se c'è una fonte con preavviso pubblico.
-4. **Versione italiana degli scioperi** ("sciopero domani [città]", domanda 4-8 volte quella inglese) solo se il test del sito inglese fallisce sulla quota Tier 1 ma Google indicizza.
+   **Spagna: test fatto il 10/10/2026 → NON PASSA** (`intelaiatura/11-spagna-test-fonti.md`): esiste una fonte ufficiale (pagine del Ministerio de Transportes con le resoluciones de servicios mínimos per aerei e treni), ma l'anticipo mediano è 2-3 giorni (solo il 12 % con ≥ 5 giorni); il preavviso di 10 giorni va solo all'azienda; Madrid e Barcellona 1 giorno prima.
+   **Conclusione (10/10/2026): l'Italia è un caso unico.** Il registro pubblico del MIT con 10 giorni di anticipo non ha equivalenti in Francia e Spagna (e, per lo stesso schema di legge, quasi certamente non in Germania e Grecia: non si testano senza un indizio contrario). L'hub "Europe strikes today" è **sospeso**: il nostro vantaggio è proprio l'anticipo, che altrove non esiste.
+4. **Nuova direzione dell'espansione (al posto dell'Europa):** stesso Paese, più bisogni e più lingue.
+   a. **Versione italiana degli scioperi** ("sciopero domani [città]", "sciopero treni [mese]"): stessa fonte, +20 % di lavoro, domanda 4-8 volte quella inglese (studio 7, sez. 3.5), RPM più basso ma volume alto; si costruisce dopo il 23/10 se Google indicizza il sito inglese.
+   b. **Satelliti in inglese per lo stesso pubblico** (codice fiscale e ZTL già pronti; poi altri strumenti con fonte ufficiale unica da cercare nella ricerca del mercoledì).
+   c. **Retire / Move to Italy** con partner (invariato, serve la cifra scritta).
 Regola della catena: **una costruzione nuova ogni 2-3 settimane, mai due insieme; ogni nuova pagina deve avere fonte ufficiale unica o ≤ 3 fonti leggibili in automatico; tutto ciò che non passa il test a 45 giorni si chiude e si scrive perché.**
 
 ## 5. Calendario
 | Quando | Cosa | Chi |
 |---|---|---|
 | 10-23/10 | Iscrizioni affiliati, candidatura Smart Move Italy (`DA-FARE-MASSIMILIANO.md`). Domanda fiscale **rinviata al primo pagamento in arrivo** (decisione di Massimiliano del 10/10) | Massimiliano (1,5 ore in tutto) |
-| 10-23/10 | Riquadro affiliati online al primo deploy utile; satelliti codice fiscale + ZTL **pronti e spenti (10/10)**, si accendono col sì di Massimiliano; test fonti Francia **fatto: non passa**; test fonti Spagna | Claude |
-| 23/10 | Lettura Search Console (indicizzazione dei tre siti) → decisione: Spagna (se passa il test) oppure "Retire/Move to Italy" per primo (dipende dalla risposta di Smart Move Italy) | Claude propone, Massimiliano dice sì/no |
+| 10-23/10 | Riquadro affiliati online al primo deploy utile; satelliti codice fiscale + ZTL **pronti e spenti (10/10)**, si accendono col sì di Massimiliano; test fonti Francia e Spagna **fatti: non passano** (hub Europa sospeso) | Claude |
+| 23/10 | Lettura Search Console (indicizzazione dei tre siti) → decisione: versione italiana degli scioperi oppure "Retire/Move to Italy" per primo (dipende dalla risposta di Smart Move Italy) | Claude propone, Massimiliano dice sì/no |
 | ~30/10 | Richiesta AdSense per Italy Strikes Today (se ≥ 20 pagine indicizzate) | Massimiliano (10 min) |
 | 23-24/11 | Verdetti a 45 giorni dei tre siti; chiusura di ciò che non passa; eventuale test annunci ≤ 50-100 € sul sito che passa (sì esplicito) | Claude + Massimiliano |
-| dic 2026 - feb 2027 | Costruzione Francia (+ Germania/Spagna se la Francia indicizza); Retire/Move to Italy; versione IT scioperi se serve | Claude |
+| nov 2026 - feb 2027 | Versione italiana degli scioperi; Retire/Move to Italy (con accordo); nuovi satelliti per lo stesso pubblico | Claude |
 | mar-giu 2027 | Stagione alta dei viaggi: picco scioperi (marzo è il picco storico su Trends); richiesta Journey a 1.000 sessioni Tier 1; primi pagamenti affiliati/AdSense → apertura del cancello fiscale se i ricavi attesi > 3.000 €/anno | Claude + professionista |
 | giu 2027 | Revisione della strategia con i numeri di 8 mesi | insieme |
 
 ## 6. Numeri prudenti (da non vendere a nessuno come promessa)
 - 12 mesi (ott 2027): **500-2.000 €** complessivi (pubblicità + affiliati + 0-2 commissioni relocation), con 1-2 siti chiusi e 4-6 pagine/siti attivi.
-- 18-24 mesi: **5-10k €/anno** se l'hub europeo indicizza e passa Journey; sotto i 3k €/anno il cancello fiscale resta chiuso e si continua a costo zero.
+- 18-24 mesi: **4-8k €/anno** se sito scioperi (inglese + italiano) e satelliti indicizzano e passano Journey (l'hub europeo è sospeso: stima ridotta); sotto i 3k €/anno il cancello fiscale resta chiuso e si continua a costo zero.
 - Probabilità onesta: alta che il sistema renda qualcosa, media che superi i 5k €/anno, bassa che arrivi a un reddito pieno. È la somma di molte pagine piccole, non un colpo solo.
 
 ## 7. Soldi: come si usano
