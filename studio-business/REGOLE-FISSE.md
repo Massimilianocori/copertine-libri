@@ -45,3 +45,10 @@ Strategia a catena di montaggio, decisa con Massimiliano:
 - Ogni spesa parte solo con il sì esplicito di Massimiliano su quella cifra.
 - Con la spesa ammessa cambia la pipeline: gli annunci a pagamento servono a verificare la domanda in giorni invece di aspettare Google per mesi.
 - Idee aperte il 10/10: (1) lead-gen per scuole di italiano via annunci (fase 2 di EsameB1 accelerata); (2) SaaS per obblighi di legge nuovi per le imprese (es. RENTRI); (3) acquisto di siti con traffico esistente (cautela); (4) scalare KDP con Amazon Ads. Ricerca in corso su 1 e 2.
+
+## Esito delle ricerche del 10/10 (pomeriggio)
+- **Lead-gen scuole di italiano** (8-leadgen-e-obblighi.md): SÌ con test a tetto 100 €, solo dopo 3 accordi scritti con scuole (telefonate di Massimiliano; niente email a freddo, nemmeno B2B: art. 130). Modulo con casella di consenso separata per la cessione dei contatti. Ricavi prudenti 2,5-4k a 12 mesi, 6-9k a 18.
+- **RENTRI / obblighi di legge** (8-...): NO (Ministero gratis, micro escluse, leader coprono). EUDR micro-imprese 30/6/2027: solo pagina+avvisami da gennaio 2027.
+- **Negozi per sviluppatori** (7-modelli-diversi.md): solo Apify regge, ma mediana 4 utenti/Actor e 1 su 1.000 nuovi arriva a 10 utenti. Test passivo al massimo.
+- **Siti con pubblicità** (7-...): antismog NON regge (100-300 €/anno). La migliore: **"Italy strikes today/tomorrow" in inglese** (fonte unica RSS MIT, pubblico USA/UK/CA/AU, 0 €, 10-15 h; 3-5k €/anno a 18 mesi) + satelliti EN (codice fiscale calculator, ZTL). Nessun modello arriva a 10k/anno con stime prudenti.
+- **Conclusione generale dopo 8 studi**: nessuna singola idea supera i 10k €/anno prudenti con le regole date; la somma di 4-6 progetti piccoli + lead-gen è la strada. Nodo fiscale (CCIAA/commercianti) uguale per tutti i modelli: si apre al primo incasso.
