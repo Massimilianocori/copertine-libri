@@ -108,3 +108,26 @@ Sito costruito: 33 pagine di destinazione (29 sopra + Turchia/Istanbul/Antalya/B
   `scrollWidth` = 375 (nessuno scorrimento orizzontale; le tabelle larghe scorrono dentro il loro riquadro), 0 errori in console.
   Prove nel browser: Kyoto scelto dalla home ¥2.400, Barcellona €168,00, Maiorca €42,00, Parigi non classificato €24,44
   (uguali agli esempi 7, 1, 2, 10); ricerca "chamon" → Chamonix-Mont-Blanc, calcolatore attivo.
+
+## 4. Dopo la revisione indipendente (10/10/2026)
+
+Nuovi esempi a mano, tutti OK in `verifica.py` (35 in totale):
+
+| Caso | Atteso |
+|---|---|
+| Praga 60 notti (61 giorni di calendario) | 0 |
+| Praga 59 notti (60 giorni), 2 adulti | 50 × 2 × 59 = 5.900 CZK |
+| Milano locazione breve, 20 notti, 2 adulti | 9,50 × 2 × 20 = €380,00 |
+| Milano casa per ferie non profit, 20 notti | 7 × 2 × 14 = €196,00 |
+| Milano casa per ferie (altri gestori), 20 notti | 7 × 2 × 20 = €280,00 |
+| Vienna €100, 1/7 → 1/10/2026 (92 notti, esattamente 3 mesi) | 5% × 100 × 92 = €460,00 |
+| Vienna 93 notti / 100 notti (più di 3 mesi) | 0 / 0 |
+| Castelldefels 5 stelle, 15/10/2026, 3 notti, 2 adulti | (4,50 + 4,00) × 2 × 3 = €51,00 |
+| Esplugues 5 stelle (nessun supplemento per questa categoria) | 4,50 × 2 × 3 = €27,00 |
+| Edimburgo £100 dal 22/7/2026, 6 notti | 2 notti prima del 24/7, notti 3-5 tassate, notte 6 oltre il limite: 3 × 5 = £15,00 |
+
+- Confronto motore JS/Python: 2.035 casi (anche soggiorni lunghi 55-100 notti e supplementi comunali), 0 differenze, note comprese.
+- Link interni: 4.767, 0 rotti. Fonte + data: 183/183 pagine.
+- Playwright 375 px: `/`, `/barcelona/`, `/france/paris/`, `/mallorca/`, `/kyoto/`, `/france/`, `/catalonia/` → scrollWidth 375, 0 errori.
+  Nel browser: Castelldefels €51,00; Praga 60 notti 0 CZK con spiegazione; Vienna 93 notti €0,00 e 92 notti €460,00;
+  Edimburgo £15,00 con "2 night(s) before 24 July 2026: no tax yet"; Milano locazione breve 20 notti €380,00.

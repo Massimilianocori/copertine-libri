@@ -41,6 +41,30 @@ La formula usata è stampata sotto il calcolatore in ogni pagina.
 - Amsterdam: CVDR703815 (ordinanza 2024 ancora in vigore). amsterdam.nl dà 403.
 - Berlino, Vienna, Praga, Edimburgo, Roma, Firenze, Milano, Kyoto, Tokyo, Sapporo, Kutchan, Hakuba, Bali, Islanda: pagine o atti ufficiali (vedi JSON).
 
+## Date in cui rigenerare il sito (obbligatorio)
+
+Titoli, cifre in evidenza ed esempi delle pagine sono calcolati alla data di generazione (le cifre cambiano a quella data,
+ad esempio "Turkey: 1% until 31 December 2026, then 2%"). `genera.py` stampa a ogni esecuzione l'elenco delle prossime date.
+Al 10/10/2026 sono: **1/1/2027** (Turchia 2%, fine tariffe Milano 2026, Francia anno 2027), **1/4/2027** (Catalogna e
+supplementi comunali, fine tabella Barcellona, Tokyo), **1/7/2027** (Vienna 8%), **1/6/2029** (Hakuba/Nagano).
+In ognuna di queste date: `python3 touristtax/genera.py && python3 touristtax/verifica.py`, controllo delle fonti della
+destinazione interessata, commit (Netlify pubblica da solo).
+
+## Revisione indipendente del 10/10/2026: cosa è stato corretto
+
+- Praga: il limite è di 60 giorni di calendario consecutivi (il giorno di arrivo conta), quindi 60 notti = 61 giorni = fuori dalla tassa.
+- Milano: esenzione dal 15° giorno solo per residence turistico-alberghieri, case per ferie gestite da enti non profit e case e appartamenti per vacanze (avviso ufficiale del Comune, edizione 2025); locazioni brevi e altre case per ferie pagano ogni notte.
+- Vienna: aggiunta l'esenzione per gli studenti delle scuole superiori e universitarie di Vienna e la regola "più di 3 mesi senza interruzione = esente" (data di uscita oltre la stessa data 3 mesi dopo l'arrivo).
+- Baleari: confermate il 10/10/2026 sulla pagina dell'Agència Tributària (ATIB, sede.atib.es, "Informació i normativa"). **Il certificato TLS del server ATIB era scaduto**: la pagina (un'applicazione JavaScript) è stata letta con un browser automatico che ignora il certificato, solo per leggere questa pagina ufficiale. Il testo consolidato della legge sul sito ATIB è aggiornato al 17/05/2025; nel BOIB non è stata trovata nessuna modifica successiva dell'art. 13. Avviso visibile sulle pagine delle Baleari. **Da ricontrollare** a ogni trimestre e prima dell'estate 2027 (in stampa si è parlato di un supplemento estivo, mai trovato in atti ufficiali).
+- Catalogna: supplementi dei 7 comuni (dal 1/10/2026 e dal 1/4/2027) nel calcolatore (scelta del comune) e in tabella.
+- Edimburgo, Sapporo, Hakuba: le notti prima dell'inizio della tassa risultano "no tax yet", non "senza tariffa". Per chi arriva prima del 24/7/2026 a Edimburgo non è chiaro da dove si contano le 5 notti: avviso nel risultato.
+- Tolte le frasi non sostenute da fonti ufficiali (Bali "on arrival", Baleari "at check-out"); Baleari: l'esercizio deve addebitare la tassa prima della fine del soggiorno (ATIB).
+- Berlino: fonti sostituite con le pagine ufficiali della Senatsverwaltung für Finanzen (FAQ) e del Service-Portal; il testo pubblicato della legge (gesetze.berlin.de) non era raggiungibile dal server.
+- Grecia: il link è il PDF ufficiale della Gazzetta servito dall'archivio di search.et.gr (Tipografia nazionale); la scheda del record su search.et.gr non è stata trovata (la ricerca restituisce errore). Aggiunta l'esenzione per i soggiorni gratuiti.
+- Roma: aggiunti rifugi montani, rifugi escursionistici, case del camminatore (€3,50) e l'esenzione per persone con disabilità grave e caregiver (art. 5 del regolamento).
+- Testi: criterio INSEE per le 150 comuni ("most tourist accommodation", non "most visited"); "33 destination pages" basate su 20 regole ufficiali (21 con la Francia); frase introduttiva diversa per tipo di regola; tabella Tokyo "Current rates (until 31 March 2027)"; definizione della base di calcolo a Kutchan, Sapporo e Hakuba ("宿泊料金"; chiedere alla struttura se include i pasti); Nozawa Onsen con fonte MIC (3,5% per 3 anni, poi 5%).
+- `sito/netlify.toml` resta nella cartella pubblicata perché Netlify lo legge dalla base directory; commento in inglese, contenuto innocuo.
+
 ## Cosa controllare ogni trimestre (routine del lunedì, una settimana su tredici) e prima del 1° gennaio e del 1° aprile
 
 1. Rilanciare `verifica.py` e aprire tutte le fonti di `dati/destinazioni.json` (le 200 si leggono anche in automatico; AADE, amsterdam.nl danno 403: controllo a mano).

@@ -42,6 +42,17 @@ ESEMPI = [
     ("Paris 4-star hotel, 2 adults, 3 nights: €8.45 (2.60 + 225%) × 2 × 3", PARIGI, "h4", "2026-11-05", 3, 2, 0, 1, 0, 50.70),
     ("Prague, 2 adults + 1 child, 4 nights: 50 CZK × 2 × 4", D["prague"], "all", "2026-11-05", 4, 2, 1, 1, 0, 400),
     ("Prague, 61 nights: outside the fee (stays up to 60 days only)", D["prague"], "all", "2026-11-05", 61, 2, 0, 1, 0, 0),
+    ("Prague, 60 nights = 61 calendar days: outside the fee", D["prague"], "all", "2026-11-05", 60, 2, 0, 1, 0, 0),
+    ("Prague, 59 nights = 60 calendar days: 50 × 2 × 59", D["prague"], "all", "2026-11-05", 59, 2, 0, 1, 0, 5900),
+    ("Milan short-term rental, 20 nights, 2 adults (no 15th-day exemption): €9.50 × 2 × 20", D["milan"], "str", "2026-05-01", 20, 2, 0, 1, 0, 380.00),
+    ("Milan non-profit case per ferie, 20 nights, 2 adults: €7 × 2 × 14", D["milan"], "cpfnp", "2026-05-01", 20, 2, 0, 1, 0, 196.00),
+    ("Milan case per ferie (other operator), 20 nights, 2 adults: €7 × 2 × 20", D["milan"], "cpf", "2026-05-01", 20, 2, 0, 1, 0, 280.00),
+    ("Vienna, €100, 1 Jul - 1 Oct 2026 (92 nights = exactly 3 months): 5% × 100 × 92", D["vienna"], "all", "2026-07-01", 92, 2, 0, 1, 100, 460.00),
+    ("Vienna, €100, 93 nights (more than 3 months): exempt", D["vienna"], "all", "2026-07-01", 93, 2, 0, 1, 100, 0),
+    ("Vienna, €100, 100 nights: exempt", D["vienna"], "all", "2026-07-01", 100, 2, 0, 1, 100, 0),
+    ("Castelldefels 5 stars, 15 Oct 2026, 3 nights, 2 adults: (€4.50 + €4.00 surcharge) × 2 × 3", D["catalonia"], "et1", "2026-10-15", 3, 2, 0, 1, 0, 51.00, "castelldefels"),
+    ("Esplugues 5 stars (no surcharge listed for 5 stars): €4.50 × 2 × 3", D["catalonia"], "et1", "2026-10-15", 3, 2, 0, 1, 0, 27.00, "esplugues"),
+    ("Edinburgh £100 from 22 Jul 2026, 6 nights: 2 nights before the levy, nights 3-5 taxed, night 6 over the 5-night limit", D["edinburgh"], "all", "2026-07-22", 6, 2, 0, 1, 100, 15.00),
     ("Rome 5 stars, 2 adults + child of 8, 12 nights: €10 × 2 × 10 (max)", D["rome"], "h5", "2026-11-05", 12, 2, 1, 1, 0, 200.00),
     ("Milan 5 stars, 30 Mar, 4 nights, 2 adults: 2×(€10×2) + 2×(€12×2)", D["milan"], "h5", "2026-03-30", 4, 2, 0, 1, 0, 88.00),
     ("Turkey, TRY 5,000 per night excl. VAT, 29 Apr, 4 nights: 2×2% + 2×1%", D["turkey"], "all", "2026-04-29", 4, 2, 0, 1, 5000, 300.00),
@@ -58,8 +69,8 @@ ESEMPI = [
 def controlla_esempi():
     errori = []
     for e in ESEMPI:
-        descr, R, cat, ci, n, p, es, st, pr, atteso = e
-        o = G.calcola(R, cat, ci, n, p, es, st, pr)
+        descr, R, cat, ci, n, p, es, st, pr, atteso = e[:10]
+        o = G.calcola(R, cat, ci, n, p, es, st, pr, e[10] if len(e) > 10 else "")
         if abs(o["totale"] - atteso) > 0.005:
             errori.append(f"ESEMPIO SBAGLIATO: {descr}: atteso {atteso}, calcolato {o['totale']}")
     return errori
@@ -73,7 +84,9 @@ def casi_casuali(n=2000, seme=7):
         R = rnd.choice(regole)
         cat = rnd.choice(R["categorie"])["id"]
         ci = f"{rnd.choice([2026, 2027])}-{rnd.randint(1, 12):02d}-{rnd.randint(1, 28):02d}"
-        casi.append([R, cat, ci, rnd.randint(1, 70), rnd.randint(0, 6), rnd.randint(0, 3), rnd.randint(1, 3), round(rnd.uniform(0, 120000), 2)])
+        zona = rnd.choice([""] + [z["id"] for z in R.get("zone", [])])
+        casi.append([R, cat, ci, rnd.choice([rnd.randint(1, 70), rnd.randint(55, 100)]), rnd.randint(0, 6), rnd.randint(0, 3), rnd.randint(1, 3),
+                     round(rnd.uniform(0, 120000), 2), zona])
     return casi
 
 
@@ -92,8 +105,8 @@ def controlla_js(casi):
     with tempfile.TemporaryDirectory() as tmp:
         f = Path(tmp) / "t.js"
         f.write_text(G.MOTORE_JS + "\nvar R=" + json.dumps(regole, ensure_ascii=False) + ";var C=" + json.dumps(righe) +
-                     ";console.log(JSON.stringify(C.map(function(c){var o=calcola(R[c[0]],c[1],c[2],c[3],c[4],c[5],c[6],c[7]);"
-                     "return [o.totale,o.righe.map(function(g){return g[0];}),o.escluse,o.sconosciute,o.fuori];})));", encoding="utf-8")
+                     ";console.log(JSON.stringify(C.map(function(c){var o=calcola(R[c[0]],c[1],c[2],c[3],c[4],c[5],c[6],c[7],c[8]);"
+                     "return [o.totale,o.righe.map(function(g){return g[0];}),o.escluse,o.sconosciute,o.fuori,o.prima,o.note];})));", encoding="utf-8")
         out = subprocess.run(["node", str(f)], capture_output=True, text=True)
     if out.returncode != 0:
         return ["errore node: " + out.stderr[:500]]
@@ -101,7 +114,7 @@ def controlla_js(casi):
     errori = []
     for c, r in zip(casi, js):
         o = G.calcola(*c)
-        py = [o["totale"], [g[0] for g in o["righe"]], o["escluse"], o["sconosciute"], o["fuori"]]
+        py = [o["totale"], [g[0] for g in o["righe"]], o["escluse"], o["sconosciute"], o["fuori"], o["prima"], o["note"]]
         if abs(py[0] - r[0]) > 1e-6 or py[1:] != r[1:]:
             errori.append(f"JS diverso da Python: {c[0]['name']} {c[1:]}: py={py} js={r}")
             if len(errori) > 5:
@@ -169,7 +182,7 @@ def controlla_fonti():
 def main():
     errori = controlla_esempi()
     print(f"Esempi a mano: {len(ESEMPI)} controllati, {len([e for e in errori if e.startswith('ESEMPIO')])} sbagliati")
-    casi = [[e[1], e[2], e[3], e[4], e[5], e[6], e[7], e[8]] for e in ESEMPI] + casi_casuali()
+    casi = [[e[1], e[2], e[3], e[4], e[5], e[6], e[7], e[8], e[10] if len(e) > 10 else ""] for e in ESEMPI] + casi_casuali()
     ej = controlla_js(casi)
     print(f"Confronto JS/Python: {len(casi)} casi, {len(ej)} differenze")
     el, n = controlla_link()

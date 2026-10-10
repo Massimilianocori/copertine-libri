@@ -140,10 +140,29 @@ def _banda(bande, pp):
     return -1, 0
 
 
-def calcola(R, cat, checkin, notti, paganti, esenti=0, stanze=1, prezzo=0.0):
-    """Restituisce {'totale', 'righe': [[testo, notti, importo]], 'escluse', 'sconosciute', 'fuori', 'note'}."""
+def _piu_mesi(iso, m):
+    """Stessa data m mesi dopo (giorno ridotto all'ultimo del mese se non esiste). Uguale nel JS."""
+    y, mo, d = int(iso[:4]), int(iso[5:7]), int(iso[8:10])
+    mo += m
+    y += (mo - 1) // 12
+    mo = (mo - 1) % 12 + 1
+    ultimo = [31, 29 if (y % 4 == 0 and (y % 100 != 0 or y % 400 == 0)) else 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][mo - 1]
+    return f"{y:04d}-{mo:02d}-{min(d, ultimo):02d}"
+
+
+def _supplemento(R, zona, cat, d_iso):
+    if not zona:
+        return None
+    for t in R.get("supplementi", []):
+        if t["zona"] == zona and t["cat"] == cat and (not t.get("dal") or t["dal"] <= d_iso) and (not t.get("al") or d_iso <= t["al"]):
+            return t
+    return None
+
+
+def calcola(R, cat, checkin, notti, paganti, esenti=0, stanze=1, prezzo=0.0, zona=""):
+    """Restituisce {'totale', 'righe': [[testo, notti, importo]], 'escluse', 'sconosciute', 'fuori', 'prima', 'note'}."""
     val = R["currency"]
-    out = {"totale": 0.0, "righe": [], "escluse": 0, "sconosciute": 0, "fuori": 0, "note": []}
+    out = {"totale": 0.0, "righe": [], "escluse": 0, "sconosciute": 0, "fuori": 0, "prima": 0, "note": []}
     gruppi = {}
 
     def aggiungi(testo, importo):
@@ -161,9 +180,15 @@ def calcola(R, cat, checkin, notti, paganti, esenti=0, stanze=1, prezzo=0.0):
             out["righe"] = [[f"{soldi(t['valore'], val)} × {paganti} traveller(s), once per trip", 1, imp]]
             out["totale"] = imp
         return out
-    if R.get("max_soggiorno") and notti > R["max_soggiorno"]:
-        out["note"].append(f"Stays longer than {R['max_soggiorno']} consecutive days are not subject to the fee.")
+    if R.get("max_soggiorno") and notti + 1 > R["max_soggiorno"]:
+        out["note"].append(f"This stay spans {notti + 1} calendar days (arrival day included): only stays of at most "
+                           f"{R['max_soggiorno']} consecutive calendar days are subject to the fee.")
         return out
+    if R.get("esente_oltre_mesi"):
+        uscita = (date.fromisoformat(checkin) + timedelta(days=notti)).isoformat()
+        if uscita > _piu_mesi(checkin, R["esente_oltre_mesi"]):
+            out["note"].append(f"Stays of more than {R['esente_oltre_mesi']} months without interruption are exempt.")
+            return out
     max_n = meta.get(cat, {}).get("max_notti") or R.get("max_notti")
     persone = paganti + esenti
     d0 = date.fromisoformat(checkin)
@@ -173,14 +198,22 @@ def calcola(R, cat, checkin, notti, paganti, esenti=0, stanze=1, prezzo=0.0):
         if max_n and n > max_n:
             out["escluse"] += 1
             continue
+        if R.get("in_vigore_dal") and d < R["in_vigore_dal"]:
+            out["prima"] += 1
+            continue
         t = _riga(R, cat, d)
         if t is None:
             out["sconosciute"] += 1
             continue
         tipo = R["tipo"]
         if tipo == "per_person":
-            imp = t["valore"] * paganti
-            testo = f"{soldi(t['valore'], val)} per person × {paganti} paying guest(s)"
+            sup = _supplemento(R, zona, cat, d)
+            v = t["valore"] + (sup["valore"] if sup else 0)
+            imp = v * paganti
+            testo = f"{soldi(v, val)} per person × {paganti} paying guest(s)"
+            if sup:
+                nz = next(z["label"] for z in R["zone"] if z["id"] == zona)
+                testo += f" (incl. {soldi(sup['valore'], val)} {nz} surcharge)"
         elif tipo == "per_room":
             imp = t["valore"] * stanze
             testo = f"{soldi(t['valore'], val)} per room/unit × {stanze} room(s)/unit(s)"
@@ -201,7 +234,9 @@ def calcola(R, cat, checkin, notti, paganti, esenti=0, stanze=1, prezzo=0.0):
                 out["fuori"] += 1
                 continue
             if fr["reg"] == "F":
-                out["note"].append("This category is taxed with the flat-rate scheme (taxe forfaitaire): the host pays it, it is not charged per guest.")
+                nf = "This category is taxed with the flat-rate scheme (taxe forfaitaire): the host pays it, it is not charged per guest."
+                if nf not in out["note"]:
+                    out["note"].append(nf)
                 aggiungi("flat-rate scheme, paid by the host", 0.0)
                 continue
             if fr["u"] == "€":
@@ -225,6 +260,8 @@ def calcola(R, cat, checkin, notti, paganti, esenti=0, stanze=1, prezzo=0.0):
                 imp *= (1 - rid["percento"] / 100)
                 testo += f", {rid['testo']}"
         aggiungi(testo, imp)
+    if out["prima"] and max_n:
+        out["note"].append("For a stay that starts before the tax began, check with your accommodation how the maximum number of nights is counted.")
     out["righe"] = list(gruppi.values())
     out["totale"] = sum(g[2] for g in out["righe"])
     return out
@@ -244,9 +281,25 @@ def righe_correnti(R, giorno=None):
     return ok
 
 
-def riassunto(R):
+def riassunto(R, giorno=None, seguito=True):
+    """Tariffa in vigore alla data di generazione; se scade, indica fino a quando e cosa viene dopo."""
+    base = _riassunto(R, giorno)
+    if not seguito:
+        return base
+    tt = righe_correnti(R, giorno)
+    fine = {t.get("al") for t in tt}
+    if len(fine) == 1 and None not in fine:
+        al = fine.pop()
+        dopo = (date.fromisoformat(al) + timedelta(days=1)).isoformat()
+        if any(t.get("dal") == dopo for t in R["tariffe"]):
+            return f"{base} until {data_lunga(al)}, then {_riassunto(R, dopo)}"
+        return f"{base} until {data_lunga(al)}"
+    return base
+
+
+def _riassunto(R, giorno=None):
     val = R["currency"]
-    tt = righe_correnti(R)
+    tt = righe_correnti(R, giorno)
     tipo = R["tipo"]
     if tipo == "france":
         vals = [t["fr"]["tot"] for t in tt if t["fr"]["u"] == "€" and t["fr"]["reg"] == "R"]
@@ -283,7 +336,7 @@ def formula(R):
     elif tipo == "per_room":
         f = "Tax = rate per room (or unit) per night × rooms × nights"
     elif tipo == "percent":
-        f = "Tax = rate % × price per night (as defined below) × taxable nights"
+        f = f"Tax = rate % × {R.get('etichetta_prezzo', 'price per night')[0].lower() + R.get('etichetta_prezzo', 'price per night')[1:]} × taxable nights"
     elif tipo == "bands":
         f = "Tax = band amount (from the price per person per night = room price ÷ guests) × guests × nights"
     elif tipo == "per_trip":
@@ -300,7 +353,13 @@ def formula(R):
     for rid in R.get("riduzioni", []):
         extra.append(rid["testo"])
     if R.get("max_soggiorno"):
-        extra.append(f"stays longer than {R['max_soggiorno']} consecutive days are not covered")
+        extra.append(f"stays longer than {R['max_soggiorno']} consecutive calendar days, i.e. {R['max_soggiorno']} nights or more, are not covered")
+    if R.get("esente_oltre_mesi"):
+        extra.append(f"stays of more than {R['esente_oltre_mesi']} months without interruption are exempt")
+    if R.get("in_vigore_dal"):
+        extra.append(f"no tax on nights before {data_lunga(R['in_vigore_dal'])}, when it started")
+    if R.get("zone"):
+        extra.append("plus the municipal surcharge where one applies")
     return f + (" (" + "; ".join(extra) + ")" if extra else "") + "."
 
 
@@ -379,7 +438,7 @@ def periodo_testo(t):
     if a:
         return f"From {data_lunga(a)}"
     if b:
-        return f"Until {data_lunga(b)}"
+        return f"Current rates (until {data_lunga(b)})"
     return "Current rate"
 
 
@@ -472,20 +531,28 @@ function inPeriodo(per,d){if(!per||!per.length)return true;var md=(+d.slice(5,7)
     var a=(+m[2])*100+(+m[1]),b=(+m[4])*100+(+m[3]);if((a<=b&&a<=md&&md<=b)||(a>b&&(md>=a||md<=b)))return true;}return false;}
 function banda(b,pp){for(var i=0;i<b.length;i++){if(pp>=b[i][0]&&(b[i][1]===null||pp<b[i][1]))return b[i][2];}return 0;}
 function addDays(iso,n){var p=iso.split('-');var x=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]+n));return x.toISOString().slice(0,10);}
-function calcola(R,cat,checkin,notti,paganti,esenti,stanze,prezzo){
-  esenti=esenti||0;stanze=stanze||1;prezzo=prezzo||0;var val=R.currency;
-  var out={totale:0,righe:[],escluse:0,sconosciute:0,fuori:0,note:[]};var gruppi={},ordine=[];
+function piuMesi(iso,m){var y=+iso.slice(0,4),mo=+iso.slice(5,7)+m,d=+iso.slice(8,10);y+=Math.floor((mo-1)/12);mo=(mo-1)%12+1;
+  var bis=(y%4===0&&(y%100!==0||y%400===0));var ult=[31,bis?29:28,31,30,31,30,31,31,30,31,30,31][mo-1];
+  function p(n,l){var s=String(n);while(s.length<l)s='0'+s;return s;}return p(y,4)+'-'+p(mo,2)+'-'+p(Math.min(d,ult),2);}
+function supplemento(R,zona,cat,d){if(!zona)return null;var s=R.supplementi||[];for(var i=0;i<s.length;i++){var t=s[i];
+  if(t.zona===zona&&t.cat===cat&&(!t.dal||t.dal<=d)&&(!t.al||d<=t.al))return t;}return null;}
+function calcola(R,cat,checkin,notti,paganti,esenti,stanze,prezzo,zona){
+  esenti=esenti||0;stanze=stanze||1;prezzo=prezzo||0;zona=zona||'';var val=R.currency;
+  var out={totale:0,righe:[],escluse:0,sconosciute:0,fuori:0,prima:0,note:[]};var gruppi={},ordine=[];
   function agg(t,imp){if(!gruppi[t]){gruppi[t]=[t,0,0];ordine.push(t);}gruppi[t][1]+=1;gruppi[t][2]+=imp;}
   var meta={};R.categorie.forEach(function(c){meta[c.id]=c;});
   if(R.tipo==='per_trip'){var t0=riga(R,cat,checkin);if(!t0){out.sconosciute=1;return out;}
     var im=t0.valore*paganti;out.righe=[[soldi(t0.valore,val)+' × '+paganti+' traveller(s), once per trip',1,im]];out.totale=im;return out;}
-  if(R.max_soggiorno&&notti>R.max_soggiorno){out.note.push('Stays longer than '+R.max_soggiorno+' consecutive days are not subject to the fee.');return out;}
+  if(R.max_soggiorno&&notti+1>R.max_soggiorno){out.note.push('This stay spans '+(notti+1)+' calendar days (arrival day included): only stays of at most '+R.max_soggiorno+' consecutive calendar days are subject to the fee.');return out;}
+  if(R.esente_oltre_mesi){if(addDays(checkin,notti)>piuMesi(checkin,R.esente_oltre_mesi)){out.note.push('Stays of more than '+R.esente_oltre_mesi+' months without interruption are exempt.');return out;}}
   var maxN=(meta[cat]&&meta[cat].max_notti)||R.max_notti;var persone=paganti+esenti;
   for(var i=0;i<notti;i++){var d=addDays(checkin,i),n=i+1;
     if(maxN&&n>maxN){out.escluse++;continue;}
+    if(R.in_vigore_dal&&d<R.in_vigore_dal){out.prima++;continue;}
     var t=riga(R,cat,d);if(!t){out.sconosciute++;continue;}
     var imp,testo,tp=R.tipo;
-    if(tp==='per_person'){imp=t.valore*paganti;testo=soldi(t.valore,val)+' per person × '+paganti+' paying guest(s)';}
+    if(tp==='per_person'){var sp=supplemento(R,zona,cat,d);var vv=t.valore+(sp?sp.valore:0);imp=vv*paganti;testo=soldi(vv,val)+' per person × '+paganti+' paying guest(s)';
+      if(sp){var nz=R.zone.filter(function(z){return z.id===zona;})[0].label;testo+=' (incl. '+soldi(sp.valore,val)+' '+nz+' surcharge)';}}
     else if(tp==='per_room'){imp=t.valore*stanze;testo=soldi(t.valore,val)+' per room/unit × '+stanze+' room(s)/unit(s)';if(t.stagione)testo+=' ('+t.stagione+' rate)';}
     else if(tp==='percent'){var f=(t.fattore_base===undefined)?1:t.fattore_base;imp=prezzo*f*t.valore/100;
       testo=num(t.valore)+'% of '+soldi(prezzo,val)+(f!==1?' after a '+num(Math.round((1-f)*100*1e4)/1e4)+'% deduction':'');}
@@ -500,6 +567,7 @@ function calcola(R,cat,checkin,notti,paganti,esenti,stanze,prezzo){
     (R.riduzioni||[]).forEach(function(rd){if(rd.tipo==='mesi'&&rd.mesi.indexOf(+d.slice(5,7))>=0){imp*=(1-rd.percento/100);testo+=', '+rd.testo;}
       else if(rd.tipo==='dal_giorno'&&n>=rd.giorno){imp*=(1-rd.percento/100);testo+=', '+rd.testo;}});
     agg(testo,imp);}
+  if(out.prima&&maxN)out.note.push('For a stay that starts before the tax began, check with your accommodation how the maximum number of nights is counted.');
   out.righe=ordine.map(function(k){return gruppi[k];});out.totale=out.righe.reduce(function(s,g){return s+g[2];},0);return out;}
 """
 
@@ -515,6 +583,7 @@ APP_JS = r"""
     var cat=q('cat');cat.innerHTML=R.categorie.map(function(c){return '<option value="'+esc(c.id)+'">'+esc(c.label)+'</option>';}).join('');
     if(box.dataset.cat&&R.categorie.some(function(c){return c.id===box.dataset.cat;}))cat.value=box.dataset.cat;
     vis('cat',R.categorie.length>1);
+    var zsel=q('zona');if(zsel){zsel.innerHTML='<option value="">Other municipality (no municipal surcharge)</option>'+(R.zone||[]).map(function(z){return '<option value="'+esc(z.id)+'">'+esc(z.label)+'</option>';}).join('');}
     if(!q('checkin').value||box.dataset.reset){q('checkin').value=primaData(R);}
     if(!box.dataset.prezzoToccato||box.dataset.reset){q('prezzo').value=R.prezzo_esempio||150;}
     if(!box.dataset.legatoPrezzo){q('prezzo').addEventListener('input',function(){box.dataset.prezzoToccato='1';});box.dataset.legatoPrezzo='1';}
@@ -532,12 +601,14 @@ APP_JS = r"""
       var pag=Math.max(0,parseInt(q('paganti').value,10)||0),es=Math.max(0,parseInt(q('esenti').value,10)||0);
       var st=Math.max(1,parseInt(q('stanze').value,10)||1),pr=Math.max(0,parseFloat(q('prezzo').value)||0);
       var ci=q('checkin').value||primaData(R);
-      var o=calcola(R,cat.value,ci,notti,pag,eta?es:0,st,pr);
+      var zs=q('zona');vis('zona',!!(R.zone&&R.zone.length));
+      var o=calcola(R,cat.value,ci,notti,pag,eta?es:0,st,pr,(R.zone&&zs)?zs.value:'');
       var h='<div class="small">Estimated tax for this stay</div><div class="tot">'+soldi(o.totale,R.currency)+'</div><ul>';
       o.righe.forEach(function(g){h+='<li>'+g[1]+' night'+(g[1]>1?'s':'')+' × '+esc(g[0])+' = <strong>'+soldi(g[2],R.currency)+'</strong></li>';});
       if(R.tipo==='per_trip'&&!o.righe.length)h+='<li>No verified amount.</li>';
       if(o.escluse)h+='<li>'+o.escluse+' night(s) beyond the maximum number of taxable nights: no tax.</li>';
       if(o.fuori)h+='<li>'+o.fuori+' night(s) outside the collection period: no tax.</li>';
+      if(o.prima)h+='<li>'+o.prima+' night(s) before '+esc(R.in_vigore_testo||R.in_vigore_dal)+': no tax yet.</li>';
       if(o.sconosciute)h+='<li>'+o.sconosciute+' night(s) with no verified official rate for that date (not counted).</li>';
       o.note.forEach(function(n){h+='<li>'+esc(n)+'</li>';});
       h+='</ul>';box.querySelector('[data-out]').innerHTML=h;}
@@ -684,6 +755,7 @@ def modulo_calcolatore(id_dati, con_destinazione=False, rel="", cat_default=""):
 <div class="campi">
 {sel}
 <label class="pieno" data-campo="cat">Type of accommodation<select name="cat"></select></label>
+<label class="pieno" data-campo="zona" hidden>Municipality<select name="zona"></select></label>
 <label data-campo="checkin">Check-in date<input type="date" name="checkin"></label>
 <label data-campo="notti">Nights<input type="number" name="notti" min="1" max="365" value="3" inputmode="numeric"></label>
 <label data-campo="paganti"><span data-lab="paganti">Guests</span><input type="number" name="paganti" min="0" max="50" value="2" inputmode="numeric"></label>
@@ -698,11 +770,13 @@ def modulo_calcolatore(id_dati, con_destinazione=False, rel="", cat_default=""):
 
 
 CAMPI_MOTORE = ("name", "country", "slug", "currency", "tipo", "categorie", "tariffe", "esenti_sotto_eta", "max_notti", "max_soggiorno",
-                "riduzioni", "etichetta_prezzo", "cap", "prezzo_esempio")
+                "riduzioni", "etichetta_prezzo", "cap", "prezzo_esempio", "esente_oltre_mesi", "in_vigore_dal", "in_vigore_testo",
+                "zone", "supplementi")
 
 
 def blocco_dati(id_, dati):
-    dati = [{k: d[k] for k in CAMPI_MOTORE if k in d} for d in dati]
+    dati = [dict({k: d[k] for k in CAMPI_MOTORE if k in d}, **({"in_vigore_testo": data_lunga(d["in_vigore_dal"])} if d.get("in_vigore_dal") else {}))
+            for d in dati]
     return (f'<script type="application/json" id="{id_}">' +
             json.dumps(dati, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>")
 
@@ -759,6 +833,40 @@ def titolo_dest(nome):
     return f"{nome} tourist tax {ANNO}: how much per night (calculator)"
 
 
+def regole_testo(R):
+    tipo = R["tipo"]
+    parti = {"per_person": ["a fixed amount per person per night" + (" by accommodation type" if len(R["categorie"]) > 1 else "")],
+             "per_room": ["a fixed amount per room per night by accommodation type"],
+             "percent": ["a percentage of the price of the stay"],
+             "bands": ["a fixed amount per person per night set by price band"],
+             "per_trip": ["a one-off amount per traveller"]}[tipo]
+    if any(t.get("mesi") for t in R["tariffe"]) or R.get("riduzioni"):
+        parti.append("seasons and reductions")
+    if len({(t.get("dal"), t.get("al")) for t in R["tariffe"]}) > 1 and tipo != "per_room":
+        parti.append("rate changes by date")
+    if R.get("max_notti") or any(c.get("max_notti") for c in R["categorie"]):
+        parti.append("maximum taxable nights")
+    if R.get("esenti_sotto_eta"):
+        parti.append(f"exemption under {R['esenti_sotto_eta']}")
+    if R.get("max_soggiorno") or R.get("esente_oltre_mesi"):
+        parti.append("the limit on the length of stay")
+    if R.get("zone"):
+        parti.append("municipal surcharges")
+    return ", ".join(parti)
+
+
+def tabella_supplementi(R):
+    if not R.get("supplementi"):
+        return ""
+    cat = {c["id"]: c["label"] for c in R["categorie"]}
+    zone = {z["id"]: z["label"] for z in R["zone"]}
+    righe = "".join(f"<tr><td>{escape(zone[t['zona']])}</td><td>{escape(cat[t['cat']])}</td><td>{escape(periodo_testo(t))}</td>"
+                    f"<td><strong>{soldi(t['valore'], R['currency'])}</strong></td></tr>" for t in R["supplementi"])
+    return ('<h2>Municipal surcharges (from 1 October 2026)</h2><p>Added per person per night on top of the rate above, in these municipalities only '
+            '(official ATC table; a category not listed has no surcharge there).</p>'
+            f'<div class="tab"><table><thead><tr><th>Municipality</th><th>Accommodation</th><th>Period</th><th>Surcharge</th></tr></thead><tbody>{righe}</tbody></table></div>')
+
+
 def pagina_destinazione(R):
     slug = R["slug"]
     rel = "../"
@@ -775,11 +883,12 @@ def pagina_destinazione(R):
         link_sorelle = (f'<h2>Other destinations in {escape(paese)}</h2><div class="griglia">' +
                         "".join(f'<a href="{rel}{d["slug"]}/">{escape(d["name"])}<small>{escape(riassunto(d))}</small></a>' for d in sorelle) + "</div>")
     corpo = f"""<section class="hero"><h1>{escape(titolo_dest(R['name']))}</h1>
-<p class="lead">{escape(R['official_name'])}. The calculator below uses the official rates and rules: rate by accommodation type{', season' if any(t.get('mesi') for t in R['tariffe']) or R.get('riduzioni') else ''}{', maximum taxable nights' if R.get('max_notti') or any(c.get('max_notti') for c in R['categorie']) else ''}{', age exemption' if R.get('esenti_sotto_eta') else ''}.</p>
+<p class="lead">{escape(R['official_name'])}. The calculator below uses the official rates and rules: {escape(regole_testo(R))}.</p>
 <p class="cifra">{escape(R['name'])} {ANNO}: <strong>{escape(riassunto(R))}</strong></p>
 {fonte_breve(R)}
 </section>
 {modulo_calcolatore(id_dati, rel=rel, cat_default=cat_def)}
+{f'<p class="avviso">{escape(R["avviso_verifica"])}</p>' if R.get("avviso_verifica") else ""}
 <p class="formula"><strong>Formula used:</strong> {escape(formula(R))}</p>
 <p class="small">{esempio(R)}</p>
 {AVVISO}
@@ -787,6 +896,7 @@ def pagina_destinazione(R):
 <h2>Official rates</h2>
 {tabella_tariffe(R)}
 {fonte_breve(R)}
+{tabella_supplementi(R)}
 <h2>Practical notes</h2>
 <ul>{note}</ul>
 <p><strong>Who collects it:</strong> {escape(R['chi_riscuote'])}</p>
@@ -867,7 +977,7 @@ def pagina_francia():
     griglia = "".join(f'<a href="{rel}france/{FR_SLUG[c[0]]}/">{escape(c[1])}<small>{escape(dep_nome(c[2]))}</small></a>' for c in top)
     parigi = fr_regola("75056")
     corpo = f"""<section class="hero"><h1>France tourist tax {ANNO}: rates for every town (taxe de séjour calculator)</h1>
-<p class="lead">In France each town (or group of towns) sets its own taxe de séjour per person per night, within a national scale. Search any of the {len(FR['comuni']):,} towns with {ANNO} rates in the official DGFiP file, or open one of the {len(top)} most visited.</p>
+<p class="lead">In France each town (or group of towns) sets its own taxe de séjour per person per night, within a national scale. Search any of the {len(FR['comuni']):,} towns with {ANNO} rates in the official DGFiP file, or open one of the {len(top)} towns with the most tourist accommodation places (INSEE 2026).</p>
 <p class="fonte">Source: <a href="{escape(FR['fonte'])}" rel="noopener">DGFiP open dataset "Tarifs taxe de séjour – DELTA"</a> (Licence Ouverte 2.0, {ANNO} rates, updated {data_lunga(FR['dataset_modificato'])}), checked on {data_lunga(FR['controllato_il'])}.</p>
 </section>
 <section class="card" id="fr-cerca" data-url="{rel}data/fr.json"><label for="fr-q"><strong>Find your town</strong></label>
@@ -883,7 +993,7 @@ def pagina_francia():
 <h2>Example: Paris {ANNO}</h2>
 {tabella_tariffe(parigi)}
 <p><a href="{rel}france/paris/">Paris tourist tax {ANNO} with calculator</a></p>
-<h2>The {len(top)} most visited towns</h2>
+<h2>The {len(top)} towns with the most tourist accommodation</h2>
 <p class="small">{escape('Chosen with an official criterion: the towns with the most tourist accommodation places (hotel rooms, other tourist accommodation units and campsite pitches) in INSEE 2026 data, among those with 2026 rates in the DGFiP file.')}</p>
 <input class="cerca" type="search" placeholder="Filter the list" data-filtro="fr-lista" aria-label="Filter the list of towns">
 <div class="griglia" id="fr-lista">{griglia}</div>
@@ -921,6 +1031,10 @@ def pagina_paese(slug):
            corpo, briciole=[(nome, f"country/{slug}/")])
 
 
+def n_regole():
+    return len({d.get("gruppo") or d["slug"] for d in DEST})
+
+
 def home():
     gruppi = {}
     for d in DEST:
@@ -928,7 +1042,7 @@ def home():
     griglia = "".join(f'<a href="{d["slug"]}/">{escape(d["name"])}<small>{escape(PAESI[d["country_slug"]])} · {escape(riassunto(d))}</small></a>' for d in DEST)
     griglia += "".join(f'<a href="france/{FR_SLUG[c[0]]}/">{escape(c[1])}<small>France</small></a>' for c in FR_TOP["comuni"][:24])
     corpo = f"""<section class="hero"><h1>Tourist tax calculator {ANNO}: how much will you pay per night?</h1>
-<p class="lead">Official tourist tax rates for {len(DEST)} destinations and {len(FR['comuni']):,} French towns, with a calculator that applies the real rules: rate by hotel category, percentage of the room price, price bands, seasons, maximum taxable nights and age exemptions. Every figure links to its official source.</p></section>
+<p class="lead">Official tourist tax rates on {len(DEST)} destination pages (based on {n_regole()} official rule sets, since Greece, Turkey and the Balearic Islands each have one rule for many places) and for {len(FR['comuni']):,} French towns, with a calculator that applies the real rules: rate by hotel category, percentage of the room price, price bands, seasons, maximum taxable nights and age exemptions. Every figure links to its official source.</p></section>
 {modulo_calcolatore('tutte', con_destinazione=True, rel='')}
 <p class="small">France: <a href="france/">search your town among {len(FR['comuni']):,} French towns</a>.</p>
 {AVVISO}
@@ -941,7 +1055,7 @@ def home():
 <div class="griglia">{''.join(f'<a href="{"france" if s == "france" else "country/" + s}/">{escape(PAESI[s])}<small>{len(gruppi.get(s, [])) if s != "france" else len(FR_TOP["comuni"])} destination pages</small></a>' for s in PAESI)}</div>
 {box_affiliati()}
 {blocco_dati('tutte', DEST)}"""
-    pagina("", f"Tourist Tax Calculator {ANNO}: official rates per night for {len(DEST)} destinations and 10,900 French towns",
+    pagina("", f"Tourist Tax Calculator {ANNO}: official rates per night for {len(DEST)} destination pages and 10,900 French towns",
            f"How much is the tourist tax? Official {ANNO} rates and a calculator for Barcelona, Mallorca, Greece, Turkey, Amsterdam, Rome, Kyoto, Paris and more, with sources.",
            corpo)
 
@@ -994,7 +1108,7 @@ def pagina_come_funziona():
 <li><strong>Age:</strong> children are often exempt, but the age limit varies (Rome under 10, Florence under 12, Balearics under 16, Barcelona under 17, France, Milan and Prague under 18). Japan and Amsterdam have no age exemption.</li>
 <li><strong>Two layers:</strong> sometimes a region and a city both charge (Barcelona: Catalan rate + city surcharge; Sapporo: city + Hokkaido; France: town + department, sometimes region).</li></ul>
 <h2>Who collects it and when</h2>
-<p>In most places the hotel or host collects the tax, often at check-out and separately from the room price; booking platforms sometimes collect it in advance. Bali is different: you pay online before or on arrival. Always check the final amount with your accommodation.</p>
+<p>In most places the accommodation collects the tax from the guest: for example in the Balearic Islands it must be charged before the end of the stay, and in Greece after the stay and before departure. In Kyoto it may already be included in what you paid to a booking site or travel company. Bali is different: you pay the levy on the official Love Bali portal or through its authorised agents. Always check the final amount with your accommodation.</p>
 <h2>How we check the rates</h2>
 <p>Every rate on this site comes from an official source: a law, an ordinance, a tax authority page or official open data. We show the link and the date we checked it under the figure. We re-check every quarter and before 1 January and 1 April, when many rates change. If we cannot read an official source, we do not publish the destination.</p>
 </div>
@@ -1074,7 +1188,7 @@ def extra():
     (SITO / "netlify.toml").write_text("""[build]
   publish = "."
   command = ""
-  # Pubblica solo se è cambiato qualcosa in touristtax/sito (ogni pubblicazione consuma crediti Netlify).
+  # Deploy only when something changed in touristtax/sito.
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ."
 
 [[headers]]
@@ -1145,6 +1259,10 @@ def main():
     privacy()
     dati_francia_client()
     extra()
+    cambi = sorted({x for d in DEST for t in d["tariffe"] + d.get("supplementi", []) for x in
+                    ([t["dal"]] if t.get("dal") else []) + ([(date.fromisoformat(t["al"]) + timedelta(days=1)).isoformat()] if t.get("al") else [])
+                    if x > OGGI.isoformat()} | {f"{ANNO + 1}-01-01"})
+    print("Date in cui rigenerare il sito (cambiano tariffe o titoli):", ", ".join(cambi))
     print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili; {len(DEST)} destinazioni, {len(FR_TOP['comuni'])} pagine comunali francesi, "
           f"{len(FR['comuni'])} comuni nella ricerca.")
 

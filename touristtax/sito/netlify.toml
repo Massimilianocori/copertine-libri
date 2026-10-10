@@ -1,7 +1,7 @@
 [build]
   publish = "."
   command = ""
-  # Pubblica solo se è cambiato qualcosa in touristtax/sito (ogni pubblicazione consuma crediti Netlify).
+  # Deploy only when something changed in touristtax/sito.
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ."
 
 [[headers]]

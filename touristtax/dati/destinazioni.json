@@ -208,6 +208,432 @@
    "max_notti": 7,
    "esenti_sotto_eta": 17,
    "valid_from": "2026-04-01",
+   "zone": [
+    {
+     "id": "castelldefels",
+     "label": "Castelldefels"
+    },
+    {
+     "id": "esplugues",
+     "label": "Esplugues de Llobregat"
+    },
+    {
+     "id": "hospitalet",
+     "label": "L'Hospitalet de Llobregat"
+    },
+    {
+     "id": "prat",
+     "label": "El Prat de Llobregat"
+    },
+    {
+     "id": "sabadell",
+     "label": "Sabadell"
+    },
+    {
+     "id": "santcugat",
+     "label": "Sant Cugat del Vallès"
+    },
+    {
+     "id": "santjust",
+     "label": "Sant Just Desvern"
+    }
+   ],
+   "supplementi": [
+    {
+     "zona": "castelldefels",
+     "cat": "et1",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 4.0
+    },
+    {
+     "zona": "castelldefels",
+     "cat": "et2",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 1.8
+    },
+    {
+     "zona": "castelldefels",
+     "cat": "et4",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 1.75
+    },
+    {
+     "zona": "castelldefels",
+     "cat": "et5",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 0.8
+    },
+    {
+     "zona": "castelldefels",
+     "cat": "et3",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 0.9
+    },
+    {
+     "zona": "castelldefels",
+     "cat": "et1",
+     "dal": "2027-04-01",
+     "valore": 4.0
+    },
+    {
+     "zona": "castelldefels",
+     "cat": "et2",
+     "dal": "2027-04-01",
+     "valore": 2.4
+    },
+    {
+     "zona": "castelldefels",
+     "cat": "et4",
+     "dal": "2027-04-01",
+     "valore": 2.4
+    },
+    {
+     "zona": "castelldefels",
+     "cat": "et5",
+     "dal": "2027-04-01",
+     "valore": 1.0
+    },
+    {
+     "zona": "castelldefels",
+     "cat": "et3",
+     "dal": "2027-04-01",
+     "valore": 1.2
+    },
+    {
+     "zona": "esplugues",
+     "cat": "et2",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 1.8
+    },
+    {
+     "zona": "esplugues",
+     "cat": "et4",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 0.9
+    },
+    {
+     "zona": "esplugues",
+     "cat": "et3",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 1.75
+    },
+    {
+     "zona": "esplugues",
+     "cat": "et2",
+     "dal": "2027-04-01",
+     "valore": 2.4
+    },
+    {
+     "zona": "esplugues",
+     "cat": "et4",
+     "dal": "2027-04-01",
+     "valore": 1.2
+    },
+    {
+     "zona": "esplugues",
+     "cat": "et3",
+     "dal": "2027-04-01",
+     "valore": 2.5
+    },
+    {
+     "zona": "hospitalet",
+     "cat": "et1",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 4.0
+    },
+    {
+     "zona": "hospitalet",
+     "cat": "et2",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 1.8
+    },
+    {
+     "zona": "hospitalet",
+     "cat": "et4",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 1.75
+    },
+    {
+     "zona": "hospitalet",
+     "cat": "et5",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 0.8
+    },
+    {
+     "zona": "hospitalet",
+     "cat": "et3",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 0.9
+    },
+    {
+     "zona": "hospitalet",
+     "cat": "et1",
+     "dal": "2027-04-01",
+     "valore": 4.0
+    },
+    {
+     "zona": "hospitalet",
+     "cat": "et2",
+     "dal": "2027-04-01",
+     "valore": 2.4
+    },
+    {
+     "zona": "hospitalet",
+     "cat": "et4",
+     "dal": "2027-04-01",
+     "valore": 2.5
+    },
+    {
+     "zona": "hospitalet",
+     "cat": "et5",
+     "dal": "2027-04-01",
+     "valore": 1.0
+    },
+    {
+     "zona": "hospitalet",
+     "cat": "et3",
+     "dal": "2027-04-01",
+     "valore": 1.2
+    },
+    {
+     "zona": "sabadell",
+     "cat": "et1",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 4.0
+    },
+    {
+     "zona": "sabadell",
+     "cat": "et2",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 1.8
+    },
+    {
+     "zona": "sabadell",
+     "cat": "et4",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 1.75
+    },
+    {
+     "zona": "sabadell",
+     "cat": "et5",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 0.8
+    },
+    {
+     "zona": "sabadell",
+     "cat": "et3",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 0.9
+    },
+    {
+     "zona": "sabadell",
+     "cat": "et1",
+     "dal": "2027-04-01",
+     "valore": 4.0
+    },
+    {
+     "zona": "sabadell",
+     "cat": "et2",
+     "dal": "2027-04-01",
+     "valore": 2.4
+    },
+    {
+     "zona": "sabadell",
+     "cat": "et4",
+     "dal": "2027-04-01",
+     "valore": 2.5
+    },
+    {
+     "zona": "sabadell",
+     "cat": "et5",
+     "dal": "2027-04-01",
+     "valore": 1.0
+    },
+    {
+     "zona": "sabadell",
+     "cat": "et3",
+     "dal": "2027-04-01",
+     "valore": 1.2
+    },
+    {
+     "zona": "santcugat",
+     "cat": "et1",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 4.0
+    },
+    {
+     "zona": "santcugat",
+     "cat": "et2",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 1.8
+    },
+    {
+     "zona": "santcugat",
+     "cat": "et4",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 1.75
+    },
+    {
+     "zona": "santcugat",
+     "cat": "et5",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 0.8
+    },
+    {
+     "zona": "santcugat",
+     "cat": "et3",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 0.9
+    },
+    {
+     "zona": "santcugat",
+     "cat": "et1",
+     "dal": "2027-04-01",
+     "valore": 4.0
+    },
+    {
+     "zona": "santcugat",
+     "cat": "et2",
+     "dal": "2027-04-01",
+     "valore": 2.4
+    },
+    {
+     "zona": "santcugat",
+     "cat": "et4",
+     "dal": "2027-04-01",
+     "valore": 2.5
+    },
+    {
+     "zona": "santcugat",
+     "cat": "et5",
+     "dal": "2027-04-01",
+     "valore": 1.0
+    },
+    {
+     "zona": "santcugat",
+     "cat": "et3",
+     "dal": "2027-04-01",
+     "valore": 1.2
+    },
+    {
+     "zona": "prat",
+     "cat": "et1",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 4.0
+    },
+    {
+     "zona": "prat",
+     "cat": "et2",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 1.8
+    },
+    {
+     "zona": "prat",
+     "cat": "et4",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 1.75
+    },
+    {
+     "zona": "prat",
+     "cat": "et5",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 0.8
+    },
+    {
+     "zona": "prat",
+     "cat": "et3",
+     "dal": "2026-10-01",
+     "al": "2027-03-31",
+     "valore": 0.9
+    },
+    {
+     "zona": "prat",
+     "cat": "et1",
+     "dal": "2027-04-01",
+     "valore": 4.0
+    },
+    {
+     "zona": "prat",
+     "cat": "et2",
+     "dal": "2027-04-01",
+     "valore": 2.4
+    },
+    {
+     "zona": "prat",
+     "cat": "et4",
+     "dal": "2027-04-01",
+     "valore": 2.5
+    },
+    {
+     "zona": "prat",
+     "cat": "et5",
+     "dal": "2027-04-01",
+     "valore": 1.0
+    },
+    {
+     "zona": "prat",
+     "cat": "et3",
+     "dal": "2027-04-01",
+     "valore": 1.2
+    },
+    {
+     "zona": "santjust",
+     "cat": "et1",
+     "dal": "2026-10-01",
+     "valore": 4.0
+    },
+    {
+     "zona": "santjust",
+     "cat": "et2",
+     "dal": "2026-10-01",
+     "valore": 1.8
+    },
+    {
+     "zona": "santjust",
+     "cat": "et4",
+     "dal": "2026-10-01",
+     "valore": 1.75
+    },
+    {
+     "zona": "santjust",
+     "cat": "et5",
+     "dal": "2026-10-01",
+     "valore": 0.8
+    },
+    {
+     "zona": "santjust",
+     "cat": "et3",
+     "dal": "2026-10-01",
+     "valore": 0.9
+    }
+   ],
    "chi_riscuote": "The hotel or apartment operator.",
    "fonti": [
     {
@@ -227,7 +653,7 @@
    ],
    "note": [
     "Covers the Costa Brava, Costa Daurada, Sitges, Girona, Tarragona and the Pyrenees: everywhere in Catalonia except the city of Barcelona.",
-    "Seven municipalities add their own surcharge from 1 October 2026: Castelldefels, Esplugues, L'Hospitalet de Llobregat, El Prat de Llobregat, Sabadell, Sant Cugat del Vallès and Sant Just Desvern. The calculator does not add these surcharges.",
+    "Seven municipalities add their own surcharge from 1 October 2026: Castelldefels, Esplugues, L'Hospitalet de Llobregat, El Prat de Llobregat, Sabadell, Sant Cugat del Vallès and Sant Just Desvern. Choose the municipality in the calculator to add it (official ATC table).",
     "A higher special rate applies only to establishments inside the gaming areas of a tourist recreation centre (e.g. PortAventura's casino area).",
     "Charged for a maximum of 7 days per stay. Under-17s do not pay. New rates apply from 1 April 2027."
    ],
@@ -381,8 +807,16 @@
    ],
    "esenti_sotto_eta": 16,
    "valid_from": "2018-01-01",
-   "chi_riscuote": "The hotel or rental operator, usually at check-out.",
+   "chi_riscuote": "The operator of the establishment (substitute taxpayer), who must charge it to the guest before the end of the stay.",
    "fonti": [
+    {
+     "titolo": "Agència Tributària de les Illes Balears (ATIB) - Impost sobre estades turístiques: information and regulations (rates, reductions, exemptions, who charges it)",
+     "url": "https://sede.atib.es/cva/tributos/contenido/IET_Info_Norma",
+     "http": 200,
+     "formato": "HTML app (Catalan)",
+     "controllato_il": "2026-10-10",
+     "nota": "The ATIB server's security certificate had expired on the check date; the page was read in a browser ignoring the certificate. Same rates as the law."
+    },
     {
      "titolo": "Law 2/2016 of 30 March on the tourist stay tax in the Balearic Islands - consolidated text, Boletín Oficial del Estado (BOE-A-2016-4175)",
      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2016-4175",
@@ -395,14 +829,18 @@
    "note": [
     "Low season (1 November to 30 April): the tax is reduced by 75%.",
     "From the 9th day of a stay in the same establishment: a further 50% reduction (on top of the low-season reduction, if any).",
-    "Under-16s do not pay. Stays for reasons of force majeure are also exempt.",
-    "The tax is charged per person and per day (or fraction) of stay, and collected by the establishment.",
+    "Under-16s do not pay. Stays for force majeure, documented health-care stays (and companions) and stays subsidised by public social programmes are also exempt.",
+    "The tax is charged per person and per day (or fraction) of stay. The establishment must charge it to the guest at any time before the end of the stay.",
+    "Last verified on 10 October 2026 against Law 2/2016 as consolidated on 17/05/2025 and the Balearic Tax Agency (ATIB) page; no later amendment found in the official bulletin. Check with your accommodation.",
     "The same Balearic rate applies in Palma, Alcúdia, Magaluf and the rest of Mallorca."
    ],
    "esenzioni": [
     "Children under 16",
-    "Stays due to force majeure"
+    "Stays due to force majeure",
+    "Health-care stays within the Balearic public health system's services, and companions (with documents)",
+    "Stays subsidised by social programmes of EU public administrations"
    ],
+   "avviso_verifica": "Rates last verified on 10 October 2026 against Law 2/2016 (consolidated text of 17/05/2025) and the ATIB page. Check with your accommodation.",
    "gruppo": "balearics",
    "controllato_il": "2026-10-10"
   },
@@ -550,8 +988,16 @@
    ],
    "esenti_sotto_eta": 16,
    "valid_from": "2018-01-01",
-   "chi_riscuote": "The hotel or rental operator, usually at check-out.",
+   "chi_riscuote": "The operator of the establishment (substitute taxpayer), who must charge it to the guest before the end of the stay.",
    "fonti": [
+    {
+     "titolo": "Agència Tributària de les Illes Balears (ATIB) - Impost sobre estades turístiques: information and regulations (rates, reductions, exemptions, who charges it)",
+     "url": "https://sede.atib.es/cva/tributos/contenido/IET_Info_Norma",
+     "http": 200,
+     "formato": "HTML app (Catalan)",
+     "controllato_il": "2026-10-10",
+     "nota": "The ATIB server's security certificate had expired on the check date; the page was read in a browser ignoring the certificate. Same rates as the law."
+    },
     {
      "titolo": "Law 2/2016 of 30 March on the tourist stay tax in the Balearic Islands - consolidated text, Boletín Oficial del Estado (BOE-A-2016-4175)",
      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2016-4175",
@@ -564,14 +1010,18 @@
    "note": [
     "Low season (1 November to 30 April): the tax is reduced by 75%.",
     "From the 9th day of a stay in the same establishment: a further 50% reduction (on top of the low-season reduction, if any).",
-    "Under-16s do not pay. Stays for reasons of force majeure are also exempt.",
-    "The tax is charged per person and per day (or fraction) of stay, and collected by the establishment.",
+    "Under-16s do not pay. Stays for force majeure, documented health-care stays (and companions) and stays subsidised by public social programmes are also exempt.",
+    "The tax is charged per person and per day (or fraction) of stay. The establishment must charge it to the guest at any time before the end of the stay.",
+    "Last verified on 10 October 2026 against Law 2/2016 as consolidated on 17/05/2025 and the Balearic Tax Agency (ATIB) page; no later amendment found in the official bulletin. Check with your accommodation.",
     "The same Balearic rate applies in Ibiza town, Sant Antoni and the rest of the island."
    ],
    "esenzioni": [
     "Children under 16",
-    "Stays due to force majeure"
+    "Stays due to force majeure",
+    "Health-care stays within the Balearic public health system's services, and companions (with documents)",
+    "Stays subsidised by social programmes of EU public administrations"
    ],
+   "avviso_verifica": "Rates last verified on 10 October 2026 against Law 2/2016 (consolidated text of 17/05/2025) and the ATIB page. Check with your accommodation.",
    "gruppo": "balearics",
    "controllato_il": "2026-10-10"
   },
@@ -719,8 +1169,16 @@
    ],
    "esenti_sotto_eta": 16,
    "valid_from": "2018-01-01",
-   "chi_riscuote": "The hotel or rental operator, usually at check-out.",
+   "chi_riscuote": "The operator of the establishment (substitute taxpayer), who must charge it to the guest before the end of the stay.",
    "fonti": [
+    {
+     "titolo": "Agència Tributària de les Illes Balears (ATIB) - Impost sobre estades turístiques: information and regulations (rates, reductions, exemptions, who charges it)",
+     "url": "https://sede.atib.es/cva/tributos/contenido/IET_Info_Norma",
+     "http": 200,
+     "formato": "HTML app (Catalan)",
+     "controllato_il": "2026-10-10",
+     "nota": "The ATIB server's security certificate had expired on the check date; the page was read in a browser ignoring the certificate. Same rates as the law."
+    },
     {
      "titolo": "Law 2/2016 of 30 March on the tourist stay tax in the Balearic Islands - consolidated text, Boletín Oficial del Estado (BOE-A-2016-4175)",
      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2016-4175",
@@ -733,14 +1191,18 @@
    "note": [
     "Low season (1 November to 30 April): the tax is reduced by 75%.",
     "From the 9th day of a stay in the same establishment: a further 50% reduction (on top of the low-season reduction, if any).",
-    "Under-16s do not pay. Stays for reasons of force majeure are also exempt.",
-    "The tax is charged per person and per day (or fraction) of stay, and collected by the establishment.",
+    "Under-16s do not pay. Stays for force majeure, documented health-care stays (and companions) and stays subsidised by public social programmes are also exempt.",
+    "The tax is charged per person and per day (or fraction) of stay. The establishment must charge it to the guest at any time before the end of the stay.",
+    "Last verified on 10 October 2026 against Law 2/2016 as consolidated on 17/05/2025 and the Balearic Tax Agency (ATIB) page; no later amendment found in the official bulletin. Check with your accommodation.",
     "The same Balearic rate applies everywhere on Menorca."
    ],
    "esenzioni": [
     "Children under 16",
-    "Stays due to force majeure"
+    "Stays due to force majeure",
+    "Health-care stays within the Balearic public health system's services, and companions (with documents)",
+    "Stays subsidised by social programmes of EU public administrations"
    ],
+   "avviso_verifica": "Rates last verified on 10 October 2026 against Law 2/2016 (consolidated text of 17/05/2025) and the ATIB page. Check with your accommodation.",
    "gruppo": "balearics",
    "controllato_il": "2026-10-10"
   },
@@ -888,8 +1350,16 @@
    ],
    "esenti_sotto_eta": 16,
    "valid_from": "2018-01-01",
-   "chi_riscuote": "The hotel or rental operator, usually at check-out.",
+   "chi_riscuote": "The operator of the establishment (substitute taxpayer), who must charge it to the guest before the end of the stay.",
    "fonti": [
+    {
+     "titolo": "Agència Tributària de les Illes Balears (ATIB) - Impost sobre estades turístiques: information and regulations (rates, reductions, exemptions, who charges it)",
+     "url": "https://sede.atib.es/cva/tributos/contenido/IET_Info_Norma",
+     "http": 200,
+     "formato": "HTML app (Catalan)",
+     "controllato_il": "2026-10-10",
+     "nota": "The ATIB server's security certificate had expired on the check date; the page was read in a browser ignoring the certificate. Same rates as the law."
+    },
     {
      "titolo": "Law 2/2016 of 30 March on the tourist stay tax in the Balearic Islands - consolidated text, Boletín Oficial del Estado (BOE-A-2016-4175)",
      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2016-4175",
@@ -902,14 +1372,18 @@
    "note": [
     "Low season (1 November to 30 April): the tax is reduced by 75%.",
     "From the 9th day of a stay in the same establishment: a further 50% reduction (on top of the low-season reduction, if any).",
-    "Under-16s do not pay. Stays for reasons of force majeure are also exempt.",
-    "The tax is charged per person and per day (or fraction) of stay, and collected by the establishment.",
+    "Under-16s do not pay. Stays for force majeure, documented health-care stays (and companions) and stays subsidised by public social programmes are also exempt.",
+    "The tax is charged per person and per day (or fraction) of stay. The establishment must charge it to the guest at any time before the end of the stay.",
+    "Last verified on 10 October 2026 against Law 2/2016 as consolidated on 17/05/2025 and the Balearic Tax Agency (ATIB) page; no later amendment found in the official bulletin. Check with your accommodation.",
     "The same Balearic rate applies on Formentera."
    ],
    "esenzioni": [
     "Children under 16",
-    "Stays due to force majeure"
+    "Stays due to force majeure",
+    "Health-care stays within the Balearic public health system's services, and companions (with documents)",
+    "Stays subsidised by social programmes of EU public administrations"
    ],
+   "avviso_verifica": "Rates last verified on 10 October 2026 against Law 2/2016 (consolidated text of 17/05/2025) and the ATIB page. Check with your accommodation.",
    "gruppo": "balearics",
    "controllato_il": "2026-10-10"
   },
@@ -1272,7 +1746,9 @@
     "The guest pays it at the property after the stay and before departure, and receives a separate receipt. It is not subject to VAT.",
     "The same national rate applies everywhere in Greece. Cruise passengers pay a separate cruise fee (not covered here)."
    ],
-   "esenzioni": [],
+   "esenzioni": [
+    "Accommodation provided free of charge (the fee is not imposed)"
+   ],
    "gruppo": "greece",
    "controllato_il": "2026-10-10"
   },
@@ -1635,7 +2111,9 @@
     "The guest pays it at the property after the stay and before departure, and receives a separate receipt. It is not subject to VAT.",
     "The same national rate applies everywhere in Greece. Cruise passengers pay a separate cruise fee (not covered here)."
    ],
-   "esenzioni": [],
+   "esenzioni": [
+    "Accommodation provided free of charge (the fee is not imposed)"
+   ],
    "gruppo": "greece",
    "controllato_il": "2026-10-10"
   },
@@ -1998,7 +2476,9 @@
     "The guest pays it at the property after the stay and before departure, and receives a separate receipt. It is not subject to VAT.",
     "The same national rate applies everywhere in Greece. Cruise passengers pay a separate cruise fee (not covered here)."
    ],
-   "esenzioni": [],
+   "esenzioni": [
+    "Accommodation provided free of charge (the fee is not imposed)"
+   ],
    "gruppo": "greece",
    "controllato_il": "2026-10-10"
   },
@@ -2362,7 +2842,9 @@
     "The same national rate applies everywhere in Greece. Cruise passengers pay a separate cruise fee (not covered here).",
     "Applies in Heraklion, Chania, Rethymno, Agios Nikolaos and everywhere on the island."
    ],
-   "esenzioni": [],
+   "esenzioni": [
+    "Accommodation provided free of charge (the fee is not imposed)"
+   ],
    "gruppo": "greece",
    "controllato_il": "2026-10-10"
   },
@@ -2725,7 +3207,9 @@
     "The guest pays it at the property after the stay and before departure, and receives a separate receipt. It is not subject to VAT.",
     "The same national rate applies everywhere in Greece. Cruise passengers pay a separate cruise fee (not covered here)."
    ],
-   "esenzioni": [],
+   "esenzioni": [
+    "Accommodation provided free of charge (the fee is not imposed)"
+   ],
    "gruppo": "greece",
    "controllato_il": "2026-10-10"
   },
@@ -3088,7 +3572,9 @@
     "The guest pays it at the property after the stay and before departure, and receives a separate receipt. It is not subject to VAT.",
     "The same national rate applies everywhere in Greece. Cruise passengers pay a separate cruise fee (not covered here)."
    ],
-   "esenzioni": [],
+   "esenzioni": [
+    "Accommodation provided free of charge (the fee is not imposed)"
+   ],
    "gruppo": "greece",
    "controllato_il": "2026-10-10"
   },
@@ -3451,7 +3937,9 @@
     "The guest pays it at the property after the stay and before departure, and receives a separate receipt. It is not subject to VAT.",
     "The same national rate applies everywhere in Greece. Cruise passengers pay a separate cruise fee (not covered here)."
    ],
-   "esenzioni": [],
+   "esenzioni": [
+    "Accommodation provided free of charge (the fee is not imposed)"
+   ],
    "gruppo": "greece",
    "controllato_il": "2026-10-10"
   },
@@ -3814,7 +4302,9 @@
     "The guest pays it at the property after the stay and before departure, and receives a separate receipt. It is not subject to VAT.",
     "The same national rate applies everywhere in Greece. Cruise passengers pay a separate cruise fee (not covered here)."
    ],
-   "esenzioni": [],
+   "esenzioni": [
+    "Accommodation provided free of charge (the fee is not imposed)"
+   ],
    "gruppo": "greece",
    "controllato_il": "2026-10-10"
   },
@@ -4165,10 +4655,17 @@
      "controllato_il": "2026-10-10"
     },
     {
-     "titolo": "Berlin House of Representatives - bill amending the Overnight Stay Tax Act (§4 base, §5 rate 7.5%, 21-night rule abolished)",
-     "url": "https://parlament-berlin.de/adosservice/19/Haupt/vorgang/h19-2027-v.pdf",
+     "titolo": "Senate Department for Finance - City Tax FAQ: main changes to the Overnight Stay Tax Act 2024-2026 (7.5% from 1 January 2025, 21-day rule abolished)",
+     "url": "https://www.berlin.de/sen/finanzen/steuern/informationen-fuer-steuerzahler-/faq-steuern/artikel.57911.php",
      "http": 200,
-     "formato": "PDF (German)",
+     "formato": "HTML (German)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Berlin Service Portal - Übernachtungsteuer: 7.5% of the net price of the overnight stay, without extras such as breakfast",
+     "url": "https://service.berlin.de/dienstleistung/326105/",
+     "http": 200,
+     "formato": "HTML (German)",
      "controllato_il": "2026-10-10"
     }
    ],
@@ -4232,12 +4729,15 @@
    "note": [
     "From 1 July 2026 to 30 June 2027: 5% of the price of the stay, excluding VAT and breakfast.",
     "Until 30 June 2026 it was 3.2% after a flat 11% deduction; from 1 July 2027 it will be 8%.",
-    "The City of Vienna also publishes an official online Ortstaxe calculator for hosts."
+    "The City of Vienna also publishes an official online Ortstaxe calculator for hosts.",
+    "People who stay more than 3 months without interruption in the accommodation are exempt: the calculator shows no tax for such stays."
    ],
    "esenzioni": [
     "Minors staying for school or vocational training, or in youth hostels",
-    "People staying more than 3 months without interruption"
+    "Students at Vienna universities and colleges (Studierende an Wiener Hoch- oder Fachschulen)",
+    "People staying more than 3 months without interruption in the accommodation"
    ],
+   "esente_oltre_mesi": 3,
    "prezzo_esempio": 150,
    "controllato_il": "2026-10-10"
   },
@@ -4292,7 +4792,8 @@
    ],
    "note": [
     "50 CZK per person for each day of the stay except the day of arrival (so one fee per night).",
-    "Paid stays of up to 60 consecutive days with the same provider are covered; under-18s are exempt by national law.",
+    "Only paid stays lasting at most 60 consecutive calendar days with the same provider are covered. The arrival day counts as a day of the stay, so a stay of 60 nights or more (61+ calendar days) is outside the fee.",
+    "Under-18s are exempt by national law.",
     "Other exemptions in national law include blind and severely disabled people (ZTP/P) with a companion, and people hospitalised in the city."
    ],
    "esenzioni": [
@@ -4329,6 +4830,7 @@
    ],
    "max_notti": 5,
    "valid_from": "2026-07-24",
+   "in_vigore_dal": "2026-07-24",
    "chi_riscuote": "The accommodation provider.",
    "fonti": [
     {
@@ -4442,6 +4944,18 @@
      "label": "Hostel"
     },
     {
+     "id": "rifm",
+     "label": "Mountain refuge (rifugio montano)"
+    },
+    {
+     "id": "rife",
+     "label": "Hiking refuge (rifugio escursionistico)"
+    },
+    {
+     "id": "ccam",
+     "label": "Walkers' house (casa del camminatore)"
+    },
+    {
      "id": "camp",
      "label": "Campsite, holiday village or motorhome area",
      "max_notti": 5
@@ -4542,6 +5056,21 @@
      "cat": "camp",
      "dal": "2023-10-01",
      "valore": 3
+    },
+    {
+     "cat": "rifm",
+     "dal": "2023-10-01",
+     "valore": 3.5
+    },
+    {
+     "cat": "rife",
+     "dal": "2023-10-01",
+     "valore": 3.5
+    },
+    {
+     "cat": "ccam",
+     "dal": "2023-10-01",
+     "valore": 3.5
     }
    ],
    "max_notti": 10,
@@ -4581,6 +5110,7 @@
     "People needing medical care and one companion per hospitalised patient (signed declaration)",
     "Coach drivers and tour leaders of organised groups (one per 25 participants)",
     "Police and armed forces on public-order duty",
+    "People with severe disability certified under art. 3(3) of Law 104/1992 (or equivalent foreign rules) and their family caregiver (signed declaration)",
     "Other cases listed in art. 5 of the regulation"
    ],
    "controllato_il": "2026-10-10"
@@ -4851,8 +5381,12 @@
     },
     {
      "id": "cav",
-     "label": "Holiday homes and apartments, short-term rentals (e.g. Airbnb)",
+     "label": "Holiday homes and apartments (case e appartamenti per vacanze)",
      "max_notti": 14
+    },
+    {
+     "id": "str",
+     "label": "Short-term rental (locazione breve ex D.L. 50/2017, e.g. Airbnb)"
     },
     {
      "id": "bb",
@@ -4867,9 +5401,13 @@
      "label": "Locande"
     },
     {
-     "id": "cpf",
-     "label": "Case per ferie",
+     "id": "cpfnp",
+     "label": "Case per ferie run by non-profit bodies",
      "max_notti": 14
+    },
+    {
+     "id": "cpf",
+     "label": "Case per ferie (other operators)"
     },
     {
      "id": "ost",
@@ -4936,6 +5474,12 @@
      "valore": 9.5
     },
     {
+     "cat": "str",
+     "dal": "2026-01-01",
+     "al": "2026-03-31",
+     "valore": 9.5
+    },
+    {
      "cat": "bb",
      "dal": "2026-01-01",
      "al": "2026-03-31",
@@ -4952,6 +5496,12 @@
      "dal": "2026-01-01",
      "al": "2026-03-31",
      "valore": 9.5
+    },
+    {
+     "cat": "cpfnp",
+     "dal": "2026-01-01",
+     "al": "2026-03-31",
+     "valore": 7
     },
     {
      "cat": "cpf",
@@ -5026,6 +5576,12 @@
      "valore": 9.5
     },
     {
+     "cat": "str",
+     "dal": "2026-04-01",
+     "al": "2026-12-31",
+     "valore": 9.5
+    },
+    {
      "cat": "bb",
      "dal": "2026-04-01",
      "al": "2026-12-31",
@@ -5042,6 +5598,12 @@
      "dal": "2026-04-01",
      "al": "2026-12-31",
      "valore": 9.5
+    },
+    {
+     "cat": "cpfnp",
+     "dal": "2026-04-01",
+     "al": "2026-12-31",
+     "valore": 7
     },
     {
      "cat": "cpf",
@@ -5081,7 +5643,7 @@
      "controllato_il": "2026-10-10"
     },
     {
-     "titolo": "Comune di Milano - official guest notice on the tax: exemptions (under 18; from the 15th day in RTA, holiday homes and case per ferie)",
+     "titolo": "Comune di Milano - official guest notice on the tax (2025 edition): exemptions, incl. under 18 and the 15th-day rule for RTA, non-profit case per ferie and holiday homes",
      "url": "https://www.comune.milano.it/en/documents/20118/1016509/Espositore+2025+-+Imposta+di+soggiorno.pdf/70201c68-43fe-aa56-dbf1-3406b894d874?version=1.0&t=1754056696155&download=true",
      "http": 200,
      "formato": "PDF (Italian)",
@@ -5090,7 +5652,7 @@
    ],
    "note": [
     "Paid per person per night. Under-18s are exempt.",
-    "In tourist hotel residences, holiday homes/apartments and case per ferie, nights from the 15th day onwards are exempt. In hotels every night is charged.",
+    "The official guest notice exempts stays from the 15th day onwards only in tourist hotel residences, case per ferie run by non-profit bodies and holiday homes and apartments (case e appartamenti per vacanze). Hotels, short-term rentals and the other categories are charged for every night.",
     "The 2026 rates changed on 1 April 2026. Rates for 2027 are not published yet: the calculator stops at 31 December 2026."
    ],
    "esenzioni": [
@@ -5194,7 +5756,6 @@
    "tariffe": [
     {
      "cat": "all",
-     "dal": "2026-01-01",
      "al": "2027-03-31",
      "valore": [
       [
@@ -5215,7 +5776,7 @@
      ]
     }
    ],
-   "valid_from": "2026-01-01",
+   "valid_from": "",
    "chi_riscuote": "The hotel or ryokan, which pays it to the Tokyo Metropolitan Government.",
    "fonti": [
     {
@@ -5246,7 +5807,7 @@
    "currency": "JPY",
    "official_name": "Kutchan Town accommodation tax + Hokkaido accommodation tax (宿泊税)",
    "tipo": "percent",
-   "etichetta_prezzo": "Accommodation charge per night (all guests, all rooms)",
+   "etichetta_prezzo": "Accommodation charge (宿泊料金) per night, all guests and rooms; ask the property what it includes",
    "categorie": [
     {
      "id": "all",
@@ -5286,7 +5847,7 @@
     }
    ],
    "note": [
-    "In Kutchan Town (which includes the Niseko Hirafu ski area) the Hokkaido tax and the town tax together are a uniform 3% of the accommodation charge, from 1 April 2026.",
+    "In Kutchan Town (which includes the Niseko Hirafu ski area) the Hokkaido tax and the town tax together are a uniform 3% of the accommodation charge (宿泊料金, the tax base named in the Ministry's consent), from 1 April 2026. The official sources we read do not say whether meals are excluded: ask the property.",
     "Other Niseko-area resorts are in different municipalities (Niseko Town, Rusutsu, Akaigawa) with their own rules: this page covers Kutchan only.",
     "There is no age exemption: only school trips and some nursery events are exempt."
    ],
@@ -5306,7 +5867,7 @@
    "currency": "JPY",
    "official_name": "Sapporo City accommodation tax + Hokkaido accommodation tax (宿泊税)",
    "tipo": "bands",
-   "etichetta_prezzo": "Accommodation charge per night for the whole room or unit",
+   "etichetta_prezzo": "Accommodation charge (宿泊料金) per night for the whole room or unit; ask the property what it includes",
    "categorie": [
     {
      "id": "all",
@@ -5351,6 +5912,7 @@
     }
    ],
    "valid_from": "2026-04-01",
+   "in_vigore_dal": "2026-04-01",
    "chi_riscuote": "The accommodation (special collection).",
    "fonti": [
     {
@@ -5389,7 +5951,7 @@
    "currency": "JPY",
    "official_name": "Hakuba Village accommodation tax + Nagano Prefecture accommodation tax (宿泊税)",
    "tipo": "bands",
-   "etichetta_prezzo": "Accommodation charge per night for the whole room or unit",
+   "etichetta_prezzo": "Accommodation charge (宿泊料金) per night for the whole room or unit; ask the property what it includes",
    "categorie": [
     {
      "id": "all",
@@ -5501,6 +6063,7 @@
     }
    ],
    "valid_from": "2026-06-01",
+   "in_vigore_dal": "2026-06-01",
    "chi_riscuote": "The accommodation (special collection).",
    "fonti": [
     {
@@ -5523,13 +6086,20 @@
      "http": 200,
      "formato": "PDF (Japanese)",
      "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent to the new Nozawa Onsen accommodation tax (5%, 3.5% for the first three years), 13 February 2026",
+     "url": "https://www.soumu.go.jp/main_content/001055670.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-10"
     }
    ],
    "note": [
     "Since 1 June 2026 guests in Hakuba pay a village tax and a prefectural tax, per person per night, based on the accommodation charge per person per night.",
     "Nagano Prefecture charges half its normal rate in Hakuba (because the village has its own tax): ¥100 for the first three years, then ¥150.",
     "No tax below ¥6,000 per person per night. Totals shown are village + prefecture.",
-    "Nozawa Onsen also introduced its own tax on 1 June 2026 (a percentage): not covered on this page."
+    "Nozawa Onsen has its own tax from 1 June 2026 (3.5% of the accommodation charge for the first three years, then 5%, per the Ministry's consent): not covered on this page."
    ],
    "esenzioni": [
     "Stays below ¥6,000 per person per night",
