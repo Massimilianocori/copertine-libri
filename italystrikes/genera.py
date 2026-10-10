@@ -23,7 +23,7 @@ DATI = RADICE / "dati"
 SITO = RADICE / "sito"
 URL_SITO = "https://italy-strikes-today.netlify.app"  # cambiare qui se il nome del sito su Netlify è diverso
 NOME = "Italy Strikes Today"
-GOOGLE_VERIFICA = ""  # Search Console: incollare qui il codice del tag HTML quando Massimiliano lo manda. Non rimuoverlo dopo.
+GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console, proprietà https://italy-strikes-today.netlify.app (non rimuoverla)
 URL_DATI_LIVE = ("https://raw.githubusercontent.com/Massimilianocori/copertine-libri/"
                  "ccr-b7fd6b9e-n096cr/italystrikes/dati/vista.json")
 URL_REGISTRO = "https://scioperi.mit.gov.it/mit2/public/scioperi"

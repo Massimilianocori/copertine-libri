@@ -1,6 +1,6 @@
 # Italy Strikes Today — note di costruzione
 
-## Stato (10 ottobre 2026): Fase 1 costruita, NON ancora pubblicata
+## Stato (10 ottobre 2026): ONLINE su https://italy-strikes-today.netlify.app
 - Sito statico in `italystrikes/sito/` (53 pagine + 404), generato da `python3 italystrikes/genera.py`. Indirizzo previsto: **https://italy-strikes-today.netlify.app** (libero il 10/10/2026). Se Netlify dà un altro nome, cambiare `URL_SITO` in `genera.py` e rigenerare.
 - `italystrikes.netlify.app` è **già occupato** da un concorrente ("Italy Transport Strikes"): una pagina sola che carica i dati dal registro solo premendo un pulsante, senza sitemap né pagine per città/data. Google vede poco o nulla del suo contenuto.
 - Da fare con Massimiliano: progetto Netlify, moduli, Search Console (vedi "Cosa deve fare Massimiliano"); permesso per il file di aggiornamento automatico su `main` (vedi sotto).
@@ -32,7 +32,7 @@
 
 ## Mancano / da fare
 - **Invio degli avvisi email** agli iscritti del modulo `alerts`: da costruire quando arrivano i primi iscritti (confronto giornaliero date/luogo con `vista.json`; serve un servizio di invio gratuito o la casella Gmail di Massimiliano con il suo sì). Fino ad allora la promessa in pagina va mantenuta a mano dalla routine settimanale.
-- `GOOGLE_VERIFICA` in `genera.py`: vuoto, da riempire con il tag di Search Console che manda Massimiliano.
+- `GOOGLE_VERIFICA` inserito il 10/10/2026 (stesso codice degli altri due siti: è legato all'account Google). Non rimuoverlo.
 - AdSense: richiesta al giorno ~20 se Search Console mostra pagine indicizzate e impression in crescita. Prima: privacy con sezione pubblicità e CMP di Google per il consenso UE.
 - Satelliti dopo il test: codice fiscale calculator, ZTL per città, versione italiana con lo stesso motore.
 
@@ -44,7 +44,7 @@
 5. Almeno 5 query con "today", "tomorrow" o mese+anno tra le prime 20 per impression.
 6. AdSense approvato; se attivo ≥7 giorni: RPM ≥6 $.
 Passano 1-4 → si continua (satelliti, versione italiana, Journey a 1.000 sessioni Tier 1/30 giorni). Fallisce 1 o 2 → stop. Fallisce solo 4 → tenere il sito e aprire la versione italiana.
-Data di inizio: il giorno della pubblicazione su Netlify (da scrivere qui).
+Data di inizio: **10/10/2026** (pubblicato da GitHub, progetto Netlify `italy-strikes-today`, site id `c6aea0b3-93d2-4570-9351-c7120a20968e`, moduli attivati, notifica email su tutti i moduli). Verdetto a 45 giorni: **24/11/2026**.
 
 ## Cosa deve fare Massimiliano (una volta)
 1. Netlify → Add new project → Import an existing project → GitHub → `copertine-libri` → branch `ccr-b7fd6b9e-n096cr`, Base directory `italystrikes/sito`, Publish directory `italystrikes/sito`, build command vuoto → Deploy. Poi Project configuration → Change project name → `italy-strikes-today`.
