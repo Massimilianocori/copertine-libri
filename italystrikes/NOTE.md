@@ -64,3 +64,9 @@ Data di inizio: **10/10/2026** (pubblicato da GitHub, progetto Netlify `italy-st
 - Edizione 1, 68 pagine 6×9. Revisione indipendente dei fatti fatta il 10/10/2026, tutte le correzioni applicate (treni garantiti: Tabella A 146, Tabella B 62, letti con `fonti/leggi_tabelle.py`).
 - La Tabella A Trenitalia vale fino al 12/12/2026: a dicembre scaricare le nuove tabelle, rilanciare `leggi_tabelle.py` e `build.py`, aggiornare l'edizione e mandarla agli acquirenti.
 - Vendita: Payhip (account di Massimiliano). Pagina `guide/italy-by-train/` e link nel menu/riquadro compaiono solo se `dati/prodotti.json` ha l'URL Payhip. Accendere solo con il sì di Massimiliano. Soglia del test in `prodotti/ISTRUZIONI-GUIDA.md`.
+
+## Guide gratuite nuove (10/10/2026, sì di Massimiliano: "ok")
+- EN `guides/strike-free-periods/` e `guides/strike-rules-notice-duration/`; IT `it/guida/periodi-di-franchigia/` e `it/guida/regole-degli-scioperi/` (hreflang collegati con `GUIDE_EN_IT` in `genera_it.py`). Dati in `FRANCHIGIE`, `TABELLA_A` in `genera.py`; fonti in `prodotti/italy-by-train/fonti/`.
+- Guide esistenti corrette con i fatti della revisione: treni garantiti (come leggere la Tabella A: il numero di treni compare solo fino al 12/12/2026; clausola Italo "non garantito"; scadenze di rimborso Trenitalia prima dello sciopero), rimborsi (regole UE e indennizzi Trenitalia/Italo), registro (ricerca storica dal 2014, campi corretti), bus e metro (due fasce, 6 ore in tutto, 20 giorni tra scioperi).
+- A dicembre 2026: aggiornare `TABELLA_A` con la nuova tabella Trenitalia.
+- Escono con la pubblicazione settimanale (17/10), senza crediti in più.

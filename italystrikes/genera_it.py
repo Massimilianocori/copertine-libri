@@ -43,6 +43,7 @@ SETTORI_IT = {  # slug pagina it: (slug filtro, nome, titolo, testo)
 SETT_EN_IT = {"trains": "treni", "flights": "aerei", "local-transport": "mezzi-pubblici", "ferries": "traghetti", "taxis": "taxi",
               "general-strikes": "sciopero-generale", "motorways": "autostrade", "freight": "merci"}
 FINESTRE = {"today": "oggi", "tomorrow": "domani", "this-week": "questa-settimana", "next-week": "prossima-settimana"}
+GUIDE_EN_IT = {"guides/strike-free-periods": "guida/periodi-di-franchigia", "guides/strike-rules-notice-duration": "guida/regole-degli-scioperi"}
 
 
 def percorso_it(p):
@@ -59,6 +60,8 @@ def percorso_it(p):
         return f"it/{SETT_EN_IT[t]}/"
     if t in EN_TO_IT_CITTA:
         return f"it/{EN_TO_IT_CITTA[t]}/"
+    if t in GUIDE_EN_IT:
+        return f"it/{GUIDE_EN_IT[t]}/"
     if t == "airports":
         return "it/aeroporti/"
     m = re.fullmatch(r"airports/([a-z-]+)", t)
@@ -82,6 +85,9 @@ def percorso_en(p_it):
         return f"{inv[t]}/"
     if t in IT_TO_EN_CITTA:
         return f"{IT_TO_EN_CITTA[t]}/"
+    inv = {v: k for k, v in GUIDE_EN_IT.items()}
+    if t in inv:
+        return f"{inv[t]}/"
     if t == "aeroporti":
         return "airports/"
     inv = {v: k for k, v in APT_EN_IT.items()}
@@ -486,7 +492,8 @@ def costruisci(g):
 <h2>Treni</h2>
 <ul><li>Treni regionali di Trenitalia: garantiti nei giorni feriali dalle 6 alle 9 e dalle 18 alle 21; nei festivi dalle 7 alle 10 e dalle 18 alle 21.</li>
 <li>Alcuni treni a lunga percorrenza (Frecce, Intercity) sono sempre garantiti: sono nella tabella dei treni garantiti di Trenitalia.</li>
-<li>I treni già in viaggio all'inizio dello sciopero arrivano a destinazione se possono raggiungerla entro un'ora dall'inizio; dopo possono fermarsi in una stazione precedente.</li></ul>
+<li>I treni già in viaggio all'inizio dello sciopero di norma arrivano a destinazione se possono raggiungerla entro un'ora dall'inizio; dopo possono fermarsi in una stazione precedente.</li>
+<li>Trenitalia avverte che il servizio può subire modifiche anche poco prima dell'inizio e dopo la fine dello sciopero.</li></ul>
 <p>Fonte: {a_("trenitalia_garantiti", "Trenitalia, servizi minimi garantiti in caso di sciopero")} (verificato il 10 ottobre 2026). Italo pubblica l'elenco dei treni garantiti sulla {a_("italo_scioperi", "sua home page")} prima di ogni sciopero; Trenord nella {a_("trenord_scioperi", "pagina dedicata")}.</p>
 <h2>Aerei</h2>
 <ul><li>I voli in programma dalle <strong>7 alle 10</strong> e dalle <strong>18 alle 21</strong> devono essere effettuati.</li>
@@ -504,12 +511,46 @@ def costruisci(g):
 <li><strong>Il registro ufficiale.</strong> Ogni sciopero proclamato è pubblicato dal Ministero delle Infrastrutture e dei Trasporti nel <a href="{g.URL_REGISTRO}" rel="noopener">registro degli scioperi</a>. Questo sito lo legge due volte al giorno.</li>
 <li><strong>La Commissione di garanzia</strong> controlla il rispetto delle regole e può chiedere di spostare o ridurre uno sciopero.</li>
 <li><strong>Revoche.</strong> Gli scioperi a volte vengono revocati o rinviati anche pochi giorni prima. Quando uno sciopero sparisce dal registro prima della data lo segnaliamo.</li>
-<li><strong>Periodi di franchigia.</strong> In alcuni periodi (per esempio intorno a Natale e in parte dell'estate) gli scioperi dei trasporti non sono ammessi; le date dipendono dal settore.</li>
+<li><strong>Periodi di franchigia.</strong> Intorno a Natale, Pasqua, ai ponti di fine aprile, all'estate e a Ognissanti gli scioperi dei trasporti non sono ammessi; le date dipendono dal settore: vedi <a href="{r3}it/guida/periodi-di-franchigia/">periodi di franchigia</a>.</li>
+<li><strong>Durata.</strong> Gli scioperi ferroviari di 24 ore devono iniziare alle 21: per questo uno sciopero "di venerdì" comincia di solito giovedì sera. Altre regole in <a href="{r3}it/guida/regole-degli-scioperi/">preavviso, durata e intervalli</a>.</li>
 </ul></div>{AD}{modulo(r3)}""", briciole=[("Guide", "it/guida/"), ("Come funzionano", "it/guida/come-funzionano-gli-scioperi/")], con_dati=False)
+    pagina("it/guida/periodi-di-franchigia/", "Periodi di franchigia: quando gli scioperi dei trasporti non sono ammessi",
+           "Le date in cui in Italia non si può scioperare nei treni, negli aerei e nel trasporto pubblico locale: Natale, Pasqua, estate, Ognissanti ed elezioni.",
+           f"""<section class="hero"><h1>Periodi di franchigia degli scioperi nei trasporti</h1><p class="lead">Le date in cui, secondo le regole di ogni settore, gli scioperi dei trasporti non sono ammessi. Il primo e l'ultimo giorno sono compresi.</p></section>
+<div class="testo">
+{g.tabella_franchigie("it")}
+<p>Ci sono anche periodi di franchigia intorno alle elezioni politiche ed europee e ai referendum nazionali (dai tre giorni prima ai tre giorni dopo il voto) e, più brevi, intorno alle elezioni locali nelle zone che votano.</p>
+<h2>Rischio più basso, non zero</h2>
+<p>Queste sono le regole; il registro mostra cosa è stato davvero proclamato. A ottobre 2026, per esempio, il registro riportava uno sciopero generale nazionale, compresi i treni, il 30 ottobre, primo giorno del periodo di Ognissanti. Controlla sempre <a href="{r3}it/oggi/">oggi</a>, <a href="{r3}it/domani/">domani</a> o la tua <a href="{r3}it/#citta">città</a>.</p>
+<h2>Fonti</h2>
+<ul><li>Treni: accordo nazionale del 23 novembre 1999 sugli scioperi nel trasporto ferroviario (testo coordinato), punto 3.5.1.</li>
+<li>Aerei: regolamentazione provvisoria della Commissione di garanzia, delibera 14/387 del 13 ottobre 2014, art. 8, pubblicata dall'<a href="{g.URL_ENAC_REGOLE}" rel="noopener">ENAC</a>.</li>
+<li>Trasporto pubblico locale: accordo nazionale del 28 febbraio 2018, valutato idoneo con delibera 18/138, art. 4.</li></ul>
+<p class="small">Testi letti il 10 ottobre 2026.</p>
+</div>{AD}{modulo(r3)}""", briciole=[("Guide", "it/guida/"), ("Periodi di franchigia", "it/guida/periodi-di-franchigia/")], con_dati=False)
+    pagina("it/guida/regole-degli-scioperi/", "Perché gli scioperi dei treni iniziano alle 21: preavviso, durata e intervalli",
+           "Le regole degli scioperi nei trasporti: 10 giorni di preavviso (12 per gli aerei), scioperi ferroviari di 24 ore dalle 21, primo sciopero breve, intervalli minimi.",
+           f"""<section class="hero"><h1>Preavviso, durata e intervalli degli scioperi</h1><p class="lead">Le regole che spiegano gli orari che vedi nel registro.</p></section>
+<div class="testo">
+<h2>Preavviso</h2>
+<ul><li>Almeno <strong>10 giorni</strong> (<a href="{g.URL_LEGGE_146_ART2}" rel="noopener">legge 146/1990, art. 2</a>); per il trasporto aereo le regole del settore prevedono <strong>12 giorni</strong>.</li>
+<li>Le aziende devono comunicare agli utenti come funzionerà il servizio <strong>almeno cinque giorni prima</strong> dello sciopero.</li>
+<li>Il preavviso non si applica agli scioperi in difesa dell'ordine costituzionale o di protesta per gravi eventi lesivi dell'incolumità e della sicurezza dei lavoratori.</li></ul>
+<h2>Durata</h2>
+<ul><li><strong>Treni:</strong> al massimo 24 ore, e gli scioperi di 24 ore devono iniziare alle 21. Il primo sciopero di una vertenza dura al massimo otto ore, dalle 9.01 alle 17.59 oppure dalle 21.01 alle 5.59.</li>
+<li><strong>Trasporto locale:</strong> il primo sciopero di una vertenza non supera le quattro ore.</li>
+<li><strong>Aerei:</strong> il primo sciopero dura al massimo quattro ore; i successivi al massimo una giornata.</li></ul>
+<h2>Intervalli tra uno sciopero e l'altro</h2>
+<ul><li><strong>Trasporto locale:</strong> almeno 20 giorni tra due scioperi che riguardano lo stesso bacino di utenza.</li>
+<li><strong>Aerei:</strong> almeno 15 giorni liberi; 30 per il controllo del traffico aereo.</li></ul>
+<p class="small">Fonti: legge 146/1990; accordo ferroviario 1999, punti 3.3.1 e 3.3.2; regole del trasporto pubblico locale 2018, artt. 11 e 12; regolamentazione del trasporto aereo 14/387, artt. 4, 7, 16 e 17. Lette il 10 ottobre 2026.</p>
+</div>{AD}{modulo(r3)}""", briciole=[("Guide", "it/guida/"), ("Preavviso e durata", "it/guida/regole-degli-scioperi/")], con_dati=False)
     pagina("it/guida/", "Guide sugli scioperi dei trasporti", "Guide pratiche sugli scioperi dei trasporti in Italia.",
            '<section class="hero"><h1>Guide</h1><p class="lead">Guide brevi e pratiche sugli scioperi dei trasporti.</p></section>'
            '<div class="griglia"><a href="fasce-di-garanzia/">Fasce di garanzia<small>treni, aerei, bus e metro</small></a>'
-           '<a href="come-funzionano-gli-scioperi/">Come funzionano gli scioperi<small>preavviso, registro, revoche</small></a></div>',
+           '<a href="come-funzionano-gli-scioperi/">Come funzionano gli scioperi<small>preavviso, registro, revoche</small></a>'
+           '<a href="periodi-di-franchigia/">Periodi di franchigia<small>quando non si può scioperare</small></a>'
+           '<a href="regole-degli-scioperi/">Preavviso, durata e intervalli<small>perché i treni scioperano dalle 21</small></a></div>',
            briciole=[("Guide", "it/guida/")], con_dati=False)
 
     pagina("it/contatti/", f"Contatti | {g.NOME}", f"Contatta {g.NOME}.", f"""<section class="hero"><h1>Contatti</h1><p class="lead">Correzioni, domande o suggerimenti: scrivici qui.</p></section>

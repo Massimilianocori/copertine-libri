@@ -1111,6 +1111,54 @@ def a_(chiave, testo):
     return f'<a href="{escape(u)}" rel="noopener">{testo}</a>' if u else testo
 
 
+# Periodi di franchigia (scioperi vietati) per settore, giorni iniziale e finale compresi.
+# Fonti (lette il 10/10/2026, copie in prodotti/italy-by-train/fonti/): ferroviario accordo 23/11/1999 p. 3.5.1;
+# aereo regolamentazione provvisoria CGSSE 14/387 art. 8 (pubblicata da ENAC); TPL accordo 28/2/2018 (delibera 18/138) art. 4.
+FRANCHIGIE = [
+    ("Christmas and New Year", "Natale e Capodanno", "18 Dec – 7 Jan", "18 Dec – 7 Jan", "17 Dec – 7 Jan",
+     "18 dic – 7 gen", "18 dic – 7 gen", "17 dic – 7 gen"),
+    ("Easter", "Pasqua", "Thursday before to Thursday after", "Thursday before to Thursday after", "5 days before and after",
+     "dal giovedì prima al giovedì dopo", "dal giovedì prima al giovedì dopo", "5 giorni prima e dopo"),
+    ("Late April holidays", "Ponti di fine aprile", "24 Apr – 2 May", "24 Apr – 2 May", "none",
+     "24 apr – 2 mag", "24 apr – 2 mag", "nessuno"),
+    ("Early summer", "Inizio estate", "27 Jun – 4 Jul", "27 Jun – 4 Jul", "27 Jun – 4 Jul",
+     "27 giu – 4 lug", "27 giu – 4 lug", "27 giu – 4 lug"),
+    ("Summer holidays", "Estate", "27 Jul – 3 Sep", "27 Jul – 5 Sep", "28 Jul – 3 Sep",
+     "27 lug – 3 set", "27 lug – 5 set", "28 lug – 3 set"),
+    ("All Saints", "Ognissanti", "30 Oct – 5 Nov", "30 Oct – 5 Nov", "30 Oct – 5 Nov",
+     "30 ott – 5 nov", "30 ott – 5 nov", "30 ott – 5 nov"),
+]
+URL_ENAC_REGOLE = "https://www.enac.gov.it/trasporto-aereo/diritto-alla-mobilita/scioperi-nel-trasporto-aereo/prestazioni-minime-garantite/"
+URL_LEGGE_146_ART2 = "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-06-12;146~art2"
+TABELLA_A = {"treni": 146, "valida_fino": "2026-12-12", "esempio": ("9613", "Milano Centrale", "08:30", "Napoli Centrale", "13:10")}
+
+
+def tabella_franchigie(lingua="en"):
+    if lingua == "en":
+        testa = "<tr><th style=\"text-align:left\">Period</th><th style=\"text-align:left\">Trains</th><th style=\"text-align:left\">Flights</th><th style=\"text-align:left\">Local transport</th></tr>"
+        righe = "".join(f"<tr><td>{r[0]}</td><td>{r[2]}</td><td>{r[3]}</td><td>{r[4]}</td></tr>" for r in FRANCHIGIE)
+    else:
+        testa = "<tr><th style=\"text-align:left\">Periodo</th><th style=\"text-align:left\">Treni</th><th style=\"text-align:left\">Aerei</th><th style=\"text-align:left\">Trasporto locale</th></tr>"
+        righe = "".join(f"<tr><td>{r[1]}</td><td>{r[5]}</td><td>{r[6]}</td><td>{r[7]}</td></tr>" for r in FRANCHIGIE)
+    return f'<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:.95rem;text-align:left">{testa}{righe}</table></div>'
+
+
+def lista_trenitalia():
+    """Spiegazione della Tabella A di Trenitalia; il numero di treni compare solo finché la tabella letta è valida."""
+    n, fino, es = TABELLA_A["treni"], TABELLA_A["valida_fino"], TABELLA_A["esempio"]
+    attuale = date.today().isoformat() <= fino
+    conta = (f"The list valid until {data_lunga(d(fino))} has <strong>{n} trains</strong>. " if attuale else "")
+    esempio = (f'<p>A row looks like this: <strong>{es[0]}</strong> · {es[1]} {es[2]} → {es[3]} {es[4]}. '
+               "The number is the train number on your ticket; the table gives only the first and last station, "
+               "so open the train in the Trenitalia app or website to see its stops.</p>") if attuale else (
+               "<p>Each row gives the train number, the first and last station and the times. The table does not list the stops in between: "
+               "open the train in the Trenitalia app or website to see them.</p>")
+    return (f"<h2>How to read Trenitalia's list</h2><p>On the Italian page, <em>Tabella A</em> lists the long-distance trains guaranteed "
+            f"during strikes on weekdays and holidays. {conta}<em>Tabella B</em> applies only to a national general strike on a public holiday. "
+            "The lists change with each timetable (June and December): always open the current one.</p>" + esempio +
+            "<p>Trenitalia notes that listed trains can still change number, time or route because of engineering works.</p>")
+
+
 def guide():
     rel = "../../"
     G = []
@@ -1129,10 +1177,10 @@ def guide():
 <li><strong>The official register.</strong> Every announced strike is listed by the Ministry of Infrastructure and Transport in its <a href="{URL_REGISTRO}" rel="noopener">strike register</a>. This site reads that register every day.</li>
 <li><strong>An independent authority</strong>, the {a_("cgsse_home", "Commissione di garanzia")} (strike guarantee commission), checks that the rules are respected and can ask unions to change or postpone strikes.</li>
 <li><strong>Calling off.</strong> Strikes are sometimes called off or postponed, even a few days before. When a strike disappears from the register before its date, we flag it.</li>
-<li><strong>Holiday periods.</strong> Some periods (for example around Christmas and in parts of the summer) are protected and transport strikes are not allowed then. The exact dates depend on the sector.</li>
+<li><strong>Strike-free periods.</strong> Around Christmas, Easter, the late April holidays, the summer holidays and All Saints, transport strikes are not allowed. The dates depend on the sector: see <a href="{rel}guides/strike-free-periods/">strike-free periods</a>.</li>
 </ul>
 <h2>How long do strikes last?</h2>
-<p>Local bus and metro strikes are often 4 hours or 24 hours. National rail strikes usually run from 21:00 the evening before to 21:00 on the strike day. Air transport strikes are often 4 or 24 hours. Every strike on this site shows the exact hours from the register.</p>
+<p>Local bus and metro strikes are often 4 hours or 24 hours. Rail strikes of 24 hours must start at 21:00, so they usually run from 21:00 the evening before. Air transport strikes are often 4 or 24 hours. Every strike on this site shows the exact hours from the register. The rules behind these numbers are in <a href="{rel}guides/strike-rules-notice-duration/">notice, duration and spacing of strikes</a>.</p>
 <h2>Where to check</h2>
 <p>Use the <a href="{rel}today/">today</a> and <a href="{rel}tomorrow/">tomorrow</a> pages, your <a href="{rel}#cities">city</a> or your <a href="{rel}airports/">airport</a>, and always confirm with your operator.</p>""")
 
@@ -1148,11 +1196,17 @@ def guide():
 <ul>
 <li>Trenitalia regional trains run in the peak hours: on weekdays from 06:00 to 09:00 and from 18:00 to 21:00; on public holidays from 07:00 to 10:00 and from 18:00 to 21:00.</li>
 <li>Some long-distance trains (Frecce, Intercity) are guaranteed every day: they are in Trenitalia's table of guaranteed trains.</li>
-<li>Trains already travelling when the strike starts reach their final destination if it can be reached within one hour of the start of the strike; after that they may stop at an earlier station.</li>
+<li>Trains already travelling when the strike starts normally reach their final destination if it can be reached within one hour of the start of the strike; after that they may stop at an earlier station.</li>
+<li>Trenitalia warns that service can change just before and just after the strike hours.</li>
 </ul>
 <p>Source: {a_("trenitalia_garantiti", "Trenitalia, guaranteed services in case of strike")} (checked 10 October 2026). Other operators have their own lists: always check the one for your strike and train.</p>
+{lista_trenitalia()}
+<h2>Italo: "not guaranteed" is not "cancelled"</h2>
+<p>Italo's conditions of carriage (article 16.1) say that during a strike, a train Italo has marked as "not guaranteed" does not count as "cancelled", so the remedies Italo provides for cancelled trains do not apply to it. If your Italo train is not guaranteed, check Italo's strike notice early and use the change or refund options it offers. Source: <a href="https://www.italotreno.com/it/termini-condizioni" rel="noopener">Italo, terms and conditions</a> (conditions valid from 1 October 2026).</p>
 <h2>Refunds</h2>
-<p>If your train is cancelled because of a strike you can usually ask the operator for a refund or change. Rules and deadlines are on the operator's site; see also {a_("eu_rail_rights", "EU rail passenger rights")}.</p>
+<ul><li><strong>Before the strike (Trenitalia):</strong> Trenitalia's strike notices let you give up the trip and get a refund up to the departure of the booked train for Frecce and Intercity, and only until midnight on the day before the strike for regional trains, or change to another train. Read the notice for your strike on {a_("trenitalia_garantiti", "Trenitalia's guaranteed trains page")}.</li>
+<li><strong>Trenord:</strong> refund requests within 30 days of the strike day.</li>
+<li><strong>After a cancellation or delay:</strong> see {a_("eu_rail_rights", "EU rail passenger rights")} and our page on <a href="{rel}guides/refunds-and-your-rights/">refunds and your rights</a>.</li></ul>
 <p>See <a href="{rel}trains/">upcoming train strikes</a>.</p>""")
 
     guida("flights-during-strikes", "Flights during strikes in Italy",
@@ -1172,10 +1226,11 @@ def guide():
     ops = "".join(f'<li><strong>{escape(c["nome"])}</strong>: {", ".join(link_operatori(c)) or "check the local operator"}</li>' for c in CITTA)
     guida("local-transport-strike-hours", "Bus and metro strikes in Italy: guaranteed hours",
           "During local transport strikes, buses, trams and metro still run at set times. Here is where to find them for each city.", f"""
-<p>Local transport strikes (city buses, metro, trams, water buses) last 4 hours or 24 hours. During a 24-hour strike each company must guarantee service in two time windows, usually the morning commute and part of the afternoon or evening. The exact hours are different in every city.</p>
+<p>Local transport strikes (city buses, metro, trams, water buses) last 4 hours or 24 hours. During a 24-hour strike each company must guarantee service in two time windows, six hours in total under the national agreement, usually around the morning commute and part of the afternoon or evening. The exact hours are different in every city and are published by the company at least five days before the strike.</p>
 <ul>{ops}</ul>
 <p>Strikes of only 4 hours usually have no guaranteed hours inside the 4 hours. Check the operator page for your strike.</p>
-<p>Taxis are not normally affected by bus and metro strikes, but they are in high demand on those days.</p>""")
+<p>Taxis are not normally affected by bus and metro strikes, but they are in high demand on those days.</p>
+<p>Local transport has its own <a href="{rel}guides/strike-free-periods/">strike-free periods</a>, and two strikes affecting the same area must be at least 20 days apart (<a href="{rel}guides/strike-rules-notice-duration/">rules on notice and spacing</a>).</p>""")
 
     guida("general-strikes", "What a general strike in Italy means for travellers",
           "General strikes can involve all sectors at once. How to read the register and what usually happens to transport.", f"""
@@ -1189,15 +1244,45 @@ def guide():
 
     guida("how-to-read-the-register", "How to read the Italian strike register",
           "The official register of the Ministry of Infrastructure and Transport, column by column, with our English terms.", f"""
-<p>The <a href="{URL_REGISTRO}" rel="noopener">register</a> is published by the Ministry of Infrastructure and Transport (MIT) and updated by its office for union disputes. It lists announced strikes only; past strikes are removed.</p>
+<p>The <a href="{URL_REGISTRO}" rel="noopener">register</a> is published by the Ministry of Infrastructure and Transport (MIT) and updated by its office for union disputes. Its main list shows upcoming strikes; a separate search page covers strikes since 2014, marked as carried out or called off. The data is published under the CC BY 4.0 licence.</p>
 <table style="width:100%;border-collapse:collapse;font-size:.95rem"><tr><th style="text-align:left">Register (Italian)</th><th style="text-align:left">On this site</th></tr>
 <tr><td>Inizio / Fine</td><td>Start / end date</td></tr><tr><td>Settore</td><td>Sector: Aereo = air, Ferroviario = rail, Trasporto pubblico locale = local transport, Marittimo = ferries and ports, Trasporto merci = freight, Generale = general strike, Plurisettoriale = multi-sector, Circolazione e sicurezza stradale = motorway services</td></tr>
-<tr><td>Rilevanza</td><td>Scope: Nazionale (national), Regionale, Provinciale, Locale</td></tr>
+<tr><td>Rilevanza</td><td>Scope: Nazionale (national), Interregionale, Regionale, Provinciale, Territoriale, Locale</td></tr>
+<tr><td>Regione / Provincia</td><td>"Italia" means the whole country; "Tutte" under Provincia means every province of the region shown</td></tr>
 <tr><td>Modalità</td><td>Hours (we show the original and an English version)</td></tr>
-<tr><td>Categoria interessata</td><td>Who is striking (company and staff)</td></tr>
+<tr><td>Categoria</td><td>Who is striking (company and staff)</td></tr>
 <tr><td>Sindacati</td><td>Unions</td></tr><tr><td>Data proclamazione</td><td>Date the strike was announced</td></tr>
 <tr><td>Note</td><td>Notes, for example excluded sectors (shown as "Register note")</td></tr></table>
 <p>Each strike on this site shows the MIT id so you can find it in the register. If a strike disappears from the register before its date we mark it as "No longer in the register": it was probably called off, but check with the operator.</p>""")
+
+    guida("strike-free-periods", "When are transport strikes not allowed in Italy? Strike-free periods",
+          "The periods around Christmas, Easter, the summer and All Saints when Italian rail, air and local transport strikes are not allowed, by sector.", f"""
+<p>The rules for each transport sector set periods, around the busiest travel dates, when strikes are not allowed (<em>periodi di franchigia</em>). The first and last day of each period are included.</p>
+{tabella_franchigie("en")}
+<p>There are also strike-free periods around national and European elections and referendums (from three days before to three days after the vote), and shorter ones around local elections in the areas that vote.</p>
+<h2>Lower risk, not zero risk</h2>
+<p>These are the rules; the register shows what has actually been announced. In October 2026, for example, the register listed a national general strike including trains on 30 October, the first day of the All Saints period. So treat these periods as quieter, not as a guarantee, and check <a href="{rel}today/">today</a>, <a href="{rel}tomorrow/">tomorrow</a> or your <a href="{rel}#cities">city</a> as usual.</p>
+<h2>Sources</h2>
+<ul><li>Rail: national agreement of 23 November 1999 on strikes in rail transport (consolidated text), point 3.5.1.</li>
+<li>Air: provisional rules of the strike guarantee commission, resolution 14/387 of 13 October 2014, article 8, published by <a href="{URL_ENAC_REGOLE}" rel="noopener">ENAC</a>.</li>
+<li>Local transport: national agreement of 28 February 2018, assessed by the strike guarantee commission with resolution 18/138, article 4.</li></ul>
+<p class="small">Texts read on 10 October 2026. Rules can change: the official register is always the final word.</p>""")
+
+    guida("strike-rules-notice-duration", "Why Italian rail strikes start at 21:00: notice, duration and spacing",
+          "The rules behind Italian transport strikes: 10 days' notice (12 for flights), 24-hour rail strikes starting at 21:00, first strikes limited to a few hours, minimum gaps between strikes.", f"""
+<h2>Notice</h2>
+<ul><li>Strikes in essential public services must be announced at least <strong>10 days</strong> ahead (<a href="{URL_LEGGE_146_ART2}" rel="noopener">Law 146/1990, article 2</a>). For air transport the sector rules set <strong>12 days</strong>.</li>
+<li>Transport companies must tell passengers how services will run <strong>at least five days</strong> before the strike (same article). That is when guaranteed trains and flights are published.</li>
+<li>The notice rule does not apply to strikes in defence of the constitutional order or in protest at serious events harming workers' safety. These are rare.</li></ul>
+<h2>Duration</h2>
+<ul><li><strong>Rail:</strong> a strike may last at most 24 hours, and <strong>24-hour strikes must start at 21:00</strong>. That is why a rail strike "on Friday" usually begins on Thursday evening. The first strike in a dispute may last at most eight hours, from 09:01 to 17:59 or from 21:01 to 05:59.</li>
+<li><strong>Local transport:</strong> the first strike in a dispute may not exceed four hours; later ones may last a full working day.</li>
+<li><strong>Air:</strong> the first strike may last at most four hours; later ones at most a full calendar day.</li></ul>
+<h2>Spacing between strikes</h2>
+<ul><li><strong>Local transport:</strong> at least 20 days between two strikes affecting the same area, whoever calls them.</li>
+<li><strong>Air:</strong> at least 15 clear days between strikes affecting the same service and area; 30 for air traffic control.</li></ul>
+<p>See also the <a href="{rel}guides/strike-free-periods/">strike-free periods</a> and <a href="{rel}guides/how-strikes-work-in-italy/">how strikes work in Italy</a>.</p>
+<p class="small">Sources: Law 146/1990; rail agreement of 1999, points 3.3.1 and 3.3.2; local transport rules of 2018, articles 11 and 12; air transport rules 14/387, articles 4, 7, 16 and 17 (published by <a href="{URL_ENAC_REGOLE}" rel="noopener">ENAC</a>). Read on 10 October 2026.</p>""")
 
     guida("refunds-and-your-rights", "Strikes, refunds and your rights",
           "Where to find the official rules on refunds when a train or flight is cancelled because of a strike.", f"""
@@ -1207,6 +1292,10 @@ def guide():
 <li>Trains: {a_("eu_rail_rights", "EU rail passenger rights (Your Europe)")}, {a_("trenitalia_garantiti", "Trenitalia")}, {a_("italo_scioperi", "Italo")}.</li>
 <li>Local transport: the operator's site (see <a href="{rel}guides/local-transport-strike-hours/">bus and metro strikes</a>).</li>
 </ul>
+<h2>What the EU rules say about strikes</h2>
+<ul><li><strong>Trains:</strong> "strikes by rail company staff are not considered as extraordinary circumstances". If a cancellation would make you more than 60 minutes late you can choose a refund or re-routing, and you may be owed compensation: 25% of the ticket price for a delay of 1 to 2 hours, 50% for 2 hours or more.</li>
+<li><strong>Flights:</strong> if your flight is cancelled you can choose a refund or re-routing and get assistance. Compensation (€250, €400 or €600 depending on distance, when you are told less than 14 days before) depends on who strikes: strikes by the airline's own staff are not extraordinary circumstances, strikes outside the airline (for example air traffic control) may be. There are exceptions when you are re-routed close to your original times.</li></ul>
+<p>Sources: Your Europe, rail and air passenger rights (checked 10 October 2026). Train companies' own conditions can add to these: Trenitalia pays 25% of the ticket price for delays of 60 to 119 minutes and 50% from 120 minutes, and a 25% bonus on Frecce for delays of 30 to 59 minutes; Italo pays 25% and 50% for the same delay bands. See <a href="{rel}guides/guaranteed-trains/">guaranteed trains</a> for refund deadlines before a strike.</p>
 <p>If you booked a package or a tour, contact the organiser as well.</p>""")
 
     strumenti = ""
