@@ -1,0 +1,4 @@
+Fonts used in the guide, all under the SIL Open Font License 1.1 (embedding in PDF allowed):
+- Lora (Lora-OFL.txt)
+- Instrument Sans (InstrumentSans-OFL.txt) and Instrument Serif (same foundry and licence, SIL OFL 1.1; "Copyright 2022 The Instrument Serif Project Authors")
+- Geist Mono (GeistMono-OFL.txt)

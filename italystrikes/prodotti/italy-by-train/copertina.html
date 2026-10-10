@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cover</title>
+<style>
+@font-face{font-family:IS;src:url(font/InstrumentSerif-Regular.ttf)}
+@font-face{font-family:IS;font-style:italic;src:url(font/InstrumentSerif-Italic.ttf)}
+@font-face{font-family:ISans;src:url(font/InstrumentSans-Regular.ttf)}
+@font-face{font-family:ISans;font-weight:700;src:url(font/InstrumentSans-Bold.ttf)}
+@font-face{font-family:GM;src:url(font/GeistMono-Regular.ttf)}
+@font-face{font-family:GM;font-weight:700;src:url(font/GeistMono-Bold.ttf)}
+@page{size:6in 9in;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:6in;height:9in}
+body{background:#121519;color:#F2ECDF;font-family:ISans,sans-serif;position:relative;overflow:hidden}
+.alto{position:absolute;left:44px;right:44px;top:46px;display:flex;justify-content:space-between;align-items:baseline;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#A9A397}
+.alto b{color:#F2ECDF;font-weight:700}
+.titolo{position:absolute;left:40px;right:40px;top:96px}
+h1{font-family:IS,serif;font-weight:400;font-size:104px;line-height:.9;letter-spacing:-.025em;color:#F2ECDF}
+h1 em{font-style:italic;color:#F2ECDF}
+.filetto{width:64px;height:3px;background:#C8352B;margin:30px 0 20px 4px}
+.sotto{font-family:ISans,sans-serif;font-size:15.5px;line-height:1.42;color:#CFC8BA;max-width:400px;margin-left:4px}
+.tab{position:absolute;left:30px;right:30px;bottom:96px;background:#0B0D10;border-radius:10px;padding:18px 16px 16px;box-shadow:inset 0 0 0 1px #262A30}
+.testa{display:flex;justify-content:space-between;align-items:baseline;margin:0 2px 12px;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:#8A857B}
+.testa b{font-family:GM,monospace;font-size:12.5px;letter-spacing:.12em;color:#F2ECDF;font-weight:700}
+.col{display:grid;grid-template-columns:repeat(30,1fr);gap:2px;font-size:7px;letter-spacing:.16em;color:#6F6B63;margin:0 0 6px;text-transform:uppercase}
+.riga{display:grid;grid-template-columns:repeat(30,1fr);gap:2px;margin-bottom:5px}
+.t{position:relative;height:23px;border-radius:2.5px;background:linear-gradient(#1F232A 0 49%,#0B0D10 49% 52%,#191C21 52% 100%);font-family:GM,monospace;font-weight:700;font-size:13px;line-height:23px;text-align:center;color:#F2ECDF}
+.t.v{background:linear-gradient(#17191D 0 49%,#0B0D10 49% 52%,#131518 52% 100%)}
+.t.am{color:#E9B44C}
+.t.r{background:linear-gradient(#CB372D 0 49%,#7E1F19 49% 52%,#B82F26 52% 100%);color:#FFF6EE}
+.avviso{margin-bottom:12px}
+.basso{position:absolute;left:44px;right:44px;bottom:40px;display:flex;justify-content:space-between;align-items:baseline;font-size:9px;letter-spacing:.06em;color:#A9A397}
+.basso b{color:#F2ECDF;font-weight:400}
+</style></head><body>
+<div class="alto"><span><b>The strike-proof guide</b></span><span>{{EDIZIONE}}</span></div>
+<div class="titolo"><h1>Italy<br><em>by Train</em></h1>
+<div class="filetto"></div>
+<div class="sotto">What still runs, what you are owed, and how to plan a trip that one strike day cannot ruin.</div></div>
+<div class="tab">
+<div class="testa"><span><b>PARTENZE</b> &nbsp;departures</span><span>Roma Termini</span></div>
+<div class="riga avviso">{{AVVISO}}</div>
+<div class="col">{{COLONNE}}</div>
+{{RIGHE}}
+</div>
+<div class="basso"><span>Official sources · EU passenger rights · ready-made plans</span><b>italy-strikes-today.netlify.app</b></div>
+</body></html>

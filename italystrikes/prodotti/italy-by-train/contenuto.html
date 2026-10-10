@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Italy by Train: the strike-proof guide</title>
+<meta name="author" content="Italy Strikes Today">
+<style>
+@font-face{font-family:Lora;src:url(../font/Lora-Regular.ttf)}
+@font-face{font-family:Lora;font-style:italic;src:url(../font/Lora-Italic.ttf)}
+@font-face{font-family:Lora;font-weight:700;src:url(../font/Lora-Bold.ttf)}
+@font-face{font-family:Lora;font-weight:700;font-style:italic;src:url(../font/Lora-BoldItalic.ttf)}
+@font-face{font-family:IS;src:url(../font/InstrumentSerif-Regular.ttf)}
+@font-face{font-family:IS;font-style:italic;src:url(../font/InstrumentSerif-Italic.ttf)}
+@font-face{font-family:ISans;src:url(../font/InstrumentSans-Regular.ttf)}
+@font-face{font-family:ISans;font-style:italic;src:url(../font/InstrumentSans-Italic.ttf)}
+@font-face{font-family:ISans;font-weight:700;src:url(../font/InstrumentSans-Bold.ttf)}
+@font-face{font-family:GM;src:url(../font/GeistMono-Regular.ttf)}
+@font-face{font-family:GM;font-weight:700;src:url(../font/GeistMono-Bold.ttf)}
+@page{size:6in 9in;margin:.66in .6in .8in .62in}
+@page parte{margin:0}
+:root{--red:#B3261E;--ink:#1A1F26;--ink2:#48515C;--ink3:#737B85;--line:#E3DED3;--soft:#F6F3EC;--pink:#FBEDEA;--green:#E9F2EC;--dgreen:#1E6B47;--board:#121519;--cream:#F2ECDF}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact}
+body{margin:0;font-family:Lora,serif;font-size:11.5pt;line-height:1.5;color:var(--ink);hyphens:auto;orphans:3;widows:3;font-variant-numeric:lining-nums}
+h1,h2,h3{break-after:avoid;page-break-after:avoid}
+h1{font-family:IS,serif;font-weight:400;font-size:31pt;line-height:1.04;letter-spacing:-.01em;margin:0 0 12pt;color:var(--ink)}
+h2{font-family:ISans,sans-serif;font-weight:700;font-size:13pt;line-height:1.25;margin:19pt 0 6pt;color:var(--ink)}
+h3{font-family:ISans,sans-serif;font-weight:700;font-size:11pt;line-height:1.3;margin:13pt 0 4pt;color:var(--ink)}
+h2+p,h3+p,h2+ul,h2+ol,h2+table,h3+ul{break-before:avoid}
+p{margin:0 0 8.5pt}
+ul,ol{margin:0 0 9pt;padding-left:15pt}
+li{margin:0 0 4pt}
+li::marker{color:var(--red);font-family:ISans,sans-serif;font-weight:700}
+strong{font-weight:700}
+a{color:var(--red);text-decoration:none}
+.sans{font-family:ISans,sans-serif}
+.mono{font-family:GM,monospace;font-size:.88em;letter-spacing:-.01em}
+.capitolo{break-before:page;position:relative}
+.capitolo>.kick{margin:.35in 0 14pt}
+.kick{display:flex;align-items:center;gap:8pt;font-family:ISans,sans-serif;font-size:8pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.kick .tile{font-family:GM,monospace;font-size:11pt;letter-spacing:.06em;color:var(--cream);background:var(--board);border-radius:2.5pt;padding:3pt 6pt 2.5pt;position:relative}
+.lead{font-style:italic;font-size:12.6pt;line-height:1.48;color:var(--ink2);margin-bottom:14pt}
+.box{background:var(--soft);border-left:3pt solid var(--red);padding:10pt 12pt;margin:11pt 0;break-inside:avoid;font-size:10.8pt}
+.box.verde{border-color:var(--dgreen);background:var(--green)}
+.box.rosa{background:var(--pink)}
+.box h3{margin-top:0;font-size:10.5pt;letter-spacing:.02em}
+.box>*:last-child{margin-bottom:0}
+.fonte{font-family:ISans,sans-serif;font-size:7.8pt;line-height:1.35;color:var(--ink3);margin:-3pt 0 11pt}
+table{width:100%;border-collapse:collapse;font-family:ISans,sans-serif;font-size:9.3pt;line-height:1.35;margin:6pt 0 11pt}
+tr{break-inside:avoid}
+th,td{border-bottom:.7pt solid var(--line);padding:4.5pt 4pt;text-align:left;vertical-align:top}
+th{font-weight:700;color:var(--ink2);font-size:8pt;letter-spacing:.06em;text-transform:uppercase;border-bottom:1pt solid var(--ink)}
+td.n,th.n{text-align:right}
+td.m{font-family:GM,monospace;font-size:8.8pt;white-space:nowrap}
+.compatta{break-inside:avoid}
+.piccolo{font-size:9.6pt;line-height:1.45;color:var(--ink2)}
+.cb{display:inline-block;width:8.5pt;height:8.5pt;border:1.1pt solid var(--red);border-radius:1.6pt;margin-right:7pt;vertical-align:-1pt}
+.check{list-style:none;padding-left:0}
+.check li{padding-left:0;font-size:10.8pt;margin-bottom:2.6pt}
+.esempio{font-family:GM,monospace;font-size:8.2pt;line-height:1.5;background:#fff;border:.8pt solid var(--line);border-radius:3pt;padding:8pt 9pt;break-inside:avoid;margin:6pt 0 8pt;color:var(--ink)}
+.esempio b{color:var(--red);font-weight:700}
+.dec{margin:0 0 14pt;break-inside:avoid}
+.dec ul{margin-bottom:0}
+.giorni{display:grid;grid-template-columns:repeat(6,1fr);gap:4pt;font-family:ISans,sans-serif;font-size:8pt;line-height:1.25;text-align:center;margin:8pt 0 12pt;break-inside:avoid}
+.giorni div{border:.8pt solid var(--line);padding:6pt 2pt;border-radius:3pt}
+.giorni b{display:block;font-family:GM,monospace;font-size:11pt;color:var(--ink)}
+.giorni .x{background:var(--pink);border-color:var(--red)}
+.giorni .ok{background:var(--green);border-color:var(--dgreen)}
+.carta{border:1.2pt dashed var(--ink3);border-radius:4pt;padding:11pt 13pt;font-family:ISans,sans-serif;font-size:9.4pt;line-height:1.42;break-inside:avoid}
+.carta h3{margin-top:0}
+.carta p{margin-bottom:5pt}
+.scena{border-top:1.2pt solid var(--ink);padding-top:6pt;margin-top:13pt}
+.scena .tag{font-family:ISans,sans-serif;font-size:7.8pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.scena h2{margin-top:2pt}
+.scena p{margin-bottom:6pt}
+.faq h3{font-family:Lora,serif;font-style:italic;font-weight:700;font-size:11.5pt;margin-top:14pt}
+.indice{list-style:none;padding:0;margin:0;font-family:ISans,sans-serif;font-size:10pt}
+.indice li{display:flex;align-items:baseline;gap:6pt;margin:0;padding:3.6pt 0;border-bottom:.6pt dotted #CFC8BA}
+.indice li .nn{font-family:GM,monospace;font-size:8.5pt;color:var(--red);width:16pt}
+.indice li .tt{flex:1}
+.indice li .pp{font-family:GM,monospace;font-size:9pt}
+.indice li.parte-i{border:0;padding-top:11pt;font-size:7.8pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3)}
+.frontespizio{height:7.5in;display:flex;flex-direction:column;justify-content:space-between}
+.frontespizio .t1{font-family:IS,serif;font-size:46pt;line-height:.95;letter-spacing:-.02em}
+.frontespizio .t1 em{font-style:italic}
+.frontespizio .t2{font-family:ISans,sans-serif;font-size:12pt;color:var(--ink2);margin-top:14pt;max-width:3.6in;line-height:1.4}
+.frontespizio .t3{font-family:ISans,sans-serif;font-size:8.5pt;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
+.parte{page:parte;break-before:page;height:9in;width:6in;background:var(--board);color:var(--cream);padding:1.25in .7in .8in;display:flex;flex-direction:column;overflow:hidden;position:relative}
+.parte .k{font-family:ISans,sans-serif;font-size:8.5pt;letter-spacing:.24em;text-transform:uppercase;color:#A9A397}
+.parte .h{font-family:IS,serif;font-size:58pt;line-height:.95;margin:14pt 0 18pt;letter-spacing:-.015em}
+.parte .h em{font-style:italic}
+.parte .r{width:54pt;height:3pt;background:#C8352B;margin-bottom:26pt}
+.parte .s{font-family:Lora,serif;font-style:italic;font-size:12pt;line-height:1.5;color:#CFC8BA;max-width:3.9in;margin-bottom:auto}
+.parte ol{list-style:none;padding:0;margin:0;font-family:ISans,sans-serif;font-size:10pt}
+.parte ol li{display:flex;gap:10pt;align-items:center;padding:7pt 0;border-top:.6pt solid #2A2F36;margin:0}
+.parte ol li span{font-family:GM,monospace;font-weight:700;font-size:10pt;background:#1D2127;border-radius:2pt;padding:2pt 5pt;color:var(--cream)}
+.marca{position:absolute;left:0;top:0;font-size:1pt;color:#fff}
+.foglio td{height:22pt}
+.foglio th,.foglio td{border:.7pt solid #CFC8BA}
+.colonne2{columns:2;column-gap:14pt}
+.colonne2 p{break-inside:avoid}
+</style></head><body>
+
+<section class="frontespizio">
+<div><div class="t3">The strike-proof guide</div></div>
+<div><div class="t1">Italy<br><em>by Train</em></div>
+<div class="t2">What still runs, what you are owed, and how to plan a trip that one strike day cannot ruin.</div></div>
+<div class="t3">{{EDIZIONE}} · Italy Strikes Today</div>
+</section>
+
+<section style="break-before:page">
+<p class="sans piccolo" style="margin-top:0"><strong>Italy by Train: the strike-proof guide.</strong> {{EDIZIONE}}.<br>Published by Italy Strikes Today, <a href="https://italy-strikes-today.netlify.app/">italy-strikes-today.netlify.app</a>. © 2026. All rights reserved. This file is for your personal use: please do not share or resell it.</p>
+<div class="box rosa"><h3>Read this first</h3>
+<p>This is an <strong>independent guide</strong>. We are not affiliated with the Italian Ministry of Infrastructure and Transport, Trenitalia, Italo, Trenord, ENAC, any airline, union or transport company.</p>
+<p>Every rule in this guide comes from an official source. The sources are listed at the end, with the date we checked them. Rules and timetables change, and <strong>strikes can be called off or changed at short notice</strong>: always confirm with your train company, airline or local transport operator before you travel.</p>
+<p>Nothing here is legal advice. Where we talk about your rights, we quote the official EU pages and point you to them.</p></div>
+<p class="piccolo">One link in this guide is an affiliate link and is marked "affiliate". If you buy through it we may earn a small commission, at no extra cost to you. It never changes what we write.</p>
+<p class="piccolo">Strike data: Ministero delle Infrastrutture e dei Trasporti, strike register (scioperi.mit.gov.it), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The examples and statistics from the register are our own reading of the data on the dates shown.</p>
+<p class="piccolo">Guaranteed trains: Trenitalia, Tabella A and Tabella B, lists valid from 14 June to 12 December 2026, as published on trenitalia.com.</p>
+<p class="piccolo">Typefaces: Lora, Instrument Serif, Instrument Sans and Geist Mono, under the SIL Open Font License.</p>
+</section>
+
+<section style="break-before:page">
+<div class="kick" style="margin:.1in 0 10pt">Contents</div>
+{{INDICE}}
+</section>
+
+<section class="capitolo" style="break-before:page">
+<div class="kick"><span class="tile">00</span>Start here</div>
+<h1>The guide in one page</h1>
+<p class="lead">If you read nothing else, read this. Each point is explained, with its official source, in the chapters that follow.</p>
+<ol>
+<li><strong>Strikes in Italian transport are announced at least 10 days ahead</strong> (12 for flights) and listed in a public register, and there are strike-free periods around the main holidays. Check it 14, 10 and 3 days before every travel day. <span class="piccolo">(Chapters 2 and 3)</span></li>
+<li><strong>A strike never stops everything.</strong> Regional trains run in guaranteed time windows (weekdays 06:00 to 09:00 and 18:00 to 21:00), Trenitalia publishes a list of guaranteed long-distance trains, and flights in the windows 07:00 to 10:00 and 18:00 to 21:00 must operate. <span class="piccolo">(Chapters 4, 5 and 7)</span></li>
+<li><strong>Read who is striking.</strong> A strike by one airline's cabin crew, or by the bus drivers of one city, will not touch most travellers. <span class="piccolo">(Chapter 3)</span></li>
+<li><strong>Watch the start time, not just the date.</strong> National rail strikes often begin at 21:00 the evening before. A train already moving when a strike begins normally reaches its destination only if it can get there within one hour. <span class="piccolo">(Chapter 4)</span></li>
+<li><strong>You have rights.</strong> Under EU rules, a strike by a railway's own staff is not an "extraordinary circumstance": you can choose a refund or re-routing and may be owed compensation. For flights, it depends on who strikes. <span class="piccolo">(Chapters 6 and 7)</span></li>
+<li><strong>Plan in moving days and staying days.</strong> Keep transfers off Fridays where you can, travel in the morning, and sleep in your departure city the night before your flight home. <span class="piccolo">(Chapters 10 to 12)</span></li>
+</ol>
+<div class="box verde"><h3>How to use this guide</h3>
+<ul style="margin:0"><li><strong>Before you book:</strong> chapters 10 to 12 (the method, six solved situations, three itineraries).</li>
+<li><strong>Two weeks before each travel day:</strong> chapter 3, or our free daily pages at <a href="https://italy-strikes-today.netlify.app/">italy-strikes-today.netlify.app</a>.</li>
+<li><strong>On a strike day:</strong> chapter 13 (the 10-minute routine), chapters 4 to 9, and the pocket card at the end.</li></ul></div>
+</section>
+
+<section class="parte"><div class="k">Part one</div><div class="h"><em>Understand</em></div><div class="r"></div>
+<div class="s">How Italian transport strikes work, why they are less random than they look, and how to read the official register in ten minutes.</div>
+<ol><li><span>01</span>Why a strike need not ruin your trip</li><li><span>02</span>How strikes work in Italy</li><li><span>03</span>Reading the official strike register</li></ol></section>
+
+<section class="capitolo">
+<div class="kick"><span class="tile">01</span>Chapter one</div>
+<h1>Why a strike need not ruin your trip</h1>
+<p class="lead">Italy is one of the finest countries in the world to see by train. It is also a country where transport strikes are common. The good news is in the details: they are announced in advance, they follow rules, and they are published.</p>
+<p>Picture two travellers with the same ticket, the same train, the same strike.</p>
+<p>The first finds out on the morning of the trip. The departure board shows a line of cancellations, the queue at the ticket office runs back to the entrance, the coaches are full and the taxis are expensive. The day goes on the problem.</p>
+<p>The second found out eleven days earlier, sitting at home. They read who was striking and for how many hours, saw that their train was not in the guaranteed list, and moved the transfer to the day before, swapping it with a day of sightseeing. On the strike day they walked to a museum.</p>
+<p>The difference between them is not luck. It is information that is public, free and, once you know where to look, quick to read. Italian law requires strikes in public transport to be announced <strong>at least 10 days in advance</strong>, and every announced strike is listed in a register run by the Ministry of Infrastructure and Transport. The rules about what keeps running are published too.</p>
+<p>This guide turns those rules into decisions. It gives you three things:</p>
+<ol><li><strong>The rules:</strong> what keeps running during a strike, from official sources, in plain English.</li>
+<li><strong>Your rights:</strong> refunds, re-routing and compensation for trains and flights, quoted from the official EU pages.</li>
+<li><strong>A method:</strong> a simple way to build a trip that absorbs one strike day, with six solved situations and three ready-made itineraries.</li></ol>
+<h2>What this guide is not</h2>
+<p>It is not a list of museums and restaurants: there are excellent guides for that. It does not predict strikes, and it never tells you that a strike "will" or "won't" happen: only the register and the transport companies can say that. And it is not legal advice: where your rights are concerned, we quote the official sources and send you to them.</p>
+<h2>A word on the numbers</h2>
+<p>When we give a time window, a deadline or an amount, it comes from an official page that we read, and the source is printed right under it. When something depends on the company, the city or the day, we say so, and we tell you where to check. If a rule has changed since this edition, the official page wins.</p>
+</section>
+
+<section class="capitolo">
+<div class="kick"><span class="tile">02</span>Chapter two</div>
+<h1>How strikes work in Italy</h1>
+<p class="lead">Eight rules explain almost everything you will see on a departure board on a strike day.</p>
+<h2>1. At least 10 days' notice</h2>
+<p>Strikes in "essential public services", which include trains, flights, local public transport and ferries, are regulated by Law 146 of 12 June 1990. The notice period "cannot be less than ten days". This is the single most useful fact for a traveller: if a strike has not been announced 10 days before your travel day, it is unlikely to happen on that day.</p>
+<p>Unlikely, not impossible. The same law says that the notice rule does not apply to strikes "in defence of the constitutional order" or in protest at "serious events" harming workers' safety. These are rare, but they exist, and they are the reason this guide always tells you to check again close to the date.</p>
+<p class="fonte">Source: Law 146/1990, article 2, paragraphs 5 and 7 (Normattiva), checked 10 October 2026.</p>
+<h2>2. Five days before, the companies must tell you what runs</h2>
+<p>The law also obliges transport companies to inform passengers "at least five days before the start of the strike" of how and when services will run during the strike. In practice, this is when you will see notices, lists of guaranteed trains and flights, and updated timetables on the companies' websites. Five days before your trip is a good moment for a second, more detailed look.</p>
+<p class="fonte">Source: Law 146/1990, article 2, paragraph 6 (Normattiva), checked 10 October 2026.</p>
+<h2>3. Minimum services are guaranteed</h2>
+<p>A strike in these sectors never stops everything. The law requires minimum services, defined in agreements and rules assessed by an independent authority, the <em>Commissione di garanzia</em> (the strike guarantee commission). For a traveller this means:</p>
+<ul><li>regional trains in set time windows and a list of guaranteed long-distance trains (chapters 4 and 5);</li>
+<li>flights in protected time windows and a list of guaranteed flights (chapter 7);</li>
+<li>city buses, metro and trams in time windows set by each company (chapter 8).</li></ul>
+<h2>4. Every strike is in a public register</h2>
+<p>The Ministry of Infrastructure and Transport (MIT) publishes every announced transport strike in its register at <a href="https://scioperi.mit.gov.it/mit2/public/scioperi">scioperi.mit.gov.it</a>, with the date, sector, area, the staff involved, the unions and the hours. The register also has a search page with past strikes going back to 2014, each marked as carried out or called off. Chapter 3 shows you how to read it.</p>
+<h2>5. Who strikes matters more than anything</h2>
+<p>"A rail strike" can mean the staff of one company in one region for a few hours, or every railway worker in Italy for a whole day. "An air transport strike" can mean the cabin crew of one airline, the ground staff of one airport, or air traffic controllers. The register says exactly who is striking, and that tells you whether your train or flight is involved. Most strikes in the register are local and will not affect you at all.</p>
+<h2>6. Strikes can be called off</h2>
+<p>Strikes are sometimes called off (<em>revocato</em>), postponed (<em>differito</em>) or shortened, sometimes only a few days before. The register is updated when this happens. On our free site, a strike that disappears from the register before its date is flagged as "no longer in the register", and one marked as called off is shown as such.</p>
+{{FRANCHIGIE}}
+<h2>A snapshot of the register</h2>
+<p>To give you a sense of scale, this is what the official register contained on {{SNAP_DATA}}: <strong>{{SNAP_N}} announced strikes</strong> for the weeks ahead.</p>
+<table class="compatta"><tr><th>Sector</th><th class="n">Strikes</th></tr>{{SNAP_RIGHE}}</table>
+<ul><li><strong>{{SNAP_NAZ}}</strong> of them covered the whole of Italy; the rest were regional or local.</li>
+<li><strong>{{SNAP_VEN}} of {{SNAP_N}}</strong> started on a Friday.</li>
+<li><strong>{{SNAP_24}}</strong> lasted 24 hours; <strong>{{SNAP_4}}</strong> lasted 4 hours.</li>
+<li>They were announced between <strong>{{SNAP_MIN}} and {{SNAP_MAX}} days</strong> ahead (median {{SNAP_MED}} days).</li></ul>
+<p>This is one snapshot, not a law of nature. It shows two patterns worth knowing: most strikes are local, and Friday is a popular day. Both shape the planning method in chapter 10.</p>
+<p class="fonte">Source: MIT strike register (CC BY 4.0), our reading of {{SNAP_DATA}}.</p>
+</section>
+
+<section class="capitolo">
+<div class="kick"><span class="tile">03</span>Chapter three</div>
+<h1>Reading the official strike register</h1>
+<p class="lead">The register is in Italian, but you only need a dozen words to read it. After five real examples, you will read any entry in under a minute.</p>
+<p>Open <a href="https://scioperi.mit.gov.it/mit2/public/scioperi">scioperi.mit.gov.it</a>. The main page lists upcoming strikes in a table. Each entry has these fields:</p>
+<table class="compatta">
+<tr><th>Italian field</th><th>Meaning</th></tr>
+<tr><td>Data inizio / Data fine</td><td>Start date / end date</td></tr>
+<tr><td>Settore</td><td>Sector (see the next table)</td></tr>
+<tr><td>Rilevanza</td><td>Scope: Nazionale (national), Regionale, Provinciale, Locale</td></tr>
+<tr><td>Regione / Provincia</td><td>Region / province. "Italia" and "Tutte" mean the whole country</td></tr>
+<tr><td>Modalità</td><td>The hours. "4 ORE: DALLE 08.30 ALLE 12.30" = 4 hours, from 08:30 to 12:30</td></tr>
+<tr><td>Categoria interessata</td><td>Who is striking: the company and the staff</td></tr>
+<tr><td>Sindacati</td><td>The unions that called the strike</td></tr>
+<tr><td>Data proclamazione</td><td>The date the strike was announced</td></tr>
+<tr><td>Note</td><td>Notes, for example sectors excluded or flights guaranteed</td></tr>
+</table>
+<h2>The sectors</h2>
+<table class="compatta">
+<tr><th>Settore</th><th>What it means for you</th></tr>
+<tr><td>Ferroviario</td><td>Trains: Trenitalia, Italo, regional rail companies</td></tr>
+<tr><td>Aereo</td><td>Airlines, air traffic control, airport staff</td></tr>
+<tr><td>Trasporto pubblico locale</td><td>City and regional buses, metro, trams, some local railways</td></tr>
+<tr><td>Marittimo</td><td>Ferries and ports</td></tr>
+<tr><td>Taxi</td><td>Taxis</td></tr>
+<tr><td>Generale / Plurisettoriale</td><td>General or multi-sector strike: read the hours for each sector and the notes</td></tr>
+<tr><td>Trasporto merci</td><td>Freight: usually irrelevant to passengers</td></tr>
+<tr><td>Circolazione e sicurezza stradale</td><td>Motorway services</td></tr>
+</table>
+<div class="box"><h3>Three things to look at, every time</h3>
+<ol style="margin:0"><li><strong>The start time</strong>, not just the date: national rail strikes often start at 21:00 the evening before.</li>
+<li><strong>Who is striking</strong> (<em>Categoria interessata</em>): one airline's crew, one city's buses, one region's train staff.</li>
+<li><strong>The notes</strong>: a general strike may exclude some sectors ("ESCLUSO SETTORE TRASPORTO AEREO" = air transport excluded), and an air strike may list guaranteed flights.</li></ol></div>
+<h2>Five real entries, decoded</h2>
+<p>These are real entries from the register as we read it in October 2026, shortened where the text runs long. The dates will have passed by the time you read this; the way to read them will not.</p>
+<div class="dec"><div class="esempio">Data inizio: 30/10/2026 · Settore: Generale · Rilevanza: Nazionale · Regione: Italia<br>Modalità: INTERA GIORNATA - <b>FERROVIARIO: DALLE 21.00 DEL 29/10 ALLE 20.59 DEL 30/10</b>; AUTOSTRADE: DALLE 22.00 DEL 29/10<br>Categoria: SCIOPERO GENERALE SETTORI PUBBLICI E PRIVATI</div>
+<ul><li>A <strong>national general strike</strong>, public and private sectors, for the whole working day of 30 October.</li>
+<li>For <strong>trains</strong> it runs from 21:00 on the 29th to 20:59 on the 30th. An evening train on the 29th is involved too.</li>
+<li>Motorway services join from 22:00 on the 29th.</li></ul></div>
+<div class="dec"><div class="esempio">Data inizio: 16/10/2026 · Settore: Aereo · Rilevanza: Nazionale<br>Modalità: 24 ORE: DALLE 00.00 ALLE 23.59<br>Categoria: <b>PERSONALE NAVIGANTE SOC. EASYJET AIRLINES LIMITED</b></div>
+<ul><li>National in scope, but only <strong>easyJet's flight crew</strong> (<em>personale navigante</em>). Other airlines are not involved.</li>
+<li>If you fly easyJet that day, check your flight. If you fly anyone else, this one is not your problem.</li></ul></div>
+<div class="dec"><div class="esempio">Data inizio: 22/11/2026 · Settore: Aereo · Rilevanza: Nazionale<br>Modalità: 24 ORE: DALLE 00.01 ALLE 24.00<br>Categoria: PERSONALE SOC. ENAV <b>AEROPORTO DI MILANO MALPENSA</b><br>Note: GARANTITI I VOLI DA E PER L'AEROPORTO DI BARI</div>
+<ul><li>Air traffic control staff (ENAV) at <strong>Milan Malpensa</strong> only, for 24 hours.</li>
+<li>If your flight uses Malpensa that day, check it. The note says flights to and from Bari are guaranteed, which looks surprising for a Milan strike: when a note puzzles you, the airline and ENAC's list of guaranteed flights (chapter 7) have the final word.</li></ul></div>
+<div class="dec"><div class="esempio">Data inizio: 14/10/2026 · Settore: Generale · Regione: <b>Toscana</b><br>Modalità: INTERA GIORNATA DI LAVORO - <b>FERROVIARIO: DALLE 09.01 ALLE 17.00</b> / ... / TPL: 4 ORE VARIE MODALITA' ...<br>Note: ESCLUSO SETTORE TRASPORTO AEREO E PERSONALE SOC. GEST DI FIRENZE</div>
+<ul><li>A general strike in <strong>Tuscany</strong> only. For trains, the hours are 09:01 to 17:00: the morning and evening windows are outside the strike.</li>
+<li>Local buses join for 4 hours, at times that vary by company ("4 ORE VARIE MODALITA'"): check the Tuscan bus company's notice. Air transport and the staff of GEST (the Florence tram company) are excluded.</li></ul></div>
+<div class="dec"><div class="esempio">Data inizio: 12/10/2026 · Settore: Trasporto pubblico locale · Regione: Puglia<br>Modalità: <b>4 ORE: DALLE 8.30 ALLE 12.30</b><br>Categoria: PERSONALE SOC <b>AMTAB DI BARI</b></div>
+<ul><li>City buses in <strong>Bari</strong>, for four hours in the morning. Trains, flights and every other city: not involved.</li>
+<li>If you are in Bari that morning, plan to walk or take a taxi between 08:30 and 12:30.</li></ul></div>
+<h2>The easy way</h2>
+<p>Our free website, <a href="https://italy-strikes-today.netlify.app/">italy-strikes-today.netlify.app</a>, reads the register twice a day and shows it in English by day, city, airport and type of transport, with the original Italian next to the translation. Use it for quick checks; use the register itself when you need the final word.</p>
+</section>
+
+<section class="parte"><div class="k">Part two</div><div class="h"><em>On the move</em></div><div class="r"></div>
+<div class="s">What still runs on a strike day, how to find your train in the official list, what you are owed when things go wrong, and how to get around a city when the buses stop.</div>
+<ol><li><span>04</span>Trains: what still runs</li><li><span>05</span>The guaranteed list, decoded</li><li><span>06</span>Your train is cancelled: what now</li><li><span>07</span>Flights and airports</li><li><span>08</span>Buses, metro, trams and taxis</li><li><span>09</span>Driving: ZTL zones and fines</li></ol></section>
+
+<section class="capitolo">
+<div class="kick"><span class="tile">04</span>Chapter four</div>
+<h1>Trains: what still runs</h1>
+<p class="lead">During a rail strike, some trains run by law. Knowing which ones is the difference between a lost day and a slightly different day.</p>
+<h2>Trenitalia regional trains</h2>
+<p>Regional trains are the slow, unreserved trains that link towns and cities within a region (and some between regions). Trenitalia guarantees essential regional services in the busiest hours of the day:</p>
+<table class="compatta"><tr><th></th><th>Guaranteed windows</th></tr>
+<tr><td>Weekdays</td><td class="m">06:00 – 09:00 &nbsp;and&nbsp; 18:00 – 21:00</td></tr>
+<tr><td>Public holidays</td><td class="m">07:00 – 10:00 &nbsp;and&nbsp; 18:00 – 21:00</td></tr></table>
+<p class="fonte">Source: Trenitalia, "Treni garantiti in caso di sciopero" (Italian page) and "In case of strike" (English page), checked 10 October 2026. The English page gives the weekday windows as "Mon-Sat".</p>
+<p>Inside these windows, the regional trains listed by Trenitalia run. Outside them, a regional train may still run if enough staff are working, but nobody can promise it in advance. If you need to move by regional train on a strike day, <strong>aim for the windows</strong>, and build in a margin: a train that departs at 08:50 is inside the window, one at 09:10 is not.</p>
+<h2>Trenitalia long-distance trains</h2>
+<p>For long-distance trains (the high-speed Frecce, Intercity and night trains), Trenitalia publishes a list of trains that are guaranteed during strikes, on weekdays and holidays alike. The list for the current timetable has about {{TAB_NA}} trains. It covers the whole day, not just the time windows, and it is the most useful document a train traveller can have on a strike day. Chapter 5 shows you how to read it, with real rows from it.</p>
+<h2>The one-hour rule</h2>
+<p>What about a train that is already moving when the strike begins? Trenitalia's rule: trains that are travelling when the strike starts, if they were not cancelled at their departure station, normally reach their final destination <strong>if it can be reached within one hour</strong> of the start of the strike. After that hour, a train may stop at an intermediate station.</p>
+<p class="fonte">Source: Trenitalia, "In case of strike", checked 10 October 2026.</p>
+<div class="box"><h3>What this means in practice</h3>
+<p>A strike starts at 21:00. Your train is due at 21:40: you will normally get there. Your train is due at 23:00: you may be left at an intermediate station late in the evening.</p>
+<p><strong>Rule of thumb:</strong> on the evening before a national rail strike, choose a train that arrives before the strike starts, or within the hour after.</p></div>
+<h2>Trenord (Lombardy, including Malpensa Express)</h2>
+<p>Trenord runs the regional trains of Lombardy, including the Malpensa Express to Milan's main airport. Its guaranteed windows are the same:</p>
+<table class="compatta"><tr><th></th><th>Guaranteed windows</th></tr>
+<tr><td>Weekdays and Saturdays</td><td class="m">06:00 – 09:00 &nbsp;and&nbsp; 18:00 – 21:00</td></tr>
+<tr><td>Public holidays</td><td class="m">07:00 – 10:00 &nbsp;and&nbsp; 18:00 – 21:00</td></tr></table>
+<p>Trenord also guarantees the EuroCity trains EC82 and EC83 between the Brenner Pass and Bologna on strike days. If a strike stopped you from travelling, Trenord says you can ask for a refund of your ticket <strong>within 30 days</strong> of the strike day.</p>
+<p class="fonte">Source: Trenord, "In case of strike action" (English page), checked 10 October 2026.</p>
+<h2>Italo</h2>
+<p>Italo is a separate, private high-speed operator. It does not have a permanent strike page: before each strike involving its staff, it publishes a notice and a list of guaranteed trains on its home page, <a href="https://www.italotreno.com/en">italotreno.com</a>. Check it a few days before you travel; by law, the notice must be out at least five days before the strike.</p>
+<h2>Other rail companies</h2>
+<p>Several regions have their own railway companies (in Campania, Apulia, Sardinia and elsewhere) and some local lines are run by city transport companies. They have their own guaranteed services, often listed under local public transport in the register. The register tells you which company is striking; that company's website has the details.</p>
+<h2>Five rules for strike days</h2>
+<ol><li><strong>Check the start time.</strong> National rail strikes often begin at 21:00 the evening before.</li>
+<li><strong>Use the windows.</strong> A regional train at 07:30 is far more likely to run than one at 11:00.</li>
+<li><strong>Look up your train number</strong> in the guaranteed list (chapter 5).</li>
+<li><strong>Do not build plans on "maybe".</strong> Trains outside the lists may run, but nobody can promise it.</li>
+<li><strong>Keep your ticket and booking confirmation.</strong> You will need them for refunds (chapter 6).</li></ol>
+</section>
+
+<section class="capitolo">
+<div class="kick"><span class="tile">05</span>Chapter five</div>
+<h1>The guaranteed list, decoded</h1>
+<p class="lead">Trenitalia's list of guaranteed long-distance trains is a plain table in Italian. Here is how to find it, how to read it, and what it looked like for the timetable running until December 2026.</p>
+<h2>Where to find it</h2>
+<p>Go to Trenitalia's Italian page "Treni garantiti in caso di sciopero" (<a href="https://www.trenitalia.com/it/informazioni/treni-garantiti-incasodisciopero.html">trenitalia.com, treni garantiti</a>). The English version of the page says "See Italian version for details on guaranteed trains", so use the Italian one; your browser can translate the text around the tables. There are two tables, both PDF files:</p>
+<ul><li><strong>Tabella A</strong>: long-distance trains guaranteed in case of strike on weekdays and holidays. This is the one you need almost always. The list valid from 14 June to 12 December 2026 has <strong>{{TAB_NA}} trains</strong>.</li>
+<li><strong>Tabella B</strong>: a shorter list ({{TAB_NB}} trains) that applies only to a national general strike for the renewal of the national labour contract held on a public holiday, lasting no more than 24 hours and starting at 21:00 the day before.</li></ul>
+<p>The lists change with each timetable (Italian railways change timetable in June and December), so always open the current one.</p>
+<h2>How to read a row</h2>
+<table class="compatta"><tr><th>Treno n° commerciale</th><th>Provenienza</th><th>Orario di partenza</th><th>Destinazione</th><th>Orario di arrivo</th></tr>
+<tr><td class="m"><strong>9613</strong></td><td>MILANO CENTRALE</td><td class="m">08:30</td><td>NAPOLI CENTRALE</td><td class="m">13:10</td></tr></table>
+<ul><li><strong>Treno n° commerciale</strong>: the train number printed on your ticket. This is what you match.</li>
+<li><strong>Provenienza / Destinazione</strong>: where the train starts and ends. The table does not list the stops in between.</li>
+<li><strong>Orario di partenza / di arrivo</strong>: departure from the first station and arrival at the last.</li></ul>
+<div class="box"><h3>Three things the table does not tell you</h3>
+<ol style="margin:0"><li><strong>The intermediate stops.</strong> A guaranteed Milan to Naples train may stop in Bologna, Florence or Rome, or it may not. Open the train's details in the Trenitalia app or website, by number and date, to see its stops.</li>
+<li><strong>Whether seats are still available.</strong> The list says the train runs, not that there is room on it. Book as early as you can.</li>
+<li><strong>Last-minute changes.</strong> Trenitalia's notes warn that listed trains can be cancelled in whole or in part, change number, time or route because of engineering works, and that a train's commercial number may be replaced by its technical number.</li></ol></div>
+<p class="fonte">Source: Trenitalia, Tabella A and Tabella B, valid 14 June to 12 December 2026, and the notes printed on them; checked 10 October 2026.</p>
+<h2>A real excerpt: the big cities</h2>
+<p>These are the rows of Tabella A (valid until 12 December 2026) that start and end in the cities most travellers use: Rome, Milan, Naples, Venice, Turin, plus Salerno (for the Amalfi Coast) and La Spezia (for the Cinque Terre). Times are departure from the first station and arrival at the last.</p>
+{{TAB_ESTRATTO}}
+<p class="fonte">Source: Trenitalia, Tabella A, "treni validi dal 14 giugno al 12 dicembre 2026", list updated June 2026. Extract by Italy Strikes Today. Check the current list before travelling.</p>
+<p>Look at what this excerpt tells you even without the stops: on a national rail strike day there were guaranteed trains between Milan and Rome in both directions, several between Milan and Naples, and a regular pattern between Venice and Naples. If your route is on a line like these, a guaranteed train may well serve it. If your route is a small branch line, it probably will not, and a coach or a change of day is the better plan.</p>
+<h2>And Italo?</h2>
+<p>Italo publishes its own list of guaranteed trains before each strike that involves its staff, as a notice on its home page. A Trenitalia strike does not automatically involve Italo, and the other way round: the register says which company is striking.</p>
+</section>
+
+<section class="capitolo">
+<div class="kick"><span class="tile">06</span>Chapter six</div>
+<h1>Your train is cancelled: what now</h1>
+<p class="lead">EU law gives rail passengers clear rights when a train is cancelled or badly delayed. A strike by the railway's own staff does not take those rights away.</p>
+<h2>The key fact</h2>
+<div class="box verde"><p>Under EU rules, "strikes by rail company staff are not considered as extraordinary circumstances".</p>
+<p>In plain words: if your train is cancelled or delayed because the railway's own staff are on strike, you keep your right to a refund or re-routing, and you may also be entitled to compensation.</p></div>
+<p class="fonte">Source: European Commission, Your Europe, "Rail passenger rights" (Regulation (EU) 2021/782), checked 10 October 2026.</p>
+<h2>If your train is cancelled</h2>
+<p>If a cancellation means you would reach your final destination more than 60 minutes late, you can choose one of three options:</p>
+<ul><li><strong>a refund</strong> of your ticket within 30 days (in full, or for the part of the journey you did not make), plus, where relevant, a return journey to your starting point;</li>
+<li><strong>continuing or re-routing</strong> to your destination under comparable conditions at the earliest opportunity, at no extra cost;</li>
+<li><strong>re-routing at a later date</strong> of your choice, under comparable conditions, at no extra cost.</li></ul>
+<h2>Help while you wait</h2>
+<ul><li>Meals and refreshments, in proportion to the waiting time.</li>
+<li>A hotel or other accommodation, where physically possible, if you have to stay overnight because of the cancellation, plus transport between the station and the hotel.</li></ul>
+<h2>Making your own arrangements</h2>
+<p>On request, the railway may let you organise your own alternative transport (another rail company, a coach) and reimburse you. And if the railway does not tell you about re-routing options <strong>within 100 minutes</strong> of the scheduled departure of the cancelled train, you can make your own arrangements with other public transport (rail, coach or bus) without its agreement. The company must then reimburse "necessary, appropriate and reasonable" costs.</p>
+<div class="box"><h3>Collect your proof</h3>
+<p>Take a photo of the departure board showing the cancellation. Keep tickets and receipts for meals, hotels and alternative transport. Note the time the train was due and the time you were told about re-routing. This is what you attach to your claim.</p></div>
+<h2>Compensation</h2>
+<table class="compatta"><tr><th>Delay at arrival</th><th>Compensation</th></tr>
+<tr><td>1 to 2 hours</td><td>25% of the ticket price</td></tr>
+<tr><td>2 hours or more</td><td>50% of the ticket price</td></tr></table>
+<p>The railway must pay within one month of your request. You will <strong>not</strong> receive compensation if:</p>
+<ul><li>you were told about the delay or cancellation <strong>before you bought your ticket</strong>;</li>
+<li>the extra delay with re-routing is less than 1 hour;</li>
+<li>you chose a refund of your ticket.</li></ul>
+<div class="box rosa"><h3>The trap on strike days</h3>
+<p>Strikes are announced at least 10 days ahead. If you buy a ticket for a train that has already been announced as cancelled, you lose the right to compensation for that delay. Check the register and the company's notices <em>before</em> you buy.</p></div>
+<p class="fonte">Source: European Commission, Your Europe, "Rail passenger rights", checked 10 October 2026. National rules or company conditions may be more favourable.</p>
+{{RIMBORSI_OPERATORI}}
+<h2>How to claim</h2>
+<ul><li><strong>Trenitalia</strong>: the "Compensation for delays and refund" section of trenitalia.com (<a href="https://www.trenitalia.com/en/information/compensation-for-delays-and-refund.html">link</a>), or the call centre on 892021 from Italy.</li>
+<li><strong>Trenord</strong>: a refund within 30 days of the strike day, through its refunds page.</li>
+<li><strong>Italo</strong>: through <a href="https://www.italotreno.com/en">italotreno.com</a> or its customer service.</li>
+<li>If you are not satisfied with the answer, each EU country has a national enforcement body, and the European Consumer Centre in your country can help with cross-border problems.</li></ul>
+<h2>Getting there anyway</h2>
+<ul><li><strong>Long-distance coaches</strong> (for example FlixBus and Itabus) are not part of rail strikes. On national strike days they fill up fast: book as soon as the strike is announced.</li>
+<li><strong>Another rail company</strong>: a Trenitalia strike does not always involve Italo, and vice versa. The register says who is striking.</li>
+<li><strong>A rental car</strong> for one day can save a connection; read chapter 9 about ZTL zones before driving into a city centre.</li>
+<li><strong>One more night</strong>: if your transfer day falls on a national strike, moving it by a day is often simpler and cheaper than any alternative.</li></ul>
+</section>
+
+<section class="capitolo">
+<div class="kick"><span class="tile">07</span>Chapter seven</div>
+<h1>Flights and airports</h1>
+<p class="lead">Air transport strikes in Italy come in different shapes. Who is striking decides what happens to your flight, and what you can claim.</p>
+<h2>Who can strike</h2>
+<ul><li><strong>Airline staff</strong> (pilots, cabin crew) of one airline: only that airline is involved.</li>
+<li><strong>Air traffic control</strong> (ENAV and related companies): can affect many airlines at the airports or areas involved.</li>
+<li><strong>Airport staff</strong>: ground handling, security, the airport operator. Usually one airport or a group of airports.</li></ul>
+<h2>Protected time windows</h2>
+<div class="box verde"><p>During strikes there are protected time windows, <strong>from 07:00 to 10:00 and from 18:00 to 21:00</strong>, in which flights must be operated anyway.</p></div>
+<p class="fonte">Source: ENAC (Italian Civil Aviation Authority), "Voli garantiti in caso di sciopero", checked 10 October 2026.</p>
+<p>Air strikes need a longer notice than other sectors: at least twelve days (chapter 2). On top of the windows, ENAC publishes for each strike a list of guaranteed flights, such as essential connections to the islands. Your airline decides which other flights to cancel and must tell you.</p>
+<h2>Your rights if your flight is cancelled</h2>
+<p>Under EU rules (Regulation 261/2004), if your flight is cancelled you can choose between:</p>
+<ul><li>reimbursement of your ticket (and, if you had a connection, a return flight to your first departure airport);</li>
+<li>re-routing to your final destination at the earliest opportunity; or</li>
+<li>re-routing at a later date of your choice, subject to seat availability.</li></ul>
+<p>You are also entitled to assistance at the airport: meals and refreshments, and a hotel if you need to stay overnight.</p>
+<h2>Compensation: it depends on who strikes</h2>
+<p>If you are told about the cancellation less than 14 days before departure, you may be entitled to compensation:</p>
+<table class="compatta"><tr><th>Flight distance</th><th class="n">Compensation</th></tr>
+<tr><td>1,500 km or less</td><td class="n">€250</td></tr>
+<tr><td>More than 1,500 km within the EU, and other flights between 1,500 and 3,500 km</td><td class="n">€400</td></tr>
+<tr><td>More than 3,500 km</td><td class="n">€600</td></tr></table>
+<ul><li><strong>Strikes by the airline's own staff</strong> are not considered extraordinary circumstances: compensation can be due.</li>
+<li><strong>Strikes outside the airline</strong> (for example air traffic control or airport staff) "may be considered as extraordinary circumstances". To avoid paying, the airline must prove the link with the strike and that the cancellation could not have been avoided with all reasonable measures.</li></ul>
+<p>There are exceptions when you are told between 7 and 14 days before departure and offered a re-routing close to your original times: see the official page for the details.</p>
+<p class="fonte">Source: European Commission, Your Europe, "Air passenger rights", checked 10 October 2026.</p>
+<h2>On a strike day at the airport</h2>
+<ol><li>Check your flight with your airline the day before and on the morning of the flight.</li>
+<li>A flight inside a protected window (07:00 to 10:00, 18:00 to 21:00) is much more likely to operate.</li>
+<li>Check the ground transport too. A rail or local transport strike on the same day can make getting to the airport the real problem.</li>
+<li>If your flight is cancelled, ask the airline in writing for re-routing or a refund, and keep every receipt.</li></ol>
+<h2>Getting to the airport when the trains stop</h2>
+<p>Airport trains, such as the Leonardo Express in Rome and the Malpensa Express in Milan, are part of rail strikes. Your options: a train inside a guaranteed window, an airport coach (check whether its company is in the register), a taxi or a pre-booked transfer. Allow extra time: on national strike days the roads are busier.</p>
+</section>
+
+<section class="capitolo">
+<div class="kick"><span class="tile">08</span>Chapter eight</div>
+<h1>Buses, metro, trams and taxis</h1>
+<p class="lead">Local transport strikes are the most frequent and the most local. They matter only if you are in that city, on that day, in those hours.</p>
+<h2>Four hours or twenty-four</h2>
+<p>Local strikes often last 4 hours or 24 hours; the register gives the exact hours. For a 24-hour strike, each company publishes the time windows in which its service is guaranteed. The windows differ from city to city, so the company's own notice is the only reliable source. For shorter strikes, read the hours carefully and plan around them.</p>
+<h2>Where to find the guaranteed hours</h2>
+<table class="compatta">
+<tr><th>City</th><th>Company and website</th></tr>
+<tr><td>Rome</td><td>ATAC: atac.roma.it</td></tr>
+<tr><td>Milan</td><td>ATM: <a href="https://www.atm.it/en/Pages/default.aspx">atm.it</a></td></tr>
+<tr><td>Turin</td><td>GTT: <a href="https://www.gtt.to.it/cms/avvisi-e-informazioni-di-servizio">gtt.to.it</a></td></tr>
+<tr><td>Naples</td><td>ANM: <a href="https://www.anm.it/s/?language=it">anm.it</a></td></tr>
+<tr><td>Venice</td><td>ACTV (AVM): <a href="https://actv.avmspa.it/en/news">actv.avmspa.it</a></td></tr>
+<tr><td>Bologna</td><td>TPER: <a href="https://www.tper.it/news">tper.it</a></td></tr>
+<tr><td>Florence, Pisa (buses)</td><td>Autolinee Toscane: <a href="https://www.at-bus.it/it/sciopero">at-bus.it</a></td></tr>
+<tr><td>Florence (tram)</td><td>GEST: gestramvia.it</td></tr>
+<tr><td>Genoa</td><td>AMT: <a href="https://www.amt.genova.it/amt/news/">amt.genova.it</a></td></tr>
+<tr><td>Palermo</td><td>AMAT: <a href="https://www.amat.pa.it/notizie/">amat.pa.it</a></td></tr>
+<tr><td>Bari</td><td>AMTAB: <a href="https://www.amtab.it/it/">amtab.it</a></td></tr>
+<tr><td>Catania</td><td>AMTS: <a href="https://www.amts.ct.it/avvisi-news">amts.ct.it</a></td></tr>
+<tr><td>Verona</td><td>ATV: atv.verona.it</td></tr>
+<tr><td>Padua</td><td>Busitalia Veneto: <a href="https://www.fsbusitalia.it/it/veneto/news-veneto.html">fsbusitalia.it</a></td></tr>
+<tr><td>Trieste</td><td>Trieste Trasporti: triestetrasporti.it</td></tr>
+</table>
+<p class="fonte">Websites checked 10 October 2026. By law, companies must publish how the service will run at least five days before a strike.</p>
+<h2>Taxis</h2>
+<p>Taxis are not part of bus and metro strikes, but demand rises sharply on those days: book through an app or by phone early, or ask your hotel. Taxi strikes are rarer and appear in the register under "Taxi".</p>
+<h2>A strike day in a city: a simple plan</h2>
+<ul><li>Cross the city inside the guaranteed windows, and spend the strike hours in one neighbourhood.</li>
+<li>Choose sights within walking distance of where you sleep. Italian historic centres are compact: a strike day is a good day to walk.</li>
+<li>For the airport or the station, book a taxi or a transfer in advance.</li></ul>
+</section>
+
+<section class="capitolo">
+<div class="kick"><span class="tile">09</span>Chapter nine</div>
+<h1>Driving: ZTL zones and fines</h1>
+<p class="lead">If a strike pushes you into a rental car, the biggest risk is not the traffic. It is the ZTL.</p>
+<p>A <strong>ZTL</strong> (<em>zona a traffico limitato</em>, limited traffic zone) is an area, usually a historic centre, where only authorised vehicles may enter at certain times. Cameras at the entry gates record every number plate.</p>
+<h2>How much a fine costs</h2>
+<ul><li>Driving into a ZTL, a pedestrian area or a bus lane without a permit costs <strong>from €83 to €332</strong> (Italian Highway Code, article 7, paragraph 14).</li>
+<li>If you pay within <strong>60 days</strong> of the notice, you pay the minimum. If you pay within <strong>5 days</strong>, it is reduced by <strong>30%</strong> (article 202), plus the notification costs written on the notice.</li>
+<li>Each time you pass a gate it can be recorded as a separate violation.</li></ul>
+<h2>When the fine arrives</h2>
+<ul><li>For people resident abroad, the notice must be served within <strong>360 days</strong> (article 201); the period runs from when the authorities can identify the driver.</li>
+<li>With a rental car, the police contact the rental company first, and the company gives them your details. Rental companies usually charge their own administration fee for this: check your contract.</li></ul>
+<p class="fonte">Source: Italian Highway Code (Legislative Decree 285/1992), articles 7, 201 and 202, text on Normattiva checked 10 October 2026.</p>
+<h2>How to avoid it</h2>
+<ul><li>Look for the round sign with a red border and the words "Zona Traffico Limitato", and for the display at the gate: <strong>"varco attivo"</strong> means the cameras are on, do not enter; <strong>"varco non attivo"</strong> means the gate is open at that moment.</li>
+<li>If your hotel is inside a ZTL, contact it before you arrive: in many cities hotels can register your plate.</li>
+<li>Park outside the centre and walk or take public transport. Navigation apps do not always warn you about ZTLs.</li>
+<li>Hours, zones and permits are set by each city and change over time: check the city's official website.</li></ul>
+<h2>Motorways on strike days</h2>
+<p>Strikes of motorway services (toll booths, roadside assistance) appear in the register under "Circolazione e sicurezza stradale". Check the hours if you have a long drive that day.</p>
+</section>
+
+<section class="parte"><div class="k">Part three</div><div class="h"><em>Plan</em></div><div class="r"></div>
+<div class="s">A method that turns a strike into a small change of plan, six real situations solved step by step, three itineraries with built-in buffers, and everything you need on the day.</div>
+<ol><li><span>10</span>The strike-proof method</li><li><span>11</span>Six situations, solved</li><li><span>12</span>Three itineraries with buffers</li><li><span>13</span>Strike morning: the 10-minute routine</li><li><span>14</span>Practical Italy</li><li><span>15</span>Questions travellers ask</li><li><span>16</span>Checklists, planner and pocket card</li></ol></section>
+
+<section class="capitolo">
+<div class="kick"><span class="tile">10</span>Chapter ten</div>
+<h1>The strike-proof method</h1>
+<p class="lead">You cannot know today whether there will be a strike on your travel day in six months. You can build a trip that survives one.</p>
+<p>This is our method. It is not an official rule: it is common sense built on the rules in the previous chapters. It takes about twenty minutes when you plan, and five minutes per travel day afterwards.</p>
+<h2>Step 1. Split your trip into moving days and staying days</h2>
+<p>Write your itinerary as a list of days and mark each one <strong>M</strong> (you move between cities, or to or from an airport) or <strong>S</strong> (you stay in one place). A strike can hurt you badly only on an M day; on an S day it is an inconvenience. Most trips have three to five M days, and those are the only days you need to protect.</p>
+<h2>Step 2. Protect the M days</h2>
+<ul><li><strong>Keep M days off Fridays when you can.</strong> In our snapshot of the register, {{SNAP_VEN}} of {{SNAP_N}} strikes started on a Friday. A Friday is not forbidden; it is just a little riskier.</li>
+<li><strong>Put an S day next to every long transfer.</strong> If a strike lands on the M day, you swap them.</li>
+<li><strong>Travel in the morning.</strong> Morning trains fall more often inside the guaranteed windows, and if something goes wrong you still have the day to fix it.</li>
+<li><strong>Sleep in your departure city the night before you fly home.</strong> Never put a long train journey and an international flight on the same day.</li></ul>
+<h2>Step 3. Book flexible where it matters</h2>
+<p>For long-distance trains on M days, a fare you can change or refund costs a little more, but it turns a strike into a simple change of train. For short regional trips and S-day excursions, cheap tickets are fine.</p>
+<h2>Step 4. Check at 14, 10, 5 and 1 days</h2>
+<div class="giorni"><div><b>−14</b>first look</div><div><b>−10</b>notice period starts</div><div><b>−5</b>companies publish services</div><div class="x"><b>−3</b>decide</div><div><b>−1</b>confirm</div><div class="ok"><b>0</b>travel</div></div>
+<ul><li><strong>14 days before</strong> each M day: look at the register for that date, area and sector.</li>
+<li><strong>10 days before</strong>: the legal notice period has begun. A strike not announced by now is unlikely, though not impossible.</li>
+<li><strong>5 days before</strong>: by law, companies must have published how services will run. Look for your train in the guaranteed lists.</li>
+<li><strong>3 days before</strong>: decide. Keep the plan, move the M day, or book a backup.</li>
+<li><strong>The day before</strong>: check your train or flight status, and whether the strike has been called off.</li></ul>
+<h2>Step 5. If a strike is announced on an M day</h2>
+<ol><li>Read who is striking and the hours (chapter 3). Many strikes will not touch you.</li>
+<li>If your train is in a guaranteed list or your journey fits a guaranteed window, keep it.</li>
+<li>If not, move the M day: travel a day earlier or later, swapping it with an S day.</li>
+<li>If you cannot move it, book a backup: a coach, another rail company, a transfer.</li>
+<li>Keep every document for refunds (chapter 6).</li></ol>
+<div class="box verde"><h3>If you remember only one rule</h3>
+<p>Keep one buffer day before your flight home, in the city of your departure airport. It absorbs any strike, delay or cancellation in the last part of the trip.</p></div>
+</section>
+
+<section class="capitolo">
+<div class="kick"><span class="tile">11</span>Chapter eleven</div>
+<h1>Six situations, solved</h1>
+<p class="lead">Rules are easier to use when you have seen them applied. These are typical situations, built on real types of entries in the register, solved with the rules in this guide.</p>
+<div class="scena"><div class="tag">Situation 1</div><h2>A national rail strike on your Rome to Florence day</h2>
+<p><strong>The facts.</strong> You planned to take a mid-morning train from Rome to Florence on a Friday. Twelve days before, a national general strike appears in the register for that Friday, with trains involved "from 21:00 of the day before to 20:59".</p>
+<p><strong>What to do.</strong> Check whether your train number is in Tabella A. If it is, keep it, and check its status the day before. If it is not, you have three good options: travel on Thursday, before 21:00, swapping the day with your last day in Rome; take a regional train inside a guaranteed window (06:00 to 09:00 or 18:00 to 21:00 on a weekday); or book a coach early. If you had a flexible fare, change it now, while there is choice.</p>
+<p><strong>Why it works.</strong> You acted twelve days ahead, with the whole range of trains and coaches still on sale.</p></div>
+<div class="scena"><div class="tag">Situation 2</div><h2>Your evening train crosses the start of a strike</h2>
+<p><strong>The facts.</strong> A rail strike starts at 21:00. You have a ticket for a train leaving at 19:15 and arriving at 22:35.</p>
+<p><strong>What to do.</strong> Under Trenitalia's one-hour rule, a train already travelling when the strike begins normally reaches its destination only if it can do so within one hour of the start. 22:35 is more than an hour after 21:00, so your train may stop at an intermediate station. Change to an earlier train that arrives before 22:00, or move the journey.</p></div>
+<div class="scena"><div class="tag">Situation 3</div><h2>An airline crew strike on your flight day</h2>
+<p><strong>The facts.</strong> The register shows a 24-hour strike of one airline's flight crew (<em>personale navigante</em>) on the day you fly that airline.</p>
+<p><strong>What to do.</strong> Check whether your flight is in a protected window (07:00 to 10:00 or 18:00 to 21:00) and watch for messages from the airline. If your flight is cancelled, choose a refund or re-routing, and claim assistance at the airport. Because the strike is by the airline's own staff, it is not an extraordinary circumstance: if you were told less than 14 days before departure, compensation can be due.</p></div>
+<div class="scena"><div class="tag">Situation 4</div><h2>An air traffic control strike instead</h2>
+<p><strong>The facts.</strong> Same day, same flight, but the strike is by air traffic control staff (ENAV) at your departure airport.</p>
+<p><strong>What to do.</strong> Your rights to a refund or re-routing, and to assistance, are the same. Compensation is different: a strike outside the airline "may be considered" an extraordinary circumstance, so the airline may not owe it, if it can prove the link with the strike and that the cancellation could not have been avoided. Check ENAC's list of guaranteed flights for that strike.</p></div>
+<div class="scena"><div class="tag">Situation 5</div><h2>A bus and metro strike in Milan on your last day</h2>
+<p><strong>The facts.</strong> You fly home from Malpensa at 15:00. The register shows a 24-hour strike of ATM, Milan's city transport company, that day.</p>
+<p><strong>What to do.</strong> Read who is striking: ATM runs Milan's buses, trams and metro, not the Malpensa Express, which is a Trenord train. Unless Trenord is also in the register, the airport train is not part of this strike; the problem is getting to the station where you board it. Check ATM's guaranteed windows, walk or take a taxi to the station, and leave early: on strike days taxis are in demand.</p></div>
+<div class="scena"><div class="tag">Situation 6</div><h2>You bought your ticket after the strike was announced</h2>
+<p><strong>The facts.</strong> You booked a train for a date when a strike was already in the register, without checking. The train is cancelled.</p>
+<p><strong>What to do.</strong> Ask the company about a refund or another train, and check its conditions. But under EU rules, you will not receive compensation for a delay or cancellation you were told about before you bought your ticket. The lesson costs nothing next time: check the register before you buy.</p></div>
+</section>
+
+<section class="capitolo">
+<div class="kick"><span class="tile">12</span>Chapter twelve</div>
+<h1>Three itineraries with buffers</h1>
+<p class="lead">Classic routes, arranged so that a strike on any single day costs you hours, not days.</p>
+<p class="piccolo">M = moving day, S = staying day. Journey times vary by train and timetable: check them on Trenitalia or Italo when you book. Each itinerary starts and ends at an airport city, so you never cross the country on the day of your flight.</p>
+<h2>A. Seven days: Rome, Florence, Venice</h2>
+<table class="compatta"><tr><th>Day</th><th></th><th>Plan</th></tr>
+<tr><td class="m">1</td><td class="m">M</td><td>Arrive in Rome. If a strike is announced, reach the city inside a guaranteed window or by taxi.</td></tr>
+<tr><td class="m">2</td><td class="m">S</td><td>Rome.</td></tr>
+<tr><td class="m">3</td><td class="m">S</td><td>Rome. <strong>Flexible day</strong>: if day 4 has a rail strike, travel today instead.</td></tr>
+<tr><td class="m">4</td><td class="m">M</td><td>Morning train to Florence.</td></tr>
+<tr><td class="m">5</td><td class="m">M</td><td>Morning train to Venice. If a strike is announced, stay in Florence and move on day 6.</td></tr>
+<tr><td class="m">6</td><td class="m">S</td><td>Venice. <strong>Buffer</strong>: you are already in your departure city.</td></tr>
+<tr><td class="m">7</td><td class="m">M</td><td>Fly home from Venice.</td></tr></table>
+<p><strong>Why it works.</strong> The only rail transfers are on days 4 and 5, each with a flexible day beside it, and the last night is in the departure city. Seven days is tight: if you can, add a second night in Florence.</p>
+<h2>B. Ten days: Milan, the lakes, Florence, Rome</h2>
+<table class="compatta"><tr><th>Day</th><th></th><th>Plan</th></tr>
+<tr><td class="m">1</td><td class="m">M</td><td>Arrive in Milan.</td></tr>
+<tr><td class="m">2</td><td class="m">S</td><td>Milan.</td></tr>
+<tr><td class="m">3</td><td class="m">M</td><td>Regional train to a lake town. On a strike day, use the guaranteed windows.</td></tr>
+<tr><td class="m">4</td><td class="m">S</td><td>The lake. A day trip by boat or train.</td></tr>
+<tr><td class="m">5</td><td class="m">M</td><td>Back through Milan and on to Florence.</td></tr>
+<tr><td class="m">6</td><td class="m">S</td><td>Florence.</td></tr>
+<tr><td class="m">7</td><td class="m">S</td><td>Florence or a day trip in Tuscany. <strong>Flexible day.</strong></td></tr>
+<tr><td class="m">8</td><td class="m">M</td><td>Train to Rome.</td></tr>
+<tr><td class="m">9</td><td class="m">S</td><td>Rome. <strong>Buffer.</strong></td></tr>
+<tr><td class="m">10</td><td class="m">M</td><td>Fly home from Rome.</td></tr></table>
+<p><strong>Why it works.</strong> Flying into Milan and out of Rome avoids a long return journey. Days 7 and 9 can each absorb a strike.</p>
+<h2>C. Fourteen days: the grand loop</h2>
+<table class="compatta"><tr><th>Day</th><th></th><th>Plan</th></tr>
+<tr><td class="m">1–3</td><td class="m">M S S</td><td>Rome.</td></tr>
+<tr><td class="m">4</td><td class="m">M</td><td>Train to Naples.</td></tr>
+<tr><td class="m">5–6</td><td class="m">S S</td><td>Naples and day trips. Local trains and ferries: check the register for local strikes.</td></tr>
+<tr><td class="m">7</td><td class="m">M</td><td>Train to Florence. If a national rail strike is announced, swap with day 6.</td></tr>
+<tr><td class="m">8–9</td><td class="m">S S</td><td>Florence and Tuscany.</td></tr>
+<tr><td class="m">10</td><td class="m">M</td><td>Train to Venice.</td></tr>
+<tr><td class="m">11</td><td class="m">S</td><td>Venice.</td></tr>
+<tr><td class="m">12</td><td class="m">M</td><td>Train to Milan.</td></tr>
+<tr><td class="m">13</td><td class="m">S</td><td>Milan. <strong>Buffer.</strong></td></tr>
+<tr><td class="m">14</td><td class="m">M</td><td>Fly home from Milan.</td></tr></table>
+<p><strong>Why it works.</strong> Every transfer has an S day on at least one side, and the buffer is in the departure city. Trenitalia's guaranteed list for 2026 included trains on the main lines of this loop (between Naples and Venice, Venice and Milan, Milan and Rome): check the stops, and you may have a fallback even on a national strike day.</p>
+</section>
+
+<section class="capitolo">
+<div class="kick"><span class="tile">13</span>Chapter thirteen</div>
+<h1>Strike morning: the 10-minute routine</h1>
+<p class="lead">It is the morning of a strike and you have to move. Make a coffee and do these six things, in this order.</p>
+<ol>
+<li><strong>Confirm the strike is still on</strong> (1 minute). Look at the register or our daily page for today. Strikes are sometimes called off at the last moment.</li>
+<li><strong>Re-read the hours and who is striking</strong> (1 minute). Is it your company? Does your journey fall inside the strike hours, or inside a guaranteed window?</li>
+<li><strong>Check your train or flight by number</strong> (2 minutes). Use the company's app or website. For trains, also look for the number in the guaranteed list.</li>
+<li><strong>Check how you get to the station or airport</strong> (2 minutes). A local transport strike can be the real obstacle. Decide now: walk, taxi or transfer.</li>
+<li><strong>Prepare plan B</strong> (2 minutes). Have the next guaranteed train, a coach, or the extra night in mind, with prices. Do not book it yet unless your option has already gone.</li>
+<li><strong>Charge your phone and take screenshots</strong> (2 minutes). Ticket, booking, and the company's strike notice. If your train is cancelled, photograph the departure board.</li>
+</ol>
+<div class="box"><h3>At the station</h3>
+<p>Look at the departure board first: cancelled trains show "soppresso" or "cancellato". Then ask at the ticket office or a staff desk about re-routing, and keep the answer in writing if you can (a printed ticket, an email, a note on your booking).</p></div>
+<h2>Useful phrases</h2>
+<table class="compatta"><tr><th>Italian</th><th>English</th></tr>
+<tr><td><em>C'è sciopero oggi?</em></td><td>Is there a strike today?</td></tr>
+<tr><td><em>Questo treno è garantito?</em></td><td>Is this train guaranteed?</td></tr>
+<tr><td><em>Il treno per Firenze è soppresso?</em></td><td>Is the train to Florence cancelled?</td></tr>
+<tr><td><em>Qual è il prossimo treno per Roma?</em></td><td>What is the next train to Rome?</td></tr>
+<tr><td><em>Posso prendere un altro treno con questo biglietto?</em></td><td>Can I take another train with this ticket?</td></tr>
+<tr><td><em>Vorrei il rimborso del biglietto.</em></td><td>I would like a refund for my ticket.</td></tr>
+<tr><td><em>Da quale binario parte?</em></td><td>Which platform does it leave from?</td></tr>
+<tr><td><em>A che ora finisce lo sciopero?</em></td><td>What time does the strike end?</td></tr>
+<tr><td><em>Mi può chiamare un taxi, per favore?</em></td><td>Could you call me a taxi, please?</td></tr>
+</table>
+</section>
+
+<section class="capitolo">
+<div class="kick"><span class="tile">14</span>Chapter fourteen</div>
+<h1>Practical Italy</h1>
+<p class="lead">A few things that are not about strikes but make every travel day easier: the codice fiscale, staying connected, insurance, regional tickets and the emergency number.</p>
+<h2>The codice fiscale</h2>
+<p>The <em>codice fiscale</em> is the Italian tax identification number: 16 letters and digits. The Italian Revenue Agency describes it as the means of identifying foreign citizens "in their relations with public authorities and other administrations". A short holiday does not need one. If you are moving to Italy, renting long-term or working there, you will.</p>
+<h3>How to get it</h3>
+<ul><li><strong>Living abroad</strong>: apply to the Italian consulate in your country of residence.</li>
+<li><strong>In Italy, non-EU citizens</strong>: the Single Desk for Immigration issues it to people entering for work or family reunification; the police headquarters (<em>Questura</em>) when you apply for or renew a residence permit.</li>
+<li><strong>Otherwise</strong>: at an office of the Agenzia delle Entrate with a valid ID. For a first codice fiscale you must <strong>book an in-person appointment</strong>.</li>
+<li><strong>EU citizens</strong>: any Agenzia delle Entrate office, with an ID card or passport.</li></ul>
+<p class="fonte">Source: Agenzia delle Entrate, "Tax identification number for foreign citizens" (English page), checked 10 October 2026.</p>
+<p>Our free calculator (<a href="https://italy-strikes-today.netlify.app/codice-fiscale-calculator/">italy-strikes-today.netlify.app/codice-fiscale-calculator</a>) shows the code that normally matches your data, using the official country and town codes. Only the Agenzia delle Entrate can assign the official one.</p>
+<h2>Stay connected</h2>
+<p>On strike days, information changes by the hour: company websites, the register, airline messages. Mobile data is what lets you re-plan from a platform. If you come from outside the EU, a local SIM or an eSIM bought before you land gives you data from the airport onwards. Check that your phone supports eSIM before buying one.</p>
+<h2>Travel insurance</h2>
+<p>EU passenger rights cover refunds, re-routing and assistance (chapters 6 and 7), but not everything: a prepaid hotel you cannot reach, a tour you miss, a medical problem. Travel insurance can cover some of these; what it covers depends entirely on the policy. Read the terms about strikes and delays before you buy.</p>
+<p class="piccolo">One option we link to on our site is SafetyWing travel medical insurance (<a href="{{SAFETYWING}}">affiliate link</a>). Check what the plan covers, and whether it covers strikes and delays, before buying.</p>
+<h2>Regional tickets: validate before you board</h2>
+<p>Paper tickets for regional trains "must be validated before the departure of the train" in the machines at the station where your journey begins, and the journey must be completed within four hours of validation (some regional fares have exceptions). Electronic regional tickets bought online are already validated or activate automatically for the train you chose.</p>
+<p class="fonte">Source: Trenitalia, "Travelling on regional trains" and "Digital Regional Ticket" (English pages), checked 10 October 2026.</p>
+<h2>Emergency number</h2>
+<p><strong>112</strong> is the European emergency number, valid in Italy and across the EU, free of charge.</p>
+<p class="fonte">Source: European Commission, "112" policy page, checked 10 October 2026.</p>
+</section>
+
+<section class="capitolo faq">
+<div class="kick"><span class="tile">15</span>Chapter fifteen</div>
+<h1>Questions travellers ask</h1>
+<p class="lead">Short answers, with the chapter where the full answer lives.</p>
+<h3>Will my train run?</h3>
+<p>Nobody can promise it in advance unless it is in a guaranteed list or runs inside a guaranteed window. Check your train number in Tabella A, and the regional windows (chapters 4 and 5).</p>
+<h3>How far ahead are strikes announced?</h3>
+<p>At least 10 days, by law. In our snapshot, strikes were announced between {{SNAP_MIN}} and {{SNAP_MAX}} days ahead. The law allows rare exceptions without notice (chapter 2).</p>
+<h3>Can a strike be called off at the last minute?</h3>
+<p>Yes. Strikes are sometimes called off, postponed or shortened, even a few days before. Check again the day before you travel (chapter 2).</p>
+<h3>Are high-speed trains affected?</h3>
+<p>It depends on who strikes. The Frecce are Trenitalia trains; Italo is a separate company. A strike of Trenitalia staff does not automatically involve Italo, and the other way round (chapters 4 and 5).</p>
+<h3>Is there a "strike season"?</h3>
+<p>{{FAQ_FRANCHIGIE}} In our snapshot, Friday was the most common starting day.</p>
+<h3>What is a general strike, and does it stop transport?</h3>
+<p>A <em>sciopero generale</em> involves many sectors at once. Transport is included unless the notes exclude it, and each sector may have its own hours: read the "Modalità" field (chapter 3).</p>
+<h3>Will a rail strike cancel my flight?</h3>
+<p>No, flights are a different sector. But it can make getting to the airport harder, especially by airport train (chapter 7).</p>
+<h3>Do taxis work during a bus and metro strike?</h3>
+<p>Yes, unless there is a separate taxi strike in the register. Demand is much higher, so book early (chapter 8).</p>
+<h3>Do I get my money back if my train is cancelled?</h3>
+<p>Under EU rules you can choose a refund or re-routing when a cancellation would make you more than an hour late, and you may be owed compensation. A strike by the railway's own staff does not remove these rights (chapter 6).</p>
+<h3>I have a regional ticket without a seat. What happens?</h3>
+<p>Regional trains run in the guaranteed windows. If you could not travel, ask the company for a refund; for Trenord, the request must be made within 30 days of the strike (chapters 4 and 6).</p>
+<h3>Can I see past strikes?</h3>
+<p>Yes. The MIT register has a search page with strikes going back to 2014, each marked as carried out or called off (chapter 2).</p>
+<h3>Where can I check today's strikes in English?</h3>
+<p>On our free site, <a href="https://italy-strikes-today.netlify.app/">italy-strikes-today.netlify.app</a>, updated twice a day from the official register.</p>
+<h3>Will this guide be updated?</h3>
+<p>Rules change. If we publish a new edition, buyers of this edition get it free: we send it to the email address used for the purchase. For today's strikes, the daily pages on our site are always free.</p>
+</section>
+
+<section class="capitolo">
+<div class="kick"><span class="tile">16</span>Chapter sixteen</div>
+<h1>Checklists, planner and pocket card</h1>
+<p class="lead">Print these pages, or keep them on your phone.</p>
+<h2>When you book</h2>
+<ul class="check"><li><span class="cb"></span>Every day marked M (moving) or S (staying).</li><li><span class="cb"></span>M days kept off Fridays where possible.</li><li><span class="cb"></span>An S day next to every long transfer.</li><li><span class="cb"></span>One buffer day in the departure city before the flight home.</li><li><span class="cb"></span>Flexible fares for long-distance trains on M days.</li><li><span class="cb"></span>Travel insurance terms read for strikes and delays.</li><li><span class="cb"></span>Mobile data sorted (eSIM, SIM or roaming).</li></ul>
+<h2>Before each M day</h2>
+<ul class="check"><li><span class="cb"></span>Day −14: register checked for date, area and sector.</li><li><span class="cb"></span>Day −10: checked again; any strike read for who, hours and notes.</li><li><span class="cb"></span>Day −5: train number looked up in the guaranteed list.</li><li><span class="cb"></span>Day −3: decision taken: keep, move the day, or backup booked.</li><li><span class="cb"></span>Day −1: strike still on? Train or flight status checked.</li><li><span class="cb"></span>Transfer to the station or airport planned outside strike hours.</li></ul>
+</section>
+
+<section style="break-before:page">
+<h2 style="margin-top:0">Trip planner</h2>
+<p class="piccolo">Fill in one line per day. Tick the checks as you do them.</p>
+<table class="foglio"><tr><th style="width:9%">Day</th><th style="width:13%">Date</th><th style="width:8%">M/S</th><th>From → to</th><th style="width:9%">−14</th><th style="width:9%">−5</th><th style="width:9%">−1</th></tr>
+{{RIGHE_FOGLIO}}
+</table>
+</section>
+
+<section style="break-before:page">
+<h2 style="margin-top:0">On a strike day</h2>
+<ul class="check"><li><span class="cb"></span>The 10-minute routine done (chapter 13).</li><li><span class="cb"></span>Photo of the departure board if your train is cancelled.</li><li><span class="cb"></span>Receipts kept: meals, hotel, alternative transport.</li><li><span class="cb"></span>Refund or compensation request sent (Trenord: within 30 days).</li></ul>
+<div class="carta"><h3>Pocket card</h3>
+<p><strong>Register</strong>: scioperi.mit.gov.it · <strong>Daily, in English</strong>: italy-strikes-today.netlify.app</p>
+<p><strong>Notice</strong>: strikes announced at least 10 days ahead (air: 12); companies publish their services at least 5 days ahead.</p>
+<p><strong>Strike-free periods</strong> (trains, by the rules): 18 Dec–7 Jan · Easter week · 24 Apr–2 May · 27 Jun–4 Jul · 27 Jul–3 Sep · 30 Oct–5 Nov. Lower risk, not zero: check the register.</p>
+<p><strong>Trains (Trenitalia, Trenord)</strong>: weekdays 06:00–09:00 and 18:00–21:00; holidays 07:00–10:00 and 18:00–21:00. Long-distance: Trenitalia Tabella A. Trains already moving: destination reached if within 1 hour of the strike start.</p>
+<p><strong>Flights</strong>: protected 07:00–10:00 and 18:00–21:00, plus ENAC's list of guaranteed flights.</p>
+<p><strong>Rail rights (EU)</strong>: more than 60 min late because of a cancellation → refund or re-routing; compensation 25% (1–2 h) or 50% (2 h+). Railway staff strikes are not "extraordinary circumstances".</p>
+<p><strong>Flight rights (EU)</strong>: refund or re-routing, plus assistance; €250 / €400 / €600 if told less than 14 days before, unless extraordinary circumstances (the airline's own staff strikes are not).</p>
+<p><strong>ZTL</strong>: €83–332, −30% if paid within 5 days · <strong>Emergency</strong>: 112 · <strong>Trenitalia</strong>: 892021 (from Italy)</p><p style="margin:0;padding-top:5pt;border-top:.6pt dashed #B9B2A5"><strong>Words on the board</strong>: <strong>sciopero</strong> strike · <strong>soppresso / cancellato</strong> cancelled · <strong>ritardo</strong> delay · <strong>garantito</strong> guaranteed · <strong>binario</strong> platform · <strong>rimborso</strong> refund · <strong>revocato</strong> called off · <strong>dalle … alle …</strong> from … to …</p></div>
+</section>
+
+<section class="capitolo">
+<div class="kick"><span class="tile">A</span>Appendix</div>
+<h1>Glossary and official sources</h1>
+<h2>Italian words you will meet</h2>
+<table class="compatta">
+<tr><td><em>sciopero</em></td><td>strike</td><td><em>sciopero generale</em></td><td>general strike</td></tr>
+<tr><td><em>proclamazione</em></td><td>announcement of a strike</td><td><em>revoca, revocato</em></td><td>calling off, called off</td></tr>
+<tr><td><em>differito</em></td><td>postponed</td><td><em>fasce di garanzia</em></td><td>guaranteed time windows</td></tr>
+<tr><td><em>treni garantiti</em></td><td>guaranteed trains</td><td><em>soppresso</em></td><td>cancelled (train)</td></tr>
+<tr><td><em>ritardo</em></td><td>delay</td><td><em>binario</em></td><td>platform</td></tr>
+<tr><td><em>biglietto</em></td><td>ticket</td><td><em>rimborso</em></td><td>refund</td></tr>
+<tr><td><em>indennizzo</em></td><td>compensation</td><td><em>varco attivo</em></td><td>ZTL gate active: do not enter</td></tr>
+<tr><td><em>trasporto pubblico locale</em></td><td>local public transport</td><td><em>intera giornata</em></td><td>whole day</td></tr>
+<tr><td><em>personale navigante</em></td><td>flight crew</td><td><em>escluso, esclusi</em></td><td>excluded</td></tr>
+<tr><td><em>provenienza</em></td><td>origin (of a train)</td><td><em>destinazione</em></td><td>destination</td></tr>
+</table>
+<h2>Official sources</h2>
+<p class="piccolo">All checked on 10 October 2026.</p>
+<ul class="piccolo">
+<li>MIT strike register: <a href="https://scioperi.mit.gov.it/mit2/public/scioperi">scioperi.mit.gov.it/mit2/public/scioperi</a> (data licensed CC BY 4.0).</li>
+<li>Law 146/1990: <a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-06-12;146">normattiva.it, legge 12 giugno 1990 n. 146</a>.</li>
+<li>Trenitalia, guaranteed trains in case of strike, with Tabella A and Tabella B: <a href="https://www.trenitalia.com/it/informazioni/treni-garantiti-incasodisciopero.html">trenitalia.com/it/informazioni/treni-garantiti-incasodisciopero.html</a>.</li>
+<li>Trenitalia, "In case of strike": <a href="https://www.trenitalia.com/en/information/in-case-of-strike.html">trenitalia.com/en/information/in-case-of-strike.html</a>.</li>
+<li>Trenitalia, compensation and refunds: <a href="https://www.trenitalia.com/en/information/compensation-for-delays-and-refund.html">trenitalia.com/en/information/compensation-for-delays-and-refund.html</a>.</li>
+<li>Trenord, "In case of strike action": <a href="https://www.trenord.it/en/assistance/useful-information/in-case-of-strike-action/">trenord.it/en/assistance/useful-information/in-case-of-strike-action</a>.</li>
+<li>Italo: <a href="https://www.italotreno.com/en">italotreno.com/en</a>.</li>
+<li>ENAC, guaranteed flights: <a href="https://www.enac.gov.it/trasporto-aereo/diritto-alla-mobilita/scioperi-nel-trasporto-aereo/voli-garantiti/">enac.gov.it, voli garantiti</a>.</li>
+<li>EU rail passenger rights: <a href="https://europa.eu/youreurope/citizens/travel/passenger-rights/rail/index_en.htm">europa.eu/youreurope, rail</a>.</li>
+<li>EU air passenger rights: <a href="https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_en.htm">europa.eu/youreurope, air</a>.</li>
+<li>Italian Highway Code, articles 7, 201, 202: Normattiva (Legislative Decree 30 April 1992, n. 285).</li>
+<li>Agenzia delle Entrate, tax identification number for foreign citizens: <a href="https://www.agenziaentrate.gov.it/portale/web/english/nse/individuals/tax-identification-number-for-foreign-citizens">agenziaentrate.gov.it</a>.</li>
+<li>European emergency number 112: <a href="https://digital-strategy.ec.europa.eu/en/policies/112">digital-strategy.ec.europa.eu/en/policies/112</a>.</li>
+{{FONTI_EXTRA}}
+<li>Local transport companies: websites listed in chapter 8.</li></ul>
+</section>
+</body></html>

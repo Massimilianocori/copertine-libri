@@ -52,6 +52,7 @@ luoghi = json.loads((DATI / "luoghi.json").read_text(encoding="utf-8"))
 operatori = json.loads((DATI / "operatori.json").read_text(encoding="utf-8"))
 LINK = json.loads((DATI / "link.json").read_text(encoding="utf-8")) if (DATI / "link.json").exists() else {}
 AFFILIATI = json.loads((DATI / "affiliati.json").read_text(encoding="utf-8")) if (DATI / "affiliati.json").exists() else {}
+PRODOTTI = json.loads((DATI / "prodotti.json").read_text(encoding="utf-8")) if (DATI / "prodotti.json").exists() else {}
 CITTA = luoghi["citta"]
 CITTA_IT = luoghi.get("citta_it", [])
 AEROPORTI = luoghi["aeroporti"]
@@ -656,7 +657,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
 <header class="top"><div class="wrap">
 <a class="logo" href="{rel}">Italy Strikes <span>Today</span></a>
 <nav class="menu" aria-label="Menu">
-<a href="{rel}today/">Today</a><a href="{rel}tomorrow/">Tomorrow</a><a href="{rel}this-week/">This week</a><a href="{rel}#cities">Cities</a><a href="{rel}airports/">Airports</a><a href="{rel}guides/">Guides</a>{f'<a href="{rel}{alt_it}" hreflang="it" lang="it">Italiano</a>' if alt_it is not None else ""}
+<a href="{rel}today/">Today</a><a href="{rel}tomorrow/">Tomorrow</a><a href="{rel}this-week/">This week</a><a href="{rel}#cities">Cities</a><a href="{rel}airports/">Airports</a><a href="{rel}guides/">Guides</a>{f'<a href="{rel}guide/italy-by-train/">PDF guide</a>' if guida_in_vendita() else ""}{f'<a href="{rel}{alt_it}" hreflang="it" lang="it">Italiano</a>' if alt_it is not None else ""}
 </nav>
 </div></header>
 <main class="wrap">
@@ -664,7 +665,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
 {corpo}
 </main>
 <footer><div class="wrap">
-<p><strong>{NOME}</strong> is an independent site. Data from the <a href="{URL_REGISTRO}" rel="noopener">official strike register of the Italian Ministry of Infrastructure and Transport (MIT)</a>; we are not affiliated with MIT, unions or transport operators.
+<p><strong>{NOME}</strong> is an independent site. Data from the <a href="{URL_REGISTRO}" rel="noopener">official strike register of the Italian Ministry of Infrastructure and Transport (MIT)</a>, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>; we are not affiliated with MIT, unions or transport operators.
 <strong>Strikes can be called off or changed at short notice. Always check with your train operator, airline or local transport company before travelling.</strong> Nothing on this site is legal advice.</p>
 <p>Official register last updated: <span data-reg>{data_breve(d(AGGIORNATO))}</span> · checked <span data-letto>{escape(LETTO)} (Italy time)</span><br>
 <a href="{rel}about/">About and sources</a> · <a href="{rel}contact/">Contact</a> · <a href="{rel}privacy.html">Privacy</a> · <a href="{rel}guides/">Guides</a></p>
@@ -756,15 +757,71 @@ AD = '<div class="ad-slot" aria-hidden="true"></div>'
 def box_affiliati():
     """Riquadro 'Stuck by a strike?' con i link di affiliazione; vuoto finché non ci sono URL (vedi dati/affiliati.json)."""
     voci = [v for k, v in AFFILIATI.items() if not k.startswith("_") and v.get("url")]
+    g = guida_in_vendita()
+    guida = (f'<p style="margin:0 0 8px"><a href="/guide/italy-by-train/"><strong>{escape(g["titolo_breve"])}</strong></a>: '
+             f'{escape(g["frase"])}</p>') if g else ""
     if not voci:
-        return ""
+        return (f'<section class="card" style="margin-top:22px"><h2 style="margin-top:0">Stuck by a strike?</h2>{guida}</section>') if g else ""
     righe = "".join(
         f'<li><a href="{escape(v["url"])}" rel="sponsored noopener" target="_blank">{escape(v["titolo"])}</a> '
         f'<span class="small">({escape(v["nome"])}) {escape(v["testo"])}</span></li>' for v in voci)
-    return (f'<section class="card" style="margin-top:22px"><h2 style="margin-top:0">Stuck by a strike? Alternatives</h2>'
+    return (f'<section class="card" style="margin-top:22px"><h2 style="margin-top:0">Stuck by a strike? Alternatives</h2>{guida}'
             f'<ul style="margin:0 0 8px;padding-left:20px">{righe}</ul>'
             f'<p class="small" style="margin:0">Some of these are affiliate links: if you book through them we may earn a small commission, '
             f'at no extra cost to you. It helps keep this site free.</p></section>')
+
+
+def guida_in_vendita():
+    """La guida PDF compare sul sito solo quando c'è il link Payhip in dati/prodotti.json."""
+    g = PRODOTTI.get("italy-by-train") or {}
+    return g if g.get("url") else None
+
+
+def pagina_guida_pdf():
+    g = guida_in_vendita()
+    if not g:
+        return
+    dest = SITO / "guide" / "italy-by-train"
+    dest.mkdir(parents=True, exist_ok=True)
+    immagini = sorted((RADICE / "assets" / "guida").glob("*.png"))
+    for f in immagini:
+        shutil.copy(f, dest / f.name)
+    galleria = "".join(f'<img src="{f.name}" alt="Sample page {i + 1} of the guide" loading="lazy" width="432" height="648" '
+                       f'style="width:100%;height:auto;border:1px solid var(--line);border-radius:6px">' for i, f in enumerate(immagini))
+    capitoli = ["Why a strike need not ruin your trip", "How strikes work in Italy (the 10-day rule, minimum services, the register)",
+                "Reading the official strike register, with five real entries decoded", "Trains: what still runs (Trenitalia, Trenord, Italo)",
+                "The guaranteed list, decoded, with a real excerpt of Trenitalia's list", "Your train is cancelled: refunds, re-routing, compensation (EU rules)",
+                "Flights and airports: protected windows and your rights", "Buses, metro, trams and taxis in 15 cities", "Driving: ZTL zones and fines",
+                "The strike-proof planning method", "Six situations, solved step by step", "Three itineraries with strike buffers (7, 10, 14 days)",
+                "Strike morning: the 10-minute routine, with useful Italian phrases", "Practical Italy: codice fiscale, data, insurance, 112",
+                "Questions travellers ask", "Checklists, trip planner and printable pocket card"]
+    lista = "".join(f"<li>{escape(c)}</li>" for c in capitoli)
+    bottone = (f'<a class="btn" href="{escape(g["url"])}" rel="noopener" '
+               f'style="display:inline-block;background:var(--accent);color:var(--bg);padding:12px 20px;border-radius:8px;font-weight:700;text-decoration:none">'
+               f'Buy the PDF · {escape(g["prezzo"])}</a>')
+    corpo = f"""<section class="hero"><h1>{escape(g["titolo"])}</h1>
+<p class="lead">How to travel around Italy when trains, flights and buses go on strike: the official rules in plain English, what you are owed, and how to plan a trip that one strike day cannot ruin.</p>
+<p>{bottone}</p>
+<p class="small">{escape(g["edizione"])} · {g["pagine"]} pages · instant download · payment and delivery by Payhip (prices may show in your currency, VAT included where it applies).</p></section>
+<div class="testo">
+<h2>What is inside</h2>
+<ol>{lista}</ol>
+<h2>Why it is different</h2>
+<ul><li><strong>Only official sources.</strong> Every rule comes from the law, the EU, the Ministry's register, Trenitalia, Trenord, ENAC or the city transport companies, with the date we checked it.</li>
+<li><strong>Built by the team behind this site</strong>, which reads the official register twice a day.</li>
+<li><strong>Independent.</strong> We are not affiliated with any rail company, airline, union or ministry. Nothing in the guide is legal advice.</li></ul>
+<h2>Sample pages</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px">{galleria}</div>
+<p style="margin-top:18px">{bottone}</p>
+<h2>Questions</h2>
+<p><strong>What format is it?</strong> A PDF (6 × 9 inches) that you can read on a phone, tablet or computer, or print.</p>
+<p><strong>Will the rules change?</strong> Rules and timetables do change. If we publish a new edition, buyers of this edition get it free by email.</p>
+<p><strong>Do I need it to use this site?</strong> No. The daily strike pages are free and always will be. The guide is for planning a whole trip.</p>
+<p>Questions before buying? <a href="/contact/">Contact us</a>.</p>
+</div>"""
+    pagina("guide/italy-by-train/", "Italy by Train 2026: the strike-proof guide (PDF)",
+           "A PDF guide to travelling in Italy during transport strikes: guaranteed trains and flights, your EU rights, real register entries decoded, itineraries with buffers.",
+           corpo, briciole=[("Guides", "guides/"), ("Italy by Train (PDF)", "guide/italy-by-train/")])
 
 
 def opzioni_luoghi():
@@ -1302,7 +1359,7 @@ def about():
     corpo = f"""<section class="hero"><h1>About {NOME} and our sources</h1></section><div class="testo">
 <p>{NOME} is an independent project that makes the official Italian strike register easy to read in English for travellers. We are not affiliated with the Italian government, unions or transport operators.</p>
 <h2>Where the data comes from</h2>
-<ul><li>The <a href="{URL_REGISTRO}" rel="noopener">strike register of the Ministry of Infrastructure and Transport</a> and its RSS feed. We read it every day and keep our own archive, because the register removes strikes once they are over.</li>
+<ul><li>The <a href="{URL_REGISTRO}" rel="noopener">strike register of the Ministry of Infrastructure and Transport</a> and its RSS feed, published under the <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">Creative Commons Attribution 4.0 (CC BY 4.0)</a> licence. We read it twice a day and keep our own archive with the history of each strike: when it was announced, changed, called off or removed from the list of upcoming strikes. The register also has its own search page with past strikes since 2014. We translate and reorganise the data; the original Italian text is always shown.</li>
 <li>Guaranteed services: we link to the operators and authorities that publish them (Trenitalia, Italo, Trenord, ENAC, local transport companies). We do not copy their lists.</li></ul>
 <h2>How we translate</h2>
 <p>Sectors, scope and hours are translated automatically with fixed rules. The original Italian text is always shown next to the translation. If our rules cannot translate the hours, we show only the original.</p>
@@ -1409,6 +1466,7 @@ def main():
     for a in AEROPORTI:
         pagina_aeroporto(a)
     guide()
+    pagina_guida_pdf()
     if satelliti_attivi():
         pagina_codice_fiscale()
         pagina_ztl()

@@ -1,0 +1,12 @@
+{
+ "_nota": "Prodotti in vendita (Payhip). La pagina guide/italy-by-train/ e i link nel menu e nel riquadro 'Stuck by a strike?' compaiono SOLO se 'url' non è vuoto. Inserire il link del prodotto Payhip che manda Massimiliano (https://payhip.com/b/...). Mai inventare URL. Accendere solo con il sì di Massimiliano.",
+ "italy-by-train": {
+  "url": "",
+  "prezzo": "$9.99",
+  "titolo": "Italy by Train: the strike-proof guide (PDF)",
+  "titolo_breve": "Italy by Train: the strike-proof guide",
+  "frase": "a 65-page PDF with the official rules, your rights and plans that survive a strike day.",
+  "edizione": "Edition 1 · October 2026",
+  "pagine": 65
+ }
+}

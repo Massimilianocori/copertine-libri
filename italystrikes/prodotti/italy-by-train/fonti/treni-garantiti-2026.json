@@ -1,0 +1,1446 @@
+{
+"A": [
+{
+"n": "14",
+"cat": "B",
+"da": "Milano Centrale",
+"p": "09:10",
+"a": "Zürich Hb",
+"ar": "12:46"
+},
+{
+"n": "29",
+"cat": "B",
+"da": "Zürich Hb",
+"p": "18:33",
+"a": "Milano Centrale",
+"ar": "22:50"
+},
+{
+"n": "41",
+"cat": "B",
+"da": "Ginevra",
+"p": "05:27",
+"a": "Venezia Santa Lucia",
+"ar": "12:42"
+},
+{
+"n": "46",
+"cat": "B",
+"da": "Venezia Santa Lucia",
+"p": "16:18",
+"a": "Ginevra",
+"ar": "00:07"
+},
+{
+"n": "60",
+"cat": "B",
+"da": "Milano Centrale",
+"p": "07:10",
+"a": "Basilea Sbb",
+"ar": "11:29"
+},
+{
+"n": "61",
+"cat": "B",
+"da": "Basilea Sbb",
+"p": "06:30",
+"a": "Milano Centrale",
+"ar": "10:50"
+},
+{
+"n": "64",
+"cat": "B",
+"da": "Milano Centrale",
+"p": "15:10",
+"a": "Basilea Sbb",
+"ar": "19:29"
+},
+{
+"n": "65",
+"cat": "B",
+"da": "Basilea Sbb",
+"p": "12:30",
+"a": "Milano Centrale",
+"ar": "16:55"
+},
+{
+"n": "294",
+"cat": "D",
+"da": "Roma Tiburtina",
+"p": "18:10",
+"a": "Vienna Hauptbahnhof",
+"ar": "9:29"
+},
+{
+"n": "295",
+"cat": "D",
+"da": "Vienna Hauptbahnhof",
+"p": "20:07",
+"a": "Roma Tiburtina",
+"ar": "10:05"
+},
+{
+"n": "500",
+"cat": "C",
+"da": "Genova Brignole",
+"p": "06:48",
+"a": "Torino Porta Nuova",
+"ar": "08:45"
+},
+{
+"n": "505",
+"cat": "C",
+"da": "Ventimiglia",
+"p": "06:37",
+"a": "Roma Termini",
+"ar": "14:33"
+},
+{
+"n": "510",
+"cat": "C",
+"da": "Salerno",
+"p": "06:39",
+"a": "Torino Porta Nuova",
+"ar": "17:40"
+},
+{
+"n": "511",
+"cat": "C",
+"da": "Torino Porta Nuova",
+"p": "10:40",
+"a": "Salerno",
+"ar": "21:24"
+},
+{
+"n": "518",
+"cat": "C",
+"da": "Roma Termini",
+"p": "15:57",
+"a": "Ventimiglia",
+"ar": "23:39"
+},
+{
+"n": "519",
+"cat": "C",
+"da": "Torino Porta Nuova",
+"p": "18:05",
+"a": "Genova Brignole",
+"ar": "20:12"
+},
+{
+"n": "533",
+"cat": "C",
+"da": "Ancona",
+"p": "05:50",
+"a": "Roma Termini",
+"ar": "09:55"
+},
+{
+"n": "540",
+"cat": "C",
+"da": "Roma Termini",
+"p": "15:10",
+"a": "Ancona",
+"ar": "19:05"
+},
+{
+"n": "552",
+"cat": "C",
+"da": "Reggio Calabria Centrale",
+"p": "07:56",
+"a": "Roma Termini",
+"ar": "15:34"
+},
+{
+"n": "561",
+"cat": "C",
+"da": "Roma Termini",
+"p": "16:26",
+"a": "Reggio Calabria Centrale",
+"ar": "23:58"
+},
+{
+"n": "590",
+"cat": "C",
+"da": "Salerno",
+"p": "08:58",
+"a": "Milano Centrale",
+"ar": "19:25"
+},
+{
+"n": "592",
+"cat": "C",
+"da": "Roma Termini",
+"p": "15:30",
+"a": "Trieste Centrale",
+"ar": "23:38"
+},
+{
+"n": "594",
+"cat": "C",
+"da": "Trieste Centrale",
+"p": "13:27",
+"a": "Roma Termini",
+"ar": "22:20"
+},
+{
+"n": "597",
+"cat": "C",
+"da": "Milano Centrale",
+"p": "13:48",
+"a": "Salerno",
+"ar": "00:27"
+},
+{
+"n": "607",
+"cat": "C",
+"da": "Milano P.Garibaldi",
+"p": "09:10",
+"a": "Lecce",
+"ar": "20:35"
+},
+{
+"n": "614",
+"cat": "C",
+"da": "Lecce",
+"p": "12:03",
+"a": "Milano Centrale",
+"ar": "23:40"
+},
+{
+"n": "639",
+"cat": "C",
+"da": "Ventimiglia",
+"p": "19:10",
+"a": "Milano Centrale",
+"ar": "22:55"
+},
+{
+"n": "652",
+"cat": "C",
+"da": "La Spezia Centrale",
+"p": "04:56",
+"a": "Milano Centrale",
+"ar": "08:25"
+},
+{
+"n": "653",
+"cat": "C",
+"da": "Ventimiglia",
+"p": "04:45",
+"a": "Milano Centrale",
+"ar": "09:00"
+},
+{
+"n": "658",
+"cat": "C",
+"da": "Livorno Centrale",
+"p": "05:25",
+"a": "Milano Centrale",
+"ar": "10:00"
+},
+{
+"n": "659",
+"cat": "C",
+"da": "Milano Centrale",
+"p": "09:10",
+"a": "Ventimiglia",
+"ar": "13:02"
+},
+{
+"n": "679",
+"cat": "C",
+"da": "Milano Centrale",
+"p": "18:05",
+"a": "Livorno Centrale",
+"ar": "22:35"
+},
+{
+"n": "687",
+"cat": "C",
+"da": "Milano Centrale",
+"p": "21:10",
+"a": "La Spezia Centrale",
+"ar": "00:25"
+},
+{
+"n": "689",
+"cat": "C",
+"da": "Milano Centrale",
+"p": "20:05",
+"a": "Ventimiglia",
+"ar": "00:02"
+},
+{
+"n": "724",
+"cat": "C",
+"da": "Siracusa",
+"p": "10:25",
+"a": "Roma Termini",
+"ar": "21:34"
+},
+{
+"n": "727",
+"cat": "C",
+"da": "Roma Termini",
+"p": "11:26",
+"a": "Siracusa",
+"ar": "22:38"
+},
+{
+"n": "729",
+"cat": "C",
+"da": "Messina Centrale",
+"p": "19:50",
+"a": "Palermo Centrale",
+"ar": "23:01"
+},
+{
+"n": "730",
+"cat": "C",
+"da": "Palermo Centrale",
+"p": "10:15",
+"a": "Messina Centrale",
+"ar": "13:10"
+},
+{
+"n": "752",
+"cat": "A",
+"da": "Lecce",
+"p": "19:50",
+"a": "Milano Centrale",
+"ar": "07:15"
+},
+{
+"n": "754",
+"cat": "A",
+"da": "Lecce",
+"p": "20:25",
+"a": "Torino Porta Nuova",
+"ar": "09:25"
+},
+{
+"n": "755",
+"cat": "A",
+"da": "Milano Centrale",
+"p": "21:50",
+"a": "Lecce",
+"ar": "09:30"
+},
+{
+"n": "757",
+"cat": "A",
+"da": "Torino Porta Nuova",
+"p": "20:50",
+"a": "Lecce",
+"ar": "10:10"
+},
+{
+"n": "794",
+"cat": "A",
+"da": "Reggio Calabria Centrale",
+"p": "21:43",
+"a": "Torino Porta Nuova",
+"ar": "14:40"
+},
+{
+"n": "795",
+"cat": "A",
+"da": "Torino Porta Nuova",
+"p": "15:20",
+"a": "Reggio Calabria Centrale",
+"ar": "08:45"
+},
+{
+"n": "796",
+"cat": "A",
+"da": "Salerno",
+"p": "20:52",
+"a": "Torino Porta Nuova",
+"ar": "08:10"
+},
+{
+"n": "799",
+"cat": "A",
+"da": "Torino Porta Nuova",
+"p": "21:55",
+"a": "Salerno",
+"ar": "09:11"
+},
+{
+"n": "1958",
+"cat": "A",
+"da": "Palermo Centrale",
+"p": "20:21",
+"a": "Messina Centrale",
+"ar": "23:45"
+},
+{
+"n": "1959",
+"cat": "A",
+"da": "Roma Termini",
+"p": "23:00",
+"a": "Siracusa",
+"ar": "11:29"
+},
+{
+"n": "1960",
+"cat": "A",
+"da": "Siracusa",
+"p": "21:53",
+"a": "Roma Termini",
+"ar": "09:51"
+},
+{
+"n": "1961",
+"cat": "A",
+"da": "Messina Centrale",
+"p": "08:37",
+"a": "Palermo Centrale",
+"ar": "11:58"
+},
+{
+"n": "1962",
+"cat": "A",
+"da": "Siracusa",
+"p": "13:35",
+"a": "Milano Centrale",
+"ar": "10:10"
+},
+{
+"n": "1963",
+"cat": "A",
+"da": "Milano Centrale",
+"p": "20:10",
+"a": "Siracusa",
+"ar": "15:48"
+},
+{
+"n": "1964",
+"cat": "A",
+"da": "Palermo Centrale",
+"p": "12:53",
+"a": "Messina Centrale",
+"ar": "16:20"
+},
+{
+"n": "1965",
+"cat": "A",
+"da": "Messina Centrale",
+"p": "13:20",
+"a": "Palermo Centrale",
+"ar": "16:55"
+},
+{
+"n": "8302",
+"cat": "¥",
+"da": "Lecce",
+"p": "6:07",
+"a": "Roma Termini",
+"ar": "12:05"
+},
+{
+"n": "8315",
+"cat": "¥",
+"da": "Roma Termini",
+"p": "14:58",
+"a": "Lecce",
+"ar": "20:45"
+},
+{
+"n": "8418",
+"cat": "¥",
+"da": "Reggio Calabria Centrale",
+"p": "06:01",
+"a": "Venezia Santa Lucia",
+"ar": "15:34"
+},
+{
+"n": "8419",
+"cat": "¥",
+"da": "Venezia Santa Lucia",
+"p": "12:26",
+"a": "Reggio Calabria Centrale",
+"ar": "22:03"
+},
+{
+"n": "8502",
+"cat": "¥",
+"da": "Roma Termini",
+"p": "06:45",
+"a": "Bolzano Bozen",
+"ar": "11:56"
+},
+{
+"n": "8506",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "07:30",
+"a": "Bolzano Bozen",
+"ar": "13:48"
+},
+{
+"n": "8509",
+"cat": "¥",
+"da": "Sibari",
+"p": "06:24",
+"a": "Bolzano Bozen",
+"ar": "15:48"
+},
+{
+"n": "8519",
+"cat": "¥",
+"da": "Bolzano Bozen",
+"p": "13:12",
+"a": "Sibari",
+"ar": "22:33"
+},
+{
+"n": "8525",
+"cat": "¥",
+"da": "Bolzano Bozen",
+"p": "15:12",
+"a": "Napoli Centrale",
+"ar": "21:33"
+},
+{
+"n": "8529",
+"cat": "¥",
+"da": "Bolzano Bozen",
+"p": "17:10",
+"a": "Roma Termini",
+"ar": "22:15"
+},
+{
+"n": "8619",
+"cat": "ª",
+"da": "Milano Centrale",
+"p": "13:10",
+"a": "Roma Termini",
+"ar": "20:03"
+},
+{
+"n": "8620",
+"cat": "ª",
+"da": "Roma Termini",
+"p": "13:57",
+"a": "Milano Centrale",
+"ar": "20:40"
+},
+{
+"n": "8803",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "07:50",
+"a": "Bari Centrale",
+"ar": "15:30"
+},
+{
+"n": "8813",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "14:35",
+"a": "Lecce",
+"ar": "22:58"
+},
+{
+"n": "8814",
+"cat": "¥",
+"da": "Lecce",
+"p": "05:55",
+"a": "Milano Centrale",
+"ar": "14:25"
+},
+{
+"n": "8830",
+"cat": "¥",
+"da": "Bari Centrale",
+"p": "16:30",
+"a": "Milano Centrale",
+"ar": "23:25"
+},
+{
+"n": "9304",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "05:23",
+"a": "Torino Porta Nuova",
+"ar": "12:20"
+},
+{
+"n": "9308",
+"cat": "¥",
+"da": "Roma Termini",
+"p": "09:25",
+"a": "Torino Porta Nuova",
+"ar": "14:20"
+},
+{
+"n": "9310",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "08:55",
+"a": "Torino Porta Nuova",
+"ar": "15:20"
+},
+{
+"n": "9311",
+"cat": "¥",
+"da": "Torino Porta Nuova",
+"p": "08:40",
+"a": "Napoli Centrale",
+"ar": "15:03"
+},
+{
+"n": "9320",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "13:55",
+"a": "Torino Porta Nuova",
+"ar": "20:20"
+},
+{
+"n": "9325",
+"cat": "¥",
+"da": "Torino Porta Nuova",
+"p": "15:40",
+"a": "Napoli Centrale",
+"ar": "22:03"
+},
+{
+"n": "9403",
+"cat": "¥",
+"da": "Venezia Santa Lucia",
+"p": "06:26",
+"a": "Napoli Centrale",
+"ar": "11:48"
+},
+{
+"n": "9405",
+"cat": "¥",
+"da": "Venezia Santa Lucia",
+"p": "7:26",
+"a": "Napoli Centrale",
+"ar": "12:48"
+},
+{
+"n": "9406",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "06:09",
+"a": "Venezia Santa Lucia",
+"ar": "11:34"
+},
+{
+"n": "9414",
+"cat": "¥",
+"da": "Salerno",
+"p": "07:13",
+"a": "Venezia Santa Lucia",
+"ar": "13:34"
+},
+{
+"n": "9425",
+"cat": "¥",
+"da": "Venezia Santa Lucia",
+"p": "14:26",
+"a": "Napoli Centrale",
+"ar": "19:48"
+},
+{
+"n": "9426",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "14:10",
+"a": "Venezia Santa Lucia",
+"ar": "19:34"
+},
+{
+"n": "9428",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "15:10",
+"a": "Venezia Santa Lucia",
+"ar": "20:34"
+},
+{
+"n": "9431",
+"cat": "¥",
+"da": "Venezia Santa Lucia",
+"p": "16:26",
+"a": "Napoli Centrale",
+"ar": "21:48"
+},
+{
+"n": "9432",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "17:05",
+"a": "Venezia Santa Lucia",
+"ar": "22:55"
+},
+{
+"n": "9435",
+"cat": "¥",
+"da": "Venezia Santa Lucia",
+"p": "18:26",
+"a": "Napoli Centrale",
+"ar": "23:48"
+},
+{
+"n": "9505",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "05:10",
+"a": "Salerno",
+"ar": "11:27"
+},
+{
+"n": "9511",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "06:10",
+"a": "Lecce",
+"ar": "15:51"
+},
+{
+"n": "9512",
+"cat": "¥",
+"da": "Roma Termini",
+"p": "07:10",
+"a": "Milano Centrale",
+"ar": "10:50"
+},
+{
+"n": "9514",
+"cat": "¥",
+"da": "Taranto",
+"p": "06:05",
+"a": "Torino Porta Nuova",
+"ar": "16:00"
+},
+{
+"n": "9515",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "07:10",
+"a": "Salerno",
+"ar": "13:02"
+},
+{
+"n": "9516",
+"cat": "¥",
+"da": "Salerno",
+"p": "05:50",
+"a": "Torino Porta Nuova",
+"ar": "13:00"
+},
+{
+"n": "9519",
+"cat": "¥",
+"da": "Torino Porta Nuova",
+"p": "07:00",
+"a": "Salerno",
+"ar": "14:06"
+},
+{
+"n": "9520",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "07:45",
+"a": "Milano Centrale",
+"ar": "12:50"
+},
+{
+"n": "9524",
+"cat": "¥",
+"da": "Salerno",
+"p": "07:44",
+"a": "Milano Centrale",
+"ar": "13:50"
+},
+{
+"n": "9527",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "10:10",
+"a": "Salerno",
+"ar": "16:06"
+},
+{
+"n": "9532",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "10:40",
+"a": "Torino Porta Nuova",
+"ar": "17:00"
+},
+{
+"n": "9535",
+"cat": "¥",
+"da": "Torino Porta Nuova",
+"p": "11:00",
+"a": "Napoli Centrale",
+"ar": "17:18"
+},
+{
+"n": "9539",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "13:10",
+"a": "Napoli Centrale",
+"ar": "18:53"
+},
+{
+"n": "9540",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "12:40",
+"a": "Milano Centrale",
+"ar": "17:50"
+},
+{
+"n": "9543",
+"cat": "¥",
+"da": "Torino Porta Nuova",
+"p": "13:00",
+"a": "Salerno",
+"ar": "20:05"
+},
+{
+"n": "9544",
+"cat": "¥",
+"da": "Salerno",
+"p": "12:50",
+"a": "Milano Centrale",
+"ar": "18:50"
+},
+{
+"n": "9547",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "15:10",
+"a": "Taranto",
+"ar": "23:48"
+},
+{
+"n": "9551",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "16:10",
+"a": "Salerno",
+"ar": "22:05"
+},
+{
+"n": "9552",
+"cat": "¥",
+"da": "Salerno",
+"p": "14:45",
+"a": "Torino Porta Nuova",
+"ar": "22:00"
+},
+{
+"n": "9555",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "17:10",
+"a": "Battipaglia",
+"ar": "23:20"
+},
+{
+"n": "9556",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "16:40",
+"a": "Milano Centrale",
+"ar": "21:50"
+},
+{
+"n": "9559",
+"cat": "¥",
+"da": "Torino Porta Nuova",
+"p": "17:00",
+"a": "Roma Termini",
+"ar": "21:54"
+},
+{
+"n": "9560",
+"cat": "¥",
+"da": "Lecce",
+"p": "12:42",
+"a": "Milano Centrale",
+"ar": "22:50"
+},
+{
+"n": "9567",
+"cat": "¥",
+"da": "Torino Porta Nuova",
+"p": "19:00",
+"a": "Roma Termini",
+"ar": "23:54"
+},
+{
+"n": "9583",
+"cat": "¥",
+"da": "Torino Porta Nuova",
+"p": "08:00",
+"a": "Reggio Calabria Centrale",
+"ar": "18:57"
+},
+{
+"n": "9584",
+"cat": "¥",
+"da": "Reggio Calabria Centrale",
+"p": "06:33",
+"a": "Torino Porta Nuova",
+"ar": "18:00"
+},
+{
+"n": "9587",
+"cat": "¥",
+"da": "Torino Porta Nuova",
+"p": "10:00",
+"a": "Reggio Calabria Centrale",
+"ar": "21:30"
+},
+{
+"n": "9588",
+"cat": "¥",
+"da": "Reggio Calabria Centrale",
+"p": "10:07",
+"a": "Torino Porta Nuova",
+"ar": "21:00"
+},
+{
+"n": "9592",
+"cat": "¥",
+"da": "Salerno",
+"p": "17:53",
+"a": "Milano Centrale",
+"ar": "23:50"
+},
+{
+"n": "9607",
+"cat": "¥",
+"da": "Torino Porta Nuova",
+"p": "05:50",
+"a": "Napoli Centrale",
+"ar": "11:38"
+},
+{
+"n": "9611",
+"cat": "¥",
+"da": "Torino Porta Nuova",
+"p": "06:50",
+"a": "Napoli Centrale",
+"ar": "12:33"
+},
+{
+"n": "9612",
+"cat": "¥",
+"da": "Battipaglia",
+"p": "05:05",
+"a": "Torino Porta Nuova",
+"ar": "12:16"
+},
+{
+"n": "9613",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "08:30",
+"a": "Napoli Centrale",
+"ar": "13:10"
+},
+{
+"n": "9623",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "10:58",
+"a": "Reggio Calabria Centrale",
+"ar": "20:26"
+},
+{
+"n": "9626",
+"cat": "¥",
+"da": "Roma Termini",
+"p": "10:50",
+"a": "Torino Porta Nuova",
+"ar": "15:10"
+},
+{
+"n": "9639",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "14:30",
+"a": "Reggio Calabria Centrale",
+"ar": "23:13"
+},
+{
+"n": "9642",
+"cat": "¥",
+"da": "Reggio Calabria Centrale",
+"p": "08:55",
+"a": "Torino Porta Nuova",
+"ar": "19:10"
+},
+{
+"n": "9645",
+"cat": "¥",
+"da": "Torino Porta Nuova",
+"p": "14:50",
+"a": "Roma Termini",
+"ar": "19:15"
+},
+{
+"n": "9646",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "14:30",
+"a": "Milano Centrale",
+"ar": "19:00"
+},
+{
+"n": "9649",
+"cat": "¥",
+"da": "Torino Porta Nuova",
+"p": "15:50",
+"a": "Roma Termini",
+"ar": "20:15"
+},
+{
+"n": "9657",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "18:30",
+"a": "Napoli Centrale",
+"ar": "23:03"
+},
+{
+"n": "9658",
+"cat": "¥",
+"da": "Reggio Calabria Centrale",
+"p": "12:09",
+"a": "Milano Centrale",
+"ar": "21:00"
+},
+{
+"n": "9662",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "17:25",
+"a": "Milano Centrale",
+"ar": "22:00"
+},
+{
+"n": "9702",
+"cat": "¥",
+"da": "Venezia Santa Lucia",
+"p": "06:18",
+"a": "Torino Porta Nuova",
+"ar": "10:00"
+},
+{
+"n": "9710",
+"cat": "¥",
+"da": "Genova Brignole",
+"p": "06:58",
+"a": "Venezia Santa Lucia",
+"ar": "11:12"
+},
+{
+"n": "9713",
+"cat": "¥",
+"da": "Udine",
+"p": "06:15",
+"a": "Milano Centrale",
+"ar": "10:15"
+},
+{
+"n": "9718",
+"cat": "¥",
+"da": "Trieste Centrale",
+"p": "07:07",
+"a": "Milano Centrale",
+"ar": "11:15"
+},
+{
+"n": "9723",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "11:45",
+"a": "Venezia Santa Lucia",
+"ar": "14:12"
+},
+{
+"n": "9724",
+"cat": "¥",
+"da": "Venezia Santa Lucia",
+"p": "10:48",
+"a": "Milano Centrale",
+"ar": "13:15"
+},
+{
+"n": "9733",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "14:15",
+"a": "Venezia Santa Lucia",
+"ar": "16:42"
+},
+{
+"n": "9744",
+"cat": "¥",
+"da": "Venezia Santa Lucia",
+"p": "15:48",
+"a": "Genova Brignole",
+"ar": "20:03"
+},
+{
+"n": "9752",
+"cat": "¥",
+"da": "Venezia Santa Lucia",
+"p": "17:48",
+"a": "Milano Centrale",
+"ar": "20:15"
+},
+{
+"n": "9755",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "18:45",
+"a": "Udine",
+"ar": "22:37"
+},
+{
+"n": "9759",
+"cat": "¥",
+"da": "Torino Porta Nuova",
+"p": "18:35",
+"a": "Trieste Centrale",
+"ar": "23:45"
+},
+{
+"n": "9805",
+"cat": "¥",
+"da": "Torino Porta Nuova",
+"p": "09:10",
+"a": "Lecce",
+"ar": "18:52"
+},
+{
+"n": "9808",
+"cat": "¥",
+"da": "Lecce",
+"p": "12:06",
+"a": "Torino Porta Nuova",
+"ar": "21:56"
+}
+],
+"B": [
+{
+"n": "599",
+"cat": "C",
+"da": "Milano Centrale",
+"p": "17:40",
+"a": "Terni",
+"ar": "00:40"
+},
+{
+"n": "613",
+"cat": "C",
+"da": "Milano Centrale",
+"p": "15:05",
+"a": "Pescara",
+"ar": "22:10"
+},
+{
+"n": "639",
+"cat": "C",
+"da": "Ventimiglia",
+"p": "19:10",
+"a": "Milano Centrale",
+"ar": "22:55"
+},
+{
+"n": "675",
+"cat": "C",
+"da": "Milano Centrale",
+"p": "17:05",
+"a": "Ventimiglia",
+"ar": "21:02"
+},
+{
+"n": "758",
+"cat": "A",
+"da": "Lecce",
+"p": "18:31",
+"a": "Milano Centrale",
+"ar": "07:05"
+},
+{
+"n": "796",
+"cat": "A",
+"da": "Salerno",
+"p": "20:52",
+"a": "Torino Porta Nuova",
+"ar": "08:10"
+},
+{
+"n": "8506",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "07:30",
+"a": "Bolzano Bozen",
+"ar": "13:48"
+},
+{
+"n": "8509",
+"cat": "¥",
+"da": "Sibari",
+"p": "06:24",
+"a": "Bolzano Bozen",
+"ar": "15:48"
+},
+{
+"n": "8519",
+"cat": "¥",
+"da": "Bolzano Bozen",
+"p": "13:12",
+"a": "Sibari",
+"ar": "22:33"
+},
+{
+"n": "8525",
+"cat": "¥",
+"da": "Bolzano Bozen",
+"p": "15:12",
+"a": "Napoli Centrale",
+"ar": "21:33"
+},
+{
+"n": "9310",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "08:55",
+"a": "Torino Porta Nuova",
+"ar": "15:20"
+},
+{
+"n": "9405",
+"cat": "¥",
+"da": "Venezia Santa Lucia",
+"p": "07:26",
+"a": "Napoli Centrale",
+"ar": "12:48"
+},
+{
+"n": "9414",
+"cat": "¥",
+"da": "Salerno",
+"p": "07:13",
+"a": "Venezia Santa Lucia",
+"ar": "13:34"
+},
+{
+"n": "9425",
+"cat": "¥",
+"da": "Venezia Santa Lucia",
+"p": "14:26",
+"a": "Napoli Centrale",
+"ar": "19:48"
+},
+{
+"n": "9431",
+"cat": "¥",
+"da": "Venezia Santa Lucia",
+"p": "16:26",
+"a": "Napoli Centrale",
+"ar": "21:48"
+},
+{
+"n": "9432",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "17:05",
+"a": "Venezia Santa Lucia",
+"ar": "22:55"
+},
+{
+"n": "9435",
+"cat": "¥",
+"da": "Venezia Santa Lucia",
+"p": "18:26",
+"a": "Napoli Centrale",
+"ar": "23:48"
+},
+{
+"n": "9511",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "06:10",
+"a": "Lecce",
+"ar": "15:51"
+},
+{
+"n": "9512",
+"cat": "¥",
+"da": "Roma Termini",
+"p": "07:10",
+"a": "Milano Centrale",
+"ar": "10:50"
+},
+{
+"n": "9514",
+"cat": "¥",
+"da": "Taranto",
+"p": "06:05",
+"a": "Torino Porta Nuova",
+"ar": "16:00"
+},
+{
+"n": "9515",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "07:10",
+"a": "Salerno",
+"ar": "13:02"
+},
+{
+"n": "9516",
+"cat": "¥",
+"da": "Salerno",
+"p": "05:50",
+"a": "Torino Porta Nuova",
+"ar": "13:06"
+},
+{
+"n": "9520",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "07:45",
+"a": "Milano Centrale",
+"ar": "12:50"
+},
+{
+"n": "9524",
+"cat": "¥",
+"da": "Salerno",
+"p": "07:44",
+"a": "Milano Centrale",
+"ar": "13:50"
+},
+{
+"n": "9527",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "10:10",
+"a": "Salerno",
+"ar": "16:06"
+},
+{
+"n": "9532",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "10:40",
+"a": "Torino Porta Nuova",
+"ar": "17:00"
+},
+{
+"n": "9539",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "13:10",
+"a": "Napoli Centrale",
+"ar": "18:53"
+},
+{
+"n": "9540",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "12:40",
+"a": "Milano Centrale",
+"ar": "17:50"
+},
+{
+"n": "9544",
+"cat": "¥",
+"da": "Salerno",
+"p": "12:50",
+"a": "Milano Centrale",
+"ar": "18:50"
+},
+{
+"n": "9547",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "15:10",
+"a": "Taranto",
+"ar": "23:48"
+},
+{
+"n": "9551",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "16:10",
+"a": "Salerno",
+"ar": "22:05"
+},
+{
+"n": "9552",
+"cat": "¥",
+"da": "Salerno",
+"p": "14:45",
+"a": "Torino Porta Nuova",
+"ar": "22:00"
+},
+{
+"n": "9555",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "17:10",
+"a": "Battipaglia",
+"ar": "23:20"
+},
+{
+"n": "9556",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "16:40",
+"a": "Milano Centrale",
+"ar": "21:50"
+},
+{
+"n": "9560",
+"cat": "¥",
+"da": "Lecce",
+"p": "12:42",
+"a": "Milano Centrale",
+"ar": "22:50"
+},
+{
+"n": "9612",
+"cat": "¥",
+"da": "Battipaglia",
+"p": "05:05",
+"a": "Torino Porta Nuova",
+"ar": "12:10"
+},
+{
+"n": "9646",
+"cat": "¥",
+"da": "Napoli Centrale",
+"p": "14:30",
+"a": "Milano Centrale",
+"ar": "19:00"
+},
+{
+"n": "9657",
+"cat": "¥",
+"da": "Milano Centrale",
+"p": "18:30",
+"a": "Napoli Centrale",
+"ar": "23:03"
+}
+]
+}

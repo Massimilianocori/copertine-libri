@@ -314,7 +314,7 @@ def costruisci(g):
 {corpo}
 </main>
 <footer><div class="wrap">
-<p><strong>{g.NOME}</strong> è un sito indipendente. I dati vengono dal <a href="{g.URL_REGISTRO}" rel="noopener">registro ufficiale degli scioperi del Ministero delle Infrastrutture e dei Trasporti (MIT)</a>; non siamo collegati al Ministero, ai sindacati o alle aziende di trasporto.
+<p><strong>{g.NOME}</strong> è un sito indipendente. I dati vengono dal <a href="{g.URL_REGISTRO}" rel="noopener">registro ufficiale degli scioperi del Ministero delle Infrastrutture e dei Trasporti (MIT)</a>, con licenza <a href="https://creativecommons.org/licenses/by/4.0/deed.it" rel="noopener">CC BY 4.0</a>; non siamo collegati al Ministero, ai sindacati o alle aziende di trasporto.
 <strong>Gli scioperi possono essere revocati o modificati all'ultimo momento: verifica sempre con l'azienda di trasporto prima di partire.</strong> Le informazioni non sono consulenza legale.</p>
 <p>Registro ufficiale aggiornato al <span data-reg>{breve(d(g.AGGIORNATO))}</span> · controllato <span data-letto>{escape(g.LETTO)} (ora italiana)</span><br>
 <a href="{rel}it/privacy.html">Privacy</a> · <a href="{rel}it/contatti/">Contatti</a> · <a href="{rel}it/guida/">Guide</a> · <a href="{rel}">English version</a></p>
