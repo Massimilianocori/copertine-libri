@@ -195,6 +195,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None):
 <meta property="og:title" content="{escape(titolo)}">
 <meta property="og:description" content="{escape(descrizione)}">
 <meta property="og:type" content="website">
+<meta property="og:image" content="{URL_SITO}/og.png">
 <meta property="og:url" content="{canonico}">
 <meta name="theme-color" content="#0E6E55">
 <meta name="google-site-verification" content="{GOOGLE_VERIFICA}">
@@ -306,12 +307,14 @@ def jsonld_sessioni(lista):
     for s in lista[:20]:
         e = ENTE[s["ente"]]
         eventi.append({
-            "@type": "EducationEvent", "name": f'Esame {", ".join(s["esami"])}', "startDate": s["data"],
+            "@type": "EducationEvent", "name": f'Esame {", ".join(s["esami"])}', "startDate": s["data"], "endDate": s["data"], "image": URL_SITO + "/og.png",
             "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
             "eventStatus": "https://schema.org/EventScheduled",
             "location": {"@type": "Place", "name": f'Sedi d\'esame {s["ente"]} in Italia',
                          "address": {"@type": "PostalAddress", "addressCountry": "IT"}},
             "organizer": {"@type": "Organization", "name": e["ente"], "url": e["sito"]},
+            "performer": {"@type": "Organization", "name": e["ente"]},
+            "offers": {"@type": "Offer", "url": e["pagina_date"], "availability": "https://schema.org/InStock", "validFrom": s["verificato_il"]},
             "description": f'Sessione d\'esame {s["ente"]} di livello B1, valida per la domanda di cittadinanza italiana.',
         })
     return {"@context": "https://schema.org", "@graph": eventi}
@@ -533,6 +536,7 @@ def main():
     else:
         conserva = {}
     SITO.mkdir()
+    shutil.copy(RADICE / "assets" / "og.png", SITO / "og.png")
     for nome, contenuto in conserva.items():
         (SITO / nome).write_bytes(contenuto)
     home(prossime)

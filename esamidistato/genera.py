@@ -220,6 +220,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
 <meta property="og:title" content="{escape(titolo)}">
 <meta property="og:description" content="{escape(descrizione)}">
 <meta property="og:type" content="website">
+<meta property="og:image" content="{URL_SITO}/og.png">
 <meta property="og:url" content="{canonico}">
 <meta name="theme-color" content="#1F4E8C">
 {verifica}<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F4E8C'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='24' text-anchor='middle' fill='white'%3EES%3C/text%3E%3C/svg%3E">
@@ -345,12 +346,14 @@ def jsonld_sessioni(lista):
         nomi = ", ".join(PROF[p]["nome"] for p in s["professioni"])
         ente = PROF[s["professioni"][0]]["ente"]
         eventi.append({
-            "@type": "EducationEvent", "name": f"Esame di Stato {nomi} – {s['sessione']}", "startDate": s["data"],
+            "@type": "EducationEvent", "name": f"Esame di Stato {nomi} – {s['sessione']}", "startDate": s["data"], "endDate": s["data"], "image": URL_SITO + "/og.png",
             "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
             "eventStatus": "https://schema.org/EventScheduled",
             "location": {"@type": "Place", "name": "Sedi d'esame in Italia",
                          "address": {"@type": "PostalAddress", "addressCountry": "IT"}},
             "organizer": {"@type": "Organization", "name": ENTI[ente]},
+            "performer": {"@type": "Organization", "name": ENTI[ente]},
+            "offers": {"@type": "Offer", "url": s["fonte"] if isinstance(s.get("fonte"), str) else URL_SITO + "/", "availability": "https://schema.org/InStock", "validFrom": s["verificato_il"]},
             "description": f"{s['chi']}. Domande entro {il(s['scadenza'])}{data_breve(s['scadenza'])}.",
         })
     return {"@context": "https://schema.org", "@graph": eventi}
@@ -668,6 +671,7 @@ def main():
     else:
         conserva = {}
     SITO.mkdir()
+    shutil.copy(RADICE / "assets" / "og.png", SITO / "og.png")
     for nome, contenuto in conserva.items():
         (SITO / nome).write_bytes(contenuto)
     home(prossime)
