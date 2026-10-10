@@ -210,5 +210,16 @@ def main():
             print(f"  {etichetta}: {id_} {s['inizio']} {s['settore']} {s['rilevanza']} {s['regione']}/{s['provincia']}")
 
 
+def maree():
+    """Previsione della marea a Venezia (pagina acqua alta): se fallisce non ferma la raccolta degli scioperi."""
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import maree as m
+        m.main()
+    except Exception as e:  # noqa: BLE001
+        print(f"ATTENZIONE: previsione maree non aggiornata ({e}).")
+
+
 if __name__ == "__main__":
     main()
+    maree()

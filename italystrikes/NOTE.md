@@ -70,3 +70,8 @@ Data di inizio: **10/10/2026** (pubblicato da GitHub, progetto Netlify `italy-st
 - Guide esistenti corrette con i fatti della revisione: treni garantiti (come leggere la Tabella A: il numero di treni compare solo fino al 12/12/2026; clausola Italo "non garantito"; scadenze di rimborso Trenitalia prima dello sciopero), rimborsi (regole UE e indennizzi Trenitalia/Italo), registro (ricerca storica dal 2014, campi corretti), bus e metro (due fasce, 6 ore in tutto, 20 giorni tra scioperi).
 - A dicembre 2026: aggiornare `TABELLA_A` con la nuova tabella Trenitalia.
 - Escono con la pubblicazione settimanale (17/10), senza crediti in più.
+
+## Acqua alta Venezia (10/10/2026, regola di Massimiliano: "qualsiasi cosa si possa aggiungere lo si faccia se porta maggiore guadagno")
+- Pagine `venice-acqua-alta/` (EN) e `it/acqua-alta-venezia/` (IT), hreflang collegati; link da home (strumenti) e pagina Venezia.
+- Dati: `raccolta/maree.py` scarica la previsione ICPSM (dati.venezia.it, CC BY) in `dati/maree.json`; lo chiama `raccogli.py` alla fine (se fallisce non ferma gli scioperi), quindi si aggiorna due volte al giorno con il workflow. ATTENZIONE: senza `?t=` la fonte restituisce una copia vecchia (21/09). La pagina rilegge `maree.json` da GitHub nel browser.
+- Soglie (80/110/140 cm) dalla pagina del Centro Maree del Comune, letta tramite motore di ricerca: il sito del Comune blocca i robot (403 Incapsula). Da ricontrollare se si riesce ad aprirla.

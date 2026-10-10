@@ -36,6 +36,10 @@ IMPACT_VERIFICA = "30566286-17ab-476e-b7be-3af44af9c845"  # Impact (programma af
 URL_DATI_LIVE = ("https://raw.githubusercontent.com/Massimilianocori/copertine-libri/"
                  "ccr-b7fd6b9e-n096cr/italystrikes/dati/vista.json")
 URL_REGISTRO = "https://scioperi.mit.gov.it/mit2/public/scioperi"
+URL_MAREE_LIVE = ("https://raw.githubusercontent.com/Massimilianocori/copertine-libri/"
+                  "ccr-b7fd6b9e-n096cr/italystrikes/dati/maree.json")
+URL_MAREE_DATASET = "http://dati.venezia.it/?q=content/cpsm-dati-meteomarini-laguna-e-litorale-veneziano"
+URL_CENTRO_MAREE = "https://www.comune.venezia.it/it/content/centro-previsioni-e-segnalazioni-maree"
 ROMA = ZoneInfo("Europe/Rome")
 ADESSO = datetime.now(ROMA)
 OGGI = ADESSO.date()
@@ -889,11 +893,122 @@ def griglia_mesi(rel):
         for y, m in mesi_da_mostrare() if (y, m) >= (OGGI.year, OGGI.month)) + "</div>"
 
 
+# ---------------------------------------------------------------- acqua alta Venezia
+# Classi di marea del Centro Previsioni e Segnalazioni Maree del Comune di Venezia (cm sullo zero mareografico di Punta della Salute):
+# sostenuta da +80, molto sostenuta da +110, eccezionale da +140 (pagina del Centro Maree, letta il 10/10/2026 tramite motore di ricerca:
+# il sito del Comune blocca le letture automatiche).
+CLASSI_MAREA = {"en": [(140, "exceptional"), (110, "very high"), (80, "high"), (-999, "normal")],
+                "it": [(140, "eccezionale"), (110, "molto sostenuta"), (80, "sostenuta"), (-999, "normale")]}
+GIORNI_EN = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+
+def maree():
+    f = DATI / "maree.json"
+    return json.loads(f.read_text(encoding="utf-8")) if f.exists() else None
+
+
+def tabella_maree(dati, lingua="en"):
+    """Tabella statica (per Google e per chi non ha JavaScript): massimi e minimi previsti, giorno per giorno."""
+    if not dati:
+        return ""
+    cl = CLASSI_MAREA[lingua]
+    giorni = {}
+    for e in dati["estremali"]:
+        giorni.setdefault(e["t"][:10], []).append(e)
+    righe = []
+    for g, es in giorni.items():
+        dd = d(g)
+        nome = (f"{GIORNI_EN[dd.weekday()]} {dd.day} {MESI[dd.month - 1]}" if lingua == "en"
+                else f"{['lunedì', 'martedì', 'mercoledì', 'giovedì', 'venerdì', 'sabato', 'domenica'][dd.weekday()]} {dd.day} "
+                     f"{['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'][dd.month - 1]}")
+        celle = []
+        for e in es:
+            classe = next(n for soglia, n in cl if e["cm"] >= soglia) if e["tipo"] == "max" else ""
+            tipo = ("High" if e["tipo"] == "max" else "Low") if lingua == "en" else ("Massima" if e["tipo"] == "max" else "Minima")
+            evid = ' style="color:var(--accent);font-weight:700"' if e["tipo"] == "max" and e["cm"] >= 80 else ""
+            celle.append(f'<tr><td>{e["t"][11:]}</td><td>{tipo}</td><td{evid}>{e["cm"]:+d} cm</td><td>{classe}</td></tr>')
+        righe.append(f'<tr><th colspan="4" style="text-align:left;padding-top:10px">{nome}</th></tr>' + "".join(celle))
+    testa = ("<tr><th>Time</th><th>Tide</th><th>Level</th><th>Class</th></tr>" if lingua == "en"
+             else "<tr><th>Ora</th><th>Marea</th><th>Livello</th><th>Classe</th></tr>")
+    return (f'<div style="overflow-x:auto"><table id="maree" style="width:100%;border-collapse:collapse;text-align:left">{testa}{"".join(righe)}</table></div>')
+
+
+def js_maree(lingua="en"):
+    """Aggiorna la tabella e il riepilogo dal file maree.json su GitHub (aggiornato due volte al giorno dal workflow)."""
+    t = {"en": dict(high="High", low="Low", time="Time", tide="Tide", level="Level", cls="Class", today="Today", tomorrow="Tomorrow",
+                    peak="highest forecast", none="no forecast available", issued="Forecast issued", it="Italy time",
+                    days=GIORNI_EN, months=MESI, classes=[[140, "exceptional"], [110, "very high"], [80, "high"], [-999, "normal"]]),
+         "it": dict(high="Massima", low="Minima", time="Ora", tide="Marea", level="Livello", cls="Classe", today="Oggi", tomorrow="Domani",
+                    peak="massima prevista", none="nessuna previsione disponibile", issued="Previsione emessa", it="ora italiana",
+                    days=["lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato", "domenica"],
+                    months=["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"],
+                    classes=[[140, "eccezionale"], [110, "molto sostenuta"], [80, "sostenuta"], [-999, "normale"]])}[lingua]
+    return """<script>(function(){
+var T=%s, U=%s;
+function cls(cm){for(var i=0;i<T.classes.length;i++){if(cm>=T.classes[i][0])return T.classes[i][1];}return '';}
+function oggiRoma(off){var d=new Date(Date.now()+off*864e5);var p=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Rome',year:'numeric',month:'2-digit',day:'2-digit'}).format(d);return p;}
+function nomeG(g){var d=new Date(g+'T12:00:00');return T.days[(d.getDay()+6)%%7]+' '+d.getDate()+' '+T.months[d.getMonth()];}
+function mostra(D){
+  var tab=document.getElementById('maree'),ris=document.getElementById('maree-oggi'),em=document.getElementById('maree-emessa');
+  if(!D||!D.estremali||!tab)return;
+  var oggi=oggiRoma(0),dom=oggiRoma(1),per={},righe='<tr><th>'+T.time+'</th><th>'+T.tide+'</th><th>'+T.level+'</th><th>'+T.cls+'</th></tr>';
+  D.estremali.forEach(function(e){var g=e.t.slice(0,10);if(g<oggi)return;(per[g]=per[g]||[]).push(e);});
+  Object.keys(per).sort().forEach(function(g){
+    righe+='<tr><th colspan="4" style="text-align:left;padding-top:10px">'+(g===oggi?T.today+', ':g===dom?T.tomorrow+', ':'')+nomeG(g)+'</th></tr>';
+    per[g].forEach(function(e){var mx=e.tipo==='max',s=(e.cm>0?'+':'')+e.cm+' cm';
+      righe+='<tr><td>'+e.t.slice(11)+'</td><td>'+(mx?T.high:T.low)+'</td><td'+(mx&&e.cm>=80?' style="color:var(--accent);font-weight:700"':'')+'>'+s+'</td><td>'+(mx?cls(e.cm):'')+'</td></tr>';});
+  });
+  tab.innerHTML=righe;
+  if(ris){var out=[];[[oggi,T.today],[dom,T.tomorrow]].forEach(function(x){var m=(per[x[0]]||[]).filter(function(e){return e.tipo==='max';});
+    if(!m.length){out.push('<li><strong>'+x[1]+'</strong>: '+T.none+'</li>');return;}
+    var top=m.reduce(function(a,b){return b.cm>a.cm?b:a;});
+    out.push('<li><strong>'+x[1]+'</strong>: '+T.peak+' <strong'+(top.cm>=80?' style="color:var(--accent)"':'')+'>'+(top.cm>0?'+':'')+top.cm+' cm</strong> ('+top.t.slice(11)+', '+cls(top.cm)+')</li>');});
+    ris.innerHTML=out.join('');}
+  if(em)em.textContent=T.issued+': '+D.emessa.slice(8,10)+'/'+D.emessa.slice(5,7)+' '+D.emessa.slice(11)+' ('+T.it+')';
+}
+fetch(U,{cache:'no-store'}).then(function(r){return r.json();}).then(mostra).catch(function(){});
+})();</script>""" % (json.dumps(t, ensure_ascii=False), json.dumps(URL_MAREE_LIVE))
+
+
+def pagina_acqua_alta():
+    rel = "../"
+    m = maree()
+    emessa = f"Forecast issued: {m['emessa'][8:10]}/{m['emessa'][5:7]} {m['emessa'][11:]} (Italy time)" if m else ""
+    corpo = f"""<section class="hero"><h1>Venice acqua alta today and tomorrow: high tide forecast</h1>
+<p class="lead">The official tide forecast for Venice (high water, <em>acqua alta</em>), in centimetres, for today and the next days. From the City of Venice tide centre, refreshed twice a day.</p></section>
+<div class="card"><ul id="maree-oggi" style="margin:0 0 6px;padding-left:20px"><li>Highest and lowest tides for each day are in the table below.</li></ul>
+<p class="small" id="maree-emessa" style="margin:0">{emessa}</p></div>
+<div class="testo">
+<h2>Tide forecast for Venice</h2>
+{tabella_maree(m, "en")}
+<p class="small">Levels in centimetres at Punta della Salute, relative to the local tide gauge zero. Times in Italy time. The tide centre uses +80 cm as its attention threshold: tides above it are what people call <em>acqua alta</em>.</p>
+<h2>What the levels mean</h2>
+<p>The City of Venice tide centre (<em>Centro Previsioni e Segnalazioni Maree</em>) uses these classes for high tides:</p>
+<ul><li><strong>Normal</strong>: below +80 cm.</li>
+<li><strong>High</strong> (<em>marea sostenuta</em>): from +80 to +109 cm.</li>
+<li><strong>Very high</strong> (<em>marea molto sostenuta</em>): from +110 to +139 cm.</li>
+<li><strong>Exceptional</strong> (<em>alta marea eccezionale</em>): +140 cm and above.</li></ul>
+<h2>Check before you go</h2>
+<ul><li>Forecasts change, especially with strong winds: for alerts and the latest bulletin, follow the <a href="{URL_CENTRO_MAREE}" rel="noopener">City of Venice tide centre</a>.</li>
+<li>For water bus changes, check <a href="https://actv.avmspa.it/en/news" rel="noopener">ACTV news</a>.</li>
+<li>Strikes too: see <a href="{rel}venice/">strikes in Venice today and upcoming</a> (water buses, trains, Marco Polo airport).</li></ul>
+<p class="small">Tide forecast: ICPSM – Istituzione Centro Previsioni e Segnalazioni Maree, Comune di Venezia, open data under the CC BY licence (<a href="{URL_MAREE_DATASET}" rel="noopener">dati.venezia.it</a>). We reorganise and translate the data; we are not affiliated with the City of Venice.</p>
+</div>
+{box_affiliati()}
+{AD}
+{modulo(rel)}
+{js_maree("en")}"""
+    pagina("venice-acqua-alta/", "Venice acqua alta today and tomorrow: high tide forecast (cm)",
+           "Is there acqua alta in Venice today or tomorrow? Official high tide forecast in centimetres from the City of Venice tide centre, refreshed twice a day, with what the levels mean.",
+           corpo, briciole=[("Venice", "venice/"), ("Acqua alta", "venice-acqua-alta/")])
+
+
 def strumenti_home():
     if not satelliti_attivi():
         return ""
     return ('<h2>Tools for visitors</h2><div class="griglia"><a href="codice-fiscale-calculator/">Codice fiscale calculator'
-            '<small>Italian tax code for foreigners</small></a><a href="ztl-fines/">ZTL fines in Italy<small>amounts, deadlines, how to pay</small></a></div>')
+            '<small>Italian tax code for foreigners</small></a><a href="ztl-fines/">ZTL fines in Italy<small>amounts, deadlines, how to pay</small></a>'
+            '<a href="venice-acqua-alta/">Venice acqua alta<small>high tide forecast today and tomorrow</small></a></div>')
 
 
 # ---------------------------------------------------------------- pagine
@@ -1054,6 +1169,7 @@ def pagina_citta(c):
 <ul>
 {"".join(f"<li>Local transport: {o} (guaranteed hours during strikes are on the operator's site)</li>" for o in ops)}
 {f"<li>Airports: {apt_html}</li>" if apt else ""}
+{f'<li><a href="{rel}venice-acqua-alta/">Venice acqua alta: high tide forecast today and tomorrow</a></li>' if c["slug"] == "venice" and satelliti_attivi() and maree() else ""}
 <li><a href="{rel}guides/guaranteed-trains/">Guaranteed trains during strikes</a></li>
 <li><a href="{rel}guides/local-transport-strike-hours/">Bus and metro guaranteed hours</a></li>
 </ul>
@@ -1559,6 +1675,8 @@ def main():
     if satelliti_attivi():
         pagina_codice_fiscale()
         pagina_ztl()
+        if maree():
+            pagina_acqua_alta()
     about()
     contatti()
     privacy()

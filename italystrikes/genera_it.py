@@ -43,7 +43,8 @@ SETTORI_IT = {  # slug pagina it: (slug filtro, nome, titolo, testo)
 SETT_EN_IT = {"trains": "treni", "flights": "aerei", "local-transport": "mezzi-pubblici", "ferries": "traghetti", "taxis": "taxi",
               "general-strikes": "sciopero-generale", "motorways": "autostrade", "freight": "merci"}
 FINESTRE = {"today": "oggi", "tomorrow": "domani", "this-week": "questa-settimana", "next-week": "prossima-settimana"}
-GUIDE_EN_IT = {"guides/strike-free-periods": "guida/periodi-di-franchigia", "guides/strike-rules-notice-duration": "guida/regole-degli-scioperi"}
+GUIDE_EN_IT = {"guides/strike-free-periods": "guida/periodi-di-franchigia", "guides/strike-rules-notice-duration": "guida/regole-degli-scioperi",
+               "venice-acqua-alta": "acqua-alta-venezia"}
 
 
 def percorso_it(p):
@@ -545,6 +546,26 @@ def costruisci(g):
 <li><strong>Aerei:</strong> almeno 15 giorni liberi; 30 per il controllo del traffico aereo.</li></ul>
 <p class="small">Fonti: legge 146/1990; accordo ferroviario 1999, punti 3.3.1 e 3.3.2; regole del trasporto pubblico locale 2018, artt. 11 e 12; regolamentazione del trasporto aereo 14/387, artt. 4, 7, 16 e 17. Lette il 10 ottobre 2026.</p>
 </div>{AD}{modulo(r3)}""", briciole=[("Guide", "it/guida/"), ("Preavviso e durata", "it/guida/regole-degli-scioperi/")], con_dati=False)
+    m = g.maree() if g.satelliti_attivi() else None
+    if m:
+        pagina("it/acqua-alta-venezia/", "Acqua alta Venezia oggi e domani: previsione della marea (cm)",
+               "C'è acqua alta a Venezia oggi o domani? Previsione ufficiale della marea in centimetri del Centro Maree del Comune di Venezia, aggiornata due volte al giorno.",
+               f"""<section class="hero"><h1>Acqua alta a Venezia oggi e domani</h1><p class="lead">La previsione ufficiale della marea a Venezia, in centimetri, per oggi e i prossimi giorni. Dati del Centro Maree del Comune di Venezia, aggiornati due volte al giorno.</p></section>
+<div class="card"><ul id="maree-oggi" style="margin:0 0 6px;padding-left:20px"><li>Massime e minime previste giorno per giorno nella tabella qui sotto.</li></ul>
+<p class="small" id="maree-emessa" style="margin:0">Previsione emessa: {m['emessa'][8:10]}/{m['emessa'][5:7]} {m['emessa'][11:]} (ora italiana)</p></div>
+<div class="testo">
+<h2>Previsione della marea</h2>
+{g.tabella_maree(m, "it")}
+<p class="small">Livelli in centimetri a Punta della Salute, sullo zero mareografico locale. Orari in ora italiana. Il Centro Maree usa +80 cm come soglia di attenzione: sopra questo livello si parla comunemente di acqua alta.</p>
+<h2>Cosa significano i livelli</h2>
+<ul><li><strong>Normale</strong>: sotto +80 cm.</li><li><strong>Marea sostenuta</strong>: da +80 a +109 cm.</li>
+<li><strong>Marea molto sostenuta</strong>: da +110 a +139 cm.</li><li><strong>Alta marea eccezionale</strong>: da +140 cm.</li></ul>
+<h2>Prima di uscire</h2>
+<ul><li>Le previsioni cambiano, soprattutto con vento forte: per gli avvisi e il bollettino aggiornato segui il <a href="{g.URL_CENTRO_MAREE}" rel="noopener">Centro Maree del Comune di Venezia</a>.</li>
+<li>Per i cambi dei vaporetti consulta le <a href="https://actv.avmspa.it/it/news" rel="noopener">notizie ACTV</a>.</li>
+<li>Scioperi: vedi <a href="{r3}it/venezia/">scioperi a Venezia oggi e prossimi</a>.</li></ul>
+<p class="small">Previsione: ICPSM – Istituzione Centro Previsioni e Segnalazioni Maree, Comune di Venezia, dati aperti con licenza CC BY (<a href="{g.URL_MAREE_DATASET}" rel="noopener">dati.venezia.it</a>). Riorganizziamo i dati; non siamo collegati al Comune di Venezia.</p>
+</div>{AD}{modulo(r3)}{g.js_maree("it")}""", briciole=[("Venezia", "it/venezia/"), ("Acqua alta", "it/acqua-alta-venezia/")], con_dati=False)
     pagina("it/guida/", "Guide sugli scioperi dei trasporti", "Guide pratiche sugli scioperi dei trasporti in Italia.",
            '<section class="hero"><h1>Guide</h1><p class="lead">Guide brevi e pratiche sugli scioperi dei trasporti.</p></section>'
            '<div class="griglia"><a href="fasce-di-garanzia/">Fasce di garanzia<small>treni, aerei, bus e metro</small></a>'
