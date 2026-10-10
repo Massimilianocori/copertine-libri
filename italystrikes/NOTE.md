@@ -57,3 +57,9 @@ Data di inizio: **10/10/2026** (pubblicato da GitHub, progetto Netlify `italy-st
 1. Netlify → Add new project → Import an existing project → GitHub → `copertine-libri` → branch `ccr-b7fd6b9e-n096cr`, Base directory `italystrikes/sito`, Publish directory `italystrikes/sito`, build command vuoto → Deploy. Poi Project configuration → Change project name → `italy-strikes-today`.
 2. Forms → Enable form detection; poi Forms → Form notifications → email per il modulo `alerts` (e `contact`).
 3. Search Console → Aggiungi proprietà "Prefisso URL" `https://italy-strikes-today.netlify.app/` → metodo **Tag HTML** → mandare il tag a Claude → dopo la pubblicazione premere Verifica → Sitemap: `sitemap.xml`.
+
+## Guida PDF "Italy by Train: the strike-proof guide" (10/10/2026)
+- Sorgenti in `prodotti/italy-by-train/` (`contenuto.html`, `copertina.html`, `extra.json`, `build.py`, `font/`, `fonti/`); il PDF esce in `out/` (escluso da git: il repository è pubblico, il PDF non va pubblicato qui né in `sito/`). Ricostruire: `python3 italystrikes/prodotti/italy-by-train/build.py`.
+- Edizione 1, 68 pagine 6×9. Revisione indipendente dei fatti fatta il 10/10/2026, tutte le correzioni applicate (treni garantiti: Tabella A 146, Tabella B 62, letti con `fonti/leggi_tabelle.py`).
+- La Tabella A Trenitalia vale fino al 12/12/2026: a dicembre scaricare le nuove tabelle, rilanciare `leggi_tabelle.py` e `build.py`, aggiornare l'edizione e mandarla agli acquirenti.
+- Vendita: Payhip (account di Massimiliano). Pagina `guide/italy-by-train/` e link nel menu/riquadro compaiono solo se `dati/prodotti.json` ha l'URL Payhip. Accendere solo con il sì di Massimiliano. Soglia del test in `prodotti/ISTRUZIONI-GUIDA.md`.

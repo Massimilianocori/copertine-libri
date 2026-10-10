@@ -16,6 +16,7 @@ import html
 import io
 import json
 import re
+import statistics
 import subprocess
 from datetime import date
 from pathlib import Path
@@ -56,10 +57,11 @@ def istantanea():
     return {
         "SNAP_DATA": data_lunga(date.fromisoformat(reg["registro_aggiornato_al"][:10])),
         "SNAP_N": str(n), "SNAP_RIGHE": righe, "SNAP_VEN": str(giorni.get(4, 0)),
-        "SNAP_NAZ": str(sum(1 for v in voci if v["regione"].strip().upper() == "ITALIA")),
+        "SNAP_NAZ": str(sum(1 for v in voci if v["rilevanza"].strip().lower() == "nazionale")),
+        "SNAP_VEN_STESSO": str(max(collections.Counter(v["inizio"] for v in voci if date.fromisoformat(v["inizio"]).weekday() == 4).values())),
         "SNAP_24": str(sum(1 for v in voci if "24 ORE" in v["modalita"].upper())),
         "SNAP_4": str(sum(1 for v in voci if v["modalita"].upper().startswith("4 ORE"))),
-        "SNAP_MIN": str(ant[0]), "SNAP_MAX": str(ant[-1]), "SNAP_MED": str(ant[len(ant) // 2]),
+        "SNAP_MIN": str(ant[0]), "SNAP_MAX": str(ant[-1]), "SNAP_MED": f"{statistics.median(ant):g}",
     }
 
 
@@ -71,14 +73,17 @@ def treni():
     righe = [r for r in t["A"] if r["da"] in citta and r["a"] in citta]
     hh = lambda s: s.zfill(5)
     righe.sort(key=lambda r: (tuple(sorted((citta[r["da"]], citta[r["a"]]))), citta[r["da"]], hh(r["p"])))
+    note = {"4": "Fri–Sun, 14 Jun–13 Sep: extended to Bardonecchia", "5": "not on Saturdays"}  # note (4) e (5) della Tabella A
     corpo, ultimo = [], None
     for r in righe:
         coppia = tuple(sorted((citta[r["da"]], citta[r["a"]])))
         stile = " style='border-top:1pt solid #1A1F26'" if ultimo and coppia != ultimo else ""
         ultimo = coppia
         corpo.append(f"<tr{stile}><td class='m'>{r['n']}</td><td>{citta[r['da']]}</td><td class='m'>{hh(r['p'])}</td>"
-                     f"<td>{citta[r['a']]}</td><td class='m'>{hh(r['ar'])}</td></tr>")
-    tab = ("<table><tr><th>Train</th><th>From</th><th>Dep.</th><th>To</th><th>Arr.</th></tr>" + "".join(corpo) + "</table>")
+                     f"<td>{citta[r['a']]}" + (f"<br><span class='piccolo'>{note[r['nota']]}</span>" if r.get('nota') in note else "")
+                     + f"</td><td class='m'>{hh(r['ar'])}</td></tr>")
+    tab = ("<table style='table-layout:fixed'><colgroup><col style='width:12%'><col style='width:28%'><col style='width:12%'>"
+           "<col style='width:34%'><col style='width:14%'></colgroup><tr><th>Train</th><th>From</th><th>Dep.</th><th>To</th><th>Arr.</th></tr>" + "".join(corpo) + "</table>")
     return {"TAB_NA": str(len(t["A"])), "TAB_NB": str(len(t["B"])), "TAB_ESTRATTO": tab, "TAB_N_ESTRATTO": str(len(righe))}
 
 
@@ -199,7 +204,7 @@ def numera(src, dst, salta):
     for i, pag in enumerate(w.pages):
         if i not in salta:
             pag.merge_page(sovr.pages[i])
-    w.add_metadata({"/Title": TITOLO, "/Author": "Italy Strikes Today", "/Subject": "How to travel around Italy when transport goes on strike",
+    w.add_metadata({"/Producer": "Italy Strikes Today", "/Title": TITOLO, "/Author": "Italy Strikes Today", "/Subject": "How to travel around Italy when transport goes on strike",
                     "/Keywords": "Italy, trains, strikes, sciopero, Trenitalia, travel", "/Creator": "Italy Strikes Today"})
     w.page_mode = "/UseOutlines"
     with open(dst, "wb") as f:
@@ -210,7 +215,7 @@ def main():
     OUT.mkdir(exist_ok=True)
     valori = {**istantanea(), **treni(), "EDIZIONE": EDIZIONE,
               "SAFETYWING": json.loads((RADICE / "dati" / "affiliati.json").read_text(encoding="utf-8"))["safetywing"]["url"],
-              "RIGHE_FOGLIO": "".join(f"<tr><td class='m'>{i}</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>" for i in range(1, 17)),
+              "RIGHE_FOGLIO": "".join(f"<tr><td class='m'>{i}</td>" + "<td></td>" * 8 + "</tr>" for i in range(1, 17)),
               "FRANCHIGIE": EXTRA.get("franchigie", ""), "FAQ_FRANCHIGIE": EXTRA.get("faq_franchigie", ""),
               "RIMBORSI_OPERATORI": EXTRA.get("rimborsi_operatori", ""), "FONTI_EXTRA": EXTRA.get("fonti_extra", "")}
     h = (QUI / "contenuto.html").read_text(encoding="utf-8")
