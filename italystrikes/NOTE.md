@@ -1,0 +1,52 @@
+# Italy Strikes Today — note di costruzione
+
+## Stato (10 ottobre 2026): Fase 1 costruita, NON ancora pubblicata
+- Sito statico in `italystrikes/sito/` (53 pagine + 404), generato da `python3 italystrikes/genera.py`. Indirizzo previsto: **https://italy-strikes-today.netlify.app** (libero il 10/10/2026). Se Netlify dà un altro nome, cambiare `URL_SITO` in `genera.py` e rigenerare.
+- `italystrikes.netlify.app` è **già occupato** da un concorrente ("Italy Transport Strikes"): una pagina sola che carica i dati dal registro solo premendo un pulsante, senza sitemap né pagine per città/data. Google vede poco o nulla del suo contenuto.
+- Da fare con Massimiliano: progetto Netlify, moduli, Search Console (vedi "Cosa deve fare Massimiliano"); permesso per il file di aggiornamento automatico su `main` (vedi sotto).
+
+## Cosa c'è
+- `raccolta/raccogli.py`: legge RSS e prospetto HTML del registro MIT, unisce per id MIT (guid RSS; la colonna Note c'è solo nell'HTML e si abbina per contenuto), aggiorna `dati/scioperi.json` (storico nostro: il registro mostra solo gli scioperi futuri) e `dati/registro.json`. Stati: in programma / concluso / rimosso dal registro (mai presentato come revoca certa) / revocato (solo se la nota lo dice). Copia dell'RSS in `dati/fonti/` solo quando cambia, 30 giorni. Se il registro non risponde o cambia formato esce con errore senza toccare i dati. Provato: due esecuzioni di fila senza cambiamenti; simulazione di uno sciopero sparito → "rimosso dal registro".
+- `genera.py`: traduce ogni sciopero in inglese con regole fisse (settore, ambito, dove, operatore da `dati/operatori.json`, orari: se la traduzione lascia parole italiane si mostra solo l'originale), decide città/aeroporti/settori coinvolti, scrive `dati/vista.json` e il sito. Scioperi generali: tutti i trasporti passeggeri salvo esclusioni nella nota; plurisettoriali: solo i settori nominati; cargo aereo spostato tra le merci; aeroporto specifico se la categoria lo nomina.
+- Pagine: home (oggi/domani/settimana, prossimi 30 giorni con filtro), today, tomorrow, this-week, next-week, 5 mesi (ottobre 2026 – febbraio 2027, crescono da soli), 8 settori, 15 città, indice aeroporti + 9 aeroporti (aggiunto Firenze), 7 guide + indice, about, contact (modulo `contact`), privacy, 404, sitemap, robots, netlify.toml. Spazi vuoti per la pubblicità (`.ad-slot`, invisibili finché vuoti).
+- Il JS ricalcola oggi/domani/settimana nel browser con l'ora di Roma e scarica `dati/vista.json` da raw.githubusercontent.com (CORS aperto, cache 5 minuti): le pagine restano giuste anche tra una pubblicazione e l'altra.
+- `dati/link.json`: link ufficiali verificati il 10/10/2026 (status "200" dal server; "browser" = dominio ufficiale trovato con la ricerca ma che blocca le richieste automatiche: ATAC, aeroporti di Roma, Bergamo, Venezia, Napoli, Pisa). cgsse.it irraggiungibile dal server: non linkato. Firenze aeroporto: nessun link verificato.
+- Fasce orarie nelle guide verificate sulle pagine ufficiali il 10/10/2026: Trenitalia regionali 6-9 e 18-21 feriali, 7-10 e 18-21 festivi, regola dell'ora per i treni in viaggio; voli 7-10 e 18-21 (ENAC).
+- Verifiche fatte: Playwright desktop e 375 px su 21 pagine (nessun errore JS, nessuno scroll orizzontale), filtri, modulo (vuoto bloccato, date invertite bloccate, errore mostrato, invio riuscito con risposta simulata), data finta 16/10/2026 (oggi = 5 scioperi giusti), 1.479 link interni senza rotture.
+
+## Scelte fatte (diverse dalle istruzioni)
+- **Niente dati strutturati `Event`** per gli scioperi: le linee guida di Google li riservano a eventi a cui si partecipa; uno sciopero marcato come evento rischia un'azione manuale. Restano `WebSite` e `BreadcrumbList`.
+- **Nessuna pagina per singolo sciopero** in Fase 1 (sarebbero pagine sottili); ogni sciopero ha un'ancora `#sNNNN` nelle liste.
+- **AdSense non richiede un dominio**: netlify.app è nella Public Suffix List, e AdSense accetta come sito un sottodominio di una piattaforma in quella lista (support.google.com/adsense/answer/12170421, letto il 10/10/2026). Il dominio da 10-15 € non serve per la pubblicità.
+
+## Crediti Netlify (vincolo importante)
+- Piano gratuito a crediti: **300 crediti al mese, limite rigido**; ogni pubblicazione in produzione **15 crediti** (da Git, API o CLI è uguale); banda 20 crediti/GB; richieste 2 crediti/10.000; moduli gratis. **Se i crediti finiscono, tutti i progetti dell'account vanno offline fino al mese dopo** (docs.netlify.com, billing for credit-based plans, letto il 10/10/2026). L'account ha 6 progetti (team creato il 9/7/2026).
+- Bilancio: EsameB1 + EsamiDiStato ~1 pubblicazione a settimana ciascuno ≈ 9 al mese ≈ 135 crediti; Italy Strikes **al massimo 6 al mese** ≈ 90 crediti; restano ~75 crediti per banda e imprevisti.
+- Regola applicata da `raccolta/decidi_deploy.py` (stato in `dati/deploy.json`): una pubblicazione a settimana; una in più (dopo almeno 2 giorni) se cambia uno sciopero passeggeri nazionale o di una città/aeroporto del sito nei prossimi 21 giorni; mai più di 6 nel mese solare. Tra una pubblicazione e l'altra i dati arrivano dal JSON su GitHub.
+- Se il sito cresce (banda > ~2 GB al mese) i crediti non bastano: a quel punto si valuta il piano Personal (9 $/mese, 1.000 crediti) con il sì di Massimiliano, pagato dai ricavi.
+
+## Aggiornamento automatico
+- `italystrikes/workflow/italystrikes.yml` è il file GitHub Actions pronto: due volte al giorno (07:17 e 17:17 ora italiana) legge il registro, aggiorna `dati/`, decide se ripubblicare e fa commit e push sul branch `ccr-b7fd6b9e-n096cr`.
+- **I workflow programmati partono solo dal branch principale `main`**: il file va copiato in `.github/workflows/italystrikes.yml` su `main`. Serve il permesso esplicito di Massimiliano (le regole della sessione vietano push su altri branch senza permesso). Il file non tocca nient'altro di `main`.
+- Finché non c'è: la routine settimanale `trig_017HFNXZX5fKYcerETVg5zq4` (lunedì) aggiorna i dati e controlla il workflow. Con un solo aggiornamento a settimana gli scioperi nuovi compaiono comunque prima della data (preavviso minimo 10 giorni), ma le revoche possono arrivare in ritardo.
+
+## Mancano / da fare
+- **Invio degli avvisi email** agli iscritti del modulo `alerts`: da costruire quando arrivano i primi iscritti (confronto giornaliero date/luogo con `vista.json`; serve un servizio di invio gratuito o la casella Gmail di Massimiliano con il suo sì). Fino ad allora la promessa in pagina va mantenuta a mano dalla routine settimanale.
+- `GOOGLE_VERIFICA` in `genera.py`: vuoto, da riempire con il tag di Search Console che manda Massimiliano.
+- AdSense: richiesta al giorno ~20 se Search Console mostra pagine indicizzate e impression in crescita. Prima: privacy con sezione pubblicità e CMP di Google per il consenso UE.
+- Satelliti dopo il test: codice fiscale calculator, ZTL per città, versione italiana con lo stesso motore.
+
+## Test (45 giorni dalla pubblicazione; Search Console, ultimi 14 giorni)
+1. Pagine indicizzate ≥40 su ~53.
+2. Impression ≥1.500/settimana e in crescita per 2 settimane di fila.
+3. Clic totali dal giorno 1 ≥150, CTR ≥2%.
+4. ≥40% dei clic da USA + Canada + UK + Australia.
+5. Almeno 5 query con "today", "tomorrow" o mese+anno tra le prime 20 per impression.
+6. AdSense approvato; se attivo ≥7 giorni: RPM ≥6 $.
+Passano 1-4 → si continua (satelliti, versione italiana, Journey a 1.000 sessioni Tier 1/30 giorni). Fallisce 1 o 2 → stop. Fallisce solo 4 → tenere il sito e aprire la versione italiana.
+Data di inizio: il giorno della pubblicazione su Netlify (da scrivere qui).
+
+## Cosa deve fare Massimiliano (una volta)
+1. Netlify → Add new project → Import an existing project → GitHub → `copertine-libri` → branch `ccr-b7fd6b9e-n096cr`, Base directory `italystrikes/sito`, Publish directory `italystrikes/sito`, build command vuoto → Deploy. Poi Project configuration → Change project name → `italy-strikes-today`.
+2. Forms → Enable form detection; poi Forms → Form notifications → email per il modulo `alerts` (e `contact`).
+3. Search Console → Aggiungi proprietà "Prefisso URL" `https://italy-strikes-today.netlify.app/` → metodo **Tag HTML** → mandare il tag a Claude → dopo la pubblicazione premere Verifica → Sitemap: `sitemap.xml`.

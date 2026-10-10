@@ -1,0 +1,178 @@
+{
+ "trenitalia_garantiti": {
+  "url": "https://www.trenitalia.com/it/informazioni/treni-garantiti-incasodisciopero.html",
+  "status": "200",
+  "verificato_il": "2026-10-10"
+ },
+ "trenitalia_infomobilita": {
+  "url": "https://www.trenitalia.com/it/informazioni/Infomobilita/notizie-infomobilita.html",
+  "status": "200",
+  "verificato_il": "2026-10-10"
+ },
+ "italo_scioperi": {
+  "url": "https://www.italotreno.com/en",
+  "status": "200",
+  "verificato_il": "2026-10-10"
+ },
+ "trenord_scioperi": {
+  "url": "https://www.trenord.it/en/assistance/useful-information/in-case-of-strike-action/",
+  "status": "200",
+  "verificato_il": "2026-10-10"
+ },
+ "enac_voli_garantiti": {
+  "url": "https://www.enac.gov.it/trasporto-aereo/diritto-alla-mobilita/scioperi-nel-trasporto-aereo/voli-garantiti/",
+  "status": "200",
+  "verificato_il": "2026-10-10"
+ },
+ "legge_146_1990": {
+  "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-06-12;146",
+  "status": "200",
+  "verificato_il": "2026-10-10"
+ },
+ "op_atm": {
+  "url": "https://www.atm.it/en/Pages/default.aspx",
+  "status": "200",
+  "verificato_il": "2026-10-10",
+  "nome": "ATM Milan"
+ },
+ "op_gtt": {
+  "url": "https://www.gtt.to.it/cms/avvisi-e-informazioni-di-servizio",
+  "status": "200",
+  "verificato_il": "2026-10-10",
+  "nome": "GTT Turin (service notices)"
+ },
+ "op_anm": {
+  "url": "https://www.anm.it/s/?language=it",
+  "status": "200",
+  "verificato_il": "2026-10-10",
+  "nome": "ANM Naples"
+ },
+ "op_actv": {
+  "url": "https://actv.avmspa.it/en/news",
+  "status": "200",
+  "verificato_il": "2026-10-10",
+  "nome": "ACTV Venice (news)"
+ },
+ "op_tper": {
+  "url": "https://www.tper.it/news",
+  "status": "200",
+  "verificato_il": "2026-10-10",
+  "nome": "TPER Bologna (news)"
+ },
+ "op_firenze": {
+  "url": "https://www.at-bus.it/it/sciopero",
+  "status": "200",
+  "verificato_il": "2026-10-10",
+  "nome": "Autolinee Toscane (strike page, buses in Tuscany)"
+ },
+ "op_amt_genova": {
+  "url": "https://www.amt.genova.it/amt/news/",
+  "status": "200",
+  "verificato_il": "2026-10-10",
+  "nome": "AMT Genoa (news)"
+ },
+ "op_amat_palermo": {
+  "url": "https://www.amat.pa.it/notizie/",
+  "status": "200",
+  "verificato_il": "2026-10-10",
+  "nome": "AMAT Palermo (news)"
+ },
+ "op_amtab": {
+  "url": "https://www.amtab.it/it/",
+  "status": "200",
+  "verificato_il": "2026-10-10",
+  "nome": "AMTAB Bari"
+ },
+ "op_amts": {
+  "url": "https://www.amts.ct.it/avvisi-news",
+  "status": "200",
+  "verificato_il": "2026-10-10",
+  "nome": "AMTS Catania (notices)"
+ },
+ "op_busitalia_veneto": {
+  "url": "https://www.fsbusitalia.it/it/veneto/news-veneto.html",
+  "status": "200",
+  "verificato_il": "2026-10-10",
+  "nome": "Busitalia Veneto, Padua (news)"
+ },
+ "op_trieste": {
+  "url": "https://www.triestetrasporti.it/it/avvisi-infomobilita",
+  "status": "200",
+  "verificato_il": "2026-10-10",
+  "nome": "Trieste Trasporti (notices)"
+ },
+ "op_atv": {
+  "url": "https://www.atv.verona.it/news-sul-servizio",
+  "status": "200",
+  "verificato_il": "2026-10-10",
+  "nome": "ATV Verona (service news)"
+ },
+ "apt_mxp_lin": {
+  "url": "https://www.milanomalpensa-airport.com/en",
+  "status": "200",
+  "verificato_il": "2026-10-10"
+ },
+ "apt_blq": {
+  "url": "https://www.bologna-airport.it/en/",
+  "status": "200",
+  "verificato_il": "2026-10-10"
+ },
+ "eu_air_rights": {
+  "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_en.htm",
+  "status": "200",
+  "verificato_il": "2026-10-10"
+ },
+ "eu_rail_rights": {
+  "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/rail/index_en.htm",
+  "status": "200",
+  "verificato_il": "2026-10-10"
+ },
+ "op_atac": {
+  "url": "https://www.atac.roma.it/",
+  "status": "browser",
+  "verificato_il": "2026-10-10",
+  "nota": "dominio ufficiale trovato con la ricerca; il sito blocca le richieste automatiche dal server",
+  "nome": "ATAC Rome"
+ },
+ "apt_fco": {
+  "url": "https://www.adr.it/web/aeroporti-di-roma-en",
+  "status": "browser",
+  "verificato_il": "2026-10-10",
+  "nota": "dominio ufficiale trovato con la ricerca; il sito blocca le richieste automatiche dal server"
+ },
+ "apt_bgy": {
+  "url": "https://www.milanbergamoairport.it/en/",
+  "status": "browser",
+  "verificato_il": "2026-10-10",
+  "nota": "dominio ufficiale trovato con la ricerca; il sito blocca le richieste automatiche dal server"
+ },
+ "apt_vce": {
+  "url": "https://www.veniceairport.it/en/",
+  "status": "browser",
+  "verificato_il": "2026-10-10",
+  "nota": "dominio ufficiale trovato con la ricerca; il sito blocca le richieste automatiche dal server"
+ },
+ "apt_nap": {
+  "url": "https://www.aeroportodinapoli.it/en",
+  "status": "browser",
+  "verificato_il": "2026-10-10",
+  "nota": "dominio ufficiale trovato con la ricerca; il sito blocca le richieste automatiche dal server"
+ },
+ "apt_psa": {
+  "url": "https://www.pisa-airport.com/en/",
+  "status": "browser",
+  "verificato_il": "2026-10-10",
+  "nota": "dominio ufficiale trovato con la ricerca; il sito blocca le richieste automatiche dal server"
+ },
+ "op_gest": {
+  "url": "https://www.gestramvia.it/",
+  "status": "200",
+  "verificato_il": "2026-10-10",
+  "nome": "GEST (Florence tram)"
+ },
+ "trenitalia_en": {
+  "url": "https://www.trenitalia.com/en/information/in-case-of-strike.html",
+  "status": "200",
+  "verificato_il": "2026-10-10"
+ }
+}

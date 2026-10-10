@@ -56,6 +56,7 @@ Circa 60 pagine. Titoli e meta-description con le parole cercate (vedi studio 3.
 8. Nessun dato personale nel repo o nei report.
 
 ## AdSense (giorno ~20, non ora)
+- **Aggiornamento 10/10/2026 (costruzione):** AdSense accetta i sottodomini delle piattaforme nella Public Suffix List, e netlify.app c'è (support.google.com/adsense/answer/12170421): **il dominio non serve** per la pubblicità. Il punto sotto resta solo come opzione futura. Dettagli e scelte in `NOTE.md`.
 - AdSense accetta solo siti su **dominio proprio** (non sottodomini come `*.netlify.app`): verificare nelle regole AdSense e, se confermato, al giorno 20 proporre a Massimiliano l'acquisto di un dominio (`italystrikes.com` o simile, ~10-15 €/anno) **solo se** Search Console mostra ≥20 pagine indicizzate e impression in crescita. Senza il suo sì sull'importo non si compra nulla.
 - Pagine richieste da AdSense già pronte dal giorno 1: About, Contact (modulo o email dedicata, non la personale), Privacy con sezione pubblicità, contenuti originali (le guide).
 - Consenso pubblicità per i visitatori UE: CMP gratuita di Google (Privacy & messaging) quando si attiva AdSense.

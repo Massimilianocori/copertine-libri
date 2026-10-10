@@ -1,0 +1,358 @@
+{
+ "citta": [
+  {
+   "slug": "rome",
+   "nome": "Rome",
+   "it": "Roma",
+   "provincia": "Roma",
+   "regione": "Lazio",
+   "aeroporti": [
+    "rome-fiumicino"
+   ],
+   "operatori": [
+    "op_atac"
+   ]
+  },
+  {
+   "slug": "milan",
+   "nome": "Milan",
+   "it": "Milano",
+   "provincia": "Milano",
+   "regione": "Lombardia",
+   "aeroporti": [
+    "milan-malpensa",
+    "milan-linate",
+    "bergamo"
+   ],
+   "operatori": [
+    "op_atm"
+   ]
+  },
+  {
+   "slug": "florence",
+   "nome": "Florence",
+   "it": "Firenze",
+   "provincia": "Firenze",
+   "regione": "Toscana",
+   "aeroporti": [
+    "florence",
+    "pisa"
+   ],
+   "operatori": [
+    "op_firenze",
+    "op_gest"
+   ]
+  },
+  {
+   "slug": "venice",
+   "nome": "Venice",
+   "it": "Venezia",
+   "provincia": "Venezia",
+   "regione": "Veneto",
+   "aeroporti": [
+    "venice"
+   ],
+   "operatori": [
+    "op_actv"
+   ]
+  },
+  {
+   "slug": "naples",
+   "nome": "Naples",
+   "it": "Napoli",
+   "provincia": "Napoli",
+   "regione": "Campania",
+   "aeroporti": [
+    "naples"
+   ],
+   "operatori": [
+    "op_anm"
+   ]
+  },
+  {
+   "slug": "bologna",
+   "nome": "Bologna",
+   "it": "Bologna",
+   "provincia": "Bologna",
+   "regione": "Emilia-Romagna",
+   "aeroporti": [
+    "bologna"
+   ],
+   "operatori": [
+    "op_tper"
+   ]
+  },
+  {
+   "slug": "turin",
+   "nome": "Turin",
+   "it": "Torino",
+   "provincia": "Torino",
+   "regione": "Piemonte",
+   "aeroporti": [],
+   "operatori": [
+    "op_gtt"
+   ]
+  },
+  {
+   "slug": "pisa",
+   "nome": "Pisa",
+   "it": "Pisa",
+   "provincia": "Pisa",
+   "regione": "Toscana",
+   "aeroporti": [
+    "pisa"
+   ],
+   "operatori": [
+    "op_firenze"
+   ]
+  },
+  {
+   "slug": "genoa",
+   "nome": "Genoa",
+   "it": "Genova",
+   "provincia": "Genova",
+   "regione": "Liguria",
+   "aeroporti": [],
+   "operatori": [
+    "op_amt_genova"
+   ]
+  },
+  {
+   "slug": "verona",
+   "nome": "Verona",
+   "it": "Verona",
+   "provincia": "Verona",
+   "regione": "Veneto",
+   "aeroporti": [],
+   "operatori": [
+    "op_atv"
+   ]
+  },
+  {
+   "slug": "palermo",
+   "nome": "Palermo",
+   "it": "Palermo",
+   "provincia": "Palermo",
+   "regione": "Sicilia",
+   "aeroporti": [],
+   "operatori": [
+    "op_amat_palermo"
+   ]
+  },
+  {
+   "slug": "bari",
+   "nome": "Bari",
+   "it": "Bari",
+   "provincia": "Bari",
+   "regione": "Puglia",
+   "aeroporti": [],
+   "operatori": [
+    "op_amtab"
+   ]
+  },
+  {
+   "slug": "catania",
+   "nome": "Catania",
+   "it": "Catania",
+   "provincia": "Catania",
+   "regione": "Sicilia",
+   "aeroporti": [],
+   "operatori": [
+    "op_amts"
+   ]
+  },
+  {
+   "slug": "padua",
+   "nome": "Padua",
+   "it": "Padova",
+   "provincia": "Padova",
+   "regione": "Veneto",
+   "aeroporti": [],
+   "operatori": [
+    "op_busitalia_veneto"
+   ]
+  },
+  {
+   "slug": "trieste",
+   "nome": "Trieste",
+   "it": "Trieste",
+   "provincia": "Trieste",
+   "regione": "Friuli-Venezia Giulia",
+   "aeroporti": [],
+   "operatori": [
+    "op_trieste"
+   ]
+  }
+ ],
+ "aeroporti": [
+  {
+   "slug": "rome-fiumicino",
+   "nome": "Rome Fiumicino",
+   "iata": "FCO",
+   "provincia": "Roma",
+   "regione": "Lazio",
+   "parole": [
+    "FIUMICINO"
+   ],
+   "link": "apt_fco"
+  },
+  {
+   "slug": "milan-malpensa",
+   "nome": "Milan Malpensa",
+   "iata": "MXP",
+   "provincia": "Varese",
+   "regione": "Lombardia",
+   "parole": [
+    "MALPENSA"
+   ],
+   "link": "apt_mxp_lin"
+  },
+  {
+   "slug": "milan-linate",
+   "nome": "Milan Linate",
+   "iata": "LIN",
+   "provincia": "Milano",
+   "regione": "Lombardia",
+   "parole": [
+    "LINATE"
+   ],
+   "link": "apt_mxp_lin"
+  },
+  {
+   "slug": "bergamo",
+   "nome": "Milan Bergamo (Orio al Serio)",
+   "iata": "BGY",
+   "provincia": "Bergamo",
+   "regione": "Lombardia",
+   "parole": [
+    "ORIO AL SERIO",
+    "BERGAMO"
+   ],
+   "link": "apt_bgy"
+  },
+  {
+   "slug": "venice",
+   "nome": "Venice Marco Polo",
+   "iata": "VCE",
+   "provincia": "Venezia",
+   "regione": "Veneto",
+   "parole": [
+    "MARCO POLO",
+    "VENEZIA",
+    "TESSERA"
+   ],
+   "link": "apt_vce"
+  },
+  {
+   "slug": "naples",
+   "nome": "Naples (Capodichino)",
+   "iata": "NAP",
+   "provincia": "Napoli",
+   "regione": "Campania",
+   "parole": [
+    "CAPODICHINO",
+    "NAPOLI"
+   ],
+   "link": "apt_nap"
+  },
+  {
+   "slug": "bologna",
+   "nome": "Bologna Marconi",
+   "iata": "BLQ",
+   "provincia": "Bologna",
+   "regione": "Emilia-Romagna",
+   "parole": [
+    "BOLOGNA"
+   ],
+   "link": "apt_blq"
+  },
+  {
+   "slug": "pisa",
+   "nome": "Pisa Galileo Galilei",
+   "iata": "PSA",
+   "provincia": "Pisa",
+   "regione": "Toscana",
+   "parole": [
+    "PISA"
+   ],
+   "link": "apt_psa"
+  },
+  {
+   "slug": "florence",
+   "nome": "Florence Peretola",
+   "iata": "FLR",
+   "provincia": "Firenze",
+   "regione": "Toscana",
+   "parole": [
+    "PERETOLA",
+    "FIRENZE"
+   ],
+   "link": "apt_flr"
+  }
+ ],
+ "altri_aeroporti": [
+  "CIAMPINO",
+  "BARI",
+  "BRINDISI",
+  "CATANIA",
+  "PALERMO",
+  "CAGLIARI",
+  "OLBIA",
+  "ALGHERO",
+  "TORINO",
+  "CASELLE",
+  "GENOVA",
+  "VERONA",
+  "TREVISO",
+  "TRIESTE",
+  "LAMEZIA",
+  "REGGIO CALABRIA",
+  "PESCARA",
+  "ANCONA",
+  "TRAPANI",
+  "COMISO",
+  "PERUGIA",
+  "CUNEO",
+  "RIMINI",
+  "PARMA",
+  "BOLZANO",
+  "SALERNO",
+  "CROTONE",
+  "FOGGIA"
+ ],
+ "regioni_en": {
+  "Lazio": "Lazio",
+  "Lombardia": "Lombardy",
+  "Toscana": "Tuscany",
+  "Veneto": "Veneto",
+  "Campania": "Campania",
+  "Emilia-Romagna": "Emilia-Romagna",
+  "Piemonte": "Piedmont",
+  "Liguria": "Liguria",
+  "Sicilia": "Sicily",
+  "Puglia": "Apulia",
+  "Friuli-Venezia Giulia": "Friuli Venezia Giulia",
+  "Sardegna": "Sardinia",
+  "Calabria": "Calabria",
+  "Abruzzo": "Abruzzo",
+  "Marche": "Marche",
+  "Umbria": "Umbria",
+  "Basilicata": "Basilicata",
+  "Molise": "Molise",
+  "Trentino-Alto Adige": "Trentino-South Tyrol",
+  "Valle d'Aosta": "Aosta Valley",
+  "Italia": "Italy"
+ },
+ "province_en": {
+  "Roma": "Rome",
+  "Milano": "Milan",
+  "Firenze": "Florence",
+  "Venezia": "Venice",
+  "Napoli": "Naples",
+  "Torino": "Turin",
+  "Genova": "Genoa",
+  "Padova": "Padua",
+  "Siracusa": "Syracuse",
+  "Mantova": "Mantua"
+ }
+}

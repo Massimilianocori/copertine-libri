@@ -1,0 +1,54 @@
+name: Italy Strikes Today – registro scioperi
+
+# Legge ogni giorno il registro scioperi del MIT e aggiorna italystrikes/dati sul branch di lavoro.
+# Le pagine si aggiornano nel browser da italystrikes/dati/vista.json; il sito su Netlify si ripubblica
+# solo quando lo decide italystrikes/raccolta/decidi_deploy.py (massimo 6 volte al mese, per i crediti Netlify).
+# I workflow programmati partono solo dal branch principale (main): per questo il file sta qui.
+
+on:
+  schedule:
+    - cron: "17 5 * * *"   # 07:17 ora italiana (06:17 d'inverno)
+    - cron: "17 15 * * *"  # 17:17 ora italiana (16:17 d'inverno)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: italystrikes
+  cancel-in-progress: false
+
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ccr-b7fd6b9e-n096cr
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Leggi il registro MIT
+        run: python3 italystrikes/raccolta/raccogli.py
+      - name: Dati per le pagine (vista.json)
+        run: python3 italystrikes/genera.py --solo-dati
+      - name: Serve ripubblicare il sito?
+        id: decidi
+        run: python3 italystrikes/raccolta/decidi_deploy.py >> "$GITHUB_OUTPUT"
+      - name: Rigenera il sito
+        if: steps.decidi.outputs.deploy == 'si'
+        run: python3 italystrikes/genera.py
+      - name: Commit e push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add italystrikes/dati italystrikes/sito
+          if git diff --cached --quiet; then echo "Nessun cambiamento"; exit 0; fi
+          git commit -m "Italy strikes: registro del $(TZ=Europe/Rome date +%d/%m/%Y) (pubblicazione: ${{ steps.decidi.outputs.deploy }})"
+          for i in 1 2 3 4; do
+            if git pull --rebase origin ccr-b7fd6b9e-n096cr && git push origin HEAD:ccr-b7fd6b9e-n096cr; then exit 0; fi
+            sleep $((i * 5))
+          done
+          exit 1
