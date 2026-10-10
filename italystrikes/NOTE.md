@@ -44,7 +44,7 @@
 5. Almeno 5 query con "today", "tomorrow" o mese+anno tra le prime 20 per impression.
 6. AdSense approvato; se attivo ≥7 giorni: RPM ≥6 $.
 Passano 1-4 → si continua (satelliti, versione italiana, Journey a 1.000 sessioni Tier 1/30 giorni). Fallisce 1 o 2 → stop. Fallisce solo 4 → tenere il sito e aprire la versione italiana.
-Data di inizio: **10/10/2026** (pubblicato da GitHub, progetto Netlify `italy-strikes-today`, site id `c6aea0b3-93d2-4570-9351-c7120a20968e`, moduli attivati, notifica email su tutti i moduli). Verdetto a 45 giorni: **24/11/2026**.
+Data di inizio: **10/10/2026** (pubblicato da GitHub, progetto Netlify `italy-strikes-today`, site id `c6aea0b3-93d2-4570-9351-c7120a20968e`, moduli attivati: `alerts` id `6aca421bcfef520007089e7d`, `contact` id `6aca421ccfef520007089e98`; notifica email su tutti i moduli). Verdetto a 45 giorni: **24/11/2026**.
 
 ## Cosa deve fare Massimiliano (una volta)
 1. Netlify → Add new project → Import an existing project → GitHub → `copertine-libri` → branch `ccr-b7fd6b9e-n096cr`, Base directory `italystrikes/sito`, Publish directory `italystrikes/sito`, build command vuoto → Deploy. Poi Project configuration → Change project name → `italy-strikes-today`.
