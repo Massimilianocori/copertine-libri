@@ -10,6 +10,7 @@ Le pagine contengono i dati del giorno di generazione; il JS ricalcola oggi/doma
 e scarica dati/vista.json da GitHub se più recente. Nessuna dipendenza esterna.
 """
 import json
+import os
 import re
 import shutil
 import sys
@@ -24,6 +25,9 @@ SITO = RADICE / "sito"
 URL_SITO = "https://italy-strikes-today.netlify.app"  # cambiare qui se il nome del sito su Netlify è diverso
 NOME = "Italy Strikes Today"
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console, proprietà https://italy-strikes-today.netlify.app (non rimuoverla)
+# Satelliti (calcolatore codice fiscale, guida multe ZTL): spenti finché Massimiliano non dice sì alla pubblicazione.
+# Per vederli in prova senza pubblicarli: ITALYSTRIKES_SATELLITI=1 python3 italystrikes/genera.py (in una copia).
+SATELLITI_ATTIVI = False
 URL_DATI_LIVE = ("https://raw.githubusercontent.com/Massimilianocori/copertine-libri/"
                  "ccr-b7fd6b9e-n096cr/italystrikes/dati/vista.json")
 URL_REGISTRO = "https://scioperi.mit.gov.it/mit2/public/scioperi"
@@ -1049,10 +1053,145 @@ def guide():
 </ul>
 <p>If you booked a package or a tour, contact the organiser as well.</p>""")
 
+    strumenti = ""
+    if satelliti_attivi():
+        strumenti = ('<h2>Tools for visitors</h2><div class="griglia"><a href="../codice-fiscale-calculator/">Codice fiscale calculator'
+                     '<small>Italian tax code for foreigners</small></a><a href="../ztl-fines/">ZTL fines in Italy<small>amounts, deadlines, how to pay</small></a></div>')
     corpo = '<section class="hero"><h1>Guides</h1><p class="lead">Short, practical guides about transport strikes in Italy.</p></section><div class="griglia">' + "".join(
-        f'<a href="{s}/">{escape(t)}</a>' for s, t, _ in G) + "</div>"
+        f'<a href="{s}/">{escape(t)}</a>' for s, t, _ in G) + "</div>" + strumenti
     pagina("guides/", "Guides to strikes in Italy | " + NOME, "Practical guides for travellers about transport strikes in Italy.", corpo,
            briciole=[("Guides", "guides/")])
+
+
+# ---------------------------------------------------------------- satelliti
+def satelliti_attivi():
+    return SATELLITI_ATTIVI or os.environ.get("ITALYSTRIKES_SATELLITI") == "1"
+
+
+CF_JS = r"""
+(function(){
+  var ODD={},EVEN={},o=[1,0,5,7,9,13,15,17,19,21],oa=[1,0,5,7,9,13,15,17,19,21,2,4,18,20,11,3,6,8,12,14,16,10,22,25,24,23];
+  for(var i=0;i<10;i++){ODD[String(i)]=o[i];EVEN[String(i)]=i;}
+  for(i=0;i<26;i++){var ch=String.fromCharCode(65+i);ODD[ch]=oa[i];EVEN[ch]=i;}
+  function pulisci(s){return (s||'').toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^A-Z]/g,'');}
+  function cons(s){return s.replace(/[^BCDFGHJKLMNPQRSTVWXYZ]/g,'');}
+  function voc(s){return s.replace(/[^AEIOU]/g,'');}
+  function cognome(s){return (cons(s)+voc(s)+'XXX').slice(0,3);}
+  function nome(s){var c=cons(s);return c.length>=4?c[0]+c[2]+c[3]:(c+voc(s)+'XXX').slice(0,3);}
+  function calcola(cg,nm,data,sesso,luogo){
+    var p=data.split('-'),y=p[0],m=+p[1],d=+p[2];
+    var x=cognome(cg)+nome(nm)+y.slice(2)+'ABCDEHLMPRST'[m-1]+('0'+(d+(sesso==='F'?40:0))).slice(-2)+luogo;
+    var t=0;for(var k=0;k<x.length;k++){t+=(k%2===0?ODD:EVEN)[x[k]];}
+    return x+String.fromCharCode(65+t%26);
+  }
+  var f=document.getElementById('cf-form');if(!f)return;
+  var tipo=f.querySelectorAll('input[name=tipo]'),boxE=document.getElementById('cf-estero'),boxI=document.getElementById('cf-italia');
+  var comuni=null,inp=document.getElementById('cf-comune'),sugg=document.getElementById('cf-sugg'),scelto=null;
+  function mostra(){var e=f.querySelector('input[name=tipo]:checked').value==='estero';boxE.hidden=!e;boxI.hidden=e;
+    if(!e&&!comuni){fetch('comuni.json').then(function(r){return r.json();}).then(function(j){comuni=j.comuni;});}}
+  tipo.forEach(function(r){r.addEventListener('change',mostra);});mostra();
+  inp.addEventListener('input',function(){scelto=null;var q=inp.value.trim().toUpperCase();sugg.innerHTML='';if(!comuni||q.length<2)return;
+    var n=0;for(var i=0;i<comuni.length&&n<8;i++){if(comuni[i][0].toUpperCase().indexOf(q)===0){var li=document.createElement('li');
+      var b=document.createElement('button');b.type='button';b.textContent=comuni[i][0]+' ('+comuni[i][1]+')';b.dataset.c=comuni[i][2];b.dataset.n=comuni[i][0]+' ('+comuni[i][1]+')';
+      b.addEventListener('click',function(){scelto=this.dataset.c;inp.value=this.dataset.n;sugg.innerHTML='';});li.appendChild(b);sugg.appendChild(li);n++;}}});
+  f.addEventListener('submit',function(ev){ev.preventDefault();var out=document.getElementById('cf-out'),err=document.getElementById('cf-err');out.hidden=true;err.hidden=true;
+    var cg=pulisci(f.surname.value),nm=pulisci(f.given.value),dt=f.birth.value,sx=f.querySelector('input[name=sex]:checked');
+    var e=f.querySelector('input[name=tipo]:checked').value==='estero',luogo=e?f.country.value:scelto;
+    var msg=!cg?'Please enter your surname (letters only).':!nm?'Please enter your given name(s).':!dt?'Please enter your date of birth.':!sx?'Please choose sex as shown on your passport.':!luogo?(e?'Please choose your country of birth.':'Please choose your place of birth from the list.'):'';
+    if(msg){err.textContent=msg;err.hidden=false;return;}
+    var c=calcola(cg,nm,dt,sx.value,luogo);document.getElementById('cf-code').textContent=c;out.hidden=false;});
+  var cp=document.getElementById('cf-copy');if(cp)cp.addEventListener('click',function(){try{navigator.clipboard.writeText(document.getElementById('cf-code').textContent);cp.textContent='Copied';}catch(e){}});
+})();
+"""
+
+
+def pagina_codice_fiscale():
+    rel = "../"
+    esteri = json.loads((RADICE / "satelliti" / "cf-esteri.json").read_text(encoding="utf-8"))
+    comuni = json.loads((RADICE / "satelliti" / "cf-comuni.json").read_text(encoding="utf-8"))
+    opz = "".join(f'<option value="{p["c"]}">{escape(p["en"])}</option>' for p in esteri["paesi"])
+    url_ade = "https://www.agenziaentrate.gov.it/portale/web/english/nse/individuals/tax-identification-number-for-foreign-citizens"
+    url_verifica = "https://telematici.agenziaentrate.gov.it/VerificaCF/Scegli.do?parameter=verificaCf"
+    corpo = f"""<section class="hero"><h1>Codice fiscale calculator for foreigners</h1>
+<p class="lead">Work out the Italian tax code (codice fiscale) that matches your personal data, then get the official one from the Italian authorities. Free, nothing is sent to us: the calculation happens in your browser.</p></section>
+<p class="avviso">Only the Italian Revenue Agency (Agenzia delle Entrate) can assign your official codice fiscale. In rare cases (two people with the same data) the official code is different from the calculated one. Use this to check or prepare, not as a substitute.</p>
+<section class="card"><form id="cf-form" class="form" novalidate>
+<div class="due-campi"><label>Surname (as on your passport)<input name="surname" autocomplete="family-name" required></label>
+<label>Given name(s), all of them<input name="given" autocomplete="given-name" required></label></div>
+<div class="due-campi"><label>Date of birth<input type="date" name="birth" min="1900-01-01" required></label>
+<fieldset style="border:0;padding:0;margin:0"><legend style="font-weight:600;font-size:.95rem">Sex (as on your passport)</legend>
+<label class="check"><input type="radio" name="sex" value="M"> Male</label><label class="check"><input type="radio" name="sex" value="F"> Female</label></fieldset></div>
+<fieldset style="border:0;padding:0;margin:0"><legend style="font-weight:600;font-size:.95rem">Place of birth</legend>
+<label class="check"><input type="radio" name="tipo" value="estero" checked> Outside Italy</label><label class="check"><input type="radio" name="tipo" value="italia"> In Italy</label></fieldset>
+<label id="cf-estero">Country of birth<select name="country"><option value="">Choose your country</option>{opz}</select></label>
+<div id="cf-italia" hidden><label>Italian town of birth<input id="cf-comune" autocomplete="off" placeholder="Start typing, e.g. Roma"></label><ul id="cf-sugg" class="sugg"></ul></div>
+<button class="btn" type="submit">Calculate</button>
+<p class="errore" id="cf-err" hidden></p>
+</form>
+<div id="cf-out" class="ok" hidden><p style="margin:0">Your calculated codice fiscale:</p><p style="font-size:1.6rem;font-weight:800;letter-spacing:.08em;margin:6px 0" id="cf-code"></p>
+<button type="button" class="btn" id="cf-copy" style="padding:6px 12px">Copy</button>
+<p class="small" style="margin:8px 0 0">Check it with the Revenue Agency's free <a href="{url_verifica}" rel="noopener">verification service</a> (in Italian).</p></div></section>
+{AD}
+<div class="testo">
+<h2>How to get your official codice fiscale</h2>
+<p>From the <a href="{url_ade}" rel="noopener">Agenzia delle Entrate page for foreign citizens</a> (checked 10 October 2026):</p>
+<ul>
+<li><strong>If you live abroad:</strong> apply to the Italian consulate in your country of residence.</li>
+<li><strong>In Italy, non-EU citizens:</strong> the Single Desk for Immigration (Sportello Unico per l'Immigrazione) issues it to people entering Italy for work or family reunification, and the police headquarters (Questura) when you apply for or renew a residence permit.</li>
+<li><strong>In all other cases:</strong> at an office of the Agenzia delle Entrate, with a valid ID document (non-EU citizens: passport with visa if required, or residence permit, and proof of the right to stay). For a first codice fiscale you must <strong>book an in-person appointment</strong>.</li>
+<li><strong>EU citizens:</strong> any Agenzia delle Entrate office, with an ID card or passport.</li>
+</ul>
+<h2>How the code is built</h2>
+<p>It has 16 characters: 3 letters from your surname, 3 from your given names, 2 digits for the year of birth, a letter for the month, 2 digits for the day (plus 40 for women), a 4-character code for the place of birth (for people born abroad, "Z" and three digits for the country) and a final check letter.</p>
+<h2>Limits of this calculator</h2>
+<ul><li>Countries: the current list of the Italian national population register (ANPR, Ministry of the Interior). If you were born in a country that no longer exists, the official code may use a historical country code.</li>
+<li>Italian towns: ISTAT list of current municipalities. Towns merged or abolished in the past are not included.</li>
+<li>Same-data cases ("omocodia") are handled only by the Agenzia delle Entrate.</li></ul>
+<p class="small">Sources: country codes from the <a href="{escape(esteri['meta']['fonte_esteri'])}" rel="noopener">ANPR foreign states table</a>; town codes from <a href="{escape(comuni['meta']['fonte_comuni'])}" rel="noopener">ISTAT</a>; read on {escape(esteri['meta']['letto_il'])}.</p>
+</div>
+<style>.sugg{{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:4px}}.sugg button{{font:inherit;width:100%;text-align:left;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);cursor:pointer}}fieldset .check{{display:inline-flex;margin-right:16px}}</style>
+<script>{CF_JS}</script>"""
+    pagina("codice-fiscale-calculator/", "Codice fiscale calculator for foreigners (Italian tax code)",
+           "Calculate the Italian codice fiscale for people born abroad or in Italy, and learn how foreigners get the official one from the Agenzia delle Entrate.",
+           corpo, briciole=[("Codice fiscale calculator", "codice-fiscale-calculator/")])
+    (SITO / "codice-fiscale-calculator" / "comuni.json").write_text(
+        json.dumps({"comuni": comuni["comuni"]}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+
+
+def pagina_ztl():
+    rel = "../"
+    cds = "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285"
+    citta_link = [("Rome", "https://romamobilita.it/servizi-al-pubblico/ztl/", "Roma Servizi per la Mobilità (city transport agency)"),
+                  ("Milan", "https://www.comune.milano.it/aree-tematiche/mobilita/area-c", "Comune di Milano, Area C"),
+                  ("Bologna", "https://www.comune.bologna.it/servizi-informazioni/ztl", "Comune di Bologna")]
+    lista = "".join(f'<li><strong>{c}</strong>: <a href="{u}" rel="noopener">{escape(n)}</a></li>' for c, u, n in citta_link)
+    corpo = f"""<section class="hero"><h1>ZTL fines in Italy: how much, when they arrive, how to pay</h1>
+<p class="lead">ZTL means <em>zona a traffico limitato</em>, a limited traffic zone in a historic centre. Cameras at the entry gates record every plate: if you drive in without a permit you get a fine, often months later and often through your rental company.</p></section>
+<p class="avviso">This page explains the national rules. Hours, zones and permits are set by each city and change often: always check the official city website or ask your hotel before you drive into a centre. Nothing here is legal advice.</p>
+<div class="testo">
+<h2>How much is a ZTL fine?</h2>
+<ul><li>Driving into a ZTL, a pedestrian area or a bus lane without a permit costs <strong>from €83 to €332</strong> (Italian Highway Code, <a href="{cds}~art7" rel="noopener">Article 7, paragraph 14</a>, text checked 10 October 2026).</li>
+<li>If you pay <strong>within 60 days</strong> of the notice you pay the minimum (€83). If you pay <strong>within 5 days</strong> it is reduced by <strong>30%</strong> (about €58), plus the notification costs written on the notice (<a href="{cds}~art202" rel="noopener">Article 202</a>).</li>
+<li>Each gate you pass through can be recorded as a separate violation, so one wrong turn can mean more than one notice.</li></ul>
+<h2>When does the fine arrive?</h2>
+<ul><li>For people who live abroad, the notice must be served <strong>within 360 days</strong> of the violation being recorded (<a href="{cds}~art201" rel="noopener">Article 201</a>); the period runs from when the authorities are able to identify the driver.</li>
+<li>With a rental car, the police first contact the rental company, which gives them your name and address. Rental companies usually charge you their own administration fee for this, separate from the fine: check your rental contract.</li></ul>
+<h2>How to avoid it</h2>
+<ul><li>Look for the round sign with a red border and the words <em>Zona Traffico Limitato</em>, and for the display at the gate: "varco attivo" means the camera is on and you must not enter; "varco non attivo" means the zone is open at that moment.</li>
+<li>If your hotel is inside a ZTL, ask it before you arrive: in many cities hotels can register your plate for access to drop off luggage.</li>
+<li>Park outside the centre and walk or take public transport. Satellite navigators do not always warn about ZTLs.</li></ul>
+<h2>How to pay or appeal</h2>
+<ul><li>The notice (<em>verbale</em>) explains how to pay, usually by bank transfer or online with the code printed on it. Keep the receipt.</li>
+<li>Appeals go to the Prefect or the Justice of the Peace (<em>Giudice di Pace</em>) within the deadlines written on the notice. If you think the fine is wrong, read the notice carefully and consider local legal advice.</li></ul>
+<h2>Official city pages</h2>
+<ul>{lista}</ul>
+<p class="small">Florence, Pisa, Siena, Naples, Turin and other cities have their own ZTLs: search "ZTL" on the official website of the municipality (<em>comune</em>) or ask your hotel. We list only official pages we could check.</p>
+</div>
+{box_affiliati()}
+{AD}"""
+    pagina("ztl-fines/", "ZTL fines in Italy: how much, when they arrive, how to pay",
+           "Italian ZTL fines explained in English: amounts (€83-€332), 30% discount within 5 days, 360-day deadline for foreign residents, rental cars, how to avoid and pay.",
+           corpo, briciole=[("ZTL fines in Italy", "ztl-fines/")])
 
 
 def about():
@@ -1167,6 +1306,9 @@ def main():
     for a in AEROPORTI:
         pagina_aeroporto(a)
     guide()
+    if satelliti_attivi():
+        pagina_codice_fiscale()
+        pagina_ztl()
     about()
     contatti()
     privacy()
