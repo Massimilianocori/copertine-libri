@@ -24,7 +24,8 @@ import re
 import sys
 import time
 import urllib.request
-from datetime import date, datetime, timezone
+from datetime import date, datetime
+from zoneinfo import ZoneInfo
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -35,6 +36,7 @@ UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 CACHE = os.environ.get("BYF_CACHE")
 OFFLINE = os.environ.get("BYF_OFFLINE") == "1"
 MINIMO_PAGINE = 200
+LONDRA = ZoneInfo("Europe/London")
 
 
 def scarica(url, nome_cache):
@@ -200,7 +202,24 @@ def regole_in(frase_norm):
 
 
 def classifica(blocchi):
-    """Ritorna (regola o None, motivo se manuale, avvisi, pagine bianche)."""
+    """Ritorna (regola o None, motivo se manuale, avvisi, pagine bianche, frasi con regole per altri gruppi)."""
+    r = _classifica(blocchi)
+    corpo = []
+    for b in blocchi:
+        if b["t"] == "h3":
+            break
+        corpo.append(b)
+    tutte = [f for x in unisci(corpo) for f in frasi(x)]
+    altre = [f for f in tutte if CONDIZIONALE.search(f.strip()) and re.search(r"valid|expiry", f, re.I) and f not in r[2]]
+    return r + (altre,)
+
+
+def consiglio(frase):
+    """True se la frase FCDO è formulata come consiglio ('should', 'make sure', 'to avoid problems')."""
+    return bool(re.search(r"\bshould\b|make sure|to avoid problems", frase, re.I))
+
+
+def _classifica(blocchi):
     if not blocchi:
         return None, "The official page has no text under this heading.", [], None
     if blocchi[0]["t"] == "h3":
@@ -228,7 +247,12 @@ def classifica(blocchi):
         n = int(m.group(1)) if m.group(1).isdigit() else NUMERI[m.group(1)]
         cond = [{"base": "partenza", "n": n, "u": "m" if m.group(2).startswith("month") else "g", "op": ">="}]
         frase = next((f for f in tutte if "10 years" in f), tutte[0])
-        return {"condizioni": cond, "emissione_anni": 10, "schengen": "schengen" in testo_n, "frase": frase}, None, avvisi, pagine
+        gib = re.search(r"after the day you intend to leave (gibraltar or the schengen area)", testo_n)
+        schengen = "schengen area" in testo_n and not gib
+        luogo = "Gibraltar or the Schengen Area" if gib else ("the Schengen area" if re.search(r"plan to leave the schengen area", testo_n) else None)
+        emissione_testo = "issued within the previous 10 years" if "within the previous 10 years" in testo_n else "issued less than 10 years before the date you arrive"
+        return {"condizioni": cond, "emissione_anni": 10, "schengen": schengen, "luogo_uscita": luogo, "emissione_testo": emissione_testo,
+                "consiglio": False, "frase": frase}, None, avvisi, pagine
     principale = None
     for f in tutte:
         fn = norm(f)
@@ -251,11 +275,13 @@ def classifica(blocchi):
             return None, "The official text contains more than one validity rule.", avvisi, pagine
     if any(c["u"] == "g" and c["n"] == 0 for c in cond) and len(cond) > 1:
         return None, "The official sentence combines rules we do not turn into a calculation.", avvisi, pagine
-    return {"condizioni": cond, "emissione_anni": None, "schengen": False, "frase": principale}, None, avvisi, pagine
+    return {"condizioni": cond, "emissione_anni": None, "schengen": False, "luogo_uscita": None, "emissione_testo": None,
+            "consiglio": consiglio(principale), "frase": principale}, None, avvisi, pagine
 
 
 def solo_data(ts):
-    return datetime.fromisoformat(ts.replace("Z", "+00:00")).astimezone(timezone.utc).date().isoformat()
+    """Data come la mostra GOV.UK (ora del Regno Unito)."""
+    return datetime.fromisoformat(ts.replace("Z", "+00:00")).astimezone(LONDRA).date().isoformat()
 
 
 def leggi_paese(slug, j):
@@ -264,16 +290,16 @@ def leggi_paese(slug, j):
     ent = [p for p in det.get("parts", []) if p["slug"] == "entry-requirements"]
     titolo, blocchi = sezione(ent[0]["body"]) if ent else (None, [])
     blocchi = [b for b in blocchi if not BOILERPLATE.match(b["x"])]
-    regola, motivo, avvisi, pagine = classifica(blocchi) if titolo and "passport validity" in titolo.lower() else (
-        None, "The official page has no 'Passport validity requirements' section." + (f" The text below is from '{titolo}'." if titolo else ""), [], None)
+    regola, motivo, avvisi, pagine, altre = classifica(blocchi) if titolo and "passport validity" in titolo.lower() else (
+        None, "The official page has no 'Passport validity requirements' section" + (f"; it has a '{titolo}' section instead." if titolo else "."), [], None, [])
     storia = det.get("change_history", [])
-    ingresso = [{"data": solo_data(c["public_timestamp"]), "nota": c["note"]} for c in storia if "entry requirements" in c["note"].lower()][:5]
+    ingresso = [{"data": solo_data(c["public_timestamp"]), "nota": c["note"].strip()} for c in storia if "entry requirements" in c["note"].lower()][:5]
     return {
         "slug": slug, "nome": nome, "url": "https://www.gov.uk/foreign-travel-advice/" + slug,
         "url_ingresso": "https://www.gov.uk/foreign-travel-advice/" + slug + "/entry-requirements",
         "api": API + "/" + slug,
         "aggiornata": solo_data(j["public_updated_at"]),
-        "ultimo_cambio": {"data": solo_data(storia[0]["public_timestamp"]), "nota": storia[0]["note"]} if storia else None,
+        "ultimo_cambio": {"data": solo_data(storia[0]["public_timestamp"]), "nota": storia[0]["note"].strip()} if storia else None,
         "cambi_ingresso": ingresso,
         "titolo_sezione": titolo,
         "testo": blocchi,
@@ -281,6 +307,7 @@ def leggi_paese(slug, j):
         "stato": "auto" if regola else "manuale",
         "motivo": motivo,
         "avvisi": avvisi,
+        "altre_regole": altre,
         "pagine_bianche": pagine,
     }
 

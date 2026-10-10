@@ -21,13 +21,13 @@ Riquadro affiliati: `dati/affiliati.json` (assicurazione, eSIM, parcheggi/lounge
 | File | A cosa serve |
 |---|---|
 | `genera.py` | genera tutte le pagine; contiene il motore del controllo passaporto in Python e lo stesso in JS |
-| `raccolta/passaporti.py` | scarica le 226 pagine FCDO, estrae la sezione "Passport validity requirements", classifica la regola, scrive `dati/passaporti.json`; se legge meno di 200 pagine non sovrascrive; registra i testi cambiati in `dati/passaporti_cambi.json` |
+| `raccolta/passaporti.py` | scarica le 226 pagine FCDO (date nell'ora del Regno Unito), estrae la sezione "Passport validity requirements", classifica la regola, scrive `dati/passaporti.json`; se legge meno di 200 pagine non sovrascrive; registra i testi cambiati in `dati/passaporti_cambi.json` |
 | `raccolta/liquidi.py` | ricontrollo mensile: per ogni aeroporto verifica che le frasi citate siano ancora sulla pagina ufficiale (`BYF_BROWSER=1` per i siti letti con il browser) |
 | `raccolta/eesetias.py` | controlla che le frasi ufficiali su EES/ETIAS siano ancora presenti (esce con 1 se ne sparisce una, es. "ETIAS is currently not in operation") |
 | `dati/passaporti.json` | 226 paesi: testo ufficiale parola per parola, regola riconosciuta (o `manuale` + motivo), data di aggiornamento della pagina, note di modifica |
 | `dati/aeroporti.json` | regole sui liquidi lette a mano: frasi citate, eccezioni, regola, URL, data del controllo, modo di lettura; aeroporti esclusi con il motivo |
 | `dati/ees_etias.json` | frasi ufficiali EES/ETIAS e GOV.UK con esito della ricerca, date di modifica delle pagine |
-| `verifica.py` | 27 casi a mano, JS contro Python su 3.000 casi, link, fonti/date/citazioni, struttura, parole vietate, Playwright a 375 px |
+| `verifica.py` | 33 casi a mano, JS contro Python su 3.000 casi, link, fonti/date/citazioni, struttura, parole vietate, Playwright a 375 px |
 
 ## Passaporti: come si legge la regola (nessuna interpretazione)
 
@@ -40,14 +40,14 @@ Riquadro affiliati: `dati/affiliati.json` (assicurazione, eSIM, parcheggi/lounge
 
 ## Liquidi: aeroporti inclusi (38) e lettura
 
-Tutti letti il 10/10/2026. Regola: 9 fino a 2 litri (LHR, LGW, EDI, BRS, DUB, VIE, FCO, LIN, KRK), 23 a 100 ml, 4 dipende dal varco/terminal (BER, MXP, PRG, OPO), 2 con pagine ufficiali in contraddizione (FRA, MUC).
+Tutti letti il 10/10/2026. Regola: 9 fino a 2 litri (LHR, LGW, EDI, BRS, DUB, VIE, FCO, LIN, KRK), 23 a 100 ml, 5 dipende dal varco/terminal (FRA, BER, MXP, PRG, OPO), 1 con pagine ufficiali in contraddizione (MUC). Dove la pagina lo dice, è citata la condizione delle borracce metalliche/termiche vuote (LHR, LGW, EDI, BRS, VIE, BER) e dei contenitori oltre 2 litri solo vuoti (FCO).
 - Lettura "diretta" (richiesta HTTP normale, 200): LHR, LGW, MAN, STN, LTN, EMA, ABZ, DUB, FRA, HEL, EIN, PRG, KRK, GOV.UK.
 - Lettura con browser automatico (il sito blocca le richieste semplici o carica il testo con JavaScript): EDI, BRS, MUC, BER, VIE, FCO, LIN, MXP, ARN, GOT, MMX, CPH, LIS, OPO, FAO, FNC, Aena (MAD, BCN, AGP, PMI, ALC), IST, DOH, HKG, BNE, TSA, CATSA, Your Europe.
 - Casi particolari:
-  - **Francoforte**: la pagina "Security check" dice 2 litri alla maggior parte dei varchi del T1 e a tutti quelli del T3 (100 ml ai gate C1, C2, C4, C6, ai varchi transfer e speciali); il PDF "Flying with liquids is easy" collegato dalla stessa pagina dice ancora 100 ml. Mostrate entrambe, nessuna scelta nostra (consiglio prudente: 100 ml se non si può confermare).
-  - **Monaco**: la pagina dice "Liquids (up to two liters per container)" con i CT, ma la didascalia delle foto dei CT sulla stessa pagina dice "liquids up to 100 ml". Trattata come Francoforte.
-  - **Spagna**: nessuna pagina per aeroporto trovata; si usa la pagina di Aena (gestore di tutti gli aeroporti pubblici spagnoli), indicata come tale su ogni pagina.
-  - **Hong Kong**: fonte = Civil Aviation Department (autorità), non il sito dell'aeroporto (non trovato).
+  - **Francoforte** (dopo la revisione del 10/10: 'dipende'): la pagina "Security check" dice 2 litri alla maggior parte dei varchi del T1 e a tutti quelli del T3; 100 ml ai gate C1, C2, C4, C6, a "Certain special security checkpoints in Terminal 1" e ai varchi transfer; consiglio ufficiale di controllare il gate sotto "Departures". Il PDF "Flying with liquids is easy" collegato dalla pagina è un volantino UE generico (100 ml, senza data): mostrato come tale, non come regola di Francoforte.
+  - **Monaco**: la pagina dice "Liquids (up to two liters per container)" con i CT e "You may carry several containers totaling less than two liters", ma la didascalia delle foto dei CT sulla stessa pagina dice "liquids up to 100 ml". Mostrate entrambe, nessuna scelta nostra.
+  - **Spagna**: nessuna pagina per aeroporto trovata; si cita la pagina generale sul bagaglio a mano di Aena (gestore degli aeroporti pubblici spagnoli). La pagina non elenca eccezioni per aeroporto o per varco e non dice che vale ovunque: lo scriviamo così, senza aggiungere altro.
+  - **Hong Kong**: fonte = Civil Aviation Department (autorità), non il sito dell'aeroporto (pagina attuale non trovata). La pagina parla di misure in vigore dal 21/3/2007 e riporta "Last revision date: 1 June 2024": lo diciamo sulla pagina.
   - **Aberdeen**: la pagina contiene anche un vecchio avviso ("from midnight on Saturday 8 June"): entrambi i testi dicono 100 ml.
   - **Helsinki**: 100 ml per contenitore, totale 2 litri, liquidi nella borsa (pagina Finavia); controllo transfer: 100 ml in busta da 1 litro (FAQ Finavia, seconda fonte citata).
   - **USA e Canada**: una regola nazionale ciascuno (TSA, CATSA), pagine `liquids/us-airports-tsa/` e `liquids/canada-airports-catsa/`.
@@ -67,17 +67,30 @@ L'elenco è anche nella pagina `liquids/` del sito. Si aggiungono quando la pagi
 - travel-europe.europa.eu (sito ufficiale EES/ETIAS): non leggibile dal server (catena del certificato TLS incompleta). Non si è disattivata la verifica TLS: solo link.
 - Nessuna data di avvio di ETIAS oltre le frasi ufficiali.
 
-## Calendario dei ricontrolli
+## Ricontrolli (nessuna promessa sul sito)
 
-| Cosa | Quando | Comando |
+Il sito non promette aggiornamenti periodici: mostra solo "Last checked: <data>" (data del controllo) e, per GOV.UK, la data di aggiornamento della pagina ufficiale (ora del Regno Unito).
+Il ricontrollo mensile viene programmato dalla sessione principale. **I dati cambiano sul sito solo quando si rigenera e si ripubblica** (genera.py → commit → Netlify).
+
+| Cosa | Comando | Se cambia qualcosa |
 |---|---|---|
-| Passaporti (226 pagine FCDO) | **ogni settimana** (lunedì) | `python3 -I beforeyoufly/raccolta/passaporti.py && python3 beforeyoufly/genera.py && python3 beforeyoufly/verifica.py` → se `passaporti_cambi.json` ha voci nuove, rileggere quelle pagine e i casi di `verifica.py` |
-| EES / ETIAS | ogni settimana | `python3 -I beforeyoufly/raccolta/eesetias.py` (esce con 1 se una frase ufficiale sparisce: riscrivere la pagina a mano) |
-| Liquidi (38 aeroporti + 2 nazionali) | **ogni mese** (1° lunedì), a mano | `BYF_BROWSER=1 python3 -I beforeyoufly/raccolta/liquidi.py`; per ogni "[CAMBIATA?]" o "[DA CONTROLLARE A MANO]": aprire la pagina, leggerla, aggiornare `dati/aeroporti.json` (frasi, regola, `controllato_il`), rigenerare e verificare. Provare anche gli esclusi. |
-
-Limite Netlify (crediti gratuiti condivisi, vedi REGOLE-FISSE): ripubblicare al massimo una volta a settimana.
+| Passaporti (226 pagine FCDO) | `python3 -I beforeyoufly/raccolta/passaporti.py` | voci nuove in `dati/passaporti_cambi.json`: rileggere quelle pagine, controllare la regola riconosciuta e i casi di `verifica.py` |
+| EES / ETIAS | `python3 -I beforeyoufly/raccolta/eesetias.py` | esce con 1 se una frase ufficiale sparisce (es. "ETIAS is currently not in operation"): riscrivere la pagina a mano, senza date non ufficiali |
+| Liquidi (38 aeroporti + 2 nazionali) | `BYF_BROWSER=1 python3 -I beforeyoufly/raccolta/liquidi.py` | per ogni "[CAMBIATA?]" o "[DA CONTROLLARE A MANO]": aprire la pagina, leggerla, aggiornare `dati/aeroporti.json` (frasi, regola, `controllato_il`); riprovare anche gli esclusi |
+| Sempre, dopo un cambio | `python3 beforeyoufly/genera.py && python3 beforeyoufly/verifica.py` | commit e pubblicazione (massimo una volta a settimana per i crediti Netlify condivisi) |
 
 ## Da fare per Massimiliano (quando decide di pubblicare)
 1. Netlify: nuovo sito dalla cartella `beforeyoufly/sito` con nome `before-you-fly` (se il nome è preso, cambiare `URL_SITO` in `genera.py` e rigenerare).
 2. Search Console: aggiungere la proprietà (la meta di verifica è già nelle pagine) e inviare `sitemap.xml`.
 3. Notifiche email dei moduli Netlify.
+
+## Correzioni dopo la revisione indipendente (10/10/2026, `scratchpad/beforeyoufly/REVISIONE.md`)
+1. Mai esito verde se il passaporto scade prima della partenza (anche con regole contate dall'arrivo): riquadro rosso "Your passport expires before you leave". Nuovi casi 28-33 (Thailandia, Turchia, Israele, Kazakistan) e caso 23 (Maldive) ora "no".
+2. Schengen: le date si chiamano "Date you first enter the Schengen area" / "Date you leave the Schengen area (last Schengen country)", con la nota sui viaggi in più paesi Schengen.
+3. Gibilterra: non è Schengen; riassunto con le parole FCDO "issued within the previous 10 years" e "leave Gibraltar or the Schengen Area", gruppo a parte.
+4. Le 12 pagine senza controllo non promettono più il controllo; Irlanda: "No passport is legally required for British nationals under the Common Travel Area, but your airline or ferry may require one" + le due frasi FCDO citate.
+5. Nel riquadro del risultato compaiono le frasi FCDO che cambiano la risposta pratica (compagnie aeree in Belize e Laos, raccomandazione dell'ambasciata del Messico, transito 6 mesi per USA/Canada/Australia/Messico/Nuova Zelanda) e le regole per altri casi (residenti, transito UAE, visti: 21 paesi), citate separatamente.
+6-9. Francoforte (varchi speciali T1 + consiglio sul gate), Monaco (più contenitori sotto i 2 litri in totale), borracce vuote (LHR, EDI, BRS, VIE; FCO contenitori oltre 2 litri vuoti), Aena (solo ciò che la pagina dice).
+10. Tolte le frasi "updated weekly / re-checked every week/month": solo "Last checked".
+11. Il testo ufficiale nel risultato è mostrato a blocchi interi e separati (niente tagli a metà, niente elenchi cuciti con "; ").
+Piccole: date GOV.UK nell'ora del Regno Unito (Cile: 9/10), note di modifica senza a capo finali, motivo breve per l'Irlanda nella pagina About, link EES/ETIAS con testi diversi, Hong Kong con data della pagina, frasi "should" presentate come "FCDO advice".

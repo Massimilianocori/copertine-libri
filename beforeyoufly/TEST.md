@@ -1,6 +1,6 @@
 # Before You Fly – controlli prima della pubblicazione
 
-Data: 10 ottobre 2026. Comandi (dalla radice del repository):
+Data: 10 ottobre 2026 (rifatti dopo le correzioni della revisione indipendente). Comandi (dalla radice del repository):
 
 ```
 python3 -I beforeyoufly/raccolta/passaporti.py     # 226 pagine FCDO -> dati/passaporti.json
@@ -17,14 +17,15 @@ python3 beforeyoufly/verifica.py                   # i controlli qui sotto (esce
 | Raccolta passaporti | 226 pagine su 226 lette dalla GOV.UK Content API, 0 errori; 213 regole automatiche, 13 da leggere sulla frase ufficiale |
 | Raccolta EES/ETIAS | 8/8 frasi della Commissione e 8/8 frasi GOV.UK trovate parola per parola |
 | Ricontrollo liquidi (con browser) | 41 pagine (38 aeroporti, 2 nazionali, FAQ Finavia): tutte le frasi citate presenti. Porto è tornata vuota una volta (pagina JavaScript) ed è stata riletta: frasi presenti. Ora lo script riprova da solo |
+| Correzioni della revisione indipendente | tutte (vedi NOTE.md, ultima sezione) |
 | Generatore | 272 pagine indicizzabili + 404: 225 paesi, 38 aeroporti, 2 regole nazionali, EES/ETIAS, indici e pagine di servizio |
-| 1. Casi del passaporto calcolati a mano (sotto) | 27 su 27 (esito e data minima) |
-| 2. Motore JS (lo stesso delle pagine) contro Python | 0 differenze su 3.000 casi casuali (date anche impossibili come partenza prima dell'arrivo) + i 27 casi |
+| 1. Casi del passaporto calcolati a mano (sotto) | 33 su 33 (esito e data minima); nessun esito verde con passaporto che scade prima della partenza |
+| 2. Motore JS (lo stesso delle pagine) contro Python | 0 differenze su 3.000 casi casuali (date anche impossibili come partenza prima dell'arrivo) + i 33 casi |
 | 3. Link interni | 273 pagine, 0 link rotti (la 404 usa link assoluti) |
 | 4. Fonti, date e citazioni | 225 pagine paese: link GOV.UK, data di aggiornamento della pagina FCDO, data del controllo, testo ufficiale completo, attribuzione OGL. 40 pagine liquidi: URL ufficiale, data del controllo, tutte le frasi citate (e la seconda fonte per FRA/MUC). EES/ETIAS: frasi, URL e date |
-| 5. Struttura | meta Google in tutte le pagine, canonical in tutte tranne la 404 (noindex, link assoluti), sitemap = pagine indicizzabili, robots con sitemap, netlify.toml con `ignore`, nessuno script esterno |
+| 5. Struttura e contenuti | nessuna promessa di ricontrollo periodico nelle pagine; le 12 pagine senza controllo non lo promettono; Irlanda con la spiegazione FCDO; Gibilterra fuori dal gruppo Schengen;  meta Google in tutte le pagine, canonical in tutte tranne la 404 (noindex, link assoluti), sitemap = pagine indicizzabili, robots con sitemap, netlify.toml con `ignore`, nessuno script esterno |
 | 6. Nomi di modelli o servizi di IA | nessuno (sito, dati, raccolta, note) |
-| 7. Playwright, 375 px, tema chiaro e scuro | home, `passport-validity/spain/`, `liquids/`: nessuno scorrimento orizzontale, 0 errori in console; 3 prove del controllo riuscite (Spagna "no" con 1 giorno in meno, Spagna "sì" con 0 giorni di margine, Colombia "da leggere") |
+| 7. Playwright, 375 px, tema chiaro e scuro | home, `passport-validity/spain/`, `liquids/`: nessuno scorrimento orizzontale, 0 errori in console; 7 prove riuscite: Spagna "no" con 1 giorno in meno e "sì" con 0 giorni di margine, etichette e nota Schengen, Colombia "no automatic check", Irlanda con il testo ufficiale intero (nessun taglio), Thailandia con passaporto che scade prima della partenza (riquadro rosso, nessun verde), Belize con l'avviso delle compagnie aeree nel risultato |
 
 Le frasi dei liquidi sono state confrontate anche con le copie scaricate delle pagine (script di lavoro): 0 frasi mancanti.
 
@@ -56,11 +57,17 @@ Regola applicata alla lettera. Mesi: stesso giorno N mesi dopo, ridotto all'ulti
 | 20 | Bosnia (emesso < 10 anni; ≥ 90 giorni dopo l'uscita) | 5/5/2019 · 18/1/2027 · 13/10/2026 · 20/10/2026 | 11 + 30 + 31 + 18 = 90 → 18/1/2027; emissione minima 14/10/2016 | sì |
 | 21 | Gibilterra (emesso negli ultimi 10 anni; ≥ 3 mesi dopo l'uscita) | 28/2/2018 · 1/1/2029 · 29/2/2028 · 5/3/2028 | 29/2/2028 − 10 anni = 28/2/2018 (non esiste il 29) → minima 1/3/2018 | **no** |
 | 22 | Gibilterra | 1/3/2018 · … | = minima; scadenza minima 5/6/2028 | sì |
-| 23 | Maldive (≥ 1 mese dall'arrivo) | – · 5/12/2026 · 1/11/2026 · 15/12/2026 | minima 1/12/2026 rispettata, ma il passaporto scade prima della partenza: il sito lo segnala | sì + avviso |
+| 23 | Maldive (≥ 1 mese dall'arrivo) | – · 5/12/2026 · 1/11/2026 · 15/12/2026 | minima 1/12/2026 rispettata, ma il passaporto scade prima della partenza: riquadro rosso | **no** |
 | 24 | Colombia (frase con "However … recommend") | qualsiasi | nessun calcolo, si mostra la frase | da leggere |
 | 25 | Spagna senza data di emissione | – · 1/1/2030 · 1/11/2026 · 10/11/2026 | serve la data di emissione | errore "issue" |
 | 26 | Thailandia, partenza prima dell'arrivo | – · 1/1/2030 · 10/11/2026 · 1/11/2026 | date impossibili | errore "order" |
 | 27 | Singapore (6 mesi dall'arrivo) | – · 30/9/2026 · 31/3/2026 · 5/4/2026 | 31/3 + 6 mesi = 30/9/2026 | sì |
+| 28 | Thailandia (6 mesi dall'arrivo), soggiorno lungo | – · 10/4/2027 · 10/10/2026 · 1/5/2027 | minima 10/4/2027 rispettata, ma scade prima della partenza | **no** (rosso) |
+| 29 | Thailandia | – · 1/5/2027 · 10/10/2026 · 1/5/2027 | scade il giorno della partenza: non prima | sì |
+| 30 | Turchia (150 giorni dall'arrivo) | – · 20/3/2027 · 10/10/2026 · 1/4/2027 | minima 9/3/2027 rispettata, scade prima della partenza | **no** (rosso) |
+| 31 | Israele (90 giorni dall'arrivo) | – · 5/3/2027 · 1/12/2026 · 10/3/2027 | minima 1/3/2027 rispettata, scade prima della partenza | **no** (rosso) |
+| 32 | Kazakistan (30 giorni dall'arrivo) | – · 10/12/2026 · 1/11/2026 · 20/12/2026 | minima 1/12/2026 rispettata, scade prima della partenza | **no** (rosso) |
+| 33 | Kazakistan | – · 21/12/2026 · 1/11/2026 · 20/12/2026 | scade dopo la partenza | sì |
 
 ## Da verificare a mano (Massimiliano o routine)
 

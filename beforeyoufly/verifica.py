@@ -54,13 +54,19 @@ CASI = [
     ("20 Bosnia 90 giorni dopo l'uscita + regola dei 10 anni", "bosnia-and-herzegovina", "2019-05-05", "2027-01-18", "2026-10-13", "2026-10-20", "ok", ["2027-01-18", "2016-10-14"]),
     ("21 Gibilterra, arrivo 29/2/2028: emesso 28/2/2018 -> no", "gibraltar", "2018-02-28", "2029-01-01", "2028-02-29", "2028-03-05", "no", ["2028-06-05", "2018-03-01"]),
     ("22 Gibilterra, arrivo 29/2/2028: emesso 1/3/2018 -> sì", "gibraltar", "2018-03-01", "2029-01-01", "2028-02-29", "2028-03-05", "ok", ["2028-06-05", "2018-03-01"]),
-    ("23 Maldive 1 mese dall'arrivo: regola rispettata ma il passaporto scade prima della partenza (avviso)", "maldives", "", "2026-12-05", "2026-11-01", "2026-12-15", "ok", ["2026-12-01"]),
+    ("23 Maldive 1 mese dall'arrivo: regola rispettata ma il passaporto scade prima della partenza -> NO", "maldives", "", "2026-12-05", "2026-11-01", "2026-12-15", "no", ["2026-12-01"]),
     ("24 Colombia: regola da leggere, nessun calcolo", "colombia", "", "2027-01-01", "2026-11-01", "2026-11-10", "manuale", []),
     ("25 Spagna senza data di emissione -> errore 'issue'", "spain", "", "2030-01-01", "2026-11-01", "2026-11-10", "errore", []),
     ("26 Partenza prima dell'arrivo -> errore 'order'", "thailand", "", "2030-01-01", "2026-11-10", "2026-11-01", "errore", []),
     ("27 Singapore: 31/3 + 6 mesi = 30/9 -> sì", "singapore", "", "2026-09-30", "2026-03-31", "2026-04-05", "ok", ["2026-09-30"]),
+    ("28 Thailandia: 6 mesi dall'arrivo esatti ma scade prima della partenza -> NO", "thailand", "", "2027-04-10", "2026-10-10", "2027-05-01", "no", ["2027-04-10"]),
+    ("29 Thailandia: soggiorno lungo, scade il giorno della partenza -> sì", "thailand", "", "2027-05-01", "2026-10-10", "2027-05-01", "ok", ["2027-04-10"]),
+    ("30 Turchia: 150 giorni rispettati ma scade prima della partenza -> NO", "turkey", "", "2027-03-20", "2026-10-10", "2027-04-01", "no", ["2027-03-09"]),
+    ("31 Israele: 90 giorni rispettati ma scade prima della partenza -> NO", "israel", "", "2027-03-05", "2026-12-01", "2027-03-10", "no", ["2027-03-01"]),
+    ("32 Kazakistan: 30 giorni rispettati ma scade prima della partenza -> NO", "kazakhstan", "", "2026-12-10", "2026-11-01", "2026-12-20", "no", ["2026-12-01"]),
+    ("33 Kazakistan: 30 giorni, scade dopo la partenza -> sì", "kazakhstan", "", "2026-12-21", "2026-11-01", "2026-12-20", "ok", ["2026-12-01"]),
 ]
-SCADE_PRIMA = {"23 Maldive", "11 USA"}
+SCADE_PRIMA = {"23 Maldive", "11 USA", "28 Thailandia", "30 Turchia", "31 Israele", "32 Kazakistan"}
 
 
 def controlla_casi():
@@ -73,6 +79,8 @@ def controlla_casi():
             errori.append(f"DATA MINIMA SBAGLIATA: {descr}: attese {minime}, calcolate {[c['minima'] for c in o['controlli']]}")
         if any(descr.startswith(k) for k in SCADE_PRIMA) != o["scade_prima"]:
             errori.append(f"AVVISO 'scade prima della partenza' sbagliato: {descr}")
+        if o["scade_prima"] and o["esito"] == "ok":
+            errori.append(f"ESITO VERDE con passaporto che scade prima della partenza: {descr}")
     return errori
 
 
@@ -196,6 +204,20 @@ def controlla_struttura():
     errori = []
     for f in SITO.rglob("*.html"):
         t = f.read_text(encoding="utf-8")
+        if re.search(r"(check|checked|re-check|re-checked|re-read|updated)( [a-z]+)? (every (week|month)|weekly|monthly)", t, re.I):
+            errori.append(f"promessa di ricontrollo periodico in {f.relative_to(SITO)}")
+    for p in G.PAESI:
+        t = leggi(f"passport-validity/{p['slug']}/index.html")
+        if not p["regola"] and ("with a checker for your dates" in t or "data-checker data-dati" in t):
+            errori.append(f"{p['slug']}: pagina senza controllo che promette il controllo")
+    ie = leggi("passport-validity/ireland/index.html")
+    if "not legally required to show a passport" not in ie or "airlines and ferry operators" not in ie:
+        errori.append("Irlanda: spiegazione Common Travel Area mancante")
+    gib = leggi("passport-validity/gibraltar/index.html")
+    if "Gibraltar or the Schengen Area" not in gib or "Schengen: " in gib:
+        errori.append("Gibilterra: riassunto o gruppo Schengen sbagliato")
+    for f in SITO.rglob("*.html"):
+        t = f.read_text(encoding="utf-8")
         if f'<meta name="google-site-verification" content="{G.GOOGLE_VERIFICA}">' not in t:
             errori.append(f"meta Google mancante in {f.relative_to(SITO)}")
         if f.name != "404.html" and f'<link rel="canonical" href="{G.URL_SITO}/' not in t:
@@ -263,6 +285,7 @@ srv.listen(0, async () => {
       const w = await p.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
       out.pagine.push({ url: u, tema: tema, scroll: w[0], larghezza: w[1], errori: err });
       if (tema === 'light' && u === '/passport-validity/spain/') {
+        out.prove.push({ caso: 'spagna-etichette', testo: await p.textContent('[data-checker] form') + ' | ' + await p.textContent('[data-nota-schengen]') });
         await p.fill('[name=scadenza]', '2027-02-09'); await p.fill('[name=emissione]', '2020-01-01');
         await p.fill('[name=arrivo]', '2026-11-01'); await p.fill('[name=partenza]', '2026-11-10');
         out.prove.push({ caso: 'spagna-no', testo: await p.textContent('[data-out]') });
@@ -271,9 +294,18 @@ srv.listen(0, async () => {
         await p.screenshot({ path: process.argv[3] + '/spagna-375.png', fullPage: false });
       }
       if (tema === 'light' && u === '/') {
-        const i = await p.evaluate(() => { const s = document.querySelector('[name=paese]'); return [...s.options].findIndex(o => o.textContent === 'Colombia'); });
-        await p.selectOption('[name=paese]', String(i - 1));
+        const scegli = async (nome) => { const i = await p.evaluate((n) => { const s = document.querySelector('[name=paese]'); return [...s.options].findIndex(o => o.textContent === n); }, nome);
+          await p.selectOption('[name=paese]', String(i - 1)); };
+        await scegli('Colombia');
         out.prove.push({ caso: 'colombia-manuale', testo: await p.textContent('[data-out]') });
+        await scegli('Ireland');
+        out.prove.push({ caso: 'irlanda', testo: await p.textContent('[data-out]') });
+        await scegli('Thailand');
+        await p.fill('[name=scadenza]', '2027-04-10'); await p.fill('[name=arrivo]', '2026-10-10'); await p.fill('[name=partenza]', '2027-05-01');
+        out.prove.push({ caso: 'thailandia-scade', testo: await p.textContent('[data-out]'), verde: await p.$$eval('[data-out] .esito.si', e => e.length) });
+        await scegli('Belize');
+        await p.fill('[name=scadenza]', '2027-01-15'); await p.fill('[name=arrivo]', '2026-10-10'); await p.fill('[name=partenza]', '2026-10-20');
+        out.prove.push({ caso: 'belize-avviso', testo: await p.textContent('[data-out]') });
         await p.screenshot({ path: process.argv[3] + '/home-375.png', fullPage: false });
       }
       await p.close(); }
@@ -306,8 +338,18 @@ def controlla_browser():
         errori.append(f"Prova Spagna 'no' fallita: {prove.get('spagna-no', '')[:200]}")
     if "Your dates meet the rule" not in prove.get("spagna-ok", "") or "0 days to spare" not in prove.get("spagna-ok", ""):
         errori.append(f"Prova Spagna 'ok' fallita: {prove.get('spagna-ok', '')[:200]}")
-    if "We do not check this destination automatically" not in prove.get("colombia-manuale", ""):
+    if "No automatic check for this destination" not in prove.get("colombia-manuale", ""):
         errori.append(f"Prova Colombia 'manuale' fallita: {prove.get('colombia-manuale', '')[:200]}")
+    if "Date you first enter the Schengen area" not in prove.get("spagna-etichette", "") or "Date you leave the Schengen area" not in prove.get("spagna-etichette", ""):
+        errori.append("Etichette Schengen mancanti sulla pagina Spagna")
+    ir = prove.get("irlanda", "")
+    if "Irish immigration officers are entitled to ask for proof of British nationality in the course of their work." not in ir:
+        errori.append(f"Irlanda: testo ufficiale tagliato o mancante nel risultato: {ir[-200:]}")
+    th = next((x for x in o["prove"] if x["caso"] == "thailandia-scade"), {})
+    if "expires before you leave" not in th.get("testo", "") or th.get("verde"):
+        errori.append(f"Thailandia: manca l'avviso rosso o compare il verde: {th.get('testo', '')[:200]}")
+    if "Some airlines may refuse boarding" not in prove.get("belize-avviso", ""):
+        errori.append("Belize: avviso delle compagnie aeree assente dal risultato")
     return errori, (o, cartella)
 
 

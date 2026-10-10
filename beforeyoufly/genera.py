@@ -102,9 +102,10 @@ def verifica_passaporto(R, emissione, scadenza, arrivo, partenza):
         out["controlli"].append({"tipo": "emissione", "base": "arrivo", "minima": minima, "ok": m >= 0, "margine": m})
         margini.append(m)
     out["margine"] = min(margini)
-    out["esito"] = "ok" if all(x["ok"] for x in out["controlli"]) else "no"
-    out["stretto"] = out["esito"] == "ok" and out["margine"] < 7
     out["scade_prima"] = scadenza < partenza
+    # mai "ok" se il passaporto scade prima della partenza (anche quando la regola conta dal giorno di arrivo)
+    out["esito"] = "ok" if all(x["ok"] for x in out["controlli"]) and not out["scade_prima"] else "no"
+    out["stretto"] = out["esito"] == "ok" and out["margine"] < 7
     return out
 
 
@@ -128,8 +129,8 @@ function verificaPassaporto(R,em,sc,ar,pa){
     var minima=c.op==='>='?s:bfPiuGiorni(s,1);var m=bfGiorni(minima,sc);out.controlli.push({tipo:'scadenza',base:c.base,minima:minima,ok:m>=0,margine:m});mm.push(m);});
   if(R.emissione_anni){var lim=bfPiuMesi(ar,-12*R.emissione_anni);var mi=bfPiuGiorni(lim,1);var m2=bfGiorni(mi,em);
     out.controlli.push({tipo:'emissione',base:'arrivo',minima:mi,ok:m2>=0,margine:m2});mm.push(m2);}
-  out.margine=Math.min.apply(null,mm);out.esito=out.controlli.every(function(x){return x.ok;})?'ok':'no';
-  out.stretto=out.esito==='ok'&&out.margine<7;out.scade_prima=sc<pa;return out;}
+  out.margine=Math.min.apply(null,mm);out.scade_prima=sc<pa;out.esito=(out.controlli.every(function(x){return x.ok;})&&!out.scade_prima)?'ok':'no';
+  out.stretto=out.esito==='ok'&&out.margine<7;return out;}
 """
 
 APP_JS = r"""
@@ -138,32 +139,41 @@ APP_JS = r"""
   function lunga(iso){var p=iso.split('-');return (+p[2])+' '+MESI[+p[1]-1]+' '+p[0];}
   function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function pl(n,w){return n+' '+w+(n===1?'':'s');}
+  function citaz(lista){return lista.map(function(x){return '<blockquote class="cit"><p>'+esc(x)+'</p></blockquote>';}).join('');}
   function monta(box){
     var D=JSON.parse(document.getElementById(box.dataset.dati).textContent);var f=box.querySelector('form');
     var q=function(n){return f.querySelector('[name='+n+']');};var sel=q('paese');
     if(sel&&D.length>1){sel.innerHTML='<option value="">Choose a destination…</option>'+D.map(function(P,i){return '<option value="'+i+'">'+esc(P.n)+'</option>';}).join('');}
     function cur(){return D.length===1?D[0]:(sel.value===''?null:D[+sel.value]);}
+    function etichette(R){var luogo=R&&R.luogo_uscita;var sch=R&&R.schengen;
+      f.querySelector('[data-lab=arrivo]').textContent=sch?'Date you first enter the Schengen area':'Date you arrive';
+      f.querySelector('[data-lab=partenza]').textContent=luogo?('Date you leave '+luogo+(sch?' (last Schengen country)':'')):'Date you leave';
+      box.querySelector('[data-nota-schengen]').hidden=!sch;}
     function aggiorna(){
       var P=cur();var out=box.querySelector('[data-out]');var em=f.querySelector('[data-campo=emissione]');
-      var R=P&&P.r;em.hidden=!(R&&R.emissione_anni);
+      var R=P&&P.r;em.hidden=!(R&&R.emissione_anni);etichette(R);
       if(!P){out.innerHTML='<p class="small" style="margin:0">Choose a destination and enter your dates.</p>';return;}
-      var link=box.dataset.link?'<p class="small" style="margin:8px 0 0"><a href="'+esc(box.dataset.link+P.s)+'/">Official FCDO text for '+esc(P.n)+'</a></p>':'';
-      if(!R){out.innerHTML='<div class="esito manuale"><strong>We do not check this destination automatically.</strong> The FCDO rule has conditions we do not turn into a calculation. Read it word for word:</div>'+
-        '<blockquote class="cit">'+esc(P.f)+'</blockquote>'+link;return;}
+      var link=box.dataset.link?'<p class="small" style="margin:8px 0 0"><a href="'+esc(box.dataset.link+P.s)+'/">Read the full official FCDO text for '+esc(P.n)+'</a></p>':'';
+      var testo='<p class="small" style="margin:8px 0 0">Official FCDO text:</p>'+citaz(P.t);
+      var extra=(P.a.length?'<p class="small" style="margin:8px 0 0"><strong>The FCDO also says:</strong></p>'+citaz(P.a):'')+
+        (P.o.length?'<p class="small" style="margin:8px 0 0"><strong>Different rules for other cases (FCDO):</strong></p>'+citaz(P.o):'');
+      if(!R){out.innerHTML='<div class="esito manuale"><strong>No automatic check for this destination.</strong> The FCDO text is not a validity period we turn into a date calculation. Read it word for word:</div>'+
+        testo+extra+link;return;}
       var o=verificaPassaporto(R,q('emissione').value,q('scadenza').value,q('arrivo').value,q('partenza').value);
       if(o.esito==='errore'){var msg={dates:'Enter your passport expiry date, the date you arrive and the date you leave.',order:'The date you leave must be on or after the date you arrive.',
         issue:'This destination also has a rule on the passport issue date: enter the date of issue.',issue_order:'The issue date must be before the date you arrive and before the expiry date.'}[o.errore];
-        out.innerHTML='<p class="small" style="margin:0">'+msg+'</p>'+link;return;}
-      var h='<div class="esito '+(o.esito==='ok'?'si':'no')+'"><strong>'+(o.esito==='ok'?'Your dates meet the rule as stated by the FCDO':'Your dates do NOT meet the rule as stated by the FCDO')+'</strong></div><ul>';
+        out.innerHTML='<p class="small" style="margin:0">'+msg+'</p>'+extra+link;return;}
+      var nome=R.consiglio?'the FCDO advice':'the rule as stated by the FCDO';var h;
+      if(o.scade_prima)h='<div class="esito no"><strong>Your passport expires before you leave: it will not be valid for your whole stay.</strong></div><ul>';
+      else h='<div class="esito '+(o.esito==='ok'?'si':'no')+'"><strong>'+(o.esito==='ok'?'Your dates meet '+nome:'Your dates do NOT meet '+nome)+'</strong></div><ul>';
+      if(o.scade_prima)h+='<li>✗ Your passport expires on <strong>'+lunga(q('scadenza').value)+'</strong>, before the day you leave ('+lunga(q('partenza').value)+').</li>';
       o.controlli.forEach(function(c){
         if(c.tipo==='scadenza')h+='<li>'+(c.ok?'✓ ':'✗ ')+'Expiry date needed: on or after <strong>'+lunga(c.minima)+'</strong> ('+(c.base==='arrivo'?'counted from the day you arrive':'counted from the day you leave')+'). '+
           (c.ok?pl(c.margine,'day')+' to spare.':'Yours is '+pl(-c.margine,'day')+' short.')+'</li>';
-        else h+='<li>'+(c.ok?'✓ ':'✗ ')+'Date of issue needed: on or after <strong>'+lunga(c.minima)+'</strong> (less than '+R.emissione_anni+' years before the day you arrive). '+(c.ok?'':'Yours is '+pl(-c.margine,'day')+' too early.')+'</li>';});
-      if(o.scade_prima)h+='<li>Your passport expires before the day you leave.</li>';
+        else h+='<li>'+(c.ok?'✓ ':'✗ ')+'Date of issue needed: on or after <strong>'+lunga(c.minima)+'</strong> ('+esc(R.emissione_testo||'')+'). '+(c.ok?'':'Yours is '+pl(-c.margine,'day')+' too early.')+'</li>';});
       h+='</ul>';
       if(o.stretto)h+='<p class="small">Only just: less than a week to spare. Airlines and border officials may count dates differently. Check with your airline.</p>';
-      h+='<p class="small" style="margin:6px 0 0">Rule applied, from the FCDO: “'+esc(R.frase)+'”</p>'+link;
-      out.innerHTML=h;}
+      out.innerHTML=h+extra+testo+link;}
     f.addEventListener('input',aggiorna);f.addEventListener('change',aggiorna);f.addEventListener('submit',function(e){e.preventDefault();});aggiorna();}
   document.querySelectorAll('[data-checker]').forEach(monta);
   document.querySelectorAll('[data-filtro]').forEach(function(inp){var lista=document.getElementById(inp.dataset.filtro);
@@ -368,26 +378,28 @@ def sintesi_regola(R):
     if not R:
         return ""
     parti = []
+    luogo = R.get("luogo_uscita")
     for c in R["condizioni"]:
+        dove = f"leave {luogo}" if (luogo and c["base"] == "partenza") else ("arrive" if c["base"] == "arrivo" else "leave")
         if c["n"] == 0 and c["op"] == ">=":
             parti.append("valid for the whole stay (until the day you leave)")
         elif c["n"] == 0:
             parti.append("expiry date after the day you leave")
         else:
             q = "more than" if c["op"] == ">" else "at least"
-            parti.append(f"{q} {unita(c['n'], c['u'])} after the day you {'arrive' if c['base'] == 'arrivo' else 'leave'}")
+            parti.append(f"{q} {unita(c['n'], c['u'])} after the day you {dove}")
     testo = " and ".join(parti)
     if R.get("emissione_anni"):
-        testo = f"issued less than {R['emissione_anni']} years before you arrive, and expiry date {testo}"
-        if R.get("schengen"):
-            testo += " the Schengen area"
+        testo = f"{R.get('emissione_testo') or 'issued less than 10 years before the date you arrive'}, and expiry date {testo}"
     return testo[0].upper() + testo[1:]
 
 
-def breve_regola(R):
+def breve_regola(R, P=None):
     """Etichetta corta per tabelle e liste."""
+    if P is not None and P["slug"] == "ireland":
+        return "No passport legally required (FCDO): check your carrier"
     if not R:
-        return "Read the official rule"
+        return "Read the official text"
     parti = []
     for c in R["condizioni"]:
         if c["n"] == 0:
@@ -396,15 +408,35 @@ def breve_regola(R):
             parti.append(f"{'>' if c['op'] == '>' else ''}{unita(c['n'], c['u'])} after {'arrival' if c['base'] == 'arrivo' else 'departure'}")
     s = " + ".join(parti)
     if R.get("emissione_anni"):
-        s += " + 10-year issue rule" + (" (Schengen)" if R.get("schengen") else "")
+        if R.get("schengen"):
+            s = "Schengen: " + s.replace("departure", "leaving the area") + " + 10-year issue rule"
+        elif R.get("luogo_uscita"):
+            s = f"{s.replace('departure', 'leaving ' + R['luogo_uscita'])} + issued within 10 years"
+        else:
+            s += " + 10-year issue rule"
+    if R.get("consiglio"):
+        s += " (FCDO advice)"
     return s
+
+
+def blocchi_client(P):
+    """Testo ufficiale da mostrare nel risultato: blocchi interi, separati (niente tagli a metà, niente frasi cucite)."""
+    bb = P["testo"]
+    if bb and bb[0]["t"] != "h3":
+        out = []
+        for b in bb:
+            if b["t"] == "h3":
+                break
+            out.append(b["x"])
+    else:
+        out = [b["x"] for b in bb]
+    return out[:12]
 
 
 def dati_client(P):
     R = P["regola"]
-    f = R["frase"] if R else " ".join(b["x"] for b in P["testo"] if b["t"] != "h3")
-    r = {"condizioni": R["condizioni"], "emissione_anni": R["emissione_anni"], "frase": R["frase"]} if R else None
-    return {"s": P["slug"], "n": P["nome"], "r": r, "f": f[:600]}
+    r = ({k: R.get(k) for k in ("condizioni", "emissione_anni", "schengen", "luogo_uscita", "emissione_testo", "consiglio")} if R else None)
+    return {"s": P["slug"], "n": P["nome"], "r": r, "t": blocchi_client(P), "a": P.get("avvisi", []), "o": P.get("altre_regole", [])}
 
 
 def testo_ufficiale(P):
@@ -439,46 +471,69 @@ def modulo_checker(id_dati, con_paese, link=""):
 {sel}
 <label>Passport expiry date<input type="date" name="scadenza"></label>
 <label data-campo="emissione" hidden>Passport date of issue<input type="date" name="emissione"></label>
-<label>Date you arrive<input type="date" name="arrivo"></label>
-<label>Date you leave<input type="date" name="partenza"></label>
+<label><span data-lab="arrivo">Date you arrive</span><input type="date" name="arrivo"></label>
+<label><span data-lab="partenza">Date you leave</span><input type="date" name="partenza"></label>
 </div>
 </form>
+<p class="small" data-nota-schengen hidden style="margin:10px 0 0">Schengen rules count your whole trip in the Schengen area: if you visit several Schengen countries, enter the day you first enter the area and the day you leave the last Schengen country.</p>
 <div class="risultato" data-out aria-live="polite" style="margin-top:12px"><noscript>Turn on JavaScript to use the checker. The official rule is quoted on this page.</noscript></div>
 <p class="small" style="margin:10px 0 0">The check runs in your browser: your dates are not sent anywhere. It applies the FCDO sentence literally (for example “6 months” is counted as the same day of the month 6 months later).</p>
 </div>"""
 
 
 # ---------------------------------------------------------------- pagine passaporto
+def irlanda(P):
+    """Irlanda: niente regola di validità; le due frasi FCDO su passaporto non obbligatorio e richieste dei vettori (se ancora presenti)."""
+    tt = [b["x"] for b in P["testo"]]
+    a = next((x for x in tt if "not legally required to show a passport" in x), None)
+    b = next((x for x in tt if "airlines and ferry operators" in x), None)
+    return (a, b) if a and b else None
+
+
 def pagina_paese(P):
     rel = "../../"
     R = P["regola"]
-    if R:
-        cifra = f'<p class="cifra">FCDO rule for {escape(P["nome"])}: <strong>{escape(sintesi_regola(R))}</strong></p>'
+    ie = irlanda(P) if P["slug"] == "ireland" else None
+    if ie:
+        cifra = (f'<p class="cifra"><strong>No passport is legally required for British nationals under the Common Travel Area, but your airline or ferry may require one.</strong> In the FCDO\'s words:</p>'
+                 f'<blockquote class="cit"><p>{escape(ie[0])}</p></blockquote><blockquote class="cit"><p>{escape(ie[1])}</p></blockquote>')
+        lead = f"What the UK government (FCDO) says about passports and ID for British nationals travelling to {escape(P['nome'])}, quoted word for word."
+    elif R:
+        tipo = "FCDO advice" if R.get("consiglio") else "FCDO rule"
+        cifra = f'<p class="cifra">{tipo} for {escape(P["nome"])}: <strong>{escape(sintesi_regola(R))}</strong></p>'
+        if R.get("consiglio"):
+            cifra += '<p class="small">The FCDO words this as advice (“should” or “make sure”), not as a strict requirement: the full sentence is quoted below.</p>'
+        lead = (f"How long your British passport must be valid to enter {escape(P['nome'])}, as published by the UK Foreign, Commonwealth &amp; Development Office (FCDO), "
+                "quoted word for word, with a checker for your dates.")
     else:
-        cifra = (f'<p class="cifra"><strong>Read the official rule below.</strong> {escape(P["motivo"] or "")} '
+        cifra = (f'<p class="cifra"><strong>Read the official text below.</strong> {escape(P["motivo"] or "")} '
                  'We quote it word for word and do not summarise it.</p>')
+        lead = (f"What the UK Foreign, Commonwealth &amp; Development Office (FCDO) says about passport validity for British travellers to {escape(P['nome'])}, "
+                "quoted word for word.")
     avvisi = ""
     if P["avvisi"]:
-        avvisi = ("<h2>Also in the official text</h2><ul>" + "".join(f"<li>“{escape(a)}”</li>" for a in P["avvisi"]) + "</ul>")
+        avvisi += ("<h2>Also in the official text</h2>" + "".join(f'<blockquote class="cit"><p>{escape(a)}</p></blockquote>' for a in P["avvisi"]))
+    if P.get("altre_regole"):
+        avvisi += ("<h2>Different rules for other cases (official)</h2>" + "".join(f'<blockquote class="cit"><p>{escape(a)}</p></blockquote>' for a in P["altre_regole"]))
     pagine = (f'<p><strong>Blank pages:</strong> the official text says “…{escape(P["pagine_bianche"])}…”. The checker does not count pages.</p>'
               if P["pagine_bianche"] else "")
     cambi = ""
     if P["cambi_ingresso"]:
         cambi = ("<h2>Recent FCDO updates to the entry requirements</h2><ul>" +
                  "".join(f"<li>{data_lunga(c['data'])}: “{escape(c['nota'])}”</li>" for c in P["cambi_ingresso"][:5]) + "</ul>")
-    simili = [Q for Q in PAESI if Q is not P and breve_regola(Q["regola"]) == breve_regola(R)][:12] if R else []
+    simili = [Q for Q in PAESI if Q is not P and breve_regola(Q["regola"], Q) == breve_regola(R, P)][:12] if R else []
     link_simili = ""
     if simili:
-        link_simili = (f"<h2>Same FCDO rule ({escape(breve_regola(R))})</h2><div class=\"griglia\">" +
+        link_simili = (f"<h2>Same FCDO rule ({escape(breve_regola(R, P))})</h2><div class=\"griglia\">" +
                        "".join(f'<a href="{rel}passport-validity/{Q["slug"]}/">{escape(Q["nome"])}</a>' for Q in simili) + "</div>")
     titolo_sez = P["titolo_sezione"] or "Passport validity requirements"
     if R:
         checker = f"<h2>Check your passport for {escape(P['nome'])}</h2>" + modulo_checker("paese-dati", False)
     else:
-        checker = ('<p class="avviso"><strong>No automatic check for this destination.</strong> The official text above has conditions '
-                   'we do not turn into a date calculation. Read it, and check with your airline or the destination\'s embassy.</p>')
+        checker = ('<p class="avviso"><strong>No automatic check for this destination.</strong> The official text above is not a validity period '
+                   'we turn into a date calculation. Read it, and check with your airline or carrier.</p>')
     corpo = f"""<section class="hero"><h1>{escape(P['nome'])} passport validity rules for UK travellers ({ANNO})</h1>
-<p class="lead">How long your British passport must be valid to enter {escape(P['nome'])}, as published by the UK Foreign, Commonwealth &amp; Development Office (FCDO), quoted word for word, with a checker for your dates.</p>
+<p class="lead">{lead}</p>
 {cifra}
 {fonte_pass(P)}
 </section>
@@ -497,8 +552,9 @@ def pagina_paese(P):
 {link_simili}
 <p><a href="{rel}passport-validity/">Passport validity rules for all destinations</a> · <a href="{rel}liquids/">Liquids rules by airport</a> · <a href="{rel}ees-etias/">EES and ETIAS status</a></p>
 {dati_json('paese-dati', [dati_client(P)])}"""
-    sint = sintesi_regola(R) if R else "read the official FCDO rule"
-    descr = f"{P['nome']} passport validity for British passport holders ({ANNO}): {sint}. Official FCDO text quoted, last updated date and a date checker."
+    sint = sintesi_regola(R) if R else ("no passport legally required, but carriers may require one" if ie else "read the official FCDO text")
+    descr = (f"{P['nome']} passport validity for British passport holders ({ANNO}): {sint}. Official FCDO text quoted, with the page's last updated date"
+             + (" and a date checker." if R else "."))
     pagina(f"passport-validity/{P['slug']}/", f"{P['nome']} passport validity rules for UK travellers ({ANNO})", descr, corpo,
            briciole=[("Passport validity", "passport-validity/"), (P["nome"], f"passport-validity/{P['slug']}/")], js=MOTORE_JS + APP_JS)
 
@@ -512,7 +568,7 @@ def cambi_recenti(giorni_max=60):
 
 def indice_passaporti():
     rel = "../"
-    righe = "".join(f'<tr data-voce><td><a href="{rel}passport-validity/{P["slug"]}/">{escape(P["nome"])}</a></td><td>{escape(breve_regola(P["regola"]))}</td>'
+    righe = "".join(f'<tr data-voce><td><a href="{rel}passport-validity/{P["slug"]}/">{escape(P["nome"])}</a></td><td>{escape(breve_regola(P["regola"], P))}</td>'
                     f'<td>{data_lunga(P["aggiornata"])}</td></tr>' for P in PAESI)
     auto = sum(1 for P in PAESI if P["regola"])
     cambi = cambi_recenti()
@@ -524,7 +580,7 @@ def indice_passaporti():
                           "".join(f'<li>{data_lunga(c["rilevato_il"])} – <a href="{rel}passport-validity/{c["slug"]}/">{escape(c["nome"])}</a></li>' for c in rilevati) + "</ul>")
     corpo = f"""<section class="hero"><h1>Passport validity rules for UK travellers ({ANNO}): every destination</h1>
 <p class="lead">How long a British passport must be valid for {len(PAESI)} destinations, from the UK government's foreign travel advice (FCDO), quoted word for word. For {auto} destinations the checker applies the rule to your dates; for the other {len(PAESI) - auto} the official sentence has conditions we do not turn into a calculation, so we show it and you read it.</p>
-<p class="fonte">Source: <a href="https://www.gov.uk/foreign-travel-advice" rel="noopener">GOV.UK foreign travel advice (FCDO)</a>, read through the GOV.UK Content API · checked on {data_lunga(PASS['controllato_il'])} (re-checked every week).</p>
+<p class="fonte">Source: <a href="https://www.gov.uk/foreign-travel-advice" rel="noopener">GOV.UK foreign travel advice (FCDO)</a>, read through the GOV.UK Content API · last checked: {data_lunga(PASS['controllato_il'])}.</p>
 </section>
 {modulo_checker('tutti-dati', True, link=rel + 'passport-validity/')}
 {AVVISO_PASS}
@@ -591,9 +647,10 @@ def pagina_aeroporto(A, nazionale=False):
     contrasto = ""
     if A.get("contrasto"):
         K = A["contrasto"]
-        contrasto = (f'<h2>But another official text says something different</h2>{cit_html([K["citazione"]])}'
+        commento = K.get("commento") or "We do not choose between the two: if you cannot confirm the rule for your checkpoint with the airport, pack for 100 ml."
+        contrasto = (f'<h2>{escape(K.get("intestazione") or "But another official text says something different")}</h2>{cit_html([K["citazione"]])}'
                      f'<p class="fonte">Source: <a href="{escape(K["url"])}" rel="noopener">{escape(K["titolo"])}</a> · checked on {data_lunga(A["controllato_il"])}</p>'
-                     '<p>We do not choose between the two: if you cannot confirm the rule for your checkpoint with the airport, pack for 100 ml.</p>')
+                     f'<p>{escape(commento)}</p>')
     nota = f'<p class="small">{escape(A["nota"])}</p>' if A.get("nota") else ""
     simili = [B for B in AER["aeroporti"] if B is not A and B.get("paese") == A.get("paese")]
     link_simili = ""
@@ -658,7 +715,7 @@ def indice_liquidi():
 <h2>Airports not included (yet)</h2>
 <p>We only publish an airport when we can read its official page and the rule on it is clear. Not included on {data_lunga(AER['controllato_il'])}:</p>
 <ul>{esclusi}</ul>
-<p class="small">We re-check every airport page every month. Spotted a change? <a href="{rel}contact/?ref=liquids">Tell us</a>.</p>
+<p class="small">Last checked: {data_lunga(AER['controllato_il'])} (each airport row shows its own date). Spotted a change? <a href="{rel}contact/?ref=liquids">Tell us</a>.</p>
 {box_affiliati()}"""
     pagina("liquids/", f"Liquids rules by airport {ANNO}: 100 ml or 2 litres? ({len(AER['aeroporti'])} airports, official sources)",
            f"Which airports allow 2 litres of liquids? Official rules for {len(AER['aeroporti'])} airports (Heathrow, Gatwick, Dublin, Manchester, Frankfurt, Rome, Madrid…) plus the US TSA and Canada rules, quoted with dates.",
@@ -702,7 +759,7 @@ def pagina_ees():
 <h2>ETIAS: what the European Commission says</h2>
 {cit_html([f['frase'] for f in etias])}
 {fonti_ees(etias)}
-<p>We do not publish expected start dates for ETIAS: the Commission says the EU will announce the date several months before launch. We check the official page every week.</p>
+<p>We do not publish expected start dates for ETIAS: the Commission says the EU will announce the date several months before launch. Last checked: {data_lunga(EES['controllato_il'])}.</p>
 {AD}
 <h2>EES: what the European Commission says</h2>
 {cit_html([f['frase'] for f in ees])}
@@ -711,11 +768,11 @@ def pagina_ees():
 {cit_html(gov)}
 <p class="fonte">Official source: <a href="{escape(G['url'])}" rel="noopener">{escape(G['titolo'])}</a> · page updated {data_lunga(G['aggiornata'])} · checked on {data_lunga(EES['controllato_il'])} · <a href="{OGL}" rel="noopener">Open Government Licence v3.0</a>. The same text appears in the FCDO advice for other Schengen countries.</p>
 <h2>Official EU website for EES and ETIAS</h2>
-<p>The EU's official site for travellers is <a href="{escape(EES['sito_ufficiale']['ees'])}" rel="noopener">travel-europe.europa.eu (EES)</a> and <a href="{escape(EES['sito_ufficiale']['etias'])}" rel="noopener">travel-europe.europa.eu (ETIAS)</a>. Our server could not read it on {data_lunga(EES['controllato_il'])} (its security certificate chain was incomplete for automated tools), so we quote the European Commission pages above instead.</p>
+<p>The EU's official site for travellers is travel-europe.europa.eu: <a href="{escape(EES['sito_ufficiale']['ees'])}" rel="noopener">EES page</a> and <a href="{escape(EES['sito_ufficiale']['etias'])}" rel="noopener">ETIAS page</a>. Our server could not read it on {data_lunga(EES['controllato_il'])} (its security certificate chain was incomplete for automated tools), so we quote the European Commission pages above instead.</p>
 <p class="avviso">This page is information, not legal advice. Border guards apply the rules at the border. Before you travel, check the official pages linked above and your airline, ferry or train operator.</p>
 {box_affiliati()}
 <p><a href="{rel}passport-validity/">Passport validity rules</a> · <a href="{rel}liquids/">Liquids rules by airport</a></p>"""
-    pagina("ees-etias/", f"EES and ETIAS status {ANNO}: official EU statements (checked weekly)",
+    pagina("ees-etias/", f"EES and ETIAS status {ANNO}: official EU statements",
            "Is ETIAS in operation? Is EES live? The European Commission's own statements, and what UK travellers must do now according to GOV.UK, with dates.",
            corpo, briciole=[("EES and ETIAS", "ees-etias/")])
 
@@ -728,14 +785,14 @@ def home():
     popolari = ["spain", "france", "italy", "portugal", "greece", "turkey", "usa", "united-arab-emirates", "thailand", "egypt", "morocco", "mexico",
                 "cyprus", "croatia", "netherlands", "germany", "dominican-republic", "jamaica", "india", "japan"]
     mappa = {P["slug"]: P for P in PAESI}
-    griglia_pass = "".join(f'<a href="passport-validity/{s}/">{escape(mappa[s]["nome"])}<small>{escape(breve_regola(mappa[s]["regola"]))}</small></a>'
+    griglia_pass = "".join(f'<a href="passport-validity/{s}/">{escape(mappa[s]["nome"])}<small>{escape(breve_regola(mappa[s]["regola"], mappa[s]))}</small></a>'
                            for s in popolari if s in mappa)
     stato_etias = "not in operation" if any("currently not in operation" in f["frase"] for f in frasi_ees("etias")) else "see the official page"
     corpo = f"""<section class="hero"><h1>Before You Fly: passport validity, airport liquids rules and EU entry checks ({ANNO})</h1>
 <p class="lead">Three things to check before you fly, answered from official sources only: is your passport valid long enough for your destination, can you take more than 100 ml of liquids through security, and what EES and ETIAS mean for your trip. Every rule is quoted word for word with its source and the date we checked it.</p>
 </section>
 <div class="tre">
-<section class="card"><h2><a href="passport-validity/">Passport validity</a></h2><p class="small" style="margin:0">FCDO rules for British passports, {len(PAESI)} destinations, a date checker for {auto} of them. Updated weekly.</p></section>
+<section class="card"><h2><a href="passport-validity/">Passport validity</a></h2><p class="small" style="margin:0">FCDO rules for British passports, {len(PAESI)} destinations, a date checker for {auto} of them. Last checked: {data_lunga(PASS['controllato_il'])}.</p></section>
 <section class="card"><h2><a href="liquids/">Liquids by airport</a></h2><p class="small" style="margin:0">100 ml or 2 litres? {len(AER['aeroporti'])} airports plus the US and Canada rules, from official pages.</p></section>
 <section class="card"><h2><a href="ees-etias/">EES &amp; ETIAS</a></h2><p class="small" style="margin:0">EES is fully operational; ETIAS is {stato_etias} (European Commission).</p></section>
 </div>
@@ -770,16 +827,16 @@ def about():
 <li>When two official texts disagree, we show both and do not choose.</li>
 <li>This is information, not legal advice. Airlines, airports and border officials decide.</li></ul>
 <h2>Passport validity (FCDO)</h2>
-<p>Source: the “Passport validity requirements” section of the FCDO foreign travel advice for each destination, read through the GOV.UK Content API (<a href="https://www.gov.uk/api/content/foreign-travel-advice" rel="noopener">api/content/foreign-travel-advice</a>), checked on {data_lunga(PASS['controllato_il'])} and re-read every week. The FCDO advice is written for British citizens.</p>
+<p>Source: the “Passport validity requirements” section of the FCDO foreign travel advice for each destination, read through the GOV.UK Content API (<a href="https://www.gov.uk/api/content/foreign-travel-advice" rel="noopener">api/content/foreign-travel-advice</a>), last checked on {data_lunga(PASS['controllato_il'])}. The FCDO advice is written for British citizens.</p>
 <p>Licence: contains public sector information licensed under the <a href="{OGL}" rel="noopener">Open Government Licence v3.0</a>. We reproduce the FCDO text unchanged; summaries, the short labels and the date checker are ours.</p>
 <p>How the checker works: it applies the FCDO sentence literally. “At least 6 months after the date you arrive” means the expiry date must be on or after the same day of the month 6 months after arrival (if that day does not exist, the last day of that month). “More than” means at least one day later. “Valid for the duration of your stay” means not expiring before the day you leave. The Schengen “date of issue less than 10 years before the date you arrive” means issued after the same day 10 years before arrival.</p>
 <p>Destinations where we do not apply the rule automatically ({len(manuali)}), because the official sentence has conditions we do not turn into a calculation:</p>
 <ul>{lista_man}</ul>
 {f'<p>No page published (the official section is empty):</p><ul>{senza}</ul>' if senza else ''}
 <h2>Liquids rules</h2>
-<p>Each airport's official security page, read by us on {data_lunga(AER['controllato_il'])} and re-checked every month. Some airport sites block simple automated requests or load their text with JavaScript: we read those in a browser and say so on the page. Spanish airports use the network-wide page of their operator Aena; Hong Kong uses the Civil Aviation Department page; the US and Canada each have one national rule (TSA, CATSA). See the full list and the airports we left out on the <a href="{rel}liquids/">liquids page</a>.</p>
+<p>Each airport's official security page, last read by us on {data_lunga(AER['controllato_il'])} (the date is shown on each page). Some airport sites block simple automated requests or load their text with JavaScript: we read those in a browser and say so on the page. Spanish airports use the general hand-luggage page of Aena, which runs Spain's public airports (it lists no airport- or lane-specific exceptions); Hong Kong uses the Civil Aviation Department page; the US and Canada each have one national rule (TSA, CATSA). See the full list and the airports we left out on the <a href="{rel}liquids/">liquids page</a>.</p>
 <h2>EES and ETIAS</h2>
-<p>European Commission (DG Migration and Home Affairs) pages and GOV.UK travel advice, checked every week. See the <a href="{rel}ees-etias/">EES and ETIAS page</a>.</p>
+<p>European Commission (DG Migration and Home Affairs) pages and GOV.UK travel advice, last checked on {data_lunga(EES['controllato_il'])}. See the <a href="{rel}ees-etias/">EES and ETIAS page</a>.</p>
 <h2>Corrections</h2>
 <p>Spotted a change or a mistake? <a href="{rel}contact/?ref=about">Tell us</a>.</p></div>"""
     pagina("about/", f"About and sources | {NOME}", "Where our travel rules come from: official sources, check dates, licences and the destinations we leave out.",
