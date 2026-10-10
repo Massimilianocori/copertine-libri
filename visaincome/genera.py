@@ -96,24 +96,37 @@ def nome_prog(P):
 
 # ---------------------------------------------------------------- motore di calcolo (uguale al JS)
 def unita(V):
+    """(valore, valuta, periodo, pagamenti all'anno) della base di una variante."""
     b = V["base"]
-    if "indice" in b:
-        I = INDICI[b["indice"]]
-        return I["valore"], I["valuta"], I["periodo"]
-    return b["valore"], b["valuta"], b["periodo"]
+    src = INDICI[b["indice"]] if "indice" in b else b
+    per = src["periodo"]
+    return src["valore"], src["valuta"], per, (src.get("pagamenti", 12) if per == "month" else 12)
+
+
+LIMITI = {"adulti": (1, 20), "figli": (0, 20), "pagamenti": (12, 14)}
+
+
+def limita(nome, x):
+    lo, hi = LIMITI[nome]
+    try:
+        x = int(x)
+    except (TypeError, ValueError):
+        x = lo
+    return max(lo, min(hi, x))
 
 
 def calcola(P, vid, adulti, figli):
     """Importo minimo per richiedente + familiari.
 
     adulti = adulti compreso il richiedente (>= 1); figli = figli sotto i 18 anni.
-    Restituisce dict con valuta, periodo, righe [testo, quanti, importo unitario, subtotale], totale (nel periodo della base),
-    mensile, annuale, familiari_ignorati (bool), motivo, tetto (bool).
+    Restituisce dict con valuta, periodo, pagamenti (mensilità all'anno della regola), righe [testo, quanti, importo unitario, subtotale],
+    totale (nel periodo della base), mensile (importo mensile della regola, per mensilità), annuale (= mensile × pagamenti, o la soglia annua),
+    mensile12 (annuale / 12), familiari_ignorati (bool), motivo, tetto (bool).
     """
     V = next(v for v in P["varianti"] if v["id"] == vid)
-    u, val, per = unita(V)
-    adulti = max(1, int(adulti))
-    figli = max(0, int(figli))
+    u, val, per, npag = unita(V)
+    adulti = limita("adulti", adulti)
+    figli = limita("figli", figli)
     righe = []
     principale = r2(u * V["fattore"])
     righe.append(["main", 1, principale, principale])
@@ -155,11 +168,14 @@ def calcola(P, vid, adulti, figli):
             totale = cap
             tetto = True
     if per == "month":
-        mensile, annuale = totale, r2(totale * 12)
+        mensile, annuale = totale, r2(totale * npag)
+        mensile12 = r2(annuale / 12)
     else:
         annuale, mensile = totale, r2(totale / 12)
-    return {"valuta": val, "periodo": per, "righe": righe, "totale": totale, "mensile": mensile, "annuale": annuale,
-            "familiari_ignorati": ignorati, "motivo": fam.get("motivo", ""), "tetto": tetto, "unita": u}
+        mensile12 = mensile
+    return {"valuta": val, "periodo": per, "pagamenti": npag, "righe": righe, "totale": totale, "mensile": mensile, "annuale": annuale,
+            "mensile12": mensile12, "familiari_ignorati": ignorati, "motivo": fam.get("motivo", ""), "tetto": tetto, "unita": u,
+            "adulti": adulti, "figli": figli}
 
 
 def converti(importo, da, a, tassi):
@@ -170,14 +186,52 @@ def converti(importo, da, a, tassi):
     return arrotonda(eur if a == "EUR" else eur * tassi[a], a)
 
 
+def converti_scalato(importo, da, a, tassi, molt=1, div=1):
+    """Converte e poi moltiplica/divide, arrotondando di nuovo: così mese e anno convertiti restano coerenti."""
+    c = converti(importo, da, a, tassi)
+    return c if molt == 1 and div == 1 else arrotonda(c * molt / div, a)
+
+
+def converti_importi(o, a, tassi):
+    """Mensile, annuale e mensile su 12 mesi nella valuta a: si converte l'importo del periodo della regola e si ricava l'altro."""
+    val = o["valuta"]
+    if o["periodo"] == "month":
+        cm = converti(o["mensile"], val, a, tassi)
+        cy = arrotonda(cm * o["pagamenti"], a)
+        return {"mensile": cm, "annuale": cy, "mensile12": arrotonda(cy / 12, a) if o["pagamenti"] != 12 else cm}
+    cy = converti(o["annuale"], val, a, tassi)
+    cm = arrotonda(cy / 12, a)
+    return {"mensile": cm, "annuale": cy, "mensile12": cm}
+
+
+def esito(P, o, reddito, pagamenti, valuta, tassi):
+    """Confronto tra il reddito dell'utente (al mese, nella valuta scelta, pagato 'pagamenti' volte l'anno) e la soglia.
+
+    Restituisce 'nd' (programma senza verdetto: si mostrano le condizioni), 'si', 'no' o 'parziale'
+    (Spagna: rispetta l'importo mensile ma non il totale annuo, o il contrario).
+    """
+    if P.get("esito") is False or not reddito or reddito <= 0:
+        return "nd"
+    k = limita("pagamenti", pagamenti)
+    x = converti(reddito, valuta, o["valuta"], tassi)
+    anno = r2(x * k)
+    modo = P.get("confronto") or ("mese" if o["periodo"] == "month" else "anno")
+    if modo == "mese":
+        return "si" if x >= o["mensile"] else "no"
+    if modo == "anno":
+        return "si" if anno >= o["annuale"] else "no"
+    a, b = x >= o["mensile"], anno >= o["annuale"]
+    return "si" if a and b else ("no" if not a and not b else "parziale")
+
+
 # ---------------------------------------------------------------- testi derivati dalle regole
 def etichetta_fattore(V, f):
-    """Testo tipo '2 × SMI (€1,424.50 a month)' o '75% of the SMI (...)'."""
+    """Testo tipo '2 × the SMI (€1,221.00 a month × 14 payments)' o '75% of the SMI (...)'."""
     b = V["base"]
-    u, val, per = unita(V)
+    u, val, per, npag = unita(V)
     if "indice" in b:
         I = INDICI[b["indice"]]
-        quando = "a month" if per == "month" else "a year"
+        quando = ("a month" + (f" × {npag} payments" if npag != 12 else "")) if per == "month" else "a year"
         parte = f"{num(f)} × the {I['nome_breve']}" if f >= 1 else f"{num(round(f * 100, 6))}% of the {I['nome_breve']}"
         return f"{parte} ({soldi(u, val)} {quando})"
     if u == 1:
@@ -189,7 +243,7 @@ def testo_riga(V, r):
     fam = V["famiglia"]
     k = r[0]
     if k == "main":
-        return "Main applicant: " + etichetta_fattore(V, V["fattore"])
+        return V.get("etichetta_principale", "Main applicant") + ": " + etichetta_fattore(V, V["fattore"])
     if k == "first":
         return "First family member: " + etichetta_fattore(V, fam["primo"])
     if k == "other":
@@ -209,10 +263,23 @@ def periodo_testo(per):
     return "a month" if per == "month" else "a year"
 
 
-def cifra_principale(P, V=None):
-    V = V or P["varianti"][0]
-    o = calcola(P, V["id"], 1, 0)
-    return o
+def mese_testo(o, val=None, conv=None):
+    """'€2,442.00 a month × 14 payments' oppure '€3,680.00 a month'."""
+    val = val or o["valuta"]
+    m = conv["mensile"] if conv else o["mensile"]
+    return soldi(m, val) + " a month" + (f" × {o['pagamenti']} payments" if o["periodo"] == "month" and o["pagamenti"] != 12 else "")
+
+
+def figura_testo(o, forte=True):
+    """Cifra principale completa: mese, anno e (se le mensilità non sono 12) l'equivalente su 12 mesi."""
+    val = o["valuta"]
+    s = (lambda x: f"<strong>{x}</strong>") if forte else (lambda x: x)
+    if o["periodo"] == "month" and o["pagamenti"] != 12:
+        return (f"{s(soldi(o['mensile'], val))} a month × {o['pagamenti']} payments = {s(soldi(o['annuale'], val))} a year "
+                f"({soldi(o['mensile12'], val)} a month if spread over 12 payments)")
+    if o["periodo"] == "month":
+        return f"{s(soldi(o['mensile'], val))} a month ({s(soldi(o['annuale'], val))} a year)"
+    return f"{s(soldi(o['annuale'], val))} a year ({soldi(o['mensile'], val)} a month)"
 
 
 def riassunto(P):
@@ -221,6 +288,8 @@ def riassunto(P):
     o = calcola(P, V["id"], 1, 0)
     val = o["valuta"]
     if o["periodo"] == "month":
+        if o["pagamenti"] != 12:
+            return f"{soldi(o['mensile'], val)} a month × {o['pagamenti']} ({soldi(o['annuale'], val)} a year)"
         return f"{soldi(o['mensile'], val)} a month"
     return f"{soldi(o['annuale'], val)} a year"
 
@@ -344,14 +413,16 @@ header.top .wrap{flex-direction:column;align-items:flex-start;gap:4px;padding-to
 # Motore di calcolo in JS: deve dare gli stessi risultati di calcola() e converti() (verifica.py li confronta).
 MOTORE_JS = r"""
 var DEC={"IDR":0,"JPY":0,"KRW":0,"ISK":0,"HUF":0};
+var LIMITI={adulti:[1,20],figli:[0,20],pagamenti:[12,14]};
 function r2(x){return Math.floor(x*100+0.5+1e-9)/100;}
 function arrot(x,c){return DEC[c]===0?Math.floor(x+0.5+1e-9):r2(x);}
+function limita(n,x){var l=LIMITI[n],v=parseInt(x,10);if(isNaN(v))v=l[0];return Math.max(l[0],Math.min(l[1],v));}
 function grp(n,dec){var s=dec?r2(n).toFixed(2):String(Math.floor(n+0.5+1e-9));var p=s.split('.');p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,',');return p.join('.');}
 function soldi(v,c){var t=grp(v,DEC[c]===0?0:2);return c==='EUR'?'€'+t:(c==='GBP'?'£'+t:c+' '+t);}
-function unita(D,V){var b=V.base;if(b.indice){var I=D.indici[b.indice];return [I.valore,I.valuta,I.periodo];}return [b.valore,b.valuta,b.periodo];}
+function unita(D,V){var b=V.base,s=b.indice?D.indici[b.indice]:b;var per=s.periodo;return [s.valore,s.valuta,per,per==='month'?(s.pagamenti||12):12];}
 function calcola(D,P,vid,adulti,figli){
   var V=null;P.varianti.forEach(function(v){if(v.id===vid)V=v;});if(!V)V=P.varianti[0];
-  var uu=unita(D,V),u=uu[0],val=uu[1],per=uu[2];adulti=Math.max(1,parseInt(adulti,10)||1);figli=Math.max(0,parseInt(figli,10)||0);
+  var uu=unita(D,V),u=uu[0],val=uu[1],per=uu[2],np=uu[3];adulti=limita('adulti',adulti);figli=limita('figli',figli);
   var righe=[],pr=r2(u*V.fattore);righe.push(['main',1,pr,pr]);var fam=V.famiglia,tp=fam.tipo,aa=adulti-1,ign=false,a,b,n;
   if(tp==='tutti'){n=aa+figli;if(n>=1){a=r2(u*fam.primo);righe.push(['first',1,a,a]);}if(n>=2){b=r2(u*fam.altri);righe.push(['other',n-1,b,r2(b*(n-1))]);}}
   else if(tp==='per_eta'){if(aa){a=r2(u*fam.adulto);righe.push(['adult',aa,a,r2(a*aa)]);}if(figli){b=r2(u*fam.figlio);righe.push(['child',figli,b,r2(b*figli)]);}}
@@ -359,9 +430,18 @@ function calcola(D,P,vid,adulti,figli){
   else if(tp==='nessuno'){ign=aa>0||figli>0;}
   var tot=r2(righe.reduce(function(s,r){return s+r[3];},0)),cap=false;
   if(V.tetto!==undefined&&V.tetto!==null){var c=r2(u*V.tetto);if(tot>c){tot=c;cap=true;}}
-  var m,y;if(per==='month'){m=tot;y=r2(tot*12);}else{y=tot;m=r2(tot/12);}
-  return {valuta:val,periodo:per,righe:righe,totale:tot,mensile:m,annuale:y,familiari_ignorati:ign,motivo:fam.motivo||'',tetto:cap,unita:u,V:V};}
+  var m,y,m12;if(per==='month'){m=tot;y=r2(tot*np);m12=r2(y/12);}else{y=tot;m=r2(tot/12);m12=m;}
+  return {valuta:val,periodo:per,pagamenti:np,righe:righe,totale:tot,mensile:m,annuale:y,mensile12:m12,familiari_ignorati:ign,motivo:fam.motivo||'',tetto:cap,unita:u,V:V,adulti:adulti,figli:figli};}
 function converti(x,da,a,T){if(da===a)return arrot(x,a);var e=da==='EUR'?x:x/T[da];return arrot(a==='EUR'?e:e*T[a],a);}
+function convertiScalato(x,da,a,T,mo,di){var c=converti(x,da,a,T);mo=mo||1;di=di||1;return (mo===1&&di===1)?c:arrot(c*mo/di,a);}
+function convertiImporti(o,a,T){var v=o.valuta,cm,cy;
+  if(o.periodo==='month'){cm=converti(o.mensile,v,a,T);cy=arrot(cm*o.pagamenti,a);return {mensile:cm,annuale:cy,mensile12:o.pagamenti!==12?arrot(cy/12,a):cm};}
+  cy=converti(o.annuale,v,a,T);cm=arrot(cy/12,a);return {mensile:cm,annuale:cy,mensile12:cm};}
+function esito(P,o,reddito,pagamenti,valuta,T){
+  if(P.esito===false||!(reddito>0))return 'nd';var k=limita('pagamenti',pagamenti);var x=converti(reddito,valuta,o.valuta,T);var anno=r2(x*k);
+  var modo=P.confronto||(o.periodo==='month'?'mese':'anno');
+  if(modo==='mese')return x>=o.mensile?'si':'no';if(modo==='anno')return anno>=o.annuale?'si':'no';
+  var a=x>=o.mensile,b=anno>=o.annuale;return (a&&b)?'si':((!a&&!b)?'no':'parziale');}
 """
 
 APP_JS = r"""
@@ -372,18 +452,18 @@ APP_JS = r"""
   function num(v){return String(Math.round(v*1e6)/1e6);}
   var D=JSON.parse(document.getElementById('dati-visti').textContent);
   var CAMBI=D.cambi;
-  function etich(V,f){var b=V.base,uu=unita(D,V),u=uu[0],val=uu[1],per=uu[2];
-    if(b.indice){var I=D.indici[b.indice];var q=per==='month'?'a month':'a year';
+  function etich(V,f){var b=V.base,uu=unita(D,V),u=uu[0],val=uu[1],per=uu[2],np=uu[3];
+    if(b.indice){var I=D.indici[b.indice];var q=per==='month'?('a month'+(np!==12?' × '+np+' payments':'')):'a year';
       return (f>=1?num(f)+' × the '+I.nome_breve:num(Math.round(f*100*1e6)/1e6)+'% of the '+I.nome_breve)+' ('+soldi(u,val)+' '+q+')';}
     if(u===1)return soldi(f,val);return b.etichetta+': '+soldi(u*f,val);}
   function testo(V,r){var f=V.famiglia,k=r[0];
-    if(k==='main')return 'Main applicant: '+etich(V,V.fattore);if(k==='first')return 'First family member: '+etich(V,f.primo);
+    if(k==='main')return (V.etichetta_principale||'Main applicant')+': '+etich(V,V.fattore);if(k==='first')return 'First family member: '+etich(V,f.primo);
     if(k==='other')return 'Each further family member: '+etich(V,f.altri);if(k==='adult')return 'Each further adult: '+etich(V,f.adulto);
     if(k==='child')return 'Each child: '+etich(V,f.figlio);if(k==='firstchild')return 'First child: '+etich(V,f.primo);
     if(k==='otherchild')return 'Each further child: '+etich(V,f.altri);return k;}
   function aggiornaStatici(){
     document.querySelectorAll('[data-importo]').forEach(function(el){var a=el.getAttribute('data-a');if(!CAMBI.tassi[a]&&a!=='EUR')return;
-      el.textContent=soldi(converti(+el.getAttribute('data-importo'),el.getAttribute('data-da'),a,CAMBI.tassi),a);});
+      el.textContent=soldi(convertiScalato(+el.getAttribute('data-importo'),el.getAttribute('data-da'),a,CAMBI.tassi,+(el.getAttribute('data-molt')||1),+(el.getAttribute('data-div')||1)),a);});
     document.querySelectorAll('[data-cambi-data]').forEach(function(el){el.textContent=dl(CAMBI.data);});}
   function monta(box){
     var f=box.querySelector('form');var q=function(n){return f.querySelector('[name='+n+']');};
@@ -402,30 +482,38 @@ APP_JS = r"""
       f.querySelector('[data-campo=paese]').hidden=true;f.querySelector('[data-campo=programma]').hidden=true;}
     else{selP.value=box.getAttribute('data-paese')||paesi[0];riempiG();}
     riempiV();
-    function calcolaOra(){
+    function calcolaOra(ev){
       var P=prog(),V=null;P.varianti.forEach(function(v){if(v.id===selV.value)V=v;});V=V||P.varianti[0];
-      var ad=Math.max(1,Math.min(20,parseInt(q('adulti').value,10)||1)),fi=Math.max(0,Math.min(20,parseInt(q('figli').value,10)||0));
-      var o=calcola(D,P,V.id,ad,fi),cur=selC.value,val=o.valuta;
-      var cm=converti(o.mensile,val,cur,CAMBI.tassi),cy=converti(o.annuale,val,cur,CAMBI.tassi);
-      var h='<div class="small">Official minimum for '+ad+' adult'+(ad>1?'s':'')+(fi?' and '+fi+' child'+(fi>1?'ren':''):'')+(o.familiari_ignorati?' (family members not counted)':'')+'</div>';
-      h+='<div class="tot">'+soldi(o.mensile,val)+' a month</div><div>'+soldi(o.annuale,val)+' a year</div>';
-      if(cur!==val)h+='<div class="conv">≈ '+soldi(cm,cur)+' a month · '+soldi(cy,cur)+' a year</div>';
+      var avvisi=[];
+      [['adulti','Adults'],['figli','Children']].forEach(function(c){var el=q(c[0]),raw=el.value,v=limita(c[0],raw);
+        if(String(v)!==String(raw).trim()){avvisi.push(c[1]+' set to '+v+' (allowed: '+LIMITI[c[0]][0]+'–'+LIMITI[c[0]][1]+').');if(ev&&ev.type==='change')el.value=v;}});
+      var o=calcola(D,P,V.id,q('adulti').value,q('figli').value),cur=selC.value,val=o.valuta,cv=convertiImporti(o,cur,CAMBI.tassi);
+      var h='<div class="small">Official minimum for '+o.adulti+' adult'+(o.adulti>1?'s':'')+(o.figli?' and '+o.figli+' child'+(o.figli>1?'ren':''):'')+(o.familiari_ignorati?' (family members not counted)':'')+'</div>';
+      if(o.periodo==='month'&&o.pagamenti!==12){h+='<div class="tot">'+soldi(o.mensile,val)+' a month × '+o.pagamenti+'</div><div>= '+soldi(o.annuale,val)+' a year ('+soldi(o.mensile12,val)+' a month over 12 payments)</div>';}
+      else{h+='<div class="tot">'+soldi(o.mensile,val)+' a month</div><div>'+soldi(o.annuale,val)+' a year</div>';}
+      if(cur!==val)h+='<div class="conv">≈ '+soldi(cv.mensile,cur)+' a month'+(o.periodo==='month'&&o.pagamenti!==12?' × '+o.pagamenti:'')+' · '+soldi(cv.annuale,cur)+' a year</div>';
       h+='<ul>';o.righe.forEach(function(r){h+='<li>'+esc(testo(V,r))+(r[1]>1?' × '+r[1]:'')+' = <strong>'+soldi(r[3],val)+'</strong>'+(o.periodo==='month'?' a month':' a year')+'</li>';});
       if(o.tetto)h+='<li>Capped at the maximum set by the rule.</li>';
       if(o.familiari_ignorati)h+='<li>'+esc(o.motivo)+'</li>';h+='</ul>';
+      avvisi.forEach(function(a){h+='<p class="small" style="margin:6px 0 0"><strong>Note:</strong> '+esc(a)+'</p>';});
       h+='<p class="formula"><strong>Rule:</strong> '+esc(V.regola)+'</p>';
       var fo=P.fonti[0];h+='<p class="fonte">Official source: <a href="'+esc(fo.url)+'" rel="noopener">'+esc(fo.titolo)+'</a> · checked on '+dl(fo.controllato_il)+'</p>';
       if(cur!==val)h+='<p class="fonte">ECB reference rate of '+dl(CAMBI.data)+'. Indicative conversion.</p>';
-      var mio=parseFloat(q('reddito').value);
-      if(mio>0){var mioV=converti(mio,cur,val,CAMBI.tassi);var ok=mioV>=o.mensile;
-        h+='<div class="esito '+(ok?'si':'no')+'">'+(ok?'Your income of '+soldi(mio,cur)+' a month is at or above this minimum (≈ '+soldi(mioV,val)+'). The consulate still assesses your documents.':'Your income of '+soldi(mio,cur)+' a month is below this minimum (≈ '+soldi(mioV,val)+').')+'</div>';}
+      var mio=parseFloat(q('reddito').value),k=limita('pagamenti',q('pagamenti').value);
+      if(mio>0){var e=esito(P,o,mio,k,cur,CAMBI.tassi);var mioV=converti(mio,cur,val,CAMBI.tassi),annoV=r2(mioV*k);
+        var tuo='Your income of '+soldi(mio,cur)+' a month × '+k+' (≈ '+soldi(mioV,val)+' a month, '+soldi(annoV,val)+' a year)';
+        if(e==='nd')h+='<div class="esito no" style="background:var(--warn-2);color:var(--ink)">'+esc(P.condizioni||'')+'</div>';
+        else if(e==='si')h+='<div class="esito si">'+tuo+' is at or above this minimum. The consulate still assesses your documents.</div>';
+        else if(e==='parziale')h+='<div class="esito no" style="background:var(--warn-2);color:var(--ink)">'+tuo+' meets one form of the amount but not the other (monthly amount or yearly total): ask the consulate how it assesses your income.</div>';
+        else h+='<div class="esito no">'+tuo+' is below this minimum.</div>';}
+      var np=box.querySelector('[data-nota-pagamenti]');if(np){np.textContent=P.nota_pagamenti||'';np.hidden=!P.nota_pagamenti;}
       if(!fisso){h+='<p class="small" style="margin:8px 0 0"><a href="'+box.getAttribute('data-rel')+P.slug+'/">Full rules and official sources for the '+esc(P.paese+' '+P.nome)+'</a></p>';}
       box.querySelector('[data-out]').innerHTML=h;
       q('reddito').previousElementSibling.textContent='Your monthly income in '+cur+' (optional)';}
     selP.addEventListener('change',function(){riempiG();riempiV();calcolaOra();});
     selG.addEventListener('change',function(){riempiV();calcolaOra();});
-    f.addEventListener('input',function(e){if(e.target===selP||e.target===selG)return;calcolaOra();});
-    f.addEventListener('change',function(e){if(e.target===selP||e.target===selG)return;calcolaOra();});
+    f.addEventListener('input',function(e){if(e.target===selP||e.target===selG)return;calcolaOra(e);});
+    f.addEventListener('change',function(e){if(e.target===selP||e.target===selG)return;calcolaOra(e);});
     f.addEventListener('submit',function(e){e.preventDefault();});
     box.__calcola=calcolaOra;calcolaOra();}
   var boxes=document.querySelectorAll('[data-calcolatore]');boxes.forEach(monta);

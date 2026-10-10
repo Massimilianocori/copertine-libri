@@ -2,57 +2,115 @@
  "_nota": "Dati del sito Visa Income Checker. Solo fonti ufficiali lette il giorno indicato (controllato_il, http = risposta del server). Gli importi si calcolano da 'base' (indice ufficiale o importo fisso) x 'fattore'. Regole per i familiari in 'famiglia': tipo 'tutti' (primo familiare / altri, qualunque età), 'per_eta' (adulto oltre il richiedente / figlio), 'figli' (solo figli: primo / altri), 'nessuno' (la regola non fissa importi per i familiari: si spiega perché). 'tetto' = importo massimo totale in unità della base. Da ricontrollare ogni gennaio: vedi NOTE.md.",
  "indici": {
   "es_smi": {
-   "nome": "Spanish minimum wage (SMI) 2026, monthly equivalent",
+   "nome": "Spanish minimum wage (SMI) 2026",
    "nome_breve": "SMI",
-   "valore": 1424.50,
+   "valore": 1221.0,
    "valuta": "EUR",
    "periodo": "month",
-   "calcolo": "€1,221 a month paid 14 times a year = €17,094 a year (Royal Decree 126/2026, articles 1 and 3); €17,094 ÷ 12 = €1,424.50 a month.",
+   "calcolo": "€1,221 a month paid 14 times a year = €17,094 a year (Royal Decree 126/2026, articles 1 and 3). Over 12 payments this equals €1,424.50 a month.",
    "in_vigore": "1 January – 31 December 2026",
    "ricontrollo": "Spain sets a new SMI every year by royal decree (the 2026 decree was published on 19 February 2026, retroactive to 1 January).",
    "fonti": [
-    {"titolo": "Real Decreto 126/2026, de 18 de febrero, por el que se fija el salario mínimo interprofesional para 2026 (BOE-A-2026-3815)", "editore": "Boletín Oficial del Estado", "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-3815", "formato": "official gazette", "controllato_il": "2026-10-10", "http": 200, "nota": "Article 1: €1,221 a month. Article 3: the annual amount cannot be lower than €17,094."},
-    {"titolo": "SEPE – Cuantías anuales (SMI and IPREM 2026)", "editore": "Servicio Público de Empleo Estatal", "url": "https://www.sepe.es/HomeSepe/es/prestaciones-desempleo/Cuantias-anuales.html", "formato": "ministry page", "controllato_il": "2026-10-10", "http": 200, "nota": "SMI 2026: €1,221.00 a month, €17,094.00 a year (14 payments)."}
-   ]
+    {
+     "titolo": "Real Decreto 126/2026, de 18 de febrero, por el que se fija el salario mínimo interprofesional para 2026 (BOE-A-2026-3815)",
+     "editore": "Boletín Oficial del Estado",
+     "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-3815",
+     "formato": "official gazette",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "Article 1: €1,221 a month. Article 3: the annual amount cannot be lower than €17,094."
+    },
+    {
+     "titolo": "SEPE – Cuantías anuales (SMI and IPREM 2026)",
+     "editore": "Servicio Público de Empleo Estatal",
+     "url": "https://www.sepe.es/HomeSepe/es/prestaciones-desempleo/Cuantias-anuales.html",
+     "formato": "ministry page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "SMI 2026: €1,221.00 a month, €17,094.00 a year (14 payments)."
+    }
+   ],
+   "pagamenti": 14
   },
   "es_iprem": {
    "nome": "Spanish IPREM 2026 (public income indicator), monthly",
    "nome_breve": "IPREM",
-   "valore": 600.00,
+   "valore": 600.0,
    "valuta": "EUR",
    "periodo": "month",
    "calcolo": "IPREM = €600 a month (€7,200 a year), set by the 2023 State Budget Law and still in force in 2026.",
    "in_vigore": "2026 (unchanged since 2023)",
    "ricontrollo": "The IPREM changes only when a new State Budget Law (or a decree) sets it: check every January.",
    "fonti": [
-    {"titolo": "Ley 31/2022, de Presupuestos Generales del Estado para el año 2023, disposición adicional nonagésima (BOE-A-2022-22128)", "editore": "Boletín Oficial del Estado", "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2022-22128", "formato": "official gazette (consolidated text)", "controllato_il": "2026-10-10", "http": 200, "nota": "Monthly IPREM: €600; annual: €7,200."},
-    {"titolo": "SEPE – Cuantías anuales (SMI and IPREM 2026)", "editore": "Servicio Público de Empleo Estatal", "url": "https://www.sepe.es/HomeSepe/es/prestaciones-desempleo/Cuantias-anuales.html", "formato": "ministry page", "controllato_il": "2026-10-10", "http": 200, "nota": "IPREM in 2026: €600.00 a month, €7,200.00 a year, set by Law 31/2022."}
+    {
+     "titolo": "Ley 31/2022, de Presupuestos Generales del Estado para el año 2023, disposición adicional nonagésima (BOE-A-2022-22128)",
+     "editore": "Boletín Oficial del Estado",
+     "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2022-22128",
+     "formato": "official gazette (consolidated text)",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "Monthly IPREM: €600; annual: €7,200."
+    },
+    {
+     "titolo": "SEPE – Cuantías anuales (SMI and IPREM 2026)",
+     "editore": "Servicio Público de Empleo Estatal",
+     "url": "https://www.sepe.es/HomeSepe/es/prestaciones-desempleo/Cuantias-anuales.html",
+     "formato": "ministry page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "IPREM in 2026: €600.00 a month, €7,200.00 a year, set by Law 31/2022."
+    }
    ]
   },
   "pt_rmmg": {
    "nome": "Portuguese guaranteed minimum monthly wage (RMMG) 2026",
    "nome_breve": "RMMG",
-   "valore": 920.00,
+   "valore": 920.0,
    "valuta": "EUR",
    "periodo": "month",
    "calcolo": "RMMG 2026 = €920 a month (decree no. 139/2025 of 29 December, as cited by the Ministry of Foreign Affairs).",
    "in_vigore": "2026",
    "ricontrollo": "Portugal raises the minimum wage every January.",
    "fonti": [
-    {"titolo": "Means of subsistence – National visas (Portal das Comunidades / Vistos)", "editore": "Ministry of Foreign Affairs of Portugal", "url": "https://vistos.mne.gov.pt/en/national-visas/necessary-documentation/means-of-subsistence", "formato": "ministry page", "controllato_il": "2026-10-10", "http": 200, "nota": "Minimum monthly salary in 2026: €920; first adult 100%, second and further adults 50%, children under 18 and dependent children 30%."}
+    {
+     "titolo": "Means of subsistence – National visas (Portal das Comunidades / Vistos)",
+     "editore": "Ministry of Foreign Affairs of Portugal",
+     "url": "https://vistos.mne.gov.pt/en/national-visas/necessary-documentation/means-of-subsistence",
+     "formato": "ministry page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "Minimum monthly salary in 2026: €920; first adult 100%, second and further adults 50%, children under 18 and dependent children 30%."
+    }
    ]
   },
   "hr_neto": {
    "nome": "Croatian average monthly net salary for 2025",
    "nome_breve": "average net salary",
-   "valore": 1449.00,
+   "valore": 1449.0,
    "valuta": "EUR",
    "periodo": "month",
-   "calcolo": "The Ministry of the Interior states the digital nomad amount as €3,622.50 = 2.5 average monthly net salaries of the previous year; €3,622.50 ÷ 2.5 = €1,449, the 2025 average published by the Croatian Bureau of Statistics (DZS).",
+   "calcolo": "Average monthly net salary paid in January–December 2025: €1,449 (Croatian Bureau of Statistics). The Ministry of the Interior states the resulting amount: 2.5 × €1,449 = €3,622.50.",
    "in_vigore": "2026 (average of 2025)",
    "ricontrollo": "The average for the previous year changes each year (DZS publishes it early in the year); the Ministry then updates the amount.",
    "fonti": [
-    {"titolo": "Temporary stay of digital nomads", "editore": "Ministry of the Interior of the Republic of Croatia (MUP)", "url": "https://mup.gov.hr/aliens-281621/stay-and-work/temporary-stay-of-digital-nomads/286833", "formato": "ministry page", "controllato_il": "2026-10-10", "http": 200, "nota": "2.5 average monthly net salaries of the previous year (Official Gazette 14/21 and 3/26); currently at least €3,622.50 a month; +10% of the average monthly net salary for each family member."}
+    {
+     "titolo": "Temporary stay of digital nomads",
+     "editore": "Ministry of the Interior of the Republic of Croatia (MUP)",
+     "url": "https://mup.gov.hr/aliens-281621/stay-and-work/temporary-stay-of-digital-nomads/286833",
+     "formato": "ministry page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "2.5 average monthly net salaries of the previous year (Official Gazette 14/21 and 3/26); currently at least €3,622.50 a month; +10% of the average monthly net salary for each family member."
+    },
+    {
+     "titolo": "Prosječne mjesečne neto i bruto plaće zaposlenih za prosinac 2025. (release RAD-2025-1-1/12, 20 February 2026)",
+     "editore": "Croatian Bureau of Statistics (DZS)",
+     "url": "https://podaci.dzs.hr/media/cbebbohp/rad-2025-1-1_12-prosje%C4%8Dne-mjese%C4%8Dne-neto-i-bruto-pla%C4%87e-zaposlenih-u-2025.pdf",
+     "formato": "statistics office PDF",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "January–December 2025: average monthly net salary per employee in legal entities €1,449."
+    }
    ]
   },
   "it_ticket": {
@@ -65,49 +123,115 @@
    "in_vigore": "fixed amount (not indexed)",
    "ricontrollo": "Fixed in the law: changes only if the law or the decree is amended.",
    "fonti": [
-    {"titolo": "Legge 24 dicembre 1993, n. 537, art. 8, comma 16", "editore": "Normattiva (Italian State legislation portal)", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1993-12-24;537~art8", "formato": "official legislation database", "controllato_il": "2026-10-10", "http": 200, "nota": "Exemption for households with total income below ITL 16 million (raised for a spouse and children)."},
-    {"titolo": "Euro conversion rates of the former national currencies", "editore": "European Central Bank", "url": "https://www.ecb.europa.eu/euro/intro/html/index.en.html", "formato": "central bank page", "controllato_il": "2026-10-10", "http": 200, "nota": "€1 = ITL 1,936.27."}
+    {
+     "titolo": "Legge 24 dicembre 1993, n. 537, art. 8, comma 16",
+     "editore": "Normattiva (Italian State legislation portal)",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1993-12-24;537~art8",
+     "formato": "official legislation database",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "Exemption for households with total income below ITL 16 million (raised for a spouse and children)."
+    },
+    {
+     "titolo": "Euro conversion rates of the former national currencies",
+     "editore": "European Central Bank",
+     "url": "https://www.ecb.europa.eu/euro/intro/html/index.en.html",
+     "formato": "central bank page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "€1 = ITL 1,936.27."
+    }
    ]
   }
  },
  "programmi": [
   {
    "slug": "spain-digital-nomad-visa",
-   "paese": "Spain", "paese_slug": "spain",
+   "paese": "Spain",
+   "paese_slug": "spain",
    "nome": "digital nomad visa",
    "nome_ufficiale": "Visado / autorización de residencia para teletrabajo de carácter internacional",
    "categoria": "digital-nomad",
    "reddito": "Income from remote work for companies outside Spain (the rule says 'a monthly amount', it does not say net or gross).",
    "descrizione": "Spain's visa and residence permit for international teleworkers (Law 14/2013 as amended by Law 28/2022).",
    "varianti": [
-    {"id": "std", "nome": "Main applicant and family",
-     "base": {"indice": "es_smi"}, "fattore": 2.0,
-     "regola": "200% of the SMI for the main applicant; 75% of the SMI for the first family member; 25% of the SMI for each further family member.",
-     "famiglia": {"tipo": "tutti", "primo": 0.75, "altri": 0.25}}
+    {
+     "id": "std",
+     "nome": "Main applicant and family",
+     "base": {
+      "indice": "es_smi"
+     },
+     "fattore": 2.0,
+     "regola": "200% of the SMI for the main applicant: €2,442 a month × 14 payments = €34,188 a year (€2,849 a month if spread over 12 payments). 75% of the SMI (€915.75 × 14) for the first family member; 25% of the SMI (€305.25 × 14) for each further family member.",
+     "famiglia": {
+      "tipo": "tutti",
+      "primo": 0.75,
+      "altri": 0.25
+     }
+    }
    ],
    "note": [
-    "We apply the percentages to the annual SMI divided by 12 (€17,094 ÷ 12 = €1,424.50), the basis the Spanish consulate in Santiago de Chile refers to (it quotes the SMI in annual terms). Some offices may apply 200% to the €1,221 paid 14 times a year (= €2,442 a month): ask your consulate which basis it uses.",
+    "Spanish consulates state the amount as 200% of the SMI 'monthly over 14 payments' (€2,442 × 14, Consulate of Spain in Buenos Aires) and list 200% = €2,442, 75% = €915.75, 25% = €305.25 (Consulate of Spain in Hanoi). Over a year this is €34,188 for the main applicant, the same as €2,849 × 12.",
+    "If your income is paid 12 times a year, the consulate may look at the monthly amount (€2,442) or at the yearly total (€34,188): ask your consulate how it assesses your bank statements or payslips.",
     "Family members are the spouse or partner and children; the 75% applies to the first one, 25% to each of the others.",
-    "You must also show that your remote work relationship has existed for at least 3 months, plus qualifications or 3 years' experience, health insurance and a clean criminal record."
+    "Other conditions on the consulate pages: the remote work relationship must have existed for at least 3 months, the company you work for must have been set up at least one year earlier, and you need a degree or 3 years' experience, health insurance and a clean criminal record."
    ],
    "fonti": [
-    {"titolo": "Preguntas frecuentes – Autorizaciones de residencia y trabajo de teletrabajadores internacionales (question 19)", "editore": "Unidad de Grandes Empresas y Colectivos Estratégicos, Ministry of Inclusion", "url": "https://bibliovirtual.inclusion.gob.es/documents/d/unidadgrandesempresas/nomadas-digitales-faqs-espanol", "formato": "ministry PDF", "controllato_il": "2026-10-10", "http": 200, "nota": "Holders: monthly 200% of the SMI; household of two (holder + family member): at least 75% of the SMI; 25% of the SMI for each further member."},
-    {"titolo": "Requisitos visado de teletrabajo de carácter internacional (TEL)", "editore": "Consulate General of Spain in Santiago de Chile", "url": "https://exteriores.gob.es/Consulados/santiagodechile/es/ServiciosConsulares/Documents/Requisitos%20visado%20TEL.pdf", "formato": "consulate PDF", "controllato_il": "2026-10-10", "http": 200, "nota": "200% of the SMI for the applicant, 75% for the first family member, 25% for each further one; the SMI is quoted in gross annual terms (its 2023 example is out of date)."}
-   ]
+    {
+     "titolo": "Visado de residencia para teletrabajo (nómada digital)",
+     "editore": "Consulate General of Spain in Buenos Aires (Ministry of Foreign Affairs)",
+     "url": "https://www.exteriores.gob.es/Consulados/buenosaires/es/ServiciosConsulares/Paginas/index.aspx?scca=Visados&scco=Argentina&scd=40&scs=Visados+Nacionales+-+Visado+de+residencia+para+teletrabajo+%28n%C3%B3mada+digital%29",
+     "formato": "consulate page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "The salary must be at least 200% of the SMI, i.e. €2,442 a month over 14 payments; family: at least 75% of the SMI for the first person and 25% for each additional member; the company must have been incorporated at least one year earlier."
+    },
+    {
+     "titolo": "SMI – Salario mínimo interprofesional bruto (table from 19/02/26)",
+     "editore": "Consulate General of Spain in Hanoi (Ministry of Foreign Affairs)",
+     "url": "https://www.exteriores.gob.es/DocumentosAuxiliaresSC/Vietnam/HANOI%20%28E%29/SMI.pdf",
+     "formato": "consulate PDF",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "From 19/02/26: 100% = 1,221; 200% = 2,442; 75% = 915.75; 25% = 305.25 (euros)."
+    },
+    {
+     "titolo": "Preguntas frecuentes – Autorizaciones de residencia y trabajo de teletrabajadores internacionales (question 19)",
+     "editore": "Unidad de Grandes Empresas y Colectivos Estratégicos, Ministry of Inclusion",
+     "url": "https://bibliovirtual.inclusion.gob.es/documents/d/unidadgrandesempresas/nomadas-digitales-faqs-espanol",
+     "formato": "ministry PDF",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "Holders: monthly 200% of the SMI; household of two (holder + family member): at least 75% of the SMI; 25% of the SMI for each further member."
+    }
+   ],
+   "confronto": "entrambi",
+   "nota_pagamenti": "Spanish consulates quote the amount as a monthly salary paid 14 times a year. If you are paid 12 times a year, compare your yearly total with €34,188."
   },
   {
    "slug": "spain-non-lucrative-visa",
-   "paese": "Spain", "paese_slug": "spain",
+   "paese": "Spain",
+   "paese_slug": "spain",
    "nome": "non-lucrative visa",
    "nome_ufficiale": "Autorización de residencia temporal no lucrativa",
    "categoria": "passive-income",
    "reddito": "Funds or regular income (pensions, rents, investments); you may not work in Spain.",
    "descrizione": "Residence without working, for people who live on savings, a pension or passive income (Royal Decree 1155/2024, article 62).",
    "varianti": [
-    {"id": "std", "nome": "Main applicant and family",
-     "base": {"indice": "es_iprem"}, "fattore": 4.0,
+    {
+     "id": "std",
+     "nome": "Main applicant and family",
+     "base": {
+      "indice": "es_iprem"
+     },
+     "fattore": 4.0,
      "regola": "400% of the IPREM a month for the main applicant, plus 100% of the IPREM a month for each family member in your care.",
-     "famiglia": {"tipo": "tutti", "primo": 1.0, "altri": 1.0}}
+     "famiglia": {
+      "tipo": "tutti",
+      "primo": 1.0,
+      "altri": 1.0
+     }
+    }
    ],
    "note": [
     "The law asks for the monthly amount for the whole period of the permit (the first permit lasts one year): 12 × €2,400 = €28,800 for one person.",
@@ -115,349 +239,857 @@
     "Family members are the spouse or partner and children (minor, or adult and unable to support themselves)."
    ],
    "fonti": [
-    {"titolo": "Real Decreto 1155/2024, Reglamento de la Ley Orgánica 4/2000 – artículo 62 (BOE-A-2024-24099)", "editore": "Boletín Oficial del Estado", "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2024-24099", "formato": "official gazette (consolidated text)", "controllato_il": "2026-10-10", "http": 200, "nota": "Article 62(1): 400% of the IPREM a month for the applicant; 100% of the IPREM a month for each family member, in addition."}
-   ]
+    {
+     "titolo": "Real Decreto 1155/2024, Reglamento de la Ley Orgánica 4/2000 – artículo 62 (BOE-A-2024-24099)",
+     "editore": "Boletín Oficial del Estado",
+     "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2024-24099",
+     "formato": "official gazette (consolidated text)",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "Article 62(1): 400% of the IPREM a month for the applicant; 100% of the IPREM a month for each family member, in addition."
+    }
+   ],
+   "confronto": "mese"
   },
   {
    "slug": "portugal-d8-digital-nomad-visa",
-   "paese": "Portugal", "paese_slug": "portugal",
+   "paese": "Portugal",
+   "paese_slug": "portugal",
    "nome": "D8 digital nomad visa",
    "nome_ufficiale": "Visto de residência / estada temporária para exercício de atividade profissional prestada de forma remota",
    "categoria": "digital-nomad",
    "reddito": "Average monthly income over the last three months from remote work (employment or self-employment) for clients or employers outside Portugal.",
    "descrizione": "Portugal's visa for remote workers ('digital nomads'), as a residence visa or a temporary stay visa.",
    "varianti": [
-    {"id": "std", "nome": "Main applicant and family",
-     "base": {"indice": "pt_rmmg"}, "fattore": 4.0,
-     "regola": "4 times the minimum monthly wage (RMMG) for the main applicant. For accompanying family members, the Ministry refers to the per-person scale of Ordinance 1563/2007: +50% of the RMMG for each further adult, +30% for each child.",
-     "famiglia": {"tipo": "per_eta", "adulto": 0.5, "figlio": 0.3}}
+    {
+     "id": "std",
+     "nome": "Main applicant",
+     "base": {
+      "indice": "pt_rmmg"
+     },
+     "fattore": 4.0,
+     "regola": "4 times the minimum monthly wage (RMMG): average monthly income over the last three months of at least €3,680 in 2026.",
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The D8 rule on the Ministry's page sets only the applicant's amount. Accompanying family members must show means under Ordinance 1563/2007, art. 2(2) (a per-person scale: +50% of the RMMG per further adult, +30% per child), but the Ministry does not say how this combines with the D8 amount: ask the consulate."
+     }
+    }
    ],
    "note": [
     "The 4 × RMMG amount is the average monthly income of the last three months.",
-    "Family amounts: the Ministry's residence visa page asks accompanying family members for means 'under nº 2 of article 2 of Ordinance 1563/2007', which is the per-person scale (50% per further adult, 30% per child). We add that scale on top of 4 × RMMG. Consulates may assess family means differently: check with yours."
+    "Family members: see the note in the calculator. We do not add a family amount to the D8 figure because no official text says how to combine them."
    ],
    "fonti": [
-    {"titolo": "Residency visa – necessary documentation (remote professional activity: digital nomads; accompanying family members)", "editore": "Ministry of Foreign Affairs of Portugal", "url": "https://vistos.mne.gov.pt/en/national-visas/necessary-documentation/residency", "formato": "ministry page", "controllato_il": "2026-10-10", "http": 200, "nota": "Proof of average monthly income for the last three months of at least four monthly minimum guaranteed remunerations; family members: means under Ordinance 1563/2007, art. 2(2)."},
-    {"titolo": "Means of subsistence – National visas", "editore": "Ministry of Foreign Affairs of Portugal", "url": "https://vistos.mne.gov.pt/en/national-visas/necessary-documentation/means-of-subsistence", "formato": "ministry page", "controllato_il": "2026-10-10", "http": 200, "nota": "RMMG 2026: €920; first adult 100%, further adults 50%, children 30%."}
-   ]
+    {
+     "titolo": "Residency visa – necessary documentation, section 'For the exercise of a professional activity done remotely: digital nomads'",
+     "editore": "Ministry of Foreign Affairs of Portugal",
+     "url": "https://vistos.mne.gov.pt/en/national-visas/necessary-documentation/residency",
+     "formato": "ministry page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "Proof of average monthly income for the last three months with a minimum value equivalent to four monthly minimum guaranty remuneration. (A separate section, 'For accompanying family member applying for a residence visa', refers to Ordinance 1563/2007, art. 2(2).)"
+    },
+    {
+     "titolo": "Means of subsistence – National visas",
+     "editore": "Ministry of Foreign Affairs of Portugal",
+     "url": "https://vistos.mne.gov.pt/en/national-visas/necessary-documentation/means-of-subsistence",
+     "formato": "ministry page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "RMMG 2026: €920; first adult 100%, further adults 50%, children 30%."
+    }
+   ],
+   "confronto": "mese"
   },
   {
    "slug": "portugal-d7-visa",
-   "paese": "Portugal", "paese_slug": "portugal",
+   "paese": "Portugal",
+   "paese_slug": "portugal",
    "nome": "D7 visa (passive income and retirement)",
    "nome_ufficiale": "Visto de residência para reformados, religiosos ou pessoas que vivam de rendimentos",
    "categoria": "passive-income",
    "reddito": "Stable and regular income: pension, rents, investments, intellectual property. The Ministry's scale is net of social security deductions.",
    "descrizione": "Portugal's residence visa for retirees and people living on passive income.",
    "varianti": [
-    {"id": "std", "nome": "Main applicant and family",
-     "base": {"indice": "pt_rmmg"}, "fattore": 1.0,
+    {
+     "id": "std",
+     "nome": "Main applicant and family",
+     "base": {
+      "indice": "pt_rmmg"
+     },
+     "fattore": 1.0,
      "regola": "100% of the minimum monthly wage (RMMG) for the first adult, 50% for each further adult, 30% for each child under 18 (or dependent adult child).",
-     "famiglia": {"tipo": "per_eta", "adulto": 0.5, "figlio": 0.3}}
+     "famiglia": {
+      "tipo": "per_eta",
+      "adulto": 0.5,
+      "figlio": 0.3
+     }
+    }
    ],
    "note": [
     "Means must cover the period of stay or 12 months, whichever is shorter: 12 × €920 = €11,040 for one person.",
     "This is the legal minimum. Consulates can ask for more evidence (for example savings in a Portuguese bank account)."
    ],
    "fonti": [
-    {"titolo": "Means of subsistence – National visas", "editore": "Ministry of Foreign Affairs of Portugal", "url": "https://vistos.mne.gov.pt/en/national-visas/necessary-documentation/means-of-subsistence", "formato": "ministry page", "controllato_il": "2026-10-10", "http": 200, "nota": "Minimum monthly salary in 2026: €920; first adult 100%, second and additional adults 50%, children under 18 and non-minor dependent children 30%."},
-    {"titolo": "Residency visa – retirement, religious purposes or people living from passive income", "editore": "Ministry of Foreign Affairs of Portugal", "url": "https://vistos.mne.gov.pt/en/national-visas/necessary-documentation/residency", "formato": "ministry page", "controllato_il": "2026-10-10", "http": 200, "nota": "Documents certifying the pension or the passive income; family members under Ordinance 1563/2007."}
-   ]
+    {
+     "titolo": "Means of subsistence – National visas",
+     "editore": "Ministry of Foreign Affairs of Portugal",
+     "url": "https://vistos.mne.gov.pt/en/national-visas/necessary-documentation/means-of-subsistence",
+     "formato": "ministry page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "Minimum monthly salary in 2026: €920; first adult 100%, second and additional adults 50%, children under 18 and non-minor dependent children 30%."
+    },
+    {
+     "titolo": "Residency visa – retirement, religious purposes or people living from passive income",
+     "editore": "Ministry of Foreign Affairs of Portugal",
+     "url": "https://vistos.mne.gov.pt/en/national-visas/necessary-documentation/residency",
+     "formato": "ministry page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "Documents certifying the pension or the passive income; family members under Ordinance 1563/2007."
+    }
+   ],
+   "nota_pagamenti": "Portuguese salaries and pensions are often paid 14 times a year; the Ministry's scale is a monthly amount.",
+   "confronto": "mese"
   },
   {
    "slug": "croatia-digital-nomad-visa",
-   "paese": "Croatia", "paese_slug": "croatia",
+   "paese": "Croatia",
+   "paese_slug": "croatia",
    "nome": "digital nomad residence permit",
    "nome_ufficiale": "Privremeni boravak digitalnih nomada",
    "categoria": "digital-nomad",
    "reddito": "Regular income shown by bank statements or payslips for the last six months (or the total amount for the whole stay in your account).",
    "descrizione": "Croatia's temporary stay for digital nomads, up to 18 months.",
    "varianti": [
-    {"id": "std", "nome": "Main applicant and family",
-     "base": {"indice": "hr_neto"}, "fattore": 2.5,
+    {
+     "id": "std",
+     "nome": "Main applicant and family",
+     "base": {
+      "indice": "hr_neto"
+     },
+     "fattore": 2.5,
      "regola": "2.5 average monthly net salaries of the previous year for the main applicant; +10% of the average monthly net salary for each family member or partner.",
-     "famiglia": {"tipo": "tutti", "primo": 0.1, "altri": 0.1}}
+     "famiglia": {
+      "tipo": "tutti",
+      "primo": 0.1,
+      "altri": 0.1
+     }
+    }
    ],
    "note": [
     "Instead of a monthly income you can show the whole amount in your bank account: €43,470 for 12 months or €65,205 for 18 months (main applicant, Ministry figures).",
     "The +10% is 10% of one average net salary (€144.90), not 10% of €3,622.50."
    ],
    "fonti": [
-    {"titolo": "Temporary stay of digital nomads", "editore": "Ministry of the Interior of the Republic of Croatia (MUP)", "url": "https://mup.gov.hr/aliens-281621/stay-and-work/temporary-stay-of-digital-nomads/286833", "formato": "ministry page", "controllato_il": "2026-10-10", "http": 200, "nota": "At least 2.5 average monthly net salaries of the previous year; currently €3,622.50 a month; +10% of the average monthly net salary for each additional family member or partner; €43,470 for 12 months, €65,205 for 18 months."}
-   ]
+    {
+     "titolo": "Temporary stay of digital nomads",
+     "editore": "Ministry of the Interior of the Republic of Croatia (MUP)",
+     "url": "https://mup.gov.hr/aliens-281621/stay-and-work/temporary-stay-of-digital-nomads/286833",
+     "formato": "ministry page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "At least 2.5 average monthly net salaries of the previous year; currently €3,622.50 a month; +10% of the average monthly net salary for each additional family member or partner; €43,470 for 12 months, €65,205 for 18 months."
+    }
+   ],
+   "confronto": "mese"
   },
   {
    "slug": "hungary-white-card",
-   "paese": "Hungary", "paese_slug": "hungary",
+   "paese": "Hungary",
+   "paese_slug": "hungary",
    "nome": "White Card (digital nomad)",
    "nome_ufficiale": "Fehér Kártya – digitális nomád tartózkodás",
    "categoria": "digital-nomad",
    "reddito": "Net monthly income from a foreign employer or your own profitable foreign company, in each of the 6 months before entry.",
    "descrizione": "Hungary's residence permit for digital nomads, valid one year and renewable once.",
    "varianti": [
-    {"id": "std", "nome": "Main applicant",
-     "base": {"valore": 3000, "valuta": "EUR", "periodo": "month", "etichetta": "fixed amount"}, "fattore": 1.0,
+    {
+     "id": "std",
+     "nome": "Main applicant",
+     "base": {
+      "valore": 3000,
+      "valuta": "EUR",
+      "periodo": "month",
+      "etichetta": "fixed amount"
+     },
+     "fattore": 1.0,
      "regola": "At least €3,000 net a month in each of the 6 months before entry, and throughout the stay.",
-     "famiglia": {"tipo": "nessuno", "motivo": "Family members of a White Card holder cannot get a residence permit for family reunification (Immigration Office page)."}}
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "Family members of a White Card holder cannot get a residence permit for family reunification. The only exception on the Immigration Office page: a child born in Hungary while the permit is valid gets a family residence permit."
+     }
+    }
    ],
    "note": [
     "You must keep this income for the whole stay.",
     "You cannot work for a Hungarian employer or own shares in a Hungarian company."
    ],
    "fonti": [
-    {"titolo": "Fehér Kártya – digitális nomád tartózkodás (information sheet)", "editore": "National Directorate-General for Aliens Policing (OIF), Hungary", "url": "https://oif.gov.hu/tajekoztatok/feher-kartya-digitalis-nomad-tartozkodas", "formato": "immigration authority page", "controllato_il": "2026-10-10", "http": 200, "nota": "Means are proven if the lawful income reached at least €3,000 net a month in the 6 months before entry; family members of a White Card holder cannot get a residence permit for family reunification."}
-   ]
+    {
+     "titolo": "Fehér Kártya – digitális nomád tartózkodás (information sheet)",
+     "editore": "National Directorate-General for Aliens Policing (OIF), Hungary",
+     "url": "https://oif.gov.hu/tajekoztatok/feher-kartya-digitalis-nomad-tartozkodas",
+     "formato": "immigration authority page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "Means are proven if the lawful income reached at least €3,000 net a month in the 6 months before entry; family members of a White Card holder cannot get a residence permit for family reunification. Exception: a child born in Hungary during the permit gets a family permit."
+    }
+   ],
+   "confronto": "mese"
   },
   {
    "slug": "italy-digital-nomad-visa",
-   "paese": "Italy", "paese_slug": "italy",
+   "paese": "Italy",
+   "paese_slug": "italy",
    "nome": "digital nomad visa",
    "nome_ufficiale": "Visto per nomadi digitali e lavoratori da remoto",
    "categoria": "digital-nomad",
-   "reddito": "Minimum annual income from lawful sources.",
+   "reddito": "Minimum annual income from lawful sources. The Italian Consulate in Boston states that the income must derive from the work you will perform from Italy: passive income such as social security, rents or stocks is not considered.",
    "descrizione": "Italy's visa for highly qualified remote workers and digital nomads (decree of 29 February 2024, Official Gazette no. 79 of 4 April 2024).",
    "varianti": [
-    {"id": "std", "nome": "Main applicant",
-     "base": {"indice": "it_ticket"}, "fattore": 3.0,
+    {
+     "id": "std",
+     "nome": "Main applicant",
+     "base": {
+      "indice": "it_ticket"
+     },
+     "fattore": 3.0,
      "regola": "At least three times the minimum income level for exemption from healthcare co-payments: 3 × €8,263.31 = €24,789.93 a year.",
-     "famiglia": {"tipo": "nessuno", "motivo": "The decree sets no per-person amount for family members: it allows family reunification under article 29 of the Consolidated Immigration Act, which has its own income test. Ask the consulate."}}
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The decree sets no per-person amount for family members: it allows family reunification under article 29 of the Consolidated Immigration Act, which has its own income test. Ask the consulate."
+     }
+    }
    ],
    "note": [
+    "Only income from your remote or self-employed work counts, according to the consulate: pensions, rents and investment income do not.",
     "Other requirements in the decree: health insurance, accommodation, at least six months' experience in the work you will do remotely, and a contract or binding offer for highly qualified work.",
     "The decree does not say whether the income is gross or net."
    ],
    "fonti": [
-    {"titolo": "Decreto 29 febbraio 2024 – Modalità e requisiti per l'ingresso ed il soggiorno dei cittadini di Stati non appartenenti all'Unione europea che svolgono un'attività lavorativa altamente qualificata da remoto (G.U. Serie Generale n. 79 del 4 aprile 2024)", "editore": "Gazzetta Ufficiale della Repubblica Italiana", "url": "https://www.gazzettaufficiale.it/eli/gu/2024/04/04/79/sg/pdf", "formato": "official gazette (PDF of the issue)", "controllato_il": "2026-10-10", "http": 200, "nota": "Art. 3: minimum annual income from lawful sources not lower than three times the minimum level for exemption from healthcare co-payments; family reunification under art. 29 of the Consolidated Act."}
+    {
+     "titolo": "Decreto 29 febbraio 2024 – Modalità e requisiti per l'ingresso ed il soggiorno dei cittadini di Stati non appartenenti all'Unione europea che svolgono un'attività lavorativa altamente qualificata da remoto (G.U. Serie Generale n. 79 del 4 aprile 2024)",
+     "editore": "Gazzetta Ufficiale della Repubblica Italiana",
+     "url": "https://www.gazzettaufficiale.it/eli/gu/2024/04/04/79/sg/pdf",
+     "formato": "official gazette (PDF of the issue)",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "Art. 3: minimum annual income from lawful sources not lower than three times the minimum level for exemption from healthcare co-payments; family reunification under art. 29 of the Consolidated Act."
+    },
+    {
+     "titolo": "Digital nomad / remote worker visa",
+     "editore": "Consulate General of Italy in Boston (Ministry of Foreign Affairs)",
+     "url": "https://consboston.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/digital-nomad-remote-worker/",
+     "formato": "consulate page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "Minimum legal income no less than €24,789 a year; the income must derive from the work the applicant will perform; passive income (social security, rents, stocks) is not considered."
+    }
    ]
   },
   {
    "slug": "germany-eu-blue-card",
-   "paese": "Germany", "paese_slug": "germany",
+   "paese": "Germany",
+   "paese_slug": "germany",
    "nome": "EU Blue Card",
    "nome_ufficiale": "Blaue Karte EU",
    "categoria": "work",
    "reddito": "Gross annual salary in the job offer (fully variable bonuses do not count).",
    "descrizione": "Germany's EU Blue Card for university graduates (and some IT specialists) with a qualified job offer.",
    "varianti": [
-    {"id": "std", "nome": "Standard threshold",
-     "base": {"valore": 50700, "valuta": "EUR", "periodo": "year", "etichetta": "50% of the 2026 annual contribution ceiling of the statutory pension insurance"}, "fattore": 1.0,
+    {
+     "id": "std",
+     "nome": "Standard threshold",
+     "base": {
+      "valore": 50700,
+      "valuta": "EUR",
+      "periodo": "year",
+      "etichetta": "50% of the 2026 annual contribution ceiling of the statutory pension insurance"
+     },
+     "fattore": 1.0,
      "regola": "50% of the annual contribution ceiling of the statutory pension insurance = €50,700 gross a year in 2026.",
-     "famiglia": {"tipo": "nessuno", "motivo": "The Blue Card threshold is a salary for the job holder: it does not increase with family members."}},
-    {"id": "red", "nome": "Shortage occupations and graduates of the last 3 years",
-     "base": {"valore": 45934.20, "valuta": "EUR", "periodo": "year", "etichetta": "45.3% of the 2026 annual contribution ceiling of the statutory pension insurance"}, "fattore": 1.0,
-     "regola": "45.3% of the annual contribution ceiling = €45,934.20 gross a year in 2026 (shortage occupations and people who graduated less than 3 years ago).",
-     "famiglia": {"tipo": "nessuno", "motivo": "The Blue Card threshold is a salary for the job holder: it does not increase with family members."}}
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The Blue Card threshold is a salary for the job holder: it does not increase with family members."
+     }
+    },
+    {
+     "id": "red",
+     "nome": "Reduced threshold: shortage occupations, graduates of the last 3 years, IT specialists",
+     "base": {
+      "valore": 45934.2,
+      "valuta": "EUR",
+      "periodo": "year",
+      "etichetta": "45.3% of the 2026 annual contribution ceiling of the statutory pension insurance"
+     },
+     "fattore": 1.0,
+     "regola": "45.3% of the annual contribution ceiling = €45,934.20 gross a year in 2026 (shortage occupations, people who graduated less than 3 years ago, and IT specialists under § 18g(2) of the Residence Act).",
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The Blue Card threshold is a salary for the job holder: it does not increase with family members."
+     }
+    }
    ],
    "note": [
     "With the reduced threshold the Federal Employment Agency must usually approve the job.",
     "Monthly figures are the annual amount divided by 12."
    ],
    "fonti": [
-    {"titolo": "Bekanntmachung zu § 18g des Aufenthaltsgesetzes über die Mindestgehälter für die Blaue Karte EU vom 2. Dezember 2025 (BAnz AT 18.12.2025 B3)", "editore": "Federal Ministry of the Interior, Bundesanzeiger", "url": "https://www.bundesanzeiger.de/pub/publication/REViP4bN6jVdpGxPaiQ/content/REViP4bN6jVdpGxPaiQ/BAnz%20AT%2018.12.2025%20B3.pdf", "formato": "official gazette PDF", "controllato_il": "2026-10-10", "http": 200, "nota": "Minimum gross salary 2026: €50,700 a year (§ 18g(1) sentence 1); €45,934.20 a year (§ 18g(1) sentence 2 and § 18g(2))."},
-    {"titolo": "Blaue Karte EU – Erteilung (Service Berlin)", "editore": "State of Berlin, immigration office", "url": "https://service.berlin.de/dienstleistung/324659/en/", "formato": "authority page", "controllato_il": "2026-10-10", "http": 200, "nota": "2026: €4,225.00 gross a month (€50,700 a year); shortage occupations €3,827.85 a month (€45,934.20 a year)."}
+    {
+     "titolo": "Bekanntmachung zu § 18g des Aufenthaltsgesetzes über die Mindestgehälter für die Blaue Karte EU vom 2. Dezember 2025 (BAnz AT 18.12.2025 B3)",
+     "editore": "Federal Ministry of the Interior, Bundesanzeiger",
+     "url": "https://www.bundesanzeiger.de/pub/publication/REViP4bN6jVdpGxPaiQ/content/REViP4bN6jVdpGxPaiQ/BAnz%20AT%2018.12.2025%20B3.pdf",
+     "formato": "official gazette PDF",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "Minimum gross salary 2026: €50,700 a year (§ 18g(1) sentence 1); €45,934.20 a year (§ 18g(1) sentence 2 and § 18g(2))."
+    },
+    {
+     "titolo": "Blaue Karte EU – Erteilung (Service Berlin)",
+     "editore": "State of Berlin, immigration office",
+     "url": "https://service.berlin.de/dienstleistung/324659/en/",
+     "formato": "authority page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "2026: €4,225.00 gross a month (€50,700 a year); shortage occupations €3,827.85 a month (€45,934.20 a year)."
+    }
    ]
   },
   {
    "slug": "netherlands-highly-skilled-migrant",
-   "paese": "Netherlands", "paese_slug": "netherlands",
+   "paese": "Netherlands",
+   "paese_slug": "netherlands",
    "nome": "highly skilled migrant permit",
    "nome_ufficiale": "Kennismigrant",
    "categoria": "work",
    "reddito": "Gross monthly salary without the 8% holiday allowance, paid by a recognised sponsor.",
    "descrizione": "The Dutch residence permit for highly skilled migrants (kennismigrant).",
    "varianti": [
-    {"id": "30plus", "nome": "Aged 30 or over",
-     "base": {"valore": 5942, "valuta": "EUR", "periodo": "month", "etichetta": "IND required amount 2026"}, "fattore": 1.0,
+    {
+     "id": "30plus",
+     "nome": "Aged 30 or over",
+     "base": {
+      "valore": 5942,
+      "valuta": "EUR",
+      "periodo": "month",
+      "etichetta": "IND required amount 2026"
+     },
+     "fattore": 1.0,
      "regola": "€5,942 gross a month (without holiday allowance) in 2026.",
-     "famiglia": {"tipo": "nessuno", "motivo": "The salary criterion is for the highly skilled migrant: it does not increase with family members."}},
-    {"id": "under30", "nome": "Younger than 30",
-     "base": {"valore": 4357, "valuta": "EUR", "periodo": "month", "etichetta": "IND required amount 2026"}, "fattore": 1.0,
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The salary criterion is for the highly skilled migrant: it does not increase with family members."
+     }
+    },
+    {
+     "id": "under30",
+     "nome": "Younger than 30",
+     "base": {
+      "valore": 4357,
+      "valuta": "EUR",
+      "periodo": "month",
+      "etichetta": "IND required amount 2026"
+     },
+     "fattore": 1.0,
      "regola": "€4,357 gross a month (without holiday allowance) in 2026.",
-     "famiglia": {"tipo": "nessuno", "motivo": "The salary criterion is for the highly skilled migrant: it does not increase with family members."}},
-    {"id": "reduced", "nome": "Reduced salary criterion (recent graduates)",
-     "base": {"valore": 3122, "valuta": "EUR", "periodo": "month", "etichetta": "IND required amount 2026"}, "fattore": 1.0,
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The salary criterion is for the highly skilled migrant: it does not increase with family members."
+     }
+    },
+    {
+     "id": "reduced",
+     "nome": "Reduced salary criterion (recent graduates)",
+     "base": {
+      "valore": 3122,
+      "valuta": "EUR",
+      "periodo": "month",
+      "etichetta": "IND required amount 2026"
+     },
+     "fattore": 1.0,
      "regola": "€3,122 gross a month (without holiday allowance) in 2026, for applications within 3 years of graduation or after an orientation year.",
-     "famiglia": {"tipo": "nessuno", "motivo": "The salary criterion is for the highly skilled migrant: it does not increase with family members."}}
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The salary criterion is for the highly skilled migrant: it does not increase with family members."
+     }
+    }
    ],
    "note": [
     "The amounts change every 1 January; the one that counts is the amount on the date of the application.",
-    "Allowances paid monthly under the contract count; holiday allowance, payments in kind and uncertain pay (overtime, tips) do not."
+    "Allowances paid monthly under the contract count; holiday allowance, payments in kind and uncertain pay (overtime, tips) do not.",
+    "The IND amounts exclude the 8% holiday allowance, so the yearly figure (× 12) is lower than a full gross annual salary that includes it."
    ],
    "fonti": [
-    {"titolo": "Required amounts income requirements – highly skilled migrant and European Blue Card", "editore": "Immigration and Naturalisation Service (IND)", "url": "https://ind.nl/en/required-amounts-income-requirements", "formato": "immigration authority page", "controllato_il": "2026-10-10", "http": 200, "nota": "2026, gross per month: 30 or older €5,942; younger than 30 €4,357; reduced salary criterion €3,122."}
-   ]
+    {
+     "titolo": "Required amounts income requirements – highly skilled migrant and European Blue Card",
+     "editore": "Immigration and Naturalisation Service (IND)",
+     "url": "https://ind.nl/en/required-amounts-income-requirements",
+     "formato": "immigration authority page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "2026, gross per month: 30 or older €5,942; younger than 30 €4,357; reduced salary criterion €3,122."
+    }
+   ],
+   "confronto": "mese"
   },
   {
    "slug": "netherlands-eu-blue-card",
-   "paese": "Netherlands", "paese_slug": "netherlands",
+   "paese": "Netherlands",
+   "paese_slug": "netherlands",
    "nome": "EU Blue Card",
    "nome_ufficiale": "Europese blauwe kaart",
    "categoria": "work",
    "reddito": "Gross monthly salary without the 8% holiday allowance.",
    "descrizione": "The Dutch EU Blue Card for highly qualified employees with a higher education degree.",
    "varianti": [
-    {"id": "std", "nome": "Standard threshold",
-     "base": {"valore": 5942, "valuta": "EUR", "periodo": "month", "etichetta": "IND required amount 2026"}, "fattore": 1.0,
+    {
+     "id": "std",
+     "nome": "Standard threshold",
+     "base": {
+      "valore": 5942,
+      "valuta": "EUR",
+      "periodo": "month",
+      "etichetta": "IND required amount 2026"
+     },
+     "fattore": 1.0,
      "regola": "€5,942 gross a month (without holiday allowance) in 2026.",
-     "famiglia": {"tipo": "nessuno", "motivo": "The salary criterion is for the Blue Card holder: it does not increase with family members."}},
-    {"id": "reduced", "nome": "Reduced criterion (graduated in the last 3 years)",
-     "base": {"valore": 4754, "valuta": "EUR", "periodo": "month", "etichetta": "IND required amount 2026"}, "fattore": 1.0,
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The salary criterion is for the Blue Card holder: it does not increase with family members."
+     }
+    },
+    {
+     "id": "reduced",
+     "nome": "Reduced criterion (graduated in the last 3 years)",
+     "base": {
+      "valore": 4754,
+      "valuta": "EUR",
+      "periodo": "month",
+      "etichetta": "IND required amount 2026"
+     },
+     "fattore": 1.0,
      "regola": "€4,754 gross a month (without holiday allowance) in 2026, within 3 years of graduation.",
-     "famiglia": {"tipo": "nessuno", "motivo": "The salary criterion is for the Blue Card holder: it does not increase with family members."}}
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The salary criterion is for the Blue Card holder: it does not increase with family members."
+     }
+    }
    ],
-   "note": ["The amounts change every 1 January."],
+   "note": [
+    "The amounts change every 1 January.",
+    "The IND amounts exclude the 8% holiday allowance, so the yearly figure (× 12) is lower than a full gross annual salary that includes it."
+   ],
    "fonti": [
-    {"titolo": "Required amounts income requirements – highly skilled migrant and European Blue Card", "editore": "Immigration and Naturalisation Service (IND)", "url": "https://ind.nl/en/required-amounts-income-requirements", "formato": "immigration authority page", "controllato_il": "2026-10-10", "http": 200, "nota": "2026, gross per month: European Blue Card €5,942; reduced salary criterion European Blue Card €4,754."}
-   ]
+    {
+     "titolo": "Required amounts income requirements – highly skilled migrant and European Blue Card",
+     "editore": "Immigration and Naturalisation Service (IND)",
+     "url": "https://ind.nl/en/required-amounts-income-requirements",
+     "formato": "immigration authority page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "2026, gross per month: European Blue Card €5,942; reduced salary criterion European Blue Card €4,754."
+    }
+   ],
+   "confronto": "mese"
   },
   {
    "slug": "austria-eu-blue-card",
-   "paese": "Austria", "paese_slug": "austria",
+   "paese": "Austria",
+   "paese_slug": "austria",
    "nome": "EU Blue Card",
    "nome_ufficiale": "Blaue Karte EU",
    "categoria": "work",
    "reddito": "Gross annual salary including special payments (13th and 14th salary).",
    "descrizione": "Austria's EU Blue Card for university graduates with a binding job offer.",
    "varianti": [
-    {"id": "std", "nome": "Standard threshold",
-     "base": {"valore": 55678, "valuta": "EUR", "periodo": "year", "etichetta": "average gross annual income of full-time employees, 2026"}, "fattore": 1.0,
+    {
+     "id": "std",
+     "nome": "Standard threshold",
+     "base": {
+      "valore": 55678,
+      "valuta": "EUR",
+      "periodo": "year",
+      "etichetta": "average gross annual income of full-time employees, 2026"
+     },
+     "fattore": 1.0,
      "regola": "At least the average gross annual income of full-time employees: €55,678 in 2026 (annual salary plus special payments).",
-     "famiglia": {"tipo": "nessuno", "motivo": "The Blue Card threshold is a salary for the job holder: it does not increase with family members."}}
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The Blue Card threshold is a salary for the job holder: it does not increase with family members."
+     }
+    }
    ],
-   "note": ["Austrian salaries are usually paid 14 times a year, so the monthly payslip is about the annual amount ÷ 14; our monthly figure is the annual amount ÷ 12.", "A labour market test also applies."],
+   "note": [
+    "Austrian salaries are usually paid 14 times a year, so the monthly payslip is about the annual amount ÷ 14; our monthly figure is the annual amount ÷ 12.",
+    "A labour market test also applies."
+   ],
    "fonti": [
-    {"titolo": "EU Blue Card", "editore": "Migration.gv.at – official website of the Austrian Federal Government on migration", "url": "https://www.migration.gv.at/en/types-of-immigration/permanent-immigration/eu-blue-card/", "formato": "government page", "controllato_il": "2026-10-10", "http": 200, "nota": "In 2026 at least €55,678 (annual salary plus special payments)."}
-   ]
+    {
+     "titolo": "EU Blue Card",
+     "editore": "Migration.gv.at – official website of the Austrian Federal Government on migration",
+     "url": "https://www.migration.gv.at/en/types-of-immigration/permanent-immigration/eu-blue-card/",
+     "formato": "government page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "In 2026 at least €55,678 (annual salary plus special payments)."
+    }
+   ],
+   "nota_pagamenti": "Austrian salaries are usually paid 14 times a year: choose 14 if that is your case (the threshold is the yearly total including special payments)."
   },
   {
    "slug": "france-eu-blue-card",
-   "paese": "France", "paese_slug": "france",
+   "paese": "France",
+   "paese_slug": "france",
    "nome": "EU Blue Card (talent residence card)",
    "nome_ufficiale": "Carte de séjour « talent – carte bleue européenne »",
    "categoria": "work",
    "reddito": "Gross annual salary in the employment contract (at least 6 months).",
    "descrizione": "France's EU Blue Card, part of the multi-year 'talent' residence card.",
    "varianti": [
-    {"id": "std", "nome": "Standard threshold",
-     "base": {"valore": 59373, "valuta": "EUR", "periodo": "year", "etichetta": "1.5 × the reference average gross annual salary"}, "fattore": 1.0,
+    {
+     "id": "std",
+     "nome": "Standard threshold",
+     "base": {
+      "valore": 59373,
+      "valuta": "EUR",
+      "periodo": "year",
+      "etichetta": "1.5 × the reference average gross annual salary"
+     },
+     "fattore": 1.0,
      "regola": "At least 1.5 times the reference average gross annual salary: €59,373 gross a year.",
-     "famiglia": {"tipo": "nessuno", "motivo": "The Blue Card threshold is a salary for the card holder: it does not increase with family members."}}
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The Blue Card threshold is a salary for the card holder: it does not increase with family members."
+     }
+    }
    ],
-   "note": ["The same page sets €39,582 gross a year for the 'talent – qualified employee' card (master's degree obtained in France, innovative companies, intra-group mission): it is a different card, not the Blue Card."],
+   "note": [
+    "The same page sets €39,582 gross a year for the 'talent – qualified employee' card (master's degree obtained in France, innovative companies, intra-group mission): it is a different card, not the Blue Card."
+   ],
    "fonti": [
-    {"titolo": "Carte talent : carte de séjour pluriannuelle d'un étranger en France (verified 1 June 2026)", "editore": "Service-Public.fr (Direction de l'information légale et administrative)", "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F16922", "formato": "government page", "controllato_il": "2026-10-10", "http": 200, "nota": "Talent – carte bleue européenne: gross annual pay at least 1.5 times the reference average gross annual salary, i.e. €59,373.00."}
+    {
+     "titolo": "Carte talent : carte de séjour pluriannuelle d'un étranger en France (verified 1 June 2026)",
+     "editore": "Service-Public.fr (Direction de l'information légale et administrative)",
+     "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F16922",
+     "formato": "government page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "Talent – carte bleue européenne: gross annual pay at least 1.5 times the reference average gross annual salary, i.e. €59,373.00."
+    }
    ]
   },
   {
    "slug": "sweden-eu-blue-card",
-   "paese": "Sweden", "paese_slug": "sweden",
+   "paese": "Sweden",
+   "paese_slug": "sweden",
    "nome": "EU Blue Card",
    "nome_ufficiale": "EU-blåkort",
    "categoria": "work",
    "reddito": "Gross monthly salary in the job offer.",
    "descrizione": "Sweden's EU Blue Card for highly qualified employees.",
    "varianti": [
-    {"id": "std", "nome": "Standard threshold",
-     "base": {"valore": 53625, "valuta": "SEK", "periodo": "month", "etichetta": "1.25 × the average Swedish gross salary"}, "fattore": 1.0,
+    {
+     "id": "std",
+     "nome": "Standard threshold",
+     "base": {
+      "valore": 53625,
+      "valuta": "SEK",
+      "periodo": "month",
+      "etichetta": "1.25 × the average Swedish gross salary"
+     },
+     "fattore": 1.0,
      "regola": "1.25 times the average Swedish gross salary: SEK 53,625 a month since 15 July 2026.",
-     "famiglia": {"tipo": "nessuno", "motivo": "The Blue Card threshold is a salary for the card holder: it does not increase with family members."}}
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The Blue Card threshold is a salary for the card holder: it does not increase with family members."
+     }
+    }
    ],
-   "note": ["The Swedish Migration Agency updates the threshold every year from the National Mediation Office's average salary."],
+   "note": [
+    "The Swedish Migration Agency updates the threshold every year from the National Mediation Office's average salary."
+   ],
    "fonti": [
-    {"titolo": "EU Blue Cards", "editore": "Swedish Migration Agency (Migrationsverket)", "url": "https://www.migrationsverket.se/en/you-want-to-apply/work/employee-or-self-employed/eu-blue-cards.html", "formato": "immigration authority page", "controllato_il": "2026-10-10", "http": 200, "nota": "Since 15 July 2026, the salary threshold is SEK 53,625 per month (1.25 × the average gross salary)."}
-   ]
+    {
+     "titolo": "EU Blue Cards",
+     "editore": "Swedish Migration Agency (Migrationsverket)",
+     "url": "https://www.migrationsverket.se/en/you-want-to-apply/work/employee-or-self-employed/eu-blue-cards.html",
+     "formato": "immigration authority page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "Since 15 July 2026, the salary threshold is SEK 53,625 per month (1.25 × the average gross salary)."
+    }
+   ],
+   "confronto": "mese"
   },
   {
    "slug": "denmark-pay-limit-scheme",
-   "paese": "Denmark", "paese_slug": "denmark",
+   "paese": "Denmark",
+   "paese_slug": "denmark",
    "nome": "Pay Limit Scheme",
    "nome_ufficiale": "Beløbsordningen",
    "categoria": "work",
    "reddito": "Annual salary in the job offer (holiday allowance paid the following year does not count for the current year).",
    "descrizione": "Denmark's work and residence permit for jobs with a high salary.",
    "varianti": [
-    {"id": "std", "nome": "Standard threshold",
-     "base": {"valore": 552000, "valuta": "DKK", "periodo": "year", "etichetta": "minimum amount (2026 level)"}, "fattore": 1.0,
+    {
+     "id": "std",
+     "nome": "Standard threshold",
+     "base": {
+      "valore": 552000,
+      "valuta": "DKK",
+      "periodo": "year",
+      "etichetta": "minimum amount (2026 level)"
+     },
+     "fattore": 1.0,
      "regola": "Annual salary of at least DKK 552,000 (2026 level).",
-     "famiglia": {"tipo": "nessuno", "motivo": "The pay limit is a salary for the job holder: it does not increase with family members."}}
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The pay limit is a salary for the job holder: it does not increase with family members."
+     }
+    }
    ],
-   "note": ["The minimum amount is adjusted every 1 January."],
+   "note": [
+    "The minimum amount is adjusted every 1 January."
+   ],
    "fonti": [
-    {"titolo": "Pay Limit Scheme", "editore": "New to Denmark – Danish Agency for International Recruitment and Integration (SIRI)", "url": "https://www.nyidanmark.dk/en-GB/You-want-to-apply/Work/Pay-limit-scheme", "formato": "immigration authority page", "controllato_il": "2026-10-10", "http": 200, "nota": "The minimum amount is DKK 552,000 (2026 level), regulated every year on 1 January."}
+    {
+     "titolo": "Pay Limit Scheme",
+     "editore": "New to Denmark – Danish Agency for International Recruitment and Integration (SIRI)",
+     "url": "https://www.nyidanmark.dk/en-GB/You-want-to-apply/Work/Pay-limit-scheme",
+     "formato": "immigration authority page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "The minimum amount is DKK 552,000 (2026 level), regulated every year on 1 January."
+    }
    ]
   },
   {
    "slug": "ireland-critical-skills-employment-permit",
-   "paese": "Ireland", "paese_slug": "ireland",
+   "paese": "Ireland",
+   "paese_slug": "ireland",
    "nome": "Critical Skills Employment Permit",
    "nome_ufficiale": "Critical Skills Employment Permit",
    "categoria": "work",
    "reddito": "Annual remuneration in the job offer, excluding bonuses.",
    "descrizione": "Ireland's employment permit for highly skilled occupations.",
    "varianti": [
-    {"id": "list", "nome": "Occupations on the Critical Skills Occupations List",
-     "base": {"valore": 40904, "valuta": "EUR", "periodo": "year", "etichetta": "minimum annual remuneration"}, "fattore": 1.0,
+    {
+     "id": "list",
+     "nome": "Occupations on the Critical Skills Occupations List",
+     "base": {
+      "valore": 40904,
+      "valuta": "EUR",
+      "periodo": "year",
+      "etichetta": "minimum annual remuneration"
+     },
+     "fattore": 1.0,
      "regola": "At least €40,904 a year for occupations on the Critical Skills Occupations List (degree required).",
-     "famiglia": {"tipo": "nessuno", "motivo": "The threshold is a salary for the permit holder: it does not increase with family members."}},
-    {"id": "grad", "nome": "Critical skills occupation, qualified in the last 12 months",
-     "base": {"valore": 36848, "valuta": "EUR", "periodo": "year", "etichetta": "minimum annual remuneration"}, "fattore": 1.0,
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The threshold is a salary for the permit holder: it does not increase with family members."
+     }
+    },
+    {
+     "id": "grad",
+     "nome": "Critical skills occupation, qualified in the last 12 months",
+     "base": {
+      "valore": 36848,
+      "valuta": "EUR",
+      "periodo": "year",
+      "etichetta": "minimum annual remuneration"
+     },
+     "fattore": 1.0,
      "regola": "At least €36,848 a year if you obtained your qualification in the 12 months before the application.",
-     "famiglia": {"tipo": "nessuno", "motivo": "The threshold is a salary for the permit holder: it does not increase with family members."}},
-    {"id": "other", "nome": "Other eligible occupations",
-     "base": {"valore": 68911, "valuta": "EUR", "periodo": "year", "etichetta": "minimum annual remuneration"}, "fattore": 1.0,
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The threshold is a salary for the permit holder: it does not increase with family members."
+     }
+    },
+    {
+     "id": "other",
+     "nome": "Other eligible occupations",
+     "base": {
+      "valore": 68911,
+      "valuta": "EUR",
+      "periodo": "year",
+      "etichetta": "minimum annual remuneration"
+     },
+     "fattore": 1.0,
      "regola": "Over €68,911 a year for any occupation not on the Ineligible List.",
-     "famiglia": {"tipo": "nessuno", "motivo": "The threshold is a salary for the permit holder: it does not increase with family members."}}
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The threshold is a salary for the permit holder: it does not increase with family members."
+     }
+    }
    ],
-   "note": ["Ireland does not take part in the EU Blue Card; this permit is its closest equivalent."],
+   "note": [
+    "Ireland does not take part in the EU Blue Card; this permit is its closest equivalent."
+   ],
    "fonti": [
-    {"titolo": "Critical Skills Employment Permit", "editore": "Department of Enterprise, Tourism and Employment", "url": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/", "formato": "ministry page", "controllato_il": "2026-10-10", "http": 200, "nota": "€40,904 (Critical Skills Occupations List); €36,848 (qualified within 12 months); over €68,911 (other eligible occupations)."}
+    {
+     "titolo": "Critical Skills Employment Permit",
+     "editore": "Department of Enterprise, Tourism and Employment",
+     "url": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/",
+     "formato": "ministry page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "€40,904 (Critical Skills Occupations List); €36,848 (qualified within 12 months); over €68,911 (other eligible occupations)."
+    }
    ]
   },
   {
    "slug": "uk-skilled-worker-visa",
-   "paese": "United Kingdom", "paese_slug": "united-kingdom",
+   "paese": "United Kingdom",
+   "paese_slug": "united-kingdom",
    "nome": "Skilled Worker visa",
    "nome_ufficiale": "Skilled Worker visa",
    "categoria": "work",
    "reddito": "Gross annual salary from an approved UK sponsor.",
    "descrizione": "The UK's main work visa for jobs with an approved employer.",
    "varianti": [
-    {"id": "std", "nome": "Standard salary rate",
-     "base": {"valore": 41700, "valuta": "GBP", "periodo": "year", "etichetta": "standard salary rate"}, "fattore": 1.0,
-     "regola": "At least £41,700 a year, or the going rate for your occupation if higher.",
-     "famiglia": {"tipo": "nessuno", "motivo": "The salary rule is for the worker: it does not increase with family members (dependants have separate requirements)."}},
-    {"id": "lower", "nome": "Lower rate (when you can be paid less)",
-     "base": {"valore": 33400, "valuta": "GBP", "periodo": "year", "etichetta": "lower salary rate"}, "fattore": 1.0,
-     "regola": "At least £33,400 a year in the cases where GOV.UK says you can be paid less (outside healthcare and education).",
-     "famiglia": {"tipo": "nessuno", "motivo": "The salary rule is for the worker: it does not increase with family members (dependants have separate requirements)."}}
+    {
+     "id": "std",
+     "nome": "Standard salary rate",
+     "base": {
+      "valore": 41700,
+      "valuta": "GBP",
+      "periodo": "year",
+      "etichetta": "standard salary rate"
+     },
+     "fattore": 1.0,
+     "regola": "At least £41,700 a year, or the going rate for your occupation code if that is higher.",
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The salary rule is for the worker: it does not increase with family members (dependants have separate requirements)."
+     }
+    },
+    {
+     "id": "lower",
+     "nome": "Reduced rate: under 26, student or recent graduate, STEM PhD, postdoc, or immigration salary list job",
+     "base": {
+      "valore": 33400,
+      "valuta": "GBP",
+      "periodo": "year",
+      "etichetta": "salary floor"
+     },
+     "fattore": 1.0,
+     "regola": "At least £33,400 a year AND 70% to 90% of the going rate for your job (under 26, student or recent graduate, in professional training, relevant STEM PhD, postdoctoral position). For a job on the immigration salary list: at least £33,400 AND 100% of the going rate.",
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The salary rule is for the worker: it does not increase with family members (dependants have separate requirements)."
+     }
+    },
+    {
+     "id": "phd",
+     "nome": "Reduced rate: relevant PhD in a non-STEM subject",
+     "base": {
+      "valore": 37500,
+      "valuta": "GBP",
+      "periodo": "year",
+      "etichetta": "salary floor"
+     },
+     "fattore": 1.0,
+     "regola": "At least £37,500 a year AND 90% of the going rate for your job, with a relevant non-STEM PhD (or equivalent doctorate).",
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "The salary rule is for the worker: it does not increase with family members (dependants have separate requirements)."
+     }
+    }
    ],
-   "note": ["Each occupation code has its own going rate: if it is higher than £41,700, the going rate applies.", "Healthcare and education jobs follow national pay scales."],
+   "note": [
+    "£33,400 and £37,500 are floors, not the full test: the going-rate percentage for your occupation code must also be met.",
+    "Each occupation code has its own going rate: if it is higher than £41,700, the going rate applies.",
+    "Healthcare and education jobs, extensions and some switches follow different salary rules."
+   ],
    "fonti": [
-    {"titolo": "Skilled Worker visa: your job", "editore": "GOV.UK (Home Office)", "url": "https://www.gov.uk/skilled-worker-visa/your-job", "formato": "government page", "controllato_il": "2026-10-10", "http": 200, "nota": "Standard salary rate at least £41,700 per year or the going rate, whichever is higher; at least £33,400 when you can be paid less."}
-   ]
+    {
+     "titolo": "Skilled Worker visa: your job",
+     "editore": "GOV.UK (Home Office)",
+     "url": "https://www.gov.uk/skilled-worker-visa/your-job",
+     "formato": "government page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "Standard salary rate at least £41,700 per year or the going rate, whichever is higher."
+    },
+    {
+     "titolo": "Skilled Worker visa: when you can be paid less",
+     "editore": "GOV.UK (Home Office)",
+     "url": "https://www.gov.uk/skilled-worker-visa/when-you-can-be-paid-less",
+     "formato": "government page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "70%–90% of the standard going rate if the salary is at least £33,400 and you meet one of the criteria; non-STEM PhD: at least £37,500; immigration salary list: at least £33,400 and still at least the standard going rate."
+    }
+   ],
+   "esito": false,
+   "condizioni": "We do not give a yes/no for this visa. Besides the amount shown, your salary must meet the going rate for your occupation code (70–90% of it in the reduced cases, 100% for jobs on the immigration salary list) and your job must be an eligible occupation: check the going rates table on GOV.UK."
   },
   {
    "slug": "uk-spouse-visa",
-   "paese": "United Kingdom", "paese_slug": "united-kingdom",
+   "paese": "United Kingdom",
+   "paese_slug": "united-kingdom",
    "nome": "spouse / partner visa",
    "nome_ufficiale": "Family visa – partner or spouse",
    "categoria": "family",
    "reddito": "Combined income of you and your partner (savings can sometimes be used instead).",
    "descrizione": "The UK family visa for a partner or spouse of a British citizen or settled person.",
    "varianti": [
-    {"id": "std", "nome": "New application",
-     "base": {"valore": 29000, "valuta": "GBP", "periodo": "year", "etichetta": "minimum income requirement"}, "fattore": 1.0,
+    {
+     "id": "std",
+     "nome": "New application",
+     "base": {
+      "valore": 29000,
+      "valuta": "GBP",
+      "periodo": "year",
+      "etichetta": "minimum income requirement"
+     },
+     "fattore": 1.0,
      "regola": "Combined income of at least £29,000 a year.",
-     "famiglia": {"tipo": "nessuno", "motivo": "For new applications GOV.UK states one amount, £29,000, with no extra amount for children."}},
-    {"id": "legacy", "nome": "Extension, first applied as a partner before 11 April 2024",
-     "base": {"valore": 1, "valuta": "GBP", "periodo": "year", "etichetta": "pound"}, "fattore": 18600,
-     "regola": "Combined income of at least £18,600 a year, plus £3,800 for the first child and £2,400 for each further child who needs it; never more than £29,000 in total.",
-     "famiglia": {"tipo": "figli", "primo": 3800, "altri": 2400}, "tetto": 29000}
+     "famiglia": {
+      "tipo": "nessuno",
+      "motivo": "For new applications GOV.UK states one amount, £29,000, with no extra amount for children."
+     },
+     "etichetta_principale": "Couple (combined income)"
+    },
+    {
+     "id": "legacy",
+     "nome": "Extension, first applied as a partner before 11 April 2024",
+     "base": {
+      "valore": 1,
+      "valuta": "GBP",
+      "periodo": "year",
+      "etichetta": "pound"
+     },
+     "fattore": 18600,
+     "regola": "Combined income of you and your partner of at least £18,600 a year, plus £3,800 for the first child and £2,400 for each further child who needs it; never more than £29,000 in total.",
+     "famiglia": {
+      "tipo": "figli",
+      "primo": 3800,
+      "altri": 2400
+     },
+     "tetto": 29000,
+     "etichetta_principale": "Couple (combined income)"
+    }
    ],
-   "note": ["Children who are British or Irish citizens, or settled, do not need extra money.", "There is no income requirement if your partner receives certain disability or carer's benefits."],
+   "note": [
+    "Children who are British or Irish citizens, have pre-settled status or are permanently settled in the UK do not need extra money.",
+    "If your partner receives certain disability or carer's benefits there is no minimum income figure, but you must still show that you and your family have enough money to house and support yourselves without relying on additional public funds."
+   ],
    "fonti": [
-    {"titolo": "Family visas: apply, extend or switch – financial requirements if you're applying as a partner or spouse", "editore": "GOV.UK (Home Office)", "url": "https://www.gov.uk/uk-family-visa/proof-income-partner", "formato": "government page", "controllato_il": "2026-10-10", "http": 200, "nota": "Combined income at least £29,000 a year; extending (first applied before 11 April 2024): £18,600, plus £3,800 for the first child and £2,400 for each additional child, capped at £29,000."}
-   ]
+    {
+     "titolo": "Family visas: apply, extend or switch – financial requirements if you're applying as a partner or spouse",
+     "editore": "GOV.UK (Home Office)",
+     "url": "https://www.gov.uk/uk-family-visa/proof-income-partner",
+     "formato": "government page",
+     "controllato_il": "2026-10-10",
+     "http": 200,
+     "nota": "Combined income at least £29,000 a year; extending (first applied before 11 April 2024): £18,600, plus £3,800 for the first child and £2,400 for each additional child, capped at £29,000."
+    }
+   ],
+   "esito": false,
+   "condizioni": "We do not give a yes/no for this visa: the income of both partners can be combined, savings can sometimes count instead, and the evidence rules (Appendix FM) decide which income is accepted."
   }
  ]
 }
