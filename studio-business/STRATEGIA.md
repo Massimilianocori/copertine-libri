@@ -69,3 +69,6 @@ Fatto il 10/10/2026 con questa regola: guide gratuite su franchigie e regole deg
 - Google non indicizza nessuno dei tre siti entro il 24/11 → il canale "Google su pagine quotidiane" non funziona per noi: si ferma la catena e si riparte dallo studio (KDP/diritti d'autore resta l'unica alternativa automatica a costo zero).
 - Risposta fiscale "tutto commerciale, 3.000 €/anno da subito" → nessun ricavo attivato prima di 3.000 €/anno di run-rate; si continua a costruire la lista e il traffico.
 - Un partner paga ≥ 300 €/cliente con cifra scritta → "Retire / Move to Italy" passa davanti a tutto il resto.
+
+## 10. Cancello fiscale: decisione di Massimiliano (10/10/2026)
+Massimiliano: "se conviene la pago 4000" (contributi annui se la vendita diretta va in posizione commerciale). Regola scritta: prima la consulenza gratuita (può darsi che non serva pagare nulla in più); se serve la posizione commerciale, si apre solo quando i ricavi diretti attesi nei 12 mesi successivi superano **5.000 €** (4.000 di contributi + imposta e margine), misurati con dati veri (Search Console, iscritti, richieste business) oppure quando si compra un sito già avviato che da solo rende ≥ 5.000 €/anno. Prima verifica: 24/11/2026; seconda: marzo 2027.
