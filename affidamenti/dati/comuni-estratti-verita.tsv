@@ -1,0 +1,18 @@
+ordine	seme	istat	comune	prov	popolazione_1_1_2026	esito	motivo_o_fonte
+1	20261011	081006	Castelvetrano	TP	29357	USATO	https://castelvetrano.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/igrid/12992 (567 atti lug-ago, 235 con CIG)
+2	20261011	061078	San Nicola la Strada	CE	21842	saltato	trasparenza su servizi.comune.sannicolalastrada.ce.it/openweb/trasparenza/ -> HTTP 403
+3	20261011	082021	Carini	PA	41134	saltato	Provvedimenti dirigenti su carini.trasparenza-valutazione-merito.it (igrid/30969): 0 atti pubblicati
+4	20261011	061019	Casal di Principe	CE	22004	saltato	www.comune.casaldiprincipe.ce.it non raggiungibile (proxy: 502 su CONNECT)
+5	20261011	053009	Follonica	GR	20000	saltato	sezione Bandi di gara rimanda alla BDNCP; elenco determine su follonica.halleyweb.it: errore TLS dal server
+6	20261011	015002	Abbiategrasso	MI	32793	USATO	https://abbiategrasso.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/igrid/1221285 (206 atti, 57 con CIG)
+7	20261011	009002	Albenga	SV	23670	USATO	https://albenga.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/igrid/1234702 (784 atti, 202 con CIG)
+8	20261011	063016	Cardito	NA	21434	saltato	home www.comune.cardito.na.it: pagina di 177 byte (nessun contenuto)
+9	20261011	077021	Policoro	MT	17727	saltato	www.comune.policoro.mt.it non raggiungibile
+10	20261011	008055	Sanremo	IM	53157	saltato	link "Determinazioni" della sezione trasparenza -> HTTP 404
+11	20261011	001189	Pianezza	TO	15657	saltato	atti su pianezza.maggiolicloud.it caricati via JavaScript
+12	20261011	061075	San Felice a Cancello	CE	16810	saltato	home: pagina di 202 byte
+13	20261011	038007	Copparo	FE	15657	saltato	servizionline.comune.copparo.fe.it: certificato TLS non verificabile
+14	20261011	087051	Tremestieri Etneo	CT	19172	saltato	home HTTP 500
+15	20261011	023015	Bussolengo	VR	21037	USATO	https://bussolengo.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/igrid/44240 (104 atti, 34 con CIG)
+16	20261012	065099	Pontecagnano Faiano	SA	26334	USATO	https://pontecagnanofaiano.trasparenza-valutazione-merito.it/web/trasparenza/papca-p-pda/-/papca/igrid/1234288 (360 atti, 184 con CIG; allegati non scaricabili)
+17	20261012	001120	Grugliasco	TO	36410	riserva	usato solo nel campione largo (copertura-cig-determine.json): igrid/23106

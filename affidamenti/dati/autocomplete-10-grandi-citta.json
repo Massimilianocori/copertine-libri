@@ -1,0 +1,408 @@
+[
+ {
+  "comune": "Roma",
+  "query": [
+   {
+    "q": "affidamenti comune di roma",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "affidamento diretto comune di roma",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "appalti aggiudicati roma",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "gare aggiudicate comune di roma",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "fornitori comune di roma",
+    "proposte": [
+     "albo fornitori comune di roma",
+     "portale fornitori comune di roma",
+     "elenco fornitori comune di roma",
+     "iscrizione albo fornitori comune di roma",
+     "portale fornitori comune di fiano romano",
+     "albo fornitori comune di fiano romano",
+     "ater comune di roma albo fornitori"
+    ],
+    "classi": [
+     "albo fornitori",
+     "pertinente",
+     "albo fornitori",
+     "albo fornitori",
+     "pertinente",
+     "albo fornitori",
+     "albo fornitori"
+    ]
+   }
+  ]
+ },
+ {
+  "comune": "Milano",
+  "query": [
+   {
+    "q": "affidamenti comune di milano",
+    "proposte": [
+     "comune di milano affidamenti diretti"
+    ],
+    "classi": [
+     "pertinente"
+    ]
+   },
+   {
+    "q": "affidamento diretto comune di milano",
+    "proposte": [
+     "affidamento diretto comune di milano"
+    ],
+    "classi": [
+     "pertinente"
+    ]
+   },
+   {
+    "q": "appalti aggiudicati milano",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "gare aggiudicate comune di milano",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "fornitori comune di milano",
+    "proposte": [
+     "albo fornitori comune di milano",
+     "elenco fornitori comune di milano",
+     "iscrizione albo fornitori comune di milano"
+    ],
+    "classi": [
+     "albo fornitori",
+     "albo fornitori",
+     "albo fornitori"
+    ]
+   }
+  ]
+ },
+ {
+  "comune": "Napoli",
+  "query": [
+   {
+    "q": "affidamenti comune di napoli",
+    "proposte": [
+     "affidamenti comune di napoli",
+     "appalti e affidamenti comune di napoli"
+    ],
+    "classi": [
+     "pertinente",
+     "pertinente"
+    ]
+   },
+   {
+    "q": "affidamento diretto comune di napoli",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "appalti aggiudicati napoli",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "gare aggiudicate comune di napoli",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "fornitori comune di napoli",
+    "proposte": [
+     "albo fornitori comune di napoli",
+     "elenco fornitori comune di napoli",
+     "portale fornitori comune di napoli",
+     "iscrizione albo fornitori comune di napoli"
+    ],
+    "classi": [
+     "albo fornitori",
+     "albo fornitori",
+     "pertinente",
+     "albo fornitori"
+    ]
+   }
+  ]
+ },
+ {
+  "comune": "Torino",
+  "query": [
+   {
+    "q": "affidamenti comune di torino",
+    "proposte": [
+     "comune di torino affidamenti diretti"
+    ],
+    "classi": [
+     "pertinente"
+    ]
+   },
+   {
+    "q": "affidamento diretto comune di torino",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "appalti aggiudicati torino",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "gare aggiudicate comune di torino",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "fornitori comune di torino",
+    "proposte": [
+     "albo fornitori comune di torino",
+     "iscrizione albo fornitori comune di torino"
+    ],
+    "classi": [
+     "albo fornitori",
+     "albo fornitori"
+    ]
+   }
+  ]
+ },
+ {
+  "comune": "Palermo",
+  "query": [
+   {
+    "q": "affidamenti comune di palermo",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "affidamento diretto comune di palermo",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "appalti aggiudicati palermo",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "gare aggiudicate comune di palermo",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "fornitori comune di palermo",
+    "proposte": [
+     "albo fornitori comune di palermo"
+    ],
+    "classi": [
+     "albo fornitori"
+    ]
+   }
+  ]
+ },
+ {
+  "comune": "Genova",
+  "query": [
+   {
+    "q": "affidamenti comune di genova",
+    "proposte": [
+     "appalti e affidamenti comune di genova",
+     "comune di genova affidamenti in house"
+    ],
+    "classi": [
+     "pertinente",
+     "pertinente"
+    ]
+   },
+   {
+    "q": "affidamento diretto comune di genova",
+    "proposte": [
+     "affidamento diretto comune di genova"
+    ],
+    "classi": [
+     "pertinente"
+    ]
+   },
+   {
+    "q": "appalti aggiudicati genova",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "gare aggiudicate comune di genova",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "fornitori comune di genova",
+    "proposte": [
+     "albo fornitori comune di genova",
+     "iscrizione albo fornitori comune di genova",
+     "comune di genova portale fornitori"
+    ],
+    "classi": [
+     "albo fornitori",
+     "albo fornitori",
+     "pertinente"
+    ]
+   }
+  ]
+ },
+ {
+  "comune": "Bologna",
+  "query": [
+   {
+    "q": "affidamenti comune di bologna",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "affidamento diretto comune di bologna",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "appalti aggiudicati bologna",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "gare aggiudicate comune di bologna",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "fornitori comune di bologna",
+    "proposte": [
+     "albo fornitori comune di bologna",
+     "elenco fornitori comune di bologna"
+    ],
+    "classi": [
+     "albo fornitori",
+     "albo fornitori"
+    ]
+   }
+  ]
+ },
+ {
+  "comune": "Firenze",
+  "query": [
+   {
+    "q": "affidamenti comune di firenze",
+    "proposte": [
+     "affidamenti comune di firenze"
+    ],
+    "classi": [
+     "pertinente"
+    ]
+   },
+   {
+    "q": "affidamento diretto comune di firenze",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "appalti aggiudicati firenze",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "gare aggiudicate comune di firenze",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "fornitori comune di firenze",
+    "proposte": [
+     "albo fornitori comune di firenze"
+    ],
+    "classi": [
+     "albo fornitori"
+    ]
+   }
+  ]
+ },
+ {
+  "comune": "Bari",
+  "query": [
+   {
+    "q": "affidamenti comune di bari",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "affidamento diretto comune di bari",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "appalti aggiudicati bari",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "gare aggiudicate comune di bari",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "fornitori comune di bari",
+    "proposte": [
+     "albo fornitori comune di bari",
+     "elenco fornitori comune di bari",
+     "iscrizione albo fornitori comune di bari"
+    ],
+    "classi": [
+     "albo fornitori",
+     "albo fornitori",
+     "albo fornitori"
+    ]
+   }
+  ]
+ },
+ {
+  "comune": "Verona",
+  "query": [
+   {
+    "q": "affidamenti comune di verona",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "affidamento diretto comune di verona",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "appalti aggiudicati verona",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "gare aggiudicate comune di verona",
+    "proposte": [],
+    "classi": []
+   },
+   {
+    "q": "fornitori comune di verona",
+    "proposte": [
+     "albo fornitori comune di verona"
+    ],
+    "classi": [
+     "albo fornitori"
+    ]
+   }
+  ]
+ }
+]

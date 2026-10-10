@@ -1,0 +1,562 @@
+{
+ "data_verifica": "2026-10-10",
+ "metodo": "5 Comuni medi (15.000-60.000 ab., non capoluoghi) dall'estrazione casuale con seme 20261011 (+ supplementare 20261012), presi nell'ordine saltando quelli con sezione trasparenza non leggibile (motivi in comuni-estratti-verita.tsv). Per ente 4 determine di affidamento/aggiudicazione con CIG nell'oggetto, pubblicate 1/7-31/8/2026 in Amministrazione trasparente > Provvedimenti dirigenti, estratte con seme 20261010 (verita.py). Testo letto dal PDF della determina; confronto manuale. Fonte ANAC: delta CIG/aggiudicatari/aggiudicazioni 1/4-1/10/2026. Ritardo = giorni tra pubblicazione dell'atto e uscita (Last-Modified) del primo delta che contiene il dato.",
+ "riepilogo": {
+  "presenti": 9,
+  "su": 20,
+  "importo_corretto": [
+   4,
+   5
+  ],
+  "aggiudicatario_corretto": [
+   6,
+   9
+  ],
+  "oggetto_corretto": [
+   9,
+   9
+  ],
+  "ritardi_misurati": [
+   0,
+   6,
+   13,
+   19,
+   21,
+   22,
+   35,
+   61
+  ]
+ },
+ "controlli": [
+  {
+   "n": 1,
+   "ente": "Castelvetrano (TP)",
+   "cig": "BC6ED480C4",
+   "atto": {
+    "numero": "2026/1858",
+    "pubblicato_in_trasparenza": "2026-07-21",
+    "oggetto_sintesi": "Estate Selinuntina 2026: intrattenimento bambini con gonfiabili",
+    "aggiudicatario": "PRONTO EVENTO SRLS",
+    "importo": "1.629,00 + IVA",
+    "url": "https://castelvetrano.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/display/686289"
+   },
+   "anac": null,
+   "esito": {
+    "presente": false,
+    "importo_corretto": null,
+    "aggiudicatario_corretto": null,
+    "oggetto_corretto": null,
+    "ritardo_giorni": null,
+    "nota": "assente nei delta 1/4-1/10/2026"
+   }
+  },
+  {
+   "n": 2,
+   "ente": "Castelvetrano (TP)",
+   "cig": "BC5EEB9F3D",
+   "atto": {
+    "numero": "2026/1795",
+    "pubblicato_in_trasparenza": "2026-07-15",
+    "oggetto_sintesi": "Lavori per criticità allagamenti cimitero nuovissimo",
+    "aggiudicatario": "CENTRO SPURGHI GRUPPO GIANCONTIERI S.R.L.",
+    "importo": "8.499,00 (8.244 lavori + 255 oneri sicurezza)",
+    "url": "https://castelvetrano.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/display/683704"
+   },
+   "anac": {
+    "ente": "COMUNE DI CASTELVETRANO",
+    "tipo_scelta": "AFFIDAMENTO DIRETTO",
+    "importo_lotto": "8244.0",
+    "aggiudicatari": "CENTRO SPURGHI GRUPPO GIANCONTIERI S.R.L. (02588600813)",
+    "data_aggiudicazione": "2026-07-13",
+    "importo_aggiudicazione": "8244.0",
+    "data_pubblicazione_cig": "2026-07-14",
+    "primo_delta": "2026-08-01",
+    "uscita_primo_delta": "2026-08-06"
+   },
+   "esito": {
+    "presente": true,
+    "importo_corretto": true,
+    "aggiudicatario_corretto": true,
+    "oggetto_corretto": true,
+    "ritardo_giorni": 22,
+    "nota": "ANAC 8.244 = lavori al netto degli oneri di sicurezza (255): accettato"
+   }
+  },
+  {
+   "n": 3,
+   "ente": "Castelvetrano (TP)",
+   "cig": "BCB28F9B1B",
+   "atto": {
+    "numero": "2026/2059",
+    "pubblicato_in_trasparenza": "2026-08-14",
+    "oggetto_sintesi": "Notte Bianca del Mare 2026, affidamento diretto MePA",
+    "aggiudicatario": "PRO LOCO SELINUNTE DI CASTELVETRANO APS",
+    "importo": "5.999,00",
+    "url": "https://castelvetrano.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/display/754750"
+   },
+   "anac": {
+    "ente": "COMUNE DI CASTELVETRANO",
+    "tipo_scelta": "AFFIDAMENTO DIRETTO",
+    "importo_lotto": "5999.0",
+    "aggiudicatari": "PRO LOCO SELINUNTE DI CASTELVETRANO ETS (81002470813)",
+    "data_aggiudicazione": "2026-08-14",
+    "importo_aggiudicazione": "5999.0",
+    "data_pubblicazione_cig": "2026-08-13",
+    "primo_delta": "2026-09-01",
+    "uscita_primo_delta": "2026-09-02"
+   },
+   "esito": {
+    "presente": true,
+    "importo_corretto": true,
+    "aggiudicatario_corretto": true,
+    "oggetto_corretto": true,
+    "ritardo_giorni": 19,
+    "nota": ""
+   }
+  },
+  {
+   "n": 4,
+   "ente": "Castelvetrano (TP)",
+   "cig": "BCAE874CD8",
+   "atto": {
+    "numero": "2026/2096",
+    "pubblicato_in_trasparenza": "2026-08-20",
+    "oggetto_sintesi": "Conferimento e recupero rifiuti urbani non differenziati EER 200301",
+    "aggiudicatario": "SAM SISTEMI AMBIENTALI SRL",
+    "importo": "139.900,00 + IVA (300 euro/tonnellata)",
+    "url": "https://castelvetrano.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/display/756479"
+   },
+   "anac": {
+    "ente": "COMUNE DI CASTELVETRANO",
+    "tipo_scelta": "AFFIDAMENTO DIRETTO",
+    "importo_lotto": "300.0",
+    "aggiudicatari": "S.A.M.- SISTEMI AMBIENTALI S.R.L. (02090000841)",
+    "data_aggiudicazione": "2026-08-10",
+    "importo_aggiudicazione": "300.0",
+    "data_pubblicazione_cig": "2026-08-11",
+    "primo_delta": "2026-09-01",
+    "uscita_primo_delta": "2026-09-02"
+   },
+   "esito": {
+    "presente": true,
+    "importo_corretto": false,
+    "aggiudicatario_corretto": true,
+    "oggetto_corretto": true,
+    "ritardo_giorni": 13,
+    "nota": "ANAC riporta 300 euro (prezzo a tonnellata) come importo del lotto e dell aggiudicazione: errato, e il CIG finisce tra i sotto-5.000"
+   }
+  },
+  {
+   "n": 5,
+   "ente": "Abbiategrasso (MI)",
+   "cig": "BC2966987B",
+   "atto": {
+    "numero": "2026/648",
+    "pubblicato_in_trasparenza": "2026-07-02",
+    "oggetto_sintesi": "Servizi di architettura e ingegneria: ispezioni ponti piattaforma AINOP",
+    "aggiudicatario": "(società, nome nel documento)",
+    "importo": "4.900,00",
+    "url": "https://abbiategrasso.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/display/10381312"
+   },
+   "anac": null,
+   "esito": {
+    "presente": false,
+    "importo_corretto": null,
+    "aggiudicatario_corretto": null,
+    "oggetto_corretto": null,
+    "ritardo_giorni": null,
+    "nota": "assente"
+   }
+  },
+  {
+   "n": 6,
+   "ente": "Abbiategrasso (MI)",
+   "cig": "BC4FD72383",
+   "atto": {
+    "numero": "2026/776",
+    "pubblicato_in_trasparenza": "2026-07-28",
+    "oggetto_sintesi": "Trattativa diretta MePA: consulenza cittadini stranieri richiesta residenza",
+    "aggiudicatario": "(nel documento)",
+    "importo": "3.172,00 + IVA",
+    "url": "https://abbiategrasso.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/display/10428076"
+   },
+   "anac": null,
+   "esito": {
+    "presente": false,
+    "importo_corretto": null,
+    "aggiudicatario_corretto": null,
+    "oggetto_corretto": null,
+    "ritardo_giorni": null,
+    "nota": "assente"
+   }
+  },
+  {
+   "n": 7,
+   "ente": "Abbiategrasso (MI)",
+   "cig": "BC92DF975D",
+   "atto": {
+    "numero": "2026/805",
+    "pubblicato_in_trasparenza": "2026-08-03",
+    "oggetto_sintesi": "Certificati di firma digitale remota, affidamento diretto",
+    "aggiudicatario": "SI.RE. INFORMATICA S.R.L.",
+    "importo": "circa 440 + IVA (impegno 536,56)",
+    "url": "https://abbiategrasso.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/display/10442097"
+   },
+   "anac": null,
+   "esito": {
+    "presente": false,
+    "importo_corretto": null,
+    "aggiudicatario_corretto": null,
+    "oggetto_corretto": null,
+    "ritardo_giorni": null,
+    "nota": "assente"
+   }
+  },
+  {
+   "n": 8,
+   "ente": "Abbiategrasso (MI)",
+   "cig": "BC9DCDEB35",
+   "atto": {
+    "numero": "2026/843",
+    "pubblicato_in_trasparenza": "2026-08-07",
+    "oggetto_sintesi": "Elaborazione bilancio consolidato 2026-2030, affidamento diretto",
+    "aggiudicatario": "DIMENSIONEPA S.R.L.",
+    "importo": "34.200,00",
+    "url": "https://abbiategrasso.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/display/10454757"
+   },
+   "anac": null,
+   "esito": {
+    "presente": false,
+    "importo_corretto": null,
+    "aggiudicatario_corretto": null,
+    "oggetto_corretto": null,
+    "ritardo_giorni": null,
+    "nota": "assente"
+   }
+  },
+  {
+   "n": 9,
+   "ente": "Albenga (SV)",
+   "cig": "BC4E7AAA0B",
+   "atto": {
+    "numero": "2026/2178",
+    "pubblicato_in_trasparenza": "2026-07-15",
+    "oggetto_sintesi": "Miss Albenga Summer: service audio luci video",
+    "aggiudicatario": "[ditta individuale: nome omesso]",
+    "importo": "3.538,00 IVA inclusa",
+    "url": "https://albenga.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/display/10406673"
+   },
+   "anac": null,
+   "esito": {
+    "presente": false,
+    "importo_corretto": null,
+    "aggiudicatario_corretto": null,
+    "oggetto_corretto": null,
+    "ritardo_giorni": null,
+    "nota": "assente"
+   }
+  },
+  {
+   "n": 10,
+   "ente": "Albenga (SV)",
+   "cig": "BC0B45DC46",
+   "atto": {
+    "numero": "2026/2190",
+    "pubblicato_in_trasparenza": "2026-07-16",
+    "oggetto_sintesi": "Palio storico 2026: noleggio presidi antincendio",
+    "aggiudicatario": "[ditta individuale: nome omesso]",
+    "importo": "366,00 IVA inclusa",
+    "url": "https://albenga.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/display/10409248"
+   },
+   "anac": null,
+   "esito": {
+    "presente": false,
+    "importo_corretto": null,
+    "aggiudicatario_corretto": null,
+    "oggetto_corretto": null,
+    "ritardo_giorni": null,
+    "nota": "assente"
+   }
+  },
+  {
+   "n": 11,
+   "ente": "Albenga (SV)",
+   "cig": "BB28D21772",
+   "atto": {
+    "numero": "2026/2130",
+    "pubblicato_in_trasparenza": "2026-07-13",
+    "oggetto_sintesi": "Servizio integrativo trasporto disabili gen-giu 2026 [utente omesso]",
+    "aggiudicatario": "UNIONE SOLIDARIETA LIGURIA (U.S.L.T.)",
+    "importo": "3.675,00 esente IVA",
+    "url": "https://albenga.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/display/10409011"
+   },
+   "anac": null,
+   "esito": {
+    "presente": false,
+    "importo_corretto": null,
+    "aggiudicatario_corretto": null,
+    "oggetto_corretto": null,
+    "ritardo_giorni": null,
+    "nota": "assente; CIG generato circa ad aprile 2026, quindi atteso nei delta scaricati"
+   }
+  },
+  {
+   "n": 12,
+   "ente": "Albenga (SV)",
+   "cig": "BCA5F49B08",
+   "atto": {
+    "numero": "2026/2557",
+    "pubblicato_in_trasparenza": "2026-08-12",
+    "oggetto_sintesi": "Supporto logistico pedane, palchi e transenne per Fior d Albenga",
+    "aggiudicatario": "COOPERATIVA LAVORA CON NOI - WORK WITH US",
+    "importo": "9.188,00 + IVA",
+    "url": "https://albenga.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/display/10464939"
+   },
+   "anac": {
+    "ente": "COMUNE DI ALBENGA",
+    "tipo_scelta": "AFFIDAMENTO DIRETTO",
+    "importo_lotto": "9188.0",
+    "aggiudicatari": "COOPERATIVA WORK WITH US (01873130098)",
+    "data_aggiudicazione": "2026-08-06",
+    "importo_aggiudicazione": "9188.0",
+    "data_pubblicazione_cig": "2026-08-07",
+    "primo_delta": "2026-09-01",
+    "uscita_primo_delta": "2026-09-02"
+   },
+   "esito": {
+    "presente": true,
+    "importo_corretto": true,
+    "aggiudicatario_corretto": true,
+    "oggetto_corretto": true,
+    "ritardo_giorni": 21,
+    "nota": ""
+   }
+  },
+  {
+   "n": 13,
+   "ente": "Bussolengo (VR)",
+   "cig": "BC6B5063DB",
+   "atto": {
+    "numero": "ATTI INTERNI / DETERMINAZIONE",
+    "pubblicato_in_trasparenza": "2026-07-20",
+    "oggetto_sintesi": "Fornitura giubbottini antitaglio Polizia locale",
+    "aggiudicatario": "BARBAROSSA TACTICAL SRL",
+    "importo": "2.675,50 + IVA",
+    "url": "https://bussolengo.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/display/4740158"
+   },
+   "anac": null,
+   "esito": {
+    "presente": false,
+    "importo_corretto": null,
+    "aggiudicatario_corretto": null,
+    "oggetto_corretto": null,
+    "ritardo_giorni": null,
+    "nota": "assente; caso dubbio: il 7/10/2026 il Comune ha riaffidato la stessa fornitura con nuovo CIG BD3F9508B0, il CIG di luglio potrebbe essere stato annullato"
+   }
+  },
+  {
+   "n": 14,
+   "ente": "Bussolengo (VR)",
+   "cig": "BC41094B71",
+   "atto": {
+    "numero": "ATTI INTERNI / DETERMINAZIONE",
+    "pubblicato_in_trasparenza": "2026-07-28",
+    "oggetto_sintesi": "Porta campo da calcio: modifica contratto (+620 euro)",
+    "aggiudicatario": "[ditta individuale: nome omesso]",
+    "importo": "620,00 + IVA (contratto 3.424,80)",
+    "url": "https://bussolengo.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/display/4747426"
+   },
+   "anac": null,
+   "esito": {
+    "presente": false,
+    "importo_corretto": null,
+    "aggiudicatario_corretto": null,
+    "oggetto_corretto": null,
+    "ritardo_giorni": null,
+    "nota": "assente (CIG proprio della modifica)"
+   }
+  },
+  {
+   "n": 15,
+   "ente": "Bussolengo (VR)",
+   "cig": "B9428829E9",
+   "atto": {
+    "numero": "ATTI INTERNI / DETERMINAZIONE",
+    "pubblicato_in_trasparenza": "2026-08-18",
+    "oggetto_sintesi": "Controllo accessi isola ecologica: modifica contratto (+400 euro)",
+    "aggiudicatario": "NICOLIS IMPIANTI SRL",
+    "importo": "400,00 + IVA (modifica); originario non nel documento",
+    "url": "https://bussolengo.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/display/4765009"
+   },
+   "anac": {
+    "ente": "COMUNE DI BUSSOLENGO",
+    "tipo_scelta": "AFFIDAMENTO DIRETTO",
+    "importo_lotto": "20963.0",
+    "aggiudicatari": "",
+    "data_aggiudicazione": "",
+    "importo_aggiudicazione": "",
+    "data_pubblicazione_cig": "2025-12-01",
+    "primo_delta": "2026-04-01",
+    "uscita_primo_delta": "2026-04-02"
+   },
+   "esito": {
+    "presente": true,
+    "importo_corretto": null,
+    "aggiudicatario_corretto": false,
+    "oggetto_corretto": true,
+    "ritardo_giorni": null,
+    "nota": "presente come affidamento originario del 2025 (20.963 euro); aggiudicatario assente nei dati aperti; importo non verificabile sul documento; ritardo non misurabile (delta precedenti al 1/4 non più scaricabili)"
+   }
+  },
+  {
+   "n": 16,
+   "ente": "Bussolengo (VR)",
+   "cig": "BC158BB027",
+   "atto": {
+    "numero": "ATTI INTERNI / DETERMINAZIONE",
+    "pubblicato_in_trasparenza": "2026-07-31",
+    "oggetto_sintesi": "Lavori di riqualificazione strutturale strade comunali: aggiudicazione",
+    "aggiudicatario": "GIVANI SRL",
+    "importo": "481.841,75",
+    "url": "https://bussolengo.trasparenza-valutazione-merito.it/web/trasparenza/papca-p/-/papca/display/4751974"
+   },
+   "anac": {
+    "ente": "COMUNE DI BUSSOLENGO",
+    "tipo_scelta": "PROCEDURA NEGOZIATA SENZA PREVIA PUBBLICAZIONE",
+    "importo_lotto": "609952.46",
+    "aggiudicatari": "GIVANI S.R.L. (02897020232)",
+    "data_aggiudicazione": "2026-07-31",
+    "importo_aggiudicazione": "481841.75",
+    "data_pubblicazione_cig": "2026-06-18",
+    "primo_delta": "2026-07-01",
+    "uscita_primo_delta": "2026-07-08"
+   },
+   "esito": {
+    "presente": true,
+    "importo_corretto": true,
+    "aggiudicatario_corretto": true,
+    "oggetto_corretto": true,
+    "ritardo_giorni": 6,
+    "nota": "importo di aggiudicazione identico"
+   }
+  },
+  {
+   "n": 17,
+   "ente": "Pontecagnano Faiano (SA)",
+   "cig": "BAE37B5956",
+   "atto": {
+    "numero": "2026/1096",
+    "pubblicato_in_trasparenza": "2026-07-02",
+    "oggetto_sintesi": "Restauro ex convento di San Benedetto: aggiudicazione",
+    "aggiudicatario": "SAMOA RESTAURI SRL",
+    "importo": "non leggibile (download non abilitato)",
+    "url": "https://pontecagnanofaiano.trasparenza-valutazione-merito.it/web/trasparenza/papca-p-pda/-/papca/display/10379691"
+   },
+   "anac": {
+    "ente": "CENTRALE UNICA DI COMMITTENZA DELL'AREA SELE-PICENTINI",
+    "tipo_scelta": "PROCEDURA APERTA",
+    "importo_lotto": "341757.23",
+    "aggiudicatari": "SAMOA RESTAURI S.R.L. (04925950653)",
+    "data_aggiudicazione": "2026-06-30",
+    "importo_aggiudicazione": "326133.33",
+    "data_pubblicazione_cig": "2026-03-19",
+    "primo_delta": "2026-04-01",
+    "uscita_primo_delta": "2026-04-02"
+   },
+   "esito": {
+    "presente": true,
+    "importo_corretto": null,
+    "aggiudicatario_corretto": true,
+    "oggetto_corretto": true,
+    "ritardo_giorni": 35,
+    "nota": "ente in ANAC = Centrale unica di committenza Sele-Picentini (non il Comune); importo non verificabile"
+   }
+  },
+  {
+   "n": 18,
+   "ente": "Pontecagnano Faiano (SA)",
+   "cig": "BBF019E8BD",
+   "atto": {
+    "numero": "2026/1335",
+    "pubblicato_in_trasparenza": "2026-08-11",
+    "oggetto_sintesi": "Servizio tecnico PFTE delocalizzazione istituto Picentia: aggiudicazione",
+    "aggiudicatario": "non leggibile",
+    "importo": "non leggibile (download non abilitato)",
+    "url": "https://pontecagnanofaiano.trasparenza-valutazione-merito.it/web/trasparenza/papca-p-pda/-/papca/display/10459301"
+   },
+   "anac": {
+    "ente": "CENTRALE UNICA DI COMMITTENZA DELL'AREA SELE-PICENTINI",
+    "tipo_scelta": "PROCEDURA APERTA",
+    "importo_lotto": "232648.84",
+    "aggiudicatari": "",
+    "data_aggiudicazione": "",
+    "importo_aggiudicazione": "",
+    "data_pubblicazione_cig": "2026-06-09",
+    "primo_delta": "2026-07-01",
+    "uscita_primo_delta": "2026-07-08"
+   },
+   "esito": {
+    "presente": true,
+    "importo_corretto": null,
+    "aggiudicatario_corretto": false,
+    "oggetto_corretto": true,
+    "ritardo_giorni": 61,
+    "nota": "presente solo la gara (CUC); aggiudicazione e aggiudicatario assenti a 60 giorni"
+   }
+  },
+  {
+   "n": 19,
+   "ente": "Pontecagnano Faiano (SA)",
+   "cig": "BC1B001599",
+   "atto": {
+    "numero": "2026/1266",
+    "pubblicato_in_trasparenza": "2026-07-23",
+    "oggetto_sintesi": "Incarico di supporto al RUP: aggiudicazione",
+    "aggiudicatario": "non leggibile",
+    "importo": "non leggibile (download non abilitato)",
+    "url": "https://pontecagnanofaiano.trasparenza-valutazione-merito.it/web/trasparenza/papca-p-pda/-/papca/display/10421741"
+   },
+   "anac": null,
+   "esito": {
+    "presente": false,
+    "importo_corretto": null,
+    "aggiudicatario_corretto": null,
+    "oggetto_corretto": null,
+    "ritardo_giorni": null,
+    "nota": "assente"
+   }
+  },
+  {
+   "n": 20,
+   "ente": "Pontecagnano Faiano (SA)",
+   "cig": "BC1C192464",
+   "atto": {
+    "numero": "2026/1241",
+    "pubblicato_in_trasparenza": "2026-07-28",
+    "oggetto_sintesi": "Servizi di architettura e ingegneria PFTE, esecutivo, DL: aggiudicazione",
+    "aggiudicatario": "non leggibile",
+    "importo": "non leggibile (download non abilitato)",
+    "url": "https://pontecagnanofaiano.trasparenza-valutazione-merito.it/web/trasparenza/papca-p-pda/-/papca/display/10429353"
+   },
+   "anac": {
+    "ente": "COMUNE DI PONTECAGNANO FAIANO",
+    "tipo_scelta": "AFFIDAMENTO DIRETTO",
+    "importo_lotto": "79384.94",
+    "aggiudicatari": "",
+    "data_aggiudicazione": "2026-06-19",
+    "importo_aggiudicazione": "79384.94",
+    "data_pubblicazione_cig": "2026-06-22",
+    "primo_delta": "2026-07-01",
+    "uscita_primo_delta": "2026-07-08"
+   },
+   "esito": {
+    "presente": true,
+    "importo_corretto": null,
+    "aggiudicatario_corretto": false,
+    "oggetto_corretto": true,
+    "ritardo_giorni": 0,
+    "nota": "aggiudicazione presente (79.384,94) ma aggiudicatario assente: il CIG compare nel delta del 1/7, il cui file aggiudicatari è quasi vuoto"
+   }
+  }
+ ]
+}

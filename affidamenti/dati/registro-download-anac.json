@@ -1,0 +1,401 @@
+{
+ "user_agent": "ChiLavoraColComune-test/0.1 (test di fattibilita su dati aperti ANAC)",
+ "tentativi": [
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 137571247,
+   "content_type": "application/zip",
+   "secondi": 121.4,
+   "ok": true,
+   "quando_utc": "2026-10-10T07:12:13+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/aggiudicatari/filesystem/20261001-aggiudicatari_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 7872869,
+   "content_type": "application/zip",
+   "secondi": 7.9,
+   "ok": true,
+   "quando_utc": "2026-10-10T07:13:07+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "tentativo": 1,
+   "status": 403,
+   "byte": 312,
+   "content_type": "text/html; charset=UTF-8",
+   "secondi": 0.2,
+   "ok": false,
+   "quando_utc": "2026-10-10T07:13:23+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "tentativo": 2,
+   "status": 200,
+   "byte": 7807843,
+   "content_type": "application/zip",
+   "secondi": 8.3,
+   "ok": true,
+   "quando_utc": "2026-10-10T07:13:46+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/stazioni-appaltanti/filesystem/stazioni-appaltanti_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 3805650,
+   "content_type": "application/zip",
+   "secondi": 4.4,
+   "ok": true,
+   "quando_utc": "2026-10-10T07:14:05+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/aggiudicatari/filesystem/20260901-aggiudicatari_json.zip",
+   "tentativo": 1,
+   "status": 403,
+   "byte": 312,
+   "content_type": "text/html; charset=UTF-8",
+   "secondi": 0.3,
+   "ok": false,
+   "quando_utc": "2026-10-10T07:14:21+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/aggiudicatari/filesystem/20260901-aggiudicatari_json.zip",
+   "tentativo": 2,
+   "status": 200,
+   "byte": 4492828,
+   "content_type": "application/zip",
+   "secondi": 5.0,
+   "ok": true,
+   "quando_utc": "2026-10-10T07:14:41+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20260901-cig_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 41517234,
+   "content_type": "application/zip",
+   "secondi": 38.2,
+   "ok": true,
+   "quando_utc": "2026-10-10T07:15:34+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/aggiudicazioni/filesystem/20260901-aggiudicazioni_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 4429357,
+   "content_type": "application/zip",
+   "secondi": 4.9,
+   "ok": true,
+   "quando_utc": "2026-10-10T07:16:39+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20260801-cig_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 76725804,
+   "content_type": "application/zip",
+   "secondi": 65.7,
+   "ok": true,
+   "quando_utc": "2026-10-10T07:17:59+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/aggiudicatari/filesystem/20260801-aggiudicatari_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 6140938,
+   "content_type": "application/zip",
+   "secondi": 6.6,
+   "ok": true,
+   "quando_utc": "2026-10-10T07:18:21+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/aggiudicazioni/filesystem/20260801-aggiudicazioni_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 7433056,
+   "content_type": "application/zip",
+   "secondi": 8.1,
+   "ok": true,
+   "quando_utc": "2026-10-10T07:18:44+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20260701-cig_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 57947861,
+   "content_type": "application/zip",
+   "secondi": 51.3,
+   "ok": true,
+   "quando_utc": "2026-10-10T07:19:50+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/aggiudicatari/filesystem/20260701-aggiudicatari_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 63113,
+   "content_type": "application/zip",
+   "secondi": 1.1,
+   "ok": true,
+   "quando_utc": "2026-10-10T07:20:07+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/aggiudicazioni/filesystem/20260701-aggiudicazioni_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 6489095,
+   "content_type": "application/zip",
+   "secondi": 7.1,
+   "ok": true,
+   "quando_utc": "2026-10-10T07:20:29+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/cig-2025/filesystem/cig_json_2025_06.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 28882206,
+   "content_type": "application/zip",
+   "secondi": 26.0,
+   "ok": true,
+   "quando_utc": "2026-10-10T07:31:10+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20260201-cig_json.zip",
+   "tentativo": 1,
+   "status": 404,
+   "byte": 74,
+   "content_type": "text/html; charset=UTF-8",
+   "secondi": 0.8,
+   "ok": false,
+   "quando_utc": "2026-10-10T07:31:36+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20260201-cig_json.zip",
+   "tentativo": 2,
+   "status": 404,
+   "byte": 74,
+   "content_type": "text/html; charset=UTF-8",
+   "secondi": 0.5,
+   "ok": false,
+   "quando_utc": "2026-10-10T07:31:51+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20260201-cig_json.zip",
+   "tentativo": 3,
+   "status": 404,
+   "byte": 74,
+   "content_type": "text/html; charset=UTF-8",
+   "secondi": 0.5,
+   "ok": false,
+   "quando_utc": "2026-10-10T07:32:37+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20260201-cig_json.zip",
+   "tentativo": 4,
+   "status": 403,
+   "byte": 312,
+   "content_type": "text/html; charset=UTF-8",
+   "secondi": 0.3,
+   "ok": false,
+   "quando_utc": "2026-10-10T07:34:37+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20260401-cig_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 108938230,
+   "content_type": "application/zip",
+   "secondi": 96.0,
+   "ok": true,
+   "quando_utc": "2026-10-10T07:36:44+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20260501-cig_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 310535634,
+   "content_type": "application/zip",
+   "secondi": 271.6,
+   "ok": true,
+   "quando_utc": "2026-10-10T07:41:31+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20260601-cig_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 107849902,
+   "content_type": "application/zip",
+   "secondi": 92.9,
+   "ok": true,
+   "quando_utc": "2026-10-10T07:43:19+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/smartcig/filesystem/20261001-smartcig_json.zip",
+   "tentativo": 1,
+   "status": 404,
+   "byte": 74,
+   "content_type": "text/html; charset=UTF-8",
+   "secondi": 0.8,
+   "ok": false,
+   "quando_utc": "2026-10-10T07:46:53+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/smartcig/filesystem/20261001-smartcig_json.zip",
+   "tentativo": 2,
+   "status": 404,
+   "byte": 74,
+   "content_type": "text/html; charset=UTF-8",
+   "secondi": 0.8,
+   "ok": false,
+   "quando_utc": "2026-10-10T07:47:08+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/smartcig/filesystem/20261001-smartcig_json.zip",
+   "tentativo": 3,
+   "status": 404,
+   "byte": 74,
+   "content_type": "text/html; charset=UTF-8",
+   "secondi": 1.2,
+   "ok": false,
+   "quando_utc": "2026-10-10T07:47:55+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/smartcig/filesystem/20261001-smartcig_json.zip",
+   "tentativo": 4,
+   "status": 404,
+   "byte": 74,
+   "content_type": "text/html; charset=UTF-8",
+   "secondi": 0.8,
+   "ok": false,
+   "quando_utc": "2026-10-10T07:49:55+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/smartcig/filesystem/20261001-smartcig_json.zip",
+   "tentativo": 5,
+   "status": 404,
+   "byte": 74,
+   "content_type": "text/html; charset=UTF-8",
+   "secondi": 1.0,
+   "ok": false,
+   "quando_utc": "2026-10-10T07:54:56+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/smartcig/filesystem/20260901-smartcig_json.zip",
+   "tentativo": 1,
+   "status": 403,
+   "byte": 312,
+   "content_type": "text/html; charset=UTF-8",
+   "secondi": 0.5,
+   "ok": false,
+   "quando_utc": "2026-10-10T07:55:12+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/smartcig/filesystem/20260901-smartcig_json.zip",
+   "tentativo": 2,
+   "status": 404,
+   "byte": 74,
+   "content_type": "text/html; charset=UTF-8",
+   "secondi": 0.8,
+   "ok": false,
+   "quando_utc": "2026-10-10T07:55:28+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/smartcig/filesystem/20260901-smartcig_json.zip",
+   "tentativo": 3,
+   "status": 404,
+   "byte": 74,
+   "content_type": "text/html; charset=UTF-8",
+   "secondi": 0.9,
+   "ok": false,
+   "quando_utc": "2026-10-10T07:56:14+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/aggiudicatari/filesystem/20260401-aggiudicatari_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 49912,
+   "content_type": "application/zip",
+   "secondi": 2.0,
+   "ok": true,
+   "quando_utc": "2026-10-10T08:00:05+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/aggiudicatari/filesystem/20260501-aggiudicatari_json.zip",
+   "tentativo": 1,
+   "status": 403,
+   "byte": 310,
+   "content_type": "text/html; charset=UTF-8",
+   "secondi": 0.6,
+   "ok": false,
+   "quando_utc": "2026-10-10T08:00:18+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/aggiudicatari/filesystem/20260501-aggiudicatari_json.zip",
+   "tentativo": 2,
+   "status": 200,
+   "byte": 7154817,
+   "content_type": "application/zip",
+   "secondi": 7.6,
+   "ok": true,
+   "quando_utc": "2026-10-10T08:00:40+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/aggiudicatari/filesystem/20260601-aggiudicatari_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 9626801,
+   "content_type": "application/zip",
+   "secondi": 9.4,
+   "ok": true,
+   "quando_utc": "2026-10-10T08:01:02+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/aggiudicazioni/filesystem/20260401-aggiudicazioni_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 14169851,
+   "content_type": "application/zip",
+   "secondi": 14.5,
+   "ok": true,
+   "quando_utc": "2026-10-10T08:01:28+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/aggiudicazioni/filesystem/20260501-aggiudicazioni_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 7277120,
+   "content_type": "application/zip",
+   "secondi": 8.0,
+   "ok": true,
+   "quando_utc": "2026-10-10T08:01:48+00:00"
+  },
+  {
+   "url": "https://dati.anticorruzione.it/opendata/download/dataset/aggiudicazioni/filesystem/20260601-aggiudicazioni_json.zip",
+   "tentativo": 1,
+   "status": 200,
+   "byte": 12762027,
+   "content_type": "application/zip",
+   "secondi": 12.5,
+   "ok": true,
+   "quando_utc": "2026-10-10T08:02:13+00:00"
+  }
+ ],
+ "last_modified_delta": [
+  "cig 20260401 last-modified: Thu, 02 Apr 2026 09:20:29 GMT",
+  "aggiudicatari 20260401 last-modified: Thu, 02 Apr 2026 09:23:38 GMT",
+  "cig 20260501 last-modified: Fri, 22 May 2026 12:50:49 GMT",
+  "aggiudicatari 20260501 last-modified: Fri, 22 May 2026 12:51:43 GMT",
+  "cig 20260601 last-modified: Thu, 11 Jun 2026 11:06:37 GMT",
+  "aggiudicatari 20260601 last-modified: Thu, 11 Jun 2026 11:07:56 GMT",
+  "cig 20260701 last-modified: Wed, 08 Jul 2026 13:52:51 GMT",
+  "aggiudicatari 20260701 last-modified: Wed, 08 Jul 2026 13:54:20 GMT",
+  "cig 20260801 last-modified: Thu, 06 Aug 2026 08:09:55 GMT",
+  "aggiudicatari 20260801 last-modified: Thu, 06 Aug 2026 08:11:17 GMT",
+  "cig 20260901 last-modified: Wed, 02 Sep 2026 11:04:35 GMT",
+  "aggiudicatari 20260901 last-modified: Wed, 02 Sep 2026 11:05:50 GMT",
+  "cig 20261001 last-modified: Mon, 05 Oct 2026 09:12:17 GMT",
+  "aggiudicatari 20261001 last-modified: Mon, 05 Oct 2026 09:14:00 GMT"
+ ]
+}

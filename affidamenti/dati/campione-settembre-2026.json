@@ -1,0 +1,559 @@
+{
+ "nota": "Campione casuale (seme 20261010) di 40 CIG di Comuni pubblicati a settembre 2026 con aggiudicatario; tenuti solo quelli con aggiudicatari società/enti con forma giuridica (esclusi nomi di persona e ditte individuali, ed esclusi i casi con il Comune stesso come aggiudicatario). Licenza dati ANAC: CC BY-SA 4.0.",
+ "record": [
+  {
+   "cig": "BCF9BF34E4",
+   "data_pubblicazione": "2026-09-16",
+   "importo_lotto": 6269.0,
+   "ente": "COMUNE DI TRECATE",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "FORNITURA E POSA DI CANCELLO IN FERRO A DUE ANTE PRESSO IL CAMPO DA CALCIO DI VIA INCASATE",
+   "aggiudicatari": [
+    {
+     "denominazione": "CARPENTERIA PICIACCIA S.R.L.",
+     "codice_fiscale": "02095180036"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-15",
+    6269.0,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BCEB136E91",
+   "data_pubblicazione": "2026-09-10",
+   "importo_lotto": 11375.0,
+   "ente": "COMUNE DI SALERNO",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "FORNITURA DI MATERIALE PER ILLUMINAZIONE (LAMPADARI COMPLETI) DA INSTALLARE A PALAZZO DI CITTÀ.",
+   "aggiudicatari": [
+    {
+     "denominazione": "ELECTRA - SPA",
+     "codice_fiscale": "03380570659"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-09",
+    11375.0,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BD2640D9F4",
+   "data_pubblicazione": "2026-09-30",
+   "importo_lotto": 5247.0,
+   "ente": "COMUNE DI MARMORA",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "MANUTENZIONE STRAORDINARIA PER SISTEMAZIONE STRADE COMUNALI",
+   "aggiudicatari": [
+    {
+     "denominazione": "CEAGLIO S.A.S. DI CEAGLIO GIACOMO & C.",
+     "codice_fiscale": "03710170048"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-29",
+    5247.0,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BCD3937670",
+   "data_pubblicazione": "2026-09-01",
+   "importo_lotto": 115000.0,
+   "ente": "COMUNE BARISCIANO",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "FORNITURA DI ENERGIA ELETTRICA CONSIP EE23 NOVEMBRE 2026 - OTTOBRE 2027",
+   "aggiudicatari": [
+    {
+     "denominazione": "A2A ENERGIA S.P.A.",
+     "codice_fiscale": "12883420155"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-01",
+    115000.0,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BCEE38B79D",
+   "data_pubblicazione": "2026-09-11",
+   "importo_lotto": 6330.0,
+   "ente": "COMUNE DI CURNO",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "FORNITURA UPGRADE PIATTAFORMA DIGITALE COMUNALE DIGITAL CITY, ACCESSIBILITA' PER ALLINEAMENTO NORMATIVO E MODULO MY ROL RESERVATION ONLINE",
+   "aggiudicatari": [
+    {
+     "denominazione": "PROXIMA LAB S.R.L.",
+     "codice_fiscale": "03424200164"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-11",
+    6330.0,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BCF73846F9",
+   "data_pubblicazione": "2026-09-15",
+   "importo_lotto": 67550.0,
+   "ente": "COMUNE DI GROTTAFERRATA - POSIZIONE MECCANOGRAFICA NON ISCRIVIBI LE",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "LAVORI DI RIDISTRIBUZIONE INTERNA E RIFUNZIONALIZZAZIONE DELL'EX AULA DEL CONSIGLIO COMUNALE PER LA REALIZZAZIONE DELLA SALA D'ATTESA, DELL'UFFICIO PROTOCOLLO E DELL'UFFICIO MESSI",
+   "aggiudicatari": [
+    {
+     "denominazione": "PRIMEDIL - SOCIETA' A REPONSABILITA' LIMITATA",
+     "codice_fiscale": "05973141004"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-14",
+    67550.0,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BD00E8F905",
+   "data_pubblicazione": "2026-09-18",
+   "importo_lotto": 5000.0,
+   "ente": "COMUNE DI VERBANIA",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "ACQUISTO MATERIALE BIBLIOGRAFICO",
+   "aggiudicatari": [
+    {
+     "denominazione": "TOPIPITTORI S.R.L.",
+     "codice_fiscale": "10844161215"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-16",
+    5000.0,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BCF6CC01B0",
+   "data_pubblicazione": "2026-09-17",
+   "importo_lotto": 32450.0,
+   "ente": "COMUNE DI GONZAGA",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "LAVORI DI RIFACIMENTO DI PARTE DELLA SEGNALETICA ORIZZONTALE DELLE STRADE COMUNALI DI GONZAGA",
+   "aggiudicatari": [
+    {
+     "denominazione": "P & M SRL",
+     "codice_fiscale": "02734160209"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-14",
+    32450.0,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BCFAB151D2",
+   "data_pubblicazione": "2026-09-16",
+   "importo_lotto": 10500.0,
+   "ente": "COMUNE DI MONTORFANO",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "RILEVAZIONE STRAORDINARIA PATRIMONIO IMMOBILIARE DELL'ENTE, GESTIONE DEL PATRIMONIO E REDAZIONE STATO PATRIMONIALE SEMPLIFICATO",
+   "aggiudicatari": [
+    {
+     "denominazione": "HALLEY LOMBARDIA S.R.L.",
+     "codice_fiscale": "01343230130"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-15",
+    10500.0,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BCEDD643E3",
+   "data_pubblicazione": "2026-09-11",
+   "importo_lotto": 136588.32,
+   "ente": "COMUNE DI MASSA LUBRENSE",
+   "tipo_scelta": "PROCEDURA NEGOZIATA SENZA PREVIA PUBBLICAZIONE",
+   "oggetto": "TRASPORTO SCUOLABUS",
+   "aggiudicatari": [
+    {
+     "denominazione": "ANGELINO S.P.A.",
+     "codice_fiscale": "01383160635"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-10",
+    136588.32,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BD2175BF75",
+   "data_pubblicazione": "2026-09-29",
+   "importo_lotto": 23041.3,
+   "ente": "COMUNE DI PRIMIERO SAN MARTINO DI CASTROZZA",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "LAVORI DI ADEGUAMENTO IMPIANTO DI ASPORTO LETAME NELLO STALLONE DI MALGA VALLAZZA C.C. TONADICO II",
+   "aggiudicatari": [
+    {
+     "denominazione": "IMPRESA EDILE F.LLI BRUNET DI BRUNET EUGENIO & C. S.N.C.",
+     "codice_fiscale": "01517750228"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-28",
+    23041.3,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BCE3BAF201",
+   "data_pubblicazione": "2026-09-07",
+   "importo_lotto": 101049.62,
+   "ente": "COMUNE DI GENOVA",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "AFFIDAMENTO EX ARTICOLO 59, COMMA 3, D.LGS. 36/2023 DEL SERVIZIO DENOMINATO CENTRO SERVIZI PER LA FAMIGLIA (CSF) PER IL LOTTO 9 - PER IL PERIODO FINO AL 30 NOVEMBRE 2026 - CIG ORIGINARIO: B29741D63B",
+   "aggiudicatari": [
+    {
+     "denominazione": "LA COMUNITA' - SOCIETA'  COOPERATIVA SOCIALE - ONLUS",
+     "codice_fiscale": "01124610104"
+    },
+    {
+     "denominazione": "SOCIETA' COOPERATIVA SOCIALE S.A.B.A. ONLUS",
+     "codice_fiscale": "01062310105"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-07",
+    101049.62,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BCE2C6326B",
+   "data_pubblicazione": "2026-09-28",
+   "importo_lotto": 49779.48,
+   "ente": "COMUNE DI VALFORNACE",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "AFFIDAMENTO DIRETTO AI SENSI DELL'ARTICOLO 50, COMMA 1, LETT. A), DEL D.LGS. N. 36/2023 E SMI, DEI LAVORI INERENTIALL'INTERVENTO DENOMINATO: SISTEMAZIONE DEL PIANO VIABILRE CON CONGLOMERATO BITUMINOSO IN LOC. CASTELLO DI FIORDIMONTE. CUP: C77H26000530004",
+   "aggiudicatari": [
+    {
+     "denominazione": "PORFIRI ASFALTI S.R.L.",
+     "codice_fiscale": "02114180439"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-04",
+    49779.48,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BCFF9CF96B",
+   "data_pubblicazione": "2026-09-17",
+   "importo_lotto": 6970.0,
+   "ente": "COMUNE DI FOIANO VALFORTORE",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "PUBBLICAZIONE SU DUE QUOTIDIANI DELL'AVVISO DI AVVIO PROCEDIMENTO ESPROPRIATIVO: RESTAURO E RISANAMENTO CONSERVATIVO DEL BORGO SAN PIETRO – VARIANTE IN CORSO D'OPERA",
+   "aggiudicatari": [
+    {
+     "denominazione": "LEXMEDIA GROUP S.R.L.",
+     "codice_fiscale": "18315441008"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-16",
+    6970.0,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BD084A6C6D",
+   "data_pubblicazione": "2026-09-21",
+   "importo_lotto": 7891.0,
+   "ente": "COMUNE DI PENNADOMO",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "ASSISTENZA SOFTWARE - ANNO 2026",
+   "aggiudicatari": [
+    {
+     "denominazione": "HALLEY INFORMATICA S.R.L.",
+     "codice_fiscale": "00384350435"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-18",
+    7891.0,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "B9B14FBABB",
+   "data_pubblicazione": "2026-09-07",
+   "importo_lotto": 11402.62,
+   "ente": "COMUNE DI MONZA",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "FORNITURA LIBRI BIBLIOTECHE CIVICA CEDERNA RAGAZZI",
+   "aggiudicatari": [
+    {
+     "denominazione": "LIBRI E LIBRI SRL",
+     "codice_fiscale": "01812090122"
+    }
+   ],
+   "aggiudicazione": [
+    "2025-12-18",
+    11402.62,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BD18CF1668",
+   "data_pubblicazione": "2026-09-25",
+   "importo_lotto": 1053615.15,
+   "ente": "COMUNE DI REGGIO CALABRIA",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO A SOCIETA' IN HOUSE",
+   "oggetto": "AFFIDAMENTO IN HOUSE PROVIDING ALLA SOCIETA' CASTORE SPL S.R.L. DEI SERVIZI DI GLOBAL SERVICE DEL COMUNE DI REGGIO CALABRIA",
+   "aggiudicatari": [
+    {
+     "denominazione": "CASTORE S.P.L. S.R.L.",
+     "codice_fiscale": "02897680803"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-07-20",
+    1053615.15,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BD116074E0",
+   "data_pubblicazione": "2026-09-23",
+   "importo_lotto": 11200.0,
+   "ente": "COMUNE DI SANT EUSANIO DEL SANGRO",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "RINNOVO POLIZZA ASSICURATIVA RCT/RCO ALLIANZ PER LA DURATA DI ANNI DUE.",
+   "aggiudicatari": [
+    {
+     "denominazione": "ASSIGEM S.R.L.",
+     "codice_fiscale": "03404540712"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-22",
+    11200.0,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BCF2D178F8",
+   "data_pubblicazione": "2026-09-14",
+   "importo_lotto": 16000.08,
+   "ente": "COMUNE DI CASTEGGIO",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "LAVORI DI MANUTENZIONE STRAORDINARIA STRADALI – VIA PERTINI – VIA CIRENAICA",
+   "aggiudicatari": [
+    {
+     "denominazione": "M2 SCAVI S.R.L.",
+     "codice_fiscale": "02737180188"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-11",
+    16000.08,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BCF6E9116B",
+   "data_pubblicazione": "2026-09-15",
+   "importo_lotto": 57295.08,
+   "ente": "COMUNE DI CEREGNANO",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "ACQUISTO AUTOMEZZO ALLESTITO PER IL TRASPORTO SOCIALE E SCOLASTICO PROTETTO",
+   "aggiudicatari": [
+    {
+     "denominazione": "OLMEDO SPECIAL VEHICLES  S.P.A.",
+     "codice_fiscale": "02062440355"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-14",
+    57295.08,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BD06A38CF2",
+   "data_pubblicazione": "2026-09-21",
+   "importo_lotto": 27720.0,
+   "ente": "COMUNE DI LUOGOSANTO",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "SERVIZIO MENSA SCOLASTICA COMUNE DI LUOGOSANTO A.S. 2026/2027 ",
+   "aggiudicatari": [
+    {
+     "denominazione": "SOLARIA SOCIETA' COOPERATIVA",
+     "codice_fiscale": "01325720900"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-18",
+    27720.0,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BD1E70D2BA",
+   "data_pubblicazione": "2026-09-25",
+   "importo_lotto": 30000.0,
+   "ente": "COMUNE DI MONTE SAN SAVINO",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "FORNITURA DI GAS NATURALE PER L'ANNO TERMICO 2026-27 AVVALENDOSI DELLA CENTRALE DI COMMITTENZA C.E.T. - SOCIETÀ CONSORTILE ENERGIA TOSCANA S.C.A.R.L. – PALAZZO COMUNALE, MAGAZZINO COMUNALE E LOGGE DEI MERCANTI",
+   "aggiudicatari": [
+    {
+     "denominazione": "ESTRA ENERGIE S.R.L.",
+     "codice_fiscale": "01219980529"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-25",
+    30000.0,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BCE348F0CB",
+   "data_pubblicazione": "2026-09-07",
+   "importo_lotto": 1000.0,
+   "ente": "COMUNE DI BITONTO",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "ENERGIA ELETTRICA ID 2880 - NUOVE ATTIVAZIONI 3-2026",
+   "aggiudicatari": [
+    {
+     "denominazione": "MAGIS ENERGIA S.P.A.",
+     "codice_fiscale": "02968430237"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-07",
+    1000.0,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BCE61828A9",
+   "data_pubblicazione": "2026-09-08",
+   "importo_lotto": 55558.56,
+   "ente": "COMUNE DI PESCARA",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "MANUTENZIONE DEL VERDE ORIZZONTALE - ANNUALITÀ 2026 - ACCORDO QUADRO - ORDINE DI SERVIZIO N.2",
+   "aggiudicatari": [
+    {
+     "denominazione": "PESCARA MULTISERVICE S.R.L.",
+     "codice_fiscale": "01927750685"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-04",
+    55558.56,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  },
+  {
+   "cig": "BCF918BE7A",
+   "data_pubblicazione": "2026-09-16",
+   "importo_lotto": 19371.22,
+   "ente": "COMUNE DI CORNEDO VICENTINO",
+   "tipo_scelta": "AFFIDAMENTO DIRETTO",
+   "oggetto": "CLASSIFICAZIONE E GESTIONE RISCHIO VALUTAZIONE DELLA SICUREZZA E MONITORAGGIO PONTI ESISTENTI IN COMUNE DI CORNEDO VICENTINO",
+   "aggiudicatari": [
+    {
+     "denominazione": "ALESSIO PIPINATO & PARTNERS ARCHITECTURAL ENGINEERING S.R.L. UNIP ERSONALE",
+     "codice_fiscale": "01506760295"
+    }
+   ],
+   "aggiudicazione": [
+    "2026-09-15",
+    19371.22,
+    "AGGIUDICATA",
+    "2026-10-01"
+   ],
+   "fonte": "https://dati.anticorruzione.it/opendata/download/dataset/cig/filesystem/20261001-cig_json.zip + .../aggiudicatari/filesystem/20261001-aggiudicatari_json.zip + .../aggiudicazioni/filesystem/20261001-aggiudicazioni_json.zip",
+   "data_verifica": "2026-10-10"
+  }
+ ]
+}
