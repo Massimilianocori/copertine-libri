@@ -50,7 +50,33 @@ MES = [m[:3] for m in MESI]
 GG = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 GIORNI = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
-scioperi = json.loads((DATI / "scioperi.json").read_text(encoding="utf-8"))
+# Il registro a volte contiene caratteri Windows-1252 decodificati male (es. U+0092 al posto dell'apostrofo, "L\x92ASSISTENZA"):
+# si normalizzano alla lettura, così non arrivano né alle pagine né a vista.json né ai calendari.
+C1_SOST = {"\x91": "'", "\x92": "'", "\x93": '"', "\x94": '"', "\x96": "–", "\x97": "—", "\x85": "…", "\xa0": " "}
+
+
+def _c1(m):
+    ch = m.group()
+    if ch in C1_SOST:
+        return C1_SOST[ch]
+    try:
+        return bytes([ord(ch)]).decode("cp1252")
+    except (UnicodeDecodeError, ValueError):
+        return ""
+
+
+def pulisci(x):
+    """Toglie i caratteri di controllo C1 (U+0080–U+009F) da tutte le stringhe, anche annidate."""
+    if isinstance(x, str):
+        return re.sub(r"[\x80-\x9f\xa0]", _c1, x)
+    if isinstance(x, list):
+        return [pulisci(y) for y in x]
+    if isinstance(x, dict):
+        return {k: pulisci(v) for k, v in x.items()}
+    return x
+
+
+scioperi = pulisci(json.loads((DATI / "scioperi.json").read_text(encoding="utf-8")))
 registro = json.loads((DATI / "registro.json").read_text(encoding="utf-8"))
 luoghi = json.loads((DATI / "luoghi.json").read_text(encoding="utf-8"))
 operatori = json.loads((DATI / "operatori.json").read_text(encoding="utf-8"))
@@ -114,6 +140,11 @@ ICONE = {
     "book": '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
     "calendar": '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
     "bell": '<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/>',
+    "menu": '<path d="M4 7h16M4 12h16M4 17h16"/>',
+    "heart": '<path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/>',
+    "route": '<circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/>',
+    "phone": '<rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/>',
+    "arrow": '<path d="M5 12h14M13 6l6 6-6 6"/>',
 }
 SETT_ICONA = {"general-strikes": "megaphone", "trains": "train", "flights": "plane", "local-transport": "bus", "ferries": "ship",
               "taxis": "car", "motorways": "road", "freight": "truck"}  # l'ordine decide l'icona di uno sciopero con più settori
@@ -146,14 +177,23 @@ FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox
            "width='4.2' height='15' rx='1.7' fill='white'/%3E%3C/svg%3E")
 
 
-def barra(home, marchio_testo, voci, lingua_html, salta):
-    """Testata comune (inglese e italiano): marchio, menu che scorre in orizzontale su mobile, cambio lingua."""
+def barra(home, marchio_testo, voci, lingua_html, salta, apri_menu="Open the menu"):
+    """Testata comune (inglese e italiano): marchio, menu in riga su desktop, pulsante Menu (details, senza JS) su mobile,
+    cambio lingua. Stesso schema degli altri siti di viaggio."""
     menu = "".join(f'<a href="{h}"{" aria-current=" + chr(34) + "page" + chr(34) if c else ""}>{escape(t)}</a>'
                    for h, t, c in voci)
     return (f'<a class="salta" href="#main">{salta}</a>'
             f'<header class="top"><div class="wrap barra">'
             f'<a class="logo" href="{home}">{MARCHIO}<span class="nome">{marchio_testo}</span></a>'
-            f'<nav class="menu" aria-label="Menu">{menu}</nav>{lingua_html}</div></header>')
+            f'<nav class="menu" aria-label="Menu">{menu}</nav>{lingua_html}'
+            f'<details class="nav-m"><summary aria-label="{apri_menu}">{svg("menu")}<span>Menu</span></summary>'
+            f'<nav aria-label="Menu">{menu}</nav></details></div></header>')
+
+
+def link_lingua(href, hreflang, nome, sigla):
+    """Pulsante di cambio lingua: nome intero su desktop, sigla su mobile (per lasciare spazio al pulsante Menu)."""
+    return (f'<a class="lingua" href="{href}" hreflang="{hreflang}" lang="{hreflang}" aria-label="{nome}">{svg("globe")}'
+            f'<span class="l-l">{nome}</span><span class="l-c" aria-hidden="true">{sigla}</span></a>')
 
 
 def L(chiave):
@@ -401,6 +441,14 @@ def leggi(s):
     if "CARGO" in s["categoria"].upper():
         nota_it.append("Riguarda un operatore di trasporto merci.")
     stato = s["stato"]
+    # "Chi" in parole semplici quando il registro non nomina un'azienda nota (il testo originale resta nel riquadro chiuso)
+    if sett == "Generale":
+        chi_gen, chi_gen_it = "Workers in public and private sectors", "Lavoratori dei settori pubblici e privati"
+    elif sett == "Plurisettoriale":
+        chi_gen, chi_gen_it = "Workers in several sectors", "Lavoratori di più settori"
+    else:
+        chi_gen = f"Staff of a {SETTORE_EN.get(sett, sett.lower())} company"
+        chi_gen_it = f"Personale di un'azienda del settore {SETT_TIT_IT.get(sett, sett.lower())}"
     return {
         "id": s["id"], "inizio": s["inizio"], "fine": s["fine"], "stato": stato,
         "titolo": titolo, "settori": settori, "citta": citta, "aeroporti": apt, "ambito": ambito, "dove": dove,
@@ -409,7 +457,7 @@ def leggi(s):
         "note": s["note"], "nota_en": " ".join(nota_en), "proclamazione": s["proclamazione"],
         "rimosso_il": s.get("rimosso_il", ""), "regione": reg, "provincia": prov,
         "titolo_it": titolo_it, "dove_it": dove_it, "chi_it": chi_it, "nota_it": " ".join(nota_it),
-        "ore_it": ore_leggibili(s["modalita"]), "citta_it": citta_it,
+        "ore_it": ore_leggibili(s["modalita"]), "citta_it": citta_it, "chi_gen": chi_gen, "chi_gen_it": chi_gen_it,
     }
 
 
@@ -579,7 +627,7 @@ header.top :focus-visible,.hero :focus-visible,.briciole :focus-visible,footer :
 .wrap{max-width:1000px;margin:0 auto;padding:0 16px}
 /* testata */
 header.top{background:var(--band);color:var(--band-ink);border-bottom:1px solid var(--band-line)}
-.barra{display:flex;align-items:center;gap:18px;min-height:64px}
+.barra{position:relative;display:flex;align-items:center;gap:18px;min-height:64px}
 .logo{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:1.08rem;color:var(--band-ink);text-decoration:none;letter-spacing:-.015em;white-space:nowrap}
 .logo .marchio{width:30px;height:30px;flex:none;border-radius:9px;box-shadow:0 2px 8px rgba(210,58,47,.35)}
 .logo em{font-style:normal;color:var(--band-accent)}
@@ -590,6 +638,16 @@ nav.menu a:hover{color:var(--band-ink);background:rgba(255,255,255,.08)}
 nav.menu a[aria-current="page"]{color:var(--band-ink);background:rgba(255,255,255,.14)}
 .lingua{flex:none;display:inline-flex;align-items:center;gap:6px;color:var(--band-ink);text-decoration:none;font-size:.86rem;font-weight:650;border:1px solid var(--band-line);padding:6px 12px;border-radius:999px;transition:background-color .15s ease}
 .lingua:hover{background:rgba(255,255,255,.08)}
+.lingua .l-c{display:none}
+.nav-m{display:none}
+.nav-m summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:7px;font-weight:650;font-size:.92rem;padding:8px 13px;border:1px solid var(--band-line);border-radius:999px;color:var(--band-ink);min-height:44px;transition:background-color .15s ease}
+.nav-m summary::-webkit-details-marker{display:none}
+.nav-m summary:hover,.nav-m[open] summary{background:rgba(255,255,255,.1)}
+.nav-m summary .i{width:18px;height:18px}
+.nav-m nav{position:absolute;left:12px;right:12px;top:calc(100% + 2px);z-index:30;display:grid;gap:2px;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-2);padding:8px}
+.nav-m nav a{display:flex;align-items:center;min-height:46px;padding:10px 14px;border-radius:10px;color:var(--ink);text-decoration:none;font-weight:620}
+.nav-m nav a:hover{background:var(--mute)}
+.nav-m nav a[aria-current="page"]{background:var(--accent-2);color:var(--accent)}
 /* fascia scura: briciole + titolo */
 .briciole,.hero{background:var(--band);box-shadow:0 0 0 100vmax var(--band);clip-path:inset(0 -100vmax)}
 .briciole{margin:0;padding:16px 0 0;font-size:.84rem;color:var(--band-2)}
@@ -619,7 +677,7 @@ h3{font-size:1.08rem;margin:24px 0 10px;font-weight:720}
 .hero .fresco .src .i{color:var(--band-ok)}
 .hero .fresco strong{color:var(--band-ink)}
 /* riquadri oggi / domani / settimana */
-.riquadri{position:relative;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:12px;margin:0 0 22px}
+.riquadri{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 22px}
 @supports selector(:has(+ *)){.hero + .riquadri{margin-top:-46px}}
 .riq{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 16px;text-decoration:none;color:var(--ink);min-width:0;overflow:hidden;box-shadow:var(--shadow-2);transition:transform .18s ease,box-shadow .18s ease}
 .riq::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--ok)}
@@ -630,7 +688,6 @@ h3{font-size:1.08rem;margin:24px 0 10px;font-weight:720}
 .riq .ind .i{width:14px;height:14px}
 .riq.si .ind{background:var(--accent-2);color:var(--accent)}
 .riq .n{font-size:2.5rem;font-weight:800;line-height:1.05;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--ok);margin:10px 0 2px}
-.riq:first-child .n{font-size:3.1rem}
 .riq.si .n{color:var(--accent)}
 .riq .s{font-weight:700;font-size:.95rem;color:var(--ok)}
 .riq.si .s{color:var(--accent)}
@@ -667,6 +724,45 @@ h3{font-size:1.08rem;margin:24px 0 10px;font-weight:720}
 .badge.oggi{background:var(--accent);color:var(--on-accent)}
 .badge.oggi::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
 .fonte{font-size:.8rem;color:var(--ink-3);margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);line-height:1.5}
+.reg{margin:10px 0 0}
+.reg summary{display:inline-flex;align-items:center;gap:6px;min-height:32px;cursor:pointer;list-style:none;font-size:.84rem;font-weight:620;color:var(--ink-3);border-radius:8px}
+.reg summary::-webkit-details-marker{display:none}
+.reg summary::before{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);margin:0 3px 0 1px;transition:transform .15s ease}
+.reg[open] summary::before{transform:rotate(45deg)}
+.reg summary:hover{color:var(--ink)}
+.reg dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 12px;margin:6px 0 0;padding:10px 12px;background:var(--mute);border-radius:10px;font-size:.8rem;line-height:1.45;color:var(--ink-2)}
+.reg dt{font-weight:700;color:var(--ink-3)}
+.reg dd{margin:0}
+/* elenco per giorno */
+.giorni{display:grid;gap:0}
+.giorno{display:grid;gap:12px;margin:0 0 18px}
+.gh{position:sticky;top:0;z-index:3;display:flex;align-items:baseline;gap:10px;margin:0 -4px;padding:10px 4px 8px;background:var(--bg);font-size:1rem;font-weight:760;letter-spacing:-.01em;border-bottom:1px solid var(--line)}
+.gh .gr{color:var(--accent);text-transform:uppercase;font-size:.76rem;letter-spacing:.08em;font-weight:800}
+.gh .gn{margin-left:auto;font-size:.82rem;font-weight:600;color:var(--ink-3)}
+.g-vuoto{display:flex;align-items:center;gap:10px;margin:0;padding:12px 16px;border-radius:12px;background:var(--ok-2);border:1px solid var(--ok-3);color:var(--ink);font-size:.93rem}
+.g-vuoto .i{color:var(--ok);width:20px;height:20px}
+.altri{margin:4px 0 0}
+.altri>summary{display:flex;align-items:center;justify-content:center;gap:8px;list-style:none;cursor:pointer;min-height:48px;padding:10px 18px;border:1px solid var(--line-2);border-radius:12px;background:var(--card);font-weight:680;color:var(--ink);box-shadow:var(--shadow);transition:border-color .15s ease}
+.altri>summary::-webkit-details-marker{display:none}
+.altri>summary:hover{border-color:var(--ink-3)}
+.altri>summary::after{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);margin-left:4px}
+.altri[open]>summary{margin-bottom:18px}
+.altri[open]>summary::after{transform:rotate(-135deg)}
+/* riquadro affiliati */
+.aff{margin:30px 0 0;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)}
+.aff-t{display:flex;align-items:center;gap:10px;margin:0 0 12px}
+.aff-t h2{margin:0;font-size:1.12rem}
+.aff-tag{margin-left:auto;font-size:.7rem;font-weight:750;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);border:1px solid var(--line-2);border-radius:999px;padding:2px 9px}
+.aff ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.aff li{display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:center;gap:14px;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
+.aff .gi{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:var(--accent-2);color:var(--accent)}
+.aff .gi .i{width:21px;height:21px}
+.aff strong{display:block;font-size:1rem;line-height:1.3}
+.aff li span.tx{display:block;font-size:.88rem;color:var(--ink-2);line-height:1.45}
+.aff .btn{display:inline-flex;align-items:center;gap:6px;text-decoration:none;white-space:nowrap;font-size:.92rem;padding:10px 16px}
+.aff .btn .i{width:16px;height:16px}
+.aff .nota{margin:10px 0 0;font-size:.8rem;color:var(--ink-3);line-height:1.5}
+.aff .guida{margin:0 0 10px}
 .fonte a{color:var(--ink-3)}
 /* filtri */
 .filtri{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 16px}
@@ -689,8 +785,8 @@ table{border-collapse:collapse;font-size:.95rem}
 th,td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
 th{font-weight:700}
 tr:first-child th{background:var(--mute)}
-details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:8px 0}
-details summary{cursor:pointer;font-weight:650}
+details:not([class]){background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:8px 0}
+details:not([class]) summary{cursor:pointer;font-weight:650}
 /* moduli */
 .form{display:grid;gap:14px}
 .form label{display:grid;gap:5px;font-weight:600;font-size:.95rem}
@@ -724,10 +820,14 @@ footer .logo{margin-bottom:12px}
 .piede-agg{margin:20px 0 0;padding-top:16px;border-top:1px solid var(--band-line);font-size:.82rem}
 @media (max-width:760px){
 body{font-size:16.5px}
-.barra{flex-wrap:wrap;gap:0 12px;min-height:0;padding-top:12px}
-.logo{order:1;padding:2px 0}
-.lingua{order:2;margin-left:auto}
-nav.menu{order:3;flex:0 0 calc(100% + 32px);margin:8px -16px 0;padding:0 10px 10px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent)}
+.barra{gap:8px;min-height:62px}
+.logo{font-size:1rem;gap:9px}
+.logo .marchio{width:28px;height:28px}
+nav.menu{display:none}
+.nav-m{display:block}
+.lingua{margin-left:auto;min-height:44px;padding:6px 11px}
+.lingua .l-l{display:none}
+.lingua .l-c{display:inline}
 .hero{padding:20px 0 28px}
 .hero:has(+ .riquadri){padding-bottom:62px}
 .riquadri{grid-template-columns:1fr 1fr;gap:10px}
@@ -735,18 +835,26 @@ nav.menu{order:3;flex:0 0 calc(100% + 32px);margin:8px -16px 0;padding:0 10px 10
 .riq:first-child{grid-column:1/-1}
 .riq .n{font-size:2.1rem}
 .riq:first-child .n{font-size:2.7rem}
+.riq .t-x{display:none}
+.aff li{grid-template-columns:42px minmax(0,1fr)}
+.aff li .btn{grid-column:1/-1;justify-content:center}
 .sc{grid-template-columns:40px minmax(0,1fr);gap:0 12px;padding:16px}
 .sc .ico{grid-row:auto;width:40px;height:40px;border-radius:12px}
 .sc .ico .i{width:21px;height:21px}
 .sc .quando{flex-direction:column;gap:1px;align-self:center}
 .sc .cosa{grid-column:1/-1;margin-top:12px}
-.filtri{flex-wrap:nowrap;overflow-x:auto;margin:6px -16px 16px;padding:2px 16px;scrollbar-width:none}
+.filtri{flex-wrap:nowrap;overflow-x:auto;margin:6px -16px 16px;padding:2px 16px;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent)}
 .filtri::-webkit-scrollbar{display:none}
 .griglia{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
 .form .due-campi{grid-template-columns:1fr}
 .piede-top{grid-template-columns:1fr;gap:20px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 """.replace("__M_INFO__", _maschera("info")).replace("__M_CHECK__", _maschera("check-circle")).replace("__M_PIN__", _maschera("pin"))
+
+# Testi dell'elenco per giorno (home): uguali in Python (html_giorni) e nel JS (giorni); genera_it.py li sostituisce con TX_IT.
+TX_EN = {"today": "Today", "tomorrow": "Tomorrow", "none_today": "No strikes listed today",
+         "none_tomorrow": "No strikes listed tomorrow", "none_week": "No other strikes listed in the next 7 days",
+         "more1": "Show 1 more strike", "more": "Show {n} more strikes", "until": " · up to ", "s1": "1 strike", "sn": "{n} strikes"}
 
 JS = r"""
 (function(){
@@ -774,7 +882,7 @@ JS = r"""
     if(n==='upcoming')return[OGGI,'2100-01-01'];
     if(n.indexOf('month:')===0){var p=n.slice(6).split('-');var y=+p[0],m=+p[1];var f=new Date(Date.UTC(y,m,0));return[n.slice(6)+'-01',iso(f)];}
     return[OGGI,OGGI];}
-  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function esc(s){return String(s==null?'':s).replace(/[\u0091\u0092]/g,"'").replace(/[\u0093\u0094]/g,'"').replace(/\u0096/g,'\u2013').replace(/\u0097/g,'\u2014').replace(/[\u0080-\u009f]/g,'').replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function filtra(dati,n,f){var r=fin(n),da=r[0],a=r[1],out=[];
     dati.forEach(function(v){
       if(v.fine<da||v.inizio>a)return;
@@ -797,18 +905,34 @@ JS = r"""
     if(fin_||v.stato==='concluso')b+='<span class="badge">Ended</span>';
     var h='<article class="sc'+(v.ambito==='national'?' naz':'')+(oggi&&!off?' ora':'')+(off||fin_||v.stato==='concluso'?' off':'')+'" id="s'+v.id+'">'+ico(v)+'<div class="quando">'+esc(interv(v.inizio,v.fine))+'<small>'+esc(v.dove)+'</small></div><div class="cosa">'+b;
     h+='<div class="tit">'+esc(v.titolo)+'</div>';
-    h+='<div class="dett"><b>Hours:</b> '+(v.ore_en?esc(v.ore_en)+' <span class="it">(register: '+esc(v.ore)+')</span>':'<span lang="it">'+esc(v.ore)+'</span>')+'</div>';
-    h+='<div class="dett"><b>Who:</b> '+(v.chi?esc(v.chi)+' <span class="it" lang="it">('+esc(v.categoria)+')</span>':'<span lang="it">'+esc(v.categoria)+'</span>')+'</div>';
+    h+='<div class="dett"><b>Hours:</b> '+(v.ore_en?esc(v.ore_en):'<span lang="it">'+esc(v.ore_it||v.ore)+'</span>')+'</div>';
+    h+='<div class="dett"><b>Who:</b> '+esc(v.chi||v.chi_gen||v.categoria)+'</div>';
     if(v.nota_en)h+='<div class="dett">'+esc(v.nota_en)+'</div>';
-    if(v.note)h+='<div class="dett"><b>Register note:</b> <span lang="it">'+esc(v.note)+'</span></div>';
     if(v.stato==='rimosso dal registro')h+='<div class="dett">No longer listed in the official register as of '+esc(breve(v.rimosso_il))+' (likely called off): check with the operator.</div>';
+    h+='<details class="reg"><summary>Official wording (Italian)</summary><dl><dt>Hours</dt><dd lang="it">'+esc(v.ore)+'</dd><dt>Who</dt><dd lang="it">'+esc(v.categoria)+'</dd>'+(v.note?'<dt>Note</dt><dd lang="it">'+esc(v.note)+'</dd>':'')+'</dl></details>';
     h+='<div class="fonte">Unions: '+esc(v.sindacati)+' · announced '+esc(breve(v.proclamazione))+' · <a href="'+'URL_REG'+'" rel="noopener">official register (MIT id '+esc(v.id)+')</a></div>';
     return h+'</div></article>';}
   function vuoto(n){var r=fin(n);var w={'today':'today ('+breve(r[0])+')','tomorrow':'tomorrow ('+breve(r[0])+')','thisweek':'for the rest of this week','nextweek':'next week ('+interv(r[0],r[1])+')'}[n]||'in this period';
     return '<div class="vuoto"><strong>No strikes listed '+w+'</strong> in the official register for this selection. Strikes must be announced at least 10 days ahead, but check again before you travel.</div>';}
+  var TX=__TX__, OKI=__OKI__;
+  function gtxt(k){var b=breve(k);return b.slice(0,b.lastIndexOf(' '));}
+  function quando(s){var m=/^(\d{4}-\d\d-\d\d) (\d\d:\d\d)/.exec(s||'');if(!m)return s;return gtxt(m[1])+', '+m[2];}
+  function giorni(lista,n,vis,aperto){
+    if(!lista.length)return vuoto(n);
+    var dom=add(OGGI,1),lim=add(OGGI,vis-1),gr={},ord=[OGGI,dom],su='',giu='',nGiu=0,ult='',altri=false;
+    lista.forEach(function(v){var k=v.inizio>OGGI?v.inizio:OGGI;if(!gr[k]){gr[k]=[];if(ord.indexOf(k)<0)ord.push(k);}gr[k].push(v);});
+    ord.sort().forEach(function(k){var l=gr[k]||[];
+      var h='<section class="giorno"><h3 class="gh">'+(k===OGGI?'<span class="gr">'+TX.today+'</span>':k===dom?'<span class="gr">'+TX.tomorrow+'</span>':'')+esc(gtxt(k))
+        +(l.length?'<span class="gn">'+(l.length===1?TX.s1:TX.sn.replace('{n}',l.length))+'</span>':'')+'</h3>'
+        +(l.length?l.map(scheda).join(''):'<p class="g-vuoto">'+OKI+(k===OGGI?TX.none_today:TX.none_tomorrow)+'</p>')+'</section>';
+      if(k<=lim){su+=h;if(k>dom)altri=true;}else{giu+=h;nGiu+=l.length;ult=k;}});
+    if(!altri)su+='<p class="g-vuoto g-sett">'+OKI+TX.none_week+'</p>';
+    if(nGiu)su+='<details class="altri"'+(aperto?' open':'')+'><summary>'+(nGiu===1?TX.more1:TX.more.replace('{n}',nGiu))+TX.until+esc(gtxt(ult))+'</summary>'+giu+'</details>';
+    return su;}
   function disegna(dati){
     document.querySelectorAll('[data-finestra]').forEach(function(el){
       var lista=filtra(dati,el.dataset.finestra,el.dataset.filtro||'all');
+      if(el.dataset.gruppi){el.innerHTML=giorni(lista,el.dataset.finestra,+el.dataset.gruppi,!!el.querySelector('details.altri[open]'));return;}
       var max=+(el.dataset.max||0);if(max&&lista.length>max)lista=lista.slice(0,max);
       el.innerHTML=lista.length?lista.map(scheda).join(''):vuoto(el.dataset.finestra);});
     document.querySelectorAll('[data-conta]').forEach(function(el){
@@ -820,7 +944,7 @@ JS = r"""
     var D=JSON.parse(nodo.textContent);disegna(D.scioperi);
     if(window.fetch){fetch('URL_LIVE',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(L){
       if(L&&L.scioperi&&L.letto_il>D.letto_il){disegna(L.scioperi);
-        document.querySelectorAll('[data-letto]').forEach(function(e){e.textContent=L.letto_il+' (Italy time)';});
+        document.querySelectorAll('[data-letto]').forEach(function(e){e.textContent=quando(L.letto_il)+' (Italy time)';});
         document.querySelectorAll('[data-reg]').forEach(function(e){e.textContent=breve(L.registro_aggiornato_al);});}
     }).catch(function(){});}
   }
@@ -841,9 +965,14 @@ JS = r"""
       .then(function(r){if(!r.ok)throw new Error(r.status);form.hidden=true;form.parentNode.querySelector('[data-ok]').hidden=false;})
       .catch(function(){err.hidden=false;bt.disabled=false;});});});
   document.querySelectorAll('input[type=date][data-min-oggi]').forEach(function(i){i.min=OGGI;});
+  document.addEventListener('click',function(e){document.querySelectorAll('details.nav-m[open]').forEach(function(m){
+    if(!m.contains(e.target)||(e.target.closest&&e.target.closest('nav a')))m.removeAttribute('open');});});
+  document.addEventListener('keydown',function(e){if(e.key!=='Escape')return;document.querySelectorAll('details.nav-m[open]').forEach(function(m){
+    m.removeAttribute('open');m.querySelector('summary').focus();});});
 })();
 """.replace("URL_LIVE", URL_DATI_LIVE).replace("'URL_REG'", "'" + URL_REGISTRO + "'").replace(
-    "__ICONE__", json.dumps({**{k: svg(n) for k, n in SETT_ICONA.items()}, "altro": svg("alert")}, ensure_ascii=False))
+    "__ICONE__", json.dumps({**{k: svg(n) for k, n in SETT_ICONA.items()}, "altro": svg("alert")}, ensure_ascii=False)).replace(
+    "__TX__", json.dumps(TX_EN, ensure_ascii=False)).replace("__OKI__", json.dumps(svg("check-circle")))
 
 # Il JS ridisegna con i dati più recenti; per i filtri tiene l'ultima versione in window.__D
 JS = JS.replace("disegna(L.scioperi);", "window.__D=L.scioperi;disegna(L.scioperi);")
@@ -891,7 +1020,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
     if guida_in_vendita():
         voci_menu.append(("guide/italy-by-train/", "PDF guide"))
     menu = [(rel + h, t, h != "#cities" and (percorso == h or (h in ("airports/", "guides/") and percorso.startswith(h)))) for h, t in voci_menu]
-    lingua = (f'<a class="lingua" href="{rel}{alt_it}" hreflang="it" lang="it">{svg("globe")}Italiano</a>' if alt_it is not None else "")
+    lingua = link_lingua(f"{rel}{alt_it}", "it", "Italiano", "IT") if alt_it is not None else ""
     testata = barra(rel, "Italy Strikes <em>Today</em>", menu, lingua, "Skip to content")
     testo = f"""<!DOCTYPE html>
 <html lang="en">
@@ -936,7 +1065,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
 <li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li></ul></nav>
 </div>
 <p class="piede-avviso"><strong>Strikes can be called off or changed at short notice. Always check with your train operator, airline or local transport company before travelling.</strong> Nothing on this site is legal advice.</p>
-<p class="piede-agg">Official register last updated: <span data-reg>{data_breve(d(AGGIORNATO))}</span> · checked <span data-letto>{escape(LETTO)} (Italy time)</span></p>
+<p class="piede-agg">Official register last updated: <span data-reg>{data_breve(d(AGGIORNATO))}</span> · checked <span data-letto>{escape(letto_breve())} (Italy time)</span></p>
 </div></footer>
 {dati_html}
 <script>{JS}</script>
@@ -972,23 +1101,72 @@ def scheda(v):
         b += '<span class="badge stato">Called off (register note)</span>'
     if finito or v["stato"] == "concluso":
         b += '<span class="badge">Ended</span>'
-    ore = (f'{escape(v["ore_en"])} <span class="it">(register: {escape(v["ore"])})</span>' if v["ore_en"]
-           else f'<span lang="it">{escape(v["ore"])}</span>')
-    chi = (f'{escape(v["chi"])} <span class="it" lang="it">({escape(v["categoria"])})</span>' if v["chi"]
-           else f'<span lang="it">{escape(v["categoria"])}</span>')
+    ore = escape(v["ore_en"]) if v["ore_en"] else f'<span lang="it">{escape(v["ore_it"] or v["ore"])}</span>'
+    chi = escape(v["chi"] or v["chi_gen"] or v["categoria"])
     h = (f'<article class="sc{classi_scheda(v)}" id="s{v["id"]}">{icona_sciopero(v)}<div class="quando">{escape(intervallo(v["inizio"], v["fine"]))}'
          f'<small>{escape(v["dove"])}</small></div><div class="cosa">{b}<div class="tit">{escape(v["titolo"])}</div>'
          f'<div class="dett"><b>Hours:</b> {ore}</div><div class="dett"><b>Who:</b> {chi}</div>')
     if v["nota_en"]:
         h += f'<div class="dett">{escape(v["nota_en"])}</div>'
-    if v["note"]:
-        h += f'<div class="dett"><b>Register note:</b> <span lang="it">{escape(v["note"])}</span></div>'
     if v["stato"] == "rimosso dal registro":
         h += (f'<div class="dett">No longer listed in the official register as of {data_breve(d(v["rimosso_il"]))} '
               f'(likely called off): check with the operator.</div>')
+    h += testo_ufficiale(v, "Official wording (Italian)", "Hours", "Who", "Note")
     h += (f'<div class="fonte">Unions: {escape(v["sindacati"])} · announced {data_breve(d(v["proclamazione"]))} · '
           f'<a href="{URL_REGISTRO}" rel="noopener">official register (MIT id {escape(v["id"])})</a></div></div></article>')
     return h
+
+
+def testo_ufficiale(v, titolo, et_ore, et_chi, et_note):
+    """Testo originale del registro (maiuscolo) in un riquadro chiuso: resta nella pagina, ma non disturba la lettura."""
+    note = f'<dt>{et_note}</dt><dd lang="it">{escape(v["note"])}</dd>' if v["note"] else ""
+    return (f'<details class="reg"><summary>{titolo}</summary><dl><dt>{et_ore}</dt><dd lang="it">{escape(v["ore"])}</dd>'
+            f'<dt>{et_chi}</dt><dd lang="it">{escape(v["categoria"])}</dd>{note}</dl></details>')
+
+
+def html_giorni(lista, nome, vis, scheda_fn, breve_fn, tx, vuoto_fn):
+    """Elenco raggruppato per giorno, uguale a giorni() nel JS: oggi e domani sempre (anche vuoti), poi i giorni con scioperi
+    entro `vis` giorni; gli altri in un riquadro "Mostra altri" chiuso. Ogni sciopero compare una volta sola, nel giorno in cui
+    inizia (o oggi, se è già in corso)."""
+    if not lista:
+        return vuoto_fn(nome)
+    oggi, dom = OGGI.isoformat(), (OGGI + timedelta(days=1)).isoformat()
+    lim = (OGGI + timedelta(days=vis - 1)).isoformat()
+    gr = {oggi: [], dom: []}
+    for v in lista:
+        gr.setdefault(max(v["inizio"], oggi), []).append(v)
+    ok = svg("check-circle")
+
+    def gtxt(k):
+        return breve_fn(d(k)).rsplit(" ", 1)[0]
+    su, giu, n_giu, ult, altri = "", "", 0, "", False
+    for k in sorted(gr):
+        lv = gr[k]
+        rel = (f'<span class="gr">{tx["today"]}</span>' if k == oggi else f'<span class="gr">{tx["tomorrow"]}</span>' if k == dom else "")
+        conta = (f'<span class="gn">{tx["s1"] if len(lv) == 1 else tx["sn"].replace("{n}", str(len(lv)))}</span>' if lv else "")
+        corpo = ("".join(scheda_fn(v) for v in lv) if lv
+                 else f'<p class="g-vuoto">{ok}{tx["none_today"] if k == oggi else tx["none_tomorrow"]}</p>')
+        h = f'<section class="giorno"><h3 class="gh">{rel}{escape(gtxt(k))}{conta}</h3>{corpo}</section>'
+        if k <= lim:
+            su += h
+            altri = altri or k > dom
+        else:
+            giu += h
+            n_giu += len(lv)
+            ult = k
+    if not altri:
+        su += f'<p class="g-vuoto g-sett">{ok}{tx["none_week"]}</p>'
+    if n_giu:
+        piu = tx["more1"] if n_giu == 1 else tx["more"].replace("{n}", str(n_giu))
+        su += f'<details class="altri"><summary>{piu}{tx["until"]}{escape(gtxt(ult))}</summary>{giu}</details>'
+    return su
+
+
+def blocco_giorni(nome, filtro, vis=7, id_="", filtra_fn=None, scheda_fn=None, breve_fn=None, tx=None, vuoto_fn=None):
+    lista = (filtra_fn or filtra)(nome, filtro)
+    contenuto = html_giorni(lista, nome, vis, scheda_fn or scheda, breve_fn or data_breve, tx or TX_EN, vuoto_fn or vuoto_html)
+    attr_id = f' id="{id_}"' if id_ else ""
+    return f'<div class="lista giorni"{attr_id} data-finestra="{nome}" data-filtro="{filtro}" data-gruppi="{vis}">{contenuto}</div>'
 
 
 def vuoto_html(nome):
@@ -1019,19 +1197,29 @@ def riquadro(n, href, etich, nome, filtro, date, testo_uno, testo_si, testo_no):
 
 
 def riquadri(filtro="passengers", base=""):
+    """Oggi, domani e i prossimi 7 giorni (finestra mobile, oggi compreso: non contraddice mai 'domani', anche nel fine settimana).
+    Il terzo riquadro porta all'elenco della pagina stessa (#next)."""
     out = []
-    for nome, etich, url in (("today", "Today", "today/"), ("tomorrow", "Tomorrow", "tomorrow/"), ("thisweek", "This week", "this-week/")):
+    for nome, etich, url in (("today", "Today", base + "today/"), ("tomorrow", "Tomorrow", base + "tomorrow/"), ("days:7", "Next 7 days", "#next")):
         n = len(filtra(nome, filtro))
         da, a = finestra(nome)
-        out.append(riquadro(n, base + url, etich, nome, filtro, intervallo(da.isoformat(), a.isoformat()),
+        out.append(riquadro(n, url, etich, nome, filtro, intervallo(da.isoformat(), a.isoformat()),
                             "strike listed", "strikes listed", "No strikes listed"))
     return '<div class="riquadri">' + "".join(out) + "</div>"
+
+
+def letto_breve(breve_fn=None):
+    """'2026-10-11 12:46' -> 'Sun 11 Oct, 12:46' (stesso formato delle altre date; uguale a quando() nel JS)."""
+    m = re.match(r"(\d{4}-\d\d-\d\d) (\d\d:\d\d)", LETTO or "")
+    if not m:
+        return LETTO
+    return (breve_fn or data_breve)(d(m.group(1))).rsplit(" ", 1)[0] + ", " + m.group(2)
 
 
 def fresco():
     return (f'<p class="fresco"><span class="src">{svg("shield")}<span>Source: <a href="{URL_REGISTRO}" rel="noopener">official MIT strike register</a>, '
             f'checked twice a day</span></span><span>Register updated <strong data-reg>{data_breve(d(AGGIORNATO))}</strong></span>'
-            f'<span>Last check <span data-letto>{escape(LETTO)} (Italy time)</span></span></p>')
+            f'<span>Last check <span data-letto>{escape(letto_breve())} (Italy time)</span></span></p>')
 
 
 AVVISO = ('<p class="avviso">Strikes can be called off or changed at short notice. Always check with your train operator, '
@@ -1039,21 +1227,32 @@ AVVISO = ('<p class="avviso">Strikes can be called off or changed at short notic
 AD = '<div class="ad-slot" aria-hidden="true"></div>'
 
 
+AFF_STILE = {  # icona e testo del pulsante per ogni partner (i testi stanno in dati/affiliati.json)
+    "safetywing": ("heart", "See cover"), "ekta": ("shield", "See cover"), "omio": ("route", "Compare trips"),
+    "welcome": ("car", "Book a transfer"), "airalo": ("phone", "Get an eSIM")}
+
+
 def box_affiliati():
-    """Riquadro 'Stuck by a strike?' con i link di affiliazione; vuoto finché non ci sono URL (vedi dati/affiliati.json)."""
-    voci = [v for k, v in AFFILIATI.items() if not k.startswith("_") and v.get("url")]
+    """Riquadro 'Stuck by a strike?': una scheda per partner (icona, titolo, una riga, pulsante) con l'etichetta 'Affiliate'.
+    Compare solo con almeno un URL in dati/affiliati.json (o con la guida PDF in vendita)."""
+    voci = [(k, v) for k, v in AFFILIATI.items() if not k.startswith("_") and v.get("url")]
     g = guida_in_vendita()
-    guida = (f'<p style="margin:0 0 8px"><a href="/guide/italy-by-train/"><strong>{escape(g["titolo_breve"])}</strong></a>: '
+    if not voci and not g:
+        return ""
+    guida = (f'<p class="guida"><a href="/guide/italy-by-train/"><strong>{escape(g["titolo_breve"])}</strong></a>: '
              f'{escape(g["frase"])}</p>') if g else ""
-    if not voci:
-        return (f'<section class="card" style="margin-top:22px"><h2 style="margin-top:0">Stuck by a strike?</h2>{guida}</section>') if g else ""
     righe = "".join(
-        f'<li><a href="{escape(v["url"])}" rel="sponsored noopener" target="_blank">{escape(v["titolo"])}</a> '
-        f'<span class="small">({escape(v["nome"])}) {escape(v["testo"])}</span></li>' for v in voci)
-    return (f'<section class="card" style="margin-top:22px"><h2 style="margin-top:0">Stuck by a strike? Alternatives</h2>{guida}'
-            f'<ul style="margin:0 0 8px;padding-left:20px">{righe}</ul>'
-            f'<p class="small" style="margin:0">Some of these are affiliate links: if you book through them we may earn a small commission, '
-            f'at no extra cost to you. It helps keep this site free.</p></section>')
+        f'<li><span class="gi" aria-hidden="true">{svg(AFF_STILE.get(k, ("info", ""))[0])}</span>'
+        f'<div><strong>{escape(v["titolo"])}</strong><span class="tx">{escape(v["nome"])} · {escape(v["testo"])}</span></div>'
+        f'<a class="btn" href="{escape(v["url"])}" rel="sponsored noopener" target="_blank">{AFF_STILE.get(k, ("", "Open"))[1] or "Open"}'
+        f'{svg("arrow")}<span class="hp"> ({escape(v["nome"])}, opens in a new tab)</span></a></li>' for k, v in voci)
+    lista = f'<ul>{righe}</ul>' if voci else ""
+    tag = '<span class="aff-tag">Affiliate</span>' if voci else ""
+    nota = ('<p class="nota">' + ("This is an affiliate link: if you buy through it" if len(voci) == 1 else
+                                  "These are affiliate links: if you buy through them")
+            + ' we may earn a small commission, at no extra cost to you. It helps keep this site free.</p>') if voci else ""
+    return (f'<section class="aff" aria-labelledby="aff-h"><div class="aff-t"><h2 id="aff-h">Stuck by a strike?</h2>{tag}</div>'
+            f'{guida}{lista}{nota}</section>')
 
 
 def guida_in_vendita():
@@ -1137,9 +1336,11 @@ def modulo(rel):
 </section>"""
 
 
-def griglia_citta(rel):
+def griglia_citta(rel, escludi=None):
     out = []
     for c in CITTA:
+        if c["slug"] == escludi:
+            continue
         n = len(filtra("upcoming", "city:" + c["slug"]))
         out.append(f'<a href="{rel}{c["slug"]}/"{" class=" + chr(34) + "si" + chr(34) if n else ""}>{escape(c["nome"])}<small>{n} upcoming</small></a>')
     return '<div class="griglia">' + "".join(out) + "</div>"
@@ -1372,13 +1573,8 @@ def home():
 {riquadri("passengers", "")}
 {AVVISO}
 {AD}
-<h2>Today and tomorrow</h2>
-<p class="small">Strikes that can affect travellers (passenger transport and general strikes).</p>
-{blocco("today", "passengers")}
-<h3>Tomorrow</h3>
-{blocco("tomorrow", "passengers")}
-{box_affiliati()}
-<h2 id="next">Next 30 days</h2>
+<h2 id="next">Next 7 days</h2>
+<p class="small">Strikes that can affect travellers, day by day. Each strike is listed once, on the day it starts.</p>
 <div class="filtri" data-per="prossimi" role="group" aria-label="Filter by type">
 <button type="button" data-filtro="passengers" aria-pressed="true">All passenger transport</button>
 <button type="button" data-filtro="sector:trains" aria-pressed="false">Trains</button>
@@ -1387,7 +1583,8 @@ def home():
 <button type="button" data-filtro="sector:general-strikes" aria-pressed="false">General strikes</button>
 <button type="button" data-filtro="all" aria-pressed="false">Everything (incl. freight)</button>
 </div>
-{blocco("days:30", "passengers", id_="prossimi")}
+{blocco_giorni("days:30", "passengers", 7, id_="prossimi")}
+{box_affiliati()}
 <h2 id="cities">Strikes by city</h2>
 {griglia_citta(rel)}
 <h2>By type of transport</h2>
@@ -1481,7 +1678,7 @@ def pagina_settore(slug):
 <p class="lead">{escape(TESTO_SETTORE[slug])}</p>{extra}{fresco()}</section>
 {riquadri("sector:" + slug, rel)}
 {AVVISO}
-<h2>Upcoming {escape(nome.lower())} strikes</h2>
+<h2 id="next">Upcoming {escape(nome.lower())} strikes</h2>
 {blocco("upcoming", "sector:" + slug)}
 {box_affiliati()}
 {AD}
@@ -1511,7 +1708,7 @@ def pagina_citta(c):
 <p class="lead">Transport strikes that can affect {escape(c["nome"])} ({escape(c["it"])}): national train, flight and general strikes, strikes in {escape(REG_EN.get(c["regione"], c["regione"]))} and local bus, metro and tram strikes.</p>{fresco()}</section>
 {riquadri("city:" + c["slug"], rel)}
 {AVVISO}
-<h2>Upcoming strikes affecting {escape(c["nome"])}</h2>
+<h2 id="next">Upcoming strikes affecting {escape(c["nome"])}</h2>
 {blocco("upcoming", "city:" + c["slug"])}
 {box_affiliati()}
 {AD}
@@ -1524,7 +1721,7 @@ def pagina_citta(c):
 <li><a href="{rel}guides/local-transport-strike-hours/">Bus and metro guaranteed hours</a></li>
 </ul>
 <h2>Other cities</h2>
-{griglia_citta(rel)}
+{griglia_citta(rel, c["slug"])}
 {modulo(rel)}"""
     pagina(f"{c['slug']}/", f"{c['nome']} strike today? Trains, buses, metro and flights",
            f"Is there a strike in {c['nome']} today or tomorrow? Upcoming transport strikes affecting {c['nome']}: trains, metro, buses, flights. Official register, updated daily.",
@@ -1540,7 +1737,7 @@ def pagina_aeroporto(a):
 <p class="lead">Strikes that can affect flights at {escape(a["nome"])}: national air traffic control and airline strikes, and strikes of staff working at this airport.</p>{fresco()}</section>
 {riquadri("airport:" + a["slug"], rel)}
 {AVVISO}
-<h2>Upcoming strikes</h2>
+<h2 id="next">Upcoming strikes</h2>
 {blocco("upcoming", "airport:" + a["slug"])}
 {box_affiliati()}
 {AD}

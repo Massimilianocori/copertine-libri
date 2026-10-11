@@ -132,6 +132,11 @@ def costruisci(g):
             out.append(v)
         return out
 
+    TX_IT = {"today": "Oggi", "tomorrow": "Domani", "none_today": "Nessuno sciopero in elenco oggi",
+             "none_tomorrow": "Nessuno sciopero in elenco domani", "none_week": "Nessun altro sciopero in elenco nei prossimi 7 giorni",
+             "more1": "Mostra 1 altro sciopero", "more": "Mostra altri {n} scioperi", "until": " · fino a ", "s1": "1 sciopero",
+             "sn": "{n} scioperi"}
+
     # ---------------- JS: lo stesso del sito inglese, con testi e campi italiani
     js = g.JS
     sost = [
@@ -144,11 +149,14 @@ def costruisci(g):
         (">No longer in the register</span>", ">Non più nel registro</span>"),
         (">Called off (register note)</span>", ">Revocato (nota del registro)</span>"), (">Ended</span>", ">Concluso</span>"),
         ("esc(v.dove)", "esc(v.dove_it)"), ("esc(v.titolo)", "esc(v.titolo_it)"),
-        ("""h+='<div class="dett"><b>Hours:</b> '+(v.ore_en?esc(v.ore_en)+' <span class="it">(register: '+esc(v.ore)+')</span>':'<span lang="it">'+esc(v.ore)+'</span>')+'</div>';""",
-         """h+='<div class="dett"><b>Orari:</b> '+esc(v.ore_it)+'</div>';"""),
-        ("""h+='<div class="dett"><b>Who:</b> '+(v.chi?esc(v.chi)+' <span class="it" lang="it">('+esc(v.categoria)+')</span>':'<span lang="it">'+esc(v.categoria)+'</span>')+'</div>';""",
-         """h+='<div class="dett"><b>Chi:</b> '+(v.chi_it?esc(v.chi_it)+' <span class="it">('+esc(v.categoria)+')</span>':esc(v.categoria))+'</div>';"""),
-        ("v.nota_en", "v.nota_it"), ("<b>Register note:</b> <span lang=\"it\">", "<b>Nota del registro:</b> <span>"),
+        ("""h+='<div class="dett"><b>Hours:</b> '+(v.ore_en?esc(v.ore_en):'<span lang="it">'+esc(v.ore_it||v.ore)+'</span>')+'</div>';""",
+         """h+='<div class="dett"><b>Orari:</b> '+esc(v.ore_it||v.ore)+'</div>';"""),
+        ("""h+='<div class="dett"><b>Who:</b> '+esc(v.chi||v.chi_gen||v.categoria)+'</div>';""",
+         """h+='<div class="dett"><b>Chi:</b> '+esc(v.chi_it||v.chi_gen_it||v.categoria)+'</div>';"""),
+        ("v.nota_en", "v.nota_it"),
+        ("<summary>Official wording (Italian)</summary><dl><dt>Hours</dt>", "<summary>Testo ufficiale del registro</summary><dl><dt>Orari</dt>"),
+        ("<dt>Who</dt>", "<dt>Categoria</dt>"),
+        ("var TX=" + json.dumps(g.TX_EN, ensure_ascii=False) + ",", "var TX=" + json.dumps(TX_IT, ensure_ascii=False) + ","),
         ("No longer listed in the official register as of ", "Non più presente nel registro ufficiale dal "),
         (" (likely called off): check with the operator.", " (probabilmente revocato): verifica con il gestore del servizio."),
         ("Unions: ", "Sindacati: "), (" · announced ", " · proclamato il "), ("official register (MIT id ", "registro ufficiale (id MIT "),
@@ -179,17 +187,16 @@ def costruisci(g):
             b += '<span class="badge stato">Revocato (nota del registro)</span>'
         if v["fine"] < oggi or v["stato"] == "concluso":
             b += '<span class="badge">Concluso</span>'
-        chi = (f'{escape(v["chi_it"])} <span class="it">({escape(v["categoria"])})</span>' if v["chi_it"] else escape(v["categoria"]))
+        chi = escape(v["chi_it"] or v["chi_gen_it"] or v["categoria"])
         h = (f'<article class="sc{g.classi_scheda(v)}" id="s{v["id"]}">{g.icona_sciopero(v)}<div class="quando">{escape(interv(v["inizio"], v["fine"]))}'
              f'<small>{escape(v["dove_it"])}</small></div><div class="cosa">{b}<div class="tit">{escape(v["titolo_it"])}</div>'
              f'<div class="dett"><b>Orari:</b> {escape(v["ore_it"])}</div><div class="dett"><b>Chi:</b> {chi}</div>')
         if v["nota_it"]:
             h += f'<div class="dett">{escape(v["nota_it"])}</div>'
-        if v["note"]:
-            h += f'<div class="dett"><b>Nota del registro:</b> <span>{escape(v["note"])}</span></div>'
         if v["stato"] == "rimosso dal registro":
             h += (f'<div class="dett">Non più presente nel registro ufficiale dal {breve(d(v["rimosso_il"]))} '
                   '(probabilmente revocato): verifica con il gestore del servizio.</div>')
+        h += g.testo_ufficiale(v, "Testo ufficiale del registro", "Orari", "Categoria", "Note")
         h += (f'<div class="fonte">Sindacati: {escape(v["sindacati"])} · proclamato il {breve(d(v["proclamazione"]))} · '
               f'<a href="{g.URL_REGISTRO}" rel="noopener">registro ufficiale (id MIT {escape(v["id"])})</a></div></div></article>')
         return h
@@ -208,17 +215,17 @@ def costruisci(g):
 
     def riquadri(filtro, base):
         out = []
-        for nome, etich, url in (("today", "Oggi", "oggi/"), ("tomorrow", "Domani", "domani/"), ("thisweek", "Questa settimana", "questa-settimana/")):
+        for nome, etich, url in (("today", "Oggi", base + "oggi/"), ("tomorrow", "Domani", base + "domani/"), ("days:7", '<span class="t-x">Prossimi </span>7 giorni', "#next")):
             n = len(filtra(nome, filtro))
             da, a = g.finestra(nome)
-            out.append(g.riquadro(n, base + url, etich, nome, filtro, interv(da.isoformat(), a.isoformat()),
+            out.append(g.riquadro(n, url, etich, nome, filtro, interv(da.isoformat(), a.isoformat()),
                                   "sciopero in elenco", "scioperi in elenco", "Nessuno sciopero in elenco"))
         return '<div class="riquadri">' + "".join(out) + "</div>"
 
     def fresco():
         return (f'<p class="fresco"><span class="src">{g.svg("shield")}<span>Fonte: <a href="{g.URL_REGISTRO}" rel="noopener">registro scioperi ufficiale del MIT</a>, '
                 f'controllato due volte al giorno</span></span><span>Registro aggiornato al <strong data-reg>{breve(d(g.AGGIORNATO))}</strong></span>'
-                f'<span>Ultimo controllo <span data-letto>{escape(g.LETTO)} (ora italiana)</span></span></p>')
+                f'<span>Ultimo controllo <span data-letto>{escape(g.letto_breve(breve))} (ora italiana)</span></span></p>')
 
     AVVISO = ('<p class="avviso">Gli scioperi possono essere revocati o modificati all\'ultimo momento. Prima di partire verifica sempre '
               'con l\'azienda di trasporto, la compagnia aerea o il gestore del servizio.</p>')
@@ -246,9 +253,11 @@ def costruisci(g):
 <div class="ok" data-ok hidden><strong>Fatto!</strong> Ti scriveremo se c'è uno sciopero nelle date del tuo viaggio.</div>
 </section>"""
 
-    def griglia_citta(rel):
+    def griglia_citta(rel, escludi=None):
         out = []
         for c in CITTA_IT:
+            if c["slug"] == escludi:
+                continue
             n = len(filtra("upcoming", "city:" + c["slug"]))
             out.append(f'<a href="{rel}it/{c["slug"]}/"{" class=" + chr(34) + "si" + chr(34) if n else ""}>{escape(c["nome"])}<small>{n} in programma</small></a>')
         return '<div class="griglia">' + "".join(out) + "</div>"
@@ -290,12 +299,12 @@ def costruisci(g):
             dati = {"letto_il": g.LETTO, "registro_aggiornato_al": g.AGGIORNATO, "scioperi": g.recenti()}
             dati_html = '<script type="application/json" id="dati">' + json.dumps(dati, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>"
         verifica = f'<meta name="google-site-verification" content="{g.GOOGLE_VERIFICA}">' if g.GOOGLE_VERIFICA else ""
-        lingua = (f'<a class="lingua" href="{rel}{alt_en}" hreflang="en" lang="en">{g.svg("globe")}English</a>' if alt_en is not None else "")
+        lingua = g.link_lingua(f"{rel}{alt_en}", "en", "English", "EN") if alt_en is not None else ""
         voci_menu = [("it/oggi/", "Oggi"), ("it/domani/", "Domani"), ("it/questa-settimana/", "Settimana"), ("it/#citta", "Città"),
                      ("it/aeroporti/", "Aeroporti"), ("it/guida/", "Guide")]
         menu = [(rel + h, t, "#" not in h and (percorso == h or (h in ("it/aeroporti/", "it/guida/") and percorso.startswith(h))))
                 for h, t in voci_menu]
-        testata = g.barra(f"{rel}it/", "Scioperi <em>oggi</em>", menu, lingua, "Vai al contenuto")
+        testata = g.barra(f"{rel}it/", "Scioperi <em>oggi</em>", menu, lingua, "Vai al contenuto", "Apri il menu")
         og = "og-it.png" if (g.RADICE / "assets" / "og-it.png").exists() else "og.png"
         testo = f"""<!DOCTYPE html>
 <html lang="it">
@@ -342,7 +351,7 @@ def costruisci(g):
 <li><a href="{rel}">English version</a></li></ul></nav>
 </div>
 <p class="piede-avviso"><strong>Gli scioperi possono essere revocati o modificati all'ultimo momento: verifica sempre con l'azienda di trasporto prima di partire.</strong> Le informazioni non sono consulenza legale.</p>
-<p class="piede-agg">Registro ufficiale aggiornato al <span data-reg>{breve(d(g.AGGIORNATO))}</span> · controllato <span data-letto>{escape(g.LETTO)} (ora italiana)</span></p>
+<p class="piede-agg">Registro ufficiale aggiornato al <span data-reg>{breve(d(g.AGGIORNATO))}</span> · controllato <span data-letto>{escape(g.letto_breve(breve))} (ora italiana)</span></p>
 </div></footer>
 {dati_html}
 <script>{JS_IT}</script>
@@ -364,12 +373,8 @@ def costruisci(g):
 {riquadri("passengers", "/it/")}
 {AVVISO}
 {AD}
-<h2>Oggi</h2>
-<p class="small">Scioperi che riguardano chi viaggia (trasporto passeggeri e scioperi generali).</p>
-{blocco("today", "passengers")}
-<h3>Domani</h3>
-{blocco("tomorrow", "passengers")}
-<h2>Prossimi 30 giorni</h2>
+<h2 id="next">Prossimi 7 giorni</h2>
+<p class="small">Scioperi che riguardano chi viaggia, giorno per giorno. Ogni sciopero compare una volta sola, nel giorno in cui inizia.</p>
 <div class="filtri" data-per="prossimi" role="group" aria-label="Filtra per tipo">
 <button type="button" data-filtro="passengers" aria-pressed="true">Tutti i trasporti passeggeri</button>
 <button type="button" data-filtro="sector:trains" aria-pressed="false">Treni</button>
@@ -378,7 +383,7 @@ def costruisci(g):
 <button type="button" data-filtro="sector:general-strikes" aria-pressed="false">Scioperi generali</button>
 <button type="button" data-filtro="all" aria-pressed="false">Tutto (anche merci)</button>
 </div>
-{blocco("days:30", "passengers", "prossimi")}
+{g.blocco_giorni("days:30", "passengers", 7, "prossimi", filtra, scheda, breve, TX_IT, vuoto)}
 <h2 id="citta">Scioperi per città</h2>
 {griglia_citta("/")}
 <h2>Per tipo di trasporto</h2>
@@ -442,7 +447,7 @@ def costruisci(g):
                f"""<section class="hero"><h1>{escape(tit)}</h1><p class="lead">{escape(testo)}</p>{extra}{fresco()}</section>
 {riquadri("sector:" + filtro, rel + "it/")}
 {AVVISO}
-<h2>Prossimi scioperi: {escape(nome.lower())}</h2>
+<h2 id="next">Prossimi scioperi: {escape(nome.lower())}</h2>
 {blocco("upcoming", "sector:" + filtro)}
 {AD}
 <h2>Altri trasporti</h2>
@@ -461,12 +466,12 @@ def costruisci(g):
 <p class="lead">Scioperi che possono riguardare {escape(c["nome"])}: scioperi nazionali di treni, aerei e scioperi generali, scioperi in {escape(c["regione"])} e scioperi locali di bus, metro e tram.</p>{fresco()}</section>
 {riquadri("city:" + c["slug"], rel + "it/")}
 {AVVISO}
-<h2>Prossimi scioperi a {escape(c["nome"])}</h2>
+<h2 id="next">Prossimi scioperi a {escape(c["nome"])}</h2>
 {blocco("upcoming", "city:" + c["slug"])}
 {AD}
 <h2>Link utili</h2><ul>{utili}</ul>
 <h2>Altre città</h2>
-{griglia_citta(rel)}
+{griglia_citta(rel, c["slug"])}
 {modulo(rel)}""", briciole=[(f"Sciopero {c['nome']}", f"it/{c['slug']}/")])
 
     pagina("it/aeroporti/", "Sciopero aeroporti: Roma, Milano, Venezia, Napoli e altri",
@@ -489,7 +494,7 @@ def costruisci(g):
 <p class="lead">Scioperi che possono riguardare i voli di {escape(a["nome_it"])}: scioperi nazionali del controllo del traffico aereo e delle compagnie, e scioperi del personale che lavora in questo aeroporto.</p>{fresco()}</section>
 {riquadri("airport:" + a["slug"], r2 + "it/")}
 {AVVISO}
-<h2>Prossimi scioperi</h2>
+<h2 id="next">Prossimi scioperi</h2>
 {blocco("upcoming", "airport:" + a["slug"])}
 {AD}
 <h2>Cosa fare</h2>
