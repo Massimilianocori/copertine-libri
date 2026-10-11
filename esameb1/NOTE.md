@@ -35,3 +35,11 @@
 ## Fisco (nodo aperto, decide quando attivare i pagamenti)
 - Gli incassi previsti (avvisi a pagamento, quote dalle scuole, prenotazioni) sono di natura commerciale: con ogni probabilità servono Camera di Commercio e INPS Gestione Commercianti (minimo ~3.000 €/anno, ridotto del 35% per i forfettari ≈ 2.000 €), non basta aggiungere un codice ATECO alla P.IVA da fotografo. Da confermare con la consulenza gratuita di un servizio per forfettari PRIMA del primo incasso.
 - Conseguenza: nessuna funzione a pagamento finché i ricavi attesi non superano chiaramente il costo fisso. La fase 1 resta gratuita e serve a costruire la lista; si attiva il pagamento quando una città ha abbastanza iscritti da vendere alle scuole/sedi.
+
+## Grafica (11/10/2026)
+- EsameB1: verde italiano, rosso mattone per le urgenze, carta calda, banda tricolore; marchio a fumetto "B1"; font Figtree.
+- Identità propria del sito, tutta in `genera.py` (CSS con token su `:root`, chiaro/scuro automatico, icone SVG in linea con uno sprite per pagina, marchio SVG nel logo e nel favicon).
+- In cima a home, pagine città/professione: scheda "risposta" con prossimo esame e prossima scadenza ancora aperta; il JS nasconde le voci scadute, quindi resta giusta anche tra un aggiornamento e l'altro.
+- Font servito dal sito (`assets/fonts/`, licenza SIL OFL in `OFL.txt`, copiato in `sito/fonts/`): nessuna risorsa esterna.
+- Immagine Open Graph 1200x630: `assets/og.png`, generata con Playwright da `assets/og-template.html` (istruzioni nel file).
+- Moduli `avvisami`, titoli, description, canonical, h1, JSON-LD e URL invariati.

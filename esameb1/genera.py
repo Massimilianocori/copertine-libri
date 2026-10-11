@@ -393,7 +393,7 @@ def eb(sigla):
 def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
     """Scrive sito/<percorso> con la struttura comune. base: prefisso dei link ("/" per la 404)."""
     profondita = percorso.count("/")
-    rel = base if base is not None else "../" * profondita
+    rel = base if base is not None else ("../" * profondita or "./")
     avvisami = "#avvisami" if 'id="avvisami"' in corpo else f"{rel or '/'}#avvisami"
     canonico = URL_SITO + "/" + (percorso[:-10] if percorso.endswith("index.html") else percorso)
     ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else ""

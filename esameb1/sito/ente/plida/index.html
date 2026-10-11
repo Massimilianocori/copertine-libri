@@ -10,365 +10,515 @@
 <meta property="og:description" content="Date dell&#x27;esame PLIDA di livello B1 per la cittadinanza, scadenze e le 82 sedi in Italia divise per regione.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://esameb1.netlify.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://esameb1.netlify.app/ente/plida/">
-<meta name="theme-color" content="#0E6E55">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B6B4F">
 <meta name="google-site-verification" content="btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E6E55'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' text-anchor='middle' fill='white'%3EB1%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M8 4h24a6 6 0 0 1 6 6v15a6 6 0 0 1-6 6H17l-7.5 6.2c-.7.6-1.5.1-1.5-.7V31a6 6 0 0 1-6-6V10a6 6 0 0 1 6-6Z' fill='%230B6B4F'/%3E%3Ctext x='20' y='21.6' text-anchor='middle' font-family='Arial' font-weight='700' font-size='15' fill='white'%3EB1%3C/text%3E%3Crect x='11' y='25.6' width='6' height='2.4' fill='%233FB37F'/%3E%3Crect x='17' y='25.6' width='6' height='2.4' fill='white'/%3E%3Crect x='23' y='25.6' width='6' height='2.4' fill='%23E4573D'/%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-:root{--bg:#F7F6F2;--card:#FFFFFF;--ink:#14263A;--ink-2:#41505F;--ink-3:#6A7682;--line:#E2DFD6;
---accent:#0E6E55;--accent-2:#E8F3EF;--warn:#9A4A00;--warn-2:#FFF1E2;--mute:#EEECE6;--radius:14px}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F151B;--card:#161F27;--ink:#EEF2F5;
---ink-2:#BAC5CF;--ink-3:#8E9BA7;--line:#26323D;--accent:#5BC9A6;--accent-2:#16302A;--warn:#FFB367;--warn-2:#33240F;--mute:#1D2730}}
+@font-face{font-family:"Figtree";src:url("/fonts/figtree.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap}
+:root{--bg:#FAF7F2;--surface:#FFFFFF;--surface-2:#F3EEE5;--ink:#1B2A28;--ink-2:#40504C;--ink-3:#5A6965;--line:#E5DDD0;--line-2:#D6CCBC;
+--brand:#0B6B4F;--brand-2:#08573F;--on-brand:#FFFFFF;--brand-soft:#E2F0E9;--brand-ink:#08573F;
+--rosso:#B3361F;--rosso-soft:#FBE6E0;--warn:#8A4B00;--warn-soft:#FFF2DF;--focus:#1B5FD1;
+--hero-a:#0B6B4F;--hero-b:#0A4F3B;--hero-ink:#FFFFFF;--hero-ink-2:#D5ECE2;
+--cils:#0D5A8A;--cils-bg:#E1EEF7;--celi:#6A3E9E;--celi-bg:#EEE6F7;--plida:#9A3412;--plida-bg:#FCE9DC;--certit:#7A5E00;--certit-bg:#F8EFCB;
+--r-s:8px;--r:14px;--r-l:20px;--ombra:0 1px 2px rgba(27,42,40,.06),0 4px 14px rgba(27,42,40,.06);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1615;--surface:#15201E;--surface-2:#1B2826;--ink:#ECF2EF;--ink-2:#BCCAC5;--ink-3:#97A7A2;
+--line:#283734;--line-2:#34463F;--brand:#4CC596;--brand-2:#6AD6AB;--on-brand:#052118;--brand-soft:#13332A;--brand-ink:#7FE0B9;
+--rosso:#FF8D74;--rosso-soft:#3B1D16;--warn:#FFB45E;--warn-soft:#33250F;--focus:#8AB4FF;
+--hero-a:#123D31;--hero-b:#0C2A22;--hero-ink:#ECF2EF;--hero-ink-2:#B5D6C8;
+--cils:#8CC4EE;--cils-bg:#132A3B;--celi:#C9A8F0;--celi-bg:#271D36;--plida:#FFA57A;--plida-bg:#3A2116;--certit:#E8C95A;--certit-bg:#332B10;
+--ombra:0 1px 2px rgba(0,0,0,.3);color-scheme:dark}}
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-font-size:17px;line-height:1.6}
-a{color:var(--accent)}
-.wrap{max-width:980px;margin:0 auto;padding:0 16px}
-header.top{border-bottom:1px solid var(--line);background:var(--card)}
-header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px}
-.logo{font-weight:800;font-size:1.15rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
-.logo span{color:var(--accent)}
-nav.menu{display:flex;gap:14px;flex-wrap:wrap;font-size:.95rem}
-nav.menu a{color:var(--ink-2);text-decoration:none}
-nav.menu a:hover{color:var(--accent)}
-.hero{padding:34px 0 10px}
-h1{font-size:clamp(1.6rem,4.6vw,2.35rem);line-height:1.18;letter-spacing:-.02em;margin:0 0 12px}
-h2{font-size:1.35rem;margin:36px 0 12px;letter-spacing:-.01em}
-h3{font-size:1.08rem;margin:20px 0 8px}
-.lead{font-size:1.08rem;color:var(--ink-2);max-width:720px;margin:0 0 6px}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:12px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+font-size:17px;line-height:1.6;font-feature-settings:"tnum" 0}
+a{color:var(--brand-ink);text-underline-offset:2px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:6px}
+.i{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.2em}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.salta{position:absolute;left:-9999px;top:8px;background:var(--surface);color:var(--ink);padding:8px 14px;border-radius:8px;z-index:10}
+.salta:focus{left:16px}
+/* testata */
+header.top{background:var(--surface);border-bottom:1px solid var(--line);position:relative}
+header.top::before{content:"";display:block;height:4px;background:linear-gradient(90deg,#0B6B4F 0 33.3%,#F4F1EA 33.3% 66.6%,#C8402A 66.6%)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px}
+.logo{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:1.2rem;color:var(--ink);text-decoration:none;letter-spacing:-.015em;flex:none}
+.logo b{color:var(--brand);font-weight:800}
+.marchio{width:34px;height:34px;flex:none}
+nav.menu{display:flex;align-items:center;gap:2px;white-space:nowrap;min-width:0}
+nav.menu a{color:var(--ink-2);text-decoration:none;font-weight:600;font-size:.97rem;padding:8px 10px;border-radius:999px}
+nav.menu a:hover{color:var(--brand-ink);background:var(--brand-soft)}
+nav.menu a.nav-cta{display:inline-flex;align-items:center;gap:6px;background:var(--brand);color:var(--on-brand);margin-left:6px;padding:8px 14px}
+nav.menu a.nav-cta:hover{background:var(--brand-2);color:var(--on-brand)}
+.corto{display:none}
+@media (max-width:640px){.lungo{display:none}.corto{display:inline}nav.menu a{padding:8px 7px;font-size:.95rem}
+nav.menu a.nav-cta{padding:0;width:40px;height:40px;justify-content:center;margin-left:4px}.logo{font-size:1.1rem;gap:7px}.marchio{width:30px;height:30px}}
+@media (max-width:350px){.logo-testo{display:none}}
+/* titoli */
+h1{font-size:clamp(1.55rem,4.2vw,2.4rem);line-height:1.15;letter-spacing:-.025em;margin:0 0 10px;font-weight:800;text-wrap:balance}
+h2{font-size:clamp(1.25rem,2.6vw,1.5rem);line-height:1.25;margin:44px 0 14px;letter-spacing:-.015em;font-weight:750;display:flex;align-items:flex-start;gap:10px}
+h2 .i{color:var(--brand);width:1em;height:1em;margin-top:.13em}
+h3{font-size:1.08rem;margin:22px 0 10px;font-weight:700}
+.lead{font-size:1.1rem;color:var(--ink-2);max-width:62ch;margin:0 0 6px}
 .small{font-size:.9rem;color:var(--ink-3)}
-.avviso{background:var(--warn-2);color:var(--ink);border-left:4px solid var(--warn);padding:12px 14px;border-radius:8px;font-size:.95rem;margin:16px 0}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
-.filtri{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px}
-.filtri button{font:inherit;font-size:.92rem;border:1px solid var(--line);background:var(--card);color:var(--ink);
-padding:6px 12px;border-radius:999px;cursor:pointer}
-.filtri button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
-.sessioni{display:grid;gap:10px}
-.sess{display:grid;grid-template-columns:150px 1fr;gap:4px 16px;background:var(--card);border:1px solid var(--line);
-border-radius:var(--radius);padding:14px 16px}
-.sess .quando{font-weight:700}
-.sess .quando small{display:block;font-weight:400;color:var(--ink-3);font-size:.85rem}
-.sess .cosa{min-width:0}
-.badge{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.02em;padding:2px 8px;border-radius:6px;
-background:var(--mute);color:var(--ink-2);margin-right:6px;vertical-align:1px}
-.badge.citt{background:var(--accent-2);color:var(--accent)}
-.scad{margin-top:4px;font-size:.93rem;color:var(--ink-2)}
-.scad strong{color:var(--ink)}
-.scad.urgente strong{color:var(--warn)}
-.scad.chiusa{color:var(--ink-3)}
-.fonte{font-size:.8rem;color:var(--ink-3)}
-.fonte a{color:var(--ink-3)}
-.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
-.griglia a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;
-text-decoration:none;color:var(--ink);font-weight:600}
-.griglia a small{display:block;font-weight:400;color:var(--ink-3)}
-.griglia a:hover{border-color:var(--accent)}
-.sedi{list-style:none;padding:0;margin:0;display:grid;gap:8px}
-.sedi li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
-.sedi .nome{font-weight:650;overflow-wrap:anywhere}
-.sedi li,.sess{min-width:0;overflow-wrap:anywhere}
-.sedi .det{font-size:.92rem;color:var(--ink-2)}
-details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:8px 0}
-details summary{cursor:pointer;font-weight:650}
-.form{display:grid;gap:12px}
-.form label{display:grid;gap:4px;font-weight:600;font-size:.95rem}
-.form input,.form select{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
-.form .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem;color:var(--ink-2)}
-.form .check input{width:auto;margin-top:4px}
-.btn{font:inherit;font-weight:700;background:var(--accent);color:var(--bg);border:0;border-radius:10px;padding:12px 18px;cursor:pointer}
+.briciole{font-size:.88rem;color:var(--ink-3);margin:0 0 10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.briciole a{color:var(--ink-3)}
+.hero{padding:30px 0 6px}
+.occhiello{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--brand-ink);
+background:var(--brand-soft);padding:5px 12px;border-radius:999px;margin-bottom:14px}
+/* scheda risposta (prossimo esame / iscrizioni aperte) */
+.risposta{margin:22px 0 8px;border-radius:var(--r-l);background:linear-gradient(135deg,var(--hero-a),var(--hero-b));color:var(--hero-ink);
+padding:8px;display:grid;grid-template-columns:1fr 1fr;gap:8px;box-shadow:var(--ombra)}
+.risposta .slot{padding:18px 20px;border-radius:14px;min-width:0}
+.risposta .slot+.slot{background:var(--surface);color:var(--ink)}
+.r-et{display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.92}
+.r-data{font-size:clamp(1.9rem,5.4vw,2.7rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin:8px 0 6px;font-variant-numeric:tabular-nums}
+.r-data small{font-size:.5em;font-weight:700;letter-spacing:-.01em;opacity:.85}
+.r-cosa{font-size:1rem;display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
+.risposta .slot:first-child .r-cosa{color:var(--hero-ink-2)}
+.risposta .slot:first-child .eb{background:rgba(255,255,255,.16);color:var(--hero-ink)}
+.r-nota{font-size:.86rem;color:var(--ink-3);margin:10px 0 0}
+.r-piede{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;padding:6px 12px 6px}
+.r-piede a{color:var(--hero-ink);font-weight:700;display:inline-flex;align-items:center;gap:6px}
+.r-piede span{font-size:.88rem;color:var(--hero-ink-2);display:inline-flex;align-items:center;gap:6px}
+.azioni{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px;align-items:center}
+.cifre{display:flex;flex-wrap:wrap;gap:8px 20px;margin:14px 0 0;padding:0;list-style:none;color:var(--ink-2);font-size:.95rem}
+.cifre li{display:flex;align-items:center;gap:7px}
+.cifre .i{color:var(--brand)}
+.cifre strong{color:var(--ink)}
+/* conteggi */
+.conta{display:inline-flex;align-items:center;gap:5px;font-size:.8rem;font-weight:800;letter-spacing:.01em;padding:3px 10px;border-radius:999px;
+background:var(--surface-2);color:var(--ink-2);white-space:nowrap;font-variant-numeric:tabular-nums}
+.conta:empty{display:none}
+.conta.urg{background:var(--rosso-soft);color:var(--rosso)}
+.conta.vicino{background:var(--brand-soft);color:var(--brand-ink)}
+.risposta .slot:first-child .conta{background:rgba(255,255,255,.18);color:var(--hero-ink)}
+/* avvisi */
+.avviso{display:flex;gap:12px;align-items:flex-start;background:var(--warn-soft);color:var(--ink);border:1px solid color-mix(in srgb,var(--warn) 25%,transparent);
+padding:12px 16px;border-radius:12px;font-size:.95rem;margin:18px 0}
+.avviso .i{color:var(--warn);margin-top:3px}
+/* bottoni */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:750;background:var(--brand);color:var(--on-brand);border:0;
+border-radius:12px;padding:12px 20px;min-height:48px;cursor:pointer;text-decoration:none;transition:background .15s,transform .15s}
+.btn:hover{background:var(--brand-2)}
+.btn:active{transform:scale(.98)}
 .btn:disabled{opacity:.6;cursor:wait}
+.btn-2{background:transparent;color:var(--brand-ink);box-shadow:inset 0 0 0 1.5px var(--line-2)}
+.btn-2:hover{background:var(--brand-soft)}
+/* schede */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);padding:22px;box-shadow:var(--ombra)}
+.eb{display:inline-flex;align-items:center;font-size:.76rem;font-weight:800;letter-spacing:.04em;padding:3px 9px;border-radius:6px;white-space:nowrap}
+.eb-CILS{background:var(--cils-bg);color:var(--cils)}.eb-CELI{background:var(--celi-bg);color:var(--celi)}
+.eb-PLIDA{background:var(--plida-bg);color:var(--plida)}.eb-CERTIT{background:var(--certit-bg);color:var(--certit)}
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:.8rem;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--surface-2);color:var(--ink-2)}
+.tag.citt{background:var(--brand-soft);color:var(--brand-ink)}
+/* filtri a chip */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 16px}
+.chips button{font:inherit;font-size:.9rem;font-weight:650;display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line-2);background:var(--surface);
+color:var(--ink-2);padding:7px 13px;min-height:40px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:background .15s,border-color .15s}
+.chips button:hover{border-color:var(--brand)}
+.chips button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.chips .pt{width:9px;height:9px;border-radius:50%;flex:none}
+@media (max-width:640px){.chips{flex-wrap:nowrap;overflow-x:auto;margin-right:-16px;padding-right:16px;padding-bottom:6px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}}
+/* sessioni */
+.sessioni{display:grid;gap:12px}
+.sess{display:grid;grid-template-columns:76px 1fr;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;
+min-width:0;overflow-wrap:anywhere;box-shadow:var(--ombra)}
+.sess[hidden]{display:none}
+.tile{display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:12px;background:var(--surface-2);padding:8px 4px;align-self:start;
+line-height:1;text-align:center;border-top:4px solid var(--brand)}
+.sess[data-tipo="generale"] .tile{border-top-color:var(--line-2)}
+.tile .tm{font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-ink)}
+.tile .td{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;margin:4px 0 3px;font-variant-numeric:tabular-nums}
+.tile .ty{font-size:.75rem;color:var(--ink-3);font-weight:600}
+.sess .cosa{min-width:0}
+.sess .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.sess .nome{font-weight:750;font-size:1.06rem;line-height:1.3}
+.sess .giorno{font-size:.9rem;color:var(--ink-3);margin-bottom:8px}
+.scad{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 8px;font-size:.94rem;color:var(--ink-2);padding:10px 12px;background:var(--surface-2);border-radius:10px}
+.scad>.i{color:var(--ink-3);margin-top:3px}
+.scad .riga{min-width:0;display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.scad strong{color:var(--ink)}
+.scad.urgente strong{color:var(--rosso)}
+.scad.chiusa{color:var(--ink-3)}
+.scad.chiusa strong{color:var(--ink-3);text-decoration:line-through;text-decoration-thickness:1px}
+.scad.chiusa .stato{white-space:normal;background:none;padding:0;font-weight:600;font-size:.86rem;color:var(--ink-3)}
+.scad .nota{grid-column:2;font-size:.84rem;color:var(--ink-3)}
+.fonte{font-size:.8rem;color:var(--ink-3);margin-top:8px;display:flex;gap:6px;align-items:flex-start}
+.fonte .i{margin-top:2px}
+.fonte a{color:var(--ink-3)}
+/* griglia città */
+.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.griglia a{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-height:52px;
+text-decoration:none;color:var(--ink);font-weight:700;line-height:1.25;transition:border-color .15s,background .15s}
+.griglia a .i{color:var(--brand)}
+.griglia a small{display:block;font-weight:500;color:var(--ink-3);font-size:.82rem}
+.griglia a:hover{border-color:var(--brand);background:var(--brand-soft)}
+/* sedi */
+.sedi{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.sedi li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0;overflow-wrap:anywhere}
+details .sedi li{background:var(--bg)}
+.sedi .nome{font-weight:700;display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin-bottom:6px}
+.sedi .det{font-size:.92rem;color:var(--ink-2);display:flex;gap:8px;align-items:flex-start;margin-top:3px}
+.sedi .det .i{color:var(--ink-3);margin-top:3px}
+.sedi .contatti{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.92rem;margin-top:6px}
+.sedi .contatti span,.sedi .contatti a{display:inline-flex;gap:6px;align-items:center}
+.sedi .contatti .i{color:var(--ink-3)}
+/* domande, tabelle */
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0;margin:8px 0}
+details summary{cursor:pointer;font-weight:700;padding:14px 16px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px}
+details summary::-webkit-details-marker{display:none}
+details summary .i{transition:transform .2s;color:var(--ink-3)}
+details[open] summary .i{transform:rotate(180deg)}
+details>:not(summary){margin:0 16px 14px}
+details>p{color:var(--ink-2)}
+table.conf{width:100%;border-collapse:collapse;font-size:.95rem;background:var(--surface);border-radius:12px;overflow:hidden}
+table.conf th{font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);background:var(--surface-2)}
+table.conf th,table.conf td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+.tab-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+ol.passi{counter-reset:p;list-style:none;padding:0;display:grid;gap:10px}
+ol.passi li{counter-increment:p;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--brand);color:var(--on-brand);font-weight:800}
+/* modulo */
+.modulo-testa{display:flex;gap:12px;align-items:flex-start;margin-bottom:6px}
+.modulo-testa .bolla{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--brand-soft);color:var(--brand);flex:none}
+.modulo-testa .bolla .i{width:22px;height:22px}
+.modulo-testa h2{margin:0;font-size:1.25rem}
+.form{display:grid;gap:14px;margin-top:14px}
+.form label{display:grid;gap:6px;font-weight:650;font-size:.95rem}
+.form input,.form select{font:inherit;font-size:1rem;padding:11px 12px;min-height:48px;border:1.5px solid var(--line-2);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;min-width:0}
+.form input:focus,.form select:focus{border-color:var(--brand)}
+.form .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem;color:var(--ink-2)}
+.form .check input{width:20px;height:20px;min-height:0;padding:0;margin-top:2px;flex:none;accent-color:var(--brand)}
+.form .btn{width:100%}
 .hp{position:absolute;left:-9999px}
-.ok{background:var(--accent-2);border:1px solid var(--accent);padding:14px;border-radius:10px}
-.errore{color:var(--warn);font-weight:600}
-.due{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;align-items:start}
-footer{margin-top:50px;border-top:1px solid var(--line);padding:22px 0 40px;font-size:.88rem;color:var(--ink-3)}
-footer a{color:var(--ink-3)}
-table.conf{width:100%;border-collapse:collapse;font-size:.95rem}
-table.conf th,table.conf td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left;vertical-align:top}
-.tab-wrap{overflow-x:auto}
-@media (max-width:760px){.due{grid-template-columns:1fr}.sess{grid-template-columns:1fr}header.top .wrap{flex-direction:column;align-items:flex-start;gap:4px;padding-top:10px;padding-bottom:10px}nav.menu{gap:14px;font-size:.92rem}}
-.cta{display:inline-block;margin-top:10px;text-decoration:none}
+.ok{display:flex;gap:10px;background:var(--brand-soft);border:1px solid var(--brand);padding:14px;border-radius:12px;margin-top:12px}
+.ok .i{color:var(--brand);margin-top:3px}
+.errore{color:var(--rosso);font-weight:650}
+/* impaginazione */
+.due{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:32px;align-items:start}
+.due>*{min-width:0}
+.due>aside>section+section{margin-top:8px}
+.due>section>h2:first-child,.due>aside>.card:first-child{margin-top:28px}
+@media (max-width:860px){.due{grid-template-columns:1fr;gap:8px}.risposta{grid-template-columns:1fr}}
+@media (max-width:640px){body{font-size:16.5px}.lead{font-size:1.02rem}.r-piede span{display:none}.sess{grid-template-columns:1fr;gap:10px;padding:14px}.tile{flex-direction:row;align-items:baseline;justify-self:start;gap:7px;padding:6px 12px;border-top:0;border-left:4px solid var(--brand)}.sess[data-tipo="generale"] .tile{border-left-color:var(--line-2)}.tile .td{font-size:1.3rem;margin:0}
+.card{padding:18px}.risposta .slot{padding:16px}.hero{padding-top:22px}}
+.altre{display:flex;flex-wrap:wrap;gap:6px}
+.altre a{font-size:.9rem;padding:5px 11px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink-2);background:var(--surface)}
+.altre a:hover{border-color:var(--brand);color:var(--brand-ink)}
+/* piede */
+footer.piede{margin-top:64px;background:#13201E;color:#C4D2CD;padding:36px 0 44px;font-size:.9rem}
+footer.piede::before{content:"";display:block;height:4px;margin-top:-36px;margin-bottom:32px;background:linear-gradient(90deg,#0B6B4F 0 33.3%,#F4F1EA 33.3% 66.6%,#C8402A 66.6%)}
+footer.piede a{color:#E8F0ED}
+footer.piede .logo{color:#FFFFFF}
+footer.piede .logo b{color:#6AD6AB}
+footer.piede .marchio{--brand:#4CC596;--on-brand:#052118}
+.piede-griglia{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:start}
+.piede-link{display:flex;flex-wrap:wrap;gap:8px 18px;list-style:none;padding:0;margin:14px 0 0}
+.piede-link a{text-decoration:none;font-weight:600}
+.piede-link a:hover{text-decoration:underline}
+.piede p{margin:0 0 12px;max-width:70ch}
+.piede .dati{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);padding:6px 12px;border-radius:999px;font-weight:600;color:#E8F0ED}
+@media (max-width:760px){.piede-griglia{grid-template-columns:1fr}}
 </style>
 
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol><symbol id="i-orologio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-campana" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-tel" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol><symbol id="i-web" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol><symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></symbol><symbol id="i-attenzione" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.5 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3Z"/><path d="M12 9v4M12 17h.01"/></symbol><symbol id="i-giu" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-freccia" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M16 13H8M16 17H8"/></symbol><symbol id="i-edificio" viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-5h6v5M2 10l10-7 10 7"/></symbol><symbol id="i-lista" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></symbol><symbol id="i-scudo" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol></defs></svg>
+<a class="salta" href="#contenuto">Vai al contenuto</a>
 <header class="top"><div class="wrap">
-<a class="logo" href="../../">Esame<span>B1</span></a>
+<a class="logo" href="../../" aria-label="EsameB1, pagina iniziale"><svg class="marchio" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+<path d="M8 4h24a6 6 0 0 1 6 6v15a6 6 0 0 1-6 6H17l-7.5 6.2c-.7.6-1.5.1-1.5-.7V31a6 6 0 0 1-6-6V10a6 6 0 0 1 6-6Z" fill="var(--brand)"/>
+<text x="20" y="21.6" text-anchor="middle" font-family="Figtree,system-ui,sans-serif" font-weight="800" font-size="15" fill="var(--on-brand)">B1</text>
+<rect x="11" y="25.6" width="6" height="2.4" rx="1.1" fill="#3FB37F"/><rect x="17" y="25.6" width="6" height="2.4" rx="1.1" fill="#FFFFFF"/><rect x="23" y="25.6" width="6" height="2.4" rx="1.1" fill="#E4573D"/>
+</svg><span class="logo-testo">Esame<b>B1</b></span></a>
 <nav class="menu" aria-label="Menu">
-<a href="../../#date">Date</a><a href="../../#citta">Città</a><a href="../../come-funziona/">Come funziona</a><a href="#avvisami">Avvisami</a>
+<a href="../../#date">Date</a><a href="../../#citta">Città</a><a href="../../come-funziona/"><span class="lungo">Come funziona</span><span class="corto">Guida</span></a><a class="nav-cta" href="#avvisami" aria-label="Avvisami"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-campana"/></svg><span class="lungo">Avvisami</span></a>
 </nav>
 </div></header>
-<main class="wrap">
+<main class="wrap" id="contenuto">
 <section class="hero">
+<nav class="briciole" aria-label="Sei qui"><a href="../../">EsameB1</a> <span aria-hidden="true">›</span> <span aria-current="page">PLIDA</span></nav>
 <h1>PLIDA – Progetto Lingua Italiana Dante Alighieri: date B1 per la cittadinanza e sedi in Italia</h1>
 <p class="lead">Per la cittadinanza si usa il PLIDA B1 (4 sessioni nel 2026, date uguali in tutti i centri). Ci si iscrive direttamente presso il centro PLIDA, che fissa la scadenza.</p>
-<p class="small">Ente: Società Dante Alighieri · <a href="https://plida.dante.global/" rel="noopener">sito ufficiale</a> ·
-<a href="https://plida.dante.global/it/esami-plida/" rel="noopener">calendario ufficiale</a> · <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale delle sedi</a></p>
+<ul class="cifre"><li><span class="eb eb-PLIDA">PLIDA</span><span>Società Dante Alighieri</span></li>
+<li><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg><a href="https://plida.dante.global/" rel="noopener">sito ufficiale</a></li>
+<li><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg><a href="https://plida.dante.global/it/esami-plida/" rel="noopener">calendario ufficiale</a></li>
+<li><svg class="i" aria-hidden="true" focusable="false"><use href="#i-lista"/></svg><a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale delle sedi</a></li></ul>
 </section>
 <div class="due">
 <section>
-<h2 id="date">Prossime date PLIDA (livello B1)</h2>
+<h2 id="date"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossime date PLIDA (livello B1)</h2>
 <div class="sessioni"><article class="sess" data-data="2026-11-18" data-ente="PLIDA" data-tipo="generale">
-<div class="quando">18 novembre 2026<small>mercoledì</small></div>
-<div class="cosa"><span class="badge">PLIDA</span><span class="badge">B1 valido per la cittadinanza</span>
-<div><strong>PLIDA B1</strong></div>
-<div class="scad">La scadenza la decide ogni centro PLIDA: chiedila al centro scelto.</div>
-<div class="fonte">Fonte: <a href="https://cms.plida.dante.global/wp-content/uploads/2025/11/Calendario-esami-PLIDA-2026-per-il-sito-1.pdf" rel="noopener">calendario ufficiale PLIDA</a> · controllato il 9 ottobre 2026</div>
+<div class="tile" aria-hidden="true"><span class="tm">nov</span><span class="td">18</span><span class="ty">2026</span></div>
+<div class="cosa"><div class="tags"><span class="eb eb-PLIDA">PLIDA</span><span class="tag"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>B1 valido per la cittadinanza</span></div>
+<div class="nome">PLIDA B1</div>
+<div class="giorno"><time datetime="2026-11-18">mercoledì 18 novembre 2026</time></div>
+<div class="scad"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga">La scadenza la decide ogni centro PLIDA: chiedila al centro scelto.</div></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cms.plida.dante.global/wp-content/uploads/2025/11/Calendario-esami-PLIDA-2026-per-il-sito-1.pdf" rel="noopener">calendario ufficiale PLIDA</a> · controllato il 9 ottobre 2026</span></div>
 </div>
 </article></div>
-<h2>Sedi PLIDA in Italia (82)</h2>
-<details><summary>Abruzzo (1)</summary><ul class="sedi"><li><div class="nome"><span class="badge">PLIDA</span>AnBeCa s.r.l.</div>
-<div class="det">Piazzale Smargiassi, 10<br>66054 Vasto (CH)</div>
-<div class="det">Tel. +39 0873366525 · <a href="mailto:anbecaformazione@gmail.com">anbecaformazione@gmail.com</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li></ul></details><details><summary>Basilicata (1)</summary><ul class="sedi"><li><div class="nome"><span class="badge">PLIDA</span>Forcopim - Potenza</div>
-<div class="det">Via Sicilia, 65<br>85100 Potenza (PZ)</div>
-<div class="det">Tel. +39 097134692 · <a href="mailto:g.paterno@forcopim.com">g.paterno@forcopim.com</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li></ul></details><details><summary>Calabria (4)</summary><ul class="sedi"><li><div class="nome"><span class="badge">PLIDA</span>The Convent Centre of Language &amp; Art APS</div>
-<div class="det">Gradinata Cappuccini, 19<br>87032 Amantea (CS)</div>
-<div class="det"><a href="mailto:conventcentreamantea@gmail.com">conventcentreamantea@gmail.com</a> · <a href="https://www.conventcentre.com" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Cosenza</div>
-<div class="det">Piazza Giovanni Amendola 8<br>87100 Cosenza (CS)</div>
-<div class="det">Tel. +39 0984483941 · <a href="mailto:certificazioniplidacs@gmail.com">certificazioniplidacs@gmail.com</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Crotone</div>
-<div class="det">Vico Caloiro 3<br>88900 Crotone (KR)</div>
-<div class="det">Tel. +39 3938159332 +39 0962 905784, orario apertura: 10.00-12.00 16.00-19.00 · <a href="mailto:ladante.kr@virgilio.it">ladante.kr@virgilio.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Tropea</div>
-<div class="det">Via Coniugi Crigna C/O Liceo classico<br>89861 Tropea (VV)</div>
-<div class="det">Tel. +39 3274537890 · <a href="mailto:comitatodante.tropea@gmail.com">comitatodante.tropea@gmail.com</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li></ul></details><details><summary>Campania (3)</summary><ul class="sedi"><li><div class="nome"><span class="badge">PLIDA</span>CPIA Caserta</div>
-<div class="det">41.08322<br>81100 Caserta (CE)</div>
-<div class="det">Tel. +39 0823341601 · <a href="mailto:cemm18000t@istruzione.it">cemm18000t@istruzione.it</a> · <a href="https://www.cpiacaserta.edu.it" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Associazione Melagrana</div>
-<div class="det">Via Napoli 227<br>81027 San Felice a Cancello (CE)</div>
-<div class="det">Tel. +39 3408627619 · <a href="mailto:formazionel2@melagrana.eu">formazionel2@melagrana.eu</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Centro Italiano - Napoli</div>
-<div class="det">Vico Santa Maria dell&#x27;Aiuto 17<br>80134 Napoli (NA)</div>
-<div class="det">Tel. +39 0815524331 · <a href="mailto:napolicentroitaliano@gmail.com">napolicentroitaliano@gmail.com</a> · <a href="https://www.centroitalianonapoli.com" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li></ul></details><details><summary>Emilia-Romagna (6)</summary><ul class="sedi"><li><div class="nome"><span class="badge">PLIDA</span>Società Dante Alighieri - Scuola di Italiano di Bologna</div>
-<div class="det">Piazza San Giovanni in Monte, 1/A<br>40124 Bologna (BO)</div>
-<div class="det">Tel. +39 051239734 · <a href="mailto:info.bologna@dante.global">info.bologna@dante.global</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Forlì-Cesena</div>
-<div class="det">Via A. Frangipane, 6<br>47032 Bertinoro (FC)</div>
-<div class="det">Tel. +39 3331900951 · <a href="mailto:plidafc@gmail.com">plidafc@gmail.com</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>CPIA Parma</div>
-<div class="det">Via La Spezia, 110<br>43125 Parma (PR)</div>
-<div class="det">Tel. +39 05211917221 · <a href="mailto:prmm07500a@istruzione.it">prmm07500a@istruzione.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Interlinguae Parma</div>
-<div class="det">Strada Felice Cavallotti, 28<br>43121 Parma (PR)</div>
-<div class="det">Tel. +39 0521503353 · <a href="mailto:info@interlinguae.it">info@interlinguae.it</a> · <a href="https://www.interlinguae.it/it/italian-as-a-second-language-en-2.html" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Mondo Aperto A.P.S.</div>
-<div class="det">via Tibini 1A<br>29121 Piacenza (PC)</div>
-<div class="det"><a href="mailto:segreteria@plidapiacenza.com">segreteria@plidapiacenza.com</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Fondazione Unicampus San Pellegrino - Misano</div>
-<div class="det">Corso d&#x27;Augusto, 62<br>47921 Rimini (RN)</div>
-<div class="det">Tel. +39 02 67877934 (da lunedì a giovedì 10:00-16:00) +39 335 5395693 (lun., mar., mer. e ven. 12:00-13:30) · <a href="mailto:plida.rn@fusp-edu.it">plida.rn@fusp-edu.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li></ul></details><details><summary>Friuli-Venezia Giulia (5)</summary><ul class="sedi"><li><div class="nome"><span class="badge">PLIDA</span>Gorizia</div>
-<div class="det">Via P. Antonio Codelli 14<br>34170 Gorizia (GO)</div>
-<div class="det">Tel. +39 3292199791, fax: +39 0481 533936 orario apertura: su appuntamento · <a href="mailto:info@ladantegorizia.it">info@ladantegorizia.it</a> · <a href="https://www.ladantegorizia.it" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Trieste</div>
-<div class="det">Via di Torre Bianca 32<br>34122 Trieste (TS)</div>
-<div class="det">Tel. +39 333 98 40 451 · <a href="mailto:com.dante.trieste@gmail.com">com.dante.trieste@gmail.com</a> · <a href="https://www.dantealighieritrieste.it" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Accademia di Belle Arti G.B. Tiepolo</div>
-<div class="det">Viale Ungheria, 22<br>33100 Udine (UD)</div>
-<div class="det"><a href="mailto:c.rizzi@accademiatiepolo.it">c.rizzi@accademiatiepolo.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Istituto Statale di Istruzione Superiore A. Malignani</div>
-<div class="det">Via Leonardo Da Vinci, 10<br>33100 Udine (UD)</div>
-<div class="det">Tel. +39 0432 46361 · <a href="mailto:UDIS01600T@istruzione.it">UDIS01600T@istruzione.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Punto Lingue</div>
-<div class="det">Viale Tavagnacco 156<br>33100 Udine (UD)</div>
-<div class="det">Tel. +39 0432479092 · <a href="mailto:corsi@puntolingue.com">corsi@puntolingue.com</a> · <a href="https://www.puntolingue.com/" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li></ul></details><details><summary>Lazio (11)</summary><ul class="sedi"><li><div class="nome"><span class="badge">PLIDA</span>Associazione Gottifredo</div>
-<div class="det">Via Emanuele Lisi, 2<br>3011 Alatri (FR)</div>
-<div class="det">Tel. +39 0775440105 · <a href="mailto:ass.palazzogottifredo@gmail.com">ass.palazzogottifredo@gmail.com</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Convitto Nazionale Regina Margherita di Anagni</div>
-<div class="det">Viale Regina Margherita, 36<br>03012 Anagni (FR)</div>
-<div class="det">Tel. +39 0775727007 · <a href="mailto:plida@convittoreginamargherita.com">plida@convittoreginamargherita.com</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Associazione CEDIS</div>
-<div class="det">Via Francesco Cornaro 66<br>00152 Roma (RM)</div>
-<div class="det">Tel. + 39 3884443077 · <a href="mailto:b1plida@cedisroma.it">b1plida@cedisroma.it</a> · <a href="https://www.cedisroma.it/" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Associazione Culturale Koiné</div>
-<div class="det">via del Boschetto, 32<br>00184 Roma (RM)</div>
-<div class="det">Tel. +39 064885753 · <a href="mailto:kitaliano@hotmail.it">kitaliano@hotmail.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Byron Tree srl</div>
-<div class="det">Via Rubattino, 1<br>00153 Roma (RM)</div>
-<div class="det">Tel. +39 3282572966 · <a href="mailto:italiano@byronschool.it">italiano@byronschool.it</a> · <a href="https://www.byronrome.com/corsi-di-italiano-plida" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Ciao Italia Centro di lingua</div>
-<div class="det">Via delle Frasche, 5<br>00184 Roma (RM)</div>
-<div class="det">Tel. +39 064841084 · <a href="mailto:info@ciao-italia.it">info@ciao-italia.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Easy life Group</div>
-<div class="det">Via Bartolo da Sassoferrato 9<br>00165 Roma (RM)</div>
-<div class="det">Tel. +39 063720815 · <a href="mailto:j.panzarani@easy-life.com">j.panzarani@easy-life.com</a> · <a href="https://www.easy-life.com" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Interlinguae Roma</div>
-<div class="det">Via delle Quattro Fontane 109<br>00184 Roma (RM)</div>
-<div class="det">Tel. +39 0662286759 · <a href="mailto:info.roma@interlinguae.it">info.roma@interlinguae.it</a> · <a href="https://interlinguae.it" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Società Dante Alighieri - Scuola di Italiano di Roma</div>
-<div class="det">Piazza di Firenze, 27<br>00186 Roma (RM)</div>
-<div class="det">Tel. +39066873722 · <a href="mailto:esamiplida.roma@dante.global">esamiplida.roma@dante.global</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>UNINT - Università degli Studi Internazionali di Roma</div>
-<div class="det">Via Cristoforo Colombo, 200<br>00147 Roma (RM)</div>
-<div class="det">Tel. +39 06510777452 · <a href="mailto:cla@unint.eu">cla@unint.eu</a> · <a href="https://cla.unint.eu" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Università degli studi &quot;Niccolò Cusano&quot;</div>
-<div class="det">Via Don Carlo Gnocchi, 3<br>00166 Roma (RM)</div>
-<div class="det">Tel. +39 3484787966 · <a href="mailto:ilary.langeli@unicusano.it">ilary.langeli@unicusano.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li></ul></details><details><summary>Liguria (2)</summary><ul class="sedi"><li><div class="nome"><span class="badge">PLIDA</span>CPIA Levante Tigullio</div>
-<div class="det">Corso IV novembre, 115<br>16030 Cogorno (GE)</div>
-<div class="det">Tel. +39 0185383442 · <a href="mailto:gemm18400q@istruzione.it">gemm18400q@istruzione.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>CPIA La Spezia</div>
-<div class="det">Via Milano, 42<br>19122 La Spezia (SP)</div>
-<div class="det">Tel. +39 0187026139 · <a href="mailto:letizia.pappalardo@cpiasp.com">letizia.pappalardo@cpiasp.com</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li></ul></details><details><summary>Lombardia (11)</summary><ul class="sedi"><li><div class="nome"><span class="badge">PLIDA</span>Bergamo</div>
-<div class="det">Via G. Solari, 13<br>24021 Albino (BG)</div>
-<div class="det">Tel. +39 347 4116518 · <a href="mailto:plidabergamo@gmail.com">plidabergamo@gmail.com</a> · <a href="http://www.ladantebg.org" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Scuola Superiore per Mediatori Linguistici di Brescia</div>
-<div class="det">Via Flero 46, Torre Sud<br>25124 Brescia (BS)</div>
-<div class="det">Tel. +39 030 3372746 · <a href="mailto:plida.brescia@ciels.it">plida.brescia@ciels.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>AL Accademia Lingue sas</div>
-<div class="det">Via Massenzio Masia, 26<br>22100 Como (CO)</div>
-<div class="det">Tel. +39 031575059 · <a href="mailto:accademialingue@gmail.com">accademialingue@gmail.com</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Centro culturale cinese srl</div>
-<div class="det">Via Paolo Sarpi, 26<br>20154 Milano (MI)</div>
-<div class="det">Tel. +39 3801370370 · <a href="mailto:plida.centroculturalecinese@gmail.com">plida.centroculturalecinese@gmail.com</a> · <a href="https://www.centroculturalecinese.com/it" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Interlinguae Milano</div>
-<div class="det">Piazzale G. dalle Bande Nere, 7<br>20147 Milano (MI)</div>
-<div class="det">Tel. +39 0239290103 · <a href="mailto:info.milano@interlinguae.it">info.milano@interlinguae.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Istituto Marelli Dudovich - Centro Culturale Multietnico &#x27;La Tenda&#x27;</div>
-<div class="det">via Livigno, 11<br>20159 Milano (MI)</div>
-<div class="det">Tel. +39 026884122 · <a href="mailto:latenda@latenda.eu">latenda@latenda.eu</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Linguadue sede milanese di Linguaviva srl</div>
-<div class="det">Via Valenza, 5<br>20144 Milano (MI)</div>
-<div class="det">Tel. +39 02 29519972 · <a href="mailto:director@linguadue.com">director@linguadue.com</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Società Dante Alighieri - Scuola di Italiano di Milano</div>
-<div class="det">Via Napo Torriani, 10<br>20124 Milano (MI)</div>
-<div class="det">Tel. +39026692816 · <a href="mailto:info.milano@dante.global">info.milano@dante.global</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>CPIA 1 Sondrio - Sede di Morbegno e Delebio</div>
-<div class="det">Piazza Fiume, 4<br>23017 Morbegno (SO)</div>
-<div class="det">Tel. +39 0342612844 · <a href="mailto:sara.ronconi@cpia1sondrio.edu.it">sara.ronconi@cpia1sondrio.edu.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>CPIA 1 Sondrio - Sede di Sondrio</div>
-<div class="det">Via Gianoli Diego, 16<br>23100 Sondrio (SO)</div>
-<div class="det">Tel. +39 0342 685262 · <a href="mailto:SOMM03300p@ISTRUZIONE.IT">SOMM03300p@ISTRUZIONE.IT</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>CPIA 1 Varese</div>
-<div class="det">Via Rossini, 115 (ingresso Via Azimonti 50)<br>21052 Busto Arsizio (VA)</div>
-<div class="det">Tel. +39 0331630943 · <a href="mailto:info@cpia1varese.it">info@cpia1varese.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li></ul></details><details><summary>Marche (5)</summary><ul class="sedi"><li><div class="nome"><span class="badge">PLIDA</span>Fabriano</div>
-<div class="det">Via Valpovera 16<br>60044 Fabriano (AN)</div>
-<div class="det">Tel. +39 3394132252 · <a href="mailto:plida.fabriano@gmail.com">plida.fabriano@gmail.com</a> · <a href="http://www.ladantefabriano.it" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>CPIA Macerata</div>
-<div class="det">Viale Don Bosco 55<br>62100 Macerata (MC)</div>
-<div class="det">Tel. +39 07331960133 · <a href="mailto:mcmm05300c@istruzione.it">mcmm05300c@istruzione.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Italiano &amp; co - Macerata</div>
-<div class="det">Via Giuseppe Garibaldi, 77<br>62100 Macerata (MC)</div>
-<div class="det">Tel. +39 0733471300 · <a href="mailto:amministrazione@italianoeco.com">amministrazione@italianoeco.com</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Campus L&#x27;infinito srl</div>
-<div class="det">Viale del Passero Solitario, 28<br>62019 Recanati (MC)</div>
-<div class="det">Tel. +39 0717575943 · <a href="mailto:direzione@scuoladantealighieri.org">direzione@scuoladantealighieri.org</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>FORM-ACTION s.r.l.- Pesaro</div>
-<div class="det">via Yuri Gagarin, 191<br>61122 Pesaro (PU)</div>
-<div class="det">Tel. +39 0721854615 · <a href="mailto:plida@form-action.it">plida@form-action.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li></ul></details><details><summary>Molise (2)</summary><ul class="sedi"><li><div class="nome"><span class="badge">PLIDA</span>Campobasso</div>
-<div class="det">Via Roma 41<br>86100 Campobasso (CB)</div>
-<div class="det">Tel. +39 0874 91687, orario apertura: 10.30-12.00 · <a href="mailto:iavang@outlook.it">iavang@outlook.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Isernia</div>
-<div class="det">via Farinacci 9<br>86170 Isernia (IS)</div>
-<div class="det">Tel. +39 0865270711 · <a href="mailto:comitatodanteisernia@gmail.com">comitatodanteisernia@gmail.com</a> · <a href="http://www.poloparitariosanpietro.it/DanteAlighieriIsernia" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li></ul></details><details><summary>Piemonte (3)</summary><ul class="sedi"><li><div class="nome"><span class="badge">PLIDA</span>CPIA 1 Asti</div>
-<div class="det">Piazza Leonardo Da Vinci, 22<br>14100 Asti (AT)</div>
-<div class="det">Tel. +39 0141095803 · <a href="https://cpia1asti.edu.it" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Polo Scolastico Europeo (Bra)</div>
-<div class="det">Via Cavour 44<br>12042 Bra (CN)</div>
-<div class="det">Tel. +39 0172439896 +39 3454608050 · <a href="mailto:info@italianoperstranieribra.it">info@italianoperstranieribra.it</a> · <a href="https://www.italianoperstranieribra.it" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Società Dante Alighieri - Scuola di Italiano di Torino</div>
-<div class="det">Via Frejus, 5<br>10139 Torino (TO)</div>
-<div class="det">Tel. +390115681781 · <a href="mailto:m.volpicelli@dante.global">m.volpicelli@dante.global</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li></ul></details><details><summary>Puglia (6)</summary><ul class="sedi"><li><div class="nome"><span class="badge">PLIDA</span>Associazione DICUNT</div>
-<div class="det">Via Gaetano Postiglione, 6<br>70126 Bari (BA)</div>
-<div class="det">Tel. +39 328 595 9359 · <a href="mailto:alcuri2014@gmail.com">alcuri2014@gmail.com</a> · <a href="https://burbujadespana.com/" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Associazione Dante Alighieri ETS</div>
-<div class="det">Via F.lli Trisciuzzi n.c. C.da Sant&#x27;Angelo, Z.I. SUD<br>72015 Fasano (BR)</div>
-<div class="det">Tel. +39 080 8761123 · <a href="mailto:info@dantealighieriformazione.it">info@dantealighieriformazione.it</a> · <a href="https://dantealighieriformazione.it" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>SAAM 4.0 Academy School</div>
-<div class="det">Via Cosimo Argentieri 24<br>72022 Latiano (BR)</div>
-<div class="det">Tel. +39 08311522669 · <a href="mailto:plida@saam40.net">plida@saam40.net</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Daunia Academy</div>
-<div class="det">Via Luigi Rovelli, 48<br>71122 Foggia (FG)</div>
-<div class="det">Tel. +39 088161565 · <a href="mailto:daunia.academy@gmail.com">daunia.academy@gmail.com</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Casarano</div>
-<div class="det">Via XXV Maggio 109<br>73042 Casarano (LE)</div>
-<div class="det">Tel. +39 3338719069 · <a href="mailto:fabio_dastore@virgilio.it">fabio_dastore@virgilio.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>I.S.P.A. Istituto Superiore di Pubblica Amministrazione</div>
-<div class="det">Via Antonio Galateo De Ferraris 34<br>73024 Maglie (LE)</div>
-<div class="det">Tel. +39 0836312776 · <a href="mailto:amministrazione.ispa@gmail.com">amministrazione.ispa@gmail.com</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li></ul></details><details><summary>Sicilia (7)</summary><ul class="sedi"><li><div class="nome"><span class="badge">PLIDA</span>Caltanissetta</div>
-<div class="det">Via Libertà 114<br>93100 Caltanissetta (CL)</div>
-<div class="det">Tel. +39 3288227716 +39 0934552375 · <a href="mailto:ladantecaltanissetta@virgilio.it">ladantecaltanissetta@virgilio.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Dipartimento di Civiltà Antiche e Moderne (DICAM) - Università di Messina</div>
-<div class="det">Torrente Annunziata - Via A. Giuffre<br>98168 Messina (ME)</div>
-<div class="det"><a href="mailto:frossi@unime.it">frossi@unime.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Istituto Antonio di Rudinì</div>
-<div class="det">Via Filippo Parlatore, 22<br>90145 Palermo (PA)</div>
-<div class="det">Tel. +39 0916816000 · <a href="mailto:segreteria@istitutomamiani.it">segreteria@istitutomamiani.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Palermo</div>
-<div class="det">Via Marchese Ugo 60<br>90141 Palermo (PA)</div>
-<div class="det">Tel. +39 3409299030 · <a href="mailto:s.dantealighieripalermo@gmail.com">s.dantealighieripalermo@gmail.com</a> · <a href="https://ladantepalermo.it" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>IIS G. Curcio Ispica (Ragusa)</div>
-<div class="det">Via Andreoli, 2<br>97014 Ispica (RG)</div>
-<div class="det">Tel. +39 0932950024 · <a href="mailto:RGIS00200C@istruzione.it">RGIS00200C@istruzione.it</a> · <a href="https://www.istitutocurcio.gov.it" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Siracusa</div>
-<div class="det">Via Eschilo 22<br>96100 Siracusa (SR)</div>
-<div class="det">Tel. +39 3471788956 +39 3337086206 · <a href="mailto:plida@dantesiracusa.com">plida@dantesiracusa.com</a> · <a href="https://www.dantesiracusa.com" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Centro Formazione e Servizi Lingua +</div>
-<div class="det">Via Domenico la Bruna 39<br>91011 Alcamo (TP)</div>
-<div class="det">Tel. +39 0924501177 · <a href="mailto:info@corsilinguapiu.com">info@corsilinguapiu.com</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li></ul></details><details><summary>Toscana (4)</summary><ul class="sedi"><li><div class="nome"><span class="badge">PLIDA</span>Società Dante Alighieri - Scuola di Italiano di Firenze</div>
-<div class="det">Via della Fortezza 6<br>50129 Firenze (FI)</div>
-<div class="det">Tel. +39 0552479014 · <a href="mailto:esamiplida.firenze@dante.global">esamiplida.firenze@dante.global</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Centro italiano femminile comunale di Pisa</div>
-<div class="det">Via Fiorentina 225/A<br>56215 Pisa (PI)</div>
-<div class="det">Tel. +39 366 2423297 · <a href="mailto:infoplida.cifpisa@gmail.com">infoplida.cifpisa@gmail.com</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>IIEMC Città Proibita - Prato</div>
-<div class="det">Via de&#x27; Gobbi, 43-47<br>59100 Prato (PO)</div>
-<div class="det">Tel. +39 3388521207 · <a href="mailto:shan.italia@gmail.com">shan.italia@gmail.com</a> · <a href="https://www.cittaproibita.it" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Siena</div>
-<div class="det">Via Tommaso Pendola, 37<br>53100 Siena (SI)</div>
-<div class="det">Tel. +39 057749533 · <a href="mailto:info@ladantesiena.it">info@ladantesiena.it</a> · <a href="https://www.ladantesiena.it" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li></ul></details><details><summary>Trentino-Alto Adige/Südtirol (1)</summary><ul class="sedi"><li><div class="nome"><span class="badge">PLIDA</span>Bolzano</div>
-<div class="det">Via Portici, 30 - Passaggio Antico Municipio<br>39100 Bolzano (BZ)</div>
-<div class="det">Tel. +39 0471366383 · <a href="mailto:societadantealighieribolzano@gmail.com">societadantealighieribolzano@gmail.com</a> · <a href="https://www.dabolzano.it" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li></ul></details><details><summary>Umbria (1)</summary><ul class="sedi"><li><div class="nome"><span class="badge">PLIDA</span>Terni</div>
-<div class="det">Via Oberdan , 6<br>5100 Terni (TR)</div>
-<div class="det">Tel. +39 3384887212 · <a href="mailto:plidaterni@gmail.com">plidaterni@gmail.com</a> · <a href="http://www.dantealighieriterni.it" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li></ul></details><details><summary>Veneto (9)</summary><ul class="sedi"><li><div class="nome"><span class="badge">PLIDA</span>Synthesis srl</div>
-<div class="det">Via Panà 561A<br>35027 Noventa Padovana (PD)</div>
-<div class="det">Tel. +39 0498078751 · <a href="mailto:progettazione@synthesis-srl.com">progettazione@synthesis-srl.com</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Padova</div>
-<div class="det">Via Prato della Valle 97<br>35123 Padova (PD)</div>
-<div class="det">Tel. +39 049 664238 +39 3481072540 · <a href="mailto:dantealighieripadova@gmail.com">dantealighieripadova@gmail.com</a> · <a href="https://www.ladantealighieripadova.it" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Scuola Superiore Universitaria per Mediatori Linguistici (CIELS)</div>
-<div class="det">Via Venier, 200<br>35127 Padova (PD)</div>
-<div class="det">Tel. +39 049/774152 · <a href="mailto:plida@ciels.it">plida@ciels.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Rovigo</div>
-<div class="det">Via Samuele Donatoni, 4<br>45100 Rovigo (RO)</div>
-<div class="det">Tel. +39 0425 25905 Ufficio PLIDA: lun e mer 10.00-12.30 e mer. 10.00-13.00 · <a href="mailto:plida@ladanterovigo.it">plida@ladanterovigo.it</a> · <a href="https://www.ladanterovigo.it" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Venezia</div>
-<div class="det">Viale S.Elena 3<br>30132 Venezia (VE)</div>
-<div class="det">Tel. +39 0415234590 · <a href="mailto:ladantevenezia@gmail.com">ladantevenezia@gmail.com</a> · <a href="https://www.ladantevenezia.it" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Associazione C.L.I. - Centro Linguistico Italiano</div>
-<div class="det">Via Don Enrico Tazzoli, 6<br>37121 Verona (VR)</div>
-<div class="det">Tel. +39 045565294 - +393285637218 · <a href="mailto:info@veronaplida.it">info@veronaplida.it</a> · <a href="https://plidaverona.wordpress.com/info/certificatplida" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>CPIA Verona</div>
-<div class="det">Via Udine, 2<br>37135 Verona (VR)</div>
-<div class="det">Tel. +39 0458492221 · <a href="mailto:borgoroma@cpiaverona.edu.it">borgoroma@cpiaverona.edu.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>Centro Studi Idea Verona</div>
-<div class="det">Piazza Duomo, 2/A<br>37121 Verona (VR)</div>
-<div class="det">Tel. +39 0458015352 · <a href="mailto:info@ideaverona.com">info@ideaverona.com</a> · <a href="https://www.ideaverona.com" rel="noopener nofollow">sito</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li><li><div class="nome"><span class="badge">PLIDA</span>InLingua srl - Vicenza</div>
-<div class="det">Via Lanza, 106<br>36100 Vicenza (VI)</div>
-<div class="det">Tel. +39 0444546702 · <a href="mailto:direzione@inlinguavicenza.it">direzione@inlinguavicenza.it</a></div>
-<div class="fonte">Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></div></li></ul></details>
+<h2><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg>Sedi PLIDA in Italia (82)</h2>
+<details><summary>Abruzzo (1)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>AnBeCa s.r.l.</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Piazzale Smargiassi, 10<br>66054 Vasto (CH)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0873366525</span><a href="mailto:anbecaformazione@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>anbecaformazione@gmail.com</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li></ul></details><details><summary>Basilicata (1)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Forcopim - Potenza</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Sicilia, 65<br>85100 Potenza (PZ)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 097134692</span><a href="mailto:g.paterno@forcopim.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>g.paterno@forcopim.com</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li></ul></details><details><summary>Calabria (4)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>The Convent Centre of Language &amp; Art APS</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Gradinata Cappuccini, 19<br>87032 Amantea (CS)</span></div>
+<div class="contatti"><a href="mailto:conventcentreamantea@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>conventcentreamantea@gmail.com</a><a href="https://www.conventcentre.com" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Cosenza</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Piazza Giovanni Amendola 8<br>87100 Cosenza (CS)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0984483941</span><a href="mailto:certificazioniplidacs@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>certificazioniplidacs@gmail.com</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Crotone</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Vico Caloiro 3<br>88900 Crotone (KR)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 3938159332 +39 0962 905784, orario apertura: 10.00-12.00 16.00-19.00</span><a href="mailto:ladante.kr@virgilio.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>ladante.kr@virgilio.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Tropea</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Coniugi Crigna C/O Liceo classico<br>89861 Tropea (VV)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 3274537890</span><a href="mailto:comitatodante.tropea@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>comitatodante.tropea@gmail.com</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li></ul></details><details><summary>Campania (3)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>CPIA Caserta</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>41.08322<br>81100 Caserta (CE)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0823341601</span><a href="mailto:cemm18000t@istruzione.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>cemm18000t@istruzione.it</a><a href="https://www.cpiacaserta.edu.it" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Associazione Melagrana</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Napoli 227<br>81027 San Felice a Cancello (CE)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 3408627619</span><a href="mailto:formazionel2@melagrana.eu"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>formazionel2@melagrana.eu</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Centro Italiano - Napoli</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Vico Santa Maria dell&#x27;Aiuto 17<br>80134 Napoli (NA)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0815524331</span><a href="mailto:napolicentroitaliano@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>napolicentroitaliano@gmail.com</a><a href="https://www.centroitalianonapoli.com" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li></ul></details><details><summary>Emilia-Romagna (6)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Società Dante Alighieri - Scuola di Italiano di Bologna</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Piazza San Giovanni in Monte, 1/A<br>40124 Bologna (BO)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 051239734</span><a href="mailto:info.bologna@dante.global"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>info.bologna@dante.global</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Forlì-Cesena</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via A. Frangipane, 6<br>47032 Bertinoro (FC)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 3331900951</span><a href="mailto:plidafc@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>plidafc@gmail.com</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>CPIA Parma</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via La Spezia, 110<br>43125 Parma (PR)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 05211917221</span><a href="mailto:prmm07500a@istruzione.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>prmm07500a@istruzione.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Interlinguae Parma</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Strada Felice Cavallotti, 28<br>43121 Parma (PR)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0521503353</span><a href="mailto:info@interlinguae.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>info@interlinguae.it</a><a href="https://www.interlinguae.it/it/italian-as-a-second-language-en-2.html" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Mondo Aperto A.P.S.</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>via Tibini 1A<br>29121 Piacenza (PC)</span></div>
+<div class="contatti"><a href="mailto:segreteria@plidapiacenza.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>segreteria@plidapiacenza.com</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Fondazione Unicampus San Pellegrino - Misano</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Corso d&#x27;Augusto, 62<br>47921 Rimini (RN)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 02 67877934 (da lunedì a giovedì 10:00-16:00) +39 335 5395693 (lun., mar., mer. e ven. 12:00-13:30)</span><a href="mailto:plida.rn@fusp-edu.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>plida.rn@fusp-edu.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li></ul></details><details><summary>Friuli-Venezia Giulia (5)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Gorizia</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via P. Antonio Codelli 14<br>34170 Gorizia (GO)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 3292199791, fax: +39 0481 533936 orario apertura: su appuntamento</span><a href="mailto:info@ladantegorizia.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>info@ladantegorizia.it</a><a href="https://www.ladantegorizia.it" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Trieste</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via di Torre Bianca 32<br>34122 Trieste (TS)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 333 98 40 451</span><a href="mailto:com.dante.trieste@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>com.dante.trieste@gmail.com</a><a href="https://www.dantealighieritrieste.it" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Accademia di Belle Arti G.B. Tiepolo</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Viale Ungheria, 22<br>33100 Udine (UD)</span></div>
+<div class="contatti"><a href="mailto:c.rizzi@accademiatiepolo.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>c.rizzi@accademiatiepolo.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Istituto Statale di Istruzione Superiore A. Malignani</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Leonardo Da Vinci, 10<br>33100 Udine (UD)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0432 46361</span><a href="mailto:UDIS01600T@istruzione.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>UDIS01600T@istruzione.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Punto Lingue</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Viale Tavagnacco 156<br>33100 Udine (UD)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0432479092</span><a href="mailto:corsi@puntolingue.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>corsi@puntolingue.com</a><a href="https://www.puntolingue.com/" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li></ul></details><details><summary>Lazio (11)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Associazione Gottifredo</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Emanuele Lisi, 2<br>3011 Alatri (FR)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0775440105</span><a href="mailto:ass.palazzogottifredo@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>ass.palazzogottifredo@gmail.com</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Convitto Nazionale Regina Margherita di Anagni</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Viale Regina Margherita, 36<br>03012 Anagni (FR)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0775727007</span><a href="mailto:plida@convittoreginamargherita.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>plida@convittoreginamargherita.com</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Associazione CEDIS</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Francesco Cornaro 66<br>00152 Roma (RM)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. + 39 3884443077</span><a href="mailto:b1plida@cedisroma.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>b1plida@cedisroma.it</a><a href="https://www.cedisroma.it/" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Associazione Culturale Koiné</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>via del Boschetto, 32<br>00184 Roma (RM)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 064885753</span><a href="mailto:kitaliano@hotmail.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>kitaliano@hotmail.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Byron Tree srl</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Rubattino, 1<br>00153 Roma (RM)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 3282572966</span><a href="mailto:italiano@byronschool.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>italiano@byronschool.it</a><a href="https://www.byronrome.com/corsi-di-italiano-plida" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Ciao Italia Centro di lingua</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via delle Frasche, 5<br>00184 Roma (RM)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 064841084</span><a href="mailto:info@ciao-italia.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>info@ciao-italia.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Easy life Group</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Bartolo da Sassoferrato 9<br>00165 Roma (RM)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 063720815</span><a href="mailto:j.panzarani@easy-life.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>j.panzarani@easy-life.com</a><a href="https://www.easy-life.com" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Interlinguae Roma</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via delle Quattro Fontane 109<br>00184 Roma (RM)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0662286759</span><a href="mailto:info.roma@interlinguae.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>info.roma@interlinguae.it</a><a href="https://interlinguae.it" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Società Dante Alighieri - Scuola di Italiano di Roma</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Piazza di Firenze, 27<br>00186 Roma (RM)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39066873722</span><a href="mailto:esamiplida.roma@dante.global"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>esamiplida.roma@dante.global</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>UNINT - Università degli Studi Internazionali di Roma</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Cristoforo Colombo, 200<br>00147 Roma (RM)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 06510777452</span><a href="mailto:cla@unint.eu"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>cla@unint.eu</a><a href="https://cla.unint.eu" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Università degli studi &quot;Niccolò Cusano&quot;</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Don Carlo Gnocchi, 3<br>00166 Roma (RM)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 3484787966</span><a href="mailto:ilary.langeli@unicusano.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>ilary.langeli@unicusano.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li></ul></details><details><summary>Liguria (2)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>CPIA Levante Tigullio</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Corso IV novembre, 115<br>16030 Cogorno (GE)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0185383442</span><a href="mailto:gemm18400q@istruzione.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>gemm18400q@istruzione.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>CPIA La Spezia</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Milano, 42<br>19122 La Spezia (SP)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0187026139</span><a href="mailto:letizia.pappalardo@cpiasp.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>letizia.pappalardo@cpiasp.com</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li></ul></details><details><summary>Lombardia (11)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Bergamo</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via G. Solari, 13<br>24021 Albino (BG)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 347 4116518</span><a href="mailto:plidabergamo@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>plidabergamo@gmail.com</a><a href="http://www.ladantebg.org" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Scuola Superiore per Mediatori Linguistici di Brescia</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Flero 46, Torre Sud<br>25124 Brescia (BS)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 030 3372746</span><a href="mailto:plida.brescia@ciels.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>plida.brescia@ciels.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>AL Accademia Lingue sas</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Massenzio Masia, 26<br>22100 Como (CO)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 031575059</span><a href="mailto:accademialingue@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>accademialingue@gmail.com</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Centro culturale cinese srl</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Paolo Sarpi, 26<br>20154 Milano (MI)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 3801370370</span><a href="mailto:plida.centroculturalecinese@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>plida.centroculturalecinese@gmail.com</a><a href="https://www.centroculturalecinese.com/it" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Interlinguae Milano</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Piazzale G. dalle Bande Nere, 7<br>20147 Milano (MI)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0239290103</span><a href="mailto:info.milano@interlinguae.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>info.milano@interlinguae.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Istituto Marelli Dudovich - Centro Culturale Multietnico &#x27;La Tenda&#x27;</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>via Livigno, 11<br>20159 Milano (MI)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 026884122</span><a href="mailto:latenda@latenda.eu"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>latenda@latenda.eu</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Linguadue sede milanese di Linguaviva srl</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Valenza, 5<br>20144 Milano (MI)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 02 29519972</span><a href="mailto:director@linguadue.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>director@linguadue.com</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Società Dante Alighieri - Scuola di Italiano di Milano</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Napo Torriani, 10<br>20124 Milano (MI)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39026692816</span><a href="mailto:info.milano@dante.global"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>info.milano@dante.global</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>CPIA 1 Sondrio - Sede di Morbegno e Delebio</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Piazza Fiume, 4<br>23017 Morbegno (SO)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0342612844</span><a href="mailto:sara.ronconi@cpia1sondrio.edu.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>sara.ronconi@cpia1sondrio.edu.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>CPIA 1 Sondrio - Sede di Sondrio</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Gianoli Diego, 16<br>23100 Sondrio (SO)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0342 685262</span><a href="mailto:SOMM03300p@ISTRUZIONE.IT"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>SOMM03300p@ISTRUZIONE.IT</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>CPIA 1 Varese</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Rossini, 115 (ingresso Via Azimonti 50)<br>21052 Busto Arsizio (VA)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0331630943</span><a href="mailto:info@cpia1varese.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>info@cpia1varese.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li></ul></details><details><summary>Marche (5)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Fabriano</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Valpovera 16<br>60044 Fabriano (AN)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 3394132252</span><a href="mailto:plida.fabriano@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>plida.fabriano@gmail.com</a><a href="http://www.ladantefabriano.it" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>CPIA Macerata</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Viale Don Bosco 55<br>62100 Macerata (MC)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 07331960133</span><a href="mailto:mcmm05300c@istruzione.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>mcmm05300c@istruzione.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Italiano &amp; co - Macerata</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Giuseppe Garibaldi, 77<br>62100 Macerata (MC)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0733471300</span><a href="mailto:amministrazione@italianoeco.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>amministrazione@italianoeco.com</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Campus L&#x27;infinito srl</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Viale del Passero Solitario, 28<br>62019 Recanati (MC)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0717575943</span><a href="mailto:direzione@scuoladantealighieri.org"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>direzione@scuoladantealighieri.org</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>FORM-ACTION s.r.l.- Pesaro</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>via Yuri Gagarin, 191<br>61122 Pesaro (PU)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0721854615</span><a href="mailto:plida@form-action.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>plida@form-action.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li></ul></details><details><summary>Molise (2)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Campobasso</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Roma 41<br>86100 Campobasso (CB)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0874 91687, orario apertura: 10.30-12.00</span><a href="mailto:iavang@outlook.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>iavang@outlook.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Isernia</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>via Farinacci 9<br>86170 Isernia (IS)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0865270711</span><a href="mailto:comitatodanteisernia@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>comitatodanteisernia@gmail.com</a><a href="http://www.poloparitariosanpietro.it/DanteAlighieriIsernia" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li></ul></details><details><summary>Piemonte (3)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>CPIA 1 Asti</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Piazza Leonardo Da Vinci, 22<br>14100 Asti (AT)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0141095803</span><a href="https://cpia1asti.edu.it" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Polo Scolastico Europeo (Bra)</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Cavour 44<br>12042 Bra (CN)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0172439896 +39 3454608050</span><a href="mailto:info@italianoperstranieribra.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>info@italianoperstranieribra.it</a><a href="https://www.italianoperstranieribra.it" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Società Dante Alighieri - Scuola di Italiano di Torino</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Frejus, 5<br>10139 Torino (TO)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +390115681781</span><a href="mailto:m.volpicelli@dante.global"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>m.volpicelli@dante.global</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li></ul></details><details><summary>Puglia (6)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Associazione DICUNT</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Gaetano Postiglione, 6<br>70126 Bari (BA)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 328 595 9359</span><a href="mailto:alcuri2014@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>alcuri2014@gmail.com</a><a href="https://burbujadespana.com/" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Associazione Dante Alighieri ETS</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via F.lli Trisciuzzi n.c. C.da Sant&#x27;Angelo, Z.I. SUD<br>72015 Fasano (BR)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 080 8761123</span><a href="mailto:info@dantealighieriformazione.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>info@dantealighieriformazione.it</a><a href="https://dantealighieriformazione.it" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>SAAM 4.0 Academy School</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Cosimo Argentieri 24<br>72022 Latiano (BR)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 08311522669</span><a href="mailto:plida@saam40.net"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>plida@saam40.net</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Daunia Academy</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Luigi Rovelli, 48<br>71122 Foggia (FG)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 088161565</span><a href="mailto:daunia.academy@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>daunia.academy@gmail.com</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Casarano</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via XXV Maggio 109<br>73042 Casarano (LE)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 3338719069</span><a href="mailto:fabio_dastore@virgilio.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>fabio_dastore@virgilio.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>I.S.P.A. Istituto Superiore di Pubblica Amministrazione</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Antonio Galateo De Ferraris 34<br>73024 Maglie (LE)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0836312776</span><a href="mailto:amministrazione.ispa@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>amministrazione.ispa@gmail.com</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li></ul></details><details><summary>Sicilia (7)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Caltanissetta</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Libertà 114<br>93100 Caltanissetta (CL)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 3288227716 +39 0934552375</span><a href="mailto:ladantecaltanissetta@virgilio.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>ladantecaltanissetta@virgilio.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Dipartimento di Civiltà Antiche e Moderne (DICAM) - Università di Messina</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Torrente Annunziata - Via A. Giuffre<br>98168 Messina (ME)</span></div>
+<div class="contatti"><a href="mailto:frossi@unime.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>frossi@unime.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Istituto Antonio di Rudinì</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Filippo Parlatore, 22<br>90145 Palermo (PA)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0916816000</span><a href="mailto:segreteria@istitutomamiani.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>segreteria@istitutomamiani.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Palermo</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Marchese Ugo 60<br>90141 Palermo (PA)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 3409299030</span><a href="mailto:s.dantealighieripalermo@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>s.dantealighieripalermo@gmail.com</a><a href="https://ladantepalermo.it" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>IIS G. Curcio Ispica (Ragusa)</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Andreoli, 2<br>97014 Ispica (RG)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0932950024</span><a href="mailto:RGIS00200C@istruzione.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>RGIS00200C@istruzione.it</a><a href="https://www.istitutocurcio.gov.it" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Siracusa</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Eschilo 22<br>96100 Siracusa (SR)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 3471788956 +39 3337086206</span><a href="mailto:plida@dantesiracusa.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>plida@dantesiracusa.com</a><a href="https://www.dantesiracusa.com" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Centro Formazione e Servizi Lingua +</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Domenico la Bruna 39<br>91011 Alcamo (TP)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0924501177</span><a href="mailto:info@corsilinguapiu.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>info@corsilinguapiu.com</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li></ul></details><details><summary>Toscana (4)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Società Dante Alighieri - Scuola di Italiano di Firenze</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via della Fortezza 6<br>50129 Firenze (FI)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0552479014</span><a href="mailto:esamiplida.firenze@dante.global"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>esamiplida.firenze@dante.global</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Centro italiano femminile comunale di Pisa</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Fiorentina 225/A<br>56215 Pisa (PI)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 366 2423297</span><a href="mailto:infoplida.cifpisa@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>infoplida.cifpisa@gmail.com</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>IIEMC Città Proibita - Prato</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via de&#x27; Gobbi, 43-47<br>59100 Prato (PO)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 3388521207</span><a href="mailto:shan.italia@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>shan.italia@gmail.com</a><a href="https://www.cittaproibita.it" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Siena</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Tommaso Pendola, 37<br>53100 Siena (SI)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 057749533</span><a href="mailto:info@ladantesiena.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>info@ladantesiena.it</a><a href="https://www.ladantesiena.it" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li></ul></details><details><summary>Trentino-Alto Adige/Südtirol (1)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Bolzano</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Portici, 30 - Passaggio Antico Municipio<br>39100 Bolzano (BZ)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0471366383</span><a href="mailto:societadantealighieribolzano@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>societadantealighieribolzano@gmail.com</a><a href="https://www.dabolzano.it" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li></ul></details><details><summary>Umbria (1)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Terni</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Oberdan , 6<br>5100 Terni (TR)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 3384887212</span><a href="mailto:plidaterni@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>plidaterni@gmail.com</a><a href="http://www.dantealighieriterni.it" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li></ul></details><details><summary>Veneto (9)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Synthesis srl</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Panà 561A<br>35027 Noventa Padovana (PD)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0498078751</span><a href="mailto:progettazione@synthesis-srl.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>progettazione@synthesis-srl.com</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Padova</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Prato della Valle 97<br>35123 Padova (PD)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 049 664238 +39 3481072540</span><a href="mailto:dantealighieripadova@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>dantealighieripadova@gmail.com</a><a href="https://www.ladantealighieripadova.it" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Scuola Superiore Universitaria per Mediatori Linguistici (CIELS)</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Venier, 200<br>35127 Padova (PD)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 049/774152</span><a href="mailto:plida@ciels.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>plida@ciels.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Rovigo</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Samuele Donatoni, 4<br>45100 Rovigo (RO)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0425 25905 Ufficio PLIDA: lun e mer 10.00-12.30 e mer. 10.00-13.00</span><a href="mailto:plida@ladanterovigo.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>plida@ladanterovigo.it</a><a href="https://www.ladanterovigo.it" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Venezia</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Viale S.Elena 3<br>30132 Venezia (VE)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0415234590</span><a href="mailto:ladantevenezia@gmail.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>ladantevenezia@gmail.com</a><a href="https://www.ladantevenezia.it" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Associazione C.L.I. - Centro Linguistico Italiano</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Don Enrico Tazzoli, 6<br>37121 Verona (VR)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 045565294 - +393285637218</span><a href="mailto:info@veronaplida.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>info@veronaplida.it</a><a href="https://plidaverona.wordpress.com/info/certificatplida" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>CPIA Verona</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Udine, 2<br>37135 Verona (VR)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0458492221</span><a href="mailto:borgoroma@cpiaverona.edu.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>borgoroma@cpiaverona.edu.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>Centro Studi Idea Verona</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Piazza Duomo, 2/A<br>37121 Verona (VR)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0458015352</span><a href="mailto:info@ideaverona.com"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>info@ideaverona.com</a><a href="https://www.ideaverona.com" rel="noopener nofollow"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li><li><div class="nome"><span class="eb eb-PLIDA">PLIDA</span><span>InLingua srl - Vicenza</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Via Lanza, 106<br>36100 Vicenza (VI)</span></div>
+<div class="contatti"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tel"/></svg>Tel. +39 0444546702</span><a href="mailto:direzione@inlinguavicenza.it"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>direzione@inlinguavicenza.it</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.dante.global/it/contatti/lista-contatti" rel="noopener">elenco ufficiale PLIDA</a></span></div></li></ul></details>
 </section>
 <aside><section class="card" id="avvisami">
-<h2 style="margin-top:0">Avvisami quando ci sono nuove date</h2>
-<p class="small" style="margin-top:-4px">Gratis. Ti scriviamo quando esce una nuova sessione o quando una scadenza sta per chiudere nella tua città.</p>
+<div class="modulo-testa"><span class="bolla"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-campana"/></svg></span><div>
+<h2>Avvisami quando ci sono nuove date</h2>
+<p class="small" style="margin:4px 0 0">Gratis. Ti scriviamo quando esce una nuova sessione o quando una scadenza sta per chiudere nella tua città.</p></div></div>
 <form class="form avvisami" name="avvisami" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
 <input type="hidden" name="form-name" value="avvisami">
 <input type="hidden" name="source" value="">
@@ -380,35 +530,60 @@ table.conf th,table.conf td{border-bottom:1px solid var(--line);padding:8px 6px;
 <select name="ente"><option value="">Nessuna preferenza</option><option value="CILS">CILS</option><option value="CELI">CELI</option><option value="PLIDA">PLIDA</option><option value="CERT.IT">CERT.IT</option></select></label>
 <label class="check"><input type="checkbox" name="consenso" value="si" required>
 <span>Accetto di ricevere email da EsameB1 sulle date dell'esame B1. Posso cancellarmi quando voglio. Ho letto la <a href="/privacy.html">privacy</a>.</span></label>
-<button class="btn" type="submit">Avvisami</button>
+<button class="btn" type="submit"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-campana"/></svg>Avvisami</button>
 <p class="errore" data-errore hidden>Non è stato possibile inviare. Riprova tra poco.</p>
 </form>
-<div class="ok" data-ok hidden><strong>Fatto!</strong> Ti scriveremo quando ci sono novità per la tua città.</div>
+<div class="ok" data-ok hidden><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg><span><strong>Fatto!</strong> Ti scriveremo quando ci sono novità per la tua città.</span></div>
 </section></aside>
 </div>
 </main>
-<footer><div class="wrap">
+<footer class="piede"><div class="wrap">
+<div class="piede-griglia">
+<div>
+<a class="logo" href="../../"><svg class="marchio" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+<path d="M8 4h24a6 6 0 0 1 6 6v15a6 6 0 0 1-6 6H17l-7.5 6.2c-.7.6-1.5.1-1.5-.7V31a6 6 0 0 1-6-6V10a6 6 0 0 1 6-6Z" fill="var(--brand)"/>
+<text x="20" y="21.6" text-anchor="middle" font-family="Figtree,system-ui,sans-serif" font-weight="800" font-size="15" fill="var(--on-brand)">B1</text>
+<rect x="11" y="25.6" width="6" height="2.4" rx="1.1" fill="#3FB37F"/><rect x="17" y="25.6" width="6" height="2.4" rx="1.1" fill="#FFFFFF"/><rect x="23" y="25.6" width="6" height="2.4" rx="1.1" fill="#E4573D"/>
+</svg><span class="logo-testo">Esame<b>B1</b></span></a>
+<ul class="piede-link">
+<li><a href="../../#date">Date d'esame</a></li><li><a href="../../#citta">Sedi per città</a></li><li><a href="../../come-funziona/">Come funziona</a></li><li><a href="../../ente/cils/">CILS</a></li><li><a href="../../ente/celi/">CELI</a></li><li><a href="../../ente/plida/">PLIDA</a></li><li><a href="../../ente/certit/">CERT.IT</a></li><li><a href="../../privacy.html">Privacy</a></li>
+</ul>
+</div>
+<div>
 <p><strong>EsameB1</strong> è un sito indipendente, non affiliato agli enti certificatori. CILS, CELI, PLIDA e CERT.IT sono marchi dei rispettivi enti.
 Le informazioni vengono dalle fonti ufficiali indicate accanto a ogni dato. <strong>Prima di iscriverti verifica sempre sul sito della sede.</strong>
 Questo sito non dà consulenza sulla pratica di cittadinanza: per quella vedi la <a href="https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza" rel="noopener">pagina del Ministero dell'Interno</a>.</p>
-<p>Dati controllati il 9 ottobre 2026. · <a href="../../privacy.html">Privacy</a> · <a href="../../come-funziona/">Come funziona</a></p>
+<p><span class="dati"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-scudo"/></svg>Dati controllati il 9 ottobre 2026.</span> · <a href="../../privacy.html">Privacy</a> · <a href="../../come-funziona/">Come funziona</a></p>
+</div>
+</div>
 </div></footer>
 <script>
 (function(){
   var oggi=new Date();oggi.setHours(0,0,0,0);
   function giorni(iso){var p=iso.split('-');var x=new Date(+p[0],+p[1]-1,+p[2]);return Math.round((x-oggi)/86400000);}
+  function conta(el,g,modo){
+    el.classList.remove('urg','vicino');
+    if(modo==='esame'){el.textContent=g===0?'oggi':g===1?'domani':'tra '+g+' giorni';if(g<=15)el.classList.add('vicino');return;}
+    el.textContent=g===0?'scade oggi':'mancano '+g+(g===1?' giorno':' giorni');if(g<=15)el.classList.add('urg');
+  }
   document.querySelectorAll('.sess').forEach(function(el){
     if(giorni(el.dataset.data)<0){el.remove();return;}
     var sc=el.querySelector('.scad[data-scadenza]');
     if(!sc)return;
     var g=giorni(sc.dataset.scadenza);var t=sc.querySelector('.stato');
-    sc.classList.remove('urgente','chiusa');
-    if(g<0){sc.classList.add('chiusa');t.textContent=' — termine nazionale passato: chiedi alla sede se accetta ancora iscrizioni';}
-    else if(g===0){sc.classList.add('urgente');t.textContent=' — scade oggi';}
-    else if(g<=15){sc.classList.add('urgente');t.textContent=' — mancano '+g+(g===1?' giorno':' giorni');}
+    sc.classList.remove('urgente','chiusa');t.classList.remove('urg','vicino');
+    if(g<0){sc.classList.add('chiusa');t.textContent='termine nazionale passato: chiedi alla sede se accetta ancora iscrizioni';}
+    else if(g===0){sc.classList.add('urgente');conta(t,g,'scad');}
+    else if(g<=15){sc.classList.add('urgente');conta(t,g,'scad');}
     else{t.textContent='';}
   });
-  var bott=document.querySelectorAll('.filtri button');
+  document.querySelectorAll('[data-slot]').forEach(function(slot){
+    var vista=false;
+    slot.querySelectorAll('[data-fino]').forEach(function(o){var ok=!vista&&giorni(o.dataset.fino)>=0;o.hidden=!ok;if(ok)vista=true;});
+    var r=slot.querySelector('[data-riserva]');if(r)r.hidden=vista;
+  });
+  document.querySelectorAll('[data-conta]').forEach(function(el){var g=giorni(el.dataset.conta);if(g>=0)conta(el,g,el.dataset.modo);});
+  var bott=document.querySelectorAll('.chips button');
   bott.forEach(function(b){b.addEventListener('click',function(){
     bott.forEach(function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');
     var f=b.dataset.filtro;
