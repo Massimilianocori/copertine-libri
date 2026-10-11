@@ -258,15 +258,19 @@ h1 .h1-b::first-letter{text-transform:uppercase}
 .band h1 .h1-b::first-letter{text-transform:uppercase}
 .sub{font-size:1.1rem;color:var(--on-board-2);margin:14px 0 0;max-width:640px;text-wrap:balance}
 .tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:26px 0 0;padding:0;list-style:none}
-.tiles a{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:14px 16px;color:var(--on-board);text-decoration:none;min-height:100%;transition:background .15s,border-color .15s}
+.tiles li{display:flex}
+.tiles a{flex:1;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto 1fr;gap:10px 14px;align-items:center;align-content:start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:14px 16px;color:var(--on-board);text-decoration:none;min-height:100%;transition:background .15s,border-color .15s}
 .tiles a:hover{background:rgba(255,255,255,.1);border-color:var(--sign)}
-.tiles .sq{grid-row:1/3;display:grid;place-items:center;width:52px;height:52px;border-radius:10px;background:var(--sign);color:var(--sign-ink)}
+.tiles .sq{display:grid;place-items:center;width:48px;height:48px;border-radius:10px;background:var(--sign);color:var(--sign-ink)}
 .tiles .sq .ico{width:28px;height:28px;stroke-width:2.2}
 .tiles h2{font-size:1.12rem;line-height:1.2;margin:0;color:var(--on-board)}
 .tiles h2::before,.band-h2::before{display:none}
 .band-h2{color:#fff;font-size:1.2rem;margin:30px 0 0}
 .band-h2+.checker{margin-top:12px}
-.tiles small{font-size:.86rem;color:var(--on-board-2);line-height:1.4}
+.tiles small{grid-column:1/-1;align-self:start;font-size:.86rem;color:var(--on-board-2);line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.scope{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:14px 0 0;font-size:.95rem;color:var(--on-board-2)}
+.scope .pill{display:inline-flex;align-items:center;gap:8px;background:var(--sign);color:var(--sign-ink);font-weight:700;border-radius:999px;padding:5px 14px 5px 10px;font-size:.92rem;line-height:1.3}
+.scope .pill .ico{width:18px;height:18px;stroke-width:2.2}
 .trust{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.88rem;color:var(--on-board-2);margin:18px 0 0}
 .trust span{display:inline-flex;align-items:center;gap:7px}
 .trust .ico{color:var(--sign)}
@@ -300,6 +304,8 @@ blockquote.cit p{margin:0 0 8px}blockquote.cit p:last-child{margin:0}
 blockquote.cit ul{margin:0 0 8px;padding-left:20px}
 .checker{padding:0;overflow:hidden;box-shadow:var(--sh-2);border-color:var(--line-2)}
 .band .checker{margin-top:26px}
+.band .card,.band .checker,.band .risultato{color:var(--ink)}
+.band .card a:not(.btn){color:var(--accent)}
 .checker-h{display:flex;align-items:center;gap:10px;background:var(--sign);color:var(--sign-ink);padding:10px 18px;font-family:var(--mono);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
 .checker-h .ico{width:18px;height:18px}
 .checker-b{padding:20px}
@@ -374,9 +380,9 @@ footer h2{font-family:var(--mono);font-weight:400;font-size:.76rem;letter-spacin
 footer h2::before{display:none}
 footer .f-base{border-top:1px solid rgba(255,255,255,.12);margin-top:24px;padding-top:16px;font-size:.82rem;max-width:none}
 @media (max-width:860px){.tiles{grid-template-columns:1fr}.tre{grid-template-columns:1fr}.calc .campi,.calc .campi:has([data-campo=emissione]:not([hidden])){grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:360px){.calc .campi,.calc .campi:has([data-campo=emissione]:not([hidden])){grid-template-columns:1fr}}
+@media (max-width:480px){.calc .campi,.calc .campi:has([data-campo=emissione]:not([hidden])){grid-template-columns:1fr}}
 @media (max-width:760px){nav.menu{display:none}.nav-m{display:block}header.top .wrap{min-height:60px}footer .f-grid{grid-template-columns:1fr}.band-in{padding-top:24px;padding-bottom:26px}.checker-b{padding:16px}
-.tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:20px}.tiles a{grid-template-columns:1fr;justify-items:start;align-content:start;gap:8px;padding:12px}.tiles .sq{grid-row:auto;width:40px;height:40px}.tiles .sq .ico{width:22px;height:22px}
+.tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:20px}.tiles a{grid-template-columns:1fr;grid-template-rows:auto;justify-items:start;align-content:start;gap:8px;padding:12px;min-height:104px}.tiles .sq{width:40px;height:40px}.tiles .sq .ico{width:22px;height:22px}
 .tiles h2{font-size:.95rem}.tiles small{display:none}.checker-h{letter-spacing:.06em;font-size:.74rem}.band-h2{margin-top:22px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 """
@@ -570,11 +576,11 @@ def breve_regola(R, P=None):
     if P is not None and P["slug"] == "ireland":
         return "No passport legally required (FCDO): check your carrier"
     if not R:
-        return "Read the official text"
+        return "Check the official text"
     parti = []
     for c in R["condizioni"]:
         if c["n"] == 0:
-            parti.append("Length of stay" if c["op"] == ">=" else "Beyond departure")
+            parti.append("Valid for the whole stay" if c["op"] == ">=" else "Beyond departure")
         else:
             parti.append(f"{'>' if c['op'] == '>' else ''}{unita(c['n'], c['u'])} after {'arrival' if c['base'] == 'arrivo' else 'departure'}")
     s = " + ".join(parti)
@@ -695,11 +701,14 @@ def pagina_paese(P):
     if P["cambi_ingresso"]:
         cambi = ("<h2>Recent FCDO updates to the entry requirements</h2><ul>" +
                  "".join(f"<li>{data_lunga(c['data'])}: “{escape(c['nota'])}”</li>" for c in P["cambi_ingresso"][:5]) + "</ul>")
-    simili = [Q for Q in PAESI if Q is not P and breve_regola(Q["regola"], Q) == breve_regola(R, P)][:12] if R else []
+    tutti_simili = [Q for Q in PAESI if Q is not P and breve_regola(Q["regola"], Q) == breve_regola(R, P)] if R else []
+    simili = tutti_simili[:12]
     link_simili = ""
     if simili:
+        altri = len(tutti_simili) - len(simili)
         link_simili = (f"<h2>Same FCDO rule ({escape(breve_regola(R, P))})</h2><div class=\"griglia\">" +
-                       "".join(f'<a href="{rel}passport-validity/{Q["slug"]}/">{escape(Q["nome"])}</a>' for Q in simili) + "</div>")
+                       "".join(f'<a href="{rel}passport-validity/{Q["slug"]}/">{escape(Q["nome"])}</a>' for Q in simili) + "</div>" +
+                       (f'<p><a href="{rel}passport-validity/">and {altri} more {"destination" if altri == 1 else "destinations"} with the same rule: see all</a></p>' if altri else ""))
     titolo_sez = P["titolo_sezione"] or "Passport validity requirements"
     if R:
         checker = f"<h2>Check your passport for {escape(P['nome'])}</h2>" + modulo_checker("paese-dati", False)
@@ -766,7 +775,7 @@ def indice_passaporti():
 <h2>All destinations</h2>
 <div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a country, e.g. Spain, Turkey, USA" data-filtro="lista-paesi" aria-label="Search destinations"></div>
 <div class="tab"><table><thead><tr><th>Destination</th><th>FCDO rule (short)</th><th>FCDO page last updated</th></tr></thead><tbody id="lista-paesi">{righe}</tbody></table></div>
-<p class="small">“Length of stay”: valid until the day you leave. “10-year issue rule”: the passport must have been issued less than 10 years before you arrive. Always read the full official sentence on each page.</p>
+<p class="small">“Valid for the whole stay”: valid until the day you leave. “10-year issue rule”: the passport must have been issued less than 10 years before you arrive. Always read the full official sentence on each page.</p>
 <h2>Entry requirements updated by the FCDO in the last 60 days</h2>
 <p class="small">From the change notes the FCDO publishes on each travel advice page (only notes that mention the entry requirements page).</p>
 <ul>{lista_cambi or '<li>None.</li>'}</ul>
@@ -968,12 +977,20 @@ def home():
     popolari = ["spain", "france", "italy", "portugal", "greece", "turkey", "usa", "united-arab-emirates", "thailand", "egypt", "morocco", "mexico",
                 "cyprus", "croatia", "netherlands", "germany", "dominican-republic", "jamaica", "india", "japan"]
     mappa = {P["slug"]: P for P in PAESI}
-    griglia_pass = "".join(f'<a href="passport-validity/{s}/">{escape(mappa[s]["nome"])}<small>{escape(breve_regola(mappa[s]["regola"], mappa[s]))}</small></a>'
+    def _breve_pop(P):
+        R = P["regola"]
+        return "Schengen rule" if (R and R.get("schengen") and breve_regola(R, P) == regola_sch) else breve_regola(R, P)
+    sch = [mappa[s] for s in popolari if s in mappa and mappa[s]["regola"] and mappa[s]["regola"].get("schengen")]
+    regola_sch = breve_regola(sch[0]["regola"], sch[0]) if sch else ""
+    nota_sch = (f'<p class="small" style="margin:0 0 12px"><strong>{escape(regola_sch)}</strong> for the Schengen countries below ({len([P for P in sch if breve_regola(P["regola"], P) == regola_sch])} of them): '
+                f'{escape(sintesi_regola(sch[0]["regola"]))} (FCDO). Each page quotes the official text.</p>') if sch else ""
+    griglia_pass = "".join(f'<a href="passport-validity/{s}/">{escape(mappa[s]["nome"])}<small>{escape(_breve_pop(mappa[s]))}</small></a>'
                            for s in popolari if s in mappa)
     stato_etias = "not in operation" if any("currently not in operation" in f["frase"] for f in frasi_ees("etias")) else "see the official page"
     ultimo = data_lunga(max(PASS["controllato_il"], AER["controllato_il"], EES["controllato_il"]))
     testata = f"""<div class="band"><div class="wrap band-in">
 <section class="hero">{h1_diviso(f"Before You Fly: passport validity, airport liquids rules and EU entry checks ({ANNO})")}
+<p class="scope"><span class="pill">{ico("passport")}British passport only</span><span>Passport rules are the UK government's (FCDO), for British citizens.</span></p>
 <p class="sub">Three checks before you fly, answered from official sources only.</p>
 <p class="trust"><span>{ico("shield")}Official sources · last checked {ultimo}</span><span>{ico("lock")}Your dates stay in your browser</span></p></section>
 <ul class="tiles">
@@ -988,7 +1005,7 @@ def home():
 {AVVISO_PASS}
 {AD}
 <h2>Popular destinations</h2>
-<div class="griglia">{griglia_pass}</div>
+{nota_sch}<div class="griglia">{griglia_pass}</div>
 <p><a href="passport-validity/">All {len(PAESI)} destinations</a></p>
 <h2>Airports that allow up to 2 litres (official pages)</h2>
 <div class="griglia">{griglia_2l}</div>

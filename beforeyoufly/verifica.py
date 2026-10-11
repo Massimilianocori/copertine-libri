@@ -10,7 +10,8 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
 4. Ogni pagina con una regola mostra la fonte ufficiale (URL) e la data del controllo; le frasi citate sono nella pagina.
 5. Meta di verifica Google in ogni pagina; 404 con link assoluti, noindex e senza canonical; sitemap e robots.
 6. Nessun nome di modelli o servizi di intelligenza artificiale nei file del sito e nei dati.
-7. Browser a 375 px (Playwright): 3 pagine senza scorrimento orizzontale e senza errori in console; il controllo del passaporto risponde.
+7. Browser a 375 px (Playwright): 3 pagine senza scorrimento orizzontale e senza errori in console; il controllo del passaporto risponde;
+   il testo del controllo nella home ha contrasto di almeno 4,5:1 in tema chiaro e scuro.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -308,6 +309,25 @@ srv.listen(0, async () => {
         out.prove.push({ caso: 'belize-avviso', testo: await p.textContent('[data-out]') });
         await p.screenshot({ path: process.argv[3] + '/home-375.png', fullPage: false });
       }
+      if (u === '/') {
+        // contrasto del risultato del controllo (dentro la fascia scura della home) in entrambi i temi
+        const scegli2 = async (nome) => { const i = await p.evaluate((n) => { const s = document.querySelector('[name=paese]'); return [...s.options].findIndex(o => o.textContent === n); }, nome);
+          await p.selectOption('[name=paese]', String(i - 1)); };
+        await scegli2('Spain');
+        await p.fill('[name=scadenza]', '2027-02-10'); await p.fill('[name=emissione]', '2017-03-01'); await p.fill('[name=arrivo]', '2026-12-20'); await p.fill('[name=partenza]', '2027-01-03');
+        const minimo = await p.evaluate(() => {
+          const lum = c => { const a = c.match(/[\d.]+/g).map(Number); const f = v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }; return .2126 * f(a[0]) + .7152 * f(a[1]) + .0722 * f(a[2]); };
+          const sfondo = el => { while (el) { const b = getComputedStyle(el).backgroundColor; const m = b.match(/[\d.]+/g); if (m && (m[3] === undefined || +m[3] > .5)) return b; el = el.parentElement; } return 'rgb(255,255,255)'; };
+          let peggiore = [99, ''];
+          for (const el of document.querySelectorAll('[data-checker] *')) {
+            const t = [...el.childNodes].filter(n => n.nodeType === 3 && n.textContent.trim()).map(n => n.textContent.trim()).join(' ');
+            if (!t || !el.getBoundingClientRect().width) continue;
+            const l1 = lum(getComputedStyle(el).color), l2 = lum(sfondo(el)); const r = (Math.max(l1, l2) + .05) / (Math.min(l1, l2) + .05);
+            if (r < peggiore[0]) peggiore = [r, t.slice(0, 40)];
+          }
+          return peggiore; });
+        out.prove.push({ caso: 'contrasto-' + tema, testo: minimo[1], rapporto: minimo[0] });
+      }
       await p.close(); }
     await ctx.close(); }
   await b.close(); srv.close(); console.log(JSON.stringify(out)); });
@@ -350,6 +370,11 @@ def controlla_browser():
         errori.append(f"Thailandia: manca l'avviso rosso o compare il verde: {th.get('testo', '')[:200]}")
     if "Some airlines may refuse boarding" not in prove.get("belize-avviso", ""):
         errori.append("Belize: avviso delle compagnie aeree assente dal risultato")
+    for x in o["prove"]:
+        if x["caso"].startswith("contrasto-") and x.get("rapporto", 0) < 4.5:
+            errori.append(f"Contrasto insufficiente nel controllo della home ({x['caso'][10:]}): {x['rapporto']:.2f}:1 su “{x['testo']}”")
+    if sum(1 for x in o["prove"] if x["caso"].startswith("contrasto-")) != 2:
+        errori.append("Prova del contrasto del controllo (tema chiaro e scuro) non eseguita")
     return errori, (o, cartella)
 
 
