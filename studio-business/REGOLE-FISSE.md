@@ -61,3 +61,10 @@ Strategia a catena di montaggio, decisa con Massimiliano:
 - Prossimo passo che dipende da Massimiliano: domanda fiscale gratuita (Fiscozen/Flextax) e iscrizioni ai programmi di affiliazione.
 - **Decisione di Massimiliano (10/10, sera): NO al lavoro da fotografo** (annunci matrimoni, photo booth, destination wedding: A3 e B3 esclusi). **SÌ** ad affiliazione viaggi/lingua (A1), partner relocation (A2) e domanda fiscale. Istruzioni per lui in `DA-FARE-MASSIMILIANO.md`. Riquadro affiliati già pronto in `italystrikes/genera.py` (compare quando `dati/affiliati.json` ha gli URL).
 - **10/10, sera: la consulenza fiscale aspetta** ("fino a quando non ci sono incassi non c'è niente da preoccuparsi"). Si fa, gratuita, al primo pagamento in arrivo, prima di incassarlo. Strategia completa in `STRATEGIA.md`.
+
+## Standard di qualità per ogni sito o prodotto (11/10/2026, dopo il richiamo di Massimiliano: "te lo devo sempre dire io?")
+Nessun sito si consegna come "fatto" se è solo funzionante. Prima di chiedere a Massimiliano di pubblicarlo deve superare TRE controlli, fatti da Claude senza che lui lo chieda:
+1. **Fatti**: revisore indipendente su fonti ufficiali (già in uso).
+2. **Aspetto**: identità propria (logo, colori, caratteri), home con la risposta in alto, testi brevi, icone, menu del telefono su una riga, immagine di anteprima per la condivisione; schermate a 1280 px e 390 px, tema chiaro e scuro, confrontate con i migliori siti del settore. Un revisore di design indipendente dà il voto: sotto 8/10 si rifà.
+3. **Tecnica**: link interni, sitemap, Search Console, velocità, accessibilità, nessun errore.
+Lo stesso vale per guide, libri e pagine: la prima versione mostrata a Massimiliano deve già essere quella curata.
