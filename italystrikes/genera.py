@@ -93,6 +93,68 @@ ESCLUSIONI = [(r"TRASPORTO AEREO|\bAEREO\b", "flights"), (r"FERROVIARIO", "train
 NOMI_SETT = {"trains": "rail", "flights": "air", "local-transport": "local transport", "ferries": "ferries/maritime",
              "taxis": "taxis", "motorways": "motorways", "freight": "freight"}
 
+# ---------------------------------------------------------------- icone e marchio (SVG in linea, nessun file esterno)
+# Tratti da 24 px, spessore 2, estremità arrotondate: un solo stile per tutte le icone.
+ICONE = {
+    "train": '<rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 10h14"/><path d="M9 13.5h.01M15 13.5h.01"/><path d="M8.5 21l1.5-4M15.5 21l-1.5-4"/>',
+    "plane": '<path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>',
+    "bus": '<rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 11h16M8 7h8"/><path d="M8 14.5h.01M16 14.5h.01"/><path d="M7 18v2.5M17 18v2.5"/>',
+    "ship": '<path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M19.4 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.9 5.3 2.8 7.8"/><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/><path d="M12 10v4M12 2v3"/>',
+    "car": '<path d="M10 2h4"/><path d="M5 11l1.6-4.6A2 2 0 0 1 8.5 5h7a2 2 0 0 1 1.9 1.4L19 11"/><rect x="3" y="11" width="18" height="6" rx="2"/><path d="M7 14h.01M17 14h.01"/><path d="M5.5 17v2.5M18.5 17v2.5"/>',
+    "megaphone": '<path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>',
+    "road": '<path d="M4 21 8 3M20 21 16 3"/><path d="M12 4v2.5M12 10.5v3M12 17.5V20"/>',
+    "truck": '<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.6a1 1 0 0 0-.2-.6l-3.5-4.4a1 1 0 0 0-.8-.4H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/>',
+    "alert": '<path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/>',
+    "check": '<path d="M20 6 9 17l-5-5"/>',
+    "check-circle": '<circle cx="12" cy="12" r="10"/><path d="m8.5 12 2.5 2.5 4.5-5"/>',
+    "info": '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>',
+    "shield": '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>',
+    "pin": '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+    "globe": '<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+    "book": '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
+    "calendar": '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+    "bell": '<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/>',
+}
+SETT_ICONA = {"general-strikes": "megaphone", "trains": "train", "flights": "plane", "local-transport": "bus", "ferries": "ship",
+              "taxis": "car", "motorways": "road", "freight": "truck"}  # l'ordine decide l'icona di uno sciopero con più settori
+
+
+def svg(nome, classe="i"):
+    return (f'<svg class="{classe}" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" '
+            f'stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{ICONE[nome]}</svg>')
+
+
+def icona_sciopero(v):
+    """Icona del settore principale di uno sciopero (uguale a ico() nel JS)."""
+    nome = next((SETT_ICONA[s] for s in SETT_ICONA if s in v["settori"]), "alert")
+    return f'<span class="ico" aria-hidden="true">{svg(nome)}</span>'
+
+
+def _maschera(nome):
+    from urllib.parse import quote
+    s = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" '
+         f'stroke-linecap="round" stroke-linejoin="round">{ICONE[nome]}</svg>')
+    return f'url("data:image/svg+xml,{quote(s)}")'
+
+
+ROSSO_MARCHIO = "#D23A2F"
+MARCHIO = (f'<svg class="marchio" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false">'
+           f'<rect width="32" height="32" rx="9" fill="{ROSSO_MARCHIO}"/><rect x="10" y="8.5" width="4.2" height="15" rx="1.7" fill="#fff"/>'
+           f'<rect x="17.8" y="8.5" width="4.2" height="15" rx="1.7" fill="#fff"/></svg>')
+FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' "
+           "fill='%23D23A2F'/%3E%3Crect x='10' y='8.5' width='4.2' height='15' rx='1.7' fill='white'/%3E%3Crect x='17.8' y='8.5' "
+           "width='4.2' height='15' rx='1.7' fill='white'/%3E%3C/svg%3E")
+
+
+def barra(home, marchio_testo, voci, lingua_html, salta):
+    """Testata comune (inglese e italiano): marchio, menu che scorre in orizzontale su mobile, cambio lingua."""
+    menu = "".join(f'<a href="{h}"{" aria-current=" + chr(34) + "page" + chr(34) if c else ""}>{escape(t)}</a>'
+                   for h, t, c in voci)
+    return (f'<a class="salta" href="#main">{salta}</a>'
+            f'<header class="top"><div class="wrap barra">'
+            f'<a class="logo" href="{home}">{MARCHIO}<span class="nome">{marchio_testo}</span></a>'
+            f'<nav class="menu" aria-label="Menu">{menu}</nav>{lingua_html}</div></header>')
+
 
 def L(chiave):
     v = LINK.get(chiave)
@@ -492,93 +554,207 @@ def filtra(nome_finestra, filtro):
 
 # ---------------------------------------------------------------- pezzi comuni
 CSS = """
-:root{--bg:#F6F5F1;--card:#FFFFFF;--ink:#16202B;--ink-2:#46525E;--ink-3:#6B7681;--line:#E1DED6;
---accent:#B3261E;--accent-2:#FBEAE8;--ok:#1E6B47;--ok-2:#E6F2EB;--warn:#8A4B00;--warn-2:#FFF2DF;--mute:#EEECE6;--radius:14px}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11161C;--card:#18212A;--ink:#EEF2F5;--ink-2:#BAC5CF;
---ink-3:#8E9BA7;--line:#28333E;--accent:#FF8A80;--accent-2:#3A1D1B;--ok:#7FD3A6;--ok-2:#173226;--warn:#FFB867;--warn-2:#33250F;--mute:#1F2933}}
-:root[data-theme="dark"]{--bg:#11161C;--card:#18212A;--ink:#EEF2F5;--ink-2:#BAC5CF;--ink-3:#8E9BA7;--line:#28333E;--accent:#FF8A80;
---accent-2:#3A1D1B;--ok:#7FD3A6;--ok-2:#173226;--warn:#FFB867;--warn-2:#33250F;--mute:#1F2933}
+:root{--bg:#F5F4EF;--card:#FFFFFF;--ink:#121A24;--ink-2:#3D4854;--ink-3:#56626E;--line:#E2DFD7;--line-2:#CFCBC1;
+--accent:#B3261E;--accent-2:#FBEAE8;--accent-3:#EFC3BF;--on-accent:#FFFFFF;--ok:#1B6B45;--ok-2:#E4F2E9;--ok-3:#BCDDC9;
+--warn:#8A4B00;--warn-2:#FFF3DF;--warn-3:#F1D3A6;--mute:#EEECE6;--focus:#1D5FD6;
+--band:#13202F;--band-ink:#FFFFFF;--band-2:#C3CDD8;--band-line:rgba(255,255,255,.13);--band-accent:#FF8A80;--band-ok:#8BDDB0;
+--shadow:0 1px 2px rgba(18,26,36,.05),0 3px 12px rgba(18,26,36,.05);--shadow-2:0 2px 4px rgba(18,26,36,.07),0 14px 34px rgba(18,26,36,.13);
+--radius:16px;--font:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E141A;--card:#16202A;--ink:#EEF2F5;--ink-2:#C3CCD5;--ink-3:#9AA7B3;
+--line:#25303B;--line-2:#34414E;--accent:#FF8A80;--accent-2:#3A1D1C;--accent-3:#64302C;--on-accent:#1B0B0A;--ok:#86D9AC;--ok-2:#132A1F;--ok-3:#265640;
+--warn:#FFB867;--warn-2:#2E2210;--warn-3:#5A4220;--mute:#202B36;--focus:#8AB4FF;--band:#162230;--band-line:rgba(255,255,255,.09);
+--shadow:0 1px 2px rgba(0,0,0,.35);--shadow-2:0 10px 30px rgba(0,0,0,.5)}}
+:root[data-theme="dark"]{--bg:#0E141A;--card:#16202A;--ink:#EEF2F5;--ink-2:#C3CCD5;--ink-3:#9AA7B3;--line:#25303B;--line-2:#34414E;
+--accent:#FF8A80;--accent-2:#3A1D1C;--accent-3:#64302C;--on-accent:#1B0B0A;--ok:#86D9AC;--ok-2:#132A1F;--ok-3:#265640;--warn:#FFB867;--warn-2:#2E2210;
+--warn-3:#5A4220;--mute:#202B36;--focus:#8AB4FF;--band:#162230;--band-line:rgba(255,255,255,.09);--shadow:0 1px 2px rgba(0,0,0,.35);--shadow-2:0 10px 30px rgba(0,0,0,.5)}
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.6}
-a{color:var(--accent)}
-.wrap{max-width:980px;margin:0 auto;padding:0 16px}
-header.top{border-bottom:1px solid var(--line);background:var(--card)}
-header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px}
-.logo{font-weight:800;font-size:1.12rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
-.logo span{color:var(--accent)}
-nav.menu{display:flex;gap:14px;flex-wrap:wrap;font-size:.95rem}
-nav.menu a{color:var(--ink-2);text-decoration:none}
-nav.menu a:hover{color:var(--accent)}
-.hero{padding:30px 0 6px}
-h1{font-size:clamp(1.55rem,4.6vw,2.3rem);line-height:1.18;letter-spacing:-.02em;margin:0 0 12px}
-h2{font-size:1.32rem;margin:34px 0 12px;letter-spacing:-.01em}
-h3{font-size:1.06rem;margin:20px 0 8px}
-.lead{font-size:1.07rem;color:var(--ink-2);max-width:740px;margin:0 0 6px}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:2px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:6px}
+header.top :focus-visible,.hero :focus-visible,.briciole :focus-visible,footer :focus-visible{outline-color:#8AB4FF}
+.salta{position:absolute;left:-9999px;top:8px;z-index:20;background:#fff;color:#121A24;padding:10px 14px;border-radius:10px;font-weight:700}
+.salta:focus{left:16px}
+.i{width:1.15em;height:1.15em;flex:none;vertical-align:-.2em}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+/* testata */
+header.top{background:var(--band);color:var(--band-ink);border-bottom:1px solid var(--band-line)}
+.barra{display:flex;align-items:center;gap:18px;min-height:64px}
+.logo{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:1.08rem;color:var(--band-ink);text-decoration:none;letter-spacing:-.015em;white-space:nowrap}
+.logo .marchio{width:30px;height:30px;flex:none;border-radius:9px;box-shadow:0 2px 8px rgba(210,58,47,.35)}
+.logo em{font-style:normal;color:var(--band-accent)}
+nav.menu{display:flex;gap:2px;margin-left:auto;min-width:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+nav.menu::-webkit-scrollbar{display:none}
+nav.menu a{flex:none;color:var(--band-2);text-decoration:none;font-size:.93rem;font-weight:550;padding:8px 11px;border-radius:999px;white-space:nowrap;transition:background-color .15s ease,color .15s ease}
+nav.menu a:hover{color:var(--band-ink);background:rgba(255,255,255,.08)}
+nav.menu a[aria-current="page"]{color:var(--band-ink);background:rgba(255,255,255,.14)}
+.lingua{flex:none;display:inline-flex;align-items:center;gap:6px;color:var(--band-ink);text-decoration:none;font-size:.86rem;font-weight:650;border:1px solid var(--band-line);padding:6px 12px;border-radius:999px;transition:background-color .15s ease}
+.lingua:hover{background:rgba(255,255,255,.08)}
+/* fascia scura: briciole + titolo */
+.briciole,.hero{background:var(--band);box-shadow:0 0 0 100vmax var(--band);clip-path:inset(0 -100vmax)}
+.briciole{margin:0;padding:16px 0 0;font-size:.84rem;color:var(--band-2)}
+.briciole a{color:var(--band-2)}
+.briciole a:hover{color:var(--band-ink)}
+.hero{padding:26px 0 34px;margin:0 0 26px;color:var(--band-ink)}
+.briciole + .hero{margin-top:-2px;padding-top:28px}
+.briciole{position:relative;z-index:1}
+.hero:has(+ .riquadri){padding-bottom:70px;margin-bottom:0}
+.hero h1{color:var(--band-ink)}
+.hero .lead{color:var(--band-2)}
+.hero a{color:var(--band-ink)}
+.hero .small{color:var(--band-2)}
+.hero .btn{color:var(--on-accent)}
+h1{font-size:clamp(1.65rem,4.8vw,2.45rem);line-height:1.14;letter-spacing:-.025em;margin:0 0 10px;font-weight:800;max-width:820px}
+h2{font-size:1.36rem;line-height:1.25;margin:42px 0 14px;letter-spacing:-.015em;font-weight:780}
+h3{font-size:1.08rem;margin:24px 0 10px;font-weight:720}
+.lead{font-size:1.07rem;color:var(--ink-2);max-width:700px;margin:0 0 6px;line-height:1.55}
 .small{font-size:.9rem;color:var(--ink-3)}
-.fresco{font-size:.88rem;color:var(--ink-3);margin:6px 0 0}
+.fresco{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;font-size:.84rem;color:var(--ink-3);margin:16px 0 0;line-height:1.4}
+.fresco .src{display:inline-flex;align-items:center;gap:6px}
+.fresco .src{font-weight:600;color:var(--ink-2)}
+.fresco .src .i{color:var(--ok)}
 .fresco strong{color:var(--ink-2)}
-.avviso{background:var(--warn-2);border-left:4px solid var(--warn);padding:11px 14px;border-radius:8px;font-size:.94rem;margin:16px 0}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
-.riquadri{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
-.riq{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;text-decoration:none;color:var(--ink);min-width:0}
-.riq .t{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-3)}
-.riq .n{font-size:1.9rem;font-weight:800;line-height:1.2}
-.riq .s{font-size:.9rem;color:var(--ink-2)}
-.riq.si{border-color:var(--accent)}
+.hero .fresco{color:var(--band-2)}
+.hero .fresco .src{color:var(--band-ink);background:rgba(255,255,255,.07);border:1px solid var(--band-line);padding:5px 12px 5px 9px;border-radius:999px}
+.hero .fresco .src .i{color:var(--band-ok)}
+.hero .fresco strong{color:var(--band-ink)}
+/* riquadri oggi / domani / settimana */
+.riquadri{position:relative;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:12px;margin:0 0 22px}
+@supports selector(:has(+ *)){.hero + .riquadri{margin-top:-46px}}
+.riq{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 16px;text-decoration:none;color:var(--ink);min-width:0;overflow:hidden;box-shadow:var(--shadow-2);transition:transform .18s ease,box-shadow .18s ease}
+.riq::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--ok)}
+.riq.si::before{background:var(--accent)}
+.riq:hover{transform:translateY(-2px)}
+.riq .t{display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:750;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-3)}
+.riq .ind{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--ok-2);color:var(--ok)}
+.riq .ind .i{width:14px;height:14px}
+.riq.si .ind{background:var(--accent-2);color:var(--accent)}
+.riq .n{font-size:2.5rem;font-weight:800;line-height:1.05;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--ok);margin:10px 0 2px}
+.riq:first-child .n{font-size:3.1rem}
 .riq.si .n{color:var(--accent)}
-.lista{display:grid;gap:10px}
-.vuoto{background:var(--ok-2);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;color:var(--ink)}
-.sc{display:grid;grid-template-columns:170px 1fr;gap:4px 16px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;min-width:0;overflow-wrap:anywhere}
-.sc.naz{border-left:4px solid var(--accent)}
-.sc .quando{font-weight:700}
-.sc .quando small{display:block;font-weight:400;color:var(--ink-3);font-size:.85rem}
-.sc .cosa{min-width:0}
-.sc .tit{font-weight:700}
-.sc .dett{font-size:.93rem;color:var(--ink-2);margin-top:2px}
-.sc .dett b{color:var(--ink);font-weight:600}
-.sc .it{font-size:.85rem;color:var(--ink-3)}
-.badge{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.02em;padding:2px 8px;border-radius:6px;background:var(--mute);color:var(--ink-2);margin:0 6px 4px 0}
+.riq .s{font-weight:700;font-size:.95rem;color:var(--ok)}
+.riq.si .s{color:var(--accent)}
+.riq .d{font-size:.86rem;color:var(--ink-3);margin-top:2px}
+.riq .i-ko,.riq.si .i-ok,.riq .lbl-si,.riq .lbl-1,.riq.si .lbl-no,.riq.si.uno .lbl-si{display:none}
+.riq.si .i-ko,.riq.si .lbl-si,.riq.si.uno .lbl-1{display:inline}
+/* avvisi e riquadri */
+.avviso{position:relative;background:var(--warn-2);border:1px solid var(--warn-3);padding:12px 16px 12px 46px;border-radius:12px;font-size:.93rem;margin:18px 0;color:var(--ink)}
+.avviso::before{content:"";position:absolute;left:16px;top:14px;width:20px;height:20px;background:var(--warn);-webkit-mask:__M_INFO__ center/contain no-repeat;mask:__M_INFO__ center/contain no-repeat}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.lista{display:grid;gap:12px}
+.vuoto{position:relative;background:var(--ok-2);border:1px solid var(--ok-3);border-radius:var(--radius);padding:15px 18px 15px 52px;color:var(--ink)}
+.vuoto::before{content:"";position:absolute;left:18px;top:17px;width:22px;height:22px;background:var(--ok);-webkit-mask:__M_CHECK__ center/contain no-repeat;mask:__M_CHECK__ center/contain no-repeat}
+.vuoto strong{color:var(--ok)}
+/* scheda sciopero */
+.sc{display:grid;grid-template-columns:46px minmax(0,1fr);gap:0 16px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;min-width:0;overflow-wrap:anywhere;box-shadow:var(--shadow);scroll-margin-top:16px}
+.sc .ico{grid-row:1/3;display:grid;place-items:center;width:46px;height:46px;border-radius:13px;background:var(--mute);color:var(--ink-2)}
+.sc .ico .i{width:23px;height:23px}
+.sc.naz .ico{background:var(--accent-2);color:var(--accent)}
+.sc.ora{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),var(--shadow)}
+.sc.off .ico{background:var(--warn-2);color:var(--warn)}
+.sc.off .tit{color:var(--ink-2)}
+.sc .quando{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 14px;font-weight:780;font-size:1.04rem;letter-spacing:-.01em;line-height:1.35}
+.sc .quando small{display:inline-flex;align-items:center;gap:5px;font-weight:550;color:var(--ink-3);font-size:.88rem;letter-spacing:0}
+.sc .quando small::before{content:"";width:14px;height:14px;flex:none;background:currentColor;-webkit-mask:__M_PIN__ center/contain no-repeat;mask:__M_PIN__ center/contain no-repeat}
+.sc .cosa{min-width:0;margin-top:8px}
+.sc .tit{font-weight:720;font-size:1.06rem;line-height:1.35;margin:2px 0 8px;color:var(--ink)}
+.sc .dett{font-size:.93rem;color:var(--ink-2);margin-top:4px;line-height:1.5}
+.sc .dett b{color:var(--ink);font-weight:680}
+.sc .it{font-size:.84rem;color:var(--ink-3)}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:.74rem;font-weight:700;letter-spacing:.02em;line-height:1.5;padding:2px 10px;border-radius:999px;background:var(--mute);color:var(--ink-2);margin:0 6px 4px 0}
 .badge.naz{background:var(--accent-2);color:var(--accent)}
 .badge.stato{background:var(--warn-2);color:var(--warn)}
-.badge.oggi{background:var(--accent);color:var(--bg)}
-.fonte{font-size:.8rem;color:var(--ink-3);margin-top:4px}
+.badge.oggi{background:var(--accent);color:var(--on-accent)}
+.badge.oggi::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.fonte{font-size:.8rem;color:var(--ink-3);margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);line-height:1.5}
 .fonte a{color:var(--ink-3)}
-.filtri{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px}
-.filtri button{font:inherit;font-size:.9rem;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 12px;border-radius:999px;cursor:pointer}
+/* filtri */
+.filtri{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 16px}
+.filtri button{font:inherit;font-size:.9rem;font-weight:600;min-height:40px;border:1px solid var(--line-2);background:var(--card);color:var(--ink);padding:7px 15px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:background-color .15s ease,border-color .15s ease}
+.filtri button:hover{border-color:var(--ink-3)}
 .filtri button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
-.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
-.griglia a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;text-decoration:none;color:var(--ink);font-weight:600}
-.griglia a small{display:block;font-weight:400;color:var(--ink-3)}
-.griglia a:hover{border-color:var(--accent)}
+/* griglie di link */
+.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.griglia a{display:flex;flex-direction:column;justify-content:center;gap:1px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:680;line-height:1.35;box-shadow:var(--shadow);transition:border-color .15s ease,transform .15s ease}
+.griglia a small{display:block;font-weight:500;color:var(--ink-3);font-size:.84rem}
+.griglia a.si small{color:var(--ink-2);font-weight:600}
+.griglia a.si small::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:6px;vertical-align:1px}
+.griglia a:hover{border-color:var(--accent);transform:translateY(-1px)}
+.griglia .gi{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--mute);color:var(--ink-2);margin-bottom:8px}
+.griglia .gi .i{width:19px;height:19px}
+.griglia a.si .gi{background:var(--accent-2);color:var(--accent)}
 .testo p,.testo li{max-width:760px}
-details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:8px 0}
+.testo li{margin:5px 0}
+table{border-collapse:collapse;font-size:.95rem}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:700}
+tr:first-child th{background:var(--mute)}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:8px 0}
 details summary{cursor:pointer;font-weight:650}
-.form{display:grid;gap:12px}
-.form label{display:grid;gap:4px;font-weight:600;font-size:.95rem}
-.form input,.form select,.form textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
-.form .due-campi{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+/* moduli */
+.form{display:grid;gap:14px}
+.form label{display:grid;gap:5px;font-weight:600;font-size:.95rem}
+.form input,.form select,.form textarea{font:inherit;min-height:46px;padding:10px 12px;border:1px solid var(--line-2);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--focus)}
+.form .due-campi{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .form .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem;color:var(--ink-2)}
-.form .check input{width:auto;margin-top:4px}
-.btn{font:inherit;font-weight:700;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:12px 18px;cursor:pointer}
+.form .check input{width:auto;min-height:0;margin-top:4px}
+.btn{font:inherit;font-weight:700;background:var(--accent);color:var(--on-accent);border:0;border-radius:10px;padding:12px 20px;min-height:46px;cursor:pointer;transition:filter .15s ease}
+.btn:hover{filter:brightness(1.08)}
 .btn:disabled{opacity:.6;cursor:wait}
+#alerts h2,#avvisi h2{display:flex;align-items:center;gap:12px}
+.gi-a{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:11px;background:var(--accent-2);color:var(--accent)}
+.gi-a .i{width:20px;height:20px}
 .hp{position:absolute;left:-9999px}
 .ok{background:var(--ok-2);border:1px solid var(--ok);padding:14px;border-radius:10px}
 .errore{color:var(--warn);font-weight:600}
 .ad-slot:empty{display:none}
-.briciole{font-size:.85rem;color:var(--ink-3);margin-top:14px}
-.briciole a{color:var(--ink-3)}
-footer{margin-top:50px;border-top:1px solid var(--line);padding:22px 0 40px;font-size:.88rem;color:var(--ink-3)}
-footer a{color:var(--ink-3)}
-@media (max-width:760px){.riquadri{grid-template-columns:1fr}.sc{grid-template-columns:1fr}.form .due-campi{grid-template-columns:1fr}
-header.top .wrap{flex-direction:column;align-items:flex-start;gap:4px;padding-top:10px;padding-bottom:10px}nav.menu{gap:12px;font-size:.92rem}}
-"""
+/* piede */
+footer{margin-top:64px;background:var(--band);color:var(--band-2);padding:40px 0 34px;font-size:.88rem;line-height:1.6}
+footer a,footer strong{color:var(--band-ink)}
+footer .logo{margin-bottom:12px}
+.piede-top{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:32px}
+.piede-top p{margin:0 0 10px}
+.piede-link h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--band-2);margin:4px 0 12px;font-weight:700}
+.piede-link ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+.piede-link a{text-decoration:none}
+.piede-link a:hover{text-decoration:underline}
+.piede-avviso{margin:22px 0 0;padding:12px 14px;border:1px solid var(--band-line);border-radius:12px;background:rgba(255,255,255,.04)}
+.piede-avviso strong{color:var(--band-ink)}
+.piede-agg{margin:20px 0 0;padding-top:16px;border-top:1px solid var(--band-line);font-size:.82rem}
+@media (max-width:760px){
+body{font-size:16.5px}
+.barra{flex-wrap:wrap;gap:0 12px;min-height:0;padding-top:12px}
+.logo{order:1;padding:2px 0}
+.lingua{order:2;margin-left:auto}
+nav.menu{order:3;flex:0 0 calc(100% + 32px);margin:8px -16px 0;padding:0 10px 10px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent)}
+.hero{padding:20px 0 28px}
+.hero:has(+ .riquadri){padding-bottom:62px}
+.riquadri{grid-template-columns:1fr 1fr;gap:10px}
+.riq{padding:16px 14px 14px}
+.riq:first-child{grid-column:1/-1}
+.riq .n{font-size:2.1rem}
+.riq:first-child .n{font-size:2.7rem}
+.sc{grid-template-columns:40px minmax(0,1fr);gap:0 12px;padding:16px}
+.sc .ico{grid-row:auto;width:40px;height:40px;border-radius:12px}
+.sc .ico .i{width:21px;height:21px}
+.sc .quando{flex-direction:column;gap:1px;align-self:center}
+.sc .cosa{grid-column:1/-1;margin-top:12px}
+.filtri{flex-wrap:nowrap;overflow-x:auto;margin:6px -16px 16px;padding:2px 16px;scrollbar-width:none}
+.filtri::-webkit-scrollbar{display:none}
+.griglia{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.form .due-campi{grid-template-columns:1fr}
+.piede-top{grid-template-columns:1fr;gap:20px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+""".replace("__M_INFO__", _maschera("info")).replace("__M_CHECK__", _maschera("check-circle")).replace("__M_PIN__", _maschera("pin"))
 
 JS = r"""
 (function(){
   var MES=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   var GG=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
   var PASS=['trains','flights','local-transport','ferries','taxis'];
+  var ICO=__ICONE__;
+  function ico(v){for(var k in ICO){if(k!=='altro'&&v.settori.indexOf(k)>=0)return '<span class="ico" aria-hidden="true">'+ICO[k]+'</span>';}return '<span class="ico" aria-hidden="true">'+ICO.altro+'</span>';}
   function oggiRoma(){try{return new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Rome',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());}catch(e){var x=new Date();return x.toISOString().slice(0,10);}}
   function pd(iso){var p=iso.split('-');return new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));}
   function iso(x){return x.toISOString().slice(0,10);}
@@ -611,7 +787,7 @@ JS = r"""
       out.push(v);});
     return out;}
   function scheda(v){
-    var oggi=v.inizio<=OGGI&&OGGI<=v.fine, fin_=v.fine<OGGI;
+    var oggi=v.inizio<=OGGI&&OGGI<=v.fine, fin_=v.fine<OGGI, off=v.stato==='rimosso dal registro'||v.stato==='revocato';
     var b='';
     if(oggi&&v.stato!=='rimosso dal registro'&&v.stato!=='revocato')b+='<span class="badge oggi">Today</span>';
     if(v.ambito==='national')b+='<span class="badge naz">Whole of Italy</span>';
@@ -619,7 +795,7 @@ JS = r"""
     if(v.stato==='rimosso dal registro')b+='<span class="badge stato">No longer in the register</span>';
     if(v.stato==='revocato')b+='<span class="badge stato">Called off (register note)</span>';
     if(fin_||v.stato==='concluso')b+='<span class="badge">Ended</span>';
-    var h='<article class="sc'+(v.ambito==='national'?' naz':'')+'" id="s'+v.id+'"><div class="quando">'+esc(interv(v.inizio,v.fine))+'<small>'+esc(v.dove)+'</small></div><div class="cosa">'+b;
+    var h='<article class="sc'+(v.ambito==='national'?' naz':'')+(oggi&&!off?' ora':'')+(off||fin_||v.stato==='concluso'?' off':'')+'" id="s'+v.id+'">'+ico(v)+'<div class="quando">'+esc(interv(v.inizio,v.fine))+'<small>'+esc(v.dove)+'</small></div><div class="cosa">'+b;
     h+='<div class="tit">'+esc(v.titolo)+'</div>';
     h+='<div class="dett"><b>Hours:</b> '+(v.ore_en?esc(v.ore_en)+' <span class="it">(register: '+esc(v.ore)+')</span>':'<span lang="it">'+esc(v.ore)+'</span>')+'</div>';
     h+='<div class="dett"><b>Who:</b> '+(v.chi?esc(v.chi)+' <span class="it" lang="it">('+esc(v.categoria)+')</span>':'<span lang="it">'+esc(v.categoria)+'</span>')+'</div>';
@@ -637,7 +813,7 @@ JS = r"""
       el.innerHTML=lista.length?lista.map(scheda).join(''):vuoto(el.dataset.finestra);});
     document.querySelectorAll('[data-conta]').forEach(function(el){
       var n=filtra(dati,el.dataset.conta,el.dataset.filtro||'passengers').length;
-      el.textContent=n;var box=el.closest('.riq');if(box)box.classList.toggle('si',n>0);});
+      el.textContent=n;var box=el.closest('.riq');if(box){box.classList.toggle('si',n>0);box.classList.toggle('uno',n===1);}});
     document.querySelectorAll('[data-giorno]').forEach(function(el){var r=fin(el.dataset.giorno);el.textContent=interv(r[0],r[1]);});}
   var nodo=document.getElementById('dati');
   if(nodo){
@@ -666,7 +842,8 @@ JS = r"""
       .catch(function(){err.hidden=false;bt.disabled=false;});});});
   document.querySelectorAll('input[type=date][data-min-oggi]').forEach(function(i){i.min=OGGI;});
 })();
-""".replace("URL_LIVE", URL_DATI_LIVE).replace("'URL_REG'", "'" + URL_REGISTRO + "'")
+""".replace("URL_LIVE", URL_DATI_LIVE).replace("'URL_REG'", "'" + URL_REGISTRO + "'").replace(
+    "__ICONE__", json.dumps({**{k: svg(n) for k, n in SETT_ICONA.items()}, "altro": svg("alert")}, ensure_ascii=False))
 
 # Il JS ridisegna con i dati più recenti; per i filtri tiene l'ultima versione in window.__D
 JS = JS.replace("disegna(L.scioperi);", "window.__D=L.scioperi;disegna(L.scioperi);")
@@ -709,6 +886,13 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
                          f'<link rel="alternate" hreflang="x-default" href="{url_pag}">')
     verifica += f'<meta name="impact-site-verification" value="{IMPACT_VERIFICA}">' if IMPACT_VERIFICA else ""
     robots = "" if indicizza else '<meta name="robots" content="noindex">'
+    voci_menu = [("today/", "Today"), ("tomorrow/", "Tomorrow"), ("this-week/", "This week"), ("#cities", "Cities"),
+                 ("airports/", "Airports"), ("guides/", "Guides")]
+    if guida_in_vendita():
+        voci_menu.append(("guide/italy-by-train/", "PDF guide"))
+    menu = [(rel + h, t, h != "#cities" and (percorso == h or (h in ("airports/", "guides/") and percorso.startswith(h)))) for h, t in voci_menu]
+    lingua = (f'<a class="lingua" href="{rel}{alt_it}" hreflang="it" lang="it">{svg("globe")}Italiano</a>' if alt_it is not None else "")
+    testata = barra(rel, "Italy Strikes <em>Today</em>", menu, lingua, "Skip to content")
     testo = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -720,31 +904,39 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
 <meta property="og:title" content="{escape(titolo)}">
 <meta property="og:description" content="{escape(descrizione)}">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="{NOME}">
 <meta property="og:image" content="{URL_SITO}/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{NOME}: transport strikes in Italy today, from the official register">
 <meta property="og:url" content="{url_pag}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#B3261E">
+<meta name="twitter:image" content="{URL_SITO}/og.png">
+<meta name="theme-color" content="#13202F">
+<meta name="color-scheme" content="light dark">
 {verifica}{robots}
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23B3261E'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='white'%3E!%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="{FAVICON}">
 <style>{CSS}</style>
 {ld_html}
 </head>
 <body>
-<header class="top"><div class="wrap">
-<a class="logo" href="{rel}">Italy Strikes <span>Today</span></a>
-<nav class="menu" aria-label="Menu">
-<a href="{rel}today/">Today</a><a href="{rel}tomorrow/">Tomorrow</a><a href="{rel}this-week/">This week</a><a href="{rel}#cities">Cities</a><a href="{rel}airports/">Airports</a><a href="{rel}guides/">Guides</a>{f'<a href="{rel}guide/italy-by-train/">PDF guide</a>' if guida_in_vendita() else ""}{f'<a href="{rel}{alt_it}" hreflang="it" lang="it">Italiano</a>' if alt_it is not None else ""}
-</nav>
-</div></header>
-<main class="wrap">
+{testata}
+<main class="wrap" id="main">
 {bc}
 {corpo}
 </main>
 <footer><div class="wrap">
-<p><strong>{NOME}</strong> is an independent site. Data from the <a href="{URL_REGISTRO}" rel="noopener">official strike register of the Italian Ministry of Infrastructure and Transport (MIT)</a>, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>; we are not affiliated with MIT, unions or transport operators.
-<strong>Strikes can be called off or changed at short notice. Always check with your train operator, airline or local transport company before travelling.</strong> Nothing on this site is legal advice.</p>
-<p>Official register last updated: <span data-reg>{data_breve(d(AGGIORNATO))}</span> · checked <span data-letto>{escape(LETTO)} (Italy time)</span><br>
-<a href="{rel}about/">About and sources</a> · <a href="{rel}contact/">Contact</a> · <a href="{rel}privacy.html">Privacy</a> · <a href="{rel}guides/">Guides</a> · <a href="{rel}calendar/">Strikes calendar</a> · <a href="{rel}for-businesses/">For businesses</a></p>
+<div class="piede-top">
+<div class="piede-marchio"><a class="logo" href="{rel}">{MARCHIO}<span class="nome">Italy Strikes <em>Today</em></span></a>
+<p><strong>{NOME}</strong> is an independent site. Data from the <a href="{URL_REGISTRO}" rel="noopener">official strike register of the Italian Ministry of Infrastructure and Transport (MIT)</a>, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>; we are not affiliated with MIT, unions or transport operators.</p></div>
+<nav class="piede-link" aria-label="Footer"><h2>Site</h2><ul>
+<li><a href="{rel}today/">Strikes today</a></li><li><a href="{rel}tomorrow/">Strikes tomorrow</a></li>
+<li><a href="{rel}guides/">Guides</a></li><li><a href="{rel}calendar/">Strikes calendar</a></li>
+<li><a href="{rel}about/">About and sources</a></li><li><a href="{rel}for-businesses/">For businesses</a></li>
+<li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li></ul></nav>
+</div>
+<p class="piede-avviso"><strong>Strikes can be called off or changed at short notice. Always check with your train operator, airline or local transport company before travelling.</strong> Nothing on this site is legal advice.</p>
+<p class="piede-agg">Official register last updated: <span data-reg>{data_breve(d(AGGIORNATO))}</span> · checked <span data-letto>{escape(LETTO)} (Italy time)</span></p>
 </div></footer>
 {dati_html}
 <script>{JS}</script>
@@ -754,6 +946,14 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
     dest = SITO / file
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(testo, encoding="utf-8")
+
+
+def classi_scheda(v):
+    """Classi della scheda, come nel JS: naz (tutta Italia), ora (in corso oggi), off (rimosso, revocato o concluso)."""
+    oggi = OGGI.isoformat()
+    off = v["stato"] in ("rimosso dal registro", "revocato")
+    return ((" naz" if v["ambito"] == "national" else "") + (" ora" if v["inizio"] <= oggi <= v["fine"] and not off else "")
+            + (" off" if off or v["fine"] < oggi or v["stato"] == "concluso" else ""))
 
 
 def scheda(v):
@@ -776,7 +976,7 @@ def scheda(v):
            else f'<span lang="it">{escape(v["ore"])}</span>')
     chi = (f'{escape(v["chi"])} <span class="it" lang="it">({escape(v["categoria"])})</span>' if v["chi"]
            else f'<span lang="it">{escape(v["categoria"])}</span>')
-    h = (f'<article class="sc{" naz" if v["ambito"] == "national" else ""}" id="s{v["id"]}"><div class="quando">{escape(intervallo(v["inizio"], v["fine"]))}'
+    h = (f'<article class="sc{classi_scheda(v)}" id="s{v["id"]}">{icona_sciopero(v)}<div class="quando">{escape(intervallo(v["inizio"], v["fine"]))}'
          f'<small>{escape(v["dove"])}</small></div><div class="cosa">{b}<div class="tit">{escape(v["titolo"])}</div>'
          f'<div class="dett"><b>Hours:</b> {ore}</div><div class="dett"><b>Who:</b> {chi}</div>')
     if v["nota_en"]:
@@ -809,20 +1009,29 @@ def blocco(nome, filtro="all", massimo=0, id_=""):
     return f'<div class="lista"{attr_id} data-finestra="{nome}" data-filtro="{filtro}"{attr_max}>{contenuto}</div>'
 
 
+def riquadro(n, href, etich, nome, filtro, date, testo_uno, testo_si, testo_no):
+    """Un riquadro di stato (oggi/domani/settimana): verde senza scioperi, rosso con il numero. Il JS cambia numero e classe 'si'."""
+    return (f'<a class="riq{" si" if n else ""}{" uno" if n == 1 else ""}" href="{href}"><div class="t"><span class="ind" aria-hidden="true">'
+            f'{svg("check", "i i-ok")}{svg("alert", "i i-ko")}</span>{etich}</div>'
+            f'<div class="n" data-conta="{nome}" data-filtro="{filtro}">{n}</div>'
+            f'<div class="s"><span class="lbl-1">{testo_uno}</span><span class="lbl-si">{testo_si}</span><span class="lbl-no">{testo_no}</span></div>'
+            f'<div class="d" data-giorno="{nome}">{escape(date)}</div></a>')
+
+
 def riquadri(filtro="passengers", base=""):
     out = []
     for nome, etich, url in (("today", "Today", "today/"), ("tomorrow", "Tomorrow", "tomorrow/"), ("thisweek", "This week", "this-week/")):
         n = len(filtra(nome, filtro))
         da, a = finestra(nome)
-        out.append(f'<a class="riq{" si" if n else ""}" href="{base}{url}"><div class="t">{etich}</div>'
-                   f'<div class="n" data-conta="{nome}" data-filtro="{filtro}">{n}</div>'
-                   f'<div class="s"><span data-giorno="{nome}">{escape(intervallo(da.isoformat(), a.isoformat()))}</span> · strikes listed</div></a>')
+        out.append(riquadro(n, base + url, etich, nome, filtro, intervallo(da.isoformat(), a.isoformat()),
+                            "strike listed", "strikes listed", "No strikes listed"))
     return '<div class="riquadri">' + "".join(out) + "</div>"
 
 
 def fresco():
-    return (f'<p class="fresco">Official register last updated: <strong data-reg>{data_breve(d(AGGIORNATO))}</strong> · '
-            f'checked <span data-letto>{escape(LETTO)} (Italy time)</span> · source: <a href="{URL_REGISTRO}" rel="noopener">MIT strike register</a></p>')
+    return (f'<p class="fresco"><span class="src">{svg("shield")}<span>Source: <a href="{URL_REGISTRO}" rel="noopener">official MIT strike register</a>, '
+            f'checked twice a day</span></span><span>Register updated <strong data-reg>{data_breve(d(AGGIORNATO))}</strong></span>'
+            f'<span>Last check <span data-letto>{escape(LETTO)} (Italy time)</span></span></p>')
 
 
 AVVISO = ('<p class="avviso">Strikes can be called off or changed at short notice. Always check with your train operator, '
@@ -909,7 +1118,7 @@ def opzioni_luoghi():
 
 def modulo(rel):
     return f"""<section class="card" id="alerts" style="margin-top:30px">
-<h2 style="margin-top:0">Get an email if a strike hits your travel dates</h2>
+<h2 style="margin-top:0"><span class="gi-a">{svg("bell")}</span>Get an email if a strike hits your travel dates</h2>
 <p class="small" style="margin-top:-4px">Free, no spam. We check the official register every day and write to you only if a strike is listed for your dates and places.</p>
 <form class="form ajax" name="alerts" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
 <input type="hidden" name="form-name" value="alerts">
@@ -929,13 +1138,19 @@ def modulo(rel):
 
 
 def griglia_citta(rel):
-    return '<div class="griglia">' + "".join(
-        f'<a href="{rel}{c["slug"]}/">{escape(c["nome"])}<small>{len(filtra("upcoming", "city:" + c["slug"]))} upcoming</small></a>' for c in CITTA) + "</div>"
+    out = []
+    for c in CITTA:
+        n = len(filtra("upcoming", "city:" + c["slug"]))
+        out.append(f'<a href="{rel}{c["slug"]}/"{" class=" + chr(34) + "si" + chr(34) if n else ""}>{escape(c["nome"])}<small>{n} upcoming</small></a>')
+    return '<div class="griglia">' + "".join(out) + "</div>"
 
 
 def griglia_settori(rel):
-    return '<div class="griglia">' + "".join(
-        f'<a href="{rel}{s}/">{escape(n)}<small>{len(filtra("upcoming", "sector:" + s))} upcoming</small></a>' for s, (n, _, _) in SETTORI.items()) + "</div>"
+    out = []
+    for s, (n, _, _) in SETTORI.items():
+        k = len(filtra("upcoming", "sector:" + s))
+        out.append(f'<a href="{rel}{s}/"><span class="gi">{svg(SETT_ICONA[s])}</span>{escape(n)}<small>{k} upcoming</small></a>')
+    return '<div class="griglia">' + "".join(out) + "</div>"
 
 
 def mesi_da_mostrare():
@@ -1151,7 +1366,7 @@ def home():
     rel = "./"
     corpo = f"""<section class="hero">
 <h1>Italy strikes today and tomorrow</h1>
-<p class="lead">Every transport strike in Italy from the official government register, in plain English: trains, flights and airports, buses and metro, ferries and taxis. Updated every day.</p>
+<p class="lead">Every transport strike from the official Italian register, in plain English.</p>
 {fresco()}
 </section>
 {riquadri("passengers", "")}
@@ -1554,7 +1769,7 @@ def guide():
         strumenti = ('<h2>Tools for visitors</h2><div class="griglia"><a href="../codice-fiscale-calculator/">Codice fiscale calculator'
                      '<small>Italian tax code for foreigners</small></a><a href="../ztl-fines/">ZTL fines in Italy<small>amounts, deadlines, how to pay</small></a></div>')
     corpo = '<section class="hero"><h1>Guides</h1><p class="lead">Short, practical guides about transport strikes in Italy.</p></section><div class="griglia">' + "".join(
-        f'<a href="{s}/">{escape(t)}</a>' for s, t, _ in G) + "</div>" + strumenti
+        f'<a href="{s}/"><span class="gi">{svg("book")}</span>{escape(t)}</a>' for s, t, _ in G) + "</div>" + strumenti
     pagina("guides/", "Guides to strikes in Italy | " + NOME, "Practical guides for travellers about transport strikes in Italy.", corpo,
            briciole=[("Guides", "guides/")])
 
@@ -1786,6 +2001,8 @@ def main():
         shutil.rmtree(SITO)
     SITO.mkdir()
     shutil.copy(RADICE / "assets" / "og.png", SITO / "og.png")
+    if (RADICE / "assets" / "og-it.png").exists():
+        shutil.copy(RADICE / "assets" / "og-it.png", SITO / "og-it.png")
     for nome, contenuto in conserva.items():
         (SITO / nome).write_bytes(contenuto)
     home()
