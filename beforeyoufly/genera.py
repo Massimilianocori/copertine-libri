@@ -249,9 +249,12 @@ nav.menu a:hover,nav.menu a[aria-current]{color:#fff;background:rgba(255,255,255
 .hero{padding:24px 0 4px}
 h1,h2,h3{font-family:var(--head);font-weight:700}
 h1{font-size:clamp(1.7rem,4.8vw,2.55rem);line-height:1.1;letter-spacing:-.02em;margin:0 0 10px;text-wrap:balance}
+h1 .h1-a{display:block}
+h1 .h1-b{display:block;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-weight:600;font-size:clamp(1rem,2.4vw,1.15rem);color:var(--ink-2);letter-spacing:0;margin-top:8px;line-height:1.35}
+h1 .h1-b::first-letter{text-transform:uppercase}
 .band h1 .h1-a{display:inline-flex;align-items:center;gap:10px;color:var(--sign);margin-bottom:14px}
 .band h1 .h1-a::before{content:"";width:22px;height:3px;background:var(--sign)}
-.band h1 .h1-b{display:block;color:#fff;font-size:clamp(1.9rem,5.4vw,3rem);line-height:1.06;letter-spacing:-.025em}
+.band h1 .h1-b{display:block;font-family:var(--head);font-weight:700;margin-top:0;color:#fff;font-size:clamp(1.9rem,5.4vw,3rem);line-height:1.06;letter-spacing:-.025em}
 .band h1 .h1-b::first-letter{text-transform:uppercase}
 .sub{font-size:1.1rem;color:var(--on-board-2);margin:14px 0 0;max-width:640px;text-wrap:balance}
 .tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:26px 0 0;padding:0;list-style:none}
@@ -329,11 +332,12 @@ th{background:var(--board);color:var(--on-board-2);font-family:var(--mono);font-
 td .small{font-family:var(--mono);font-size:.8rem}
 tbody tr:hover td{background:color-mix(in srgb,var(--accent-2) 50%,transparent)}
 tr:last-child td{border-bottom:0}
+@media (max-width:640px){.tab td,.tab th{min-width:120px}.tab td:first-child,.tab th:first-child{min-width:150px}}
 .griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
 .griglia a{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;min-width:0;overflow-wrap:anywhere;box-shadow:var(--sh-1);transition:border-color .15s,box-shadow .15s,transform .15s}
 .griglia a small{display:block;font-weight:400;color:var(--ink-3);font-size:.84rem;margin-top:2px;line-height:1.4}
 .griglia a:hover{border-color:var(--accent);box-shadow:var(--sh-2);transform:translateY(-1px);color:var(--ink)}
-.tre{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.tre{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
 .tre .card{position:relative;padding-top:18px}
 .tre .card h2{margin-top:0;font-size:1.15rem}
 .tre .card h2::before{display:none}
