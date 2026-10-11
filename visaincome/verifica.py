@@ -167,9 +167,9 @@ def controlla_contenuti():
         if not cond:
             errori.append(msg)
     es = leggi("spain-digital-nomad-visa/index.html")
-    deve("€2,442.00</strong> a month × 14 payments" in es and "€2,849.00 a month if spread over 12 payments" in es, "ES: manca la forma ufficiale 2.442 × 14 con l'equivalente su 12")
+    deve("€2,442</strong> a month × 14 payments" in es and "€2,849 a month if spread over 12 payments" in es, "ES: manca la forma ufficiale 2.442 × 14 con l'equivalente su 12")
     deve("consulados/buenosaires" in es.lower() and "HANOI" in es, "ES: mancano le fonti dei consolati (Buenos Aires, Hanoi)")
-    deve("€1,221.00 a month × 14 payments" in es, "ES: SMI non indicato come 1.221 × 14")
+    deve("€1,221 a month × 14 payments" in es, "ES: SMI non indicato come 1.221 × 14")
     deve("Santiago" not in tutto, "Attribuzione a Santiago del Cile ancora presente")
     deve("not €2,762" not in tutto and "not €3,295" not in tutto, "Frase 'not €…' ancora in home")
     it = leggi("italy-digital-nomad-visa/index.html")
@@ -197,6 +197,9 @@ def controlla_contenuti():
     deve("podaci.dzs.hr" in leggi("croatia-digital-nomad-visa/index.html"), "HR: fonte DZS mancante")
     for s in ("netherlands-highly-skilled-migrant", "netherlands-eu-blue-card"):
         deve("8% holiday allowance" in leggi(f"{s}/index.html"), f"{s}: nota sull'indennità di ferie mancante")
+    zeri = re.findall(r"(?:[€£]|\b[A-Z]{3} )\d[\d,]*\.00\b", tutto)
+    deve(not zeri, f"Importi interi ancora con '.00': {sorted(set(zeri))[:5]}")
+    deve('function soldi(v,c){var t=grp(v,DEC[c]===0?0:2);if(t.slice(-3)===\'.00\')t=t.slice(0,-3);' in es, "JS: soldi() non toglie '.00' dagli importi interi")
     deve('name="pagamenti"' in es, "Calcolatore: scelta 12/13/14 mensilità mancante")
     deve("italystrikes/dati/cambi-bce.json" in es, "URL dei cambi dal vivo non aggiornato")
     return errori

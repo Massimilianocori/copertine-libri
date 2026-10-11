@@ -13,6 +13,7 @@ Il calcolatore gira nel browser (JS in pagina, nessuno script esterno). La stess
 """
 import json
 import math
+import re
 import shutil
 from datetime import date
 from html import escape
@@ -74,6 +75,11 @@ def soldi(v, valuta):
     if valuta == "GBP":
         return "£" + testo
     return f"{valuta} {testo}"
+
+
+def senza_zeri(t):
+    """Nelle note di sintesi (non nelle citazioni ufficiali): '€600.00' -> '€600', come gli altri importi interi."""
+    return re.sub(r"((?:[€£]|\b[A-Z]{3} )\d[\d,]*)\.00\b", r"\1", t)
 
 
 def num(v):
@@ -318,7 +324,7 @@ def fonti_html(fonti):
     for f in fonti:
         righe.append(f'<li><a href="{escape(f["url"])}" rel="noopener">{escape(f["titolo"])}</a> – {escape(f["editore"])}, {escape(f["formato"])}, '
                      f'checked on {data_lunga(f["controllato_il"])}'
-                     + (f'<br><span class="small">What it says: {escape(f["nota"])}</span>' if f.get("nota") else "") + "</li>")
+                     + (f'<br><span class="small">What it says: {escape(senza_zeri(f["nota"]))}</span>' if f.get("nota") else "") + "</li>")
     return '<ul class="fonti">' + "".join(righe) + "</ul>"
 
 
@@ -465,6 +471,27 @@ tr:last-child td{border-bottom:0}
 .griglia a:hover{border-color:var(--accent);box-shadow:var(--sh-2);transform:translateY(-1px);color:var(--ink)}
 .griglia .ic,.cat .ic{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;background:var(--accent-2);color:var(--accent);flex:none}
 .griglia .ic.g{background:var(--gold-2);color:var(--gold-ink)}
+.griglia .ic.f{background:none;position:relative;width:42px;height:38px;place-items:start center;padding-top:5px}
+.flag{display:block;width:36px;height:24px;border-radius:4px;box-shadow:0 0 0 1px rgba(0,0,0,.14),0 1px 2px rgba(0,0,0,.12);overflow:hidden}
+.griglia .ic .mini{position:absolute;right:-2px;bottom:-4px;display:grid;place-items:center;width:20px;height:20px;border-radius:6px;background:var(--card);color:var(--accent);box-shadow:0 0 0 1px var(--line)}
+.griglia .ic .mini .ico{width:13px;height:13px}
+.sel-f{position:relative;display:block}
+.sel-f select{padding-left:52px}
+.sel-flag{position:absolute;left:12px;top:50%;transform:translateY(-50%);pointer-events:none;display:flex}.sel-flag .flag{width:27px;height:18px;border-radius:3px}
+.verdetto{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:clamp(1.35rem,3.4vw,1.6rem);line-height:1.2;letter-spacing:-.01em;margin:0 0 10px;font-variant-numeric:tabular-nums}
+.verdetto .ico{width:1.15em;height:1.15em;flex:none;stroke-width:2.4}
+.verdetto.si{color:var(--ok)}.verdetto.no{color:var(--no)}.verdetto.warn{color:var(--ink)}.verdetto.warn .ico{color:var(--warn)}
+.cmp{display:grid;gap:6px;margin:0 0 10px}
+.cmp-r{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:8px;font-size:.8rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.cmp-r em{font-style:normal;font-weight:700;color:var(--ink-2)}
+.cmp-b{display:block;height:10px;border-radius:999px}
+.cmp-b.tu{background:var(--accent)}.cmp-b.min{background:var(--gold)}
+.v-det{font-size:.85rem;color:var(--ink-2);margin:0 0 16px;padding-bottom:14px;border-bottom:1px dashed var(--line-2);line-height:1.5}
+.r-bar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:30;display:flex;align-items:center;gap:10px;font:inherit;text-align:left;cursor:pointer;background:#141A33;color:#EEF0F8;border:1px solid #343D63;border-top:3px solid #E0A526;border-radius:14px;padding:10px 16px;min-height:52px;box-shadow:0 12px 30px -8px rgba(0,0,0,.45)}
+.r-bar-tot{font-family:var(--serif);font-weight:700;font-size:1.08rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.r-bar-info{flex:1;min-width:0;font-size:.85rem;opacity:.8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.r-bar-go{display:inline-flex;align-items:center;gap:4px;font-weight:700;font-size:.85rem;color:#E0A526}
+@media (min-width:881px){.r-bar{display:none!important}}
 .cat{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0;padding:0;list-style:none}
 .cat li{background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:14px;font-size:.88rem;color:var(--ink-2);box-shadow:var(--sh-1)}
 .cat strong{display:block;color:var(--ink);font-size:.97rem;margin-top:8px}
@@ -553,7 +580,7 @@ def bandiera(paese, cls="flag"):
     corpo = _B.get(paese)
     if not corpo:
         return ico("globe")
-    return f'<svg class="{cls}" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><g clip-path="inset(0 round 2px)">{corpo}</g></svg>'
+    return f'<svg class="{cls}" viewBox="0 0 30 20" aria-hidden="true" focusable="false">{corpo}</svg>'
 
 
 def ico(nome, cls="ico"):
@@ -570,10 +597,10 @@ MARCHIO = f'<svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">{_M}</
 FAVICON = "data:image/svg+xml," + (f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'>{_M}</svg>"
                                     .replace('"', "'").replace("#", "%23").replace("<", "%3C").replace(">", "%3E"))
 DECO = ('<svg class="band-deco" viewBox="0 0 230 150" aria-hidden="true" focusable="false">'
-        '<circle cx="115" cy="66" r="58" fill="none" stroke="#E0A526" stroke-opacity=".35" stroke-width="2" stroke-dasharray="4 7"/>'
-        '<circle cx="115" cy="66" r="40" fill="none" stroke="#E0A526" stroke-opacity=".5" stroke-width="2"/>'
-        '<path d="M83 66h64M115 34c10 9 14 20 14 32s-4 23-14 32c-10-9-14-20-14-32s4-23 14-32z" fill="none" stroke="#E0A526" stroke-opacity=".5" stroke-width="2"/>'
-        '<text x="115" y="143" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" letter-spacing="2.5" fill="#E0A526" fill-opacity=".6">OFFICIAL · MINIMUM</text></svg>')
+        '<circle cx="115" cy="66" r="58" fill="none" stroke="#E0A526" stroke-opacity=".75" stroke-width="2" stroke-dasharray="4 7"/>'
+        '<circle cx="115" cy="66" r="40" fill="none" stroke="#E0A526" stroke-opacity=".9" stroke-width="2"/>'
+        '<path d="M83 66h64M115 34c10 9 14 20 14 32s-4 23-14 32c-10-9-14-20-14-32s4-23 14-32z" fill="none" stroke="#E0A526" stroke-opacity=".9" stroke-width="2"/>'
+        '<text x="115" y="143" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" letter-spacing="2.5" fill="#E0A526" fill-opacity=".9">OFFICIAL · MINIMUM</text></svg>')
 
 
 def h1_diviso(testo):
@@ -624,6 +651,7 @@ APP_JS = r"""
   function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function dl(iso){var p=iso.split('-');return (+p[2])+' '+MESI[+p[1]-1]+' '+p[0];}
   function num(v){return String(Math.round(v*1e6)/1e6);}
+  function cap(t){t=String(t||'');return t.charAt(0).toUpperCase()+t.slice(1);}
   var D=JSON.parse(document.getElementById('dati-visti').textContent);
   var CAMBI=D.cambi;
   function etich(V,f){var b=V.base,uu=unita(D,V),u=uu[0],val=uu[1],per=uu[2],np=uu[3];
@@ -649,7 +677,8 @@ APP_JS = r"""
     selC.innerHTML=vals.map(function(c){return '<option value="'+c+'">'+c+' – '+esc(D.nomi_valute[c]||c)+'</option>';}).join('');
     selC.value=box.getAttribute('data-valuta')||'USD';
     function prog(){var s=selG.value;for(var i=0;i<D.programmi.length;i++)if(D.programmi[i].slug===s)return D.programmi[i];return D.programmi[0];}
-    function riempiG(){var p=selP.value;selG.innerHTML=D.programmi.filter(function(P){return P.paese===p;}).map(function(P){return '<option value="'+P.slug+'">'+esc(P.nome)+'</option>';}).join('');}
+    function riempiG(){var p=selP.value;selG.innerHTML=D.programmi.filter(function(P){return P.paese===p;}).map(function(P){return '<option value="'+P.slug+'">'+esc(cap(P.nome))+'</option>';}).join('');
+      var fl=box.querySelector('[data-flag]');if(fl)fl.innerHTML=(D.bandiere||{})[p]||'';}
     function riempiV(){var P=prog();selV.innerHTML=P.varianti.map(function(V){return '<option value="'+V.id+'">'+esc(V.nome)+'</option>';}).join('');
       f.querySelector('[data-campo=variante]').hidden=P.varianti.length<2;}
     if(fisso){var P0=null;D.programmi.forEach(function(P){if(P.slug===fisso)P0=P;});selP.value=P0.paese;riempiG();selG.value=fisso;
@@ -663,15 +692,22 @@ APP_JS = r"""
         if(String(v)!==String(raw).trim()){avvisi.push(c[1]+' set to '+v+' (allowed: '+LIMITI[c[0]][0]+'–'+LIMITI[c[0]][1]+').');if(ev&&ev.type==='change')el.value=v;}});
       var o=calcola(D,P,V.id,q('adulti').value,q('figli').value),cur=selC.value,val=o.valuta,cv=convertiImporti(o,cur,CAMBI.tassi);
       function ic(n){return '<svg class="ico" aria-hidden="true" focusable="false"><use href="#i-'+n+'"/></svg>';}
-      var h='',mio=parseFloat(q('reddito').value),k=limita('pagamenti',q('pagamenti').value);
+      var h='',mio=parseFloat(q('reddito').value),k=limita('pagamenti',q('pagamenti').value),barTot='',barInfo='';
       if(mio>0){var e=esito(P,o,mio,k,cur,CAMBI.tassi);var mioV=converti(mio,cur,val,CAMBI.tassi),annoV=r2(mioV*k);
         var tuo='Your income of '+soldi(mio,cur)+' a month × '+k+' (≈ '+soldi(mioV,val)+' a month, '+soldi(annoV,val)+' a year)';
+        var modo=P.confronto||(o.periodo==='month'?'mese':'anno'),mese=modo!=='anno';
+        var tuoX=mese?mioV:annoV,sogliaX=mese?o.mensile:o.annuale,diff=Math.abs(r2(tuoX-sogliaX)),quando=mese?' a month':' a year';
+        var barra=function(){var mx=Math.max(tuoX,sogliaX)||1;return '<div class="cmp" aria-hidden="true"><div class="cmp-r"><span>You</span><b class="cmp-b tu" style="width:'+Math.max(2,Math.round(tuoX/mx*100))+'%"></b><em>'+soldi(tuoX,val)+'</em></div>'+
+          '<div class="cmp-r"><span>Minimum</span><b class="cmp-b min" style="width:'+Math.max(2,Math.round(sogliaX/mx*100))+'%"></b><em>'+soldi(sogliaX,val)+'</em></div></div>';};
         if(e==='nd')h+='<div class="esito warn">'+ic('alert')+'<span>'+esc(P.condizioni||'')+'</span></div>';
-        else if(e==='si')h+='<div class="esito si">'+ic('check')+'<span>'+tuo+' is at or above this minimum. The consulate still assesses your documents.</span></div>';
-        else if(e==='parziale')h+='<div class="esito warn">'+ic('alert')+'<span>'+tuo+' meets one form of the amount but not the other (monthly amount or yearly total): ask the consulate how it assesses your income.</span></div>';
-        else h+='<div class="esito no">'+ic('x')+'<span>'+tuo+' is below this minimum.</span></div>';}
+        else if(e==='si'){h+='<div class="verdetto si">'+ic('check')+'<span>You meet the minimum'+(diff>0?' by '+soldi(diff,val)+quando:'')+'</span></div>'+barra()+'<p class="v-det">'+tuo+' is at or above this minimum. The consulate still assesses your documents.</p>';
+          barTot='✓ Meets the minimum';}
+        else if(e==='parziale'){h+='<div class="verdetto warn">'+ic('alert')+'<span>Meets one form of the amount, not the other</span></div>'+barra()+'<p class="v-det">'+tuo+' meets one form of the amount but not the other (monthly amount or yearly total): ask the consulate how it assesses your income.</p>';
+          barTot='! Check with the consulate';}
+        else{h+='<div class="verdetto no">'+ic('x')+'<span>'+soldi(diff,val)+quando+' short</span></div>'+barra()+'<p class="v-det">'+tuo+' is below this minimum.</p>';
+          barTot='✗ '+soldi(diff,val)+quando+' short';}}
       h+='<div class="r-lab">Official minimum for '+o.adulti+' adult'+(o.adulti>1?'s':'')+(o.figli?' and '+o.figli+' child'+(o.figli>1?'ren':''):'')+(o.familiari_ignorati?' (family members not counted)':'')+'</div>';
-      if(o.periodo==='month'&&o.pagamenti!==12){h+='<div class="tot">'+soldi(o.mensile,val)+' <span>a month × '+o.pagamenti+'</span></div><div class="r-anno">= '+soldi(o.annuale,val)+' a year ('+soldi(o.mensile12,val)+' a month over 12 payments)</div>';}
+      if(o.periodo==='month'&&o.pagamenti!==12){h+='<div class="tot">'+soldi(o.mensile,val)+' <span>a month × '+o.pagamenti+'</span></div><div class="r-anno">= '+soldi(o.annuale,val)+' a year · '+soldi(o.mensile12,val)+' × 12</div>';}
       else{h+='<div class="tot">'+soldi(o.mensile,val)+' <span>a month</span></div><div class="r-anno">'+soldi(o.annuale,val)+' a year</div>';}
       if(cur!==val)h+='<div class="conv">'+ic('exchange')+'≈ '+soldi(cv.mensile,cur)+' a month'+(o.periodo==='month'&&o.pagamenti!==12?' × '+o.pagamenti:'')+' · '+soldi(cv.annuale,cur)+' a year</div>';
       avvisi.forEach(function(a){h+='<p class="small" style="margin:8px 0 0"><strong>Note:</strong> '+esc(a)+'</p>';});
@@ -685,13 +721,24 @@ APP_JS = r"""
       var np=box.querySelector('[data-nota-pagamenti]');if(np){np.textContent=P.nota_pagamenti||'';np.hidden=!P.nota_pagamenti;}
       if(!fisso){h+='<p class="calc-link"><a href="'+box.getAttribute('data-rel')+P.slug+'/">Full rules and official sources for the '+esc(P.paese+' '+P.nome)+'</a></p>';}
       box.querySelector('[data-out]').innerHTML=h;
+      var bar=box.querySelector('[data-bar]');if(bar){bar.querySelector('.r-bar-tot').textContent=barTot||(soldi(o.mensile,val)+' a month'+(o.pagamenti!==12?' × '+o.pagamenti:''));
+        if(!barTot&&o.periodo!=='month')bar.querySelector('.r-bar-tot').textContent=soldi(o.annuale,val)+' a year';
+        bar.querySelector('.r-bar-info').textContent=P.paese+' '+P.nome;if(box.__obs)box.__obs();}
       f.querySelector('[data-lab=reddito]').textContent='Your monthly income in '+cur+' (optional)';}
     selP.addEventListener('change',function(){riempiG();riempiV();calcolaOra();});
     selG.addEventListener('change',function(){riempiV();calcolaOra();});
     f.addEventListener('input',function(e){if(e.target===selP||e.target===selG)return;calcolaOra(e);});
     f.addEventListener('change',function(e){if(e.target===selP||e.target===selG)return;calcolaOra(e);});
     f.addEventListener('submit',function(e){e.preventDefault();});
-    box.__calcola=calcolaOra;calcolaOra();}
+    box.__calcola=calcolaOra;calcolaOra();barra(box);}
+  function barra(box){var bar=box.querySelector('[data-bar]'),out=box.querySelector('.calc-out'),fm=box.querySelector('form');
+    if(!bar||!('IntersectionObserver' in window))return;var vOut=true,vForm=false,mq=window.matchMedia('(max-width:880px)');
+    function agg(){bar.hidden=!(mq.matches&&vForm&&!vOut);}
+    var ob=new IntersectionObserver(function(e){vOut=e[0].intersectionRatio>0.6;agg();},{threshold:[0,0.6,1]});
+    box.__obs=function(){var t=out.querySelector('.verdetto,.tot');ob.disconnect();ob.observe(t||out);};box.__obs();
+    new IntersectionObserver(function(e){vForm=e[0].isIntersecting;agg();}).observe(fm);
+    if(mq.addEventListener)mq.addEventListener('change',agg);
+    bar.addEventListener('click',function(){out.scrollIntoView({behavior:'smooth',block:'start'});});}
   var boxes=document.querySelectorAll('[data-calcolatore]');boxes.forEach(monta);
   if(window.fetch){fetch(D.url_cambi,{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(c){
     if(c&&c.tassi&&c.data&&c.tassi.USD&&c.data>=CAMBI.data){CAMBI=c;aggiornaStatici();boxes.forEach(function(b){if(b.__calcola)b.__calcola();});}}).catch(function(){});}
@@ -723,7 +770,8 @@ def blocco_dati():
                   **{k: P[k] for k in campi_p if k in P}) for P in PROG]
     ind = {k: {c: v[c] for c in ("valore", "valuta", "periodo", "nome_breve", "pagamenti") if c in v} for k, v in INDICI.items()}
     d = {"programmi": progs, "indici": ind, "cambi": {"data": CAMBI["data"], "tassi": CAMBI["tassi"]},
-         "nomi_valute": {k: v[0] for k, v in VALUTE.items()}, "url_cambi": URL_CAMBI_LIVE}
+         "nomi_valute": {k: v[0] for k, v in VALUTE.items()}, "url_cambi": URL_CAMBI_LIVE,
+         "bandiere": {P["paese"]: bandiera(P["paese"]) for P in PROG}}
     return ('<script type="application/json" id="dati-visti">' +
             json.dumps(d, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>")
 
@@ -837,10 +885,10 @@ def modulo_calcolatore(rel="", programma="", paese="", valuta="USD"):
 <div class="calc-grid">
 <form autocomplete="off">
 <div class="campi">
-<label data-campo="paese"><span class="lt">{ico("globe")}Country</span><select name="paese"></select></label>
+<label data-campo="paese"><span class="lt">{ico("globe")}Country</span><span class="sel-f"><span class="sel-flag" data-flag></span><select name="paese"></select></span></label>
 <label data-campo="programma"><span class="lt">{ico("passport")}Visa or permit</span><select name="programma"></select></label>
 <label class="pieno" data-campo="variante"><span class="lt">{ico("list")}Category</span><select name="variante"></select></label>
-<label><span class="lt">{ico("user")}Adults (including you)</span><input type="number" name="adulti" min="1" max="20" value="1" inputmode="numeric"></label>
+<label><span class="lt">{ico("user")}Adults incl. you</span><input type="number" name="adulti" min="1" max="20" value="1" inputmode="numeric"></label>
 <label><span class="lt">{ico("child")}Children under 18</span><input type="number" name="figli" min="0" max="20" value="0" inputmode="numeric"></label>
 <label class="l-val"><span class="lt">{ico("exchange")}Show amounts also in</span><select name="valuta"></select></label>
 <label class="l-red"><span class="lt">{ico("wallet")}<span data-lab="reddito">Your monthly income (optional)</span></span><input type="number" name="reddito" min="0" step="any" placeholder="e.g. 3500" inputmode="decimal"></label>
@@ -850,6 +898,7 @@ def modulo_calcolatore(rel="", programma="", paese="", valuta="USD"):
 </form>
 <div class="calc-out"><div class="risultato" data-out aria-live="polite"><noscript>Turn on JavaScript to use the calculator. The tables below show the official amounts.</noscript></div></div>
 </div>
+<button type="button" class="r-bar" data-bar hidden><span class="r-bar-tot"></span><span class="r-bar-info"></span><span class="r-bar-go">Result{ico("arrow")}</span></button>
 </div>"""
 
 
