@@ -67,6 +67,8 @@ def arrotonda(x, valuta):
 def soldi(v, valuta):
     dec = VALUTE.get(valuta, ("", 2))[1]
     testo = f"{r2(v):,.2f}" if dec == 2 else f"{int(math.floor(v + 0.5 + 1e-9)):,}"
+    if testo.endswith(".00"):  # importi interi senza centesimi (uguale nel JS)
+        testo = testo[:-3]
     if valuta == "EUR":
         return "€" + testo
     if valuta == "GBP":
@@ -525,6 +527,35 @@ ICONE = {
 ICONA_CATEGORIA = {"digital-nomad": "laptop", "passive-income": "sun", "work": "briefcase", "family": "family"}
 
 
+# Bandiere semplificate (SVG in linea, 3:2) per le schede dei paesi e dei visti e accanto al menu "Country"
+_B = {
+    "Austria": '<path fill="#C8102E" d="M0 0h30v20H0z"/><path fill="#fff" d="M0 6.67h30v6.66H0z"/>',
+    "Croatia": '<path fill="#fff" d="M0 0h30v20H0z"/><path fill="#D52B1E" d="M0 0h30v6.67H0z"/><path fill="#0B3D91" d="M0 13.33h30V20H0z"/>'
+               '<path fill="#fff" stroke="#D52B1E" stroke-width=".6" d="M12 5.5h6v6.5a3 3 0 0 1-6 0z"/><path fill="#D52B1E" d="M12 5.5h2v2h-2zM16 5.5h2v2h-2zM14 7.5h2v2h-2zM12 9.5h2v2h-2zM16 9.5h2v2h-2z"/>',
+    "Denmark": '<path fill="#C8102E" d="M0 0h30v20H0z"/><path fill="#fff" d="M9 0h3.5v20H9zM0 8.25h30v3.5H0z"/>',
+    "France": '<path fill="#fff" d="M0 0h30v20H0z"/><path fill="#0055A4" d="M0 0h10v20H0z"/><path fill="#EF4135" d="M20 0h10v20H20z"/>',
+    "Germany": '<path fill="#000" d="M0 0h30v6.67H0z"/><path fill="#DD0000" d="M0 6.67h30v6.66H0z"/><path fill="#FFCE00" d="M0 13.33h30V20H0z"/>',
+    "Hungary": '<path fill="#CE2939" d="M0 0h30v6.67H0z"/><path fill="#fff" d="M0 6.67h30v6.66H0z"/><path fill="#477050" d="M0 13.33h30V20H0z"/>',
+    "Ireland": '<path fill="#fff" d="M0 0h30v20H0z"/><path fill="#169B62" d="M0 0h10v20H0z"/><path fill="#FF883E" d="M20 0h10v20H20z"/>',
+    "Italy": '<path fill="#fff" d="M0 0h30v20H0z"/><path fill="#009246" d="M0 0h10v20H0z"/><path fill="#CE2B37" d="M20 0h10v20H20z"/>',
+    "Netherlands": '<path fill="#AE1C28" d="M0 0h30v6.67H0z"/><path fill="#fff" d="M0 6.67h30v6.66H0z"/><path fill="#21468B" d="M0 13.33h30V20H0z"/>',
+    "Portugal": '<path fill="#DA291C" d="M0 0h30v20H0z"/><path fill="#046A38" d="M0 0h12v20H0z"/><circle cx="12" cy="10" r="4" fill="#FFE900" stroke="#DA291C" stroke-width=".5"/>'
+                '<path fill="#fff" stroke="#DA291C" stroke-width=".5" d="M10.4 8h3.2v2.6a1.6 1.6 0 0 1-3.2 0z"/>',
+    "Spain": '<path fill="#AA151B" d="M0 0h30v20H0z"/><path fill="#F1BF00" d="M0 5h30v10H0z"/>',
+    "Sweden": '<path fill="#006AA7" d="M0 0h30v20H0z"/><path fill="#FECC00" d="M9 0h3.5v20H9zM0 8.25h30v3.5H0z"/>',
+    "United Kingdom": '<path fill="#012169" d="M0 0h30v20H0z"/><path stroke="#fff" stroke-width="4" d="M0 0l30 20M30 0L0 20"/>'
+                      '<path stroke="#C8102E" stroke-width="1.6" d="M0 0l30 20M30 0L0 20"/><path stroke="#fff" stroke-width="6" d="M15 0v20M0 10h30"/>'
+                      '<path stroke="#C8102E" stroke-width="3.4" d="M15 0v20M0 10h30"/>',
+}
+
+
+def bandiera(paese, cls="flag"):
+    corpo = _B.get(paese)
+    if not corpo:
+        return ico("globe")
+    return f'<svg class="{cls}" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><g clip-path="inset(0 round 2px)">{corpo}</g></svg>'
+
+
 def ico(nome, cls="ico"):
     return f'<svg class="{cls}" aria-hidden="true" focusable="false"><use href="#i-{nome}"/></svg>'
 
@@ -561,7 +592,7 @@ function r2(x){return Math.floor(x*100+0.5+1e-9)/100;}
 function arrot(x,c){return DEC[c]===0?Math.floor(x+0.5+1e-9):r2(x);}
 function limita(n,x){var l=LIMITI[n],v=parseInt(x,10);if(isNaN(v))v=l[0];return Math.max(l[0],Math.min(l[1],v));}
 function grp(n,dec){var s=dec?r2(n).toFixed(2):String(Math.floor(n+0.5+1e-9));var p=s.split('.');p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,',');return p.join('.');}
-function soldi(v,c){var t=grp(v,DEC[c]===0?0:2);return c==='EUR'?'€'+t:(c==='GBP'?'£'+t:c+' '+t);}
+function soldi(v,c){var t=grp(v,DEC[c]===0?0:2);if(t.slice(-3)==='.00')t=t.slice(0,-3);return c==='EUR'?'€'+t:(c==='GBP'?'£'+t:c+' '+t);}
 function unita(D,V){var b=V.base,s=b.indice?D.indici[b.indice]:b;var per=s.periodo;return [s.valore,s.valuta,per,per==='month'?(s.pagamenti||12):12];}
 function calcola(D,P,vid,adulti,figli){
   var V=null;P.varianti.forEach(function(v){if(v.id===vid)V=v;});if(!V)V=P.varianti[0];
@@ -1010,7 +1041,7 @@ CAT_HOME = [("laptop", "Digital nomad visas", "Spain, Portugal, Croatia, Hungary
 
 
 def scheda(p, rel=""):
-    return (f'<a href="{rel}{p["slug"]}/"><span class="ic">{ico(ICONA_CATEGORIA[p["categoria"]])}</span>'
+    return (f'<a href="{rel}{p["slug"]}/"><span class="ic f">{bandiera(p["paese"])}<span class="mini">{ico(ICONA_CATEGORIA[p["categoria"]])}</span></span>'
             f'<span>{escape(nome_prog(p))}<small>{escape(riassunto(p))}</small></span></a>')
 
 
@@ -1018,7 +1049,7 @@ def home():
     gruppi = []
     for slug, nome in PAESI.items():
         pp = [p for p in PROG if p["paese_slug"] == slug]
-        gruppi.append(f'<a href="country/{slug}/"><span class="ic g">{ico("globe")}</span><span>{escape(nome)}<small>{len(pp)} visa{"s" if len(pp) > 1 else ""}</small></span></a>')
+        gruppi.append(f'<a href="country/{slug}/"><span class="ic f">{bandiera(nome)}</span><span>{escape(nome)}<small>{len(pp)} visa{"s" if len(pp) > 1 else ""}</small></span></a>')
     lista = "".join(scheda(p) for p in PROG)
     cat = "".join(f'<li><span class="ic">{ico(i)}</span><strong>{t}</strong>{e}</li>' for i, t, e in CAT_HOME)
     testata = f"""<div class="band"><div class="wrap band-in">{DECO}
