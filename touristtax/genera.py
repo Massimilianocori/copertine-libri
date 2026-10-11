@@ -558,6 +558,7 @@ th{background:var(--mute);font-size:.78rem;font-weight:700;letter-spacing:.04em;
 td strong{font-variant-numeric:tabular-nums}
 tbody tr:hover td{background:color-mix(in srgb,var(--accent-2) 45%,transparent)}
 tr:last-child td{border-bottom:0}
+@media (max-width:640px){.tab td,.tab th{min-width:120px}.tab td:first-child,.tab th:first-child{min-width:150px}}
 .griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
 .griglia a{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;min-width:0;overflow-wrap:anywhere;box-shadow:var(--sh-1);transition:border-color .15s,transform .15s,box-shadow .15s}
 .griglia a small{display:block;font-weight:400;color:var(--ink-3);font-size:.84rem;line-height:1.45;margin-top:3px}
