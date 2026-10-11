@@ -8,6 +8,7 @@ citta.json (pagine città). Nessuna dipendenza esterna. Stesso motore di esameb1
 TODO (fase 2): percentuali di abilitati per ateneo, calcolate dagli elenchi pubblici degli atenei.
 """
 import json
+import re
 import shutil
 from datetime import date
 from html import escape
@@ -121,14 +122,14 @@ FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox
 
 SCURO = """--bg:#0C1220;--surface:#131B2C;--surface-2:#1A2337;--ink:#EDF0F6;--ink-2:#BEC7D7;--ink-3:#97A2B6;--line:#253049;--line-2:#34415E;
 --brand:#E9C977;--brand-2:#F2D88F;--on-brand:#0C1220;--brand-soft:#1B2946;--link:#A9C0F2;--bord:#FF9DAA;--bord-soft:#3A1820;
---oro:#D9B566;--tile-tm:#13234A;--warn:#FFB45E;--warn-soft:#33250F;--focus:#F2C46B;--testata:#0A1222;--hero-a:#17264B;--hero-b:#0E1833;
+--oro:#D9B566;--oro-t:#D9B566;--tile-tm:#13234A;--warn:#FFB45E;--warn-soft:#33250F;--focus:#F2C46B;--testata:#0A1222;--hero-a:#17264B;--hero-b:#0E1833;
 --ombra:0 1px 2px rgba(0,0,0,.35);color-scheme:dark"""
 
 CSS = """
 @font-face{font-family:"Source Serif 4";src:url("/fonts/source-serif-4.woff2") format("woff2");font-weight:200 900;font-style:normal;font-display:swap}
 :root{--bg:#F5F3EE;--surface:#FFFFFF;--surface-2:#EFECE4;--ink:#141C2B;--ink-2:#3A4456;--ink-3:#566070;--line:#E1DCD1;--line-2:#CDC6B8;
 --brand:#1B2F5B;--brand-2:#13234A;--on-brand:#FFFFFF;--brand-soft:#E6EBF5;--link:#24479A;--bord:#8C1D2F;--bord-soft:#F8E5E7;
---oro:#B08A36;--tile-tm:#E9C977;--warn:#8A4B00;--warn-soft:#FFF2DF;--focus:#B45309;--testata:#1B2F5B;--hero-a:#1B2F5B;--hero-b:#111F42;
+--oro:#B08A36;--oro-t:#8A6A22;--tile-tm:#E9C977;--warn:#8A4B00;--warn-soft:#FFF2DF;--focus:#B45309;--testata:#1B2F5B;--hero-a:#1B2F5B;--hero-b:#111F42;
 --serif:"Source Serif 4","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
 --r:12px;--r-l:18px;--ombra:0 1px 2px rgba(20,28,43,.05),0 6px 18px rgba(20,28,43,.06);color-scheme:light}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){""" + SCURO + """}}
@@ -259,7 +260,7 @@ min-width:0;overflow-wrap:anywhere;box-shadow:var(--ombra)}
 /* griglie */
 .griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
 .griglia a{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-height:54px;
-text-decoration:none;color:var(--ink);font-weight:650;line-height:1.25;overflow-wrap:anywhere;transition:border-color .15s,background .15s}
+text-decoration:none;color:var(--ink);font-weight:650;line-height:1.25;overflow-wrap:normal;hyphens:auto;transition:border-color .15s,background .15s}
 .griglia a .i{color:var(--brand)}
 .griglia a small{display:block;font-weight:400;color:var(--ink-3);font-size:.82rem}
 .griglia a:hover{border-color:var(--link);background:var(--brand-soft)}
@@ -271,7 +272,7 @@ details .sedi li{background:var(--bg)}
 .regione{break-inside:avoid;margin:0 0 22px}
 .regione h3{font-family:inherit;font-size:.8rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:0 0 8px;
 display:flex;align-items:center;gap:8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
-.regione h3 span{font-weight:700;color:var(--oro)}
+.regione h3 span{font-weight:700;color:var(--oro-t)}
 .regione .sedi{gap:0}
 .regione .sedi li{background:none;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:10px 2px 12px}
 .regione .sedi li:last-child{border-bottom:0}
@@ -514,7 +515,7 @@ def scheda_sessione(s, rel, solo=None):
     VISIBILI = 2
     badge = "".join(link_prof(p, rel, " oltre" if i >= VISIBILI else "") for i, p in enumerate(profs))
     if len(profs) > VISIBILI:
-        badge += f'<button type="button" class="badge piu">+{len(profs) - VISIBILI} professioni</button>'
+        badge += f'<button type="button" class="badge piu">+{len(profs) - VISIBILI} {"professione" if len(profs) - VISIBILI == 1 else "professioni"}</button>'
 
     ente = PROF[s["professioni"][0]]["ente"]
     apertura = f' data-apertura="{s["apertura"]}"' if s.get("apertura") else ""
@@ -633,6 +634,14 @@ def modulo(rel, prof_scelta="", citta_scelta=""):
 </section>"""
 
 
+def etichetta_fonte(url):
+    """Nome leggibile della fonte: "OM 694/2026" per le ordinanze MUR, "decreto Giustizia" per l'avvocato."""
+    if "giustizia" in url:
+        return "decreto Giustizia"
+    m = re.search(r"n\.(?:%20|\s)*(\d+)(?:%20|\s)+del(?:%20|\s)+\d+-\d+-(\d{4})", url)
+    return f"OM {m.group(1)}/{m.group(2)}" if m else "ordinanza"
+
+
 def scheda_sede(s, rel, prof=None, con_prof=True):
     righe = [f'{ic("pin")} ' + escape(f'{s["citta"]} ({s["sigla"]}) · {s["regione"]}')]
     if prof and s["note"].get(prof):
@@ -644,8 +653,8 @@ def scheda_sede(s, rel, prof=None, con_prof=True):
         link.append(f'<a href="{escape(s["url_esami_stato"])}" rel="noopener">{ic("doc")}pagina esami di Stato</a>')
     if s.get("sito"):
         link.append(f'<a href="{escape(s["sito"])}" rel="noopener">{ic("web")}sito ufficiale</a>')
-    fonti = " · ".join(f'<a href="{escape(f)}" rel="noopener">{"decreto" if "giustizia" in f else "ordinanza"}</a>'
-                       for f in s["fonti"])
+    elenco = [PROF[prof]["fonte"]] if prof and PROF[prof]["fonte"] in s["fonti"] else s["fonti"]
+    fonti = " · ".join(f'<a href="{escape(f)}" rel="noopener">{etichetta_fonte(f)}</a>' for f in elenco)
     icona = "bilancia" if s["tipo"] == "corte_appello" else "edificio"
     return f"""<li><div class="nome">{ic(icona)}<span>{escape(nome_sede(s))}</span></div>
 <div class="det">{"<br>".join(righe)}</div>
