@@ -1,0 +1,61 @@
+# Cruscotto della rete di siti
+
+Aggiornato da Claude ogni mercoledì (routine "Ricerca settimanale") e quando arrivano numeri nuovi. Metodo e soglie: `.claude/skills/rete-siti/SKILL.md`.
+Regola: ogni numero ha data e fonte. Se un numero manca, si scrive "manca". Le stime non sono numeri.
+
+Ultimo aggiornamento: 11/10/2026 (creazione).
+
+## 1. I siti
+
+| Sito | Indirizzo | Online dal | Lingua e pubblico | Come guadagnerà | Fase |
+|---|---|---|---|---|---|
+| Italy Strikes Today | https://italy-strikes-today.netlify.app | 10/10/2026 | EN + IT, turisti in Italia | Pubblicità, affiliati viaggio, avvisi | Avvio |
+| Tourist Tax Calculator | https://tourist-tax-calculator.netlify.app | 10/10/2026 | EN, viaggiatori in Europa | Pubblicità, affiliati hotel | Avvio |
+| Visa Income Checker | https://visa-income-checker.netlify.app | 10/10/2026 | EN, chi si trasferisce (nomadi digitali, pensionati) | Pubblicità, affiliati (assicurazioni, conti) | Avvio |
+| Before You Fly | https://before-you-fly.netlify.app | 11/10/2026 | EN, chi vola in Europa | Pubblicità, affiliati (voli, eSIM) | Avvio |
+| EsameB1 | https://esameb1.netlify.app | 09/10/2026 | IT, stranieri per la cittadinanza | Pubblicità, contatti per scuole (dopo il cancello fiscale) | Avvio |
+| EsamiDiStato | https://esamidistato.netlify.app | 10/10/2026 | IT, neolaureati | Pubblicità, corsi di preparazione (affiliati) | Avvio |
+
+Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE), BandiChiari.
+
+## 2. Numeri
+
+| Data | Sito | Pagine indicizzate | Impressioni (28 gg) | Clic (28 gg) | Visite (contatore) | Iscritti | Fonte |
+|---|---|---|---|---|---|---|---|
+| 11/10/2026 | tutti | manca | manca | manca | nessun contatore | 0 | Netlify Forms (i 2 invii del 9/10 sono test) |
+
+## 3. Decisioni per sito
+
+| Sito | Prossimo controllo | Soglia di quel controllo | Decisione attuale |
+|---|---|---|---|
+| Italy Strikes Today | 9/11 (30 gg) e 24/11 (45 gg) | ≥ 300 impressioni al mese a 45 gg | Continua. Sito stagionale: picco scioperi a marzo, verdetto a 90 gg da rileggere anche a marzo 2027 |
+| Tourist Tax Calculator | 9/11 e 24/11 | ≥ 300 impressioni al mese a 45 gg | Continua. Tariffe da rigenerare il 1/1/2027 (vedi `touristtax/NOTE.md`) |
+| Visa Income Checker | 9/11 e 24/11 | ≥ 300 impressioni al mese a 45 gg | Continua. Cambi aggiornati dal workflow di Italy Strikes |
+| Before You Fly | 10/11 e 25/11 | ≥ 300 impressioni al mese a 45 gg | Continua |
+| EsameB1 | 8/11 e 23/11 | ≥ 300 impressioni al mese a 45 gg | Continua |
+| EsamiDiStato | 9/11 e 24/11 | ≥ 300 impressioni al mese a 45 gg | Continua. Domanda stagionale (sessioni d'esame): leggere i numeri vicino alle scadenze |
+
+## 4. Lavori in sospeso
+
+- **Restyling:** voti della seconda revisione ≥ 8/10 per 5 siti. EsamiDiStato era a 7,5: 4 correzioni fatte l'11/10 (commit f3e0ff1), da rivotare. Uscite:
+  - Italy Strikes con la pubblicazione del 17/10;
+  - EsameB1 ed EsamiDiStato con la routine del lunedì;
+  - i tre siti di viaggio con un deploy ciascuno, appena si vedono i consumi Netlify.
+- **Crediti Netlify:** manca la foto della pagina Usage/Billing. L'11/10 tutti i siti hanno dato 503 per crediti esauriti.
+
+## 5. Misurazione (il punto da risolvere per primo)
+
+- [ ] Massimiliano crea l'account GoatCounter (gratis) e dice il nome scelto. Ha detto che lo farà, senza fretta (11/10).
+- [ ] Script GoatCounter nei 6 siti, insieme alle pubblicazioni già previste, e privacy aggiornata in ogni sito.
+- [ ] Chiave API in sola lettura tra i segreti dell'ambiente, così le routine leggono le visite da sole.
+- [ ] Fino ad allora: foto di Search Console ("Rendimento" e "Pagine") ogni 2 settimane. Prima richiesta: 23/10.
+
+## 6. Prossime azioni (una per settimana, la più utile)
+
+| Settimana | Azione | Perché (numero) | Stato |
+|---|---|---|---|
+| 14/10 | Attivare la misurazione (sez. 5) | Oggi 0 numeri su 6 siti: senza misura non si decide | In attesa dell'account di Massimiliano |
+
+## 7. Registro delle decisioni
+
+- 11/10/2026: creata la gestione da manager su richiesta di Massimiliano. Soglie fissate prima di vedere i numeri (skill `rete-siti`, sez. 3).
