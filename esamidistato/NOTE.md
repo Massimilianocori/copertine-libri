@@ -70,3 +70,11 @@
 3. **Search Console**: aggiungi la proprietà `https://esamidistato.netlify.app` con il metodo "tag HTML" e mandami il codice: lo metto in
    `GOOGLE_VERIFICA` in `genera.py` e ripubblico; poi invia `sitemap.xml`.
 4. Nessuna spesa: niente dominio finché il test non dice "continua".
+
+## Grafica (11/10/2026)
+- EsamiDiStato: blu notte istituzionale, bordeaux per le scadenze, filo d'oro; marchio a frontone classico; titoli in Source Serif 4.
+- Identità propria del sito, tutta in `genera.py` (CSS con token su `:root`, chiaro/scuro automatico, icone SVG in linea con uno sprite per pagina, marchio SVG nel logo e nel favicon).
+- In cima a home, pagine città/professione: scheda "risposta" con prossimo esame e prossima scadenza ancora aperta; il JS nasconde le voci scadute, quindi resta giusta anche tra un aggiornamento e l'altro.
+- Font servito dal sito (`assets/fonts/`, licenza SIL OFL in `OFL.txt`, copiato in `sito/fonts/`): nessuna risorsa esterna.
+- Immagine Open Graph 1200x630: `assets/og.png`, generata con Playwright da `assets/og-template.html` (istruzioni nel file).
+- Moduli `avvisami`, titoli, description, canonical, h1, JSON-LD e URL invariati.
