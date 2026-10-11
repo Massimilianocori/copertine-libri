@@ -43,3 +43,4 @@
 - Font servito dal sito (`assets/fonts/`, licenza SIL OFL in `OFL.txt`, copiato in `sito/fonts/`): nessuna risorsa esterna.
 - Immagine Open Graph 1200x630: `assets/og.png`, generata con Playwright da `assets/og-template.html` (istruzioni nel file).
 - Moduli `avvisami`, titoli, description, canonical, h1, JSON-LD e URL invariati.
+- Revisione design (11/10/2026): colonna laterale "sticky" con il solo modulo, città e sedi a tutta larghezza (sedi in griglia); schede data su una riga con la nota della scadenza detta una volta in testa all'elenco; elenco ridotto alle prossime 6 date con "Mostra tutte" e conteggio dopo il filtro; su mobile pillola data senza bordo curvo e bottoni a tutta larghezza; email multiple separate.

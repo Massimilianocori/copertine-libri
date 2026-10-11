@@ -7,6 +7,7 @@ Dati: enti.json, sessioni.json (date curate a mano, con fonte), sedi.json (da ra
 citta.json (pagine città). Nessuna dipendenza esterna.
 """
 import json
+import re
 import shutil
 from datetime import date
 from html import escape
@@ -211,32 +212,43 @@ color:var(--ink-2);padding:7px 13px;min-height:40px;border-radius:999px;cursor:p
 .chips button:hover{border-color:var(--brand)}
 .chips button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
 .chips .pt{width:9px;height:9px;border-radius:50%;flex:none}
-@media (max-width:640px){.chips{flex-wrap:nowrap;overflow-x:auto;margin-right:-16px;padding-right:16px;padding-bottom:6px;scrollbar-width:none}
-.chips::-webkit-scrollbar{display:none}}
+@media (max-width:640px){.chips{flex-wrap:nowrap;overflow-x:auto;margin-right:-16px;padding-right:16px;padding-bottom:6px;scrollbar-width:none;
+-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
+.chips::-webkit-scrollbar{display:none}.chips button:last-child{margin-right:24px}}
+.esito{font-size:.9rem;color:var(--ink-3);margin:-6px 0 12px;font-weight:600}
+.esito:empty{display:none}
+.mostra{width:100%;margin-top:12px}
 /* sessioni */
 .sessioni{display:grid;gap:12px}
-.sess{display:grid;grid-template-columns:76px 1fr;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;
+.sess{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;
 min-width:0;overflow-wrap:anywhere;box-shadow:var(--ombra)}
-.sess[hidden]{display:none}
-.tile{display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:12px;background:var(--surface-2);padding:8px 4px;align-self:start;
-line-height:1;text-align:center;border-top:4px solid var(--brand)}
-.sess[data-tipo="generale"] .tile{border-top-color:var(--line-2)}
+.sess[hidden],.sess.oltre{display:none}
+.tile{display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:10px;background:var(--surface-2);padding:9px 4px 7px;align-self:start;
+line-height:1;text-align:center;box-shadow:inset 0 4px 0 var(--brand)}
+.sess[data-tipo="generale"] .tile{box-shadow:inset 0 4px 0 var(--line-2)}
 .tile .tm{font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-ink)}
-.tile .td{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;margin:4px 0 3px;font-variant-numeric:tabular-nums}
+.tile .td{font-size:1.7rem;font-weight:800;letter-spacing:-.03em;margin:4px 0 3px;font-variant-numeric:tabular-nums}
 .tile .ty{font-size:.75rem;color:var(--ink-3);font-weight:600}
 .sess .cosa{min-width:0}
-.sess .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.sess .testa{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
 .sess .nome{font-weight:750;font-size:1.06rem;line-height:1.3}
-.sess .giorno{font-size:.9rem;color:var(--ink-3);margin-bottom:8px}
-.scad{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 8px;font-size:.94rem;color:var(--ink-2);padding:10px 12px;background:var(--surface-2);border-radius:10px}
-.scad>.i{color:var(--ink-3);margin-top:3px}
-.scad .riga{min-width:0;display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.sess .testa .tag{font-size:.76rem;padding:2px 8px;margin-left:auto}
+.sess .quando{display:flex;flex-wrap:wrap;gap:2px 14px;align-items:center;font-size:.94rem;color:var(--ink-2);margin-top:4px}
+.sess .quando .sep{color:var(--line-2)}
+.sess .quando time{color:var(--ink-3)}
+.scad{display:inline-flex;flex-wrap:wrap;gap:2px 6px;align-items:center;min-width:0}
+.scad.chiusa .stato{flex-basis:100%}
+.scad>.i{color:var(--ink-3)}
 .scad strong{color:var(--ink)}
 .scad.urgente strong{color:var(--rosso)}
 .scad.chiusa{color:var(--ink-3)}
 .scad.chiusa strong{color:var(--ink-3);text-decoration:line-through;text-decoration-thickness:1px}
 .scad.chiusa .stato{white-space:normal;background:none;padding:0;font-weight:600;font-size:.86rem;color:var(--ink-3)}
-.scad .nota{grid-column:2;font-size:.84rem;color:var(--ink-3)}
+.sess .nota{font-size:.86rem;color:var(--ink-3);margin-top:4px}
+.sess .fonte{margin-top:4px}
+.note-scad{list-style:none;margin:0 0 14px;padding:12px 14px;background:var(--surface-2);border-radius:12px;display:grid;gap:6px;font-size:.9rem;color:var(--ink-2)}
+.note-scad li{display:flex;gap:8px;align-items:baseline}
+.note-scad .eb{flex:none}
 .fonte{font-size:.8rem;color:var(--ink-3);margin-top:8px;display:flex;gap:6px;align-items:flex-start}
 .fonte .i{margin-top:2px}
 .fonte a{color:var(--ink-3)}
@@ -248,8 +260,11 @@ text-decoration:none;color:var(--ink);font-weight:700;line-height:1.25;transitio
 .griglia a small{display:block;font-weight:500;color:var(--ink-3);font-size:.82rem}
 .griglia a:hover{border-color:var(--brand);background:var(--brand-soft)}
 /* sedi */
-.sedi{list-style:none;padding:0;margin:0;display:grid;gap:10px}
-.sedi li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0;overflow-wrap:anywhere}
+.sedi{list-style:none;padding:0;margin:0;display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.sedi li{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px 14px 18px;min-width:0;overflow-wrap:anywhere}
+.sedi li::before{content:"";position:absolute;left:-1px;top:14px;bottom:14px;width:4px;border-radius:0 4px 4px 0;background:var(--brand)}
+.sedi li.s-CILS::before{background:var(--cils)}.sedi li.s-CELI::before{background:var(--celi)}
+.sedi li.s-PLIDA::before{background:var(--plida)}.sedi li.s-CERTIT::before{background:var(--certit)}
 details .sedi li{background:var(--bg)}
 .sedi .nome{font-weight:700;display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin-bottom:6px}
 .sedi .det{font-size:.92rem;color:var(--ink-2);display:flex;gap:8px;align-items:flex-start;margin-top:3px}
@@ -293,8 +308,10 @@ ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32p
 .due>*{min-width:0}
 .due>aside>section+section{margin-top:8px}
 .due>section>h2:first-child,.due>aside>.card:first-child{margin-top:28px}
+@media (min-width:861px){.due>aside{position:sticky;top:16px;align-self:start}}
 @media (max-width:860px){.due{grid-template-columns:1fr;gap:8px}.risposta{grid-template-columns:1fr}}
-@media (max-width:640px){body{font-size:16.5px}.lead{font-size:1.02rem}.r-piede span{display:none}.sess{grid-template-columns:1fr;gap:10px;padding:14px}.tile{flex-direction:row;align-items:baseline;justify-self:start;gap:7px;padding:6px 12px;border-top:0;border-left:4px solid var(--brand)}.sess[data-tipo="generale"] .tile{border-left-color:var(--line-2)}.tile .td{font-size:1.3rem;margin:0}
+@media (max-width:640px){body{font-size:16.5px}.lead{font-size:1.02rem}.r-piede span{display:none}.sess{grid-template-columns:1fr;gap:8px;padding:14px}.tile{flex-direction:row;align-items:baseline;justify-self:start;gap:7px;padding:6px 12px;border-radius:8px;box-shadow:none;background:var(--brand-soft)}.sess[data-tipo="generale"] .tile{box-shadow:none;background:var(--surface-2)}.tile .td{font-size:1.3rem;margin:0}
+.sess .testa .tag{margin-left:0}.azioni .btn{flex:1 1 100%;justify-content:center}.sedi{grid-template-columns:minmax(0,1fr)}
 .card{padding:18px}.risposta .slot{padding:16px}.hero{padding-top:22px}}
 .altre{display:flex;flex-wrap:wrap;gap:6px}
 .altre a{font-size:.9rem;padding:5px 11px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink-2);background:var(--surface)}
@@ -341,14 +358,28 @@ JS = """
     var r=slot.querySelector('[data-riserva]');if(r)r.hidden=vista;
   });
   document.querySelectorAll('[data-conta]').forEach(function(el){var g=giorni(el.dataset.conta);if(g>=0)conta(el,g,el.dataset.modo);});
-  var bott=document.querySelectorAll('.chips button');
-  bott.forEach(function(b){b.addEventListener('click',function(){
-    bott.forEach(function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');
-    var f=b.dataset.filtro;
-    document.querySelectorAll('.sess').forEach(function(el){
-      el.hidden=!(f==='tutti'||(f==='citt'&&el.dataset.tipo==='cittadinanza')||el.dataset.ente===f);
-    });
-  });});
+  /* elenco corto: le prossime 6 date, poi "Mostra tutte" */
+  var LIMITE=6;
+  document.querySelectorAll('[data-elenco]').forEach(function(box){
+    var lista=box.querySelector('.sessioni'),piu=box.querySelector('.mostra'),esito=box.querySelector('.esito');
+    var bott=box.querySelectorAll('.chips button'),aperto=false;
+    function aggiorna(etichetta){
+      var vis=[].filter.call(lista.querySelectorAll('.sess'),function(el){return !el.hidden;});
+      vis.forEach(function(el,i){el.classList.toggle('oltre',!aperto&&i>=LIMITE);});
+      if(piu){piu.hidden=aperto||vis.length<=LIMITE;piu.textContent='Mostra tutte le '+vis.length+' date';}
+      if(esito&&etichetta!==undefined)esito.textContent=vis.length+(vis.length===1?' sessione':' sessioni')+etichetta;
+    }
+    if(piu)piu.addEventListener('click',function(){aperto=true;aggiorna();});
+    bott.forEach(function(b){b.addEventListener('click',function(){
+      bott.forEach(function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');
+      var f=b.dataset.filtro;
+      lista.querySelectorAll('.sess').forEach(function(el){
+        el.hidden=!(f==='tutti'||(f==='citt'&&el.dataset.tipo==='cittadinanza')||el.dataset.ente===f);
+      });
+      aggiorna(f==='tutti'?'':f==='citt'?' per la cittadinanza':' '+f);
+    });});
+    aggiorna();
+  });
   var src=document.querySelectorAll('input[name=source]');
   var v='';try{var q=new URLSearchParams(location.search);v=q.get('ref')||q.get('utm_source')||document.referrer||'diretto';}catch(e){v='diretto';}
   src.forEach(function(i){i.value=String(v).slice(0,200);});
@@ -446,7 +477,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
 <p><strong>{NOME}</strong> è un sito indipendente, non affiliato agli enti certificatori. CILS, CELI, PLIDA e CERT.IT sono marchi dei rispettivi enti.
 Le informazioni vengono dalle fonti ufficiali indicate accanto a ogni dato. <strong>Prima di iscriverti verifica sempre sul sito della sede.</strong>
 Questo sito non dà consulenza sulla pratica di cittadinanza: per quella vedi la <a href="https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza" rel="noopener">pagina del Ministero dell'Interno</a>.</p>
-<p><span class="dati">{ic("scudo")}Dati controllati il {verificato_ultimo()}.</span> · <a href="{rel}privacy.html">Privacy</a> · <a href="{rel}come-funziona/">Come funziona</a></p>
+<p><span class="dati">{ic("scudo")}Dati controllati il {verificato_ultimo()}.</span></p>
 </div>
 </div>
 </div></footer>
@@ -465,36 +496,54 @@ def tile(iso):
             f'<span class="td">{x.day}</span><span class="ty">{x.year}</span></div>')
 
 
+def nota_comune(s):
+    """Le note sulla scadenza ripetute in più sessioni (es. "le sedi possono chiudere prima") si dicono una volta sola, in testa all'elenco."""
+    return sum(1 for x in sessioni if x["nota_scadenza"] == s["nota_scadenza"]) > 1
+
+
 def scheda_sessione(s):
     citt = s["tipo"] == "cittadinanza"
     esami = ", ".join(s["esami"])
     badge = (f'<span class="tag citt">{ic("ok")}Esame per la cittadinanza</span>' if citt
              else f'<span class="tag">{ic("ok")}B1 valido per la cittadinanza</span>')
+    nota = "" if nota_comune(s) else f'<div class="nota">{escape(s["nota_scadenza"])}</div>'
     if s.get("scadenza"):
-        scad = (f'<div class="scad" data-scadenza="{s["scadenza"]}">{ic("orologio")}<div class="riga">Iscrizioni entro: <strong>{data_breve(s["scadenza"])}</strong>'
-                f'<span class="stato conta"></span></div><span class="nota">{escape(s["nota_scadenza"])}</span></div>')
+        scad = (f'<span class="scad" data-scadenza="{s["scadenza"]}">{ic("orologio")}Iscrizioni entro <strong>{data_breve(s["scadenza"])}</strong>'
+                f'<span class="stato conta"></span></span>')
     else:
-        scad = f'<div class="scad">{ic("orologio")}<div class="riga">{escape(s["nota_scadenza"])}</div></div>'
+        scad = ""
     return f"""<article class="sess" data-data="{s['data']}" data-ente="{escape(s['ente'])}" data-tipo="{s['tipo']}">
 {tile(s['data'])}
-<div class="cosa"><div class="tags">{eb(s['ente'])}{badge}</div>
-<div class="nome">{escape(esami)}</div>
-<div class="giorno"><time datetime="{s['data']}">{data_lunga(s['data'])}</time></div>
-{scad}
+<div class="cosa"><div class="testa">{eb(s['ente'])}<span class="nome">{escape(esami)}</span>{badge}</div>
+<div class="quando"><time datetime="{s['data']}">{data_lunga(s['data'])}</time>{scad}</div>
+{nota}
 <div class="fonte">{ic("doc")}<span>Fonte: <a href="{escape(s['fonte'])}" rel="noopener">calendario ufficiale {escape(s['ente'])}</a> · controllato il {data_breve(s['verificato_il'])}</span></div>
 </div>
 </article>"""
+
+
+def note_scadenze(lista):
+    """Una riga per ente con la nota sulla scadenza, detta una volta per tutto l'elenco."""
+    righe, viste = [], set()
+    for e in ENTE:
+        for s in lista:
+            if s["ente"] == e and nota_comune(s) and s["nota_scadenza"] not in viste:
+                viste.add(s["nota_scadenza"])
+                righe.append(f'<li>{eb(e)}<span>{escape(s["nota_scadenza"])}</span></li>')
+    return f'<ul class="note-scad" aria-label="Come leggere le scadenze">{"".join(righe)}</ul>' if righe else ""
 
 
 def lista_sessioni(lista, con_filtri=True):
     filtri = ""
     if con_filtri:
         bottoni = ['<button type="button" data-filtro="tutti" aria-pressed="true">Tutte</button>',
-                   f'<button type="button" data-filtro="citt" aria-pressed="false">{ic("ok")}Solo esami "cittadinanza"</button>']
+                   f'<button type="button" data-filtro="citt" aria-pressed="false">{ic("ok")}Solo cittadinanza</button>']
         bottoni += [f'<button type="button" data-filtro="{e}" aria-pressed="false"><span class="pt" style="background:var(--{e.replace(".", "").lower()})"></span>{e}</button>'
                     for e in ENTE]
-        filtri = f'<div class="filtri chips" role="group" aria-label="Filtra per ente">{"".join(bottoni)}</div>'
-    return filtri + '<div class="sessioni">' + "\n".join(scheda_sessione(s) for s in lista) + "</div>"
+        filtri = (f'<div class="filtri chips" role="group" aria-label="Filtra per ente">{"".join(bottoni)}</div>'
+                  '<p class="esito" aria-live="polite"></p>')
+    return (f'<div data-elenco>{note_scadenze(lista)}{filtri}<div class="sessioni">' + "\n".join(scheda_sessione(s) for s in lista)
+            + '</div><button class="btn btn-2 mostra" type="button" hidden>Mostra tutte le date</button></div>')
 
 
 def risposta(prossime, rel=""):
@@ -565,12 +614,12 @@ def scheda_sede(s, con_citta=False):
     contatti = []
     if s.get("telefono"):
         contatti.append(f'<span>{ic("tel")}Tel. {escape(s["telefono"])}</span>')
-    if s.get("email"):
-        contatti.append(f'<a href="mailto:{escape(s["email"])}">{ic("mail")}{escape(s["email"])}</a>')
+    for mail in [x for x in re.split(r"[;,:\s]+", s.get("email") or "") if "@" in x]:
+        contatti.append(f'<a href="mailto:{escape(mail)}">{ic("mail")}{escape(mail)}</a>')
     if s.get("sito"):
         url = s["sito"] if s["sito"].startswith("http") else "https://" + s["sito"]
         contatti.append(f'<a href="{escape(url)}" rel="noopener nofollow">{ic("web")}sito</a>')
-    return f"""<li><div class="nome">{eb(s['ente'])}<span>{escape(s['nome'])}</span></div>
+    return f"""<li class="s-{s['ente'].replace('.', '')}"><div class="nome">{eb(s['ente'])}<span>{escape(s['nome'])}</span></div>
 {f'<div class="det">{ic("pin")}<span>{"<br>".join(righe)}</span></div>' if righe else ""}
 {f'<div class="contatti">{"".join(contatti)}</div>' if contatti else ""}
 <div class="fonte">{ic("doc")}<span>Fonte: <a href="{escape(s['fonte'])}" rel="noopener">elenco ufficiale {escape(s['ente'])}</a></span></div></li>"""
@@ -631,14 +680,14 @@ def home(prossime):
 </section>
 <aside>
 {modulo()}
+</aside>
+</div>
 <section id="citta">
 <h2>{ic("pin")}Sedi per città</h2>
 <div class="griglia">{griglia}</div>
 <p class="small">La tua città non c'è? Guarda le sedi per regione nelle pagine
 {", ".join(f'<a href="ente/{SLUG_ENTE[e]}/">{e}</a>' for e in ENTE)}.</p>
 </section>
-</aside>
-</div>
 <section>
 <h2>{ic("info")}Domande frequenti</h2>
 {domanda("Quale esame devo fare per la cittadinanza?", f'Serve un certificato di italiano almeno di livello B1, rilasciato da uno dei 4 enti riconosciuti: CILS (Università per Stranieri di Siena), CELI (Università per Stranieri di Perugia), PLIDA (Società Dante Alighieri) e CERT.IT (Università Roma Tre). Fonte: <a href="{PREFETTURA}" rel="noopener">Prefettura – Ministero dell\'Interno</a>. Per i casi particolari (titoli di studio italiani, esenzioni) chiedi alla Prefettura.')}
@@ -671,8 +720,13 @@ def pagina_citta(c, prossime):
         nota_mancano = (f'<p class="small">In provincia di {escape(c["nome"])} non risultano sedi {", ".join(mancano)}: '
                         f'guarda le sedi nelle province vicine nelle pagine {", ".join(f'<a href="../../ente/{SLUG_ENTE[e]}/">{e}</a>' for e in mancano)}.</p>')
     altre = "".join(f'<a href="../{x["slug"]}/">{escape(x["nome"])}</a>' for x in sorted(citta, key=lambda x: x["nome"]) if x != c)
-    conteggi = "".join(f'<li>{eb(e)}<span><strong>{n_e}</strong> {"sede" if n_e == 1 else "sedi"}</span></li>'
-                       for e in ENTE for n_e in [sum(1 for s in qui if s["ente"] == e)] if n_e)
+    def conto(e):
+        n_c = sum(1 for s in in_citta if s["ente"] == e)
+        n_p = sum(1 for s in in_prov if s["ente"] == e)
+        if not n_p:
+            return f'<strong>{n_c}</strong> {"sede" if n_c == 1 else "sedi"}'
+        return f'<strong>{n_c}</strong> a {escape(c["nome"])} + {n_p} in provincia'
+    conteggi = "".join(f'<li>{eb(e)}<span>{conto(e)}</span></li>' for e in ENTE if any(s["ente"] == e for s in qui))
     corpo = f"""<section class="hero">
 {briciole(("EsameB1", "../../"), ("Città", "../../#citta"), (c["nome"], None))}
 <h1>Esame B1 per la cittadinanza a {escape(c['nome'])}: date e sedi 2026-2027</h1>
@@ -686,17 +740,19 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 {avviso("Contatta la sede prima di iscriverti: ti dice costo, documenti e ultimo giorno per iscriverti.")}
 <div class="due">
 <section>
-<h2 id="sedi">{ic("edificio")}Sedi d'esame a {escape(c['nome'])}</h2>
-{"".join(blocchi) or "<p>Nessuna sede trovata nelle fonti ufficiali.</p>"}
-{nota_mancano}
 <h2 id="date">{ic("cal")}Prossime date (valide anche a {escape(c['nome'])})</h2>
 {lista_sessioni(prossime)}
 </section>
 <aside>
 {modulo(c['nome'])}
-<section><h2>{ic("pin")}Altre città</h2><div class="altre">{altre}</div></section>
 </aside>
-</div>"""
+</div>
+<section>
+<h2 id="sedi">{ic("edificio")}Sedi d'esame a {escape(c['nome'])}</h2>
+{"".join(blocchi) or "<p>Nessuna sede trovata nelle fonti ufficiali.</p>"}
+{nota_mancano}
+</section>
+<section><h2>{ic("pin")}Altre città</h2><div class="altre">{altre}</div></section>"""
     pagina(f"citta/{c['slug']}/index.html",
            f"Esame B1 cittadinanza {c['nome']}: date 2026-2027 e {len(qui)} sedi | EsameB1",
            f"Dove fare l'esame di italiano B1 per la cittadinanza a {c['nome']}: {len(qui)} sedi CILS, CELI, PLIDA e CERT.IT, "
@@ -725,11 +781,13 @@ def pagina_ente(e, prossime):
 <section>
 <h2 id="date">{ic("cal")}Prossime date {escape(sigla)} (livello B1)</h2>
 {lista_sessioni(date_ente, con_filtri=False) if date_ente else "<p>Nessuna data futura pubblicata al momento. Controlliamo il calendario ufficiale ogni settimana.</p>"}
-<h2>{ic("edificio")}Sedi {escape(sigla)} in Italia ({len(sue)})</h2>
-{blocchi}
 </section>
 <aside>{modulo()}</aside>
-</div>"""
+</div>
+<section>
+<h2>{ic("edificio")}Sedi {escape(sigla)} in Italia ({len(sue)})</h2>
+{blocchi}
+</section>"""
     pagina(f"ente/{SLUG_ENTE[sigla]}/index.html",
            f"Esame {sigla} B1 cittadinanza: date e {len(sue)} sedi in Italia | EsameB1",
            f"Date dell'esame {sigla} di livello B1 per la cittadinanza, scadenze e le {len(sue)} sedi in Italia divise per regione.",
