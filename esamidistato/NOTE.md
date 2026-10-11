@@ -78,3 +78,9 @@
 - Font servito dal sito (`assets/fonts/`, licenza SIL OFL in `OFL.txt`, copiato in `sito/fonts/`): nessuna risorsa esterna.
 - Immagine Open Graph 1200x630: `assets/og.png`, generata con Playwright da `assets/og-template.html` (istruzioni nel file).
 - Moduli `avvisami`, titoli, description, canonical, h1, JSON-LD e URL invariati.
+
+## Revisione design (11/10/2026)
+- Scuro: bottoni e date in oro (`--brand:#E9C977`), il periwinkle resta solo per i link; campanella del modulo oro su blu notte in entrambi i temi.
+- Schede sessione: al massimo 2 professioni + "+N professioni" (si espande), la sessione è testo nella riga della data; col filtro si vede solo la professione scelta, evidenziata. Nota della scadenza comune detta una volta in testa all'elenco.
+- Filtro professione: menu a tendina "Professione" con conteggio dei risultati (aria-live).
+- Pagine professione: sedi a tutta larghezza in due colonne, raggruppate per regione e già aperte. Colonna laterale "sticky" con il solo modulo.

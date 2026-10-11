@@ -120,7 +120,7 @@ FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox
            "%3Crect x='8.5' y='28.4' width='23' height='3.2' fill='%23F5F1E6'/%3E%3C/svg%3E")
 
 SCURO = """--bg:#0C1220;--surface:#131B2C;--surface-2:#1A2337;--ink:#EDF0F6;--ink-2:#BEC7D7;--ink-3:#97A2B6;--line:#253049;--line-2:#34415E;
---brand:#A9C0F2;--brand-2:#C3D4F7;--on-brand:#0C1220;--brand-soft:#1B2946;--link:#A9C0F2;--bord:#FF9DAA;--bord-soft:#3A1820;
+--brand:#E9C977;--brand-2:#F2D88F;--on-brand:#0C1220;--brand-soft:#1B2946;--link:#A9C0F2;--bord:#FF9DAA;--bord-soft:#3A1820;
 --oro:#D9B566;--tile-tm:#13234A;--warn:#FFB45E;--warn-soft:#33250F;--focus:#F2C46B;--testata:#0A1222;--hero-a:#17264B;--hero-b:#0E1833;
 --ombra:0 1px 2px rgba(0,0,0,.35);color-scheme:dark"""
 
@@ -159,6 +159,8 @@ nav.menu a.nav-cta:hover{background:#F2D88F;color:#1B2F5B}
 @media (max-width:700px){.lungo{display:none}nav.menu a{padding:8px 5px;font-size:.92rem}header.top .wrap{gap:8px}
 nav.menu a.nav-cta{padding:0;width:40px;height:40px;justify-content:center;margin-left:4px}.logo{font-size:1.08rem;gap:7px}.marchio{width:30px;height:30px}}
 @media (max-width:420px){.logo{font-size:1rem;gap:6px}.marchio{width:28px;height:28px}nav.menu a{padding:8px 4px;font-size:.9rem}}
+@media (max-width:400px){nav.menu a.nav-date{display:none}}
+@media (max-width:640px){.occhiello .solo-largo{display:none}}
 @media (max-width:350px){.logo-testo{display:none}}
 /* titoli */
 h1,h2,h3,.serif{font-family:var(--serif)}
@@ -213,14 +215,14 @@ border-radius:10px;padding:12px 20px;min-height:48px;cursor:pointer;text-decorat
 background:var(--surface);color:var(--ink-2);margin:0 6px 6px 0;text-decoration:none;white-space:nowrap}
 a.badge:hover{border-color:var(--link);color:var(--link)}
 .badge.ente{background:var(--brand);border-color:var(--brand);color:var(--on-brand);font-weight:700;letter-spacing:.02em}
-/* filtri a chip (una riga scorrevole) */
-.chips{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;margin:4px 0 16px;padding:2px 2px 8px;scrollbar-width:thin;
--webkit-mask-image:linear-gradient(90deg,#000 92%,transparent);mask-image:linear-gradient(90deg,#000 92%,transparent)}
-.chips button{font:inherit;font-size:.9rem;font-weight:600;border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);
-padding:7px 14px;min-height:40px;border-radius:999px;cursor:pointer;white-space:nowrap;flex:none;transition:background .15s,border-color .15s}
-.chips button:hover{border-color:var(--link)}
-.chips button[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
-.chips button:last-child{margin-right:28px}
+/* filtro professione (menu a tendina, schema GOV.UK) */
+.filtro{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:4px 0 16px}
+.filtro label{font-weight:700;font-size:.95rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.filtro select{font:inherit;font-size:1rem;padding:10px 40px 10px 12px;min-height:46px;min-width:240px;max-width:100%;border:1.5px solid var(--line-2);border-radius:10px;
+background:var(--surface);color:var(--ink);cursor:pointer}
+.filtro select:focus{border-color:var(--link)}
+.esito{font-size:.92rem;color:var(--ink-3);font-weight:600}
+@media (max-width:640px){.filtro label{width:100%}.filtro select{width:100%;min-width:0}}
 /* sessioni */
 .sessioni{display:grid;gap:12px}
 .sess{display:grid;grid-template-columns:80px minmax(0,1fr);gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;
@@ -231,10 +233,20 @@ min-width:0;overflow-wrap:anywhere;box-shadow:var(--ombra)}
 .tile .ty{font-size:.74rem;opacity:.8}
 .sess .cosa{min-width:0}
 .sess .tags{display:flex;flex-wrap:wrap;margin-bottom:2px}
+.sess .tags .badge{margin:0 6px 6px 0}
+.sess .tags .badge.oltre{display:none}
+.sess.tutte .tags .badge.oltre,.sess.filtrata .tags .badge.oltre{display:inline-flex}
+.sess.tutte .tags .piu{display:none}
+.badge.piu{font:inherit;font-size:.8rem;font-weight:650;cursor:pointer;background:transparent;border-style:dashed;color:var(--link)}
+.badge.piu:hover{border-color:var(--link)}
+.sess .tags .badge[aria-current]{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
 .sess .chi{font-family:var(--serif);font-weight:650;font-size:1.12rem;line-height:1.3}
 .sess .giorno{font-size:.9rem;color:var(--ink-3);margin:2px 0 8px}
-.scad{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 8px;font-size:.94rem;color:var(--ink-2);padding:10px 12px;background:var(--surface-2);border-radius:10px;margin-top:8px}
+.scad{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 8px;font-size:.94rem;color:var(--ink-2);padding:9px 12px;background:var(--surface-2);border-radius:10px;margin-top:8px}
 .scad>.i{color:var(--ink-3);margin-top:3px}
+.scad .riga>span:first-child{margin-right:2px}
+.nota-comune{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;color:var(--ink-2);background:var(--surface-2);border-radius:10px;padding:10px 14px;margin:0 0 14px}
+.nota-comune .i{color:var(--oro);margin-top:3px}
 .scad .riga{min-width:0;display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
 .scad strong{color:var(--ink)}
 .scad.urgente strong{color:var(--bord)}
@@ -255,6 +267,16 @@ text-decoration:none;color:var(--ink);font-weight:650;line-height:1.25;overflow-
 .sedi{list-style:none;padding:0;margin:0;display:grid;gap:10px}
 .sedi li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0;overflow-wrap:anywhere}
 details .sedi li{background:var(--bg)}
+.regioni{columns:2;column-gap:32px;margin-top:10px}
+.regione{break-inside:avoid;margin:0 0 22px}
+.regione h3{font-family:inherit;font-size:.8rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:0 0 8px;
+display:flex;align-items:center;gap:8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.regione h3 span{font-weight:700;color:var(--oro)}
+.regione .sedi{gap:0}
+.regione .sedi li{background:none;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:10px 2px 12px}
+.regione .sedi li:last-child{border-bottom:0}
+.regione .sedi .fonte{margin-top:4px}
+@media (max-width:760px){.regioni{columns:1}}
 .sedi .nome{font-family:var(--serif);font-weight:650;font-size:1.05rem;display:flex;gap:8px;align-items:flex-start}
 .sedi .nome .i{color:var(--oro);margin-top:4px}
 .sedi .det{font-size:.92rem;color:var(--ink-2);margin-top:4px}
@@ -284,7 +306,7 @@ ol.passi li{counter-increment:p;display:grid;grid-template-columns:36px minmax(0
 ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--brand);color:var(--on-brand);font-family:var(--serif);font-weight:700}
 /* modulo */
 .modulo-testa{display:flex;gap:12px;align-items:flex-start}
-.modulo-testa .bolla{display:grid;place-items:center;width:44px;height:44px;border-radius:10px;background:var(--brand);color:#E9C977;flex:none}
+.modulo-testa .bolla{display:grid;place-items:center;width:44px;height:44px;border-radius:10px;background:var(--testata);color:#E9C977;flex:none;box-shadow:inset 0 0 0 1px rgba(233,201,119,.45)}
 .modulo-testa .bolla .i{width:22px;height:22px}
 .modulo-testa h2{margin:0;font-size:1.3rem}
 .form{display:grid;gap:14px;margin-top:14px}
@@ -300,12 +322,14 @@ ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32p
 .due{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:32px;align-items:start}
 .due>*{min-width:0}
 .due>section>h2:first-child,.due>aside>.card:first-child{margin-top:28px}
+@media (min-width:861px){.due>aside{position:sticky;top:16px;align-self:start}}
 .altre{display:flex;flex-wrap:wrap;gap:6px}
 .altre a{font-size:.9rem;padding:5px 11px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink-2);background:var(--surface)}
 .altre a:hover{border-color:var(--link);color:var(--link)}
 @media (max-width:860px){.due{grid-template-columns:1fr;gap:8px}.risposta{grid-template-columns:1fr}.risposta .slot+.slot{border-left:0;border-top:1px solid rgba(255,255,255,.14)}}
 @media (max-width:640px){body{font-size:16.5px}.lead{font-size:1.02rem}.hero{padding-top:22px}.card{padding:18px}.risposta .slot{padding:20px}.r-piede{padding:12px 20px 16px}.r-piede span{display:none}
 .sess{grid-template-columns:1fr;gap:10px;padding:16px}.tile{flex-direction:row;align-items:baseline;justify-self:start;gap:7px;padding:6px 12px}.tile .td{font-size:1.35rem;margin:0}
+.azioni .btn{flex:1 1 100%}
 .info dl{grid-template-columns:1fr}.info dd{border-top:0;padding-top:0}}
 /* piede */
 footer.piede{margin-top:64px;background:#101B36;color:#C3CCDF;padding:36px 0 44px;font-size:.9rem;border-top:2px solid #B08A36}
@@ -354,14 +378,25 @@ JS = """
     var r=slot.querySelector('[data-riserva]');if(r)r.hidden=vista;
   });
   document.querySelectorAll('[data-conta]').forEach(function(el){var g=giorni(el.dataset.conta);if(g>=0)conta(el,g,el.dataset.modo);});
-  var bott=document.querySelectorAll('.chips button');
-  bott.forEach(function(b){b.addEventListener('click',function(){
-    bott.forEach(function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');
-    var f=b.dataset.filtro;
-    document.querySelectorAll('.sess').forEach(function(el){
-      el.hidden=!(f===''||(' '+el.dataset.prof+' ').indexOf(' '+f+' ')>=0);
-    });
+  document.querySelectorAll('.badge.piu').forEach(function(b){b.addEventListener('click',function(){
+    var s=b.closest('.sess');s.classList.add('tutte');var a=s.querySelector('.badge.oltre');if(a)a.focus();
   });});
+  document.querySelectorAll('select.filtro-prof').forEach(function(sel){
+    var box=sel.closest('[data-elenco]'),esito=box.querySelector('.esito');
+    sel.addEventListener('change',function(){
+      var f=sel.value,n=0,nome=sel.options[sel.selectedIndex].text;
+      box.querySelectorAll('.sess').forEach(function(el){
+        var ok=f===''||(' '+el.dataset.prof+' ').indexOf(' '+f+' ')>=0;el.hidden=!ok;if(ok)n++;
+        el.classList.toggle('filtrata',!!f);
+        el.querySelectorAll('.tags .badge[data-p]').forEach(function(a){
+          if(a.dataset.p===f){a.setAttribute('aria-current','true');}else{a.removeAttribute('aria-current');}
+          a.hidden=!!f&&a.dataset.p!==f;
+        });
+        var piu=el.querySelector('.badge.piu');if(piu)piu.hidden=!!f;
+      });
+      if(esito)esito.textContent=f?(n+(n===1?' data per ':' date per ')+nome):'';
+    });
+  });
   var src=document.querySelectorAll('input[name=source]');
   var v='';try{var q=new URLSearchParams(location.search);v=q.get('ref')||q.get('utm_source')||document.referrer||'diretto';}catch(e){v='diretto';}
   src.forEach(function(i){i.value=String(v).slice(0,200);});
@@ -431,7 +466,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
 <header class="top"><div class="wrap">
 <a class="logo" href="{rel}" aria-label="{NOME}, pagina iniziale">{logo}</a>
 <nav class="menu" aria-label="Menu">
-<a href="{rel}#date">Date</a><a href="{rel}#professioni">Professioni</a><a href="{rel}#citta">Città</a><a class="lungo" href="{rel}come-funziona/">Come funziona</a><a class="nav-cta" href="{avvisami}" aria-label="Avvisami">{ic("campana")}<span class="lungo">Avvisami</span></a>
+<a class="nav-date" href="{rel}#date">Date</a><a href="{rel}#professioni">Professioni</a><a href="{rel}#citta">Città</a><a class="lungo" href="{rel}come-funziona/">Come funziona</a><a class="nav-cta" href="{avvisami}" aria-label="Avvisami">{ic("campana")}<span class="lungo">Avvisami</span></a>
 </nav>
 </div></header>
 <main class="wrap" id="contenuto">
@@ -450,7 +485,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
 al Ministero della Giustizia, alle università né agli Ordini professionali. I nomi delle università e degli enti appartengono ai rispettivi titolari.
 Le informazioni vengono dalle fonti ufficiali indicate accanto a ogni dato. <strong>Prima di fare la domanda leggi sempre il bando della tua sede.</strong>
 Questo sito non dà consulenza: per i casi particolari chiedi alla segreteria esami di Stato della tua università o al tuo Ordine.</p>
-<p><span class="dati">{ic("scudo")}Dati controllati il {verificato_ultimo()}.</span> · <a href="{rel}privacy.html">Privacy</a> · <a href="{rel}come-funziona/">Come funziona</a></p>
+<p><span class="dati">{ic("scudo")}Dati controllati il {verificato_ultimo()}.</span></p>
 </div>
 </div>
 </div></footer>
@@ -463,8 +498,8 @@ Questo sito non dà consulenza: per i casi particolari chiedi alla segreteria es
     dest.write_text(testo)
 
 
-def link_prof(slug, rel):
-    return f'<a class="badge" href="{rel}professione/{slug}/">{escape(PROF[slug]["nome"])}</a>'
+def link_prof(slug, rel, classe=""):
+    return f'<a class="badge{classe}" data-p="{slug}" href="{rel}professione/{slug}/">{escape(PROF[slug]["nome"])}</a>'
 
 
 def tile(iso):
@@ -475,22 +510,27 @@ def tile(iso):
 
 def scheda_sessione(s, rel, solo=None):
     """solo: slug della professione della pagina (mostra solo quella nei badge)."""
-    profs = [solo] if solo else s["professioni"]
-    badge = "".join(link_prof(p, rel) for p in profs)
+    profs = [solo] if solo else sorted(s["professioni"], key=lambda x: PROF[x]["nome"])
+    VISIBILI = 2
+    badge = "".join(link_prof(p, rel, " oltre" if i >= VISIBILI else "") for i, p in enumerate(profs))
+    if len(profs) > VISIBILI:
+        badge += f'<button type="button" class="badge piu">+{len(profs) - VISIBILI} professioni</button>'
+
     ente = PROF[s["professioni"][0]]["ente"]
     apertura = f' data-apertura="{s["apertura"]}"' if s.get("apertura") else ""
     dal = f'Domande dal <strong>{data_breve(s["apertura"])}</strong> ' if s.get("apertura") else "Domande "
+    nota_sc = "" if nota_comune(s) else f'<span class="nota">{escape(s["nota_scadenza"])}</span>'
     scad = (f'<div class="scad" data-scadenza="{s["scadenza"]}"{apertura}>{ic("orologio")}<div class="riga"><span>{dal}entro {il(s["scadenza"])}<strong>{data_breve(s["scadenza"])}</strong></span>'
-            f'<span class="stato conta"></span></div><span class="nota">{escape(s["nota_scadenza"])}</span></div>')
+            f'<span class="stato conta"></span></div>{nota_sc}</div>')
     nota = f'<div class="small">{escape(s["nota_data"])}</div>' if s.get("nota_data") else ""
     fonte = PROF[solo]["fonte"] if solo and ente == "MIM" else s["fonte"]
     termine = (f' · termine: <a href="{escape(s["fonte_scadenza"])}" rel="noopener">nota dell\'Ufficio scolastico regionale</a>'
                if s.get("fonte_scadenza") else "")
     return f"""<article class="sess" data-data="{s['data']}" data-prof="{' '.join(s['professioni'])}">
 {tile(s['data'])}
-<div class="cosa"><div class="tags"><span class="badge ente">{escape(s['sessione'])}</span>{badge}</div>
+<div class="cosa"><div class="tags">{badge}</div>
 <div class="chi">{escape(s['chi'])}</div>
-<div class="giorno"><time datetime="{s['data']}">{data_lunga(s['data'])}</time> · inizio esame</div>
+<div class="giorno"><time datetime="{s['data']}">{data_lunga(s['data'])}</time> · inizio esame · {escape(s['sessione'])}</div>
 {nota}
 {scad}
 <div class="fonte">{ic("doc")}<span>Fonte: <a href="{escape(fonte)}" rel="noopener">atto ufficiale ({escape(ENTI[ente])})</a>, {escape(s['articolo'])}{termine} · controllato il {data_breve(s['verificato_il'])}</span></div>
@@ -498,16 +538,27 @@ def scheda_sessione(s, rel, solo=None):
 </article>"""
 
 
+def nota_comune(s):
+    """Le note sulla scadenza uguali per più sessioni si dicono una volta sola, in testa all'elenco."""
+    return sum(1 for x in sessioni if x["nota_scadenza"] == s["nota_scadenza"]) > 1
+
+
 def lista_sessioni(lista, rel, con_filtri=False, solo=None):
     filtri = ""
     if con_filtri:
-        opz = "".join(f'<button type="button" data-filtro="{p["slug"]}" aria-pressed="false">{escape(p["nome"])}</button>'
+        opz = "".join(f'<option value="{p["slug"]}">{escape(p["nome"])}</option>'
                       for p in sorted(professioni, key=lambda p: p["nome"]))
-        filtri = (f'<div class="filtri chips" role="group" aria-label="Mostra solo una professione">'
-                  f'<button type="button" data-filtro="" aria-pressed="true">Tutte le professioni</button>{opz}</div>')
+        filtri = (f'<div class="filtro"><label>Professione <select class="filtro-prof">'
+                  f'<option value="">Tutte le professioni</option>{opz}</select></label>'
+                  '<span class="esito" aria-live="polite"></span></div>')
+    comuni = []
+    for s in lista:
+        if nota_comune(s) and s["nota_scadenza"] not in comuni:
+            comuni.append(s["nota_scadenza"])
+    note = "".join(f'<p class="nota-comune">{ic("info")}<span>{escape(n)}</span></p>' for n in comuni)
     vuoto = ('<p data-vuoto hidden>Nessuna data futura pubblicata al momento. Le date 2027 escono di solito in primavera con le nuove '
              'ordinanze: controlliamo le fonti ufficiali ogni settimana. <a href="#avvisami">Avvisami</a>.</p>')
-    return (filtri + '<div class="sessioni">' + "\n".join(scheda_sessione(s, rel, solo) for s in lista) + "</div>" + vuoto)
+    return ('<div data-elenco>' + note + filtri + '<div class="sessioni">' + "\n".join(scheda_sessione(s, rel, solo) for s in lista) + "</div>" + vuoto + "</div>")
 
 
 def elenco_nomi(slugs, quanti=6):
@@ -656,7 +707,7 @@ def domanda(titolo, testo):
 def home(prossime):
     n_atenei = len({s["ateneo"].split(" - Campus")[0] for s in sedi if s["tipo"] == "ateneo"})
     corpo = f"""<section class="hero">
-<span class="occhiello">Abilitazione professionale · fonti ufficiali</span>
+<span class="occhiello"><span class="solo-largo">Abilitazione professionale ·&nbsp;</span>fonti ufficiali</span>
 <h1>Esami di Stato 2026: date, scadenze e sedi per ogni professione</h1>
 <p class="lead">Data d'esame, ultimo giorno per la domanda e università sede d'esame, dalle ordinanze ufficiali.</p>
 {risposta(prossime, "")}
@@ -674,6 +725,8 @@ def home(prossime):
 </section>
 <aside>
 {modulo("")}
+</aside>
+</div>
 <section id="professioni">
 <h2>{ic("laurea")}Professioni</h2>
 <div class="griglia">{griglia_prof("")}</div>
@@ -683,8 +736,6 @@ def home(prossime):
 <div class="griglia">{griglia_citta("")}</div>
 <p class="small">La tua città non c'è? Ogni pagina professione ha l'elenco completo delle sedi, regione per regione.</p>
 </section>
-</aside>
-</div>
 <section>
 <h2>{ic("info")}Domande frequenti</h2>
 {domanda("Dove faccio la domanda?", "Per le professioni delle ordinanze del Ministero dell'Università (ingegnere, architetto, psicologo, commercialista, farmacista…) la domanda si consegna alla segreteria dell'università dove vuoi fare l'esame, entro la data indicata. Puoi scegliere una sola sede. Per geometra, perito agrario e agrotecnico la domanda passa dal Collegio; per avvocato si fa solo online sul sito del Ministero della Giustizia. Tutti i dettagli nella <a href=\"come-funziona/\">pagina Come funziona</a>.")}
@@ -715,11 +766,11 @@ def pagina_professione(p, prossime):
         fonte_elenco = ("Elenco dell'art. 1 del decreto" if slug == "avvocato"
                         else "Elenco della tabella allegata all'ordinanza")
         blocchi = "".join(
-            f'<details{" open" if len(regioni) <= 3 else ""}><summary>{escape(r)} ({sum(1 for s in sue if s["regione"] == r)}){ic("giu")}</summary>'
-            f'<ul class="sedi">{"".join(scheda_sede(s, rel, slug, con_prof=False) for s in sue if s["regione"] == r)}</ul></details>'
+            f'<div class="regione"><h3>{escape(r)} <span>{sum(1 for s in sue if s["regione"] == r)}</span></h3>'
+            f'<ul class="sedi">{"".join(scheda_sede(s, rel, slug, con_prof=False) for s in sue if s["regione"] == r)}</ul></div>'
             for r in regioni)
         sedi_html = (f'<h2 id="sedi">{ic("edificio")}Dove si fa l\'esame: {len(sue)} {tipo}</h2>'
-                     f'<p class="small">{fonte_elenco}, con la città indicata lì. Apri la regione per vedere le sedi.</p>{blocchi}')
+                     f'<p class="small">{fonte_elenco}, con la città indicata lì. Sedi divise per regione.</p><div class="regioni">{blocchi}</div>')
     else:
         sedi_html = (f'<h2 id="sedi">{ic("edificio")}Dove si fa l\'esame</h2><p>{escape(p["nota"])} L\'elenco degli istituti disponibili è nella Tabella A '
                      f'dell\'<a href="{escape(p["fonte"])}" rel="noopener">ordinanza</a>.</p>')
@@ -756,13 +807,15 @@ def pagina_professione(p, prossime):
 {passate}
 <p class="small">Date 2027: non ancora pubblicate (controllato il {data_breve(p['verificato_il'])}).</p>
 <section class="card info"><h2 style="margin-top:0">{ic("lista")}In breve</h2><dl>{dl}</dl></section>
-{sedi_html}
 </section>
 <aside>
 {modulo(rel, prof_scelta=slug)}
-<section><h2>{ic("laurea")}Altre professioni</h2><div class="altre">{"".join(f'<a href="../{x["slug"]}/">{escape(x["nome"])}</a>' for x in sorted(professioni, key=lambda x: x["nome"]) if x != p)}</div></section>
 </aside>
-</div>"""
+</div>
+<section>
+{sedi_html}
+</section>
+<section><h2>{ic("laurea")}Altre professioni</h2><div class="altre">{"".join(f'<a href="../{x["slug"]}/">{escape(x["nome"])}</a>' for x in sorted(professioni, key=lambda x: x["nome"]) if x != p)}</div></section>"""
     n = f" e {len(sue)} sedi" if sue else ""
     pagina(f"professione/{slug}/index.html",
            f"Esame di Stato {p['nome'].lower()} 2026: date, scadenze{n} | EsamiDiStato",
@@ -819,9 +872,9 @@ Le date sono le stesse in tutta Italia; la domanda va fatta alla sede scelta.</p
 </section>
 <aside>
 {modulo(rel, citta_scelta=c['nome'])}
-<section><h2>{ic("pin")}Altre città</h2><div class="altre">{altre}</div></section>
 </aside>
-</div>"""
+</div>
+<section><h2>{ic("pin")}Altre città</h2><div class="altre">{altre}</div></section>"""
     pagina(f"citta/{c['slug']}/index.html",
            f"Esami di Stato {c['nome']} 2026: sedi, date e scadenze | EsamiDiStato",
            f"Dove fare l'esame di Stato a {c['nome']}: {len(qui)} sedi per {len(prof_qui)} professioni, "
