@@ -455,6 +455,7 @@ td.n,th.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
 th{background:var(--mute);font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
 tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--mute) 45%,transparent)}
 tr:last-child td{border-bottom:0}
+@media (max-width:640px){.tab td,.tab th{min-width:120px}.tab td:first-child,.tab th:first-child{min-width:150px}}
 .griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
 .griglia a{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:13px 14px;text-decoration:none;color:var(--ink);font-weight:700;min-width:0;overflow-wrap:anywhere;box-shadow:var(--sh-1);transition:border-color .15s,box-shadow .15s,transform .15s}
 .griglia a>span{min-width:0}
