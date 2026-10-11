@@ -94,3 +94,6 @@ Il ricontrollo mensile viene programmato dalla sessione principale. **I dati cam
 10. Tolte le frasi "updated weekly / re-checked every week/month": solo "Last checked".
 11. Il testo ufficiale nel risultato è mostrato a blocchi interi e separati (niente tagli a metà, niente elenchi cuciti con "; ").
 Piccole: date GOV.UK nell'ora del Regno Unito (Cile: 9/10), note di modifica senza a capo finali, motivo breve per l'Irlanda nella pagina About, link EES/ETIAS con testi diversi, Hong Kong con data della pagina, frasi "should" presentate come "FCDO advice".
+
+## Pubblicazione (11/10/2026)
+- Online su https://before-you-fly.netlify.app (Netlify, base `beforeyoufly/sito`), 272 pagine in sitemap. Search Console con il meta tag dell'account (stesso degli altri siti) e sitemap inviata. Verdetto: al 9/12/2026 o al 10/12, soglia ≥ 200 impression a settimana. Ricontrollo mensile delle fonti: routine del 3 di ogni mese.
