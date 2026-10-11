@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- Modello dell'immagine Open Graph (1200x630). Per rigenerare assets/og.png: aprirlo in un browser headless a 1200x630 e fare uno screenshot
+     (per es. Playwright: page.setViewportSize({width:1200,height:630}); page.goto('file://.../og-template.html'); page.screenshot({path:'og.png'})). -->
+<html lang="it"><head><meta charset="UTF-8"><style>
+@font-face{font-family:"Figtree";src:url("fonts/figtree.woff2") format("woff2");font-weight:300 900}
+*{box-sizing:border-box}html,body{margin:0;width:1200px;height:630px;overflow:hidden}
+body{font-family:"Figtree",sans-serif;background:#FAF7F2;color:#1B2A28;position:relative}
+.band{height:12px;background:linear-gradient(90deg,#0B6B4F 0 33.3%,#F0ECE3 33.3% 66.6%,#C8402A 66.6%)}
+.main{padding:60px 72px 0;display:grid;grid-template-columns:1fr 360px;gap:48px;align-items:start}
+.logo{display:flex;align-items:center;gap:16px;font-weight:800;font-size:40px;letter-spacing:-.02em}
+.logo b{color:#0B6B4F}
+h1{font-size:62px;line-height:1.04;letter-spacing:-.035em;margin:40px 0 22px;font-weight:800}
+p{font-size:28px;line-height:1.35;color:#40504C;margin:0}
+.chips{display:flex;gap:12px;margin-top:34px}
+.chips span{font-size:22px;font-weight:800;letter-spacing:.04em;padding:8px 16px;border-radius:10px}
+.card{margin-top:40px;background:linear-gradient(140deg,#0B6B4F,#0A4F3B);border-radius:28px;color:#fff;padding:34px 32px;box-shadow:0 20px 40px rgba(11,107,79,.25)}
+.card .et{font-size:18px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#CDEBDD}
+.card .cal{display:flex;gap:14px;margin-top:22px}
+.card .t{background:#fff;color:#1B2A28;border-radius:16px;width:88px;padding:12px 0;text-align:center;border-top:6px solid #C8402A}
+.card .t i{display:block;font-style:normal;font-size:16px;font-weight:800;letter-spacing:.1em;color:#0B6B4F}
+.card .t b{display:block;font-size:40px;line-height:1.1}
+.card .t:nth-child(2){border-top-color:#3FB37F}
+.card .t:nth-child(3){border-top-color:#E5DDD0}
+.card .riga{margin-top:24px;font-size:22px;font-weight:700;display:flex;align-items:center;gap:10px}
+.card .riga span{background:#FBE6E0;color:#B3361F;border-radius:999px;padding:6px 14px;font-size:19px}
+.url{position:absolute;left:72px;bottom:44px;font-size:24px;font-weight:700;color:#0B6B4F}
+</style></head><body>
+<div class="band"></div>
+<div class="main">
+<div>
+<div class="logo"><svg width="64" height="64" viewBox="0 0 40 40"><path d="M8 4h24a6 6 0 0 1 6 6v15a6 6 0 0 1-6 6H17l-7.5 6.2c-.7.6-1.5.1-1.5-.7V31a6 6 0 0 1-6-6V10a6 6 0 0 1 6-6Z" fill="#0B6B4F"/><text x="20" y="21.6" text-anchor="middle" font-family="Figtree" font-weight="800" font-size="15" fill="#fff">B1</text><rect x="11" y="25.6" width="6" height="2.4" rx="1.1" fill="#3FB37F"/><rect x="17" y="25.6" width="6" height="2.4" rx="1.1" fill="#fff"/><rect x="23" y="25.6" width="6" height="2.4" rx="1.1" fill="#E4573D"/></svg><span>Esame<b>B1</b></span></div>
+<h1>Esame di italiano B1 per la cittadinanza</h1>
+<p>Tutte le date, le scadenze e le sedi d'esame in Italia, in un solo posto.</p>
+<div class="chips"><span style="background:#E1EEF7;color:#0D5A8A">CILS</span><span style="background:#EEE6F7;color:#6A3E9E">CELI</span><span style="background:#FCE9DC;color:#9A3412">PLIDA</span><span style="background:#F8EFCB;color:#7A5E00">CERT.IT</span></div>
+</div>
+<div class="card"><div class="et">Date 2026 · 2027</div>
+<div class="cal"><div class="t" style="width:130px"><i>SEDI</i><b>644</b></div><div class="t" style="width:130px"><i>ENTI</i><b>4</b></div></div>
+<div class="riga">Date e scadenze d'iscrizione</div>
+<div class="riga" style="font-weight:600;color:#D5ECE2;font-size:20px">Avviso gratuito per la tua città</div>
+</div>
+</div>
+<div class="url">esameb1.netlify.app</div>
+</body></html>

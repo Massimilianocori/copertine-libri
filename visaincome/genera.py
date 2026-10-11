@@ -333,83 +333,224 @@ def cambi_nota():
 
 # ---------------------------------------------------------------- CSS e JS
 CSS = """
-:root{--bg:#F6F7F4;--card:#FFFFFF;--ink:#17201B;--ink-2:#46534B;--ink-3:#66746B;--line:#DCE2DC;
---accent:#1E6B52;--accent-2:#E5F2EC;--ok:#1E6B47;--ok-2:#E6F2EB;--warn:#8A4B00;--warn-2:#FFF2DF;--no:#9B2C2C;--no-2:#FBE9E9;--mute:#EEF1EE;--radius:14px}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1512;--card:#17201B;--ink:#ECF2EE;--ink-2:#B8C6BD;
---ink-3:#8C9B92;--line:#28362F;--accent:#7FD1B0;--accent-2:#17302A;--ok:#7FD3A6;--ok-2:#173226;--warn:#FFB867;--warn-2:#33250F;--no:#FF9C9C;--no-2:#3A1D1D;--mute:#1E2924}}
-:root[data-theme="dark"]{--bg:#0F1512;--card:#17201B;--ink:#ECF2EE;--ink-2:#B8C6BD;--ink-3:#8C9B92;--line:#28362F;--accent:#7FD1B0;
---accent-2:#17302A;--ok:#7FD3A6;--ok-2:#173226;--warn:#FFB867;--warn-2:#33250F;--no:#FF9C9C;--no-2:#3A1D1D;--mute:#1E2924}
+@font-face{font-family:"IBM Plex Serif";font-style:normal;font-weight:700;font-display:swap;src:url(/assets/fonts/ibm-plex-serif-700.woff2) format("woff2")}
+:root{--bg:#F4F5F9;--card:#FFFFFF;--ink:#141B33;--ink-2:#3C4565;--ink-3:#596282;--line:#DCE0EC;--line-2:#C9CFE0;
+--navy:#141B33;--navy-2:#1F2A52;--on-navy:#F4F5F9;--on-navy-2:#BFC6E0;--gold:#E0A526;--gold-ink:#8A5A00;--gold-2:#FFF6E0;--paper:#FBF8EF;
+--accent:#2A3D8F;--accent-h:#1C2C70;--on-accent:#FFFFFF;--accent-2:#E8ECFA;
+--ok:#126B41;--ok-2:#E2F4EA;--no:#A12A2A;--no-2:#FCE9E9;--warn:#8A4B00;--warn-2:#FFF1DC;--mute:#EEF0F6;
+--sh-1:0 1px 2px rgba(20,27,51,.06),0 1px 1px rgba(20,27,51,.04);--sh-2:0 22px 44px -22px rgba(20,27,51,.35),0 2px 8px rgba(20,27,51,.06);
+--r:14px;--r-s:10px;--serif:"IBM Plex Serif",Charter,"Bitstream Charter","Iowan Old Style",Georgia,serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1020;--card:#151A2E;--ink:#EEF0F8;--ink-2:#C2C8DE;--ink-3:#99A1BD;--line:#283052;--line-2:#343D63;
+--navy:#080B17;--navy-2:#161D3A;--on-navy:#EEF0F8;--on-navy-2:#A9B1CF;--gold:#F2C14E;--gold-ink:#F2C14E;--gold-2:#2A2410;--paper:#1A2036;
+--accent:#AFBDFF;--accent-h:#CDD6FF;--on-accent:#0C1020;--accent-2:#1E2650;
+--ok:#7DDBA6;--ok-2:#12301F;--no:#FF9F9F;--no-2:#3A1B1D;--warn:#FFB867;--warn-2:#33250F;--mute:#1B2138;
+--sh-1:0 1px 2px rgba(0,0,0,.45);--sh-2:0 22px 44px -22px rgba(0,0,0,.8),0 2px 8px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#0C1020;--card:#151A2E;--ink:#EEF0F8;--ink-2:#C2C8DE;--ink-3:#99A1BD;--line:#283052;--line-2:#343D63;
+--navy:#080B17;--navy-2:#161D3A;--on-navy:#EEF0F8;--on-navy-2:#A9B1CF;--gold:#F2C14E;--gold-ink:#F2C14E;--gold-2:#2A2410;--paper:#1A2036;
+--accent:#AFBDFF;--accent-h:#CDD6FF;--on-accent:#0C1020;--accent-2:#1E2650;
+--ok:#7DDBA6;--ok-2:#12301F;--no:#FF9F9F;--no-2:#3A1B1D;--warn:#FFB867;--warn-2:#33250F;--mute:#1B2138;
+--sh-1:0 1px 2px rgba(0,0,0,.45);--sh-2:0 22px 44px -22px rgba(0,0,0,.8),0 2px 8px rgba(0,0,0,.4)}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.6}
-a{color:var(--accent)}
-.wrap{max-width:980px;margin:0 auto;padding:0 16px}
-header.top{border-bottom:1px solid var(--line);background:var(--card)}
-header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px}
-.logo{font-weight:800;font-size:1.12rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
-.logo span{color:var(--accent)}
-nav.menu{display:flex;gap:14px;flex-wrap:wrap;font-size:.95rem}
-nav.menu a{color:var(--ink-2);text-decoration:none}
-nav.menu a:hover{color:var(--accent)}
-.hero{padding:28px 0 4px}
-h1{font-size:clamp(1.45rem,4.6vw,2.15rem);line-height:1.18;letter-spacing:-.02em;margin:0 0 12px}
-h2{font-size:1.3rem;margin:32px 0 12px;letter-spacing:-.01em}
-h3{font-size:1.05rem;margin:20px 0 8px}
-.lead{font-size:1.07rem;color:var(--ink-2);max-width:740px;margin:0 0 6px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.6;overflow-wrap:break-word}
+a{color:var(--accent);text-underline-offset:2px;text-decoration-thickness:1px}
+a:hover{color:var(--accent-h)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--card);color:var(--ink);padding:8px 14px;border-radius:8px;z-index:50}
+.skip:focus{left:12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ico{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.2em}
+.wrap{max-width:1060px;margin:0 auto;padding:0 16px}
+header.top{background:var(--navy);color:var(--on-navy);position:relative;z-index:20;border-bottom:3px solid var(--gold)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px}
+.logo{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:700;font-size:1.15rem;color:var(--on-navy);text-decoration:none;white-space:nowrap;letter-spacing:-.005em}
+.logo:hover{color:#fff}
+.logo svg{width:34px;height:34px;flex:none}
+.logo b{color:var(--gold);font-weight:inherit}
+nav.menu{display:flex;gap:2px;font-size:.92rem}
+nav.menu a{color:var(--on-navy-2);text-decoration:none;padding:7px 11px;border-radius:8px;white-space:nowrap}
+nav.menu a:hover,nav.menu a[aria-current]{color:#fff;background:rgba(255,255,255,.08)}
+.nav-m{display:none}
+.nav-m summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:600;font-size:.95rem;padding:9px 14px;border:1px solid rgba(255,255,255,.28);border-radius:10px;color:var(--on-navy);min-height:44px}
+.nav-m summary::-webkit-details-marker{display:none}
+.nav-m[open] summary{background:rgba(255,255,255,.1);border-color:var(--gold)}
+.nav-m nav{position:absolute;left:16px;right:16px;top:calc(100% + 4px);background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh-2);padding:8px;display:grid}
+.nav-m nav a{padding:12px 14px;border-radius:8px;color:var(--ink);text-decoration:none;font-weight:600}
+.nav-m nav a:hover{background:var(--accent-2)}
+.band{background:linear-gradient(180deg,var(--navy) 0,var(--navy-2) 72%,var(--bg) 72%);color:var(--on-navy)}
+.band-in{position:relative;padding-top:38px;padding-bottom:8px}
+.band .hero{padding:0 0 26px;max-width:760px;position:relative}
+.band-deco{position:absolute;right:8px;top:30px;width:230px;height:150px;pointer-events:none;opacity:.9}
+.hero{padding:24px 0 4px}
+h1,h2,h3,.tot,.cifra strong{font-family:var(--serif);font-weight:700}
+h1{font-size:clamp(1.7rem,4.6vw,2.6rem);line-height:1.12;letter-spacing:-.015em;margin:0 0 10px;text-wrap:balance}
+h1 .h1-a{display:block}
+h1 .h1-b{display:block;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-weight:600;font-size:clamp(1rem,2.4vw,1.15rem);color:var(--ink-2);letter-spacing:0;margin-top:8px;line-height:1.35}
+h1 .h1-b::first-letter{text-transform:uppercase}
+.band h1 .h1-a{display:inline-block;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(224,165,38,.55);padding:5px 12px;border-radius:6px;margin-bottom:16px}
+.band h1 .h1-b{font-family:var(--serif);font-weight:700;color:#fff;font-size:clamp(1.9rem,5.4vw,2.9rem);line-height:1.1;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.sub{font-size:1.1rem;color:var(--on-navy-2);margin:12px 0 16px;max-width:640px;text-wrap:balance}
+.trust{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.88rem;color:var(--on-navy-2);margin:0}
+.trust span{display:inline-flex;align-items:center;gap:7px}
+.trust .ico{color:var(--gold)}
+h2{font-size:1.45rem;line-height:1.22;margin:40px 0 14px;letter-spacing:-.01em}
+h3{font-size:1.12rem;margin:22px 0 8px}
+.lead{font-size:1.04rem;color:var(--ink-2);max-width:760px;margin:0 0 8px}
 .small{font-size:.88rem;color:var(--ink-3)}
-.avviso{background:var(--warn-2);border-left:4px solid var(--warn);padding:11px 14px;border-radius:8px;font-size:.94rem;margin:16px 0}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;min-width:0}
-.cifra{font-size:1.05rem;margin:12px 0 0}
-.cifra strong{font-size:1.5rem;color:var(--accent)}
-.fonte{font-size:.85rem;color:var(--ink-3);margin:6px 0 0;overflow-wrap:anywhere}
-.fonte a{color:var(--ink-3)}
-.calc{display:grid;gap:12px}
-.calc .campi{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.calc label{display:grid;gap:4px;font-weight:600;font-size:.93rem;min-width:0}
-.calc input,.calc select{font:inherit;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;min-width:0}
+.avviso{position:relative;background:var(--warn-2);border:1px solid color-mix(in srgb,var(--warn) 25%,transparent);padding:12px 16px 12px 46px;border-radius:var(--r-s);font-size:.93rem;margin:18px 0;color:var(--ink)}
+.avviso::before{content:"";position:absolute;left:16px;top:14px;width:20px;height:20px;background:var(--warn);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M12 3 2 20h20z'/%3E%3Cpath d='M12 10v4M12 17h.01'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M12 3 2 20h20z'/%3E%3Cpath d='M12 10v4M12 17h.01'/%3E%3C/svg%3E") center/contain no-repeat}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;min-width:0;box-shadow:var(--sh-1)}
+.summary{padding:0;overflow:hidden;margin-top:8px;box-shadow:var(--sh-2)}
+.summary .s-top{display:flex;align-items:center;gap:10px;background:var(--navy);color:var(--on-navy-2);padding:10px 20px;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid var(--gold)}
+.summary .s-top .ico{color:var(--gold)}
+.summary .s-top span:last-child{margin-left:auto;letter-spacing:.04em}
+.summary .s-body{padding:20px 22px 18px;display:grid;gap:4px}
+.summary .lead{font-size:.95rem;margin:10px 0 0}
+.cifra{font-size:1rem;margin:0;color:var(--ink-2)}
+.cifra{font-size:1.02rem;line-height:1.55}
+.cifra .c-lab{display:block;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:4px}
+.cifra strong{font-size:clamp(1.45rem,3.8vw,1.95rem);color:var(--ink);letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1.25}
+.fonte{font-size:.84rem;color:var(--ink-3);margin:8px 0 0;overflow-wrap:anywhere}
+.fonte a{color:var(--ink-2)}
+.calc{padding:0;overflow:hidden;box-shadow:var(--sh-2);border-color:var(--line-2)}
+.summary+h2,.hero+.calc{margin-top:22px}
+.calc-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
+.calc form{padding:22px}
+.calc .campi{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.calc label{display:grid;gap:6px;align-content:end;font-weight:600;font-size:.9rem;line-height:1.35;min-width:0;color:var(--ink-2)}
+.calc .lt{display:flex;align-items:center;gap:7px}
+.calc .lt .ico{color:var(--accent);width:1.05em;height:1.05em}
+.calc input,.calc select,.form input,.form select,.form textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1.5px solid var(--line-2);border-radius:var(--r-s);padding:10px 12px;width:100%;min-width:0;min-height:46px;transition:border-color .15s,box-shadow .15s}
+.calc input:hover,.calc select:hover{border-color:var(--ink-3)}
+.calc input:focus,.calc select:focus,.form input:focus,.form textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 20%,transparent)}
 .calc .pieno{grid-column:1/-1}
-.risultato{background:var(--accent-2);border-radius:12px;padding:14px 16px;min-width:0;overflow-wrap:anywhere}
-.risultato .tot{font-size:1.6rem;font-weight:800;color:var(--accent);line-height:1.2}
-.risultato .conv{font-size:1.05rem;font-weight:700;margin-top:2px}
-.risultato ul{margin:8px 0 0;padding-left:20px;font-size:.93rem}
-.esito{margin-top:10px;padding:9px 12px;border-radius:10px;font-weight:600;font-size:.95rem}
-.esito.si{background:var(--ok-2);color:var(--ok)}
-.esito.no{background:var(--no-2);color:var(--no)}
-.formula{font-size:.9rem;color:var(--ink-2);margin:8px 0 0}
-.tab{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;background:var(--card)}
-table{border-collapse:collapse;width:100%;font-size:.93rem}
-th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
-td.n,th.n{text-align:right;white-space:nowrap}
-th{background:var(--mute);font-size:.85rem}
+.calc-out{background:var(--paper);border-left:1px solid var(--line);padding:22px;min-width:0;position:relative}
+.calc-out::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:repeating-linear-gradient(90deg,var(--gold) 0 18px,transparent 18px 26px)}
+.risultato{min-width:0;overflow-wrap:anywhere}
+.r-lab{font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.risultato .tot{font-size:clamp(2.1rem,6vw,2.75rem);line-height:1.05;color:var(--ink);letter-spacing:-.02em;margin:8px 0 2px;font-variant-numeric:tabular-nums}
+.risultato .tot span{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:1rem;font-weight:600;color:var(--ink-2);letter-spacing:0}
+.r-anno{font-size:1rem;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.risultato .conv{display:flex;align-items:flex-start;gap:8px;font-size:.95rem;font-weight:700;margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:8px 12px;line-height:1.45;color:var(--ink);font-variant-numeric:tabular-nums}
+.risultato .conv .ico{color:var(--gold-ink);margin-top:.15em}
+.esito{display:flex;gap:10px;align-items:flex-start;margin:0 0 14px;padding:11px 14px;border-radius:var(--r-s);font-weight:600;font-size:.93rem;line-height:1.45;border:1px solid transparent}
+.esito .ico{width:1.3em;height:1.3em;margin-top:.05em}
+.esito.si{background:var(--ok-2);color:var(--ok);border-color:color-mix(in srgb,var(--ok) 30%,transparent)}
+.esito.no{background:var(--no-2);color:var(--no);border-color:color-mix(in srgb,var(--no) 30%,transparent)}
+.esito.warn{background:var(--warn-2);color:var(--ink);border-color:color-mix(in srgb,var(--warn) 30%,transparent)}
+.esito.warn .ico{color:var(--warn)}
+details.r-come{margin-top:14px;border-top:1px dashed var(--line-2);padding-top:6px;font-size:.88rem;color:var(--ink-2)}
+details.r-come summary{cursor:pointer;font-weight:600;color:var(--ink);padding:6px 0;list-style:none;display:flex;align-items:center;gap:8px}
+details.r-come summary::-webkit-details-marker{display:none}
+details.r-come summary::after{content:"+";margin-left:auto;color:var(--accent);font-size:1.15rem}
+details.r-come[open] summary::after{content:"–"}
+details.r-come ul{margin:4px 0 6px;padding-left:18px}
+.formula{font-size:.92rem;color:var(--ink-2);margin:8px 0 0}
+.calc-link{margin:12px 0 0;font-weight:600;font-size:.9rem}
+.tab{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:var(--r);background:var(--card);box-shadow:var(--sh-1)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n,th.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+th{background:var(--mute);font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--mute) 45%,transparent)}
 tr:last-child td{border-bottom:0}
-.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
-.griglia a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;text-decoration:none;color:var(--ink);font-weight:600;min-width:0;overflow-wrap:anywhere}
-.griglia a small{display:block;font-weight:400;color:var(--ink-3)}
-.griglia a:hover{border-color:var(--accent)}
+.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.griglia a{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:13px 14px;text-decoration:none;color:var(--ink);font-weight:700;min-width:0;overflow-wrap:anywhere;box-shadow:var(--sh-1);transition:border-color .15s,box-shadow .15s,transform .15s}
+.griglia a>span{min-width:0}
+.griglia a small{display:block;font-weight:400;color:var(--ink-3);font-size:.85rem;margin-top:2px;font-variant-numeric:tabular-nums}
+.griglia a:hover{border-color:var(--accent);box-shadow:var(--sh-2);transform:translateY(-1px);color:var(--ink)}
+.griglia .ic,.cat .ic{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;background:var(--accent-2);color:var(--accent);flex:none}
+.griglia .ic.g{background:var(--gold-2);color:var(--gold-ink)}
+.cat{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0;padding:0;list-style:none}
+.cat li{background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:14px;font-size:.88rem;color:var(--ink-2);box-shadow:var(--sh-1)}
+.cat strong{display:block;color:var(--ink);font-size:.97rem;margin-top:8px}
 .testo p,.testo li{max-width:760px}
 .fonti li{margin-bottom:8px;overflow-wrap:anywhere}
-.form{display:grid;gap:12px}
-.form label{display:grid;gap:4px;font-weight:600;font-size:.95rem}
-.form input,.form select,.form textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+.form{display:grid;gap:14px}
+.form label{display:grid;gap:6px;font-weight:600;font-size:.95rem}
 .form .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem;color:var(--ink-2)}
-.form .check input{width:auto;margin-top:4px}
-.btn{font:inherit;font-weight:700;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:12px 18px;cursor:pointer}
-:root[data-theme="dark"] .btn{color:#0F1512}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:#0F1512}}
+.form .check input{width:auto;min-height:0;margin-top:4px}
+.btn{font:inherit;font-weight:700;background:var(--accent);color:var(--on-accent);border:0;border-radius:var(--r-s);padding:12px 22px;cursor:pointer;min-height:46px}
+.btn:hover{background:var(--accent-h)}
 .btn:disabled{opacity:.6;cursor:wait}
 .hp{position:absolute;left:-9999px}
-.ok{background:var(--ok-2);border:1px solid var(--ok);padding:14px;border-radius:10px}
+.ok{background:var(--ok-2);border:1px solid var(--ok);padding:14px;border-radius:var(--r-s)}
 .errore{color:var(--warn);font-weight:600}
 .ad-slot:empty{display:none}
-.briciole{font-size:.85rem;color:var(--ink-3);margin-top:14px}
+.briciole{font-size:.85rem;color:var(--ink-3);margin-top:18px}
 .briciole a{color:var(--ink-3)}
-.indice{border-left:4px solid var(--accent);padding:10px 14px;background:var(--card);border-radius:0 10px 10px 0;margin:12px 0}
-footer{margin-top:50px;border-top:1px solid var(--line);padding:22px 0 40px;font-size:.88rem;color:var(--ink-3)}
-footer a{color:var(--ink-3)}
-@media (max-width:760px){.calc .campi{grid-template-columns:1fr}
-header.top .wrap{flex-direction:column;align-items:flex-start;gap:4px;padding-top:10px;padding-bottom:10px}nav.menu{gap:12px;font-size:.92rem}}
+.indice{border:1px solid var(--line);border-left:4px solid var(--gold);padding:14px 16px;background:var(--card);border-radius:var(--r-s);margin:12px 0;box-shadow:var(--sh-1)}
+footer{margin-top:64px;background:var(--navy);color:var(--on-navy-2);font-size:.88rem;padding:40px 0 34px;border-top:3px solid var(--gold)}
+footer a{color:var(--on-navy)}
+footer a:hover{color:var(--gold)}
+footer .f-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px}
+footer .logo{margin-bottom:12px}
+footer p{margin:0 0 10px;max-width:660px}
+footer strong{color:var(--on-navy)}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer h2{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:4px 0 12px}
+footer .f-base{border-top:1px solid rgba(255,255,255,.12);margin-top:24px;padding-top:16px;font-size:.82rem;max-width:none}
+@media (max-width:880px){.calc-grid{grid-template-columns:1fr}.calc-out{border-left:0;border-top:1px solid var(--line)}.band-deco{display:none}.cat{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){nav.menu{display:none}.nav-m{display:block}header.top .wrap{min-height:60px}
+.calc form,.calc-out{padding:18px}footer .f-grid{grid-template-columns:1fr}.band-in{padding-top:24px}.band{background:linear-gradient(180deg,var(--navy) 0,var(--navy-2) 80%,var(--bg) 80%)}}
+@media (max-width:420px){.calc .campi{grid-template-columns:1fr 1fr;gap:12px}.calc .campi>label[data-campo=paese],.calc .campi>label[data-campo=programma],.calc .campi>label.l-red,.calc .campi>label.l-val{grid-column:1/-1}.summary .s-body{padding:18px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 """
+
+ICONE = {
+    "passport": '<rect x="4.5" y="2.5" width="15" height="19" rx="2"/><circle cx="12" cy="10" r="3.5"/><path d="M8.5 10h7M12 6.5c1 1 1.4 2.2 1.4 3.5s-.4 2.5-1.4 3.5c-1-1-1.4-2.2-1.4-3.5s.4-2.5 1.4-3.5zM9 17.5h6"/>',
+    "briefcase": '<rect x="2.5" y="7" width="19" height="13.5" rx="2"/><path d="M8.5 7V5a1.5 1.5 0 0 1 1.5-1.5h4A1.5 1.5 0 0 1 15.5 5v2"/><path d="M2.5 12.5h19"/><path d="M11 12.5h2v2h-2z"/>',
+    "laptop": '<rect x="4" y="4.5" width="16" height="11" rx="1.5"/><path d="M2 19.5h20"/><path d="M9 8.5l-2 2 2 2M15 8.5l2 2-2 2"/>',
+    "sun": '<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>',
+    "family": '<circle cx="8" cy="6.5" r="2.5"/><circle cx="16" cy="6.5" r="2.5"/><circle cx="12" cy="13" r="2"/><path d="M4 21v-6.5A2.5 2.5 0 0 1 6.5 12h3M20 21v-6.5a2.5 2.5 0 0 0-2.5-2.5h-3"/><path d="M9.5 21v-2.5a2.5 2.5 0 0 1 5 0V21"/>',
+    "user": '<circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/>',
+    "child": '<circle cx="12" cy="6" r="3"/><path d="M8 21v-5l-2-3 3-3h6l3 3-2 3v5"/>',
+    "coins": '<ellipse cx="9" cy="6.5" rx="6" ry="3"/><path d="M3 6.5v4c0 1.7 2.7 3 6 3s6-1.3 6-3v-4"/><path d="M9 13.5v4c0 1.7 2.7 3 6 3s6-1.3 6-3v-4c0-1.6-2.4-2.9-5.5-3"/>',
+    "exchange": '<path d="M4 8h13l-3.5-3.5M20 16H7l3.5 3.5"/>',
+    "wallet": '<path d="M19 7V5.5A1.5 1.5 0 0 0 17.5 4h-12A2.5 2.5 0 0 0 3 6.5v11A2.5 2.5 0 0 0 5.5 20h14a1.5 1.5 0 0 0 1.5-1.5V9a1.5 1.5 0 0 0-1.5-1.5H5.5A2.5 2.5 0 0 1 3 6.5"/><path d="M16.5 13.5h.01"/>',
+    "calendar": '<rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/>',
+    "globe": '<circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 4 6 4 9.5s-1.4 6.9-4 9.5c-2.6-2.6-4-6-4-9.5s1.4-6.9 4-9.5z"/>',
+    "list": '<path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/>',
+    "shield": '<path d="M12 22s8-3.5 8-10V5.5L12 2.5 4 5.5V12c0 6.5 8 10 8 10z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/>',
+    "check": '<circle cx="12" cy="12" r="9.5"/><path d="M8 12.5l2.7 2.7L16 10"/>',
+    "x": '<circle cx="12" cy="12" r="9.5"/><path d="M9 9l6 6M15 9l-6 6"/>',
+    "alert": '<path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/>',
+    "calc": '<rect x="4.5" y="2.5" width="15" height="19" rx="2.5"/><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/>',
+    "arrow": '<path d="M5 12h14M13 6l6 6-6 6"/>',
+    "menu": '<path d="M4 7h16M4 12h16M4 17h16"/>',
+    "scale": '<path d="M12 3v18M7 21h10M4 7h16"/><path d="M6.5 7 4 13a3 3 0 0 0 5 0zM17.5 7 15 13a3 3 0 0 0 5 0z"/>',
+}
+ICONA_CATEGORIA = {"digital-nomad": "laptop", "passive-income": "sun", "work": "briefcase", "family": "family"}
+
+
+def ico(nome, cls="ico"):
+    return f'<svg class="{cls}" aria-hidden="true" focusable="false"><use href="#i-{nome}"/></svg>'
+
+
+SPRITE = ('<svg xmlns="http://www.w3.org/2000/svg" style="display:none">' +
+          "".join(f'<symbol id="i-{k}" viewBox="0 0 24 24">{v}</symbol>' for k, v in ICONE.items()) + "</svg>")
+# Marchio: passaporto blu notte su tessera oro (stesso disegno nel favicon e nell'immagine Open Graph)
+_M = ('<rect width="40" height="40" rx="9" fill="#E0A526"/><rect x="11" y="7" width="18" height="26" rx="2.5" fill="#141B33"/>'
+      '<circle cx="20" cy="17" r="5" fill="none" stroke="#E0A526" stroke-width="1.8"/><path d="M15 17h10M20 12c1.6 1.5 2.2 3.2 2.2 5s-.6 3.5-2.2 5c-1.6-1.5-2.2-3.2-2.2-5s.6-3.5 2.2-5z" fill="none" stroke="#E0A526" stroke-width="1.4"/>'
+      '<path d="M15.5 27.5h9" stroke="#E0A526" stroke-width="1.8" stroke-linecap="round"/>')
+MARCHIO = f'<svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">{_M}</svg>'
+FAVICON = "data:image/svg+xml," + (f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'>{_M}</svg>"
+                                    .replace('"', "'").replace("#", "%23").replace("<", "%3C").replace(">", "%3E"))
+DECO = ('<svg class="band-deco" viewBox="0 0 230 150" aria-hidden="true" focusable="false">'
+        '<circle cx="115" cy="66" r="58" fill="none" stroke="#E0A526" stroke-opacity=".35" stroke-width="2" stroke-dasharray="4 7"/>'
+        '<circle cx="115" cy="66" r="40" fill="none" stroke="#E0A526" stroke-opacity=".5" stroke-width="2"/>'
+        '<path d="M83 66h64M115 34c10 9 14 20 14 32s-4 23-14 32c-10-9-14-20-14-32s4-23 14-32z" fill="none" stroke="#E0A526" stroke-opacity=".5" stroke-width="2"/>'
+        '<text x="115" y="143" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" letter-spacing="2.5" fill="#E0A526" fill-opacity=".6">OFFICIAL · MINIMUM</text></svg>')
+
+
+def h1_diviso(testo):
+    """H1 identico nel testo (per i motori di ricerca), diviso in due righe visive al primo ': '."""
+    if ": " not in testo:
+        return f"<h1>{escape(testo)}</h1>"
+    a, b = testo.split(": ", 1)
+    return f'<h1><span class="h1-a">{escape(a)}</span><span class="sr">: </span><span class="h1-b">{escape(b)}</span></h1>'
+
 
 # Motore di calcolo in JS: deve dare gli stessi risultati di calcola() e converti() (verifica.py li confronta).
 MOTORE_JS = r"""
@@ -489,28 +630,30 @@ APP_JS = r"""
       [['adulti','Adults'],['figli','Children']].forEach(function(c){var el=q(c[0]),raw=el.value,v=limita(c[0],raw);
         if(String(v)!==String(raw).trim()){avvisi.push(c[1]+' set to '+v+' (allowed: '+LIMITI[c[0]][0]+'–'+LIMITI[c[0]][1]+').');if(ev&&ev.type==='change')el.value=v;}});
       var o=calcola(D,P,V.id,q('adulti').value,q('figli').value),cur=selC.value,val=o.valuta,cv=convertiImporti(o,cur,CAMBI.tassi);
-      var h='<div class="small">Official minimum for '+o.adulti+' adult'+(o.adulti>1?'s':'')+(o.figli?' and '+o.figli+' child'+(o.figli>1?'ren':''):'')+(o.familiari_ignorati?' (family members not counted)':'')+'</div>';
-      if(o.periodo==='month'&&o.pagamenti!==12){h+='<div class="tot">'+soldi(o.mensile,val)+' a month × '+o.pagamenti+'</div><div>= '+soldi(o.annuale,val)+' a year ('+soldi(o.mensile12,val)+' a month over 12 payments)</div>';}
-      else{h+='<div class="tot">'+soldi(o.mensile,val)+' a month</div><div>'+soldi(o.annuale,val)+' a year</div>';}
-      if(cur!==val)h+='<div class="conv">≈ '+soldi(cv.mensile,cur)+' a month'+(o.periodo==='month'&&o.pagamenti!==12?' × '+o.pagamenti:'')+' · '+soldi(cv.annuale,cur)+' a year</div>';
-      h+='<ul>';o.righe.forEach(function(r){h+='<li>'+esc(testo(V,r))+(r[1]>1?' × '+r[1]:'')+' = <strong>'+soldi(r[3],val)+'</strong>'+(o.periodo==='month'?' a month':' a year')+'</li>';});
-      if(o.tetto)h+='<li>Capped at the maximum set by the rule.</li>';
-      if(o.familiari_ignorati)h+='<li>'+esc(o.motivo)+'</li>';h+='</ul>';
-      avvisi.forEach(function(a){h+='<p class="small" style="margin:6px 0 0"><strong>Note:</strong> '+esc(a)+'</p>';});
-      h+='<p class="formula"><strong>Rule:</strong> '+esc(V.regola)+'</p>';
-      var fo=P.fonti[0];h+='<p class="fonte">Official source: <a href="'+esc(fo.url)+'" rel="noopener">'+esc(fo.titolo)+'</a> · checked on '+dl(fo.controllato_il)+'</p>';
-      if(cur!==val)h+='<p class="fonte">ECB reference rate of '+dl(CAMBI.data)+'. Indicative conversion.</p>';
-      var mio=parseFloat(q('reddito').value),k=limita('pagamenti',q('pagamenti').value);
+      function ic(n){return '<svg class="ico" aria-hidden="true" focusable="false"><use href="#i-'+n+'"/></svg>';}
+      var h='',mio=parseFloat(q('reddito').value),k=limita('pagamenti',q('pagamenti').value);
       if(mio>0){var e=esito(P,o,mio,k,cur,CAMBI.tassi);var mioV=converti(mio,cur,val,CAMBI.tassi),annoV=r2(mioV*k);
         var tuo='Your income of '+soldi(mio,cur)+' a month × '+k+' (≈ '+soldi(mioV,val)+' a month, '+soldi(annoV,val)+' a year)';
-        if(e==='nd')h+='<div class="esito no" style="background:var(--warn-2);color:var(--ink)">'+esc(P.condizioni||'')+'</div>';
-        else if(e==='si')h+='<div class="esito si">'+tuo+' is at or above this minimum. The consulate still assesses your documents.</div>';
-        else if(e==='parziale')h+='<div class="esito no" style="background:var(--warn-2);color:var(--ink)">'+tuo+' meets one form of the amount but not the other (monthly amount or yearly total): ask the consulate how it assesses your income.</div>';
-        else h+='<div class="esito no">'+tuo+' is below this minimum.</div>';}
+        if(e==='nd')h+='<div class="esito warn">'+ic('alert')+'<span>'+esc(P.condizioni||'')+'</span></div>';
+        else if(e==='si')h+='<div class="esito si">'+ic('check')+'<span>'+tuo+' is at or above this minimum. The consulate still assesses your documents.</span></div>';
+        else if(e==='parziale')h+='<div class="esito warn">'+ic('alert')+'<span>'+tuo+' meets one form of the amount but not the other (monthly amount or yearly total): ask the consulate how it assesses your income.</span></div>';
+        else h+='<div class="esito no">'+ic('x')+'<span>'+tuo+' is below this minimum.</span></div>';}
+      h+='<div class="r-lab">Official minimum for '+o.adulti+' adult'+(o.adulti>1?'s':'')+(o.figli?' and '+o.figli+' child'+(o.figli>1?'ren':''):'')+(o.familiari_ignorati?' (family members not counted)':'')+'</div>';
+      if(o.periodo==='month'&&o.pagamenti!==12){h+='<div class="tot">'+soldi(o.mensile,val)+' <span>a month × '+o.pagamenti+'</span></div><div class="r-anno">= '+soldi(o.annuale,val)+' a year ('+soldi(o.mensile12,val)+' a month over 12 payments)</div>';}
+      else{h+='<div class="tot">'+soldi(o.mensile,val)+' <span>a month</span></div><div class="r-anno">'+soldi(o.annuale,val)+' a year</div>';}
+      if(cur!==val)h+='<div class="conv">'+ic('exchange')+'≈ '+soldi(cv.mensile,cur)+' a month'+(o.periodo==='month'&&o.pagamenti!==12?' × '+o.pagamenti:'')+' · '+soldi(cv.annuale,cur)+' a year</div>';
+      avvisi.forEach(function(a){h+='<p class="small" style="margin:8px 0 0"><strong>Note:</strong> '+esc(a)+'</p>';});
+      h+='<details class="r-come"><summary>'+ic('calc')+'How this amount is calculated</summary><ul>';
+      o.righe.forEach(function(r){h+='<li>'+esc(testo(V,r))+(r[1]>1?' × '+r[1]:'')+' = <strong>'+soldi(r[3],val)+'</strong>'+(o.periodo==='month'?' a month':' a year')+'</li>';});
+      if(o.tetto)h+='<li>Capped at the maximum set by the rule.</li>';
+      if(o.familiari_ignorati)h+='<li>'+esc(o.motivo)+'</li>';h+='</ul>';
+      h+='<p class="formula"><strong>Rule:</strong> '+esc(V.regola)+'</p></details>';
+      var fo=P.fonti[0];h+='<p class="fonte">Official source: <a href="'+esc(fo.url)+'" rel="noopener">'+esc(fo.titolo)+'</a> · checked on '+dl(fo.controllato_il)+'</p>';
+      if(cur!==val)h+='<p class="fonte">ECB reference rate of '+dl(CAMBI.data)+'. Indicative conversion.</p>';
       var np=box.querySelector('[data-nota-pagamenti]');if(np){np.textContent=P.nota_pagamenti||'';np.hidden=!P.nota_pagamenti;}
-      if(!fisso){h+='<p class="small" style="margin:8px 0 0"><a href="'+box.getAttribute('data-rel')+P.slug+'/">Full rules and official sources for the '+esc(P.paese+' '+P.nome)+'</a></p>';}
+      if(!fisso){h+='<p class="calc-link"><a href="'+box.getAttribute('data-rel')+P.slug+'/">Full rules and official sources for the '+esc(P.paese+' '+P.nome)+'</a></p>';}
       box.querySelector('[data-out]').innerHTML=h;
-      q('reddito').previousElementSibling.textContent='Your monthly income in '+cur+' (optional)';}
+      f.querySelector('[data-lab=reddito]').textContent='Your monthly income in '+cur+' (optional)';}
     selP.addEventListener('change',function(){riempiG();riempiV();calcolaOra();});
     selG.addEventListener('change',function(){riempiV();calcolaOra();});
     f.addEventListener('input',function(e){if(e.target===selP||e.target===selG)return;calcolaOra(e);});
@@ -553,7 +696,7 @@ def blocco_dati():
             json.dumps(d, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>")
 
 
-def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, calcolatore=False, jsonld_extra=None, assoluto=False):
+def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, calcolatore=False, jsonld_extra=None, assoluto=False, testata=""):
     file = percorso if percorso.endswith(".html") else (percorso + "index.html")
     profondita = file.count("/")
     rel = "/" if assoluto else ("../" * profondita or "./")  # 404: link assoluti, Netlify la serve a qualsiasi profondità
@@ -576,6 +719,9 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
     canonico = f'<link rel="canonical" href="{url_pag}">' if indicizza else ""
     js = f"<script>{MOTORE_JS}{APP_JS}</script>" if calcolatore else f"<script>{FORM_JS}</script>"
     dati = blocco_dati() if calcolatore else ""
+    voci_menu = [("", "Calculator"), ("digital-nomad-visa-income-requirements/", "Digital nomad visas"), ("work-visa-salary-thresholds/", "Work visas"),
+                 ("how-it-works/", "How it works"), ("about/", "About")]
+    menu = "".join(f'<a href="{rel}{u}"' + (' aria-current="page"' if u == percorso else "") + f'>{t}</a>' for u, t in voci_menu)
     testo = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -589,28 +735,46 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <meta property="og:description" content="{escape(descrizione)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{url_pag}">
-<meta name="theme-color" content="#1E6B52">
+<meta property="og:site_name" content="{NOME}">
+<meta property="og:image" content="{URL_SITO}/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{NOME}: official minimum income for visas, for you and your family">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#141B33">
+<meta name="color-scheme" content="light dark">
 {robots}
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E6B52'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='white'%3E%E2%82%AC%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="{FAVICON}">
+<link rel="preload" href="/assets/fonts/ibm-plex-serif-700.woff2" as="font" type="font/woff2" crossorigin>
 <style>{CSS}</style>
 {ld_html}
 </head>
 <body>
+{SPRITE}
+<a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap">
-<a class="logo" href="{rel}">Visa Income <span>Checker</span></a>
-<nav class="menu" aria-label="Menu">
-<a href="{rel}">Calculator</a><a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visas</a><a href="{rel}work-visa-salary-thresholds/">Work visas</a><a href="{rel}how-it-works/">How it works</a><a href="{rel}about/">About</a>
-</nav>
+<a class="logo" href="{rel}">{MARCHIO}<span>Visa Income <b>Checker</b></span></a>
+<nav class="menu" aria-label="Menu">{menu}</nav>
+<details class="nav-m"><summary aria-label="Open the menu">{ico("menu")}Menu</summary><nav aria-label="Menu">{menu}</nav></details>
 </div></header>
-<main class="wrap">
+<main id="main">
+{testata}
+<div class="wrap">
 {bc}
 {corpo}
+</div>
 </main>
 <footer><div class="wrap">
+<div class="f-grid"><div>
+<a class="logo" href="{rel}">{MARCHIO}<span>Visa Income <b>Checker</b></span></a>
 <p><strong>{NOME}</strong> is an independent site, not affiliated with any government, consulate or immigration authority. Every amount is calculated from an official source (law, official gazette, ministry, immigration authority or statistics office) linked under the figure with the date we checked it.
 <strong>Requirements change, and consulates can ask for more: always check the official page or the consulate.</strong> Nothing on this site is immigration, legal or tax advice.</p>
 <p>Exchange rates: euro foreign exchange reference rates of the European Central Bank (source: ECB), for information only.</p>
-<p><a href="{rel}about/">About</a> · <a href="{rel}how-it-works/">How it works and sources</a> · <a href="{rel}contact/">Contact</a> · <a href="{rel}privacy.html">Privacy</a> · <a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></p>
+</div><div>
+<h2>Explore</h2>
+<ul><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
+</div></div>
+<p class="f-base">Official sources only · the calculator runs in your browser.</p>
 </div></footer>
 {dati}
 {js}
@@ -637,21 +801,23 @@ FORM_JS = r"""
 
 
 def modulo_calcolatore(rel="", programma="", paese="", valuta="USD"):
-    return f"""<div class="card" data-calcolatore data-rel="{rel}" data-programma="{escape(programma)}" data-paese="{escape(paese)}" data-valuta="{valuta}">
-<form class="calc" autocomplete="off">
+    return f"""<div class="card calc" data-calcolatore data-rel="{rel}" data-programma="{escape(programma)}" data-paese="{escape(paese)}" data-valuta="{valuta}">
+<div class="calc-grid">
+<form autocomplete="off">
 <div class="campi">
-<label data-campo="paese">Country<select name="paese"></select></label>
-<label data-campo="programma">Visa or permit<select name="programma"></select></label>
-<label class="pieno" data-campo="variante">Category<select name="variante"></select></label>
-<label>Adults (including you)<input type="number" name="adulti" min="1" max="20" value="1" inputmode="numeric"></label>
-<label>Children under 18<input type="number" name="figli" min="0" max="20" value="0" inputmode="numeric"></label>
-<label>Show amounts also in<select name="valuta"></select></label>
-<label><span>Your monthly income (optional)</span><input type="number" name="reddito" min="0" step="any" placeholder="e.g. 3500" inputmode="decimal"></label>
-<label>Your income is paid<select name="pagamenti"><option value="12">12 times a year</option><option value="13">13 times a year</option><option value="14">14 times a year</option></select></label>
+<label data-campo="paese"><span class="lt">{ico("globe")}Country</span><select name="paese"></select></label>
+<label data-campo="programma"><span class="lt">{ico("passport")}Visa or permit</span><select name="programma"></select></label>
+<label class="pieno" data-campo="variante"><span class="lt">{ico("list")}Category</span><select name="variante"></select></label>
+<label><span class="lt">{ico("user")}Adults (including you)</span><input type="number" name="adulti" min="1" max="20" value="1" inputmode="numeric"></label>
+<label><span class="lt">{ico("child")}Children under 18</span><input type="number" name="figli" min="0" max="20" value="0" inputmode="numeric"></label>
+<label class="l-val"><span class="lt">{ico("exchange")}Show amounts also in</span><select name="valuta"></select></label>
+<label class="l-red"><span class="lt">{ico("wallet")}<span data-lab="reddito">Your monthly income (optional)</span></span><input type="number" name="reddito" min="0" step="any" placeholder="e.g. 3500" inputmode="decimal"></label>
+<label class="pieno"><span class="lt">{ico("calendar")}Your income is paid</span><select name="pagamenti"><option value="12">12 times a year</option><option value="13">13 times a year</option><option value="14">14 times a year</option></select></label>
 <p class="small pieno" data-nota-pagamenti hidden style="margin:0"></p>
 </div>
 </form>
-<div class="risultato" data-out aria-live="polite"><noscript>Turn on JavaScript to use the calculator. The tables below show the official amounts.</noscript></div>
+<div class="calc-out"><div class="risultato" data-out aria-live="polite"><noscript>Turn on JavaScript to use the calculator. The tables below show the official amounts.</noscript></div></div>
+</div>
 </div>"""
 
 
@@ -758,16 +924,20 @@ def pagina_programma(P):
     link_sorelle = ""
     if sorelle:
         link_sorelle = (f'<h2>Other visas in {escape(P["paese"])}</h2><div class="griglia">' +
-                        "".join(f'<a href="{rel}{p["slug"]}/">{escape(nome_prog(p))}<small>{escape(riassunto(p))}</small></a>' for p in sorelle) + "</div>")
+                        "".join(scheda(p, rel) for p in sorelle) + "</div>")
     link_simili = (f'<h2>Compare: other {escape(CATEGORIE[P["categoria"]].lower())}s</h2><div class="griglia">' +
-                   "".join(f'<a href="{rel}{p["slug"]}/">{escape(nome_prog(p))}<small>{escape(riassunto(p))}</small></a>' for p in simili) + "</div>") if simili else ""
+                   "".join(scheda(p, rel) for p in simili) + "</div>") if simili else ""
     fam_tit = "How much for a family" if V0["famiglia"]["tipo"] != "nessuno" else "Family members"
     note = "".join(f"<li>{escape(n)}</li>" for n in P["note"])
-    corpo = f"""<section class="hero"><h1>{escape(titolo_prog(P))}</h1>
-<p class="lead">{escape(P['descrizione'])} Official name: <em>{escape(P['nome_ufficiale'])}</em>.</p>
-<p class="cifra">Minimum for the main applicant{(' (' + escape(V0['nome'].lower()) + ')') if len(P['varianti']) > 1 else ''}: {figura}</p>
+    corpo = f"""<section class="hero">{h1_diviso(titolo_prog(P))}</section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico(ICONA_CATEGORIA[P['categoria']])}<span>{escape(CATEGORIE[P['categoria']])}</span><span>{escape(P['paese'])}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Minimum for the main applicant{(' (' + escape(V0['nome'].lower()) + ')') if len(P['varianti']) > 1 else ''}</span><span class="sr">: </span>{figura}</p>
 {fonte_breve(P)}
 {eur_eq}
+<p class="lead">{escape(P['descrizione'])} Official name: <em>{escape(P['nome_ufficiale'])}</em>.</p>
+</div>
 </section>
 <h2>How the amount is calculated</h2>
 <p class="formula"><strong>Rule:</strong> {escape(V0['regola'])}</p>
@@ -820,24 +990,47 @@ def pagina_paese(slug):
 {modulo_calcolatore(rel=rel, paese=nome)}
 {AVVISO}
 {AD}
-<div class="griglia" style="margin-top:20px">{''.join(f'<a href="{rel}{p["slug"]}/">{escape(nome_prog(p))}<small>{escape(riassunto(p))}</small></a>' for p in pp)}</div>
+<div class="griglia" style="margin-top:20px">{''.join(scheda(p, rel) for p in pp)}</div>
 <p><a href="{rel}">All countries</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visas compared</a></p>"""
     pagina(f"country/{slug}/", f"{nome} visa income requirements {ANNO}: official amounts and calculator",
            f"Official minimum income and salary thresholds for {nome} visas in {ANNO}, with family members, currency conversion and sources.",
            corpo, calcolatore=True, briciole=[(nome, f"country/{slug}/")])
 
 
+def ultimo_controllo():
+    date_ = [f["controllato_il"] for P in PROG for f in P["fonti"]] + [f["controllato_il"] for I in INDICI.values() for f in I["fonti"]]
+    return data_lunga(max(date_))
+
+
+CAT_HOME = [("laptop", "Digital nomad visas", "Spain, Portugal, Croatia, Hungary, Italy"),
+            ("sun", "Passive income visas", "Spain non-lucrative, Portugal D7"),
+            ("briefcase", "Work permits and Blue Cards", "Germany, Netherlands, France, Austria, Sweden, Denmark, Ireland, UK"),
+            ("family", "Family visas", "UK spouse visa")]
+
+
+def scheda(p, rel=""):
+    return (f'<a href="{rel}{p["slug"]}/"><span class="ic">{ico(ICONA_CATEGORIA[p["categoria"]])}</span>'
+            f'<span>{escape(nome_prog(p))}<small>{escape(riassunto(p))}</small></span></a>')
+
+
 def home():
     gruppi = []
     for slug, nome in PAESI.items():
         pp = [p for p in PROG if p["paese_slug"] == slug]
-        gruppi.append(f'<a href="country/{slug}/">{escape(nome)}<small>{len(pp)} visa{"s" if len(pp) > 1 else ""}</small></a>')
-    lista = "".join(f'<a href="{p["slug"]}/">{escape(nome_prog(p))}<small>{escape(riassunto(p))}</small></a>' for p in PROG)
-    corpo = f"""<section class="hero"><h1>Visa income checker {ANNO}: how much income do you need for a digital nomad, retirement or work visa?</h1>
-<p class="lead">The official minimum income for {len(PROG)} visas and permits in {len(PAESI)} countries, calculated from the official base (minimum wage, IPREM, average salary, legal salary thresholds) for you and each family member, and converted into your currency with the latest European Central Bank reference rates.</p></section>
+        gruppi.append(f'<a href="country/{slug}/"><span class="ic g">{ico("globe")}</span><span>{escape(nome)}<small>{len(pp)} visa{"s" if len(pp) > 1 else ""}</small></span></a>')
+    lista = "".join(scheda(p) for p in PROG)
+    cat = "".join(f'<li><span class="ic">{ico(i)}</span><strong>{t}</strong>{e}</li>' for i, t, e in CAT_HOME)
+    testata = f"""<div class="band"><div class="wrap band-in">{DECO}
+<section class="hero">{h1_diviso(f"Visa income checker {ANNO}: how much income do you need for a digital nomad, retirement or work visa?")}
+<p class="sub">The official minimum for {len(PROG)} visas in {len(PAESI)} countries, for you and your family, in your currency.</p>
+<p class="trust"><span>{ico("shield")}Official sources · last checked {ultimo_controllo()}</span><span>{ico("exchange")}ECB exchange rates</span></p></section>
 {modulo_calcolatore(rel='', paese='Spain')}
-{AVVISO}
+</div></div>"""
+    corpo = f"""{AVVISO}
 {AD}
+<h2>What the checker covers</h2>
+<p class="lead">The official minimum income for {len(PROG)} visas and permits in {len(PAESI)} countries, calculated from the official base (minimum wage, IPREM, average salary, legal salary thresholds) for you and each family member, and converted into your currency with the latest European Central Bank reference rates.</p>
+<ul class="cat">{cat}</ul>
 <h2>All visas</h2>
 <div class="griglia">{lista}</div>
 <h2>Countries</h2>
@@ -849,7 +1042,7 @@ def home():
 {box_affiliati()}"""
     pagina("", f"Visa Income Checker {ANNO}: minimum income for digital nomad, retirement and work visas (calculator)",
            f"How much income do you need? Official {ANNO} minimum income for {len(PROG)} visas (Spain, Portugal, Croatia, Italy, Hungary, Blue Cards, UK) for you and your family, in USD, GBP, INR, PHP and more.",
-           corpo, calcolatore=True)
+           corpo, calcolatore=True, testata=testata)
 
 
 def riga_confronto(P, V, rel):
@@ -874,7 +1067,7 @@ def pagina_confronto_nomadi():
              '<th class="n">Main applicant in USD</th><th>Source</th></tr></thead>')
     dn = sorted((riga_confronto(P, V, rel) for P in PROG if P["categoria"] == "digital-nomad" for V in P["varianti"]), key=lambda x: x[0])
     pi = sorted((riga_confronto(P, V, rel) for P in PROG if P["categoria"] == "passive-income" for V in P["varianti"]), key=lambda x: x[0])
-    corpo = f"""<section class="hero"><h1>Digital nomad visa income requirements {ANNO}: country by country</h1>
+    corpo = f"""<section class="hero">{h1_diviso(f"Digital nomad visa income requirements {ANNO}: country by country")}
 <p class="lead">The official minimum monthly income for each digital nomad visa we cover, for a single applicant, a couple and a family of four, calculated from the official rule. Sorted from the lowest to the highest.</p></section>
 <div class="tab"><table>{testa}<tbody>{''.join(r[1] for r in dn)}</tbody></table></div>
 <p class="fonte">{cambi_nota()}</p>
@@ -1024,9 +1217,22 @@ def extra():
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Frame-Options = "DENY"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
 """)
     pagina("404.html", f"Page not found | {NOME}", "Page not found.",
            '<section class="hero"><h1>Page not found</h1><p class="lead">Go to the <a href="/">visa income calculator</a>.</p></section>', indicizza=False, assoluto=True)
+
+
+def copia_grafica():
+    """Font (licenza OFL inclusa) e immagine Open Graph da grafica/ a sito/assets/."""
+    (SITO / "assets" / "fonts").mkdir(parents=True, exist_ok=True)
+    for f in (RADICE / "grafica" / "fonts").iterdir():
+        shutil.copy(f, SITO / "assets" / "fonts" / f.name)
+    shutil.copy(RADICE / "grafica" / "og.png", SITO / "assets" / "og.png")
 
 
 def controlli():
@@ -1078,6 +1284,7 @@ def main():
     SITO.mkdir()
     for nome, contenuto in conserva.items():
         (SITO / nome).write_bytes(contenuto)
+    copia_grafica()
     home()
     for P in PROG:
         pagina_programma(P)

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Open Graph</title>
+<style>
+@font-face{font-family:"Bricolage Grotesque";font-weight:700;src:url(fonts/bricolage-grotesque-700.woff2) format("woff2")}
+*{box-sizing:border-box}
+body{margin:0;width:1200px;height:630px;overflow:hidden;font-family:"Inter","Segoe UI",system-ui,sans-serif;color:#1F1A17;
+background:radial-gradient(700px 420px at 92% -10%,rgba(242,181,68,.55),transparent 62%),linear-gradient(160deg,#FBF1E4,#F6E4D2)}
+.l{position:absolute;left:72px;top:64px;right:520px}
+.brand{display:flex;align-items:center;gap:16px;font-family:"Bricolage Grotesque";font-size:34px;letter-spacing:-.01em}
+.brand svg{width:64px;height:64px}
+.brand span{color:#B23F1B}
+h1{font-family:"Bricolage Grotesque";font-size:84px;line-height:.98;letter-spacing:-.035em;margin:62px 0 26px}
+p{font-size:28px;line-height:1.35;color:#4A413B;margin:0}
+.trust{position:absolute;left:72px;bottom:58px;display:flex;align-items:center;gap:12px;font-size:24px;font-weight:600;color:#1C6B45}
+.trust svg{width:30px;height:30px}
+.r{position:absolute;right:64px;top:70px;width:410px;display:grid;gap:14px}
+.c{display:flex;align-items:center;gap:18px;background:#fff;border:1px solid #E8DCCD;border-radius:20px;padding:16px 20px;box-shadow:0 18px 40px -20px rgba(120,55,25,.35);font-size:25px;font-weight:700}
+.c i{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:#FCEADF;color:#B23F1B;flex:none}
+.c svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.c:nth-child(2){margin-left:34px}.c:nth-child(4){margin-left:34px}
+</style></head><body>
+<div class="l">
+<div class="brand"><svg viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="#B23F1B"/><path d="M8 29v-8.5a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2V29M8 25h24M11 18.5v-3a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3" fill="none" stroke="#FFF7EE" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="29" cy="11.5" r="5" fill="#F2B544"/><circle cx="29" cy="11.5" r="2.3" fill="none" stroke="#B23F1B" stroke-width="1.6"/></svg><div>Tourist Tax <span>Calculator</span></div></div>
+<h1>How much is the tourist tax?</h1>
+<p>Official rates per night, the real rules applied to your stay.</p>
+</div>
+<div class="trust"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.5 8-10V5.5L12 2.5 4 5.5V12c0 6.5 8 10 8 10z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg>Official sources, every figure linked</div>
+<div class="r">
+<div class="c"><i><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20v-.5A5.5 5.5 0 0 1 8 14h2a5.5 5.5 0 0 1 5.5 5.5v.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8"/><path d="M21.5 20v-.5a5.5 5.5 0 0 0-3.5-5.1"/></svg></i>Per person per night</div>
+<div class="c"><i><svg viewBox="0 0 24 24"><path d="M5 21V4.5A1.5 1.5 0 0 1 6.5 3h11A1.5 1.5 0 0 1 19 4.5V21"/><path d="M2.5 21h19"/><path d="M15 12.5v.01"/></svg></i>Per room per night</div>
+<div class="c"><i><svg viewBox="0 0 24 24"><path d="M19 5L5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></i>% of the room price</div>
+<div class="c"><i><svg viewBox="0 0 24 24"><path d="M4 20V14M10 20V9M16 20V5"/><path d="M2 20h20"/></svg></i>Price bands</div>
+<div class="c"><i><svg viewBox="0 0 24 24"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M2 16h20"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/></svg></i>Seasons and max nights</div>
+</div>
+</body></html>
