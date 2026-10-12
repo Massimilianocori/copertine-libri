@@ -29,6 +29,10 @@ Inviate 40 email: 5 agenzie "segnale" (Story Co, Informal, Mass FX Media, Social
 
 34 invii: 10 follow-up 1 (brand del 5/10) + 24 nuovi (coda2 14, coda3 10). Esclusi 2 indirizzi UK (Brick) e 4 seconde persone di aziende già contattate nello stesso giorno. 1 rimbalzo (emily@d1approved.com, invio 8/10): ~1% su ~120 invii. Risposte vere: 0.
 
+## 12/10
+
+50 invii (primo giorno a tetto 50): 20 follow-up 1 (invii del 6/10) + 30 nuovi (6 agenzie segnale: Snowball, 321, Firebelly, Nen Creative, Plan Left, Force Media; 24 dalle code). 0 rimbalzi, 0 risposte vere. Apollo: 6 crediti per la coda segnale.
+
 ## Crediti
 
 | Data | Higgsfield (piano Ultra) | Apollo lead credit (ciclo 3/10-3/11) |
