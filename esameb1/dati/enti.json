@@ -7,7 +7,88 @@
   "pagina_date": "https://cils.unistrasi.it/1/211/415/Le_date_degli_esami_2026.htm",
   "pagina_sedi": "https://cils.unistrasi.it/1/84/16/Le_sedi_di_esami.htm",
   "cittadinanza": "Esiste un esame dedicato: CILS B1 Cittadinanza, con 6 sessioni l'anno. Vale anche il CILS B1 standard.",
-  "iscrizione": "Ci si iscrive presso la sede d'esame scelta, che indica costi e documenti."
+  "iscrizione": "Ci si iscrive presso la sede d'esame scelta, che indica costi e documenti.",
+  "fatti": {
+   "costo": {
+    "testo": "CILS B1 Cittadinanza: 100 €, la stessa tassa in Italia e all'estero. Per il CILS B1 standard chiedi il prezzo alla sede (al Centro Linguistico dell'Università di Padova costa 90 €).",
+    "fonti": [
+     {
+      "nome": "Università per Stranieri di Siena, esame B1 Cittadinanza",
+      "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm"
+     },
+     {
+      "nome": "Università di Padova, scheda CILS B1",
+      "url": "https://cla.unipd.it/en/wp-content/uploads/2025/09/Differenze-tra-B1-standard-e-B1-Cittadinanza_CILS.pdf"
+     }
+    ],
+    "verificato_il": "2026-10-12",
+    "breve": "100 € (B1 Cittadinanza)"
+   },
+   "durata": {
+    "testo": "B1 Cittadinanza: ascolto circa 30 minuti, lettura e grammatica 40 minuti, scrittura 40 minuti, orale circa 10 minuti. Lo scritto si fa per primo; l'orale di solito nel pomeriggio dello stesso giorno.",
+    "fonti": [
+     {
+      "nome": "sillabo CILS B1 Cittadinanza",
+      "url": "https://cils.unistrasi.it/public/articoli/382/B1%20Cittadinanza_Sillabo.pdf"
+     },
+     {
+      "nome": "come si svolgono gli esami CILS",
+      "url": "https://cils.unistrasi.it/1/94/28/Come_si_svolgono_gli_esami_CILS.htm"
+     }
+    ],
+    "verificato_il": "2026-10-12"
+   },
+   "risultati": {
+    "testo": "Circa 3 mesi dopo l'esame. Li vedi online nella pagina «Il mio risultato» con il numero di matricola e la data di nascita. Per il B1 Cittadinanza l'Università di Padova indica circa 2 mesi. Il certificato si ritira alla sede dove hai fatto l'esame.",
+    "fonti": [
+     {
+      "nome": "Università per Stranieri di Siena, risultati",
+      "url": "https://cils.unistrasi.it/1/127/201/Risultati_degli_esami.htm"
+     },
+     {
+      "nome": "Università di Padova, scheda CILS B1",
+      "url": "https://cla.unipd.it/en/wp-content/uploads/2025/09/Differenze-tra-B1-standard-e-B1-Cittadinanza_CILS.pdf"
+     }
+    ],
+    "verificato_il": "2026-10-12",
+    "breve": "circa 3 mesi",
+    "url": "https://cils.unistrasi.it/1/127/201/Risultati_degli_esami.htm"
+   },
+   "documenti": {
+    "testo": "Il giorno dell'esame porta un documento d'identità e una penna nera: matite e penne di altri colori non valgono.",
+    "fonti": [
+     {
+      "nome": "come si svolgono gli esami CILS",
+      "url": "https://cils.unistrasi.it/1/94/28/Come_si_svolgono_gli_esami_CILS.htm"
+     }
+    ],
+    "verificato_il": "2026-10-12"
+   },
+   "esempi": {
+    "testo": "Prova d'esempio ufficiale del CILS B1 Cittadinanza, gratis: quaderno, audio, chiavi e criteri di valutazione.",
+    "fonti": [
+     {
+      "nome": "prove d'esempio CILS B1 Cittadinanza",
+      "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm"
+     }
+    ],
+    "verificato_il": "2026-10-12",
+    "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm"
+   },
+   "nota": {
+    "testo": "Nel B1 Cittadinanza non si recupera una sola parte: se non superi una prova, rifai tutto l'esame.",
+    "fonti": [
+     {
+      "nome": "Università per Stranieri di Siena, esame B1 Cittadinanza",
+      "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm"
+     }
+    ],
+    "verificato_il": "2026-10-12"
+   }
+  },
+  "prezzo_eur": 100,
+  "prezzo_esame": "CILS B1 Cittadinanza",
+  "prezzo_url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm"
  },
  {
   "sigla": "CELI",
@@ -17,7 +98,77 @@
   "pagina_date": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
   "pagina_sedi": "https://cvcl.unistrapg.it/pagine/centri-desame-convenzionati-celi-000",
   "cittadinanza": "Esiste un esame dedicato: CELI 2 i cittadinanza (B1), solo nei centri in Italia. Vale anche il CELI 2 generale (B1).",
-  "iscrizione": "Ci si iscrive presso il centro d'esame convenzionato, che indica costi e documenti."
+  "iscrizione": "Ci si iscrive presso il centro d'esame convenzionato, che indica costi e documenti.",
+  "fatti": {
+   "costo": {
+    "testo": "Il prezzo lo decide il centro d'esame, secondo l'accordo con l'Università per Stranieri di Perugia. Esempio: CELI 2 i cittadinanza 90 € all'Università degli Studi di Milano (65 € di tassa d'esame + 25 € di spese amministrative, sessione del 18 febbraio 2026).",
+    "fonti": [
+     {
+      "nome": "Università per Stranieri di Perugia, iscrizione",
+      "url": "https://cvcl.unistrapg.it/pagine/iscrizione-esami-celi-000"
+     },
+     {
+      "nome": "Università degli Studi di Milano, bando CELI i",
+      "url": "https://www.unimi.it/sites/default/files/2025-12/Bando%20CELI%20i_18%20febbraio%20in%20italiano_signed.pdf"
+     }
+    ],
+    "verificato_il": "2026-10-12",
+    "breve": "lo decide il centro"
+   },
+   "durata": {
+    "testo": "CELI 2 i cittadinanza: 2 ore e 30 minuti in tutto. Lettura e scrittura 2 ore, ascolto 20 minuti, orale 10-12 minuti.",
+    "fonti": [
+     {
+      "nome": "descrizione dell'esame CELI 2 i",
+      "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-descrizione-esame.pdf"
+     }
+    ],
+    "verificato_il": "2026-10-12"
+   },
+   "risultati": {
+    "testo": "Circa 90 giorni lavorativi da quando le prove arrivano a Perugia. Li vedi online nell'area riservata del CVCL con il numero di matricola e la data di nascita, oppure al centro d'esame. Il certificato digitale arriva al centro, che lo consegna; se ti serve prima, scarichi un documento provvisorio dall'area riservata.",
+    "fonti": [
+     {
+      "nome": "regolamento degli esami CELI",
+      "url": "https://cvcl.unistrapg.it/MC-API/Risorse/StreamRisorsa.ashx?guid=b682a9a2-1380-4d6c-9d54-496cbd0f4c18"
+     }
+    ],
+    "verificato_il": "2026-10-12",
+    "breve": "circa 90 giorni lavorativi",
+    "url": "https://cvcl.unistrapg.it/accesso-candidati-celi"
+   },
+   "documenti": {
+    "testo": "Porta un documento d'identità valido: lo mostri prima dello scritto e prima dell'orale. Usa una penna nera o blu. Telefono, dizionario e libri si consegnano all'ingresso.",
+    "fonti": [
+     {
+      "nome": "regolamento degli esami CELI",
+      "url": "https://cvcl.unistrapg.it/MC-API/Risorse/StreamRisorsa.ashx?guid=b682a9a2-1380-4d6c-9d54-496cbd0f4c18"
+     }
+    ],
+    "verificato_il": "2026-10-12"
+   },
+   "esempi": {
+    "testo": "Due prove d'esempio ufficiali del CELI 2 i cittadinanza, gratis, con le domande dell'orale.",
+    "fonti": [
+     {
+      "nome": "esami CELI immigrati, documenti",
+      "url": "https://cvcl.unistrapg.it/pagine/esami-celi-immigrati"
+     }
+    ],
+    "verificato_il": "2026-10-12",
+    "url": "https://cvcl.unistrapg.it/pagine/esami-celi-immigrati"
+   },
+   "nota": {
+    "testo": "Il certificato CELI non ha scadenza.",
+    "fonti": [
+     {
+      "nome": "Università per Stranieri di Perugia, validità dei certificati",
+      "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/190819-validita-dei-certificati.pdf"
+     }
+    ],
+    "verificato_il": "2026-10-12"
+   }
+  }
  },
  {
   "sigla": "PLIDA",
@@ -27,7 +178,63 @@
   "pagina_date": "https://plida.dante.global/it/esami-plida/",
   "pagina_sedi": "https://www.dante.global/it/contatti/lista-contatti",
   "cittadinanza": "Per la cittadinanza si usa il PLIDA B1 (4 sessioni nel 2026, date uguali in tutti i centri).",
-  "iscrizione": "Ci si iscrive direttamente presso il centro PLIDA, che fissa la scadenza."
+  "iscrizione": "Ci si iscrive direttamente presso il centro PLIDA, che fissa la scadenza.",
+  "fatti": {
+   "costo": {
+    "testo": "Il prezzo lo decide il centro PLIDA: te lo dice quando ti iscrivi.",
+    "fonti": [
+     {
+      "nome": "FAQ ufficiali PLIDA",
+      "url": "https://plida.dante.global/it/faq/"
+     }
+    ],
+    "verificato_il": "2026-10-12",
+    "breve": "lo decide il centro"
+   },
+   "risultati": {
+    "testo": "Li vedi online su certificazioneplida.dante.global con la tua email e la tua password; da lì scarichi anche il certificato. Per questo, prima di iscriverti apri un account sul sito PLIDA e dai la tua email al centro.",
+    "fonti": [
+     {
+      "nome": "FAQ ufficiali PLIDA",
+      "url": "https://plida.dante.global/it/faq/"
+     }
+    ],
+    "verificato_il": "2026-10-12",
+    "breve": "online, nel tuo account",
+    "url": "https://certificazioneplida.dante.global/"
+   },
+   "documenti": {
+    "testo": "Prima di iscriverti devi aprire un account sul sito PLIDA. Il centro ti dice come iscriverti e cosa portare.",
+    "fonti": [
+     {
+      "nome": "FAQ ufficiali PLIDA",
+      "url": "https://plida.dante.global/it/faq/"
+     }
+    ],
+    "verificato_il": "2026-10-12"
+   },
+   "esempi": {
+    "testo": "Prove d'esempio e materiali gratuiti per il PLIDA B1.",
+    "fonti": [
+     {
+      "nome": "PLIDA, Preparati all'esame",
+      "url": "https://plida.dante.global/it/preparati-allesame/"
+     }
+    ],
+    "verificato_il": "2026-10-12",
+    "url": "https://plida.dante.global/it/preparati-allesame/"
+   },
+   "nota": {
+    "testo": "Gli esami PLIDA si fanno solo in presenza, nei centri autorizzati. Non serve aver fatto prima un corso.",
+    "fonti": [
+     {
+      "nome": "FAQ ufficiali PLIDA",
+      "url": "https://plida.dante.global/it/faq/"
+     }
+    ],
+    "verificato_il": "2026-10-12"
+   }
+  }
  },
  {
   "sigla": "CERT.IT",
@@ -37,6 +244,60 @@
   "pagina_date": "https://certificazioneitaliano.uniroma3.it/gli-esami/iscrizione-agli-esami/",
   "pagina_sedi": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/",
   "cittadinanza": "Per la cittadinanza si usa la certificazione di livello B1 (sessioni A2/B1).",
-  "iscrizione": "Ci si iscrive presso il centro convenzionato oppure alla sede di Roma (Via Ostiense 123-129) tramite il portale."
+  "iscrizione": "Ci si iscrive presso il centro convenzionato oppure alla sede di Roma (Via Ostiense 123-129) tramite il portale.",
+  "fatti": {
+   "costo": {
+    "testo": "B1: 80 € alla sede di Roma Tre (Via Ostiense 123-129). Nelle sedi convenzionate ti iscrivi e paghi presso la sede, che ti dice il prezzo.",
+    "fonti": [
+     {
+      "nome": "Università Roma Tre, iscrizione agli esami",
+      "url": "https://certificazioneitaliano.uniroma3.it/gli-esami/iscrizione-agli-esami/"
+     }
+    ],
+    "verificato_il": "2026-10-12",
+    "breve": "80 € a Roma Tre"
+   },
+   "durata": {
+    "testo": "Ascolto, lettura e scrittura: 90 minuti in tutto. Orale: 10 minuti. Superi l'esame con il 60% dei punti nello scritto e il 60% nell'orale.",
+    "fonti": [
+     {
+      "nome": "Università Roma Tre, livello B1",
+      "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/"
+     }
+    ],
+    "verificato_il": "2026-10-12"
+   },
+   "documenti": {
+    "testo": "Per iscriverti a Roma Tre alleghi online il documento d'identità (o il passaporto) e il codice fiscale. Nelle sedi convenzionate chiedi alla sede.",
+    "fonti": [
+     {
+      "nome": "Università Roma Tre, iscrizione agli esami",
+      "url": "https://certificazioneitaliano.uniroma3.it/gli-esami/iscrizione-agli-esami/"
+     }
+    ],
+    "verificato_il": "2026-10-12"
+   },
+   "esempi": {
+    "testo": "Esempio ufficiale dell'esame B1 con gli audio, gratis.",
+    "fonti": [
+     {
+      "nome": "Università Roma Tre, livello B1",
+      "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/"
+     }
+    ],
+    "verificato_il": "2026-10-12",
+    "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/"
+   },
+   "nota": {
+    "testo": "A Roma Tre lo scritto del B1 si fa al computer, nelle sedi convenzionate su carta. L'orale si fa in presenza.",
+    "fonti": [
+     {
+      "nome": "Università Roma Tre, svolgimento",
+      "url": "https://certificazioneitaliano.uniroma3.it/gli-esami/indicazioni-sullo-svolgimento/"
+     }
+    ],
+    "verificato_il": "2026-10-12"
+   }
+  }
  }
 ]
