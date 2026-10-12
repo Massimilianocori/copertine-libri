@@ -429,6 +429,11 @@ def il(iso):
     return "l'" if d(iso).day in (8, 11) else "il "
 
 
+def del_(iso):
+    """Preposizione articolata davanti alla data: "del 3 dicembre", "dell'8 aprile", "dell'11 novembre"."""
+    return "dell'" if d(iso).day in (8, 11) else "del "
+
+
 def testo_conta(iso, modo):
     g = (d(iso) - OGGI).days
     if modo == "esame":
@@ -589,7 +594,7 @@ def risposta(prossime, rel=""):
             primo = False
         x = d(s["data"])
         opz_s.append(f"""<div data-fino="{s['scadenza']}"{"" if visibile else " hidden"}>
-<div class="r-data"><small>entro {il(s['scadenza']).strip()}</small> {data_breve(s['scadenza'])}</div>
+<div class="r-data"><small>entro {il(s['scadenza']).strip()}</small>{" " if il(s['scadenza']).endswith(" ") else ""}{data_breve(s['scadenza'])}</div>
 <div class="r-cosa">per l'esame {eb(s['ente'])} del <strong>{x.day} {MESI[x.month - 1]}</strong></div>
 <p style="margin:12px 0 0"><span class="conta {classe_conta(s['scadenza'], 'scad')}" data-conta="{s['scadenza']}" data-modo="scad">{testo_conta(s['scadenza'], 'scad')}</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
@@ -744,12 +749,12 @@ def schede_per_ente(chiave, breve=False, bottone=None):
         scheda_fatto(e, chiave, titolo=f'{eb(e["sigla"])}<span>{escape(e["ente"])}</span>', breve=breve, bottone=bottone) for e in enti) + "</div>"
 
 
-def link_guide(rel):
+def link_guide(rel, salta=None):
     voci = [("costo/", "euro", "Quanto costa", "i prezzi di ogni ente"),
             ("come-funziona/", "lista", "Come si svolge", "durata, cosa portare, esempi"),
             ("risultati/", "ok", "Risultati", "quando arrivano e dove vederli")]
     return '<div class="griglia link3">' + "".join(
-        f'<a href="{rel}{h}">{ic(i)}<span>{t}<small>{sm}</small></span></a>' for h, i, t, sm in voci) + "</div>"
+        f'<a href="{rel}{h}">{ic(i)}<span>{t}<small>{sm}</small></span></a>' for h, i, t, sm in voci if h != salta) + "</div>"
 
 
 # ---------------------------------------------------------------- pagine
@@ -790,7 +795,7 @@ def home(prossime):
 {domanda('Che differenza c\'è tra "B1 cittadinanza" e B1 normale?', 'CILS e CELI hanno un esame B1 pensato per la cittadinanza, con più sessioni durante l\'anno. Il B1 "normale" degli stessi enti, il PLIDA B1 e il CERT.IT B1 sono anch\'essi certificati di livello B1. Leggi la <a href="come-funziona/">pagina Come funziona</a>.')}
 {domanda("Come mi iscrivo?", "Ci si iscrive presso la sede d'esame, non su questo sito. Scegli una sede nella tua città, contattala e chiedi costo, documenti e scadenza.")}
 {domanda("Quanto costa l'esame B1 per la cittadinanza?", "CILS B1 Cittadinanza: 100 €, la stessa tassa in tutta Italia. CERT.IT B1: 80 € alla sede di Roma Tre. CELI e PLIDA: il prezzo lo decide il centro d'esame (per esempio CELI 2 i cittadinanza 90 € all'Università degli Studi di Milano). <a href=\"costo/\">Tutti i costi, con le fonti</a>.")}
-{domanda("Quanto dura l'esame?", "Lo scritto dura da 1 ora e 30 minuti (CERT.IT) a 2 ore e 20 minuti (CELI), secondo l'ente. Poi c'è un orale di circa 10 minuti, di solito lo stesso giorno. <a href=\"come-funziona/#durata\">Durata di ogni esame e cosa portare</a>.")}
+{domanda("Quanto dura l'esame?", "Lo scritto dura da 1 ora e 30 minuti (CERT.IT) a 2 ore e 20 minuti (CELI e PLIDA), secondo l'ente. Poi c'è un orale di 10-15 minuti, di solito lo stesso giorno. <a href=\"come-funziona/#durata\">Durata di ogni esame e cosa portare</a>.")}
 {domanda("Quando arrivano i risultati?", "CILS: circa 3 mesi dopo l'esame. CELI: circa 90 giorni lavorativi. PLIDA: li vedi online nel tuo account PLIDA. <a href=\"risultati/\">Dove vedere il risultato e come avere il certificato</a>.")}
 {domanda("Si può fare l'esame online?", "No. L'esame B1 per la cittadinanza si fa in presenza, in una sede d'esame, con un documento d'identità. <a href=\"come-funziona/#online\">Fonti ufficiali</a>.")}
 <p class="small">Per chiedere la cittadinanza italiana per residenza o matrimonio serve un certificato di italiano di livello B1.
@@ -829,9 +834,9 @@ Controlliamo il calendario ogni settimana: <a href="#avvisami">avvisami quando e
             for s in con_scad:
                 vis = primo and d(s["scadenza"]) >= OGGI
                 primo = primo and not vis
-                righe.append(f'<div data-fino="{s["scadenza"]}"{"" if vis else " hidden"}><div class="pe-data">entro {il(s["scadenza"]).strip()} {data_breve(s["scadenza"])}'
+                righe.append(f'<div data-fino="{s["scadenza"]}"{"" if vis else " hidden"}><div class="pe-data">entro {il(s["scadenza"])}{data_breve(s["scadenza"])}'
                              f'<span class="conta {classe_conta(s["scadenza"], "scad")}" data-conta="{s["scadenza"]}" data-modo="scad">{testo_conta(s["scadenza"], "scad")}</span></div>'
-                             f'<p class="pe-cosa">per l\'esame del {data_breve(s["data"])}</p></div>')
+                             f'<p class="pe-cosa">per l\'esame {del_(s["data"])}{data_breve(s["data"])}</p></div>')
             iscr = "".join(righe) + (f'<p class="pe-cosa" data-riserva{"" if primo else " hidden"}>Nessun termine nazionale aperto: chiedi alla sede.</p>')
         else:
             iscr = f'<p class="pe-cosa" style="margin:0">La scadenza la decide ogni centro {escape(e)}: chiedila alla sede.</p>'
@@ -961,7 +966,7 @@ def pagina_ente(e, prossime):
     periodo = f" {anni(date_ente)}" if date_ente else ""
     pagina(f"ente/{SLUG_ENTE[sigla]}/index.html",
            f"{nome_r}: date{periodo}, costo e {len(sue)} sedi | EsameB1",
-           f"Date{periodo} dell'esame {nome_r}, scadenze, costo{f' ({breve})' if breve else ''}, durata, risultati "
+           f"Date{periodo} dell'esame {nome_r}, scadenze, costo{f': {breve}' if breve else ''}, durata, risultati "
            f"e le {len(sue)} sedi in Italia divise per regione.",
            corpo)
 
@@ -998,7 +1003,7 @@ Fonte: <a href="{PREFETTURA}" rel="noopener">Prefettura – Ministero dell'Inter
 <li><span>Paga e conserva la ricevuta. Il giorno dell'esame porta un documento d'identità valido.</span></li>
 </ol>
 <h2 id="durata">{ic("orologio")}Quanto dura l'esame</h2>
-<p>Prima c'è lo scritto (ascolto, lettura, scrittura), poi un orale di circa 10 minuti con un esaminatore, di solito lo stesso giorno.</p>
+<p>Prima c'è lo scritto (ascolto, lettura, scrittura), poi un orale di 10-15 minuti con un esaminatore, di solito lo stesso giorno.</p>
 {schede_per_ente("durata")}
 <h2 id="documenti">{ic("doc")}Documenti e cosa portare</h2>
 {schede_per_ente("documenti")}
@@ -1032,7 +1037,7 @@ def pagina_costo():
 <p>Scegli la tua città: per ogni sede trovi indirizzo, telefono, email e sito.</p>
 <div class="altre">{"".join(f'<a href="../citta/{c["slug"]}/">{escape(c["nome"])}</a>' for c in sorted(citta, key=lambda c: c["nome"]))}</div>
 <h2>{ic("info")}Altre domande</h2>
-{link_guide("../")}
+{link_guide("../", salta="costo/")}
 </section>
 <aside>{modulo()}</aside>
 </div>"""
@@ -1045,7 +1050,7 @@ def pagina_risultati(prossime):
     corpo = f"""<section class="hero">
 {briciole(("EsameB1", "../"), ("Risultati", None))}
 <h1>Risultati dell'esame B1 per la cittadinanza: quando arrivano e dove vederli</h1>
-<p class="lead">Il risultato non arriva il giorno dell'esame: lo pubblica l'ente, online, dopo alcune settimane. Ecco i tempi e dove guardare per ogni ente.</p>
+<p class="lead">Il risultato non arriva il giorno dell'esame: lo pubblica l'ente, online, dopo alcuni mesi. Ecco i tempi e dove guardare per ogni ente.</p>
 </section>
 {schede_per_ente("risultati", breve=True, bottone="Vedi il tuo risultato")}
 <div class="due">
@@ -1058,7 +1063,7 @@ def pagina_risultati(prossime):
 </div>
 <section>
 <h2>{ic("info")}Altre domande</h2>
-{link_guide("../")}
+{link_guide("../", salta="risultati/")}
 </section>"""
     pagina("risultati/index.html", "Risultati esame B1 cittadinanza: quando arrivano e dove vederli | EsameB1",
            "Quando escono i risultati dell'esame B1 per la cittadinanza (CILS circa 3 mesi, CELI circa 90 giorni lavorativi), "

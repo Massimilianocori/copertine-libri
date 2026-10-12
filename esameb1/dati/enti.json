@@ -191,6 +191,16 @@
     "verificato_il": "2026-10-12",
     "breve": "lo decide il centro"
    },
+   "durata": {
+    "testo": "PLIDA B1: ascolto circa 40 minuti, lettura 40 minuti, scrittura 60 minuti, orale circa 15 minuti. Superi ogni prova con almeno 18 punti su 30.",
+    "fonti": [
+     {
+      "nome": "PLIDA, Quaderno delle specifiche B1 (Preparati all'esame, livello B1)",
+      "url": "https://plida.dante.global/it/preparati-allesame/"
+     }
+    ],
+    "verificato_il": "2026-10-12"
+   },
    "risultati": {
     "testo": "Li vedi online su certificazioneplida.dante.global con la tua email e la tua password; da lì scarichi anche il certificato. Per questo, prima di iscriverti apri un account sul sito PLIDA e dai la tua email al centro.",
     "fonti": [
