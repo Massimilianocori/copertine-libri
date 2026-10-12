@@ -273,3 +273,7 @@ Le altre falliscono almeno un criterio: domanda non provata (9), lacuna già chi
 - Shopify App Store: https://apps.shopify.com/hubspot-2/reviews
 - Prezzi: https://koalify.io/pricing · https://www.oghamworks.com/enrollem · https://www.integrationglue.com/pricing · https://www.probackup.io/pricing · https://hapily.com/pricing · https://www.paddle.com/pricing
 - Studi precedenti: `studio-business/saas/4-marketplace-candidati.md`, `studio-business/H-software-marketplace.md`
+
+## Decisione di Massimiliano (12/10/2026)
+
+**Non si procede.** I primi clienti richiederebbero risposte pubblicate da lui sui forum (HubSpot, Reddit, LinkedIn) e un lavoro di vendita personale. Questo non rientra nel modello automatico che vuole. Si riapre solo se emerge un canale che porta i primi utenti senza il suo intervento.
