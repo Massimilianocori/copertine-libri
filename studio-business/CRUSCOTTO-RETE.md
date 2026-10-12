@@ -24,6 +24,7 @@ Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE)
 |---|---|---|---|---|---|---|---|
 | 11/10/2026 | tutti | manca | manca | manca | nessun contatore | 0 | Netlify Forms (i 2 invii del 9/10 sono test) |
 | 12/10/2026 | EsameB1 | manca | **> 0 dal 9/10** (primo segnale: Google lo mostra già in alcune ricerche) | manca | nessun contatore | 0 | Email di Search Console dell'11/10 |
+| 12/10/2026 | EsameB1 | manca | manca | manca | nessun contatore | **1 (primo iscritto vero)**: arrivato da Google, città Genova | Netlify Forms + email di notifica |
 
 ## 3. Decisioni per sito
 
@@ -67,6 +68,8 @@ Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE)
 | Travelpayouts (Omio, Welcome Pickups, EKTA) | Account approvato, sito da verificare | 10/10/2026 | In pausa: la verifica chiede uno script con cookie di tracciamento, non compatibile con la privacy attuale senza banner dei cookie |
 
 ## 8. Registro delle decisioni
+
+- 12/10/2026: primo iscritto vero su EsameB1 (da Google). Scoperto che le routine che aprono una sessione nuova non possono salvare su GitHub (la routine del lunedì 12/10 non ha pubblicato). Le routine del lunedì, del mercoledì e del 3 del mese ora girano nella sessione principale. Il restyling di EsameB1, EsamiDiStato e dei tre siti di viaggio si pubblica il 15/10, dopo il rinnovo dei crediti Netlify.
 
 - 12/10/2026: Airalo respinge la domanda. Motivo probabile: siti nuovi, senza traffico. Nessun cambiamento ai siti (il link Airalo non era ancora online). Si ripresenta con i numeri.
 
