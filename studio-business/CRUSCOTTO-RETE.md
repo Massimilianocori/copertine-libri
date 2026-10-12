@@ -67,6 +67,16 @@ Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE)
 | Airalo (Impact) | **Respinto** ("non è il momento giusto", porta aperta) | 12/10/2026 | Ripresentare la domanda quando un sito supera 1.000 visite al mese, con i numeri |
 | Travelpayouts (Omio, Welcome Pickups, EKTA) | Account approvato, sito da verificare | 10/10/2026 | In pausa: la verifica chiede uno script con cookie di tracciamento, non compatibile con la privacy attuale senza banner dei cookie |
 
+## 7b. Idee a pagamento in attesa (decisione di Massimiliano del 12/10: "da fare, adesso non è urgente")
+
+Si riprendono solo quando la soglia è raggiunta. Prima vengono i libri KDP già in coda con voto 9.
+
+| Idea | Come si incassa | Soglia per riprenderla | Cosa serve |
+|---|---|---|---|
+| Libro Kindle "Esame B1 cittadinanza: guida e prove" con link da EsameB1 | Diritti d'autore Amazon (niente vendite dirette) | EsameB1 ≥ 1.000 visite al mese oppure ≥ 30 iscritti, e coda libri KDP con voto 9 smaltita | Foto BookBeam di 2-3 ricerche ("esame B1 cittadinanza", "CILS B1 cittadinanza", "test italiano cittadinanza"), poi verifica secondo la skill KDP |
+| Contatti per scuole di italiano (EsameB1) | Le scuole pagano per contatto con consenso | ≥ 100 iscritti EsameB1; prima solo una casella "voglio essere contattato" per misurare la domanda | Risposta del consulente fiscale |
+| Dati scioperi per aziende (Italy Strikes "For businesses") | Abbonamento B2B | Italy Strikes ≥ 1.000 visite al mese o una richiesta vera dal modulo | Risposta del consulente fiscale |
+
 ## 8. Registro delle decisioni
 
 - 12/10/2026: primo iscritto vero su EsameB1 (da Google). Scoperto che le routine che aprono una sessione nuova non possono salvare su GitHub (la routine del lunedì 12/10 non ha pubblicato). Le routine del lunedì, del mercoledì e del 3 del mese ora girano nella sessione principale. Il restyling di EsameB1, EsamiDiStato e dei tre siti di viaggio si pubblica il 15/10, dopo il rinnovo dei crediti Netlify.
