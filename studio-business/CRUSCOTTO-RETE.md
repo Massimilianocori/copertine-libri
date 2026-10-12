@@ -79,6 +79,8 @@ Si riprendono solo quando la soglia è raggiunta. Prima vengono i libri KDP già
 
 ## 8. Registro delle decisioni
 
+- 12/10/2026: test di facilità per le app HubSpot (`saas/6-test-facilita-hubspot.md`) → **DIFFICILE**. Nessun gruppo di richieste supera la soglia; i primi utenti arrivano solo con messaggi privati, cioè vendita personale. In più, dal 19/8/2026 ogni utente deve usare davvero l'app ogni mese. L'idea resta chiusa.
+
 - 12/10/2026: app HubSpot in abbonamento (unica idea "grande" che passa la ricerca, `saas/5-app-alto-potenziale.md`) **non si fa**: i primi clienti richiederebbero vendita personale di Massimiliano sui forum. Restano i libri KDP (già al massimo di 2 a settimana) e la rete di siti.
 
 - 12/10/2026: primo iscritto vero su EsameB1 (da Google). Scoperto che le routine che aprono una sessione nuova non possono salvare su GitHub (la routine del lunedì 12/10 non ha pubblicato). Le routine del lunedì, del mercoledì e del 3 del mese ora girano nella sessione principale. Il restyling di EsameB1, EsamiDiStato e dei tre siti di viaggio si pubblica il 15/10, dopo il rinnovo dei crediti Netlify.
