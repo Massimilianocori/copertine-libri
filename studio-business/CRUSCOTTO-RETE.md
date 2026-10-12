@@ -3,7 +3,7 @@
 Aggiornato da Claude ogni mercoledì (routine "Ricerca settimanale") e quando arrivano numeri nuovi. Metodo e soglie: `.claude/skills/rete-siti/SKILL.md`.
 Regola: ogni numero ha data e fonte. Se un numero manca, si scrive "manca". Le stime non sono numeri.
 
-Ultimo aggiornamento: 11/10/2026 (creazione).
+Ultimo aggiornamento: 12/10/2026.
 
 ## 1. I siti
 
@@ -23,6 +23,7 @@ Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE)
 | Data | Sito | Pagine indicizzate | Impressioni (28 gg) | Clic (28 gg) | Visite (contatore) | Iscritti | Fonte |
 |---|---|---|---|---|---|---|---|
 | 11/10/2026 | tutti | manca | manca | manca | nessun contatore | 0 | Netlify Forms (i 2 invii del 9/10 sono test) |
+| 12/10/2026 | EsameB1 | manca | **> 0 dal 9/10** (primo segnale: Google lo mostra già in alcune ricerche) | manca | nessun contatore | 0 | Email di Search Console dell'11/10 |
 
 ## 3. Decisioni per sito
 
@@ -41,6 +42,7 @@ Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE)
   - Italy Strikes con la pubblicazione del 17/10;
   - EsameB1 ed EsamiDiStato con la routine del lunedì;
   - i tre siti di viaggio con un deploy ciascuno, appena si vedono i consumi Netlify.
+- **Dati strutturati EsameB1:** Search Console (email del 10/10) segnala 4 campi mancanti negli eventi, non critici. `endDate` e `image` sono già nel generatore e escono con la prossima pubblicazione. `performer` e `offers` restano: non critici, si aggiungono solo con dati certi (costo dell'esame per ente).
 - **Crediti Netlify:** manca la foto della pagina Usage/Billing. L'11/10 tutti i siti hanno dato 503 per crediti esauriti.
 
 ## 5. Misurazione (il punto da risolvere per primo)
@@ -56,6 +58,16 @@ Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE)
 |---|---|---|---|
 | 14/10 | Attivare la misurazione (sez. 5) | Oggi 0 numeri su 6 siti: senza misura non si decide | In attesa dell'account di Massimiliano |
 
-## 7. Registro delle decisioni
+## 7. Affiliazioni
+
+| Programma | Stato | Data | Prossimo passo |
+|---|---|---|---|
+| SafetyWing Ambassador | Attivo, link nel sito | 10/10/2026 | Nessuno |
+| Airalo (Impact) | **Respinto** ("non è il momento giusto", porta aperta) | 12/10/2026 | Ripresentare la domanda quando un sito supera 1.000 visite al mese, con i numeri |
+| Travelpayouts (Omio, Welcome Pickups, EKTA) | Account approvato, sito da verificare | 10/10/2026 | In pausa: la verifica chiede uno script con cookie di tracciamento, non compatibile con la privacy attuale senza banner dei cookie |
+
+## 8. Registro delle decisioni
+
+- 12/10/2026: Airalo respinge la domanda. Motivo probabile: siti nuovi, senza traffico. Nessun cambiamento ai siti (il link Airalo non era ancora online). Si ripresenta con i numeri.
 
 - 11/10/2026: creata la gestione da manager su richiesta di Massimiliano. Soglie fissate prima di vedere i numeri (skill `rete-siti`, sez. 3).

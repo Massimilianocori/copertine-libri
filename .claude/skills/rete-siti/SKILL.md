@@ -26,8 +26,9 @@ Leggi, in quest'ordine:
 Senza numeri non si gestisce. Fonti, dalla migliore:
 1. **GoatCounter** (contatore gratuito senza cookie): da attivare. Massimiliano crea l'account e dice il nome scelto. Poi si aggiunge lo script ai siti con le pubblicazioni già previste e si aggiorna la privacy di ogni sito, che oggi dice "nessuno strumento di analisi". Per leggerlo dalle routine serve una chiave API in sola lettura messa tra i segreti dell'ambiente: spiegare a Massimiliano i passi quando arriva.
 2. **Google Search Console**: impressioni, clic, pagine indicizzate. Solo Massimiliano lo vede. Quando manca il contatore, chiedigli una foto della pagina "Rendimento" e della pagina "Pagine" di ogni sito **ogni 2 settimane**. Trascrivi i numeri nel cruscotto con la data.
-3. **Moduli Netlify** (iscrizioni "avvisami"/"alerts"): `get-forms-for-project` del Netlify MCP, se la sessione ce l'ha. Le iscrizioni del 9/10 sono test di Claude, non contano.
-4. **Controlli tecnici** che fai sempre da solo: home 200, sitemap 200, una pagina campione 200, dati aggiornati (per Italy Strikes `italystrikes/dati/vista.json` e il workflow su GitHub Actions).
+3. **Gmail di Massimiliano** (se la sessione ha il connettore Gmail): cerca le email di Search Console (`from:sc-noreply@google.com`: primi dati di impressioni, problemi di indicizzazione o di dati strutturati) e dei programmi di affiliazione (approvazioni, rifiuti, pagamenti). Solo lettura: mai rispondere o inviare email.
+4. **Moduli Netlify** (iscrizioni "avvisami"/"alerts"): `get-forms-for-project` del Netlify MCP, se la sessione ce l'ha. Le iscrizioni del 9/10 sono test di Claude, non contano.
+5. **Controlli tecnici** che fai sempre da solo: home 200, sitemap 200, una pagina campione 200, dati aggiornati (per Italy Strikes `italystrikes/dati/vista.json` e il workflow su GitHub Actions).
 
 Se un numero manca, scrivi "manca" nel cruscotto. Non inventare e non stimare al posto del dato.
 
@@ -44,7 +45,7 @@ Eccezione: un sito stagionale (per esempio Italy Strikes ha il picco a marzo) si
 
 ## 4. Il ritmo
 - **Ogni mercoledì** (routine "Ricerca settimanale"): prima la revisione della rete, poi la ricerca di idee nuove.
-  1. Controlli tecnici di tutti i siti (sez. 2.4).
+  1. Controlli tecnici di tutti i siti (sez. 2.5).
   2. Leggi i numeri disponibili e aggiorna il cruscotto (data, fonte di ogni numero).
   3. Applica le soglie della sez. 3 a ogni sito e scrivi la decisione.
   4. Scegli **una sola azione** più utile della settimana (quella con più guadagno atteso per ora di lavoro) e scrivila in "Prossime azioni".
