@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:mit-8567@italy-strikes-today.netlify.app
-DTSTAMP:20261010T191945Z
+DTSTAMP:20261012T131138Z
 DTSTART;VALUE=DATE:20261014
 DTEND;VALUE=DATE:20261015
 SUMMARY:Strike: Tuscany: general strike
@@ -30,7 +30,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8557@italy-strikes-today.netlify.app
-DTSTAMP:20261010T191945Z
+DTSTAMP:20261012T131138Z
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
 SUMMARY:Strike: National air transport strike – easyJet cabin crew
@@ -45,24 +45,26 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8577@italy-strikes-today.netlify.app
-DTSTAMP:20261010T191945Z
+DTSTAMP:20261012T131138Z
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
-SUMMARY:Strike: Air transport strike – Toscana Aeroporti and ground handl
- ing companies
+SUMMARY:Called off? Air transport strike – Toscana Aeroporti and ground h
+ andling companies
 DESCRIPTION:Hours: 24 hours\nOriginal: 24 ORE\nWho: Toscana Aeroporti and g
  round handling companies (PERSONALE SOCC. TOSCANA AEROPORTI\, GH TOSCANA E
   CONSULTA OPERANTI PRESSO GLI AEROPORTI DI PISA E FIRENZE)\nWhere: Airport
- s: Pisa Galileo Galilei\, Florence Peretola\nStrikes can be called off or 
- changed: always check with your operator.\nhttps://italy-strikes-today.net
- lify.app/pisa/\nSource: MIT strike register (CC BY 4.0)\, id 8577
+ s: Pisa Galileo Galilei\, Florence Peretola\nNo longer listed in the offic
+ ial register: probably called off\, check with the operator.\nStrikes can 
+ be called off or changed: always check with your operator.\nhttps://italy-
+ strikes-today.netlify.app/pisa/\nSource: MIT strike register (CC BY 4.0)\,
+  id 8577
 URL:https://italy-strikes-today.netlify.app/pisa/
 TRANSP:TRANSPARENT
-STATUS:CONFIRMED
+STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8590@italy-strikes-today.netlify.app
-DTSTAMP:20261010T191945Z
+DTSTAMP:20261012T131138Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National general strike
@@ -79,7 +81,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8592@italy-strikes-today.netlify.app
-DTSTAMP:20261010T191945Z
+DTSTAMP:20261012T131138Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National multi-sector strike
@@ -98,7 +100,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8571@italy-strikes-today.netlify.app
-DTSTAMP:20261010T191945Z
+DTSTAMP:20261012T131138Z
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National air transport strike – ENAV (air traffic control
@@ -114,7 +116,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8575@italy-strikes-today.netlify.app
-DTSTAMP:20261010T191945Z
+DTSTAMP:20261012T131138Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:Strike: National general strike
