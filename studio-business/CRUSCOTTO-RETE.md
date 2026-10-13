@@ -67,6 +67,13 @@ Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE)
 | Airalo (Impact) | **Respinto** ("non è il momento giusto", porta aperta) | 12/10/2026 | Ripresentare la domanda quando un sito supera 1.000 visite al mese, con i numeri |
 | Travelpayouts (Omio, Welcome Pickups, EKTA) | Account approvato, sito da verificare | 10/10/2026 | In pausa: la verifica chiede uno script con cookie di tracciamento, non compatibile con la privacy attuale senza banner dei cookie |
 
+## 7a. Idee in cantiere (si portano avanti ogni settimana)
+
+| Idea | Stato | Prossimo passo | Data |
+|---|---|---|---|
+| Sito "affari": case all'asta (Portale Vendite Pubbliche) con lo sconto rispetto ai valori OMI di zona; parte secondaria con annunci eBay via API ufficiale | Idea di Massimiliano del 13/10, promettente per le case | Test tecnico delle fonti, concorrenza e domanda | 14/10 ore 23:05 |
+| Zone a basse emissioni in Europa, richiami auto (NHTSA/Safety Gate), incentivi auto elettriche | Da valutare | Ricerca del mercoledì | 14/10 |
+
 ## 7b. Idee a pagamento in attesa (decisione di Massimiliano del 12/10: "da fare, adesso non è urgente")
 
 Si riprendono solo quando la soglia è raggiunta. Prima vengono i libri KDP già in coda con voto 9.

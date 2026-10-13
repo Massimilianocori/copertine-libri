@@ -54,6 +54,8 @@ Eccezione: un sito stagionale (per esempio Italy Strikes ha il picco a marzo) si
 - **Ogni mese**: si toglie o si congela almeno una cosa che non va (sito, sezione o idea), oppure si scrive perché non ce n'è nessuna. Si aggiungono 1-2 siti o sezioni dalla classifica (`intelaiatura/19-classifica-mondo.md`) e dalla ricerca del mercoledì.
 - **Ogni 3 mesi**: revisione della strategia con i numeri. Le stime di STRATEGIA sez. 6 si rifanno con i dati veri.
 
+**Regola di Massimiliano (13/10/2026):** "devi trovare sempre nuove idee e portare avanti quelle che sono già in cantiere". Ogni mercoledì si aggiorna la tabella "Idee in cantiere" del cruscotto: ogni idea fa un passo avanti oppure si chiude con il motivo, e se ne aggiunge almeno una nuova.
+
 ## 5. Il messaggio a Massimiliano (ogni settimana, 5-8 righe)
 1. Come va la rete in una frase (con un numero).
 2. Cosa va, cosa non va (un sito per riga, solo quelli con novità).
