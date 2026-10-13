@@ -33,6 +33,10 @@ Inviate 40 email: 5 agenzie "segnale" (Story Co, Informal, Mass FX Media, Social
 
 50 invii (primo giorno a tetto 50): 20 follow-up 1 (invii del 6/10) + 30 nuovi (6 agenzie segnale: Snowball, 321, Firebelly, Nen Creative, Plan Left, Force Media; 24 dalle code). 0 rimbalzi, 0 risposte vere. Apollo: 6 crediti per la coda segnale.
 
+## 13/10
+
+50 invii: 39 follow-up 1 Holiday Pack (invii del 7/10) + 11 nuovi (coda3). Rinviati 3 domini con un collega contattato il 12/10 e 1 dominio .ee non verificabile come USA. 1 rifiuto 550 5.7.1 (Selima Optique: il loro server blocca il nostro per blacklist swishmailbl; non indirizzo inesistente) → escluso. Risposte vere: 0.
+
 ## Crediti
 
 | Data | Higgsfield (piano Ultra) | Apollo lead credit (ciclo 3/10-3/11) |
