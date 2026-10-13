@@ -8,7 +8,7 @@
       <title>logoMit</title>
       <link>http://www.mit.gov.it</link>
     </image>
-    <pubDate>Mon, 12 Oct 2026 22:40:38 +0000</pubDate>
+    <pubDate>Tue, 13 Oct 2026 12:53:41 +0000</pubDate>
     <generator>Zend_Feed_Writer 2 (http://framework.zend.com)</generator>
     <link>http://www.mit.gov.it</link>
     <item>
@@ -172,6 +172,14 @@
       <slash:comments>0</slash:comments>
     </item>
     <item>
+      <title>Data inizio: 30/10/2026 - Settore: Aereo - Rilevanza: Regionale - Regione: Toscana - Provincia:  Tutte</title>
+      <description><![CDATA[modalità: 24 ORE: DALLE 00.00 ALLE 23.59<br/>Data fine: 30/10/2026<br/>Settore: Aereo<br/>Rilevanza: Regionale<br/>Regione: Toscana<br/>Provincia:  Tutte<br/>Sindacati: OSP USB LAVORO PRIVATO<br/>Categoria interessata: PERSONALE SOCC. TOSCANA AEROPORTI, GH TOSCANA E CONSULTA OPERANTI PRESSO GLI AEROPORTI DI PISA E FIRENZE<br/>Data proclamazione: 12/10/2026<br/>Data ricezione: 13/10/2026]]></description>
+      <pubDate>Thu, 29 Oct 2026 23:00:00 +0000</pubDate>
+      <link>http://scioperi.mit.gov.it</link>
+      <guid>http://scioperi.mit.gov.it/8601</guid>
+      <slash:comments>0</slash:comments>
+    </item>
+    <item>
       <title>Data inizio: 06/11/2026 - Settore: Aereo - Rilevanza: Interregionale - Regione:  Italia - Provincia: Tutte</title>
       <description><![CDATA[modalità: 4 ORE: DALLE 13.00 ALLE 17.00<br/>Data fine: 06/11/2026<br/>Settore: Aereo<br/>Rilevanza: Interregionale<br/>Regione:  Italia<br/>Provincia: Tutte<br/>Sindacati: RSA FAST-CONFSAL-AV<br/>Categoria interessata: PERSONALE SOC. ENAV APT BARI<br/>Data proclamazione: 07/09/2026<br/>Data ricezione: 07/09/2026]]></description>
       <pubDate>Thu, 05 Nov 2026 23:00:00 +0000</pubDate>
@@ -185,6 +193,14 @@
       <pubDate>Thu, 12 Nov 2026 23:00:00 +0000</pubDate>
       <link>http://scioperi.mit.gov.it</link>
       <guid>http://scioperi.mit.gov.it/8598</guid>
+      <slash:comments>0</slash:comments>
+    </item>
+    <item>
+      <title>Data inizio: 13/11/2026 - Settore: Trasporto pubblico locale - Rilevanza: Provinciale - Regione: Lombardia - Provincia:  Tutte</title>
+      <description><![CDATA[modalità: 24 ORE: VARIE MODALITA'<br/>Data fine: 13/11/2026<br/>Settore: Trasporto pubblico locale<br/>Rilevanza: Provinciale<br/>Regione: Lombardia<br/>Provincia:  Tutte<br/>Sindacati: AL-COBAS<br/>Categoria interessata: PERSONALE SOCC. GRUPPO ATM DI MILANO<br/>Data proclamazione: 13/10/2026<br/>Data ricezione: 13/10/2026]]></description>
+      <pubDate>Thu, 12 Nov 2026 23:00:00 +0000</pubDate>
+      <link>http://scioperi.mit.gov.it</link>
+      <guid>http://scioperi.mit.gov.it/8602</guid>
       <slash:comments>0</slash:comments>
     </item>
     <item>
