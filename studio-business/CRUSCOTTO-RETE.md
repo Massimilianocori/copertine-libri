@@ -26,6 +26,7 @@ Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE)
 | 12/10/2026 | EsameB1 | manca | **> 0 dal 9/10** (primo segnale: Google lo mostra già in alcune ricerche) | manca | nessun contatore | 0 | Email di Search Console dell'11/10 |
 | 12/10/2026 | EsameB1 | manca | manca | manca | nessun contatore | **1 (primo iscritto vero)**: arrivato da Google, città Genova | Netlify Forms + email di notifica |
 | 14/10/2026 | tutti | manca | manca | manca | nessun contatore | EsameB1 1, EsamiDiStato 0, Italy Strikes 0 (alerts, contact, business) | Netlify Forms; nessuna email nuova di Search Console o affiliati dal 12/10 |
+| 13-14/10/2026 (24 ore) | EsameB1 | manca | **70** (24 ore) | **4** (24 ore) | nessun contatore | 1 | Foto di Search Console di Massimiliano (15/10, 00:48): CTR 5,7%, posizione media 7,7 |
 
 ## 2b. Stima dei ricavi a 18 mesi (14/10/2026). Sono stime, non numeri: si rifanno con i dati veri.
 
@@ -108,6 +109,8 @@ Si riprendono solo quando la soglia è raggiunta. Prima vengono i libri KDP già
 | Dati scioperi per aziende (Italy Strikes "For businesses") | Abbonamento B2B | Italy Strikes ≥ 1.000 visite al mese o una richiesta vera dal modulo | Risposta del consulente fiscale |
 
 ## 8. Registro delle decisioni
+
+- 15/10/2026: primi numeri veri di EsameB1 da Search Console: 70 impressioni e 4 clic in 24 ore, posizione media 7,7 (prima pagina di Google), a 5 giorni dall'apertura. Di gran lunga sopra la soglia del primo segnale (300 impressioni al mese): EsameB1 resta il sito su cui spingere per primo.
 
 - 14/10/2026 sera: anche Tourist Tax, Visa Income e Before You Fly sono online con il nuovo aspetto. Il ramo di produzione su Netlify era già quello giusto: la pubblicazione era solo più lenta. Restyling completo su 5 siti; Italy Strikes esce il 17/10.
 
