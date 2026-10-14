@@ -3,7 +3,7 @@
 Aggiornato da Claude ogni mercoledì (routine "Ricerca settimanale") e quando arrivano numeri nuovi. Metodo e soglie: `.claude/skills/rete-siti/SKILL.md`.
 Regola: ogni numero ha data e fonte. Se un numero manca, si scrive "manca". Le stime non sono numeri.
 
-Ultimo aggiornamento: 12/10/2026.
+Ultimo aggiornamento: 14/10/2026 (revisione del mercoledì).
 
 ## 1. I siti
 
@@ -25,6 +25,7 @@ Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE)
 | 11/10/2026 | tutti | manca | manca | manca | nessun contatore | 0 | Netlify Forms (i 2 invii del 9/10 sono test) |
 | 12/10/2026 | EsameB1 | manca | **> 0 dal 9/10** (primo segnale: Google lo mostra già in alcune ricerche) | manca | nessun contatore | 0 | Email di Search Console dell'11/10 |
 | 12/10/2026 | EsameB1 | manca | manca | manca | nessun contatore | **1 (primo iscritto vero)**: arrivato da Google, città Genova | Netlify Forms + email di notifica |
+| 14/10/2026 | tutti | manca | manca | manca | nessun contatore | EsameB1 1, EsamiDiStato 0, Italy Strikes 0 (alerts, contact, business) | Netlify Forms; nessuna email nuova di Search Console o affiliati dal 12/10 |
 
 ## 3. Decisioni per sito
 
@@ -58,6 +59,7 @@ Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE)
 | Settimana | Azione | Perché (numero) | Stato |
 |---|---|---|---|
 | 14/10 | Attivare la misurazione (sez. 5) | Oggi 0 numeri su 6 siti: senza misura non si decide | In attesa dell'account di Massimiliano |
+| 21/10 | Primo sito con segnali (EsameB1): verificare dopo la pubblicazione del 15/10 che le pagine nuove (costo, risultati) siano lette da Google | Unico sito con un iscritto vero e impressioni dal 9/10 | Programmata |
 
 ## 7. Affiliazioni
 
@@ -85,6 +87,8 @@ Si riprendono solo quando la soglia è raggiunta. Prima vengono i libri KDP già
 | Dati scioperi per aziende (Italy Strikes "For businesses") | Abbonamento B2B | Italy Strikes ≥ 1.000 visite al mese o una richiesta vera dal modulo | Risposta del consulente fiscale |
 
 ## 8. Registro delle decisioni
+
+- 14/10/2026: revisione del mercoledì. 6 siti su 6 rispondono (home, sitemap, pagine campione 200). Registro scioperi aggiornato il 13/10 alle 22:43. Nessuna soglia raggiunta: tutti i siti in fase Avvio, decisioni invariate. La ricerca settimanale è spostata alle 23 di oggi, insieme al test delle fonti per il sito degli affari, per risparmiare crediti.
 
 - 12/10/2026: test di facilità per le app HubSpot (`saas/6-test-facilita-hubspot.md`) → **DIFFICILE**. Nessun gruppo di richieste supera la soglia; i primi utenti arrivano solo con messaggi privati, cioè vendita personale. In più, dal 19/8/2026 ogni utente deve usare davvero l'app ogni mese. L'idea resta chiusa.
 
