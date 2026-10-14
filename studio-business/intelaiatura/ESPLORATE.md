@@ -79,3 +79,17 @@ Legenda esiti: **FATTO** (sito o sezione online), **PASSA** (in lista per costru
 | Traffico a pagamento | solo test a tetto dopo AdSense | 12 |
 | Lavoro da fotografo (matrimoni, photo booth) | NO (decisione di Massimiliano 10/10) | 9 |
 | Sito "affari" (case all'asta + OMI) | in test da un altro agente: non toccare | CRUSCOTTO-RETE |
+
+## Mondo, dati ufficiali per pubblici che valgono (ricerca del 14/10/2026, notte, senza Italia)
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **Costo dell'assicurazione alluvioni per CAP, contea e zona (USA, FEMA NFIP)** | **PASSA** (voto 7,5; proposta di sito nuovo) | idee-mondo-2026-10-14 |
+| **Percentuali di visti respinti per nazionalità e destinazione (Schengen, UK, USA, Canada)** | **PASSA** (voto 7; proposta come sezione di Visa Income Checker) | idee-mondo-2026-10-14 |
+| **Codici FAFSA delle università (USA)** | **PASSA con riserva** (voto 6; solo se una delle due sopra passa i 45 giorni) | idee-mondo-2026-10-14 |
+| Attese al confine USA-Canada-Messico e alla dogana degli aeroporti | RISERVA (bordify.com già presente; pubblico che vale poco) | idee-mondo-2026-10-14 |
+| Aliquota Grundsteuer per Comune (Germania) | RISERVA (nessuna fonte unica aggiornata) | idee-mondo-2026-10-14 |
+| Costo dell'asilo nido per contea (USA), software Making Tax Digital (UK) | RISERVE deboli | idee-mondo-2026-10-14 |
+| Prestiti SBA per franchising e per banca | NO (peersense, franchiseinvestordata, gosbaloans) | idee-mondo-2026-10-14 |
+| Limiti dei mutui per contea, affitti HUD per CAP, diarie GSA, indennità BAH, salari Davis-Bacon, attese TSA | NO (siti automatici già primi) | idee-mondo-2026-10-14 |
+| Tassa comunale UK per fascia, promossi all'esame di guida UK, taxe foncière FR, Bodenrichtwert DE, valori WOZ/catastali/DVF | NO | idee-mondo-2026-10-14 |
+| Ritardi per numero di volo, NCLEX per scuola, premi ACA 2027, date dei pagamenti pubblici, titoli di Stato, salari H-1B, dazi HTS, sponsor di visti, IRCC/Express Entry, salute delle banche, HMDA, elettricità e internet per CAP | NO | idee-mondo-2026-10-14 |
