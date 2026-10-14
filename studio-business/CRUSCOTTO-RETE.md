@@ -27,6 +27,23 @@ Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE)
 | 12/10/2026 | EsameB1 | manca | manca | manca | nessun contatore | **1 (primo iscritto vero)**: arrivato da Google, città Genova | Netlify Forms + email di notifica |
 | 14/10/2026 | tutti | manca | manca | manca | nessun contatore | EsameB1 1, EsamiDiStato 0, Italy Strikes 0 (alerts, contact, business) | Netlify Forms; nessuna email nuova di Search Console o affiliati dal 12/10 |
 
+## 2b. Stima dei ricavi a 18 mesi (14/10/2026). Sono stime, non numeri: si rifanno con i dati veri.
+
+| Sito | Prudente €/anno | Ottimista €/anno | Fonte della stima |
+|---|---|---|---|
+| Italy Strikes (EN + IT + satelliti) | 2.500 | 11.000 | STRATEGIA sez. 6, classifica 19 |
+| Tourist Tax Calculator | 1.000 | 4.500 | classifica 19 |
+| Visa Income Checker | 600 | 3.000 | classifica 19 |
+| Before You Fly | 800 | 3.400 | classifica 19 (liquidi + passaporti) |
+| EsameB1 | 500 | 3.500 | studi EsameB1 (l'ottimista comprende i contatti per le scuole, dopo il cancello fiscale) |
+| EsamiDiStato | 500 | 2.500 | studi EsamiDiStato |
+| Case all'asta (da costruire) | 500 | 3.000 | affari-test-fonti (primo anno 0-1.000) |
+| Passi alpini (da testare) | 800 | 2.500 | ricerca-2026-10-14 |
+| **Totale se tutti funzionano** | **7.200** | **33.400** | |
+| **Realistico** (di solito metà dei siti passa) | **5.000** | **12.000** | |
+
+A 12 mesi: realistico 1.000-4.000 €. Cifre lorde, prima di tasse e contributi. Libri KDP esclusi.
+
 ## 3. Decisioni per sito
 
 | Sito | Prossimo controllo | Soglia di quel controllo | Decisione attuale |
