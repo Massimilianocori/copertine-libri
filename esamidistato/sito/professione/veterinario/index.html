@@ -22,16 +22,16 @@
 @font-face{font-family:"Source Serif 4";src:url("/fonts/source-serif-4.woff2") format("woff2");font-weight:200 900;font-style:normal;font-display:swap}
 :root{--bg:#F5F3EE;--surface:#FFFFFF;--surface-2:#EFECE4;--ink:#141C2B;--ink-2:#3A4456;--ink-3:#566070;--line:#E1DCD1;--line-2:#CDC6B8;
 --brand:#1B2F5B;--brand-2:#13234A;--on-brand:#FFFFFF;--brand-soft:#E6EBF5;--link:#24479A;--bord:#8C1D2F;--bord-soft:#F8E5E7;
---oro:#B08A36;--tile-tm:#E9C977;--warn:#8A4B00;--warn-soft:#FFF2DF;--focus:#B45309;--testata:#1B2F5B;--hero-a:#1B2F5B;--hero-b:#111F42;
+--oro:#B08A36;--oro-t:#8A6A22;--tile-tm:#E9C977;--warn:#8A4B00;--warn-soft:#FFF2DF;--focus:#B45309;--testata:#1B2F5B;--hero-a:#1B2F5B;--hero-b:#111F42;
 --serif:"Source Serif 4","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
 --r:12px;--r-l:18px;--ombra:0 1px 2px rgba(20,28,43,.05),0 6px 18px rgba(20,28,43,.06);color-scheme:light}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1220;--surface:#131B2C;--surface-2:#1A2337;--ink:#EDF0F6;--ink-2:#BEC7D7;--ink-3:#97A2B6;--line:#253049;--line-2:#34415E;
---brand:#A9C0F2;--brand-2:#C3D4F7;--on-brand:#0C1220;--brand-soft:#1B2946;--link:#A9C0F2;--bord:#FF9DAA;--bord-soft:#3A1820;
---oro:#D9B566;--tile-tm:#13234A;--warn:#FFB45E;--warn-soft:#33250F;--focus:#F2C46B;--testata:#0A1222;--hero-a:#17264B;--hero-b:#0E1833;
+--brand:#E9C977;--brand-2:#F2D88F;--on-brand:#0C1220;--brand-soft:#1B2946;--link:#A9C0F2;--bord:#FF9DAA;--bord-soft:#3A1820;
+--oro:#D9B566;--oro-t:#D9B566;--tile-tm:#13234A;--warn:#FFB45E;--warn-soft:#33250F;--focus:#F2C46B;--testata:#0A1222;--hero-a:#17264B;--hero-b:#0E1833;
 --ombra:0 1px 2px rgba(0,0,0,.35);color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#0C1220;--surface:#131B2C;--surface-2:#1A2337;--ink:#EDF0F6;--ink-2:#BEC7D7;--ink-3:#97A2B6;--line:#253049;--line-2:#34415E;
---brand:#A9C0F2;--brand-2:#C3D4F7;--on-brand:#0C1220;--brand-soft:#1B2946;--link:#A9C0F2;--bord:#FF9DAA;--bord-soft:#3A1820;
---oro:#D9B566;--tile-tm:#13234A;--warn:#FFB45E;--warn-soft:#33250F;--focus:#F2C46B;--testata:#0A1222;--hero-a:#17264B;--hero-b:#0E1833;
+--brand:#E9C977;--brand-2:#F2D88F;--on-brand:#0C1220;--brand-soft:#1B2946;--link:#A9C0F2;--bord:#FF9DAA;--bord-soft:#3A1820;
+--oro:#D9B566;--oro-t:#D9B566;--tile-tm:#13234A;--warn:#FFB45E;--warn-soft:#33250F;--focus:#F2C46B;--testata:#0A1222;--hero-a:#17264B;--hero-b:#0E1833;
 --ombra:0 1px 2px rgba(0,0,0,.35);color-scheme:dark}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -59,6 +59,8 @@ nav.menu a.nav-cta:hover{background:#F2D88F;color:#1B2F5B}
 @media (max-width:700px){.lungo{display:none}nav.menu a{padding:8px 5px;font-size:.92rem}header.top .wrap{gap:8px}
 nav.menu a.nav-cta{padding:0;width:40px;height:40px;justify-content:center;margin-left:4px}.logo{font-size:1.08rem;gap:7px}.marchio{width:30px;height:30px}}
 @media (max-width:420px){.logo{font-size:1rem;gap:6px}.marchio{width:28px;height:28px}nav.menu a{padding:8px 4px;font-size:.9rem}}
+@media (max-width:400px){nav.menu a.nav-date{display:none}}
+@media (max-width:640px){.occhiello .solo-largo{display:none}}
 @media (max-width:350px){.logo-testo{display:none}}
 /* titoli */
 h1,h2,h3,.serif{font-family:var(--serif)}
@@ -113,14 +115,14 @@ border-radius:10px;padding:12px 20px;min-height:48px;cursor:pointer;text-decorat
 background:var(--surface);color:var(--ink-2);margin:0 6px 6px 0;text-decoration:none;white-space:nowrap}
 a.badge:hover{border-color:var(--link);color:var(--link)}
 .badge.ente{background:var(--brand);border-color:var(--brand);color:var(--on-brand);font-weight:700;letter-spacing:.02em}
-/* filtri a chip (una riga scorrevole) */
-.chips{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;margin:4px 0 16px;padding:2px 2px 8px;scrollbar-width:thin;
--webkit-mask-image:linear-gradient(90deg,#000 92%,transparent);mask-image:linear-gradient(90deg,#000 92%,transparent)}
-.chips button{font:inherit;font-size:.9rem;font-weight:600;border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);
-padding:7px 14px;min-height:40px;border-radius:999px;cursor:pointer;white-space:nowrap;flex:none;transition:background .15s,border-color .15s}
-.chips button:hover{border-color:var(--link)}
-.chips button[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
-.chips button:last-child{margin-right:28px}
+/* filtro professione (menu a tendina, schema GOV.UK) */
+.filtro{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:4px 0 16px}
+.filtro label{font-weight:700;font-size:.95rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.filtro select{font:inherit;font-size:1rem;padding:10px 40px 10px 12px;min-height:46px;min-width:240px;max-width:100%;border:1.5px solid var(--line-2);border-radius:10px;
+background:var(--surface);color:var(--ink);cursor:pointer}
+.filtro select:focus{border-color:var(--link)}
+.esito{font-size:.92rem;color:var(--ink-3);font-weight:600}
+@media (max-width:640px){.filtro label{width:100%}.filtro select{width:100%;min-width:0}}
 /* sessioni */
 .sessioni{display:grid;gap:12px}
 .sess{display:grid;grid-template-columns:80px minmax(0,1fr);gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;
@@ -131,10 +133,20 @@ min-width:0;overflow-wrap:anywhere;box-shadow:var(--ombra)}
 .tile .ty{font-size:.74rem;opacity:.8}
 .sess .cosa{min-width:0}
 .sess .tags{display:flex;flex-wrap:wrap;margin-bottom:2px}
+.sess .tags .badge{margin:0 6px 6px 0}
+.sess .tags .badge.oltre{display:none}
+.sess.tutte .tags .badge.oltre,.sess.filtrata .tags .badge.oltre{display:inline-flex}
+.sess.tutte .tags .piu{display:none}
+.badge.piu{font:inherit;font-size:.8rem;font-weight:650;cursor:pointer;background:transparent;border-style:dashed;color:var(--link)}
+.badge.piu:hover{border-color:var(--link)}
+.sess .tags .badge[aria-current]{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
 .sess .chi{font-family:var(--serif);font-weight:650;font-size:1.12rem;line-height:1.3}
 .sess .giorno{font-size:.9rem;color:var(--ink-3);margin:2px 0 8px}
-.scad{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 8px;font-size:.94rem;color:var(--ink-2);padding:10px 12px;background:var(--surface-2);border-radius:10px;margin-top:8px}
+.scad{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 8px;font-size:.94rem;color:var(--ink-2);padding:9px 12px;background:var(--surface-2);border-radius:10px;margin-top:8px}
 .scad>.i{color:var(--ink-3);margin-top:3px}
+.scad .riga>span:first-child{margin-right:2px}
+.nota-comune{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;color:var(--ink-2);background:var(--surface-2);border-radius:10px;padding:10px 14px;margin:0 0 14px}
+.nota-comune .i{color:var(--oro);margin-top:3px}
 .scad .riga{min-width:0;display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
 .scad strong{color:var(--ink)}
 .scad.urgente strong{color:var(--bord)}
@@ -147,7 +159,7 @@ min-width:0;overflow-wrap:anywhere;box-shadow:var(--ombra)}
 /* griglie */
 .griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
 .griglia a{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-height:54px;
-text-decoration:none;color:var(--ink);font-weight:650;line-height:1.25;overflow-wrap:anywhere;transition:border-color .15s,background .15s}
+text-decoration:none;color:var(--ink);font-weight:650;line-height:1.25;overflow-wrap:normal;hyphens:auto;transition:border-color .15s,background .15s}
 .griglia a .i{color:var(--brand)}
 .griglia a small{display:block;font-weight:400;color:var(--ink-3);font-size:.82rem}
 .griglia a:hover{border-color:var(--link);background:var(--brand-soft)}
@@ -155,6 +167,16 @@ text-decoration:none;color:var(--ink);font-weight:650;line-height:1.25;overflow-
 .sedi{list-style:none;padding:0;margin:0;display:grid;gap:10px}
 .sedi li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0;overflow-wrap:anywhere}
 details .sedi li{background:var(--bg)}
+.regioni{columns:2;column-gap:32px;margin-top:10px}
+.regione{break-inside:avoid;margin:0 0 22px}
+.regione h3{font-family:inherit;font-size:.8rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:0 0 8px;
+display:flex;align-items:center;gap:8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.regione h3 span{font-weight:700;color:var(--oro-t)}
+.regione .sedi{gap:0}
+.regione .sedi li{background:none;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:10px 2px 12px}
+.regione .sedi li:last-child{border-bottom:0}
+.regione .sedi .fonte{margin-top:4px}
+@media (max-width:760px){.regioni{columns:1}}
 .sedi .nome{font-family:var(--serif);font-weight:650;font-size:1.05rem;display:flex;gap:8px;align-items:flex-start}
 .sedi .nome .i{color:var(--oro);margin-top:4px}
 .sedi .det{font-size:.92rem;color:var(--ink-2);margin-top:4px}
@@ -184,7 +206,7 @@ ol.passi li{counter-increment:p;display:grid;grid-template-columns:36px minmax(0
 ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--brand);color:var(--on-brand);font-family:var(--serif);font-weight:700}
 /* modulo */
 .modulo-testa{display:flex;gap:12px;align-items:flex-start}
-.modulo-testa .bolla{display:grid;place-items:center;width:44px;height:44px;border-radius:10px;background:var(--brand);color:#E9C977;flex:none}
+.modulo-testa .bolla{display:grid;place-items:center;width:44px;height:44px;border-radius:10px;background:var(--testata);color:#E9C977;flex:none;box-shadow:inset 0 0 0 1px rgba(233,201,119,.45)}
 .modulo-testa .bolla .i{width:22px;height:22px}
 .modulo-testa h2{margin:0;font-size:1.3rem}
 .form{display:grid;gap:14px;margin-top:14px}
@@ -200,12 +222,14 @@ ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32p
 .due{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:32px;align-items:start}
 .due>*{min-width:0}
 .due>section>h2:first-child,.due>aside>.card:first-child{margin-top:28px}
+@media (min-width:861px){.due>aside{position:sticky;top:16px;align-self:start}}
 .altre{display:flex;flex-wrap:wrap;gap:6px}
 .altre a{font-size:.9rem;padding:5px 11px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink-2);background:var(--surface)}
 .altre a:hover{border-color:var(--link);color:var(--link)}
 @media (max-width:860px){.due{grid-template-columns:1fr;gap:8px}.risposta{grid-template-columns:1fr}.risposta .slot+.slot{border-left:0;border-top:1px solid rgba(255,255,255,.14)}}
 @media (max-width:640px){body{font-size:16.5px}.lead{font-size:1.02rem}.hero{padding-top:22px}.card{padding:18px}.risposta .slot{padding:20px}.r-piede{padding:12px 20px 16px}.r-piede span{display:none}
 .sess{grid-template-columns:1fr;gap:10px;padding:16px}.tile{flex-direction:row;align-items:baseline;justify-self:start;gap:7px;padding:6px 12px}.tile .td{font-size:1.35rem;margin:0}
+.azioni .btn{flex:1 1 100%}
 .info dl{grid-template-columns:1fr}.info dd{border-top:0;padding-top:0}}
 /* piede */
 footer.piede{margin-top:64px;background:#101B36;color:#C3CCDF;padding:36px 0 44px;font-size:.9rem;border-top:2px solid #B08A36}
@@ -233,7 +257,7 @@ footer.piede .logo{color:#FFFFFF}
 <rect x="8.5" y="28.4" width="23" height="3.2" rx="1" fill="#F5F1E6"/>
 </svg><span class="logo-testo">EsamiDi<i>Stato</i></span></a>
 <nav class="menu" aria-label="Menu">
-<a href="../../#date">Date</a><a href="../../#professioni">Professioni</a><a href="../../#citta">Città</a><a class="lungo" href="../../come-funziona/">Come funziona</a><a class="nav-cta" href="#avvisami" aria-label="Avvisami"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-campana"/></svg><span class="lungo">Avvisami</span></a>
+<a class="nav-date" href="../../#date">Date</a><a href="../../#professioni">Professioni</a><a href="../../#citta">Città</a><a class="lungo" href="../../come-funziona/">Come funziona</a><a class="nav-cta" href="#avvisami" aria-label="Avvisami"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-campana"/></svg><span class="lungo">Avvisami</span></a>
 </nav>
 </div></header>
 <main class="wrap" id="contenuto">
@@ -246,12 +270,12 @@ L'esame si può fare in 13 sedi in Italia.</p>
 <div class="slot" data-slot><div class="r-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Ultimo giorno per la domanda</div><div data-fino="2026-10-21">
 <div class="r-data">21 ottobre <small>2026</small></div>
 <div class="r-cosa">Domande per la <strong>seconda sessione 2026</strong></div>
-<p style="margin:14px 0 0"><span class="conta urg" data-conta="2026-10-21" data-modo="scad">mancano 10 giorni</span></p>
+<p style="margin:14px 0 0"><span class="conta urg" data-conta="2026-10-21" data-modo="scad">mancano 7 giorni</span></p>
 </div><p data-riserva class="r-nota" hidden>Nessuna domanda aperta adesso. Le date 2027 escono di solito in primavera con le nuove ordinanze.</p></div>
 <div class="slot" data-slot><div class="r-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossimo esame</div><div data-fino="2026-11-16">
 <div class="r-data">16 novembre <small>2026</small></div>
 <div class="r-cosa">lunedì · Seconda sessione 2026<br>Tutti i candidati</div>
-<p style="margin:14px 0 0"><span class="conta" data-conta="2026-11-16" data-modo="esame">tra 36 giorni</span></p>
+<p style="margin:14px 0 0"><span class="conta" data-conta="2026-11-16" data-modo="esame">tra 33 giorni</span></p>
 </div><p data-riserva class="r-nota" hidden>Le date del prossimo anno non sono ancora uscite.</p></div>
 <div class="r-piede"><a href="#date">Tutte le date <svg class="i" aria-hidden="true" focusable="false"><use href="#i-freccia"/></svg></a><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg>Le date valgono in tutta Italia: il bando della sede può chiedere passaggi prima.</span></div>
 </div>
@@ -261,59 +285,19 @@ L'esame si può fare in 13 sedi in Italia.</p>
 <div class="due">
 <section>
 <h2 id="date"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Date veterinario 2026</h2>
-<div class="sessioni"><article class="sess" data-data="2026-11-16" data-prof="farmacista odontoiatra veterinario fisico tecnologo-alimentare">
+<div data-elenco><p class="nota-comune"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg><span>Termine dell&#x27;ordinanza per consegnare la domanda all&#x27;università. Il bando dell&#x27;ateneo può chiedere passaggi online prima: controllalo.</span></p><div class="sessioni"><article class="sess" data-data="2026-11-16" data-prof="farmacista odontoiatra veterinario fisico tecnologo-alimentare">
 <div class="tile" aria-hidden="true"><span class="tm">nov</span><span class="td">16</span><span class="ty">2026</span></div>
-<div class="cosa"><div class="tags"><span class="badge ente">Seconda sessione 2026</span><a class="badge" href="../../professione/veterinario/">Veterinario</a></div>
+<div class="cosa"><div class="tags"><a class="badge" data-p="veterinario" href="../../professione/veterinario/">Veterinario</a></div>
 <div class="chi">Tutti i candidati</div>
-<div class="giorno"><time datetime="2026-11-16">lunedì 16 novembre 2026</time> · inizio esame</div>
+<div class="giorno"><time datetime="2026-11-16">lunedì 16 novembre 2026</time> · inizio esame · Seconda sessione 2026</div>
 
-<div class="scad" data-scadenza="2026-10-21"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga"><span>Domande entro il <strong>21 ottobre 2026</strong></span><span class="stato conta"></span></div><span class="nota">Termine dell&#x27;ordinanza per consegnare la domanda all&#x27;università. Il bando dell&#x27;ateneo può chiedere passaggi online prima: controllalo.</span></div>
+<div class="scad" data-scadenza="2026-10-21"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga"><span>Domande entro il <strong>21 ottobre 2026</strong></span><span class="stato conta"></span></div></div>
 <div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">atto ufficiale (Ministero dell&#x27;Università e della Ricerca)</a>, art. 3 e 6 dell&#x27;OM 693/2026 · controllato il 9 ottobre 2026</span></div>
 </div>
-</article></div><p data-vuoto hidden>Nessuna data futura pubblicata al momento. Le date 2027 escono di solito in primavera con le nuove ordinanze: controlliamo le fonti ufficiali ogni settimana. <a href="#avvisami">Avvisami</a>.</p>
+</article></div><p data-vuoto hidden>Nessuna data futura pubblicata al momento. Le date 2027 escono di solito in primavera con le nuove ordinanze: controlliamo le fonti ufficiali ogni settimana. <a href="#avvisami">Avvisami</a>.</p></div>
 <p class="small">Già svolta: prima sessione 2026, iniziata il 27 luglio 2026.</p>
 <p class="small">Date 2027: non ancora pubblicate (controllato il 9 ottobre 2026).</p>
 <section class="card info"><h2 style="margin-top:0"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-lista"/></svg>In breve</h2><dl><dt><svg class="i" aria-hidden="true" focusable="false"><use href="#i-persone"/></svg>Come è organizzato</dt><dd>Una sola data di inizio per tutti i candidati.</dd><dt><svg class="i" aria-hidden="true" focusable="false"><use href="#i-invia"/></svg>Come fare la domanda</dt><dd>Alla segreteria dell&#x27;università dove vuoi fare l&#x27;esame. Puoi scegliere una sola sede tra quelle dell&#x27;elenco.</dd><dt><svg class="i" aria-hidden="true" focusable="false"><use href="#i-euro"/></svg>Quanto costa</dt><dd>Tassa di ammissione di 49,58 € (art. 3 dell&#x27;ordinanza) più il contributo che decide ogni ateneo: l&#x27;importo lo trovi nel bando della tua sede.</dd><dt><svg class="i" aria-hidden="true" focusable="false"><use href="#i-lingue"/></svg>Esame in tedesco</dt><dd>Per i cittadini UE residenti in Italia che vogliono l&#x27;esame in lingua tedesca: sede di Bologna.</dd><dt><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg>Da sapere</dt><dd>Esame di Stato in «modalità semplificata» (art. 7 dell&#x27;ordinanza).</dd><dt><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg>Atto ufficiale</dt><dd><a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">OM 693/2026 (27 maggio 2026)</a> · <a href="https://www.mur.gov.it/it/aree-tematiche/universita/professioni/esami-di-stato" rel="noopener">pagina ufficiale</a></dd></dl></section>
-<h2 id="sedi"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg>Dove si fa l'esame: 13 università</h2><p class="small">Elenco della tabella allegata all'ordinanza, con la città indicata lì. Apri la regione per vedere le sedi.</p><details><summary>Abruzzo (1)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Teramo</span></div>
-<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Teramo (TE) · Abruzzo</div>
-<div class="collegamenti"><a href="https://www.unite.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
-<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · controllato il 9 ottobre 2026</span></div></li></ul></details><details><summary>Campania (1)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Napoli “Federico II”</span></div>
-<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Napoli (NA) · Campania</div>
-<div class="collegamenti"><a href="https://www.unina.it/it/w/esami-di-stato-seconda-sessione" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg>pagina esami di Stato</a><a href="https://www.unina.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
-<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · controllato il 9 ottobre 2026</span></div></li></ul></details><details><summary>Emilia-Romagna (2)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Bologna “Alma Mater Studiorum”</span></div>
-<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Bologna (BO) · Emilia-Romagna</div>
-<div class="collegamenti"><a href="https://www.unibo.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
-<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · controllato il 9 ottobre 2026</span></div></li><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Parma</span></div>
-<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Parma (PR) · Emilia-Romagna</div>
-<div class="collegamenti"><a href="https://www.unipr.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
-<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · controllato il 9 ottobre 2026</span></div></li></ul></details><details><summary>Lombardia (1)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Milano</span></div>
-<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Lodi (LO) · Lombardia</div>
-<div class="collegamenti"><a href="https://www.unimi.it/it/corsi/esami-di-stato" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg>pagina esami di Stato</a><a href="https://www.unimi.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
-<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · controllato il 9 ottobre 2026</span></div></li></ul></details><details><summary>Marche (1)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università di Camerino</span></div>
-<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Camerino (MC) · Marche</div>
-<div class="collegamenti"><a href="https://www.unicam.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
-<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · controllato il 9 ottobre 2026</span></div></li></ul></details><details><summary>Piemonte (1)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Torino</span></div>
-<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Torino (TO) · Piemonte</div>
-<div class="collegamenti"><a href="https://www.unito.it/didattica/esami-di-stato" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg>pagina esami di Stato</a><a href="https://www.unito.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
-<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · controllato il 9 ottobre 2026</span></div></li></ul></details><details><summary>Puglia (1)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Bari “Aldo Moro”</span></div>
-<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Bari (BA) · Puglia</div>
-<div class="collegamenti"><a href="https://www.uniba.it/it/didattica/esami-di-stato" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg>pagina esami di Stato</a><a href="https://www.uniba.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
-<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · controllato il 9 ottobre 2026</span></div></li></ul></details><details><summary>Sardegna (1)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Sassari</span></div>
-<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Sassari (SS) · Sardegna</div>
-<div class="collegamenti"><a href="https://www.uniss.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
-<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · controllato il 9 ottobre 2026</span></div></li></ul></details><details><summary>Sicilia (1)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Messina</span></div>
-<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Messina (ME) · Sicilia</div>
-<div class="collegamenti"><a href="https://www.unime.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
-<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · controllato il 9 ottobre 2026</span></div></li></ul></details><details><summary>Toscana (1)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università di Pisa</span></div>
-<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Pisa (PI) · Toscana</div>
-<div class="collegamenti"><a href="https://www.unipi.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
-<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · controllato il 9 ottobre 2026</span></div></li></ul></details><details><summary>Umbria (1)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Perugia</span></div>
-<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Perugia (PG) · Umbria</div>
-<div class="collegamenti"><a href="https://www.unipg.it/didattica/percorsi-post-laurea/esami-di-stato" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg>pagina esami di Stato</a><a href="https://www.unipg.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
-<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · controllato il 9 ottobre 2026</span></div></li></ul></details><details><summary>Veneto (1)<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Padova</span></div>
-<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Padova (PD) · Veneto</div>
-<div class="collegamenti"><a href="https://www.unipd.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
-<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20694%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20692%20del%2027-05-2026.pdf" rel="noopener">ordinanza</a> · controllato il 9 ottobre 2026</span></div></li></ul></details>
 </section>
 <aside>
 <section class="card" id="avvisami">
@@ -336,9 +320,51 @@ L'esame si può fare in 13 sedi in Italia.</p>
 </form>
 <div class="ok" data-ok hidden><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg><span><strong>Fatto!</strong> Ti scriveremo quando ci sono novità per la tua professione.</span></div>
 </section>
-<section><h2><svg class="i" aria-hidden="true" focusable="false"><use href="#i-laurea"/></svg>Altre professioni</h2><div class="altre"><a href="../agronomo/">Agronomo e forestale</a><a href="../agrotecnico/">Agrotecnico</a><a href="../architetto/">Architetto</a><a href="../assistente-sociale/">Assistente sociale</a><a href="../attuario/">Attuario</a><a href="../avvocato/">Avvocato</a><a href="../biologo/">Biologo</a><a href="../chimico/">Chimico</a><a href="../commercialista/">Commercialista ed esperto contabile</a><a href="../farmacista/">Farmacista</a><a href="../fisico/">Fisico</a><a href="../geologo/">Geologo</a><a href="../geometra/">Geometra</a><a href="../ingegnere/">Ingegnere</a><a href="../odontoiatra/">Odontoiatra</a><a href="../perito-agrario/">Perito agrario</a><a href="../psicologo/">Psicologo</a><a href="../tecnologo-alimentare/">Tecnologo alimentare</a></div></section>
 </aside>
 </div>
+<section>
+<h2 id="sedi"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg>Dove si fa l'esame: 13 università</h2><p class="small">Elenco della tabella allegata all'ordinanza, con la città indicata lì. Sedi divise per regione.</p><div class="regioni"><div class="regione"><h3>Abruzzo <span>1</span></h3><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Teramo</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Teramo (TE) · Abruzzo</div>
+<div class="collegamenti"><a href="https://www.unite.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">OM 693/2026</a> · controllato il 14 ottobre 2026</span></div></li></ul></div><div class="regione"><h3>Campania <span>1</span></h3><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Napoli “Federico II”</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Napoli (NA) · Campania</div>
+<div class="collegamenti"><a href="https://www.unina.it/it/w/esami-di-stato-seconda-sessione" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg>pagina esami di Stato</a><a href="https://www.unina.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">OM 693/2026</a> · controllato il 14 ottobre 2026</span></div></li></ul></div><div class="regione"><h3>Emilia-Romagna <span>2</span></h3><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Bologna “Alma Mater Studiorum”</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Bologna (BO) · Emilia-Romagna</div>
+<div class="collegamenti"><a href="https://www.unibo.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">OM 693/2026</a> · controllato il 14 ottobre 2026</span></div></li><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Parma</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Parma (PR) · Emilia-Romagna</div>
+<div class="collegamenti"><a href="https://www.unipr.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">OM 693/2026</a> · controllato il 14 ottobre 2026</span></div></li></ul></div><div class="regione"><h3>Lombardia <span>1</span></h3><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Milano</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Lodi (LO) · Lombardia</div>
+<div class="collegamenti"><a href="https://www.unimi.it/it/corsi/esami-di-stato" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg>pagina esami di Stato</a><a href="https://www.unimi.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">OM 693/2026</a> · controllato il 14 ottobre 2026</span></div></li></ul></div><div class="regione"><h3>Marche <span>1</span></h3><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università di Camerino</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Camerino (MC) · Marche</div>
+<div class="collegamenti"><a href="https://www.unicam.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">OM 693/2026</a> · controllato il 14 ottobre 2026</span></div></li></ul></div><div class="regione"><h3>Piemonte <span>1</span></h3><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Torino</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Torino (TO) · Piemonte</div>
+<div class="collegamenti"><a href="https://www.unito.it/didattica/esami-di-stato" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg>pagina esami di Stato</a><a href="https://www.unito.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">OM 693/2026</a> · controllato il 14 ottobre 2026</span></div></li></ul></div><div class="regione"><h3>Puglia <span>1</span></h3><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Bari “Aldo Moro”</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Bari (BA) · Puglia</div>
+<div class="collegamenti"><a href="https://www.uniba.it/it/didattica/esami-di-stato" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg>pagina esami di Stato</a><a href="https://www.uniba.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">OM 693/2026</a> · controllato il 14 ottobre 2026</span></div></li></ul></div><div class="regione"><h3>Sardegna <span>1</span></h3><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Sassari</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Sassari (SS) · Sardegna</div>
+<div class="collegamenti"><a href="https://www.uniss.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">OM 693/2026</a> · controllato il 14 ottobre 2026</span></div></li></ul></div><div class="regione"><h3>Sicilia <span>1</span></h3><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Messina</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Messina (ME) · Sicilia</div>
+<div class="collegamenti"><a href="https://www.unime.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">OM 693/2026</a> · controllato il 14 ottobre 2026</span></div></li></ul></div><div class="regione"><h3>Toscana <span>1</span></h3><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università di Pisa</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Pisa (PI) · Toscana</div>
+<div class="collegamenti"><a href="https://www.unipi.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">OM 693/2026</a> · controllato il 14 ottobre 2026</span></div></li></ul></div><div class="regione"><h3>Umbria <span>1</span></h3><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Perugia</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Perugia (PG) · Umbria</div>
+<div class="collegamenti"><a href="https://www.unipg.it/didattica/percorsi-post-laurea/esami-di-stato" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg>pagina esami di Stato</a><a href="https://www.unipg.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">OM 693/2026</a> · controllato il 14 ottobre 2026</span></div></li></ul></div><div class="regione"><h3>Veneto <span>1</span></h3><ul class="sedi"><li><div class="nome"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Università degli Studi di Padova</span></div>
+<div class="det"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg> Padova (PD) · Veneto</div>
+<div class="collegamenti"><a href="https://www.unipd.it/" rel="noopener"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg>sito ufficiale</a></div>
+<div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://www.mur.gov.it/sites/default/files/2026-05/Ordinanza%20Ministeriale%20n.%20693%20del%2027-05-2026.pdf" rel="noopener">OM 693/2026</a> · controllato il 14 ottobre 2026</span></div></li></ul></div></div>
+</section>
+<section><h2><svg class="i" aria-hidden="true" focusable="false"><use href="#i-laurea"/></svg>Altre professioni</h2><div class="altre"><a href="../agronomo/">Agronomo e forestale</a><a href="../agrotecnico/">Agrotecnico</a><a href="../architetto/">Architetto</a><a href="../assistente-sociale/">Assistente sociale</a><a href="../attuario/">Attuario</a><a href="../avvocato/">Avvocato</a><a href="../biologo/">Biologo</a><a href="../chimico/">Chimico</a><a href="../commercialista/">Commercialista ed esperto contabile</a><a href="../farmacista/">Farmacista</a><a href="../fisico/">Fisico</a><a href="../geologo/">Geologo</a><a href="../geometra/">Geometra</a><a href="../ingegnere/">Ingegnere</a><a href="../odontoiatra/">Odontoiatra</a><a href="../perito-agrario/">Perito agrario</a><a href="../psicologo/">Psicologo</a><a href="../tecnologo-alimentare/">Tecnologo alimentare</a></div></section>
 </main>
 <footer class="piede"><div class="wrap">
 <div class="piede-griglia">
@@ -358,7 +384,7 @@ L'esame si può fare in 13 sedi in Italia.</p>
 al Ministero della Giustizia, alle università né agli Ordini professionali. I nomi delle università e degli enti appartengono ai rispettivi titolari.
 Le informazioni vengono dalle fonti ufficiali indicate accanto a ogni dato. <strong>Prima di fare la domanda leggi sempre il bando della tua sede.</strong>
 Questo sito non dà consulenza: per i casi particolari chiedi alla segreteria esami di Stato della tua università o al tuo Ordine.</p>
-<p><span class="dati"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-scudo"/></svg>Dati controllati il 9 ottobre 2026.</span> · <a href="../../privacy.html">Privacy</a> · <a href="../../come-funziona/">Come funziona</a></p>
+<p><span class="dati"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-scudo"/></svg>Dati controllati il 14 ottobre 2026.</span></p>
 </div>
 </div>
 </div></footer>
@@ -395,14 +421,25 @@ Questo sito non dà consulenza: per i casi particolari chiedi alla segreteria es
     var r=slot.querySelector('[data-riserva]');if(r)r.hidden=vista;
   });
   document.querySelectorAll('[data-conta]').forEach(function(el){var g=giorni(el.dataset.conta);if(g>=0)conta(el,g,el.dataset.modo);});
-  var bott=document.querySelectorAll('.chips button');
-  bott.forEach(function(b){b.addEventListener('click',function(){
-    bott.forEach(function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');
-    var f=b.dataset.filtro;
-    document.querySelectorAll('.sess').forEach(function(el){
-      el.hidden=!(f===''||(' '+el.dataset.prof+' ').indexOf(' '+f+' ')>=0);
-    });
+  document.querySelectorAll('.badge.piu').forEach(function(b){b.addEventListener('click',function(){
+    var s=b.closest('.sess');s.classList.add('tutte');var a=s.querySelector('.badge.oltre');if(a)a.focus();
   });});
+  document.querySelectorAll('select.filtro-prof').forEach(function(sel){
+    var box=sel.closest('[data-elenco]'),esito=box.querySelector('.esito');
+    sel.addEventListener('change',function(){
+      var f=sel.value,n=0,nome=sel.options[sel.selectedIndex].text;
+      box.querySelectorAll('.sess').forEach(function(el){
+        var ok=f===''||(' '+el.dataset.prof+' ').indexOf(' '+f+' ')>=0;el.hidden=!ok;if(ok)n++;
+        el.classList.toggle('filtrata',!!f);
+        el.querySelectorAll('.tags .badge[data-p]').forEach(function(a){
+          if(a.dataset.p===f){a.setAttribute('aria-current','true');}else{a.removeAttribute('aria-current');}
+          a.hidden=!!f&&a.dataset.p!==f;
+        });
+        var piu=el.querySelector('.badge.piu');if(piu)piu.hidden=!!f;
+      });
+      if(esito)esito.textContent=f?(n+(n===1?' data per ':' date per ')+nome):'';
+    });
+  });
   var src=document.querySelectorAll('input[name=source]');
   var v='';try{var q=new URLSearchParams(location.search);v=q.get('ref')||q.get('utm_source')||document.referrer||'diretto';}catch(e){v='diretto';}
   src.forEach(function(i){i.value=String(v).slice(0,200);});
