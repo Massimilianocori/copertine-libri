@@ -20,6 +20,8 @@ Cosa scrivere nel modulo (in inglese, puoi incollare):
 **Regola**: il sito "Retire / Move to Italy" si costruisce solo con la cifra scritta e solo se la commissione è **≥ 150 € per cliente**. Sotto, o senza risposta, non si costruisce.
 
 ## 3. Domanda fiscale gratuita (15 minuti) — da fare al primo pagamento in arrivo da AdSense/affiliati (la guida PDF è in pausa per decisione di Massimiliano del 10/10/2026; la domanda 3 serve solo se si vorrà riaprirla)
+
+**Aggiornamento 14/10/2026:** Etsy ha chiesto l'iscrizione alla Camera di Commercio e Massimiliano ha messo il negozio PressedHeart in vacanza. Lo stesso dubbio vale per AdSense e affiliati (domanda 1). **Conviene fare la consulenza adesso**, prima che arrivino i primi incassi dai siti, non al primo pagamento.
 Dove: **Fiscozen** https://www.fiscozen.it/ (pulsante "Consulenza gratuita" / "Parla con un esperto") oppure **Flextax** https://flextax.it/ (contatto o chat). Chiedi la risposta **per iscritto** (email o chat), non solo a voce.
 Testo da incollare:
 > Ho una partita IVA in regime forfettario come fotografo (codice ATECO 74.20.19), iscritto alla Gestione Separata INPS, senza iscrizione alla Camera di Commercio. Ho quattro domande.
