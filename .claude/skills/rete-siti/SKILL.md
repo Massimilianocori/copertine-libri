@@ -54,6 +54,8 @@ Eccezione: un sito stagionale (per esempio Italy Strikes ha il picco a marzo) si
 - **Ogni mese**: si toglie o si congela almeno una cosa che non va (sito, sezione o idea), oppure si scrive perché non ce n'è nessuna. Si aggiungono 1-2 siti o sezioni dalla classifica (`intelaiatura/19-classifica-mondo.md`) e dalla ricerca del mercoledì.
 - **Ogni 3 mesi**: revisione della strategia con i numeri. Le stime di STRATEGIA sez. 6 si rifanno con i dati veri.
 
+**Regola di Massimiliano (14/10/2026): "le idee valgono in tutto il mondo, non solo in Italia" e non deve chiedermele lui.** Le idee nuove si cercano da soli, senza aspettare richieste, ogni giorno (routine serale), in tutto il mondo: prima USA, Regno Unito, Canada, Australia e Europa, poi il resto. L'Italia è solo uno dei Paesi. Ogni idea che passa i controlli entra nella tabella "Idee in cantiere" e gli si scrive solo per le decisioni sì/no.
+
 **Regola di Massimiliano (13/10/2026):** "devi trovare sempre nuove idee e portare avanti quelle che sono già in cantiere". Ogni mercoledì si aggiorna la tabella "Idee in cantiere" del cruscotto: ogni idea fa un passo avanti oppure si chiude con il motivo, e se ne aggiunge almeno una nuova.
 
 ## 5. Il messaggio a Massimiliano (ogni settimana, 5-8 righe)
