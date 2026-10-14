@@ -27,6 +27,11 @@ Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE)
 | 12/10/2026 | EsameB1 | manca | manca | manca | nessun contatore | **1 (primo iscritto vero)**: arrivato da Google, città Genova | Netlify Forms + email di notifica |
 | 14/10/2026 | tutti | manca | manca | manca | nessun contatore | EsameB1 1, EsamiDiStato 0, Italy Strikes 0 (alerts, contact, business) | Netlify Forms; nessuna email nuova di Search Console o affiliati dal 12/10 |
 | 13-14/10/2026 (24 ore) | EsameB1 | manca | **70** (24 ore) | **4** (24 ore) | nessun contatore | 1 | Foto di Search Console di Massimiliano (15/10, 00:48): CTR 5,7%, posizione media 7,7 |
+| fino al 12/10/2026 (28 gg) | EsamiDiStato | manca | 0 | 0 | nessun contatore | 0 | Foto Search Console 15/10 |
+| fino al 12/10/2026 (28 gg) | Before You Fly | manca | 1 (pos. 5) | 0 | nessun contatore | – | Foto Search Console 15/10 |
+| fino al 12/10/2026 (28 gg) | Visa Income Checker | manca | 2 (pos. 9,5) | 0 | nessun contatore | – | Foto Search Console 15/10 |
+| fino al 12/10/2026 (28 gg) | Tourist Tax Calculator | manca | 0 | 0 | nessun contatore | – | Foto Search Console 15/10 |
+| 15/10/2026 | EsameB1 | – | – | – | – | – | Query viste: "esame b1 italiano per cittadinanza modena", "risultati esami cils b1 cittadinanza 2026", "b1 milano" → aggiunte 56 pagine città (77 in tutto) |
 
 ## 2b. Stima dei ricavi a 18 mesi (14/10/2026). Sono stime, non numeri: si rifanno con i dati veri.
 
