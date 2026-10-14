@@ -230,6 +230,9 @@ ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32p
 .altre{display:flex;flex-wrap:wrap;gap:6px}
 .altre a{font-size:.9rem;padding:5px 11px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink-2);background:var(--surface)}
 .altre a:hover{border-color:var(--brand);color:var(--brand-ink)}
+.regioni{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:16px 28px;margin:6px 0 14px}
+.regioni>div{min-width:0}
+.regioni h4{margin:0 0 6px;font-size:.92rem;font-weight:750;color:var(--ink-2)}
 /* piede */
 footer.piede{margin-top:64px;background:#13201E;color:#C4D2CD;padding:36px 0 44px;font-size:.9rem}
 footer.piede::before{content:"";display:block;height:4px;margin-top:-36px;margin-bottom:32px;background:linear-gradient(90deg,#0B6B4F 0 33.3%,#F4F1EA 33.3% 66.6%,#C8402A 66.6%)}

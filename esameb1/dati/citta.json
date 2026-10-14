@@ -103,5 +103,285 @@
   "nome": "Ravenna",
   "slug": "ravenna",
   "provincia": "Ravenna"
+ },
+ {
+  "nome": "Vicenza",
+  "slug": "vicenza",
+  "provincia": "Vicenza"
+ },
+ {
+  "nome": "Salerno",
+  "slug": "salerno",
+  "provincia": "Salerno"
+ },
+ {
+  "nome": "Macerata",
+  "slug": "macerata",
+  "provincia": "Macerata"
+ },
+ {
+  "nome": "Varese",
+  "slug": "varese",
+  "provincia": "Varese"
+ },
+ {
+  "nome": "Lecce",
+  "slug": "lecce",
+  "provincia": "Lecce"
+ },
+ {
+  "nome": "Livorno",
+  "slug": "livorno",
+  "provincia": "Livorno"
+ },
+ {
+  "nome": "Monza",
+  "slug": "monza",
+  "provincia": "Monza e della Brianza"
+ },
+ {
+  "nome": "Lucca",
+  "slug": "lucca",
+  "provincia": "Lucca"
+ },
+ {
+  "nome": "Pisa",
+  "slug": "pisa",
+  "provincia": "Pisa"
+ },
+ {
+  "nome": "Udine",
+  "slug": "udine",
+  "provincia": "Udine"
+ },
+ {
+  "nome": "Pavia",
+  "slug": "pavia",
+  "provincia": "Pavia"
+ },
+ {
+  "nome": "Ancona",
+  "slug": "ancona",
+  "provincia": "Ancona"
+ },
+ {
+  "nome": "Pesaro",
+  "slug": "pesaro",
+  "provincia": "Pesaro e Urbino"
+ },
+ {
+  "nome": "Cuneo",
+  "slug": "cuneo",
+  "provincia": "Cuneo"
+ },
+ {
+  "nome": "Potenza",
+  "slug": "potenza",
+  "provincia": "Potenza"
+ },
+ {
+  "nome": "Cosenza",
+  "slug": "cosenza",
+  "provincia": "Cosenza"
+ },
+ {
+  "nome": "Foggia",
+  "slug": "foggia",
+  "provincia": "Foggia"
+ },
+ {
+  "nome": "Siena",
+  "slug": "siena",
+  "provincia": "Siena"
+ },
+ {
+  "nome": "Bolzano",
+  "slug": "bolzano",
+  "provincia": "Bolzano/Bozen"
+ },
+ {
+  "nome": "Treviso",
+  "slug": "treviso",
+  "provincia": "Treviso"
+ },
+ {
+  "nome": "Reggio Calabria",
+  "slug": "reggio-calabria",
+  "provincia": "Reggio Calabria"
+ },
+ {
+  "nome": "Frosinone",
+  "slug": "frosinone",
+  "provincia": "Frosinone"
+ },
+ {
+  "nome": "Cremona",
+  "slug": "cremona",
+  "provincia": "Cremona"
+ },
+ {
+  "nome": "Brindisi",
+  "slug": "brindisi",
+  "provincia": "Brindisi"
+ },
+ {
+  "nome": "Taranto",
+  "slug": "taranto",
+  "provincia": "Taranto"
+ },
+ {
+  "nome": "Ragusa",
+  "slug": "ragusa",
+  "provincia": "Ragusa"
+ },
+ {
+  "nome": "Trapani",
+  "slug": "trapani",
+  "provincia": "Trapani"
+ },
+ {
+  "nome": "Massa",
+  "slug": "massa",
+  "provincia": "Massa-Carrara"
+ },
+ {
+  "nome": "Caserta",
+  "slug": "caserta",
+  "provincia": "Caserta"
+ },
+ {
+  "nome": "Forlì",
+  "slug": "forli",
+  "provincia": "Forlì-Cesena"
+ },
+ {
+  "nome": "Piacenza",
+  "slug": "piacenza",
+  "provincia": "Piacenza"
+ },
+ {
+  "nome": "Rimini",
+  "slug": "rimini",
+  "provincia": "Rimini"
+ },
+ {
+  "nome": "Trieste",
+  "slug": "trieste",
+  "provincia": "Trieste"
+ },
+ {
+  "nome": "Viterbo",
+  "slug": "viterbo",
+  "provincia": "Viterbo"
+ },
+ {
+  "nome": "La Spezia",
+  "slug": "la-spezia",
+  "provincia": "La Spezia"
+ },
+ {
+  "nome": "Como",
+  "slug": "como",
+  "provincia": "Como"
+ },
+ {
+  "nome": "Lecco",
+  "slug": "lecco",
+  "provincia": "Lecco"
+ },
+ {
+  "nome": "Ascoli Piceno",
+  "slug": "ascoli-piceno",
+  "provincia": "Ascoli Piceno"
+ },
+ {
+  "nome": "Alessandria",
+  "slug": "alessandria",
+  "provincia": "Alessandria"
+ },
+ {
+  "nome": "Cagliari",
+  "slug": "cagliari",
+  "provincia": "Cagliari"
+ },
+ {
+  "nome": "Messina",
+  "slug": "messina",
+  "provincia": "Messina"
+ },
+ {
+  "nome": "Siracusa",
+  "slug": "siracusa",
+  "provincia": "Siracusa"
+ },
+ {
+  "nome": "Grosseto",
+  "slug": "grosseto",
+  "provincia": "Grosseto"
+ },
+ {
+  "nome": "Trento",
+  "slug": "trento",
+  "provincia": "Trento"
+ },
+ {
+  "nome": "Terni",
+  "slug": "terni",
+  "provincia": "Terni"
+ },
+ {
+  "nome": "Chieti",
+  "slug": "chieti",
+  "provincia": "Chieti"
+ },
+ {
+  "nome": "L'Aquila",
+  "slug": "l-aquila",
+  "provincia": "L'Aquila"
+ },
+ {
+  "nome": "Pescara",
+  "slug": "pescara",
+  "provincia": "Pescara"
+ },
+ {
+  "nome": "Avellino",
+  "slug": "avellino",
+  "provincia": "Avellino"
+ },
+ {
+  "nome": "Savona",
+  "slug": "savona",
+  "provincia": "Savona"
+ },
+ {
+  "nome": "Mantova",
+  "slug": "mantova",
+  "provincia": "Mantova"
+ },
+ {
+  "nome": "Campobasso",
+  "slug": "campobasso",
+  "provincia": "Campobasso"
+ },
+ {
+  "nome": "Isernia",
+  "slug": "isernia",
+  "provincia": "Isernia"
+ },
+ {
+  "nome": "Novara",
+  "slug": "novara",
+  "provincia": "Novara"
+ },
+ {
+  "nome": "Sassari",
+  "slug": "sassari",
+  "provincia": "Sassari"
+ },
+ {
+  "nome": "Belluno",
+  "slug": "belluno",
+  "provincia": "Belluno"
  }
 ]

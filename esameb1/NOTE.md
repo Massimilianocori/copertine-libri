@@ -11,7 +11,7 @@
 - `raccolta/raccogli.py`: scarica le fonti ufficiali e rigenera `dati/sedi.json` (644 sedi: 375 CILS, 155 CELI, 82 PLIDA, 32 CERT.IT); controlla le impronte delle pagine-calendario (`dati/impronte.json`) e avvisa se cambiano.
 - `raccolta/cils_sedi.py`: parser delle tabelle regionali CILS (con correzioni manuali delle righe sbagliate nella fonte).
 - `dati/sessioni.json`: 31 sessioni B1 2026-2027 curate a mano dalle fonti ufficiali (CILS 2026 e 2027, CELI 2026 e 2027, PLIDA 2026, CERT.IT 2026), ognuna con fonte e data di verifica.
-- `genera.py`: sito statico in `sito/` — home con calendario e filtri, 21 pagine città (20 + Ravenna, suggerita da Google), 4 pagine ente con sedi per regione, "Come funziona", privacy, 404, sitemap, robots, netlify.toml. Il JS ricalcola nel browser le sessioni passate e le scadenze vicine, quindi il sito resta corretto anche tra un aggiornamento e l'altro.
+- `genera.py`: sito statico in `sito/` — home con calendario e filtri, 77 pagine città (le 21 iniziali + dal 14/10/2026 ogni provincia con almeno 3 sedi; home con le 12 città principali e l'elenco completo per regione), 4 pagine ente con sedi per regione, "Come funziona", privacy, 404, sitemap, robots, netlify.toml. Il JS ricalcola nel browser le sessioni passate e le scadenze vicine, quindi il sito resta corretto anche tra un aggiornamento e l'altro.
 - Provato in Chromium (desktop e 375 px): nessun errore JS, nessuno scroll orizzontale, filtri, modulo (blocco se vuoto, invio ok, campo `source` da `?ref=`), chiaro/scuro, 661 link interni senza rotture.
 
 ## Mancano / da fare

@@ -9,6 +9,7 @@ citta.json (pagine città). Nessuna dipendenza esterna.
 import json
 import re
 import shutil
+import unicodedata
 from datetime import date
 from html import escape
 from pathlib import Path
@@ -318,6 +319,9 @@ ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32p
 .altre{display:flex;flex-wrap:wrap;gap:6px}
 .altre a{font-size:.9rem;padding:5px 11px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink-2);background:var(--surface)}
 .altre a:hover{border-color:var(--brand);color:var(--brand-ink)}
+.regioni{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:16px 28px;margin:6px 0 14px}
+.regioni>div{min-width:0}
+.regioni h4{margin:0 0 6px;font-size:.92rem;font-weight:750;color:var(--ink-2)}
 /* piede */
 footer.piede{margin-top:64px;background:#13201E;color:#C4D2CD;padding:36px 0 44px;font-size:.9rem}
 footer.piede::before{content:"";display:block;height:4px;margin-top:-36px;margin-bottom:32px;background:linear-gradient(90deg,#0B6B4F 0 33.3%,#F4F1EA 33.3% 66.6%,#C8402A 66.6%)}
@@ -720,6 +724,49 @@ def regione_di(c):
     return max(set(regs), key=regs.count) if regs else ""
 
 
+PAROLE_VUOTE = {"di", "e", "della", "del", "nell", "nella"}
+
+
+def norma_luogo(testo):
+    """"Reggio di Calabria", "Reggio Calabria" → "reggio calabria"; "Reggio nell'Emilia" → "reggio emilia"."""
+    t = unicodedata.normalize("NFKD", testo).encode("ascii", "ignore").decode().lower()
+    return " ".join(w for w in re.split(r"[^a-z0-9]+", t) if w and w not in PAROLE_VUOTE)
+
+
+def nomi_capoluogo(c):
+    """Nomi con cui le fonti scrivono il capoluogo: nome della pagina e nome della provincia (anche bilingue, es. Bolzano/Bozen)."""
+    return {norma_luogo(c["nome"])} | {norma_luogo(x) for x in c["provincia"].split("/")}
+
+
+def nel_capoluogo(s, c):
+    return norma_luogo(s["citta"]) in nomi_capoluogo(c)
+
+
+def nome_provincia(c):
+    """Per "in provincia di …": il nome della pagina se coincide con la provincia, altrimenti il nome ufficiale (es. Monza e della Brianza)."""
+    return c["nome"] if norma_luogo(c["nome"]) in {norma_luogo(x) for x in c["provincia"].split("/")} else c["provincia"].split("/")[0]
+
+
+def sedi_di(c):
+    return sum(1 for s in sedi if s["provincia"] == c["provincia"])
+
+
+def principali(n=12):
+    """Le città con più sedi, per la griglia in evidenza e i link "altre città"."""
+    return sorted(citta, key=lambda c: (-sedi_di(c), c["nome"]))[:n]
+
+
+def citta_per_regione(rel):
+    """Tutte le città con pagina, raggruppate per regione (link relativi a rel)."""
+    gruppi = {}
+    for c in sorted(citta, key=lambda c: c["nome"]):
+        gruppi.setdefault(regione_di(c), []).append(c)
+    return '<div class="regioni">' + "".join(
+        f'<div><h4>{escape(r)}</h4><div class="altre">'
+        + "".join(f'<a href="{rel}citta/{c["slug"]}/">{escape(c["nome"])}</a>' for c in cs) + "</div></div>"
+        for r, cs in sorted(gruppi.items())) + "</div>"
+
+
 # Fatti per ente (dati/enti.json → "fatti"): ogni voce ha testo, fonti e data di verifica.
 VOCI_FATTI = {"costo": ("euro", "Quanto costa"), "durata": ("orologio", "Quanto dura"), "risultati": ("ok", "Risultati"),
               "documenti": ("doc", "Documenti e cosa portare"), "esempi": ("libro", "Esempi d'esame gratis"), "nota": ("info", "Da sapere")}
@@ -759,10 +806,9 @@ def link_guide(rel, salta=None):
 
 # ---------------------------------------------------------------- pagine
 def home(prossime):
-    per_citta = {c["slug"]: sum(1 for s in sedi if s["provincia"] == c["provincia"]) for c in citta}
     griglia = "".join(
-        f'<a href="citta/{c["slug"]}/">{ic("pin")}<span>{escape(c["nome"])}<small>{per_citta[c["slug"]]} {"sede" if per_citta[c["slug"]] == 1 else "sedi"}</small></span></a>'
-        for c in sorted(citta, key=lambda c: c["nome"]))
+        f'<a href="citta/{c["slug"]}/">{ic("pin")}<span>{escape(c["nome"])}<small>{sedi_di(c)} {"sede" if sedi_di(c) == 1 else "sedi"}</small></span></a>'
+        for c in sorted(principali(), key=lambda c: c["nome"]))
     corpo = f"""<section class="hero">
 <span class="occhiello">{ic("scudo")}CILS · CELI · PLIDA · CERT.IT</span>
 <h1>Esame di italiano B1 per la cittadinanza: tutte le date 2026 e 2027</h1>
@@ -785,7 +831,10 @@ def home(prossime):
 </div>
 <section id="citta">
 <h2>{ic("pin")}Sedi per città</h2>
+<h3>Le città con più sedi</h3>
 <div class="griglia">{griglia}</div>
+<h3>Tutte le {len(citta)} città, per regione</h3>
+{citta_per_regione("")}
 <p class="small">La tua città non c'è? Guarda le sedi per regione nelle pagine
 {", ".join(f'<a href="ente/{SLUG_ENTE[e]}/">{e}</a>' for e in ENTE)}.</p>
 </section>
@@ -850,7 +899,8 @@ Controlliamo il calendario ogni settimana: <a href="#avvisami">avvisami quando e
 
 def pagina_citta(c, prossime):
     qui = [s for s in sedi if s["provincia"] == c["provincia"]]
-    in_citta = [s for s in qui if s["citta"] == c["provincia"] or s["citta"] == c["nome"]]
+    in_citta = [s for s in qui if nel_capoluogo(s, c)]
+    prov = escape(nome_provincia(c))
     in_prov = [s for s in qui if s not in in_citta]
     regione = regione_di(c)
     blocchi = []
@@ -861,21 +911,23 @@ def pagina_citta(c, prossime):
         if lista:
             blocchi.append(f'<h3 id="sedi-{SLUG_ENTE[e]}">{eb(e)} {e} a {escape(c["nome"])} ({len(lista)})</h3><ul class="sedi">{"".join(scheda_sede(s) for s in lista)}</ul>{tutte}')
         elif any(s["ente"] == e for s in in_prov):
-            blocchi.append(f'<h3 id="sedi-{SLUG_ENTE[e]}">{eb(e)} {e} in provincia di {escape(c["nome"])}</h3>'
+            blocchi.append(f'<h3 id="sedi-{SLUG_ENTE[e]}">{eb(e)} {e} in provincia di {prov}</h3>'
                            f'<ul class="sedi">{"".join(scheda_sede(s) for s in in_prov if s["ente"] == e)}</ul>{tutte}')
     mancano = [e for e in ENTE if not any(s["ente"] == e for s in qui)]
     altre_prov = [s for s in in_prov if any(s["ente"] == e for e in ENTE) and any(x["ente"] == s["ente"] for x in in_citta)]
     if altre_prov:
-        blocchi.append(f'<details><summary>Altre sedi in provincia di {escape(c["nome"])} ({len(altre_prov)}){ic("giu")}</summary>'
+        blocchi.append(f'<details><summary>Altre sedi in provincia di {prov} ({len(altre_prov)}){ic("giu")}</summary>'
                        f'<ul class="sedi">{"".join(scheda_sede(s) for s in altre_prov)}</ul></details>')
     nota_mancano = ""
     if mancano:
-        nota_mancano = (f'<p class="small">In provincia di {escape(c["nome"])} non risultano sedi {", ".join(mancano)}: '
+        nota_mancano = (f'<p class="small">In provincia di {prov} non risultano sedi {", ".join(mancano)}: '
                         f'guarda le sedi nelle province vicine nelle pagine {", ".join(f'<a href="../../ente/{SLUG_ENTE[e]}/#{ancora_regione(e, regione)}">{e}</a>' for e in mancano)}.</p>')
     ordinate = sorted(citta, key=lambda x: x["nome"])
     vicine = [x for x in ordinate if x != c and regione and regione_di(x) == regione]
-    altre = "".join(f'<a href="../{x["slug"]}/">{escape(x["nome"])}</a>' for x in ordinate if x != c and x not in vicine)
-    vicine_html = (f'<h3>{ic("pin")}In {escape(regione)}</h3><div class="altre">{"".join(f"<a href=\"../{x["slug"]}/\">{escape(x["nome"])}</a>" for x in vicine)}</div><h3>In Italia</h3>'
+    altre = "".join(f'<a href="../{x["slug"]}/">{escape(x["nome"])}</a>'
+                    for x in sorted(principali(), key=lambda x: x["nome"]) if x != c and x not in vicine)
+    altre += f'<a href="../../#citta">Tutte le {len(citta)} città</a>'
+    vicine_html = (f'<h3>{ic("pin")}In {escape(regione)}</h3><div class="altre">{"".join(f"<a href=\"../{x["slug"]}/\">{escape(x["nome"])}</a>" for x in vicine)}</div><h3>Altre città in Italia</h3>'
                    if vicine else "")
     enti_qui = [e for e in ENTE if any(s["ente"] == e for s in qui)]
     corpo = f"""<section class="hero">
@@ -1035,7 +1087,7 @@ def pagina_costo():
 <section>
 <h2>{ic("pin")}Trova una sede e chiedi il prezzo</h2>
 <p>Scegli la tua città: per ogni sede trovi indirizzo, telefono, email e sito.</p>
-<div class="altre">{"".join(f'<a href="../citta/{c["slug"]}/">{escape(c["nome"])}</a>' for c in sorted(citta, key=lambda c: c["nome"]))}</div>
+{citta_per_regione("../")}
 <h2>{ic("info")}Altre domande</h2>
 {link_guide("../", salta="costo/")}
 </section>
