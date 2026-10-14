@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Esame B1 cittadinanza: date 2026-2027, scadenze e sedi | EsameB1</title>
-<meta name="description" content="Tutte le date dell&#x27;esame di italiano B1 per la cittadinanza (CILS, CELI, PLIDA, CERT.IT), scadenze di iscrizione e 644 sedi in Italia, in un solo posto.">
+<meta name="description" content="Tutte le date dell&#x27;esame di italiano B1 per la cittadinanza (CILS, CELI, PLIDA, CERT.IT), scadenze di iscrizione, costi e 644 sedi in Italia, in un solo posto.">
 <link rel="canonical" href="https://esameb1.netlify.app/">
 <meta property="og:title" content="Esame B1 cittadinanza: date 2026-2027, scadenze e sedi | EsameB1">
-<meta property="og:description" content="Tutte le date dell&#x27;esame di italiano B1 per la cittadinanza (CILS, CELI, PLIDA, CERT.IT), scadenze di iscrizione e 644 sedi in Italia, in un solo posto.">
+<meta property="og:description" content="Tutte le date dell&#x27;esame di italiano B1 per la cittadinanza (CILS, CELI, PLIDA, CERT.IT), scadenze di iscrizione, costi e 644 sedi in Italia, in un solo posto.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://esameb1.netlify.app/og.png">
 <meta property="og:image:width" content="1200">
@@ -126,32 +126,43 @@ color:var(--ink-2);padding:7px 13px;min-height:40px;border-radius:999px;cursor:p
 .chips button:hover{border-color:var(--brand)}
 .chips button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
 .chips .pt{width:9px;height:9px;border-radius:50%;flex:none}
-@media (max-width:640px){.chips{flex-wrap:nowrap;overflow-x:auto;margin-right:-16px;padding-right:16px;padding-bottom:6px;scrollbar-width:none}
-.chips::-webkit-scrollbar{display:none}}
+@media (max-width:640px){.chips{flex-wrap:nowrap;overflow-x:auto;margin-right:-16px;padding-right:16px;padding-bottom:6px;scrollbar-width:none;
+-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
+.chips::-webkit-scrollbar{display:none}.chips button:last-child{margin-right:24px}}
+.esito{font-size:.9rem;color:var(--ink-3);margin:-6px 0 12px;font-weight:600}
+.esito:empty{display:none}
+.mostra{width:100%;margin-top:12px}
 /* sessioni */
 .sessioni{display:grid;gap:12px}
-.sess{display:grid;grid-template-columns:76px 1fr;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;
+.sess{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;
 min-width:0;overflow-wrap:anywhere;box-shadow:var(--ombra)}
-.sess[hidden]{display:none}
-.tile{display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:12px;background:var(--surface-2);padding:8px 4px;align-self:start;
-line-height:1;text-align:center;border-top:4px solid var(--brand)}
-.sess[data-tipo="generale"] .tile{border-top-color:var(--line-2)}
+.sess[hidden],.sess.oltre{display:none}
+.tile{display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:10px;background:var(--surface-2);padding:9px 4px 7px;align-self:start;
+line-height:1;text-align:center;box-shadow:inset 0 4px 0 var(--brand)}
+.sess[data-tipo="generale"] .tile{box-shadow:inset 0 4px 0 var(--line-2)}
 .tile .tm{font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-ink)}
-.tile .td{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;margin:4px 0 3px;font-variant-numeric:tabular-nums}
+.tile .td{font-size:1.7rem;font-weight:800;letter-spacing:-.03em;margin:4px 0 3px;font-variant-numeric:tabular-nums}
 .tile .ty{font-size:.75rem;color:var(--ink-3);font-weight:600}
 .sess .cosa{min-width:0}
-.sess .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.sess .testa{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
 .sess .nome{font-weight:750;font-size:1.06rem;line-height:1.3}
-.sess .giorno{font-size:.9rem;color:var(--ink-3);margin-bottom:8px}
-.scad{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 8px;font-size:.94rem;color:var(--ink-2);padding:10px 12px;background:var(--surface-2);border-radius:10px}
-.scad>.i{color:var(--ink-3);margin-top:3px}
-.scad .riga{min-width:0;display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.sess .testa .tag{font-size:.76rem;padding:2px 8px;margin-left:auto}
+.sess .quando{display:flex;flex-wrap:wrap;gap:2px 14px;align-items:center;font-size:.94rem;color:var(--ink-2);margin-top:4px}
+.sess .quando .sep{color:var(--line-2)}
+.sess .quando time{color:var(--ink-3)}
+.scad{display:inline-flex;flex-wrap:wrap;gap:2px 6px;align-items:center;min-width:0}
+.scad.chiusa .stato{flex-basis:100%}
+.scad>.i{color:var(--ink-3)}
 .scad strong{color:var(--ink)}
 .scad.urgente strong{color:var(--rosso)}
 .scad.chiusa{color:var(--ink-3)}
 .scad.chiusa strong{color:var(--ink-3);text-decoration:line-through;text-decoration-thickness:1px}
 .scad.chiusa .stato{white-space:normal;background:none;padding:0;font-weight:600;font-size:.86rem;color:var(--ink-3)}
-.scad .nota{grid-column:2;font-size:.84rem;color:var(--ink-3)}
+.sess .nota{font-size:.86rem;color:var(--ink-3);margin-top:4px}
+.sess .fonte{margin-top:4px}
+.note-scad{list-style:none;margin:0 0 14px;padding:12px 14px;background:var(--surface-2);border-radius:12px;display:grid;gap:6px;font-size:.9rem;color:var(--ink-2)}
+.note-scad li{display:flex;gap:8px;align-items:baseline}
+.note-scad .eb{flex:none}
 .fonte{font-size:.8rem;color:var(--ink-3);margin-top:8px;display:flex;gap:6px;align-items:flex-start}
 .fonte .i{margin-top:2px}
 .fonte a{color:var(--ink-3)}
@@ -163,8 +174,11 @@ text-decoration:none;color:var(--ink);font-weight:700;line-height:1.25;transitio
 .griglia a small{display:block;font-weight:500;color:var(--ink-3);font-size:.82rem}
 .griglia a:hover{border-color:var(--brand);background:var(--brand-soft)}
 /* sedi */
-.sedi{list-style:none;padding:0;margin:0;display:grid;gap:10px}
-.sedi li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0;overflow-wrap:anywhere}
+.sedi{list-style:none;padding:0;margin:0;display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.sedi li{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px 14px 18px;min-width:0;overflow-wrap:anywhere}
+.sedi li::before{content:"";position:absolute;left:-1px;top:14px;bottom:14px;width:4px;border-radius:0 4px 4px 0;background:var(--brand)}
+.sedi li.s-CILS::before{background:var(--cils)}.sedi li.s-CELI::before{background:var(--celi)}
+.sedi li.s-PLIDA::before{background:var(--plida)}.sedi li.s-CERTIT::before{background:var(--certit)}
 details .sedi li{background:var(--bg)}
 .sedi .nome{font-weight:700;display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin-bottom:6px}
 .sedi .det{font-size:.92rem;color:var(--ink-2);display:flex;gap:8px;align-items:flex-start;margin-top:3px}
@@ -208,8 +222,10 @@ ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32p
 .due>*{min-width:0}
 .due>aside>section+section{margin-top:8px}
 .due>section>h2:first-child,.due>aside>.card:first-child{margin-top:28px}
+@media (min-width:861px){.due>aside{position:sticky;top:16px;align-self:start}}
 @media (max-width:860px){.due{grid-template-columns:1fr;gap:8px}.risposta{grid-template-columns:1fr}}
-@media (max-width:640px){body{font-size:16.5px}.lead{font-size:1.02rem}.r-piede span{display:none}.sess{grid-template-columns:1fr;gap:10px;padding:14px}.tile{flex-direction:row;align-items:baseline;justify-self:start;gap:7px;padding:6px 12px;border-top:0;border-left:4px solid var(--brand)}.sess[data-tipo="generale"] .tile{border-left-color:var(--line-2)}.tile .td{font-size:1.3rem;margin:0}
+@media (max-width:640px){body{font-size:16.5px}.lead{font-size:1.02rem}.r-piede span{display:none}.sess{grid-template-columns:1fr;gap:8px;padding:14px}.tile{flex-direction:row;align-items:baseline;justify-self:start;gap:7px;padding:6px 12px;border-radius:8px;box-shadow:none;background:var(--brand-soft)}.sess[data-tipo="generale"] .tile{box-shadow:none;background:var(--surface-2)}.tile .td{font-size:1.3rem;margin:0}
+.sess .testa .tag{margin-left:0}.azioni .btn{flex:1 1 100%;justify-content:center}.sedi{grid-template-columns:minmax(0,1fr)}
 .card{padding:18px}.risposta .slot{padding:16px}.hero{padding-top:22px}}
 .altre{display:flex;flex-wrap:wrap;gap:6px}
 .altre a{font-size:.9rem;padding:5px 11px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink-2);background:var(--surface)}
@@ -226,13 +242,33 @@ footer.piede .marchio{--brand:#4CC596;--on-brand:#052118}
 .piede-link a{text-decoration:none;font-weight:600}
 .piede-link a:hover{text-decoration:underline}
 .piede p{margin:0 0 12px;max-width:70ch}
+/* scheda per ente nella pagina città */
+.perente{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.pe{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--brand);border-radius:var(--r);padding:14px 16px;box-shadow:var(--ombra);
+min-width:0;overflow-wrap:anywhere;display:grid;gap:12px;align-content:start}
+.pe-CILS{border-top-color:var(--cils)}.pe-CELI{border-top-color:var(--celi)}.pe-PLIDA{border-top-color:var(--plida)}.pe-CERTIT{border-top-color:var(--certit)}
+.pe-testa{display:flex;justify-content:space-between;align-items:center;gap:6px 10px;flex-wrap:wrap;font-size:.9rem}
+.pe-testa a{font-weight:700;display:inline-flex;align-items:center;gap:5px}
+.pe-et{font-size:.74rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);display:flex;gap:6px;align-items:center;margin-bottom:2px}
+.pe-data{font-size:1.12rem;font-weight:800;letter-spacing:-.01em;font-variant-numeric:tabular-nums;display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.pe-cosa{font-size:.88rem;color:var(--ink-3);margin:2px 0 0}
+/* fatti per ente (costo, durata, risultati...) */
+.fatti{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.fatto{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;min-width:0;overflow-wrap:anywhere;box-shadow:var(--ombra);display:flex;flex-direction:column}
+.f-et{display:flex;gap:8px;align-items:center;font-weight:750;flex-wrap:wrap}
+.f-et .i{color:var(--brand)}
+.f-breve{font-size:1.45rem;font-weight:800;letter-spacing:-.02em;line-height:1.2;margin:8px 0 0}
+.fatto p{margin:8px 0 0;color:var(--ink-2);font-size:.95rem}
+.fatto .fonte{margin-top:auto;padding-top:10px}
+.fatto .btn{margin-top:12px;min-height:44px;padding:9px 14px;font-size:.95rem;align-self:flex-start}
+.griglia.link3{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
 .piede .dati{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);padding:6px 12px;border-radius:999px;font-weight:600;color:#E8F0ED}
 @media (max-width:760px){.piede-griglia{grid-template-columns:1fr}}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "EducationEvent", "name": "Esame CILS B1 Cittadinanza", "startDate": "2026-10-21", "endDate": "2026-10-21", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CILS in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Siena"}, "offers": {"@type": "Offer", "url": "https://cils.unistrasi.it/1/211/415/Le_date_degli_esami_2026.htm", "availability": "https://schema.org/InStock", "validFrom": "2026-10-09"}, "description": "Sessione d'esame CILS di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CELI 2 (B1)", "startDate": "2026-11-11", "endDate": "2026-11-11", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CELI in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Perugia"}, "offers": {"@type": "Offer", "url": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000", "availability": "https://schema.org/InStock", "validFrom": "2026-10-09"}, "description": "Sessione d'esame CELI di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame PLIDA B1", "startDate": "2026-11-18", "endDate": "2026-11-18", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame PLIDA in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Società Dante Alighieri", "url": "https://plida.dante.global/"}, "performer": {"@type": "Organization", "name": "Società Dante Alighieri"}, "offers": {"@type": "Offer", "url": "https://plida.dante.global/it/esami-plida/", "availability": "https://schema.org/InStock", "validFrom": "2026-10-09"}, "description": "Sessione d'esame PLIDA di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CILS B1 Cittadinanza, CILS B1 standard", "startDate": "2026-12-03", "endDate": "2026-12-03", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CILS in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Siena"}, "offers": {"@type": "Offer", "url": "https://cils.unistrasi.it/1/211/415/Le_date_degli_esami_2026.htm", "availability": "https://schema.org/InStock", "validFrom": "2026-10-09"}, "description": "Sessione d'esame CILS di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CELI 2 i cittadinanza (B1)", "startDate": "2027-02-17", "endDate": "2027-02-17", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CELI in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Perugia"}, "offers": {"@type": "Offer", "url": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000", "availability": "https://schema.org/InStock", "validFrom": "2026-10-09"}, "description": "Sessione d'esame CELI di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CILS B1 Cittadinanza", "startDate": "2027-02-18", "endDate": "2027-02-18", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CILS in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Siena"}, "offers": {"@type": "Offer", "url": "https://cils.unistrasi.it/1/211/415/Le_date_degli_esami_2026.htm", "availability": "https://schema.org/InStock", "validFrom": "2026-10-09"}, "description": "Sessione d'esame CILS di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CELI 2 (B1)", "startDate": "2027-03-09", "endDate": "2027-03-09", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CELI in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Perugia"}, "offers": {"@type": "Offer", "url": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000", "availability": "https://schema.org/InStock", "validFrom": "2026-10-09"}, "description": "Sessione d'esame CELI di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CILS B1 Cittadinanza", "startDate": "2027-04-08", "endDate": "2027-04-08", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CILS in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Siena"}, "offers": {"@type": "Offer", "url": "https://cils.unistrasi.it/1/211/415/Le_date_degli_esami_2026.htm", "availability": "https://schema.org/InStock", "validFrom": "2026-10-09"}, "description": "Sessione d'esame CILS di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CELI 2 i cittadinanza (B1)", "startDate": "2027-05-20", "endDate": "2027-05-20", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CELI in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Perugia"}, "offers": {"@type": "Offer", "url": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000", "availability": "https://schema.org/InStock", "validFrom": "2026-10-09"}, "description": "Sessione d'esame CELI di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CILS B1 Cittadinanza, CILS B1 standard", "startDate": "2027-06-10", "endDate": "2027-06-10", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CILS in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Siena"}, "offers": {"@type": "Offer", "url": "https://cils.unistrasi.it/1/211/415/Le_date_degli_esami_2026.htm", "availability": "https://schema.org/InStock", "validFrom": "2026-10-09"}, "description": "Sessione d'esame CILS di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CELI 2 (B1)", "startDate": "2027-06-11", "endDate": "2027-06-11", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CELI in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Perugia"}, "offers": {"@type": "Offer", "url": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000", "availability": "https://schema.org/InStock", "validFrom": "2026-10-09"}, "description": "Sessione d'esame CELI di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CILS B1 Cittadinanza", "startDate": "2027-07-22", "endDate": "2027-07-22", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CILS in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Siena"}, "offers": {"@type": "Offer", "url": "https://cils.unistrasi.it/1/211/415/Le_date_degli_esami_2026.htm", "availability": "https://schema.org/InStock", "validFrom": "2026-10-09"}, "description": "Sessione d'esame CILS di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CELI 2 i cittadinanza (B1)", "startDate": "2027-09-15", "endDate": "2027-09-15", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CELI in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Perugia"}, "offers": {"@type": "Offer", "url": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000", "availability": "https://schema.org/InStock", "validFrom": "2026-10-09"}, "description": "Sessione d'esame CELI di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CILS B1 Cittadinanza", "startDate": "2027-10-21", "endDate": "2027-10-21", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CILS in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Siena"}, "offers": {"@type": "Offer", "url": "https://cils.unistrasi.it/1/211/415/Le_date_degli_esami_2026.htm", "availability": "https://schema.org/InStock", "validFrom": "2026-10-09"}, "description": "Sessione d'esame CILS di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CELI 2 (B1)", "startDate": "2027-11-16", "endDate": "2027-11-16", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CELI in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Perugia"}, "offers": {"@type": "Offer", "url": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000", "availability": "https://schema.org/InStock", "validFrom": "2026-10-09"}, "description": "Sessione d'esame CELI di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CILS B1 Cittadinanza, CILS B1 standard", "startDate": "2027-12-02", "endDate": "2027-12-02", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CILS in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Siena"}, "offers": {"@type": "Offer", "url": "https://cils.unistrasi.it/1/211/415/Le_date_degli_esami_2026.htm", "availability": "https://schema.org/InStock", "validFrom": "2026-10-09"}, "description": "Sessione d'esame CILS di livello B1, valida per la domanda di cittadinanza italiana."}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "EducationEvent", "name": "Esame CILS B1 Cittadinanza", "startDate": "2026-10-21", "endDate": "2026-10-21", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CILS in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "description": "Sessione d'esame CILS di livello B1, valida per la domanda di cittadinanza italiana.", "offers": {"@type": "Offer", "name": "CILS B1 Cittadinanza", "price": 100, "priceCurrency": "EUR", "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm"}}, {"@type": "EducationEvent", "name": "Esame CELI 2 (B1)", "startDate": "2026-11-11", "endDate": "2026-11-11", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CELI in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "description": "Sessione d'esame CELI di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame PLIDA B1", "startDate": "2026-11-18", "endDate": "2026-11-18", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame PLIDA in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Società Dante Alighieri", "url": "https://plida.dante.global/"}, "performer": {"@type": "Organization", "name": "Società Dante Alighieri", "url": "https://plida.dante.global/"}, "description": "Sessione d'esame PLIDA di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CILS B1 Cittadinanza, CILS B1 standard", "startDate": "2026-12-03", "endDate": "2026-12-03", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CILS in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "description": "Sessione d'esame CILS di livello B1, valida per la domanda di cittadinanza italiana.", "offers": {"@type": "Offer", "name": "CILS B1 Cittadinanza", "price": 100, "priceCurrency": "EUR", "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm", "availability": "https://schema.org/InStock"}}, {"@type": "EducationEvent", "name": "Esame CELI 2 i cittadinanza (B1)", "startDate": "2027-02-17", "endDate": "2027-02-17", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CELI in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "description": "Sessione d'esame CELI di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CILS B1 Cittadinanza", "startDate": "2027-02-18", "endDate": "2027-02-18", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CILS in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "description": "Sessione d'esame CILS di livello B1, valida per la domanda di cittadinanza italiana.", "offers": {"@type": "Offer", "name": "CILS B1 Cittadinanza", "price": 100, "priceCurrency": "EUR", "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm", "availability": "https://schema.org/InStock"}}, {"@type": "EducationEvent", "name": "Esame CELI 2 (B1)", "startDate": "2027-03-09", "endDate": "2027-03-09", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CELI in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "description": "Sessione d'esame CELI di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CILS B1 Cittadinanza", "startDate": "2027-04-08", "endDate": "2027-04-08", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CILS in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "description": "Sessione d'esame CILS di livello B1, valida per la domanda di cittadinanza italiana.", "offers": {"@type": "Offer", "name": "CILS B1 Cittadinanza", "price": 100, "priceCurrency": "EUR", "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm", "availability": "https://schema.org/InStock"}}, {"@type": "EducationEvent", "name": "Esame CELI 2 i cittadinanza (B1)", "startDate": "2027-05-20", "endDate": "2027-05-20", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CELI in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "description": "Sessione d'esame CELI di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CILS B1 Cittadinanza, CILS B1 standard", "startDate": "2027-06-10", "endDate": "2027-06-10", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CILS in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "description": "Sessione d'esame CILS di livello B1, valida per la domanda di cittadinanza italiana.", "offers": {"@type": "Offer", "name": "CILS B1 Cittadinanza", "price": 100, "priceCurrency": "EUR", "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm", "availability": "https://schema.org/InStock"}}, {"@type": "EducationEvent", "name": "Esame CELI 2 (B1)", "startDate": "2027-06-11", "endDate": "2027-06-11", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CELI in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "description": "Sessione d'esame CELI di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CILS B1 Cittadinanza", "startDate": "2027-07-22", "endDate": "2027-07-22", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CILS in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "description": "Sessione d'esame CILS di livello B1, valida per la domanda di cittadinanza italiana.", "offers": {"@type": "Offer", "name": "CILS B1 Cittadinanza", "price": 100, "priceCurrency": "EUR", "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm", "availability": "https://schema.org/InStock"}}, {"@type": "EducationEvent", "name": "Esame CELI 2 i cittadinanza (B1)", "startDate": "2027-09-15", "endDate": "2027-09-15", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CELI in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "description": "Sessione d'esame CELI di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CILS B1 Cittadinanza", "startDate": "2027-10-21", "endDate": "2027-10-21", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CILS in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "description": "Sessione d'esame CILS di livello B1, valida per la domanda di cittadinanza italiana.", "offers": {"@type": "Offer", "name": "CILS B1 Cittadinanza", "price": 100, "priceCurrency": "EUR", "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm", "availability": "https://schema.org/InStock"}}, {"@type": "EducationEvent", "name": "Esame CELI 2 (B1)", "startDate": "2027-11-16", "endDate": "2027-11-16", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CELI in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/"}, "description": "Sessione d'esame CELI di livello B1, valida per la domanda di cittadinanza italiana."}, {"@type": "EducationEvent", "name": "Esame CILS B1 Cittadinanza, CILS B1 standard", "startDate": "2027-12-02", "endDate": "2027-12-02", "image": "https://esameb1.netlify.app/og.png", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "Place", "name": "Sedi d'esame CILS in Italia", "address": {"@type": "PostalAddress", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "performer": {"@type": "Organization", "name": "Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/"}, "description": "Sessione d'esame CILS di livello B1, valida per la domanda di cittadinanza italiana.", "offers": {"@type": "Offer", "name": "CILS B1 Cittadinanza", "price": 100, "priceCurrency": "EUR", "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm", "availability": "https://schema.org/InStock"}}]}</script>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol><symbol id="i-orologio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-campana" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-tel" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol><symbol id="i-web" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol><symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></symbol><symbol id="i-attenzione" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.5 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3Z"/><path d="M12 9v4M12 17h.01"/></symbol><symbol id="i-giu" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-freccia" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M16 13H8M16 17H8"/></symbol><symbol id="i-edificio" viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-5h6v5M2 10l10-7 10 7"/></symbol><symbol id="i-lista" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></symbol><symbol id="i-scudo" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol><symbol id="i-orologio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-campana" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-tel" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol><symbol id="i-web" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol><symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></symbol><symbol id="i-attenzione" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.5 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3Z"/><path d="M12 9v4M12 17h.01"/></symbol><symbol id="i-giu" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-freccia" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M16 13H8M16 17H8"/></symbol><symbol id="i-edificio" viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-5h6v5M2 10l10-7 10 7"/></symbol><symbol id="i-lista" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></symbol><symbol id="i-scudo" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="i-euro" viewBox="0 0 24 24"><path d="M18 7.5A7 7 0 1 0 18 16.5"/><path d="M4 10.5h9M4 13.5h9"/></symbol><symbol id="i-libro" viewBox="0 0 24 24"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2Z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8Z"/></symbol></defs></svg>
 <a class="salta" href="#contenuto">Vai al contenuto</a>
 <header class="top"><div class="wrap">
 <a class="logo" href="./" aria-label="EsameB1, pagina iniziale"><svg class="marchio" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
@@ -253,126 +289,126 @@ footer.piede .marchio{--brand:#4CC596;--on-brand:#052118}
 <div class="slot" data-slot><div class="r-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossimo esame</div><div data-fino="2026-10-21">
 <div class="r-data">21 ottobre <small>2026</small></div>
 <div class="r-cosa"><span class="eb eb-CILS">CILS</span><span>CILS B1 Cittadinanza</span></div>
-<p style="margin:12px 0 0"><span class="conta vicino" data-conta="2026-10-21" data-modo="esame">tra 10 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta vicino" data-conta="2026-10-21" data-modo="esame">tra 7 giorni</span></p>
 </div><div data-fino="2026-11-11" hidden>
 <div class="r-data">11 novembre <small>2026</small></div>
 <div class="r-cosa"><span class="eb eb-CELI">CELI</span><span>CELI 2 (B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2026-11-11" data-modo="esame">tra 31 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2026-11-11" data-modo="esame">tra 28 giorni</span></p>
 </div><div data-fino="2026-11-18" hidden>
 <div class="r-data">18 novembre <small>2026</small></div>
 <div class="r-cosa"><span class="eb eb-PLIDA">PLIDA</span><span>PLIDA B1</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2026-11-18" data-modo="esame">tra 38 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2026-11-18" data-modo="esame">tra 35 giorni</span></p>
 </div><div data-fino="2026-12-03" hidden>
 <div class="r-data">3 dicembre <small>2026</small></div>
 <div class="r-cosa"><span class="eb eb-CILS">CILS</span><span>CILS B1 Cittadinanza, CILS B1 standard</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2026-12-03" data-modo="esame">tra 53 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2026-12-03" data-modo="esame">tra 50 giorni</span></p>
 </div><div data-fino="2027-02-17" hidden>
 <div class="r-data">17 febbraio <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CELI">CELI</span><span>CELI 2 i cittadinanza (B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-17" data-modo="esame">tra 129 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-17" data-modo="esame">tra 126 giorni</span></p>
 </div><div data-fino="2027-02-18" hidden>
 <div class="r-data">18 febbraio <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CILS">CILS</span><span>CILS B1 Cittadinanza</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-18" data-modo="esame">tra 130 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-18" data-modo="esame">tra 127 giorni</span></p>
 </div><div data-fino="2027-03-09" hidden>
 <div class="r-data">9 marzo <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CELI">CELI</span><span>CELI 2 (B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-03-09" data-modo="esame">tra 149 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-03-09" data-modo="esame">tra 146 giorni</span></p>
 </div><div data-fino="2027-04-08" hidden>
 <div class="r-data">8 aprile <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CILS">CILS</span><span>CILS B1 Cittadinanza</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-04-08" data-modo="esame">tra 179 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-04-08" data-modo="esame">tra 176 giorni</span></p>
 </div><div data-fino="2027-05-20" hidden>
 <div class="r-data">20 maggio <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CELI">CELI</span><span>CELI 2 i cittadinanza (B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-20" data-modo="esame">tra 221 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-20" data-modo="esame">tra 218 giorni</span></p>
 </div><div data-fino="2027-06-10" hidden>
 <div class="r-data">10 giugno <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CILS">CILS</span><span>CILS B1 Cittadinanza, CILS B1 standard</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-10" data-modo="esame">tra 242 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-10" data-modo="esame">tra 239 giorni</span></p>
 </div><div data-fino="2027-06-11" hidden>
 <div class="r-data">11 giugno <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CELI">CELI</span><span>CELI 2 (B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-11" data-modo="esame">tra 243 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-11" data-modo="esame">tra 240 giorni</span></p>
 </div><div data-fino="2027-07-22" hidden>
 <div class="r-data">22 luglio <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CILS">CILS</span><span>CILS B1 Cittadinanza</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-07-22" data-modo="esame">tra 284 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-07-22" data-modo="esame">tra 281 giorni</span></p>
 </div></div>
 <div class="slot" data-slot><div class="r-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni ancora aperte</div><div data-fino="2026-09-21" hidden>
 <div class="r-data"><small>entro il</small> 21 settembre 2026</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>21 ottobre</strong></div>
-<p style="margin:12px 0 0"><span class="conta urg" data-conta="2026-09-21" data-modo="scad">mancano -20 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta urg" data-conta="2026-09-21" data-modo="scad">mancano -23 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2026-10-09" hidden>
 <div class="r-data"><small>entro il</small> 9 ottobre 2026</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CELI">CELI</span> del <strong>11 novembre</strong></div>
-<p style="margin:12px 0 0"><span class="conta urg" data-conta="2026-10-09" data-modo="scad">mancano -2 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta urg" data-conta="2026-10-09" data-modo="scad">mancano -5 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2026-10-24">
 <div class="r-data"><small>entro il</small> 24 ottobre 2026</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>3 dicembre</strong></div>
-<p style="margin:12px 0 0"><span class="conta urg" data-conta="2026-10-24" data-modo="scad">mancano 13 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta urg" data-conta="2026-10-24" data-modo="scad">mancano 10 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-01-18" hidden>
 <div class="r-data"><small>entro il</small> 18 gennaio 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>18 febbraio</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-01-18" data-modo="scad">mancano 99 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-01-18" data-modo="scad">mancano 96 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-01-22" hidden>
 <div class="r-data"><small>entro il</small> 22 gennaio 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CELI">CELI</span> del <strong>17 febbraio</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-01-22" data-modo="scad">mancano 103 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-01-22" data-modo="scad">mancano 100 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-02-09" hidden>
 <div class="r-data"><small>entro il</small> 9 febbraio 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CELI">CELI</span> del <strong>9 marzo</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-09" data-modo="scad">mancano 121 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-09" data-modo="scad">mancano 118 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-03-08" hidden>
-<div class="r-data"><small>entro l'</small> 8 marzo 2027</div>
+<div class="r-data"><small>entro l'</small>8 marzo 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>8 aprile</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-03-08" data-modo="scad">mancano 148 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-03-08" data-modo="scad">mancano 145 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-04-20" hidden>
 <div class="r-data"><small>entro il</small> 20 aprile 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CELI">CELI</span> del <strong>20 maggio</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-04-20" data-modo="scad">mancano 191 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-04-20" data-modo="scad">mancano 188 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-05-01" hidden>
 <div class="r-data"><small>entro il</small> 1 maggio 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>10 giugno</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-01" data-modo="scad">mancano 202 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-01" data-modo="scad">mancano 199 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-05-11" hidden>
-<div class="r-data"><small>entro l'</small> 11 maggio 2027</div>
+<div class="r-data"><small>entro l'</small>11 maggio 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CELI">CELI</span> del <strong>11 giugno</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-11" data-modo="scad">mancano 212 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-11" data-modo="scad">mancano 209 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-06-22" hidden>
 <div class="r-data"><small>entro il</small> 22 giugno 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>22 luglio</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-22" data-modo="scad">mancano 254 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-22" data-modo="scad">mancano 251 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-08-17" hidden>
 <div class="r-data"><small>entro il</small> 17 agosto 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CELI">CELI</span> del <strong>15 settembre</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-08-17" data-modo="scad">mancano 310 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-08-17" data-modo="scad">mancano 307 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-09-21" hidden>
 <div class="r-data"><small>entro il</small> 21 settembre 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>21 ottobre</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-09-21" data-modo="scad">mancano 345 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-09-21" data-modo="scad">mancano 342 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-10-16" hidden>
 <div class="r-data"><small>entro il</small> 16 ottobre 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CELI">CELI</span> del <strong>16 novembre</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-10-16" data-modo="scad">mancano 370 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-10-16" data-modo="scad">mancano 367 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-10-23" hidden>
 <div class="r-data"><small>entro il</small> 23 ottobre 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>2 dicembre</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-10-23" data-modo="scad">mancano 377 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-10-23" data-modo="scad">mancano 374 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><p data-riserva class="r-nota" hidden>In questo momento non ci sono termini nazionali aperti: per PLIDA e CERT.IT la scadenza la decide ogni centro. Chiedi alla sede.</p></div>
 <div class="r-piede"><a href="#date">Tutte le date <svg class="i" aria-hidden="true" focusable="false"><use href="#i-freccia"/></svg></a><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg>Le date d'esame sono le stesse in tutta Italia.</span></div>
@@ -386,150 +422,134 @@ footer.piede .marchio{--brand:#4CC596;--on-brand:#052118}
 <div class="due">
 <section id="date">
 <h2><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossime date d'esame</h2>
-<div class="filtri chips" role="group" aria-label="Filtra per ente"><button type="button" data-filtro="tutti" aria-pressed="true">Tutte</button><button type="button" data-filtro="citt" aria-pressed="false"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Solo esami "cittadinanza"</button><button type="button" data-filtro="CILS" aria-pressed="false"><span class="pt" style="background:var(--cils)"></span>CILS</button><button type="button" data-filtro="CELI" aria-pressed="false"><span class="pt" style="background:var(--celi)"></span>CELI</button><button type="button" data-filtro="PLIDA" aria-pressed="false"><span class="pt" style="background:var(--plida)"></span>PLIDA</button><button type="button" data-filtro="CERT.IT" aria-pressed="false"><span class="pt" style="background:var(--certit)"></span>CERT.IT</button></div><div class="sessioni"><article class="sess" data-data="2026-10-21" data-ente="CILS" data-tipo="cittadinanza">
+<div data-elenco><ul class="note-scad" aria-label="Come leggere le scadenze"><li><span class="eb eb-CILS">CILS</span><span>Scadenza indicata dall&#x27;Università per Stranieri di Siena: le sedi possono chiudere prima.</span></li><li><span class="eb eb-CELI">CELI</span><span>Termine indicato dall&#x27;Università per Stranieri di Perugia: i centri d&#x27;esame possono anticipare la scadenza.</span></li><li><span class="eb eb-PLIDA">PLIDA</span><span>La scadenza la decide ogni centro PLIDA: chiedila al centro scelto.</span></li></ul><div class="filtri chips" role="group" aria-label="Filtra per ente"><button type="button" data-filtro="tutti" aria-pressed="true">Tutte</button><button type="button" data-filtro="citt" aria-pressed="false"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Solo cittadinanza</button><button type="button" data-filtro="CILS" aria-pressed="false"><span class="pt" style="background:var(--cils)"></span>CILS</button><button type="button" data-filtro="CELI" aria-pressed="false"><span class="pt" style="background:var(--celi)"></span>CELI</button><button type="button" data-filtro="PLIDA" aria-pressed="false"><span class="pt" style="background:var(--plida)"></span>PLIDA</button><button type="button" data-filtro="CERT.IT" aria-pressed="false"><span class="pt" style="background:var(--certit)"></span>CERT.IT</button></div><p class="esito" aria-live="polite"></p><div class="sessioni"><article class="sess" data-data="2026-10-21" data-ente="CILS" data-tipo="cittadinanza">
 <div class="tile" aria-hidden="true"><span class="tm">ott</span><span class="td">21</span><span class="ty">2026</span></div>
-<div class="cosa"><div class="tags"><span class="eb eb-CILS">CILS</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
-<div class="nome">CILS B1 Cittadinanza</div>
-<div class="giorno"><time datetime="2026-10-21">mercoledì 21 ottobre 2026</time></div>
-<div class="scad" data-scadenza="2026-09-21"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga">Iscrizioni entro: <strong>21 settembre 2026</strong><span class="stato conta"></span></div><span class="nota">Scadenza indicata dall&#x27;Università per Stranieri di Siena: le sedi possono chiudere prima.</span></div>
+<div class="cosa"><div class="testa"><span class="eb eb-CILS">CILS</span><span class="nome">CILS B1 Cittadinanza</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
+<div class="quando"><time datetime="2026-10-21">mercoledì 21 ottobre 2026</time><span class="scad" data-scadenza="2026-09-21"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni entro <strong>21 settembre 2026</strong><span class="stato conta"></span></span></div>
+
 <div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cils.unistrasi.it/public/articoli/415/Calendario%20esami%20CILS%202026.pdf" rel="noopener">calendario ufficiale CILS</a> · controllato il 9 ottobre 2026</span></div>
 </div>
 </article>
 <article class="sess" data-data="2026-11-11" data-ente="CELI" data-tipo="generale">
 <div class="tile" aria-hidden="true"><span class="tm">nov</span><span class="td">11</span><span class="ty">2026</span></div>
-<div class="cosa"><div class="tags"><span class="eb eb-CELI">CELI</span><span class="tag"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>B1 valido per la cittadinanza</span></div>
-<div class="nome">CELI 2 (B1)</div>
-<div class="giorno"><time datetime="2026-11-11">mercoledì 11 novembre 2026</time></div>
-<div class="scad" data-scadenza="2026-10-09"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga">Iscrizioni entro: <strong>9 ottobre 2026</strong><span class="stato conta"></span></div><span class="nota">Termine indicato dall&#x27;Università per Stranieri di Perugia: i centri d&#x27;esame possono anticipare la scadenza.</span></div>
+<div class="cosa"><div class="testa"><span class="eb eb-CELI">CELI</span><span class="nome">CELI 2 (B1)</span><span class="tag"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>B1 valido per la cittadinanza</span></div>
+<div class="quando"><time datetime="2026-11-11">mercoledì 11 novembre 2026</time><span class="scad" data-scadenza="2026-10-09"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni entro <strong>9 ottobre 2026</strong><span class="stato conta"></span></span></div>
+
 <div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000" rel="noopener">calendario ufficiale CELI</a> · controllato il 9 ottobre 2026</span></div>
 </div>
 </article>
 <article class="sess" data-data="2026-11-18" data-ente="PLIDA" data-tipo="generale">
 <div class="tile" aria-hidden="true"><span class="tm">nov</span><span class="td">18</span><span class="ty">2026</span></div>
-<div class="cosa"><div class="tags"><span class="eb eb-PLIDA">PLIDA</span><span class="tag"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>B1 valido per la cittadinanza</span></div>
-<div class="nome">PLIDA B1</div>
-<div class="giorno"><time datetime="2026-11-18">mercoledì 18 novembre 2026</time></div>
-<div class="scad"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga">La scadenza la decide ogni centro PLIDA: chiedila al centro scelto.</div></div>
+<div class="cosa"><div class="testa"><span class="eb eb-PLIDA">PLIDA</span><span class="nome">PLIDA B1</span><span class="tag"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>B1 valido per la cittadinanza</span></div>
+<div class="quando"><time datetime="2026-11-18">mercoledì 18 novembre 2026</time></div>
+
 <div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cms.plida.dante.global/wp-content/uploads/2025/11/Calendario-esami-PLIDA-2026-per-il-sito-1.pdf" rel="noopener">calendario ufficiale PLIDA</a> · controllato il 9 ottobre 2026</span></div>
 </div>
 </article>
 <article class="sess" data-data="2026-12-03" data-ente="CILS" data-tipo="cittadinanza">
 <div class="tile" aria-hidden="true"><span class="tm">dic</span><span class="td">3</span><span class="ty">2026</span></div>
-<div class="cosa"><div class="tags"><span class="eb eb-CILS">CILS</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
-<div class="nome">CILS B1 Cittadinanza, CILS B1 standard</div>
-<div class="giorno"><time datetime="2026-12-03">giovedì 3 dicembre 2026</time></div>
-<div class="scad" data-scadenza="2026-10-24"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga">Iscrizioni entro: <strong>24 ottobre 2026</strong><span class="stato conta"></span></div><span class="nota">Scadenza indicata dall&#x27;Università per Stranieri di Siena: le sedi possono chiudere prima.</span></div>
+<div class="cosa"><div class="testa"><span class="eb eb-CILS">CILS</span><span class="nome">CILS B1 Cittadinanza, CILS B1 standard</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
+<div class="quando"><time datetime="2026-12-03">giovedì 3 dicembre 2026</time><span class="scad" data-scadenza="2026-10-24"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni entro <strong>24 ottobre 2026</strong><span class="stato conta"></span></span></div>
+
 <div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cils.unistrasi.it/public/articoli/415/Calendario%20esami%20CILS%202026.pdf" rel="noopener">calendario ufficiale CILS</a> · controllato il 9 ottobre 2026</span></div>
 </div>
 </article>
 <article class="sess" data-data="2027-02-17" data-ente="CELI" data-tipo="cittadinanza">
 <div class="tile" aria-hidden="true"><span class="tm">feb</span><span class="td">17</span><span class="ty">2027</span></div>
-<div class="cosa"><div class="tags"><span class="eb eb-CELI">CELI</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
-<div class="nome">CELI 2 i cittadinanza (B1)</div>
-<div class="giorno"><time datetime="2027-02-17">mercoledì 17 febbraio 2027</time></div>
-<div class="scad" data-scadenza="2027-01-22"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga">Iscrizioni entro: <strong>22 gennaio 2027</strong><span class="stato conta"></span></div><span class="nota">Termine indicato dall&#x27;Università per Stranieri di Perugia: i centri d&#x27;esame possono anticipare la scadenza.</span></div>
+<div class="cosa"><div class="testa"><span class="eb eb-CELI">CELI</span><span class="nome">CELI 2 i cittadinanza (B1)</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
+<div class="quando"><time datetime="2027-02-17">mercoledì 17 febbraio 2027</time><span class="scad" data-scadenza="2027-01-22"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni entro <strong>22 gennaio 2027</strong><span class="stato conta"></span></span></div>
+
 <div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000" rel="noopener">calendario ufficiale CELI</a> · controllato il 9 ottobre 2026</span></div>
 </div>
 </article>
 <article class="sess" data-data="2027-02-18" data-ente="CILS" data-tipo="cittadinanza">
 <div class="tile" aria-hidden="true"><span class="tm">feb</span><span class="td">18</span><span class="ty">2027</span></div>
-<div class="cosa"><div class="tags"><span class="eb eb-CILS">CILS</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
-<div class="nome">CILS B1 Cittadinanza</div>
-<div class="giorno"><time datetime="2027-02-18">giovedì 18 febbraio 2027</time></div>
-<div class="scad" data-scadenza="2027-01-18"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga">Iscrizioni entro: <strong>18 gennaio 2027</strong><span class="stato conta"></span></div><span class="nota">Scadenza indicata dall&#x27;Università per Stranieri di Siena: le sedi possono chiudere prima.</span></div>
+<div class="cosa"><div class="testa"><span class="eb eb-CILS">CILS</span><span class="nome">CILS B1 Cittadinanza</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
+<div class="quando"><time datetime="2027-02-18">giovedì 18 febbraio 2027</time><span class="scad" data-scadenza="2027-01-18"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni entro <strong>18 gennaio 2027</strong><span class="stato conta"></span></span></div>
+
 <div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf" rel="noopener">calendario ufficiale CILS</a> · controllato il 9 ottobre 2026</span></div>
 </div>
 </article>
 <article class="sess" data-data="2027-03-09" data-ente="CELI" data-tipo="generale">
 <div class="tile" aria-hidden="true"><span class="tm">mar</span><span class="td">9</span><span class="ty">2027</span></div>
-<div class="cosa"><div class="tags"><span class="eb eb-CELI">CELI</span><span class="tag"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>B1 valido per la cittadinanza</span></div>
-<div class="nome">CELI 2 (B1)</div>
-<div class="giorno"><time datetime="2027-03-09">martedì 9 marzo 2027</time></div>
-<div class="scad" data-scadenza="2027-02-09"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga">Iscrizioni entro: <strong>9 febbraio 2027</strong><span class="stato conta"></span></div><span class="nota">Termine indicato dall&#x27;Università per Stranieri di Perugia: i centri d&#x27;esame possono anticipare la scadenza.</span></div>
+<div class="cosa"><div class="testa"><span class="eb eb-CELI">CELI</span><span class="nome">CELI 2 (B1)</span><span class="tag"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>B1 valido per la cittadinanza</span></div>
+<div class="quando"><time datetime="2027-03-09">martedì 9 marzo 2027</time><span class="scad" data-scadenza="2027-02-09"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni entro <strong>9 febbraio 2027</strong><span class="stato conta"></span></span></div>
+
 <div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000" rel="noopener">calendario ufficiale CELI</a> · controllato il 9 ottobre 2026</span></div>
 </div>
 </article>
 <article class="sess" data-data="2027-04-08" data-ente="CILS" data-tipo="cittadinanza">
 <div class="tile" aria-hidden="true"><span class="tm">apr</span><span class="td">8</span><span class="ty">2027</span></div>
-<div class="cosa"><div class="tags"><span class="eb eb-CILS">CILS</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
-<div class="nome">CILS B1 Cittadinanza</div>
-<div class="giorno"><time datetime="2027-04-08">giovedì 8 aprile 2027</time></div>
-<div class="scad" data-scadenza="2027-03-08"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga">Iscrizioni entro: <strong>8 marzo 2027</strong><span class="stato conta"></span></div><span class="nota">Scadenza indicata dall&#x27;Università per Stranieri di Siena: le sedi possono chiudere prima.</span></div>
+<div class="cosa"><div class="testa"><span class="eb eb-CILS">CILS</span><span class="nome">CILS B1 Cittadinanza</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
+<div class="quando"><time datetime="2027-04-08">giovedì 8 aprile 2027</time><span class="scad" data-scadenza="2027-03-08"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni entro <strong>8 marzo 2027</strong><span class="stato conta"></span></span></div>
+
 <div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf" rel="noopener">calendario ufficiale CILS</a> · controllato il 9 ottobre 2026</span></div>
 </div>
 </article>
 <article class="sess" data-data="2027-05-20" data-ente="CELI" data-tipo="cittadinanza">
 <div class="tile" aria-hidden="true"><span class="tm">mag</span><span class="td">20</span><span class="ty">2027</span></div>
-<div class="cosa"><div class="tags"><span class="eb eb-CELI">CELI</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
-<div class="nome">CELI 2 i cittadinanza (B1)</div>
-<div class="giorno"><time datetime="2027-05-20">giovedì 20 maggio 2027</time></div>
-<div class="scad" data-scadenza="2027-04-20"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga">Iscrizioni entro: <strong>20 aprile 2027</strong><span class="stato conta"></span></div><span class="nota">Termine indicato dall&#x27;Università per Stranieri di Perugia: i centri d&#x27;esame possono anticipare la scadenza.</span></div>
+<div class="cosa"><div class="testa"><span class="eb eb-CELI">CELI</span><span class="nome">CELI 2 i cittadinanza (B1)</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
+<div class="quando"><time datetime="2027-05-20">giovedì 20 maggio 2027</time><span class="scad" data-scadenza="2027-04-20"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni entro <strong>20 aprile 2027</strong><span class="stato conta"></span></span></div>
+
 <div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000" rel="noopener">calendario ufficiale CELI</a> · controllato il 9 ottobre 2026</span></div>
 </div>
 </article>
 <article class="sess" data-data="2027-06-10" data-ente="CILS" data-tipo="cittadinanza">
 <div class="tile" aria-hidden="true"><span class="tm">giu</span><span class="td">10</span><span class="ty">2027</span></div>
-<div class="cosa"><div class="tags"><span class="eb eb-CILS">CILS</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
-<div class="nome">CILS B1 Cittadinanza, CILS B1 standard</div>
-<div class="giorno"><time datetime="2027-06-10">giovedì 10 giugno 2027</time></div>
-<div class="scad" data-scadenza="2027-05-01"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga">Iscrizioni entro: <strong>1 maggio 2027</strong><span class="stato conta"></span></div><span class="nota">Scadenza indicata dall&#x27;Università per Stranieri di Siena: le sedi possono chiudere prima.</span></div>
+<div class="cosa"><div class="testa"><span class="eb eb-CILS">CILS</span><span class="nome">CILS B1 Cittadinanza, CILS B1 standard</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
+<div class="quando"><time datetime="2027-06-10">giovedì 10 giugno 2027</time><span class="scad" data-scadenza="2027-05-01"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni entro <strong>1 maggio 2027</strong><span class="stato conta"></span></span></div>
+
 <div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf" rel="noopener">calendario ufficiale CILS</a> · controllato il 9 ottobre 2026</span></div>
 </div>
 </article>
 <article class="sess" data-data="2027-06-11" data-ente="CELI" data-tipo="generale">
 <div class="tile" aria-hidden="true"><span class="tm">giu</span><span class="td">11</span><span class="ty">2027</span></div>
-<div class="cosa"><div class="tags"><span class="eb eb-CELI">CELI</span><span class="tag"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>B1 valido per la cittadinanza</span></div>
-<div class="nome">CELI 2 (B1)</div>
-<div class="giorno"><time datetime="2027-06-11">venerdì 11 giugno 2027</time></div>
-<div class="scad" data-scadenza="2027-05-11"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga">Iscrizioni entro: <strong>11 maggio 2027</strong><span class="stato conta"></span></div><span class="nota">Termine indicato dall&#x27;Università per Stranieri di Perugia: i centri d&#x27;esame possono anticipare la scadenza.</span></div>
+<div class="cosa"><div class="testa"><span class="eb eb-CELI">CELI</span><span class="nome">CELI 2 (B1)</span><span class="tag"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>B1 valido per la cittadinanza</span></div>
+<div class="quando"><time datetime="2027-06-11">venerdì 11 giugno 2027</time><span class="scad" data-scadenza="2027-05-11"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni entro <strong>11 maggio 2027</strong><span class="stato conta"></span></span></div>
+
 <div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000" rel="noopener">calendario ufficiale CELI</a> · controllato il 9 ottobre 2026</span></div>
 </div>
 </article>
 <article class="sess" data-data="2027-07-22" data-ente="CILS" data-tipo="cittadinanza">
 <div class="tile" aria-hidden="true"><span class="tm">lug</span><span class="td">22</span><span class="ty">2027</span></div>
-<div class="cosa"><div class="tags"><span class="eb eb-CILS">CILS</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
-<div class="nome">CILS B1 Cittadinanza</div>
-<div class="giorno"><time datetime="2027-07-22">giovedì 22 luglio 2027</time></div>
-<div class="scad" data-scadenza="2027-06-22"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga">Iscrizioni entro: <strong>22 giugno 2027</strong><span class="stato conta"></span></div><span class="nota">Scadenza indicata dall&#x27;Università per Stranieri di Siena: le sedi possono chiudere prima.</span></div>
+<div class="cosa"><div class="testa"><span class="eb eb-CILS">CILS</span><span class="nome">CILS B1 Cittadinanza</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
+<div class="quando"><time datetime="2027-07-22">giovedì 22 luglio 2027</time><span class="scad" data-scadenza="2027-06-22"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni entro <strong>22 giugno 2027</strong><span class="stato conta"></span></span></div>
+
 <div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf" rel="noopener">calendario ufficiale CILS</a> · controllato il 9 ottobre 2026</span></div>
 </div>
 </article>
 <article class="sess" data-data="2027-09-15" data-ente="CELI" data-tipo="cittadinanza">
 <div class="tile" aria-hidden="true"><span class="tm">set</span><span class="td">15</span><span class="ty">2027</span></div>
-<div class="cosa"><div class="tags"><span class="eb eb-CELI">CELI</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
-<div class="nome">CELI 2 i cittadinanza (B1)</div>
-<div class="giorno"><time datetime="2027-09-15">mercoledì 15 settembre 2027</time></div>
-<div class="scad" data-scadenza="2027-08-17"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga">Iscrizioni entro: <strong>17 agosto 2027</strong><span class="stato conta"></span></div><span class="nota">Termine indicato dall&#x27;Università per Stranieri di Perugia: i centri d&#x27;esame possono anticipare la scadenza.</span></div>
+<div class="cosa"><div class="testa"><span class="eb eb-CELI">CELI</span><span class="nome">CELI 2 i cittadinanza (B1)</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
+<div class="quando"><time datetime="2027-09-15">mercoledì 15 settembre 2027</time><span class="scad" data-scadenza="2027-08-17"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni entro <strong>17 agosto 2027</strong><span class="stato conta"></span></span></div>
+
 <div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000" rel="noopener">calendario ufficiale CELI</a> · controllato il 9 ottobre 2026</span></div>
 </div>
 </article>
 <article class="sess" data-data="2027-10-21" data-ente="CILS" data-tipo="cittadinanza">
 <div class="tile" aria-hidden="true"><span class="tm">ott</span><span class="td">21</span><span class="ty">2027</span></div>
-<div class="cosa"><div class="tags"><span class="eb eb-CILS">CILS</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
-<div class="nome">CILS B1 Cittadinanza</div>
-<div class="giorno"><time datetime="2027-10-21">giovedì 21 ottobre 2027</time></div>
-<div class="scad" data-scadenza="2027-09-21"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga">Iscrizioni entro: <strong>21 settembre 2027</strong><span class="stato conta"></span></div><span class="nota">Scadenza indicata dall&#x27;Università per Stranieri di Siena: le sedi possono chiudere prima.</span></div>
+<div class="cosa"><div class="testa"><span class="eb eb-CILS">CILS</span><span class="nome">CILS B1 Cittadinanza</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
+<div class="quando"><time datetime="2027-10-21">giovedì 21 ottobre 2027</time><span class="scad" data-scadenza="2027-09-21"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni entro <strong>21 settembre 2027</strong><span class="stato conta"></span></span></div>
+
 <div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf" rel="noopener">calendario ufficiale CILS</a> · controllato il 9 ottobre 2026</span></div>
 </div>
 </article>
 <article class="sess" data-data="2027-11-16" data-ente="CELI" data-tipo="generale">
 <div class="tile" aria-hidden="true"><span class="tm">nov</span><span class="td">16</span><span class="ty">2027</span></div>
-<div class="cosa"><div class="tags"><span class="eb eb-CELI">CELI</span><span class="tag"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>B1 valido per la cittadinanza</span></div>
-<div class="nome">CELI 2 (B1)</div>
-<div class="giorno"><time datetime="2027-11-16">martedì 16 novembre 2027</time></div>
-<div class="scad" data-scadenza="2027-10-16"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga">Iscrizioni entro: <strong>16 ottobre 2027</strong><span class="stato conta"></span></div><span class="nota">Termine indicato dall&#x27;Università per Stranieri di Perugia: i centri d&#x27;esame possono anticipare la scadenza.</span></div>
+<div class="cosa"><div class="testa"><span class="eb eb-CELI">CELI</span><span class="nome">CELI 2 (B1)</span><span class="tag"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>B1 valido per la cittadinanza</span></div>
+<div class="quando"><time datetime="2027-11-16">martedì 16 novembre 2027</time><span class="scad" data-scadenza="2027-10-16"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni entro <strong>16 ottobre 2027</strong><span class="stato conta"></span></span></div>
+
 <div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000" rel="noopener">calendario ufficiale CELI</a> · controllato il 9 ottobre 2026</span></div>
 </div>
 </article>
 <article class="sess" data-data="2027-12-02" data-ente="CILS" data-tipo="cittadinanza">
 <div class="tile" aria-hidden="true"><span class="tm">dic</span><span class="td">2</span><span class="ty">2027</span></div>
-<div class="cosa"><div class="tags"><span class="eb eb-CILS">CILS</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
-<div class="nome">CILS B1 Cittadinanza, CILS B1 standard</div>
-<div class="giorno"><time datetime="2027-12-02">giovedì 2 dicembre 2027</time></div>
-<div class="scad" data-scadenza="2027-10-23"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><div class="riga">Iscrizioni entro: <strong>23 ottobre 2027</strong><span class="stato conta"></span></div><span class="nota">Scadenza indicata dall&#x27;Università per Stranieri di Siena: le sedi possono chiudere prima.</span></div>
+<div class="cosa"><div class="testa"><span class="eb eb-CILS">CILS</span><span class="nome">CILS B1 Cittadinanza, CILS B1 standard</span><span class="tag citt"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Esame per la cittadinanza</span></div>
+<div class="quando"><time datetime="2027-12-02">giovedì 2 dicembre 2027</time><span class="scad" data-scadenza="2027-10-23"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni entro <strong>23 ottobre 2027</strong><span class="stato conta"></span></span></div>
+
 <div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf" rel="noopener">calendario ufficiale CILS</a> · controllato il 9 ottobre 2026</span></div>
 </div>
-</article></div>
+</article></div><button class="btn btn-2 mostra" type="button" hidden>Mostra tutte le date</button></div>
 </section>
 <aside>
 <section class="card" id="avvisami">
@@ -552,14 +572,14 @@ footer.piede .marchio{--brand:#4CC596;--on-brand:#052118}
 </form>
 <div class="ok" data-ok hidden><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg><span><strong>Fatto!</strong> Ti scriveremo quando ci sono novità per la tua città.</span></div>
 </section>
+</aside>
+</div>
 <section id="citta">
 <h2><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Sedi per città</h2>
 <div class="griglia"><a href="citta/bari/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Bari<small>13 sedi</small></span></a><a href="citta/bergamo/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Bergamo<small>6 sedi</small></span></a><a href="citta/bologna/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Bologna<small>12 sedi</small></span></a><a href="citta/brescia/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Brescia<small>8 sedi</small></span></a><a href="citta/catania/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Catania<small>11 sedi</small></span></a><a href="citta/firenze/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Firenze<small>28 sedi</small></span></a><a href="citta/genova/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Genova<small>11 sedi</small></span></a><a href="citta/milano/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Milano<small>39 sedi</small></span></a><a href="citta/modena/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Modena<small>9 sedi</small></span></a><a href="citta/napoli/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Napoli<small>23 sedi</small></span></a><a href="citta/padova/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Padova<small>14 sedi</small></span></a><a href="citta/palermo/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Palermo<small>9 sedi</small></span></a><a href="citta/parma/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Parma<small>4 sedi</small></span></a><a href="citta/perugia/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Perugia<small>10 sedi</small></span></a><a href="citta/prato/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Prato<small>4 sedi</small></span></a><a href="citta/ravenna/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Ravenna<small>5 sedi</small></span></a><a href="citta/reggio-emilia/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Reggio Emilia<small>5 sedi</small></span></a><a href="citta/roma/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Roma<small>57 sedi</small></span></a><a href="citta/torino/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Torino<small>18 sedi</small></span></a><a href="citta/venezia/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Venezia<small>8 sedi</small></span></a><a href="citta/verona/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>Verona<small>10 sedi</small></span></a></div>
 <p class="small">La tua città non c'è? Guarda le sedi per regione nelle pagine
 <a href="ente/cils/">CILS</a>, <a href="ente/celi/">CELI</a>, <a href="ente/plida/">PLIDA</a>, <a href="ente/certit/">CERT.IT</a>.</p>
 </section>
-</aside>
-</div>
 <section>
 <h2><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg>Domande frequenti</h2>
 <details><summary>Quale esame devo fare per la cittadinanza?<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary>
@@ -568,8 +588,14 @@ footer.piede .marchio{--brand:#4CC596;--on-brand:#052118}
 <p>CILS e CELI hanno un esame B1 pensato per la cittadinanza, con più sessioni durante l'anno. Il B1 "normale" degli stessi enti, il PLIDA B1 e il CERT.IT B1 sono anch'essi certificati di livello B1. Leggi la <a href="come-funziona/">pagina Come funziona</a>.</p></details>
 <details><summary>Come mi iscrivo?<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary>
 <p>Ci si iscrive presso la sede d'esame, non su questo sito. Scegli una sede nella tua città, contattala e chiedi costo, documenti e scadenza.</p></details>
-<details><summary>Quanto costa l'esame?<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary>
-<p>Il prezzo lo decide la sede. Per esempio: CELI 2 i cittadinanza 90 € all'Università degli Studi di Milano (febbraio 2026), CILS B1 Cittadinanza 100 € all'Università di Padova. Chiedi il prezzo alla sede che scegli.</p></details>
+<details><summary>Quanto costa l'esame B1 per la cittadinanza?<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary>
+<p>CILS B1 Cittadinanza: 100 €, la stessa tassa in tutta Italia. CERT.IT B1: 80 € alla sede di Roma Tre. CELI e PLIDA: il prezzo lo decide il centro d'esame (per esempio CELI 2 i cittadinanza 90 € all'Università degli Studi di Milano). <a href="costo/">Tutti i costi, con le fonti</a>.</p></details>
+<details><summary>Quanto dura l'esame?<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary>
+<p>Lo scritto dura da 1 ora e 30 minuti (CERT.IT) a 2 ore e 20 minuti (CELI e PLIDA), secondo l'ente. Poi c'è un orale di 10-15 minuti, di solito lo stesso giorno. <a href="come-funziona/#durata">Durata di ogni esame e cosa portare</a>.</p></details>
+<details><summary>Quando arrivano i risultati?<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary>
+<p>CILS: circa 3 mesi dopo l'esame. CELI: circa 90 giorni lavorativi. PLIDA: li vedi online nel tuo account PLIDA. <a href="risultati/">Dove vedere il risultato e come avere il certificato</a>.</p></details>
+<details><summary>Si può fare l'esame online?<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary>
+<p>No. L'esame B1 per la cittadinanza si fa in presenza, in una sede d'esame, con un documento d'identità. <a href="come-funziona/#online">Fonti ufficiali</a>.</p></details>
 <p class="small">Per chiedere la cittadinanza italiana per residenza o matrimonio serve un certificato di italiano di livello B1.
 Qui trovi in un solo posto le date, le scadenze e le sedi dei 4 enti riconosciuti: CILS, CELI, PLIDA e CERT.IT.</p>
 </section>
@@ -583,14 +609,14 @@ Qui trovi in un solo posto le date, le scadenze e le sedi dei 4 enti riconosciut
 <rect x="11" y="25.6" width="6" height="2.4" rx="1.1" fill="#3FB37F"/><rect x="17" y="25.6" width="6" height="2.4" rx="1.1" fill="#FFFFFF"/><rect x="23" y="25.6" width="6" height="2.4" rx="1.1" fill="#E4573D"/>
 </svg><span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="./#date">Date d'esame</a></li><li><a href="./#citta">Sedi per città</a></li><li><a href="./come-funziona/">Come funziona</a></li><li><a href="./ente/cils/">CILS</a></li><li><a href="./ente/celi/">CELI</a></li><li><a href="./ente/plida/">PLIDA</a></li><li><a href="./ente/certit/">CERT.IT</a></li><li><a href="./privacy.html">Privacy</a></li>
+<li><a href="./#date">Date d'esame</a></li><li><a href="./#citta">Sedi per città</a></li><li><a href="./come-funziona/">Come funziona</a></li><li><a href="./costo/">Costo</a></li><li><a href="./risultati/">Risultati</a></li><li><a href="./ente/cils/">CILS</a></li><li><a href="./ente/celi/">CELI</a></li><li><a href="./ente/plida/">PLIDA</a></li><li><a href="./ente/certit/">CERT.IT</a></li><li><a href="./privacy.html">Privacy</a></li>
 </ul>
 </div>
 <div>
 <p><strong>EsameB1</strong> è un sito indipendente, non affiliato agli enti certificatori. CILS, CELI, PLIDA e CERT.IT sono marchi dei rispettivi enti.
 Le informazioni vengono dalle fonti ufficiali indicate accanto a ogni dato. <strong>Prima di iscriverti verifica sempre sul sito della sede.</strong>
 Questo sito non dà consulenza sulla pratica di cittadinanza: per quella vedi la <a href="https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza" rel="noopener">pagina del Ministero dell'Interno</a>.</p>
-<p><span class="dati"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-scudo"/></svg>Dati controllati il 9 ottobre 2026.</span> · <a href="./privacy.html">Privacy</a> · <a href="./come-funziona/">Come funziona</a></p>
+<p><span class="dati"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-scudo"/></svg>Dati controllati il 14 ottobre 2026.</span></p>
 </div>
 </div>
 </div></footer>
@@ -620,14 +646,30 @@ Questo sito non dà consulenza sulla pratica di cittadinanza: per quella vedi la
     var r=slot.querySelector('[data-riserva]');if(r)r.hidden=vista;
   });
   document.querySelectorAll('[data-conta]').forEach(function(el){var g=giorni(el.dataset.conta);if(g>=0)conta(el,g,el.dataset.modo);});
-  var bott=document.querySelectorAll('.chips button');
-  bott.forEach(function(b){b.addEventListener('click',function(){
-    bott.forEach(function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');
-    var f=b.dataset.filtro;
-    document.querySelectorAll('.sess').forEach(function(el){
-      el.hidden=!(f==='tutti'||(f==='citt'&&el.dataset.tipo==='cittadinanza')||el.dataset.ente===f);
-    });
-  });});
+  /* elenco corto: le prossime 6 date, poi "Mostra tutte" */
+  var LIMITE=6;
+  document.querySelectorAll('[data-elenco]').forEach(function(box){
+    var lista=box.querySelector('.sessioni'),piu=box.querySelector('.mostra'),esito=box.querySelector('.esito');
+    var bott=box.querySelectorAll('.chips button'),aperto=false;
+    function aggiorna(etichetta){
+      var vis=[].filter.call(lista.querySelectorAll('.sess'),function(el){return !el.hidden;});
+      vis.forEach(function(el,i){el.classList.toggle('oltre',!aperto&&i>=LIMITE);});
+      if(piu){piu.hidden=aperto||vis.length<=LIMITE;piu.textContent='Mostra tutte le '+vis.length+' date';}
+      if(esito&&etichetta!==undefined)esito.textContent=vis.length+(vis.length===1?' sessione':' sessioni')+etichetta;
+    }
+    if(piu)piu.addEventListener('click',function(){aperto=true;aggiorna();});
+    bott.forEach(function(b){b.addEventListener('click',function(){
+      bott.forEach(function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');
+      var f=b.dataset.filtro;
+      lista.querySelectorAll('.sess').forEach(function(el){
+        el.hidden=!(f==='tutti'||(f==='citt'&&el.dataset.tipo==='cittadinanza')||el.dataset.ente===f);
+      });
+      aggiorna(f==='tutti'?'':f==='citt'?' per la cittadinanza':' '+f);
+    });});
+    aggiorna();
+  });
+  /* link a una regione (#lombardia): apre il riquadro */
+  try{var h=location.hash&&document.getElementById(decodeURIComponent(location.hash.slice(1)));if(h&&h.tagName==='DETAILS')h.open=true;}catch(e){}
   var src=document.querySelectorAll('input[name=source]');
   var v='';try{var q=new URLSearchParams(location.search);v=q.get('ref')||q.get('utm_source')||document.referrer||'diretto';}catch(e){v='diretto';}
   src.forEach(function(i){i.value=String(v).slice(0,200);});
