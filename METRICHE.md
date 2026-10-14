@@ -37,6 +37,10 @@ Inviate 40 email: 5 agenzie "segnale" (Story Co, Informal, Mass FX Media, Social
 
 50 invii: 39 follow-up 1 Holiday Pack (invii del 7/10) + 11 nuovi (coda3). Rinviati 3 domini con un collega contattato il 12/10 e 1 dominio .ee non verificabile come USA. 1 rifiuto 550 5.7.1 (Selima Optique: il loro server blocca il nostro per blacklist swishmailbl; non indirizzo inesistente) → escluso. Risposte vere: 0.
 
+## 14/10
+
+49 invii (routine partite in ritardo, invii dalle 22:45 italiane): 39 follow-up 1 Holiday Pack (invii dell'8/10) + 10 follow-up 2 (brand del 1-2/10). 1 rimbalzo 5.1.1 (amanda@tryarmra.com, FU2) → escluso; Somnee saltato (dominio senza posta). Risposte vere: 0. Restano 4 FU2 per il 15/10.
+
 ## Crediti
 
 | Data | Higgsfield (piano Ultra) | Apollo lead credit (ciclo 3/10-3/11) |
