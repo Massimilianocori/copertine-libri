@@ -119,7 +119,17 @@ h3{font-size:1.1rem;margin:22px 0 8px}
 .r-lab{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
 .risultato .tot{font-size:clamp(2.4rem,7vw,3.2rem);line-height:1;color:var(--accent);letter-spacing:-.03em;margin:6px 0 4px;font-variant-numeric:tabular-nums}
 .r-righe{list-style:none;margin:12px 0 0;padding:0;font-size:.88rem;color:var(--ink-2);display:grid;gap:6px}
-.r-righe li{background:color-mix(in srgb,var(--card) 70%,transparent);border:1px solid var(--line);border-radius:10px;padding:7px 10px}
+.r-righe li{background:color-mix(in srgb,var(--card) 70%,transparent);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.r-righe .eq{display:block;font-family:var(--head);font-size:1.02rem;margin-top:2px;font-variant-numeric:tabular-nums}
+.r-dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin:14px 0 0;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.r-dl div{background:color-mix(in srgb,var(--card) 88%,var(--accent-2));padding:9px 12px;min-width:0}
+.r-dl div:last-child:nth-child(odd){grid-column:1/-1}
+.r-dl dt{font-size:.74rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+.r-dl dd{margin:2px 0 0;font-family:var(--head);font-weight:700;font-size:1.08rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.r-bar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:30;display:flex;align-items:center;gap:10px;font:inherit;text-align:left;cursor:pointer;background:#1F1A17;color:#F6EEE7;border:1px solid #4A3B31;border-radius:14px;padding:10px 16px;min-height:52px;box-shadow:0 12px 30px -8px rgba(0,0,0,.45)}
+.r-bar-tot{font-family:var(--head);font-weight:700;font-size:1.3rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.r-bar-info{flex:1;min-width:0;font-size:.88rem;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.r-bar-go{display:inline-flex;align-items:center;gap:4px;font-weight:700;font-size:.88rem;color:var(--sun)}
 .r-righe strong{color:var(--ink)}
 .calc-link{margin:auto 0 0;font-size:.9rem;font-weight:600}
 .calc-link a{display:inline-flex;align-items:center;gap:6px;text-decoration:none}
@@ -142,6 +152,14 @@ tr:last-child td{border-bottom:0}
 .griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
 .griglia a{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;min-width:0;overflow-wrap:anywhere;box-shadow:var(--sh-1);transition:border-color .15s,transform .15s,box-shadow .15s}
 .griglia a small{display:block;font-weight:400;color:var(--ink-3);font-size:.84rem;line-height:1.45;margin-top:3px}
+.griglia.dest>a{display:flex;flex-direction:column;overflow-wrap:normal;hyphens:manual}
+.griglia.dest>a small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.griglia .fr-card{grid-column:1/-1;display:flex;flex-direction:column;gap:6px;background:var(--sea-2);border:1px solid color-mix(in srgb,var(--sea) 30%,transparent);border-radius:var(--r-s);padding:12px 14px;min-width:0}
+.griglia .fr-card>a{all:unset;cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:700;color:var(--ink)}
+.griglia .fr-card>a .ico{color:var(--sea)}
+.griglia .fr-card>a:hover,.griglia .fr-card>a:focus-visible{text-decoration:underline;color:var(--ink)}
+.fr-top{font-size:.86rem;color:var(--ink-3);line-height:1.6}
+.fr-top a{all:unset;cursor:pointer;color:var(--ink-2);white-space:nowrap}.fr-top a:hover{text-decoration:underline;color:var(--ink)}
 .griglia a:hover{border-color:var(--accent);transform:translateY(-1px);box-shadow:var(--sh-2);color:var(--ink)}
 .cerca-box{position:relative}
 .cerca-box .ico{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--ink-3);pointer-events:none}
@@ -150,7 +168,8 @@ tr:last-child td{border-bottom:0}
 .sez-h{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .tipi{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:0;padding:0;list-style:none}
 .tipi li{background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:14px;font-size:.88rem;color:var(--ink-2);box-shadow:var(--sh-1)}
-.tipi .ic{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;background:var(--accent-2);color:var(--accent);margin-bottom:8px}
+.tipi .ic{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;background:var(--accent-2);color:var(--accent);margin-bottom:8px}
+.tipi .ic .ico{width:22px;height:22px}
 .tipi strong{display:block;color:var(--ink);font-size:.95rem}
 .callout{display:flex;align-items:center;gap:14px;padding:14px 18px;margin-top:14px}
 .callout .ic{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:var(--sea-2);color:var(--sea);flex:none}
@@ -187,9 +206,14 @@ footer strong{color:var(--foot-ink)}
 footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 footer h2{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--foot-ink-2);margin:4px 0 12px}
 footer .f-base{border-top:1px solid rgba(255,255,255,.12);margin-top:26px;padding-top:18px;font-size:.82rem;max-width:none}
+@media (min-width:861px){.r-bar{display:none!important}}
 @media (max-width:860px){.calc-grid{grid-template-columns:1fr}.calc-out{border-left:0;border-top:1px solid var(--line)}.tipi{grid-template-columns:repeat(2,minmax(0,1fr))}.band-deco{display:none}.summary{grid-template-columns:1fr}}
 @media (max-width:760px){nav.menu{display:none}.nav-m{display:block}header.top .wrap{min-height:60px}
-.calc .campi{grid-template-columns:1fr 1fr}.calc .campi>label[data-campo=checkin]{grid-column:1/-1}
+.calc .campi{grid-template-columns:1fr 1fr}.calc .campi>label[data-campo=stanze]{grid-column:1/-1}
+.calc .campi:not(:has([data-campo=esenti]:not([hidden]))) [data-campo=paganti]{grid-column:1/-1}
+.griglia.dest{grid-template-columns:1fr;gap:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-1)}
+.griglia.dest>a{border:0;border-bottom:1px solid var(--line);border-radius:0;box-shadow:none;padding:12px 16px}.griglia.dest>a:hover{transform:none;box-shadow:none}
+.griglia.dest .fr-card{grid-column:auto;border:0;border-radius:0}
 .calc form,.calc-out{padding:18px}footer .f-grid{grid-template-columns:1fr}.band-in{padding-top:22px;padding-bottom:22px}}
 @media (max-width:420px){.calc .campi{gap:12px}.tipi li{padding:12px}.summary{padding:18px 18px 18px 22px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -234,11 +258,12 @@ footer .f-base{border-top:1px solid rgba(255,255,255,.12);margin-top:26px;paddin
 <div class="risultato" data-out aria-live="polite"><noscript>Turn on JavaScript to use the calculator. The rate table below shows every official rate.</noscript></div>
 
 </div>
+<button type="button" class="r-bar" data-bar hidden><span class="r-bar-tot"></span><span class="r-bar-info"></span><span class="r-bar-go">Details<svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></button>
 </div>
 </div>
 
 <details class="formula"><summary><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-calc"/></svg>Formula used</summary><p>Tax = rate per person per night × guests aged 18 or over × taxable nights (stays longer than 60 consecutive calendar days, i.e. 60 nights or more, are not covered).</p></details>
-<p class="esempio">Example: 2 adults, 3 nights from 11 October 2026, Hotels, apartments, hostels and all paid stays → <strong>300 CZK</strong> in total.</p>
+<p class="esempio">Example: 2 adults, 3 nights from 14 October 2026, Hotels, apartments, hostels and all paid stays → <strong>300 CZK</strong> in total.</p>
 <p class="avviso"><strong>Not tax advice.</strong> Tourist taxes are set by local or national authorities and can change. They are usually collected by your hotel or host, who applies the official rules: check the final amount with your accommodation.</p>
 <div class="ad-slot" aria-hidden="true"></div>
 <h2>Official rates</h2>
@@ -276,6 +301,7 @@ function r2(x){return Math.floor(x*100+0.5+1e-9)/100;}
 function grp(n,dec){var s=dec?r2(n).toFixed(2):String(Math.floor(n+0.5+1e-9));var p=s.split('.');p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,',');return p.join('.');}
 function soldi(v,c){var x=VAL[c];return x[0]+grp(v,x[2])+x[1];}
 function num(v){var s=String(Math.round(v*1e6)/1e6);return s;}
+function plur(n,uno,molti){return n+' '+(n===1?uno:(molti||uno+'s'));}
 function riga(R,cat,d){var m=+d.slice(5,7);for(var i=0;i<R.tariffe.length;i++){var t=R.tariffe[i];if(t.cat!==cat)continue;
   if(t.dal&&d<t.dal)continue;if(t.al&&d>t.al)continue;if(t.mesi&&t.mesi.indexOf(m)<0)continue;return t;}return null;}
 function inPeriodo(per,d){if(!per||!per.length)return true;var md=(+d.slice(5,7))*100+(+d.slice(8,10));
@@ -294,7 +320,7 @@ function calcola(R,cat,checkin,notti,paganti,esenti,stanze,prezzo,zona){
   function agg(t,imp){if(!gruppi[t]){gruppi[t]=[t,0,0];ordine.push(t);}gruppi[t][1]+=1;gruppi[t][2]+=imp;}
   var meta={};R.categorie.forEach(function(c){meta[c.id]=c;});
   if(R.tipo==='per_trip'){var t0=riga(R,cat,checkin);if(!t0){out.sconosciute=1;return out;}
-    var im=t0.valore*paganti;out.righe=[[soldi(t0.valore,val)+' × '+paganti+' traveller(s), once per trip',1,im]];out.totale=im;return out;}
+    var im=t0.valore*paganti;out.righe=[[soldi(t0.valore,val)+' × '+plur(paganti,'traveller')+', once per trip',1,im]];out.totale=im;return out;}
   if(R.max_soggiorno&&notti+1>R.max_soggiorno){out.note.push('This stay spans '+(notti+1)+' calendar days (arrival day included): only stays of at most '+R.max_soggiorno+' consecutive calendar days are subject to the fee.');return out;}
   if(R.esente_oltre_mesi){if(addDays(checkin,notti)>piuMesi(checkin,R.esente_oltre_mesi)){out.note.push('Stays of more than '+R.esente_oltre_mesi+' months without interruption are exempt.');return out;}}
   var maxN=(meta[cat]&&meta[cat].max_notti)||R.max_notti;var persone=paganti+esenti;
@@ -303,19 +329,19 @@ function calcola(R,cat,checkin,notti,paganti,esenti,stanze,prezzo,zona){
     if(R.in_vigore_dal&&d<R.in_vigore_dal){out.prima++;continue;}
     var t=riga(R,cat,d);if(!t){out.sconosciute++;continue;}
     var imp,testo,tp=R.tipo;
-    if(tp==='per_person'){var sp=supplemento(R,zona,cat,d);var vv=t.valore+(sp?sp.valore:0);imp=vv*paganti;testo=soldi(vv,val)+' per person × '+paganti+' paying guest(s)';
+    if(tp==='per_person'){var sp=supplemento(R,zona,cat,d);var vv=t.valore+(sp?sp.valore:0);imp=vv*paganti;testo=soldi(vv,val)+' per person × '+plur(paganti,'paying guest');
       if(sp){var nz=R.zone.filter(function(z){return z.id===zona;})[0].label;testo+=' (incl. '+soldi(sp.valore,val)+' '+nz+' surcharge)';}}
-    else if(tp==='per_room'){imp=t.valore*stanze;testo=soldi(t.valore,val)+' per room/unit × '+stanze+' room(s)/unit(s)';if(t.stagione)testo+=' ('+t.stagione+' rate)';}
+    else if(tp==='per_room'){imp=t.valore*stanze;testo=soldi(t.valore,val)+' per room/unit × '+plur(stanze,'room/unit','rooms/units');if(t.stagione)testo+=' ('+t.stagione+' rate)';}
     else if(tp==='percent'){var f=(t.fattore_base===undefined)?1:t.fattore_base;imp=prezzo*f*t.valore/100;
       testo=num(t.valore)+'% of '+soldi(prezzo,val)+(f!==1?' after a '+num(Math.round((1-f)*100*1e4)/1e4)+'% deduction':'');}
     else if(tp==='bands'){var pp=persone?prezzo/persone:0;var b=banda(t.valore,pp);imp=b*persone;
-      testo=soldi(b,val)+' per person (band for '+soldi(pp,val)+' per person) × '+persone+' guest(s)';}
+      testo=soldi(b,val)+' per person (band for '+soldi(pp,val)+' per person) × '+plur(persone,'guest');}
     else if(tp==='france'){var fr=t.fr;if(!inPeriodo(fr.per,d)){out.fuori++;continue;}
       if(fr.reg==='F'){var nf='This category is taxed with the flat-rate scheme (taxe forfaitaire): the host pays it, it is not charged per guest.';
         if(out.note.indexOf(nf)<0)out.note.push(nf);agg('flat-rate scheme, paid by the host',0);continue;}
-      if(fr.u==='€'){imp=fr.tot*paganti;testo=soldi(fr.tot,val)+' per person ('+soldi(fr.t,val)+' + '+num(fr.add)+'% additional taxes) × '+paganti+' paying guest(s)';}
+      if(fr.u==='€'){imp=fr.tot*paganti;testo=soldi(fr.tot,val)+' per person ('+soldi(fr.t,val)+' + '+num(fr.add)+'% additional taxes) × '+plur(paganti,'paying guest');}
       else{var costo=persone?prezzo/persone:0;var base=Math.min(r2(fr.t/100*costo),R.cap);var per=r2(base*(1+fr.add/100));imp=per*paganti;
-        testo=soldi(per,val)+' per person ('+num(fr.t)+'% of '+soldi(costo,val)+' per person, capped at '+soldi(R.cap,val)+', + '+num(fr.add)+'% additional taxes) × '+paganti+' paying guest(s)';}}
+        testo=soldi(per,val)+' per person ('+num(fr.t)+'% of '+soldi(costo,val)+' per person, capped at '+soldi(R.cap,val)+', + '+num(fr.add)+'% additional taxes) × '+plur(paganti,'paying guest');}}
     (R.riduzioni||[]).forEach(function(rd){if(rd.tipo==='mesi'&&rd.mesi.indexOf(+d.slice(5,7))>=0){imp*=(1-rd.percento/100);testo+=', '+rd.testo;}
       else if(rd.tipo==='dal_giorno'&&n>=rd.giorno){imp*=(1-rd.percento/100);testo+=', '+rd.testo;}});
     agg(testo,imp);}
@@ -353,18 +379,36 @@ function calcola(R,cat,checkin,notti,paganti,esenti,stanze,prezzo,zona){
       var ci=q('checkin').value||primaData(R);
       var zs=q('zona');vis('zona',!!(R.zone&&R.zone.length));
       var o=calcola(R,cat.value,ci,notti,pag,eta?es:0,st,pr,(R.zone&&zs)?zs.value:'');
-      var h='<div class="r-lab">Estimated tax for this stay</div><div class="tot">'+soldi(o.totale,R.currency)+'</div><ul class="r-righe">';
-      o.righe.forEach(function(g){h+='<li>'+g[1]+' night'+(g[1]>1?'s':'')+' × '+esc(g[0])+' = <strong>'+soldi(g[2],R.currency)+'</strong></li>';});
+      var cur=R.currency,tot=soldi(o.totale,cur);
+      var h='<div class="r-lab">Estimated tax for this stay</div><div class="tot">'+tot+'</div>';
+      var kv=[],tassate=o.righe.reduce(function(s,g){return s+(g[2]>0?g[1]:0);},0);
+      if(tp!=='per_trip'){kv.push(['Taxed nights',tassate+' of '+notti]);kv.push(['Average per night',soldi(o.totale/notti,cur)]);}
+      if((tp==='per_person'||tp==='france'||tp==='per_trip')&&pag>0)kv.push([tp==='per_trip'?'Per traveller':'Per paying guest',soldi(o.totale/pag,cur)]);
+      if(eta&&tp!=='per_room'&&tp!=='percent')kv.push(['Exempt (under '+eta+')',plur(es,'guest')]);
+      if(tp==='per_room')kv.push(['Rooms or units',String(st)]);
+      if(tp==='percent'||tp==='bands'||isNC)kv.push(['Price per night',soldi(pr,cur)]);
+      h+='<dl class="r-dl">'+kv.map(function(x){return '<div><dt>'+esc(x[0])+'</dt><dd>'+esc(x[1])+'</dd></div>';}).join('')+'</dl><ul class="r-righe">';
+      o.righe.forEach(function(g){h+='<li><span>'+(tp==='per_trip'?'':plur(g[1],'night')+' × ')+esc(g[0])+'</span><strong class="eq">= '+soldi(g[2],cur)+'</strong></li>';});
       if(R.tipo==='per_trip'&&!o.righe.length)h+='<li>No verified amount.</li>';
-      if(o.escluse)h+='<li>'+o.escluse+' night(s) beyond the maximum number of taxable nights: no tax.</li>';
-      if(o.fuori)h+='<li>'+o.fuori+' night(s) outside the collection period: no tax.</li>';
-      if(o.prima)h+='<li>'+o.prima+' night(s) before '+esc(R.in_vigore_testo||R.in_vigore_dal)+': no tax yet.</li>';
-      if(o.sconosciute)h+='<li>'+o.sconosciute+' night(s) with no verified official rate for that date (not counted).</li>';
+      if(o.escluse)h+='<li>'+plur(o.escluse,'night')+' beyond the maximum number of taxable nights: no tax.</li>';
+      if(o.fuori)h+='<li>'+plur(o.fuori,'night')+' outside the collection period: no tax.</li>';
+      if(o.prima)h+='<li>'+plur(o.prima,'night')+' before '+esc(R.in_vigore_testo||R.in_vigore_dal)+': no tax yet.</li>';
+      if(o.sconosciute)h+='<li>'+plur(o.sconosciute,'night')+' with no verified official rate for that date (not counted).</li>';
       o.note.forEach(function(n){h+='<li>'+esc(n)+'</li>';});
-      h+='</ul>';box.querySelector('[data-out]').innerHTML=h;}
+      h+='</ul>';box.querySelector('[data-out]').innerHTML=h;
+      var bar=box.querySelector('[data-bar]');if(bar){bar.querySelector('.r-bar-tot').textContent=tot;
+        bar.querySelector('.r-bar-info').textContent=(tp==='per_trip'?plur(pag,'traveller'):plur(notti,'night'))+' · '+R.name;if(box.__obs)box.__obs();}}
     if(!f.dataset.legato){var ag=function(e){if(e&&e.target&&e.target.name==='dest')return;box.__aggiorna();};
       f.addEventListener('input',ag);f.addEventListener('change',ag);f.addEventListener('submit',function(e){e.preventDefault();});f.dataset.legato='1';}
-    box.__aggiorna=aggiorna;aggiorna();}
+    box.__aggiorna=aggiorna;aggiorna();barra(box);}
+  function barra(box){var bar=box.querySelector('[data-bar]'),out=box.querySelector('.calc-out'),fm=box.querySelector('form');
+    if(!bar||box.dataset.barra||!('IntersectionObserver' in window))return;box.dataset.barra='1';
+    var vOut=true,vForm=false,mq=window.matchMedia('(max-width:860px)');
+    function agg(){bar.hidden=!(mq.matches&&vForm&&!vOut);}
+    var ob=new IntersectionObserver(function(e){vOut=e[0].intersectionRatio>0.9;agg();},{threshold:[0,0.9,1]});var obs=function(){var t=out.querySelector('.tot');ob.disconnect();ob.observe(t||out);};obs();box.__obs=obs;
+    new IntersectionObserver(function(e){vForm=e[0].isIntersecting;agg();}).observe(fm);
+    if(mq.addEventListener)mq.addEventListener('change',agg);
+    bar.addEventListener('click',function(){out.scrollIntoView({behavior:'smooth',block:'center'});});}
   window.TTC_monta=monta;
   document.querySelectorAll('[data-calcolatore]').forEach(function(box){
     var D=JSON.parse(document.getElementById(box.dataset.calcolatore).textContent);
@@ -376,7 +420,7 @@ function calcola(R,cat,checkin,notti,paganti,esenti,stanze,prezzo,zona){
     else monta(box,D[0]);});
   document.querySelectorAll('[data-filtro]').forEach(function(inp){var lista=document.getElementById(inp.dataset.filtro);
     inp.addEventListener('input',function(){var v=inp.value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
-      lista.querySelectorAll('a').forEach(function(a){var t=a.textContent.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');a.hidden=v&&t.indexOf(v)<0;});});});
+      [].forEach.call(lista.children,function(a){var t=a.textContent.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');a.hidden=v&&t.indexOf(v)<0;});});});
   var src=document.querySelectorAll('input[name=source]');var ref='';try{var qs=new URLSearchParams(location.search);ref=qs.get('ref')||document.referrer||'direct';}catch(e){ref='direct';}
   src.forEach(function(i){i.value=String(ref).slice(0,200);});
   document.querySelectorAll('form.ajax').forEach(function(form){form.addEventListener('submit',function(ev){ev.preventDefault();
