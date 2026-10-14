@@ -92,6 +92,8 @@ Si riprendono solo quando la soglia è raggiunta. Prima vengono i libri KDP già
 
 ## 8. Registro delle decisioni
 
+- 14/10/2026 sera: anche Tourist Tax, Visa Income e Before You Fly sono online con il nuovo aspetto. Il ramo di produzione su Netlify era già quello giusto: la pubblicazione era solo più lenta. Restyling completo su 5 siti; Italy Strikes esce il 17/10.
+
 - 14/10/2026: restyling pubblicato. EsameB1 (con pagine costo e risultati) ed EsamiDiStato sono online. Tourist Tax, Visa Income e Before You Fly sono stati costruiti solo come anteprima di ramo (ccr-b7fd6b9e-n096cr--<sito>.netlify.app): su Netlify il loro ramo di produzione non è il nostro, oppure la pubblicazione automatica è bloccata. Serve un'impostazione di Massimiliano su Netlify.
 
 - 14/10/2026: revisione del mercoledì. 6 siti su 6 rispondono (home, sitemap, pagine campione 200). Registro scioperi aggiornato il 13/10 alle 22:43. Nessuna soglia raggiunta: tutti i siti in fase Avvio, decisioni invariate. La ricerca settimanale è spostata alle 23 di oggi, insieme al test delle fonti per il sito degli affari, per risparmiare crediti.
