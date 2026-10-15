@@ -68,3 +68,6 @@ Nessun sito si consegna come "fatto" se è solo funzionante. Prima di chiedere a
 2. **Aspetto**: identità propria (logo, colori, caratteri), home con la risposta in alto, testi brevi, icone, menu del telefono su una riga, immagine di anteprima per la condivisione; schermate a 1280 px e 390 px, tema chiaro e scuro, confrontate con i migliori siti del settore. Un revisore di design indipendente dà il voto: sotto 8/10 si rifà.
 3. **Tecnica**: link interni, sitemap, Search Console, velocità, accessibilità, nessun errore.
 Lo stesso vale per guide, libri e pagine: la prima versione mostrata a Massimiliano deve già essere quella curata.
+
+## Regola di Massimiliano (15/10/2026): "falli subito bene"
+Ogni sito o sezione nuova si consegna già finita alla prima volta: design rivisto con schermate su telefono e computer, chiaro e scuro, fino ad almeno 8,5/10; tutti i testi riletti (grammatica, accenti, numeri, date, tono naturale); casi limite provati; poi revisione indipendente su fatti e aspetto. Non si consegna niente che lui debba rimandare indietro.
