@@ -5,3 +5,6 @@ __pycache__/
 
 # OS
 .DS_Store
+
+# Flood Insurance Cost: dati grezzi OpenFEMA (si riscaricano con floodcost/raccolta/scarica.py)
+floodcost/cache/

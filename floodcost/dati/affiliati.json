@@ -1,0 +1,10 @@
+{
+ "_nota": "Riquadro 'get a quote' delle pagine. Compare SOLO quando una voce ha l'url compilato (il primo con url). Inserire solo URL di affiliazione veri ricevuti dopo l'iscrizione a un programma (es. preventivi casa/alluvione). Mai inventare URL. Testo neutro: niente promesse di risparmio.",
+ "quote": {
+  "url": "",
+  "nome": "",
+  "titolo": "Want a price for your own home?",
+  "testo": "Compare flood insurance quotes from licensed providers for your address.",
+  "bottone": "Compare quotes"
+ }
+}
