@@ -204,10 +204,69 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 footer h2{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:4px 0 12px}
 footer .f-base{border-top:1px solid rgba(255,255,255,.12);margin-top:24px;padding-top:16px;font-size:.82rem;max-width:none}
 @media (max-width:880px){.calc-grid{grid-template-columns:1fr}.calc-out{border-left:0;border-top:1px solid var(--line)}.band-deco{display:none}.cat{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1020px){nav.menu{display:none}.nav-m{display:block}}
 @media (max-width:760px){nav.menu{display:none}.nav-m{display:block}header.top .wrap{min-height:60px}
 .calc form,.calc-out{padding:18px}footer .f-grid{grid-template-columns:1fr}.band-in{padding-top:24px}.band{background:linear-gradient(180deg,var(--navy) 0,var(--navy-2) 80%,var(--bg) 80%)}}
 @media (max-width:420px){.calc .campi{grid-template-columns:1fr 1fr;gap:12px}.calc .campi>label[data-campo=paese],.calc .campi>label[data-campo=programma],.calc .campi>label.l-red,.calc .campi>label.l-val{grid-column:1/-1}.summary .s-body{padding:18px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.tab.compatta td,.tab.compatta th{min-width:0}
+.tab.compatta th{vertical-align:bottom}
+.tab.compatta th .small{font-weight:600;letter-spacing:0;text-transform:none}
+@media (max-width:640px){.tab.compatta td,.tab.compatta th{padding:9px 8px}.tab.compatta td:first-child,.tab.compatta th:first-child{min-width:118px}}
+th button.ord{font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;text-align:inherit;background:none;border:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+th button.ord::after{content:"";width:7px;height:10px;flex:none;opacity:.45;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 10'%3E%3Cpath d='M3.5 0 7 4H0zM3.5 10 0 6h7z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 10'%3E%3Cpath d='M3.5 0 7 4H0zM3.5 10 0 6h7z'/%3E%3C/svg%3E") center/contain no-repeat}
+th[aria-sort] button.ord{color:var(--accent)}
+th[aria-sort] button.ord::after{opacity:1}
+th[aria-sort=ascending] button.ord::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 10'%3E%3Cpath d='M3.5 2 7 7H0z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 10'%3E%3Cpath d='M3.5 2 7 7H0z'/%3E%3C/svg%3E")}
+th[aria-sort=descending] button.ord::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 10'%3E%3Cpath d='M3.5 8 0 3h7z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 10'%3E%3Cpath d='M3.5 8 0 3h7z'/%3E%3C/svg%3E")}
+.tb{display:inline-block;width:52px;height:6px;border-radius:99px;background:var(--mute);margin-right:8px;vertical-align:middle;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line)}
+.tb i{display:block;height:100%;background:var(--accent);border-radius:99px}
+tr.poco td{color:var(--ink-3)}
+tr.tot-r td{font-weight:700;border-top:2px solid var(--line-2)}
+.kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0 2px}
+.kpi div{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-s);padding:11px 13px;min-width:0}
+.kpi b{display:block;font-family:var(--serif);font-size:clamp(1.1rem,2.6vw,1.4rem);line-height:1.2;font-variant-numeric:tabular-nums;color:var(--ink);overflow-wrap:anywhere}
+.kpi span{display:block;font-size:.8rem;color:var(--ink-3);font-weight:600;margin-top:2px;line-height:1.35}
+.cifra-2{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line-2)}
+.cifra-2 strong{font-size:clamp(1.25rem,3.2vw,1.6rem)}
+.due{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.due h3{margin-top:4px}
+.classifica{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.classifica li{display:grid;grid-template-columns:26px minmax(0,1fr) auto;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:10px 14px;box-shadow:var(--sh-1)}
+.classifica .pos{font-family:var(--serif);font-weight:700;color:var(--gold-ink);font-size:1.05rem}
+.classifica a{font-weight:700}
+.classifica small{display:block;color:var(--ink-3);font-size:.8rem}
+.classifica .bar{display:block;height:6px;border-radius:99px;background:var(--mute);margin-top:6px;overflow:hidden}
+.classifica .bar i{display:block;height:100%;background:var(--accent);border-radius:99px}
+.classifica .bar.ok i{background:var(--ok)}.classifica .bar.no i{background:var(--no)}
+.classifica .v{font-family:var(--serif);font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums}
+.filtro{margin:0 0 10px;max-width:420px}
+.filtro input{font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1.5px solid var(--line-2);border-radius:var(--r-s);padding:10px 12px;width:100%;min-height:46px}
+.filtro input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 20%,transparent)}
+.trim{list-style:none;margin:8px 0 0;padding:16px 14px 12px;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh-1)}
+.trim li{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0;text-align:center}
+.trim .tq-v{font-size:.78rem;font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink-2);white-space:nowrap}
+.trim .tq-c{display:flex;align-items:flex-end;height:110px;width:100%;max-width:44px;background:var(--mute);border-radius:6px 6px 0 0;overflow:hidden}
+.trim .tq-b{display:block;width:100%;background:linear-gradient(180deg,var(--accent),color-mix(in srgb,var(--accent) 70%,var(--card)));border-radius:6px 6px 0 0}
+.trim .tq-l{font-size:.74rem;color:var(--ink-3);line-height:1.25}
+.aff-r{margin-top:28px;border-left:4px solid var(--gold)}
+.aff-r-t{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.aff-r-t h2{margin:0;font-size:1.2rem;flex:1;min-width:200px}
+.aff-r-t .ic{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;background:var(--gold-2);color:var(--gold-ink);flex:none}
+.aff-tag{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);border:1px solid var(--line-2);border-radius:6px;padding:2px 8px}
+.aff-r-cta{margin:14px 0 10px}
+a.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--on-accent)}
+a.btn:hover{color:var(--on-accent)}
+.cerca{margin-bottom:26px;box-shadow:var(--sh-2);max-width:760px}
+.cerca label .lt{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--ink)}
+.cerca .lt .ico{color:var(--accent)}
+.vai-r{margin-top:8px}
+.vai-r select{font:inherit;font-size:1.02rem;color:var(--ink);background:var(--card);border:1.5px solid var(--line-2);border-radius:var(--r-s);padding:11px 12px;width:100%;min-height:48px}
+.vai-r select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 20%,transparent)}
+.s-top .flag{width:24px;height:16px;border-radius:3px}
+ul.testo{padding-left:20px}
+@media (max-width:760px){.kpi{grid-template-columns:repeat(2,minmax(0,1fr))}.due{grid-template-columns:1fr}}
+@media (max-width:480px){.tb{display:none}.trim{gap:4px;padding:14px 8px 10px}.trim .tq-v{font-size:.68rem}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://visa-income-checker.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Contact", "item": "https://visa-income-checker.netlify.app/contact/"}]}</script>
 </head>
@@ -216,8 +275,8 @@ footer .f-base{border-top:1px solid rgba(255,255,255,.12);margin-top:24px;paddin
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap">
 <a class="logo" href="../"><svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="9" fill="#E0A526"/><rect x="11" y="7" width="18" height="26" rx="2.5" fill="#141B33"/><circle cx="20" cy="17" r="5" fill="none" stroke="#E0A526" stroke-width="1.8"/><path d="M15 17h10M20 12c1.6 1.5 2.2 3.2 2.2 5s-.6 3.5-2.2 5c-1.6-1.5-2.2-3.2-2.2-5s.6-3.5 2.2-5z" fill="none" stroke="#E0A526" stroke-width="1.4"/><path d="M15.5 27.5h9" stroke="#E0A526" stroke-width="1.8" stroke-linecap="round"/></svg><span>Visa Income <b>Checker</b></span></a>
-<nav class="menu" aria-label="Menu"><a href="../">Calculator</a><a href="../digital-nomad-visa-income-requirements/">Digital nomad visas</a><a href="../work-visa-salary-thresholds/">Work visas</a><a href="../how-it-works/">How it works</a><a href="../about/">About</a></nav>
-<details class="nav-m"><summary aria-label="Open the menu"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>Menu</summary><nav aria-label="Menu"><a href="../">Calculator</a><a href="../digital-nomad-visa-income-requirements/">Digital nomad visas</a><a href="../work-visa-salary-thresholds/">Work visas</a><a href="../how-it-works/">How it works</a><a href="../about/">About</a></nav></details>
+<nav class="menu" aria-label="Menu"><a href="../">Calculator</a><a href="../digital-nomad-visa-income-requirements/">Digital nomad visas</a><a href="../work-visa-salary-thresholds/">Work visas</a><a href="../visa-refusal-rates/">Refusal rates</a><a href="../how-it-works/">How it works</a><a href="../about/">About</a></nav>
+<details class="nav-m"><summary aria-label="Open the menu"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>Menu</summary><nav aria-label="Menu"><a href="../">Calculator</a><a href="../digital-nomad-visa-income-requirements/">Digital nomad visas</a><a href="../work-visa-salary-thresholds/">Work visas</a><a href="../visa-refusal-rates/">Refusal rates</a><a href="../how-it-works/">How it works</a><a href="../about/">About</a></nav></details>
 </div></header>
 <main id="main">
 
@@ -238,14 +297,14 @@ footer .f-base{border-top:1px solid rgba(255,255,255,.12);margin-top:24px;paddin
 <footer><div class="wrap">
 <div class="f-grid"><div>
 <a class="logo" href="../"><svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="9" fill="#E0A526"/><rect x="11" y="7" width="18" height="26" rx="2.5" fill="#141B33"/><circle cx="20" cy="17" r="5" fill="none" stroke="#E0A526" stroke-width="1.8"/><path d="M15 17h10M20 12c1.6 1.5 2.2 3.2 2.2 5s-.6 3.5-2.2 5c-1.6-1.5-2.2-3.2-2.2-5s.6-3.5 2.2-5z" fill="none" stroke="#E0A526" stroke-width="1.4"/><path d="M15.5 27.5h9" stroke="#E0A526" stroke-width="1.8" stroke-linecap="round"/></svg><span>Visa Income <b>Checker</b></span></a>
-<p><strong>Visa Income Checker</strong> is an independent site, not affiliated with any government, consulate or immigration authority. Every amount is calculated from an official source (law, official gazette, ministry, immigration authority or statistics office) linked under the figure with the date we checked it.
+<p><strong>Visa Income Checker</strong> is an independent site, not affiliated with any government, consulate or immigration authority. Every amount and every statistic comes from an official source (law, official gazette, ministry, immigration authority, European Commission, Home Office or statistics office) linked under the figure with the date we checked or downloaded it.
 <strong>Requirements change, and consulates can ask for more: always check the official page or the consulate.</strong> Nothing on this site is immigration, legal or tax advice.</p>
 <p>Exchange rates: euro foreign exchange reference rates of the European Central Bank (source: ECB), for information only.</p>
 </div><div>
 <h2>Explore</h2>
-<ul><li><a href="../about/">About</a></li><li><a href="../how-it-works/">How it works and sources</a></li><li><a href="../contact/">Contact</a></li><li><a href="../privacy.html">Privacy</a></li><li><a href="../contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
+<ul><li><a href="../visa-refusal-rates/">Visa refusal rates</a></li><li><a href="../about/">About</a></li><li><a href="../how-it-works/">How it works and sources</a></li><li><a href="../contact/">Contact</a></li><li><a href="../privacy.html">Privacy</a></li><li><a href="../contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
 </div></div>
-<p class="f-base">Official sources only · the calculator runs in your browser.</p>
+<p class="f-base">Official sources only · the calculator runs in your browser · links marked "Affiliate" may earn us a commission.</p>
 </div></footer>
 
 <script>

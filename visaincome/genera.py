@@ -15,6 +15,7 @@ import json
 import math
 import re
 import shutil
+from collections import defaultdict
 from datetime import date
 from html import escape
 from pathlib import Path
@@ -522,10 +523,69 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 footer h2{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:4px 0 12px}
 footer .f-base{border-top:1px solid rgba(255,255,255,.12);margin-top:24px;padding-top:16px;font-size:.82rem;max-width:none}
 @media (max-width:880px){.calc-grid{grid-template-columns:1fr}.calc-out{border-left:0;border-top:1px solid var(--line)}.band-deco{display:none}.cat{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1020px){nav.menu{display:none}.nav-m{display:block}}
 @media (max-width:760px){nav.menu{display:none}.nav-m{display:block}header.top .wrap{min-height:60px}
 .calc form,.calc-out{padding:18px}footer .f-grid{grid-template-columns:1fr}.band-in{padding-top:24px}.band{background:linear-gradient(180deg,var(--navy) 0,var(--navy-2) 80%,var(--bg) 80%)}}
 @media (max-width:420px){.calc .campi{grid-template-columns:1fr 1fr;gap:12px}.calc .campi>label[data-campo=paese],.calc .campi>label[data-campo=programma],.calc .campi>label.l-red,.calc .campi>label.l-val{grid-column:1/-1}.summary .s-body{padding:18px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.tab.compatta td,.tab.compatta th{min-width:0}
+.tab.compatta th{vertical-align:bottom}
+.tab.compatta th .small{font-weight:600;letter-spacing:0;text-transform:none}
+@media (max-width:640px){.tab.compatta td,.tab.compatta th{padding:9px 8px}.tab.compatta td:first-child,.tab.compatta th:first-child{min-width:118px}}
+th button.ord{font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;text-align:inherit;background:none;border:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+th button.ord::after{content:"";width:7px;height:10px;flex:none;opacity:.45;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 10'%3E%3Cpath d='M3.5 0 7 4H0zM3.5 10 0 6h7z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 10'%3E%3Cpath d='M3.5 0 7 4H0zM3.5 10 0 6h7z'/%3E%3C/svg%3E") center/contain no-repeat}
+th[aria-sort] button.ord{color:var(--accent)}
+th[aria-sort] button.ord::after{opacity:1}
+th[aria-sort=ascending] button.ord::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 10'%3E%3Cpath d='M3.5 2 7 7H0z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 10'%3E%3Cpath d='M3.5 2 7 7H0z'/%3E%3C/svg%3E")}
+th[aria-sort=descending] button.ord::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 10'%3E%3Cpath d='M3.5 8 0 3h7z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 10'%3E%3Cpath d='M3.5 8 0 3h7z'/%3E%3C/svg%3E")}
+.tb{display:inline-block;width:52px;height:6px;border-radius:99px;background:var(--mute);margin-right:8px;vertical-align:middle;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line)}
+.tb i{display:block;height:100%;background:var(--accent);border-radius:99px}
+tr.poco td{color:var(--ink-3)}
+tr.tot-r td{font-weight:700;border-top:2px solid var(--line-2)}
+.kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0 2px}
+.kpi div{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-s);padding:11px 13px;min-width:0}
+.kpi b{display:block;font-family:var(--serif);font-size:clamp(1.1rem,2.6vw,1.4rem);line-height:1.2;font-variant-numeric:tabular-nums;color:var(--ink);overflow-wrap:anywhere}
+.kpi span{display:block;font-size:.8rem;color:var(--ink-3);font-weight:600;margin-top:2px;line-height:1.35}
+.cifra-2{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line-2)}
+.cifra-2 strong{font-size:clamp(1.25rem,3.2vw,1.6rem)}
+.due{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.due h3{margin-top:4px}
+.classifica{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.classifica li{display:grid;grid-template-columns:26px minmax(0,1fr) auto;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:10px 14px;box-shadow:var(--sh-1)}
+.classifica .pos{font-family:var(--serif);font-weight:700;color:var(--gold-ink);font-size:1.05rem}
+.classifica a{font-weight:700}
+.classifica small{display:block;color:var(--ink-3);font-size:.8rem}
+.classifica .bar{display:block;height:6px;border-radius:99px;background:var(--mute);margin-top:6px;overflow:hidden}
+.classifica .bar i{display:block;height:100%;background:var(--accent);border-radius:99px}
+.classifica .bar.ok i{background:var(--ok)}.classifica .bar.no i{background:var(--no)}
+.classifica .v{font-family:var(--serif);font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums}
+.filtro{margin:0 0 10px;max-width:420px}
+.filtro input{font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1.5px solid var(--line-2);border-radius:var(--r-s);padding:10px 12px;width:100%;min-height:46px}
+.filtro input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 20%,transparent)}
+.trim{list-style:none;margin:8px 0 0;padding:16px 14px 12px;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh-1)}
+.trim li{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0;text-align:center}
+.trim .tq-v{font-size:.78rem;font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink-2);white-space:nowrap}
+.trim .tq-c{display:flex;align-items:flex-end;height:110px;width:100%;max-width:44px;background:var(--mute);border-radius:6px 6px 0 0;overflow:hidden}
+.trim .tq-b{display:block;width:100%;background:linear-gradient(180deg,var(--accent),color-mix(in srgb,var(--accent) 70%,var(--card)));border-radius:6px 6px 0 0}
+.trim .tq-l{font-size:.74rem;color:var(--ink-3);line-height:1.25}
+.aff-r{margin-top:28px;border-left:4px solid var(--gold)}
+.aff-r-t{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.aff-r-t h2{margin:0;font-size:1.2rem;flex:1;min-width:200px}
+.aff-r-t .ic{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;background:var(--gold-2);color:var(--gold-ink);flex:none}
+.aff-tag{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);border:1px solid var(--line-2);border-radius:6px;padding:2px 8px}
+.aff-r-cta{margin:14px 0 10px}
+a.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--on-accent)}
+a.btn:hover{color:var(--on-accent)}
+.cerca{margin-bottom:26px;box-shadow:var(--sh-2);max-width:760px}
+.cerca label .lt{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--ink)}
+.cerca .lt .ico{color:var(--accent)}
+.vai-r{margin-top:8px}
+.vai-r select{font:inherit;font-size:1.02rem;color:var(--ink);background:var(--card);border:1.5px solid var(--line-2);border-radius:var(--r-s);padding:11px 12px;width:100%;min-height:48px}
+.vai-r select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 20%,transparent)}
+.s-top .flag{width:24px;height:16px;border-radius:3px}
+ul.testo{padding-left:20px}
+@media (max-width:760px){.kpi{grid-template-columns:repeat(2,minmax(0,1fr))}.due{grid-template-columns:1fr}}
+@media (max-width:480px){.tb{display:none}.trim{gap:4px;padding:14px 8px 10px}.trim .tq-v{font-size:.68rem}}
 """
 
 ICONE = {
@@ -601,6 +661,7 @@ DECO = ('<svg class="band-deco" viewBox="0 0 230 150" aria-hidden="true" focusab
         '<circle cx="115" cy="66" r="40" fill="none" stroke="#E0A526" stroke-opacity=".9" stroke-width="2"/>'
         '<path d="M83 66h64M115 34c10 9 14 20 14 32s-4 23-14 32c-10-9-14-20-14-32s4-23 14-32z" fill="none" stroke="#E0A526" stroke-opacity=".9" stroke-width="2"/>'
         '<text x="115" y="143" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" letter-spacing="2.5" fill="#E0A526" fill-opacity=".9">OFFICIAL · MINIMUM</text></svg>')
+DECO_STAT = DECO.replace("OFFICIAL · MINIMUM", "OFFICIAL · STATISTICS")
 
 
 def h1_diviso(testo):
@@ -776,7 +837,7 @@ def blocco_dati():
             json.dumps(d, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>")
 
 
-def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, calcolatore=False, jsonld_extra=None, assoluto=False, testata=""):
+def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, calcolatore=False, jsonld_extra=None, assoluto=False, testata="", ordina=False):
     file = percorso if percorso.endswith(".html") else (percorso + "index.html")
     profondita = file.count("/")
     rel = "/" if assoluto else ("../" * profondita or "./")  # 404: link assoluti, Netlify la serve a qualsiasi profondità
@@ -798,9 +859,11 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
     robots = "" if indicizza else '<meta name="robots" content="noindex">'
     canonico = f'<link rel="canonical" href="{url_pag}">' if indicizza else ""
     js = f"<script>{MOTORE_JS}{APP_JS}</script>" if calcolatore else f"<script>{FORM_JS}</script>"
+    if ordina:
+        js += f"<script>{ORDINA_JS}</script>"
     dati = blocco_dati() if calcolatore else ""
     voci_menu = [("", "Calculator"), ("digital-nomad-visa-income-requirements/", "Digital nomad visas"), ("work-visa-salary-thresholds/", "Work visas"),
-                 ("how-it-works/", "How it works"), ("about/", "About")]
+                 ("visa-refusal-rates/", "Refusal rates"), ("how-it-works/", "How it works"), ("about/", "About")]
     menu = "".join(f'<a href="{rel}{u}"' + (' aria-current="page"' if u == percorso else "") + f'>{t}</a>' for u, t in voci_menu)
     testo = f"""<!DOCTYPE html>
 <html lang="en">
@@ -847,14 +910,14 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <footer><div class="wrap">
 <div class="f-grid"><div>
 <a class="logo" href="{rel}">{MARCHIO}<span>Visa Income <b>Checker</b></span></a>
-<p><strong>{NOME}</strong> is an independent site, not affiliated with any government, consulate or immigration authority. Every amount is calculated from an official source (law, official gazette, ministry, immigration authority or statistics office) linked under the figure with the date we checked it.
+<p><strong>{NOME}</strong> is an independent site, not affiliated with any government, consulate or immigration authority. Every amount and every statistic comes from an official source (law, official gazette, ministry, immigration authority, European Commission, Home Office or statistics office) linked under the figure with the date we checked or downloaded it.
 <strong>Requirements change, and consulates can ask for more: always check the official page or the consulate.</strong> Nothing on this site is immigration, legal or tax advice.</p>
 <p>Exchange rates: euro foreign exchange reference rates of the European Central Bank (source: ECB), for information only.</p>
 </div><div>
 <h2>Explore</h2>
-<ul><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
+<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
 </div></div>
-<p class="f-base">Official sources only · the calculator runs in your browser.</p>
+<p class="f-base">Official sources only · the calculator runs in your browser · links marked "Affiliate" may earn us a commission.</p>
 </div></footer>
 {dati}
 {js}
@@ -1043,7 +1106,8 @@ def pagina_programma(P):
 {box_affiliati()}
 {link_sorelle}
 {link_simili}
-<p><a href="{rel}country/{P['paese_slug']}/">All visa income requirements in {escape(P['paese'])}</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements {ANNO}</a> · <a href="{rel}work-visa-salary-thresholds/">Work visa salary thresholds {ANNO}</a></p>"""
+<p><a href="{rel}country/{P['paese_slug']}/">All visa income requirements in {escape(P['paese'])}</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements {ANNO}</a> · <a href="{rel}work-visa-salary-thresholds/">Work visa salary thresholds {ANNO}</a></p>
+{link_rifiuti(P['paese'], rel)}"""
     descr = (f"{nome_prog(P)} {ANNO}: minimum {riassunto(P)} for the main applicant, with family members and conversion to USD, GBP, INR and more. "
              f"Official source and check date.")
     pagina(f"{P['slug']}/", titolo_prog(P), descr, corpo, calcolatore=True,
@@ -1072,7 +1136,8 @@ def pagina_paese(slug):
 {AVVISO}
 {AD}
 <div class="griglia" style="margin-top:20px">{''.join(scheda(p, rel) for p in pp)}</div>
-<p><a href="{rel}">All countries</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visas compared</a></p>"""
+<p><a href="{rel}">All countries</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visas compared</a></p>
+{link_rifiuti(nome, rel)}"""
     pagina(f"country/{slug}/", f"{nome} visa income requirements {ANNO}: official amounts and calculator",
            f"Official minimum income and salary thresholds for {nome} visas in {ANNO}, with family members, currency conversion and sources.",
            corpo, calcolatore=True, briciole=[(nome, f"country/{slug}/")])
@@ -1117,7 +1182,11 @@ def home():
 <h2>Countries</h2>
 <div class="griglia">{''.join(gruppi)}</div>
 <h2>Compare</h2>
-<p><a href="digital-nomad-visa-income-requirements/">Digital nomad visa income requirements {ANNO}</a> (with passive income visas) · <a href="work-visa-salary-thresholds/">EU Blue Card and work visa salary thresholds {ANNO}</a></p>
+<p><a href="digital-nomad-visa-income-requirements/">Digital nomad visa income requirements {ANNO}</a> (with passive income visas) · <a href="work-visa-salary-thresholds/">EU Blue Card and work visa salary thresholds {ANNO}</a> · <a href="{SEZ}">Visa refusal rates {A1}</a></p>
+<h2>Visa refusal rates</h2>
+<p class="lead">How many visa applications are refused? Official {A1} Schengen figures by destination, by consulate and by the country where you apply, and UK refusal rates by nationality to {trimestre_testo(TRIM[-1])}.</p>
+<div class="griglia">{''.join(f'<a href="{SEZ}{SLUG_RIF[p]}/"><span class="ic">{ico("passport")}</span><span>{escape(nome_paese(p))}<small>Schengen: {pct(tasso(PER_PAESE[A1][p]))} not issued in {A1}</small></span></a>' for p in ("INDIA", "NIGERIA", "PAKISTAN", "MOROCCO", "TÜRKIYE", "PHILIPPINES", "GHANA", "BANGLADESH"))}</div>
+<p><a href="{SEZ}">Schengen visa rejection rates by country</a> · <a href="{SEZ}uk/">UK visa refusal rates by nationality</a></p>
 <h2>Why our numbers can differ from other sites</h2>
 <p>Many thresholds are a percentage of an index that changes every year (a minimum wage, an average salary), so pages that still show last year's figure are out of date. With the {ANNO} indices, on {data_lunga('2026-10-10')}: Spain's digital nomad visa is 200% of the {ANNO} minimum wage, €2,442 a month over 14 payments (€34,188 a year, the same as €2,849 a month over 12 payments); Croatia's is 2.5 × the 2025 average net salary, €3,622.50 a month; Portugal's D8 is 4 × €920 = €3,680 a month. We recalculate from the official index and show the source and the date under every figure.</p>
 {box_affiliati()}"""
@@ -1217,10 +1286,13 @@ def pagina_come_funziona():
 <p class="small">Source: ECB statistics – euro foreign exchange reference rates (<a href="https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml" rel="noopener">daily XML</a>). The reference rates are published for information purposes only.</p>
 <h2>6. Checking and updating</h2>
 <p>Every source shows the date we checked it. We re-check all programmes every January, when minimum wages, the Dutch and German salary thresholds, Denmark's pay limit and many other amounts change, and whenever an official page changes. If we cannot read an official source, we do not publish the visa.</p>
+<h2>7. Visa refusal rates</h2>
+<p>The <a href="{rel}visa-refusal-rates/">visa refusal rates</a> pages use the European Commission's yearly Schengen visa statistics (by Schengen country, consulate and country where the application was made) and the Home Office's quarterly UK entry clearance visa datasets (by nationality). A script downloads the official files, recalculates every rate and checks it against the official totals. <a href="{rel}visa-refusal-rates/#method">Full method</a>.</p>
 <h2>Licences and attributions</h2>
 <ul><li>Laws, decrees and official notices (BOE, Gazzetta Ufficiale, Bundesanzeiger, Normattiva) are cited as facts with a link to the official text; we do not reproduce the documents.</li>
 <li>Exchange rates: European Central Bank, euro foreign exchange reference rates (source: ECB).</li>
-<li>UK: contains public sector information licensed under the Open Government Licence v3.0 (GOV.UK).</li>
+<li>UK: contains public sector information licensed under the Open Government Licence v3.0 (GOV.UK and Home Office immigration statistics).</li>
+<li>Schengen visa statistics: European Commission, DG Migration and Home Affairs (reuse authorised with acknowledgement of the source).</li>
 <li>Other ministry and immigration authority pages are cited with links; the amounts are facts taken from them.</li></ul>
 <h2>Not covered yet</h2>
 <p>Greece (digital nomad visa and financially independent person visa), Cyprus, Malta, Estonia, Czechia, Romania, Latvia, Iceland, Costa Rica, Brazil, Panama, Colombia, Thailand, the United Arab Emirates and Mexico: the official page could not be read by our checks, gave conflicting figures, or (Mexico) the amount depends on the consulate. Colombia's rule is in Colombian pesos, a currency the ECB does not publish.</p>
@@ -1241,6 +1313,9 @@ def about():
 <ul><li>Every amount comes from an official source (law, official gazette, ministry, consulate, immigration authority or statistics office). The link and the date we checked it are printed under the figure.</li>
 <li>No blogs, agencies or other visa sites are used as sources. If we cannot read the official rule, the visa is not published.</li>
 <li>This is information, not immigration or legal advice. Requirements change and consulates can ask for more: always check the official page or ask the consulate.</li></ul>
+<h2>Visa refusal rates: sources</h2>
+<ul class="fonti"><li><a href="{escape(F_UE[A1]["url"])}" rel="noopener">European Commission, Visa statistics for consulates {A1}</a> and <a href="{escape(F_UE[A0]["url"])}" rel="noopener">{A0}</a> (XLSX), downloaded on {data_lunga(F_UE[A1]["scaricato_il"])}</li>
+<li><a href="{escape(F_UK["url"])}" rel="noopener">Home Office, {escape(F_UK["titolo"])}</a> (XLSX, published {escape(F_UK["pubblicato"])}), downloaded on {data_lunga(F_UK["scaricato_il"])}</li></ul>
 <h2>All sources, visa by visa</h2>
 {elenco}
 <h2>Corrections</h2>
@@ -1272,10 +1347,689 @@ def privacy():
 <h2>Exchange rates</h2><p>To show up-to-date conversions, your browser downloads a small file of exchange rates from GitHub (raw.githubusercontent.com), which receives your IP address as for any web request. No other data is sent.</p>
 <h2>Why</h2><p>To answer your messages and correct the site. The legal basis is your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time.</p>
 <h2>Who processes data for us</h2><p>The site and its form are hosted by Netlify, Inc., which stores form data on our behalf and may process it outside the EU with the safeguards required by the GDPR (standard contractual clauses). We do not sell or share your data.</p>
-<h2>Cookies</h2><p>This site does not use profiling cookies or analytics tools. If we add advertising or affiliate links in the future, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>
+<h2>Cookies and affiliate links</h2><p>This site does not use profiling cookies or analytics tools. Some pages contain an affiliate link to SafetyWing (marked "Affiliate"): our site sets no cookie for it, but if you click it you go to SafetyWing's website, which uses its own cookies under its own privacy policy and tells SafetyWing that you came from us. If we add advertising in the future, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>
 <h2>How long</h2><p>Messages are kept for up to 12 months after our last exchange.</p>
 <h2>Your rights</h2><p>You can ask for access, correction, deletion, restriction, portability and objection (Articles 15–22 GDPR) and you can complain to the Italian data protection authority (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>) or the authority in your country.</p></div>"""
     pagina("privacy.html", f"Privacy | {NOME}", f"Privacy notice of {NOME}.", corpo)
+
+
+# ---------------------------------------------------------------- Visa refusal rates (sezione approvata il 15/10/2026)
+# Dati: dati/rifiuti.json, scritto da raccolta/rifiuti.py dai file ufficiali (Commissione Europea, Home Office).
+RIF = json.loads((DATI / "rifiuti.json").read_text(encoding="utf-8"))
+ANNI_UE = sorted(RIF["schengen"], key=int)
+A1, A0 = ANNI_UE[-1], ANNI_UE[-2]  # anno più recente e anno di confronto
+UE = RIF["schengen"]
+F_UE = {a: RIF["fonti"][f"schengen_{a}"] for a in ANNI_UE}
+F_UK = RIF["fonti"]["uk"]
+TRIM = RIF["uk"]["trimestri"]
+T1, T0 = TRIM[-4:], TRIM[-8:-4]  # anno che finisce con l'ultimo trimestre, e l'anno prima
+UKN = RIF["uk"]["naz"]
+SEZ = "visa-refusal-rates/"
+SOGLIA_PAGINA = 10000     # domande nell'anno più recente per avere una pagina del Paese
+SOGLIA_CLASSIFICA = 500   # decisioni minime per la classifica "lowest / highest"
+SOGLIA_POCO = 100         # sotto questo numero di decisioni il tasso è segnato come poco significativo
+SOGLIA_UK = 500           # decisioni minime (visti turistici, 4 trimestri) per mostrare il Regno Unito
+URL_COMMISSIONE_DOMANDA = "https://home-affairs.ec.europa.eu/policies/schengen/visa-policy/applying-schengen-visa_en"
+DATA_COMMISSIONE_DOMANDA = "2026-10-15"  # letta il 15/10/2026 (HTTP 200): dove fare domanda, assicurazione, rifiuto e ricorso
+_SW = AFFILIATI.get("_safetywing_schengen", {})
+URL_SAFETYWING = _SW.get("url", "")
+
+_NOMI = {"TÜRKIYE": "Türkiye", "RUSSIAN FEDERATION": "Russia", "USA": "United States", "COTE D'IVOIRE": "Côte d'Ivoire",
+         "CONGO (DEMOCRATIC REPUBLIC)": "DR Congo", "CONGO (BRAZZAVILLE)": "Republic of the Congo", "HONG KONG S.A.R.": "Hong Kong",
+         "MACAO S.A.R.": "Macao", "PALESTINIAN AUTHORITY": "Palestinian territories"}
+_SLUG = {"COTE D'IVOIRE": "cote-d-ivoire", "CONGO (DEMOCRATIC REPUBLIC)": "dr-congo", "CONGO (BRAZZAVILLE)": "republic-of-the-congo"}
+# Nome della stessa nazionalità nei dati del Home Office (quando è diverso)
+_NOMI_UK = {"TÜRKIYE": "Turkey", "RUSSIAN FEDERATION": "Russia", "USA": "United States", "COTE D'IVOIRE": "Ivory Coast",
+            "CONGO (DEMOCRATIC REPUBLIC)": "Congo (Democratic Republic)", "CONGO (BRAZZAVILLE)": "Congo", "HONG KONG S.A.R.": "Hong Kong",
+            "MACAO S.A.R.": "Macau", "PALESTINIAN AUTHORITY": "Palestine", "MYANMAR": "Myanmar (Burma)", "CZECH REPUBLIC": "Czechia"}
+_NOMI_UK_INV = {v: k for k, v in _NOMI_UK.items()}
+
+
+def nome_paese(n):
+    if n in _NOMI:
+        return _NOMI[n]
+    t = n.title()
+    for w in (" And ", " Of ", " The "):
+        t = t.replace(w, w.lower())
+    return t
+
+
+def slug_testo(t):
+    import unicodedata
+    t = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode().lower()
+    return re.sub(r"[^a-z0-9]+", "-", t).strip("-")
+
+
+_CON_ARTICOLO = {"United States", "United Kingdom", "United Arab Emirates", "Philippines", "Dominican Republic", "Republic of the Congo",
+                 "Palestinian territories", "Netherlands", "Czech Republic", "Central African Republic", "Comoros", "Gambia", "Bahamas"}
+
+
+def art(n, maiuscola=False):
+    """Nome con l'articolo quando serve in inglese ('the United States', 'the Philippines')."""
+    if n in _CON_ARTICOLO:
+        return ("The " if maiuscola else "the ") + n
+    return n
+
+
+def slug_paese(n):
+    return _SLUG.get(n) or slug_testo(nome_paese(n))
+
+
+def nome_uk(n):
+    return _NOMI_UK.get(n, nome_paese(n))
+
+
+def somma(righe):
+    v = [0, 0, 0, 0]  # domande, visti uniformi rilasciati, LTV rilasciati, non rilasciati
+    for r in righe:
+        v[0] += r[3]; v[1] += r[4]; v[2] += r[5]; v[3] += r[6]
+    return v
+
+
+def decisioni(v):
+    return v[1] + v[2] + v[3]
+
+
+def tasso(v):
+    """Formula della Commissione: non rilasciati / (uniformi rilasciati + LTV + non rilasciati)."""
+    d = decisioni(v)
+    return v[3] / d if d else None
+
+
+def raggruppa(anno, i, filtro=None):
+    out = defaultdict(lambda: [0, 0, 0, 0])
+    for r in UE[anno]:
+        if filtro is None or filtro(r):
+            v = out[r[i]]
+            v[0] += r[3]; v[1] += r[4]; v[2] += r[5]; v[3] += r[6]
+    return dict(out)
+
+
+def uk_somma(naz, gruppi, trimestri):
+    v = [0, 0, 0, 0]  # concessi, rifiutati, ritirati, decaduti
+    for g in gruppi:
+        for q in trimestri:
+            x = UKN.get(naz, {}).get(g, {}).get(q)
+            if x:
+                for i in range(4):
+                    v[i] += x[i]
+    return v
+
+
+def uk_tasso(v):
+    d = v[0] + v[1]
+    return v[1] / d if d else None
+
+
+GRUPPI_UK = ["Visitor", "Study", "Work", "Family", "Other"]
+NOMI_GRUPPI_UK = {"Visitor": "Visitor visas", "Study": "Study visas", "Work": "Work visas", "Family": "Family visas",
+                  "Other": "Other visas"}
+
+
+def pct(x, dec=1):
+    return "–" if x is None else f"{x * 100:.{dec}f}%"
+
+
+def intero(n):
+    return f"{n:,}"
+
+
+def punti(a, b):
+    """Variazione in punti percentuali, testo."""
+    if a is None or b is None:
+        return "–"
+    d = round((a - b) * 100, 1)
+    if d == 0:
+        return "no change"
+    return f"{'+' if d > 0 else '−'}{abs(d):.1f} pts"
+
+
+def trimestre_testo(q):
+    a, t = q.split()
+    return f"{t} {a}"
+
+
+def periodo_breve(tt):
+    """'2025 Q3–2026 Q2' -> '12 months to Jun 2026'."""
+    a1, q1 = tt[-1].split()
+    return f"12 months to {dict(Q1='Mar', Q2='Jun', Q3='Sep', Q4='Dec')[q1]} {a1}"
+
+
+def periodo_uk(tt):
+    """'2025 Q3–2026 Q2' -> 'July 2025 to June 2026'."""
+    inizio = {"Q1": "January", "Q2": "April", "Q3": "July", "Q4": "October"}
+    fine = {"Q1": "March", "Q2": "June", "Q3": "September", "Q4": "December"}
+    a0, q0 = tt[0].split()
+    a1, q1 = tt[-1].split()
+    return f"{inizio[q0]} {a0} to {fine[q1]} {a1}"
+
+
+STATI_UE = sorted(set(r[0] for r in UE[A1]))
+PER_STATO = {a: raggruppa(a, 0) for a in ANNI_UE}
+PER_PAESE = {a: raggruppa(a, 1) for a in ANNI_UE}
+TOT_UE = {a: somma(UE[a]) for a in ANNI_UE}
+_STATI_MAIUSC = {s.upper() for s in STATI_UE}
+PAESI_RIF = [p for p, v in sorted(PER_PAESE[A1].items(), key=lambda x: -x[1][0]) if v[0] >= SOGLIA_PAGINA and p not in _STATI_MAIUSC]
+SLUG_RIF = {p: slug_paese(p) for p in PAESI_RIF}
+SLUG_STATO = {s: slug_testo(s) for s in STATI_UE}
+
+
+def ha_uk(p):
+    return decisioni_uk_visitor(nome_uk(p)) >= SOGLIA_UK
+
+
+def decisioni_uk_visitor(nuk):
+    v = uk_somma(nuk, ["Visitor"], T1)
+    return v[0] + v[1]
+
+
+_B.update({
+    "Belgium": '<path fill="#000" d="M0 0h10v20H0z"/><path fill="#FDDA24" d="M10 0h10v20H10z"/><path fill="#EF3340" d="M20 0h10v20H20z"/>',
+    "Bulgaria": '<path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#00966E" d="M0 6.67h30v6.66H0z"/><path fill="#D62612" d="M0 13.33h30V20H0z"/>',
+    "Czech Republic": '<path fill="#fff" d="M0 0h30v10H0z"/><path fill="#D7141A" d="M0 10h30v10H0z"/><path fill="#11457E" d="M0 0l15 10L0 20z"/>',
+    "Estonia": '<path fill="#0072CE" d="M0 0h30v6.67H0z"/><path fill="#000" d="M0 6.67h30v6.66H0z"/><path fill="#fff" d="M0 13.33h30V20H0z"/>',
+    "Finland": '<path fill="#fff" d="M0 0h30v20H0z"/><path fill="#002F6C" d="M8.5 0h4.5v20H8.5zM0 7.75h30v4.5H0z"/>',
+    "Greece": '<path fill="#0D5EAF" d="M0 0h30v20H0z"/><path fill="#fff" d="M0 2.22h30v2.22H0zM0 6.67h30v2.22H0zM0 11.11h30v2.22H0zM0 15.56h30v2.22H0z"/>'
+              '<path fill="#0D5EAF" d="M0 0h11.1v11.1H0z"/><path fill="#fff" d="M4.44 0h2.22v11.1H4.44zM0 4.44h11.1v2.22H0z"/>',
+    "Iceland": '<path fill="#02529C" d="M0 0h30v20H0z"/><path fill="#fff" d="M8 0h5v20H8zM0 7.5h30v5H0z"/><path fill="#DC1E35" d="M9.25 0h2.5v20h-2.5zM0 8.75h30v2.5H0z"/>',
+    "Latvia": '<path fill="#9E3039" d="M0 0h30v20H0z"/><path fill="#fff" d="M0 8h30v4H0z"/>',
+    "Lithuania": '<path fill="#FDB913" d="M0 0h30v6.67H0z"/><path fill="#006A44" d="M0 6.67h30v6.66H0z"/><path fill="#C1272D" d="M0 13.33h30V20H0z"/>',
+    "Luxembourg": '<path fill="#EA141D" d="M0 0h30v6.67H0z"/><path fill="#fff" d="M0 6.67h30v6.66H0z"/><path fill="#51ADDA" d="M0 13.33h30V20H0z"/>',
+    "Malta": '<path fill="#fff" d="M0 0h15v20H0z"/><path fill="#CF142B" d="M15 0h15v20H15z"/><path fill="#9A9A9A" d="M2.5 2.5h3v1h-1v1h1v1h-3v-1h1v-1h-1z"/>',
+    "Norway": '<path fill="#BA0C2F" d="M0 0h30v20H0z"/><path fill="#fff" d="M8 0h5v20H8zM0 7.5h30v5H0z"/><path fill="#00205B" d="M9.25 0h2.5v20h-2.5zM0 8.75h30v2.5H0z"/>',
+    "Poland": '<path fill="#fff" d="M0 0h30v10H0z"/><path fill="#DC143C" d="M0 10h30v10H0z"/>',
+    "Romania": '<path fill="#002B7F" d="M0 0h10v20H0z"/><path fill="#FCD116" d="M10 0h10v20H10z"/><path fill="#CE1126" d="M20 0h10v20H20z"/>',
+    "Slovakia": '<path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#0B4EA2" d="M0 6.67h30v6.66H0z"/><path fill="#EE1C25" d="M0 13.33h30V20H0z"/>'
+                '<path fill="#EE1C25" stroke="#fff" stroke-width=".8" d="M6 4.5h8v6.5a4 4 0 0 1-8 0z"/><path fill="#fff" d="M9.4 6h1.2v6h-1.2zM8 7.3h4v1H8z"/>',
+    "Slovenia": '<path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#005DA4" d="M0 6.67h30v6.66H0z"/><path fill="#ED1C24" d="M0 13.33h30V20H0z"/>'
+                '<path fill="#005DA4" stroke="#ED1C24" stroke-width=".6" d="M6 3.5h6v5.5a3 3 0 0 1-6 0z"/><path fill="#fff" d="M7 8.5l2-2.5 2 2.5z"/>',
+    "Switzerland": '<path fill="#DA291C" d="M0 0h30v20H0z"/><path fill="#fff" d="M13.25 4.5h3.5v11h-3.5zM9.5 8.25h11v3.5h-11z"/>',
+})
+
+
+def cella_tasso(t, poco=False):
+    """Cella numerica con il tasso e una barretta proporzionale (0-100%)."""
+    if t is None:
+        return '<td class="n" data-v="">–</td>'
+    larg = max(2, min(100, round(t * 200, 1)))  # barra piena = 50% o più
+    return (f'<td class="n" data-v="{t:.6f}"><span class="tb" aria-hidden="true"><i style="width:{larg}%"></i></span>'
+            f'{pct(t)}{"*" if poco else ""}</td>')
+
+
+def th_ord(testo, n=True, primo="descending"):
+    return f'<th class="{"n" if n else ""}" scope="col" data-primo="{primo}"><button type="button" class="ord">{testo}</button></th>'
+
+
+def fonte_ue(anno, rel_pag=False):
+    f = F_UE[anno]
+    return (f'<a href="{escape(f["url"])}" rel="noopener">European Commission, Visa statistics for consulates {anno}</a> '
+            f'({escape(f["formato"])}, downloaded on {data_lunga(f["scaricato_il"])})')
+
+
+def fonte_ue_p(*anni):
+    return (f'<p class="fonte">Source: ' + "; ".join(fonte_ue(a) for a in anni) +
+            f'. Short-stay (Schengen) visas, calendar year. <a href="{escape(F_UE[A1]["pagina"])}" rel="noopener">All years on the Commission website</a>.</p>')
+
+
+def fonte_uk_p():
+    return (f'<p class="fonte">Source: <a href="{escape(F_UK["url"])}" rel="noopener">Home Office, {escape(F_UK["titolo"])}</a> '
+            f'(XLSX, published {escape(F_UK["pubblicato"])}, downloaded on {data_lunga(F_UK["scaricato_il"])}; next update {escape(F_UK["prossimo"])}). '
+            f'Refusal rate = refused ÷ (granted + refused), as in the Home Office grant rate; withdrawn and lapsed applications are excluded. '
+            f'Figures from 2026 Q1 are provisional.</p>')
+
+
+AVVISO_RIF = ('<p class="avviso"><strong>Statistics, not advice.</strong> These are official figures for all applications made in a past period. '
+              'They cannot predict the decision on your application, and a lower rate does not make a visa easier for you: '
+              'you must apply to the Schengen country where you will spend the most time (or, for equal stays, the one you enter first), '
+              'at the consulate responsible for the place where you legally live. Always follow the consulate\'s official requirements.</p>')
+
+
+def box_assicurazione(rel):
+    """Assicurazione di viaggio (richiesta per il visto Schengen). Link di affiliazione SafetyWing con dicitura chiara."""
+    req = (f'A Schengen visa application must include medical insurance covering emergency medical care, hospitalisation and repatriation '
+           f'(<a href="{URL_COMMISSIONE_DOMANDA}" rel="noopener">European Commission</a>, checked on {data_lunga(DATA_COMMISSIONE_DOMANDA)}).')
+    if not URL_SAFETYWING:
+        return f'<section class="card aff-r"><h2>Travel medical insurance</h2><p>{req}</p></section>'
+    return (f'<section class="card aff-r" aria-labelledby="aff-r-h"><div class="aff-r-t"><span class="ic">{ico("shield")}</span>'
+            f'<h2 id="aff-r-h">Travel medical insurance for your application</h2><span class="aff-tag">Affiliate</span></div>'
+            f'<p>{req} Check the minimum cover, the countries and the dates the consulate asks for, and the certificate you need, before you buy any policy.</p>'
+            f'<p class="aff-r-cta"><a class="btn" href="{escape(URL_SAFETYWING)}" rel="sponsored noopener" target="_blank">See SafetyWing travel medical insurance{ico("arrow")}'
+            f'<span class="sr"> (opens in a new tab)</span></a></p>'
+            f'<p class="small">SafetyWing sells travel medical insurance online. This is an affiliate link: if you buy through it we may earn a commission, '
+            f'at no extra cost to you. Buying insurance does not change the decision on your visa, and we do not know whether a given consulate accepts a given policy: check before you pay.</p></section>')
+
+
+def tabella_stati_paese(p, rel):
+    s1 = raggruppa(A1, 0, lambda r: r[1] == p)
+    s0 = raggruppa(A0, 0, lambda r: r[1] == p)
+    righe = []
+    for s, v in sorted(s1.items(), key=lambda x: -x[1][0]):
+        if v[0] == 0 and decisioni(v) == 0:
+            continue
+        poco = decisioni(v) < SOGLIA_POCO
+        righe.append(f'<tr{" class=\"poco\"" if poco else ""}><td><a href="{rel}{SEZ}schengen/{SLUG_STATO[s]}/">{escape(s)}</a></td>'
+                     f'{cella_tasso(tasso(v), poco)}{cella_tasso(tasso(s0[s]) if s in s0 else None)}'
+                     f'<td class="n" data-v="{v[0]}">{intero(v[0])}</td><td class="n" data-v="{v[1]}">{intero(v[1])}</td>'
+                     f'<td class="n" data-v="{v[3]}">{intero(v[3])}</td></tr>')
+    return ('<div class="tab compatta"><table class="ord"><thead><tr>' + th_ord("Schengen country", False, "ascending") +
+            th_ord(f"Not issued {A1}", primo="ascending") + th_ord(f"{A0}", primo="ascending") + th_ord("Applications") +
+            th_ord("Visas issued") + th_ord("Not issued") +
+            f'</tr></thead><tbody>{"".join(righe)}</tbody></table></div>'), s1, s0
+
+
+def classifica(s1, inverso=False, n=5):
+    ok = [(s, v) for s, v in s1.items() if decisioni(v) >= SOGLIA_CLASSIFICA]
+    ok.sort(key=lambda x: tasso(x[1]), reverse=inverso)
+    return ok[:n], len(ok)
+
+
+def lista_classifica(voci, rel, classe=""):
+    mx = max([tasso(v) for _, v in voci] + [0.01])
+    li = "".join(f'<li><span class="pos">{i}</span><span><a href="{rel}{SEZ}schengen/{SLUG_STATO[s]}/">{escape(s)}</a>'
+                 f'<small>{intero(decisioni(v))} decisions</small><span class="bar {classe}" aria-hidden="true"><i style="width:{max(2, round(tasso(v) / mx * 100))}%"></i></span></span>'
+                 f'<span class="v">{pct(tasso(v))}</span></li>' for i, (s, v) in enumerate(voci, 1))
+    return f'<ol class="classifica">{li}</ol>'
+
+
+def tabella_consolati(p):
+    righe = []
+    for r in sorted((r for r in UE[A1] if r[1] == p), key=lambda r: -r[3]):
+        v = r[3:7]
+        v = [v[0], v[1], v[2], v[3]]
+        if decisioni(v) == 0 and v[0] == 0:
+            continue
+        poco = decisioni(v) < SOGLIA_POCO
+        righe.append(f'<tr{" class=\"poco\"" if poco else ""}><td>{escape(r[0])}</td><td>{escape(r[2].title())}</td>'
+                     f'{cella_tasso(tasso(v), poco)}<td class="n" data-v="{v[0]}">{intero(v[0])}</td><td class="n" data-v="{v[3]}">{intero(v[3])}</td></tr>')
+    return ('<div class="tab compatta"><table class="ord"><thead><tr>' + th_ord("Country", False, "ascending") + th_ord("Consulate", False, "ascending") +
+            th_ord("Rate", primo="ascending") + th_ord("Applications") + th_ord("Not issued") + f'</tr></thead><tbody>{"".join(righe)}</tbody></table></div>'), len(righe)
+
+
+def sezione_uk(p, nome):
+    nuk = nome_uk(p)
+    if p == "UNITED KINGDOM":
+        return (f'<h2>UK visa refusal rates</h2><p>The UK figures are by nationality: see <a href="../uk/">UK visa refusal rates for all nationalities</a>.</p>'), None
+    if not ha_uk(p):
+        d = decisioni_uk_visitor(nuk)
+        return (f'<h2>UK visa refusal rate</h2><p>The Home Office data show {intero(d)} UK visitor visa decisions for nationals of {escape(art(nome))} '
+                f'from {periodo_uk(T1)}, fewer than the {intero(SOGLIA_UK)} we need to show a meaningful rate. '
+                f'See <a href="../uk/">UK refusal rates for all nationalities</a>.</p>{fonte_uk_p()}'), None
+    righe = []
+    for g in GRUPPI_UK + ["All"]:
+        gg = GRUPPI_UK if g == "All" else [g]
+        v1, v0 = uk_somma(nuk, gg, T1), uk_somma(nuk, gg, T0)
+        if v1[0] + v1[1] == 0:
+            continue
+        poco = v1[0] + v1[1] < SOGLIA_POCO
+        cls = ' class="tot-r"' if g == "All" else (' class="poco"' if poco else "")
+        righe.append(f'<tr{cls}><td>{"All visas" if g == "All" else NOMI_GRUPPI_UK[g]}</td>'
+                     f'{cella_tasso(uk_tasso(v1), poco)}{cella_tasso(uk_tasso(v0))}'
+                     f'<td class="n">{intero(v1[0] + v1[1])}</td><td class="n">{intero(v1[0])}</td><td class="n">{intero(v1[1])}</td></tr>')
+    vis1 = uk_somma(nuk, ["Visitor"], T1)
+    # andamento trimestrale dei visti turistici
+    tq = []
+    for q in TRIM:
+        v = uk_somma(nuk, ["Visitor"], [q])
+        tq.append((q, uk_tasso(v), v[0] + v[1]))
+    mx = max([t for _, t, _ in tq if t is not None] + [0.05])
+    barre = "".join(f'<li><span class="tq-v">{pct(t)}</span><span class="tq-c"><span class="tq-b" style="height:{max(3, round((t or 0) / mx * 100))}%"></span></span>'
+                    f'<span class="tq-l">{q.split()[1]}<br>{q.split()[0]}</span><span class="sr"> {intero(d)} decisions</span></li>' for q, t, d in tq)
+    corpo = (f'<h2 id="uk">UK visa refusal rate for nationals of {escape(art(nome))}</h2>'
+             f'<p class="lead">From {periodo_uk(T1)}, the UK refused <strong>{pct(uk_tasso(vis1))}</strong> of visitor visa decisions for nationals of {escape(art(nome))} '
+             f'({intero(vis1[1])} refused out of {intero(vis1[0] + vis1[1])}). Unlike the Schengen figures, the UK counts applicants by <strong>nationality</strong>, wherever they apply.'
+             + (f' With only {intero(vis1[0] + vis1[1])} decisions, read this rate with care: where most nationals can visit the UK without a visa, '
+                f'the people who apply for one are a small and unusual group.' if vis1[0] + vis1[1] < 5000 else '') + '</p>'
+             f'<div class="tab compatta"><table><thead><tr><th scope="col">Visa type</th><th class="n" scope="col">Refused<br><span class="small">{periodo_breve(T1)}</span></th>'
+             f'<th class="n" scope="col">Year before<br><span class="small">{periodo_breve(T0)}</span></th><th class="n" scope="col">Decisions</th><th class="n" scope="col">Granted</th>'
+             f'<th class="n" scope="col">Refused</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>'
+             f'{fonte_uk_p()}'
+             f'<h3>Visitor visas, quarter by quarter</h3><ol class="trim" aria-label="UK visitor visa refusal rate by quarter">{barre}</ol>'
+             f'<p class="fonte">Source: Home Office, same file as above (published {escape(F_UK["pubblicato"])}). Each bar is the share of visitor visa decisions '
+             f'taken in that quarter that were refusals; 2026 figures are provisional.</p>')
+    return corpo, uk_tasso(vis1)
+
+
+def pagina_rif_paese(p):
+    rel = "../../"
+    nome = nome_paese(p)
+    slug = SLUG_RIF[p]
+    v1, v0 = PER_PAESE[A1][p], PER_PAESE[A0].get(p)
+    t1, t0 = tasso(v1), (tasso(v0) if v0 else None)
+    tab, s1, s0 = tabella_stati_paese(p, rel)
+    basso, n_ok = classifica(s1)
+    alto, _ = classifica(s1, inverso=True, n=3)
+    tab_c, n_c = tabella_consolati(p)
+    uk_html, uk_t = sezione_uk(p, nome)
+    con_uk = uk_t is not None
+    rank_paesi = sorted(PAESI_RIF, key=lambda x: tasso(PER_PAESE[A1][x]))
+    pos = rank_paesi.index(p) + 1
+    if basso:
+        sb, vb = basso[0]
+        frase_basso = (f'Lowest not-issued rate among Schengen countries with at least {intero(SOGLIA_CLASSIFICA)} decisions: '
+                       f'<strong>{escape(sb)} ({pct(tasso(vb))})</strong>.')
+    else:
+        frase_basso = f'No Schengen country took {intero(SOGLIA_CLASSIFICA)} or more decisions on applications made in {escape(art(nome))}.'
+    if n_ok >= 2:
+        clas = (f'<h2>Lowest and highest not-issued rates</h2><p class="lead">Schengen countries that decided at least {intero(SOGLIA_CLASSIFICA)} applications made in {escape(art(nome))} in {A1} '
+                f'({n_ok} countries). Smaller numbers move too much from year to year to compare.</p>'
+                f'<div class="due"><div><h3>Lowest</h3>{lista_classifica(basso, rel, "ok")}</div><div><h3>Highest</h3>{lista_classifica(alto, rel, "no")}</div></div>'
+                f'<p class="avviso"><strong>A lower rate is not a guarantee, and you cannot choose freely.</strong> Each rate mixes different travellers, purposes and documents. '
+                f'You must apply to the country of your main destination: the rule is on the <a href="{URL_COMMISSIONE_DOMANDA}" rel="noopener">European Commission page on applying for a Schengen visa</a> '
+                f'(checked on {data_lunga(DATA_COMMISSIONE_DOMANDA)}). Applying to a country you do not plan to visit mainly can itself lead to a refusal.</p>'
+                f'{fonte_ue_p(A1)}')
+    else:
+        clas = ""
+    cambio = (f'{punti(t1, t0)} on {A0} ({pct(t0)})' if t0 is not None else f"no {A0} figure")
+    uk_kpi = (f'<p class="cifra cifra-2"><span class="c-lab">United Kingdom · nationals of {escape(art(nome))} · {periodo_uk(T1)}</span>'
+              f'<strong>{pct(uk_t)}</strong> of visitor visa decisions refused <a href="#uk">(details)</a></p>'
+              f'<p class="fonte">Source: <a href="{escape(F_UK["url"])}" rel="noopener">Home Office, entry clearance visa outcomes</a>, published {escape(F_UK["pubblicato"])}, downloaded on {data_lunga(F_UK["scaricato_il"])}</p>') if con_uk else ""
+    vicini = [x for x in rank_paesi if x != p]
+    altri = sorted(vicini, key=lambda x: abs(PER_PAESE[A1][x][0] - v1[0]))[:8]
+    griglia_altri = "".join(f'<a href="../{SLUG_RIF[x]}/"><span class="ic">{ico("globe")}</span><span>{escape(nome_paese(x))}<small>{pct(tasso(PER_PAESE[A1][x]))} not issued in {A1}</small></span></a>' for x in altri)
+    titolo_h1 = f"Visa refusal rates for {art(nome)}: Schengen countries ({A1})" + (" and the UK" if con_uk else "")
+    corpo = f"""<section class="hero">{h1_diviso(titolo_h1)}
+<p class="lead">How many Schengen visa applications made in {escape(art(nome))} were not issued in {A1}, country by country and consulate by consulate{', and how many UK visa applications by nationals of ' + escape(art(nome)) + ' were refused' if con_uk else ''}. Official figures only.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("passport")}<span>Visa refusal rates</span><span>{escape(nome)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Schengen visas · applications made in {escape(art(nome))} · {A1}</span><span class="sr">: </span><strong>{pct(t1)}</strong> not issued ({intero(v1[3])} of {intero(decisioni(v1))} decisions)</p>
+<div class="kpi"><div><b>{intero(v1[0])}</b><span>applications</span></div><div><b>{intero(v1[1])}</b><span>uniform visas issued</span></div><div><b>{intero(v1[3])}</b><span>not issued</span></div><div><b>{punti(t1, t0) if t0 is not None else '–'}</b><span>change on {A0}{f' ({pct(t0)})' if t0 is not None else ''}</span></div></div>
+<p class="lead" style="margin-top:6px">{frase_basso} Of the {len(PAESI_RIF)} countries with the most applications, {escape(art(nome, True))} ranks {pos} (1 = lowest rate).</p>
+{fonte_ue_p(A1, A0)}
+{uk_kpi}
+</div></section>
+{AVVISO_RIF}
+{AD}
+<h2>Schengen visa rejection rate by country, applications made in {escape(art(nome))}</h2>
+<p class="small">Tap a column heading to sort. "Not issued" includes refusals and applications whose examination was discontinued. * Fewer than {SOGLIA_POCO} decisions: the rate can swing a lot.</p>
+{tab}
+{fonte_ue_p(A1, A0)}
+{clas}
+<h2>By consulate</h2>
+<p class="lead">Each Schengen country's consulates (or visa sections) in {escape(art(nome))}, by number of applications in {A1}. Where a country is represented by another, the applications appear under the country that decided them.</p>
+{tab_c}
+{fonte_ue_p(A1)}
+{uk_html}
+{box_assicurazione(rel)}
+<h2>How to read these figures</h2>
+<ul class="testo">
+<li><strong>Where you apply, not your passport.</strong> The Schengen figures count applications made in {escape(art(nome))}, including residents of other nationalities, and leave out nationals of {escape(art(nome))} who applied elsewhere.</li>
+<li><strong>Not-issued rate</strong> = visas not issued ÷ (uniform visas issued + visas with limited territorial validity + visas not issued), the formula in the Commission's file. Applications still pending at the end of the year are not counted.</li>
+<li><strong>If you are refused</strong>, the consulate must tell you why and how to appeal (<a href="{URL_COMMISSIONE_DOMANDA}" rel="noopener">European Commission</a>).</li>
+<li>Full method: <a href="../#method">how we calculate the rates</a>.</li></ul>
+<h2>Other countries where people apply</h2>
+<div class="griglia">{griglia_altri}</div>
+<p><a href="../">Schengen visa refusal rates by country, {A1}</a> · <a href="../uk/">UK visa refusal rates by nationality</a> · <a href="{rel}">Visa income calculator</a></p>"""
+    titolo = (f"Schengen visa rejection rate {nome} {A1}: by country" + (", plus UK refusal rate" if con_uk else "") +
+              ("" if len(nome) > 18 else " (official)"))
+    descr = (f"Official {A1} figures: {pct(t1)} of Schengen visa applications made in {art(nome)} were not issued. Rates for every Schengen country and consulate"
+             + (f", and the UK visitor visa refusal rate for nationals of {art(nome)} ({pct(uk_t)})" if con_uk else "") + ". Sources and dates.")
+    pagina(f"{SEZ}{slug}/", titolo, descr, corpo, ordina=True,
+           briciole=[("Visa refusal rates", SEZ), (nome, f"{SEZ}{slug}/")])
+
+
+def pagina_rif_stato(s):
+    rel = "../../../"
+    v1, v0 = PER_STATO[A1][s], PER_STATO[A0].get(s)
+    t1, t0 = tasso(v1), (tasso(v0) if v0 else None)
+    p1 = raggruppa(A1, 1, lambda r: r[0] == s)
+    p0 = raggruppa(A0, 1, lambda r: r[0] == s)
+    rank = sorted(STATI_UE, key=lambda x: tasso(PER_STATO[A1][x]))
+    pos = rank.index(s) + 1
+    righe = []
+    for p, v in sorted(p1.items(), key=lambda x: -x[1][0]):
+        if v[0] == 0 and decisioni(v) == 0:
+            continue
+        poco = decisioni(v) < SOGLIA_POCO
+        nome = (f'<a href="{rel}{SEZ}{SLUG_RIF[p]}/">{escape(nome_paese(p))}</a>' if p in SLUG_RIF else escape(nome_paese(p)))
+        righe.append(f'<tr{" class=\"poco\"" if poco else ""}><td>{nome}</td>{cella_tasso(tasso(v), poco)}{cella_tasso(tasso(p0[p]) if p in p0 else None)}'
+                     f'<td class="n" data-v="{v[0]}">{intero(v[0])}</td><td class="n" data-v="{v[3]}">{intero(v[3])}</td></tr>')
+    cons = sorted((r for r in UE[A1] if r[0] == s and r[3] > 0), key=lambda r: -r[3])[:30]
+    righe_c = "".join(f'<tr><td>{escape(r[2].title())}</td><td>{escape(nome_paese(r[1]))}</td>'
+                      f'{cella_tasso(tasso([r[3], r[4], r[5], r[6]]), decisioni([r[3], r[4], r[5], r[6]]) < SOGLIA_POCO)}<td class="n" data-v="{r[3]}">{intero(r[3])}</td></tr>' for r in cons)
+    alto = [(p, v) for p, v in p1.items() if decisioni(v) >= SOGLIA_CLASSIFICA]
+    alto.sort(key=lambda x: -tasso(x[1]))
+    frase_alto = (f'Highest rate among places with at least {intero(SOGLIA_CLASSIFICA)} decisions: {escape(nome_paese(alto[0][0]))} ({pct(tasso(alto[0][1]))}); '
+                  f'lowest: {escape(nome_paese(alto[-1][0]))} ({pct(tasso(alto[-1][1]))}).') if len(alto) >= 2 else ""
+    fl = bandiera(s)
+    corpo = f"""<section class="hero">{h1_diviso(f"{s} Schengen visa rejection rate {A1}: by country where you apply")}
+<p class="lead">Short-stay visa applications decided by {escape(s)}'s consulates in {A1}: how many were not issued, in each country where people applied. Official figures from the European Commission.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{fl if '<svg class="flag"' in fl else ico("globe")}<span>Schengen visa statistics</span><span>{escape(s)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">{escape(s)} · all consulates · {A1}</span><span class="sr">: </span><strong>{pct(t1)}</strong> of decisions were visas not issued</p>
+<div class="kpi"><div><b>{intero(v1[0])}</b><span>applications</span></div><div><b>{intero(v1[1])}</b><span>uniform visas issued</span></div><div><b>{intero(v1[3])}</b><span>not issued</span></div><div><b>{pos} of {len(STATI_UE)}</b><span>rank (1 = lowest rate)</span></div></div>
+<p class="lead" style="margin-top:6px">{f'In {A0}: {pct(t0)} ({punti(t1, t0)}).' if t0 is not None else ''} {frase_alto} Average for all Schengen countries in {A1}: {pct(tasso(TOT_UE[A1]))}.</p>
+{fonte_ue_p(A1, A0)}
+</div></section>
+{AVVISO_RIF}
+{AD}
+<h2>{escape(s)} visa rejection rate by country where people apply</h2>
+<p class="small">Every country where {escape(s)} decided applications in {A1}. Tap a column heading to sort, or type to filter. * Fewer than {SOGLIA_POCO} decisions.</p>
+<p class="filtro"><label><span class="sr">Filter countries</span><input type="search" placeholder="Filter: e.g. India" data-filtro="t-paesi" autocomplete="off"></label></p>
+<div class="tab compatta"><table class="ord" id="t-paesi"><thead><tr>{th_ord("Applied in", False, "ascending")}{th_ord(f"Rate {A1}", primo="ascending")}{th_ord(f"{A0}", primo="ascending")}{th_ord("Applications")}{th_ord("Not issued")}</tr></thead><tbody>{"".join(righe)}</tbody></table></div>
+{fonte_ue_p(A1, A0)}
+<h2>{escape(s)}'s busiest consulates</h2>
+<div class="tab compatta"><table class="ord"><thead><tr>{th_ord("Consulate", False, "ascending")}{th_ord("Country", False, "ascending")}{th_ord("Rate", primo="ascending")}{th_ord("Applications")}</tr></thead><tbody>{righe_c}</tbody></table></div>
+{fonte_ue_p(A1)}
+{box_assicurazione(rel)}
+<h2>Other Schengen countries</h2>
+<div class="griglia">{''.join(scheda_stato(x, "../") for x in STATI_UE if x != s)}</div>
+<p><a href="../../">All Schengen countries compared</a> · <a href="../../#method">How we calculate the rates</a> · <a href="{rel}">Visa income calculator</a></p>"""
+    titolo = f"{s} visa rejection rate {A1} by country (Schengen, official figures)"
+    descr = (f"{s} Schengen visa rejection rate {A1}: {pct(t1)} of {intero(decisioni(v1))} decisions were not issued. "
+             f"Rates by country where people apply and by consulate, from the European Commission.")
+    pagina(f"{SEZ}schengen/{SLUG_STATO[s]}/", titolo, descr, corpo, ordina=True,
+           briciole=[("Visa refusal rates", SEZ), (f"{s} visa rejection rate", f"{SEZ}schengen/{SLUG_STATO[s]}/")])
+
+
+def scheda_stato(s, pre):
+    fl = bandiera(s)
+    icona = f'<span class="ic f">{fl}</span>' if '<svg class="flag"' in fl else f'<span class="ic">{ico("globe")}</span>'
+    return (f'<a href="{pre}{SLUG_STATO[s]}/">{icona}<span>{escape(s)}<small>{pct(tasso(PER_STATO[A1][s]))} not issued in {A1}</small></span></a>')
+
+
+def righe_uk_tutte(rel):
+    out = []
+    for n in sorted(UKN):
+        if n in ("Other and unknown", "Refugee", "Stateless", "British overseas citizens"):
+            continue
+        vis1, vis0 = uk_somma(n, ["Visitor"], T1), uk_somma(n, ["Visitor"], T0)
+        tut1 = uk_somma(n, GRUPPI_UK, T1)
+        dv = vis1[0] + vis1[1]
+        dt = tut1[0] + tut1[1]
+        if dt < SOGLIA_POCO:
+            continue
+        ec = _NOMI_UK_INV.get(n, n.upper())
+        link = f'<a href="{rel}{SEZ}{SLUG_RIF[ec]}/#uk">{escape(n)}</a>' if ec in SLUG_RIF and ha_uk(ec) else escape(n)
+        out.append((dv, f'<tr><td>{link}</td>{cella_tasso(uk_tasso(vis1), dv < SOGLIA_POCO) if dv else cella_tasso(None)}'
+                        f'{cella_tasso(uk_tasso(vis0)) if vis0[0] + vis0[1] else cella_tasso(None)}<td class="n" data-v="{dv}">{intero(dv)}</td>'
+                        f'{cella_tasso(uk_tasso(tut1))}<td class="n" data-v="{dt}">{intero(dt)}</td></tr>'))
+    out.sort(key=lambda x: -x[0])
+    return [r for _, r in out]
+
+
+def pagina_rif_uk():
+    rel = "../../"
+    righe = righe_uk_tutte(rel)
+    tot1 = [0, 0, 0, 0]
+    vis = [0, 0, 0, 0]
+    for n in UKN:
+        for i, x in enumerate(uk_somma(n, GRUPPI_UK, T1)):
+            tot1[i] += x
+        for i, x in enumerate(uk_somma(n, ["Visitor"], T1)):
+            vis[i] += x
+    corpo = f"""<section class="hero">{h1_diviso(f"UK visa refusal rate by nationality: {periodo_uk(T1)}")}
+<p class="lead">How many UK visa applications were refused, nationality by nationality, from the Home Office's official immigration statistics. Updated every quarter.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{bandiera("United Kingdom")}<span>UK entry clearance visas</span><span>{periodo_uk(T1)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Visitor visas · all nationalities</span><span class="sr">: </span><strong>{pct(uk_tasso(vis))}</strong> refused ({intero(vis[1])} of {intero(vis[0] + vis[1])} decisions)</p>
+<p class="cifra"><span class="c-lab">All entry clearance visas</span><span class="sr">: </span><strong>{pct(uk_tasso(tot1))}</strong> refused ({intero(tot1[1])} of {intero(tot1[0] + tot1[1])} decisions)</p>
+{fonte_uk_p()}
+</div></section>
+{AVVISO_RIF.replace("you must apply to the Schengen country where you will spend the most time (or, for equal stays, the one you enter first), at the consulate responsible for the place where you legally live", "each application is assessed on its own documents")}
+{AD}
+<h2>Refusal rate by nationality</h2>
+<p class="small">Nationalities with at least {SOGLIA_POCO} decisions on all visa types. "Visitor" = Standard Visitor visas (tourism, family visits, business). Tap a column heading to sort, or type to filter. * Fewer than {SOGLIA_POCO} visitor decisions.</p>
+<p class="filtro"><label><span class="sr">Filter nationalities</span><input type="search" placeholder="Filter: e.g. Nigeria" data-filtro="t-uk" autocomplete="off"></label></p>
+<div class="tab compatta"><table class="ord" id="t-uk"><thead><tr>{th_ord("Nationality", False, "ascending")}{th_ord("Visitor visas refused", primo="ascending")}{th_ord("Year before", primo="ascending")}{th_ord("Visitor decisions")}{th_ord("All visas refused", primo="ascending")}{th_ord("All visas: decisions")}</tr></thead><tbody>{"".join(righe)}</tbody></table></div>
+{fonte_uk_p()}
+<p class="small">"Year before" = {periodo_uk(T0)}. Nationals of many countries (for example the EU, the US, Canada and Australia) do not need a visa for short visits and travel with an electronic travel authorisation instead, so they appear with few or no visitor decisions.</p>
+<h2>How to read these figures</h2>
+<ul class="testo"><li>The Home Office counts applicants by <strong>nationality</strong>, wherever they applied. An outcome in a quarter can relate to an application made in an earlier quarter.</li>
+<li>The refusal rate is the share of decisions (grants and refusals) that were refusals: withdrawn and lapsed applications are left out, as in the Home Office "grant rate".</li>
+<li>Figures from 2026 Q1 onwards are provisional and can be revised in the next release ({escape(F_UK["prossimo"])}).</li></ul>
+<p><a href="../">Schengen visa refusal rates</a> · <a href="{rel}uk-skilled-worker-visa/">UK Skilled Worker salary threshold</a> · <a href="{rel}uk-spouse-visa/">UK spouse visa income requirement</a></p>"""
+    pagina(f"{SEZ}uk/", f"UK visa refusal rate by nationality {TRIM[-1].split()[0]}: visitor, study and work visas (official)",
+           f"UK visa refusal rates by nationality from {periodo_uk(T1)}: visitor visas {pct(uk_tasso(vis))} refused overall; India, Nigeria, Pakistan, Bangladesh, Ghana and more. Home Office data.",
+           corpo, ordina=True, briciole=[("Visa refusal rates", SEZ), ("UK refusal rates by nationality", f"{SEZ}uk/")])
+
+
+def pagina_rif_panoramica():
+    rel = "../"
+    t1, t0 = tasso(TOT_UE[A1]), tasso(TOT_UE[A0])
+    righe_s = []
+    for s in sorted(STATI_UE, key=lambda x: -PER_STATO[A1][x][0]):
+        v = PER_STATO[A1][s]
+        v0 = PER_STATO[A0].get(s)
+        righe_s.append(f'<tr><td><a href="schengen/{SLUG_STATO[s]}/">{escape(s)}</a></td>{cella_tasso(tasso(v))}{cella_tasso(tasso(v0) if v0 else None)}'
+                       f'<td class="n" data-v="{v[0]}">{intero(v[0])}</td><td class="n" data-v="{v[1]}">{intero(v[1])}</td><td class="n" data-v="{v[3]}">{intero(v[3])}</td></tr>')
+    righe_p = []
+    for p in PAESI_RIF:
+        v = PER_PAESE[A1][p]
+        v0 = PER_PAESE[A0].get(p)
+        righe_p.append(f'<tr><td><a href="{SLUG_RIF[p]}/">{escape(nome_paese(p))}</a></td>{cella_tasso(tasso(v))}{cella_tasso(tasso(v0) if v0 else None)}'
+                       f'<td class="n" data-v="{v[0]}">{intero(v[0])}</td><td class="n" data-v="{v[3]}">{intero(v[3])}</td></tr>')
+    opzioni = "".join(f'<option value="{SLUG_RIF[p]}/">{escape(nome_paese(p))}</option>' for p in sorted(PAESI_RIF, key=nome_paese))
+    uk_top = []
+    for n in sorted(UKN, key=lambda n: -sum(uk_somma(n, ["Visitor"], T1)[:2]))[:12]:
+        v = uk_somma(n, ["Visitor"], T1)
+        ec = _NOMI_UK_INV.get(n, n.upper())
+        link = f'<a href="{SLUG_RIF[ec]}/#uk">{escape(n)}</a>' if ec in SLUG_RIF and ha_uk(ec) else escape(n)
+        uk_top.append(f'<tr><td>{link}</td>{cella_tasso(uk_tasso(v))}<td class="n">{intero(v[0] + v[1])}</td><td class="n">{intero(v[1])}</td></tr>')
+    basso = sorted(STATI_UE, key=lambda x: tasso(PER_STATO[A1][x]))
+    testata = f"""<div class="band"><div class="wrap band-in">{DECO_STAT}
+<section class="hero">{h1_diviso(f"Visa refusal rates {A1}: Schengen visa rejection rate by country, and UK refusal rates")}
+<p class="sub">Official figures from the European Commission and the UK Home Office: how many visa applications were not issued, by destination, by the country where people applied and by nationality.</p>
+<p class="trust"><span>{ico("shield")}Official files · downloaded {data_lunga(F_UE[A1]["scaricato_il"])}</span><span>{ico("calendar")}Schengen {A1} · UK to {trimestre_testo(TRIM[-1])}</span></p></section>
+<section class="card cerca"><form class="vai" action="#" onsubmit="return false"><label for="vai-paese"><span class="lt">{ico("globe")}Where do you apply from?</span></label>
+<div class="vai-r"><select id="vai-paese" data-vai><option value="">Choose a country…</option>{opzioni}</select></div></form>
+<p class="small" style="margin:8px 0 0">{len(PAESI_RIF)} countries with at least {intero(SOGLIA_PAGINA)} Schengen visa applications in {A1}. Each page shows the rate for every Schengen country and consulate, and the UK refusal rate where available.</p></section>
+</div></div>"""
+    corpo = f"""<section class="card summary" aria-label="Summary" style="margin-top:22px">
+<div class="s-top">{ico("passport")}<span>Schengen short-stay visas</span><span>{A1}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">All Schengen countries · all consulates · {A1}</span><span class="sr">: </span><strong>{pct(t1)}</strong> of decisions were visas not issued</p>
+<div class="kpi"><div><b>{intero(TOT_UE[A1][0])}</b><span>applications</span></div><div><b>{intero(TOT_UE[A1][1])}</b><span>uniform visas issued</span></div><div><b>{intero(TOT_UE[A1][3])}</b><span>not issued</span></div><div><b>{punti(t1, t0)}</b><span>change on {A0} ({pct(t0)})</span></div></div>
+<p class="lead" style="margin-top:6px">Lowest rate in {A1}: {escape(basso[0])} ({pct(tasso(PER_STATO[A1][basso[0]]))}). Highest: {escape(basso[-1])} ({pct(tasso(PER_STATO[A1][basso[-1]]))}). Rates depend a lot on where each country's consulates are, so compare a country with others <em>in the same place</em> (see the country pages).</p>
+{fonte_ue_p(A1, A0)}
+</div></section>
+{AVVISO_RIF}
+{AD}
+<h2>Schengen visa rejection rate by country ({A1})</h2>
+<p class="small">All {len(STATI_UE)} Schengen countries that process visas (Liechtenstein is represented by Switzerland). Tap a column heading to sort.</p>
+<div class="tab compatta"><table class="ord"><thead><tr>{th_ord("Schengen country", False, "ascending")}{th_ord(f"Rate {A1}", primo="ascending")}{th_ord(f"{A0}", primo="ascending")}{th_ord("Applications")}{th_ord("Visas issued")}{th_ord("Not issued")}</tr></thead><tbody>{"".join(righe_s)}</tbody></table></div>
+{fonte_ue_p(A1, A0)}
+<h2>Schengen visa rejection rate by country where people apply ({A1})</h2>
+<p class="small">The {len(PAESI_RIF)} countries with at least {intero(SOGLIA_PAGINA)} applications. Tap a column heading to sort, or type to filter.</p>
+<p class="filtro"><label><span class="sr">Filter countries</span><input type="search" placeholder="Filter: e.g. Pakistan" data-filtro="t-paesi" autocomplete="off"></label></p>
+<div class="tab compatta"><table class="ord" id="t-paesi"><thead><tr>{th_ord("Applied in", False, "ascending")}{th_ord(f"Rate {A1}", primo="ascending")}{th_ord(f"{A0}", primo="ascending")}{th_ord("Applications")}{th_ord("Not issued")}</tr></thead><tbody>{"".join(righe_p)}</tbody></table></div>
+{fonte_ue_p(A1, A0)}
+<h2>UK visitor visa refusal rate by nationality</h2>
+<p class="lead">The 12 nationalities with the most UK visitor visa decisions from {periodo_uk(T1)}. <a href="uk/">All nationalities and visa types</a>.</p>
+<div class="tab compatta"><table><thead><tr><th scope="col">Nationality</th><th class="n" scope="col">Refusal rate</th><th class="n" scope="col">Decisions</th><th class="n" scope="col">Refused</th></tr></thead><tbody>{"".join(uk_top)}</tbody></table></div>
+{fonte_uk_p()}
+{box_assicurazione(rel)}
+<h2 id="method">What these numbers mean</h2>
+<div class="testo">
+<h3>Schengen (European Commission)</h3>
+<ul><li><strong>Source:</strong> the Commission's yearly "Visa statistics for consulates", which every Schengen country must report under Article 46 of the Visa Code. Latest year: {A1}; we also show {A0} for comparison. The next file (year {int(A1) + 1}) is usually published in spring.</li>
+<li><strong>Not issued</strong> means refused, plus applications whose examination was discontinued (Commission metadata). We use the Commission's own formula: not issued ÷ (uniform visas issued + visas with limited territorial validity + not issued). Applications and decisions in a year do not match exactly, because some decisions fall in the next year.</li>
+<li><strong>By the country where the application was made</strong>, not by nationality. The figures for "India" are applications lodged at consulates or visa centres in India, which also include residents of other nationalities.</li>
+<li>Short-stay visas only (up to 90 days in any 180 days): tourism, business, family visits. Long-stay national visas (work, study, residence) are not included.</li></ul>
+<h3>United Kingdom (Home Office)</h3>
+<ul><li><strong>Source:</strong> the Home Office's quarterly entry clearance visa datasets, by <strong>nationality</strong>. We use the latest four quarters ({periodo_uk(T1)}) and the four before.</li>
+<li><strong>Refusal rate</strong> = refused ÷ (granted + refused); withdrawn and lapsed applications are left out, as in the Home Office grant rate.</li></ul>
+<h3>United States</h3>
+<p>The US Department of State publishes a yearly B visa refusal rate by nationality, but its website could not be reached by our checks on {data_lunga(F_UE[A1]["scaricato_il"])}. We publish only figures we can download from the official source and check, so there are no US figures here.</p>
+<h3>Checks</h3>
+<p>Our script downloads the official files, recalculates every rate and checks it against the rate printed in the Commission's file, and checks the UK totals against the Home Office's published summary table. Every table on these pages shows its source and the date we downloaded it.</p>
+</div>
+<h2>Schengen countries</h2>
+<div class="griglia">{''.join(scheda_stato(x, "schengen/") for x in STATI_UE)}</div>
+<h2>Official sources</h2>
+<ul class="fonti">
+<li><a href="{escape(F_UE[A1]["url"])}" rel="noopener">Visa statistics for consulates {A1}</a> – European Commission, XLSX ({escape(F_UE[A1]["file"])}), downloaded on {data_lunga(F_UE[A1]["scaricato_il"])}</li>
+<li><a href="{escape(F_UE[A0]["url"])}" rel="noopener">Visa statistics for consulates {A0}</a> – European Commission, XLSX, downloaded on {data_lunga(F_UE[A0]["scaricato_il"])}</li>
+<li><a href="{escape(F_UE[A1]["pagina"])}" rel="noopener">Short-stay visas issued by Schengen countries (all years and metadata)</a> – European Commission, page updated on {data_lunga(F_UE[A1]["pagina_aggiornata"])}</li>
+<li><a href="{escape(F_UK["url"])}" rel="noopener">{escape(F_UK["titolo"])}</a> – Home Office, XLSX, published {escape(F_UK["pubblicato"])}, downloaded on {data_lunga(F_UK["scaricato_il"])}. Contains public sector information licensed under the Open Government Licence v3.0.</li>
+<li><a href="{URL_COMMISSIONE_DOMANDA}" rel="noopener">Applying for a Schengen visa</a> – European Commission, checked on {data_lunga(DATA_COMMISSIONE_DOMANDA)}</li></ul>
+<p><a href="{rel}">Visa income calculator</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements</a></p>"""
+    ld = {"@context": "https://schema.org", "@type": "Dataset", "name": f"Schengen and UK visa refusal rates {A1}",
+          "description": "Visa refusal (not-issued) rates by Schengen country, by country of application and by consulate, and UK refusal rates by nationality, recalculated from official files.",
+          "url": f"{URL_SITO}/{SEZ}", "creator": {"@type": "Organization", "name": NOME, "url": URL_SITO + "/"},
+          "isBasedOn": [F_UE[A1]["url"], F_UE[A0]["url"], F_UK["url"]], "temporalCoverage": f"{A0}/{TRIM[-1].split()[0]}",
+          "license": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"}
+    pagina(SEZ, f"Schengen visa rejection rate by country {A1} (official) and UK visa refusal rates",
+           f"Official {A1} Schengen visa rejection rates: {pct(t1)} of decisions were visas not issued. Every Schengen country, {len(PAESI_RIF)} countries where people apply, and UK refusal rates by nationality.",
+           corpo, ordina=True, testata=testata, jsonld_extra=ld, briciole=[("Visa refusal rates", SEZ)])
+
+
+ORDINA_JS = r"""
+(function(){
+  document.querySelectorAll('table.ord').forEach(function(t){
+    var ths=t.tHead.rows[0].cells;
+    Array.prototype.forEach.call(ths,function(th,i){var b=th.querySelector('button.ord');if(!b)return;
+      b.addEventListener('click',function(){
+        var cur=th.getAttribute('aria-sort'),dir=cur?(cur==='ascending'?'descending':'ascending'):(th.getAttribute('data-primo')||'descending');
+        Array.prototype.forEach.call(ths,function(x){x.removeAttribute('aria-sort');});th.setAttribute('aria-sort',dir);
+        var tb=t.tBodies[0],rows=Array.prototype.slice.call(tb.rows);
+        rows.sort(function(a,c){var x=a.cells[i],y=c.cells[i],vx=x.getAttribute('data-v'),vy=y.getAttribute('data-v'),r;
+          if(vx!==null||vy!==null){if(vx===''||vx===null)return 1;if(vy===''||vy===null)return -1;r=parseFloat(vx)-parseFloat(vy);}
+          else r=x.textContent.trim().localeCompare(y.textContent.trim());
+          return dir==='ascending'?r:-r;});
+        rows.forEach(function(r){tb.appendChild(r);});});});});
+  document.querySelectorAll('input[data-filtro]').forEach(function(inp){var t=document.getElementById(inp.getAttribute('data-filtro'));if(!t)return;
+    inp.addEventListener('input',function(){var q=inp.value.trim().toLowerCase();
+      Array.prototype.forEach.call(t.tBodies[0].rows,function(r){r.hidden=q&&r.cells[0].textContent.toLowerCase().indexOf(q)<0;});});});
+  document.querySelectorAll('select[data-vai]').forEach(function(s){s.addEventListener('change',function(){if(s.value)location.href=s.value;});});
+})();
+"""
+
+
+def link_rifiuti(paese, rel):
+    """Riga di collegamento alla sezione dei visti rifiutati dalle pagine dei programmi e dei Paesi."""
+    if paese in SLUG_STATO:
+        return (f'<p class="small">{ico("passport")} Visiting {escape(paese)} first? See the <a href="{rel}{SEZ}schengen/{SLUG_STATO[paese]}/">'
+                f'{escape(paese)} Schengen visa rejection rate by country ({A1})</a> and <a href="{rel}{SEZ}">all visa refusal rates</a>.</p>')
+    if paese == "United Kingdom":
+        return (f'<p class="small">{ico("passport")} See the <a href="{rel}{SEZ}uk/">UK visa refusal rate by nationality</a> '
+                f'(Home Office, to {trimestre_testo(TRIM[-1])}).</p>')
+    return f'<p class="small">{ico("passport")} See <a href="{rel}{SEZ}">visa refusal rates by country</a>.</p>'
+
+
+def genera_rifiuti():
+    pagina_rif_panoramica()
+    for p in PAESI_RIF:
+        pagina_rif_paese(p)
+    for s in STATI_UE:
+        pagina_rif_stato(s)
+    pagina_rif_uk()
+
+
+def controlli_rifiuti():
+    errori = []
+    if len(PAESI_RIF) < 40:
+        errori.append(f"rifiuti: solo {len(PAESI_RIF)} Paesi con pagina")
+    if len(set(SLUG_RIF.values())) != len(SLUG_RIF) or set(SLUG_RIF.values()) & {"uk", "schengen"}:
+        errori.append("rifiuti: slug dei Paesi duplicati o riservati")
+    for k, f in RIF["fonti"].items():
+        if not f.get("url", "").startswith("https://"):
+            errori.append(f"rifiuti: fonte {k} senza URL")
+    if not URL_SAFETYWING.startswith("https://safetywing.com/"):
+        errori.append("rifiuti: link SafetyWing mancante in dati/affiliati.json (_safetywing_schengen)")
+    return errori
 
 
 def extra():
@@ -1351,6 +2105,7 @@ def controlli():
                 errori.append(f"{P['slug']}/{V['id']}: manca il motivo per i familiari")
     if len({P["slug"] for P in PROG}) != len(PROG):
         errori.append("slug duplicati")
+    errori += controlli_rifiuti()
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -1373,13 +2128,14 @@ def main():
         pagina_paese(s)
     pagina_confronto_nomadi()
     pagina_confronto_lavoro()
+    genera_rifiuti()
     pagina_come_funziona()
     about()
     contatti()
     privacy()
     extra()
     print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili; {len(PROG)} programmi in {len(PAESI)} paesi; "
-          f"cambi BCE del {CAMBI['data']}.")
+          f"cambi BCE del {CAMBI['data']}; visti rifiutati: {len(PAESI_RIF)} Paesi, {len(STATI_UE)} Stati Schengen ({A1}), UK fino al {TRIM[-1]}.")
 
 
 if __name__ == "__main__":

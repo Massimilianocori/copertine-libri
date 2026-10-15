@@ -95,3 +95,13 @@ Controllo incrociato con i numeri ufficiali già pubblicati (al centesimo): Spag
 - UK Skilled Worker (standard e ridotto) con 5.000 £: nessun "at or above", al suo posto le condizioni sul going rate.
 - Austria: 3.977 € × 14 → "at or above"; compare la nota sulle 14 mensilità.
 - Portogallo D8 con 2 adulti + 1 figlio: resta 3.680 € con "family members not counted" e la spiegazione.
+
+
+## Sezione "Visa refusal rates" (15/10/2026)
+
+| Controllo | Esito |
+|---|---|
+| `raccolta/rifiuti.py` | tassi ricalcolati = colonna ufficiale su tutte le righe 2024 e 2025; somme = fogli dei totali; UK = Vis_06 su 20 nazionalità |
+| `verifica.py` punto 7 | 104 pagine: ogni tabella e ogni cifra principale con fonte ufficiale e data; cifre di panoramica, 5 Paesi, 5 Stati e 4 nazionalità UK ricalcolate da `dati/rifiuti.json`; link esterni della sezione 200/206 |
+| Playwright 390 e 1280 px, chiaro e scuro | 104 pagine nuove + home, Spagna nomadi, Germania, How it works, About, Privacy: nessuno scorrimento orizzontale, 0 errori JS, ordinamento delle tabelle corretto |
+| Controllo a campione sui file grezzi | 14 cifre su 14 uguali (vedi rapporto della sessione) |

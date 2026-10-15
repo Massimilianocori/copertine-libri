@@ -11,6 +11,9 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
 4. Ogni pagina di programma mostra la fonte ufficiale (URL) e la data del controllo sotto la cifra.
 5. Nessun nome di modelli o servizi di intelligenza artificiale nei file del sito.
 6. Le correzioni della revisione indipendente del 10/10/2026 sono presenti nelle pagine.
+7. Sezione "Visa refusal rates": ogni tabella e ogni cifra principale hanno sotto la fonte ufficiale (URL) e la data;
+   le percentuali principali ricalcolate qui da dati/rifiuti.json coincidono con le pagine; avviso, dicitura di affiliazione,
+   niente EKTA/Travelpayouts; i link esterni della sezione rispondono (HTTP 200 o 206; si salta con --offline).
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -265,6 +268,97 @@ def controlla_parole():
     return errori
 
 
+# ---------------------------------------------------------------- 7. Visa refusal rates
+RE_DATA = re.compile(r"\b\d{1,2} (January|February|March|April|May|June|July|August|September|October|November|December) 20\d\d\b")
+URL_UFFICIALI = ("https://home-affairs.ec.europa.eu/", "https://assets.publishing.service.gov.uk/", "https://www.gov.uk/")
+
+
+def pagine_rifiuti():
+    return sorted((SITO / "visa-refusal-rates").rglob("index.html"))
+
+
+def controlla_rifiuti(online=True):
+    errori = []
+    R = json.loads((SITO.parent / "dati" / "rifiuti.json").read_text(encoding="utf-8"))
+    anni = sorted(R["schengen"], key=int)
+    a1 = anni[-1]
+    pagine = pagine_rifiuti()
+    if len(pagine) < 60:
+        errori.append(f"Rifiuti: solo {len(pagine)} pagine")
+    esterni = set()
+    for f in pagine:
+        t = f.read_text(encoding="utf-8")
+        nome = str(f.relative_to(SITO))
+        corpo = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        # ogni tabella deve avere sotto (prima della tabella dopo) una riga di fonte con URL ufficiale e data
+        pezzi = corpo.split("<table")
+        for i, dopo in enumerate(pezzi[1:], 1):
+            m = re.match(r'.*?</table></div>\s*<p class="fonte">(.*?)</p>', dopo, re.S)  # subito sotto la tabella
+            if not m or not any(u in m.group(1) for u in URL_UFFICIALI) or not RE_DATA.search(m.group(1)):
+                errori.append(f"Rifiuti: tabella {i} di {nome} senza fonte ufficiale e data sotto")
+        # la cifra principale (riquadro di sintesi) ha la fonte con data
+        for m in re.finditer(r'<p class="cifra[^"]*">.*?</p>\s*(?:<div class="kpi">.*?</div></div>\s*)?(?:<p class="lead"[^>]*>.*?</p>\s*)?(<p class="fonte">.*?</p>|<p class="cifra)', corpo, re.S):
+            blocco = m.group(1)
+            if blocco.startswith('<p class="cifra'):
+                continue
+            if not any(u in blocco for u in URL_UFFICIALI) or not RE_DATA.search(blocco):
+                errori.append(f"Rifiuti: cifra principale di {nome} senza fonte e data")
+        if "Statistics, not advice." not in corpo:
+            errori.append(f"Rifiuti: avviso mancante in {nome}")
+        if "safetywing.com" in corpo:
+            if 'rel="sponsored noopener"' not in corpo or "Affiliate" not in corpo or "affiliate link" not in corpo:
+                errori.append(f"Rifiuti: link SafetyWing senza rel sponsored o dicitura in {nome}")
+        if re.search(r"ekta|travelpayouts|tp\.media", t, re.I):
+            errori.append(f"Rifiuti: EKTA/Travelpayouts presente in {nome}")
+        esterni.update(h for h in re.findall(r'href="(https://[^"]+)"', corpo))
+    # ricalcolo indipendente delle percentuali principali
+    def tot(filtro):
+        v = [0, 0, 0, 0]
+        for r in R["schengen"][a1]:
+            if filtro(r):
+                for i in range(4):
+                    v[i] += r[3 + i]
+        d = v[1] + v[2] + v[3]
+        return v, (v[3] / d if d else None)
+    v, tx = tot(lambda r: True)
+    p = (SITO / "visa-refusal-rates" / "index.html").read_text(encoding="utf-8")
+    if f"<strong>{tx * 100:.1f}%</strong> of decisions were visas not issued" not in p or f"{v[0]:,}" not in p:
+        errori.append("Rifiuti: totale Schengen della panoramica diverso dal ricalcolo")
+    for paese, slug in (("INDIA", "india"), ("NIGERIA", "nigeria"), ("PAKISTAN", "pakistan"), ("TÜRKIYE", "turkiye"), ("MOROCCO", "morocco")):
+        v, tx = tot(lambda r: r[1] == paese)
+        p = (SITO / "visa-refusal-rates" / slug / "index.html").read_text(encoding="utf-8")
+        if f"<strong>{tx * 100:.1f}%</strong> not issued ({v[3]:,} of {v[1] + v[2] + v[3]:,} decisions)" not in p:
+            errori.append(f"Rifiuti: cifra principale di {slug} diversa dal ricalcolo")
+    for stato in ("France", "Germany", "Spain", "Italy", "Netherlands"):
+        v, tx = tot(lambda r: r[0] == stato)
+        p = (SITO / "visa-refusal-rates" / "schengen" / stato.lower() / "index.html").read_text(encoding="utf-8")
+        if f"<strong>{tx * 100:.1f}%</strong> of decisions were visas not issued" not in p:
+            errori.append(f"Rifiuti: cifra principale di {stato} diversa dal ricalcolo")
+    q4 = R["uk"]["trimestri"][-4:]
+    for naz, slug in (("India", "india"), ("Nigeria", "nigeria"), ("Pakistan", "pakistan"), ("Ghana", "ghana")):
+        c = sum(R["uk"]["naz"][naz]["Visitor"].get(q, [0, 0])[0] for q in q4)
+        r = sum(R["uk"]["naz"][naz]["Visitor"].get(q, [0, 0])[1] for q in q4)
+        p = (SITO / "visa-refusal-rates" / slug / "index.html").read_text(encoding="utf-8")
+        if f"<strong>{r / (c + r) * 100:.1f}%</strong> of visitor visa decisions" not in p or f"({r:,} refused out of {c + r:,})" not in p:
+            errori.append(f"Rifiuti: cifra UK di {slug} diversa dal ricalcolo")
+    # link esterni della sezione
+    controllati = 0
+    if online:
+        import urllib.request
+        for u in sorted(esterni):
+            u2 = u.replace("&amp;", "&")
+            try:
+                req = urllib.request.Request(u2, headers={"User-Agent": "Mozilla/5.0", "Range": "bytes=0-2047"})
+                with urllib.request.urlopen(req, timeout=60) as r:
+                    st = r.status
+            except Exception as e:  # noqa: BLE001
+                st = getattr(e, "code", str(e))
+            controllati += 1
+            if st not in (200, 206):
+                errori.append(f"Rifiuti: link esterno {u2} risponde {st}")
+    return errori, len(pagine), controllati
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -278,7 +372,9 @@ def main():
     print(f"5. Parole vietate: {len(e5)}")
     e6 = controlla_contenuti()
     print(f"6. Correzioni della revisione presenti nelle pagine: {len(e6)} errori")
-    tutti = errori + e2 + e3 + e4 + e5 + e6
+    e7, n7, x7 = controlla_rifiuti(online="--offline" not in sys.argv)
+    print(f"7. Visa refusal rates: {n7} pagine, {x7} link esterni controllati, {len(e7)} errori")
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7
     for e in tutti:
         print(" -", e)
     if tutti:

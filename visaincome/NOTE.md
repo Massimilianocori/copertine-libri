@@ -1,6 +1,6 @@
 # Visa Income Checker – note di lavoro
 
-Costruito il 10/10/2026. Sito statico in inglese, generato da `genera.py` in `sito/` (37 pagine + 404).
+Costruito il 10/10/2026. Sito statico in inglese, generato da `genera.py` in `sito/` (37 pagine + 404; dal 15/10/2026 141 pagine con la sezione "Visa refusal rates").
 Indirizzo previsto: `https://visa-income-checker.netlify.app` (costante `URL_SITO` in `genera.py`, unico punto da cambiare).
 Corretto il 10/10/2026 dopo la revisione indipendente (vedi "Correzioni dopo la revisione").
 
@@ -20,7 +20,9 @@ per il confronto "sopra/sotto la soglia").
 | `dati/cambi.json` | cambi BCE di riserva, scritti nelle pagine alla generazione (`raccolta/cambi.py`) |
 | `dati/affiliati.json` | riquadro affiliati: compare solo quando un URL è compilato |
 | `raccolta/cambi.py` | scarica `eurofxref-daily.xml` della BCE; se qualcosa non va non tocca il file |
-| `verifica.py` | esempi a mano, confronto JS/Python, link, fonti sotto la cifra, parole vietate |
+| `verifica.py` | esempi a mano, confronto JS/Python, link, fonti sotto la cifra, parole vietate, sezione visti rifiutati (controllo 7; `--offline` salta i link esterni) |
+| `raccolta/rifiuti.py` | scarica e legge i file ufficiali sui visti rifiutati (Commissione Europea, Home Office) e scrive `dati/rifiuti.json`; i file grezzi vanno in `raccolta/_grezzi/` (esclusi da git) |
+| `dati/rifiuti.json` | dati della sezione "Visa refusal rates" (generato, non modificare a mano) |
 
 ## Cambi automatici
 
@@ -123,3 +125,42 @@ Revisione in `scratchpad/visaincome/REVISIONE.md`: tutte le 17 cifre principali 
 
 ## Pubblicazione (10/10/2026)
 - Online su https://visa-income-checker.netlify.app (Netlify, base `visaincome/sito`). Meta tag Search Console `GOOGLE_VERIFICA` in `genera.py` (non rimuoverlo). Test: al 9/12/2026 servono ≥ 200 impression a settimana.
+
+
+## Sezione "Visa refusal rates" (approvata da Massimiliano il 15/10/2026, costruita il 15/10/2026)
+
+Pagine (104, tutte in sitemap): `/visa-refusal-rates/` (panoramica, metodo in inglese semplice, tabelle per Stato Schengen e per Paese di domanda, UK in breve),
+`/visa-refusal-rates/<paese>/` (74 Paesi con almeno 10.000 domande Schengen nel 2025, esclusi gli Stati Schengen: tasso per ogni Stato Schengen, classifica
+"lowest/highest" tra gli Stati con almeno 500 decisioni, tabella per consolato, sezione UK per nazionalità se ci sono almeno 500 decisioni sui visti turistici),
+`/visa-refusal-rates/schengen/<stato>/` (28 Stati che trattano visti; il Liechtenstein è rappresentato dalla Svizzera), `/visa-refusal-rates/uk/` (tutte le nazionalità).
+Tabelle ordinabili (clic sull'intestazione) e filtrabili; avviso "Statistics, not advice" su ogni pagina; regola ufficiale "si fa domanda al Paese della destinazione principale".
+Collegamenti dal resto del sito: menu ("Refusal rates"), piè di pagina, home (sezione con 8 Paesi), pagine dei programmi e dei Paesi (riga in fondo), How it works (punto 7), About (fonti), Privacy (link di affiliazione).
+
+Aggiornare i dati: `python3 visaincome/raccolta/rifiuti.py --nuovo && python3 visaincome/genera.py && python3 visaincome/verifica.py`
+(lo script si ferma e non tocca `dati/rifiuti.json` se un controllo fallisce).
+
+| Fonte | URL | Dati | Data |
+|---|---|---|---|
+| Commissione Europea, DG HOME – pagina con tutti gli anni | https://home-affairs.ec.europa.eu/policies/schengen/visa-policy/short-stay-visas-issued-schengen-countries_en | elenco dei file per anno | pagina aggiornata il 28/5/2026, letta il 15/10/2026 (200) |
+| "Visa statistics for consulates 2025" (XLSX, `2025-consulates-schengen-visa-statistics.xlsx`, 512.813 byte) | https://home-affairs.ec.europa.eu/document/download/56816949-e59f-442b-9091-5d03360bf860_en | 1.874 righe Stato × Paese × consolato | scaricato il 15/10/2026 |
+| "Visa statistics for consulates 2024" (XLSX, 558.784 byte) | https://home-affairs.ec.europa.eu/document/download/6552447c-1d75-4f7c-bed6-1bd17a5d59f8_en?filename=2024-schengen-visa-statistics-consulates_en.xlsx | 2.035 righe, per il confronto | scaricato il 15/10/2026 |
+| Metadati della Commissione (PDF) | https://home-affairs.ec.europa.eu/document/download/b4626219-fa37-4650-8216-0c2bda466c74_en?filename=visa_statistics_-_quality_and_metadata_reporting.pdf | "not issued" = rifiutati + esami interrotti (art. 8(2) Codice dei visti); dati per Paese in cui si fa domanda, non per nazionalità | letto il 15/10/2026 |
+| Home Office, "Entry clearance visa applications and outcomes detailed datasets, year ending June 2026" (XLSX, 33 MB) | https://assets.publishing.service.gov.uk/media/6a85c3741b45e4e555421eda/entry-clearance-visa-outcomes-datasets-jun-2026.xlsx | foglio Data_Vis_D02 (nazionalità × gruppo di visto × esito, trimestrale dal 2005): usati gli ultimi 8 trimestri (2024 Q3–2026 Q2) | pubblicato il 27/8/2026, scaricato il 15/10/2026; 2026 Q1-Q2 provvisori |
+| Home Office, tabelle di sintesi (ODS), Vis_06 | https://assets.publishing.service.gov.uk/media/6a85c6003d82f78d5c514552/visas-summary-jun-2026-tables.ods | controllo incrociato: le 20 nazionalità di Vis_06 coincidono (concessi e rifiutati) | 15/10/2026 |
+| Pagina GOV.UK dei dati (API dei contenuti) | https://www.gov.uk/government/statistical-data-sets/immigration-system-statistics-data-tables | lo script trova lì l'URL del file più recente | aggiornata il 27/8/2026 |
+| Commissione, "Applying for a Schengen visa" | https://home-affairs.ec.europa.eu/policies/schengen/visa-policy/applying-schengen-visa_en | dove fare domanda (Paese della destinazione principale, consolato del luogo di residenza), assicurazione medica obbligatoria, motivazione e ricorso | letta il 15/10/2026 (200) |
+
+Formule: Schengen = non rilasciati / (visti uniformi rilasciati compresi MEV + LTV + non rilasciati), la stessa del file (lo script ricalcola ogni riga e la confronta con la colonna ufficiale, poi confronta le somme con i fogli "Totals - Schengen State" e "Totals - third country").
+UK = rifiutati / (concessi + rifiutati), come il "grant rate" del Home Office (ritirati e decaduti esclusi).
+**USA esclusi**: travel.state.gov risponde 403 / non risolvibile dal nostro server il 15/10/2026; le pagine lo dicono. Da riprovare a ogni aggiornamento (PDF "Adjusted refusal rate – B visas", uno per anno fiscale).
+**Importo minimo dell'assicurazione (30.000 €)**: non scritto perché il testo del Codice dei visti su EUR-Lex non è leggibile dal server (risposta 202 vuota); la pagina dice "controlla la copertura minima chiesta dal consolato".
+
+Monetizzazione: riquadro SafetyWing ("Affiliate", `rel="sponsored"`, dicitura completa, nessuna promessa sull'accettazione della polizza) su panoramica, Paesi e Stati,
+link in `dati/affiliati.json` alla voce `_safetywing_schengen` (stesso referenceID 26614957 del link già attivo, campagna `visa-refusal-rates` per contare i clic a parte).
+EKTA/Travelpayouts resta spento (script con cookie): verifica.py controlla che non compaia.
+
+### Da ricontrollare (date)
+- **26/11/2026** (prossima pubblicazione del Home Office, scritta nel file; la tabella dei contenuti indica anche il 27/10/2026 per i dataset: controllare entrambe le date): rilanciare lo script con `--nuovo` → UK fino a 2026 Q3.
+- Poi ogni trimestre (fine febbraio, maggio, agosto, novembre).
+- **1/6/2027**: file Schengen dell'anno 2026 (la Commissione pubblica di solito tra aprile e giugno; il 2025 c'era già il 28/5/2026). Lo script prende da solo gli ultimi due anni della pagina.
+- A ogni aggiornamento: riprovare la fonte USA e il testo del Codice dei visti su EUR-Lex.
