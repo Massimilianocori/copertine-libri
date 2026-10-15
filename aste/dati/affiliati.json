@@ -1,0 +1,10 @@
+{
+ "_nota": "Riquadro 'mutuo per l'asta' delle pagine città, zona, fascia di prezzo e delle guide. Resta NASCOSTO finché 'url' è vuoto. Inserire solo un URL di affiliazione vero, ricevuto dopo l'iscrizione a un programma (es. mediatore del credito su Awin). Mai inventare URL. Testo neutro: niente promesse di tassi o di approvazione.",
+ "mutuo": {
+  "url": "",
+  "nome": "",
+  "titolo": "Ti serve un mutuo per comprare all'asta?",
+  "testo": "Il saldo del prezzo va versato entro il termine dell'avviso (di solito 120 giorni): conviene sapere prima quanto la banca può finanziare.",
+  "bottone": "Confronta i mutui"
+ }
+}

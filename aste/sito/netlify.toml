@@ -1,0 +1,20 @@
+[build]
+  publish = "."
+  command = ""
+  # Pubblica solo se è cambiato qualcosa in aste/sito (ogni pubblicazione consuma crediti Netlify).
+  # I dati giornalieri stanno in aste/dati/ (fuori da questa cartella): i loro commit non fanno ripartire Netlify.
+  # Impostazioni del sito su Netlify: Base directory = aste/sito, Build command vuoto, Publish directory = aste/sito (cioè ".").
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

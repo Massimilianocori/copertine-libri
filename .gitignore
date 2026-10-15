@@ -8,3 +8,6 @@ __pycache__/
 
 # Flood Insurance Cost: dati grezzi OpenFEMA (si riscaricano con floodcost/raccolta/scarica.py)
 floodcost/cache/
+
+# Aste giudiziarie: risposte grezze PVP e OMI (si riscaricano con aste/raccolta/aggiorna.py)
+aste/cache/
