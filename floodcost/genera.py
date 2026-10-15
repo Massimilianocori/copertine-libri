@@ -821,7 +821,10 @@ def frase_zona_top(A):
     if not Z or not A.get("h"):
         return ""
     z = max(Z, key=lambda k: Z[k][0])
-    return f"Most insured homes here are rated in {zl(ZONE[z]['nome'])} ({Z[z][0] / A['h'][0] * 100:.0f}%)."
+    quota = Z[z][0] / A['h'][0] * 100
+    if quota > 50:
+        return f"Most insured homes here are rated in {zl(ZONE[z]['nome'])} ({quota:.0f}%)."
+    return f"The most common flood zone for insured homes here is {zl(ZONE[z]['nome'])} ({quota:.0f}%)."
 
 
 def griglia(voci):
@@ -955,7 +958,7 @@ def estremi_stati():
     v = sorted((s for s in TESSERE if s in STATI and STATI[s].get("h") and STATI[s]["h"][0] >= 1000 and s != "PR"), key=lambda s: -STATI[s]["h"][1])
     alto = ", ".join(f"{STATI[s]['nome']} ({usd(STATI[s]['h'][1])})" for s in v[:3])
     basso = ", ".join(f"{STATI[s]['nome']} ({usd(STATI[s]['h'][1])})" for s in v[-3:][::-1])
-    return f"Among states with at least 1,000 insured homes, the highest medians are in {alto}; the lowest in {basso}."
+    return f"Among states and territories with at least 1,000 insured homes, the highest medians are in {alto}; the lowest in {basso}."
 
 
 def mappa_stati():
@@ -1070,7 +1073,7 @@ def pagina_zona(z):
 {f'<span class="trend {"up" if v > 0.5 else "down" if v < -0.5 else ""}">{ico("up" if v > 0.5 else "down")}{pct_testo(v)} vs {data_breve(RIF0)} <span class="muted" style="font-weight:600">(median {usd(pm)})</span></span>' if v is not None else ""}
 </div><div class="key-side">
 <div class="tile"><b>{intero(n)}</b><span>home policies in this zone</span></div><div class="tile"><b>{usd(avg)}</b><span>average cost (mean)</span></div>
-<div class="tile"><b>{n / NAZ["h"][0] * 100:.1f}%</b><span>of all insured homes</span></div><div class="tile"><b>{len(stati)}</b><span>states with 10+ policies here</span></div>
+<div class="tile"><b>{n / NAZ["h"][0] * 100:.1f}%</b><span>of all insured homes</span></div><div class="tile"><b>{len(stati)}</b><span>states and territories with 10+ policies here</span></div>
 </div></div></section>
 {AD}
 <h2>What is {zl(Z["nome"])}?</h2>
