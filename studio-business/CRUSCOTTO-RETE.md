@@ -15,6 +15,7 @@ Ultimo aggiornamento: 14/10/2026 (revisione del mercoledì).
 | Before You Fly | https://before-you-fly.netlify.app | 11/10/2026 | EN, chi vola in Europa | Pubblicità, affiliati (voli, eSIM) | Avvio |
 | EsameB1 | https://esameb1.netlify.app | 09/10/2026 | IT, stranieri per la cittadinanza | Pubblicità, contatti per scuole (dopo il cancello fiscale) | Avvio |
 | EsamiDiStato | https://esamidistato.netlify.app | 10/10/2026 | IT, neolaureati | Pubblicità, corsi di preparazione (affiliati) | Avvio |
+| FloodCost (costo assicurazione alluvioni USA) | https://flood-insurance-cost.netlify.app | 15/10/2026 | EN, proprietari di casa negli USA | Pubblicità (assicurazioni), contatti per preventivi | Avvio |
 
 Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE), BandiChiari.
 
@@ -118,6 +119,8 @@ Si riprendono solo quando la soglia è raggiunta. Prima vengono i libri KDP già
 | Dati scioperi per aziende (Italy Strikes "For businesses") | Abbonamento B2B | Italy Strikes ≥ 1.000 visite al mese o una richiesta vera dal modulo | Risposta del consulente fiscale |
 
 ## 8. Registro delle decisioni
+
+- 15/10/2026: online FloodCost (2.920 pagine, dati FEMA NFIP) e la sezione "Visa refusal rates" di Visa Income (104 pagine, dati UE e Regno Unito), tutte e due con revisione indipendente (design 8,5 e 8). Prossimi: passi alpini (test) e case all'asta.
 
 - 15/10/2026: primi numeri veri di EsameB1 da Search Console: 70 impressioni e 4 clic in 24 ore, posizione media 7,7 (prima pagina di Google), a 5 giorni dall'apertura. Di gran lunga sopra la soglia del primo segnale (300 impressioni al mese): EsameB1 resta il sito su cui spingere per primo.
 
