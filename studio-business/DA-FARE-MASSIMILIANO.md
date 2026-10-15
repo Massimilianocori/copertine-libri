@@ -21,6 +21,24 @@ Cosa scrivere nel modulo (in inglese, puoi incollare):
 
 ## 3. Domanda fiscale gratuita (15 minuti) — da fare al primo pagamento in arrivo da AdSense/affiliati (la guida PDF è in pausa per decisione di Massimiliano del 10/10/2026; la domanda 3 serve solo se si vorrà riaprirla)
 
+### Messaggio pronto per la consulenza (versione del 15/10/2026, da usare questa)
+
+Da copiare e incollare nel modulo di Fiscozen o Flextax, oppure da mandare per email. Chiedi che la risposta sia **scritta**.
+
+> Buongiorno, chiedo una consulenza con risposta scritta.
+>
+> **Situazione:** ho una partita IVA in regime forfettario come fotografo (ATECO 74.20.19), sono iscritto alla Gestione Separata INPS e non sono iscritto alla Camera di Commercio. Scrivo e pubblico alcuni siti web informativi gratuiti in inglese e in italiano (per esempio scioperi dei trasporti, tassa di soggiorno, date degli esami di italiano). Su questi siti vorrei inserire pubblicità (Google AdSense) e link di affiliazione verso piattaforme estere (per esempio assicurazioni di viaggio, eSIM, servizi di trasporto), che mi pagherebbero una commissione. All'inizio prevedo da poche centinaia a qualche migliaio di euro l'anno. Pubblico anche libri su Amazon KDP.
+>
+> **Domande:**
+> 1. Posso aggiungere il codice ATECO 58.19.00 ("altre attività editoriali", contenuti e blog) alla mia partita IVA forfettaria e dichiarare i ricavi da pubblicità e affiliazioni come lavoro autonomo, restando in Gestione Separata e senza Camera di Commercio? Mi baso sulla circolare INPS 44/2025 (creatori di contenuti in cui prevale l'apporto personale). Qual è il coefficiente di redditività?
+> 2. Se invece servisse la gestione commercianti, da quale livello di ricavi conviene e quanto costa all'anno con la riduzione del 35% per i forfettari?
+> 3. Come devo fatturare le commissioni pagate da società estere (Irlanda, Lussemburgo, USA, Hong Kong)? Servono l'iscrizione al VIES, la marca da bollo, l'esterometro o l'Intrastat?
+> 4. I compensi di Amazon KDP per i libri che scrivo posso dichiararli come diritti d'autore?
+> 5. Da luglio a ottobre 2026 ho venduto file digitali su Etsy (circa 197 € incassati; ora il negozio è chiuso). Etsy mi ha fatturato commissioni in reverse charge dall'Irlanda (circa 117 €). Come regolarizzo l'IVA su quelle fatture e come dichiaro quegli incassi? Serviva la Camera di Commercio per quel periodo?
+>
+> Grazie.
+
+
 **Aggiornamento 14/10/2026:** Etsy ha chiesto l'iscrizione alla Camera di Commercio e Massimiliano ha messo il negozio PressedHeart in vacanza. Lo stesso dubbio vale per AdSense e affiliati (domanda 1). **Conviene fare la consulenza adesso**, prima che arrivino i primi incassi dai siti, non al primo pagamento.
 Dove: **Fiscozen** https://www.fiscozen.it/ (pulsante "Consulenza gratuita" / "Parla con un esperto") oppure **Flextax** https://flextax.it/ (contatto o chat). Chiedi la risposta **per iscritto** (email o chat), non solo a voce.
 Testo da incollare:
