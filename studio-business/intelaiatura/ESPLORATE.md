@@ -93,3 +93,19 @@ Legenda esiti: **FATTO** (sito o sezione online), **PASSA** (in lista per costru
 | Limiti dei mutui per contea, affitti HUD per CAP, diarie GSA, indennità BAH, salari Davis-Bacon, attese TSA | NO (siti automatici già primi) | idee-mondo-2026-10-14 |
 | Tassa comunale UK per fascia, promossi all'esame di guida UK, taxe foncière FR, Bodenrichtwert DE, valori WOZ/catastali/DVF | NO | idee-mondo-2026-10-14 |
 | Ritardi per numero di volo, NCLEX per scuola, premi ACA 2027, date dei pagamenti pubblici, titoli di Stato, salari H-1B, dazi HTS, sponsor di visti, IRCC/Express Entry, salute delle banche, HMDA, elettricità e internet per CAP | NO | idee-mondo-2026-10-14 |
+
+## Mondo (caccia del 15/10/2026)
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **Voti sanitari CDC delle navi da crociera (Cruise Ship Health Scores)** | **PASSA** (voto 7; sito nuovo o sezione di Before You Fly) | idee-2026-10-15 |
+| **Condomini approvati FHA per Stato, contea e città** | **PASSA** (voto 6,5; sito nuovo) | idee-2026-10-15 |
+| Condomini approvati VA | RISERVA (fonte in JavaScript; solo come aggiunta ai condomini FHA) | idee-2026-10-15 |
+| Storia di grandine e tornado per CAP e città (USA) | NO (stormersite.com e haildrive.com già automatici) | idee-2026-10-15 |
+| Radon per CAP (USA) | NO (nessuna fonte ufficiale unica) | idee-2026-10-15 |
+| Rischio incendi per CAP (USA) | NO (saferate.com, protectmyzip.com già automatici) | idee-2026-10-15 |
+| Bocciati alla revisione MOT per modello (UK) | NO (domanda quasi nulla) | idee-2026-10-15 |
+| Zone ammesse ai mutui USDA per città (USA) | NO (risposta per indirizzo: mappa ufficiale) | idee-2026-10-15 |
+| Probabilità di estrazione delle licenze di caccia (USA) | NO (gohunt, huntinfool, onX; ~10 Stati in PDF) | idee-2026-10-15 |
+| Qualità dell'acqua di balneazione (UK, DE, UE) | NO (la domanda è "oggi"; app e portali ufficiali) | idee-2026-10-15 |
+| Eredità non reclamate Bona Vacantia (UK) | NO (gov.uk risponde già; nomi di persone morte) | idee-2026-10-15 |
+| Qualità e PFAS dell'acqua del rubinetto per Comune (FR) | NO (selectra.info già per Comune) | idee-2026-10-15 |
