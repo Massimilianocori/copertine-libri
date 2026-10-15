@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://flood-insurance-cost.netlify.app/sitemap.xml
