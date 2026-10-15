@@ -65,6 +65,8 @@ Eccezione: un sito stagionale (per esempio Italy Strikes ha il picco a marzo) si
 4. Le decisioni che spettano a lui (spese, pubblicazioni nuove, chiusure): domanda sì/no.
 Niente elenchi lunghi, niente gergo. Se non è cambiato niente, dillo in una riga.
 
+**Delega di Massimiliano (15/10/2026): "tu fai tutto".** Claude porta avanti da solo costruzione, miglioramenti, pubblicazioni previste, ricerca e chiusure, senza chiedere passo per passo. A Massimiliano si chiede solo ciò che richiede il suo account o i suoi soldi: spese, creazione di siti nuovi su Netlify, Search Console, iscrizioni ad affiliazioni e consulenza fiscale. Per le idee nuove gli si chiede un sì o un no una volta sola.
+
 ## 6. Cosa decide chi
 - **Claude**: misura, controlli, miglioramenti, proposte con numeri, idee nuove, costruzione a costo zero, congelamento dei siti sotto soglia (con motivo scritto).
 - **Massimiliano**: sì/no su spese, pubblicazioni nuove, chiusure definitive, account (GoatCounter, AdSense, affiliati), consulenza fiscale.
