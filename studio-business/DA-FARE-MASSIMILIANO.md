@@ -23,6 +23,8 @@ Cosa scrivere nel modulo (in inglese, puoi incollare):
 
 ### Messaggio pronto per la consulenza (versione del 15/10/2026, da usare questa)
 
+Nota del 15/10/2026: Massimiliano è **già iscritto al VIES**. Nella domanda 3 basta chiedere della marca da bollo, dell'esterometro e dell'Intrastat.
+
 Da copiare e incollare nel modulo di Fiscozen o Flextax, oppure da mandare per email. Chiedi che la risposta sia **scritta**.
 
 > Buongiorno, chiedo una consulenza con risposta scritta.
@@ -32,7 +34,7 @@ Da copiare e incollare nel modulo di Fiscozen o Flextax, oppure da mandare per e
 > **Domande:**
 > 1. Posso aggiungere il codice ATECO 58.19.00 ("altre attività editoriali", contenuti e blog) alla mia partita IVA forfettaria e dichiarare i ricavi da pubblicità e affiliazioni come lavoro autonomo, restando in Gestione Separata e senza Camera di Commercio? Mi baso sulla circolare INPS 44/2025 (creatori di contenuti in cui prevale l'apporto personale). Qual è il coefficiente di redditività?
 > 2. Se invece servisse la gestione commercianti, da quale livello di ricavi conviene e quanto costa all'anno con la riduzione del 35% per i forfettari?
-> 3. Come devo fatturare le commissioni pagate da società estere (Irlanda, Lussemburgo, USA, Hong Kong)? Servono l'iscrizione al VIES, la marca da bollo, l'esterometro o l'Intrastat?
+> 3. Come devo fatturare le commissioni pagate da società estere (Irlanda, Lussemburgo, USA, Hong Kong)? Sono già iscritto al VIES: servono la marca da bollo, l'esterometro o l'Intrastat?
 > 4. I compensi di Amazon KDP per i libri che scrivo posso dichiararli come diritti d'autore?
 > 5. Da luglio a ottobre 2026 ho venduto file digitali su Etsy (circa 197 € incassati; ora il negozio è chiuso). Etsy mi ha fatturato commissioni in reverse charge dall'Irlanda (circa 117 €). Come regolarizzo l'IVA su quelle fatture e come dichiaro quegli incassi? Serviva la Camera di Commercio per quel periodo?
 >
