@@ -83,6 +83,7 @@ A 12 mesi: realistico 1.000-4.000 €. Cifre lorde, prima di tasse e contributi.
 |---|---|---|---|
 | 14/10 | Attivare la misurazione (sez. 5) | Oggi 0 numeri su 6 siti: senza misura non si decide | In attesa dell'account di Massimiliano |
 | 21/10 | Primo sito con segnali (EsameB1): verificare dopo la pubblicazione del 15/10 che le pagine nuove (costo, risultati) siano lette da Google | Unico sito con un iscritto vero e impressioni dal 9/10 | Programmata |
+| 19/10 | Collegamenti "Altri strumenti utili" tra siti dello stesso tema (EsameB1 ↔ EsamiDiStato; Italy Strikes ↔ Tourist Tax, Before You Fly, Visa Income) per far trovare a Google i siti nuovi passando da quelli già letti. Dentro le pubblicazioni già previste, senza deploy in più | Richieste manuali di indicizzazione bloccate da Google ("quota superata" il 14 e 15/10) | Da fare |
 
 ## 7. Affiliazioni
 
