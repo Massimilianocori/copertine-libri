@@ -159,6 +159,11 @@ Monetizzazione: riquadro SafetyWing ("Affiliate", `rel="sponsored"`, dicitura co
 link in `dati/affiliati.json` alla voce `_safetywing_schengen` (stesso referenceID 26614957 del link già attivo, campagna `visa-refusal-rates` per contare i clic a parte).
 EKTA/Travelpayouts resta spento (script con cookie): verifica.py controlla che non compaia.
 
+Revisione indipendente del 15/10/2026: oltre 3.400 cifre ricontrollate con un parser proprio sui file ufficiali (EU 2025/2024, Home Office D02, Vis_06), 0 differenze.
+Corretti: nomi dei consolati ("Washington, DC", "Port of Spain", "Rio de Janeiro" invece di "Washington, Dc"...: funzione `nome_consolato`),
+"The United States ranks" a metà frase, barre verdi della lista "Lowest" invisibili (la classe `ok` prendeva lo stile del riquadro `.ok`; ora `basso`/`alto`,
+con la stessa scala per le due liste), barrette delle tabelle allineate (numero in `.tv` a larghezza fissa).
+
 ### Da ricontrollare (date)
 - **26/11/2026** (prossima pubblicazione del Home Office, scritta nel file; la tabella dei contenuti indica anche il 27/10/2026 per i dataset: controllare entrambe le date): rilanciare lo script con `--nuovo` → UK fino a 2026 Q3.
 - Poi ogni trimestre (fine febbraio, maggio, agosto, novembre).

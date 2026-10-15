@@ -540,6 +540,7 @@ th[aria-sort=ascending] button.ord::after{-webkit-mask-image:url("data:image/svg
 th[aria-sort=descending] button.ord::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 10'%3E%3Cpath d='M3.5 8 0 3h7z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 10'%3E%3Cpath d='M3.5 8 0 3h7z'/%3E%3C/svg%3E")}
 .tb{display:inline-block;width:52px;height:6px;border-radius:99px;background:var(--mute);margin-right:8px;vertical-align:middle;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line)}
 .tb i{display:block;height:100%;background:var(--accent);border-radius:99px}
+.tv{display:inline-block;min-width:3.9em;text-align:right}
 tr.poco td{color:var(--ink-3)}
 tr.tot-r td{font-weight:700;border-top:2px solid var(--line-2)}
 .kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0 2px}
@@ -557,7 +558,7 @@ tr.tot-r td{font-weight:700;border-top:2px solid var(--line-2)}
 .classifica small{display:block;color:var(--ink-3);font-size:.8rem}
 .classifica .bar{display:block;height:6px;border-radius:99px;background:var(--mute);margin-top:6px;overflow:hidden}
 .classifica .bar i{display:block;height:100%;background:var(--accent);border-radius:99px}
-.classifica .bar.ok i{background:var(--ok)}.classifica .bar.no i{background:var(--no)}
+.classifica .bar.basso i{background:var(--ok)}.classifica .bar.alto i{background:var(--no)}
 .classifica .v{font-family:var(--serif);font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums}
 .filtro{margin:0 0 10px;max-width:420px}
 .filtro input{font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1.5px solid var(--line-2);border-radius:var(--r-s);padding:10px 12px;width:100%;min-height:46px}
@@ -1415,6 +1416,20 @@ def slug_paese(n):
     return _SLUG.get(n) or slug_testo(nome_paese(n))
 
 
+_PAROLE_MINUSCOLE = {"De", "Da", "Do", "Dos", "Das", "Del", "La", "Las", "Los", "Of", "Es", "Du", "Des", "Am", "And"}
+
+
+def nome_consolato(n):
+    """Nome del consolato dal file della Commissione (in maiuscolo) in forma leggibile:
+    'WASHINGTON, DC' -> 'Washington, DC', 'PORT OF SPAIN' -> 'Port of Spain', 'RIO DE JANEIRO' -> 'Rio de Janeiro'."""
+    parti = n.split(", ")
+    testa = parti[0].title()
+    parole = testa.split(" ")
+    testa = " ".join(w.lower() if i > 0 and w in _PAROLE_MINUSCOLE else w for i, w in enumerate(parole))
+    coda = [x.upper() if len(x) == 2 and x.isalpha() else x.title() for x in parti[1:]]
+    return ", ".join([testa] + coda)
+
+
 def nome_uk(n):
     return _NOMI_UK.get(n, nome_paese(n))
 
@@ -1548,12 +1563,12 @@ _B.update({
 
 
 def cella_tasso(t, poco=False):
-    """Cella numerica con il tasso e una barretta proporzionale (0-100%)."""
+    """Cella numerica con il tasso e una barretta proporzionale (piena dal 50% in su)."""
     if t is None:
         return '<td class="n" data-v="">–</td>'
     larg = max(2, min(100, round(t * 200, 1)))  # barra piena = 50% o più
     return (f'<td class="n" data-v="{t:.6f}"><span class="tb" aria-hidden="true"><i style="width:{larg}%"></i></span>'
-            f'{pct(t)}{"*" if poco else ""}</td>')
+            f'<span class="tv">{pct(t)}{"*" if poco else ""}</span></td>')
 
 
 def th_ord(testo, n=True, primo="descending"):
@@ -1623,8 +1638,9 @@ def classifica(s1, inverso=False, n=5):
     return ok[:n], len(ok)
 
 
-def lista_classifica(voci, rel, classe=""):
-    mx = max([tasso(v) for _, v in voci] + [0.01])
+def lista_classifica(voci, rel, classe="", mx=None):
+    # mx: stessa scala per "Lowest" e "Highest", altrimenti le barre delle due liste non si possono confrontare
+    mx = mx or max([tasso(v) for _, v in voci] + [0.01])
     li = "".join(f'<li><span class="pos">{i}</span><span><a href="{rel}{SEZ}schengen/{SLUG_STATO[s]}/">{escape(s)}</a>'
                  f'<small>{intero(decisioni(v))} decisions</small><span class="bar {classe}" aria-hidden="true"><i style="width:{max(2, round(tasso(v) / mx * 100))}%"></i></span></span>'
                  f'<span class="v">{pct(tasso(v))}</span></li>' for i, (s, v) in enumerate(voci, 1))
@@ -1639,7 +1655,7 @@ def tabella_consolati(p):
         if decisioni(v) == 0 and v[0] == 0:
             continue
         poco = decisioni(v) < SOGLIA_POCO
-        righe.append(f'<tr{" class=\"poco\"" if poco else ""}><td>{escape(r[0])}</td><td>{escape(r[2].title())}</td>'
+        righe.append(f'<tr{" class=\"poco\"" if poco else ""}><td>{escape(r[0])}</td><td>{escape(nome_consolato(r[2]))}</td>'
                      f'{cella_tasso(tasso(v), poco)}<td class="n" data-v="{v[0]}">{intero(v[0])}</td><td class="n" data-v="{v[3]}">{intero(v[3])}</td></tr>')
     return ('<div class="tab compatta"><table class="ord"><thead><tr>' + th_ord("Country", False, "ascending") + th_ord("Consulate", False, "ascending") +
             th_ord("Rate", primo="ascending") + th_ord("Applications") + th_ord("Not issued") + f'</tr></thead><tbody>{"".join(righe)}</tbody></table></div>'), len(righe)
@@ -1710,9 +1726,10 @@ def pagina_rif_paese(p):
     else:
         frase_basso = f'No Schengen country took {intero(SOGLIA_CLASSIFICA)} or more decisions on applications made in {escape(art(nome))}.'
     if n_ok >= 2:
+        scala = max([tasso(v) for _, v in basso + alto] + [0.01])
         clas = (f'<h2>Lowest and highest not-issued rates</h2><p class="lead">Schengen countries that decided at least {intero(SOGLIA_CLASSIFICA)} applications made in {escape(art(nome))} in {A1} '
                 f'({n_ok} countries). Smaller numbers move too much from year to year to compare.</p>'
-                f'<div class="due"><div><h3>Lowest</h3>{lista_classifica(basso, rel, "ok")}</div><div><h3>Highest</h3>{lista_classifica(alto, rel, "no")}</div></div>'
+                f'<div class="due"><div><h3>Lowest</h3>{lista_classifica(basso, rel, "basso", scala)}</div><div><h3>Highest</h3>{lista_classifica(alto, rel, "alto", scala)}</div></div>'
                 f'<p class="avviso"><strong>A lower rate is not a guarantee, and you cannot choose freely.</strong> Each rate mixes different travellers, purposes and documents. '
                 f'You must apply to the country of your main destination: the rule is on the <a href="{URL_COMMISSIONE_DOMANDA}" rel="noopener">European Commission page on applying for a Schengen visa</a> '
                 f'(checked on {data_lunga(DATA_COMMISSIONE_DOMANDA)}). Applying to a country you do not plan to visit mainly can itself lead to a refusal.</p>'
@@ -1734,7 +1751,7 @@ def pagina_rif_paese(p):
 <div class="s-body">
 <p class="cifra"><span class="c-lab">Schengen visas · applications made in {escape(art(nome))} · {A1}</span><span class="sr">: </span><strong>{pct(t1)}</strong> not issued ({intero(v1[3])} of {intero(decisioni(v1))} decisions)</p>
 <div class="kpi"><div><b>{intero(v1[0])}</b><span>applications</span></div><div><b>{intero(v1[1])}</b><span>uniform visas issued</span></div><div><b>{intero(v1[3])}</b><span>not issued</span></div><div><b>{punti(t1, t0) if t0 is not None else '–'}</b><span>change on {A0}{f' ({pct(t0)})' if t0 is not None else ''}</span></div></div>
-<p class="lead" style="margin-top:6px">{frase_basso} Of the {len(PAESI_RIF)} countries with the most applications, {escape(art(nome, True))} ranks {pos} (1 = lowest rate).</p>
+<p class="lead" style="margin-top:6px">{frase_basso} Of the {len(PAESI_RIF)} countries with the most applications, {escape(art(nome))} ranks {pos} (1 = lowest rate).</p>
 {fonte_ue_p(A1, A0)}
 {uk_kpi}
 </div></section>
@@ -1785,7 +1802,7 @@ def pagina_rif_stato(s):
         righe.append(f'<tr{" class=\"poco\"" if poco else ""}><td>{nome}</td>{cella_tasso(tasso(v), poco)}{cella_tasso(tasso(p0[p]) if p in p0 else None)}'
                      f'<td class="n" data-v="{v[0]}">{intero(v[0])}</td><td class="n" data-v="{v[3]}">{intero(v[3])}</td></tr>')
     cons = sorted((r for r in UE[A1] if r[0] == s and r[3] > 0), key=lambda r: -r[3])[:30]
-    righe_c = "".join(f'<tr><td>{escape(r[2].title())}</td><td>{escape(nome_paese(r[1]))}</td>'
+    righe_c = "".join(f'<tr><td>{escape(nome_consolato(r[2]))}</td><td>{escape(nome_paese(r[1]))}</td>'
                       f'{cella_tasso(tasso([r[3], r[4], r[5], r[6]]), decisioni([r[3], r[4], r[5], r[6]]) < SOGLIA_POCO)}<td class="n" data-v="{r[3]}">{intero(r[3])}</td></tr>' for r in cons)
     alto = [(p, v) for p, v in p1.items() if decisioni(v) >= SOGLIA_CLASSIFICA]
     alto.sort(key=lambda x: -tasso(x[1]))
