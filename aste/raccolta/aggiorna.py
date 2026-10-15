@@ -163,6 +163,11 @@ ACCESSORI = re.compile(r"(giardin|terrazz|cortil|corte\b|terren|box|garage|autor
                        r"lastric|area\s+(?:urbana|scoperta|esterna|pertinenz)|magazzin|deposit|locale\s+(?:deposito|tecnico)|"
                        r"portic|piscin|tettoi|sottotett|solaio|androne|scoperto|pertinenz|"
                        r"rimessa|stalla|fienile|ettar|\bha\b|\bare\b|catastal\w*\s+terren|scala\s+estern|negozi|ufficio|laboratori)", re.I)
+# nomi di singoli vani: «soggiorno (sup. netta circa 22 m2)» è la misura di una stanza, non dell'abitazione
+VANI = re.compile(r"(soggiorn|salott|camer\w*|cucin|angolo\s+cottura|bagn|\bw\.?c\b|ingresso|disimpegn|corridoi|ripostigl|"
+                  r"lavanderi|studio|letto)", re.I)
+SUP_TOTALE = re.compile(r"(superficie|consistenza|commercial|lord|complessiv|total|convenzional|catastal|utile|tutto|intero|intera|"
+                        r"appartament|abitazion|alloggio|immobile)", re.I)
 PRINCIPALE = re.compile(r"(commercial|lord|complessiv|abitazion|appartament|alloggio|villa|villino|unit[aà]\s+immobiliar|"
                         r"calpestabil|abitabil|interna|superficie|immobile)", re.I)
 RX_QUOTA = re.compile(r"quota\s+(?:pari\s+a\s+|di\s+|del(?:l[ao])?\s+)?(\d{1,4})\s*/\s*(\d{1,4})", re.I)
@@ -181,11 +186,12 @@ def _num(s):
 def superficie(testo):
     """Metri quadri dell'abitazione scritti nel testo, oppure None se assenti o ambigui.
     Valori accanto a giardino, box, terrazzo, terreno… si scartano. Se c'è una superficie «commerciale/lorda/complessiva»
-    si usa quella; altrimenti tutti i valori rimasti devono coincidere. Nel dubbio: None ('superficie non indicata')."""
+    si usa quella; altrimenti tutti i valori rimasti devono coincidere. Se il testo dà le misure dei singoli vani (soggiorno,
+    camera, bagno…) e nessuna superficie commerciale o complessiva: None. Nel dubbio: None ('superficie non indicata')."""
     if not testo:
         return None
     t = unescape(testo).replace("\n", " ")
-    candidati, forti = [], []
+    candidati, forti, totali, stanze = [], [], [], 0
     visti = set()
     for m in list(RX_MQ.finditer(t)) + list(RX_MQ_PRIMA.finditer(t)):
         if m.start(1) in visti:
@@ -204,14 +210,28 @@ def superficie(testo):
             continue
         if re.match(r"\s*(?:di\s+|a\s+|ad\s+)?(?:giardin|terrazz|cortil|corte|terren|box|garage|cantin|balcon|area|scoperto|pertinenz)", dopo, re.I):
             continue
+        # dati catastali: se l'ultima categoria citata prima del numero è un box, una cantina o un magazzino (C/2…C/7)
+        # il numero è di quell'accessorio
+        cat_prima = re.findall(r"\b([ABCDEF])\s*/\s*(\d{1,2})\b", prima[-100:])
+        if cat_prima and cat_prima[-1][0].upper() == "C" and cat_prima[-1][1] in ("2", "3", "4", "6", "7"):
+            continue
+        # stesso pezzo di frase (fino alla virgola o al punto precedente): un vano senza parole come «superficie» o «totale»
+        pezzo = re.split(r"[,;]|(?<!sup)(?<!ca)\.\s", prima[-60:])[-1]
+        if VANI.search(pezzo) and not SUP_TOTALE.search(pezzo):
+            stanze += 1
+            continue
         v = round(v)
         if not (MQ_MIN <= v <= MQ_MAX):
             continue
+        if SUP_TOTALE.search(prima[-45:]):
+            totali.append(v)
         candidati.append(v)
         if re.search(r"(commercial|lord|complessiv)\w*[^.;]{0,25}$", prima, re.I):
             forti.append(v)
     if forti and len(set(forti)) == 1:
         return forti[0]
+    if stanze and not totali:
+        return None  # il testo dà solo le misure dei vani: non si sommano
     if candidati and len(set(candidati)) == 1:
         return candidati[0]
     return None
@@ -292,18 +312,20 @@ def zone_comune(cod, sem, offline=False):
     if zone is None and not offline:
         zone = rete.chiedi("GET", f"{rete.GEOPOI}/zoneomi.php?richiesta=3&codcom={cod}")
         scrivi(fz, zone)
+    # GEOPOI scrive le zone fatte di più pezzi come un solo "Polygon" con più anelli (pezzi e buchi insieme): per sapere se un
+    # punto è nella zona si contano TUTTI gli anelli della zona (regola pari/dispari), non solo il primo.
     poligoni = []
     for f in (per or {}).get("features", []):
         g = f.get("geometry") or {}
         anelli = g.get("coordinates") or []
         if g.get("type") == "MultiPolygon":
-            anelli = [a for p in anelli for a in p[:1]]
-        else:
-            anelli = anelli[:1]
-        for a in anelli:
-            xs = [p[0] for p in a]
-            ys = [p[1] for p in a]
-            poligoni.append((f["properties"]["zona"], (min(xs), min(ys), max(xs), max(ys)), a))
+            anelli = [a for p in anelli for a in p]
+        anelli = [a for a in anelli if len(a) >= 3]
+        if not anelli:
+            continue
+        xs = [p[0] for a in anelli for p in a]
+        ys = [p[1] for a in anelli for p in a]
+        poligoni.append((f["properties"]["zona"], (min(xs), min(ys), max(xs), max(ys)), anelli))
     return poligoni, {z["ZONA"]: z for z in (zone or [])}
 
 
@@ -320,8 +342,9 @@ def dentro(x, y, anello):
 
 
 def zona_di(poligoni, lat, lon):
-    for zona, (x0, y0, x1, y1), a in poligoni:
-        if x0 <= lon <= x1 and y0 <= lat <= y1 and dentro(lon, lat, a):
+    """Zona OMI che contiene il punto: dentro un numero dispari di anelli della zona (i buchi sono le altre zone)."""
+    for zona, (x0, y0, x1, y1), anelli in poligoni:
+        if x0 <= lon <= x1 and y0 <= lat <= y1 and sum(dentro(lon, lat, a) for a in anelli) % 2 == 1:
             return zona
     return None
 
@@ -395,8 +418,32 @@ TIPI_BENE = {
     "FABBRICATO_IN_COSTR": "Fabbricato in costruzione", "CASTELLI_PALAZZI": "Palazzo storico",
     "CASTEL_IMM_PREGIO_STR": "Immobile di pregio", "ABITAZIONI_E_ALL_TIPICI": "Abitazione tipica",
 }
+# Lotti classificati «residenziali» sul PVP che in realtà sono solo box, garage, cantine, negozi, uffici o terreni
+# (es. 40 garage di un condominio di Cuneo con categoria «abitazione civile»): si riconoscono dal titolo o dalle sole
+# categorie catastali C/… e si scartano come «non abitazione».
+RX_CATASTO = re.compile(r"\b(?:cat(?:egoria|\.)?|ctg\.?)\s*(?:catastale\s*)?([A-F])\s*/?\s*(\d{1,2})\b", re.I)
+RX_TITOLO_NON_CASA = re.compile(r"^\W*(?:(?:lotto\s*[\w°]*|piena|nuda|intera|propriet\w*|diritt\w*|quota|superficie|pari|di|del|dello|"
+                                r"della|dell['’]|su|sul|sulla|ad?|e|\d+\s*/\s*\d+)\W*){0,8}(garage|box|autorimess|"
+                                r"posto\s+auto|posti\s+auto|cantin|magazzin|locale\s+(?:deposito|commerciale|magazzino)|deposito|"
+                                r"negozio|ufficio|terreno|lastrico)", re.I)
+RX_CASA = re.compile(r"(appartament|abitazion|abitativ|villa|villin|alloggio|\bcasa\b|residenzial|fabbricat|\bvani\b)", re.I)
+
+
+def non_abitazione(titolo_lotto, testo):
+    """True se il lotto è solo un accessorio, un locale commerciale, un ufficio o un terreno."""
+    cat = [(a.upper(), n) for a, n in RX_CATASTO.findall(testo or "")]
+    a_cat = {n for a, n in cat if a == "A"}
+    if RX_TITOLO_NON_CASA.search(titolo_lotto or "") and not RX_CASA.search(titolo_lotto or ""):
+        return True
+    if cat and all(a == "C" for a, _ in cat) and not RX_CASA.search(testo or ""):
+        return True
+    if a_cat == {"10"} and re.search(r"uffic", testo or "", re.I) and not re.search(r"residenzial|abitativ|trasformat", testo or "", re.I):
+        return True
+    return False
+
+
 PAROLE_MINUSCOLE = {"di", "del", "della", "dei", "delle", "degli", "da", "de", "la", "le", "lo", "il", "e", "in", "al", "alla",
-                    "ai", "agli", "sul", "sulla", "dello", "d", "l", "san", "via"}
+                    "ai", "agli", "sul", "sulla", "dello", "d", "l", "via"}
 
 
 def titolo(s):
@@ -417,6 +464,9 @@ def titolo(s):
 def via_pulita(v):
     """Solo il nome della strada, senza numero civico, CAP e comune (il dettaglio completo è sul PVP)."""
     v = str(v or "").split(",")[0]
+    # resti di civico, isolato o piano: «snc P T-1», «is.397», «n. SNC Frazione…», «s.n.c. - Località…»
+    v = re.sub(r"\s+(?:n\.?\s*)?(?:snc\b|s\.n\.c\.?|s\.n\.|is\.\s*\d+|isol\.?\s*\d+|p\.\s*t\.?(?:\s|-|$)).*$", "", v, flags=re.I)
+    v = re.sub(r"^(via|viale|piazza|corso|strada|contrada|località|frazione)\s+\1\b", r"\1", v.strip(), flags=re.I)  # «Via VIA DEMO»
     # taglia dal primo numero civico in poi ("Via Xiboli 313-315", "via C. Goldoni n.46", "Via Orciari 8 int. A"),
     # ma non i numeri che fanno parte del nome subito dopo il tipo di strada ("Via 4 Novembre", "Viale 2 Giugno")
     sp = [m.start() for m in re.finditer(r"\s", v.strip())]
@@ -424,9 +474,14 @@ def via_pulita(v):
     if m and len(sp) >= 2 and m.start() >= sp[1]:
         v = v.strip()[:m.start()]
     v = re.sub(r"\s+(?:n\.?|nn\.?|nr\.?|int\.?|interno|scala|sc\.?|piano|angolo|e|-)\s*$", "", v.strip(), flags=re.I)
-    v = re.sub(r"\b(n\.?|nr\.?|civico|snc|s\.n\.c\.?|km\.?)\s*[\d/a-z]*\s*$", "", v, flags=re.I)
+    v = re.sub(r"\s(?:n\.?|nr\.?|civico|km\.?)\s*\d[\d/]*[a-z]?\s*$|\s(?:snc|s\.n\.c\.?|n\.ri|nn\.|cm)\s*$", "", v, flags=re.I)
+    if re.fullmatch(r"(?i)\S+\s+(?:nd|n\.d\.?|n/d|--?)", v.strip()):
+        return None  # «Via nd»: strada non indicata
     v = re.sub(r"[\s,]+\d+[\s/]*[a-zA-Z]?(?:/\d+)?\s*$", "", v)
     v = re.sub(r"\s+\d{5}\b.*$", "", v).strip(" ,.-")
+    lettere = [c for c in v if c.isalpha()]
+    if lettere and sum(c.isupper() for c in lettere) / len(lettere) > 0.6:
+        v = v.upper()  # «C.DA GIUNCHI» -> «C.da Giunchi» con titolo() più sotto
     if not v or re.match(r"^\d", v) or len(v) < 4 or len(v) > 70:
         return None
     if not re.match(r"(?i)(via|viale|v\.le|piazza|p\.zza|piazzale|corso|c\.so|largo|vicolo|strada|contrada|c\.da|località|loc\.|"
@@ -435,6 +490,7 @@ def via_pulita(v):
         return None
     v = titolo(v)
     v = v[:1].upper() + v[1:]
+    v = re.sub(r"(?<=\s)(Dell|Dall|Sull|All|Nell|D)’(?=\w)", lambda m: m.group(1).lower() + "’", v)  # «Via Dell’Acate» -> «Via dell’Acate»
     return re.sub(r"(?<=\s)(Di|Del|Della|Dei|Degli|Delle|Dello|Da|Dal|Dalla|E|In|Al|Alla|Ai|Agli|Sul|Sulla)(?=\s)", lambda m: m.group(1).lower(), v)
 
 
@@ -625,6 +681,10 @@ def elabora(ep, case, auto, offline=False, offline_omi=None):
             continue
         testo = " ".join([str((d.get("lotto") or {}).get("descLotto") or ""), str(x.get("descLotto") or "")] +
                          [str(b.get("descrizione") or "") for b in beni])
+        titolo_lotto = str((d.get("lotto") or {}).get("descLotto") or x.get("descLotto") or "").strip()
+        if non_abitazione(titolo_lotto, testo):
+            scarti["non abitazione"] += 1
+            continue
         n_abitazioni = max(1, len(abitazioni))
         mq = None
         if n_abitazioni == 1:

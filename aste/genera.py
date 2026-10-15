@@ -196,11 +196,16 @@ MINUSCOLE = {"di", "del", "della", "dei", "delle", "degli", "dello", "da", "dal"
 def pulisci_zona(n):
     """'QUART.MURAT -TRA C.SO VITT.VENETO,CASTELLO SVEVO' -> 'Quart. Murat - tra C.so Vitt. Veneto, Castello Svevo'."""
     s = str(n or "").replace("’", "'").replace("`", "'").lower()
+    # accenti scritti come apostrofo nel GEOPOI («PIETA`», «LOCALITA'») o mancanti («LIBERTA»)
+    s = re.sub(r"([aeiou])'(?=[^a-z]|$)", lambda m: {"a": "à", "e": "è", "i": "ì", "o": "ò", "u": "ù"}[m.group(1)], s)
+    s = re.sub(r"\b(liberta|citta|localita|universita|trinita|pieta|sanita|carita|unita|attivita)\b(?!')",
+               lambda m: m.group(1)[:-1] + "à", s)
     s = re.sub(r"(?<=[a-z]{3})\.(?=[a-z])", ". ", s)
     s = re.sub(r"(?<![a-z])([a-z])\.(?=[a-z]{4,})", r"\1. ", s)
     s = re.sub(r"^confini\s*:\s*", "", s)
+    s = re.sub(r"\s*\b(?:tu|aab|fv|ts|ad|ap)\.\s?[amb]\b\.?", "", s)  # sigle interne di Genova («MARASSI TU.M», «BAVARI AAB.M»)
     s = re.sub(r",(?=\S)", ", ", s)
-    s = re.sub(r"\s*-\s*", " – ", s)
+    s = re.sub(r"\s*-+\s*", " – ", s)
     s = re.sub(r"\s+", " ", s).strip()
     out = []
     for i, w in enumerate(s.split(" ")):
@@ -210,7 +215,7 @@ def pulisci_zona(n):
             out.append(re.sub(r"^([^a-zà-ù]*)([a-zà-ù])", lambda m: m.group(1) + m.group(2).upper(), w))
     s = " ".join(out)
     s = re.sub(r"'([a-zà-ù])", lambda m: "’" + m.group(1).upper(), s)
-    return s
+    return re.sub(r"(?<=\s)(D|Dell|Dall|Nell|Sull|All|L)’", lambda m: m.group(1).lower() + "’", s)  # «Medaglie d’Oro»
 
 
 def nome_zona(cod, z, breve=True):
@@ -222,7 +227,14 @@ def nome_zona(cod, z, breve=True):
         return n
     n = re.sub(r"\s*\(.*?\)\s*", " ", n).strip() or n
     if len(n) > 42:
-        n = re.split(r",| – | / ", n)[0].strip()
+        # quante più parti intere stanno in 42 caratteri: «Monza, Crescenzago, Gorla» e non solo «Monza»
+        parti, corto = re.split(r"(,\s*| – | / )", n), ""
+        for i in range(0, len(parti), 2):
+            prova = corto + (parti[i - 1] if i else "") + parti[i]
+            if len(prova.strip()) > 42:
+                break
+            corto = prova
+        n = corto.strip(" ,–/") or n
     if len(n) > 42:
         n = n[:42].rsplit(" ", 1)[0].rstrip(" ,-") + "…"
     return n
@@ -531,7 +543,7 @@ APP_JS = r"""
       var vu=box.querySelector('[data-vuoto]');if(vu)vu.hidden=vis>0;
     });
     var nas=lotti.filter(function(e){return e.classList.contains('passato');}).length;
-    document.querySelectorAll('[data-nascosti]').forEach(function(n){if(nas){n.hidden=false;n.textContent=' · '+(nas===1?'1 asta già svolta o tolta dal PVP dopo l’ultima pubblicazione è nascosta':num(nas)+' aste già svolte o tolte dal PVP dopo l’ultima pubblicazione sono nascoste');}});
+    document.querySelectorAll('[data-nascosti]').forEach(function(n){if(nas){n.hidden=false;n.textContent=' · '+(nas===1?'nascosta 1 asta già svolta o tolta dal PVP':'nascoste '+num(nas)+' aste già svolte o tolte dal PVP');}});
   }
   function filtra(){
     document.querySelectorAll('[data-lista]').forEach(function(ls){
@@ -839,13 +851,20 @@ def frase_citta(nome, lotti):
     basi = sorted(L["base"] for L in lotti)
     date_ = sorted(L["data"] for L in lotti)
     con = [L["sconto_min"] for L in lotti if L.get("sconto_min") is not None]
-    s = (f"A {h(nome)} ci sono <strong>{plur(len(lotti), 'casa', 'case')} all'asta</strong> con vendita tra il {data_lunga(date_[0])} "
-         f"e il {data_lunga(date_[-1])}. Il prezzo base va da {euro(basi[0])} a {euro(basi[-1])}")
+    periodo = (f", tutte con vendita il {data_lunga(date_[0])}" if date_[0][:10] == date_[-1][:10]
+               else f" con vendita tra il {data_lunga(date_[0])} e il {data_lunga(date_[-1])}")
+    s = (f"A {h(nome)} ci sono <strong>{plur(len(lotti), 'casa', 'case')} all'asta</strong>{periodo}. "
+         f"Il prezzo base va da {euro(basi[0])} a {euro(basi[-1])}")
     s += f", con un valore centrale di {euro(mediana(basi))}." if len(basi) > 2 else "."
     if len(con) >= 3:
-        s += (f" Per {plur(len(con), 'lotto', 'lotti')} l'annuncio indica la superficie e c'è una zona OMI: con l'offerta minima, "
-              f"metà di questi costa al metro quadro almeno il {abs(round(mediana(con)))}% "
-              f"{'in meno' if mediana(con) < 0 else 'in più'} della media di zona.")
+        m = round(mediana(con))
+        if abs(m) < 3:
+            coda = "metà di questi costa al metro quadro meno della media di zona, metà di più: nel complesso in linea." if m <= 0 else \
+                   "metà di questi costa al metro quadro più della media di zona, metà di meno: nel complesso in linea."
+        else:
+            art = "l'" if abs(m) in (1, 11) or str(abs(m)).startswith("8") else "il "
+            coda = f"metà di questi costa al metro quadro almeno {art}{abs(m)}% {'in meno' if m < 0 else 'in più'} della media di zona."
+        s += f" Per {plur(len(con), 'lotto', 'lotti')} l'annuncio indica la superficie e c'è una zona OMI: con l'offerta minima, {coda}"
     elif con:
         s += f" Solo per {plur(len(con), 'lotto', 'lotti')} si può calcolare il confronto con la media OMI di zona."
     else:
@@ -930,7 +949,7 @@ def pagina_zona(k, cod, z, lotti):
     u = url_zona(k, cod, z)
     fascia = {"B": "centrale", "C": "semicentrale", "D": "periferica", "E": "suburbana", "R": "extraurbana/rurale"}.get(Z.get("fascia"), "")
     corpo = f"""<div class="pull">{statistiche(lotti)}</div>{agg_riga()}
-<p class="lead" style="margin-top:22px">La zona OMI <strong>{h(z)}</strong> di {h(nome)} ({h(nome_zona(cod, z, breve=False))}{', fascia ' + fascia if fascia else ''}) è una delle zone in cui
+<p class="lead" style="margin-top:22px">La zona OMI <strong>{h(z)}</strong> di {h(nome)}, «{h(nome_zona(cod, z, breve=False))}»{', in fascia ' + fascia + ',' if fascia else ''} è una delle zone in cui
 l'Agenzia delle Entrate divide il comune per pubblicare le quotazioni immobiliari. Qui sotto trovi le aste che cadono in questa zona e i valori OMI con cui le confrontiamo.</p>
 <h2>Aste nella zona {h(nz)}</h2>
 {AVVISO}
@@ -1069,13 +1088,13 @@ Per i veicoli non esiste un valore ufficiale di zona come l'OMI: mostriamo solo 
     testata = banda("Veicoli all'asta", "Auto all'asta dai tribunali, in tutta Italia",
                     "Automobili, moto e veicoli commerciali in vendita sul Portale delle Vendite Pubbliche: prezzo base, offerta minima, data dell'asta e link alla scheda ufficiale.", icona="car")
     pagina("auto-all-asta/", f"Auto all'asta dai tribunali: prezzi e date | {NOME}",
-           f"{len(VEICOLI)} auto, moto e veicoli commerciali all'asta sul Portale delle Vendite Pubbliche: prezzo base, offerta minima, data e tribunale. Aggiornato ogni giorno.",
+           f"{intero(len(VEICOLI))} auto, moto e veicoli commerciali all'asta sul Portale delle Vendite Pubbliche: prezzo base, offerta minima, data e tribunale. Aggiornato ogni giorno.",
            corpo, "auto", briciole=[("Auto all'asta", "auto-all-asta/")], testata=testata)
 
 
 # ---------------------------------------------------------------- guide
 def cpc(n, testo=None):
-    return f'<a href="{NORMATTIVA_CPC.format(n)}" rel="noopener">{testo or "art. " + n + " c.p.c."}</a>'
+    return f'<a href="{NORMATTIVA_CPC.format(n.replace("-", ""))}" rel="noopener">{testo or "art. " + n + " c.p.c."}</a>'
 
 
 def cc(n, testo=None):
@@ -1133,7 +1152,7 @@ def testo_guida(s):
     if s == "offerta-minima":
         return f"""<p class="lead">Nella scheda di ogni asta ci sono due prezzi: il <strong>prezzo base</strong> e l'<strong>offerta minima</strong>. La differenza tra i due è il motivo per cui un'asta può chiudersi sotto il prezzo scritto in grande.</p>
 <h2>Prezzo base</h2>
-<p>È il valore dell'immobile fissato dal giudice (o dal delegato) nell'ordinanza di vendita, partendo dalla stima della perizia ({cpc('568')}, {cpc('569')}). Se arriva un'offerta pari o superiore al prezzo base, è accolta ({cpc('572')}).</p>
+<p>È il valore dell'immobile fissato dal giudice nell'ordinanza di vendita o dal professionista delegato, partendo dalla stima della perizia ({cpc('568')}, {cpc('569')}, {cpc('591-bis')}). Se arriva un'offerta pari o superiore al prezzo base, è accolta ({cpc('572')}).</p>
 <h2>Offerta minima</h2>
 <p>È la cifra più bassa che puoi offrire. Per legge un'offerta non è efficace se è inferiore <strong>di oltre un quarto</strong> al prezzo stabilito nell'ordinanza ({cpc('571')}). Quindi l'offerta minima è di solito il <strong>75% del prezzo base</strong>: con un prezzo base di 100.000 €, l'offerta minima è 75.000 €.</p>
 <div class="avviso"><b>Attenzione: offrire il minimo non garantisce di comprare.</b> Con una sola offerta tra minimo e prezzo base, il delegato può non accettarla se ritiene possibile vendere a un prezzo più alto con una nuova asta, o se un creditore ha chiesto di farsi assegnare la casa ({cpc('572')}). E se ci sono altri offerenti si va a una gara ({cpc('573')}).</div>
@@ -1160,7 +1179,7 @@ def testo_guida(s):
     if s == "rischi-casa-all-asta":
         return f"""<p class="lead">Comprare all'asta può costare meno, ma non è come comprare da un privato. Questi sono i rischi più comuni: quasi tutti si scoprono leggendo bene la perizia prima di offrire.</p>
 <h2>1. Niente garanzia per i vizi</h2>
-<p>Nella vendita forzata <strong>non c'è la garanzia per i vizi</strong> della cosa e la vendita non si può annullare perché il prezzo era troppo alto ({cc('2922')}). Infiltrazioni, impianti da rifare, difetti nascosti: restano a chi compra.</p>
+<p>Nella vendita forzata <strong>non c'è la garanzia per i vizi</strong> della cosa e la vendita non si può impugnare per lesione, cioè per la sproporzione tra prezzo e valore ({cc('2922')}). Infiltrazioni, impianti da rifare, difetti nascosti: restano a chi compra.</p>
 <h2>2. Abusi edilizi e difformità</h2>
 <p>La perizia segnala difformità urbanistiche e catastali e spesso stima i costi per sanarle. Alcuni abusi si possono sanare dopo l'acquisto, altri no (e vanno demoliti). È uno dei motivi principali per cui un prezzo basso può non essere conveniente: fatti spiegare dal delegato o da un tecnico cosa dice la perizia.</p>
 <h2>3. Occupazione</h2>
@@ -1236,17 +1255,17 @@ def metodologia():
 <ul><li>Lotti con date impossibili (errori di battitura come anni oltre il 2030) o più lontane di 24 mesi.</li>
 <li>Lotti senza prezzo base, offerta minima, data o comune, o con offerta minima più alta del prezzo base.</li>
 <li>Lotti con un esito già registrato (sospesi, aggiudicati, deserti).</li>
-<li>Lotti classificati come residenziali ma fatti solo di negozi, uffici, box o terreni.</li>
+<li>Lotti classificati come residenziali ma fatti solo di box, garage, cantine, negozi, uffici o terreni: li riconosciamo dal tipo di bene, dal titolo dell'annuncio e dalle categorie catastali (per esempio solo C/6, autorimessa).</li>
 <li>Dalla scheda del PVP: i nomi, le email e i codici fiscali di delegati e custodi, ogni dato del debitore, gli allegati e i PDF. Non li salviamo nemmeno.</li></ul>
 <h2>Superficie</h2>
-<p>Il PVP non ha quasi mai la superficie in un campo apposito. La leggiamo nel testo dell'annuncio solo quando è chiara: un solo valore riferito all'abitazione (non a giardino, box, terrazzo o terreno), oppure la «superficie commerciale/lorda/complessiva». Se i valori sono più d'uno e non coincidono, o il lotto contiene più abitazioni, scriviamo <strong>«superficie non indicata»</strong> e non calcoliamo il prezzo al metro quadro. Oggi abbiamo una superficie affidabile per {intero(n_mq)} lotti su {intero(n)}.</p>
+<p>Il PVP non ha quasi mai la superficie in un campo apposito. La leggiamo nel testo dell'annuncio pubblicato sul PVP (un riassunto della perizia, non la perizia intera) solo quando è chiara: un solo valore riferito all'abitazione (non a giardino, box, cantina, terrazzo o terreno), oppure la «superficie commerciale/lorda/complessiva». Se i valori sono più d'uno e non coincidono, se il testo dà solo le misure dei singoli vani (soggiorno, camera, bagno…) o se il lotto contiene più abitazioni, scriviamo <strong>«superficie non indicata»</strong> e non calcoliamo il prezzo al metro quadro. Oggi abbiamo una superficie affidabile per {intero(n_mq)} lotti su {intero(n)}.</p>
 <h2>Zona OMI</h2>
-<p>Con le coordinate del lotto cerchiamo in quale zona OMI del comune cade il punto, usando i perimetri pubblicati dall'Agenzia delle Entrate per il {SEM_TESTO} (<a href="{OMI_GEOPOI}" rel="noopener">GEOPOI</a>). Se le coordinate mancano o cadono fuori dal comune, la zona resta vuota. Oggi la zona è nota per {intero(n_zona)} lotti su {intero(n)}.</p>
+<p>Con le coordinate del lotto cerchiamo in quale zona OMI del comune cade il punto, usando i perimetri pubblicati dall'Agenzia delle Entrate per il {SEM_TESTO} (<a href="{OMI_GEOPOI}" rel="noopener">GEOPOI</a>). Le coordinate sono quelle inserite nel PVP e a volte sono approssimative (per esempio il centro della via): vicino al confine tra due zone il lotto può finire nella zona accanto. Se le coordinate mancano o cadono fuori dal comune, la zona resta vuota. Oggi la zona è nota per {intero(n_zona)} lotti su {intero(n)}.</p>
 <h2>Il confronto</h2>
 <ul><li><strong>Valore di zona</strong>: per la tipologia più vicina al bene (abitazione signorile, civile, economica o villa; per «appartamento» la tipologia prevalente della zona), stato conservativo normale, la media tra valore minimo e massimo di compravendita.</li>
-<li><strong>€/m² del lotto</strong> = offerta minima ÷ metri quadri (e, a parte, prezzo base ÷ metri quadri).</li>
+<li><strong>€/m² del lotto</strong> = offerta minima ÷ metri quadri (e, a parte, prezzo base ÷ metri quadri). L'offerta minima è di solito il 75% del prezzo base ({cpc('571')}): per questo lo sconto calcolato con l'offerta minima è più ampio di quello col prezzo base.</li>
 <li><strong>Sconto</strong> = €/m² con l'offerta minima ÷ media OMI − 1, arrotondato. Tra −3% e +3% scriviamo «in linea con la media OMI».</li>
-<li>Non calcoliamo nulla se si vende una <strong>quota</strong> o un diritto parziale (nuda proprietà, usufrutto, diritto di superficie: {intero(n_parz)} lotti oggi), per i fabbricati in costruzione, o se il risultato è così lontano dalla zona (meno di un quarto della media con l'offerta minima, o più di tre volte la media) da far pensare a una superficie sbagliata: in quel caso la scheda dice «dato da verificare».</li></ul>
+<li>Non calcoliamo nulla se si vende una <strong>quota</strong> o un diritto parziale (nuda proprietà, usufrutto, diritto di superficie: {intero(n_parz)} lotti oggi), per i fabbricati in costruzione, o se il risultato è così lontano dalla zona (meno di un quarto della media, o più di tre volte la media col prezzo base) da far pensare a una superficie sbagliata: in quel caso la scheda dice «dato da verificare».</li></ul>
 <p>Risultato: confronto disponibile per <strong>{intero(n_omi)} lotti su {intero(n)}</strong>.</p>
 <h2>I limiti, detti chiari</h2>
 <ul><li>La media OMI è un valore indicativo per una casa «normale» della zona. Una casa all'asta può essere da ristrutturare, occupata o con abusi: lo sconto può essere giustificato.</li>
