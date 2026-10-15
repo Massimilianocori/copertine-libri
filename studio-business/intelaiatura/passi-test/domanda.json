@@ -1,0 +1,871 @@
+{
+ "data": "2026-10-15",
+ "metodo": "Google autocomplete (suggestqueries, client=firefox). EN: hl=en gl=us, query '<passo> open' e 'is <passo> open'. IT: hl=it gl=it, query '<passo> aperto' e '<passo> chiuso'. Contano solo i suggerimenti che contengono il nome del passo e una parola di stato (open/closed/today/opening/aperto/chiuso/oggi/domani...). Massimo 10 suggerimenti per query.",
+ "scelti": [
+  {
+   "id": "stelvio",
+   "paese": "IT",
+   "query_en": "stelvio pass",
+   "query_it": "passo dello stelvio",
+   "n_en": 20,
+   "n_it": 15,
+   "totale": 35,
+   "esempi_en": [
+    "is stelvio pass open",
+    "is stelvio pass open for cars",
+    "is stelvio pass open for cycling",
+    "is stelvio pass open in may"
+   ],
+   "esempi_it": [
+    "passo dello stelvio aperto",
+    "passo dello stelvio aperto domani",
+    "passo dello stelvio aperto o chiuso",
+    "passo dello stelvio aperto oggi"
+   ]
+  },
+  {
+   "id": "gotthard",
+   "paese": "CH",
+   "query_en": "gotthard pass",
+   "query_it": "passo del san gottardo",
+   "n_en": 20,
+   "n_it": 5,
+   "totale": 25,
+   "esempi_en": [
+    "gotthard pass open",
+    "gotthard pass open or closed",
+    "gotthard pass open today",
+    "gotthard pass opening 2025"
+   ],
+   "esempi_it": [
+    "passo del san gottardo aperto",
+    "passo del san gottardo aperto o chiuso",
+    "passo del san gottardo aperto oggi",
+    "passo del san gottardo chiuso"
+   ]
+  },
+  {
+   "id": "furka",
+   "paese": "CH",
+   "query_en": "furka pass",
+   "query_it": "passo della furka",
+   "n_en": 20,
+   "n_it": 1,
+   "totale": 21,
+   "esempi_en": [
+    "furka pass open",
+    "furka pass open dates",
+    "furka pass open now",
+    "furka pass open or closed"
+   ],
+   "esempi_it": [
+    "passo della furka aperto"
+   ]
+  },
+  {
+   "id": "grossglockner",
+   "paese": "AT",
+   "query_en": "grossglockner",
+   "query_it": "grossglockner",
+   "n_en": 18,
+   "n_it": 2,
+   "totale": 20,
+   "esempi_en": [
+    "grossglockner open 2025",
+    "grossglockner open 2026",
+    "grossglockner open dates 2025",
+    "grossglockner open dates 2026"
+   ],
+   "esempi_it": [
+    "grossglockner aperto",
+    "grossglockner aperto oggi"
+   ]
+  },
+  {
+   "id": "bernina",
+   "paese": "CH",
+   "query_en": "bernina pass",
+   "query_it": "passo del bernina",
+   "n_en": 13,
+   "n_it": 6,
+   "totale": 19,
+   "esempi_en": [
+    "bernina express open air",
+    "bernina express open carriage",
+    "bernina express open wagon",
+    "bernina express open window"
+   ],
+   "esempi_it": [
+    "il passo del bernina è chiuso",
+    "passo del bernina aperto",
+    "passo del bernina aperto o chiuso",
+    "passo del bernina aperto oggi"
+   ]
+  },
+  {
+   "id": "gardena",
+   "paese": "IT",
+   "query_en": "gardena pass",
+   "query_it": "passo gardena",
+   "n_en": 2,
+   "n_it": 16,
+   "totale": 18,
+   "esempi_en": [
+    "gardena pass open",
+    "is gardena pass open"
+   ],
+   "esempi_it": [
+    "passo gardena aperto",
+    "passo gardena aperto chiuso",
+    "passo gardena aperto domani",
+    "passo gardena aperto in inverno"
+   ]
+  },
+  {
+   "id": "rombo",
+   "paese": "IT/AT",
+   "query_en": "timmelsjoch",
+   "query_it": "passo del rombo",
+   "n_en": 14,
+   "n_it": 4,
+   "totale": 18,
+   "esempi_en": [
+    "is de timmelsjoch al open",
+    "is timmelsjoch open",
+    "is timmelsjoch pass open",
+    "is timmelsjoch pass open today"
+   ],
+   "esempi_it": [
+    "passo del rombo aperto",
+    "passo del rombo aperto o chiuso",
+    "passo del rombo aperto oggi",
+    "passo del rombo chiuso"
+   ]
+  },
+  {
+   "id": "gavia",
+   "paese": "IT",
+   "query_en": "gavia pass",
+   "query_it": "passo gavia",
+   "n_en": 4,
+   "n_it": 10,
+   "totale": 14,
+   "esempi_en": [
+    "gavia pass opening",
+    "gavia pass opening dates 2025",
+    "gavia pass opening dates 2026",
+    "is gavia pass open"
+   ],
+   "esempi_it": [
+    "passo gavia aperto",
+    "passo gavia aperto domani",
+    "passo gavia aperto o chiuso",
+    "passo gavia aperto oggi"
+   ]
+  },
+  {
+   "id": "giau",
+   "paese": "IT",
+   "query_en": "passo giau",
+   "query_it": "passo giau",
+   "n_en": 6,
+   "n_it": 8,
+   "totale": 14,
+   "esempi_en": [
+    "berghotel passo giau opening hours",
+    "is passo giau open",
+    "is passo giau open in winter",
+    "is passo giau open today"
+   ],
+   "esempi_it": [
+    "passo giau aperto",
+    "passo giau aperto domani",
+    "passo giau aperto o chiuso",
+    "passo giau aperto o chiuso oggi"
+   ]
+  },
+  {
+   "id": "gransanbernardo",
+   "paese": "IT/CH",
+   "query_en": "great st bernard pass",
+   "query_it": "colle del gran san bernardo",
+   "n_en": 7,
+   "n_it": 6,
+   "totale": 13,
+   "esempi_en": [
+    "great st bernard pass open",
+    "great st bernard pass open 2025",
+    "great st bernard pass open 2026",
+    "great st bernard pass open today"
+   ],
+   "esempi_it": [
+    "colle del gran san bernardo aperto",
+    "colle del gran san bernardo chiuso",
+    "colle gran san bernardo aperto o chiuso",
+    "colle gran san bernardo aperto o chiuso 2025"
+   ]
+  },
+  {
+   "id": "iseran",
+   "paese": "FR",
+   "query_en": "col de l'iseran",
+   "query_it": "col de l'iseran",
+   "n_en": 10,
+   "n_it": 3,
+   "totale": 13,
+   "esempi_en": [
+    "col d iseran open",
+    "col d iseran opening date 2025",
+    "col d iseran opening date 2026",
+    "col d'iseran open today"
+   ],
+   "esempi_it": [
+    "col de l iseran è aperto",
+    "col de l'iseran aperto",
+    "col de l'iseran chiuso"
+   ]
+  },
+  {
+   "id": "sanbernardino",
+   "paese": "CH",
+   "query_en": "san bernardino pass",
+   "query_it": "passo san bernardino",
+   "n_en": 7,
+   "n_it": 5,
+   "totale": 12,
+   "esempi_en": [
+    "is san bernardino pass open",
+    "is san bernardino pass open today",
+    "is the san bernardino pass open now",
+    "san bernardino pass open"
+   ],
+   "esempi_it": [
+    "passo san bernardino aperto",
+    "passo san bernardino aperto o chiuso",
+    "passo san bernardino aperto o chiuso oggi",
+    "passo san bernardino aperto oggi"
+   ]
+  },
+  {
+   "id": "galibier",
+   "paese": "FR",
+   "query_en": "col du galibier",
+   "query_it": "col du galibier",
+   "n_en": 10,
+   "n_it": 2,
+   "totale": 12,
+   "esempi_en": [
+    "col du galibier open",
+    "col du galibier open 2025",
+    "col du galibier open or closed",
+    "col du galibier open today"
+   ],
+   "esempi_it": [
+    "col du galibier aperto",
+    "col du galibier chiuso"
+   ]
+  },
+  {
+   "id": "spluga",
+   "paese": "IT/CH",
+   "query_en": "splugen pass",
+   "query_it": "passo dello spluga",
+   "n_en": 5,
+   "n_it": 6,
+   "totale": 11,
+   "esempi_en": [
+    "is splugen pass open today",
+    "is splügen pass open",
+    "splugen pass open today",
+    "splügen pass open"
+   ],
+   "esempi_it": [
+    "passo dello spluga aperto",
+    "passo dello spluga aperto o chiuso",
+    "passo dello spluga aperto oggi",
+    "passo dello spluga chiuso"
+   ]
+  },
+  {
+   "id": "susten",
+   "paese": "CH",
+   "query_en": "susten pass",
+   "query_it": "passo susten",
+   "n_en": 9,
+   "n_it": 2,
+   "totale": 11,
+   "esempi_en": [
+    "is susten pass open",
+    "is susten pass open now",
+    "is susten pass open today",
+    "susten pass open"
+   ],
+   "esempi_it": [
+    "passo del susten aperto",
+    "passo susten aperto"
+   ]
+  },
+  {
+   "id": "rolle",
+   "paese": "IT",
+   "query_en": "passo rolle",
+   "query_it": "passo rolle",
+   "n_en": 4,
+   "n_it": 6,
+   "totale": 10,
+   "esempi_en": [
+    "is passo rolle open",
+    "is the rollercoaster restaurant open",
+    "passo rolle open",
+    "passo rolle open slopes"
+   ],
+   "esempi_it": [
+    "passo rolle aperto",
+    "passo rolle aperto o chiuso",
+    "passo rolle aperto o chiuso oggi",
+    "passo rolle aperto oggi"
+   ]
+  },
+  {
+   "id": "grimsel",
+   "paese": "CH",
+   "query_en": "grimsel pass",
+   "query_it": "passo del grimsel",
+   "n_en": 9,
+   "n_it": 1,
+   "totale": 10,
+   "esempi_en": [
+    "grimsel pass open",
+    "grimsel pass open today",
+    "grimsel pass opening 2026",
+    "grimsel pass opening dates"
+   ],
+   "esempi_it": [
+    "il passo del grimsel è aperto"
+   ]
+  },
+  {
+   "id": "sella",
+   "paese": "IT",
+   "query_en": "sella pass",
+   "query_it": "passo sella",
+   "n_en": 0,
+   "n_it": 9,
+   "totale": 9,
+   "esempi_en": [],
+   "esempi_it": [
+    "passo sella aperto",
+    "passo sella aperto domani",
+    "passo sella aperto o chiuso",
+    "passo sella aperto oggi"
+   ]
+  },
+  {
+   "id": "fedaia",
+   "paese": "IT",
+   "query_en": "fedaia pass",
+   "query_it": "passo fedaia",
+   "n_en": 1,
+   "n_it": 8,
+   "totale": 9,
+   "esempi_en": [
+    "fedaia pass open"
+   ],
+   "esempi_it": [
+    "passo fedaia aperto",
+    "passo fedaia aperto o chiuso",
+    "passo fedaia aperto o chiuso oggi",
+    "passo fedaia aperto oggi"
+   ]
+  },
+  {
+   "id": "agnello",
+   "paese": "IT/FR",
+   "query_en": "col agnel",
+   "query_it": "colle dell'agnello",
+   "n_en": 2,
+   "n_it": 7,
+   "totale": 9,
+   "esempi_en": [
+    "col agnel open",
+    "col d agnel open"
+   ],
+   "esempi_it": [
+    "colle dell agnello aperto o chiuso",
+    "colle dell agnello aperto oggi",
+    "colle dell agnello chiuso al traffico",
+    "colle dell agnello chiuso oggi"
+   ]
+  },
+  {
+   "id": "falzarego",
+   "paese": "IT",
+   "query_en": "falzarego pass",
+   "query_it": "passo falzarego",
+   "n_en": 1,
+   "n_it": 7,
+   "totale": 8,
+   "esempi_en": [
+    "falzarego pass open"
+   ],
+   "esempi_it": [
+    "passo falzarego aperto",
+    "passo falzarego aperto o chiuso",
+    "passo falzarego aperto o chiuso oggi",
+    "passo falzarego aperto oggi"
+   ]
+  },
+  {
+   "id": "valparola",
+   "paese": "IT",
+   "query_en": "valparola pass",
+   "query_it": "passo valparola",
+   "n_en": 1,
+   "n_it": 7,
+   "totale": 8,
+   "esempi_en": [
+    "valparola pass open"
+   ],
+   "esempi_it": [
+    "passo valparola aperto",
+    "passo valparola aperto o chiuso",
+    "passo valparola aperto oggi",
+    "passo valparola chiuso"
+   ]
+  },
+  {
+   "id": "foscagno",
+   "paese": "IT",
+   "query_en": "passo foscagno",
+   "query_it": "passo foscagno",
+   "n_en": 2,
+   "n_it": 6,
+   "totale": 8,
+   "esempi_en": [
+    "passo del foscagno open",
+    "passo foscagno open"
+   ],
+   "esempi_it": [
+    "passo del foscagno aperto oggi",
+    "passo del foscagno è chiuso",
+    "passo foscagno aperto",
+    "passo foscagno aperto o chiuso"
+   ]
+  },
+  {
+   "id": "nivolet",
+   "paese": "IT",
+   "query_en": "colle del nivolet",
+   "query_it": "colle del nivolet",
+   "n_en": 1,
+   "n_it": 7,
+   "totale": 8,
+   "esempi_en": [
+    "colle del nivolet open"
+   ],
+   "esempi_it": [
+    "colle del nivolet aperto",
+    "colle del nivolet aperto o chiuso",
+    "colle del nivolet aperto oggi",
+    "colle del nivolet chiuso"
+   ]
+  },
+  {
+   "id": "pordoi",
+   "paese": "IT",
+   "query_en": "pordoi pass",
+   "query_it": "passo pordoi",
+   "n_en": 1,
+   "n_it": 6,
+   "totale": 7,
+   "esempi_en": [
+    "pordoi pass open"
+   ],
+   "esempi_it": [
+    "passo pordoi aperto",
+    "passo pordoi aperto o chiuso",
+    "passo pordoi aperto oggi",
+    "passo pordoi chiuso"
+   ]
+  },
+  {
+   "id": "giovo",
+   "paese": "IT",
+   "query_en": "jaufenpass",
+   "query_it": "passo giovo",
+   "n_en": 3,
+   "n_it": 4,
+   "totale": 7,
+   "esempi_en": [
+    "is de jaufenpass open",
+    "is jaufenpass open",
+    "jaufenpass open"
+   ],
+   "esempi_it": [
+    "passo giovo aperto",
+    "passo giovo aperto o chiuso",
+    "passo giovo aperto oggi",
+    "passo giovo chiuso"
+   ]
+  },
+  {
+   "id": "sanpellegrino",
+   "paese": "IT",
+   "query_en": "san pellegrino pass",
+   "query_it": "passo san pellegrino",
+   "n_en": 1,
+   "n_it": 6,
+   "totale": 7,
+   "esempi_en": [
+    "san pellegrino pass open"
+   ],
+   "esempi_it": [
+    "passo san pellegrino aperto",
+    "passo san pellegrino aperto o chiuso",
+    "passo san pellegrino aperto o chiuso oggi",
+    "passo san pellegrino aperto oggi"
+   ]
+  },
+  {
+   "id": "moncenisio",
+   "paese": "FR/IT",
+   "query_en": "col du mont cenis",
+   "query_it": "colle del moncenisio",
+   "n_en": 3,
+   "n_it": 4,
+   "totale": 7,
+   "esempi_en": [
+    "col de mont cenis open",
+    "col du mont cenis open",
+    "is the col du mont cenis open"
+   ],
+   "esempi_it": [
+    "colle del moncenisio aperto",
+    "colle del moncenisio aperto o chiuso",
+    "colle del moncenisio aperto oggi",
+    "colle del moncenisio chiuso"
+   ]
+  },
+  {
+   "id": "nufenen",
+   "paese": "CH",
+   "query_en": "nufenen pass",
+   "query_it": "passo della novena",
+   "n_en": 5,
+   "n_it": 2,
+   "totale": 7,
+   "esempi_en": [
+    "is nufenen pass open",
+    "is nufenen pass open today",
+    "nufenen pass open",
+    "nufenen pass open today"
+   ],
+   "esempi_it": [
+    "passo della novena aperto",
+    "passo della novena aperto o chiuso"
+   ]
+  },
+  {
+   "id": "fluela",
+   "paese": "CH",
+   "query_en": "fluela pass",
+   "query_it": "passo fluela",
+   "n_en": 6,
+   "n_it": 1,
+   "totale": 7,
+   "esempi_en": [
+    "fluela pass opening times",
+    "flüela pass open",
+    "flüela pass open today",
+    "is fluela pass open"
+   ],
+   "esempi_it": [
+    "passo fluela aperto"
+   ]
+  },
+  {
+   "id": "bonette",
+   "paese": "FR",
+   "query_en": "col de la bonette",
+   "query_it": "col de la bonette",
+   "n_en": 5,
+   "n_it": 2,
+   "totale": 7,
+   "esempi_en": [
+    "cime de la bonette open",
+    "col de la bonette open or closed",
+    "col de la bonette opening",
+    "is cime de la bonette open"
+   ],
+   "esempi_it": [
+    "col de la bonette aperto",
+    "col de la bonette chiuso"
+   ]
+  },
+  {
+   "id": "staller",
+   "paese": "AT",
+   "query_en": "staller sattel",
+   "query_it": "passo stalle",
+   "n_en": 1,
+   "n_it": 6,
+   "totale": 7,
+   "esempi_en": [
+    "staller sattel open"
+   ],
+   "esempi_it": [
+    "passo stalle aperto",
+    "passo stalle aperto o chiuso",
+    "passo stalle aperto oggi",
+    "passo stalle chiuso"
+   ]
+  },
+  {
+   "id": "mortirolo",
+   "paese": "IT",
+   "query_en": "mortirolo pass",
+   "query_it": "passo mortirolo",
+   "n_en": 1,
+   "n_it": 5,
+   "totale": 6,
+   "esempi_en": [
+    "mortirolo pass open"
+   ],
+   "esempi_it": [
+    "passo mortirolo aperto",
+    "passo mortirolo aperto o chiuso",
+    "passo mortirolo aperto oggi",
+    "passo mortirolo chiuso"
+   ]
+  },
+  {
+   "id": "manghen",
+   "paese": "IT",
+   "query_en": "passo manghen",
+   "query_it": "passo manghen",
+   "n_en": 1,
+   "n_it": 5,
+   "totale": 6,
+   "esempi_en": [
+    "passo manghen open"
+   ],
+   "esempi_it": [
+    "passo manghen aperto",
+    "passo manghen aperto o chiuso",
+    "passo manghen aperto oggi",
+    "passo manghen chiuso"
+   ]
+  },
+  {
+   "id": "fauniera",
+   "paese": "IT",
+   "query_en": "colle fauniera",
+   "query_it": "colle fauniera",
+   "n_en": 1,
+   "n_it": 5,
+   "totale": 6,
+   "esempi_en": [
+    "colle fauniera open"
+   ],
+   "esempi_it": [
+    "colle della fauniera aperto",
+    "colle fauniera aperto",
+    "colle fauniera aperto o chiuso",
+    "colle fauniera aperto oggi"
+   ]
+  },
+  {
+   "id": "albula",
+   "paese": "CH",
+   "query_en": "albula pass",
+   "query_it": "passo albula",
+   "n_en": 4,
+   "n_it": 2,
+   "totale": 6,
+   "esempi_en": [
+    "albula pass open",
+    "albula pass open today",
+    "is albula pass open",
+    "is albula pass open today"
+   ],
+   "esempi_it": [
+    "passo albula aperto",
+    "passo albula è.aperto"
+   ]
+  },
+  {
+   "id": "madeleine",
+   "paese": "FR",
+   "query_en": "col de la madeleine",
+   "query_it": "col de la madeleine",
+   "n_en": 6,
+   "n_it": 0,
+   "totale": 6,
+   "esempi_en": [
+    "col de la madeleine open",
+    "col de la madeleine opening 2026",
+    "is col de la madeleine open",
+    "is la madeleine open"
+   ],
+   "esempi_it": []
+  },
+  {
+   "id": "umbrail",
+   "paese": "CH/IT",
+   "query_en": "umbrail pass",
+   "query_it": "passo umbrail",
+   "n_en": 3,
+   "n_it": 2,
+   "totale": 5,
+   "esempi_en": [
+    "is umbrail pass open",
+    "umbrail pass open",
+    "umbrail pass open today"
+   ],
+   "esempi_it": [
+    "passo umbrail aperto",
+    "passo umbrail chiuso"
+   ]
+  },
+  {
+   "id": "piccolosanbernardo",
+   "paese": "IT/FR",
+   "query_en": "little st bernard pass",
+   "query_it": "colle del piccolo san bernardo",
+   "n_en": 2,
+   "n_it": 3,
+   "totale": 5,
+   "esempi_en": [
+    "is the little st bernard pass open",
+    "little st bernard pass open"
+   ],
+   "esempi_it": [
+    "colle del piccolo san bernardo aperto",
+    "colle piccolo san bernardo aperto o chiuso",
+    "colle piccolo san bernardo chiuso"
+   ]
+  },
+  {
+   "id": "lombarda",
+   "paese": "IT/FR",
+   "query_en": "col de la lombarde",
+   "query_it": "colle della lombarda",
+   "n_en": 1,
+   "n_it": 4,
+   "totale": 5,
+   "esempi_en": [
+    "col de la lombarde open"
+   ],
+   "esempi_it": [
+    "colle della lombarda aperto",
+    "colle della lombarda aperto o chiuso",
+    "colle della lombarda aperto oggi",
+    "colle della lombarda chiuso"
+   ]
+  }
+ ],
+ "esclusi": [
+  {
+   "id": "maloja",
+   "paese": "CH",
+   "totale": 9,
+   "nota": "aperto tutto l'anno (niente chiusura da misurare)"
+  },
+  {
+   "id": "campolongo",
+   "paese": "IT",
+   "totale": 4,
+   "nota": "domanda più bassa"
+  },
+  {
+   "id": "tonale",
+   "paese": "IT",
+   "totale": 4,
+   "nota": "domanda più bassa"
+  },
+  {
+   "id": "erbe",
+   "paese": "IT",
+   "totale": 4,
+   "nota": "domanda più bassa"
+  },
+  {
+   "id": "tregrocce",
+   "paese": "IT",
+   "totale": 4,
+   "nota": "domanda più bassa"
+  },
+  {
+   "id": "finestre",
+   "paese": "IT",
+   "totale": 4,
+   "nota": "domanda più bassa"
+  },
+  {
+   "id": "oberalp",
+   "paese": "CH",
+   "totale": 4,
+   "nota": "domanda più bassa"
+  },
+  {
+   "id": "klausen",
+   "paese": "CH",
+   "totale": 4,
+   "nota": "domanda più bassa"
+  },
+  {
+   "id": "julier",
+   "paese": "CH",
+   "totale": 3,
+   "nota": "aperto tutto l'anno (niente chiusura da misurare)"
+  },
+  {
+   "id": "izoard",
+   "paese": "FR",
+   "totale": 3,
+   "nota": "domanda più bassa"
+  },
+  {
+   "id": "silvretta",
+   "paese": "AT",
+   "totale": 3,
+   "nota": "domanda più bassa"
+  },
+  {
+   "id": "nockalm",
+   "paese": "AT",
+   "totale": 3,
+   "nota": "domanda più bassa"
+  },
+  {
+   "id": "cayolle",
+   "paese": "FR",
+   "totale": 2,
+   "nota": "domanda più bassa"
+  },
+  {
+   "id": "vars",
+   "paese": "FR",
+   "totale": 2,
+   "nota": "domanda più bassa"
+  },
+  {
+   "id": "croixdefer",
+   "paese": "FR",
+   "totale": 1,
+   "nota": "domanda più bassa"
+  },
+  {
+   "id": "sölk",
+   "paese": "AT",
+   "totale": 1,
+   "nota": "domanda più bassa"
+  },
+  {
+   "id": "kaunertal",
+   "paese": "AT",
+   "totale": 0,
+   "nota": "domanda più bassa"
+  }
+ ]
+}
