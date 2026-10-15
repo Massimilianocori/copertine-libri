@@ -41,6 +41,10 @@ Inviate 40 email: 5 agenzie "segnale" (Story Co, Informal, Mass FX Media, Social
 
 49 invii (routine partite in ritardo, invii dalle 22:45 italiane): 39 follow-up 1 Holiday Pack (invii dell'8/10) + 10 follow-up 2 (brand del 1-2/10). 1 rimbalzo 5.1.1 (amanda@tryarmra.com, FU2) → escluso; Somnee saltato (dominio senza posta). Risposte vere: 0. Restano 4 FU2 per il 15/10.
 
+## 15/10
+
+46 invii + 2 test: 4 follow-up 2 + 24 follow-up 1 Holiday Pack (invii del 9/10) + 18 nuovi (coda3, primi con link pulito in HTML). Test mail-tester 10/10, nessuna lista nera; trovato il link riscritto da Gmail (ERRORI 29), corretto. 0 rimbalzi, 0 risposte vere.
+
 ## Crediti
 
 | Data | Higgsfield (piano Ultra) | Apollo lead credit (ciclo 3/10-3/11) |
