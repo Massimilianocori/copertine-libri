@@ -9,7 +9,7 @@ const path = require('path');
 const SITO = path.join(__dirname, 'sito');
 const SHOT = path.join(__dirname, 'cache', 'screenshot');
 fs.mkdirSync(SHOT, { recursive: true });
-const TIPI = { '.html': 'text/html; charset=utf-8', '.json': 'application/json', '.css': 'text/css', '.png': 'image/png', '.woff2': 'font/woff2', '.xml': 'application/xml', '.txt': 'text/plain' };
+const TIPI = { '.html': 'text/html; charset=utf-8', '.json': 'application/json', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.png': 'image/png', '.woff2': 'font/woff2', '.xml': 'application/xml', '.txt': 'text/plain' };
 
 function server() {
   return http.createServer((req, res) => {

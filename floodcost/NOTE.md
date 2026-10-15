@@ -14,9 +14,9 @@ Il sito Netlify NON è stato creato: lo crea Massimiliano (impostazioni più sot
 | Stati e territori | 54 + elenco `states/` | tutti quelli con almeno 10 polizze "homes" (manca solo Northern Mariana Islands) |
 | Contee | 1.230 | almeno **100** polizze "homes" in vigore (le altre 1.306 contee con almeno 10 polizze sono nella tabella della pagina dello Stato e nella ricerca, senza pagina) |
 | ZIP | 1.622 | almeno **300** polizze "homes" in vigore (gli altri 11.644 ZIP con almeno 10 polizze sono nella ricerca, con mediana, e rimandano alla contea) |
-| Zone | 6 + `flood-zones/` | VE, AE, A, AO, AH, X (A99/AR e D hanno troppe poche polizze per una guida: compaiono nelle tabelle) |
+| Zone | 7 + `flood-zones/` | VE, AE, A, AO, AH, A99/AR (`zone-a99/`, 32.340 case, quasi tutte A99), X (la D ha troppe poche polizze per una guida: compare nelle tabelle) |
 | Fisse | 5 | methodology, about, contact (modulo Netlify), privacy, 404 |
-| **Totale** | **2.919 indicizzabili** + 404 | tutte nella sitemap |
+| **Totale** | **2.920 indicizzabili** + 404 | tutte nella sitemap |
 
 Perché 300 per gli ZIP e non 100: con 300-400 polizze uno ZIP ha in genere 2-3 zone sopra la soglia di 10 e pochi anni di
 risarcimenti; sotto i 300 la pagina diventa una ripetizione della contea (contenuto sottile). Con 100 sarebbero 3.360 pagine ZIP,
@@ -55,7 +55,10 @@ con 200 2.115. Le soglie sono in `raccolta/aggrega.py` (`SOGLIA_CONTEA`, `SOGLIA
 - Mediana e percentili 25/75 con interpolazione lineare (pandas), arrotondati al dollaro.
 - **Contea** = prime 5 cifre di `censusGeoid` (per i risarcimenti senza `censusGeoid`, `countyCode`); **ZIP** = prime 5 cifre di
   `reportedZipCode` (FEMA a volte scrive ZIP+4). **Zone** raggruppate: AE (AE, A1-A30), VE (VE, V, V1-V30), A, AO (+AOB), AH (+AHB),
-  A99/AR, X (X, B, C), D.
+  A99/AR, X (X, B, C), D. Attenzione: in `gruppo_zona` la A99 va controllata PRIMA della regola `A\d{1,2}` (fino al 15/10/2026 le
+  32.338 case in A99 finivano per errore in AE: corretto nella revisione indipendente).
+- **Polizze pluriennali**: la finestra di 12 mesi esclude circa 24.500 polizze condominiali (occupancyType 15) con durata di 2-3 anni
+  iniziate prima; nessuna polizza "homes" è esclusa (controllato con l'API: 0 al 31/8/2026, 2 al 31/8/2025). Scritto nella metodologia.
 - **Risarcimenti**: per anno della perdita dal 1978 (tutte le 2.725.989 righe hanno l'anno); "pagato" se edificio + contenuto + ICC > 0;
   importi nominali, non rivalutati.
 - **Privacy**: nessuna cella con meno di **10** polizze o risarcimenti (né il numero né gli importi); niente minimi o massimi; la
@@ -128,8 +131,9 @@ In più `verifica.py` ricalcola dai file grezzi, senza pandas, la mediana nazion
   token di colore chiaro/scuro come nei siti ridisegnati più pulsante del tema; cifra principale in alto con forchetta 25°-75° e
   tendenza; mappa a tessere degli Stati (scala a una tinta, 5 gruppi); tabella delle zone con barre di forchetta che su telefono
   diventa a schede; grafico dei risarcimenti per anno (una serie, etichette solo sui 3 anni più alti, tooltip nativi, tabella completa).
-- CSS rimasto in linea in ogni pagina come negli altri siti (circa 18 KB, 4 KB compresso): con 2.900 pagine un file CSS esterno
-  sarebbe più leggero; da valutare se il peso del repository diventa un problema (`sito/` pesa circa 130 MB, si comprime bene in git).
+- Peso: CSS, JS, favicon/marchio e icone sono file esterni con l'impronta nel nome (`assets/site.<hash>.css`, `app.<hash>.js`,
+  `favicon.<hash>.svg`, `icons.<hash>.svg`, scritti da `genera.py`); in ogni pagina resta solo lo script minimo del tema.
+  `sito/` è passato da 151 MB a 77 MB su disco (60 MB di contenuto; le pagine ZIP da circa 44 a 20 KB).
 
 ## Punti da tenere d'occhio
 
@@ -141,3 +145,18 @@ In più `verifica.py` ricalcola dai file grezzi, senza pandas, la mediana nazion
 4. Il Connecticut usa le contee storiche (codici 2020) nei dati FEMA: le pagine usano quei nomi.
 5. I testi sull'obbligo assicurativo e sul tetto agli aumenti citano FloodSmart.gov (letto il 15/10/2026), non fema.gov (403 dal server).
 6. `controllo_api.py` sceglie lo ZIP e la contea di prova tra quelli con 300-420 e 150-300 polizze: a ogni aggiornamento possono cambiare.
+
+## Revisione indipendente del 15/10/2026 (fatti, peso, design)
+
+- Oltre 100 valori pubblicati (19 aree) ricalcolati con richieste proprie all'API OpenFEMA v3 (`$filter`, `$count`, righe grezze per le aree piccole; per le aree
+  grandi la mediana e i percentili sono controllati contando le polizze sotto e sopra il valore pubblicato): nazionale (case, polizze,
+  mediana, 25°/75° percentile, anno prima), Delaware e Rhode Island (tutte le statistiche, zone, risarcimenti), contee Calaveras CA,
+  Jackson FL (righe grezze), Fairfield CT (righe grezze), Harris TX e Lee FL (conteggi), ZIP 32824, 33713, 95608, 28539 (righe grezze,
+  zone, anno prima, risarcimenti), zone VE e AO e AE corretta, risarcimenti nazionali (2.725.989; pagati 2.117.326; $89.864.867.337).
+  Tutti coincidono; unico errore trovato: A99 dentro AE (corretto, AE nazionale ora 1.350.523 case, mediana $1.278, verificata).
+- Citazioni FloodSmart rilette il 15/10/2026 (premiumcosts, what-is-my-flood-zone, eligibility): coincidono.
+- Correzioni: nomi "X County (unincorporated areas)" → "unincorporated X County" (niente parentesi annidate nei titoli), "Of/And"
+  minuscoli nei nomi delle comunità, anni a pari merito nei risarcimenti, finestra di decorrenza esatta in metodologia (dal 1° settembre),
+  `<title>` più corti con la cifra in testa, tabelle su telefono (tipo di edificio a schede, prima colonna fissa e avviso di
+  scorrimento nelle tabelle larghe, tabella "one year on" più compatta), tessere chiare della mappa più visibili nel tema scuro.
+- Dopo le correzioni: `verifica.py --browser` tutto superato (2.921 pagine HTML, 2.920 nella sitemap, 84 caricamenti Playwright).

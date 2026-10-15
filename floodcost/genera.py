@@ -17,6 +17,7 @@ Dati (tutti da OpenFEMA, vedi NOTE.md):
 
 Formato dei blocchi statistici: [n, mediana, p25, p75, media] in dollari interi; None = cella con meno di 10 polizze.
 """
+import hashlib
 import json
 import re
 import shutil
@@ -44,6 +45,18 @@ STATI = carica("stati.json")
 CONTEE = carica("contee.json")
 ZIPS = carica("zip.json")
 INDICE = carica("indice.json")
+
+
+def _comunita(c):
+    """'Orange County (unincorporated areas)' -> 'unincorporated Orange County' (evita parentesi annidate nei titoli)."""
+    s = " (unincorporated areas)"
+    c = re.sub(r"(?<=\s)(Of|And|The)(?=\s)", lambda m: m.group(1).lower(), c)  # "Govt. Of Louisville And ..." -> "of", "and"
+    return "unincorporated " + c[:-len(s)] if c.endswith(s) else c
+
+
+for _A in list(CONTEE.values()) + list(ZIPS.values()):
+    if _A.get("comm"):
+        _A["comm"] = [[_comunita(c), n] for c, n in _A["comm"]]
 AFFILIATI = carica("affiliati.json") if (DATI / "affiliati.json").exists() else {}
 RIF, RIF0 = FONTI["rif"], FONTI["rif_prec"]
 MIN = FONTI["soglie"]["min_cella"]
@@ -67,9 +80,9 @@ ZONE = {
     "AH": {"nome": "Zone AH", "breve": "AH", "pag": True, "rischio": "High risk, shallow",
            "def": "High-risk areas with shallow ponding, where water collects in low spots.",
            "fema": "AH, AHB - Special Flood with Shallow Ponding"},
-    "AR": {"nome": "Zones A99 / AR", "breve": "A99/AR", "pag": False, "rischio": "High risk, levee areas",
-           "def": "High-risk areas behind a flood protection system (levee or dam) that is being built or restored.",
-           "fema": "A99 - Special Flood with Protection Zone; AR - decertified flood protection system being restored"},
+    "AR": {"nome": "Zone A99 / AR", "breve": "A99/AR", "pag": True, "rischio": "High risk, levee areas",
+           "def": "High-risk flood areas that will be protected by a flood protection system (such as a levee) still under construction (A99), or behind a system that lost its accreditation and is being restored (AR). Almost all policies here are rated A99.",
+           "fema": "A99 - Special Flood with Protection Zone; AR - A Special Flood Hazard Area that results from the decertification of a previously accredited flood protection system that is determined to be in the process of being restored to provide base flood protection"},
     "X": {"nome": "Zone X", "breve": "X", "pag": True, "rischio": "Moderate to low risk",
           "def": "Areas of moderate or minimal flood risk outside the high-risk flood zones (the older maps call them zones B and C). Flood insurance is not required by federal law here, but floods still happen.",
           "fema": "X, B - Moderate Flood from primary water source; X, C - Minimal Flood from primary water source"},
@@ -174,7 +187,7 @@ def url_zip(z):
 
 
 def url_zona(z):
-    return f"flood-zones/zone-{z.lower()}/"
+    return f"flood-zones/zone-{'a99' if z == 'AR' else z.lower()}/"
 
 
 def h(x):
@@ -242,12 +255,12 @@ CSS = """
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#081218;--card:#0F1E27;--ink:#E5EEF2;--ink-2:#B7C7D0;--ink-3:#8DA1AD;--line:#1E313D;--line-2:#2A4251;
 --deep:#050E13;--deep-2:#0B2230;--on-deep:#E5EEF2;--on-deep-2:#9DB4C0;--accent:#6CC3E8;--accent-h:#9CD8F2;--accent-2:#10303F;--on-accent:#04141C;
 --sand:#F0B55A;--sand-ink:#F0B55A;--sand-2:#2A2010;--up:#FF9F87;--down:#72D9AA;--mute:#12232D;--track:#1A2E3A;--bar:#6CC3E8;--bar-2:#2A5D78;
---m1:#123241;--m2:#1A4C63;--m3:#2B7393;--m4:#4FA3C9;--m5:#8FD3F0;--m-ink-lo:#E5EEF2;--m-ink-hi:#04141C;
+--m1:#1B3E50;--m2:#21566E;--m3:#2B7393;--m4:#4FA3C9;--m5:#8FD3F0;--m-ink-lo:#E5EEF2;--m-ink-hi:#04141C;
 --sh-1:0 1px 2px rgba(0,0,0,.45);--sh-2:0 20px 40px -22px rgba(0,0,0,.8),0 2px 8px rgba(0,0,0,.4)}}
 :root[data-theme="dark"]{--bg:#081218;--card:#0F1E27;--ink:#E5EEF2;--ink-2:#B7C7D0;--ink-3:#8DA1AD;--line:#1E313D;--line-2:#2A4251;
 --deep:#050E13;--deep-2:#0B2230;--on-deep:#E5EEF2;--on-deep-2:#9DB4C0;--accent:#6CC3E8;--accent-h:#9CD8F2;--accent-2:#10303F;--on-accent:#04141C;
 --sand:#F0B55A;--sand-ink:#F0B55A;--sand-2:#2A2010;--up:#FF9F87;--down:#72D9AA;--mute:#12232D;--track:#1A2E3A;--bar:#6CC3E8;--bar-2:#2A5D78;
---m1:#123241;--m2:#1A4C63;--m3:#2B7393;--m4:#4FA3C9;--m5:#8FD3F0;--m-ink-lo:#E5EEF2;--m-ink-hi:#04141C;
+--m1:#1B3E50;--m2:#21566E;--m3:#2B7393;--m4:#4FA3C9;--m5:#8FD3F0;--m-ink-lo:#E5EEF2;--m-ink-hi:#04141C;
 --sh-1:0 1px 2px rgba(0,0,0,.45);--sh-2:0 20px 40px -22px rgba(0,0,0,.8),0 2px 8px rgba(0,0,0,.4)}
 *{box-sizing:border-box}[hidden]{display:none!important}html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;overflow-wrap:break-word}
@@ -260,7 +273,7 @@ a{color:var(--accent);text-underline-offset:2px;text-decoration-thickness:1px}a:
 header.top{background:var(--deep);color:var(--on-deep);position:relative;z-index:20}
 header.top .wrap{display:flex;align-items:center;gap:12px;min-height:64px}
 .logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:1.22rem;color:var(--on-deep);text-decoration:none;white-space:nowrap;letter-spacing:-.01em;margin-right:auto}
-.logo:hover{color:#fff}.logo svg{width:34px;height:34px;flex:none}.logo b{color:var(--sand);font-weight:inherit}
+.logo:hover{color:#fff}.logo img{width:34px;height:34px;flex:none;display:block}.logo b{color:var(--sand);font-weight:inherit}
 nav.menu{display:flex;gap:2px;font-size:.93rem}
 nav.menu a{color:var(--on-deep-2);text-decoration:none;padding:7px 11px;border-radius:8px;white-space:nowrap}
 nav.menu a:hover,nav.menu a[aria-current]{color:#fff;background:rgba(255,255,255,.08)}
@@ -325,6 +338,14 @@ td .rb{display:block;min-width:120px}
 .z-VE{--z:#B4233C}.z-AE{--z:#E0702A}.z-A{--z:#D99A12}.z-AO{--z:#B08A10}.z-AH{--z:#9C7A1E}.z-AR{--z:#7B5EA7}.z-X{--z:#2E9C8A}.z-D{--z:#7C8A93}
 .muted{color:var(--ink-3)}
 .zt td:first-child{min-width:150px}
+.scroll-hint{display:none;font-size:.8rem;color:var(--ink-3);margin:0 0 6px}
+@media (max-width:640px){.scroll-hint{display:block}
+.larga th:first-child,.larga td:first-child{position:sticky;left:0;z-index:1;background:var(--card);box-shadow:1px 0 0 var(--line)}.larga th:first-child{background:var(--mute)}
+.ot thead{display:none}.ot,.ot tbody,.ot tr,.ot td{display:block}
+.ot tr{display:flex;flex-wrap:wrap;gap:2px 16px;padding:12px 14px;border-bottom:1px solid var(--line)}.ot tbody tr:last-child{border-bottom:0}
+.ot td{border:0;padding:0;text-align:left!important}.ot td:first-child{flex:1 1 100%;font-weight:600}.ot td:first-child .small{font-weight:400}
+.ot td[data-l]::before{content:attr(data-l) " ";color:var(--ink-3);font-size:.8rem}
+.tt th,.tt td{padding:9px 7px}.tt th.n{white-space:normal}.tt td:first-child{min-width:112px}}
 @media (max-width:640px){.zt thead{display:none}.zt,.zt tbody,.zt tr,.zt td{display:block;width:100%}
 .zt tr{padding:12px 14px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:2px 10px}
 .zt tbody tr:last-child{border-bottom:0}.zt td{border:0;padding:0;text-align:left!important}
@@ -415,20 +436,21 @@ ICONE = {
 }
 
 
+# Icone in un unico file esterno (/assets/icons.<hash>.svg), richiamate con <use>: prima lo sprite era ripetuto in ogni pagina.
+SPRITE = ('<svg xmlns="http://www.w3.org/2000/svg">' +
+          "".join(f'<symbol id="i-{k}" viewBox="0 0 24 24">{v}</symbol>' for k, v in ICONE.items()) + "</svg>\n")
+ICONS_FILE = f"icons.{hashlib.sha256(SPRITE.encode()).hexdigest()[:10]}.svg"
+
+
 def ico(nome, cls="ico"):
-    return f'<svg class="{cls}" aria-hidden="true" focusable="false"><use href="#i-{nome}"/></svg>'
+    return f'<svg class="{cls}" aria-hidden="true" focusable="false"><use href="/assets/{ICONS_FILE}#i-{nome}"/></svg>'
 
-
-SPRITE = ('<svg xmlns="http://www.w3.org/2000/svg" style="display:none">' +
-          "".join(f'<symbol id="i-{k}" viewBox="0 0 24 24">{v}</symbol>' for k, v in ICONE.items()) + "</svg>")
 # Marchio: casa su onde, in una tessera blu acqua con bordo sabbia (stesso disegno in favicon e immagine Open Graph)
 _M = ('<rect width="40" height="40" rx="10" fill="#0A6A90"/><path d="M9 19.5 20 11l11 8.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>'
       '<path d="M12.5 17.5v6h15v-6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round"/>'
       '<path d="M6 28.5c2.3-1.8 4.7-1.8 7 0s4.7 1.8 7 0 4.7-1.8 7 0 4.7 1.8 7 0" fill="none" stroke="#E9A23B" stroke-width="2.6" stroke-linecap="round"/>'
       '<path d="M6 33.5c2.3-1.8 4.7-1.8 7 0s4.7 1.8 7 0 4.7-1.8 7 0 4.7 1.8 7 0" fill="none" stroke="#8EC5DC" stroke-width="2.2" stroke-linecap="round"/>')
-MARCHIO = f'<svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">{_M}</svg>'
-FAVICON = "data:image/svg+xml," + (f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'>{_M}</svg>"
-                                    .replace('"', "'").replace("#", "%23").replace("<", "%3C").replace(">", "%3E"))
+FAVICON_SVG = f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">{_M}</svg>\n'
 
 TEMA_JS = "(function(){try{var t=localStorage.getItem('fc-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();"
 APP_JS = r"""
@@ -471,6 +493,29 @@ APP_JS = r"""
   box.querySelector('form').addEventListener('submit',function(e){e.preventDefault();var a=out.querySelector('a');if(a)location.href=a.href;else cerca();});
 })();
 """
+
+
+# ---------------------------------------------------------------- file condivisi (CSS, JS, favicon) con nome versionato
+# Prima il CSS (18 KB) e il JS (4 KB) erano ripetuti in ogni pagina: ora sono file esterni in /assets/, con l'impronta del
+# contenuto nel nome (site.<hash>.css), così il browser li tiene in cache e a ogni modifica il nome cambia da solo.
+def _impronta(testo):
+    return hashlib.sha256(testo.encode("utf-8")).hexdigest()[:10]
+
+
+ASSET = {
+    f"site.{_impronta(CSS)}.css": CSS,
+    f"app.{_impronta(APP_JS)}.js": APP_JS.strip() + "\n",
+    f"favicon.{_impronta(FAVICON_SVG)}.svg": FAVICON_SVG,
+    ICONS_FILE: SPRITE,
+}
+CSS_FILE, JS_FILE, FAVICON_FILE, _ = ASSET
+LOGO = f'<img src="/assets/{FAVICON_FILE}" width="34" height="34" alt="">'  # marchio: stesso file della favicon, in cache
+
+
+def scrivi_asset():
+    (SITO / "assets").mkdir(parents=True, exist_ok=True)
+    for nome, testo in ASSET.items():
+        (SITO / "assets" / nome).write_text(testo, encoding="utf-8")
 
 
 # ---------------------------------------------------------------- scheletro di pagina
@@ -523,17 +568,16 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0A2533">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" href="{FAVICON}">
+<link rel="icon" href="/assets/{FAVICON_FILE}" type="image/svg+xml">
 <link rel="preload" href="/assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
 <script>{TEMA_JS}</script>
-<style>{CSS}</style>
+<link rel="stylesheet" href="/assets/{CSS_FILE}">
 {ld_html}
 </head>
 <body>
-{SPRITE}
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap">
-<a class="logo" href="{rel}">{MARCHIO}<span>Flood<b>Cost</b></span></a>
+<a class="logo" href="{rel}">{LOGO}<span>Flood<b>Cost</b></span></a>
 <nav class="menu" aria-label="Menu">{menu}</nav>
 <button type="button" class="tema" data-tema aria-label="Switch light or dark theme">{ico("moon", "ico i-moon")}{ico("sun", "ico i-sun")}</button>
 <details class="nav-m"><summary aria-label="Open the menu">{ico("menu")}Menu</summary><nav aria-label="Menu">{menu}</nav></details>
@@ -546,7 +590,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 </main>
 <footer><div class="wrap">
 <div class="f-grid"><div>
-<a class="logo" href="{rel}">{MARCHIO}<span>Flood<b>Cost</b></span></a>
+<a class="logo" href="{rel}">{LOGO}<span>Flood<b>Cost</b></span></a>
 <p><strong>{NOME}</strong> shows what National Flood Insurance Program (NFIP) policyholders actually pay, from FEMA's public policy and claims data. It is an independent site, not affiliated with FEMA, the NFIP or any insurer.
 <strong>These are past prices paid by other policyholders, not a quote.</strong> Your price depends on your building, its elevation and the coverage you choose. Private flood insurance is not included. Nothing here is insurance, financial or legal advice.</p>
 <p class="small" style="color:inherit">This product uses the FEMA OpenFEMA API, but is not endorsed by FEMA. The Federal Government or FEMA cannot vouch for the data or analyses derived from these data after the data have been retrieved from the Agency's website(s).</p>
@@ -556,7 +600,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 </div></div>
 <p class="f-base">Data: FEMA OpenFEMA, policies in force on {data_lunga(RIF)}, retrieved {data_lunga(FONTI["scaricato_il"])} · Updated monthly.</p>
 </div></footer>
-<script>{APP_JS}</script>
+<script src="/assets/{JS_FILE}" defer></script>
 </body>
 </html>
 """
@@ -655,10 +699,10 @@ def tabella_occ(A):
     if not O:
         return ""
     righe = "".join(f'<tr><td>{OCC[k]}' + (f'<br><span class="small">{OCC_NOTA[k]}</span>' if k in OCC_NOTA else "") +
-                    f'</td><td class="n">{intero(O[k][0])}</td><td class="n"><strong>{usd(O[k][1])}</strong></td><td class="n">{usd(O[k][4])}</td></tr>'
+                    f'</td><td class="n" data-l="Policies">{intero(O[k][0])}</td><td class="n" data-l="Median"><strong>{usd(O[k][1])}</strong></td><td class="n" data-l="Average">{usd(O[k][4])}</td></tr>'
                     for k in OCC if k in O)
     nasc = [OCC[k].lower() for k in OCC if k not in O]
-    return (f'<div class="tab"><table><thead><tr><th>Type of building</th><th class="n">Policies</th><th class="n">Median</th><th class="n">Average</th></tr></thead>'
+    return (f'<div class="tab"><table class="ot"><thead><tr><th>Type of building</th><th class="n">Policies</th><th class="n">Median</th><th class="n">Average</th></tr></thead>'
             f'<tbody>{righe}</tbody></table></div>'
             + (f'<p class="small">Not shown (fewer than 10 policies): {", ".join(nasc)}.</p>' if nasc else ""))
 
@@ -711,7 +755,12 @@ def sezione_sinistri(C, area):
     testo = (f'Since {FONTI["anno_sinistri_da"]}, NFIP policyholders in {h(area)} have filed <strong>{intero(n)}</strong> flood claims. '
              f'<strong>{intero(npag)}</strong> received a payment' + (f', for a total of <strong>{usd_lungo(tot)}</strong> (an average of <strong>{usd(round(medio))}</strong> per paid claim)' if medio else "") + ". ")
     if top:
-        testo += f'The year with the most claims was <strong>{top[0][0]}</strong> ({intero(top[0][1])} claims). '
+        pari = sorted(r[0] for r in C["y"] if r[1] == top[0][1])
+        if len(pari) == 1:
+            testo += f'The year with the most claims was <strong>{pari[0]}</strong> ({intero(top[0][1])} claims). '
+        else:
+            anni = ", ".join(f"<strong>{a}</strong>" for a in pari[:-1]) + f" and <strong>{pari[-1]}</strong>"
+            testo += f'The years with the most claims were {anni} ({intero(top[0][1])} claims each). '
     testo += "Amounts are in dollars of the time, not adjusted for inflation."
     tab = "".join(f'<tr><td>{r[0]}</td><td class="n">{intero(r[1])}</td><td class="n">{intero(r[2]) if r[2] is not None else "<10"}</td>'
                   f'<td class="n">{usd(r[3]) if r[3] is not None else "–"}</td><td class="n">{usd(round(r[3] / r[2])) if r[2] and r[3] is not None else "–"}</td></tr>'
@@ -720,7 +769,7 @@ def sezione_sinistri(C, area):
 <p class="lead">{testo}</p>
 <div class="card">{grafico_sinistri(C, "Flood claims per year in " + area)}</div>
 <details class="tutti"><summary>All years with at least 10 claims ({len(righe)})</summary>
-<div class="tab"><table><thead><tr><th>Year of loss</th><th class="n">Claims</th><th class="n">Paid claims</th><th class="n">Total paid</th><th class="n">Average per paid claim</th></tr></thead><tbody>{tab}</tbody></table></div></details>
+<p class="scroll-hint">Swipe the table sideways to see all columns.</p><div class="tab"><table class="larga"><thead><tr><th>Year of loss</th><th class="n">Claims</th><th class="n">Paid claims</th><th class="n">Total paid</th><th class="n">Average per paid claim</th></tr></thead><tbody>{tab}</tbody></table></div></details>
 <p class="small">{f"From {a10} to {a_fin}: {intero(sum(r[1] for r in ultimi))} claims (counting only years with at least 10). " if ultimi else ""}{a_fin} is a partial year. Claims are counted where the insured property is; they include buildings and contents, homes and businesses.</p>"""
 
 
@@ -759,7 +808,7 @@ def tabella_trend(A, nome):
              ("All policies in force (any building)", intero(P["n"]), intero(A["n"]), pct_testo(var_pct(A["n"], P["n"])))]
     corpo = "".join(f'<tr><td>{a}</td><td class="n">{b}</td><td class="n"><strong>{c_}</strong></td><td class="n">{d}</td></tr>' for a, b, c_, d in righe)
     return (f'<h2>One year on: {h(nome)}</h2><p class="lead">Policies in force on {data_lunga(RIF)} compared with a year earlier. {rr2_testo()} The policies are not the same: some were new, some lapsed.</p>'
-            f'<div class="tab"><table><thead><tr><th></th><th class="n">{data_breve(RIF0)}</th><th class="n">{data_breve(RIF)}</th><th class="n">Change</th></tr></thead><tbody>{corpo}</tbody></table></div>')
+            f'<div class="tab"><table class="tt"><thead><tr><th></th><th class="n">{data_breve(RIF0)}</th><th class="n">{data_breve(RIF)}</th><th class="n">Change</th></tr></thead><tbody>{corpo}</tbody></table></div>')
 
 
 def zl(nome):
@@ -814,10 +863,18 @@ def pagina_area(tipo, chiave):
     if not A.get("h"):
         return False
     med = A["h"][1]
-    titolo = (f"Flood insurance cost in {nome_lungo}: median {usd(med)} a year" if tipo != "zip" else
-              f"Flood insurance cost in ZIP {chiave}" + (f" ({luogo}, {st})" if luogo else "") + f": median {usd(med)}")
-    descr = (f"What NFIP policyholders in {nome_lungo} pay for flood insurance: median {usd(med)} a year for a home, by flood zone "
-             f"and building type, with the change since last year and flood claims since {FONTI['anno_sinistri_da']}. FEMA data.")
+    titolo_h1 = (f"Flood insurance cost in {nome_lungo}" if tipo != "zip" else
+                 f"Flood insurance cost in ZIP {chiave}" + (f" ({luogo}, {st})" if luogo else ""))
+    # <title> breve, con le parole chiave e la cifra all'inizio (Google tronca verso i 60 caratteri)
+    if tipo == "stato":
+        titolo = f"Flood insurance cost in {nome}: median {usd(med)} a year"
+    elif tipo == "contea":
+        titolo = f"Flood insurance cost in {nome}, {A['st']}: median {usd(med)} a year"
+    else:
+        titolo = f"ZIP {chiave} flood insurance cost: median {usd(med)} a year" + (f" ({luogo}, {st})" if luogo else f" ({st})")
+    p25_, p75_ = A["h"][2], A["h"][3]
+    descr = (f"NFIP flood insurance in {nome_lungo}: homes paid a median {usd(med)} a year (middle half {usd(p25_)}–{usd(p75_)}). "
+             f"Cost by flood zone, 1-year change and flood claims. FEMA data.")
     sub = (f"What homeowners with a National Flood Insurance Program policy actually pay, from FEMA's records of "
            f"{intero(A['h'][0])} home policies in force on {data_lunga(RIF)}.")
     corpo = [scheda_chiave(A, nome_lungo, " ".join(x for x in (cfr, frase_zona_top(A)) if x)), AD, NON_QUOTE, box_quote()]
@@ -865,12 +922,12 @@ def pagina_area(tipo, chiave):
             corpo.append(f'<h2>ZIP codes in {h(nome)}</h2><p class="lead">ZIP codes with at least {FONTI["soglie"]["zip"]} NFIP home policies in force have their own page.</p>' +
                          griglia([(url_zip(z), f'ZIP {z}' + (f' · {ZIPS[z]["comm"][0][0]}' if ZIPS[z].get("comm") else ""), f'median {usd(ZIPS[z]["h"][1])} · {intero(ZIPS[z]["h"][0])} homes') for z in zz]))
         if A.get("comm"):
-            corpo.append('<h3>Main NFIP communities in the county</h3><p class="small">' + " · ".join(f'{h(c)} ({intero(n)} home policies)' for c, n in A["comm"]) + "</p>")
+            corpo.append('<h3>Main NFIP communities in the county</h3><p class="small">' + " · ".join(f'{h(c[:1].upper() + c[1:])} ({intero(n)} home policies)' for c, n in A["comm"]) + "</p>")
     if tipo == "zip" and A.get("comm"):
-        corpo.append('<h3>NFIP communities in this ZIP code</h3><p class="small">' + " · ".join(f'{h(c)} ({intero(n)} home policies)' for c, n in A["comm"]) +
+        corpo.append('<h3>NFIP communities in this ZIP code</h3><p class="small">' + " · ".join(f'{h(c[:1].upper() + c[1:])} ({intero(n)} home policies)' for c, n in A["comm"]) +
                      '. A ZIP code can cross city and county lines; each policy is counted once, in the ZIP code reported for the insured building.</p>')
     corpo.append(fonte_box(tipo, chiave, pen))
-    testata = banda(eyebrow, titolo.split(":")[0], sub)
+    testata = banda(eyebrow, titolo_h1, sub)
     pagina(percorso, titolo + " | " + NOME, descr, "\n".join(x for x in corpo if x), briciole=brc, testata=testata)
     return True
 
@@ -976,7 +1033,7 @@ def pagina_stati():
                     for s in st_ord)
     corpo = f"""{mappa_stati()}
 <h2>All states and territories</h2>
-<div class="tab"><table><thead><tr><th>State</th><th class="n">Home policies</th><th class="n">Median</th><th class="n">Middle half</th><th class="n">vs last year</th></tr></thead><tbody>{righe}</tbody></table></div>
+<p class="scroll-hint">Swipe the table sideways to see all columns.</p><div class="tab"><table class="larga"><thead><tr><th>State</th><th class="n">Home policies</th><th class="n">Median</th><th class="n">Middle half</th><th class="n">vs last year</th></tr></thead><tbody>{righe}</tbody></table></div>
 {NON_QUOTE}
 {fonte_box()}"""
     testata = banda("Flood insurance cost · by state", "Flood insurance cost by state",
@@ -1023,7 +1080,7 @@ def pagina_zona(z):
 {box_quote()}
 <h2>{Z["nome"]}: cost by state</h2>
 <p class="lead">Median annual cost of NFIP home policies rated in {zl(Z["nome"])}, in every state with at least {MIN} such policies, from the most to the least expensive.</p>
-<div class="tab"><table><thead><tr><th>State</th><th class="n">Policies</th><th class="n">Median</th><th class="n">Middle half</th><th class="n">Average</th></tr></thead><tbody>{righe}</tbody></table></div>
+<p class="scroll-hint">Swipe the table sideways to see all columns.</p><div class="tab"><table class="larga"><thead><tr><th>State</th><th class="n">Policies</th><th class="n">Median</th><th class="n">Middle half</th><th class="n">Average</th></tr></thead><tbody>{righe}</tbody></table></div>
 {('<h2>Counties with the most ' + Z["nome"] + ' policies</h2>' + griglia([(url_contea(k), f"{nome_contea(k)}, {CONTEE[k]['st']}", f'median {usd(CONTEE[k]["z"][z][1])} · {intero(CONTEE[k]["z"][z][0])} homes') for k in contee])) if contee else ""}
 <h2>Other flood zones</h2><ul>{altre}</ul>
 {fonte_box()}"""
@@ -1066,7 +1123,7 @@ def metodologia():
 </ul>
 <p>FEMA removes names, street addresses and exact locations before publishing these files. The older "FIMA NFIP" version 2 datasets were retired on October 15, 2026; this site uses the current versions above.</p>
 <h2>Which policies we count</h2>
-<p>A policy is counted if it was <strong>in force on {data_lunga(RIF)}</strong>: it started on or before that day, it had not expired, and it had not been cancelled by then. In practice these are the policies that took effect between {data_lunga(str(int(RIF[:4]) - 1) + RIF[4:])} and {data_lunga(RIF)} (almost all NFIP policies last one year). Records with a zero or negative cost (refunds and rewrites) are left out. For the year-on-year comparison we repeat the same steps for {data_lunga(RIF0)}.</p>
+<p>A policy is counted if it was <strong>in force on {data_lunga(RIF)}</strong>: it started on or before that day, it had not expired, and it had not been cancelled by then. In practice we take the policies whose current term started between {data_lunga(str(date.fromordinal(date.fromisoformat(str(int(RIF[:4]) - 1) + RIF[4:]).toordinal() + 1)))} and {data_lunga(RIF)}. In FEMA's data, practically every home policy in force on that date started in that window (home policies run for one year). A small number of multi-year condominium association policies (about 0.7% of all policies) started earlier and are not counted, so the "all policies" and "type of building" figures slightly undercount whole-building policies; figures for homes are not affected. Records with a zero or negative cost (refunds and rewrites) are left out. For the year-on-year comparison we repeat the same steps for {data_lunga(RIF0)}.</p>
 <h2>What "cost" means</h2>
 <p>We use FEMA's <code>policyCost</code> field: "calculated in dollars by adding together calculated premium, reserve fund assessment, federal policy fee, and HFIAA surcharge" (FEMA data dictionary). It is the total yearly amount on the policyholder's bill. FEMA's <a href="{FS_PREMI}" rel="noopener">premium costs page</a> lists those charges: a reserve fund assessment of 18% of the discounted premium, an HFIAA surcharge of $25 for primary residences and $250 for other occupancies, and a federal policy fee of $47 for most policies. Each policy counts once, whatever its coverage.</p>
 <h2>Homes and other buildings</h2>
@@ -1243,6 +1300,7 @@ def main():
     for nome, contenuto in conserva.items():
         (SITO / nome).write_bytes(contenuto)
     copia_grafica()
+    scrivi_asset()
     home()
     pagina_stati()
     conti = {"stato": 0, "contea": 0, "zip": 0, "zona": 0}

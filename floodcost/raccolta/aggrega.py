@@ -51,6 +51,9 @@ def gruppo_zona(z):
     z = (z or "").strip().upper()
     if not z:
         return None
+    # A99 e AR prima della regola A1-A30: "A99" corrisponde anche a A\d{1,2} e finiva per errore in AE
+    if z == "A99" or z.startswith("AR"):
+        return "AR"
     if z == "AE" or re.fullmatch(r"A\d{1,2}", z):
         return "AE"
     if z == "A":
@@ -65,8 +68,6 @@ def gruppo_zona(z):
         return "X"
     if z == "D":
         return "D"
-    if z == "A99" or z.startswith("AR"):
-        return "AR"
     return None
 
 
