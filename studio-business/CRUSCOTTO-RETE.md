@@ -16,6 +16,7 @@ Ultimo aggiornamento: 14/10/2026 (revisione del mercoledì).
 | EsameB1 | https://esameb1.netlify.app | 09/10/2026 | IT, stranieri per la cittadinanza | Pubblicità, contatti per scuole (dopo il cancello fiscale) | Avvio |
 | EsamiDiStato | https://esamidistato.netlify.app | 10/10/2026 | IT, neolaureati | Pubblicità, corsi di preparazione (affiliati) | Avvio |
 | FloodCost (costo assicurazione alluvioni USA) | https://flood-insurance-cost.netlify.app | 15/10/2026 | EN, proprietari di casa negli USA | Pubblicità (assicurazioni), contatti per preventivi | Avvio |
+| Aste in Chiaro (case all'asta con sconto sul valore OMI) | https://aste-giudiziarie-sconti.netlify.app | 15/10/2026 | IT, chi cerca casa all'asta | Pubblicità, contatti mutuo (dopo la consulenza fiscale) | Avvio |
 
 Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE), BandiChiari.
 
@@ -119,6 +120,8 @@ Si riprendono solo quando la soglia è raggiunta. Prima vengono i libri KDP già
 | Dati scioperi per aziende (Italy Strikes "For businesses") | Abbonamento B2B | Italy Strikes ≥ 1.000 visite al mese o una richiesta vera dal modulo | Risposta del consulente fiscale |
 
 ## 8. Registro delle decisioni
+
+- 15/10/2026: online Aste in Chiaro (436 pagine, 3.090 case all'asta, 696 con confronto OMI), dopo una revisione indipendente che ha corretto tre errori di dati (garage presentati come case, zone sbagliate, metri quadri di una sola stanza). Design 8,7/10. Dati aggiornati ogni sera dalla routine serale, senza pubblicazioni Netlify.
 
 - 15/10/2026: online FloodCost (2.920 pagine, dati FEMA NFIP) e la sezione "Visa refusal rates" di Visa Income (104 pagine, dati UE e Regno Unito), tutte e due con revisione indipendente (design 8,5 e 8). Prossimi: passi alpini (test) e case all'asta.
 
