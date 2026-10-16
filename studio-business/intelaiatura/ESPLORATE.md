@@ -109,3 +109,25 @@ Legenda esiti: **FATTO** (sito o sezione online), **PASSA** (in lista per costru
 | Qualità dell'acqua di balneazione (UK, DE, UE) | NO (la domanda è "oggi"; app e portali ufficiali) | idee-2026-10-15 |
 | Eredità non reclamate Bona Vacantia (UK) | NO (gov.uk risponde già; nomi di persone morte) | idee-2026-10-15 |
 | Qualità e PFAS dell'acqua del rubinetto per Comune (FR) | NO (selectra.info già per Comune) | idee-2026-10-15 |
+
+## Mondo (caccia del 16/10/2026)
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **Prezzo della corrente per Comune (Strompreis pro Gemeinde, CH, dati ElCom)** | **PASSA** (voto 6; sito nuovo in DE/FR/IT; il sito ufficiale vieta l'indicizzazione) | idee-2026-10-16 |
+| Tasse comunali su acqua, fogne, rifiuti e imposta sulla casa per Comune (NO, SSB) | RISERVA (voto 5; dati SSB in ritardo di 6 mesi, smartepenger.no ha già la lista) | idee-2026-10-16 |
+| Risultati NCEA per scuola (NZ) | NO (NZQA non pubblica più i dati per scuola) | idee-2026-10-16 |
+| Liste d'attesa negli ospedali per ospedale e specialità (IE, NTPF) | NO (dati annuali, mai ospedale × specialità; tema sanitario) | idee-2026-10-16 |
+| Locali chiusi dall'FSAI (IE) | NO (10-15 ordini al mese, comunicato ufficiale ripreso dai giornali, nomi) | idee-2026-10-16 |
+| Registro "Name and Shame" delle multe alimentari (AU, NSW) | NO (registro ufficiale già indicizzato; nomi) | idee-2026-10-16 |
+| Voti di qualità degli asili nido NQS (AU) | NO (toddle.com.au automatico; pagine ACECQA) | idee-2026-10-16 |
+| Stelle delle case di riposo (AU, aged care) | NO (pagine ufficiali My Aged Care per ogni casa) | idee-2026-10-16 |
+| Tassa sul cane per città (DE, Hundesteuer) | NO (nessuna fonte unica: ~10.700 regolamenti) | idee-2026-10-16 |
+| Tassa sul cane per Comune (NL, hondenbelasting) | NO (CVDR: 98 regolamenti in testo libero; ogni Comune risponde già; vale poco) | idee-2026-10-16 |
+| Promossi per autoscuola (NL, CBR) | NO (motore ufficiale Rijschoolzoeker) | idee-2026-10-16 |
+| Promossi all'esame di guida per centro (AU Victoria, IE) | NO (VicRoads non pubblica; RSA e odo.ie già) | idee-2026-10-16 |
+| Dentisti che accettano il piano dentale CDCP (CA) | NO (solo motore Sun Life, nessun dato aperto) | idee-2026-10-16 |
+| Paghe minime per contratto, award rates (AU) | NO (fairworkmate.com.au automatico) | idee-2026-10-16 |
+| Tabelle Quellensteuer per cantone (CH) | NO (comparis, pfeffersack; calcolatore fiscale) | idee-2026-10-16 |
+| Aliquota kommunalskatt per Comune (SE) | NO (un numero per Comune; SCB, ekonomifakta) | idee-2026-10-16 |
+| Costo della rete elettrica, nettleie, per gestore (NO) | NO (ogni gestore risponde; bytt.no, strompris.no) | idee-2026-10-16 |
+| Tariffe dei parcheggi per città (NL, RDW) | NO (parkerenindestad.nl, centrumparkeren.nl, ANWB) | idee-2026-10-16 |
