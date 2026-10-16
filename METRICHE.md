@@ -45,6 +45,10 @@ Inviate 40 email: 5 agenzie "segnale" (Story Co, Informal, Mass FX Media, Social
 
 46 invii + 2 test: 4 follow-up 2 + 24 follow-up 1 Holiday Pack (invii del 9/10) + 18 nuovi (coda3, primi con link pulito in HTML). Test mail-tester 10/10, nessuna lista nera; trovato il link riscritto da Gmail (ERRORI 29), corretto. 0 rimbalzi, 0 risposte vere.
 
+## 16/10
+
+49 invii: 29 follow-up 1 Holiday Pack (invii del 12/10; saltata Karen di Social Behavior, casella cambiata) + 20 nuovi (coda3, con link pulito). 0 rimbalzi, 0 risposte vere. Bozza post LinkedIn pronta (formato errore e regola).
+
 ## Crediti
 
 | Data | Higgsfield (piano Ultra) | Apollo lead credit (ciclo 3/10-3/11) |
