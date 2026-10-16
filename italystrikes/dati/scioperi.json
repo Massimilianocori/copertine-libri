@@ -89,7 +89,7 @@
   "proclamazione": "2026-09-14",
   "ricezione": "14/09/2026",
   "note": "",
-  "stato": "in programma",
+  "stato": "concluso",
   "visto_prima": "2026-10-10",
   "visto_ultimo": "2026-10-15",
   "modifiche": []
@@ -110,7 +110,7 @@
   "note": "PROVINCE DI NAPOLI E SALERNO - ESCLUSI I TRASPORTI DA E PER LE ISOLE, LASSISTENZA AI PASSEGGERI, SICUREZZA DEGLI IMPIANTI, VIGILANZA E MANTENIMENTO IN FUNZIONE DEGLI IMPIANTI PER MERCI DEPERIBILI, ANIMALI VIVI E CONTROLLO MERCI PERICOLOSE",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8557": {
@@ -129,7 +129,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8574": {
@@ -148,7 +148,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8576": {
@@ -167,7 +167,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8577": {
@@ -206,7 +206,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8580": {
@@ -225,7 +225,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8599": {
@@ -244,7 +244,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8593": {
@@ -263,7 +263,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8600": {
@@ -282,7 +282,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8582": {
@@ -301,7 +301,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8595": {
@@ -320,7 +320,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8596": {
@@ -339,7 +339,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8587": {
@@ -358,7 +358,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8583": {
@@ -377,7 +377,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8597": {
@@ -396,7 +396,26 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
+  "modifiche": []
+ },
+ "8604": {
+  "id": "8604",
+  "inizio": "2026-10-29",
+  "fine": "2026-10-29",
+  "settore": "Aereo",
+  "rilevanza": "Interregionale",
+  "regione": "Italia",
+  "provincia": "Tutte",
+  "sindacati": "OSP/OSR FILCAMS-CGIL/UILT-UIL",
+  "categoria": "PERSONALE SOC. LA LUCENTE IMPIEGATO PRESSO IL SITO DELL'AEROPORTO DI BOLOGNA",
+  "modalita": "4 ORE: DALLE 12.00 ALLE 16.00",
+  "proclamazione": "2026-10-16",
+  "ricezione": "16/10/2026",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-10-16",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8453": {
@@ -415,7 +434,7 @@
   "note": "ESCLUSI SETTORI TRASPORTO AEREO, FERROVIARIO, TRASPORTO PUBBLICO LOCALE, MARITTIMO",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8590": {
@@ -434,7 +453,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8601": {
@@ -453,7 +472,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-13",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8548": {
@@ -472,7 +491,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8598": {
@@ -491,7 +510,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8602": {
@@ -510,7 +529,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-13",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8603": {
@@ -529,7 +548,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-14",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8592": {
@@ -548,7 +567,7 @@
   "note": "*PER TPL SOCC. FER. SUD EST, GTT, SAD, TRENTINO TRASP., FER. UDINE C., SIST. TERRITORIALI, TFT, FERROTRAMVIARIA, FER.ADR. SANGRITANA-TUA, EAV, FER. GARGANO, FER. CALABRIA",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8571": {
@@ -567,7 +586,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8579": {
@@ -586,7 +605,7 @@
   "note": "GARANTITI I VOLI DA E PER L'AEROPORTO DI BARI",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8588": {
@@ -605,7 +624,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8575": {
@@ -624,7 +643,7 @@
   "note": "ADESIONE OO.SS. AL-COBAS E LMO",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8594": {
@@ -643,7 +662,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-15",
+  "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
  "8586": {
