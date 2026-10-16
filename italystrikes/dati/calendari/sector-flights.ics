@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:mit-8557@italy-strikes-today.netlify.app
-DTSTAMP:20261016T095240Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
 SUMMARY:Strike: National air transport strike – easyJet cabin crew
@@ -24,7 +24,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8577@italy-strikes-today.netlify.app
-DTSTAMP:20261016T095240Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
 SUMMARY:Called off? Air transport strike – Toscana Aeroporti and ground h
@@ -43,7 +43,7 @@ STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8604@italy-strikes-today.netlify.app
-DTSTAMP:20261016T095240Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261029
 DTEND;VALUE=DATE:20261030
 SUMMARY:Strike: Air transport strike
@@ -59,24 +59,26 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8590@italy-strikes-today.netlify.app
-DTSTAMP:20261016T095240Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National general strike
-DESCRIPTION:Hours: Whole day\; rail: from 21:00 on 29 Oct to 20:59 on 30 Oc
- t\; motorways: from 22:00 on 29 Oct\nOriginal: INTERA GIORNATA - FERROVIAR
- IO: DALLE 21.00 DEL 29/10 ALLE 20.59 DEL 30/10\; AUTOSTRADE: DALLE 22.00 D
- EL 29/10\nWho: SCIOPERO GENERALE SETTORI PUBBLICI E PRIVATI\nWhere: Whole 
- of Italy\nStrikes can be called off or changed: always check with your ope
- rator.\nhttps://italy-strikes-today.netlify.app/flights/\nSource: MIT stri
- ke register (CC BY 4.0)\, id 8590
+DESCRIPTION:Hours: INTERA GIORNATA - AEREO: DALLE 00.00 ALLE 23.59\; FERROV
+ IARIO: DALLE 21.00 DEL 29/10 ALLE 20.59 DEL 30/10\; AUTOSTRADE: DALLE 22.0
+ 0 DEL 29/10: TAXI: DALLE 00.01 ALLE 23.59\nOriginal: INTERA GIORNATA - AER
+ EO: DALLE 00.00 ALLE 23.59\; FERROVIARIO: DALLE 21.00 DEL 29/10 ALLE 20.59
+  DEL 30/10\; AUTOSTRADE: DALLE 22.00 DEL 29/10: TAXI: DALLE 00.01 ALLE 23.
+ 59\nWho: SCIOPERO GENERALE SETTORI PUBBLICI E PRIVATI\nWhere: Whole of Ita
+ ly\nStrikes can be called off or changed: always check with your operator.
+ \nhttps://italy-strikes-today.netlify.app/flights/\nSource: MIT strike reg
+ ister (CC BY 4.0)\, id 8590
 URL:https://italy-strikes-today.netlify.app/flights/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8601@italy-strikes-today.netlify.app
-DTSTAMP:20261016T095240Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: Air transport strike – Toscana Aeroporti and ground handl
@@ -94,7 +96,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8548@italy-strikes-today.netlify.app
-DTSTAMP:20261016T095240Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261106
 DTEND;VALUE=DATE:20261107
 SUMMARY:Strike: Air transport strike – ENAV (air traffic control)
@@ -109,7 +111,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8571@italy-strikes-today.netlify.app
-DTSTAMP:20261016T095240Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National air transport strike – ENAV (air traffic control
@@ -125,7 +127,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8579@italy-strikes-today.netlify.app
-DTSTAMP:20261016T095240Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:Strike: Air transport strike – ENAV (air traffic control)
@@ -141,7 +143,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8588@italy-strikes-today.netlify.app
-DTSTAMP:20261016T095240Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:Strike: Air transport strike – Sicuritalia (airport security staf
@@ -158,7 +160,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8575@italy-strikes-today.netlify.app
-DTSTAMP:20261016T095240Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:Strike: National general strike
@@ -179,7 +181,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8594@italy-strikes-today.netlify.app
-DTSTAMP:20261016T095240Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261214
 DTEND;VALUE=DATE:20261215
 SUMMARY:Strike: Air transport strike – Aviation Services (airport ground 
@@ -190,6 +192,21 @@ DESCRIPTION:Hours: 24 hours: from 00:00 to 24:00\nOriginal: 24 ORE: DALLE 0
  Airports: Rome Fiumicino\, Ciampino\nStrikes can be called off or changed:
   always check with your operator.\nhttps://italy-strikes-today.netlify.app
  /flights/\nSource: MIT strike register (CC BY 4.0)\, id 8594
+URL:https://italy-strikes-today.netlify.app/flights/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:mit-8607@italy-strikes-today.netlify.app
+DTSTAMP:20261016T185037Z
+DTSTART;VALUE=DATE:20261215
+DTEND;VALUE=DATE:20261216
+SUMMARY:Strike: Air transport strike – ENAV (air traffic control)
+DESCRIPTION:Hours: 24 hours: from 00:00 to 24:00\nOriginal: 24 ORE: DALLE 0
+ 0.00 ALLE 24.00\nWho: ENAV (air traffic control) (PERSONALE SOC. ENAV APT 
+ BOLOGNA)\nWhere: Airport: Bologna Marconi\nStrikes can be called off or ch
+ anged: always check with your operator.\nhttps://italy-strikes-today.netli
+ fy.app/flights/\nSource: MIT strike register (CC BY 4.0)\, id 8607
 URL:https://italy-strikes-today.netlify.app/flights/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED

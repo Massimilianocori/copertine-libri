@@ -8,7 +8,7 @@
       <title>logoMit</title>
       <link>http://www.mit.gov.it</link>
     </image>
-    <pubDate>Fri, 16 Oct 2026 10:02:24 +0000</pubDate>
+    <pubDate>Fri, 16 Oct 2026 19:00:24 +0000</pubDate>
     <generator>Zend_Feed_Writer 2 (http://framework.zend.com)</generator>
     <link>http://www.mit.gov.it</link>
     <item>
@@ -149,7 +149,7 @@
     </item>
     <item>
       <title>Data inizio: 30/10/2026 - Settore: Generale - Rilevanza: Nazionale - Regione:  Italia - Provincia: Tutte</title>
-      <description><![CDATA[modalità: INTERA GIORNATA - FERROVIARIO: DALLE 21.00 DEL 29/10 ALLE 20.59 DEL 30/10; AUTOSTRADE:  DALLE 22.00 DEL 29/10<br/>Data fine: 30/10/2026<br/>Settore: Generale<br/>Rilevanza: Nazionale<br/>Regione:  Italia<br/>Provincia: Tutte<br/>Sindacati: USB<br/>Categoria interessata: SCIOPERO GENERALE SETTORI PUBBLICI E PRIVATI<br/>Data proclamazione: 06/10/2026<br/>Data ricezione: 06/10/2026]]></description>
+      <description><![CDATA[modalità: INTERA GIORNATA - AEREO: DALLE 00.00 ALLE 23.59; FERROVIARIO: DALLE 21.00 DEL 29/10 ALLE 20.59 DEL 30/10; AUTOSTRADE: DALLE 22.00 DEL 29/10: TAXI: DALLE 00.01 ALLE 23.59<br/>Data fine: 30/10/2026<br/>Settore: Generale<br/>Rilevanza: Nazionale<br/>Regione:  Italia<br/>Provincia: Tutte<br/>Sindacati: USB<br/>Categoria interessata: SCIOPERO GENERALE SETTORI PUBBLICI E PRIVATI<br/>Data proclamazione: 06/10/2026<br/>Data ricezione: 06/10/2026]]></description>
       <pubDate>Thu, 29 Oct 2026 23:00:00 +0000</pubDate>
       <link>http://scioperi.mit.gov.it</link>
       <guid>http://scioperi.mit.gov.it/8590</guid>
@@ -164,11 +164,27 @@
       <slash:comments>0</slash:comments>
     </item>
     <item>
+      <title>Data inizio: 30/10/2026 - Settore: Marittimo - Rilevanza: Nazionale - Regione:  Italia - Provincia: Tutte</title>
+      <description><![CDATA[modalità: 24 ORE<br/>Data fine: 30/10/2026<br/>Settore: Marittimo<br/>Rilevanza: Nazionale<br/>Regione:  Italia<br/>Provincia: Tutte<br/>Sindacati: USB LAVORO PRIVATO<br/>Categoria interessata: LAVORATORI SETTORE PORTUALE ( IMPRESE EX ART. 16, 17, 18 L. 84/94, ADSP E SOCIETA' CHE APPLICANO CCNL PORTI )<br/>Data proclamazione: 16/10/2026<br/>Data ricezione: 16/10/2026]]></description>
+      <pubDate>Thu, 29 Oct 2026 23:00:00 +0000</pubDate>
+      <link>http://scioperi.mit.gov.it</link>
+      <guid>http://scioperi.mit.gov.it/8606</guid>
+      <slash:comments>0</slash:comments>
+    </item>
+    <item>
       <title>Data inizio: 06/11/2026 - Settore: Aereo - Rilevanza: Interregionale - Regione:  Italia - Provincia: Tutte</title>
       <description><![CDATA[modalità: 4 ORE: DALLE 13.00 ALLE 17.00<br/>Data fine: 06/11/2026<br/>Settore: Aereo<br/>Rilevanza: Interregionale<br/>Regione:  Italia<br/>Provincia: Tutte<br/>Sindacati: RSA FAST-CONFSAL-AV<br/>Categoria interessata: PERSONALE SOC. ENAV APT BARI<br/>Data proclamazione: 07/09/2026<br/>Data ricezione: 07/09/2026]]></description>
       <pubDate>Thu, 05 Nov 2026 23:00:00 +0000</pubDate>
       <link>http://scioperi.mit.gov.it</link>
       <guid>http://scioperi.mit.gov.it/8548</guid>
+      <slash:comments>0</slash:comments>
+    </item>
+    <item>
+      <title>Data inizio: 10/11/2026 - Settore: Trasporto merci - Rilevanza: Nazionale - Regione:  Italia - Provincia: Tutte</title>
+      <description><![CDATA[modalità: 8 ORE: DALLE 21.00 DEL 10/11 ALLE 04.59 DELL'11/11<br/>Data fine: 11/11/2026<br/>Settore: Trasporto merci<br/>Rilevanza: Nazionale<br/>Regione:  Italia<br/>Provincia: Tutte<br/>Sindacati: OSR FILT-CGIL<br/>Categoria interessata: PERSONALE SOC. SBB CARGO ITALIA<br/>Data proclamazione: 16/10/2026<br/>Data ricezione: 16/10/2026]]></description>
+      <pubDate>Mon, 09 Nov 2026 23:00:00 +0000</pubDate>
+      <link>http://scioperi.mit.gov.it</link>
+      <guid>http://scioperi.mit.gov.it/8608</guid>
       <slash:comments>0</slash:comments>
     </item>
     <item>
@@ -185,6 +201,14 @@
       <pubDate>Thu, 12 Nov 2026 23:00:00 +0000</pubDate>
       <link>http://scioperi.mit.gov.it</link>
       <guid>http://scioperi.mit.gov.it/8602</guid>
+      <slash:comments>0</slash:comments>
+    </item>
+    <item>
+      <title>Data inizio: 14/11/2026 - Settore: Trasporto pubblico locale - Rilevanza: Locale - Regione: Puglia - Provincia: Bari</title>
+      <description><![CDATA[modalità: 24 ORE: DALLE 00.00 ALLE 24.00<br/>Data fine: 14/11/2026<br/>Settore: Trasporto pubblico locale<br/>Rilevanza: Locale<br/>Regione: Puglia<br/>Provincia: Bari<br/>Sindacati: OST FILT-CGIL/FIT-CISL/UILT-UIL/UGL AUTOFERRO<br/>Categoria interessata: PERSONALE SOC AMTAB DI BARI<br/>Data proclamazione: 16/10/2026<br/>Data ricezione: 16/10/2026]]></description>
+      <pubDate>Fri, 13 Nov 2026 23:00:00 +0000</pubDate>
+      <link>http://scioperi.mit.gov.it</link>
+      <guid>http://scioperi.mit.gov.it/8605</guid>
       <slash:comments>0</slash:comments>
     </item>
     <item>
@@ -241,6 +265,14 @@
       <pubDate>Sun, 13 Dec 2026 23:00:00 +0000</pubDate>
       <link>http://scioperi.mit.gov.it</link>
       <guid>http://scioperi.mit.gov.it/8594</guid>
+      <slash:comments>0</slash:comments>
+    </item>
+    <item>
+      <title>Data inizio: 15/12/2026 - Settore: Aereo - Rilevanza: Interregionale - Regione: Emilia-Romagna - Provincia:  Tutte</title>
+      <description><![CDATA[modalità: 24 ORE: DALLE 00.00 ALLE 24.00<br/>Data fine: 15/12/2026<br/>Settore: Aereo<br/>Rilevanza: Interregionale<br/>Regione: Emilia-Romagna<br/>Provincia:  Tutte<br/>Sindacati: RSA UILT-UIL<br/>Categoria interessata: PERSONALE SOC. ENAV APT BOLOGNA<br/>Data proclamazione: 16/10/2026<br/>Data ricezione: 16/10/2026]]></description>
+      <pubDate>Mon, 14 Dec 2026 23:00:00 +0000</pubDate>
+      <link>http://scioperi.mit.gov.it</link>
+      <guid>http://scioperi.mit.gov.it/8607</guid>
       <slash:comments>0</slash:comments>
     </item>
   </channel>

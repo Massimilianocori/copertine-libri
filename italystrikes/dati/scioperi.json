@@ -447,14 +447,24 @@
   "provincia": "Tutte",
   "sindacati": "USB",
   "categoria": "SCIOPERO GENERALE SETTORI PUBBLICI E PRIVATI",
-  "modalita": "INTERA GIORNATA - FERROVIARIO: DALLE 21.00 DEL 29/10 ALLE 20.59 DEL 30/10; AUTOSTRADE: DALLE 22.00 DEL 29/10",
+  "modalita": "INTERA GIORNATA - AEREO: DALLE 00.00 ALLE 23.59; FERROVIARIO: DALLE 21.00 DEL 29/10 ALLE 20.59 DEL 30/10; AUTOSTRADE: DALLE 22.00 DEL 29/10: TAXI: DALLE 00.01 ALLE 23.59",
   "proclamazione": "2026-10-06",
   "ricezione": "06/10/2026",
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
   "visto_ultimo": "2026-10-16",
-  "modifiche": []
+  "modifiche": [
+   {
+    "il": "2026-10-16",
+    "campi": {
+     "modalita": [
+      "INTERA GIORNATA - FERROVIARIO: DALLE 21.00 DEL 29/10 ALLE 20.59 DEL 30/10; AUTOSTRADE: DALLE 22.00 DEL 29/10",
+      "INTERA GIORNATA - AEREO: DALLE 00.00 ALLE 23.59; FERROVIARIO: DALLE 21.00 DEL 29/10 ALLE 20.59 DEL 30/10; AUTOSTRADE: DALLE 22.00 DEL 29/10: TAXI: DALLE 00.01 ALLE 23.59"
+     ]
+    }
+   }
+  ]
  },
  "8601": {
   "id": "8601",
@@ -475,6 +485,25 @@
   "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
+ "8606": {
+  "id": "8606",
+  "inizio": "2026-10-30",
+  "fine": "2026-10-30",
+  "settore": "Marittimo",
+  "rilevanza": "Nazionale",
+  "regione": "Italia",
+  "provincia": "Tutte",
+  "sindacati": "USB LAVORO PRIVATO",
+  "categoria": "LAVORATORI SETTORE PORTUALE ( IMPRESE EX ART. 16, 17, 18 L. 84/94, ADSP E SOCIETA' CHE APPLICANO CCNL PORTI )",
+  "modalita": "24 ORE",
+  "proclamazione": "2026-10-16",
+  "ricezione": "16/10/2026",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-10-16",
+  "visto_ultimo": "2026-10-16",
+  "modifiche": []
+ },
  "8548": {
   "id": "8548",
   "inizio": "2026-11-06",
@@ -491,6 +520,25 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
+  "visto_ultimo": "2026-10-16",
+  "modifiche": []
+ },
+ "8608": {
+  "id": "8608",
+  "inizio": "2026-11-10",
+  "fine": "2026-11-11",
+  "settore": "Trasporto merci",
+  "rilevanza": "Nazionale",
+  "regione": "Italia",
+  "provincia": "Tutte",
+  "sindacati": "OSR FILT-CGIL",
+  "categoria": "PERSONALE SOC. SBB CARGO ITALIA",
+  "modalita": "8 ORE: DALLE 21.00 DEL 10/11 ALLE 04.59 DELL'11/11",
+  "proclamazione": "2026-10-16",
+  "ricezione": "16/10/2026",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-10-16",
   "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
@@ -529,6 +577,25 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-13",
+  "visto_ultimo": "2026-10-16",
+  "modifiche": []
+ },
+ "8605": {
+  "id": "8605",
+  "inizio": "2026-11-14",
+  "fine": "2026-11-14",
+  "settore": "Trasporto pubblico locale",
+  "rilevanza": "Locale",
+  "regione": "Puglia",
+  "provincia": "Bari",
+  "sindacati": "OST FILT-CGIL/FIT-CISL/UILT-UIL/UGL AUTOFERRO",
+  "categoria": "PERSONALE SOC AMTAB DI BARI",
+  "modalita": "24 ORE: DALLE 00.00 ALLE 24.00",
+  "proclamazione": "2026-10-16",
+  "ricezione": "16/10/2026",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-10-16",
   "visto_ultimo": "2026-10-16",
   "modifiche": []
  },
@@ -662,6 +729,25 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
+  "visto_ultimo": "2026-10-16",
+  "modifiche": []
+ },
+ "8607": {
+  "id": "8607",
+  "inizio": "2026-12-15",
+  "fine": "2026-12-15",
+  "settore": "Aereo",
+  "rilevanza": "Interregionale",
+  "regione": "Emilia-Romagna",
+  "provincia": "Tutte",
+  "sindacati": "RSA UILT-UIL",
+  "categoria": "PERSONALE SOC. ENAV APT BOLOGNA",
+  "modalita": "24 ORE: DALLE 00.00 ALLE 24.00",
+  "proclamazione": "2026-10-16",
+  "ricezione": "16/10/2026",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-10-16",
   "visto_ultimo": "2026-10-16",
   "modifiche": []
  },

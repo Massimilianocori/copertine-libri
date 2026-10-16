@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:mit-8565@italy-strikes-today.netlify.app
-DTSTAMP:20261013T124404Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
 SUMMARY:Strike: Florence: local public transport strike – GEST (Florence 
@@ -25,7 +25,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8567@italy-strikes-today.netlify.app
-DTSTAMP:20261013T124404Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261014
 DTEND;VALUE=DATE:20261015
 SUMMARY:Strike: Tuscany: general strike
@@ -46,7 +46,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8557@italy-strikes-today.netlify.app
-DTSTAMP:20261013T124404Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
 SUMMARY:Strike: National air transport strike – easyJet cabin crew
@@ -61,7 +61,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8577@italy-strikes-today.netlify.app
-DTSTAMP:20261013T124404Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
 SUMMARY:Called off? Air transport strike – Toscana Aeroporti and ground h
@@ -79,25 +79,42 @@ TRANSP:TRANSPARENT
 STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
+UID:mit-8606@italy-strikes-today.netlify.app
+DTSTAMP:20261016T185037Z
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:Strike: National ferry and port strike
+DESCRIPTION:Hours: 24 hours\nOriginal: 24 ORE\nWho: LAVORATORI SETTORE PORT
+ UALE ( IMPRESE EX ART. 16\, 17\, 18 L. 84/94\, ADSP E SOCIETA' CHE APPLICA
+ NO CCNL PORTI )\nWhere: Whole of Italy\nStrikes can be called off or chang
+ ed: always check with your operator.\nhttps://italy-strikes-today.netlify.
+ app/florence/\nSource: MIT strike register (CC BY 4.0)\, id 8606
+URL:https://italy-strikes-today.netlify.app/florence/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:mit-8590@italy-strikes-today.netlify.app
-DTSTAMP:20261013T124404Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National general strike
-DESCRIPTION:Hours: Whole day\; rail: from 21:00 on 29 Oct to 20:59 on 30 Oc
- t\; motorways: from 22:00 on 29 Oct\nOriginal: INTERA GIORNATA - FERROVIAR
- IO: DALLE 21.00 DEL 29/10 ALLE 20.59 DEL 30/10\; AUTOSTRADE: DALLE 22.00 D
- EL 29/10\nWho: SCIOPERO GENERALE SETTORI PUBBLICI E PRIVATI\nWhere: Whole 
- of Italy\nStrikes can be called off or changed: always check with your ope
- rator.\nhttps://italy-strikes-today.netlify.app/florence/\nSource: MIT str
- ike register (CC BY 4.0)\, id 8590
+DESCRIPTION:Hours: INTERA GIORNATA - AEREO: DALLE 00.00 ALLE 23.59\; FERROV
+ IARIO: DALLE 21.00 DEL 29/10 ALLE 20.59 DEL 30/10\; AUTOSTRADE: DALLE 22.0
+ 0 DEL 29/10: TAXI: DALLE 00.01 ALLE 23.59\nOriginal: INTERA GIORNATA - AER
+ EO: DALLE 00.00 ALLE 23.59\; FERROVIARIO: DALLE 21.00 DEL 29/10 ALLE 20.59
+  DEL 30/10\; AUTOSTRADE: DALLE 22.00 DEL 29/10: TAXI: DALLE 00.01 ALLE 23.
+ 59\nWho: SCIOPERO GENERALE SETTORI PUBBLICI E PRIVATI\nWhere: Whole of Ita
+ ly\nStrikes can be called off or changed: always check with your operator.
+ \nhttps://italy-strikes-today.netlify.app/florence/\nSource: MIT strike re
+ gister (CC BY 4.0)\, id 8590
 URL:https://italy-strikes-today.netlify.app/florence/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8601@italy-strikes-today.netlify.app
-DTSTAMP:20261013T124404Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: Air transport strike – Toscana Aeroporti and ground handl
@@ -115,7 +132,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8592@italy-strikes-today.netlify.app
-DTSTAMP:20261013T124404Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National multi-sector strike
@@ -134,7 +151,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8571@italy-strikes-today.netlify.app
-DTSTAMP:20261013T124404Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National air transport strike – ENAV (air traffic control
@@ -150,7 +167,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8575@italy-strikes-today.netlify.app
-DTSTAMP:20261013T124404Z
+DTSTAMP:20261016T185037Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:Strike: National general strike
