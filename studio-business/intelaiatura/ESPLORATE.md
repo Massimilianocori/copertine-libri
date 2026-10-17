@@ -131,3 +131,37 @@ Legenda esiti: **FATTO** (sito o sezione online), **PASSA** (in lista per costru
 | Aliquota kommunalskatt per Comune (SE) | NO (un numero per Comune; SCB, ekonomifakta) | idee-2026-10-16 |
 | Costo della rete elettrica, nettleie, per gestore (NO) | NO (ogni gestore risponde; bytt.no, strompris.no) | idee-2026-10-16 |
 | Tariffe dei parcheggi per città (NL, RDW) | NO (parkerenindestad.nl, centrumparkeren.nl, ANWB) | idee-2026-10-16 |
+
+## Ricerca profonda (17/10/2026): idee grandi
+Domanda di Massimiliano: "esistono idee da 8 o 9?". Esito: **no, dentro i vincoli di oggi** (miglior voto 7-7,5: famiglia "requisiti d'ingresso per passaporto"; la fonte USA è chiusa dal nostro server). Prove e dossier in `idee-grandi-2026-10-17.md`. Nessuna riga aggiunta al cruscotto (solo le idee ≥ 8 ci entrano).
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **Passaporto canadese × 230 destinazioni** (validità, visto, ETA, calcolatore; travel.gc.ca, OGL Canada) | **PASSA** (voto 7) come sezione di Before You Fly | idee-grandi-2026-10-17 |
+| **Passaporto americano** (travel.state.gov, pubblico dominio) | **TEST** da GitHub Actions: 403 dal nostro server; 8 condizionato se leggibile | idee-grandi-2026-10-17 |
+| Passaporto australiano (smartraveller) | TEST con quello americano: connessione chiusa dal server | idee-grandi-2026-10-17 |
+| Passaporto tedesco (API open data Auswärtiges Amt, 202 Paesi) | RISERVA (voto 6): licenza "solo ripresa integrale" contro colophon "solo link" | idee-grandi-2026-10-17 |
+| Passaporto francese (diplomatie.gouv.fr, Licence Ouverte 2.0) | RISERVA (voto 6): testo in prosa, pubblicità FR bassa | idee-grandi-2026-10-17 |
+| Passaporto neozelandese, irlandese | solo aggiunte (NZ licenza ambigua, IE in JavaScript) | idee-grandi-2026-10-17 |
+| Passaporto indiano | NO (nessuna fonte ufficiale, pubblico che vale poco) | idee-grandi-2026-10-17 |
+| **Liquidi per aeroporto in DE/ES/FR/IT** (dentro Before You Fly) | **PASSA** (voto 6,5): domanda per aeroporto in 4 lingue, notizie contraddittorie | idee-grandi-2026-10-17 |
+| Liquidi per aeroporto USA/Canada (JFK, LAX, ATL, Toronto…) | aggiunta rapida (voto 6): regola unica TSA/CATSA | idee-grandi-2026-10-17 |
+| TSA "What can I bring" per oggetto | NO (tsa.gov risponde già; 403 dal server) | idee-grandi-2026-10-17 |
+| **Regole power bank per compagnia aerea** (norma ICAO 27/3/2026) | **PASSA** (voto 6,5) come sezione di Before You Fly | idee-grandi-2026-10-17 |
+| Tempo minimo di coincidenza per aeroporto | NO (nessuna fonte ufficiale: dati OAG/compagnie; forum) | idee-grandi-2026-10-17 |
+| ETIAS per nazionalità (2027) | solo pagine dentro la sezione passaporti (voto 5,5: nessuna data, muro di concorrenti) | idee-grandi-2026-10-17 |
+| SELT B1/B2 UK per città (B2 dal 26/3/2027) | RISERVA confermata (voto 6) | 4, idee-grandi-2026-10-17 |
+| **Einbürgerungstest e DTZ per città (DE)** | RISERVA alta (voto 7): modello EsameB1 provato, 333k naturalizzazioni; date su 600+ VHS; sito nuovo oltre il tetto | 4, idee-grandi-2026-10-17 |
+| Sales tax holidays per Stato (USA) | NO (voto 5: Stati e giornali rispondono) | idee-grandi-2026-10-17 |
+| Prezzi degli ospedali per ospedale (CMS) | NO (mycarecost, treatcompare; 6.000 file; sanità) | idee-grandi-2026-10-17 |
+| Case di riposo Care Compare, richiami FDA, acqua per CAP (EPA) | NO (Medicare.gov, fda.gov, EWG) | idee-grandi-2026-10-17 |
+| Ispezioni ristoranti per contea; ispezioni asili per Stato | NO (migliaia/50 fonti; nomi) | idee-grandi-2026-10-17 |
+| Aeroporti/compagnie più in ritardo (BTS) | NO (classifica annuale dei giornali) | idee-grandi-2026-10-17 |
+| Fluoro nell'acqua per città (CDC) | RISERVA debole (cdc.gov bloccato; sanità) | idee-grandi-2026-10-17 |
+| "Can I bring food/medication into [Paese]" | NO (autocomplete di stadi e parchi; tema medico) | idee-grandi-2026-10-17 |
+| Volare in gravidanza per compagnia | RISERVA debole (4,5; tema medico) | idee-grandi-2026-10-17 |
+| Costi ufficiali e-visa/ETA per nazionalità | solo colonna nelle pagine passaporto (5,5) | idee-grandi-2026-10-17 |
+| Visti di transito per aeroporto | NO (pubblico a bassa pubblicità; governi primi) | idee-grandi-2026-10-17 |
+| **Affiliazioni ad alta resa sui siti online** (LendingTree 35 $/modulo, Lemonade 15 $/lead, Wise 10 £, Preply/italki 10-15 $, PhotoAiD 15 %) | **PASSA** (voto 7 come "soldi prima"): servono le iscrizioni di Massimiliano | idee-grandi-2026-10-17 |
+| Widget incorporabili; newsletter automatica "regole cambiate" | leve di distribuzione e lista (5), non ricavi | idee-grandi-2026-10-17 |
+| Dataset/API Apify; controllo foto passaporto; scioperi ferroviari UK | NO o dopo il fiscale (4-5) | idee-grandi-2026-10-17 |
+| Contatti (lead) assicurazioni alluvione / mutui / scuole | **dopo il consulente fiscale**: unico modello da 10k+ (stime in sez. 4) | idee-grandi-2026-10-17 |
