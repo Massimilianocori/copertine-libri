@@ -50,8 +50,8 @@ def browser(urls):
   const b = await chromium.launch({ executablePath: %s, proxy: proxy ? { server: proxy } : undefined });
   const ctx = await b.newContext({ locale: 'en-GB', userAgent: %s }); const out = {};
   for (const u of %s) { const p = await ctx.newPage();
-    for (let t = 0; t < 2; t++) {  // secondo tentativo se la pagina torna vuota
-      try { const r = await p.goto(u, { waitUntil: 'domcontentloaded', timeout: 45000 }); await p.waitForTimeout(6000);
+    for (let t = 0; t < 3; t++) {  // altri tentativi se la pagina torna vuota o con il solo controllo anti-robot (Atene, Schiphol)
+      try { const r = await p.goto(u, { waitUntil: 'domcontentloaded', timeout: 45000 }); await p.waitForTimeout(6000 + 3000 * t);
         out[u] = [r ? r.status() : 0, await p.evaluate(() => document.body ? document.body.innerText : '')]; }
       catch (e) { out[u] = [0, '']; }
       if (out[u][1].length > 500) break; }
@@ -60,7 +60,7 @@ def browser(urls):
     with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as fh:
         fh.write(js)
     try:
-        r = subprocess.run(["node", fh.name], capture_output=True, text=True, timeout=60 * len(urls) + 60)
+        r = subprocess.run(["node", fh.name], capture_output=True, text=True, timeout=90 * len(urls) + 60)
         return {u: (s, norm(t)) for u, (s, t) in json.loads(r.stdout).items()}
     except Exception:  # noqa: BLE001
         return {}

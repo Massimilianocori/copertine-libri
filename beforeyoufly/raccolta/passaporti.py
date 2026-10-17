@@ -15,6 +15,11 @@ Regola di prudenza: la regola viene trasformata in un calcolo SOLO quando la fra
 a uno degli schemi qui sotto. In tutti gli altri casi (stato "manuale") il sito mostra la frase ufficiale tra virgolette
 e il calcolatore dice di leggerla: nessuna interpretazione.
 
+Visti: dalla stessa pagina "Entry requirements" si salva, parola per parola, la sezione "Visa requirements" (campo "visto").
+Il riassunto di una riga ("visto.sintesi") esiste SOLO se la prima frase corrisponde per intero a uno degli SCHEMI_VISTO e non contiene
+parole di dubbio; per "senza visto" la sezione non deve parlare di autorizzazioni di viaggio, tasse d'ingresso o tessere turistiche.
+Altrimenti sintesi = None e il sito mostra solo la citazione.
+
 Se meno di 200 pagine vengono lette correttamente, il file dati/passaporti.json NON viene sovrascritto (esce con 1).
 Le differenze di testo rispetto al file precedente vengono aggiunte a dati/passaporti_cambi.json (storico dei cambi).
 """
@@ -279,6 +284,139 @@ def _classifica(blocchi):
             "consiglio": consiglio(principale), "frase": principale}, None, avvisi, pagine
 
 
+# ------------------------------------------------------------------ visti (sezione "Visa requirements")
+# Stessa prudenza della validità: il riassunto di una riga esiste SOLO se la prima frase della sezione corrisponde
+# per intero a uno degli schemi qui sotto e nessuna parola di dubbio compare. Altrimenti: solo la citazione e il link.
+def sezione_visti(body):
+    """Blocchi della sezione 'Visa requirements' (dal titolo h2 con 'visa' fino al titolo h2 successivo)."""
+    p = Blocchi()
+    p.feed(body)
+    bb = p.blocchi
+    idx = [i for i, b in enumerate(bb) if b["t"] == "h2" and "visa" in b["x"].lower()]
+    if not idx:
+        return None, []
+    out = []
+    for b in bb[idx[0] + 1:]:
+        if b["t"] == "h2":
+            break
+        out.append(b)
+    return bb[idx[0]]["x"], out
+
+
+V_NUM = r"(?P<n>\d+|one)"
+V_UNI = r"(?P<u>days?|months?|years?)"
+V_PER = r"(?P<per> in any \d+-(?:day|month) period| in a \d+-(?:day|month) period| within a \d+-(?:day|month) period| in a year)?"
+V_PUR = r"(?P<pur>,? for (?:tourism or business|business or tourism|tourism|business)|,? as a tourist)?"
+V_X = r"(?P<x>(?:the )?[A-Z][^,.]*?)"
+SCHEMI_VISTO = [  # (nome dello schema, regex sulla prima frase intera, tipo)
+    ("schengen", re.compile(r"^You can travel (?:without a visa )?to the Schengen area(?:, which includes " + V_X + r",| and " + V_X.replace("x>", "x2>") + r")"
+                            r" for up to (?P<n>90) (?P<u>days) in any 180-day period(?: without a visa)?\.$"), "libero"),
+    ("senza_visto_durata", re.compile(r"^You can (?:visit|travel to|enter) " + V_X + r"(?: as a visitor)? without a visa(?P<pur0> for (?:tourism or business|business or tourism|tourism))? for (?P<upto>up to )?"
+                                      + V_NUM + " " + V_UNI + V_PER + V_PUR + r"\.$"), "libero"),
+    ("senza_visto_durata", re.compile(r"^You can (?:visit|enter) " + V_X + r"(?: as a visitor)?(?P<pur0> for tourism)? for (?P<upto>up to )?" + V_NUM + " " + V_UNI
+                                      + r" without a visa" + V_PER + V_PUR + r"\.$"), "libero"),
+    ("senza_visto_durata", re.compile(r"^You can travel without a visa to " + V_X + r" for (?P<upto>up to )?" + V_NUM + " " + V_UNI + V_PER + V_PUR + r"\.$"), "libero"),
+    ("senza_visto_durata", re.compile(r"^You do not need a visa to visit " + V_X + r" for (?P<upto>up to )?" + V_NUM + " " + V_UNI + V_PER
+                                      + r"(?P<pur>, if visiting for tourism)?\.$"), "libero"),
+    ("senza_visto", re.compile(r"^You do not need a visa to visit " + V_X + r"\.$"), "libero"),
+    ("senza_visto", re.compile(r"^You can visit " + V_X + r" without a visa\.$"), "libero"),
+    ("visto_richiesto", re.compile(r"^You must (?:have|get) a visa to (?P<v>visit|enter|enter or travel through|travel to) " + V_X
+                                   + r"(?P<pur>(?: as a visitor| for tourism| for tourism or business)?)\.$"), "visto"),
+    ("visto_richiesto", re.compile(r"^You (?:will )?need a visa to (?P<v>visit|enter) " + V_X + r"(?P<anticipo> and you must apply in advance)?\.$"), "visto"),
+    ("visto_richiesto", re.compile(r"^You must apply for a visa to (?P<v>enter) " + V_X + r"\.$"), "visto"),
+    ("visto_prima", re.compile(r"^You must get a visa before you travel\.$"), "visto"),
+]
+# parole che rendono la frase non inequivocabile (nella prima frase, o nel resto del primo paragrafo per le ultime)
+DUBBIO_VISTO = re.compile(r"usually|normally|until|from \d|discretion|however|unless|except|if you|announced|\bmay\b|might|check|\bmost\b|either|per island", re.I)
+DUBBIO_PARAGRAFO = re.compile(r"\bhowever\b|\bbut\b|\bunless\b|\bexcept\b", re.I)
+# per dire "senza visto": nessuna autorizzazione di viaggio, tassa d'ingresso o tessera turistica in tutta la sezione
+AUTORIZZAZIONE = re.compile(r"\b(?:ETA|eTA|ESTA|NZeTA|ETIAS|K-ETA)\b")
+AUTORIZZAZIONE_I = re.compile(r"travel authori[sz]ation|electronic travel|entry fee|administration fee|tourist card|pre-arranged"
+                               r"|embarkation card|approval to travel|e-travel|form online before", re.I)
+# per dire "serve un visto": se il "visto" è un'autorizzazione elettronica (ETA, eVisitor) il riassunto farebbe pensare a un visto
+# consolare. Niente riassunto: si cita il testo (la parte "Applying for ..." è visibile sulla pagina).
+VISTO_ELETTRONICO = re.compile(r"\b(?:ETA|eTA|ESTA|NZeTA|ETIAS|K-ETA)\b|eVisitor|electronic visitor visa|electronic travel authori[sz]ation", re.I)
+# durata del soggiorno senza visto: se la prima frase non la dice, il riassunto rimanda al testo FCDO
+SENZA_DURATA = " (the FCDO text says how long you can stay)"
+ALIAS_VISTO = {"british-virgin-islands": ["the BVI"], "democratic-republic-of-the-congo": ["DRC"], "congo": ["the Republic of Congo"],
+               "myanmar": ["Myanmar"], "st-pierre-and-miquelon": ["St Pierre and Miquelon"]}
+
+
+def _app(s):
+    return re.sub(r"[‘’']", "'", s).strip().lower()
+
+
+def nome_ok(x, nome, slug):
+    """La frase parla proprio del paese della pagina (non di un altro: es. la pagina Palestina cita Israele)."""
+    if x is None:
+        return False
+    cand = [nome] + ALIAS_VISTO.get(slug, [])
+    xx = _app(x)
+    xx = xx[4:] if xx.startswith("the ") else xx
+    return any(xx == (_app(c)[4:] if _app(c).startswith("the ") else _app(c)) for c in cand)
+
+
+def sintesi_visto(blocchi, nome, slug):
+    """Ritorna (schema, sintesi, frase, motivo). sintesi/schema None se la frase non è inequivocabile."""
+    if not blocchi:
+        return None, None, None, "The FCDO entry requirements page has no 'Visa requirements' section."
+    if blocchi[0]["t"] == "h3":
+        return None, None, None, "The FCDO text gives different rules for different territories."
+    primo = blocchi[0]["x"]
+    ff = frasi(primo)
+    frase = ff[0] if ff else primo
+    resto = " ".join(ff[1:])
+    piano = re.sub(r"[‘’]", "'", frase)
+    if DUBBIO_VISTO.search(piano):
+        return None, None, frase, "The first FCDO sentence has conditions we do not summarise."
+    if DUBBIO_PARAGRAFO.search(resto):
+        return None, None, frase, "The FCDO paragraph adds a condition we do not summarise."
+    lead = []
+    for b in blocchi:
+        if b["t"] == "h3":
+            break
+        lead.append(b["x"])
+    tutto = " ".join(b["x"] for b in blocchi)
+    for nome_schema, rx, tipo in SCHEMI_VISTO:
+        m = rx.match(piano)
+        if not m:
+            continue
+        g = m.groupdict()
+        if nome_schema != "visto_prima" and not nome_ok(g.get("x") or g.get("x2"), nome, slug):
+            return None, None, frase, "The first FCDO sentence is not about this destination."
+        if tipo == "libero" and (AUTORIZZAZIONE.search(tutto) or AUTORIZZAZIONE_I.search(tutto)):
+            return None, None, frase, "The FCDO text also mentions a travel authorisation, fee, card or online form: read it in full."
+        if tipo == "visto" and VISTO_ELETTRONICO.search(tutto):
+            return None, None, frase, "The FCDO text describes an electronic visa or travel authorisation (ETA): read it in full."
+        # "This applies if you travel:" (turismo, famiglia, affari...) alla fine del primo paragrafo: il riassunto lo dice
+        motivi = " (for the reasons listed in the FCDO text)" if resto.strip().endswith("This applies if you travel:") else ""
+        if resto.strip() and resto.strip() != "This applies if you travel:" and nome_schema in ("schengen",):
+            return None, None, frase, "The FCDO paragraph adds conditions we do not summarise."
+        sog = g.get("x") or g.get("x2") or nome  # il paese come lo scrive la frase FCDO
+        if nome_schema == "schengen":
+            incl = sog
+            s = (f"You can visit the Schengen area ({'including' if g.get('x') else 'and'} {incl}) without a visa for up to 90 days in any 180-day period"
+                 + (", for the reasons listed in the FCDO text" if motivi else ""))
+        elif nome_schema == "senza_visto_durata":
+            pur = ((g.get("pur0") or "") + (g.get("pur") or "")).replace(", if visiting for tourism", " for tourism")
+            pur = re.sub(r"^,", "", pur)
+            s = f"You can visit {sog} without a visa for {g.get('upto') or ''}{g['n']} {g['u']}{g.get('per') or ''}{pur}{motivi}"
+        elif nome_schema == "senza_visto":
+            s = f"You can visit {sog} without a visa{SENZA_DURATA}"
+        elif nome_schema == "visto_richiesto":
+            s = f"You need a visa to {g['v']} {sog}" + (g.get("pur") or "") + (" and you must apply in advance" if g.get("anticipo") else "")
+        else:
+            s = f"You need a visa before you travel to {nome}"
+        return nome_schema, s, frase, None
+    return None, None, frase, "The first FCDO sentence does not match a pattern we summarise."
+
+
+def leggi_visti(slug, nome, ent_body):
+    titolo, blocchi = sezione_visti(ent_body) if ent_body else (None, [])
+    schema, sintesi, frase, motivo = sintesi_visto(blocchi, nome, slug)
+    return {"titolo_sezione": titolo, "testo": blocchi, "frase": frase, "schema": schema, "sintesi": sintesi, "motivo": motivo}
+
+
 def solo_data(ts):
     """Data come la mostra GOV.UK (ora del Regno Unito)."""
     return datetime.fromisoformat(ts.replace("Z", "+00:00")).astimezone(LONDRA).date().isoformat()
@@ -289,6 +427,7 @@ def leggi_paese(slug, j):
     nome = det.get("country", {}).get("name") or j["title"].replace(" travel advice", "")
     ent = [p for p in det.get("parts", []) if p["slug"] == "entry-requirements"]
     titolo, blocchi = sezione(ent[0]["body"]) if ent else (None, [])
+    visto = leggi_visti(slug, nome, ent[0]["body"] if ent else None)
     blocchi = [b for b in blocchi if not BOILERPLATE.match(b["x"])]
     regola, motivo, avvisi, pagine, altre = classifica(blocchi) if titolo and "passport validity" in titolo.lower() else (
         None, "The official page has no 'Passport validity requirements' section" + (f"; it has a '{titolo}' section instead." if titolo else "."), [], None, [])
@@ -309,6 +448,7 @@ def leggi_paese(slug, j):
         "avvisi": avvisi,
         "altre_regole": altre,
         "pagine_bianche": pagine,
+        "visto": visto,
     }
 
 
@@ -350,6 +490,10 @@ def main():
                 storico["cambi"].insert(0, {"rilevato_il": oggi, "slug": p["slug"], "nome": p["nome"],
                                             "prima": [b["x"] for b in q["testo"]], "dopo": [b["x"] for b in p["testo"]]})
                 nuovi += 1
+            if q and q.get("visto") and [b["x"] for b in q["visto"]["testo"]] != [b["x"] for b in p["visto"]["testo"]]:
+                storico["cambi"].insert(0, {"rilevato_il": oggi, "slug": p["slug"], "nome": p["nome"], "sezione": "visa",
+                                            "prima": [b["x"] for b in q["visto"]["testo"]], "dopo": [b["x"] for b in p["visto"]["testo"]]})
+                nuovi += 1
         if nuovi:
             cambi_file.write_text(json.dumps(storico, ensure_ascii=False, indent=1), encoding="utf-8")
         print(f"Testi cambiati rispetto al file precedente: {nuovi}")
@@ -359,6 +503,9 @@ def main():
     for p in paesi:
         if p["stato"] != "auto":
             print(f"  manuale: {p['nome']}: {p['motivo']}")
+    vv = sum(1 for p in paesi if p["visto"]["sintesi"])
+    print(f"Visti: {vv} riassunti da uno schema riconosciuto; {sum(1 for p in paesi if p['visto']['testo']) - vv} solo citazione; "
+          f"{sum(1 for p in paesi if not p['visto']['testo'])} senza sezione visti")
 
 
 if __name__ == "__main__":

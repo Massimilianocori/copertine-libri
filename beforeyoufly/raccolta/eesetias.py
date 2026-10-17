@@ -35,7 +35,7 @@ PAGINE_UE = {
 FRASI_UE = [
     ("smart_borders", "etias", "ETIAS is currently not in operation and no applications for travel authorisations are collected at this point."),
     ("smart_borders", "etias", "The European Union will inform about the specific date for the start of ETIAS several months prior to its launch."),
-    ("smart_borders", "ees", "The Entry Exit System is fully operational since 10 April 2026."),
+    ("smart_borders", "ees", "EES became fully operational on 10 April 2026."),
     ("ees", "ees", "The EES is an automated IT system for registering non-EU nationals travelling for a short stay, each time they cross the external borders of 29 European countries using the system."),
     ("ees", "ees", "The system registers the person's name, travel document data, biometric data (fingerprints and captured facial images) and the date and place of entry and exit, in full respect of fundamental rights and data protection."),
     ("ees", "ees", "As of 10 April 2026, the EES replaces the stamping of passports allowing the automatic detection of overstayers (travellers who have exceeded the maximum duration of their authorised stay)."),

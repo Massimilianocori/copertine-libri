@@ -4,7 +4,7 @@ Uso (dalla radice del repository):
     python3 beforeyoufly/genera.py
 
 Dati:
-    dati/passaporti.json   regole di validità del passaporto (passaporto britannico) per 226 pagine FCDO (raccolta/passaporti.py)
+    dati/passaporti.json   regole di validità del passaporto e testo dei visti (passaporto britannico) per 226 pagine FCDO (raccolta/passaporti.py)
     dati/aeroporti.json    regole sui liquidi lette a mano sulle pagine ufficiali degli aeroporti (ricontrollo: raccolta/liquidi.py)
     dati/ees_etias.json    frasi ufficiali su EES ed ETIAS (raccolta/eesetias.py)
     dati/affiliati.json    riquadro affiliati (vuoto finché non ci sono URL)
@@ -63,6 +63,18 @@ def piu_mesi(iso, m):
     mo = (mo - 1) % 12 + 1
     ultimo = [31, 29 if (y % 4 == 0 and (y % 100 != 0 or y % 400 == 0)) else 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][mo - 1]
     return f"{y:04d}-{mo:02d}-{min(d, ultimo):02d}"
+
+
+LIMITE_TITOLO = 65
+LIMITE_DESCRIZIONE = 160
+
+
+def scegli(candidati, limite):
+    """Il primo candidato che sta nel limite; se nessuno ci sta, l'ultimo (il più corto previsto)."""
+    for c in candidati:
+        if len(c) <= limite:
+            return c
+    return candidati[-1]
 
 
 def piu_giorni(iso, n):
@@ -374,6 +386,8 @@ tr:last-child td{border-bottom:0}
 .ok{background:var(--ok-2);border:1px solid var(--ok);padding:14px;border-radius:var(--r-s)}
 .errore{color:var(--warn);font-weight:600}
 .ad-slot:empty{display:none}
+details.card>summary{cursor:pointer;min-height:44px;padding:6px 0;line-height:1.45}
+.faq h3{margin-top:18px}
 .briciole{font-family:var(--mono);font-size:.8rem;color:var(--ink-3);margin-top:18px;letter-spacing:.02em}
 .briciole a{color:var(--ink-3)}
 footer{margin-top:64px;background:var(--board);color:var(--on-board-2);font-size:.88rem;padding:40px 0 34px;border-top:4px solid var(--sign)}
@@ -449,7 +463,7 @@ AVVISO_LIQ = ('<p class="avviso"><strong>Rules can differ by terminal, checkpoin
 
 
 # ---------------------------------------------------------------- impaginazione
-def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, js="", assoluto=False, testata=""):
+def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, js="", assoluto=False, testata="", ld_extra=None):
     file = percorso if percorso.endswith(".html") else (percorso + "index.html")
     profondita = file.count("/")
     rel = "/" if assoluto else ("../" * profondita or "./")  # 404: link assoluti, Netlify la serve a qualsiasi profondità
@@ -465,6 +479,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
         ld.append({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": voci})
         bc = ('<nav class="briciole" aria-label="Breadcrumb"><a href="' + rel + '">Home</a>' +
               "".join(f' › <a href="{rel}{p}">{escape(n)}</a>' for n, p in briciole[:-1]) + f" › {escape(briciole[-1][0])}</nav>")
+    ld += ld_extra or []
     ld_html = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
     robots = "" if indicizza else '<meta name="robots" content="noindex">'
     canonico = f'<link rel="canonical" href="{url_pag}">' if indicizza else ""
@@ -670,6 +685,103 @@ def modulo_checker(id_dati, con_paese, link=""):
 </div>"""
 
 
+# ---------------------------------------------------------------- visti (sezione "Visa requirements" della pagina FCDO)
+def visto(P):
+    return P.get("visto") or {"testo": [], "sintesi": None, "titolo_sezione": None}
+
+
+def blocchi_html(bb):
+    """Blocchi FCDO parola per parola (paragrafi, elenchi, sottotitoli) dentro una citazione."""
+    h, lista = [], []
+    for b in bb:
+        if b["t"] == "li":
+            lista.append(f"<li>{escape(b['x'])}</li>")
+            continue
+        if lista:
+            h.append("<ul>" + "".join(lista) + "</ul>")
+            lista = []
+        h.append(f"<p><strong>{escape(b['x'])}</strong></p>" if b["t"] == "h3" else f"<p>{escape(b['x'])}</p>")
+    if lista:
+        h.append("<ul>" + "".join(lista) + "</ul>")
+    return '<blockquote class="cit">' + "".join(h) + "</blockquote>"
+
+
+def visto_breve(P):
+    """Etichetta per il riepilogo, la tabella e la descrizione: il riassunto riconosciuto o un rimando alla citazione."""
+    V = visto(P)
+    if V["sintesi"]:
+        return V["sintesi"]
+    return "read the FCDO visa text" if V["testo"] else "no visa section on the FCDO page"
+
+
+def fonte_visto(P):
+    return (f'<p class="fonte">Official source: <a href="{escape(P["url_ingresso"])}" rel="noopener">GOV.UK – {escape(P["nome"])} travel advice, Entry requirements (FCDO)</a>, '
+            f'section “{escape(visto(P)["titolo_sezione"] or "Visa requirements")}” · page last updated {data_lunga(P["aggiornata"])} · checked on {data_lunga(PASS["controllato_il"])}</p>')
+
+
+VISIBILI_VISTO = re.compile(r"^applying for|arrival card|customs form|declaration form|electronic travel|travel authori[sz]ation|nzeta|landing and departure", re.I)
+
+
+def nota_ees(P):
+    """Pagine Schengen: rimando allo stato di EES/ETIAS, con le frasi ufficiali della pagina EES (se ancora trovate)."""
+    if visto(P).get("schema") != "schengen":
+        return ""
+    ees = any("fully operational" in f["frase"] for f in frasi_ees("ees"))
+    etias = any("currently not in operation" in f["frase"] for f in frasi_ees("etias"))
+    azione = any("You do not need to take any action before you arrive at the border" in g["frase"] for g in EES["govuk"]["frasi"] if g["trovata"])
+    if not (ees and etias and azione):
+        return '<p class="small">Entering the Schengen area: see <a href="../../ees-etias/">EES and ETIAS status</a> (official EU and GOV.UK statements).</p>'
+    return ('<p class="small"><strong>Entering the Schengen area:</strong> the EU Entry/Exit System (EES) is fully operational (European Commission), '
+            'so your fingerprints and photo may be registered at the border; GOV.UK says you do not need to take any action before you arrive. '
+            f'ETIAS is not in operation yet. Details and sources: <a href="../../ees-etias/">EES and ETIAS status</a> (checked on {data_lunga(EES["controllato_il"])}).</p>')
+
+
+def sezione_visto(P):
+    V = visto(P)
+    dom = f'<h2 id="visa">Do I need a visa for {escape(P["nome"])} with a British passport?</h2>'
+    if not V["testo"]:
+        return (dom + f'<p class="avviso">The FCDO entry requirements page for {escape(P["nome"])} had no “Visa requirements” section when we checked it on '
+                f'{data_lunga(PASS["controllato_il"])}, so we have nothing to quote. Read the <a href="{escape(P["url"])}" rel="noopener">full FCDO travel advice on GOV.UK</a> '
+                'or ask the embassy of the country before you travel.</p>')
+    # visibile: il paragrafo iniziale e i sottotitoli su come chiedere il visto o l'autorizzazione e sui moduli da compilare
+    # prima dell'arrivo ("Applying for ...", ETA, arrival card...); il resto nel riquadro apribile
+    gruppi = []
+    for b in V["testo"]:
+        if b["t"] == "h3" or not gruppi:
+            gruppi.append([])
+        gruppi[-1].append(b)
+    testa, resto = list(gruppi[0]), []
+    for g in gruppi[1:]:
+        (testa if g[0]["t"] == "h3" and VISIBILI_VISTO.search(g[0]["x"]) else resto).extend(g)
+    if V["sintesi"]:
+        breve = (f'<p class="cifra">In short: <strong>{escape(V["sintesi"])}.</strong></p>'
+                 '<p class="small">Our one-line summary of the first FCDO sentence below, which matches a wording we recognise. It applies to British citizen passport holders; '
+                 'read the full official text, which may add conditions.</p>')
+    elif (V.get("motivo") or "").startswith(("The FCDO text describes an electronic", "The FCDO text also mentions")):
+        breve = f'<p class="small">We quote the FCDO text word for word and do not summarise it. {escape(V["motivo"])}</p>'
+    else:
+        breve = ('<p class="small">We quote the FCDO text word for word and do not summarise it: its first sentence has conditions or a wording we do not turn into a one-line answer.</p>')
+    altro = (f'<details class="card" style="margin-top:12px"><summary><strong>More from the FCDO visa section</strong> (extensions, border checks and other cases)</summary>{blocchi_html(resto)}</details>'
+             if resto else "")
+    return dom + breve + nota_ees(P) + blocchi_html(testa) + altro + fonte_visto(P)
+
+
+def titoli_passaporto(P):
+    n = P["nome"]
+    return [f"{n} Visa & Passport Validity for British Passport Holders {ANNO}", f"{n} Visa & Passport Validity for British Citizens {ANNO}",
+            f"{n} Visa & Passport Rules for UK Citizens {ANNO}", f"{n} Visa & Passport Rules {ANNO}", f"{n} Visa & Passport {ANNO}"]
+
+
+def descrizioni_passaporto(P, sint):
+    n, R = P["nome"], P["regola"]
+    V = visto(P)
+    vis = V["sintesi"] or ("The FCDO visa text is quoted word for word" if V["testo"] else "The FCDO page has no visa section")
+    return [f"Do you need a visa for {n} with a British passport? {vis}. Passport validity: {sint}. Official FCDO text, with dates.",
+            f"Do you need a visa for {n} with a British passport? {vis}. Plus the FCDO passport validity rule{' and a date checker' if R else ''}.",
+            f"Do you need a visa for {n} with a British passport? Official FCDO visa and passport validity text, quoted with dates.",
+            f"{n} visa and passport validity for British passport holders ({ANNO}): FCDO text quoted, with dates."]
+
+
 # ---------------------------------------------------------------- pagine passaporto
 def irlanda(P):
     """Irlanda: niente regola di validità; le due frasi FCDO su passaporto non obbligatorio e richieste dei vettori (se ancora presenti)."""
@@ -689,15 +801,15 @@ def pagina_paese(P):
         lead = f"What the UK government (FCDO) says about passports and ID for British nationals travelling to {escape(P['nome'])}, quoted word for word."
     elif R:
         tipo = "FCDO advice" if R.get("consiglio") else "FCDO rule"
-        cifra = f'<p class="cifra">{tipo} for {escape(P["nome"])}: <strong>{escape(sintesi_regola(R))}</strong></p>'
+        cifra = f'<p class="cifra">Passport validity ({tipo}): <strong>{escape(sintesi_regola(R))}</strong></p>'
         if R.get("consiglio"):
             cifra += '<p class="small">The FCDO words this as advice (“should” or “make sure”), not as a strict requirement: the full sentence is quoted below.</p>'
-        lead = (f"How long your British passport must be valid to enter {escape(P['nome'])}, as published by the UK Foreign, Commonwealth &amp; Development Office (FCDO), "
-                "quoted word for word, with a checker for your dates.")
+        lead = (f"Whether you need a visa and how long your British passport must be valid to enter {escape(P['nome'])}, as published by the UK Foreign, "
+                "Commonwealth &amp; Development Office (FCDO), quoted word for word, with a checker for your dates.")
     else:
         cifra = (f'<p class="cifra"><strong>Read the official text below.</strong> {escape(P["motivo"] or "")} '
                  'We quote it word for word and do not summarise it.</p>')
-        lead = (f"What the UK Foreign, Commonwealth &amp; Development Office (FCDO) says about passport validity for British travellers to {escape(P['nome'])}, "
+        lead = (f"What the UK Foreign, Commonwealth &amp; Development Office (FCDO) says about visas and passport validity for British travellers to {escape(P['nome'])}, "
                 "quoted word for word.")
     avvisi = ""
     if P["avvisi"]:
@@ -724,16 +836,21 @@ def pagina_paese(P):
     else:
         checker = ('<p class="avviso"><strong>No automatic check for this destination.</strong> The official text above is not a validity period '
                    'we turn into a date calculation. Read it, and check with your airline or carrier.</p>')
-    corpo = f"""<section class="hero"><h1>{escape(P['nome'])} passport validity rules for UK travellers ({ANNO})</h1></section>
+    V = visto(P)
+    riga_visto = (f'<p class="cifra" style="margin-top:14px">Visa (FCDO): <strong>{escape(V["sintesi"])}.</strong> <a href="#visa">Official visa text</a></p>' if V["sintesi"] else
+                  f'<p class="cifra" style="margin-top:14px">Visa (FCDO): <strong><a href="#visa">{"Read the official visa text below" if V["testo"] else "No visa section on the FCDO page"}</a></strong></p>')
+    corpo = f"""<section class="hero"><h1>{escape(P['nome'])} entry requirements for British passport holders ({ANNO}): visa and passport validity</h1></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top"><span class="sq">{ico("passport")}</span><span>FCDO · British passport</span><span>Updated {data_lunga(P["aggiornata"])}</span></div>
 <div class="s-body">
 {cifra}
+{riga_visto}
 {fonte_pass(P)}
 <p class="lead">{lead}</p>
 </div>
 </section>
-<h2>Official text: “{escape(titolo_sez)}”</h2>
+{sezione_visto(P)}
+<h2>Passport validity: official text “{escape(titolo_sez)}”</h2>
 {testo_ufficiale(P)}
 {fonte_pass(P)}
 {checker}
@@ -749,9 +866,8 @@ def pagina_paese(P):
 <p><a href="{rel}passport-validity/">Passport validity rules for all destinations</a> · <a href="{rel}liquids/">Liquids rules by airport</a> · <a href="{rel}ees-etias/">EES and ETIAS status</a></p>
 {dati_json('paese-dati', [dati_client(P)])}"""
     sint = sintesi_regola(R) if R else ("no passport legally required, but carriers may require one" if ie else "read the official FCDO text")
-    descr = (f"{P['nome']} passport validity for British passport holders ({ANNO}): {sint}. Official FCDO text quoted, with the page's last updated date"
-             + (" and a date checker." if R else "."))
-    pagina(f"passport-validity/{P['slug']}/", f"{P['nome']} passport validity rules for UK travellers ({ANNO})", descr, corpo,
+    descr = scegli(descrizioni_passaporto(P, sint), LIMITE_DESCRIZIONE)
+    pagina(f"passport-validity/{P['slug']}/", scegli(titoli_passaporto(P), LIMITE_TITOLO), descr, corpo,
            briciole=[("Passport validity", "passport-validity/"), (P["nome"], f"passport-validity/{P['slug']}/")], js=MOTORE_JS + APP_JS)
 
 
@@ -765,17 +881,19 @@ def cambi_recenti(giorni_max=60):
 def indice_passaporti():
     rel = "../"
     righe = "".join(f'<tr data-voce><td><a href="{rel}passport-validity/{P["slug"]}/">{escape(P["nome"])}</a></td><td>{escape(breve_regola(P["regola"], P))}</td>'
-                    f'<td>{data_lunga(P["aggiornata"])}</td></tr>' for P in PAESI)
+                    f'<td>{escape(visto_breve(P)[0].upper() + visto_breve(P)[1:])}</td><td>{data_lunga(P["aggiornata"])}</td></tr>' for P in PAESI)
+    n_visti = sum(1 for P in PAESI if visto(P)["sintesi"])
     auto = sum(1 for P in PAESI if P["regola"])
     cambi = cambi_recenti()
     lista_cambi = "".join(f'<li>{data_lunga(d)} – <a href="{rel}passport-validity/{P["slug"]}/">{escape(P["nome"])}</a>: “{escape(n)}”</li>' for d, P, n in cambi[:40])
-    rilevati = CAMBI_PASS["cambi"][:20]
+    rilevati = [c for c in CAMBI_PASS["cambi"] if c.get("sezione", "passport") == "passport"][:20]
     lista_rilevati = ""
     if rilevati:
         lista_rilevati = ("<h2>Passport validity text changes we detected</h2><ul>" +
                           "".join(f'<li>{data_lunga(c["rilevato_il"])} – <a href="{rel}passport-validity/{c["slug"]}/">{escape(c["nome"])}</a></li>' for c in rilevati) + "</ul>")
-    corpo = f"""<section class="hero">{h1_diviso(f"Passport validity rules for UK travellers ({ANNO}): every destination")}
+    corpo = f"""<section class="hero">{h1_diviso(f"Passport validity and visa rules for UK travellers ({ANNO}): every destination")}
 <p class="lead">How long a British passport must be valid for {len(PAESI)} destinations, from the UK government's foreign travel advice (FCDO), quoted word for word. For {auto} destinations the checker applies the rule to your dates; for the other {len(PAESI) - auto} the official sentence has conditions we do not turn into a calculation, so we show it and you read it.</p>
+<p class="lead">Each destination page also quotes the FCDO “Visa requirements” section and answers “Do I need a visa?”. For {n_visti} destinations the first FCDO visa sentence matches a wording we recognise and we add a one-line summary; for the others we only quote the official text.</p>
 <p class="fonte">Source: <a href="https://www.gov.uk/foreign-travel-advice" rel="noopener">GOV.UK foreign travel advice (FCDO)</a>, read through the GOV.UK Content API · last checked: {data_lunga(PASS['controllato_il'])}.</p>
 </section>
 {modulo_checker('tutti-dati', True, link=rel + 'passport-validity/')}
@@ -783,7 +901,7 @@ def indice_passaporti():
 {AD}
 <h2>All destinations</h2>
 <div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a country, e.g. Spain, Turkey, USA" data-filtro="lista-paesi" aria-label="Search destinations"></div>
-<div class="tab"><table><thead><tr><th>Destination</th><th>FCDO rule (short)</th><th>FCDO page last updated</th></tr></thead><tbody id="lista-paesi">{righe}</tbody></table></div>
+<div class="tab"><table><thead><tr><th>Destination</th><th>Passport validity (short)</th><th>Visa (short)</th><th>FCDO page last updated</th></tr></thead><tbody id="lista-paesi">{righe}</tbody></table></div>
 <p class="small">“Valid for the whole stay”: valid until the day you leave. “10-year issue rule”: the passport must have been issued less than 10 years before you arrive. Always read the full official sentence on each page.</p>
 <h2>Entry requirements updated by the FCDO in the last 60 days</h2>
 <p class="small">From the change notes the FCDO publishes on each travel advice page (only notes that mention the entry requirements page).</p>
@@ -793,8 +911,8 @@ def indice_passaporti():
 <p>For the Schengen area the FCDO says your passport must have a ‘date of issue’ less than 10 years before the date you arrive, and an ‘expiry date’ at least 3 months after the day you plan to leave. In the FCDO's words, “if you renewed your passport before 1 October 2018, it might have a date of issue that is more than 10 years ago, making it invalid for entry to the Schengen area”. The checker asks for the issue date only for destinations with this rule.</p>
 {box_affiliati()}
 {dati_json('tutti-dati', [dati_client(P) for P in PAESI])}"""
-    pagina("passport-validity/", f"Passport validity rules by country for UK travellers ({ANNO}): checker for {len(PAESI)} destinations",
-           f"How many months must a British passport be valid? Official FCDO rules for {len(PAESI)} destinations, quoted word for word, with a date checker and recent changes.",
+    pagina("passport-validity/", f"Passport Validity & Visa Rules by Country {ANNO} (UK Passport)",
+           f"How long must a British passport be valid, and do you need a visa? Official FCDO rules for {len(PAESI)} destinations, quoted word for word, with a date checker.",
            corpo, briciole=[("Passport validity", "passport-validity/")], js=MOTORE_JS + APP_JS)
 
 
@@ -803,8 +921,13 @@ ETICHETTE = {"2l": "Up to 2 litres", "100ml": "100 ml", "dipende": "Depends on c
 RISPOSTA = {"2l": "2 litres", "100ml": "100 ml", "dipende": "It depends on the checkpoint", "contraddice": "Official pages disagree – plan for 100 ml"}
 
 
-def badge(regola):
-    return f'<span class="badge b-{regola}">{ETICHETTE[regola]}</span>'
+def etichetta(A):
+    """Etichetta breve della regola; 'etichetta' nel file la sostituisce dove la regola non dipende dal varco (Zurigo: dal viaggio)."""
+    return A.get("etichetta") or ETICHETTE[A["regola"]]
+
+
+def badge(regola, A=None):
+    return f'<span class="badge b-{regola}">{escape(etichetta(A)) if A else ETICHETTE[regola]}</span>'
 
 
 def cit_html(frasi):
@@ -827,14 +950,134 @@ def contesto_html(rel):
     return "".join(out)
 
 
+# Risposta diretta in alto (sì/no) presa dalla regola in dati/aeroporti.json; "risposta" nel file la sostituisce dove serve una sfumatura.
+SI_NO = {"2l": "Yes", "100ml": "No", "dipende": "It depends on the checkpoint", "contraddice": "Not clear: the official texts disagree"}
+# nome nel <title> come lo cerca la gente ("barcelona airport liquid rules"); nel testo resta il nome completo del file
+NOMI_TITOLO = {"madeira": "Madeira Funchal", "barcelona": "Barcelona", "alicante": "Alicante", "malaga": "Malaga", "lanzarote": "Lanzarote", "doha": "Doha Hamad",
+               "athens": "Athens", "dubai": "Dubai", "malta": "Malta"}
+SIGLA_PAESE = {"United States": "US", "Canada": "Canadian"}
+
+
+def nome_titolo(A):
+    return NOMI_TITOLO.get(A["slug"], A["nome"])
+
+
+def dove_liq(A, nazionale=False):
+    """Come si nomina l'aeroporto nelle domande: 'Barcelona-El Prat (BCN)' oppure 'US airports'."""
+    if nazionale:
+        return f"{SIGLA_PAESE.get(A['paese'], A['paese'])} airports"
+    return f"{A['nome']} ({A['iata']})"
+
+
+def risposta_liq(A):
+    return A.get("risposta") or SI_NO[A["regola"]]
+
+
+def frase_risposta(A):
+    return f"{risposta_liq(A)}. {A['sintesi']}."
+
+
+def sigla_ente(A):
+    return A["ente"].split("(")[-1].rstrip(")")
+
+
+def titoli_liquidi(A, nazionale=False):
+    if nazionale:
+        x, e = SIGLA_PAESE.get(A["paese"], A["paese"]), sigla_ente(A)
+        return [f"{x} Airport Liquid Rules {ANNO} ({e}): 100 ml or More?", f"{x} Airport Liquid Rules {ANNO} ({e})"]
+    n, i = nome_titolo(A), A["iata"]
+    return [f"{n} Airport ({i}) Liquid Rules {ANNO}: 100 ml or 2 litres?", f"{n} Airport ({i}) Liquid Rules {ANNO}: 100 ml or 2L?",
+            f"{n} Airport ({i}) Liquid Rules {ANNO}", f"{n} ({i}) Liquid Rules {ANNO}"]
+
+
+def descrizioni_liquidi(A, nazionale=False):
+    d, r, sx, c = dove_liq(A, nazionale), risposta_liq(A), A["sintesi"], data_lunga(A["controllato_il"])
+    return [f"Can you take liquids over 100 ml at {d}? {r}. {sx}. Quoted from the official page, checked {c}.",
+            f"Can you take liquids over 100 ml at {d}? {r}. {sx}. Official page quoted.",
+            f"Liquids over 100 ml at {d}? {r}. {sx}.",
+            f"Can you take liquids over 100 ml at {d}? {r}. Official rules quoted word for word, checked {c}.",
+            f"{d} liquid rules {ANNO}: {r}. The official page quoted word for word, with the date we checked it."]
+
+
+def frasi_ufficiali_liq(A):
+    """Citazioni della pagina ufficiale principale da cui possono venire le risposte delle FAQ (mai testo nostro)."""
+    ff = list(A["citazioni"]) + list(A.get("eccezioni", []))
+    K = A.get("contrasto")
+    if A["regola"] == "contraddice" and K and K.get("url") == A["url"]:  # stessa pagina (Monaco)
+        ff.append(K["citazione"])
+    return ff
+
+
+def prefisso_faq(A):
+    return f"Quoted from {A['titolo_fonte']} (checked on {data_lunga(A['controllato_il'])}): "
+
+
+FAQ_LIQ = [  # (chiave, domanda, filtro sulle frasi ufficiali): la frase deve parlare proprio di quello che chiede la domanda
+    ("limite", "Can I take liquids over 100 ml through security at {d}?", re.compile(r"100|litre|liter|2,000|3\.4|\bml\b", re.I)),
+    ("busta", "Do liquids have to go in a plastic bag at {d}?",
+     re.compile(r"plastic bag|re-?sealable|clear bag|transparent bag|lit(?:re|er) bag|liquid bag|quart-sized bag|20 ?cm ?x ?20|20 x 20|1L in capacity", re.I)),
+    ("fuori", "Do I have to take liquids out of my bag at security at {d}?",
+     re.compile(r"remov|take them out|stay in|remain in|separately|separate from|tray|leave (?:your )?liquids|kept in your", re.I)),
+    ("terminal", "Are the liquids rules different by terminal or checkpoint at {d}?",
+     re.compile(r"\bterminals?\b|\bgates?\b|security areas?|control areas?|transfer|\blanes?\b|signs|CT technology|CT scanners?|computed tomography"
+                r"|which security checkpoint|some security checkpoints|following checkpoints|entrance security|one stop security", re.I)),
+    ("borraccia", "Can I take a reusable bottle or flask through security at {d}?", re.compile(r"bottle|flask|thermos|double-walled|insulated", re.I)),
+]
+
+
+def gruppi_liq(A, ff):
+    """Le frasi ufficiali a gruppi, nell'ordine della pagina: un titolo (frase che finisce con ':' o elencata in 'intestazioni')
+    resta unito alle frasi che lo seguono, così una risposta non cita mai un titolo da solo né una frase fuori dal suo titolo."""
+    tit = set(A.get("intestazioni", []))
+
+    def apre(x):
+        return x in tit or x.rstrip().endswith(":")
+    out = []
+    for f in ff:
+        if apre(f) or not out or not apre(out[-1][0]):
+            out.append([f])
+        else:
+            out[-1].append(f)
+    return out
+
+
+def faq_liquidi(A, nazionale=False):
+    """Fino a 4 domande vere. Ogni risposta è fatta SOLO di citazioni ufficiali intere (mai tagliate, mai testo nostro):
+    la stessa citazione può rispondere a due domande diverse. verifica.py lo controlla."""
+    pool = frasi_ufficiali_liq(A)
+    gruppi = gruppi_liq(A, list(A["citazioni"])) + gruppi_liq(A, [f for f in pool if f not in A["citazioni"]])
+    out = []
+    for i, (chiave, dom, rx) in enumerate(FAQ_LIQ):
+        if chiave in A.get("faq_salta", []):  # domanda che non si adatta a questa pagina (es. Zurigo: dipende dal viaggio, non dal varco)
+            continue
+        if i == 0:  # prima domanda: le citazioni principali (più eccezioni e contrasti dove la regola dipende dal varco)
+            ff = list(pool) if A["regola"] in ("dipende", "contraddice") else list(A["citazioni"])
+        else:
+            ff = [f for g in gruppi if any(rx.search(x) and not re.search(r"tamper|duty", x, re.I) for x in g) for f in g]
+        if not ff or any(ff == g and len(g) > 1 for _, g in out):  # niente blocchi lunghi ripetuti identici
+            continue
+        out.append((dom.format(d=dove_liq(A, nazionale)), ff))
+    return out[:4]
+
+
+def html_faq(A, faq):
+    if not faq:
+        return "", []
+    h = "".join(f"<h3>{escape(q)}</h3>{cit_html(ff)}" for q, ff in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": prefisso_faq(A) + " ".join(f"“{f}”" for f in ff)}} for q, ff in faq]}
+    return (f'<section class="faq"><h2>Questions about liquids at {escape(A["nome"])}</h2>'
+            f'<p class="small">Every answer below is quoted word for word from the official page, not written by us.</p>{h}{fonte_liq(A)}</section>'), [ld]
+
+
 def pagina_aeroporto(A, nazionale=False):
     rel = "../../"
     titolo_breve = A["nome"]
     if nazionale:
-        h1 = f"{A['paese']} airports liquids rules {ANNO}: 100 ml or more? ({A['ente'].split('(')[-1].rstrip(')')})"
+        h1 = f"{A['paese']} airports liquids rules {ANNO}: 100 ml or more? ({sigla_ente(A)})"
     else:
-        h1 = f"{A['nome']} liquids rules {ANNO}: 100 ml or 2 litres?"
-    eccezioni = ("<h2>Exceptions and lane-specific rules (official)</h2>" + cit_html(A["eccezioni"])) if A.get("eccezioni") else ""
+        h1 = f"{A['nome'] if A['slug'] != 'madeira' else 'Madeira Funchal'} Airport ({A['iata']}) liquid rules {ANNO}: 100 ml or 2 litres?"
+    eccezioni = ("<h2>Exceptions and other details (official)</h2>" + cit_html(A["eccezioni"])) if A.get("eccezioni") else ""
     fonte2 = ""
     if A.get("fonte2"):
         f2 = A["fonte2"]
@@ -852,13 +1095,14 @@ def pagina_aeroporto(A, nazionale=False):
     link_simili = ""
     if simili:
         link_simili = (f"<h2>Other airports in {escape(A['paese'])}</h2><div class=\"griglia\">" +
-                       "".join(f'<a href="{rel}liquids/{B["slug"]}/">{escape(B["nome"])}<small>{ETICHETTE[B["regola"]]}</small></a>' for B in simili) + "</div>")
+                       "".join(f'<a href="{rel}liquids/{B["slug"]}/">{escape(B["nome"])} ({B["iata"]})<small>{escape(etichetta(B))}</small></a>' for B in simili) + "</div>")
+    faq_html, faq_ld = html_faq(A, faq_liquidi(A, nazionale))
     corpo = f"""<section class="hero"><h1>{escape(h1)}</h1></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top"><span class="sq">{ico("bottle")}</span><span>Liquids · hand luggage</span><span>{escape(A.get("iata") or A.get("paese") or "")}</span></div>
 <div class="s-body">
-<p class="cifra">Answer: <strong>{escape(RISPOSTA[A['regola']])} {badge(A['regola'])}</strong></p>
-<p class="lead">{escape(A['sintesi'])}.</p>
+<p class="cifra">Can I take liquids over 100 ml through security at {escape(dove_liq(A, nazionale))}? <strong>{escape(frase_risposta(A))} {badge(A['regola'], A)}</strong></p>
+<p class="lead">Short answer based on the official page quoted below{", which is Aena's general hand-luggage page, not a page for this airport" if A.get('gestore') == 'aena' else ''}.</p>
 {fonte_liq(A)}
 </div>
 </section>
@@ -871,16 +1115,17 @@ def pagina_aeroporto(A, nazionale=False):
 {eccezioni}
 {contrasto}
 {AD}
+{faq_html}
+{link_simili}
 <h2>Flying back?</h2>
 <p>The UK government's advice is to check the rules “at the airport you’re flying from” and “at any other airports you’ll be travelling through, including your return journey” (<a href="https://www.gov.uk/hand-luggage-restrictions/liquids" rel="noopener">GOV.UK, hand luggage restrictions</a>). See the <a href="{rel}liquids/">liquids rules at {len(AER['aeroporti'])} airports</a>{'' if nazionale else f', the <a href="{rel}liquids/us-airports-tsa/">US (TSA) rule</a> and the <a href="{rel}liquids/canada-airports-catsa/">Canada (CATSA) rule</a>'}.</p>
 <h2>Medicines, baby food and duty-free</h2>
 <p>Exemptions are set out on the official page linked above. For UK airports, GOV.UK lists them on its <a href="https://www.gov.uk/hand-luggage-restrictions/liquids" rel="noopener">hand luggage restrictions page</a>; for EU airports, see <a href="https://europa.eu/youreurope/citizens/travel/carry/luggage-restrictions/index_en.htm" rel="noopener">Your Europe</a>.</p>
 <p class="small">Spotted a change? <a href="{rel}contact/?ref=liq-{A['slug']}">Tell us</a>.</p>
 {box_affiliati()}
-{link_simili}
-<p><a href="{rel}liquids/">All airports</a> · <a href="{rel}passport-validity/">Passport validity rules</a> · <a href="{rel}ees-etias/">EES and ETIAS status</a></p>"""
-    descr = (f"{titolo_breve} liquids rule {ANNO}: {RISPOSTA[A['regola']].lower()}. {A['sintesi']}. Quoted from the official page, with the date we checked it.")
-    pagina(f"liquids/{A['slug']}/", h1, descr, corpo, briciole=[("Liquids by airport", "liquids/"), (titolo_breve, f"liquids/{A['slug']}/")])
+<p><a href="{rel}liquids/">All airports</a> · <a href="{rel}passport-validity/">Passport validity and visa rules</a> · <a href="{rel}ees-etias/">EES and ETIAS status</a></p>"""
+    pagina(f"liquids/{A['slug']}/", scegli(titoli_liquidi(A, nazionale), LIMITE_TITOLO), scegli(descrizioni_liquidi(A, nazionale), LIMITE_DESCRIZIONE), corpo,
+           briciole=[("Liquids by airport", "liquids/"), (titolo_breve, f"liquids/{A['slug']}/")], ld_extra=faq_ld)
 
 
 def indice_liquidi():
@@ -894,14 +1139,14 @@ def indice_liquidi():
         if area not in gruppi:
             continue
         righe = "".join(f'<tr><td><a href="{rel}liquids/{A["slug"]}/">{escape(A["nome"])}</a> <span class="small">{A["iata"]}</span></td><td>{escape(A["paese"])}</td>'
-                        f'<td>{badge(A["regola"])}</td><td>{escape(A["sintesi"])}</td><td><a href="{escape(A["url"])}" rel="noopener">official</a>, {data_lunga(A["controllato_il"])}</td></tr>'
+                        f'<td>{badge(A["regola"], A)}</td><td>{escape(A["sintesi"])}</td><td><a href="{escape(A["url"])}" rel="noopener">official</a>, {data_lunga(A["controllato_il"])}</td></tr>'
                         for A in sorted(gruppi[area], key=lambda x: x["nome"]))
         tabelle.append(f'<h2>{escape(area)}</h2><div class="tab"><table><thead><tr><th>Airport</th><th>Country</th><th>Limit per container</th><th>Details</th><th>Source</th></tr></thead><tbody>{righe}</tbody></table></div>')
     naz = "".join(f'<tr><td><a href="{rel}liquids/{N["slug"]}/">{escape(N["nome"])}</a></td><td>{badge(N["regola"])}</td><td>{escape(N["sintesi"])}</td>'
                   f'<td><a href="{escape(N["url"])}" rel="noopener">official</a>, {data_lunga(N["controllato_il"])}</td></tr>' for N in AER["nazionali"])
     esclusi = "".join(f"<li><strong>{escape(E['nome'])}</strong>: {escape(E['motivo'])}</li>" for E in AER["esclusi"])
     corpo = f"""<section class="hero">{h1_diviso(f"Liquids rules by airport {ANNO}: 100 ml or 2 litres?")}
-<p class="lead">Some airports with new CT scanners now let you carry liquids in containers of up to 2 litres; many still apply the 100 ml limit, and some only at certain checkpoints. Here is what each airport's official page says, quoted word for word, with the date we checked it.</p>
+<p class="lead">What is the liquid limit at your airport? Some airports with new CT scanners now let you carry liquids in containers of up to 2 litres; many still apply the 100 ml limit, and some only at certain checkpoints. Here is what each airport's official page says, quoted word for word, with the date we checked it.</p>
 <p class="cifra" style="margin-top:10px">Of the {len(AER['aeroporti'])} airports below:</p>
 <ul class="stat"><li><strong>{conta['2l']}</strong> up to 2 litres</li><li><strong>{conta['100ml']}</strong> 100 ml</li><li><strong>{conta['dipende']}</strong> depends on the checkpoint</li><li><strong>{conta['contraddice']}</strong> with official pages that disagree</li></ul>
 </section>
@@ -918,8 +1163,8 @@ def indice_liquidi():
 <ul>{esclusi}</ul>
 <p class="small">Last checked: {data_lunga(AER['controllato_il'])} (each airport row shows its own date). Spotted a change? <a href="{rel}contact/?ref=liquids">Tell us</a>.</p>
 {box_affiliati()}"""
-    pagina("liquids/", f"Liquids rules by airport {ANNO}: 100 ml or 2 litres? ({len(AER['aeroporti'])} airports, official sources)",
-           f"Which airports allow 2 litres of liquids? Official rules for {len(AER['aeroporti'])} airports (Heathrow, Gatwick, Dublin, Manchester, Frankfurt, Rome, Madrid…) plus the US TSA and Canada rules, quoted with dates.",
+    pagina("liquids/", f"Airport Liquid Rules {ANNO}: 100 ml or 2 Litres? ({len(AER['aeroporti'])} Airports)",
+           f"The liquid limit at {len(AER['aeroporti'])} airports: which allow 2 litres and which keep 100 ml (Heathrow, Barcelona, Berlin, Prague, Palma…), plus US TSA rules. Official, dated.",
            corpo, briciole=[("Liquids by airport", "liquids/")])
 
 
@@ -1003,7 +1248,7 @@ def home():
 <p class="sub">Three checks before you fly, answered from official sources only.</p>
 <p class="trust"><span>{ico("shield")}Official sources · last checked {ultimo}</span><span>{ico("lock")}Your dates stay in your browser</span></p></section>
 <ul class="tiles">
-<li><a href="passport-validity/"><span class="sq">{ico("passport")}</span><h2>Passport validity</h2><small>FCDO rules for British passports, {len(PAESI)} destinations, a date checker for {auto} of them. Last checked: {data_lunga(PASS['controllato_il'])}.</small></a></li>
+<li><a href="passport-validity/"><span class="sq">{ico("passport")}</span><h2>Passport validity</h2><small>FCDO passport validity and visa rules for British passports, {len(PAESI)} destinations, a date checker for {auto} of them. Last checked: {data_lunga(PASS['controllato_il'])}.</small></a></li>
 <li><a href="liquids/"><span class="sq">{ico("bottle")}</span><h2>Liquids by airport</h2><small>100 ml or 2 litres? {len(AER['aeroporti'])} airports plus the US and Canada rules, from official pages.</small></a></li>
 <li><a href="ees-etias/"><span class="sq">{ico("scan")}</span><h2>EES &amp; ETIAS</h2><small>EES is fully operational; ETIAS is {stato_etias} (European Commission).</small></a></li>
 </ul>
@@ -1021,8 +1266,8 @@ def home():
 <p><a href="liquids/">All airports, including those that depend on the checkpoint</a></p>
 {box_affiliati()}
 {dati_json('tutti-dati', [dati_client(P) for P in PAESI])}"""
-    pagina("", f"Before You Fly {ANNO}: passport validity checker, liquids rules by airport, EES and ETIAS status",
-           f"Is your passport valid long enough? Can you take 2 litres through security? Official FCDO passport rules for {len(PAESI)} destinations, liquids rules for {len(AER['aeroporti'])} airports and EES/ETIAS status, with sources and dates.",
+    pagina("", f"Before You Fly {ANNO}: Passport Validity, Visas, Liquids, EES",
+           f"Passport validity and visa rules (FCDO) for {len(PAESI)} destinations, liquid limits at {len(AER['aeroporti'])} airports and EES/ETIAS status, quoted from official sources.",
            corpo, js=MOTORE_JS + APP_JS, testata=testata)
 
 
@@ -1040,14 +1285,16 @@ def about():
 <li>When two official texts disagree, we show both and do not choose.</li>
 <li>This is information, not legal advice. Airlines, airports and border officials decide.</li></ul>
 <h2>Passport validity (FCDO)</h2>
-<p>Source: the “Passport validity requirements” section of the FCDO foreign travel advice for each destination, read through the GOV.UK Content API (<a href="https://www.gov.uk/api/content/foreign-travel-advice" rel="noopener">api/content/foreign-travel-advice</a>), last checked on {data_lunga(PASS['controllato_il'])}. The FCDO advice is written for British citizens.</p>
+<p>Source: the “Passport validity requirements” and “Visa requirements” sections of the FCDO foreign travel advice for each destination, read through the GOV.UK Content API (<a href="https://www.gov.uk/api/content/foreign-travel-advice" rel="noopener">api/content/foreign-travel-advice</a>), last checked on {data_lunga(PASS['controllato_il'])}. The FCDO advice is written for British citizens.</p>
 <p>Licence: contains public sector information licensed under the <a href="{OGL}" rel="noopener">Open Government Licence v3.0</a>. We reproduce the FCDO text unchanged; summaries, the short labels and the date checker are ours.</p>
 <p>How the checker works: it applies the FCDO sentence literally. “At least 6 months after the date you arrive” means the expiry date must be on or after the same day of the month 6 months after arrival (if that day does not exist, the last day of that month). “More than” means at least one day later. “Valid for the duration of your stay” means not expiring before the day you leave. The Schengen “date of issue less than 10 years before the date you arrive” means issued after the same day 10 years before arrival.</p>
-<p>Destinations where we do not apply the rule automatically ({len(manuali)}), because the official sentence has conditions we do not turn into a calculation:</p>
+<h3>Visa requirements (FCDO)</h3>
+<p>Each destination page quotes, word for word, the “Visa requirements” section of the same FCDO entry requirements page, with the page's last updated date and the date we checked it. We add a one-line summary (“In short”) only when the first sentence of that section matches one of a few fixed wordings, for example “You can visit X without a visa for up to 90 days” or “You must have a visa to visit X”, and contains no condition such as “usually”, “unless”, “until” or “if you”; for visa-free summaries the section must also not mention a travel authorisation (ETA, eTA, ESTA), an entry fee or a tourist card. On {data_lunga(PASS['controllato_il'])} this gave a summary for {sum(1 for P in PAESI if visto(P)["sintesi"])} destinations; the other {sum(1 for P in PAESI if not visto(P)["sintesi"])} show only the official text (or say that the FCDO page has no visa section).</p>
+<p>Destinations where we do not apply the passport validity rule automatically ({len(manuali)}), because the official sentence has conditions we do not turn into a calculation:</p>
 <ul>{lista_man}</ul>
 {f'<p>No page published (the official section is empty):</p><ul>{senza}</ul>' if senza else ''}
 <h2>Liquids rules</h2>
-<p>Each airport's official security page, last read by us on {data_lunga(AER['controllato_il'])} (the date is shown on each page). Some airport sites block simple automated requests or load their text with JavaScript: we read those in a browser and say so on the page. Spanish airports use the general hand-luggage page of Aena, which runs Spain's public airports (it lists no airport- or lane-specific exceptions); Hong Kong uses the Civil Aviation Department page; the US and Canada each have one national rule (TSA, CATSA). See the full list and the airports we left out on the <a href="{rel}liquids/">liquids page</a>.</p>
+<p>Each airport's official security page, last read by us on {data_lunga(AER['controllato_il'])} (the date is shown on each page). Some airport sites block simple automated requests or load their text with JavaScript: we read those in a browser and say so on the page. Spanish airports use the general hand-luggage page of Aena, which runs Spain's public airports (it lists no airport- or lane-specific exceptions, and it does not say that it applies at every airport: each Spanish airport page says so); Hong Kong uses the Civil Aviation Department page; the US and Canada each have one national rule (TSA, CATSA). See the full list and the airports we left out on the <a href="{rel}liquids/">liquids page</a>.</p>
 <h2>EES and ETIAS</h2>
 <p>European Commission (DG Migration and Home Affairs) pages and GOV.UK travel advice, last checked on {data_lunga(EES['controllato_il'])}. See the <a href="{rel}ees-etias/">EES and ETIAS page</a>.</p>
 <h2>Corrections</h2>

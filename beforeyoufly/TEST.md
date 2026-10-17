@@ -75,3 +75,22 @@ Regola applicata alla lettera. Mesi: stesso giorno N mesi dopo, ridotto all'ulti
 - Aprire le pagine di Francoforte e Monaco: le due frasi in contrasto sono ancora entrambe sul sito ufficiale?
 - Aena (Spagna): se un aeroporto spagnolo pubblica una sua pagina con 2 litri, passa da "100 ml" a quella pagina.
 - Dopo la pubblicazione: la 404 di Netlify, il modulo contatti (una prova) e Search Console.
+
+## Controlli del 17 ottobre 2026 (liquidi e visti)
+
+| Controllo | Esito |
+|---|---|
+| Raccolta passaporti e visti | 226 pagine su 226; validità invariata (213 automatiche, 13 da leggere); visti: 140 riassunti da schema, 82 solo citazione, 4 senza sezione (3 con pagina) |
+| Ricontrollo liquidi (con browser) | 55 pagine (52 aeroporti, 2 nazionali, FAQ Finavia): frasi citate presenti |
+| 8. Visti | ogni riassunto ricalcolato dallo schema, dentro i modelli fissi, numeri presenti nella frase FCDO; nessun riassunto senza schema |
+| 9. Liquidi | risposta diretta coerente con la regola su 54 pagine; 130 risposte FAQ fatte solo di citazioni ufficiali intere (JSON-LD = testo visibile); collegamenti a tutti gli aeroporti dello stesso Paese |
+| 10. Titoli e descrizioni | titoli ≤ 65 caratteri, descrizioni ≤ 160 in tutte le pagine |
+| 7. Browser 375 px | 5 pagine × 2 temi (aggiunte `liquids/barcelona/` e `passport-validity/egypt/`): nessuno scorrimento orizzontale, 0 errori, FAQ e sezione visti visibili, riquadro dei visti apribile |
+
+## Revisione indipendente del 17 ottobre 2026
+
+| Controllo | Esito |
+|---|---|
+| Visti, confronto con la fonte | 226 pagine FCDO riscaricate; 140 riassunti letti contro la sezione intera: 16 corretti (5 tolti, 11 completati); restano 135 riassunti, 87 solo citazione |
+| Liquidi, 14 aeroporti nuovi | pagine riaperte con Playwright: tutte le frasi citate presenti; Praga, Düsseldorf e Aena riletti e completati |
+| verifica.py (anche browser 375 px) | TUTTO OK; schermate 375/1280 px chiaro/scuro di Barcellona, Schiphol, Zurigo, Spagna, Egitto: nessuno scorrimento orizzontale, 0 errori in console |

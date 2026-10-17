@@ -10,8 +10,14 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
 4. Ogni pagina con una regola mostra la fonte ufficiale (URL) e la data del controllo; le frasi citate sono nella pagina.
 5. Meta di verifica Google in ogni pagina; 404 con link assoluti, noindex e senza canonical; sitemap e robots.
 6. Nessun nome di modelli o servizi di intelligenza artificiale nei file del sito e nei dati.
-7. Browser a 375 px (Playwright): 3 pagine senza scorrimento orizzontale e senza errori in console; il controllo del passaporto risponde;
-   il testo del controllo nella home ha contrasto di almeno 4,5:1 in tema chiaro e scuro.
+7. Browser a 375 px (Playwright): 5 pagine senza scorrimento orizzontale e senza errori in console; il controllo del passaporto risponde;
+   il testo del controllo nella home ha contrasto di almeno 4,5:1 in tema chiaro e scuro; sezione visti e FAQ visibili.
+8. Visti: ogni riassunto di una riga deriva da uno schema riconosciuto (ricalcolato da raccolta/passaporti.py sul testo salvato e confrontato
+   con modelli fissi); i numeri del riassunto sono nella frase ufficiale; senza riassunto la pagina mostra solo la citazione (o dice che manca);
+   nessun "senza visto" se il testo parla di ETA, tasse, tessere o moduli online prima del viaggio; nessun "serve un visto" se il visto è un ETA/eVisitor;
+   le pagine Schengen rimandano a EES/ETIAS nella sezione visti.
+9. Liquidi: risposta diretta in alto; ogni risposta delle FAQ (JSON-LD FAQPage e testo visibile) è fatta solo di citazioni ufficiali intere.
+10. Titoli <= 65 caratteri (salvo quando nessuna forma prevista ci sta) e descrizioni <= 160 in tutte le pagine.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -27,6 +33,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import genera as G  # noqa: E402
+import importlib.util  # noqa: E402
+
+_spec = importlib.util.spec_from_file_location("raccolta_passaporti", Path(__file__).resolve().parent / "raccolta" / "passaporti.py")
+RP = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(RP)
 
 SITO = G.SITO
 P = {p["slug"]: p for p in G.PASS["paesi"]}
@@ -244,6 +255,177 @@ def controlla_struttura():
     return errori
 
 
+# Modelli fissi dei riassunti dei visti: un riassunto che non corrisponde a uno di questi è un errore.
+MODELLI_VISTO = [re.compile(x) for x in [
+    r"^You can visit the Schengen area \((?:including|and) [^)]+\) without a visa for up to 90 days in any 180-day period(?:, for the reasons listed in the FCDO text)?$",
+    r"^You can visit .+ without a visa for (?:up to )?(?:\d+|one) (?:days?|months?|years?)(?: in any \d+-(?:day|month) period| in a \d+-(?:day|month) period"
+    r"| within a \d+-(?:day|month) period| in a year)?(?: for (?:tourism or business|business or tourism|tourism|business)| as a tourist)?"
+    r"(?: \(for the reasons listed in the FCDO text\))?$",
+    r"^You can visit .+ without a visa \(the FCDO text says how long you can stay\)$",
+    r"^You need a visa to (?:visit|enter|enter or travel through|travel to) .+?(?: as a visitor| for tourism| for tourism or business)?(?: and you must apply in advance)?$",
+    r"^You need a visa before you travel to .+$"]]
+SENZA_VISTO_VIETATO = re.compile(r"\b(?:ETA|eTA|ESTA|NZeTA|ETIAS)\b|travel authori[sz]ation|electronic travel|entry fee|administration fee|tourist card"
+                                 r"|embarkation card|approval to travel|e-travel|form online before", re.I)
+# "serve un visto" solo se il visto non è un'autorizzazione elettronica (ETA, eVisitor): altrimenti solo la citazione
+VISTO_ELETTRONICO_VIETATO = re.compile(r"\b(?:ETA|eTA|ESTA|NZeTA|ETIAS)\b|eVisitor|electronic visitor visa|electronic travel authori[sz]ation", re.I)
+
+
+def controlla_visti():
+    errori = []
+    con, solo, senza = 0, 0, 0
+    for p in G.PAESI:
+        V = p.get("visto")
+        if V is None:
+            errori.append(f"visti {p['slug']}: dati del visto mancanti (rilanciare raccolta/passaporti.py)")
+            continue
+        t = leggi(f"passport-validity/{p['slug']}/index.html")
+        if f"Do I need a visa for {escape(p['nome'])} with a British passport?" not in t:
+            errori.append(f"visti {p['slug']}: domanda sul visto mancante")
+        schema, sintesi, frase, _ = RP.sintesi_visto(V["testo"], p["nome"], p["slug"])
+        if (schema, sintesi, frase) != (V["schema"], V["sintesi"], V["frase"]):
+            errori.append(f"visti {p['slug']}: il riassunto salvato non è quello che dà lo schema sul testo salvato")
+        for b in V["testo"]:
+            if escape(b["x"]) not in t:
+                errori.append(f"visti {p['slug']}: testo ufficiale mancante: {b['x'][:60]}")
+        if not V["testo"]:
+            senza += 1
+            if "had no “Visa requirements” section" not in t or "In short:" in t:
+                errori.append(f"visti {p['slug']}: manca l'avviso 'nessuna sezione visti' o c'è un riassunto")
+            continue
+        if escape(p["url_ingresso"]) not in t:
+            errori.append(f"visti {p['slug']}: fonte GOV.UK mancante")
+        if not V["sintesi"]:
+            solo += 1
+            if "In short:" in t:
+                errori.append(f"visti {p['slug']}: riassunto mostrato senza schema riconosciuto")
+            continue
+        con += 1
+        if not any(m.match(V["sintesi"]) for m in MODELLI_VISTO):
+            errori.append(f"visti {p['slug']}: riassunto fuori dai modelli fissi: {V['sintesi']}")
+        if not V["frase"] or not V["testo"][0]["x"].startswith(V["frase"]):
+            errori.append(f"visti {p['slug']}: la frase di partenza non è l'inizio del testo ufficiale")
+        for num in re.findall(r"\b(\d+|one)\b", V["sintesi"]):
+            if not re.search(r"\b" + num + r"\b", V["frase"] or ""):
+                errori.append(f"visti {p['slug']}: il numero {num} del riassunto non è nella frase ufficiale")
+        if V["sintesi"].startswith("You can visit") and SENZA_VISTO_VIETATO.search(" ".join(b["x"] for b in V["testo"])):
+            errori.append(f"visti {p['slug']}: 'senza visto' ma il testo parla di autorizzazione, tassa o tessera")
+        if V["sintesi"].startswith("You need a visa") and VISTO_ELETTRONICO_VIETATO.search(" ".join(b["x"] for b in V["testo"])):
+            errori.append(f"visti {p['slug']}: 'serve un visto' ma il testo parla di ETA o visto elettronico")
+        if V["schema"] == "schengen" and 'href="../../ees-etias/"' not in t.split('id="visa"')[1].split("Official source:")[0]:
+            errori.append(f"visti {p['slug']}: pagina Schengen senza il rimando a EES/ETIAS nella sezione visti")
+        if f"In short: <strong>{escape(V['sintesi'])}.</strong>" not in t:
+            errori.append(f"visti {p['slug']}: riassunto non mostrato nella pagina")
+    return errori, (con, solo, senza)
+
+
+class LD(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.dentro, self.blocchi, self.h3 = False, [], 0
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "script" and ("type", "application/ld+json") in attrs:
+            self.dentro = True
+            self.blocchi.append("")
+
+    def handle_endtag(self, tag):
+        if tag == "script":
+            self.dentro = False
+
+    def handle_data(self, data):
+        if self.dentro:
+            self.blocchi[-1] += data
+
+
+def citazioni_faq(testo, ammesse):
+    """Scompone '“a” “b”' in citazioni ammesse (intere); None se resta testo che non è una citazione ufficiale."""
+    if not testo:
+        return []
+    for q in sorted(ammesse, key=len, reverse=True):
+        pezzo = f"“{q}”"
+        if testo.startswith(pezzo):
+            resto = testo[len(pezzo):]
+            if resto.startswith(" ") or not resto:
+                dopo = citazioni_faq(resto[1:] if resto else "", ammesse)
+                if dopo is not None:
+                    return [q] + dopo
+    return None
+
+
+def controlla_liquidi_nuovi():
+    errori, n_faq = [], 0
+    for a in G.AER["aeroporti"] + G.AER["nazionali"]:
+        t = leggi(f"liquids/{a['slug']}/index.html")
+        naz = a in G.AER["nazionali"]
+        # risposta diretta: sì/no dalla regola (o la sfumatura scritta nel file), più la sintesi del file
+        attesa = (a.get("risposta") or {"2l": "Yes", "100ml": "No", "dipende": "It depends", "contraddice": "Not clear"}[a["regola"]])
+        m = re.search(r"Can I take liquids over 100 ml through security at [^<]+\? <strong>([^<]+)", t)
+        if not m or not m.group(1).startswith(escape(attesa)) or escape(a["sintesi"]) not in m.group(1):
+            errori.append(f"liquidi {a['slug']}: risposta diretta in alto mancante o diversa dalla regola")
+        if a.get("risposta") and a["regola"] in ("2l", "100ml") and not a["risposta"].startswith({"2l": "Yes", "100ml": "No"}[a["regola"]]):
+            errori.append(f"liquidi {a['slug']}: 'risposta' in contrasto con la regola")
+        ammesse = list(a["citazioni"]) + list(a.get("eccezioni", []))
+        K = a.get("contrasto")
+        if a["regola"] == "contraddice" and K and K.get("url") == a["url"]:
+            ammesse.append(K["citazione"])
+        p = LD()
+        p.feed(t)
+        faq = [json.loads(x) for x in p.blocchi if '"FAQPage"' in x]
+        if len(faq) != 1:
+            errori.append(f"liquidi {a['slug']}: JSON-LD FAQPage assente o doppio")
+            continue
+        voci = faq[0]["mainEntity"]
+        if not 1 <= len(voci) <= 4 or t.count("<h3>") < len(voci):
+            errori.append(f"liquidi {a['slug']}: numero di domande FAQ sbagliato ({len(voci)})")
+        pref = f"Quoted from {a['titolo_fonte']} (checked on {G.data_lunga(a['controllato_il'])}): "
+        for v in voci:
+            n_faq += 1
+            testo = v["acceptedAnswer"]["text"]
+            if not testo.startswith(pref):
+                errori.append(f"liquidi {a['slug']}: risposta FAQ senza la fonte: {testo[:60]}")
+                continue
+            cc = citazioni_faq(testo[len(pref):], ammesse)
+            if not cc:
+                errori.append(f"liquidi {a['slug']}: risposta FAQ con testo non citato dalla pagina ufficiale: {testo[len(pref):][:80]}")
+                continue
+            if escape(v["name"]) not in t:
+                errori.append(f"liquidi {a['slug']}: domanda FAQ non visibile nella pagina")
+            blocco = "<blockquote class=\"cit\">" + "".join(f"<p>{escape(q)}</p>" for q in cc) + "</blockquote>"
+            if f"<h3>{escape(v['name'])}</h3>{blocco}" not in t:
+                errori.append(f"liquidi {a['slug']}: risposta FAQ visibile diversa dal JSON-LD")
+        if not naz:
+            altri = [b for b in G.AER["aeroporti"] if b is not a and b["paese"] == a["paese"]]
+            for b in altri:
+                if f'href="../../liquids/{b["slug"]}/"' not in t:
+                    errori.append(f"liquidi {a['slug']}: manca il collegamento a {b['slug']} (stesso Paese)")
+    return errori, n_faq
+
+
+def controlla_meta():
+    errori, lunghi = [], []
+    attesi = {f"passport-validity/{p['slug']}/index.html": G.titoli_passaporto(p) for p in G.PAESI}
+    attesi.update({f"liquids/{a['slug']}/index.html": G.titoli_liquidi(a) for a in G.AER["aeroporti"]})
+    attesi.update({f"liquids/{a['slug']}/index.html": G.titoli_liquidi(a, True) for a in G.AER["nazionali"]})
+    from html import unescape
+    for f in SITO.rglob("*.html"):
+        if f.name.startswith("google"):
+            continue
+        t = f.read_text(encoding="utf-8")
+        rel = str(f.relative_to(SITO))
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        des = unescape(re.search(r'<meta name="description" content="(.*?)">', t).group(1))
+        if len(des) > G.LIMITE_DESCRIZIONE:
+            errori.append(f"descrizione di {len(des)} caratteri (> 160) in {rel}")
+        if len(tit) > G.LIMITE_TITOLO:
+            if rel in attesi and all(len(c) > G.LIMITE_TITOLO for c in attesi[rel]):
+                lunghi.append(rel)
+            else:
+                errori.append(f"titolo di {len(tit)} caratteri (> 65) in {rel}: {tit}")
+        if rel in attesi and tit != G.scegli(attesi[rel], G.LIMITE_TITOLO):
+            errori.append(f"titolo non scelto tra le forme previste in {rel}")
+    return errori, lunghi
+
+
 # Parole vietate scritte al contrario, così questo file non le contiene in chiaro.
 _AL_CONTRARIO = ["edualc", "ciporhtna", "ianepo", "tpgtahc", "inimeg", "tolipoc", "amall", "lartsim", "supo", "tennos", "ukiah"]
 VIETATE = re.compile(r"\b(" + "|".join(w[::-1] for w in _AL_CONTRARIO) + r"|gpt-\d)\b", re.I)
@@ -279,7 +461,7 @@ srv.listen(0, async () => {
   const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
   for (const tema of ['light', 'dark']) {
     const ctx = await b.newContext({ viewport: { width: 375, height: 800 }, colorScheme: tema });
-    for (const u of ['/', '/passport-validity/spain/', '/liquids/']) {
+    for (const u of ['/', '/passport-validity/spain/', '/liquids/', '/liquids/barcelona/', '/passport-validity/egypt/']) {
       const p = await ctx.newPage(); const err = [];
       p.on('console', m => { if (m.type() === 'error') err.push(m.text()); }); p.on('pageerror', e => err.push(String(e)));
       await p.goto(base + u, { waitUntil: 'load' });
@@ -293,6 +475,15 @@ srv.listen(0, async () => {
         await p.fill('[name=scadenza]', '2027-02-10');
         out.prove.push({ caso: 'spagna-ok', testo: await p.textContent('[data-out]') });
         await p.screenshot({ path: process.argv[3] + '/spagna-375.png', fullPage: false });
+      }
+      if (tema === 'light' && u === '/liquids/barcelona/') {
+        out.prove.push({ caso: 'barcellona', testo: await p.textContent('main'), faq: await p.$$eval('.faq h3', e => e.filter(x => x.getBoundingClientRect().height > 0).length) });
+      }
+      if (tema === 'light' && u === '/passport-validity/egypt/') {
+        const vis = await p.$eval('#visa', e => e.getBoundingClientRect().height > 0);
+        await p.click('details.card > summary');
+        out.prove.push({ caso: 'egitto', testo: await p.textContent('main'), visa: vis, aperto: await p.$eval('details.card', e => e.open) });
+        await p.screenshot({ path: process.argv[3] + '/egitto-375.png', fullPage: false });
       }
       if (tema === 'light' && u === '/') {
         const scegli = async (nome) => { const i = await p.evaluate((n) => { const s = document.querySelector('[name=paese]'); return [...s.options].findIndex(o => o.textContent === n); }, nome);
@@ -373,6 +564,12 @@ def controlla_browser():
     for x in o["prove"]:
         if x["caso"].startswith("contrasto-") and x.get("rapporto", 0) < 4.5:
             errori.append(f"Contrasto insufficiente nel controllo della home ({x['caso'][10:]}): {x['rapporto']:.2f}:1 su “{x['testo']}”")
+    bc = next((x for x in o["prove"] if x["caso"] == "barcellona"), {})
+    if "Can I take liquids over 100 ml through security at Barcelona-El Prat (BCN)?" not in bc.get("testo", "") or not bc.get("faq"):
+        errori.append("Barcellona: risposta diretta o FAQ non visibili nel browser")
+    eg = next((x for x in o["prove"] if x["caso"] == "egitto"), {})
+    if not eg.get("visa") or "normally need a visa" not in eg.get("testo", "") or not eg.get("aperto"):
+        errori.append("Egitto: sezione visti non visibile o dettagli che non si aprono")
     if sum(1 for x in o["prove"] if x["caso"].startswith("contrasto-")) != 2:
         errori.append("Prova del contrasto del controllo (tema chiaro e scuro) non eseguita")
     return errori, (o, cartella)
@@ -394,10 +591,16 @@ def main():
     e7, info = controlla_browser()
     if info:
         o, cartella = info
-        print(f"7. Browser 375 px: {len(o['pagine'])} viste (3 pagine × tema chiaro e scuro), {len(o['prove'])} prove del controllo, {len(e7)} errori; schermate in {cartella}")
+        print(f"7. Browser 375 px: {len(o['pagine'])} viste (5 pagine × tema chiaro e scuro), {len(o['prove'])} prove del controllo, {len(e7)} errori; schermate in {cartella}")
     else:
         print(f"7. Browser 375 px: {e7[0] if e7 else ''}")
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else [])
+    e8, (con, solo, senza) = controlla_visti()
+    print(f"8. Visti: {con} riassunti da schema riconosciuto, {solo} solo citazione, {senza} senza sezione visti: {len(e8)} errori")
+    e9, n_faq = controlla_liquidi_nuovi()
+    print(f"9. Liquidi: risposta diretta e {n_faq} risposte FAQ fatte solo di citazioni ufficiali: {len(e9)} errori")
+    e10, lunghi = controlla_meta()
+    print(f"10. Titoli <= 65 e descrizioni <= 160: {len(e10)} errori" + (f"; titoli più lunghi senza alternativa più corta prevista: {lunghi}" if lunghi else ""))
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10
     for e in tutti:
         print(" -", e)
     if tutti:
