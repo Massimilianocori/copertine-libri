@@ -37,7 +37,7 @@ Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE)
 | fino al 12/10/2026 (28 gg) | Tourist Tax Calculator | manca | 0 | 0 | nessun contatore | – | Foto Search Console 15/10 |
 | 15/10/2026 | EsameB1 | – | – | – | – | – | Query viste: "esame b1 italiano per cittadinanza modena", "risultati esami cils b1 cittadinanza 2026", "b1 milano" → aggiunte 56 pagine città (77 in tutto) |
 
-## 2b. Stima dei ricavi a 18 mesi (14/10/2026). Sono stime, non numeri: si rifanno con i dati veri.
+## 2b. Stima dei ricavi a 18 mesi (14/10/2026, aggiornata il 17/10 con FloodCost, rifiuti visti, navi e FHA). Sono stime, non numeri: si rifanno con i dati veri.
 
 | Sito | Prudente €/anno | Ottimista €/anno | Fonte della stima |
 |---|---|---|---|
@@ -47,10 +47,14 @@ Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE)
 | Before You Fly | 800 | 3.400 | classifica 19 (liquidi + passaporti) |
 | EsameB1 | 500 | 3.500 | studi EsameB1 (l'ottimista comprende i contatti per le scuole, dopo il cancello fiscale) |
 | EsamiDiStato | 500 | 2.500 | studi EsamiDiStato |
-| Case all'asta (da costruire) | 500 | 3.000 | affari-test-fonti (primo anno 0-1.000) |
+| Aste in Chiaro | 500 | 3.000 | affari-test-fonti (primo anno 0-1.000) |
 | Passi alpini (da testare) | 800 | 2.500 | ricerca-2026-10-14 |
-| **Totale se tutti funzionano** | **7.200** | **33.400** | |
-| **Realistico** (di solito metà dei siti passa) | **5.000** | **12.000** | |
+| FloodCost | 2.500 | 9.000 | idee-mondo-2026-10-14 n. 1 |
+| Visa Income, sezione rifiuti dei visti | 1.500 | 5.000 | idee-mondo-2026-10-14 n. 2 |
+| Cruise Health Scores | 1.000 | 6.000 | idee-2026-10-15 n. 1 (290 pagine, simili alle 400 previste) |
+| ApprovedCondos (FHA) | 800 | 4.000 | idee-2026-10-15 n. 2, **ridotta il 17/10**: 345 pagine invece di 3.000 (i condomini veri sono 6.539, non 13.812) |
+| **Totale se tutti funzionano** | **13.000** | **57.400** | |
+| **Realistico** (di solito metà dei siti passa) | **9.000** | **20.000** | circa 750-1.700 € al mese a regime; nei primi 12 mesi molto meno |
 
 A 12 mesi: realistico 1.000-4.000 €. Cifre lorde, prima di tasse e contributi. Libri KDP esclusi.
 
