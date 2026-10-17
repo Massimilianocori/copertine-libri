@@ -15,6 +15,7 @@ Il controllo del passaporto gira nel browser (JS in pagina, nessuno script ester
 import json
 import re
 import shutil
+import unicodedata
 from datetime import date, timedelta
 from html import escape
 from pathlib import Path
@@ -358,7 +359,12 @@ th{background:var(--board);color:var(--on-board-2);font-family:var(--mono);font-
 td .small{font-family:var(--mono);font-size:.8rem}
 tbody tr:hover td{background:color-mix(in srgb,var(--accent-2) 50%,transparent)}
 tr:last-child td{border-bottom:0}
-@media (max-width:640px){.tab td,.tab th{min-width:120px}.tab td:first-child,.tab th:first-child{min-width:150px}}
+@media (max-width:640px){.tab td,.tab th{min-width:120px}.tab td:first-child,.tab th:first-child{min-width:150px}
+.tab-e thead{display:none}.tab-e tr{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.tab-e tr:last-child{border-bottom:0}.tab-e td,.tab-e td:first-child{min-width:0;padding:0;border:0}.tab-e td:first-child{grid-column:1/-1;font-weight:600}
+.tab-e td:nth-child(4){grid-column:1/-1;font-size:.8rem;color:var(--ink-3)}
+.tab-e td[data-l]::before{content:attr(data-l);display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}}
+.cifra .nota-s{display:block;font-size:.9rem;color:var(--ink-3);margin-top:2px}
 .griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
 .griglia a{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;min-width:0;overflow-wrap:anywhere;box-shadow:var(--sh-1);transition:border-color .15s,box-shadow .15s,transform .15s}
 .griglia a small{display:block;font-weight:400;color:var(--ink-3);font-size:.84rem;margin-top:2px;line-height:1.4}
@@ -388,6 +394,8 @@ tr:last-child td{border-bottom:0}
 .ad-slot:empty{display:none}
 details.card>summary{cursor:pointer;min-height:44px;padding:6px 0;line-height:1.45}
 .faq h3{margin-top:18px}
+.altri-pass{display:flex;align-items:center;flex-wrap:wrap;gap:6px 10px;margin:14px 0 0;font-size:.95rem;color:var(--ink-2)}
+.altri-pass .ico{color:var(--accent)}
 .briciole{font-family:var(--mono);font-size:.8rem;color:var(--ink-3);margin-top:18px;letter-spacing:.02em}
 .briciole a{color:var(--ink-3)}
 footer{margin-top:64px;background:var(--board);color:var(--on-board-2);font-size:.88rem;padding:40px 0 34px;border-top:4px solid var(--sign)}
@@ -463,6 +471,9 @@ AVVISO_LIQ = ('<p class="avviso"><strong>Rules can differ by terminal, checkpoin
 
 
 # ---------------------------------------------------------------- impaginazione
+PIEDE_ESTERI = ""  # attribuzioni Canada/Australia nel piè di pagina (riempito da main() quando ci sono i dati)
+
+
 def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, js="", assoluto=False, testata="", ld_extra=None):
     file = percorso if percorso.endswith(".html") else (percorso + "index.html")
     profondita = file.count("/")
@@ -534,7 +545,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <a class="logo" href="{rel}">{MARCHIO}<span>Before <b>You Fly</b></span></a>
 <p><strong>{NOME}</strong> is an independent site, not affiliated with any government, airport or airline. Every rule is quoted from an official source, linked under it with the date we checked it.
 <strong>Rules change: the airline, the airport and border officials have the final say.</strong> Nothing on this site is legal advice.</p>
-<p>Passport validity rules: contains public sector information from the FCDO foreign travel advice on GOV.UK, licensed under the <a href="{OGL}" rel="noopener">Open Government Licence v3.0</a>.</p>
+<p>Passport validity rules: contains public sector information from the FCDO foreign travel advice on GOV.UK, licensed under the <a href="{OGL}" rel="noopener">Open Government Licence v3.0</a>.{PIEDE_ESTERI}</p>
 </div><div>
 <h2>Explore</h2>
 <ul><li><a href="{rel}about/">About and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
@@ -849,6 +860,7 @@ def pagina_paese(P):
 <p class="lead">{lead}</p>
 </div>
 </section>
+{altri_passaporti(rel, uk_slug=P["slug"])}
 {sezione_visto(P)}
 <h2>Passport validity: official text “{escape(titolo_sez)}”</h2>
 {testo_ufficiale(P)}
@@ -878,6 +890,12 @@ def cambi_recenti(giorni_max=60):
     return voci
 
 
+def indici_altri(rel):
+    """Link agli indici dei passaporti canadese e australiano (se ci sono i dati)."""
+    ll = [f'<a href="{rel}{ESTERI[k]["base"]}/">{ESTERI[k]["agg"]} passport ({len(VOCI[k])} destinations)</a>' for k in ESTERI if VOCI[k]]
+    return f'<p class="altri-pass">{ico("passport")}<span>Other passports: {" · ".join(ll)}</span></p>' if ll else ""
+
+
 def indice_passaporti():
     rel = "../"
     righe = "".join(f'<tr data-voce><td><a href="{rel}passport-validity/{P["slug"]}/">{escape(P["nome"])}</a></td><td>{escape(breve_regola(P["regola"], P))}</td>'
@@ -895,6 +913,7 @@ def indice_passaporti():
 <p class="lead">How long a British passport must be valid for {len(PAESI)} destinations, from the UK government's foreign travel advice (FCDO), quoted word for word. For {auto} destinations the checker applies the rule to your dates; for the other {len(PAESI) - auto} the official sentence has conditions we do not turn into a calculation, so we show it and you read it.</p>
 <p class="lead">Each destination page also quotes the FCDO “Visa requirements” section and answers “Do I need a visa?”. For {n_visti} destinations the first FCDO visa sentence matches a wording we recognise and we add a one-line summary; for the others we only quote the official text.</p>
 <p class="fonte">Source: <a href="https://www.gov.uk/foreign-travel-advice" rel="noopener">GOV.UK foreign travel advice (FCDO)</a>, read through the GOV.UK Content API · last checked: {data_lunga(PASS['controllato_il'])}.</p>
+{indici_altri(rel)}
 </section>
 {modulo_checker('tutti-dati', True, link=rel + 'passport-validity/')}
 {AVVISO_PASS}
@@ -914,6 +933,442 @@ def indice_passaporti():
     pagina("passport-validity/", f"Passport Validity & Visa Rules by Country {ANNO} (UK Passport)",
            f"How long must a British passport be valid, and do you need a visa? Official FCDO rules for {len(PAESI)} destinations, quoted word for word, with a date checker.",
            corpo, briciole=[("Passport validity", "passport-validity/")], js=MOTORE_JS + APP_JS)
+
+
+# ---------------------------------------------------------------- passaporti canadese e australiano (Government of Canada, Smartraveller)
+# Stessa regola delle pagine britanniche: il testo ufficiale è SEMPRE citato parola per parola; il riassunto di una riga esiste solo se
+# raccolta/passaporti_ca.py o raccolta/passaporti_au.py lo hanno ricavato da uno schema riconosciuto (verifica.py lo ricalcola).
+def _chiave_nome(s):
+    s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower()
+    s = re.sub(r"\(.*?\)", "", s).replace("&", " and ")
+    s = re.sub(r"\bsaint\b", "st", s)
+    s = re.sub(r"[^a-z ]", " ", s)
+    s = re.sub(r"\bthe\b", "", s)
+    return " ".join(s.split())
+
+
+UK_PER_NOME = {_chiave_nome(P["nome"]): P["slug"] for P in PASS["paesi"]}
+# destinazione della fonte -> pagine britanniche dello stesso territorio (controllate a mano il 17/10/2026); lista vuota = nessuna pagina britannica
+UK_ALIAS = {
+    "ca": {"CV": ["cape-verde"], "FM": ["federated-states-of-micronesia"], "CG": ["congo"], "SX": ["st-maarten"], "PM": ["st-pierre-and-miquelon"],
+           "TR": ["turkey"], "US": ["usa"], "BQ": ["bonaire-st-eustatius-saba"], "CK": ["cook-islands-tokelau-and-niue"], "NU": ["cook-islands-tokelau-and-niue"],
+           "TK": ["cook-islands-tokelau-and-niue"], "MF": ["st-martin-and-st-barthelemy"], "BL": ["st-martin-and-st-barthelemy"], "IL": ["israel", "palestine"],
+           "AQ": [], "AS": [], "PT-20": [], "IC": [], "GL": [], "GU": [], "MP": [], "PR": [], "GB": [], "VI": []},
+    "au": {"cabo-verde": ["cape-verde"], "turkiye": ["turkey"], "united-states-america": ["usa"], "usa": ["usa"], "micronesia": ["federated-states-of-micronesia"],
+           "israel-and-occupied-palestinian-territories": ["israel", "palestine"], "palestinian-territories": ["palestine"],
+           "republic-congo": ["congo"], "democratic-republic-congo": ["democratic-republic-of-the-congo"], "cote-divoire-ivory-coast": ["cote-d-ivoire"],
+           "united-kingdom": [], "cook-islands": ["cook-islands-tokelau-and-niue"], "niue": ["cook-islands-tokelau-and-niue"],
+           "brunei-darussalam": ["brunei"], "czech-republic": ["czechia"], "kyrgyz-republic": ["kyrgyzstan"], "macau": ["macao"], "guam": []},
+}
+UK_NOMI = {P["slug"]: P["nome"] for P in PASS["paesi"]}
+UK_CON_PAGINA = {P["slug"] for P in PAESI}
+
+ESTERI = {
+    "ca": {"file": "passaporti_ca.json", "base": "canadian-passport", "agg": "Canadian", "pop": "Canadians", "ente": "Government of Canada",
+           "etichetta": "Government of Canada", "icona_top": "Canadian passport", "sezione": "Entry and exit requirements",
+           "ente_frase": "the Government of Canada", "un": "a"},
+    "au": {"file": "passaporti_au.json", "base": "australian-passport", "agg": "Australian", "pop": "Australians", "ente": "Smartraveller (Australian Government)",
+           "etichetta": "Smartraveller", "icona_top": "Australian passport", "sezione": "Travel",
+           "ente_frase": "Smartraveller, the Australian Government's travel advice service", "un": "an"},
+}
+for _k, _c in ESTERI.items():
+    _f = DATI / _c["file"]
+    _c["dati"] = json.loads(_f.read_text(encoding="utf-8")) if _f.exists() else None
+
+
+def _uk_di(k, p):
+    chiave = p["iso"] if k == "ca" else p["slug_fonte"]
+    if chiave in UK_ALIAS[k]:
+        return [s for s in UK_ALIAS[k][chiave] if s in UK_CON_PAGINA]
+    s = UK_PER_NOME.get(_chiave_nome(p["nome"]))
+    return [s] if s in UK_CON_PAGINA else []
+
+
+CON_ARTICOLO = {"USA", "Netherlands", "Philippines", "Bahamas", "Maldives", "Dominican Republic", "Central African Republic", "Comoros", "Azores",
+                "Democratic Republic of the Congo", "Republic of Congo", "Republic of the Congo", "Seychelles", "Czech Republic", "Vatican City", "Gambia"}
+
+
+def nome_frase(v):
+    """Nome della destinazione dentro una frase: 'the USA', 'the United Kingdom', 'the Cook Islands'; uguale altrimenti."""
+    n = v["nome"]
+    if n.startswith("The "):
+        return "the " + n[4:]
+    if n in CON_ARTICOLO or n.startswith(("United ", "Federated ")) or n.endswith(("Islands", "Isles")):
+        return "the " + n
+    return n
+
+
+# Contenuto sottile (revisione del 17/10/2026): una destinazione ha una pagina SOLO se la fonte dà testo specifico del Paese sulla validità del
+# passaporto o sui visti. Le altre (per l'Australia: solo il testo generico di Smartraveller, uguale per tutti, più frasi di contorno; per il
+# Canada: l'Antartide, che rimanda ai Paesi di transito) non hanno pagina, non sono nella sitemap né nei link: l'indice le elenca con il
+# collegamento diretto alla pagina ufficiale.
+CONTORNO_AU = re.compile(r"^(?:Entry and exit (?:conditions|requirements) can change|Contact (?:the |an |your )?(?:nearest )?[^.]*(?:embassy|consulate|high commission)"
+                         r"|You should contact|You can contact|Make sure you meet all entry|If you don't(?: meet the conditions)?, the Australian|Each country or territory"
+                         r"|Every country or territory|More information|Find out about returning|Countries with a risk|Some airlines may want|Check with|For more information"
+                         r"|Check your visa needs)", re.I)
+VALIDITA_AU = re.compile(r"\bvalid(?:ity)?\b[^.]*\b(?:\d+|six|three) (?:months?|days?)|\b(?:\d+|six|three) (?:months?|days?)[^.]*\bvalid(?:ity)?\b"
+                         r"|valid for (?:the|your) (?:duration|intended|length|period)", re.I)
+VISTO_AU = re.compile(r"\bvisas?\b|visa-free|\be-?visa|schengen|tourist card|entry (?:and exit )?form|arrival card|travel authori[sz]ation|\bETA\b", re.I)
+
+
+def frasi_paese_au(p):
+    """Frasi del Paese (non generiche, non di contorno) nella sottosezione dei visti di Smartraveller."""
+    out = []
+    for b in p["visto"]["testo"]:
+        if b.get("generico") or b["t"] in ("h3", "h4", "li"):
+            continue
+        out += [x.strip() for x in re.split(r"(?<=[.!?])\s+", b["x"]) if x.strip() and not CONTORNO_AU.match(x.strip())]
+    return out
+
+
+def ha_testo_specifico(k, p):
+    if k == "ca":
+        return bool(p["passaporto"]["testo"]) or any(b["x"].startswith("Tourist visa") for b in p["visto"]["testo"])
+    return bool(p["passaporto"].get("frase") and VALIDITA_AU.search(p["passaporto"]["frase"])) or any(VISTO_AU.search(x) for x in frasi_paese_au(p))
+
+
+PROPRIO_NOME = {"ca": {"BQ"}}  # la pagina canadese "Bonaire" copre solo Bonaire: nome e slug suoi, anche se la pagina britannica è Bonaire/St Eustatius/Saba
+SENZA_PAGINA_ESTERI = {k: [] for k in ESTERI}
+
+
+def _voci(k):
+    D = ESTERI[k]["dati"]
+    if not D:
+        return []
+    out = []
+    for p in D["paesi"]:
+        if not (p["passaporto"]["testo"] or p["visto"]["testo"]):
+            continue
+        if not ha_testo_specifico(k, p):
+            SENZA_PAGINA_ESTERI[k].append(p)
+            continue
+        out.append({"k": k, "p": p, "uk": _uk_di(k, p)})
+    # slug: quello della pagina britannica se il legame è uno a uno, altrimenti quello della fonte
+    quanti = {}
+    for v in out:
+        for s in v["uk"]:
+            quanti[s] = quanti.get(s, 0) + 1
+    for v in out:
+        uno = len(v["uk"]) == 1 and quanti[v["uk"][0]] == 1 and v["p"].get("iso", v["p"]["slug_fonte"]) not in PROPRIO_NOME.get(k, set())
+        v["slug"] = v["uk"][0] if uno else v["p"]["slug_fonte"]
+        v["nome"] = UK_NOMI[v["uk"][0]] if uno else re.sub(r"\s*\((?:Kinshasa|Brazzaville|FSM|Ivory Coast|East Timor)\)", "", v["p"]["nome"]).replace("Gambia, The", "The Gambia")
+        v["url_pag"] = f"{ESTERI[k]['base']}/{v['slug']}/"
+    out.sort(key=lambda v: _chiave_nome(v["nome"]))
+    return out
+
+
+VOCI = {k: _voci(k) for k in ESTERI}
+PER_UK = {k: {} for k in ESTERI}  # pagina britannica -> pagine canadesi/australiane dello stesso territorio
+for _k in ESTERI:
+    for _v in VOCI[_k]:
+        for _s in _v["uk"]:
+            PER_UK[_k].setdefault(_s, []).append(_v)
+PER_CHIAVE = {k: {(v["uk"][0] if v["uk"] else _chiave_nome(v["nome"])): v for v in VOCI[k]} for k in ESTERI}
+
+
+def _chiave_voce(v):
+    return v["uk"][0] if v["uk"] else _chiave_nome(v["nome"])
+
+
+def altri_passaporti(rel, uk_slug=None, voce=None):
+    """'Other passports: British · Canadian · Australian' con i link alle pagine della stessa destinazione che esistono."""
+    link = []
+    if voce is not None and voce["uk"]:
+        link += [f'<a href="{rel}passport-validity/{s}/">British passport{(" (" + escape(UK_NOMI[s]) + ")") if (len(voce["uk"]) > 1 or UK_NOMI[s] != voce["nome"]) else ""}</a>'
+                 for s in voce["uk"]]
+    for k in ESTERI:
+        if voce is not None and voce["k"] == k:
+            continue
+        if uk_slug:
+            ww = PER_UK[k].get(uk_slug, [])
+        elif voce["uk"]:
+            # stessa destinazione: se la pagina britannica copre più territori (Isole Cook, Tokelau e Niue) si tiene solo quello con lo stesso nome
+            ww = []
+            for s in voce["uk"]:
+                cc = PER_UK[k].get(s, [])
+                if len(cc) > 1:
+                    cc = [w for w in cc if _chiave_nome(w["p"]["nome"]) == _chiave_nome(voce["p"]["nome"])]
+                ww += [w for w in cc if w not in ww]
+        else:
+            ww = [PER_CHIAVE[k][_chiave_voce(voce)]] if _chiave_voce(voce) in PER_CHIAVE[k] else []
+        qui = voce["nome"] if voce is not None else UK_NOMI.get(uk_slug, "")
+        for w in ww:  # il nome tra parentesi se i link sono più d'uno o se la pagina collegata copre un territorio diverso (Israel and Palestine)
+            etich = len(ww) > 1 or _chiave_nome(w["nome"]) != _chiave_nome(qui)
+            link.append(f'<a href="{rel}{w["url_pag"]}">{ESTERI[k]["agg"]} passport{(" (" + escape(w["nome"]) + ")") if etich else ""}</a>')
+    return f'<p class="altri-pass">{ico("passport")}<span>Other passports: {" · ".join(link)}</span></p>' if link else ""
+
+
+def avviso_estero(k, rel):
+    c = ESTERI[k]
+    if k == "ca":
+        chi = ("These rules are published by the Government of Canada (Global Affairs Canada) for Canadian citizens travelling on a regular Canadian passport. "
+               "Before You Fly is an independent site: it is not a Government of Canada site and is not endorsed by the Government of Canada.")
+    else:
+        chi = ("These rules are published by Smartraveller, the Australian Government's travel advice service (Department of Foreign Affairs and Trade), for "
+               "Australian citizens. Before You Fly is an independent site: it is not an Australian Government site and is not endorsed by DFAT.")
+    return (f'<p class="avviso"><strong>For {c["agg"]} passport holders.</strong> {chi} The airline and the border officials of the destination decide whether '
+            f'you can travel or enter: this site is information, not legal advice. British passport? See the <a href="{rel}passport-validity/">UK (FCDO) rules</a>.</p>')
+
+
+def licenza_estera(k):
+    D = ESTERI[k]["dati"]
+    if k == "ca":
+        return (f'{escape(D["attribuzione"][:-len("Open Government Licence – Canada.")])}<a href="{escape(D["licenza_url"])}" rel="noopener">Open Government Licence – Canada</a>.')
+    return (f'Content from {escape(D["attribuzione"])}, licensed under <a href="{escape(D["licenza_url"])}" rel="noopener">CC BY 4.0</a> '
+            f'(<a href="{escape(D["copyright_url"])}" rel="noopener">copyright notice</a>). Changes: we quote excerpts unchanged and leave out some general notes; the short summaries are ours.')
+
+
+def fonte_estera(v, sezione):
+    k, p = v["k"], v["p"]
+    D = ESTERI[k]["dati"]
+    if k == "ca":
+        nome_fonte = f'Government of Canada – {escape(p["nome"])} travel advice and advisories (travel.gc.ca)'
+        date_txt = f'page last updated {data_lunga(p["aggiornata"])}'
+    else:
+        nome_fonte = f'Smartraveller (Australian Government) – {escape(p["nome"])} travel advice'
+        date_txt = (f'page updated {data_lunga(p["aggiornata"])}' if p.get("aggiornata") else "update date not shown") + \
+                   (f', still current at {data_lunga(p["ancora_valida_il"])} (Australian time)' if p.get("ancora_valida_il") else "")
+    return (f'<p class="fonte">Official source: <a href="{escape(p["url"])}" rel="noopener">{nome_fonte}</a>, section “{escape(sezione)}” · {date_txt} · '
+            f'checked on {data_lunga(D["controllato_il"])} · {licenza_estera(k)}</p>')
+
+
+def breve_visto_estero(v):
+    """Etichetta corta per l'indice, ricavata solo dal riassunto (che viene da uno schema fisso): nessun fatto nuovo."""
+    V = v["p"]["visto"]
+    x = V["sintesi"]
+    if not x:
+        return "read the official visa text" if V["testo"] else "no visa section on the official page"
+    m = re.search(r"(?:not required for stays |without a visa for |don't need a visa to visit .+? for |^Tourists can visit .+? for |^You can stay in .+? for )(?:of )?(up to a maximum of |up to |less than |fewer than )?(\d+|six) (days|months|weeks)( or less)?", x)
+    if re.match(r"^(?:Tourist visa required|You need a visa)", x):
+        b = "Required"
+    elif m:
+        b = f"Not required: {(m.group(1) or '').replace('up to a maximum of ', 'up to ')}{m.group(2)} {m.group(3)}{m.group(4) or ''}"
+        b += " in any 180 days" if re.search(r"\b180[- ]day period", x) else ""
+        b += " (tourists)" if re.match(r"^(?:Tourists|Australian tourists)", x) or "for tourism" in x else ""
+    else:
+        b = "Not required (tourism)" if "tourism" in x or "tourist" in x.lower() and "Tourist visa" not in x else "Not required"
+    if "ETIAS" in x:
+        b += "; ETIAS: applications not yet open"
+    return b
+
+
+def breve_validita_estera(v):
+    P = v["p"]["passaporto"]
+    if P.get("breve"):
+        return P["breve"]
+    if v["k"] == "au" and not P.get("frase"):
+        return "General advice only (no country rule)"
+    return "Read the official text" if P["testo"] else "No passport text"
+
+
+AUTORIZZ_VISIBILE = re.compile(r"authori[sz]ation|\bETIAS\b|\beTA\b|\bETA\b|\be-?visa|arrival|declaration|immigration form|tourist card|migration card|ED card|"
+                               r"regist|online|fee|tax", re.I)
+
+
+def sezioni_altre(v):
+    """Altre sezioni della parte d'ingresso: visibili quelle su autorizzazioni, moduli, registrazioni, Schengen, EES/ETIAS...; le altre nel riquadro apribile."""
+    vis, chiuse = [], []
+    for a in v["p"].get("altre_sezioni", []):
+        bb = [{"t": "h3", "x": a["titolo"]}] + a["testo"]
+        (vis if (a.get("visibile") or v["k"] == "au" or AUTORIZZ_VISIBILE.search(a["titolo"])) else chiuse).append(bb)
+    return vis, chiuse
+
+
+def sezione_visto_estero(v, rel):
+    k, p, c = v["k"], v["p"], ESTERI[v["k"]]
+    V = p["visto"]
+    n = escape(nome_frase(v))
+    dom = f'<h2 id="visa">Do {c["pop"]} need a visa for {n}?</h2>'
+    if not V["testo"]:
+        return (dom + f'<p class="avviso">The {escape(c["ente"])} page for {n} had no visa section when we checked it on '
+                f'{data_lunga(c["dati"]["controllato_il"])}, so we have nothing to quote. Read the <a href="{escape(p["url"])}" rel="noopener">full official travel advice</a> '
+                'or ask the embassy of the country before you travel.</p>')
+    if V["sintesi"]:
+        breve = (f'<p class="cifra">In short: <strong>{escape(V["sintesi"])}.</strong></p>'
+                 f'<p class="small">Our one-line summary of the first official line below, which matches a wording we recognise. It applies to {c["agg"]} citizens; '
+                 'read the full official text, which may add conditions.</p>')
+    else:
+        breve = f'<p class="small">We quote the official text word for word and do not summarise it. {escape(V["motivo"] or "")}</p>'
+    vis, chiuse = sezioni_altre(v)
+    altre_vis = "".join(blocchi_html(bb) for bb in vis)
+    altro = ""
+    if chiuse:
+        altro = (f'<details class="card" style="margin-top:12px"><summary><strong>More from the official “{escape(c["sezione"])}” section</strong> '
+                 f'(other requirements)</summary>{"".join(blocchi_html(bb) for bb in chiuse)}</details>')
+    titolo = escape(V.get("titolo_sezione") or "Visas")
+    return (dom + breve + f'<p class="small" style="margin-bottom:0">Official text, “{titolo}”:</p>' + blocchi_html(V["testo"]) +
+            (f'<p class="small" style="margin-bottom:0">Also in the official “{escape(c["sezione"])}” section:</p>' + altre_vis if altre_vis else "") +
+            altro + fonte_estera(v, V.get("titolo_sezione") or "Visas"))
+
+
+def passaporto_da_mostrare(k, testo):
+    """Smartraveller: la sottosezione "Passport" ripete su ogni pagina gli stessi riquadri generici ("Lost or stolen passport", "Passport with 'X'
+    gender identifier"). Si mostrano il blocco "Validity" e ogni parte che contiene testo del Paese; i riquadri solo generici no (meno testo
+    duplicato tra le pagine). Il Canada cita già solo "Regular Canadian passport"."""
+    if k != "au":
+        return testo
+    gruppi, cur = [], []
+    for b in testo:
+        if b["t"] == "h4" and cur:
+            gruppi.append(cur)
+            cur = []
+        cur.append(b)
+    if cur:
+        gruppi.append(cur)
+    tenere = [g for i, g in enumerate(gruppi) if i == 0 and g[0]["t"] != "h4" or g[0]["t"] == "h4" and g[0]["x"].strip().lower() == "validity"
+              or any(not b.get("generico") and b["t"] != "h4" for b in g)]
+    return [b for g in tenere for b in g]
+
+
+def sezione_validita_estera(v):
+    k, p, c = v["k"], v["p"], ESTERI[v["k"]]
+    P = p["passaporto"]
+    n = escape(nome_frase(v))
+    dom = f'<h2 id="passport">How long must my {c["agg"]} passport be valid for {n}?</h2>'
+    if not P["testo"]:
+        return dom + (f'<p class="avviso">The {escape(c["ente"])} page for {n} had no passport text for regular passports when we checked it. '
+                      f'Read the <a href="{escape(p["url"])}" rel="noopener">full official travel advice</a> or ask the embassy of the country.</p>')
+    if P["sintesi"]:
+        breve = (f'<p class="cifra">In short: <strong>{escape(P["sintesi"])}.</strong></p>'
+                 '<p class="small">Our one-line summary of the official sentence below, which matches a wording we recognise. Your airline may apply stricter rules.</p>')
+    elif k == "au" and not P.get("frase"):
+        breve = (f'<p class="cifra"><strong>In its “Travel” section, Smartraveller gives no passport validity period specific to {escape(nome_frase(v))}.</strong></p>'
+                 '<p class="small">The official “Passport” text below is Smartraveller\'s general advice, the same on every destination page. '
+                 'Check the rule with the embassy of the country and with your airline before you travel.</p>')
+    else:
+        breve = f'<p class="small">We quote the official text word for word and do not summarise it. {escape(P["motivo"] or "")}</p>'
+    tit = (P.get("titolo_sezione") or "Regular Canadian passport") if k == "ca" else "Passport"
+    mostra = passaporto_da_mostrare(k, P["testo"])
+    nota = ""
+    tolti = [b["x"] for b in P["testo"] if b["t"] == "h4" and b not in mostra]
+    if tolti:
+        nota = (f'<p class="small">The same section also has Smartraveller\'s general notes ({escape(", ".join("“" + x + "”" for x in tolti))}), '
+                f'the same on every destination page: read them on the <a href="{escape(p["url"])}" rel="noopener">official page</a>.</p>')
+    return (dom + breve + f'<p class="small" style="margin-bottom:0">Official text, “{tit}”:</p>' + blocchi_html(mostra) + nota + fonte_estera(v, tit))
+
+
+def titoli_estero(v):
+    n, pop = v["nome"], ESTERI[v["k"]]["pop"]
+    return [f"{n} Entry Requirements for {pop} {ANNO}: Visa & Passport", f"{n} Entry Rules for {pop} {ANNO}: Visa & Passport",
+            f"{n} Entry Requirements for {pop} {ANNO}",
+            f"{n} Visa & Passport for {pop} {ANNO}", f"{n}: Entry Rules for {pop} {ANNO}", f"{n} for {pop} {ANNO}"]
+
+
+def descrizioni_estero(v):
+    c = ESTERI[v["k"]]
+    n, pop = nome_frase(v), c["pop"]
+    vis = v["p"]["visto"]["sintesi"]
+    val = v["p"]["passaporto"]["sintesi"]
+    fonte = "Government of Canada" if v["k"] == "ca" else "Smartraveller"
+    return [f"Do {pop} need a visa for {n}? {vis or 'Official visa text quoted word for word'}. Passport: {val or 'official text quoted'}. {fonte} text, dated.",
+            f"Do {pop} need a visa for {n}? {vis or 'Official visa text quoted word for word'}. Plus passport validity, from the {fonte} page, dated.",
+            f"Do {pop} need a visa for {n}? {vis or 'The official text, quoted word for word'}.",
+            f"Do {pop} need a visa for {n}? Visa and passport validity rules from the {fonte} page, quoted word for word.",
+            f"{v['nome']}: visa and passport rules for {pop} ({ANNO}), quoted from the {fonte} page."]
+
+
+NOTE_SINTESI = re.compile(r"^(.*?)(?: \((the official text adds more details|read the official text for how long you can stay)\))?(; ETIAS will be required, .*)?$")
+
+
+def sint_box(x):
+    """Riassunto nel riquadro in alto: la parte principale in grande, le note tra parentesi in piccolo (stesso testo del riassunto)."""
+    m = NOTE_SINTESI.match(x)
+    nota = m.group(2)
+    return (f'<strong>{escape(m.group(1) + (m.group(3) or ""))}.</strong>' +
+            (f'<span class="nota-s">({escape(nota)})</span>' if nota else ""))
+
+
+def pagina_estera(v):
+    rel = "../../"
+    k, p, c = v["k"], v["p"], ESTERI[v["k"]]
+    V, P = p["visto"], p["passaporto"]
+    n = escape(v["nome"])
+    riga_visto = (f'<p class="cifra" style="margin-top:4px">Visa ({escape(c["etichetta"])}): {sint_box(V["sintesi"])} <a href="#visa">Official visa text</a></p>'
+                  if V["sintesi"] else
+                  f'<p class="cifra" style="margin-top:4px">Visa ({escape(c["etichetta"])}): <strong><a href="#visa">{"Read the official visa text below" if V["testo"] else "No visa section on the official page"}</a></strong></p>')
+    if P["sintesi"]:
+        riga_val = f'<p class="cifra">Passport validity ({escape(c["etichetta"])}): {sint_box(P["sintesi"])} <a href="#passport">Official text</a></p>'
+    elif k == "au" and not P.get("frase"):
+        riga_val = (f'<p class="cifra">Passport validity ({escape(c["etichetta"])}): <strong><a href="#passport">No country-specific rule: general advice only</a></strong></p>')
+    else:
+        riga_val = f'<p class="cifra">Passport validity ({escape(c["etichetta"])}): <strong><a href="#passport">Read the official text below</a></strong></p>'
+    aggiornata = p.get("aggiornata")
+    lead = (f"Whether {c['pop']} need a visa for {escape(nome_frase(v))} and how long {c['un']} {c['agg']} passport must be valid, as published by {escape(c['ente_frase'])}, "
+            "quoted word for word with the date of the official page.")
+    corpo = f"""<section class="hero"><h1>{n} entry requirements for {c['agg']} passport holders ({ANNO}): visa and passport validity</h1></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top"><span class="sq">{ico("passport")}</span><span>{escape(c["icona_top"])}</span><span>{"Updated " + data_lunga(aggiornata) if aggiornata else ""}</span></div>
+<div class="s-body">
+{riga_visto}
+{riga_val}
+{fonte_estera(v, c["sezione"])}
+<p class="lead">{lead}</p>
+</div>
+</section>
+{altri_passaporti(rel, voce=v)}
+{sezione_visto_estero(v, rel)}
+{sezione_validita_estera(v)}
+{avviso_estero(k, rel)}
+{AD}
+<p>Read the full <a href="{escape(p['url'])}" rel="noopener">official travel advice for {escape(nome_frase(v))}</a> (safety, health, local laws) before you travel.</p>
+<p class="small">Spotted a change? <a href="{rel}contact/?ref={k}-{v['slug']}">Tell us</a>.</p>
+{box_affiliati()}
+<p><a href="{rel}{c['base']}/">{c['agg']} passport: all destinations</a> · <a href="{rel}passport-validity/">British passport rules</a> · <a href="{rel}liquids/">Liquids rules by airport</a> · <a href="{rel}ees-etias/">EES and ETIAS status</a></p>"""
+    ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": f"{v['nome']} entry requirements for {c['agg']} passport holders ({ANNO})",
+           "url": f"{URL_SITO}/{v['url_pag']}", "inLanguage": "en", "isBasedOn": p["url"], "dateModified": c["dati"]["controllato_il"],
+           "isPartOf": {"@type": "WebSite", "name": NOME, "url": URL_SITO + "/"}}]
+    pagina(v["url_pag"], scegli(titoli_estero(v), LIMITE_TITOLO), scegli(descrizioni_estero(v), LIMITE_DESCRIZIONE), corpo,
+           briciole=[(f"{c['agg']} passport", f"{c['base']}/"), (v["nome"], v["url_pag"])], js=MOTORE_JS + APP_JS, ld_extra=ld)
+
+
+def indice_estero(k):
+    rel = "../"
+    c, D = ESTERI[k], ESTERI[k]["dati"]
+    voci = VOCI[k]
+    righe = "".join(f'<tr data-voce><td><a href="{rel}{v["url_pag"]}">{escape(v["nome"])}</a></td><td data-l="Passport">{escape(breve_validita_estera(v))}</td>'
+                    f'<td data-l="Visa">{escape(breve_visto_estero(v)[0].upper() + breve_visto_estero(v)[1:])}</td>'
+                    f'<td>{("Updated " + data_lunga(v["p"]["aggiornata"])) if v["p"].get("aggiornata") else "–"}</td></tr>'
+                    for v in voci)
+    n_val = sum(1 for v in voci if v["p"]["passaporto"]["sintesi"])
+    n_vis = sum(1 for v in voci if v["p"]["visto"]["sintesi"])
+    senza = SENZA_PAGINA_ESTERI[k]
+    senza_pagina = ""
+    if senza:
+        lista = ", ".join(f'<a href="{escape(p["url"])}" rel="noopener">{escape(p["nome"])}</a>' for p in senza)
+        senza_pagina = (f'<p class="small">No page here for {len(senza)} destination{"s" if len(senza) > 1 else ""}: when we checked, the official '
+                        f'{escape(c["etichetta"])} advice gave no destination-specific visa or passport validity text for '
+                        f'{"them" if len(senza) > 1 else "it"}. Read the official advice directly: {lista}.</p>')
+    if k == "ca":
+        fonte = (f'<p class="fonte">Source: <a href="https://travel.gc.ca/travelling/advisories" rel="noopener">Government of Canada, Travel advice and advisories</a> '
+                 f'(Global Affairs Canada), read through the official open data files (<a href="{escape(D["dataset_url"])}" rel="noopener">open.canada.ca dataset</a>) · '
+                 f'last checked: {data_lunga(D["controllato_il"])} · {licenza_estera(k)}</p>')
+        spiega = (f"For {n_val} destinations the Government of Canada sentence on regular Canadian passports matches a wording we recognise and we add a one-line summary; "
+                  f"for {n_vis} destinations the “Tourist visa” line does too. Where the official text also mentions an electronic travel authorization (eTA/ETA), an e-visa, "
+                  "an arrival card, an online form or registration, a tourist card or a fee, we do not summarise the visa line: we quote it, with those sections in full.")
+    else:
+        fonte = (f'<p class="fonte">Source: <a href="https://www.smartraveller.gov.au/destinations" rel="noopener">Smartraveller destinations</a> '
+                 f'(Australian Government, Department of Foreign Affairs and Trade) · last checked: {data_lunga(D["controllato_il"])} · {licenza_estera(k)}</p>')
+        spiega = (f"Smartraveller writes its advice in prose, so we summarise very little: {n_vis} visa summaries and {n_val} passport validity summaries, only where the official "
+                  "sentence matches a fixed wording. For most destinations Smartraveller gives only its general passport advice (“Many countries require your passport to be "
+                  "valid for at least 6 months…”), which we quote as general advice, not as a rule of the country.")
+    corpo = f"""<section class="hero">{h1_diviso(f"{c['agg']} passport: visa and passport validity rules for every destination ({ANNO})")}
+<p class="lead">Do {c['pop']} need a visa, and how long must {c['un']} {c['agg']} passport be valid? For {len(voci)} destinations, the text of {escape(c['ente_frase'])}, quoted word for word, with the date of each official page.</p>
+<p class="lead">{spiega}</p>
+{fonte}
+</section>
+{avviso_estero(k, rel)}
+{AD}
+<h2>All destinations</h2>
+<div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a country, e.g. Japan, Mexico, France" data-filtro="lista-{k}" aria-label="Search destinations"></div>
+<div class="tab tab-e"><table><thead><tr><th>Destination</th><th>Passport validity (short)</th><th>Visa (short)</th><th>Official page updated</th></tr></thead><tbody id="lista-{k}">{righe}</tbody></table></div>
+<p class="small">Short labels are ours; always read the official text on each page. “After departure”: counted from the day you leave the country.</p>
+{senza_pagina}
+<p>Other passports: <a href="{rel}passport-validity/">British passport (FCDO)</a> · {" · ".join(f'<a href="{rel}{ESTERI[j]["base"]}/">{ESTERI[j]["agg"]} passport</a>' for j in ESTERI if j != k and VOCI[j])}</p>
+{box_affiliati()}"""
+    titolo = f"{c['agg']} Passport: Visa & Passport Rules by Country {ANNO}"
+    pagina(f"{c['base']}/", titolo,
+           f"Do {c['pop']} need a visa? How long must {c['un']} {c['agg']} passport be valid? Official rules for {len(voci)} destinations, quoted word for word, with dates.",
+           corpo, briciole=[(f"{c['agg']} passport", f"{c['base']}/")], js=MOTORE_JS + APP_JS)
 
 
 # ---------------------------------------------------------------- liquidi
@@ -1244,7 +1699,7 @@ def home():
     ultimo = data_lunga(max(PASS["controllato_il"], AER["controllato_il"], EES["controllato_il"]))
     testata = f"""<div class="band"><div class="wrap band-in">
 <section class="hero">{h1_diviso(f"Before You Fly: passport validity, airport liquids rules and EU entry checks ({ANNO})")}
-<p class="scope"><span class="pill">{ico("passport")}British passport only</span><span>Passport rules are the UK government's (FCDO), for British citizens.</span></p>
+<p class="scope"><span class="pill">{ico("passport")}British passport checker</span><span>Passport rules from the UK government (FCDO), for British citizens.{"".join(f' {ESTERI[k]["agg"]} passport: <a href="{ESTERI[k]["base"]}/" style="color:var(--sign)">{len(VOCI[k])} destinations</a>.' for k in ESTERI if VOCI[k])}</span></p>
 <p class="sub">Three checks before you fly, answered from official sources only.</p>
 <p class="trust"><span>{ico("shield")}Official sources · last checked {ultimo}</span><span>{ico("lock")}Your dates stay in your browser</span></p></section>
 <ul class="tiles">
@@ -1271,6 +1726,27 @@ def home():
            corpo, js=MOTORE_JS + APP_JS, testata=testata)
 
 
+def about_esteri(rel):
+    out = []
+    for k in ESTERI:
+        if not VOCI[k]:
+            continue
+        D, voci = ESTERI[k]["dati"], VOCI[k]
+        nv = sum(1 for v in voci if v["p"]["visto"]["sintesi"])
+        np_ = sum(1 for v in voci if v["p"]["passaporto"]["sintesi"])
+        if k == "ca":
+            out.append(f"""<h2>Canadian passport (Government of Canada)</h2>
+<p>Source: the “Entry and exit requirements” section (“Regular Canadian passport” and “Visas”) of the Government of Canada travel advice and advisories for each destination (<a href="https://travel.gc.ca/travelling/advisories" rel="noopener">travel.gc.ca</a>, Global Affairs Canada), read through the official open data files of the dataset <a href="{escape(D['dataset_url'])}" rel="noopener">Country Travel Advice and Advisories</a>, last checked on {data_lunga(D['controllato_il'])}. Each page shows the date the official page was last updated.</p>
+<p>Licence: {licenza_estera(k)} We reproduce the text unchanged; the summaries and short labels are ours. Before You Fly is not a Government of Canada site and is not endorsed by the Government of Canada.</p>
+<p>Summaries: a one-line passport validity summary only when the official sentence matches a fixed wording (for example “Your passport must be valid for at least 6 months beyond the date you expect to leave …” or “… for the expected duration of your stay”) and names the destination ({np_} of {len(voci)} destinations); a visa summary only when the first line of the “Visas” section is “Tourist visa: not required for stays up to N days”, “Tourist visa: not required” or “Tourist visa: required”, with no time limit or exception, and when nothing in the entry section mentions an electronic travel authorization (eTA/ETA), an e-visa, an arrival card, an online form or registration, a tourist card or a fee ({nv} destinations). For the Schengen countries whose page says that ETIAS will be required (“You will be required to apply online and pay for an ETIAS before you travel”), the summary says so and adds, in the official words, that “Applications are not yet open”. A “Tourist visa: required” line is not summarised when the official text talks about a visa on arrival or an e-visa. Destinations whose official text has nothing specific on visas or passport validity get no page; the Canadian passport index links them to the official page.</p>""")
+        else:
+            out.append(f"""<h2>Australian passport (Smartraveller)</h2>
+<p>Source: the “Travel” section (“Visas and border measures” or “Visas”, “Other formalities”, “European Entry and Exit Systems”, “Passport” and the other entry subsections) of the Smartraveller travel advice for each destination (<a href="https://www.smartraveller.gov.au/destinations" rel="noopener">smartraveller.gov.au</a>, Australian Government, Department of Foreign Affairs and Trade), last checked on {data_lunga(D['controllato_il'])}. The site blocks simple automated requests, so we read it in a browser. Each page shows the “Updated” and “Still current at” dates of the official page.</p>
+<p>Licence: {licenza_estera(k)} Smartraveller's logos and trademarks are not used. Before You Fly is not an Australian Government site and is not endorsed by DFAT.</p>
+<p>Summaries: Smartraveller writes in prose and, for most destinations, gives only its general passport advice (the same on every page), which we quote as general advice and never as a rule of the country. We add a one-line summary only when an official sentence matches a fixed wording and has no condition such as “usually”, “may” or “if you”, and (for visas) when nothing in the section mentions an eVisa, an electronic travel authority, an arrival card, an online form or registration, a visa on arrival, a tourist card or a fee: {nv} visa summaries and {np_} passport validity summaries for {len(voci)} destinations. A destination gets a page only if its Smartraveller text says something specific to it about visas, entry formalities or passport validity; the others ({len(SENZA_PAGINA_ESTERI[k])}, where the text is only general advice and contact details) are linked from the Australian passport index straight to Smartraveller.</p>""")
+    return "".join(out)
+
+
 def about():
     rel = "../"
     manuali = [P for P in PAESI if not P["regola"]]
@@ -1279,7 +1755,7 @@ def about():
     corpo = f"""<section class="hero"><h1>About {NOME} and our sources</h1></section><div class="testo">
 <p>{NOME} is an independent project. It collects official travel rules and shows them word for word, with the link and the date we checked them. We are not affiliated with any government, airport or airline.</p>
 <h2>Rules we follow</h2>
-<ul><li>Only official sources: the UK government (GOV.UK, FCDO), the European Commission and EU portals, airport operators, and national aviation security authorities (TSA, CATSA, Hong Kong Civil Aviation Department).</li>
+<ul><li>Only official sources: the UK government (GOV.UK, FCDO), the Government of Canada (travel.gc.ca), the Australian Government (Smartraveller), the European Commission and EU portals, airport operators, and national aviation security authorities (TSA, CATSA, Hong Kong Civil Aviation Department).</li>
 <li>Every rule is quoted, not rewritten. Our short summaries are labelled as such and the official text is always on the same page.</li>
 <li>If we cannot read an official page, or it is unclear, we leave it out and say so.</li>
 <li>When two official texts disagree, we show both and do not choose.</li>
@@ -1293,6 +1769,7 @@ def about():
 <p>Destinations where we do not apply the passport validity rule automatically ({len(manuali)}), because the official sentence has conditions we do not turn into a calculation:</p>
 <ul>{lista_man}</ul>
 {f'<p>No page published (the official section is empty):</p><ul>{senza}</ul>' if senza else ''}
+{about_esteri(rel)}
 <h2>Liquids rules</h2>
 <p>Each airport's official security page, last read by us on {data_lunga(AER['controllato_il'])} (the date is shown on each page). Some airport sites block simple automated requests or load their text with JavaScript: we read those in a browser and say so on the page. Spanish airports use the general hand-luggage page of Aena, which runs Spain's public airports (it lists no airport- or lane-specific exceptions, and it does not say that it applies at every airport: each Spanish airport page says so); Hong Kong uses the Civil Aviation Department page; the US and Canada each have one national rule (TSA, CATSA). See the full list and the airports we left out on the <a href="{rel}liquids/">liquids page</a>.</p>
 <h2>EES and ETIAS</h2>
@@ -1396,7 +1873,9 @@ def controlli():
 
 
 def main():
+    global PIEDE_ESTERI
     controlli()
+    PIEDE_ESTERI = "".join((" Canadian passport pages: " if k == "ca" else " Australian passport pages: ") + licenza_estera(k) for k in ESTERI if VOCI[k])
     if SITO.exists():
         conserva = {p.name: p.read_bytes() for p in SITO.glob("google*.html")}
         shutil.rmtree(SITO)
@@ -1410,6 +1889,11 @@ def main():
     indice_passaporti()
     for P in PAESI:
         pagina_paese(P)
+    for k in ESTERI:
+        if VOCI[k]:
+            indice_estero(k)
+            for v in VOCI[k]:
+                pagina_estera(v)
     indice_liquidi()
     for A in AER["aeroporti"]:
         pagina_aeroporto(A)
@@ -1422,7 +1906,8 @@ def main():
     extra()
     auto = sum(1 for P in PAESI if P["regola"])
     print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili + 404; {len(PAESI)} paesi ({auto} con controllo automatico), "
-          f"{len(AER['aeroporti'])} aeroporti + {len(AER['nazionali'])} regole nazionali, pagina EES/ETIAS.")
+          f"{len(AER['aeroporti'])} aeroporti + {len(AER['nazionali'])} regole nazionali, pagina EES/ETIAS; "
+          + ", ".join(f"passaporto {ESTERI[k]['agg']}: {len(VOCI[k])} pagine" for k in ESTERI))
 
 
 if __name__ == "__main__":

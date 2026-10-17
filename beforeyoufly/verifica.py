@@ -18,6 +18,14 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
    le pagine Schengen rimandano a EES/ETIAS nella sezione visti.
 9. Liquidi: risposta diretta in alto; ogni risposta delle FAQ (JSON-LD FAQPage e testo visibile) è fatta solo di citazioni ufficiali intere.
 10. Titoli <= 65 caratteri (salvo quando nessuna forma prevista ci sta) e descrizioni <= 160 in tutte le pagine.
+11. Passaporti canadese e australiano: ogni riassunto (validità e visto) è ricalcolato con raccolta/passaporti_ca.py o passaporti_au.py sul testo
+    salvato, deve corrispondere a un modello fisso e i suoi numeri devono stare nella frase ufficiale; controllo indipendente: nessun "senza visto"
+    se il testo d'ingresso parla di eTA/ETA/ESTA/ETIAS (salvo ETIAS "Applications are not yet open." detto nel riassunto), e-visa, arrival card,
+    moduli o registrazioni prima del viaggio, tessere o tasse; nessun "serve un visto" se il visto è elettronico o all'arrivo; ogni pagina cita il
+    testo ufficiale intero, mostra fonte, data della pagina ufficiale, data del controllo, licenza (OGL Canada / CC BY 4.0 con l'attribuzione
+    richiesta) e dice che il sito non è del governo; indice e collegamenti con le pagine britanniche della stessa destinazione (andata e ritorno);
+    pagina solo per le destinazioni con testo specifico del Paese (genera.ha_testo_specifico), le altre senza pagina e fuori dalla sitemap.
+    Nel browser (punto 7) anche 4 pagine nuove (2 canadesi, 2 australiane) a 375 px, tema chiaro e scuro.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -406,6 +414,8 @@ def controlla_meta():
     attesi = {f"passport-validity/{p['slug']}/index.html": G.titoli_passaporto(p) for p in G.PAESI}
     attesi.update({f"liquids/{a['slug']}/index.html": G.titoli_liquidi(a) for a in G.AER["aeroporti"]})
     attesi.update({f"liquids/{a['slug']}/index.html": G.titoli_liquidi(a, True) for a in G.AER["nazionali"]})
+    for k in G.ESTERI:
+        attesi.update({v["url_pag"] + "index.html": G.titoli_estero(v) for v in G.VOCI[k]})
     from html import unescape
     for f in SITO.rglob("*.html"):
         if f.name.startswith("google"):
@@ -424,6 +434,186 @@ def controlla_meta():
         if rel in attesi and tit != G.scegli(attesi[rel], G.LIMITE_TITOLO):
             errori.append(f"titolo non scelto tra le forme previste in {rel}")
     return errori, lunghi
+
+
+# ---------------------------------------------------------------- 11. passaporti canadese e australiano
+def _carica(nome):
+    spec = importlib.util.spec_from_file_location(nome, Path(__file__).resolve().parent / "raccolta" / f"{nome}.py")
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m
+
+
+RCA = _carica("passaporti_ca")
+RAU = _carica("passaporti_au")
+CODA_VAL = r"(?:, and (?:be in good condition|(?:have|must contain|contain|include|should have) [^()]+))?(?: \(the official text adds more details\))?$"
+MODELLI_VAL = {
+    "ca": [re.compile(x + CODA_VAL) for x in [
+        r"^Valid (?:for at least |at least |for a minimum of |a minimum of |for )?\d+ (?:months?|days?) beyond the date you expect to leave .+?",
+        r"^Valid (?:for at least |at least |for a minimum of |a minimum of |for )?\d+ (?:months?|days?) from the date you enter(?: .+?)?",
+        r"^Valid for (?:at least )?the (?:expected )?duration of your stay(?: in .+?)?",
+        r"^Valid beyond the date you expect to leave .+?"]],
+    "au": [re.compile(x) for x in [r"^Valid for (?:at least )?\d+ (?:months?|days?) (?:after the date you leave|from the date you arrive in) .+$",
+                                   r"^At least \d+ (?:months?|days?) of validity remaining when you enter .+$"]],
+}
+ETIAS_CODA = r"(?:; ETIAS will be required, but “Applications are not yet open”, says the same page)?$"
+MODELLI_VIS = {
+    "ca": [re.compile(x + ETIAS_CODA) for x in [
+        r"^Tourist visa not required for stays (?:of )?(?:up to a maximum of|up to|less than|fewer than) (?:\d+|six) (?:days|months|weeks)"
+        r"(?: in any \d+-day period| in a \d+-day period| in a 180 day period| within any \d+-day period| within a \d+-day period"
+        r"| within any 180-day period)?(?:, counted across the whole Schengen area)?",
+        r"^Tourist visa not required for stays of \d+ (?:days|months) or less(?: in any \d+-day period)?",
+        r"^Tourist visa not required \(read the official text for how long you can stay\)",
+        r"^Tourist visa required"]],
+    "au": [re.compile(x) for x in [r"^You don't need a visa to visit .+ for (?:up to |less than )?\d+ (?:days|months)(?: for tourism)?$",
+                                   r"^(?:Tourists can visit|You can stay in) .+ for (?:up to )?\d+ (?:days|months) without a visa$",
+                                   r"^Australian tourists can enter .+ without a visa for (?:up to )?\d+ (?:days|months)$",
+                                   r"^You don't need a visa to visit .+ (?:for tourism|as a tourist) \(read the official text for how long you can stay\)$",
+                                   r"^You need a visa (?:to (?:visit|enter|travel to)|before you enter) .+$"]],
+}
+# controllo indipendente (più largo di quello della raccolta): niente "senza visto" se il testo d'ingresso parla di autorizzazioni, visti elettronici,
+# moduli o registrazioni prima del viaggio, tessere o tasse d'ingresso; niente "serve un visto" se il visto è elettronico o si ottiene all'arrivo
+VIETATO_SENZA = re.compile(r"\b(?:ETA|eTA|ESTA|NZeTA|K-ETA|ETIAS|EVW)\b|eVisitor|travel authori[sz]ation|electronic authori[sz]ation|\be-?visa|electronic visa|arrival card|arrival declaration|e-arrival"
+                           r"|declaration form|immigration form|embarkation|landing card|tourist card|migration card|ED card|entry fee|entry tax|tourism fee|tourist tax"
+                           r"|pre-?regist|pre-?arrival|register online|online registration|e-?Travel|online form|QR code|online visa|visa online", re.I)
+VIETATO_RICHIESTO = re.compile(r"\b(?:ETA|eTA|ESTA|NZeTA|K-ETA)\b|eVisitor|\be-?visa|electronic visa|electronic travel|online visa|visa online|on arrival|upon arrival|"
+                               r"ports? of entry|points? of entry|at the airport", re.I)
+PAROLE_NUM = {"six": "6", "three": "3", "one": "1", "two": "2"}
+
+
+def _numeri_ok(sintesi, frase):
+    f = frase or ""
+    for k, v in PAROLE_NUM.items():
+        f = re.sub(r"\b" + k + r"\b", v, f)
+    return all(re.search(r"\b" + n + r"\b", f) for n in re.findall(r"\b(\d+)\b", sintesi) if n not in ("180",) or "180" in f)
+
+
+def _sezioni_au(p):
+    sez = {"Passport": p["passaporto"]["testo"], RAU.VISTI: p["visto"]["testo"]}
+    for a in p.get("altre_sezioni", []):
+        sez[a["titolo"]] = a["testo"]
+    return sez
+
+
+def controlla_esteri():
+    errori, conti = [], {}
+    for k, c in G.ESTERI.items():
+        D = c["dati"]
+        voci = G.VOCI[k]
+        conti[k] = {"pagine": 0, "val": 0, "vis": 0, "val_cit": 0, "vis_cit": 0}
+        if not D:
+            continue
+        if len(voci) < 0.8 * D["pagine_indice"]:
+            errori.append(f"{k}: solo {len(voci)} pagine su {D['pagine_indice']} destinazioni della fonte")
+        t_ind = leggi(f"{c['base']}/index.html")
+        for v in voci:
+            p = v["p"]
+            P, V = p["passaporto"], p["visto"]
+            conti[k]["pagine"] += 1
+            # a) i riassunti salvati sono quelli che danno gli schemi sul testo salvato
+            if k == "ca":
+                ss = RCA.sezioni(p["ingresso"])
+                rv = RCA.calcola_validita(P["testo"], P["titolo_sezione"], p["nome"], p["iso"], p.get("schengen", False))
+                if (rv[0], rv[1], rv[2], rv[3]) != (P["schema"], P["sintesi"], P["breve"], P["frase"]):
+                    errori.append(f"{k} {v['slug']}: riassunto della validità diverso da quello dello schema sul testo salvato")
+                visti_ss = next((b for t, b in ss if t and RCA.TITOLO_VISTI.match(t)), [])
+                if [b["x"] for b in visti_ss] != [b["x"] for b in V["testo"]]:
+                    errori.append(f"{k} {v['slug']}: testo dei visti diverso dalla sezione d'ingresso salvata")
+                rs = RCA.sintesi_visto(V["testo"], ss)
+                if (rs[0], rs[1], rs[2]) != (V["schema"], V["sintesi"], V["frase"]):
+                    errori.append(f"{k} {v['slug']}: riassunto del visto diverso da quello dello schema sul testo salvato")
+                etias = [(t, b) for t, b in ss if t and "ETIAS" in t and any(RCA.ETIAS_NON_APERTO in x["x"] and RCA.ETIAS_FUTURO in x["x"] for x in b)]
+                resto = " ".join(x["x"] for t, b in ss if (t, b) not in etias for x in b) + " " + " ".join(t or "" for t, b in ss if (t, b) not in etias)
+                tutto_visti = " ".join(b["x"] for b in V["testo"])
+            else:
+                sez = _sezioni_au(p)
+                rv = RAU.sintesi_validita(sez, p["nome"], p["slug_fonte"])
+                if (rv[0], rv[1], rv[2], rv[3]) != (P["schema"], P["sintesi"], P["breve"], P["frase"]):
+                    errori.append(f"{k} {v['slug']}: riassunto della validità diverso da quello dello schema sul testo salvato")
+                rs = RAU.sintesi_visto(sez, p["nome"], p["slug_fonte"])
+                if (rs[0], rs[1], rs[2]) != (V["schema"], V["sintesi"], V["frase"]):
+                    errori.append(f"{k} {v['slug']}: riassunto del visto diverso da quello dello schema sul testo salvato")
+                etias = []
+                resto = " ".join(b["x"] for t, bb in sez.items() if t != "Passport" for b in bb if not b.get("generico"))
+                tutto_visti = resto
+            # b) modelli fissi, numeri nella frase ufficiale, frase = inizio del testo citato
+            if P["sintesi"]:
+                conti[k]["val"] += 1
+                if not any(m.match(P["sintesi"]) for m in MODELLI_VAL[k]):
+                    errori.append(f"{k} {v['slug']}: riassunto della validità fuori dai modelli fissi: {P['sintesi']}")
+                if not _numeri_ok(P["sintesi"], P["frase"]):
+                    errori.append(f"{k} {v['slug']}: un numero del riassunto della validità non è nella frase ufficiale")
+                if not any(b["x"].startswith(P["frase"]) or P["frase"] in b["x"] for b in P["testo"]):
+                    errori.append(f"{k} {v['slug']}: la frase della validità non è nel testo citato")
+            elif P["testo"]:
+                conti[k]["val_cit"] += 1
+            if V["sintesi"]:
+                conti[k]["vis"] += 1
+                if not any(m.match(V["sintesi"]) for m in MODELLI_VIS[k]):
+                    errori.append(f"{k} {v['slug']}: riassunto del visto fuori dai modelli fissi: {V['sintesi']}")
+                if not _numeri_ok(V["sintesi"], V["frase"]):
+                    errori.append(f"{k} {v['slug']}: un numero del riassunto del visto non è nella frase ufficiale")
+                if not any(b["x"].startswith(V["frase"]) for b in V["testo"]):
+                    errori.append(f"{k} {v['slug']}: la frase del visto non è nel testo citato")
+                senza = re.search(r"not required|don't need|without a visa", V["sintesi"])
+                if senza and VIETATO_SENZA.search(resto):
+                    errori.append(f"{k} {v['slug']}: 'senza visto' ma il testo d'ingresso parla di autorizzazione, e-visa, modulo, tessera o tassa: "
+                                  f"{VIETATO_SENZA.search(resto).group(0)}")
+                if etias and "ETIAS" not in V["sintesi"]:
+                    errori.append(f"{k} {v['slug']}: il testo parla di ETIAS ma il riassunto no")
+                if not senza and VIETATO_RICHIESTO.search(tutto_visti):
+                    errori.append(f"{k} {v['slug']}: 'serve un visto' ma il visto è elettronico o si ottiene all'arrivo")
+            elif V["testo"]:
+                conti[k]["vis_cit"] += 1
+            # c) la pagina: citazioni intere, riassunti solo se ci sono, fonte, date, licenza, nessuna aria di sito governativo
+            t = leggi(v["url_pag"] + "index.html")
+            for b in G.passaporto_da_mostrare(k, P["testo"]) + V["testo"]:
+                if escape(b["x"]) not in t:
+                    errori.append(f"{k} {v['slug']}: testo ufficiale mancante nella pagina: {b['x'][:60]}")
+            if not (P["testo"] or V["testo"]):
+                errori.append(f"{k} {v['slug']}: pagina senza nessuna citazione ufficiale")
+            n_brevi = sum(1 for x in (P["sintesi"], V["sintesi"]) if x)
+            if t.count("In short: <strong>") != n_brevi:
+                errori.append(f"{k} {v['slug']}: {t.count('In short: <strong>')} riassunti nella pagina invece di {n_brevi}")
+            for x in (P["sintesi"], V["sintesi"]):
+                if x and f"In short: <strong>{escape(x)}.</strong>" not in t:
+                    errori.append(f"{k} {v['slug']}: riassunto non mostrato com'è nei dati")
+            if escape(p["url"]) not in t or "checked on " + G.data_lunga(D["controllato_il"]) not in t:
+                errori.append(f"{k} {v['slug']}: fonte o data del controllo mancanti")
+            if p.get("aggiornata") and G.data_lunga(p["aggiornata"]) not in t:
+                errori.append(f"{k} {v['slug']}: data di aggiornamento della pagina ufficiale mancante")
+            if k == "ca" and ("Contains information licensed under the" not in t or escape(D["licenza_url"]) not in t
+                              or "not a Government of Canada site" not in t):
+                errori.append(f"{k} {v['slug']}: attribuzione OGL Canada o avviso 'non governativo' mancanti")
+            if k == "au" and (escape(D["attribuzione"]) not in t or D["licenza_url"] not in t or "not an Australian Government site" not in t):
+                errori.append(f"{k} {v['slug']}: attribuzione Smartraveller (CC BY 4.0) o avviso 'non governativo' mancanti")
+            if f"Do {c['pop']} need a visa for {escape(G.nome_frase(v))}?" not in t or 'id="passport"' not in t:
+                errori.append(f"{k} {v['slug']}: domande sul visto o sulla validità mancanti")
+            # d) collegamenti: indice, pagine britanniche della stessa destinazione (andata e ritorno)
+            if f'href="../{v["url_pag"]}"' not in t_ind:
+                errori.append(f"{k} {v['slug']}: manca nell'indice {c['base']}/")
+            for s in v["uk"]:
+                tu = leggi(f"passport-validity/{s}/index.html")
+                if f'href="../../{v["url_pag"]}"' not in tu:
+                    errori.append(f"{k} {v['slug']}: la pagina britannica {s} non collega la pagina {c['agg']}")
+                if f'href="../../passport-validity/{s}/"' not in t:
+                    errori.append(f"{k} {v['slug']}: manca il collegamento alla pagina britannica {s}")
+        slugs = [v["slug"] for v in voci]
+        if len(set(slugs)) != len(slugs):
+            errori.append(f"{k}: slug duplicati")
+        # e) contenuto sottile (revisione del 17/10/2026): pagina solo con testo specifico del Paese; le altre senza pagina, fuori dalla sitemap,
+        #    elencate nell'indice con il link alla fonte
+        sm = leggi("sitemap.xml")
+        for v in voci:
+            if not G.ha_testo_specifico(k, v["p"]):
+                errori.append(f"{k} {v['slug']}: pagina senza testo specifico del Paese")
+        for p in G.SENZA_PAGINA_ESTERI[k]:
+            if escape(p["url"]) not in t_ind:
+                errori.append(f"{k}: {p['nome']} senza pagina ma non elencato nell'indice con il link ufficiale")
+            for cand in {p.get("slug_fonte", ""), G._chiave_nome(p["nome"]).replace(" ", "-")}:
+                if cand and ((SITO / c["base"] / cand).exists() or f"/{c['base']}/{cand}/<" in sm):
+                    errori.append(f"{k}: {p['nome']} non deve avere una pagina né stare nella sitemap")
+    return errori, conti
 
 
 # Parole vietate scritte al contrario, così questo file non le contiene in chiaro.
@@ -461,7 +651,7 @@ srv.listen(0, async () => {
   const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
   for (const tema of ['light', 'dark']) {
     const ctx = await b.newContext({ viewport: { width: 375, height: 800 }, colorScheme: tema });
-    for (const u of ['/', '/passport-validity/spain/', '/liquids/', '/liquids/barcelona/', '/passport-validity/egypt/']) {
+    for (const u of ['/', '/passport-validity/spain/', '/liquids/', '/liquids/barcelona/', '/passport-validity/egypt/'].concat(JSON.parse(process.argv[4]))) {
       const p = await ctx.newPage(); const err = [];
       p.on('console', m => { if (m.type() === 'error') err.push(m.text()); }); p.on('pageerror', e => err.push(String(e)));
       await p.goto(base + u, { waitUntil: 'load' });
@@ -484,6 +674,12 @@ srv.listen(0, async () => {
         await p.click('details.card > summary');
         out.prove.push({ caso: 'egitto', testo: await p.textContent('main'), visa: vis, aperto: await p.$eval('details.card', e => e.open) });
         await p.screenshot({ path: process.argv[3] + '/egitto-375.png', fullPage: false });
+      }
+      if (u.startsWith('/canadian-passport/') || u.startsWith('/australian-passport/')) {
+        const vis = async (sel) => p.$eval(sel, e => { const r = e.getBoundingClientRect(); return r.height > 0 && r.width > 0 && r.width <= window.innerWidth; }).catch(() => false);
+        out.prove.push({ caso: 'estero:' + tema + ':' + u, testo: await p.textContent('main'), visa: await vis('#visa'), passport: await vis('#passport'),
+                         citazioni: await p.$$eval('blockquote.cit', e => e.filter(x => x.getBoundingClientRect().height > 0).length) });
+        if (tema === 'light') await p.screenshot({ path: process.argv[3] + '/' + u.split('/').filter(Boolean).join('-') + '-375.png', fullPage: false });
       }
       if (tema === 'light' && u === '/') {
         const scegli = async (nome) => { const i = await p.evaluate((n) => { const s = document.querySelector('[name=paese]'); return [...s.options].findIndex(o => o.textContent === n); }, nome);
@@ -525,6 +721,21 @@ srv.listen(0, async () => {
 """
 
 
+def _pagine_estere():
+    """4 pagine nuove per la prova a 375 px: 2 canadesi e 2 australiane (Giappone e Francia, se esistono; altrimenti le prime disponibili)."""
+    out = []
+    for k in G.ESTERI:
+        vv = G.VOCI[k]
+        scelte = [v for v in vv if v["slug"] in ("japan", "france")] or vv[:2]
+        if len(scelte) < 2:
+            scelte += [v for v in vv if v not in scelte][:2 - len(scelte)]
+        out += ["/" + v["url_pag"] for v in scelte[:2]]
+    return out
+
+
+PAGINE_ESTERE_BROWSER = _pagine_estere()
+
+
 def controlla_browser():
     if os.environ.get("BYF_NO_BROWSER") == "1":
         return ["controllo nel browser saltato (BYF_NO_BROWSER=1)"], None
@@ -532,7 +743,7 @@ def controlla_browser():
     with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as fh:
         fh.write(BROWSER_JS)
     try:
-        r = subprocess.run(["node", fh.name, str(SITO), cartella], capture_output=True, text=True, timeout=300)
+        r = subprocess.run(["node", fh.name, str(SITO), cartella, json.dumps(PAGINE_ESTERE_BROWSER)], capture_output=True, text=True, timeout=300)
     finally:
         os.unlink(fh.name)
     if r.returncode != 0:
@@ -570,6 +781,17 @@ def controlla_browser():
     eg = next((x for x in o["prove"] if x["caso"] == "egitto"), {})
     if not eg.get("visa") or "normally need a visa" not in eg.get("testo", "") or not eg.get("aperto"):
         errori.append("Egitto: sezione visti non visibile o dettagli che non si aprono")
+    for u in PAGINE_ESTERE_BROWSER:
+        for tema in ("light", "dark"):
+            x = next((y for y in o["prove"] if y["caso"] == f"estero:{tema}:{u}"), None)
+            if not x:
+                errori.append(f"{u} ({tema}): prova nel browser non eseguita")
+                continue
+            pop = "Canadians" if u.startswith("/canadian") else "Australians"
+            if not x["visa"] or not x["passport"] or x["citazioni"] < 2 or f"Do {pop} need a visa for" not in x["testo"]:
+                errori.append(f"{u} ({tema}): sezione visti o validità non visibile, o citazioni ufficiali mancanti a 375 px")
+    if len(PAGINE_ESTERE_BROWSER) < 4:
+        errori.append(f"prova nel browser su {len(PAGINE_ESTERE_BROWSER)} pagine nuove invece di 4 (mancano i dati di un passaporto?)")
     if sum(1 for x in o["prove"] if x["caso"].startswith("contrasto-")) != 2:
         errori.append("Prova del contrasto del controllo (tema chiaro e scuro) non eseguita")
     return errori, (o, cartella)
@@ -591,7 +813,8 @@ def main():
     e7, info = controlla_browser()
     if info:
         o, cartella = info
-        print(f"7. Browser 375 px: {len(o['pagine'])} viste (5 pagine × tema chiaro e scuro), {len(o['prove'])} prove del controllo, {len(e7)} errori; schermate in {cartella}")
+        print(f"7. Browser 375 px: {len(o['pagine'])} viste ({len(o['pagine']) // 2} pagine × tema chiaro e scuro, di cui nuove: {', '.join(PAGINE_ESTERE_BROWSER)}), "
+              f"{len(o['prove'])} prove, {len(e7)} errori; schermate in {cartella}")
     else:
         print(f"7. Browser 375 px: {e7[0] if e7 else ''}")
     e8, (con, solo, senza) = controlla_visti()
@@ -600,7 +823,12 @@ def main():
     print(f"9. Liquidi: risposta diretta e {n_faq} risposte FAQ fatte solo di citazioni ufficiali: {len(e9)} errori")
     e10, lunghi = controlla_meta()
     print(f"10. Titoli <= 65 e descrizioni <= 160: {len(e10)} errori" + (f"; titoli più lunghi senza alternativa più corta prevista: {lunghi}" if lunghi else ""))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10
+    e11, conti = controlla_esteri()
+    for k, c in conti.items():
+        print(f"11. Passaporto {G.ESTERI[k]['agg']}: {c['pagine']} pagine; validità {c['val']} riassunti, {c['val_cit']} solo citazione; "
+              f"visto {c['vis']} riassunti, {c['vis_cit']} solo citazione")
+    print(f"11. Passaporti canadese e australiano (riassunti ricalcolati, modelli fissi, citazioni, fonti, licenze, link): {len(e11)} errori")
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11
     for e in tutti:
         print(" -", e)
     if tutti:
