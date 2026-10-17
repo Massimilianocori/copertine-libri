@@ -1,0 +1,9 @@
+{
+  "_nota": "Riquadro affiliati nelle pagine di Stato, contea e città. Resta NASCOSTO finché 'url' è vuoto. Inserire solo un URL di affiliazione vero (programma a cui Massimiliano è iscritto), mai inventato. Il link esce con rel=\"sponsored\".",
+  "mutuo": {
+    "url": "",
+    "titolo": "Compare FHA loan offers",
+    "testo": "Rates and fees vary between lenders. Ask several for a quote on the same condo.",
+    "bottone": "Compare lenders"
+  }
+}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fha-approved-condos-list.netlify.app/sitemap.xml

@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:"Lora";src:url(fonts/lora.woff2) format("woff2");font-weight:500 700}
+@font-face{font-family:"Libre Franklin";src:url(fonts/libre-franklin.woff2) format("woff2");font-weight:300 800}
+html,body{margin:0;width:1200px;height:630px;overflow:hidden}
+body{background:radial-gradient(800px 360px at 92% -10%,rgba(217,164,65,.26),transparent 62%),radial-gradient(700px 320px at 0% 120%,rgba(108,208,165,.18),transparent 60%),linear-gradient(180deg,#0F2D29,#173F39);color:#EEF5F2;font-family:"Libre Franklin",sans-serif;position:relative}
+body::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:40px 40px}
+.in{position:relative;z-index:1;padding:56px 72px}
+.logo{display:flex;align-items:center;gap:16px;font-family:Lora;font-weight:700;font-size:40px}
+.logo b{color:#D9A441;font-weight:inherit}.logo svg{width:64px;height:64px}
+h1{font-family:Lora;font-weight:700;font-size:70px;line-height:1.05;letter-spacing:-.015em;margin:36px 0 18px;max-width:900px}
+p{font-size:30px;color:#A9C3BA;margin:0;max-width:900px}
+.tags{display:flex;gap:14px;margin-top:34px}
+.tags span{border:2px solid rgba(217,164,65,.6);color:#E8BC63;border-radius:10px;padding:8px 16px;font-weight:700;font-size:22px;letter-spacing:.05em}
+.card{position:absolute;right:64px;bottom:58px;z-index:1;background:#fff;color:#14231F;border-radius:16px;padding:18px 22px;width:330px;box-shadow:0 20px 40px -18px rgba(0,0,0,.6)}
+.card b{display:block;font-size:22px}.card small{display:block;color:#56655F;font-size:17px;margin:4px 0 10px}
+.card i{font-style:normal;display:inline-block;background:#DDF0E6;color:#17694F;font-weight:800;font-size:16px;border-radius:99px;padding:4px 12px}
+</style></head><body><div class="in">
+<div class="logo"><svg viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#17694F"/><path d="M10 31V12.5a1.5 1.5 0 0 1 1.5-1.5h11a1.5 1.5 0 0 1 1.5 1.5V31M7.5 31h25" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 16h6M14 20.5h6M14 25h3" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><circle cx="28.5" cy="25.5" r="7" fill="#D9A441"/><path d="M25.3 25.6l2.2 2.2 4.2-4.4" fill="none" stroke="#0F2D29" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Approved<b>Condos</b></span></div>
+<h1>Is the condo FHA&nbsp;approved?</h1>
+<p>HUD's list of FHA-approved condo projects, by state, county and city, with expiration dates.</p>
+<div class="tags"><span>HUD DATA</span><span>UPDATED WEEKLY</span><span>FREE</span></div>
+</div>
+<div class="card"><small>Search HUD's list by</small><b>Condo name · City · ZIP</b><i>&#10003; Approval and expiration date</i></div>
+</body></html>
