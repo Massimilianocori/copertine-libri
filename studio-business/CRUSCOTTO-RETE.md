@@ -106,7 +106,17 @@ A 12 mesi: realistico 1.000-4.000 €. Cifre lorde, prima di tasse e contributi.
 |---|---|---|---|
 | SafetyWing Ambassador | Attivo, link nel sito | 10/10/2026 | Nessuno |
 | Airalo (Impact) | **Respinto** ("non è il momento giusto", porta aperta) | 12/10/2026 | Ripresentare la domanda quando un sito supera 1.000 visite al mese, con i numeri |
-| Travelpayouts (Omio, Welcome Pickups, EKTA) | Account approvato, sito da verificare | 10/10/2026 | In pausa: la verifica chiede uno script con cookie di tracciamento, non compatibile con la privacy attuale senza banner dei cookie |
+| Travelpayouts (Omio, Welcome Pickups, EKTA) | Account approvato, sito da verificare | 10/10/2026 | In pausa: la verifica chiede uno script con cookie di tracciamento, non compatibile con la privacy attuale senza banner dei cookie. Dal 17/10: chiedere al supporto la verifica con meta tag (testo pronto in `affiliazioni-2026-10-17.md` sez. 3) |
+| italki (diretto) | Da chiedere (n. 1) | 17/10/2026 | EsameB1. Commissione nel pannello dopo l'approvazione; dollari via PayPal. Scheda 1 di `affiliazioni-2026-10-17.md` |
+| Amazon.it (Programma di affiliazione) | Da chiedere (n. 2) | 17/10/2026 | EsameB1 ed EsamiDiStato. Libri 5 %, cookie 24 ore, minimo 25 €; domanda valutata dopo 3 vendite in 180 giorni. Scheda 2 |
+| Holiday Extras (Awin) | Da chiedere (n. 3) | 17/10/2026 | Before You Fly, pagine aeroporti UK. Assicurazione fino al 15 %, parcheggi 10 %, cookie 30 gg; deposito Awin 5 £ rimborsabile. Scheda 3 |
+| InsureandGo (Tradedoubler) | Da chiedere (n. 4) | 17/10/2026 | Before You Fly, pagine passaporto UK. 12 %, cookie 45 gg, GBP. Scheda 4 |
+| Wise (Partnerize) | Da chiedere (n. 5) | 17/10/2026 | Visa Income Checker. Da 10 £ per nuovo cliente. Scheda 5 |
+| Viator (diretto) | Da chiedere (n. 6) | 17/10/2026 | Cruise Health Scores. 8 %, cookie 30 gg, PayPal settimanale senza minimo, nessun traffico minimo. Scheda 6 |
+| Stay22 (diretto) | Da chiedere (n. 7) | 17/10/2026 | Tourist Tax, Italy Strikes, Cruise. 30 % della commissione delle agenzie, minimo 100 $. Solo link "Allez", niente script. Scheda 7 |
+| Yesim (diretto) | Da chiedere (n. 8) | 17/10/2026 | Before You Fly, Italy Strikes (eSIM al posto di Airalo). 10 % a vita, nessun traffico minimo, prelievo da 100 €. Scheda 8 |
+
+Ricerca completa del 17/10/2026 (programmi per ogni sito, quelli da chiedere dopo con la soglia, gli scartati e il nodo fiscale): `studio-business/affiliazioni-2026-10-17.md`. Stima prudente dei primi 3 mesi: 10-40 € guadagnati, 0-20 € incassati (soglie di pagamento).
 
 ## 7a. Idee in cantiere (si portano avanti ogni settimana)
 
