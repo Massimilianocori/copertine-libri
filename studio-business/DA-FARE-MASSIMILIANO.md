@@ -25,6 +25,8 @@ Cosa scrivere nel modulo (in inglese, puoi incollare):
 
 Nota del 15/10/2026: Massimiliano è **già iscritto al VIES**. Nella domanda 3 basta chiedere della marca da bollo, dell'esterometro e dell'Intrastat.
 
+**Decisione di Massimiliano (17/10/2026):** "non può essere che per avere un link affiliazioni si debba aprire la partita IVA commercianti". Strada scelta: **codice ATECO 58.19.00 aggiunto alla partita IVA attuale, Gestione Separata**, come fa in pratica la maggior parte dei blogger forfettari con link di affiliazione. Non si aspetta una risposta scritta: quando si parte, il CAF fa solo la comunicazione del codice. Si conserva traccia del lavoro personale di ricerca e scrittura dei siti (è l'argomento a favore del lavoro autonomo).
+
 **Aggiornamento 17/10/2026:** Massimiliano non ha un commercialista: usa il **CAF**. Il messaggio va portato (o mandato per email) al CAF che già gli fa la dichiarazione. Il CAF può fare anche la comunicazione all'Agenzia delle Entrate per aggiungere il codice ATECO 58.19.00 (modello AA9/12). Se al CAF non sanno rispondere alle domande 1-2 (lavoro autonomo o commerciale, Gestione Separata o Commercianti), si fa una consulenza singola a pagamento con Fiscozen o Flextax, solo per quelle due domande. **Quando:** non adesso. I link di affiliazione sono sospesi dal 17/10 e i siti sono solo informativi; si decide a fine novembre con i numeri delle visite.
 
 Da copiare e incollare nel modulo di Fiscozen o Flextax, oppure da mandare per email. Chiedi che la risposta sia **scritta**.
