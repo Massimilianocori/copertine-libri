@@ -165,3 +165,20 @@ Domanda di Massimiliano: "esistono idee da 8 o 9?". Esito: **no, dentro i vincol
 | Widget incorporabili; newsletter automatica "regole cambiate" | leve di distribuzione e lista (5), non ricavi | idee-grandi-2026-10-17 |
 | Dataset/API Apify; controllo foto passaporto; scioperi ferroviari UK | NO o dopo il fiscale (4-5) | idee-grandi-2026-10-17 |
 | Contatti (lead) assicurazioni alluvione / mutui / scuole | **dopo il consulente fiscale**: unico modello da 10k+ (stime in sez. 4) | idee-grandi-2026-10-17 |
+
+## Mondo (caccia del 17/10/2026, sera)
+Nessuna idea passa l'asticella (voto ≥ 7 e ≥ 5.000 €/anno): nessuna riga nel cruscotto. Prove in `idee-2026-10-17.md`.
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **Promossi all'esame di guida per autoscuola e per centro d'esame (ES, microdati mensili DGT dal 2010)** | **PASSA sotto l'asticella** (voto 7, ma 1,5-5k €/anno: pubblicità spagnola bassa, affiliazioni da verificare; sopra i 5k solo con i contatti alle autoscuole dopo il consulente fiscale). Sito nuovo oltre il tetto | idee-2026-10-17 |
+| Date della Fischerprüfung per Land e Kreis (DE) | RISERVA debole (voto 5: centinaia di fonti, esame online in crescita) | idee-2026-10-17 |
+| Eclissi totale 2027 (ES, MA, EG) e 2028 (AU) per paese | NO (snowy.es, orbitalradar, treseclipses, eclipse-solaire, timeanddate già automatici) | idee-2026-10-17 |
+| TOPIK, date e sedi per Paese (mondo, EN) | NO (pubblico India/Sri Lanka/Bangladesh, pubblicità bassa) | idee-2026-10-17 |
+| Antagningspoäng per corso universitario (SE) | NO (ednia.se automatico, antagning.se) | idee-2026-10-17 |
+| Feste locali 2027 per Comune, calendario laboral (ES) | NO (diainternacionalde, calendarioslaborales, calendarr) | idee-2026-10-17 |
+| Regionalklassen 2027 dell'assicurazione auto (DE, GDV) | NO (ADAC, tarifcheck, finanztip con la tabella completa) | idee-2026-10-17 |
+| Wohngeld-Mietstufe per Comune 2027 (DE) | NO (smart-rechner, wohngeld.org; lista 2027 ancora in bozza) | idee-2026-10-17 |
+| Premi cassa malati 2027 per regione (CH) | NO (priminfo ufficiale, comparis) | idee-2026-10-17 |
+| Date esami IHK / LAP (DE, AT) | NO (ogni IHK ha già la pagina con le date 2027) | idee-2026-10-17 |
+| Pedaggi per casello, bompenger (NO, dati NVDB) | NO (fuel-prices.eu in inglese, società dei pedaggi in norvegese) | idee-2026-10-17 |
+| Steuerfuss per Comune (CH) | NO (un numero per Comune, liste cantonali) | idee-2026-10-17 |
