@@ -1,0 +1,287 @@
+{
+ "_nota": "Nome mostrato sul sito per ogni compagnia come la scrive il CDC (chiave). Più nomi CDC con lo stesso 'nome' diventano una sola pagina (es. le tre società Viking). Se il CDC aggiunge una compagnia, estrai.py lo segnala: aggiungerla qui.",
+ "Aida Cruises": {
+  "nome": "AIDA Cruises",
+  "slug": "aida-cruises"
+ },
+ "America Cruise Ferries": {
+  "nome": "America Cruise Ferries",
+  "slug": "america-cruise-ferries"
+ },
+ "Aurora Expeditions": {
+  "nome": "Aurora Expeditions",
+  "slug": "aurora-expeditions"
+ },
+ "Azamara Cruises": {
+  "nome": "Azamara",
+  "slug": "azamara"
+ },
+ "Bahamas Paradise Cruise Line": {
+  "nome": "Bahamas Paradise Cruise Line",
+  "slug": "bahamas-paradise-cruise-line"
+ },
+ "Balearia Caribbean Ltda": {
+  "nome": "Baleària Caribbean",
+  "slug": "balearia-caribbean"
+ },
+ "Bernhard Schulte Cruise Services GmbH & Co. KG": {
+  "nome": "Bernhard Schulte Cruise Services",
+  "slug": "bernhard-schulte-cruise-services"
+ },
+ "Bimini SuperFast": {
+  "nome": "Bimini SuperFast",
+  "slug": "bimini-superfast"
+ },
+ "Carnival Cruise Lines, Inc.": {
+  "nome": "Carnival Cruise Line",
+  "slug": "carnival-cruise-line"
+ },
+ "Carnival UK LTD": {
+  "nome": "Carnival UK",
+  "slug": "carnival-uk"
+ },
+ "Celebrity Cruises": {
+  "nome": "Celebrity Cruises",
+  "slug": "celebrity-cruises"
+ },
+ "Club Med Marine": {
+  "nome": "Club Med",
+  "slug": "club-med"
+ },
+ "CMI Ship Mgmt": {
+  "nome": "CMI (Cruise Management International)",
+  "slug": "cmi-cruise-management-international"
+ },
+ "Compagnie Du Ponant SA": {
+  "nome": "Ponant",
+  "slug": "ponant"
+ },
+ "Costa Crociere S.P.A.": {
+  "nome": "Costa Cruises",
+  "slug": "costa-cruises"
+ },
+ "Cruise Management International (CMI)": {
+  "nome": "CMI (Cruise Management International)",
+  "slug": "cmi-cruise-management-international"
+ },
+ "Crystal Cruises LTD": {
+  "nome": "Crystal",
+  "slug": "crystal"
+ },
+ "Disney Cruise Lines": {
+  "nome": "Disney Cruise Line",
+  "slug": "disney-cruise-line"
+ },
+ "Emerald Cruises": {
+  "nome": "Emerald Cruises",
+  "slug": "emerald-cruises"
+ },
+ "Exploris Expeditions & Cruises": {
+  "nome": "Exploris",
+  "slug": "exploris"
+ },
+ "Ferries Del Caribe": {
+  "nome": "Ferries del Caribe",
+  "slug": "ferries-del-caribe"
+ },
+ "FleetPro Ocean Inc": {
+  "nome": "FleetPro Ocean",
+  "slug": "fleetpro-ocean"
+ },
+ "Four Seasons Yachts": {
+  "nome": "Four Seasons Yachts",
+  "slug": "four-seasons-yachts"
+ },
+ "Fred Olsen Cruise Line": {
+  "nome": "Fred. Olsen Cruise Lines",
+  "slug": "fred-olsen-cruise-lines"
+ },
+ "Genting Cruise Lines Ship Management": {
+  "nome": "Genting Cruise Lines",
+  "slug": "genting-cruise-lines"
+ },
+ "Grand Circle Cruise Line": {
+  "nome": "Grand Circle Cruise Line",
+  "slug": "grand-circle-cruise-line"
+ },
+ "Hamburg Cruise SA": {
+  "nome": "Hamburg Cruise",
+  "slug": "hamburg-cruise"
+ },
+ "Hapag-Lloyd Cruises": {
+  "nome": "Hapag-Lloyd Cruises",
+  "slug": "hapag-lloyd-cruises"
+ },
+ "Holland America Line": {
+  "nome": "Holland America Line",
+  "slug": "holland-america-line"
+ },
+ "Hurtigruten Expedition Cruises AS": {
+  "nome": "Hurtigruten Expeditions",
+  "slug": "hurtigruten-expeditions"
+ },
+ "Japan Grace": {
+  "nome": "Japan Grace",
+  "slug": "japan-grace"
+ },
+ "Lever Diving": {
+  "nome": "Lever Diving",
+  "slug": "lever-diving"
+ },
+ "Lindblad Expeditions": {
+  "nome": "Lindblad Expeditions",
+  "slug": "lindblad-expeditions"
+ },
+ "Marella Cruises Limited": {
+  "nome": "Marella Cruises",
+  "slug": "marella-cruises"
+ },
+ "Margaritaville at Sea": {
+  "nome": "Margaritaville at Sea",
+  "slug": "margaritaville-at-sea"
+ },
+ "Maritime Holdings Group": {
+  "nome": "Maritime Holdings Group",
+  "slug": "maritime-holdings-group"
+ },
+ "Mitsui O.S.K. Passenger Line, Ltd": {
+  "nome": "Mitsui O.S.K. Passenger Line",
+  "slug": "mitsui-osk-passenger-line"
+ },
+ "MSC Cruise Management (UK) Ltd": {
+  "nome": "MSC Cruise Management",
+  "slug": "msc-cruise-management"
+ },
+ "Norwegian Cruise Lines": {
+  "nome": "Norwegian Cruise Line",
+  "slug": "norwegian-cruise-line"
+ },
+ "NYK Cruises Co., LTD": {
+  "nome": "NYK Cruises",
+  "slug": "nyk-cruises"
+ },
+ "Oceania Cruises": {
+  "nome": "Oceania Cruises",
+  "slug": "oceania-cruises"
+ },
+ "Orient Express Sailing Yachts": {
+  "nome": "Orient Express Sailing Yachts",
+  "slug": "orient-express-sailing-yachts"
+ },
+ "P&O Cruises": {
+  "nome": "P&O Cruises",
+  "slug": "p-and-o-cruises"
+ },
+ "Peter Deilmann Cruises": {
+  "nome": "Peter Deilmann Cruises",
+  "slug": "peter-deilmann-cruises"
+ },
+ "Polar Latitudes": {
+  "nome": "Polar Latitudes",
+  "slug": "polar-latitudes"
+ },
+ "Princess Cruises": {
+  "nome": "Princess Cruises",
+  "slug": "princess-cruises"
+ },
+ "Rederij Clipper Stad Amsterdam": {
+  "nome": "Rederij Clipper Stad Amsterdam",
+  "slug": "rederij-clipper-stad-amsterdam"
+ },
+ "Regent Seven Seas": {
+  "nome": "Regent Seven Seas Cruises",
+  "slug": "regent-seven-seas-cruises"
+ },
+ "ResidenSea": {
+  "nome": "ResidenSea",
+  "slug": "residensea"
+ },
+ "Ritz-Carlton Yacht Collection": {
+  "nome": "The Ritz-Carlton Yacht Collection",
+  "slug": "the-ritz-carlton-yacht-collection"
+ },
+ "Royal Caribbean International": {
+  "nome": "Royal Caribbean International",
+  "slug": "royal-caribbean-international"
+ },
+ "Saga Group Limited": {
+  "nome": "Saga Cruises",
+  "slug": "saga-cruises"
+ },
+ "Salen Ship Management AB": {
+  "nome": "Salén Ship Management",
+  "slug": "salen-ship-management"
+ },
+ "Scenic Luxury Cruises": {
+  "nome": "Scenic Luxury Cruises",
+  "slug": "scenic-luxury-cruises"
+ },
+ "Sea Cloud Cruises": {
+  "nome": "Sea Cloud Cruises",
+  "slug": "sea-cloud-cruises"
+ },
+ "Sea Dream Yacht Club": {
+  "nome": "SeaDream Yacht Club",
+  "slug": "seadream-yacht-club"
+ },
+ "Seabourn Cruise Line": {
+  "nome": "Seabourn",
+  "slug": "seabourn"
+ },
+ "Silversea": {
+  "nome": "Silversea",
+  "slug": "silversea"
+ },
+ "Star Cruises": {
+  "nome": "Star Cruises",
+  "slug": "star-cruises"
+ },
+ "Swan Hellenic Cruises": {
+  "nome": "Swan Hellenic",
+  "slug": "swan-hellenic"
+ },
+ "TUI Cruises GmbH": {
+  "nome": "TUI Cruises",
+  "slug": "tui-cruises"
+ },
+ "Un-Cruise Adventures": {
+  "nome": "UnCruise Adventures",
+  "slug": "uncruise-adventures"
+ },
+ "V Ships Leisure S.A.M.": {
+  "nome": "V.Ships Leisure",
+  "slug": "vships-leisure"
+ },
+ "V. Ships Leisure U.S.A.": {
+  "nome": "V.Ships Leisure",
+  "slug": "vships-leisure"
+ },
+ "Victory Cruise Lines": {
+  "nome": "Victory Cruise Lines",
+  "slug": "victory-cruise-lines"
+ },
+ "Viking Epedition Operations": {
+  "nome": "Viking",
+  "slug": "viking"
+ },
+ "Viking Ocean Cruises II Ltd.": {
+  "nome": "Viking",
+  "slug": "viking"
+ },
+ "Viking Ocean Cruises Ltd": {
+  "nome": "Viking",
+  "slug": "viking"
+ },
+ "Villa Vie": {
+  "nome": "Villa Vie Residences",
+  "slug": "villa-vie-residences"
+ },
+ "Virgin Voyages": {
+  "nome": "Virgin Voyages",
+  "slug": "virgin-voyages"
+ },
+ "Windstar Cruises": {
+  "nome": "Windstar Cruises",
+  "slug": "windstar-cruises"
+ }
+}

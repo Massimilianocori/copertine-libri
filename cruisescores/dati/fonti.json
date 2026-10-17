@@ -1,0 +1,31 @@
+{
+ "scaricato_il": "2026-10-17",
+ "green_sheet": {
+  "navi": 206,
+  "ultima_ispezione": "2026-08-29"
+ },
+ "modulo": {
+  "navi": 325,
+  "compagnie": 71
+ },
+ "pubblicate": {
+  "attive": 206,
+  "archiviate": 11
+ },
+ "ispezioni": 3696,
+ "prima_ispezione": "1992-06-14",
+ "rapporti": 614,
+ "n_rapporti": 3,
+ "archiviate_dal": "2023-01-01",
+ "archiviate_min": 3,
+ "info_controllate_il": {
+  "faq": "2026-10-17",
+  "otto-aree": "2026-10-17",
+  "ispezioni": "2026-10-17",
+  "epidemie": "2026-10-17"
+ },
+ "controlli_info": {
+  "faq_85": true,
+  "faq_due_ispezioni": true
+ }
+}

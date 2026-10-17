@@ -17,6 +17,8 @@ Ultimo aggiornamento: 14/10/2026 (revisione del mercoledì).
 | EsamiDiStato | https://esamidistato.netlify.app | 10/10/2026 | IT, neolaureati | Pubblicità, corsi di preparazione (affiliati) | Avvio |
 | FloodCost (costo assicurazione alluvioni USA) | https://flood-insurance-cost.netlify.app | 15/10/2026 | EN, proprietari di casa negli USA | Pubblicità (assicurazioni), contatti per preventivi | Avvio |
 | Aste in Chiaro (case all'asta con sconto sul valore OMI) | https://aste-giudiziarie-sconti.netlify.app | 15/10/2026 | IT, chi cerca casa all'asta | Pubblicità, contatti mutuo (dopo la consulenza fiscale) | Avvio |
+| ApprovedCondos (condomini approvati FHA, USA) | https://fha-approved-condos-list.netlify.app | costruito 17/10/2026, da creare su Netlify | EN, chi compra casa negli USA | Pubblicità (mutui), affiliati mutui dopo la consulenza fiscale | Avvio |
+| Cruise Health Scores (voti sanitari CDC delle navi) | https://cruise-health-scores.netlify.app | costruito 17/10/2026, da creare su Netlify | EN, crocieristi USA, UK, Canada | Pubblicità (viaggi), SafetyWing, affiliati crociere | Avvio |
 
 Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE), BandiChiari.
 
@@ -124,6 +126,7 @@ Si riprendono solo quando la soglia è raggiunta. Prima vengono i libri KDP già
 
 ## 8. Registro delle decisioni
 
+- 17/10/2026: costruiti e revisionati ApprovedCondos (345 pagine, 6.539 condomini approvati FHA: meno dei 13.812 dello studio, che contava anche le fasi dei condomini; design 8,6) e Cruise Health Scores (290 pagine, 217 navi, 41 compagnie; design 8,7). Aggiornamento di entrambi ogni lunedì nella routine del lunedì. Da tenere d'occhio: il CDC non pubblica ispezioni nuove dal 29/8/2026.
 - 17/10/2026: Massimiliano dice sì alle navi da crociera CDC e ai condomini FHA (idee del 15/10), no alla corrente in Svizzera ("puoi trovare di meglio"). **Asticella più alta per le idee nuove**: si propongono solo idee con voto ≥ 7 e stima realistica ≥ 5.000 €/anno a 18 mesi; le più piccole si scrivono in ESPLORATE senza disturbarlo. **Tetto alla rete**: con navi e FHA si arriva a 10 siti; nessun sito nuovo oltre questi finché i primi siti non hanno passato i 45 giorni (fine novembre) e i numeri non dicono dove conviene investire. Prima si misura, poi si allarga.
 
 - 15/10/2026: online Aste in Chiaro (436 pagine, 3.090 case all'asta, 696 con confronto OMI), dopo una revisione indipendente che ha corretto tre errori di dati (garage presentati come case, zone sbagliate, metri quadri di una sola stanza). Design 8,7/10. Dati aggiornati ogni sera dalla routine serale, senza pubblicazioni Netlify.

@@ -1,0 +1,19 @@
+{
+ "_nota": "Riquadri di affiliazione. Ogni riquadro compare SOLO se il suo 'url' non è vuoto. Inserire solo URL di affiliazione veri, ricevuti dopo l'iscrizione a un programma (es. CruiseDirect su CJ, Princess, Cruisebound su impact.com). Mai inventare URL. L'unico link attivo oggi è SafetyWing (stesso referenceID di Italy Strikes e Visa Income, campagna cruise-health-scores per distinguere i clic).",
+ "assicurazione": {
+  "url": "https://safetywing.com/nomad-insurance?referenceID=26614957&campaign=cruise-health-scores&utm_campaign=cruise-health-scores&utm_source=26614957&utm_medium=Ambassador",
+  "nome": "SafetyWing",
+  "titolo": "Travel medical insurance",
+  "testo": "Your usual health plan may pay little or nothing for care at sea or in foreign ports. SafetyWing sells travel medical insurance online.",
+  "bottone": "See SafetyWing travel medical insurance",
+  "avvertenza": "Before you buy, check that the policy covers cruise travel, every country on your itinerary and your dates."
+ },
+ "crociere": {
+  "url": "",
+  "nome": "",
+  "titolo": "Compare prices for this cruise",
+  "testo": "Compare sailings and prices from cruise booking sites.",
+  "bottone": "Compare cruise prices",
+  "avvertenza": ""
+ }
+}
