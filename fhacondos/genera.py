@@ -33,6 +33,14 @@ from scarica import STATI as NOMI_STATI, MESI_RECENTI  # noqa: E402
 
 URL_SITO = "https://fha-approved-condos-list.netlify.app"  # unico punto da cambiare se il nome del sito su Netlify è diverso
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console (stesso account degli altri siti): non rimuoverlo
+
+# Contatore visite GoatCounter, account condiviso "rete-siti" della rete (nessun cookie, nessun dato personale conservato).
+# Il percorso inviato comprende l'host (location.host + percorso), così nel cruscotto https://rete-siti.goatcounter.com
+# ogni sito si distingue dagli altri. Da localhost, da file:// e dalle reti private count.js non invia nulla
+# (allow_local resta spento): le prove in locale non contano come visite. Unico punto da cambiare per tutto il sito.
+GOATCOUNTER_URL = "https://rete-siti.goatcounter.com/count"
+SCRIPT_CONTATORE = ('<script>window.goatcounter={path:function(p){return location.host+p}}</script>'
+                    f'<script data-goatcounter="{GOATCOUNTER_URL}" async src="https://gc.zgo.at/count.js"></script>')
 NOME = "ApprovedCondos"
 HUD_LOOKUP = "https://entp.hud.gov/idapp/html/condlook.cfm"
 FLOODCOST = "https://flood-insurance-cost.netlify.app"  # URL_SITO di floodcost/genera.py
@@ -734,6 +742,7 @@ def pagina(percorso, titolo_p, descrizione, corpo, briciole=None, indicizza=True
 <p class="f-base">Data: HUD FHA Condominium Lookup, as of {data_lunga(ASOF)} · Updated weekly.</p>
 </div></footer>
 <script src="/assets/{JS_FILE}" defer></script>
+{SCRIPT_CONTATORE}
 </body>
 </html>
 """
@@ -1430,11 +1439,11 @@ def privacy():
 <h2>The data on this site</h2><p>The listings come from HUD's public FHA Condominium Lookup. We publish only information about condominium projects (name, address, county, unit count, FHA share and dates), not the names or contact details of people.</p>
 <h2>Why</h2><p>To answer your messages and correct the site. The legal basis is your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time.</p>
 <h2>Who processes data for us</h2><p>The site and its form are hosted by Netlify, Inc., which stores form data on our behalf and may process it outside the EU with the safeguards required by the GDPR (standard contractual clauses). Netlify keeps technical server logs (such as IP addresses) for security. We do not sell or share your data.</p>
-<h2>Cookies and analytics</h2><p>This site uses no cookies and no analytics or tracking tools. If we add advertising or affiliate links, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>
+<h2>Cookies and visit counter</h2><p>This site sets no cookies. To count visits we use <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, a privacy-friendly counter: it sets no cookies and stores nothing in your browser, builds no profiles and does not store your IP address, your full browser signature or any identifier. It keeps only aggregate numbers (page, hour or day, browser, country, screen width) on servers in the European Union and shares nothing with third parties; see <a href="https://www.goatcounter.com/help/privacy" rel="noopener">GoatCounter's privacy policy</a>. If we add advertising or affiliate links, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>
 <h2>How long</h2><p>Messages are kept for up to 12 months after our last exchange.</p>
 <h2>Your rights</h2><p>You can ask for access, correction, deletion, restriction, portability and objection (Articles 15–22 GDPR) and you can complain to the Italian data protection authority (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>) or the authority where you live. California residents: we do not sell or share personal information.</p></div>"""
-    testata = banda("Privacy", "Privacy notice", "What we collect (very little) and why. No cookies, no analytics.", corta=True)
-    pagina("privacy.html", f"Privacy | {NOME}", f"Privacy notice of {NOME}: no cookies, no analytics; only what you send through the contact form.", corpo, testata=testata)
+    testata = banda("Privacy", "Privacy notice", "What we collect (very little) and why. No cookies, no tracking.", corta=True)
+    pagina("privacy.html", f"Privacy | {NOME}", f"Privacy notice of {NOME}: no cookies and no tracking, a privacy-friendly visit counter; only what you send through the contact form.", corpo, testata=testata)
 
 
 # ---------------------------------------------------------------- file accessori

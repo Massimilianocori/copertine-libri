@@ -223,7 +223,7 @@ def controlla_struttura():
             errori.append(f"meta Google mancante in {f.relative_to(SITO)}")
         if f.name != "404.html" and f'<link rel="canonical" href="{G.URL_SITO}/' not in t:
             errori.append(f"canonical mancante in {f.relative_to(SITO)}")
-        if re.search(r"<script[^>]+src=", t):
+        if re.search(r'<script[^>]+src="(?!https://gc\.zgo\.at/count\.js")', t):  # ammesso solo il contatore GoatCounter
             errori.append(f"script esterno in {f.relative_to(SITO)}")
     nf = leggi("404.html")
     rel = [h for h in re.findall(r'href="([^"]+)"', nf) if not h.startswith(("/", "http", "data:", "#", "mailto:"))]

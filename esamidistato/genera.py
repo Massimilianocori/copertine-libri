@@ -20,6 +20,14 @@ SITO = RADICE / "sito"
 URL_SITO = "https://esamidistato.netlify.app"  # cambiare qui se il nome del sito su Netlify è diverso
 NOME = "EsamiDiStato"
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console, proprietà https://esamidistato.netlify.app — non rimuovere
+
+# Contatore visite GoatCounter, account condiviso "rete-siti" della rete (nessun cookie, nessun dato personale conservato).
+# Il percorso inviato comprende l'host (location.host + percorso), così nel cruscotto https://rete-siti.goatcounter.com
+# ogni sito si distingue dagli altri. Da localhost, da file:// e dalle reti private count.js non invia nulla
+# (allow_local resta spento): le prove in locale non contano come visite. Unico punto da cambiare per tutto il sito.
+GOATCOUNTER_URL = "https://rete-siti.goatcounter.com/count"
+SCRIPT_CONTATORE = ('<script>window.goatcounter={path:function(p){return location.host+p}}</script>'
+                    f'<script data-goatcounter="{GOATCOUNTER_URL}" async src="https://gc.zgo.at/count.js"></script>')
 OGGI = date.today()
 
 MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto",
@@ -491,6 +499,7 @@ Questo sito non dà consulenza: per i casi particolari chiedi alla segreteria es
 </div>
 </div></footer>
 <script>{JS}</script>
+{SCRIPT_CONTATORE}
 </body>
 </html>
 """
@@ -937,7 +946,7 @@ def privacy():
 <h2>Quali dati raccogliamo</h2><p>Solo se compili il modulo "Avvisami": la tua email, la professione e la città che scegli, e la pagina o il link da cui arrivi (per capire quali canali funzionano).</p>
 <h2>Perché</h2><p>Per mandarti avvisi sulle date e sulle scadenze degli esami di Stato. La base giuridica è il tuo consenso (art. 6.1.a GDPR), che puoi ritirare quando vuoi.</p>
 <h2>Chi li gestisce per noi</h2><p>Il sito e il modulo sono ospitati da Netlify, Inc., che conserva i dati del modulo per nostro conto. Netlify può trattare i dati fuori dall'UE con le garanzie previste dal GDPR (clausole contrattuali standard). Non vendiamo né cediamo i tuoi dati.</p>
-<h2>Cookie</h2><p>Questo sito non usa cookie di profilazione né strumenti di statistica.</p>
+<h2>Cookie e contatore visite</h2><p>Questo sito non usa cookie di profilazione. Per contare le visite usiamo <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, un contatore rispettoso della privacy: non usa cookie e non salva nulla nel browser, non crea profili e non conserva l'indirizzo IP, la firma completa del browser né altri identificativi. Tiene solo numeri aggregati (pagina, ora o giorno, browser, Paese, larghezza dello schermo) su server nell'Unione europea e non cede nulla a terzi; vedi l'<a href="https://www.goatcounter.com/help/privacy" rel="noopener">informativa privacy di GoatCounter</a>.</p>
 <h2>Per quanto tempo</h2><p>Finché resti iscritto agli avvisi. Se chiedi la cancellazione, cancelliamo i tuoi dati.</p>
 <h2>I tuoi diritti</h2><p>Puoi chiedere accesso, correzione, cancellazione, limitazione, portabilità e opposizione (artt. 15-22 GDPR) e puoi fare reclamo al Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>).</p>"""
     pagina("privacy.html", "Privacy | EsamiDiStato", "Informativa privacy del sito EsamiDiStato.", corpo)

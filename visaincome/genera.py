@@ -25,6 +25,14 @@ DATI = RADICE / "dati"
 SITO = RADICE / "sito"
 URL_SITO = "https://visa-income-checker.netlify.app"  # unico punto da cambiare se il nome del sito su Netlify è diverso
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console (stesso account degli altri siti), 10/10/2026: non rimuoverlo
+
+# Contatore visite GoatCounter, account condiviso "rete-siti" della rete (nessun cookie, nessun dato personale conservato).
+# Il percorso inviato comprende l'host (location.host + percorso), così nel cruscotto https://rete-siti.goatcounter.com
+# ogni sito si distingue dagli altri. Da localhost, da file:// e dalle reti private count.js non invia nulla
+# (allow_local resta spento): le prove in locale non contano come visite. Unico punto da cambiare per tutto il sito.
+GOATCOUNTER_URL = "https://rete-siti.goatcounter.com/count"
+SCRIPT_CONTATORE = ('<script>window.goatcounter={path:function(p){return location.host+p}}</script>'
+                    f'<script data-goatcounter="{GOATCOUNTER_URL}" async src="https://gc.zgo.at/count.js"></script>')
 URL_CAMBI_LIVE = ("https://raw.githubusercontent.com/Massimilianocori/copertine-libri/"
                   "ccr-b7fd6b9e-n096cr/italystrikes/dati/cambi-bce.json")  # aggiornata 2 volte al giorno dal workflow di Italy Strikes
 NOME = "Visa Income Checker"
@@ -922,6 +930,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 </div></footer>
 {dati}
 {js}
+{SCRIPT_CONTATORE}
 </body>
 </html>
 """
@@ -1348,7 +1357,7 @@ def privacy():
 <h2>Exchange rates</h2><p>To show up-to-date conversions, your browser downloads a small file of exchange rates from GitHub (raw.githubusercontent.com), which receives your IP address as for any web request. No other data is sent.</p>
 <h2>Why</h2><p>To answer your messages and correct the site. The legal basis is your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time.</p>
 <h2>Who processes data for us</h2><p>The site and its form are hosted by Netlify, Inc., which stores form data on our behalf and may process it outside the EU with the safeguards required by the GDPR (standard contractual clauses). We do not sell or share your data.</p>
-<h2>Cookies and affiliate links</h2><p>This site does not use profiling cookies or analytics tools. Some pages contain an affiliate link to SafetyWing (marked "Affiliate"): our site sets no cookie for it, but if you click it you go to SafetyWing's website, which uses its own cookies under its own privacy policy and tells SafetyWing that you came from us. If we add advertising in the future, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>
+<h2>Cookies, visit counter and affiliate links</h2><p>This site does not use profiling cookies. To count visits we use <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, a privacy-friendly counter: it sets no cookies and stores nothing in your browser, builds no profiles and does not store your IP address, your full browser signature or any identifier. It keeps only aggregate numbers (page, hour or day, browser, country, screen width) on servers in the European Union and shares nothing with third parties; see <a href="https://www.goatcounter.com/help/privacy" rel="noopener">GoatCounter's privacy policy</a>. Some pages contain an affiliate link to SafetyWing (marked "Affiliate"): our site sets no cookie for it, but if you click it you go to SafetyWing's website, which uses its own cookies under its own privacy policy and tells SafetyWing that you came from us. If we add advertising in the future, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>
 <h2>How long</h2><p>Messages are kept for up to 12 months after our last exchange.</p>
 <h2>Your rights</h2><p>You can ask for access, correction, deletion, restriction, portability and objection (Articles 15–22 GDPR) and you can complain to the Italian data protection authority (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>) or the authority in your country.</p></div>"""
     pagina("privacy.html", f"Privacy | {NOME}", f"Privacy notice of {NOME}.", corpo)

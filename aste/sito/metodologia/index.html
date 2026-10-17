@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="/assets/site.54dbb5a97c.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aste-giudiziarie-sconti.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Metodo", "item": "https://aste-giudiziarie-sconti.netlify.app/metodologia/"}]}</script>
 </head>
-<body data-gen="2026-10-15T20:51+02:00">
+<body data-gen="2026-10-17T12:56+02:00">
 <a class="skip" href="#main">Vai al contenuto</a>
 <header class="top"><div class="wrap">
 <a class="logo" href="../"><img src="/assets/favicon.7b9b6f4b0a.svg" width="34" height="34" alt=""><span>Aste <b>in Chiaro</b></span></a>
@@ -42,9 +42,9 @@
 </div></section>
 <div class="wrap">
 <div class="testo">
-<p class="lead">Questa pagina spiega da dove vengono i dati, come calcoliamo il confronto con la zona e cosa non facciamo. Edizione del 15 ottobre 2026.</p>
+<p class="lead">Questa pagina spiega da dove vengono i dati, come calcoliamo il confronto con la zona e cosa non facciamo. Edizione del 17 ottobre 2026.</p>
 <h2>Le aste: Portale delle Vendite Pubbliche</h2>
-<p>Leggiamo ogni giorno la ricerca pubblica del <a href="https://pvp.giustizia.it/pvp/" rel="noopener">PVP</a> (nessun accesso riservato): immobili residenziali e autoveicoli con data di vendita da oggi in poi. Per i lotti dei comuni con almeno 8 aste leggiamo anche la scheda pubblica del lotto, una richiesta ogni tre secondi circa e al massimo qualche centinaio al giorno: se il portale rallenta o risponde con un errore, ci fermiamo. Finché la scheda di un lotto non è stata letta (804 lotti oggi), usiamo i campi dell'elenco: in quelle schede mancano il termine per le offerte e la modalità di vendita, e la superficie si cerca solo nel titolo breve.</p>
+<p>Leggiamo ogni giorno la ricerca pubblica del <a href="https://pvp.giustizia.it/pvp/" rel="noopener">PVP</a> (nessun accesso riservato): immobili residenziali e autoveicoli con data di vendita da oggi in poi. Per i lotti dei comuni con almeno 8 aste leggiamo anche la scheda pubblica del lotto, una richiesta ogni tre secondi circa e al massimo qualche centinaio al giorno: se il portale rallenta o risponde con un errore, ci fermiamo. Finché la scheda di un lotto non è stata letta (0 lotti oggi), usiamo i campi dell'elenco: in quelle schede mancano il termine per le offerte e la modalità di vendita, e la superficie si cerca solo nel titolo breve.</p>
 <p>Teniamo solo campi del lotto: prezzo base, offerta minima, rilancio minimo, data e ora della vendita, termine per le offerte, comune, strada (senza numero civico), coordinate (solo per trovare la zona OMI, non le pubblichiamo), tipologia, stato di occupazione, modalità di vendita, tribunale.</p>
 <h2>Cosa scartiamo</h2>
 <ul><li>Lotti con date impossibili (errori di battitura come anni oltre il 2030) o più lontane di 24 mesi.</li>
@@ -53,15 +53,15 @@
 <li>Lotti classificati come residenziali ma fatti solo di box, garage, cantine, negozi, uffici o terreni: li riconosciamo dal tipo di bene, dal titolo dell'annuncio e dalle categorie catastali (per esempio solo C/6, autorimessa).</li>
 <li>Dalla scheda del PVP: i nomi, le email e i codici fiscali di delegati e custodi, ogni dato del debitore, gli allegati e i PDF. Non li salviamo nemmeno.</li></ul>
 <h2>Superficie</h2>
-<p>Il PVP non ha quasi mai la superficie in un campo apposito. La leggiamo nel testo dell'annuncio pubblicato sul PVP (un riassunto della perizia, non la perizia intera) solo quando è chiara: un solo valore riferito all'abitazione (non a giardino, box, cantina, terrazzo o terreno), oppure la «superficie commerciale/lorda/complessiva». Se i valori sono più d'uno e non coincidono, se il testo dà solo le misure dei singoli vani (soggiorno, camera, bagno…) o se il lotto contiene più abitazioni, scriviamo <strong>«superficie non indicata»</strong> e non calcoliamo il prezzo al metro quadro. Oggi abbiamo una superficie affidabile per 1.352 lotti su 3.090.</p>
+<p>Il PVP non ha quasi mai la superficie in un campo apposito. La leggiamo nel testo dell'annuncio pubblicato sul PVP (un riassunto della perizia, non la perizia intera) solo quando è chiara: un solo valore riferito all'abitazione (non a giardino, box, cantina, terrazzo o terreno), oppure la «superficie commerciale/lorda/complessiva». Se i valori sono più d'uno e non coincidono, se il testo dà solo le misure dei singoli vani (soggiorno, camera, bagno…) o se il lotto contiene più abitazioni, scriviamo <strong>«superficie non indicata»</strong> e non calcoliamo il prezzo al metro quadro. Oggi abbiamo una superficie affidabile per 1.623 lotti su 3.220.</p>
 <h2>Zona OMI</h2>
-<p>Con le coordinate del lotto cerchiamo in quale zona OMI del comune cade il punto, usando i perimetri pubblicati dall'Agenzia delle Entrate per il 2° semestre 2025 (<a href="https://www1.agenziaentrate.gov.it/servizi/geopoi_omi/index.htm" rel="noopener">GEOPOI</a>). Le coordinate sono quelle inserite nel PVP e a volte sono approssimative (per esempio il centro della via): vicino al confine tra due zone il lotto può finire nella zona accanto. Se le coordinate mancano o cadono fuori dal comune, la zona resta vuota. Oggi la zona è nota per 1.916 lotti su 3.090.</p>
+<p>Con le coordinate del lotto cerchiamo in quale zona OMI del comune cade il punto, usando i perimetri pubblicati dall'Agenzia delle Entrate per il 1° semestre 2026 (<a href="https://www1.agenziaentrate.gov.it/servizi/geopoi_omi/index.htm" rel="noopener">GEOPOI</a>). Le coordinate sono quelle inserite nel PVP e a volte sono approssimative (per esempio il centro della via): vicino al confine tra due zone il lotto può finire nella zona accanto. Se le coordinate mancano o cadono fuori dal comune, la zona resta vuota. Oggi la zona è nota per 1.975 lotti su 3.220.</p>
 <h2>Il confronto</h2>
 <ul><li><strong>Valore di zona</strong>: per la tipologia più vicina al bene (abitazione signorile, civile, economica o villa; per «appartamento» la tipologia prevalente della zona), stato conservativo normale, la media tra valore minimo e massimo di compravendita.</li>
 <li><strong>€/m² del lotto</strong> = offerta minima ÷ metri quadri (e, a parte, prezzo base ÷ metri quadri). L'offerta minima è di solito il 75% del prezzo base (<a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1940-10-28;1443~art571" rel="noopener">art. 571 c.p.c.</a>): per questo lo sconto calcolato con l'offerta minima è più ampio di quello col prezzo base.</li>
 <li><strong>Sconto</strong> = €/m² con l'offerta minima ÷ media OMI − 1, arrotondato. Tra −3% e +3% scriviamo «in linea con la media OMI».</li>
-<li>Non calcoliamo nulla se si vende una <strong>quota</strong> o un diritto parziale (nuda proprietà, usufrutto, diritto di superficie: 202 lotti oggi), per i fabbricati in costruzione, o se il risultato è così lontano dalla zona (meno di un quarto della media, o più di tre volte la media col prezzo base) da far pensare a una superficie sbagliata: in quel caso la scheda dice «dato da verificare».</li></ul>
-<p>Risultato: confronto disponibile per <strong>696 lotti su 3.090</strong>.</p>
+<li>Non calcoliamo nulla se si vende una <strong>quota</strong> o un diritto parziale (nuda proprietà, usufrutto, diritto di superficie: 209 lotti oggi), per i fabbricati in costruzione, o se il risultato è così lontano dalla zona (meno di un quarto della media, o più di tre volte la media col prezzo base) da far pensare a una superficie sbagliata: in quel caso la scheda dice «dato da verificare».</li></ul>
+<p>Risultato: confronto disponibile per <strong>818 lotti su 3.220</strong>.</p>
 <h2>I limiti, detti chiari</h2>
 <ul><li>La media OMI è un valore indicativo per una casa «normale» della zona. Una casa all'asta può essere da ristrutturare, occupata o con abusi: lo sconto può essere giustificato.</li>
 <li>Le quotazioni OMI si riferiscono di solito alla superficie lorda; gli annunci spesso a quella commerciale o catastale.</li>
@@ -81,13 +81,14 @@
 <a class="logo" href="../"><img src="/assets/favicon.7b9b6f4b0a.svg" width="34" height="34" alt=""><span>Aste <b>in Chiaro</b></span></a>
 <p><strong>Aste in Chiaro</strong> è un sito indipendente: non è collegato al Ministero della Giustizia, ai tribunali, ai professionisti delegati o all'Agenzia delle Entrate. Mostra i dati pubblici delle aste del <a href="https://pvp.giustizia.it/pvp/" rel="noopener">Portale delle Vendite Pubbliche</a> e, per confronto, le quotazioni immobiliari di zona.</p>
 <p><strong>Non è consulenza legale, fiscale o finanziaria.</strong> Prima di fare un'offerta leggi l'avviso di vendita e la perizia sul PVP e chiedi al professionista delegato o al custode indicati nell'annuncio.</p>
-<p class="small" style="color:inherit">Valori €/m² di zona: «Agenzia delle Entrate – OMI», 2° semestre 2025, licenza <a href="https://creativecommons.org/licenses/by/4.0/deed.it" rel="noopener license">CC BY 4.0</a>. I valori OMI sono indicativi e non sostituiscono una stima.</p>
+<p class="small" style="color:inherit">Valori €/m² di zona: «Agenzia delle Entrate – OMI», 1° semestre 2026, licenza <a href="https://creativecommons.org/licenses/by/4.0/deed.it" rel="noopener license">CC BY 4.0</a>. I valori OMI sono indicativi e non sostituiscono una stima.</p>
 </div><div>
 <h2>Esplora</h2>
 <ul><li><a href="../citta/">Tutte le città</a></li><li><a href="../auto-all-asta/">Auto all'asta</a></li><li><a href="../guide/">Guide</a></li><li><a href="../metodologia/">Metodo e fonti</a></li><li><a href="../chi-siamo/">Chi siamo</a></li><li><a href="../contatti/">Contatti</a></li><li><a href="../privacy.html">Privacy</a></li></ul>
 </div></div>
-<p class="f-base">Aste lette sul PVP il <span data-letto>15 ottobre 2026 alle 19:22</span> · Prezzi e date si aggiornano ogni giorno, le pagine ogni settimana.</p>
+<p class="f-base">Aste lette sul PVP il <span data-letto>16 ottobre 2026 alle 23:18</span> · Prezzi e date si aggiornano ogni giorno, le pagine ogni settimana.</p>
 </div></footer>
 <script src="/assets/app.521eaa993e.js" defer></script>
+<script>window.goatcounter={path:function(p){return location.host+p}}</script><script data-goatcounter="https://rete-siti.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

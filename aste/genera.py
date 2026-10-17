@@ -28,6 +28,14 @@ DATI = RADICE / "dati"
 SITO = RADICE / "sito"
 URL_SITO = "https://aste-giudiziarie-sconti.netlify.app"  # unico punto da cambiare se il nome del sito su Netlify è diverso
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console (stesso account degli altri siti): non rimuoverlo
+
+# Contatore visite GoatCounter, account condiviso "rete-siti" della rete (nessun cookie, nessun dato personale conservato).
+# Il percorso inviato comprende l'host (location.host + percorso), così nel cruscotto https://rete-siti.goatcounter.com
+# ogni sito si distingue dagli altri. Da localhost, da file:// e dalle reti private count.js non invia nulla
+# (allow_local resta spento): le prove in locale non contano come visite. Unico punto da cambiare per tutto il sito.
+GOATCOUNTER_URL = "https://rete-siti.goatcounter.com/count"
+SCRIPT_CONTATORE = ('<script>window.goatcounter={path:function(p){return location.host+p}}</script>'
+                    f'<script data-goatcounter="{GOATCOUNTER_URL}" async src="https://gc.zgo.at/count.js"></script>')
 URL_LIVE = "https://raw.githubusercontent.com/massimilianocori/copertine-libri/ccr-b7fd6b9e-n096cr/aste/dati/live.json"
 NOME = "Aste in Chiaro"
 PVP = "https://pvp.giustizia.it/pvp/"
@@ -690,6 +698,7 @@ def pagina(percorso, titolo, descrizione, corpo, tipo, briciole=None, indicizza=
 <p class="f-base">Aste lette sul PVP il <span data-letto>{letto_testo(LETTO)}</span> · Prezzi e date si aggiornano ogni giorno, le pagine ogni settimana.</p>
 </div></footer>
 <script src="/assets/{JS_FILE}" defer></script>
+{SCRIPT_CONTATORE}
 </body>
 </html>
 """
@@ -1326,7 +1335,7 @@ def privacy():
 <h2>Il file dei prezzi aggiornati</h2><p>Per mostrarti prezzi e date del giorno, le pagine con le aste scaricano un piccolo file di dati da GitHub (raw.githubusercontent.com, servizio di GitHub, Inc.). Come per ogni richiesta web, GitHub riceve il tuo indirizzo IP e i dati tecnici del browser; il file non contiene dati personali e non usiamo cookie per questo.</p>
 <h2>Perché</h2><p>Per rispondere ai messaggi e correggere il sito. La base giuridica è il tuo consenso (art. 6, par. 1, lett. a GDPR), che puoi revocare quando vuoi.</p>
 <h2>Chi tratta i dati per noi</h2><p>Il sito e il modulo sono ospitati da Netlify, Inc., che conserva i messaggi per nostro conto e può trattarli fuori dall'Unione europea con le garanzie previste dal GDPR (clausole contrattuali standard). Netlify tiene registri tecnici del server (come gli indirizzi IP) per sicurezza. Non vendiamo e non cediamo i tuoi dati.</p>
-<h2>Cookie</h2><p>Il sito non usa cookie di profilazione né strumenti di statistica. Se aggiungeremo pubblicità o link sponsorizzati, aggiorneremo questa informativa e chiederemo il consenso dove serve, prima di qualsiasi cookie pubblicitario.</p>
+<h2>Cookie e contatore visite</h2><p>Il sito non usa cookie di profilazione. Per contare le visite usiamo <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, un contatore rispettoso della privacy: non usa cookie e non salva nulla nel browser, non crea profili e non conserva l'indirizzo IP, la firma completa del browser né altri identificativi. Tiene solo numeri aggregati (pagina, ora o giorno, browser, Paese, larghezza dello schermo) su server nell'Unione europea e non cede nulla a terzi; vedi l'<a href="https://www.goatcounter.com/help/privacy" rel="noopener">informativa privacy di GoatCounter</a>. Se aggiungeremo pubblicità o link sponsorizzati, aggiorneremo questa informativa e chiederemo il consenso dove serve, prima di qualsiasi cookie pubblicitario.</p>
 <h2>Per quanto tempo</h2><p>I messaggi restano al massimo 12 mesi dall'ultimo scambio.</p>
 <h2>I tuoi diritti</h2><p>Puoi chiedere accesso, rettifica, cancellazione, limitazione, portabilità e opposizione (artt. 15–22 GDPR) e puoi rivolgerti al Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>).</p></div>"""
     testata = banda("Privacy", "Informativa sulla privacy", "Cosa raccogliamo (pochissimo) e cosa non pubblichiamo mai.", icona="shield")

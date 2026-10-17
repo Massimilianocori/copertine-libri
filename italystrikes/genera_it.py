@@ -355,6 +355,7 @@ def costruisci(g):
 </div></footer>
 {dati_html}
 <script>{JS_IT}</script>
+{g.SCRIPT_CONTATORE}
 </body>
 </html>
 """
@@ -614,6 +615,6 @@ def costruisci(g):
 <h2>Quali dati raccogliamo</h2><p>Solo quello che scrivi nei moduli: per gli avvisi, email, date del viaggio e luogo; per i contatti, email e messaggio. Registriamo anche la pagina o il link da cui arrivi, per capire quali canali funzionano.</p>
 <h2>Perché</h2><p>Per mandarti gli avvisi sugli scioperi nelle date del tuo viaggio e per rispondere ai tuoi messaggi. La base giuridica è il tuo consenso (art. 6.1.a GDPR), che puoi ritirare quando vuoi.</p>
 <h2>Chi li gestisce per noi</h2><p>Il sito e i moduli sono ospitati da Netlify, Inc., che conserva i dati dei moduli per nostro conto e può trattarli fuori dall'UE con le garanzie previste dal GDPR (clausole contrattuali standard). Non vendiamo né cediamo i tuoi dati.</p>
-<h2>Cookie</h2><p>Il sito non usa cookie di profilazione né strumenti di statistica. Se in futuro aggiungeremo pubblicità aggiorneremo questa informativa e chiederemo il consenso dove serve.</p>
+<h2>Cookie e contatore visite</h2><p>Il sito non usa cookie di profilazione. Per contare le visite usiamo <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, un contatore rispettoso della privacy: non usa cookie e non salva nulla nel browser, non crea profili e non conserva l'indirizzo IP, la firma completa del browser né altri identificativi. Tiene solo numeri aggregati (pagina, ora o giorno, browser, Paese, larghezza dello schermo) su server nell'Unione europea e non cede nulla a terzi; vedi l'<a href="https://www.goatcounter.com/help/privacy" rel="noopener">informativa privacy di GoatCounter</a>. Se in futuro aggiungeremo pubblicità aggiorneremo questa informativa e chiederemo il consenso dove serve.</p>
 <h2>Per quanto tempo</h2><p>I dati degli avvisi restano finché le date del viaggio sono passate e poi vengono cancellati entro 60 giorni, salvo tua richiesta di cancellarli prima.</p>
 <h2>I tuoi diritti</h2><p>Puoi chiedere accesso, rettifica, cancellazione, limitazione, portabilità e opposizione (artt. 15-22 GDPR) e fare reclamo al Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>).</p></div>""", con_dati=False)

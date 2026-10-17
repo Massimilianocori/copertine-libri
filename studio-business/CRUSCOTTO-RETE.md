@@ -78,18 +78,19 @@ A 12 mesi: realistico 1.000-4.000 €. Cifre lorde, prima di tasse e contributi.
 - **Dati strutturati EsameB1:** Search Console (email del 10/10) segnala 4 campi mancanti negli eventi, non critici. `endDate` e `image` sono già nel generatore e escono con la prossima pubblicazione. `performer` e `offers` restano: non critici, si aggiungono solo con dati certi (costo dell'esame per ente).
 - **Crediti Netlify:** manca la foto della pagina Usage/Billing. L'11/10 tutti i siti hanno dato 503 per crediti esauriti.
 
-## 5. Misurazione (il punto da risolvere per primo)
+## 5. Misurazione
 
-- [ ] Massimiliano crea l'account GoatCounter (gratis) e dice il nome scelto. Ha detto che lo farà, senza fretta (11/10).
-- [ ] Script GoatCounter nei 6 siti, insieme alle pubblicazioni già previste, e privacy aggiornata in ogni sito.
-- [ ] Chiave API in sola lettura tra i segreti dell'ambiente, così le routine leggono le visite da sole.
-- [ ] Fino ad allora: foto di Search Console ("Rendimento" e "Pagine") ogni 2 settimane. Prima richiesta: 23/10.
+- [x] Account GoatCounter `rete-siti` creato da Massimiliano il 17/10/2026 (gratuito, senza cookie). Cruscotto: https://rete-siti.goatcounter.com (accesso di Massimiliano).
+- [x] Script in tutti i 10 siti (17/10): costante `SCRIPT_CONTATORE` in ogni `genera.py`, stampata in ogni pagina generata (404 comprese) prima di `</body>`; privacy di ogni sito aggiornata (GoatCounter: niente cookie, niente profili, IP non conservato, link a https://www.goatcounter.com/help/privacy). Va in linea con la prossima pubblicazione di ciascun sito; nessuna CSP da aggiornare (nessun sito ne ha una).
+- Come si leggono i numeri: un solo account per tutti i siti, quindi il percorso registrato comprende l'host (es. `italy-strikes-today.netlify.app/florence/`, `esameb1.netlify.app/costo/`). Nel cruscotto si filtra per sito scrivendo il suo host nella casella di ricerca dei percorsi ("Paths"). Le prove in locale (localhost) non contano: `count.js` le scarta da solo.
+- [ ] Chiave API in sola lettura tra i segreti dell'ambiente come `GOATCOUNTER_API_KEY`, così le routine leggono le visite da sole. La crea Massimiliano in GoatCounter: menu utente in alto → "API" → nuova chiave con i soli permessi di lettura. Chiamate (vedi https://www.goatcounter.com/help/api e il riferimento completo in https://rete-siti.goatcounter.com/api.json): `curl -H "Authorization: Bearer $GOATCOUNTER_API_KEY" -H "Content-Type: application/json" "https://rete-siti.goatcounter.com/api/v0/stats/total?start=2026-10-17&end=2026-10-24"` (visite totali nel periodo), `.../api/v0/stats/hits?start=...&end=...&limit=100` (visite per pagina: ogni riga ha `path` e `count`; per avere i numeri di un sito si sommano le righe il cui `path` inizia con il suo host, perché l'API non ha un filtro per testo), `.../api/v0/paths` (elenco dei percorsi con il loro id). Le date `start`/`end` vanno arrotondate all'ora; il campo `more` della risposta dice se ci sono altre pagine da chiedere. Limite: 4 richieste al secondo. Chiave mancante o sbagliata: risposta 401.
+- [ ] Finché la chiave manca: foto di Search Console ("Rendimento" e "Pagine") ogni 2 settimane. Prima richiesta: 23/10.
 
 ## 6. Prossime azioni (una per settimana, la più utile)
 
 | Settimana | Azione | Perché (numero) | Stato |
 |---|---|---|---|
-| 14/10 | Attivare la misurazione (sez. 5) | Oggi 0 numeri su 6 siti: senza misura non si decide | In attesa dell'account di Massimiliano |
+| 14/10 | Attivare la misurazione (sez. 5) | Oggi 0 numeri su 6 siti: senza misura non si decide | Fatto il 17/10: account `rete-siti`, script nei 10 siti, privacy aggiornate. Manca la chiave API per le routine |
 | 21/10 | Primo sito con segnali (EsameB1): verificare dopo la pubblicazione del 15/10 che le pagine nuove (costo, risultati) siano lette da Google | Unico sito con un iscritto vero e impressioni dal 9/10 | Programmata |
 | 19/10 | Collegamenti "Altri strumenti utili" tra siti dello stesso tema (EsameB1 ↔ EsamiDiStato; Italy Strikes ↔ Tourist Tax, Before You Fly, Visa Income) per far trovare a Google i siti nuovi passando da quelli già letti. Dentro le pubblicazioni già previste, senza deploy in più | Richieste manuali di indicizzazione bloccate da Google ("quota superata" il 14 e 15/10) | Da fare |
 
