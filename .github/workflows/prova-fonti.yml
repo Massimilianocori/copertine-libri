@@ -1,0 +1,30 @@
+# Prova una tantum: le fonti ufficiali di USA e Australia rispondono dai server di GitHub?
+# Dal server delle sessioni rispondono 403 / connessione chiusa. Esito nel log del job.
+name: Prova fonti passaporti
+
+on:
+  push:
+    branches:
+      - ccr-b7fd6b9e-n096cr
+    paths:
+      - .github/workflows/prova-fonti.yml
+  workflow_dispatch: {}
+
+jobs:
+  prova:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Interroga le fonti
+        run: |
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
+          for u in \
+            "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Mexico.html" \
+            "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Japan.html" \
+            "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories.html" \
+            "https://www.smartraveller.gov.au/destinations/asia/japan" \
+            "https://www.smartraveller.gov.au/destinations/americas/mexico" ; do
+            code=$(curl -s -L -A "$UA" -o pagina.html -w "%{http_code}" --max-time 40 "$u" || echo ERR)
+            size=$(wc -c < pagina.html 2>/dev/null || echo 0)
+            entry=$(grep -o -i -E "passport validity|blank passport pages|tourist visa required|entry requirements|visa" pagina.html | head -3 | tr '\n' ';')
+            echo "ESITO $code byte=$size parole=[$entry] $u"
+          done
