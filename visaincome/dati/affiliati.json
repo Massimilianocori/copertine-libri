@@ -1,7 +1,28 @@
 {
- "_nota": "RIQUADRO AFFILIATI (segnaposto). Compare sul sito solo per le voci con 'url' non vuoto. Inserire qui gli URL tracciati che Massimiliano riceve dopo l'iscrizione ai programmi (assicurazione sanitaria per il visto, trasferimenti di denaro, studio legale per l'immigrazione). Mai inventare URL.",
- "assicurazione": {"url": "", "nome": "", "titolo": "Health insurance for your visa application", "testo": "Most of these visas require private health insurance valid in the country: check the cover the consulate asks for before you buy."},
- "cambio": {"url": "", "nome": "", "titolo": "Move money abroad", "testo": "Multi-currency account to receive income and pay in euros at the real exchange rate."},
- "avvocato": {"url": "", "nome": "", "titolo": "Talk to an immigration lawyer", "testo": "Independent lawyers can review your documents before you apply."},
- "_safetywing_schengen": {"url": "https://safetywing.com/nomad-insurance?referenceID=26614957&campaign=visa-refusal-rates&utm_campaign=visa-refusal-rates&utm_source=26614957&utm_medium=Ambassador", "nome": "SafetyWing", "nota": "Usato SOLO nella sezione Visa refusal rates (box_assicurazione in genera.py), non nel riquadro generico. Stesso referenceID del link attivo di Italy Strikes, campagna visa-refusal-rates per distinguere i clic (15/10/2026)."}
+  "_nota": "RIQUADRO AFFILIATI (segnaposto). Compare sul sito solo per le voci con 'url' non vuoto. Inserire qui gli URL tracciati che Massimiliano riceve dopo l'iscrizione ai programmi (assicurazione sanitaria per il visto, trasferimenti di denaro, studio legale per l'immigrazione). Mai inventare URL.",
+  "assicurazione": {
+    "url": "",
+    "nome": "",
+    "titolo": "Health insurance for your visa application",
+    "testo": "Most of these visas require private health insurance valid in the country: check the cover the consulate asks for before you buy."
+  },
+  "cambio": {
+    "url": "",
+    "nome": "",
+    "titolo": "Move money abroad",
+    "testo": "Multi-currency account to receive income and pay in euros at the real exchange rate."
+  },
+  "avvocato": {
+    "url": "",
+    "nome": "",
+    "titolo": "Talk to an immigration lawyer",
+    "testo": "Independent lawyers can review your documents before you apply."
+  },
+  "_safetywing_schengen": {
+    "url": "",
+    "nome": "SafetyWing",
+    "nota": "Usato SOLO nella sezione Visa refusal rates (box_assicurazione in genera.py), non nel riquadro generico. Stesso referenceID del link attivo di Italy Strikes, campagna visa-refusal-rates per distinguere i clic (15/10/2026).",
+    "url_sospeso": "https://safetywing.com/nomad-insurance?referenceID=26614957&campaign=visa-refusal-rates&utm_campaign=visa-refusal-rates&utm_source=26614957&utm_medium=Ambassador",
+    "nota_sospensione": "Sospeso il 17/10/2026 (decisione: siti solo informativi finché Massimiliano non aggiunge il codice ATECO 58.19.00 e parte con le affiliazioni). Per riattivare: copiare url_sospeso in url e rigenerare."
+  }
 }

@@ -2053,8 +2053,10 @@ def controlli_rifiuti():
     for k, f in RIF["fonti"].items():
         if not f.get("url", "").startswith("https://"):
             errori.append(f"rifiuti: fonte {k} senza URL")
-    if not URL_SAFETYWING.startswith("https://safetywing.com/"):
-        errori.append("rifiuti: link SafetyWing mancante in dati/affiliati.json (_safetywing_schengen)")
+    if URL_SAFETYWING and not URL_SAFETYWING.startswith("https://safetywing.com/"):
+        errori.append("rifiuti: link SafetyWing non valido in dati/affiliati.json (_safetywing_schengen)")
+    if not URL_SAFETYWING and not _SW.get("url_sospeso", "").startswith("https://safetywing.com/"):
+        errori.append("rifiuti: link SafetyWing né attivo né sospeso in dati/affiliati.json (_safetywing_schengen)")
     return errori
 
 

@@ -250,8 +250,11 @@ def controlla_dati():
             if not any(x[2] == i and x[0] == r["data"] and x[1] == r["voto"] for x in n["storia"]):
                 errore(f"{s}: rapporto {i} non coerente con la storia")
     sw = G.AFFILIATI.get("assicurazione", {}).get("url")
-    if sw != SW:
+    sw_sospeso = G.AFFILIATI.get("assicurazione", {}).get("url_sospeso")
+    if sw and sw != SW:
         errore("affiliati.json: il link SafetyWing non è quello concordato")
+    if not sw and sw_sospeso != SW:
+        errore("affiliati.json: link SafetyWing né attivo né sospeso con l'URL concordato")
     for k, v in G.AFFILIATI.items():
         if k != "assicurazione" and v.get("url"):
             errore(f"affiliati.json: '{k}' ha un URL: controllare che sia un'affiliazione vera")
