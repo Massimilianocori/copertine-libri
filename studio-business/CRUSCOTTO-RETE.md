@@ -17,7 +17,7 @@ Ultimo aggiornamento: 14/10/2026 (revisione del mercoledì).
 | EsamiDiStato | https://esamidistato.netlify.app | 10/10/2026 | IT, neolaureati | Pubblicità, corsi di preparazione (affiliati) | Avvio |
 | FloodCost (costo assicurazione alluvioni USA) | https://flood-insurance-cost.netlify.app | 15/10/2026 | EN, proprietari di casa negli USA | Pubblicità (assicurazioni), contatti per preventivi | Avvio |
 | Aste in Chiaro (case all'asta con sconto sul valore OMI) | https://aste-giudiziarie-sconti.netlify.app | 15/10/2026 | IT, chi cerca casa all'asta | Pubblicità, contatti mutuo (dopo la consulenza fiscale) | Avvio |
-| ApprovedCondos (condomini approvati FHA, USA) | https://fha-approved-condos-list.netlify.app | costruito 17/10/2026, da creare su Netlify | EN, chi compra casa negli USA | Pubblicità (mutui), affiliati mutui dopo la consulenza fiscale | Avvio |
+| ApprovedCondos (condomini approvati FHA, USA) | https://fha-approved-condos-list.netlify.app | 17/10/2026 | EN, chi compra casa negli USA | Pubblicità (mutui), affiliati mutui dopo la consulenza fiscale | Avvio |
 | Cruise Health Scores (voti sanitari CDC delle navi) | https://cruise-health-scores.netlify.app | costruito 17/10/2026, da creare su Netlify | EN, crocieristi USA, UK, Canada | Pubblicità (viaggi), SafetyWing, affiliati crociere | Avvio |
 
 Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE), BandiChiari.
