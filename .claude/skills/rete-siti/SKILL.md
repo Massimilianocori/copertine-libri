@@ -56,6 +56,8 @@ Eccezione: un sito stagionale (per esempio Italy Strikes ha il picco a marzo) si
 
 **Regola di Massimiliano (14/10/2026): "le idee valgono in tutto il mondo, non solo in Italia" e non deve chiedermele lui.** Le idee nuove si cercano da soli, senza aspettare richieste, ogni giorno (routine serale), in tutto il mondo: prima USA, Regno Unito, Canada, Australia e Europa, poi il resto. L'Italia è solo uno dei Paesi. Ogni idea che passa i controlli entra nella tabella "Idee in cantiere" e gli si scrive solo per le decisioni sì/no.
 
+**Regola di Massimiliano (17/10/2026): "puoi trovare di meglio".** A Massimiliano si propongono solo idee con voto ≥ 7 e stima realistica ≥ 5.000 €/anno a 18 mesi (o un potenziale chiaramente più alto). Le idee più piccole si scrivono in ESPLORATE e nel file del giorno, senza messaggio. **Tetto alla rete:** 10 siti (compresi navi da crociera e condomini FHA). Oltre questo numero si costruisce solo dopo che i primi siti hanno passato i 45 giorni e i numeri dicono dove conviene investire; nel frattempo le idee migliori aspettano in "Idee in cantiere".
+
 **Regola di Massimiliano (13/10/2026):** "devi trovare sempre nuove idee e portare avanti quelle che sono già in cantiere". Ogni mercoledì si aggiorna la tabella "Idee in cantiere" del cruscotto: ogni idea fa un passo avanti oppure si chiude con il motivo, e se ne aggiunge almeno una nuova.
 
 ## 5. Il messaggio a Massimiliano (ogni settimana, 5-8 righe)

@@ -113,7 +113,7 @@ Legenda esiti: **FATTO** (sito o sezione online), **PASSA** (in lista per costru
 ## Mondo (caccia del 16/10/2026)
 | Nicchia | Esito | Studio |
 |---|---|---|
-| **Prezzo della corrente per Comune (Strompreis pro Gemeinde, CH, dati ElCom)** | **PASSA** (voto 6; sito nuovo in DE/FR/IT; il sito ufficiale vieta l'indicizzazione) | idee-2026-10-16 |
+| **Prezzo della corrente per Comune (Strompreis pro Gemeinde, CH, dati ElCom)** | **NO di Massimiliano 17/10** (passava con voto 6, ma troppo piccola: "puoi trovare di meglio") | idee-2026-10-16 |
 | Tasse comunali su acqua, fogne, rifiuti e imposta sulla casa per Comune (NO, SSB) | RISERVA (voto 5; dati SSB in ritardo di 6 mesi, smartepenger.no ha già la lista) | idee-2026-10-16 |
 | Risultati NCEA per scuola (NZ) | NO (NZQA non pubblica più i dati per scuola) | idee-2026-10-16 |
 | Liste d'attesa negli ospedali per ospedale e specialità (IE, NTPF) | NO (dati annuali, mai ospedale × specialità; tema sanitario) | idee-2026-10-16 |
