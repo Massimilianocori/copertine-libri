@@ -1,6 +1,7 @@
 {
- "_nota": "RIQUADRO AFFILIATI (segnaposto). Compare sul sito solo per le voci con 'url' non vuoto. Inserire qui gli URL tracciati che Massimiliano riceve dopo l'iscrizione ai programmi (assicurazione di viaggio, eSIM, parcheggi/lounge in aeroporto). Mai inventare URL.",
+ "_nota": "RIQUADRO AFFILIATI (segnaposto). Compare sul sito solo per le voci con 'url' non vuoto. Inserire qui gli URL tracciati che Massimiliano riceve dopo l'iscrizione ai programmi (assicurazione di viaggio, eSIM, parcheggi/lounge in aeroporto). Mai inventare URL. La voce 'bagagli' (borse e trolley della misura giusta) compare solo nelle pagine del bagaglio a mano. Decisione del 17/10/2026: siti solo informativi, nessun link affiliato attivo finché Massimiliano non decide (verifica.py lo controlla).",
  "assicurazione": {"url": "", "nome": "", "titolo": "Travel insurance", "testo": "Compare cover for medical costs and cancellations before you fly."},
  "esim": {"url": "", "nome": "", "titolo": "Mobile data abroad (eSIM)", "testo": "Set up a data plan for your destination before you land."},
- "aeroporto": {"url": "", "nome": "", "titolo": "Airport parking and lounges", "testo": "Book parking or a lounge at your departure airport."}
+ "aeroporto": {"url": "", "nome": "", "titolo": "Airport parking and lounges", "testo": "Book parking or a lounge at your departure airport."},
+ "bagagli": {"url": "", "nome": "", "titolo": "Bags in the right size", "testo": "Under-seat bags and cabin cases by size."}
 }

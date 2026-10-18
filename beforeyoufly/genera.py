@@ -7,6 +7,7 @@ Dati:
     dati/passaporti.json   regole di validità del passaporto e testo dei visti (passaporto britannico) per 226 pagine FCDO (raccolta/passaporti.py)
     dati/aeroporti.json    regole sui liquidi lette a mano sulle pagine ufficiali degli aeroporti (ricontrollo: raccolta/liquidi.py)
     dati/ees_etias.json    frasi ufficiali su EES ed ETIAS (raccolta/eesetias.py)
+    dati/bagagli.json      misure del bagaglio a mano lette sulle pagine ufficiali delle compagnie, regola UE (ricontrollo: raccolta/bagagli.py)
     dati/affiliati.json    riquadro affiliati (vuoto finché non ci sono URL)
 
 Il controllo del passaporto gira nel browser (JS in pagina, nessuno script esterno). La stessa logica è scritta qui in Python
@@ -278,7 +279,7 @@ h1 .h1-b::first-letter{text-transform:uppercase}
 .band h1 .h1-b{display:block;font-family:var(--head);font-weight:700;margin-top:0;color:#fff;font-size:clamp(1.9rem,5.4vw,3rem);line-height:1.06;letter-spacing:-.025em}
 .band h1 .h1-b::first-letter{text-transform:uppercase}
 .sub{font-size:1.1rem;color:var(--on-board-2);margin:14px 0 0;max-width:640px;text-wrap:balance}
-.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:26px 0 0;padding:0;list-style:none}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:26px 0 0;padding:0;list-style:none}
 .tiles li{display:flex}
 .tiles a{flex:1;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto 1fr;gap:10px 14px;align-items:center;align-content:start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:14px 16px;color:var(--on-board);text-decoration:none;min-height:100%;transition:background .15s,border-color .15s}
 .tiles a:hover{background:rgba(255,255,255,.1);border-color:var(--sign)}
@@ -392,6 +393,17 @@ tr:last-child td{border-bottom:0}
 .ok{background:var(--ok-2);border:1px solid var(--ok);padding:14px;border-radius:var(--r-s)}
 .errore{color:var(--warn);font-weight:600}
 .ad-slot:empty{display:none}
+.b-gratis{background:var(--ok-2);color:var(--ok);border-color:color-mix(in srgb,var(--ok) 35%,transparent)}
+.b-altre{background:var(--warn-2);color:var(--warn);border-color:color-mix(in srgb,var(--warn) 35%,transparent)}
+.b-no{background:var(--no-2);color:var(--no);border-color:color-mix(in srgb,var(--no) 35%,transparent)}
+.calc .campi-b{grid-template-columns:repeat(4,minmax(0,1fr))}
+.risultato>ul.stat{display:flex;margin:6px 0 0}
+.risultato h3{margin:16px 0 0;font-size:1rem}
+.risultato h3.es-gratis{color:var(--ok)}.risultato h3.es-altre{color:var(--warn)}.risultato h3.es-no{color:var(--no)}
+.risultato ul.esiti li .small{display:block;margin-top:2px}
+.tab-b .badge{white-space:normal}
+.risultato .stat li{padding:6px 10px;font-size:.84rem}.risultato .stat strong{font-size:1.25rem}
+blockquote.cit{font-feature-settings:"calt" 0}
 details.card>summary{cursor:pointer;min-height:44px;padding:6px 0;line-height:1.45}
 .faq h3{margin-top:18px}
 .altri-pass{display:flex;align-items:center;flex-wrap:wrap;gap:6px 10px;margin:14px 0 0;font-size:.95rem;color:var(--ink-2)}
@@ -412,8 +424,14 @@ footer .f-base{border-top:1px solid rgba(255,255,255,.12);margin-top:24px;paddin
 @media (max-width:860px){.tiles{grid-template-columns:1fr}.tre{grid-template-columns:1fr}.calc .campi,.calc .campi:has([data-campo=emissione]:not([hidden])){grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:480px){.calc .campi,.calc .campi:has([data-campo=emissione]:not([hidden])){grid-template-columns:1fr}}
 @media (max-width:760px){nav.menu{display:none}.nav-m{display:block}header.top .wrap{min-height:60px}footer .f-grid{grid-template-columns:1fr}.band-in{padding-top:24px;padding-bottom:26px}.checker-b{padding:16px}
-.tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:20px}.tiles a{grid-template-columns:1fr;grid-template-rows:auto;justify-items:start;align-content:start;gap:8px;padding:12px;min-height:104px}.tiles .sq{width:40px;height:40px}.tiles .sq .ico{width:22px;height:22px}
+.tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:20px}.tiles a{grid-template-columns:1fr;grid-template-rows:auto;justify-items:start;align-content:start;gap:8px;padding:12px;min-height:104px}.tiles .sq{width:40px;height:40px}.tiles .sq .ico{width:22px;height:22px}
 .tiles h2{font-size:.95rem}.tiles small{display:none}.checker-h{letter-spacing:.06em;font-size:.74rem}.band-h2{margin-top:22px}}
+@media (max-width:640px){.tab.tab-b thead{display:none}.tab.tab-b tr{display:block;padding:10px 14px;border-bottom:1px solid var(--line)}.tab.tab-b tr:last-child{border-bottom:0}
+.tab.tab-b td,.tab.tab-b td:first-child{display:block;min-width:0;padding:2px 0;border:0}
+.tab.tab-b td[data-l]::before{content:attr(data-l);display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-top:6px}
+.tab.tab-b td:first-child::before{margin-top:0}}
+@media (max-width:480px){.calc .campi-b{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:980px){nav.menu{display:none}.nav-m{display:block}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 """
 
@@ -434,6 +452,7 @@ ICONE = {
     "arrow": '<path d="M5 12h14M13 6l6 6-6 6"/>',
     "menu": '<path d="M4 7h16M4 12h16M4 17h16"/>',
     "book": '<path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H11v18H5.5A1.5 1.5 0 0 1 4 19.5zM20 4.5A1.5 1.5 0 0 0 18.5 3H13v18h5.5a1.5 1.5 0 0 0 1.5-1.5z"/>',
+    "bag": '<rect x="4" y="7.5" width="16" height="12.5" rx="2.5"/><path d="M9 7.5V5a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 5v2.5M8 20v1.5M16 20v1.5M9 11.5v5M15 11.5v5"/>',
     "globe": '<circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 4 6 4 9.5s-1.4 6.9-4 9.5c-2.6-2.6-4-6-4-9.5s1.4-6.9 4-9.5z"/>',
 }
 
@@ -495,7 +514,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
     robots = "" if indicizza else '<meta name="robots" content="noindex">'
     canonico = f'<link rel="canonical" href="{url_pag}">' if indicizza else ""
     script = f"<script>{js or FORM_JS}</script>"
-    voci_menu = [("passport-validity/", "passport", "Passport validity"), ("liquids/", "bottle", "Liquids by airport"),
+    voci_menu = [("passport-validity/", "passport", "Passport validity"), ("liquids/", "bottle", "Liquids by airport"), ("cabin-bags/", "bag", "Cabin bags"),
                  ("ees-etias/", "scan", "EES &amp; ETIAS"), ("about/", "book", "Sources")]
     menu = "".join(f'<a href="{rel}{u}"' + (' aria-current="page"' if u == percorso else "") + f'>{ico(i)}{t}</a>' for u, i, t in voci_menu)
     testo = f"""<!DOCTYPE html>
@@ -515,7 +534,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <meta property="og:image" content="{URL_SITO}/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="{NOME}: passport validity, liquids rules by airport, EES and ETIAS">
+<meta property="og:image:alt" content="{NOME}: passport validity, liquids rules by airport, cabin bag sizes, EES and ETIAS">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#14181D">
 <meta name="color-scheme" content="light dark">
@@ -564,7 +583,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 
 def box_affiliati():
     """Riquadro affiliati: vuoto (non mostrato) finché dati/affiliati.json non ha URL."""
-    voci = [v for k, v in AFFILIATI.items() if not k.startswith("_") and isinstance(v, dict) and v.get("url")]
+    voci = [v for k, v in AFFILIATI.items() if not k.startswith("_") and k != "bagagli" and isinstance(v, dict) and v.get("url")]
     if not voci:
         return ""
     righe = "".join(f'<li><a href="{escape(v["url"])}" rel="sponsored noopener" target="_blank">{escape(v["titolo"])}</a> '
@@ -1574,6 +1593,8 @@ def pagina_aeroporto(A, nazionale=False):
 {link_simili}
 <h2>Flying back?</h2>
 <p>The UK government's advice is to check the rules “at the airport you’re flying from” and “at any other airports you’ll be travelling through, including your return journey” (<a href="https://www.gov.uk/hand-luggage-restrictions/liquids" rel="noopener">GOV.UK, hand luggage restrictions</a>). See the <a href="{rel}liquids/">liquids rules at {len(AER['aeroporti'])} airports</a>{'' if nazionale else f', the <a href="{rel}liquids/us-airports-tsa/">US (TSA) rule</a> and the <a href="{rel}liquids/canada-airports-catsa/">Canada (CATSA) rule</a>'}.</p>
+<h2>Cabin bag size for your airline</h2>
+<p>How big can your hand luggage be? See the <a href="{rel}cabin-bags/">cabin bag size by airline</a> ({len(COMPAGNIE)} airlines, from their official pages) or <a href="{rel}cabin-bags/does-my-bag-fit/">check if your bag fits</a>.</p>
 <h2>Medicines, baby food and duty-free</h2>
 <p>Exemptions are set out on the official page linked above. For UK airports, GOV.UK lists them on its <a href="https://www.gov.uk/hand-luggage-restrictions/liquids" rel="noopener">hand luggage restrictions page</a>; for EU airports, see <a href="https://europa.eu/youreurope/citizens/travel/carry/luggage-restrictions/index_en.htm" rel="noopener">Your Europe</a>.</p>
 <p class="small">Spotted a change? <a href="{rel}contact/?ref=liq-{A['slug']}">Tell us</a>.</p>
@@ -1617,6 +1638,7 @@ def indice_liquidi():
 <p>We only publish an airport when we can read its official page and the rule on it is clear. Not included on {data_lunga(AER['controllato_il'])}:</p>
 <ul>{esclusi}</ul>
 <p class="small">Last checked: {data_lunga(AER['controllato_il'])} (each airport row shows its own date). Spotted a change? <a href="{rel}contact/?ref=liquids">Tell us</a>.</p>
+<p>Packing hand luggage? See the <a href="{rel}cabin-bags/">cabin bag size by airline</a>.</p>
 {box_affiliati()}"""
     pagina("liquids/", f"Airport Liquid Rules {ANNO}: 100 ml or 2 Litres? ({len(AER['aeroporti'])} Airports)",
            f"The liquid limit at {len(AER['aeroporti'])} airports: which allow 2 litres and which keep 100 ml (Heathrow, Barcelona, Berlin, Prague, Palma…), plus US TSA rules. Official, dated.",
@@ -1678,6 +1700,523 @@ def pagina_ees():
            corpo, briciole=[("EES and ETIAS", "ees-etias/")])
 
 
+# ---------------------------------------------------------------- bagaglio a mano per compagnia aerea
+# Dati: dati/bagagli.json (misure lette sulle pagine ufficiali delle compagnie, ognuna con la frase copiata parola per parola).
+# Il confronto "la mia borsa entra?" è scritto qui in Python (entra_borsa, esito_compagnia) e identico in JS (BAG_JS): verifica.py li confronta.
+BAG = json.loads((DATI / "bagagli.json").read_text(encoding="utf-8")) if (DATI / "bagagli.json").exists() else {"compagnie": [], "escluse": []}
+COMPAGNIE = BAG["compagnie"]
+BAG_BASE = "cabin-bags"
+BAG_STRUMENTO = f"{BAG_BASE}/does-my-bag-fit/"
+BAG_UE = f"{BAG_BASE}/eu-personal-item-rule/"
+# Misure comuni (le più cercate: borse vendute "per Ryanair", "per easyJet", trolley da cabina): slug come lo scrive la gente
+MISURE_COMUNI = [("40x30x20", (40, 30, 20)), ("40x30x15", (40, 30, 15)), ("40x20x25", (40, 20, 25)), ("45x36x20", (45, 36, 20)),
+                 ("40x30x25", (40, 30, 25)), ("55x40x20", (55, 40, 20)), ("55x40x23", (55, 40, 23)), ("55x35x25", (55, 35, 25)),
+                 ("55x40x25", (55, 40, 25)), ("56x45x25", (56, 45, 25))]
+INCLUSO = {"tutte": "Free with every fare", "alcune": "Only with some fares, cabins or as a paid extra"}
+ESITO = {"gratis": "Free with every fare", "altre": "Only with some fares or paid", "no": "Too big for the cabin"}
+DOVE = {"sotto": "Under the seat", "sopra": "Overhead locker"}
+EPS = 1e-6
+
+
+def entra_borsa(misure, unita, b):
+    """La borsa (3 misure nell'unità 'cm' o 'in') sta nel limite b? Si confrontano le misure ordinate (lato più lungo con il limite più lungo,
+    e così via): è la condizione esatta perché una scatola stia in un'altra senza inclinarla. In pollici si usano i pollici ufficiali se la
+    compagnia li pubblica, altrimenti i centimetri (1 in = 2,54 cm). Il totale (Delta: 45 pollici / 114 cm) si controlla nella stessa unità."""
+    if unita == "in" and b.get("pollici") and b.get("pollici_ufficiali"):
+        lim, mis, u = list(b["pollici"]), list(misure), "in"
+    else:
+        lim, mis, u = list(b["cm"]), [x * 2.54 for x in misure] if unita == "in" else list(misure), "cm"
+    mis.sort(reverse=True)
+    lim.sort(reverse=True)
+    ok = all(mis[i] <= lim[i] + EPS for i in range(3))
+    if b.get("totale") and sum(mis) > b["totale"][u] + EPS:
+        ok = False
+    return ok
+
+
+def esito_compagnia(misure, unita, C):
+    """'gratis' se entra in una borsa compresa in ogni tariffa, 'altre' se entra solo in una borsa con alcune tariffe o a pagamento, 'no' altrimenti."""
+    esito, quale = "no", None
+    for b in C["borse"]:
+        if entra_borsa(misure, unita, b):
+            if b["incluso"] == "tutte" and esito != "gratis":
+                esito, quale = "gratis", b["id"]
+            elif b["incluso"] == "alcune" and esito == "no":
+                esito, quale = "altre", b["id"]
+    return esito, quale
+
+
+BAG_JS = r"""
+function bfNum(s){s=String(s==null?'':s).trim().replace(',','.');if(!/^\d+(\.\d+)?$/.test(s))return NaN;return parseFloat(s);}
+function bfEntra(m,u,b){var lim,mis,un;
+  if(u==='in'&&b.i&&b.iu){lim=b.i.slice();mis=m.slice();un='in';}else{lim=b.c.slice();mis=u==='in'?m.map(function(x){return x*2.54;}):m.slice();un='cm';}
+  var d=function(a,b){return b-a;};mis.sort(d);lim.sort(d);var ok=true;for(var k=0;k<3;k++){if(mis[k]>lim[k]+1e-6)ok=false;}
+  var tot=null;if(b.t){tot=b.t[un];if(mis[0]+mis[1]+mis[2]>tot+1e-6)ok=false;}
+  return {ok:ok,mis:mis,lim:lim,u:un,tot:tot};}
+function bfCompagnia(m,u,C){var es='no',q=null;C.b.forEach(function(b){var r=bfEntra(m,u,b);
+  if(r.ok){if(b.inc==='tutte'&&es!=='gratis'){es='gratis';q=b;}else if(b.inc==='alcune'&&es==='no'){es='altre';q=b;}}});return {esito:es,borsa:q};}
+(function(){
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function n2(x){return String(Math.round(x*100)/100);}
+  function tre(a,u){return a.map(n2).join(' × ')+' '+u;}
+  var box=document.querySelector('[data-borsa]');if(!box)return;
+  var D=JSON.parse(document.getElementById(box.dataset.dati).textContent);var f=box.querySelector('form');var out=box.querySelector('[data-out]');
+  var ETI={gratis:'Free with every fare',altre:'Only with some fares or paid',no:'Too big for the cabin'};
+  function aggiorna(){
+    var u=f.querySelector('[name=unita]').value;var v=['a','b','c'].map(function(n){return bfNum(f.querySelector('[name='+n+']').value);});
+    var vuoti=['a','b','c'].every(function(n){return !f.querySelector('[name='+n+']').value.trim();});
+    if(vuoti){out.innerHTML='<p class="small" style="margin:0">Enter the three sides of your bag (any order), including wheels and handles.</p>';return;}
+    var max=u==='in'?120:300;
+    if(v.some(function(x){return isNaN(x)||x<=0||x>max;})){out.innerHTML='<p class="errore" data-errore-borsa style="margin:0">Enter three numbers greater than 0 (up to '+max+' '+u+'), for example 40, 30 and 20. Use a dot or a comma for decimals.</p>';return;}
+    var gruppi={gratis:[],altre:[],no:[]};
+    D.forEach(function(C){var r=bfCompagnia(v,u,C);gruppi[r.esito].push([C,r]);});
+    var ord=v.slice().sort(function(a,b){return b-a;});
+    var h='<p class="cifra" style="margin:0 0 6px">Your bag, longest side first: <strong>'+tre(ord,u)+'</strong></p><ul class="stat" data-conti>'+
+      ['gratis','altre','no'].map(function(k){return '<li><strong data-conto="'+k+'">'+gruppi[k].length+'</strong> '+ETI[k].toLowerCase()+'</li>';}).join('')+'</ul>';
+    ['gratis','altre','no'].forEach(function(k){if(!gruppi[k].length)return;
+      h+='<h3 class="es-'+k+'">'+ETI[k]+' ('+gruppi[k].length+')</h3><ul class="esiti" data-gruppo="'+k+'">';
+      gruppi[k].forEach(function(x){var C=x[0],r=x[1],sp;
+        if(r.borsa){var e=bfEntra(v,u,r.borsa);sp='Fits the '+esc(r.borsa.n)+' ('+(r.borsa.w==='sotto'?'under the seat':'overhead locker')+'): your bag '+tre(e.mis,e.u)+' against the limit '+tre(e.lim,e.u)+(e.u==='cm'&&!r.borsa.cu&&r.borsa.i?' (≈, official '+tre(r.borsa.i,'in')+')':'')+(e.tot?(', total '+n2(e.tot)+' '+e.u):'')+(r.borsa.p?' · weight limit: '+esc(r.borsa.p):'')+'.';}
+        else{sp='Bigger than every size '+esc(C.n)+' publishes: '+C.b.map(function(b){var e=bfEntra(v,u,b);return esc(b.n)+' '+tre(e.lim,e.u)+(e.u==='cm'&&!b.cu&&b.i?' (≈, official '+tre(b.i,'in')+')':'')+(e.tot?(' (total '+n2(e.tot)+' '+e.u+')'):'');}).join('; ')+'.'+(C.ps?' '+esc(C.n)+' also allows a personal item but publishes no size for it.':'');}
+        if(C.m)sp+=' <em>'+esc(C.m)+'</em>';
+        h+='<li data-slug="'+C.s+'"><a href="'+esc(box.dataset.base+C.s)+'/"><strong>'+esc(C.n)+'</strong></a> <span class="small">'+sp+'</span></li>';});
+      h+='</ul>';});
+    out.innerHTML=h;}
+  f.addEventListener('input',aggiorna);f.addEventListener('change',aggiorna);f.addEventListener('submit',function(e){e.preventDefault();aggiorna();});aggiorna();
+})();
+"""
+
+
+def n2(x):
+    return f"{round(x, 2):g}"
+
+
+def dims(a, u, dec=2):
+    return " x ".join(f"{round(x, dec):g}" for x in a) + f" {u}"
+
+
+def misura_testo(b, C=None):
+    """Misura nell'unità della fonte, con l'altra unità (ufficiale se la fonte la scrive, altrimenti conversione nostra con ≈).
+    Per il Nord America prima i pollici, se la compagnia li pubblica."""
+    if C is not None and nordamerica(C) and b["cm_ufficiali"] and b.get("pollici") and b.get("pollici_ufficiali"):
+        return dims(b["pollici"], "in") + f" ({dims(b['cm'], 'cm')})"
+    if b["cm_ufficiali"]:
+        s = dims(b["cm"], "cm")
+        if b.get("pollici") and b.get("pollici_ufficiali"):
+            return s + f" ({dims(b['pollici'], 'in')})"
+        return s + f" (≈ {dims([x / 2.54 for x in b['cm']], 'in', 1)})"
+    return dims(b["pollici"], "in") + f" (≈ {dims(b['cm'], 'cm', 1)})"
+
+
+def misura_breve(b, C=None):
+    """Forma breve per titoli ed elenchi, dal lato più lungo ("40x30x20 cm", come si cerca); pollici per il Nord America se la compagnia li pubblica."""
+    pollici = (not b["cm_ufficiali"]) or (C is not None and nordamerica(C) and b.get("pollici") and b.get("pollici_ufficiali"))
+    v = sorted(b["pollici"] if pollici else b["cm"], reverse=True)
+    return "x".join(n2(x) for x in v) + (" in" if pollici else " cm")
+
+
+def borsa_gratis(C, tipo=None):
+    return next((b for b in C["borse"] if b["incluso"] == "tutte" and (tipo is None or b["tipo"] == tipo)), None)
+
+
+def poss(nome):
+    """Genitivo inglese: "Delta Air Lines'", "Ryanair's"."""
+    return nome + ("'" if nome.endswith("s") else "'s")
+
+
+def nordamerica(C):
+    return C["area"] == "North America"
+
+
+def nome_sotto(C):
+    return "personal item" if nordamerica(C) else "under-seat bag"
+
+
+def risposta_bag(C):
+    """Risposta diretta in alto: la borsa gratis sotto il sedile (o, se non ha misura, la borsa compresa nella cappelliera)."""
+    s = borsa_gratis(C, "sotto") or borsa_gratis(C, "sopra")
+    if nordamerica(C) and s.get("pollici") and s.get("pollici_ufficiali"):
+        m = dims(s["pollici"], "in") + (f" ({dims(s['cm'], 'cm')})" if s["cm_ufficiali"] else "")
+    else:
+        m = dims(s["cm"], "cm") if s["cm_ufficiali"] else dims(s["pollici"], "in")
+    if s["tipo"] == "sotto":
+        return f"{C['nome']} free {'personal item' if nordamerica(C) else 'bag'}: {m} under the seat"
+    return f"{C['nome']} free carry-on: {m} in the overhead bin"
+
+
+def titoli_bag(C):
+    n = C["nome"].replace(" Airlines", "").replace(" Air Lines", "")
+    s, o = borsa_gratis(C, "sotto"), borsa_gratis(C, "sopra")
+    alt = next((b for b in C["borse"] if b["tipo"] == "sopra"), None)
+    if nordamerica(C):
+        if s and alt:
+            a, p_ = misura_breve(alt, C), misura_breve(s, C)
+            return [f"{n} Carry-On Size {ANNO}: {a} + {p_} Personal Item", f"{n} Carry-On Size {ANNO}: {a.replace(' in', '')} & {p_.replace(' in', '')} in",
+                    f"{n} Carry-On & Personal Item Size {ANNO}", f"{n} Carry-On Size {ANNO}"]
+        return [f"{n} Carry-On Size {ANNO}: {misura_breve(o, C)} & Personal Item", f"{n} Carry-On Size {ANNO}: {misura_breve(o, C)}", f"{n} Carry-On Size {ANNO}"]
+    if s:
+        return [f"{n} Cabin Bag Size {ANNO}: Free Bag {misura_breve(s)}", f"{n} Hand Luggage Size {ANNO}: {misura_breve(s)}", f"{n} Cabin Bag Size {ANNO}"]
+    return [f"{n} Cabin Bag Size {ANNO}: Carry-On {misura_breve(o)}", f"{n} Cabin Bag Size {ANNO}"]
+
+
+def descrizioni_bag(C):
+    s, alt = borsa_gratis(C, "sotto"), next((b for b in C["borse"] if b["tipo"] == "sopra"), None)
+    pezzi = []
+    if s:
+        pezzi.append(f"free {nome_sotto(C)} {misura_breve(s, C)}")
+    if alt:
+        pezzi.append(f"{'carry-on' if nordamerica(C) else 'cabin bag'} {misura_breve(alt, C)}" + (" (every fare)" if alt["incluso"] == "tutte" else " (some fares or paid)"))
+    d = f"{C['nome']} {ANNO}: " + ", ".join(pezzi)
+    return [f"{d}. Quoted from {poss(C['nome'])} official page with the date checked, plus a bag size checker.",
+            f"{d}. Quoted from the official page, with the date checked.", f"{d}.", f"{C['nome']} cabin bag size {ANNO}: the official sizes, quoted word for word."]
+
+
+def fonte_bag(C, chiavi=None):
+    ff = [C["fonti"][k] for k in (chiavi or C["fonti"])]
+    lett = any(f["lettura"] == "browser" for f in ff)
+    return ('<p class="fonte">Official source: ' + " · ".join(f'<a href="{escape(f["url"])}" rel="noopener">{escape(f["titolo"])}</a>' for f in ff) +
+            f' · checked on {data_lunga(C["controllato_il"])}' + (" (read in a browser)" if lett else "") + "</p>")
+
+
+def cit_bag(cc):
+    """Citazioni ufficiali: le righe della pagina restano righe separate."""
+    return '<blockquote class="cit">' + "".join("<p>" + "<br>".join(escape(r) for r in c["righe"]) + "</p>" for c in cc) + "</blockquote>"
+
+
+def testo_cit(c):
+    return " ".join(c["righe"])
+
+
+def unici(cc):
+    out, visti = [], set()
+    for c in cc:
+        k = (c["f"], testo_cit(c))
+        if k not in visti:
+            visti.add(k)
+            out.append(c)
+    return out
+
+
+def prefisso_bag(C, cc):
+    nomi = []
+    for c in cc:
+        t = C["fonti"][c["f"]]["titolo"]
+        if t not in nomi:
+            nomi.append(t)
+    return f"Quoted from {'; '.join(nomi)} (checked on {data_lunga(C['controllato_il'])}): "
+
+
+def faq_bag(C):
+    """Domande vere; ogni risposta è fatta SOLO di citazioni ufficiali intere (verifica.py lo controlla)."""
+    out = []
+    s = borsa_gratis(C, "sotto")
+    if s:
+        out.append((f"What size {nome_sotto(C)} can I bring for free on {C['nome']}?" if nordamerica(C) else f"What size is the free {C['nome']} under-seat bag?", s["cit"]))
+    sopra = [c for b in C["borse"] if b["tipo"] == "sopra" for c in b["cit"]]
+    if sopra:
+        out.append((f"What is the {C['nome']} carry-on size limit?" if nordamerica(C) else f"What are the {C['nome']} cabin bag size and weight limits?", unici(sopra)))
+    out.append((f"Is a {'carry-on bag' if nordamerica(C) else 'cabin bag'} included in every {C['nome']} fare?", unici([c for t in C["tariffe"] for c in t["cit"]])))
+    if C["avvisi"]:
+        out.append((f"Does {C['nome']} check the size of cabin bags?", C["avvisi"]))
+    return out
+
+
+def html_faq_bag(C):
+    faq = faq_bag(C)
+    h = "".join(f"<h3>{escape(q)}</h3>{cit_bag(cc)}" for q, cc in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": prefisso_bag(C, cc) + " ".join(f"“{testo_cit(c)}”" for c in cc)}} for q, cc in faq]}
+    return (f'<section class="faq"><h2>Questions about {escape(C["nome"])} cabin bags</h2>'
+            f'<p class="small">Every answer below is quoted word for word from {escape(poss(C["nome"]))} official page, not written by us.</p>{h}{fonte_bag(C)}</section>'), [ld]
+
+
+AVVISO_BAG = ('<p class="avviso"><strong>Airlines change their bag rules and measure bags their own way</strong> (usually in a sizer at the airport, with wheels and '
+              'handles). We quote each airline\'s official page on the date shown; the official rule and the airline staff decide. Check your booking before you fly.</p>')
+
+
+def box_bagagli():
+    """Riquadro per un futuro link a borse della misura giusta: vuoto (non mostrato) finché dati/affiliati.json non ha l'URL della voce 'bagagli'."""
+    v = AFFILIATI.get("bagagli") or {}
+    if not v.get("url"):
+        return ""
+    return (f'<section class="card" style="margin-top:22px"><h2 style="margin-top:0">{escape(v["titolo"])}</h2><p><a href="{escape(v["url"])}" rel="sponsored noopener" target="_blank">'
+            f'{escape(v.get("nome", ""))}</a> {escape(v["testo"])}</p><p class="small" style="margin:0">Affiliate link: if you buy through it we may earn a small commission, at no extra cost to you.</p></section>')
+
+
+def dati_bag_client():
+    return [{"s": C["slug"], "n": C["nome"], "ps": bool(C.get("personale_senza_misura")), "m": C.get("nota_strumento"),
+             "b": [{"n": b["nome"], "w": b["tipo"], "c": b["cm"], "cu": bool(b["cm_ufficiali"]), "i": b.get("pollici"), "iu": bool(b.get("pollici_ufficiali")), "t": b.get("totale"),
+                    "inc": b["incluso"], "p": b.get("peso")} for b in C["borse"]]} for C in COMPAGNIE]
+
+
+def modulo_borsa(rel):
+    return f"""<section class="card checker" data-borsa data-dati="borse-dati" data-base="{rel}{BAG_BASE}/" aria-label="Does my bag fit?">
+<div class="checker-h">{ico("bag")}<span>Does my bag fit? · {len(COMPAGNIE)} airlines</span></div>
+<div class="checker-b"><form class="calc" novalidate>
+<div class="campi campi-b">
+<label><span class="lt">Side 1</span><input name="a" inputmode="decimal" autocomplete="off" placeholder="e.g. 40"></label>
+<label><span class="lt">Side 2</span><input name="b" inputmode="decimal" autocomplete="off" placeholder="e.g. 30"></label>
+<label><span class="lt">Side 3</span><input name="c" inputmode="decimal" autocomplete="off" placeholder="e.g. 20"></label>
+<label><span class="lt">Unit</span><select name="unita"><option value="cm">cm</option><option value="in">inches</option></select></label>
+</div>
+<p class="small" style="margin:0">Any order: we compare your longest side with each airline's longest limit, the middle with the middle and the shortest with the shortest (the bag can be turned, not tilted). Measure the whole bag, wheels, handles and pockets included.</p>
+<div class="risultato" data-out aria-live="polite"></div>
+</form></div></section>"""
+
+
+def nota_confronto():
+    return ('<p class="small">How we compare: sides sorted from longest to shortest on both sides, so a 20 x 40 x 30 cm bag counts as 40 x 30 x 20 cm. '
+            'An airline may measure in a fixed position (for example height x width x depth, or in its sizer) and may weigh the bag: the airline\'s official rule decides, '
+            'not this page. In inches we use the airline\'s own inch figures where it publishes them, otherwise its centimetre figures (1 in = 2.54 cm). '
+            'Where an airline publishes inches only, the centimetres shown with “≈” are our conversion.</p>')
+
+
+def pagina_compagnia(C):
+    rel = "../../"
+    s, o = borsa_gratis(C, "sotto"), borsa_gratis(C, "sopra")
+    righe = "".join(f'<tr><td data-l="Bag"><strong>{escape(b["nome"][0].upper() + b["nome"][1:])}</strong></td><td data-l="Where">{DOVE[b["tipo"]]}</td>'
+                    f'<td data-l="Max size">{escape(misura_testo(b, C))}{" · total " + n2(b["totale"]["cm"]) + " cm / " + n2(b["totale"]["in"]) + " in" if b.get("totale") else ""}</td>'
+                    f'<td data-l="Weight">{escape(b.get("peso") or "not stated")}</td><td data-l="Included"><span class="badge b-{"gratis" if b["incluso"] == "tutte" else "altre"}">'
+                    f'{INCLUSO[b["incluso"]]}</span></td></tr>' for b in C["borse"])
+    citaz = "".join(f'<h3>{escape(b["nome"][0].upper() + b["nome"][1:])}</h3>{cit_bag(b["cit"])}' for b in C["borse"])
+    tar = "".join(f'<tr><td data-l="Fare">{escape(t["nome"])}</td><td data-l="Under the seat">{escape(t["sotto"])}</td><td data-l="Overhead">{escape(t["sopra"])}</td></tr>' for t in C["tariffe"])
+    cit_tar = cit_bag(unici([c for t in C["tariffe"] for c in t["cit"]]))
+    seconda = []
+    for b in C["borse"]:
+        if b is not (s or o):
+            seconda.append(f'{b["nome"][0].upper() + b["nome"][1:]} ({DOVE[b["tipo"]].lower()}): {misura_testo(b, C)}' + (f', {b["peso"]}' if b.get("peso") else "") + f' – {INCLUSO[b["incluso"]].lower()}')
+    extra = (f'<h2>Other official details</h2>{cit_bag(C["extra"])}') if C.get("extra") else ""
+    nota = f'<p class="small">{escape(C["nota"])}</p>' if C.get("nota") else ""
+    misura = f'<p class="avviso">{escape(C["misura"])}</p>' if C.get("misura") else ""
+    ambito = f'<p class="small">These rules are for: {escape(C["ambito"])}.</p>' if C.get("ambito") else ""
+    avvisi = (f'<h2>If your bag is too big</h2>{cit_bag(C["avvisi"])}') if C["avvisi"] else ""
+    taglie = [(sl, m, esito_compagnia(m, "cm", C)[0]) for sl, m in MISURE_COMUNI]
+    lista_taglie = "".join(f'<a href="{rel}{BAG_BASE}/size/{sl}/">{sl.replace("x", " x ")} cm<small>{ESITO[e]}</small></a>' for sl, m, e in taglie)
+    altre = "".join(f'<a href="{rel}{BAG_BASE}/{D["slug"]}/">{escape(D["nome"])}<small>{escape(misura_breve(borsa_gratis(D, "sotto") or borsa_gratis(D, "sopra"), D))} free</small></a>'
+                    for D in COMPAGNIE if D is not C and D["area"] == C["area"])
+    faq_html, faq_ld = html_faq_bag(C)
+    corpo = f"""<section class="hero"><h1>{escape(C["nome"])} {"carry-on size" if nordamerica(C) else "cabin bag size"} {ANNO}: {"personal item and carry-on" if nordamerica(C) else "free under-seat bag and cabin bag"} by fare</h1></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top"><span class="sq">{ico("bag")}</span><span>Cabin bags · {escape(C["nome"])}</span><span>{escape(C["paese"])}</span></div>
+<div class="s-body">
+<p class="cifra">What can I take on board for free? <strong>{escape(risposta_bag(C))}{" · " + escape((s or o)["peso"]) if (s or o).get("peso") else ""}</strong></p>
+{"".join(f'<p class="lead">{escape(x)}.</p>' for x in seconda)}
+{f'<p class="lead">Personal item: allowed with every fare, but {escape(C["nome"])} publishes no size for it (see the official wording below).</p>' if C.get("personale_senza_misura") else ""}
+{ambito}
+{fonte_bag(C)}
+</div></section>
+{AVVISO_BAG}
+{misura}
+<h2>{escape(C["nome"])} bags you can take on board</h2>
+<div class="tab tab-b"><table><thead><tr><th>Bag</th><th>Where</th><th>Max size</th><th>Weight</th><th>Included</th></tr></thead><tbody>{righe}</tbody></table></div>
+<p class="small">Sizes in the order {escape(C["nome"])} writes them. “≈” marks our conversion; the other figures are {escape(poss(C["nome"]))} own.</p>
+<h2>What {escape(poss(C["nome"]))} official page says</h2>
+{citaz}
+{fonte_bag(C)}
+{nota}
+<h2>Cabin bag by fare</h2>
+<div class="tab tab-b"><table><thead><tr><th>Fare</th><th>Under the seat</th><th>Overhead locker</th></tr></thead><tbody>{tar}</tbody></table></div>
+<p class="small">Our short summary of the official wording below.</p>
+{cit_tar}
+{avvisi}
+{extra}
+{AD}
+{faq_html}
+<h2>Does my bag fit {escape(C["nome"])}?</h2>
+<p>Check your own bag against {escape(C["nome"])} and {len(COMPAGNIE) - 1} other airlines with the <a href="{rel}{BAG_STRUMENTO}">bag size checker</a>. Common bag sizes:</p>
+<div class="griglia">{lista_taglie}</div>
+<h2>Other airlines ({escape(C["area"])})</h2>
+<div class="griglia">{altre}</div>
+<p class="small">Spotted a change? <a href="{rel}contact/?ref=bag-{C['slug']}">Tell us</a>.</p>
+{box_bagagli()}
+<p><a href="{rel}{BAG_BASE}/">Cabin bag size by airline</a> · <a href="{rel}{BAG_UE}">EU free personal item rule</a> · <a href="{rel}liquids/">Liquids rules by airport</a></p>"""
+    pagina(f"{BAG_BASE}/{C['slug']}/", scegli(titoli_bag(C), LIMITE_TITOLO), scegli(descrizioni_bag(C), LIMITE_DESCRIZIONE), corpo,
+           briciole=[("Cabin bags", f"{BAG_BASE}/"), (C["nome"], f"{BAG_BASE}/{C['slug']}/")], ld_extra=faq_ld)
+
+
+def esiti_misura(m):
+    return {k: [C for C in COMPAGNIE if esito_compagnia(m, "cm", C)[0] == k] for k in ESITO}
+
+
+def titoli_misura(sl):
+    return [f"{sl} Bag: Which Airlines Accept It Free? ({ANNO}, {len(COMPAGNIE)} Airlines)", f"{sl} cm Bag: Which Airlines Accept It? ({ANNO})", f"{sl} Bag Airlines {ANNO}"]
+
+
+def pagina_misura(sl, m):
+    rel = "../../../"
+    E = esiti_misura(m)
+    def riga(C, k):
+        q = esito_compagnia(m, "cm", C)[1]
+        b = next((x for x in C["borse"] if x["id"] == q), None)
+        dett = (f'{escape(b["nome"])} ({DOVE[b["tipo"]].lower()}), max {escape(misura_testo(b, C))}' if b else
+                "; ".join(f'{escape(x["nome"])} max {escape(misura_testo(x, C))}' for x in C["borse"]))
+        return (f'<tr data-esito="{k}" data-slug="{C["slug"]}"><td data-l="Airline"><a href="{rel}{BAG_BASE}/{C["slug"]}/">{escape(C["nome"])}</a></td>'
+                f'<td data-l="Result"><span class="badge b-{k}">{ESITO[k]}</span></td><td data-l="Allowance">{dett}</td></tr>')
+    righe = "".join(riga(C, k) for k in ESITO for C in E[k])
+    def elenco(k):
+        return ", ".join(C["nome"] for C in E[k]) or "none"
+    altre_m = "".join(f'<a href="{rel}{BAG_BASE}/size/{s2}/">{s2.replace("x", " x ")} cm<small>{len(esiti_misura(m2)["gratis"])} free with every fare</small></a>'
+                      for s2, m2 in MISURE_COMUNI if s2 != sl)
+    corpo = f"""<section class="hero"><h1>{sl.replace("x", " x ")} cm bag: which airlines accept it in {ANNO}?</h1>
+<p class="lead">A bag of {dims(m, "cm")} (≈ {dims([x / 2.54 for x in m], "in", 1)}, our conversion), compared with the official cabin bag sizes of {len(COMPAGNIE)} airlines.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top"><span class="sq">{ico("bag")}</span><span>Bag size · {sl}</span><span>{len(COMPAGNIE)} airlines</span></div>
+<div class="s-body">
+<p class="cifra">Free with every fare at <strong>{len(E["gratis"])} airline{"s" if len(E["gratis"]) != 1 else ""}</strong> <span class="nota-s">{escape(elenco("gratis"))}</span></p>
+<p class="cifra">Only with some fares or as a paid extra at <strong>{len(E["altre"])}</strong> <span class="nota-s">{escape(elenco("altre"))}</span></p>
+<p class="cifra">Too big for the cabin allowances at <strong>{len(E["no"])}</strong> <span class="nota-s">{escape(elenco("no"))}</span></p>
+<p class="fonte">Calculated from the official pages of each airline, checked on {data_lunga(BAG["controllato_il"])}.</p>
+</div></section>
+{AVVISO_BAG}
+<h2>Airline by airline</h2>
+<div class="tab tab-b"><table><thead><tr><th>Airline</th><th>Result</th><th>Allowance it fits (or the sizes it does not fit)</th></tr></thead><tbody>{righe}</tbody></table></div>
+{nota_confronto()}
+{AD}
+<h2>Check another size</h2>
+<p>Enter your own bag in the <a href="{rel}{BAG_STRUMENTO}">bag size checker</a>, or see another common size:</p>
+<div class="griglia">{altre_m}</div>
+{box_bagagli()}
+<p><a href="{rel}{BAG_BASE}/">Cabin bag size by airline</a> · <a href="{rel}{BAG_UE}">EU free personal item rule</a></p>"""
+    desc = (f"Does a {sl} cm bag fit? Free with every fare at {len(E['gratis'])} of {len(COMPAGNIE)} airlines, {len(E['altre'])} only with some fares or paid. "
+            "From official pages.")
+    pagina(f"{BAG_BASE}/size/{sl}/", scegli(titoli_misura(sl), LIMITE_TITOLO), scegli([desc, f"Does a {sl} cm bag fit? {len(E['gratis'])} airlines accept it free with every fare."], LIMITE_DESCRIZIONE),
+           corpo, briciole=[("Cabin bags", f"{BAG_BASE}/"), (f"{sl} bag", f"{BAG_BASE}/size/{sl}/")])
+
+
+def pagina_strumento():
+    rel = "../../"
+    corpo = f"""<section class="hero">{h1_diviso(f"Does my bag fit? Cabin bag size checker for {len(COMPAGNIE)} airlines ({ANNO})")}
+<p class="lead">Enter the three sides of your bag and see which airlines accept it free with every fare, which only with some fares or as a paid extra, and where it is too big. The sizes come from each airline's official page, quoted on the airline pages with the date we checked them.</p></section>
+{modulo_borsa(rel)}
+{nota_confronto()}
+{AVVISO_BAG}
+{AD}
+<h2>Common bag sizes</h2>
+<div class="griglia">{"".join(f'<a href="{rel}{BAG_BASE}/size/{sl}/">{sl.replace("x", " x ")} cm<small>{len(esiti_misura(m)["gratis"])} free with every fare</small></a>' for sl, m in MISURE_COMUNI)}</div>
+<p><a href="{rel}{BAG_BASE}/">All airlines in one table</a> · <a href="{rel}{BAG_UE}">EU free personal item rule</a></p>
+{box_bagagli()}
+{dati_json('borse-dati', dati_bag_client())}"""
+    pagina(BAG_STRUMENTO, f"Does My Bag Fit? Cabin Bag Size Checker ({len(COMPAGNIE)} Airlines, {ANNO})",
+           f"Enter your bag's size in cm or inches: see which of {len(COMPAGNIE)} airlines accept it free, only with some fares or paid. Official sizes.",
+           corpo, briciole=[("Cabin bags", f"{BAG_BASE}/"), ("Does my bag fit?", BAG_STRUMENTO)], js=BAG_JS)
+
+
+def indice_bagagli():
+    rel = "../"
+    gruppi = {}
+    for C in COMPAGNIE:
+        gruppi.setdefault(C["area"], []).append(C)
+
+    def cella(C, tipo, inc):
+        bb = [b for b in C["borse"] if b["tipo"] == tipo and b["incluso"] == inc]
+        if not bb:
+            if tipo == "sotto" and inc == "tutte" and C.get("personale_senza_misura"):
+                return '<span class="small">Personal item, no size published</span>'
+            return "–"
+        return "<br>".join(escape(misura_testo(b, C)) + (f' <span class="small">{escape(b["peso"])}</span>' if b.get("peso") else "") for b in bb)
+    tabelle = []
+    for area in ["Europe", "North America", "Middle East and Australia"]:
+        if area not in gruppi:
+            continue
+        righe = "".join(f'<tr data-voce><td data-l="Airline"><a href="{rel}{BAG_BASE}/{C["slug"]}/"><strong>{escape(C["nome"])}</strong></a></td>'
+                        f'<td data-l="Free: under the seat">{cella(C, "sotto", "tutte")}</td><td data-l="Free: overhead">{cella(C, "sopra", "tutte")}</td>'
+                        f'<td data-l="Some fares or paid">{cella(C, "sopra", "alcune") if cella(C, "sopra", "alcune") != "–" else cella(C, "sotto", "alcune")}</td>'
+                        f'<td data-l="Source"><a href="{escape(next(iter(C["fonti"].values()))["url"])}" rel="noopener">official</a>, <span style="white-space:nowrap">{data_lunga(C["controllato_il"])}</span></td></tr>'
+                        for C in sorted(gruppi[area], key=lambda x: x["nome"].lower()))
+        tabelle.append(f'<h2>{escape(area)}</h2><div class="tab tab-b"><table><thead><tr><th>Airline</th><th>Free with every fare: under the seat</th><th>Free with every fare: overhead</th>'
+                       f'<th>Only some fares or paid</th><th>Source</th></tr></thead><tbody id="lista-{area.split()[0].lower()}">{righe}</tbody></table></div>')
+    esclusi = "".join(f"<li><strong>{escape(E['nome'])}</strong>: {escape(E['motivo'])}.</li>" for E in BAG["escluse"])
+    n_gratis_sopra = sum(1 for C in COMPAGNIE if borsa_gratis(C, "sopra"))
+    corpo = f"""<section class="hero">{h1_diviso(f"Cabin bag size by airline ({ANNO}): free under-seat bag and cabin bag")}
+<p class="lead">How big can your free bag be, and when do you have to pay for a cabin bag? The official hand luggage sizes of {len(COMPAGNIE)} airlines, quoted word for word from each airline's own page with the date we checked it. {n_gratis_sopra} of them include a cabin bag for the overhead locker in every fare; the others include only a smaller bag that must fit under the seat.</p>
+<p class="cifra" style="margin-top:10px"><a href="{rel}{BAG_STRUMENTO}">Does my bag fit? Check your bag against all {len(COMPAGNIE)} airlines</a></p>
+</section>
+{AVVISO_BAG}
+<div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type an airline, e.g. Ryanair, easyJet, United" data-filtro-multi aria-label="Search airlines"></div>
+{''.join(tabelle[:1])}
+{AD}
+{''.join(tabelle[1:])}
+<p class="small">Sizes in the order each airline writes them; “≈” marks our conversion. Weight limits as the airline states them (“combined” means the under-seat bag and the cabin bag together).</p>
+<h2>Bag sizes: which airlines accept them?</h2>
+<div class="griglia">{"".join(f'<a href="{rel}{BAG_BASE}/size/{sl}/">{sl.replace("x", " x ")} cm<small>{len(esiti_misura(m)["gratis"])} free with every fare</small></a>' for sl, m in MISURE_COMUNI)}</div>
+<h2>New EU rule: a free personal item from 23 October 2027</h2>
+<p>Regulation (EU) 2026/2202 says that airlines “shall permit passengers to carry a personal item into the cabin and at no extra cost”, defined as up to 40 x 30 x 15 cm or a bag that fits under the seat in front. <a href="{rel}{BAG_UE}">What the regulation says, quoted, and its exact status</a>.</p>
+<h2>Airlines not included (yet)</h2>
+<p>We only publish an airline when we can read its official page and the sizes on it. Not included on {data_lunga(BAG['controllato_il'])}:</p>
+<ul>{esclusi}</ul>
+<p class="small">Last checked: {data_lunga(BAG['controllato_il'])}. Spotted a change? <a href="{rel}contact/?ref=cabin-bags">Tell us</a>.</p>
+{box_bagagli()}"""
+    pagina(f"{BAG_BASE}/", f"Cabin Bag Size by Airline {ANNO}: Free & Paid ({len(COMPAGNIE)} Airlines)",
+           f"Hand luggage size limits of {len(COMPAGNIE)} airlines (Ryanair, easyJet, Wizz Air, BA, United…): the free under-seat bag and the cabin bag, from official pages.",
+           corpo, briciole=[("Cabin bags", f"{BAG_BASE}/")], js=APP_JS_FILTRO)
+
+
+# filtro dell'indice: una casella per più tabelle
+APP_JS_FILTRO = r"""
+(function(){var inp=document.querySelector('[data-filtro-multi]');if(!inp)return;
+  inp.addEventListener('input',function(){var v=inp.value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+    document.querySelectorAll('tr[data-voce]').forEach(function(a){var t=a.textContent.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');a.hidden=!!v&&t.indexOf(v)<0;});});})();
+"""
+
+
+def cit_ue(k):
+    return next(c for c in BAG["ue"]["citazioni"] if c["id"] == k)
+
+
+def fonte_ue(chiavi):
+    U = BAG["ue"]
+    return ('<p class="fonte">Official source: ' + " · ".join(f'<a href="{escape(U["fonti"][k]["url"])}" rel="noopener">{escape(U["fonti"][k]["titolo"])}</a>' for k in chiavi) +
+            f' · checked on {data_lunga(U["controllato_il"])}</p>')
+
+
+def pagina_ue():
+    rel = "../../"
+    U = BAG["ue"]
+    def cc(*kk):
+        return cit_bag([cit_ue(k) for k in kk])
+    iter_ = "".join(f'<tr><td data-l="Date">{data_lunga(x["data"])}</td><td data-l="Step">{escape(x["evento"])}</td></tr>' for x in U["iter"])
+    oggi = (40, 30, 15)
+    gia = [C for C in COMPAGNIE if any(b["incluso"] == "tutte" and entra_borsa(oggi, "cm", b) for b in C["borse"])]
+    non = [C for C in COMPAGNIE if C not in gia]
+    lista = lambda L: ", ".join(f'<a href="{rel}{BAG_BASE}/{C["slug"]}/">{escape(C["nome"])}</a>' for C in L) or "none"
+    corpo = f"""<section class="hero"><h1>EU free personal item rule: 40 x 30 x 15 cm from 23 October 2027</h1>
+<p class="lead">The EU has changed its air passenger rights rules. Here is what the new regulation says about hand luggage, in its own words, and where the law stands today. No predictions: official texts, with the date we checked them; the few lines in our own words are marked as such.</p></section>
+<div class="tre">
+<section class="card"><span class="sq">{ico("book")}</span><h2>Status</h2><p class="cifra"><strong>Adopted and published</strong></p><p class="small" style="margin:0">Regulation (EU) 2026/2202, Official Journal L of 2 October 2026. Legislative Observatory: “Procedure completed”.</p></section>
+<section class="card"><span class="sq">{ico("calendar")}</span><h2>Applies from</h2><p class="cifra"><strong>23 October 2027</strong></p><p class="small" style="margin:0">Article 3 of the regulation (quoted below).</p></section>
+<section class="card"><span class="sq">{ico("bag")}</span><h2>Personal item</h2><p class="cifra"><strong>Free, 40 x 30 x 15 cm</strong></p><p class="small" style="margin:0">Or a bag that fits under the seat in front. No EU weight standard: airlines may set reasonable weight limits (European Commission).</p></section>
+</div>
+<h2>The regulation</h2>
+{cc("titolo", "gu")}
+{fonte_ue(["reg"])}
+<h2>What counts as a personal item and as hand baggage</h2>
+{cc("definizione", "bagaglio")}
+<h2>Article 11a: personal item and hand baggage</h2>
+{cc("art11a", "stiva")}
+<p class="small">In short (our words): the personal item must be free; a piece of hand baggage must be allowed in the cabin subject to space, but the regulation does not say it must be free. Read the full text on EUR-Lex.</p>
+<h2>When it applies</h2>
+{cc("applicazione")}
+{fonte_ue(["reg"])}
+<h2>What the European Commission says</h2>
+{cc("standard", "prezzi", "peso")}
+{fonte_ue(["qa"])}
+<p class="small">The same Commission page, written before the final votes, also says:</p>
+{cc("passi")}
+<p class="small">The Legislative Observatory below shows that both institutions have since adopted the text and that it was published in the Official Journal on 2 October 2026; the regulation itself sets the date of application (23 October 2027, quoted above).</p>
+{AD}
+<h2>Where the law stands: the steps</h2>
+<div class="tab tab-b"><table><thead><tr><th>Date</th><th>Step (European Parliament Legislative Observatory)</th></tr></thead><tbody>{iter_}</tbody></table></div>
+{cc("stato", "atto")}
+{fonte_ue(["oeil"])}
+<h2>The airlines on this site today</h2>
+<p>Today (sizes checked on {data_lunga(BAG['controllato_il'])}), a 40 x 30 x 15 cm bag already fits the allowance included in every fare at {len(gia)} of the {len(COMPAGNIE)} airlines we list: {lista(gia)}. It does not fit a bag included in every fare at: {lista(non)}.</p>
+<p class="small">This is a size comparison, not a legal opinion. The regulation also accepts a personal item defined as a bag that “fits under the seat in front”, and it applies only to the flights covered by Regulation (EC) No 261/2004: we do not judge whether any airline's rules comply. Airlines may change their rules before 23 October 2027.</p>
+<p><a href="{rel}{BAG_BASE}/">Cabin bag size by airline</a> · <a href="{rel}{BAG_STRUMENTO}">Does my bag fit?</a></p>"""
+    pagina(BAG_UE, f"EU Free Personal Item Rule: 40x30x15 cm from 23 October 2027",
+           "Regulation (EU) 2026/2202: a free personal item of 40 x 30 x 15 cm from 23 October 2027. The official text, its status and what the Commission says.",
+           corpo, briciole=[("Cabin bags", f"{BAG_BASE}/"), ("EU personal item rule", BAG_UE)])
+
+
 # ---------------------------------------------------------------- home e pagine di servizio
 def home():
     auto = sum(1 for P in PAESI if P["regola"])
@@ -1696,21 +2235,22 @@ def home():
     griglia_pass = "".join(f'<a href="passport-validity/{s}/">{escape(mappa[s]["nome"])}<small>{escape(_breve_pop(mappa[s]))}</small></a>'
                            for s in popolari if s in mappa)
     stato_etias = "not in operation" if any("currently not in operation" in f["frase"] for f in frasi_ees("etias")) else "see the official page"
-    ultimo = data_lunga(max(PASS["controllato_il"], AER["controllato_il"], EES["controllato_il"]))
+    ultimo = data_lunga(max(PASS["controllato_il"], AER["controllato_il"], EES["controllato_il"], BAG.get("controllato_il", "")))
     testata = f"""<div class="band"><div class="wrap band-in">
-<section class="hero">{h1_diviso(f"Before You Fly: passport validity, airport liquids rules and EU entry checks ({ANNO})")}
+<section class="hero">{h1_diviso(f"Before You Fly: passport validity, airport liquids rules, cabin bag sizes and EU entry checks ({ANNO})")}
 <p class="scope"><span class="pill">{ico("passport")}British passport checker</span><span>Passport rules from the UK government (FCDO), for British citizens.{"".join(f' {ESTERI[k]["agg"]} passport: <a href="{ESTERI[k]["base"]}/" style="color:var(--sign)">{len(VOCI[k])} destinations</a>.' for k in ESTERI if VOCI[k])}</span></p>
-<p class="sub">Three checks before you fly, answered from official sources only.</p>
+<p class="sub">Four checks before you fly, answered from official sources only.</p>
 <p class="trust"><span>{ico("shield")}Official sources · last checked {ultimo}</span><span>{ico("lock")}Your dates stay in your browser</span></p></section>
 <ul class="tiles">
 <li><a href="passport-validity/"><span class="sq">{ico("passport")}</span><h2>Passport validity</h2><small>FCDO passport validity and visa rules for British passports, {len(PAESI)} destinations, a date checker for {auto} of them. Last checked: {data_lunga(PASS['controllato_il'])}.</small></a></li>
 <li><a href="liquids/"><span class="sq">{ico("bottle")}</span><h2>Liquids by airport</h2><small>100 ml or 2 litres? {len(AER['aeroporti'])} airports plus the US and Canada rules, from official pages.</small></a></li>
+<li><a href="cabin-bags/"><span class="sq">{ico("bag")}</span><h2>Cabin bags</h2><small>Free under-seat bag and cabin bag sizes for {len(COMPAGNIE)} airlines, plus a “does my bag fit?” checker.</small></a></li>
 <li><a href="ees-etias/"><span class="sq">{ico("scan")}</span><h2>EES &amp; ETIAS</h2><small>EES is fully operational; ETIAS is {stato_etias} (European Commission).</small></a></li>
 </ul>
 <h2 class="band-h2">Check your passport dates</h2>
 {modulo_checker('tutti-dati', True, link='passport-validity/')}
 </div></div>"""
-    corpo = f"""<p class="lead" style="margin-top:28px">Three things to check before you fly, answered from official sources only: is your passport valid long enough for your destination, can you take more than 100 ml of liquids through security, and what EES and ETIAS mean for your trip. Every rule is quoted word for word with its source and the date we checked it.</p>
+    corpo = f"""<p class="lead" style="margin-top:28px">Four things to check before you fly, answered from official sources only: is your passport valid long enough for your destination, can you take more than 100 ml of liquids through security, how big your cabin bag can be on your airline, and what EES and ETIAS mean for your trip. Every rule is quoted word for word with its source and the date we checked it.</p>
 {AVVISO_PASS}
 {AD}
 <h2>Popular destinations</h2>
@@ -1719,10 +2259,13 @@ def home():
 <h2>Airports that allow up to 2 litres (official pages)</h2>
 <div class="griglia">{griglia_2l}</div>
 <p><a href="liquids/">All airports, including those that depend on the checkpoint</a></p>
+<h2>Cabin bag size by airline</h2>
+<p>The free bag you can take on board and when you pay for a cabin bag, from each airline's own page: <a href="cabin-bags/">{len(COMPAGNIE)} airlines in one table</a>, or <a href="cabin-bags/does-my-bag-fit/">check if your bag fits</a>.</p>
+<div class="griglia">{"".join(f'<a href="cabin-bags/{C["slug"]}/">{escape(C["nome"])}<small>{escape(misura_breve(borsa_gratis(C, "sotto") or borsa_gratis(C, "sopra")))} free</small></a>' for C in COMPAGNIE if C["slug"] in ("ryanair", "easyjet", "wizz-air", "jet2", "british-airways", "vueling", "lufthansa", "klm"))}</div>
 {box_affiliati()}
 {dati_json('tutti-dati', [dati_client(P) for P in PAESI])}"""
-    pagina("", f"Before You Fly {ANNO}: Passport Validity, Visas, Liquids, EES",
-           f"Passport validity and visa rules (FCDO) for {len(PAESI)} destinations, liquid limits at {len(AER['aeroporti'])} airports and EES/ETIAS status, quoted from official sources.",
+    pagina("", f"Before You Fly {ANNO}: Passport, Visas, Liquids, Cabin Bags, EES",
+           f"Passport and visa rules (FCDO) for {len(PAESI)} destinations, liquid limits at {len(AER['aeroporti'])} airports, cabin bag sizes of {len(COMPAGNIE)} airlines, EES/ETIAS. Official sources.",
            corpo, js=MOTORE_JS + APP_JS, testata=testata)
 
 
@@ -1755,7 +2298,7 @@ def about():
     corpo = f"""<section class="hero"><h1>About {NOME} and our sources</h1></section><div class="testo">
 <p>{NOME} is an independent project. It collects official travel rules and shows them word for word, with the link and the date we checked them. We are not affiliated with any government, airport or airline.</p>
 <h2>Rules we follow</h2>
-<ul><li>Only official sources: the UK government (GOV.UK, FCDO), the Government of Canada (travel.gc.ca), the Australian Government (Smartraveller), the European Commission and EU portals, airport operators, and national aviation security authorities (TSA, CATSA, Hong Kong Civil Aviation Department).</li>
+<ul><li>Only official sources: the UK government (GOV.UK, FCDO), the Government of Canada (travel.gc.ca), the Australian Government (Smartraveller), the European Commission and EU portals, airport operators, airlines (for their own bag rules), and national aviation security authorities (TSA, CATSA, Hong Kong Civil Aviation Department).</li>
 <li>Every rule is quoted, not rewritten. Our short summaries are labelled as such and the official text is always on the same page.</li>
 <li>If we cannot read an official page, or it is unclear, we leave it out and say so.</li>
 <li>When two official texts disagree, we show both and do not choose.</li>
@@ -1772,6 +2315,8 @@ def about():
 {about_esteri(rel)}
 <h2>Liquids rules</h2>
 <p>Each airport's official security page, last read by us on {data_lunga(AER['controllato_il'])} (the date is shown on each page). Some airport sites block simple automated requests or load their text with JavaScript: we read those in a browser and say so on the page. Spanish airports use the general hand-luggage page of Aena, which runs Spain's public airports (it lists no airport- or lane-specific exceptions, and it does not say that it applies at every airport: each Spanish airport page says so); Hong Kong uses the Civil Aviation Department page; the US and Canada each have one national rule (TSA, CATSA). See the full list and the airports we left out on the <a href="{rel}liquids/">liquids page</a>.</p>
+<h2>Cabin bag sizes</h2>
+<p>Each airline's official baggage page, last read by us on {data_lunga(BAG['controllato_il'])} (the date and the link are on each airline page). Most airline sites need JavaScript or block simple automated requests, so we read them in a browser. Every size is quoted word for word; the short labels (“Free with every fare”, “Only with some fares, cabins or as a paid extra”) and the conversions marked “≈” are ours. An airline is included only if its official page shows the sizes; the airlines we left out and why are listed on the <a href="{rel}cabin-bags/">cabin bags page</a>. The bag checker compares the sides sorted from longest to shortest; airlines may measure differently, and their rule decides. The <a href="{rel}cabin-bags/eu-personal-item-rule/">EU personal item page</a> quotes Regulation (EU) 2026/2202 (EUR-Lex), the European Parliament's Legislative Observatory and the European Commission.</p>
 <h2>EES and ETIAS</h2>
 <p>European Commission (DG Migration and Home Affairs) pages and GOV.UK travel advice, last checked on {data_lunga(EES['controllato_il'])}. See the <a href="{rel}ees-etias/">EES and ETIAS page</a>.</p>
 <h2>Corrections</h2>
@@ -1834,7 +2379,7 @@ def extra():
 """)
     pagina("404.html", f"Page not found | {NOME}", "Page not found.",
            '<section class="hero"><h1>Page not found</h1><p class="lead">Go to the <a href="/">home page</a>, the <a href="/passport-validity/">passport validity rules</a> '
-           'or the <a href="/liquids/">liquids rules by airport</a>.</p></section>', indicizza=False, assoluto=True)
+           'the <a href="/liquids/">liquids rules by airport</a> or the <a href="/cabin-bags/">cabin bag size by airline</a>.</p></section>', indicizza=False, assoluto=True)
 
 
 def copia_grafica():
@@ -1866,6 +2411,20 @@ def controlli():
     slug = [A["slug"] for A in AER["aeroporti"] + AER["nazionali"]]
     if len(set(slug)) != len(slug):
         errori.append("slug aeroporti duplicati")
+    for C in COMPAGNIE:
+        for k in ("slug", "nome", "area", "fonti", "borse", "tariffe", "controllato_il"):
+            if not C.get(k):
+                errori.append(f"compagnia {C.get('slug')}: manca {k}")
+        for b in C.get("borse", []):
+            if b.get("incluso") not in INCLUSO or b.get("tipo") not in DOVE or len(b.get("cm") or []) != 3 or not b.get("cit"):
+                errori.append(f"compagnia {C['slug']}: borsa {b.get('id')} incompleta")
+            for c in b.get("cit", []):
+                if c["f"] not in C["fonti"]:
+                    errori.append(f"compagnia {C['slug']}: citazione con fonte sconosciuta {c['f']}")
+        if not (borsa_gratis(C, "sotto") or borsa_gratis(C, "sopra")):
+            errori.append(f"compagnia {C['slug']}: nessuna borsa compresa in ogni tariffa")
+    if len({C["slug"] for C in COMPAGNIE}) != len(COMPAGNIE):
+        errori.append("slug compagnie duplicati")
     if not frasi_ees("etias") or not frasi_ees("ees"):
         errori.append("EES/ETIAS: nessuna frase ufficiale trovata (rilanciare raccolta/eesetias.py)")
     if errori:
@@ -1900,6 +2459,14 @@ def main():
     for N in AER["nazionali"]:
         pagina_aeroporto(N, nazionale=True)
     pagina_ees()
+    if COMPAGNIE:
+        indice_bagagli()
+        for C in COMPAGNIE:
+            pagina_compagnia(C)
+        for sl, m in MISURE_COMUNI:
+            pagina_misura(sl, m)
+        pagina_strumento()
+        pagina_ue()
     about()
     contatti()
     privacy()
@@ -1907,6 +2474,7 @@ def main():
     auto = sum(1 for P in PAESI if P["regola"])
     print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili + 404; {len(PAESI)} paesi ({auto} con controllo automatico), "
           f"{len(AER['aeroporti'])} aeroporti + {len(AER['nazionali'])} regole nazionali, pagina EES/ETIAS; "
+          f"bagaglio a mano: {len(COMPAGNIE)} compagnie, {len(MISURE_COMUNI)} misure, strumento, pagina UE; "
           + ", ".join(f"passaporto {ESTERI[k]['agg']}: {len(VOCI[k])} pagine" for k in ESTERI))
 
 

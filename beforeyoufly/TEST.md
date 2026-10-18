@@ -94,3 +94,22 @@ Regola applicata alla lettera. Mesi: stesso giorno N mesi dopo, ridotto all'ulti
 | Visti, confronto con la fonte | 226 pagine FCDO riscaricate; 140 riassunti letti contro la sezione intera: 16 corretti (5 tolti, 11 completati); restano 135 riassunti, 87 solo citazione |
 | Liquidi, 14 aeroporti nuovi | pagine riaperte con Playwright: tutte le frasi citate presenti; Praga, Düsseldorf e Aena riletti e completati |
 | verifica.py (anche browser 375 px) | TUTTO OK; schermate 375/1280 px chiaro/scuro di Barcellona, Schiphol, Zurigo, Spagna, Egitto: nessuno scorrimento orizzontale, 0 errori in console |
+
+## Bagaglio a mano: casi dello strumento "Does my bag fit?" (18 ottobre 2026)
+
+Provati nel browser da `verifica.py` (punto 7) e confrontati compagnia per compagnia con il Python (`genera.esito_compagnia`). Conteggi su 28 compagnie: gratis con ogni tariffa / solo alcune tariffe o a pagamento / troppo grande.
+
+| Caso | Valori inseriti | Esito atteso |
+|---|---|---|
+| 1 | 40, 30, 20 cm | 21 / 7 / 0 (solo con alcune tariffe: Lufthansa, KLM, Air France, Pegasus, United, Air Canada, WestJet) |
+| 2 | 20, 40, 30 cm (ruotata) | uguale al caso 1 |
+| 3 | 55, 40, 20 cm | 6 / 11 / 11 |
+| 4 | 30, 30, 30 cm (misure uguali) | 0 / 0 / 28 |
+| 5 | 40.5, 30, 20 cm (decimale) | 15 / 13 / 0 (Ryanair, Wizz, Vueling passano a "solo alcune tariffe") |
+| 6 | 45,5, 36, 20 cm (virgola) | 11 / 12 / 5 |
+| 7 | 22, 14, 9 in | 10 / 4 / 14 (Delta: totale 45 in esatto, entra) |
+| 8 | 22, 14, 9.5 in | 5 / 2 / 21 |
+| 9 | 56, 45, 25 cm | 2 / 1 / 25 (gratis: Jet2.com, British Airways; a pagamento: easyJet) |
+| 10 | 0, 30, 20 cm | messaggio d'errore, nessun risultato |
+
+Pagine per misura (stessa funzione): 40x30x20 21/7/0 · 40x30x15 26/2/0 · 40x20x25 22/6/0 · 45x36x20 12/11/5 · 40x30x25 7/5/16 · 55x40x20 6/11/11 · 55x40x23 6/9/13 · 55x35x25 5/5/18 · 55x40x25 5/3/20 · 56x45x25 2/1/25.

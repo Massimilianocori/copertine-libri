@@ -26,6 +26,15 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     richiesta) e dice che il sito non è del governo; indice e collegamenti con le pagine britanniche della stessa destinazione (andata e ritorno);
     pagina solo per le destinazioni con testo specifico del Paese (genera.ha_testo_specifico), le altre senza pagina e fuori dalla sitemap.
     Nel browser (punto 7) anche 4 pagine nuove (2 canadesi, 2 australiane) a 375 px, tema chiaro e scuro.
+12. Bagaglio a mano (dati/bagagli.json): ogni misura ha la citazione ufficiale (i suoi numeri, in cm e pollici se la fonte li scrive, sono nella
+    frase citata; i cm non ufficiali sono la conversione esatta dei pollici ufficiali), l'URL https della fonte e la data del controllo, e la
+    pagina li mostra; risposta diretta in alto; FAQ (JSON-LD e testo visibile) fatte solo di citazioni ufficiali intere; il confronto
+    "ordinato" di genera.entra_borsa uguale a un controllo indipendente sulle 6 rotazioni (4.000 casi casuali) e il motore JS uguale al
+    Python (3.000 casi); le pagine per misura elencano esattamente le compagnie calcolate dai dati; indice con ricerca e compagnie escluse con
+    il motivo; pagina UE con tutte le citazioni, le fonti ufficiali UE, le tappe dell'iter e la data; collegamenti da home e liquidi;
+    nessun link affiliato attivo (affiliati.json senza URL, nessun rel="sponsored"). Nel browser (punto 7): 5 pagine nuove a 375 px e
+    10 casi dello strumento "Does my bag fit?" (borsa ruotata, misure uguali, decimali con punto e virgola, pollici, valore non valido),
+    confrontati compagnia per compagnia con il Python; menu e home senza scorrimento orizzontale a 820 px.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -416,6 +425,8 @@ def controlla_meta():
     attesi.update({f"liquids/{a['slug']}/index.html": G.titoli_liquidi(a, True) for a in G.AER["nazionali"]})
     for k in G.ESTERI:
         attesi.update({v["url_pag"] + "index.html": G.titoli_estero(v) for v in G.VOCI[k]})
+    attesi.update({f"{G.BAG_BASE}/{C['slug']}/index.html": G.titoli_bag(C) for C in G.COMPAGNIE})
+    attesi.update({f"{G.BAG_BASE}/size/{sl}/index.html": G.titoli_misura(sl) for sl, _ in G.MISURE_COMUNI})
     from html import unescape
     for f in SITO.rglob("*.html"):
         if f.name.startswith("google"):
@@ -616,6 +627,218 @@ def controlla_esteri():
     return errori, conti
 
 
+# ---------------------------------------------------------------- 12. bagaglio a mano per compagnia aerea
+NUM = re.compile(r"\d+(?:[.,]\d+)?")
+
+
+def _numeri(testo):
+    return {round(float(x.replace(",", ".")), 2) for x in NUM.findall(testo)}
+
+
+def _entra_permutazioni(m, unita, b):
+    """Controllo indipendente da genera.entra_borsa: la borsa entra se ALMENO UNA delle 6 rotazioni rispetta i tre limiti nell'ordine della fonte."""
+    import itertools
+    if unita == "in" and b.get("pollici") and b.get("pollici_ufficiali"):
+        lim, mis, u = b["pollici"], m, "in"
+    else:
+        lim, mis, u = b["cm"], [x * 2.54 for x in m] if unita == "in" else m, "cm"
+    if b.get("totale") and sum(mis) > b["totale"][u] + 1e-6:
+        return False
+    return any(all(p[i] <= lim[i] + 1e-6 for i in range(3)) for p in itertools.permutations(mis))
+
+
+# 10 casi del controllo "Does my bag fit?" provati nel browser (valori come li scrive l'utente)
+CASI_BORSA = [
+    ("40x30x20 cm", ["40", "30", "20"], "cm"),
+    ("ruotata 20x40x30 cm", ["20", "40", "30"], "cm"),
+    ("55x40x20 cm", ["55", "40", "20"], "cm"),
+    ("misure uguali 30x30x30 cm", ["30", "30", "30"], "cm"),
+    ("decimale 40.5x30x20 cm", ["40.5", "30", "20"], "cm"),
+    ("virgola 45,5x36x20 cm", ["45,5", "36", "20"], "cm"),
+    ("pollici 22x14x9 in", ["22", "14", "9"], "in"),
+    ("pollici 22x14x9.5 in", ["22", "14", "9.5"], "in"),
+    ("56x45x25 cm", ["56", "45", "25"], "cm"),
+    ("non valida 0x30x20", ["0", "30", "20"], "cm"),
+]
+
+
+def _attesi_borsa(valori, unita):
+    try:
+        m = [float(v.replace(",", ".")) for v in valori]
+    except ValueError:
+        return None
+    if any(x <= 0 for x in m):
+        return None
+    return {C["slug"]: G.esito_compagnia(m, unita, C)[0] for C in G.COMPAGNIE}
+
+
+def controlla_bagagli():
+    from html import unescape
+    errori, conti = [], {"compagnie": len(G.COMPAGNIE), "misure": 0, "citazioni": 0, "faq": 0}
+    oggi = G.OGGI.isoformat()
+    # nessun link affiliato attivo (decisione del 17/10/2026: siti solo informativi)
+    for k, v in G.AFFILIATI.items():
+        if isinstance(v, dict) and v.get("url"):
+            errori.append(f"affiliati.json: la voce '{k}' ha un URL (link affiliato attivo: decisione del 17/10 ancora valida?)")
+    if "bagagli" not in G.AFFILIATI:
+        errori.append("affiliati.json: manca la voce vuota 'bagagli'")
+    for f in SITO.rglob("*.html"):
+        t = f.read_text(encoding="utf-8")
+        if 'rel="sponsored' in t:
+            errori.append(f"link affiliato attivo in {f.relative_to(SITO)}")
+    for C in G.COMPAGNIE:
+        rel = f"{G.BAG_BASE}/{C['slug']}/index.html"
+        if not (SITO / rel).exists():
+            errori.append(f"bagagli {C['slug']}: pagina mancante")
+            continue
+        t = leggi(rel)
+        d = C["controllato_il"]
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", d) or d > oggi:
+            errori.append(f"bagagli {C['slug']}: data del controllo non valida {d}")
+        if "checked on " + G.data_lunga(d) not in t:
+            errori.append(f"bagagli {C['slug']}: data del controllo non mostrata")
+        for k, f in C["fonti"].items():
+            if not f.get("url", "").startswith("https://") or not f.get("titolo") or escape(f["url"]) not in t:
+                errori.append(f"bagagli {C['slug']}: fonte {k} senza URL https, titolo o link nella pagina")
+        tutte = [c for b in C["borse"] for c in b["cit"]] + [c for x in C["tariffe"] for c in x["cit"]] + C["avvisi"] + C.get("extra", [])
+        for c in tutte:
+            conti["citazioni"] += 1
+            if c["f"] not in C["fonti"] or not c["righe"]:
+                errori.append(f"bagagli {C['slug']}: citazione senza fonte o vuota")
+            for r in c["righe"]:
+                if escape(r) not in t:
+                    errori.append(f"bagagli {C['slug']}: citazione ufficiale non mostrata: {r[:60]}")
+        numeri_tutti = set().union(*[_numeri(" ".join(c["righe"])) for c in tutte])
+        for b in C["borse"]:
+            conti["misure"] += 1
+            nb = set().union(*[_numeri(" ".join(c["righe"])) for c in b["cit"]]) if b["cit"] else set()
+            if not b["cit"]:
+                errori.append(f"bagagli {C['slug']}/{b['id']}: misura senza citazione ufficiale")
+            if b["cm_ufficiali"] and not all(round(x, 2) in nb for x in b["cm"]):
+                errori.append(f"bagagli {C['slug']}/{b['id']}: i centimetri {b['cm']} non sono tutti nella frase ufficiale")
+            if b.get("pollici_ufficiali") and not all(round(x, 2) in nb for x in b["pollici"]):
+                errori.append(f"bagagli {C['slug']}/{b['id']}: i pollici {b['pollici']} non sono tutti nella frase ufficiale")
+            if not b["cm_ufficiali"] and (not b.get("pollici_ufficiali") or [round(x * 2.54, 2) for x in b["pollici"]] != [round(x, 2) for x in b["cm"]]):
+                errori.append(f"bagagli {C['slug']}/{b['id']}: centimetri non ufficiali che non sono la conversione dei pollici ufficiali")
+            if b.get("totale") and not (round(b["totale"]["cm"], 2) in nb and round(b["totale"]["in"], 2) in nb):
+                errori.append(f"bagagli {C['slug']}/{b['id']}: totale non presente nella frase ufficiale")
+            if b.get("peso") and not _numeri(b["peso"]) <= numeri_tutti:
+                errori.append(f"bagagli {C['slug']}/{b['id']}: peso '{b['peso']}' non presente nelle frasi ufficiali")
+            if escape(G.misura_testo(b, C)) not in t:
+                errori.append(f"bagagli {C['slug']}/{b['id']}: misura non mostrata nella tabella")
+        if escape(G.risposta_bag(C)) not in t:
+            errori.append(f"bagagli {C['slug']}: risposta diretta in alto mancante")
+        # FAQ: JSON-LD e testo visibile fatti solo di citazioni ufficiali intere
+        ammesse = [" ".join(c["righe"]) for c in tutte]
+        for blocco in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t):
+            x = json.loads(blocco)
+            if x.get("@type") != "FAQPage":
+                continue
+            for q in x["mainEntity"]:
+                conti["faq"] += 1
+                testo = q["acceptedAnswer"]["text"]
+                m = re.match(r"Quoted from (.+?) \(checked on ([^)]+)\): (.*)$", testo, re.S)
+                if not m or m.group(2) != G.data_lunga(d) or any(n not in [f["titolo"] for f in C["fonti"].values()] for n in m.group(1).split("; ")):
+                    errori.append(f"bagagli {C['slug']}: FAQ senza fonte o data corretta: {q['name']}")
+                    continue
+                if citazioni_faq(m.group(3), ammesse) is None:
+                    errori.append(f"bagagli {C['slug']}: risposta FAQ con testo non ufficiale: {q['name']}")
+                if escape(q["name"]) not in t:
+                    errori.append(f"bagagli {C['slug']}: domanda FAQ non visibile: {q['name']}")
+        if 'href="../../cabin-bags/does-my-bag-fit/"' not in t:
+            errori.append(f"bagagli {C['slug']}: manca il collegamento allo strumento")
+    # confronto: ordinamento (genera) contro le 6 rotazioni (indipendente) su casi casuali, in cm e pollici
+    rnd = random.Random(11)
+    for _ in range(4000):
+        u = rnd.choice(["cm", "in"])
+        m = [round(rnd.uniform(5, 70 if u == "cm" else 28), rnd.choice([0, 1, 2])) for _ in range(3)]
+        for C in G.COMPAGNIE:
+            for b in C["borse"]:
+                if G.entra_borsa(m, u, b) != _entra_permutazioni(m, u, b):
+                    errori.append(f"confronto borsa: ordinamento e rotazioni danno esiti diversi per {m} {u} su {C['slug']}/{b['id']}")
+    # pagine per misura coerenti con i dati
+    for sl, m in G.MISURE_COMUNI:
+        rel = f"{G.BAG_BASE}/size/{sl}/index.html"
+        t = leggi(rel)
+        trovate = dict((s, e) for e, s in re.findall(r'<tr data-esito="(\w+)" data-slug="([\w-]+)"', t))
+        atteso = {C["slug"]: G.esito_compagnia(list(m), "cm", C)[0] for C in G.COMPAGNIE}
+        indip = {}
+        for C in G.COMPAGNIE:
+            e = "no"
+            for b in C["borse"]:
+                if _entra_permutazioni(list(m), "cm", b):
+                    e = "gratis" if b["incluso"] == "tutte" else (e if e == "gratis" else "altre")
+            indip[C["slug"]] = e
+        if trovate != atteso or atteso != indip:
+            errori.append(f"misura {sl}: elenco della pagina diverso dai dati ({ {k: (trovate.get(k), atteso[k], indip[k]) for k in atteso if not (trovate.get(k) == atteso[k] == indip[k])} })")
+        for k in G.ESITO:
+            n = sum(1 for v in atteso.values() if v == k)
+            if k == "gratis" and f"<strong>{n} airline{'s' if n != 1 else ''}</strong>" not in t:
+                errori.append(f"misura {sl}: conteggio 'free with every fare' sbagliato in alto")
+    # indice, strumento, pagina UE, collegamenti
+    ti = leggi(f"{G.BAG_BASE}/index.html")
+    for C in G.COMPAGNIE:
+        if f'href="../{G.BAG_BASE}/{C["slug"]}/"' not in ti:
+            errori.append(f"indice bagagli: manca {C['slug']}")
+    for E in G.BAG["escluse"]:
+        if escape(E["nome"]) not in ti or escape(E["motivo"]) not in ti:
+            errori.append(f"indice bagagli: compagnia esclusa {E['nome']} senza motivo")
+    if "data-filtro-multi" not in ti:
+        errori.append("indice bagagli: ricerca mancante")
+    ts = leggi(G.BAG_STRUMENTO + "index.html")
+    if "data-borsa" not in ts or 'id="borse-dati"' not in ts or "longest side" not in ts or "official rule decides" not in ts:
+        errori.append("strumento: modulo, dati o spiegazione del confronto mancanti")
+    U = G.BAG["ue"]
+    tu = leggi(G.BAG_UE + "index.html")
+    for c in U["citazioni"]:
+        for r in c["righe"]:
+            if escape(r) not in tu:
+                errori.append(f"pagina UE: citazione mancante {r[:60]}")
+    for k, f in U["fonti"].items():
+        if escape(f["url"]) not in tu or not any(h in f["url"] for h in ("europa.eu",)):
+            errori.append(f"pagina UE: fonte {k} mancante o non ufficiale UE")
+    for x in U["iter"]:
+        if f'{G.data_lunga(x["data"])}</td><td data-l="Step">{escape(x["evento"])}' not in tu:
+            errori.append(f"pagina UE: tappa {x['data']} mancante")
+    if "checked on " + G.data_lunga(U["controllato_il"]) not in tu or "It shall apply from 23 October 2027." not in tu:
+        errori.append("pagina UE: data del controllo o data di applicazione mancanti")
+    for a in G.AER["aeroporti"] + G.AER["nazionali"]:
+        if 'href="../../cabin-bags/"' not in leggi(f"liquids/{a['slug']}/index.html"):
+            errori.append(f"liquidi {a['slug']}: manca il collegamento a Cabin bag size by airline")
+    th = leggi("index.html")
+    if 'href="cabin-bags/"' not in th or ">Cabin bags</a>" not in th:
+        errori.append("home: manca il collegamento (riquadro o menu) ai bagagli")
+    return errori, conti
+
+
+def controlla_js_borsa():
+    """Motore JS del controllo (stesso testo delle pagine) contro Python su 3.000 casi casuali, in cm e pollici."""
+    rnd = random.Random(5)
+    casi = []
+    for _ in range(3000):
+        u = rnd.choice(["cm", "in"])
+        casi.append([[round(rnd.uniform(5, 70 if u == "cm" else 28), rnd.choice([0, 1, 2])) for _ in range(3)], u])
+    motore = G.BAG_JS.split("(function(){")[0]
+    script = (motore + "\nvar D=" + json.dumps(G.dati_bag_client()) + ";var casi=" + json.dumps(casi) + ";\n"
+              "console.log(JSON.stringify(casi.map(function(c){return D.map(function(C){return bfCompagnia(c[0],c[1],C).esito;});})));")
+    with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as fh:
+        fh.write(script)
+    try:
+        r = subprocess.run(["node", fh.name], capture_output=True, text=True, timeout=120)
+    except FileNotFoundError:
+        return ["node non trovato: confronto JS della borsa saltato"]
+    finally:
+        os.unlink(fh.name)
+    if r.returncode != 0:
+        return ["Errore JS borsa: " + r.stderr[:500]]
+    errori = []
+    for (m, u), js in zip(casi, json.loads(r.stdout)):
+        py = [G.esito_compagnia(m, u, C)[0] for C in G.COMPAGNIE]
+        if py != js:
+            errori.append(f"borsa: JS diverso dal Python per {m} {u}")
+    return errori[:20]
+
+
 # Parole vietate scritte al contrario, così questo file non le contiene in chiaro.
 _AL_CONTRARIO = ["edualc", "ciporhtna", "ianepo", "tpgtahc", "inimeg", "tolipoc", "amall", "lartsim", "supo", "tennos", "ukiah"]
 VIETATE = re.compile(r"\b(" + "|".join(w[::-1] for w in _AL_CONTRARIO) + r"|gpt-\d)\b", re.I)
@@ -651,7 +874,7 @@ srv.listen(0, async () => {
   const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
   for (const tema of ['light', 'dark']) {
     const ctx = await b.newContext({ viewport: { width: 375, height: 800 }, colorScheme: tema });
-    for (const u of ['/', '/passport-validity/spain/', '/liquids/', '/liquids/barcelona/', '/passport-validity/egypt/'].concat(JSON.parse(process.argv[4]))) {
+    for (const u of ['/', '/passport-validity/spain/', '/liquids/', '/liquids/barcelona/', '/passport-validity/egypt/'].concat(JSON.parse(process.argv[4])).concat(JSON.parse(process.argv[6]))) {
       const p = await ctx.newPage(); const err = [];
       p.on('console', m => { if (m.type() === 'error') err.push(m.text()); }); p.on('pageerror', e => err.push(String(e)));
       await p.goto(base + u, { waitUntil: 'load' });
@@ -674,6 +897,20 @@ srv.listen(0, async () => {
         await p.click('details.card > summary');
         out.prove.push({ caso: 'egitto', testo: await p.textContent('main'), visa: vis, aperto: await p.$eval('details.card', e => e.open) });
         await p.screenshot({ path: process.argv[3] + '/egitto-375.png', fullPage: false });
+      }
+      if (tema === 'light' && u === '/cabin-bags/does-my-bag-fit/') {
+        const casi = JSON.parse(process.argv[5]);
+        for (let i = 0; i < casi.length; i++) { const c = casi[i];
+          await p.fill('[name=a]', c[1][0]); await p.fill('[name=b]', c[1][1]); await p.fill('[name=c]', c[1][2]); await p.selectOption('[name=unita]', c[2]);
+          const r = await p.evaluate(() => { const m = {}; document.querySelectorAll('[data-gruppo] li[data-slug]').forEach(li => { m[li.dataset.slug] = li.closest('[data-gruppo]').dataset.gruppo; });
+            return { mappa: m, errore: !!document.querySelector('[data-errore-borsa]'), testo: document.querySelector('[data-out]').textContent }; });
+          out.prove.push({ caso: 'borsa:' + i, testo: r.testo, mappa: r.mappa, errore: r.errore });
+          if (i === 0) await p.screenshot({ path: process.argv[3] + '/borsa-375.png', fullPage: false }); }
+      }
+      if (u.startsWith('/cabin-bags/')) {
+        out.prove.push({ caso: 'bag:' + tema + ':' + u, testo: await p.textContent('main'),
+                         citazioni: await p.$$eval('blockquote.cit', e => e.filter(x => x.getBoundingClientRect().height > 0).length) });
+        if (tema === 'light') await p.screenshot({ path: process.argv[3] + '/' + u.split('/').filter(Boolean).join('-') + '-375.png', fullPage: true });
       }
       if (u.startsWith('/canadian-passport/') || u.startsWith('/australian-passport/')) {
         const vis = async (sel) => p.$eval(sel, e => { const r = e.getBoundingClientRect(); return r.height > 0 && r.width > 0 && r.width <= window.innerWidth; }).catch(() => false);
@@ -717,6 +954,10 @@ srv.listen(0, async () => {
       }
       await p.close(); }
     await ctx.close(); }
+  const largo = await b.newContext({ viewport: { width: 820, height: 900 } });
+  for (const u of ['/', '/cabin-bags/', '/cabin-bags/ryanair/']) { const p = await largo.newPage(); await p.goto(base + u, { waitUntil: 'load' });
+    const w = await p.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]); out.pagine.push({ url: u, tema: '820px', scroll: w[0], larghezza: w[1], errori: [] }); await p.close(); }
+  await largo.close();
   await b.close(); srv.close(); console.log(JSON.stringify(out)); });
 """
 
@@ -734,6 +975,7 @@ def _pagine_estere():
 
 
 PAGINE_ESTERE_BROWSER = _pagine_estere()
+PAGINE_BAG_BROWSER = ["/cabin-bags/", "/cabin-bags/ryanair/", "/cabin-bags/does-my-bag-fit/", "/cabin-bags/size/40x30x20/", "/cabin-bags/eu-personal-item-rule/"]
 
 
 def controlla_browser():
@@ -743,7 +985,8 @@ def controlla_browser():
     with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as fh:
         fh.write(BROWSER_JS)
     try:
-        r = subprocess.run(["node", fh.name, str(SITO), cartella, json.dumps(PAGINE_ESTERE_BROWSER)], capture_output=True, text=True, timeout=300)
+        r = subprocess.run(["node", fh.name, str(SITO), cartella, json.dumps(PAGINE_ESTERE_BROWSER), json.dumps(CASI_BORSA), json.dumps(PAGINE_BAG_BROWSER)],
+                           capture_output=True, text=True, timeout=600)
     finally:
         os.unlink(fh.name)
     if r.returncode != 0:
@@ -792,6 +1035,28 @@ def controlla_browser():
                 errori.append(f"{u} ({tema}): sezione visti o validità non visibile, o citazioni ufficiali mancanti a 375 px")
     if len(PAGINE_ESTERE_BROWSER) < 4:
         errori.append(f"prova nel browser su {len(PAGINE_ESTERE_BROWSER)} pagine nuove invece di 4 (mancano i dati di un passaporto?)")
+    for i, (nome, valori, unita) in enumerate(CASI_BORSA):
+        x = next((y for y in o["prove"] if y["caso"] == f"borsa:{i}"), None)
+        atteso = _attesi_borsa(valori, unita)
+        if not x:
+            errori.append(f"strumento borsa: caso '{nome}' non eseguito")
+        elif atteso is None:
+            if not x["errore"] or x["mappa"]:
+                errori.append(f"strumento borsa: caso '{nome}' doveva dare un messaggio d'errore e nessun risultato")
+        elif x["mappa"] != atteso:
+            diff = {k: (x["mappa"].get(k), v) for k, v in atteso.items() if x["mappa"].get(k) != v}
+            errori.append(f"strumento borsa: caso '{nome}' diverso dal Python (browser, atteso): {diff}")
+    p0 = next((y for y in o["prove"] if y["caso"] == "borsa:0"), {}); p1 = next((y for y in o["prove"] if y["caso"] == "borsa:1"), {})
+    if not p0.get("mappa") or p0.get("mappa") != p1.get("mappa"):
+        errori.append("strumento borsa: la borsa ruotata non dà lo stesso risultato")
+    for u in PAGINE_BAG_BROWSER:
+        for tema in ("light", "dark"):
+            x = next((y for y in o["prove"] if y["caso"] == f"bag:{tema}:{u}"), None)
+            if not x or (u != "/cabin-bags/does-my-bag-fit/" and u != "/cabin-bags/" and u != "/cabin-bags/size/40x30x20/" and x["citazioni"] < 2):
+                errori.append(f"{u} ({tema}): pagina non provata o citazioni ufficiali non visibili a 375 px")
+    rb = next((y for y in o["prove"] if y["caso"] == "bag:light:/cabin-bags/ryanair/"), {})
+    if "Ryanair free bag: 40 x 30 x 20 cm under the seat" not in rb.get("testo", ""):
+        errori.append("Ryanair: risposta diretta non visibile nel browser")
     if sum(1 for x in o["prove"] if x["caso"].startswith("contrasto-")) != 2:
         errori.append("Prova del contrasto del controllo (tema chiaro e scuro) non eseguita")
     return errori, (o, cartella)
@@ -813,7 +1078,9 @@ def main():
     e7, info = controlla_browser()
     if info:
         o, cartella = info
-        print(f"7. Browser 375 px: {len(o['pagine'])} viste ({len(o['pagine']) // 2} pagine × tema chiaro e scuro, di cui nuove: {', '.join(PAGINE_ESTERE_BROWSER)}), "
+        n375 = sum(1 for x in o["pagine"] if x["tema"] in ("light", "dark"))
+        print(f"7. Browser 375 px: {len(o['pagine'])} viste ({n375 // 2} pagine × tema chiaro e scuro + {len(o['pagine']) - n375} a 820 px; nuove: "
+              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
               f"{len(o['prove'])} prove, {len(e7)} errori; schermate in {cartella}")
     else:
         print(f"7. Browser 375 px: {e7[0] if e7 else ''}")
@@ -828,7 +1095,11 @@ def main():
         print(f"11. Passaporto {G.ESTERI[k]['agg']}: {c['pagine']} pagine; validità {c['val']} riassunti, {c['val_cit']} solo citazione; "
               f"visto {c['vis']} riassunti, {c['vis_cit']} solo citazione")
     print(f"11. Passaporti canadese e australiano (riassunti ricalcolati, modelli fissi, citazioni, fonti, licenze, link): {len(e11)} errori")
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11
+    e12, cb = controlla_bagagli()
+    e12 += controlla_js_borsa()
+    print(f"12. Bagaglio a mano: {cb['compagnie']} compagnie, {cb['misure']} misure, {cb['citazioni']} citazioni, {cb['faq']} risposte FAQ, "
+          f"{len(G.MISURE_COMUNI)} pagine per misura, motore JS e rotazioni, pagina UE, affiliati spenti: {len(e12)} errori")
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12
     for e in tutti:
         print(" -", e)
     if tutti:
