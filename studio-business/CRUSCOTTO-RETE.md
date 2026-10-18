@@ -39,6 +39,8 @@ Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE)
 | 14-15/10/2026 (24 ore) | EsameB1 | manca | 32 (24 ore) | 0 | nessun contatore | 1 | Foto Search Console 15/10 (dati del 15/10 ancora provvisori); posizione 7 |
 | 16-17/10/2026 (24 ore) | EsameB1 | manca | **75** (24 ore) | **4** (24 ore) | contatore attivo dal 17/10 | 1 | Foto Search Console 17/10, 14:08: CTR 5,3%, posizione media 8,4. Miglior giorno finora |
 | 16-17/10/2026 (24 ore) | Before You Fly | manca | **270** (24 ore) | 0 | contatore attivo dal 17/10 | – | Foto Search Console 17/10, 14:10: posizione media **42,9** (pagine 4-5 di Google): Google lo mostra molto ma in basso. Già sopra la soglia dei 45 giorni in proporzione (~8.000 al mese). Da vedere le query per alzare le pagine giuste |
+| 17-18/10/2026 (24 ore) | Before You Fly | manca | **320** (24 ore) | 0 | GoatCounter 17-18/10: 1 visita (liquids/us-airports-tsa) | – | Foto Search Console 18/10, 17:36: posizione media 47 (era 42,9). Impressioni in crescita, posizione media più bassa: probabile effetto delle pagine nuove provate in basso. Rileggere a 2-3 settimane |
+| 17-18/10/2026 | EsameB1 | – | – | – | **GoatCounter: 8 visite** (1 di prova), di cui città Milano 2, Roma 1, Prato 1 | 1 | Primo giorno di contatore |
 | al 12/10/2026 | EsamiDiStato | **0** (3 non indicizzate) | – | – | – | – | Foto rapporto Pagine 17/10 (rapporto fermo al 12/10); controllo tecnico 17/10 a posto (robots, sitemap 46 pagine, canonical) |
 | al 12/10/2026 | Italy Strikes | **0** (1 non indicizzata) | – | – | – | – | Foto rapporto Pagine 17/10 (rapporto fermo al 12/10). Sitemap: **"Riuscito", 119 pagine rilevate** (Massimiliano, 17/10). Controllo tecnico a posto |
 
