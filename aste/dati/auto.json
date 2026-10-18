@@ -1,4 +1,4 @@
-{"letto_il":"2026-10-17T23:19+02:00","veicoli":[
+{"letto_il":"2026-10-18T23:18+02:00","veicoli":[
 {"id":4628217,"tipo":"Automobile","marca":"DR","anno":null,"comune":"Silea","prov":"Treviso","base":14500,"minima":10875,"data":"2026-10-19T11:00","disp":null,"tribunale":"Treviso"},
 {"id":4628828,"tipo":"Veicolo commerciale","marca":"Renault","anno":null,"comune":"Silea","prov":"Treviso","base":1000,"minima":750,"data":"2026-10-19T11:00","disp":null,"tribunale":"Treviso"},
 {"id":4628844,"tipo":"Veicolo commerciale","marca":"Renault","anno":null,"comune":"Silea","prov":"Treviso","base":1000,"minima":750,"data":"2026-10-19T11:00","disp":null,"tribunale":"Treviso"},
@@ -629,6 +629,7 @@
 {"id":4643890,"tipo":"Moto o ciclomotore","marca":"Piaggio","anno":null,"comune":"Concorezzo","prov":"Monza e della Brianza","base":188,"minima":null,"data":"2026-11-13T15:00","disp":null,"tribunale":"Monza"},
 {"id":4644194,"tipo":"Automobile","marca":"Renault","anno":null,"comune":"Concorezzo","prov":"Monza e della Brianza","base":9200,"minima":9200,"data":"2026-11-13T15:00","disp":null,"tribunale":"Monza"},
 {"id":4644227,"tipo":"Automobile","marca":"Renault","anno":null,"comune":"Concorezzo","prov":"Monza e della Brianza","base":1000,"minima":1000,"data":"2026-11-13T15:00","disp":null,"tribunale":"Monza"},
+{"id":4647229,"tipo":"Veicolo","marca":"Fiat","anno":null,"comune":"Marigliano","prov":"Napoli","base":1125,"minima":1125,"data":"2026-11-13T16:30","disp":null,"tribunale":"Nola"},
 {"id":4640365,"tipo":"Veicolo commerciale","marca":"Peugeot","anno":null,"comune":"Silea","prov":"Treviso","base":562,"minima":422,"data":"2026-11-16T11:00","disp":null,"tribunale":"Belluno"},
 {"id":4641449,"tipo":"Veicolo","marca":null,"anno":null,"comune":"Valdina","prov":"Messina","base":1167,"minima":1167,"data":"2026-11-16T11:00","disp":null,"tribunale":"Messina"},
 {"id":4641456,"tipo":"Veicolo","marca":null,"anno":null,"comune":"Valdina","prov":"Messina","base":1751,"minima":1751,"data":"2026-11-16T11:00","disp":null,"tribunale":"Messina"},
