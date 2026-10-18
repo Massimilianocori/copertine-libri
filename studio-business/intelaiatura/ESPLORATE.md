@@ -204,3 +204,19 @@ Metodo nuovo: si parte da 26 siti di dati che già guadagnano e si cercano i lor
 | Working holiday Canada (IEC), pool per Paese | NO oggi (canada.ca bloccato; pubblicità bassa) | idee-vincenti-2026-10-18 |
 | Classifiche delle scuole per città (Regno Unito) | non approfondita (domanda britannica non emersa) | idee-vincenti-2026-10-18 |
 | Carta d'identità cartacea non più valida per l'espatrio (3/8/2026) | una pagina dentro i documenti per italiani | idee-vincenti-2026-10-18 |
+
+## Mondo (caccia del 18/10/2026, sera)
+Ricerca su regole nuove con data 2026-2027 (UE, Regno Unito, USA, Canada) e su famiglie vicine a EsameB1 e Before You Fly in lingue nuove. Nessuna idea passa l'asticella (voto ≥ 7 e ≥ 5.000 €/anno): nessuna riga nel cruscotto. Prove in `idee-2026-10-18.md`.
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **Documenti e visti per chi viaggia da olandese, 226 Paesi** (JSON del Ministero degli Esteri olandese, licenza CC0, tutte le schede aggiornate nel 2026) | **PASSA sotto l'asticella** (voto 6,5; 0,8-2,5k €/anno): fonte perfetta, ma il Ministero ha già una pagina per Paese ed è primo su Google, ANWB forte. Solo come aggiunta `/nl/` di Before You Fly dopo la sezione italiana | idee-2026-10-18 |
+| **Detrazione degli interessi sul prestito auto (USA 2025-2028): modelli assemblati negli USA** | **RISERVA** (voto 6): nessun elenco completo su Google, ma i rapporti NHTSA Part 583 rispondono 403 dal server; si riapre insieme al passaporto americano se si legge `nhtsa.gov` | idee-2026-10-18 |
+| Numero di registrazione degli affitti brevi per Comune (Francia, loi Le Meur, 20/5/2026) | NO (5): risposta quasi uguale ovunque, regole locali senza file unico, data.gouv.fr non raggiungibile | idee-2026-10-18 |
+| Piano comunale del riscaldamento per città (Germania, Wärmeplanung 2026/2028) | NO (4): risposta per indirizzo sulle mappe delle città, ~10.700 Comuni senza file unico, guadagno solo da contatti | idee-2026-10-18 |
+| Tassa dell'1 % sulle rimesse dagli USA (dal 1/1/2026), per Paese | NO (4,5): una regola sola; giornali, Ria, Remitly, Wise, Monito | idee-2026-10-18 |
+| Obbligo di lavoro per Medicaid Stato per Stato (USA, 1/1/2027) | NO (4): KFF ha già il monitoraggio; regole non strutturate; tema sanitario | idee-2026-10-18 |
+| Sovrapprezzo di 100 $ per stranieri nei parchi nazionali USA (1/1/2026) | NO (4,5): 11 parchi, una regola; NPS, Visit Utah, zionguru; al massimo una pagina in Tourist Tax | idee-2026-10-18 |
+| Cittadinanza canadese per discendenza (legge C-3, 15/12/2025) | NO (3,5): una regola, verificatori di studi legali già presenti | idee-2026-10-18 |
+| Test di italiano A2 per il permesso di lungo periodo (sezione di EsameB1) | NO (4): nessuna città in autocomplete, nessun calendario pubblico | idee-2026-10-18 |
+| Luce V16 in Spagna spiegata ai guidatori britannici (1/1/2026) | NO (3,5): auto straniere esentate, una risposta; Parkers, Connexion, forum | idee-2026-10-18 |
+| Documenti e visti per chi viaggia da Singapore e da Hong Kong | NO (3): Singapore senza fonte ufficiale per chi parte; Hong Kong solo elenco annuale al 31/12/2024 | idee-2026-10-18 |
