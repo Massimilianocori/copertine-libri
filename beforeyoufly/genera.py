@@ -367,6 +367,16 @@ tr:last-child td{border-bottom:0}
 .tab-e td[data-l]::before{content:attr(data-l);display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}}
 .cifra .nota-s{display:block;font-size:.9rem;color:var(--ink-3);margin-top:2px}
 .griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+.fatti-it{margin:0;display:grid;gap:10px}
+.fatti-it>div{border-left:4px solid var(--line-2);background:var(--mute);border-radius:0 var(--r-s) var(--r-s) 0;padding:10px 14px}
+.fatti-it>div.t-ok{border-left-color:var(--ok);background:var(--ok-2)}
+.fatti-it>div.t-no{border-left-color:var(--no);background:var(--no-2)}
+.fatti-it>div.t-warn{border-left-color:var(--warn);background:var(--warn-2)}
+.fatti-it dt{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.fatti-it dd{margin:3px 0 0;font-family:var(--head);font-size:clamp(1.08rem,2.6vw,1.3rem);line-height:1.3;color:var(--ink);font-weight:700}
+.fatti-it dd a{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:.86rem;font-weight:400;white-space:nowrap;margin-left:6px}
+.s-it span{white-space:nowrap}
+.griglia.g-it{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
 .griglia a{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;min-width:0;overflow-wrap:anywhere;box-shadow:var(--sh-1);transition:border-color .15s,box-shadow .15s,transform .15s}
 .griglia a small{display:block;font-weight:400;color:var(--ink-3);font-size:.84rem;margin-top:2px;line-height:1.4}
 .griglia a:hover{border-color:var(--accent);box-shadow:var(--sh-2);transform:translateY(-1px);color:var(--ink)}
@@ -493,7 +503,7 @@ AVVISO_LIQ = ('<p class="avviso"><strong>Rules can differ by terminal, checkpoin
 PIEDE_ESTERI = ""  # attribuzioni Canada/Australia nel piè di pagina (riempito da main() quando ci sono i dati)
 
 
-def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, js="", assoluto=False, testata="", ld_extra=None):
+def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, js="", assoluto=False, testata="", ld_extra=None, lingua="en"):
     file = percorso if percorso.endswith(".html") else (percorso + "index.html")
     profondita = file.count("/")
     rel = "/" if assoluto else ("../" * profondita or "./")  # 404: link assoluti, Netlify la serve a qualsiasi profondità
@@ -507,18 +517,36 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
         for i, (n, p) in enumerate(briciole, start=2):
             voci.append({"@type": "ListItem", "position": i, "name": n, "item": URL_SITO + "/" + p})
         ld.append({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": voci})
-        bc = ('<nav class="briciole" aria-label="Breadcrumb"><a href="' + rel + '">Home</a>' +
+        bc = ('<nav class="briciole" aria-label="' + ("Percorso" if lingua == "it" else "Breadcrumb") + '"><a href="' + rel + '">Home</a>' +
               "".join(f' › <a href="{rel}{p}">{escape(n)}</a>' for n, p in briciole[:-1]) + f" › {escape(briciole[-1][0])}</nav>")
     ld += ld_extra or []
     ld_html = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
     robots = "" if indicizza else '<meta name="robots" content="noindex">'
     canonico = f'<link rel="canonical" href="{url_pag}">' if indicizza else ""
     script = f"<script>{js or FORM_JS}</script>"
-    voci_menu = [("passport-validity/", "passport", "Passport validity"), ("liquids/", "bottle", "Liquids by airport"), ("cabin-bags/", "bag", "Cabin bags"),
-                 ("ees-etias/", "scan", "EES &amp; ETIAS"), ("about/", "book", "Sources")]
+    it = lingua == "it"
+    og_locale = '\n<meta property="og:locale" content="it_IT">' if it else ""
+    if it:
+        voci_menu = [(f"{IT_BASE}/", "passport", "Documenti e visti"), (f"{IT_BASE}/#metodo", "book", "Fonte e metodo"),
+                     ("passport-validity/", "globe", "English (UK passport)")]
+    else:
+        voci_menu = [("passport-validity/", "passport", "Passport validity"), ("liquids/", "bottle", "Liquids by airport"), ("cabin-bags/", "bag", "Cabin bags"),
+                     ("ees-etias/", "scan", "EES &amp; ETIAS"), ("about/", "book", "Sources")]
     menu = "".join(f'<a href="{rel}{u}"' + (' aria-current="page"' if u == percorso else "") + f'>{ico(i)}{t}</a>' for u, i, t in voci_menu)
+    piede = PIEDE_IT.replace("{rel}", rel) if it else f"""<footer><div class="wrap">
+<div class="f-grid"><div>
+<a class="logo" href="{rel}">{MARCHIO}<span>Before <b>You Fly</b></span></a>
+<p><strong>{NOME}</strong> is an independent site, not affiliated with any government, airport or airline. Every rule is quoted from an official source, linked under it with the date we checked it.
+<strong>Rules change: the airline, the airport and border officials have the final say.</strong> Nothing on this site is legal advice.</p>
+<p>Passport validity rules: contains public sector information from the FCDO foreign travel advice on GOV.UK, licensed under the <a href="{OGL}" rel="noopener">Open Government Licence v3.0</a>.{PIEDE_ESTERI}</p>
+</div><div>
+<h2>Explore</h2>
+<ul><li><a href="{rel}about/">About and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
+</div></div>
+<p class="f-base">Official sources only, quoted word for word.</p>
+</div></footer>"""
     testo = f"""<!DOCTYPE html>
-<html lang="en">
+<html lang="{lingua}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -534,7 +562,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <meta property="og:image" content="{URL_SITO}/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="{NOME}: passport validity, liquids rules by airport, cabin bag sizes, EES and ETIAS">
+<meta property="og:image:alt" content="{NOME}: {"documenti e visti per chi viaggia con la cittadinanza italiana" if it else "passport validity, liquids rules by airport, cabin bag sizes, EES and ETIAS"}">{og_locale}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#14181D">
 <meta name="color-scheme" content="light dark">
@@ -546,11 +574,11 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 </head>
 <body>
 {SPRITE}
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">{"Vai al contenuto" if it else "Skip to content"}</a>
 <header class="top"><div class="wrap">
 <a class="logo" href="{rel}">{MARCHIO}<span>Before <b>You Fly</b></span></a>
 <nav class="menu" aria-label="Menu">{menu}</nav>
-<details class="nav-m"><summary aria-label="Open the menu">{ico("menu")}Menu</summary><nav aria-label="Menu">{menu}</nav></details>
+<details class="nav-m"><summary aria-label="{"Apri il menu" if it else "Open the menu"}">{ico("menu")}Menu</summary><nav aria-label="Menu">{menu}</nav></details>
 </div></header>
 <main id="main">
 {testata}
@@ -559,18 +587,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 {corpo}
 </div>
 </main>
-<footer><div class="wrap">
-<div class="f-grid"><div>
-<a class="logo" href="{rel}">{MARCHIO}<span>Before <b>You Fly</b></span></a>
-<p><strong>{NOME}</strong> is an independent site, not affiliated with any government, airport or airline. Every rule is quoted from an official source, linked under it with the date we checked it.
-<strong>Rules change: the airline, the airport and border officials have the final say.</strong> Nothing on this site is legal advice.</p>
-<p>Passport validity rules: contains public sector information from the FCDO foreign travel advice on GOV.UK, licensed under the <a href="{OGL}" rel="noopener">Open Government Licence v3.0</a>.{PIEDE_ESTERI}</p>
-</div><div>
-<h2>Explore</h2>
-<ul><li><a href="{rel}about/">About and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
-</div></div>
-<p class="f-base">Official sources only, quoted word for word.</p>
-</div></footer>
+{piede}
 {script}
 {SCRIPT_CONTATORE}
 </body>
@@ -912,6 +929,8 @@ def cambi_recenti(giorni_max=60):
 def indici_altri(rel):
     """Link agli indici dei passaporti canadese e australiano (se ci sono i dati)."""
     ll = [f'<a href="{rel}{ESTERI[k]["base"]}/">{ESTERI[k]["agg"]} passport ({len(VOCI[k])} destinations)</a>' for k in ESTERI if VOCI[k]]
+    if VOCI_IT:
+        ll.append(f'<a href="{rel}{IT_BASE}/" hreflang="it">Italian citizens: <span lang="it">documenti per italiani</span> ({len(VOCI_IT)} Paesi)</a>')
     return f'<p class="altri-pass">{ico("passport")}<span>Other passports: {" · ".join(ll)}</span></p>' if ll else ""
 
 
@@ -1114,6 +1133,8 @@ def altri_passaporti(rel, uk_slug=None, voce=None):
         for w in ww:  # il nome tra parentesi se i link sono più d'uno o se la pagina collegata copre un territorio diverso (Israel and Palestine)
             etich = len(ww) > 1 or _chiave_nome(w["nome"]) != _chiave_nome(qui)
             link.append(f'<a href="{rel}{w["url_pag"]}">{ESTERI[k]["agg"]} passport{(" (" + escape(w["nome"]) + ")") if etich else ""}</a>')
+    if uk_slug:
+        link += link_italiani(rel, uk_slug)
     return f'<p class="altri-pass">{ico("passport")}<span>Other passports: {" · ".join(link)}</span></p>' if link else ""
 
 
@@ -1388,6 +1409,529 @@ def indice_estero(k):
     pagina(f"{c['base']}/", titolo,
            f"Do {c['pop']} need a visa? How long must {c['un']} {c['agg']} passport be valid? Official rules for {len(voci)} destinations, quoted word for word, with dates.",
            corpo, briciole=[(f"{c['agg']} passport", f"{c['base']}/")], js=MOTORE_JS + APP_JS)
+
+
+# ---------------------------------------------------------------- documenti per chi ha la cittadinanza italiana (Viaggiare Sicuri), in italiano
+# Fonte: schede Paese di Viaggiare Sicuri (Unità di Crisi della Farnesina), lette da raccolta/documenti_it.py. Licenza dei testi non indicata:
+# le pagine NON riportano i testi delle schede, ma solo i fatti con parole nostre (da modelli fissi, o scritti a mano in dati/documenti_it_manuali.json),
+# citazioni brevi (al massimo 20 parole), la data della scheda e il link. Se un fatto non è inequivocabile: "Consulta la scheda ufficiale".
+IT_BASE = "it/documenti"
+_f_it = DATI / "documenti_it.json"
+DOC_IT = json.loads(_f_it.read_text(encoding="utf-8")) if _f_it.exists() else None
+MESI_IT = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"]
+VS_HOME = "https://www.viaggiaresicuri.it/"
+VS_DOCUMENTI = "https://www.viaggiaresicuri.it/approfondimenti-insights/documentidiviaggio"
+PIEDE_IT = f"""<footer><div class="wrap">
+<div class="f-grid"><div>
+<a class="logo" href="{{rel}}">{MARCHIO}<span>Before <b>You Fly</b></span></a>
+<p><strong>{NOME}</strong> è un sito indipendente: <strong>non è della Farnesina, del Ministero degli Affari Esteri né del Governo italiano</strong> e non è collegato a governi, aeroporti o compagnie aeree.
+Per chi ha la cittadinanza italiana riportiamo i fatti delle schede Paese di <a href="{VS_HOME}" rel="noopener">Viaggiare Sicuri</a> (Unità di Crisi della Farnesina) con parole nostre, con brevi citazioni, la data della scheda e il link.</p>
+<p><strong>Le regole cambiano: controlla la scheda ufficiale prima di partire.</strong> Compagnia aerea e autorità di frontiera decidono se puoi partire o entrare; niente su questo sito è una consulenza legale.</p>
+</div><div>
+<h2>Esplora</h2>
+<ul><li><a href="{{rel}}{IT_BASE}/">Documenti e visti, tutti i Paesi</a></li><li><a href="{{rel}}{IT_BASE}/#metodo">Fonte e metodo</a></li><li lang="en"><a href="{{rel}}contact/?ref=it">Contact (English)</a></li><li lang="en"><a href="{{rel}}privacy.html">Privacy (English)</a></li></ul>
+</div></div>
+<p class="f-base">Solo fonti ufficiali, con data e link.</p>
+</div></footer>"""
+
+
+def data_it(iso):
+    d = date.fromisoformat(iso)
+    return f"{'1°' if d.day == 1 else d.day} {MESI_IT[d.month - 1]} {d.year}"
+
+
+def data_it_breve(iso):
+    d = date.fromisoformat(iso)
+    return f"{d.day}/{d.month}/{d.year}"
+
+
+def con_art(prep, data):
+    """«il 18 ottobre», ma «l'11 settembre», «dell'8/10/2026», «all'11 aprile» (8, 11, 80... si leggono con la vocale)."""
+    if re.match(r"(?:8|11)(?!\d)|8\d", data):
+        return {"il": "l'", "del": "dell'", "al": "all'"}[prep] + data
+    return f"{prep} {data}"
+
+
+def _slug_it(nome):
+    s = unicodedata.normalize("NFKD", nome).encode("ascii", "ignore").decode().lower().replace("'", " ")
+    return re.sub(r"[^a-z0-9]+", "-", s).strip("-")
+
+
+def _nomi_it():
+    out = {}
+    f = DATI / "paesi_it.txt"
+    if not f.exists():
+        return out
+    for r in f.read_text(encoding="utf-8").splitlines():
+        if not r.strip() or r.startswith("#"):
+            continue
+        iso, nome, luogo = r.split("|")
+        out[iso] = {"nome": nome, "luogo": luogo, "slug": _slug_it(nome)}
+    return out
+
+
+NOMI_IT = _nomi_it()
+# pagina britannica dello stesso territorio: dalla tabella ISO2 del Canada (stessi legami controllati in UK_ALIAS) più questi casi a mano
+UK_PER_IT_MANO = {"CAN": ["canada"], "ISR": ["israel"], "PSE": ["palestine"], "GBR": [], "GUM": [], "MNP": [], "VIR": [], "PRI": [], "ASM": []}
+
+
+def _uk_di_it(p):
+    if p["iso3"] in UK_PER_IT_MANO:
+        return [s for s in UK_PER_IT_MANO[p["iso3"]] if s in UK_CON_PAGINA]
+    D = ESTERI["ca"]["dati"]
+    if not D:
+        return []
+    ca = {q["iso"]: q for q in D["paesi"]}
+    q = ca.get(p.get("iso2")) or ca.get({"KS": "XK"}.get(p.get("iso2"), ""))
+    uk = _uk_di("ca", q) if q else []
+    return uk if len(uk) == 1 else []
+
+
+def ha_pagina_it(p):
+    """Pagina solo con contenuto specifico del Paese: il visto riassunto, oppure una regola sulla carta d'identità (sì, a condizioni, no),
+    oppure sia il documento sia la validità riassunti. Le altre schede (solo "serve il passaporto", o nulla di sicuro) non hanno pagina."""
+    return bool(p["visto"].get("esito") or p["documento"].get("esito") in ("cie", "cie_condizioni", "solo_passaporto")
+                or (p["documento"].get("esito") and p["validita"].get("esito")))
+
+
+def _voci_it():
+    if not DOC_IT:
+        return [], []
+    con, senza = [], []
+    for p in DOC_IT["paesi"]:
+        n = NOMI_IT[p["iso3"]]
+        v = {"p": p, "nome": n["nome"], "luogo": n["luogo"], "slug": n["slug"], "url_pag": f"{IT_BASE}/{n['slug']}/", "uk": _uk_di_it(p)}
+        (con if ha_pagina_it(p) else senza).append(v)
+    chiave = lambda v: unicodedata.normalize("NFKD", v["nome"]).encode("ascii", "ignore").decode().lower()
+    return sorted(con, key=chiave), sorted(senza, key=chiave)
+
+
+VOCI_IT, SENZA_PAGINA_IT = _voci_it()
+IT_PER_UK = {}
+for _v in VOCI_IT:
+    for _s in _v["uk"]:
+        IT_PER_UK.setdefault(_s, []).append(_v)
+IT_PER_ISO = {v["p"]["iso3"]: v for v in VOCI_IT}
+
+
+def link_italiani(rel, uk_slug):
+    """Dalle pagine britanniche: 'Italian citizens: documenti per italiani' verso la pagina italiana dello stesso territorio."""
+    vv = IT_PER_UK.get(uk_slug, [])
+    return [f'<a href="{rel}{v["url_pag"]}" hreflang="it">Italian citizens: <span lang="it">documenti per italiani'
+            f'{(" (" + escape(v["nome"]) + ")") if len(vv) > 1 else ""}</span></a>' for v in vv]
+
+
+# ---- etichette (parole nostre, solo dai fatti)
+def doc_it(D):
+    """(etichetta breve, frase) del documento."""
+    e = D.get("esito")
+    breve = {"cie": "Basta la carta d'identità elettronica (CIE), oppure il passaporto", "cie_condizioni": "Carta d'identità solo a certe condizioni",
+             "solo_passaporto": "Serve il passaporto: la carta d'identità non basta",
+             "passaporto": "Serve il passaporto"}.get(e, "Consulta la scheda ufficiale")
+    if D.get("sintesi"):
+        return breve, D["sintesi"]
+    frase = {"cie": "Si entra con la carta d'identità elettronica (CIE) oppure con il passaporto.",
+             "cie_condizioni": "La scheda ammette la carta d'identità solo in alcuni casi: leggi la condizione qui sotto e la scheda ufficiale.",
+             "solo_passaporto": "La scheda dice che serve il passaporto: la carta d'identità non basta.",
+             "passaporto": "La scheda indica il passaporto e non cita la carta d'identità tra i documenti per entrare."}.get(e)
+    return breve, frase or ("Non lo riassumiamo: " + _minuscola(D.get("motivo") or "").rstrip(".") + ".")
+
+
+def val_it(V):
+    e = V.get("esito")
+    if V.get("sintesi"):
+        breve = {"numero": f"Almeno {V.get('n')} {V.get('unita')}", "soggiorno": "Per tutto il soggiorno", "rientro": "Oltre la data del rientro",
+                 "in_corso": "In corso di validità"}.get(e, "Consulta la scheda")
+        return breve, V["sintesi"]
+    if e == "numero":
+        rif = (", contati dall'ingresso nel Paese" if V.get("dall_ingresso") else " oltre la data di uscita dal Paese" if V.get("dall_uscita")
+               else " oltre la fine del soggiorno" if V.get("oltre_soggiorno") else "")
+        return (f"Almeno {V['n']} {V['unita']}", f"Almeno {V['n']} {V['unita']} di validità residua{rif}.")
+    if e == "soggiorno":
+        return "Per tutto il soggiorno", "Il documento deve essere valido per tutta la durata del soggiorno."
+    if e == "rientro":
+        return "Oltre la data del rientro", "Il passaporto deve scadere dopo la data prevista per il rientro."
+    if e == "in_corso":
+        return "In corso di validità", "Basta che il documento sia in corso di validità: la scheda non indica un numero minimo di mesi."
+    return "Consulta la scheda", "Non lo riassumiamo: " + _minuscola(V.get("motivo") or "").rstrip(".") + "."
+
+
+def vis_it(S):
+    """(etichetta breve per l'indice, titolo, frasi in più)."""
+    e = S.get("esito")
+    if e == "non_necessario":
+        titolo = "Non serve il visto" + (" per turismo" if S.get("turismo") else "")
+        breve = "Non serve" + "".join(" + " + f["nome"].split(" (")[0] for f in S.get("formalita", []) if f["tipo"] != "tessera turistica a pagamento")
+    elif e == "necessario":
+        titolo, breve = "Sì, serve il visto", "Serve"
+    elif e == "all_arrivo":
+        titolo, breve = "Visto all'arrivo, senza richiesta prima di partire", "All'arrivo"
+    elif e == "autorizzazione":
+        nomi = [f["nome"] for f in S.get("formalita", [])]
+        titolo, breve = "Serve un'autorizzazione elettronica" + (f" ({nomi[0]})" if nomi else ""), "Autorizzazione" + (f" {nomi[0]}" if nomi else "")
+    else:
+        return "Vedi scheda", "Consulta la scheda ufficiale", []
+    altre = []
+    if S.get("fino_al"):
+        altre.append(f"Secondo la scheda questa regola vale fino {con_art('al', data_it(S['fino_al']))}.")
+    return breve, titolo, altre
+
+
+def _con_articolo(f):
+    """«l'autorizzazione elettronica ESTA», «la carta d'arrivo digitale Thailand Digital Arrival Card (TDAC)», «il formulario d'ingresso»."""
+    nome, tipo = f["nome"], f["tipo"]
+    if nome.split()[0] in ("formulario", "modulo"):  # «il formulario d'ingresso», «il modulo ED online (...)»
+        return "il " + nome
+    art = {"autorizzazione": "l'", "carta": "la ", "tessera": "la "}.get(tipo.split()[0], "il ")
+    return f"{art}{tipo} {nome}"
+
+
+def _art_nome(f):
+    """Nome breve con l'articolo, per le descrizioni: «l'ESTA», «la Thailand Digital Arrival Card», «il formulario d'ingresso»."""
+    nome = f["nome"].split(" (")[0]
+    if re.match(r"[AEIOUaeiou]", nome):
+        return "l'" + nome
+    if nome[:1].islower():
+        return "il " + nome
+    return ("la " if re.match(r"(?:autorizzazione|carta|tessera)", f["tipo"]) else "il ") + nome
+
+
+def titolo_visto_it(S):
+    """Titolo del visto con le autorizzazioni e i moduli obbligatori: chi legge solo il riquadro in alto non deve perderli."""
+    _, titolo, _ = vis_it(S)
+    form = [f for f in S.get("formalita", []) if S.get("esito") == "non_necessario" and f["tipo"] != "tessera turistica a pagamento"]
+    if form:
+        titolo += ", ma serve " + " e ".join(_con_articolo(f) for f in form)
+    return titolo
+
+
+def _minuscola(x):
+    return x[:1].lower() + x[1:]
+
+
+def _prima_frase(x):
+    """(prima frase, resto): il riquadro in alto e «In breve» mostrano solo la prima frase di un riassunto lungo."""
+    m = re.search(r"(?<=[a-zà-ù0-9)»])\. (?=[A-ZÀ-Ý«])", x)
+    return (x[:m.start() + 1], x[m.end():]) if m else (x, "")
+
+
+def _cit(q):
+    return f'<blockquote class="cit"><p>{escape(q)}</p></blockquote>'
+
+
+def _cit_lista(qq):
+    """Citazioni senza doppioni (una citazione contenuta in un'altra non si ripete)."""
+    out = []
+    for q in qq:
+        if q and not any(q in x for x in out):
+            out = [x for x in out if x not in q] + [q]
+    return "".join(_cit(q) for q in out)
+
+
+def fonte_it(p, campi):
+    nomi = " e ".join(f"«{c}»" for c in campi)
+    return (f'<p class="fonte">Fonte: <a href="{escape(p["url"])}" rel="noopener">Viaggiare Sicuri – scheda «{escape(p["nome_fonte"])}»</a> '
+            f'(Unità di Crisi del Ministero degli Affari Esteri e della Cooperazione Internazionale), {"campi" if len(campi) > 1 else "campo"} {nomi} · '
+            f'scheda aggiornata {con_art("il", data_it(p["aggiornata"]))} · letta da noi {con_art("il", data_it(DOC_IT["controllato_il"]))}</p>')
+
+
+AVVISO_IT = ('<p class="avviso"><strong>Le regole cambiano: controlla la scheda ufficiale prima di partire.</strong> Questo sito non è della Farnesina né del '
+             'Governo italiano. Riportiamo con parole nostre i fatti della scheda di Viaggiare Sicuri, che vale per chi ha la cittadinanza italiana; la compagnia '
+             'aerea e le autorità di frontiera decidono se puoi partire o entrare. Per i minori e per chi ha anche un\'altra cittadinanza la scheda ha regole proprie.</p>')
+
+
+def nota_manuale_it(p, f):
+    """Ogni fatto scritto a mano dice quando l'abbiamo scritto e su quale versione della scheda."""
+    if not f.get("manuale"):
+        return ""
+    return (f'<p class="small">Riassunto scritto a mano da noi {con_art("il", data_it(f.get("scritto_il") or DOC_IT["controllato_il"]))} sulla scheda aggiornata '
+            f'{con_art("il", data_it(p["aggiornata"]))}: se la scheda cambia, lo togliamo finché non la rileggiamo.</p>')
+
+
+def sezione_doc_it(v):
+    p, n = v["p"], escape(v["luogo"])
+    D, V = p["documento"], p["validita"]
+    b, frase = doc_it(D)
+    h = f'<h2 id="documento">Serve il passaporto per andare {n}? Basta la carta d\'identità?</h2>'
+    if not D.get("esito"):
+        h += (f'<p><strong>Consulta la scheda ufficiale.</strong> {escape(frase)} Leggi il campo «Passaporto» della '
+              f'<a href="{escape(p["url"])}" rel="noopener">scheda ufficiale</a>.</p>')
+    else:
+        h += f'<p class="cifra">In breve: <strong>{escape(b)}.</strong></p><p>{escape(frase)}</p>'
+        h += '<p class="small" style="margin-bottom:0">Dalla scheda, campo «Passaporto» (citazioni brevi):</p>' + _cit_lista(list(D.get("citazioni") or [D.get("citazione")]))
+        if D.get("condizione") and not D.get("sintesi"):
+            h += '<p class="small" style="margin-bottom:0">La condizione indicata dalla scheda:</p>' + _cit_lista([D["condizione"]])
+        if D.get("note_speciali") and not D.get("sintesi"):
+            h += ('<p class="small">La scheda contiene anche avvertenze su casi particolari (per esempio carte d\'identità rinnovate con proroga, documenti '
+                  f'provvisori cartacei o documenti danneggiati): leggile nella <a href="{escape(p["url"])}" rel="noopener">scheda ufficiale</a> e, per i '
+                  f'documenti italiani, nell\'approfondimento <a href="{VS_DOCUMENTI}" rel="noopener">«Documenti di viaggio»</a> di Viaggiare Sicuri.</p>')
+        h += nota_manuale_it(p, D)
+    h += f'<h2 id="validita">Quanto deve essere valido {"il documento" if D.get("esito") == "cie" else "il passaporto"} per andare {n}?</h2>'
+    bv, fv = val_it(V)
+    if not V.get("esito"):
+        h += (f'<p><strong>Consulta la scheda ufficiale.</strong> {escape(fv)} Leggi il campo «Passaporto» della '
+              f'<a href="{escape(p["url"])}" rel="noopener">scheda ufficiale</a>.</p>')
+    else:
+        fv1, fv2 = _prima_frase(fv)
+        h += (f'<p class="cifra">In breve: <strong>{escape(fv1.rstrip("."))}.</strong></p>' + (f'<p>{escape(fv2)}</p>' if fv2 else "")
+              + ('<p class="small">La validità indicata dalla scheda vale per il documento con cui viaggi, carta d\'identità o passaporto.</p>' if D.get("esito") == "cie" else "")
+              + '<p class="small" style="margin-bottom:0">Dalla scheda, campo «Passaporto»:</p>' + _cit_lista(V.get("citazioni") or [V.get("citazione")])
+              + nota_manuale_it(p, V))
+    return h + fonte_it(p, ["Passaporto"])
+
+
+def sezione_visto_it(v):
+    p, n = v["p"], escape(v["luogo"])
+    S = p["visto"]
+    h = f'<h2 id="visto">Serve il visto per andare {n}?</h2>'
+    breve, titolo, altre = vis_it(S)
+    campo_v = TITOLI_CAMPI_IT.get(S.get("campo") or "visto", "Visto di ingresso")
+    if not S.get("esito"):
+        return h + (f'<p><strong>Consulta la scheda ufficiale.</strong> Non riassumiamo questo campo: {escape(_minuscola(S.get("motivo") or "").rstrip("."))}. '
+                    f'Leggi il campo «Visto di ingresso» della <a href="{escape(p["url"])}" rel="noopener">scheda ufficiale</a>.</p>') + fonte_it(p, ["Visto di ingresso"])
+    h += f'<p class="cifra">In breve: <strong>{escape(titolo_visto_it(S))}.</strong></p>'
+    if S.get("sintesi"):
+        t = S["sintesi"]
+        if t.startswith(titolo + "."):
+            t = t[len(titolo) + 1:].lstrip()
+        h += f'<p>{escape(t)}</p>' if t else ""
+    if S.get("durata"):
+        h += f'<p>Durata indicata dalla scheda: «{escape(S["durata"])}».</p>'
+    elif (S["esito"] == "non_necessario" and not S.get("sintesi") and p["documento"].get("esito") != "cie"
+          and not re.search(r"\bU\.?E\.?\b|Schengen", S.get("citazione") or "")):
+        h += '<p>Per sapere quanto tempo puoi restare senza visto, leggi la scheda.</p>'
+    form = S.get("formalita", [])  # già nel titolo «In breve» (titolo_visto_it)
+    for x in altre:
+        h += f"<p>{escape(x)}</p>"
+    note = list(S.get("note", []))
+    if not S.get("manuale"):
+        if S.get("consigli"):
+            note.append("La scheda consiglia anche di compilare un modulo o una registrazione online: leggi i dettagli.")
+        if S.get("registrazione_locale"):
+            note.append("La scheda indica anche una registrazione dopo l'arrivo (di solito fatta dall'albergo, altrimenti presso la polizia o gli uffici indicati).")
+        if S.get("tasse"):
+            note.append("La scheda cita anche tasse o costi da pagare: importi, casi e modalità nella scheda.")
+        if S.get("altri_casi"):
+            note.append("Per soggiorni più lunghi, lavoro, studio, transiti o altri casi la scheda dà regole diverse.")
+        if S["esito"] == "necessario":
+            if S.get("arrivo") or S.get("online"):
+                note.append("Come ottenerlo (consolato o ambasciata, richiesta online, rilascio all'arrivo) e quanto costa: la scheda lo spiega, leggila prima di partire.")
+            else:
+                note.append("Come e dove chiederlo: leggi la scheda prima di partire.")
+            if S.get("eccezioni"):
+                note.append("La scheda indica anche eccezioni o casi particolari.")
+    pp = S.get("obblighi_pp", [])
+    if pp:
+        note.append("Nel riquadro «Documenti e visti» la scheda scrive anche un obbligo per chi entra (modulo, dichiarazione, assicurazione o registrazione): leggi la citazione qui sotto e la scheda prima di partire.")
+    if note:
+        h += "<ul>" + "".join(f"<li>{escape(x)}</li>" for x in note) + "</ul>"
+    # citazioni a gruppi, ognuno con la sua etichetta: sul visto, su ogni autorizzazione o modulo, sugli altri dettagli
+    h += f'<p class="small" style="margin-bottom:0">Dalla scheda, campo «{campo_v}» (citazioni brevi). Sul visto:</p>' + _cit_lista(list(S.get("citazioni") or [S.get("citazione")]))
+    for f in form:
+        h += f'<p class="small" style="margin-bottom:0">Su {escape(f["nome"])}:</p>' + _cit_lista([f["citazione"]])
+    if S.get("citazioni_note"):
+        h += '<p class="small" style="margin-bottom:0">Sugli altri dettagli:</p>' + _cit_lista(S["citazioni_note"])
+    if pp:
+        h += '<p class="small" style="margin-bottom:0">Dalla scheda, riquadro «Documenti e visti» (In primo piano):</p>' + _cit_lista(pp)
+    h += nota_manuale_it(p, S)
+    return h + fonte_it(p, [campo_v] + (["Documenti e visti"] if pp and campo_v != "Documenti e visti" else []))
+
+
+def faq_it(v):
+    """Domande e risposte solo dai fatti riassunti (le stesse frasi della pagina)."""
+    p, n = v["p"], v["luogo"]
+    D, V, S = p["documento"], p["validita"], p["visto"]
+    data = data_it(p["aggiornata"])
+    coda = f" (scheda Viaggiare Sicuri aggiornata {con_art('il', data)})."
+    out = []
+    if D.get("esito"):
+        b, frase = doc_it(D)
+        if D["esito"] != "cie_condizioni":  # con le condizioni la risposta giusta è quella sulla carta d'identità, qui sotto
+            r1 = frase if D["esito"] != "cie" else "No, non per forza: " + frase[0].lower() + frase[1:]
+            if r1.startswith("No: "):  # la frase risponde a «Basta la carta d'identità?» (Regno Unito): qui la risposta è sì
+                r1 = "Sì: " + r1[4:]
+            out.append((f"Serve il passaporto per andare {n}?", r1.rstrip(".") + coda))
+        r = {"cie": "Sì: " + frase[0].lower() + frase[1:], "cie_condizioni": frase, "solo_passaporto": frase,
+             "passaporto": "Non secondo la scheda della Farnesina, che indica il passaporto e non cita la carta d'identità tra i documenti per entrare."}[D["esito"]]
+        out.append((f"Basta la carta d'identità per andare {n}?", r.rstrip(".") + coda))
+    if V.get("esito"):
+        doc = "il documento" if D.get("esito") == "cie" else "il passaporto"
+        out.append((f"Quanto deve essere valido {doc} per andare {n}?", val_it(V)[1].rstrip(".") + coda))
+    if S.get("esito"):
+        breve, titolo, altre = vis_it(S)
+        r = S.get("sintesi") or (titolo_visto_it(S) + (f"; durata indicata dalla scheda: «{S['durata']}»" if S.get("durata") else ""))
+        out.append((f"Serve il visto per andare {n}?", r.rstrip(".") + coda))
+    return out
+
+
+def titoli_it(v):
+    N, cie = v["nome"], v["p"]["documento"].get("esito") == "cie"
+    if v["p"]["documento"].get("esito") == "cie_condizioni":  # Egitto, Turchia, Georgia, Montenegro: si cerca «... con la carta d'identità»
+        return [f"{N}: basta la carta d'identità? Documenti per italiani {ANNO}", f"{N}: basta la carta d'identità? Documenti {ANNO}",
+                f"{N}: carta d'identità o passaporto? {ANNO}", f"{N}: documenti per italiani {ANNO}", f"{N}: documenti {ANNO}"]
+    if cie:
+        return [f"{N} con la carta d'identità? Documenti per italiani {ANNO}", f"{N} con la carta d'identità? Documenti {ANNO}",
+                f"{N}: carta d'identità o passaporto? {ANNO}", f"{N}: documenti per italiani {ANNO}", f"{N}: documenti {ANNO}"]
+    return [f"{N}: serve il passaporto? Documenti e visto per italiani {ANNO}", f"{N}: serve il passaporto? Visto per italiani {ANNO}",
+            f"{N}: passaporto e visto per italiani {ANNO}", f"{N}: documenti per italiani {ANNO}", f"{N}: documenti {ANNO}"]
+
+
+def descrizioni_it(v):
+    p = v["p"]
+    db = {"cie": "passaporto o carta d'identità", "cie_condizioni": "carta d'identità solo a certe condizioni", "solo_passaporto": "solo passaporto",
+          "passaporto": "serve il passaporto"}.get(p["documento"].get("esito"), "documento: vedi scheda")
+    vb = val_it(p["validita"])[0] if p["validita"].get("esito") else ""
+    sb = vis_it(p["visto"])[0]
+    form = [_art_nome(f) for f in p["visto"].get("formalita", []) if f["tipo"] != "tessera turistica a pagamento"]
+    vis = {"Non serve": "visto non necessario", "Serve": "visto necessario", "All'arrivo": "visto all'arrivo", "Vedi scheda": "visto: vedi la scheda"}.get(
+        sb, ("visto non necessario, ma serve " + " e ".join(form)) if sb.startswith("Non serve") else "visto: " + _minuscola(sb))
+    validita = f"; validità: {vb.lower()}" if vb else ""
+    if p["validita"].get("esito") == "in_corso":  # non «validità: in corso di validità»
+        db, validita = db + " in corso di validità", ""
+    d = data_it_breve(p["aggiornata"])
+    return [f"Per entrare {v['luogo']} con la cittadinanza italiana: {db}{validita}; {vis}. Fatti della scheda Farnesina {con_art("del", d)}, con link.",
+            f"{v['nome']}, per italiani: {db}{validita}; {vis}. Fatti della scheda Farnesina {con_art("del", d)}.",
+            f"{v['nome']}, per italiani: {db}; {vis}. Scheda Farnesina {con_art("del", d)}.",
+            f"{v['nome']}: documenti e visto per chi ha la cittadinanza italiana, dalla scheda Farnesina {con_art("del", d)}."]
+
+
+def pagina_it(v):
+    rel = "../../../"
+    p = v["p"]
+    D, V, S = p["documento"], p["validita"], p["visto"]
+    db, _ = doc_it(D)
+    vb = _prima_frase(val_it(V)[1])[0] if V.get("esito") else "Consulta la scheda ufficiale"
+    vt = titolo_visto_it(S)
+    t_doc = {"cie": "t-ok", "cie_condizioni": "t-warn"}.get(D.get("esito"), "")
+    t_vis = ("t-warn" if S.get("formalita") or S.get("obblighi_pp") else "t-ok") if S.get("esito") == "non_necessario" else \
+        {"necessario": "t-no", "all_arrivo": "t-warn", "autorizzazione": "t-warn"}.get(S.get("esito"), "")
+    riga = lambda tono, etichetta, valore, ancora: (f'<div class="{tono}"><dt>{etichetta}</dt><dd>{escape(valore.rstrip("."))}. '
+                                                   f'<a href="#{ancora}">Dettagli ›</a></dd></div>')
+    righe = ('<dl class="fatti-it">' + riga(t_doc, "Documento", db, "documento")
+             + riga("", "Validità " + ("del documento" if D.get("esito") == "cie" else "del passaporto"), vb, "validita")
+             + riga(t_vis, "Visto", vt, "visto") + "</dl>")
+    extra = ""
+    for x in p.get("note_extra", []):
+        extra += (f'<h2>Da sapere prima di partire</h2><p>{escape(x["testo"])}</p>'
+                  f'<p class="small" style="margin-bottom:0">Dalla scheda, campo «{escape(TITOLI_CAMPI_IT[x["campo"]])}»:</p>' + _cit_lista(x["citazioni"])
+                  + nota_manuale_it(p, x))
+    crono = [c for c in p.get("cronologia", []) if re.search(r"Requisiti|Revisione generale", c["nota"], re.I)][:2]
+    if crono:
+        extra += ('<p class="small">Ultimi aggiornamenti della scheda che riguardano i requisiti di ingresso (dalla cronologia della scheda): ' +
+                  "; ".join(f"{data_it_breve(c['data'])}, «{escape(c['nota'])}»" for c in crono) + ".</p>")
+    faq = faq_it(v)
+    faq_html = ('<section class="faq"><h2>Domande frequenti</h2>' +
+                "".join(f"<h3>{escape(q)}</h3><p>{escape(a)}</p>" for q, a in faq) + "</section>") if faq else ""
+    uk = "".join(f'<p class="altri-pass" lang="en">{ico("passport")}<span>British passport: <a href="{rel}passport-validity/{s}/" hreflang="en">{escape(UK_NOMI[s])} entry requirements for British passport holders</a></span></p>'
+                 for s in v["uk"])
+    simili = []
+    if D.get("esito") == "cie":
+        simili = [w for w in VOCI_IT if w is not v and w["p"]["documento"].get("esito") == "cie"][:12]
+    grid = (f'<h2>Altri Paesi dove si entra con la carta d\'identità</h2><div class="griglia g-it">' +
+            "".join(f'<a href="{rel}{w["url_pag"]}">{escape(w["nome"])}</a>' for w in simili) + "</div>") if simili else ""
+    corpo = f"""<section class="hero"><h1>Documenti per viaggiare {escape(v['luogo'])}: passaporto, carta d'identità e visto</h1></section>
+<section class="card summary" aria-label="In breve">
+<div class="s-top s-it"><span class="sq">{ico("passport")}</span><span>Per italiani</span><span>Scheda {con_art("del", data_it_breve(p["aggiornata"]))}</span></div>
+<div class="s-body">
+{righe}
+{fonte_it(p, ["Passaporto", "Visto di ingresso"])}
+<p class="lead">Che documento serve a chi ha la cittadinanza italiana per entrare {escape(v['luogo'])}, quanto deve essere valido e se serve il visto: i fatti della scheda ufficiale di Viaggiare Sicuri, scritti con parole nostre, con brevi citazioni, la data della scheda e il link.</p>
+</div>
+</section>
+{uk}
+{AVVISO_IT}
+{sezione_doc_it(v)}
+{sezione_visto_it(v)}
+{extra}
+<p>Nella <a href="{escape(p['url'])}" rel="noopener">scheda ufficiale</a> trovi anche le regole per i viaggi dei minori, le formalità doganali e valutarie, la sicurezza e la situazione sanitaria del Paese.</p>
+{faq_html}
+{grid}
+<p><a href="{rel}{IT_BASE}/">Documenti e visti: tutti i Paesi</a> · <a href="{rel}{IT_BASE}/#metodo">Come leggiamo le schede</a></p>"""
+    ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": f"Documenti per viaggiare {v['luogo']}: passaporto, carta d'identità e visto",
+           "url": f"{URL_SITO}/{v['url_pag']}", "inLanguage": "it", "isBasedOn": p["url"], "dateModified": DOC_IT["controllato_il"],
+           "isPartOf": {"@type": "WebSite", "name": NOME, "url": URL_SITO + "/"}}]
+    if faq:
+        ld.append({"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "it",
+                   "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]})
+    pagina(v["url_pag"], scegli(titoli_it(v), LIMITE_TITOLO), scegli(descrizioni_it(v), LIMITE_DESCRIZIONE), corpo,
+           briciole=[("Documenti per italiani", f"{IT_BASE}/"), (v["nome"], v["url_pag"])], js=FILTRO_JS, ld_extra=ld, lingua="it")
+
+
+TITOLI_CAMPI_IT = {"passaporto": "Passaporto", "visto": "Visto di ingresso", "primo_piano": "Documenti e visti"}  # "primo_piano" = riquadro "In primo piano"
+FILTRO_JS = r"""
+(function(){document.querySelectorAll('[data-filtro]').forEach(function(inp){var lista=document.getElementById(inp.dataset.filtro);
+  inp.addEventListener('input',function(){var v=inp.value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+    lista.querySelectorAll('[data-voce]').forEach(function(a){var t=a.textContent.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');a.hidden=!!v&&t.indexOf(v)<0;});});});})();
+"""
+
+
+def _breve_doc_indice(p):
+    e = p["documento"].get("esito")
+    d = {"cie": "Passaporto o carta d'identità", "cie_condizioni": "Carta d'identità solo a condizioni", "solo_passaporto": "Solo passaporto",
+         "passaporto": "Passaporto"}.get(e, "Vedi scheda")
+    V = p["validita"]
+    if V.get("esito") == "numero":
+        d += f" · almeno {V['n']} {V['unita']}"
+    elif V.get("esito") == "soggiorno":
+        d += " · valido per il soggiorno"
+    elif V.get("esito") == "rientro":
+        d += " · scadenza dopo il rientro"
+    return d
+
+
+MOLTO_CERCATI_IT = ["EGY", "TUR", "USA", "GBR", "ALB", "TUN", "MAR", "THA", "JPN", "MDV", "CUB", "DOM", "MEX", "CPV", "KEN", "TZA", "GEO", "MNE"]
+
+
+def indice_it():
+    rel = "../../"
+    righe = []
+    for v in sorted(VOCI_IT + SENZA_PAGINA_IT, key=lambda v: unicodedata.normalize("NFKD", v["nome"]).encode("ascii", "ignore").decode().lower()):
+        p = v["p"]
+        if v in VOCI_IT:
+            nome = f'<a href="{rel}{v["url_pag"]}">{escape(v["nome"])}</a>'
+            doc, vis = _breve_doc_indice(p), vis_it(p["visto"])[0]
+        else:
+            rim = p.get("rimando")
+            dest = IT_PER_ISO.get(rim)
+            nome = (f'{escape(v["nome"])} <span class="small">(<a href="{escape(p["url"])}" rel="noopener">scheda ufficiale</a>'
+                    + (f', che rimanda a <a href="{rel}{dest["url_pag"]}">{escape(dest["nome"])}</a>' if dest else "") + ")</span>")
+            doc, vis = "Vedi scheda", "Vedi scheda"
+        righe.append(f'<tr data-voce><td>{nome}</td><td data-l="Documento">{escape(doc)}</td><td data-l="Visto">{escape(vis)}</td>'
+                     f'<td>Scheda {con_art("del", data_it_breve(p["aggiornata"]))}</td></tr>')
+    cie = [v for v in VOCI_IT if v["p"]["documento"].get("esito") == "cie"]
+    cond = [v for v in VOCI_IT if v["p"]["documento"].get("esito") == "cie_condizioni"]
+    n_doc = sum(1 for v in VOCI_IT if v["p"]["documento"].get("esito"))
+    n_val = sum(1 for v in VOCI_IT if v["p"]["validita"].get("esito"))
+    n_vis = sum(1 for v in VOCI_IT if v["p"]["visto"].get("esito"))
+    n_man = sum(1 for v in VOCI_IT for k in ("documento", "validita", "visto") if v["p"][k].get("manuale"))
+    tot = len(VOCI_IT) + len(SENZA_PAGINA_IT)
+    senza = ", ".join(f'<a href="{escape(v["p"]["url"])}" rel="noopener">{escape(v["nome"])}</a>' for v in SENZA_PAGINA_IT)
+    corpo = f"""<section class="hero">{h1_diviso(f"Documenti per l'estero con la cittadinanza italiana: passaporto, carta d'identità e visto ({ANNO})")}
+<p class="lead">Serve il passaporto o basta la carta d'identità? Quanto deve essere valido il passaporto? Serve il visto? Per {tot} Paesi e territori, i fatti delle schede ufficiali di Viaggiare Sicuri (Farnesina), scritti con parole nostre, con la data di ogni scheda e il link.</p>
+<p class="fonte">Fonte: <a href="{VS_HOME}" rel="noopener">Viaggiare Sicuri</a>, Unità di Crisi del Ministero degli Affari Esteri e della Cooperazione Internazionale, schede Paese (campi «Passaporto» e «Visto di ingresso») · lette da noi {con_art("il", data_it(DOC_IT["controllato_il"]))}</p>
+</section>
+{AVVISO_IT}
+<h2>Le mete più cercate</h2>
+<div class="griglia g-it">{"".join(f'<a href="{rel}{IT_PER_ISO[i]["url_pag"]}">{escape(IT_PER_ISO[i]["nome"])}<small>{escape(_breve_doc_indice(IT_PER_ISO[i]["p"]).split(" · ")[0])}<br>Visto: {escape(_minuscola(vis_it(IT_PER_ISO[i]["p"]["visto"])[0]))}</small></a>' for i in MOLTO_CERCATI_IT if i in IT_PER_ISO)}</div>
+<h2>Tutti i Paesi</h2>
+<div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Scrivi un Paese, per esempio Egitto, Turchia, Stati Uniti" data-filtro="lista-it" aria-label="Cerca un Paese"></div>
+<div class="tab tab-e"><table><thead><tr><th>Paese</th><th>Passaporto o carta d'identità</th><th>Visto</th><th>Scheda ufficiale</th></tr></thead><tbody id="lista-it">{"".join(righe)}</tbody></table></div>
+<p class="small">Etichette brevi nostre. «Vedi scheda»: la scheda non permette un riassunto sicuro (condizioni, casi diversi, autorizzazioni o moduli senza dettagli chiari): leggila. «Non serve + ETA»: niente visto, ma un'autorizzazione elettronica o un modulo obbligatorio prima di partire o all'arrivo.</p>
+<h2>Dove si entra con la carta d'identità</h2>
+<p>Secondo le schede, si entra con la carta d'identità elettronica (CIE) oppure con il passaporto in {len(cie)} Paesi e territori:</p>
+<div class="griglia g-it">{"".join(f'<a href="{rel}{v["url_pag"]}">{escape(v["nome"])}</a>' for v in cie)}</div>
+<p>Solo a certe condizioni (per esempio solo per turismo, solo da alcuni confini o solo per soggiorni brevi): {", ".join(f'<a href="{rel}{v["url_pag"]}">{escape(v["nome"])}</a>' for v in cond) or "nessuno"}. Per le carte d'identità rinnovate con proroga, i documenti provvisori cartacei e i viaggi dei minori leggi anche l'approfondimento <a href="{VS_DOCUMENTI}" rel="noopener">«Documenti di viaggio»</a> di Viaggiare Sicuri.</p>
+<h2 id="metodo">Fonte e metodo</h2>
+<div class="testo">
+<p><strong>Fonte.</strong> Le schede Paese di <a href="{VS_HOME}" rel="noopener">Viaggiare Sicuri</a>, il sito dell'Unità di Crisi della Farnesina, lette dai file pubblici che il sito stesso usa ({DOC_IT["schede_elenco"]} schede, {con_art("il", data_it(DOC_IT["controllato_il"]))}). Per ogni Paese usiamo i campi «Passaporto» e «Visto di ingresso» della sezione «Requisiti di ingresso»; il riquadro «Documenti e visti» della sezione «In primo piano» serve come controllo (se dice il contrario, non riassumiamo) e per segnalare, con una citazione, gli obblighi scritti solo lì (moduli, dichiarazioni, assicurazioni). Ogni pagina mostra la data di aggiornamento della scheda e il link.</p>
+<p><strong>Testi e licenza.</strong> Viaggiare Sicuri non indica una licenza per i testi delle schede. Per questo non li ripubblichiamo: riportiamo i fatti (documento richiesto, validità residua, visto, autorizzazioni, durata ammessa) con parole nostre e citiamo solo frasi brevi, tra virgolette, quando servono per precisione. Per tutto il resto rimandiamo alla scheda ufficiale.</p>
+<p><strong>Regole prudenti.</strong> Riassumiamo un fatto solo se la scheda lo scrive con una formula chiara (per esempio «Passaporto oppure CIE», «con almeno 6 (sei) mesi di validità residua», «Il visto d'ingresso non è necessario»). Non riassumiamo quando la frase ha condizioni o casi diversi, quando le validità indicate sono più d'una, quando l'esenzione dal visto è temporanea o «preventiva», o quando la scheda parla di autorizzazioni elettroniche, moduli o registrazioni senza dettagli chiari: in quei casi la pagina scrive «Consulta la scheda ufficiale». Per {n_man} fatti di Paesi molto cercati (per esempio Regno Unito, Stati Uniti, Egitto, Turchia, Thailandia) la lettura automatica non bastava e li abbiamo scritti a mano leggendo la scheda: valgono solo per la versione della scheda letta, e se la scheda cambia vengono scartati finché non la rileggiamo.</p>
+<p><strong>Risultato ({data_it(DOC_IT["controllato_il"])}).</strong> {len(VOCI_IT)} pagine Paese; documento riassunto per {n_doc} Paesi, validità del passaporto per {n_val}, visto per {n_vis}. Nessuna pagina per {len(SENZA_PAGINA_IT)} schede, dove non c'era abbastanza da riassumere con sicurezza: {senza}.</p>
+<p>Le regole valgono per chi ha la cittadinanza italiana. La compagnia aerea e le autorità di frontiera del Paese decidono se puoi partire o entrare.</p>
+</div>"""
+    pagina(f"{IT_BASE}/", f"Documenti per l'estero {ANNO}: passaporto, carta d'identità, visto",
+           f"Serve il passaporto o basta la carta d'identità? Serve il visto? Per {tot} Paesi, i fatti delle schede Farnesina (Viaggiare Sicuri) con data e link.",
+           corpo, briciole=[("Documenti per italiani", f"{IT_BASE}/")], js=FILTRO_JS, lingua="it")
 
 
 # ---------------------------------------------------------------- liquidi
@@ -2240,6 +2784,7 @@ def home():
 <section class="hero">{h1_diviso(f"Before You Fly: passport validity, airport liquids rules, cabin bag sizes and EU entry checks ({ANNO})")}
 <p class="scope"><span class="pill">{ico("passport")}British passport checker</span><span>Passport rules from the UK government (FCDO), for British citizens.{"".join(f' {ESTERI[k]["agg"]} passport: <a href="{ESTERI[k]["base"]}/" style="color:var(--sign)">{len(VOCI[k])} destinations</a>.' for k in ESTERI if VOCI[k])}</span></p>
 <p class="sub">Four checks before you fly, answered from official sources only.</p>
+{f'<p class="scope" lang="it"><span class="pill">{ico("passport")}Cittadinanza italiana</span><span><a href="{IT_BASE}/" hreflang="it" style="color:var(--sign)">Documenti per viaggiare all\'estero</a>: passaporto, carta d\'identità e visto per {len(VOCI_IT)} Paesi, dalle schede della Farnesina (Viaggiare Sicuri).</span></p>' if VOCI_IT else ""}
 <p class="trust"><span>{ico("shield")}Official sources · last checked {ultimo}</span><span>{ico("lock")}Your dates stay in your browser</span></p></section>
 <ul class="tiles">
 <li><a href="passport-validity/"><span class="sq">{ico("passport")}</span><h2>Passport validity</h2><small>FCDO passport validity and visa rules for British passports, {len(PAESI)} destinations, a date checker for {auto} of them. Last checked: {data_lunga(PASS['controllato_il'])}.</small></a></li>
@@ -2290,6 +2835,14 @@ def about_esteri(rel):
     return "".join(out)
 
 
+def about_it(rel):
+    if not VOCI_IT:
+        return ""
+    return f"""<h2>Italian citizens (Viaggiare Sicuri, in Italian)</h2>
+<p>Source: the country pages of <a href="{VS_HOME}" rel="noopener">Viaggiare Sicuri</a>, run by the Crisis Unit of the Italian Ministry of Foreign Affairs (Farnesina), read through the public data files the site itself uses ({DOC_IT['schede_elenco']} pages, last checked on {data_lunga(DOC_IT['controllato_il'])}): the “Passaporto” and “Visto di ingresso” fields of the entry requirements section. Each page shows the date of the official page.</p>
+<p>Licence: Viaggiare Sicuri states no licence for its texts, so we do not republish them. The <a href="{rel}{IT_BASE}/" hreflang="it">Italian section</a> gives the facts in our own words (document required, remaining passport validity, visa, electronic authorisations, length of stay), with short quotes of at most 20 words, the date and the link; a fact is summarised only when the official wording is unambiguous, otherwise the page says to read the official page. Before You Fly is not a site of the Farnesina or of the Italian Government.</p>"""
+
+
 def about():
     rel = "../"
     manuali = [P for P in PAESI if not P["regola"]]
@@ -2313,6 +2866,7 @@ def about():
 <ul>{lista_man}</ul>
 {f'<p>No page published (the official section is empty):</p><ul>{senza}</ul>' if senza else ''}
 {about_esteri(rel)}
+{about_it(rel)}
 <h2>Liquids rules</h2>
 <p>Each airport's official security page, last read by us on {data_lunga(AER['controllato_il'])} (the date is shown on each page). Some airport sites block simple automated requests or load their text with JavaScript: we read those in a browser and say so on the page. Spanish airports use the general hand-luggage page of Aena, which runs Spain's public airports (it lists no airport- or lane-specific exceptions, and it does not say that it applies at every airport: each Spanish airport page says so); Hong Kong uses the Civil Aviation Department page; the US and Canada each have one national rule (TSA, CATSA). See the full list and the airports we left out on the <a href="{rel}liquids/">liquids page</a>.</p>
 <h2>Cabin bag sizes</h2>
@@ -2427,6 +2981,16 @@ def controlli():
         errori.append("slug compagnie duplicati")
     if not frasi_ees("etias") or not frasi_ees("ees"):
         errori.append("EES/ETIAS: nessuna frase ufficiale trovata (rilanciare raccolta/eesetias.py)")
+    if DOC_IT:
+        for p in DOC_IT["paesi"]:
+            if p["iso3"] not in NOMI_IT:
+                errori.append(f"documenti_it {p['iso3']}: manca il nome italiano in dati/paesi_it.txt")
+            for k in ("url", "aggiornata", "documento", "validita", "visto", "impronte"):
+                if not p.get(k):
+                    errori.append(f"documenti_it {p['iso3']}: manca {k}")
+        sl = [v["slug"] for v in VOCI_IT + SENZA_PAGINA_IT]
+        if len(set(sl)) != len(sl):
+            errori.append("documenti_it: slug duplicati")
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -2467,6 +3031,10 @@ def main():
             pagina_misura(sl, m)
         pagina_strumento()
         pagina_ue()
+    if VOCI_IT:
+        indice_it()
+        for v in VOCI_IT:
+            pagina_it(v)
     about()
     contatti()
     privacy()
@@ -2475,7 +3043,8 @@ def main():
     print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili + 404; {len(PAESI)} paesi ({auto} con controllo automatico), "
           f"{len(AER['aeroporti'])} aeroporti + {len(AER['nazionali'])} regole nazionali, pagina EES/ETIAS; "
           f"bagaglio a mano: {len(COMPAGNIE)} compagnie, {len(MISURE_COMUNI)} misure, strumento, pagina UE; "
-          + ", ".join(f"passaporto {ESTERI[k]['agg']}: {len(VOCI[k])} pagine" for k in ESTERI))
+          + ", ".join(f"passaporto {ESTERI[k]['agg']}: {len(VOCI[k])} pagine" for k in ESTERI)
+          + f"; documenti per italiani: indice + {len(VOCI_IT)} pagine Paese ({len(SENZA_PAGINA_IT)} schede senza pagina)")
 
 
 if __name__ == "__main__":

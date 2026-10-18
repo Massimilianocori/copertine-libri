@@ -1,0 +1,1167 @@
+{
+ "_nota": "Fatti scritti a mano (parole nostre) per i Paesi in cui la lettura automatica di raccolta/documenti_it.py non basta. Ogni fatto vale solo finché l'impronta del campo della scheda è quella letta il giorno della revisione (campi): se la scheda cambia, raccolta/documenti_it.py scarta il fatto e lo segnala. Le citazioni sono parola per parola dal campo indicato, al massimo 20 parole; i numeri delle frasi nostre devono stare nelle citazioni (verifica.py).",
+ "rivisto_il": "2026-10-18",
+ "paesi": {
+  "GBR": {
+   "campi": {
+    "passaporto": "1decf7d946892be9",
+    "visto": "a9995cc2f4b2d8ce"
+   },
+   "documento": {
+    "campo": "passaporto",
+    "esito": "solo_passaporto",
+    "sintesi": "No: per entrare nel Regno Unito, anche solo in transito in aeroporto, serve il passaporto. Il passaporto collettivo non è accettato. La carta d'identità resta valida solo in pochi casi indicati dalla scheda (per esempio chi ha lo status dell'EU Settlement Scheme).",
+    "citazioni": [
+     "L'ingresso nel Regno Unito, incluso per transito aeroportuale, è consentito UNICAMENTE con il passaporto",
+     "Il passaporto collettivo non è accettato.",
+     "Solo coloro che abbiano aderito allo EU Settlement Scheme"
+    ]
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "non_necessario",
+    "turismo": true,
+    "sintesi": "Per turismo non serve il visto per soggiorni fino a 6 mesi, ma prima della partenza bisogna ottenere l'ETA (Electronic Travel Authorisation), un'autorizzazione elettronica.",
+    "durata": "in caso di soggiorni di durata massima di 6 mesi",
+    "citazioni": [
+     "sono esentati dall'obbligo di visto (c.d. Standard Visitor Visa), in caso di soggiorni di durata massima di 6 mesi"
+    ],
+    "formalita": [
+     {
+      "nome": "ETA",
+      "tipo": "autorizzazione elettronica",
+      "citazione": "E' pertanto obbligatorio per i cittadini italiani munirsi di ETA, prima della partenza."
+     }
+    ],
+    "note": [
+     "Per lavorare, e per alcune attività di studio, la scheda indica che serve un visto."
+    ],
+    "citazioni_note": [
+     "un visto lavorativo o un visto per studio sono richiesti"
+    ]
+   }
+  },
+  "USA": {
+   "campi": {
+    "visto": "a1bb076e04167743"
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "non_necessario",
+    "turismo": true,
+    "sintesi": "Per turismo o affari non serve il visto per soggiorni fino a 90 giorni, con il programma Visa Waiver Program (VWP): prima di partire serve però l'autorizzazione elettronica ESTA, da chiedere sul sito ufficiale almeno 72 ore prima della partenza. L'ESTA vale due anni, o fino alla scadenza del passaporto se è prima.",
+    "durata": "per soggiorni non superiori a 90 giorni",
+    "citazioni": [
+     "per soggiorni non superiori a 90 giorni, senza dover richiedere un visto d'ingresso",
+     "almeno 72 ore prima della partenza",
+     "L'autorizzazione, che ha durata di due anni",
+     "o fino a scadenza del passaporto"
+    ],
+    "formalita": [
+     {
+      "nome": "ESTA",
+      "tipo": "autorizzazione elettronica",
+      "citazione": "è necessario ottenere una autorizzazione ESTA (Electronic System for Travel Authorization)"
+     }
+    ],
+    "note": [
+     "Per il Visa Waiver Program servono anche il passaporto elettronico (con microchip) e il biglietto di ritorno.",
+     "Deve invece chiedere il visto chi è stato a Cuba dal 12 gennaio 2021 o, dal 1° marzo 2011, in alcuni Paesi elencati nella scheda, e chi ha anche alcune altre cittadinanze: leggi la scheda."
+    ],
+    "citazioni_note": [
+     "essere in possesso di un passaporto elettronico",
+     "possedere un biglietto di ritorno.",
+     "i cittadini italiani che abbiano visitato Cuba a partire dal 12 gennaio 2021, devono richiedere il visto",
+     "si sono recati, dal 1 marzo 2011 in poi, in uno dei seguenti Paesi"
+    ]
+   }
+  },
+  "CAN": {
+   "campi": {
+    "visto": "7adfe9579310f749"
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "non_necessario",
+    "turismo": true,
+    "sintesi": "Per turismo o affari non serve il visto per soggiorni brevi, fino a sei mesi. Chi arriva in aereo deve però ottenere prima dell'imbarco l'autorizzazione elettronica eTA, che serve anche per il solo transito.",
+    "durata": "fino a sei mesi",
+    "citazioni": [
+     "fino a sei mesi, esclusivamente per motivi di turismo o di affari, non vi è obbligo di visto"
+    ],
+    "formalita": [
+     {
+      "nome": "eTA",
+      "tipo": "autorizzazione elettronica",
+      "citazione": "L'eTA è necessaria, anche per il solo transito."
+     }
+    ],
+    "note": [
+     "La richiesta dell'eTA si fa online: servono un passaporto valido, una carta di credito e un indirizzo email."
+    ],
+    "citazioni_note": [
+     "i cittadini italiani diretti in Canada per via aerea dovranno munirsi prima dell’imbarco",
+     "La richiesta dell'autorizzazione dovrà essere effettuata online"
+    ]
+   }
+  },
+  "THA": {
+   "campi": {
+    "visto": "c225f8402c720568",
+    "passaporto": "3e35360151af66f8"
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "non_necessario",
+    "turismo": true,
+    "sintesi": "Per turismo non serve il visto per soggiorni fino a 30 giorni (periodo ridotto dal 15 settembre 2026). Nei 3 giorni prima dell'ingresso bisogna compilare online la Thailand Digital Arrival Card (TDAC).",
+    "durata": "per soggiorni turistici non superiori a 30 (trenta) giorni",
+    "citazioni": [
+     "a partire dal 15 settembre 2026 i cittadini italiani sono esentati dall'ottenimento del visto di ingresso"
+    ],
+    "formalita": [
+     {
+      "nome": "Thailand Digital Arrival Card (TDAC)",
+      "tipo": "carta d'arrivo digitale",
+      "citazione": "devono aver completato, nei 3 giorni (72 ore) antecedenti l'ingresso nel Paese, il modulo online"
+     }
+    ],
+    "note": [
+     "All'ingresso bisogna mostrare un biglietto di uscita dalla Thailandia entro 60 giorni dall'arrivo.",
+     "Per soggiorni turistici di più di 30 giorni serve il visto, che si chiede anche online (e-Visa).",
+     "L'esenzione dal visto per turismo si può usare al massimo due volte in un anno solare."
+    ],
+    "citazioni_note": [
+     "la prova di un titolo di viaggio di uscita dalla Thailandia, entro i 60 giorni dall’arrivo",
+     "maggiori di 30 (trenta) giorni, rimane necessario il rilascio del visto",
+     "E' possibile usufruire dell'esenzione da visto per turismo fino a un massimo di due volte in un anno di calendario"
+    ]
+   },
+   "validita": {
+    "campo": "passaporto",
+    "esito": "numero",
+    "n": 6,
+    "unita": "mesi",
+    "scritto_il": "2026-10-18",
+    "sintesi": "Almeno 6 mesi di validità residua alla data di ingresso e almeno due pagine libere per il visto o il timbro d'ingresso. Il passaporto deve essere in perfette condizioni: con un documento rovinato, o con timbri «souvenir» di luoghi turistici, si può essere respinti.",
+    "citazioni": [
+     "almeno 6 (sei) mesi di validità residua, alla data di ingresso nel Paese",
+     "almeno due pagine libere rimanenti, per l’apposizione del visto/timbro di ingresso",
+     "si raccomanda pertanto la massima attenzione nel viaggiare con passaporti in perfette condizioni",
+     "timbri c.d. \"souvenir\" di località turistiche"
+    ]
+   }
+  },
+  "TUR": {
+   "campi": {
+    "passaporto": "257ea8920371b4c2",
+    "visto": "b34595de4ba4ef7b"
+   },
+   "documento": {
+    "campo": "passaporto",
+    "esito": "cie_condizioni",
+    "sintesi": "Sì, ma non da tutti i confini. La carta d'identità elettronica (CIE) valida per l'espatrio, integra e con almeno 5 mesi di validità residua, basta a chi entra dal confine greco o bulgaro (in treno, via terra, via mare o in aereo) e a chi arriva dagli altri confini via mare o in aereo. Chi entra via terra o in treno dai confini con Georgia, Azerbaigian (Nakhicevan), Iran, Iraq e Siria deve avere il passaporto.",
+    "citazioni": [
+     "E' consentito l'ingresso anche con la sola CIE-carta di identità elettronica valida per l'espatrio",
+     "con una validità residua di almeno 5 mesi",
+     "dal confine greco o bulgaro, per via ferroviaria, terrestre, marittima o aerea",
+     "dagli altri confini per via marittima o aerea",
+     "E’ invece assolutamente necessario il passaporto"
+    ]
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "non_necessario",
+    "turismo": true,
+    "sintesi": "Per turismo non serve il visto per soggiorni inferiori a 90 giorni.",
+    "durata": "per soggiorni turistici inferiori a 90 giorni",
+    "citazioni": [
+     "Il visto di ingresso non è necessario, per soggiorni turistici inferiori a 90 giorni."
+    ],
+    "formalita": [],
+    "note": [
+     "Per motivi diversi dal turismo, o per restare più di 90 giorni in 180 giorni, serve il visto, che si chiede sul portale ufficiale www.visa.gov.tr.",
+     "Nella parte sulle richieste di visto la scheda indica anche l'obbligo di un'adeguata copertura assicurativa sanitaria.",
+     "La scheda raccomanda di controllare che il timbro sia messo sul passaporto sia all'ingresso sia all'uscita."
+    ],
+    "citazioni_note": [
+     "per rimanere più di 90 giorni nell’arco di 180 giorni rimane l’obbligo del visto",
+     "le richieste per tutte le tipologie di visto dovranno essere effettuate attraverso il sito web www.visa.gov.tr",
+     "E’ inoltre obbligatorio il possesso di un’adeguata copertura assicurativa sanitaria",
+     "Si raccomanda altresì di controllare sempre che il timbro venga apposto sia all’ingresso, sia all’uscita"
+    ]
+   }
+  },
+  "EGY": {
+   "campi": {
+    "passaporto": "97b0eba6d36d35f6",
+    "visto": "02fe8a40928434e3"
+   },
+   "documento": {
+    "campo": "passaporto",
+    "esito": "cie_condizioni",
+    "sintesi": "Sì, ma solo per turismo: carta d'identità elettronica valida per l'espatrio, con validità residua di più di 6 mesi, e due foto tessera (senza le foto non viene rilasciato il visto). Non è accettata la carta d'identità elettronica con il cedolino cartaceo di proroga, né il Modello ATe.",
+    "citazioni": [
+     "solo per turismo, carta di identità elettronica, con validità per l'espatrio e residua superiore ai 6 (sei) mesi",
+     "in mancanza delle foto NON viene rilasciato il visto di ingresso",
+     "NON consentono l’accesso nel Paese ai viaggiatori in possesso di carta di identità elettronica con certificato di proroga",
+     "Il Modello ATe non consente l'ingresso in Egitto"
+    ]
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "necessario",
+    "turismo": true,
+    "sintesi": "Sì, serve il visto. Si chiede ai Consolati o all'Ambasciata d'Egitto oppure, solo per turismo, direttamente negli aeroporti, per una permanenza massima di 28 giorni, pagando 25 dollari USA (o l'equivalente in euro).",
+    "citazioni": [
+     "Il visto di ingresso è obbligatorio",
+     "solo in caso di turismo - direttamente negli aeroporti e per una permanenza massima di 28 giorni",
+     "25 Dollari USA o ammontare equivalente in Euro"
+    ],
+    "note": [
+     "Chi entra con la carta d'identità riceve il visto su un tagliando da compilare all'arrivo, consegnando due foto tessera portate dall'Italia.",
+     "Chi resta meno di 14 giorni solo nei resort della costa meridionale del Sinai non ha bisogno del visto turistico ordinario, ma la scheda consiglia di chiederlo comunque."
+    ],
+    "citazioni_note": [
+     "il visto verrà apposto su un apposito tagliando da compilare all’arrivo",
+     "per periodi inferiori ai 14 giorni, non necessitano di un visto turistico ordinario",
+     "si consiglia di accedere al territorio egiziano richiedendo sempre l’emissione di un visto turistico ordinario"
+    ]
+   }
+  },
+  "CHN": {
+   "campi": {
+    "visto": "2208c5c4d2dcbb61"
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "non_necessario",
+    "turismo": true,
+    "fino_al": "2026-12-31",
+    "sintesi": "Fino al 31 dicembre 2026 non serve il visto, con il passaporto ordinario, per soggiorni fino a 30 giorni per affari, turismo, visite a familiari o amici e transito. Per restare di più o per altri motivi serve il visto, da chiedere prima della partenza alle sedi diplomatico-consolari cinesi in Italia: alla frontiera non si rilascia e chi ne è sprovvisto viene respinto.",
+    "durata": "per un soggiorno massimo di 30 giorni",
+    "citazioni": [
+     "Fino al 31 dicembre 2026 i cittadini italiani che siano in possesso di passaporto ordinario",
+     "per un soggiorno massimo di 30 giorni, senza richiedere il visto di ingresso",
+     "Le richieste di visto d'ingresso vanno indirizzate alle Rappresentanze diplomatico-consolari cinesi in Italia",
+     "Non è previsto il rilascio di visti ai posti di frontiera",
+     "ne risultassero sprovvisti, verranno respinti"
+    ],
+    "formalita": [],
+    "note": [
+     "Prima dell'arrivo si può compilare online la Carta di Ingresso per Stranieri; chi non può farlo la compila alla frontiera (con un codice QR o su modulo cartaceo).",
+     "Chi alloggia in una casa privata, e non in albergo, deve registrarsi entro 24 ore presso il commissariato di polizia della zona."
+    ],
+    "citazioni_note": [
+     "i cittadini stranieri possono compilare online la Carta di Ingresso",
+     "mediante scansione di un apposito QR che si trova al valico di frontiera",
+     "Per i visitatori temporanei che siano ospiti presso abitazioni di residenti",
+     "e' previsto l'obbligo di registrazione - entro le 24 ore - presso i Commissariati di Polizia di zona"
+    ]
+   }
+  },
+  "VNM": {
+   "campi": {
+    "visto": "b604254f5f69e1c1",
+    "passaporto": "253c53f9f977c08c"
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "non_necessario",
+    "sintesi": "Non serve il visto per soggiorni fino a 45 giorni (a ogni nuovo ingresso il timbro vale fino ad altri 45 giorni). Per soggiorni fino a 90 giorni si può chiedere online un e-visa turistico.",
+    "durata": "per soggiorni singoli, sino a 45 giorni",
+    "citazioni": [
+     "I cittadini italiani posso fare ingresso in Vietnam senza necessità di visto, per soggiorni singoli, sino a 45 giorni",
+     "per soggiorni sino a 90 giorni"
+    ],
+    "formalita": [],
+    "note": [
+     "Serve un'assicurazione sanitaria internazionale.",
+     "Dal 15 aprile 2026 chi entra dagli aeroporti internazionali di Hanoi, Ho Chi Minh City, Da Nang e Phu Quoc deve fare una registrazione online nelle 72 ore prima dell'arrivo: senza, si rischiano attese più lunghe alla frontiera.",
+     "Le compagnie aeree chiedono alla partenza un biglietto di uscita dal Vietnam."
+    ],
+    "citazioni_note": [
+     "Occorre altresì essere in possesso di un'assicurazione sanitaria internazionale.",
+     "attraverso gli aeroporti internazionali di Hanoi, Ho Chi Minh City, Da Nang e Phu Quoc",
+     "La procedura deve essere effettuata nelle 72 ore precedenti l'arrivo sul territorio",
+     "si rischia di allungare i tempi di attesa al controllo di frontiera",
+     "A partire dal 15 aprile 2026, le Autorità vietnamite hanno introdotto una procedura di registrazione online",
+     "l'esibizione di un titolo di viaggio per l'uscita dal Paese"
+    ]
+   },
+   "validita": {
+    "campo": "passaporto",
+    "esito": "numero",
+    "n": 6,
+    "unita": "mesi",
+    "scritto_il": "2026-10-18",
+    "sintesi": "Almeno 6 mesi di validità residua. Il passaporto deve essere in ottimo stato e avere almeno una pagina libera per il visto d'ingresso: turisti con passaporti rovinati sono stati respinti.",
+    "citazioni": [
+     "Necessario, con almeno 6 (sei) mesi di validità residua.",
+     "che il passaporto sia in ottimo stato e che vi sia almeno una pagina libera per l'apposizione del visto d'ingresso",
+     "Si sono registrati casi di turisti italiani a cui è stato rifiutato l'ingresso nel Paese"
+    ]
+   }
+  },
+  "MEX": {
+   "campi": {
+    "visto": "24c1794369f74e13"
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "non_necessario",
+    "turismo": true,
+    "sintesi": "Per turismo o affari non serve il visto fino a 180 giorni di permanenza. All'arrivo il turista deve compilare un formulario.",
+    "durata": "fino a 180 giorni di permanenza nel Paese",
+    "citazioni": [
+     "Non necessario, per turismo o viaggi d’affari, fino a 180 giorni di permanenza nel Paese."
+    ],
+    "formalita": [
+     {
+      "nome": "formulario d'ingresso",
+      "tipo": "modulo da compilare all'arrivo",
+      "citazione": "All’arrivo nel Paese, il turista deve compilare un formulario"
+     }
+    ],
+    "note": [
+     "C'è anche una tassa aeroportuale, di solito già compresa nel biglietto emesso in Italia (sigla «UK»); se non lo è, si paga alla partenza dal Messico.",
+     "Chi va nello Stato di Quintana Roo deve pagare online la Visitax, una tassa di 20,99 dollari USA a persona."
+    ],
+    "citazioni_note": [
+     "una tassa aeroportuale, normalmente inclusa nel costo del biglietto aereo emesso in Italia",
+     "In caso la tassa non fosse stata inclusa nel biglietto, é necessario pagarla al momento di lasciare il Paese.",
+     "lo Stato di Quintana Roo applica la Visitax, una tassa di $20.99 USD per persona",
+     "Il pagamento deve essere effettuato esclusivamente online"
+    ]
+   }
+  },
+  "IDN": {
+   "campi": {
+    "visto": "4dcd190e22aab24e",
+    "passaporto": "fa2c7c86e643a3fb"
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "all_arrivo",
+    "turismo": true,
+    "sintesi": "Per soggiorni inferiori a 30 giorni (turismo, affari e gli altri motivi elencati) non serve chiedere il visto prima di partire: si ottiene il «Visa on Arrival» (e-VOA) all'arrivo nei principali punti di accesso, oppure online almeno una settimana prima. Il visto turistico costa 500.000 rupie indonesiane (IDR), vale 30 giorni e si può rinnovare per altri 30.",
+    "citazioni": [
+     "per un periodo inferiore a 30 giorni",
+     "sono esentati dall'obbligo preventivo di richiedere il visto",
+     "almeno una settimana prima della partenza",
+     "pagamento dell'importo di IDR 500.000 per il visto turistico",
+     "Tale visto ha una validità di 30 giorni e può essere rinnovato per ulteriori 30 giorni"
+    ],
+    "formalita": [],
+    "note": [
+     "Per il visto all'arrivo servono anche un biglietto di ritorno o di proseguimento fuori dall'Indonesia; l'importo si paga all'arrivo in aeroporto.",
+     "All'arrivo la dogana chiede la dichiarazione doganale elettronica (Electronic Custom Declaration), che si può compilare online non prima di tre giorni prima dell'arrivo.",
+     "Chi arriva a Bali deve pagare una tassa di 150.000 rupie (IDR) a persona; la scheda suggerisce di pagarla prima dell'arrivo, sul sito indicato nella scheda."
+    ],
+    "citazioni_note": [
+     "un titolo di viaggio per il ritorno ovvero per la prosecuzione del viaggio fuori dall'Indonesia",
+     "da effettuare direttamente all'arrivo in aeroporto",
+     "le Autorita' doganali richiederanno di esibire la Dichiarazione doganale (Electronic Custom Declaration)",
+     "non prima dei tre giorni antecedenti la data di arrivo in Indonesia",
+     "l'obbligo del pagamento di una tassa di IDR 150.000 a persona",
+     "La predetta circolare suggerisce di effettuare il pagamento prima dell'arrivo a Bali."
+    ]
+   },
+   "validita": {
+    "campo": "passaporto",
+    "esito": "numero",
+    "n": 6,
+    "unita": "mesi",
+    "scritto_il": "2026-10-18",
+    "sintesi": "Almeno 6 mesi di validità residua alla data di ingresso, e almeno due pagine bianche (senza timbri): la scheda dice che il requisito è tassativo. Il passaporto deve essere integro: turisti con passaporti danneggiati sono stati respinti.",
+    "citazioni": [
+     "validità residua di almeno 6 (sei) mesi alla data di ingresso in Indonesia",
+     "almeno due pagine bianche (senza timbri)",
+     "Tale requisito é tassativo e non sono ammesse eccezioni.",
+     "si sono registrati casi di turisti italiani a cui è stato rifiutato l’ingresso nel Paese"
+    ]
+   }
+  },
+  "DOM": {
+   "campi": {
+    "visto": "96b7c5e6fc985904"
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "non_necessario",
+    "turismo": true,
+    "sintesi": "Per turismo non serve il visto per soggiorni inferiori a 30 giorni. Per entrare serve la «Tarjeta de Turista» (10 dollari o 10 euro), già inclusa nel prezzo del biglietto aereo. Prima di arrivare bisogna compilare online l'E-Ticket, da mostrare all'arrivo e alla partenza.",
+    "durata": "per soggiorni inferiori ai 30 giorni",
+    "citazioni": [
+     "non necessario per motivi di turismo, per soggiorni inferiori ai 30 giorni."
+    ],
+    "formalita": [
+     {
+      "nome": "Tarjeta de Turista",
+      "tipo": "tessera turistica a pagamento",
+      "citazione": "Il costo della tassa e' di 10 USD o 10 EURO."
+     },
+     {
+      "nome": "E-Ticket",
+      "tipo": "modulo online",
+      "citazione": "è necessario compilare l'E-Ticket"
+     }
+    ],
+    "note": [
+     "La Tarjeta de Turista è inclusa come sovrapprezzo nel biglietto aereo; il soggiorno si può prorogare pagando una tassa.",
+     "La tassa d'uscita (20 dollari o 20 euro) è inclusa nella tariffa dei voli di linea."
+    ],
+    "citazioni_note": [
+     "una speciale tessera turistica chiamata \"Tarjeta de Turista\"",
+     "è inclusa come sovrapprezzo nel costo del biglietto aereo",
+     "Tale periodo può essere prorogato di altri 30 giorni",
+     "Tassa d'uscita: 20 USD o 20 EURO",
+     "Tale tassa e' stata conglobata all'interno della tariffa del biglietto aereo, in caso di voli di linea."
+    ]
+   }
+  },
+  "KEN": {
+   "campi": {
+    "visto": "26d16b326060308d",
+    "passaporto": "0d3a1246d5bacf35",
+    "primo_piano": "b24fa75b2cacecf5"
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "non_necessario",
+    "sintesi": "Dal 1° gennaio 2024 non serve il visto, ma prima di partire bisogna ottenere l'autorizzazione elettronica eTA sul sito ufficiale www.etakenya.go.ke (circa 30 euro, circa 3 giorni lavorativi). Vale per un solo viaggio.",
+    "citazioni": [
+     "Dal primo (1) gennaio 2024, non viene più richiesto il visto"
+    ],
+    "formalita": [
+     {
+      "nome": "eTA",
+      "tipo": "autorizzazione elettronica",
+      "citazione": "occorre, tuttavia, ottenere un'autorizzazione all'ingresso (eTA), prima di iniziare il proprio viaggio"
+     }
+    ],
+    "note": [
+     "Le richieste fatte su siti diversi da quello ufficiale vengono rifiutate; se l'eTA viene negata non si può partire."
+    ],
+    "citazioni_note": [
+     "registrandosi sul sito www.etakenya.go.ke",
+     "Dopo aver effettuato il pagamento di circa 30 Euro, sono previsti circa tre (3) giorni lavorativi per il rilascio.",
+     "valida per un (1) solo viaggio",
+     "tutte le richieste compilate su un sito diverso da quello suindicato, verranno automaticamente rifiutate",
+     "Ove, invece, la richiesta venisse rifiutata, non sarà possibile effettuare il viaggio."
+    ]
+   },
+   "validita": {
+    "campo": "passaporto",
+    "esito": "numero",
+    "n": 6,
+    "unita": "mesi",
+    "scritto_il": "2026-10-18",
+    "sintesi": "Almeno 6 mesi di validità residua e almeno un'intera pagina bianca: senza, si può essere rimandati in Italia con il primo volo. Serve anche il biglietto aereo di andata e ritorno.",
+    "citazioni": [
+     "Necessario, con validità residua di almeno sei mesi.",
+     "il passaporto deve avere almeno un’intera pagina bianca",
+     "fatti rientrare in Italia con il primo volo utile",
+     "Occorre altresì essere in possesso di un biglietto aereo di andata e ritorno."
+    ]
+   },
+   "note_extra": [
+    {
+     "campo": "primo_piano",
+     "scritto_il": "2026-10-18",
+     "testo": "Dal 5 ottobre 2026 è obbligatoria anche un'assicurazione sanitaria di viaggio, stipulata con una compagnia assicurativa del Kenya.",
+     "citazioni": [
+      "Dal 5 ottobre 2026 é obbligatoria anche la stipula di un’apposita assicurazione sanitaria di viaggio, presso una Compagnia assicurativa locale."
+     ]
+    }
+   ]
+  },
+  "KOR": {
+   "campi": {
+    "passaporto": "9444a791c299856e",
+    "visto": "2925003b996447bc"
+   },
+   "validita": {
+    "campo": "passaporto",
+    "esito": "numero",
+    "n": 3,
+    "unita": "mesi",
+    "sintesi": "Almeno 3 mesi di validità residua per gli ingressi senza visto.",
+    "citazioni": [
+     "Necessario, con almeno 3 (tre) mesi di validità residua, per ingressi esenti da visto"
+    ]
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "non_necessario",
+    "turismo": true,
+    "sintesi": "Per turismo e attività non retribuite (per esempio congressi) non serve il visto per soggiorni inferiori a 90 giorni. La K-ETA, l'autorizzazione elettronica richiesta a chi entra senza visto, non è obbligatoria per i cittadini italiani fino al 31 dicembre 2026 (esenzione temporanea).",
+    "durata": "inferiori a 90 (novanta) giorni",
+    "citazioni": [
+     "Non necessario, per soggiorni per turismo o altre attività non remunerative (es. congressi, conferenze, seminari) inferiori a 90 (novanta) giorni."
+    ],
+    "formalita": [],
+    "note": [
+     "All'ingresso può essere chiesto il biglietto di ritorno."
+    ],
+    "citazioni_note": [
+     "I cittadini italiani sono temporaneamente esenti dall'obbligo di richiedere la K-ETA fino al 31 dicembre 2026.",
+     "All'ingresso nel Paese, può essere richiesto di esibire un biglietto di ritorno"
+    ]
+   }
+  },
+  "NZL": {
+   "campi": {
+    "visto": "c7afc38247c5f2a6"
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "autorizzazione",
+    "sintesi": "Chi non ha un visto di residenza deve richiedere prima di partire, almeno 72 ore prima, la NZeTA (Electronic Travel Authority): vale 2 anni e permette di entrare e restare fino a 90 giorni. Serve anche per il solo transito in Nuova Zelanda.",
+    "durata": "per un massimo di 90 giorni",
+    "citazioni": [
+     "devono richiedere una \"Electronic Travel Authority\" (NZeTA)",
+     "e' necessario richiederla almeno 72 ore, prima della partenza",
+     "ha una validità di 2 anni",
+     "soggiornare nel Paese per un massimo di 90 giorni",
+     "L'NZeTA è richiesta a tutti i viaggiatori in transito in Nuova Zelanda"
+    ],
+    "formalita": [
+     {
+      "nome": "NZeTA",
+      "tipo": "autorizzazione elettronica",
+      "citazione": "La NZeTA deve essere richiesta prima di partire"
+     }
+    ],
+    "note": [],
+    "citazioni_note": []
+   }
+  },
+  "BGR": {
+   "campi": {
+    "passaporto": "c2860b76c58928d1"
+   },
+   "documento": {
+    "campo": "passaporto",
+    "esito": "cie",
+    "sintesi": "Sì: passaporto oppure carta d'identità valida per l'espatrio, in corso di validità. Con la sola carta d'identità si può restare fino a 90 giorni in un semestre. La scheda segnala respingimenti con carte d'identità rinnovate con un certificato del Comune o danneggiate; il modello AT e la patente non sono accettati.",
+    "citazioni": [
+     "E’ necessario viaggiare con uno dei due documenti, in corso di validità",
+     "fino ad un massimo di 90 giorni all'interno di un semestre, con la sola Carta d'Identità valida per l'espatrio",
+     "non viene accettato come documento valido per l'espatrio",
+     "anche la patente di guida non è un documento di riconoscimento valido per l’accesso in Bulgaria"
+    ]
+   }
+  },
+  "GEO": {
+   "campi": {
+    "passaporto": "6cfec56bd0d21109"
+   },
+   "documento": {
+    "campo": "passaporto",
+    "esito": "cie_condizioni",
+    "sintesi": "Sì, ma solo transitando da Paesi Schengen, e la scheda consiglia il passaporto: la carta d'identità elettronica valida per l'espatrio è ammessa a questa condizione, ma sono stati segnalati casi di carte non accettate. Conviene usare lo stesso documento all'ingresso e all'uscita. Si può viaggiare anche con il documento provvisorio cartaceo rilasciato dai Comuni.",
+    "citazioni": [
+     "Si può utilizzare anche la CIE",
+     "purché si transiti da Paesi Schengen",
+     "Si segnalano, tuttavia, casi di mancata accettazione delle carte d'identita'",
+     "a preferire il passaporto e ad utilizzare lo stesso documento sia in ingresso sia in uscita",
+     "con il quale sara' possibile viaggiare in Georgia"
+    ]
+   },
+   "note_extra": [
+    {
+     "campo": "passaporto",
+     "testo": "Dal 1° gennaio 2026 per entrare in Georgia serve un'assicurazione sanitaria valida per tutto il soggiorno, con copertura minima di 30.000 GEL.",
+     "citazioni": [
+      "Dal 1 gennaio 2026 e' necessario essere in possesso di una valida assicurazione sanitaria, per fare ingresso in Georgia",
+      "deve prevedere un ammontare minimo di 30.000 GEL",
+      "La polizza di copertura deve contenere l'intero periodo di permanenza in Georgia"
+     ]
+    }
+   ]
+  },
+  "MUS": {
+   "campi": {
+    "passaporto": "c4a62cb248b01c09",
+    "visto": "4dd169f8a7c4178c"
+   },
+   "validita": {
+    "campo": "passaporto",
+    "esito": "rientro",
+    "sintesi": "Basta che la scadenza sia successiva alla data del ritorno: non servono più 6 mesi di validità residua. Il passaporto deve avere almeno una pagina bianca.",
+    "citazioni": [
+     "é sufficiente che la scadenza sia successiva alla data del ritorno dal viaggio",
+     "Non è più necessaria la validità residua di almeno 6 mesi",
+     "Il passaporto deve recare almeno una pagina bianca/vuota."
+    ]
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "non_necessario",
+    "turismo": true,
+    "scritto_il": "2026-10-18",
+    "sintesi": "Per turismo o affari non serve il visto fino a 90 giorni, ma bisogna avere il biglietto aereo di ritorno. La scheda invita anche a compilare online, prima della partenza, il modulo «All in One Travel»: il codice QR che si ottiene si mostra all'arrivo in aeroporto.",
+    "durata": "fino a 90 giorni di permanenza nel Paese",
+    "citazioni": [
+     "non richiesto per viaggi turistici o di affari, fino a 90 giorni di permanenza nel Paese.",
+     "essere in possesso del biglietto aereo di ritorno"
+    ],
+    "formalita": [],
+    "note": [],
+    "citazioni_note": [
+     "si invita a compilare direttamente online, prima della partenza, il modulo “All in One Travel”",
+     "si genererà un file PDF con un codice QR, che potrà essere presentato all’arrivo in aeroporto"
+    ]
+   }
+  },
+  "PHL": {
+   "campi": {
+    "visto": "41bf0f29d286038a"
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "all_arrivo",
+    "sintesi": "Per soggiorni fino a 30 giorni non serve chiedere il visto prima di partire: all'arrivo le autorità di frontiera concedono un visto (Visa on Arrival) con un timbro sul passaporto, mostrando un biglietto di ritorno o di proseguimento. Bisogna compilare online l'e-Arrival Card sul sito etravel.gov.ph.",
+    "citazioni": [
+     "non devono richiedere il visto d'ingresso preventivo, per un soggiorno non superiore a 30 giorni",
+     "verrà concesso sotto forma di timbro apposto sul passaporto"
+    ],
+    "formalita": [
+     {
+      "nome": "e-Arrival Card (eTravel)",
+      "tipo": "carta d'arrivo digitale",
+      "citazione": "E' obbligatoria la compilazione di un modulo informatico \"e-Arrival Card\", attraverso il sito https://etravel.gov.ph"
+     }
+    ],
+    "note": [
+     "La scheda consiglia di compilarla entro le 72 ore prima della partenza: il codice QR viene chiesto all'imbarco e all'arrivo."
+    ],
+    "citazioni_note": [
+     "Si consiglia di compilare il modulo entro le 72 ore prima della partenza",
+     "è richiesta all'imbarco da parte delle Compagnie Aeree e all'arrivo nelle Filippine"
+    ]
+   }
+  },
+  "ISR": {
+   "campi": {
+    "passaporto": "df3ec8ddf58094b3",
+    "visto": "9931512c6dd9dc83"
+   },
+   "validita": {
+    "campo": "passaporto",
+    "esito": "numero",
+    "n": 3,
+    "unita": "mesi",
+    "sintesi": "Almeno 3 mesi di validità residua dalla data di ingresso se si entra con l'autorizzazione elettronica ETA-IL; almeno 6 mesi se si entra con un visto.",
+    "citazioni": [
+     "con almeno 3 mesi di validità residua dalla data di ingresso in Israele, in caso di ingresso con autorizzazione ETA-IL",
+     "il passaporto deve avere validità residua di almeno 6 mesi dalla data di ingresso"
+    ]
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "non_necessario",
+    "turismo": true,
+    "sintesi": "Per turismo non serve il visto per soggiorni inferiori a 90 giorni. Dal 1° gennaio 2025 chi entra senza visto deve però ottenere, prima di imbarcarsi o di arrivare alla frontiera, l'autorizzazione elettronica ETA-IL sul sito ufficiale (costo 25 ILS).",
+    "durata": "per soggiorni turistici inferiori a 90 giorni",
+    "citazioni": [
+     "non necessario, per soggiorni turistici inferiori a 90 giorni."
+    ],
+    "formalita": [
+     {
+      "nome": "ETA-IL",
+      "tipo": "autorizzazione elettronica",
+      "citazione": "dovranno dotarsi di un’autorizzazione preventiva al viaggio, prima di imbarcarsi sul volo o di recarsi alla frontiera"
+     }
+    ],
+    "note": [
+     "L'autorizzazione vale 2 anni (o fino alla scadenza del passaporto, se prima) e non garantisce l'ingresso.",
+     "All'ingresso non viene messo il timbro sul passaporto: si riceve un tagliando, da conservare fino al rientro in Italia (serve anche per entrare nei Territori Palestinesi)."
+    ],
+    "citazioni_note": [
+     "Dal 1° gennaio 2025, i cittadini italiani che intendano recarsi in Israele",
+     "Il servizio ha un costo di 25 ILS",
+     "un’autorizzazione al viaggio valida 2 anni",
+     "ETA-IL non fornisce, tuttavia, garanzia di ammissione in territorio israeliano",
+     "le Autorità israeliane non appongono il timbro di ingresso sul passaporto",
+     "Si raccomanda vivamente di conservare tale tagliando, sino al momento del rientro in Italia."
+    ]
+   }
+  },
+  "MNE": {
+   "campi": {
+    "passaporto": "81ee6d51a410b449",
+    "visto": "e4aa51f1827c320e"
+   },
+   "documento": {
+    "campo": "passaporto",
+    "esito": "cie_condizioni",
+    "sintesi": "Sì, ma per soggiorni più brevi: per turismo si entra con il passaporto per soggiorni fino a 90 giorni, oppure con la carta d'identità elettronica valida per l'espatrio per soggiorni fino a 30 giorni.",
+    "citazioni": [
+     "possono entrare per turismo con il passaporto, per soggiorni fino a 90 giorni",
+     "con la CIE valida per l'espatrio, per soggiorni fino a 30 giorni"
+    ]
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "non_necessario",
+    "sintesi": "Non serve il visto per soggiorni inferiori a 90 giorni. Per i soggiorni turistici di più di 3 giorni bisogna registrarsi e pagare una tassa di soggiorno (la ricevuta si chiama «White Card»): in albergo o in campeggio lo fa la struttura; chi alloggia privatamente deve registrarsi entro 48 ore dall'arrivo presso la Polizia o le organizzazioni turistiche.",
+    "durata": "per soggiorni inferiori ai 90 giorni",
+    "citazioni": [
+     "Non necessario, per soggiorni inferiori ai 90 giorni."
+    ],
+    "formalita": [],
+    "note": [],
+    "citazioni_note": [
+     "oltre i 3 giorni e fino ad un massimo di 90 giorni",
+     "è necessario registrarsi attraverso la compilazione di formulari",
+     "pagare una tassa di soggiorno per il rilascio della ricevuta di registrazione",
+     "anche nota come \"White Card\"",
+     "la registrazione presso la Polizia avviene a cura della struttura di accoglienza",
+     "Se si alloggia privatamente, è obbligo del viaggiatore registrarsi",
+     "entro 48 ore dall'arrivo"
+    ]
+   }
+  },
+  "BRA": {
+   "campi": {
+    "visto": "14c458e3979269a7"
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "non_necessario",
+    "turismo": true,
+    "scritto_il": "2026-10-18",
+    "sintesi": "Per affari o turismo non serve il visto per soggiorni inferiori a 90 giorni in 6 mesi, purché si abbia il biglietto aereo di andata e ritorno.",
+    "durata": "per soggiorni di affari/turismo inferiori a 90 giorni nell’arco di 6 mesi",
+    "citazioni": [
+     "non è necessario il visto di ingresso per soggiorni di affari/turismo inferiori a 90 giorni nell’arco di 6 mesi",
+     "biglietto aereo di andata e ritorno"
+    ],
+    "formalita": [],
+    "note": [],
+    "citazioni_note": []
+   }
+  },
+  "CPV": {
+   "campi": {
+    "visto": "2a2c7683e39c4d5d"
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "non_necessario",
+    "turismo": true,
+    "scritto_il": "2026-10-18",
+    "sintesi": "Per turismo non serve il visto per soggiorni fino a 30 giorni. È però obbligatorio pagare la Tassa di Sicurezza Aeroportuale (TSA), 3.400 escudos (31 euro): prima del viaggio sulla piattaforma www.ease.gov.cv oppure all'arrivo in aeroporto.",
+    "durata": "per soggiorni fino a 30 giorni",
+    "citazioni": [
+     "Il visto turistico non è necessario per soggiorni fino a 30 giorni."
+    ],
+    "formalita": [],
+    "note": [
+     "Per restare più di 30 giorni serve un visto da chiedere prima della partenza, online sul portale consolare di Capo Verde o a una sede diplomatico-consolare di Capo Verde in Italia; chi è già nel Paese può chiedere alla polizia una proroga di 30 giorni."
+    ],
+    "citazioni_note": [
+     "è obbligatorio pagare la Tassa di Sicurezza Aeroportuale (TSA)",
+     "sulla piattaforma www.ease.gov.cv",
+     "all'arrivo in aeroporto.",
+     "La tassa è di 3.400 CVEs, pari a 31€.",
+     "Chi intenda permanere oltre i 30 giorni deve munirsi preventivamente di un visto ottenibile online",
+     "è possibile richiedere una proroga del soggiorno di 30 giorni presso una stazione di polizia"
+    ]
+   }
+  },
+  "CUB": {
+   "campi": {
+    "passaporto": "855962b728c206ba",
+    "visto": "0db6d06e8f50edae"
+   },
+   "documento": {
+    "campo": "passaporto",
+    "esito": "passaporto",
+    "scritto_il": "2026-10-18",
+    "sintesi": "Serve il passaporto: la scheda parla solo del passaporto e non cita la carta d'identità.",
+    "citazioni": [
+     "si suggerisce, comunque, di presentare sempre un passaporto che non scada prima dei 6 (sei) mesi dall’ingresso nel Paese"
+    ]
+   },
+   "validita": {
+    "campo": "passaporto",
+    "esito": "numero",
+    "n": 6,
+    "unita": "mesi",
+    "scritto_il": "2026-10-18",
+    "sintesi": "La scheda consiglia un passaporto che non scada prima di 6 mesi dall'ingresso: con una validità residua inferiore le autorità di frontiera possono non far entrare.",
+    "citazioni": [
+     "possibilità di non ammettere l’ingresso di stranieri, che abbiano un passaporto con validità residua inferiore ai 6 (sei) mesi",
+     "si suggerisce, comunque, di presentare sempre un passaporto che non scada prima dei 6 (sei) mesi dall’ingresso nel Paese"
+    ]
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "necessario",
+    "turismo": true,
+    "scritto_il": "2026-10-18",
+    "sintesi": "Sì, serve il visto, da ottenere prima della partenza: senza, si può essere respinti all'imbarco. Le autorità cubane rilasciano solo visti elettronici: si ottiene tramite il tour operator che vende il biglietto aereo oppure, per chi viaggia da solo, online sulla piattaforma EVISA, presso gli uffici consolari cubani in Italia o presso agenzie autorizzate. Dopo averlo ricevuto bisogna compilare online il formulario D'VIAJEROS, da mostrare all'ingresso a Cuba. Il visto vale al massimo 90 giorni e si può rinnovare per altri 90.",
+    "citazioni": [
+     "E' necessario il visto di ingresso.",
+     "E’ comunque sempre necessario aver ottenuto il visto, prima della partenza",
+     "si potrebbe essere respinti all’imbarco",
+     "le Autorità cubane emettono esclusivamente visti in formato elettronico",
+     "tramite la piattaforma EVISA o in presenza, presso gli Uffici consolari cubani in Italia",
+     "è anche d’obbligo compilare il formulario online D'VIAJEROS",
+     "che andrà esibito al momento dell'entrata in territorio cubano",
+     "concesso per un periodo massimo di 90 (novanta) giorni, rinnovabile per ulteriori 90 (novanta) giorni"
+    ],
+    "formalita": [],
+    "note": [
+     "Chi visita Cuba rischia che gli Stati Uniti gli revochino l'ESTA, anche se poi passa dagli Stati Uniti solo per uno scalo tecnico."
+    ],
+    "citazioni_note": [
+     "possano revocare l'ESTA, ai viaggiatori in visita a Cuba, anche in caso di scalo tecnico"
+    ]
+   }
+  },
+  "HRV": {
+   "campi": {
+    "visto": "478ac5a3408fb604",
+    "primo_piano": "905b813383382e07"
+   },
+   "visto": {
+    "campo": "primo_piano",
+    "esito": "non_necessario",
+    "scritto_il": "2026-10-18",
+    "sintesi": "Non serve il visto: lo scrive il riquadro «Documenti e visti» della scheda, mentre il campo «Visto di ingresso» parla solo della registrazione dopo l'arrivo, spiegata più sotto.",
+    "citazioni": [
+     "Il visto di ingresso non è richiesto."
+    ],
+    "formalita": [],
+    "note": [],
+    "citazioni_note": []
+   },
+   "note_extra": [
+    {
+     "campo": "visto",
+     "scritto_il": "2026-10-18",
+     "testo": "Entro 24 ore dall'ingresso i turisti devono essere registrati presso l'ufficio del turismo: di solito lo fa l'albergo; se si alloggia da privati deve farlo chi ospita, e la scheda consiglia di controllare che l'abbia fatto.",
+     "citazioni": [
+      "Entro 24 ore dall’ingresso in Croazia, i turisti devono registrare la propria presenza presso l’ufficio del Turismo.",
+      "solitamente svolta dalle strutture alberghiere",
+      "sarà la persona che ospita a dover comunicare la presenza del turista alla polizia",
+      "accertarsi che l’alloggiatore abbia provveduto a tale registrazione"
+     ]
+    }
+   ]
+  },
+  "IND": {
+   "campi": {
+    "passaporto": "fe3316664ac6f31e",
+    "visto": "7556f34f4221f186",
+    "primo_piano": "1bd644bf117ad238"
+   },
+   "validita": {
+    "campo": "passaporto",
+    "esito": "numero",
+    "n": 6,
+    "unita": "mesi",
+    "scritto_il": "2026-10-18",
+    "sintesi": "Almeno 6 mesi di validità residua: per chi chiede l'eVisa contati dalla data della domanda, per chi arriva via terra dalla data di arrivo.",
+    "citazioni": [
+     "con validità residua di almeno 6 (sei) mesi, al momento dell’arrivo via terra",
+     "in caso di richiesta di eVisa, dalla data di presentazione della domanda di visto"
+    ]
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "necessario",
+    "turismo": true,
+    "scritto_il": "2026-10-18",
+    "sintesi": "Sì, serve il visto anche per soggiorni brevi (meno di 90 giorni) per turismo, affari o cure mediche. Si può chiedere online (eVisa) sul sito ufficiale indianvisaonline.gov.in almeno quattro giorni prima dell'ingresso; con l'eVisa si entra solo in aereo, dagli aeroporti elencati nella scheda. Chi entra via terra deve avere un visto ordinario, rilasciato dalle sedi diplomatico-consolari indiane in Italia.",
+    "citazioni": [
+     "Il visto d'ingresso è necessario, per soggiorni di breve periodo (inferiori a 90 giorni)",
+     "per affari e per cure mediche",
+     "almeno quattro giorni prima della data di ingresso nel Paese",
+     "L'eVisa consente di fare ingresso e reingresso nel Paese esclusivamente per via aerea.",
+     "L'ingresso in India via terra è consentito solo ai possessori di visto ordinario"
+    ],
+    "formalita": [],
+    "note": [
+     "Chi chiede il visto deve avere un passaporto valido almeno 6 mesi dalla data della domanda e con due pagine bianche; all'arrivo bisogna mostrare il biglietto di ritorno e avere risorse sufficienti per il soggiorno."
+    ],
+    "citazioni_note": [
+     "almeno sei mesi di validità residua, dalla data di presentazione della domanda di visto, e due pagine bianche",
+     "dimostrare di disporre di un biglietto di ritorno e risorse sufficienti"
+    ]
+   },
+   "note_extra": [
+    {
+     "campo": "primo_piano",
+     "scritto_il": "2026-10-18",
+     "testo": "Chi entra in India deve compilare online la Carta di Arrivo Elettronica, da mostrare all'Ufficio Immigrazione all'arrivo.",
+     "citazioni": [
+      "I cittadini stranieri sono inoltre tenuti a compilare una Carta di Arrivo Elettronica online",
+      "da esibire all'Ufficio Immigrazione al loro arrivo in India."
+     ]
+    }
+   ]
+  },
+  "JOR": {
+   "campi": {
+    "visto": "4346c455d530cfbe"
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "necessario",
+    "turismo": true,
+    "scritto_il": "2026-10-18",
+    "sintesi": "Sì, serve il visto. Per turismo si può ottenere online sul sito ufficiale del Ministero dell'Interno giordano (o con la sua app), all'arrivo all'aeroporto internazionale Queen Alia di Amman o alle frontiere terrestri; al King Hussein Bridge e all'arrivo del traghetto dall'Egitto le autorità raccomandano di comprarlo prima online. Il visto per un solo ingresso costa 40 dinari giordani (JOD) e dura 3 mesi, prorogabili. Chi ha il Jordan Pass e resta almeno tre notti non paga il visto.",
+    "citazioni": [
+     "E' necessario il visto d'ingresso.",
+     "sito ufficiale del Ministero dell'Interno giordano",
+     "al momento dell'arrivo all'Aeroporto internazionale \"Queen Alia\" di Amman",
+     "presso tutte le frontiere terrestri.",
+     "resta fortemente caldeggiato da queste Autorità l'acquisto preventivo online del visto d'ingresso",
+     "Il costo del visto, della durata di 3 (tre) mesi, per l’ingresso singolo è di 40 dinari giordani (JOD)",
+     "Sono esenti dal pagamento del costo del visto",
+     "i titolari del “Jordan Pass” che soggiornino in Giordania per almeno tre notti"
+    ],
+    "formalita": [],
+    "note": [
+     "Chi resta più di due settimane deve registrare il luogo in cui alloggia entro 14 giorni dall'arrivo presso il Dipartimento di Pubblica Sicurezza o una stazione di polizia (multa fino a 200 JOD); ne sono esenti i titolari del Jordan Pass."
+    ],
+    "citazioni_note": [
+     "tutti gli stranieri che soggiornino in Giordania per più di due settimane, devono obbligatoriamente registrare il proprio luogo di residenza",
+     "entro 14 giorni dall'arrivo nel Paese",
+     "La mancata registrazione entro i tempi previsti è passibile di una multa fino a 200 JOD.",
+     "i titolari di \"Jordan Pass\""
+    ]
+   }
+  },
+  "JPN": {
+   "campi": {
+    "passaporto": "10937a0c1a9824fe"
+   },
+   "note_extra": [
+    {
+     "campo": "passaporto",
+     "scritto_il": "2026-10-18",
+     "testo": "All'ingresso bisogna avere anche il biglietto aereo di ritorno. La scheda raccomanda un passaporto integro e leggibile; un passaporto denunciato in passato come smarrito o rubato può far rifiutare l'ingresso.",
+     "citazioni": [
+      "Al momento dell’ingresso nel Paese, occorre essere in possesso anche del biglietto aereo di ritorno.",
+      "si raccomanda di verificare che il passaporto sia integro e leggibile",
+      "ove si presenti un passaporto precedentemente denunciato come smarrito o rubato"
+     ]
+    }
+   ]
+  },
+  "LKA": {
+   "campi": {
+    "passaporto": "123bee32f9dc1ac1",
+    "visto": "ca75b71dcfa6e631"
+   },
+   "validita": {
+    "campo": "passaporto",
+    "esito": "numero",
+    "n": 6,
+    "unita": "mesi",
+    "scritto_il": "2026-10-18",
+    "sintesi": "Almeno 6 mesi di validità residua e almeno due pagine bianche consecutive per il visto e i timbri.",
+    "citazioni": [
+     "con una validità residua di almeno 6 (sei) mesi",
+     "con almeno due pagine bianche consecutive per il visto e timbri"
+    ]
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "necessario",
+    "scritto_il": "2026-10-18",
+    "sintesi": "Sì, serve il visto. Dal 25 maggio 2026 per chi ha il passaporto italiano è gratuito, ma bisogna chiederlo prima dell'arrivo sul portale ufficiale e ottenere l'autorizzazione elettronica ETA (Electronic Travel Authorization). A volte non arriva una conferma formale: lo stato della domanda si può controllare sullo stesso portale.",
+    "citazioni": [
+     "necessario.",
+     "Dal 25 maggio 2026, per i titolari di passaporto italiano, il visto è gratuito",
+     "é necessario farne richiesta sul portale",
+     "ed ottenere una Electronic Travel Authorization (ETA)",
+     "potrebbe non pervenire una comunicazione formale di approvazione della domanda",
+     "La validità di un ETA può comunque essere verificata sul portale dedicato"
+    ],
+    "formalita": [],
+    "note": [],
+    "citazioni_note": []
+   }
+  },
+  "MDV": {
+   "campi": {
+    "passaporto": "f243e8f1d5c5c246",
+    "visto": "e257fc6920b5aea7",
+    "primo_piano": "953ca8bef89c7f4f"
+   },
+   "validita": {
+    "campo": "passaporto",
+    "esito": "numero",
+    "n": 30,
+    "unita": "giorni",
+    "scritto_il": "2026-10-18",
+    "sintesi": "Almeno 30 giorni di validità residua dopo la data del rientro, per i visti turistici. La scheda consiglia però almeno 6 mesi, perché spesso servono voli con scalo. Serve il passaporto elettronico (con microchip).",
+    "citazioni": [
+     "è di almeno 30 giorni, dopo la data del rientro, per i visti turistici",
+     "si consiglia di viaggiare con passaporto avente una validità residua di almeno 6 (sei) mesi",
+     "é necessario il possesso di un passaporto elettronico"
+    ]
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "all_arrivo",
+    "turismo": true,
+    "scritto_il": "2026-10-18",
+    "sintesi": "Il visto è obbligatorio, ma quello turistico di 30 giorni si riceve direttamente in aeroporto all'arrivo e si può prolungare di altri 60 giorni (fino a 90 in tutto). Chi non viaggia con un tour operator deve avere una prenotazione confermata in una struttura alberghiera. La scheda chiede anche di compilare online, nelle 96 ore prima dell'arrivo, la «Traveller Declaration» IMUGA, che è gratuita.",
+    "citazioni": [
+     "obbligatorio",
+     "Il visto turistico di 30 (trenta) giorni è concesso direttamente in aeroporto, al momento dell’ingresso nel Paese",
+     "é possibile estenderlo di ulteriori 60 (sessanta) giorni, per un totale di 90 (novanta) giorni",
+     "è richiesta una prenotazione confermata, presso una delle strutture alberghiere"
+    ],
+    "formalita": [],
+    "note": [],
+    "citazioni_note": [
+     "La \"Traveller Declaration\" IMUGA è tuttora attiva e gratuita",
+     "entro le 96 ore che precedono l'arrivo alle Maldive"
+    ]
+   },
+   "note_extra": [
+    {
+     "campo": "primo_piano",
+     "scritto_il": "2026-10-18",
+     "testo": "Nel riquadro «Documenti e visti» la scheda scrive che tutti i viaggiatori devono compilare la Traveller Declaration IMUGA nelle 96 ore prima dell'arrivo; all'uscita dalle Maldive non serve più.",
+     "citazioni": [
+      "Tutti i viaggiatori sono tenuti a compilare una \"Traveller Declaration\"",
+      "entro le 96 ore che precedono l'arrivo alle Maldive",
+      "ai viaggiatori in uscita dalle Maldive, non sarà più richiesto di compilare la \"Traveller Declaration\""
+     ]
+    }
+   ]
+  },
+  "TZA": {
+   "campi": {
+    "visto": "03f9b7e5b3dec03a",
+    "primo_piano": "e38d5237430cae92"
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "necessario",
+    "turismo": true,
+    "scritto_il": "2026-10-18",
+    "sintesi": "Sì, serve il visto, per turismo e per affari. Si può ottenere all'arrivo negli aeroporti internazionali (Dar es Salaam, Zanzibar e Kilimanjaro), pagando in contanti in dollari USA o con carta di credito, oppure online sul sito ufficiale almeno 10 giorni prima della partenza (anche con l'assistenza, a pagamento, del Consolato onorario a Milano). Gli altri siti non sono autorizzati.",
+    "citazioni": [
+     "Necessario, sia per motivi turistici, sia per affari.",
+     "Il visto si può ottenere facilmente all'arrivo in aeroporto",
+     "pagando in contanti (dollari USA) o tramite carta di credito",
+     "Visto da richiedere almeno 10 giorni prima della data di partenza",
+     "assistenza del Consolato Onorario a Milano con pagamaneto di un sovrapprezzo",
+     "Qualsiasi altro sito non governativo, non è autorizzato"
+    ],
+    "formalita": [],
+    "note": [],
+    "citazioni_note": []
+   },
+   "note_extra": [
+    {
+     "campo": "primo_piano",
+     "scritto_il": "2026-10-18",
+     "testo": "Chi va a Zanzibar deve stipulare un'assicurazione obbligatoria (i dettagli sono nella scheda); per il resto della Tanzania la scheda raccomanda un'assicurazione sanitaria privata.",
+     "citazioni": [
+      "In caso ci si rechi a Zanzibar, si rende invece necessario stipulare un'assicurazione obbligatoria",
+      "E' raccomandata la stipula di assicurazioni sanitarie private."
+     ]
+    }
+   ]
+  },
+  "ZAF": {
+   "campi": {
+    "passaporto": "5d494bc3217f84a9",
+    "visto": "237cfc79adbee436",
+    "primo_piano": "7a1f629706cce4d9"
+   },
+   "validita": {
+    "campo": "passaporto",
+    "esito": "numero",
+    "n": 30,
+    "unita": "giorni",
+    "scritto_il": "2026-10-18",
+    "sintesi": "Almeno 30 giorni di validità residua e almeno 2 pagine libere per il visto.",
+    "citazioni": [
+     "necessario, con almeno 30 giorni di validità residua e con almeno 2 pagine libere, per apporvi il visto."
+    ]
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "non_necessario",
+    "scritto_il": "2026-10-18",
+    "sintesi": "Non serve il visto per soggiorni inferiori a 90 giorni: alla frontiera bastano il passaporto e il biglietto aereo con cui si torna in Italia.",
+    "durata": "per soggiorni inferiori a 90 giorni",
+    "citazioni": [
+     "Non necessario, per soggiorni inferiori a 90 giorni.",
+     "è sufficiente presentare, al posto di frontiera, il passaporto e il biglietto aereo con cui si rientrerà in Italia"
+    ],
+    "formalita": [],
+    "note": [
+     "Per motivi diversi dal turismo, o per più di 90 giorni, serve un visto da chiedere prima della partenza alle sedi diplomatico-consolari sudafricane."
+    ],
+    "citazioni_note": [
+     "per motivi diversi dal turismo o per periodi superiori a 90 giorni dovrà",
+     "ottenere preventivamente il relativo visto presso le Rappresentanze diplomatico/consolari sudafricane nel Paese di origine"
+    ]
+   },
+   "note_extra": [
+    {
+     "campo": "primo_piano",
+     "scritto_il": "2026-10-18",
+     "testo": "La scheda ricorda di compilare online la Customs Online Traveller Declaration del South African Revenue Service (SARS), che le autorità possono chiedere all'arrivo e alla ripartenza.",
+     "citazioni": [
+      "Si ricorda di compilare online la Customs Online Traveller Declaration",
+      "che potrà essere richiesta dalle Autorità locali al momento dell'arrivo in Sudafrica e della successiva ripartenza dal Paese"
+     ]
+    }
+   ]
+  },
+  "ARG": {
+   "campi": {
+    "visto": "988f7e6d4853f598",
+    "primo_piano": "e106f56a6968e215"
+   },
+   "visto": {
+    "campo": "visto",
+    "esito": "non_necessario",
+    "turismo": true,
+    "scritto_il": "2026-10-18",
+    "sintesi": "Per turismo non serve il visto per soggiorni inferiori a 90 giorni. Agli uffici immigrazione locali si può chiedere una proroga di altri 90 giorni al massimo, se il passaporto è valido abbastanza a lungo.",
+    "durata": "per soggiorni turistici inferiori ai 90 giorni",
+    "citazioni": [
+     "Non è necessario il visto di ingresso, per soggiorni turistici inferiori ai 90 giorni",
+     "una proroga per ulteriori 90 giorni massimi",
+     "a condizione che il passaporto abbia validità residua sufficiente per l'estensione richiesta"
+    ],
+    "formalita": [],
+    "note": [
+     "Per studio, lavoro o altri motivi diversi dal turismo serve un visto, da chiedere agli uffici consolari argentini."
+    ],
+    "citazioni_note": [
+     "per studio, lavoro o per qualsiasi altro motivo diverso dal turismo, dovranno ottenere l'apposito visto"
+    ]
+   },
+   "note_extra": [
+    {
+     "campo": "primo_piano",
+     "scritto_il": "2026-10-18",
+     "testo": "Nel riquadro «Documenti e visti» la scheda scrive che, secondo un decreto del 28 maggio 2025, chi entra in Argentina deve firmare una dichiarazione giurata sul motivo del viaggio e sul possesso di un'assicurazione sanitaria: leggi la scheda per sapere se e come viene chiesta.",
+     "citazioni": [
+      "Decreto Nazionale d'Urgenza 2025-366-APN-PTE del 28 maggio 2025",
+      "tutti i cittadini stranieri che intendano, a qualsiasi titolo, entrare in Argentina",
+      "saranno tenuti a firmare una dichiarazione giurata",
+      "di essere in possesso di un'assicurazione sanitaria"
+     ]
+    }
+   ]
+  }
+ }
+}

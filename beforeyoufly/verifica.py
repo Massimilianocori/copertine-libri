@@ -35,6 +35,15 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     nessun link affiliato attivo (affiliati.json senza URL, nessun rel="sponsored"). Nel browser (punto 7): 5 pagine nuove a 375 px e
     10 casi dello strumento "Does my bag fit?" (borsa ruotata, misure uguali, decimali con punto e virgola, pollici, valore non valido),
     confrontati compagnia per compagnia con il Python; menu e home senza scorrimento orizzontale a 820 px.
+13. Documenti per chi ha la cittadinanza italiana (dati/documenti_it.json, fonte Viaggiare Sicuri): la cache delle schede (raccolta/.cache/it/,
+    fuori dal repository) deve avere le stesse impronte SHA-256 dei campi da cui sono stati scritti i fatti; ogni fatto è ricalcolato con
+    raccolta/documenti_it.py sul campo salvato (o è un fatto scritto a mano con l'impronta del campo ancora valida) ed è legato a un campo
+    («Passaporto», «Visto di ingresso») con la data della scheda; ogni citazione è nel campo parola per parola (al massimo 20 parole) e i numeri
+    delle frasi nostre sono nelle citazioni; controlli indipendenti (CIE nominata, nessuna seconda validità, nessun «non serve il visto» che taccia
+    ESTA/eTA/ETA/card/moduli); nessuna pagina italiana ha più di 25 parole di fila uguali a un testo di una scheda (tutte le sezioni di tutte le
+    schede); pagina solo per le schede con contenuto specifico, con lingua it, canonical, GoatCounter, fonte, data, avvertenze, citazioni, FAQ
+    (JSON-LD = testo visibile = fatti); link con le pagine britanniche (andata e ritorno); indice con tutte le schede, ricerca e metodo.
+    Nel browser (punto 7) anche 4 pagine italiane a 375 px, tema chiaro e scuro, e la ricerca dell'indice.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -427,6 +436,7 @@ def controlla_meta():
         attesi.update({v["url_pag"] + "index.html": G.titoli_estero(v) for v in G.VOCI[k]})
     attesi.update({f"{G.BAG_BASE}/{C['slug']}/index.html": G.titoli_bag(C) for C in G.COMPAGNIE})
     attesi.update({f"{G.BAG_BASE}/size/{sl}/index.html": G.titoli_misura(sl) for sl, _ in G.MISURE_COMUNI})
+    attesi.update({v["url_pag"] + "index.html": G.titoli_it(v) for v in G.VOCI_IT})
     from html import unescape
     for f in SITO.rglob("*.html"):
         if f.name.startswith("google"):
@@ -839,6 +849,257 @@ def controlla_js_borsa():
     return errori[:20]
 
 
+# ---------------------------------------------------------------- 13. documenti per chi ha la cittadinanza italiana (Viaggiare Sicuri)
+RIT = _carica("documenti_it")
+MAX_COPIA = 25  # nessuna pagina italiana può avere più di 25 parole di fila uguali a un testo delle schede
+N_GRAM = 10
+# controllo indipendente (più semplice della raccolta): parole che indicano un'autorizzazione o un modulo obbligatorio
+AUT_IND = re.compile(r"\bESTA\b|\beTA\b|\bETA\b|NZeTA|K-ETA|ETA-IL|(?i:autorizzazione (?:elettronica|di viaggio|all['’]\s?ingresso|preventiva)|arrival card|"
+                     r"modulo ED|e-ticket|travel authori[sz]ation|tarjeta de turista)")
+ALTRO_IND = re.compile(r"transit|\bscal[oi]\b|Irlanda del Nord|residen|esent|non (?:è|e['’]) richiest|consiglia|invit|raccomand", re.I)
+PROMESSE_IT = re.compile(r"aggiornat[oaie] ogni (?:settimana|mese|giorno)|ogni (?:settimana|mese) ricontroll|settimanalmente|mensilmente|ricontrolliamo ogni", re.I)
+NUM_PAROLA = {"1": "un|uno|una|primo", "2": "due", "3": "tre", "5": "cinque", "6": "sei", "12": "dodici", "30": "trenta", "90": "novanta"}
+
+
+def _parole_it(testo):
+    return re.findall(r"\w+", testo.replace("’", "'").lower())
+
+
+def _testo_visibile(html_):
+    from html import unescape
+    t = re.sub(r"<(script|style)\b.*?</\1>", " ", html_, flags=re.S | re.I)
+    t = re.sub(r"<[^>]+>", " ", t)
+    return unescape(t)
+
+
+def _testi_fonte(j):
+    """Tutti i testi di una scheda (ogni sezione), senza HTML."""
+    out = []
+
+    def giro(x):
+        if isinstance(x, dict):
+            for y in x.values():
+                giro(y)
+        elif isinstance(x, list):
+            for y in x:
+                giro(y)
+        elif isinstance(x, str) and len(x) > 40:
+            out.append(_testo_visibile(x))
+    giro(j)
+    return out
+
+
+def _ngram_fonti():
+    g = set()
+    for f in RIT.CACHE.glob("[A-Z][A-Z][A-Z].json"):
+        for t in _testi_fonte(json.loads(f.read_text(encoding="utf-8"))):
+            w = _parole_it(t)
+            for i in range(len(w) - N_GRAM + 1):
+                g.add(hash(tuple(w[i:i + N_GRAM])))
+    return g
+
+
+def _run_massimo(parole_pag, g):
+    """Lunghezza della più lunga sequenza di parole della pagina uguale a una sequenza della fonte (approssimata dalle finestre di N_GRAM parole)."""
+    migliore, corrente = 0, 0
+    for i in range(len(parole_pag) - N_GRAM + 1):
+        if hash(tuple(parole_pag[i:i + N_GRAM])) in g:
+            corrente += 1
+            migliore = max(migliore, corrente)
+        else:
+            corrente = 0
+    return migliore + N_GRAM - 1 if migliore else 0
+
+
+def _citazioni_fatto(f):
+    qq = list(f.get("citazioni") or ([f["citazione"]] if f.get("citazione") else []))
+    qq += list(f.get("citazioni_note", [])) + [x["citazione"] for x in f.get("formalita", [])]
+    for c in ("condizione", "durata"):
+        if f.get(c):
+            qq.append(f[c])
+    return qq
+
+
+def _numero_in(n, testo):
+    alt = str(n) + ("|" + NUM_PAROLA[str(n)] if str(n) in NUM_PAROLA else "")
+    return bool(re.search(r"(?<![\d])(?:" + alt + r")(?![\d])", testo, re.I))
+
+
+def controlla_italiani():
+    errori, conti = [], {"pagine": 0, "senza": 0, "doc": 0, "val": 0, "vis": 0, "manuali": 0, "citazioni": 0, "faq": 0, "copia_max": 0}
+    D = G.DOC_IT
+    if not D:
+        return ["documenti per italiani: manca dati/documenti_it.json"], conti
+    if not RIT.CACHE.exists() or len(list(RIT.CACHE.glob("[A-Z][A-Z][A-Z].json"))) < 0.8 * D["schede_elenco"]:
+        return [f"documenti per italiani: cache delle schede assente in {RIT.CACHE} (non è nel repository per la licenza incerta): "
+                "lanciare prima `python3 -I beforeyoufly/raccolta/documenti_it.py`"], conti
+    if len(D["paesi"]) < 0.8 * D["schede_elenco"]:
+        errori.append(f"documenti per italiani: lette {len(D['paesi'])} schede su {D['schede_elenco']}")
+    manuali = json.loads(RIT.FILE_MANUALI.read_text(encoding="utf-8"))["paesi"] if RIT.FILE_MANUALI.exists() else {}
+    con_pagina = {v["p"]["iso3"]: v for v in G.VOCI_IT}
+    for p in D["paesi"]:
+        iso = p["iso3"]
+        # a) la cache è la stessa versione della scheda da cui vengono i fatti (impronte), e i fatti sono quelli che dà la lettura sul campo salvato
+        try:
+            campi, j = RIT.campi_da_cache(iso)
+        except FileNotFoundError:
+            errori.append(f"{iso}: scheda non in cache")
+            continue
+        imp = {k: RIT.impronta(v) for k, v in campi.items()}
+        if imp != p["impronte"]:
+            errori.append(f"{iso}: la scheda in cache non è quella da cui sono stati scritti i fatti (impronte diverse): rilanciare la raccolta e genera.py")
+            continue
+        if p["aggiornata"] != RIT.data_scheda(j.get("updateDate", "")):
+            errori.append(f"{iso}: data della scheda diversa dalla cache")
+        rec, _, scaduti = RIT.leggi_paese({"Codice-3": iso, "Codice-2": p["iso2"], "Nome": p["nome_fonte"]}, j)
+        for k in ("documento", "validita", "visto", "note_extra", "cronologia"):
+            if rec.get(k) != p.get(k):
+                errori.append(f"{iso}: fatto «{k}» diverso da quello ricalcolato sul campo salvato")
+        if scaduti:
+            errori.append(f"{iso}: fatti scritti a mano su una versione vecchia della scheda: {scaduti}")
+        if not p["url"].startswith(RIT.PAGINA) or not p["aggiornata"]:
+            errori.append(f"{iso}: link o data della scheda mancanti")
+        testi = {k: RIT.testo(v) for k, v in campi.items()}
+        # b) ogni fatto è legato a un campo della scheda e ogni citazione è in quel campo, parola per parola, al massimo 20 parole
+        fatti = [(k, p[k]) for k in ("documento", "validita", "visto")] + [("note_extra", x) for x in p.get("note_extra", [])]
+        for k, f in fatti:
+            if not f.get("esito") and k != "note_extra":
+                if not f.get("motivo"):
+                    errori.append(f"{iso} {k}: niente riassunto ma nessun motivo")
+                continue
+            campo = f.get("campo")
+            if campo not in testi:
+                errori.append(f"{iso} {k}: fatto senza campo della scheda")
+                continue
+            qq = _citazioni_fatto(f)
+            if not qq:
+                errori.append(f"{iso} {k}: fatto senza citazione")
+            for q in qq:
+                conti["citazioni"] += 1
+                if not RIT.in_campo(q, testi[campo]):
+                    errori.append(f"{iso} {k}: citazione non trovata nel campo «{campo}»: {q[:70]}")
+                if len(q.replace(RIT.ELISIONE, " ").split()) > RIT.MAX_PAROLE:
+                    errori.append(f"{iso} {k}: citazione di più di {RIT.MAX_PAROLE} parole")
+            for q in f.get("obblighi_pp", []):  # obblighi scritti solo nel riquadro "In primo piano": citazione breve da quel campo
+                conti["citazioni"] += 1
+                if not RIT.in_campo(q, testi["primo_piano"]):
+                    errori.append(f"{iso} {k}: citazione del riquadro «In primo piano» non trovata: {q[:70]}")
+                if len(q.replace(RIT.ELISIONE, " ").split()) > RIT.MAX_PAROLE:
+                    errori.append(f"{iso} {k}: citazione del riquadro «In primo piano» di più di {RIT.MAX_PAROLE} parole")
+            if f.get("manuale") and not f.get("scritto_il"):
+                errori.append(f"{iso} {k}: fatto scritto a mano senza data")
+            nostre = " ".join([f.get("sintesi", ""), f.get("testo", "")] + list(f.get("note", [])))
+            for n in re.findall(r"\d+", nostre):
+                if not any(_numero_in(n, q) for q in qq):
+                    errori.append(f"{iso} {k}: il numero {n} della frase nostra non è in nessuna citazione")
+            if f.get("manuale"):
+                conti["manuali"] += 1
+                if iso not in manuali or not imp[campo].startswith(manuali[iso]["campi"][campo]):
+                    errori.append(f"{iso} {k}: fatto manuale senza impronta valida")
+            # c) controlli indipendenti sui fatti automatici
+            if f.get("manuale"):
+                continue
+            if k == "documento":
+                tp = testi["passaporto"]
+                if f["esito"] == "cie" and not re.search(r"\bCIE\b", tp):
+                    errori.append(f"{iso}: «passaporto o CIE» ma il campo non nomina la CIE")
+                if f["esito"] == "passaporto" and re.search(r"\bCIE\b|carta d['’]\s?identit[àa] (?:elettronica|valida)|carta di identit[àa] (?:elettronica|valida)", tp):
+                    errori.append(f"{iso}: «serve il passaporto» ma il campo nomina la carta d'identità")
+                if f["esito"] == "solo_passaporto" and not re.search(r"UNICAMENTE|soltanto|esclusivamente|Non è ammesso alcun altro documento", tp):
+                    errori.append(f"{iso}: «solo passaporto» senza una frase che lo dica")
+            if k == "validita" and f["esito"] == "numero":
+                if not _numero_in(f["n"], f["citazione"]) or not re.search(r"validit|scadenza|valid[oa]", f["citazione"], re.I):
+                    errori.append(f"{iso}: validità di {f['n']} {f['unita']} senza il numero nella citazione")
+                altri = set()
+                for fr in RIT.tutte_frasi(campi["passaporto"]):
+                    if re.search(r"massima|residen|provvisori|variazion|modifich|per recarsi|extra-?UE|pi[ùu] di \d|oltre i \d|permesso di soggiorno", fr, re.I):
+                        continue
+                    for m in re.finditer(r"(\d+|tre|sei|cinque)\s*(?:\(\w+\)\s*)?(mesi|giorni)[^.;]{0,25}?validit|validit\S*\s+(?:residua\s+)?(?:\S+\s+){0,4}?(\d+|tre|sei|cinque)\s*(?:\(\w+\)\s*)?(mesi|giorni)", fr, re.I):
+                        x = (m.group(1) or m.group(3)).lower()
+                        altri.add(RIT.NUMERI_P.get(x) or int(x))
+                if altri - {f["n"]}:
+                    errori.append(f"{iso}: la scheda indica anche altre validità ({sorted(altri)}) ma la pagina ne riassume una sola")
+            if k == "visto" and f["esito"] == "non_necessario":
+                nomi = [x["nome"].split(" (")[0] for x in f.get("formalita", [])]
+                for fr in RIT.tutte_frasi(campi["visto"]):
+                    m = AUT_IND.search(fr)
+                    if m and not any(nm.split()[0] in fr for nm in nomi) and not ALTRO_IND.search(fr):
+                        errori.append(f"{iso}: «non serve il visto» ma la scheda parla di «{m.group(0)}» e la pagina non lo dice: {fr[:80]}")
+        # d) pagina: c'è solo se la scheda ha un contenuto specifico; mostra fonte, data, avvertenze, citazioni, FAQ dai fatti
+        if iso not in con_pagina:
+            conti["senza"] += 1
+            if (G.SITO / G.IT_BASE / G.NOMI_IT[iso]["slug"] / "index.html").exists():
+                errori.append(f"{iso}: pagina pubblicata per una scheda senza contenuto da riassumere")
+            continue
+        v = con_pagina[iso]
+        conti["pagine"] += 1
+        conti["doc"] += bool(p["documento"].get("esito"))
+        conti["val"] += bool(p["validita"].get("esito"))
+        conti["vis"] += bool(p["visto"].get("esito"))
+        t = leggi(v["url_pag"] + "index.html")
+        for atteso in ('<html lang="it">', escape(p["url"]), f"scheda aggiornata {G.con_art('il', G.data_it(p['aggiornata']))}", "non è della Farnesina",
+                       "controlla la scheda ufficiale prima di partire", G.GOATCOUNTER_URL, f'<link rel="canonical" href="{G.URL_SITO}/{v["url_pag"]}">',
+                       'id="documento"', 'id="validita"', 'id="visto"'):
+            if atteso not in t:
+                errori.append(f"{iso}: nella pagina manca «{atteso[:50]}»")
+        for k, f in fatti:
+            for q in (_citazioni_fatto(f) if (f.get("esito") or k == "note_extra") else []):
+                if escape(q) not in t:
+                    errori.append(f"{iso} {k}: citazione non mostrata nella pagina: {q[:60]}")
+            if not f.get("esito") and k != "note_extra" and "Consulta la scheda ufficiale" not in t:
+                errori.append(f"{iso} {k}: senza riassunto ma la pagina non dice di consultare la scheda")
+            for q in f.get("obblighi_pp", []):
+                if escape(q) not in t:
+                    errori.append(f"{iso} {k}: obbligo del riquadro «In primo piano» non mostrato nella pagina: {q[:60]}")
+            if f.get("manuale") and f"Riassunto scritto a mano da noi {G.con_art('il', G.data_it(f['scritto_il']))}" not in t:
+                errori.append(f"{iso} {k}: fatto scritto a mano senza la data nella pagina")
+        if PROMESSE_IT.search(t):
+            errori.append(f"{iso}: promessa di aggiornamento periodico")
+        faq = G.faq_it(v)
+        conti["faq"] += len(faq)
+        ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)]
+        fq = next((x for x in ld if x.get("@type") == "FAQPage"), None)
+        if faq and (not fq or [(e["name"], e["acceptedAnswer"]["text"]) for e in fq["mainEntity"]] != faq):
+            errori.append(f"{iso}: FAQ JSON-LD diversa dalle domande ricavate dai fatti")
+        for q, a in faq:
+            if f"<h3>{escape(q)}</h3><p>{escape(a)}</p>" not in t:
+                errori.append(f"{iso}: FAQ visibile diversa dal JSON-LD: {q}")
+        # e) collegamenti con la pagina britannica della stessa destinazione (andata e ritorno)
+        for s in v["uk"]:
+            if f'passport-validity/{s}/' not in t:
+                errori.append(f"{iso}: manca il link alla pagina britannica {s}")
+            tuk = leggi(f"passport-validity/{s}/index.html")
+            if f'{v["url_pag"]}"' not in tuk or "Italian citizens: " not in tuk:
+                errori.append(f"{s}: manca il link «Italian citizens: documenti per italiani» verso {v['url_pag']}")
+    # f) nessun testo lungo copiato: più di MAX_COPIA parole di fila uguali a una scheda (tutte le sezioni di tutte le schede)
+    g = _ngram_fonti()
+    pagine_it = list((G.SITO / "it").rglob("*.html"))
+    for f in pagine_it:
+        r = _run_massimo(_parole_it(_testo_visibile(f.read_text(encoding="utf-8"))), g)
+        conti["copia_max"] = max(conti["copia_max"], r)
+        if r > MAX_COPIA:
+            errori.append(f"{f.relative_to(G.SITO)}: {r} parole di fila uguali al testo di una scheda (massimo {MAX_COPIA})")
+    # g) indice: tutte le schede, ricerca, link alle pagine o alla scheda ufficiale; sezione metodo con fonte e licenza
+    ti = leggi(f"{G.IT_BASE}/index.html")
+    if ti.count("<tr data-voce>") != len(D["paesi"]) or 'data-filtro="lista-it"' not in ti or 'id="metodo"' not in ti:
+        errori.append("indice italiano: righe, ricerca o sezione metodo mancanti")
+    for v in G.SENZA_PAGINA_IT:
+        if escape(v["p"]["url"]) not in ti:
+            errori.append(f"indice italiano: {v['nome']} senza pagina e senza link alla scheda ufficiale")
+    for v in G.VOCI_IT:
+        if f'href="../../{v["url_pag"]}"' not in ti:
+            errori.append(f"indice italiano: manca il link a {v['url_pag']}")
+    if "non indica una licenza" not in ti:
+        errori.append("indice italiano: manca la spiegazione sulla licenza dei testi")
+    sm = leggi("sitemap.xml")
+    for v in G.SENZA_PAGINA_IT:
+        if f"/{v['url_pag']}<" in sm:
+            errori.append(f"sitemap: {v['url_pag']} senza pagina")
+    if "it/documenti/" not in leggi("index.html") or "documenti per italiani" not in leggi("passport-validity/index.html"):
+        errori.append("home o indice britannico senza link alla sezione italiana")
+    return errori, conti
+
+
 # Parole vietate scritte al contrario, così questo file non le contiene in chiaro.
 _AL_CONTRARIO = ["edualc", "ciporhtna", "ianepo", "tpgtahc", "inimeg", "tolipoc", "amall", "lartsim", "supo", "tennos", "ukiah"]
 VIETATE = re.compile(r"\b(" + "|".join(w[::-1] for w in _AL_CONTRARIO) + r"|gpt-\d)\b", re.I)
@@ -849,6 +1110,8 @@ def controlla_parole():
     cartelle = [SITO, SITO.parent / "dati", SITO.parent / "raccolta"]
     for c in cartelle:
         for f in c.rglob("*"):
+            if ".cache" in f.parts:  # testi grezzi delle fonti ufficiali (fuori dal repository): non sono file nostri
+                continue
             if f.is_file() and f.suffix in (".html", ".xml", ".txt", ".toml", ".json", ".py", ".md"):
                 m = VIETATE.search(f.read_text(encoding="utf-8"))
                 if m:
@@ -874,7 +1137,7 @@ srv.listen(0, async () => {
   const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
   for (const tema of ['light', 'dark']) {
     const ctx = await b.newContext({ viewport: { width: 375, height: 800 }, colorScheme: tema });
-    for (const u of ['/', '/passport-validity/spain/', '/liquids/', '/liquids/barcelona/', '/passport-validity/egypt/'].concat(JSON.parse(process.argv[4])).concat(JSON.parse(process.argv[6]))) {
+    for (const u of ['/', '/passport-validity/spain/', '/liquids/', '/liquids/barcelona/', '/passport-validity/egypt/'].concat(JSON.parse(process.argv[4])).concat(JSON.parse(process.argv[6])).concat(JSON.parse(process.argv[7]))) {
       const p = await ctx.newPage(); const err = [];
       p.on('console', m => { if (m.type() === 'error') err.push(m.text()); }); p.on('pageerror', e => err.push(String(e)));
       await p.goto(base + u, { waitUntil: 'load' });
@@ -916,6 +1179,18 @@ srv.listen(0, async () => {
         const vis = async (sel) => p.$eval(sel, e => { const r = e.getBoundingClientRect(); return r.height > 0 && r.width > 0 && r.width <= window.innerWidth; }).catch(() => false);
         out.prove.push({ caso: 'estero:' + tema + ':' + u, testo: await p.textContent('main'), visa: await vis('#visa'), passport: await vis('#passport'),
                          citazioni: await p.$$eval('blockquote.cit', e => e.filter(x => x.getBoundingClientRect().height > 0).length) });
+        if (tema === 'light') await p.screenshot({ path: process.argv[3] + '/' + u.split('/').filter(Boolean).join('-') + '-375.png', fullPage: false });
+      }
+      if (u.startsWith('/it/documenti/')) {
+        const vis = async (sel) => p.$eval(sel, e => { const r = e.getBoundingClientRect(); return r.height > 0 && r.width > 0 && r.width <= window.innerWidth; }).catch(() => false);
+        const x = { caso: 'it:' + tema + ':' + u, testo: await p.textContent('main'), lang: await p.$eval('html', e => e.lang),
+                    documento: await vis('#documento'), visto: await vis('#visto'), citazioni: await p.$$eval('blockquote.cit', e => e.filter(y => y.getBoundingClientRect().height > 0).length) };
+        if (u === '/it/documenti/') {
+          await p.fill('[data-filtro=lista-it]', 'egit');
+          x.righe = await p.$$eval('#lista-it tr[data-voce]', e => e.filter(y => !y.hidden).map(y => y.textContent.trim().slice(0, 40)));
+          await p.fill('[data-filtro=lista-it]', '');
+        }
+        out.prove.push(x);
         if (tema === 'light') await p.screenshot({ path: process.argv[3] + '/' + u.split('/').filter(Boolean).join('-') + '-375.png', fullPage: false });
       }
       if (tema === 'light' && u === '/') {
@@ -975,6 +1250,7 @@ def _pagine_estere():
 
 
 PAGINE_ESTERE_BROWSER = _pagine_estere()
+PAGINE_IT_BROWSER = ["/it/documenti/", "/it/documenti/egitto/", "/it/documenti/spagna/", "/it/documenti/stati-uniti/"]
 PAGINE_BAG_BROWSER = ["/cabin-bags/", "/cabin-bags/ryanair/", "/cabin-bags/does-my-bag-fit/", "/cabin-bags/size/40x30x20/", "/cabin-bags/eu-personal-item-rule/"]
 
 
@@ -985,7 +1261,8 @@ def controlla_browser():
     with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as fh:
         fh.write(BROWSER_JS)
     try:
-        r = subprocess.run(["node", fh.name, str(SITO), cartella, json.dumps(PAGINE_ESTERE_BROWSER), json.dumps(CASI_BORSA), json.dumps(PAGINE_BAG_BROWSER)],
+        r = subprocess.run(["node", fh.name, str(SITO), cartella, json.dumps(PAGINE_ESTERE_BROWSER), json.dumps(CASI_BORSA), json.dumps(PAGINE_BAG_BROWSER),
+                            json.dumps(PAGINE_IT_BROWSER)],
                            capture_output=True, text=True, timeout=600)
     finally:
         os.unlink(fh.name)
@@ -1057,6 +1334,18 @@ def controlla_browser():
     rb = next((y for y in o["prove"] if y["caso"] == "bag:light:/cabin-bags/ryanair/"), {})
     if "Ryanair free bag: 40 x 30 x 20 cm under the seat" not in rb.get("testo", ""):
         errori.append("Ryanair: risposta diretta non visibile nel browser")
+    for u in PAGINE_IT_BROWSER:
+        for tema in ("light", "dark"):
+            x = next((y for y in o["prove"] if y["caso"] == f"it:{tema}:{u}"), None)
+            if not x:
+                errori.append(f"{u} ({tema}): prova nel browser non eseguita")
+                continue
+            if x["lang"] != "it" or "Le regole cambiano" not in x["testo"]:
+                errori.append(f"{u} ({tema}): lingua o avvertenza mancanti")
+            if u != "/it/documenti/" and (not x["documento"] or not x["visto"] or x["citazioni"] < 2):
+                errori.append(f"{u} ({tema}): sezioni documento/visto o citazioni non visibili a 375 px")
+            if u == "/it/documenti/" and tema == "light" and (len(x.get("righe", [])) != 1 or "Egitto" not in x["righe"][0]):
+                errori.append(f"indice italiano: la ricerca «egit» non lascia solo l'Egitto: {x.get('righe')}")
     if sum(1 for x in o["prove"] if x["caso"].startswith("contrasto-")) != 2:
         errori.append("Prova del contrasto del controllo (tema chiaro e scuro) non eseguita")
     return errori, (o, cartella)
@@ -1080,7 +1369,7 @@ def main():
         o, cartella = info
         n375 = sum(1 for x in o["pagine"] if x["tema"] in ("light", "dark"))
         print(f"7. Browser 375 px: {len(o['pagine'])} viste ({n375 // 2} pagine × tema chiaro e scuro + {len(o['pagine']) - n375} a 820 px; nuove: "
-              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
+              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER + PAGINE_IT_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
               f"{len(o['prove'])} prove, {len(e7)} errori; schermate in {cartella}")
     else:
         print(f"7. Browser 375 px: {e7[0] if e7 else ''}")
@@ -1099,7 +1388,11 @@ def main():
     e12 += controlla_js_borsa()
     print(f"12. Bagaglio a mano: {cb['compagnie']} compagnie, {cb['misure']} misure, {cb['citazioni']} citazioni, {cb['faq']} risposte FAQ, "
           f"{len(G.MISURE_COMUNI)} pagine per misura, motore JS e rotazioni, pagina UE, affiliati spenti: {len(e12)} errori")
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12
+    e13, ci = controlla_italiani()
+    print(f"13. Documenti per italiani: {ci['pagine']} pagine Paese ({ci['senza']} schede senza pagina); riassunti: documento {ci['doc']}, validità {ci['val']}, "
+          f"visto {ci['vis']} ({ci['manuali']} fatti scritti a mano); {ci['citazioni']} citazioni controllate sul campo della scheda; {ci['faq']} risposte FAQ; "
+          f"testo uguale alla fonte al massimo {ci['copia_max']} parole di fila (limite {MAX_COPIA}): {len(e13)} errori")
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13
     for e in tutti:
         print(" -", e)
     if tutti:

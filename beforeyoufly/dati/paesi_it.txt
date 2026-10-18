@@ -1,0 +1,225 @@
+# Nomi brevi in italiano e complemento di luogo ("andare in Egitto", "negli Stati Uniti", "a Cuba") per le 223 schede di Viaggiare Sicuri.
+# Formato: ISO3|nome|luogo   (lo slug della pagina si ricava dal nome). Scritti a mano il 18/10/2026.
+AFG|Afghanistan|in Afghanistan
+ALB|Albania|in Albania
+DZA|Algeria|in Algeria
+AND|Andorra|ad Andorra
+AGO|Angola|in Angola
+AIA|Anguilla|ad Anguilla
+ATG|Antigua e Barbuda|ad Antigua e Barbuda
+SAU|Arabia Saudita|in Arabia Saudita
+ARG|Argentina|in Argentina
+ARM|Armenia|in Armenia
+ABW|Aruba|ad Aruba
+AUS|Australia|in Australia
+AUT|Austria|in Austria
+AZE|Azerbaigian|in Azerbaigian
+BHS|Bahamas|alle Bahamas
+BHR|Bahrein|in Bahrein
+BGD|Bangladesh|in Bangladesh
+BRB|Barbados|alle Barbados
+BEL|Belgio|in Belgio
+BLZ|Belize|in Belize
+BEN|Benin|in Benin
+BMU|Bermuda|alle Bermuda
+BTN|Bhutan|in Bhutan
+BLR|Bielorussia|in Bielorussia
+BOL|Bolivia|in Bolivia
+BIH|Bosnia ed Erzegovina|in Bosnia ed Erzegovina
+BWA|Botswana|in Botswana
+BRA|Brasile|in Brasile
+BRN|Brunei|in Brunei
+BGR|Bulgaria|in Bulgaria
+BFA|Burkina Faso|in Burkina Faso
+BDI|Burundi|in Burundi
+KHM|Cambogia|in Cambogia
+CMR|Camerun|in Camerun
+CAN|Canada|in Canada
+CPV|Capo Verde|a Capo Verde
+TCD|Ciad|in Ciad
+CHL|Cile|in Cile
+CYP|Cipro|a Cipro
+COL|Colombia|in Colombia
+COM|Comore|alle Comore
+COG|Congo|in Congo
+CIV|Costa d'Avorio|in Costa d'Avorio
+CRI|Costa Rica|in Costa Rica
+HRV|Croazia|in Croazia
+CUB|Cuba|a Cuba
+CUW|Curaçao|a Curaçao
+DNK|Danimarca|in Danimarca
+DMA|Dominica|a Dominica
+ECU|Ecuador|in Ecuador
+EGY|Egitto|in Egitto
+SLV|El Salvador|in El Salvador
+ARE|Emirati Arabi Uniti|negli Emirati Arabi Uniti
+ERI|Eritrea|in Eritrea
+EST|Estonia|in Estonia
+ETH|Etiopia|in Etiopia
+RUS|Russia|in Russia
+FJI|Figi|alle Figi
+PHL|Filippine|nelle Filippine
+FIN|Finlandia|in Finlandia
+FRA|Francia|in Francia
+GAB|Gabon|in Gabon
+GMB|Gambia|in Gambia
+GEO|Georgia|in Georgia
+DEU|Germania|in Germania
+GHA|Ghana|in Ghana
+JAM|Giamaica|in Giamaica
+JPN|Giappone|in Giappone
+GIB|Gibilterra|a Gibilterra
+DJI|Gibuti|a Gibuti
+JOR|Giordania|in Giordania
+GRC|Grecia|in Grecia
+GRD|Grenada|a Grenada
+GLP|Guadalupa|in Guadalupa
+GUM|Guam|a Guam
+GTM|Guatemala|in Guatemala
+GIN|Guinea|in Guinea
+GNB|Guinea-Bissau|in Guinea-Bissau
+GNQ|Guinea Equatoriale|in Guinea Equatoriale
+GUY|Guyana|in Guyana
+GUF|Guyana Francese|nella Guyana Francese
+HTI|Haiti|ad Haiti
+HND|Honduras|in Honduras
+HKG|Hong Kong|a Hong Kong
+IND|India|in India
+IDN|Indonesia|in Indonesia
+IRN|Iran|in Iran
+IRQ|Iraq|in Iraq
+IRL|Irlanda|in Irlanda
+ISL|Islanda|in Islanda
+BES|Bonaire, Sint Eustatius e Saba|a Bonaire, Sint Eustatius e Saba
+CYM|Isole Cayman|alle Isole Cayman
+COK|Isole Cook|alle Isole Cook
+MNP|Isole Marianne Settentrionali|alle Isole Marianne Settentrionali
+MHL|Isole Marshall|alle Isole Marshall
+SLB|Isole Salomone|alle Isole Salomone
+TCA|Isole Turks e Caicos|alle Isole Turks e Caicos
+VIR|Isole Vergini Americane|alle Isole Vergini Americane
+VGB|Isole Vergini Britanniche|alle Isole Vergini Britanniche
+ISR|Israele|in Israele
+KAZ|Kazakistan|in Kazakistan
+KEN|Kenya|in Kenya
+KGZ|Kirghizistan|in Kirghizistan
+KIR|Kiribati|a Kiribati
+KSV|Kosovo|in Kosovo
+KWT|Kuwait|in Kuwait
+LAO|Laos|in Laos
+LSO|Lesotho|in Lesotho
+LVA|Lettonia|in Lettonia
+LBN|Libano|in Libano
+LBR|Liberia|in Liberia
+LBY|Libia|in Libia
+LIE|Liechtenstein|in Liechtenstein
+LTU|Lituania|in Lituania
+LUX|Lussemburgo|in Lussemburgo
+MAC|Macao|a Macao
+MDG|Madagascar|in Madagascar
+MWI|Malawi|in Malawi
+MYS|Malaysia|in Malaysia
+MDV|Maldive|alle Maldive
+MLI|Mali|in Mali
+MLT|Malta|a Malta
+MAR|Marocco|in Marocco
+MTQ|Martinica|in Martinica
+MRT|Mauritania|in Mauritania
+MUS|Mauritius|a Mauritius
+MYT|Mayotte|a Mayotte
+MEX|Messico|in Messico
+MDA|Moldova|in Moldova
+MCO|Monaco|nel Principato di Monaco
+MNG|Mongolia|in Mongolia
+MNE|Montenegro|in Montenegro
+MSR|Montserrat|a Montserrat
+MOZ|Mozambico|in Mozambico
+MMR|Myanmar|in Myanmar
+NAM|Namibia|in Namibia
+NRU|Nauru|a Nauru
+NPL|Nepal|in Nepal
+NIC|Nicaragua|in Nicaragua
+NER|Niger|in Niger
+NGA|Nigeria|in Nigeria
+NIU|Niue|a Niue
+NOR|Norvegia|in Norvegia
+NCL|Nuova Caledonia|in Nuova Caledonia
+NZL|Nuova Zelanda|in Nuova Zelanda
+OMN|Oman|in Oman
+NLD|Paesi Bassi|nei Paesi Bassi
+PAK|Pakistan|in Pakistan
+PAN|Panama|a Panama
+PNG|Papua Nuova Guinea|in Papua Nuova Guinea
+PRY|Paraguay|in Paraguay
+PER|Perù|in Perù
+PYF|Polinesia Francese|nella Polinesia Francese
+POL|Polonia|in Polonia
+PRI|Porto Rico|a Porto Rico
+PRT|Portogallo|in Portogallo
+QAT|Qatar|in Qatar
+SWZ|eSwatini|in eSwatini
+GBR|Regno Unito|nel Regno Unito
+CZE|Repubblica Ceca|nella Repubblica Ceca
+CAF|Repubblica Centrafricana|nella Repubblica Centrafricana
+COD|Repubblica Democratica del Congo|nella Repubblica Democratica del Congo
+TLS|Timor Est|a Timor Est
+KOR|Corea del Sud|in Corea del Sud
+MKD|Macedonia del Nord|in Macedonia del Nord
+PLW|Palau|a Palau
+SRB|Serbia|in Serbia
+DOM|Repubblica Dominicana|nella Repubblica Dominicana
+CHN|Cina|in Cina
+PRK|Corea del Nord|in Corea del Nord
+REU|Riunione|alla Riunione
+ROU|Romania|in Romania
+RWA|Ruanda|in Ruanda
+KNA|Saint Kitts e Nevis|a Saint Kitts e Nevis
+LCA|Saint Lucia|a Saint Lucia
+VCT|Saint Vincent e Grenadine|a Saint Vincent e Grenadine
+MAF|Saint-Martin|a Saint-Martin
+WSM|Samoa|alle Samoa
+ASM|Samoa Americane|alle Samoa Americane
+SMR|San Marino|a San Marino
+STP|São Tomé e Príncipe|a São Tomé e Príncipe
+SEN|Senegal|in Senegal
+SYC|Seychelles|alle Seychelles
+SLE|Sierra Leone|in Sierra Leone
+SGP|Singapore|a Singapore
+SXM|Sint Maarten|a Sint Maarten
+SYR|Siria|in Siria
+SVK|Slovacchia|in Slovacchia
+SVN|Slovenia|in Slovenia
+SOM|Somalia|in Somalia
+ESP|Spagna|in Spagna
+LKA|Sri Lanka|in Sri Lanka
+FSM|Micronesia|in Micronesia
+USA|Stati Uniti|negli Stati Uniti
+ZAF|Sudafrica|in Sudafrica
+SSD|Sud Sudan|in Sud Sudan
+SDN|Sudan|in Sudan
+SUR|Suriname|in Suriname
+SWE|Svezia|in Svezia
+CHE|Svizzera|in Svizzera
+TJK|Tagikistan|in Tagikistan
+TWN|Taiwan|a Taiwan
+TZA|Tanzania|in Tanzania
+PSE|Territori Palestinesi|nei Territori Palestinesi
+THA|Thailandia|in Thailandia
+TGO|Togo|in Togo
+TON|Tonga|a Tonga
+TTO|Trinidad e Tobago|a Trinidad e Tobago
+TUN|Tunisia|in Tunisia
+TUR|Turchia|in Turchia
+TKM|Turkmenistan|in Turkmenistan
+TUV|Tuvalu|a Tuvalu
+UKR|Ucraina|in Ucraina
+UGA|Uganda|in Uganda
+HUN|Ungheria|in Ungheria
+URY|Uruguay|in Uruguay
+UZB|Uzbekistan|in Uzbekistan
+VUT|Vanuatu|a Vanuatu
+VEN|Venezuela|in Venezuela
+VNM|Vietnam|in Vietnam
+YEM|Yemen|nello Yemen
+ZMB|Zambia|in Zambia
+ZWE|Zimbabwe|in Zimbabwe
