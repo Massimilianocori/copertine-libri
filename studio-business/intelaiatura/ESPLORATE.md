@@ -182,3 +182,25 @@ Nessuna idea passa l'asticella (voto ≥ 7 e ≥ 5.000 €/anno): nessuna riga n
 | Date esami IHK / LAP (DE, AT) | NO (ogni IHK ha già la pagina con le date 2027) | idee-2026-10-17 |
 | Pedaggi per casello, bompenger (NO, dati NVDB) | NO (fuel-prices.eu in inglese, società dei pedaggi in norvegese) | idee-2026-10-17 |
 | Steuerfuss per Comune (CH) | NO (un numero per Comune, liste cantonali) | idee-2026-10-17 |
+
+## Ricerca al contrario (18/10/2026)
+Metodo nuovo: si parte da 26 siti di dati che già guadagnano e si cercano i loro buchi (Paese, lingua, sotto-tema, formato). Nessun 8; due sezioni di Before You Fly passano. Prove in `idee-vincenti-2026-10-18.md`.
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **Documenti e visti per chi viaggia da italiano, 223 Paesi** (Viaggiare Sicuri: 223 schede JSON, 216 aggiornate nel 2026; blog che si contraddicono) | **PASSA sotto l'asticella** (voto 7,5; 1,5-4k €/anno: pubblicità italiana bassa) come sezione `/it/` di Before You Fly | idee-vincenti-2026-10-18 |
+| **Bagaglio a mano per compagnia, "la mia borsa entra?", pagine per misura, 5 lingue, legge UE sul bagaglio gratis (attesa dal 23/10/2027)** | **PASSA** (voto 7; 3-7k €/anno, ottimista 18k) come sezione di Before You Fly; fonte frammentata (4 compagnie su 30 leggibili dal server) | idee-vincenti-2026-10-18 |
+| Attese ai controlli negli aeroporti europei (fatto nuovo: JSON dal vivo di Swedavia) | RISERVA (5,5): flightqueue.com copre già 93 aeroporti; al massimo un riquadro su Arlanda e Landvetter | 17, idee-vincenti-2026-10-18 |
+| Mappe dei posti dopo la chiusura di SeatGuru | NO (aeroLOPA ha già riempito il buco; nessuna fonte ufficiale) | idee-vincenti-2026-10-18 |
+| Attese nei parchi divertimento europei | NO (wartezeiten.app, queue-times; dati delle app senza licenza) | idee-vincenti-2026-10-18 |
+| Gelate e zone di rusticità per città (Canada, Regno Unito) | NO (almanac, plantmaps, garden.org) | idee-vincenti-2026-10-18 |
+| Paghe pubbliche per livello (Australia APS, NHS) | NO (fairworkmate, pay-calculator-australia, wagecalculator; tabelle NHS ufficiali) | idee-vincenti-2026-10-18 |
+| Codici bancari per Paese (SWIFT, sort code, BSB) | NO (Wise stesso, decine di migliaia di pagine) | idee-vincenti-2026-10-18 |
+| Appuntamenti CIE e passaporto per città | NO (portali con SPID, nessun dato pubblico) | idee-vincenti-2026-10-18 |
+| Conversione della patente straniera in Italia per Paese | solo pagine dentro EsameB1 (5,5; fonte MIT, ~40 Paesi, blog) | idee-vincenti-2026-10-18 |
+| Tempi della cittadinanza per prefettura | NO (nessun dato per prefettura) | idee-vincenti-2026-10-18 |
+| Documenti per chi viaggia da spagnolo (exteriores.gob.es) | RISERVA (503 dal server) | idee-vincenti-2026-10-18 |
+| Passaporto americano letto dall'archivio web | NO (ultima copia 9/8/2025; web.archive.org non raggiungibile dal server) | idee-vincenti-2026-10-18 |
+| Regole per guidare all'estero per Paese | RISERVA (5; RAC già presente, fonte UE non provata) | idee-vincenti-2026-10-18 |
+| Working holiday Canada (IEC), pool per Paese | NO oggi (canada.ca bloccato; pubblicità bassa) | idee-vincenti-2026-10-18 |
+| Classifiche delle scuole per città (Regno Unito) | non approfondita (domanda britannica non emersa) | idee-vincenti-2026-10-18 |
+| Carta d'identità cartacea non più valida per l'espatrio (3/8/2026) | una pagina dentro i documenti per italiani | idee-vincenti-2026-10-18 |
