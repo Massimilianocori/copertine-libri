@@ -84,3 +84,6 @@
 - Schede sessione: al massimo 2 professioni + "+N professioni" (si espande), la sessione è testo nella riga della data; col filtro si vede solo la professione scelta, evidenziata. Nota della scadenza comune detta una volta in testa all'elenco.
 - Filtro professione: menu a tendina "Professione" con conteggio dei risultati (aria-live).
 - Pagine professione: sedi a tutta larghezza in due colonne, raggruppate per regione e già aperte. Colonna laterale "sticky" con il solo modulo.
+
+## Collegamenti tra siti (19/10/2026)
+- In fondo a ogni pagina, blocco "Altri strumenti utili" con il link alla home di EsameB1 e una riga di descrizione (costante `ALTRI_SITI` in `genera.py`). Deciso nel cruscotto (sez. 6, riga 19/10), uscito con la pubblicazione settimanale.

@@ -54,3 +54,7 @@
 - Pagine città: schede "Prossime date ente per ente" (prossimo esame e prima scadenza nazionale aperta, tenute aggiornate dal JS), ancore `#sedi-<ente>`, link "Tutte le sedi X in <regione>", "Prima di iscriverti" (costo, come si svolge, risultati), città della stessa regione. Description con i soli enti presenti.
 - JSON-LD Event: `performer` = ente certificatore con url; `offers` solo dove la tassa è ufficiale e unica (CILS B1 Cittadinanza, 100 EUR, url della pagina Unistrasi; `availability` solo se il termine nazionale è aperto). Per CELI, PLIDA e CERT.IT niente `offers`: un prezzo per tutte le sedi non esiste.
 - Pagine CERT.IT/PLIDA senza date future: il titolo non promette un anno; nelle città la scheda dice "nessuna nuova data pubblicata" e invita ad "avvisami".
+
+## Collegamenti tra siti (19/10/2026)
+- In fondo a ogni pagina, blocco "Altri strumenti utili" con il link alla home di EsamiDiStato e una riga di descrizione (costante `ALTRI_SITI` in `genera.py`). Deciso nel cruscotto (sez. 6, riga 19/10), uscito con la pubblicazione settimanale.
+- Domanda vista (Search Console e GoatCounter 12-19/10: Modena, risultati CILS, Milano, Roma, Prato): già coperta da pagine esistenti. Nessuna provincia con almeno 3 sedi è senza pagina; restano 24 province con 1-2 sedi (es. Ferrara, Arezzo, Latina), lasciate fuori per la regola delle 3 sedi.

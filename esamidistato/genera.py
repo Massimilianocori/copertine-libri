@@ -19,6 +19,10 @@ DATI = RADICE / "dati"
 SITO = RADICE / "sito"
 URL_SITO = "https://esamidistato.netlify.app"  # cambiare qui se il nome del sito su Netlify è diverso
 NOME = "EsamiDiStato"
+ALTRI_SITI = [  # blocco "Altri strumenti utili" in fondo a ogni pagina (URL dal genera.py dell'altro sito)
+    ("https://esameb1.netlify.app/", "EsameB1",
+     "date, scadenze e sedi dell'esame di italiano B1 per la cittadinanza (CILS, CELI, PLIDA, CERT.IT), prese dalle fonti ufficiali degli enti."),
+]
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console, proprietà https://esamidistato.netlify.app — non rimuovere
 
 # Contatore visite GoatCounter, account condiviso "rete-siti" della rete (nessun cookie, nessun dato personale conservato).
@@ -344,6 +348,11 @@ ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32p
 footer.piede{margin-top:64px;background:#101B36;color:#C3CCDF;padding:36px 0 44px;font-size:.9rem;border-top:2px solid #B08A36}
 footer.piede a{color:#E8EDF7}
 footer.piede .logo{color:#FFFFFF}
+footer.piede .piede-altri{margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16)}
+footer.piede .piede-altri h2{font-size:1rem;line-height:1.3;color:#FFFFFF;margin:0 0 8px;font-family:inherit}
+footer.piede .piede-altri ul{list-style:none;padding:0;margin:0}
+footer.piede .piede-altri li{margin:0 0 6px;max-width:70ch}
+footer.piede .piede-altri a{font-weight:700}
 .piede-griglia{display:grid;grid-template-columns:1.1fr 1.4fr;gap:28px;align-items:start}
 .piede-link{display:flex;flex-wrap:wrap;gap:8px 18px;list-style:none;padding:0;margin:14px 0 0}
 .piede-link a{text-decoration:none;font-weight:600}
@@ -447,6 +456,8 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
     ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else ""
     verifica = f'<meta name="google-site-verification" content="{GOOGLE_VERIFICA}">\n' if GOOGLE_VERIFICA else ""
     logo = f'{MARCHIO}<span class="logo-testo">EsamiDi<i>Stato</i></span>'
+    altri_siti = "".join(f'<li><a href="{u}" rel="noopener">{n}</a>: {escape(d)} Un altro sito gratuito e indipendente dello stesso gestore.</li>'
+                         for u, n, d in ALTRI_SITI)
     testo = f"""<!DOCTYPE html>
 <html lang="it">
 <head>
@@ -497,6 +508,7 @@ Questo sito non dà consulenza: per i casi particolari chiedi alla segreteria es
 <p><span class="dati">{ic("scudo")}Dati controllati il {verificato_ultimo()}.</span></p>
 </div>
 </div>
+<div class="piede-altri"><h2>Altri strumenti utili</h2><ul>{altri_siti}</ul></div>
 </div></footer>
 <script>{JS}</script>
 {SCRIPT_CONTATORE}
