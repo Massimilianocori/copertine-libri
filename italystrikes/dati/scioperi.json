@@ -167,7 +167,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8577": {
@@ -225,7 +225,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8599": {
@@ -263,7 +263,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8600": {
@@ -282,7 +282,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8582": {
@@ -301,7 +301,26 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
+  "modifiche": []
+ },
+ "8609": {
+  "id": "8609",
+  "inizio": "2026-10-21",
+  "fine": "2026-10-21",
+  "settore": "Trasporto pubblico locale",
+  "rilevanza": "Territoriale",
+  "regione": "Liguria",
+  "provincia": "Genova",
+  "sindacati": "OST UGL AUTOFERRO + RSA",
+  "categoria": "PERSONALE SOC. AMT DI GENOVA",
+  "modalita": "4 ORE: DALLE 11.30 ALLE 15.30",
+  "proclamazione": "2026-10-19",
+  "ricezione": "19/10/2026",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-10-19",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8595": {
@@ -320,7 +339,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8596": {
@@ -339,7 +358,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8587": {
@@ -358,7 +377,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8583": {
@@ -377,7 +396,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8597": {
@@ -396,7 +415,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8604": {
@@ -415,7 +434,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-16",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8453": {
@@ -434,7 +453,7 @@
   "note": "ESCLUSI SETTORI TRASPORTO AEREO, FERROVIARIO, TRASPORTO PUBBLICO LOCALE, MARITTIMO",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8590": {
@@ -447,13 +466,13 @@
   "provincia": "Tutte",
   "sindacati": "USB",
   "categoria": "SCIOPERO GENERALE SETTORI PUBBLICI E PRIVATI",
-  "modalita": "INTERA GIORNATA - AEREO: DALLE 00.00 ALLE 23.59; FERROVIARIO: DALLE 21.00 DEL 29/10 ALLE 20.59 DEL 30/10; AUTOSTRADE: DALLE 22.00 DEL 29/10: TAXI: DALLE 00.01 ALLE 23.59",
+  "modalita": "INTERA GIORNATA - AEREO: DALLE 00.00 ALLE 23.59; FERROVIARIO: DALLE 21.00 DEL 29/10 ALLE 20.59 DEL 30/10; TPL: DURATA E MODALITA' STABILITE A LIVELLO TERRITORIALE; AUTOSTRADE: DALLE 22.00 DEL 29/10: TAXI: DALLE 00.01 ALLE 23.59",
   "proclamazione": "2026-10-06",
   "ricezione": "06/10/2026",
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": [
    {
     "il": "2026-10-16",
@@ -461,6 +480,15 @@
      "modalita": [
       "INTERA GIORNATA - FERROVIARIO: DALLE 21.00 DEL 29/10 ALLE 20.59 DEL 30/10; AUTOSTRADE: DALLE 22.00 DEL 29/10",
       "INTERA GIORNATA - AEREO: DALLE 00.00 ALLE 23.59; FERROVIARIO: DALLE 21.00 DEL 29/10 ALLE 20.59 DEL 30/10; AUTOSTRADE: DALLE 22.00 DEL 29/10: TAXI: DALLE 00.01 ALLE 23.59"
+     ]
+    }
+   },
+   {
+    "il": "2026-10-19",
+    "campi": {
+     "modalita": [
+      "INTERA GIORNATA - AEREO: DALLE 00.00 ALLE 23.59; FERROVIARIO: DALLE 21.00 DEL 29/10 ALLE 20.59 DEL 30/10; AUTOSTRADE: DALLE 22.00 DEL 29/10: TAXI: DALLE 00.01 ALLE 23.59",
+      "INTERA GIORNATA - AEREO: DALLE 00.00 ALLE 23.59; FERROVIARIO: DALLE 21.00 DEL 29/10 ALLE 20.59 DEL 30/10; TPL: DURATA E MODALITA' STABILITE A LIVELLO TERRITORIALE; AUTOSTRADE: DALLE 22.00 DEL 29/10: TAXI: DALLE 00.01 ALLE 23.59"
      ]
     }
    }
@@ -482,7 +510,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-13",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8606": {
@@ -501,7 +529,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-16",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8548": {
@@ -520,7 +548,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8608": {
@@ -539,7 +567,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-16",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8598": {
@@ -558,7 +586,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8602": {
@@ -577,7 +605,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-13",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8605": {
@@ -596,7 +624,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-16",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8603": {
@@ -615,7 +643,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-14",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8592": {
@@ -634,7 +662,7 @@
   "note": "*PER TPL SOCC. FER. SUD EST, GTT, SAD, TRENTINO TRASP., FER. UDINE C., SIST. TERRITORIALI, TFT, FERROTRAMVIARIA, FER.ADR. SANGRITANA-TUA, EAV, FER. GARGANO, FER. CALABRIA",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8571": {
@@ -653,7 +681,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8579": {
@@ -672,7 +700,7 @@
   "note": "GARANTITI I VOLI DA E PER L'AEROPORTO DI BARI",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8588": {
@@ -691,7 +719,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8575": {
@@ -710,7 +738,7 @@
   "note": "ADESIONE OO.SS. AL-COBAS E LMO",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8594": {
@@ -729,7 +757,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8607": {
@@ -748,7 +776,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-16",
-  "visto_ultimo": "2026-10-18",
+  "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
  "8586": {
