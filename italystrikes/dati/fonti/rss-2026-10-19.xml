@@ -8,7 +8,7 @@
       <title>logoMit</title>
       <link>http://www.mit.gov.it</link>
     </image>
-    <pubDate>Mon, 19 Oct 2026 10:58:02 +0000</pubDate>
+    <pubDate>Mon, 19 Oct 2026 20:47:45 +0000</pubDate>
     <generator>Zend_Feed_Writer 2 (http://framework.zend.com)</generator>
     <link>http://www.mit.gov.it</link>
     <item>
@@ -193,6 +193,14 @@
       <pubDate>Thu, 19 Nov 2026 23:00:00 +0000</pubDate>
       <link>http://scioperi.mit.gov.it</link>
       <guid>http://scioperi.mit.gov.it/8592</guid>
+      <slash:comments>0</slash:comments>
+    </item>
+    <item>
+      <title>Data inizio: 20/11/2026 - Settore: Generale - Rilevanza: Nazionale - Regione:  Italia - Provincia: Tutte</title>
+      <description><![CDATA[modalità: INTERA GIORNATA DI LAVORO<br/>Data fine: 20/11/2026<br/>Settore: Generale<br/>Rilevanza: Nazionale<br/>Regione:  Italia<br/>Provincia: Tutte<br/>Sindacati: CGIL<br/>Categoria interessata: SCIOPERO GENERALE SETTORI PUBBLICI E PRIVATI ANCHE IN APPALTO E STRUMENTALI<br/>Data proclamazione: 19/10/2026<br/>Data ricezione: 19/10/2026]]></description>
+      <pubDate>Thu, 19 Nov 2026 23:00:00 +0000</pubDate>
+      <link>http://scioperi.mit.gov.it</link>
+      <guid>http://scioperi.mit.gov.it/8610</guid>
       <slash:comments>0</slash:comments>
     </item>
     <item>

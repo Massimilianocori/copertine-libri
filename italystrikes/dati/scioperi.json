@@ -450,11 +450,21 @@
   "modalita": "INTERA GIORNATA",
   "proclamazione": "2026-07-03",
   "ricezione": "03/07/2026",
-  "note": "ESCLUSI SETTORI TRASPORTO AEREO, FERROVIARIO, TRASPORTO PUBBLICO LOCALE, MARITTIMO",
+  "note": "ESCLUSI SETTORI TRASPORTO AEREO, FERROVIARIO, TRASPORTO PUBBLICO LOCALE, MARITTIMO - ADESIONE OSP CUB FIRENZE",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
   "visto_ultimo": "2026-10-19",
-  "modifiche": []
+  "modifiche": [
+   {
+    "il": "2026-10-19",
+    "campi": {
+     "note": [
+      "ESCLUSI SETTORI TRASPORTO AEREO, FERROVIARIO, TRASPORTO PUBBLICO LOCALE, MARITTIMO",
+      "ESCLUSI SETTORI TRASPORTO AEREO, FERROVIARIO, TRASPORTO PUBBLICO LOCALE, MARITTIMO - ADESIONE OSP CUB FIRENZE"
+     ]
+    }
+   }
+  ]
  },
  "8590": {
   "id": "8590",
@@ -662,6 +672,25 @@
   "note": "*PER TPL SOCC. FER. SUD EST, GTT, SAD, TRENTINO TRASP., FER. UDINE C., SIST. TERRITORIALI, TFT, FERROTRAMVIARIA, FER.ADR. SANGRITANA-TUA, EAV, FER. GARGANO, FER. CALABRIA",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
+  "visto_ultimo": "2026-10-19",
+  "modifiche": []
+ },
+ "8610": {
+  "id": "8610",
+  "inizio": "2026-11-20",
+  "fine": "2026-11-20",
+  "settore": "Generale",
+  "rilevanza": "Nazionale",
+  "regione": "Italia",
+  "provincia": "Tutte",
+  "sindacati": "CGIL",
+  "categoria": "SCIOPERO GENERALE SETTORI PUBBLICI E PRIVATI ANCHE IN APPALTO E STRUMENTALI",
+  "modalita": "INTERA GIORNATA DI LAVORO",
+  "proclamazione": "2026-10-19",
+  "ricezione": "19/10/2026",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-10-19",
   "visto_ultimo": "2026-10-19",
   "modifiche": []
  },
