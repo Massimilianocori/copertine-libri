@@ -220,3 +220,24 @@ Ricerca su regole nuove con data 2026-2027 (UE, Regno Unito, USA, Canada) e su f
 | Test di italiano A2 per il permesso di lungo periodo (sezione di EsameB1) | NO (4): nessuna città in autocomplete, nessun calendario pubblico | idee-2026-10-18 |
 | Luce V16 in Spagna spiegata ai guidatori britannici (1/1/2026) | NO (3,5): auto straniere esentate, una risposta; Parkers, Connexion, forum | idee-2026-10-18 |
 | Documenti e visti per chi viaggia da Singapore e da Hong Kong | NO (3): Singapore senza fonte ufficiale per chi parte; Hong Kong solo elenco annuale al 31/12/2024 | idee-2026-10-18 |
+
+## Mondo (caccia del 19/10/2026, sera)
+Famiglie nuove apposta: sanità e farmaci, casa, licenze professionali, scuola e università, animali, prodotti ritirati, pensioni, sport, tribunali (USA, Regno Unito, Canada, Australia, Irlanda, Nuova Zelanda). Nessuna idea passa l'asticella (voto ≥ 7 e ≥ 5.000 €/anno): nessuna riga nel cruscotto. Lezione: la sanità ha il buco più grande visto finora (carenze di farmaci: domanda per farmaco e per mese, fonte ufficiale giornaliera di pubblico dominio, solo notizie nei risultati), ma si paga con la prudenza di Google sulla salute e con la regola "medicina esclusa" del 9/10, da sciogliere o confermare da Massimiliano. Prove in `idee-2026-10-19.md`.
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **Stato ufficiale delle carenze di farmaci, farmaco per farmaco, giorno per giorno (USA openFDA: 1.581 schede JSON CC0, 69 principi attivi in carenza; Australia TGA: CSV con 1.005 righe, 432 carenze in corso)** | **PASSA sotto l'asticella** (voto 6,5; 0,7-4,5k €/anno, ottimista 8k): nei risultati solo notizie che invecchiano, nessun "stato di oggi"; ma tema sanitario (prudenza di Google, esclusione del 9/10), Canada dietro login e Cloudflare, Regno Unito e Nuova Zelanda senza elenco. Sito nuovo oltre il tetto, solo con il sì di Massimiliano sul tema e dopo i numeri di fine novembre | idee-2026-10-19 |
+| **Tempi medi al pronto soccorso per città e ospedale (USA, CMS OP-18b: 4.081 ospedali con valore)** | **RISERVA** (voto 6; 1-5k €/anno): domanda enorme per città ma "adesso", il dato ufficiale è la mediana dell'anno scorso; ProPublica ER Inspector per ospedale (dati 2019), Axios e testate locali; in Canada le province pubblicano le attese dal vivo. Al massimo sezione di un sito di salute | idee-2026-10-19 |
+| Prodotti ritirati per marca e tipo (CPSC API pubblico dominio, 485 richiami nel 2026; Health Canada, ACCC, OPSS) | RISERVA debole (voto 5): notizie e produttori rispondono subito, HSRC tiene la lista dei seggiolini a mano; i seggiolini auto stanno su NHTSA (403 dal server), ACCC 403, API Health Canada non trovata | idee-2026-10-19 |
+| Liste d'attesa NHS per ospedale e specialità (RTT, My Planned Care, UK) | NO (4,5): treatcompare.com fa già pagine automatiche per codice postale e intervento dai dati RTT; strumento ufficiale My Planned Care; england.nhs.uk 202 vuoto dal server | idee-2026-10-19 |
+| Promossi all'esame di agente immobiliare per scuola (Texas TREC, NC, Florida, USA) | NO (5): passandearn, HousingWire e le scuole stesse (Aceable, The CE Shop) pubblicano già i tassi per Stato e scuola; pochi Stati con la tabella; ncrec.gov 403 | idee-2026-10-19 |
+| Promossi all'esame di avvocato per facoltà (ABA 509, USA) | NO (4): Law School Transparency, US News, ordini statali, facoltà | idee-2026-10-19 |
+| Date e scadenze dell'11+ per area (UK) | NO (4): siti di tutoraggio con pagina per area e scuola (exampapersplus, atomlearning, leadingtuition, bofa11plus); ~20 consorzi senza file unico | idee-2026-10-19 |
+| Zone scolastiche per indirizzo (NZ) | NO (3,5): risposta per indirizzo sulla mappa del Ministero | idee-2026-10-19 |
+| Punti CAO per corso (IE) | NO (3,5): CAO, RTÉ, The Journal, università | idee-2026-10-19 |
+| Animali in cabina per compagnia aerea (peso, tariffa, trasportino; USA, UK) | NO (5): domanda grande e fonti contraddittorie come il bagaglio a mano, ma nessuna fonte ufficiale; camli.com, citizenshipper, bringfido e le compagnie | idee-2026-10-19 |
+| Prezzi PBS per farmaco (AU) | NO (4,5): pbs.gov.au risponde per farmaco; API 401 senza chiave; domanda di cronaca (Mounjaro) | idee-2026-10-19 |
+| Età della pensione per anno di nascita (UK) | NO (3): una tabella, calcolatore gov.uk | idee-2026-10-19 |
+| Costo della licenza di pesca e date della caccia per Stato (USA) | NO (3,5): 50 agenzie statali senza file unico; onX, HuntStand, takemefishing | idee-2026-10-19 |
+| Limite delle cause "small claims" per Stato (USA) | NO (3): Nolo e studi legali | idee-2026-10-19 |
+| Affitto medio per quartiere, market rent (NZ) | NO (3,5): strumento ufficiale Tenancy Services | idee-2026-10-19 |
+| Classi energetiche per area (BER IE, EPC UK) | NO (3): la domanda è per la singola casa, registri ufficiali | idee-2026-10-19 |
