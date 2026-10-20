@@ -140,3 +140,4 @@ Fonti (lette dai riassunti di ricerca: le pagine complete sono bloccate dal prox
 - **Test di consegna (15/10):** mail-tester.com, gratis (3 test al giorno). Risultato 15/10: 10/10, SPF, DKIM (selettore privateemail) e DMARC validi, server di invio Namecheap (198.54.127.156) in nessuna delle 20 liste nere principali. Unico problema trovato: il link riscritto da Gmail (ERRORI 29). Si ripete dopo ogni cambio di testi o di casella.
 - **Higgsfield (19/10, Massimiliano):** rinnovo automatico del piano Ultra disdetto il 16/10. Si riattiva un piano solo quando serve per un lavoro pagato o approvato.
 - **Verifica del 23/10 (19/10, Massimiliano):** NO alla regola "senza 1 pilota o 3 risposte interessate si cambia approccio". Si continua con il piano attuale; non riproporre la regola.
+- **Upwork (20/10, Massimiliano):** proposta del doc 58 rifiutata ("dopo tutto questo investimento la proposta è Upwork, lascia stare"). Non riproporre Upwork né marketplace simili.
