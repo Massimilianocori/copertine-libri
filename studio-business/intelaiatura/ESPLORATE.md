@@ -241,3 +241,28 @@ Famiglie nuove apposta: sanità e farmaci, casa, licenze professionali, scuola e
 | Limite delle cause "small claims" per Stato (USA) | NO (3): Nolo e studi legali | idee-2026-10-19 |
 | Affitto medio per quartiere, market rent (NZ) | NO (3,5): strumento ufficiale Tenancy Services | idee-2026-10-19 |
 | Classi energetiche per area (BER IE, EPC UK) | NO (3): la domanda è per la singola casa, registri ufficiali | idee-2026-10-19 |
+
+## Mondo (caccia del 20/10/2026, sera)
+Partenza dai due vincitori veri (EsameB1 e la sezione "visa refusal rates" di Visa Income Checker): cercati i loro fratelli, cioè altri tassi e quote ufficiali per nazionalità o per ufficio nell'immigrazione (Australia, Canada, Nuova Zelanda, USA, Regno Unito, Irlanda) e altri esami obbligatori con date e sedi per città (Svezia, Finlandia, Danimarca, Norvegia, Brasile; esami per lavorare in Germania, Spagna, Regno Unito, USA). Nessuna idea passa l'asticella per i soldi (la migliore ha voto 7 ma 2-5k €/anno): nessuna riga nel cruscotto. Lezione: i Paesi anglosassoni pubblicano i numeri per nazionalità e nessun sito li mette in tabella, ma il pubblico (India, Nepal, Pakistan, Nigeria) vale poco e la strada verso i 5.000 € è sommare più destinazioni nella stessa sezione; gli esami nordici sono tutti "l'ente ha il motore". Prove in `idee-2026-10-20.md`.
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **Visti studenteschi e turistici concessi/rifiutati per nazionalità in Australia** (file mensile Home Affairs BP0015: 2.078.349 righe, 234 nazionalità × 7 settori × mese dal 2005-06 al 31/8/2026, CC BY 2.5 AU; turisti 15 nazionalità per trimestre dal rapporto semestrale) | **PASSA sotto l'asticella** (voto 7; 1-3k €/anno, ottimista 5k) come **sezione di Visa Income Checker**: nei risultati solo notizie, post LinkedIn, un avvocato con 10 Paesi; nessuna pagina per nazionalità | idee-2026-10-20 |
+| **Tasso di approvazione dei permessi temporanei per Paese, mese per mese, in Canada** (file operativi IRCC esaminate/approvate, 220 Paesi, gennaio 2023 → agosto 2026, licenza aperta) | **RISERVA alta** (voto 6,5; 0,5-1,5k): domanda enorme ("canada study permit approval rate by country"), ma il tasso calcolabile mescola turismo, studio, lavoro ed estensioni; per studio solo "esaminate", per turismo solo "approvate". Aggiunta alla sezione australiana; si riapre a 7,5 se IRCC pubblica l'incrocio tipo × esito | idee-2026-10-20 |
+| **Visti approvati e rifiutati per nazionalità in Nuova Zelanda** (PDF mensili INZ per turismo, studio, lavoro, per anno fiscale dal 2016/17 al 30/9/2026, CC BY 3.0 NZ) | **RISERVA** (voto 6,5; 0,3-1,2k): solo notizie e agenzie nei risultati; vale solo come aggiunta alla sezione australiana | idee-2026-10-20 |
+| **Australia + Canada + Nuova Zelanda come un'unica sezione nuova di Visa Income Checker** ("visa approval rates by nationality") | **PASSA sotto l'asticella** (voto 7; 2-5k €/anno, ottimista 9k con OSHC e Wise iscritte; 20-30 ore, zero euro, nessun sito nuovo). Proposta: tabella "Idee in cantiere" come sezione, dopo il verdetto a 45 giorni di Schengen+UK | idee-2026-10-20 |
+| Rifiuti dei visti di **studio e lavoro** per nazionalità nel Regno Unito (il file Home Office già scaricato ha le colonne) | **Aggiunta rapida** alla sezione esistente (voto 6; 3-5 ore); Wonkhe ha appena pubblicato la tabella dei rifiuti studenteschi | idee-2026-10-20 |
+| Rifiuti dei visti per nazionalità in Irlanda | NO (4,5): il Dipartimento di Giustizia non pubblica la tabella (uscita solo con un ricorso per l'accesso agli atti); `irishimmigration.ie` elenca decisioni per numero di domanda | idee-2026-10-20 |
+| Tempi del N-400 e rifiuti per ufficio USCIS | NO (4): motore ufficiale, studi legali con pagina per ufficio, `uscis.gov` 403 | idee-2026-10-20 |
+| Asilo accolto per Stato, giudice, nazionalità (USA) | NO (3,5): TRAC pubblica tutto da anni; tema politico | idee-2026-10-20 |
+| Selezionati alla lotteria DV per Paese (USA) | RISERVA debole (4,5): `travel.state.gov` e `dvprogram.state.gov` 403; giornali africani ripubblicano in un giorno; una tabella l'anno | idee-2026-10-20 |
+| Overstay per Paese (DHS, USA) | NO (3,5): `dhs.gov` 403, domanda piccola, un rapporto l'anno | idee-2026-10-20 |
+| Promossi ai test di cittadinanza (Life in the UK, test australiano) per nazionalità | NO (3): la gente cerca il punteggio minimo, non le percentuali; un numero | idee-2026-10-20 |
+| Date e sedi del medborgarskapsprov (nuovo test di cittadinanza svedese, primo test 15/8/2026) | NO per ora (4,5): UHR ammette solo su invito del Migrationsverket, nessun calendario pubblico, prova di lingua dal 2027. Si riapre se UHR pubblica date e sedi per città (domanda già in autocomplete) | idee-2026-10-20 |
+| Test YKI per città (Finlandia) | NO (4): iscrizione centralizzata su `yki.opintopolku.fi` | idee-2026-10-20 |
+| Indfødsretsprøven / medborgerskabsprøven per città (Danimarca) | NO (2): autocomplete vuota | idee-2026-10-20 |
+| Norskprøven e statsborgerprøven per città (Norvegia) | NO (3): domanda piccola, iscrizione HK-dir e Comuni | idee-2026-10-20 |
+| Celpe-Bras: date e postos aplicadores (Brasile) | NO (3,5): 2 edizioni nazionali, l'INEP ha già l'elenco dei posti, portoghese | idee-2026-10-20 |
+| Sachkundeprüfung §34a per città (guardie giurate, Germania) | NO (4,5): domanda forte per 10 città ma ogni IHK ha già la pagina con le date (stesso verdetto degli esami IHK del 17/10) | idee-2026-10-20 |
+| Examen de vigilante de seguridad (Spagna) | NO (3,5): una convocatoria nazionale della Policía, accademie e giornali | idee-2026-10-20 |
+| Centri del test CSCS per città (Regno Unito) | NO (3): prenotazione ufficiale, Google local | idee-2026-10-20 |
+| ServSafe "near me" (USA) | NO (2,5): Google local | idee-2026-10-20 |
