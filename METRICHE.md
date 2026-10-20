@@ -53,6 +53,10 @@ Inviate 40 email: 5 agenzie "segnale" (Story Co, Informal, Mass FX Media, Social
 
 50 invii: 20 follow-up 2 (invii del 6/10) + 11 follow-up 1 Holiday Pack (invii del 13/10) + 19 nuovi (coda3, link pulito). 0 rimbalzi, 0 risposte vere (anche nel weekend).
 
+## 20/10
+
+50 invii: 38 follow-up 2 (invii del 7/10) + 12 nuovi (coda3). 0 rimbalzi, 0 risposte vere. Studio 58 scritto; Upwork rifiutato da Massimiliano.
+
 ## Crediti
 
 | Data | Higgsfield (piano Ultra) | Apollo lead credit (ciclo 3/10-3/11) |
