@@ -8,7 +8,7 @@
       <title>logoMit</title>
       <link>http://www.mit.gov.it</link>
     </image>
-    <pubDate>Tue, 20 Oct 2026 10:16:13 +0000</pubDate>
+    <pubDate>Tue, 20 Oct 2026 19:30:55 +0000</pubDate>
     <generator>Zend_Feed_Writer 2 (http://framework.zend.com)</generator>
     <link>http://www.mit.gov.it</link>
     <item>
@@ -121,6 +121,14 @@
       <pubDate>Thu, 29 Oct 2026 23:00:00 +0000</pubDate>
       <link>http://scioperi.mit.gov.it</link>
       <guid>http://scioperi.mit.gov.it/8606</guid>
+      <slash:comments>0</slash:comments>
+    </item>
+    <item>
+      <title>Data inizio: 30/10/2026 - Settore: Generale - Rilevanza: Nazionale - Regione:  Italia - Provincia: Tutte</title>
+      <description><![CDATA[modalità: INTERA GIORNATA DALLE 00.01 ALLE 23.59<br/>Data fine: 30/10/2026<br/>Settore: Generale<br/>Rilevanza: Nazionale<br/>Regione:  Italia<br/>Provincia: Tutte<br/>Sindacati: ADL-COBAS/CLAP/SIAL-COBAS/COBAS<br/>Categoria interessata: SCIOPERO GENERALE SETTORI PUBBLICI E PRIVATI*<br/>Data proclamazione: 20/10/2026<br/>Data ricezione: 20/10/2026]]></description>
+      <pubDate>Thu, 29 Oct 2026 23:00:00 +0000</pubDate>
+      <link>http://scioperi.mit.gov.it</link>
+      <guid>http://scioperi.mit.gov.it/8611</guid>
       <slash:comments>0</slash:comments>
     </item>
     <item>

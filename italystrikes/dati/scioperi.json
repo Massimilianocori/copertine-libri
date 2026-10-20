@@ -542,6 +542,25 @@
   "visto_ultimo": "2026-10-20",
   "modifiche": []
  },
+ "8611": {
+  "id": "8611",
+  "inizio": "2026-10-30",
+  "fine": "2026-10-30",
+  "settore": "Generale",
+  "rilevanza": "Nazionale",
+  "regione": "Italia",
+  "provincia": "Tutte",
+  "sindacati": "ADL-COBAS/CLAP/SIAL-COBAS/COBAS",
+  "categoria": "SCIOPERO GENERALE SETTORI PUBBLICI E PRIVATI*",
+  "modalita": "INTERA GIORNATA DALLE 00.01 ALLE 23.59",
+  "proclamazione": "2026-10-20",
+  "ricezione": "20/10/2026",
+  "note": "* ESCLUSI SETTORI TRASPORTO AEREO, FERROVIARIO E APPALTI, MARITTIMO, TPL, TAXI, CIRCOLAZIONE E SIC. STRADALE - ADESIONE OS COBAS LAVORO PRIVATO",
+  "stato": "in programma",
+  "visto_prima": "2026-10-20",
+  "visto_ultimo": "2026-10-20",
+  "modifiche": []
+ },
  "8548": {
   "id": "8548",
   "inizio": "2026-11-06",
