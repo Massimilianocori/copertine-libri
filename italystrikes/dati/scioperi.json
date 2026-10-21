@@ -165,7 +165,7 @@
   "proclamazione": "2026-09-28",
   "ricezione": "28/09/2026",
   "note": "",
-  "stato": "in programma",
+  "stato": "concluso",
   "visto_prima": "2026-10-10",
   "visto_ultimo": "2026-10-20",
   "modifiche": []
@@ -223,7 +223,7 @@
   "proclamazione": "2026-09-30",
   "ricezione": "01/10/2026",
   "note": "",
-  "stato": "in programma",
+  "stato": "concluso",
   "visto_prima": "2026-10-10",
   "visto_ultimo": "2026-10-20",
   "modifiche": []
@@ -299,7 +299,7 @@
   "proclamazione": "2026-10-01",
   "ricezione": "01/10/2026",
   "note": "",
-  "stato": "in programma",
+  "stato": "concluso",
   "visto_prima": "2026-10-10",
   "visto_ultimo": "2026-10-20",
   "modifiche": []
@@ -320,7 +320,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-19",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8595": {
@@ -339,7 +339,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8596": {
@@ -358,7 +358,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8587": {
@@ -377,7 +377,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8583": {
@@ -396,7 +396,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8597": {
@@ -415,7 +415,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8604": {
@@ -434,7 +434,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-16",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8453": {
@@ -453,7 +453,7 @@
   "note": "ESCLUSI SETTORI TRASPORTO AEREO, FERROVIARIO, TRASPORTO PUBBLICO LOCALE, MARITTIMO - ADESIONE OSP CUB FIRENZE",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": [
    {
     "il": "2026-10-19",
@@ -482,7 +482,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": [
    {
     "il": "2026-10-16",
@@ -520,7 +520,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-13",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8606": {
@@ -539,7 +539,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-16",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8611": {
@@ -558,7 +558,26 @@
   "note": "* ESCLUSI SETTORI TRASPORTO AEREO, FERROVIARIO E APPALTI, MARITTIMO, TPL, TAXI, CIRCOLAZIONE E SIC. STRADALE - ADESIONE OS COBAS LAVORO PRIVATO",
   "stato": "in programma",
   "visto_prima": "2026-10-20",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
+  "modifiche": []
+ },
+ "8612": {
+  "id": "8612",
+  "inizio": "2026-10-30",
+  "fine": "2026-10-30",
+  "settore": "Generale",
+  "rilevanza": "Nazionale",
+  "regione": "Italia",
+  "provincia": "Tutte",
+  "sindacati": "CIB-UNICOBAS",
+  "categoria": "SCIOPERO GENERALE CATEGORIE PUBBLICHE E PRIVATE*",
+  "modalita": "INTERA GIORNATA",
+  "proclamazione": "2026-10-20",
+  "ricezione": "21/10/2026",
+  "note": "* ESCLUSO INTERO SETTORE TRASPORTI",
+  "stato": "in programma",
+  "visto_prima": "2026-10-21",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8548": {
@@ -577,7 +596,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8608": {
@@ -596,7 +615,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-16",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8598": {
@@ -615,7 +634,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8602": {
@@ -634,7 +653,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-13",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8605": {
@@ -653,7 +672,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-16",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8603": {
@@ -672,7 +691,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-14",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8592": {
@@ -691,7 +710,7 @@
   "note": "*PER TPL SOCC. FER. SUD EST, GTT, SAD, TRENTINO TRASP., FER. UDINE C., SIST. TERRITORIALI, TFT, FERROTRAMVIARIA, FER.ADR. SANGRITANA-TUA, EAV, FER. GARGANO, FER. CALABRIA",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8610": {
@@ -710,7 +729,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-19",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8571": {
@@ -729,7 +748,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8579": {
@@ -748,7 +767,7 @@
   "note": "GARANTITI I VOLI DA E PER L'AEROPORTO DI BARI",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8588": {
@@ -767,7 +786,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8575": {
@@ -778,7 +797,7 @@
   "rilevanza": "Nazionale",
   "regione": "Italia",
   "provincia": "Tutte",
-  "sindacati": "CUB/ADL VARESE/SGB/CIB-UNICOBAS/SBM/SGC/SI-COBAS",
+  "sindacati": "CUB/ADL VARESE/SGB/SBM/SGC/SI-COBAS",
   "categoria": "SCIOPERO GENERALE CATEGORIE PUBBLICHE E PRIVATE",
   "modalita": "INTERA GIORNATA - AEREO: MODALITA' NON COMUNICATE; FERROVIARIO DALLE 21.00 DEL 3/12 ALLE 21.00 DEL 4/12; AUTOSTRADE: DALLE 22.00 DEL 3/12 ALLE 22.00 DEL 4/12, TPL: MODALITA' TERRITORIALI",
   "proclamazione": "2026-09-27",
@@ -786,8 +805,18 @@
   "note": "ADESIONE OO.SS. AL-COBAS E LMO",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-20",
-  "modifiche": []
+  "visto_ultimo": "2026-10-21",
+  "modifiche": [
+   {
+    "il": "2026-10-21",
+    "campi": {
+     "sindacati": [
+      "CUB/ADL VARESE/SGB/CIB-UNICOBAS/SBM/SGC/SI-COBAS",
+      "CUB/ADL VARESE/SGB/SBM/SGC/SI-COBAS"
+     ]
+    }
+   }
+  ]
  },
  "8594": {
   "id": "8594",
@@ -805,7 +834,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8607": {
@@ -824,7 +853,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-16",
-  "visto_ultimo": "2026-10-20",
+  "visto_ultimo": "2026-10-21",
   "modifiche": []
  },
  "8586": {
