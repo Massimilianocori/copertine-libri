@@ -266,3 +266,20 @@ Partenza dai due vincitori veri (EsameB1 e la sezione "visa refusal rates" di Vi
 | Examen de vigilante de seguridad (Spagna) | NO (3,5): una convocatoria nazionale della Policía, accademie e giornali | idee-2026-10-20 |
 | Centri del test CSCS per città (Regno Unito) | NO (3): prenotazione ufficiale, Google local | idee-2026-10-20 |
 | ServSafe "near me" (USA) | NO (2,5): Google local | idee-2026-10-20 |
+
+## Ricerca del mercoledì 21/10/2026
+Partenza dai numeri della settimana (EsameB1 48 visite, sezione rifiuti dei visti 32, Before You Fly 367 impressioni al giorno a posizione 45): cercate le estensioni dei siti con segnali (altre lingue, esempi d'esame, città mancanti, aeroporti mancanti) e tre famiglie nuove (cerimonie di cittadinanza in Australia, attese dell'esame di guida nel Regno Unito, esami taxi/NCC in Italia). Nessuna idea passa l'asticella (voto ≥ 7 e ≥ 5.000 €/anno): nessuna riga nel cruscotto. Due arrivano a 7 come estensioni a costo zero dei siti che già ricevono visite. Prove in `ricerca-2026-10-21.md`.
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **Sezione rifiuti dei visti Schengen in francese, poi in arabo** (stesso file della Commissione; autocomplete da Marocco, Algeria, Senegal, Francia e Arabia Saudita; Google ha solo giornali) | **PASSA sotto l'asticella** (voto 7; 1-3k €/anno, ottimista 6k; 12-20 ore) come estensione di Visa Income Checker | ricerca-2026-10-21 |
+| **Esempi ufficiali e simulazione dell'esame B1 per i 4 enti** (CILS, CELI, PLIDA, CERT.IT: file ufficiali tutti 200; autocomplete "esempio/simulazione/pdf/audio" in italiano e "sample test/past papers" in inglese) | **PASSA sotto l'asticella** (voto 7; +0,3-0,9k €/anno; 6-10 ore) come miglioramento di EsameB1 | ricerca-2026-10-21 |
+| **Attesa per la cerimonia di cittadinanza per consiglio comunale (Australia, Home Affairs)** | **RISERVA con test** (voto 6,5; 1-4k €/anno): domanda per consiglio e Google con soli PDF di accesso agli atti, ma la tabella sta dietro un'API SharePoint che dal server risponde "List data is currently unavailable"; sito nuovo oltre il tetto | ricerca-2026-10-21 |
+| Esame B1 all'estero per la cittadinanza per matrimonio (inglese, spagnolo, portoghese) | RISERVA (voto 6): domanda media, 0 sedi estere nei nostri dati, pagine sedi CILS in errore 500; si riapre se la pagina inglese degli esempi porta ≥ 100 impressioni al mese dall'estero | ricerca-2026-10-21 |
+| Pagine "easiest Schengen visa from [Paese]"; rifiuti UK di studio e lavoro; 12 città EsameB1 con sedi già raccolte; pagina esenzioni/orale; 12 aeroporti UK/IE in Before You Fly; titoli "liquids rules / 100ml rule"; liquidi per compagnia | **Miglioramenti** dei siti con segnali, con soglie a 30 giorni (sez. 5 del rapporto) | ricerca-2026-10-21 |
+| Attese per l'esame di guida per centro (Regno Unito, DVSA DRT122F) | NO (5,5): fonte perfetta (ODS 4,1 MB, 30.134 righe, mensile), ma passrates.uk ha già una pagina per centro, più drivingtestroutes, drivesoon e giornali | ricerca-2026-10-21 |
+| Esame "ruolo conducenti" taxi/NCC per città (Italia) | NO: ~100 Camere di Commercio con date e regolamenti propri (filtro duro) | ricerca-2026-10-21 |
+| Pagine per singolo consolato nella sezione rifiuti | NO: autocomplete vuota ("by embassy", "german embassy lagos") | ricerca-2026-10-21 |
+| Tempi di appuntamento per il visto Schengen per città | NO: domanda enorme (Karachi, Islamabad, India, Dubai) ma nessuna fonte ufficiale; USA 403 | ricerca-2026-10-21 |
+| Sezione rifiuti in turco, russo, urdu, hindi, spagnolo, portoghese, vietnamita, thai, cinese, persiano | NO: autocomplete 0-4 varianti; pakistani e indiani cercano in inglese | ricerca-2026-10-21 |
+| Cerimonie di cittadinanza per Comune nel Regno Unito, Canada, USA | NO: nessun dato per Comune (UK), IRCC senza tabella, USCIS 403 | ricerca-2026-10-21 |
+| Date dell'esame per la patente nautica per città | NO: 1 variante in autocomplete | ricerca-2026-10-21 |
