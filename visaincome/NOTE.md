@@ -1,6 +1,6 @@
 # Visa Income Checker – note di lavoro
 
-Costruito il 10/10/2026. Sito statico in inglese, generato da `genera.py` in `sito/` (37 pagine + 404; dal 15/10/2026 141 pagine con la sezione "Visa refusal rates").
+Costruito il 10/10/2026. Sito statico in inglese, generato da `genera.py` in `sito/` (37 pagine + 404; dal 15/10/2026 141 pagine con la sezione "Visa refusal rates"; dal 21/10/2026 186 con le 45 pagine "Easiest Schengen visa").
 Indirizzo previsto: `https://visa-income-checker.netlify.app` (costante `URL_SITO` in `genera.py`, unico punto da cambiare).
 Corretto il 10/10/2026 dopo la revisione indipendente (vedi "Correzioni dopo la revisione").
 
@@ -20,7 +20,7 @@ per il confronto "sopra/sotto la soglia").
 | `dati/cambi.json` | cambi BCE di riserva, scritti nelle pagine alla generazione (`raccolta/cambi.py`) |
 | `dati/affiliati.json` | riquadro affiliati: compare solo quando un URL è compilato |
 | `raccolta/cambi.py` | scarica `eurofxref-daily.xml` della BCE; se qualcosa non va non tocca il file |
-| `verifica.py` | esempi a mano, confronto JS/Python, link, fonti sotto la cifra, parole vietate, sezione visti rifiutati (controllo 7; `--offline` salta i link esterni) |
+| `verifica.py` | esempi a mano, confronto JS/Python, link, fonti sotto la cifra, parole vietate, sezione visti rifiutati (controllo 7; `--offline` salta i link esterni), pagine "easiest" e visti UK studio/lavoro (controllo 8) |
 | `raccolta/rifiuti.py` | scarica e legge i file ufficiali sui visti rifiutati (Commissione Europea, Home Office) e scrive `dati/rifiuti.json`; i file grezzi vanno in `raccolta/_grezzi/` (esclusi da git) |
 | `dati/rifiuti.json` | dati della sezione "Visa refusal rates" (generato, non modificare a mano) |
 
@@ -163,6 +163,47 @@ Revisione indipendente del 15/10/2026: oltre 3.400 cifre ricontrollate con un pa
 Corretti: nomi dei consolati ("Washington, DC", "Port of Spain", "Rio de Janeiro" invece di "Washington, Dc"...: funzione `nome_consolato`),
 "The United States ranks" a metà frase, barre verdi della lista "Lowest" invisibili (la classe `ok` prendeva lo stile del riquadro `.ok`; ora `basso`/`alto`,
 con la stessa scala per le due liste), barrette delle tabelle allineate (numero in `.tv` a larghezza fissa).
+
+## Aggiunte del 21/10/2026: "Easiest Schengen visa" e visti UK di studio e lavoro
+
+Motivo: le 32 visite della settimana 14-21/10 erano tutte nella sezione dei rifiuti (Pakistan 6); la gente cerca "easiest schengen visa from pakistan / for indians",
+"which schengen country has lowest rejection rate for <nazionalità>" (ricerca del 21/10) e la classifica c'era già dentro le pagine, ma titoli e H1 non lo dicevano.
+
+1. **Pagine per Paese** (`/visa-refusal-rates/<paese>/`): titolo "Schengen visa rejection rate <Paese> 2025: by country, easiest and hardest, plus UK",
+   H1 "... Schengen countries (2025), easiest and hardest, and the UK", primo paragrafo e riquadro di sintesi con il Paese Schengen con il tasso più basso e quello con il più alto
+   (solo tra gli Stati con almeno 500 decisioni, `SOGLIA_CLASSIFICA`), meta description con "Easiest Schengen visa for <aggettivo> applicants: X (tasso); hardest: Y (tasso)",
+   H2 `#easiest` "Easiest Schengen visa from <Paese>: lowest and highest refusal rates" con le due liste (5 più bassi, 3 più alti) e la frase "These rates describe past decisions, not your chances".
+   Aggettivi di nazionalità nel dizionario `DEMONIMI` di `genera.py` (il generatore si ferma se manca un Paese con pagina).
+2. **Pagine `/visa-refusal-rates/<paese>/easiest-schengen-visa/`** (45, tutte in sitemap, breadcrumb a tre livelli): solo per i Paesi in cui **almeno 8 Stati Schengen hanno deciso
+   almeno 500 domande** nell'anno più recente (`SOGLIA_FACILE = 8`: così "5 più bassi" e "3 più alti" non si sovrappongono; 29 Paesi su 74 restano senza pagina separata,
+   ad es. Suriname con 1 Stato, Togo con 2). Contenuto: H1 "Easiest Schengen visa from <Paese> (2025): countries with the lowest refusal rate", riquadro con Stato più basso,
+   più alto, media del Paese, numero di Stati e consolati classificati; liste "Lowest/Highest"; tabella ordinabile di tutti gli Stati con 500+ decisioni dal tasso più basso
+   (con 2024 e variazione in punti); tabella dei consolati con 500+ decisioni dal tasso più basso; 4 domande e risposte (anche in JSON-LD FAQPage); "What easiest means here";
+   griglia delle altre 8 pagine "easiest" più vicine per numero di domande. Dati solo da `dati/rifiuti.json`. Collegamenti: dalla pagina madre (riquadro e sezione `#easiest`),
+   dalla panoramica (griglia dei 12 Paesi con più domande) e tra le pagine "easiest". Perché pagine separate: la domanda "easiest schengen visa from X" è diversa da
+   "rejection rate X" e Google tende a premiare una pagina per intento; il contenuto non è un doppione (classifica completa, consolati classificati, domande).
+3. **Regno Unito, visti di studio e lavoro per nazionalità** (idea 4 del 20/10): il file Home Office già usato (`Data_Vis_D02`, gruppi Visitor/Study/Work/Family/Other) aveva
+   già studio e lavoro in `dati/rifiuti.json` e nella tabella "Visa type" di ogni pagina; ora stanno anche nel riquadro di sintesi (KPI "study visas refused · N decisions",
+   "work visas refused"), nel primo paragrafo UK, nella meta description ("visitor 43.2%, study 19.0%, work 23.4%"), in una tabella trimestrale "Study visas and work visas, quarter by quarter"
+   e nella pagina `/uk/` (colonne "Study visas refused / Study decisions / Work visas refused / Work decisions", riquadro con i totali). La sezione UK compare ora quando **uno qualsiasi**
+   tra turismo, studio e lavoro ha almeno 500 decisioni (`gruppi_uk_ok`): 8 Paesi in più (Cipro, Hong Kong, Giappone, Kuwait, Oman, Qatar, Arabia Saudita, Singapore), con la cifra
+   principale sul gruppo più grande. Gruppi come nel file: "Study" = Sponsored study (Student, Child Student) + Other study (Short-term study); "Work" = Worker (Skilled Worker,
+   Health and Care Worker, ...) + Temporary Worker + Investor/business/talent + Other work visas and exemptions. Raccolta: nessuna modifica (`raccolta/rifiuti.py --nuovo` rigenera tutto).
+   File ufficiale controllato con curl dal server il 21/10/2026: HTTP 206 (richiesta parziale) per il XLSX, l'API dei contenuti GOV.UK e l'ODS di sintesi; ultimo aggiornamento della pagina 27/8/2026.
+   Controllo indipendente sul file grezzo (Pakistan, India, Nigeria, USA: studio e lavoro, 4 trimestri): cifre uguali alle pagine.
+4. `verifica.py` controllo 8: numero di pagine "easiest" (≥ 30), sitemap, titolo, frase di cautela, classifica/FAQ/avviso, link dalla pagina madre; per Pakistan, India e Nigeria
+   ricalcolo dello Stato più basso e più alto e ordine della tabella; tassi UK di studio e lavoro ricalcolati per Pakistan, India, Nigeria e Giappone (riquadro, tabella, pagina `/uk/`).
+   Sito: 186 pagine indicizzabili (141 + 45). Screenshot Playwright 375/1280 px (Pakistan, Pakistan easiest, /uk/, Giappone, panoramica): nessuno scorrimento orizzontale, 0 errori JS.
+   Misura (dalla ricerca del 21/10): ≥ 200 impressioni al mese sulle pagine "easiest" a 30 giorni (Search Console, filtro `easiest-schengen-visa`).
+
+Correzioni dopo la revisione indipendente del 21/10/2026 (numeri Schengen e UK ricalcolati da zero: tutti uguali alle pagine):
+- `ESENTI_VISTO` in `genera.py`: per i 13 Paesi i cui cittadini non hanno bisogno del visto Schengen o sono cittadini UE (Australia, Canada, Cipro, Georgia, Hong Kong,
+  Irlanda, Israele, Giappone, Serbia, Singapore, Emirati, Regno Unito, USA) `demonimo()` scrive "applicants from Ireland" invece di "Irish applicants":
+  le domande lì vengono da residenti di altre nazionalità, e "Irish applicants" / "UK applicants" era sbagliato (meta, H2, domande e JSON-LD).
+- Titolo e H1 delle pagine per Paese: "easiest first" → "easiest and hardest" (la tabella per Stato resta ordinata per domande, non per tasso: "easiest first" prometteva
+  un ordine che non c'è); tolto " (official)" dal titolo per accorciarlo. Nel riquadro di sintesi "(full ranking)" dopo la parentesi del tasso → frase a sé "Full ranking by country and consulate".
+- Pagina `/uk/`: con 10 colonne la tabella era larga 1.684 px in un contenitore di 1.026 px (a 1280 px le colonne lavoro e totale restavano fuori schermo senza alcun segnale):
+  solo per `#t-uk` intestazioni a capo, celle più strette e barrette nascoste → 1.026 px, tutte le colonne visibili a 1280 px (a 375 px scorre nel contenitore come prima).
 
 ### Da ricontrollare (date)
 - **26/11/2026** (prossima pubblicazione del Home Office, scritta nel file; la tabella dei contenuti indica anche il 27/10/2026 per i dataset: controllare entrambe le date): rilanciare lo script con `--nuovo` → UK fino a 2026 Q3.

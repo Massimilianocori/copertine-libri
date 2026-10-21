@@ -105,3 +105,18 @@ Controllo incrociato con i numeri ufficiali già pubblicati (al centesimo): Spag
 | `verifica.py` punto 7 | 104 pagine: ogni tabella e ogni cifra principale con fonte ufficiale e data; cifre di panoramica, 5 Paesi, 5 Stati e 4 nazionalità UK ricalcolate da `dati/rifiuti.json`; link esterni della sezione 200/206 |
 | Playwright 390 e 1280 px, chiaro e scuro | 104 pagine nuove + home, Spagna nomadi, Germania, How it works, About, Privacy: nessuno scorrimento orizzontale, 0 errori JS, ordinamento delle tabelle corretto |
 | Controllo a campione sui file grezzi | 14 cifre su 14 uguali (vedi rapporto della sessione) |
+
+
+## "Easiest Schengen visa" e visti UK di studio e lavoro (21/10/2026)
+
+| Controllo | Esito |
+|---|---|
+| Generatore | 186 pagine indicizzabili (141 + 45 `easiest-schengen-visa/`), 74 Paesi, 28 Stati, UK fino al 2026 Q2 |
+| `verifica.py` 1-7 | 32/32 esempi, 0 differenze JS, 187 pagine 0 link rotti, 0 parole vietate, 149 pagine della sezione rifiuti con fonte e data sotto ogni tabella, 5 link esterni 200/206 |
+| `verifica.py` 8 | 45 pagine "easiest": sitemap, titolo, cautela, classifica, FAQ, link dalla madre; Pakistan/India/Nigeria: Stato più basso e più alto = ricalcolo da `rifiuti.json`, tabella ordinata; UK studio/lavoro Pakistan, India, Nigeria, Giappone = ricalcolo (riquadro, tabella, pagina `/uk/`): 0 errori |
+| Controllo indipendente sul file grezzo Home Office (parser separato, `Data_Vis_D02`, 2025 Q3–2026 Q2) | Pakistan studio 19,0% (21.330 concessi / 4.996 rifiutati), lavoro 23,4% (10.646 / 3.255); India studio 4,5%, lavoro 8,5%; Nigeria studio 11,6%, lavoro 36,0%; USA studio 0,5%, lavoro 1,4%: tutti uguali alle pagine |
+| Playwright 375 e 1280 px (Pakistan chiaro e scuro, Pakistan easiest, /uk/, Giappone, panoramica) | nessuno scorrimento orizzontale, 0 errori in console, ordinamento delle tabelle funzionante |
+| Classifica Pakistan 2025 (a mano dal file) | 14 Stati con 500+ decisioni: più basso Germania 24,2% (4.597 / 19.006), più alto Danimarca 78,7% (4.325 / 5.499); 16 consolati con 500+ decisioni |
+| Revisione indipendente 21/10/2026: classifica Schengen ricalcolata da `dati/rifiuti.json` con script separato (Pakistan, Nigeria, India, Türkiye, Marocco) | 5 più bassi, 3 più alti, media, numero di Stati e consolati con 500+ decisioni, ordine della tabella: tutti uguali alle pagine madre e "easiest" |
+| Revisione indipendente: file Home Office riscaricato (33.032.191 byte, SHA-256 uguale a `rifiuti.json`), parser separato su `Data_Vis_D02`, 2025 Q3–2026 Q2 | Pakistan studio 19,0% / lavoro 23,4%, Nigeria 11,6% / 36,0%, India 4,5% / 8,5%, trimestri Pakistan, righe della pagina `/uk/`: uguali; nessun doppio conteggio tra "All" e "Main Applicant/Dependant" |
+| Revisione indipendente: JSON-LD FAQPage (10 pagine "easiest" a caso), sitemap (45/45), breadcrumb a 3 livelli, link interni, nomi di modelli IA, SafetyWing (url vuoto, 0 link nel sito) | 0 errori; corretti aggettivi dei 13 Paesi senza obbligo di visto, "easiest first" nei titoli, tabella `/uk/` fuori schermo a 1280 px (vedi NOTE) |

@@ -359,6 +359,79 @@ def controlla_rifiuti(online=True):
     return errori, len(pagine), controllati
 
 
+# ---------------------------------------------------------------- 8. "Easiest Schengen visa" e visti UK di studio e lavoro (21/10/2026)
+def controlla_facile():
+    errori = []
+    R = json.loads((SITO.parent / "dati" / "rifiuti.json").read_text(encoding="utf-8"))
+    anni = sorted(R["schengen"], key=int)
+    a1 = anni[-1]
+    pagine = sorted((SITO / "visa-refusal-rates").glob("*/easiest-schengen-visa/index.html"))
+    if len(pagine) < 30:
+        errori.append(f"Facile: solo {len(pagine)} pagine 'easiest-schengen-visa'")
+    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    for f in pagine:
+        t = f.read_text(encoding="utf-8")
+        slug = f.parent.parent.name
+        if f"/visa-refusal-rates/{slug}/easiest-schengen-visa/</loc>" not in sitemap:
+            errori.append(f"Facile: {slug} non in sitemap")
+        titolo = re.search(r"<title>(.*?)</title>", t).group(1)
+        if not titolo.startswith("Easiest Schengen visa from "):
+            errori.append(f"Facile: titolo di {slug}: {titolo}")
+        if "Rates describe past decisions, not your chances." not in t:
+            errori.append(f"Facile: frase di cautela mancante in {slug}")
+        if 'class="classifica"' not in t or "FAQPage" not in t or "Statistics, not advice." not in t:
+            errori.append(f"Facile: classifica, FAQ o avviso mancanti in {slug}")
+        madre = (SITO / "visa-refusal-rates" / slug / "index.html").read_text(encoding="utf-8")
+        if 'href="easiest-schengen-visa/"' not in madre:
+            errori.append(f"Facile: la pagina {slug} non rimanda alla classifica")
+    # ricalcolo per Pakistan, India e Nigeria: Stato con il tasso più basso e più alto tra quelli con almeno 500 decisioni
+    for paese, slug in (("PAKISTAN", "pakistan"), ("INDIA", "india"), ("NIGERIA", "nigeria")):
+        per_stato = {}
+        for r in R["schengen"][a1]:
+            if r[1] == paese:
+                v = per_stato.setdefault(r[0], [0, 0, 0, 0])
+                for i in range(4):
+                    v[i] += r[3 + i]
+        ok = sorted(((v[3] / (v[1] + v[2] + v[3]), s, v) for s, v in per_stato.items() if v[1] + v[2] + v[3] >= 500))
+        if len(ok) < 8:
+            errori.append(f"Facile: {slug} ha solo {len(ok)} Stati con 500+ decisioni ma ha la pagina")
+            continue
+        t = (SITO / "visa-refusal-rates" / slug / "easiest-schengen-visa" / "index.html").read_text(encoding="utf-8")
+        tb, sb = ok[0][0], ok[0][1]
+        ta, sa = ok[-1][0], ok[-1][1]
+        if f"<strong>{sb}: {tb * 100:.1f}%</strong> not issued" not in t:
+            errori.append(f"Facile: Stato più basso di {slug} diverso dal ricalcolo ({sb} {tb * 100:.1f}%)")
+        if f"<b>{sa}</b><span>highest rate: {ta * 100:.1f}%</span>" not in t:
+            errori.append(f"Facile: Stato più alto di {slug} diverso dal ricalcolo ({sa} {ta * 100:.1f}%)")
+        prime = re.search(r'<ol class="classifica">(.*?)</ol>', t, re.S).group(1)
+        if f">{sb}</a>" not in prime.split("</li>")[0]:
+            errori.append(f"Facile: primo della lista 'Lowest' di {slug} non è {sb}")
+        # tabella: tutte le righe in ordine crescente di tasso
+        tassi = [float(x) for x in re.findall(r'<td class="n" data-v="(\d\.\d+)"><span class="tb"', t.split("All Schengen countries ranked", 1)[1].split("</table>", 1)[0])]
+        tassi_a1 = tassi[0::2]  # colonne alternate: anno più recente, anno prima
+        if tassi_a1 != sorted(tassi_a1) or len(tassi_a1) != len(ok):
+            errori.append(f"Facile: tabella di {slug} non ordinata o incompleta ({len(tassi_a1)} righe su {len(ok)})")
+    # UK: tassi di studio e lavoro nel riquadro delle pagine per nazionalità e nella pagina /uk/
+    q4 = R["uk"]["trimestri"][-4:]
+    uk_pag = (SITO / "visa-refusal-rates" / "uk" / "index.html").read_text(encoding="utf-8")
+    for naz, slug in (("Pakistan", "pakistan"), ("India", "india"), ("Nigeria", "nigeria"), ("Japan", "japan")):
+        p = (SITO / "visa-refusal-rates" / slug / "index.html").read_text(encoding="utf-8")
+        for g, nome in (("Study", "study"), ("Work", "work")):
+            c = sum(R["uk"]["naz"][naz][g].get(q, [0, 0])[0] for q in q4)
+            r = sum(R["uk"]["naz"][naz][g].get(q, [0, 0])[1] for q in q4)
+            tx = f"{r / (c + r) * 100:.1f}%"
+            if f"<b>{tx}</b><span>{nome} visas refused · {c + r:,} decisions</span>" not in p and f"<strong>{tx}</strong> of {nome} visa decisions" not in p:
+                errori.append(f"Rifiuti UK: tasso {nome} di {slug} ({tx}) non trovato nel riquadro")
+            if f"<td>{nome.capitalize()} visas</td>" not in p or f'<td class="n">{c + r:,}</td><td class="n">{c:,}</td><td class="n">{r:,}</td>' not in p:
+                errori.append(f"Rifiuti UK: riga {nome} di {slug} diversa dal ricalcolo")
+            riga = re.search(rf'<tr><td>(?:<a [^>]+>)?{naz}(?:</a>)?</td>.*?</tr>', uk_pag, re.S)
+            if not riga or f'<td class="n" data-v="{c + r}">{c + r:,}</td>' not in riga.group(0) or f'data-v="{r / (c + r):.6f}"' not in riga.group(0):
+                errori.append(f"Rifiuti UK: pagina /uk/, riga {naz}: {nome} {tx} o {c + r} decisioni non trovati")
+    if "Study visas refused" not in uk_pag or "Work visas refused" not in uk_pag:
+        errori.append("Rifiuti UK: colonne studio/lavoro mancanti nella pagina /uk/")
+    return errori, len(pagine)
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -374,7 +447,9 @@ def main():
     print(f"6. Correzioni della revisione presenti nelle pagine: {len(e6)} errori")
     e7, n7, x7 = controlla_rifiuti(online="--offline" not in sys.argv)
     print(f"7. Visa refusal rates: {n7} pagine, {x7} link esterni controllati, {len(e7)} errori")
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7
+    e8, n8 = controlla_facile()
+    print(f"8. Easiest Schengen visa ({n8} pagine) e visti UK di studio e lavoro: {len(e8)} errori")
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8
     for e in tutti:
         print(" -", e)
     if tutti:

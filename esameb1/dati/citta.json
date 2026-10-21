@@ -383,5 +383,74 @@
   "nome": "Belluno",
   "slug": "belluno",
   "provincia": "Belluno"
+ },
+ {
+  "nome": "Ferrara",
+  "slug": "ferrara",
+  "provincia": "Ferrara"
+ },
+ {
+  "nome": "Pordenone",
+  "slug": "pordenone",
+  "provincia": "Pordenone"
+ },
+ {
+  "nome": "Lodi",
+  "slug": "lodi",
+  "provincia": "Lodi"
+ },
+ {
+  "nome": "Alba",
+  "slug": "alba",
+  "provincia": "Cuneo",
+  "capoluogo": false
+ },
+ {
+  "nome": "Busto Arsizio",
+  "slug": "busto-arsizio",
+  "provincia": "Varese",
+  "capoluogo": false
+ },
+ {
+  "nome": "Crema",
+  "slug": "crema",
+  "provincia": "Cremona",
+  "capoluogo": false
+ },
+ {
+  "nome": "Treviglio",
+  "slug": "treviglio",
+  "provincia": "Bergamo",
+  "capoluogo": false
+ },
+ {
+  "nome": "Arzignano",
+  "slug": "arzignano",
+  "provincia": "Vicenza",
+  "capoluogo": false
+ },
+ {
+  "nome": "Gavardo",
+  "slug": "gavardo",
+  "provincia": "Brescia",
+  "capoluogo": false
+ },
+ {
+  "nome": "Rovereto",
+  "slug": "rovereto",
+  "provincia": "Trento",
+  "capoluogo": false
+ },
+ {
+  "nome": "Schio",
+  "slug": "schio",
+  "provincia": "Vicenza",
+  "capoluogo": false
+ },
+ {
+  "nome": "Civitanova Marche",
+  "slug": "civitanova-marche",
+  "provincia": "Macerata",
+  "capoluogo": false
  }
 ]

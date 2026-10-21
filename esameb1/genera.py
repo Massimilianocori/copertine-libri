@@ -40,6 +40,14 @@ GIORNI = ["lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato",
 PREFETTURA = ("https://prefettura.interno.gov.it/sites/default/files/24/2024-06/"
               "certificato_di_conoscenza_della_lingua_italiana_-ente_privato-.pdf")
 
+# Fonti ufficiali su chi deve fare l'esame e chi è esente (lette il 21/10/2026).
+MININT_CITTADINANZA = "https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza"
+MININT_DOMANDA = "https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza/cittadinanza-invia-tua-domanda"
+PREFETTURA_MILANO = "https://prefettura.interno.gov.it/it/prefetture/milano/cittadinanza"
+DLCI_RESIDENZA = ("https://libertaciviliimmigrazione.dlci.interno.gov.it/temi/"
+                  "concessione-della-cittadinanza-italiana-residenza-sul-territorio-italiano-ai-sensi-dellart-9")
+NORMATTIVA_91 = "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-02-05;91!vig="  # testo vigente della legge 91/1992 (link usato dal Ministero)
+
 enti = json.loads((DATI / "enti.json").read_text())
 sessioni = json.loads((DATI / "sessioni.json").read_text())
 sedi = json.loads((DATI / "sedi.json").read_text())
@@ -95,6 +103,7 @@ ICONE = {
     "scudo": '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/>',
     "euro": '<path d="M18 7.5A7 7 0 1 0 18 16.5"/><path d="M4 10.5h9M4 13.5h9"/>',
     "libro": '<path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2Z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8Z"/>',
+    "voce": '<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5M8 22h8"/>',
 }
 
 
@@ -522,7 +531,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
 <div>
 <a class="logo" href="{home_href}">{MARCHIO}<span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li>{enti_link}<li><a href="{rel}privacy.html">Privacy</a></li>
+<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Esenzioni e domande</a></li>{enti_link}<li><a href="{rel}privacy.html">Privacy</a></li>
 </ul>
 </div>
 <div>
@@ -755,7 +764,10 @@ def norma_luogo(testo):
 
 
 def nomi_capoluogo(c):
-    """Nomi con cui le fonti scrivono il capoluogo: nome della pagina e nome della provincia (anche bilingue, es. Bolzano/Bozen)."""
+    """Nomi con cui le fonti scrivono il capoluogo: nome della pagina e nome della provincia (anche bilingue, es. Bolzano/Bozen).
+    Per una città che non è capoluogo ("capoluogo": false in citta.json, es. Busto Arsizio) vale solo il suo nome."""
+    if not c.get("capoluogo", True):
+        return {norma_luogo(c["nome"])}
     return {norma_luogo(c["nome"])} | {norma_luogo(x) for x in c["provincia"].split("/")}
 
 
@@ -768,8 +780,24 @@ def nome_provincia(c):
     return c["nome"] if norma_luogo(c["nome"]) in {norma_luogo(x) for x in c["provincia"].split("/")} else c["provincia"].split("/")[0]
 
 
+def a_(c):
+    """"a Milano", "ad Alba"."""
+    return f"{'ad' if c['nome'][0] == 'A' else 'a'} {escape(c['nome'])}"
+
+
+def sedi_pagina(c):
+    """Le sedi che la pagina conta come "sue": tutta la provincia per un capoluogo, il solo comune per le altre città."""
+    if not c.get("capoluogo", True):
+        return [s for s in sedi if nel_capoluogo(s, c)]
+    return [s for s in sedi if s["provincia"] == c["provincia"]]
+
+
 def sedi_di(c):
-    return sum(1 for s in sedi if s["provincia"] == c["provincia"])
+    return len(sedi_pagina(c))
+
+
+def n_sedi(n):
+    return f"{n} {'sede' if n == 1 else 'sedi'}"
 
 
 def principali(n=12):
@@ -789,7 +817,7 @@ def citta_per_regione(rel):
 
 
 # Fatti per ente (dati/enti.json → "fatti"): ogni voce ha testo, fonti e data di verifica.
-VOCI_FATTI = {"costo": ("euro", "Quanto costa"), "durata": ("orologio", "Quanto dura"), "risultati": ("ok", "Risultati"),
+VOCI_FATTI = {"costo": ("euro", "Quanto costa"), "durata": ("orologio", "Quanto dura"), "orale": ("voce", "L'orale"), "risultati": ("ok", "Risultati"),
               "documenti": ("doc", "Documenti e cosa portare"), "esempi": ("libro", "Esempi d'esame gratis"), "nota": ("info", "Da sapere")}
 
 
@@ -820,7 +848,8 @@ def schede_per_ente(chiave, breve=False, bottone=None):
 def link_guide(rel, salta=None):
     voci = [("costo/", "euro", "Quanto costa", "i prezzi di ogni ente"),
             ("come-funziona/", "lista", "Come si svolge", "durata, cosa portare, esempi"),
-            ("risultati/", "ok", "Risultati", "quando arrivano e dove vederli")]
+            ("risultati/", "ok", "Risultati", "quando arrivano e dove vederli"),
+            ("esenzioni-e-domande/", "scudo", "Esenzioni e domande", "chi non deve fare l'esame, orale, durata")]
     return '<div class="griglia link3">' + "".join(
         f'<a href="{rel}{h}">{ic(i)}<span>{t}<small>{sm}</small></span></a>' for h, i, t, sm in voci if h != salta) + "</div>"
 
@@ -861,7 +890,8 @@ def home(prossime):
 </section>
 <section>
 <h2>{ic("info")}Domande frequenti</h2>
-{domanda("Quale esame devo fare per la cittadinanza?", f'Serve un certificato di italiano almeno di livello B1, rilasciato da uno dei 4 enti riconosciuti: CILS (Università per Stranieri di Siena), CELI (Università per Stranieri di Perugia), PLIDA (Società Dante Alighieri) e CERT.IT (Università Roma Tre). Fonte: <a href="{PREFETTURA}" rel="noopener">Prefettura – Ministero dell\'Interno</a>. Per i casi particolari (titoli di studio italiani, esenzioni) chiedi alla Prefettura.')}
+{domanda("Quale esame devo fare per la cittadinanza?", f'Serve un certificato di italiano almeno di livello B1, rilasciato da uno dei 4 enti riconosciuti: CILS (Università per Stranieri di Siena), CELI (Università per Stranieri di Perugia), PLIDA (Società Dante Alighieri) e CERT.IT (Università Roma Tre). Fonte: <a href="{PREFETTURA}" rel="noopener">Prefettura – Ministero dell\'Interno</a>. Per i casi particolari (titoli di studio italiani, esenzioni) leggi <a href="esenzioni-e-domande/">chi è esente secondo la norma</a> e chiedi alla Prefettura.')}
+{domanda("Chi è esente dall'esame B1?", 'Secondo le istruzioni del Ministero dell\'Interno, non deve presentare il certificato chi ha firmato l\'accordo di integrazione o ha il permesso di soggiorno UE per soggiornanti di lungo periodo. La legge (art. 9.1 della legge 91/1992) ammette al posto del certificato anche un titolo di studio di un istituto pubblico o paritario riconosciuto. <a href="esenzioni-e-domande/">Esenzioni, orale, durata e domande, con le fonti</a>.')}
 {domanda('Che differenza c\'è tra "B1 cittadinanza" e B1 normale?', 'CILS e CELI hanno un esame B1 pensato per la cittadinanza, con più sessioni durante l\'anno. Il B1 "normale" degli stessi enti, il PLIDA B1 e il CERT.IT B1 sono anch\'essi certificati di livello B1. Leggi la <a href="come-funziona/">pagina Come funziona</a>.')}
 {domanda("Come mi iscrivo?", "Ci si iscrive presso la sede d'esame, non su questo sito. Scegli una sede nella tua città, contattala e chiedi costo, documenti e scadenza.")}
 {domanda("Quanto costa l'esame B1 per la cittadinanza?", "CILS B1 Cittadinanza: 100 €, la stessa tassa in tutta Italia. CERT.IT B1: 80 € alla sede di Roma Tre. CELI e PLIDA: il prezzo lo decide il centro d'esame (per esempio CELI 2 i cittadinanza 90 € all'Università degli Studi di Milano). <a href=\"costo/\">Tutti i costi, con le fonti</a>.")}
@@ -886,7 +916,7 @@ def per_ente(c, qui, in_citta, prossime):
         lista = [s for s in prossime if s["ente"] == e]
         if not n_q:
             continue
-        dove = f'{n_c} {"sede" if n_c == 1 else "sedi"} a {escape(c["nome"])}' if n_c else f'{n_q} in provincia'
+        dove = f'{n_c} {"sede" if n_c == 1 else "sedi"} {a_(c)}' if n_c else f'{n_q} in provincia'
         if not lista:
             schede.append(f"""<article class="pe pe-{e.replace('.', '')}">
 <div class="pe-testa">{eb(e)}<a href="#sedi-{SLUG_ENTE[e]}">{ic("pin")}{dove}</a></div>
@@ -930,7 +960,7 @@ def pagina_citta(c, prossime):
         tutte = (f'<p class="small"><a href="../../ente/{SLUG_ENTE[e]}/#{slug(regione)}">Tutte le sedi {e} in {escape(regione)}</a></p>'
                  if regione else "")
         if lista:
-            blocchi.append(f'<h3 id="sedi-{SLUG_ENTE[e]}">{eb(e)} {e} a {escape(c["nome"])} ({len(lista)})</h3><ul class="sedi">{"".join(scheda_sede(s) for s in lista)}</ul>{tutte}')
+            blocchi.append(f'<h3 id="sedi-{SLUG_ENTE[e]}">{eb(e)} {e} {a_(c)} ({len(lista)})</h3><ul class="sedi">{"".join(scheda_sede(s) for s in lista)}</ul>{tutte}')
         elif any(s["ente"] == e for s in in_prov):
             blocchi.append(f'<h3 id="sedi-{SLUG_ENTE[e]}">{eb(e)} {e} in provincia di {prov}</h3>'
                            f'<ul class="sedi">{"".join(scheda_sede(s) for s in in_prov if s["ente"] == e)}</ul>{tutte}')
@@ -950,24 +980,34 @@ def pagina_citta(c, prossime):
     altre += f'<a href="../../#citta">Tutte le {len(citta)} città</a>'
     vicine_html = (f'<h3>{ic("pin")}In {escape(regione)}</h3><div class="altre">{"".join(f"<a href=\"../{x["slug"]}/\">{escape(x["nome"])}</a>" for x in vicine)}</div><h3>Altre città in Italia</h3>'
                    if vicine else "")
-    enti_qui = [e for e in ENTE if any(s["ente"] == e for s in qui)]
+    capoluogo = c.get("capoluogo", True)
+    mie = qui if capoluogo else in_citta  # le sedi che la pagina conta come sue
+    enti_qui = [e for e in ENTE if any(s["ente"] == e for s in mie)]
+    conteggio = ", ".join(f"{sum(1 for s in mie if s['ente'] == e)} {e}" for e in enti_qui)
+    if capoluogo:
+        dove = f"{"A" + a_(c)[1:]} e provincia {'c\'è' if len(mie) == 1 else 'ci sono'} <strong>{n_sedi(len(mie))}</strong>"
+        in_piu = ""
+    else:
+        dove = f"{"A" + a_(c)[1:]} {'c\'è' if len(mie) == 1 else 'ci sono'} <strong>{n_sedi(len(mie))}</strong>"
+        cap = next((x for x in citta if x["provincia"] == c["provincia"] and x.get("capoluogo", True)), None)
+        in_piu = (f" In provincia di {prov} {'ce n\'è un\'altra' if len(in_prov) == 1 else f'ce ne sono altre {len(in_prov)}'}"
+                  + (f', vedi anche la pagina di <a href="../{cap["slug"]}/">{escape(cap["nome"])}</a>.' if cap else ".")) if in_prov else ""
     corpo = f"""<section class="hero">
 {briciole(("EsameB1", "../../"), ("Città", "../../#citta"), (c["nome"], None))}
-<h1>Esame B1 per la cittadinanza a {escape(c['nome'])}: date e sedi {anni(prossime)}</h1>
-<p class="lead">A {escape(c['nome'])} e provincia ci sono <strong>{len(qui)} sedi</strong> dove puoi fare l'esame di italiano B1 per la cittadinanza
-({", ".join(f"{sum(1 for s in qui if s['ente'] == e)} {e}" for e in enti_qui)}).
+<h1>Esame B1 per la cittadinanza {a_(c)}: date e sedi {anni(prossime)}</h1>
+<p class="lead">{dove} dove puoi fare l'esame di italiano B1 per la cittadinanza ({conteggio}).{in_piu}
 Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può cambiare da sede a sede.</p>
 {risposta(prossime, "")}
-<div class="azioni"><a class="btn" href="#avvisami">{ic("campana")}Avvisami per {escape(c['nome'])}</a><a class="btn btn-2" href="#sedi">{ic("pin")}Vedi le {len(qui)} sedi</a></div>
+<div class="azioni"><a class="btn" href="#avvisami">{ic("campana")}Avvisami per {escape(c['nome'])}</a><a class="btn btn-2" href="#sedi">{ic("pin")}Vedi {'la sede' if len(mie) == 1 else f'le {len(mie)} sedi'}</a></div>
 </section>
 {avviso("Contatta la sede prima di iscriverti: ti dice costo, documenti e ultimo giorno per iscriverti.")}
 <section>
-<h2 id="per-ente">{ic("cal")}Prossime date a {escape(c['nome'])}, ente per ente</h2>
+<h2 id="per-ente">{ic("cal")}Prossime date {a_(c)}, ente per ente</h2>
 {per_ente(c, qui, in_citta, prossime)}
 </section>
 <div class="due">
 <section>
-<h2 id="date">{ic("lista")}Tutte le prossime date (valide anche a {escape(c['nome'])})</h2>
+<h2 id="date">{ic("lista")}Tutte le prossime date (valide anche {a_(c)})</h2>
 {lista_sessioni(prossime)}
 </section>
 <aside>
@@ -975,7 +1015,7 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 </aside>
 </div>
 <section>
-<h2 id="sedi">{ic("edificio")}Sedi d'esame a {escape(c['nome'])}</h2>
+<h2 id="sedi">{ic("edificio")}Sedi d'esame {a_(c)}</h2>
 {"".join(blocchi) or "<p>Nessuna sede trovata nelle fonti ufficiali.</p>"}
 {nota_mancano}
 </section>
@@ -985,8 +1025,8 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 </section>
 <section><h2>{ic("pin")}Altre città</h2>{vicine_html}<div class="altre">{altre}</div></section>"""
     pagina(f"citta/{c['slug']}/index.html",
-           f"Esame B1 cittadinanza {c['nome']}: date {anni(prossime)} e {len(qui)} sedi | EsameB1",
-           f"Dove fare l'esame di italiano B1 per la cittadinanza a {c['nome']}: {len(qui)} sedi {', '.join(enti_qui)}, "
+           f"Esame B1 cittadinanza {c['nome']}: date {anni(prossime)} e {n_sedi(len(mie))} | EsameB1",
+           f"Dove fare l'esame di italiano B1 per la cittadinanza {'ad' if c['nome'][0] == 'A' else 'a'} {c['nome']}: {n_sedi(len(mie))} {', '.join(enti_qui)}, "
            "prossime date, scadenze di iscrizione e costi.", corpo)
 
 
@@ -1006,7 +1046,7 @@ def pagina_ente(e, prossime):
     date_ente = [s for s in prossime if s["ente"] == sigla]
     nome_r = NOME_RICERCA[sigla]
     breve = e.get("fatti", {}).get("costo", {}).get("breve", "")
-    citta_ente = [(c, sum(1 for s in sue if s["provincia"] == c["provincia"])) for c in sorted(citta, key=lambda c: c["nome"])]
+    citta_ente = [(c, sum(1 for s in sedi_pagina(c) if s["ente"] == sigla)) for c in sorted(citta, key=lambda c: c["nome"])]
     citta_link = "".join(f'<a href="../../citta/{c["slug"]}/">{escape(c["nome"])} ({n})</a>' for c, n in citta_ente if n)
     fatti = "".join(scheda_fatto(e, k, bottone=("Vedi il tuo risultato" if k == "risultati" else "Apri la prova" if k == "esempi" else None))
                     for k in VOCI_FATTI if k in e.get("fatti", {}) or k in ("costo", "risultati"))
@@ -1064,7 +1104,8 @@ def come_funziona():
 <h2>{ic("info")}Chi deve fare l'esame</h2>
 <p>Dal 4 dicembre 2018 chi chiede la cittadinanza italiana <strong>per residenza o per matrimonio</strong> deve dimostrare di conoscere l'italiano
 almeno al livello B1 (art. 9.1 della legge 91/1992). Si può farlo con un titolo di studio italiano oppure con un certificato di un ente riconosciuto.
-Fonte: <a href="{PREFETTURA}" rel="noopener">Prefettura – Ministero dell'Interno</a>. Per il tuo caso specifico chiedi alla Prefettura: questo sito non dà consulenza.</p>
+Fonte: <a href="{PREFETTURA}" rel="noopener">Prefettura – Ministero dell'Interno</a>. Chi ha firmato l'accordo di integrazione o ha il permesso UE di lungo periodo è esente:
+<a href="../esenzioni-e-domande/">chi non deve fare l'esame, secondo la norma</a>. Per il tuo caso specifico chiedi alla Prefettura: questo sito non dà consulenza.</p>
 <h2>{ic("scudo")}I 4 enti riconosciuti</h2>
 <div class="tab-wrap"><table class="conf"><thead><tr><th>Ente</th><th>Esame per la cittadinanza</th><th>Sedi in Italia</th><th></th></tr></thead>
 <tbody>{righe}</tbody></table></div>
@@ -1142,6 +1183,145 @@ def pagina_risultati(prossime):
            "Quando escono i risultati dell'esame B1 per la cittadinanza (CILS circa 3 mesi, CELI circa 90 giorni lavorativi), "
            "dove vederli online e come avere il certificato.", corpo)
 
+def tabella_prove():
+    """Tabella delle 4 prove con i tempi di ogni ente (dati/enti.json → fatti.durata.prove, con le stesse fonti della durata)."""
+    colonne = ["ascolto", "lettura", "scrittura", "orale"]
+    righe = []
+    for e in enti:
+        f = e["fatti"]["durata"]
+        celle, fatte = [], set()
+        for col in colonne:
+            if col in fatte:
+                continue
+            parte = next(p for p in f["prove"]["parti"] if col in p["prove"])
+            fatte |= set(parte["prove"])
+            celle.append(f'<td{f" colspan=\"{len(parte['prove'])}\"" if len(parte["prove"]) > 1 else ""}>{escape(parte["tempo"])}</td>')
+        righe.append(f"<tr><td><strong>{eb(e['sigla'])}</strong><br><span class='small'>{escape(e.get('prezzo_esame') or NOME_RICERCA[e['sigla']])}</span></td>"
+                     f"{''.join(celle)}<td><strong>{escape(f['prove']['totale'])}</strong></td></tr>")
+    fonti = " · ".join(f'<a href="{escape(x["url"])}" rel="noopener">{escape(e["sigla"])}: {escape(x["nome"])}</a>'
+                       for e in enti for x in e["fatti"]["durata"]["fonti"][:1])
+    return (f'<div class="tab-wrap"><table class="conf"><thead><tr><th>Esame</th><th>Ascolto</th><th>Lettura</th><th>Scrittura</th><th>Orale</th><th>In tutto</th></tr></thead>'
+            f'<tbody>{"".join(righe)}</tbody></table></div>'
+            f'<div class="fonte">{ic("doc")}<span>Fonti: {fonti} · controllato il {data_breve(max(e["fatti"]["durata"]["verificato_il"] for e in enti))}</span></div>')
+
+
+def pagina_esenzioni():
+    """Esenzioni dall'esame B1 (art. 9.1 legge 91/1992), prove, orale, durata, domande. Ogni affermazione ha la sua fonte ufficiale."""
+    fonte_minint = f'<a href="{MININT_DOMANDA}" rel="noopener">Ministero dell\'Interno, «Cittadinanza: invia la tua domanda»</a>'
+    fonte_milano = f'<a href="{PREFETTURA_MILANO}" rel="noopener">Prefettura di Milano, pagina Cittadinanza</a>'
+    fonte_pdf = f'<a href="{PREFETTURA}" rel="noopener">nota della Prefettura sul certificato B1</a>'
+    verifica = "controllato il 21 ottobre 2026"
+
+    def scheda(icona, titolo, testo, fonte):
+        return (f'<div class="fatto"><div class="f-et">{ic(icona)}<span>{titolo}</span></div><p>{testo}</p>'
+                f'<div class="fonte">{ic("doc")}<span>Fonte: {fonte} · {verifica}</span></div></div>')
+
+    esenti = '<div class="fatti">' + scheda(
+        "ok", "Chi ha firmato l'accordo di integrazione",
+        "Secondo le istruzioni del Ministero dell'Interno, chi ha sottoscritto l'accordo di integrazione (art. 4-bis del Testo unico sull'immigrazione, "
+        "decreto legislativo 286/1998) è escluso dall'obbligo di presentare il certificato di lingua.", fonte_minint) + scheda(
+        "ok", "Chi ha il permesso di soggiorno UE per soggiornanti di lungo periodo",
+        "Stessa fonte: è escluso chi è titolare del permesso di soggiorno UE per soggiornanti di lungo periodo (art. 9 del Testo unico). "
+        "La Prefettura di Milano precisa: rilasciato dopo il 9 dicembre 2010 e in corso di validità.", f"{fonte_minint}; {fonte_milano}") + scheda(
+        "doc", "Chi ha un titolo di studio riconosciuto",
+        "Al posto del certificato vale un titolo di studio rilasciato da un istituto di istruzione pubblico o paritario, in Italia o all'estero, "
+        "riconosciuto dal Ministero dell'Istruzione e dal Ministero degli Affari Esteri. Secondo la Prefettura di Milano basta l'autocertificazione "
+        "se il titolo viene da un ente pubblico; serve la copia autenticata se viene da un istituto paritario o privato.", fonte_milano) + scheda(
+        "info", "Chi ha gravi limitazioni certificate",
+        "La Prefettura di Milano scrive che è escluso dal test linguistico «lo straniero affetto da gravi limitazioni alla capacità di apprendimento "
+        "linguistico derivanti dall'età, da patologie o da handicap, attestate mediante certificazione rilasciata da struttura sanitaria pubblica».",
+        fonte_milano) + "</div>"
+
+    esempi = "".join(
+        f'<li><span>{eb(e["sigla"])} <a href="{escape(e["fatti"]["esempi"]["url"])}" rel="noopener">{escape(e["fatti"]["esempi"]["testo"])}</a></span></li>'
+        for e in enti)
+
+    faq = [
+        ("Chi è esente dall'esame B1 per la cittadinanza?",
+         "Secondo le istruzioni del Ministero dell'Interno, non deve presentare il certificato chi ha firmato l'accordo di integrazione (art. 4-bis del Testo unico "
+         "sull'immigrazione) e chi ha il permesso di soggiorno UE per soggiornanti di lungo periodo. Per tutti gli altri serve un certificato di livello almeno B1 "
+         "di CILS, CELI, PLIDA o CERT.IT, oppure un titolo di studio di un istituto pubblico o paritario riconosciuto. La Prefettura valuta ogni caso."),
+        ("Ho un diploma o una laurea italiana: devo fare l'esame B1?",
+         "Secondo la norma (art. 9.1 della legge 91/1992) al posto del certificato vale un titolo di studio rilasciato da un istituto di istruzione pubblico o "
+         "paritario riconosciuto dal Ministero dell'Istruzione e dal Ministero degli Affari Esteri. La Prefettura di Milano indica l'autocertificazione per i titoli "
+         "di enti pubblici e la copia autenticata per quelli di istituti paritari o privati. Chiedi conferma alla tua Prefettura prima di inviare la domanda."),
+        ("Com'è l'orale dell'esame B1 per la cittadinanza?",
+         "Dura da 10 minuti (CILS, CERT.IT) a 15 minuti circa (PLIDA). CILS: breve presentazione personale e dialogo con l'esaminatore. CELI 2 i: presentarsi, "
+         "descrivere immagini, domande interculturali e di educazione civica, role play. CERT.IT: intervista, simulazione di ruolo e monologo. "
+         "L'orale si fa in presenza; per CILS di solito nel pomeriggio dello stesso giorno dello scritto, per gli altri enti il giorno lo dice la sede."),
+        ("Quanto dura l'esame B1 per la cittadinanza?",
+         "In tutto da 1 ora e 40 minuti (CERT.IT) a 2 ore e 30 minuti (CELI 2 i cittadinanza). CILS B1 Cittadinanza circa 2 ore, PLIDA B1 circa 2 ore e 35 minuti. "
+         "Lo scritto (ascolto, lettura, scrittura) viene prima; per CILS l'orale è di solito nel pomeriggio dello stesso giorno, per gli altri enti chiedi alla sede."),
+        ("Quali domande ci sono nell'esame B1?",
+         "Non esiste una lista di domande da imparare: le prove cambiano a ogni sessione. Ogni ente pubblica gratis una prova d'esempio ufficiale con audio e "
+         "soluzioni; CELI pubblica anche le domande dell'orale. Gli argomenti sono quelli della vita quotidiana: casa, lavoro, servizi, salute, messaggi e email."),
+        ("Quando arrivano i risultati?",
+         "Dipende dall'ente: CILS circa 3 mesi dopo l'esame, CELI circa 90 giorni lavorativi, PLIDA online nel proprio account. I tempi e dove vederli sono nella pagina Risultati."),
+    ]
+    jsonld = {"@context": "https://schema.org", "@type": "FAQPage",
+              "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
+    faq_html = "".join(domanda(escape(q), escape(a)) for q, a in faq[:-1]) + domanda(
+        escape(faq[-1][0]), escape(faq[-1][1]).replace("nella pagina Risultati", 'nella <a href="../risultati/">pagina Risultati</a>'))
+
+    nota_consulenza = ("Questo sito non dà consulenza sulla pratica di cittadinanza. Ogni domanda la valuta la Prefettura: per il tuo caso chiedi lì, "
+                       f'oppure leggi la <a href="{MININT_CITTADINANZA}" rel="noopener">pagina del Ministero dell\'Interno</a>.')
+    corpo = f"""<section class="hero">
+{briciole(("EsameB1", "../"), ("Esenzioni e domande", None))}
+<span class="occhiello">{ic("scudo")}Con le fonti ufficiali</span>
+<h1>Esenzione dall'esame B1 per la cittadinanza: chi non deve farlo, e com'è fatto l'esame</h1>
+<p class="lead">Chi è esente secondo la legge, quali titoli valgono al posto del certificato, com'è l'orale, quanto dura e che domande ci sono. Accanto a ogni risposta c'è la fonte ufficiale.</p>
+</section>
+{avviso(nota_consulenza)}
+<div class="due">
+<section>
+<h2 id="esenzioni">{ic("scudo")}Chi è esente dall'esame B1</h2>
+<p>Dal 4 dicembre 2018 chi chiede la cittadinanza per residenza o per matrimonio deve avere una conoscenza dell'italiano almeno di livello B1.
+Lo dice l'<strong>art. 9.1 della legge 91/1992</strong>, inserito dal decreto-legge 113/2018 (il «decreto sicurezza»), convertito dalla legge 132/2018.
+La stessa norma dice chi non deve presentare il certificato.</p>
+{esenti}
+<h3>Tutti gli altri: serve il certificato</h3>
+<p>Chi non rientra nei casi sopra deve allegare alla domanda un certificato di livello almeno B1 di uno dei 4 enti riconosciuti: CILS, CELI, PLIDA, CERT.IT.
+La nota della Prefettura aggiunge che la certificazione si può conseguire anche presso i CPIA (Centri provinciali per l'istruzione degli adulti): molti CPIA sono sedi d'esame degli enti,
+li trovi nell'<a href="../#citta">elenco per città</a>.</p>
+<div class="fonte">{ic("doc")}<span>Fonti: {fonte_pdf} · {fonte_minint} · <a href="{DLCI_RESIDENZA}" rel="noopener">Dipartimento per le libertà civili, cittadinanza per residenza</a> ·
+<a href="{NORMATTIVA_91}" rel="noopener">testo della legge 91/1992 su Normattiva</a> · {verifica}</span></div>
+</section>
+<aside>{modulo()}</aside>
+</div>
+<section>
+<h2 id="prove">{ic("lista")}Com'è fatto l'esame: le 4 prove</h2>
+<p>Tutti e quattro gli esami hanno le stesse prove: <strong>ascolto, lettura, scrittura e orale</strong>. Cambiano i tempi e il modo di contare i punti.</p>
+{tabella_prove()}
+</section>
+<section>
+<h2 id="orale">{ic("voce")}L'orale: come funziona</h2>
+<p>L'orale si fa in presenza, con un esaminatore. Ecco cosa chiede ogni ente e quanto dura.</p>
+{schede_per_ente("orale")}
+</section>
+<section>
+<h2 id="durata">{ic("orologio")}Quanto dura l'esame</h2>
+<p>Lo scritto dura da 1 ora e 30 minuti (CERT.IT) a 2 ore e 20 minuti (CELI e PLIDA); poi c'è l'orale di 10-15 minuti. I tempi di ogni prova sono nella tabella sopra;
+cosa portare il giorno dell'esame è in <a href="../come-funziona/#durata">Come funziona</a>.</p>
+</section>
+<section>
+<h2 id="domande">{ic("libro")}Le domande dell'esame: dove vedere esempi veri</h2>
+<p>Non esiste una lista di domande da imparare a memoria: le prove cambiano a ogni sessione. Il modo migliore per capire com'è l'esame è la prova d'esempio ufficiale, gratis:</p>
+<ul class="cifre" style="flex-direction:column;align-items:flex-start;gap:10px">{esempi}</ul>
+<p class="small">Gli argomenti sono quelli della vita di ogni giorno: casa, lavoro, servizi, salute, messaggi ed email. <a href="../come-funziona/#esempi">Tutti gli esempi, ente per ente</a>.</p>
+</section>
+<section>
+<h2>{ic("info")}Risultati, costo, come iscriversi</h2>
+{link_guide("../", salta="esenzioni-e-domande/")}
+</section>
+<section>
+<h2>{ic("info")}Domande frequenti</h2>
+{faq_html}
+</section>"""
+    pagina("esenzioni-e-domande/index.html",
+           "Esenzione esame B1 cittadinanza: chi non deve farlo, orale, durata, domande | EsameB1",
+           "Chi è esente dall'esame B1 per la cittadinanza secondo l'art. 9.1 della legge 91/1992 (accordo di integrazione, permesso UE di lungo periodo, "
+           "titolo di studio), com'è l'orale, quanto dura e che domande ci sono. Con le fonti ufficiali.", corpo, jsonld)
+
 
 def privacy():
     corpo = f"""<section class="hero">{briciole(("EsameB1", "./"), ("Privacy", None))}<h1>Informativa privacy</h1><p class="small">Ultimo aggiornamento: ottobre 2026</p></section>
@@ -1191,7 +1371,7 @@ def controlli(prossime):
         if not s.get("fonte") or not s.get("citta"):
             errori.append(f"sede incompleta: {s['ente']} {s['nome']}")
     for c in citta:
-        if not any(s["provincia"] == c["provincia"] for s in sedi):
+        if not sedi_di(c):
             errori.append(f"città senza sedi: {c['nome']}")
     if not prossime:
         errori.append("nessuna sessione futura")
@@ -1226,6 +1406,8 @@ def main():
     urls.append("costo/")
     pagina_risultati(prossime)
     urls.append("risultati/")
+    pagina_esenzioni()
+    urls.append("esenzioni-e-domande/")
     privacy()
     urls.append("privacy.html")
     extra(urls)

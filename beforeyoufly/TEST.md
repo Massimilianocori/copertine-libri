@@ -113,3 +113,19 @@ Provati nel browser da `verifica.py` (punto 7) e confrontati compagnia per compa
 | 10 | 0, 30, 20 cm | messaggio d'errore, nessun risultato |
 
 Pagine per misura (stessa funzione): 40x30x20 21/7/0 · 40x30x15 26/2/0 · 40x20x25 22/6/0 · 45x36x20 12/11/5 · 40x30x25 7/5/16 · 55x40x20 6/11/11 · 55x40x23 6/9/13 · 55x35x25 5/5/18 · 55x40x25 5/3/20 · 56x45x25 2/1/25.
+
+## Controlli del 21 ottobre 2026 (liquidi: titoli, FAQ a sei domande, 11 aeroporti nuovi)
+
+| Controllo | Esito |
+|---|---|
+| Citazioni dei nuovi aeroporti (funzioni di `raccolta/liquidi.py`, diretta + browser) | 11 su 11: tutte le frasi presenti parola per parola (LCY, NCL, LPL, CWL letti nel browser; gli altri in diretta) |
+| Generatore | 961 pagine indicizzabili + 404: 63 aeroporti + 2 regole nazionali |
+| 9. Liquidi | risposta diretta e frase diretta su 65 pagine; 390 risposte FAQ: 264 blocchi di citazioni ufficiali intere (pagina dell'aeroporto o GOV.UK / Your Europe per il Paese giusto), 260 frasi nostre = regola + sintesi o modelli fissi senza numeri; JSON-LD = testo visibile; collegamenti tra aeroporti dello stesso Paese |
+| 10. Titoli e descrizioni | titoli ≤ 65 (tutte le pagine liquidi tra 42 e 65 caratteri, forma con la regola salvo Berlino/Madeira/Arlanda/Schiphol/Canada con "100ml Limit" corto), descrizioni ≤ 160 |
+| 14. Liquidi 21/10 | 311 blocchi FAQPage validi in tutto il sito; titolo e H1 con sigla, "liquid rules 2026", "hand luggage" e regola vera su 63 aeroporti; 11 aeroporti nuovi con dati, pagina e riga nell'indice; Birmingham, Glasgow, Belfast City esclusi con il motivo; riquadro liquidi in 28 pagine compagnie |
+| 4. Fonti | 65 pagine liquidi: URL ufficiale, data del controllo, tutte le frasi citate |
+| 7. Browser 375 px | 18 pagine × tema chiaro e scuro + 3 a 820 px: nessuno scorrimento orizzontale, 0 errori; Barcellona con risposta diretta e FAQ visibili |
+| Schermate a 375 (chiaro/scuro) e 1280 px, pagina intera | indice liquidi, Heathrow, London City, Belfast International, Ryanair: nessuno scorrimento orizzontale, 0 errori in console (`scratchpad/byf-shot/`) |
+| Esclusi riprovati | Birmingham 403 (anche nel browser, anche senza www); Glasgow controllo anti-robot sulla pagina sicurezza; Belfast City senza frase sui liquidi (sottopagine 404) |
+
+Esito complessivo di `python3 beforeyoufly/verifica.py`: TUTTO OK (14 punti, 0 errori; browser compreso).

@@ -16,7 +16,9 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
    con modelli fissi); i numeri del riassunto sono nella frase ufficiale; senza riassunto la pagina mostra solo la citazione (o dice che manca);
    nessun "senza visto" se il testo parla di ETA, tasse, tessere o moduli online prima del viaggio; nessun "serve un visto" se il visto è un ETA/eVisitor;
    le pagine Schengen rimandano a EES/ETIAS nella sezione visti.
-9. Liquidi: risposta diretta in alto; ogni risposta delle FAQ (JSON-LD FAQPage e testo visibile) è fatta solo di citazioni ufficiali intere.
+9. Liquidi: risposta diretta in alto (regola + sintesi) e frase diretta senza numeri estranei; FAQ (JSON-LD FAQPage = testo visibile) da 4 a 6
+   domande: ogni risposta è fatta di citazioni ufficiali intere (pagina dell'aeroporto, o GOV.UK / Your Europe per il Paese giusto) e/o di una
+   frase nostra che è solo regola + sintesi del file (prima e ultima domanda) o uno dei modelli fissi che dicono che la pagina non lo dice.
 10. Titoli <= 65 caratteri (salvo quando nessuna forma prevista ci sta) e descrizioni <= 160 in tutte le pagine.
 11. Passaporti canadese e australiano: ogni riassunto (validità e visto) è ricalcolato con raccolta/passaporti_ca.py o passaporti_au.py sul testo
     salvato, deve corrispondere a un modello fisso e i suoi numeri devono stare nella frase ufficiale; controllo indipendente: nessun "senza visto"
@@ -44,6 +46,11 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     schede); pagina solo per le schede con contenuto specifico, con lingua it, canonical, GoatCounter, fonte, data, avvertenze, citazioni, FAQ
     (JSON-LD = testo visibile = fatti); link con le pagine britanniche (andata e ritorno); indice con tutte le schede, ricerca e metodo.
     Nel browser (punto 7) anche 4 pagine italiane a 375 px, tema chiaro e scuro, e la ricerca dell'indice.
+14. Liquidi del 21/10/2026: ogni blocco FAQPage del sito è JSON valido e ben formato; titolo e H1 di ogni aeroporto con sigla, "liquid rules 2026",
+    "hand luggage" e la regola vera (2 litri / 100 ml / per varco o viaggio / pagine in contrasto), mai "2 litri" con regola 100 ml; sottotitolo
+    "100ml rule at"; gli 11 aeroporti nuovi (LCY, LPL, NCL, LBA, BFS, CWL, SOU, EXT, BOH, ORK, JER) nei dati con data 21/10, citazioni e URL https,
+    con pagina e riga nell'indice; Birmingham, Glasgow e Belfast City tra gli esclusi con il motivo; nessun incluso tra gli esclusi; Jersey collegata
+    agli aeroporti della stessa area; riquadro sui liquidi (citazione GOV.UK, link all'indice) in ogni pagina compagnia, con una sola FAQPage.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -378,8 +385,33 @@ def citazioni_faq(testo, ammesse):
     return None
 
 
+def _blocchi_faq(testo):
+    """Scompone una risposta FAQ dei liquidi in (testo nostro, [(fonte, data, testo citato)]):
+    'frase nostra Quoted from F (checked on D): “a” “b” Quoted from G (checked on D2): “c”'. None se la forma non è questa."""
+    parti = re.split(r"(?:^| )Quoted from ", testo)
+    blocchi = []
+    for p in parti[1:]:
+        m = re.match(r"(.+?) \(checked on ([^)]+)\): (.*)$", p, re.S)
+        if not m:
+            return None
+        blocchi.append((m.group(1), m.group(2), m.group(3)))
+    return parti[0], blocchi
+
+
+# Modelli fissi delle frasi nostre nelle FAQ dei liquidi (quando la pagina ufficiale non dice il dettaglio): nessun numero, nessuna regola inventata.
+MODELLI_FAQ_LIQ = [re.compile(x) for x in [
+    r"^The passages we quote from the official page do not say whether .+ uses CT scanners or whether liquids can stay in your bag: follow the signs and the staff at the checkpoint\.$",
+    r"^The passages we quote from the official page do not (?:mention a plastic bag or a limit on the number of bags|list exemptions for baby food or medicines"
+    r"|cover duty-free liquids bought at another airport)\. (?:GOV\.UK sets out the standard rule and exemptions for UK airports on its hand luggage "
+    r"restrictions page; |Your Europe sets out the standard EU rule and exemptions; )?[Cc]heck with the airport and your airline before you pack\.$"]]
+
+
 def controlla_liquidi_nuovi():
-    errori, n_faq = [], 0
+    """9. Liquidi: risposta diretta in alto (regola + sintesi del file, più la frase diretta); FAQ (JSON-LD FAQPage = testo visibile) da 4 a 6 domande,
+    ogni risposta fatta di citazioni ufficiali intere (pagina dell'aeroporto, o GOV.UK / Your Europe dove la pagina non dice il dettaglio) e/o di una
+    frase nostra che è SOLO regola + sintesi del file (prima e ultima domanda) o uno dei modelli fissi che dichiarano che la pagina non lo dice."""
+    errori, n_faq, n_cit, n_nostre = [], 0, 0, 0
+    contesto = {C["titolo"]: C for C in G.AER["contesto"]}
     for a in G.AER["aeroporti"] + G.AER["nazionali"]:
         t = leggi(f"liquids/{a['slug']}/index.html")
         naz = a in G.AER["nazionali"]
@@ -390,6 +422,13 @@ def controlla_liquidi_nuovi():
             errori.append(f"liquidi {a['slug']}: risposta diretta in alto mancante o diversa dalla regola")
         if a.get("risposta") and a["regola"] in ("2l", "100ml") and not a["risposta"].startswith({"2l": "Yes", "100ml": "No"}[a["regola"]]):
             errori.append(f"liquidi {a['slug']}: 'risposta' in contrasto con la regola")
+        # frase diretta (1-2 frasi) subito sotto: parte dalla risposta e contiene la sintesi del file, senza altri numeri
+        md = re.search(r'<p class="lead">([^<]+)</p>', t)
+        lead = md.group(1) if md else ""
+        from html import unescape
+        if not lead.startswith(escape(attesa)) or escape(a["sintesi"][1:]) not in lead or \
+                set(re.findall(r"\d[\d,.]*", unescape(lead))) - set(re.findall(r"\d[\d,.]*", a["sintesi"] + " " + attesa)) - {"100"}:
+            errori.append(f"liquidi {a['slug']}: frase diretta mancante, diversa dalla regola o con numeri non presenti nella sintesi")
         ammesse = list(a["citazioni"]) + list(a.get("eccezioni", []))
         K = a.get("contrasto")
         if a["regola"] == "contraddice" and K and K.get("url") == a["url"]:
@@ -401,30 +440,151 @@ def controlla_liquidi_nuovi():
             errori.append(f"liquidi {a['slug']}: JSON-LD FAQPage assente o doppio")
             continue
         voci = faq[0]["mainEntity"]
-        if not 1 <= len(voci) <= 4 or t.count("<h3>") < len(voci):
+        if not 4 <= len(voci) <= 6 or t.count("<h3>") < len(voci):
             errori.append(f"liquidi {a['slug']}: numero di domande FAQ sbagliato ({len(voci)})")
-        pref = f"Quoted from {a['titolo_fonte']} (checked on {G.data_lunga(a['controllato_il'])}): "
-        for v in voci:
+        data_a = G.data_lunga(a["controllato_il"])
+        prima, ultima = f"{attesa if not a.get('risposta') else a['risposta']}. {a['sintesi']}." if not a.get("risposta") else f"{a['risposta']}. {a['sintesi']}.", None
+        prima = f"{a.get('risposta') or {'2l': 'Yes', '100ml': 'No', 'dipende': 'It depends on the checkpoint', 'contraddice': 'Not clear: the official texts disagree'}[a['regola']]}. {a['sintesi']}."
+        ultima = (f"As of {data_a}, the official page says: {prima} Rules can change at short notice and the airport's page is our only source, "
+                  f"so check it again before you fly.")
+        for i, v in enumerate(voci):
             n_faq += 1
-            testo = v["acceptedAnswer"]["text"]
-            if not testo.startswith(pref):
-                errori.append(f"liquidi {a['slug']}: risposta FAQ senza la fonte: {testo[:60]}")
+            q, testo = v["name"], v["acceptedAnswer"]["text"]
+            if escape(q) not in t:
+                errori.append(f"liquidi {a['slug']}: domanda FAQ non visibile nella pagina: {q}")
                 continue
-            cc = citazioni_faq(testo[len(pref):], ammesse)
-            if not cc:
-                errori.append(f"liquidi {a['slug']}: risposta FAQ con testo non citato dalla pagina ufficiale: {testo[len(pref):][:80]}")
+            seg = t.split(f"<h3>{escape(q)}</h3>", 1)[1].split("<h3>", 1)[0]
+            sc = _blocchi_faq(testo)
+            if sc is None:
+                errori.append(f"liquidi {a['slug']}: risposta FAQ senza la forma 'Quoted from <fonte> (checked on <data>)': {q}")
                 continue
-            if escape(v["name"]) not in t:
-                errori.append(f"liquidi {a['slug']}: domanda FAQ non visibile nella pagina")
-            blocco = "<blockquote class=\"cit\">" + "".join(f"<p>{escape(q)}</p>" for q in cc) + "</blockquote>"
-            if f"<h3>{escape(v['name'])}</h3>{blocco}" not in t:
-                errori.append(f"liquidi {a['slug']}: risposta FAQ visibile diversa dal JSON-LD")
+            intro, blocchi = sc
+            if i == 0 and intro != prima:
+                errori.append(f"liquidi {a['slug']}: la prima risposta FAQ non parte da regola + sintesi: {intro[:80]}")
+            elif i == len(voci) - 1 and intro != ultima:
+                errori.append(f"liquidi {a['slug']}: l'ultima risposta FAQ non è regola + sintesi + avviso: {intro[:80]}")
+            elif 0 < i < len(voci) - 1 and intro and (not any(r.match(intro) for r in MODELLI_FAQ_LIQ) or re.search(r"\d", intro)):
+                errori.append(f"liquidi {a['slug']}: frase nostra fuori dai modelli fissi (o con numeri) nella FAQ: {intro[:80]}")
+            if intro:
+                n_nostre += 1
+                if f"<p>{escape(intro)}</p>" not in seg:
+                    errori.append(f"liquidi {a['slug']}: frase nostra della FAQ non visibile: {q}")
+            if not intro and not blocchi:
+                errori.append(f"liquidi {a['slug']}: risposta FAQ vuota: {q}")
+            for fonte, data, cit in blocchi:
+                if fonte == a["titolo_fonte"] and data == data_a:
+                    pool = ammesse
+                elif fonte in contesto and data == G.data_lunga(contesto[fonte]["controllato_il"]):
+                    C = contesto[fonte]
+                    pool = C["citazioni"]
+                    if (C["id"] == "uk" and a.get("paese") != "United Kingdom") or (C["id"] == "eu" and a.get("paese") not in G.PAESI_UE):
+                        errori.append(f"liquidi {a['slug']}: citata la pagina di governo sbagliata ({C['id']}) per {a.get('paese')}")
+                    if escape(f"Quoted from {fonte} (checked on {data}).") not in seg:
+                        errori.append(f"liquidi {a['slug']}: fonte di governo non indicata sotto la citazione: {q}")
+                else:
+                    errori.append(f"liquidi {a['slug']}: risposta FAQ con fonte o data sconosciuta: {fonte} / {data}")
+                    continue
+                cc = citazioni_faq(cit, pool)
+                if not cc:
+                    errori.append(f"liquidi {a['slug']}: risposta FAQ con testo non citato dalla pagina ufficiale: {cit[:80]}")
+                    continue
+                n_cit += 1
+                if ("<blockquote class=\"cit\">" + "".join(f"<p>{escape(x)}</p>" for x in cc) + "</blockquote>") not in seg:
+                    errori.append(f"liquidi {a['slug']}: citazioni della FAQ visibili diverse dal JSON-LD: {q}")
         if not naz:
             altri = [b for b in G.AER["aeroporti"] if b is not a and b["paese"] == a["paese"]]
             for b in altri:
                 if f'href="../../liquids/{b["slug"]}/"' not in t:
                     errori.append(f"liquidi {a['slug']}: manca il collegamento a {b['slug']} (stesso Paese)")
-    return errori, n_faq
+    return errori, (n_faq, n_cit, n_nostre)
+
+
+# ---------------------------------------------------------------- 14. liquidi del 21/10/2026: titoli con la regola, FAQ JSON-LD valide, aeroporti nuovi, riquadro nelle pagine compagnie
+NUOVI_LIQ_2110 = ["london-city", "liverpool", "newcastle", "leeds-bradford", "belfast-international", "cardiff", "southampton", "exeter", "bournemouth", "cork", "jersey"]
+ESCLUSI_LIQ_2110 = ["Birmingham", "Glasgow", "Belfast City"]
+
+
+def _faq_ld_valida(x):
+    """Struttura schema.org FAQPage: @context, @type, mainEntity di Question con name e acceptedAnswer Answer con text non vuoto."""
+    if x.get("@context") != "https://schema.org" or x.get("@type") != "FAQPage" or not isinstance(x.get("mainEntity"), list) or not x["mainEntity"]:
+        return False
+    for q in x["mainEntity"]:
+        if q.get("@type") != "Question" or not q.get("name", "").strip() or not isinstance(q.get("acceptedAnswer"), dict):
+            return False
+        r = q["acceptedAnswer"]
+        if r.get("@type") != "Answer" or not isinstance(r.get("text"), str) or not r["text"].strip():
+            return False
+    return True
+
+
+def controlla_liquidi_2110():
+    errori, conti = [], {"faq_ld": 0, "nuovi": 0, "compagnie": 0}
+    from html import unescape
+    # a) ogni blocco FAQPage del sito è JSON valido e ben formato (schema.org)
+    for f in SITO.rglob("*.html"):
+        t = f.read_text(encoding="utf-8")
+        for blocco in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S):
+            try:
+                x = json.loads(blocco)
+            except ValueError:
+                errori.append(f"JSON-LD non valido in {f.relative_to(SITO)}")
+                continue
+            if x.get("@type") == "FAQPage":
+                conti["faq_ld"] += 1
+                if not _faq_ld_valida(x):
+                    errori.append(f"FAQPage mal formata in {f.relative_to(SITO)}")
+    # b) titolo e H1 con la regola vera dell'aeroporto e le parole cercate ("liquid rules 2026", sigla, "100ml", "hand luggage")
+    for a in G.AER["aeroporti"]:
+        t = leggi(f"liquids/{a['slug']}/index.html")
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        h1 = unescape(re.search(r"<h1>(.*?)</h1>", t, re.S).group(1))
+        atteso = {"2l": ("2 Litres", "2 litres"), "100ml": ("100ml Limit", "100ml limit"), "dipende": ("by Checkpoint", "depending on the checkpoint"),
+                  "contraddice": ("Pages Disagree", "pages disagree")}[a["regola"]]
+        if a.get("etichetta", "").lower() == "depends on journey":
+            atteso = ("by Journey", "depending on the journey")
+        if f"({a['iata']}) Liquid Rules {G.ANNO}" not in tit or (atteso[0] not in tit and not tit.endswith(f"Liquid Rules {G.ANNO}")):
+            errori.append(f"liquidi {a['slug']}: titolo senza sigla, 'Liquid Rules {G.ANNO}' o regola: {tit}")
+        if f"({a['iata']}) liquid rules {G.ANNO}:" not in h1 or atteso[1] not in h1 or "hand luggage" not in h1:
+            errori.append(f"liquidi {a['slug']}: H1 senza sigla, 'liquid rules {G.ANNO}', regola o 'hand luggage': {h1}")
+        if a["regola"] == "100ml" and ("2 Litres" in tit or "2 litres" in h1):
+            errori.append(f"liquidi {a['slug']}: titolo o H1 promettono 2 litri con regola 100 ml")
+        if '<h2>100ml rule at ' not in t:
+            errori.append(f"liquidi {a['slug']}: manca il sottotitolo '100ml rule at'")
+    # c) aeroporti nuovi del 21/10/2026: nei dati con data e citazioni, nell'indice, con pagina; gli esclusi con il motivo; nessun incluso tra gli esclusi
+    idx = leggi("liquids/index.html")
+    per_slug = {a["slug"]: a for a in G.AER["aeroporti"]}
+    for s in NUOVI_LIQ_2110:
+        a = per_slug.get(s)
+        if not a or a["controllato_il"] != "2026-10-21" or not a["citazioni"] or not a["url"].startswith("https://"):
+            errori.append(f"liquidi nuovo {s}: manca nei dati, data diversa dal 21/10/2026, senza citazioni o URL non https")
+            continue
+        conti["nuovi"] += 1
+        if not (SITO / "liquids" / s / "index.html").exists():
+            errori.append(f"liquidi nuovo {s}: pagina mancante")
+        if f'href="../liquids/{s}/"' not in idx or f'href="{escape(a["url"])}"' not in idx:
+            errori.append(f"liquidi nuovo {s}: manca nell'indice (riga o fonte)")
+        if a["area"] != "UK and Ireland":
+            errori.append(f"liquidi nuovo {s}: area diversa da 'UK and Ireland'")
+    nomi_esclusi = [e["nome"] for e in G.AER["esclusi"]]
+    for n in ESCLUSI_LIQ_2110:
+        if not any(n in x for x in nomi_esclusi) or n not in idx:
+            errori.append(f"liquidi: {n} deve restare tra gli esclusi con il motivo, anche nell'indice")
+    for a in G.AER["aeroporti"]:
+        if any(a["nome"] == e["nome"] or a["nome"] in e["nome"].split(", ") for e in G.AER["esclusi"]):
+            errori.append(f"liquidi: {a['nome']} è incluso ma compare anche tra gli esclusi")
+    if "Jersey (JER)" not in leggi("liquids/heathrow/index.html") and 'href="../../liquids/heathrow/"' not in leggi("liquids/jersey/index.html"):
+        errori.append("liquidi: la pagina di Jersey (unico aeroporto del suo Paese) non rimanda agli altri aeroporti della stessa area")
+    # d) riquadro sui liquidi in ogni pagina compagnia: regola generale citata da GOV.UK, link all'indice dei liquidi, una sola FAQPage
+    gov = next(C for C in G.AER["contesto"] if C["id"] == "uk")
+    for C in G.COMPAGNIE:
+        t = leggi(f"{G.BAG_BASE}/{C['slug']}/index.html")
+        if 'aria-label="Liquids in hand luggage"' not in t or f'href="../../liquids/"' not in t or escape(gov["citazioni"][0]) not in t or escape(gov["url"]) not in t:
+            errori.append(f"bagagli {C['slug']}: riquadro sui liquidi mancante o senza citazione GOV.UK / link all'indice")
+        elif t.count('"FAQPage"') != 1:
+            errori.append(f"bagagli {C['slug']}: numero di FAQPage diverso da 1")
+        else:
+            conti["compagnie"] += 1
+    return errori, conti
 
 
 def controlla_meta():
@@ -1375,8 +1535,9 @@ def main():
         print(f"7. Browser 375 px: {e7[0] if e7 else ''}")
     e8, (con, solo, senza) = controlla_visti()
     print(f"8. Visti: {con} riassunti da schema riconosciuto, {solo} solo citazione, {senza} senza sezione visti: {len(e8)} errori")
-    e9, n_faq = controlla_liquidi_nuovi()
-    print(f"9. Liquidi: risposta diretta e {n_faq} risposte FAQ fatte solo di citazioni ufficiali: {len(e9)} errori")
+    e9, (n_faq, n_cit, n_nostre) = controlla_liquidi_nuovi()
+    print(f"9. Liquidi: risposta diretta e frase diretta su {len(G.AER['aeroporti']) + len(G.AER['nazionali'])} pagine; {n_faq} risposte FAQ "
+          f"({n_cit} blocchi di citazioni ufficiali intere, {n_nostre} frasi nostre da regola/sintesi o modelli fissi): {len(e9)} errori")
     e10, lunghi = controlla_meta()
     print(f"10. Titoli <= 65 e descrizioni <= 160: {len(e10)} errori" + (f"; titoli più lunghi senza alternativa più corta prevista: {lunghi}" if lunghi else ""))
     e11, conti = controlla_esteri()
@@ -1392,7 +1553,10 @@ def main():
     print(f"13. Documenti per italiani: {ci['pagine']} pagine Paese ({ci['senza']} schede senza pagina); riassunti: documento {ci['doc']}, validità {ci['val']}, "
           f"visto {ci['vis']} ({ci['manuali']} fatti scritti a mano); {ci['citazioni']} citazioni controllate sul campo della scheda; {ci['faq']} risposte FAQ; "
           f"testo uguale alla fonte al massimo {ci['copia_max']} parole di fila (limite {MAX_COPIA}): {len(e13)} errori")
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13
+    e14, c14 = controlla_liquidi_2110()
+    print(f"14. Liquidi 21/10: {c14['faq_ld']} blocchi FAQPage validi in tutto il sito; titoli e H1 con la regola su {len(G.AER['aeroporti'])} aeroporti; "
+          f"{c14['nuovi']} aeroporti nuovi (dati, indice, pagine), esclusi con il motivo; riquadro liquidi in {c14['compagnie']} pagine compagnie: {len(e14)} errori")
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14
     for e in tutti:
         print(" -", e)
     if tutti:

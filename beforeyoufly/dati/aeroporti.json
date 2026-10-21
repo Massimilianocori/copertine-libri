@@ -1,6 +1,6 @@
 {
- "_nota": "Regole sui liquidi lette A MANO sulla pagina ufficiale di ogni aeroporto (o del gestore/autorità indicati) il 10/10/2026 (38 aeroporti) e il 17/10/2026 (14 aggiunti: AMS, ATH, MLA, ZRH, DUS, BRU, DXB, BUD e 6 aeroporti Aena; riletti nella revisione del 17/10 anche Praga e la pagina Aena). 'intestazioni' = frasi che aprono un gruppo (titolo o frase da cui dipendono le seguenti): nelle FAQ restano unite; 'faq_salta' = domande che non si adattano alla pagina; 'etichetta' = etichetta breve diversa da quella della regola. Le frasi in 'citazioni' e 'eccezioni' sono copiate parola per parola. regola: '2l' = fino a 2 litri per contenitore ai controlli indicati; '100ml' = contenitori fino a 100 ml; 'dipende' = cambia per terminal/varco; 'contraddice' = due pagine ufficiali dicono cose diverse (mostrate entrambe). lettura: 'diretta' = pagina scaricata con richiesta HTTP normale (200); 'browser' = pagina letta con un browser automatico perché il sito blocca le richieste semplici o carica il testo con JavaScript. Ricontrollo: mensile (raccolta/liquidi.py + lettura a mano).",
- "controllato_il": "2026-10-17",
+ "_nota": "Regole sui liquidi lette A MANO sulla pagina ufficiale di ogni aeroporto (o del gestore/autorità indicati) il 10/10/2026 (38 aeroporti) il 17/10/2026 (14 aggiunti: AMS, ATH, MLA, ZRH, DUS, BRU, DXB, BUD e 6 aeroporti Aena; riletti nella revisione del 17/10 anche Praga e la pagina Aena) e il 21/10/2026 (11 aggiunti nel Regno Unito, Irlanda e Jersey: LCY, LPL, NCL, LBA, BFS, CWL, SOU, EXT, BOH, ORK, JER). 'intestazioni' = frasi che aprono un gruppo (titolo o frase da cui dipendono le seguenti): nelle FAQ restano unite; 'faq_salta' = domande che non si adattano alla pagina; 'etichetta' = etichetta breve diversa da quella della regola. Le frasi in 'citazioni' e 'eccezioni' sono copiate parola per parola. regola: '2l' = fino a 2 litri per contenitore ai controlli indicati; '100ml' = contenitori fino a 100 ml; 'dipende' = cambia per terminal/varco; 'contraddice' = due pagine ufficiali dicono cose diverse (mostrate entrambe). lettura: 'diretta' = pagina scaricata con richiesta HTTP normale (200); 'browser' = pagina letta con un browser automatico perché il sito blocca le richieste semplici o carica il testo con JavaScript. Ricontrollo: mensile (raccolta/liquidi.py + lettura a mano).",
+ "controllato_il": "2026-10-21",
  "aeroporti": [
   {
    "slug": "heathrow",
@@ -1134,6 +1134,259 @@
    "lettura": "browser",
    "controllato_il": "2026-10-17",
    "risposta": "No, according to Aena's general hand-luggage page"
+  },
+  {
+   "slug": "london-city",
+   "iata": "LCY",
+   "nome": "London City",
+   "citta": "London",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "100ml",
+   "sintesi": "Containers of 100 ml or less; liquids stay in your bag, no plastic bag (CT scanners)",
+   "citazioni": [
+    "Speed through security: leave your liquids in your bag, and please make sure they are 100ml or less.",
+    "Liquids and gels only allowed in containers of up to 100ml in hand luggage",
+    "Each item must be 100ml or less. Ensure the volume is clearly visible on the original product label.",
+    "No more plastic bags! Our CT security scanners can now scan liquids and electronics inside hand baggage."
+   ],
+   "eccezioni": [
+    "The Department for Transport (DfT) has issued the below Directive to UK airports’ using Next Generation Security Checkpoints (NGSC), which includes LCY. From 00:01 on Sunday, 9th June 2024, 100ml restrictions on liquids will temporarily be reintroduced for passengers. However, passengers travelling through London City Airport can still keep everything, including all liquids and large electronics, in their hand luggage when passing through security.",
+    "Leave liquids, laptops, tablets and other electronic devices inside hand luggage"
+   ],
+   "url": "https://www.londoncityairport.com/at-the-airport/need-to-know/security-baggage",
+   "titolo_fonte": "London City Airport – Security & Baggage",
+   "lettura": "browser",
+   "controllato_il": "2026-10-21",
+   "nota": "The site answers simple automated requests with HTTP 403, so we read the page in a browser. The page quotes a Department for Transport directive of 9 June 2024 that reintroduced the 100 ml limit at airports with next-generation checkpoints; it gives no date for a future change."
+  },
+  {
+   "slug": "liverpool",
+   "iata": "LPL",
+   "nome": "Liverpool John Lennon",
+   "citta": "Liverpool",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "100ml",
+   "sintesi": "Containers of 100 ml or less; liquids stay in your bag, no plastic bag (Next Generation Security lanes)",
+   "citazioni": [
+    "Taking liquids and electronics out of your hand luggage at security is no longer necessary thanks to our Next Generation Security lanes.",
+    "Liquids are allowed to remain in your hand luggage without the need of a clear plastic bag, with a maximum limit of 100ml per container. There is no need to take them out of your bag when passing through security",
+    "Liquids in containers of 100ml or less are permitted to remain in your hand luggage without the need of a clear plastic bag. Exceptions are made for medication (with prescription label) and baby food. For medication and baby food over 100ml, they must be removed from your hand luggage prior to x-ray screening. The term \"liquids\" includes gels, aerosols (eg. deodorant), pastes (eg. toothpaste), canned goods in sauces (eg. beans or tuna in brine), perfume, makeup (foundation, mascara), e-cigarette cartridges and lighters (only one per person)."
+   ],
+   "eccezioni": [
+    "Essential medicines may be permitted in large quantities above the 100ml limit, but will be subject to authentication. All medicines should carry the prescription label clearly showing the name of the passenger.",
+    "When travelling with a baby, you're allowed to take enough baby food and/or baby milk for the journey, even if that is over the 100ml limit."
+   ],
+   "url": "https://www.liverpoolairport.com/prepare/security",
+   "titolo_fonte": "Liverpool John Lennon Airport – Security",
+   "lettura": "browser",
+   "controllato_il": "2026-10-21"
+  },
+  {
+   "slug": "newcastle",
+   "iata": "NCL",
+   "nome": "Newcastle",
+   "citta": "Newcastle",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "100ml",
+   "sintesi": "Containers up to 100 ml; liquids stay in your bag (next-generation machines); thermos flasks and metal bottles only if empty",
+   "citazioni": [
+    "On your next visit, you will notice we have recently implemented 'next-generation' security machines within our security search area. This means passengers can now leave liquids and electrical items in their hand baggage during security screening - making the process quicker and more efficient.",
+    "Any liquids, aerosols or gels being carried in hand luggage must be in containers of up to 100ml."
+   ],
+   "eccezioni": [
+    "Any liquids within double-skinned containers, such as thermos flasks or thermal water bottles, including single layered metal bottles are not able to be scanned and therefore will not be permitted through security. Empty double and single skinned containers are permitted."
+   ],
+   "url": "https://www.newcastleairport.com/at-the-airport/preparing-for-security-search/",
+   "titolo_fonte": "Newcastle International Airport – Preparing for Security Search",
+   "lettura": "browser",
+   "controllato_il": "2026-10-21",
+   "nota": "The site answers simple automated requests, and sometimes the first browser attempt, with HTTP 403; we read the page in a browser on a second attempt."
+  },
+  {
+   "slug": "leeds-bradford",
+   "iata": "LBA",
+   "nome": "Leeds Bradford",
+   "citta": "Leeds",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "100ml",
+   "sintesi": "Containers of 100 ml or less; liquids and electronics stay in your hand luggage",
+   "citazioni": [
+    "Keep liquids and electronics in your hand luggage.",
+    "Liquids/gels must be in containers of 100ml or less."
+   ],
+   "eccezioni": [
+    "Security rules may differ at other airports, so please check before you travel."
+   ],
+   "url": "https://www.leedsbradfordairport.co.uk/help/security",
+   "titolo_fonte": "Leeds Bradford Airport – Security",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-21",
+   "nota": "The page's question 'What are my liquid limits?' opens on click and adds that there is no need for a plastic bag and that breast milk, formula milk and sterilised water for a baby are allowed in containers up to 2,000 ml. We quote only the text visible without clicking."
+  },
+  {
+   "slug": "belfast-international",
+   "iata": "BFS",
+   "nome": "Belfast International",
+   "citta": "Belfast",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "2l",
+   "sintesi": "Liquids up to 2 litres in your hand luggage; no plastic bag; electronics stay in the bag",
+   "citazioni": [
+    "We at Belfast International Airport, have new state of the art security technology, speeding up the security process and improving overall passenger experience. Passengers can now:",
+    "Leave liquids up to 2 litres in their hand luggage",
+    "Plastic bags are no longer required"
+   ],
+   "eccezioni": [],
+   "url": "https://www.belfastairport.com/airport-guide/security/hand-luggage",
+   "titolo_fonte": "Belfast International Airport – Hand Luggage",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-21",
+   "nota": "The page says 'up to 2 litres' without saying whether the limit is per container. The answers in the page's 'Hand Luggage FAQ's' open on click and are not quoted."
+  },
+  {
+   "slug": "cardiff",
+   "iata": "CWL",
+   "nome": "Cardiff",
+   "citta": "Cardiff",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "100ml",
+   "sintesi": "Containers of 100 ml or less; liquids and electronics stay in your hand luggage (Next Generation Security)",
+   "citazioni": [
+    "Next Generation Security is now fully operational. The new technology allows passengers to leave liquids under 100ml in their hand luggage, along with all electronics, providing an enhanced customer experience.",
+    "All liquids must be in containers that are 100ml or less and placed inside your hand luggage"
+   ],
+   "eccezioni": [
+    "When travelling with a baby you’re allowed to take enough baby food, baby milk and sterilised water for the journey. There is no legal limit to how much you can take however check with your airport before you travel.",
+    "Individual containers of breast milk must hold no more than 2,000ml. Each container will need to be screened at the security point. Airport staff might need to open the containers to screen the liquids."
+   ],
+   "url": "https://cardiff-airport.com/airport-security-cwl/",
+   "titolo_fonte": "Cardiff Airport – Airport Security",
+   "lettura": "browser",
+   "controllato_il": "2026-10-21"
+  },
+  {
+   "slug": "southampton",
+   "iata": "SOU",
+   "nome": "Southampton",
+   "citta": "Southampton",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "100ml",
+   "sintesi": "Containers of 100 ml or less, no limit on the number; no plastic bag (CT scanners)",
+   "citazioni": [
+    "Our new CT security scanners offer several key benefits for travellers:",
+    "Simplified liquid rules: You can carry an unlimited number of liquids, as long as each container is 100ml or less. These items no longer need to be placed in a separate plastic bag."
+   ],
+   "eccezioni": [
+    "We're proud to introduce our new Explosive Detection System (EDS) X-Ray scanners, featuring state-of-the-art Computed Tomography (CT) technology. These next-generation scanners produce high-resolution 3D images of your cabin baggage, improving our ability to detect threats while streamlining the screening process."
+   ],
+   "url": "https://www.southamptonairport.com/at-the-airport/security-screening/",
+   "titolo_fonte": "Southampton Airport – Security Screening",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-21"
+  },
+  {
+   "slug": "exeter",
+   "iata": "EXT",
+   "nome": "Exeter",
+   "citta": "Exeter",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "100ml",
+   "sintesi": "Containers of 100 ml or less in one 1-litre plastic bag, presented for examination",
+   "citazioni": [
+    "Further to the UK Government announcement, current requirements for screening liquids and large electricals are unchanged.",
+    "Liquid containers must hold no more than 100ml (3.4 fl oz)",
+    "Liquid containers must be carried in a single (one per passenger), transparent, re-sealable plastic bag, which holds no more than one litre and measures approximately 20cm x 20cm",
+    "Liquids bags must be presented for examination at the airport security point"
+   ],
+   "eccezioni": [
+    "Passengers may carry medical items and essential medicines for the journey, including inhalers and dietary foodstuffs in containers over 100ml in hand baggage. Some of these may also need supporting documentation from a relevant qualified medical professional (eg doctor’s letter or prescription). Please check with the airline.",
+    "Baby feed and drink for the journey may travel in quantities greater than required in the Hand (cabin) Baggage ‘liquids’ Restrictions and there is no need for a clear re-sealable plastic bag.",
+    "Passengers can take into the aircraft cabin any liquids bought after passing through the security search area, as these items go through a separate screening process. This includes bottled water, wines and spirits and fragrances and cosmetics of any size."
+   ],
+   "url": "https://exeter-airport.co.uk/passenger-information/",
+   "titolo_fonte": "Exeter Airport – Passenger Information",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-21"
+  },
+  {
+   "slug": "bournemouth",
+   "iata": "BOH",
+   "nome": "Bournemouth",
+   "citta": "Bournemouth",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "2l",
+   "sintesi": "Containers up to 2,000 ml; liquids stay in your bag; no plastic bag",
+   "citazioni": [
+    "Passengers flying from Bournemouth Airport will no longer need to present liquids separately in a clear resealable plastic bag however, liquids are restricted to containers of up to 2,000ml.",
+    "If you need to, you can take small quantities of liquids through security. These liquids must be in containers no larger than 2,000ml. These liquids can remain within your hand luggage and do not need to be removed for the screening process.",
+    "Containers larger than 2,000ml such as drinks bottles (including water), even though it might only contain 2,000ml, are NOT permitted."
+   ],
+   "eccezioni": [
+    "Please note: as many airports have not yet introduced this new technology, passengers should check restrictions prior to travel as, they may still be required to carry liquids within a clear plastic bag for the return journey back to Bournemouth Airport.",
+    "Essential medicines that you will need during your trip must be checked through security. Again, these liquids must be in containers no larger than 2,000ml and can remain within your hand luggage and do not need to be removed for the screening process.",
+    "When travelling with a baby you’re allowed to take enough baby food, baby milk and sterilised water for the journey. In some cases this will be over 2,000ml.",
+    "Individual containers of breast milk must hold no more than 2,000ml. Each container will need to be screened at the security point. Airport staff might need to open the containers to screen the liquids."
+   ],
+   "url": "https://www.bournemouthairport.com/passenger-information/",
+   "titolo_fonte": "Bournemouth Airport – Passenger Information",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-21"
+  },
+  {
+   "slug": "cork",
+   "iata": "ORK",
+   "nome": "Cork",
+   "citta": "Cork",
+   "paese": "Ireland",
+   "area": "UK and Ireland",
+   "regola": "100ml",
+   "sintesi": "Containers under 100 ml in one 1-litre plastic bag, presented separately",
+   "citazioni": [
+    "The 100ml liquids, gels and pastes rule still applies at Cork Airport.",
+    "Passengers should prepare liquids gels and pastes under 100ml in a single, transparent, resealable plastic bag with a total content maximum of 1 litre (approximately 20cm x 20cm). Passengers will need to present these separately at Passenger Screening.",
+    "You cannot bring any liquids, lotions, gels or pastes over 100 millilitres on board the aircraft. These items can only be checked in as Hold Baggage. Please give any such items to the security screening staff, who will dispose of them for you."
+   ],
+   "eccezioni": [
+    "Passengers travelling with babies and young children are permitted to bring as much baby formula, milk and snacks as is required for the duration of the flight. Please ask one of our security team members for a special tray to put the liquids in as it will be subjected to additional screening as well as going through the x-ray machine.",
+    "Essential Prescription Medicines and special dietary requirements including baby foods required for the flight are permitted but these must be presented separately for screening.",
+    "Please note Cork Airport does not provide plastic bags but these can be purchased in the terminal BEFORE you approach the passenger security screening area."
+   ],
+   "url": "https://www.corkairport.com/at-the-airport/airport-security/how-to-prepare-for-security",
+   "titolo_fonte": "Cork Airport – How to prepare for security",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-21"
+  },
+  {
+   "slug": "jersey",
+   "iata": "JER",
+   "nome": "Jersey",
+   "citta": "Jersey",
+   "paese": "Jersey",
+   "area": "UK and Ireland",
+   "regola": "100ml",
+   "sintesi": "Containers up to 100 ml; liquids stay in your bag, no plastic bag (CT scanners)",
+   "citazioni": [
+    "Liquids, aerosols, gels and pastes can remain in your hand luggage in individual containers no greater than 100ml. There is no need to take them out of your bag when passing through security.",
+    "All liquids, aerosols, gels and pastes carried in containers up to 100ml can be carried in your hand baggage. They can remain in your bag for screening. There is no need to place them in a separate tray or in a plastic bag.",
+    "Jersey Airport has CT scanners installed to scan all hand baggage. Check what you can take through Security at every airport you are travelling through, as the rules may be different at each airport."
+   ],
+   "eccezioni": [
+    "Medicines and baby foods will be checked by specialist liquid screening equipment. If these are in a metal or foil lined container you will need put them into another container, which is suitable for screening such as plastic or glass."
+   ],
+   "url": "https://www.jerseyairport.com/airport/security/",
+   "titolo_fonte": "Jersey Airport – Security",
+   "lettura": "diretta",
+   "controllato_il": "2026-10-21",
+   "nota": "Jersey is a Crown Dependency, not part of the United Kingdom; its airport is listed with the UK and Ireland airports."
   }
  ],
  "nazionali": [
@@ -1209,16 +1462,24 @@
    "motivo": "Retried on 17 October 2026: the official pages loaded but showed no text to our browser."
   },
   {
-   "nome": "Birmingham, Glasgow, Newcastle, London City",
-   "motivo": "Retried on 17 October 2026: official pages still block automated reading (HTTP 403), also in a browser."
+   "nome": "Birmingham",
+   "motivo": "Retried on 21 October 2026: the official site still blocks automated reading (HTTP 403), also in a browser."
   },
   {
-   "nome": "Liverpool, Belfast International, Leeds Bradford",
-   "motivo": "Retried on 17 October 2026: security page not found (404) or not reachable."
+   "nome": "Glasgow",
+   "motivo": "Retried on 21 October 2026: the official security page shows an anti-robot check to our browser, so we could not read the rule."
   },
   {
-   "nome": "Belfast City, Venice",
+   "nome": "Belfast City",
+   "motivo": "Retried on 21 October 2026: the official Airport Security page has no liquids sentence and its Liquids page returns 404."
+  },
+  {
+   "nome": "Venice",
    "motivo": "Retried on 17 October 2026: security page read, but no liquids sentence on it."
+  },
+  {
+   "nome": "Southend",
+   "motivo": "Official security page not found (404), not reachable, empty, or with no liquids sentence readable (10 October 2026)."
   },
   {
    "nome": "Geneva, Warsaw",
@@ -1235,10 +1496,6 @@
   {
    "nome": "Hamburg, Naples",
    "motivo": "Retried on 17 October 2026: page not reachable or not found."
-  },
-  {
-   "nome": "Bournemouth, Cardiff, Southend, Exeter",
-   "motivo": "Official security page not found (404), not reachable, empty, or with no liquids sentence readable (10 October 2026)."
   },
   {
    "nome": "Cologne-Bonn, Stuttgart, Nice, Lyon, Bologna, Bucharest",

@@ -36,7 +36,50 @@
       "url": "https://cils.unistrasi.it/1/94/28/Come_si_svolgono_gli_esami_CILS.htm"
      }
     ],
-    "verificato_il": "2026-10-12"
+    "verificato_il": "2026-10-21",
+    "prove": {
+     "parti": [
+      {
+       "prove": [
+        "ascolto"
+       ],
+       "tempo": "30 min circa"
+      },
+      {
+       "prove": [
+        "lettura"
+       ],
+       "tempo": "40 min (con la grammatica)"
+      },
+      {
+       "prove": [
+        "scrittura"
+       ],
+       "tempo": "40 min"
+      },
+      {
+       "prove": [
+        "orale"
+       ],
+       "tempo": "10 min circa"
+      }
+     ],
+     "totale": "circa 2 ore (somma delle prove)"
+    }
+   },
+   "orale": {
+    "testo": "Una sola prova di circa 10 minuti: una breve presentazione personale (1 minuto circa, partendo da una lista di domande) e poi un dialogo con l'esaminatore di 2-3 minuti. L'orale è registrato e di solito si fa nel pomeriggio dello stesso giorno dello scritto.",
+    "fonti": [
+     {
+      "nome": "sillabo CILS B1 Cittadinanza",
+      "url": "https://cils.unistrasi.it/public/articoli/382/B1%20Cittadinanza_Sillabo.pdf"
+     },
+     {
+      "nome": "come si svolgono gli esami CILS",
+      "url": "https://cils.unistrasi.it/1/94/28/Come_si_svolgono_gli_esami_CILS.htm"
+     }
+    ],
+    "verificato_il": "2026-10-21"
    },
    "risultati": {
     "testo": "Circa 3 mesi dopo l'esame. Li vedi online nella pagina «Il mio risultato» con il numero di matricola e la data di nascita. Per il B1 Cittadinanza l'Università di Padova indica circa 2 mesi. Il certificato si ritira alla sede dove hai fatto l'esame.",
@@ -123,7 +166,41 @@
       "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-descrizione-esame.pdf"
      }
     ],
-    "verificato_il": "2026-10-12"
+    "verificato_il": "2026-10-21",
+    "prove": {
+     "parti": [
+      {
+       "prove": [
+        "ascolto"
+       ],
+       "tempo": "20 min"
+      },
+      {
+       "prove": [
+        "lettura",
+        "scrittura"
+       ],
+       "tempo": "2 ore, lettura e scrittura insieme"
+      },
+      {
+       "prove": [
+        "orale"
+       ],
+       "tempo": "10-12 min"
+      }
+     ],
+     "totale": "2 ore e 30 min (dato ufficiale)"
+    }
+   },
+   "orale": {
+    "testo": "10-12 minuti, vale il 25% del voto. I compiti: presentarsi, descrivere alcune immagini, rispondere a domande aperte di carattere interculturale e di educazione civica, fare un role play (una scena a due).",
+    "fonti": [
+     {
+      "nome": "descrizione dell'esame CELI 2 i",
+      "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-descrizione-esame.pdf"
+     }
+    ],
+    "verificato_il": "2026-10-21"
    },
    "risultati": {
     "testo": "Circa 90 giorni lavorativi da quando le prove arrivano a Perugia. Li vedi online nell'area riservata del CVCL con il numero di matricola e la data di nascita, oppure al centro d'esame. Il certificato digitale arriva al centro, che lo consegna; se ti serve prima, scarichi un documento provvisorio dall'area riservata.",
@@ -195,11 +272,58 @@
     "testo": "PLIDA B1: ascolto circa 40 minuti, lettura 40 minuti, scrittura 60 minuti, orale circa 15 minuti. Superi ogni prova con almeno 18 punti su 30.",
     "fonti": [
      {
+      "nome": "Quaderno delle specifiche PLIDA B1 (PDF)",
+      "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf"
+     },
+     {
       "nome": "PLIDA, Quaderno delle specifiche B1 (Preparati all'esame, livello B1)",
       "url": "https://plida.dante.global/it/preparati-allesame/"
      }
     ],
-    "verificato_il": "2026-10-12"
+    "verificato_il": "2026-10-21",
+    "prove": {
+     "parti": [
+      {
+       "prove": [
+        "ascolto"
+       ],
+       "tempo": "40 min circa"
+      },
+      {
+       "prove": [
+        "lettura"
+       ],
+       "tempo": "40 min"
+      },
+      {
+       "prove": [
+        "scrittura"
+       ],
+       "tempo": "60 min"
+      },
+      {
+       "prove": [
+        "orale"
+       ],
+       "tempo": "15 min circa"
+      }
+     ],
+     "totale": "circa 2 ore e 35 min (somma delle prove)"
+    }
+   },
+   "orale": {
+    "testo": "Circa 15 minuti. Si supera con almeno 18 punti su 30, come ogni altra prova. Le specifiche e i criteri di valutazione della prova «Parlare» sono nel kit gratuito del sito PLIDA.",
+    "fonti": [
+     {
+      "nome": "Quaderno delle specifiche PLIDA B1 (PDF)",
+      "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf"
+     },
+     {
+      "nome": "PLIDA, preparati all'esame",
+      "url": "https://plida.dante.global/it/preparati-allesame/"
+     }
+    ],
+    "verificato_il": "2026-10-21"
    },
    "risultati": {
     "testo": "Li vedi online su certificazioneplida.dante.global con la tua email e la tua password; da lì scarichi anche il certificato. Per questo, prima di iscriverti apri un account sul sito PLIDA e dai la tua email al centro.",
@@ -275,7 +399,36 @@
       "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/"
      }
     ],
-    "verificato_il": "2026-10-12"
+    "verificato_il": "2026-10-21",
+    "prove": {
+     "parti": [
+      {
+       "prove": [
+        "ascolto",
+        "lettura",
+        "scrittura"
+       ],
+       "tempo": "90 min in tutto, le tre prove insieme"
+      },
+      {
+       "prove": [
+        "orale"
+       ],
+       "tempo": "10 min"
+      }
+     ],
+     "totale": "1 ora e 40 min (somma delle prove)"
+    }
+   },
+   "orale": {
+    "testo": "10 minuti, 3 prove faccia a faccia, 30 punti: un'intervista con domande di presentazione, una simulazione di ruolo (per esempio lamentarsi con un vicino) e un monologo (per esempio un messaggio vocale a un amico). Si supera con il 60% dei punti.",
+    "fonti": [
+     {
+      "nome": "CERT.IT, livello B1",
+      "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/"
+     }
+    ],
+    "verificato_il": "2026-10-21"
    },
    "documenti": {
     "testo": "Per iscriverti a Roma Tre alleghi online il documento d'identità (o il passaporto) e il codice fiscale. Nelle sedi convenzionate chiedi alla sede.",

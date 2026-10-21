@@ -1970,10 +1970,16 @@ def contesto_html(rel):
 
 # Risposta diretta in alto (sì/no) presa dalla regola in dati/aeroporti.json; "risposta" nel file la sostituisce dove serve una sfumatura.
 SI_NO = {"2l": "Yes", "100ml": "No", "dipende": "It depends on the checkpoint", "contraddice": "Not clear: the official texts disagree"}
-# nome nel <title> come lo cerca la gente ("barcelona airport liquid rules"); nel testo resta il nome completo del file
+# nome nel <title> come lo cerca la gente ("heathrow liquid rules", "barcelona airport liquid rules"); nel testo resta il nome completo del file
 NOMI_TITOLO = {"madeira": "Madeira Funchal", "barcelona": "Barcelona", "alicante": "Alicante", "malaga": "Malaga", "lanzarote": "Lanzarote", "doha": "Doha Hamad",
-               "athens": "Athens", "dubai": "Dubai", "malta": "Malta"}
+               "athens": "Athens", "dubai": "Dubai", "malta": "Malta", "heathrow": "Heathrow", "gatwick": "Gatwick", "stansted": "Stansted", "luton": "Luton",
+               "rome-fiumicino": "Rome Fiumicino", "milan-malpensa": "Milan Malpensa", "milan-linate": "Milan Linate", "gothenburg-landvetter": "Gothenburg",
+               "stockholm-arlanda": "Stockholm Arlanda", "madrid": "Madrid", "palma-de-mallorca": "Palma", "amsterdam-schiphol": "Amsterdam Schiphol",
+               "liverpool": "Liverpool", "berlin": "Berlin"}
 SIGLA_PAESE = {"United States": "US", "Canada": "Canadian"}
+# contesto (GOV.UK / Your Europe) da citare nelle FAQ quando la pagina dell'aeroporto non dice il dettaglio: per Paese
+PAESI_UE = {"Ireland", "Germany", "Austria", "Italy", "Finland", "Sweden", "Denmark", "Netherlands", "Czechia", "Poland", "Portugal", "Spain", "Greece", "Malta",
+            "Belgium", "Hungary", "France", "Croatia", "Cyprus", "Luxembourg", "Slovakia", "Slovenia", "Romania", "Bulgaria", "Estonia", "Latvia", "Lithuania"}
 
 
 def nome_titolo(A):
@@ -1999,21 +2005,67 @@ def sigla_ente(A):
     return A["ente"].split("(")[-1].rstrip(")")
 
 
+def dipende_da(A):
+    """'checkpoint' o 'journey' (Zurigo): da cosa dipende la regola, dall'etichetta del file."""
+    return etichetta(A).lower().replace("depends on ", "").strip() or "checkpoint"
+
+
 def titoli_liquidi(A, nazionale=False):
+    """Titoli scritti come le ricerche ('<aeroporto> liquid rules 2026', '100ml'), con la regola vera nel titolo; la prima forma che sta in 65 caratteri."""
     if nazionale:
         x, e = SIGLA_PAESE.get(A["paese"], A["paese"]), sigla_ente(A)
-        return [f"{x} Airport Liquid Rules {ANNO} ({e}): 100 ml or More?", f"{x} Airport Liquid Rules {ANNO} ({e})"]
-    n, i = nome_titolo(A), A["iata"]
-    return [f"{n} Airport ({i}) Liquid Rules {ANNO}: 100 ml or 2 litres?", f"{n} Airport ({i}) Liquid Rules {ANNO}: 100 ml or 2L?",
-            f"{n} Airport ({i}) Liquid Rules {ANNO}", f"{n} ({i}) Liquid Rules {ANNO}"]
+        return [f"{x} Airport Liquid Rules {ANNO} ({e}): 100ml Limit Still Applies", f"{x} Airport Liquid Rules {ANNO} ({e}): 100ml Limit",
+                f"{x} Airport Liquid Rules {ANNO} ({e})"]
+    n, i, r = nome_titolo(A), A["iata"], A["regola"]
+    if r == "2l":
+        code = [f"{n} Airport ({i}) Liquid Rules {ANNO}: 2 Litres Allowed, Not 100ml", f"{n} ({i}) Liquid Rules {ANNO}: 2 Litres Allowed, Not 100ml",
+                f"{n} ({i}) Liquid Rules {ANNO}: Up to 2 Litres"]
+    elif r == "100ml":
+        code = [f"{n} Airport ({i}) Liquid Rules {ANNO}: 100ml Limit Still Applies", f"{n} ({i}) Liquid Rules {ANNO}: 100ml Limit Still Applies",
+                f"{n} ({i}) Liquid Rules {ANNO}: 100ml Limit"]
+    elif r == "dipende":
+        da = dipende_da(A).capitalize()
+        code = [f"{n} Airport ({i}) Liquid Rules {ANNO}: 100ml or 2 Litres by {da}", f"{n} ({i}) Liquid Rules {ANNO}: 100ml or 2 Litres by {da}",
+                f"{n} ({i}) Liquid Rules {ANNO}: 100ml or 2L by {da}"]
+    else:  # contraddice
+        code = [f"{n} Airport ({i}) Liquid Rules {ANNO}: 100ml or 2 Litres? Pages Disagree", f"{n} ({i}) Liquid Rules {ANNO}: 100ml or 2 Litres? Pages Disagree",
+                f"{n} ({i}) Liquid Rules {ANNO}: 100ml or 2 Litres?"]
+    return code + [f"{n} ({i}) Liquid Rules {ANNO}"]
+
+
+def h1_liquidi(A, nazionale=False):
+    """H1 coerente con il titolo: nome completo, sigla, 'liquid rules 2026', '100ml' e 'hand luggage' come scrive chi cerca."""
+    if nazionale:
+        return f"{A['paese']} airport liquid rules {ANNO} ({sigla_ente(A)}): the 100ml limit for liquids in hand luggage"
+    n, i, r = A["nome"], A["iata"], A["regola"]
+    coda = {"2l": "up to 2 litres per container in hand luggage, not 100ml", "100ml": "the 100ml limit for liquids in hand luggage",
+            "dipende": f"100ml or 2 litres in hand luggage, depending on the {dipende_da(A)}",
+            "contraddice": "100ml or 2 litres in hand luggage? The official pages disagree"}[r]
+    if A["slug"] == "belfast-international":  # la pagina dice "up to 2 litres" senza "per container"
+        coda = "liquids up to 2 litres in hand luggage, not 100ml"
+    return f"{n} Airport ({i}) liquid rules {ANNO}: {coda}"
+
+
+def frase_diretta(A, nazionale=False):
+    """Risposta diretta in una o due frasi, costruita solo dalla regola, dalla risposta e dalla sintesi del file."""
+    d, r, s = dove_liq(A, nazionale), risposta_liq(A), A["sintesi"]
+    s_min = s if s.split()[0] in ("Terminal", "Terminals") else s[0].lower() + s[1:]  # iniziale minuscola dopo i due punti, salvo i nomi propri
+    if A["regola"] == "2l":
+        return f"{r}: at {d} you can take liquids over 100ml through security, as the official page quoted below says: {s_min}."
+    if A["regola"] == "100ml":
+        return f"{r}: at {d} the 100ml rule still applies to liquids in hand luggage, as the official page quoted below says: {s_min}."
+    if A["regola"] == "dipende":
+        return f"{r}. At {d}: {s_min}. The official page is quoted below."
+    return f"{r}. At {d}, two official texts give different limits: {s_min}. Both are quoted below."
 
 
 def descrizioni_liquidi(A, nazionale=False):
     d, r, sx, c = dove_liq(A, nazionale), risposta_liq(A), A["sintesi"], data_lunga(A["controllato_il"])
-    return [f"Can you take liquids over 100 ml at {d}? {r}. {sx}. Quoted from the official page, checked {c}.",
-            f"Can you take liquids over 100 ml at {d}? {r}. {sx}. Official page quoted.",
-            f"Liquids over 100 ml at {d}? {r}. {sx}.",
-            f"Can you take liquids over 100 ml at {d}? {r}. Official rules quoted word for word, checked {c}.",
+    return [f"Can you take liquids over 100ml in hand luggage at {d}? {r}. {sx}. Official page quoted word for word, checked {c}.",
+            f"Can you take liquids over 100ml in hand luggage at {d}? {r}. {sx}. Official page quoted, checked {c}.",
+            f"Liquids over 100ml in hand luggage at {d}? {r}. {sx}. Official page quoted.",
+            f"Liquids over 100ml at {d}? {r}. {sx}.",
+            f"Can you take liquids over 100ml in hand luggage at {d}? {r}. Official rules quoted word for word, checked {c}.",
             f"{d} liquid rules {ANNO}: {r}. The official page quoted word for word, with the date we checked it."]
 
 
@@ -2030,17 +2082,53 @@ def prefisso_faq(A):
     return f"Quoted from {A['titolo_fonte']} (checked on {data_lunga(A['controllato_il'])}): "
 
 
-FAQ_LIQ = [  # (chiave, domanda, filtro sulle frasi ufficiali): la frase deve parlare proprio di quello che chiede la domanda
-    ("limite", "Can I take liquids over 100 ml through security at {d}?", re.compile(r"100|litre|liter|2,000|3\.4|\bml\b", re.I)),
-    ("busta", "Do liquids have to go in a plastic bag at {d}?",
-     re.compile(r"plastic bag|re-?sealable|clear bag|transparent bag|lit(?:re|er) bag|liquid bag|quart-sized bag|20 ?cm ?x ?20|20 x 20|1L in capacity", re.I)),
-    ("fuori", "Do I have to take liquids out of my bag at security at {d}?",
-     re.compile(r"remov|take them out|stay in|remain in|separately|separate from|tray|leave (?:your )?liquids|kept in your", re.I)),
+def contesto_di(A):
+    """La pagina di governo da citare quando la pagina dell'aeroporto non dice il dettaglio: GOV.UK per il Regno Unito, Your Europe per l'UE, altrimenti nessuna."""
+    if A.get("paese") == "United Kingdom":
+        k = "uk"
+    elif A.get("paese") in PAESI_UE:
+        k = "eu"
+    else:
+        return None
+    return next(C for C in AER["contesto"] if C["id"] == k)
+
+
+def prefisso_contesto(C):
+    return f"Quoted from {C['titolo']} (checked on {data_lunga(C['controllato_il'])}): "
+
+
+RX_FUORI_TEMA = re.compile(r"body scanner|walk through|security scanner that|non-invasive", re.I)  # frasi sui portali per le persone, non sui liquidi
+FAQ_LIQ = [  # (chiave, domanda, filtro sulle frasi ufficiali): la frase deve parlare proprio di quello che chiede la domanda; None = citazioni principali
+    ("limite", "Can I take liquids over 100ml through security at {d}?", None),
     ("terminal", "Are the liquids rules different by terminal or checkpoint at {d}?",
      re.compile(r"\bterminals?\b|\bgates?\b|security areas?|control areas?|transfer|\blanes?\b|signs|CT technology|CT scanners?|computed tomography"
                 r"|which security checkpoint|some security checkpoints|following checkpoints|entrance security|one stop security", re.I)),
-    ("borraccia", "Can I take a reusable bottle or flask through security at {d}?", re.compile(r"bottle|flask|thermos|double-walled|insulated", re.I)),
+    ("scanner", "Does {d} have the new CT scanners, and can liquids stay in my bag?",
+     re.compile(r"CT scanners?|CT security|CT technology|computed tomography|next[- ]generation|new (?:security )?technology|new scanners?|state of the art security"
+                r"|stay in|remain in|remain within|leave (?:your )?liquids|inside hand|in their hand|in your (?:hand|cabin) (?:luggage|bag)|take them out|remov"
+                r"|separately|separate from|tray|kept in your", re.I)),
+    ("busta", "Do liquids have to go in a plastic bag at {d}, and how big can it be?",
+     re.compile(r"plastic bags?|re-?sealable|clear bag|transparent bag|lit(?:re|er) bag|liquid bag|quart-sized bag|20 ?cm ?x ?20|20 x 20|1L in capacity", re.I)),
+    ("baby", "Can I take baby food and medicines over 100ml through security at {d}?",
+     re.compile(r"\bbaby\b|infant|breast milk|formula|medicin|medication|prescription|dietary|inhaler", re.I)),
+    ("dutyfree", "Can I carry duty-free liquids over 100ml through {d}?",
+     re.compile(r"duty[- ]free|tamper|STEB|bought after|purchased after|airport shops|security bag|bought in the airport|sealed (?:duty|security|bag containing)", re.I)),
+    ("borraccia", "Can I take a reusable bottle or flask through security at {d}?", re.compile(r"bottle|flask|thermos|double-walled|double-skinned|insulated", re.I)),
+    ("2026", "What are the liquid rules at {d} in {anno}, and are they changing?", None),
 ]
+# Risposte nostre quando la pagina ufficiale non dice il dettaglio: dicono che la pagina non lo dice e rimandano alla regola standard.
+# verifica.py controlla che ogni risposta in testo nostro corrisponda a uno di questi modelli.
+MANCA_LIQ = {
+    "scanner": "The passages we quote from the official page do not say whether {n} uses CT scanners or whether liquids can stay in your bag: follow the signs and the staff at the checkpoint.",
+    "busta": "The passages we quote from the official page do not mention a plastic bag or a limit on the number of bags.",
+    "baby": "The passages we quote from the official page do not list exemptions for baby food or medicines.",
+    "dutyfree": "The passages we quote from the official page do not cover duty-free liquids bought at another airport.",
+}
+RINVIO_LIQ = {  # coda del rimando alla regola standard, per contesto (uk, eu, nessuno)
+    "uk": "GOV.UK sets out the standard rule and exemptions for UK airports on its hand luggage restrictions page; check with the airport and your airline before you pack.",
+    "eu": "Your Europe sets out the standard EU rule and exemptions; check with the airport and your airline before you pack.",
+    None: "Check with the airport and your airline before you pack.",
+}
 
 
 def gruppi_liq(A, ff):
@@ -2060,42 +2148,73 @@ def gruppi_liq(A, ff):
 
 
 def faq_liquidi(A, nazionale=False):
-    """Fino a 4 domande vere. Ogni risposta è fatta SOLO di citazioni ufficiali intere (mai tagliate, mai testo nostro):
-    la stessa citazione può rispondere a due domande diverse. verifica.py lo controlla."""
+    """Sei domande (quattro se la pagina non dà spunti). Ogni risposta è: le citazioni ufficiali intere che parlano di quel tema
+    (mai tagliate), oppure, se la pagina non lo dice, una frase nostra da MANCA_LIQ + RINVIO_LIQ che lo dichiara, con la citazione
+    della pagina di governo (GOV.UK / Your Europe) dove c'è. La prima e l'ultima risposta partono dalla regola e dalla sintesi del file.
+    Ritorna [(domanda, testo nostro o '', [(prefisso fonte, [citazioni])])]; verifica.py ricontrolla tutto."""
     pool = frasi_ufficiali_liq(A)
     gruppi = gruppi_liq(A, list(A["citazioni"])) + gruppi_liq(A, [f for f in pool if f not in A["citazioni"]])
-    out = []
-    for i, (chiave, dom, rx) in enumerate(FAQ_LIQ):
+    d, C, pre = dove_liq(A, nazionale), contesto_di(A), prefisso_faq(A)
+    ctx = C["id"] if C else None
+    voci = {}
+    for chiave, dom, rx in FAQ_LIQ:
         if chiave in A.get("faq_salta", []):  # domanda che non si adatta a questa pagina (es. Zurigo: dipende dal viaggio, non dal varco)
             continue
-        if i == 0:  # prima domanda: le citazioni principali (più eccezioni e contrasti dove la regola dipende dal varco)
+        q = dom.format(d=d, anno=ANNO)
+        if chiave == "limite":
             ff = list(pool) if A["regola"] in ("dipende", "contraddice") else list(A["citazioni"])
+            voci[chiave] = (q, frase_risposta(A), [(pre, ff)])
+        elif chiave == "2026":
+            testo = (f"As of {data_lunga(A['controllato_il'])}, the official page says: {frase_risposta(A)} Rules can change at short notice and the "
+                     f"airport's page is our only source, so check it again before you fly.")
+            blocchi = [(prefisso_contesto(C), [x for x in C["citazioni"] if "depend on the airport" in x or "up to 2 litres" in x])] if C and ctx == "uk" else \
+                      ([(prefisso_contesto(C), list(C["citazioni"]))] if C else [])
+            voci[chiave] = (q, testo, blocchi)
         else:
-            ff = [f for g in gruppi if any(rx.search(x) and not re.search(r"tamper|duty", x, re.I) for x in g) for f in g]
-        if not ff or any(ff == g and len(g) > 1 for _, g in out):  # niente blocchi lunghi ripetuti identici
-            continue
-        out.append((dom.format(d=dove_liq(A, nazionale)), ff))
-    return out[:4]
+            ff = [f for g in gruppi if any(rx.search(x) and not RX_FUORI_TEMA.search(x) and not (chiave != "dutyfree" and re.search(r"tamper|duty", x, re.I)) for x in g) for f in g]
+            if ff:
+                voci[chiave] = (q, "", [(pre, ff)])
+            elif chiave in MANCA_LIQ:
+                testo = MANCA_LIQ[chiave].format(n=A["nome"]) + ("" if chiave == "scanner" else " " + RINVIO_LIQ[ctx])
+                blocchi = [(prefisso_contesto(C), list(C["citazioni"]))] if (C and chiave == "busta") else []
+                voci[chiave] = (q, testo, blocchi)
+    # ordine: limite, terminal (solo con citazioni), i temi con citazioni, poi quelli senza, borraccia (solo con citazioni), 2026; al massimo 6
+    centro = [k for k in ("scanner", "busta", "baby", "dutyfree") if k in voci]
+    centro = [k for k in centro if voci[k][2] and not voci[k][1]] + [k for k in centro if not (voci[k][2] and not voci[k][1])]
+    ordine = ["limite"] + (["terminal"] if "terminal" in voci else []) + centro + (["borraccia"] if "borraccia" in voci else []) + ["2026"]
+    while len(ordine) > 6:
+        senza = [k for k in ordine if k in MANCA_LIQ and voci[k][1]]
+        ordine.remove(senza[-1] if senza else ordine[-2])
+    return [voci[k] for k in ordine]
+
+
+def testo_faq(intro, blocchi):
+    """Testo della risposta per il JSON-LD: frase nostra (se c'è) + 'Quoted from <fonte> (checked on <data>): “…” “…”' per ogni blocco."""
+    parti = ([intro] if intro else []) + [p + " ".join(f"“{f}”" for f in ff) for p, ff in blocchi if ff]
+    return " ".join(parti)
 
 
 def html_faq(A, faq):
     if not faq:
         return "", []
-    h = "".join(f"<h3>{escape(q)}</h3>{cit_html(ff)}" for q, ff in faq)
+    h = ""
+    for q, intro, blocchi in faq:
+        h += f"<h3>{escape(q)}</h3>" + (f"<p>{escape(intro)}</p>" if intro else "")
+        for p, ff in blocchi:
+            if ff:
+                h += cit_html(ff) + ("" if p == prefisso_faq(A) else f'<p class="fonte">{escape(p.rstrip(": "))}.</p>')
     ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
-        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": prefisso_faq(A) + " ".join(f"“{f}”" for f in ff)}} for q, ff in faq]}
-    return (f'<section class="faq"><h2>Questions about liquids at {escape(A["nome"])}</h2>'
-            f'<p class="small">Every answer below is quoted word for word from the official page, not written by us.</p>{h}{fonte_liq(A)}</section>'), [ld]
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": testo_faq(intro, blocchi)}} for q, intro, blocchi in faq]}
+    return (f'<section class="faq"><h2>Questions about liquids at {escape(A["nome"])}: 100ml rule, bags, scanners, baby food, duty-free</h2>'
+            f'<p class="small">Quotations are word for word from the official pages named; the plain-text answers are ours and come only from the rule '
+            f'and summary shown at the top of this page. Where the passages we quote do not say, we say so.</p>{h}{fonte_liq(A)}</section>'), [ld]
 
 
 def pagina_aeroporto(A, nazionale=False):
     rel = "../../"
     titolo_breve = A["nome"]
-    if nazionale:
-        h1 = f"{A['paese']} airports liquids rules {ANNO}: 100 ml or more? ({sigla_ente(A)})"
-    else:
-        h1 = f"{A['nome'] if A['slug'] != 'madeira' else 'Madeira Funchal'} Airport ({A['iata']}) liquid rules {ANNO}: 100 ml or 2 litres?"
-    eccezioni = ("<h2>Exceptions and other details (official)</h2>" + cit_html(A["eccezioni"])) if A.get("eccezioni") else ""
+    h1 = h1_liquidi(A, nazionale)
+    eccezioni = (f"<h2>Liquids in hand luggage at {escape(A['nome'])}: exceptions and other details (official)</h2>" + cit_html(A["eccezioni"])) if A.get("eccezioni") else ""
     fonte2 = ""
     if A.get("fonte2"):
         f2 = A["fonte2"]
@@ -2110,9 +2229,13 @@ def pagina_aeroporto(A, nazionale=False):
                      f'<p>{escape(commento)}</p>')
     nota = f'<p class="small">{escape(A["nota"])}</p>' if A.get("nota") else ""
     simili = [B for B in AER["aeroporti"] if B is not A and B.get("paese") == A.get("paese")]
+    titolo_simili = f"Other airports in {A['paese']}"
+    if not simili and not nazionale:  # Paese con un solo aeroporto (Jersey): gli altri della stessa area
+        simili = [B for B in AER["aeroporti"] if B is not A and B.get("area") == A.get("area")]
+        titolo_simili = f"Other airports: {A['area']}"
     link_simili = ""
     if simili:
-        link_simili = (f"<h2>Other airports in {escape(A['paese'])}</h2><div class=\"griglia\">" +
+        link_simili = (f"<h2>{escape(titolo_simili)}</h2><div class=\"griglia\">" +
                        "".join(f'<a href="{rel}liquids/{B["slug"]}/">{escape(B["nome"])} ({B["iata"]})<small>{escape(etichetta(B))}</small></a>' for B in simili) + "</div>")
     faq_html, faq_ld = html_faq(A, faq_liquidi(A, nazionale))
     corpo = f"""<section class="hero"><h1>{escape(h1)}</h1></section>
@@ -2120,12 +2243,12 @@ def pagina_aeroporto(A, nazionale=False):
 <div class="s-top"><span class="sq">{ico("bottle")}</span><span>Liquids · hand luggage</span><span>{escape(A.get("iata") or A.get("paese") or "")}</span></div>
 <div class="s-body">
 <p class="cifra">Can I take liquids over 100 ml through security at {escape(dove_liq(A, nazionale))}? <strong>{escape(frase_risposta(A))} {badge(A['regola'], A)}</strong></p>
-<p class="lead">Short answer based on the official page quoted below{", which is Aena's general hand-luggage page, not a page for this airport" if A.get('gestore') == 'aena' else ''}.</p>
+<p class="lead">{escape(frase_diretta(A, nazionale))}{escape(" The source is Aena's general hand-luggage page, not a page for this airport.") if A.get('gestore') == 'aena' else ''}</p>
 {fonte_liq(A)}
 </div>
 </section>
 {AVVISO_LIQ}
-<h2>What the official page says</h2>
+<h2>100ml rule at {escape(A['nome'])}: what the official page says</h2>
 {cit_html(A['citazioni'])}
 {fonte_liq(A)}
 {fonte2}
@@ -2515,6 +2638,20 @@ def nota_confronto():
             'Where an airline publishes inches only, the centimetres shown with “≈” are our conversion.</p>')
 
 
+def box_liquidi_bag(C, rel):
+    """Riquadro sui liquidi nelle pagine compagnie: regola generale dei 100 ml (citazione GOV.UK) e rimando all'indice degli aeroporti.
+    Nessuna regola per compagnia: il limite lo decide l'aeroporto, non la compagnia."""
+    G = next(x for x in AER["contesto"] if x["id"] == "uk")
+    due = sum(1 for A in AER["aeroporti"] if A["regola"] == "2l")
+    return (f'<section class="card" style="margin-top:22px" aria-label="Liquids in hand luggage"><h2 style="margin-top:0">Liquids in your {escape(C["nome"])} cabin bag: the 100ml rule</h2>'
+            f'<p>The liquid limit is set by the airport you go through security at, not by {escape(C["nome"])}. At most airports each container in your hand luggage '
+            f'must be 100ml or less; {due} of the {len(AER["aeroporti"])} airports we track allow up to 2 litres, and some apply '
+            f'different limits at different checkpoints.</p>{cit_html(G["citazioni"][:2])}'
+            f'<p class="fonte">Quoted from <a href="{escape(G["url"])}" rel="noopener">{escape(G["titolo"])}</a> · checked on {data_lunga(G["controllato_il"])}. '
+            f'Licence: <a href="{OGL}" rel="noopener">{escape(G["licenza"])}</a>.</p>'
+            f'<p style="margin:0"><a href="{rel}liquids/">Liquid rules at {len(AER["aeroporti"])} airports, quoted from their official pages</a></p></section>')
+
+
 def pagina_compagnia(C):
     rel = "../../"
     s, o = borsa_gratis(C, "sotto"), borsa_gratis(C, "sopra")
@@ -2566,6 +2703,7 @@ def pagina_compagnia(C):
 {extra}
 {AD}
 {faq_html}
+{box_liquidi_bag(C, rel)}
 <h2>Does my bag fit {escape(C["nome"])}?</h2>
 <p>Check your own bag against {escape(C["nome"])} and {len(COMPAGNIE) - 1} other airlines with the <a href="{rel}{BAG_STRUMENTO}">bag size checker</a>. Common bag sizes:</p>
 <div class="griglia">{lista_taglie}</div>
