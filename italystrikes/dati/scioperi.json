@@ -432,10 +432,11 @@
   "proclamazione": "2026-10-16",
   "ricezione": "16/10/2026",
   "note": "",
-  "stato": "in programma",
+  "stato": "rimosso dal registro",
   "visto_prima": "2026-10-16",
   "visto_ultimo": "2026-10-21",
-  "modifiche": []
+  "modifiche": [],
+  "rimosso_il": "2026-10-21"
  },
  "8453": {
   "id": "8453",
@@ -875,5 +876,43 @@
   "visto_ultimo": "2026-10-13",
   "modifiche": [],
   "rimosso_il": "2026-10-14"
+ },
+ "8613": {
+  "id": "8613",
+  "inizio": "2027-01-15",
+  "fine": "2027-01-15",
+  "settore": "Aereo",
+  "rilevanza": "Nazionale",
+  "regione": "Italia",
+  "provincia": "Tutte",
+  "sindacati": "UILT-UIL",
+  "categoria": "PERSONALE SOC. ENAV",
+  "modalita": "24 ORE",
+  "proclamazione": "2026-10-21",
+  "ricezione": "21/10/2026",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-10-21",
+  "visto_ultimo": "2026-10-21",
+  "modifiche": []
+ },
+ "8614": {
+  "id": "8614",
+  "inizio": "2027-01-15",
+  "fine": "2027-01-15",
+  "settore": "Aereo",
+  "rilevanza": "Nazionale",
+  "regione": "Italia",
+  "provincia": "Tutte",
+  "sindacati": "UILT-UIL",
+  "categoria": "PERSONALE SOC. TECHNO SKY",
+  "modalita": "24 ORE",
+  "proclamazione": "2026-10-21",
+  "ricezione": "21/10/2026",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-10-21",
+  "visto_ultimo": "2026-10-21",
+  "modifiche": []
  }
 }

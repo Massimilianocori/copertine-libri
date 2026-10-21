@@ -8,7 +8,7 @@
       <title>logoMit</title>
       <link>http://www.mit.gov.it</link>
     </image>
-    <pubDate>Wed, 21 Oct 2026 10:21:47 +0000</pubDate>
+    <pubDate>Wed, 21 Oct 2026 19:31:01 +0000</pubDate>
     <generator>Zend_Feed_Writer 2 (http://framework.zend.com)</generator>
     <link>http://www.mit.gov.it</link>
     <item>
@@ -57,14 +57,6 @@
       <pubDate>Tue, 27 Oct 2026 23:00:00 +0000</pubDate>
       <link>http://scioperi.mit.gov.it</link>
       <guid>http://scioperi.mit.gov.it/8597</guid>
-      <slash:comments>0</slash:comments>
-    </item>
-    <item>
-      <title>Data inizio: 29/10/2026 - Settore: Aereo - Rilevanza: Interregionale - Regione:  Italia - Provincia: Tutte</title>
-      <description><![CDATA[modalità: 4 ORE: DALLE 12.00 ALLE 16.00<br/>Data fine: 29/10/2026<br/>Settore: Aereo<br/>Rilevanza: Interregionale<br/>Regione:  Italia<br/>Provincia: Tutte<br/>Sindacati: OSP/OSR FILCAMS-CGIL/UILT-UIL<br/>Categoria interessata: PERSONALE SOC. LA LUCENTE IMPIEGATO PRESSO IL SITO DELL'AEROPORTO DI BOLOGNA<br/>Data proclamazione: 16/10/2026<br/>Data ricezione: 16/10/2026]]></description>
-      <pubDate>Wed, 28 Oct 2026 23:00:00 +0000</pubDate>
-      <link>http://scioperi.mit.gov.it</link>
-      <guid>http://scioperi.mit.gov.it/8604</guid>
       <slash:comments>0</slash:comments>
     </item>
     <item>
@@ -225,6 +217,22 @@
       <pubDate>Mon, 14 Dec 2026 23:00:00 +0000</pubDate>
       <link>http://scioperi.mit.gov.it</link>
       <guid>http://scioperi.mit.gov.it/8607</guid>
+      <slash:comments>0</slash:comments>
+    </item>
+    <item>
+      <title>Data inizio: 15/01/2027 - Settore: Aereo - Rilevanza: Nazionale - Regione:  Italia - Provincia: Tutte</title>
+      <description><![CDATA[modalità: 24 ORE<br/>Data fine: 15/01/2027<br/>Settore: Aereo<br/>Rilevanza: Nazionale<br/>Regione:  Italia<br/>Provincia: Tutte<br/>Sindacati: UILT-UIL<br/>Categoria interessata: PERSONALE SOC. ENAV<br/>Data proclamazione: 21/10/2026<br/>Data ricezione: 21/10/2026]]></description>
+      <pubDate>Thu, 14 Jan 2027 23:00:00 +0000</pubDate>
+      <link>http://scioperi.mit.gov.it</link>
+      <guid>http://scioperi.mit.gov.it/8613</guid>
+      <slash:comments>0</slash:comments>
+    </item>
+    <item>
+      <title>Data inizio: 15/01/2027 - Settore: Aereo - Rilevanza: Nazionale - Regione:  Italia - Provincia: Tutte</title>
+      <description><![CDATA[modalità: 24 ORE<br/>Data fine: 15/01/2027<br/>Settore: Aereo<br/>Rilevanza: Nazionale<br/>Regione:  Italia<br/>Provincia: Tutte<br/>Sindacati: UILT-UIL<br/>Categoria interessata: PERSONALE SOC. TECHNO SKY<br/>Data proclamazione: 21/10/2026<br/>Data ricezione: 21/10/2026]]></description>
+      <pubDate>Thu, 14 Jan 2027 23:00:00 +0000</pubDate>
+      <link>http://scioperi.mit.gov.it</link>
+      <guid>http://scioperi.mit.gov.it/8614</guid>
       <slash:comments>0</slash:comments>
     </item>
   </channel>
