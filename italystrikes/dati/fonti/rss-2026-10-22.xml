@@ -8,7 +8,7 @@
       <title>logoMit</title>
       <link>http://www.mit.gov.it</link>
     </image>
-    <pubDate>Thu, 22 Oct 2026 10:23:18 +0000</pubDate>
+    <pubDate>Thu, 22 Oct 2026 19:25:04 +0000</pubDate>
     <generator>Zend_Feed_Writer 2 (http://framework.zend.com)</generator>
     <link>http://www.mit.gov.it</link>
     <item>
@@ -105,6 +105,14 @@
       <pubDate>Thu, 05 Nov 2026 23:00:00 +0000</pubDate>
       <link>http://scioperi.mit.gov.it</link>
       <guid>http://scioperi.mit.gov.it/8548</guid>
+      <slash:comments>0</slash:comments>
+    </item>
+    <item>
+      <title>Data inizio: 09/11/2026 - Settore: Ferroviario - Rilevanza: Locale - Regione: Veneto - Provincia: Verona</title>
+      <description><![CDATA[modalità: 8 ORE: DALLE 9.01 ALLE 17,00<br/>Data fine: 09/11/2026<br/>Settore: Ferroviario<br/>Rilevanza: Locale<br/>Regione: Veneto<br/>Provincia: Verona<br/>Sindacati: OSR ORSA FERROVIE<br/>Categoria interessata: PERSONALE MANUTENZIONE ED INGEGNERIA SOC. RFI DOIT VERONA UNITA' TERRITORIALE SUD<br/>Data proclamazione: 22/10/2026<br/>Data ricezione: 22/10/2026]]></description>
+      <pubDate>Sun, 08 Nov 2026 23:00:00 +0000</pubDate>
+      <link>http://scioperi.mit.gov.it</link>
+      <guid>http://scioperi.mit.gov.it/8615</guid>
       <slash:comments>0</slash:comments>
     </item>
     <item>

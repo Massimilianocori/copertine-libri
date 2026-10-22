@@ -600,6 +600,25 @@
   "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
+ "8615": {
+  "id": "8615",
+  "inizio": "2026-11-09",
+  "fine": "2026-11-09",
+  "settore": "Ferroviario",
+  "rilevanza": "Locale",
+  "regione": "Veneto",
+  "provincia": "Verona",
+  "sindacati": "OSR ORSA FERROVIE",
+  "categoria": "PERSONALE MANUTENZIONE ED INGEGNERIA SOC. RFI DOIT VERONA UNITA' TERRITORIALE SUD",
+  "modalita": "8 ORE: DALLE 9.01 ALLE 17,00",
+  "proclamazione": "2026-10-22",
+  "ricezione": "22/10/2026",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-10-22",
+  "visto_ultimo": "2026-10-22",
+  "modifiche": []
+ },
  "8608": {
   "id": "8608",
   "inizio": "2026-11-10",
