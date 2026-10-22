@@ -318,7 +318,7 @@
   "proclamazione": "2026-10-19",
   "ricezione": "19/10/2026",
   "note": "",
-  "stato": "in programma",
+  "stato": "concluso",
   "visto_prima": "2026-10-19",
   "visto_ultimo": "2026-10-21",
   "modifiche": []
@@ -339,7 +339,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8596": {
@@ -358,7 +358,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8587": {
@@ -377,7 +377,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8583": {
@@ -396,7 +396,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8597": {
@@ -415,7 +415,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8604": {
@@ -454,7 +454,7 @@
   "note": "ESCLUSI SETTORI TRASPORTO AEREO, FERROVIARIO, TRASPORTO PUBBLICO LOCALE, MARITTIMO - ADESIONE OSP CUB FIRENZE",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": [
    {
     "il": "2026-10-19",
@@ -483,7 +483,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": [
    {
     "il": "2026-10-16",
@@ -521,7 +521,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-13",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8606": {
@@ -540,7 +540,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-16",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8611": {
@@ -559,7 +559,7 @@
   "note": "* ESCLUSI SETTORI TRASPORTO AEREO, FERROVIARIO E APPALTI, MARITTIMO, TPL, TAXI, CIRCOLAZIONE E SIC. STRADALE - ADESIONE OS COBAS LAVORO PRIVATO",
   "stato": "in programma",
   "visto_prima": "2026-10-20",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8612": {
@@ -578,7 +578,7 @@
   "note": "* ESCLUSO INTERO SETTORE TRASPORTI",
   "stato": "in programma",
   "visto_prima": "2026-10-21",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8548": {
@@ -597,7 +597,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8608": {
@@ -616,7 +616,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-16",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8598": {
@@ -635,7 +635,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8602": {
@@ -654,7 +654,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-13",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8605": {
@@ -673,7 +673,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-16",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8603": {
@@ -692,7 +692,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-14",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8592": {
@@ -711,7 +711,7 @@
   "note": "*PER TPL SOCC. FER. SUD EST, GTT, SAD, TRENTINO TRASP., FER. UDINE C., SIST. TERRITORIALI, TFT, FERROTRAMVIARIA, FER.ADR. SANGRITANA-TUA, EAV, FER. GARGANO, FER. CALABRIA",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8610": {
@@ -730,7 +730,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-19",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8571": {
@@ -749,7 +749,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8579": {
@@ -768,7 +768,7 @@
   "note": "GARANTITI I VOLI DA E PER L'AEROPORTO DI BARI",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8588": {
@@ -787,7 +787,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8575": {
@@ -806,7 +806,7 @@
   "note": "ADESIONE OO.SS. AL-COBAS E LMO",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": [
    {
     "il": "2026-10-21",
@@ -835,7 +835,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-10",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8607": {
@@ -854,7 +854,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-16",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8586": {
@@ -893,7 +893,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-21",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  },
  "8614": {
@@ -912,7 +912,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-21",
-  "visto_ultimo": "2026-10-21",
+  "visto_ultimo": "2026-10-22",
   "modifiche": []
  }
 }
