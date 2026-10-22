@@ -61,6 +61,10 @@ Inviate 40 email: 5 agenzie "segnale" (Story Co, Informal, Mass FX Media, Social
 
 49 invii: 17 follow-up 1 Holiday Pack (invii del 15/10) + 32 follow-up 2 (invii dell'8/10). Saltata Shanee (Digital Natives): il thread conta un secondo messaggio non visibile. Restano 7 FU2 per il 22/10. 0 rimbalzi, 0 risposte vere. Bozza post LinkedIn pronta.
 
+## 22/10
+
+49 invii: 19 follow-up 1 Holiday Pack (invii del 16/10) + 30 follow-up 2 (invii dell'8-9/10). Saltato The Setters (thread con messaggio non visibile). 0 rimbalzi. Risposte vere: 1, richiesta di cancellazione (Jeremy, Jeremycommerce) → escluso.
+
 ## Crediti
 
 | Data | Higgsfield (piano Ultra) | Apollo lead credit (ciclo 3/10-3/11) |
