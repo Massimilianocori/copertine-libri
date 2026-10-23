@@ -27,6 +27,26 @@ SITO = RADICE / "sito"
 URL_SITO = "https://before-you-fly.netlify.app"  # unico punto da cambiare se il nome del sito su Netlify è diverso
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console (stesso account degli altri siti): non rimuoverlo
 
+ALTRI_SITI = [  # blocco "Other useful tools for your trip" in fondo a ogni pagina (URL dai genera.py dei rispettivi siti)
+    ("https://italy-strikes-today.netlify.app/", "Italy Strikes Today", "Transport strikes in Italy today and tomorrow, from the official register"),
+    ("https://tourist-tax-calculator.netlify.app/", "Tourist Tax Calculator", "City tax per night in 200+ European destinations"),
+    ("https://visa-income-checker.netlify.app/", "Visa Income Checker", "Income requirements and refusal rates for visas"),
+    ("https://cruise-health-scores.netlify.app/", "Cruise Health Scores", "CDC sanitation scores of every cruise ship"),
+]
+ALTRI_SITI_IT = [  # lo stesso blocco nelle pagine italiane (it/documenti/)
+    ("https://italy-strikes-today.netlify.app/it/", "Italy Strikes Today", "Scioperi dei trasporti in Italia oggi e domani, dal registro ufficiale"),
+    ("https://tourist-tax-calculator.netlify.app/", "Tourist Tax Calculator", "Tassa di soggiorno per notte in oltre 200 destinazioni europee"),
+    ("https://visa-income-checker.netlify.app/", "Visa Income Checker", "Requisiti di reddito e tassi di rifiuto dei visti"),
+]
+
+
+def blocco_altri(voci, titolo):
+    """Blocco "Other useful tools for your trip" in fondo a ogni pagina (stesso modello di esameb1/esamidistato): un titolo piccolo e una riga
+    per sito. Link normali (nessun nofollow), rel="noopener", mai a questo sito."""
+    assert not any(u.startswith(URL_SITO) for u, _, _ in voci), "il blocco altri siti non deve linkare questo sito"
+    li = "".join(f'<li><a href="{u}" rel="noopener">{escape(n)}</a> — {escape(d)}</li>' for u, n, d in voci)
+    return f'<div class="f-altri"><h2>{escape(titolo)}</h2><ul>{li}</ul></div>'
+
 # Contatore visite GoatCounter, account condiviso "rete-siti" della rete (nessun cookie, nessun dato personale conservato).
 # Il percorso inviato comprende l'host (location.host + percorso), così nel cruscotto https://rete-siti.goatcounter.com
 # ogni sito si distingue dagli altri. Da localhost, da file:// e dalle reti private count.js non invia nulla
@@ -431,6 +451,11 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 footer h2{font-family:var(--mono);font-weight:400;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sign);margin:4px 0 12px}
 footer h2::before{display:none}
 footer .f-base{border-top:1px solid rgba(255,255,255,.12);margin-top:24px;padding-top:16px;font-size:.82rem;max-width:none}
+footer .f-altri{border-top:1px solid rgba(255,255,255,.12);margin-top:24px;padding-top:18px}
+footer .f-altri h2{margin:0 0 10px}
+footer .f-altri ul{gap:6px}
+footer .f-altri li{max-width:660px}
+footer .f-altri a{font-weight:600}
 @media (max-width:860px){.tiles{grid-template-columns:1fr}.tre{grid-template-columns:1fr}.calc .campi,.calc .campi:has([data-campo=emissione]:not([hidden])){grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:480px){.calc .campi,.calc .campi:has([data-campo=emissione]:not([hidden])){grid-template-columns:1fr}}
 @media (max-width:760px){nav.menu{display:none}.nav-m{display:block}header.top .wrap{min-height:60px}footer .f-grid{grid-template-columns:1fr}.band-in{padding-top:24px;padding-bottom:26px}.checker-b{padding:16px}
@@ -543,6 +568,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <h2>Explore</h2>
 <ul><li><a href="{rel}about/">About and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
 </div></div>
+{blocco_altri(ALTRI_SITI, "Other useful tools for your trip")}
 <p class="f-base">Official sources only, quoted word for word.</p>
 </div></footer>"""
     testo = f"""<!DOCTYPE html>
@@ -1431,6 +1457,7 @@ Per chi ha la cittadinanza italiana riportiamo i fatti delle schede Paese di <a 
 <h2>Esplora</h2>
 <ul><li><a href="{{rel}}{IT_BASE}/">Documenti e visti, tutti i Paesi</a></li><li><a href="{{rel}}{IT_BASE}/#metodo">Fonte e metodo</a></li><li lang="en"><a href="{{rel}}contact/?ref=it">Contact (English)</a></li><li lang="en"><a href="{{rel}}privacy.html">Privacy (English)</a></li></ul>
 </div></div>
+{blocco_altri(ALTRI_SITI_IT, "Altri strumenti utili per il viaggio")}
 <p class="f-base">Solo fonti ufficiali, con data e link.</p>
 </div></footer>"""
 

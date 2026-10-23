@@ -14,6 +14,9 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
 7. Sezione "Visa refusal rates": ogni tabella e ogni cifra principale hanno sotto la fonte ufficiale (URL) e la data;
    le percentuali principali ricalcolate qui da dati/rifiuti.json coincidono con le pagine; avviso, dicitura di affiliazione,
    niente EKTA/Travelpayouts; i link esterni della sezione rispondono (HTTP 200 o 206; si salta con --offline).
+8. Sezione "Easiest Schengen visa" e visti UK di studio e lavoro.
+9. Blocco "Other useful tools for your trip" in ogni pagina indicizzabile: gli stessi link di genera.ALTRI_SITI, nell'ordine,
+   mai a questo sito, tutti rel="noopener" e senza nofollow o sponsored.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -432,6 +435,35 @@ def controlla_facile():
     return errori, len(pagine)
 
 
+def controlla_altri_siti():
+    """9. Blocco "Other useful tools for your trip" in ogni pagina indicizzabile: gli stessi link di genera.ALTRI_SITI,
+    nell'ordine, da 3 a 4, mai a questo sito, tutti con rel="noopener" e senza nofollow o sponsored."""
+    errori = []
+    n = 0
+    for f in sorted(SITO.rglob("*.html")):
+        rel = f.relative_to(SITO).as_posix()
+        if f.name == "404.html" or f.name.startswith("google"):
+            continue
+        n += 1
+        t = f.read_text(encoding="utf-8")
+        blocchi = re.findall(r'<div class="f-altri"><h2>(.*?)</h2><ul>(.*?)</ul></div>', t, re.S)
+        if len(blocchi) != 1:
+            errori.append(f"blocco altri siti mancante o doppio in {rel}")
+            continue
+        titolo, voci = blocchi[0]
+        attesi, titolo_atteso = G.ALTRI_SITI, "Other useful tools for your trip"
+        if titolo != titolo_atteso:
+            errori.append(f"titolo del blocco altri siti sbagliato in {rel}: {titolo}")
+        link = re.findall(r"<a ([^>]*)>", voci)
+        url = [re.search(r'href="([^"]+)"', a).group(1) for a in link]
+        if url != [u for u, _, _ in attesi] or not 3 <= len(url) <= 4:
+            errori.append(f"link del blocco altri siti diversi da genera.py in {rel}: {url}")
+        for a, u in zip(link, url):
+            if u.startswith(G.URL_SITO) or 'rel="noopener"' not in a or "nofollow" in a or "sponsored" in a:
+                errori.append(f"link sbagliato nel blocco altri siti in {rel}: {a}")
+    return errori, n
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -449,7 +481,9 @@ def main():
     print(f"7. Visa refusal rates: {n7} pagine, {x7} link esterni controllati, {len(e7)} errori")
     e8, n8 = controlla_facile()
     print(f"8. Easiest Schengen visa ({n8} pagine) e visti UK di studio e lavoro: {len(e8)} errori")
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8
+    e9, n9 = controlla_altri_siti()
+    print(f"9. Blocco \"Other useful tools for your trip\" ({len(G.ALTRI_SITI)} link) in {n9} pagine indicizzabili: {len(e9)} errori")
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9
     for e in tutti:
         print(" -", e)
     if tutti:

@@ -8,6 +8,8 @@ Uso (dalla radice del repository, dopo python3 touristtax/genera.py):
    e su 2.000 casi casuali (serve node).
 3. Nessun link interno rotto in sito/.
 4. Ogni pagina di destinazione e ogni pagina comunale francese mostra una fonte ufficiale (URL) e la data del controllo.
+5. Blocco "Other useful tools for your trip" in ogni pagina indicizzabile: gli stessi link di genera.ALTRI_SITI, nell'ordine,
+   mai a questo sito, tutti rel="noopener" e senza nofollow o sponsored.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -179,6 +181,35 @@ def controlla_fonti():
     return errori, len(pagine)
 
 
+def controlla_altri_siti():
+    """5. Blocco "Other useful tools for your trip" in ogni pagina indicizzabile: gli stessi link di genera.ALTRI_SITI,
+    nell'ordine, da 3 a 4, mai a questo sito, tutti con rel="noopener" e senza nofollow o sponsored."""
+    errori = []
+    n = 0
+    for f in sorted(SITO.rglob("*.html")):
+        rel = f.relative_to(SITO).as_posix()
+        if f.name == "404.html" or f.name.startswith("google"):
+            continue
+        n += 1
+        t = f.read_text(encoding="utf-8")
+        blocchi = re.findall(r'<div class="f-altri"><h2>(.*?)</h2><ul>(.*?)</ul></div>', t, re.S)
+        if len(blocchi) != 1:
+            errori.append(f"blocco altri siti mancante o doppio in {rel}")
+            continue
+        titolo, voci = blocchi[0]
+        attesi, titolo_atteso = G.ALTRI_SITI, "Other useful tools for your trip"
+        if titolo != titolo_atteso:
+            errori.append(f"titolo del blocco altri siti sbagliato in {rel}: {titolo}")
+        link = re.findall(r"<a ([^>]*)>", voci)
+        url = [re.search(r'href="([^"]+)"', a).group(1) for a in link]
+        if url != [u for u, _, _ in attesi] or not 3 <= len(url) <= 4:
+            errori.append(f"link del blocco altri siti diversi da genera.py in {rel}: {url}")
+        for a, u in zip(link, url):
+            if u.startswith(G.URL_SITO) or 'rel="noopener"' not in a or "nofollow" in a or "sponsored" in a:
+                errori.append(f"link sbagliato nel blocco altri siti in {rel}: {a}")
+    return errori, n
+
+
 def main():
     errori = controlla_esempi()
     print(f"Esempi a mano: {len(ESEMPI)} controllati, {len([e for e in errori if e.startswith('ESEMPIO')])} sbagliati")
@@ -189,7 +220,9 @@ def main():
     print(f"Link interni: {n} controllati, {len(el)} rotti")
     ef, np_ = controlla_fonti()
     print(f"Pagine con fonte e data: {np_ - len(ef)}/{np_}")
-    tutti = errori + ej + el + ef
+    ea, na = controlla_altri_siti()
+    print(f"Blocco \"Other useful tools for your trip\" ({len(G.ALTRI_SITI)} link) in {na} pagine indicizzabili: {len(ea)} errori")
+    tutti = errori + ej + el + ef + ea
     for e in tutti[:40]:
         print("  -", e)
     if tutti:

@@ -28,6 +28,21 @@ SITO = RADICE / "sito"
 URL_SITO = "https://tourist-tax-calculator.netlify.app"  # unico punto da cambiare se il nome del sito su Netlify è diverso
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console, aggiunto il 10/10/2026: non rimuoverlo
 
+ALTRI_SITI = [  # blocco "Other useful tools for your trip" in fondo a ogni pagina (URL dai genera.py dei rispettivi siti)
+    ("https://italy-strikes-today.netlify.app/", "Italy Strikes Today", "Transport strikes in Italy today and tomorrow, from the official register"),
+    ("https://before-you-fly.netlify.app/", "Before You Fly", "Passport validity, airport liquid rules, cabin bag sizes"),
+    ("https://visa-income-checker.netlify.app/", "Visa Income Checker", "Income requirements and refusal rates for visas"),
+    ("https://cruise-health-scores.netlify.app/", "Cruise Health Scores", "CDC sanitation scores of every cruise ship"),
+]
+
+
+def blocco_altri(voci, titolo):
+    """Blocco "Other useful tools for your trip" in fondo a ogni pagina (stesso modello di esameb1/esamidistato): un titolo piccolo e una riga
+    per sito. Link normali (nessun nofollow), rel="noopener", mai a questo sito."""
+    assert not any(u.startswith(URL_SITO) for u, _, _ in voci), "il blocco altri siti non deve linkare questo sito"
+    li = "".join(f'<li><a href="{u}" rel="noopener">{escape(n)}</a> — {escape(d)}</li>' for u, n, d in voci)
+    return f'<div class="f-altri"><h2>{escape(titolo)}</h2><ul>{li}</ul></div>'
+
 # Contatore visite GoatCounter, account condiviso "rete-siti" della rete (nessun cookie, nessun dato personale conservato).
 # Il percorso inviato comprende l'host (location.host + percorso), così nel cruscotto https://rete-siti.goatcounter.com
 # ogni sito si distingue dagli altri. Da localhost, da file:// e dalle reti private count.js non invia nulla
@@ -639,6 +654,11 @@ footer strong{color:var(--foot-ink)}
 footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 footer h2{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--foot-ink-2);margin:4px 0 12px}
 footer .f-base{border-top:1px solid rgba(255,255,255,.12);margin-top:26px;padding-top:18px;font-size:.82rem;max-width:none}
+footer .f-altri{border-top:1px solid rgba(255,255,255,.12);margin-top:24px;padding-top:18px}
+footer .f-altri h2{margin:0 0 10px}
+footer .f-altri ul{gap:6px}
+footer .f-altri li{max-width:660px}
+footer .f-altri a{font-weight:600}
 @media (min-width:861px){.r-bar{display:none!important}}
 @media (max-width:860px){.calc-grid{grid-template-columns:1fr}.calc-out{border-left:0;border-top:1px solid var(--line)}.tipi{grid-template-columns:repeat(2,minmax(0,1fr))}.band-deco{display:none}.summary{grid-template-columns:1fr}}
 @media (max-width:760px){nav.menu{display:none}.nav-m{display:block}header.top .wrap{min-height:60px}
@@ -967,6 +987,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <h2>Explore</h2>
 <ul><li><a href="{rel}about/">About and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}how-tourist-taxes-work/">How tourist taxes work</a></li><li><a href="{rel}tourist-taxes-europe-2026/">Tourist taxes in Europe 2026</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
 </div></div>
+{blocco_altri(ALTRI_SITI, "Other useful tools for your trip")}
 <p class="f-base">Official sources only · the calculator runs in your browser.</p>
 </div></footer>
 <script>{MOTORE_JS}{APP_JS}{extra_js}</script>

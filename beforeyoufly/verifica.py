@@ -51,6 +51,8 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     "100ml rule at"; gli 11 aeroporti nuovi (LCY, LPL, NCL, LBA, BFS, CWL, SOU, EXT, BOH, ORK, JER) nei dati con data 21/10, citazioni e URL https,
     con pagina e riga nell'indice; Birmingham, Glasgow e Belfast City tra gli esclusi con il motivo; nessun incluso tra gli esclusi; Jersey collegata
     agli aeroporti della stessa area; riquadro sui liquidi (citazione GOV.UK, link all'indice) in ogni pagina compagnia, con una sola FAQPage.
+15. Blocco "Other useful tools for your trip" (in italiano nelle pagine it/documenti/) in ogni pagina indicizzabile: gli stessi link di
+    genera.ALTRI_SITI / ALTRI_SITI_IT, nell'ordine, mai a questo sito, tutti rel="noopener" e senza nofollow o sponsored.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -1511,6 +1513,36 @@ def controlla_browser():
     return errori, (o, cartella)
 
 
+def controlla_altri_siti():
+    """15. Blocco "Other useful tools for your trip" in ogni pagina indicizzabile: gli stessi link di genera.ALTRI_SITI (ALTRI_SITI_IT nelle pagine italiane),
+    nell'ordine, da 3 a 4, mai a questo sito, tutti con rel="noopener" e senza nofollow o sponsored."""
+    errori = []
+    n = 0
+    for f in sorted(SITO.rglob("*.html")):
+        rel = f.relative_to(SITO).as_posix()
+        if f.name == "404.html" or f.name.startswith("google"):
+            continue
+        n += 1
+        t = f.read_text(encoding="utf-8")
+        blocchi = re.findall(r'<div class="f-altri"><h2>(.*?)</h2><ul>(.*?)</ul></div>', t, re.S)
+        if len(blocchi) != 1:
+            errori.append(f"blocco altri siti mancante o doppio in {rel}")
+            continue
+        titolo, voci = blocchi[0]
+        it = rel.startswith(G.IT_BASE + "/")
+        attesi, titolo_atteso = (G.ALTRI_SITI_IT, "Altri strumenti utili per il viaggio") if it else (G.ALTRI_SITI, "Other useful tools for your trip")
+        if titolo != titolo_atteso:
+            errori.append(f"titolo del blocco altri siti sbagliato in {rel}: {titolo}")
+        link = re.findall(r"<a ([^>]*)>", voci)
+        url = [re.search(r'href="([^"]+)"', a).group(1) for a in link]
+        if url != [u for u, _, _ in attesi] or not 3 <= len(url) <= 4:
+            errori.append(f"link del blocco altri siti diversi da genera.py in {rel}: {url}")
+        for a, u in zip(link, url):
+            if u.startswith(G.URL_SITO) or 'rel="noopener"' not in a or "nofollow" in a or "sponsored" in a:
+                errori.append(f"link sbagliato nel blocco altri siti in {rel}: {a}")
+    return errori, n
+
+
 def main():
     e1 = controlla_casi()
     print(f"1. Casi del passaporto calcolati a mano: {len(CASI)}, {len(e1)} errori")
@@ -1556,7 +1588,9 @@ def main():
     e14, c14 = controlla_liquidi_2110()
     print(f"14. Liquidi 21/10: {c14['faq_ld']} blocchi FAQPage validi in tutto il sito; titoli e H1 con la regola su {len(G.AER['aeroporti'])} aeroporti; "
           f"{c14['nuovi']} aeroporti nuovi (dati, indice, pagine), esclusi con il motivo; riquadro liquidi in {c14['compagnie']} pagine compagnie: {len(e14)} errori")
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14
+    e15, n15 = controlla_altri_siti()
+    print(f"15. Blocco \"Other useful tools for your trip\" ({len(G.ALTRI_SITI)} link, {len(G.ALTRI_SITI_IT)} nelle pagine italiane) in {n15} pagine indicizzabili: {len(e15)} errori")
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15
     for e in tutti:
         print(" -", e)
     if tutti:

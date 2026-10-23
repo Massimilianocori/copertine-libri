@@ -351,6 +351,7 @@ def costruisci(g):
 <li><a href="{rel}">English version</a></li></ul></nav>
 </div>
 <p class="piede-avviso"><strong>Gli scioperi possono essere revocati o modificati all'ultimo momento: verifica sempre con l'azienda di trasporto prima di partire.</strong> Le informazioni non sono consulenza legale.</p>
+{g.blocco_altri(g.ALTRI_SITI_IT, "Altri strumenti utili per il viaggio")}
 <p class="piede-agg">Registro ufficiale aggiornato al <span data-reg>{breve(d(g.AGGIORNATO))}</span> · controllato <span data-letto>{escape(g.letto_breve(breve))} (ora italiana)</span></p>
 </div></footer>
 {dati_html}

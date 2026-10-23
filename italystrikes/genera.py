@@ -27,6 +27,25 @@ URL_SITO = "https://italy-strikes-today.netlify.app"  # cambiare qui se il nome 
 NOME = "Italy Strikes Today"
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console, proprietà https://italy-strikes-today.netlify.app (non rimuoverla)
 
+ALTRI_SITI = [  # blocco "Other useful tools for your trip" in fondo a ogni pagina (URL dai genera.py dei rispettivi siti)
+    ("https://tourist-tax-calculator.netlify.app/", "Tourist Tax Calculator", "City tax per night in 200+ European destinations"),
+    ("https://before-you-fly.netlify.app/", "Before You Fly", "Passport validity, airport liquid rules, cabin bag sizes"),
+    ("https://visa-income-checker.netlify.app/", "Visa Income Checker", "Income requirements and refusal rates for visas"),
+]
+ALTRI_SITI_IT = [  # lo stesso blocco nelle pagine italiane (/it/, usato da genera_it.py)
+    ("https://tourist-tax-calculator.netlify.app/", "Tourist Tax Calculator", "Tassa di soggiorno per notte in oltre 200 destinazioni europee"),
+    ("https://before-you-fly.netlify.app/it/documenti/", "Before You Fly", "Validità del passaporto, liquidi in aeroporto, misure del bagaglio a mano"),
+    ("https://visa-income-checker.netlify.app/", "Visa Income Checker", "Requisiti di reddito e tassi di rifiuto dei visti"),
+]
+
+
+def blocco_altri(voci, titolo):
+    """Blocco "Other useful tools for your trip" in fondo a ogni pagina (stesso modello di esameb1/esamidistato): un titolo piccolo e una riga
+    per sito. Link normali (nessun nofollow), rel="noopener", mai a questo sito."""
+    assert not any(u.startswith(URL_SITO) for u, _, _ in voci), "il blocco altri siti non deve linkare questo sito"
+    li = "".join(f'<li><a href="{u}" rel="noopener">{escape(n)}</a> — {escape(d)}</li>' for u, n, d in voci)
+    return f'<div class="piede-altri"><h2>{escape(titolo)}</h2><ul>{li}</ul></div>'
+
 # Contatore visite GoatCounter, account condiviso "rete-siti" della rete (nessun cookie, nessun dato personale conservato).
 # Il percorso inviato comprende l'host (location.host + percorso), così nel cruscotto https://rete-siti.goatcounter.com
 # ogni sito si distingue dagli altri. Da localhost, da file:// e dalle reti private count.js non invia nulla
@@ -826,6 +845,11 @@ footer .logo{margin-bottom:12px}
 .piede-avviso{margin:22px 0 0;padding:12px 14px;border:1px solid var(--band-line);border-radius:12px;background:rgba(255,255,255,.04)}
 .piede-avviso strong{color:var(--band-ink)}
 .piede-agg{margin:20px 0 0;padding-top:16px;border-top:1px solid var(--band-line);font-size:.82rem}
+.piede-altri{margin:22px 0 0;padding-top:16px;border-top:1px solid var(--band-line)}
+.piede-altri h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--band-2);margin:0 0 10px;font-weight:700}
+.piede-altri ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.piede-altri li{max-width:70ch}
+.piede-altri a{font-weight:600}
 @media (max-width:760px){
 body{font-size:16.5px}
 .barra{gap:8px;min-height:62px}
@@ -1073,6 +1097,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
 <li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li></ul></nav>
 </div>
 <p class="piede-avviso"><strong>Strikes can be called off or changed at short notice. Always check with your train operator, airline or local transport company before travelling.</strong> Nothing on this site is legal advice.</p>
+{blocco_altri(ALTRI_SITI, "Other useful tools for your trip")}
 <p class="piede-agg">Official register last updated: <span data-reg>{data_breve(d(AGGIORNATO))}</span> · checked <span data-letto>{escape(letto_breve())} (Italy time)</span></p>
 </div></footer>
 {dati_html}
