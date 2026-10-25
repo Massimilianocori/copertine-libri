@@ -115,7 +115,20 @@ def main():
             rss_testo = scarica(URL_RSS)
             html_testo = scarica(URL_HTML)
         except Exception as e:  # noqa: BLE001
-            raise SystemExit(f"ERRORE: registro MIT non raggiungibile ({e}). Nessun dato modificato.")
+            # Fonte giù: si tengono i dati dell'ultima lettura buona e si segna da quando manca.
+            # Il workflow fallisce (ed è una email per Massimiliano) solo se il blocco dura da 3 giorni o più.
+            stato = json.loads(STATO.read_text(encoding="utf-8")) if STATO.exists() else {}
+            dal = stato.get("fonte_non_raggiungibile_dal") or oggi.isoformat()
+            stato["fonte_non_raggiungibile_dal"] = dal
+            stato["ultimo_tentativo_fallito"] = datetime.now(ROMA).strftime("%Y-%m-%d %H:%M")
+            stato["ultimo_errore"] = str(e)[:200]
+            STATO.write_text(json.dumps(stato, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+            giorni = (oggi - date.fromisoformat(dal)).days
+            msg = f"registro MIT non raggiungibile dal {dal} ({giorni} giorni; {e}). Dati dell'ultima lettura buona mantenuti."
+            if giorni >= 3:
+                raise SystemExit("ERRORE: " + msg)
+            print("ATTENZIONE: " + msg)
+            return
     try:
         aggiornato, voci = leggi_rss(rss_testo)
         righe = leggi_html(html_testo) if html_testo else []

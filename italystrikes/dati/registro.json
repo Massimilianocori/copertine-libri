@@ -4,5 +4,8 @@
  "scioperi_nel_registro": 28,
  "impronta": "12fc3ee596065424",
  "fonte_rss": "https://scioperi.mit.gov.it/mit2/public/scioperi/rss",
- "fonte_prospetto": "https://scioperi.mit.gov.it/mit2/public/scioperi"
+ "fonte_prospetto": "https://scioperi.mit.gov.it/mit2/public/scioperi",
+ "fonte_non_raggiungibile_dal": "2026-10-23",
+ "ultimo_tentativo_fallito": "2026-10-25 10:32",
+ "ultimo_errore": "<urlopen error [Errno 104] Connection reset by peer>"
 }

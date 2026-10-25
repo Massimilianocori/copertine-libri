@@ -500,9 +500,23 @@ def recenti():
     return [v for v in VOCI if v["fine"] >= limite]
 
 
+def avviso_fonte_giu(testo=None, formato=None):
+    """Attributi dello span di avviso: pieno e visibile se la fonte non risponde, altrimenti nascosto (lo riempie il JS)."""
+    dal = registro.get("fonte_non_raggiungibile_dal")
+    if not dal:
+        return " hidden"
+    modello = testo or "The official register has not been reachable since DATA: we keep the last good reading and retry twice a day."
+    data = (formato or data_breve)(d(dal))
+    return ">" + escape(modello.replace("DATA", data)) + "</span><span hidden"
+
+
 def scrivi_vista():
     vista = {"registro_aggiornato_al": AGGIORNATO, "letto_il": LETTO, "generato_il": ADESSO.strftime("%Y-%m-%d %H:%M"),
              "fonte": URL_REGISTRO, "scioperi": recenti()}
+    if registro.get("fonte_non_raggiungibile_dal"):
+        # La fonte ufficiale non risponde: le pagine lo scrivono accanto alla data del registro.
+        vista["fonte_non_raggiungibile_dal"] = registro["fonte_non_raggiungibile_dal"]
+        vista["ultimo_tentativo_fallito"] = registro.get("ultimo_tentativo_fallito", "")
     (DATI / "vista.json").write_text(json.dumps(vista, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
 
 
@@ -978,6 +992,7 @@ JS = r"""
       if(L&&L.scioperi&&L.letto_il>D.letto_il){disegna(L.scioperi);
         document.querySelectorAll('[data-letto]').forEach(function(e){e.textContent=quando(L.letto_il)+' (Italy time)';});
         document.querySelectorAll('[data-reg]').forEach(function(e){e.textContent=breve(L.registro_aggiornato_al);});}
+      document.querySelectorAll('[data-fonte-giu]').forEach(function(e){if(L&&L.fonte_non_raggiungibile_dal){e.textContent=e.dataset.fonteGiu.replace('DATA',breve(L.fonte_non_raggiungibile_dal));e.hidden=false;}else{e.hidden=true;}});
     }).catch(function(){});}
   }
   document.querySelectorAll('.filtri').forEach(function(g){var bott=g.querySelectorAll('button');var bersaglio=document.getElementById(g.dataset.per);
@@ -1098,7 +1113,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
 </div>
 <p class="piede-avviso"><strong>Strikes can be called off or changed at short notice. Always check with your train operator, airline or local transport company before travelling.</strong> Nothing on this site is legal advice.</p>
 {blocco_altri(ALTRI_SITI, "Other useful tools for your trip")}
-<p class="piede-agg">Official register last updated: <span data-reg>{data_breve(d(AGGIORNATO))}</span> · checked <span data-letto>{escape(letto_breve())} (Italy time)</span></p>
+<p class="piede-agg">Official register last updated: <span data-reg>{data_breve(d(AGGIORNATO))}</span> · checked <span data-letto>{escape(letto_breve())} (Italy time)</span> <span data-fonte-giu="The official register has not been reachable since DATA: we keep the last good reading and retry twice a day."{avviso_fonte_giu()}></span></p>
 </div></footer>
 {dati_html}
 <script>{JS}</script>

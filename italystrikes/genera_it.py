@@ -352,7 +352,7 @@ def costruisci(g):
 </div>
 <p class="piede-avviso"><strong>Gli scioperi possono essere revocati o modificati all'ultimo momento: verifica sempre con l'azienda di trasporto prima di partire.</strong> Le informazioni non sono consulenza legale.</p>
 {g.blocco_altri(g.ALTRI_SITI_IT, "Altri strumenti utili per il viaggio")}
-<p class="piede-agg">Registro ufficiale aggiornato al <span data-reg>{breve(d(g.AGGIORNATO))}</span> · controllato <span data-letto>{escape(g.letto_breve(breve))} (ora italiana)</span></p>
+<p class="piede-agg">Registro ufficiale aggiornato al <span data-reg>{breve(d(g.AGGIORNATO))}</span> · controllato <span data-letto>{escape(g.letto_breve(breve))} (ora italiana)</span> <span data-fonte-giu="Il registro ufficiale non risponde dal DATA: teniamo l'ultima lettura buona e riproviamo due volte al giorno."{g.avviso_fonte_giu("Il registro ufficiale non risponde dal DATA: teniamo l'ultima lettura buona e riproviamo due volte al giorno.", breve)}></span></p>
 </div></footer>
 {dati_html}
 <script>{JS_IT}</script>
