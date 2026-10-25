@@ -1,6 +1,4 @@
-{"letto_il":"2026-10-24T23:20+02:00","veicoli":[
-{"id":4641213,"tipo":"Veicolo commerciale","marca":"Fiat","anno":2010,"comune":"Ravenna","prov":"Ravenna","base":4500,"minima":4500,"data":"2026-10-24T15:00","disp":null,"tribunale":"Ravenna"},
-{"id":4644284,"tipo":"Automobile","marca":"Fiat","anno":2008,"comune":"Ravenna","prov":"Ravenna","base":1200,"minima":1200,"data":"2026-10-24T15:00","disp":null,"tribunale":"Ravenna"},
+{"letto_il":"2026-10-25T23:20+01:00","veicoli":[
 {"id":4633545,"tipo":"Veicolo commerciale","marca":"Mercedes-Benz","anno":null,"comune":"Meolo","prov":"Venezia","base":1400,"minima":1400,"data":"2026-10-26T09:30","disp":null,"tribunale":"Treviso"},
 {"id":4638184,"tipo":"Automobile","marca":"Ford","anno":null,"comune":"Silea","prov":"Treviso","base":17000,"minima":null,"data":"2026-10-26T12:00","disp":null,"tribunale":"Treviso"},
 {"id":4642984,"tipo":"Moto o ciclomotore","marca":"Ducati","anno":null,"comune":"Silea","prov":"Treviso","base":800,"minima":800,"data":"2026-10-26T12:00","disp":null,"tribunale":"Treviso"},
