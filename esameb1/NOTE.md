@@ -15,7 +15,7 @@
 - Provato in Chromium (desktop e 375 px): nessun errore JS, nessuno scroll orizzontale, filtri, modulo (blocco se vuoto, invio ok, campo `source` da `?ref=`), chiaro/scuro, 661 link interni senza rotture.
 
 ## Mancano / da fare
-- Calendari 2027 di **PLIDA** e **CERT.IT**: non ancora pubblicati dagli enti (controllati il 9/10/2026). La routine li cerca ogni settimana.
+- Calendari 2027: **CERT.IT** pubblicato sulla home dell'ente (letto il 26/10/2026: sessioni A2/B1 l'11/2, il 20/5 e il 6/10/2027, in `sessioni.json` con fonte la home; quando uscirà il PDF 2027 aggiornare `fonte`); **PLIDA** non ancora pubblicato (atteso verso fine novembre, come il calendario 2026 uscito il 27/11/2025). La routine li cerca ogni settimana.
 - Le sessioni passate restano nel JSON (storico) ma non si vedono nel sito.
 - Routine settimanale (attiva, vedi sopra): `python3 esameb1/raccolta/raccogli.py` → se "CALENDARI CAMBIATI", aggiornare `dati/sessioni.json` a mano con fonte → `python3 esameb1/genera.py` → commit e push → nuovo zip per Massimiliano (oppure deploy automatico se Netlify viene collegato a GitHub con base `esameb1/sito`).
 - Email agli iscritti del modulo "avvisami": solo quando c'è una data nuova o una scadenza entro 15 giorni nella loro città. Da costruire quando ci sono iscritti.

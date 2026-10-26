@@ -230,6 +230,18 @@
   "verificato_il": "2026-10-09"
  },
  {
+  "ente": "CERT.IT",
+  "data": "2027-02-11",
+  "esami": [
+   "CERT.IT B1 (sessione A2/B1)"
+  ],
+  "tipo": "generale",
+  "scadenza": null,
+  "nota_scadenza": "Iscrizioni aperte dal 4 gennaio 2027 presso i centri convenzionati, che fissano la scadenza. Data pubblicata nel calendario 2027 sulla home del sito CERT.IT: conferma il giorno esatto con il centro.",
+  "fonte": "https://certificazioneitaliano.uniroma3.it/",
+  "verificato_il": "2026-10-26"
+ },
+ {
   "ente": "CELI",
   "data": "2027-02-17",
   "esami": [
@@ -290,6 +302,18 @@
   "verificato_il": "2026-10-09"
  },
  {
+  "ente": "CERT.IT",
+  "data": "2027-05-20",
+  "esami": [
+   "CERT.IT B1 (sessione A2/B1)"
+  ],
+  "tipo": "generale",
+  "scadenza": null,
+  "nota_scadenza": "Iscrizioni aperte dal 23 marzo 2027 presso i centri convenzionati, che fissano la scadenza. Data pubblicata nel calendario 2027 sulla home del sito CERT.IT: conferma il giorno esatto con il centro.",
+  "fonte": "https://certificazioneitaliano.uniroma3.it/",
+  "verificato_il": "2026-10-26"
+ },
+ {
   "ente": "CILS",
   "data": "2027-06-10",
   "esami": [
@@ -337,6 +361,18 @@
   "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
   "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
   "verificato_il": "2026-10-09"
+ },
+ {
+  "ente": "CERT.IT",
+  "data": "2027-10-06",
+  "esami": [
+   "CERT.IT B1 (sessione A2/B1)"
+  ],
+  "tipo": "generale",
+  "scadenza": null,
+  "nota_scadenza": "Iscrizioni aperte dal 26 agosto 2027 presso i centri convenzionati, che fissano la scadenza. Data pubblicata nel calendario 2027 sulla home del sito CERT.IT: conferma il giorno esatto con il centro.",
+  "fonte": "https://certificazioneitaliano.uniroma3.it/",
+  "verificato_il": "2026-10-26"
  },
  {
   "ente": "CILS",

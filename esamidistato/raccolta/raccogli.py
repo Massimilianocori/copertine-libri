@@ -274,7 +274,9 @@ def controlla_pagine():
             testo = testo[i:i + 3000] if i >= 0 else testo
             if "2027" in testo[:400]:
                 print("ATTENZIONE: sulla pagina MUR compare il 2027: ordinanze nuove?")
-        impronta = hashlib.sha256(testo.encode()).hexdigest()[:16]
+        # I contatori "N download" accanto agli allegati (USR Veneto) cambiano a ogni scaricamento: fuori dall'impronta.
+        testo_stabile = re.sub(r"\b\d+\s+download\b", "download", testo)
+        impronta = hashlib.sha256(testo_stabile.encode()).hexdigest()[:16]
         nuove[nome] = {"url": url, "impronta": impronta, "controllato_il": OGGI}
         if nome in vecchie and vecchie[nome].get("impronta") != impronta:
             cambiate.append(nome)
