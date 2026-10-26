@@ -17,6 +17,10 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
 8. Sezione "Easiest Schengen visa" e visti UK di studio e lavoro.
 9. Blocco "Other useful tools for your trip" in ogni pagina indicizzabile: gli stessi link di genera.ALTRI_SITI, nell'ordine,
    mai a questo sito, tutti rel="noopener" e senza nofollow o sponsored.
+10. File chiave IndexNow.
+11. Australia, Nuova Zelanda e Canada (26/10/2026): pagine di riepilogo in sitemap con licenza, fonte, avviso e JSON-LD Dataset;
+    righe della tabella australiana = nazionalità con almeno 500 decisioni; cifre di India, Pakistan, Nigeria e Filippine ricalcolate
+    da dati/rifiuti_altri.json; le pagine Schengen di Australia e Canada rimandano alle pagine delle destinazioni.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -24,6 +28,7 @@ import random
 import re
 import subprocess
 import sys
+import time
 import tempfile
 from html.parser import HTMLParser
 from pathlib import Path
@@ -273,7 +278,10 @@ def controlla_parole():
 
 # ---------------------------------------------------------------- 7. Visa refusal rates
 RE_DATA = re.compile(r"\b\d{1,2} (January|February|March|April|May|June|July|August|September|October|November|December) 20\d\d\b")
-URL_UFFICIALI = ("https://home-affairs.ec.europa.eu/", "https://assets.publishing.service.gov.uk/", "https://www.gov.uk/")
+URL_UFFICIALI = ("https://home-affairs.ec.europa.eu/", "https://assets.publishing.service.gov.uk/", "https://www.gov.uk/",
+                 # Australia, Nuova Zelanda, Canada (26/10/2026)
+                 "https://data.gov.au/", "https://www.homeaffairs.gov.au/", "https://www.immigration.govt.nz/", "https://www.ircc.canada.ca/",
+                 "https://open.canada.ca/")
 
 
 def pagine_rifiuti():
@@ -350,12 +358,16 @@ def controlla_rifiuti(online=True):
         import urllib.request
         for u in sorted(esterni):
             u2 = u.replace("&amp;", "&")
-            try:
-                req = urllib.request.Request(u2, headers={"User-Agent": "Mozilla/5.0", "Range": "bytes=0-2047"})
-                with urllib.request.urlopen(req, timeout=60) as r:
-                    st = r.status
-            except Exception as e:  # noqa: BLE001
-                st = getattr(e, "code", str(e))
+            for _tentativo in range(4):  # ircc.canada.ca e immigration.govt.nz a volte chiudono la connessione: si riprova
+                try:
+                    req = urllib.request.Request(u2, headers={"User-Agent": "Mozilla/5.0", "Range": "bytes=0-2047"})
+                    with urllib.request.urlopen(req, timeout=60) as r:
+                        st = r.status
+                except Exception as e:  # noqa: BLE001
+                    st = getattr(e, "code", str(e))
+                if isinstance(st, int):
+                    break
+                time.sleep(3)
             controllati += 1
             if st not in (200, 206):
                 errori.append(f"Rifiuti: link esterno {u2} risponde {st}")
@@ -477,6 +489,94 @@ def controlla_indexnow():
     return errori
 
 
+
+# ---------------------------------------------------------------- 11. Australia, Nuova Zelanda, Canada (26/10/2026)
+PAGINE_ALTRI = {"australia-visas": ("CC BY 2.5 AU", "data.gov.au"), "new-zealand-visas": ("CC BY 3.0 NZ", "immigration.govt.nz"),
+                "canada-visas": ("Open Government Licence – Canada", "ircc.canada.ca")}
+
+
+def controlla_altri():
+    """Pagine di riepilogo e sezioni nelle pagine per Paese: fonte, licenza, soglia e cifre ricalcolate qui da dati/rifiuti_altri.json
+    (con un codice separato da genera.py)."""
+    errori = []
+    R = json.loads((SITO.parent / "dati" / "rifiuti_altri.json").read_text(encoding="utf-8"))
+    mappa = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    soglia = 500
+    for slug, (lic, dominio) in PAGINE_ALTRI.items():
+        f = SITO / "visa-refusal-rates" / slug / "index.html"
+        if not f.exists():
+            errori.append(f"Altri: manca la pagina {slug}")
+            continue
+        t = f.read_text(encoding="utf-8")
+        if f"/visa-refusal-rates/{slug}/</loc>" not in mappa:
+            errori.append(f"Altri: {slug} non in sitemap")
+        if lic not in t or dominio not in t or "Statistics, not advice." not in t:
+            errori.append(f"Altri: {slug} senza licenza, fonte o avviso")
+        ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S)]
+        if not any(x.get("@type") == "Dataset" and x.get("license", "").startswith("https://") for x in ld) or not any(x.get("@type") == "BreadcrumbList" for x in ld):
+            errori.append(f"Altri: {slug} senza JSON-LD Dataset con licenza o breadcrumb")
+    # Australia: tasso dei richiedenti principali fuori dall'Australia, ultimo anno fiscale completo
+    au = R["au"]
+    pieni = [a for a in au["anni"] if re.fullmatch(r"\d{4}-\d{2}", a)]
+    a1 = pieni[-1]
+    def au_po(n, a):
+        c = au["naz"].get(n, {}).get("y", {}).get(a)
+        return c[0] if c else [0, 0]
+    escl = {"Not Specified", "Stateless Person", "UN Convention Refugee", "Refugee", "UNMIK Travel Document", "United Nations Organisation",
+            "Yugoslavia, Fed Republic of", "Serbia and Montenegro"}
+    attese = {n for n in au["naz"] if n not in escl and sum(au_po(n, a1)) >= soglia}
+    t = (SITO / "visa-refusal-rates" / "australia-visas" / "index.html").read_text(encoding="utf-8")
+    tab = re.search(r'<table class="ord[^"]*" id="t-au">.*?<tbody>(.*?)</tbody>', t, re.S)
+    righe = re.findall(r"<tr>(.*?)</tr>", tab.group(1), re.S) if tab else []
+    if len(righe) != len(attese):
+        errori.append(f"Altri: tabella australiana con {len(righe)} righe, attese {len(attese)} (soglia {soglia})")
+    for r in righe:
+        dec = re.findall(r'<td class="n" data-v="(\d+)">', r)
+        if dec and int(dec[0]) < soglia:
+            errori.append(f"Altri: riga australiana sotto la soglia: {re.sub('<[^>]+>', '', r)[:60]}")
+    tot = [sum(au_po(n, a1)[0] for n in au["naz"]), sum(au_po(n, a1)[1] for n in au["naz"])]
+    if f"<strong>{tot[1] / sum(tot) * 100:.1f}%</strong> refused ({tot[1]:,} of {sum(tot):,} decisions)" not in t:
+        errori.append("Altri: cifra principale australiana diversa dal ricalcolo")
+    # Nuova Zelanda: ultimo anno completo = penultimo se l'ultimo è in corso
+    nz = R["nz"]
+    anni_nz = nz["info"]["visitor"]["anni"]
+    nz1 = anni_nz[-2] if not nz["info"]["visitor"]["periodo"][1].startswith("30 June") else anni_nz[-1]
+    # Canada: ultimo anno con 12 mesi
+    ca = R["ca"]
+    mesi = ca["tr_processed"]["mesi"]
+    ca1 = max(a for a in {m[:4] for m in mesi} if sum(1 for m in mesi if m.startswith(a)) == 12)
+    def ca_sum(k, n):
+        t = ca[k].get("totali", {}).get(n, {}).get(ca1)
+        return t if t is not None else sum(x for m, x in ca[k]["paesi"].get(n, {}).items() if m.startswith(ca1) and x is not None)
+    for slug, n_au, n_nz, n_ca in (("india", "India", "India", "India"), ("pakistan", "Pakistan", "Pakistan", "Pakistan"),
+                                   ("nigeria", "Nigeria", "Nigeria", "Nigeria"), ("philippines", "Philippines", "Philippines", "Philippines")):
+        t = (SITO / "visa-refusal-rates" / slug / "index.html").read_text(encoding="utf-8")
+        v = au_po(n_au, a1)
+        if sum(v) >= soglia:
+            if (f"refused <strong>{v[1] / sum(v) * 100:.1f}%</strong> of student visa decisions for primary applicants" not in t
+                    or f"({v[1]:,} refused out of {sum(v):,})" not in t or 'id="australia"' not in t):
+                errori.append(f"Altri: cifra australiana di {slug} diversa dal ricalcolo")
+            if "and Australia</title>" not in t:
+                errori.append(f"Altri: titolo di {slug} senza Australia")
+        elif "of student visa decisions for primary applicants" in t:
+            errori.append(f"Altri: {slug} mostra un tasso australiano sotto la soglia")
+        vz = nz["tipi"]["visitor"].get(n_nz, {}).get(nz1, [0, 0])
+        if sum(vz) >= soglia and (f"declined <strong>{vz[1] / sum(vz) * 100:.1f}%</strong> of visitor visa applications" not in t or 'id="new-zealand"' not in t):
+            errori.append(f"Altri: cifra neozelandese di {slug} diversa dal ricalcolo")
+        ap, es = ca_sum("tr_approved", n_ca), ca_sum("tr_processed", n_ca)
+        if es >= soglia and (f"approved <strong>{ap / es * 100:.1f}%</strong> of the temporary resident applications" not in t
+                             or f"({ap:,} approved out of {es:,} people)" not in t or "cannot be calculated" not in t):
+            errori.append(f"Altri: cifra canadese di {slug} diversa dal ricalcolo")
+        for lic in ("CC BY 2.5 AU", "CC BY 3.0 NZ", "Open Government Licence – Canada"):
+            if lic not in t:
+                errori.append(f"Altri: {slug} senza la licenza {lic}")
+    # le pagine Schengen "domande fatte in Australia / in Canada" rimandano alle pagine delle destinazioni, e non hanno la sezione su sé stesse
+    for slug, dest, ancora in (("australia", "australia-visas", 'id="australia"'), ("canada", "canada-visas", 'id="canada"')):
+        t = (SITO / "visa-refusal-rates" / slug / "index.html").read_text(encoding="utf-8")
+        if f'href="../{dest}/"' not in t or ancora in t:
+            errori.append(f"Altri: pagina {slug}: manca il rimando a {dest} o c'è la sezione su sé stessa")
+    return errori
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -498,7 +598,9 @@ def main():
     print(f"9. Blocco \"Other useful tools for your trip\" ({len(G.ALTRI_SITI)} link) in {n9} pagine indicizzabili: {len(e9)} errori")
     e10 = controlla_indexnow()
     print(f"10. File chiave IndexNow {G.CHIAVE_INDEXNOW}.txt in sito/ (contenuto giusto, fuori dalla sitemap): {len(e10)} errori")
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10
+    e11 = controlla_altri()
+    print(f"11. Australia, Nuova Zelanda, Canada (3 pagine di riepilogo, sezioni per Paese, soglia e cifre ricalcolate): {len(e11)} errori")
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11
     for e in tutti:
         print(" -", e)
     if tutti:

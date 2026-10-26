@@ -235,6 +235,7 @@ tr.tot-r td{font-weight:700;border-top:2px solid var(--line-2)}
 .kpi span{display:block;font-size:.8rem;color:var(--ink-3);font-weight:600;margin-top:2px;line-height:1.35}
 .kpi-uk{grid-template-columns:repeat(auto-fit,minmax(150px,max-content));margin:8px 0 0}
 #t-uk th{white-space:normal}#t-uk td,#t-uk th{padding:9px 8px}#t-uk .tb{display:none}
+table.larga th{white-space:normal}table.larga td,table.larga th{padding:9px 8px}table.larga td:not(:nth-child(2)) .tb{display:none}
 .cifra-2{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line-2)}
 .cifra-2 strong{font-size:clamp(1.25rem,3.2vw,1.6rem)}
 .due{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
@@ -275,6 +276,9 @@ a.btn:hover{color:var(--on-accent)}
 ul.testo{padding-left:20px}
 @media (max-width:760px){.kpi{grid-template-columns:repeat(2,minmax(0,1fr))}.due{grid-template-columns:1fr}}
 @media (max-width:480px){.tb{display:none}.trim{gap:4px;padding:14px 8px 10px}.trim .tq-v{font-size:.68rem}}
+.trim.m12{grid-template-columns:repeat(12,minmax(0,1fr));gap:6px}
+@media (max-width:760px){.trim.m12{grid-template-columns:repeat(6,minmax(0,1fr));row-gap:16px}.trim.m12 .tq-c{height:84px}}
+.kpi-uk a{color:inherit}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://visa-income-checker.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Visa refusal rates", "item": "https://visa-income-checker.netlify.app/visa-refusal-rates/"}, {"@type": "ListItem", "position": 3, "name": "Czech Republic visa rejection rate", "item": "https://visa-income-checker.netlify.app/visa-refusal-rates/schengen/czech-republic/"}]}</script>
 </head>

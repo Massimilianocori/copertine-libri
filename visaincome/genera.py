@@ -579,6 +579,7 @@ tr.tot-r td{font-weight:700;border-top:2px solid var(--line-2)}
 .kpi span{display:block;font-size:.8rem;color:var(--ink-3);font-weight:600;margin-top:2px;line-height:1.35}
 .kpi-uk{grid-template-columns:repeat(auto-fit,minmax(150px,max-content));margin:8px 0 0}
 #t-uk th{white-space:normal}#t-uk td,#t-uk th{padding:9px 8px}#t-uk .tb{display:none}
+table.larga th{white-space:normal}table.larga td,table.larga th{padding:9px 8px}table.larga td:not(:nth-child(2)) .tb{display:none}
 .cifra-2{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line-2)}
 .cifra-2 strong{font-size:clamp(1.25rem,3.2vw,1.6rem)}
 .due{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
@@ -619,6 +620,9 @@ a.btn:hover{color:var(--on-accent)}
 ul.testo{padding-left:20px}
 @media (max-width:760px){.kpi{grid-template-columns:repeat(2,minmax(0,1fr))}.due{grid-template-columns:1fr}}
 @media (max-width:480px){.tb{display:none}.trim{gap:4px;padding:14px 8px 10px}.trim .tq-v{font-size:.68rem}}
+.trim.m12{grid-template-columns:repeat(12,minmax(0,1fr));gap:6px}
+@media (max-width:760px){.trim.m12{grid-template-columns:repeat(6,minmax(0,1fr));row-gap:16px}.trim.m12 .tq-c{height:84px}}
+.kpi-uk a{color:inherit}
 """
 
 ICONE = {
@@ -1836,6 +1840,10 @@ def pagina_rif_paese(p):
     tab_c, n_c = tabella_consolati(p)
     uk_html, uk_r = sezione_uk(p, nome)
     con_uk = bool(uk_r)
+    au_html, au_r = sezione_au(p, nome)
+    nz_html, nz_r = sezione_nz(p, nome)
+    ca_html, ca_r = sezione_ca(p, nome)
+    dest = [x for x, r in (("Australia", au_r), ("New Zealand", nz_r), ("Canada", ca_r)) if r]
     rank_paesi = sorted(PAESI_RIF, key=lambda x: tasso(PER_PAESE[A1][x]))
     pos = rank_paesi.index(p) + 1
     facile = p in PAESI_FACILE
@@ -1873,13 +1881,21 @@ def pagina_rif_paese(p):
     vicini = [x for x in rank_paesi if x != p]
     altri = sorted(vicini, key=lambda x: abs(PER_PAESE[A1][x][0] - v1[0]))[:8]
     griglia_altri = "".join(f'<a href="../{SLUG_RIF[x]}/"><span class="ic">{ico("globe")}</span><span>{escape(nome_paese(x))}<small>{pct(tasso(PER_PAESE[A1][x]))} not issued in {A1}</small></span></a>' for x in altri)
-    titolo_h1 = f"Visa refusal rates for {art(nome)}: Schengen countries ({A1}), easiest and hardest" + (", and the UK" if con_uk else "")
+    altre = (["the UK"] if con_uk else []) + dest
+    titolo_h1 = (f"Visa refusal rates for {art(nome)}: Schengen countries ({A1}), easiest and hardest"
+                 + ((", and " + altre[0]) if len(altre) == 1 else (", " + ", ".join(altre[:-1]) + " and " + altre[-1]) if altre else ""))
+    nota_dest = ""
+    if p in ("AUSTRALIA", "CANADA"):
+        dd = "australia-visas" if p == "AUSTRALIA" else "canada-visas"
+        nota_dest = (f'<p class="avviso"><strong>Applying for a visa to {escape(nome)}?</strong> This page is about Schengen visas applied for <em>in</em> {escape(nome)}. '
+                     f'For {escape(nome)}\'s own visas see <a href="../{dd}/">{escape(nome)} visa refusal and approval rates by nationality</a>.</p>')
     tipi_uk = ""
     if con_uk:
         nomi_g = [NOMI_BREVI_UK[g] for g in uk_r]
         tipi_uk = nomi_g[0] if len(nomi_g) == 1 else ", ".join(nomi_g[:-1]) + " and " + nomi_g[-1]
     corpo = f"""<section class="hero">{h1_diviso(titolo_h1)}
-<p class="lead">How many Schengen visa applications made in {escape(art(nome))} were not issued in {A1}, country by country and consulate by consulate, with the easiest and hardest countries for {escape(demonimo(p))}{', and how many UK ' + tipi_uk + ' visa applications by nationals of ' + escape(art(nome)) + ' were refused' if con_uk else ''}. Official figures only.</p></section>
+<p class="lead">How many Schengen visa applications made in {escape(art(nome))} were not issued in {A1}, country by country and consulate by consulate, with the easiest and hardest countries for {escape(demonimo(p))}{', and how many UK ' + tipi_uk + ' visa applications by nationals of ' + escape(art(nome)) + ' were refused' if con_uk else ''}{(', with the latest figures for ' + ', '.join(dest[:-1]) + (' and ' if len(dest) > 1 else '') + dest[-1]) if dest else ''}. Official figures only.</p></section>
+{nota_dest}
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{ico("passport")}<span>Visa refusal rates</span><span>{escape(nome)}</span></div>
 <div class="s-body">
@@ -1888,6 +1904,7 @@ def pagina_rif_paese(p):
 <p class="lead" style="margin-top:6px">{frase_basso} Of the {len(PAESI_RIF)} countries with the most applications, {escape(art(nome))} ranks {pos} (1 = lowest rate).</p>
 {fonte_ue_p(A1, A0)}
 {uk_kpi}
+{kpi_altri(au_r, nz_r, ca_r)}
 </div></section>
 {AVVISO_RIF}
 {AD}
@@ -1901,21 +1918,34 @@ def pagina_rif_paese(p):
 {tab_c}
 {fonte_ue_p(A1)}
 {uk_html}
+{au_html}
+{nz_html}
+{ca_html}
 {box_assicurazione(rel)}
 <h2>How to read these figures</h2>
 <ul class="testo">
 <li><strong>Where you apply, not your passport.</strong> The Schengen figures count applications made in {escape(art(nome))}, including residents of other nationalities, and leave out nationals of {escape(art(nome))} who applied elsewhere.</li>
 <li><strong>Not-issued rate</strong> = visas not issued ÷ (uniform visas issued + visas with limited territorial validity + visas not issued), the formula in the Commission's file. Applications still pending at the end of the year are not counted.</li>
 <li><strong>If you are refused</strong>, the consulate must tell you why and how to appeal (<a href="{URL_COMMISSIONE_DOMANDA}" rel="noopener">European Commission</a>).</li>
+<li><strong>Australia, New Zealand and Canada</strong> count applicants by citizenship (Canada: "source country"), like the UK, and each authority defines its rate differently: see the notes under each table.</li>
 <li>Full method: <a href="../#method">how we calculate the rates</a>.</li></ul>
 <h2>Other countries where people apply</h2>
 <div class="griglia">{griglia_altri}</div>
-<p><a href="../">Schengen visa refusal rates by country, {A1}</a> · <a href="../uk/">UK visa refusal rates by nationality</a> · <a href="{rel}">Visa income calculator</a></p>"""
-    titolo = f"Schengen visa rejection rate {nome} {A1}: by country, easiest and hardest" + (", plus UK" if con_uk else "")
+<p><a href="../">Schengen visa refusal rates by country, {A1}</a> · <a href="../uk/">UK visa refusal rates by nationality</a> · <a href="../australia-visas/">Australia</a> · <a href="../new-zealand-visas/">New Zealand</a> · <a href="../canada-visas/">Canada</a> · <a href="{rel}">Visa income calculator</a></p>"""
+    plus = (["UK"] if con_uk else []) + (["Australia"] if au_r else [])
+    coda = (", plus " + " and ".join(plus)) if plus else ""
+    # titolo entro 75 caratteri dove possibile (revisione 26/10/2026): si tolgono prima "by country", poi "easiest and hardest", mai UK/Australia
+    varianti = [f"Schengen visa rejection rate {nome} {A1}: by country, easiest and hardest{coda}",
+                f"Schengen visa rejection rate {nome} {A1}: easiest and hardest{coda}",
+                f"Schengen visa rejection rate {nome} {A1} by country{coda}",
+                f"Schengen visa rejection rate {nome} {A1}{coda}"]
+    titolo = next((v for v in varianti if len(v) <= 75), varianti[-1])
     descr = (f"Official {A1} figures: {pct(t1)} of Schengen visa applications made in {art(nome)} were not issued."
              + (f" Easiest Schengen visa for {demonimo(p)}: {basso[0][0]} ({pct(tasso(basso[0][1]))}); hardest: {alto[0][0]} ({pct(tasso(alto[0][1]))})." if basso and alto else "")
              + " Every Schengen country and consulate"
-             + (f", and the UK refusal rate for nationals of {art(nome)} ({', '.join(f'{NOMI_BREVI_UK[g]} {pct(uk_r[g][0])}' for g in uk_r)})" if con_uk else "") + ".")
+             + (f", and the UK refusal rate for nationals of {art(nome)} ({', '.join(f'{NOMI_BREVI_UK[g]} {pct(uk_r[g][0])}' for g in uk_r)})" if con_uk else "") + "."
+             + (f" Australia student visas: {pct(au_r[0])} refused ({AU_A1})." if au_r else "")
+             + (" New Zealand and Canada figures too." if nz_r and ca_r else " New Zealand figures too." if nz_r else " Canada figures too." if ca_r else ""))
     pagina(f"{SEZ}{slug}/", titolo, descr, corpo, ordina=True,
            briciole=[("Visa refusal rates", SEZ), (nome, f"{SEZ}{slug}/")])
 
@@ -2151,6 +2181,8 @@ def pagina_rif_uk():
 <ul class="testo"><li>The Home Office counts applicants by <strong>nationality</strong>, wherever they applied. An outcome in a quarter can relate to an application made in an earlier quarter.</li>
 <li>The refusal rate is the share of decisions (grants and refusals) that were refusals: withdrawn and lapsed applications are left out, as in the Home Office "grant rate".</li>
 <li>Figures from 2026 Q1 onwards are provisional and can be revised in the next release ({escape(F_UK["prossimo"])}).</li></ul>
+<h2>Other destinations</h2>
+{schede_destinazioni("../")}
 <p><a href="../">Schengen visa refusal rates</a> · <a href="{rel}uk-skilled-worker-visa/">UK Skilled Worker salary threshold</a> · <a href="{rel}uk-spouse-visa/">UK spouse visa income requirement</a></p>"""
     pagina(f"{SEZ}uk/", f"UK visa refusal rate by nationality {TRIM[-1].split()[0]}: visitor, study and work visas (official)",
            f"UK visa refusal rates by nationality from {periodo_uk(T1)}: visitor visas {pct(uk_tasso(vis))} refused overall; India, Nigeria, Pakistan, Bangladesh, Ghana and more. Home Office data.",
@@ -2182,7 +2214,7 @@ def pagina_rif_panoramica():
     basso = sorted(STATI_UE, key=lambda x: tasso(PER_STATO[A1][x]))
     testata = f"""<div class="band"><div class="wrap band-in">{DECO_STAT}
 <section class="hero">{h1_diviso(f"Visa refusal rates {A1}: Schengen visa rejection rate by country, and UK refusal rates")}
-<p class="sub">Official figures from the European Commission and the UK Home Office: how many visa applications were not issued, by destination, by the country where people applied and by nationality.</p>
+<p class="sub">Official figures from the European Commission and the UK Home Office: how many visa applications were not issued, by destination, by the country where people applied and by nationality. Also: <a href="australia-visas/">Australia</a>, <a href="new-zealand-visas/">New Zealand</a> and <a href="canada-visas/">Canada</a> by nationality.</p>
 <p class="trust"><span>{ico("shield")}Official files · downloaded {data_lunga(F_UE[A1]["scaricato_il"])}</span><span>{ico("calendar")}Schengen {A1} · UK to {trimestre_testo(TRIM[-1])}</span></p></section>
 <section class="card cerca"><form class="vai" action="#" onsubmit="return false"><label for="vai-paese"><span class="lt">{ico("globe")}Where do you apply from?</span></label>
 <div class="vai-r"><select id="vai-paese" data-vai><option value="">Choose a country…</option>{opzioni}</select></div></form>
@@ -2215,6 +2247,9 @@ def pagina_rif_panoramica():
 <p class="lead">The 12 nationalities with the most UK visitor visa decisions from {periodo_uk(T1)}. <a href="uk/">All nationalities, with student and work visa refusal rates</a>.</p>
 <div class="tab compatta"><table><thead><tr><th scope="col">Nationality</th><th class="n" scope="col">Refusal rate</th><th class="n" scope="col">Decisions</th><th class="n" scope="col">Refused</th></tr></thead><tbody>{"".join(uk_top)}</tbody></table></div>
 {fonte_uk_p()}
+<h2 id="destinations">Australia, New Zealand and Canada</h2>
+<p class="lead">Refusal and approval rates by nationality from the immigration authorities of Australia (student and visitor visas), New Zealand (visitor, student and work visas) and Canada (temporary residents). Each country defines its rate differently: the notes on each page say how.</p>
+{schede_destinazioni("")}
 {box_assicurazione(rel)}
 <h2 id="method">What these numbers mean</h2>
 <div class="testo">
@@ -2226,6 +2261,11 @@ def pagina_rif_panoramica():
 <h3>United Kingdom (Home Office)</h3>
 <ul><li><strong>Source:</strong> the Home Office's quarterly entry clearance visa datasets, by <strong>nationality</strong>. We use the latest four quarters ({periodo_uk(T1)}) and the four before.</li>
 <li><strong>Refusal rate</strong> = refused ÷ (granted + refused); withdrawn and lapsed applications are left out, as in the Home Office grant rate.</li></ul>
+<h3>Australia, New Zealand and Canada</h3>
+<ul><li><strong>Australia:</strong> Department of Home Affairs monthly student visa file (BP0015, refused ÷ granted + refused, by citizenship, financial years July–June) and six-monthly visitor visa report (grant rates for the largest groups).</li>
+<li><strong>New Zealand:</strong> Immigration New Zealand monthly PDFs of visitor, student and work visa applications approved and declined by nationality; INZ's "declined" includes withdrawn applications.</li>
+<li><strong>Canada:</strong> IRCC monthly files of temporary resident applications processed and approved by source country (visitor visas, study and work permits together). IRCC does not publish both numbers for study permits or visitor visas alone, so we show no refusal rate for them.</li>
+<li>We show a rate only where there were at least {intero(SOGLIA_ALTRI)} decisions in the latest full year.</li></ul>
 <h3>United States</h3>
 <p>The US Department of State publishes a yearly B visa refusal rate by nationality, but its website could not be reached by our checks on {data_lunga(F_UE[A1]["scaricato_il"])}. We publish only figures we can download from the official source and check, so there are no US figures here.</p>
 <h3>Checks</h3>
@@ -2239,7 +2279,10 @@ def pagina_rif_panoramica():
 <li><a href="{escape(F_UE[A0]["url"])}" rel="noopener">Visa statistics for consulates {A0}</a> – European Commission, XLSX, downloaded on {data_lunga(F_UE[A0]["scaricato_il"])}</li>
 <li><a href="{escape(F_UE[A1]["pagina"])}" rel="noopener">Short-stay visas issued by Schengen countries (all years and metadata)</a> – European Commission, page updated on {data_lunga(F_UE[A1]["pagina_aggiornata"])}</li>
 <li><a href="{escape(F_UK["url"])}" rel="noopener">{escape(F_UK["titolo"])}</a> – Home Office, XLSX, published {escape(F_UK["pubblicato"])}, downloaded on {data_lunga(F_UK["scaricato_il"])}. Contains public sector information licensed under the Open Government Licence v3.0.</li>
-<li><a href="{URL_COMMISSIONE_DOMANDA}" rel="noopener">Applying for a Schengen visa</a> – European Commission, checked on {data_lunga(DATA_COMMISSIONE_DOMANDA)}</li></ul>
+<li><a href="{URL_COMMISSIONE_DOMANDA}" rel="noopener">Applying for a Schengen visa</a> – European Commission, checked on {data_lunga(DATA_COMMISSIONE_DOMANDA)}</li>
+<li><a href="{escape(F_AUS["url"])}" rel="noopener">{escape(F_AUS["titolo"])}</a> – Australian Government Department of Home Affairs, data.gov.au, downloaded on {data_lunga(F_AUS["scaricato_il"])}, {lic_link(F_AUS)}</li>
+<li><a href="{escape(F2["nz_visitor"]["pagina"])}" rel="noopener">Immigration statistics</a> – Immigration New Zealand, PDFs downloaded on {data_lunga(F2["nz_visitor"]["scaricato_il"])}, Crown copyright, {lic_link(F2["nz_visitor"])}</li>
+<li><a href="{escape(F2["ca_tr_processed"]["pagina"])}" rel="noopener">Operational Processing – Monthly IRCC Updates</a> – IRCC, downloaded on {data_lunga(F2["ca_tr_processed"]["scaricato_il"])}. Contains information licensed under the {lic_link(F2["ca_tr_processed"])}.</li></ul>
 <p><a href="{rel}">Visa income calculator</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements</a></p>"""
     ld = {"@context": "https://schema.org", "@type": "Dataset", "name": f"Schengen and UK visa refusal rates {A1}",
           "description": "Visa refusal (not-issued) rates by Schengen country, by country of application and by consulate, and UK refusal rates by nationality, recalculated from official files.",
@@ -2249,6 +2292,792 @@ def pagina_rif_panoramica():
     pagina(SEZ, f"Schengen visa rejection rate by country {A1} (official) and UK visa refusal rates",
            f"Official {A1} Schengen visa rejection rates: {pct(t1)} of decisions were visas not issued. Every Schengen country, {len(PAESI_RIF)} countries where people apply, and UK refusal rates by nationality.",
            corpo, ordina=True, testata=testata, jsonld_extra=ld, briciole=[("Visa refusal rates", SEZ)])
+
+
+# ---------------------------------------------------------------- Australia, Nuova Zelanda, Canada (26/10/2026)
+# Dati: dati/rifiuti_altri.json, scritto da raccolta/rifiuti_altri.py dai file ufficiali (Home Affairs, Immigration New Zealand, IRCC).
+# Le pagine di riepilogo stanno in australia-visas/, new-zealand-visas/, canada-visas/ perché /australia/ e /canada/ sono già
+# le pagine Schengen "domande fatte in Australia / in Canada" (online dal 15/10/2026).
+RIF2 = json.loads((DATI / "rifiuti_altri.json").read_text(encoding="utf-8"))
+F2 = RIF2["fonti"]
+SOGLIA_ALTRI = 500   # decisioni minime nell'ultimo anno completo per mostrare un tasso (Australia, Nuova Zelanda, Canada)
+SEZ_AU, SEZ_NZ, SEZ_CA = f"{SEZ}australia-visas/", f"{SEZ}new-zealand-visas/", f"{SEZ}canada-visas/"
+
+_B.update({
+    "Australia": '<path fill="#012169" d="M0 0h30v20H0z"/><svg width="15" height="10" viewBox="0 0 30 20">' + _B["United Kingdom"] + '</svg>'
+                 '<path fill="#fff" d="M7.5 12.6l.7 1.6 1.7-.4-.8 1.6 1.4 1-1.7.3.1 1.7-1.4-1-1.4 1 .1-1.7-1.7-.3 1.4-1-.8-1.6 1.7.4z"/>'
+                 '<circle fill="#fff" cx="22.5" cy="4" r="1.1"/><circle fill="#fff" cx="19" cy="9" r="1.1"/><circle fill="#fff" cx="26" cy="8" r="1.1"/>'
+                 '<circle fill="#fff" cx="22.5" cy="16" r="1.2"/><circle fill="#fff" cx="24.3" cy="11.6" r=".7"/>',
+    "New Zealand": '<path fill="#012169" d="M0 0h30v20H0z"/><svg width="15" height="10" viewBox="0 0 30 20">' + _B["United Kingdom"] + '</svg>'
+                   '<g fill="#C8102E" stroke="#fff" stroke-width=".5"><circle cx="22.5" cy="4.5" r="1.2"/><circle cx="19.5" cy="9.5" r="1.2"/>'
+                   '<circle cx="25.5" cy="8.5" r="1"/><circle cx="22.5" cy="15.5" r="1.3"/></g>',
+    "Canada": '<path fill="#fff" d="M0 0h30v20H0z"/><path fill="#D80621" d="M0 0h7.5v20H0zM22.5 0H30v20h-7.5z"/>'
+              '<path fill="#D80621" d="M15 4l1.2 2.4 1.6-.6-.6 3.2 2.2-2 .6 1.4 1.8-.4-1 2.4.8.6-3.4 2.6.4 1.4-3.1-.5V16h-1v-1.5l-3.1.5.4-1.4-3.4-2.6.8-.6-1-2.4 1.8.4.6-1.4 2.2 2-.6-3.2 1.6.6z"/>',
+})
+
+# Nomi delle nazionalità nei tre file -> chiave come nel file della Commissione (per collegare le pagine e scrivere i nomi allo stesso modo).
+_ALIAS_ALTRI = {
+    # Australia (Home Affairs)
+    "China, Peoples Republic of (excl SARs)": "CHINA", "Hong Kong (SAR of the PRC)": "HONG KONG S.A.R.", "Macau (SAR of the PRC)": "MACAO S.A.R.",
+    "Turkiye": "TÜRKIYE", "United States of America": "USA", "Korea, South": "SOUTH KOREA", "Korea, North": "NORTH KOREA",
+    "Germany, Fed Republic of": "GERMANY", "Ireland, Republic of": "IRELAND", "Netherlands, Kingdom of The": "NETHERLANDS",
+    "Lao Peoples Dem Republic": "LAOS", "Yemen, Republic of": "YEMEN", "Syrian Arab Republic": "SYRIA", "Congo, Republic of": "CONGO (BRAZZAVILLE)",
+    "Congo, Dem Republic of The": "CONGO (DEMOCRATIC REPUBLIC)", "Cote d'Ivoire": "COTE D'IVOIRE", "Cabo Verde": "CAPE VERDE",
+    "Palestine, State of": "PALESTINIAN AUTHORITY", "Palestinian Authority": "PALESTINIAN AUTHORITY", "Czechia": "CZECH REPUBLIC",
+    "Brunei Darussalam": "BRUNEI", "Republic of South Sudan": "SOUTH SUDAN", "Naoero": "NAURU", "St Vincent & the Grenadines": "SAINT VINCENT AND THE GRENADINES",
+    "St Kitts and Nevis": "SAINT KITTS AND NEVIS", "Eswatini": "ESWATINI",
+    # Nuova Zelanda (INZ)
+    "Great Britain": "UNITED KINGDOM", "China": "CHINA", "Russia": "RUSSIAN FEDERATION", "Turkey": "TÜRKIYE", "Ivory Coast": "COTE D'IVOIRE",
+    "Democratic Republic of Congo": "CONGO (DEMOCRATIC REPUBLIC)", "Congo": "CONGO (BRAZZAVILLE)", "Hong Kong": "HONG KONG S.A.R.", "Macau": "MACAO S.A.R.",
+    "Palestine": "PALESTINIAN AUTHORITY", "Macedonia": "NORTH MACEDONIA", "Bosnia & Herzegovina": "BOSNIA AND HERZEGOVINA", "Timor Leste": "TIMOR-LESTE",
+    "East Timor": "TIMOR-LESTE", "Equitorial Guinea": "EQUATORIAL GUINEA", "Guinea - Bissau": "GUINEA-BISSAU", "Swaziland": "ESWATINI",
+    "Kosovo - Republic of": "KOSOVO", "Antigua & Barbuda": "ANTIGUA AND BARBUDA", "Sao Tome & Principe": "SAO TOME AND PRINCIPE",
+    "St Kitts - Nevis": "SAINT KITTS AND NEVIS", "St Lucia": "SAINT LUCIA", "St Vincent and the Grenadines": "SAINT VINCENT AND THE GRENADINES",
+    # Canada (IRCC)
+    "People's Republic of China": "CHINA", "Socialist Republic of Vietnam": "VIETNAM", "Republic of Indonesia": "INDONESIA",
+    "Republic of South Africa": "SOUTH AFRICA", "Korea, Republic of": "SOUTH KOREA", "Korea, People's Democratic Republic of": "NORTH KOREA",
+    "Republic of Ireland": "IRELAND", "Republic of Ivory Coast": "COTE D'IVOIRE", "Federal Republic of Cameroon": "CAMEROON",
+    "Peoples Republic of Benin": "BENIN", "Gabon Republic": "GABON", "Guinea, Republic of": "GUINEA", "Mali, Republic of": "MALI",
+    "Mongolia, People's Republic of": "MONGOLIA", "Serbia, Republic of": "SERBIA", "Congo, Democratic Republic of the": "CONGO (DEMOCRATIC REPUBLIC)",
+    "Congo, People's Republic of the": "CONGO (BRAZZAVILLE)", "Cape Verde Islands": "CAPE VERDE", "Togo, Republic of": "TOGO",
+    "United Republic of Tanzania": "TANZANIA", "United Kingdom and Overseas Territories": "UNITED KINGDOM", "Myanmar (Burma)": "MYANMAR",
+    "Palestinian Authority (Gaza/West Bank)": "PALESTINIAN AUTHORITY", "Macao": "MACAO S.A.R.", "Maldives, Republic of": "MALDIVES",
+    "Panama, Republic of": "PANAMA", "Federal Republic of Germany": "GERMANY", "The Netherlands": "NETHERLANDS", "Bahama Islands, The": "BAHAMAS",
+    "Surinam": "SURINAME", "Burkina-Faso": "BURKINA FASO", "Botswana, Republic of": "BOTSWANA", "Chad, Republic of": "CHAD",
+    "Republic of the Niger": "NIGER", "Somalia, Democratic Republic of": "SOMALIA", "South Sudan, Republic Of": "SOUTH SUDAN",
+    "Trinidad and Tobago, Republic of": "TRINIDAD AND TOBAGO", "Samoa, Independent State Of": "SAMOA", "Slovak Republic": "SLOVAKIA",
+    "Montenegro, Republic of": "MONTENEGRO", "Bosnia-Hercegovina": "BOSNIA AND HERZEGOVINA", "Kosovo, Republic of": "KOSOVO",
+    "Democratic Republic of Sudan": "SUDAN", "East Timor, Democratic Republic of": "TIMOR-LESTE", "Republic of Djibouti": "DJIBOUTI",
+    "Republic of Palau": "PALAU", "Republic of The Marshall Islands": "MARSHALL ISLANDS", "Solomons, The": "SOLOMON ISLANDS",
+    "St. Kitts-Nevis": "SAINT KITTS AND NEVIS", "St. Lucia": "SAINT LUCIA", "St. Vincent and the Grenadines": "SAINT VINCENT AND THE GRENADINES",
+}
+# Voci dei file che non sono nazionalità (escluse da tabelle e classifiche)
+NON_NAZIONALITA = {"Not Specified", "Stateless Person", "UN Convention Refugee", "Refugee", "UNMIK Travel Document", "United Nations Organisation",
+                   "Yugoslavia, Fed Republic of", "Serbia and Montenegro", "Unknown", "Stateless", "United Nations", "European Commission",
+                   "Soviet Union", "Yugoslavia", "Kosovo - UN Mission in", "Pacific Island Trust Territory", "South Pacific commission",
+                   "Other*", "Total", "Other countries"}
+
+
+def chiave_altri(n):
+    return _ALIAS_ALTRI.get(n, n.upper())
+
+
+def nome_altri(n):
+    return nome_paese(chiave_altri(n))
+
+
+def nome_per_pagina(nomi_fonte, p):
+    """Nome della nazionalità in un file (Australia, NZ, Canada) che corrisponde alla pagina del Paese p (chiave della Commissione)."""
+    return next((n for n in nomi_fonte if n not in NON_NAZIONALITA and chiave_altri(n) == p), None)
+
+
+def link_paese_altri(n, rel, ancora):
+    """Nome con il link alla pagina del Paese (se c'è) e all'ancora della sezione."""
+    k = chiave_altri(n)
+    if k in SLUG_RIF and k not in ("AUSTRALIA", "CANADA"):
+        return f'<a href="{rel}{SEZ}{SLUG_RIF[k]}/#{ancora}">{escape(nome_paese(k))}</a>'
+    return escape(nome_paese(k))
+
+
+def rapporto(v):
+    """v = [sì, no] -> quota del no (rifiutati / respinti) su sì + no."""
+    d = v[0] + v[1]
+    return v[1] / d if d else None
+
+
+def cella_quota(v, soglia_piena=SOGLIA_ALTRI, minimo=SOGLIA_POCO):
+    """Tasso del 'no' con barretta; * sotto soglia_piena, '–' sotto minimo."""
+    d = v[0] + v[1]
+    if d < minimo:
+        return cella_tasso(None)
+    return cella_tasso(rapporto(v), d < soglia_piena)
+
+
+def lic_link(f):
+    return f'<a href="{escape(f["licenza_url"])}" rel="license noopener">{escape(f["licenza"])}</a>'
+
+
+# ---------- Australia, studenti (BP0015)
+AU = RIF2["au"]
+AU_NAZ = AU["naz"]
+AU_PIENI = [a for a in AU["anni"] if re.fullmatch(r"\d{4}-\d{2}", a)]
+AU_A1, AU_A0 = AU_PIENI[-1], AU_PIENI[-2]
+AU_YTD = AU["anni"][-1] if AU["anni"][-1] not in AU_PIENI else None
+PO, PI, SEC, TUTTI = (0,), (2,), (1, 3), (0, 1, 2, 3)  # primari fuori dall'Australia, primari in Australia, familiari, tutti
+NOMI_SETTORI = {"Higher Education Sector": "Higher education (university)", "Vocational Education and Training Sector": "Vocational education and training (VET)",
+                "Postgraduate Research Sector": "Postgraduate research", "Independent ELICOS Sector": "English language courses (ELICOS)",
+                "Non-Award Sector": "Non-award courses", "Schools Sector": "Schools", "Foreign Affairs or Defence Sector": "Foreign Affairs or Defence"}
+
+
+def au_fy(a):
+    """'2025-26' -> 'July 2025 to June 2026'."""
+    y = int(a[:4])
+    return f"July {y} to June {y + 1}"
+
+
+def au_ytd_testo():
+    m = re.search(r"(\d{4})-\d\d to \d{1,2} (\w+) (\d{4})", AU_YTD or "")
+    if not m:
+        return ""
+    return f"July to {m.group(2)} {m.group(3)}" if m.group(1) == m.group(3) else f"July {m.group(1)} to {m.group(2)} {m.group(3)}"
+
+
+def au_ytd_breve():
+    m = re.search(r"to \d{1,2} (\w+) (\d{4})", AU_YTD or "")
+    return f"Jul–{m.group(1)[:3]} {m.group(2)}" if m else ""
+
+
+AU_FINO_AL = re.search(r"to (\d{1,2} \w+ \d{4})", AU_YTD or "").group(1) if AU_YTD else f"30 June {AU_A1[:2]}{AU_A1[-2:]}"
+
+
+def au_v(n, anno, combo, chiave="y", sotto=None):
+    """[concessi, rifiutati] per nazionalità n (None = tutte), anno, combinazioni (indici di AU['combo'])."""
+    v = [0, 0]
+    for x in (AU_NAZ.values() if n is None else [AU_NAZ.get(n, {})]):
+        base = x.get(chiave, {}).get(anno, {})
+        celle = base.get(sotto) if sotto is not None else base
+        if not celle:
+            continue
+        for i in combo:
+            v[0] += celle[i][0]
+            v[1] += celle[i][1]
+    return v
+
+
+def au_mesi(n, quanti=12):
+    """Ultimi 'quanti' mesi con dati: [(etichetta, [concessi, rifiutati]) ...] per i primari fuori dall'Australia."""
+    out = []
+    for a in AU["anni"][-ANNI_DETTAGLIO_AU:]:
+        y = int(a[:4])
+        for m in AU["mesi"]:
+            mese = m.split()[1]
+            anno_cal = y if mese in ("Jul", "Aug", "Sep", "Oct", "Nov", "Dec") else y + 1
+            tot = au_v(None, a, PO, "m", m)
+            if tot[0] + tot[1] == 0:
+                continue
+            out.append((f"{mese} {anno_cal}", au_v(n, a, PO, "m", m)))
+    return out[-quanti:]
+
+
+ANNI_DETTAGLIO_AU = 3
+AU_OK = sorted([n for n in AU_NAZ if n not in NON_NAZIONALITA and sum(au_v(n, AU_A1, PO)) >= SOGLIA_ALTRI],
+               key=lambda n: -sum(au_v(n, AU_A1, PO)))
+F_AUS, F_AUT, F_AUC = F2["au_studenti"], F2.get("au_turisti"), F2.get("au_turisti_concessi")
+
+
+def fonte_au_p(extra="", breve=False):
+    f = F_AUS
+    if breve:
+        return (f'<p class="fonte">Source: <a href="{escape(f["url"])}" rel="noopener">Home Affairs, BP0015 Student visa grant rates</a>, same file as above '
+                f'(decisions to {AU_FINO_AL}, downloaded on {data_lunga(f["scaricato_il"])}, {lic_link(f)}).{extra}</p>')
+    return (f'<p class="fonte">Source: <a href="{escape(f["url"])}" rel="noopener">Australian Government Department of Home Affairs, BP0015 Student visa grant rates</a> '
+            f'(XLSX on <a href="{escape(f["pagina"])}" rel="noopener">data.gov.au</a>, decisions to {AU_FINO_AL}, downloaded on {data_lunga(f["scaricato_il"])}), '
+            f'licensed under {lic_link(f)}. Student visas (subclass 500); refusal rate = refused ÷ (granted + refused), the complement of the Department\'s grant rate. '
+            f'The Department says the figures are provisional and is not responsible for our analysis.{extra}</p>')
+
+
+# ---------- Australia, turisti (BR0112)
+AU_TUR = RIF2["au_turisti"]
+TRIM_AU = AU_TUR["trimestri"]
+
+
+def trim_au_testo(t, breve=False):
+    """'01/10/25–31/12/25' -> 'Oct–Dec 2025' (o 'October to December 2025')."""
+    a, b = t.split("–")
+    m0, m1, y = int(a.split("/")[1]), int(b.split("/")[1]), 2000 + int(b.split("/")[2])
+    if breve:
+        return f"{MESI[m0 - 1][:3]}–{MESI[m1 - 1][:3]} {y}"
+    return f"{MESI[m0 - 1]} to {MESI[m1 - 1]} {y}"
+
+
+def au_tur_ok(tab):
+    """Nazionalità della tabella con almeno SOGLIA_ALTRI concessioni nell'ultimo trimestre (limite inferiore delle decisioni, file BP0018)."""
+    righe = AU_TUR["tabelle"].get(tab, {}).get("righe", {})
+    conc = AU_TUR["concessi_ultimo_trimestre"].get(tab, {})
+    return [n for n in righe if n not in NON_NAZIONALITA and not n.startswith("All ") and conc.get(n, 0) >= SOGLIA_ALTRI]
+
+
+NOMI_TUR = {"3.02": "Tourist visitor visas (subclass 600 and 676, as grouped in the report)", "3.03": "Sponsored tourist visitor visas (subclass 600, sponsored family stream)"}
+
+
+def fonte_au_tur_p():
+    f, c = F_AUT, F_AUC
+    return (f'<p class="fonte">Source: <a href="{escape(f["url"])}" rel="noopener">Australian Government Department of Home Affairs, {escape(f["titolo"])}</a> '
+            f'(PDF, tables 3.02 and 3.03, downloaded on {data_lunga(f["scaricato_il"])}), licensed under {lic_link(f)} (<a href="{escape(f["copyright"])}" rel="noopener">copyright notice</a>). '
+            f'The report gives grant rates, not the number of decisions: we show a nationality only if the Department\'s '
+            f'<a href="{escape(c["url"])}" rel="noopener">BP0018 visitor visas granted file</a> ({lic_link(c)}, downloaded on {data_lunga(c["scaricato_il"])}) counts at least '
+            f'{intero(SOGLIA_ALTRI)} grants of that visa in the latest quarter, so the rate rests on at least {intero(SOGLIA_ALTRI)} decisions.</p>')
+
+
+# ---------- Nuova Zelanda (INZ)
+NZ = RIF2["nz"]["tipi"]
+NZ_INFO = RIF2["nz"]["info"]["visitor"]
+NZ_ANNI = NZ_INFO["anni"]
+NZ_PARZIALE = not NZ_INFO["periodo"][1].startswith("30 June")
+NZ_A1 = NZ_ANNI[-2] if NZ_PARZIALE else NZ_ANNI[-1]
+NZ_A0 = NZ_ANNI[NZ_ANNI.index(NZ_A1) - 1]
+NZ_YTD = NZ_ANNI[-1] if NZ_PARZIALE else None
+NZ_TIPI = [("visitor", "Visitor visas", "visitor"), ("student", "Student visas", "student"), ("work", "Work visas", "work")]
+
+
+def nz_fy(a):
+    y = int(a[:4])
+    return f"July {y} to June {y + 1}"
+
+
+def nz_ytd_testo():
+    fine = NZ_INFO["periodo"][1].split(" ", 1)[1]  # 'September 2026'
+    return f"July to {fine}" if fine.endswith(NZ_YTD[:4]) else f"July {NZ_YTD[:4]} to {fine}"
+
+
+def nz_v(n, tipo, anno):
+    if n is None:
+        v = [0, 0]
+        for k, x in NZ[tipo].items():
+            if k not in NON_NAZIONALITA:
+                a = x.get(anno, [0, 0])
+                v[0] += a[0]; v[1] += a[1]
+        return v
+    return NZ[tipo].get(n, {}).get(anno, [0, 0])
+
+
+NZ_NOMI = sorted({n for t in NZ.values() for n in t if n not in NON_NAZIONALITA})
+NZ_OK = sorted([n for n in NZ_NOMI if any(sum(nz_v(n, t, NZ_A1)) >= SOGLIA_ALTRI for t, _, _ in NZ_TIPI)],
+               key=lambda n: -sum(sum(nz_v(n, t, NZ_A1)) for t, _, _ in NZ_TIPI))
+
+
+def fonte_nz_p(tipi=("visitor", "student", "work"), breve=False):
+    f = F2[f"nz_{tipi[0]}"]
+    if breve:
+        return (f'<p class="fonte">Source: <a href="{escape(f["pagina"])}" rel="noopener">Immigration New Zealand statistics</a>, same PDFs as above '
+                f'(prepared {escape(f["preparato"])}, downloaded on {data_lunga(f["scaricato_il"])}, Crown copyright, {lic_link(f)}). '
+                f'Declined includes withdrawn applications.</p>')
+    link = "; ".join(f'<a href="{escape(F2[f"nz_{t}"]["url"])}" rel="noopener">{escape(F2[f"nz_{t}"]["titolo"])}</a>' for t in tipi)
+    return (f'<p class="fonte">Source: Immigration New Zealand (Ministry of Business, Innovation and Employment): {link} '
+            f'(PDF, prepared {escape(f["preparato"])}, decisions to {escape(f["periodo"][1])}, downloaded on {data_lunga(f["scaricato_il"])}). '
+            f'Crown copyright, licensed under {lic_link(f)} (<a href="{escape(f["copyright"])}" rel="noopener">copyright notice</a>). '
+            f'Decline rate = declined ÷ (approved + declined), applications; INZ counts withdrawn applications as declined. Financial years run from July to June.</p>')
+
+
+# ---------- Canada (IRCC)
+CA = RIF2["ca"]
+CA_MESI = CA["tr_processed"]["mesi"]
+_anni_ca = sorted({m[:4] for m in CA_MESI})
+CA_PIENI = [a for a in _anni_ca if sum(1 for m in CA_MESI if m.startswith(a)) == 12]
+CA_A1, CA_A0 = CA_PIENI[-1], CA_PIENI[-2]
+CA_YTD = _anni_ca[-1] if _anni_ca[-1] not in CA_PIENI else None
+CA_ULTIMO_MESE = MESI[int(CA_MESI[-1][5:]) - 1]
+
+
+def ca_somma(file, n, anno):
+    """Totale dell'anno: la colonna "Total" del file (IRCC la arrotonda dai dati non arrotondati, quindi è più precisa della somma dei mesi);
+    se manca o non è pubblicata, la somma dei mesi ('--', da 1 a 4, conta 0). Restituisce anche il numero di mesi non pubblicati."""
+    v = CA[file]["paesi"].get(n, {})
+    xs = [x for m, x in v.items() if m.startswith(anno)]
+    t = CA[file].get("totali", {}).get(n, {}).get(anno)
+    return (t if t is not None else sum(x for x in xs if x is not None)), sum(1 for x in xs if x is None)
+
+
+def cella_ca(file, n, anno):
+    """Conteggio di un file IRCC in cella; '–' se il Paese non compare nel file (il file dei visti V-1 elenca solo i Paesi con visto)."""
+    if n not in CA[file]["paesi"]:
+        return '<td class="n" data-v="">–</td>'
+    x = ca_somma(file, n, anno)[0]
+    return f'<td class="n" data-v="{x}">{intero(x)}</td>'
+
+
+def ca_quota(n, anno):
+    """[approvati, esaminati] e quota approvata dei permessi temporanei."""
+    ap, es = ca_somma("tr_approved", n, anno)[0], ca_somma("tr_processed", n, anno)[0]
+    return ap, es, (ap / es if es else None)
+
+
+CA_NOMI = [n for n in CA["tr_processed"]["paesi"] if n not in NON_NAZIONALITA]
+CA_OK = sorted([n for n in CA_NOMI if ca_quota(n, CA_A1)[1] >= SOGLIA_ALTRI], key=lambda n: -ca_quota(n, CA_A1)[1])
+
+
+NOMI_FILE_CA = {"tr_processed": "temporary resident applications processed", "tr_approved": "temporary resident applications approved",
+                "sp_processed": "new study permit applications processed", "trv_approved": "visitor visas (V-1) approved"}
+
+
+def fonte_ca_p(file=("tr_processed", "tr_approved")):
+    f = F2[f"ca_{file[0]}"]
+    link = ", ".join(f'<a href="{escape(F2[f"ca_{k}"]["url"])}" rel="noopener">{NOMI_FILE_CA[k]}</a>' for k in file)
+    return (f'<p class="fonte">Source: Immigration, Refugees and Citizenship Canada (IRCC), <a href="{escape(f["pagina"])}" rel="noopener">Operational Processing – Monthly IRCC Updates</a>: '
+            f'{link} (XLSX, data as of {escape(f["dati_al"])}, downloaded on {data_lunga(f["scaricato_il"])}). Contains information licensed under the '
+            f'{lic_link(f)}. IRCC rounds counts to the nearest 5 and does not publish counts from 1 to 4; the data are operational and subject to change.</p>')
+
+
+def barre_mesi(serie, etichetta, unita="decisions"):
+    """Grafico a barre di 12 mesi (stesso stile dei trimestri UK)."""
+    tt = [rapporto(v) for _, v in serie]
+    mx = max([t for t in tt if t is not None] + [0.05])
+    li = "".join(f'<li><span class="tq-v">{pct(t, 0) if t is not None else "–"}</span><span class="tq-c"><span class="tq-b" style="height:{max(3, round((t or 0) / mx * 100))}%"></span></span>'
+                 f'<span class="tq-l">{m.split()[0]}<br>{m.split()[1]}</span><span class="sr"> {intero(v[0] + v[1])} {unita}</span></li>' for (m, v), t in zip(serie, tt))
+    return f'<ol class="trim m12" aria-label="{escape(etichetta)}">{li}</ol>'
+
+
+# ---------- sezioni nelle pagine per Paese
+def sezione_au(p, nome):
+    """Sezione Australia nella pagina del Paese p. Restituisce (html, cifra per il riquadro) o ('', None)."""
+    if p == "AUSTRALIA":
+        return "", None
+    n = nome_per_pagina(AU_NAZ, p)
+    if not n:
+        return "", None
+    v1 = au_v(n, AU_A1, PO)
+    if sum(v1) < SOGLIA_ALTRI:
+        return (f'<h2 id="australia">Australia student visa refusal rate</h2><p>In {AU_A1} Australia decided {intero(sum(v1))} student visa applications from primary applicants '
+                f'who are nationals of {escape(art(nome))} and applied from outside Australia, fewer than the {intero(SOGLIA_ALTRI)} we need to show a meaningful rate. '
+                f'See <a href="../australia-visas/">Australia visa refusal rates for all nationalities</a>.</p>'), None
+    v0 = au_v(n, AU_A0, PO)
+    vy = au_v(n, AU_YTD, PO) if AU_YTD else [0, 0]
+    righe = []
+    for etichetta, combo in (("Primary applicants applying from outside Australia", PO), ("Primary applicants applying in Australia", PI),
+                             ("Family members (secondary applicants)", SEC), ("All student visa applicants", TUTTI)):
+        a1, a0, ay = au_v(n, AU_A1, combo), au_v(n, AU_A0, combo), (au_v(n, AU_YTD, combo) if AU_YTD else [0, 0])
+        if sum(a1) == 0:
+            continue
+        cls = ' class="tot-r"' if combo == TUTTI else ""
+        righe.append(f'<tr{cls}><td>{etichetta}</td>{cella_quota(a1)}{cella_quota(a0)}{cella_quota(ay)}'
+                     f'<td class="n" data-v="{sum(a1)}">{intero(sum(a1))}</td><td class="n" data-v="{a1[1]}">{intero(a1[1])}</td></tr>')
+    tab = (f'<div class="tab compatta"><table class="ord larga"><thead><tr>{th_ord("Applicants", False, "ascending")}{th_ord(f"Refused {AU_A1}", primo="ascending")}'
+           f'{th_ord(AU_A0, primo="ascending")}{th_ord(au_ytd_breve(), primo="ascending")}{th_ord(f"Decisions {AU_A1}")}{th_ord("Refused")}</tr></thead>'
+           f'<tbody>{"".join(righe)}</tbody></table></div>')
+    # per settore
+    sett = AU_NAZ[n].get("s", {}).get(AU_A1, {})
+    righe_s = []
+    piccoli = []
+    for s in sorted(sett, key=lambda s: -sum(sett[s][0])):
+        v = sett[s][0]
+        if sum(v) < SOGLIA_POCO:
+            if sum(v):
+                piccoli.append(NOMI_SETTORI.get(s, s))
+            continue
+        v0s = AU_NAZ[n]["s"].get(AU_A0, {}).get(s, [[0, 0]])[0]
+        righe_s.append(f'<tr{" class=\"poco\"" if sum(v) < SOGLIA_ALTRI else ""}><td>{escape(NOMI_SETTORI.get(s, s))}</td>{cella_quota(v)}{cella_quota(v0s)}'
+                       f'<td class="n" data-v="{sum(v)}">{intero(sum(v))}</td><td class="n" data-v="{v[1]}">{intero(v[1])}</td></tr>')
+    tab_s = (f'<div class="tab compatta"><table class="ord"><thead><tr>{th_ord("Education sector", False, "ascending")}{th_ord(f"Refused {AU_A1}", primo="ascending")}'
+             f'{th_ord(AU_A0, primo="ascending")}{th_ord("Decisions")}{th_ord("Refused")}</tr></thead><tbody>{"".join(righe_s)}</tbody></table></div>')
+    # anni
+    righe_a = []
+    for a in AU["anni"][-11:]:
+        po, tu = au_v(n, a, PO), au_v(n, a, TUTTI)
+        if sum(tu) == 0:
+            continue
+        et = au_ytd_testo() + f" ({a[:7]})" if a == AU_YTD else a
+        righe_a.append(f'<tr><td>{escape(et)}</td>{cella_quota(po)}<td class="n" data-v="{sum(po)}">{intero(sum(po))}</td>{cella_quota(tu)}<td class="n" data-v="{sum(tu)}">{intero(sum(tu))}</td></tr>')
+    tab_a = (f'<div class="tab compatta"><table class="ord larga"><thead><tr>{th_ord("Financial year", False, "ascending")}{th_ord("Refused: primary, outside Australia", primo="ascending")}'
+             f'{th_ord("Decisions")}{th_ord("Refused: all applicants", primo="ascending")}{th_ord("Decisions")}</tr></thead><tbody>{"".join(righe_a)}</tbody></table></div>')
+    mesi = au_mesi(n)
+    cambio = punti(rapporto(v1), rapporto(v0)) if sum(v0) else "–"
+    frase_ytd = (f' From {au_ytd_testo()}: <strong>{pct(rapporto(vy))}</strong> ({intero(vy[1])} of {intero(sum(vy))} decisions'
+                 + (', a small number: read with care' if sum(vy) < SOGLIA_ALTRI else '') + ').') if AU_YTD and sum(vy) >= SOGLIA_POCO else ""
+    # turisti (se la nazionalità è nel rapporto con abbastanza concessioni)
+    tur = ""
+    righe_t = []
+    for tab_id in ("3.02", "3.03"):
+        if n in au_tur_ok(tab_id):
+            rr = AU_TUR["tabelle"][tab_id]["righe"][n]
+            celle = "".join(cella_tasso(1 - x) for x in rr)
+            righe_t.append(f'<tr><td>{NOMI_TUR[tab_id]}</td>{celle}</tr>')
+    if righe_t:
+        testa = "".join(th_ord(trim_au_testo(t, True), primo="ascending") for t in TRIM_AU)
+        tur = (f'<h3>Visitor visas: share not granted, quarter by quarter</h3>'
+               f'<p class="lead">Home Affairs publishes visitor visa grant rates by citizenship only in its six-monthly visitor visa report, for the 15 countries it lists for each visa. For nationals of {escape(art(nome))}, these are the shares of decisions that were <strong>not</strong> grants (100% minus the grant rate).</p>'
+               f'<div class="tab compatta"><table class="ord"><thead><tr>{th_ord("Visitor visa", False, "ascending")}{testa}</tr></thead><tbody>{"".join(righe_t)}</tbody></table></div>'
+               f'{fonte_au_tur_p()}')
+    corpo = (f'<h2 id="australia">Australia student visa refusal rate for nationals of {escape(art(nome))} ({AU_A1})</h2>'
+             f'<p class="lead">In the Australian financial year {AU_A1} ({au_fy(AU_A1)}), Australia refused <strong>{pct(rapporto(v1))}</strong> of student visa decisions for primary applicants '
+             f'who are nationals of {escape(art(nome))} and applied from outside Australia ({intero(v1[1])} refused out of {intero(sum(v1))}). '
+             + (f'In {AU_A0}: {pct(rapporto(v0))} ({cambio}).' if sum(v0) >= SOGLIA_POCO else '') + frase_ytd +
+             f' Like the UK, Australia counts applicants by <strong>citizenship</strong>, wherever they apply.</p>'
+             f'{tab}{fonte_au_p(f" * Fewer than {intero(SOGLIA_ALTRI)} decisions; – fewer than {SOGLIA_POCO}.")}'
+             f'<h3>Student visas by education sector (primary applicants outside Australia)</h3>{tab_s}{fonte_au_p(f" * Fewer than {intero(SOGLIA_ALTRI)} decisions; – fewer than {SOGLIA_POCO}." + (f" Not shown (fewer than {SOGLIA_POCO} decisions in {AU_A1}): {escape(', '.join(piccoli))}." if piccoli else ""), True)}'
+             f'<h3>Month by month (primary applicants outside Australia)</h3>{barre_mesi(mesi, f"Australia student visa refusal rate by month, nationals of {nome}")}'
+             f'<p class="fonte">Source: <a href="{escape(F_AUS["url"])}" rel="noopener">Home Affairs BP0015</a>, same file as above (decisions to {AU_FINO_AL}, downloaded on {data_lunga(F_AUS["scaricato_il"])}, {lic_link(F_AUS)}). Each bar is the share of decisions in that month that were refusals; monthly figures can be small and move a lot.</p>'
+             f'<h3>Year by year</h3>{tab_a}{fonte_au_p(" Financial years run from July to June.", True)}'
+             f'{tur}'
+             f'<p class="small">All nationalities, by sector and month: <a href="../australia-visas/">Australia student visa refusal rate by nationality</a>.</p>')
+    return corpo, (rapporto(v1), sum(v1))
+
+
+def sezione_nz(p, nome):
+    n = nome_per_pagina(NZ_NOMI, p)
+    if not n or p == "NEW ZEALAND":
+        return "", None
+    ok = [(t, et, br) for t, et, br in NZ_TIPI if sum(nz_v(n, t, NZ_A1)) >= SOGLIA_ALTRI]
+    if not ok:
+        d = max(sum(nz_v(n, t, NZ_A1)) for t, _, _ in NZ_TIPI)
+        return (f'<h2 id="new-zealand">New Zealand visa decline rate</h2><p>In {NZ_A1} Immigration New Zealand decided at most {intero(d)} visitor, student or work visa applications '
+                f'from nationals of {escape(art(nome))} in each category, fewer than the {intero(SOGLIA_ALTRI)} we need to show a meaningful rate. '
+                f'See <a href="../new-zealand-visas/">New Zealand visa decline rates for all nationalities</a>.</p>'), None
+    righe = []
+    for t, et, _ in NZ_TIPI:
+        a1, a0 = nz_v(n, t, NZ_A1), nz_v(n, t, NZ_A0)
+        ay = nz_v(n, t, NZ_YTD) if NZ_YTD else [0, 0]
+        if sum(a1) == 0 and sum(a0) == 0:
+            continue
+        righe.append(f'<tr><td>{et}</td>{cella_quota(a1)}{cella_quota(a0)}{cella_quota(ay)}<td class="n" data-v="{sum(a1)}">{intero(sum(a1))}</td>'
+                     f'<td class="n" data-v="{a1[1]}">{intero(a1[1])}</td></tr>')
+    tab = (f'<div class="tab compatta"><table class="ord larga"><thead><tr>{th_ord("Visa type", False, "ascending")}{th_ord(f"Declined {NZ_A1}", primo="ascending")}'
+           f'{th_ord(NZ_A0, primo="ascending")}{th_ord(nz_ytd_testo() if NZ_YTD else "", primo="ascending")}{th_ord(f"Decisions {NZ_A1}")}{th_ord("Declined")}</tr></thead>'
+           f'<tbody>{"".join(righe)}</tbody></table></div>')
+    righe_a = []
+    for a in NZ_ANNI:
+        celle = ""
+        for t, _, _ in NZ_TIPI:
+            v = nz_v(n, t, a)
+            celle += f'{cella_quota(v)}<td class="n" data-v="{sum(v)}">{intero(sum(v))}</td>'
+        et = f"{nz_ytd_testo()} ({a})" if a == NZ_YTD else a
+        righe_a.append(f'<tr><td>{escape(et)}</td>{celle}</tr>')
+    testa = "".join(f'{th_ord(f"{et} declined", primo="ascending")}{th_ord("Decisions")}' for _, et, _ in NZ_TIPI)
+    tab_a = (f'<div class="tab compatta"><table class="ord larga"><thead><tr>{th_ord("Financial year", False, "ascending")}{testa}</tr></thead><tbody>{"".join(righe_a)}</tbody></table></div>')
+    t1, _, br1 = ok[0]
+    v1 = nz_v(n, t1, NZ_A1)
+    altri = "; ".join(f'<strong>{pct(rapporto(nz_v(n, t, NZ_A1)))}</strong> of {br} visa applications ({intero(sum(nz_v(n, t, NZ_A1)))} decisions)' for t, _, br in ok[1:])
+    corpo = (f'<h2 id="new-zealand">New Zealand visa decline rate for nationals of {escape(art(nome))} ({NZ_A1})</h2>'
+             f'<p class="lead">In the New Zealand financial year {NZ_A1} ({nz_fy(NZ_A1)}), Immigration New Zealand declined <strong>{pct(rapporto(v1))}</strong> of {br1} visa applications '
+             f'from nationals of {escape(art(nome))} ({intero(v1[1])} declined out of {intero(sum(v1))} decided)' + (f'; {altri}' if altri else '') + '. '
+             f'INZ counts applications by the country that issued the passport, and its "declined" figure includes applications that were withdrawn, '
+             f'so these rates are not directly comparable with the UK or Australian refusal rates.</p>'
+             f'{tab}{fonte_nz_p()}'
+             f'<h3>New Zealand, year by year</h3>{tab_a}{fonte_nz_p(breve=True)}'
+             f'<p class="small">* Fewer than {intero(SOGLIA_ALTRI)} decisions; – fewer than {SOGLIA_POCO}. All nationalities: <a href="../new-zealand-visas/">New Zealand visa decline rate by nationality</a>.</p>')
+    return corpo, (rapporto(v1), sum(v1), br1)
+
+
+def sezione_ca(p, nome):
+    if p == "CANADA":
+        return "", None
+    n = nome_per_pagina(CA_NOMI, p)
+    if not n:
+        return "", None
+    ap, es, q = ca_quota(n, CA_A1)
+    if es < SOGLIA_ALTRI:
+        return (f'<h2 id="canada">Canada temporary resident applications</h2><p>IRCC processed {intero(es)} temporary resident applications from {escape(art(nome))} in {CA_A1}, '
+                f'fewer than the {intero(SOGLIA_ALTRI)} we need to show a meaningful rate. See <a href="../canada-visas/">Canada temporary resident approval rates by country</a>.</p>'), None
+    ap0, es0, q0 = ca_quota(n, CA_A0)
+    apy, esy, qy = ca_quota(n, CA_YTD) if CA_YTD else (0, 0, None)
+    sp = ca_somma("sp_processed", n, CA_A1)[0]
+    trv = ca_somma("trv_approved", n, CA_A1)[0]
+    righe = []
+    for a in ([CA_YTD] if CA_YTD else []) + CA_PIENI[::-1]:
+        x_ap, x_es, x_q = ca_quota(n, a)
+        x_sp, x_trv = ca_somma("sp_processed", n, a)[0], ca_somma("trv_approved", n, a)[0]
+        et = f"January to {CA_ULTIMO_MESE} {a}" if a == CA_YTD else a
+        righe.append(f'<tr><td>{et}</td>{cella_tasso(x_q, x_es < SOGLIA_ALTRI) if x_es >= SOGLIA_POCO else cella_tasso(None)}<td class="n" data-v="{x_es}">{intero(x_es)}</td>'
+                     f'<td class="n" data-v="{x_ap}">{intero(x_ap)}</td>{cella_ca("sp_processed", n, a)}{cella_ca("trv_approved", n, a)}</tr>')
+    tab = (f'<div class="tab compatta"><table class="ord larga"><thead><tr>{th_ord("Period", False, "ascending")}{th_ord("Approved: all temporary resident applications")}'
+           f'{th_ord("Processed")}{th_ord("Approved")}{th_ord("New study permits: processed")}{th_ord("Visitor visas: approved")}</tr></thead>'
+           f'<tbody>{"".join(righe)}</tbody></table></div>')
+    # ultimi 12 mesi: quota approvata
+    serie = []
+    for m in CA_MESI[-12:]:
+        a_ = CA["tr_approved"]["paesi"].get(n, {}).get(m) or 0
+        e_ = CA["tr_processed"]["paesi"].get(n, {}).get(m) or 0
+        serie.append((f"{MESI[int(m[5:]) - 1][:3]} {m[:4]}", [e_ - a_ if e_ >= a_ else 0, a_]))  # rapporto() -> quota approvata
+    corpo = (f'<h2 id="canada">Canada: temporary resident applications from {escape(art(nome))} approved ({CA_A1})</h2>'
+             f'<p class="lead">In {CA_A1}, IRCC approved <strong>{pct(q)}</strong> of the temporary resident applications from {escape(art(nome))} that it processed '
+             f'({intero(ap)} approved out of {intero(es)} people). This share mixes visitor visas, study permits and work permits, first applications and extensions; '
+             f'"processed" includes applications refused and withdrawn, so the other {pct(1 - q)} were refused <em>or</em> withdrawn.'
+             + (f' In {CA_A0}: {pct(q0)}.' if es0 >= SOGLIA_POCO else '') + (f' January to {CA_ULTIMO_MESE} {CA_YTD}: {pct(qy)} ({intero(esy)} processed).' if CA_YTD and esy >= SOGLIA_POCO else '') + '</p>'
+             f'<p class="avviso"><strong>No study permit or visitor visa refusal rate.</strong> For each country IRCC publishes only the number of new study permit applications '
+             f'<em>processed</em> ({intero(sp)} from {escape(art(nome))} in {CA_A1}) and the number of visitor visas <em>approved</em> ({intero(trv)}), never both for the same visa, '
+             f'so a study permit or visitor visa refusal rate cannot be calculated from the official files.</p>'
+             f'{tab}{fonte_ca_p(("tr_processed", "tr_approved", "sp_processed", "trv_approved"))}'
+             f'<h3>Approved share, month by month (all temporary resident applications)</h3>{barre_mesi(serie, f"Canada temporary resident approval share by month, {nome}", "processed")}'
+             f'<p class="fonte">Source: IRCC, same files as above (data as of {escape(F2["ca_tr_processed"]["dati_al"])}, downloaded on {data_lunga(F2["ca_tr_processed"]["scaricato_il"])}). '
+             f'Each bar is approved ÷ processed in that month. Contains information licensed under the {lic_link(F2["ca_tr_processed"])}.</p>'
+             f'<p class="small">All countries: <a href="../canada-visas/">Canada temporary resident approval rate by country</a>.</p>')
+    return corpo, (q, es)
+
+
+def kpi_altri(au_r, nz_r, ca_r):
+    """Riga del riquadro di sintesi con le altre destinazioni e la fonte."""
+    voci, fonti = [], []
+    if au_r:
+        voci.append(f'<div><b>{pct(au_r[0])}</b><span><a href="#australia">Australia</a> student visas refused · {AU_A1} · {intero(au_r[1])} decisions</span></div>')
+        fonti.append(f'<a href="{escape(F_AUS["url"])}" rel="noopener">Home Affairs BP0015</a> (to {AU_FINO_AL}, {lic_link(F_AUS)})')
+    if nz_r:
+        voci.append(f'<div><b>{pct(nz_r[0])}</b><span><a href="#new-zealand">New Zealand</a> {nz_r[2]} visas declined · {NZ_A1} · {intero(nz_r[1])} decisions</span></div>')
+        fonti.append(f'<a href="{escape(F2["nz_visitor"]["pagina"])}" rel="noopener">Immigration New Zealand</a> (to {escape(F2["nz_visitor"]["periodo"][1])}, {lic_link(F2["nz_visitor"])})')
+    if ca_r:
+        voci.append(f'<div><b>{pct(ca_r[0])}</b><span><a href="#canada">Canada</a> temporary resident applications approved · {CA_A1} · {intero(ca_r[1])} processed</span></div>')
+        fonti.append(f'<a href="{escape(F2["ca_tr_processed"]["pagina"])}" rel="noopener">IRCC</a> ({CA_A1}, Open Government Licence – Canada)')
+    if not voci:
+        return ""
+    return (f'<p class="cifra cifra-2"><span class="c-lab">Australia, New Zealand and Canada · by citizenship</span>'
+            f'<span class="sr">: </span>Latest official full-year figures for nationals of this country</p><div class="kpi kpi-uk">{"".join(voci)}</div>'
+            f'<p class="fonte">Sources: {"; ".join(fonti)}; downloaded on {data_lunga(F_AUS["scaricato_il"])}. Details and definitions below.</p>')
+
+
+# ---------- pagine di riepilogo
+def avviso_altri(testo_regola):
+    return ('<p class="avviso"><strong>Statistics, not advice.</strong> These are official figures for all applications decided in a past period. '
+            'They cannot predict the decision on your application, and they mix very different applicants, courses and documents. '
+            f'{testo_regola} Always follow the official requirements of the immigration authority.</p>')
+
+
+def pagina_rif_au():
+    rel = "../../"
+    tot1, tot0 = au_v(None, AU_A1, PO), au_v(None, AU_A0, PO)
+    toty = au_v(None, AU_YTD, PO) if AU_YTD else [0, 0]
+    tutti1 = au_v(None, AU_A1, TUTTI)
+    righe = []
+    for n in AU_OK:
+        v1, v0 = au_v(n, AU_A1, PO), au_v(n, AU_A0, PO)
+        vy = au_v(n, AU_YTD, PO) if AU_YTD else [0, 0]
+        tu = au_v(n, AU_A1, TUTTI)
+        r1, r0 = rapporto(v1), rapporto(v0)
+        d = (r1 - r0) if (r0 is not None and sum(v0) >= SOGLIA_POCO) else None
+        righe.append(f'<tr><td>{link_paese_altri(n, rel, "australia")}</td>{cella_quota(v1)}{cella_quota(v0)}'
+                     f'<td class="n" data-v="{"" if d is None else f"{d:.6f}"}">{punti(r1, r0) if d is not None else "–"}</td>{cella_quota(vy)}'
+                     f'<td class="n" data-v="{sum(v1)}">{intero(sum(v1))}</td>{cella_quota(tu)}</tr>')
+    # settori, tutte le nazionalità
+    righe_s = []
+    sett_nomi = list(NOMI_SETTORI)
+    for s in sett_nomi:
+        v1, v0 = au_v(None, AU_A1, PO, "s", s), au_v(None, AU_A0, PO, "s", s)
+        if sum(v1) == 0:
+            continue
+        righe_s.append(f'<tr><td>{escape(NOMI_SETTORI[s])}</td>{cella_quota(v1)}{cella_quota(v0)}<td class="n" data-v="{sum(v1)}">{intero(sum(v1))}</td>'
+                       f'<td class="n" data-v="{v1[1]}">{intero(v1[1])}</td></tr>')
+    # turisti
+    blocchi_t = ""
+    for tab_id in ("3.02", "3.03"):
+        ok = au_tur_ok(tab_id)
+        tt = AU_TUR["tabelle"].get(tab_id, {})
+        if not ok:
+            continue
+        rr = tt["righe"]
+        tutte = next((k for k in rr if k.startswith("All ")), None)
+        righe_t = [f'<tr><td>{link_paese_altri(n, rel, "australia")}</td>{"".join(cella_tasso(1 - x) for x in rr[n])}'
+                   f'<td class="n" data-v="{AU_TUR["concessi_ultimo_trimestre"][tab_id][n]}">{intero(AU_TUR["concessi_ultimo_trimestre"][tab_id][n])}</td></tr>' for n in ok]
+        if tutte:
+            righe_t.append(f'<tr class="tot-r"><td>All nationalities</td>{"".join(cella_tasso(1 - x) for x in rr[tutte])}<td class="n">–</td></tr>')
+        esclusi = [nome_altri(n) for n in rr if n not in ok and n not in NON_NAZIONALITA and not n.startswith("All ")]
+        testa = "".join(th_ord(trim_au_testo(t, True), primo="ascending") for t in TRIM_AU)
+        blocchi_t += (f'<h3>{NOMI_TUR[tab_id]}: share not granted</h3>'
+                      + (f'<p class="small">Also listed in the report, but with fewer than {intero(SOGLIA_ALTRI)} grants in the latest quarter, so not shown: {escape(", ".join(esclusi))}.</p>' if esclusi else '')
+                      + f'<div class="tab compatta"><table class="ord"><thead><tr>{th_ord("Citizenship", False, "ascending")}{testa}{th_ord(f"Grants {trim_au_testo(TRIM_AU[-1], True)}")}</tr></thead>'
+                        f'<tbody>{"".join(righe_t)}</tbody></table></div>{fonte_au_tur_p()}')
+    mesi = au_mesi(None)
+    opzioni = "".join(f'<option value="{rel}{SEZ}{SLUG_RIF[chiave_altri(n)]}/#australia">{escape(nome_altri(n))}</option>'
+                      for n in sorted(AU_OK, key=nome_altri) if chiave_altri(n) in SLUG_RIF and chiave_altri(n) not in ("AUSTRALIA",))
+    alto = sorted(AU_OK, key=lambda n: -rapporto(au_v(n, AU_A1, PO)))[:3]
+    basso = sorted(AU_OK, key=lambda n: rapporto(au_v(n, AU_A1, PO)))[:3]
+    corpo = f"""<section class="hero">{h1_diviso(f"Australia visa refusal rate by nationality: student visas {AU_A1}, and visitor visas")}
+<p class="lead">How many Australian student visa applications were refused, nationality by nationality, from the Department of Home Affairs' official monthly file: by financial year, by month, by education sector, and whether the applicant was outside or in Australia. Visitor visa grant rates for the citizenships listed in the six-monthly report are below.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{bandiera("Australia")}<span>Australian student visas</span><span style="white-space:nowrap">{AU_A1}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Primary applicants outside Australia · all nationalities · {au_fy(AU_A1)}</span><span class="sr">: </span><strong>{pct(rapporto(tot1))}</strong> refused ({intero(tot1[1])} of {intero(sum(tot1))} decisions)</p>
+<div class="kpi"><div><b>{pct(rapporto(tot0))}</b><span>in {AU_A0} ({punti(rapporto(tot1), rapporto(tot0))} in {AU_A1})</span></div><div><b>{pct(rapporto(toty))}</b><span>{au_ytd_testo()} · {intero(sum(toty))} decisions</span></div><div><b>{pct(rapporto(tutti1))}</b><span>all student visa applicants, {AU_A1}</span></div><div><b>{len(AU_OK)}</b><span>nationalities with {intero(SOGLIA_ALTRI)}+ decisions</span></div></div>
+<p class="lead" style="margin-top:6px">Highest refusal rates in {AU_A1} among nationalities with at least {intero(SOGLIA_ALTRI)} decisions: {", ".join(f"{escape(nome_altri(n))} ({pct(rapporto(au_v(n, AU_A1, PO)))})" for n in alto)}. Lowest: {", ".join(f"{escape(nome_altri(n))} ({pct(rapporto(au_v(n, AU_A1, PO)))})" for n in basso)}.</p>
+{fonte_au_p()}
+</div></section>
+{avviso_altri("A lower rate for your country, sector or month does not make your application more likely to succeed.")}
+{AD}
+<section class="card cerca"><form class="vai" action="#" onsubmit="return false"><label for="vai-au"><span class="lt">{ico("globe")}Your citizenship</span></label>
+<div class="vai-r"><select id="vai-au" data-vai><option value="">Choose a country…</option>{opzioni}</select></div></form>
+<p class="small" style="margin:8px 0 0">Country pages put the Australian figures next to the Schengen, UK, New Zealand and Canadian ones.</p></section>
+<h2>Australia student visa refusal rate by nationality ({AU_A1})</h2>
+<p class="small">Primary applicants applying from outside Australia, nationalities with at least {intero(SOGLIA_ALTRI)} decisions in {AU_A1} ({au_fy(AU_A1)}). "Change" is in percentage points on {AU_A0}. Tap a column heading to sort, or type to filter. * Fewer than {intero(SOGLIA_ALTRI)} decisions; – fewer than {SOGLIA_POCO}.</p>
+<p class="filtro"><label><span class="sr">Filter nationalities</span><input type="search" placeholder="Filter: e.g. Nepal" data-filtro="t-au" autocomplete="off"></label></p>
+<div class="tab compatta"><table class="ord larga" id="t-au"><thead><tr>{th_ord("Citizenship", False, "ascending")}{th_ord(f"Refused {AU_A1}", primo="ascending")}{th_ord(AU_A0, primo="ascending")}{th_ord("Change", primo="ascending")}{th_ord(au_ytd_breve(), primo="ascending")}{th_ord(f"Decisions {AU_A1}")}{th_ord("All applicants refused", primo="ascending")}</tr></thead><tbody>{"".join(righe)}</tbody></table></div>
+{fonte_au_p(' "All applicants" adds primary applicants already in Australia and family members.')}
+<h2>By education sector, all nationalities</h2>
+<div class="tab compatta"><table class="ord"><thead><tr>{th_ord("Education sector", False, "ascending")}{th_ord(f"Refused {AU_A1}", primo="ascending")}{th_ord(AU_A0, primo="ascending")}{th_ord("Decisions")}{th_ord("Refused")}</tr></thead><tbody>{"".join(righe_s)}</tbody></table></div>
+{fonte_au_p(" Primary applicants applying from outside Australia.", True)}
+<h2>Month by month, all nationalities</h2>
+{barre_mesi(mesi, "Australia student visa refusal rate by month, all nationalities")}
+<p class="fonte">Source: Home Affairs BP0015, same file as above (decisions to {AU_FINO_AL}, downloaded on {data_lunga(F_AUS["scaricato_il"])}, {lic_link(F_AUS)}). Primary applicants outside Australia; each bar is the share of decisions in that month that were refusals.</p>
+<h2 id="visitor">Australia visitor visa grant rates by citizenship</h2>
+<p class="lead">For visitor visas Home Affairs publishes rates by citizenship only in its six-monthly visitor visa report, for the 15 citizenship countries it lists for each visa (the rest are grouped as "other countries"), quarter by quarter. Below: the share of decisions that were not grants (100% minus the published grant rate). Electronic travel authorities (ETA) and eVisitor are counted separately; the same report puts their grant rates at about 99%.</p>
+{blocchi_t}
+<h2>How to read these figures</h2>
+<ul class="testo">
+<li><strong>By citizenship.</strong> Home Affairs counts applicants by the country of citizenship (for dual citizens, the citizenship of the travel document or the one nominated in the application).</li>
+<li><strong>Refusal rate</strong> = refused ÷ (granted + refused). Applications withdrawn or still being processed are not decisions. Grant rate = 100% − refusal rate.</li>
+<li><strong>Primary applicants outside Australia</strong> are students applying from abroad; family members (secondary applicants) and students already in Australia are in the country tables.</li>
+<li><strong>Financial years</strong> run from 1 July to 30 June. {AU_YTD and f"The current year ({au_ytd_testo()}) is incomplete." or ""} The file is updated monthly and figures can be revised.</li>
+<li>Minimum {intero(SOGLIA_ALTRI)} decisions in {AU_A1} for a nationality to appear in the main table.</li></ul>
+<h2>Official sources</h2>
+<ul class="fonti">
+<li><a href="{escape(F_AUS["url"])}" rel="noopener">{escape(F_AUS["titolo"])}</a> – Department of Home Affairs on <a href="{escape(F_AUS["pagina"])}" rel="noopener">data.gov.au</a>, XLSX, {intero(F_AUS["byte"])} bytes, downloaded on {data_lunga(F_AUS["scaricato_il"])}. Licence: {lic_link(F_AUS)}. Attribution: Australian Government Department of Home Affairs.</li>
+<li><a href="{escape(F_AUT["url"])}" rel="noopener">{escape(F_AUT["titolo"])}</a> – Department of Home Affairs, PDF, downloaded on {data_lunga(F_AUT["scaricato_il"])}. Licence: {lic_link(F_AUT)} (<a href="{escape(F_AUT["copyright"])}" rel="noopener">copyright and disclaimer</a>).</li>
+<li><a href="{escape(F_AUC["url"])}" rel="noopener">{escape(F_AUC["titolo"])}</a> – Department of Home Affairs on data.gov.au, XLSX, downloaded on {data_lunga(F_AUC["scaricato_il"])}, {lic_link(F_AUC)} (used only to check that each visitor visa rate rests on at least {intero(SOGLIA_ALTRI)} decisions).</li></ul>
+<p><a href="../">Schengen visa refusal rates</a> · <a href="../uk/">UK visa refusal rates by nationality</a> · <a href="../new-zealand-visas/">New Zealand</a> · <a href="../canada-visas/">Canada</a> · <a href="{rel}">Visa income calculator</a></p>"""
+    ld = {"@context": "https://schema.org", "@type": "Dataset", "name": f"Australia student visa refusal rates by nationality {AU_A1}",
+          "description": "Australian student visa (subclass 500) refusal rates by citizenship, financial year, month and education sector, and visitor visa grant rates, recalculated from Department of Home Affairs files.",
+          "url": f"{URL_SITO}/{SEZ_AU}", "creator": {"@type": "Organization", "name": NOME, "url": URL_SITO + "/"},
+          "isBasedOn": [F_AUS["url"], F_AUT["url"]], "temporalCoverage": f"{AU['anni'][0][:4]}-07/{AU_FINO_AL[-4:]}", "license": F_AUS["licenza_url"]}
+    pagina(SEZ_AU, f"Australia visa refusal rate by nationality {AU_A1}: students and visitors",
+           f"Official Home Affairs data: Australia refused {pct(rapporto(tot1))} of student visa decisions for applicants outside Australia in {AU_A1}. "
+           f"{len(AU_OK)} nationalities (India, Nepal, Pakistan, Bangladesh, Philippines and more), by month and sector, plus visitor visa grant rates.",
+           corpo, ordina=True, jsonld_extra=ld, briciole=[("Visa refusal rates", SEZ), ("Australia", SEZ_AU)])
+
+
+def pagina_rif_nz():
+    rel = "../../"
+    righe = []
+    for n in NZ_OK:
+        celle = ""
+        for t, _, _ in NZ_TIPI:
+            v = nz_v(n, t, NZ_A1)
+            celle += f'{cella_quota(v)}<td class="n" data-v="{sum(v)}">{intero(sum(v))}</td>'
+        righe.append(f'<tr><td>{link_paese_altri(n, rel, "new-zealand")}</td>{celle}</tr>')
+    tot = {t: nz_v(None, t, NZ_A1) for t, _, _ in NZ_TIPI}
+    tot0 = {t: nz_v(None, t, NZ_A0) for t, _, _ in NZ_TIPI}
+    righe_a = []
+    for a in NZ_ANNI:
+        celle = ""
+        for t, _, _ in NZ_TIPI:
+            v = nz_v(None, t, a)
+            celle += f'{cella_quota(v)}<td class="n" data-v="{sum(v)}">{intero(sum(v))}</td>'
+        et = f"{nz_ytd_testo()} ({a})" if a == NZ_YTD else a
+        righe_a.append(f'<tr><td>{escape(et)}</td>{celle}</tr>')
+    testa = "".join(f'{th_ord(f"{et} declined", primo="ascending")}{th_ord("Decisions")}' for _, et, _ in NZ_TIPI)
+    opzioni = "".join(f'<option value="{rel}{SEZ}{SLUG_RIF[chiave_altri(n)]}/#new-zealand">{escape(nome_altri(n))}</option>'
+                      for n in sorted(NZ_OK, key=nome_altri) if chiave_altri(n) in SLUG_RIF)
+    vis = [n for n in NZ_OK if sum(nz_v(n, "visitor", NZ_A1)) >= SOGLIA_ALTRI]
+    alto = sorted(vis, key=lambda n: -rapporto(nz_v(n, "visitor", NZ_A1)))[:3]
+    corpo = f"""<section class="hero">{h1_diviso(f"New Zealand visa decline rate by nationality {NZ_A1}: visitor, student and work visas")}
+<p class="lead">How many New Zealand visa applications were declined, nationality by nationality, from Immigration New Zealand's official monthly statistics: visitor, student and work visas side by side, every financial year since {NZ_ANNI[0]}.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{bandiera("New Zealand")}<span>New Zealand temporary visas</span><span style="white-space:nowrap">{NZ_A1}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Visitor visas · all nationalities · {nz_fy(NZ_A1)}</span><span class="sr">: </span><strong>{pct(rapporto(tot["visitor"]))}</strong> declined ({intero(tot["visitor"][1])} of {intero(sum(tot["visitor"]))} applications decided)</p>
+<div class="kpi"><div><b>{pct(rapporto(tot["student"]))}</b><span>student visas declined · {intero(sum(tot["student"]))} decisions</span></div><div><b>{pct(rapporto(tot["work"]))}</b><span>work visas declined · {intero(sum(tot["work"]))} decisions</span></div><div><b>{pct(rapporto(tot0["visitor"]))}</b><span>visitor visas declined in {NZ_A0}</span></div><div><b>{len(NZ_OK)}</b><span>nationalities with {intero(SOGLIA_ALTRI)}+ decisions of one type</span></div></div>
+<p class="lead" style="margin-top:6px">Highest visitor visa decline rates in {NZ_A1} among nationalities with at least {intero(SOGLIA_ALTRI)} decisions: {", ".join(f"{escape(nome_altri(n))} ({pct(rapporto(nz_v(n, 'visitor', NZ_A1)))})" for n in alto)}.</p>
+{fonte_nz_p()}
+</div></section>
+{avviso_altri("INZ's declined figure also includes withdrawn applications, so it is not the same measure as the UK or Australian refusal rate.")}
+{AD}
+<section class="card cerca"><form class="vai" action="#" onsubmit="return false"><label for="vai-nz"><span class="lt">{ico("globe")}Your passport</span></label>
+<div class="vai-r"><select id="vai-nz" data-vai><option value="">Choose a country…</option>{opzioni}</select></div></form></section>
+<h2>New Zealand visa decline rate by nationality ({NZ_A1})</h2>
+<p class="small">Applications decided in {NZ_A1} ({nz_fy(NZ_A1)}), nationalities with at least {intero(SOGLIA_ALTRI)} decisions for at least one visa type. Tap a column heading to sort, or type to filter. * Fewer than {intero(SOGLIA_ALTRI)} decisions; – fewer than {SOGLIA_POCO}.</p>
+<p class="filtro"><label><span class="sr">Filter nationalities</span><input type="search" placeholder="Filter: e.g. India" data-filtro="t-nz" autocomplete="off"></label></p>
+<div class="tab compatta"><table class="ord larga" id="t-nz"><thead><tr>{th_ord("Nationality", False, "ascending")}{testa}</tr></thead><tbody>{"".join(righe)}</tbody></table></div>
+{fonte_nz_p()}
+<h2>Year by year, all nationalities</h2>
+<div class="tab compatta"><table class="ord"><thead><tr>{th_ord("Financial year", False, "ascending")}{testa}</tr></thead><tbody>{"".join(righe_a)}</tbody></table></div>
+{fonte_nz_p(breve=True)}
+<h2>How to read these figures</h2>
+<ul class="testo">
+<li><strong>By nationality</strong> = the country that issued the passport (INZ definition).</li>
+<li><strong>Declined</strong>, for INZ, includes applications that did not meet the criteria <em>and</em> applications withdrawn by the client or replaced by a new one. We divide declined by approved + declined, the applications INZ counts as decided.</li>
+<li><strong>Applications, not people:</strong> one application can include several people (INZ also publishes the people counts).</li>
+<li>Financial years run from 1 July to 30 June; {NZ_YTD and f"{NZ_YTD} so far covers {nz_ytd_testo()}." or ""} Electronic travel authorities (NZeTA) are not visas and are not counted.</li></ul>
+<h2>Official sources</h2>
+<ul class="fonti">{"".join(f'<li><a href="{escape(F2[f"nz_{t}"]["url"])}" rel="noopener">{escape(F2[f"nz_{t}"]["titolo"])}</a> – Immigration New Zealand, PDF ({intero(F2[f"nz_{t}"]["byte"])} bytes), prepared {escape(F2[f"nz_{t}"]["preparato"])}, downloaded on {data_lunga(F2[f"nz_{t}"]["scaricato_il"])}. Crown copyright, {lic_link(F2[f"nz_{t}"])}.</li>' for t, _, _ in NZ_TIPI)}
+<li><a href="{escape(F2["nz_visitor"]["pagina"])}" rel="noopener">Immigration statistics</a> and <a href="{escape(F2["nz_visitor"]["copyright"])}" rel="noopener">copyright notice</a> – Immigration New Zealand.</li></ul>
+<p><a href="../">Schengen visa refusal rates</a> · <a href="../uk/">UK</a> · <a href="../australia-visas/">Australia</a> · <a href="../canada-visas/">Canada</a> · <a href="{rel}">Visa income calculator</a></p>"""
+    ld = {"@context": "https://schema.org", "@type": "Dataset", "name": f"New Zealand visa decline rates by nationality {NZ_A1}",
+          "description": "Visitor, student and work visa applications approved and declined by nationality and financial year, from Immigration New Zealand statistics.",
+          "url": f"{URL_SITO}/{SEZ_NZ}", "creator": {"@type": "Organization", "name": NOME, "url": URL_SITO + "/"},
+          "isBasedOn": [F2[f"nz_{t}"]["url"] for t, _, _ in NZ_TIPI], "temporalCoverage": f"{NZ_ANNI[0][:4]}-07/{NZ_INFO['periodo'][1][-4:]}",
+          "license": F2["nz_visitor"]["licenza_url"]}
+    pagina(SEZ_NZ, f"New Zealand visa decline rate by nationality {NZ_A1}: visitor, study, work",
+           f"Immigration New Zealand data: {pct(rapporto(tot['visitor']))} of visitor visa applications were declined in {NZ_A1}. "
+           f"Visitor, student and work visa decline rates for {len(NZ_OK)} nationalities, year by year since {NZ_ANNI[0]}.",
+           corpo, ordina=True, jsonld_extra=ld, briciole=[("Visa refusal rates", SEZ), ("New Zealand", SEZ_NZ)])
+
+
+def pagina_rif_ca():
+    rel = "../../"
+    righe = []
+    for n in CA_OK:
+        ap, es, q = ca_quota(n, CA_A1)
+        ap0, es0, q0 = ca_quota(n, CA_A0)
+        apy, esy, qy = ca_quota(n, CA_YTD) if CA_YTD else (0, 0, None)
+        sp, trv = ca_somma("sp_processed", n, CA_A1)[0], ca_somma("trv_approved", n, CA_A1)[0]
+        righe.append(f'<tr><td>{link_paese_altri(n, rel, "canada")}</td>{cella_tasso(q)}{cella_tasso(q0) if es0 >= SOGLIA_POCO else cella_tasso(None)}'
+                     f'{cella_tasso(qy, esy < SOGLIA_ALTRI) if esy >= SOGLIA_POCO else cella_tasso(None)}<td class="n" data-v="{es}">{intero(es)}</td>'
+                     f'{cella_ca("sp_processed", n, CA_A1)}{cella_ca("trv_approved", n, CA_A1)}</tr>')
+    ap, es, q = ca_quota("Total", CA_A1)
+    ap0, es0, q0 = ca_quota("Total", CA_A0)
+    apy, esy, qy = ca_quota("Total", CA_YTD) if CA_YTD else (0, 0, None)
+    sp_t, trv_t = ca_somma("sp_processed", "Total", CA_A1)[0], ca_somma("trv_approved", "Total", CA_A1)[0]
+    opzioni = "".join(f'<option value="{rel}{SEZ}{SLUG_RIF[chiave_altri(n)]}/#canada">{escape(nome_altri(n))}</option>'
+                      for n in sorted(CA_OK, key=nome_altri) if chiave_altri(n) in SLUG_RIF and chiave_altri(n) != "CANADA")
+    basso = sorted(CA_OK, key=lambda n: ca_quota(n, CA_A1)[2])[:3]
+    corpo = f"""<section class="hero">{h1_diviso(f"Canada visa approval rate by country {CA_A1}: temporary resident applications (IRCC data)")}
+<p class="lead">How many temporary resident applications from each country Canada approved, from IRCC's official monthly files: visitor visas, study permits and work permits together, with the number of study permit applications processed and visitor visas approved. Why there is no study permit or visitor visa refusal rate is explained below.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{bandiera("Canada")}<span>Canada temporary residents</span><span>{CA_A1}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">All temporary resident applications · all countries · {CA_A1}</span><span class="sr">: </span><strong>{pct(q)}</strong> approved ({intero(ap)} of {intero(es)} processed)</p>
+<div class="kpi"><div><b>{pct(q0)}</b><span>approved in {CA_A0}</span></div><div><b>{pct(qy)}</b><span>January to {CA_ULTIMO_MESE} {CA_YTD} · {intero(esy)} processed</span></div><div><b>{intero(sp_t)}</b><span>new study permit applications processed in {CA_A1}</span></div><div><b>{intero(trv_t)}</b><span>visitor visas approved in {CA_A1}</span></div></div>
+<p class="lead" style="margin-top:6px">Lowest approved shares in {CA_A1} among countries with at least {intero(SOGLIA_ALTRI)} applications processed: {", ".join(f"{escape(nome_altri(n))} ({pct(ca_quota(n, CA_A1)[2])})" for n in basso)}.</p>
+{fonte_ca_p()}
+</div></section>
+<p class="avviso"><strong>What this rate is, and what it is not.</strong> IRCC publishes, for each country and month, the temporary resident applications it <em>processed</em> (approved, refused and withdrawn) and those it <em>approved</em>, for visitor visas, visitor records, study permits and work permits together, first applications and extensions. The approved share below is therefore a mixed figure, not a visitor visa or study permit approval rate. For study permits IRCC publishes only the applications processed, and for visitor visas only the visas approved, so a refusal rate for either cannot be calculated from the official files: we show those counts without a rate.</p>
+{avviso_altri("The approved share mixes visitor visas, study permits and work permits, so it says little about any one application.")}
+{AD}
+<section class="card cerca"><form class="vai" action="#" onsubmit="return false"><label for="vai-ca"><span class="lt">{ico("globe")}Your country</span></label>
+<div class="vai-r"><select id="vai-ca" data-vai><option value="">Choose a country…</option>{opzioni}</select></div></form></section>
+<h2>Canada temporary resident approval rate by country ({CA_A1})</h2>
+<p class="small">Countries with at least {intero(SOGLIA_ALTRI)} temporary resident applications processed in {CA_A1}, in persons. Tap a column heading to sort, or type to filter. * Fewer than {intero(SOGLIA_ALTRI)} processed; – fewer than {SOGLIA_POCO}.</p>
+<p class="filtro"><label><span class="sr">Filter countries</span><input type="search" placeholder="Filter: e.g. Nigeria" data-filtro="t-ca" autocomplete="off"></label></p>
+<div class="tab compatta"><table class="ord larga" id="t-ca"><thead><tr>{th_ord("Country", False, "ascending")}{th_ord(f"Approved {CA_A1}")}{th_ord(CA_A0)}{th_ord(f"Jan–{CA_ULTIMO_MESE[:3]} {CA_YTD}")}{th_ord(f"Processed {CA_A1}")}{th_ord("Study permits processed")}{th_ord("Visitor visas approved")}</tr></thead><tbody>{"".join(righe)}</tbody></table></div>
+{fonte_ca_p(("tr_processed", "tr_approved", "sp_processed", "trv_approved"))}
+<h2>How to read these figures</h2>
+<ul class="testo">
+<li><strong>Approved share</strong> = temporary resident applications approved ÷ processed, in persons, for the same countries and months. "Processed" includes approved, refused and withdrawn applications, so 100% minus this share is refused <em>or</em> withdrawn.</li>
+<li><strong>Temporary resident applications</strong> include temporary resident (visitor) visas, visitor records, study permits and extensions, and work permits and extensions (IRCC definition in the files).</li>
+<li><strong>Country</strong> is IRCC's "source country"; the files do not define it further.</li>
+<li><strong>Visitor visas approved</strong> counts V-1 visas only (tourists and family visits, not visas issued to students or workers); "–" means the country is not in that file, usually because its citizens do not need a visitor visa.</li>
+<li><strong>Rounding:</strong> counts are rounded to the nearest 5 and counts from 1 to 4 are not published, so small numbers are approximate. Data are operational and can change.</li></ul>
+<h2>Official sources</h2>
+<ul class="fonti">{"".join(f'<li><a href="{escape(F2[f"ca_{k}"]["url"])}" rel="noopener">{escape(F2[f"ca_{k}"]["titolo"])}</a> – IRCC, XLSX ({intero(F2[f"ca_{k}"]["byte"])} bytes), data as of {escape(F2[f"ca_{k}"]["dati_al"])}, downloaded on {data_lunga(F2[f"ca_{k}"]["scaricato_il"])}.</li>' for k in ("tr_processed", "tr_approved", "sp_processed", "trv_approved"))}
+<li><a href="{escape(F2["ca_tr_processed"]["pagina"])}" rel="noopener">Operational Processing – Monthly IRCC Updates</a> – Open Government Portal. Contains information licensed under the {lic_link(F2["ca_tr_processed"])}.</li></ul>
+<p><a href="../">Schengen visa refusal rates</a> · <a href="../uk/">UK</a> · <a href="../australia-visas/">Australia</a> · <a href="../new-zealand-visas/">New Zealand</a> · <a href="{rel}">Visa income calculator</a></p>"""
+    ld = {"@context": "https://schema.org", "@type": "Dataset", "name": f"Canada temporary resident applications approved by country {CA_A1}",
+          "description": "Temporary resident applications processed and approved by IRCC by source country and month, with new study permit applications processed and visitor visas approved.",
+          "url": f"{URL_SITO}/{SEZ_CA}", "creator": {"@type": "Organization", "name": NOME, "url": URL_SITO + "/"},
+          "isBasedOn": [F2[f"ca_{k}"]["url"] for k in ("tr_processed", "tr_approved", "sp_processed", "trv_approved")],
+          "temporalCoverage": f"{CA_MESI[0]}/{CA_MESI[-1]}", "license": F2["ca_tr_processed"]["licenza_url"]}
+    pagina(SEZ_CA, f"Canada visa approval rate by country {CA_A1}: temporary residents (IRCC data)",
+           f"IRCC data: {pct(q)} of temporary resident applications processed in {CA_A1} were approved. Approval share for {len(CA_OK)} countries, "
+           f"study permit applications processed and visitor visas approved, month by month.",
+           corpo, ordina=True, jsonld_extra=ld, briciole=[("Visa refusal rates", SEZ), ("Canada", SEZ_CA)])
+
+
+def schede_destinazioni(rel_sez):
+    """Tre schede per la panoramica e la pagina UK."""
+    tot_au = au_v(None, AU_A1, PO)
+    tot_nz = nz_v(None, "visitor", NZ_A1)
+    q_ca = ca_quota("Total", CA_A1)[2]
+    return (f'<div class="griglia">'
+            f'<a href="{rel_sez}australia-visas/"><span class="ic f">{bandiera("Australia")}</span><span>Australia: student visa refusal rate by nationality<small>{pct(rapporto(tot_au))} refused in {AU_A1} · {len(AU_OK)} nationalities</small></span></a>'
+            f'<a href="{rel_sez}new-zealand-visas/"><span class="ic f">{bandiera("New Zealand")}</span><span>New Zealand: visitor, student and work visas<small>{pct(rapporto(tot_nz))} of visitor visas declined in {NZ_A1}</small></span></a>'
+            f'<a href="{rel_sez}canada-visas/"><span class="ic f">{bandiera("Canada")}</span><span>Canada: temporary resident approval rate by country<small>{pct(q_ca)} approved in {CA_A1}</small></span></a></div>')
+
+
+def controlli_altri():
+    errori = []
+    if len(AU_OK) < 30:
+        errori.append(f"altri: solo {len(AU_OK)} nazionalità australiane con {SOGLIA_ALTRI}+ decisioni")
+    if len(NZ_OK) < 30 or len(CA_OK) < 50:
+        errori.append(f"altri: poche nazionalità (NZ {len(NZ_OK)}, Canada {len(CA_OK)})")
+    for k, f in F2.items():
+        if not f.get("url", "").startswith("https://") or not f.get("scaricato_il"):
+            errori.append(f"altri: fonte {k} senza URL o data")
+        if not f.get("licenza_url", "").startswith("https://"):
+            errori.append(f"altri: fonte {k} senza licenza")
+    # ogni nome dei file deve finire su una chiave nota o essere escluso, se ha una pagina o supera la soglia
+    noti = set(DEMONIMI) | {r[1] for r in UE[A1]}
+    for fonte, nomi in (("AU", AU_OK), ("NZ", NZ_OK), ("CA", CA_OK)):
+        ignoti = [n for n in nomi if chiave_altri(n) not in noti and n not in NON_NAZIONALITA]
+        if len(ignoti) > 12:
+            errori.append(f"altri: {fonte} nomi senza corrispondenza: {ignoti[:12]}")
+    for s in ("australia-visas", "new-zealand-visas", "canada-visas"):
+        if s in SLUG_RIF.values():
+            errori.append(f"altri: slug {s} già usato da una pagina Paese")
+    return errori
 
 
 ORDINA_JS = r"""
@@ -2293,6 +3122,9 @@ def genera_rifiuti():
     for s in STATI_UE:
         pagina_rif_stato(s)
     pagina_rif_uk()
+    pagina_rif_au()
+    pagina_rif_nz()
+    pagina_rif_ca()
 
 
 def controlli_rifiuti():
@@ -2391,6 +3223,7 @@ def controlli():
     if len({P["slug"] for P in PROG}) != len(PROG):
         errori.append("slug duplicati")
     errori += controlli_rifiuti()
+    errori += controlli_altri()
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -2420,7 +3253,8 @@ def main():
     privacy()
     extra()
     print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili; {len(PROG)} programmi in {len(PAESI)} paesi; "
-          f"cambi BCE del {CAMBI['data']}; visti rifiutati: {len(PAESI_RIF)} Paesi, {len(STATI_UE)} Stati Schengen ({A1}), UK fino al {TRIM[-1]}.")
+          f"cambi BCE del {CAMBI['data']}; visti rifiutati: {len(PAESI_RIF)} Paesi, {len(STATI_UE)} Stati Schengen ({A1}), UK fino al {TRIM[-1]}; "
+          f"Australia {len(AU_OK)} nazionalità ({AU_A1}), Nuova Zelanda {len(NZ_OK)} ({NZ_A1}), Canada {len(CA_OK)} ({CA_A1}).")
 
 
 if __name__ == "__main__":
