@@ -213,12 +213,25 @@ def controlla_parole_ai():
             errore(f"{f.relative_to(RADICE)}: nome di un servizio di IA ({m.group(0)})")
 
 
+def controlla_indexnow():
+    """File chiave IndexNow in sito/: presente, con dentro solo la chiave, fuori dalla sitemap (scritto da genera.py accanto a robots.txt)."""
+    f = SITO / f"{G.CHIAVE_INDEXNOW}.txt"
+    if not f.exists():
+        errore(f"file chiave IndexNow mancante: {f.name}")
+    elif f.read_text(encoding="utf-8").strip() != G.CHIAVE_INDEXNOW:
+        errore(f"file chiave IndexNow con contenuto sbagliato: {f.name}")
+    if f.name in (SITO / "sitemap.xml").read_text(encoding="utf-8"):
+        errore("file chiave IndexNow citato nella sitemap")
+    print(f"File chiave IndexNow {f.name}: {'presente' if f.exists() else 'MANCANTE'}.")
+
+
 def main():
     pagine, canon, n_link = controlla_pagine()
     urls = controlla_sitemap(canon)
     controlla_dati()
     controlla_parole_ai()
     print(f"Pagine HTML: {len(pagine)}; link interni controllati: {n_link}; URL in sitemap: {len(urls)}.")
+    controlla_indexnow()
     if "--browser" in sys.argv:
         r = subprocess.run(["node", str(RADICE / "verifica_browser.js")])
         if r.returncode:

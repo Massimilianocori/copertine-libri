@@ -137,3 +137,6 @@ Se i crediti stringono, pubblicare ogni due settimane (le date "as of" restano g
   precisata la revoca (h)(3); link FR su govinfo.gov e 38 CFR 36.4360 con l'indirizzo eCFR corto.
 - SEO: description ≤ 165 caratteri, titoli ≤ 67, conteggio nel titolo di contee e città. Design: m4 della mappa più scuro (contrasto AA),
   griglie a 2 colonne e passi più larghi sul telefono, segnaposto della ricerca più corto.
+
+## IndexNow (26/10/2026)
+- IndexNow: file chiave scritto dal generatore; invio con studio-business/strumenti/indexnow.py. Costante `CHIAVE_INDEXNOW` in `genera.py` accanto a `SCRIPT_CONTATORE` (chiave pubblica, uguale in tutti i siti della rete); `extra()` scrive `sito/<chiave>.txt` accanto a `robots.txt`, fuori dalla sitemap e non linkato. Nuovo controllo in `verifica.py` (`controlla_indexnow`): file presente, contenuto = chiave, non citato nella sitemap.

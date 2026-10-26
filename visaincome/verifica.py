@@ -464,6 +464,19 @@ def controlla_altri_siti():
     return errori, n
 
 
+def controlla_indexnow():
+    """File chiave IndexNow in sito/: presente, con dentro solo la chiave, fuori dalla sitemap (scritto da genera.py accanto a robots.txt)."""
+    errori = []
+    f = SITO / f"{G.CHIAVE_INDEXNOW}.txt"
+    if not f.exists():
+        errori.append(f"file chiave IndexNow mancante: {f.name}")
+    elif f.read_text(encoding="utf-8").strip() != G.CHIAVE_INDEXNOW:
+        errori.append(f"file chiave IndexNow con contenuto sbagliato: {f.name}")
+    if f.name in (SITO / "sitemap.xml").read_text(encoding="utf-8"):
+        errori.append("file chiave IndexNow citato nella sitemap")
+    return errori
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -483,7 +496,9 @@ def main():
     print(f"8. Easiest Schengen visa ({n8} pagine) e visti UK di studio e lavoro: {len(e8)} errori")
     e9, n9 = controlla_altri_siti()
     print(f"9. Blocco \"Other useful tools for your trip\" ({len(G.ALTRI_SITI)} link) in {n9} pagine indicizzabili: {len(e9)} errori")
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9
+    e10 = controlla_indexnow()
+    print(f"10. File chiave IndexNow {G.CHIAVE_INDEXNOW}.txt in sito/ (contenuto giusto, fuori dalla sitemap): {len(e10)} errori")
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10
     for e in tutti:
         print(" -", e)
     if tutti:

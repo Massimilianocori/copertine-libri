@@ -22,6 +22,8 @@ NOME = "EsamiDiStato"
 ALTRI_SITI = [  # blocco "Altri strumenti utili" in fondo a ogni pagina (URL dal genera.py dell'altro sito)
     ("https://esameb1.netlify.app/", "EsameB1",
      "date, scadenze e sedi dell'esame di italiano B1 per la cittadinanza (CILS, CELI, PLIDA, CERT.IT), prese dalle fonti ufficiali degli enti."),
+    ("https://italy-strikes-today.netlify.app/it/", "Scioperi dei trasporti in Italia oggi e domani",
+     "treni, aerei e mezzi pubblici, dal registro ufficiale del Ministero."),
 ]
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console, proprietà https://esamidistato.netlify.app — non rimuovere
 
@@ -32,6 +34,9 @@ GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Consol
 GOATCOUNTER_URL = "https://rete-siti.goatcounter.com/count"
 SCRIPT_CONTATORE = ('<script>window.goatcounter={path:function(p){return location.host+p}}</script>'
                     f'<script data-goatcounter="{GOATCOUNTER_URL}" async src="https://gc.zgo.at/count.js"></script>')
+# IndexNow (Bing, Yandex, Naver, Seznam): chiave pubblica uguale per tutti i siti della rete. Il generatore scrive
+# sito/<chiave>.txt (contenuto: la chiave) accanto a robots.txt; l'invio degli URL lo fa studio-business/strumenti/indexnow.py.
+CHIAVE_INDEXNOW = "b5a26a844a465f58552debee2c8a0114"
 OGGI = date.today()
 
 MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto",
@@ -966,6 +971,7 @@ def privacy():
 
 def extra(urls):
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
+    (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
     voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{OGGI.isoformat()}</lastmod></url>" for u in urls)
     (SITO / "sitemap.xml").write_text(
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{voci}</urlset>\n')

@@ -87,3 +87,7 @@
 
 ## Collegamenti tra siti (19/10/2026)
 - In fondo a ogni pagina, blocco "Altri strumenti utili" con il link alla home di EsameB1 e una riga di descrizione (costante `ALTRI_SITI` in `genera.py`). Deciso nel cruscotto (sez. 6, riga 19/10), uscito con la pubblicazione settimanale.
+
+## IndexNow (26/10/2026)
+- IndexNow: file chiave scritto dal generatore; invio con studio-business/strumenti/indexnow.py. Costante `CHIAVE_INDEXNOW` in `genera.py` accanto a `SCRIPT_CONTATORE` (chiave pubblica, uguale in tutti i siti della rete); `extra()` scrive `sito/<chiave>.txt` accanto a `robots.txt`, fuori dalla sitemap e non linkato.
+- Blocco «Altri strumenti utili»: aggiunta come seconda voce (`ALTRI_SITI` in `genera.py`) il link a Italy Strikes Today in italiano, `https://italy-strikes-today.netlify.app/it/`, testo «Scioperi dei trasporti in Italia oggi e domani» e descrizione «treni, aerei e mezzi pubblici, dal registro ufficiale del Ministero»; link normale `rel="noopener"`, stesso stile della voce esistente.

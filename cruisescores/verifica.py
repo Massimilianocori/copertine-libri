@@ -349,6 +349,18 @@ def browser():
         errore("Playwright: " + (r.stderr[-2000:] or r.stdout[-2000:]))
 
 
+def controlla_indexnow():
+    """File chiave IndexNow in sito/: presente, con dentro solo la chiave, fuori dalla sitemap (scritto da genera.py accanto a robots.txt)."""
+    f = SITO / f"{G.CHIAVE_INDEXNOW}.txt"
+    if not f.exists():
+        errore(f"file chiave IndexNow mancante: {f.name}")
+    elif f.read_text(encoding="utf-8").strip() != G.CHIAVE_INDEXNOW:
+        errore(f"file chiave IndexNow con contenuto sbagliato: {f.name}")
+    if f.name in (SITO / "sitemap.xml").read_text(encoding="utf-8"):
+        errore("file chiave IndexNow citato nella sitemap")
+    print(f"File chiave IndexNow {f.name}: {'presente' if f.exists() else 'MANCANTE'}.")
+
+
 def main():
     pagine = controlla_pagine()
     controlla_server(pagine)
@@ -357,6 +369,7 @@ def main():
     controlla_peso()
     if "--senza-rete" not in sys.argv:
         controlla_fonte()
+    controlla_indexnow()
     if "--browser" in sys.argv:
         browser()
     if ERR:

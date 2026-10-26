@@ -210,6 +210,19 @@ def controlla_altri_siti():
     return errori, n
 
 
+def controlla_indexnow():
+    """File chiave IndexNow in sito/: presente, con dentro solo la chiave, fuori dalla sitemap (scritto da genera.py accanto a robots.txt)."""
+    errori = []
+    f = SITO / f"{G.CHIAVE_INDEXNOW}.txt"
+    if not f.exists():
+        errori.append(f"file chiave IndexNow mancante: {f.name}")
+    elif f.read_text(encoding="utf-8").strip() != G.CHIAVE_INDEXNOW:
+        errori.append(f"file chiave IndexNow con contenuto sbagliato: {f.name}")
+    if f.name in (SITO / "sitemap.xml").read_text(encoding="utf-8"):
+        errori.append("file chiave IndexNow citato nella sitemap")
+    return errori
+
+
 def main():
     errori = controlla_esempi()
     print(f"Esempi a mano: {len(ESEMPI)} controllati, {len([e for e in errori if e.startswith('ESEMPIO')])} sbagliati")
@@ -222,7 +235,9 @@ def main():
     print(f"Pagine con fonte e data: {np_ - len(ef)}/{np_}")
     ea, na = controlla_altri_siti()
     print(f"Blocco \"Other useful tools for your trip\" ({len(G.ALTRI_SITI)} link) in {na} pagine indicizzabili: {len(ea)} errori")
-    tutti = errori + ej + el + ef + ea
+    ei = controlla_indexnow()
+    print(f"File chiave IndexNow {G.CHIAVE_INDEXNOW}.txt in sito/ (contenuto giusto, fuori dalla sitemap): {len(ei)} errori")
+    tutti = errori + ej + el + ef + ea + ei
     for e in tutti[:40]:
         print("  -", e)
     if tutti:

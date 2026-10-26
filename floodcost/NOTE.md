@@ -160,3 +160,6 @@ In più `verifica.py` ricalcola dai file grezzi, senza pandas, la mediana nazion
   `<title>` più corti con la cifra in testa, tabelle su telefono (tipo di edificio a schede, prima colonna fissa e avviso di
   scorrimento nelle tabelle larghe, tabella "one year on" più compatta), tessere chiare della mappa più visibili nel tema scuro.
 - Dopo le correzioni: `verifica.py --browser` tutto superato (2.921 pagine HTML, 2.920 nella sitemap, 84 caricamenti Playwright).
+
+## IndexNow (26/10/2026)
+- IndexNow: file chiave scritto dal generatore; invio con studio-business/strumenti/indexnow.py. Costante `CHIAVE_INDEXNOW` in `genera.py` accanto a `SCRIPT_CONTATORE` (chiave pubblica, uguale in tutti i siti della rete); `extra()` scrive `sito/<chiave>.txt` accanto a `robots.txt`, fuori dalla sitemap e non linkato. Nuovo controllo in `verifica.py` (`controlla_indexnow`): file presente, contenuto = chiave, non citato nella sitemap.

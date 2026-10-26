@@ -194,3 +194,6 @@ per questo la scheda rimanda sempre alla perizia.
 5. **Tentativo d'asta**: il PVP non lo dà in un campo; non lo mostriamo.
 6. Città grandi con poche aste oggi: Bologna, Venezia e Verona (sotto le 8 aste: nessuna pagina), Padova (9), Firenze (9) e Brescia (8) (pagina sì, senza fasce né zone).
 7. Pubblicità e riquadro mutuo: solo posti vuoti (`ad-slot` nascosto, `dati/affiliati.json` senza URL).
+
+## IndexNow (26/10/2026)
+- IndexNow: file chiave scritto dal generatore; invio con studio-business/strumenti/indexnow.py. Costante `CHIAVE_INDEXNOW` in `genera.py` accanto a `SCRIPT_CONTATORE` (chiave pubblica, uguale in tutti i siti della rete); `extra()` scrive `sito/<chiave>.txt` accanto a `robots.txt`, fuori dalla sitemap e non linkato. Nuovo controllo in `verifica.py` (`controlla_indexnow`): file presente, contenuto = chiave, non citato nella sitemap.

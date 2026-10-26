@@ -140,3 +140,6 @@ Poi commit di `cruisescores/dati` e `cruisescores/sito` (una pubblicazione Netli
   frase sui ritardi in metodologia (non verificabile) sostituita da una nota onesta in ogni riquadro fonti ("most recent inspection the CDC has published is from…"),
   avviso sulle navi del Green Sheet senza ispezioni da più di un anno, "Independent site, not the CDC" nella testata, `rel="sponsored nofollow"`,
   "Wonder Of The Seas" → "Wonder of the Seas", apostrofi "O?Sheehan’s" e "April?3 May" (`estrai.py`), descrizioni ≤ 160 caratteri, tabelle su telefono più compatte.
+
+## IndexNow (26/10/2026)
+- IndexNow: file chiave scritto dal generatore; invio con studio-business/strumenti/indexnow.py. Costante `CHIAVE_INDEXNOW` in `genera.py` accanto a `SCRIPT_CONTATORE` (chiave pubblica, uguale in tutti i siti della rete); `extra()` scrive `sito/<chiave>.txt` accanto a `robots.txt`, fuori dalla sitemap e non linkato. Nuovo controllo in `verifica.py` (`controlla_indexnow`): file presente, contenuto = chiave, non citato nella sitemap.
