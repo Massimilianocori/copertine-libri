@@ -57,6 +57,7 @@ enti = json.loads((DATI / "enti.json").read_text())
 sessioni = json.loads((DATI / "sessioni.json").read_text())
 sedi = json.loads((DATI / "sedi.json").read_text())
 citta = json.loads((DATI / "citta.json").read_text())
+esempi = json.loads((DATI / "esempi.json").read_text())  # prove d'esempio ufficiali: solo link e descrizione, con data di verifica
 ENTE = {e["sigla"]: e for e in enti}
 SLUG_ENTE = {"CILS": "cils", "CELI": "celi", "PLIDA": "plida", "CERT.IT": "certit"}
 
@@ -109,6 +110,9 @@ ICONE = {
     "euro": '<path d="M18 7.5A7 7 0 1 0 18 16.5"/><path d="M4 10.5h9M4 13.5h9"/>',
     "libro": '<path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2Z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8Z"/>',
     "voce": '<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5M8 22h8"/>',
+    "cuffie": '<path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3ZM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3Z"/>',
+    "archivio": '<rect x="2" y="3" width="20" height="5" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12h4"/>',
+    "matita": '<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
 }
 
 
@@ -385,6 +389,40 @@ min-width:0;overflow-wrap:anywhere;display:grid;gap:12px;align-content:start}
 .fatto .fonte{margin-top:auto;padding-top:10px}
 .fatto .btn{margin-top:12px;min-height:44px;padding:9px 14px;font-size:.95rem;align-self:flex-start}
 .griglia.link3{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+/* prove d'esempio */
+.es-vai{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:18px 0 4px}
+.es-vai a{display:grid;gap:4px;background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--brand);border-radius:var(--r);padding:12px 14px;
+text-decoration:none;color:var(--ink);font-weight:750;box-shadow:var(--ombra);transition:border-color .15s,background .15s}
+.es-vai a:hover{background:var(--brand-soft)}
+.es-vai small{font-weight:500;color:var(--ink-3);font-size:.86rem}
+.es-vai .ri{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.es-vai .ri .i{color:var(--ink-3)}
+.es-CILS{border-top-color:var(--cils)!important}.es-CELI{border-top-color:var(--celi)!important}.es-PLIDA{border-top-color:var(--plida)!important}.es-CERTIT{border-top-color:var(--certit)!important}
+.es-card{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--brand);border-radius:var(--r-l);padding:20px 22px;box-shadow:var(--ombra);min-width:0;overflow-wrap:anywhere}
+.es-card h3:first-child{margin-top:0}
+.es-testa{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;justify-content:space-between;padding-bottom:16px;margin-bottom:4px;border-bottom:1px solid var(--line)}
+.es-testa p{margin:0;color:var(--ink-2);font-size:.95rem;max-width:56ch}
+.es-testa .btn{min-height:44px;padding:9px 16px;font-size:.95rem}
+.es-prove{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:12px 0 0;padding:0;list-style:none}
+.es-prove li{background:var(--surface-2);border-radius:10px;padding:9px 12px;min-width:0}
+.es-prove b{display:block;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+.es-prove span{font-weight:700;font-size:.95rem;font-variant-numeric:tabular-nums}
+.es-card>p{color:var(--ink-2);margin:10px 0 0}
+.file-lista{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:8px}
+.file-lista li{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:4px 12px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.file-lista .fi{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;background:var(--brand-soft);color:var(--brand)}
+.file-lista .fi .i{width:20px;height:20px}
+.file-lista a,.file-lista .nome{font-weight:750;display:inline-flex;align-items:center;gap:6px}
+.file-lista .cosa{display:block;font-size:.88rem;color:var(--ink-3);line-height:1.4;margin-top:1px}
+.file-lista .meta{display:flex;flex-direction:column;align-items:flex-end;gap:2px;font-size:.82rem;color:var(--ink-3);text-align:right;white-space:nowrap}
+.file-lista .meta strong{font-size:.78rem;font-weight:800;letter-spacing:.04em;color:var(--ink-2);background:var(--surface-2);padding:1px 7px;border-radius:5px}
+.es-tab table{min-width:680px}
+@media (max-width:640px){.es-vai{grid-template-columns:1fr 1fr;gap:8px}.es-vai a{padding:10px 12px;font-size:.95rem}.es-vai small{font-size:.8rem}.es-card{padding:16px}.es-testa .btn{flex:1 1 100%}.file-lista li{grid-template-columns:36px minmax(0,1fr)}.file-lista .fi{width:36px;height:36px}
+.file-lista .meta{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:center;gap:4px 10px;text-align:left;white-space:normal}}
+table.conf td.si{color:var(--brand-ink);font-weight:650}
+table.conf td.no{color:var(--ink-3)}
+ol.passi li>div p{margin:4px 0 0;color:var(--ink-2);font-size:.95rem}
+ol.passi li .fonte{margin-top:6px}
 .piede .dati{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);padding:6px 12px;border-radius:999px;font-weight:600;color:#E8F0ED}
 @media (max-width:760px){.piede-griglia{grid-template-columns:1fr}}
 """
@@ -536,7 +574,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
 <div>
 <a class="logo" href="{home_href}">{MARCHIO}<span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Esenzioni e domande</a></li>{enti_link}<li><a href="{rel}privacy.html">Privacy</a></li>
+<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Esenzioni e domande</a></li><li><a href="{rel}esempi-esame-b1/">Prove d'esempio</a></li>{enti_link}<li><a href="{rel}privacy.html">Privacy</a></li>
 </ul>
 </div>
 <div>
@@ -854,7 +892,8 @@ def link_guide(rel, salta=None):
     voci = [("costo/", "euro", "Quanto costa", "i prezzi di ogni ente"),
             ("come-funziona/", "lista", "Come si svolge", "durata, cosa portare, esempi"),
             ("risultati/", "ok", "Risultati", "quando arrivano e dove vederli"),
-            ("esenzioni-e-domande/", "scudo", "Esenzioni e domande", "chi non deve fare l'esame, orale, durata")]
+            ("esenzioni-e-domande/", "scudo", "Esenzioni e domande", "chi non deve fare l'esame, orale, durata"),
+            ("esempi-esame-b1/", "libro", "Prove d'esempio", "gratis, ufficiali, ente per ente")]
     return '<div class="griglia link3">' + "".join(
         f'<a href="{rel}{h}">{ic(i)}<span>{t}<small>{sm}</small></span></a>' for h, i, t, sm in voci if h != salta) + "</div>"
 
@@ -902,6 +941,7 @@ def home(prossime):
 {domanda("Quanto costa l'esame B1 per la cittadinanza?", "CILS B1 Cittadinanza: 100 €, la stessa tassa in tutta Italia. CERT.IT B1: 80 € alla sede di Roma Tre. CELI e PLIDA: il prezzo lo decide il centro d'esame (per esempio CELI 2 i cittadinanza 90 € all'Università degli Studi di Milano). <a href=\"costo/\">Tutti i costi, con le fonti</a>.")}
 {domanda("Quanto dura l'esame?", "Lo scritto dura da 1 ora e 30 minuti (CERT.IT) a 2 ore e 20 minuti (CELI e PLIDA), secondo l'ente. Poi c'è un orale di 10-15 minuti, di solito lo stesso giorno. <a href=\"come-funziona/#durata\">Durata di ogni esame e cosa portare</a>.")}
 {domanda("Quando arrivano i risultati?", "CILS: circa 3 mesi dopo l'esame. CELI: circa 90 giorni lavorativi. PLIDA: li vedi online nel tuo account PLIDA. <a href=\"risultati/\">Dove vedere il risultato e come avere il certificato</a>.")}
+{domanda("Dove trovo esempi gratis dell'esame B1?", "Ogni ente pubblica gratis sul suo sito una prova d'esempio ufficiale, con audio e soluzioni: CILS B1 Cittadinanza, CELI 2 i, PLIDA B1 e CERT.IT B1. <a href=\"esempi-esame-b1/\">Tutte le prove d'esempio, ente per ente</a>.")}
 {domanda("Si può fare l'esame online?", "No. L'esame B1 per la cittadinanza si fa in presenza, in una sede d'esame, con un documento d'identità. <a href=\"come-funziona/#online\">Fonti ufficiali</a>.")}
 <p class="small">Per chiedere la cittadinanza italiana per residenza o matrimonio serve un certificato di italiano di livello B1.
 Qui trovi in un solo posto le date, le scadenze e le sedi dei 4 enti riconosciuti: CILS, CELI, PLIDA e CERT.IT.</p>
@@ -1063,7 +1103,8 @@ def pagina_ente(e, prossime):
 <ul class="cifre"><li>{eb(sigla)}<span>{escape(e['nome'])}</span></li>
 <li>{ic("web")}<a href="{escape(e['sito'])}" rel="noopener">sito ufficiale</a></li>
 <li>{ic("cal")}<a href="{escape(e['pagina_date'])}" rel="noopener">calendario ufficiale</a></li>
-<li>{ic("lista")}<a href="{escape(e['pagina_sedi'])}" rel="noopener">elenco ufficiale delle sedi</a></li></ul>
+<li>{ic("lista")}<a href="{escape(e['pagina_sedi'])}" rel="noopener">elenco ufficiale delle sedi</a></li>
+<li>{ic("libro")}<a href="../../esempi-esame-b1/#{SLUG_ENTE[sigla]}">Prove d'esempio {escape(sigla)}</a></li></ul>
 </section>
 <div class="due">
 <section>
@@ -1075,6 +1116,7 @@ def pagina_ente(e, prossime):
 <section>
 <h2 id="in-breve">{ic("info")}{escape(sigla)} B1 in breve: costo, durata, risultati</h2>
 <div class="fatti">{fatti}</div>
+<p><a href="../../esempi-esame-b1/#{SLUG_ENTE[sigla]}">{ic("libro")} Prove d'esempio {escape(sigla)}: cosa contengono, com'è fatta la prova e come esercitarti</a></p>
 </section>
 <section>
 <h2 id="sedi">{ic("edificio")}Sedi {escape(sigla)} in Italia ({len(sue)})</h2>
@@ -1133,6 +1175,7 @@ per CERT.IT l'orale si fa in presenza. A Roma Tre lo scritto del CERT.IT B1 si f
 <h2 id="esempi">{ic("libro")}Esempi d'esame gratis (sito ufficiale)</h2>
 <p>Ogni ente pubblica una prova d'esempio gratuita: è il modo migliore per capire com'è l'esame.</p>
 {schede_per_ente("esempi", bottone="Apri la prova d'esempio")}
+<p><a href="../esempi-esame-b1/">Le prove d'esempio ente per ente: cosa contengono (PDF, audio, soluzioni), com'è fatta la prova e come esercitarti</a></p>
 <h2>{ic("euro")}Costo e risultati</h2>
 <p>CILS B1 Cittadinanza costa 100 €, CERT.IT B1 80 € a Roma Tre; per CELI e PLIDA il prezzo lo decide il centro. <a href="../costo/">Tutti i costi</a> ·
 <a href="../risultati/">Quando arrivano i risultati</a>.</p>
@@ -1312,7 +1355,7 @@ cosa portare il giorno dell'esame è in <a href="../come-funziona/#durata">Come 
 <h2 id="domande">{ic("libro")}Le domande dell'esame: dove vedere esempi veri</h2>
 <p>Non esiste una lista di domande da imparare a memoria: le prove cambiano a ogni sessione. Il modo migliore per capire com'è l'esame è la prova d'esempio ufficiale, gratis:</p>
 <ul class="cifre" style="flex-direction:column;align-items:flex-start;gap:10px">{esempi}</ul>
-<p class="small">Gli argomenti sono quelli della vita di ogni giorno: casa, lavoro, servizi, salute, messaggi ed email. <a href="../come-funziona/#esempi">Tutti gli esempi, ente per ente</a>.</p>
+<p class="small">Gli argomenti sono quelli della vita di ogni giorno: casa, lavoro, servizi, salute, messaggi ed email. <a href="../esempi-esame-b1/">Tutte le prove d'esempio, ente per ente, con cosa contengono</a>.</p>
 </section>
 <section>
 <h2>{ic("info")}Risultati, costo, come iscriversi</h2>
@@ -1326,6 +1369,190 @@ cosa portare il giorno dell'esame è in <a href="../come-funziona/#durata">Come 
            "Esenzione esame B1 cittadinanza: chi non deve farlo, orale, durata, domande | EsameB1",
            "Chi è esente dall'esame B1 per la cittadinanza secondo l'art. 9.1 della legge 91/1992 (accordo di integrazione, permesso UE di lungo periodo, "
            "titolo di studio), com'è l'orale, quanto dura e che domande ci sono. Con le fonti ufficiali.", corpo, jsonld)
+
+
+def peso(byte):
+    """Dimensione in unità decimali, alla maniera italiana: 168 KB, 39,5 MB."""
+    if byte < 1_000_000:
+        return f"{round(byte / 1000)} KB"
+    return f"{byte / 1_000_000:.1f} MB".replace(".", ",")
+
+
+def host(url):
+    return re.sub(r"^https?://(www\.)?([^/]+).*$", r"\2", url)
+
+
+def pagina_esempi():
+    """Prove d'esempio ufficiali B1 dei 4 enti (dati/esempi.json): solo link ai file degli enti e descrizione presa dai loro documenti."""
+    verifica = data_breve(esempi["verificato_il"])
+    icona_file = {"PDF": "doc", "MP3": "cuffie", "ZIP": "archivio"}
+
+    def fonti(lista):
+        return " · ".join(f'<a href="{escape(x["url"])}" rel="noopener">{escape(x["nome"])}</a>' for x in lista)
+
+    def riga_file(f):
+        # Senza "url" (ente che non vuole link diretti ai file): solo il nome, niente link.
+        dim = (f'{f["numero"]} × ' if f.get("numero") else "") + peso(f["byte"])
+        dettagli = [escape(dim)] + ([f'{f["pagine"]} pag.'] if f.get("pagine") else []) + [escape(f["data"])]
+        nome = (f'<a href="{escape(f["url"])}" rel="noopener">{escape(f["nome"])}</a>' if f.get("url")
+                else f'<span class="nome">{escape(f["nome"])}</span>')
+        return (f'<li><span class="fi">{ic(icona_file[f["formato"]])}</span>'
+                f'<div>{nome}'
+                f'<span class="cosa">{escape(f["contenuto"][0].upper() + f["contenuto"][1:])}.</span></div>'
+                f'<div class="meta"><strong>{f["formato"]}</strong><span>{" · ".join(dettagli)}</span></div></li>')
+
+    def prove_ente(e):
+        parti = ENTE[e["sigla"]]["fatti"]["durata"]["prove"]["parti"]
+        return '<ul class="es-prove">' + "".join(
+            f'<li><b>{escape(" + ".join(x.capitalize() for x in p["prove"]))}</b><span>{escape(p["tempo"])}</span></li>' for p in parti) + "</ul>"
+
+    schede = []
+    for e in esempi["enti"]:
+        s = e["sigla"]
+        sl = SLUG_ENTE[s]
+        n_file = len(e["file"])
+        diretti = e.get("link_diretti", True)
+        if diretti:
+            host_file = list(dict.fromkeys(host(f["url"]) for f in e["file"]))
+            titolo_file = "I file ufficiali"
+            nota_file = (f'Ogni link apre il file sul sito {" o ".join(escape(h) for h in host_file)}. '
+                         "Data: ultima modifica del file sul server dell'ente, o data scritta nel file.")
+            testa = f"{n_file} file gratuiti, si scaricano senza registrazione."
+            controllo = f"Link controllati il {verifica}: i {n_file} file si aprono tutti (stato 200), con il formato e la dimensione indicati."
+        else:
+            titolo_file = "Cosa trovi sulla pagina ufficiale"
+            nota_file = escape(e["senza_link_diretti"])
+            testa = "L'esempio d'esame è in fondo alla pagina: è gratuito e si scarica senza registrazione."
+            controllo = f"Pagina e file controllati il {verifica}: si aprono (stato 200), con il formato e la dimensione indicati."
+        schede.append(f"""<section>
+<h2 id="{sl}">{eb(s)}<span>Prove d'esempio {escape(e["esame"])}</span></h2>
+<div class="es-card es-{s.replace(".", "")}">
+<div class="es-testa"><p>Pagina ufficiale: {escape(e["pagina"]["nome"])}, sul sito {escape(host(e["pagina"]["url"]))}.
+{testa}</p>
+<a class="btn" href="{escape(e["pagina"]["url"])}" rel="noopener">Pagina ufficiale {escape(s)} {ic("freccia")}</a></div>
+<h3>Com'è fatta la prova</h3>
+<p>{escape(e["prova"])}</p>
+{prove_ente(e)}
+<div class="fonte">{ic("doc")}<span>Fonte: {fonti(e["fonti_prova"])} · controllato il {verifica}</span></div>
+<h3>{titolo_file}</h3>
+<p class="small" style="margin:0">{nota_file}</p>
+<ul class="file-lista">{"".join(riga_file(f) for f in e["file"])}</ul>
+<div class="fonte">{ic("ok")}<span>{controllo}
+<a href="../ente/{sl}/">Date, costo e sedi {escape(s)}</a></span></div>
+</div>
+</section>""")
+
+    vai = "".join(
+        f'<a class="es-{e["sigla"].replace(".", "")}" href="#{SLUG_ENTE[e["sigla"]]}"><span class="ri">{eb(e["sigla"])}{ic("giu")}</span>'
+        f'<span>{escape(e["esame"])}</span><small>{f'{len(e["file"])} file' if e.get("link_diretti", True) else "dalla pagina ufficiale"} · {escape(e["materiali"]["audio"])}</small></a>' for e in esempi["enti"])
+
+    def cella(v):
+        return f'<td class="{"no" if v.startswith("no") else "si"}">{escape(v)}</td>'
+    righe = "".join(
+        f'<tr><td>{eb(e["sigla"])}<br><span class="small">{escape(e["esame"])}</span></td>'
+        + "".join(cella(e["materiali"][k]) for k in ("audio", "soluzioni", "trascrizioni", "orale"))
+        + f'<td>{escape(e["aggiornato"])}</td></tr>' for e in esempi["enti"])
+    tabella = (f'<div class="tab-wrap es-tab"><table class="conf"><thead><tr><th>Esame</th><th>Audio</th><th>Soluzioni</th><th>Trascrizione dell\'audio</th>'
+               f'<th>Orale</th><th>File del</th></tr></thead><tbody>{righe}</tbody></table></div>')
+
+    # Consigli presi dai documenti ufficiali degli enti (ognuno con la sua fonte).
+    E = {e["sigla"]: e for e in esempi["enti"]}
+    cils_svolg = "https://cils.unistrasi.it/1/94/28/Come_si_svolgono_gli_esami_CILS.htm"
+    quaderno_plida = E["PLIDA"]["fonti_prova"][0]
+    certit_pag = E["CERT.IT"]["fonti_prova"][0]
+    consigli = [
+        ("orologio", "Fai la prova intera, con i tempi veri e nell'ordine dell'esame",
+         "All'esame CILS si comincia con l'ascolto, poi la lettura, poi la scrittura; l'orale è di solito nel pomeriggio. "
+         "PLIDA scrive il tempo all'inizio di ogni prova e non permette appunti, dizionari, libri né telefono: allenati allo stesso modo.",
+         [{"nome": "CILS, come si svolgono gli esami", "url": cils_svolg}, quaderno_plida]),
+        ("cuffie", "Ascolta ogni audio due volte, non di più",
+         "Nel CILS B1 Cittadinanza ogni testo dell'ascolto si sente due volte; nel CERT.IT B1 lo dicono le consegne delle prove di ascolto 1 e 2. "
+         "Dopo la prova controlla con la trascrizione (CILS, CELI e PLIDA la pubblicano) le parti che non hai capito.",
+         [E["CILS"]["fonti_prova"][0], certit_pag]),
+        ("matita", "Segna le risposte sul foglio delle risposte, con la penna giusta",
+         "Stampa il foglio delle risposte ufficiale. CILS accetta solo la penna nera; PLIDA chiede una penna non cancellabile blu o nera, niente matita né bianchetto, "
+         "e dà 10 minuti alla fine per copiare le risposte sul foglio. Poi correggi con le chiavi.",
+         [{"nome": "CILS, come si svolgono gli esami", "url": cils_svolg}, quaderno_plida]),
+        ("doc", "Nella scrittura conta le parole e rileggi con i criteri ufficiali",
+         "Ogni ente chiede un numero preciso di parole: CILS un'email di 80-120, CELI 40-50 e 80-90, PLIDA 110-150 e 70-100, CERT.IT testi brevi (50-80 parole negli esempi della pagina B1). "
+         "I criteri di valutazione dicono cosa conta: per CILS efficacia comunicativa, correttezza, lessico, ortografia. PLIDA pubblica anche una prova di scrittura commentata.",
+         [{"nome": "criteri di valutazione CILS (PDF)", "url": E["CILS"]["fonti_prova"][1]["url"]}, E["CELI"]["fonti_prova"][0], quaderno_plida, certit_pag]),
+        ("voce", "Prepara l'orale ad alta voce, cominciando da te",
+         "Tutti e quattro gli orali cominciano con una presentazione: CILS circa 1 minuto partendo da una lista di domande, PLIDA circa 2 minuti (non valutati) sui tuoi progetti di studio o lavoro, "
+         "CELI e CERT.IT con domande su di te. "
+         "Poi esercitati sulle tracce ufficiali: le immagini e le domande dell'input orale CELI, la prova del candidato PLIDA (3 minuti di preparazione, con appunti), il «Parlato» CERT.IT.",
+         [E["CILS"]["fonti_prova"][0], quaderno_plida, E["CELI"]["fonti_prova"][0], {"nome": "input orale CELI 2 i (PDF)", "url": E["CELI"]["file"][2]["url"]}, certit_pag]),
+    ]
+    passi = "".join(
+        f'<li><div><strong>{t}</strong><p>{escape(x)}</p><div class="fonte">{ic("doc")}<span>Fonte: {fonti(f)}</span></div></div></li>'
+        for _i, t, x, f in consigli)
+
+    uso = "".join(f'<li><span><strong>{escape(u["ente"])}</strong>: {escape(u["testo"])} (<a href="{escape(u["url"])}" rel="noopener">fonte</a>).</span></li>' for u in esempi["uso"])
+
+    faq = [
+        ("Dove trovo le prove d'esempio CILS B1 cittadinanza?",
+         "Sul sito ufficiale dell'Università per Stranieri di Siena, alla pagina «Prove Liv. B1 c»: quaderno, file audio MP3, trascrizione dell'audio, tracce di scrittura e orale, "
+         "chiavi, criteri di valutazione e foglio delle risposte. Sono gratis e si scaricano senza registrazione (controllato il " + verifica + ")."),
+        ("Dove trovo le prove d'esempio CELI 2 i cittadinanza?",
+         "Sulla pagina «Esami CELI immigrati» del CVCL, Università per Stranieri di Perugia, nella parte CELI 2 i: due esempi completi in zip (fascicoli, audio MP3, chiavi), "
+         "gli esempi di immagini e domande dell'orale e i fogli delle risposte."),
+        ("C'è una simulazione dell'esame B1 per la cittadinanza?",
+         "Gli enti pubblicano prove d'esempio complete, con audio e soluzioni: stampale e falle con i tempi veri, è la simulazione più vicina all'esame. "
+         "Nelle pagine ufficiali che abbiamo controllato il " + verifica + " non c'è un test interattivo online. "
+         "Il CERT.IT B1 a Roma Tre si fa al computer (nei centri convenzionati su carta), ma sempre in sede."),
+        ("L'esame B1 per la cittadinanza è difficile?",
+         "Dipende da quanto sei preparato. Il livello B1 chiede di capire i punti principali di testi chiari sulla vita di tutti i giorni e di farsi capire: il sillabo CILS parla di "
+         "una produzione «comunicativamente efficace, anche se contiene errori». Per superarlo servono il 60% dei punti nello scritto e nell'orale del CERT.IT, almeno 18 su 30 in ogni abilità "
+         "del PLIDA, almeno 72 su 120 nello scritto del CELI 2 i, più un minimo nell'orale. Per capire il tuo livello fai una prova d'esempio ufficiale e correggila con le chiavi."),
+        ("Le prove d'esempio hanno le soluzioni e l'audio?",
+         "Sì, tutte e quattro. CILS: chiavi, MP3 e trascrizione. CELI: chiavi, MP3 e trascrizione dentro i due zip. PLIDA: soluzioni, trascrizioni e MP3 nello zip. "
+         "CERT.IT: chiavi e 3 file MP3; nei file pubblicati non c'è la trascrizione dell'audio."),
+    ]
+    jsonld = {"@context": "https://schema.org", "@type": "FAQPage",
+              "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
+    faq_html = "".join(domanda(escape(q), escape(a)) for q, a in faq)
+
+    corpo = f"""<section class="hero">
+{briciole(("EsameB1", "../"), ("Prove d'esempio", None))}
+<span class="occhiello">{ic("libro")}Fonti ufficiali · controllato il {verifica}</span>
+<h1>Esempi d'esame B1 per la cittadinanza: le prove ufficiali gratis, ente per ente</h1>
+<p class="lead">CILS, CELI, PLIDA e CERT.IT pubblicano gratis una prova d'esempio dell'esame B1, con audio e soluzioni. Qui trovi i link ai file ufficiali (per CERT.IT alla pagina dell'ente), cosa c'è dentro, com'è fatta la prova e come esercitarti.</p>
+<nav class="es-vai" aria-label="Vai all'ente">{vai}</nav>
+</section>
+{avviso("I file sono degli enti e restano sui loro siti: qui ci sono solo i link e una descrizione. Sono protetti dal diritto d'autore: scaricali per studiare, ma non ricaricarli su altri siti. <a href=\"#uso\">Le condizioni d'uso</a>.")}
+<section>
+<h2 id="confronto">{ic("lista")}Cosa trovi, ente per ente</h2>
+{tabella}
+<p class="small">Tutti e quattro gli esami hanno le stesse prove: ascolto, lettura, scrittura e orale. Quanto dura ogni prova: <a href="../esenzioni-e-domande/#prove">tabella dei tempi</a>.</p>
+</section>
+{"".join(schede)}
+<div class="due">
+<section>
+<h2 id="esercitarti">{ic("ok")}Come esercitarti</h2>
+<p>Cinque consigli presi dai documenti ufficiali degli enti.</p>
+<ol class="passi">{passi}</ol>
+</section>
+<aside>{modulo()}</aside>
+</div>
+<section>
+<h2 id="uso">{ic("scudo")}Condizioni d'uso dei materiali</h2>
+<p>Le prove d'esempio si scaricano gratis dai siti degli enti per prepararsi all'esame, ma non sono materiali liberi:</p>
+<ul>{uso}<li><span><strong>CELI</strong>: sul sito del CVCL non abbiamo trovato una nota specifica; valgono le regole generali del diritto d'autore.</span></li></ul>
+<p>Se sei un insegnante e vuoi usarle in classe, condividi il link alla pagina ufficiale; per altri usi chiedi all'ente.</p>
+<div class="fonte">{ic("doc")}<span>Note lette il {verifica}.</span></div>
+</section>
+<section>
+<h2 id="domande">{ic("info")}Domande frequenti</h2>
+{faq_html}
+</section>
+<section>
+<h2>{ic("info")}Altre domande</h2>
+{link_guide("../", salta="esempi-esame-b1/")}
+</section>"""
+    pagina("esempi-esame-b1/index.html",
+           "Esempi esame B1 cittadinanza: prove ufficiali gratis CILS, CELI, PLIDA, CERT.IT | EsameB1",
+           "Le prove d'esempio ufficiali e gratuite dell'esame B1 per la cittadinanza (CILS, CELI 2 i, PLIDA, CERT.IT) con audio e soluzioni: "
+           "link ai file ufficiali, com'è fatta la prova e come esercitarti.", corpo, jsonld)
 
 
 def privacy():
@@ -1414,6 +1641,8 @@ def main():
     urls.append("risultati/")
     pagina_esenzioni()
     urls.append("esenzioni-e-domande/")
+    pagina_esempi()
+    urls.append("esempi-esame-b1/")
     privacy()
     urls.append("privacy.html")
     extra(urls)

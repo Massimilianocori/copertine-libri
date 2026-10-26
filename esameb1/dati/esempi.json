@@ -1,0 +1,91 @@
+{
+  "verificato_il": "2026-10-26",
+  "nota": "Prove d'esempio ufficiali B1 dei 4 enti. Solo link e descrizione: i file restano sui siti degli enti. Ogni file controllato con curl il 26/10/2026 (stato, tipo, dimensione in byte). 'data' = ultima modifica del file sul server dell'ente (Last-Modified) o data scritta nel file, se indicato. Se 'link_diretti' è false (CERT.IT, per le note legali di Roma Tre sul deep linking) i file non hanno 'url': la pagina mostra solo la descrizione e il bottone alla pagina ufficiale; 'numero' = quanti file uguali (byte di ciascuno).",
+  "enti": [
+    {
+      "sigla": "CILS",
+      "esame": "CILS B1 Cittadinanza",
+      "pagina": {"nome": "Prove Liv. B1 c, Università per Stranieri di Siena", "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm"},
+      "aggiornato": "2025-2026",
+      "prova": "Ascolto: 2 prove (scelta multipla e vero/falso), ogni testo si ascolta due volte. Lettura e grammatica: 2 prove. Scrittura: un'email di 80-120 parole. Orale di circa 10 minuti: una presentazione di 1 minuto circa e un dialogo con l'esaminatore. Per questo esame non c'è la «capitalizzazione»: se non superi una parte, rifai tutto l'esame nella sessione dopo.",
+      "fonti_prova": [
+        {"nome": "sillabo CILS B1 Cittadinanza (PDF)", "url": "https://cils.unistrasi.it/public/articoli/382/B1%20Cittadinanza_Sillabo.pdf"},
+        {"nome": "criteri di valutazione (PDF)", "url": "https://cils.unistrasi.it/public/articoli/382/Criteri%20di%20valutazione%20B1%20cittadinanza_nuovi.pdf"},
+        {"nome": "pagina Prove Liv. B1 c", "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm"}
+      ],
+      "materiali": {"audio": "sì, MP3", "soluzioni": "sì (Chiavi)", "trascrizioni": "sì", "orale": "sì, traccia dell'orale", "criteri": "sì"},
+      "file": [
+        {"nome": "Quaderno (prototipo)", "contenuto": "le prove di ascolto e di lettura e grammatica", "url": "https://cils.unistrasi.it/public/articoli/382/Prototipo%20Quaderno%20B1%20Cittadinanza.pdf", "formato": "PDF", "pagine": 9, "byte": 167840, "tipo": "application/pdf", "data": "marzo 2025"},
+        {"nome": "File audio", "contenuto": "l'audio della prova di ascolto", "url": "https://cils.unistrasi.it/public/articoli/382/UNO_B1%20cittadinanza.mp3", "formato": "MP3", "byte": 39540279, "tipo": "audio/mpeg", "data": "marzo 2025"},
+        {"nome": "Trascrizione dell'audio", "contenuto": "il testo scritto di quello che si sente nell'audio", "url": "https://cils.unistrasi.it/public/articoli/382/TRASCRIZIONI%20B1%20Cittadinanza.pdf", "formato": "PDF", "pagine": 2, "byte": 33943, "tipo": "application/pdf", "data": "marzo 2025"},
+        {"nome": "Produzione scritta", "contenuto": "la traccia della prova di scrittura", "url": "https://cils.unistrasi.it/public/articoli/382/PS_B1_Cittadinanza.pdf", "formato": "PDF", "pagine": 2, "byte": 38020, "tipo": "application/pdf", "data": "marzo 2025"},
+        {"nome": "Produzione orale", "contenuto": "la traccia dell'orale (sessione di maggio 2019, come scritto nel file)", "url": "https://cils.unistrasi.it/public/articoli/382/Input%20aggiuntivo_B1citt_1_PO.pdf", "formato": "PDF", "pagine": 1, "byte": 12679, "tipo": "application/pdf", "data": "marzo 2025"},
+        {"nome": "Chiavi", "contenuto": "le risposte giuste di ascolto e lettura", "url": "https://cils.unistrasi.it/public/articoli/382/Chiavi%20B1%20Cittadinanza%20AGGIORNATE.pdf", "formato": "PDF", "pagine": 1, "byte": 55339, "tipo": "application/pdf", "data": "maggio 2025"},
+        {"nome": "Criteri di valutazione", "contenuto": "quanti punti vale ogni prova e come si valutano scrittura e orale", "url": "https://cils.unistrasi.it/public/articoli/382/Criteri%20di%20valutazione%20B1%20cittadinanza_nuovi.pdf", "formato": "PDF", "pagine": 2, "byte": 98125, "tipo": "application/pdf", "data": "aprile 2026"},
+        {"nome": "Foglio delle risposte", "contenuto": "il foglio su cui si segnano le risposte all'esame", "url": "https://cils.unistrasi.it/public/articoli/382/B1_CITTADINANZA_v2.pdf", "formato": "PDF", "pagine": 1, "byte": 1517399, "tipo": "application/pdf", "data": "marzo 2025"},
+        {"nome": "Sillabo", "contenuto": "cosa chiede l'esame: grammatica, tipi di testo, durata di ogni prova", "url": "https://cils.unistrasi.it/public/articoli/382/B1%20Cittadinanza_Sillabo.pdf", "formato": "PDF", "pagine": 3, "byte": 161581, "tipo": "application/pdf", "data": "gennaio 2026"}
+      ]
+    },
+    {
+      "sigla": "CELI",
+      "esame": "CELI 2 i cittadinanza (B1)",
+      "pagina": {"nome": "Esami CELI immigrati, Università per Stranieri di Perugia", "url": "https://cvcl.unistrapg.it/pagine/esami-celi-immigrati"},
+      "aggiornato": "2018-2019",
+      "prova": "Due fascicoli. Nel primo, in 2 ore, la lettura (4 prove) e la scrittura (3 prove: risposte brevi, un'email formale di 40-50 parole, un messaggio informale di 80-90 parole). Nel secondo l'ascolto (4 prove, 20 minuti). Poi l'orale di 10-12 minuti: presentarsi, descrivere immagini, domande interculturali e di educazione civica, role play. Ogni parte vale il 25%; lo scritto si supera con almeno 72 punti su 120.",
+      "fonti_prova": [
+        {"nome": "descrizione dell'esame CELI 2 i (PDF)", "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-descrizione-esame.pdf"},
+        {"nome": "criteri di valutazione CELI 2 i (PDF)", "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-criteri-valutazione.pdf"}
+      ],
+      "materiali": {"audio": "sì, MP3 nei due zip", "soluzioni": "sì (chiavi nei due zip)", "trascrizioni": "sì", "orale": "sì, esempi di domande e immagini", "criteri": "sì"},
+      "file": [
+        {"nome": "Esempio 1", "contenuto": "fascicolo delle prove A e B (lettura e scrittura), fascicolo delle prove C (ascolto), audio MP3, trascrizione dei testi audio, chiavi", "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/esempio-CELI-2-i.zip", "formato": "ZIP", "byte": 19357366, "tipo": "application/zip", "data": "dicembre 2019"},
+        {"nome": "Esempio 2", "contenuto": "la sessione di maggio 2018: prove A e B, prove C, audio MP3, chiavi e testi dell'ascolto (questi due in formato Word .DOC)", "url": "https://cvcl.unistrapg.it/MC-API/Risorse/StreamRisorsa.ashx?guid=ec46a955-c57e-4ada-8d96-406c7c92ccc8", "formato": "ZIP", "byte": 42326291, "tipo": "application/x-zip-compressed", "data": "maggio 2018 (dal nome dei file)"},
+        {"nome": "Input orale CELI 2 i", "contenuto": "esempi di immagini e domande della prova orale", "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-esempi-imput-orale.pdf", "formato": "PDF", "pagine": 2, "byte": 587301, "tipo": "application/pdf", "data": "aprile 2019"},
+        {"nome": "Fogli delle risposte", "contenuto": "i fogli su cui si scrivono le risposte all'esame", "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-fogli-risposte.pdf", "formato": "PDF", "pagine": 4, "byte": 3693244, "tipo": "application/pdf", "data": "aprile 2019"},
+        {"nome": "Descrizione dell'esame", "contenuto": "le parti, i tempi, il numero di parole e quanto vale ogni prova", "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-descrizione-esame.pdf", "formato": "PDF", "pagine": 4, "byte": 315585, "tipo": "application/pdf", "data": "aprile 2019"},
+        {"nome": "Criteri di valutazione", "contenuto": "i punti di ogni prova e il punteggio minimo per superare l'esame", "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-criteri-valutazione.pdf", "formato": "PDF", "pagine": 4, "byte": 275493, "tipo": "application/pdf", "data": "aprile 2019"}
+      ]
+    },
+    {
+      "sigla": "PLIDA",
+      "esame": "PLIDA B1",
+      "pagina": {"nome": "Preparati all'esame, PLIDA (Società Dante Alighieri): sezione «Scarica i materiali», livello B1", "url": "https://plida.dante.global/it/preparati-allesame/"},
+      "aggiornato": "2021-2024",
+      "prova": "Ascoltare: 4 parti, 20 domande, 40 minuti circa. Leggere: 4 parti, 18 domande, 40 minuti. Scrivere: 2 testi guidati (110-150 e 70-100 parole), 60 minuti. Parlare, circa 15 minuti: una presentazione che non si valuta, poi un'interazione e un monologo, ciascuno con 3 minuti di preparazione. Serve almeno 18 su 30 in ogni abilità; le abilità non superate (fino a tre) si possono recuperare entro 18 mesi.",
+      "fonti_prova": [
+        {"nome": "Quaderno delle specifiche PLIDA B1 (PDF)", "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf"}
+      ],
+      "materiali": {"audio": "sì, MP3 nello zip", "soluzioni": "sì, di ascolto e lettura", "trascrizioni": "sì", "orale": "sì, la prova del candidato", "criteri": "sì"},
+      "file": [
+        {"nome": "Prova d'esempio PLIDA B1", "contenuto": "ascolto e lettura con trascrizioni e soluzioni, scrittura, orale (fogli del candidato), audio MP3", "url": "https://cms.plida.dante.global/wp-content/uploads/2024/03/PLIDA-B1_prova-esempio-1.zip", "formato": "ZIP", "byte": 44779928, "tipo": "application/zip", "data": "marzo 2024"},
+        {"nome": "Quaderno delle specifiche PLIDA B1", "contenuto": "67 pagine: com'è fatto l'esame, i criteri di valutazione, una prova d'esempio completa con i testi dell'ascolto e le soluzioni", "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf", "formato": "PDF", "pagine": 67, "byte": 2914565, "tipo": "application/pdf", "data": "seconda edizione, marzo 2021 (file caricato a ottobre 2026)"},
+        {"nome": "Prova Scrivere commentata", "contenuto": "una prova di scrittura svolta, commentata punto per punto, con le griglie di valutazione", "url": "https://cms.plida.dante.global/wp-content/uploads/2022/11/PLIDA-B1-Prova-Scrivere-Commentata.pdf", "formato": "PDF", "pagine": 23, "byte": 1833246, "tipo": "application/pdf", "data": "gennaio 2023"},
+        {"nome": "Criteri di valutazione Parlare", "contenuto": "come si valuta l'orale", "url": "https://cms.plida.dante.global/wp-content/uploads/2022/11/PLIDA-B1-Criteri-valutazione-prove-Parlare.pdf", "formato": "PDF", "pagine": 1, "byte": 482611, "tipo": "application/pdf", "data": "gennaio 2023"},
+        {"nome": "Criteri di valutazione Scrivere", "contenuto": "come si valuta la scrittura", "url": "https://cms.plida.dante.global/wp-content/uploads/2022/11/PLIDA-B1-Criteri-valutazione-prove-Scrivere.pdf", "formato": "PDF", "pagine": 2, "byte": 390726, "tipo": "application/pdf", "data": "gennaio 2023"}
+      ]
+    },
+    {
+      "sigla": "CERT.IT",
+      "esame": "CERT.IT B1",
+      "pagina": {"nome": "Livello B1: livello soglia, Università Roma Tre", "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/"},
+      "aggiornato": "novembre 2025",
+      "prova": "Ascolto (3 prove, 20 punti), lettura (4 prove, 30 punti) e scrittura (2 testi brevi, 20 punti): 90 minuti in tutto. Poi l'orale di 10 minuti, faccia a faccia: intervista, simulazione di ruolo e monologo (30 punti). Si supera con il 60% dei punti nello scritto e il 60% nell'orale. A Roma Tre lo scritto del B1 si fa al computer, nei centri convenzionati su carta.",
+      "fonti_prova": [
+        {"nome": "CERT.IT, livello B1", "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/"},
+        {"nome": "CERT.IT, indicazioni sullo svolgimento", "url": "https://certificazioneitaliano.uniroma3.it/gli-esami/indicazioni-sullo-svolgimento/"}
+      ],
+      "materiali": {"audio": "sì, 3 MP3", "soluzioni": "sì (Chiavi)", "trascrizioni": "no, non nei file pubblicati", "orale": "sì (Parlato)", "criteri": "punteggi sulla pagina"},
+      "link_diretti": false,
+      "senza_link_diretti": "Le note legali di Roma Tre vietano il «deep linking» da altri siti: per questo qui non ci sono link diretti ai file, solo la descrizione. I file si scaricano dalla pagina ufficiale, nella parte «Esempio di esame» in fondo.",
+      "file": [
+        {"nome": "Certit_B1 (zip)", "contenuto": "4 PDF: il fascicolo di ascolto, lettura e scrittura (17 pagine), il foglio delle risposte (7 pagine), le chiavi (3 pagine) e la prova di parlato (3 pagine)", "formato": "ZIP", "byte": 1728144, "tipo": "application/zip", "data": "novembre 2025"},
+        {"nome": "Audio della prova di ascolto", "contenuto": "3 file MP3, uno per ogni parte dell'ascolto (prima, seconda e terza parte)", "formato": "MP3", "numero": 3, "byte": 3010560, "tipo": "audio/mpeg", "data": "novembre 2025"}
+      ]
+    }
+  ],
+  "uso": [
+    {"ente": "PLIDA", "testo": "nei PDF: «© Società Dante Alighieri - Tutti i diritti riservati»", "url": "https://plida.dante.global/it/preparati-allesame/"},
+    {"ente": "CILS", "testo": "note legali di Unistrasi: i contenuti sono protetti dal diritto d'autore e si possono riprodurre solo con il consenso dei titolari", "url": "https://www.unistrasi.it/1/493/2426/Note_legali.htm"},
+    {"ente": "CERT.IT", "testo": "note legali di Roma Tre: copiare e distribuire i documenti a fini di lucro richiede un permesso scritto, riprodurli anche senza fini commerciali il consenso dell'Università; è vietato il «deep linking», cioè l'uso non trasparente di parti del sito su siti di terzi", "url": "https://www.uniroma3.it/note-legali/"}
+  ]
+}

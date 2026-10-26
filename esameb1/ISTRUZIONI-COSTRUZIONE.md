@@ -57,5 +57,5 @@ I testi estratti dai PDF sono già in `esameb1/dati/fonti/` (celi2026, plida2026
 Avvisi a pagamento (~5-10 €), accordi con scuole di preparazione (quota per iscritto), Fase 2 (prenotazione garantita candidati ↔ sedi). Dominio, Stripe e codice ATECO solo con i primi incassi.
 
 ## Ruoli
-- Claude: tutto il lavoro sopra, aggiornamento settimanale dei dati, lettura dei numeri.
+- L'assistente: tutto il lavoro sopra, aggiornamento settimanale dei dati, lettura dei numeri.
 - Massimiliano: pubblicazione su Netlify (Drop o collegamento GitHub), Search Console, Routine; nessuna spesa.
