@@ -65,10 +65,12 @@ AFFILIATI = json.loads((DATI / "affiliati.json").read_text(encoding="utf-8")) if
 PAESI = {  # slug paese -> (nome, aggettivo/nota breve)
     "france": "France", "spain": "Spain", "greece": "Greece", "turkey": "Turkey", "netherlands": "Netherlands",
     "germany": "Germany", "austria": "Austria", "czech-republic": "Czech Republic", "united-kingdom": "United Kingdom",
-    "italy": "Italy", "japan": "Japan", "indonesia": "Indonesia", "iceland": "Iceland"}
-EUROPA = {"france", "spain", "greece", "netherlands", "germany", "austria", "czech-republic", "united-kingdom", "italy", "iceland", "turkey"}
+    "italy": "Italy", "japan": "Japan", "indonesia": "Indonesia", "iceland": "Iceland", "malta": "Malta", "portugal": "Portugal",
+    "tunisia": "Tunisia"}
+EUROPA = {"france", "spain", "greece", "netherlands", "germany", "austria", "czech-republic", "united-kingdom", "italy", "iceland", "turkey",
+          "malta", "portugal"}
 VALUTE = {"EUR": ("€", "", 2), "GBP": ("£", "", 2), "JPY": ("¥", "", 0), "CZK": ("", " CZK", 0), "ISK": ("ISK ", "", 0),
-          "IDR": ("IDR ", "", 0), "TRY": ("TRY ", "", 2)}
+          "IDR": ("IDR ", "", 0), "TRY": ("TRY ", "", 2), "TND": ("TND ", "", 2)}
 MESI = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
 
@@ -216,6 +218,9 @@ def calcola(R, cat, checkin, notti, paganti, esenti=0, stanze=1, prezzo=0.0, zon
         out["note"].append(f"This stay spans {notti + 1} calendar days (arrival day included): only stays of at most "
                            f"{R['max_soggiorno']} consecutive calendar days are subject to the fee.")
         return out
+    if R.get("esente_da_notti") and notti >= R["esente_da_notti"]:
+        out["note"].append(f"One booking of {R['esente_da_notti']} nights or more is not charged.")
+        return out
     if R.get("esente_oltre_mesi"):
         uscita = (date.fromisoformat(checkin) + timedelta(days=notti)).isoformat()
         if uscita > _piu_mesi(checkin, R["esente_oltre_mesi"]):
@@ -258,8 +263,12 @@ def calcola(R, cat, checkin, notti, paganti, esenti=0, stanze=1, prezzo=0.0, zon
         elif tipo == "bands":
             pp = prezzo / persone if persone else 0
             _, b = _banda(t["valore"], pp)
-            imp = b * persone
-            testo = f"{soldi(b, val)} per person (band for {soldi(pp, val)} per person) × {plur(persone, 'guest')}"
+            if t.get("bande_pct") and b:
+                imp = pp * b / 100 * persone
+                testo = f"{num(b)}% of {soldi(pp, val)} per person × {plur(persone, 'guest')}"
+            else:
+                imp = b * persone
+                testo = f"{soldi(b, val)} per person (band for {soldi(pp, val)} per person) × {plur(persone, 'guest')}"
         elif tipo == "france":
             fr = t["fr"]
             if not _in_periodo(fr["per"], d):
@@ -350,6 +359,9 @@ def _riassunto(R, giorno=None):
         vals = sorted({t["valore"] for t in tt})
         return " / ".join(f"{num(v)}%" for v in vals) + " of the room price"
     if tipo == "bands":
+        pct = [(b[0], b[2]) for t in tt if t.get("bande_pct") for b in t["valore"] if b[2] > 0]
+        if pct:
+            return f"{num(pct[0][1])}% of the room-only price per person per night from {soldi(pct[0][0], val)}"
         vals = [b[2] for t in tt for b in t["valore"]]
         nz = [v for v in vals if v > 0]
         return f"{soldi(min(nz), val)}–{soldi(max(nz), val)} per person per night (by price band)"
@@ -371,6 +383,8 @@ def formula(R):
         f = f"Tax = rate % × {R.get('etichetta_prezzo', 'price per night')[0].lower() + R.get('etichetta_prezzo', 'price per night')[1:]} × taxable nights"
     elif tipo == "bands":
         f = "Tax = band amount (from the price per person per night = room price ÷ guests) × guests × nights"
+        if any(t.get("bande_pct") for t in R["tariffe"]):
+            f += "; where the band is a percentage: percentage × price per person per night × guests × nights"
     elif tipo == "per_trip":
         f = "Levy = amount per person × travellers (once per trip)"
     else:
@@ -386,6 +400,8 @@ def formula(R):
         extra.append(rid["testo"])
     if R.get("max_soggiorno"):
         extra.append(f"stays longer than {R['max_soggiorno']} consecutive calendar days, i.e. {R['max_soggiorno']} nights or more, are not covered")
+    if R.get("esente_da_notti"):
+        extra.append(f"one booking of {R['esente_da_notti']} nights or more is not charged")
     if R.get("esente_oltre_mesi"):
         extra.append(f"stays of more than {R['esente_oltre_mesi']} months without interruption are exempt")
     if R.get("in_vigore_dal"):
@@ -411,7 +427,8 @@ def tabella_tariffe(R):
                 parti = ""
                 if t.get("parti_bande") and t["parti_bande"][i]:
                     parti = f' <span class="small">({" + ".join(escape(p) for p in t["parti_bande"][i])})</span>'
-                righe.append(f"<tr><td>{fascia}</td><td><strong>{soldi(v, val) if v else 'no tax'}</strong>{parti}</td></tr>")
+                importo = (f"{num(v)}% of the price per person" if t.get("bande_pct") else soldi(v, val)) if v else "no tax"
+                righe.append(f"<tr><td>{fascia}</td><td><strong>{importo}</strong>{parti}</td></tr>")
             nota = f'<p class="small">{escape(t["nota"])}</p>' if t.get("nota") else ""
             h.append(f'<h3>{escape(per)}</h3><div class="tab"><table><thead><tr><th>Price per person per night</th><th>Tax per person per night</th></tr></thead>'
                      f'<tbody>{"".join(righe)}</tbody></table></div>{nota}')
@@ -672,6 +689,41 @@ footer .f-altri a{font-weight:600}
 .griglia.dest .fr-card{grid-column:auto;border:0;border-radius:0}
 .calc form,.calc-out{padding:18px}footer .f-grid{grid-template-columns:1fr}.band-in{padding-top:22px;padding-bottom:22px}}
 @media (max-width:420px){.calc .campi{gap:12px}.tipi li{padding:12px}.summary{padding:18px 18px 18px 22px}}
+.risposta{font-size:1.07rem;line-height:1.55;color:var(--ink);max-width:780px;margin:8px 0 6px;padding:2px 0 2px 14px;border-left:3px solid var(--sun)}
+.callout.cambi-box{align-items:flex-start;margin-top:14px}
+.cambi-box .ic,.cal-2027 .ic{background:var(--accent-2);color:var(--accent)}
+.cambi-box ul{margin:4px 0 6px;padding-left:18px;font-size:.95rem;color:var(--ink-2)}
+.cambi-box p{margin:0}
+.cal-2027{margin-top:10px}
+.sintesi{margin-top:18px}.sintesi td:first-child{white-space:nowrap}
+@media (max-width:640px){.tab.sintesi td,.tab.sintesi th{min-width:0;padding:9px 10px}.tab.sintesi td:first-child,.tab.sintesi th:first-child{min-width:0}}
+.linea{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:14px}
+.vc{display:grid;grid-template-columns:96px minmax(0,1fr);background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh-1);overflow:hidden}
+.vc-data{background:linear-gradient(180deg,var(--accent-2),var(--card));border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;padding:18px 8px;text-align:center}
+.vc-g{font-family:var(--head);font-weight:700;font-size:2.2rem;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+.vc-m{font-size:.76rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-2);margin-top:6px}
+.vc-c{padding:16px 20px;min-width:0}
+.vc-c h3{margin:0 0 10px;font-size:1.22rem}
+.vc-c h3 a{color:var(--ink);text-decoration:none}
+.vc-c h3 a:hover{color:var(--accent);text-decoration:underline}
+.vc-c p{margin:0 0 8px;max-width:760px}
+.vc-imp{font-weight:700;color:var(--ink)}
+.vc-prima{font-size:.9rem;color:var(--ink-3)}
+.vc-lab{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-right:6px;vertical-align:.12em}
+.vc-imp .vc-lab{background:var(--ok-2);color:var(--ok)}
+.vc-prima .vc-lab{background:var(--mute);color:var(--ink-3);border:1px solid var(--line)}
+.vc .fonte{margin-top:4px}
+.vc-calc{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:.9rem;text-decoration:none;margin-top:6px}
+.vc-calc:hover{text-decoration:underline}
+.faq-box{display:grid;gap:8px}
+details.faq{background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:0 16px;box-shadow:var(--sh-1)}
+details.faq summary{cursor:pointer;font-weight:700;padding:13px 0;list-style:none;display:flex;gap:10px;align-items:center;color:var(--ink)}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";margin-left:auto;font-size:1.2rem;color:var(--accent)}
+details.faq[open] summary::after{content:"–"}
+details.faq p{margin:0 0 14px;color:var(--ink-2);max-width:760px}
+@media (max-width:560px){.vc{grid-template-columns:1fr}.vc-data{flex-direction:row;align-items:baseline;gap:8px;border-right:0;border-bottom:1px solid var(--line);padding:10px 16px;background:var(--accent-2)}
+.vc-g{font-size:1.45rem}.vc-m{margin-top:0}.vc-c{padding:14px 16px}.risposta{font-size:1rem}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 """
 
@@ -731,7 +783,7 @@ def h1_diviso(testo, home=False):
 
 # Motore di calcolo in JS: deve dare gli stessi risultati di calcola() (verifica.py li confronta).
 MOTORE_JS = r"""
-var VAL={"EUR":["€","",2],"GBP":["£","",2],"JPY":["¥","",0],"CZK":[""," CZK",0],"ISK":["ISK ","",0],"IDR":["IDR ","",0],"TRY":["TRY ","",2]};
+var VAL={"EUR":["€","",2],"GBP":["£","",2],"JPY":["¥","",0],"CZK":[""," CZK",0],"ISK":["ISK ","",0],"IDR":["IDR ","",0],"TRY":["TRY ","",2],"TND":["TND ","",2]};
 function r2(x){return Math.floor(x*100+0.5+1e-9)/100;}
 function grp(n,dec){var s=dec?r2(n).toFixed(2):String(Math.floor(n+0.5+1e-9));var p=s.split('.');p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,',');return p.join('.');}
 function soldi(v,c){var x=VAL[c];return x[0]+grp(v,x[2])+x[1];}
@@ -757,6 +809,7 @@ function calcola(R,cat,checkin,notti,paganti,esenti,stanze,prezzo,zona){
   if(R.tipo==='per_trip'){var t0=riga(R,cat,checkin);if(!t0){out.sconosciute=1;return out;}
     var im=t0.valore*paganti;out.righe=[[soldi(t0.valore,val)+' × '+plur(paganti,'traveller')+', once per trip',1,im]];out.totale=im;return out;}
   if(R.max_soggiorno&&notti+1>R.max_soggiorno){out.note.push('This stay spans '+(notti+1)+' calendar days (arrival day included): only stays of at most '+R.max_soggiorno+' consecutive calendar days are subject to the fee.');return out;}
+  if(R.esente_da_notti&&notti>=R.esente_da_notti){out.note.push('One booking of '+R.esente_da_notti+' nights or more is not charged.');return out;}
   if(R.esente_oltre_mesi){if(addDays(checkin,notti)>piuMesi(checkin,R.esente_oltre_mesi)){out.note.push('Stays of more than '+R.esente_oltre_mesi+' months without interruption are exempt.');return out;}}
   var maxN=(meta[cat]&&meta[cat].max_notti)||R.max_notti;var persone=paganti+esenti;
   for(var i=0;i<notti;i++){var d=addDays(checkin,i),n=i+1;
@@ -769,8 +822,9 @@ function calcola(R,cat,checkin,notti,paganti,esenti,stanze,prezzo,zona){
     else if(tp==='per_room'){imp=t.valore*stanze;testo=soldi(t.valore,val)+' per room/unit × '+plur(stanze,'room/unit','rooms/units');if(t.stagione)testo+=' ('+t.stagione+' rate)';}
     else if(tp==='percent'){var f=(t.fattore_base===undefined)?1:t.fattore_base;imp=prezzo*f*t.valore/100;
       testo=num(t.valore)+'% of '+soldi(prezzo,val)+(f!==1?' after a '+num(Math.round((1-f)*100*1e4)/1e4)+'% deduction':'');}
-    else if(tp==='bands'){var pp=persone?prezzo/persone:0;var b=banda(t.valore,pp);imp=b*persone;
-      testo=soldi(b,val)+' per person (band for '+soldi(pp,val)+' per person) × '+plur(persone,'guest');}
+    else if(tp==='bands'){var pp=persone?prezzo/persone:0;var b=banda(t.valore,pp);
+      if(t.bande_pct&&b){imp=pp*b/100*persone;testo=num(b)+'% of '+soldi(pp,val)+' per person × '+plur(persone,'guest');}
+      else{imp=b*persone;testo=soldi(b,val)+' per person (band for '+soldi(pp,val)+' per person) × '+plur(persone,'guest');}}
     else if(tp==='france'){var fr=t.fr;if(!inPeriodo(fr.per,d)){out.fuori++;continue;}
       if(fr.reg==='F'){var nf='This category is taxed with the flat-rate scheme (taxe forfaitaire): the host pays it, it is not charged per guest.';
         if(out.note.indexOf(nf)<0)out.note.push(nf);agg('flat-rate scheme, paid by the host',0);continue;}
@@ -988,7 +1042,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <strong>Tourist taxes are set by local or national authorities and can change. Your accommodation collects the tax: check the exact amount with them.</strong> Nothing on this site is tax or legal advice.</p>
 </div><div>
 <h2>Explore</h2>
-<ul><li><a href="{rel}about/">About and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}how-tourist-taxes-work/">How tourist taxes work</a></li><li><a href="{rel}tourist-taxes-europe-2026/">Tourist taxes in Europe 2026</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
+<ul><li><a href="{rel}about/">About and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}how-tourist-taxes-work/">How tourist taxes work</a></li><li><a href="{rel}tourist-taxes-europe-2026/">Tourist taxes in Europe 2026</a></li><li><a href="{rel}tourist-tax-changes-2027/">Tourist tax changes in 2027</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
 </div></div>
 {blocco_altri(ALTRI_SITI, "Other useful tools for your trip")}
 <p class="f-base">Official sources only · the calculator runs in your browser.</p>
@@ -1030,7 +1084,7 @@ def modulo_calcolatore(id_dati, con_destinazione=False, rel="", cat_default=""):
 </div>"""
 
 
-CAMPI_MOTORE = ("name", "country", "slug", "currency", "tipo", "categorie", "tariffe", "esenti_sotto_eta", "max_notti", "max_soggiorno",
+CAMPI_MOTORE = ("name", "country", "slug", "currency", "tipo", "categorie", "tariffe", "esenti_sotto_eta", "max_notti", "max_soggiorno", "esente_da_notti",
                 "riduzioni", "etichetta_prezzo", "cap", "prezzo_esempio", "esente_oltre_mesi", "in_vigore_dal", "in_vigore_testo",
                 "zone", "supplementi")
 
@@ -1092,6 +1146,223 @@ def esempio(R):
 # ---------------------------------------------------------------- pagine
 def titolo_dest(nome):
     return f"{nome} tourist tax {ANNO}: how much per night (calculator)"
+
+
+# ---------------------------------------------------------------- titoli, descrizioni e risposta diretta (26/10/2026)
+# Tutte le cifre vengono da righe_correnti() e dalle tariffe dei dati alla data di generazione: qui ci sono solo i nomi
+# usati nelle ricerche (titolo), il nome nell'H1 e un suffisso (il nome locale della tassa, già in official_name).
+NOMI_SEO = {
+    "mallorca": ("Majorca", "Mallorca (Majorca)", " (ecotasa)"),
+    "ibiza": ("Ibiza", "Ibiza", " (ecotasa)"),
+    "menorca": ("Menorca", "Menorca", " (ecotasa)"),
+    "formentera": ("Formentera", "Formentera", " (ecotasa)"),
+    "catalonia": ("Catalonia", "Catalonia (outside Barcelona)", ""),
+    "cardiff": ("Cardiff (Wales)", "Cardiff (Wales)", ""),
+    "malta": ("Malta", "Malta", ""),
+    "edinburgh": ("Edinburgh", "Edinburgh", " (visitor levy)"),
+}
+CAMBI = json.loads((DATI / "cambi_2027.json").read_text(encoding="utf-8"))
+MESI_BREVI = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+
+def data_breve(iso):
+    d = date.fromisoformat(iso)
+    return f"{d.day} {MESI_BREVI[d.month - 1]} {d.year}"
+
+
+def soldi_breve(v, valuta):
+    """€4 invece di €4.00, ma €0.50 e £1.30 restano con i decimali."""
+    s = soldi(v, valuta)
+    return s[:-3] + s[-3:].replace(".00", "") if ".00" in s[-7:] else s
+
+
+def _vigenti(R, giorno):
+    """Righe valide esattamente in quella data (vuoto se non ce ne sono: per esempio Cardiff prima del 1/4/2027)."""
+    return [t for t in R["tariffe"] if (not t.get("dal") or t["dal"] <= giorno) and (not t.get("al") or giorno <= t["al"])]
+
+
+def fascia_breve(R, righe):
+    val, tipo = R["currency"], R["tipo"]
+    if tipo == "percent":
+        return " / ".join(f"{num(v)}%" for v in sorted({t["valore"] for t in righe}))
+    if tipo == "bands":
+        pct = [b[2] for t in righe if t.get("bande_pct") for b in t["valore"] if b[2] > 0]
+        if pct:
+            return f"{num(pct[0])}%"
+        vals = [b[2] for t in righe for b in t["valore"] if b[2] > 0]
+    else:
+        vals = [t["valore"] for t in righe]
+    lo, hi = min(vals), max(vals)
+    return soldi_breve(lo, val) if lo == hi else f"{soldi_breve(lo, val)}–{soldi_breve(hi, val)}"
+
+
+def unita(R, righe=None):
+    if R["tipo"] == "bands" and righe and any(t.get("bande_pct") for t in righe):
+        return "of the room price"
+    return {"per_person": "per person per night", "per_room": "per room per night", "percent": "of the room price",
+            "bands": "per person per night", "per_trip": "per person, once per trip"}[R["tipo"]]
+
+
+def prossimo_cambio(R):
+    """Prima data futura (entro il 2027) in cui cambiano le tariffe dei dati, o None."""
+    oggi = OGGI.isoformat()
+    for d in sorted({t["dal"] for t in R["tariffe"] if t.get("dal") and oggi < t["dal"] <= "2027-12-31"}):
+        if _vigenti(R, oggi) and fascia_breve(R, _vigenti(R, d)) != fascia_breve(R, _vigenti(R, oggi)):
+            return d
+    return None
+
+
+def anni(R):
+    """'2026', '2026 and 2027' (se i dati hanno una tariffa o un cambio ufficiale che parte nel 2027) o '2027' (se la tassa parte nel 2027)."""
+    inizi = [t.get("dal") or "" for t in R["tariffe"]]
+    if all(i[:4] == "2027" for i in inizi):
+        return "2027"
+    date_27 = [t["dal"] for t in R["tariffe"] + R.get("supplementi", []) + R.get("cambi_annunciati", []) if (t.get("dal") or "")[:4] == "2027"]
+    return f"{ANNO} and {ANNO + 1}" if date_27 else str(ANNO)
+
+
+def breve(R, lungo=False):
+    """Cifra per titolo e H1: '€1–€4 per person per night', '1% now, 2% from 1 Jan 2027', '£0.75–£1.30 per person per night from 1 Apr 2027'."""
+    oggi = OGGI.isoformat()
+    ora = _vigenti(R, oggi)
+    if not ora:
+        primo = min(t["dal"] for t in R["tariffe"] if t.get("dal"))
+        righe = _vigenti(R, primo)
+        return f"{fascia_breve(R, righe)} {unita(R, righe)} from {(data_lunga if lungo else data_breve)(primo)}"
+    d = prossimo_cambio(R)
+    if d:
+        return f"{fascia_breve(R, ora)} now, {fascia_breve(R, _vigenti(R, d))} from {data_breve(d)}"
+    return f"{fascia_breve(R, ora)} {unita(R, ora)}"
+
+
+def nomi(R):
+    t, h, suf = NOMI_SEO.get(R["slug"], (R["name"], R["name"], ""))
+    return t, h, suf
+
+
+def titolo_seo(R):
+    t, _, suf = nomi(R)
+    return f"{t} tourist tax {anni(R)} calculator: {R.get('breve_seo') or breve(R)}{suf}"
+
+
+def h1_seo(R):
+    _, h, _ = nomi(R)
+    oggi = OGGI.isoformat()
+    ora = _vigenti(R, oggi)
+    d = prossimo_cambio(R)
+    if ora and d:
+        b = f"{fascia_breve(R, ora)} {unita(R, ora)}, {fascia_breve(R, _vigenti(R, d))} from {data_lunga(d)}"
+    else:
+        b = breve(R, lungo=True)
+    return f"{h} tourist tax {anni(R)}: {b}"
+
+
+def _prezzo_testo(R):
+    e = R.get("etichetta_prezzo", "price per night").split(";")[0].replace(", all guests and rooms", "")
+    e = re.sub(r"\s*\((all rooms booked|[^)]*rooms?[^)]*)\)$", "", e)
+    return e[0].lower() + e[1:]
+
+
+def risposta(R):
+    """Risposta diretta in 1-3 frasi, solo con i dati della destinazione (o il campo 'risposta' dei dati, scritto dalle note ufficiali)."""
+    if R.get("risposta"):
+        return R["risposta"]
+    val, tipo = R["currency"], R["tipo"]
+    nome = nomi(R)[1] if R["slug"] != "catalonia" else "Catalonia outside Barcelona"
+    oggi = OGGI.isoformat()
+    ora = _vigenti(R, oggi)
+    inizio = ""
+    if not ora:
+        primo = min(t["dal"] for t in R["tariffe"] if t.get("dal"))
+        ora = _vigenti(R, primo)
+        inizio = f"From {data_lunga(primo)}, "
+    eta = R.get("esenti_sotto_eta")
+    f = []
+    rng = fascia_breve(R, ora).replace("–", " to ")
+    tipi = len({t["cat"] for t in ora}) > 1
+    if tipo == "per_person":
+        chi = f"each guest aged {eta} or over" if eta else "each guest"
+        s = f"{inizio}in {nome} you pay {rng} per night for {chi}"
+        s = s[0].upper() + s[1:]
+        f.append(s + (", depending on the type of accommodation." if tipi and " to " in rng else "."))
+    elif tipo == "per_room":
+        stag = {}
+        for t in ora:
+            stag.setdefault(t.get("stagione", ""), []).append(t)
+        parti = [f"{k} {fascia_breve(R, v)}" for k, v in stag.items() if k]
+        f.append(f"In {nome} you pay {rng} per room per night (not per person), depending on the type of accommodation"
+                 + (f" and the season: {'; '.join(parti)}." if len(parti) > 1 else "."))
+    elif tipo == "percent":
+        x = sorted({t["valore"] for t in ora})[0]
+        t0 = next(t for t in ora if t["valore"] == x)
+        pe = R.get("prezzo_esempio", 150)
+        imp = pe * t0.get("fattore_base", 1) * x / 100
+        if inizio:
+            f.append(f"{inizio}in {nome} the tax is {num(x)}% of the {_prezzo_testo(R)}.")
+        else:
+            f.append(f"In {nome} the tax is {num(x)}% of the {_prezzo_testo(R)}: on {soldi_breve(pe, val)} a night you pay {soldi(imp, val)} a night.")
+    elif tipo == "bands":
+        pct = [b for t in ora if t.get("bande_pct") for b in t["valore"] if b[2] > 0]
+        if pct:
+            f.append(f"In {nome} the tax is {num(pct[0][2])}% of the room-only price per person per night, from {soldi(pct[0][0], val)} per person.")
+        else:
+            nz = [b for t in ora for b in t["valore"] if b[2] > 0]
+            soglia = min(b[0] for b in nz)
+            f.append(f"In {nome} you pay {rng} per person per night, depending on the room-only price per person"
+                     + (f" (no tax below {soldi(soglia, val)})." if soglia else "."))
+    elif tipo == "per_trip":
+        f.append(f"In {nome} each traveller pays {rng} once per trip.")
+    extra = []
+    if R.get("max_notti"):
+        extra.append(f"only the first {R['max_notti']} nights of a stay are taxed")
+    for rid in R.get("riduzioni", []):
+        extra.append(rid["testo"].replace("low season (1 Nov - 30 Apr): -75%", "it is 75% lower from 1 November to 30 April")
+                     .replace("9th day onwards: -50%", "it is halved from the 9th day"))
+    if R.get("esente_da_notti"):
+        extra.append(f"one booking of {R['esente_da_notti']} nights or more is not charged")
+    if eta and tipo == "per_person":
+        extra.append(f"children under {eta} pay nothing")
+    if extra:
+        s = ", ".join(extra[:-1]) + (" and " if len(extra) > 1 else "") + extra[-1]
+        f.append(s[0].upper() + s[1:] + ".")
+    d = prossimo_cambio(R)
+    if d:
+        riserva = next((t["nota"] for t in _vigenti(R, d) if "unless" in t.get("nota", "")), "")
+        f.append(f"From {data_lunga(d)} it changes to {_riassunto(R, d)}" + (f" ({riserva[0].lower() + riserva[1:].rstrip('.')})." if riserva else "."))
+    for c in R.get("cambi_annunciati", []):
+        if c["dal"] > oggi:
+            f.append(f"From {data_lunga(c['dal'])}: {c['testo'][0].lower() + c['testo'][1:]}")
+    return " ".join(f)
+
+
+def descrizione_seo(R):
+    t, _, suf = nomi(R)
+    r = risposta(R)
+    frasi = re.split(r"(?<=\.) ", r)
+    testo = frasi[0]
+    for x in frasi[1:]:
+        if len(testo) + len(x) < 150:
+            testo += " " + x
+    coda = " Official rates and calculator."
+    if len(testo) + len(coda) > 158:
+        # Google tronca intorno ai 155-160 caratteri: si taglia a fine parola.
+        testo = testo[:158 - len(coda) - 1].rsplit(" ", 1)[0].rstrip(",;:–-") + "…"
+    return testo + coda
+
+
+def cambi_di(slug):
+    """Voci della pagina 2027 che riguardano una destinazione."""
+    return [v for v in CAMBI["voci"] if v["slug"] == slug or any(s == slug for s, _ in v["verifica"])]
+
+
+def box_cambi(R, rel):
+    vv = cambi_di(R["slug"])
+    if not vv:
+        return ""
+    righe = "".join(f"<li><strong>{data_lunga(v['dal'])}:</strong> {escape(v['importo'])}</li>" for v in vv)
+    return (f'<section class="card callout cambi-box" aria-label="Changes in 2027"><span class="ic">{ico("calendar")}</span>'
+            f'<div><p><strong>What changes in 2027</strong></p><ul>{righe}</ul>'
+            f'<p class="small"><a href="{rel}tourist-tax-changes-2027/">All tourist tax changes in 2027, with official sources</a></p></div></section>')
 
 
 def regole_testo(R):
@@ -1164,13 +1435,15 @@ def pagina_destinazione(R):
     if sorelle:
         link_sorelle = (f'<h2>Other destinations in {escape(paese)}</h2><div class="griglia">' +
                         "".join(f'<a href="{rel}{d["slug"]}/">{escape(d["name"])}<small>{escape(riassunto(d))}</small></a>' for d in sorelle) + "</div>")
-    corpo = f"""<section class="hero">{h1_diviso(titolo_dest(R['name']))}</section>
+    corpo = f"""<section class="hero">{h1_diviso(h1_seo(R))}
+<p class="risposta">{escape(risposta(R))}</p></section>
 <section class="card summary" aria-label="Summary">
-<div><p class="cifra"><span class="lab">{ico("receipt")}{escape(R['name'])} {ANNO}</span><span class="sr">: </span><strong>{escape(riassunto(R))}</strong></p>
+<div><p class="cifra"><span class="lab">{ico("receipt")}{escape(R['name'])} {anni(R)}</span><span class="sr">: </span><strong>{escape(riassunto(R))}</strong></p>
 {chips(R, paese)}</div>
 <div><p class="lead">{escape(R['official_name'])}. The calculator below uses the official rates and rules: {escape(regole_testo(R))}.</p>
 {fonte_breve(R)}</div>
 </section>
+{box_cambi(R, rel)}
 {modulo_calcolatore(id_dati, rel=rel, cat_default=cat_def)}
 {f'<p class="avviso">{escape(R["avviso_verifica"])}</p>' if R.get("avviso_verifica") else ""}
 {formula_html(R)}
@@ -1193,8 +1466,7 @@ def pagina_destinazione(R):
 {link_sorelle}
 <p><a href="{rel}country/{R['country_slug']}/">All tourist taxes in {escape(paese)}</a> · <a href="{rel}tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a></p>
 {blocco_dati(id_dati, [R])}"""
-    descr = f"{R['name']} tourist tax {ANNO}: {riassunto(R)}. Official rates, rules and a calculator, with the official source and the date we checked it."
-    pagina(f"{slug}/", titolo_dest(R["name"]), descr, corpo,
+    pagina(f"{slug}/", titolo_seo(R), descrizione_seo(R), corpo,
            briciole=[(paese, f"country/{R['country_slug']}/"), (R["name"], f"{slug}/")])
 
 
@@ -1304,17 +1576,59 @@ def pagina_paese(slug):
         "japan": "In Japan accommodation taxes are set by prefectures and cities. Some places have both (for example Hokkaido and Sapporo, Nagano and Hakuba). The Ministry of Internal Affairs and Communications publishes the official list of all of them.",
         "italy": "In Italy each city sets its own imposta (or contributo) di soggiorno per person per night, with its own maximum nights and age exemptions.",
     }.get(slug, "")
-    corpo = f"""<section class="hero"><h1>Tourist taxes in {escape(nome)} {ANNO}</h1>
-<p class="lead">{escape(testo_extra) if testo_extra else f'Official tourist tax rates in {escape(nome)}, with a calculator for each destination.'}</p></section>
+    tit, h1, risp = paese_seo(slug, dd)
+    corpo = f"""<section class="hero">{h1_diviso(h1) if h1 else f"<h1>Tourist taxes in {escape(nome)} {ANNO}</h1>"}
+{f'<p class="risposta">{escape(risp)}</p>' if risp else ""}
+{"" if risp else f'<p class="lead">{escape(testo_extra) if testo_extra else f"Official tourist tax rates in {escape(nome)}, with a calculator for each destination."}</p>'}</section>
+{f'<p class="small">What changes next: <a href="{rel}tourist-tax-changes-2027/">tourist tax changes in 2027</a>.</p>' if any(cambi_di(d["slug"]) for d in dd) else ""}
 <div class="tab"><table><thead><tr><th>Destination</th><th>Rate {ANNO}</th><th>Max taxable nights</th><th>Exempt</th></tr></thead><tbody>{righe}</tbody></table></div>
 {AVVISO}
 {AD}
 <h2>Calculators</h2>
 <div class="griglia">{''.join(f'<a href="{rel}{d["slug"]}/">{escape(d["name"])}<small>{escape(riassunto(d))}</small></a>' for d in dd)}</div>
 <p><a href="{rel}tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a> · <a href="{rel}">All destinations</a></p>"""
-    pagina(f"country/{slug}/", f"Tourist taxes in {nome} {ANNO}: rates and calculators",
+    pagina(f"country/{slug}/", tit or f"Tourist taxes in {nome} {ANNO}: rates and calculators",
+           (re.split(r"(?<=\.) ", risp)[0] + " Official sources and calculators.") if risp else
            f"Official tourist tax rates in {nome} for {ANNO}, destination by destination, with calculators and official sources.",
            corpo, briciole=[(nome, f"country/{slug}/")])
+
+
+def paese_seo(slug, dd):
+    """Titolo, H1 e risposta diretta delle pagine paese che ricevono impressioni (Spagna, Grecia, Turchia), dai dati delle destinazioni."""
+    by = {d["slug"]: d for d in dd}
+    oggi = OGGI.isoformat()
+    if slug == "spain":
+        b, c, m = by["barcelona"], by["catalonia"], by["mallorca"]
+        cd = prossimo_cambio(c)
+        risp = (f"Spain has no national tourist tax; the best-known regional ones are in Catalonia and the Balearic Islands. In Barcelona you pay {fascia_breve(b, _vigenti(b, oggi)).replace('–', ' to ')} "
+                f"per person per night, in the rest of Catalonia {fascia_breve(c, _vigenti(c, oggi)).replace('–', ' to ')}"
+                + (f" ({fascia_breve(c, _vigenti(c, cd)).replace('–', ' to ')} from {data_lunga(cd)})" if cd else "")
+                + f", and in Mallorca, Ibiza, Menorca and Formentera {fascia_breve(m, _vigenti(m, oggi)).replace('–', ' to ')} (the ecotasa, 75% lower from November to April). "
+                f"Under-{b['esenti_sotto_eta']}s pay nothing in Catalonia and under-{m['esenti_sotto_eta']}s in the Balearic Islands.")
+        return (f"How much is the tourist tax in Spain? {ANNO} and {ANNO + 1} rates and calculator",
+                f"Tourist tax in Spain {ANNO} and {ANNO + 1}: how much you pay in Barcelona, Catalonia and the Balearic Islands", risp)
+    if slug == "greece":
+        a = by["athens"]
+        ora = _vigenti(a, oggi)
+        alta = [t for t in ora if t.get("stagione") == "April-October"]
+        bassa = [t for t in ora if t.get("stagione") == "November-March"]
+        h4 = {t.get("stagione"): t["valore"] for t in ora if t["cat"] == "h4"}
+        risp = (f"Greece charges one national fee, the climate crisis resilience fee, per room per night (not per person): {fascia_breve(a, alta)} from April to October "
+                f"and {fascia_breve(a, bassa)} from November to March, depending on the type of accommodation (a 4-star hotel room: "
+                f"{soldi_breve(h4['April-October'], 'EUR')} in high season, {soldi_breve(h4['November-March'], 'EUR')} in low season). "
+                "It is the same in Athens, Santorini, Mykonos, Crete, Rhodes, Corfu and every other island.")
+        return (f"Greece tourist tax {ANNO} calculator: {fascia_breve(a, ora)} per room per night (all islands)",
+                f"Greece tourist tax {ANNO}: {fascia_breve(a, ora)} per room per night, the same on every island", risp)
+    if slug == "turkey":
+        t = by["turkey"]
+        d = prossimo_cambio(t)
+        risp = (f"Turkey's accommodation tax is national: {fascia_breve(t, _vigenti(t, oggi))} of the accommodation price excluding VAT"
+                + (f" until {data_lunga((date.fromisoformat(d) - timedelta(days=1)).isoformat())}, then {fascia_breve(t, _vigenti(t, d))} from {data_lunga(d)} "
+                   "(the rate in the law, unless a new Presidential decision changes it)" if d else "")
+                + ". It is the same in Istanbul, Antalya, Bodrum and everywhere else; with board or all-inclusive, food and other services sold with the stay count too.")
+        return (f"Tourist tax in Turkey {anni(t)}: {breve(t)} (calculator)",
+                f"Tourist tax in Turkey {anni(t)}: {breve(t, lungo=True)}", risp)
+    return "", "", ""
 
 
 def n_regole():
@@ -1326,7 +1640,7 @@ def ultimo_controllo():
     return data_lunga(max(date_))
 
 
-TIPI_HOME = [("users", "Per person per night", "Rome, Barcelona, Prague, most French towns"),
+TIPI_HOME = [("users", "Per person per night", "Rome, Barcelona, Prague, Porto, Malta, most French towns"),
              ("door", "Per room per night", "Greece and Iceland"),
              ("percent", "% of the room price", "Amsterdam, Berlin, Vienna, Edinburgh, Turkey"),
              ("bands", "Price bands", "Kyoto, Tokyo, Sapporo, Hakuba"),
@@ -1348,6 +1662,7 @@ def home():
 {modulo_calcolatore('tutte', con_destinazione=True, rel='')}
 </div></div>"""
     corpo = f"""<div class="card callout">{'<span class="ic">' + ico("search") + '</span>'}<p><strong>France:</strong> <a href="france/">search your town among {len(FR['comuni']):,} French towns</a>.</p></div>
+<div class="card callout cal-2027">{'<span class="ic">' + ico("calendar") + '</span>'}<p><strong>2027:</strong> <a href="tourist-tax-changes-2027/">{len(CAMBI['voci'])} tourist tax changes with an official date</a> – Turkey, Okinawa, Cardiff, Catalonia, Barcelona, Tokyo and Vienna.</p></div>
 {AVVISO}
 {AD}
 <h2>What the calculator covers</h2>
@@ -1356,13 +1671,13 @@ def home():
 <div class="sez-h"><h2>Find a destination</h2></div>
 <div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Search a place" data-filtro="lista-dest" aria-label="Search destinations"></div>
 <div class="griglia sez dest" id="lista-dest">{griglia}</div>
-<p><a href="france/">All French towns</a> · <a href="tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a> · <a href="how-tourist-taxes-work/">How tourist taxes work</a></p>
+<p><a href="france/">All French towns</a> · <a href="tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a> · <a href="tourist-tax-changes-2027/">Changes in 2027</a> · <a href="how-tourist-taxes-work/">How tourist taxes work</a></p>
 <h2>Countries</h2>
 <div class="griglia">{''.join(f'<a href="{"france" if s == "france" else "country/" + s}/">{escape(PAESI[s])}<small>{plur(len(gruppi.get(s, [])) if s != "france" else len(FR_TOP["comuni"]), "destination page")}</small></a>' for s in PAESI)}</div>
 {box_affiliati()}
 {blocco_dati('tutte', DEST)}"""
     pagina("", f"Tourist Tax Calculator {ANNO}: official rates per night for {len(DEST)} destination pages and 10,900 French towns",
-           f"How much is the tourist tax? Official {ANNO} rates and a calculator for Barcelona, Mallorca, Greece, Turkey, Amsterdam, Rome, Kyoto, Paris and more, with sources.",
+           f"How much is the tourist tax? Official {ANNO} rates and a calculator for Mallorca, Barcelona, Greece, Turkey, Amsterdam, Malta, Porto, Tunisia, Paris and more, with sources and the 2027 changes.",
            corpo, testata=testata, classe="home")
 
 
@@ -1383,14 +1698,84 @@ def pagina_europa():
     corpo = f"""<section class="hero">{h1_diviso(f"Tourist taxes in Europe {ANNO}: rates by city and country")}
 <p class="lead">The official {ANNO} tourist tax in the European destinations we cover, side by side. Each row links to a calculator and to the official source, with the date we checked it.</p></section>
 <div class="tab"><table><thead><tr><th>Destination</th><th>Country</th><th>Rate {ANNO}</th><th>Max nights</th><th>Exempt</th><th>Source</th></tr></thead><tbody>{''.join(righe)}</tbody></table></div>
-<p class="small">"Rate" shows the rates in force on the date this page was generated. Some places change rates during the year (for example Vienna on 1 July, Catalonia and Barcelona on 1 April, Turkey on 1 May 2026): see each page.</p>
+<p class="small">"Rate" shows the rates in force on the date this page was generated. Some places change rates during the year (for example Vienna on 1 July, Catalonia and Barcelona on 1 April, Turkey on 1 January): see each page and the <a href="{rel}tourist-tax-changes-2027/">tourist tax changes in 2027</a>.</p>
 {AVVISO}
 {AD}
 <h2>Not covered yet</h2>
-<p>We only publish a destination when we can read a complete official source. Not covered on the date we checked: Venice, Lisbon, Porto and the Algarve, Budapest, Dubrovnik and Split, Glasgow. See <a href="{rel}about/">About and sources</a>.</p>"""
+<p>We only publish a destination when we can read a complete official source. Not covered on the date we checked: Venice, Lisbon and the Algarve, Budapest, Croatia (Dubrovnik, Split), Cyprus, Glasgow. See <a href="{rel}about/">About and sources</a>.</p>"""
     pagina("tourist-taxes-europe-2026/", f"Tourist taxes in Europe {ANNO}: city by city table (official rates)",
-           f"Tourist taxes in Europe {ANNO}: official rates for Paris, Barcelona, Mallorca, Greece, Amsterdam, Berlin, Vienna, Prague, Edinburgh, Rome, Florence, Milan, Iceland and Turkey.",
+           f"Tourist taxes in Europe {ANNO}: official rates for Paris, Barcelona, Mallorca, Greece, Amsterdam, Berlin, Vienna, Prague, Edinburgh, Cardiff, Rome, Florence, Milan, Malta, Porto, Iceland and Turkey.",
            corpo, briciole=[(f"Tourist taxes in Europe {ANNO}", "tourist-taxes-europe-2026/")])
+
+
+def faq_2027():
+    """3-4 domande della pagina 2027: risposte costruite dalle voci di dati/cambi_2027.json (uguali nel testo visibile e nel JSON-LD)."""
+    vv = CAMBI["voci"]
+    per = {v["slug"]: v for v in vv if v["slug"]}
+    elenco = "; ".join(f"{v['luogo']} on {data_lunga(v['dal'])}" for v in vv)
+    out = [("Which tourist taxes change in 2027?",
+            f"{len(vv)} changes already have an official date: {elenco}. Each one is listed on this page with the new amount and the official source.")]
+    if "cardiff" in per:
+        v = per["cardiff"]
+        out.append(("How much is the tourist tax in Cardiff from April 2027?",
+                    f"From {data_lunga(v['dal'])} the Visitor Levy in Cardiff is {v['importo']}. {v['cosa']}"))
+    if "tokyo" in per:
+        v = per["tokyo"]
+        out.append(("Is the Tokyo tourist tax changing in 2027?",
+                    f"Yes. From {data_lunga(v['dal'])} Tokyo charges {v['importo']}, instead of {v['prima']}. {v['cosa']}"))
+    if "vienna" in per:
+        v = per["vienna"]
+        out.append(("Does the Vienna tourist tax go up in 2027?",
+                    f"Yes. From {data_lunga(v['dal'])} the Vienna Ortstaxe is {v['importo']}."))
+    return out[:4]
+
+
+def pagina_cambi_2027():
+    rel = "../"
+    vv = CAMBI["voci"]
+    voci = []
+    for v in vv:
+        d = date.fromisoformat(v["dal"])
+        f = v["fonte"]
+        stato = "" if f["http"] == 200 else " (read by hand: the page does not open for automatic checks)"
+        luogo = (f'<a href="{rel}{v["slug"]}/">{escape(v["luogo"])}</a>' if v["slug"] else escape(v["luogo"]))
+        calc = (f'<a class="vc-calc" href="{rel}{v["slug"]}/">{ico("calc")}Calculator</a>' if v["slug"] else "")
+        voci.append(f"""<li class="vc"><div class="vc-data"><span class="vc-g">{d.day}</span><span class="vc-m">{MESI_BREVI[d.month - 1]} {d.year}</span></div>
+<div class="vc-c"><h3>{luogo}</h3>
+<p class="vc-imp"><span class="vc-lab">New</span> {escape(v['importo'])}</p>
+<p class="vc-prima"><span class="vc-lab">Before</span> {escape(v['prima'])}</p>
+<p>{escape(v['cosa'])}{(' ' + escape(v['riserva'])) if v.get('riserva') else ''}</p>
+<p class="fonte">Official source: <a href="{escape(f['url'])}" rel="noopener">{escape(f['titolo'])}</a> · checked on {data_lunga(f['controllato_il'])}{stato}</p>
+{calc}</div></li>""")
+    sintesi = "".join(f'<tr><td><strong>{data_breve(v["dal"])}</strong></td><td>{(f"<a href=\"{rel}{v["slug"]}/\">{escape(v["luogo"].split(" (")[0])}</a>") if v["slug"] else escape(v["luogo"].split(" (")[0])}</td>'
+                      f'<td>{escape(v["importo_breve"])}</td></tr>' for v in vv)
+    dopo = "".join(f'<li><strong>{data_lunga(x["dal"])}</strong> – <a href="{rel}{x["slug"]}/">{escape(x["luogo"])}</a>: {escape(x["cosa"])}</li>' for x in CAMBI["dopo"])
+    faq = faq_2027()
+    faq_html = "".join(f'<details class="faq"><summary>{escape(q)}</summary><p>{escape(a)}</p></details>' for q, a in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage",
+          "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
+    primo, ultimo = vv[0]["dal"], vv[-1]["dal"]
+    risp = (f"{len(vv)} tourist tax changes in 2027 already have an official date, from {data_lunga(primo)} to {data_lunga(ultimo)}: "
+            "Turkey returns to 2%, Okinawa starts a new tax, Cardiff starts the Welsh visitor levy at £1.30, Catalonia, Barcelona and Tokyo change on 1 April "
+            "and Vienna goes to 8% on 1 July.")
+    corpo = f"""<section class="hero">{h1_diviso("Tourist tax changes in 2027: what changes, when and how much")}
+<p class="risposta">{escape(risp)}</p>
+<p class="small">We list a change only when an official act or tax authority page gives the date and the amount. List updated on {data_lunga(CAMBI['aggiornato_il'])}.</p></section>
+<h2 class="sr">At a glance</h2>
+<div class="tab sintesi"><table><thead><tr><th>From</th><th>Where</th><th>New amount</th></tr></thead><tbody>{sintesi}</tbody></table></div>
+<ol class="linea">{''.join(voci)}</ol>
+{AVVISO}
+{AD}
+<h2>Later changes already decided</h2>
+<ul>{dopo}</ul>
+<h2>Not listed yet</h2>
+<p>{escape(CAMBI['non_elencati'])}</p>
+<h2>Questions</h2>
+<div class="faq-box">{faq_html}</div>
+<p><a href="{rel}">Tourist tax calculator</a> · <a href="{rel}tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a> · <a href="{rel}contact/?ref=changes-2027">Spotted a change? Tell us</a></p>"""
+    pagina("tourist-tax-changes-2027/", "Tourist tax changes 2027: new rates and start dates (official sources)",
+           f"Tourist tax changes in 2027 with an official date: Turkey 2% (1 Jan), Okinawa (1 Feb), Cardiff £1.30, Catalonia, Barcelona, Tokyo 3% (1 Apr), Vienna 8% (1 Jul).",
+           corpo, briciole=[("Tourist tax changes 2027", "tourist-tax-changes-2027/")], jsonld_extra=ld)
 
 
 def pagina_come_funziona():
@@ -1437,9 +1822,10 @@ def about():
 <h2>Licences and attributions</h2>
 <ul><li>France: "Tarifs taxe de séjour – DELTA", Direction générale des Finances publiques (DGFiP), <a href="{escape(FR['fonte'])}" rel="noopener">data.economie.gouv.fr</a>, Licence Ouverte / Open Licence version 2.0 (Etalab). Dataset updated {data_lunga(FR['dataset_modificato'])}; we keep only rates with a {ANNO} effective date. Modified: rates are reorganised and the totals for unclassified accommodation are calculated by us.</li>
 <li>France, choice of town pages: INSEE, <a href="{escape(FR['insee'])}" rel="noopener">Capacité des communes en hébergement touristique 2026</a>, Licence Ouverte / Open Licence.</li>
+<li>Wales (Cardiff): contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="noopener">Open Government Licence v3.0</a> (gov.wales, Welsh Revenue Authority).</li>
 <li>Laws, ordinances and official decisions are cited as facts with a link to the official text; we do not reproduce the documents.</li></ul>
 <h2>Destinations not published (official source not readable or incomplete)</h2>
-<p>Venice, Lisbon, Porto, the Algarve, Budapest, Dubrovnik, Split, Osaka, Glasgow, Quintana Roo (Visitax), Okinawa (starts 1 February 2027), Egypt, Morocco and the Canary Islands. We will add them when we can verify a complete official source.</p>
+<p>Venice, Lisbon, the Algarve, Budapest, Croatia (Dubrovnik, Split), Cyprus, Naples, Bologna, Osaka, Glasgow, Quintana Roo (Visitax), Okinawa (starts 1 February 2027: see the <a href="{rel}tourist-tax-changes-2027/">2027 changes</a>), Egypt, Morocco and the Canary Islands. We will add them when we can verify a complete official source.</p>
 <h2>Sources, destination by destination</h2>
 <p>France: see the <a href="{rel}france/">France page</a>.</p>
 {elenco}
@@ -1574,6 +1960,7 @@ def main():
         if s != "france":
             pagina_paese(s)
     pagina_europa()
+    pagina_cambi_2027()
     pagina_come_funziona()
     about()
     contatti()

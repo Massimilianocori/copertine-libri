@@ -10,6 +10,9 @@ Uso (dalla radice del repository, dopo python3 touristtax/genera.py):
 4. Ogni pagina di destinazione e ogni pagina comunale francese mostra una fonte ufficiale (URL) e la data del controllo.
 5. Blocco "Other useful tools for your trip" in ogni pagina indicizzabile: gli stessi link di genera.ALTRI_SITI, nell'ordine,
    mai a questo sito, tutti rel="noopener" e senza nofollow o sponsored.
+6. Pagina tourist-tax-changes-2027/ (fonti, date, coerenza con i dati, link, sitemap, FAQPage).
+7. Destinazioni aggiunte il 26/10/2026 (fonti 200, pagina, sitemap, pagina paese, tabella Europa).
+8. Titoli, descrizioni e risposte dirette delle pagine di destinazione.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -65,6 +68,19 @@ ESEMPI = [
     ("Sapporo, ¥24,000 room for 2, 3 nights: ¥12,000 per person → ¥300 × 2 × 3", D["sapporo"], "all", "2026-11-05", 3, 2, 0, 1, 24000, 1800),
     ("Kutchan, ¥60,000 per night, 3 nights: 3% × 60,000 × 3", D["kutchan-niseko"], "all", "2026-12-20", 3, 2, 0, 1, 60000, 5400),
     ("Catalonia 5 stars, 30 Mar 2027, 3 nights, 2 adults: 2×(€4.50×2) + 1×(€6×2)", D["catalonia"], "et1", "2027-03-30", 3, 2, 0, 1, 0, 30.00),
+    # 26/10/2026: Tokyo dal 1/4/2027 (3% da ¥13.000 a persona), Cardiff, Malta, Porto, Tunisia
+    ("Tokyo from 1 Apr 2027, ¥30,000 room for 2, 2 nights: ¥15,000 per person → 3% = ¥450 × 2 × 2", D["tokyo"], "all", "2027-04-01", 2, 2, 0, 1, 30000, 1800),
+    ("Tokyo 31 Mar + 1 Apr 2027, ¥30,000 room for 2: ¥200 × 2 + ¥450 × 2", D["tokyo"], "all", "2027-03-31", 2, 2, 0, 1, 30000, 1300),
+    ("Tokyo from 1 Apr 2027, ¥24,000 room for 2: ¥12,000 per person, under ¥13,000 → no tax", D["tokyo"], "all", "2027-04-10", 3, 2, 0, 1, 24000, 0),
+    ("Cardiff hotel, 3 guests (2 adults + baby, all ages pay), 3 nights from 3 May 2027: £1.30 × 3 × 3", D["cardiff"], "higher", "2027-05-03", 3, 3, 0, 1, 0, 11.70),
+    ("Cardiff hostel dormitory, 2 adults, 2 nights: 75p × 2 × 2", D["cardiff"], "lower", "2027-05-03", 2, 2, 0, 1, 0, 3.00),
+    ("Cardiff hotel, 2 guests, 3 nights from 30 Mar 2027: 2 nights before the levy, 1 night × £1.30 × 2", D["cardiff"], "higher", "2027-03-30", 3, 2, 0, 1, 0, 2.60),
+    ("Cardiff, one booking of 32 nights: not charged", D["cardiff"], "higher", "2027-05-01", 32, 2, 0, 1, 0, 0),
+    ("Cardiff, 31 nights: £1.30 × 2 × 31", D["cardiff"], "higher", "2027-05-01", 31, 2, 0, 1, 0, 80.60),
+    ("Malta, 2 adults + 1 child, 20 nights: 15 taxable nights × €1.50 × 2 (max €22.50 each)", D["malta"], "all", "2026-11-01", 20, 2, 1, 1, 0, 45.00),
+    ("Porto, 2 adults + 1 child, 10 nights: 7 nights × €3 × 2", D["porto"], "all", "2026-11-01", 10, 2, 1, 1, 0, 42.00),
+    ("Tunisia 4-5 stars, foreign guests, 2 people, 12 nights: 10 nights × TND 12 × 2", D["tunisia"], "h45f", "2026-11-01", 12, 2, 0, 1, 0, 240.00),
+    ("Tunisia 3 stars, Tunisian nationals, 2 people, 3 nights: TND 2 × 2 × 3", D["tunisia"], "h3t", "2026-11-01", 3, 2, 0, 1, 0, 12.00),
 ]
 
 
@@ -223,6 +239,119 @@ def controlla_indexnow():
     return errori
 
 
+NUOVE_DEST = ("cardiff", "malta", "porto", "tunisia")  # aggiunte il 26/10/2026
+
+
+def _sitemap():
+    return set(re.findall(r"<loc>([^<]+)</loc>", (SITO / "sitemap.xml").read_text(encoding="utf-8")))
+
+
+def controlla_pagina_2027():
+    """6. Pagina tourist-tax-changes-2027/: esiste, è nella sitemap, è linkata dalla home e dalle pagine dei luoghi interessati;
+    ogni voce ha fonte ufficiale (URL, HTTP, data del controllo) stampata in pagina e una data 2027 in ordine; ogni [slug, data]
+    di 'verifica' corrisponde a una tariffa, un supplemento o un cambio annunciato che parte davvero in quella data;
+    JSON-LD FAQPage con 3-4 domande, le stesse visibili nella pagina; ogni luogo è citato nella risposta in cima."""
+    errori = []
+    f = SITO / "tourist-tax-changes-2027" / "index.html"
+    if not f.exists():
+        return ["pagina 2027 mancante"]
+    t = f.read_text(encoding="utf-8")
+    if G.URL_SITO + "/tourist-tax-changes-2027/" not in _sitemap():
+        errori.append("pagina 2027 non nella sitemap")
+    if 'href="tourist-tax-changes-2027/"' not in (SITO / "index.html").read_text(encoding="utf-8"):
+        errori.append("pagina 2027 non linkata dalla home")
+    voci = G.CAMBI["voci"]
+    if len(voci) < 3:
+        errori.append("pagina 2027: meno di 3 voci")
+    date_ = [v["dal"] for v in voci]
+    if date_ != sorted(date_) or any(d[:4] != "2027" for d in date_):
+        errori.append(f"pagina 2027: date non in ordine o fuori dal 2027: {date_}")
+    risp = re.search(r'<p class="risposta">(.*?)</p>', t, re.S)
+    for v in voci:
+        fo = v["fonte"]
+        if not fo["url"].startswith("https://") or not fo.get("http") or not re.match(r"\d{4}-\d\d-\d\d$", fo.get("controllato_il", "")):
+            errori.append(f"pagina 2027: fonte incompleta per {v['luogo']}")
+        if fo["url"].replace("&", "&amp;") not in t or f"checked on {G.data_lunga(fo['controllato_il'])}" not in t:
+            errori.append(f"pagina 2027: fonte o data non stampate per {v['luogo']}")
+        if not risp or v["luogo"].split(" (")[0] not in risp.group(1):
+            errori.append(f"pagina 2027: {v['luogo']} non citato nella risposta in cima")
+        for slug, giorno in v["verifica"]:
+            if slug not in D:
+                errori.append(f"pagina 2027: destinazione inesistente {slug}")
+                continue
+            R = D[slug]
+            if not any(x.get("dal") == giorno for x in R["tariffe"] + R.get("supplementi", []) + R.get("cambi_annunciati", [])):
+                errori.append(f"pagina 2027: {slug} non ha nei dati una tariffa che parte il {giorno}")
+        for slug in {v["slug"]} | {s for s, _ in v["verifica"]}:
+            if slug and 'href="../tourist-tax-changes-2027/"' not in (SITO / slug / "index.html").read_text(encoding="utf-8"):
+                errori.append(f"pagina 2027 non linkata dalla pagina di {slug}")
+    ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S)]
+    faq = [x for x in ld if x.get("@type") == "FAQPage"]
+    if len(faq) != 1:
+        errori.append("pagina 2027: JSON-LD FAQPage mancante o doppio")
+    else:
+        qq = faq[0]["mainEntity"]
+        if not 3 <= len(qq) <= 4:
+            errori.append(f"pagina 2027: FAQ con {len(qq)} domande (attese 3-4)")
+        for q in qq:
+            if q.get("@type") != "Question" or not q.get("acceptedAnswer", {}).get("text"):
+                errori.append(f"pagina 2027: domanda FAQ incompleta: {q.get('name')}")
+            elif G.escape(q["name"]) not in t or G.escape(q["acceptedAnswer"]["text"]) not in t:
+                errori.append(f"pagina 2027: domanda o risposta FAQ non visibile nella pagina: {q['name']}")
+    return errori
+
+
+def controlla_nuove_destinazioni():
+    """7. Destinazioni aggiunte il 26/10/2026: nei dati con almeno una fonte ufficiale leggibile (HTTP 200) e data del controllo,
+    pagina con titolo, H1 e risposta diretta, tutte le fonti linkate nella pagina, nella sitemap, nella pagina del paese
+    e (se europee) nella tabella Europa."""
+    errori = []
+    sm = _sitemap()
+    europa = (SITO / "tourist-taxes-europe-2026" / "index.html").read_text(encoding="utf-8")
+    for slug in NUOVE_DEST:
+        if slug not in D:
+            errori.append(f"nuova destinazione mancante nei dati: {slug}")
+            continue
+        R = D[slug]
+        if not R["fonti"] or any(f["http"] != 200 or not f.get("controllato_il") for f in R["fonti"]):
+            errori.append(f"{slug}: fonte non leggibile o senza data del controllo")
+        f = SITO / slug / "index.html"
+        if not f.exists():
+            errori.append(f"{slug}: pagina mancante")
+            continue
+        t = f.read_text(encoding="utf-8")
+        titolo = re.search(r"<title>(.*?)</title>", t).group(1)
+        if "tourist tax" not in titolo or not re.search(r"\d", titolo):
+            errori.append(f"{slug}: titolo senza cifra o senza 'tourist tax': {titolo}")
+        if "<h1" not in t or '<p class="risposta">' not in t:
+            errori.append(f"{slug}: manca H1 o risposta diretta")
+        for fo in R["fonti"]:
+            if G.escape(fo["url"]) not in t:
+                errori.append(f"{slug}: fonte non linkata nella pagina: {fo['url']}")
+        if f"{G.URL_SITO}/{slug}/" not in sm:
+            errori.append(f"{slug}: non nella sitemap")
+        paese = (SITO / "country" / R["country_slug"] / "index.html")
+        if not paese.exists() or f'href="../../{slug}/"' not in paese.read_text(encoding="utf-8"):
+            errori.append(f"{slug}: non elencata nella pagina del paese")
+        if R["country_slug"] in G.EUROPA and f'href="../{slug}/"' not in europa:
+            errori.append(f"{slug}: non nella tabella Europa")
+    return errori
+
+
+def controlla_titoli():
+    """8. Ogni pagina di destinazione: titolo con 'tourist tax', l'anno e una cifra; descrizione e risposta diretta presenti."""
+    errori = []
+    for d in G.DEST:
+        t = (SITO / d["slug"] / "index.html").read_text(encoding="utf-8")
+        titolo = re.search(r"<title>(.*?)</title>", t).group(1)
+        descr = re.search(r'<meta name="description" content="([^"]*)"', t).group(1)
+        if "tourist tax" not in titolo or not re.search(r"20(26|27)", titolo) or not re.search(r"\d[%,.]?\d*\b", titolo.split(":", 1)[-1]):
+            errori.append(f"titolo senza anno o cifra: {d['slug']}: {titolo}")
+        if len(descr) < 60 or '<p class="risposta">' not in t:
+            errori.append(f"descrizione o risposta diretta mancante: {d['slug']}")
+    return errori
+
+
 def main():
     errori = controlla_esempi()
     print(f"Esempi a mano: {len(ESEMPI)} controllati, {len([e for e in errori if e.startswith('ESEMPIO')])} sbagliati")
@@ -237,7 +366,13 @@ def main():
     print(f"Blocco \"Other useful tools for your trip\" ({len(G.ALTRI_SITI)} link) in {na} pagine indicizzabili: {len(ea)} errori")
     ei = controlla_indexnow()
     print(f"File chiave IndexNow {G.CHIAVE_INDEXNOW}.txt in sito/ (contenuto giusto, fuori dalla sitemap): {len(ei)} errori")
-    tutti = errori + ej + el + ef + ea + ei
+    e7 = controlla_pagina_2027()
+    print(f"Pagina tourist-tax-changes-2027/ ({len(G.CAMBI['voci'])} voci, sitemap, link, fonti, FAQPage): {len(e7)} errori")
+    en = controlla_nuove_destinazioni()
+    print(f"Destinazioni nuove ({', '.join(NUOVE_DEST)}): {len(en)} errori")
+    et = controlla_titoli()
+    print(f"Titoli, descrizioni e risposte dirette di {len(G.DEST)} destinazioni: {len(et)} errori")
+    tutti = errori + ej + el + ef + ea + ei + e7 + en + et
     for e in tutti[:40]:
         print("  -", e)
     if tutti:

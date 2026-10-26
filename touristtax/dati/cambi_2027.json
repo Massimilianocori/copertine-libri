@@ -1,0 +1,182 @@
+{
+ "_nota": "Cambi di tassa turistica già decisi, con data ufficiale (pagina tourist-tax-changes-2027/). Una voce per cambio: luogo, slug della pagina del sito (vuoto se non c'è), data, cosa cambia, importo, fonte ufficiale (URL, HTTP, data del controllo). 'verifica' = elenco [slug, data]: verifica.py controlla che quella destinazione abbia davvero una tariffa (o un supplemento, o un cambio annunciato) che parte in quella data. Solo atti o pagine ufficiali: niente stampa. 'importo_breve' = cifra corta per la tabella in cima (stessi numeri di 'importo' e 'prima').",
+ "aggiornato_il": "2026-10-26",
+ "voci": [
+  {
+   "dal": "2027-01-01",
+   "luogo": "Turkey (whole country)",
+   "slug": "turkey",
+   "cosa": "The accommodation tax goes back to the 2% rate in the law, from 1% since 1 May 2026, because Presidential Decision 11263 sets 1% only until 31 December 2026.",
+   "importo": "2% of the accommodation price excluding VAT",
+   "prima": "1%",
+   "riserva": "This applies unless a new Presidential decision published in the Official Gazette changes the rate again.",
+   "verifica": [
+    [
+     "turkey",
+     "2027-01-01"
+    ],
+    [
+     "istanbul",
+     "2027-01-01"
+    ],
+    [
+     "antalya",
+     "2027-01-01"
+    ],
+    [
+     "bodrum",
+     "2027-01-01"
+    ]
+   ],
+   "fonte": {
+    "titolo": "Presidential Decision No. 11263, Official Gazette (Resmî Gazete) No. 33240, 1 May 2026",
+    "url": "https://www.resmigazete.gov.tr/eskiler/2026/05/20260501-6.pdf",
+    "http": 200,
+    "controllato_il": "2026-10-26"
+   },
+   "importo_breve": "2% (from 1%)"
+  },
+  {
+   "dal": "2027-02-01",
+   "luogo": "Okinawa (Japan)",
+   "slug": "",
+   "cosa": "New prefectural accommodation tax on hotels, ryokan, simple lodging and minpaku. In Motobu, Onna, Chatan, Miyakojima, Ishigaki and Nago, which plan their own municipal tax, it is split between prefecture (0.8% up to ¥800) and municipality (1.2% up to ¥1,200).",
+   "importo": "2% of the room-only price per person per night (rounded down to the nearest ¥1,000), up to ¥2,000",
+   "prima": "no tax",
+   "riserva": "",
+   "verifica": [],
+   "fonte": {
+    "titolo": "Okinawa Prefecture - 沖縄県宿泊税 (Okinawa accommodation tax): start date 1 February 2027, rate, cap, exemptions",
+    "url": "https://www.pref.okinawa.jp/kurashikankyo/zeikin/1003660/1036559/1036550.html",
+    "http": 200,
+    "controllato_il": "2026-10-26"
+   },
+   "importo_breve": "2%, max ¥2,000 (new)"
+  },
+  {
+   "dal": "2027-04-01",
+   "luogo": "Cardiff (Wales)",
+   "slug": "cardiff",
+   "cosa": "The Welsh Visitor Levy starts in Cardiff, the first council in Wales to charge it. It applies to bookings made from 28 September 2026; one booking of 32 nights or more is not charged.",
+   "importo": "£1.30 per person per night (all ages); 75p per adult per night in shared hostel rooms, bunkhouses and tent pitches",
+   "prima": "no levy",
+   "riserva": "",
+   "verifica": [
+    [
+     "cardiff",
+     "2027-04-01"
+    ]
+   ],
+   "fonte": {
+    "titolo": "Welsh Revenue Authority (gov.wales) - Check if your council charges the levy; Visitor Levy in Wales",
+    "url": "https://www.gov.wales/visitor-levy-accommodation-providers-steps/check",
+    "http": 200,
+    "controllato_il": "2026-10-26"
+   },
+   "importo_breve": "£1.30, hostels 75p (new)"
+  },
+  {
+   "dal": "2027-04-01",
+   "luogo": "Catalonia (outside Barcelona)",
+   "slug": "catalonia",
+   "cosa": "New general rates of the Catalan tax on stays (IEET). The surcharges of Castelldefels, Esplugues, L'Hospitalet, El Prat, Sabadell and Sant Cugat change on the same day (Sant Just Desvern keeps its October 2026 surcharge).",
+   "importo": "5-star €6.00 (from €4.50), 4-star €2.40 (from €1.80), tourist flats €2.50 (from €1.75), other €1.20 (from €0.90), youth hostels €1.00 (from €0.80), per person per night",
+   "prima": "€0.80–€4.50",
+   "riserva": "",
+   "verifica": [
+    [
+     "catalonia",
+     "2027-04-01"
+    ]
+   ],
+   "fonte": {
+    "titolo": "Agència Tributària de Catalunya - IEET rates (quota tributària)",
+    "url": "https://atc.gencat.cat/ca/tributs/ieet/quota-tributaria/",
+    "http": 200,
+    "controllato_il": "2026-10-26"
+   },
+   "importo_breve": "€1–€6 (from €0.80–€4.50)"
+  },
+  {
+   "dal": "2027-04-01",
+   "luogo": "Barcelona",
+   "slug": "barcelona",
+   "cosa": "The Barcelona city surcharge goes up; it rises again to €7.00 on 1 April 2028. The Catalan rate for Barcelona from April 2027 is not yet in the official table.",
+   "importo": "City surcharge €6.00 per person per night (from €5.00), on top of the Catalan rate",
+   "prima": "€5.00 surcharge",
+   "riserva": "",
+   "verifica": [
+    [
+     "barcelona",
+     "2027-04-01"
+    ]
+   ],
+   "fonte": {
+    "titolo": "Agència Tributària de Catalunya - IEET rates, table 'Barcelona ciutat i recàrrec municipal'",
+    "url": "https://atc.gencat.cat/ca/tributs/ieet/quota-tributaria/",
+    "http": 200,
+    "controllato_il": "2026-10-26"
+   },
+   "importo_breve": "€6 surcharge (from €5)"
+  },
+  {
+   "dal": "2027-04-01",
+   "luogo": "Tokyo (Japan)",
+   "slug": "tokyo",
+   "cosa": "The fixed ¥100/¥200 amounts are replaced by a percentage, the tax-free threshold rises from ¥10,000 to ¥13,000 per person per night, and simple lodging and minpaku are covered too. Ordinance passed on 27 March 2026, Minister's consent on 30 June 2026.",
+   "importo": "3% of the room-only price per person per night, from ¥13,000",
+   "prima": "¥100–¥200 per person per night",
+   "riserva": "",
+   "verifica": [
+    [
+     "tokyo",
+     "2027-04-01"
+    ]
+   ],
+   "fonte": {
+    "titolo": "Tokyo Metropolitan Government Bureau of Taxation - 宿泊税の見直し (accommodation tax revision, from 1 April 2027)",
+    "url": "https://www.tax.metro.tokyo.lg.jp/kazei/leisure/shuk/shuk_minaoshi",
+    "http": 200,
+    "controllato_il": "2026-10-26"
+   },
+   "importo_breve": "3% from ¥13,000 (from ¥100–¥200)"
+  },
+  {
+   "dal": "2027-07-01",
+   "luogo": "Vienna (Austria)",
+   "slug": "vienna",
+   "cosa": "The Ortstaxe rises for the second year in a row.",
+   "importo": "8% of the accommodation price excluding VAT and breakfast (from 5%)",
+   "prima": "5%",
+   "riserva": "",
+   "verifica": [
+    [
+     "vienna",
+     "2027-07-01"
+    ]
+   ],
+   "fonte": {
+    "titolo": "City of Vienna - Ortstaxe",
+    "url": "https://www.wien.gv.at/amtswege/ortstaxe",
+    "http": 200,
+    "controllato_il": "2026-10-26"
+   },
+   "importo_breve": "8% (from 5%)"
+  }
+ ],
+ "dopo": [
+  {
+   "dal": "2028-04-01",
+   "luogo": "Barcelona",
+   "slug": "barcelona",
+   "cosa": "City surcharge €7.00 per person per night (from €6.00)."
+  },
+  {
+   "dal": "2029-06-01",
+   "luogo": "Hakuba (Japan)",
+   "slug": "hakuba",
+   "cosa": "End of the reduced rates of the first three years: the Hakuba and Nagano amounts go up in every taxed price band."
+  }
+ ],
+ "non_elencati": "Not listed because we could not read an official act with the date and amount: Venice's 2027 access fee calendar (the City's sites block automated reading), Milan's 2027 rates (not published when we last checked the City's site, on 10 October 2026), and the Catalan rate for Barcelona from April 2027."
+}

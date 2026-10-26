@@ -94,7 +94,7 @@
      "url": "https://atc.gencat.cat/ca/tributs/ieet/quota-tributaria/",
      "http": 200,
      "formato": "HTML (Catalan)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-10-26"
     },
     {
      "titolo": "Agència Tributària de Catalunya - IEET overview: exemptions (under 17), 7-day maximum, list of surcharges",
@@ -115,7 +115,13 @@
     "Children under 17",
     "Stays for health reasons that meet the official requirements"
    ],
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26",
+   "cambi_annunciati": [
+    {
+     "dal": "2027-04-01",
+     "testo": "The Barcelona city surcharge rises from €5.00 to €6.00 per person per night (and to €7.00 from 1 April 2028). The Catalan rate for Barcelona from that date is not yet in the official table."
+    }
+   ]
   },
   {
    "slug": "catalonia",
@@ -641,7 +647,7 @@
      "url": "https://atc.gencat.cat/ca/tributs/ieet/quota-tributaria/",
      "http": 200,
      "formato": "HTML (Catalan)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-10-26"
     },
     {
      "titolo": "Agència Tributària de Catalunya - IEET overview (exemptions, 7-day maximum)",
@@ -661,7 +667,7 @@
     "Children under 17",
     "Stays for health reasons that meet the official requirements"
    ],
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "mallorca",
@@ -822,7 +828,7 @@
      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2016-4175",
      "http": 200,
      "formato": "HTML (Spanish)",
-     "controllato_il": "2026-10-10",
+     "controllato_il": "2026-10-26",
      "nota": "Art. 13 (rates and reductions) in force since 1 January 2018; art. 5 (exemptions). Consolidated text last updated 17/05/2025."
     }
    ],
@@ -831,7 +837,7 @@
     "From the 9th day of a stay in the same establishment: a further 50% reduction (on top of the low-season reduction, if any).",
     "Under-16s do not pay. Stays for force majeure, documented health-care stays (and companions) and stays subsidised by public social programmes are also exempt.",
     "The tax is charged per person and per day (or fraction) of stay. The establishment must charge it to the guest at any time before the end of the stay.",
-    "Last verified on 10 October 2026 against Law 2/2016 as consolidated on 17/05/2025 and the Balearic Tax Agency (ATIB) page; no later amendment found in the official bulletin. Check with your accommodation.",
+    "Last verified against Law 2/2016 as consolidated on 17/05/2025 (unchanged on the BOE on 26 October 2026) and the Balearic Tax Agency (ATIB) page (10 October 2026); no later amendment found in the official bulletin. Check with your accommodation.",
     "The same Balearic rate applies in Palma, Alcúdia, Magaluf and the rest of Mallorca."
    ],
    "esenzioni": [
@@ -840,9 +846,9 @@
     "Health-care stays within the Balearic public health system's services, and companions (with documents)",
     "Stays subsidised by social programmes of EU public administrations"
    ],
-   "avviso_verifica": "Rates last verified on 10 October 2026 against Law 2/2016 (consolidated text of 17/05/2025) and the ATIB page. Check with your accommodation.",
+   "avviso_verifica": "Rates last verified against Law 2/2016 (consolidated text of 17/05/2025, unchanged on the BOE on 26 October 2026) and the ATIB page (10 October 2026). Check with your accommodation.",
    "gruppo": "balearics",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "ibiza",
@@ -1003,7 +1009,7 @@
      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2016-4175",
      "http": 200,
      "formato": "HTML (Spanish)",
-     "controllato_il": "2026-10-10",
+     "controllato_il": "2026-10-26",
      "nota": "Art. 13 (rates and reductions) in force since 1 January 2018; art. 5 (exemptions). Consolidated text last updated 17/05/2025."
     }
    ],
@@ -1012,7 +1018,7 @@
     "From the 9th day of a stay in the same establishment: a further 50% reduction (on top of the low-season reduction, if any).",
     "Under-16s do not pay. Stays for force majeure, documented health-care stays (and companions) and stays subsidised by public social programmes are also exempt.",
     "The tax is charged per person and per day (or fraction) of stay. The establishment must charge it to the guest at any time before the end of the stay.",
-    "Last verified on 10 October 2026 against Law 2/2016 as consolidated on 17/05/2025 and the Balearic Tax Agency (ATIB) page; no later amendment found in the official bulletin. Check with your accommodation.",
+    "Last verified against Law 2/2016 as consolidated on 17/05/2025 (unchanged on the BOE on 26 October 2026) and the Balearic Tax Agency (ATIB) page (10 October 2026); no later amendment found in the official bulletin. Check with your accommodation.",
     "The same Balearic rate applies in Ibiza town, Sant Antoni and the rest of the island."
    ],
    "esenzioni": [
@@ -1021,9 +1027,9 @@
     "Health-care stays within the Balearic public health system's services, and companions (with documents)",
     "Stays subsidised by social programmes of EU public administrations"
    ],
-   "avviso_verifica": "Rates last verified on 10 October 2026 against Law 2/2016 (consolidated text of 17/05/2025) and the ATIB page. Check with your accommodation.",
+   "avviso_verifica": "Rates last verified against Law 2/2016 (consolidated text of 17/05/2025, unchanged on the BOE on 26 October 2026) and the ATIB page (10 October 2026). Check with your accommodation.",
    "gruppo": "balearics",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "menorca",
@@ -1184,7 +1190,7 @@
      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2016-4175",
      "http": 200,
      "formato": "HTML (Spanish)",
-     "controllato_il": "2026-10-10",
+     "controllato_il": "2026-10-26",
      "nota": "Art. 13 (rates and reductions) in force since 1 January 2018; art. 5 (exemptions). Consolidated text last updated 17/05/2025."
     }
    ],
@@ -1193,7 +1199,7 @@
     "From the 9th day of a stay in the same establishment: a further 50% reduction (on top of the low-season reduction, if any).",
     "Under-16s do not pay. Stays for force majeure, documented health-care stays (and companions) and stays subsidised by public social programmes are also exempt.",
     "The tax is charged per person and per day (or fraction) of stay. The establishment must charge it to the guest at any time before the end of the stay.",
-    "Last verified on 10 October 2026 against Law 2/2016 as consolidated on 17/05/2025 and the Balearic Tax Agency (ATIB) page; no later amendment found in the official bulletin. Check with your accommodation.",
+    "Last verified against Law 2/2016 as consolidated on 17/05/2025 (unchanged on the BOE on 26 October 2026) and the Balearic Tax Agency (ATIB) page (10 October 2026); no later amendment found in the official bulletin. Check with your accommodation.",
     "The same Balearic rate applies everywhere on Menorca."
    ],
    "esenzioni": [
@@ -1202,9 +1208,9 @@
     "Health-care stays within the Balearic public health system's services, and companions (with documents)",
     "Stays subsidised by social programmes of EU public administrations"
    ],
-   "avviso_verifica": "Rates last verified on 10 October 2026 against Law 2/2016 (consolidated text of 17/05/2025) and the ATIB page. Check with your accommodation.",
+   "avviso_verifica": "Rates last verified against Law 2/2016 (consolidated text of 17/05/2025, unchanged on the BOE on 26 October 2026) and the ATIB page (10 October 2026). Check with your accommodation.",
    "gruppo": "balearics",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "formentera",
@@ -1365,7 +1371,7 @@
      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2016-4175",
      "http": 200,
      "formato": "HTML (Spanish)",
-     "controllato_il": "2026-10-10",
+     "controllato_il": "2026-10-26",
      "nota": "Art. 13 (rates and reductions) in force since 1 January 2018; art. 5 (exemptions). Consolidated text last updated 17/05/2025."
     }
    ],
@@ -1374,7 +1380,7 @@
     "From the 9th day of a stay in the same establishment: a further 50% reduction (on top of the low-season reduction, if any).",
     "Under-16s do not pay. Stays for force majeure, documented health-care stays (and companions) and stays subsidised by public social programmes are also exempt.",
     "The tax is charged per person and per day (or fraction) of stay. The establishment must charge it to the guest at any time before the end of the stay.",
-    "Last verified on 10 October 2026 against Law 2/2016 as consolidated on 17/05/2025 and the Balearic Tax Agency (ATIB) page; no later amendment found in the official bulletin. Check with your accommodation.",
+    "Last verified against Law 2/2016 as consolidated on 17/05/2025 (unchanged on the BOE on 26 October 2026) and the Balearic Tax Agency (ATIB) page (10 October 2026); no later amendment found in the official bulletin. Check with your accommodation.",
     "The same Balearic rate applies on Formentera."
    ],
    "esenzioni": [
@@ -1383,9 +1389,9 @@
     "Health-care stays within the Balearic public health system's services, and companions (with documents)",
     "Stays subsidised by social programmes of EU public administrations"
    ],
-   "avviso_verifica": "Rates last verified on 10 October 2026 against Law 2/2016 (consolidated text of 17/05/2025) and the ATIB page. Check with your accommodation.",
+   "avviso_verifica": "Rates last verified against Law 2/2016 (consolidated text of 17/05/2025, unchanged on the BOE on 26 October 2026) and the ATIB page (10 October 2026). Check with your accommodation.",
    "gruppo": "balearics",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "athens",
@@ -1728,7 +1734,7 @@
      "url": "https://ia37rg02wpsa01.blob.core.windows.net/fek/01/2024/20240100198.pdf",
      "http": 200,
      "formato": "PDF (Greek)",
-     "controllato_il": "2026-10-10",
+     "controllato_il": "2026-10-26",
      "nota": "Official copy of the Government Gazette served by search.et.gr (National Printing House). Applies from tax year 2025 (art. 136 par. 7)."
     },
     {
@@ -1750,7 +1756,7 @@
     "Accommodation provided free of charge (the fee is not imposed)"
    ],
    "gruppo": "greece",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "santorini",
@@ -2093,7 +2099,7 @@
      "url": "https://ia37rg02wpsa01.blob.core.windows.net/fek/01/2024/20240100198.pdf",
      "http": 200,
      "formato": "PDF (Greek)",
-     "controllato_il": "2026-10-10",
+     "controllato_il": "2026-10-26",
      "nota": "Official copy of the Government Gazette served by search.et.gr (National Printing House). Applies from tax year 2025 (art. 136 par. 7)."
     },
     {
@@ -2115,7 +2121,7 @@
     "Accommodation provided free of charge (the fee is not imposed)"
    ],
    "gruppo": "greece",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "mykonos",
@@ -2458,7 +2464,7 @@
      "url": "https://ia37rg02wpsa01.blob.core.windows.net/fek/01/2024/20240100198.pdf",
      "http": 200,
      "formato": "PDF (Greek)",
-     "controllato_il": "2026-10-10",
+     "controllato_il": "2026-10-26",
      "nota": "Official copy of the Government Gazette served by search.et.gr (National Printing House). Applies from tax year 2025 (art. 136 par. 7)."
     },
     {
@@ -2480,7 +2486,7 @@
     "Accommodation provided free of charge (the fee is not imposed)"
    ],
    "gruppo": "greece",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "crete",
@@ -2823,7 +2829,7 @@
      "url": "https://ia37rg02wpsa01.blob.core.windows.net/fek/01/2024/20240100198.pdf",
      "http": 200,
      "formato": "PDF (Greek)",
-     "controllato_il": "2026-10-10",
+     "controllato_il": "2026-10-26",
      "nota": "Official copy of the Government Gazette served by search.et.gr (National Printing House). Applies from tax year 2025 (art. 136 par. 7)."
     },
     {
@@ -2846,7 +2852,7 @@
     "Accommodation provided free of charge (the fee is not imposed)"
    ],
    "gruppo": "greece",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "rhodes",
@@ -3189,7 +3195,7 @@
      "url": "https://ia37rg02wpsa01.blob.core.windows.net/fek/01/2024/20240100198.pdf",
      "http": 200,
      "formato": "PDF (Greek)",
-     "controllato_il": "2026-10-10",
+     "controllato_il": "2026-10-26",
      "nota": "Official copy of the Government Gazette served by search.et.gr (National Printing House). Applies from tax year 2025 (art. 136 par. 7)."
     },
     {
@@ -3211,7 +3217,7 @@
     "Accommodation provided free of charge (the fee is not imposed)"
    ],
    "gruppo": "greece",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "corfu",
@@ -3554,7 +3560,7 @@
      "url": "https://ia37rg02wpsa01.blob.core.windows.net/fek/01/2024/20240100198.pdf",
      "http": 200,
      "formato": "PDF (Greek)",
-     "controllato_il": "2026-10-10",
+     "controllato_il": "2026-10-26",
      "nota": "Official copy of the Government Gazette served by search.et.gr (National Printing House). Applies from tax year 2025 (art. 136 par. 7)."
     },
     {
@@ -3576,7 +3582,7 @@
     "Accommodation provided free of charge (the fee is not imposed)"
    ],
    "gruppo": "greece",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "zakynthos",
@@ -3919,7 +3925,7 @@
      "url": "https://ia37rg02wpsa01.blob.core.windows.net/fek/01/2024/20240100198.pdf",
      "http": 200,
      "formato": "PDF (Greek)",
-     "controllato_il": "2026-10-10",
+     "controllato_il": "2026-10-26",
      "nota": "Official copy of the Government Gazette served by search.et.gr (National Printing House). Applies from tax year 2025 (art. 136 par. 7)."
     },
     {
@@ -3941,7 +3947,7 @@
     "Accommodation provided free of charge (the fee is not imposed)"
    ],
    "gruppo": "greece",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "kos",
@@ -4284,7 +4290,7 @@
      "url": "https://ia37rg02wpsa01.blob.core.windows.net/fek/01/2024/20240100198.pdf",
      "http": 200,
      "formato": "PDF (Greek)",
-     "controllato_il": "2026-10-10",
+     "controllato_il": "2026-10-26",
      "nota": "Official copy of the Government Gazette served by search.et.gr (National Printing House). Applies from tax year 2025 (art. 136 par. 7)."
     },
     {
@@ -4306,7 +4312,7 @@
     "Accommodation provided free of charge (the fee is not imposed)"
    ],
    "gruppo": "greece",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "turkey",
@@ -4352,7 +4358,7 @@
      "url": "https://www.resmigazete.gov.tr/eskiler/2026/05/20260501-6.pdf",
      "http": 200,
      "formato": "PDF (Turkish, scanned text)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-10-26"
     },
     {
      "titolo": "Revenue Administration (GİB) - accommodation tax return guide: rate 2%, base = invoice amount excluding VAT",
@@ -4371,7 +4377,7 @@
    "esenzioni": [],
    "gruppo": "turkey",
    "prezzo_esempio": 5000,
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "istanbul",
@@ -4417,7 +4423,7 @@
      "url": "https://www.resmigazete.gov.tr/eskiler/2026/05/20260501-6.pdf",
      "http": 200,
      "formato": "PDF (Turkish, scanned text)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-10-26"
     },
     {
      "titolo": "Revenue Administration (GİB) - accommodation tax return guide: rate 2%, base = invoice amount excluding VAT",
@@ -4435,7 +4441,7 @@
    "esenzioni": [],
    "gruppo": "turkey",
    "prezzo_esempio": 5000,
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "antalya",
@@ -4481,7 +4487,7 @@
      "url": "https://www.resmigazete.gov.tr/eskiler/2026/05/20260501-6.pdf",
      "http": 200,
      "formato": "PDF (Turkish, scanned text)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-10-26"
     },
     {
      "titolo": "Revenue Administration (GİB) - accommodation tax return guide: rate 2%, base = invoice amount excluding VAT",
@@ -4500,7 +4506,7 @@
    "esenzioni": [],
    "gruppo": "turkey",
    "prezzo_esempio": 5000,
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "bodrum",
@@ -4546,7 +4552,7 @@
      "url": "https://www.resmigazete.gov.tr/eskiler/2026/05/20260501-6.pdf",
      "http": 200,
      "formato": "PDF (Turkish, scanned text)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-10-26"
     },
     {
      "titolo": "Revenue Administration (GİB) - accommodation tax return guide: rate 2%, base = invoice amount excluding VAT",
@@ -4564,7 +4570,7 @@
    "esenzioni": [],
    "gruppo": "turkey",
    "prezzo_esempio": 5000,
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "amsterdam",
@@ -4597,7 +4603,7 @@
      "url": "https://repository.officiele-overheidspublicaties.nl/cvdr/CVDR703815/1/xml/CVDR703815_1.xml",
      "http": 200,
      "formato": "XML (Dutch)",
-     "controllato_il": "2026-10-10",
+     "controllato_il": "2026-10-26",
      "nota": "Still the version in force in the national CVDR register on the check date (no later version)."
     },
     {
@@ -4619,7 +4625,7 @@
     "Government-arranged shelter for refugees and homeless people"
    ],
    "prezzo_esempio": 200,
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "berlin",
@@ -4723,7 +4729,7 @@
      "url": "https://www.wien.gv.at/amtswege/ortstaxe",
      "http": 200,
      "formato": "HTML (German)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-10-26"
     }
    ],
    "note": [
@@ -4739,7 +4745,7 @@
    ],
    "esente_oltre_mesi": 3,
    "prezzo_esempio": 150,
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "prague",
@@ -5774,29 +5780,56 @@
        200
       ]
      ]
+    },
+    {
+     "cat": "all",
+     "dal": "2027-04-01",
+     "valore": [
+      [
+       0,
+       13000,
+       0
+      ],
+      [
+       13000,
+       null,
+       3
+      ]
+     ],
+     "bande_pct": true,
+     "nota": "From 1 April 2027: 3% of the room-only price per person per night when it is ¥13,000 or more; simple lodging (簡易宿所) and minpaku are also covered."
     }
    ],
    "valid_from": "",
    "chi_riscuote": "The hotel or ryokan, which pays it to the Tokyo Metropolitan Government.",
    "fonti": [
     {
-     "titolo": "Tokyo Metropolitan Government Bureau of Taxation - accommodation tax FAQ (current rates, planned April 2027 change, children)",
+     "titolo": "Tokyo Metropolitan Government Bureau of Taxation - accommodation tax FAQ (current rates, April 2027 change, children)",
      "url": "https://www.tax.metro.tokyo.lg.jp/shitsumon/leisure/general_01",
      "http": 200,
      "formato": "HTML (Japanese)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-10-26"
+    },
+    {
+     "titolo": "Tokyo Metropolitan Government Bureau of Taxation - accommodation tax revision (宿泊税の見直し): 3% from ¥13,000 per person per night from 1 April 2027; ordinance passed 27 March 2026, consent of the Minister for Internal Affairs 30 June 2026",
+     "url": "https://www.tax.metro.tokyo.lg.jp/kazei/leisure/shuk/shuk_minaoshi",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-26"
     }
    ],
    "note": [
-    "Charged per guest per night when the room-only price per person is ¥10,000 or more: ¥100 up to ¥14,999, ¥200 from ¥15,000.",
-    "For twin and shared rooms the price is divided by the number of guests. Children pay too if their share reaches ¥10,000.",
-    "Planned change from 1 April 2027 (fiscal year 2027 revision): no tax below ¥13,000 per person, 3% above, and simple lodging and minpaku will also be covered. The calculator stops at 31 March 2027."
+    "Until 31 March 2027: charged per guest per night when the room-only price per person is ¥10,000 or more: ¥100 up to ¥14,999, ¥200 from ¥15,000.",
+    "From 1 April 2027 (ordinance passed on 27 March 2026, consent of the Minister for Internal Affairs on 30 June 2026): no tax below ¥13,000 per person per night, 3% of the room-only price from ¥13,000. Simple lodging and minpaku (private rentals) are also covered from that date.",
+    "For twin and shared rooms the price is divided by the number of guests. Children pay too if their share reaches the threshold.",
+    "The price is the room-only charge (no meals or other services). The hotel may round the 3% amount; check the final figure with them."
    ],
    "esenzioni": [
-    "Stays below ¥10,000 per person per night"
+    "Until 31 March 2027: stays below ¥10,000 per person per night",
+    "From 1 April 2027: stays below ¥13,000 per person per night"
    ],
    "prezzo_esempio": 30000,
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-26"
   },
   {
    "slug": "kutchan-niseko",
@@ -6208,6 +6241,310 @@
     "Accommodation sold without VAT"
    ],
    "controllato_il": "2026-10-10"
+  },
+  {
+   "slug": "cardiff",
+   "name": "Cardiff",
+   "country": "United Kingdom",
+   "country_slug": "united-kingdom",
+   "region": "Wales",
+   "currency": "GBP",
+   "official_name": "Visitor Levy (Wales), charged by Cardiff Council from 1 April 2027",
+   "tipo": "per_person",
+   "categorie": [
+    {
+     "id": "higher",
+     "label": "Hotels, B&Bs, guesthouses, self-catering and holiday lets, homestays (Airbnb-type), caravans, glamping and all other accommodation (higher rate, guests of all ages)"
+    },
+    {
+     "id": "lower",
+     "label": "Shared room in a hostel, bunkhouse, bothy or dormitory, or a tent pitch (lower rate: count adults only, under-18s do not pay)"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "higher",
+     "dal": "2027-04-01",
+     "valore": 1.3
+    },
+    {
+     "cat": "lower",
+     "dal": "2027-04-01",
+     "valore": 0.75
+    }
+   ],
+   "esente_da_notti": 32,
+   "in_vigore_dal": "2027-04-01",
+   "valid_from": "2027-04-01",
+   "chi_riscuote": "The accommodation provider, who pays it to the Welsh Revenue Authority and may pass it on to the guest (VAT, if any, applies to the total).",
+   "fonti": [
+    {
+     "titolo": "Welsh Government (gov.wales) - Visitor Levy in Wales / Visitor Levy in Cardiff: stays from 1 April 2027, £1.30 and 75p per person per night, refunds",
+     "url": "https://www.gov.wales/visitor-levy-wales",
+     "http": 200,
+     "formato": "HTML (English)",
+     "controllato_il": "2026-10-26",
+     "nota": "Open Government Licence: contains public sector information licensed under the Open Government Licence v3.0."
+    },
+    {
+     "titolo": "Welsh Revenue Authority guide, step 2 - Check if your council charges the levy: Cardiff Council starts the levy on 1 April 2027",
+     "url": "https://www.gov.wales/visitor-levy-accommodation-providers-steps/check",
+     "http": 200,
+     "formato": "HTML (English)",
+     "controllato_il": "2026-10-26"
+    },
+    {
+     "titolo": "Welsh Revenue Authority guide, step 4 - How much you must pay: rates, under-18s at the lower rate, bookings of 32 nights or more",
+     "url": "https://www.gov.wales/visitor-levy-accommodation-providers-steps/how-much",
+     "http": 200,
+     "formato": "HTML (English)",
+     "controllato_il": "2026-10-26"
+    },
+    {
+     "titolo": "Welsh Revenue Authority guide, step 5 - Record new bookings in advance: Cardiff bookings made from 28 September 2026",
+     "url": "https://www.gov.wales/visitor-levy-accommodation-providers-steps/before-levy-starts",
+     "http": 200,
+     "formato": "HTML (English)",
+     "controllato_il": "2026-10-26"
+    }
+   ],
+   "note": [
+    "The Visitor Levy starts in Cardiff on 1 April 2027. No other Welsh council charges it or is consulting on it on the date we checked.",
+    "£1.30 per person per night (guests of all ages, babies included) in hotels, B&Bs, self-catering, holiday lets, caravans, glamping and homestays; 75p per adult per night in shared hostel rooms, bunkhouses, bothies, dormitories and tent pitches, where under-18s do not pay.",
+    "It applies to bookings made from 28 September 2026 (and to nights or guests added to an earlier booking from that date) for stays from 1 April 2027.",
+    "One booking of 32 nights or more is not charged (the nights do not have to be in a row).",
+    "After the stay, carers looking after a disabled person, people who were temporarily homeless and people fleeing harm or domestic violence can ask the Welsh Revenue Authority for a refund."
+   ],
+   "esenzioni": [
+    "Under-18s staying at the lower rate (shared hostel rooms, bunkhouses, bothies, dormitories, tent pitches)",
+    "One booking of 32 nights or more",
+    "Temporary housing provided by a local council",
+    "Employees, contractors or apprentices staying in their employer's accommodation for work",
+    "Refund after the stay: carers of a disabled person, people temporarily homeless, people fleeing harm or domestic violence"
+   ],
+   "controllato_il": "2026-10-26",
+   "breve_seo": "£1.30 per night from 1 Apr 2027",
+   "risposta": "From 1 April 2027 Cardiff charges the Welsh Visitor Levy: £1.30 per person per night in hotels, B&Bs, self-catering, holiday lets and homestays (guests of all ages), and 75p per adult per night in shared hostel rooms, bunkhouses and tent pitches. It applies to bookings made from 28 September 2026; one booking of 32 nights or more is not charged."
+  },
+  {
+   "slug": "malta",
+   "name": "Malta",
+   "country": "Malta",
+   "country_slug": "malta",
+   "region": "Malta and Gozo",
+   "currency": "EUR",
+   "official_name": "Environmental contribution (eco-contribution), Eco-Contribution Act (Cap. 473) as amended by Act III of 2026",
+   "tipo": "per_person",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "All licensed accommodation: hotels, guesthouses, farmhouses, villas, hostels, self-catering apartments, B&Bs, host families"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "all",
+     "dal": "2026-07-01",
+     "valore": 1.5
+    }
+   ],
+   "esenti_sotto_eta": 18,
+   "max_notti": 15,
+   "valid_from": "2026-07-01",
+   "chi_riscuote": "The accommodation provider, who must charge it separately from the room rate and show it on the receipt.",
+   "fonti": [
+    {
+     "titolo": "Malta Tourism Authority - Environmental Contribution: €1.50 per night per person aged 18 or over from 1 July 2026, maximum €22.50 per person per visit",
+     "url": "https://mta.com.mt/environmental-contribution/",
+     "http": 200,
+     "formato": "HTML (English)",
+     "controllato_il": "2026-10-26"
+    },
+    {
+     "titolo": "Malta Tourism Authority - Guidelines on the Eco-Contribution Due in Respect of the Provision of Licensable Accommodation (2026)",
+     "url": "https://mta.com.mt/docs/Eco-Contribution-Accommodation-Guidelines-2026.pdf",
+     "http": 200,
+     "formato": "PDF (English)",
+     "controllato_il": "2026-10-26"
+    },
+    {
+     "titolo": "Malta Tourism Authority - Notice to guests (2026 regulations): stays starting on or after 1 July 2026",
+     "url": "https://cms.mta.com.mt/api/media/file/2026%20Regulations%20-%20Notice%20to%20Guests.pdf",
+     "http": 200,
+     "formato": "PDF (English)",
+     "controllato_il": "2026-10-26"
+    }
+   ],
+   "note": [
+    "€1.50 per person aged 18 or over per night, for stays starting on or after 1 July 2026, with a maximum of €22.50 per person per visit (15 nights).",
+    "A visit is one uninterrupted stay, also across several places in Malta and Gozo: keep the receipt if you move to a second hotel, so the cap is counted on the whole visit.",
+    "It is charged separately from the room rate, with no VAT or commission on it. The accommodation may ask for a passport or ID card to check the age of guests under 18.",
+    "The same rate applies everywhere: Valletta, St Julian's, Sliema, St Paul's Bay, Mellieħa and Gozo."
+   ],
+   "esenzioni": [
+    "Guests under 18 at the start of the visit (with a passport, ID card or birth certificate)"
+   ],
+   "controllato_il": "2026-10-26",
+   "breve_seo": "€1.50 per adult per night"
+  },
+  {
+   "slug": "porto",
+   "name": "Porto",
+   "country": "Portugal",
+   "country_slug": "portugal",
+   "region": "Norte",
+   "currency": "EUR",
+   "official_name": "Municipal tourist tax (Taxa Municipal Turística, TMT)",
+   "tipo": "per_person",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "Tourist establishments and local accommodation (alojamento local) in the municipality of Porto"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "all",
+     "valore": 3.0
+    }
+   ],
+   "esenti_sotto_eta": 13,
+   "max_notti": 7,
+   "valid_from": "",
+   "chi_riscuote": "The tourist establishment or local accommodation, at the start, during or at the end of the stay.",
+   "fonti": [
+    {
+     "titolo": "Câmara Municipal do Porto - Taxa Municipal Turística leaflet: €3 per night, maximum 7 consecutive nights, exemptions",
+     "url": "https://taxaturistica.cm-porto.pt/Content/documents/tmt_folhetos_PT.pdf",
+     "http": 200,
+     "formato": "PDF (Portuguese)",
+     "controllato_il": "2026-10-26",
+     "nota": "Official leaflet of the City Council (file dated 25 November 2024)."
+    },
+    {
+     "titolo": "Câmara Municipal do Porto - Municipal Tourist Tax leaflet (English): €3 per night, up to a maximum of €21 (seven consecutive nights)",
+     "url": "https://taxaturistica.cm-porto.pt/Content/documents/tmt_folhetos_EN.pdf",
+     "http": 200,
+     "formato": "PDF (English)",
+     "controllato_il": "2026-10-26"
+    },
+    {
+     "titolo": "Câmara Municipal do Porto - Regulamento da Taxa Municipal Turística (Diário da República, 2.ª série, n.º 226, 23 November 2022): who pays (aged 13 or over), 7-night maximum, exemptions",
+     "url": "https://taxaturistica.cm-porto.pt/Content/documents/Regulamento.pdf",
+     "http": 200,
+     "formato": "PDF (Portuguese)",
+     "controllato_il": "2026-10-26",
+     "nota": "This copy of the regulation still shows the earlier €2 rate in article 2; the City Council's leaflet gives the current €3."
+    }
+   ],
+   "note": [
+    "€3 per guest aged 13 or over per night, for a maximum of 7 consecutive nights per stay (€21 per person at most).",
+    "Children aged 12 or under do not pay. Proof is needed for every exemption.",
+    "The accommodation can ask for the tax at the start, during or at the end of the stay.",
+    "This page covers the municipality of Porto only: Vila Nova de Gaia, Matosinhos and other nearby towns have their own rules."
+   ],
+   "esenzioni": [
+    "Children aged 12 or under",
+    "Stays for medical treatment, and up to two companions",
+    "People with a disability of 60% or more, and up to two companions",
+    "People displaced from their homes",
+    "Religious pilgrims (for example to Santiago de Compostela or Fátima): the first night in pilgrim hostels in Porto",
+    "People placed temporarily by public social services, and asylum seekers displaced by conflict"
+   ],
+   "avviso_verifica": "The rate is €3, from the City Council's official leaflets (Portuguese and English, November 2024). The copy of the regulation on the City Council's tax portal is the 2022 text and still shows the earlier €2. Last verified on 26 October 2026: check with your accommodation.",
+   "controllato_il": "2026-10-26"
+  },
+  {
+   "slug": "tunisia",
+   "name": "Tunisia",
+   "country": "Tunisia",
+   "country_slug": "tunisia",
+   "region": "",
+   "currency": "TND",
+   "official_name": "Stay tax in tourist establishments (معلوم الإقامة), Finance Law 2024 (Law 2023-13) art. 46",
+   "tipo": "per_person",
+   "categorie": [
+    {
+     "id": "h45f",
+     "label": "Hotel 4 or 5 stars – foreign guests"
+    },
+    {
+     "id": "h3f",
+     "label": "Hotel 3 stars – foreign guests"
+    },
+    {
+     "id": "h2f",
+     "label": "Hotel 2 stars, residence hotel, tourist village, tourist residence, rural or family stays, campsites, rented rooms, flats or villas – foreign guests"
+    },
+    {
+     "id": "h45t",
+     "label": "Hotel 4 or 5 stars – Tunisian and Maghreb nationals"
+    },
+    {
+     "id": "h3t",
+     "label": "Hotel 3 stars – Tunisian and Maghreb nationals"
+    },
+    {
+     "id": "h2t",
+     "label": "Hotel 2 stars and the other types above – Tunisian and Maghreb nationals"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "h45f",
+     "valore": 12
+    },
+    {
+     "cat": "h3f",
+     "valore": 8
+    },
+    {
+     "cat": "h2f",
+     "valore": 4
+    },
+    {
+     "cat": "h45t",
+     "valore": 3
+    },
+    {
+     "cat": "h3t",
+     "valore": 2
+    },
+    {
+     "cat": "h2t",
+     "valore": 1
+    }
+   ],
+   "max_notti": 10,
+   "valid_from": "2024-01-01",
+   "chi_riscuote": "The tourist establishment.",
+   "fonti": [
+    {
+     "titolo": "Law No. 2023-13 of 11 December 2023 (Finance Law 2024), art. 46, Official Journal of the Republic of Tunisia (JORT) No. 144 of 12 December 2023, p. 6446-6447 - published by the Ministry of Finance",
+     "url": "https://www.finances.gov.tn/sites/default/files/2023-12/LF2024_0.pdf",
+     "http": 200,
+     "formato": "PDF (Arabic)",
+     "controllato_il": "2026-10-26",
+     "nota": "Rate table in art. 46 (amending art. 49 of Law 2017-66); cap of 10 consecutive nights per guest."
+    },
+    {
+     "titolo": "Assembly of the Representatives of the People (arp.tn) - Finance and Budget Committee minutes on the 2024 finance bill: the Ministry of Finance explains that art. 49 of Law 2017-66 charges each guest over 12 in tourist hotels",
+     "url": "https://arp.tn/ar_SY/document/download/96612",
+     "http": 200,
+     "formato": "PDF (Arabic)",
+     "controllato_il": "2026-10-26"
+    }
+   ],
+   "note": [
+    "Foreign guests pay 12 dinars per night in 4- and 5-star hotels, 8 dinars in 3-star hotels and 4 dinars in 2-star hotels and the other types of accommodation listed; Tunisian and Maghreb nationals pay 3, 2 and 1 dinars.",
+    "The amount paid by each guest cannot exceed 10 nights spent in a row.",
+    "Article 46 does not mention children. The 2018 law it amends charges guests over 12, according to the Ministry of Finance in Parliament (November 2023): ask your hotel whether children pay, as the calculator counts every guest. If you booked a package, check with your tour operator whether the tax is included.",
+    "The tax is national: the same rates apply in Djerba, Hammamet, Sousse, Monastir, Tunis and Tozeur."
+   ],
+   "esenzioni": [],
+   "controllato_il": "2026-10-26",
+   "breve_seo": "TND 4–12 per night for foreign guests",
+   "risposta": "In Tunisia foreign guests pay 4 to 12 dinars per person per night: TND 12 in 4- and 5-star hotels, TND 8 in 3-star hotels and TND 4 in 2-star hotels and other accommodation; Tunisian and Maghreb nationals pay TND 3, 2 and 1. Each guest pays for at most 10 nights in a row."
   }
  ]
 }

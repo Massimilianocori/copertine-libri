@@ -86,14 +86,14 @@ destinazione interessata, commit (Netlify pubblica da solo).
 |---|---|---|
 | Venezia (imposta + contributo d'accesso) | comune.venezia.it e cda.ve.it danno 403 | lettura a mano della delibera tariffe e del calendario dei giorni di accesso, o una fonte ufficiale alternativa leggibile |
 | Lisbona | lisboa.pt 403 | regolamento pubblicato nel Diário da República |
-| Porto | porto.pt non serve il contenuto della pagina | regolamento nel Diário da República o PDF ufficiale |
+| ~~Porto~~ | aggiunta il 26/10/2026 (volantino ufficiale CMP + regolamento) | – |
 | Algarve | nessun regolamento comunale letto | regolamenti di Albufeira, Faro, Lagos, Portimão, Loulé |
 | Budapest | tassa decisa dai distretti | delibere dei distretti centrali (V, VI, VII, VIII) |
 | Dubrovnik, Spalato | decisioni delle contee 2026 non trovate | Gazzetta ufficiale delle contee |
 | Osaka | pref.osaka.lg.jp risponde 408 al server | lettura a mano o consenso MIC sul cambio 2025 |
 | Glasgow | glasgow.gov.uk 403 | pagina del Council o schema ufficiale |
 | Quintana Roo (Visitax) | l'importo in pesos non è sulla pagina ufficiale (2,5 UMA) | Ley de Derechos art. 51 octies + valore UMA ufficiale |
-| Okinawa | in vigore solo dal 1/2/2027 | pagina da aggiungere a gennaio 2027 |
+| Okinawa | in vigore solo dal 1/2/2027 (già nella pagina dei cambi 2027) | pagina calcolatore da aggiungere a gennaio 2027 |
 | Egitto, Marocco, Canarie | nessuna fonte ufficiale con tariffa | – |
 | Francia: comuni senza righe 2026 nel file DGFiP (es. Nizza, Marsiglia, Tolosa) | le tariffe nel file sono di anni precedenti | non si mostrano: la ricerca dice di chiedere al comune |
 
@@ -125,3 +125,28 @@ destinazione interessata, commit (Netlify pubblica da solo).
 
 ## IndexNow (26/10/2026)
 - IndexNow: file chiave scritto dal generatore; invio con studio-business/strumenti/indexnow.py. Costante `CHIAVE_INDEXNOW` in `genera.py` accanto a `SCRIPT_CONTATORE` (chiave pubblica, uguale in tutti i siti della rete); `extra()` scrive `sito/<chiave>.txt` accanto a `robots.txt`, fuori dalla sitemap e non linkato. Nuovo controllo in `verifica.py` (`controlla_indexnow`): file presente, contenuto = chiave, non citato nella sitemap.
+
+## 26/10/2026 — titoli con la risposta, pagina dei cambi 2027, 4 destinazioni nuove
+Spunto: idea 1 di `studio-business/intelaiatura/idee-2026-10-25.md` e Search Console del 23/10 (345 impressioni in 28 giorni, 0 clic, posizione 32,5; query Majorca, Spagna, Grecia, Turchia, Menorca).
+
+**1. Titoli, descrizioni, H1 e risposta diretta** (tutte le 37 pagine di destinazione + paese Spagna, Grecia, Turchia). Funzioni nuove in `genera.py` (`titolo_seo`, `h1_seo`, `risposta`, `descrizione_seo`, `paese_seo`): le cifre vengono solo dalle tariffe dei dati alla data di generazione; `NOMI_SEO` ha solo i nomi cercati (Majorca) e il suffisso col nome locale già in `official_name` (ecotasa). "2026 and 2027" compare solo se i dati hanno una tariffa o un cambio ufficiale che parte nel 2027 (Catalogna, Barcellona, Turchia ×4, Vienna, Tokyo); Cardiff dice "2027". Baleari e Grecia restano "2026" (tariffe di legge senza scadenza, nessun cambio datato). Campi dati nuovi, facoltativi: `cambi_annunciati` (Barcellona: supplemento 6 € dal 1/4/2027, 7 € dal 1/4/2028, tabella ATC), `breve_seo` e `risposta` (Cardiff, Tunisia: frasi scritte dalle note ufficiali). Prima i titoli erano tutti "X tourist tax 2026: how much per night (calculator)"; ora per esempio "Majorca tourist tax 2026 calculator: €1–€4 per person per night (ecotasa)". Le date di rigenerazione restano obbligatorie: titoli "now … from …" cambiano il 1/1, 1/4 e 1/7/2027.
+
+**2. Pagina `tourist-tax-changes-2027/`** da `dati/cambi_2027.json` (7 voci: Turchia 1/1, Okinawa 1/2, Cardiff 1/4, Catalogna 1/4, Barcellona 1/4, Tokyo 1/4, Vienna 1/7; "dopo": Barcellona 1/4/2028, Hakuba 1/6/2029; "non elencati": Venezia, Milano 2027, tariffa catalana di Barcellona da aprile 2027). Ogni voce ha fonte (URL, HTTP, data del controllo) e `verifica` = [slug, data] controllata contro i dati. Tabella in cima, schede per data, 4 domande visibili + JSON-LD FAQPage. Linkata da home (riquadro), piè di pagina di tutte le pagine, tabella Europa, pagine paese interessate e riquadro "What changes in 2027" sulle pagine dei luoghi. In sitemap. Okinawa non ha pagina calcolatore (la base è il prezzo per persona arrotondato ai 1.000 ¥ con tetto, non modellato): aggiungerla a gennaio 2027.
+
+**Fonti ricontrollate oggi con curl (200)**: BOE legge 2/2016 Baleari (testo consolidato ancora del 17/05/2025), ATC Catalogna (tabelle 2026-27, dal 1/4/2027 e supplementi Barcellona 2027-2029), wien.gv.at (8 % dal 1/7/2027), CVDR Amsterdam, Resmî Gazete 11263, Gazzetta greca, Tokyo FAQ e pagina 宿泊税の見直し (ordinanza approvata il 27/3/2026, consenso MIC 30/6/2026, cambio dal 1/4/2027: 3 % da 13.000 ¥ a persona, anche minpaku), Okinawa (施行期日 1/2/2027, 2 % con tetto 2.000 ¥), gov.wales (OGL v3.0, attribuzione nella pagina /about/). ATIB (Baleari) non ricontrollata (certificato): resta 10/10.
+
+**Motore**: due campi nuovi, uguali in Python e JS (`verifica.py` confronta 2.047 casi): `esente_da_notti` (Cardiff: una prenotazione di 32 notti o più non paga) e `bande_pct` sulle fasce (Tokyo dal 1/4/2027: la fascia è una percentuale del prezzo a persona). Valuta nuova TND.
+
+**3. Destinazioni nuove** (37 in tutto; 210 pagine indicizzabili):
+- **Cardiff** (Galles): £1,30 a persona a notte (tutte le età), 75 p per adulto in ostelli/dormitori/tende, dal 1/4/2027, prenotazioni fatte dal 28/9/2026, esenti le prenotazioni da 32 notti. Fonti gov.wales / Welsh Revenue Authority (4 pagine, 200, OGL).
+- **Malta**: eco-contribution 1,50 € a notte dai 18 anni, massimo 22,50 € a visita (15 notti), per soggiorni dal 1/7/2026. Fonti MTA (pagina, linee guida 2026, avviso agli ospiti; 200). tourism.gov.mt dà 403 (Cloudflare).
+- **Porto**: 3 € a notte dai 13 anni, massimo 7 notti. Fonte: volantino ufficiale della Câmara Municipal (novembre 2024) + regolamento (DR 23/11/2022) per età ed esenzioni; la copia del regolamento sul portale ha ancora 2 € all'art. 2: avviso visibile in pagina. Da ricontrollare (la stampa parla di una revisione nel 2026, nessun importo deciso).
+- **Tunisia**: legge di finanze 2024 (legge 2023-13) art. 46, JORT n. 144 del 12/12/2023, PDF del Ministero delle Finanze (200, letto anche come immagine per la tabella): stranieri 12/8/4 TND (4-5 stelle / 3 stelle / 2 stelle e altro), tunisini e maghrebini 3/2/1, massimo 10 notti di fila. L'articolo non parla di bambini: in pagina "chiedere all'hotel".
+
+**Escluse (motivo)**: Lisbona (lisboa.pt e informacoeseservicos.lisboa.pt 403); Cipro (nessuna pagina ufficiale né sulla tassa né sulla sua assenza; la stampa parla di un prelievo proposto); Croazia (21 decisioni di contea per comune e stagione, ragazzi 12-18 al 50 % non modellato; nessuna decisione 2026 di Dubrovnik/Spalato letta); Venezia (comune.venezia.it 403, cda.ve.it pagina vuota); Napoli (pagina comunale 404, importi 2026 solo in stampa e discordanti); Bologna (tariffe 2026 lette su Bologna Welcome, ma il regolamento leggibile è del 2015 con massimo 5 notti e 5 fasce: regola attuale non confermata; prenotazioni via portale a percentuale con tetto); Verona e Torino (connessione chiusa dal server); Glasgow (403); Algarve, Budapest come prima.
+
+**Da fare a gennaio 2027**: rigenerare il 1/1 (Turchia 2 %, titoli), aggiungere Okinawa (1/2/2027) e le tariffe 2027 di Milano; ricontrollare Porto (eventuale nuovo importo) e Malta.
+
+`verifica.py`: nuovi esempi a mano (Tokyo 2027, Cardiff, Malta, Porto, Tunisia: 47 in tutto) e controlli 6 (pagina 2027), 7 (destinazioni nuove), 8 (titoli/descrizioni/risposte): tutto a posto. Schermate 375/1280 px, chiaro e scuro, di Mallorca, Cardiff e della pagina 2027 in `scratchpad/touristtax-2027/` (fuori dal repository). Non pubblicato: commit e push da fare.
+
+**Revisione indipendente (26/10/2026)**: fonti rilette con curl (tutte 200): Resmî Gazete 11263 (1% fino al 31/12/2026, letto dall'immagine), Okinawa, gov.wales (4 pagine), ATC (tabelle 2026-27 e dal 1/4/2027), Tokyo 宿泊税の見直し (可決 27/3/2026, 総務大臣同意 30/6/2026, 3% da 13.000 ¥), wien.gv.at, MTA (pagina + 2 PDF), Porto (volantini PT ed EN: 3 €; regolamento sul portale = testo 2022 con 2 €), JORT/LF 2024 art. 46 (tabella confermata anche dal livello di testo del PDF). Correzioni: Sant Just Desvern non cambia il 1/4/2027 (tolta dalla voce Catalogna); Okinawa: comuni con tassa comunale "previste", arrotondamento "to the nearest ¥1,000"; avviso Porto più chiaro + fonte volantino EN; Tunisia: nota sui bambini (la legge 2018 tassa chi ha più di 12 anni, verbale ARP del novembre 2023, nuova fonte); meta description delle pagine paese tagliate a metà frase (Turchia, Grecia) corrette; titolo Malta accorciato (€1.50 per adult per night). Da decidere: titolo Catalogna lungo (86 caratteri).
