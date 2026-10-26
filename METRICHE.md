@@ -69,6 +69,10 @@ Inviate 40 email: 5 agenzie "segnale" (Story Co, Informal, Mass FX Media, Social
 
 48 invii: 19 follow-up 1 Holiday Pack (invii del 19/10, ultimi con l'offerta) + 29 follow-up 2 (invii del 12/10). 0 rimbalzi, 0 risposte vere. Bozza post LinkedIn pronta.
 
+## 26/10
+
+50 invii: 11 follow-up 2 (invii del 13/10) + 12 follow-up 1 pilota (invii del 20/10; Holiday Pack scaduto) + 27 nuovi (coda3). 0 rimbalzi, 0 risposte vere. Bozza post LinkedIn pronta.
+
 ## Crediti
 
 | Data | Higgsfield (piano Ultra) | Apollo lead credit (ciclo 3/10-3/11) |
