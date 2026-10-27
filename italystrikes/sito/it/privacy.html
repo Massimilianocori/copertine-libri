@@ -240,6 +240,11 @@ footer .logo{margin-bottom:12px}
 .piede-avviso{margin:22px 0 0;padding:12px 14px;border:1px solid var(--band-line);border-radius:12px;background:rgba(255,255,255,.04)}
 .piede-avviso strong{color:var(--band-ink)}
 .piede-agg{margin:20px 0 0;padding-top:16px;border-top:1px solid var(--band-line);font-size:.82rem}
+.piede-altri{margin:22px 0 0;padding-top:16px;border-top:1px solid var(--band-line)}
+.piede-altri h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--band-2);margin:0 0 10px;font-weight:700}
+.piede-altri ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.piede-altri li{max-width:70ch}
+.piede-altri a{font-weight:600}
 @media (max-width:760px){
 body{font-size:16.5px}
 .barra{gap:8px;min-height:62px}
@@ -290,7 +295,7 @@ nav.menu{display:none}
 <footer><div class="wrap">
 <div class="piede-top">
 <div class="piede-marchio"><a class="logo" href="/it/"><svg class="marchio" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" fill="#D23A2F"/><rect x="10" y="8.5" width="4.2" height="15" rx="1.7" fill="#fff"/><rect x="17.8" y="8.5" width="4.2" height="15" rx="1.7" fill="#fff"/></svg><span class="nome">Scioperi <em>oggi</em></span></a>
-<p><strong>Italy Strikes Today</strong> è un sito indipendente. I dati vengono dal <a href="https://scioperi.mit.gov.it/mit2/public/scioperi" rel="noopener">registro ufficiale degli scioperi del Ministero delle Infrastrutture e dei Trasporti (MIT)</a>, con licenza <a href="https://creativecommons.org/licenses/by/4.0/deed.it" rel="noopener">CC BY 4.0</a>; non siamo collegati al Ministero, ai sindacati o alle aziende di trasporto.</p></div>
+<p><strong>Italy Strikes Today</strong> è un sito indipendente. I dati vengono dal <a href="https://scioperi.mit.gov.it/mit2/public/scioperi" rel="noopener">registro ufficiale degli scioperi del Ministero delle Infrastrutture e dei Trasporti (MIT)</a>, con licenza <a href="https://creativecommons.org/licenses/by/4.0/deed.it" rel="noopener">CC BY 4.0</a>; non siamo collegati al Ministero, ai sindacati o alle aziende di trasporto. Alcuni scioperi e revoche vengono dal calendario della <a href="https://www.cgsse.it/calendario-scioperi" rel="noopener">Commissione di garanzia sciopero</a> (via onData, <a href="https://creativecommons.org/licenses/by/4.0/deed.it" rel="noopener">CC BY 4.0</a>), come indicato su ciascuno sciopero.</p></div>
 <nav class="piede-link" aria-label="Link del sito"><h2>Sito</h2><ul>
 <li><a href="/it/oggi/">Scioperi oggi</a></li><li><a href="/it/domani/">Scioperi domani</a></li>
 <li><a href="/it/guida/">Guide</a></li><li><a href="/it/aeroporti/">Aeroporti</a></li>
@@ -298,7 +303,8 @@ nav.menu{display:none}
 <li><a href="/">English version</a></li></ul></nav>
 </div>
 <p class="piede-avviso"><strong>Gli scioperi possono essere revocati o modificati all'ultimo momento: verifica sempre con l'azienda di trasporto prima di partire.</strong> Le informazioni non sono consulenza legale.</p>
-<p class="piede-agg">Registro ufficiale aggiornato al <span data-reg>sab 17 ott 2026</span> · controllato <span data-letto>sab 17 ott, 11:23 (ora italiana)</span></p>
+<div class="piede-altri"><h2>Altri strumenti utili per il viaggio</h2><ul><li><a href="https://tourist-tax-calculator.netlify.app/" rel="noopener">Tourist Tax Calculator</a> — Tassa di soggiorno per notte in oltre 200 destinazioni europee</li><li><a href="https://before-you-fly.netlify.app/it/documenti/" rel="noopener">Before You Fly</a> — Validità del passaporto, liquidi in aeroporto, misure del bagaglio a mano</li><li><a href="https://visa-income-checker.netlify.app/" rel="noopener">Visa Income Checker</a> — Requisiti di reddito e tassi di rifiuto dei visti</li></ul></div>
+<p class="piede-agg">Registro ufficiale aggiornato al <span data-reg>ven 23 ott 2026</span> · controllato <span data-letto>ven 23 ott, 12:05 (ora italiana)</span> <span data-fonte-giu="Il registro ufficiale non risponde dal DATA: teniamo l'ultima lettura buona e riproviamo due volte al giorno." data-fonte-riserva="Il registro del Ministero non risponde dal DATA: i nuovi scioperi vengono dal calendario della Commissione di garanzia sciopero.">Il registro del Ministero non risponde dal ven 23 ott 2026: i nuovi scioperi vengono dal calendario della Commissione di garanzia sciopero.</span><span hidden></span></p>
 </div></footer>
 
 <script>
@@ -346,7 +352,7 @@ nav.menu{display:none}
     if(v.ambito==='national')b+='<span class="badge naz">Tutta Italia</span>';
     b+='<span class="badge">'+esc(v.settore_it)+'</span>';
     if(v.stato==='rimosso dal registro')b+='<span class="badge stato">Non più nel registro</span>';
-    if(v.stato==='revocato')b+='<span class="badge stato">Revocato (nota del registro)</span>';
+    if(v.stato==='revocato')b+=v.revoca_cgsse?'<span class="badge stato">Revocato (Commissione di garanzia)</span>':'<span class="badge stato">Revocato (nota del registro)</span>';
     if(fin_||v.stato==='concluso')b+='<span class="badge">Concluso</span>';
     var h='<article class="sc'+(v.ambito==='national'?' naz':'')+(oggi&&!off?' ora':'')+(off||fin_||v.stato==='concluso'?' off':'')+'" id="s'+v.id+'">'+ico(v)+'<div class="quando">'+esc(interv(v.inizio,v.fine))+'<small>'+esc(v.dove_it)+'</small></div><div class="cosa">'+b;
     h+='<div class="tit">'+esc(v.titolo_it)+'</div>';
@@ -354,8 +360,8 @@ nav.menu{display:none}
     h+='<div class="dett"><b>Chi:</b> '+esc(v.chi_it||v.chi_gen_it||v.categoria)+'</div>';
     if(v.nota_it)h+='<div class="dett">'+esc(v.nota_it)+'</div>';
     if(v.stato==='rimosso dal registro')h+='<div class="dett">Non più presente nel registro ufficiale dal '+esc(breve(v.rimosso_il))+' (probabilmente revocato): verifica con il gestore del servizio.</div>';
-    h+='<details class="reg"><summary>Testo ufficiale del registro</summary><dl><dt>Orari</dt><dd lang="it">'+esc(v.ore)+'</dd><dt>Categoria</dt><dd lang="it">'+esc(v.categoria)+'</dd>'+(v.note?'<dt>Note</dt><dd lang="it">'+esc(v.note)+'</dd>':'')+'</dl></details>';
-    h+='<div class="fonte">Sindacati: '+esc(v.sindacati)+' · proclamato il '+esc(breve(v.proclamazione))+' · <a href="'+'https://scioperi.mit.gov.it/mit2/public/scioperi'+'" rel="noopener">registro ufficiale (id MIT '+esc(v.id)+')</a></div>';
+    h+='<details class="reg"><summary>'+(v.fonte==='cgsse'?'Dalla Commissione di garanzia':'Testo ufficiale del registro')+'</summary><dl><dt>Orari</dt><dd lang="it">'+esc(v.ore)+'</dd><dt>Categoria</dt><dd lang="it">'+esc(v.categoria)+'</dd>'+(v.note?'<dt>Note</dt><dd lang="it">'+esc(v.note)+'</dd>':'')+'</dl></details>';
+    h+='<div class="fonte">Sindacati: '+esc(v.sindacati)+(v.fonte==='cgsse'?' · Fonte: <a href="'+esc(v.url_fonte)+'" rel="noopener">Commissione di garanzia sciopero</a> (via onData, CC BY 4.0)':' · proclamato il '+esc(breve(v.proclamazione))+' · <a href="'+'https://scioperi.mit.gov.it/mit2/public/scioperi'+'" rel="noopener">registro ufficiale (id MIT '+esc(v.id)+')</a>'+(v.revoca_cgsse?' · revoca: <a href="'+esc(v.revoca_cgsse)+'" rel="noopener">Commissione di garanzia sciopero</a> (via onData, CC BY 4.0)':''))+'</div>';
     return h+'</div></article>';}
   function vuoto(n){var r=fin(n);var w={'today':'oggi ('+breve(r[0])+')','tomorrow':'domani ('+breve(r[0])+')','thisweek':'nel resto della settimana','nextweek':'la prossima settimana ('+interv(r[0],r[1])+')'}[n]||'in questo periodo';
     return '<div class="vuoto"><strong>Nessuno sciopero in elenco '+w+'</strong> nel registro ufficiale per questa selezione. Gli scioperi vanno proclamati almeno 10 giorni prima, ma controlla di nuovo prima di partire.</div>';}
@@ -388,9 +394,10 @@ nav.menu{display:none}
   if(nodo){
     var D=JSON.parse(nodo.textContent);disegna(D.scioperi);
     if(window.fetch){fetch('https://raw.githubusercontent.com/Massimilianocori/copertine-libri/ccr-b7fd6b9e-n096cr/italystrikes/dati/vista.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(L){
-      if(L&&L.scioperi&&L.letto_il>D.letto_il){window.__D=L.scioperi;disegna(L.scioperi);
+      if(L&&L.scioperi&&(L.generato_il||L.letto_il)>(D.generato_il||D.letto_il)){window.__D=L.scioperi;disegna(L.scioperi);
         document.querySelectorAll('[data-letto]').forEach(function(e){e.textContent=quando(L.letto_il)+' (ora italiana)';});
         document.querySelectorAll('[data-reg]').forEach(function(e){e.textContent=breve(L.registro_aggiornato_al);});}
+      document.querySelectorAll('[data-fonte-giu]').forEach(function(e){if(L&&L.fonte_non_raggiungibile_dal){e.textContent=(L.riserva_cgsse&&e.dataset.fonteRiserva||e.dataset.fonteGiu).replace('DATA',breve(L.fonte_non_raggiungibile_dal));e.hidden=false;}else{e.hidden=true;}});
     }).catch(function(){});}
   }
   document.querySelectorAll('.filtri').forEach(function(g){var bott=g.querySelectorAll('button');var bersaglio=document.getElementById(g.dataset.per);

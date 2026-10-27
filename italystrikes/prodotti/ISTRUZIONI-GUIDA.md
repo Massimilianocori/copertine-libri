@@ -4,7 +4,7 @@
 
 **STATO (10/10/2026): IN PAUSA per decisione di Massimiliano** ("non avendo partita IVA dedicata è solo un rischio"). La guida è finita e revisionata (68 pagine), ma non si vende: niente Payhip, `dati/prodotti.json` resta con `url` vuoto, quindi nessuna pagina di vendita sul sito. Si riapre solo con una risposta fiscale scritta favorevole e un nuovo sì di Massimiliano.
 
-Decisione del 10/10/2026 (Massimiliano: "per le guide sei tu il cervello, se pensi sia una buona idea falla"; Claude: sì, come test a costo zero). Chi costruisce legge prima `studio-business/STRATEGIA.md`, `studio-business/REGOLE-FISSE.md`, `italystrikes/NOTE.md`.
+Decisione del 10/10/2026 (Massimiliano: "per le guide sei tu il cervello, se pensi sia una buona idea falla"; l'assistente: sì, come test a costo zero). Chi costruisce legge prima `studio-business/STRATEGIA.md`, `studio-business/REGOLE-FISSE.md`, `italystrikes/NOTE.md`.
 
 ## Cosa
 Un PDF in inglese, 50-60 pagine formato 6×9 pollici, testo grande (≥11,5 pt), impaginato bene (stile del sito: rosso #B3261E, grigi, font Inter per i titoli e DejaVu Serif/Charter per il testo: sono i font installati, vedi `fc-list`), da vendere a 9-12 $ con **Payhip** (account gratuito a nome di Massimiliano: incassa, consegna il file e gestisce l'IVA UE; commissione 5 %). Pagina di vendita dentro il sito scioperi (`/guide/italy-by-train/`), collegata dal menu e dal riquadro "Stuck by a strike?". **Nessun pagamento gestito da noi.**
@@ -49,5 +49,5 @@ Canale secondario, dopo: versione KDP (Morgan Reade, guide "Explained") SOLO se 
 `genera.py`: nuova pagina `guide/italy-by-train/` (titolo "Italy by Train 2026: the strike-proof guide (PDF)"), con indice, 3-4 pagine di esempio come immagini (PNG dal PDF), prezzo, pulsante "Buy on Payhip" = link `https://payhip.com/b/XXXX` preso da `dati/prodotti.json` (se vuoto, la pagina non viene generata). Link dal menu ("Guide PDF") e dal riquadro "Stuck by a strike?". Niente script esterni.
 
 ## Cosa deve fare Massimiliano
-1. Account Payhip (gratis): https://payhip.com → Sign up; prodotto digitale, caricare il PDF consegnato da Claude, prezzo 9,99 $ (o 11,99), abilitare la raccolta IVA UE (Payhip lo fa come venditore); copiare il link del prodotto e mandarlo a Claude.
+1. Account Payhip (gratis): https://payhip.com → Sign up; prodotto digitale, caricare il PDF consegnato da l'assistente, prezzo 9,99 $ (o 11,99), abilitare la raccolta IVA UE (Payhip lo fa come venditore); copiare il link del prodotto e mandarlo a l'assistente.
 2. Facoltativo dopo: screenshot BookBeam per la versione KDP.

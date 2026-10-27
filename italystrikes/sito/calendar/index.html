@@ -238,6 +238,11 @@ footer .logo{margin-bottom:12px}
 .piede-avviso{margin:22px 0 0;padding:12px 14px;border:1px solid var(--band-line);border-radius:12px;background:rgba(255,255,255,.04)}
 .piede-avviso strong{color:var(--band-ink)}
 .piede-agg{margin:20px 0 0;padding-top:16px;border-top:1px solid var(--band-line);font-size:.82rem}
+.piede-altri{margin:22px 0 0;padding-top:16px;border-top:1px solid var(--band-line)}
+.piede-altri h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--band-2);margin:0 0 10px;font-weight:700}
+.piede-altri ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.piede-altri li{max-width:70ch}
+.piede-altri a{font-weight:600}
 @media (max-width:760px){
 body{font-size:16.5px}
 .barra{gap:8px;min-height:62px}
@@ -288,7 +293,7 @@ nav.menu{display:none}
 <li>Calendars are rebuilt twice a day from the official register. Your calendar app checks for changes on its own schedule: Google Calendar can take several hours.</li>
 <li>If a strike is called off, the event is marked as cancelled.</li>
 <li>On a phone: Google Calendar subscriptions are added from a computer; on iPhone, tap "Apple / Outlook".</li></ul>
-<p class="small">Data from the strike register of the Italian Ministry of Infrastructure and Transport (CC BY 4.0). Strikes can be called off or changed at short notice: always check with your operator before travelling.</p>
+<p class="small">Data from the strike register of the Italian Ministry of Infrastructure and Transport (CC BY 4.0). Some strikes and cancellations come from the strike calendar of the <a href="https://www.cgsse.it/calendario-scioperi" rel="noopener">Commissione di garanzia sciopero</a> (via onData, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>), as shown on each strike. Strikes can be called off or changed at short notice: always check with your operator before travelling.</p>
 </div>
 <div class="ad-slot" aria-hidden="true"></div>
 <section class="card" id="alerts" style="margin-top:30px">
@@ -313,7 +318,7 @@ nav.menu{display:none}
 <footer><div class="wrap">
 <div class="piede-top">
 <div class="piede-marchio"><a class="logo" href="../"><svg class="marchio" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" fill="#D23A2F"/><rect x="10" y="8.5" width="4.2" height="15" rx="1.7" fill="#fff"/><rect x="17.8" y="8.5" width="4.2" height="15" rx="1.7" fill="#fff"/></svg><span class="nome">Italy Strikes <em>Today</em></span></a>
-<p><strong>Italy Strikes Today</strong> is an independent site. Data from the <a href="https://scioperi.mit.gov.it/mit2/public/scioperi" rel="noopener">official strike register of the Italian Ministry of Infrastructure and Transport (MIT)</a>, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>; we are not affiliated with MIT, unions or transport operators.</p></div>
+<p><strong>Italy Strikes Today</strong> is an independent site. Data from the <a href="https://scioperi.mit.gov.it/mit2/public/scioperi" rel="noopener">official strike register of the Italian Ministry of Infrastructure and Transport (MIT)</a>, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>; we are not affiliated with MIT, unions or transport operators. Some strikes and cancellations come from the strike calendar of the <a href="https://www.cgsse.it/calendario-scioperi" rel="noopener">Commissione di garanzia sciopero</a> (via onData, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>), as shown on each strike.</p></div>
 <nav class="piede-link" aria-label="Footer"><h2>Site</h2><ul>
 <li><a href="../today/">Strikes today</a></li><li><a href="../tomorrow/">Strikes tomorrow</a></li>
 <li><a href="../guides/">Guides</a></li><li><a href="../calendar/">Strikes calendar</a></li>
@@ -321,7 +326,8 @@ nav.menu{display:none}
 <li><a href="../contact/">Contact</a></li><li><a href="../privacy.html">Privacy</a></li></ul></nav>
 </div>
 <p class="piede-avviso"><strong>Strikes can be called off or changed at short notice. Always check with your train operator, airline or local transport company before travelling.</strong> Nothing on this site is legal advice.</p>
-<p class="piede-agg">Official register last updated: <span data-reg>Sat 17 Oct 2026</span> · checked <span data-letto>Sat 17 Oct, 11:23 (Italy time)</span></p>
+<div class="piede-altri"><h2>Other useful tools for your trip</h2><ul><li><a href="https://tourist-tax-calculator.netlify.app/" rel="noopener">Tourist Tax Calculator</a> — City tax per night in 200+ European destinations</li><li><a href="https://before-you-fly.netlify.app/" rel="noopener">Before You Fly</a> — Passport validity, airport liquid rules, cabin bag sizes</li><li><a href="https://visa-income-checker.netlify.app/" rel="noopener">Visa Income Checker</a> — Income requirements and refusal rates for visas</li></ul></div>
+<p class="piede-agg">Official register last updated: <span data-reg>Fri 23 Oct 2026</span> · checked <span data-letto>Fri 23 Oct, 12:05 (Italy time)</span> <span data-fonte-giu="The official register has not been reachable since DATA: we keep the last good reading and retry twice a day." data-fonte-riserva="The Ministry register is not reachable since DATA: new strikes come from the Strike Guarantee Commission calendar.">The Ministry register is not reachable since Fri 23 Oct 2026: new strikes come from the Strike Guarantee Commission calendar.</span><span hidden></span></p>
 </div></footer>
 
 <script>
@@ -369,7 +375,7 @@ nav.menu{display:none}
     if(v.ambito==='national')b+='<span class="badge naz">Whole of Italy</span>';
     b+='<span class="badge">'+esc(v.settore_en.charAt(0).toUpperCase()+v.settore_en.slice(1))+'</span>';
     if(v.stato==='rimosso dal registro')b+='<span class="badge stato">No longer in the register</span>';
-    if(v.stato==='revocato')b+='<span class="badge stato">Called off (register note)</span>';
+    if(v.stato==='revocato')b+=v.revoca_cgsse?'<span class="badge stato">Called off (Guarantee Commission)</span>':'<span class="badge stato">Called off (register note)</span>';
     if(fin_||v.stato==='concluso')b+='<span class="badge">Ended</span>';
     var h='<article class="sc'+(v.ambito==='national'?' naz':'')+(oggi&&!off?' ora':'')+(off||fin_||v.stato==='concluso'?' off':'')+'" id="s'+v.id+'">'+ico(v)+'<div class="quando">'+esc(interv(v.inizio,v.fine))+'<small>'+esc(v.dove)+'</small></div><div class="cosa">'+b;
     h+='<div class="tit">'+esc(v.titolo)+'</div>';
@@ -378,7 +384,7 @@ nav.menu{display:none}
     if(v.nota_en)h+='<div class="dett">'+esc(v.nota_en)+'</div>';
     if(v.stato==='rimosso dal registro')h+='<div class="dett">No longer listed in the official register as of '+esc(breve(v.rimosso_il))+' (likely called off): check with the operator.</div>';
     h+='<details class="reg"><summary>Official wording (Italian)</summary><dl><dt>Hours</dt><dd lang="it">'+esc(v.ore)+'</dd><dt>Who</dt><dd lang="it">'+esc(v.categoria)+'</dd>'+(v.note?'<dt>Note</dt><dd lang="it">'+esc(v.note)+'</dd>':'')+'</dl></details>';
-    h+='<div class="fonte">Unions: '+esc(v.sindacati)+' · announced '+esc(breve(v.proclamazione))+' · <a href="'+'https://scioperi.mit.gov.it/mit2/public/scioperi'+'" rel="noopener">official register (MIT id '+esc(v.id)+')</a></div>';
+    h+='<div class="fonte">Unions: '+esc(v.sindacati)+(v.fonte==='cgsse'?' · Source: <a href="'+esc(v.url_fonte)+'" rel="noopener">Commissione di garanzia sciopero</a> (via onData, CC BY 4.0)':' · announced '+esc(breve(v.proclamazione))+' · <a href="'+'https://scioperi.mit.gov.it/mit2/public/scioperi'+'" rel="noopener">official register (MIT id '+esc(v.id)+')</a>'+(v.revoca_cgsse?' · called off: <a href="'+esc(v.revoca_cgsse)+'" rel="noopener">Commissione di garanzia sciopero</a> (via onData, CC BY 4.0)':''))+'</div>';
     return h+'</div></article>';}
   function vuoto(n){var r=fin(n);var w={'today':'today ('+breve(r[0])+')','tomorrow':'tomorrow ('+breve(r[0])+')','thisweek':'for the rest of this week','nextweek':'next week ('+interv(r[0],r[1])+')'}[n]||'in this period';
     return '<div class="vuoto"><strong>No strikes listed '+w+'</strong> in the official register for this selection. Strikes must be announced at least 10 days ahead, but check again before you travel.</div>';}
@@ -411,9 +417,10 @@ nav.menu{display:none}
   if(nodo){
     var D=JSON.parse(nodo.textContent);disegna(D.scioperi);
     if(window.fetch){fetch('https://raw.githubusercontent.com/Massimilianocori/copertine-libri/ccr-b7fd6b9e-n096cr/italystrikes/dati/vista.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(L){
-      if(L&&L.scioperi&&L.letto_il>D.letto_il){window.__D=L.scioperi;disegna(L.scioperi);
+      if(L&&L.scioperi&&(L.generato_il||L.letto_il)>(D.generato_il||D.letto_il)){window.__D=L.scioperi;disegna(L.scioperi);
         document.querySelectorAll('[data-letto]').forEach(function(e){e.textContent=quando(L.letto_il)+' (Italy time)';});
         document.querySelectorAll('[data-reg]').forEach(function(e){e.textContent=breve(L.registro_aggiornato_al);});}
+      document.querySelectorAll('[data-fonte-giu]').forEach(function(e){if(L&&L.fonte_non_raggiungibile_dal){e.textContent=(L.riserva_cgsse&&e.dataset.fonteRiserva||e.dataset.fonteGiu).replace('DATA',breve(L.fonte_non_raggiungibile_dal));e.hidden=false;}else{e.hidden=true;}});
     }).catch(function(){});}
   }
   document.querySelectorAll('.filtri').forEach(function(g){var bott=g.querySelectorAll('button');var bersaglio=document.getElementById(g.dataset.per);

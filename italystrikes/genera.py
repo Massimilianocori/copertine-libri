@@ -66,6 +66,12 @@ IMPACT_VERIFICA = "30566286-17ab-476e-b7be-3af44af9c845"  # Impact (programma af
 URL_DATI_LIVE = ("https://raw.githubusercontent.com/Massimilianocori/copertine-libri/"
                  "ccr-b7fd6b9e-n096cr/italystrikes/dati/vista.json")
 URL_REGISTRO = "https://scioperi.mit.gov.it/mit2/public/scioperi"
+# Voci della fonte di riserva (raccogli.py, quando il registro MIT non risponde): calendario CGSSE copiato da onData
+FONTE_CGSSE = "Commissione di garanzia sciopero"
+FONTE_CGSSE_LIC = "(via onData, CC BY 4.0)"
+URL_CGSSE = "https://www.cgsse.it/calendario-scioperi"
+URL_ONDATA = "https://github.com/ondata/liberiamoli-tutti"
+URL_CC_BY = "https://creativecommons.org/licenses/by/4.0/"
 URL_MAREE_LIVE = ("https://raw.githubusercontent.com/Massimilianocori/copertine-libri/"
                   "ccr-b7fd6b9e-n096cr/italystrikes/dati/maree.json")
 URL_MAREE_DATASET = "http://dati.venezia.it/?q=content/cpsm-dati-meteomarini-laguna-e-litorale-veneziano"
@@ -488,10 +494,31 @@ def leggi(s):
         "rimosso_il": s.get("rimosso_il", ""), "regione": reg, "provincia": prov,
         "titolo_it": titolo_it, "dove_it": dove_it, "chi_it": chi_it, "nota_it": " ".join(nota_it),
         "ore_it": ore_leggibili(s["modalita"]), "citta_it": citta_it, "chi_gen": chi_gen, "chi_gen_it": chi_gen_it,
+        **({"fonte": "cgsse", "url_fonte": s["url_dettaglio"]} if s.get("fonte") == "cgsse" else {}),
+        # revoca data dalla Commissione di garanzia: link alla sua scheda (voce MIT) o alla scheda della voce CGSSE
+        **({"revoca_cgsse": s.get("revoca_cgsse") or s.get("url_dettaglio")}
+           if s.get("revoca_cgsse") or (s.get("fonte") == "cgsse" and stato == "revocato") else {}),
     }
 
 
 VOCI = [leggi(s) for s in scioperi.values()]
+
+
+def usa_cgsse():
+    """Vero se la riserva CGSSE è attiva o se nei dati ci sono voci (o revoche) della Commissione di garanzia:
+    allora piè di pagina e pagine delle fonti citano anche la Commissione (attribuzione CC BY 4.0)."""
+    return bool(registro.get("riserva_cgsse")) or any(s.get("fonte") == "cgsse" or s.get("revoca_cgsse")
+                                                       for s in scioperi.values())
+
+
+def attribuzione_cgsse(lic=URL_CC_BY, testo=None):
+    """Frase del piè di pagina con la Commissione di garanzia (vuota se non serve)."""
+    if not usa_cgsse():
+        return ""
+    t = testo or ("Some strikes and cancellations come from the strike calendar of the {cg} {lic}, "
+                  "as shown on each strike.")
+    return " " + t.format(cg=f'<a href="{URL_CGSSE}" rel="noopener">{FONTE_CGSSE}</a>',
+                          lic=f'(via onData, <a href="{lic}" rel="noopener">CC BY 4.0</a>)')
 VOCI.sort(key=lambda v: (v["inizio"], 0 if v["ambito"] == "national" else 1, v["titolo"]))
 AGGIORNATO = registro.get("registro_aggiornato_al") or OGGI.isoformat()
 LETTO = registro.get("letto_il", "")
@@ -503,12 +530,18 @@ def recenti():
     return [v for v in VOCI if v["fine"] >= limite]
 
 
-def avviso_fonte_giu(testo=None, formato=None):
-    """Attributi dello span di avviso: pieno e visibile se la fonte non risponde, altrimenti nascosto (lo riempie il JS)."""
+AVVISO_GIU = "The official register has not been reachable since DATA: we keep the last good reading and retry twice a day."
+AVVISO_RISERVA = ("The Ministry register is not reachable since DATA: new strikes come from the Strike Guarantee "
+                  "Commission calendar.")
+
+
+def avviso_fonte_giu(testo=None, formato=None, riserva=None):
+    """Attributi dello span di avviso: pieno e visibile se la fonte non risponde, altrimenti nascosto (lo riempie il JS).
+    Se raccogli.py ha usato la riserva CGSSE, il testo dice da dove arrivano gli scioperi nuovi."""
     dal = registro.get("fonte_non_raggiungibile_dal")
     if not dal:
         return " hidden"
-    modello = testo or "The official register has not been reachable since DATA: we keep the last good reading and retry twice a day."
+    modello = (riserva or AVVISO_RISERVA) if registro.get("riserva_cgsse") else (testo or AVVISO_GIU)
     data = (formato or data_breve)(d(dal))
     return ">" + escape(modello.replace("DATA", data)) + "</span><span hidden"
 
@@ -520,6 +553,8 @@ def scrivi_vista():
         # La fonte ufficiale non risponde: le pagine lo scrivono accanto alla data del registro.
         vista["fonte_non_raggiungibile_dal"] = registro["fonte_non_raggiungibile_dal"]
         vista["ultimo_tentativo_fallito"] = registro.get("ultimo_tentativo_fallito", "")
+        if registro.get("riserva_cgsse"):
+            vista["riserva_cgsse"] = registro["riserva_cgsse"].get("usata_il", "")
     (DATI / "vista.json").write_text(json.dumps(vista, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
 
 
@@ -560,8 +595,12 @@ def calendario(nome, voci, pagina_url):
                 + (f"Register note: {v['nota_en'] or v['note']}\n" if v["note"] else "")
                 + ("No longer listed in the official register: probably called off, check with the operator.\n" if v["stato"] == "rimosso dal registro" else "")
                 + f"Strikes can be called off or changed: always check with your operator.\n{pagina_url}\n"
-                f"Source: MIT strike register (CC BY 4.0), id {v['id']}")
-        righe += ["BEGIN:VEVENT", f"UID:mit-{v['id']}@italy-strikes-today.netlify.app", f"DTSTAMP:{stamp}",
+                + (f"Source: {FONTE_CGSSE} {FONTE_CGSSE_LIC}, {v['url_fonte']}" if v.get("fonte") == "cgsse"
+                   else f"Source: MIT strike register (CC BY 4.0), id {v['id']}"
+                   + (f"\nCalled off according to the {FONTE_CGSSE} {FONTE_CGSSE_LIC}, {v['revoca_cgsse']}"
+                      if v.get("revoca_cgsse") else "")))
+        uid = v["id"] if v.get("fonte") == "cgsse" else f"mit-{v['id']}"
+        righe += ["BEGIN:VEVENT", f"UID:{uid}@italy-strikes-today.netlify.app", f"DTSTAMP:{stamp}",
                   f"DTSTART;VALUE=DATE:{v['inizio'].replace('-', '')}", f"DTEND;VALUE=DATE:{fine}",
                   f"SUMMARY:{_ics_testo(titolo)}", f"DESCRIPTION:{_ics_testo(desc)}", f"URL:{pagina_url}",
                   "TRANSP:TRANSPARENT", f"STATUS:{'CANCELLED' if annullato else 'CONFIRMED'}", "END:VEVENT"]
@@ -950,7 +989,7 @@ JS = r"""
     if(v.ambito==='national')b+='<span class="badge naz">Whole of Italy</span>';
     b+='<span class="badge">'+esc(v.settore_en.charAt(0).toUpperCase()+v.settore_en.slice(1))+'</span>';
     if(v.stato==='rimosso dal registro')b+='<span class="badge stato">No longer in the register</span>';
-    if(v.stato==='revocato')b+='<span class="badge stato">Called off (register note)</span>';
+    if(v.stato==='revocato')b+=v.revoca_cgsse?'<span class="badge stato">Called off (Guarantee Commission)</span>':'<span class="badge stato">Called off (register note)</span>';
     if(fin_||v.stato==='concluso')b+='<span class="badge">Ended</span>';
     var h='<article class="sc'+(v.ambito==='national'?' naz':'')+(oggi&&!off?' ora':'')+(off||fin_||v.stato==='concluso'?' off':'')+'" id="s'+v.id+'">'+ico(v)+'<div class="quando">'+esc(interv(v.inizio,v.fine))+'<small>'+esc(v.dove)+'</small></div><div class="cosa">'+b;
     h+='<div class="tit">'+esc(v.titolo)+'</div>';
@@ -959,7 +998,7 @@ JS = r"""
     if(v.nota_en)h+='<div class="dett">'+esc(v.nota_en)+'</div>';
     if(v.stato==='rimosso dal registro')h+='<div class="dett">No longer listed in the official register as of '+esc(breve(v.rimosso_il))+' (likely called off): check with the operator.</div>';
     h+='<details class="reg"><summary>Official wording (Italian)</summary><dl><dt>Hours</dt><dd lang="it">'+esc(v.ore)+'</dd><dt>Who</dt><dd lang="it">'+esc(v.categoria)+'</dd>'+(v.note?'<dt>Note</dt><dd lang="it">'+esc(v.note)+'</dd>':'')+'</dl></details>';
-    h+='<div class="fonte">Unions: '+esc(v.sindacati)+' · announced '+esc(breve(v.proclamazione))+' · <a href="'+'URL_REG'+'" rel="noopener">official register (MIT id '+esc(v.id)+')</a></div>';
+    h+='<div class="fonte">Unions: '+esc(v.sindacati)+(v.fonte==='cgsse'?' · Source: <a href="'+esc(v.url_fonte)+'" rel="noopener">FONTE_CGSSE</a> FONTE_LIC':' · announced '+esc(breve(v.proclamazione))+' · <a href="'+'URL_REG'+'" rel="noopener">official register (MIT id '+esc(v.id)+')</a>'+(v.revoca_cgsse?' · called off: <a href="'+esc(v.revoca_cgsse)+'" rel="noopener">FONTE_CGSSE</a> FONTE_LIC':''))+'</div>';
     return h+'</div></article>';}
   function vuoto(n){var r=fin(n);var w={'today':'today ('+breve(r[0])+')','tomorrow':'tomorrow ('+breve(r[0])+')','thisweek':'for the rest of this week','nextweek':'next week ('+interv(r[0],r[1])+')'}[n]||'in this period';
     return '<div class="vuoto"><strong>No strikes listed '+w+'</strong> in the official register for this selection. Strikes must be announced at least 10 days ahead, but check again before you travel.</div>';}
@@ -992,10 +1031,10 @@ JS = r"""
   if(nodo){
     var D=JSON.parse(nodo.textContent);disegna(D.scioperi);
     if(window.fetch){fetch('URL_LIVE',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(L){
-      if(L&&L.scioperi&&L.letto_il>D.letto_il){disegna(L.scioperi);
+      if(L&&L.scioperi&&(L.generato_il||L.letto_il)>(D.generato_il||D.letto_il)){disegna(L.scioperi);
         document.querySelectorAll('[data-letto]').forEach(function(e){e.textContent=quando(L.letto_il)+' (Italy time)';});
         document.querySelectorAll('[data-reg]').forEach(function(e){e.textContent=breve(L.registro_aggiornato_al);});}
-      document.querySelectorAll('[data-fonte-giu]').forEach(function(e){if(L&&L.fonte_non_raggiungibile_dal){e.textContent=e.dataset.fonteGiu.replace('DATA',breve(L.fonte_non_raggiungibile_dal));e.hidden=false;}else{e.hidden=true;}});
+      document.querySelectorAll('[data-fonte-giu]').forEach(function(e){if(L&&L.fonte_non_raggiungibile_dal){e.textContent=(L.riserva_cgsse&&e.dataset.fonteRiserva||e.dataset.fonteGiu).replace('DATA',breve(L.fonte_non_raggiungibile_dal));e.hidden=false;}else{e.hidden=true;}});
     }).catch(function(){});}
   }
   document.querySelectorAll('.filtri').forEach(function(g){var bott=g.querySelectorAll('button');var bersaglio=document.getElementById(g.dataset.per);
@@ -1021,6 +1060,7 @@ JS = r"""
     m.removeAttribute('open');m.querySelector('summary').focus();});});
 })();
 """.replace("URL_LIVE", URL_DATI_LIVE).replace("'URL_REG'", "'" + URL_REGISTRO + "'").replace(
+    "FONTE_CGSSE", FONTE_CGSSE).replace("FONTE_LIC", FONTE_CGSSE_LIC).replace(
     "__ICONE__", json.dumps({**{k: svg(n) for k, n in SETT_ICONA.items()}, "altro": svg("alert")}, ensure_ascii=False)).replace(
     "__TX__", json.dumps(TX_EN, ensure_ascii=False)).replace("__OKI__", json.dumps(svg("check-circle")))
 
@@ -1053,7 +1093,10 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
     ld_html = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
     dati_html = ""
     if con_dati:
-        dati = {"letto_il": LETTO, "registro_aggiornato_al": AGGIORNATO, "scioperi": recenti()}
+        # generato_il: con la riserva CGSSE letto_il resta quello dell'ultima lettura MIT buona, quindi il JS confronta
+        # l'ora di generazione per mostrare le voci nuove di vista.json anche tra una pubblicazione e l'altra
+        dati = {"letto_il": LETTO, "generato_il": ADESSO.strftime("%Y-%m-%d %H:%M"), "registro_aggiornato_al": AGGIORNATO,
+                "scioperi": recenti()}
         dati_html = '<script type="application/json" id="dati">' + json.dumps(dati, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>"
     verifica = f'<meta name="google-site-verification" content="{GOOGLE_VERIFICA}">' if GOOGLE_VERIFICA else ""
     alt_it = None
@@ -1107,7 +1150,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
 <footer><div class="wrap">
 <div class="piede-top">
 <div class="piede-marchio"><a class="logo" href="{rel}">{MARCHIO}<span class="nome">Italy Strikes <em>Today</em></span></a>
-<p><strong>{NOME}</strong> is an independent site. Data from the <a href="{URL_REGISTRO}" rel="noopener">official strike register of the Italian Ministry of Infrastructure and Transport (MIT)</a>, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>; we are not affiliated with MIT, unions or transport operators.</p></div>
+<p><strong>{NOME}</strong> is an independent site. Data from the <a href="{URL_REGISTRO}" rel="noopener">official strike register of the Italian Ministry of Infrastructure and Transport (MIT)</a>, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>; we are not affiliated with MIT, unions or transport operators.{attribuzione_cgsse()}</p></div>
 <nav class="piede-link" aria-label="Footer"><h2>Site</h2><ul>
 <li><a href="{rel}today/">Strikes today</a></li><li><a href="{rel}tomorrow/">Strikes tomorrow</a></li>
 <li><a href="{rel}guides/">Guides</a></li><li><a href="{rel}calendar/">Strikes calendar</a></li>
@@ -1116,7 +1159,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
 </div>
 <p class="piede-avviso"><strong>Strikes can be called off or changed at short notice. Always check with your train operator, airline or local transport company before travelling.</strong> Nothing on this site is legal advice.</p>
 {blocco_altri(ALTRI_SITI, "Other useful tools for your trip")}
-<p class="piede-agg">Official register last updated: <span data-reg>{data_breve(d(AGGIORNATO))}</span> · checked <span data-letto>{escape(letto_breve())} (Italy time)</span> <span data-fonte-giu="The official register has not been reachable since DATA: we keep the last good reading and retry twice a day."{avviso_fonte_giu()}></span></p>
+<p class="piede-agg">Official register last updated: <span data-reg>{data_breve(d(AGGIORNATO))}</span> · checked <span data-letto>{escape(letto_breve())} (Italy time)</span> <span data-fonte-giu="{AVVISO_GIU}" data-fonte-riserva="{AVVISO_RISERVA}"{avviso_fonte_giu()}></span></p>
 </div></footer>
 {dati_html}
 <script>{JS}</script>
@@ -1150,7 +1193,7 @@ def scheda(v):
     if v["stato"] == "rimosso dal registro":
         b += '<span class="badge stato">No longer in the register</span>'
     if v["stato"] == "revocato":
-        b += '<span class="badge stato">Called off (register note)</span>'
+        b += f'<span class="badge stato">Called off ({"Guarantee Commission" if v.get("revoca_cgsse") else "register note"})</span>'
     if finito or v["stato"] == "concluso":
         b += '<span class="badge">Ended</span>'
     ore = escape(v["ore_en"]) if v["ore_en"] else f'<span lang="it">{escape(v["ore_it"] or v["ore"])}</span>'
@@ -1164,8 +1207,11 @@ def scheda(v):
         h += (f'<div class="dett">No longer listed in the official register as of {data_breve(d(v["rimosso_il"]))} '
               f'(likely called off): check with the operator.</div>')
     h += testo_ufficiale(v, "Official wording (Italian)", "Hours", "Who", "Note")
-    h += (f'<div class="fonte">Unions: {escape(v["sindacati"])} · announced {data_breve(d(v["proclamazione"]))} · '
-          f'<a href="{URL_REGISTRO}" rel="noopener">official register (MIT id {escape(v["id"])})</a></div></div></article>')
+    h += f'<div class="fonte">Unions: {escape(v["sindacati"])} · ' + (
+        f'Source: <a href="{escape(v["url_fonte"])}" rel="noopener">{FONTE_CGSSE}</a> {FONTE_CGSSE_LIC}' if v.get("fonte") == "cgsse" else
+        f'announced {data_breve(d(v["proclamazione"]))} · <a href="{URL_REGISTRO}" rel="noopener">official register (MIT id {escape(v["id"])})</a>'
+        + (f' · called off: <a href="{escape(v["revoca_cgsse"])}" rel="noopener">{FONTE_CGSSE}</a> {FONTE_CGSSE_LIC}' if v.get("revoca_cgsse") else "")
+    ) + '</div></div></article>'
     return h
 
 
@@ -1566,7 +1612,7 @@ def pagina_calendari():
 <li>Calendars are rebuilt twice a day from the official register. Your calendar app checks for changes on its own schedule: Google Calendar can take several hours.</li>
 <li>If a strike is called off, the event is marked as cancelled.</li>
 <li>On a phone: Google Calendar subscriptions are added from a computer; on iPhone, tap "Apple / Outlook".</li></ul>
-<p class="small">Data from the strike register of the Italian Ministry of Infrastructure and Transport (CC BY 4.0). Strikes can be called off or changed at short notice: always check with your operator before travelling.</p>
+<p class="small">Data from the strike register of the Italian Ministry of Infrastructure and Transport (CC BY 4.0).{attribuzione_cgsse()} Strikes can be called off or changed at short notice: always check with your operator before travelling.</p>
 </div>
 {AD}
 {modulo(rel)}"""
@@ -1584,7 +1630,7 @@ def pagina_aziende():
 <ul><li><strong>Calendars (iCal)</strong> for all of Italy, trains, flights, local transport and 15 cities: see the <a href="{rel}calendar/">strikes calendar</a>. Add them to a shared team calendar.</li>
 <li><strong>JSON data</strong> with every strike of the last weeks and the months ahead, in English and Italian, with sectors, cities and airports already worked out: <a href="{escape(URL_DATI_LIVE)}" rel="noopener">vista.json</a>.</li>
 <li><strong>Pages to link</strong> for your customers: <a href="{rel}today/">today</a>, <a href="{rel}tomorrow/">tomorrow</a>, each <a href="{rel}#cities">city</a> and <a href="{rel}airports/">airport</a>.</li></ul>
-<p class="small">The data comes from the strike register of the Italian Ministry of Infrastructure and Transport, licensed under CC BY 4.0. If you reuse it, credit the Ministry's register and link to {NOME}.</p>
+<p class="small">The data comes from the strike register of the Italian Ministry of Infrastructure and Transport, licensed under CC BY 4.0.{attribuzione_cgsse(testo="Strikes and cancellations marked with the {cg} {lic} come from its strike calendar: credit it too.")} If you reuse it, credit the Ministry's register and link to {NOME}.</p>
 <h2>Need something specific?</h2>
 <p>A feed for your destinations only, alerts by email or webhook to your team, data in your format, or a widget for your website. Tell us what you need: we will reply by email.</p>
 <form class="form ajax" name="business" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
@@ -2158,12 +2204,23 @@ def pagina_ztl():
            corpo, briciole=[("ZTL fines in Italy", "ztl-fines/")])
 
 
+def about_cgsse():
+    if not usa_cgsse():
+        return ""
+    return (f'\n<li>When the Ministry register cannot be read, new strikes and cancellations come from the '
+            f'<a href="{URL_CGSSE}" rel="noopener">strike calendar of the {FONTE_CGSSE}</a> (the Italian strike guarantee '
+            f'commission), through the daily copy published by <a href="{URL_ONDATA}" rel="noopener">onData</a> under the '
+            f'<a href="{URL_CC_BY}" rel="noopener">CC BY 4.0</a> licence. Each of these strikes shows "Source: {FONTE_CGSSE} '
+            f'{FONTE_CGSSE_LIC}" with a link to its official page. The calendar has no announcement date and lists only the '
+            f'next 30 days; when the Ministry register is readable again, its entries replace the matching ones.</li>')
+
+
 def about():
     rel = "../"
     corpo = f"""<section class="hero"><h1>About {NOME} and our sources</h1></section><div class="testo">
 <p>{NOME} is an independent project that makes the official Italian strike register easy to read in English for travellers. We are not affiliated with the Italian government, unions or transport operators.</p>
 <h2>Where the data comes from</h2>
-<ul><li>The <a href="{URL_REGISTRO}" rel="noopener">strike register of the Ministry of Infrastructure and Transport</a> and its RSS feed, published under the <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">Creative Commons Attribution 4.0 (CC BY 4.0)</a> licence. We read it twice a day and keep our own archive with the history of each strike: when it was announced, changed, called off or removed from the list of upcoming strikes. The register also has its own search page with past strikes since 2014. We translate and reorganise the data; the original Italian text is always shown.</li>
+<ul><li>The <a href="{URL_REGISTRO}" rel="noopener">strike register of the Ministry of Infrastructure and Transport</a> and its RSS feed, published under the <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">Creative Commons Attribution 4.0 (CC BY 4.0)</a> licence. We read it twice a day and keep our own archive with the history of each strike: when it was announced, changed, called off or removed from the list of upcoming strikes. The register also has its own search page with past strikes since 2014. We translate and reorganise the data; the original Italian text is always shown.</li>{about_cgsse()}
 <li>Guaranteed services: we link to the operators and authorities that publish them (Trenitalia, Italo, Trenord, ENAC, local transport companies). We do not copy their lists.</li></ul>
 <h2>How we translate</h2>
 <p>Sectors, scope and hours are translated automatically with fixed rules. The original Italian text is always shown next to the translation. If our rules cannot translate the hours, we show only the original.</p>
@@ -2226,7 +2283,7 @@ def extra():
 def controlli():
     errori = []
     for s in scioperi.values():
-        for k in ("id", "inizio", "fine", "settore", "proclamazione"):
+        for k in ("id", "inizio", "fine", "settore", "url_dettaglio" if s.get("fonte") == "cgsse" else "proclamazione"):
             if not s.get(k):
                 errori.append(f"sciopero senza {k}: {s.get('id')}")
         if s.get("fine", "") < s.get("inizio", ""):

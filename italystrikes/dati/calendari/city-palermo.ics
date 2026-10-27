@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:mit-8606@italy-strikes-today.netlify.app
-DTSTAMP:20261021T101150Z
+DTSTAMP:20261027T224445Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National ferry and port strike
@@ -24,7 +24,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8590@italy-strikes-today.netlify.app
-DTSTAMP:20261021T101150Z
+DTSTAMP:20261027T224445Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National general strike
@@ -44,7 +44,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8612@italy-strikes-today.netlify.app
-DTSTAMP:20261021T101150Z
+DTSTAMP:20261027T224445Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National general strike
@@ -59,8 +59,25 @@ TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:cgsse-382381@italy-strikes-today.netlify.app
+DTSTAMP:20261027T224445Z
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261110
+SUMMARY:Strike: Palermo: local public transport strike – AMAT (Palermo bu
+ ses and tram)
+DESCRIPTION:Hours: From 11:00 to 15:00\nOriginal: DALLE ORE 11.00 ALLE ORE 
+ 15.00\nWho: AMAT (Palermo buses and tram) (AMAT)\nWhere: Palermo area (Sic
+ ily)\nStrikes can be called off or changed: always check with your operato
+ r.\nhttps://italy-strikes-today.netlify.app/palermo/\nSource: Commissione 
+ di garanzia sciopero (via onData\, CC BY 4.0)\, https://www.cgsse.it/calen
+ dario-scioperi/dettaglio-sciopero/382381
+URL:https://italy-strikes-today.netlify.app/palermo/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:mit-8610@italy-strikes-today.netlify.app
-DTSTAMP:20261021T101150Z
+DTSTAMP:20261027T224445Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261121
 SUMMARY:Strike: National general strike
@@ -75,7 +92,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8592@italy-strikes-today.netlify.app
-DTSTAMP:20261021T101150Z
+DTSTAMP:20261027T224445Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National multi-sector strike
@@ -94,7 +111,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8575@italy-strikes-today.netlify.app
-DTSTAMP:20261021T101150Z
+DTSTAMP:20261027T224445Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:Strike: National general strike

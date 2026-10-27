@@ -6,6 +6,14 @@
  "fonte_rss": "https://scioperi.mit.gov.it/mit2/public/scioperi/rss",
  "fonte_prospetto": "https://scioperi.mit.gov.it/mit2/public/scioperi",
  "fonte_non_raggiungibile_dal": "2026-10-23",
- "ultimo_tentativo_fallito": "2026-10-25 19:27",
- "ultimo_errore": "<urlopen error timed out>"
+ "ultimo_tentativo_fallito": "2026-10-27 23:44",
+ "ultimo_errore": "<urlopen error [Errno 104] Connection reset by peer>",
+ "riserva_cgsse": {
+  "usata_il": "2026-10-27 23:44",
+  "copia_aggiornata_il": "2026-10-27 05:10",
+  "controllo_eta": "CGSSE_AGGIORNATA_IL (API GitHub non raggiungibile: HTTP Error 403: Forbidden)",
+  "fonte": "https://raw.githubusercontent.com/ondata/liberiamoli-tutti/main/scioperi/data/cgsse/cgsse_data.jsonl",
+  "nuovi": 2,
+  "revoche": 1
+ }
 }

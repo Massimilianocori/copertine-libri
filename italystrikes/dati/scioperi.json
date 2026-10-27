@@ -432,11 +432,24 @@
   "proclamazione": "2026-10-16",
   "ricezione": "16/10/2026",
   "note": "",
-  "stato": "rimosso dal registro",
+  "stato": "revocato",
   "visto_prima": "2026-10-16",
   "visto_ultimo": "2026-10-21",
-  "modifiche": [],
-  "rimosso_il": "2026-10-21"
+  "modifiche": [
+   {
+    "il": "2026-10-27",
+    "campi": {
+     "stato": [
+      "rimosso dal registro",
+      "revocato"
+     ]
+    },
+    "fonte": "cgsse",
+    "url": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382163"
+   }
+  ],
+  "rimosso_il": "2026-10-21",
+  "revoca_cgsse": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382163"
  },
  "8453": {
   "id": "8453",
@@ -619,6 +632,29 @@
   "visto_ultimo": "2026-10-23",
   "modifiche": []
  },
+ "cgsse-382381": {
+  "id": "cgsse-382381",
+  "inizio": "2026-11-09",
+  "fine": "2026-11-09",
+  "settore": "Trasporto pubblico locale",
+  "rilevanza": "Locale",
+  "regione": "Sicilia",
+  "provincia": "Palermo",
+  "sindacati": "CUB TRASPORTI",
+  "categoria": "AMAT",
+  "modalita": "DALLE ORE 11.00 ALLE ORE 15.00",
+  "proclamazione": "",
+  "ricezione": "",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-10-27",
+  "visto_ultimo": "2026-10-27",
+  "modifiche": [],
+  "fonte": "cgsse",
+  "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382381",
+  "settore_cgsse": "Trasporto pubblico locale",
+  "ambito_cgsse": "PALERMO"
+ },
  "8608": {
   "id": "8608",
   "inizio": "2026-11-10",
@@ -637,6 +673,29 @@
   "visto_prima": "2026-10-16",
   "visto_ultimo": "2026-10-23",
   "modifiche": []
+ },
+ "cgsse-382399": {
+  "id": "cgsse-382399",
+  "inizio": "2026-11-10",
+  "fine": "2026-11-10",
+  "settore": "Trasporto pubblico locale",
+  "rilevanza": "Locale",
+  "regione": "Calabria",
+  "provincia": "Cosenza",
+  "sindacati": "FAISA CISAL",
+  "categoria": "B.U. CALABRIA",
+  "modalita": "DALLE ORE 9.59 ALLE ORE 13.59",
+  "proclamazione": "",
+  "ricezione": "",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-10-27",
+  "visto_ultimo": "2026-10-27",
+  "modifiche": [],
+  "fonte": "cgsse",
+  "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382399",
+  "settore_cgsse": "Trasporto pubblico locale",
+  "ambito_cgsse": "COSENZA"
  },
  "8598": {
   "id": "8598",

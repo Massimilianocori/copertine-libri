@@ -98,6 +98,13 @@ def percorso_en(p_it):
     return None
 
 
+ATTRIBUZIONE_CGSSE_IT = ("Alcuni scioperi e revoche vengono dal calendario della {cg} {lic}, come indicato su "
+                         "ciascuno sciopero.")
+AVVISO_GIU_IT = "Il registro ufficiale non risponde dal DATA: teniamo l'ultima lettura buona e riproviamo due volte al giorno."
+AVVISO_RISERVA_IT = ("Il registro del Ministero non risponde dal DATA: i nuovi scioperi vengono dal calendario della "
+                     "Commissione di garanzia sciopero.")
+
+
 def costruisci(g):
     d = g.d
 
@@ -148,13 +155,15 @@ def costruisci(g):
         ("esc(v.settore_en.charAt(0).toUpperCase()+v.settore_en.slice(1))", "esc(v.settore_it)"),
         (">No longer in the register</span>", ">Non più nel registro</span>"),
         (">Called off (register note)</span>", ">Revocato (nota del registro)</span>"), (">Ended</span>", ">Concluso</span>"),
+        (">Called off (Guarantee Commission)</span>", ">Revocato (Commissione di garanzia)</span>"), (" · Source: <a", " · Fonte: <a"), (" · called off: <a", " · revoca: <a"),
         ("esc(v.dove)", "esc(v.dove_it)"), ("esc(v.titolo)", "esc(v.titolo_it)"),
         ("""h+='<div class="dett"><b>Hours:</b> '+(v.ore_en?esc(v.ore_en):'<span lang="it">'+esc(v.ore_it||v.ore)+'</span>')+'</div>';""",
          """h+='<div class="dett"><b>Orari:</b> '+esc(v.ore_it||v.ore)+'</div>';"""),
         ("""h+='<div class="dett"><b>Who:</b> '+esc(v.chi||v.chi_gen||v.categoria)+'</div>';""",
          """h+='<div class="dett"><b>Chi:</b> '+esc(v.chi_it||v.chi_gen_it||v.categoria)+'</div>';"""),
         ("v.nota_en", "v.nota_it"),
-        ("<summary>Official wording (Italian)</summary><dl><dt>Hours</dt>", "<summary>Testo ufficiale del registro</summary><dl><dt>Orari</dt>"),
+        ("<summary>Official wording (Italian)</summary><dl><dt>Hours</dt>",
+         "<summary>'+(v.fonte==='cgsse'?'Dalla Commissione di garanzia':'Testo ufficiale del registro')+'</summary><dl><dt>Orari</dt>"),
         ("<dt>Who</dt>", "<dt>Categoria</dt>"),
         ("var TX=" + json.dumps(g.TX_EN, ensure_ascii=False) + ",", "var TX=" + json.dumps(TX_IT, ensure_ascii=False) + ","),
         ("No longer listed in the official register as of ", "Non più presente nel registro ufficiale dal "),
@@ -184,7 +193,7 @@ def costruisci(g):
         if v["stato"] == "rimosso dal registro":
             b += '<span class="badge stato">Non più nel registro</span>'
         if v["stato"] == "revocato":
-            b += '<span class="badge stato">Revocato (nota del registro)</span>'
+            b += f'<span class="badge stato">Revocato ({"Commissione di garanzia" if v.get("revoca_cgsse") else "nota del registro"})</span>'
         if v["fine"] < oggi or v["stato"] == "concluso":
             b += '<span class="badge">Concluso</span>'
         chi = escape(v["chi_it"] or v["chi_gen_it"] or v["categoria"])
@@ -196,9 +205,13 @@ def costruisci(g):
         if v["stato"] == "rimosso dal registro":
             h += (f'<div class="dett">Non più presente nel registro ufficiale dal {breve(d(v["rimosso_il"]))} '
                   '(probabilmente revocato): verifica con il gestore del servizio.</div>')
-        h += g.testo_ufficiale(v, "Testo ufficiale del registro", "Orari", "Categoria", "Note")
-        h += (f'<div class="fonte">Sindacati: {escape(v["sindacati"])} · proclamato il {breve(d(v["proclamazione"]))} · '
-              f'<a href="{g.URL_REGISTRO}" rel="noopener">registro ufficiale (id MIT {escape(v["id"])})</a></div></div></article>')
+        h += g.testo_ufficiale(v, "Dalla Commissione di garanzia" if v.get("fonte") == "cgsse" else "Testo ufficiale del registro",
+                               "Orari", "Categoria", "Note")
+        h += f'<div class="fonte">Sindacati: {escape(v["sindacati"])} · ' + (
+            f'Fonte: <a href="{escape(v["url_fonte"])}" rel="noopener">{g.FONTE_CGSSE}</a> {g.FONTE_CGSSE_LIC}' if v.get("fonte") == "cgsse" else
+            f'proclamato il {breve(d(v["proclamazione"]))} · <a href="{g.URL_REGISTRO}" rel="noopener">registro ufficiale (id MIT {escape(v["id"])})</a>'
+            + (f' · revoca: <a href="{escape(v["revoca_cgsse"])}" rel="noopener">{g.FONTE_CGSSE}</a> {g.FONTE_CGSSE_LIC}' if v.get("revoca_cgsse") else "")
+        ) + '</div></div></article>'
         return h
 
     def vuoto(nome):
@@ -296,7 +309,8 @@ def costruisci(g):
         ld_html = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
         dati_html = ""
         if con_dati:
-            dati = {"letto_il": g.LETTO, "registro_aggiornato_al": g.AGGIORNATO, "scioperi": g.recenti()}
+            dati = {"letto_il": g.LETTO, "generato_il": g.ADESSO.strftime("%Y-%m-%d %H:%M"), "registro_aggiornato_al": g.AGGIORNATO,
+                    "scioperi": g.recenti()}
             dati_html = '<script type="application/json" id="dati">' + json.dumps(dati, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>"
         verifica = f'<meta name="google-site-verification" content="{g.GOOGLE_VERIFICA}">' if g.GOOGLE_VERIFICA else ""
         lingua = g.link_lingua(f"{rel}{alt_en}", "en", "English", "EN") if alt_en is not None else ""
@@ -343,7 +357,7 @@ def costruisci(g):
 <footer><div class="wrap">
 <div class="piede-top">
 <div class="piede-marchio"><a class="logo" href="{rel}it/">{g.MARCHIO}<span class="nome">Scioperi <em>oggi</em></span></a>
-<p><strong>{g.NOME}</strong> è un sito indipendente. I dati vengono dal <a href="{g.URL_REGISTRO}" rel="noopener">registro ufficiale degli scioperi del Ministero delle Infrastrutture e dei Trasporti (MIT)</a>, con licenza <a href="https://creativecommons.org/licenses/by/4.0/deed.it" rel="noopener">CC BY 4.0</a>; non siamo collegati al Ministero, ai sindacati o alle aziende di trasporto.</p></div>
+<p><strong>{g.NOME}</strong> è un sito indipendente. I dati vengono dal <a href="{g.URL_REGISTRO}" rel="noopener">registro ufficiale degli scioperi del Ministero delle Infrastrutture e dei Trasporti (MIT)</a>, con licenza <a href="https://creativecommons.org/licenses/by/4.0/deed.it" rel="noopener">CC BY 4.0</a>; non siamo collegati al Ministero, ai sindacati o alle aziende di trasporto.{g.attribuzione_cgsse("https://creativecommons.org/licenses/by/4.0/deed.it", ATTRIBUZIONE_CGSSE_IT)}</p></div>
 <nav class="piede-link" aria-label="Link del sito"><h2>Sito</h2><ul>
 <li><a href="{rel}it/oggi/">Scioperi oggi</a></li><li><a href="{rel}it/domani/">Scioperi domani</a></li>
 <li><a href="{rel}it/guida/">Guide</a></li><li><a href="{rel}it/aeroporti/">Aeroporti</a></li>
@@ -352,7 +366,7 @@ def costruisci(g):
 </div>
 <p class="piede-avviso"><strong>Gli scioperi possono essere revocati o modificati all'ultimo momento: verifica sempre con l'azienda di trasporto prima di partire.</strong> Le informazioni non sono consulenza legale.</p>
 {g.blocco_altri(g.ALTRI_SITI_IT, "Altri strumenti utili per il viaggio")}
-<p class="piede-agg">Registro ufficiale aggiornato al <span data-reg>{breve(d(g.AGGIORNATO))}</span> · controllato <span data-letto>{escape(g.letto_breve(breve))} (ora italiana)</span> <span data-fonte-giu="Il registro ufficiale non risponde dal DATA: teniamo l'ultima lettura buona e riproviamo due volte al giorno."{g.avviso_fonte_giu("Il registro ufficiale non risponde dal DATA: teniamo l'ultima lettura buona e riproviamo due volte al giorno.", breve)}></span></p>
+<p class="piede-agg">Registro ufficiale aggiornato al <span data-reg>{breve(d(g.AGGIORNATO))}</span> · controllato <span data-letto>{escape(g.letto_breve(breve))} (ora italiana)</span> <span data-fonte-giu="{AVVISO_GIU_IT}" data-fonte-riserva="{AVVISO_RISERVA_IT}"{g.avviso_fonte_giu(AVVISO_GIU_IT, breve, AVVISO_RISERVA_IT)}></span></p>
 </div></footer>
 {dati_html}
 <script>{JS_IT}</script>

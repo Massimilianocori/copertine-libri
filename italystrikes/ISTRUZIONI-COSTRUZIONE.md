@@ -40,7 +40,7 @@ Circa 60 pagine. Titoli e meta-description con le parole cercate (vedi studio 3.
 - Stile: come EsameB1 (token su :root, chiaro/scuro, mobile 375 px senza scroll orizzontale, nessuna libreria esterna). Lasciare **spazi vuoti predisposti** per gli annunci (un blocco sotto il primo riquadro e uno a fine pagina) senza codice AdSense.
 - Costante `GOOGLE_VERIFICA` in `genera.py` (Massimiliano darà il tag HTML di Search Console: inserirlo quando lo manda, non inventarlo).
 
-## Aggiornamento automatico (ogni giorno, senza Claude e senza Massimiliano)
+## Aggiornamento automatico (ogni giorno, senza l'assistente e senza Massimiliano)
 - Workflow GitHub Actions `.github/workflows/italystrikes.yml`: cron ogni giorno alle 04:30 UTC (06:30 Roma) + `workflow_dispatch`; checkout del branch `ccr-b7fd6b9e-n096cr`; `python3 italystrikes/raccolta/raccogli.py`; se `dati/` è cambiato: `python3 italystrikes/genera.py`, commit "Italy strikes: registro del DD/MM/YYYY" e push sullo stesso branch (permissions `contents: write`). Il push fa partire il deploy Netlify.
 - **Crediti Netlify (da verificare nei documenti ufficiali prima di scegliere)**: il piano gratuito ha un tetto mensile di crediti condiviso dai 3 siti (EsameB1 e EsamiDiStato pubblicano al massimo una volta a settimana). Verificare su docs.netlify.com quanto costa un deploy da GitHub e se un deploy "manuale" via CLI/API (file già pronti, senza build) costa meno. Scegliere: (a) deploy giornaliero se rientra nel gratuito con margine; (b) altrimenti: Actions aggiorna e committa solo `dati/` ogni giorno (le pagine si aggiornano nel browser dal JSON su raw.githubusercontent.com), e rigenera `sito/` solo il lunedì o quando entra nel registro uno sciopero **nazionale** entro 10 giorni (max 8 deploy al mese per questo sito). Scrivere la scelta e i numeri in `NOTE.md`.
 - Aggiungere il sito alla routine settimanale `trig_017HFNXZX5fKYcerETVg5zq4` (prompt: controllo che il workflow abbia girato, che il formato del registro non sia cambiato, lettura iscritti e Search Console).
@@ -79,5 +79,5 @@ Opzione da autorizzare a parte, dopo l'approvazione AdSense: ≤50 € di Google
 - `italystrikes/NOTE.md`: stato, scelte, cosa manca, data inizio test, soglie, cosa deve fare Massimiliano.
 
 ## Ruoli
-- Claude: tutto il lavoro sopra; lettura settimanale dei numeri; proposta dominio/AdSense al giorno 20 con i dati.
-- Massimiliano (10 minuti, come per gli altri due siti): nuovo progetto Netlify da GitHub (branch `ccr-b7fd6b9e-n096cr`, base e publish `italystrikes/sito`), attivare i moduli + notifica email, Search Console (tag HTML → mandarlo a Claude) + sitemap; abilitare GitHub Actions sul repo se chiesto. Nessuna spesa.
+- l'assistente: tutto il lavoro sopra; lettura settimanale dei numeri; proposta dominio/AdSense al giorno 20 con i dati.
+- Massimiliano (10 minuti, come per gli altri due siti): nuovo progetto Netlify da GitHub (branch `ccr-b7fd6b9e-n096cr`, base e publish `italystrikes/sito`), attivare i moduli + notifica email, Search Console (tag HTML → mandarlo a l'assistente) + sitemap; abilitare GitHub Actions sul repo se chiesto. Nessuna spesa.

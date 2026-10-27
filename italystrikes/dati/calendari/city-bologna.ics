@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:mit-8557@italy-strikes-today.netlify.app
-DTSTAMP:20261021T192103Z
+DTSTAMP:20261027T225628Z
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
 SUMMARY:Strike: National air transport strike – easyJet cabin crew
@@ -24,7 +24,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8597@italy-strikes-today.netlify.app
-DTSTAMP:20261021T192103Z
+DTSTAMP:20261027T225628Z
 DTSTART;VALUE=DATE:20261028
 DTEND;VALUE=DATE:20261030
 SUMMARY:Strike: Emilia-Romagna: rail strike – Trenitalia
@@ -41,24 +41,25 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8604@italy-strikes-today.netlify.app
-DTSTAMP:20261021T192103Z
+DTSTAMP:20261027T225628Z
 DTSTART;VALUE=DATE:20261029
 DTEND;VALUE=DATE:20261030
-SUMMARY:Called off? Air transport strike
+SUMMARY:Called off: Air transport strike
 DESCRIPTION:Hours: 4 hours: from 12:00 to 16:00\nOriginal: 4 ORE: DALLE 12.
  00 ALLE 16.00\nWho: PERSONALE SOC. LA LUCENTE IMPIEGATO PRESSO IL SITO DEL
- L'AEROPORTO DI BOLOGNA\nWhere: Airport: Bologna Marconi\nNo longer listed 
- in the official register: probably called off\, check with the operator.\n
- Strikes can be called off or changed: always check with your operator.\nht
- tps://italy-strikes-today.netlify.app/bologna/\nSource: MIT strike registe
- r (CC BY 4.0)\, id 8604
+ L'AEROPORTO DI BOLOGNA\nWhere: Airport: Bologna Marconi\nStrikes can be ca
+ lled off or changed: always check with your operator.\nhttps://italy-strik
+ es-today.netlify.app/bologna/\nSource: MIT strike register (CC BY 4.0)\, i
+ d 8604\nCalled off according to the Commissione di garanzia sciopero (via 
+ onData\, CC BY 4.0)\, https://www.cgsse.it/calendario-scioperi/dettaglio-s
+ ciopero/382163
 URL:https://italy-strikes-today.netlify.app/bologna/
 TRANSP:TRANSPARENT
 STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8606@italy-strikes-today.netlify.app
-DTSTAMP:20261021T192103Z
+DTSTAMP:20261027T225628Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National ferry and port strike
@@ -73,7 +74,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8590@italy-strikes-today.netlify.app
-DTSTAMP:20261021T192103Z
+DTSTAMP:20261027T225628Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National general strike
@@ -93,7 +94,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8612@italy-strikes-today.netlify.app
-DTSTAMP:20261021T192103Z
+DTSTAMP:20261027T225628Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National general strike
@@ -109,7 +110,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8610@italy-strikes-today.netlify.app
-DTSTAMP:20261021T192103Z
+DTSTAMP:20261027T225628Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261121
 SUMMARY:Strike: National general strike
@@ -124,7 +125,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8592@italy-strikes-today.netlify.app
-DTSTAMP:20261021T192103Z
+DTSTAMP:20261027T225628Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National multi-sector strike
@@ -143,7 +144,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8571@italy-strikes-today.netlify.app
-DTSTAMP:20261021T192103Z
+DTSTAMP:20261027T225628Z
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National air transport strike – ENAV (air traffic control
@@ -159,7 +160,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8575@italy-strikes-today.netlify.app
-DTSTAMP:20261021T192103Z
+DTSTAMP:20261027T225628Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:Strike: National general strike
@@ -180,7 +181,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8607@italy-strikes-today.netlify.app
-DTSTAMP:20261021T192103Z
+DTSTAMP:20261027T225628Z
 DTSTART;VALUE=DATE:20261215
 DTEND;VALUE=DATE:20261216
 SUMMARY:Strike: Air transport strike – ENAV (air traffic control)
@@ -195,7 +196,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8613@italy-strikes-today.netlify.app
-DTSTAMP:20261021T192103Z
+DTSTAMP:20261027T225628Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:Strike: National air transport strike – ENAV (air traffic control
@@ -210,7 +211,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8614@italy-strikes-today.netlify.app
-DTSTAMP:20261021T192103Z
+DTSTAMP:20261027T225628Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:Strike: National air transport strike – Techno Sky (air traffic c
