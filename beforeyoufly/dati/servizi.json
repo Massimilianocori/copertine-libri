@@ -1,0 +1,6182 @@
+{
+ "_nota": "Liste ufficiali dei Paesi dei servizi digitali, lette da raccolta/servizi.py. stato: si = nella lista con il servizio; no = la fonte nomina il Paese ma senza il servizio (motivo in 'nota'); in_arrivo = Starlink 'Coming soon'; per_regione = Starlink a livello di regione ('exclude'). Paesi assenti = non nominati dalla fonte (mai 'vietato'). Codici ISO 3166-1 alfa-2 (dati/paesi_iso.json).",
+ "letto_il": "2026-10-28",
+ "letture": {
+  "starlink": {
+   "url": "https://api.starlink.com/public-files/availability.json",
+   "url_finale": "https://api.starlink.com/public-files/availability.json",
+   "http": 200,
+   "byte": 18036,
+   "data_fonte": null
+  },
+  "apple_media": {
+   "url": "https://support.apple.com/en-us/118205",
+   "url_finale": "https://support.apple.com/en-us/118205",
+   "http": 200,
+   "byte": 439347,
+   "data_fonte": "2026-09-30"
+  },
+  "apple_pay": {
+   "url": "https://support.apple.com/en-us/102775",
+   "url_finale": "https://support.apple.com/en-us/102775",
+   "http": 200,
+   "byte": 170813,
+   "data_fonte": "2026-10-27"
+  },
+  "youtube": {
+   "url": "https://support.google.com/youtube/answer/6307365?hl=en",
+   "url_finale": "https://support.google.com/youtube/answer/6307365?hl=en",
+   "http": 200,
+   "byte": 1614121,
+   "data_fonte": null
+  },
+  "spotify": {
+   "url": "https://support.spotify.com/us/article/where-spotify-is-available/",
+   "url_finale": "https://support.spotify.com/us/article/where-spotify-is-available/",
+   "http": 200,
+   "byte": 783849,
+   "data_fonte": null
+  },
+  "spotify_estero": {
+   "url": "https://support.spotify.com/us/article/cant-play-abroad/",
+   "url_finale": "https://support.spotify.com/us/article/cant-play-abroad/",
+   "http": 200,
+   "byte": 728624,
+   "data_fonte": null
+  }
+ },
+ "frasi": {
+  "apple_pay_lista": {
+   "fonte": "apple_pay",
+   "url": "https://support.apple.com/en-us/102775",
+   "frase": "You can add your credit, debit, or prepaid cards from participating banks and card issuers in these countries and regions:"
+  },
+  "apple_pay_accettato": {
+   "fonte": "apple_pay",
+   "url": "https://support.apple.com/en-us/102775",
+   "frase": "Apple Pay is accepted anywhere you see these symbols and marks in stores, within apps, and on the web in Safari and third-party browsers."
+  },
+  "apple_pay_cash": {
+   "fonte": "apple_pay",
+   "url": "https://support.apple.com/en-us/102775",
+   "frase": "Sending and receiving money with Apple Pay and the Apple Cash card are available only in the U.S."
+  },
+  "apple_media_lista": {
+   "fonte": "apple_media",
+   "url": "https://support.apple.com/en-us/118205",
+   "frase": "Find your country or region below to see what's available to you."
+  },
+  "apple_media_varia": {
+   "fonte": "apple_media",
+   "url": "https://support.apple.com/en-us/118205",
+   "frase": "Depending on your country or region, you might not be able to buy, download, or subscribe to certain types of media."
+  },
+  "youtube_titolo": {
+   "fonte": "youtube",
+   "url": "https://support.google.com/youtube/answer/6307365?hl=en",
+   "frase": "Premium & Music Premium memberships available locations"
+  },
+  "youtube_lista": {
+   "fonte": "youtube",
+   "url": "https://support.google.com/youtube/answer/6307365?hl=en",
+   "frase": "YouTube Premium memberships are available in the countries/territories listed below."
+  },
+  "youtube_nota": {
+   "fonte": "youtube",
+   "url": "https://support.google.com/youtube/answer/6307365?hl=en",
+   "frase": "YouTube paid memberships may not be available in some provinces or territories, even if the governing country/region is listed above."
+  },
+  "youtube_paese": {
+   "fonte": "youtube",
+   "url": "https://support.google.com/youtube/answer/6307365?hl=en",
+   "frase": "Your YouTube Premium membership should be used predominantly in the country where you signed up for it (your subscription country)."
+  },
+  "youtube_viaggio_no": {
+   "fonte": "youtube",
+   "url": "https://support.google.com/youtube/answer/6307365?hl=en",
+   "frase": "If you travel to a country where Premium / Premium Lite is not available, you won’t be able to access your membership benefits."
+  },
+  "youtube_offline": {
+   "fonte": "youtube",
+   "url": "https://support.google.com/youtube/answer/6307365?hl=en",
+   "frase": "Any videos that you’ve downloaded before traveling will be available offline for 30 days."
+  },
+  "youtube_30": {
+   "fonte": "youtube",
+   "url": "https://support.google.com/youtube/answer/6307365?hl=en",
+   "frase": "If you are traveling for more than 30 days or move to a different country or territory, we may take action on your subscription, such as cancelling it."
+  },
+  "spotify_lista": {
+   "fonte": "spotify",
+   "url": "https://support.spotify.com/us/article/where-spotify-is-available/",
+   "frase": "Check the list below for where you can sign up for Spotify."
+  },
+  "spotify_paese": {
+   "fonte": "spotify_estero",
+   "url": "https://support.spotify.com/us/article/cant-play-abroad/",
+   "frase": "The country or region of your Spotify account is based on where you were when you signed up."
+  },
+  "spotify_trasloco": {
+   "fonte": "spotify_estero",
+   "url": "https://support.spotify.com/us/article/cant-play-abroad/",
+   "frase": "If you've moved, update your account country and payment method to one that's valid where you live now."
+  }
+ },
+ "servizi": [
+  {
+   "slug": "starlink",
+   "nome": "Starlink",
+   "fornitore": "Starlink (SpaceX)",
+   "fonte": "starlink",
+   "pagina": "https://www.starlink.com/map",
+   "titolo_fonte": "Starlink availability map",
+   "cosa": "Starlink internet service",
+   "url_fonte": "https://api.starlink.com/public-files/availability.json",
+   "letto_il": "2026-10-28",
+   "cambiato_il": "2026-10-28",
+   "data_fonte": null,
+   "http": 200,
+   "impronta": "4f13541efae3b34e58f10a653644324437724b1abea3ca373318fc33c9feb956",
+   "conteggi": {
+    "si": 173,
+    "no": 8,
+    "in_arrivo": 66,
+    "per_regione": 3
+   },
+   "paesi": {
+    "AD": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "AE": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "AF": {
+     "stato": "no",
+     "stato_fonte": "blacklisted"
+    },
+    "AG": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "AI": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "AL": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "AM": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "AO": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "AQ": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "AR": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "AS": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "AT": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "AU": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "AW": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "AX": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "AZ": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "BA": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "BB": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "BD": {
+     "stato": "si",
+     "stato_fonte": "available"
+    },
+    "BE": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "BF": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "BG": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "BH": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "BI": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "BJ": {
+     "stato": "si",
+     "stato_fonte": "available"
+    },
+    "BL": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "BM": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "BN": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Pending regulatory approval"
+    },
+    "BO": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "BQ": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "BR": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "BS": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "BT": {
+     "stato": "si",
+     "stato_fonte": "available"
+    },
+    "BV": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "BW": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "BY": {
+     "stato": "no",
+     "stato_fonte": "blacklisted"
+    },
+    "BZ": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "CA": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "CC": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "CD": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "CF": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "CG": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "CH": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "CI": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "CK": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "CL": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "CM": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "CN": {
+     "stato": "no",
+     "stato_fonte": "blacklisted"
+    },
+    "CO": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "CR": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "CU": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon"
+    },
+    "CV": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "CW": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "CX": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "CY": {
+     "stato": "per_regione",
+     "stato_fonte": "exclude"
+    },
+    "CZ": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "DE": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "DJ": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "DK": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "DM": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "DO": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "DZ": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "EC": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "EE": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "EG": {
+     "stato": "in_arrivo",
+     "stato_fonte": "unknown",
+     "nota": "Service date is unknown at this time"
+    },
+    "EH": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "ER": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "ES": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "ET": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "FI": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "FJ": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "FK": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "FM": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "FO": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "FR": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "GA": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "GB": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "GD": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "GE": {
+     "stato": "per_regione",
+     "stato_fonte": "exclude"
+    },
+    "GF": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "GG": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "GH": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "GI": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "GL": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "GM": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "GN": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "GP": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "GQ": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "GR": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "GS": {
+     "stato": "si",
+     "stato_fonte": "available"
+    },
+    "GT": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "GU": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "GW": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "GY": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "HK": {
+     "stato": "no",
+     "stato_fonte": "blacklisted"
+    },
+    "HM": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "HN": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "HR": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "HT": {
+     "stato": "si",
+     "stato_fonte": "available"
+    },
+    "HU": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "ID": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "IE": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "IL": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "IM": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "IN": {
+     "stato": "in_arrivo",
+     "stato_fonte": "pending_regulatory",
+     "nota": "Pending regulatory approval"
+    },
+    "IO": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "IQ": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "IR": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon"
+    },
+    "IS": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "IT": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "JE": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "JM": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "JO": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "JP": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "KE": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "KG": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "KH": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "KI": {
+     "stato": "si",
+     "stato_fonte": "available"
+    },
+    "KM": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "KN": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "KP": {
+     "stato": "no",
+     "stato_fonte": "blacklisted"
+    },
+    "KR": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "KW": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "KY": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "KZ": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "LA": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "LB": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "LC": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "LI": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "LK": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "LR": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "LS": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "LT": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "LU": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "LV": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "LY": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "MA": {
+     "stato": "in_arrivo",
+     "stato_fonte": "unknown",
+     "nota": "Service date is unknown at this time"
+    },
+    "MC": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "MD": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "ME": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "MF": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "MG": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "MH": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "MK": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "ML": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "MM": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "MN": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "MO": {
+     "stato": "no",
+     "stato_fonte": "blacklisted"
+    },
+    "MP": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "MQ": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "MR": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "MS": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "MT": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "MU": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "MV": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "MW": {
+     "stato": "si",
+     "stato_fonte": "available"
+    },
+    "MX": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "MY": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "MZ": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "NA": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "NC": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "NE": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "NF": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "NG": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "NI": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "NL": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "NO": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "NP": {
+     "stato": "in_arrivo",
+     "stato_fonte": "unknown",
+     "nota": "Service date is unknown at this time"
+    },
+    "NR": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "NU": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "NZ": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "OM": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "PA": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "PE": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "PF": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "PG": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "PH": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "PK": {
+     "stato": "in_arrivo",
+     "stato_fonte": "pending_regulatory",
+     "nota": "Pending regulatory approval"
+    },
+    "PL": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "PM": {
+     "stato": "si",
+     "stato_fonte": "available"
+    },
+    "PN": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "PR": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "PS": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "PT": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "PW": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "PY": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "QA": {
+     "stato": "si",
+     "stato_fonte": "available"
+    },
+    "RE": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "RO": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "RS": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "RU": {
+     "stato": "no",
+     "stato_fonte": "blacklisted"
+    },
+    "RW": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "SA": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Pending regulatory approval"
+    },
+    "SB": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "SC": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "SD": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "SE": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "SG": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "SH": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "SI": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "SJ": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "SK": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "SL": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "SM": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "SN": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "SO": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "SR": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "SS": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "ST": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "SV": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "SX": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "SY": {
+     "stato": "no",
+     "stato_fonte": "blacklisted"
+    },
+    "SZ": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "TC": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "TD": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "TF": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "TG": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "TH": {
+     "stato": "in_arrivo",
+     "stato_fonte": "pending_regulatory",
+     "nota": "Pending regulatory approval"
+    },
+    "TJ": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "TK": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "TL": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "TM": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "TN": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "TO": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "TR": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Pending regulatory approval"
+    },
+    "TT": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "TV": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "TW": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "TZ": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "UA": {
+     "stato": "per_regione",
+     "stato_fonte": "exclude"
+    },
+    "UG": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "UM": {
+     "stato": "si",
+     "stato_fonte": "available"
+    },
+    "US": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "UY": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "UZ": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "VA": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "VC": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "VE": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "VG": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "VI": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "VN": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "VU": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "WF": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Starting in 2026"
+    },
+    "WS": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "XK": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "YE": {
+     "stato": "si",
+     "stato_fonte": "available"
+    },
+    "YT": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "ZA": {
+     "stato": "in_arrivo",
+     "stato_fonte": "coming_soon",
+     "nota": "Service date is unknown at this time"
+    },
+    "ZM": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    },
+    "ZW": {
+     "stato": "si",
+     "stato_fonte": "launched"
+    }
+   },
+   "extra": {
+    "codici_non_iso": {
+     "XS": {
+      "stato": "in_arrivo",
+      "stato_fonte": "unknown",
+      "nota": "Service date is unknown at this time"
+     },
+     "XA": {
+      "stato": "in_arrivo",
+      "stato_fonte": "coming_soon",
+      "nota": "Service date is unknown at this time"
+     },
+     "XC": {
+      "stato": "in_arrivo",
+      "stato_fonte": "coming_soon",
+      "nota": "Service date is unknown at this time"
+     },
+     "XO": {
+      "stato": "in_arrivo",
+      "stato_fonte": "coming_soon",
+      "nota": "Sold Out"
+     },
+     "XJ": {
+      "stato": "in_arrivo",
+      "stato_fonte": "coming_soon",
+      "nota": "Starting in 2024"
+     }
+    },
+    "regioni_separate": 46
+   }
+  },
+  {
+   "slug": "apple-pay",
+   "nome": "Apple Pay",
+   "fornitore": "Apple",
+   "fonte": "apple_pay",
+   "pagina": "https://support.apple.com/en-us/102775",
+   "titolo_fonte": "Apple Support: Countries and regions that support Apple Pay",
+   "cosa": "adding cards from local banks to Apple Pay",
+   "url_fonte": "https://support.apple.com/en-us/102775",
+   "letto_il": "2026-10-28",
+   "cambiato_il": "2026-10-28",
+   "data_fonte": "2026-10-27",
+   "http": 200,
+   "impronta": "412d997d1d45ba02acb769648f4cc86ed6efbec8a22ec21c0ab672b1652fa9f7",
+   "conteggi": {
+    "si": 102,
+    "no": 0,
+    "in_arrivo": 0,
+    "per_regione": 0
+   },
+   "paesi": {
+    "AD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Andorra"
+     ]
+    },
+    "AE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United Arab Emirates"
+     ]
+    },
+    "AL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Albania"
+     ]
+    },
+    "AM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Armenia"
+     ]
+    },
+    "AR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Argentina"
+     ]
+    },
+    "AT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Austria"
+     ]
+    },
+    "AU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Australia"
+     ]
+    },
+    "AZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Azerbaijan"
+     ]
+    },
+    "BA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bosnia & Herzegovina"
+     ]
+    },
+    "BE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Belgium"
+     ]
+    },
+    "BG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bulgaria"
+     ]
+    },
+    "BH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bahrain"
+     ]
+    },
+    "BR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Brazil"
+     ]
+    },
+    "BS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "The Bahamas"
+     ]
+    },
+    "BY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Belarus"
+     ]
+    },
+    "CA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Canada"
+     ]
+    },
+    "CH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Switzerland"
+     ]
+    },
+    "CL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Chile"
+     ]
+    },
+    "CN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "China mainland"
+     ]
+    },
+    "CO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Colombia"
+     ]
+    },
+    "CR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Costa Rica"
+     ]
+    },
+    "CY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cyprus"
+     ]
+    },
+    "CZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Czechia"
+     ]
+    },
+    "DE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Germany"
+     ]
+    },
+    "DK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Denmark"
+     ]
+    },
+    "DO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Dominican Republic"
+     ]
+    },
+    "EC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ecuador"
+     ]
+    },
+    "EE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Estonia"
+     ]
+    },
+    "EG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Egypt"
+     ]
+    },
+    "ES": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Spain"
+     ]
+    },
+    "FI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Finland"
+     ]
+    },
+    "FO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Faroe Islands"
+     ]
+    },
+    "FR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "France"
+     ]
+    },
+    "GB": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United Kingdom"
+     ]
+    },
+    "GE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Georgia"
+     ]
+    },
+    "GG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guernsey"
+     ]
+    },
+    "GL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Greenland"
+     ]
+    },
+    "GR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Greece"
+     ]
+    },
+    "GT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guatemala"
+     ]
+    },
+    "HK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Hong Kong"
+     ]
+    },
+    "HN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Honduras"
+     ]
+    },
+    "HR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Croatia"
+     ]
+    },
+    "HU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Hungary"
+     ]
+    },
+    "IE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ireland"
+     ]
+    },
+    "IL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Israel"
+     ]
+    },
+    "IM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Isle of Man"
+     ]
+    },
+    "IN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "India"
+     ]
+    },
+    "IS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Iceland"
+     ]
+    },
+    "IT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Italy"
+     ]
+    },
+    "JE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Jersey"
+     ]
+    },
+    "JO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Jordan"
+     ]
+    },
+    "JP": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Japan"
+     ]
+    },
+    "KG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kyrgyzstan"
+     ]
+    },
+    "KR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "South Korea"
+     ]
+    },
+    "KW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kuwait"
+     ]
+    },
+    "KZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kazakhstan"
+     ]
+    },
+    "LI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Liechtenstein"
+     ]
+    },
+    "LT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Lithuania"
+     ]
+    },
+    "LU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Luxembourg"
+     ]
+    },
+    "LV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Latvia"
+     ]
+    },
+    "MA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Morocco"
+     ]
+    },
+    "MC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Monaco"
+     ]
+    },
+    "MD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Moldova"
+     ]
+    },
+    "ME": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Montenegro"
+     ]
+    },
+    "MK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "North Macedonia"
+     ]
+    },
+    "MN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mongolia"
+     ]
+    },
+    "MO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Macao"
+     ]
+    },
+    "MT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Malta"
+     ]
+    },
+    "MU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mauritius"
+     ]
+    },
+    "MX": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mexico"
+     ]
+    },
+    "MY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Malaysia"
+     ]
+    },
+    "NL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Netherlands"
+     ]
+    },
+    "NO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Norway"
+     ]
+    },
+    "NZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "New Zealand"
+     ]
+    },
+    "OM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Oman"
+     ]
+    },
+    "PA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Panama"
+     ]
+    },
+    "PE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Peru"
+     ]
+    },
+    "PH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Philippines"
+     ]
+    },
+    "PL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Poland"
+     ]
+    },
+    "PR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Puerto Rico"
+     ]
+    },
+    "PS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Palestine"
+     ]
+    },
+    "PT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Portugal"
+     ]
+    },
+    "PY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Paraguay"
+     ]
+    },
+    "QA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Qatar"
+     ]
+    },
+    "RO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Romania"
+     ]
+    },
+    "RS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Serbia"
+     ]
+    },
+    "SA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Saudi Arabia"
+     ]
+    },
+    "SE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Sweden"
+     ]
+    },
+    "SG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Singapore"
+     ]
+    },
+    "SI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Slovenia"
+     ]
+    },
+    "SK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Slovakia"
+     ]
+    },
+    "SV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "El Salvador"
+     ]
+    },
+    "TJ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tajikistan"
+     ]
+    },
+    "TW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Taiwan"
+     ]
+    },
+    "UA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ukraine"
+     ]
+    },
+    "US": {
+     "stato": "si",
+     "nomi_fonte": [
+      "The United States"
+     ]
+    },
+    "UY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Uruguay"
+     ]
+    },
+    "UZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Uzbekistan"
+     ]
+    },
+    "VA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Vatican City"
+     ]
+    },
+    "VN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Vietnam"
+     ]
+    },
+    "XK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kosovo"
+     ]
+    },
+    "ZA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "South Africa"
+     ]
+    }
+   }
+  },
+  {
+   "slug": "apple-music",
+   "nome": "Apple Music",
+   "fornitore": "Apple",
+   "fonte": "apple_media",
+   "pagina": "https://support.apple.com/en-us/118205",
+   "titolo_fonte": "Apple Support: Availability of Apple Media Services",
+   "cosa": "Apple Music",
+   "url_fonte": "https://support.apple.com/en-us/118205",
+   "letto_il": "2026-10-28",
+   "cambiato_il": "2026-10-28",
+   "data_fonte": "2026-09-30",
+   "http": 200,
+   "impronta": "1e9f9d61e699b23faa22dca850dd318dbe07043b28f124ae25ed8ffb5c57ddfe",
+   "conteggi": {
+    "si": 172,
+    "no": 3,
+    "in_arrivo": 0,
+    "per_regione": 0
+   },
+   "paesi": {
+    "AE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United Arab Emirates"
+     ]
+    },
+    "AF": {
+     "stato": "no",
+     "nomi_fonte": [
+      "Afghanistan"
+     ]
+    },
+    "AG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Antigua and Barbuda"
+     ]
+    },
+    "AI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Anguilla"
+     ]
+    },
+    "AL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Albania"
+     ]
+    },
+    "AM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Armenia"
+     ]
+    },
+    "AO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Angola"
+     ]
+    },
+    "AR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Argentina"
+     ]
+    },
+    "AT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Austria"
+     ]
+    },
+    "AU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Australia"
+     ]
+    },
+    "AZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Azerbaijan"
+     ]
+    },
+    "BA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bosnia and Herzegovina"
+     ]
+    },
+    "BB": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Barbados"
+     ]
+    },
+    "BE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Belgium"
+     ]
+    },
+    "BF": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Burkina Faso"
+     ]
+    },
+    "BG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bulgaria"
+     ]
+    },
+    "BH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bahrain"
+     ]
+    },
+    "BJ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Benin"
+     ]
+    },
+    "BM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bermuda"
+     ]
+    },
+    "BN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Brunei"
+     ]
+    },
+    "BO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bolivia"
+     ]
+    },
+    "BR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Brazil"
+     ]
+    },
+    "BS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bahamas"
+     ]
+    },
+    "BT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bhutan"
+     ]
+    },
+    "BW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Botswana"
+     ]
+    },
+    "BY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Belarus"
+     ]
+    },
+    "BZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Belize"
+     ]
+    },
+    "CA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Canada"
+     ]
+    },
+    "CD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Congo, Democratic Republic of the"
+     ]
+    },
+    "CG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Congo, Republic of the"
+     ]
+    },
+    "CH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Switzerland"
+     ]
+    },
+    "CI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Côte d'Ivoire"
+     ]
+    },
+    "CL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Chile"
+     ]
+    },
+    "CM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cameroon"
+     ]
+    },
+    "CN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "China mainland"
+     ]
+    },
+    "CO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Colombia"
+     ]
+    },
+    "CR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Costa Rica"
+     ]
+    },
+    "CV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cape Verde"
+     ]
+    },
+    "CY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cyprus"
+     ]
+    },
+    "CZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Czechia"
+     ]
+    },
+    "DE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Germany"
+     ]
+    },
+    "DK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Denmark"
+     ]
+    },
+    "DM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Dominica"
+     ]
+    },
+    "DO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Dominican Republic"
+     ]
+    },
+    "DZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Algeria"
+     ]
+    },
+    "EC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ecuador"
+     ]
+    },
+    "EE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Estonia"
+     ]
+    },
+    "EG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Egypt"
+     ]
+    },
+    "ES": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Spain"
+     ]
+    },
+    "FI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Finland"
+     ]
+    },
+    "FJ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Fiji"
+     ]
+    },
+    "FM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Micronesia"
+     ]
+    },
+    "FR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "France"
+     ]
+    },
+    "GA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Gabon"
+     ]
+    },
+    "GB": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United Kingdom"
+     ]
+    },
+    "GD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Grenada"
+     ]
+    },
+    "GE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Georgia"
+     ]
+    },
+    "GH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ghana"
+     ]
+    },
+    "GM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "The Gambia"
+     ]
+    },
+    "GR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Greece"
+     ]
+    },
+    "GT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guatemala"
+     ]
+    },
+    "GW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guinea-Bissau"
+     ]
+    },
+    "GY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guyana"
+     ]
+    },
+    "HK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Hong Kong"
+     ]
+    },
+    "HN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Honduras"
+     ]
+    },
+    "HR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Croatia"
+     ]
+    },
+    "HU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Hungary"
+     ]
+    },
+    "ID": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Indonesia"
+     ]
+    },
+    "IE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ireland"
+     ]
+    },
+    "IL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Israel"
+     ]
+    },
+    "IN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "India"
+     ]
+    },
+    "IQ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Iraq"
+     ]
+    },
+    "IS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Iceland"
+     ]
+    },
+    "IT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Italy"
+     ]
+    },
+    "JM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Jamaica"
+     ]
+    },
+    "JO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Jordan"
+     ]
+    },
+    "JP": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Japan"
+     ]
+    },
+    "KE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kenya"
+     ]
+    },
+    "KG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kyrgyzstan"
+     ]
+    },
+    "KH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cambodia"
+     ]
+    },
+    "KN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "St. Kitts and Nevis"
+     ]
+    },
+    "KR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "South Korea"
+     ]
+    },
+    "KW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kuwait"
+     ]
+    },
+    "KY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cayman Islands"
+     ]
+    },
+    "KZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kazakhstan"
+     ]
+    },
+    "LA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Laos"
+     ]
+    },
+    "LB": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Lebanon"
+     ]
+    },
+    "LC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "St. Lucia"
+     ]
+    },
+    "LK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Sri Lanka"
+     ]
+    },
+    "LR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Liberia"
+     ]
+    },
+    "LT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Lithuania"
+     ]
+    },
+    "LU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Luxembourg"
+     ]
+    },
+    "LV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Latvia"
+     ]
+    },
+    "LY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Libya"
+     ]
+    },
+    "MA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Morocco"
+     ]
+    },
+    "MD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Moldova"
+     ]
+    },
+    "ME": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Montenegro"
+     ]
+    },
+    "MG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Madagascar"
+     ]
+    },
+    "MK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "North Macedonia"
+     ]
+    },
+    "ML": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mali"
+     ]
+    },
+    "MM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Myanmar"
+     ]
+    },
+    "MN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mongolia"
+     ]
+    },
+    "MO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Macao"
+     ]
+    },
+    "MR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mauritania"
+     ]
+    },
+    "MS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Montserrat"
+     ]
+    },
+    "MT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Malta"
+     ]
+    },
+    "MU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mauritius"
+     ]
+    },
+    "MV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Maldives"
+     ]
+    },
+    "MW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Malawi"
+     ]
+    },
+    "MX": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mexico"
+     ]
+    },
+    "MY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Malaysia"
+     ]
+    },
+    "MZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mozambique"
+     ]
+    },
+    "NA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Namibia"
+     ]
+    },
+    "NE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Niger"
+     ]
+    },
+    "NG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Nigeria"
+     ]
+    },
+    "NI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Nicaragua"
+     ]
+    },
+    "NL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Netherlands"
+     ]
+    },
+    "NO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Norway"
+     ]
+    },
+    "NP": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Nepal"
+     ]
+    },
+    "NR": {
+     "stato": "no",
+     "nomi_fonte": [
+      "Nauru"
+     ]
+    },
+    "NZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "New Zealand"
+     ]
+    },
+    "OM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Oman"
+     ]
+    },
+    "PA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Panama"
+     ]
+    },
+    "PE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Peru"
+     ]
+    },
+    "PG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Papua New Guinea"
+     ]
+    },
+    "PH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Philippines"
+     ]
+    },
+    "PK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Pakistan"
+     ]
+    },
+    "PL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Poland"
+     ]
+    },
+    "PT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Portugal"
+     ]
+    },
+    "PW": {
+     "stato": "no",
+     "nomi_fonte": [
+      "Palau"
+     ]
+    },
+    "PY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Paraguay"
+     ]
+    },
+    "QA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Qatar"
+     ]
+    },
+    "RO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Romania"
+     ]
+    },
+    "RS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Serbia"
+     ]
+    },
+    "RU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Russia"
+     ]
+    },
+    "RW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Rwanda"
+     ]
+    },
+    "SA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Saudi Arabia"
+     ]
+    },
+    "SB": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Solomon Islands"
+     ]
+    },
+    "SC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Seychelles"
+     ]
+    },
+    "SE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Sweden"
+     ]
+    },
+    "SG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Singapore"
+     ]
+    },
+    "SI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Slovenia"
+     ]
+    },
+    "SK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Slovakia"
+     ]
+    },
+    "SL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Sierra Leone"
+     ]
+    },
+    "SN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Senegal"
+     ]
+    },
+    "SR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Suriname"
+     ]
+    },
+    "ST": {
+     "stato": "si",
+     "nomi_fonte": [
+      "São Tomé and Príncipe"
+     ]
+    },
+    "SV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "El Salvador"
+     ]
+    },
+    "SZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Eswatini"
+     ]
+    },
+    "TC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Turks and Caicos"
+     ]
+    },
+    "TD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Chad"
+     ]
+    },
+    "TH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Thailand"
+     ]
+    },
+    "TJ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tajikistan"
+     ]
+    },
+    "TM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Turkmenistan"
+     ]
+    },
+    "TN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tunisia"
+     ]
+    },
+    "TO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tonga"
+     ]
+    },
+    "TR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Türkiye"
+     ]
+    },
+    "TT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Trinidad and Tobago"
+     ]
+    },
+    "TW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Taiwan"
+     ]
+    },
+    "TZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tanzania"
+     ]
+    },
+    "UA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ukraine"
+     ]
+    },
+    "UG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Uganda"
+     ]
+    },
+    "US": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United States"
+     ]
+    },
+    "UY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Uruguay"
+     ]
+    },
+    "UZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Uzbekistan"
+     ]
+    },
+    "VC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "St. Vincent and the Grenadines"
+     ]
+    },
+    "VE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Venezuela"
+     ]
+    },
+    "VG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "British Virgin Islands"
+     ]
+    },
+    "VN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Vietnam"
+     ]
+    },
+    "VU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Vanuatu"
+     ]
+    },
+    "XK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kosovo"
+     ]
+    },
+    "YE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Yemen"
+     ]
+    },
+    "ZA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "South Africa"
+     ]
+    },
+    "ZM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Zambia"
+     ]
+    },
+    "ZW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Zimbabwe"
+     ]
+    }
+   }
+  },
+  {
+   "slug": "apple-tv",
+   "nome": "Apple TV",
+   "fornitore": "Apple",
+   "fonte": "apple_media",
+   "pagina": "https://support.apple.com/en-us/118205",
+   "titolo_fonte": "Apple Support: Availability of Apple Media Services",
+   "cosa": "the Apple TV subscription",
+   "url_fonte": "https://support.apple.com/en-us/118205",
+   "letto_il": "2026-10-28",
+   "cambiato_il": "2026-10-28",
+   "data_fonte": "2026-09-30",
+   "http": 200,
+   "impronta": "e018bff116c8d8509e10b995ae2acee6bbe9a8e7fedaf3d5597df02d2c1b0eda",
+   "conteggi": {
+    "si": 168,
+    "no": 7,
+    "in_arrivo": 0,
+    "per_regione": 0
+   },
+   "paesi": {
+    "AE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United Arab Emirates"
+     ]
+    },
+    "AF": {
+     "stato": "no",
+     "nomi_fonte": [
+      "Afghanistan"
+     ],
+     "nota": "Synced videos only",
+     "app_tv": true
+    },
+    "AG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Antigua and Barbuda"
+     ]
+    },
+    "AI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Anguilla"
+     ]
+    },
+    "AL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Albania"
+     ]
+    },
+    "AM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Armenia"
+     ]
+    },
+    "AO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Angola"
+     ]
+    },
+    "AR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Argentina"
+     ]
+    },
+    "AT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Austria"
+     ]
+    },
+    "AU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Australia"
+     ]
+    },
+    "AZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Azerbaijan"
+     ]
+    },
+    "BA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bosnia and Herzegovina"
+     ]
+    },
+    "BB": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Barbados"
+     ]
+    },
+    "BE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Belgium"
+     ]
+    },
+    "BF": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Burkina Faso"
+     ]
+    },
+    "BG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bulgaria"
+     ]
+    },
+    "BH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bahrain"
+     ]
+    },
+    "BJ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Benin"
+     ]
+    },
+    "BM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bermuda"
+     ]
+    },
+    "BN": {
+     "stato": "no",
+     "nomi_fonte": [
+      "Brunei"
+     ],
+     "nota": "Movie purchases",
+     "app_tv": true
+    },
+    "BO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bolivia"
+     ]
+    },
+    "BR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Brazil"
+     ]
+    },
+    "BS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bahamas"
+     ]
+    },
+    "BT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bhutan"
+     ]
+    },
+    "BW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Botswana"
+     ]
+    },
+    "BY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Belarus"
+     ]
+    },
+    "BZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Belize"
+     ]
+    },
+    "CA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Canada"
+     ]
+    },
+    "CD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Congo, Democratic Republic of the"
+     ]
+    },
+    "CG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Congo, Republic of the"
+     ]
+    },
+    "CH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Switzerland"
+     ]
+    },
+    "CI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Côte d'Ivoire"
+     ]
+    },
+    "CL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Chile"
+     ]
+    },
+    "CM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cameroon"
+     ]
+    },
+    "CN": {
+     "stato": "no",
+     "nomi_fonte": [
+      "China mainland"
+     ],
+     "app_tv": false
+    },
+    "CO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Colombia"
+     ]
+    },
+    "CR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Costa Rica"
+     ]
+    },
+    "CV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cape Verde"
+     ]
+    },
+    "CY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cyprus"
+     ]
+    },
+    "CZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Czechia"
+     ]
+    },
+    "DE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Germany"
+     ]
+    },
+    "DK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Denmark"
+     ]
+    },
+    "DM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Dominica"
+     ]
+    },
+    "DO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Dominican Republic"
+     ]
+    },
+    "DZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Algeria"
+     ]
+    },
+    "EC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ecuador"
+     ]
+    },
+    "EE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Estonia"
+     ]
+    },
+    "EG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Egypt"
+     ]
+    },
+    "ES": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Spain"
+     ]
+    },
+    "FI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Finland"
+     ]
+    },
+    "FJ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Fiji"
+     ]
+    },
+    "FM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Micronesia"
+     ]
+    },
+    "FR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "France"
+     ]
+    },
+    "GA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Gabon"
+     ]
+    },
+    "GB": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United Kingdom"
+     ]
+    },
+    "GD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Grenada"
+     ]
+    },
+    "GE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Georgia"
+     ]
+    },
+    "GH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ghana"
+     ]
+    },
+    "GM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "The Gambia"
+     ]
+    },
+    "GR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Greece"
+     ]
+    },
+    "GT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guatemala"
+     ]
+    },
+    "GW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guinea-Bissau"
+     ]
+    },
+    "GY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guyana"
+     ]
+    },
+    "HK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Hong Kong"
+     ]
+    },
+    "HN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Honduras"
+     ]
+    },
+    "HR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Croatia"
+     ]
+    },
+    "HU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Hungary"
+     ]
+    },
+    "ID": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Indonesia"
+     ]
+    },
+    "IE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ireland"
+     ]
+    },
+    "IL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Israel"
+     ]
+    },
+    "IN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "India"
+     ]
+    },
+    "IQ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Iraq"
+     ]
+    },
+    "IS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Iceland"
+     ]
+    },
+    "IT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Italy"
+     ]
+    },
+    "JM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Jamaica"
+     ]
+    },
+    "JO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Jordan"
+     ]
+    },
+    "JP": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Japan"
+     ]
+    },
+    "KE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kenya"
+     ]
+    },
+    "KG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kyrgyzstan"
+     ]
+    },
+    "KH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cambodia"
+     ]
+    },
+    "KN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "St. Kitts and Nevis"
+     ]
+    },
+    "KR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "South Korea"
+     ]
+    },
+    "KW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kuwait"
+     ]
+    },
+    "KY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cayman Islands"
+     ]
+    },
+    "KZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kazakhstan"
+     ]
+    },
+    "LA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Laos"
+     ]
+    },
+    "LB": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Lebanon"
+     ]
+    },
+    "LC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "St. Lucia"
+     ]
+    },
+    "LK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Sri Lanka"
+     ]
+    },
+    "LR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Liberia"
+     ]
+    },
+    "LT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Lithuania"
+     ]
+    },
+    "LU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Luxembourg"
+     ]
+    },
+    "LV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Latvia"
+     ]
+    },
+    "LY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Libya"
+     ]
+    },
+    "MA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Morocco"
+     ]
+    },
+    "MD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Moldova"
+     ]
+    },
+    "ME": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Montenegro"
+     ]
+    },
+    "MG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Madagascar"
+     ]
+    },
+    "MK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "North Macedonia"
+     ]
+    },
+    "ML": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mali"
+     ]
+    },
+    "MM": {
+     "stato": "no",
+     "nomi_fonte": [
+      "Myanmar"
+     ],
+     "nota": "Synced videos only",
+     "app_tv": true
+    },
+    "MN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mongolia"
+     ]
+    },
+    "MO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Macao"
+     ]
+    },
+    "MR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mauritania"
+     ]
+    },
+    "MS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Montserrat"
+     ]
+    },
+    "MT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Malta"
+     ]
+    },
+    "MU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mauritius"
+     ]
+    },
+    "MV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Maldives"
+     ]
+    },
+    "MW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Malawi"
+     ]
+    },
+    "MX": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mexico"
+     ]
+    },
+    "MY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Malaysia"
+     ]
+    },
+    "MZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mozambique"
+     ]
+    },
+    "NA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Namibia"
+     ]
+    },
+    "NE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Niger"
+     ]
+    },
+    "NG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Nigeria"
+     ]
+    },
+    "NI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Nicaragua"
+     ]
+    },
+    "NL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Netherlands"
+     ]
+    },
+    "NO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Norway"
+     ]
+    },
+    "NP": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Nepal"
+     ]
+    },
+    "NR": {
+     "stato": "no",
+     "nomi_fonte": [
+      "Nauru"
+     ],
+     "nota": "Synced videos only",
+     "app_tv": true
+    },
+    "NZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "New Zealand"
+     ]
+    },
+    "OM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Oman"
+     ]
+    },
+    "PA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Panama"
+     ]
+    },
+    "PE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Peru"
+     ]
+    },
+    "PG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Papua New Guinea"
+     ]
+    },
+    "PH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Philippines"
+     ]
+    },
+    "PK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Pakistan"
+     ]
+    },
+    "PL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Poland"
+     ]
+    },
+    "PT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Portugal"
+     ]
+    },
+    "PW": {
+     "stato": "no",
+     "nomi_fonte": [
+      "Palau"
+     ],
+     "nota": "Synced videos only",
+     "app_tv": true
+    },
+    "PY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Paraguay"
+     ]
+    },
+    "QA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Qatar"
+     ]
+    },
+    "RO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Romania"
+     ]
+    },
+    "RS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Serbia"
+     ]
+    },
+    "RU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Russia"
+     ]
+    },
+    "RW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Rwanda"
+     ]
+    },
+    "SA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Saudi Arabia"
+     ]
+    },
+    "SB": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Solomon Islands"
+     ]
+    },
+    "SC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Seychelles"
+     ]
+    },
+    "SE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Sweden"
+     ]
+    },
+    "SG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Singapore"
+     ]
+    },
+    "SI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Slovenia"
+     ]
+    },
+    "SK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Slovakia"
+     ]
+    },
+    "SL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Sierra Leone"
+     ]
+    },
+    "SN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Senegal"
+     ]
+    },
+    "SR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Suriname"
+     ]
+    },
+    "ST": {
+     "stato": "si",
+     "nomi_fonte": [
+      "São Tomé and Príncipe"
+     ]
+    },
+    "SV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "El Salvador"
+     ]
+    },
+    "SZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Eswatini"
+     ]
+    },
+    "TC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Turks and Caicos"
+     ]
+    },
+    "TD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Chad"
+     ]
+    },
+    "TH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Thailand"
+     ]
+    },
+    "TJ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tajikistan"
+     ]
+    },
+    "TM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Turkmenistan"
+     ]
+    },
+    "TN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tunisia"
+     ]
+    },
+    "TO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tonga"
+     ]
+    },
+    "TR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Türkiye"
+     ]
+    },
+    "TT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Trinidad and Tobago"
+     ]
+    },
+    "TW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Taiwan"
+     ]
+    },
+    "TZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tanzania"
+     ]
+    },
+    "UA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ukraine"
+     ]
+    },
+    "UG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Uganda"
+     ]
+    },
+    "US": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United States"
+     ]
+    },
+    "UY": {
+     "stato": "no",
+     "nomi_fonte": [
+      "Uruguay"
+     ],
+     "nota": "Synced videos only",
+     "app_tv": true
+    },
+    "UZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Uzbekistan"
+     ]
+    },
+    "VC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "St. Vincent and the Grenadines"
+     ]
+    },
+    "VE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Venezuela"
+     ]
+    },
+    "VG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "British Virgin Islands"
+     ]
+    },
+    "VN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Vietnam"
+     ]
+    },
+    "VU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Vanuatu"
+     ]
+    },
+    "XK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kosovo"
+     ]
+    },
+    "YE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Yemen"
+     ]
+    },
+    "ZA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "South Africa"
+     ]
+    },
+    "ZM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Zambia"
+     ]
+    },
+    "ZW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Zimbabwe"
+     ]
+    }
+   }
+  },
+  {
+   "slug": "youtube-premium",
+   "nome": "YouTube Premium",
+   "fornitore": "YouTube (Google)",
+   "fonte": "youtube",
+   "pagina": "https://support.google.com/youtube/answer/6307365?hl=en",
+   "titolo_fonte": "YouTube Help: Premium memberships available locations & travel policies",
+   "cosa": "YouTube Premium and YouTube Music Premium memberships",
+   "url_fonte": "https://support.google.com/youtube/answer/6307365?hl=en",
+   "letto_il": "2026-10-28",
+   "cambiato_il": "2026-10-28",
+   "data_fonte": null,
+   "http": 200,
+   "impronta": "49abfb3a636b9305e38005d0676874a288dfe3e60433958a18cb6011a86748ca",
+   "conteggi": {
+    "si": 119,
+    "no": 1,
+    "in_arrivo": 0,
+    "per_regione": 0
+   },
+   "paesi": {
+    "AE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United Arab Emirates"
+     ]
+    },
+    "AR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Argentina"
+     ]
+    },
+    "AS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "American Samoa"
+     ]
+    },
+    "AT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Austria"
+     ]
+    },
+    "AU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Australia"
+     ]
+    },
+    "AW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Aruba"
+     ]
+    },
+    "AZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Azerbaijan"
+     ]
+    },
+    "BA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bosnia & Herzegovina"
+     ]
+    },
+    "BD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bangladesh"
+     ]
+    },
+    "BE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Belgium"
+     ]
+    },
+    "BG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bulgaria"
+     ]
+    },
+    "BH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bahrain"
+     ]
+    },
+    "BM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bermuda"
+     ]
+    },
+    "BO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bolivia"
+     ]
+    },
+    "BR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Brazil"
+     ]
+    },
+    "BY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Belarus"
+     ]
+    },
+    "CA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Canada"
+     ]
+    },
+    "CH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Switzerland"
+     ]
+    },
+    "CL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Chile"
+     ]
+    },
+    "CO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Colombia"
+     ]
+    },
+    "CR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Costa Rica"
+     ]
+    },
+    "CY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cyprus"
+     ]
+    },
+    "CZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Czech Republic"
+     ]
+    },
+    "DE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Germany"
+     ]
+    },
+    "DK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Denmark"
+     ]
+    },
+    "DO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Dominican Republic"
+     ]
+    },
+    "DZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Algeria"
+     ]
+    },
+    "EC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ecuador"
+     ]
+    },
+    "EE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Estonia"
+     ]
+    },
+    "EG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Egypt"
+     ]
+    },
+    "ES": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Spain"
+     ]
+    },
+    "FI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Finland"
+     ]
+    },
+    "FR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "France"
+     ]
+    },
+    "GB": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United Kingdom"
+     ]
+    },
+    "GE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Georgia"
+     ]
+    },
+    "GF": {
+     "stato": "si",
+     "nomi_fonte": [
+      "French Guyana"
+     ]
+    },
+    "GH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ghana"
+     ]
+    },
+    "GP": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guadeloupe"
+     ]
+    },
+    "GR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Greece"
+     ]
+    },
+    "GT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guatemala"
+     ]
+    },
+    "GU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guam"
+     ]
+    },
+    "HK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Hong Kong"
+     ]
+    },
+    "HN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Honduras"
+     ]
+    },
+    "HR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Croatia"
+     ]
+    },
+    "HU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Hungary"
+     ]
+    },
+    "ID": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Indonesia"
+     ]
+    },
+    "IE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ireland"
+     ]
+    },
+    "IL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Israel"
+     ]
+    },
+    "IN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "India"
+     ]
+    },
+    "IQ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Iraq"
+     ]
+    },
+    "IS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Iceland"
+     ]
+    },
+    "IT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Italy"
+     ]
+    },
+    "JM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Jamaica"
+     ]
+    },
+    "JO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Jordan"
+     ]
+    },
+    "JP": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Japan"
+     ]
+    },
+    "KE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kenya"
+     ]
+    },
+    "KH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cambodia"
+     ]
+    },
+    "KR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "South Korea"
+     ],
+     "nota": "Paid memberships only"
+    },
+    "KW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kuwait"
+     ]
+    },
+    "KY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cayman Islands"
+     ]
+    },
+    "KZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kazakhstan"
+     ]
+    },
+    "LA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Laos"
+     ]
+    },
+    "LB": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Lebanon"
+     ]
+    },
+    "LI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Liechtenstein"
+     ]
+    },
+    "LK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Sri Lanka"
+     ]
+    },
+    "LT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Lithuania"
+     ]
+    },
+    "LU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Luxembourg"
+     ]
+    },
+    "LV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Latvia"
+     ]
+    },
+    "LY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Libya"
+     ]
+    },
+    "MA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Morocco"
+     ]
+    },
+    "MK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "North Macedonia"
+     ]
+    },
+    "MP": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Northern Mariana Islands"
+     ]
+    },
+    "MT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Malta"
+     ]
+    },
+    "MX": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mexico"
+     ]
+    },
+    "MY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Malaysia"
+     ]
+    },
+    "NG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Nigeria"
+     ]
+    },
+    "NI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Nicaragua"
+     ]
+    },
+    "NL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Netherlands"
+     ]
+    },
+    "NO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Norway"
+     ]
+    },
+    "NP": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Nepal"
+     ]
+    },
+    "NZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "New Zealand"
+     ]
+    },
+    "OM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Oman"
+     ]
+    },
+    "PA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Panama"
+     ]
+    },
+    "PE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Peru"
+     ]
+    },
+    "PF": {
+     "stato": "si",
+     "nomi_fonte": [
+      "French Polynesia"
+     ]
+    },
+    "PG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Papua New Guinea"
+     ]
+    },
+    "PH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Philippines"
+     ]
+    },
+    "PK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Pakistan"
+     ]
+    },
+    "PL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Poland"
+     ]
+    },
+    "PR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Puerto Rico"
+     ]
+    },
+    "PT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Portugal"
+     ]
+    },
+    "PY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Paraguay"
+     ]
+    },
+    "QA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Qatar"
+     ]
+    },
+    "RE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Réunion"
+     ]
+    },
+    "RO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Romania"
+     ]
+    },
+    "RS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Serbia"
+     ]
+    },
+    "RU": {
+     "stato": "no",
+     "nomi_fonte": [
+      "Russia"
+     ],
+     "nota": "temporarily unavailable"
+    },
+    "SA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Saudi Arabia"
+     ]
+    },
+    "SE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Sweden"
+     ]
+    },
+    "SG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Singapore"
+     ]
+    },
+    "SI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Slovenia"
+     ]
+    },
+    "SK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Slovakia"
+     ]
+    },
+    "SN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Senegal"
+     ]
+    },
+    "SV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "El Salvador"
+     ]
+    },
+    "TC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Turks and Caicos Islands"
+     ]
+    },
+    "TH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Thailand"
+     ]
+    },
+    "TN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tunisia"
+     ]
+    },
+    "TR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Turkey"
+     ]
+    },
+    "TW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Taiwan"
+     ]
+    },
+    "TZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tanzania"
+     ]
+    },
+    "UA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ukraine"
+     ]
+    },
+    "UG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Uganda"
+     ]
+    },
+    "US": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United States"
+     ]
+    },
+    "UY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Uruguay"
+     ]
+    },
+    "VE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Venezuela"
+     ]
+    },
+    "VI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "U.S. Virgin Islands"
+     ]
+    },
+    "VN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Vietnam"
+     ]
+    },
+    "YE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Yemen"
+     ]
+    },
+    "ZA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "South Africa"
+     ]
+    },
+    "ZW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Zimbabwe"
+     ]
+    }
+   }
+  },
+  {
+   "slug": "spotify",
+   "nome": "Spotify",
+   "fornitore": "Spotify",
+   "fonte": "spotify",
+   "pagina": "https://support.spotify.com/us/article/where-spotify-is-available/",
+   "titolo_fonte": "Spotify Support: Where is Spotify available?",
+   "cosa": "signing up for Spotify",
+   "url_fonte": "https://support.spotify.com/us/article/where-spotify-is-available/",
+   "letto_il": "2026-10-28",
+   "cambiato_il": "2026-10-28",
+   "data_fonte": null,
+   "http": 200,
+   "impronta": "56d5ee2098e8ac8c762d7d04d6125753e52b87baae0001c9b1fd009e8d9f425b",
+   "conteggi": {
+    "si": 227,
+    "no": 0,
+    "in_arrivo": 0,
+    "per_regione": 0
+   },
+   "paesi": {
+    "AD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Andorra"
+     ]
+    },
+    "AE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United Arab Emirates"
+     ]
+    },
+    "AG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Antigua and Barbuda"
+     ]
+    },
+    "AI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Anguilla"
+     ]
+    },
+    "AL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Albania"
+     ]
+    },
+    "AM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Armenia"
+     ]
+    },
+    "AO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Angola"
+     ]
+    },
+    "AR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Argentina"
+     ]
+    },
+    "AS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "American Samoa"
+     ]
+    },
+    "AT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Austria"
+     ]
+    },
+    "AU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Australia"
+     ]
+    },
+    "AW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Aruba"
+     ]
+    },
+    "AX": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Åland"
+     ]
+    },
+    "AZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Azerbaijan"
+     ]
+    },
+    "BA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bosnia"
+     ]
+    },
+    "BB": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Barbados"
+     ]
+    },
+    "BD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bangladesh"
+     ]
+    },
+    "BE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Belgium"
+     ]
+    },
+    "BF": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Burkina Faso"
+     ]
+    },
+    "BG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bulgaria"
+     ]
+    },
+    "BH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bahrain"
+     ]
+    },
+    "BI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Burundi"
+     ]
+    },
+    "BJ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Benin"
+     ]
+    },
+    "BL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Saint Barthélemy"
+     ]
+    },
+    "BM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bermuda"
+     ]
+    },
+    "BN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Brunei Darussalam"
+     ]
+    },
+    "BO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bolivia"
+     ]
+    },
+    "BQ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bonaire",
+      "Saba",
+      "Sint Eustatius"
+     ]
+    },
+    "BR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Brazil"
+     ]
+    },
+    "BS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bahamas"
+     ]
+    },
+    "BT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bhutan"
+     ]
+    },
+    "BW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Botswana"
+     ]
+    },
+    "BY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Belarus"
+     ]
+    },
+    "BZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Belize"
+     ]
+    },
+    "CA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Canada"
+     ]
+    },
+    "CC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cocos (Keeling) Islands"
+     ]
+    },
+    "CD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Democratic Republic of the Congo"
+     ]
+    },
+    "CG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Republic of the Congo"
+     ]
+    },
+    "CH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Switzerland"
+     ]
+    },
+    "CI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Côte d'Ivoire"
+     ]
+    },
+    "CK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cook Islands"
+     ]
+    },
+    "CL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Chile"
+     ]
+    },
+    "CM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cameroon"
+     ]
+    },
+    "CO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Colombia"
+     ]
+    },
+    "CR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Costa Rica"
+     ]
+    },
+    "CV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cape Verde"
+     ]
+    },
+    "CW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Curaçao"
+     ]
+    },
+    "CX": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Christmas Island"
+     ]
+    },
+    "CY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cyprus"
+     ]
+    },
+    "CZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Czech Republic"
+     ]
+    },
+    "DE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Germany"
+     ]
+    },
+    "DJ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Djibouti"
+     ]
+    },
+    "DK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Denmark"
+     ]
+    },
+    "DM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Dominica"
+     ]
+    },
+    "DO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Dominican Republic"
+     ]
+    },
+    "DZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Algeria"
+     ]
+    },
+    "EC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ecuador"
+     ]
+    },
+    "EE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Estonia"
+     ]
+    },
+    "EG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Egypt"
+     ]
+    },
+    "ES": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Spain"
+     ]
+    },
+    "ET": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ethiopia"
+     ]
+    },
+    "FI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Finland"
+     ]
+    },
+    "FJ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Fiji"
+     ]
+    },
+    "FK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Falkland Islands"
+     ]
+    },
+    "FM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Micronesia"
+     ]
+    },
+    "FO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Faroe Islands"
+     ]
+    },
+    "FR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "France"
+     ]
+    },
+    "GA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Gabon"
+     ]
+    },
+    "GB": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United Kingdom"
+     ]
+    },
+    "GD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Grenada"
+     ]
+    },
+    "GE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Georgia"
+     ]
+    },
+    "GF": {
+     "stato": "si",
+     "nomi_fonte": [
+      "French Guiana"
+     ]
+    },
+    "GG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guernsey"
+     ]
+    },
+    "GH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ghana"
+     ]
+    },
+    "GI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Gibraltar"
+     ]
+    },
+    "GL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Greenland"
+     ]
+    },
+    "GM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Gambia"
+     ]
+    },
+    "GN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guinea"
+     ]
+    },
+    "GP": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guadeloupe"
+     ]
+    },
+    "GQ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Equatorial Guinea"
+     ]
+    },
+    "GR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Greece"
+     ]
+    },
+    "GT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guatemala"
+     ]
+    },
+    "GU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guam"
+     ]
+    },
+    "GW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guinea-Bissau"
+     ]
+    },
+    "GY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guyana"
+     ]
+    },
+    "HK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Hong Kong"
+     ]
+    },
+    "HN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Honduras"
+     ]
+    },
+    "HR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Croatia"
+     ]
+    },
+    "HT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Haiti"
+     ]
+    },
+    "HU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Hungary"
+     ]
+    },
+    "ID": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Indonesia"
+     ]
+    },
+    "IE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ireland"
+     ]
+    },
+    "IL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Israel"
+     ]
+    },
+    "IM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Isle of Man"
+     ]
+    },
+    "IN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "India"
+     ]
+    },
+    "IQ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Iraq"
+     ]
+    },
+    "IS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Iceland"
+     ]
+    },
+    "IT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Italy"
+     ]
+    },
+    "JE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Jersey"
+     ]
+    },
+    "JM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Jamaica"
+     ]
+    },
+    "JO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Jordan"
+     ]
+    },
+    "JP": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Japan"
+     ]
+    },
+    "KE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kenya"
+     ]
+    },
+    "KG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kyrgyzstan"
+     ]
+    },
+    "KH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cambodia"
+     ]
+    },
+    "KI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kiribati"
+     ]
+    },
+    "KM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Comoros"
+     ]
+    },
+    "KN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "St. Kitts and Nevis"
+     ]
+    },
+    "KR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "South Korea"
+     ]
+    },
+    "KW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kuwait"
+     ]
+    },
+    "KY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cayman Islands"
+     ]
+    },
+    "KZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kazakhstan"
+     ]
+    },
+    "LA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Lao People's Democratic Republic"
+     ]
+    },
+    "LB": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Lebanon"
+     ]
+    },
+    "LC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "St. Lucia"
+     ]
+    },
+    "LI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Liechtenstein"
+     ]
+    },
+    "LK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Sri Lanka"
+     ]
+    },
+    "LR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Liberia"
+     ]
+    },
+    "LS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Lesotho"
+     ]
+    },
+    "LT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Lithuania"
+     ]
+    },
+    "LU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Luxembourg"
+     ]
+    },
+    "LV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Latvia"
+     ]
+    },
+    "LY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Libya"
+     ]
+    },
+    "MA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Morocco"
+     ]
+    },
+    "MC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Monaco"
+     ]
+    },
+    "MD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Moldova"
+     ]
+    },
+    "ME": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Montenegro"
+     ]
+    },
+    "MF": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Saint Martin"
+     ]
+    },
+    "MG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Madagascar"
+     ]
+    },
+    "MH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Marshall Islands"
+     ]
+    },
+    "MK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "North Macedonia"
+     ]
+    },
+    "ML": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mali"
+     ]
+    },
+    "MN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mongolia"
+     ]
+    },
+    "MO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Macao"
+     ]
+    },
+    "MP": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Northern Mariana Islands"
+     ]
+    },
+    "MQ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Martinique"
+     ]
+    },
+    "MR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mauritania"
+     ]
+    },
+    "MS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Montserrat"
+     ]
+    },
+    "MT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Malta"
+     ]
+    },
+    "MU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mauritius"
+     ]
+    },
+    "MV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Maldives"
+     ]
+    },
+    "MW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Malawi"
+     ]
+    },
+    "MX": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mexico"
+     ]
+    },
+    "MY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Malaysia"
+     ]
+    },
+    "MZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mozambique"
+     ]
+    },
+    "NA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Namibia"
+     ]
+    },
+    "NC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "New Caledonia"
+     ]
+    },
+    "NE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Niger"
+     ]
+    },
+    "NF": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Norfolk Island"
+     ]
+    },
+    "NG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Nigeria"
+     ]
+    },
+    "NI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Nicaragua"
+     ]
+    },
+    "NL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Netherlands"
+     ]
+    },
+    "NO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Norway"
+     ]
+    },
+    "NP": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Nepal"
+     ]
+    },
+    "NR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Nauru"
+     ]
+    },
+    "NU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Niue"
+     ]
+    },
+    "NZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "New Zealand"
+     ]
+    },
+    "OM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Oman"
+     ]
+    },
+    "PA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Panama"
+     ]
+    },
+    "PE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Peru"
+     ]
+    },
+    "PF": {
+     "stato": "si",
+     "nomi_fonte": [
+      "French Polynesia"
+     ]
+    },
+    "PG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Papua New Guinea"
+     ]
+    },
+    "PH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Philippines"
+     ]
+    },
+    "PK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Pakistan"
+     ]
+    },
+    "PL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Poland"
+     ]
+    },
+    "PM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Saint Pierre and Miquelon"
+     ]
+    },
+    "PN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Pitcairn Islands"
+     ]
+    },
+    "PR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Puerto Rico"
+     ]
+    },
+    "PS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Palestine"
+     ]
+    },
+    "PT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Portugal"
+     ]
+    },
+    "PW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Palau"
+     ]
+    },
+    "PY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Paraguay"
+     ]
+    },
+    "QA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Qatar"
+     ]
+    },
+    "RE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Réunion"
+     ]
+    },
+    "RO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Romania"
+     ]
+    },
+    "RS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Serbia"
+     ]
+    },
+    "RW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Rwanda"
+     ]
+    },
+    "SA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Saudi Arabia"
+     ]
+    },
+    "SB": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Solomon Islands"
+     ]
+    },
+    "SC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Seychelles"
+     ]
+    },
+    "SE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Sweden"
+     ]
+    },
+    "SG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Singapore"
+     ]
+    },
+    "SH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ascension",
+      "Saint Helena",
+      "Tristan da Cunha"
+     ]
+    },
+    "SI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Slovenia"
+     ]
+    },
+    "SJ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Svalbard"
+     ]
+    },
+    "SK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Slovakia"
+     ]
+    },
+    "SL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Sierra Leone"
+     ]
+    },
+    "SM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "San Marino"
+     ]
+    },
+    "SN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Senegal"
+     ]
+    },
+    "SR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Suriname"
+     ]
+    },
+    "ST": {
+     "stato": "si",
+     "nomi_fonte": [
+      "São Tomé and Príncipe"
+     ]
+    },
+    "SV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "El Salvador"
+     ]
+    },
+    "SX": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Sint Maarten"
+     ]
+    },
+    "SZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Eswatini"
+     ]
+    },
+    "TC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Turks and Caicos Islands"
+     ]
+    },
+    "TD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Chad"
+     ]
+    },
+    "TG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Togo"
+     ]
+    },
+    "TH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Thailand"
+     ]
+    },
+    "TJ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tajikistan"
+     ]
+    },
+    "TK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tokelau"
+     ]
+    },
+    "TL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Timor-Leste"
+     ]
+    },
+    "TN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tunisia"
+     ]
+    },
+    "TO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tonga"
+     ]
+    },
+    "TR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Turkey"
+     ]
+    },
+    "TT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Trinidad and Tobago"
+     ]
+    },
+    "TV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tuvalu"
+     ]
+    },
+    "TW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Taiwan"
+     ]
+    },
+    "TZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tanzania"
+     ]
+    },
+    "UA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ukraine"
+     ]
+    },
+    "UG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Uganda"
+     ]
+    },
+    "UM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United States Minor Outlying Islands (Navassa Island, Baker Island, Howland Island, Jarvis Island, Johnston Atoll, Kingman Reef, Midway Atoll, Wake Atoll)"
+     ]
+    },
+    "US": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United States"
+     ]
+    },
+    "UY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Uruguay"
+     ]
+    },
+    "UZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Uzbekistan"
+     ]
+    },
+    "VC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "St. Vincent and the Grenadines"
+     ]
+    },
+    "VE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Venezuela"
+     ]
+    },
+    "VG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "British Virgin Islands"
+     ]
+    },
+    "VI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United States Virgin Islands"
+     ]
+    },
+    "VN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Vietnam"
+     ]
+    },
+    "VU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Vanuatu"
+     ]
+    },
+    "WF": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Wallis and Futuna"
+     ]
+    },
+    "WS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Samoa"
+     ]
+    },
+    "XK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kosovo"
+     ]
+    },
+    "YT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mayotte"
+     ]
+    },
+    "ZA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "South Africa"
+     ]
+    },
+    "ZM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Zambia"
+     ]
+    },
+    "ZW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Zimbabwe"
+     ]
+    }
+   },
+   "extra": {
+    "regioni": [
+     "Azores",
+     "Balearic Islands",
+     "Canary Islands",
+     "Ceuta",
+     "Madeira",
+     "Melilla"
+    ]
+   }
+  }
+ ]
+}

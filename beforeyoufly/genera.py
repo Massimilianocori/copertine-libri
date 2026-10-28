@@ -276,8 +276,8 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;g
 .logo:hover{color:#fff}
 .logo svg{width:36px;height:36px;flex:none}
 .logo b{color:var(--sign);font-weight:inherit}
-nav.menu{display:flex;gap:4px;font-size:.92rem}
-nav.menu a{display:flex;align-items:center;gap:7px;color:var(--on-board-2);text-decoration:none;padding:8px 12px;border-radius:8px;white-space:nowrap}
+nav.menu{display:flex;gap:2px;font-size:.9rem}
+nav.menu a{display:flex;align-items:center;gap:6px;color:var(--on-board-2);text-decoration:none;padding:8px 9px;border-radius:8px;white-space:nowrap}
 nav.menu a .ico{color:var(--sign)}
 nav.menu a:hover,nav.menu a[aria-current]{color:#fff;background:rgba(255,255,255,.08)}
 .nav-m{display:none}
@@ -302,7 +302,7 @@ h1 .h1-b::first-letter{text-transform:uppercase}
 .band h1 .h1-b{display:block;font-family:var(--head);font-weight:700;margin-top:0;color:#fff;font-size:clamp(1.9rem,5.4vw,3rem);line-height:1.06;letter-spacing:-.025em}
 .band h1 .h1-b::first-letter{text-transform:uppercase}
 .sub{font-size:1.1rem;color:var(--on-board-2);margin:14px 0 0;max-width:640px;text-wrap:balance}
-.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:26px 0 0;padding:0;list-style:none}
+.tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:26px 0 0;padding:0;list-style:none}
 .tiles li{display:flex}
 .tiles a{flex:1;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto 1fr;gap:10px 14px;align-items:center;align-content:start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:14px 16px;color:var(--on-board);text-decoration:none;min-height:100%;transition:background .15s,border-color .15s}
 .tiles a:hover{background:rgba(255,255,255,.1);border-color:var(--sign)}
@@ -312,7 +312,7 @@ h1 .h1-b::first-letter{text-transform:uppercase}
 .tiles h2::before,.band-h2::before{display:none}
 .band-h2{color:#fff;font-size:1.2rem;margin:30px 0 0}
 .band-h2+.checker{margin-top:12px}
-.tiles small{grid-column:1/-1;align-self:start;font-size:.86rem;color:var(--on-board-2);line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tiles small{grid-column:1/-1;align-self:start;font-size:.86rem;color:var(--on-board-2);line-height:1.45;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .scope{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:14px 0 0;font-size:.95rem;color:var(--on-board-2)}
 .scope .pill{display:inline-flex;align-items:center;gap:8px;background:var(--sign);color:var(--sign-ink);font-weight:700;border-radius:999px;padding:5px 14px 5px 10px;font-size:.92rem;line-height:1.3}
 .scope .pill .ico{width:18px;height:18px;stroke-width:2.2}
@@ -469,7 +469,9 @@ footer .f-altri a{font-weight:600}
 .tab.tab-b td[data-l]::before{content:attr(data-l);display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-top:6px}
 .tab.tab-b td:first-child::before{margin-top:0}}
 @media (max-width:480px){.calc .campi-b{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:980px){nav.menu{display:none}.nav-m{display:block}}
+@media (max-width:1060px){nav.menu{display:none}.nav-m{display:block}}
+.esito.manuale.e-srv{display:flex}.griglia.g-srv{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}a.a-badge{text-decoration:none}a.a-badge:hover .badge,a.a-badge:focus-visible .badge{text-decoration:underline}
+@media (max-width:640px){.tab.tab-srv tr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px}.tab.tab-srv td:first-child{grid-column:1/-1}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 """
 
@@ -492,6 +494,7 @@ ICONE = {
     "book": '<path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H11v18H5.5A1.5 1.5 0 0 1 4 19.5zM20 4.5A1.5 1.5 0 0 0 18.5 3H13v18h5.5a1.5 1.5 0 0 0 1.5-1.5z"/>',
     "bag": '<rect x="4" y="7.5" width="16" height="12.5" rx="2.5"/><path d="M9 7.5V5a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 5v2.5M8 20v1.5M16 20v1.5M9 11.5v5M15 11.5v5"/>',
     "globe": '<circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 4 6 4 9.5s-1.4 6.9-4 9.5c-2.6-2.6-4-6-4-9.5s1.4-6.9 4-9.5z"/>',
+    "apps": '<rect x="3.5" y="3.5" width="7" height="7" rx="1.8"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.8"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.8"/><path d="M17 13.5v7M13.5 17h7"/>',
 }
 
 
@@ -559,7 +562,8 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
                      ("passport-validity/", "globe", "English (UK passport)")]
     else:
         voci_menu = [("passport-validity/", "passport", "Passport validity"), ("liquids/", "bottle", "Liquids by airport"), ("cabin-bags/", "bag", "Cabin bags"),
-                     ("ees-etias/", "scan", "EES &amp; ETIAS"), ("about/", "book", "Sources")]
+                     ("ees-etias/", "scan", "EES &amp; ETIAS"), (f"{SRV_BASE}/", "apps", "Apps by country"),
+                     ("about/", "book", "Sources")]
     menu = "".join(f'<a href="{rel}{u}"' + (' aria-current="page"' if u == percorso else "") + f'>{ico(i)}{t}</a>' for u, i, t in voci_menu)
     piede = PIEDE_IT.replace("{rel}", rel) if it else f"""<footer><div class="wrap">
 <div class="f-grid"><div>
@@ -2929,6 +2933,433 @@ def pagina_ue():
            corpo, briciole=[("Cabin bags", f"{BAG_BASE}/"), ("EU personal item rule", BAG_UE)])
 
 
+# ---------------------------------------------------------------- "Is [service] available in [country]?" (dal 28/10/2026)
+# Dati: dati/servizi.json (liste ufficiali dei Paesi, lette da raccolta/servizi.py), dati/servizi_domanda.json (ricerche vere
+# dell'autocompletamento di Google: una pagina servizio × Paese esiste SOLO per queste coppie), dati/paesi_iso.json (codici e nomi).
+# Regole: si scrive solo cosa dice la fonte; "non nella lista" non vuol dire "vietato" e le pagine lo dicono; nessun consiglio per aggirare
+# blocchi, termini o leggi; nessun riquadro VPN (affiliazioni non attive); nessun assistente di intelligenza artificiale tra i servizi.
+SRV_BASE = "available-in"
+_f_srv = DATI / "servizi.json"
+SRV = json.loads(_f_srv.read_text(encoding="utf-8")) if _f_srv.exists() else None
+_f_dom = DATI / "servizi_domanda.json"
+SRV_DOMANDA = json.loads(_f_dom.read_text(encoding="utf-8")) if _f_dom.exists() else {"servizi": {}}
+PAESI_ISO = {p["iso2"]: p for p in json.loads((DATI / "paesi_iso.json").read_text(encoding="utf-8"))["paesi"]} if (DATI / "paesi_iso.json").exists() else {}
+SERVIZI_SRV = SRV["servizi"] if SRV else []
+SRV_PER = {S["slug"]: S for S in SERVIZI_SRV}
+LASTMOD = {}  # percorso -> data vera dell'ultimo cambio del contenuto (sitemap); le pagine senza voce prendono la data di oggi
+# Nome breve della fonte nelle frasi e "lista" come la descrive la fonte stessa (frasi *_lista in dati/servizi.json)
+SRV_TESTI = {
+    "starlink": {"fonte": "Starlink map data", "lista": "Starlink's official availability map"},
+    "apple-pay": {"fonte": "Apple Support", "lista": "Apple's list of countries and regions where you can add cards from participating banks and card issuers to Apple Pay"},
+    "apple-music": {"fonte": "Apple Support", "lista": "Apple's list of where Apple Music is available"},
+    "apple-tv": {"fonte": "Apple Support", "lista": "Apple's list of where the Apple TV subscription is available"},
+    "youtube-premium": {"fonte": "YouTube Help", "lista": "YouTube's list of countries and territories where YouTube Premium memberships are available"},
+    "spotify": {"fonte": "Spotify Support", "lista": "Spotify's list of countries and regions where you can sign up for Spotify"},
+}
+# Starlink: parole della legenda della mappa ufficiale (codice di starlink.com/map letto il 28/10/2026; vedi raccolta/servizi.py)
+STARLINK_LEGENDA = {"si": "Area is available for service now.", "in_arrivo": "Pending service coverage or regulatory approval."}
+CON_THE_ISO = {"US", "GB", "AE", "PH", "NL", "BS", "MV", "DO", "CF", "KM", "SC", "GM", "CD", "CG", "IM", "IO", "TF", "UM"}
+
+
+def nome_srv(c):
+    return PAESI_ISO[c]["nome"]
+
+
+def frase_srv(c, maiuscola=False):
+    """Nome del Paese dentro una frase: 'the Philippines', 'the United States'; con maiuscola a inizio frase."""
+    n = nome_srv(c)
+    if c in CON_THE_ISO or n.endswith("Islands"):
+        n = ("The " if maiuscola else "the ") + n
+    return n
+
+
+def alias_srv(c):
+    """Nomi alternativi (UAE, Dubai, Türkiye, Ivory Coast...) nascosti nella riga, perché la ricerca delle tabelle li trovi."""
+    al = PAESI_ISO[c].get("alias") or []
+    return f'<span hidden> {escape(" · ".join(al))}</span>' if al else ""
+
+
+def slug_srv(c):
+    s = unicodedata.normalize("NFKD", nome_srv(c)).encode("ascii", "ignore").decode().lower()
+    return re.sub(r"[^a-z0-9]+", "-", s).strip("-")
+
+
+def stato_srv(S, c):
+    v = S["paesi"].get(c)
+    return (v["stato"], v) if v else ("assente", None)
+
+
+def breve_srv(S, c):
+    """Risposta breve per titolo, tabella e riquadro."""
+    st, v = stato_srv(S, c)
+    if st == "si":
+        return "Yes"
+    if st == "in_arrivo":
+        return "Coming soon"
+    if st == "per_regione":
+        return "By region"
+    if st == "no":
+        if S["slug"] == "starlink":
+            return "No service shown"
+        if S["slug"] == "youtube-premium":
+            return (v.get("nota") or "Not available").capitalize()
+        return "Not listed"
+    return "Not on the list"
+
+
+def classe_srv(st):
+    return {"si": "si", "in_arrivo": "manuale", "per_regione": "manuale", "no": "no", "assente": "no"}[st]
+
+
+def badge_srv(S, c, con_nota=True):
+    st, v = stato_srv(S, c)
+    k = {"si": "gratis", "in_arrivo": "altre", "per_regione": "altre", "no": "no", "assente": "no"}[st]
+    nota = f' <span class="small">{escape(v["nota"])}</span>' if (con_nota and v and v.get("nota") and st == "si") else ""
+    return f'<span class="badge b-{k}">{escape(breve_srv(S, c))}</span>{nota}'
+
+
+def data_controllo_srv(S):
+    return data_lunga(S["letto_il"])
+
+
+def risposta_srv(S, c):
+    """Prima frase della pagina: sì/no, cosa dice la fonte, fonte e data. Solo modelli fissi (verifica.py li ricalcola)."""
+    st, v = stato_srv(S, c)
+    T, d = SRV_TESTI[S["slug"]], data_controllo_srv(S)
+    P, Pm = frase_srv(c), frase_srv(c, True)
+    if S["slug"] == "starlink":
+        if st == "si":
+            return f"Yes. Starlink's official availability map shows {P} as “Available” ({T['fonte']}, checked on {d})."
+        if st == "in_arrivo":
+            nota = f", with the note “{v['nota']}”" if v.get("nota") else ""
+            return f"Not yet. Starlink's official availability map shows {P} as “Coming soon”{nota} ({T['fonte']}, checked on {d})."
+        if st == "per_regione":
+            return (f"It depends on the region. Starlink's official availability map gives no single status for {P}: it shows each region "
+                    f"separately ({T['fonte']}, checked on {d}).")
+        if st == "no":
+            return (f"No. Starlink's official availability map shows no Starlink service for {P}: it is not marked “Available” or “Coming soon” "
+                    f"({T['fonte']}, checked on {d}).")
+        return f"Not known. {Pm} is not in Starlink's official availability map data ({T['fonte']}, checked on {d})."
+    if st == "si":
+        nota = f" The list adds: “{v['nota']}”." if v.get("nota") else ""
+        return f"Yes. {Pm} is on {T['lista']} ({T['fonte']}, checked on {d}).{nota}"
+    if st == "no":
+        if S["slug"] == "youtube-premium":
+            return f"No, not at the moment. YouTube's list of Premium membership locations shows {P} as “{v['nota']}” ({T['fonte']}, checked on {d})."
+        if S["slug"] == "apple-music":
+            return f"No. Apple's page lists {P}, but not Apple Music among the services available there ({T['fonte']}, checked on {d})."
+        if S["slug"] == "apple-tv":
+            app = (f" For the Apple TV app it says: “{v['nota']}”." if v.get("nota") else "") if v.get("app_tv") else " It does not list the Apple TV app there either."
+            return f"No. Apple's page lists {P}, but not the Apple TV subscription ({T['fonte']}, checked on {d}).{app}"
+    return f"No, not according to the official list. {Pm} is not on {T['lista']} ({T['fonte']}, checked on {d})."
+
+
+def significato_srv(S, c):
+    """Seconda frase: cosa vuol dire (e cosa NON vuol dire) la risposta. Frasi fisse."""
+    st, _ = stato_srv(S, c)
+    pay = (" This list is about cards from local banks. It does not say whether a card from your own bank works abroad: that depends on your bank."
+           if S["slug"] == "apple-pay" else "")
+    if st == "assente" and S["slug"] != "starlink":
+        return (f"Not being on the list is not the same as being banned: the list only shows where {S['fornitore'].split(' (')[0]} offers it, "
+                "and it does not give reasons." + pay)
+    if st == "no" and S["slug"] != "starlink":
+        return "The official page does not give reasons."
+    if S["slug"] == "starlink":
+        n = S.get("extra", {}).get("regioni_separate", 0)
+        return ("The map shows one status per country and some regions separately"
+                + (f" ({n} regions in the data file)" if n else "") + ", so check your exact address on the official map.")
+    if S["slug"] == "apple-pay":
+        return pay.strip()
+    return "Lists change: check the official page before you pay for a subscription."
+
+
+def titoli_srv(S, c):
+    n, P, b = S["nome"], frase_srv(c), breve_srv(S, c)
+    b_tit = {"Not on the list": "Not on the Official List", "Coming soon": "Coming Soon", "No service shown": "No Service Shown",
+             "Not listed": "Not Listed", "By region": "Depends on the Region"}.get(b, b.title() if b != "Yes" else b)
+    return [f"Is {n} Available in {P}? {b_tit} ({ANNO})", f"Is {n} Available in {P}? ({ANNO})", f"{n} in {P}: {b_tit} ({ANNO})",
+            f"{n} in {P} ({ANNO})"]
+
+
+def descrizioni_srv(S, c):
+    r = risposta_srv(S, c)
+    corto = f"Is {S['nome']} available in {frase_srv(c)}? {breve_srv(S, c)}, according to the official list checked on {data_controllo_srv(S)}."
+    return [r, corto, f"Is {S['nome']} available in {frase_srv(c)}? {breve_srv(S, c)}, from the official list."]
+
+
+def pagine_srv(S):
+    """Paesi con una pagina servizio × Paese: solo le coppie trovate nell'autocompletamento (dati/servizi_domanda.json)."""
+    return sorted((c for c in SRV_DOMANDA["servizi"].get(S["slug"], {}) if c in PAESI_ISO), key=lambda c: slug_srv(c))
+
+
+def url_srv(S, c=None):
+    return f"{SRV_BASE}/{S['slug']}/" + (f"{slug_srv(c)}/" if c else "")
+
+
+def link_srv(S, c, rel):
+    """Link alla pagina servizio × Paese se esiste, altrimenti alla riga della tabella del servizio."""
+    if c in pagine_srv(S):
+        return f"{rel}{url_srv(S, c)}"
+    return f"{rel}{url_srv(S)}#{c.lower()}"
+
+
+def fonte_srv(S):
+    d = f"checked on {data_controllo_srv(S)}"
+    pub = f", page published on {data_lunga(S['data_fonte'])}" if S.get("data_fonte") else ""
+    cambio = f"; list unchanged since our first check on {data_lunga(S['cambiato_il'])}" if S["cambiato_il"] != S["letto_il"] else ""
+    file_ = f', data file <a href="{escape(S["url_fonte"])}" rel="noopener">{escape(S["url_fonte"])}</a>' if S["url_fonte"] != S["pagina"] else ""
+    return (f'<p class="fonte">Source: <a href="{escape(S["pagina"])}" rel="noopener">{escape(S["titolo_fonte"])}</a>{file_}, {d}{pub}{cambio}. '
+            f'We copy the list as published and match each name to an ISO country code; we add nothing.</p>')
+
+
+def cit_srv(chiavi):
+    ff = [SRV["frasi"][k]["frase"] for k in chiavi if k in SRV["frasi"]]
+    return cit_html(ff) if ff else ""
+
+
+# frasi ufficiali da citare per servizio: (sulla lista, per chi viaggia o si trasferisce)
+CIT_SRV = {
+    "apple-pay": (["apple_pay_lista"], ["apple_pay_accettato", "apple_pay_cash"]),
+    "apple-music": (["apple_media_lista"], ["apple_media_varia"]),
+    "apple-tv": (["apple_media_lista"], ["apple_media_varia"]),
+    "youtube-premium": (["youtube_lista", "youtube_nota"], ["youtube_paese", "youtube_viaggio_no", "youtube_offline", "youtube_30"]),
+    "spotify": (["spotify_lista"], ["spotify_paese", "spotify_trasloco"]),
+    "starlink": ([], []),
+}
+
+
+def ingresso_srv(c, rel):
+    """Link alle pagine Paese già esistenti di Before You Fly (passaporto britannico, canadese, australiano, documenti per italiani)."""
+    link = []
+    v_ca = next((v for v in VOCI.get("ca", []) if v["p"].get("iso") == c), None)
+    uk = list(v_ca["uk"]) if v_ca else []
+    if not uk:
+        uk = [s for s in [UK_PER_NOME.get(_chiave_nome(nome_srv(c)))] if s in UK_CON_PAGINA]
+    for s in uk:
+        link.append(f'<a href="{rel}passport-validity/{s}/">British passport: {escape(UK_NOMI[s])} entry requirements</a>')
+    if v_ca:
+        link.append(f'<a href="{rel}{v_ca["url_pag"]}">Canadian passport: {escape(v_ca["nome"])}</a>')
+    for s in uk:
+        for w in PER_UK.get("au", {}).get(s, []):
+            link.append(f'<a href="{rel}{w["url_pag"]}">Australian passport: {escape(w["nome"])}</a>')
+    for v in VOCI_IT:
+        if v["p"].get("iso2") == c:
+            link.append(f'<a href="{rel}{v["url_pag"]}" hreflang="it">Italian citizens: <span lang="it">{escape(v["nome"])}</span></a>')
+    return link
+
+
+def faq_srv(S, c):
+    P = frase_srv(c)
+    r = risposta_srv(S, c)
+    out = [(f"Is {S['nome']} available in {P}?", r)]
+    if S["slug"] == "youtube-premium":
+        out.append((f"Is YouTube Music Premium available in {P}?",
+                    f"YouTube uses one list for both (“{SRV['frasi']['youtube_titolo']['frase']}”). {r}"))
+    if S["slug"] == "apple-tv":
+        out.append((f"Is Apple TV+ available in {P}?", f"Apple now calls its streaming service the Apple TV subscription. {r}"))
+    out.append((f"Where does this answer about {S['nome']} in {P} come from?",
+                f"From {S['titolo_fonte']} ({S['pagina']}), read on {data_controllo_srv(S)}. We copy the list as published and only match "
+                "country names to ISO country codes."))
+    return out
+
+
+def html_faq_srv(S, c):
+    faq = faq_srv(S, c)
+    h = "".join(f"<h3>{escape(q)}</h3><p>{escape(a)}</p>" for q, a in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
+    return f'<section class="faq"><h2>Questions</h2>{h}</section>', [ld]
+
+
+def pagina_srv_paese(S, c):
+    rel = "../../../"
+    st, v = stato_srv(S, c)
+    P, n = frase_srv(c), S["nome"]
+    icona = {"si": "check", "in_arrivo": "alert", "per_regione": "alert", "no": "x", "assente": "x"}[st]
+    nomi_fonte = [x for x in (v or {}).get("nomi_fonte", []) if _chiave_nome(x) != _chiave_nome(nome_srv(c))]
+    sotto = (f'<p>{escape(S["fornitore"].split(" (")[0])} writes the name as “{escape(" / ".join(nomi_fonte))}”.</p>' if nomi_fonte else "")
+    c_lista, c_viaggio = CIT_SRV[S["slug"]]
+    if S["slug"] == "starlink":
+        cosa_dice = (f'<p>On the official map, “Available” means, in Starlink\'s words: “{STARLINK_LEGENDA["si"]}” “Coming soon” means: '
+                     f'“{STARLINK_LEGENDA["in_arrivo"]}” Places with neither status are shown without any service. A few countries have no '
+                     'status of their own: the map colours each of their regions separately (“By region” in our tables).</p>')
+    else:
+        cosa_dice = f'<p>The official page introduces its list with these words:</p>{cit_srv(c_lista)}'
+    se_no = st != "si"
+    tit_viaggio = (f"If {n} is not available in {P}" if se_no else f"Travelling or moving to {P} with {n}")
+    if S["slug"] == "starlink":
+        viaggio = ("<p>Check your exact address on Starlink's official map before you buy equipment or travel with it: the status can change and can "
+                   "differ within a country.</p>")
+    elif S["slug"] == "apple-pay":
+        viaggio = f'<p>What Apple says about paying abroad and about Apple Cash:</p>{cit_srv(c_viaggio)}'
+    else:
+        viaggio = f'<p>What {escape(S["fornitore"].split(" (")[0])} says about using it in another country:</p>{cit_srv(c_viaggio)}'
+    viaggio += ("<p>Lists change, often without notice. Check the official page before you rely on the service or pay for anything, and follow the "
+                "provider's terms and the law of the country you are in.</p>")
+    altri = "".join(f'<tr data-voce><td data-l="Service"><a href="{link_srv(S2, c, rel)}">{escape(S2["nome"])}</a></td>'
+                    f'<td data-l="In {escape(nome_srv(c))}">{badge_srv(S2, c)}</td><td data-l="Checked">{data_controllo_srv(S2)}</td></tr>'
+                    for S2 in SERVIZI_SRV)
+    ingresso = ingresso_srv(c, rel)
+    faq_h, faq_ld = html_faq_srv(S, c)
+    corpo = f"""<section class="hero"><h1>Is {escape(n)} available in {escape(P)}?</h1></section>
+<section class="card summary" aria-label="Answer">
+<div class="s-top"><span class="sq">{ico("apps")}</span><span>{escape(n)} · {escape(nome_srv(c))}</span><span>{ANNO}</span></div>
+<div class="s-body">
+<div class="esito e-srv {classe_srv(st)}">{ico(icona)}<strong>{escape(breve_srv(S, c))}</strong></div>
+<p class="lead" id="answer">{escape(risposta_srv(S, c))}</p>
+<p class="lead">{escape(significato_srv(S, c))}</p>
+{fonte_srv(S)}
+</div></section>
+<h2>What the official source says</h2>
+{cosa_dice}
+{sotto}
+<p><a href="{rel}{url_srv(S)}">All countries for {escape(n)}</a> (table with every country and region on the official list).</p>
+{AD}
+<h2>{escape(tit_viaggio)}</h2>
+{viaggio}
+<h2>Other services in {escape(P)}</h2>
+<div class="tab tab-b"><table><caption class="sr">Official availability of {len(SERVIZI_SRV)} services in {escape(P)}</caption><thead><tr><th>Service</th><th>In {escape(nome_srv(c))}</th><th>Checked</th></tr></thead><tbody>{altri}</tbody></table></div>
+{f'<h2>Before you travel to {escape(P)}</h2><ul>' + "".join(f"<li>{x}</li>" for x in ingresso) + "</ul>" if ingresso else ""}
+{faq_h}
+<p class="small">Spotted a change? <a href="{rel}contact/?ref=available-in">Tell us</a>. <a href="{rel}{SRV_BASE}/">All services by country</a>.</p>"""
+    pagina(url_srv(S, c), scegli(titoli_srv(S, c), LIMITE_TITOLO), scegli(descrizioni_srv(S, c), LIMITE_DESCRIZIONE), corpo,
+           briciole=[("Available in?", f"{SRV_BASE}/"), (n, url_srv(S)), (nome_srv(c), url_srv(S, c))], ld_extra=faq_ld, js=APP_JS_FILTRO)
+    LASTMOD[url_srv(S, c)] = S["letto_il"]
+
+
+def ordine_srv(c):
+    return unicodedata.normalize("NFKD", nome_srv(c)).encode("ascii", "ignore").decode().lower()
+
+
+def titoli_srv_servizio(S):
+    return [f"Where Is {S['nome']} Available? All Countries ({ANNO} Official List)", f"Where Is {S['nome']} Available? Countries List ({ANNO})",
+            f"{S['nome']} Countries ({ANNO})"]
+
+
+def pagina_srv_servizio(S):
+    rel = "../../"
+    n = S["nome"]
+    con = [c for c in PAESI_ISO if stato_srv(S, c)[0] == "si"]
+    arr = [c for c in PAESI_ISO if stato_srv(S, c)[0] == "in_arrivo"]
+    T, d = SRV_TESTI[S["slug"]], data_controllo_srv(S)
+    if S["slug"] == "starlink":
+        reg = [c for c in PAESI_ISO if stato_srv(S, c)[0] == "per_regione"]
+        prima = (f"Starlink's official availability map shows {len(con)} countries and territories as “Available” and {len(arr)} as “Coming soon”"
+                 + (f"; it shows {len(reg)} ({', '.join(nome_srv(c) for c in sorted(reg, key=ordine_srv))}) region by region" if reg else "")
+                 + f" ({T['fonte']}, checked on {d}).")
+    else:
+        prima = f"{len(con)} countries and territories are on {T['lista']} ({T['fonte']}, checked on {d})."
+    pagine = pagine_srv(S)
+
+    def nota(c):
+        st, v = stato_srv(S, c)
+        if not v:
+            return "–"
+        x = []
+        if v.get("nomi_fonte") and any(_chiave_nome(y) != _chiave_nome(nome_srv(c)) for y in v["nomi_fonte"]):
+            x.append("listed as “" + " / ".join(v["nomi_fonte"]) + "”")
+        if v.get("nota"):
+            x.append(("Apple TV app: " if S["slug"] == "apple-tv" else "") + "“" + v["nota"] + "”")
+        if S["slug"] == "apple-tv" and st == "no" and not v.get("app_tv"):
+            x.append("no Apple TV app listed")
+        return escape("; ".join(x)) or "–"
+    righe = "".join(f'<tr data-voce id="{c.lower()}"><td data-l="Country or region">' +
+                    (f'<a href="{rel}{url_srv(S, c)}">{escape(nome_srv(c))}</a>' if c in pagine else escape(nome_srv(c))) + alias_srv(c) +
+                    f'</td><td data-l="{escape(n)}">{badge_srv(S, c)}</td><td data-l="Official wording">{nota(c)}</td></tr>'
+                    for c in sorted(PAESI_ISO, key=ordine_srv))
+    c_lista, _ = CIT_SRV[S["slug"]]
+    if S["slug"] == "starlink":
+        spiega = (f'<p>On the official map, “Available” means, in Starlink\'s words: “{STARLINK_LEGENDA["si"]}” “Coming soon” means: '
+                  f'“{STARLINK_LEGENDA["in_arrivo"]}” We show the note the data file gives for “Coming soon” places (for example “Starting in 2026” or '
+                  '“Pending regulatory approval”). “No service shown” means the map marks the place with neither status; “By region” means the map gives the country '
+                  'no status of its own and colours each region separately; “Not on the list” means the data file has no entry for it. '
+                  f'{escape(significato_srv(S, "US"))}</p>')
+    else:
+        spiega = (f'<p>The official page introduces its list with these words:</p>{cit_srv(c_lista)}'
+                  f'<p>“Not on the list” means the official page does not name that country or region. It does not mean {escape(n)} is banned there, and the page gives no reasons.</p>')
+    griglia = "".join(f'<a href="{rel}{url_srv(S, c)}">{escape(nome_srv(c))}<small>{escape(breve_srv(S, c))}</small></a>' for c in pagine)
+    corpo = f"""<section class="hero">{h1_diviso(f"Where is {n} available? Official list of countries ({ANNO})")}
+<p class="lead" id="answer">{escape(prima)}</p></section>
+<ul class="stat"><li><strong>{len(con)}</strong>{"“Available”" if S["slug"] == "starlink" else "on the list"}</li>{f'<li><strong>{len(arr)}</strong>“Coming soon”</li>' if S["slug"] == "starlink" else ""}<li><strong>{d}</strong>last checked</li></ul>
+{fonte_srv(S)}
+<h2>Is {escape(n)} available in my country?</h2>
+<div class="griglia g-srv">{griglia}</div>
+{AD}
+<h2>All countries and regions</h2>
+{spiega}
+<div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a country, e.g. India" data-filtro-multi aria-label="Search countries"></div>
+<div class="tab tab-b tab-srv"><table><caption class="sr">{escape(n)}: availability by country, from the official list checked on {d}</caption><thead><tr><th>Country or region</th><th>{escape(n)}</th><th>Official wording</th></tr></thead><tbody>{righe}</tbody></table></div>
+<p class="small">{len(PAESI_ISO)} countries and territories (ISO 3166-1 codes, plus Kosovo). Spotted a change? <a href="{rel}contact/?ref=available-in">Tell us</a>.</p>
+<p><a href="{rel}{SRV_BASE}/">All services by country</a></p>"""
+    desc = [f"Where is {n} available? {prima}", f"Where is {n} available? {len(con)} countries on the official list, checked on {d}. Every country, yes or no."]
+    pagina(url_srv(S), scegli(titoli_srv_servizio(S), LIMITE_TITOLO), scegli(desc, LIMITE_DESCRIZIONE), corpo,
+           briciole=[("Available in?", f"{SRV_BASE}/"), (n, url_srv(S))], js=APP_JS_FILTRO)
+    LASTMOD[url_srv(S)] = S["letto_il"]
+
+
+def indice_srv():
+    rel = "../"
+    d = data_lunga(max(S["letto_il"] for S in SERVIZI_SRV))
+    nomi = ", ".join(S["nome"] for S in SERVIZI_SRV[:-1]) + " and " + SERVIZI_SRV[-1]["nome"]
+    tab_s = "".join(f'<tr data-voce><td data-l="Service"><a href="{rel}{url_srv(S)}"><strong>{escape(S["nome"])}</strong></a></td>'
+                    f'<td data-l="Countries on the list">{sum(1 for c in PAESI_ISO if stato_srv(S, c)[0] == "si")}</td>'
+                    f'<td data-l="Official source"><a href="{escape(S["pagina"])}" rel="noopener">{escape(S["titolo_fonte"])}</a></td>'
+                    f'<td data-l="Checked">{data_controllo_srv(S)}</td></tr>' for S in SERVIZI_SRV)
+    righe = "".join(f'<tr data-voce><td data-l="Country or region"><strong>{escape(nome_srv(c))}</strong>{alias_srv(c)}</td>' +
+                    "".join(f'<td data-l="{escape(S["nome"])}"><a class="a-badge" href="{link_srv(S, c, rel)}">{badge_srv(S, c, False)}</a></td>' for S in SERVIZI_SRV) + "</tr>"
+                    for c in sorted(PAESI_ISO, key=ordine_srv))
+    popolari = []
+    for c in ("PK", "IN", "NG", "PH", "CN", "AE", "MX", "ZA", "CA", "GB"):
+        for S in SERVIZI_SRV:
+            if c in pagine_srv(S) and len(popolari) < 18:
+                popolari.append(f'<a href="{rel}{url_srv(S, c)}">{escape(S["nome"])} in {escape(frase_srv(c))}<small>{escape(breve_srv(S, c))}</small></a>')
+    corpo = f"""<section class="hero">{h1_diviso(f"Is it available in my country? Apps and services by country ({ANNO})")}
+<p class="lead" id="answer">The official country lists of {nomi}, as each provider publishes them, checked on {d}. Every answer links to the provider's own page.</p></section>
+<p class="avviso"><strong>“Not on the list” is not the same as “banned”.</strong> We copy each provider's list as published and only say what it says. Lists change without notice: check the official page before you pay for a subscription or equipment.</p>
+<h2>The {len(SERVIZI_SRV)} services and their official lists</h2>
+<div class="tab tab-b"><table><caption class="sr">Services, number of countries on each official list, source and date checked</caption><thead><tr><th>Service</th><th>Countries on the list</th><th>Official source</th><th>Checked</th></tr></thead><tbody>{tab_s}</tbody></table></div>
+<h2>Most searched</h2>
+<div class="griglia">{"".join(popolari)}</div>
+{AD}
+<h2>Every country, every service</h2>
+<p>“Yes” means the country is on the provider's list; for Starlink, “Coming soon”, “No service shown” and “By region” describe the provider's map. Click an answer for the details and the source.</p>
+<div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a country, e.g. Nigeria" data-filtro-multi aria-label="Search countries"></div>
+<div class="tab tab-b tab-srv"><table><caption class="sr">Official availability of {len(SERVIZI_SRV)} services in {len(PAESI_ISO)} countries and territories, checked on {d}</caption><thead><tr><th>Country or region</th>{"".join(f"<th>{escape(S['nome'])}</th>" for S in SERVIZI_SRV)}</tr></thead><tbody>{righe}</tbody></table></div>
+<h2>How we check</h2>
+<p>We include a service only if the provider itself publishes a list of countries that we can read without a browser, and we read it again before every update. Services whose list exists only inside an app or a script, or that block automated reading, are left out. Country names are matched to ISO 3166-1 codes; regions inside a country (for example the Canary Islands) are not shown separately. More on the <a href="{rel}about/#available-in">About page</a>. Spotted a change? <a href="{rel}contact/?ref=available-in">Tell us</a>.</p>"""
+    pagina(f"{SRV_BASE}/", f"Is It Available in My Country? Apps by Country ({ANNO})",
+           scegli([f"Is {nomi} available in your country? Official country lists, checked on {d}.",
+                   f"Official country lists of {len(SERVIZI_SRV)} services (Starlink, Apple Pay, Spotify…), checked on {d}."], LIMITE_DESCRIZIONE),
+           corpo, briciole=[("Available in?", f"{SRV_BASE}/")], js=APP_JS_FILTRO)
+    LASTMOD[f"{SRV_BASE}/"] = max(S["letto_il"] for S in SERVIZI_SRV)
+
+
+def home_srv():
+    """Paragrafo e griglia nella home."""
+    if not SERVIZI_SRV:
+        return ""
+    voci = []
+    for S, c in (("starlink", "PK"), ("apple-pay", "IN"), ("youtube-premium", "PK"), ("spotify", "CN"), ("apple-tv", "NG"), ("starlink", "PH"),
+                 ("apple-music", "CN"), ("apple-pay", "PH")):
+        if S in SRV_PER and c in pagine_srv(SRV_PER[S]):
+            voci.append(f'<a href="{url_srv(SRV_PER[S], c)}">{escape(SRV_PER[S]["nome"])} in {escape(frase_srv(c))}<small>{escape(breve_srv(SRV_PER[S], c))}</small></a>')
+    return (f'<h2>Is it available where you are going?</h2><p>Starlink, Apple Pay, Apple Music, Apple TV, YouTube Premium and Spotify publish their own lists '
+            f'of countries. We copy them as published, with the source and the date: <a href="{SRV_BASE}/">every country and every service in one table</a>.</p>'
+            f'<div class="griglia">{"".join(voci)}</div>')
+
+
+def about_srv(rel):
+    if not SERVIZI_SRV:
+        return ""
+    righe = "".join(f'<li><strong>{escape(S["nome"])}</strong>: <a href="{escape(S["pagina"])}" rel="noopener">{escape(S["titolo_fonte"])}</a>'
+                    + (f' (data file {escape(S["url_fonte"])})' if S["url_fonte"] != S["pagina"] else "") + f', checked on {data_controllo_srv(S)}.</li>'
+                    for S in SERVIZI_SRV)
+    return f"""<h2 id="available-in">Apps and services by country</h2>
+<p>Sources: the providers' own lists of countries, read with a normal web request (no browser) and copied as published:</p>
+<ul>{righe}</ul>
+<p>Rules: a country is “Yes” only if the provider's list names it; “Not on the list” means the list does not name it, which is not the same as a ban. For Starlink we show the statuses of the official availability map (“Available”, “Coming soon” with the note the map gives, no service shown, or “By region” when the map colours a country region by region), as the map's own legend explains them. Names are matched to ISO 3166-1 country codes; regions inside a country are not shown separately. We give no advice on getting around restrictions. A page for a single service and country exists only where people search for it. The lists are facts published by each provider; the trademarks belong to their owners, and Before You Fly is not affiliated with any of them.</p>"""
+
+
 # ---------------------------------------------------------------- home e pagine di servizio
 def home():
     auto = sum(1 for P in PAESI if P["regola"])
@@ -2951,7 +3382,7 @@ def home():
     testata = f"""<div class="band"><div class="wrap band-in">
 <section class="hero">{h1_diviso(f"Before You Fly: passport validity, airport liquids rules, cabin bag sizes and EU entry checks ({ANNO})")}
 <p class="scope"><span class="pill">{ico("passport")}British passport checker</span><span>Passport rules from the UK government (FCDO), for British citizens.{"".join(f' {ESTERI[k]["agg"]} passport: <a href="{ESTERI[k]["base"]}/" style="color:var(--sign)">{len(VOCI[k])} destinations</a>.' for k in ESTERI if VOCI[k])}</span></p>
-<p class="sub">Four checks before you fly, answered from official sources only.</p>
+<p class="sub">Five checks before you fly, answered from official sources only.</p>
 {f'<p class="scope" lang="it"><span class="pill">{ico("passport")}Cittadinanza italiana</span><span><a href="{IT_BASE}/" hreflang="it" style="color:var(--sign)">Documenti per viaggiare all\'estero</a>: passaporto, carta d\'identità e visto per {len(VOCI_IT)} Paesi, dalle schede della Farnesina (Viaggiare Sicuri).</span></p>' if VOCI_IT else ""}
 <p class="trust"><span>{ico("shield")}Official sources · last checked {ultimo}</span><span>{ico("lock")}Your dates stay in your browser</span></p></section>
 <ul class="tiles">
@@ -2959,6 +3390,7 @@ def home():
 <li><a href="liquids/"><span class="sq">{ico("bottle")}</span><h2>Liquids by airport</h2><small>100 ml or 2 litres? {len(AER['aeroporti'])} airports plus the US and Canada rules, from official pages.</small></a></li>
 <li><a href="cabin-bags/"><span class="sq">{ico("bag")}</span><h2>Cabin bags</h2><small>Free under-seat bag and cabin bag sizes for {len(COMPAGNIE)} airlines, plus a “does my bag fit?” checker.</small></a></li>
 <li><a href="ees-etias/"><span class="sq">{ico("scan")}</span><h2>EES &amp; ETIAS</h2><small>EES is fully operational; ETIAS is {stato_etias} (European Commission).</small></a></li>
+{f'<li><a href="{SRV_BASE}/"><span class="sq">{ico("apps")}</span><h2>Apps by country</h2><small>Starlink, Apple Pay, Spotify, YouTube Premium: the official country lists.</small></a></li>' if SERVIZI_SRV else ""}
 </ul>
 <h2 class="band-h2">Check your passport dates</h2>
 {modulo_checker('tutti-dati', True, link='passport-validity/')}
@@ -2975,6 +3407,7 @@ def home():
 <h2>Cabin bag size by airline</h2>
 <p>The free bag you can take on board and when you pay for a cabin bag, from each airline's own page: <a href="cabin-bags/">{len(COMPAGNIE)} airlines in one table</a>, or <a href="cabin-bags/does-my-bag-fit/">check if your bag fits</a>.</p>
 <div class="griglia">{"".join(f'<a href="cabin-bags/{C["slug"]}/">{escape(C["nome"])}<small>{escape(misura_breve(borsa_gratis(C, "sotto") or borsa_gratis(C, "sopra")))} free</small></a>' for C in COMPAGNIE if C["slug"] in ("ryanair", "easyjet", "wizz-air", "jet2", "british-airways", "vueling", "lufthansa", "klm"))}</div>
+{home_srv()}
 {box_affiliati()}
 {dati_json('tutti-dati', [dati_client(P) for P in PAESI])}"""
     pagina("", f"Before You Fly {ANNO}: Passport, Visas, Liquids, Cabin Bags, EES",
@@ -3039,6 +3472,7 @@ def about():
 <p>Each airport's official security page, last read by us on {data_lunga(AER['controllato_il'])} (the date is shown on each page). Some airport sites block simple automated requests or load their text with JavaScript: we read those in a browser and say so on the page. Spanish airports use the general hand-luggage page of Aena, which runs Spain's public airports (it lists no airport- or lane-specific exceptions, and it does not say that it applies at every airport: each Spanish airport page says so); Hong Kong uses the Civil Aviation Department page; the US and Canada each have one national rule (TSA, CATSA). See the full list and the airports we left out on the <a href="{rel}liquids/">liquids page</a>.</p>
 <h2>Cabin bag sizes</h2>
 <p>Each airline's official baggage page, last read by us on {data_lunga(BAG['controllato_il'])} (the date and the link are on each airline page). Most airline sites need JavaScript or block simple automated requests, so we read them in a browser. Every size is quoted word for word; the short labels (“Free with every fare”, “Only with some fares, cabins or as a paid extra”) and the conversions marked “≈” are ours. An airline is included only if its official page shows the sizes; the airlines we left out and why are listed on the <a href="{rel}cabin-bags/">cabin bags page</a>. The bag checker compares the sides sorted from longest to shortest; airlines may measure differently, and their rule decides. The <a href="{rel}cabin-bags/eu-personal-item-rule/">EU personal item page</a> quotes Regulation (EU) 2026/2202 (EUR-Lex), the European Parliament's Legislative Observatory and the European Commission.</p>
+{about_srv(rel)}
 <h2>EES and ETIAS</h2>
 <p>European Commission (DG Migration and Home Affairs) pages and GOV.UK travel advice, last checked on {data_lunga(EES['controllato_il'])}. See the <a href="{rel}ees-etias/">EES and ETIAS page</a>.</p>
 <h2>Corrections</h2>
@@ -3078,7 +3512,8 @@ def privacy():
 def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
-    voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{OGGI.isoformat()}</lastmod></url>" for u in URLS)
+    # lastmod: data vera dell'ultima lettura della fonte per le pagine "Available in?" (LASTMOD), data di oggi per le altre
+    voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{LASTMOD.get(u, OGGI.isoformat())}</lastmod></url>" for u in URLS)
     (SITO / "sitemap.xml").write_text(
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{voci}</urlset>\n')
     (SITO / "netlify.toml").write_text("""[build]
@@ -3102,7 +3537,7 @@ def extra():
 """)
     pagina("404.html", f"Page not found | {NOME}", "Page not found.",
            '<section class="hero"><h1>Page not found</h1><p class="lead">Go to the <a href="/">home page</a>, the <a href="/passport-validity/">passport validity rules</a> '
-           'the <a href="/liquids/">liquids rules by airport</a> or the <a href="/cabin-bags/">cabin bag size by airline</a>.</p></section>', indicizza=False, assoluto=True)
+           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> or <a href="/available-in/">apps and services by country</a>.</p></section>', indicizza=False, assoluto=True)
 
 
 def copia_grafica():
@@ -3160,6 +3595,15 @@ def controlli():
         sl = [v["slug"] for v in VOCI_IT + SENZA_PAGINA_IT]
         if len(set(sl)) != len(sl):
             errori.append("documenti_it: slug duplicati")
+    for S in SERVIZI_SRV:
+        for k in ("slug", "nome", "pagina", "url_fonte", "letto_il", "cambiato_il", "impronta", "paesi"):
+            if not S.get(k):
+                errori.append(f"servizio {S.get('slug')}: manca {k}")
+        for c, v in S.get("paesi", {}).items():
+            if c not in PAESI_ISO or v.get("stato") not in ("si", "no", "in_arrivo", "per_regione"):
+                errori.append(f"servizio {S['slug']}: Paese {c} sconosciuto o stato {v.get('stato')}")
+        if S.get("slug") not in SRV_TESTI:
+            errori.append(f"servizio {S.get('slug')}: mancano i testi in SRV_TESTI")
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -3204,6 +3648,12 @@ def main():
         indice_it()
         for v in VOCI_IT:
             pagina_it(v)
+    if SERVIZI_SRV:
+        indice_srv()
+        for S in SERVIZI_SRV:
+            pagina_srv_servizio(S)
+            for c in pagine_srv(S):
+                pagina_srv_paese(S, c)
     about()
     contatti()
     privacy()
@@ -3213,7 +3663,8 @@ def main():
           f"{len(AER['aeroporti'])} aeroporti + {len(AER['nazionali'])} regole nazionali, pagina EES/ETIAS; "
           f"bagaglio a mano: {len(COMPAGNIE)} compagnie, {len(MISURE_COMUNI)} misure, strumento, pagina UE; "
           + ", ".join(f"passaporto {ESTERI[k]['agg']}: {len(VOCI[k])} pagine" for k in ESTERI)
-          + f"; documenti per italiani: indice + {len(VOCI_IT)} pagine Paese ({len(SENZA_PAGINA_IT)} schede senza pagina)")
+          + f"; documenti per italiani: indice + {len(VOCI_IT)} pagine Paese ({len(SENZA_PAGINA_IT)} schede senza pagina)"
+          + f"; available in: indice + {len(SERVIZI_SRV)} servizi + {sum(len(pagine_srv(S)) for S in SERVIZI_SRV)} pagine servizio × Paese")
 
 
 if __name__ == "__main__":

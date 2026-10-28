@@ -1,0 +1,852 @@
+{
+ "_nota": "Ricerche vere (autocompletamento di Google, client=firefox, hl=en) che nominano un Paese: una pagina servizio × Paese esiste solo per queste coppie. Riscritto da raccolta/servizi.py --domanda.",
+ "letto_il": "2026-10-28",
+ "modelli": [
+  "is {} available in",
+  "{} available in",
+  "is {} in",
+  "{} not available in",
+  "does {} work in",
+  "can i use {} in",
+  "is {} available in the"
+ ],
+ "gl": [
+  "us",
+  "gb",
+  "in",
+  "pk",
+  "ng",
+  "ph",
+  "ca",
+  "au",
+  "ae",
+  "za"
+ ],
+ "famiglie": {
+  "starlink": [
+   "starlink"
+  ],
+  "apple-pay": [
+   "apple pay"
+  ],
+  "apple-music": [
+   "apple music"
+  ],
+  "apple-tv": [
+   "apple tv",
+   "apple tv+"
+  ],
+  "youtube-premium": [
+   "youtube premium",
+   "youtube music"
+  ],
+  "spotify": [
+   "spotify",
+   "spotify premium"
+  ]
+ },
+ "servizi": {
+  "starlink": {
+   "AE": [
+    "is starlink available in uae",
+    "is starlink available in dubai",
+    "starlink available in uae",
+    "is starlink in uae",
+    "does starlink work in uae",
+    "can i use starlink in uae",
+    "is starlink available in the uae"
+   ],
+   "AF": [
+    "is starlink available in afghanistan"
+   ],
+   "AO": [
+    "does starlink work in angola"
+   ],
+   "AU": [
+    "is starlink available in australia",
+    "starlink available in australia",
+    "is starlink in australia",
+    "does starlink work in australia",
+    "can i use starlink in australia"
+   ],
+   "BD": [
+    "is starlink available in bangladesh",
+    "starlink available in bangladesh"
+   ],
+   "BW": [
+    "is starlink available in botswana",
+    "does starlink work in botswana"
+   ],
+   "CA": [
+    "is starlink available in canada",
+    "starlink available in canada",
+    "is starlink in canada",
+    "does starlink work in canada",
+    "can i use starlink in canada"
+   ],
+   "CN": [
+    "is starlink available in china",
+    "starlink available in china",
+    "is starlink in china",
+    "starlink not available in china",
+    "does starlink work in china",
+    "can i use starlink in china"
+   ],
+   "CU": [
+    "starlink available in cuba"
+   ],
+   "DE": [
+    "is starlink available in germany"
+   ],
+   "DO": [
+    "is starlink available in the dominican republic"
+   ],
+   "FK": [
+    "is starlink available in the falkland islands"
+   ],
+   "GA": [
+    "is starlink available in gabon"
+   ],
+   "GB": [
+    "is starlink available in the uk",
+    "starlink available in uk",
+    "is starlink in the uk"
+   ],
+   "IN": [
+    "is starlink available in india",
+    "is starlink available in india now",
+    "starlink available in india",
+    "is starlink in india",
+    "starlink not available in india",
+    "does starlink work in india",
+    "can i use starlink in india"
+   ],
+   "IR": [
+    "is starlink available in iran"
+   ],
+   "JM": [
+    "starlink not available in jamaica"
+   ],
+   "KH": [
+    "can i use starlink in cambodia"
+   ],
+   "LB": [
+    "is starlink available in lebanon",
+    "starlink available in lebanon"
+   ],
+   "LS": [
+    "is starlink available in lesotho"
+   ],
+   "MW": [
+    "is starlink available in malawi"
+   ],
+   "MX": [
+    "is starlink available in mexico",
+    "starlink available in mexico",
+    "is starlink in mexico",
+    "does starlink work in mexico",
+    "can i use starlink in mexico"
+   ],
+   "MZ": [
+    "is starlink available in mozambique",
+    "does starlink work in mozambique"
+   ],
+   "NA": [
+    "is starlink available in namibia",
+    "starlink available in namibia",
+    "is starlink in namibia",
+    "does starlink work in namibia",
+    "can i use starlink in namibia"
+   ],
+   "NG": [
+    "is starlink available in nigeria",
+    "is starlink in nigeria",
+    "does starlink work in nigeria",
+    "can i use starlink in nigeria"
+   ],
+   "NP": [
+    "is starlink available in nepal"
+   ],
+   "PH": [
+    "is starlink available in the philippines",
+    "is starlink available in philippines",
+    "starlink available in philippines",
+    "starlink available in the philippines",
+    "is starlink in the philippines",
+    "does starlink work in the philippines",
+    "can i use starlink in the philippines"
+   ],
+   "PK": [
+    "is starlink available in pakistan",
+    "starlink available in pakistan",
+    "is starlink in pakistan",
+    "does starlink work in pakistan",
+    "can i use starlink in pakistan"
+   ],
+   "RU": [
+    "is starlink in russia"
+   ],
+   "SA": [
+    "is starlink available in saudi arabia",
+    "starlink available in saudi arabia"
+   ],
+   "SG": [
+    "starlink not available in singapore"
+   ],
+   "SY": [
+    "is starlink available in syria",
+    "does starlink work in syria"
+   ],
+   "TH": [
+    "is starlink available in thailand",
+    "can i use starlink in thailand"
+   ],
+   "TR": [
+    "starlink not available in turkey"
+   ],
+   "TW": [
+    "is starlink available in taiwan",
+    "starlink available in taiwan"
+   ],
+   "UG": [
+    "is starlink available in uganda",
+    "is starlink in uganda",
+    "does starlink work in uganda"
+   ],
+   "US": [
+    "is starlink available in usa",
+    "is starlink in usa",
+    "is starlink available in the us",
+    "is starlink available in the united states"
+   ],
+   "VG": [
+    "is starlink available in the british virgin islands"
+   ],
+   "VN": [
+    "starlink available in vietnam"
+   ],
+   "ZA": [
+    "is starlink available in south africa",
+    "is starlink available in south africa yet",
+    "starlink available in south africa",
+    "is starlink in south africa",
+    "is starlink in south africa yet",
+    "starlink not available in south africa",
+    "does starlink work in south africa",
+    "can i use starlink in south africa"
+   ],
+   "ZW": [
+    "is starlink available in zimbabwe",
+    "is starlink in zimbabwe",
+    "does starlink work in zimbabwe"
+   ]
+  },
+  "apple-pay": {
+   "AE": [
+    "is apple pay available in dubai",
+    "is apple pay available in uae",
+    "does apple pay work in dubai",
+    "does apple pay work in uae",
+    "can i use apple pay in dubai",
+    "can i use apple pay in uae",
+    "is apple pay available in the uae"
+   ],
+   "AU": [
+    "is apple pay available in australia",
+    "apple pay available in australia",
+    "is apple pay in australia",
+    "does apple pay work in australia",
+    "can i use apple pay in australia"
+   ],
+   "BD": [
+    "is apple pay available in bangladesh",
+    "apple pay available in bangladesh"
+   ],
+   "BS": [
+    "is apple pay available in the bahamas"
+   ],
+   "BW": [
+    "does apple pay work in botswana"
+   ],
+   "CA": [
+    "is apple pay available in canada",
+    "apple pay available in canada",
+    "is apple pay in canada",
+    "does apple pay work in canada",
+    "can i use apple pay in canada"
+   ],
+   "CN": [
+    "is apple pay available in china",
+    "apple pay available in china",
+    "is apple pay in china",
+    "does apple pay work in china",
+    "can i use apple pay in china"
+   ],
+   "DE": [
+    "is apple pay available in germany",
+    "does apple pay work in germany"
+   ],
+   "ES": [
+    "can i use apple pay in spain"
+   ],
+   "FR": [
+    "does apple pay work in france"
+   ],
+   "GB": [
+    "is apple pay available in uk",
+    "is apple pay in the uk",
+    "does apple pay work in the uk",
+    "does apple pay work in uk",
+    "can i use apple pay in uk",
+    "is apple pay available in the uk"
+   ],
+   "HK": [
+    "does apple pay work in hong kong",
+    "can i use apple pay in hong kong"
+   ],
+   "ID": [
+    "is apple pay available in indonesia"
+   ],
+   "IN": [
+    "is apple pay available in india",
+    "is apple pay available in india now",
+    "apple pay available in india",
+    "apple pay available in india now",
+    "is apple pay in india",
+    "is apple pay in india now",
+    "apple pay not available in india",
+    "does apple pay work in india",
+    "does apple pay work in india now",
+    "can i use apple pay in india"
+   ],
+   "IT": [
+    "does apple pay work in italy",
+    "can i use apple pay in italy"
+   ],
+   "JM": [
+    "is apple pay available in jamaica"
+   ],
+   "JP": [
+    "does apple pay work in japan",
+    "can i use apple pay in japan"
+   ],
+   "KE": [
+    "is apple pay available in kenya",
+    "is apple pay in kenya"
+   ],
+   "KR": [
+    "does apple pay work in korea",
+    "can i use apple pay in korea"
+   ],
+   "LK": [
+    "is apple pay available in sri lanka"
+   ],
+   "MX": [
+    "is apple pay available in mexico",
+    "does apple pay work in mexico",
+    "can i use apple pay in mexico"
+   ],
+   "MY": [
+    "does apple pay work in malaysia",
+    "can i use apple pay in malaysia"
+   ],
+   "NG": [
+    "is apple pay available in nigeria",
+    "apple pay available in nigeria",
+    "is apple pay in nigeria",
+    "does apple pay work in nigeria",
+    "can i use apple pay in nigeria"
+   ],
+   "NL": [
+    "is apple pay available in the netherlands"
+   ],
+   "NP": [
+    "apple pay available in nepal"
+   ],
+   "NZ": [
+    "is apple pay available in new zealand",
+    "does apple pay work in new zealand",
+    "can i use apple pay in new zealand"
+   ],
+   "PH": [
+    "is apple pay available in philippines",
+    "is apple pay available in the philippines",
+    "apple pay available in the philippines",
+    "apple pay available in philippines",
+    "is apple pay in the philippines",
+    "apple pay not available in philippines",
+    "does apple pay work in the philippines",
+    "does apple pay work in philippines",
+    "can i use apple pay in the philippines",
+    "is apple pay available in the philippines now",
+    "is apple pay available in the philippines reddit"
+   ],
+   "PK": [
+    "is apple pay available in pakistan",
+    "apple pay available in pakistan",
+    "is apple pay in pakistan",
+    "is apple pay in pakistan now",
+    "does apple pay work in pakistan",
+    "can i use apple pay in pakistan"
+   ],
+   "SA": [
+    "does apple pay work in saudi arabia"
+   ],
+   "SE": [
+    "is apple pay available in sweden"
+   ],
+   "SG": [
+    "does apple pay work in singapore",
+    "can i use apple pay in singapore"
+   ],
+   "TH": [
+    "is apple pay available in thailand",
+    "apple pay available in thailand",
+    "is apple pay in thailand",
+    "does apple pay work in thailand",
+    "can i use apple pay in thailand"
+   ],
+   "TR": [
+    "does apple pay work in turkey"
+   ],
+   "TW": [
+    "does apple pay work in taiwan"
+   ],
+   "US": [
+    "does apple pay work in usa",
+    "can i use apple pay in the us",
+    "is apple pay available in the us"
+   ],
+   "VN": [
+    "is apple pay available in vietnam",
+    "apple pay available in vietnam",
+    "does apple pay work in vietnam",
+    "can i use apple pay in vietnam"
+   ],
+   "ZA": [
+    "is apple pay available in south africa",
+    "is apple pay in south africa",
+    "does apple pay work in south africa",
+    "can i use apple pay in south africa"
+   ],
+   "ZW": [
+    "does apple pay work in zimbabwe"
+   ]
+  },
+  "apple-music": {
+   "AL": [
+    "is apple music available in albania",
+    "does apple music work in albania"
+   ],
+   "BD": [
+    "is apple music available in bangladesh"
+   ],
+   "BN": [
+    "is apple music available in brunei"
+   ],
+   "CN": [
+    "is apple music available in china",
+    "apple music available in china",
+    "is apple music in china",
+    "does apple music work in china",
+    "can i use apple music in china"
+   ],
+   "FR": [
+    "does apple music work in france"
+   ],
+   "GB": [
+    "is apple music available in the uk"
+   ],
+   "IN": [
+    "is apple music available in india",
+    "apple music available in india",
+    "does apple music work in india"
+   ],
+   "IT": [
+    "does apple music work in italy"
+   ],
+   "MX": [
+    "does apple music work in mexico"
+   ],
+   "PH": [
+    "is apple music available in the philippines"
+   ],
+   "PK": [
+    "is apple music available in pakistan",
+    "apple music available in pakistan",
+    "is apple music in pakistan",
+    "is apple music in pakistan now",
+    "does apple music work in pakistan",
+    "can i use apple music in pakistan"
+   ],
+   "RU": [
+    "is apple music available in russia",
+    "apple music available in russia",
+    "does apple music work in russia"
+   ],
+   "TR": [
+    "is apple music available in turkey"
+   ],
+   "VN": [
+    "does apple music work in vietnam"
+   ]
+  },
+  "apple-tv": {
+   "AE": [
+    "is apple tv available in uae",
+    "does apple tv work in uae",
+    "is apple tv available in the uae"
+   ],
+   "AU": [
+    "is apple tv available in australia",
+    "does apple tv work in australia"
+   ],
+   "BS": [
+    "is apple tv available in the bahamas"
+   ],
+   "CA": [
+    "is apple tv available in canada",
+    "is apple tv in canada",
+    "does apple tv work in canada"
+   ],
+   "CN": [
+    "is apple tv available in china",
+    "apple tv available in china",
+    "is apple tv in china",
+    "does apple tv work in china",
+    "can i use apple tv in china"
+   ],
+   "ES": [
+    "is apple tv available in spain"
+   ],
+   "GB": [
+    "is apple tv available in the uk",
+    "is apple tv in the uk",
+    "does apple tv work in uk"
+   ],
+   "HR": [
+    "is apple tv available in croatia",
+    "apple tv available in croatia"
+   ],
+   "IN": [
+    "is apple tv available in india",
+    "apple tv available in india",
+    "is apple tv in india",
+    "does apple tv work in india",
+    "can i use apple tv in india"
+   ],
+   "IS": [
+    "apple tv available in iceland"
+   ],
+   "IT": [
+    "does apple tv work in italy",
+    "can i use apple tv in italy"
+   ],
+   "JM": [
+    "is apple tv available in jamaica",
+    "apple tv available in jamaica",
+    "is apple tv in jamaica",
+    "does apple tv work in jamaica",
+    "can i use apple tv in jamaica"
+   ],
+   "JP": [
+    "does apple tv work in japan"
+   ],
+   "KE": [
+    "is apple tv available in kenya",
+    "apple tv available in kenya",
+    "is apple tv in kenya",
+    "apple tv not available in kenya",
+    "does apple tv work in kenya",
+    "can i use apple tv in kenya"
+   ],
+   "MX": [
+    "is apple tv available in mexico",
+    "is apple tv in mexico",
+    "does apple tv work in mexico",
+    "can i use apple tv in mexico"
+   ],
+   "NG": [
+    "is apple tv available in nigeria",
+    "is apple tv available in nigeria now",
+    "is apple tv available in nigeria today",
+    "apple tv available in nigeria",
+    "is apple tv in nigeria",
+    "is apple tv in nigeria now",
+    "apple tv not available in nigeria",
+    "does apple tv work in nigeria",
+    "can i use apple tv in nigeria"
+   ],
+   "NL": [
+    "is apple tv available in the netherlands"
+   ],
+   "NZ": [
+    "does apple tv work in new zealand"
+   ],
+   "PH": [
+    "is apple tv available in the philippines",
+    "is apple tv in the philippines",
+    "does apple tv work in the philippines",
+    "can i use apple tv in philippines"
+   ],
+   "PK": [
+    "is apple tv available in pakistan",
+    "is apple tv available in pakistan now",
+    "apple tv available in pakistan",
+    "is apple tv in pakistan",
+    "is apple tv in pakistan now",
+    "apple tv not available in pakistan",
+    "does apple tv work in pakistan",
+    "can i use apple tv in pakistan"
+   ],
+   "RO": [
+    "is apple tv available in romania",
+    "apple tv available in romania",
+    "is apple tv in romania",
+    "apple tv not available in romania",
+    "is apple tv+ available in romania"
+   ],
+   "TR": [
+    "apple tv available in turkey",
+    "is apple tv+ available in turkey"
+   ],
+   "VN": [
+    "is apple tv available in vietnam"
+   ],
+   "ZA": [
+    "is apple tv available in south africa",
+    "is apple tv in south africa",
+    "does apple tv work in south africa"
+   ]
+  },
+  "youtube-premium": {
+   "AE": [
+    "is youtube premium available in uae"
+   ],
+   "AL": [
+    "does youtube premium work in albania",
+    "is youtube music available in albania"
+   ],
+   "AM": [
+    "is youtube premium available in armenia",
+    "is youtube music available in armenia"
+   ],
+   "BD": [
+    "is youtube premium available in bangladesh",
+    "youtube music available in bangladesh"
+   ],
+   "BS": [
+    "is youtube premium available in the bahamas",
+    "is youtube music available in the bahamas"
+   ],
+   "BW": [
+    "is youtube music available in botswana"
+   ],
+   "CA": [
+    "is youtube premium available in canada",
+    "is youtube premium in canada",
+    "does youtube premium work in canada"
+   ],
+   "CN": [
+    "does youtube premium work in china",
+    "does youtube music work in china",
+    "can i use youtube music in china"
+   ],
+   "DE": [
+    "youtube music not available in germany"
+   ],
+   "ET": [
+    "does youtube music work in ethiopia"
+   ],
+   "GB": [
+    "is youtube premium available in uk",
+    "is youtube premium available in the uk",
+    "is youtube music available in the uk"
+   ],
+   "HK": [
+    "youtube premium not available in hong kong"
+   ],
+   "IN": [
+    "is youtube premium available in india",
+    "youtube premium available in india",
+    "is youtube premium in india",
+    "youtube premium not available in india"
+   ],
+   "JP": [
+    "does youtube premium work in japan"
+   ],
+   "MD": [
+    "is youtube premium available in moldova"
+   ],
+   "ME": [
+    "is youtube music available in montenegro"
+   ],
+   "MU": [
+    "is youtube music available in mauritius"
+   ],
+   "MX": [
+    "does youtube premium work in mexico",
+    "does youtube music work in mexico"
+   ],
+   "NP": [
+    "is youtube premium available in nepal"
+   ],
+   "PH": [
+    "is youtube premium available in the philippines"
+   ],
+   "PK": [
+    "is youtube premium available in pakistan",
+    "youtube premium available in pakistan",
+    "is youtube premium in pakistan",
+    "youtube premium not available in pakistan",
+    "does youtube premium work in pakistan",
+    "is youtube music available in pakistan",
+    "youtube music available in pakistan"
+   ],
+   "PR": [
+    "is youtube premium available in puerto rico",
+    "youtube premium not available in puerto rico",
+    "does youtube premium work in puerto rico"
+   ],
+   "RU": [
+    "is youtube premium available in russia",
+    "does youtube music work in russia"
+   ],
+   "RW": [
+    "is youtube music available in rwanda"
+   ],
+   "SE": [
+    "youtube premium not available in sweden"
+   ],
+   "TR": [
+    "is youtube premium in turkey",
+    "youtube premium not available in turkey"
+   ],
+   "US": [
+    "is youtube premium available in the us",
+    "is youtube music available in the us"
+   ],
+   "ZA": [
+    "is youtube premium available in south africa"
+   ],
+   "ZM": [
+    "is youtube music available in zambia",
+    "does youtube music work in zambia"
+   ]
+  },
+  "spotify": {
+   "AE": [
+    "is spotify available in uae",
+    "does spotify work in dubai",
+    "does spotify work in uae",
+    "can i use spotify in uae"
+   ],
+   "AU": [
+    "does spotify work in australia"
+   ],
+   "CA": [
+    "is spotify available in canada",
+    "is spotify in canada",
+    "does spotify work in canada",
+    "can i use spotify in canada",
+    "is spotify premium available in canada"
+   ],
+   "CN": [
+    "is spotify available in china",
+    "spotify available in china",
+    "is spotify in china",
+    "does spotify work in china",
+    "can i use spotify in china",
+    "does spotify premium work in china"
+   ],
+   "DE": [
+    "is spotify available in germany"
+   ],
+   "ES": [
+    "does spotify work in spain"
+   ],
+   "FR": [
+    "is spotify available in france",
+    "does spotify work in france"
+   ],
+   "GB": [
+    "does spotify work in the uk"
+   ],
+   "HK": [
+    "is spotify available in hong kong",
+    "does spotify work in hong kong"
+   ],
+   "IN": [
+    "is spotify available in india",
+    "is spotify in india",
+    "does spotify work in india",
+    "is spotify premium available in india",
+    "is spotify premium in india"
+   ],
+   "IT": [
+    "does spotify work in italy",
+    "can i use spotify in italy"
+   ],
+   "JP": [
+    "is spotify available in japan",
+    "is spotify in japan",
+    "does spotify work in japan"
+   ],
+   "KR": [
+    "is spotify available in south korea"
+   ],
+   "MU": [
+    "is spotify premium available in mauritius"
+   ],
+   "MX": [
+    "is spotify available in mexico",
+    "does spotify work in mexico",
+    "can i use spotify in mexico"
+   ],
+   "NG": [
+    "is spotify available in nigeria",
+    "does spotify work in nigeria",
+    "is spotify premium available in nigeria"
+   ],
+   "NL": [
+    "is spotify available in the netherlands"
+   ],
+   "NP": [
+    "is spotify available in nepal",
+    "is spotify premium available in nepal"
+   ],
+   "PH": [
+    "can i use spotify in the philippines"
+   ],
+   "PK": [
+    "is spotify available in pakistan",
+    "does spotify work in pakistan",
+    "is spotify premium available in pakistan"
+   ],
+   "RU": [
+    "is spotify available in russia",
+    "is spotify in russia",
+    "does spotify work in russia",
+    "can i use spotify in russia"
+   ],
+   "SA": [
+    "is spotify available in saudi arabia"
+   ],
+   "SE": [
+    "is spotify in sweden"
+   ],
+   "SY": [
+    "is spotify available in syria"
+   ],
+   "US": [
+    "does spotify work in usa"
+   ],
+   "ZA": [
+    "is spotify available in south africa"
+   ],
+   "ZW": [
+    "does spotify work in zimbabwe"
+   ]
+  }
+ }
+}

@@ -53,6 +53,14 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     agli aeroporti della stessa area; riquadro sui liquidi (citazione GOV.UK, link all'indice) in ogni pagina compagnia, con una sola FAQPage.
 15. Blocco "Other useful tools for your trip" (in italiano nelle pagine it/documenti/) in ogni pagina indicizzabile: gli stessi link di
     genera.ALTRI_SITI / ALTRI_SITI_IT, nell'ordine, mai a questo sito, tutti rel="noopener" e senza nofollow o sponsored.
+16. File chiave IndexNow.
+17. "Is [service] available in [country]?" (dati/servizi.json da raccolta/servizi.py): impronta = lista; se c'è la cache delle pagine grezze
+    (raccolta/.cache/servizi/, fuori dal repository) le liste sono ricalcolate dalle pagine salvate e le frasi citate ci sono ancora; la tabella
+    di ogni servizio ha una riga per ognuno dei 250 codici con l'etichetta attesa (ricalcolata qui in modo indipendente); pagine servizio × Paese
+    esattamente per le coppie di dati/servizi_domanda.json, con la risposta sì/no nella prima frase, fonte, data, la nota della fonte, la frase
+    "non nella lista non vuol dire vietato", le citazioni, la FAQ (JSON-LD = testo visibile = prima frase), titolo <= 70 con la domanda, lastmod
+    della sitemap = data della lettura; nessun nome di assistente di intelligenza artificiale e nessun consiglio per aggirare blocchi (VPN,
+    proxy...); link da home, menu e About. Nel browser (punto 7) 5 pagine nuove a 375 px in tema chiaro e scuro e 2 a 820 px.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -599,6 +607,7 @@ def controlla_meta():
     attesi.update({f"{G.BAG_BASE}/{C['slug']}/index.html": G.titoli_bag(C) for C in G.COMPAGNIE})
     attesi.update({f"{G.BAG_BASE}/size/{sl}/index.html": G.titoli_misura(sl) for sl, _ in G.MISURE_COMUNI})
     attesi.update({v["url_pag"] + "index.html": G.titoli_it(v) for v in G.VOCI_IT})
+    attesi.update({G.url_srv(S, c) + "index.html": G.titoli_srv(S, c) for S in G.SERVIZI_SRV for c in G.pagine_srv(S)})
     from html import unescape
     for f in SITO.rglob("*.html"):
         if f.name.startswith("google"):
@@ -1392,7 +1401,7 @@ srv.listen(0, async () => {
       await p.close(); }
     await ctx.close(); }
   const largo = await b.newContext({ viewport: { width: 820, height: 900 } });
-  for (const u of ['/', '/cabin-bags/', '/cabin-bags/ryanair/']) { const p = await largo.newPage(); await p.goto(base + u, { waitUntil: 'load' });
+  for (const u of ['/', '/cabin-bags/', '/cabin-bags/ryanair/', '/available-in/', '/available-in/apple-pay/']) { const p = await largo.newPage(); await p.goto(base + u, { waitUntil: 'load' });
     const w = await p.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]); out.pagine.push({ url: u, tema: '820px', scroll: w[0], larghezza: w[1], errori: [] }); await p.close(); }
   await largo.close();
   await b.close(); srv.close(); console.log(JSON.stringify(out)); });
@@ -1413,6 +1422,8 @@ def _pagine_estere():
 
 PAGINE_ESTERE_BROWSER = _pagine_estere()
 PAGINE_IT_BROWSER = ["/it/documenti/", "/it/documenti/egitto/", "/it/documenti/spagna/", "/it/documenti/stati-uniti/"]
+PAGINE_SRV_BROWSER = ["/available-in/", "/available-in/starlink/", "/available-in/starlink/pakistan/", "/available-in/spotify/china/",
+                      "/available-in/youtube-premium/russia/"]
 PAGINE_BAG_BROWSER = ["/cabin-bags/", "/cabin-bags/ryanair/", "/cabin-bags/does-my-bag-fit/", "/cabin-bags/size/40x30x20/", "/cabin-bags/eu-personal-item-rule/"]
 
 
@@ -1424,7 +1435,7 @@ def controlla_browser():
         fh.write(BROWSER_JS)
     try:
         r = subprocess.run(["node", fh.name, str(SITO), cartella, json.dumps(PAGINE_ESTERE_BROWSER), json.dumps(CASI_BORSA), json.dumps(PAGINE_BAG_BROWSER),
-                            json.dumps(PAGINE_IT_BROWSER)],
+                            json.dumps(PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER)],
                            capture_output=True, text=True, timeout=600)
     finally:
         os.unlink(fh.name)
@@ -1543,6 +1554,146 @@ def controlla_altri_siti():
     return errori, n
 
 
+# ---------------------------------------------------------------- 17. "Is [service] available in [country]?" (28/10/2026)
+_spec_srv = importlib.util.spec_from_file_location("raccolta_servizi", Path(__file__).resolve().parent / "raccolta" / "servizi.py")
+RS = importlib.util.module_from_spec(_spec_srv)
+_spec_srv.loader.exec_module(RS)
+# Nomi di assistenti e modelli di intelligenza artificiale (al contrario, come _AL_CONTRARIO): mai nelle pagine nuove
+_AI_CONTRARIO = _AL_CONTRARIO + ["keespeed", "ytixelprep", "korg", "drab"]
+VIETATE_SRV = re.compile(r"\b(" + "|".join(w[::-1] for w in _AI_CONTRARIO) + r")\b", re.I)
+# Consigli per aggirare blocchi o leggi: mai nelle pagine nuove (le affiliazioni VPN non sono attive e non si consigliano)
+AGGIRARE = re.compile(r"\bVPN\b|\bproxy\b|smart ?DNS|get around|bypass|circumvent|change your (?:region|location)|unblock", re.I)
+
+
+def _attesa_breve(slug, voce):
+    """Etichetta attesa, scritta qui di nuovo (controllo indipendente da genera.breve_srv)."""
+    if voce is None:
+        return "Not on the list"
+    st = voce["stato"]
+    if st == "si":
+        return "Yes"
+    if st == "in_arrivo":
+        return "Coming soon"
+    if st == "per_regione":  # Starlink "exclude": il Paese è colorato regione per regione (revisione del 28/10/2026)
+        return "By region"
+    if slug == "starlink":
+        return "No service shown"
+    if slug == "youtube-premium":
+        return voce["nota"][0].upper() + voce["nota"][1:]
+    return "Not listed"
+
+
+def _attesa_inizio(slug, voce):
+    if voce is None:
+        return "Not known." if slug == "starlink" else "No, not according to the official list."
+    return {"si": "Yes.", "in_arrivo": "Not yet.", "per_regione": "It depends on the region.", "no": "No"}[voce["stato"]]
+
+
+def controlla_servizi():
+    from html import unescape
+    errori = []
+    conti = {"servizi": 0, "pagine": 0, "righe": 0, "faq": 0, "citazioni": 0, "cache": "assente"}
+    f = SITO.parent / "dati" / "servizi.json"
+    if not f.exists():
+        return ["dati/servizi.json mancante (lanciare raccolta/servizi.py)"], conti
+    D = json.loads(f.read_text(encoding="utf-8"))
+    dom = json.loads((SITO.parent / "dati" / "servizi_domanda.json").read_text(encoding="utf-8"))["servizi"]
+    iso = {p["iso2"] for p in json.loads((SITO.parent / "dati" / "paesi_iso.json").read_text(encoding="utf-8"))["paesi"]}
+    sm = leggi("sitemap.xml")
+    # ricalcolo dalla cache delle pagine grezze (fuori dal repository): le liste del JSON devono essere quelle delle pagine salvate
+    cache = RS.CACHE
+    if all((cache / f"{k}.{F['tipo']}").exists() for k, F in RS.FONTI.items()):
+        conti["cache"] = "presente"
+        grezzi = {k: (cache / f"{k}.{F['tipo']}").read_text(encoding="utf-8") for k, F in RS.FONTI.items()}
+        for S in D["servizi"]:
+            paesi, _ = RS.costruisci(S["slug"], grezzi)
+            if paesi != S["paesi"]:
+                errori.append(f"servizi {S['slug']}: la lista del JSON non è quella ricalcolata dalla pagina salvata")
+        for k, x in D["frasi"].items():
+            if x["frase"] not in RS.testo(grezzi[x["fonte"]]):
+                errori.append(f"servizi: frase {k} non più nella pagina salvata")
+    if {S["slug"] for S in D["servizi"]} & {w[::-1] for w in _AI_CONTRARIO} or VIETATE_SRV.search(json.dumps(D, ensure_ascii=False)):
+        errori.append("servizi: un assistente di intelligenza artificiale tra i servizi")
+    for S in D["servizi"]:
+        conti["servizi"] += 1
+        sl = S["slug"]
+        if RS.impronta(S["paesi"]) != S["impronta"]:
+            errori.append(f"servizi {sl}: impronta diversa dalla lista")
+        if not S["url_fonte"].startswith("https://") or not S["pagina"].startswith("https://") or S.get("http") != 200:
+            errori.append(f"servizi {sl}: fonte non https o lettura non 200")
+        if set(S["paesi"]) - iso:
+            errori.append(f"servizi {sl}: codici non ISO {sorted(set(S['paesi']) - iso)[:5]}")
+        t = leggi(f"{G.SRV_BASE}/{sl}/index.html")
+        d = G.data_lunga(S["letto_il"])
+        if escape(S["pagina"]) not in t or f"checked on {d}" not in t:
+            errori.append(f"servizi {sl}: pagina del servizio senza fonte o data")
+        righe = dict(re.findall(r'<tr data-voce id="([a-z]{2})"><td[^>]*>.*?</td><td[^>]*><span class="badge[^"]*">([^<]*)</span>', t))
+        if len(righe) != len(iso):
+            errori.append(f"servizi {sl}: {len(righe)} righe nella tabella invece di {len(iso)}")
+        for c in iso:
+            atteso = _attesa_breve(sl, S["paesi"].get(c))
+            if unescape(righe.get(c.lower(), "")) != atteso:
+                errori.append(f"servizi {sl}: riga {c} '{righe.get(c.lower())}' invece di '{atteso}'")
+            conti["righe"] += 1
+        if f"<loc>{G.URL_SITO}/{G.SRV_BASE}/{sl}/</loc><lastmod>{S['letto_il']}</lastmod>" not in sm:
+            errori.append(f"servizi {sl}: pagina del servizio non in sitemap o lastmod diverso dalla lettura")
+        # pagine servizio × Paese: esistono esattamente per le coppie con ricerche vere
+        attese = {c for c in dom.get(sl, {}) if c in iso}
+        cartella = SITO / G.SRV_BASE / sl
+        trovate = {p.parent.name for p in cartella.glob("*/index.html")}
+        if trovate != {G.slug_srv(c) for c in attese}:
+            errori.append(f"servizi {sl}: pagine Paese diverse dalle coppie con domanda: {sorted(trovate ^ {G.slug_srv(c) for c in attese})[:6]}")
+        for c in attese:
+            rel = f"{G.SRV_BASE}/{sl}/{G.slug_srv(c)}/"
+            if not (SITO / rel / "index.html").exists():
+                continue
+            conti["pagine"] += 1
+            t = leggi(rel + "index.html")
+            voce = S["paesi"].get(c)
+            m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t)
+            r = unescape(m.group(1)) if m else ""
+            if not r.startswith(_attesa_inizio(sl, voce)) or f"checked on {d})" not in r:
+                errori.append(f"{rel}: prima frase senza la risposta attesa, la fonte o la data: {r[:90]}")
+            if voce and voce.get("nota") and voce["stato"] != "no" and f"“{voce['nota']}”" not in r:
+                errori.append(f"{rel}: la nota della fonte non è nella risposta")
+            if voce is None and "is not the same as being banned" not in t and sl != "starlink":
+                errori.append(f"{rel}: manca la frase 'non nella lista non vuol dire vietato'")
+            if re.search(r"\b(?:is|are) (?:banned|illegal|blocked|prohibited)\b", unescape(t), re.I):
+                errori.append(f"{rel}: la pagina dice 'vietato/bloccato', che nessuna fonte dice")
+            if escape(S["pagina"]) not in t or f'href="../../../{G.SRV_BASE}/{sl}/"' not in t or f'href="../../../{G.SRV_BASE}/"' not in t:
+                errori.append(f"{rel}: link alla fonte, alla pagina del servizio o all'indice mancanti")
+            for k in G.CIT_SRV[sl][0] + G.CIT_SRV[sl][1]:
+                conti["citazioni"] += 1
+                if escape(D["frasi"][k]["frase"]) not in t:
+                    errori.append(f"{rel}: citazione {k} mancante")
+            if f"<loc>{G.URL_SITO}/{rel}</loc><lastmod>{S['letto_il']}</lastmod>" not in sm:
+                errori.append(f"{rel}: non in sitemap o lastmod diverso dalla lettura")
+            # FAQ: JSON-LD = testo visibile, prima risposta = prima frase della pagina
+            ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)]
+            faq = [x for x in ld if x.get("@type") == "FAQPage"]
+            vis = [(unescape(q), unescape(a)) for q, a in re.findall(r"<h3>(.*?)</h3><p>(.*?)</p>", t[t.find('<section class="faq">'):])]
+            if len(faq) != 1 or [(x["name"], x["acceptedAnswer"]["text"]) for x in faq[0]["mainEntity"]] != vis or not vis or vis[0][1] != r:
+                errori.append(f"{rel}: FAQ JSON-LD diversa dal testo visibile o dalla prima frase")
+            conti["faq"] += len(vis)
+            tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+            if len(tit) > 70 or not tit.startswith((f"Is {S['nome']} Available in", f"{S['nome']} in")):
+                errori.append(f"{rel}: titolo oltre 70 caratteri o senza la domanda: {tit}")
+    # tutte le pagine nuove: niente nomi di assistenti, niente consigli per aggirare, link da home, menu e About
+    for p in (SITO / G.SRV_BASE).rglob("*.html"):
+        t = unescape(re.sub(r"<[^>]+>", " ", p.read_text(encoding="utf-8")))
+        m = VIETATE_SRV.search(t) or AGGIRARE.search(t)
+        if m:
+            errori.append(f"{p.relative_to(SITO)}: parola vietata '{m.group(0)}'")
+    home = leggi("index.html")
+    if f'href="{G.SRV_BASE}/"' not in home or "Apps by country" not in home:
+        errori.append("home senza link alla sezione 'Apps by country'")
+    if f'href="../{G.SRV_BASE}/"' not in leggi("about/index.html") or 'id="available-in"' not in leggi("about/index.html"):
+        errori.append("About senza la sezione o senza il link 'Apps by country'")
+    if f"<loc>{G.URL_SITO}/{G.SRV_BASE}/</loc>" not in sm:
+        errori.append("indice available-in non in sitemap")
+    return errori, conti
+
+
 def controlla_indexnow():
     """File chiave IndexNow in sito/: presente, con dentro solo la chiave, fuori dalla sitemap (scritto da genera.py accanto a robots.txt)."""
     errori = []
@@ -1574,7 +1725,7 @@ def main():
         o, cartella = info
         n375 = sum(1 for x in o["pagine"] if x["tema"] in ("light", "dark"))
         print(f"7. Browser 375 px: {len(o['pagine'])} viste ({n375 // 2} pagine × tema chiaro e scuro + {len(o['pagine']) - n375} a 820 px; nuove: "
-              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER + PAGINE_IT_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
+              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER + PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
               f"{len(o['prove'])} prove, {len(e7)} errori; schermate in {cartella}")
     else:
         print(f"7. Browser 375 px: {e7[0] if e7 else ''}")
@@ -1605,7 +1756,11 @@ def main():
     print(f"15. Blocco \"Other useful tools for your trip\" ({len(G.ALTRI_SITI)} link, {len(G.ALTRI_SITI_IT)} nelle pagine italiane) in {n15} pagine indicizzabili: {len(e15)} errori")
     e16 = controlla_indexnow()
     print(f"16. File chiave IndexNow {G.CHIAVE_INDEXNOW}.txt in sito/ (contenuto giusto, fuori dalla sitemap): {len(e16)} errori")
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16
+    e17, c17 = controlla_servizi()
+    print(f"17. Available in?: {c17['servizi']} servizi, {c17['righe']} righe di tabella uguali ai dati, {c17['pagine']} pagine servizio × Paese "
+          f"(solo coppie con ricerche vere), {c17['faq']} risposte FAQ, {c17['citazioni']} citazioni; liste ricalcolate dalla cache: {c17['cache']}; "
+          f"sitemap con lastmod della lettura, nessun nome di assistente né consiglio per aggirare: {len(e17)} errori")
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17
     for e in tutti:
         print(" -", e)
     if tutti:

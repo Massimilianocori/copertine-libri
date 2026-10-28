@@ -1,0 +1,1722 @@
+{
+"_nota": "Codici ISO 3166-1 alfa-2 (più XK Kosovo, codice d'uso comune) con il nome inglese usato nelle pagine 'Is X available in Y?' e i nomi alternativi usati dalle fonti. Generato il 28/10/2026 dall'elenco iso-codes (Debian) con nomi brevi scelti a mano; si modifica a mano.",
+"paesi": [
+{
+"iso2": "AD",
+"nome": "Andorra",
+"alias": [
+"Principality of Andorra"
+]
+},
+{
+"iso2": "AE",
+"nome": "United Arab Emirates",
+"alias": [
+"Abu Dhabi",
+"Dubai",
+"UAE"
+]
+},
+{
+"iso2": "AF",
+"nome": "Afghanistan",
+"alias": [
+"Islamic Republic of Afghanistan"
+]
+},
+{
+"iso2": "AG",
+"nome": "Antigua and Barbuda",
+"alias": [
+"Antigua & Barbuda"
+]
+},
+{
+"iso2": "AI",
+"nome": "Anguilla",
+"alias": []
+},
+{
+"iso2": "AL",
+"nome": "Albania",
+"alias": [
+"Republic of Albania"
+]
+},
+{
+"iso2": "AM",
+"nome": "Armenia",
+"alias": [
+"Republic of Armenia"
+]
+},
+{
+"iso2": "AO",
+"nome": "Angola",
+"alias": [
+"Republic of Angola"
+]
+},
+{
+"iso2": "AQ",
+"nome": "Antarctica",
+"alias": []
+},
+{
+"iso2": "AR",
+"nome": "Argentina",
+"alias": [
+"Argentine Republic"
+]
+},
+{
+"iso2": "AS",
+"nome": "American Samoa",
+"alias": []
+},
+{
+"iso2": "AT",
+"nome": "Austria",
+"alias": [
+"Republic of Austria"
+]
+},
+{
+"iso2": "AU",
+"nome": "Australia",
+"alias": []
+},
+{
+"iso2": "AW",
+"nome": "Aruba",
+"alias": []
+},
+{
+"iso2": "AX",
+"nome": "Åland Islands",
+"alias": [
+"Aland",
+"Åland"
+]
+},
+{
+"iso2": "AZ",
+"nome": "Azerbaijan",
+"alias": [
+"Republic of Azerbaijan"
+]
+},
+{
+"iso2": "BA",
+"nome": "Bosnia and Herzegovina",
+"alias": [
+"Bosnia",
+"Bosnia & Herzegovina",
+"Bosnia-Herzegovina",
+"Republic of Bosnia and Herzegovina"
+]
+},
+{
+"iso2": "BB",
+"nome": "Barbados",
+"alias": []
+},
+{
+"iso2": "BD",
+"nome": "Bangladesh",
+"alias": [
+"People's Republic of Bangladesh"
+]
+},
+{
+"iso2": "BE",
+"nome": "Belgium",
+"alias": [
+"Kingdom of Belgium"
+]
+},
+{
+"iso2": "BF",
+"nome": "Burkina Faso",
+"alias": []
+},
+{
+"iso2": "BG",
+"nome": "Bulgaria",
+"alias": [
+"Republic of Bulgaria"
+]
+},
+{
+"iso2": "BH",
+"nome": "Bahrain",
+"alias": [
+"Kingdom of Bahrain"
+]
+},
+{
+"iso2": "BI",
+"nome": "Burundi",
+"alias": [
+"Republic of Burundi"
+]
+},
+{
+"iso2": "BJ",
+"nome": "Benin",
+"alias": [
+"Republic of Benin"
+]
+},
+{
+"iso2": "BL",
+"nome": "Saint Barthélemy",
+"alias": [
+"Saint-Barthélemy",
+"St Barts",
+"St. Barthélemy"
+]
+},
+{
+"iso2": "BM",
+"nome": "Bermuda",
+"alias": []
+},
+{
+"iso2": "BN",
+"nome": "Brunei",
+"alias": [
+"Brunei Darussalam"
+]
+},
+{
+"iso2": "BO",
+"nome": "Bolivia",
+"alias": [
+"Bolivia, Plurinational State of",
+"Plurinational State of Bolivia"
+]
+},
+{
+"iso2": "BQ",
+"nome": "Bonaire, Sint Eustatius and Saba",
+"alias": [
+"Caribbean Netherlands"
+]
+},
+{
+"iso2": "BR",
+"nome": "Brazil",
+"alias": [
+"Federative Republic of Brazil"
+]
+},
+{
+"iso2": "BS",
+"nome": "Bahamas",
+"alias": [
+"Commonwealth of the Bahamas",
+"The Bahamas"
+]
+},
+{
+"iso2": "BT",
+"nome": "Bhutan",
+"alias": [
+"Kingdom of Bhutan"
+]
+},
+{
+"iso2": "BV",
+"nome": "Bouvet Island",
+"alias": []
+},
+{
+"iso2": "BW",
+"nome": "Botswana",
+"alias": [
+"Republic of Botswana"
+]
+},
+{
+"iso2": "BY",
+"nome": "Belarus",
+"alias": [
+"Republic of Belarus"
+]
+},
+{
+"iso2": "BZ",
+"nome": "Belize",
+"alias": []
+},
+{
+"iso2": "CA",
+"nome": "Canada",
+"alias": []
+},
+{
+"iso2": "CC",
+"nome": "Cocos (Keeling) Islands",
+"alias": [
+"Cocos Islands"
+]
+},
+{
+"iso2": "CD",
+"nome": "Democratic Republic of the Congo",
+"alias": [
+"Congo - Kinshasa",
+"Congo, Democratic Republic of the",
+"Congo, The Democratic Republic of the",
+"DR Congo",
+"DRC",
+"Democratic Republic of Congo"
+]
+},
+{
+"iso2": "CF",
+"nome": "Central African Republic",
+"alias": []
+},
+{
+"iso2": "CG",
+"nome": "Republic of the Congo",
+"alias": [
+"Congo",
+"Congo - Brazzaville",
+"Congo, Republic of the"
+]
+},
+{
+"iso2": "CH",
+"nome": "Switzerland",
+"alias": [
+"Swiss Confederation"
+]
+},
+{
+"iso2": "CI",
+"nome": "Côte d'Ivoire",
+"alias": [
+"Cote d'Ivoire",
+"Ivory Coast",
+"Republic of Côte d'Ivoire"
+]
+},
+{
+"iso2": "CK",
+"nome": "Cook Islands",
+"alias": []
+},
+{
+"iso2": "CL",
+"nome": "Chile",
+"alias": [
+"Republic of Chile"
+]
+},
+{
+"iso2": "CM",
+"nome": "Cameroon",
+"alias": [
+"Republic of Cameroon"
+]
+},
+{
+"iso2": "CN",
+"nome": "China",
+"alias": [
+"China mainland",
+"Mainland China",
+"People's Republic of China"
+]
+},
+{
+"iso2": "CO",
+"nome": "Colombia",
+"alias": [
+"Republic of Colombia"
+]
+},
+{
+"iso2": "CR",
+"nome": "Costa Rica",
+"alias": [
+"Republic of Costa Rica"
+]
+},
+{
+"iso2": "CU",
+"nome": "Cuba",
+"alias": [
+"Republic of Cuba"
+]
+},
+{
+"iso2": "CV",
+"nome": "Cape Verde",
+"alias": [
+"Cabo Verde",
+"Republic of Cabo Verde"
+]
+},
+{
+"iso2": "CW",
+"nome": "Curaçao",
+"alias": [
+"Curacao"
+]
+},
+{
+"iso2": "CX",
+"nome": "Christmas Island",
+"alias": []
+},
+{
+"iso2": "CY",
+"nome": "Cyprus",
+"alias": [
+"Republic of Cyprus"
+]
+},
+{
+"iso2": "CZ",
+"nome": "Czechia",
+"alias": [
+"Czech Republic"
+]
+},
+{
+"iso2": "DE",
+"nome": "Germany",
+"alias": [
+"Federal Republic of Germany"
+]
+},
+{
+"iso2": "DJ",
+"nome": "Djibouti",
+"alias": [
+"Republic of Djibouti"
+]
+},
+{
+"iso2": "DK",
+"nome": "Denmark",
+"alias": [
+"Kingdom of Denmark"
+]
+},
+{
+"iso2": "DM",
+"nome": "Dominica",
+"alias": [
+"Commonwealth of Dominica"
+]
+},
+{
+"iso2": "DO",
+"nome": "Dominican Republic",
+"alias": []
+},
+{
+"iso2": "DZ",
+"nome": "Algeria",
+"alias": [
+"People's Democratic Republic of Algeria"
+]
+},
+{
+"iso2": "EC",
+"nome": "Ecuador",
+"alias": [
+"Republic of Ecuador"
+]
+},
+{
+"iso2": "EE",
+"nome": "Estonia",
+"alias": [
+"Republic of Estonia"
+]
+},
+{
+"iso2": "EG",
+"nome": "Egypt",
+"alias": [
+"Arab Republic of Egypt"
+]
+},
+{
+"iso2": "EH",
+"nome": "Western Sahara",
+"alias": []
+},
+{
+"iso2": "ER",
+"nome": "Eritrea",
+"alias": [
+"the State of Eritrea"
+]
+},
+{
+"iso2": "ES",
+"nome": "Spain",
+"alias": [
+"Kingdom of Spain"
+]
+},
+{
+"iso2": "ET",
+"nome": "Ethiopia",
+"alias": [
+"Federal Democratic Republic of Ethiopia"
+]
+},
+{
+"iso2": "FI",
+"nome": "Finland",
+"alias": [
+"Republic of Finland"
+]
+},
+{
+"iso2": "FJ",
+"nome": "Fiji",
+"alias": [
+"Republic of Fiji"
+]
+},
+{
+"iso2": "FK",
+"nome": "Falkland Islands",
+"alias": [
+"Falkland Islands (Malvinas)"
+]
+},
+{
+"iso2": "FM",
+"nome": "Micronesia",
+"alias": [
+"Federated States of Micronesia",
+"Micronesia, Federated States of"
+]
+},
+{
+"iso2": "FO",
+"nome": "Faroe Islands",
+"alias": []
+},
+{
+"iso2": "FR",
+"nome": "France",
+"alias": [
+"French Republic"
+]
+},
+{
+"iso2": "GA",
+"nome": "Gabon",
+"alias": [
+"Gabonese Republic"
+]
+},
+{
+"iso2": "GB",
+"nome": "United Kingdom",
+"alias": [
+"Britain",
+"England",
+"Great Britain",
+"Northern Ireland",
+"Scotland",
+"UK",
+"United Kingdom of Great Britain and Northern Ireland",
+"Wales"
+]
+},
+{
+"iso2": "GD",
+"nome": "Grenada",
+"alias": []
+},
+{
+"iso2": "GE",
+"nome": "Georgia",
+"alias": []
+},
+{
+"iso2": "GF",
+"nome": "French Guiana",
+"alias": [
+"French Guyana"
+]
+},
+{
+"iso2": "GG",
+"nome": "Guernsey",
+"alias": []
+},
+{
+"iso2": "GH",
+"nome": "Ghana",
+"alias": [
+"Republic of Ghana"
+]
+},
+{
+"iso2": "GI",
+"nome": "Gibraltar",
+"alias": []
+},
+{
+"iso2": "GL",
+"nome": "Greenland",
+"alias": []
+},
+{
+"iso2": "GM",
+"nome": "Gambia",
+"alias": [
+"Republic of the Gambia",
+"The Gambia"
+]
+},
+{
+"iso2": "GN",
+"nome": "Guinea",
+"alias": [
+"Republic of Guinea"
+]
+},
+{
+"iso2": "GP",
+"nome": "Guadeloupe",
+"alias": []
+},
+{
+"iso2": "GQ",
+"nome": "Equatorial Guinea",
+"alias": [
+"Republic of Equatorial Guinea"
+]
+},
+{
+"iso2": "GR",
+"nome": "Greece",
+"alias": [
+"Hellenic Republic"
+]
+},
+{
+"iso2": "GS",
+"nome": "South Georgia and the South Sandwich Islands",
+"alias": []
+},
+{
+"iso2": "GT",
+"nome": "Guatemala",
+"alias": [
+"Republic of Guatemala"
+]
+},
+{
+"iso2": "GU",
+"nome": "Guam",
+"alias": []
+},
+{
+"iso2": "GW",
+"nome": "Guinea-Bissau",
+"alias": [
+"Republic of Guinea-Bissau"
+]
+},
+{
+"iso2": "GY",
+"nome": "Guyana",
+"alias": [
+"Republic of Guyana"
+]
+},
+{
+"iso2": "HK",
+"nome": "Hong Kong",
+"alias": [
+"Hong Kong SAR",
+"Hong Kong SAR China",
+"Hong Kong Special Administrative Region of China"
+]
+},
+{
+"iso2": "HM",
+"nome": "Heard Island and McDonald Islands",
+"alias": []
+},
+{
+"iso2": "HN",
+"nome": "Honduras",
+"alias": [
+"Republic of Honduras"
+]
+},
+{
+"iso2": "HR",
+"nome": "Croatia",
+"alias": [
+"Republic of Croatia"
+]
+},
+{
+"iso2": "HT",
+"nome": "Haiti",
+"alias": [
+"Republic of Haiti"
+]
+},
+{
+"iso2": "HU",
+"nome": "Hungary",
+"alias": []
+},
+{
+"iso2": "ID",
+"nome": "Indonesia",
+"alias": [
+"Republic of Indonesia"
+]
+},
+{
+"iso2": "IE",
+"nome": "Ireland",
+"alias": []
+},
+{
+"iso2": "IL",
+"nome": "Israel",
+"alias": [
+"State of Israel"
+]
+},
+{
+"iso2": "IM",
+"nome": "Isle of Man",
+"alias": []
+},
+{
+"iso2": "IN",
+"nome": "India",
+"alias": [
+"Republic of India"
+]
+},
+{
+"iso2": "IO",
+"nome": "British Indian Ocean Territory",
+"alias": []
+},
+{
+"iso2": "IQ",
+"nome": "Iraq",
+"alias": [
+"Republic of Iraq"
+]
+},
+{
+"iso2": "IR",
+"nome": "Iran",
+"alias": [
+"Iran, Islamic Republic of",
+"Islamic Republic of Iran"
+]
+},
+{
+"iso2": "IS",
+"nome": "Iceland",
+"alias": [
+"Republic of Iceland"
+]
+},
+{
+"iso2": "IT",
+"nome": "Italy",
+"alias": [
+"Italian Republic"
+]
+},
+{
+"iso2": "JE",
+"nome": "Jersey",
+"alias": []
+},
+{
+"iso2": "JM",
+"nome": "Jamaica",
+"alias": []
+},
+{
+"iso2": "JO",
+"nome": "Jordan",
+"alias": [
+"Hashemite Kingdom of Jordan"
+]
+},
+{
+"iso2": "JP",
+"nome": "Japan",
+"alias": []
+},
+{
+"iso2": "KE",
+"nome": "Kenya",
+"alias": [
+"Republic of Kenya"
+]
+},
+{
+"iso2": "KG",
+"nome": "Kyrgyzstan",
+"alias": [
+"Kyrgyz Republic"
+]
+},
+{
+"iso2": "KH",
+"nome": "Cambodia",
+"alias": [
+"Kingdom of Cambodia"
+]
+},
+{
+"iso2": "KI",
+"nome": "Kiribati",
+"alias": [
+"Republic of Kiribati"
+]
+},
+{
+"iso2": "KM",
+"nome": "Comoros",
+"alias": [
+"Union of the Comoros"
+]
+},
+{
+"iso2": "KN",
+"nome": "Saint Kitts and Nevis",
+"alias": [
+"Saint Kitts & Nevis",
+"St Kitts and Nevis",
+"St. Kitts & Nevis",
+"St. Kitts and Nevis"
+]
+},
+{
+"iso2": "KP",
+"nome": "North Korea",
+"alias": [
+"Democratic People's Republic of Korea",
+"Korea, Democratic People's Republic of",
+"Korea, North"
+]
+},
+{
+"iso2": "KR",
+"nome": "South Korea",
+"alias": [
+"Korea",
+"Korea, Republic of",
+"Republic of Korea"
+]
+},
+{
+"iso2": "KW",
+"nome": "Kuwait",
+"alias": [
+"State of Kuwait"
+]
+},
+{
+"iso2": "KY",
+"nome": "Cayman Islands",
+"alias": []
+},
+{
+"iso2": "KZ",
+"nome": "Kazakhstan",
+"alias": [
+"Republic of Kazakhstan"
+]
+},
+{
+"iso2": "LA",
+"nome": "Laos",
+"alias": [
+"Lao PDR",
+"Lao People's Democratic Republic"
+]
+},
+{
+"iso2": "LB",
+"nome": "Lebanon",
+"alias": [
+"Lebanese Republic"
+]
+},
+{
+"iso2": "LC",
+"nome": "Saint Lucia",
+"alias": [
+"St Lucia",
+"St. Lucia"
+]
+},
+{
+"iso2": "LI",
+"nome": "Liechtenstein",
+"alias": [
+"Principality of Liechtenstein"
+]
+},
+{
+"iso2": "LK",
+"nome": "Sri Lanka",
+"alias": [
+"Democratic Socialist Republic of Sri Lanka"
+]
+},
+{
+"iso2": "LR",
+"nome": "Liberia",
+"alias": [
+"Republic of Liberia"
+]
+},
+{
+"iso2": "LS",
+"nome": "Lesotho",
+"alias": [
+"Kingdom of Lesotho"
+]
+},
+{
+"iso2": "LT",
+"nome": "Lithuania",
+"alias": [
+"Republic of Lithuania"
+]
+},
+{
+"iso2": "LU",
+"nome": "Luxembourg",
+"alias": [
+"Grand Duchy of Luxembourg"
+]
+},
+{
+"iso2": "LV",
+"nome": "Latvia",
+"alias": [
+"Republic of Latvia"
+]
+},
+{
+"iso2": "LY",
+"nome": "Libya",
+"alias": []
+},
+{
+"iso2": "MA",
+"nome": "Morocco",
+"alias": [
+"Kingdom of Morocco"
+]
+},
+{
+"iso2": "MC",
+"nome": "Monaco",
+"alias": [
+"Principality of Monaco"
+]
+},
+{
+"iso2": "MD",
+"nome": "Moldova",
+"alias": [
+"Moldova, Republic of",
+"Republic of Moldova"
+]
+},
+{
+"iso2": "ME",
+"nome": "Montenegro",
+"alias": []
+},
+{
+"iso2": "MF",
+"nome": "Saint Martin (French part)",
+"alias": [
+"Saint Martin",
+"St. Martin"
+]
+},
+{
+"iso2": "MG",
+"nome": "Madagascar",
+"alias": [
+"Republic of Madagascar"
+]
+},
+{
+"iso2": "MH",
+"nome": "Marshall Islands",
+"alias": [
+"Republic of the Marshall Islands"
+]
+},
+{
+"iso2": "MK",
+"nome": "North Macedonia",
+"alias": [
+"Macedonia",
+"Republic of North Macedonia"
+]
+},
+{
+"iso2": "ML",
+"nome": "Mali",
+"alias": [
+"Republic of Mali"
+]
+},
+{
+"iso2": "MM",
+"nome": "Myanmar",
+"alias": [
+"Burma",
+"Republic of Myanmar"
+]
+},
+{
+"iso2": "MN",
+"nome": "Mongolia",
+"alias": []
+},
+{
+"iso2": "MO",
+"nome": "Macao",
+"alias": [
+"Macao Special Administrative Region of China",
+"Macau"
+]
+},
+{
+"iso2": "MP",
+"nome": "Northern Mariana Islands",
+"alias": [
+"Commonwealth of the Northern Mariana Islands",
+"Northern Marianas"
+]
+},
+{
+"iso2": "MQ",
+"nome": "Martinique",
+"alias": []
+},
+{
+"iso2": "MR",
+"nome": "Mauritania",
+"alias": [
+"Islamic Republic of Mauritania"
+]
+},
+{
+"iso2": "MS",
+"nome": "Montserrat",
+"alias": []
+},
+{
+"iso2": "MT",
+"nome": "Malta",
+"alias": [
+"Republic of Malta"
+]
+},
+{
+"iso2": "MU",
+"nome": "Mauritius",
+"alias": [
+"Republic of Mauritius"
+]
+},
+{
+"iso2": "MV",
+"nome": "Maldives",
+"alias": [
+"Republic of Maldives"
+]
+},
+{
+"iso2": "MW",
+"nome": "Malawi",
+"alias": [
+"Republic of Malawi"
+]
+},
+{
+"iso2": "MX",
+"nome": "Mexico",
+"alias": [
+"United Mexican States"
+]
+},
+{
+"iso2": "MY",
+"nome": "Malaysia",
+"alias": []
+},
+{
+"iso2": "MZ",
+"nome": "Mozambique",
+"alias": [
+"Republic of Mozambique"
+]
+},
+{
+"iso2": "NA",
+"nome": "Namibia",
+"alias": [
+"Republic of Namibia"
+]
+},
+{
+"iso2": "NC",
+"nome": "New Caledonia",
+"alias": []
+},
+{
+"iso2": "NE",
+"nome": "Niger",
+"alias": [
+"Republic of the Niger"
+]
+},
+{
+"iso2": "NF",
+"nome": "Norfolk Island",
+"alias": []
+},
+{
+"iso2": "NG",
+"nome": "Nigeria",
+"alias": [
+"Federal Republic of Nigeria"
+]
+},
+{
+"iso2": "NI",
+"nome": "Nicaragua",
+"alias": [
+"Republic of Nicaragua"
+]
+},
+{
+"iso2": "NL",
+"nome": "Netherlands",
+"alias": [
+"Holland",
+"Kingdom of the Netherlands"
+]
+},
+{
+"iso2": "NO",
+"nome": "Norway",
+"alias": [
+"Kingdom of Norway"
+]
+},
+{
+"iso2": "NP",
+"nome": "Nepal",
+"alias": [
+"Federal Democratic Republic of Nepal"
+]
+},
+{
+"iso2": "NR",
+"nome": "Nauru",
+"alias": [
+"Republic of Nauru"
+]
+},
+{
+"iso2": "NU",
+"nome": "Niue",
+"alias": []
+},
+{
+"iso2": "NZ",
+"nome": "New Zealand",
+"alias": []
+},
+{
+"iso2": "OM",
+"nome": "Oman",
+"alias": [
+"Sultanate of Oman"
+]
+},
+{
+"iso2": "PA",
+"nome": "Panama",
+"alias": [
+"Republic of Panama"
+]
+},
+{
+"iso2": "PE",
+"nome": "Peru",
+"alias": [
+"Republic of Peru"
+]
+},
+{
+"iso2": "PF",
+"nome": "French Polynesia",
+"alias": []
+},
+{
+"iso2": "PG",
+"nome": "Papua New Guinea",
+"alias": [
+"Independent State of Papua New Guinea"
+]
+},
+{
+"iso2": "PH",
+"nome": "Philippines",
+"alias": [
+"Republic of the Philippines",
+"The Philippines"
+]
+},
+{
+"iso2": "PK",
+"nome": "Pakistan",
+"alias": [
+"Islamic Republic of Pakistan"
+]
+},
+{
+"iso2": "PL",
+"nome": "Poland",
+"alias": [
+"Republic of Poland"
+]
+},
+{
+"iso2": "PM",
+"nome": "Saint Pierre and Miquelon",
+"alias": [
+"Saint-Pierre-et-Miquelon",
+"St. Pierre & Miquelon"
+]
+},
+{
+"iso2": "PN",
+"nome": "Pitcairn Islands",
+"alias": [
+"Pitcairn"
+]
+},
+{
+"iso2": "PR",
+"nome": "Puerto Rico",
+"alias": []
+},
+{
+"iso2": "PS",
+"nome": "Palestine",
+"alias": [
+"Palestine, State of",
+"Palestinian Territories",
+"the State of Palestine"
+]
+},
+{
+"iso2": "PT",
+"nome": "Portugal",
+"alias": [
+"Portuguese Republic"
+]
+},
+{
+"iso2": "PW",
+"nome": "Palau",
+"alias": [
+"Republic of Palau"
+]
+},
+{
+"iso2": "PY",
+"nome": "Paraguay",
+"alias": [
+"Republic of Paraguay"
+]
+},
+{
+"iso2": "QA",
+"nome": "Qatar",
+"alias": [
+"State of Qatar"
+]
+},
+{
+"iso2": "RE",
+"nome": "Réunion",
+"alias": [
+"Reunion"
+]
+},
+{
+"iso2": "RO",
+"nome": "Romania",
+"alias": []
+},
+{
+"iso2": "RS",
+"nome": "Serbia",
+"alias": [
+"Republic of Serbia"
+]
+},
+{
+"iso2": "RU",
+"nome": "Russia",
+"alias": [
+"Russian Federation"
+]
+},
+{
+"iso2": "RW",
+"nome": "Rwanda",
+"alias": [
+"Rwandese Republic"
+]
+},
+{
+"iso2": "SA",
+"nome": "Saudi Arabia",
+"alias": [
+"Kingdom of Saudi Arabia"
+]
+},
+{
+"iso2": "SB",
+"nome": "Solomon Islands",
+"alias": []
+},
+{
+"iso2": "SC",
+"nome": "Seychelles",
+"alias": [
+"Republic of Seychelles"
+]
+},
+{
+"iso2": "SD",
+"nome": "Sudan",
+"alias": [
+"Republic of the Sudan"
+]
+},
+{
+"iso2": "SE",
+"nome": "Sweden",
+"alias": [
+"Kingdom of Sweden"
+]
+},
+{
+"iso2": "SG",
+"nome": "Singapore",
+"alias": [
+"Republic of Singapore"
+]
+},
+{
+"iso2": "SH",
+"nome": "Saint Helena, Ascension and Tristan da Cunha",
+"alias": [
+"Saint Helena",
+"St. Helena"
+]
+},
+{
+"iso2": "SI",
+"nome": "Slovenia",
+"alias": [
+"Republic of Slovenia"
+]
+},
+{
+"iso2": "SJ",
+"nome": "Svalbard and Jan Mayen",
+"alias": [
+"Svalbard & Jan Mayen"
+]
+},
+{
+"iso2": "SK",
+"nome": "Slovakia",
+"alias": [
+"Slovak Republic"
+]
+},
+{
+"iso2": "SL",
+"nome": "Sierra Leone",
+"alias": [
+"Republic of Sierra Leone"
+]
+},
+{
+"iso2": "SM",
+"nome": "San Marino",
+"alias": [
+"Republic of San Marino"
+]
+},
+{
+"iso2": "SN",
+"nome": "Senegal",
+"alias": [
+"Republic of Senegal"
+]
+},
+{
+"iso2": "SO",
+"nome": "Somalia",
+"alias": [
+"Federal Republic of Somalia"
+]
+},
+{
+"iso2": "SR",
+"nome": "Suriname",
+"alias": [
+"Republic of Suriname"
+]
+},
+{
+"iso2": "SS",
+"nome": "South Sudan",
+"alias": [
+"Republic of South Sudan"
+]
+},
+{
+"iso2": "ST",
+"nome": "São Tomé and Príncipe",
+"alias": [
+"Democratic Republic of Sao Tome and Principe",
+"Sao Tome and Principe",
+"São Tomé & Príncipe"
+]
+},
+{
+"iso2": "SV",
+"nome": "El Salvador",
+"alias": [
+"Republic of El Salvador"
+]
+},
+{
+"iso2": "SX",
+"nome": "Sint Maarten",
+"alias": [
+"Sint Maarten (Dutch part)"
+]
+},
+{
+"iso2": "SY",
+"nome": "Syria",
+"alias": [
+"Syrian Arab Republic"
+]
+},
+{
+"iso2": "SZ",
+"nome": "Eswatini",
+"alias": [
+"Kingdom of Eswatini",
+"Swaziland"
+]
+},
+{
+"iso2": "TC",
+"nome": "Turks and Caicos Islands",
+"alias": [
+"Turks & Caicos Islands",
+"Turks and Caicos"
+]
+},
+{
+"iso2": "TD",
+"nome": "Chad",
+"alias": [
+"Republic of Chad"
+]
+},
+{
+"iso2": "TF",
+"nome": "French Southern Territories",
+"alias": []
+},
+{
+"iso2": "TG",
+"nome": "Togo",
+"alias": [
+"Togolese Republic"
+]
+},
+{
+"iso2": "TH",
+"nome": "Thailand",
+"alias": [
+"Kingdom of Thailand"
+]
+},
+{
+"iso2": "TJ",
+"nome": "Tajikistan",
+"alias": [
+"Republic of Tajikistan"
+]
+},
+{
+"iso2": "TK",
+"nome": "Tokelau",
+"alias": []
+},
+{
+"iso2": "TL",
+"nome": "Timor-Leste",
+"alias": [
+"Democratic Republic of Timor-Leste",
+"East Timor"
+]
+},
+{
+"iso2": "TM",
+"nome": "Turkmenistan",
+"alias": []
+},
+{
+"iso2": "TN",
+"nome": "Tunisia",
+"alias": [
+"Republic of Tunisia"
+]
+},
+{
+"iso2": "TO",
+"nome": "Tonga",
+"alias": [
+"Kingdom of Tonga"
+]
+},
+{
+"iso2": "TR",
+"nome": "Turkey",
+"alias": [
+"Republic of Türkiye",
+"Turkiye",
+"Türkiye"
+]
+},
+{
+"iso2": "TT",
+"nome": "Trinidad and Tobago",
+"alias": [
+"Republic of Trinidad and Tobago",
+"Trinidad & Tobago"
+]
+},
+{
+"iso2": "TV",
+"nome": "Tuvalu",
+"alias": []
+},
+{
+"iso2": "TW",
+"nome": "Taiwan",
+"alias": [
+"Taiwan, Province of China"
+]
+},
+{
+"iso2": "TZ",
+"nome": "Tanzania",
+"alias": [
+"Tanzania, United Republic of",
+"United Republic of Tanzania"
+]
+},
+{
+"iso2": "UA",
+"nome": "Ukraine",
+"alias": []
+},
+{
+"iso2": "UG",
+"nome": "Uganda",
+"alias": [
+"Republic of Uganda"
+]
+},
+{
+"iso2": "UM",
+"nome": "United States Minor Outlying Islands",
+"alias": [
+"US Minor Outlying Islands"
+]
+},
+{
+"iso2": "US",
+"nome": "United States",
+"alias": [
+"America",
+"The United States",
+"US",
+"USA",
+"United States of America"
+]
+},
+{
+"iso2": "UY",
+"nome": "Uruguay",
+"alias": [
+"Eastern Republic of Uruguay"
+]
+},
+{
+"iso2": "UZ",
+"nome": "Uzbekistan",
+"alias": [
+"Republic of Uzbekistan"
+]
+},
+{
+"iso2": "VA",
+"nome": "Vatican City",
+"alias": [
+"Holy See",
+"Holy See (Vatican City State)",
+"Vatican"
+]
+},
+{
+"iso2": "VC",
+"nome": "Saint Vincent and the Grenadines",
+"alias": [
+"Saint Vincent & the Grenadines",
+"St Vincent and the Grenadines",
+"St. Vincent & Grenadines",
+"St. Vincent and the Grenadines"
+]
+},
+{
+"iso2": "VE",
+"nome": "Venezuela",
+"alias": [
+"Bolivarian Republic of Venezuela",
+"Venezuela, Bolivarian Republic of"
+]
+},
+{
+"iso2": "VG",
+"nome": "British Virgin Islands",
+"alias": [
+"Virgin Islands, British"
+]
+},
+{
+"iso2": "VI",
+"nome": "US Virgin Islands",
+"alias": [
+"U.S. Virgin Islands",
+"United States Virgin Islands",
+"Virgin Islands (U.S.)",
+"Virgin Islands of the United States",
+"Virgin Islands, U.S."
+]
+},
+{
+"iso2": "VN",
+"nome": "Vietnam",
+"alias": [
+"Socialist Republic of Viet Nam",
+"Viet Nam"
+]
+},
+{
+"iso2": "VU",
+"nome": "Vanuatu",
+"alias": [
+"Republic of Vanuatu"
+]
+},
+{
+"iso2": "WF",
+"nome": "Wallis and Futuna",
+"alias": []
+},
+{
+"iso2": "WS",
+"nome": "Samoa",
+"alias": [
+"Independent State of Samoa"
+]
+},
+{
+"iso2": "XK",
+"nome": "Kosovo",
+"alias": []
+},
+{
+"iso2": "YE",
+"nome": "Yemen",
+"alias": [
+"Republic of Yemen"
+]
+},
+{
+"iso2": "YT",
+"nome": "Mayotte",
+"alias": []
+},
+{
+"iso2": "ZA",
+"nome": "South Africa",
+"alias": [
+"Republic of South Africa"
+]
+},
+{
+"iso2": "ZM",
+"nome": "Zambia",
+"alias": [
+"Republic of Zambia"
+]
+},
+{
+"iso2": "ZW",
+"nome": "Zimbabwe",
+"alias": [
+"Republic of Zimbabwe"
+]
+}
+]
+}
