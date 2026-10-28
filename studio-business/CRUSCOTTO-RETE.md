@@ -124,7 +124,7 @@ A 12 mesi: realistico 1.000-4.000 €. Cifre lorde, prima di tasse e contributi.
 
 | Programma | Stato | Data | Prossimo passo |
 |---|---|---|---|
-| SafetyWing Ambassador | Attivo, link nel sito | 10/10/2026 | Nessuno |
+| SafetyWing Ambassador | Account attivo; link tolti dai siti il 17/10 | 10/10/2026 | Rimettere i link dopo il passaggio al CAF (sì alla monetizzazione del 28/10) |
 | Airalo (Impact) | **Respinto** ("non è il momento giusto", porta aperta) | 12/10/2026 | Ripresentare la domanda quando un sito supera 1.000 visite al mese, con i numeri |
 | Travelpayouts (Omio, Welcome Pickups, EKTA) | Account approvato, sito da verificare | 10/10/2026 | In pausa: la verifica chiede uno script con cookie di tracciamento, non compatibile con la privacy attuale senza banner dei cookie. Dal 17/10: chiedere al supporto la verifica con meta tag (testo pronto in `affiliazioni-2026-10-17.md` sez. 3) |
 | italki (diretto) | Da chiedere (n. 1) | 17/10/2026 | EsameB1. Commissione nel pannello dopo l'approvazione; dollari via PayPal. Scheda 1 di `affiliazioni-2026-10-17.md` |
@@ -175,6 +175,8 @@ Si riprendono solo quando la soglia è raggiunta. Prima vengono i libri KDP già
 | Dati scioperi per aziende (Italy Strikes "For businesses") | Abbonamento B2B | Italy Strikes ≥ 1.000 visite al mese o una richiesta vera dal modulo | Risposta del consulente fiscale |
 
 ## 8. Registro delle decisioni
+
+- 28/10/2026 (dopo la revisione): **Massimiliano dice sì alla monetizzazione** ("se è il momento sì; sì a tutto quello che migliora il fatturato") e sì alla bozza di email all'Osservatorio del MIT. Finisce la sospensione del 17/10 (siti solo informativi). Ordine: (1) CAF: codice attività per pubblicità e affiliazioni sui siti (lo studio indica 58.19.00) e iscrizione VIES, prima del primo incasso; (2) account AdSense di Massimiliano, primo sito EsameB1, poi gli altri; codice editore nei `genera.py` e `ads.txt` quando arriva; privacy aggiornate con il banner di consenso di Google; (3) affiliazioni scelte sui numeri veri (prima EsameB1 e Visa Income), elenco dalla ricerca profonda. Chiesto anche ("puoi fare ricerche più approfondite"): **ricerca profonda in tre direzioni** (prove dal mercato dei siti in vendita, canale degli assistenti AI, nicchie ad alta commissione ora che i soldi sono sbloccati), rapporti `intelaiatura/ricerca-profonda-2026-10-28-*.md`.
 
 - 28/10/2026 (revisione del mercoledì): **303 visite in 7 giorni** (21-27/10), il triplo del 21/10. EsameB1 189 (+66 %) e 11 iscritti veri: è il motore della rete; Visa Income 55 (da ChatGPT), Before You Fly 30, Cruise 21, Aste 5, Tourist Tax 3 (prime visite). Provenienza: Google 134, ChatGPT 68. 10 siti su 10 online. Robot scioperi: fermo il 26-27/10 (registro MIT chiuso all'estero), ripartito il 28/10 con la riserva della Commissione di garanzia (2 scioperi Italo del 9/11 aggiunti). Decisioni: (1) azione della settimana su EsameB1 (ricongiungimento, pagine più viste, fonti PDF sostituite; pubblicazione del 2/11), perché si avvicina alle 1.000 visite al mese della fase "Spinta"; (2) ricerca del 28/10: 11 nicchie, 3 passano ma nessuna sopra i 5.000 €/anno (migliore: aiuti per disastri per contea in FloodCost, voto 7,5), in cantiere senza messaggio; (3) niente da congelare: nessun sito ha 30 giorni di numeri; (4) restano da Massimiliano due sì/no: aprire la pubblicità (AdSense) e le affiliazioni; email all'Osservatorio del MIT.
 
