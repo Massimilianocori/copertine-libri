@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:mit-8557@italy-strikes-today.netlify.app
-DTSTAMP:20261027T225628Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
 SUMMARY:Strike: National air transport strike – easyJet cabin crew
@@ -24,24 +24,26 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8597@italy-strikes-today.netlify.app
-DTSTAMP:20261027T225628Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20261028
 DTEND;VALUE=DATE:20261030
-SUMMARY:Strike: Emilia-Romagna: rail strike – Trenitalia
+SUMMARY:Called off: Emilia-Romagna: rail strike – Trenitalia
 DESCRIPTION:Hours: 24 hours: from 21:00 on 28 Oct to 21:00 on 29 Oct\nOrigi
  nal: 24 ORE: DALLE 21.00 DEL 28/10 ALLE 21.00 DEL 29/10\nWho: Trenitalia (
  PERSONALE SOC. TRENITALIA DIV. CUSTOMER OPERATIONS SEDI DI BOLOGNA\, REGGI
  O EMILIA STORICA ED AV MEDIOPADANA\, RIMINI)\nWhere: Emilia-Romagna region
  \nStrikes can be called off or changed: always check with your operator.\n
  https://italy-strikes-today.netlify.app/bologna/\nSource: MIT strike regis
- ter (CC BY 4.0)\, id 8597
+ ter (CC BY 4.0)\, id 8597\nCalled off according to the Commissione di gara
+ nzia sciopero (via onData\, CC BY 4.0)\, https://www.cgsse.it/calendario-s
+ cioperi/dettaglio-sciopero/381669
 URL:https://italy-strikes-today.netlify.app/bologna/
 TRANSP:TRANSPARENT
-STATUS:CONFIRMED
+STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8604@italy-strikes-today.netlify.app
-DTSTAMP:20261027T225628Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20261029
 DTEND;VALUE=DATE:20261030
 SUMMARY:Called off: Air transport strike
@@ -59,7 +61,7 @@ STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8606@italy-strikes-today.netlify.app
-DTSTAMP:20261027T225628Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National ferry and port strike
@@ -74,7 +76,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8590@italy-strikes-today.netlify.app
-DTSTAMP:20261027T225628Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National general strike
@@ -94,7 +96,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8612@italy-strikes-today.netlify.app
-DTSTAMP:20261027T225628Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National general strike
@@ -109,8 +111,40 @@ TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:cgsse-382437@italy-strikes-today.netlify.app
+DTSTAMP:20261028T080156Z
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261110
+SUMMARY:Strike: National rail strike – Italo
+DESCRIPTION:Hours: From 09:01 to 16:59\nOriginal: DALLE ORE 9.01 ALLE ORE 1
+ 6.59\nWho: Italo (ITALO NTV)\nWhere: Whole of Italy\nStrikes can be called
+  off or changed: always check with your operator.\nhttps://italy-strikes-t
+ oday.netlify.app/bologna/\nSource: Commissione di garanzia sciopero (via o
+ nData\, CC BY 4.0)\, https://www.cgsse.it/calendario-scioperi/dettaglio-sc
+ iopero/382437
+URL:https://italy-strikes-today.netlify.app/bologna/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:cgsse-382665@italy-strikes-today.netlify.app
+DTSTAMP:20261028T080156Z
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261110
+SUMMARY:Strike: National rail strike – Italo
+DESCRIPTION:Hours: From 02:00 to 23:59\nOriginal: DALLE ORE 2.00 ALLE ORE 2
+ 3.59\nWho: Italo (ITALO NTV)\nWhere: Whole of Italy\nStrikes can be called
+  off or changed: always check with your operator.\nhttps://italy-strikes-t
+ oday.netlify.app/bologna/\nSource: Commissione di garanzia sciopero (via o
+ nData\, CC BY 4.0)\, https://www.cgsse.it/calendario-scioperi/dettaglio-sc
+ iopero/382665
+URL:https://italy-strikes-today.netlify.app/bologna/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:mit-8610@italy-strikes-today.netlify.app
-DTSTAMP:20261027T225628Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261121
 SUMMARY:Strike: National general strike
@@ -125,7 +159,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8592@italy-strikes-today.netlify.app
-DTSTAMP:20261027T225628Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National multi-sector strike
@@ -144,7 +178,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8571@italy-strikes-today.netlify.app
-DTSTAMP:20261027T225628Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National air transport strike – ENAV (air traffic control
@@ -160,7 +194,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8575@italy-strikes-today.netlify.app
-DTSTAMP:20261027T225628Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:Strike: National general strike
@@ -181,7 +215,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8607@italy-strikes-today.netlify.app
-DTSTAMP:20261027T225628Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20261215
 DTEND;VALUE=DATE:20261216
 SUMMARY:Strike: Air transport strike – ENAV (air traffic control)
@@ -196,7 +230,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8613@italy-strikes-today.netlify.app
-DTSTAMP:20261027T225628Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:Strike: National air transport strike – ENAV (air traffic control
@@ -211,7 +245,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8614@italy-strikes-today.netlify.app
-DTSTAMP:20261027T225628Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:Strike: National air transport strike – Techno Sky (air traffic c

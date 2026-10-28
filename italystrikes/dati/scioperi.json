@@ -413,10 +413,23 @@
   "proclamazione": "2026-10-06",
   "ricezione": "08/10/2026",
   "note": "",
-  "stato": "in programma",
+  "stato": "revocato",
   "visto_prima": "2026-10-10",
   "visto_ultimo": "2026-10-23",
-  "modifiche": []
+  "modifiche": [
+   {
+    "il": "2026-10-28",
+    "campi": {
+     "stato": [
+      "in programma",
+      "revocato"
+     ]
+    },
+    "fonte": "cgsse",
+    "url": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/381669"
+   }
+  ],
+  "revoca_cgsse": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/381669"
  },
  "8604": {
   "id": "8604",
@@ -648,12 +661,58 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-27",
-  "visto_ultimo": "2026-10-27",
+  "visto_ultimo": "2026-10-28",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382381",
   "settore_cgsse": "Trasporto pubblico locale",
   "ambito_cgsse": "PALERMO"
+ },
+ "cgsse-382437": {
+  "id": "cgsse-382437",
+  "inizio": "2026-11-09",
+  "fine": "2026-11-09",
+  "settore": "Ferroviario",
+  "rilevanza": "Nazionale",
+  "regione": "Italia",
+  "provincia": "Tutte",
+  "sindacati": "FILT CGIL/FIT CISL/UGL FERROVIERI/FAST CONFSAL/ORSA TRASPORTI",
+  "categoria": "ITALO NTV",
+  "modalita": "DALLE ORE 9.01 ALLE ORE 16.59",
+  "proclamazione": "",
+  "ricezione": "",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-10-28",
+  "visto_ultimo": "2026-10-28",
+  "modifiche": [],
+  "fonte": "cgsse",
+  "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382437",
+  "settore_cgsse": "Trasporto ferroviario",
+  "ambito_cgsse": "NAZIONALE"
+ },
+ "cgsse-382665": {
+  "id": "cgsse-382665",
+  "inizio": "2026-11-09",
+  "fine": "2026-11-09",
+  "settore": "Ferroviario",
+  "rilevanza": "Nazionale",
+  "regione": "Italia",
+  "provincia": "Tutte",
+  "sindacati": "UILTRASPORTI",
+  "categoria": "ITALO NTV",
+  "modalita": "DALLE ORE 2.00 ALLE ORE 23.59",
+  "proclamazione": "",
+  "ricezione": "",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-10-28",
+  "visto_ultimo": "2026-10-28",
+  "modifiche": [],
+  "fonte": "cgsse",
+  "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382665",
+  "settore_cgsse": "Trasporto ferroviario",
+  "ambito_cgsse": "NAZIONALE"
  },
  "8608": {
   "id": "8608",
@@ -690,7 +749,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-27",
-  "visto_ultimo": "2026-10-27",
+  "visto_ultimo": "2026-10-28",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382399",

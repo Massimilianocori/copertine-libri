@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:mit-8609@italy-strikes-today.netlify.app
-DTSTAMP:20261021T101150Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20261021
 DTEND;VALUE=DATE:20261022
 SUMMARY:Strike: Genoa: local public transport strike – AMT (Genoa buses a
@@ -25,7 +25,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8606@italy-strikes-today.netlify.app
-DTSTAMP:20261021T101150Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National ferry and port strike
@@ -40,7 +40,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8590@italy-strikes-today.netlify.app
-DTSTAMP:20261021T101150Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National general strike
@@ -60,7 +60,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8612@italy-strikes-today.netlify.app
-DTSTAMP:20261021T101150Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National general strike
@@ -75,8 +75,40 @@ TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:cgsse-382437@italy-strikes-today.netlify.app
+DTSTAMP:20261028T080156Z
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261110
+SUMMARY:Strike: National rail strike – Italo
+DESCRIPTION:Hours: From 09:01 to 16:59\nOriginal: DALLE ORE 9.01 ALLE ORE 1
+ 6.59\nWho: Italo (ITALO NTV)\nWhere: Whole of Italy\nStrikes can be called
+  off or changed: always check with your operator.\nhttps://italy-strikes-t
+ oday.netlify.app/genoa/\nSource: Commissione di garanzia sciopero (via onD
+ ata\, CC BY 4.0)\, https://www.cgsse.it/calendario-scioperi/dettaglio-scio
+ pero/382437
+URL:https://italy-strikes-today.netlify.app/genoa/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:cgsse-382665@italy-strikes-today.netlify.app
+DTSTAMP:20261028T080156Z
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261110
+SUMMARY:Strike: National rail strike – Italo
+DESCRIPTION:Hours: From 02:00 to 23:59\nOriginal: DALLE ORE 2.00 ALLE ORE 2
+ 3.59\nWho: Italo (ITALO NTV)\nWhere: Whole of Italy\nStrikes can be called
+  off or changed: always check with your operator.\nhttps://italy-strikes-t
+ oday.netlify.app/genoa/\nSource: Commissione di garanzia sciopero (via onD
+ ata\, CC BY 4.0)\, https://www.cgsse.it/calendario-scioperi/dettaglio-scio
+ pero/382665
+URL:https://italy-strikes-today.netlify.app/genoa/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:mit-8610@italy-strikes-today.netlify.app
-DTSTAMP:20261021T101150Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261121
 SUMMARY:Strike: National general strike
@@ -91,7 +123,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8592@italy-strikes-today.netlify.app
-DTSTAMP:20261021T101150Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National multi-sector strike
@@ -110,7 +142,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8575@italy-strikes-today.netlify.app
-DTSTAMP:20261021T101150Z
+DTSTAMP:20261028T080156Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:Strike: National general strike
