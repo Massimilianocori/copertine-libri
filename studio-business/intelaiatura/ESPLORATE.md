@@ -451,3 +451,13 @@ Partenza dai segnali della settimana 19-26/10 (EsameB1 114 visite, Visa Income 6
 | Divieti di fuochi all'aperto per contea (Texas, burn ban) | NO (4): domanda "oggi", mappa ufficiale Texas A&M Forest Service; stesso verdetto dei fire ban NSW | ricerca-2026-10-28 |
 | Moratoria sulle disdette delle polizze casa per CAP (California) | NO come idea a sé (3,5): autocomplete 2-5 varianti; al massimo una riga nelle pagine contea dei disastri | ricerca-2026-10-28 |
 | Maggiorazione della council tax sulle seconde case per council (Inghilterra) | RISERVA debole (4,5): domanda per council, statistica gov.uk 200, ma ogni council risponde, solo pubblicità, esenzioni da consulenza | ricerca-2026-10-28 |
+
+## Ricerca profonda del 28/10/2026 (canale degli assistenti)
+
+| Nicchia | Verdetto | Rapporto |
+|---|---|---|
+| **Quanti [nazionalità] si trasferiscono in [Paese]: primi permessi 2025 per cittadinanza e motivo (Eurostat, aggiornato 22/10/2026), residenti permanenti in Canada per cittadinanza (IRCC, mensile), visti britannici per nazionalità, rinunce alla cittadinanza USA (Federal Register)** | **PASSA** (voto 7,5; 8 se ≥ 150 visite a settimana a 30 gg) come sezione di Visa Income Checker; 1-2,5k €/anno prudente, 8-12k ottimista; 14-22 ore | ricerca-profonda-2026-10-28-assistenti |
+| Visti di famiglia e coniuge UK rifiutati per nazionalità (colonna "Family" già scaricata) | **PASSA** come aggiunta (voto 7; 3-5 ore) | ricerca-profonda-2026-10-28-assistenti |
+| Spostamenti tra Stati USA per coppia di Stati e contea (Census, IRS) | **PASSA sotto l'asticella** (voto 7; sito nuovo, da dicembre) | ricerca-profonda-2026-10-28-assistenti |
+| Puntualità dei voli dagli aeroporti UK per compagnia e rotta (CAA) | RISERVA (voto 6) come sezione di Before You Fly | ricerca-profonda-2026-10-28-assistenti |
+| Rifiuti visti USA per nazionalità; rimesse per corridoio; rifiuti visti nazionali tedeschi; rifiuti visti Giappone/Corea; rifiuti per università UK; tempi visti Australia; sinistri sanitari negati; datori PSLF; rimborsi pompe di calore; NCLEX per Paese; visto bond USA | NO (prove in sez. 4) | ricerca-profonda-2026-10-28-assistenti |
