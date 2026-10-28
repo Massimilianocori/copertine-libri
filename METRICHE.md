@@ -77,6 +77,10 @@ Inviate 40 email: 5 agenzie "segnale" (Story Co, Informal, Mass FX Media, Social
 
 50 invii nuovi (coda3). 2 rimbalzi (prysmmarketing.com senza MX; adtidal.com 550) → esclusi. 0 risposte vere (2 fuori ufficio).
 
+## 28/10
+
+20 invii: 17 follow-up 2 (invii del 15/10) + 3 nuovi. Fermati per rimbalzo (greg@klientboost.com, 550 5.2.1 account disattivato) → escluso; 30 nuovi rinviati. Risposte: 1 "no" (TargetPath, 27/10) → escluso. Rimbalzi sui nuovi invii del 26-28/10: 3 su 80 (circa 4%), sopra la soglia del 2%.
+
 ## Crediti
 
 | Data | Higgsfield (piano Ultra) | Apollo lead credit (ciclo 3/10-3/11) |
