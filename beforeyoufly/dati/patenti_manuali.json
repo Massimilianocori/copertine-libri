@@ -1,0 +1,1480 @@
+{
+ "_nota": "Fatti scritti a mano (28/10/2026) dove gli schemi fissi di raccolta/patenti.py non bastano: esito letto sul testo ufficiale, frasi citate parola per parola, impronta del testo da cui sono stati scritti (se il testo cambia, il fatto scade e la raccolta lo segnala). Regola per le fonti che si contraddicono (anche due pagine GOV.UK): vale la risposta più prudente e la pagina cita entrambe.",
+ "scritto_il": "2026-10-28",
+ "uk": {
+  "AG": {
+   "esito": "locale",
+   "frasi": [
+    "You will need a temporary local driving licence to drive in Antigua and Barbuda."
+   ],
+   "motivo": "serve una patente temporanea locale",
+   "impronta": "4620b7c512d93f4a",
+   "auto": "da_leggere"
+  },
+  "AT": {
+   "esito": "no",
+   "frasi": [
+    "You do not need an IDP if you hold a UK, Gibraltar, Guernsey, Jersey or Isle of Man photocard licence.",
+    "You can use a UK photocard driving licence to drive in Austria if you are aged 18 or over."
+   ],
+   "motivo": "tabella e FCDO: patente con foto senza IDP",
+   "impronta": "123f2393424229ce",
+   "auto": "da_leggere"
+  },
+  "BA": {
+   "esito": "dipende",
+   "frasi": [
+    "If you’re renting or using someone else’s vehicle within the country, you must also have the 1968 version of the international driving permit (IDP) with you in the car."
+   ],
+   "motivo": "IDP solo con auto noleggiate o di altri nel Paese",
+   "impronta": "92bf4ceec4bdaa2e",
+   "auto": "da_leggere"
+  },
+  "KH": {
+   "esito": "dipende",
+   "frasi": [
+    "To hire a car or a motorcycle over 125cc, you may sometimes need to have the 1949 version of the international driving permit (IDP) and your UK driving licence.",
+    "For long-term car rental or to drive a private car, you need to get a Cambodian driving licence."
+   ],
+   "motivo": "IDP a volte per il noleggio; patente cambogiana per noleggi lunghi o auto private",
+   "impronta": "9d79720f5d61fee2",
+   "auto": "da_leggere"
+  },
+  "CK": {
+   "esito": "no",
+   "frasi": [
+    "You can use a UK photocard driving licence to drive in the Cook Islands."
+   ],
+   "motivo": "frase sulle Isole Cook (Niue a parte)",
+   "impronta": "3cdf00b475d59610",
+   "auto": "da_leggere"
+  },
+  "HR": {
+   "esito": "dipende",
+   "frasi": [
+    "You can use a UK photocard driving licence without an IDP.",
+    "You can use a UK photocard driving licence to drive in Croatia for up to one year."
+   ],
+   "motivo": "le due pagine GOV.UK (tabella dei permessi e consigli FCDO) dicono cose diverse: vale la più prudente e le pagine citano entrambe",
+   "impronta": "8b93a6b61ec05f40",
+   "auto": "da_leggere"
+  },
+  "CY": {
+   "esito": "dipende",
+   "frasi": [
+    "You can use a UK photocard driving licence for up to 30 days without an IDP.",
+    "You can use a UK photocard driving licence to drive in Cyprus."
+   ],
+   "motivo": "le due pagine GOV.UK (tabella dei permessi e consigli FCDO) dicono cose diverse: vale la più prudente e le pagine citano entrambe",
+   "impronta": "61fa69d881129a08",
+   "auto": "da_leggere"
+  },
+  "DK": {
+   "esito": "dipende",
+   "frasi": [
+    "You can use a UK, Gibraltar, Guernsey, Jersey, or Isle of Man photocard licence for periods up to 90 days without an IDP.",
+    "You can use a UK photocard driving licence to drive in Denmark."
+   ],
+   "motivo": "le due pagine GOV.UK (tabella dei permessi e consigli FCDO) dicono cose diverse: vale la più prudente e le pagine citano entrambe",
+   "impronta": "6add9852642f1eb5",
+   "auto": "da_leggere"
+  },
+  "DM": {
+   "esito": "locale",
+   "frasi": [
+    "You must show your UK driving licence to get a temporary Dominican driving licence."
+   ],
+   "motivo": "serve una patente temporanea locale",
+   "impronta": "bcf153d99f8f9f48",
+   "auto": "da_leggere"
+  },
+  "SV": {
+   "esito": "no",
+   "frasi": [
+    "You can use a UK photocard driving licence to drive in El Salvador for the first 90 days after you arrive.",
+    "El Salvador does not accept the international driving permit."
+   ],
+   "motivo": "patente britannica per 90 giorni; IDP non accettato",
+   "impronta": "1289a8892e15a714",
+   "auto": "da_leggere"
+  },
+  "EE": {
+   "esito": "dipende",
+   "frasi": [
+    "You can use a UK, Gibraltar, Guernsey, or Jersey photocard driving licence for periods up to 90 days in any 180-day period without an IDP.",
+    "You can drive in Estonia with a UK driving licence."
+   ],
+   "motivo": "le due pagine GOV.UK (tabella dei permessi e consigli FCDO) dicono cose diverse: vale la più prudente e le pagine citano entrambe",
+   "impronta": "f1705212474d761c",
+   "auto": "da_leggere"
+  },
+  "SZ": {
+   "esito": "si",
+   "frasi": [
+    "You’ll need to have both the 1949 version of the international driving permit (IDP) and your UK driving licence with you in the car."
+   ],
+   "motivo": "frase FCDO esplicita",
+   "impronta": "5c3e8eed364b2bb3",
+   "auto": "da_leggere"
+  },
+  "FK": {
+   "esito": "dipende",
+   "frasi": [
+    "You can use a UK driving licence to drive in the Falkland Islands for up to 12 months."
+   ],
+   "motivo": "patente britannica per 12 mesi",
+   "impronta": "5f9fdd4c1061e86b",
+   "auto": "da_leggere"
+  },
+  "GD": {
+   "esito": "locale",
+   "frasi": [
+    "You must have a temporary Grenadian driving licence."
+   ],
+   "motivo": "serve una patente temporanea locale",
+   "impronta": "8a2d11e5a40c6206",
+   "auto": "da_leggere"
+  },
+  "IS": {
+   "esito": "dipende",
+   "frasi": [
+    "You do not need an IDP if you hold a UK, Gibraltar, Guernsey, Jersey or Isle of Man photocard licence.",
+    "You can use a UK photocard driving licence to drive in Iceland for up to 30 days."
+   ],
+   "motivo": "le due pagine GOV.UK (tabella dei permessi e consigli FCDO) dicono cose diverse: vale la più prudente e le pagine citano entrambe",
+   "impronta": "54831134195a7dad",
+   "auto": "da_leggere"
+  },
+  "IN": {
+   "esito": "si",
+   "frasi": [
+    "You’ll need to have both the 1949 version of the international driving permit (IDP) and your UK driving licence with you in the car."
+   ],
+   "motivo": "frase FCDO esplicita",
+   "impronta": "c9a72e8980382d97",
+   "auto": "da_leggere"
+  },
+  "JM": {
+   "esito": "dipende",
+   "frasi": [
+    "Your UK driving licence can be used to drive in Jamaica for up to 6 months."
+   ],
+   "motivo": "patente britannica per 6 mesi",
+   "impronta": "648a6fed004fef4c",
+   "auto": "da_leggere"
+  },
+  "LU": {
+   "esito": "dipende",
+   "frasi": [
+    "You do not need an IDP if you hold a UK, Gibraltar, Guernsey, Jersey or Isle of Man photocard licence.",
+    "You can use a UK photocard driving licence to drive in Luxembourg for one year."
+   ],
+   "motivo": "le due pagine GOV.UK (tabella dei permessi e consigli FCDO) dicono cose diverse: vale la più prudente e le pagine citano entrambe",
+   "impronta": "ff236ffb30244c95",
+   "auto": "da_leggere"
+  },
+  "NL": {
+   "esito": "no",
+   "frasi": [
+    "You can drive in the Netherlands on a UK driving licence.",
+    "If you’re hiring a car, you should check if the car hire company says you need an IDP."
+   ],
+   "motivo": "FCDO: patente britannica; tabella: solo il noleggio",
+   "impronta": "a82a1d2cd354f01e",
+   "auto": "da_leggere"
+  },
+  "NU": {
+   "esito": "locale",
+   "frasi": [
+    "In Niue, you must apply for a local driving licence from the police department."
+   ],
+   "motivo": "serve una patente locale",
+   "impronta": "3cdf00b475d59610",
+   "auto": "da_leggere"
+  },
+  "KP": {
+   "esito": "locale",
+   "frasi": [
+    "International driving permits are not valid in North Korea."
+   ],
+   "motivo": "IDP non valido; patente locale solo per chi vive nel Paese",
+   "impronta": "72e250d186d16d91",
+   "auto": "da_leggere"
+  },
+  "NO": {
+   "esito": "dipende",
+   "frasi": [
+    "You do not need an IDP if you hold a UK, Gibraltar, Guernsey, Jersey or Isle of Man photocard licence.",
+    "You can use a UK photocard driving licence to drive in Norway for up to 90 days."
+   ],
+   "motivo": "le due pagine GOV.UK (tabella dei permessi e consigli FCDO) dicono cose diverse: vale la più prudente e le pagine citano entrambe",
+   "impronta": "37381bdfe7e47a71",
+   "auto": "da_leggere"
+  },
+  "PL": {
+   "esito": "dipende",
+   "frasi": [
+    "You do not need an IDP if you hold a UK, Gibraltar, Guernsey, Jersey or Isle of Man photocard licence.",
+    "You can use a UK photocard driving licence to drive in Poland for up to 6 months."
+   ],
+   "motivo": "le due pagine GOV.UK (tabella dei permessi e consigli FCDO) dicono cose diverse: vale la più prudente e le pagine citano entrambe",
+   "impronta": "f775383a3e267d7f",
+   "auto": "da_leggere"
+  },
+  "PT": {
+   "esito": "dipende",
+   "frasi": [
+    "You can use a UK, Gibraltar, Guernsey, Jersey, or Isle of Man photocard driving licence to drive for periods up to 185 days without an IDP.",
+    "You can use a UK photocard driving licence to drive in Portugal."
+   ],
+   "motivo": "le due pagine GOV.UK (tabella dei permessi e consigli FCDO) dicono cose diverse: vale la più prudente e le pagine citano entrambe",
+   "impronta": "8b0b1aa261ab0bd1",
+   "auto": "da_leggere"
+  },
+  "RE": {
+   "esito": "non_detto",
+   "frasi": [
+    "Check with the local authorities or your car hire company if you need an international driving permit (IDP) as well as your UK driving licence."
+   ],
+   "motivo": "FCDO rimanda alle autorità locali",
+   "impronta": "de5e9f76cd6dea62",
+   "auto": "da_leggere"
+  },
+  "PM": {
+   "esito": "non_detto",
+   "frasi": [
+    "Check with the local authorities or your car hire company if you need an international driving permit (IDP) as well as your UK driving licence."
+   ],
+   "motivo": "FCDO rimanda alle autorità locali",
+   "impronta": "7b089431c07adad4",
+   "auto": "da_leggere"
+  },
+  "WF": {
+   "esito": "non_detto",
+   "frasi": [
+    "Check with the local authorities or your car hire company if you need an international driving permit (IDP) as well as your UK driving licence."
+   ],
+   "motivo": "FCDO rimanda alle autorità locali",
+   "impronta": "7b089431c07adad4",
+   "auto": "da_leggere"
+  },
+  "LC": {
+   "esito": "locale",
+   "frasi": [
+    "Show your UK driving licence or IDP to the police to get a visitor’s licence.",
+    "Travellers without a St Lucian driving licence must get a temporary driving permit."
+   ],
+   "motivo": "serve un permesso temporaneo locale",
+   "impronta": "425916beb078d269",
+   "auto": "da_leggere"
+  },
+  "VC": {
+   "esito": "locale",
+   "frasi": [
+    "Show your UK driving licence or IDP to the police to get a visitor’s licence."
+   ],
+   "motivo": "serve una patente per visitatori",
+   "impronta": "88f7b1b0b8549292",
+   "auto": "da_leggere"
+  },
+  "WS": {
+   "esito": "locale",
+   "frasi": [
+    "To drive in Samoa, you must buy a temporary driving permit, which requires your UK driving licence."
+   ],
+   "motivo": "serve un permesso temporaneo locale",
+   "impronta": "32734c877395da72",
+   "auto": "da_leggere"
+  },
+  "SK": {
+   "esito": "dipende",
+   "frasi": [
+    "You do not need an IDP if you hold a UK, Gibraltar, Guernsey, Jersey or Isle of Man photocard licence.",
+    "You can use a UK photocard driving licence to drive in Slovakia for up to 6 months."
+   ],
+   "motivo": "le due pagine GOV.UK (tabella dei permessi e consigli FCDO) dicono cose diverse: vale la più prudente e le pagine citano entrambe",
+   "impronta": "03e06cc1d3935644",
+   "auto": "da_leggere"
+  },
+  "ZA": {
+   "esito": "dipende",
+   "frasi": [
+    "You can use a UK photocard driving licence to drive in South Africa for up 12 months."
+   ],
+   "motivo": "patente britannica per 12 mesi",
+   "impronta": "be372072112e2894",
+   "auto": "da_leggere"
+  },
+  "TZ": {
+   "esito": "dipende",
+   "frasi": [
+    "You can drive in Tanzania with a UK driving licence for up to 6 months. For stays longer than this, an international driving permit (IDP) is required."
+   ],
+   "motivo": "IDP oltre i 6 mesi",
+   "impronta": "76bf6ad51803ede9",
+   "auto": "da_leggere"
+  },
+  "TK": {
+   "esito": "non_detto",
+   "frasi": [],
+   "motivo": "la pagina FCDO 'Cook Islands, Tokelau and Niue' non dice nulla su Tokelau",
+   "impronta": "3cdf00b475d59610",
+   "auto": "da_leggere"
+  },
+  "UZ": {
+   "esito": "si",
+   "frasi": [
+    "You’ll need to have both the 1968 version of the international driving permit (IDP) and your UK driving licence with you in the car."
+   ],
+   "motivo": "frase FCDO esplicita",
+   "impronta": "08869d9c15aa2988",
+   "auto": "da_leggere"
+  },
+  "LB": {
+   "esito": "no",
+   "frasi": [
+    "You need either a 1968 international driving permit (IDP) or a UK driving licence to drive in Lebanon."
+   ],
+   "motivo": "basta una delle due",
+   "impronta": "c8b3da927c45bb11",
+   "auto": "si"
+  },
+  "TW": {
+   "esito": "si",
+   "frasi": [
+    "IDP needed for stays longer than 30 days.",
+    "You need a 1949 international driving permit (IDP) as well as a UK driving licence to drive in Taiwan."
+   ],
+   "motivo": "le due pagine GOV.UK (tabella dei permessi e consigli FCDO) dicono cose diverse: vale la più prudente e le pagine citano entrambe",
+   "impronta": "258cd0491ed33ff7",
+   "auto": "dipende"
+  },
+  "AU": {
+   "esito": "no",
+   "frasi": [
+    "You can use a UK photocard driving licence to drive in Australia if you remain a temporary overseas visitor."
+   ],
+   "motivo": "vale per chi visita",
+   "impronta": "cefa829d8574cd30",
+   "auto": "dipende"
+  },
+  "KW": {
+   "esito": "no",
+   "frasi": [
+    "If you have a visit visa, you can drive in Kuwait using a UK photocard driving licence."
+   ],
+   "motivo": "vale per chi visita con visto turistico",
+   "impronta": "dd74dcac4455dddb",
+   "auto": "dipende"
+  },
+  "AI": {
+   "esito": "locale",
+   "frasi": [
+    "to buy a 25 US dollar local licence from a rental company, valid for 3 months"
+   ],
+   "motivo": "serve una patente locale",
+   "impronta": "644862330a0f67c7",
+   "auto": "non_detto"
+  },
+  "TD": {
+   "esito": "locale",
+   "frasi": [
+    "You must convert your UK driving licence to a Chadian one to drive in Chad."
+   ],
+   "motivo": "serve una patente locale",
+   "impronta": "4548e93b00d9918f",
+   "auto": "non_detto"
+  },
+  "CN": {
+   "esito": "locale",
+   "frasi": [
+    "You must have a Chinese driving licence and valid insurance to drive in China."
+   ],
+   "motivo": "serve una patente cinese",
+   "impronta": "bd2be95ae96498ad",
+   "auto": "non_detto"
+  },
+  "GH": {
+   "esito": "si",
+   "frasi": [
+    "You can drive in Ghana using the 1949 version of the international driving permit (IDP) or a Ghanaian driving licence."
+   ],
+   "motivo": "IDP o patente ghanese",
+   "impronta": "db1c56da53fb9dbe",
+   "auto": "non_detto"
+  },
+  "ID": {
+   "esito": "si",
+   "frasi": [
+    "You cannot drive using your UK driving licence. You can drive using an International Driving Permit (IDP) issued by the UK."
+   ],
+   "motivo": "patente britannica non basta",
+   "impronta": "1b85f9bb2e32345c",
+   "auto": "non_detto"
+  },
+  "MS": {
+   "esito": "locale",
+   "frasi": [
+    "To drive in Montserrat, you must apply online for a temporary visitor’s driving licence, valid for 3 months"
+   ],
+   "motivo": "serve una patente per visitatori",
+   "impronta": "6e5ff82b6723122b",
+   "auto": "non_detto"
+  },
+  "NE": {
+   "esito": "si",
+   "frasi": [
+    "You can drive in Niger using a 1968 International Driving Permit (IDP) for up to 3 months."
+   ],
+   "motivo": "si guida con l'IDP",
+   "impronta": "0d556be783218b97",
+   "auto": "non_detto"
+  },
+  "KN": {
+   "esito": "locale",
+   "frasi": [
+    "You must have a St Kitts and Nevis driving licence."
+   ],
+   "motivo": "serve una patente locale",
+   "impronta": "0e5340a163a71f10",
+   "auto": "non_detto"
+  },
+  "TJ": {
+   "esito": "si",
+   "frasi": [
+    "You are permitted to drive in Tajikistan with a valid UK driving licence for up to 30 days. In addition, you must carry the 1968 version of the International Driving Permit (IDP) alongside your UK licence"
+   ],
+   "motivo": "revisione 28/10: «in addition, you must carry the 1968 IDP» = serve l'IDP anche nei primi 30 giorni (lo schema automatico dava 'dipende' per «up to 30 days»)",
+   "impronta": "bd606f2f9d1535d6",
+   "auto": "dipende"
+  },
+  "TN": {
+   "esito": "si",
+   "frasi": [
+    "You can drive in Tunisia for up to one year with a 1968 international driving permit (IDP) and your UK driving licence."
+   ],
+   "motivo": "revisione 28/10: si guida con IDP 1968 + patente (lo schema automatico dava 'dipende' per «up to one year»)",
+   "impronta": "9ada675ae310ad12",
+   "auto": "dipende"
+  },
+  "MK": {
+   "esito": "dipende",
+   "frasi": [
+    "You can use a UK photocard driving licence to drive in North Macedonia.",
+    "Unless you’re driving a rental car or have a residence permit, you’ll also need to have the 1968 version of the international driving permit (IDP)."
+   ],
+   "motivo": "revisione 28/10: lo schema automatico dava 'no' leggendo solo la prima frase; la seconda chiede l'IDP 1968 tranne che con un'auto a noleggio",
+   "convenzione": "1968",
+   "impronta": "8bcd8df2c0c4b51e",
+   "auto": "no"
+  }
+ },
+ "ca": {
+  "AI": {
+   "esito": "locale",
+   "frasi": [
+    "The international driving permit is not recognized in Anguilla.",
+    "purchase a temporary driving permit"
+   ],
+   "motivo": "IDP non riconosciuto; permesso temporaneo locale",
+   "impronta": "e9fe8b63ba745830",
+   "auto": "da_leggere"
+  },
+  "AG": {
+   "esito": "locale",
+   "frasi": [
+    "The International Driving Permit is not recognized in Antigua and Barbuda.",
+    "You must bring your Canadian driver’s licence to purchase a temporary local driver’s licence."
+   ],
+   "motivo": "IDP non riconosciuto; patente temporanea locale",
+   "impronta": "e52cb411c8fe6a51",
+   "auto": "da_leggere"
+  },
+  "BW": {
+   "esito": "si",
+   "frasi": [
+    "To drive in Botswana, you must have:",
+    "an international driving permit",
+    "You can drive in Botswana with a Canadian driver’s licence for up to 90 days."
+   ],
+   "motivo": "due frasi diverse sulla stessa pagina: vale la più prudente, si citano entrambe",
+   "impronta": "01a005de14e7b735",
+   "auto": "da_leggere"
+  },
+  "VG": {
+   "esito": "dipende",
+   "frasi": [
+    "If you are staying less than 30 days, you can use your Canadian driver’s licence. Otherwise, you must obtain a local temporary driving permit to drive in the British Virgin Islands."
+   ],
+   "motivo": "patente canadese sotto i 30 giorni, poi permesso locale",
+   "impronta": "d1f4a13a6f7e7d78",
+   "auto": "da_leggere"
+  },
+  "KH": {
+   "esito": "locale",
+   "frasi": [
+    "You must have and carry a Cambodian driver's licence."
+   ],
+   "motivo": "serve una patente cambogiana",
+   "impronta": "163307a9329e5c02",
+   "auto": "non_detto"
+  },
+  "KY": {
+   "esito": "locale",
+   "frasi": [
+    "A visitor’s driving permit is required to drive in the Cayman Islands."
+   ],
+   "motivo": "serve un permesso per visitatori",
+   "impronta": "c674abd99cc44463",
+   "auto": "da_leggere"
+  },
+  "CN": {
+   "esito": "locale",
+   "frasi": [
+    "Canadian and international driving licences are not recognized in China."
+   ],
+   "motivo": "patente canadese e IDP non riconosciuti",
+   "impronta": "03ee63e09271a25c",
+   "auto": "non_detto"
+  },
+  "CO": {
+   "esito": "no",
+   "frasi": [
+    "Your driver’s license will be accepted within your permitted length of stay."
+   ],
+   "motivo": "patente canadese accettata per la durata del soggiorno",
+   "impronta": "0658675220c72db9",
+   "auto": "non_detto"
+  },
+  "DM": {
+   "esito": "locale",
+   "frasi": [
+    "You must also purchase a temporary Dominican driving permit, which is valid for 30 days."
+   ],
+   "motivo": "serve un permesso temporaneo locale",
+   "impronta": "a9274c2e1a00c773",
+   "auto": "non_detto"
+  },
+  "SV": {
+   "esito": "dipende",
+   "frasi": [
+    "You can drive with your valid Canadian driver’s licence for the first 90 days authorized for your stay in the country.",
+    "If you plan to travel between countries, you must carry an international driving permit."
+   ],
+   "motivo": "patente canadese 90 giorni; IDP se si passa da un Paese all'altro",
+   "impronta": "eebab9b04ef7a492",
+   "auto": "da_leggere"
+  },
+  "ER": {
+   "esito": "locale",
+   "frasi": [
+    "To drive in Eritrea, you must have a local driver’s licence."
+   ],
+   "motivo": "serve una patente locale",
+   "impronta": "835bdf4e3697f761",
+   "auto": "da_leggere"
+  },
+  "GD": {
+   "esito": "locale",
+   "frasi": [
+    "To drive in Grenada, you must have a local driver’s licence.",
+    "You should carry an international driving permit."
+   ],
+   "motivo": "serve una patente locale",
+   "impronta": "c70584f8115b9095",
+   "auto": "da_leggere"
+  },
+  "GP": {
+   "esito": "si",
+   "frasi": [
+    "You can drive with a valid Canadian driver’s licence for up to 6 months.",
+    "You must carry an International Driving Permit."
+   ],
+   "motivo": "due frasi diverse sulla stessa pagina: vale la più prudente, si citano entrambe",
+   "impronta": "f30fad623baecc0f",
+   "auto": "da_leggere"
+  },
+  "KI": {
+   "esito": "dipende",
+   "frasi": [
+    "You can drive in Kiribati with an international driving permit or a domestic driver’s license for up to two weeks."
+   ],
+   "motivo": "due settimane con l'una o l'altra",
+   "impronta": "dc80bcaa3c523a0d",
+   "auto": "non_detto"
+  },
+  "LU": {
+   "esito": "si",
+   "frasi": [
+    "You can drive using a valid Canadian driver’s licence for up to 12 months.",
+    "You must carry an international driving permit."
+   ],
+   "motivo": "due frasi diverse sulla stessa pagina: vale la più prudente, si citano entrambe",
+   "impronta": "1250677ecc3ab08e",
+   "auto": "da_leggere"
+  },
+  "MG": {
+   "esito": "dipende",
+   "frasi": [
+    "You can drive in Madagascar with your Canadian driver’s licence or with an international driving permit (IDP) for up to 3 months."
+   ],
+   "motivo": "3 mesi con l'una o l'altra",
+   "impronta": "51456da4b68dad39",
+   "auto": "da_leggere"
+  },
+  "MV": {
+   "esito": "locale",
+   "frasi": [
+    "A local driving permit is required to drive in the Maldives. International driving licences are not permitted."
+   ],
+   "motivo": "serve un permesso locale",
+   "impronta": "659f425db954e5f4",
+   "auto": "da_leggere"
+  },
+  "MS": {
+   "esito": "locale",
+   "frasi": [
+    "You need a temporary visitor’s licence to drive a car in Montserrat."
+   ],
+   "motivo": "serve una patente per visitatori",
+   "impronta": "df2da23e8d68ef8e",
+   "auto": "da_leggere"
+  },
+  "MM": {
+   "esito": "locale",
+   "frasi": [
+    "Canadian driver's licences and international driving permits are not recognized in Myanmar. It's illegal to drive without a Myanmar driver's licence."
+   ],
+   "motivo": "serve una patente del Myanmar",
+   "impronta": "d66fdde85aa8a780",
+   "auto": "non_detto"
+  },
+  "NA": {
+   "esito": "consigliato",
+   "frasi": [
+    "You may drive in Namibia with your valid Canadian driver’s licence, provided it is in English.",
+    "However, and particularly if your licence is in French, it is strongly recommended that you obtain an International Driving Permit (IDP) in Canada before your departure, since it cannot be obtained once in Namibia."
+   ],
+   "motivo": "patente in inglese; IDP fortemente consigliato",
+   "impronta": "abd221ba9669c2b5",
+   "auto": "da_leggere"
+  },
+  "NU": {
+   "esito": "locale",
+   "frasi": [
+    "You must obtain a local driver’s licence from the police department to drive in Niue."
+   ],
+   "motivo": "serve una patente locale",
+   "impronta": "f003a8eb5530ee49",
+   "auto": "da_leggere"
+  },
+  "PT": {
+   "esito": "dipende",
+   "frasi": [
+    "You can drive using a valid Canadian driver’s licence for up to 185 days, as long as you are not a resident of Portugal."
+   ],
+   "motivo": "patente canadese per 185 giorni",
+   "impronta": "8121139dd9dfddb6",
+   "auto": "non_detto"
+  },
+  "RU": {
+   "esito": "dipende",
+   "frasi": [
+    "You should carry an international driving permit.",
+    "You may drive with a Canadian driver’s licence if you carry a notarized Russian translation."
+   ],
+   "motivo": "IDP consigliato o traduzione autenticata",
+   "impronta": "48f7f2ead0742439",
+   "auto": "da_leggere"
+  },
+  "KN": {
+   "esito": "locale",
+   "frasi": [
+    "You need a local driving permit to drive in Saint Kitts and Nevis."
+   ],
+   "motivo": "serve un permesso locale",
+   "impronta": "7f21c22fdb1fb684",
+   "auto": "da_leggere"
+  },
+  "LC": {
+   "esito": "locale",
+   "frasi": [
+    "You need a temporary permit to drive in Saint Lucia."
+   ],
+   "motivo": "serve un permesso temporaneo",
+   "impronta": "b036efe111e1f469",
+   "auto": "da_leggere"
+  },
+  "VC": {
+   "esito": "locale",
+   "frasi": [
+    "You must have a local driver’s licence to drive in Saint Vincent and the Grenadines."
+   ],
+   "motivo": "serve una patente locale",
+   "impronta": "866d7af6ebd4c6cc",
+   "auto": "da_leggere"
+  },
+  "WS": {
+   "esito": "locale",
+   "frasi": [
+    "If you wish to drive in Samoa, you must obtain a temporary driver’s licence."
+   ],
+   "motivo": "serve una patente temporanea",
+   "impronta": "8310eff142ac5826",
+   "auto": "da_leggere"
+  },
+  "SB": {
+   "esito": "locale",
+   "frasi": [
+    "You must obtain a local driver’s licence to drive in the Solomon Islands."
+   ],
+   "motivo": "serve una patente locale",
+   "impronta": "489da64fb650cce6",
+   "auto": "da_leggere"
+  },
+  "LK": {
+   "esito": "locale",
+   "frasi": [
+    "If you plan to rent a car, you must bring your Canadian driver’s licence or an International Driving Permit issued outside Sri Lanka. You will then need to obtain a temporary driver’s licence or a recognition certificate from one of the following: the permit counter at Bandaranaike International Airport; the Automobile Association of Ceylon in Colombo; the Department of Motor Traffic (DMT) in Werahera"
+   ],
+   "motivo": "serve una patente temporanea o un certificato di riconoscimento",
+   "impronta": "7105656461a06421",
+   "auto": "da_leggere"
+  },
+  "SR": {
+   "esito": "locale",
+   "frasi": [
+    "You must carry an international driving permit.",
+    "You need a local driver’s permit to drive in Suriname."
+   ],
+   "motivo": "IDP e permesso locale",
+   "impronta": "a2763f51d18c8176",
+   "auto": "da_leggere"
+  },
+  "VN": {
+   "esito": "locale",
+   "frasi": [
+    "Vietnam does not recognize Canadian drivers licences or International Driving Permits issued in Canada."
+   ],
+   "motivo": "patente canadese e IDP canadese non riconosciuti",
+   "impronta": "a0952e112940ac20",
+   "auto": "non_detto"
+  },
+  "US": {
+   "esito": "no",
+   "frasi": [
+    "You can drive in the United States if you have a valid Canadian driver’s license."
+   ],
+   "motivo": "frase della scheda; la pagina IDP del Canada dice lo stesso",
+   "impronta": "418c43c643c994d7",
+   "auto": "dipende"
+  },
+  "ES": {
+   "esito": "si",
+   "frasi": [
+    "You can drive in Spain with your valid Canadian driver’s licence and an international driving permit for up to 6 months."
+   ],
+   "motivo": "patente + IDP per 6 mesi",
+   "impronta": "0001f46a2b4ad358",
+   "auto": "si"
+  },
+  "ET": {
+   "esito": "si",
+   "frasi": [
+    "You can drive in Ethiopia with your Canadian driver’s licence alongside an International Driving Permit (IDP) for up to 45 days."
+   ],
+   "motivo": "patente + IDP per 45 giorni",
+   "impronta": "3b3e716e3c5a91ec",
+   "auto": "si"
+  },
+  "TL": {
+   "esito": "si",
+   "frasi": [
+    "You may drive with a valid Canadian driver’s licence and an International Driving Permit for up to 3 months."
+   ],
+   "motivo": "patente + IDP per 3 mesi",
+   "impronta": "3d63697526984f08",
+   "auto": "si"
+  },
+  "PW": {
+   "esito": "si",
+   "frasi": [
+    "You can drive for 30 days with an international driving permit and a valid Canadian driver’s licence."
+   ],
+   "motivo": "patente + IDP per 30 giorni",
+   "impronta": "63df3aa94962d95b",
+   "auto": "si"
+  },
+  "GA": {
+   "esito": "consigliato",
+   "frasi": [
+    "You should carry an international driving permit that must be used along with a Canadian driver’s licence."
+   ],
+   "motivo": "should: consigliato",
+   "impronta": "a8dd9c7c691caaa7",
+   "auto": "si"
+  },
+  "MY": {
+   "esito": "dipende",
+   "frasi": [
+    "Canadian driver’s licenses are valid in Malaysia and can be used locally for a period of 3 months."
+   ],
+   "motivo": "patente canadese per 3 mesi",
+   "impronta": "1e90963ddfdb8133",
+   "auto": "dipende"
+  },
+  "MU": {
+   "esito": "dipende",
+   "frasi": [
+    "You can drive in Mauritius with a valid Canadian driver’s licence for up to four weeks."
+   ],
+   "motivo": "patente canadese per 4 settimane",
+   "impronta": "4686726b9959ac4f",
+   "auto": "dipende"
+  },
+  "KE": {
+   "esito": "dipende",
+   "frasi": [
+    "You can drive in Kenya with a Canadian driver's licence for up to 90 days from your date of entry."
+   ],
+   "motivo": "patente canadese per 90 giorni",
+   "impronta": "8b7b20ea4576b36e",
+   "auto": "dipende"
+  },
+  "SN": {
+   "esito": "dipende",
+   "frasi": [
+    "You can drive with a valid Canadian driver's licence for a period of 90 days.",
+    "Beyond this period, you must have an international driver's licence, accompanied by your valid Canadian driver's licence."
+   ],
+   "motivo": "IDP oltre i 90 giorni",
+   "impronta": "8f4b2aab60896c4d",
+   "auto": "dipende"
+  },
+  "BG": {
+   "esito": "dipende",
+   "frasi": [
+    "You can drive with a Canadian driver’s licence for up to 90 days after your arrival.",
+    "You must carry an international driving permit for longer stays."
+   ],
+   "motivo": "IDP oltre i 90 giorni",
+   "impronta": "8b2bac7b8d9d888d",
+   "auto": "dipende"
+  },
+  "SM": {
+   "esito": "si",
+   "frasi": [
+    "You must carry an International Driving Permit."
+   ],
+   "motivo": "la frase sui residenti non riguarda chi visita",
+   "impronta": "7d16c8b4cd734e7c",
+   "auto": "si"
+  },
+  "TM": {
+   "esito": "consigliato",
+   "frasi": [
+    "You should carry an international driving permit."
+   ],
+   "motivo": "la frase sui residenti non riguarda chi visita",
+   "impronta": "6b9c5f218192f7f9",
+   "auto": "consigliato"
+  },
+  "GE": {
+   "esito": "consigliato",
+   "frasi": [
+    "Furthermore, an International Driving Permit is recommended as some car rental agencies or insurance providers may require it."
+   ],
+   "motivo": "recommended",
+   "impronta": "07717961bfa37da7",
+   "auto": "consigliato"
+  },
+  "LI": {
+   "esito": "dipende",
+   "frasi": [
+    "You can drive with a valid Canadian driver’s licence in Liechtenstein.",
+    "However, you may require an International Driving Permit to meet the requirements of some car rental agencies."
+   ],
+   "motivo": "revisione 28/10: patente valida, IDP forse per il noleggio = 'dipende', non 'no'",
+   "impronta": "681d765cf50b8e75",
+   "auto": "no"
+  }
+ },
+ "au": {
+  "AZ": {
+   "esito": "dipende",
+   "frasi": [
+    "You can drive in Azerbaijan with a current Australian driver's licence.",
+    "You may also need an International Driving Permit (IDP) for travel and car insurance."
+   ],
+   "motivo": "revisione 28/10: «You may also need an IDP for travel and car insurance»: senza IDP l'assicurazione può non coprire, quindi 'dipende' e non 'no'",
+   "impronta": "5694c2a21147df91",
+   "auto": "da_leggere"
+  },
+  "BH": {
+   "esito": "dipende",
+   "frasi": [
+    "If you have a non-Bahraini driving licence, you may only be allowed to use that licence and/or International Driving Permit (IDP) for up to three months from your arrival in the country."
+   ],
+   "motivo": "3 mesi",
+   "impronta": "dbcf71dba8e66e89",
+   "auto": "non_detto"
+  },
+  "BJ": {
+   "esito": "si",
+   "frasi": [
+    "You can drive in Benin with:",
+    "an International Driving Permit (IDP)"
+   ],
+   "motivo": "patente + IDP",
+   "impronta": "8000e40faeb756e6",
+   "auto": "non_detto"
+  },
+  "BA": {
+   "esito": "si",
+   "frasi": [
+    "You can drive on your Australian driver's licence for up to 6 months. You'll need both:",
+    "a valid international driving permit (IDP)"
+   ],
+   "motivo": "patente + IDP",
+   "impronta": "fa302b54b076a827",
+   "auto": "da_leggere"
+  },
+  "CA": {
+   "esito": "dipende",
+   "frasi": [
+    "To drive in Canada, you may need: an International Driving Permit (IDP) and; a valid Australian licence",
+    "Requirements may vary in different provinces and states."
+   ],
+   "motivo": "dipende dalla provincia",
+   "impronta": "9965be1c099ffce1",
+   "auto": "da_leggere"
+  },
+  "CN": {
+   "esito": "locale",
+   "frasi": [
+    "Foreign driver's licences and International Driving Permits (IDP) aren't valid in mainland China."
+   ],
+   "motivo": "serve una patente o un permesso cinese",
+   "impronta": "f75833ecfdffb04b",
+   "auto": "da_leggere"
+  },
+  "CY": {
+   "esito": "dipende",
+   "frasi": [
+    "You can only use your Australian driver's licence for 6 months from your date of arrival."
+   ],
+   "motivo": "6 mesi",
+   "impronta": "42ecdfc75cbb420d",
+   "auto": "non_detto"
+  },
+  "DO": {
+   "esito": "si",
+   "frasi": [
+    "For trips of less than 3 months, you can drive with:",
+    "an International Driving Permit (IDP)"
+   ],
+   "motivo": "patente + IDP sotto i 3 mesi",
+   "impronta": "b134b2465225b126",
+   "auto": "non_detto"
+  },
+  "EG": {
+   "esito": "si",
+   "frasi": [
+    "You can't drive in Egypt on your Australian driver's licence.",
+    "Before arriving, get an international driver's permit and get an embassy or consulate of Egypt to certify it."
+   ],
+   "motivo": "IDP certificato",
+   "impronta": "8388fd25c92e3730",
+   "auto": "non_detto"
+  },
+  "SV": {
+   "esito": "non_detto",
+   "frasi": [
+    "To drive a vehicle, you'll need a current Australian driver's licence"
+   ],
+   "motivo": "nomina solo la patente australiana, non l'IDP",
+   "impronta": "a10e4490a3de6293",
+   "auto": "non_detto"
+  },
+  "EE": {
+   "esito": "dipende",
+   "frasi": [
+    "You must have a valid Australian driver's licence to drive in Estonia",
+    "You may also need an International Driving Permit (IDP) to hire a vehicle."
+   ],
+   "motivo": "IDP forse per il noleggio",
+   "impronta": "3be86bba4605a28f",
+   "auto": "da_leggere"
+  },
+  "ET": {
+   "esito": "locale",
+   "frasi": [
+    "International driving permits aren't recognised in Ethiopia."
+   ],
+   "motivo": "IDP non riconosciuto; conversione della patente",
+   "impronta": "912023da460282e5",
+   "auto": "non_detto"
+  },
+  "FJ": {
+   "esito": "dipende",
+   "frasi": [
+    "You can hire vehicles and drive using your Australian driver's licence for the first 6 months after your arrival."
+   ],
+   "motivo": "6 mesi",
+   "impronta": "3726de4b55414f18",
+   "auto": "non_detto"
+  },
+  "GE": {
+   "esito": "dipende",
+   "frasi": [
+    "You need an Australian driver's licence to drive in Georgia",
+    "Some care hire providers and car insurers may require an International Driving Permit (IDP) for insurance."
+   ],
+   "motivo": "IDP forse per noleggio e assicurazione",
+   "impronta": "c00e3222c8d193d3",
+   "auto": "da_leggere"
+  },
+  "DE": {
+   "esito": "si",
+   "frasi": [
+    "You can only use your Australian driver's licence in some cases. Check with the Embassy of Germany.",
+    "If you plan to drive, get an International Driving Permit (IDP) before you travel."
+   ],
+   "motivo": "revisione 28/10: la patente australiana vale «only in some cases» e Smartraveller dice «If you plan to drive, get an International Driving Permit (IDP) before you travel»: lettura prudente = serve l'IDP",
+   "impronta": "eb463ffd80b141f5",
+   "auto": "non_detto"
+  },
+  "GU": {
+   "esito": "dipende",
+   "frasi": [
+    "You can drive a motor vehicle for a period not exceeding 30 days from the date of arrival into Guam with a valid Australian driver's licence"
+   ],
+   "motivo": "30 giorni",
+   "impronta": "5098aff97353ad68",
+   "auto": "non_detto"
+  },
+  "HT": {
+   "esito": "si",
+   "frasi": [
+    "You can drive in Haiti with your:",
+    "International Driving Permit (IDP)"
+   ],
+   "motivo": "patente + IDP",
+   "impronta": "99666ceab1b049cc",
+   "auto": "non_detto"
+  },
+  "HK": {
+   "esito": "dipende",
+   "frasi": [
+    "You may be able to drive in Hong Kong for up to 12 months with your current Australian driver's licence (digital driver’s licences may not be accepted) or International Driving Permit (IDP)."
+   ],
+   "motivo": "12 mesi, con patente o IDP",
+   "impronta": "d175411df3abb455",
+   "auto": "non_detto"
+  },
+  "IS": {
+   "esito": "dipende",
+   "frasi": [
+    "Australian driving licences are valid in Iceland if you have had your licence for a minimum of 1 year. However, some car rental companies require customers to present an International Driving Permit (IDP) if holding a licence issued outside Europe or North America."
+   ],
+   "motivo": "patente da almeno un anno; noleggio",
+   "impronta": "066794eeaaea5bdc",
+   "auto": "da_leggere"
+  },
+  "IE": {
+   "esito": "dipende",
+   "frasi": [
+    "You can use your Australian driver's licence for up to 12 months.",
+    "When hiring a car, check with your hire car provider whether you need an International Driving Permit."
+   ],
+   "motivo": "12 mesi; noleggio",
+   "impronta": "b2892b263e33cf05",
+   "auto": "da_leggere"
+  },
+  "KW": {
+   "esito": "dipende",
+   "frasi": [
+    "If you're a visitor, you can use a valid International Driving Permit (IDP)."
+   ],
+   "motivo": "la fonte dice che chi visita può usare l'IDP, non se la patente australiana basta",
+   "impronta": "3a7d5ebfc02d7e88",
+   "auto": "non_detto"
+  },
+  "MG": {
+   "esito": "dipende",
+   "frasi": [
+    "You can drive in Madagascar with a valid Australian driver's licence",
+    "For longer stays you’ll need to apply for an International Driver’s Permit from Australia."
+   ],
+   "motivo": "IDP oltre i 90 giorni",
+   "impronta": "42fca33fa27266eb",
+   "auto": "da_leggere"
+  },
+  "MW": {
+   "esito": "si",
+   "frasi": [
+    "To drive in Malawi, you need both:",
+    "an International Driving Permit (IDP)"
+   ],
+   "motivo": "patente + IDP",
+   "impronta": "e6476ad15c1b456d",
+   "auto": "da_leggere"
+  },
+  "MV": {
+   "esito": "si",
+   "frasi": [
+    "To drive in Maldives, you'll need both:",
+    "a valid International Driving Permit (IDP)"
+   ],
+   "motivo": "patente + IDP",
+   "impronta": "3f5b36ea503491d0",
+   "auto": "si"
+  },
+  "MX": {
+   "esito": "non_detto",
+   "frasi": [
+    "To drive a vehicle, you'll need a current Australian driver's licence."
+   ],
+   "motivo": "nomina solo la patente australiana, non l'IDP",
+   "impronta": "288e4a7bd9e571c9",
+   "auto": "non_detto"
+  },
+  "MN": {
+   "esito": "si",
+   "frasi": [
+    "Mongolia only accepts IDPs issued under the 1968 Vienna Convention on Road Traffic."
+   ],
+   "motivo": "solo IDP 1968",
+   "impronta": "66755a42080eb473",
+   "auto": "non_detto",
+   "convenzione": "1968"
+  },
+  "MM": {
+   "esito": "locale",
+   "frasi": [
+    "It's illegal to drive cars or motorbikes using an Australian or international driving licence.",
+    "You must have a valid Myanmar driver's licence."
+   ],
+   "motivo": "serve una patente del Myanmar",
+   "impronta": "da927888be0c3321",
+   "auto": "non_detto"
+  },
+  "NP": {
+   "esito": "si",
+   "frasi": [
+    "To drive, you need both:",
+    "an International Driving Permit (IDP)"
+   ],
+   "motivo": "patente + IDP",
+   "impronta": "cd30949564d96a9f",
+   "auto": "si"
+  },
+  "NL": {
+   "esito": "si",
+   "frasi": [
+    "For short visits, you'll need both:",
+    "an International Driving Permit (IDP)"
+   ],
+   "motivo": "patente + IDP",
+   "impronta": "435d523a8c5d811d",
+   "auto": "da_leggere"
+  },
+  "NG": {
+   "esito": "dipende",
+   "frasi": [
+    "International Driving Permits are recognised in Nigeria for up to 3 months, provided they are accompanied by a valid driver's licence."
+   ],
+   "motivo": "3 mesi",
+   "impronta": "dc22b3adcef1ca31",
+   "auto": "non_detto"
+  },
+  "NU": {
+   "esito": "locale",
+   "frasi": [
+    "You’ll need a local driver’s licence to drive in Niue."
+   ],
+   "motivo": "serve una patente locale",
+   "impronta": "d57053e3420c6495",
+   "auto": "da_leggere"
+  },
+  "NO": {
+   "esito": "dipende",
+   "frasi": [
+    "Australian driving licences are valid for up to 3 months.",
+    "However, some car rental companies may require customers to present an International Driving Permit (IDP)"
+   ],
+   "motivo": "3 mesi; noleggio",
+   "impronta": "79470d6b6dce4b70",
+   "auto": "da_leggere"
+  },
+  "PA": {
+   "esito": "non_detto",
+   "frasi": [
+    "To drive in Panama, you need:",
+    "an Australian driver's licence"
+   ],
+   "motivo": "nomina solo la patente australiana, non l'IDP",
+   "impronta": "80e4f7ef499fe3bf",
+   "auto": "non_detto"
+  },
+  "PE": {
+   "esito": "dipende",
+   "frasi": [
+    "You can use your Australian driver's license to drive in Peru for the duration of a tourist visa (maximum 183 days in one year). If you're staying in Peru longer, you'll need an International Driving Permit (IDP)."
+   ],
+   "motivo": "IDP oltre il visto turistico",
+   "impronta": "c9da342275ceb9c8",
+   "auto": "da_leggere"
+  },
+  "QA": {
+   "esito": "si",
+   "frasi": [
+    "You can drive in Qatar with:",
+    "an International Driving Permit (IDP)"
+   ],
+   "motivo": "patente + IDP",
+   "impronta": "ad107cbdad7951dc",
+   "auto": "non_detto"
+  },
+  "RU": {
+   "esito": "dipende",
+   "frasi": [
+    "You should carry an International Driving Permit (IDP).",
+    "You may drive with an Australian driver's license if you carry it with a notarised Russian translation."
+   ],
+   "motivo": "IDP consigliato o traduzione autenticata",
+   "impronta": "6e7acbbe12239341",
+   "auto": "da_leggere"
+  },
+  "WS": {
+   "esito": "locale",
+   "frasi": [
+    "You need a temporary Samoan driver's licence to drive."
+   ],
+   "motivo": "serve una patente temporanea",
+   "impronta": "f18e9c4a4292eff3",
+   "auto": "da_leggere"
+  },
+  "SC": {
+   "esito": "no",
+   "frasi": [
+    "You can drive using either a valid Australian driver's licence or an International Driving Permit (IDP)."
+   ],
+   "motivo": "basta una delle due",
+   "impronta": "e438258a5eda445c",
+   "auto": "non_detto"
+  },
+  "SL": {
+   "esito": "si",
+   "frasi": [
+    "You can drive for one month with",
+    "an International Driving Permit (IDP)"
+   ],
+   "motivo": "patente + IDP per un mese",
+   "impronta": "b0e74d9b5b0dabff",
+   "auto": "dipende"
+  },
+  "ZA": {
+   "esito": "non_detto",
+   "frasi": [
+    "To drive in South Africa, you must:",
+    "have a valid Australian driver's licence, and"
+   ],
+   "motivo": "nomina solo la patente australiana, non l'IDP",
+   "impronta": "c4f976a8722db3b7",
+   "auto": "non_detto"
+  },
+  "ES": {
+   "esito": "si",
+   "frasi": [
+    "To drive a vehicle, you'll need both:",
+    "a valid international driving permit (IDP)."
+   ],
+   "motivo": "patente + IDP",
+   "impronta": "00702b6dd3432d1c",
+   "auto": "si"
+  },
+  "LK": {
+   "esito": "si",
+   "frasi": [
+    "To drive in Sri Lanka, you need either:",
+    "a valid International Driving Permit (IDP) endorsed by the Automobile Association of Sri Lanka (AA)",
+    "a temporary Sri Lankan driver’s licence from the Department of Motor Traffic"
+   ],
+   "motivo": "IDP vidimato o patente temporanea",
+   "impronta": "ecd52471055823f9",
+   "auto": "da_leggere"
+  },
+  "CH": {
+   "esito": "dipende",
+   "frasi": [
+    "Drivers must: be at least 18 years old; hold a valid Australian driver's licence (digital driver’s licences may not be accepted)",
+    "Some car hire agencies may need you to have an International Driving Permit (IDP)."
+   ],
+   "motivo": "IDP forse per il noleggio",
+   "impronta": "f94eff15c9dfb51a",
+   "auto": "da_leggere"
+  },
+  "GB": {
+   "esito": "no",
+   "frasi": [
+    "You can drive a car or motorbike for up to 12 months using your full Australian licence. An International Driving Permit isn't required."
+   ],
+   "motivo": "frase esplicita",
+   "impronta": "178c716c177a863f",
+   "auto": "da_leggere"
+  },
+  "US": {
+   "esito": "dipende",
+   "frasi": [
+    "While some US states will allow you to drive on your Australian driver's licence for a limited time, others require you to also have an International Driver's Permit (IDP)."
+   ],
+   "motivo": "dipende dallo Stato",
+   "impronta": "93abfcb97f14c188",
+   "auto": "da_leggere"
+  },
+  "UZ": {
+   "esito": "si",
+   "frasi": [
+    "You can drive in Uzbekistan if you have both:",
+    "an International Driving Permit (IDP)"
+   ],
+   "motivo": "patente + IDP",
+   "impronta": "b62352c24619e133",
+   "auto": "non_detto"
+  },
+  "VN": {
+   "esito": "locale",
+   "frasi": [
+    "You're not allowed to drive or ride on an Australian licence or International Driving Permit (IDP) issued in Australia."
+   ],
+   "motivo": "serve una patente vietnamita",
+   "impronta": "0d150ce355e0b25c",
+   "auto": "non_detto"
+  },
+  "AR": {
+   "esito": "non_detto",
+   "frasi": [
+    "You should check with the rental car company whether you also need to have an international driver permit."
+   ],
+   "motivo": "rimanda alla società di noleggio",
+   "impronta": "9ee7c9e5094dc35e",
+   "auto": "consigliato"
+  },
+  "BN": {
+   "esito": "si",
+   "frasi": [
+    "To drive in Brunei for up to 1 year, you need both:",
+    "a valid international driving permit (IDP)"
+   ],
+   "motivo": "patente + IDP",
+   "impronta": "e63563d67dd38039",
+   "auto": "dipende"
+  },
+  "CL": {
+   "esito": "no",
+   "frasi": [
+    "To drive in Chile as a tourist, you need either: a valid Australian driver's licence (which can function as a Chilean' class B license', for non-commercial, small vehicle driving during the length of your tourist visa), or; an International Driving Permit (IDP)"
+   ],
+   "motivo": "basta la patente australiana o l'IDP",
+   "impronta": "1e38964e2358218d",
+   "auto": "si"
+  },
+  "EC": {
+   "esito": "si",
+   "frasi": [
+    "For the first six months after you arrive in Ecuador you can drive with both:",
+    "an International Driving Permit (IDP)"
+   ],
+   "motivo": "patente + IDP",
+   "impronta": "02c3b210e3f523cf",
+   "auto": "dipende"
+  },
+  "FR": {
+   "esito": "dipende",
+   "frasi": [
+    "You'll need a valid Australian driver's licence to drive.",
+    "Car rental companies may also need an International Driving Permit (IDP) in addition to your driver's license (the IDP alone is insufficient)."
+   ],
+   "motivo": "IDP forse per il noleggio",
+   "impronta": "67e31f64140b93f5",
+   "auto": "consigliato"
+  },
+  "GH": {
+   "esito": "si",
+   "frasi": [
+    "You can drive in Ghana for 12 months with:",
+    "an International Driving Permit (IDP)"
+   ],
+   "motivo": "patente + IDP",
+   "impronta": "81769601e0834891",
+   "auto": "dipende"
+  },
+  "GR": {
+   "esito": "dipende",
+   "frasi": [
+    "If you plan on driving, you may not need an International Driving Permit. Contact the Greek Embassy or Consulate for more information on your licence type."
+   ],
+   "motivo": "may not need: rimanda all'ambasciata",
+   "impronta": "5fd91c25be232504",
+   "auto": "no"
+  },
+  "IN": {
+   "esito": "si",
+   "frasi": [
+    "You can drive without an Indian driver's licence for 3 months if you have both:",
+    "an International Driving Permit"
+   ],
+   "motivo": "patente + IDP",
+   "impronta": "40e0c73357b8b455",
+   "auto": "dipende"
+  },
+  "MO": {
+   "esito": "si",
+   "frasi": [
+    "To drive in Macau, you need both:",
+    "a valid international driving permit (IDP)"
+   ],
+   "motivo": "patente + IDP",
+   "impronta": "f0ce1de0dfce64aa",
+   "auto": "si"
+  },
+  "MU": {
+   "esito": "no",
+   "frasi": [
+    "To drive in Mauritius, you need to be at least 18 years old and have either: a valid Australian driver's licence (digital driver's licences may not be accepted); or; an International Driving Permit (IDP)"
+   ],
+   "motivo": "basta la patente australiana o l'IDP",
+   "impronta": "a3f8c637253183d5",
+   "auto": "si"
+  },
+  "NA": {
+   "esito": "no",
+   "frasi": [
+    "Though not mandatory you may be requested to show a valid International Driving Permit (IDP)"
+   ],
+   "motivo": "not mandatory",
+   "impronta": "250f1b5626b44145",
+   "auto": "si"
+  },
+  "NI": {
+   "esito": "no",
+   "frasi": [
+    "To drive in Nicaragua, you'll need either:"
+   ],
+   "motivo": "basta l'IDP o la patente australiana",
+   "impronta": "76446d80515453e4",
+   "auto": "si"
+  },
+  "SE": {
+   "esito": "dipende",
+   "frasi": [
+    "Australians can drive with a valid Australian driver's licence (digital driver’s licences may not be accepted).",
+    "However, car rental companies may require an International Driving Permit (IDP)."
+   ],
+   "motivo": "revisione 28/10: come Francia, Svizzera, Irlanda e Norvegia (patente valida, IDP forse per il noleggio) = 'dipende', non 'no'",
+   "impronta": "929d9b9b730366d2",
+   "auto": "no"
+  }
+ }
+}

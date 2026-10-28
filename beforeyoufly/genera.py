@@ -302,7 +302,7 @@ h1 .h1-b::first-letter{text-transform:uppercase}
 .band h1 .h1-b{display:block;font-family:var(--head);font-weight:700;margin-top:0;color:#fff;font-size:clamp(1.9rem,5.4vw,3rem);line-height:1.06;letter-spacing:-.025em}
 .band h1 .h1-b::first-letter{text-transform:uppercase}
 .sub{font-size:1.1rem;color:var(--on-board-2);margin:14px 0 0;max-width:640px;text-wrap:balance}
-.tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:26px 0 0;padding:0;list-style:none}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:26px 0 0;padding:0;list-style:none}
 .tiles li{display:flex}
 .tiles a{flex:1;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto 1fr;gap:10px 14px;align-items:center;align-content:start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:14px 16px;color:var(--on-board);text-decoration:none;min-height:100%;transition:background .15s,border-color .15s}
 .tiles a:hover{background:rgba(255,255,255,.1);border-color:var(--sign)}
@@ -472,6 +472,10 @@ footer .f-altri a{font-weight:600}
 @media (max-width:1060px){nav.menu{display:none}.nav-m{display:block}}
 .esito.manuale.e-srv{display:flex}.griglia.g-srv{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}a.a-badge{text-decoration:none}a.a-badge:hover .badge,a.a-badge:focus-visible .badge{text-decoration:underline}
 @media (max-width:640px){.tab.tab-srv tr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px}.tab.tab-srv td:first-child{grid-column:1/-1}}
+.b-muto{background:var(--mute);color:var(--ink-2);border-color:var(--line-2)}
+.griglia.g-pat{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));margin-top:16px}.griglia.g-pat a .ico{color:var(--accent);margin-right:4px}
+.tab-pat td:nth-child(4){font-size:.9rem;color:var(--ink-2);min-width:16em}.tab-pat td:last-child{white-space:nowrap}
+@media (max-width:640px){.tab.tab-pat tr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px}.tab.tab-pat td:first-child,.tab.tab-pat td:nth-child(4){grid-column:1/-1}.tab-pat td:nth-child(4){min-width:0}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 """
 
@@ -494,6 +498,7 @@ ICONE = {
     "book": '<path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H11v18H5.5A1.5 1.5 0 0 1 4 19.5zM20 4.5A1.5 1.5 0 0 0 18.5 3H13v18h5.5a1.5 1.5 0 0 0 1.5-1.5z"/>',
     "bag": '<rect x="4" y="7.5" width="16" height="12.5" rx="2.5"/><path d="M9 7.5V5a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 5v2.5M8 20v1.5M16 20v1.5M9 11.5v5M15 11.5v5"/>',
     "globe": '<circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 4 6 4 9.5s-1.4 6.9-4 9.5c-2.6-2.6-4-6-4-9.5s1.4-6.9 4-9.5z"/>',
+    "car": '<path d="M5 16.5V12l1.8-4.6A2 2 0 0 1 8.7 6h6.6a2 2 0 0 1 1.9 1.4L19 12v4.5"/><path d="M3.5 12h17v4.5h-17zM7 16.5V19M17 16.5V19"/><circle cx="7.5" cy="14.2" r=".9"/><circle cx="16.5" cy="14.2" r=".9"/>',
     "apps": '<rect x="3.5" y="3.5" width="7" height="7" rx="1.8"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.8"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.8"/><path d="M17 13.5v7M13.5 17h7"/>',
 }
 
@@ -930,6 +935,7 @@ def pagina_paese(P):
 </div>
 </section>
 {altri_passaporti(rel, uk_slug=P["slug"])}
+{link_guida(rel, ISO_DA_FCDO.get(P["slug"]), "uk")}
 {sezione_visto(P)}
 <h2>Passport validity: official text “{escape(titolo_sez)}”</h2>
 {testo_ufficiale(P)}
@@ -1379,6 +1385,7 @@ def pagina_estera(v):
 </div>
 </section>
 {altri_passaporti(rel, voce=v)}
+{link_guida(rel, v["p"].get("iso") if k == "ca" else ISO_DA_AU.get(_chiave_nome(v["p"]["nome"])), k)}
 {sezione_visto_estero(v, rel)}
 {sezione_validita_estera(v)}
 {avviso_estero(k, rel)}
@@ -3220,6 +3227,7 @@ def pagina_srv_paese(S, c):
 <h2>Other services in {escape(P)}</h2>
 <div class="tab tab-b"><table><caption class="sr">Official availability of {len(SERVIZI_SRV)} services in {escape(P)}</caption><thead><tr><th>Service</th><th>In {escape(nome_srv(c))}</th><th>Checked</th></tr></thead><tbody>{altri}</tbody></table></div>
 {f'<h2>Before you travel to {escape(P)}</h2><ul>' + "".join(f"<li>{x}</li>" for x in ingresso) + "</ul>" if ingresso else ""}
+{link_guida(rel, c)}
 {faq_h}
 <p class="small">Spotted a change? <a href="{rel}contact/?ref=available-in">Tell us</a>. <a href="{rel}{SRV_BASE}/">All services by country</a>.</p>"""
     pagina(url_srv(S, c), scegli(titoli_srv(S, c), LIMITE_TITOLO), scegli(descrizioni_srv(S, c), LIMITE_DESCRIZIONE), corpo,
@@ -3360,6 +3368,531 @@ def about_srv(rel):
 <p>Rules: a country is “Yes” only if the provider's list names it; “Not on the list” means the list does not name it, which is not the same as a ban. For Starlink we show the statuses of the official availability map (“Available”, “Coming soon” with the note the map gives, no service shown, or “By region” when the map colours a country region by region), as the map's own legend explains them. Names are matched to ISO 3166-1 country codes; regions inside a country are not shown separately. We give no advice on getting around restrictions. A page for a single service and country exists only where people search for it. The lists are facts published by each provider; the trademarks belong to their owners, and Before You Fly is not affiliated with any of them.</p>"""
 
 
+# ---------------------------------------------------------------- "Can I drive in [country] with my UK / Canadian / Australian licence?" (dal 28/10/2026)
+# Dati: dati/patenti.json (frasi ufficiali sul permesso internazionale, lette da raccolta/patenti.py: tabella GOV.UK + consigli FCDO,
+# travel.gc.ca, Smartraveller; esito da schemi fissi o da fatti scritti a mano in dati/patenti_manuali.json) e dati/patenti_domanda.json
+# (ricerche vere dell'autocompletamento: una pagina Paese × patente esiste SOLO per le coppie in "pagine" e solo se la fonte dice qualcosa).
+# Regole: la prima frase dice sì / no / dipende con la frase dell'ente tra virgolette, la fonte e la data; se la fonte non dice nulla:
+# "Not stated by <ente>", mai una deduzione; nessun consiglio legale personale; nessun link affiliato (NOLEGGIO_AUTO resta vuoto).
+PAT_BASE = "driving-abroad"
+_f_pat = DATI / "patenti.json"
+PAT = json.loads(_f_pat.read_text(encoding="utf-8")) if _f_pat.exists() else None
+_f_pat_dom = DATI / "patenti_domanda.json"
+PAT_DOM = json.loads(_f_pat_dom.read_text(encoding="utf-8")) if _f_pat_dom.exists() else {"pagine": {}, "patenti": {}}
+PAT_PER = {p["iso2"]: p for p in PAT["paesi"]} if PAT else {}
+PAT_G = PAT["frasi_generali"] if PAT else {}
+# Segnaposto spento per un futuro riquadro "Hire a car" (noleggio auto, link affiliato): finché è vuoto non compare nulla.
+# verifica.py blocca i link affiliati nelle pagine di questa sezione: per accenderlo serve la decisione di Massimiliano e un controllo nuovo.
+NOLEGGIO_AUTO = ""
+PATENTI = {
+    "uk": {"slug": "uk-licence", "agg": "UK", "lic": "UK licence", "ente": "GOV.UK", "Ente": "GOV.UK", "paese": "the UK",
+           "titolo": "UK Licence", "chi": "a UK photocard driving licence", "Lic": "UK licence", "art": "a",
+           "fonte": "GOV.UK"},
+    "ca": {"slug": "canadian-licence", "agg": "Canadian", "lic": "Canadian licence", "ente": "the Government of Canada", "Ente": "The Government of Canada",
+           "paese": "Canada", "titolo": "Canadian Licence", "chi": "a Canadian driver's licence", "Lic": "Canadian licence",
+           "art": "a", "fonte": "Government of Canada"},
+    "au": {"slug": "australian-licence", "agg": "Australian", "lic": "Australian licence", "ente": "Smartraveller", "Ente": "Smartraveller",
+           "paese": "Australia", "titolo": "Australian Licence", "chi": "an Australian driver's licence",
+           "Lic": "Australian licence", "art": "an", "fonte": "Smartraveller"},
+}
+# esito -> (etichetta breve, classe del badge, inizio della prima frase, parola nel titolo)
+ESITI_PAT = {
+    "si": ("IDP needed", "b-no", "Yes.", "Yes"),
+    "no": ("No IDP needed", "b-gratis", "No.", "No"),
+    "dipende": ("It depends", "b-altre", "It depends", "It Depends"),  # la prima frase continua con "on how long you stay…" (dipende_da_pat)
+    "consigliato": ("Recommended", "b-altre", "Recommended.", "Recommended"),
+    "locale": ("Local permit needed", "b-no", "An IDP alone is not enough: you need a local licence or permit.", "Local Permit Needed"),
+    "non_detto": ("Not stated", "b-muto", "", "Not Stated"),
+    "da_leggere": ("Read the official text", "b-muto", "", ""),
+}
+ICONA_PAT = {"si": "alert", "no": "check", "dipende": "alert", "consigliato": "alert", "locale": "x", "non_detto": "alert", "da_leggere": "alert"}
+CLASSE_PAT = {"si": "manuale", "no": "si", "dipende": "manuale", "consigliato": "manuale", "locale": "no", "non_detto": "manuale", "da_leggere": "manuale"}
+
+
+NOMI_TITOLO_PAT = {"US": "the USA", "GB": "the UK", "AE": "the UAE", "KR": "South Korea", "CZ": "Czechia"}
+LIMITE_TITOLO_PAT = 70  # titoli di questa sezione: fino a 70 caratteri con l'anno (richiesta del 28/10/2026)
+
+
+def nome_titolo_pat(c, maiuscola=False):
+    n = NOMI_TITOLO_PAT.get(c) or frase_srv(c)
+    return n[0].upper() + n[1:] if maiuscola else n
+
+
+def voce_pat(k, c):
+    p = PAT_PER.get(c)
+    return p[k] if p else None
+
+
+def pagine_pat(k):
+    """Paesi con la pagina Paese × patente: coppie cercate davvero (patenti_domanda.json, "pagine") e con qualcosa di detto dalla fonte."""
+    out = []
+    for c in PAT_DOM.get("pagine", {}).get(k, []):
+        v = voce_pat(k, c)
+        if v and c in PAESI_ISO and v["esito"] not in ("non_detto", "da_leggere"):
+            out.append(c)
+    return sorted(out, key=ordine_srv)
+
+
+PAGINE_PAT = {k: (pagine_pat(k) if PAT else []) for k in PATENTI}
+
+
+def url_pat(k, c=None):
+    return f"{PAT_BASE}/{PATENTI[k]['slug']}/" + (f"{slug_srv(c)}/" if c else "")
+
+
+def link_pat(k, c, rel):
+    return f"{rel}{url_pat(k, c)}" if c in PAGINE_PAT[k] else f"{rel}{url_pat(k)}#{c.lower()}"
+
+
+def badge_pat(k, c):
+    e = voce_pat(k, c)["esito"]
+    return f'<span class="badge {ESITI_PAT[e][1]}">{escape(ESITI_PAT[e][0])}</span>'
+
+
+def nota_uk(v):
+    return v.get("tabella", {}).get("nota", "") if v.get("tabella") else ""
+
+
+def parti_frasi(k, v):
+    """Frasi chiave divise per provenienza (Regno Unito: tabella GOV.UK o consigli FCDO)."""
+    if k != "uk":
+        return [], v["frasi"]
+    nota = piano_t(nota_uk(v))
+    tab = [x for x in v["frasi"] if nota and piano_t(x) in nota]
+    return tab, [x for x in v["frasi"] if x not in tab]
+
+
+def piano_t(s):
+    return re.sub(r"\s+", " ", s.replace("’", "'").replace("‘", "'").replace("“", '"').replace("”", '"')).strip()
+
+
+def cita_pat(ff):
+    """Frasi ufficiali tra virgolette; una frase che finisce con ':' si unisce alla voce che segue con '…' (voce di elenco)."""
+    out, i = [], 0
+    while i < len(ff):
+        x = ff[i].strip()
+        while x.endswith(":") and i + 1 < len(ff):
+            i += 1
+            x = x + " … " + ff[i].strip()
+        out.append(f"“{x}”")
+        i += 1
+    return " ".join(out)
+
+
+def data_pat(k, v):
+    """Data della lettura della fonte usata per la risposta."""
+    if k == "uk" and not v.get("letto_il"):
+        return PAT["fonti"]["uk"]["letto_il"]
+    return v["letto_il"]
+
+
+def fonte_breve_pat(k, v, c):
+    P = frase_srv(c)
+    if k == "uk":
+        tab, fc = parti_frasi(k, v)
+        if tab and fc:
+            return f"GOV.UK international driving permit table and FCDO travel advice for {P}"
+        if tab or (not fc and v.get("tabella")):
+            return "GOV.UK international driving permit table"
+        return f"FCDO travel advice for {P}, GOV.UK"
+    if k == "ca":
+        return f"Government of Canada travel advice for {P}, travel.gc.ca"
+    return f"Smartraveller advice for {P}"
+
+
+# "It depends": da cosa dipende, letto SOLO nelle frasi citate (schemi fissi); casi particolari scritti a mano (revisione del 28/10/2026)
+DIPENDE_A_MANO = {
+    ("au", "IS"): "on how long you have held your licence and on whether you hire a car",
+    ("au", "GR"): "on your type of licence (Smartraveller says to ask the Greek embassy or consulate)",
+    ("uk", "OM"): "on how long you stay (the first 6 weeks, in a rental car)",
+    ("ca", "AE"): "on the emirate: Dubai or the rest of the UAE",
+    ("au", "FJ"): "on how long you stay",
+    ("ca", "RO"): "on how long you stay",
+    ("au", "AZ"): "on your travel and car insurance (Smartraveller says to check with your insurer and car provider)",
+}
+DIPENDE_SCHEMI = [
+    (re.compile(r"\bstates?\b|\bprovinces?\b|\bterritories\b|\bDubai\b|\bemirates?\b", re.I), "on the state or province where you drive"),
+    (re.compile(r"\bup to\b|\bfor (?:the first|a period of|\d+|one|two|three|six|twelve)\b|\bfirst (?:year|\d+)|\blonger\b|\bbeyond\b|"
+                r"\bmore than \d|\blimited time\b|\bafter (?:\d+|one|that|this)\b|\bfor periods\b", re.I), "on how long you stay"),
+    (re.compile(r"\bhir(?:e|ing)\b|\brent(?:al|ing)?\b", re.I), "on whether you hire a car"),
+    (re.compile(r"translat|notari[sz]ed", re.I), "on whether you carry a translation of your licence instead of an IDP"),
+]
+
+
+def dipende_da_pat(k, c, v):
+    """'on how long you stay and on whether you hire a car': ciò che le frasi citate nominano; vuoto se non nominano nulla."""
+    if (k, c) in DIPENDE_A_MANO:
+        return DIPENDE_A_MANO[(k, c)]
+    t = " ".join(v["frasi"])
+    regione = {"US": "on the state where you drive", "CA": "on the province or territory where you drive"}.get(c)
+    parti = [(regione or testo) if testo.startswith("on the state") else testo for rx, testo in DIPENDE_SCHEMI if rx.search(t)]
+    if not parti:
+        return ""
+    return parti[0] if len(parti) == 1 else ", ".join(parti[:-1]) + " and " + parti[-1]
+
+
+def risposta_pat(k, c):
+    """Prima frase della pagina: sì / no / dipende, frase dell'ente tra virgolette, fonte e data. Solo modelli fissi (verifica.py li ricalcola)."""
+    v, T = voce_pat(k, c), PATENTI[k]
+    e, ff, P = v["esito"], v["frasi"], frase_srv(c)
+    d = data_lunga(data_pat(k, v))
+    src = fonte_breve_pat(k, v, c)
+    if e == "dipende":
+        da = dipende_da_pat(k, c, v)
+        return f"It depends{' ' + da if da else ''}. {T['Ente']} says: {cita_pat(ff)} ({src}, checked on {d})."
+    if e in ("si", "no", "consigliato", "locale"):
+        return f"{ESITI_PAT[e][2]} {T['Ente']} says: {cita_pat(ff)} ({src}, checked on {d})."
+    if e == "non_detto":
+        if ff:
+            return (f"Not stated by {T['ente']}: its advice for {P} does not say whether you need an international driving permit. "
+                    f"It says: {cita_pat(ff)} ({src}, checked on {d}).")
+        if k == "uk" and v.get("tabella"):
+            return (f"Not stated by GOV.UK. Its international driving permit table lists {P} with the {v['tabella']['tipo']} IDP, but neither the table "
+                    f"nor the FCDO travel advice for {P} says whether you need one with a UK photocard licence (checked on {d}).")
+        return f"Not stated by {T['ente']}: its travel advice for {P} says nothing about an international driving permit (checked on {d})."
+    return f"Read the official text below: {T['ente']}'s wording for {P} does not fit a simple answer (checked on {d})."
+
+
+RX_CONV_NO = re.compile(r"no longer accepts the (19(?:26|49|68))|The (19(?:26|49|68)) IDP is not accepted", re.I)
+
+
+def conv_fcdo_diversa(k, v):
+    """Convenzioni nominate dai consigli FCDO (escluse quelle "not accepted") ma diverse da quella della tabella GOV.UK (Libano: tabella 1949,
+    FCDO «a 1968 international driving permit … The 1949 IDP is not accepted anymore»). Vuoto se coincidono o se l'FCDO non ne nomina."""
+    if k != "uk" or not v.get("tabella"):
+        return []
+    tutte = {m for b in v["testo"] for m in re.findall(r"\b(19(?:26|49|68))\b", b["x"])}
+    rifiutate = {x for b in v["testo"] for g in RX_CONV_NO.findall(b["x"]) for x in g if x}
+    return sorted(tutte - rifiutate - {v["tabella"]["tipo"]})
+
+
+def tipo_breve_pat(k, v):
+    """Colonna "Type" delle tabelle per patente: la convenzione; se FCDO e tabella GOV.UK non coincidono, tutte e due."""
+    c = v.get("convenzione")
+    if not c:
+        return "–"
+    altre = conv_fcdo_diversa(k, v)
+    return f"{c} (table); {' and '.join(altre)} (FCDO)" if altre else c
+
+
+def conv_pat(k, v):
+    """Tipo di permesso (convenzione) come lo scrive la fonte; nulla se la fonte non lo dice."""
+    c = v.get("convenzione")
+    if not c:
+        return ""
+    if k == "uk" and v.get("tabella"):
+        altre = conv_fcdo_diversa(k, v)
+        if altre:
+            return (f"{c} in the GOV.UK table, but the FCDO travel advice names the {' and '.join(altre)} permit"
+                    + (" and says the 1949 IDP is no longer accepted" if any(RX_CONV_NO.search(b["x"]) for b in v["testo"]) else "")
+                    + ": read both below")
+        return f"{c} (GOV.UK table)"
+    return f"{c} (named on the official page)"
+
+
+# etichette dei link "Useful links" delle schede canadesi (senza punto finale): non sono frasi della scheda, non si mostrano
+ETICHETTA_LINK_CA = re.compile(r"^(?:More about the )?International driving permits?$|^[^.!?:]* [–-] [^.!?:]*[^.!?:;)]$", re.I)
+
+
+def testo_fonte_pat(k, v, c):
+    """Citazione completa della fonte, con titolo, link e date."""
+    T, P = PATENTI[k], frase_srv(c)
+    out = []
+    if k == "uk" and v.get("tabella"):
+        r = v["tabella"]
+        out.append(f'<h3>GOV.UK: international driving permit table</h3><div class="tab tab-b"><table><caption class="sr">Row of the GOV.UK international driving permit '
+                   f'table for {escape(P)}</caption><thead><tr><th>Country or territory</th><th>Type of IDP</th><th>More information</th></tr></thead><tbody>'
+                   f'<tr><td data-l="Country or territory">{escape(r["nome"])}</td><td data-l="Type of IDP">{escape(r["tipo"])}</td>'
+                   f'<td data-l="More information">{escape(r["nota"]) or "–"}</td></tr></tbody></table></div>')
+        if v.get("tabella_regione"):
+            rr = v["tabella_regione"]
+            out.append(f'<p>The table also has a row for <strong>{escape(rr["nome"])}</strong>: type of IDP {escape(rr["tipo"])}'
+                       + (f', “{escape(rr["nota"])}”' if rr["nota"] else ", no further information") + ".</p>")
+        g = PAT["fonti"]["uk"]
+        out.append(f'<p class="fonte">Source: <a href="{escape(g["pagina_idp"])}" rel="noopener">GOV.UK, Driving abroad: check if you need an international driving permit (IDP)</a>, '
+                   f'page updated {data_lunga(g["guida_aggiornata"])}, checked on {data_lunga(g["letto_il"])}. GOV.UK says: “{escape(PAT_G["uk_tabella"])}”</p>')
+    if v["testo"]:
+        if k == "uk":
+            tit = f"FCDO travel advice for {escape(P)}" + (f": “{escape(v['titolo_sezione'])}”" if v.get("titolo_sezione") else "")
+        elif k == "ca":
+            tit = f"Government of Canada travel advice for {escape(P)}: “Laws and culture” › “{escape(v.get('titolo_sezione') or 'Driving')}”"
+        else:
+            tit = f"Smartraveller advice for {escape(P)}: “Local travel”" + (f" › “{escape(v['titolo_sezione'])}”" if v.get("titolo_sezione") else "")
+        bb = [b for b in v["testo"] if not (k == "ca" and b["t"] == "p" and ETICHETTA_LINK_CA.search(b["x"]))]
+        out.append(f"<h3>{tit}</h3>{blocchi_html(bb)}")
+        agg = f", page updated {data_lunga(v['aggiornata'])}" if v.get("aggiornata") else ""
+        ancora = f", “still current at” {data_lunga(v['ancora_valida_il'])} (Australian time)" if v.get("ancora_valida_il") else ""
+        nome_link = {"uk": f"FCDO travel advice: {v.get('nome_fonte') or P}", "ca": f"travel.gc.ca: {v.get('nome_fonte') or P}",
+                     "au": f"Smartraveller: {v.get('nome_fonte') or P}"}[k]
+        out.append(f'<p class="fonte">Source: <a href="{escape(v["url"])}" rel="noopener">{escape(nome_link)}</a>{agg}{ancora}, checked on {data_lunga(v["letto_il"])}. '
+                   "Quoted word for word; we show only the sentences about driving licences and permits.</p>")
+    elif v.get("url"):
+        out.append(f'<p>The {escape(T["ente"])} travel advice for {escape(P)} has nothing about driving licences or permits '
+                   f'(<a href="{escape(v["url"])}" rel="noopener">official page</a>, checked on {data_lunga(v["letto_il"])}).</p>')
+    return "".join(out)
+
+
+def dove_idp(k):
+    """Dove si ottiene il permesso e quanto vale: SOLO frasi ufficiali generali (controllate da raccolta/patenti.py)."""
+    if k == "uk":
+        g = PAT["fonti"]["uk"]
+        return (f'<p>GOV.UK says:</p>{cit_html([PAT_G["uk_paypoint"], PAT_G["uk_costo"], PAT_G["uk_durata"], PAT_G["uk_sempre_patente"]])}'
+                f'<p class="fonte">Source: <a href="{escape(g["pagina_get"])}" rel="noopener">GOV.UK, Get an international driving permit (IDP)</a> and '
+                f'<a href="{escape(g["pagina_idp"])}" rel="noopener">Check if you need an IDP</a>, checked on {data_lunga(g["letto_il"])}.</p>')
+    if k == "ca":
+        g = PAT["fonti"]["ca"]
+        mod = f", page modified {data_lunga(g['idp_modificata'])}" if g.get("idp_modificata") else ""
+        return (f'<p>The Government of Canada says:</p>{cit_html([PAT_G["ca_caa"], PAT_G["ca_anno"], PAT_G["ca_classe"]])}'
+                f'<p class="fonte">Source: <a href="{escape(g["pagina_idp"])}" rel="noopener">travel.gc.ca, International Driving Permit</a>{mod}, checked on {data_lunga(g["letto_il"])}.</p>')
+    g = PAT["fonti"]["au"]
+    return (f'<p>Smartraveller says (in its advice for Vietnam):</p>{cit_html([PAT_G["au_falsi"], PAT_G["au_aaa"]])}'
+            f'<p class="fonte">Source: <a href="{escape(g["pagina_aaa"])}" rel="noopener">Smartraveller: Vietnam</a>, checked on {data_lunga(PAT_PER["VN"]["au"]["letto_il"])}.</p>')
+
+
+def faq_pat(k, c):
+    v, T, P = voce_pat(k, c), PATENTI[k], frase_srv(c)
+    r = risposta_pat(k, c)
+    out = [(f"Do I need an international driving permit for {P} with {T['chi']}?", r)]
+    if v["esito"] in ("si", "no", "dipende", "consigliato"):
+        out.append((f"Can I drive in {P} with my {T['lic']}?", f"{T['Ente']} says: {cita_pat(v['frasi'])}"))
+    if v["esito"] in ("si", "dipende", "consigliato"):
+        if k == "uk":
+            if v.get("tabella"):
+                a = f"GOV.UK's international driving permit table lists the {v['tabella']['tipo']} IDP for {P}."
+                if conv_fcdo_diversa(k, v):
+                    a += f" The FCDO travel advice for {P} names the {' and '.join(conv_fcdo_diversa(k, v))} permit."
+            else:
+                a = f"GOV.UK's international driving permit table does not list {P}. GOV.UK says: “{PAT_G['uk_non_in_tabella']}”"
+        elif v.get("convenzione"):
+            a = f"The {T['fonte']} advice for {P} names the {v['convenzione']} permit."
+        else:
+            a = f"The {T['fonte']} advice for {P} does not say which convention (1926, 1949 or 1968) the permit must follow."
+        out.append((f"Which international driving permit do I need for {P}?", a))
+    luogo = {"uk": f"GOV.UK says: “{PAT_G['uk_paypoint']}” “{PAT_G['uk_costo']}”",
+             "ca": f"The Government of Canada says: “{PAT_G['ca_caa']}” “{PAT_G['ca_anno']}”",
+             "au": f"Smartraveller says: “{PAT_G['au_aaa']}”"}[k]
+    out.append((f"Where do I get an international driving permit in {T['paese']}?", luogo))
+    out.append((f"Where does this answer come from?", f"From the official travel advice of {T['ente']}, read on {data_lunga(data_pat(k, v))} and quoted word for word on this page. "
+                "It is information, not legal advice."))
+    return out
+
+
+def html_faq_pat(k, c):
+    faq = faq_pat(k, c)
+    h = "".join(f"<h3>{escape(q)}</h3><p>{escape(a)}</p>" for q, a in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
+    return f'<section class="faq"><h2>Questions</h2>{h}</section>', [ld]
+
+
+def titoli_pat(k, c):
+    T, b = PATENTI[k], ESITI_PAT[voce_pat(k, c)["esito"]][3]
+    P, Pm = nome_titolo_pat(c), nome_titolo_pat(c, True)
+    L = f"{T['art']} {T['titolo']}"
+    return [f"Do I Need an IDP for {P} with {L}? {b} ({ANNO})", f"Do I Need an IDP for {P} with {L}? ({ANNO})",
+            f"Driving in {P} with {L}: IDP? ({ANNO})", f"{Pm}: IDP with {L} ({ANNO})", f"{Pm} IDP, {T['agg']} Licence ({ANNO})"]
+
+
+def descrizioni_pat(k, c):
+    T, P, v = PATENTI[k], frase_srv(c), voce_pat(k, c)
+    b = ESITI_PAT[v["esito"]][0]
+    d = data_lunga(data_pat(k, v))
+    return [f"Do you need an international driving permit to drive in {P} with {T['chi']}? {b}: official {T['fonte']} advice, quoted, checked on {d}.",
+            f"International driving permit for {P} with {T['art']} {T['lic']}: {b}. Official {T['fonte']} advice, checked on {d}.",
+            f"{nome_titolo_pat(c, True)}, {T['lic']}: {b}. Official advice, checked on {d}."]
+
+
+AVVISO_PAT = ('<p class="avviso"><strong>Rules change, and car hire companies can ask for more than the law.</strong> We quote the official travel advice '
+              'word for word, with its date; this is information, not legal advice. If you are unsure, ask the embassy of the country you are visiting, '
+              'your car hire company or your travel insurer before you travel.</p>')
+
+
+def box_noleggio():
+    """Segnaposto del riquadro "Hire a car": spento finché NOLEGGIO_AUTO è vuoto."""
+    return NOLEGGIO_AUTO
+
+
+def pagina_pat(k, c):
+    rel = "../../../"
+    v, T, P = voce_pat(k, c), PATENTI[k], frase_srv(c)
+    e = v["esito"]
+    altri = []
+    for k2 in PATENTI:
+        if k2 != k and voce_pat(k2, c):
+            altri.append(f'<tr data-voce><td data-l="Licence"><a href="{link_pat(k2, c, rel)}">{escape(PATENTI[k2]["Lic"])}</a></td>'
+                         f'<td data-l="In {escape(nome_srv(c))}">{badge_pat(k2, c)}</td><td data-l="Checked">{data_lunga(data_pat(k2, voce_pat(k2, c)))}</td></tr>')
+    ingresso = ingresso_srv(c, rel)
+    conv = conv_pat(k, v)
+    faq_h, faq_ld = html_faq_pat(k, c)
+    corpo = f"""<section class="hero"><h1>Can I drive in {escape(P)} with {T['art']} {escape(T['lic'])}? Do I need an international driving permit?</h1></section>
+<section class="card summary" aria-label="Answer">
+<div class="s-top"><span class="sq">{ico("car")}</span><span>{escape(T['lic'])} · {escape(nome_srv(c))}</span><span>{ANNO}</span></div>
+<div class="s-body">
+<div class="esito e-srv {CLASSE_PAT[e]}">{ico(ICONA_PAT[e])}<strong>{escape(ESITI_PAT[e][0])}</strong></div>
+<p class="lead" id="answer">{escape(risposta_pat(k, c))}</p>
+{(f'<p class="lead">If you need a permit anyway (for example because your car hire company asks for one), the type is: <strong>{escape(conv)}</strong>.</p>' if e == "no" else f'<p class="lead">Type of international driving permit: <strong>{escape(conv)}</strong>.</p>') if conv else ""}
+</div></section>
+{AVVISO_PAT}
+<h2>What the official source says</h2>
+{testo_fonte_pat(k, v, c)}
+{AD}
+<h2>What to bring and where to get an IDP</h2>
+{dove_idp(k)}
+{box_noleggio()}
+{f'<h2>Other licences in {escape(P)}</h2><div class="tab tab-b"><table><caption class="sr">International driving permit in {escape(P)} for other licences, from official advice</caption><thead><tr><th>Licence</th><th>In {escape(nome_srv(c))}</th><th>Checked</th></tr></thead><tbody>{"".join(altri)}</tbody></table></div>' if altri else ""}
+{f'<h2>Before you travel to {escape(P)}</h2><ul>' + "".join(f"<li>{x}</li>" for x in ingresso) + "</ul>" if ingresso else ""}
+{faq_h}
+<p class="small">Spotted a change? <a href="{rel}contact/?ref=driving-abroad">Tell us</a>. <a href="{rel}{url_pat(k)}">Every country for {T['art']} {escape(T['lic'])}</a> · <a href="{rel}{PAT_BASE}/">Driving abroad: all licences</a>.</p>"""
+    pagina(url_pat(k, c), scegli(titoli_pat(k, c), LIMITE_TITOLO_PAT), scegli(descrizioni_pat(k, c), LIMITE_DESCRIZIONE), corpo,
+           briciole=[("Driving abroad", f"{PAT_BASE}/"), (T["Lic"], url_pat(k)), (nome_srv(c), url_pat(k, c))],
+           ld_extra=faq_ld, js=APP_JS_FILTRO)
+    LASTMOD[url_pat(k, c)] = data_pat(k, v)
+
+
+def conteggi_pat(k):
+    from collections import Counter
+    return Counter(p[k]["esito"] for p in PAT["paesi"] if p[k])
+
+
+def prima_frase_patente(k):
+    """Prima frase della pagina di una patente: conteggi per esito, fonte e data."""
+    n, T = conteggi_pat(k), PATENTI[k]
+    d = data_lunga(max(p[k]["letto_il"] or PAT["fonti"]["uk"]["letto_il"] for p in PAT["paesi"] if p[k]))
+    fonte = {"uk": "GOV.UK (international driving permit table and FCDO travel advice)", "ca": "the Government of Canada (travel.gc.ca)",
+             "au": "Smartraveller (Australian Government)"}[k]
+    return (f"With {T['chi']}, the official advice of {fonte} says you need an international driving permit in {n['si']} countries and territories, "
+            f"you do not need one in {n['no']}, it depends in {n['dipende']} (usually on how long you stay or on hiring a car), it is recommended in "
+            f"{n['consigliato']}, and a local licence or permit is needed in {n['locale']}; it says nothing about permits for {n['non_detto']} (last checked {d}).")
+
+
+def titoli_patente(k):
+    T = PATENTI[k]
+    return [f"Do I Need an IDP with {T['art']} {T['titolo']}? Every Country ({ANNO})", f"IDP with {T['art']} {T['titolo']}: Every Country ({ANNO})"]
+
+
+def pagina_patente(k):
+    rel = "../../"
+    T = PATENTI[k]
+    n = conteggi_pat(k)
+    paesi = sorted((p for p in PAT["paesi"] if p[k] and p["iso2"] in PAESI_ISO), key=lambda p: ordine_srv(p["iso2"]))
+    righe = []
+    for p in paesi:
+        c, v = p["iso2"], p[k]
+        nome = (f'<a href="{rel}{url_pat(k, c)}">{escape(nome_srv(c))}</a>' if c in PAGINE_PAT[k] else escape(nome_srv(c))) + alias_srv(c)
+        parola = cita_pat(v["frasi"]) if v["frasi"] else "–"
+        righe.append(f'<tr data-voce id="{c.lower()}"><td data-l="Country or territory">{nome}</td><td data-l="IDP?">{badge_pat(k, c)}</td>'
+                     f'<td data-l="Type">{escape(tipo_breve_pat(k, v))}</td><td data-l="Official wording">{escape(parola)}</td>'
+                     f'<td data-l="Checked">{data_lunga(data_pat(k, v))}</td></tr>')
+    griglia = "".join(f'<a href="{rel}{url_pat(k, c)}">{escape(nome_srv(c))}<small>{escape(ESITI_PAT[voce_pat(k, c)["esito"]][0])}</small></a>' for c in PAGINE_PAT[k])
+    tipo = ("“Type” is the type of IDP that GOV.UK's table lists for the country (1926, 1949 or 1968), even where you do not need one with a photocard licence."
+            if k == "uk" else f"“Type” is shown only where the {T['ente']} page names the convention (1926, 1949 or 1968).")
+    corpo = f"""<section class="hero">{h1_diviso(f"Do I need an international driving permit with {T['art']} {T['lic']}? Every country ({ANNO})")}
+<p class="lead" id="answer">{escape(prima_frase_patente(k))}</p></section>
+<ul class="stat"><li><strong>{n['si']}</strong>IDP needed</li><li><strong>{n['no']}</strong>no IDP needed</li><li><strong>{n['dipende']}</strong>it depends</li><li><strong>{n['consigliato'] + n['locale']}</strong>recommended or local permit</li></ul>
+{AVVISO_PAT}
+<h2>Most searched with {T['art']} {escape(T['lic'])}</h2>
+<div class="griglia g-srv">{griglia}</div>
+{AD}
+<h2>Every country and territory</h2>
+<p>Each answer quotes the official sentence that decides it. “It depends” means the official text sets a condition (length of stay, hiring a car, a translation, the region); “Not stated” means the official advice for that country says nothing about permits. {escape(tipo)} Click a country for the full official text.</p>
+<div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a country, e.g. Japan" data-filtro-multi aria-label="Search countries"></div>
+<div class="tab tab-b tab-pat"><table><caption class="sr">International driving permit with {T['art']} {escape(T['lic'])}, by country, from official advice</caption><thead><tr><th>Country or territory</th><th>IDP?</th><th>Type</th><th>Official wording</th><th>Checked</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>
+<h2>Where to get an international driving permit</h2>
+{dove_idp(k)}
+<h2>How we read the official advice</h2>
+<p>{metodo_pat(k)} More on the <a href="{rel}about/#driving-abroad">About page</a>. Spotted a change? <a href="{rel}contact/?ref=driving-abroad">Tell us</a>.</p>
+<p><a href="{rel}{PAT_BASE}/">Driving abroad: UK, Canadian and Australian licences</a></p>"""
+    desc = [f"Do you need an international driving permit with {T['art']} {T['lic']}? Every country, from official {T['fonte']} advice: {n['si']} yes, {n['no']} no, {n['dipende']} it depends.",
+            f"International driving permit with {T['art']} {T['lic']}: every country, from official advice."]
+    pagina(url_pat(k), scegli(titoli_patente(k), LIMITE_TITOLO_PAT), scegli(desc, LIMITE_DESCRIZIONE), corpo,
+           briciole=[("Driving abroad", f"{PAT_BASE}/"), (T["Lic"], url_pat(k))], js=APP_JS_FILTRO)
+    LASTMOD[url_pat(k)] = max(data_pat(k, p[k]) for p in PAT["paesi"] if p[k])
+
+
+def metodo_pat(k):
+    if k == "uk":
+        return ("For UK licences we read two GOV.UK pages: the international driving permit table (“Country or territory / Type of IDP / More information”) and "
+                "the driving paragraphs of the FCDO travel advice for each country. A table row with nothing under “More information” only tells you the type of "
+                "IDP: the answer then comes from the FCDO advice. When the two pages disagree we give the more cautious answer and quote both.")
+    if k == "ca":
+        return ("For Canadian licences we read the “Driving” part of the “Laws and culture” section of the Government of Canada travel advice for each destination, "
+                "through the official open data files. “Must carry an international driving permit” is “IDP needed”; “should carry” is “Recommended”.")
+    return ("For Australian licences we read the driving paragraphs (“Driving permit” and similar) of the “Local travel” part of the Smartraveller advice for each "
+            "destination. Smartraveller blocks simple automated requests, so its pages are read in a browser.")
+
+
+def pagina_hub_pat():
+    rel = "../"
+    nomi = {k: PATENTI[k]["lic"] for k in PATENTI}
+    tutti = sorted((p for p in PAT["paesi"] if p["iso2"] in PAESI_ISO), key=lambda p: ordine_srv(p["iso2"]))
+    righe = "".join(f'<tr data-voce id="{p["iso2"].lower()}"><td data-l="Country or territory"><strong>{escape(nome_srv(p["iso2"]))}</strong>{alias_srv(p["iso2"])}</td>' +
+                    "".join((f'<td data-l="{escape(nomi[k])}"><a class="a-badge" href="{link_pat(k, p["iso2"], rel)}">{badge_pat(k, p["iso2"])}</a></td>' if p[k]
+                             else f'<td data-l="{escape(nomi[k])}">–</td>') for k in PATENTI) + "</tr>" for p in tutti)
+    carte = "".join(f'<a href="{rel}{url_pat(k)}">{ico("car")} {escape(PATENTI[k]["Lic"])}: every country'
+                    f'<small>{conteggi_pat(k)["si"]} IDP needed · {conteggi_pat(k)["no"]} not needed · {conteggi_pat(k)["dipende"]} it depends</small></a>' for k in PATENTI)
+    popolari = []
+    for k, c in (("uk", "JP"), ("uk", "US"), ("uk", "IT"), ("ca", "IT"), ("ca", "JP"), ("au", "JP"), ("au", "IT"), ("uk", "ES"), ("ca", "GB"), ("au", "GB"),
+                 ("uk", "AU"), ("au", "US"), ("ca", "US"), ("uk", "TH"), ("au", "ID"), ("uk", "GR")):
+        if c in PAGINE_PAT[k] and len(popolari) < 15:
+            popolari.append(f'<a href="{rel}{url_pat(k, c)}">{escape(nome_srv(c))}, {escape(nomi[k])}<small>{escape(ESITI_PAT[voce_pat(k, c)["esito"]][0])}</small></a>')
+    d = data_lunga(PAT["controllato_il"])
+    corpo = f"""<section class="hero">{h1_diviso(f"Driving abroad: do I need an international driving permit? UK, Canadian and Australian licences ({ANNO})")}
+<p class="lead" id="answer">Whether you need an international driving permit (IDP) depends on the country you visit and on the licence you hold. For each country we quote what the UK government (GOV.UK and FCDO), the Government of Canada (travel.gc.ca) and the Australian Government (Smartraveller) say about driving there with their licence, with the date we checked it (last check {d}).</p></section>
+<div class="griglia g-pat">{carte}</div>
+{AVVISO_PAT}
+<h2>Most searched</h2>
+<div class="griglia">{"".join(popolari)}</div>
+{AD}
+<h2>Every country, every licence</h2>
+<p>Click an answer for the official sentence, the source and the date. “Not stated” means that government's advice for the country says nothing about driving permits.</p>
+<div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a country, e.g. Italy" data-filtro-multi aria-label="Search countries"></div>
+<div class="tab tab-b tab-srv"><table><caption class="sr">Do you need an international driving permit? Official advice for UK, Canadian and Australian licences, by country, checked on {d}</caption><thead><tr><th>Country or territory</th>{"".join(f"<th>{escape(nomi[k])}</th>" for k in PATENTI)}</tr></thead><tbody>{righe}</tbody></table></div>
+<h2>How we check</h2>
+<p>{metodo_pat("uk")} {metodo_pat("ca")} {metodo_pat("au")} We only use official government sources and never fill a gap with our own reading: where the advice is silent, we say so. More on the <a href="{rel}about/#driving-abroad">About page</a>.</p>"""
+    pagina(f"{PAT_BASE}/", f"Driving Abroad: Do I Need an IDP? UK, Canada, Australia ({ANNO})",
+           scegli([f"Do you need an international driving permit? Official GOV.UK, Government of Canada and Smartraveller advice for every country, checked on {d}.",
+                   f"International driving permit by country for UK, Canadian and Australian licences, from official advice."], LIMITE_DESCRIZIONE),
+           corpo, briciole=[("Driving abroad", f"{PAT_BASE}/")], js=APP_JS_FILTRO)
+    LASTMOD[f"{PAT_BASE}/"] = PAT["controllato_il"]
+
+
+def link_guida(rel, c, prima=None):
+    """'Driving in X: UK licence · Canadian licence · Australian licence' verso le pagine Paese × patente che esistono (prima quella indicata)."""
+    if not PAT or not c:
+        return ""
+    ordine = ([prima] if prima else []) + [k for k in PATENTI if k != prima]
+    ll = [f'<a href="{rel}{url_pat(k, c)}">{escape(PATENTI[k]["lic"])}</a>' for k in ordine if c in PAGINE_PAT[k]]
+    if not ll:
+        return ""
+    return f'<p class="altri-pass">{ico("car")}<span>Driving in {escape(frase_srv(c))}, do you need an international driving permit? {" · ".join(ll)}</span></p>'
+
+
+# pagine passaporto -> codice ISO (per il link "Driving in X"): britanniche dalla pagina FCDO, canadesi dal codice, australiane dal nome
+ISO_DA_FCDO = {p["uk"]["slug_fcdo"]: p["iso2"] for p in (PAT["paesi"] if PAT else []) if p["uk"] and p["uk"].get("slug_fcdo") and p["iso2"] not in ("TK", "NU", "BL")}
+ISO_DA_AU = {_chiave_nome(p["au"]["nome_fonte"]): p["iso2"] for p in (PAT["paesi"] if PAT else []) if p["au"] and p["au"].get("nome_fonte")}
+
+
+def home_pat():
+    if not PAT:
+        return ""
+    voci = []
+    for k, c in (("uk", "JP"), ("uk", "US"), ("ca", "IT"), ("au", "JP"), ("uk", "IT"), ("ca", "GB"), ("au", "US"), ("uk", "TH")):
+        if c in PAGINE_PAT[k]:
+            voci.append(f'<a href="{url_pat(k, c)}">{escape(nome_srv(c))}, {escape(PATENTI[k]["lic"])}<small>{escape(ESITI_PAT[voce_pat(k, c)["esito"]][0])}</small></a>')
+    return (f'<h2>Driving abroad: do you need an international driving permit?</h2><p>What GOV.UK, the Government of Canada and Smartraveller say about '
+            f'driving in each country with a UK, Canadian or Australian licence, quoted with the date: <a href="{PAT_BASE}/">every country and every licence</a>.</p>'
+            f'<div class="griglia">{"".join(voci)}</div>')
+
+
+def about_pat(rel):
+    if not PAT:
+        return ""
+    g = PAT["fonti"]
+    return f"""<h2 id="driving-abroad">Driving abroad: international driving permits</h2>
+<p>Sources: for UK licences, the GOV.UK guide “Driving abroad” (<a href="{escape(g['uk']['pagina_idp'])}" rel="noopener">check if you need an international driving permit</a>, page updated {data_lunga(g['uk']['guida_aggiornata'])}, {g['uk']['righe_tabella']} rows in the table) and the driving paragraphs of the FCDO travel advice for each country; for Canadian licences, the “Driving” part of the “Laws and culture” section of the Government of Canada travel advice (travel.gc.ca, through the official open data files) and its <a href="{escape(g['ca']['pagina_idp'])}" rel="noopener">International Driving Permit page</a>; for Australian licences, the driving paragraphs of the “Local travel” part of the Smartraveller advice for each destination, read in a browser. All read on {data_lunga(PAT['controllato_il'])}, except Smartraveller ({data_lunga(g['au']['letto_dal'])}{"" if g['au']['letto_dal'] == g['au']['letto_al'] else " to " + data_lunga(g['au']['letto_al'])}). Licences: Open Government Licence v3.0, Open Government Licence – Canada, CC BY 4.0.</p>
+<p>Rules: the answer comes only from the official sentence, which we quote on the page. An answer is “IDP needed” only when the official text says you must have one, “No IDP needed” only when it says you can drive with your licence (or that you do not need an IDP), “It depends” when it sets a condition (length of stay, hiring a car, a translation, the region), “Recommended” when it says you should carry one, and “Local permit needed” when it says you need a local licence or permit. When official pages disagree, we give the more cautious answer and quote both. Where the advice is silent we write “Not stated”. Most answers are read with fixed wording rules; the rest were read one by one on 28 October 2026 and are checked again whenever the official text changes. A page for a single country and licence exists only where people search for it. This is information, not legal advice.</p>"""
+
+
 # ---------------------------------------------------------------- home e pagine di servizio
 def home():
     auto = sum(1 for P in PAESI if P["regola"])
@@ -3391,11 +3924,12 @@ def home():
 <li><a href="cabin-bags/"><span class="sq">{ico("bag")}</span><h2>Cabin bags</h2><small>Free under-seat bag and cabin bag sizes for {len(COMPAGNIE)} airlines, plus a “does my bag fit?” checker.</small></a></li>
 <li><a href="ees-etias/"><span class="sq">{ico("scan")}</span><h2>EES &amp; ETIAS</h2><small>EES is fully operational; ETIAS is {stato_etias} (European Commission).</small></a></li>
 {f'<li><a href="{SRV_BASE}/"><span class="sq">{ico("apps")}</span><h2>Apps by country</h2><small>Starlink, Apple Pay, Spotify, YouTube Premium: the official country lists.</small></a></li>' if SERVIZI_SRV else ""}
+{f'<li><a href="{PAT_BASE}/"><span class="sq">{ico("car")}</span><h2>Driving abroad</h2><small>Do you need an international driving permit? UK, Canadian and Australian licences, every country.</small></a></li>' if PAT else ""}
 </ul>
 <h2 class="band-h2">Check your passport dates</h2>
 {modulo_checker('tutti-dati', True, link='passport-validity/')}
 </div></div>"""
-    corpo = f"""<p class="lead" style="margin-top:28px">Four things to check before you fly, answered from official sources only: is your passport valid long enough for your destination, can you take more than 100 ml of liquids through security, how big your cabin bag can be on your airline, and what EES and ETIAS mean for your trip. Every rule is quoted word for word with its source and the date we checked it.</p>
+    corpo = f"""<p class="lead" style="margin-top:28px">Six things to check before you fly, answered from official sources only: is your passport valid long enough for your destination, can you take more than 100 ml of liquids through security, how big your cabin bag can be on your airline, what EES and ETIAS mean for your trip, which apps and services work in your destination, and whether you need an international driving permit to drive there. Every rule is quoted word for word with its source and the date we checked it.</p>
 {AVVISO_PASS}
 {AD}
 <h2>Popular destinations</h2>
@@ -3408,6 +3942,7 @@ def home():
 <p>The free bag you can take on board and when you pay for a cabin bag, from each airline's own page: <a href="cabin-bags/">{len(COMPAGNIE)} airlines in one table</a>, or <a href="cabin-bags/does-my-bag-fit/">check if your bag fits</a>.</p>
 <div class="griglia">{"".join(f'<a href="cabin-bags/{C["slug"]}/">{escape(C["nome"])}<small>{escape(misura_breve(borsa_gratis(C, "sotto") or borsa_gratis(C, "sopra")))} free</small></a>' for C in COMPAGNIE if C["slug"] in ("ryanair", "easyjet", "wizz-air", "jet2", "british-airways", "vueling", "lufthansa", "klm"))}</div>
 {home_srv()}
+{home_pat()}
 {box_affiliati()}
 {dati_json('tutti-dati', [dati_client(P) for P in PAESI])}"""
     pagina("", f"Before You Fly {ANNO}: Passport, Visas, Liquids, Cabin Bags, EES",
@@ -3473,6 +4008,7 @@ def about():
 <h2>Cabin bag sizes</h2>
 <p>Each airline's official baggage page, last read by us on {data_lunga(BAG['controllato_il'])} (the date and the link are on each airline page). Most airline sites need JavaScript or block simple automated requests, so we read them in a browser. Every size is quoted word for word; the short labels (“Free with every fare”, “Only with some fares, cabins or as a paid extra”) and the conversions marked “≈” are ours. An airline is included only if its official page shows the sizes; the airlines we left out and why are listed on the <a href="{rel}cabin-bags/">cabin bags page</a>. The bag checker compares the sides sorted from longest to shortest; airlines may measure differently, and their rule decides. The <a href="{rel}cabin-bags/eu-personal-item-rule/">EU personal item page</a> quotes Regulation (EU) 2026/2202 (EUR-Lex), the European Parliament's Legislative Observatory and the European Commission.</p>
 {about_srv(rel)}
+{about_pat(rel)}
 <h2>EES and ETIAS</h2>
 <p>European Commission (DG Migration and Home Affairs) pages and GOV.UK travel advice, last checked on {data_lunga(EES['controllato_il'])}. See the <a href="{rel}ees-etias/">EES and ETIAS page</a>.</p>
 <h2>Corrections</h2>
@@ -3537,7 +4073,7 @@ def extra():
 """)
     pagina("404.html", f"Page not found | {NOME}", "Page not found.",
            '<section class="hero"><h1>Page not found</h1><p class="lead">Go to the <a href="/">home page</a>, the <a href="/passport-validity/">passport validity rules</a> '
-           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> or <a href="/available-in/">apps and services by country</a>.</p></section>', indicizza=False, assoluto=True)
+           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> or <a href="/driving-abroad/">driving abroad with your licence</a>.</p></section>', indicizza=False, assoluto=True)
 
 
 def copia_grafica():
@@ -3604,6 +4140,19 @@ def controlli():
                 errori.append(f"servizio {S['slug']}: Paese {c} sconosciuto o stato {v.get('stato')}")
         if S.get("slug") not in SRV_TESTI:
             errori.append(f"servizio {S.get('slug')}: mancano i testi in SRV_TESTI")
+    if PAT:
+        for p in PAT["paesi"]:
+            if p["iso2"] not in PAESI_ISO:
+                errori.append(f"patenti {p['iso2']}: codice non in paesi_iso.json")
+            for k in PATENTI:
+                v = p[k]
+                if v and (v["esito"] not in ESITI_PAT or not v.get("letto_il") and not (k == "uk" and v.get("tabella"))):
+                    errori.append(f"patenti {p['iso2']} {k}: esito {v['esito']} o data di lettura mancante")
+        for k in ("uk_paypoint", "uk_costo", "uk_durata", "uk_sempre_patente", "uk_tabella", "uk_non_in_tabella", "ca_caa", "ca_anno", "ca_classe", "au_aaa", "au_falsi"):
+            if not PAT_G.get(k):
+                errori.append(f"patenti: manca la frase generale {k}")
+        if NOLEGGIO_AUTO:
+            errori.append("patenti: NOLEGGIO_AUTO non è vuoto (riquadro noleggio non approvato)")
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -3654,6 +4203,12 @@ def main():
             pagina_srv_servizio(S)
             for c in pagine_srv(S):
                 pagina_srv_paese(S, c)
+    if PAT:
+        pagina_hub_pat()
+        for k in PATENTI:
+            pagina_patente(k)
+            for c in PAGINE_PAT[k]:
+                pagina_pat(k, c)
     about()
     contatti()
     privacy()
@@ -3664,7 +4219,9 @@ def main():
           f"bagaglio a mano: {len(COMPAGNIE)} compagnie, {len(MISURE_COMUNI)} misure, strumento, pagina UE; "
           + ", ".join(f"passaporto {ESTERI[k]['agg']}: {len(VOCI[k])} pagine" for k in ESTERI)
           + f"; documenti per italiani: indice + {len(VOCI_IT)} pagine Paese ({len(SENZA_PAGINA_IT)} schede senza pagina)"
-          + f"; available in: indice + {len(SERVIZI_SRV)} servizi + {sum(len(pagine_srv(S)) for S in SERVIZI_SRV)} pagine servizio × Paese")
+          + f"; available in: indice + {len(SERVIZI_SRV)} servizi + {sum(len(pagine_srv(S)) for S in SERVIZI_SRV)} pagine servizio × Paese"
+          + (f"; driving abroad: indice + {len(PATENTI)} patenti + {sum(len(PAGINE_PAT[k]) for k in PATENTI)} pagine Paese × patente "
+             f"({', '.join(f'{k} {len(PAGINE_PAT[k])}' for k in PATENTI)})" if PAT else ""))
 
 
 if __name__ == "__main__":

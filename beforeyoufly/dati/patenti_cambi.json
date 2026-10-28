@@ -1,0 +1,60 @@
+{
+ "cambi": [
+  {
+   "rilevato_il": "2026-10-28",
+   "iso2": "SE",
+   "patente": "au",
+   "esito_prima": "no",
+   "esito_dopo": "dipende",
+   "testo_cambiato": false
+  },
+  {
+   "rilevato_il": "2026-10-28",
+   "iso2": "MK",
+   "patente": "uk",
+   "esito_prima": "no",
+   "esito_dopo": "dipende",
+   "testo_cambiato": false
+  },
+  {
+   "rilevato_il": "2026-10-28",
+   "iso2": "LI",
+   "patente": "ca",
+   "esito_prima": "no",
+   "esito_dopo": "dipende",
+   "testo_cambiato": false
+  },
+  {
+   "rilevato_il": "2026-10-28",
+   "iso2": "AZ",
+   "patente": "au",
+   "esito_prima": "no",
+   "esito_dopo": "dipende",
+   "testo_cambiato": false
+  },
+  {
+   "rilevato_il": "2026-10-28",
+   "iso2": "TN",
+   "patente": "uk",
+   "esito_prima": "dipende",
+   "esito_dopo": "si",
+   "testo_cambiato": false
+  },
+  {
+   "rilevato_il": "2026-10-28",
+   "iso2": "TJ",
+   "patente": "uk",
+   "esito_prima": "dipende",
+   "esito_dopo": "si",
+   "testo_cambiato": false
+  },
+  {
+   "rilevato_il": "2026-10-28",
+   "iso2": "DE",
+   "patente": "au",
+   "esito_prima": "dipende",
+   "esito_dopo": "si",
+   "testo_cambiato": false
+  }
+ ]
+}

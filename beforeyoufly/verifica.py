@@ -61,6 +61,16 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     "non nella lista non vuol dire vietato", le citazioni, la FAQ (JSON-LD = testo visibile = prima frase), titolo <= 70 con la domanda, lastmod
     della sitemap = data della lettura; nessun nome di assistente di intelligenza artificiale e nessun consiglio per aggirare blocchi (VPN,
     proxy...); link da home, menu e About. Nel browser (punto 7) 5 pagine nuove a 375 px in tema chiaro e scuro e 2 a 820 px.
+18. "Driving abroad" (dati/patenti.json da raccolta/patenti.py, 28/10/2026): se ci sono i grezzi (raccolta/.cache/patenti/, .cache/ca/, .cache/au/,
+    fuori dal repository) esiti, frasi, convenzioni, impronte e testo sono ricalcolati e devono essere uguali al file; ogni frase citata è nel testo
+    ufficiale salvato; impronte = testo; i fatti scritti a mano (dati/patenti_manuali.json) sono applicati e non scaduti; controllo indipendente
+    dell'esito sulle frasi citate (es. "Recommended" solo con should/recommend); convenzione solo se la fonte la scrive; fonti solo gov.uk,
+    travel.gc.ca, data.international.gc.ca, smartraveller.gov.au; pagine Paese × patente esattamente per le coppie cercate che nominano la patente
+    (e con una risposta della fonte), con prima frase = modello fisso (risposta, frase dell'ente, fonte, data), frasi ufficiali, link alla fonte,
+    "not legal advice", frase su dove si ottiene il permesso, link alle pagine passaporto dello stesso Paese, FAQ (JSON-LD = testo visibile =
+    prima frase), titolo <= 70 con "IDP" e l'anno, sitemap con lastmod = data della lettura; tabelle per patente uguali ai dati; nessun link
+    affiliato o di noleggio (NOLEGGIO_AUTO vuoto), nessun nome di assistente; link da home, About, pagine passaporto e "Available in?".
+    Nel browser (punto 7) 5 pagine nuove a 375 px in tema chiaro e scuro e 2 a 820 px.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -608,6 +618,8 @@ def controlla_meta():
     attesi.update({f"{G.BAG_BASE}/size/{sl}/index.html": G.titoli_misura(sl) for sl, _ in G.MISURE_COMUNI})
     attesi.update({v["url_pag"] + "index.html": G.titoli_it(v) for v in G.VOCI_IT})
     attesi.update({G.url_srv(S, c) + "index.html": G.titoli_srv(S, c) for S in G.SERVIZI_SRV for c in G.pagine_srv(S)})
+    pat = {G.url_pat(k, c) + "index.html": G.titoli_pat(k, c) for k in G.PATENTI for c in G.PAGINE_PAT[k]}
+    pat.update({G.url_pat(k) + "index.html": G.titoli_patente(k) for k in G.PATENTI})
     from html import unescape
     for f in SITO.rglob("*.html"):
         if f.name.startswith("google"):
@@ -618,6 +630,12 @@ def controlla_meta():
         des = unescape(re.search(r'<meta name="description" content="(.*?)">', t).group(1))
         if len(des) > G.LIMITE_DESCRIZIONE:
             errori.append(f"descrizione di {len(des)} caratteri (> 160) in {rel}")
+        if rel in pat or rel == f"{G.PAT_BASE}/index.html":  # sezione "Driving abroad": titoli fino a 70 caratteri con l'anno
+            if len(tit) > G.LIMITE_TITOLO_PAT or str(G.ANNO) not in tit:
+                errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_PAT}) o senza l'anno in {rel}: {tit}")
+            if rel in pat and tit != G.scegli(pat[rel], G.LIMITE_TITOLO_PAT):
+                errori.append(f"titolo non scelto tra le forme previste in {rel}")
+            continue
         if len(tit) > G.LIMITE_TITOLO:
             if rel in attesi and all(len(c) > G.LIMITE_TITOLO for c in attesi[rel]):
                 lunghi.append(rel)
@@ -1352,6 +1370,12 @@ srv.listen(0, async () => {
                          citazioni: await p.$$eval('blockquote.cit', e => e.filter(x => x.getBoundingClientRect().height > 0).length) });
         if (tema === 'light') await p.screenshot({ path: process.argv[3] + '/' + u.split('/').filter(Boolean).join('-') + '-375.png', fullPage: false });
       }
+      if (u.startsWith('/driving-abroad/')) {
+        out.prove.push({ caso: 'pat:' + tema + ':' + u, testo: await p.textContent('main'),
+                         risposta: await p.$eval('#answer', e => { const r = e.getBoundingClientRect(); return r.height > 0 && r.width <= window.innerWidth; }).catch(() => false),
+                         citazioni: await p.$$eval('blockquote.cit', e => e.filter(x => x.getBoundingClientRect().height > 0).length) });
+        if (tema === 'light') await p.screenshot({ path: process.argv[3] + '/' + u.split('/').filter(Boolean).join('-') + '-375.png', fullPage: false });
+      }
       if (u.startsWith('/it/documenti/')) {
         const vis = async (sel) => p.$eval(sel, e => { const r = e.getBoundingClientRect(); return r.height > 0 && r.width > 0 && r.width <= window.innerWidth; }).catch(() => false);
         const x = { caso: 'it:' + tema + ':' + u, testo: await p.textContent('main'), lang: await p.$eval('html', e => e.lang),
@@ -1401,7 +1425,7 @@ srv.listen(0, async () => {
       await p.close(); }
     await ctx.close(); }
   const largo = await b.newContext({ viewport: { width: 820, height: 900 } });
-  for (const u of ['/', '/cabin-bags/', '/cabin-bags/ryanair/', '/available-in/', '/available-in/apple-pay/']) { const p = await largo.newPage(); await p.goto(base + u, { waitUntil: 'load' });
+  for (const u of ['/', '/cabin-bags/', '/cabin-bags/ryanair/', '/available-in/', '/available-in/apple-pay/', '/driving-abroad/', '/driving-abroad/canadian-licence/']) { const p = await largo.newPage(); await p.goto(base + u, { waitUntil: 'load' });
     const w = await p.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]); out.pagine.push({ url: u, tema: '820px', scroll: w[0], larghezza: w[1], errori: [] }); await p.close(); }
   await largo.close();
   await b.close(); srv.close(); console.log(JSON.stringify(out)); });
@@ -1424,6 +1448,8 @@ PAGINE_ESTERE_BROWSER = _pagine_estere()
 PAGINE_IT_BROWSER = ["/it/documenti/", "/it/documenti/egitto/", "/it/documenti/spagna/", "/it/documenti/stati-uniti/"]
 PAGINE_SRV_BROWSER = ["/available-in/", "/available-in/starlink/", "/available-in/starlink/pakistan/", "/available-in/spotify/china/",
                       "/available-in/youtube-premium/russia/"]
+PAGINE_PAT_BROWSER = ["/driving-abroad/", "/driving-abroad/uk-licence/", "/driving-abroad/uk-licence/japan/", "/driving-abroad/canadian-licence/italy/",
+                      "/driving-abroad/australian-licence/united-states/"]
 PAGINE_BAG_BROWSER = ["/cabin-bags/", "/cabin-bags/ryanair/", "/cabin-bags/does-my-bag-fit/", "/cabin-bags/size/40x30x20/", "/cabin-bags/eu-personal-item-rule/"]
 
 
@@ -1435,7 +1461,7 @@ def controlla_browser():
         fh.write(BROWSER_JS)
     try:
         r = subprocess.run(["node", fh.name, str(SITO), cartella, json.dumps(PAGINE_ESTERE_BROWSER), json.dumps(CASI_BORSA), json.dumps(PAGINE_BAG_BROWSER),
-                            json.dumps(PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER)],
+                            json.dumps(PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER)],
                            capture_output=True, text=True, timeout=600)
     finally:
         os.unlink(fh.name)
@@ -1519,6 +1545,11 @@ def controlla_browser():
                 errori.append(f"{u} ({tema}): sezioni documento/visto o citazioni non visibili a 375 px")
             if u == "/it/documenti/" and tema == "light" and (len(x.get("righe", [])) != 1 or "Egitto" not in x["righe"][0]):
                 errori.append(f"indice italiano: la ricerca «egit» non lascia solo l'Egitto: {x.get('righe')}")
+    for u in PAGINE_PAT_BROWSER:
+        for tema in ("light", "dark"):
+            x = next((y for y in o["prove"] if y["caso"] == f"pat:{tema}:{u}"), None)
+            if not x or not x["risposta"] or (u.count("/") == 4 and x["citazioni"] < 2):
+                errori.append(f"{u} ({tema}): risposta in alto o citazioni ufficiali non visibili a 375 px")
     if sum(1 for x in o["prove"] if x["caso"].startswith("contrasto-")) != 2:
         errori.append("Prova del contrasto del controllo (tema chiaro e scuro) non eseguita")
     return errori, (o, cartella)
@@ -1694,6 +1725,216 @@ def controlla_servizi():
     return errori, conti
 
 
+# ---------------------------------------------------------------- 18. Guidare all'estero: serve il permesso internazionale? (28/10/2026)
+_spec_pat = importlib.util.spec_from_file_location("raccolta_patenti", Path(__file__).resolve().parent / "raccolta" / "patenti.py")
+RPAT = importlib.util.module_from_spec(_spec_pat)
+_spec_pat.loader.exec_module(RPAT)
+FONTI_UFFICIALI_PAT = re.compile(r"^https://(?:www\.gov\.uk/|travel\.gc\.ca/|data\.international\.gc\.ca/|www\.smartraveller\.gov\.au/)")
+# link affiliati e reti di affiliazione: mai nelle pagine di questa sezione (il riquadro "Hire a car" resta spento finché Massimiliano non decide)
+AFFILIATI_PAT = re.compile(r'rel="[^"]*sponsored|discovercars|rentalcars|economybookings|localrent|qeeq|travelpayouts|tp\.media|awin1?\.|tradedoubler|'
+                           r'impact\.com|partnerize|cj\.com|anrdoezrs|dpbolvw|kayak\.|skyscanner|booking\.com|expedia', re.I)
+# controlli indipendenti dal classificatore: cosa devono contenere le frasi che decidono ogni esito
+IND_PAT = {
+    "si": re.compile(r"international driv\w* (?:permit|licen)|\bIDPs?\b|international driver", re.I),
+    "no": re.compile(r"\b(?:can|may) (?:use|drive)|\bdo not need an IDP|isn't required|not mandatory|\beither\b|is valid|are valid|will be accepted|are accepted|you need either", re.I),
+    "dipende": re.compile(r"\bup to\b|\bfor (?:the first )?(?:\d|one|two|three|four|six|twelve)|\blonger|\bmore than|\bless than|\bif\b|\bmay\b|\bsome\b|\bhire|\brent|"
+                          r"translat|notari|\bvar(?:y|ies)\b|\bin some cases|\bdays?\b|\bmonths?\b|\byears?\b|\bduration|\bexcept|\bwhile\b|\bprovinces?\b|travel between", re.I),
+    "consigliato": re.compile(r"\bshould\b|recommend|helpful|useful", re.I),
+    "locale": re.compile(r"\blocal\b|temporary|visitor|not (?:recogni[sz]ed|valid|permitted|allowed)|aren't (?:valid|recognised)|\bconvert\b|Chinese|Cambodian|Myanmar|"
+                         r"St Kitts and Nevis driving licence|recognition|does not recogni[sz]e", re.I),
+}
+
+
+def _impronta_pat(v):
+    parti = [b["x"] for b in v["testo"]]
+    if v.get("tabella"):
+        parti = [f"TABELLA: {v['tabella']['nome']} | {v['tabella']['tipo']} | {v['tabella']['nota']}"] + parti
+    import hashlib
+    return hashlib.sha256("\n".join(parti).encode("utf-8")).hexdigest()[:16]
+
+
+def controlla_patenti():
+    from html import unescape
+    errori = []
+    conti = {"paesi": 0, "voci": 0, "manuali": 0, "pagine": 0, "faq": 0, "citazioni": 0, "cache": "assente", "righe": 0}
+    f = SITO.parent / "dati" / "patenti.json"
+    if not f.exists():
+        return ["dati/patenti.json mancante (lanciare raccolta/patenti.py)"], conti
+    D = json.loads(f.read_text(encoding="utf-8"))
+    M = json.loads((SITO.parent / "dati" / "patenti_manuali.json").read_text(encoding="utf-8"))
+    dom = json.loads((SITO.parent / "dati" / "patenti_domanda.json").read_text(encoding="utf-8"))
+    iso = {p["iso2"] for p in json.loads((SITO.parent / "dati" / "paesi_iso.json").read_text(encoding="utf-8"))["paesi"]}
+    sm = leggi("sitemap.xml")
+    per = {p["iso2"]: p for p in D["paesi"]}
+    # a) ricalcolo dai grezzi salvati (fuori dal repository): stessi esiti, frasi e impronte del file
+    if (RPAT.CACHE / "govuk-driving-abroad.json").exists() and (RPAT.CACHE / "uk").exists() and any(RPAT.CACHE_CA.glob("cta-cap-*.json")):
+        conti["cache"] = "presente"
+        RPAT.OFFLINE = True
+        try:
+            g = RPAT.scarica_tutto()
+            uk, _, _ = RPAT.leggi_uk(g)
+            ca, _ = RPAT.leggi_ca(g)
+            au, _ = RPAT.leggi_au(g)
+            avv = []
+            for pat, src in (("uk", uk), ("ca", ca), ("au", au)):
+                for c, v in src.items():
+                    w = RPAT.voce(pat, c, v, M, avv)
+                    d = (per.get(c) or {}).get(pat)
+                    if not d:
+                        errori.append(f"patenti {pat} {c}: nei grezzi ma non in dati/patenti.json")
+                        continue
+                    for k in ("esito", "frasi", "convenzione", "impronta", "testo"):
+                        if w[k] != d[k]:
+                            errori.append(f"patenti {pat} {c}: '{k}' diverso dal ricalcolo sui grezzi salvati")
+                            break
+            if avv:
+                errori += [f"patenti: {a}" for a in avv if a.startswith("FATTO MANUALE")]
+        finally:
+            RPAT.OFFLINE = os.environ.get("BYF_OFFLINE") == "1"
+    # b) dati: esiti ammessi, frasi parola per parola, impronte, fonti ufficiali, date, controlli indipendenti
+    for p in D["paesi"]:
+        conti["paesi"] += 1
+        if p["iso2"] not in iso:
+            errori.append(f"patenti {p['iso2']}: codice non ISO")
+        for pat in ("uk", "ca", "au"):
+            v = p[pat]
+            if not v:
+                continue
+            conti["voci"] += 1
+            c = p["iso2"]
+            if v["esito"] not in ("si", "no", "dipende", "consigliato", "locale", "non_detto"):
+                errori.append(f"patenti {pat} {c}: esito '{v['esito']}' non ammesso (nessuna pagina può restare 'da leggere')")
+            if _impronta_pat(v) != v["impronta"]:
+                errori.append(f"patenti {pat} {c}: impronta diversa dal testo salvato")
+            # testo ufficiale: blocchi uno per uno e, per gli elenchi, la frase che li introduce unita alle voci ("…: voce; voce"), come le cita la pagina
+            testo = RPAT.piano("\n".join(([f"TABELLA: {v['tabella']['nome']} | {v['tabella']['tipo']} | {v['tabella']['nota']}"] if v.get("tabella") else [])
+                                         + [b["x"] for b in v["testo"]] + [t for t, _ in RPAT.affermazioni(v["testo"])]))
+            for x in v["frasi"]:
+                if RPAT.piano(x) not in testo:
+                    errori.append(f"patenti {pat} {c}: frase citata non nel testo ufficiale: {x[:70]}")
+            if v["esito"] in IND_PAT and not IND_PAT[v["esito"]].search(" ".join(v["frasi"])):
+                errori.append(f"patenti {pat} {c}: esito '{v['esito']}' non sostenuto dalle frasi citate (controllo indipendente)")
+            if v["esito"] == "non_detto" and re.search(r"\b(?:must (?:have|carry|get|hold)|(?:is|are) required|you(?:'ll| will) need|(?<!if )you need (?:an?|the|both))\b[^.]{0,60}(?:IDP|international driv)",
+                                                         " ".join(v["frasi"]), re.I):
+                errori.append(f"patenti {pat} {c}: 'Not stated' ma la frase citata parla di un permesso richiesto")
+            if v["esito"] in ("si", "no", "dipende", "consigliato", "locale") and not v["frasi"]:
+                errori.append(f"patenti {pat} {c}: esito senza frase ufficiale")
+            if v.get("url") and not FONTI_UFFICIALI_PAT.match(v["url"]):
+                errori.append(f"patenti {pat} {c}: fonte non ufficiale {v['url']}")
+            if not v.get("letto_il") and not (pat == "uk" and v.get("tabella")):
+                errori.append(f"patenti {pat} {c}: manca la data di lettura")
+            conv = v.get("convenzione")
+            if conv and pat == "uk" and v.get("tabella") and conv != v["tabella"]["tipo"]:
+                errori.append(f"patenti uk {c}: convenzione diversa dalla tabella GOV.UK")
+            if conv and not (pat == "uk" and v.get("tabella")) and conv not in " ".join(v["frasi"]) + " ".join(b["x"] for b in v["testo"]):
+                errori.append(f"patenti {pat} {c}: convenzione {conv} non scritta dalla fonte")
+            if v["regola"] == "manuale":
+                conti["manuali"] += 1
+    for pat, mm in M.items():
+        if pat.startswith("_") or not isinstance(mm, dict):
+            continue
+        for c, m in mm.items():
+            v = (per.get(c) or {}).get(pat)
+            if not v or v["impronta"] != m["impronta"] or v["esito"] != m["esito"] or v["frasi"] != m["frasi"]:
+                errori.append(f"patenti {pat} {c}: fatto manuale non applicato o scaduto (impronta del testo cambiata?)")
+    for k, x in D["fonti"].items():
+        for chiave in ("pagina_idp", "api", "fcdo_api", "dati", "pagina_aaa"):
+            if x.get(chiave) and not FONTI_UFFICIALI_PAT.match(x[chiave]):
+                errori.append(f"patenti: fonte generale {k}.{chiave} non ufficiale")
+    # c) pagine: esattamente le coppie con ricerche che nominano la patente e una risposta della fonte
+    for pat in G.PATENTI:
+        T = G.PATENTI[pat]
+        attese = {c for c in dom["pagine"].get(pat, []) if c in iso and (per.get(c) or {}).get(pat) and per[c][pat]["esito"] != "non_detto"}
+        cartella = SITO / G.PAT_BASE / T["slug"]
+        trovate = {q.parent.name for q in cartella.glob("*/index.html")}
+        if trovate != {G.slug_srv(c) for c in attese}:
+            errori.append(f"patenti {pat}: pagine Paese diverse dalle coppie con domanda: {sorted(trovate ^ {G.slug_srv(c) for c in attese})[:6]}")
+        for q in dom["pagine"].get(pat, []):
+            if not any(RPAT.RX_PAT[pat].search(x.split(" [gl=")[0]) for x in dom["patenti"][pat].get(q, [])):
+                errori.append(f"patenti {pat} {q}: pagina senza una ricerca che nomini la patente")
+        t_pat = leggi(f"{G.url_pat(pat)}index.html")
+        if f"<loc>{G.URL_SITO}/{G.url_pat(pat)}</loc>" not in sm:
+            errori.append(f"{G.url_pat(pat)}: non in sitemap")
+        m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t_pat)
+        if not m or unescape(m.group(1)) != G.prima_frase_patente(pat):
+            errori.append(f"{G.url_pat(pat)}: prima frase diversa dai conteggi")
+        righe = dict(re.findall(r'<tr data-voce id="([a-z]{2})"><td[^>]*>.*?</td><td[^>]*><span class="badge[^"]*">([^<]*)</span>', t_pat))
+        for c, p in per.items():
+            if p[pat] and c in iso:
+                conti["righe"] += 1
+                if unescape(righe.get(c.lower(), "")) != G.ESITI_PAT[p[pat]["esito"]][0]:
+                    errori.append(f"{G.url_pat(pat)}: riga {c} '{righe.get(c.lower())}' invece di '{G.ESITI_PAT[p[pat]['esito']][0]}'")
+        for c in attese:
+            rel = G.url_pat(pat, c)
+            if not (SITO / rel / "index.html").exists():
+                continue
+            conti["pagine"] += 1
+            t = leggi(rel + "index.html")
+            v = per[c][pat]
+            m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t)
+            r = unescape(m.group(1)) if m else ""
+            atteso_inizio = G.ESITI_PAT[v["esito"]][2]
+            d = G.data_lunga(G.data_pat(pat, v))
+            if r != G.risposta_pat(pat, c) or not r.startswith(atteso_inizio) or f"checked on {d})." not in r:
+                errori.append(f"{rel}: prima frase senza la risposta attesa, la frase dell'ente, la fonte o la data: {r[:90]}")
+            if v["esito"] == "dipende" and not r.startswith("It depends on "):
+                errori.append(f"{rel}: 'It depends' senza dire da cosa (durata, noleggio, traduzione, regione)")
+            if G.conv_fcdo_diversa(pat, v) and not all(x in t for x in G.conv_fcdo_diversa(pat, v)):
+                errori.append(f"{rel}: tabella GOV.UK e FCDO nominano convenzioni diverse, la pagina ne mostra una sola")
+            for x in v["frasi"]:
+                conti["citazioni"] += 1
+                if escape(x.rstrip(":").strip()) not in t:
+                    errori.append(f"{rel}: frase ufficiale non nella pagina: {x[:60]}")
+            if v.get("url") and escape(v["url"]) not in t:
+                errori.append(f"{rel}: manca il link alla fonte ufficiale")
+            if "not legal advice" not in t:
+                errori.append(f"{rel}: manca 'not legal advice'")
+            if AFFILIATI_PAT.search(t):
+                errori.append(f"{rel}: link affiliato o di noleggio ({AFFILIATI_PAT.search(t).group(0)})")
+            for x in G.ingresso_srv(c, "../../../"):
+                if x not in t:
+                    errori.append(f"{rel}: manca il link alla pagina passaporto/visto dello stesso Paese")
+            if f"<loc>{G.URL_SITO}/{rel}</loc><lastmod>{G.data_pat(pat, v)}</lastmod>" not in sm:
+                errori.append(f"{rel}: non in sitemap o lastmod diverso dalla lettura")
+            ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)]
+            faq = [x for x in ld if x.get("@type") == "FAQPage"]
+            vis = [(unescape(q), unescape(a)) for q, a in re.findall(r"<h3>(.*?)</h3><p>(.*?)</p>", t[t.find('<section class="faq">'):])]
+            if len(faq) != 1 or [(x["name"], x["acceptedAnswer"]["text"]) for x in faq[0]["mainEntity"]] != vis or not vis or vis[0][1] != r:
+                errori.append(f"{rel}: FAQ JSON-LD diversa dal testo visibile o dalla prima frase")
+            conti["faq"] += len(vis)
+            tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+            if len(tit) > G.LIMITE_TITOLO_PAT or "IDP" not in tit or str(G.ANNO) not in tit:
+                errori.append(f"{rel}: titolo oltre {G.LIMITE_TITOLO_PAT} caratteri, senza 'IDP' o senza l'anno: {tit}")
+            k_dove = {"uk": "uk_paypoint", "ca": "ca_caa", "au": "au_aaa"}[pat]
+            if escape(D["frasi_generali"][k_dove]) not in t:
+                errori.append(f"{rel}: manca la frase ufficiale su dove si ottiene il permesso")
+    # d) tutta la sezione: niente assistenti AI, niente affiliati, segnaposto spento, collegamenti in entrata
+    if G.NOLEGGIO_AUTO:
+        errori.append("NOLEGGIO_AUTO non vuoto: riquadro noleggio acceso senza approvazione")
+    for q in (SITO / G.PAT_BASE).rglob("*.html"):
+        t = q.read_text(encoding="utf-8")
+        m = VIETATE_SRV.search(unescape(re.sub(r"<[^>]+>", " ", t))) or AFFILIATI_PAT.search(t)
+        if m:
+            errori.append(f"{q.relative_to(SITO)}: parola o link vietati '{m.group(0)}'")
+    for nome in ("patenti.json", "patenti_manuali.json", "patenti_domanda.json"):
+        if VIETATE_SRV.search((SITO.parent / "dati" / nome).read_text(encoding="utf-8")):
+            errori.append(f"dati/{nome}: nome di un assistente di intelligenza artificiale")
+    home = leggi("index.html")
+    if f'href="{G.PAT_BASE}/"' not in home:
+        errori.append("home senza link alla sezione 'Driving abroad'")
+    ab = leggi("about/index.html")
+    if 'id="driving-abroad"' not in ab:
+        errori.append("About senza la sezione 'Driving abroad'")
+    if f"<loc>{G.URL_SITO}/{G.PAT_BASE}/</loc>" not in sm:
+        errori.append("indice driving-abroad non in sitemap")
+    prove = [("passport-validity/japan/index.html", "../../driving-abroad/uk-licence/japan/"), ("canadian-passport/italy/index.html", "../../driving-abroad/canadian-licence/italy/"),
+             ("australian-passport/japan/index.html", "../../driving-abroad/australian-licence/japan/"), ("available-in/starlink/canada/index.html", "../../../driving-abroad/uk-licence/canada/")]
+    for pag, link in prove:
+        if (SITO / pag).exists() and f'href="{link}"' not in leggi(pag):
+            errori.append(f"{pag}: manca il link alla pagina 'Driving in'")
+    return errori, conti
+
+
 def controlla_indexnow():
     """File chiave IndexNow in sito/: presente, con dentro solo la chiave, fuori dalla sitemap (scritto da genera.py accanto a robots.txt)."""
     errori = []
@@ -1725,7 +1966,7 @@ def main():
         o, cartella = info
         n375 = sum(1 for x in o["pagine"] if x["tema"] in ("light", "dark"))
         print(f"7. Browser 375 px: {len(o['pagine'])} viste ({n375 // 2} pagine × tema chiaro e scuro + {len(o['pagine']) - n375} a 820 px; nuove: "
-              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER + PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
+              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER + PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
               f"{len(o['prove'])} prove, {len(e7)} errori; schermate in {cartella}")
     else:
         print(f"7. Browser 375 px: {e7[0] if e7 else ''}")
@@ -1760,7 +2001,11 @@ def main():
     print(f"17. Available in?: {c17['servizi']} servizi, {c17['righe']} righe di tabella uguali ai dati, {c17['pagine']} pagine servizio × Paese "
           f"(solo coppie con ricerche vere), {c17['faq']} risposte FAQ, {c17['citazioni']} citazioni; liste ricalcolate dalla cache: {c17['cache']}; "
           f"sitemap con lastmod della lettura, nessun nome di assistente né consiglio per aggirare: {len(e17)} errori")
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17
+    e18, c18 = controlla_patenti()
+    print(f"18. Driving abroad: {c18['paesi']} Paesi, {c18['voci']} voci Paese × patente ({c18['manuali']} fatti scritti a mano), ricalcolo dai grezzi: {c18['cache']}; "
+          f"{c18['righe']} righe delle tabelle per patente uguali ai dati; {c18['pagine']} pagine Paese × patente (solo coppie cercate), {c18['citazioni']} frasi ufficiali "
+          f"nelle pagine, {c18['faq']} risposte FAQ; titoli <= {G.LIMITE_TITOLO_PAT}, sitemap con lastmod della lettura, nessun link affiliato né nome di assistente: {len(e18)} errori")
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18
     for e in tutti:
         print(" -", e)
     if tutti:

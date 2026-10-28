@@ -1,0 +1,1743 @@
+{
+ "_nota": "Ricerche vere (autocompletamento di Google, client=firefox, hl=en) sul permesso internazionale o sulla patente in un Paese. Una pagina Paese × patente esiste solo per queste coppie. Senza patente nominata, la ricerca vale per la patente del Paese da cui si cerca (gl=uk -> britannica, gl=ca -> canadese, gl=au -> australiana; gl=us solo se la ricerca nomina la patente). Riscritto da raccolta/patenti.py --domanda.",
+ "letto_il": "2026-10-28",
+ "modelli": [
+  "do i need an international driving permit for",
+  "do i need an idp for",
+  "international driving permit for",
+  "can i drive in",
+  "do i need an international driving licence for",
+  "driving in"
+ ],
+ "gl": [
+  "uk",
+  "us",
+  "ca",
+  "au"
+ ],
+ "lettere": "a-z dopo il modello",
+ "richieste_lette": 648,
+ "patenti": {
+  "uk": {
+   "AE": [
+    "do i need an idp for dubai [gl=uk]",
+    "international driving permit for dubai [gl=uk]",
+    "can i drive in dubai with uk license [gl=uk]",
+    "can i drive in dubai with saudi license [gl=uk]",
+    "can i drive in uae with uk license [gl=uk]",
+    "can i drive in dubai with uk license [gl=ca]",
+    "can i drive in dubai with uk license [gl=au]"
+   ],
+   "AL": [
+    "do i need an international driving permit for albania [gl=uk]",
+    "do i need an idp for albania [gl=uk]",
+    "international driving permit for albania [gl=uk]"
+   ],
+   "AR": [
+    "do i need an idp for argentina [gl=uk]",
+    "international driving permit for argentina [gl=uk]"
+   ],
+   "AT": [
+    "do i need an international driving permit for austria [gl=uk]",
+    "do i need an idp for austria [gl=uk]",
+    "international driving permit for austria [gl=uk]"
+   ],
+   "AU": [
+    "do i need an international driving permit for australia [gl=uk]",
+    "do i need an international driving permit for australia from uk [gl=uk]",
+    "do i need an international driving permit for australia from singapore [gl=uk]",
+    "do i need an international driving permit for australia from uk [gl=us]",
+    "do i need an international driving permit for australia from uk [gl=ca]",
+    "do i need an international driving permit for australia from uk [gl=au]",
+    "do i need an idp for australia [gl=uk]",
+    "do i need an idp for australia from uk [gl=uk]",
+    "do i need an idp for australia from uk [gl=us]",
+    "do i need an idp for australia from uk [gl=ca]",
+    "do i need an idp for australia from uk [gl=au]",
+    "international driving permit for australia [gl=uk]",
+    "can i drive in australia with a uk license [gl=uk]",
+    "can i drive in australia with singapore license [gl=uk]",
+    "can i drive in australia with uk license [gl=au]"
+   ],
+   "BA": [
+    "do i need an international driving permit for bosnia [gl=uk]",
+    "do i need an idp for bosnia [gl=uk]",
+    "international driving permit for bosnia [gl=uk]"
+   ],
+   "BB": [
+    "do i need an international driving permit for barbados [gl=uk]",
+    "do i need an idp for barbados [gl=uk]"
+   ],
+   "BD": [
+    "international driving permit for bangladesh [gl=uk]",
+    "can i drive in bangladesh with uk licence [gl=uk]"
+   ],
+   "BE": [
+    "do i need an international driving permit for belgium [gl=uk]",
+    "do i need an idp for belgium [gl=uk]",
+    "international driving permit for belgium [gl=uk]"
+   ],
+   "BG": [
+    "do i need an international driving permit for bulgaria [gl=uk]",
+    "do i need an idp for bulgaria [gl=uk]",
+    "international driving permit for bulgaria [gl=uk]"
+   ],
+   "BR": [
+    "do i need an international driving permit for brazil [gl=uk]",
+    "do i need an idp for brazil [gl=uk]",
+    "international driving permit for brazil [gl=uk]"
+   ],
+   "CA": [
+    "do i need an international driving permit for canada [gl=uk]",
+    "do i need an international driving permit for canada from uk [gl=uk]",
+    "do i need an international driving permit for canada from uk [gl=us]",
+    "do i need an international driving permit for canada from uk [gl=ca]",
+    "do i need an international driving permit for canada from uk [gl=au]",
+    "do i need an idp for canada [gl=uk]",
+    "do i need an idp for canada from uk [gl=uk]",
+    "do i need an idp for canada from uk [gl=us]",
+    "do i need an idp for canada from uk [gl=ca]",
+    "do i need an idp for canada from uk [gl=au]",
+    "international driving permit for canada [gl=uk]",
+    "international driving permit for canada from uk [gl=uk]",
+    "international driving permit for canada from uk [gl=us]",
+    "international driving permit for canada from uk [gl=ca]",
+    "international driving permit for canada from uk [gl=au]",
+    "can i drive in canada with a uk license [gl=uk]",
+    "can i drive in canada with a uk license [gl=ca]"
+   ],
+   "CH": [
+    "do i need an international driving permit for switzerland [gl=uk]",
+    "do i need an idp for switzerland [gl=uk]"
+   ],
+   "CL": [
+    "do i need an idp for chile [gl=uk]",
+    "international driving permit for chile [gl=uk]"
+   ],
+   "CN": [
+    "do i need an idp for china [gl=uk]",
+    "international driving permit for china [gl=uk]",
+    "can i drive in china [gl=uk]",
+    "can i drive in china with uk licence [gl=uk]"
+   ],
+   "CO": [
+    "do i need an idp for colombia [gl=uk]",
+    "international driving permit for colombia [gl=uk]"
+   ],
+   "CR": [
+    "do i need an international driving permit for costa rica [gl=uk]",
+    "do i need an idp for costa rica [gl=uk]"
+   ],
+   "CY": [
+    "do i need an international driving permit for cyprus [gl=uk]",
+    "do i need an idp for cyprus [gl=uk]"
+   ],
+   "CZ": [
+    "do i need an international driving permit for czech republic [gl=uk]"
+   ],
+   "DE": [
+    "do i need an international driving permit for germany [gl=uk]",
+    "do i need an international driving permit for germany from uk [gl=uk]",
+    "do i need an international driving permit for germany from uk [gl=us]",
+    "do i need an international driving permit for germany from uk [gl=ca]",
+    "do i need an international driving permit for germany from uk [gl=au]",
+    "do i need an idp for germany [gl=uk]",
+    "international driving permit for germany [gl=uk]",
+    "can i drive in germany with uk license [gl=uk]",
+    "can i drive in germany with uk license [gl=ca]",
+    "can i drive in germany with uk license [gl=au]"
+   ],
+   "DK": [
+    "do i need an international driving permit for denmark [gl=uk]",
+    "international driving permit for denmark [gl=uk]"
+   ],
+   "DO": [
+    "do i need an idp for dominican republic [gl=uk]"
+   ],
+   "EE": [
+    "do i need an international driving permit for estonia [gl=uk]"
+   ],
+   "EG": [
+    "international driving permit for egypt [gl=uk]",
+    "can i drive in egypt with uae license [gl=uk]"
+   ],
+   "ES": [
+    "do i need an international driving permit for spain [gl=uk]",
+    "do i need an international driving permit for spain from uk [gl=uk]",
+    "do i need an international driving permit for ibiza [gl=uk]",
+    "do i need an international driving permit for lanzarote [gl=uk]",
+    "do i need an international driving permit for mallorca [gl=uk]",
+    "do i need an international driving permit for tenerife [gl=uk]",
+    "do i need an international driving permit for spain from uk [gl=us]",
+    "do i need an international driving permit for spain from uk [gl=ca]",
+    "do i need an international driving permit for spain from uk [gl=au]",
+    "do i need an idp for spain [gl=uk]",
+    "do i need an idp for mallorca [gl=uk]",
+    "do i need an idp for spain from uk [gl=uk]",
+    "do i need an idp for tenerife [gl=uk]",
+    "do i need an idp for spain from uk [gl=us]",
+    "do i need an idp for spain from uk [gl=ca]",
+    "do i need an idp for spain from uk [gl=au]",
+    "international driving permit for spain [gl=uk]",
+    "international driving permit for spain from uk [gl=uk]",
+    "international driving permit for spain from uk [gl=us]",
+    "international driving permit for spain from uk [gl=ca]",
+    "international driving permit for spain from uk [gl=au]",
+    "can i drive in spain with a uk license [gl=uk]"
+   ],
+   "FI": [
+    "international driving permit for finland [gl=uk]"
+   ],
+   "FR": [
+    "do i need an international driving permit for france [gl=uk]",
+    "do i need an international driving permit for france from uk [gl=uk]",
+    "do i need an international driving permit for france from uk [gl=us]",
+    "do i need an international driving permit for france from uk [gl=ca]",
+    "do i need an international driving permit for france from uk [gl=au]",
+    "do i need an idp for france [gl=uk]",
+    "international driving permit for france [gl=uk]",
+    "can i drive in france with a uk license [gl=uk]",
+    "can i drive in france [gl=uk]",
+    "can i drive in france with a uk license [gl=ca]",
+    "can i drive in france with a uk license [gl=au]"
+   ],
+   "GE": [
+    "do i need an international driving permit for georgia [gl=uk]",
+    "international driving permit for georgia [gl=uk]"
+   ],
+   "GH": [
+    "international driving permit for ghana [gl=uk]"
+   ],
+   "GR": [
+    "do i need an international driving permit for greece [gl=uk]",
+    "do i need an international driving permit for crete [gl=uk]",
+    "do i need an international driving permit for greece from uk [gl=uk]",
+    "do i need an international driving permit for rhodes [gl=uk]",
+    "do i need an international driving permit for greece from uk [gl=us]",
+    "do i need an international driving permit for greece from uk [gl=ca]",
+    "do i need an international driving permit for greece from uk [gl=au]",
+    "do i need an idp for greece [gl=uk]",
+    "do i need an idp for crete [gl=uk]",
+    "international driving permit for greece [gl=uk]",
+    "can i drive in greece with uk license [gl=uk]",
+    "can i drive in greece with uk license [gl=ca]",
+    "can i drive in greece with uk license [gl=au]"
+   ],
+   "HK": [
+    "international driving permit for hong kong [gl=uk]",
+    "can i drive in hong kong with uk license [gl=uk]",
+    "can i drive in hong kong with uk license [gl=ca]",
+    "can i drive in hong kong with uk license [gl=au]"
+   ],
+   "HR": [
+    "do i need an international driving permit for croatia [gl=uk]",
+    "do i need an idp for croatia [gl=uk]",
+    "international driving permit for croatia [gl=uk]"
+   ],
+   "HU": [
+    "international driving permit for hungary [gl=uk]"
+   ],
+   "ID": [
+    "do i need an international driving permit for bali [gl=uk]",
+    "do i need an idp for bali [gl=uk]",
+    "do i need an idp for indonesia [gl=uk]",
+    "international driving permit for bali [gl=uk]",
+    "international driving permit for indonesia [gl=uk]"
+   ],
+   "IE": [
+    "do i need an international driving permit for ireland [gl=uk]",
+    "do i need an international driving permit for republic of ireland [gl=uk]",
+    "do i need an idp for ireland [gl=uk]",
+    "international driving permit for ireland [gl=uk]",
+    "can i drive in ireland with a uk license [gl=uk]",
+    "can i drive in republic of ireland with a uk license [gl=uk]",
+    "can i drive in republic of ireland with a uk license [gl=ca]",
+    "can i drive in republic of ireland with a uk license [gl=au]",
+    "driving in republic of ireland with uk licence [gl=uk]"
+   ],
+   "IN": [
+    "do i need an international driving permit for india [gl=uk]",
+    "do i need an idp for india [gl=uk]",
+    "international driving permit for india [gl=uk]",
+    "international driving permit for india from uk [gl=uk]",
+    "international driving permit for india from uk [gl=us]",
+    "international driving permit for india from uk [gl=au]",
+    "can i drive in india with uk license [gl=uk]",
+    "can i drive in india with uae license [gl=uk]",
+    "can i drive in india with uk license [gl=au]"
+   ],
+   "IS": [
+    "do i need an international driving permit for iceland [gl=uk]",
+    "do i need an idp for iceland [gl=uk]",
+    "international driving permit for iceland [gl=uk]"
+   ],
+   "IT": [
+    "do i need an international driving permit for italy [gl=uk]",
+    "do i need an international driving permit for italy from uk [gl=uk]",
+    "do i need an international driving permit for sicily [gl=uk]",
+    "do i need an international driving permit for sardinia [gl=uk]",
+    "do i need an international driving permit for italy from uk [gl=us]",
+    "do i need an international driving permit for italy from uk [gl=ca]",
+    "do i need an international driving permit for italy from uk [gl=au]",
+    "do i need an idp for italy [gl=uk]",
+    "do i need an idp for italy from uk [gl=uk]",
+    "do i need an idp for sardinia [gl=uk]",
+    "do i need an idp for italy from uk [gl=us]",
+    "do i need an idp for italy from uk [gl=ca]",
+    "do i need an idp for italy from uk [gl=au]",
+    "international driving permit for italy [gl=uk]",
+    "international driving permit for italy from uk [gl=uk]",
+    "international driving permit for sicily [gl=uk]",
+    "international driving permit for sardinia [gl=uk]",
+    "international driving permit for italy from uk [gl=us]",
+    "international driving permit for italy from uk [gl=ca]",
+    "international driving permit for italy from uk [gl=au]",
+    "can i drive in italy with uk license [gl=uk]"
+   ],
+   "JE": [
+    "do i need an international driving permit for jersey [gl=uk]"
+   ],
+   "JM": [
+    "international driving permit for jamaica [gl=uk]"
+   ],
+   "JO": [
+    "do i need an international driving permit for jordan [gl=uk]",
+    "do i need an idp for jordan [gl=uk]",
+    "international driving permit for jordan [gl=uk]"
+   ],
+   "JP": [
+    "do i need an international driving permit for japan [gl=uk]",
+    "do i need an international driving permit for japan from uk [gl=uk]",
+    "do i need an international driving permit for japan from uk [gl=us]",
+    "do i need an international driving permit for japan from uk [gl=ca]",
+    "do i need an international driving permit for japan from uk [gl=au]",
+    "do i need an idp for japan [gl=uk]",
+    "international driving permit for japan [gl=uk]",
+    "international driving permit for japan from uk [gl=uk]",
+    "international driving permit for japan from uk [gl=us]",
+    "international driving permit for japan from uk [gl=ca]",
+    "international driving permit for japan from uk [gl=au]",
+    "can i drive in japan with a uk license [gl=uk]",
+    "can i drive in japan [gl=uk]",
+    "can i drive in japan with uk driving licence [gl=uk]",
+    "can i drive in japan with a uk license [gl=us]",
+    "can i drive in japan with a uk license [gl=ca]",
+    "can i drive in japan with a uk license [gl=au]"
+   ],
+   "KE": [
+    "international driving permit for kenya [gl=uk]"
+   ],
+   "KG": [
+    "do i need an idp for kyrgyzstan [gl=uk]"
+   ],
+   "KH": [
+    "international driving permit for cambodia [gl=uk]"
+   ],
+   "KR": [
+    "do i need an international driving permit for korea [gl=uk]",
+    "do i need an international driving permit for south korea [gl=uk]",
+    "do i need an idp for korea [gl=uk]",
+    "do i need an idp for south korea [gl=uk]",
+    "international driving permit for korea [gl=uk]",
+    "international driving permit for south korea [gl=uk]",
+    "can i drive in korea [gl=uk]"
+   ],
+   "KW": [
+    "international driving permit for kuwait [gl=uk]",
+    "can i drive in kuwait with uae license [gl=uk]",
+    "can i drive in kuwait with uk license [gl=uk]",
+    "can i drive in kuwait with uk license [gl=ca]",
+    "can i drive in kuwait with uk license [gl=au]"
+   ],
+   "KZ": [
+    "international driving permit for kazakhstan [gl=uk]",
+    "can i drive in kazakhstan with uae driving license [gl=uk]"
+   ],
+   "LK": [
+    "do i need an international driving permit for sri lanka [gl=uk]",
+    "do i need an idp for sri lanka [gl=uk]",
+    "international driving permit for sri lanka [gl=uk]"
+   ],
+   "MA": [
+    "do i need an international driving permit for morocco [gl=uk]",
+    "do i need an idp for morocco [gl=uk]",
+    "international driving permit for morocco [gl=uk]",
+    "can i drive in morocco with uk license [gl=uk]",
+    "can i drive in morocco with uk license [gl=ca]",
+    "can i drive in morocco with uk license [gl=au]"
+   ],
+   "ME": [
+    "do i need an international driving permit for montenegro [gl=uk]",
+    "do i need an idp for montenegro [gl=uk]",
+    "international driving permit for montenegro [gl=uk]",
+    "can i drive in montenegro with uk license [gl=uk]",
+    "can i drive in montenegro with uk license [gl=au]"
+   ],
+   "MK": [
+    "do i need an international driving permit for north macedonia [gl=uk]"
+   ],
+   "MT": [
+    "do i need an international driving permit for malta [gl=uk]"
+   ],
+   "MU": [
+    "do i need an international driving permit for mauritius [gl=uk]",
+    "do i need an idp for mauritius [gl=uk]",
+    "international driving permit for mauritius [gl=uk]"
+   ],
+   "MX": [
+    "do i need an international driving permit for mexico [gl=uk]",
+    "do i need an idp for mexico [gl=uk]",
+    "international driving permit for mexico [gl=uk]"
+   ],
+   "MY": [
+    "do i need an international driving permit for malaysia [gl=uk]",
+    "do i need an idp for malaysia [gl=uk]",
+    "international driving permit for malaysia [gl=uk]",
+    "can i drive in malaysia with uk license [gl=uk]",
+    "can i drive in malaysia with uae license [gl=uk]",
+    "can i drive in malaysia with uk license [gl=ca]",
+    "can i drive in malaysia with uk license [gl=au]"
+   ],
+   "NA": [
+    "do i need an international driving permit for namibia [gl=uk]",
+    "international driving permit for namibia [gl=uk]"
+   ],
+   "NG": [
+    "international driving permit for nigeria [gl=uk]"
+   ],
+   "NL": [
+    "do i need an idp for the netherlands [gl=uk]",
+    "international driving permit for netherlands [gl=uk]"
+   ],
+   "NO": [
+    "do i need an international driving permit for norway [gl=uk]",
+    "international driving permit for norway [gl=uk]",
+    "can i drive in norway with uk license [gl=uk]"
+   ],
+   "NP": [
+    "international driving permit for nepal [gl=uk]"
+   ],
+   "NZ": [
+    "do i need an international driving permit for new zealand [gl=uk]",
+    "do i need an international driving permit for new zealand from uk [gl=uk]",
+    "do i need an international driving permit for new zealand from uk [gl=us]",
+    "do i need an international driving permit for new zealand from uk [gl=ca]",
+    "do i need an international driving permit for new zealand from uk [gl=au]",
+    "do i need an idp for new zealand [gl=uk]",
+    "international driving permit for new zealand [gl=uk]",
+    "can i drive in new zealand with a uk license [gl=uk]",
+    "can i drive in new zealand with a uk license [gl=ca]",
+    "can i drive in new zealand with a uk license [gl=au]"
+   ],
+   "OM": [
+    "do i need an international driving permit for oman [gl=uk]",
+    "international driving permit for oman [gl=uk]",
+    "can i drive in oman with uae license [gl=uk]",
+    "can i drive in oman with uk license [gl=uk]",
+    "can i drive in oman with uk license [gl=au]"
+   ],
+   "PH": [
+    "international driving permit for philippines [gl=uk]"
+   ],
+   "PK": [
+    "international driving permit for pakistan [gl=uk]",
+    "international driving permit for pakistan from uk [gl=uk]",
+    "international driving permit for pakistan from uk [gl=us]",
+    "international driving permit for pakistan from uk [gl=ca]",
+    "international driving permit for pakistan from uk [gl=au]",
+    "can i drive in pakistan with uk license [gl=uk]",
+    "can i drive in pakistan with uk license [gl=ca]",
+    "can i drive in pakistan with uk license [gl=au]"
+   ],
+   "PL": [
+    "do i need an international driving permit for poland [gl=uk]",
+    "international driving permit for poland [gl=uk]",
+    "can i drive in poland with a uk license [gl=uk]",
+    "can i drive in poland with a uk license [gl=ca]",
+    "can i drive in poland with a uk license [gl=au]"
+   ],
+   "PT": [
+    "do i need an international driving permit for madeira [gl=uk]",
+    "do i need an international driving permit for portugal [gl=uk]",
+    "do i need an international driving permit for portugal from uk [gl=uk]",
+    "do i need an international driving permit for portugal from uk [gl=us]",
+    "do i need an international driving permit for portugal from uk [gl=ca]",
+    "do i need an international driving permit for portugal from uk [gl=au]",
+    "do i need an idp for portugal [gl=uk]",
+    "do i need an idp for madeira [gl=uk]",
+    "international driving permit for madeira [gl=uk]",
+    "international driving permit for portugal [gl=uk]",
+    "can i drive in portugal with a uk license [gl=uk]",
+    "can i drive in portugal with a uk license [gl=ca]",
+    "can i drive in portugal with a uk license [gl=au]"
+   ],
+   "QA": [
+    "do i need an international driving permit for qatar [gl=uk]",
+    "international driving permit for qatar [gl=uk]",
+    "can i drive in qatar with uae license [gl=uk]"
+   ],
+   "RO": [
+    "do i need an international driving permit for romania [gl=uk]",
+    "international driving permit for romania [gl=uk]",
+    "can i drive in romania with uk license [gl=uk]",
+    "can i drive in romania with uk license [gl=us]",
+    "can i drive in romania with uk license [gl=ca]",
+    "can i drive in romania with uk license [gl=au]"
+   ],
+   "RU": [
+    "international driving permit for russia [gl=uk]",
+    "can i drive in russia with uae license [gl=uk]"
+   ],
+   "SA": [
+    "international driving permit for saudi arabia [gl=uk]"
+   ],
+   "SI": [
+    "do i need an international driving permit for slovenia [gl=uk]",
+    "do i need an idp for slovenia [gl=uk]"
+   ],
+   "TH": [
+    "do i need an international driving permit for thailand [gl=uk]",
+    "do i need an idp for thailand [gl=uk]",
+    "international driving permit for thailand [gl=uk]",
+    "international driving permit for thailand from uk [gl=uk]",
+    "international driving permit for thailand from uk [gl=us]",
+    "international driving permit for thailand from uk [gl=ca]",
+    "international driving permit for thailand from uk [gl=au]",
+    "can i drive in thailand with uk license [gl=uk]"
+   ],
+   "TN": [
+    "do i need an idp for tunisia [gl=uk]"
+   ],
+   "TR": [
+    "do i need an international driving permit for turkey [gl=uk]",
+    "do i need an idp for turkey [gl=uk]",
+    "international driving permit for turkey [gl=uk]",
+    "can i drive in turkey with uk license [gl=uk]"
+   ],
+   "TW": [
+    "do i need an idp for taiwan [gl=uk]",
+    "international driving permit for taiwan [gl=uk]"
+   ],
+   "US": [
+    "do i need an international driving permit for usa [gl=uk]",
+    "do i need an international driving permit for usa from uk [gl=uk]",
+    "do i need an international driving permit for america [gl=uk]",
+    "do i need an international driving permit for california [gl=uk]",
+    "do i need an international driving permit for california from uk [gl=uk]",
+    "do i need an international driving permit for florida [gl=uk]",
+    "do i need an international driving permit for the usa [gl=uk]",
+    "do i need an international driving permit for usa from uk [gl=us]",
+    "do i need an international driving permit for california from uk [gl=us]",
+    "do i need an international driving permit for california from uk [gl=ca]",
+    "do i need an international driving permit for usa from uk [gl=ca]",
+    "do i need an international driving permit for california from uk [gl=au]",
+    "do i need an international driving permit for usa from uk [gl=au]",
+    "do i need an idp for usa [gl=uk]",
+    "do i need an idp for america [gl=uk]",
+    "do i need an idp for california [gl=uk]",
+    "do i need an idp for florida [gl=uk]",
+    "do i need an idp for the us [gl=uk]",
+    "do i need an idp for new york [gl=uk]",
+    "international driving permit for usa [gl=uk]",
+    "international driving permit for america [gl=uk]",
+    "international driving permit for florida [gl=uk]",
+    "international driving permit for hawaii [gl=uk]",
+    "international driving permit for the us [gl=uk]",
+    "can i drive in america with a uk license [gl=uk]",
+    "can i drive in florida with an out of state license [gl=uk]",
+    "can i drive in the us with a g2 [gl=uk]",
+    "can i drive in usa with a uk license [gl=uk]",
+    "can i drive in usa with uk license [gl=us]"
+   ],
+   "VN": [
+    "do i need an international driving permit for vietnam [gl=uk]",
+    "do i need an idp for vietnam [gl=uk]",
+    "international driving permit for vietnam [gl=uk]",
+    "international driving permit for vietnam from uk [gl=uk]",
+    "international driving permit for vietnam from uk [gl=us]",
+    "international driving permit for vietnam from uk [gl=ca]",
+    "international driving permit for vietnam from uk [gl=au]",
+    "can i drive in vietnam [gl=uk]",
+    "can i drive in vietnam with uk license [gl=uk]",
+    "can i drive in vietnam with uk license [gl=ca]"
+   ],
+   "ZA": [
+    "do i need an international driving permit for south africa [gl=uk]",
+    "do i need an idp for south africa [gl=uk]",
+    "international driving permit for south africa [gl=uk]"
+   ],
+   "ZM": [
+    "can i drive in zambia with a uk license [gl=uk]",
+    "can i drive in zambia with a uk license [gl=us]",
+    "can i drive in zambia with a uk license [gl=ca]",
+    "can i drive in zambia with a uk license [gl=au]"
+   ],
+   "ZW": [
+    "international driving permit for zimbabwe [gl=uk]",
+    "can i drive in zimbabwe with a uk license [gl=uk]",
+    "can i drive in zimbabwe with a uk license [gl=us]",
+    "can i drive in zimbabwe with a uk license [gl=ca]",
+    "can i drive in zimbabwe with a uk license [gl=au]"
+   ]
+  },
+  "ca": {
+   "AE": [
+    "do i need an idp for dubai [gl=ca]",
+    "international driving permit for dubai [gl=ca]",
+    "can i drive in dubai with canadian license [gl=uk]",
+    "can i drive in dubai with canadian license [gl=ca]",
+    "can i drive in dubai with saudi license [gl=ca]",
+    "can i drive in uae with canadian license [gl=ca]",
+    "can i drive in dubai with canadian license [gl=au]",
+    "driving in dubai with canadian license [gl=ca]"
+   ],
+   "AL": [
+    "do i need an international driving permit for albania [gl=ca]",
+    "do i need an idp for albania [gl=ca]",
+    "international driving permit for albania [gl=ca]"
+   ],
+   "AR": [
+    "do i need an idp for argentina [gl=ca]",
+    "international driving permit for argentina [gl=ca]"
+   ],
+   "AT": [
+    "do i need an international driving permit for austria [gl=ca]",
+    "do i need an idp for austria [gl=ca]",
+    "international driving permit for austria [gl=ca]",
+    "can i drive in austria with canadian license [gl=ca]"
+   ],
+   "AU": [
+    "do i need an international driving permit for australia [gl=ca]",
+    "do i need an international driving permit for australia from singapore [gl=ca]",
+    "do i need an idp for australia [gl=ca]",
+    "international driving permit for australia [gl=ca]",
+    "can i drive in australia with a canadian license [gl=ca]",
+    "driving in australia with canadian license [gl=ca]"
+   ],
+   "BA": [
+    "do i need an international driving permit for bosnia [gl=ca]",
+    "do i need an idp for bosnia [gl=ca]",
+    "international driving permit for bosnia [gl=ca]"
+   ],
+   "BB": [
+    "do i need an international driving permit for barbados [gl=ca]",
+    "do i need an idp for barbados [gl=ca]",
+    "can i drive in barbados with a canadian license [gl=ca]"
+   ],
+   "BD": [
+    "international driving permit for bangladesh [gl=ca]"
+   ],
+   "BE": [
+    "do i need an international driving permit for belgium [gl=ca]",
+    "do i need an idp for belgium [gl=ca]",
+    "international driving permit for belgium [gl=ca]"
+   ],
+   "BG": [
+    "do i need an international driving permit for bulgaria [gl=ca]",
+    "do i need an idp for bulgaria [gl=ca]",
+    "international driving permit for bulgaria [gl=ca]"
+   ],
+   "BR": [
+    "do i need an international driving permit for brazil [gl=ca]",
+    "do i need an idp for brazil [gl=ca]",
+    "international driving permit for brazil [gl=ca]",
+    "can i drive in brazil with canadian license [gl=ca]"
+   ],
+   "CH": [
+    "do i need an international driving permit for switzerland [gl=ca]",
+    "do i need an idp for switzerland [gl=ca]",
+    "driving in switzerland with canadian license [gl=ca]"
+   ],
+   "CL": [
+    "do i need an idp for chile [gl=ca]",
+    "international driving permit for chile [gl=ca]"
+   ],
+   "CN": [
+    "do i need an idp for china [gl=ca]",
+    "international driving permit for china [gl=ca]",
+    "can i drive in china with canadian license [gl=ca]"
+   ],
+   "CO": [
+    "do i need an idp for colombia [gl=ca]",
+    "international driving permit for colombia [gl=ca]"
+   ],
+   "CR": [
+    "do i need an international driving permit for costa rica [gl=ca]",
+    "do i need an idp for costa rica [gl=ca]"
+   ],
+   "CY": [
+    "do i need an international driving permit for cyprus [gl=ca]",
+    "do i need an idp for cyprus [gl=ca]"
+   ],
+   "CZ": [
+    "do i need an international driving permit for czech republic [gl=ca]"
+   ],
+   "DE": [
+    "do i need an international driving permit for germany [gl=ca]",
+    "do i need an idp for germany [gl=ca]",
+    "international driving permit for germany [gl=ca]",
+    "can i drive in germany with canadian license [gl=uk]",
+    "can i drive in germany with canadian license [gl=ca]",
+    "can i drive in germany with canadian license [gl=au]"
+   ],
+   "DK": [
+    "do i need an international driving permit for denmark [gl=ca]",
+    "international driving permit for denmark [gl=ca]"
+   ],
+   "DO": [
+    "do i need an idp for dominican republic [gl=ca]"
+   ],
+   "EE": [
+    "do i need an international driving permit for estonia [gl=ca]"
+   ],
+   "EG": [
+    "international driving permit for egypt [gl=ca]",
+    "can i drive in egypt with uae license [gl=ca]"
+   ],
+   "ES": [
+    "do i need an international driving permit for spain [gl=ca]",
+    "do i need an international driving permit for ibiza [gl=ca]",
+    "do i need an international driving permit for lanzarote [gl=ca]",
+    "do i need an international driving permit for mallorca [gl=ca]",
+    "do i need an international driving permit for tenerife [gl=ca]",
+    "do i need an idp for spain [gl=ca]",
+    "do i need an idp for mallorca [gl=ca]",
+    "do i need an idp for tenerife [gl=ca]",
+    "international driving permit for spain [gl=ca]",
+    "can i drive in spain with a canadian license [gl=ca]"
+   ],
+   "FI": [
+    "international driving permit for finland [gl=ca]"
+   ],
+   "FR": [
+    "do i need an international driving permit for france [gl=ca]",
+    "do i need an idp for france [gl=ca]",
+    "international driving permit for france [gl=ca]",
+    "can i drive in france with a canadian license [gl=uk]",
+    "can i drive in france with a canadian license [gl=ca]",
+    "can i drive in france [gl=ca]",
+    "can i drive in france with a canadian license [gl=au]",
+    "driving in france with canadian license [gl=ca]"
+   ],
+   "GB": [
+    "do i need an international driving permit for uk from canada [gl=uk]",
+    "do i need an international driving permit for uk from canada [gl=us]",
+    "do i need an international driving permit for england [gl=ca]",
+    "do i need an international driving permit for united kingdom [gl=ca]",
+    "do i need an international driving permit for northern ireland [gl=ca]",
+    "do i need an international driving permit for scotland [gl=ca]",
+    "do i need an international driving permit for the uk [gl=ca]",
+    "do i need an international driving permit for uk [gl=ca]",
+    "do i need an international driving permit for uk from canada [gl=ca]",
+    "do i need an international driving permit for uk from canada [gl=au]",
+    "do i need an idp for england [gl=ca]",
+    "do i need an idp for scotland [gl=ca]",
+    "do i need an idp for the uk [gl=ca]",
+    "do i need an idp for uk [gl=ca]",
+    "international driving permit for england [gl=ca]",
+    "international driving permit for scotland [gl=ca]",
+    "international driving permit for the uk [gl=ca]",
+    "international driving permit for uk [gl=ca]",
+    "can i drive in england with a canadian license [gl=uk]",
+    "can i drive in the uk with a canadian license [gl=uk]",
+    "can i drive in uk with canadian license [gl=uk]",
+    "can i drive in uk with canadian license [gl=ca]",
+    "can i drive in england with a canadian license [gl=ca]",
+    "can i drive in scotland with a canadian license [gl=ca]",
+    "can i drive in the uk with a canadian license [gl=ca]",
+    "can i drive in the uk with a canadian license as a tourist [gl=ca]",
+    "driving in uk on canadian licence [gl=ca]"
+   ],
+   "GE": [
+    "do i need an international driving permit for georgia [gl=ca]",
+    "international driving permit for georgia [gl=ca]"
+   ],
+   "GH": [
+    "international driving permit for ghana [gl=ca]"
+   ],
+   "GR": [
+    "do i need an international driving permit for greece [gl=ca]",
+    "do i need an international driving permit for crete [gl=ca]",
+    "do i need an international driving permit for rhodes [gl=ca]",
+    "do i need an idp for greece [gl=ca]",
+    "do i need an idp for crete [gl=ca]",
+    "international driving permit for greece [gl=ca]",
+    "can i drive in greece with a canadian license [gl=uk]",
+    "can i drive in greece with a canadian license [gl=ca]",
+    "can i drive in greece with a canadian license [gl=au]"
+   ],
+   "HK": [
+    "international driving permit for hong kong [gl=ca]",
+    "can i drive in hong kong with canadian license [gl=ca]"
+   ],
+   "HR": [
+    "do i need an international driving permit for croatia [gl=ca]",
+    "do i need an idp for croatia [gl=ca]",
+    "international driving permit for croatia [gl=ca]"
+   ],
+   "HU": [
+    "international driving permit for hungary [gl=ca]"
+   ],
+   "ID": [
+    "do i need an international driving permit for bali [gl=ca]",
+    "do i need an idp for bali [gl=ca]",
+    "do i need an idp for indonesia [gl=ca]",
+    "international driving permit for bali [gl=ca]",
+    "international driving permit for indonesia [gl=ca]",
+    "can i drive in bali with canadian license [gl=ca]"
+   ],
+   "IE": [
+    "do i need an international driving permit for ireland [gl=ca]",
+    "do i need an international driving permit for republic of ireland [gl=ca]",
+    "do i need an idp for ireland [gl=ca]",
+    "international driving permit for ireland [gl=ca]",
+    "can i drive in ireland with canadian license [gl=ca]"
+   ],
+   "IN": [
+    "do i need an international driving permit for india [gl=ca]",
+    "do i need an idp for india [gl=ca]",
+    "international driving permit for india [gl=ca]",
+    "can i drive in india with canadian license [gl=uk]",
+    "can i drive in india with canadian license [gl=ca]",
+    "can i drive in india with my canadian license [gl=ca]",
+    "can i drive in india with canadian licence [gl=ca]"
+   ],
+   "IS": [
+    "do i need an international driving permit for iceland [gl=ca]",
+    "do i need an idp for iceland [gl=ca]",
+    "international driving permit for iceland [gl=ca]",
+    "can i drive in iceland with canadian license [gl=ca]",
+    "can i drive in iceland [gl=ca]",
+    "driving in iceland with canadian license [gl=ca]"
+   ],
+   "IT": [
+    "do i need an international driving permit for italy from canada [gl=uk]",
+    "do i need an international driving permit for italy from canada [gl=us]",
+    "do i need an international driving permit for italy from canada [gl=ca]",
+    "do i need an international driving permit for italy [gl=ca]",
+    "do i need an international driving permit for sicily [gl=ca]",
+    "do i need an international driving permit for sardinia [gl=ca]",
+    "do i need an international driving permit for italy from canada [gl=au]",
+    "do i need an idp for italy [gl=ca]",
+    "do i need an idp for sardinia [gl=ca]",
+    "international driving permit for italy [gl=ca]",
+    "international driving permit for italy from canada [gl=ca]",
+    "international driving permit for sicily [gl=ca]",
+    "international driving permit for sardinia [gl=ca]",
+    "can i drive in italy with a canadian license [gl=uk]",
+    "can i drive in italy with a canadian license [gl=ca]",
+    "can i drive in italy with ontario license [gl=ca]",
+    "can i drive in italy [gl=ca]"
+   ],
+   "JE": [
+    "do i need an international driving permit for jersey [gl=ca]"
+   ],
+   "JM": [
+    "international driving permit for jamaica [gl=ca]",
+    "can i drive in jamaica with canadian license [gl=ca]"
+   ],
+   "JO": [
+    "do i need an international driving permit for jordan [gl=ca]",
+    "do i need an idp for jordan [gl=ca]",
+    "international driving permit for jordan [gl=ca]"
+   ],
+   "JP": [
+    "do i need an international driving permit for japan [gl=ca]",
+    "do i need an idp for japan [gl=ca]",
+    "international driving permit for japan from canada [gl=uk]",
+    "international driving permit for japan from canada [gl=us]",
+    "international driving permit for japan [gl=ca]",
+    "international driving permit for japan from canada [gl=ca]",
+    "international driving permit for japan from canada [gl=au]",
+    "can i drive in japan with canadian license [gl=uk]",
+    "can i drive in japan with canadian license [gl=ca]",
+    "can i drive in japan [gl=ca]",
+    "can i drive in japan with canadian driver license [gl=ca]",
+    "can i drive in japan with canadian license [gl=au]"
+   ],
+   "KE": [
+    "international driving permit for kenya [gl=ca]"
+   ],
+   "KG": [
+    "do i need an idp for kyrgyzstan [gl=ca]"
+   ],
+   "KH": [
+    "international driving permit for cambodia [gl=ca]"
+   ],
+   "KR": [
+    "do i need an international driving permit for korea [gl=ca]",
+    "do i need an international driving permit for south korea [gl=ca]",
+    "do i need an idp for korea [gl=ca]",
+    "do i need an idp for south korea [gl=ca]",
+    "international driving permit for korea [gl=ca]",
+    "international driving permit for south korea [gl=ca]",
+    "can i drive in korea with canadian license [gl=ca]",
+    "can i drive in korea [gl=ca]"
+   ],
+   "KW": [
+    "international driving permit for kuwait [gl=ca]",
+    "can i drive in kuwait with uae license [gl=ca]"
+   ],
+   "KZ": [
+    "international driving permit for kazakhstan [gl=ca]",
+    "can i drive in kazakhstan with uae driving license [gl=ca]"
+   ],
+   "LK": [
+    "do i need an international driving permit for sri lanka [gl=ca]",
+    "do i need an idp for sri lanka [gl=ca]",
+    "international driving permit for sri lanka [gl=ca]",
+    "can i drive in sri lanka with canadian license [gl=ca]"
+   ],
+   "MA": [
+    "do i need an international driving permit for morocco [gl=ca]",
+    "do i need an idp for morocco [gl=ca]",
+    "international driving permit for morocco [gl=ca]",
+    "can i drive in morocco with canadian license [gl=ca]"
+   ],
+   "ME": [
+    "do i need an international driving permit for montenegro [gl=ca]",
+    "do i need an idp for montenegro [gl=ca]",
+    "international driving permit for montenegro [gl=ca]"
+   ],
+   "MK": [
+    "do i need an international driving permit for north macedonia [gl=ca]"
+   ],
+   "MT": [
+    "do i need an international driving permit for malta [gl=ca]"
+   ],
+   "MU": [
+    "do i need an international driving permit for mauritius [gl=ca]",
+    "do i need an idp for mauritius [gl=ca]",
+    "international driving permit for mauritius [gl=ca]"
+   ],
+   "MX": [
+    "do i need an international driving permit for mexico [gl=ca]",
+    "do i need an idp for mexico [gl=ca]",
+    "international driving permit for mexico [gl=ca]",
+    "can i drive in mexico with a canadian license [gl=ca]"
+   ],
+   "MY": [
+    "do i need an international driving permit for malaysia [gl=ca]",
+    "do i need an idp for malaysia [gl=ca]",
+    "international driving permit for malaysia [gl=ca]",
+    "can i drive in malaysia with canadian license [gl=ca]"
+   ],
+   "NA": [
+    "do i need an international driving permit for namibia [gl=ca]",
+    "international driving permit for namibia [gl=ca]"
+   ],
+   "NG": [
+    "international driving permit for nigeria [gl=ca]",
+    "can i drive in nigeria with a canadian license [gl=ca]"
+   ],
+   "NL": [
+    "do i need an idp for the netherlands [gl=ca]",
+    "international driving permit for netherlands [gl=ca]",
+    "can i drive in netherlands with canadian license [gl=ca]"
+   ],
+   "NO": [
+    "do i need an international driving permit for norway [gl=ca]",
+    "international driving permit for norway [gl=ca]",
+    "can i drive in norway with a canadian license [gl=ca]"
+   ],
+   "NP": [
+    "international driving permit for nepal [gl=ca]"
+   ],
+   "NZ": [
+    "do i need an international driving permit for new zealand [gl=ca]",
+    "do i need an idp for new zealand [gl=ca]",
+    "international driving permit for new zealand [gl=ca]",
+    "can i drive in new zealand with a canadian license [gl=uk]",
+    "can i drive in new zealand with a canadian license [gl=ca]",
+    "driving in new zealand with canadian license [gl=ca]"
+   ],
+   "OM": [
+    "do i need an international driving permit for oman [gl=ca]",
+    "international driving permit for oman [gl=ca]"
+   ],
+   "PH": [
+    "international driving permit for philippines [gl=ca]",
+    "can i drive in philippines with canadian license [gl=uk]",
+    "can i drive in philippines with canadian license [gl=ca]",
+    "can i drive in the philippines with canadian driver's license [gl=ca]"
+   ],
+   "PK": [
+    "international driving permit for pakistan [gl=ca]",
+    "can i drive in pakistan with canadian license [gl=ca]"
+   ],
+   "PL": [
+    "do i need an international driving permit for poland [gl=ca]",
+    "international driving permit for poland [gl=ca]",
+    "can i drive in poland with canadian license [gl=ca]"
+   ],
+   "PT": [
+    "do i need an international driving permit for portugal [gl=ca]",
+    "do i need an international driving permit for madeira [gl=ca]",
+    "do i need an idp for portugal [gl=ca]",
+    "do i need an idp for madeira [gl=ca]",
+    "international driving permit for portugal [gl=ca]",
+    "international driving permit for madeira [gl=ca]",
+    "can i drive in portugal with a canadian driver's license [gl=uk]",
+    "can i drive in madeira with a canadian license [gl=ca]",
+    "can i drive in portugal with a canadian driver's license [gl=ca]",
+    "can i drive in portugal with canadian license [gl=ca]"
+   ],
+   "QA": [
+    "do i need an international driving permit for qatar [gl=ca]",
+    "international driving permit for qatar [gl=ca]",
+    "can i drive in qatar with canadian license [gl=ca]",
+    "can i drive in qatar with uae license [gl=ca]"
+   ],
+   "RO": [
+    "do i need an international driving permit for romania [gl=ca]",
+    "international driving permit for romania [gl=ca]",
+    "can i drive in romania with canadian license [gl=uk]",
+    "can i drive in romania with canadian license [gl=us]",
+    "can i drive in romania with canadian license [gl=ca]",
+    "can i drive in romania with canadian license [gl=au]"
+   ],
+   "RS": [
+    "can i drive in serbia with canadian license [gl=ca]"
+   ],
+   "RU": [
+    "international driving permit for russia [gl=ca]",
+    "can i drive in russia with uae license [gl=ca]"
+   ],
+   "SA": [
+    "international driving permit for saudi arabia [gl=ca]"
+   ],
+   "SI": [
+    "do i need an international driving permit for slovenia [gl=ca]",
+    "do i need an idp for slovenia [gl=ca]"
+   ],
+   "TH": [
+    "do i need an international driving permit for thailand [gl=ca]",
+    "do i need an idp for thailand [gl=ca]",
+    "international driving permit for thailand [gl=ca]"
+   ],
+   "TN": [
+    "do i need an idp for tunisia [gl=ca]"
+   ],
+   "TR": [
+    "do i need an international driving permit for turkey [gl=ca]",
+    "do i need an idp for turkey [gl=ca]",
+    "international driving permit for turkey [gl=ca]",
+    "can i drive in turkey with canadian license [gl=ca]"
+   ],
+   "TW": [
+    "do i need an idp for taiwan [gl=ca]",
+    "international driving permit for taiwan [gl=ca]"
+   ],
+   "US": [
+    "do i need an international driving permit for usa [gl=ca]",
+    "do i need an international driving permit for america [gl=ca]",
+    "do i need an international driving permit for california [gl=ca]",
+    "do i need an international driving permit for florida [gl=ca]",
+    "do i need an international driving permit for the usa [gl=ca]",
+    "do i need an idp for usa [gl=ca]",
+    "do i need an idp for america [gl=ca]",
+    "do i need an idp for california [gl=ca]",
+    "do i need an idp for florida [gl=ca]",
+    "do i need an idp for the us [gl=ca]",
+    "do i need an idp for new york [gl=ca]",
+    "international driving permit for america [gl=ca]",
+    "international driving permit for florida [gl=ca]",
+    "international driving permit for hawaii [gl=ca]",
+    "international driving permit for the us [gl=ca]",
+    "international driving permit for usa [gl=ca]",
+    "can i drive in california with a canadian license [gl=uk]",
+    "can i drive in the us with a canadian license [gl=uk]",
+    "can i drive in usa with canadian license [gl=uk]",
+    "can i drive in the us with a canadian license [gl=us]",
+    "can i drive in usa with canadian license [gl=us]",
+    "can i drive in the us with a canadian license [gl=ca]",
+    "can i drive in the us with a g2 [gl=ca]",
+    "can i drive in america with a canadian g2 [gl=ca]",
+    "can i drive in america with a canadian license [gl=ca]",
+    "can i drive in california with a canadian license [gl=ca]",
+    "can i drive in florida with a canadian license [gl=ca]",
+    "can i drive in hawaii with canadian license [gl=ca]",
+    "can i drive in the us with a canadian g2 license [gl=ca]",
+    "can i drive in the us with a canadian g license [gl=ca]",
+    "can i drive in usa with canadian license [gl=ca]",
+    "can i drive in usa with canadian g2 license [gl=ca]",
+    "can i drive in us with g2 [gl=ca]",
+    "can i drive in usa with g2 [gl=ca]",
+    "can i drive in usa with canadian g license [gl=ca]",
+    "can i drive in us with canadian driver license [gl=ca]",
+    "can i drive in us with canadian g2 [gl=ca]",
+    "driving in us with canadian license [gl=ca]"
+   ],
+   "VN": [
+    "do i need an international driving permit for vietnam [gl=ca]",
+    "do i need an idp for vietnam [gl=ca]",
+    "international driving permit for vietnam [gl=ca]",
+    "can i drive in vietnam with canadian license [gl=uk]",
+    "can i drive in vietnam with canadian license [gl=ca]",
+    "can i drive in vietnam [gl=ca]"
+   ],
+   "ZA": [
+    "do i need an international driving permit for south africa [gl=ca]",
+    "do i need an idp for south africa [gl=ca]",
+    "international driving permit for south africa [gl=ca]"
+   ],
+   "ZW": [
+    "international driving permit for zimbabwe [gl=ca]"
+   ]
+  },
+  "au": {
+   "AE": [
+    "do i need an idp for dubai [gl=au]",
+    "international driving permit for dubai [gl=au]",
+    "can i drive in dubai with australian license [gl=uk]",
+    "can i drive in dubai with australian license [gl=ca]",
+    "can i drive in dubai with australian license [gl=au]",
+    "can i drive in dubai with saudi license [gl=au]",
+    "can i drive in uae with australian license [gl=au]"
+   ],
+   "AL": [
+    "do i need an international driving permit for albania [gl=au]",
+    "do i need an idp for albania [gl=au]",
+    "international driving permit for albania [gl=au]"
+   ],
+   "AR": [
+    "do i need an idp for argentina [gl=au]",
+    "international driving permit for argentina [gl=au]"
+   ],
+   "AT": [
+    "do i need an international driving permit for austria [gl=au]",
+    "do i need an idp for austria [gl=au]",
+    "international driving permit for austria [gl=au]"
+   ],
+   "BA": [
+    "do i need an international driving permit for bosnia [gl=au]",
+    "do i need an idp for bosnia [gl=au]",
+    "international driving permit for bosnia [gl=au]"
+   ],
+   "BB": [
+    "do i need an international driving permit for barbados [gl=au]",
+    "do i need an idp for barbados [gl=au]"
+   ],
+   "BD": [
+    "international driving permit for bangladesh [gl=au]",
+    "can i drive in bangladesh with australian licence [gl=au]"
+   ],
+   "BE": [
+    "do i need an international driving permit for belgium [gl=au]",
+    "do i need an idp for belgium [gl=au]",
+    "international driving permit for belgium [gl=au]"
+   ],
+   "BG": [
+    "do i need an international driving permit for bulgaria [gl=au]",
+    "do i need an idp for bulgaria [gl=au]",
+    "international driving permit for bulgaria [gl=au]"
+   ],
+   "BR": [
+    "do i need an international driving permit for brazil [gl=au]",
+    "do i need an idp for brazil [gl=au]",
+    "international driving permit for brazil [gl=au]",
+    "can i drive in brazil with australian license [gl=au]"
+   ],
+   "CA": [
+    "do i need an international driving permit for canada [gl=au]",
+    "do i need an idp for canada [gl=au]",
+    "international driving permit for canada [gl=au]",
+    "can i drive in canada with australian license [gl=uk]",
+    "can i drive in canada with australian license [gl=ca]",
+    "can i drive in canada with australian license [gl=au]",
+    "can i drive in canada on an australian licence [gl=au]",
+    "driving in canada with australian license [gl=au]"
+   ],
+   "CH": [
+    "do i need an international driving permit for switzerland [gl=au]",
+    "do i need an idp for switzerland [gl=au]",
+    "can i drive in switzerland with australian license [gl=au]"
+   ],
+   "CK": [
+    "can i drive in cook islands with australian license [gl=au]"
+   ],
+   "CL": [
+    "do i need an idp for chile [gl=au]",
+    "international driving permit for chile [gl=au]",
+    "can i drive in chile with an australian licence [gl=au]"
+   ],
+   "CN": [
+    "do i need an idp for china [gl=au]",
+    "international driving permit for china [gl=au]",
+    "can i drive in china with australian licence [gl=au]",
+    "can i drive in china [gl=au]"
+   ],
+   "CO": [
+    "do i need an idp for colombia [gl=au]",
+    "international driving permit for colombia [gl=au]"
+   ],
+   "CR": [
+    "do i need an international driving permit for costa rica [gl=au]",
+    "do i need an idp for costa rica [gl=au]"
+   ],
+   "CY": [
+    "do i need an international driving permit for cyprus [gl=au]",
+    "do i need an idp for cyprus [gl=au]"
+   ],
+   "CZ": [
+    "do i need an international driving permit for czech republic [gl=au]"
+   ],
+   "DE": [
+    "do i need an international driving permit for germany [gl=au]",
+    "do i need an idp for germany [gl=au]",
+    "international driving permit for germany [gl=au]",
+    "can i drive in germany with australian license [gl=uk]",
+    "can i drive in germany with australian license [gl=ca]",
+    "can i drive in germany with australian license [gl=au]"
+   ],
+   "DK": [
+    "do i need an international driving permit for denmark [gl=au]",
+    "international driving permit for denmark [gl=au]",
+    "driving in denmark with australian licence [gl=au]"
+   ],
+   "DO": [
+    "do i need an idp for dominican republic [gl=au]"
+   ],
+   "EE": [
+    "do i need an international driving permit for estonia [gl=au]"
+   ],
+   "EG": [
+    "international driving permit for egypt [gl=au]",
+    "can i drive in egypt with uae license [gl=au]"
+   ],
+   "ES": [
+    "do i need an international driving permit for spain [gl=au]",
+    "do i need an international driving permit for ibiza [gl=au]",
+    "do i need an international driving permit for lanzarote [gl=au]",
+    "do i need an international driving permit for mallorca [gl=au]",
+    "do i need an international driving permit for tenerife [gl=au]",
+    "do i need an idp for spain [gl=au]",
+    "do i need an idp for mallorca [gl=au]",
+    "do i need an idp for tenerife [gl=au]",
+    "international driving permit for spain [gl=au]",
+    "can i drive in spain with an australian licence [gl=au]"
+   ],
+   "FI": [
+    "international driving permit for finland [gl=au]",
+    "can i drive in finland with an australian license [gl=au]"
+   ],
+   "FJ": [
+    "can i drive in fiji with an australian license [gl=au]",
+    "driving in fiji with australian license [gl=au]"
+   ],
+   "FR": [
+    "do i need an international driving permit for france [gl=au]",
+    "do i need an idp for france [gl=au]",
+    "international driving permit for france [gl=au]",
+    "can i drive in france with an australian licence [gl=uk]",
+    "can i drive in france with an australian licence [gl=ca]",
+    "can i drive in france with an australian licence [gl=au]",
+    "can i drive in france [gl=au]",
+    "driving in france with australian licence [gl=au]"
+   ],
+   "GB": [
+    "do i need an international driving permit for uk from australia [gl=uk]",
+    "do i need an international driving permit for uk from australia [gl=us]",
+    "do i need an international driving permit for uk from australia [gl=ca]",
+    "do i need an international driving permit for uk from australia [gl=au]",
+    "do i need an international driving permit for england [gl=au]",
+    "do i need an international driving permit for united kingdom [gl=au]",
+    "do i need an international driving permit for northern ireland [gl=au]",
+    "do i need an international driving permit for scotland [gl=au]",
+    "do i need an international driving permit for the uk [gl=au]",
+    "do i need an international driving permit for uk [gl=au]",
+    "do i need an idp for england [gl=au]",
+    "do i need an idp for scotland [gl=au]",
+    "do i need an idp for the uk [gl=au]",
+    "do i need an idp for uk [gl=au]",
+    "international driving permit for uk [gl=au]",
+    "international driving permit for england [gl=au]",
+    "international driving permit for scotland [gl=au]",
+    "international driving permit for the uk [gl=au]",
+    "can i drive in the uk on an australian licence [gl=uk]",
+    "can i drive in the uk on an australian licence [gl=au]",
+    "can i drive in england with an australian licence [gl=au]",
+    "can i drive in scotland with an australian licence [gl=au]",
+    "can i drive in uk with australian licence [gl=au]",
+    "can i drive in uk with australian provisional license [gl=au]",
+    "driving in uk on australian licence [gl=uk]",
+    "driving in uk on australian licence [gl=au]",
+    "driving in uk with aus licence [gl=au]"
+   ],
+   "GE": [
+    "do i need an international driving permit for georgia [gl=au]",
+    "international driving permit for georgia [gl=au]"
+   ],
+   "GH": [
+    "international driving permit for ghana [gl=au]"
+   ],
+   "GR": [
+    "do i need an international driving permit for crete [gl=au]",
+    "do i need an international driving permit for greece [gl=au]",
+    "do i need an international driving permit for rhodes [gl=au]",
+    "do i need an idp for greece [gl=au]",
+    "do i need an idp for crete [gl=au]",
+    "international driving permit for greece [gl=au]",
+    "can i drive in greece with an australian licence [gl=uk]",
+    "can i drive in greece with an australian licence [gl=au]"
+   ],
+   "HK": [
+    "international driving permit for hong kong [gl=au]",
+    "can i drive in hong kong with australian licence [gl=au]"
+   ],
+   "HR": [
+    "do i need an international driving permit for croatia [gl=au]",
+    "do i need an idp for croatia [gl=au]",
+    "international driving permit for croatia [gl=au]"
+   ],
+   "HU": [
+    "international driving permit for hungary [gl=au]"
+   ],
+   "ID": [
+    "do i need an international driving permit for bali [gl=au]",
+    "do i need an idp for bali [gl=au]",
+    "do i need an idp for indonesia [gl=au]",
+    "international driving permit for bali from australia [gl=uk]",
+    "international driving permit for bali from australia [gl=us]",
+    "international driving permit for bali from australia [gl=ca]",
+    "international driving permit for bali [gl=au]",
+    "international driving permit for bali from australia [gl=au]",
+    "international driving permit for indonesia [gl=au]",
+    "can i drive in bali with australian license [gl=au]",
+    "can i drive in indonesia with australian license [gl=au]"
+   ],
+   "IE": [
+    "do i need an international driving permit for ireland [gl=au]",
+    "do i need an international driving permit for republic of ireland [gl=au]",
+    "do i need an idp for ireland [gl=au]",
+    "international driving permit for ireland [gl=au]",
+    "can i drive in ireland with an australian licence [gl=au]"
+   ],
+   "IN": [
+    "do i need an international driving permit for india [gl=au]",
+    "do i need an idp for india [gl=au]",
+    "international driving permit for india [gl=au]",
+    "can i drive in india with australian licence [gl=au]",
+    "can i drive in india with australian license [gl=au]"
+   ],
+   "IS": [
+    "do i need an international driving permit for iceland [gl=au]",
+    "do i need an idp for iceland [gl=au]",
+    "international driving permit for iceland [gl=au]",
+    "can i drive in iceland with australian license [gl=au]"
+   ],
+   "IT": [
+    "do i need an international driving permit for italy from australia [gl=uk]",
+    "do i need an international driving permit for italy from australia [gl=us]",
+    "do i need an international driving permit for italy from australia [gl=ca]",
+    "do i need an international driving permit for italy [gl=au]",
+    "do i need an international driving permit for italy from australia [gl=au]",
+    "do i need an international driving permit for sicily [gl=au]",
+    "do i need an international driving permit for sardinia [gl=au]",
+    "do i need an idp for italy [gl=au]",
+    "do i need an idp for sardinia [gl=au]",
+    "international driving permit for italy [gl=au]",
+    "international driving permit for sicily [gl=au]",
+    "can i drive in italy with an australian licence [gl=au]",
+    "can i drive in italy with an australian drivers licence [gl=au]",
+    "can i drive in italy [gl=au]"
+   ],
+   "JE": [
+    "do i need an international driving permit for jersey [gl=au]"
+   ],
+   "JM": [
+    "international driving permit for jamaica [gl=au]"
+   ],
+   "JO": [
+    "do i need an international driving permit for jordan [gl=au]",
+    "do i need an idp for jordan [gl=au]",
+    "international driving permit for jordan [gl=au]"
+   ],
+   "JP": [
+    "do i need an international driving permit for japan [gl=au]",
+    "do i need an idp for japan [gl=au]",
+    "international driving permit for japan from australia [gl=uk]",
+    "international driving permit for japan from australia [gl=us]",
+    "international driving permit for japan from australia [gl=ca]",
+    "international driving permit for japan [gl=au]",
+    "international driving permit for japan from australia [gl=au]",
+    "can i drive in japan with an australian license [gl=uk]",
+    "can i drive in japan with an australian license [gl=ca]",
+    "can i drive in japan with an australian license [gl=au]",
+    "can i drive in japan [gl=au]",
+    "can i drive in japan with australian provisional license [gl=au]",
+    "can i drive in japan with australian drivers licence [gl=au]"
+   ],
+   "KE": [
+    "international driving permit for kenya [gl=au]"
+   ],
+   "KG": [
+    "do i need an idp for kyrgyzstan [gl=au]"
+   ],
+   "KH": [
+    "international driving permit for cambodia [gl=au]"
+   ],
+   "KR": [
+    "do i need an international driving permit for korea [gl=au]",
+    "do i need an international driving permit for south korea [gl=au]",
+    "do i need an idp for korea [gl=au]",
+    "do i need an idp for south korea [gl=au]",
+    "international driving permit for korea [gl=au]",
+    "international driving permit for south korea [gl=au]",
+    "can i drive in korea with australian license [gl=uk]",
+    "can i drive in korea with australian license [gl=us]",
+    "can i drive in korea with australian license [gl=ca]",
+    "can i drive in korea with australian license [gl=au]",
+    "can i drive in korea [gl=au]"
+   ],
+   "KW": [
+    "international driving permit for kuwait [gl=au]",
+    "can i drive in kuwait with uae license [gl=au]"
+   ],
+   "KZ": [
+    "international driving permit for kazakhstan [gl=au]",
+    "can i drive in kazakhstan with uae driving license [gl=au]"
+   ],
+   "LB": [
+    "can i drive in lebanon with australian license [gl=au]"
+   ],
+   "LK": [
+    "do i need an international driving permit for sri lanka [gl=au]",
+    "do i need an idp for sri lanka [gl=au]",
+    "international driving permit for sri lanka [gl=au]",
+    "can i drive in sri lanka with australian licence [gl=au]"
+   ],
+   "MA": [
+    "do i need an international driving permit for morocco [gl=au]",
+    "do i need an idp for morocco [gl=au]",
+    "international driving permit for morocco [gl=au]"
+   ],
+   "ME": [
+    "do i need an international driving permit for montenegro [gl=au]",
+    "do i need an idp for montenegro [gl=au]",
+    "international driving permit for montenegro [gl=au]"
+   ],
+   "MK": [
+    "do i need an international driving permit for north macedonia [gl=au]"
+   ],
+   "MT": [
+    "do i need an international driving permit for malta [gl=au]"
+   ],
+   "MU": [
+    "do i need an international driving permit for mauritius [gl=au]",
+    "do i need an idp for mauritius [gl=au]",
+    "international driving permit for mauritius [gl=au]",
+    "can i drive in mauritius with australian license [gl=au]"
+   ],
+   "MX": [
+    "do i need an international driving permit for mexico [gl=au]",
+    "do i need an idp for mexico [gl=au]",
+    "international driving permit for mexico [gl=au]"
+   ],
+   "MY": [
+    "do i need an international driving permit for malaysia [gl=au]",
+    "do i need an idp for malaysia [gl=au]",
+    "international driving permit for malaysia [gl=au]",
+    "can i drive in malaysia with australian license [gl=uk]",
+    "can i drive in malaysia with australian license [gl=ca]",
+    "can i drive in malaysia with australian license [gl=au]",
+    "driving in malaysia with australian license [gl=au]"
+   ],
+   "NA": [
+    "do i need an international driving permit for namibia [gl=au]",
+    "international driving permit for namibia [gl=au]"
+   ],
+   "NG": [
+    "international driving permit for nigeria [gl=au]"
+   ],
+   "NL": [
+    "do i need an idp for the netherlands [gl=au]",
+    "international driving permit for netherlands [gl=au]",
+    "driving in netherlands with australian license [gl=au]"
+   ],
+   "NO": [
+    "do i need an international driving permit for norway [gl=au]",
+    "international driving permit for norway [gl=au]",
+    "can i drive in norway with australian license [gl=au]"
+   ],
+   "NP": [
+    "international driving permit for nepal [gl=au]",
+    "can i drive in nepal with australian license [gl=au]"
+   ],
+   "NZ": [
+    "do i need an international driving permit for new zealand from australia [gl=uk]",
+    "do i need an international driving permit for new zealand from australia [gl=us]",
+    "do i need an international driving permit for new zealand from australia [gl=ca]",
+    "do i need an international driving permit for new zealand [gl=au]",
+    "do i need an international driving permit for new zealand from australia [gl=au]",
+    "do i need an idp for new zealand [gl=au]",
+    "international driving permit for new zealand [gl=au]",
+    "can i drive in new zealand with an australian licence [gl=uk]",
+    "can i drive in new zealand with an australian licence [gl=ca]",
+    "can i drive in new zealand with an australian licence [gl=au]",
+    "can i drive in new zealand with a malaysian license [gl=au]",
+    "can i drive in new zealand on an australian driver's licence [gl=au]",
+    "can i drive in new zealand on my green ps [gl=au]"
+   ],
+   "OM": [
+    "do i need an international driving permit for oman [gl=au]",
+    "international driving permit for oman [gl=au]",
+    "can i drive in oman with uae license [gl=au]"
+   ],
+   "PH": [
+    "international driving permit for philippines [gl=au]",
+    "can i drive in philippines with australian license [gl=uk]",
+    "can i drive in the philippines with australian license [gl=au]",
+    "can i drive in philippines with australian license [gl=au]"
+   ],
+   "PK": [
+    "international driving permit for pakistan [gl=au]",
+    "can i drive in pakistan on my australian license [gl=au]"
+   ],
+   "PL": [
+    "do i need an international driving permit for poland [gl=au]",
+    "international driving permit for poland [gl=au]",
+    "can i drive in poland with australian license [gl=au]"
+   ],
+   "PT": [
+    "do i need an international driving permit for madeira [gl=au]",
+    "do i need an international driving permit for portugal [gl=au]",
+    "do i need an idp for portugal [gl=au]",
+    "do i need an idp for madeira [gl=au]",
+    "international driving permit for madeira [gl=au]",
+    "international driving permit for portugal [gl=au]",
+    "can i drive in portugal with an australian licence [gl=au]"
+   ],
+   "QA": [
+    "do i need an international driving permit for qatar [gl=au]",
+    "international driving permit for qatar [gl=au]",
+    "can i drive in qatar with australian license [gl=au]",
+    "can i drive in qatar with uae license [gl=au]"
+   ],
+   "RO": [
+    "do i need an international driving permit for romania [gl=au]",
+    "international driving permit for romania [gl=au]"
+   ],
+   "RU": [
+    "international driving permit for russia [gl=au]",
+    "can i drive in russia with uae license [gl=au]"
+   ],
+   "SA": [
+    "international driving permit for saudi arabia [gl=au]",
+    "can i drive in saudi arabia with australian license [gl=au]"
+   ],
+   "SG": [
+    "can i drive in singapore with australian license [gl=au]"
+   ],
+   "SI": [
+    "do i need an international driving permit for slovenia [gl=au]",
+    "do i need an idp for slovenia [gl=au]"
+   ],
+   "TH": [
+    "do i need an international driving permit for thailand [gl=au]",
+    "do i need an idp for thailand [gl=au]",
+    "international driving permit for thailand [gl=au]",
+    "can i drive in phuket with australian license [gl=au]",
+    "can i drive in thailand with australian license [gl=au]"
+   ],
+   "TN": [
+    "do i need an idp for tunisia [gl=au]"
+   ],
+   "TR": [
+    "do i need an international driving permit for turkey [gl=au]",
+    "do i need an idp for turkey [gl=au]",
+    "international driving permit for turkey [gl=au]",
+    "can i drive in turkey with australian licence [gl=au]"
+   ],
+   "TW": [
+    "do i need an idp for taiwan [gl=au]",
+    "international driving permit for taiwan [gl=au]",
+    "can i drive in taiwan with australian license [gl=au]",
+    "can i drive in taiwan [gl=au]"
+   ],
+   "US": [
+    "do i need an international driving permit for usa from australia [gl=uk]",
+    "do i need an international driving permit for usa from australia [gl=us]",
+    "do i need an international driving permit for usa from australia [gl=ca]",
+    "do i need an international driving permit for usa from australia [gl=au]",
+    "do i need an international driving permit for america [gl=au]",
+    "do i need an international driving permit for california [gl=au]",
+    "do i need an international driving permit for florida [gl=au]",
+    "do i need an international driving permit for the usa [gl=au]",
+    "do i need an international driving permit for usa [gl=au]",
+    "do i need an idp for usa [gl=au]",
+    "do i need an idp for america [gl=au]",
+    "do i need an idp for california [gl=au]",
+    "do i need an idp for florida [gl=au]",
+    "do i need an idp for the us [gl=au]",
+    "do i need an idp for new york [gl=au]",
+    "international driving permit for usa [gl=au]",
+    "international driving permit for america [gl=au]",
+    "international driving permit for florida [gl=au]",
+    "international driving permit for hawaii [gl=au]",
+    "international driving permit for the us [gl=au]",
+    "can i drive in usa with australian license [gl=uk]",
+    "can i drive in usa with australian license [gl=us]",
+    "can i drive in usa with australian license [gl=au]",
+    "can i drive in california with australian license [gl=au]",
+    "can i drive in the us with an australian drivers license [gl=au]",
+    "can i drive in the us on an australian license [gl=au]",
+    "can i drive in usa [gl=au]",
+    "can i drive in us with australian license [gl=au]",
+    "can i drive in usa with australian drivers licence [gl=au]",
+    "driving in hawaii with australian license [gl=au]",
+    "driving in usa with australian license [gl=au]"
+   ],
+   "VN": [
+    "do i need an international driving permit for vietnam [gl=au]",
+    "do i need an idp for vietnam [gl=au]",
+    "international driving permit for vietnam [gl=au]",
+    "can i drive in vietnam with australian license [gl=uk]",
+    "can i drive in vietnam with australian license [gl=us]",
+    "can i drive in vietnam with australian license [gl=ca]",
+    "can i drive in vietnam with australian license [gl=au]",
+    "can i drive in vietnam [gl=au]"
+   ],
+   "VU": [
+    "can i drive in vanuatu with australian license [gl=au]"
+   ],
+   "WS": [
+    "can i drive in samoa with australian license [gl=au]"
+   ],
+   "ZA": [
+    "do i need an international driving permit for south africa [gl=au]",
+    "do i need an idp for south africa [gl=au]",
+    "international driving permit for south africa [gl=au]",
+    "can i drive in south africa with an australian license [gl=au]"
+   ],
+   "ZW": [
+    "international driving permit for zimbabwe [gl=au]"
+   ]
+  }
+ },
+ "pagine": {
+  "uk": [
+   "AE",
+   "AU",
+   "BD",
+   "CA",
+   "CN",
+   "DE",
+   "ES",
+   "FR",
+   "GR",
+   "HK",
+   "IE",
+   "IN",
+   "IT",
+   "JP",
+   "KW",
+   "MA",
+   "ME",
+   "MY",
+   "NO",
+   "NZ",
+   "OM",
+   "PK",
+   "PL",
+   "PT",
+   "RO",
+   "TH",
+   "TR",
+   "US",
+   "VN",
+   "ZM",
+   "ZW"
+  ],
+  "ca": [
+   "AE",
+   "AT",
+   "AU",
+   "BB",
+   "BR",
+   "CH",
+   "CN",
+   "DE",
+   "ES",
+   "FR",
+   "GB",
+   "GR",
+   "HK",
+   "ID",
+   "IE",
+   "IN",
+   "IS",
+   "IT",
+   "JM",
+   "JP",
+   "KR",
+   "LK",
+   "MA",
+   "MX",
+   "MY",
+   "NG",
+   "NL",
+   "NO",
+   "NZ",
+   "PH",
+   "PK",
+   "PL",
+   "PT",
+   "QA",
+   "RO",
+   "RS",
+   "TR",
+   "US",
+   "VN"
+  ],
+  "au": [
+   "AE",
+   "BD",
+   "BR",
+   "CA",
+   "CH",
+   "CK",
+   "CL",
+   "CN",
+   "DE",
+   "DK",
+   "ES",
+   "FI",
+   "FJ",
+   "FR",
+   "GB",
+   "GR",
+   "HK",
+   "ID",
+   "IE",
+   "IN",
+   "IS",
+   "IT",
+   "JP",
+   "KR",
+   "LB",
+   "LK",
+   "MU",
+   "MY",
+   "NL",
+   "NO",
+   "NP",
+   "NZ",
+   "PH",
+   "PK",
+   "PL",
+   "PT",
+   "QA",
+   "SA",
+   "SG",
+   "TH",
+   "TR",
+   "TW",
+   "US",
+   "VN",
+   "VU",
+   "WS",
+   "ZA"
+  ]
+ }
+}
