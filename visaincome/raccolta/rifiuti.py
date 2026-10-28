@@ -48,6 +48,9 @@ TITOLO_UK_SINTESI = "Entry clearance visas summary tables"
 GRUPPI_UK = ("Visitor", "Study", "Work", "Family", "Other")
 ESITI_UK = ("Issued", "Refused", "Withdrawn", "Lapsed")
 TRIMESTRI_UK = 8  # ultimi 8 trimestri: anno più recente (4) + anno precedente (4)
+# Tipo di visto "Family: Partner" (colonna "Visa type" del foglio D02): coniugi e partner, dentro il gruppo Family.
+# Si salva come voce in più accanto ai 5 gruppi (non entra nei totali "All", che sommano solo GRUPPI_UK).
+TIPO_PARTNER = "Family: Partner"
 
 
 def scarica(url, dest=None, nuovo=False):
@@ -165,7 +168,14 @@ def leggi_uk(percorso):
         if r[4] not in GRUPPI_UK or r[8] not in ESITI_UK:
             raise SystemExit(f"UK: gruppo o esito inattesi {r}")
         agg[(r[1], r[2], r[4])][ESITI_UK.index(r[8])] += int(r[9] or 0)
+        if r[5] == TIPO_PARTNER:  # sotto-voce del gruppo Family (dal 28/10/2026): visti per il partner (coniuge)
+            if r[4] != "Family":
+                raise SystemExit(f"UK: {TIPO_PARTNER} fuori dal gruppo Family {r}")
+            agg[(r[1], r[2], TIPO_PARTNER)][ESITI_UK.index(r[8])] += int(r[9] or 0)
     ultimi = sorted(trimestri)[-TRIMESTRI_UK:]
+    for (q, n, g), v in agg.items():  # il partner non può superare il gruppo Family
+        if g == TIPO_PARTNER and any(x > y for x, y in zip(v, agg[(q, n, "Family")])):
+            raise SystemExit(f"UK: {n} {q}: partner {v} oltre il gruppo Family {agg[(q, n, 'Family')]}")
     naz = defaultdict(dict)
     for (q, n, g), v in agg.items():
         if q in ultimi:
@@ -258,7 +268,7 @@ def main():
         sys.exit(1)
     uscita = {"_nota": "Generato da raccolta/rifiuti.py: non modificare a mano. Righe Schengen: [Stato, Paese del consolato, consolato, "
                        "domande, visti uniformi rilasciati (con MEV), LTV rilasciati, non rilasciati]. UK: nazionalità -> gruppo -> trimestre -> "
-                       "[concessi, rifiutati, ritirati, decaduti].",
+                       "[concessi, rifiutati, ritirati, decaduti]; la voce 'Family: Partner' è una parte del gruppo Family (tipo di visto del partner).",
               "generato_il": oggi, "fonti": fonti, "schengen": ue,
               "uk": {"trimestri": uk["trimestri"], "naz": uk["naz"]}}
     USCITA.write_text(json.dumps(uscita, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")

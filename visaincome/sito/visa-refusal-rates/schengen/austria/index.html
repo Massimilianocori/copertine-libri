@@ -218,6 +218,7 @@ footer .f-altri a{font-weight:600}
 .tab.compatta th{vertical-align:bottom}
 .tab.compatta th .small{font-weight:600;letter-spacing:0;text-transform:none}
 @media (max-width:640px){.tab.compatta td,.tab.compatta th{padding:9px 8px}.tab.compatta td:first-child,.tab.compatta th:first-child{min-width:118px}}
+@media (max-width:640px){.tab.motivi td,.tab.motivi th{padding:9px 4px;font-size:.86rem}.tab.motivi th{letter-spacing:0}.tab.motivi td:first-child,.tab.motivi th:first-child{min-width:0;padding-left:10px}}
 th button.ord{font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;text-align:inherit;background:none;border:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
 th button.ord::after{content:"";width:7px;height:10px;flex:none;opacity:.45;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 10'%3E%3Cpath d='M3.5 0 7 4H0zM3.5 10 0 6h7z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 10'%3E%3Cpath d='M3.5 0 7 4H0zM3.5 10 0 6h7z'/%3E%3C/svg%3E") center/contain no-repeat}
 th[aria-sort] button.ord{color:var(--accent)}
@@ -279,6 +280,10 @@ ul.testo{padding-left:20px}
 .trim.m12{grid-template-columns:repeat(12,minmax(0,1fr));gap:6px}
 @media (max-width:760px){.trim.m12{grid-template-columns:repeat(6,minmax(0,1fr));row-gap:16px}.trim.m12 .tq-c{height:84px}}
 .kpi-uk a{color:inherit}
+.cosa{margin:22px 0;border-left:4px solid var(--accent)}.cosa h2{margin-top:0;font-size:1.2rem}.cosa ul{margin:0;padding-left:20px}.cosa li{margin-bottom:6px}
+.griglia .no-link{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:13px 14px;color:var(--ink);font-weight:700;min-width:0;box-shadow:var(--sh-1)}
+.griglia .no-link>span{min-width:0}.griglia .no-link small{display:block;font-weight:400;color:var(--ink-3);font-size:.85rem;margin-top:2px}
+td sup{font-size:.68em;color:var(--ink-3);margin-left:2px}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://visa-income-checker.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Visa refusal rates", "item": "https://visa-income-checker.netlify.app/visa-refusal-rates/"}, {"@type": "ListItem", "position": 3, "name": "Austria visa rejection rate", "item": "https://visa-income-checker.netlify.app/visa-refusal-rates/schengen/austria/"}]}</script>
 </head>
@@ -328,7 +333,7 @@ ul.testo{padding-left:20px}
 <p>Exchange rates: euro foreign exchange reference rates of the European Central Bank (source: ECB), for information only.</p>
 </div><div>
 <h2>Explore</h2>
-<ul><li><a href="../../../visa-refusal-rates/">Visa refusal rates</a></li><li><a href="../../../about/">About</a></li><li><a href="../../../how-it-works/">How it works and sources</a></li><li><a href="../../../contact/">Contact</a></li><li><a href="../../../privacy.html">Privacy</a></li><li><a href="../../../contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
+<ul><li><a href="../../../visa-refusal-rates/">Visa refusal rates</a></li><li><a href="../../../moved-to/">Who moved where (by nationality)</a></li><li><a href="../../../about/">About</a></li><li><a href="../../../how-it-works/">How it works and sources</a></li><li><a href="../../../contact/">Contact</a></li><li><a href="../../../privacy.html">Privacy</a></li><li><a href="../../../contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
 </div></div>
 <div class="f-altri"><h2>Other useful tools for your trip</h2><ul><li><a href="https://italy-strikes-today.netlify.app/" rel="noopener">Italy Strikes Today</a> — Transport strikes in Italy today and tomorrow, from the official register</li><li><a href="https://tourist-tax-calculator.netlify.app/" rel="noopener">Tourist Tax Calculator</a> — City tax per night in 200+ European destinations</li><li><a href="https://before-you-fly.netlify.app/" rel="noopener">Before You Fly</a> — Passport validity, airport liquid rules, cabin bag sizes</li></ul></div>
 <p class="f-base">Official sources only · the calculator runs in your browser · links marked "Affiliate" may earn us a commission.</p>

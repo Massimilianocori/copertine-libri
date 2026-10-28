@@ -1,6 +1,6 @@
 # Visa Income Checker – note di lavoro
 
-Costruito il 10/10/2026. Sito statico in inglese, generato da `genera.py` in `sito/` (37 pagine + 404; dal 15/10/2026 141 pagine con la sezione "Visa refusal rates"; dal 21/10/2026 186 con le 45 pagine "Easiest Schengen visa").
+Costruito il 10/10/2026. Sito statico in inglese, generato da `genera.py` in `sito/` (37 pagine + 404; dal 15/10/2026 141 pagine con la sezione "Visa refusal rates"; dal 21/10/2026 186 con le 45 pagine "Easiest Schengen visa"; dal 28/10/2026 410 con la sezione "Who moved where" e la pagina dei visti UK di famiglia).
 Indirizzo previsto: `https://visa-income-checker.netlify.app` (costante `URL_SITO` in `genera.py`, unico punto da cambiare).
 Corretto il 10/10/2026 dopo la revisione indipendente (vedi "Correzioni dopo la revisione").
 
@@ -25,6 +25,9 @@ per il confronto "sopra/sotto la soglia").
 | `dati/rifiuti.json` | dati della sezione "Visa refusal rates" (generato, non modificare a mano) |
 | `raccolta/rifiuti_altri.py` | dal 26/10/2026: scarica e legge i file ufficiali di Australia (Home Affairs), Nuova Zelanda (INZ) e Canada (IRCC) e scrive `dati/rifiuti_altri.json` |
 | `dati/rifiuti_altri.json` | dati delle sezioni Australia, Nuova Zelanda e Canada (generato, non modificare a mano) |
+| `raccolta/trasferimenti.py` | dal 28/10/2026: scarica Eurostat `migr_resfirst`, IRCC (residenti permanenti per cittadinanza) e legge il file del Home Office già usato da `rifiuti.py`; scrive `dati/trasferimenti.json` |
+| `dati/trasferimenti.json` | dati della sezione "Who moved where" (generato, non modificare a mano) |
+| `dati/lastmod.json` | registro scritto da `genera.py`: per ogni URL la data dell'ultima modifica del contenuto e la sua impronta (serve al `lastmod` della sitemap) |
 
 ## Cambi automatici
 
@@ -252,3 +255,70 @@ Motivo: la sezione rifiuti ha avuto 62 visite nella settimana 19-26/10, in buona
 **Da ricontrollare**: BP0015 e BP0018 ogni mese (verso il 20); INZ ogni mese (verso l'8); IRCC ogni mese (verso il 20); BR0112 ogni sei mesi (il rapporto al 30/6/2026 non c'era ancora il 26/10: lo script prende il primo PDF della pagina). A luglio cambia l'anno fiscale completo (AU, NZ) e a gennaio l'anno canadese: le pagine si spostano da sole. Riprovare IRCC per un file "Study permits approved" o "TRV refused" per Paese: se esce, si può calcolare un vero tasso.
 
 **Revisione indipendente 26/10/2026**: numeri ricalcolati con parser separati (regex in streaming sulla cache pivot di BP0015, pdftotext per INZ e BR0112, openpyxl per IRCC) su file riscaricati con SHA-256 uguale: India, Nigeria, Filippine, Pakistan, Iran uguali alle pagine e ai riepiloghi. Corretti: titoli oltre 75 caratteri (71 pagine Paese fino a 103, e le 3 pagine di riepilogo), anno spezzato a capo nell'intestazione del riquadro AU/NZ a 375 px, controllo dei link esterni in `verifica.py` che falliva per connessioni chiuse da ircc.canada.ca (ora riprova 4 volte). Titolo della pagina `/uk/` (82 caratteri, precedente) lasciato com'era.
+
+
+## 28/10/2026 — Sezione "Who moved where" (quanti [nazionalità] si sono trasferiti in [Paese]) e visti UK di famiglia e del partner
+
+Dal rapporto `studio-business/intelaiatura/ricerca-profonda-2026-10-28-assistenti.md` (candidate 1 e 2, sez. 7 sulla citabilità). Non ancora pubblicato: revisione indipendente prima.
+
+### Raccolta
+`python3 visaincome/raccolta/trasferimenti.py [--nuovo] && python3 visaincome/genera.py && python3 visaincome/verifica.py`
+(se un controllo fallisce `dati/trasferimenti.json` non viene toccato). File grezzi in `raccolta/_grezzi/` (`eurostat-migr_resfirst.json`, `ca-pr-citizenship.csv`, il XLSX del Home Office di `rifiuti.py`).
+
+| Fonte | URL | Stato 28/10/2026 | Licenza | Aggiornamento |
+|---|---|---|---|---|
+| Eurostat `migr_resfirst`, primi permessi di soggiorno per motivo, durata e cittadinanza (API JSON-stat; una sola richiesta: 12 cittadinanze × UE-27 + 27 Stati + 4 EFTA × 5 motivi × 4 durate × 2019-2025) | `https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/migr_resfirst` (pagina: `…/databrowser/view/migr_resfirst/default/table`; definizioni: `…/cache/metadata/en/migr_resval_esms.htm`) | 200; dati aggiornati il 22/10/2026 (campo `updated`) | avviso di copyright Eurostat (`https://ec.europa.eu/eurostat/help/copyright-notice`, 200): riuso libero citando la fonte, CC BY 4.0. La vecchia pagina `about-us/policies/copyright` risponde 404 | **una volta l'anno** (l'anno N esce in autunno dell'anno N+1; metadati: "most of the statistics released by end September"), **più revisioni**: i Paesi correggono gli anni passati e Eurostat aggiorna senza preavviso. Rilanciare lo script con `--nuovo` ogni 2-3 mesi e a fine settembre/ottobre 2027 per l'anno 2026 |
+| IRCC, "Canada – Permanent Residents by Country of Citizenship" (CSV a tabulazioni, mensile dal 2015) | `https://www.ircc.canada.ca/opendata-donneesouvertes/data/ODP-PR-Citz.csv` (catalogo `open.canada.ca/data/en/dataset/f7e5498e-0ad8-4417-85c9-9b8aff9b9eda`) | 200, 1.296.015 byte, Last-Modified 21/10/2026, dati fino ad agosto 2026 | Open Government Licence – Canada | mensile (verso il 20) |
+| Home Office, entry clearance visa outcomes, foglio Data_Vis_D02 (stesso file di `rifiuti.py`, YE giugno 2026) | vedi sezione "Visa refusal rates" | l'API GOV.UK punta ancora al file del 27/8/2026 (controllato il 28/10) | OGL v3.0 | trimestrale (prossimo 26/11/2026) |
+
+Cittadinanze (12): USA, Regno Unito, Canada, Australia, India, Pakistan, Nigeria, Filippine, Cina, Brasile, Sudafrica, Nuova Zelanda (comprendono le 8 del rapporto). Destinazioni: i 27 Stati UE + Islanda, Liechtenstein, Norvegia, Svizzera (Regno Unito fino al 2019 e Serbia esclusi), più Canada e Regno Unito con le loro misure. **Le tre misure non si sommano mai** e ogni pagina dice cosa conta.
+
+Controlli dello script: per ogni cittadinanza, Paese e anno totale = somma dei 4 motivi; UE-27 = somma dei 27 Stati (82 casi su 82, tutti uguali); durate = totale (eccezione nei dati ufficiali: Liechtenstein 2019, 8 caselle in cui le durate non sommano al totale: lì le durate non si usano, elenco in `fonti.eurostat.durate_scartate`); IRCC: intestazione attesa, 12 mesi per ogni anno 2019-2025, USA 2025 = 7.510 (lettura del rapporto); Home Office: i visti concessi per trimestre e gruppo coincidono con `dati/rifiuti.json` (264 confronti) e il file deve essere lo stesso (SHA-256) usato da `rifiuti.py`. Segni Eurostat salvati e mostrati: `u` poco affidabile (Irlanda, tutti gli anni), `b` interruzione della serie (Portogallo 2025, Spagna 2023, Italia 2022, Grecia 2021...): con `b` sul 2025 la pagina dice che parte della variazione può venire da un cambio di conteggio (Brasiliani in Portogallo: 29.752 → 115.709, +288,9%).
+
+Fonti aggiuntive **non** usate: rinunce alla cittadinanza USA (Federal Register): risponde a un'altra domanda e si conterebbero nomi di persone private; residenti per cittadinanza (`migr_pop1ctz`): ultimo anno vecchio per alcuni Paesi (Francia 2020), possibile aggiunta dopo la prova dei 30 giorni; IRCC permessi temporanei di studio e lavoro per cittadinanza: non richiesti, da valutare.
+
+### Pagine (220, tutte in sitemap)
+- `/moved-to/` indice: tabella delle 12 nazionalità (UE 2025, 2024, variazione, EFTA, Canada, UK), metodo, fonti.
+- `/moved-to/<nazionalità>/` (12): "How many Americans moved to Europe in 2025?", prima frase con numero UE-27, anno, fonte e data di aggiornamento; variazione sul 2024; primi 3 Paesi; EFTA; Canada e UK a parte; tabella ordinabile dei 27 Stati (2025, 2024, variazione, 4 motivi) con totale; tabella EFTA; serie UE-27 2019-2025 per motivo; riquadro "What this number is, and what it is not"; FAQ (JSON-LD FAQPage) con le parole delle ricerche; JSON-LD Dataset.
+- `/moved-to/<nazionalità>/<paese>/` (207): **soglia `SOGLIA_TR = 500`** nel 2025 (primi permessi, nuovi residenti permanenti o visti concessi): sotto 500 il numero resta nella tabella della nazionalità senza pagina propria (meno di 500 ha variazioni annue troppo grandi e una pagina sottile). Contenuto: H1 = domanda; prima frase con numero, anno, fonte e data; variazione; motivi; quota con permesso di 12 mesi o più; riquadro con 2024, variazione, 12+ mesi, posizione tra i Paesi UE; tabella per motivo; serie 2019-2025 in HTML semplice (didascalia nascosta `<caption>`); "what this number is"; FAQ; link alle pagine del sito sullo stesso Paese (soglie di reddito, tassi di rifiuto Schengen, pagine Canada/UK) e sulla nazionalità; altre destinazioni e altre nazionalità. Pagine Canada (IRCC: nuovi residenti permanenti, serie e gennaio-agosto 2026) e UK (Home Office: visti di lavoro, studio e famiglia concessi per anno della decisione, gennaio-giugno 2026 provvisorio).
+- Britannici: la serie comincia nel 2021 (fino al 2020 erano cittadini UE); per l'Irlanda pochissimi permessi (Common Travel Area), scritto in pagina.
+- Titoli ≤ 70 caratteri con l'anno (`titolo_tr`: "How many X moved to Y in 2025? Official figures", poi forme più corte).
+- Collegamenti: home (sezione con 8 nazionalità), piè di pagina ("Who moved where"), le 13 pagine `/country/<paese>/` (blocco "Who moved to <Paese> in 2025"), le pagine dei visti rifiutati di India, Pakistan, Nigeria, Filippine, Cina e Sudafrica. Nessun link di affiliazione nella sezione (verificato da `verifica.py`).
+
+### Visti UK di famiglia e del partner (candidata 2)
+`rifiuti.py` leggeva già il gruppo "Family" (verificato: 57.590 concessi, 9.197 rifiutati negli ultimi 4 trimestri = 13,8%, come nel rapporto). Il file ha anche il tipo di visto **"Family: Partner"** (coniugi e partner; il gruppo Family comprende anche figli, altri familiari e ricongiungimento dei rifugiati): ora `rifiuti.py` lo salva come voce in più ("Family: Partner", controllo: mai sopra il gruppo Family) e `dati/rifiuti.json` è stato rigenerato dagli stessi file grezzi (gruppi e fonti identici a prima). Partner, tutte le nazionalità: **7,3%** rifiutati (3.081 su 41.983).
+- Pagine per Paese: Family entra in `GRUPPI_UK_PAGINA` (riquadro, prima frase, meta description, tabella trimestrale "Study, work and family visas, quarter by quarter") con la stessa soglia di 500 decisioni; nella tabella "Visa type" riga "of which partner (spouse) visas" solo con almeno 100 decisioni (* sotto 500) e frase sul partner con link.
+- Pagina `/uk/`: due riquadri (famiglia, partner), sezione `#family` con le 10 nazionalità con più decisioni; titolo ora "UK visa refusal rate by nationality 2026: visitor, study, work, family" (69 caratteri).
+- Pagina nuova `/visa-refusal-rates/uk/family-visas/` ("UK spouse and family visa refusal rate by nationality 2026"): cifra principale sul partner, tabella ordinabile di tutte le nazionalità con almeno 100 decisioni di famiglia (famiglia, anno prima, partner), trimestri, FAQ, link alla soglia di reddito del visto coniuge.
+
+### Sitemap: `lastmod` vero per tutto il sito
+Prima ogni URL aveva la data della generazione. Ora `genera.py` calcola un'impronta del contenuto (titolo, descrizione, JSON-LD, `<main>`; non CSS, menu e piè di pagina) e tiene `dati/lastmod.json`: impronta uguale → la data resta; cambiata o pagina nuova → oggi. Alla prima generazione le date delle pagine non cambiate sono state ricavate da git (ultimo commit in cui il contenuto è cambiato): oggi 310 pagine al 28/10 (220 nuove + quelle toccate dalla famiglia UK, home, pagine Paese), le altre tra l'11 e il 26/10. Rigenerare senza cambiamenti non sposta le date. IndexNow: nessuna modifica (`studio-business/strumenti/indexnow.py` legge la sitemap, quindi invia anche le pagine nuove).
+
+### Controlli (`verifica.py`)
+- Controllo 8 esteso: tassi di famiglia e partner di Pakistan, India, Nigeria e Bangladesh ricalcolati (riquadro, righe, frase), totali partner/famiglia e riga Pakistan della pagina `family-visas`, sitemap, titolo, FAQ, rimando da `/uk/`.
+- Controllo 12 (nuovo): pagine nazionalità × Paese attese ricalcolate da `dati/trasferimenti.json` con la soglia 500 (207, nessuna in più o in meno), tutte in sitemap, titoli ≤ 70 con l'anno, numero principale e data, confronto con il 2024, motivi e serie anno per anno uguali ai dati, righe delle tabelle delle 12 nazionalità e link coerenti con la soglia, fonte ufficiale con data sotto ogni tabella, JSON-LD (Dataset, FAQPage, BreadcrumbList), riquadro "what this number is", niente affiliazioni, nessun link interno rotto, link da home e pagine Paese. Prova al contrario: cambiando a mano 15.810 → 15.811 il controllo segnala l'errore.
+- Controllo 13 (nuovo): ogni URL della sitemap ha un `lastmod` valido, non nel futuro, uguale al registro; nessun URL doppio.
+- Esito 28/10/2026: TUTTO OK (410 pagine indicizzabili, 0 link interni rotti).
+
+### Ricontrollo dei numeri contro l'API (28/10/2026)
+10 valori a caso (seme 20261028) richiesti uno per uno all'API Eurostat e confrontati con `dati/trasferimenti.json`: **10 su 10 uguali** (BR→EL 2019 altro 5; CN→IT 2019 altro 1.057; ZA→ES 2022 totale 456; ZA→FI 2019 lavoro 17; CN→RO 2025 famiglia 234; US→PL 2020 altro 230; CN→PL 2021 studio 1.038; ZA→EE 2025 lavoro 6; AU→ES 2021 altro 68; US→HU 2023 totale 1.418). Altri 5 valori visibili nelle pagine (IN→DE 2025 49.023; PK→IT 25.257; UK→FR 8.235; PH→ES studio 678; US→IE 3.644) uguali tra API, JSON e pagina. Uguali anche ai numeri letti nel rapporto: USA nell'UE-27 80.424 (2024) e 91.615 (2025), Spagna 15.810, Irlanda 3.644, britannici 44.446, indiani 227.577, pakistani 98.329, filippini 71.280; Canada USA 10.640 / 9.325 / 7.510.
+
+### Schermate
+Playwright (375 e 1280 px, chiaro e scuro): indice, Americans, Americans → Spain, Indians → UK, British → Canada, `uk/family-visas/`, `/uk/`, Pakistan, `country/spain/`. Nessuno scorrimento orizzontale della pagina, nessuna tabella fuori dallo schermo (a 375 px le tabelle larghe scorrono dentro il loro riquadro, come nel resto del sito), nessun errore JS. Schermate in scratchpad (fuori dal repository).
+
+### Da ricontrollare
+- **26/11/2026** (Home Office): `rifiuti.py --nuovo`, poi `trasferimenti.py` (si ferma se il file UK non è lo stesso di `rifiuti.json`).
+- Ogni mese verso il 20: `trasferimenti.py --nuovo` per IRCC (anno in corso).
+- Ogni 2-3 mesi e **ottobre 2027** (anno 2026): Eurostat. Quando esce il 2026, `ANNI` nello script va portato a `range(2019, 2027)` (o spostato in avanti di un anno).
+- Misura del rapporto: a 30 giorni dalla pubblicazione ≥ 150 visite a settimana sulla sezione (GoatCounter, filtro `moved-to`).
+
+### Revisione indipendente del 28/10/2026 (sezione "Who moved where" e visti UK di famiglia)
+Numeri ricontrollati con strumenti propri, non con `trasferimenti.py`: 20 celle Eurostat estratte a caso dalle pagine (seme 4242) e richieste una per una all'API, più 8 valori mirati (totali UE-27, segni `b` e `u`, caselle vuote): tutti uguali; IRCC: CSV riscaricato (SHA-256 uguale), somme dei mesi di 6 nazionalità × 8 anni uguali alle pagine; Home Office: XLSX riscaricato (SHA-256 uguale) e letto con un parser separato: visti concessi di 6 nazionalità, tassi famiglia/partner di 6 nazionalità, totali e trimestri tutti uguali. Codici: Regno Unito = `UK` (Eurostat), Cina = `CN` (unico codice del dataset, etichetta "China"; IRCC e Home Office tengono Hong Kong a parte).
+Corretti nel generatore:
+- Irlanda: "low reliability for 2019–2025" includeva il 2020, che non ha il segno `u` → intervalli veri (`anni_testo`: "2019 and 2021–2025").
+- Variazioni minime: "+0.0%" (britannici 44.426 → 44.446) → due decimali sotto 0,05% ("+0.05%").
+- "The most common reason was other" → "other reasons", con la spiegazione di Eurostat; "the closest official count of how many moved there" → "the main official indicator".
+- IRCC: la nota del catalogo dice "values between 0 and 5 are shown as --" e "nearest multiple of 5" (non "1 to 4"); "IRCC's open data do not say why" → "This IRCC file does not say why"; risposta FAQ sul 2026 con il soggetto.
+- Pagina `uk/family-visas/`: prima frase con il numero, il periodo, la fonte e la data; FAQ senza il nesso causale "so it is higher": ora dà il tasso del resto del gruppo famiglia (24,7%).
+- Elenchi "Spain, France, Germany" → "Spain, France and Germany"; indice con la risposta numerica nella prima frase; "remunerated activities" nella definizione di "Work".
+- 375 px: le tabelle "by reason" (UE) e "by type" (UK) ora stanno nello schermo (classe `.tab.motivi`): 207 pagine controllate, 0 tabelle fuori, 0 scorrimenti orizzontali.

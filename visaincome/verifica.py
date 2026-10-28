@@ -21,6 +21,11 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
 11. Australia, Nuova Zelanda e Canada (26/10/2026): pagine di riepilogo in sitemap con licenza, fonte, avviso e JSON-LD Dataset;
     righe della tabella australiana = nazionalità con almeno 500 decisioni; cifre di India, Pakistan, Nigeria e Filippine ricalcolate
     da dati/rifiuti_altri.json; le pagine Schengen di Australia e Canada rimandano alle pagine delle destinazioni.
+12. "Who moved where" (28/10/2026): pagine nazionalità × Paese = quelle con almeno 500 nel 2025 ricalcolate qui da dati/trasferimenti.json,
+    tutte in sitemap e nessuna in più; titoli entro 70 caratteri con l'anno; numero principale, serie per anno e tabella per Paese
+    uguali ai dati; fonte con data sotto ogni tabella; riquadro "what this number is"; JSON-LD; nessun link interno rotto nella sezione.
+13. Sitemap: ogni URL ha un lastmod vero (data valida, non nel futuro, uguale al registro dati/lastmod.json), nessun URL doppio.
+Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -444,6 +449,50 @@ def controlla_facile():
                 errori.append(f"Rifiuti UK: pagina /uk/, riga {naz}: {nome} {tx} o {c + r} decisioni non trovati")
     if "Study visas refused" not in uk_pag or "Work visas refused" not in uk_pag:
         errori.append("Rifiuti UK: colonne studio/lavoro mancanti nella pagina /uk/")
+    # famiglia e partner (28/10/2026): riquadro, riga della tabella "Visa type" e riga del partner nelle pagine per nazionalità
+    def somma_uk(naz, g, qq):
+        c = sum(R["uk"]["naz"].get(naz, {}).get(g, {}).get(q, [0, 0])[0] for q in qq)
+        r = sum(R["uk"]["naz"].get(naz, {}).get(g, {}).get(q, [0, 0])[1] for q in qq)
+        return c, r
+    for naz, slug in (("Pakistan", "pakistan"), ("India", "india"), ("Nigeria", "nigeria"), ("Bangladesh", "bangladesh")):
+        p = (SITO / "visa-refusal-rates" / slug / "index.html").read_text(encoding="utf-8")
+        c, r = somma_uk(naz, "Family", q4)
+        if c + r >= 500 and f"<b>{r / (c + r) * 100:.1f}%</b><span>family visas refused · {c + r:,} decisions</span>" not in p:
+            errori.append(f"Rifiuti UK: tasso famiglia di {slug} non trovato nel riquadro")
+        if f'<td>Family visas</td>' not in p or f'<td class="n">{c + r:,}</td><td class="n">{c:,}</td><td class="n">{r:,}</td>' not in p:
+            errori.append(f"Rifiuti UK: riga famiglia di {slug} diversa dal ricalcolo")
+        pc, pr = somma_uk(naz, "Family: Partner", q4)
+        if pc + pr >= 100 and (f'<td>of which partner (spouse) visas</td>' not in p or f'<td class="n">{pc + pr:,}</td><td class="n">{pc:,}</td><td class="n">{pr:,}</td>' not in p
+                               or f"the rate was {pr / (pc + pr) * 100:.1f}% ({pr:,} refused out of {pc + pr:,} decisions" not in p):
+            errori.append(f"Rifiuti UK: riga o frase del partner di {slug} diversa dal ricalcolo")
+        if pc > c or pr > r:
+            errori.append(f"Rifiuti UK: partner oltre la famiglia per {naz}")
+    fam = (SITO / "visa-refusal-rates" / "uk" / "family-visas" / "index.html")
+    if not fam.exists():
+        errori.append("Rifiuti UK: manca la pagina uk/family-visas/")
+    else:
+        ft = fam.read_text(encoding="utf-8")
+        tot_p = [0, 0]
+        tot_f = [0, 0]
+        for naz in R["uk"]["naz"]:
+            a, b = somma_uk(naz, "Family: Partner", q4)
+            tot_p[0] += a; tot_p[1] += b
+            a, b = somma_uk(naz, "Family", q4)
+            tot_f[0] += a; tot_f[1] += b
+        if f"<strong>{tot_p[1] / sum(tot_p) * 100:.1f}%</strong> refused ({tot_p[1]:,} of {sum(tot_p):,} decisions)" not in ft:
+            errori.append("Rifiuti UK: tasso del partner (tutte le nazionalità) diverso dal ricalcolo")
+        if f"<b>{tot_f[1] / sum(tot_f) * 100:.1f}%</b><span>all family visas refused · {sum(tot_f):,} decisions</span>" not in ft:
+            errori.append("Rifiuti UK: tasso della famiglia (tutte le nazionalità) diverso dal ricalcolo")
+        riga = re.search(r'<tr><td>(?:<a [^>]+>)?Pakistan(?:</a>)?</td>.*?</tr>', ft, re.S)
+        c, r = somma_uk("Pakistan", "Family", q4)
+        if not riga or f'data-v="{r / (c + r):.6f}"' not in riga.group(0) or f'data-v="{c + r}">{c + r:,}<' not in riga.group(0):
+            errori.append("Rifiuti UK: riga Pakistan della pagina family-visas diversa dal ricalcolo")
+        if "/visa-refusal-rates/uk/family-visas/</loc>" not in (SITO / "sitemap.xml").read_text(encoding="utf-8"):
+            errori.append("Rifiuti UK: family-visas non in sitemap")
+        if len(re.search(r"<title>(.*?)</title>", ft).group(1)) > 70 or "FAQPage" not in ft:
+            errori.append("Rifiuti UK: titolo oltre 70 caratteri o FAQ mancante in family-visas")
+    if 'href="family-visas/"' not in uk_pag or "partner (spouse) visas refused" not in uk_pag:
+        errori.append("Rifiuti UK: la pagina /uk/ non mostra famiglia e partner o non rimanda a family-visas")
     return errori, len(pagine)
 
 
@@ -577,6 +626,170 @@ def controlla_altri():
             errori.append(f"Altri: pagina {slug}: manca il rimando a {dest} o c'è la sezione su sé stessa")
     return errori
 
+# ---------------------------------------------------------------- 12. "Who moved where" (28/10/2026)
+URL_UFFICIALI_TR = ("https://ec.europa.eu/eurostat/", "https://www.ircc.canada.ca/", "https://open.canada.ca/", "https://assets.publishing.service.gov.uk/")
+
+
+def controlla_trasferimenti():
+    """Ricalcolo indipendente da dati/trasferimenti.json (senza le funzioni di genera.py): pagine attese, numeri, titoli, fonti, link."""
+    errori = []
+    D = json.loads((SITO.parent / "dati" / "trasferimenti.json").read_text(encoding="utf-8"))
+    y1, y0 = D["anni"][-1], D["anni"][-2]
+    eu = D["eurostat"]["dati"]
+    nomi = D["eurostat"]["nomi_destinazioni"]
+    slug_naz = {c: v[0] for c, v in G.NAZ_TR.items()}  # solo gli slug (configurazione), i numeri si ricalcolano qui
+    def slug(n):
+        import unicodedata
+        n = unicodedata.normalize("NFKD", n).encode("ascii", "ignore").decode().lower()
+        return re.sub(r"[^a-z0-9]+", "-", n).strip("-")
+    attese = {}
+    for c, s in slug_naz.items():
+        for g, nome in nomi.items():
+            if g == "EU27_2020":
+                continue
+            v = eu.get(c, {}).get(g, {}).get(y1)
+            if v and v[0] is not None and v[0] >= 500:
+                attese[f"{s}/{slug(nome)}"] = ("eu", c, g, v)
+        ca = D["canada"]["cittadinanze"].get(c)
+        if ca and ca["anni"][y1] >= 500:
+            attese[f"{s}/canada"] = ("ca", c, None, ca)
+        uk = D["uk"]["cittadinanze"].get(c)
+        if uk and sum(uk["anni"][y1]) >= 500:
+            attese[f"{s}/uk"] = ("uk", c, None, uk)
+    base = SITO / "moved-to"
+    trovate = {f.parent.relative_to(base).as_posix() for f in base.glob("*/*/index.html")}
+    if trovate != set(attese):
+        errori.append(f"Trasferimenti: pagine in più {sorted(trovate - set(attese))[:5]}, mancanti {sorted(set(attese) - trovate)[:5]}")
+    mappa = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    pagine = sorted(base.rglob("index.html"))
+    for f in pagine:
+        rel = f.parent.relative_to(SITO).as_posix() + "/"
+        t = f.read_text(encoding="utf-8")
+        if f"<loc>{G.URL_SITO}/{rel}</loc>" not in mappa:
+            errori.append(f"Trasferimenti: {rel} non in sitemap")
+        titolo = re.search(r"<title>(.*?)</title>", t).group(1)
+        if len(titolo.replace("&amp;", "&")) > 70 or y1 not in titolo:
+            errori.append(f"Trasferimenti: titolo di {rel} oltre 70 caratteri o senza {y1}: {titolo}")
+        corpo = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        for i, dopo in enumerate(corpo.split("<table")[1:], 1):
+            m = re.match(r'.*?</table></div>\s*<p class="fonte">(.*?)</p>', dopo, re.S)
+            if not m or not any(u in m.group(1) for u in URL_UFFICIALI_TR) or not RE_DATA.search(m.group(1)):
+                errori.append(f"Trasferimenti: tabella {i} di {rel} senza fonte ufficiale e data sotto")
+        ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S)]
+        tipi = {x.get("@type") for x in ld}
+        if "Dataset" not in tipi or "BreadcrumbList" not in tipi or (rel != "moved-to/" and "FAQPage" not in tipi):
+            errori.append(f"Trasferimenti: JSON-LD mancante in {rel}: {tipi}")
+        if rel != "moved-to/" and "What this number is, and what it is not" not in corpo:
+            errori.append(f"Trasferimenti: riquadro 'what this number is' mancante in {rel}")
+        if re.search(r'ekta|travelpayouts|tp\.media|safetywing|rel="[^"]*sponsored|>Affiliate<', corpo, re.I):
+            errori.append(f"Trasferimenti: link di affiliazione in {rel}")
+    def num(n):
+        return f"{n:,}"
+    # pagine nazionalità × Paese: numero principale, anno prima e serie per anno
+    for k, (tipo, c, g, v) in sorted(attese.items()):
+        f = base / k / "index.html"
+        if not f.exists():
+            continue
+        t = f.read_text(encoding="utf-8")
+        lead = re.search(r'<p class="lead">(.*?)</p>', t, re.S).group(1)
+        if tipo == "eu":
+            serie = eu[c][g]
+            tot = serie[y1][0]
+            if f"<strong>{num(tot)}</strong> first residence permits to" not in lead or "data updated on " + G.data_lunga(D["fonti"]["eurostat"]["aggiornato_il"]) not in lead:
+                errori.append(f"Trasferimenti: numero principale o data di {k} diversi dai dati")
+            for a, r in serie.items():
+                if c == "UK" and a < "2021":
+                    continue
+                m = re.search(rf'<tr><td>{a}</td><td class="n" data-v="(\d+)">', t)
+                if r[0] is not None and (not m or int(m.group(1)) != r[0]):
+                    errori.append(f"Trasferimenti: serie {k} {a} diversa dai dati ({r[0]})")
+            p0 = serie.get(y0)
+            if p0 and p0[0] is not None and f"than in {y0} ({num(p0[0])})" not in lead:
+                errori.append(f"Trasferimenti: confronto con {y0} di {k} diverso dai dati")
+            mot = re.findall(r'<tr><td>(Family|Education|Work|Other)</td><td class="n" data-v="(\d*)">', t)
+            if [int(x) if x else None for _, x in mot] != serie[y1][1:5]:
+                errori.append(f"Trasferimenti: motivi {y1} di {k} diversi dai dati")
+        elif tipo == "ca":
+            if f"<strong>{num(v['anni'][y1])}</strong> " not in lead or f"({num(v['anni'][y0])})" not in lead:
+                errori.append(f"Trasferimenti: numero canadese di {k} diverso dai dati")
+            for a in D["anni"]:
+                if not re.search(rf'<tr><td>{a}</td><td class="n" data-v="{v["anni"][a]}">', t):
+                    errori.append(f"Trasferimenti: serie canadese {k} {a} diversa dai dati")
+        else:
+            tot1, tot0 = sum(v["anni"][y1]), sum(v["anni"][y0])
+            if f"<strong>{num(tot1)}</strong> work, study and family visas" not in lead or f"({num(tot0)})" not in lead:
+                errori.append(f"Trasferimenti: numero britannico di {k} diverso dai dati")
+            for a in D["anni"]:
+                x = v["anni"][a]
+                if not re.search(rf'<tr><td>{a}</td><td class="n" data-v="{sum(x)}">[^<]*</td><td class="n" data-v="{x[0]}">[^<]*</td><td class="n" data-v="{x[1]}">[^<]*</td><td class="n" data-v="{x[2]}">', t):
+                    errori.append(f"Trasferimenti: serie britannica {k} {a} diversa dai dati")
+    # pagine della nazionalità: totale UE, righe dei Paesi
+    for c, s in slug_naz.items():
+        f = base / s / "index.html"
+        if not f.exists():
+            errori.append(f"Trasferimenti: manca la pagina {s}")
+            continue
+        t = f.read_text(encoding="utf-8")
+        ue = eu[c]["EU27_2020"]
+        if f"<strong>{num(ue[y1][0])}</strong> " not in re.search(r'<p class="lead">(.*?)</p>', t, re.S).group(1) or f"({num(ue[y0][0])})" not in t:
+            errori.append(f"Trasferimenti: totale UE di {s} diverso dai dati")
+        tab = re.search(r'id="t-tr">.*?<tbody>(.*?)</tbody>', t, re.S).group(1)
+        righe = re.findall(r'<tr><td>(?:<a href="([^"]+)">)?([^<]+)(?:</a>)?</td><td class="n" data-v="(\d+)">', tab)
+        for href, nome, x in righe:
+            g = next((k for k, n in nomi.items() if n == nome), None)
+            if g is None or eu[c][g][y1][0] != int(x):
+                errori.append(f"Trasferimenti: riga {nome} di {s} diversa dai dati")
+            if (href != "") != (f"{s}/{slug(nome)}" in attese):
+                errori.append(f"Trasferimenti: link della riga {nome} di {s} non coerente con la soglia")
+        attesi_ue = sum(1 for g in nomi if g != "EU27_2020" and g not in ("IS", "LI", "NO", "CH") and eu[c].get(g, {}).get(y1) and eu[c][g][y1][0] is not None)
+        if len(righe) != attesi_ue:
+            errori.append(f"Trasferimenti: {s} ha {len(righe)} righe UE, attese {attesi_ue}")
+    # link interni della sezione (oltre al controllo 3, che copre tutto il sito)
+    rotti = 0
+    for f in pagine:
+        pz = Link()
+        pz.feed(f.read_text(encoding="utf-8"))
+        for h in pz.href:
+            if h.startswith(("http", "mailto:", "data:", "#", "javascript:")):
+                continue
+            h = h.split("#")[0].split("?")[0]
+            dest = ((SITO / h.lstrip("/")) if h.startswith("/") else (f.parent / h)).resolve()
+            if dest.is_dir():
+                dest = dest / "index.html"
+            if h and not dest.exists():
+                rotti += 1
+                errori.append(f"Trasferimenti: link rotto in {f.relative_to(SITO)}: {h}")
+    # collegamenti dalla home e dalle pagine Paese
+    if 'href="moved-to/"' not in leggi("index.html") or 'href="moved-to/americans/"' not in leggi("index.html"):
+        errori.append("Trasferimenti: la home non rimanda alla sezione")
+    for paese, d in (("spain", "spain"), ("germany", "germany"), ("united-kingdom", "uk")):
+        if f'moved-to/americans/{d}/"' not in leggi(f"country/{paese}/index.html"):
+            errori.append(f"Trasferimenti: la pagina Paese {paese} non rimanda a moved-to/americans/{d}/")
+    return errori, len(pagine), len(attese)
+
+
+def controlla_lastmod():
+    """13. Ogni URL della sitemap ha un lastmod vero: data valida, non nel futuro, uguale al registro di genera.py; nessun doppione."""
+    from datetime import date
+    errori = []
+    mappa = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    voci = re.findall(r"<url><loc>([^<]+)</loc>(?:<lastmod>([^<]*)</lastmod>)?</url>", mappa)
+    reg = json.loads((SITO.parent / "dati" / "lastmod.json").read_text(encoding="utf-8"))["pagine"]
+    if len(voci) != len({u for u, _ in voci}):
+        errori.append("Sitemap: URL doppi")
+    if len(voci) != len(re.findall(r"<url>", mappa)):
+        errori.append("Sitemap: voci non lette")
+    for u, d in voci:
+        try:
+            ok = date.fromisoformat(d) <= date.today()
+        except ValueError:
+            ok = False
+        p = u[len(G.URL_SITO) + 1:]
+        if not ok or reg.get(p, [None])[0] != d:
+            errori.append(f"Sitemap: lastmod {d!r} non valido o diverso dal registro per {u}")
+    return errori, len(voci), len({d for _, d in voci})
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -593,14 +806,18 @@ def main():
     e7, n7, x7 = controlla_rifiuti(online="--offline" not in sys.argv)
     print(f"7. Visa refusal rates: {n7} pagine, {x7} link esterni controllati, {len(e7)} errori")
     e8, n8 = controlla_facile()
-    print(f"8. Easiest Schengen visa ({n8} pagine) e visti UK di studio e lavoro: {len(e8)} errori")
+    print(f"8. Easiest Schengen visa ({n8} pagine) e visti UK di studio, lavoro, famiglia e partner: {len(e8)} errori")
     e9, n9 = controlla_altri_siti()
     print(f"9. Blocco \"Other useful tools for your trip\" ({len(G.ALTRI_SITI)} link) in {n9} pagine indicizzabili: {len(e9)} errori")
     e10 = controlla_indexnow()
     print(f"10. File chiave IndexNow {G.CHIAVE_INDEXNOW}.txt in sito/ (contenuto giusto, fuori dalla sitemap): {len(e10)} errori")
     e11 = controlla_altri()
     print(f"11. Australia, Nuova Zelanda, Canada (3 pagine di riepilogo, sezioni per Paese, soglia e cifre ricalcolate): {len(e11)} errori")
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11
+    e12, n12, c12 = controlla_trasferimenti()
+    print(f"12. Who moved where: {n12} pagine ({c12} nazionalità × Paese attese con 500+), numeri, titoli, fonti, JSON-LD e link: {len(e12)} errori")
+    e13, n13, d13 = controlla_lastmod()
+    print(f"13. Sitemap: {n13} URL con lastmod ({d13} date diverse, uguali al registro dati/lastmod.json): {len(e13)} errori")
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13
     for e in tutti:
         print(" -", e)
     if tutti:

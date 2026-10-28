@@ -562,6 +562,7 @@ footer .f-altri a{font-weight:600}
 .tab.compatta th{vertical-align:bottom}
 .tab.compatta th .small{font-weight:600;letter-spacing:0;text-transform:none}
 @media (max-width:640px){.tab.compatta td,.tab.compatta th{padding:9px 8px}.tab.compatta td:first-child,.tab.compatta th:first-child{min-width:118px}}
+@media (max-width:640px){.tab.motivi td,.tab.motivi th{padding:9px 4px;font-size:.86rem}.tab.motivi th{letter-spacing:0}.tab.motivi td:first-child,.tab.motivi th:first-child{min-width:0;padding-left:10px}}
 th button.ord{font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;text-align:inherit;background:none;border:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
 th button.ord::after{content:"";width:7px;height:10px;flex:none;opacity:.45;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 10'%3E%3Cpath d='M3.5 0 7 4H0zM3.5 10 0 6h7z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 10'%3E%3Cpath d='M3.5 0 7 4H0zM3.5 10 0 6h7z'/%3E%3C/svg%3E") center/contain no-repeat}
 th[aria-sort] button.ord{color:var(--accent)}
@@ -623,6 +624,10 @@ ul.testo{padding-left:20px}
 .trim.m12{grid-template-columns:repeat(12,minmax(0,1fr));gap:6px}
 @media (max-width:760px){.trim.m12{grid-template-columns:repeat(6,minmax(0,1fr));row-gap:16px}.trim.m12 .tq-c{height:84px}}
 .kpi-uk a{color:inherit}
+.cosa{margin:22px 0;border-left:4px solid var(--accent)}.cosa h2{margin-top:0;font-size:1.2rem}.cosa ul{margin:0;padding-left:20px}.cosa li{margin-bottom:6px}
+.griglia .no-link{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:13px 14px;color:var(--ink);font-weight:700;min-width:0;box-shadow:var(--sh-1)}
+.griglia .no-link>span{min-width:0}.griglia .no-link small{display:block;font-weight:400;color:var(--ink-3);font-size:.85rem;margin-top:2px}
+td sup{font-size:.68em;color:var(--ink-3);margin-left:2px}
 """
 
 ICONE = {
@@ -891,7 +896,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
         bc = ('<nav class="briciole" aria-label="Breadcrumb"><a href="' + rel + '">Home</a>' +
               "".join(f' › <a href="{rel}{p}">{escape(n)}</a>' for n, p in briciole[:-1]) + f" › {escape(briciole[-1][0])}</nav>")
     if jsonld_extra:
-        ld.append(jsonld_extra)
+        ld += jsonld_extra if isinstance(jsonld_extra, list) else [jsonld_extra]
     ld_html = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
     robots = "" if indicizza else '<meta name="robots" content="noindex">'
     canonico = f'<link rel="canonical" href="{url_pag}">' if indicizza else ""
@@ -952,7 +957,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <p>Exchange rates: euro foreign exchange reference rates of the European Central Bank (source: ECB), for information only.</p>
 </div><div>
 <h2>Explore</h2>
-<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
+<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}moved-to/">Who moved where (by nationality)</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
 </div></div>
 {blocco_altri(ALTRI_SITI, "Other useful tools for your trip")}
 <p class="f-base">Official sources only · the calculator runs in your browser · links marked "Affiliate" may earn us a commission.</p>
@@ -966,6 +971,73 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
     dest = SITO / file
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(testo, encoding="utf-8")
+    if indicizza:
+        IMPRONTE[percorso] = impronta_contenuto(testo)
+
+
+# ---------------------------------------------------------------- lastmod vero per ogni URL della sitemap (28/10/2026)
+# Il registro dati/lastmod.json tiene per ogni pagina la data dell'ultima modifica del contenuto e la sua impronta
+# (titolo, descrizione, JSON-LD e <main>: non il CSS, il menu o il piè di pagina, uguali in tutte le pagine).
+# A ogni generazione: impronta uguale -> la data resta; diversa o pagina nuova -> data di oggi.
+# Prima generazione senza registro: se la pagina è uguale a quella già in sito/, la data si ricava da git
+# (ultimo commit in cui il contenuto della pagina è cambiato); altrimenti oggi.
+REGISTRO_LASTMOD = DATI / "lastmod.json"
+IMPRONTE = {}   # percorso -> impronta della pagina appena generata
+VECCHIE = {}    # percorso -> impronta della pagina in sito/ prima della generazione
+
+
+def impronta_contenuto(testo):
+    import hashlib
+    tit = re.search(r"<title>(.*?)</title>", testo, re.S)
+    des = re.search(r'<meta name="description" content="(.*?)">', testo, re.S)
+    ld = re.findall(r'<script type="application/ld\+json">(.*?)</script>', testo, re.S)
+    main = re.search(r'<main id="main">(.*?)</main>', testo, re.S)
+    pezzi = [tit.group(1) if tit else "", des.group(1) if des else ""] + ld + [main.group(1) if main else ""]
+    return hashlib.sha256("\n".join(pezzi).encode("utf-8")).hexdigest()[:20]
+
+
+def percorso_da_file(f):
+    r = f.relative_to(SITO).as_posix()
+    return r[:-len("index.html")] if r.endswith("index.html") else r
+
+
+def data_da_git(percorso, impronta):
+    """Data (AAAA-MM-GG) del commit da cui il contenuto della pagina è uguale a oggi, o None."""
+    import subprocess
+    file = (SITO / (percorso if percorso.endswith(".html") else percorso + "index.html")).relative_to(RADICE.parent).as_posix()
+    repo = str(RADICE.parent)
+    try:
+        log = subprocess.run(["git", "-C", repo, "log", "--format=%H %cs", "--", file], capture_output=True, text=True, timeout=60).stdout
+    except (OSError, subprocess.SubprocessError):
+        return None
+    data = None
+    for riga in log.split("\n"):
+        if not riga.strip():
+            continue
+        h, d = riga.split()
+        r = subprocess.run(["git", "-C", repo, "show", f"{h}:{file}"], capture_output=True, text=True, timeout=60)
+        if r.returncode != 0 or impronta_contenuto(r.stdout) != impronta:
+            break
+        data = d
+    return data
+
+
+def date_lastmod():
+    reg = json.loads(REGISTRO_LASTMOD.read_text(encoding="utf-8"))["pagine"] if REGISTRO_LASTMOD.exists() else {}
+    oggi = OGGI.isoformat()
+    nuovo = {}
+    for u in URLS:
+        imp = IMPRONTE[u]
+        if u in reg and reg[u][1] == imp:
+            d = reg[u][0]
+        elif u not in reg and VECCHIE.get(u) == imp:
+            d = data_da_git(u, imp) or oggi
+        else:
+            d = oggi
+        nuovo[u] = [d, imp]
+    REGISTRO_LASTMOD.write_text(json.dumps({"_nota": "Scritto da genera.py: percorso -> [data dell'ultima modifica del contenuto, impronta]. Non modificare a mano.",
+                                            "pagine": dict(sorted(nuovo.items()))}, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
+    return {u: v[0] for u, v in nuovo.items()}
 
 
 FORM_JS = r"""
@@ -1176,7 +1248,8 @@ def pagina_paese(slug):
 {AD}
 <div class="griglia" style="margin-top:20px">{''.join(scheda(p, rel) for p in pp)}</div>
 <p><a href="{rel}">All countries</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visas compared</a></p>
-{link_rifiuti(nome, rel)}"""
+{link_rifiuti(nome, rel)}
+{blocco_tr_dest(nome, rel)}"""
     pagina(f"country/{slug}/", f"{nome} visa income requirements {ANNO}: official amounts and calculator",
            f"Official minimum income and salary thresholds for {nome} visas in {ANNO}, with family members, currency conversion and sources.",
            corpo, calcolatore=True, briciole=[(nome, f"country/{slug}/")])
@@ -1226,6 +1299,10 @@ def home():
 <p class="lead">How many visa applications are refused? Official {A1} Schengen figures by destination, by consulate and by the country where you apply, and UK refusal rates by nationality to {trimestre_testo(TRIM[-1])}.</p>
 <div class="griglia">{''.join(f'<a href="{SEZ}{SLUG_RIF[p]}/"><span class="ic">{ico("passport")}</span><span>{escape(nome_paese(p))}<small>Schengen: {pct(tasso(PER_PAESE[A1][p]))} not issued in {A1}</small></span></a>' for p in ("INDIA", "NIGERIA", "PAKISTAN", "MOROCCO", "TÜRKIYE", "PHILIPPINES", "GHANA", "BANGLADESH"))}</div>
 <p><a href="{SEZ}">Schengen visa rejection rates by country</a> · <a href="{SEZ}uk/">UK visa refusal rates by nationality</a></p>
+<h2>Who moved where in {Y1}</h2>
+<p class="lead">How many Americans, British people, Indians and others moved to Europe, Canada and the UK in {Y1}: official first residence permits by country and reason (Eurostat, updated {data_lunga(F_ES["aggiornato_il"])}), new permanent residents of Canada and UK visas granted.</p>
+<div class="griglia">{''.join(f'<a href="{SEZ_TR}{NAZ_TR[c][0]}/"><span class="ic">{ico("globe")}</span><span>How many {escape(NAZ_TR[c][1])} moved to Europe<small>{intero(riga_eu(c, "EU27_2020", Y1)[0])} first permits in the EU in {Y1}</small></span></a>' for c in ("US", "UK", "CA", "AU", "IN", "PK", "NG", "PH"))}</div>
+<p><a href="{SEZ_TR}">Who moved where: all {len(NAZ_TR)} nationalities</a></p>
 <h2>Why our numbers can differ from other sites</h2>
 <p>Many thresholds are a percentage of an index that changes every year (a minimum wage, an average salary), so pages that still show last year's figure are out of date. With the {ANNO} indices, on {data_lunga('2026-10-10')}: Spain's digital nomad visa is 200% of the {ANNO} minimum wage, €2,442 a month over 14 payments (€34,188 a year, the same as €2,849 a month over 12 payments); Croatia's is 2.5 × the 2025 average net salary, €3,622.50 a month; Portugal's D8 is 4 × €920 = €3,680 a month. We recalculate from the official index and show the source and the date under every figure.</p>
 {box_affiliati()}"""
@@ -1567,8 +1644,15 @@ SLUG_RIF = {p: slug_paese(p) for p in PAESI_RIF}
 SLUG_STATO = {s: slug_testo(s) for s in STATI_UE}
 
 
-GRUPPI_UK_PAGINA = ["Visitor", "Study", "Work"]  # gruppi con una cifra in evidenza nelle pagine per nazionalità (dal 21/10/2026)
-NOMI_BREVI_UK = {"Visitor": "visitor", "Study": "study", "Work": "work"}
+GRUPPI_UK_PAGINA = ["Visitor", "Study", "Work", "Family"]  # gruppi con una cifra in evidenza nelle pagine per nazionalità (dal 21/10/2026; Family dal 28/10/2026)
+NOMI_BREVI_UK = {"Visitor": "visitor", "Study": "study", "Work": "work", "Family": "family"}
+# Tipo di visto "Family: Partner" del Home Office (coniugi e partner), salvato da raccolta/rifiuti.py accanto ai gruppi (28/10/2026).
+# È una parte del gruppo Family: non entra mai nei totali "All visas" (che sommano solo GRUPPI_UK).
+PARTNER_UK = "Family: Partner"
+NOME_PARTNER_UK = "Partner (spouse) visas"
+DEF_FAMIGLIA_UK = ('"Family" is the Home Office group for people joining a British citizen or a person settled in the UK '
+                   '(partners, children and other relatives) and for refugee family reunion; "partner" is the Home Office visa type '
+                   '"Family: Partner", the route for spouses, civil partners and unmarried partners.')
 
 
 def decisioni_uk(nuk, g):
@@ -1775,6 +1859,12 @@ def sezione_uk(p, nome):
         righe.append(f'<tr{cls}><td>{"All visas" if g == "All" else NOMI_GRUPPI_UK[g]}</td>'
                      f'{cella_tasso(uk_tasso(v1), poco)}{cella_tasso(uk_tasso(v0))}'
                      f'<td class="n">{intero(v1[0] + v1[1])}</td><td class="n">{intero(v1[0])}</td><td class="n">{intero(v1[1])}</td></tr>')
+        if g == "Family":  # sotto-voce: visti del partner (coniuge), solo con almeno SOGLIA_POCO decisioni
+            p1, p0 = uk_somma(nuk, [PARTNER_UK], T1), uk_somma(nuk, [PARTNER_UK], T0)
+            if p1[0] + p1[1] >= SOGLIA_POCO:
+                righe.append(f'<tr{" class=\"poco\"" if p1[0] + p1[1] < SOGLIA_UK else ""}><td>of which {NOME_PARTNER_UK.lower()}</td>'
+                             f'{cella_tasso(uk_tasso(p1), p1[0] + p1[1] < SOGLIA_UK)}{cella_tasso(uk_tasso(p0)) if p0[0] + p0[1] >= SOGLIA_POCO else cella_tasso(None)}'
+                             f'<td class="n">{intero(p1[0] + p1[1])}</td><td class="n">{intero(p1[0])}</td><td class="n">{intero(p1[1])}</td></tr>')
     tassi = {g: (uk_tasso(uk_somma(nuk, [g], T1)), decisioni_uk(nuk, g)) for g in ok}
     primo = ok[0]  # turismo se c'è, altrimenti studio o lavoro
     vis1 = uk_somma(nuk, [primo], T1)
@@ -1792,7 +1882,7 @@ def sezione_uk(p, nome):
         frase_altri = " " + "; ".join(f'<strong>{pct(tassi[g][0])}</strong> of {NOMI_BREVI_UK[g]} visa decisions were refused ({intero(tassi[g][1])} decisions)' for g in altri) + "."
     # studio e lavoro trimestre per trimestre (solo i gruppi con abbastanza decisioni)
     tab_q = ""
-    gruppi_q = [g for g in ("Study", "Work") if g in ok]
+    gruppi_q = [g for g in ("Study", "Work", "Family") if g in ok]
     if gruppi_q:
         righe_q = []
         for q in TRIM:
@@ -1803,17 +1893,24 @@ def sezione_uk(p, nome):
                 celle += f'{cella_tasso(uk_tasso(v), d < SOGLIA_POCO) if d else cella_tasso(None)}<td class="n" data-v="{d}">{intero(d)}</td>'
             righe_q.append(f'<tr><td>{trimestre_testo(q)}</td>{celle}</tr>')
         testa = "".join(f'{th_ord(f"{NOMI_GRUPPI_UK[g]} refused", primo="ascending")}{th_ord("Decisions")}' for g in gruppi_q)
-        tab_q = (f'<h3>{" and ".join(NOMI_GRUPPI_UK[g].lower() for g in gruppi_q).capitalize()}, quarter by quarter</h3>'
+        nomi_q = [NOMI_BREVI_UK[g] for g in gruppi_q]
+        tab_q = (f'<h3>{(nomi_q[0] if len(nomi_q) == 1 else ", ".join(nomi_q[:-1]) + " and " + nomi_q[-1]).capitalize()} visas, quarter by quarter</h3>'
                  f'<div class="tab compatta"><table class="ord"><thead><tr>{th_ord("Quarter", False, "ascending")}{testa}</tr></thead><tbody>{"".join(righe_q)}</tbody></table></div>'
                  f'<p class="fonte">Source: <a href="{escape(F_UK["url"])}" rel="noopener">Home Office, {escape(F_UK["titolo"])}</a> (XLSX, published {escape(F_UK["pubblicato"])}, downloaded on {data_lunga(F_UK["scaricato_il"])}). '
                  f'"Study" is the Home Office group for sponsored study (Student, Child Student) and short-term study visas; "Work" groups all work routes '
                  f'(Skilled Worker, Health and Care Worker, temporary and seasonal work, Global Business Mobility, talent and business visas, and their dependants). '
+                 + (DEF_FAMIGLIA_UK + " " if "Family" in gruppi_q else "") +
                  f'* Fewer than {SOGLIA_POCO} decisions; 2026 figures are provisional.</p>')
     nomi_g = [NOMI_BREVI_UK[g] for g in ok]
     tipi = nomi_g[0] if len(nomi_g) == 1 else ", ".join(nomi_g[:-1]) + " and " + nomi_g[-1]
+    pf = uk_somma(nuk, [PARTNER_UK], T1)
+    frase_partner = ""
+    if "Family" in ok and pf[0] + pf[1] >= SOGLIA_POCO:
+        frase_partner = (f' For partner (spouse) visas alone the rate was {pct(uk_tasso(pf))} ({intero(pf[1])} refused out of {intero(pf[0] + pf[1])} decisions'
+                         + (', a small number' if pf[0] + pf[1] < SOGLIA_UK else '') + f'; <a href="../uk/family-visas/">compare all nationalities</a>).')
     corpo = (f'<h2 id="uk">UK visa refusal rate for nationals of {escape(art(nome))}: {tipi} visas</h2>'
              f'<p class="lead">From {periodo_uk(T1)}, the UK refused <strong>{pct(uk_tasso(vis1))}</strong> of {NOMI_BREVI_UK[primo]} visa decisions for nationals of {escape(art(nome))} '
-             f'({intero(vis1[1])} refused out of {intero(vis1[0] + vis1[1])}).{frase_altri} Unlike the Schengen figures, the UK counts applicants by <strong>nationality</strong>, wherever they apply.'
+             f'({intero(vis1[1])} refused out of {intero(vis1[0] + vis1[1])}).{frase_altri}{frase_partner} Unlike the Schengen figures, the UK counts applicants by <strong>nationality</strong>, wherever they apply.'
              + ((f' With only {intero(vis1[0] + vis1[1])} visitor visa decisions, read this rate with care: where most nationals can visit the UK without a visa, '
                  f'the people who apply for one are a small and unusual group.' if primo == "Visitor" else
                  f' With only {intero(vis1[0] + vis1[1])} {NOMI_BREVI_UK[primo]} visa decisions, read this rate with care: a few refusals move it a lot.')
@@ -1931,7 +2028,8 @@ def pagina_rif_paese(p):
 <li>Full method: <a href="../#method">how we calculate the rates</a>.</li></ul>
 <h2>Other countries where people apply</h2>
 <div class="griglia">{griglia_altri}</div>
-<p><a href="../">Schengen visa refusal rates by country, {A1}</a> · <a href="../uk/">UK visa refusal rates by nationality</a> · <a href="../australia-visas/">Australia</a> · <a href="../new-zealand-visas/">New Zealand</a> · <a href="../canada-visas/">Canada</a> · <a href="{rel}">Visa income calculator</a></p>"""
+<p><a href="../">Schengen visa refusal rates by country, {A1}</a> · <a href="../uk/">UK visa refusal rates by nationality</a> · <a href="../australia-visas/">Australia</a> · <a href="../new-zealand-visas/">New Zealand</a> · <a href="../canada-visas/">Canada</a> · <a href="{rel}">Visa income calculator</a></p>
+{link_tr_naz(p, rel)}"""
     plus = (["UK"] if con_uk else []) + (["Australia"] if au_r else [])
     coda = (", plus " + " and ".join(plus)) if plus else ""
     # titolo entro 75 caratteri dove possibile (revisione 26/10/2026): si tolgono prima "by country", poi "easiest and hardest", mai UK/Australia
@@ -2144,6 +2242,112 @@ def righe_uk_tutte(rel):
     return [r for _, r in out]
 
 
+def uk_totale(gruppi, trimestri):
+    """Somma di tutte le nazionalità (concessi, rifiutati, ritirati, decaduti)."""
+    v = [0, 0, 0, 0]
+    for n in UKN:
+        for i, x in enumerate(uk_somma(n, gruppi, trimestri)):
+            v[i] += x
+    return v
+
+
+ESCLUSE_UK = ("Other and unknown", "Refugee", "Stateless", "British overseas citizens")
+
+
+def righe_famiglia_uk(rel, quante=None):
+    """Righe della tabella dei visti di famiglia e del partner per nazionalità (almeno SOGLIA_POCO decisioni sulla famiglia),
+    dalla nazionalità con più decisioni. Restituisce (righe, voci) con voci = [(nazionalità, famiglia, partner)]."""
+    voci = []
+    for n in UKN:
+        if n in ESCLUSE_UK:
+            continue
+        f1 = uk_somma(n, ["Family"], T1)
+        if f1[0] + f1[1] >= SOGLIA_POCO:
+            voci.append((n, f1, uk_somma(n, [PARTNER_UK], T1), uk_somma(n, ["Family"], T0)))
+    voci.sort(key=lambda x: -(x[1][0] + x[1][1]))
+    if quante:
+        voci = voci[:quante]
+    righe = []
+    for n, f1, p1, f0 in voci:
+        ec = _NOMI_UK_INV.get(n, n.upper())
+        link = f'<a href="{rel}{SEZ}{SLUG_RIF[ec]}/#uk">{escape(n)}</a>' if ec in SLUG_RIF and ha_uk(ec) else escape(n)
+        df, dp, d0 = f1[0] + f1[1], p1[0] + p1[1], f0[0] + f0[1]
+        righe.append(f'<tr><td>{link}</td>{cella_tasso(uk_tasso(f1), df < SOGLIA_UK)}'
+                     + ('' if quante else (cella_tasso(uk_tasso(f0)) if d0 >= SOGLIA_POCO else cella_tasso(None)))
+                     + f'<td class="n" data-v="{df}">{intero(df)}</td>'
+                     f'{cella_tasso(uk_tasso(p1), dp < SOGLIA_UK) if dp >= SOGLIA_POCO else cella_tasso(None)}<td class="n" data-v="{dp}">{intero(dp)}</td></tr>')
+    return righe, voci
+
+
+def pagina_rif_uk_famiglia():
+    """UK family and spouse visa refusal rate by nationality (28/10/2026): gruppo Family e tipo Family: Partner del file D02."""
+    rel = "../../../"
+    percorso = f"{SEZ}uk/family-visas/"
+    fam1, fam0 = uk_totale(["Family"], T1), uk_totale(["Family"], T0)
+    par1, par0 = uk_totale([PARTNER_UK], T1), uk_totale([PARTNER_UK], T0)
+    righe, voci = righe_famiglia_uk(rel)
+    grandi = [(n, f) for n, f, _p, _f0 in voci if f[0] + f[1] >= SOGLIA_UK]
+    alti = sorted(grandi, key=lambda x: -uk_tasso(x[1]))[:5]
+    bassi = sorted(grandi, key=lambda x: uk_tasso(x[1]))[:5]
+    righe_q = []
+    for q in TRIM:
+        f, pq = uk_totale(["Family"], [q]), uk_totale([PARTNER_UK], [q])
+        righe_q.append(f'<tr><td>{trimestre_testo(q)}</td>{cella_tasso(uk_tasso(f))}<td class="n" data-v="{f[0] + f[1]}">{intero(f[0] + f[1])}</td>'
+                       f'{cella_tasso(uk_tasso(pq))}<td class="n" data-v="{pq[0] + pq[1]}">{intero(pq[0] + pq[1])}</td></tr>')
+    elenco = lambda xs: ", ".join(f"{n} ({pct(uk_tasso(f))})" for n, f in xs)  # noqa: E731
+    domande = [
+        ("What is the UK spouse visa refusal rate?",
+         f"From {periodo_uk(T1)} the Home Office refused {pct(uk_tasso(par1))} of decisions on partner visas, the route for spouses, civil partners and "
+         f"unmarried partners ({intero(par1[1])} refused, {intero(par1[0])} granted). In the year before it was {pct(uk_tasso(par0))}."),
+        ("What is the UK family visa refusal rate?",
+         f"{pct(uk_tasso(fam1))} of all family visa decisions were refusals from {periodo_uk(T1)} ({intero(fam1[1])} of {intero(fam1[0] + fam1[1])}). "
+         f"The family group also includes children, other relatives and refugee family reunion: without partner visas, "
+         f"{pct(uk_tasso([fam1[0] - par1[0], fam1[1] - par1[1]]))} of those decisions were refusals."),
+        ("Which nationalities have the highest UK family visa refusal rates?",
+         f"Among nationalities with at least {intero(SOGLIA_UK)} family visa decisions from {periodo_uk(T1)}: {elenco(alti)}. The lowest: {elenco(bassi)}."),
+        ("Does a low refusal rate mean a spouse visa will be approved?",
+         "No. Each application is decided on its own evidence: the financial requirement, the relationship, accommodation and English language. "
+         "These rates describe past decisions for all applicants of a nationality, not anyone's chances."),
+    ]
+    faq_html = "".join(f'<h3>{escape(q)}</h3><p>{escape(a)}</p>' for q, a in domande)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage",
+          "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in domande]}
+    corpo = f"""<section class="hero">{h1_diviso(f"UK family and spouse visa refusal rate by nationality: {periodo_uk(T1)}")}
+<p class="lead">From {periodo_uk(T1)} the Home Office refused <strong>{pct(uk_tasso(par1))}</strong> of UK partner (spouse) visa decisions ({intero(par1[1])} of {intero(par1[0] + par1[1])}) and {pct(uk_tasso(fam1))} of all family visa decisions ({intero(fam1[1])} of {intero(fam1[0] + fam1[1])}), according to its official immigration statistics published on {escape(F_UK["pubblicato"])}. Below, nationality by nationality. The partner figure is shown on its own because the family group also includes children, other relatives and refugee family reunion.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{bandiera("United Kingdom")}<span>UK family visas</span><span>{periodo_uk(T1)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Partner (spouse) visas · all nationalities</span><span class="sr">: </span><strong>{pct(uk_tasso(par1))}</strong> refused ({intero(par1[1])} of {intero(par1[0] + par1[1])} decisions)</p>
+<div class="kpi"><div><b>{pct(uk_tasso(fam1))}</b><span>all family visas refused · {intero(fam1[0] + fam1[1])} decisions</span></div><div><b>{pct(uk_tasso(par0))}</b><span>partner visas refused, {periodo_breve(T0)}</span></div><div><b>{pct(uk_tasso(fam0))}</b><span>family visas refused, {periodo_breve(T0)}</span></div><div><b>{len(grandi)}</b><span>nationalities with {intero(SOGLIA_UK)}+ family decisions</span></div></div>
+<p class="lead" style="margin-top:6px">Highest family visa refusal rates among nationalities with at least {intero(SOGLIA_UK)} decisions: {escape(elenco(alti[:3]))}. Lowest: {escape(elenco(bassi[:3]))}.</p>
+{fonte_uk_p()}
+</div></section>
+{AVVISO_RIF.replace("you must apply to the Schengen country where you will spend the most time (or, for equal stays, the one you enter first), at the consulate responsible for the place where you legally live", "each application is assessed on its own documents")}
+{AD}
+<h2>UK family and partner visa refusal rate by nationality</h2>
+<p class="small">Nationalities with at least {SOGLIA_POCO} family visa decisions from {periodo_uk(T1)}, by number of decisions. Tap a column heading to sort, or type to filter. "Year before" = {periodo_uk(T0)}. * Fewer than {intero(SOGLIA_UK)} decisions: the rate can swing a lot. – Fewer than {SOGLIA_POCO} decisions.</p>
+<p class="filtro"><label><span class="sr">Filter nationalities</span><input type="search" placeholder="Filter: e.g. Pakistan" data-filtro="t-fam" autocomplete="off"></label></p>
+<div class="tab compatta"><table class="ord" id="t-fam"><thead><tr>{th_ord("Nationality", False, "ascending")}{th_ord("Family visas refused", primo="ascending")}{th_ord("Year before", primo="ascending")}{th_ord("Family decisions")}{th_ord("Partner visas refused", primo="ascending")}{th_ord("Partner decisions")}</tr></thead><tbody>{"".join(righe)}</tbody></table></div>
+{fonte_uk_p()}
+<p class="small">{DEF_FAMIGLIA_UK}</p>
+<h2>Quarter by quarter, all nationalities</h2>
+<div class="tab compatta"><table><thead><tr><th scope="col">Quarter</th><th class="n" scope="col">Family visas refused</th><th class="n" scope="col">Family decisions</th><th class="n" scope="col">Partner visas refused</th><th class="n" scope="col">Partner decisions</th></tr></thead><tbody>{"".join(righe_q)}</tbody></table></div>
+{fonte_uk_p()}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html}</div>
+<h2>How to read these figures</h2>
+<ul class="testo"><li>The Home Office counts applicants by <strong>nationality</strong>, wherever they applied, and an outcome in a quarter can relate to an application made earlier.</li>
+<li>The refusal rate is refused ÷ (granted + refused): withdrawn and lapsed applications are left out, as in the Home Office "grant rate".</li>
+<li>These are entry clearance visas, applied for outside the UK. Partners who switch to a family visa from inside the UK are not counted here.</li>
+<li>The income needed for a partner visa is on our <a href="{rel}uk-spouse-visa/">UK spouse visa income requirement</a> page.</li></ul>
+<p><a href="../">UK visa refusal rates by nationality (all visa types)</a> · <a href="../../">Schengen visa refusal rates</a> · <a href="{rel}uk-spouse-visa/">UK spouse visa income requirement</a></p>"""
+    titolo = f"UK spouse and family visa refusal rate by nationality {TRIM[-1].split()[0]}"
+    descr = (f"Home Office data from {periodo_uk(T1)}: {pct(uk_tasso(par1))} of UK partner (spouse) visa decisions and {pct(uk_tasso(fam1))} of all family visa "
+             f"decisions were refusals. Rates for {len(voci)} nationalities, quarter by quarter.")
+    pagina(percorso, titolo, descr, corpo, ordina=True, jsonld_extra=ld,
+           briciole=[("Visa refusal rates", SEZ), ("UK refusal rates by nationality", f"{SEZ}uk/"), ("Family and spouse visas", percorso)])
+
+
 def pagina_rif_uk():
     rel = "../../"
     righe = righe_uk_tutte(rel)
@@ -2160,13 +2364,14 @@ def pagina_rif_uk():
             stu[i] += x
         for i, x in enumerate(uk_somma(n, ["Work"], T1)):
             lav[i] += x
-    corpo = f"""<section class="hero">{h1_diviso(f"UK visa refusal rate by nationality: visitor, student and work visas, {periodo_uk(T1)}")}
+    fam, par = uk_totale(["Family"], T1), uk_totale([PARTNER_UK], T1)
+    corpo = f"""<section class="hero">{h1_diviso(f"UK visa refusal rate by nationality: visitor, student, work and family visas, {periodo_uk(T1)}")}
 <p class="lead">How many UK visa applications were refused, nationality by nationality, from the Home Office's official immigration statistics: visitor visas, student (study) visas and work visas side by side. Updated every quarter.</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{bandiera("United Kingdom")}<span>UK entry clearance visas</span><span>{periodo_uk(T1)}</span></div>
 <div class="s-body">
 <p class="cifra"><span class="c-lab">Visitor visas · all nationalities</span><span class="sr">: </span><strong>{pct(uk_tasso(vis))}</strong> refused ({intero(vis[1])} of {intero(vis[0] + vis[1])} decisions)</p>
-<div class="kpi"><div><b>{pct(uk_tasso(stu))}</b><span>study visas refused · {intero(stu[0] + stu[1])} decisions</span></div><div><b>{pct(uk_tasso(lav))}</b><span>work visas refused · {intero(lav[0] + lav[1])} decisions</span></div><div><b>{pct(uk_tasso(tot1))}</b><span>all entry clearance visas refused</span></div><div><b>{intero(tot1[0] + tot1[1])}</b><span>decisions on all visas</span></div></div>
+<div class="kpi"><div><b>{pct(uk_tasso(stu))}</b><span>study visas refused · {intero(stu[0] + stu[1])} decisions</span></div><div><b>{pct(uk_tasso(lav))}</b><span>work visas refused · {intero(lav[0] + lav[1])} decisions</span></div><div><b>{pct(uk_tasso(fam))}</b><span>family visas refused · {intero(fam[0] + fam[1])} decisions</span></div><div><b>{pct(uk_tasso(par))}</b><span>partner (spouse) visas refused · {intero(par[0] + par[1])} decisions</span></div><div><b>{pct(uk_tasso(tot1))}</b><span>all entry clearance visas refused</span></div><div><b>{intero(tot1[0] + tot1[1])}</b><span>decisions on all visas</span></div></div>
 {fonte_uk_p()}
 </div></section>
 {AVVISO_RIF.replace("you must apply to the Schengen country where you will spend the most time (or, for equal stays, the one you enter first), at the consulate responsible for the place where you legally live", "each application is assessed on its own documents")}
@@ -2176,6 +2381,11 @@ def pagina_rif_uk():
 <p class="filtro"><label><span class="sr">Filter nationalities</span><input type="search" placeholder="Filter: e.g. Nigeria" data-filtro="t-uk" autocomplete="off"></label></p>
 <div class="tab compatta"><table class="ord" id="t-uk"><thead><tr>{th_ord("Nationality", False, "ascending")}{th_ord("Visitor visas refused", primo="ascending")}{th_ord("Year before", primo="ascending")}{th_ord("Visitor decisions")}{th_ord("Study visas refused", primo="ascending")}{th_ord("Study decisions")}{th_ord("Work visas refused", primo="ascending")}{th_ord("Work decisions")}{th_ord("All visas refused", primo="ascending")}{th_ord("All visas: decisions")}</tr></thead><tbody>{"".join(righe)}</tbody></table></div>
 {fonte_uk_p()}
+<h2 id="family">Family and partner (spouse) visas</h2>
+<p class="lead">From {periodo_uk(T1)} the UK refused <strong>{pct(uk_tasso(fam))}</strong> of family visa decisions ({intero(fam[1])} of {intero(fam[0] + fam[1])}) and <strong>{pct(uk_tasso(par))}</strong> of partner (spouse) visa decisions ({intero(par[1])} of {intero(par[0] + par[1])}). The family group also includes children, other relatives and refugee family reunion, which is why its rate is higher than the partner rate. <a href="family-visas/">UK family and spouse visa refusal rates for every nationality</a>.</p>
+<div class="tab compatta"><table><thead><tr><th scope="col">Nationality</th><th class="n" scope="col">Family visas refused</th><th class="n" scope="col">Family decisions</th><th class="n" scope="col">Partner visas refused</th><th class="n" scope="col">Partner decisions</th></tr></thead><tbody>{"".join(righe_famiglia_uk(rel, 10)[0])}</tbody></table></div>
+{fonte_uk_p()}
+<p class="small">The 10 nationalities with the most family visa decisions. {DEF_FAMIGLIA_UK} * Fewer than {intero(SOGLIA_UK)} decisions.</p>
 <p class="small">"Year before" = {periodo_uk(T0)} (visitor visas). Nationals of many countries (for example the EU, the US, Canada and Australia) do not need a visa for short visits and travel with an electronic travel authorisation instead, so they appear with few or no visitor decisions but often with thousands of study and work decisions.</p>
 <h2>How to read these figures</h2>
 <ul class="testo"><li>The Home Office counts applicants by <strong>nationality</strong>, wherever they applied. An outcome in a quarter can relate to an application made in an earlier quarter.</li>
@@ -2184,7 +2394,7 @@ def pagina_rif_uk():
 <h2>Other destinations</h2>
 {schede_destinazioni("../")}
 <p><a href="../">Schengen visa refusal rates</a> · <a href="{rel}uk-skilled-worker-visa/">UK Skilled Worker salary threshold</a> · <a href="{rel}uk-spouse-visa/">UK spouse visa income requirement</a></p>"""
-    pagina(f"{SEZ}uk/", f"UK visa refusal rate by nationality {TRIM[-1].split()[0]}: visitor, study and work visas (official)",
+    pagina(f"{SEZ}uk/", f"UK visa refusal rate by nationality {TRIM[-1].split()[0]}: visitor, study, work, family",
            f"UK visa refusal rates by nationality from {periodo_uk(T1)}: visitor visas {pct(uk_tasso(vis))} refused overall; India, Nigeria, Pakistan, Bangladesh, Ghana and more. Home Office data.",
            corpo, ordina=True, briciole=[("Visa refusal rates", SEZ), ("UK refusal rates by nationality", f"{SEZ}uk/")])
 
@@ -3080,6 +3290,726 @@ def controlli_altri():
     return errori
 
 
+# ---------------------------------------------------------------- "Who moved where" (28/10/2026): quanti [cittadini] si sono trasferiti in [Paese]
+# Dati: dati/trasferimenti.json, scritto da raccolta/trasferimenti.py: Eurostat migr_resfirst (primi permessi di soggiorno, UE-27 + EFTA),
+# IRCC (nuovi residenti permanenti in Canada), Home Office (visti di lavoro, studio e famiglia concessi dal Regno Unito).
+# Ogni misura è diversa e lo dice la pagina: i tre numeri non si sommano mai tra loro.
+TRA = json.loads((DATI / "trasferimenti.json").read_text(encoding="utf-8"))
+SEZ_TR = "moved-to/"
+SOGLIA_TR = 500   # minimo nell'ultimo anno (permessi, residenti permanenti o visti concessi) per una pagina nazionalità × Paese
+ANNI_TR = TRA["anni"]
+Y1, Y0 = ANNI_TR[-1], ANNI_TR[-2]   # anno più recente (2025) e anno prima
+F_ES, F_PR, F_UKV = TRA["fonti"]["eurostat"], TRA["fonti"]["canada"], TRA["fonti"]["uk"]
+EUD, EUN = TRA["eurostat"]["dati"], TRA["eurostat"]["note"]
+NOMI_GEO = TRA["eurostat"]["nomi_destinazioni"]
+GEO_EFTA = ["IS", "LI", "NO", "CH"]
+GEO_UE = [g for g in NOMI_GEO if g != "EU27_2020" and g not in GEO_EFTA]
+MOTIVI_TR = [(1, "Family"), (2, "Education"), (3, "Work"), (4, "Other")]   # indici nelle righe Eurostat
+PRIMO_ANNO_UK = "2021"   # i britannici erano cittadini UE fino al 31/12/2020: per loro i permessi si contano dal 2021
+SEGNI_TR = {"u": "low reliability", "b": "break in time series", "p": "provisional", "e": "estimated"}
+
+# codice Eurostat -> (slug, persone al plurale, cittadini, Paese con l'articolo, chiave delle pagine dei visti rifiutati o None, parola delle ricerche)
+NAZ_TR = {
+    "US": ("americans", "Americans", "US citizens", "the United States", None, "Americans"),
+    "UK": ("british", "British people", "British citizens", "the United Kingdom", None, "Brits"),
+    "CA": ("canadians", "Canadians", "Canadian citizens", "Canada", None, "Canadians"),
+    "AU": ("australians", "Australians", "Australian citizens", "Australia", None, "Australians"),
+    "IN": ("indians", "Indians", "Indian citizens", "India", "INDIA", "Indians"),
+    "PK": ("pakistanis", "Pakistanis", "Pakistani citizens", "Pakistan", "PAKISTAN", "Pakistanis"),
+    "NG": ("nigerians", "Nigerians", "Nigerian citizens", "Nigeria", "NIGERIA", "Nigerians"),
+    "PH": ("filipinos", "Filipinos", "Filipino citizens", "the Philippines", "PHILIPPINES", "Filipinos"),
+    "CN": ("chinese", "Chinese citizens", "Chinese citizens", "China", "CHINA", "Chinese people"),
+    "BR": ("brazilians", "Brazilians", "Brazilian citizens", "Brazil", None, "Brazilians"),
+    "ZA": ("south-africans", "South Africans", "South African citizens", "South Africa", "SOUTH AFRICA", "South Africans"),
+    "NZ": ("new-zealanders", "New Zealanders", "New Zealand citizens", "New Zealand", None, "New Zealanders"),
+}
+# nomi Eurostat -> nomi usati per bandiere e pagine Schengen (file della Commissione)
+_GEO_SITO = {"Czechia": "Czech Republic"}
+
+# destinazioni: slug -> (tipo, codice Eurostat, nome nelle tabelle, nome nelle frasi)
+DEST_TR = {slug_testo(NOMI_GEO[g]): ("eu", g, NOMI_GEO[g], art(NOMI_GEO[g])) for g in GEO_UE + GEO_EFTA}
+DEST_TR["canada"] = ("ca", None, "Canada", "Canada")
+DEST_TR["uk"] = ("uk", None, "United Kingdom", "the UK")
+
+
+def riga_eu(c, g, a):
+    return EUD.get(c, {}).get(g, {}).get(a)
+
+
+def segni_eu(c, g, a):
+    return EUN.get(c, {}).get(g, {}).get(a, {})
+
+
+def anni_naz(c):
+    return [a for a in ANNI_TR if c != "UK" or a >= PRIMO_ANNO_UK]
+
+
+def val_tr(c, d, a):
+    """Numero principale della coppia (cittadinanza c, destinazione d) nell'anno a, o None."""
+    tipo, g, _, _ = DEST_TR[d]
+    if tipo == "eu":
+        r = riga_eu(c, g, a)
+        return r[0] if r else None
+    if tipo == "ca":
+        x = TRA["canada"]["cittadinanze"].get(c)
+        return x["anni"].get(a) if x else None
+    x = TRA["uk"]["cittadinanze"].get(c)
+    v = x["anni"].get(a) if x else None
+    return sum(v) if v else None
+
+
+COPPIE_TR = {c: sorted([d for d in DEST_TR if (val_tr(c, d, Y1) or 0) >= SOGLIA_TR], key=lambda d: -val_tr(c, d, Y1)) for c in NAZ_TR}
+
+
+def variazione(a, b):
+    if a is None or not b:
+        return "–"
+    if a == b:
+        return "0.0%"
+    x = (a - b) / b * 100
+    dec = 2 if abs(x) < 0.05 else 1   # 44,426 -> 44,446 = +0.05%, non "+0.0%"
+    return f"{'+' if x > 0 else '−'}{abs(x):.{dec}f}%"
+
+
+def frase_cambio(a, b, anno0):
+    if b is None:
+        return f"There is no {anno0} figure to compare."
+    if a == b:
+        return f"That is the same number as in {anno0}."
+    return f"That is {intero(abs(a - b))} {'more' if a > b else 'fewer'} than in {anno0} ({intero(b)}), a change of {variazione(a, b)}."
+
+
+def segno_html(s, i):
+    """Segno Eurostat accanto al numero (u = poco affidabile, b = interruzione della serie)."""
+    x = s.get(str(i))
+    return f'<sup title="{escape(SEGNI_TR.get(x, x))}">{escape(x)}</sup>' if x else ""
+
+
+def cella_n(v, mark=""):
+    if v is None:
+        return '<td class="n" data-v="">–</td>'
+    return f'<td class="n" data-v="{v}">{intero(v)}{mark}</td>'
+
+
+def cella_var(a, b):
+    if a is None or not b:
+        return '<td class="n" data-v="">–</td>'
+    return f'<td class="n" data-v="{(a - b) / b:.6f}">{variazione(a, b)}</td>'
+
+
+def data_rfc(s):
+    """'Wed, 21 Oct 2026 12:13:53 GMT' -> '21 October 2026'."""
+    from email.utils import parsedate_to_datetime
+    try:
+        return data_lunga(parsedate_to_datetime(s).date().isoformat())
+    except (TypeError, ValueError):
+        return ""
+
+
+def mese_testo(ym):
+    return f"{MESI[int(ym[5:]) - 1]} {ym[:4]}"
+
+
+def fonte_es_p(extra=""):
+    return (f'<p class="fonte">Source: <a href="{escape(F_ES["pagina"])}" rel="noopener">Eurostat, {escape(F_ES["titolo"])}</a>, '
+            f'data updated on {data_lunga(F_ES["aggiornato_il"])}, downloaded on {data_lunga(F_ES["scaricato_il"])} '
+            f'(<a href="{escape(F_ES["metadati"])}" rel="noopener">definitions</a>). First residence permits, persons. {extra}'
+            f'Re-use: <a href="{escape(F_ES["licenza_url"])}" rel="license noopener">Eurostat copyright notice</a> (free re-use with acknowledgement, CC BY 4.0).</p>')
+
+
+def fonte_pr_p():
+    return (f'<p class="fonte">Source: <a href="{escape(F_PR["pagina"])}" rel="noopener">IRCC, {escape(F_PR["titolo"])}</a> '
+            f'(<a href="{escape(F_PR["url"])}" rel="noopener">CSV</a>, updated on {data_rfc(F_PR["ultima_modifica"])}, data to {mese_testo(F_PR["ultimo_mese"])}, '
+            f'downloaded on {data_lunga(F_PR["scaricato_il"])}). IRCC rounds each monthly count to the nearest multiple of 5; yearly figures are our sum of the months. '
+            f'Contains information licensed under the <a href="{escape(F_PR["licenza_url"])}" rel="license noopener">{escape(F_PR["licenza"])}</a>.</p>')
+
+
+def fonte_ukv_p():
+    return (f'<p class="fonte">Source: <a href="{escape(F_UKV["url"])}" rel="noopener">Home Office, {escape(F_UKV["titolo"])}</a> '
+            f'(XLSX, published {escape(F_UKV["pubblicato"])}, downloaded on {data_lunga(F_UKV["scaricato_il"])}; next update {escape(F_UKV["prossimo"])}). '
+            f'Entry clearance visas granted, by nationality and year of decision. Figures from 2026 are provisional. '
+            f'Contains public sector information licensed under the <a href="{escape(F_UKV["licenza_url"])}" rel="license noopener">{escape(F_UKV["licenza"])}</a>.</p>')
+
+
+def ytd_ca():
+    a = F_PR["anno_in_corso"]
+    return (a, f"January–{MESI[int(F_PR['ultimo_mese'][5:]) - 1]} {a}") if a else (None, "")
+
+
+def ytd_uk():
+    a = F_UKV["anno_in_corso"]
+    if not a:
+        return None, ""
+    fine = {"Q1": "March", "Q2": "June", "Q3": "September"}[F_UKV["ultimo_trimestre"].split()[1]]
+    return a, f"January–{fine} {a}"
+
+
+def cosa_eu(c, nome_d, hub=False):
+    _, X, cit, _, _, _ = NAZ_TR[c]
+    dove = "an EU country" if hub else nome_d
+    return (f'<section class="card cosa" aria-labelledby="cosa-h"><h2 id="cosa-h">What this number is, and what it is not</h2><ul class="testo">'
+            f'<li><strong>It is</strong> the number of {cit} who received a residence permit in {dove} for the first time in {Y1}: a permit valid for at least 3 months, '
+            f'for family, education, work or other reasons. A permit also counts as "first" when the person had none for the same reason in the 6 months before.</li>'
+            f'<li><strong>It is not</strong> a count of moves: some people who receive a permit never move, or leave soon after'
+            + (', and someone who received permits in two countries is counted in both' if hub else '') + '.</li>'
+            f'<li><strong>It leaves out</strong> {X} who also hold an EU passport (the statistics cover non-EU citizens only), stays shorter than 3 months and renewed permits.</li>'
+            f'<li><strong>It is not</strong> the number of {X} living in {dove}, which is much larger.</li></ul></section>')
+
+
+def cosa_ca(c):
+    _, X, cit, _, _, _ = NAZ_TR[c]
+    return (f'<section class="card cosa" aria-labelledby="cosa-h"><h2 id="cosa-h">What this number is, and what it is not</h2><ul class="testo">'
+            f'<li><strong>It is</strong> the number of {cit} who became permanent residents of Canada in {Y1}, by citizenship, from IRCC\'s monthly open data.</li>'
+            f'<li><strong>It is not</strong> the number who arrived in {Y1}: many new permanent residents already lived in Canada on a work or study permit, '
+            f'and people who arrived on a temporary work or study permit are not counted until they become permanent residents.</li>'
+            f'<li><strong>It is not</strong> the number of {X} living in Canada, which is much larger.</li>'
+            f'<li>IRCC rounds each monthly count to the nearest multiple of 5 and shows counts between 0 and 5 as "--", so our yearly sums can differ slightly from IRCC\'s own yearly totals.</li></ul></section>')
+
+
+def cosa_uk(c):
+    _, X, cit, _, _, _ = NAZ_TR[c]
+    return (f'<section class="card cosa" aria-labelledby="cosa-h"><h2 id="cosa-h">What this number is, and what it is not</h2><ul class="testo">'
+            f'<li><strong>It is</strong> the number of work, study and family visas the UK granted to {cit} in {Y1}, applied for outside the UK, '
+            f'including partners and children who came with a worker or student.</li>'
+            f'<li><strong>It is not</strong> a count of moves: some people with a visa never travel, and study visas include short courses.</li>'
+            f'<li><strong>It leaves out</strong> visitor visas, people who switched to another visa from inside the UK, and people who are also British or Irish citizens (they do not need a visa).</li>'
+            f'<li><strong>It is not</strong> the number of {X} living in the UK, which is much larger.</li></ul></section>')
+
+
+def ld_dataset(nome, descr, percorso, fonti, periodo, licenza):
+    return {"@context": "https://schema.org", "@type": "Dataset", "name": nome, "description": descr, "url": f"{URL_SITO}/{percorso}",
+            "creator": {"@type": "Organization", "name": NOME, "url": URL_SITO + "/"}, "isBasedOn": fonti, "temporalCoverage": periodo,
+            "license": licenza}
+
+
+def ld_faq(domande):
+    return {"@context": "https://schema.org", "@type": "FAQPage",
+            "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": re.sub(r"<[^>]+>", "", a)}} for q, a in domande]}
+
+
+def faq_html(domande):
+    return "".join(f'<h3>{escape(q)}</h3><p>{a}</p>' for q, a in domande)
+
+
+def titolo_tr(X, dove, anno):
+    varianti = [f"How many {X} moved to {dove} in {anno}? Official figures", f"How many {X} moved to {dove} in {anno}? Official data",
+                f"How many {X} moved to {dove} in {anno}?"]
+    return next((v for v in varianti if len(v) <= 70), varianti[-1])
+
+
+def link_sito_dest(d, rel):
+    """Pagine del sito sullo stesso Paese di destinazione: soglie di reddito dei visti, visti rifiutati."""
+    tipo, g, nt, _ = DEST_TR[d]
+    voci = []
+    nome_sito = "United Kingdom" if d == "uk" else nt
+    slug_sito = next((s for s, n in PAESI.items() if n == nome_sito), None)
+    if slug_sito:
+        voci.append((f"{rel}country/{slug_sito}/", f"{nome_sito} visa income requirements {ANNO}"))
+        voci += [(f"{rel}{P['slug']}/", f"{nome_prog(P)}: income requirement") for P in PROG if P["paese_slug"] == slug_sito]
+    nb = _GEO_SITO.get(nt, nt)
+    if nb in SLUG_STATO:
+        voci.append((f"{rel}{SEZ}schengen/{SLUG_STATO[nb]}/", f"{nb} Schengen visa rejection rate {A1}"))
+    if d == "canada":
+        voci.append((f"{rel}{SEZ_CA}", f"Canada visa approval rate by country {CA_A1}"))
+    if d == "uk":
+        voci += [(f"{rel}{SEZ}uk/", "UK visa refusal rate by nationality"), (f"{rel}{SEZ}uk/family-visas/", "UK spouse and family visa refusal rate by nationality")]
+    return voci
+
+
+def link_sito_naz(c, rel):
+    k = NAZ_TR[c][4]
+    if k and k in SLUG_RIF:
+        return [(f"{rel}{SEZ}{SLUG_RIF[k]}/", f"Visa refusal rates for {art(nome_paese(k))}: Schengen, UK and more")]
+    return []
+
+
+def lista_link(voci):
+    return '<ul class="testo">' + "".join(f'<li><a href="{h}">{escape(t)}</a></li>' for h, t in voci) + "</ul>"
+
+
+def icona_dest(d):
+    _, _, nt, _ = DEST_TR[d]
+    fl = bandiera(_GEO_SITO.get(nt, nt))
+    return f'<span class="ic f">{fl}</span>' if '<svg class="flag"' in fl else f'<span class="ic">{ico("globe")}</span>'
+
+
+def scheda_coppia(c, d, rel_sez, chi=False):
+    """Scheda della griglia verso la pagina c × d. chi=True: titolo con la nazionalità (per le pagine della stessa destinazione)."""
+    slug, X = NAZ_TR[c][0], NAZ_TR[c][1]
+    tipo, _, nt, nf = DEST_TR[d]
+    misura = {"eu": "first permits", "ca": "new permanent residents", "uk": "visas granted"}[tipo]
+    testo = X if chi else nt
+    icona = f'<span class="ic">{ico("passport")}</span>' if chi else icona_dest(d)
+    return (f'<a href="{rel_sez}{slug}/{d}/">{icona}<span>{escape(testo)}'
+            f'<small>{intero(val_tr(c, d, Y1))} {misura} in {Y1}</small></span></a>')
+
+
+def nome_motivo(n):
+    """Nome del motivo dentro una frase: "Other" da solo non si legge ("the most common reason was other")."""
+    return "other reasons" if n == "Other" else n.lower()
+
+
+def motivi_frase(r):
+    voci = sorted([(r[i], nome) for i, nome in MOTIVI_TR if r[i] is not None], key=lambda x: -x[0])
+    if not voci or not r[0]:
+        return ""
+    return "By reason: " + ", ".join(f"{nome_motivo(n)} {intero(v)} ({v / r[0] * 100:.1f}%)" for v, n in voci) + "."
+
+
+def anni_testo(xs):
+    """['2019', '2021', '2022', '2023'] -> '2019 and 2021–2023' (solo gli anni consecutivi diventano un intervallo)."""
+    gruppi = []
+    for a in sorted(xs, key=int):
+        if gruppi and int(a) == int(gruppi[-1][-1]) + 1:
+            gruppi[-1].append(a)
+        else:
+            gruppi.append([a])
+    parti = [g[0] if len(g) == 1 else (f"{g[0]} and {g[1]}" if len(g) == 2 else f"{g[0]}–{g[-1]}") for g in gruppi]
+    return parti[0] if len(parti) == 1 else ", ".join(parti[:-1]) + " and " + parti[-1]
+
+
+def nota_segni(c, g, anni):
+    """Frase sui segni Eurostat della casella (Paese g, cittadinanza c), solo se ci sono."""
+    u = [a for a in anni if "u" in segni_eu(c, g, a).values()]
+    b = [a for a in anni if segni_eu(c, g, a).get("0") == "b"]
+    out = []
+    if b:
+        out.append(f"Eurostat marks a break in the time series in {anni_testo(b)} (b): figures before and after are not fully comparable.")
+    if u:
+        out.append(f"Eurostat marks the figures for {anni_testo(u)} as having low reliability (u).")
+    return " ".join(out)
+
+
+# ---------- pagina nazionalità × Paese (Eurostat)
+def pagina_tr_eu(c, d):
+    slug, X, cit, _, _, parola = NAZ_TR[c]
+    _, g, nt, nf = DEST_TR[d]
+    rel = "../../../"
+    percorso = f"{SEZ_TR}{slug}/{d}/"
+    r1, r0 = riga_eu(c, g, Y1), riga_eu(c, g, Y0)
+    t1, t0 = r1[0], (r0[0] if r0 else None)
+    s1 = segni_eu(c, g, Y1)
+    ue1 = riga_eu(c, "EU27_2020", Y1)
+    in_ue = g in GEO_UE
+    rank = sorted([x for x in GEO_UE if riga_eu(c, x, Y1) and riga_eu(c, x, Y1)[0] is not None], key=lambda x: -riga_eu(c, x, Y1)[0])
+    pos = (rank.index(g) + 1) if in_ue else None
+    quota = t1 / ue1[0] * 100 if in_ue and ue1 and ue1[0] else None
+    lungo = r1[7]
+    rottura = s1.get("0") == "b"
+    frase_rottura = (f' Eurostat marks a break in the time series for {nf} in {Y1}, so part of the change may come from a change in how the permits are counted.' if rottura else "")
+    poco = ' Eurostat marks this figure as having low reliability.' if s1.get("0") == "u" else ""
+    risposta = (f'{nf[0].upper() + nf[1:]} issued <strong>{intero(t1)}</strong> first residence permits to {cit} in {Y1}, the main official indicator of how many moved there '
+                f'(Eurostat, data updated on {data_lunga(F_ES["aggiornato_il"])}).')
+    righe_m = []
+    for i, nome in MOTIVI_TR:
+        a, b = r1[i], (r0[i] if r0 else None)
+        righe_m.append(f'<tr><td>{nome}</td>{cella_n(a, segno_html(s1, i))}<td class="n">{f"{a / t1 * 100:.1f}%" if a is not None and t1 else "–"}</td>'
+                       f'{cella_n(b)}{cella_var(a, b)}</tr>')
+    righe_m.append(f'<tr class="tot-r"><td>All reasons</td>{cella_n(t1, segno_html(s1, 0))}<td class="n">100%</td>{cella_n(t0)}{cella_var(t1, t0)}</tr>')
+    anni = anni_naz(c)
+    righe_s = []
+    for a in anni:
+        r = riga_eu(c, g, a)
+        s = segni_eu(c, g, a)
+        if not r:
+            righe_s.append(f'<tr><td>{a}</td>' + '<td class="n">–</td>' * 6 + '</tr>')
+            continue
+        righe_s.append(f'<tr><td>{a}</td>{cella_n(r[0], segno_html(s, 0))}' + "".join(cella_n(r[i], segno_html(s, i)) for i, _ in MOTIVI_TR)
+                       + f'{cella_n(r[7], segno_html(s, 7))}</tr>')
+    nota = nota_segni(c, g, anni)
+    nota_uk = (f" British citizens were EU citizens until the end of 2020 and did not need residence permits, so the series starts in {PRIMO_ANNO_UK}; "
+               f"{PRIMO_ANNO_UK}, the first year after Brexit, may not be comparable with later years." if c == "UK" else "")
+    principale = max(((r1[i], nome) for i, nome in MOTIVI_TR if r1[i] is not None), default=(None, ""))
+    altre = [x for x in COPPIE_TR[c] if x != d][:8]
+    stesse = [x for x in sorted(NAZ_TR, key=lambda x: -(val_tr(x, d, Y1) or 0)) if x != c and d in COPPIE_TR[x]][:8]
+    domande = [
+        (f"How many {parola} moved to {nf} in {Y1}?",
+         f"{intero(t1)} {cit} received a first residence permit in {nf} in {Y1} (Eurostat). {frase_cambio(t1, t0, Y0)}"),
+        (f"How many {parola} moved to {nf} in {Y0}?",
+         (f"{intero(t0)} {cit} received a first residence permit in {nf} in {Y0}." if t0 is not None else f"Eurostat has no {Y0} figure for {cit} in {nf}.")),
+        (f"Why do {parola} move to {nf}?",
+         ((f"The largest group in {Y1} was other reasons ({intero(principale[0])} permits), Eurostat's category for permits not given for family, education or work. "
+           if principale[1] == "Other" else f"The most common reason in {Y1} was {principale[1].lower()} ({intero(principale[0])} permits). ") if principale[0] else "")
+         + motivi_frase(r1)),
+    ]
+    if in_ue and ue1:
+        domande.append((f"How many {parola} moved to Europe in {Y1}?",
+                        f'The 27 EU countries issued {intero(ue1[0])} first residence permits to {cit} in {Y1}; {nf} issued {quota:.1f}% of them. '
+                        f'<a href="../">All countries</a>.'))
+    domande.append((f"Is this the number of {X} living in {nf}?",
+                    f"No. It counts only new permits issued in {Y1}. People who have lived there for years, renewed their permits or have an EU passport are not included."))
+    kpi = [(intero(t0) if t0 is not None else "–", f"in {Y0}"), (variazione(t1, t0), f"change on {Y0}")]
+    kpi.append((intero(lungo) if lungo is not None else "–", "valid for 12 months or more"))
+    kpi.append((f"{pos} of {len(rank)}" if pos else "EFTA", f"rank among EU countries for {X}" if pos else "not in the EU total (Iceland, Liechtenstein, Norway, Switzerland)"))
+    descr_lungo = (f" {intero(lungo)} of them ({lungo / t1 * 100:.1f}%) were valid for 12 months or more." if lungo is not None and t1 else "")
+    corpo = f"""<section class="hero"><h1>How many {escape(X)} moved to {escape(nf)} in {Y1}?</h1>
+<p class="lead">{risposta} {frase_cambio(t1, t0, Y0)}{frase_rottura}{poco} {motivi_frase(r1)}{descr_lungo}</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("globe")}<span>First residence permits</span><span>{escape(cit)} · {Y1}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">{escape(nt)} · {escape(cit)} · {Y1}</span><span class="sr">: </span><strong>{intero(t1)}</strong> first residence permits{segno_html(s1, 0)}</p>
+<div class="kpi">{"".join(f'<div><b>{v}</b><span>{escape(e)}</span></div>' for v, e in kpi)}</div>
+{f'<p class="lead" style="margin-top:6px">{nf[0].upper() + nf[1:]} issued {quota:.1f}% of all first permits given to {cit} in the EU in {Y1} ({intero(ue1[0])}). <a href="../">Every EU country</a>.</p>' if quota is not None else ''}
+{fonte_es_p()}
+</div></section>
+{cosa_eu(c, nf)}
+{AD}
+<h2>Why {escape(X)} moved to {escape(nf)} in {Y1}: permits by reason</h2>
+<div class="tab compatta motivi"><table><caption class="sr">First residence permits issued by {escape(nt)} to {escape(cit)}, by reason, {Y1} and {Y0}</caption><thead><tr><th scope="col">Reason</th><th class="n" scope="col">{Y1}</th><th class="n" scope="col">Share</th><th class="n" scope="col">{Y0}</th><th class="n" scope="col">Change</th></tr></thead><tbody>{"".join(righe_m)}</tbody></table></div>
+{fonte_es_p()}
+<p class="small"><strong>Family:</strong> joining or accompanying a family member. <strong>Education:</strong> study and other education. <strong>Work:</strong> paid employment (Eurostat's "employment reasons", also called remunerated activities), for example EU Blue Cards, other skilled work and seasonal work. <strong>Other:</strong> international protection and humanitarian status, permits for residence only, and other or unspecified reasons.</p>
+<h2>{escape(X)} moving to {escape(nf)}, year by year ({anni[0]}–{Y1})</h2>
+<div class="tab compatta"><table><caption class="sr">First residence permits issued by {escape(nt)} to {escape(cit)}, {anni[0]}–{Y1}</caption><thead><tr><th scope="col">Year</th><th class="n" scope="col">All reasons</th><th class="n" scope="col">Family</th><th class="n" scope="col">Education</th><th class="n" scope="col">Work</th><th class="n" scope="col">Other</th><th class="n" scope="col">Valid 12+ months</th></tr></thead><tbody>{"".join(righe_s)}</tbody></table></div>
+{fonte_es_p("Eurostat revises past years when countries correct their data. ")}
+{f'<p class="small">{nota}{nota_uk}</p>' if nota or nota_uk else ''}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>Visas and statistics for {escape(nf)} on this site</h2>
+{lista_link(link_sito_dest(d, rel) + link_sito_naz(c, rel)) if link_sito_dest(d, rel) + link_sito_naz(c, rel) else ''}
+{f'<h2>Where else {escape(X)} moved in {Y1}</h2><div class="griglia">{"".join(scheda_coppia(c, x, "../../") for x in altre)}</div>' if altre else ''}
+{f'<h2>Who else moved to {escape(nf)} in {Y1}</h2><div class="griglia">{"".join(scheda_coppia(x, d, "../../", chi=True) for x in stesse)}</div>' if stesse else ''}
+<p><a href="../">How many {escape(X)} moved to Europe in {Y1}</a> · <a href="../../">Who moved where: all nationalities</a> · <a href="{rel}">Visa income calculator</a></p>"""
+    titolo = titolo_tr(X, nf, Y1)
+    descr = (f"{intero(t1)} {cit} got a first residence permit in {nf} in {Y1} ({variazione(t1, t0)} on {Y0}). "
+             + motivi_frase(r1) + f" Eurostat data updated {data_lunga(F_ES['aggiornato_il'])}.")
+    ld = ld_dataset(f"First residence permits issued by {nt} to {cit}, {anni[0]}-{Y1}", f"Eurostat first residence permits by reason for {cit} in {nt}.",
+                    percorso, [F_ES["pagina"]], f"{anni[0]}/{Y1}", "https://creativecommons.org/licenses/by/4.0/")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande), ld],
+           briciole=[("Who moved where", SEZ_TR), (X, f"{SEZ_TR}{slug}/"), (nt, percorso)])
+
+
+# ---------- pagina nazionalità × Canada (IRCC)
+def pagina_tr_ca(c, d="canada"):
+    slug, X, cit, _, _, parola = NAZ_TR[c]
+    rel = "../../../"
+    percorso = f"{SEZ_TR}{slug}/{d}/"
+    dati = TRA["canada"]["cittadinanze"][c]
+    t1, t0 = dati["anni"][Y1], dati["anni"].get(Y0)
+    a_ytd, testo_ytd = ytd_ca()
+    v_ytd = dati["anni"].get(a_ytd) if a_ytd else None
+    righe = [f'<tr><td>{a}</td>{cella_n(dati["anni"].get(a))}{cella_var(dati["anni"].get(a), dati["anni"].get(str(int(a) - 1)))}</tr>' for a in ANNI_TR]
+    if a_ytd:
+        righe.append(f'<tr class="poco"><td>{testo_ytd}</td>{cella_n(v_ytd)}<td class="n">–</td></tr>')
+    nome_ircc = dati["nome"]
+    domande = [
+        (f"How many {parola} moved to Canada in {Y1}?",
+         f"{intero(t1)} {cit} became permanent residents of Canada in {Y1}, according to IRCC. {frase_cambio(t1, t0, Y0)}"),
+        (f"How many {parola} moved to Canada in {Y0}?", f"{intero(t0)} {cit} became permanent residents of Canada in {Y0} (IRCC)." if t0 is not None else "No figure."),
+        (f"How many {parola} have moved to Canada in {a_ytd}?" if a_ytd else "Is there a figure for this year?",
+         (f"{intero(v_ytd)} {cit} became permanent residents of Canada from January to {MESI[int(F_PR['ultimo_mese'][5:]) - 1]} {a_ytd}, the latest month in IRCC's file. Monthly data are provisional and can change." if a_ytd else "Not yet.")),
+        (f"Does this count all {parola} who moved to Canada?",
+         "No. It counts new permanent residents only. People who arrived on a temporary work or study permit are not counted until they become permanent residents, "
+         "and many new permanent residents were already living in Canada."),
+    ]
+    corpo = f"""<section class="hero"><h1>How many {escape(X)} moved to Canada in {Y1}?</h1>
+<p class="lead"><strong>{intero(t1)}</strong> {escape(cit)} became permanent residents of Canada in {Y1}, according to IRCC's monthly figures (file updated on {data_rfc(F_PR["ultima_modifica"])}). {frase_cambio(t1, t0, Y0)}{f' From {testo_ytd.replace("–", " to ")}: {intero(v_ytd)}.' if a_ytd else ''}</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{bandiera("Canada")}<span>New permanent residents</span><span>{escape(cit)} · {Y1}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Canada · {escape(cit)} · {Y1}</span><span class="sr">: </span><strong>{intero(t1)}</strong> new permanent residents</p>
+<div class="kpi"><div><b>{intero(t0) if t0 is not None else '–'}</b><span>in {Y0}</span></div><div><b>{variazione(t1, t0)}</b><span>change on {Y0}</span></div><div><b>{intero(v_ytd) if v_ytd is not None else '–'}</b><span>{testo_ytd or 'this year'}</span></div><div><b>{intero(TRA["canada"]["totale"][Y1])}</b><span>new permanent residents of all citizenships in {Y1}</span></div></div>
+{fonte_pr_p()}
+</div></section>
+{cosa_ca(c)}
+{AD}
+<h2>{escape(X)} becoming permanent residents of Canada, year by year</h2>
+<div class="tab compatta"><table><caption class="sr">New permanent residents of Canada, citizens of {escape(NAZ_TR[c][3])}, by year</caption><thead><tr><th scope="col">Year</th><th class="n" scope="col">New permanent residents</th><th class="n" scope="col">Change</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>
+{fonte_pr_p()}
+<p class="small">IRCC category: "{escape(nome_ircc)}". {f'In {", ".join(dati["mesi_nascosti"])} some months had between 0 and 5 people and are not published ("--" in the file).' if dati["mesi_nascosti"] else ''} This IRCC file does not say why people became permanent residents (work, family, refugee), so there is no breakdown by reason here.</p>
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>Visas and statistics for Canada on this site</h2>
+{lista_link(link_sito_dest(d, rel) + link_sito_naz(c, rel))}
+<h2>Where else {escape(X)} moved in {Y1}</h2><div class="griglia">{"".join(scheda_coppia(c, x, "../../") for x in [y for y in COPPIE_TR[c] if y != d][:8])}</div>
+<p><a href="../">How many {escape(X)} moved abroad in {Y1}</a> · <a href="../../">Who moved where: all nationalities</a> · <a href="{rel}">Visa income calculator</a></p>"""
+    ld = ld_dataset(f"New permanent residents of Canada, citizens of {NAZ_TR[c][3]}, {ANNI_TR[0]}-{Y1}", "IRCC monthly permanent residents by country of citizenship, summed by year.",
+                    percorso, [F_PR["url"]], f"{ANNI_TR[0]}/{F_PR['ultimo_mese']}", F_PR["licenza_url"])
+    pagina(percorso, titolo_tr(X, "Canada", Y1),
+           f"{intero(t1)} {cit} became permanent residents of Canada in {Y1} ({variazione(t1, t0)} on {Y0}), IRCC data to {mese_testo(F_PR['ultimo_mese'])}. Year by year since {ANNI_TR[0]}.",
+           corpo, jsonld_extra=[ld_faq(domande), ld], briciole=[("Who moved where", SEZ_TR), (X, f"{SEZ_TR}{slug}/"), ("Canada", percorso)])
+
+
+# ---------- pagina nazionalità × Regno Unito (Home Office)
+def pagina_tr_uk(c, d="uk"):
+    slug, X, cit, _, _, parola = NAZ_TR[c]
+    rel = "../../../"
+    percorso = f"{SEZ_TR}{slug}/{d}/"
+    dati = TRA["uk"]["cittadinanze"][c]
+    gruppi = F_UKV["gruppi"]  # Work, Study, Family
+    v1, v0 = dati["anni"][Y1], dati["anni"].get(Y0)
+    t1, t0 = sum(v1), (sum(v0) if v0 else None)
+    a_ytd, testo_ytd = ytd_uk()
+    vy = dati["anni"].get(a_ytd) if a_ytd else None
+    nomi = {"Work": "Work", "Study": "Study", "Family": "Family"}
+    righe_m = "".join(f'<tr><td>{nomi[g]} visas</td>{cella_n(v1[i])}<td class="n">{v1[i] / t1 * 100:.1f}%</td>{cella_n(v0[i] if v0 else None)}{cella_var(v1[i], v0[i] if v0 else None)}</tr>'
+                      for i, g in enumerate(gruppi))
+    righe_m += f'<tr class="tot-r"><td>Work, study and family</td>{cella_n(t1)}<td class="n">100%</td>{cella_n(t0)}{cella_var(t1, t0)}</tr>'
+    righe_s = "".join(f'<tr><td>{a}</td>{cella_n(sum(dati["anni"][a]))}' + "".join(cella_n(x) for x in dati["anni"][a]) + '</tr>' for a in ANNI_TR)
+    if a_ytd:
+        righe_s += f'<tr class="poco"><td>{testo_ytd}</td>{cella_n(sum(vy))}' + "".join(cella_n(x) for x in vy) + '</tr>'
+    ordine = sorted(zip(v1, gruppi), key=lambda x: -x[0])
+    per_tipo = ", ".join(f"{g.lower()} {intero(v)}" for v, g in ordine)
+    nk = NAZ_TR[c][4]
+    domande = [
+        (f"How many {parola} moved to the UK in {Y1}?",
+         f"The UK granted {intero(t1)} work, study and family visas to {cit} in {Y1} ({per_tipo}), according to the Home Office. {frase_cambio(t1, t0, Y0)}"),
+        (f"How many {parola} moved to the UK in {Y0}?", f"The UK granted {intero(t0)} work, study and family visas to {cit} in {Y0}." if t0 is not None else "No figure."),
+        (f"Why do {parola} move to the UK?", f"In {Y1} the most visas granted to {cit} were {ordine[0][1].lower()} visas ({intero(ordine[0][0])}), then {ordine[1][1].lower()} ({intero(ordine[1][0])}) and {ordine[2][1].lower()} ({intero(ordine[2][0])})."),
+        (f"Is this the number of {X} living in the UK?", "No. It counts visas granted in one year to people applying from outside the UK, not people already living there."),
+    ]
+    corpo = f"""<section class="hero"><h1>How many {escape(X)} moved to the UK in {Y1}?</h1>
+<p class="lead">The UK granted <strong>{intero(t1)}</strong> work, study and family visas to {escape(cit)} in {Y1}, according to the Home Office (data published {escape(F_UKV["pubblicato"])}). {frase_cambio(t1, t0, Y0)} By type: {per_tipo}.{f' From {testo_ytd.replace("–", " to ")} (provisional): {intero(sum(vy))}.' if a_ytd else ''}</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{bandiera("United Kingdom")}<span>UK visas granted</span><span>{escape(cit)} · {Y1}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">United Kingdom · {escape(cit)} · {Y1}</span><span class="sr">: </span><strong>{intero(t1)}</strong> work, study and family visas granted</p>
+<div class="kpi"><div><b>{intero(t0) if t0 is not None else '–'}</b><span>in {Y0}</span></div><div><b>{variazione(t1, t0)}</b><span>change on {Y0}</span></div>{"".join(f'<div><b>{intero(v1[i])}</b><span>{g.lower()} visas</span></div>' for i, g in enumerate(gruppi) if g != "Family")}</div>
+{fonte_ukv_p()}
+</div></section>
+{cosa_uk(c)}
+{AD}
+<h2>UK visas granted to {escape(cit)} by type ({Y1})</h2>
+<div class="tab compatta motivi"><table><caption class="sr">UK work, study and family visas granted to {escape(cit)}, {Y1} and {Y0}</caption><thead><tr><th scope="col">Visa type</th><th class="n" scope="col">{Y1}</th><th class="n" scope="col">Share</th><th class="n" scope="col">{Y0}</th><th class="n" scope="col">Change</th></tr></thead><tbody>{righe_m}</tbody></table></div>
+{fonte_ukv_p()}
+<p class="small"><strong>Work:</strong> all work routes (Skilled Worker, Health and Care Worker, temporary and seasonal work, Global Business Mobility, talent and business visas) and their dependants. <strong>Study:</strong> sponsored study (Student, Child Student), dependants and short-term study. <strong>Family:</strong> joining a British citizen or a person settled in the UK, and refugee family reunion. Groups as defined by the Home Office.</p>
+<h2>UK visas granted to {escape(cit)}, year by year</h2>
+<div class="tab compatta"><table><caption class="sr">UK work, study and family visas granted to {escape(cit)} by year</caption><thead><tr><th scope="col">Year</th><th class="n" scope="col">Total</th>{"".join(f'<th class="n" scope="col">{g}</th>' for g in gruppi)}</tr></thead><tbody>{righe_s}</tbody></table></div>
+{fonte_ukv_p()}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>Visas and statistics for the UK on this site</h2>
+{lista_link(link_sito_dest(d, rel) + ([(f"{rel}{SEZ}{SLUG_RIF[nk]}/#uk", f"UK visa refusal rate for nationals of {art(nome_paese(nk))}")] if nk and nk in SLUG_RIF and ha_uk(nk) else []))}
+<h2>Where else {escape(X)} moved in {Y1}</h2><div class="griglia">{"".join(scheda_coppia(c, x, "../../") for x in [y for y in COPPIE_TR[c] if y != d][:8])}</div>
+<p><a href="../">How many {escape(X)} moved abroad in {Y1}</a> · <a href="../../">Who moved where: all nationalities</a> · <a href="{rel}">Visa income calculator</a></p>"""
+    ld = ld_dataset(f"UK work, study and family visas granted to {cit}, {ANNI_TR[0]}-{Y1}", "Home Office entry clearance visas granted by nationality and year of decision.",
+                    percorso, [F_UKV["url"]], f"{ANNI_TR[0]}/{F_UKV['ultimo_trimestre'].replace(' ', '-')}", F_UKV["licenza_url"])
+    pagina(percorso, titolo_tr(X, "the UK", Y1),
+           f"The UK granted {intero(t1)} work, study and family visas to {cit} in {Y1} ({variazione(t1, t0)} on {Y0}): {per_tipo}. Home Office data, year by year since {ANNI_TR[0]}.",
+           corpo, jsonld_extra=[ld_faq(domande), ld], briciole=[("Who moved where", SEZ_TR), (X, f"{SEZ_TR}{slug}/"), ("United Kingdom", percorso)])
+
+
+# ---------- pagina della nazionalità (hub)
+def pagina_tr_naz(c):
+    slug, X, cit, paese, _, parola = NAZ_TR[c]
+    rel = "../../"
+    percorso = f"{SEZ_TR}{slug}/"
+    ue1, ue0 = riga_eu(c, "EU27_2020", Y1), riga_eu(c, "EU27_2020", Y0)
+    t1, t0 = ue1[0], (ue0[0] if ue0 else None)
+    efta1 = sum((riga_eu(c, g, Y1) or [0])[0] or 0 for g in GEO_EFTA)
+    efta0 = sum((riga_eu(c, g, Y0) or [0])[0] or 0 for g in GEO_EFTA)
+    top = sorted([g for g in GEO_UE if riga_eu(c, g, Y1) and riga_eu(c, g, Y1)[0] is not None], key=lambda g: -riga_eu(c, g, Y1)[0])
+    slug_g = {g: slug_testo(NOMI_GEO[g]) for g in GEO_UE + GEO_EFTA}
+
+    def riga_tab(g):
+        r1, r0 = riga_eu(c, g, Y1), riga_eu(c, g, Y0)
+        if not r1 or r1[0] is None:
+            return ""
+        s = segni_eu(c, g, Y1)
+        nome = escape(NOMI_GEO[g])
+        link = f'<a href="{slug_g[g]}/">{nome}</a>' if slug_g[g] in COPPIE_TR[c] else nome
+        return (f'<tr><td>{link}</td>{cella_n(r1[0], segno_html(s, 0))}{cella_n(r0[0] if r0 else None)}{cella_var(r1[0], r0[0] if r0 else None)}'
+                + "".join(cella_n(r1[i], segno_html(s, i)) for i, _ in MOTIVI_TR) + '</tr>')
+    righe_ue = "".join(riga_tab(g) for g in top)
+    righe_ue += (f'<tr class="tot-r"><td>EU-27 total</td>{cella_n(t1)}{cella_n(t0)}{cella_var(t1, t0)}' + "".join(cella_n(ue1[i]) for i, _ in MOTIVI_TR) + '</tr>')
+    righe_efta = "".join(riga_tab(g) for g in sorted(GEO_EFTA, key=lambda g: -((riga_eu(c, g, Y1) or [0])[0] or 0)))
+    anni = anni_naz(c)
+    righe_s = "".join(f'<tr><td>{a}</td>{cella_n(riga_eu(c, "EU27_2020", a)[0])}' + "".join(cella_n(riga_eu(c, "EU27_2020", a)[i]) for i, _ in MOTIVI_TR)
+                      + f'{cella_n(riga_eu(c, "EU27_2020", a)[7])}</tr>' for a in anni if riga_eu(c, "EU27_2020", a))
+    rotture = [NOMI_GEO[g] for g in GEO_UE + GEO_EFTA if segni_eu(c, g, Y1).get("0") == "b"]
+    poco = [NOMI_GEO[g] for g in GEO_UE + GEO_EFTA if segni_eu(c, g, Y1).get("0") == "u"]
+    note = []
+    if rotture:
+        note.append(f'b = Eurostat marks a break in the time series in {Y1} for {", ".join(rotture)}: the change from {Y0} may partly reflect a change in how permits are counted.')
+    if poco:
+        note.append(f'u = Eurostat marks the {Y1} figures for {", ".join(poco)} as having low reliability.')
+    # Canada e Regno Unito: misure diverse, mostrate a parte
+    ca = TRA["canada"]["cittadinanze"].get(c)
+    uk = TRA["uk"]["cittadinanze"].get(c)
+    fuori = []
+    if ca:
+        fuori.append((f"canada", "Canada", f"{intero(ca['anni'][Y1])} new permanent residents in {Y1}", f"{variazione(ca['anni'][Y1], ca['anni'].get(Y0))} on {Y0} · IRCC"))
+    if uk:
+        fuori.append(("uk", "United Kingdom", f"{intero(sum(uk['anni'][Y1]))} work, study and family visas granted in {Y1}", f"{variazione(sum(uk['anni'][Y1]), sum(uk['anni'][Y0]))} on {Y0} · Home Office"))
+    schede_fuori = "".join(
+        (f'<a href="{d}/">' if d in COPPIE_TR[c] else '<div class="no-link">') + f'<span class="ic f">{bandiera(n)}</span><span>{escape(n)}<small>{escape(m)}<br>{escape(v)}</small></span>'
+        + ('</a>' if d in COPPIE_TR[c] else '</div>') for d, n, m, v in fuori)
+    frase_fuori = []
+    if ca:
+        frase_fuori.append(f"{intero(ca['anni'][Y1])} {cit} became permanent residents of Canada (IRCC)")
+    if uk:
+        frase_fuori.append(f"the UK granted {cit} {intero(sum(uk['anni'][Y1]))} work, study and family visas (Home Office)")
+    _t3 = [f"{NOMI_GEO[g]} ({intero(riga_eu(c, g, Y1)[0])})" for g in top[:3]]
+    t3 = ", ".join(_t3[:-1]) + " and " + _t3[-1] if len(_t3) > 1 else "".join(_t3)
+    pesanti = [NOMI_GEO[g] for g in GEO_UE if NOMI_GEO[g] in rotture and (riga_eu(c, g, Y1)[0] or 0) >= 0.1 * t1]
+    rottura_ue = (f" Part of the change may come from {', '.join(pesanti)}, where Eurostat marks a break in the time series in {Y1}." if pesanti else "")
+    domande = [
+        (f"How many {parola} moved to Europe in {Y1}?",
+         f"{intero(t1)} {cit} received a first residence permit in an EU country in {Y1} (Eurostat). {frase_cambio(t1, t0, Y0)} "
+         f"Another {intero(efta1)} received one in Iceland, Liechtenstein, Norway or Switzerland."),
+        (f"Which European country do most {parola} move to?",
+         f"In {Y1} the EU countries that issued the most first permits to {cit} were {t3}."),
+    ]
+    for g in top[:2]:
+        domande.append((f"How many {parola} moved to {art(NOMI_GEO[g])} in {Y1}?",
+                        f'{intero(riga_eu(c, g, Y1)[0])} {cit} received a first residence permit in {art(NOMI_GEO[g])} in {Y1}. '
+                        + (f'<a href="{slug_g[g]}/">Details by reason and year</a>.' if slug_g[g] in COPPIE_TR[c] else "")))
+    if ca:
+        domande.append((f"How many {parola} moved to Canada in {Y1}?",
+                        f"{intero(ca['anni'][Y1])} {cit} became permanent residents of Canada in {Y1} (IRCC). "
+                        + ('<a href="canada/">Year by year</a>.' if "canada" in COPPIE_TR[c] else "")))
+    if uk:
+        domande.append((f"How many {parola} moved to the UK in {Y1}?",
+                        f"The UK granted {intero(sum(uk['anni'][Y1]))} work, study and family visas to {cit} in {Y1} (Home Office). "
+                        + ('<a href="uk/">By type and year</a>.' if "uk" in COPPIE_TR[c] else "")))
+    domande.append((f"Is this the number of {X} living in Europe?",
+                    f"No. These are new permits issued in {Y1}. {X} who have lived in Europe for years, renewed their permits or hold an EU passport are not counted."))
+    nota_uk = (f'<p class="small">British citizens were EU citizens until the end of 2020 and did not need residence permits, so the series starts in {PRIMO_ANNO_UK}; '
+               f'{PRIMO_ANNO_UK}, the first year after Brexit, may not be comparable with later years. Ireland issues few permits to British citizens because they can live there without one (Common Travel Area).</p>' if c == "UK" else "")
+    corpo = f"""<section class="hero"><h1>How many {escape(X)} moved to Europe in {Y1}?</h1>
+<p class="lead"><strong>{intero(t1)}</strong> {escape(cit)} received a first residence permit in one of the 27 EU countries in {Y1}, according to Eurostat (data updated on {data_lunga(F_ES["aggiornato_il"])}). {frase_cambio(t1, t0, Y0)}{rottura_ue} The most went to {t3}. Another {intero(efta1)} received one in Iceland, Liechtenstein, Norway or Switzerland.{(' Outside the EU and EFTA, in ' + Y1 + ', ' + ', and '.join(frase_fuori) + '.') if frase_fuori else ''}</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("globe")}<span>First residence permits in the EU</span><span>{escape(cit)} · {Y1}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">27 EU countries · {escape(cit)} · {Y1}</span><span class="sr">: </span><strong>{intero(t1)}</strong> first residence permits</p>
+<div class="kpi"><div><b>{intero(t0) if t0 is not None else '–'}</b><span>in {Y0}</span></div><div><b>{variazione(t1, t0)}</b><span>change on {Y0}</span></div><div><b>{intero(efta1)}</b><span>Iceland, Liechtenstein, Norway, Switzerland ({variazione(efta1, efta0)})</span></div><div><b>{len([x for x in COPPIE_TR[c] if DEST_TR[x][0] == 'eu'])}</b><span>European countries with {intero(SOGLIA_TR)}+ permits</span></div></div>
+<p class="lead" style="margin-top:6px">{motivi_frase(ue1)}</p>
+{fonte_es_p()}
+</div></section>
+{cosa_eu(c, "the EU", hub=True)}
+{AD}
+<h2>How many {escape(X)} moved to each EU country in {Y1}</h2>
+<p class="small">First residence permits issued to {escape(cit)}, by EU country, from the most. Tap a column heading to sort. Countries with at least {intero(SOGLIA_TR)} permits in {Y1} have their own page.</p>
+<div class="tab compatta"><table class="ord larga" id="t-tr"><caption class="sr">First residence permits issued to {escape(cit)} by EU country, {Y1} and {Y0}, with reasons for {Y1}</caption><thead><tr>{th_ord("Country", False, "ascending")}{th_ord(Y1)}{th_ord(Y0)}{th_ord("Change")}{th_ord("Family")}{th_ord("Education")}{th_ord("Work")}{th_ord("Other")}</tr></thead><tbody>{righe_ue}</tbody></table></div>
+{fonte_es_p()}
+{f'<p class="small">{" ".join(note)}</p>' if note else ''}
+<h2>Iceland, Liechtenstein, Norway and Switzerland</h2>
+<div class="tab compatta"><table class="larga"><caption class="sr">First residence permits issued to {escape(cit)} by EFTA countries, {Y1} and {Y0}</caption><thead><tr><th scope="col">Country</th><th class="n" scope="col">{Y1}</th><th class="n" scope="col">{Y0}</th><th class="n" scope="col">Change</th><th class="n" scope="col">Family</th><th class="n" scope="col">Education</th><th class="n" scope="col">Work</th><th class="n" scope="col">Other</th></tr></thead><tbody>{righe_efta}</tbody></table></div>
+{fonte_es_p("These four countries are not in the EU total. ")}
+<h2>{escape(X)} moving to the EU, year by year ({anni[0]}–{Y1})</h2>
+<div class="tab compatta"><table><caption class="sr">First residence permits issued to {escape(cit)} in the 27 EU countries by year and reason</caption><thead><tr><th scope="col">Year</th><th class="n" scope="col">All reasons</th><th class="n" scope="col">Family</th><th class="n" scope="col">Education</th><th class="n" scope="col">Work</th><th class="n" scope="col">Other</th><th class="n" scope="col">Valid 12+ months</th></tr></thead><tbody>{righe_s}</tbody></table></div>
+{fonte_es_p("EU-27 = the 27 current EU countries in every year. Eurostat revises past years when countries correct their data. ")}
+{nota_uk}
+{f'<h2>{" and ".join(n for _, n, _, _ in fuori)}</h2><p class="lead">{" and ".join("Canada" if d == "canada" else "the UK" for d, _, _, _ in fuori)} {"publish" if len(fuori) > 1 else "publishes"} different figures, so {"they are" if len(fuori) > 1 else "it is"} not added to the European total: {"; ".join("Canada counts new permanent residents by citizenship" if d == "canada" else "the UK counts work, study and family visas granted" for d, _, _, _ in fuori)}.</p><div class="griglia">{schede_fuori}</div>' if fuori else ''}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+{f'<h2>Visa statistics for {escape(paese)}</h2>' + lista_link(link_sito_naz(c, rel)) if link_sito_naz(c, rel) else ''}
+<h2>Other nationalities</h2>
+<div class="griglia">{"".join(f'<a href="../{NAZ_TR[x][0]}/"><span class="ic">{ico("passport")}</span><span>{escape(NAZ_TR[x][1])}<small>{intero(riga_eu(x, "EU27_2020", Y1)[0])} first permits in the EU in {Y1}</small></span></a>' for x in NAZ_TR if x != c)}</div>
+<p><a href="../">Who moved where: all nationalities</a> · <a href="{rel}{SEZ}">Visa refusal rates</a> · <a href="{rel}">Visa income calculator</a></p>"""
+    titolo = next(v for v in (f"How many {X} moved to Europe in {Y1}? Official EU figures", f"How many {X} moved to Europe in {Y1}? EU figures",
+                              f"How many {X} moved to Europe in {Y1}?") if len(v) <= 70)
+    descr = (f"{intero(t1)} {cit} got a first residence permit in the EU in {Y1} ({variazione(t1, t0)} on {Y0}). Most went to {t3}. "
+             f"Every EU country by reason, plus Canada and the UK. Eurostat data.")
+    ld = ld_dataset(f"First residence permits issued to {cit} in the EU and EFTA, {anni[0]}-{Y1}", f"Eurostat first residence permits for {cit} by country and reason.",
+                    percorso, [F_ES["pagina"]], f"{anni[0]}/{Y1}", "https://creativecommons.org/licenses/by/4.0/")
+    pagina(percorso, titolo, descr, corpo, ordina=True, jsonld_extra=[ld_faq(domande), ld], briciole=[("Who moved where", SEZ_TR), (X, percorso)])
+
+
+# ---------- indice della sezione
+def pagina_tr_indice():
+    rel = "../"
+    righe = []
+    rotture_idx = []
+    for c in sorted(NAZ_TR, key=lambda x: -riga_eu(x, "EU27_2020", Y1)[0]):
+        slug, X, cit = NAZ_TR[c][:3]
+        u1, u0 = riga_eu(c, "EU27_2020", Y1)[0], (riga_eu(c, "EU27_2020", Y0) or [None])[0]
+        efta = sum((riga_eu(c, g, Y1) or [0])[0] or 0 for g in GEO_EFTA)
+        ca = TRA["canada"]["cittadinanze"].get(c)
+        uk = TRA["uk"]["cittadinanze"].get(c)
+        pesanti = [NOMI_GEO[g] for g in GEO_UE if segni_eu(c, g, Y1).get("0") == "b" and (riga_eu(c, g, Y1)[0] or 0) >= 0.1 * u1]
+        if pesanti:
+            rotture_idx.append(f"{X} ({', '.join(pesanti)})")
+        righe.append(f'<tr><td><a href="{slug}/">{escape(X)}</a></td>{cella_n(u1, "<sup title=\"break in time series\">b</sup>" if pesanti else "")}{cella_n(u0)}{cella_var(u1, u0)}{cella_n(efta)}'
+                     f'{cella_n(ca["anni"][Y1] if ca else None)}{cella_n(sum(uk["anni"][Y1]) if uk else None)}</tr>')
+    us = riga_eu("US", "EU27_2020", Y1)[0], riga_eu("US", "EU27_2020", Y0)[0]
+    uk_ = riga_eu("UK", "EU27_2020", Y1)[0]
+    n_coppie = sum(len(v) for v in COPPIE_TR.values())
+    schede = "".join(f'<a href="{NAZ_TR[c][0]}/"><span class="ic">{ico("passport")}</span><span>How many {escape(NAZ_TR[c][1])} moved to Europe<small>{intero(riga_eu(c, "EU27_2020", Y1)[0])} first permits in {Y1}</small></span></a>' for c in NAZ_TR)
+    corpo = f"""<section class="hero"><h1>Who moved where in {Y1}: Europe, Canada and the UK by nationality</h1>
+<p class="lead"><strong>{intero(us[0])}</strong> US citizens received a first residence permit in an EU country in {Y1} ({variazione(*us)} on {Y0}), and {intero(uk_)} British citizens did, according to Eurostat (data updated on {data_lunga(F_ES["aggiornato_il"])}). Here are the official figures for {len(NAZ_TR)} nationalities: first residence permits in the EU and EFTA countries (Eurostat), new permanent residents of Canada (IRCC) and UK work, study and family visas (Home Office).</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("globe")}<span>Who moved where</span><span>{Y1}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">US citizens · 27 EU countries · {Y1}</span><span class="sr">: </span><strong>{intero(us[0])}</strong> first residence permits ({variazione(*us)} on {Y0})</p>
+<div class="kpi"><div><b>{len(NAZ_TR)}</b><span>nationalities</span></div><div><b>{len(GEO_UE) + len(GEO_EFTA)}</b><span>European countries, plus Canada and the UK</span></div><div><b>{n_coppie}</b><span>pages with {intero(SOGLIA_TR)}+ in {Y1}</span></div><div><b>{ANNI_TR[0]}–{Y1}</b><span>years covered</span></div></div>
+{fonte_es_p()}
+</div></section>
+{AD}
+<h2>By nationality ({Y1})</h2>
+<p class="small">Three different measures, never added together: first residence permits in the 27 EU countries and in Iceland, Liechtenstein, Norway and Switzerland (Eurostat); new permanent residents of Canada (IRCC); work, study and family visas granted by the UK (Home Office). Tap a column heading to sort.</p>
+<div class="tab compatta"><table class="ord larga"><caption class="sr">Moves abroad by nationality, {Y1}: EU first residence permits, EFTA first permits, new permanent residents of Canada, UK visas granted</caption><thead><tr>{th_ord("Nationality", False, "ascending")}{th_ord(f"EU {Y1}")}{th_ord(f"EU {Y0}")}{th_ord("Change")}{th_ord("EFTA")}{th_ord("Canada")}{th_ord("UK")}</tr></thead><tbody>{"".join(righe)}</tbody></table></div>
+{fonte_es_p()}
+{fonte_pr_p()}
+{fonte_ukv_p()}
+{f'<p class="small">b = in {Y1} Eurostat marks a break in the time series for a country that issued at least 10% of these permits: ' + "; ".join(rotture_idx) + f'. Part of the change from {Y0} may come from that.</p>' if rotture_idx else ''}
+<h2>Nationalities</h2>
+<div class="griglia">{schede}</div>
+<h2>How to read these figures</h2>
+<ul class="testo">
+<li><strong>EU and EFTA (Eurostat):</strong> residence permits valid for at least 3 months issued to non-EU citizens for the first time. They are not a count of moves or of residents, and they leave out people who also hold an EU passport.</li>
+<li><strong>Canada (IRCC):</strong> new permanent residents by citizenship. Many already lived in Canada on a temporary permit; temporary workers and students are not counted.</li>
+<li><strong>United Kingdom (Home Office):</strong> work, study and family visas granted to people applying from outside the UK, including dependants. Visitors are not counted.</li>
+<li><strong>Updates:</strong> Eurostat publishes each year once, in the autumn of the year after, and revises past years when countries correct their data. IRCC updates its file every month and the Home Office every quarter.</li>
+<li>We show a nationality and country page when there were at least {intero(SOGLIA_TR)} permits, new permanent residents or visas in {Y1}.</li></ul>
+<h2>Official sources</h2>
+<ul class="fonti">
+<li><a href="{escape(F_ES["pagina"])}" rel="noopener">Eurostat, {escape(F_ES["titolo"])}</a> – data updated on {data_lunga(F_ES["aggiornato_il"])}, downloaded from the Eurostat API on {data_lunga(F_ES["scaricato_il"])}; <a href="{escape(F_ES["metadati"])}" rel="noopener">definitions and metadata</a>; <a href="{escape(F_ES["licenza_url"])}" rel="license noopener">free re-use with acknowledgement</a>.</li>
+<li><a href="{escape(F_PR["pagina"])}" rel="noopener">IRCC, Permanent Residents – Monthly IRCC Updates</a> – <a href="{escape(F_PR["url"])}" rel="noopener">CSV</a> updated on {data_rfc(F_PR["ultima_modifica"])}, data to {mese_testo(F_PR["ultimo_mese"])}. Contains information licensed under the <a href="{escape(F_PR["licenza_url"])}" rel="license noopener">{escape(F_PR["licenza"])}</a>.</li>
+<li><a href="{escape(F_UKV["url"])}" rel="noopener">Home Office, {escape(F_UKV["titolo"])}</a> – published {escape(F_UKV["pubblicato"])}, next update {escape(F_UKV["prossimo"])}. Contains public sector information licensed under the <a href="{escape(F_UKV["licenza_url"])}" rel="license noopener">{escape(F_UKV["licenza"])}</a>.</li></ul>
+<p><a href="{rel}{SEZ}">Visa refusal rates</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements</a> · <a href="{rel}">Visa income calculator</a></p>"""
+    ld = ld_dataset(f"First residence permits, new permanent residents and visas granted by nationality, {ANNI_TR[0]}-{Y1}",
+                    "Eurostat first residence permits (EU and EFTA), IRCC new permanent residents of Canada and Home Office visas granted, for 12 nationalities.",
+                    SEZ_TR, [F_ES["pagina"], F_PR["url"], F_UKV["url"]], f"{ANNI_TR[0]}/{Y1}", "https://creativecommons.org/licenses/by/4.0/")
+    pagina(SEZ_TR, f"Who moved where in {Y1}: Europe, Canada and the UK by nationality",
+           f"How many Americans, British people, Indians and 9 more nationalities moved to Europe, Canada and the UK in {Y1}: "
+           f"official first residence permits, new permanent residents and visas granted.", corpo, ordina=True, jsonld_extra=[ld],
+           briciole=[("Who moved where", SEZ_TR)])
+
+
+def blocco_tr_dest(nome_sito, rel):
+    """Collegamenti dalle pagine Paese esistenti (/country/<slug>/) alle pagine 'How many ... moved to <Paese>'."""
+    d = "uk" if nome_sito == "United Kingdom" else slug_testo(nome_sito)
+    if d not in DEST_TR:
+        return ""
+    chi = [c for c in sorted(NAZ_TR, key=lambda x: -(val_tr(x, d, Y1) or 0)) if d in COPPIE_TR[c]]
+    if not chi:
+        return ""
+    misura = ("work, study and family visas granted by the UK in " + Y1 + " (Home Office)" if d == "uk"
+              else f"first residence permits issued in {Y1} (Eurostat)")
+    nf = DEST_TR[d][3]
+    return (f'<h2>Who moved to {escape(nf)} in {Y1}</h2><p class="lead">How many people of each nationality moved to {escape(nf)}: {misura}.</p>'
+            f'<div class="griglia">{"".join(scheda_coppia(c, d, rel + SEZ_TR, chi=True) for c in chi)}</div>')
+
+
+def genera_trasferimenti():
+    pagina_tr_indice()
+    for c in NAZ_TR:
+        pagina_tr_naz(c)
+        for d in COPPIE_TR[c]:
+            {"eu": pagina_tr_eu, "ca": pagina_tr_ca, "uk": pagina_tr_uk}[DEST_TR[d][0]](c, d)
+
+
+def controlli_trasferimenti():
+    errori = []
+    if set(NAZ_TR) - set(EUD):
+        errori.append(f"trasferimenti: cittadinanze senza dati Eurostat: {set(NAZ_TR) - set(EUD)}")
+    if len({v[0] for v in NAZ_TR.values()}) != len(NAZ_TR) or len(DEST_TR) != len(GEO_UE) + len(GEO_EFTA) + 2:
+        errori.append("trasferimenti: slug duplicati")
+    if len(GEO_UE) != 27:
+        errori.append(f"trasferimenti: {len(GEO_UE)} Paesi UE invece di 27")
+    for c in NAZ_TR:
+        if not riga_eu(c, "EU27_2020", Y1) or not riga_eu(c, "EU27_2020", Y0):
+            errori.append(f"trasferimenti: manca il totale UE-27 {Y0}/{Y1} per {c}")
+    if sum(len(v) for v in COPPIE_TR.values()) < 100:
+        errori.append("trasferimenti: meno di 100 pagine nazionalità × Paese")
+    for k, f in TRA["fonti"].items():
+        if not f.get("url", "").startswith("https://") or not f.get("licenza_url", "").startswith("https://"):
+            errori.append(f"trasferimenti: fonte {k} senza URL o licenza")
+    if not F_ES.get("aggiornato_il"):
+        errori.append("trasferimenti: data di aggiornamento Eurostat mancante")
+    return errori
+
+
 ORDINA_JS = r"""
 (function(){
   document.querySelectorAll('table.ord').forEach(function(t){
@@ -3102,6 +4032,15 @@ ORDINA_JS = r"""
 """
 
 
+def link_tr_naz(p, rel):
+    """Dalle pagine dei visti rifiutati di India, Pakistan, Nigeria, Filippine, Cina e Sudafrica alla pagina 'How many ... moved to Europe'."""
+    c = next((k for k, v in NAZ_TR.items() if v[4] == p), None)
+    if not c:
+        return ""
+    return (f'<p class="small">{ico("globe")} How many {escape(NAZ_TR[c][1])} moved abroad? <a href="{rel}{SEZ_TR}{NAZ_TR[c][0]}/">'
+            f'How many {escape(NAZ_TR[c][1])} moved to Europe in {Y1}</a> (first residence permits by country and reason, Eurostat).</p>')
+
+
 def link_rifiuti(paese, rel):
     """Riga di collegamento alla sezione dei visti rifiutati dalle pagine dei programmi e dei Paesi."""
     if paese in SLUG_STATO:
@@ -3122,6 +4061,7 @@ def genera_rifiuti():
     for s in STATI_UE:
         pagina_rif_stato(s)
     pagina_rif_uk()
+    pagina_rif_uk_famiglia()
     pagina_rif_au()
     pagina_rif_nz()
     pagina_rif_ca()
@@ -3151,7 +4091,8 @@ def controlli_rifiuti():
 def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
-    voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{OGGI.isoformat()}</lastmod></url>" for u in URLS)
+    date_ = date_lastmod()
+    voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{date_[u]}</lastmod></url>" for u in URLS)
     (SITO / "sitemap.xml").write_text(
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{voci}</urlset>\n')
     (SITO / "netlify.toml").write_text("""[build]
@@ -3224,6 +4165,7 @@ def controlli():
         errori.append("slug duplicati")
     errori += controlli_rifiuti()
     errori += controlli_altri()
+    errori += controlli_trasferimenti()
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -3232,6 +4174,7 @@ def main():
     controlli()
     if SITO.exists():
         conserva = {p.name: p.read_bytes() for p in SITO.glob("google*.html")}
+        VECCHIE.update({percorso_da_file(f): impronta_contenuto(f.read_text(encoding="utf-8")) for f in SITO.rglob("*.html")})
         shutil.rmtree(SITO)
     else:
         conserva = {}
@@ -3247,6 +4190,7 @@ def main():
     pagina_confronto_nomadi()
     pagina_confronto_lavoro()
     genera_rifiuti()
+    genera_trasferimenti()
     pagina_come_funziona()
     about()
     contatti()
@@ -3254,7 +4198,8 @@ def main():
     extra()
     print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili; {len(PROG)} programmi in {len(PAESI)} paesi; "
           f"cambi BCE del {CAMBI['data']}; visti rifiutati: {len(PAESI_RIF)} Paesi, {len(STATI_UE)} Stati Schengen ({A1}), UK fino al {TRIM[-1]}; "
-          f"Australia {len(AU_OK)} nazionalità ({AU_A1}), Nuova Zelanda {len(NZ_OK)} ({NZ_A1}), Canada {len(CA_OK)} ({CA_A1}).")
+          f"Australia {len(AU_OK)} nazionalità ({AU_A1}), Nuova Zelanda {len(NZ_OK)} ({NZ_A1}), Canada {len(CA_OK)} ({CA_A1}); "
+          f"trasferimenti: {len(NAZ_TR)} nazionalità, {sum(len(v) for v in COPPIE_TR.values())} pagine nazionalità × Paese ({Y1}).")
 
 
 if __name__ == "__main__":

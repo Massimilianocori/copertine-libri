@@ -1,0 +1,1645 @@
+{
+"_nota": "Scritto da genera.py: percorso -> [data dell'ultima modifica del contenuto, impronta]. Non modificare a mano.",
+"pagine": {
+"": [
+"2026-10-28",
+"e5399a56d088f81cbd93"
+],
+"about/": [
+"2026-10-15",
+"f31d17088e4c9e91a70d"
+],
+"austria-eu-blue-card/": [
+"2026-10-15",
+"9c890d41f5f47d55a182"
+],
+"contact/": [
+"2026-10-11",
+"2e236fe76e8b0a613874"
+],
+"country/austria/": [
+"2026-10-28",
+"3e74cbeef44ad9ea26ec"
+],
+"country/croatia/": [
+"2026-10-28",
+"5e14159c7d575dcd712d"
+],
+"country/denmark/": [
+"2026-10-28",
+"0d0d942c35ee42a0213d"
+],
+"country/france/": [
+"2026-10-28",
+"989089394df8f6cd0b58"
+],
+"country/germany/": [
+"2026-10-28",
+"deb2aad5095898632e6f"
+],
+"country/hungary/": [
+"2026-10-28",
+"50c0ccea30c7e2d4f5ad"
+],
+"country/ireland/": [
+"2026-10-28",
+"1f96d223f910e2e814ff"
+],
+"country/italy/": [
+"2026-10-28",
+"c6fb836fd9fa153cd093"
+],
+"country/netherlands/": [
+"2026-10-28",
+"89f63f07021be494fa9a"
+],
+"country/portugal/": [
+"2026-10-28",
+"39e388f77033c1de0423"
+],
+"country/spain/": [
+"2026-10-28",
+"68d19a27f65d259f789a"
+],
+"country/sweden/": [
+"2026-10-28",
+"669c2849f2b8ccbacf7e"
+],
+"country/united-kingdom/": [
+"2026-10-28",
+"8b07538a574f7068387b"
+],
+"croatia-digital-nomad-visa/": [
+"2026-10-15",
+"aa49e02e8a94ab43ca7f"
+],
+"denmark-pay-limit-scheme/": [
+"2026-10-15",
+"4ed456a8a383a46ff236"
+],
+"digital-nomad-visa-income-requirements/": [
+"2026-10-14",
+"37e4b2aa5120f6fe0f18"
+],
+"france-eu-blue-card/": [
+"2026-10-15",
+"d8706ee3316c2a57192e"
+],
+"germany-eu-blue-card/": [
+"2026-10-15",
+"d468fe47a3cb7468e9ba"
+],
+"how-it-works/": [
+"2026-10-15",
+"eaef3d300322f6fa9f2f"
+],
+"hungary-white-card/": [
+"2026-10-15",
+"80f8fa02641d8285700f"
+],
+"ireland-critical-skills-employment-permit/": [
+"2026-10-15",
+"680606569b2068d19419"
+],
+"italy-digital-nomad-visa/": [
+"2026-10-15",
+"af262ef16e3b8c6b6cd5"
+],
+"moved-to/": [
+"2026-10-28",
+"5e264ee02db65d0d28f0"
+],
+"moved-to/americans/": [
+"2026-10-28",
+"a6679fadd10c44e8e284"
+],
+"moved-to/americans/austria/": [
+"2026-10-28",
+"d03e66175a7b384ac67c"
+],
+"moved-to/americans/belgium/": [
+"2026-10-28",
+"a33fc5f976d21b662654"
+],
+"moved-to/americans/canada/": [
+"2026-10-28",
+"d1349baf154829bfe9ed"
+],
+"moved-to/americans/czechia/": [
+"2026-10-28",
+"f40ef128f1dac91b0518"
+],
+"moved-to/americans/denmark/": [
+"2026-10-28",
+"0715ca4a944dd6896c08"
+],
+"moved-to/americans/finland/": [
+"2026-10-28",
+"7aad2a77367f3bcece71"
+],
+"moved-to/americans/france/": [
+"2026-10-28",
+"8208b2fcc4d746d99c48"
+],
+"moved-to/americans/germany/": [
+"2026-10-28",
+"3c58865362893bc6f6fe"
+],
+"moved-to/americans/greece/": [
+"2026-10-28",
+"c3daa8dc7893e820c942"
+],
+"moved-to/americans/hungary/": [
+"2026-10-28",
+"d52ac2ead40a659b1773"
+],
+"moved-to/americans/ireland/": [
+"2026-10-28",
+"dd0268a7caafb870277e"
+],
+"moved-to/americans/italy/": [
+"2026-10-28",
+"cb0b49ab7dc740c1ab76"
+],
+"moved-to/americans/malta/": [
+"2026-10-28",
+"951d6657e8ff426a6e68"
+],
+"moved-to/americans/netherlands/": [
+"2026-10-28",
+"cdd237d56bcd77e75aca"
+],
+"moved-to/americans/norway/": [
+"2026-10-28",
+"735420fb2fbc083eabab"
+],
+"moved-to/americans/poland/": [
+"2026-10-28",
+"c9f114f3dac2d5588490"
+],
+"moved-to/americans/portugal/": [
+"2026-10-28",
+"5e6770f5b9d226b2f776"
+],
+"moved-to/americans/romania/": [
+"2026-10-28",
+"72d8b00dde44fa82f624"
+],
+"moved-to/americans/slovakia/": [
+"2026-10-28",
+"32963e93734e93a0c199"
+],
+"moved-to/americans/spain/": [
+"2026-10-28",
+"54dad11df026859ed490"
+],
+"moved-to/americans/sweden/": [
+"2026-10-28",
+"de7deb86c900c56c0f32"
+],
+"moved-to/americans/switzerland/": [
+"2026-10-28",
+"3afffb3f3fdccb2bcf03"
+],
+"moved-to/americans/uk/": [
+"2026-10-28",
+"42c74fd5708bf096abf2"
+],
+"moved-to/australians/": [
+"2026-10-28",
+"8ff86702db56e72af389"
+],
+"moved-to/australians/canada/": [
+"2026-10-28",
+"7548f49bb37d91c39850"
+],
+"moved-to/australians/denmark/": [
+"2026-10-28",
+"b73c35b50d3aba30103b"
+],
+"moved-to/australians/france/": [
+"2026-10-28",
+"7c683173db8ec0694d32"
+],
+"moved-to/australians/germany/": [
+"2026-10-28",
+"943d4840a2408849d5a9"
+],
+"moved-to/australians/ireland/": [
+"2026-10-28",
+"af0b0db110d7bd727060"
+],
+"moved-to/australians/netherlands/": [
+"2026-10-28",
+"5760ce2334a2baf9e4db"
+],
+"moved-to/australians/spain/": [
+"2026-10-28",
+"662a3ccc7a20c8668cb0"
+],
+"moved-to/australians/sweden/": [
+"2026-10-28",
+"c4bbd878934ad7750c3a"
+],
+"moved-to/australians/switzerland/": [
+"2026-10-28",
+"070f2ef3391e6765b7f3"
+],
+"moved-to/australians/uk/": [
+"2026-10-28",
+"84fe2441870b381d6b9f"
+],
+"moved-to/brazilians/": [
+"2026-10-28",
+"3e33e9693b3a65407206"
+],
+"moved-to/brazilians/austria/": [
+"2026-10-28",
+"87ee544ea545f16279c1"
+],
+"moved-to/brazilians/belgium/": [
+"2026-10-28",
+"ae69022c29ffecca2de9"
+],
+"moved-to/brazilians/canada/": [
+"2026-10-28",
+"479c2bf9426dccb6b75d"
+],
+"moved-to/brazilians/denmark/": [
+"2026-10-28",
+"d1d5eed4740879e6e8d9"
+],
+"moved-to/brazilians/france/": [
+"2026-10-28",
+"66e744006b40dac08d96"
+],
+"moved-to/brazilians/germany/": [
+"2026-10-28",
+"ece5b0867326193a1ce4"
+],
+"moved-to/brazilians/ireland/": [
+"2026-10-28",
+"94abb266c7d201e35679"
+],
+"moved-to/brazilians/italy/": [
+"2026-10-28",
+"9053ec955cc3f0e247a8"
+],
+"moved-to/brazilians/malta/": [
+"2026-10-28",
+"b7cfd1b90275890f6477"
+],
+"moved-to/brazilians/netherlands/": [
+"2026-10-28",
+"f9a03c1f7135af2a7698"
+],
+"moved-to/brazilians/poland/": [
+"2026-10-28",
+"6ea10c38deb627d660fe"
+],
+"moved-to/brazilians/portugal/": [
+"2026-10-28",
+"67373b1f324eef0e1cb3"
+],
+"moved-to/brazilians/spain/": [
+"2026-10-28",
+"c1c44b733a775e9455f9"
+],
+"moved-to/brazilians/sweden/": [
+"2026-10-28",
+"47f9654b8cdf0f86025c"
+],
+"moved-to/brazilians/switzerland/": [
+"2026-10-28",
+"1d46569ae5fca04df910"
+],
+"moved-to/brazilians/uk/": [
+"2026-10-28",
+"02e3f1e1fa3a86ca5c31"
+],
+"moved-to/british/": [
+"2026-10-28",
+"30ae3aac0ea92fc4836a"
+],
+"moved-to/british/belgium/": [
+"2026-10-28",
+"470e2f347b5e84acb0a2"
+],
+"moved-to/british/bulgaria/": [
+"2026-10-28",
+"350b65c6f6c65dfd68de"
+],
+"moved-to/british/canada/": [
+"2026-10-28",
+"612ea032d1cc288b1c33"
+],
+"moved-to/british/cyprus/": [
+"2026-10-28",
+"29f54626a01c692435d3"
+],
+"moved-to/british/czechia/": [
+"2026-10-28",
+"65d95c2c65eceecfc8ed"
+],
+"moved-to/british/denmark/": [
+"2026-10-28",
+"155f1a0761e4aa5bfd32"
+],
+"moved-to/british/finland/": [
+"2026-10-28",
+"770a00890bd7f5e5ca53"
+],
+"moved-to/british/france/": [
+"2026-10-28",
+"ced0becb4854e33ca538"
+],
+"moved-to/british/germany/": [
+"2026-10-28",
+"82a5b934e949fee5a8f0"
+],
+"moved-to/british/greece/": [
+"2026-10-28",
+"5eae014a7659d1e00d21"
+],
+"moved-to/british/hungary/": [
+"2026-10-28",
+"b4dbd8e8d5467316a35b"
+],
+"moved-to/british/italy/": [
+"2026-10-28",
+"ea455d24c8f68a0ff985"
+],
+"moved-to/british/malta/": [
+"2026-10-28",
+"6f1ad8da764d51997512"
+],
+"moved-to/british/netherlands/": [
+"2026-10-28",
+"4134f7f51f5803ed0f94"
+],
+"moved-to/british/norway/": [
+"2026-10-28",
+"0f24efc3901e7aa891d3"
+],
+"moved-to/british/poland/": [
+"2026-10-28",
+"537d63e52c1327f525f0"
+],
+"moved-to/british/portugal/": [
+"2026-10-28",
+"fa92cc5f78483ca71d5d"
+],
+"moved-to/british/spain/": [
+"2026-10-28",
+"e63f90e10dfe36f4cddf"
+],
+"moved-to/british/sweden/": [
+"2026-10-28",
+"f00cacd4bcd45e3c3f21"
+],
+"moved-to/british/switzerland/": [
+"2026-10-28",
+"793b8d97ac5b22a0cbce"
+],
+"moved-to/canadians/": [
+"2026-10-28",
+"6381fe9afc7e9edd30e4"
+],
+"moved-to/canadians/belgium/": [
+"2026-10-28",
+"0b9d8841093e59e7b903"
+],
+"moved-to/canadians/denmark/": [
+"2026-10-28",
+"08416ae34330738359d8"
+],
+"moved-to/canadians/france/": [
+"2026-10-28",
+"f617b3d1b4c38e71b0b9"
+],
+"moved-to/canadians/germany/": [
+"2026-10-28",
+"7efe90ffa93ceabeea43"
+],
+"moved-to/canadians/ireland/": [
+"2026-10-28",
+"784c5284a410f73882e0"
+],
+"moved-to/canadians/italy/": [
+"2026-10-28",
+"e6ecbe27de1a4ced2589"
+],
+"moved-to/canadians/netherlands/": [
+"2026-10-28",
+"ac6a7aa964bf3feb7334"
+],
+"moved-to/canadians/portugal/": [
+"2026-10-28",
+"b3e13e01e8bc43dfd31b"
+],
+"moved-to/canadians/spain/": [
+"2026-10-28",
+"f8897926053504ea5662"
+],
+"moved-to/canadians/sweden/": [
+"2026-10-28",
+"a03636c682171ac81edc"
+],
+"moved-to/canadians/switzerland/": [
+"2026-10-28",
+"fe4980f86cac67cae488"
+],
+"moved-to/canadians/uk/": [
+"2026-10-28",
+"bb0abcff45f1847eb1af"
+],
+"moved-to/chinese/": [
+"2026-10-28",
+"0f76c8b8f3672d097421"
+],
+"moved-to/chinese/austria/": [
+"2026-10-28",
+"6084d91704fc851c8e6f"
+],
+"moved-to/chinese/belgium/": [
+"2026-10-28",
+"13fe4e63b8ef9519a496"
+],
+"moved-to/chinese/canada/": [
+"2026-10-28",
+"ecec34d8c2d1487cdc4a"
+],
+"moved-to/chinese/croatia/": [
+"2026-10-28",
+"6948cefa167e214ad01b"
+],
+"moved-to/chinese/czechia/": [
+"2026-10-28",
+"87ef97cdecd0e19a491e"
+],
+"moved-to/chinese/denmark/": [
+"2026-10-28",
+"63c705b2c2ee06a8d309"
+],
+"moved-to/chinese/finland/": [
+"2026-10-28",
+"f3bdf9311df5c8acc44e"
+],
+"moved-to/chinese/france/": [
+"2026-10-28",
+"3b1708ab12c0d0c73db3"
+],
+"moved-to/chinese/germany/": [
+"2026-10-28",
+"1e17d1e6b78dffab2105"
+],
+"moved-to/chinese/greece/": [
+"2026-10-28",
+"c9ec18f464f8391eb890"
+],
+"moved-to/chinese/hungary/": [
+"2026-10-28",
+"186512a2d75c94a429c1"
+],
+"moved-to/chinese/ireland/": [
+"2026-10-28",
+"81c85ad72d4bb0e4d1b4"
+],
+"moved-to/chinese/italy/": [
+"2026-10-28",
+"7bd81995e445622d8e37"
+],
+"moved-to/chinese/malta/": [
+"2026-10-28",
+"7f6a353d4e606722f770"
+],
+"moved-to/chinese/netherlands/": [
+"2026-10-28",
+"726c830b668c94a0091f"
+],
+"moved-to/chinese/norway/": [
+"2026-10-28",
+"cea33c74928d07a9ff20"
+],
+"moved-to/chinese/poland/": [
+"2026-10-28",
+"d322d5ac8661858f157b"
+],
+"moved-to/chinese/portugal/": [
+"2026-10-28",
+"81cdf1eea2aca0c2371b"
+],
+"moved-to/chinese/romania/": [
+"2026-10-28",
+"083b687c565c40fc14c6"
+],
+"moved-to/chinese/slovenia/": [
+"2026-10-28",
+"468ff67ba14bc0fbc9e3"
+],
+"moved-to/chinese/spain/": [
+"2026-10-28",
+"2807a782d0dc640c09d8"
+],
+"moved-to/chinese/sweden/": [
+"2026-10-28",
+"9d8eec6ceaff25b111d6"
+],
+"moved-to/chinese/switzerland/": [
+"2026-10-28",
+"77b5b329542d71738474"
+],
+"moved-to/chinese/uk/": [
+"2026-10-28",
+"8f16034ec2f592ef4217"
+],
+"moved-to/filipinos/": [
+"2026-10-28",
+"b3ee1ee053142da8d5cf"
+],
+"moved-to/filipinos/austria/": [
+"2026-10-28",
+"dee278c276e1b2000676"
+],
+"moved-to/filipinos/belgium/": [
+"2026-10-28",
+"14836c8b5b5702b8aab4"
+],
+"moved-to/filipinos/canada/": [
+"2026-10-28",
+"48606e94dcad0dee0bf8"
+],
+"moved-to/filipinos/croatia/": [
+"2026-10-28",
+"13f508051b54dea64afe"
+],
+"moved-to/filipinos/cyprus/": [
+"2026-10-28",
+"792797bcf74a5f372f35"
+],
+"moved-to/filipinos/czechia/": [
+"2026-10-28",
+"2fa7b401f8e4c2e49151"
+],
+"moved-to/filipinos/denmark/": [
+"2026-10-28",
+"6613643f8dacb63be255"
+],
+"moved-to/filipinos/finland/": [
+"2026-10-28",
+"b8a987a78e152e06e01b"
+],
+"moved-to/filipinos/france/": [
+"2026-10-28",
+"9f44c07350980dcf87b2"
+],
+"moved-to/filipinos/germany/": [
+"2026-10-28",
+"91a5d1eb842a72ec1382"
+],
+"moved-to/filipinos/greece/": [
+"2026-10-28",
+"66f5897530529a705eaf"
+],
+"moved-to/filipinos/hungary/": [
+"2026-10-28",
+"e4b61c77e8259734162b"
+],
+"moved-to/filipinos/ireland/": [
+"2026-10-28",
+"a072abc7efef714fe193"
+],
+"moved-to/filipinos/italy/": [
+"2026-10-28",
+"dd52afbe031770c795ed"
+],
+"moved-to/filipinos/lithuania/": [
+"2026-10-28",
+"2a49dee2be520af42182"
+],
+"moved-to/filipinos/malta/": [
+"2026-10-28",
+"90acbf69d4f68f7193f5"
+],
+"moved-to/filipinos/netherlands/": [
+"2026-10-28",
+"803b3181195e3647575f"
+],
+"moved-to/filipinos/norway/": [
+"2026-10-28",
+"ca00aecb66dbac03ede9"
+],
+"moved-to/filipinos/poland/": [
+"2026-10-28",
+"aa777aefee8a73f5df3e"
+],
+"moved-to/filipinos/portugal/": [
+"2026-10-28",
+"b150c31e36c0c6ce44fb"
+],
+"moved-to/filipinos/romania/": [
+"2026-10-28",
+"7084a272fe44ed3a7c50"
+],
+"moved-to/filipinos/slovakia/": [
+"2026-10-28",
+"5f6145ca499c5e2ae91d"
+],
+"moved-to/filipinos/slovenia/": [
+"2026-10-28",
+"f288b4be8e178f6181cd"
+],
+"moved-to/filipinos/spain/": [
+"2026-10-28",
+"49208012623e661232ef"
+],
+"moved-to/filipinos/sweden/": [
+"2026-10-28",
+"b72b8d2a6284bcced7dd"
+],
+"moved-to/filipinos/switzerland/": [
+"2026-10-28",
+"7eb74096bef0f1721394"
+],
+"moved-to/filipinos/uk/": [
+"2026-10-28",
+"5989175d723a0ab6c9d8"
+],
+"moved-to/indians/": [
+"2026-10-28",
+"a3fa4e2aafd208e0d79b"
+],
+"moved-to/indians/austria/": [
+"2026-10-28",
+"836560a7dde8579ec62d"
+],
+"moved-to/indians/belgium/": [
+"2026-10-28",
+"70030c730faf9af878a8"
+],
+"moved-to/indians/bulgaria/": [
+"2026-10-28",
+"d9a104bec64095b9fc7d"
+],
+"moved-to/indians/canada/": [
+"2026-10-28",
+"c0d93daec0ec7e48cc02"
+],
+"moved-to/indians/croatia/": [
+"2026-10-28",
+"bb166f307b7f38a43eb8"
+],
+"moved-to/indians/cyprus/": [
+"2026-10-28",
+"61037bb0ecde70c44a16"
+],
+"moved-to/indians/czechia/": [
+"2026-10-28",
+"df4ab50fd2c9059f0bcd"
+],
+"moved-to/indians/denmark/": [
+"2026-10-28",
+"3c2e79f1e4c15f1ce573"
+],
+"moved-to/indians/finland/": [
+"2026-10-28",
+"5d1d1c16cd80cbb08640"
+],
+"moved-to/indians/france/": [
+"2026-10-28",
+"de412fc8743c7015d19c"
+],
+"moved-to/indians/germany/": [
+"2026-10-28",
+"5dd2c6f58f5413d649ae"
+],
+"moved-to/indians/greece/": [
+"2026-10-28",
+"6413623de1eb1d8b6071"
+],
+"moved-to/indians/hungary/": [
+"2026-10-28",
+"ec30f46fca203b7164ed"
+],
+"moved-to/indians/ireland/": [
+"2026-10-28",
+"f5ec6cdc82dc21b89e6e"
+],
+"moved-to/indians/italy/": [
+"2026-10-28",
+"42473d68abc2c5f67982"
+],
+"moved-to/indians/latvia/": [
+"2026-10-28",
+"d7a7147b02fccdfc1978"
+],
+"moved-to/indians/lithuania/": [
+"2026-10-28",
+"7b8778e02fb30dda6e87"
+],
+"moved-to/indians/luxembourg/": [
+"2026-10-28",
+"690245ceef21b9cbfbc6"
+],
+"moved-to/indians/malta/": [
+"2026-10-28",
+"90ee118715e699ad13ac"
+],
+"moved-to/indians/netherlands/": [
+"2026-10-28",
+"c1dbe439bbf4a5ccf1bf"
+],
+"moved-to/indians/norway/": [
+"2026-10-28",
+"982c14c9668e51271b43"
+],
+"moved-to/indians/poland/": [
+"2026-10-28",
+"a13a2f34fc5fb624b7e4"
+],
+"moved-to/indians/portugal/": [
+"2026-10-28",
+"e235feaf3f07f22ac40b"
+],
+"moved-to/indians/romania/": [
+"2026-10-28",
+"d9fbe03a2de2b2fa7533"
+],
+"moved-to/indians/slovakia/": [
+"2026-10-28",
+"51024c47050011f21612"
+],
+"moved-to/indians/slovenia/": [
+"2026-10-28",
+"581f4096e6d0b47e4271"
+],
+"moved-to/indians/spain/": [
+"2026-10-28",
+"5832d88dc1b975c0a4b0"
+],
+"moved-to/indians/sweden/": [
+"2026-10-28",
+"224f75ec4e50ba5e38c2"
+],
+"moved-to/indians/switzerland/": [
+"2026-10-28",
+"a4ffd8ea77e904d42321"
+],
+"moved-to/indians/uk/": [
+"2026-10-28",
+"997d06db642edc137b95"
+],
+"moved-to/new-zealanders/": [
+"2026-10-28",
+"2f8bf415d13feb3ca225"
+],
+"moved-to/new-zealanders/netherlands/": [
+"2026-10-28",
+"615183edf758b3d4063f"
+],
+"moved-to/new-zealanders/uk/": [
+"2026-10-28",
+"056044a6deca8000b384"
+],
+"moved-to/nigerians/": [
+"2026-10-28",
+"35d87588ddd13599a89d"
+],
+"moved-to/nigerians/austria/": [
+"2026-10-28",
+"a549279275d842f6706c"
+],
+"moved-to/nigerians/canada/": [
+"2026-10-28",
+"a052271c4ea3f76d430f"
+],
+"moved-to/nigerians/finland/": [
+"2026-10-28",
+"fb2b295bf7eeb42ee418"
+],
+"moved-to/nigerians/france/": [
+"2026-10-28",
+"827706bf564b7df8e8ab"
+],
+"moved-to/nigerians/germany/": [
+"2026-10-28",
+"af737b013501466aa7c2"
+],
+"moved-to/nigerians/hungary/": [
+"2026-10-28",
+"e060cf045950acda3d29"
+],
+"moved-to/nigerians/ireland/": [
+"2026-10-28",
+"63032f1cf3cfd3ae0e0b"
+],
+"moved-to/nigerians/italy/": [
+"2026-10-28",
+"614d153880b5c74a59d9"
+],
+"moved-to/nigerians/malta/": [
+"2026-10-28",
+"ff964b366c12ac4b198c"
+],
+"moved-to/nigerians/netherlands/": [
+"2026-10-28",
+"980ba2d54cf765995e48"
+],
+"moved-to/nigerians/poland/": [
+"2026-10-28",
+"23f60fb4f52058734cbb"
+],
+"moved-to/nigerians/portugal/": [
+"2026-10-28",
+"046dcfada8737408d682"
+],
+"moved-to/nigerians/spain/": [
+"2026-10-28",
+"2f06a47ec5c03516eca6"
+],
+"moved-to/nigerians/sweden/": [
+"2026-10-28",
+"fdde44be8b440658e88d"
+],
+"moved-to/nigerians/uk/": [
+"2026-10-28",
+"583cd6d4ad2191a9b181"
+],
+"moved-to/pakistanis/": [
+"2026-10-28",
+"b7c371a3898a1f35174d"
+],
+"moved-to/pakistanis/austria/": [
+"2026-10-28",
+"2c5bf8f96ebddeea92a6"
+],
+"moved-to/pakistanis/belgium/": [
+"2026-10-28",
+"ca938bfde559dafad5c9"
+],
+"moved-to/pakistanis/canada/": [
+"2026-10-28",
+"cee7a141fa7109ff3db7"
+],
+"moved-to/pakistanis/cyprus/": [
+"2026-10-28",
+"bc53005a42bbae6d8b17"
+],
+"moved-to/pakistanis/denmark/": [
+"2026-10-28",
+"6885fe1a7f0d73f45cc5"
+],
+"moved-to/pakistanis/finland/": [
+"2026-10-28",
+"eba951a21e067024ccd7"
+],
+"moved-to/pakistanis/france/": [
+"2026-10-28",
+"8ca29e3ee8b264047b0a"
+],
+"moved-to/pakistanis/germany/": [
+"2026-10-28",
+"e76180baf3ebfbea9025"
+],
+"moved-to/pakistanis/greece/": [
+"2026-10-28",
+"87f1b6e1c135b6788ab0"
+],
+"moved-to/pakistanis/hungary/": [
+"2026-10-28",
+"deb71782959ce0620568"
+],
+"moved-to/pakistanis/ireland/": [
+"2026-10-28",
+"33a5e63692c59a950447"
+],
+"moved-to/pakistanis/italy/": [
+"2026-10-28",
+"fa0e970a885743465560"
+],
+"moved-to/pakistanis/lithuania/": [
+"2026-10-28",
+"84bad8da405dd5fe8331"
+],
+"moved-to/pakistanis/malta/": [
+"2026-10-28",
+"a7cebc20e3c1deb9f6aa"
+],
+"moved-to/pakistanis/netherlands/": [
+"2026-10-28",
+"70ac8b48f67d174bcda6"
+],
+"moved-to/pakistanis/norway/": [
+"2026-10-28",
+"f2f22c71c28e7cd75cf9"
+],
+"moved-to/pakistanis/poland/": [
+"2026-10-28",
+"91fc7bc65cfea43d77ac"
+],
+"moved-to/pakistanis/portugal/": [
+"2026-10-28",
+"9b186a776ecc0ee93fb4"
+],
+"moved-to/pakistanis/romania/": [
+"2026-10-28",
+"d33762bbe7ce87b9868c"
+],
+"moved-to/pakistanis/spain/": [
+"2026-10-28",
+"e8d2ecf9e9ca1834ef31"
+],
+"moved-to/pakistanis/sweden/": [
+"2026-10-28",
+"2c0e98fb33fc4fe5919b"
+],
+"moved-to/pakistanis/uk/": [
+"2026-10-28",
+"da7ccdb7cd50a6a4ecc9"
+],
+"moved-to/south-africans/": [
+"2026-10-28",
+"fa08564a224e8667f12c"
+],
+"moved-to/south-africans/canada/": [
+"2026-10-28",
+"501d48eb06ff9cc5926a"
+],
+"moved-to/south-africans/germany/": [
+"2026-10-28",
+"8151df8001c61e5c4a9b"
+],
+"moved-to/south-africans/ireland/": [
+"2026-10-28",
+"05af45b9d0bc75f50f84"
+],
+"moved-to/south-africans/netherlands/": [
+"2026-10-28",
+"29891832ff866bc31f9e"
+],
+"moved-to/south-africans/portugal/": [
+"2026-10-28",
+"4fa2eaddf5a50bd49cdb"
+],
+"moved-to/south-africans/uk/": [
+"2026-10-28",
+"346319878dc2e25066ad"
+],
+"netherlands-eu-blue-card/": [
+"2026-10-15",
+"6cf8d4da86b906d36a29"
+],
+"netherlands-highly-skilled-migrant/": [
+"2026-10-15",
+"90b6f2cf5c8382b463d2"
+],
+"portugal-d7-visa/": [
+"2026-10-15",
+"536f2079c885092df35b"
+],
+"portugal-d8-digital-nomad-visa/": [
+"2026-10-15",
+"131d183768e9ffe70dd9"
+],
+"privacy.html": [
+"2026-10-17",
+"8a42e9b52a0a1bb5fb81"
+],
+"spain-digital-nomad-visa/": [
+"2026-10-15",
+"b1fdd673974dbcfac87a"
+],
+"spain-non-lucrative-visa/": [
+"2026-10-15",
+"94585ec6b717d2c63eb1"
+],
+"sweden-eu-blue-card/": [
+"2026-10-15",
+"e0c32495a337b9d7466d"
+],
+"uk-skilled-worker-visa/": [
+"2026-10-15",
+"3b7c7c917f524166cd85"
+],
+"uk-spouse-visa/": [
+"2026-10-15",
+"30b50fd556d62dcaeb26"
+],
+"visa-refusal-rates/": [
+"2026-10-26",
+"2e5f3ef7e7a4cf4211c4"
+],
+"visa-refusal-rates/algeria/": [
+"2026-10-28",
+"19a000f410fce39b628b"
+],
+"visa-refusal-rates/algeria/easiest-schengen-visa/": [
+"2026-10-21",
+"0c9d4dd48f6b8586a26e"
+],
+"visa-refusal-rates/angola/": [
+"2026-10-28",
+"a6d4a38318d5f2a1b5fa"
+],
+"visa-refusal-rates/angola/easiest-schengen-visa/": [
+"2026-10-21",
+"0107a225483942c07a84"
+],
+"visa-refusal-rates/armenia/": [
+"2026-10-28",
+"18d0a92c5cd2d0ae7bf4"
+],
+"visa-refusal-rates/armenia/easiest-schengen-visa/": [
+"2026-10-21",
+"912355b5daad3a7e2df4"
+],
+"visa-refusal-rates/australia-visas/": [
+"2026-10-26",
+"6ecc3b2b86a6e737b4bc"
+],
+"visa-refusal-rates/australia/": [
+"2026-10-28",
+"e60c084b07ae0e99c56e"
+],
+"visa-refusal-rates/azerbaijan/": [
+"2026-10-28",
+"85359c167885c6bcccb6"
+],
+"visa-refusal-rates/azerbaijan/easiest-schengen-visa/": [
+"2026-10-21",
+"64044f4616a98f48d553"
+],
+"visa-refusal-rates/bahrain/": [
+"2026-10-28",
+"cf8cdbd8ac306dd0860a"
+],
+"visa-refusal-rates/bangladesh/": [
+"2026-10-28",
+"a450c8883126e2fc8391"
+],
+"visa-refusal-rates/bangladesh/easiest-schengen-visa/": [
+"2026-10-21",
+"57adb77d6fa7666156a8"
+],
+"visa-refusal-rates/belarus/": [
+"2026-10-28",
+"fff18fc8eec3ed302ba2"
+],
+"visa-refusal-rates/belarus/easiest-schengen-visa/": [
+"2026-10-21",
+"e40b2627523c48a40fd8"
+],
+"visa-refusal-rates/benin/": [
+"2026-10-28",
+"54113e8956956599b485"
+],
+"visa-refusal-rates/bolivia/": [
+"2026-10-28",
+"872650f35b514892592e"
+],
+"visa-refusal-rates/cambodia/": [
+"2026-10-28",
+"ee156532b4655594d551"
+],
+"visa-refusal-rates/cameroon/": [
+"2026-10-28",
+"00bba3a5d75901e8618d"
+],
+"visa-refusal-rates/canada-visas/": [
+"2026-10-26",
+"06049bc1e45adafc4d2e"
+],
+"visa-refusal-rates/canada/": [
+"2026-10-28",
+"cf4406f3811ba2395223"
+],
+"visa-refusal-rates/canada/easiest-schengen-visa/": [
+"2026-10-21",
+"bc9ad7a489fb1d8294fe"
+],
+"visa-refusal-rates/cape-verde/": [
+"2026-10-28",
+"80ddf9e2871fd982fe77"
+],
+"visa-refusal-rates/china/": [
+"2026-10-28",
+"d13caa0091978842484e"
+],
+"visa-refusal-rates/china/easiest-schengen-visa/": [
+"2026-10-21",
+"f7a623343fbb5a42fd07"
+],
+"visa-refusal-rates/cote-d-ivoire/": [
+"2026-10-28",
+"df9f2a235b34d60b7919"
+],
+"visa-refusal-rates/cuba/": [
+"2026-10-28",
+"9592a453d7dfa9da9309"
+],
+"visa-refusal-rates/cuba/easiest-schengen-visa/": [
+"2026-10-21",
+"898ad145e4656d4bcdf2"
+],
+"visa-refusal-rates/cyprus/": [
+"2026-10-28",
+"1451b1ac232309b47b30"
+],
+"visa-refusal-rates/cyprus/easiest-schengen-visa/": [
+"2026-10-21",
+"39deb30c6583a8f73dfe"
+],
+"visa-refusal-rates/dominican-republic/": [
+"2026-10-28",
+"6f65ea9a6453aa32160d"
+],
+"visa-refusal-rates/dr-congo/": [
+"2026-10-28",
+"9740d5f44731073275b0"
+],
+"visa-refusal-rates/ecuador/": [
+"2026-10-28",
+"f269417f76d00c0295ba"
+],
+"visa-refusal-rates/egypt/": [
+"2026-10-28",
+"531af3c9101023d6555a"
+],
+"visa-refusal-rates/egypt/easiest-schengen-visa/": [
+"2026-10-21",
+"244d5cfc50e47ba05ea0"
+],
+"visa-refusal-rates/equatorial-guinea/": [
+"2026-10-28",
+"511124d308602dd18d87"
+],
+"visa-refusal-rates/ethiopia/": [
+"2026-10-28",
+"e137ae56928769eef3ea"
+],
+"visa-refusal-rates/ethiopia/easiest-schengen-visa/": [
+"2026-10-21",
+"0211aa648e7e64e7c0e4"
+],
+"visa-refusal-rates/gabon/": [
+"2026-10-28",
+"176e1e6771bcdeab392a"
+],
+"visa-refusal-rates/georgia/": [
+"2026-10-28",
+"ec6d9c2c1e8e35e29b0d"
+],
+"visa-refusal-rates/ghana/": [
+"2026-10-28",
+"d7762c6b6baf441257a4"
+],
+"visa-refusal-rates/ghana/easiest-schengen-visa/": [
+"2026-10-21",
+"bf42e2c41d0cd6fa5ab2"
+],
+"visa-refusal-rates/guinea/": [
+"2026-10-28",
+"88902c9fe12b4af0470b"
+],
+"visa-refusal-rates/hong-kong/": [
+"2026-10-28",
+"631f8c5a6c9273b70e6d"
+],
+"visa-refusal-rates/hong-kong/easiest-schengen-visa/": [
+"2026-10-21",
+"7691acd8bb782b2b5738"
+],
+"visa-refusal-rates/india/": [
+"2026-10-28",
+"987a97fe602c6e913377"
+],
+"visa-refusal-rates/india/easiest-schengen-visa/": [
+"2026-10-21",
+"8c781c6ddc41a56c76c2"
+],
+"visa-refusal-rates/indonesia/": [
+"2026-10-28",
+"c57c7fa1e9f03d3d24bd"
+],
+"visa-refusal-rates/indonesia/easiest-schengen-visa/": [
+"2026-10-21",
+"c60804a7c8b9e97d46a8"
+],
+"visa-refusal-rates/iran/": [
+"2026-10-28",
+"702f41617a4eb56b23c4"
+],
+"visa-refusal-rates/iran/easiest-schengen-visa/": [
+"2026-10-21",
+"6cb8df19ea964744ae88"
+],
+"visa-refusal-rates/iraq/": [
+"2026-10-28",
+"5c9440f2fc36597d5a87"
+],
+"visa-refusal-rates/iraq/easiest-schengen-visa/": [
+"2026-10-21",
+"06778b7a9529e35eb620"
+],
+"visa-refusal-rates/ireland/": [
+"2026-10-28",
+"76bb0c2a28142f8acc8a"
+],
+"visa-refusal-rates/ireland/easiest-schengen-visa/": [
+"2026-10-21",
+"86019456cfe3d8f572ba"
+],
+"visa-refusal-rates/israel/": [
+"2026-10-28",
+"7fb0e40fb1d163fe0e05"
+],
+"visa-refusal-rates/israel/easiest-schengen-visa/": [
+"2026-10-21",
+"d7c9746fc126f294b444"
+],
+"visa-refusal-rates/japan/": [
+"2026-10-28",
+"5d974309187829f96a16"
+],
+"visa-refusal-rates/jordan/": [
+"2026-10-28",
+"4d3ba34e8f5b2c4bc892"
+],
+"visa-refusal-rates/jordan/easiest-schengen-visa/": [
+"2026-10-21",
+"ea01fb52aa19d75f270a"
+],
+"visa-refusal-rates/kazakhstan/": [
+"2026-10-28",
+"146d70fdc4b610d174bd"
+],
+"visa-refusal-rates/kazakhstan/easiest-schengen-visa/": [
+"2026-10-21",
+"d6cd646b0dcbffc51525"
+],
+"visa-refusal-rates/kenya/": [
+"2026-10-28",
+"7a8d9ed6331b59929385"
+],
+"visa-refusal-rates/kenya/easiest-schengen-visa/": [
+"2026-10-21",
+"92b9600625275251c05d"
+],
+"visa-refusal-rates/kuwait/": [
+"2026-10-28",
+"58885f2df67ddef908f7"
+],
+"visa-refusal-rates/kuwait/easiest-schengen-visa/": [
+"2026-10-21",
+"d6bf99d25b8e2a07c8de"
+],
+"visa-refusal-rates/kyrgyzstan/": [
+"2026-10-28",
+"4f2e610fe6c50899208c"
+],
+"visa-refusal-rates/lebanon/": [
+"2026-10-28",
+"3e81c17283a388a72418"
+],
+"visa-refusal-rates/lebanon/easiest-schengen-visa/": [
+"2026-10-21",
+"34b64f90f7f443d93025"
+],
+"visa-refusal-rates/libya/": [
+"2026-10-28",
+"e3d76806a484fde46128"
+],
+"visa-refusal-rates/madagascar/": [
+"2026-10-28",
+"99fe8adf56640c93d262"
+],
+"visa-refusal-rates/mali/": [
+"2026-10-28",
+"a20d0c93cc30f18cc15c"
+],
+"visa-refusal-rates/mauritania/": [
+"2026-10-28",
+"37c15bee470f6f1252a3"
+],
+"visa-refusal-rates/mongolia/": [
+"2026-10-28",
+"459ce88b949807070bdc"
+],
+"visa-refusal-rates/morocco/": [
+"2026-10-28",
+"2ea840f93c320ae794e8"
+],
+"visa-refusal-rates/morocco/easiest-schengen-visa/": [
+"2026-10-21",
+"8505c174328ba985c944"
+],
+"visa-refusal-rates/mozambique/": [
+"2026-10-28",
+"9c8b2c43b53f6944ed5d"
+],
+"visa-refusal-rates/new-zealand-visas/": [
+"2026-10-26",
+"3e7adfca6015b859c790"
+],
+"visa-refusal-rates/nigeria/": [
+"2026-10-28",
+"361608a6d6f5de2a328f"
+],
+"visa-refusal-rates/nigeria/easiest-schengen-visa/": [
+"2026-10-21",
+"1a9f56315512f8543a9a"
+],
+"visa-refusal-rates/oman/": [
+"2026-10-28",
+"c203752df250ff90e3a5"
+],
+"visa-refusal-rates/pakistan/": [
+"2026-10-28",
+"a7769ac78ce3396537c7"
+],
+"visa-refusal-rates/pakistan/easiest-schengen-visa/": [
+"2026-10-21",
+"b552f3cf3005e66ea614"
+],
+"visa-refusal-rates/philippines/": [
+"2026-10-28",
+"0ac93de8c1f86ae6a981"
+],
+"visa-refusal-rates/philippines/easiest-schengen-visa/": [
+"2026-10-21",
+"e5f16c5aa287836c168c"
+],
+"visa-refusal-rates/qatar/": [
+"2026-10-28",
+"e7ccc296daaf5fb04b72"
+],
+"visa-refusal-rates/qatar/easiest-schengen-visa/": [
+"2026-10-21",
+"86ae97ada40815801b26"
+],
+"visa-refusal-rates/republic-of-the-congo/": [
+"2026-10-28",
+"f691cb6e23de535715a2"
+],
+"visa-refusal-rates/russia/": [
+"2026-10-28",
+"d47906711ae682ae1f5f"
+],
+"visa-refusal-rates/russia/easiest-schengen-visa/": [
+"2026-10-21",
+"6308c70353b10360e455"
+],
+"visa-refusal-rates/saudi-arabia/": [
+"2026-10-28",
+"27e7b32708ffaa360504"
+],
+"visa-refusal-rates/saudi-arabia/easiest-schengen-visa/": [
+"2026-10-21",
+"8174b031f3559e77817b"
+],
+"visa-refusal-rates/schengen/austria/": [
+"2026-10-17",
+"ee45cf74563acb2cc6b1"
+],
+"visa-refusal-rates/schengen/belgium/": [
+"2026-10-17",
+"3ba849d253cdb5790dba"
+],
+"visa-refusal-rates/schengen/bulgaria/": [
+"2026-10-17",
+"00a9876f95ce5d15bcfa"
+],
+"visa-refusal-rates/schengen/croatia/": [
+"2026-10-17",
+"dab22eae3987126c7e97"
+],
+"visa-refusal-rates/schengen/czech-republic/": [
+"2026-10-17",
+"3db26f068c560e924cf5"
+],
+"visa-refusal-rates/schengen/denmark/": [
+"2026-10-17",
+"69134354508e2f4c8810"
+],
+"visa-refusal-rates/schengen/estonia/": [
+"2026-10-17",
+"9dc3132b7fd41bbe15e0"
+],
+"visa-refusal-rates/schengen/finland/": [
+"2026-10-17",
+"1d20fdef6d261f6ae947"
+],
+"visa-refusal-rates/schengen/france/": [
+"2026-10-17",
+"f3f5cc4fc8ecc248d7b6"
+],
+"visa-refusal-rates/schengen/germany/": [
+"2026-10-17",
+"aebaf57a0976eb256e9a"
+],
+"visa-refusal-rates/schengen/greece/": [
+"2026-10-17",
+"bb207148fad0de50d512"
+],
+"visa-refusal-rates/schengen/hungary/": [
+"2026-10-17",
+"eba28aa75ec43dff729c"
+],
+"visa-refusal-rates/schengen/iceland/": [
+"2026-10-17",
+"2d31547537a709d89a77"
+],
+"visa-refusal-rates/schengen/italy/": [
+"2026-10-17",
+"4b7368dccbded680ab7a"
+],
+"visa-refusal-rates/schengen/latvia/": [
+"2026-10-17",
+"c746d947131b3e900a93"
+],
+"visa-refusal-rates/schengen/lithuania/": [
+"2026-10-17",
+"e3ad5c7e7b404267a852"
+],
+"visa-refusal-rates/schengen/luxembourg/": [
+"2026-10-17",
+"9afe20b0d390dc7756d8"
+],
+"visa-refusal-rates/schengen/malta/": [
+"2026-10-17",
+"f68968740bcb5677d0f3"
+],
+"visa-refusal-rates/schengen/netherlands/": [
+"2026-10-17",
+"12f479f3ea7e84952b32"
+],
+"visa-refusal-rates/schengen/norway/": [
+"2026-10-17",
+"aab4715225816ad81688"
+],
+"visa-refusal-rates/schengen/poland/": [
+"2026-10-17",
+"5b1a8ac38cea58422382"
+],
+"visa-refusal-rates/schengen/portugal/": [
+"2026-10-17",
+"f8286c1f1a550b08d59b"
+],
+"visa-refusal-rates/schengen/romania/": [
+"2026-10-17",
+"5e89b412b9b190090057"
+],
+"visa-refusal-rates/schengen/slovakia/": [
+"2026-10-17",
+"1dfeb6453c150175caa8"
+],
+"visa-refusal-rates/schengen/slovenia/": [
+"2026-10-17",
+"b766babd39d960373692"
+],
+"visa-refusal-rates/schengen/spain/": [
+"2026-10-17",
+"cdd0edfff3e1de5d6659"
+],
+"visa-refusal-rates/schengen/sweden/": [
+"2026-10-17",
+"8c64cf6786aca84a0cbc"
+],
+"visa-refusal-rates/schengen/switzerland/": [
+"2026-10-17",
+"0c36013a22a88038f7d7"
+],
+"visa-refusal-rates/senegal/": [
+"2026-10-28",
+"56e63815777c17d39e89"
+],
+"visa-refusal-rates/senegal/easiest-schengen-visa/": [
+"2026-10-21",
+"9b1054d4da38c22c8b2e"
+],
+"visa-refusal-rates/serbia/": [
+"2026-10-28",
+"90a103448e4d662a046a"
+],
+"visa-refusal-rates/serbia/easiest-schengen-visa/": [
+"2026-10-21",
+"00629333a1105381be30"
+],
+"visa-refusal-rates/singapore/": [
+"2026-10-28",
+"135929f1ef72486bd66c"
+],
+"visa-refusal-rates/singapore/easiest-schengen-visa/": [
+"2026-10-21",
+"01d5c9ad3b5aa14ca6db"
+],
+"visa-refusal-rates/south-africa/": [
+"2026-10-28",
+"cb14053981d777ef5eb6"
+],
+"visa-refusal-rates/south-africa/easiest-schengen-visa/": [
+"2026-10-21",
+"44154944f3d960fe8c84"
+],
+"visa-refusal-rates/sri-lanka/": [
+"2026-10-28",
+"eca3057bf2c027ec470d"
+],
+"visa-refusal-rates/suriname/": [
+"2026-10-28",
+"72b49bafc8ec0fbae715"
+],
+"visa-refusal-rates/tanzania/": [
+"2026-10-28",
+"c5f3639c8111aa06980c"
+],
+"visa-refusal-rates/tanzania/easiest-schengen-visa/": [
+"2026-10-21",
+"1ccfbaba72b4a9d516c2"
+],
+"visa-refusal-rates/thailand/": [
+"2026-10-28",
+"ca75f6e8074a599533fc"
+],
+"visa-refusal-rates/thailand/easiest-schengen-visa/": [
+"2026-10-21",
+"e3c57c34bdb8c422658f"
+],
+"visa-refusal-rates/togo/": [
+"2026-10-28",
+"77f055e7cc702bdb3431"
+],
+"visa-refusal-rates/tunisia/": [
+"2026-10-28",
+"7ea0d02784eb6fdef0fc"
+],
+"visa-refusal-rates/tunisia/easiest-schengen-visa/": [
+"2026-10-21",
+"dba8fe9ea2b991be5230"
+],
+"visa-refusal-rates/turkiye/": [
+"2026-10-28",
+"7d8e3d2d60d184408241"
+],
+"visa-refusal-rates/turkiye/easiest-schengen-visa/": [
+"2026-10-21",
+"c6dacae36fb8b0db7aac"
+],
+"visa-refusal-rates/uganda/": [
+"2026-10-28",
+"9f8363c40054e9f296f6"
+],
+"visa-refusal-rates/uk/": [
+"2026-10-28",
+"3f3f4e44dfdcf05a23e4"
+],
+"visa-refusal-rates/uk/family-visas/": [
+"2026-10-28",
+"2ca3c2d3ef4d1512392d"
+],
+"visa-refusal-rates/united-arab-emirates/": [
+"2026-10-28",
+"a6e50db5afa0c779134b"
+],
+"visa-refusal-rates/united-arab-emirates/easiest-schengen-visa/": [
+"2026-10-21",
+"ab10841d45006f6b6976"
+],
+"visa-refusal-rates/united-kingdom/": [
+"2026-10-28",
+"21d5ddb1c6ddb3dbbfce"
+],
+"visa-refusal-rates/united-kingdom/easiest-schengen-visa/": [
+"2026-10-21",
+"cae08e3dbc788d3ddc39"
+],
+"visa-refusal-rates/united-states/": [
+"2026-10-28",
+"b3f27b8e479d9a9adacf"
+],
+"visa-refusal-rates/united-states/easiest-schengen-visa/": [
+"2026-10-21",
+"d4ef4d25ef3536519b7a"
+],
+"visa-refusal-rates/uzbekistan/": [
+"2026-10-28",
+"b41b0abee69d75780940"
+],
+"visa-refusal-rates/uzbekistan/easiest-schengen-visa/": [
+"2026-10-21",
+"161aab79df7660606664"
+],
+"visa-refusal-rates/vietnam/": [
+"2026-10-28",
+"c8dab3357f3824c85a31"
+],
+"visa-refusal-rates/vietnam/easiest-schengen-visa/": [
+"2026-10-21",
+"303d1fcfbce762f95fa5"
+],
+"work-visa-salary-thresholds/": [
+"2026-10-14",
+"9248b050cb9f81f1a8d4"
+]
+}
+}
