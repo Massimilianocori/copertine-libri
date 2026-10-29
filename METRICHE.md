@@ -81,6 +81,10 @@ Inviate 40 email: 5 agenzie "segnale" (Story Co, Informal, Mass FX Media, Social
 
 20 invii: 17 follow-up 2 (invii del 15/10) + 3 nuovi. Fermati per rimbalzo (greg@klientboost.com, 550 5.2.1 account disattivato) → escluso; 30 nuovi rinviati. Risposte: 1 "no" (TargetPath, 27/10) → escluso. Rimbalzi sui nuovi invii del 26-28/10: 3 su 80 (circa 4%), sopra la soglia del 2%.
 
+## 29/10
+
+19 invii: follow-up 2 (invii del 16/10). Nuovi sospesi in attesa del sì/no di Massimiliano sulla verifica Apollo degli indirizzi (rimbalzi al 4%). 0 rimbalzi, 0 risposte vere.
+
 ## Crediti
 
 | Data | Higgsfield (piano Ultra) | Apollo lead credit (ciclo 3/10-3/11) |
