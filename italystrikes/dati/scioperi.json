@@ -640,10 +640,23 @@
   "proclamazione": "2026-10-22",
   "ricezione": "22/10/2026",
   "note": "",
-  "stato": "in programma",
+  "stato": "revocato",
   "visto_prima": "2026-10-22",
   "visto_ultimo": "2026-10-23",
-  "modifiche": []
+  "modifiche": [
+   {
+    "il": "2026-10-29",
+    "campi": {
+     "stato": [
+      "in programma",
+      "revocato"
+     ]
+    },
+    "fonte": "cgsse",
+    "url": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382348"
+   }
+  ],
+  "revoca_cgsse": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382348"
  },
  "cgsse-382381": {
   "id": "cgsse-382381",
@@ -661,7 +674,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-27",
-  "visto_ultimo": "2026-10-28",
+  "visto_ultimo": "2026-10-29",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382381",
@@ -684,7 +697,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-28",
-  "visto_ultimo": "2026-10-28",
+  "visto_ultimo": "2026-10-29",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382437",
@@ -707,12 +720,35 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-28",
-  "visto_ultimo": "2026-10-28",
+  "visto_ultimo": "2026-10-29",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382665",
   "settore_cgsse": "Trasporto ferroviario",
   "ambito_cgsse": "NAZIONALE"
+ },
+ "cgsse-382734": {
+  "id": "cgsse-382734",
+  "inizio": "2026-11-09",
+  "fine": "2026-11-09",
+  "settore": "Trasporto pubblico locale",
+  "rilevanza": "Locale",
+  "regione": "Liguria",
+  "provincia": "Genova",
+  "sindacati": "CUB TRASPORTI",
+  "categoria": "AMT",
+  "modalita": "DALLE ORE 11.30 ALLE ORE 15.30",
+  "proclamazione": "",
+  "ricezione": "",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-10-29",
+  "visto_ultimo": "2026-10-29",
+  "modifiche": [],
+  "fonte": "cgsse",
+  "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382734",
+  "settore_cgsse": "Trasporto pubblico locale",
+  "ambito_cgsse": "GENOVA"
  },
  "8608": {
   "id": "8608",
@@ -749,7 +785,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-27",
-  "visto_ultimo": "2026-10-28",
+  "visto_ultimo": "2026-10-29",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382399",
@@ -888,6 +924,29 @@
   "visto_prima": "2026-10-10",
   "visto_ultimo": "2026-10-23",
   "modifiche": []
+ },
+ "cgsse-382755": {
+  "id": "cgsse-382755",
+  "inizio": "2026-11-21",
+  "fine": "2026-11-21",
+  "settore": "Ferroviario",
+  "rilevanza": "Locale",
+  "regione": "Veneto",
+  "provincia": "Verona",
+  "sindacati": "ORSA FERROVIE",
+  "categoria": "RFI",
+  "modalita": "DALLE ORE 09.01 ALLE ORE 17.00",
+  "proclamazione": "",
+  "ricezione": "",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-10-29",
+  "visto_ultimo": "2026-10-29",
+  "modifiche": [],
+  "fonte": "cgsse",
+  "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382755",
+  "settore_cgsse": "Trasporto ferroviario",
+  "ambito_cgsse": "VERONA"
  },
  "8579": {
   "id": "8579",

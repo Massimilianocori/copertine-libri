@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:mit-8567@italy-strikes-today.netlify.app
-DTSTAMP:20261028T080156Z
+DTSTAMP:20261029T113338Z
 DTSTART;VALUE=DATE:20261014
 DTEND;VALUE=DATE:20261015
 SUMMARY:Strike: Tuscany: general strike
@@ -30,7 +30,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8597@italy-strikes-today.netlify.app
-DTSTAMP:20261028T080156Z
+DTSTAMP:20261029T113338Z
 DTSTART;VALUE=DATE:20261028
 DTEND;VALUE=DATE:20261030
 SUMMARY:Called off: Emilia-Romagna: rail strike – Trenitalia
@@ -49,7 +49,7 @@ STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8590@italy-strikes-today.netlify.app
-DTSTAMP:20261028T080156Z
+DTSTAMP:20261029T113338Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National general strike
@@ -69,7 +69,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8612@italy-strikes-today.netlify.app
-DTSTAMP:20261028T080156Z
+DTSTAMP:20261029T113338Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National general strike
@@ -85,7 +85,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-382437@italy-strikes-today.netlify.app
-DTSTAMP:20261028T080156Z
+DTSTAMP:20261029T113338Z
 DTSTART;VALUE=DATE:20261109
 DTEND;VALUE=DATE:20261110
 SUMMARY:Strike: National rail strike – Italo
@@ -101,7 +101,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-382665@italy-strikes-today.netlify.app
-DTSTAMP:20261028T080156Z
+DTSTAMP:20261029T113338Z
 DTSTART;VALUE=DATE:20261109
 DTEND;VALUE=DATE:20261110
 SUMMARY:Strike: National rail strike – Italo
@@ -117,23 +117,25 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8615@italy-strikes-today.netlify.app
-DTSTAMP:20261028T080156Z
+DTSTAMP:20261029T113338Z
 DTSTART;VALUE=DATE:20261109
 DTEND;VALUE=DATE:20261110
-SUMMARY:Strike: Verona: rail strike – RFI (Italian rail network)
+SUMMARY:Called off: Verona: rail strike – RFI (Italian rail network)
 DESCRIPTION:Hours: 8 hours: from 09:01 to 17\,00\nOriginal: 8 ORE: DALLE 9.
  01 ALLE 17\,00\nWho: RFI (Italian rail network) (PERSONALE MANUTENZIONE ED
   INGEGNERIA SOC. RFI DOIT VERONA UNITA' TERRITORIALE SUD)\nWhere: Verona a
  rea (Veneto)\nStrikes can be called off or changed: always check with your
   operator.\nhttps://italy-strikes-today.netlify.app/trains/\nSource: MIT s
- trike register (CC BY 4.0)\, id 8615
+ trike register (CC BY 4.0)\, id 8615\nCalled off according to the Commissi
+ one di garanzia sciopero (via onData\, CC BY 4.0)\, https://www.cgsse.it/c
+ alendario-scioperi/dettaglio-sciopero/382348
 URL:https://italy-strikes-today.netlify.app/trains/
 TRANSP:TRANSPARENT
-STATUS:CONFIRMED
+STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8610@italy-strikes-today.netlify.app
-DTSTAMP:20261028T080156Z
+DTSTAMP:20261029T113338Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261121
 SUMMARY:Strike: National general strike
@@ -148,7 +150,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8592@italy-strikes-today.netlify.app
-DTSTAMP:20261028T080156Z
+DTSTAMP:20261029T113338Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National multi-sector strike
@@ -166,8 +168,24 @@ TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:cgsse-382755@italy-strikes-today.netlify.app
+DTSTAMP:20261029T113338Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Strike: Verona: rail strike – RFI (Italian rail network)
+DESCRIPTION:Hours: From 09:01 to 17:00\nOriginal: DALLE ORE 09.01 ALLE ORE 
+ 17.00\nWho: RFI (Italian rail network) (RFI)\nWhere: Verona area (Veneto)\
+ nStrikes can be called off or changed: always check with your operator.\nh
+ ttps://italy-strikes-today.netlify.app/trains/\nSource: Commissione di gar
+ anzia sciopero (via onData\, CC BY 4.0)\, https://www.cgsse.it/calendario-
+ scioperi/dettaglio-sciopero/382755
+URL:https://italy-strikes-today.netlify.app/trains/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:mit-8575@italy-strikes-today.netlify.app
-DTSTAMP:20261028T080156Z
+DTSTAMP:20261029T113338Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:Strike: National general strike
