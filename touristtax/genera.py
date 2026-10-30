@@ -65,7 +65,7 @@ ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti 
 def ci_sono_affiliati():
     """True se il sito pubblica almeno un link di affiliazione (voce con "url" in dati/affiliati.json):
     accende la sezione privacy sui link di affiliazione. Domini ammessi in monetizzazione.json, controlli in verifica.py."""
-    return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_"))
+    return any(isinstance(v, dict) and v.get("url") for v in AFFILIATI.values())  # anche le voci "_" (DiscoverCars, pagine Messico)
 
 
 def riquadro_trasparenza(corpo, lingua="en"):
@@ -87,11 +87,12 @@ PAESI = {  # slug paese -> (nome, aggettivo/nota breve)
     "france": "France", "spain": "Spain", "greece": "Greece", "turkey": "Turkey", "netherlands": "Netherlands",
     "germany": "Germany", "austria": "Austria", "czech-republic": "Czech Republic", "united-kingdom": "United Kingdom",
     "italy": "Italy", "japan": "Japan", "indonesia": "Indonesia", "iceland": "Iceland", "malta": "Malta", "portugal": "Portugal",
-    "tunisia": "Tunisia"}
+    "tunisia": "Tunisia", "mexico": "Mexico"}
 EUROPA = {"france", "spain", "greece", "netherlands", "germany", "austria", "czech-republic", "united-kingdom", "italy", "iceland", "turkey",
           "malta", "portugal"}
 VALUTE = {"EUR": ("€", "", 2), "GBP": ("£", "", 2), "JPY": ("¥", "", 0), "CZK": ("", " CZK", 0), "ISK": ("ISK ", "", 0),
-          "IDR": ("IDR ", "", 0), "TRY": ("TRY ", "", 2), "TND": ("TND ", "", 2)}
+          "IDR": ("IDR ", "", 0), "TRY": ("TRY ", "", 2), "TND": ("TND ", "", 2),
+          "MXN": ("MXN ", "", 2)}
 MESI = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
 
@@ -133,6 +134,52 @@ def dep_nome(dep):
 def slugify(t):
     t = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode()
     return re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")
+
+
+# ---------------------------------------------------------------- Messico (30/10/2026): Visitax = 2,50 UMA
+# dati/uma.json ha i valori ufficiali INEGI (uno per anno, in vigore dal 1° febbraio); raccolta/uma.py aggiunge quello nuovo a gennaio.
+# Le destinazioni con "uma_moltiplicatore" ricevono qui le tariffe: una per anno, dal 1/2 al 31/1 dell'anno dopo. Senza il valore
+# dell'anno dopo l'ultima tariffa finisce il 31/1 e il calcolatore dice che l'importo non è ancora ufficiale (nota_senza_importo).
+UMA = json.loads((DATI / "uma.json").read_text(encoding="utf-8"))
+MX = json.loads((DATI / "messico.json").read_text(encoding="utf-8"))
+UMA_VALORI = sorted(UMA["valori"], key=lambda v: v["dal"])
+
+
+def _giorno_prima(iso):
+    return (date.fromisoformat(iso) - timedelta(days=1)).isoformat()
+
+
+def al_peso(x):
+    """Arrotondamento al peso per il pagamento (Código Fiscal del Estado de Quintana Roo, art. 18): da 1 a 50 centavos
+    all'unità inferiore, da 51 a 99 all'unità superiore. Il portale Visitax il 30/10/2026 chiede MXN 293 a persona (293,275)."""
+    base = math.floor(x + 1e-9)
+    cent = round((x - base) * 100, 6)
+    return float(base + (1 if cent > 50 else 0))
+
+
+def tariffe_uma(molt):
+    """Tariffe [{cat, dal, al, valore, esatto, uma, anno}]: esatto = molt × UMA giornaliera dell'anno, valore = esatto arrotondato
+    al peso (al_peso), cioè l'importo che si paga."""
+    out = []
+    for i, v in enumerate(UMA_VALORI):
+        al = _giorno_prima(UMA_VALORI[i + 1]["dal"]) if i + 1 < len(UMA_VALORI) else f"{int(v['dal'][:4]) + 1}-01-31"
+        esatto = round(molt * v["diario"], 4)
+        out.append({"cat": "all", "dal": v["dal"], "al": al, "valore": al_peso(esatto), "esatto": esatto, "uma": v["diario"], "anno": v["anno"]})
+    return out
+
+
+def nota_senza_importo(molt):
+    ultima = tariffe_uma(molt)[-1]
+    dopo = (date.fromisoformat(ultima["al"]) + timedelta(days=1)).isoformat()
+    return (f"No official amount yet for arrivals from {data_lunga(dopo)}: it will be {molt:.2f} × the {dopo[:4]} UMA, "
+            f"which INEGI publishes in January {dopo[:4]}.")
+
+
+for _d in DEST:
+    if _d.get("uma_moltiplicatore"):
+        _d["tariffe"] = tariffe_uma(_d["uma_moltiplicatore"])
+        _d["nota_senza_importo"] = nota_senza_importo(_d["uma_moltiplicatore"])
+        _d["unita_viaggio"] = "due on entering Quintana Roo"
 
 
 # ---------------------------------------------------------------- Francia: voce "regola" per una comune
@@ -387,7 +434,7 @@ def _riassunto(R, giorno=None):
         nz = [v for v in vals if v > 0]
         return f"{soldi(min(nz), val)}–{soldi(max(nz), val)} per person per night (by price band)"
     if tipo == "per_trip":
-        return f"{soldi(tt[0]['valore'], val)} per person, once per trip"
+        return f"{soldi(tt[0]['valore'], val)} per person, {R.get('unita_viaggio', 'once per trip')}"
     return ""
 
 
@@ -804,7 +851,7 @@ def h1_diviso(testo, home=False):
 
 # Motore di calcolo in JS: deve dare gli stessi risultati di calcola() (verifica.py li confronta).
 MOTORE_JS = r"""
-var VAL={"EUR":["€","",2],"GBP":["£","",2],"JPY":["¥","",0],"CZK":[""," CZK",0],"ISK":["ISK ","",0],"IDR":["IDR ","",0],"TRY":["TRY ","",2],"TND":["TND ","",2]};
+var VAL={"EUR":["€","",2],"GBP":["£","",2],"JPY":["¥","",0],"CZK":[""," CZK",0],"ISK":["ISK ","",0],"IDR":["IDR ","",0],"TRY":["TRY ","",2],"TND":["TND ","",2],"MXN":["MXN ","",2]};
 function r2(x){return Math.floor(x*100+0.5+1e-9)/100;}
 function grp(n,dec){var s=dec?r2(n).toFixed(2):String(Math.floor(n+0.5+1e-9));var p=s.split('.');p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,',');return p.join('.');}
 function soldi(v,c){var x=VAL[c];return x[0]+grp(v,x[2])+x[1];}
@@ -878,11 +925,12 @@ APP_JS = r"""
     var eta=R.esenti_sotto_eta;
     f.querySelector('[data-lab=paganti]').textContent=R.tipo==='per_trip'?'Travellers':(eta?'Guests aged '+eta+' or over':'Guests');
     f.querySelector('[data-lab=esenti]').textContent=eta?'Children under '+eta+' (exempt)':'';
+    f.querySelector('[data-lab=checkin]').textContent=R.etichetta_data||'Check-in date';
     var lp=f.querySelector('[data-lab=prezzo]');lp.textContent=(R.etichetta_prezzo||'Price per night')+' ('+R.currency+')';
     function aggiorna(){
       var tp=R.tipo,isNC=false;
       if(tp==='france'){var t=R.tariffe.filter(function(x){return x.cat===cat.value;})[0];isNC=t&&t.fr.u==='%';}
-      vis('checkin',tp!=='per_trip');vis('notti',tp!=='per_trip');
+      vis('checkin',tp!=='per_trip'||!!R.chiedi_data);vis('notti',tp!=='per_trip');
       vis('paganti',tp!=='per_room'&&tp!=='percent');vis('esenti',!!eta&&tp!=='per_room'&&tp!=='percent');
       vis('stanze',tp==='per_room');vis('prezzo',tp==='percent'||tp==='bands'||isNC);
       var notti=Math.max(1,Math.min(365,parseInt(q('notti').value,10)||1));
@@ -891,21 +939,21 @@ APP_JS = r"""
       var ci=q('checkin').value||primaData(R);
       var zs=q('zona');vis('zona',!!(R.zone&&R.zone.length));
       var o=calcola(R,cat.value,ci,notti,pag,eta?es:0,st,pr,(R.zone&&zs)?zs.value:'');
-      var cur=R.currency,tot=soldi(o.totale,cur);
+      var cur=R.currency,nessuno=tp==='per_trip'&&!o.righe.length,tot=nessuno?'Not yet official':soldi(o.totale,cur);
       var h='<div class="r-lab">Estimated tax for this stay</div><div class="tot">'+tot+'</div>';
       var kv=[],tassate=o.righe.reduce(function(s,g){return s+(g[2]>0?g[1]:0);},0);
       if(tp!=='per_trip'){kv.push(['Taxed nights',tassate+' of '+notti]);kv.push(['Average per night',soldi(o.totale/notti,cur)]);}
-      if((tp==='per_person'||tp==='france'||tp==='per_trip')&&pag>0)kv.push([tp==='per_trip'?'Per traveller':'Per paying guest',soldi(o.totale/pag,cur)]);
+      if((tp==='per_person'||tp==='france'||tp==='per_trip')&&pag>0&&!nessuno)kv.push([tp==='per_trip'?'Per traveller':'Per paying guest',soldi(o.totale/pag,cur)]);
       if(eta&&tp!=='per_room'&&tp!=='percent')kv.push(['Exempt (under '+eta+')',plur(es,'guest')]);
       if(tp==='per_room')kv.push(['Rooms or units',String(st)]);
       if(tp==='percent'||tp==='bands'||isNC)kv.push(['Price per night',soldi(pr,cur)]);
       h+='<dl class="r-dl">'+kv.map(function(x){return '<div><dt>'+esc(x[0])+'</dt><dd>'+esc(x[1])+'</dd></div>';}).join('')+'</dl><ul class="r-righe">';
       o.righe.forEach(function(g){h+='<li><span>'+(tp==='per_trip'?'':plur(g[1],'night')+' × ')+esc(g[0])+'</span><strong class="eq">= '+soldi(g[2],cur)+'</strong></li>';});
-      if(R.tipo==='per_trip'&&!o.righe.length)h+='<li>No verified amount.</li>';
+      if(R.tipo==='per_trip'&&!o.righe.length)h+='<li>'+esc(R.nota_senza_importo||'No verified amount.')+'</li>';
       if(o.escluse)h+='<li>'+plur(o.escluse,'night')+' beyond the maximum number of taxable nights: no tax.</li>';
       if(o.fuori)h+='<li>'+plur(o.fuori,'night')+' outside the collection period: no tax.</li>';
       if(o.prima)h+='<li>'+plur(o.prima,'night')+' before '+esc(R.in_vigore_testo||R.in_vigore_dal)+': no tax yet.</li>';
-      if(o.sconosciute)h+='<li>'+plur(o.sconosciute,'night')+' with no verified official rate for that date (not counted).</li>';
+      if(o.sconosciute&&tp!=='per_trip')h+='<li>'+plur(o.sconosciute,'night')+' with no verified official rate for that date (not counted).</li>';
       o.note.forEach(function(n){h+='<li>'+esc(n)+'</li>';});
       h+='</ul>';box.querySelector('[data-out]').innerHTML=h;
       var bar=box.querySelector('[data-bar]');if(bar){bar.querySelector('.r-bar-tot').textContent=tot;
@@ -1088,7 +1136,7 @@ def modulo_calcolatore(id_dati, con_destinazione=False, rel="", cat_default=""):
 {sel}
 <label class="pieno" data-campo="cat"><span class="lt">{ico("bed")}Type of accommodation</span><select name="cat"></select></label>
 <label class="pieno" data-campo="zona" hidden><span class="lt">{ico("city")}Municipality</span><select name="zona"></select></label>
-<label data-campo="checkin"><span class="lt">{ico("calendar")}Check-in date</span><input type="date" name="checkin"></label>
+<label data-campo="checkin"><span class="lt">{ico("calendar")}<span data-lab="checkin">Check-in date</span></span><input type="date" name="checkin"></label>
 <label data-campo="notti"><span class="lt">{ico("moon")}Nights</span><input type="number" name="notti" min="1" max="365" value="3" inputmode="numeric"></label>
 <label data-campo="paganti"><span class="lt">{ico("users")}<span data-lab="paganti">Guests</span></span><input type="number" name="paganti" min="0" max="50" value="2" inputmode="numeric"></label>
 <label data-campo="esenti"><span class="lt">{ico("child")}<span data-lab="esenti">Children</span></span><input type="number" name="esenti" min="0" max="50" value="0" inputmode="numeric"></label>
@@ -1107,7 +1155,7 @@ def modulo_calcolatore(id_dati, con_destinazione=False, rel="", cat_default=""):
 
 CAMPI_MOTORE = ("name", "country", "slug", "currency", "tipo", "categorie", "tariffe", "esenti_sotto_eta", "max_notti", "max_soggiorno", "esente_da_notti",
                 "riduzioni", "etichetta_prezzo", "cap", "prezzo_esempio", "esente_oltre_mesi", "in_vigore_dal", "in_vigore_testo",
-                "zone", "supplementi")
+                "zone", "supplementi", "chiedi_data", "etichetta_data", "nota_senza_importo")
 
 
 def blocco_dati(id_, dati):
@@ -1183,6 +1231,29 @@ NOMI_SEO = {
     "edinburgh": ("Edinburgh", "Edinburgh", " (visitor levy)"),
 }
 CAMBI = json.loads((DATI / "cambi_2027.json").read_text(encoding="utf-8"))
+
+
+def _riempi_cambio_uma(v):
+    """Voce 'uma' della pagina 2027 (Visitax del Quintana Roo): importo dalla UMA dell'anno se l'INEGI l'ha già pubblicata
+    (dati/uma.json), altrimenti la formula. 'prima' = importo dell'anno precedente, sempre dalla stessa formula."""
+    m, anno = v["uma"]["moltiplicatore"], v["uma"]["anno"]
+    tt = {t["anno"]: t for t in tariffe_uma(m)}
+    prima = tt.get(anno - 1)
+    v["prima"] = soldi(prima["valore"], "MXN") if prima else ""
+    if anno in tt:
+        t = tt[anno]
+        v["importo"] = f"{soldi(t['valore'], 'MXN')} per foreign visitor ({m:.2f} × the {anno} UMA of {soldi(t['uma'], 'MXN')})"
+        v["cosa"] = v["cosa"].split(" INEGI publishes")[0]
+        v["importo_breve"] = f"{soldi(t['valore'], 'MXN')} (from {v['prima']})"
+        v["verifica"] = [[d["slug"], v["dal"]] for d in DEST if d.get("uma_moltiplicatore")]
+    else:
+        v["importo"] = f"{m:.2f} × the {anno} UMA per foreign visitor (INEGI publishes the {anno} UMA in January {anno})"
+        v["importo_breve"] = f"2.5 × UMA {anno} (now {v['prima']})"
+
+
+for _v in CAMBI["voci"]:
+    if _v.get("uma"):
+        _riempi_cambio_uma(_v)
 MESI_BREVI = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 
@@ -1491,6 +1562,349 @@ def pagina_destinazione(R):
            briciole=[(paese, f"country/{R['country_slug']}/"), (R["name"], f"{slug}/")])
 
 
+def link_paese(s):
+    """Percorso della pagina di un paese: Francia e Messico hanno una pagina propria, gli altri country/<slug>/."""
+    return {"france": "france/", "mexico": "mexico/"}.get(s, f"country/{s}/")
+
+
+# ---------------------------------------------------------------- pagine Messico (30/10/2026)
+# Tutti gli importi del Visitax vengono da tariffe_uma() (2,50 × UMA di dati/uma.json); DNR, crociere e imposta sull'alloggio
+# da dati/messico.json. verifica.py ricalcola gli importi dalla formula e li cerca nelle pagine.
+MX_VIS = MX["visitax"]
+MX_MOLT = MX_VIS["moltiplicatore_uma"]
+MX_DEST = [d for d in DEST if d["country_slug"] == "mexico"]
+MX_CHECK = data_lunga(max([MX_VIS["legge"]["controllato_il"], MX_VIS["portale"]["controllato_il"]] + [v["fonte"]["controllato_il"] for v in UMA_VALORI]))
+AVVISO_MX = ('<p class="avviso"><strong>Not tax advice.</strong> These fees are set by Mexican federal and Quintana Roo state law and can change. '
+             'The official Visitax portal shows the exact amount before you pay.</p>')
+
+
+def mx_tariffe():
+    return tariffe_uma(MX_MOLT)
+
+
+def mx_ora():
+    """Tariffa Visitax in vigore oggi (o l'ultima nota, se oggi è dopo la fine dei dati)."""
+    oggi = OGGI.isoformat()
+    tt = mx_tariffe()
+    return next((t for t in tt if t["dal"] <= oggi <= t["al"]), tt[-1])
+
+
+def mx_futura():
+    oggi = OGGI.isoformat()
+    return next((t for t in mx_tariffe() if t["dal"] > oggi), None)
+
+
+def mx_anno():
+    f = mx_futura()
+    return str(f["anno"]) if f else str(mx_ora()["anno"])
+
+
+def mx_soldi(v):
+    return soldi(v, "MXN")
+
+
+def mx_esatto(t):
+    """2.50 × UMA senza arrotondare (293.275, 282.85)."""
+    return "MXN " + (f"{t['esatto']:.4f}".rstrip("0").rstrip("."))
+
+
+def mx_formula_testo(t):
+    return f"{MX_MOLT:.2f} × {mx_soldi(t['uma'])} = {mx_esatto(t)}, rounded to {mx_soldi(t['valore'])}"
+
+
+def mx_portale_prezzo(t):
+    """Frase sul prezzo letto sul portale ufficiale, solo se è lo stesso importo dell'anno t."""
+    pp = MX_VIS["portale"].get("prezzo_unitario")
+    if pp and pp["valore"] == t["valore"] and pp["anno"] == t["anno"]:
+        return f"the official portal charges {mx_soldi(pp['valore'])} per person (checked on {data_lunga(pp['controllato_il'])})"
+    return ""
+
+
+def mx_titolo(nome, extra=""):
+    """Titolo ≤ 70 caratteri con l'anno e l'importo (il primo candidato che ci sta)."""
+    a, o, f = mx_anno(), mx_ora(), mx_futura()
+    imp = f"Visitax {mx_soldi(f['valore'])} from {data_breve(f['dal'])}" if f else f"Visitax {mx_soldi(o['valore'])} per person"
+    cand = [f"{nome} tourist tax {a}: {imp}{extra} (calculator)", f"{nome} tourist tax {a}: {imp}{extra}",
+            f"{nome} tourist tax {a}: {imp}", f"{nome} tourist tax {a}: {imp.replace('Visitax ', '')}"]
+    return next(c for c in cand if len(c) <= 70)
+
+
+def mx_crociere_ora():
+    oggi = OGGI.isoformat()
+    pp = MX["federali"]["crociere"]["periodi"]
+    return next((p for p in pp if p["dal"] <= oggi <= p["al"]), None)
+
+
+def mx_crociere_testo():
+    """Frase sui crocieristi (decreto del 30/6/2025), dai periodi dei dati: periodo in corso e quelli dopo."""
+    oggi = OGGI.isoformat()
+    pp = [p for p in MX["federali"]["crociere"]["periodi"] if p["al"] >= oggi]
+    if not pp:
+        return ""
+    parti = []
+    for i, p in enumerate(pp):
+        if i == 0 and p["dal"] <= oggi:
+            parti.append(f"the peso equivalent of US${p['usd']} until {data_lunga(p['al'])}")
+        elif i == len(pp) - 1:
+            parti.append(f"US${p['usd']} from {data_lunga(p['dal'])} to {data_lunga(p['al'])}")
+        else:
+            parti.append(f"US${p['usd']} from {data_lunga(p['dal'])}")
+    return ("Foreign cruise passengers pay Mexico's federal visitor fee at a reduced amount set by the decree of 30 June 2025: "
+            + ", ".join(parti[:-1]) + (" and " if len(parti) > 1 else "") + parti[-1]
+            + " (converted at the Banco de México exchange rate). Re-entering Mexico on the same cruise is free.")
+
+
+def mx_risposta(nome_luogo, crociere=False):
+    o, f = mx_ora(), mx_futura()
+    s = (f"Foreign visitors to {nome_luogo} pay the Quintana Roo Visitax of {mx_soldi(o['valore'])} per person from {data_lunga(o['dal'])}: "
+         f"2.50 UMA under article 51-Octies of the Quintana Roo Law on Fees, with the {o['anno']} UMA of {mx_soldi(o['uma'])} published by INEGI "
+         f"(law and UMA checked on {MX_CHECK}). It is due when you enter the state, for every foreign visitor whatever their age.")
+    if f:
+        s += f" From {data_lunga(f['dal'])} it is {mx_soldi(f['valore'])} ({mx_formula_testo(f)})."
+    else:
+        dopo = (date.fromisoformat(o["al"]) + timedelta(days=1)).isoformat()
+        s += f" From {data_lunga(dopo)} it will be 2.50 × the {dopo[:4]} UMA, which INEGI publishes in January {dopo[:4]}."
+    if crociere:
+        s += (f" Cruise passengers pay instead a state fee of US${MX['quintana_roo']['crociere_usd']}, charged with the cruise ticket "
+              "(article 51-Nonies).")
+    return s
+
+
+def mx_avviso_ufficiale(rel):
+    o = mx_ora()
+    return (f'<section class="card callout mx-uff" aria-label="Official Visitax site"><span class="ic">{ico("shield")}</span>'
+            f'<p><strong>Pay on the official site:</strong> <a href="{escape(MX_VIS["sito_ufficiale"])}" rel="noopener">{escape(MX_VIS["sito_ufficiale_nome"])}</a> '
+            f'(Quintana Roo Tax Administration Service, SATQ). The official fee is {mx_soldi(o["valore"])} per person; third-party sites may charge a service fee.</p></section>')
+
+
+def mx_tabella_anni():
+    righe = "".join(f"<tr><td>{data_breve(t['dal'])} – {data_breve(t['al'])}</td><td>{mx_soldi(t['uma'])}</td>"
+                    f"<td><strong>{mx_soldi(t['valore'])}</strong></td></tr>" for t in reversed(mx_tariffe()))
+    ultima = mx_tariffe()[-1]
+    dopo = (date.fromisoformat(ultima["al"]) + timedelta(days=1)).isoformat()
+    righe = (f"<tr><td>From {data_breve(dopo)}</td><td>INEGI, January {dopo[:4]}</td><td>2.50 × UMA {dopo[:4]}</td></tr>" + righe)
+    fonti = " · ".join(f'<a href="{escape(v["fonte"]["url"])}" rel="noopener">INEGI UMA {v["anno"]}</a>' for v in UMA_VALORI)
+    return ('<div class="tab sintesi"><table><thead><tr><th>Arrival date</th><th>UMA (per day)</th><th>Visitax</th></tr></thead>'
+            f'<tbody>{righe}</tbody></table></div><p class="fonte">Official sources: {fonti} · '
+            f'<a href="{escape(MX_VIS["legge"]["url"])}" rel="noopener">Ley de Derechos del Estado de Quintana Roo, art. 51-Octies</a> · checked on {MX_CHECK}</p>')
+
+
+def mx_formula_html():
+    o = mx_ora()
+    return (f'<details class="formula" open><summary>{ico("calc")}Formula used</summary><p>Visitax = 2.50 × UMA (daily value in force on your arrival date) × foreign travellers. '
+            f'From {data_lunga(o["dal"])}: {mx_formula_testo(o)} per person. The Quintana Roo Fiscal Code (article 18) rounds amounts to the whole peso for payment '
+            f'(1 to 50 centavos down, 51 to 99 up){"; " + mx_portale_prezzo(o) if mx_portale_prezzo(o) else ""}. The UMA is updated by INEGI every January and applies from 1 February, '
+            'so the Visitax changes every 1 February. Children pay the same amount as adults.</p></details>')
+
+
+def mx_altre_tasse(rel, crociere=True):
+    """Altre tasse per i turisti stranieri: DNR, diritto in aeroporto all'uscita, crociere, imposta sull'alloggio del Quintana Roo."""
+    fed, qr = MX["federali"], MX["quintana_roo"]
+    al = qr["alloggio"]
+    voci = [f"<li><strong>Federal non-resident fee (DNR): {mx_soldi(fed['dnr']['importo'])} in {fed['dnr']['anno']}.</strong> This is the fee for the visitor document "
+            "of foreign tourists (article 8, fraction I, of the Ley Federal de Derechos). The law says that for visitors arriving by air the international airline "
+            "collects it and pays it to the tax authority. Visitors arriving by land do not pay it if they stay no more than 7 days; for longer stays it is paid when they leave (article 11).</li>",
+            f"<li><strong>Airport migration fee on departure: {mx_soldi(fed['uscita_aeroporto']['importo'])} in {fed['uscita_aeroporto']['anno']}</strong>, for passengers leaving "
+            "Mexico on international flights; the law says the airline collects it (article 12).</li>"]
+    if crociere:
+        voci.append(f"<li><strong>Cruise passengers.</strong> {escape(mx_crociere_testo())} In Quintana Roo they also pay a state fee of US${qr['crociere_usd']} per passenger, "
+                    "charged with the cruise ticket and only at the first Quintana Roo port of the trip; paying it exempts them from the Visitax (article 51-Nonies).</li>")
+    voci.append(f"<li><strong>Quintana Roo lodging tax: {al['percento']}% of the lodging price</strong> ({al['percento_case']}% for houses, apartments and villas), "
+                "on the room only, not on food and other services (Ley del Impuesto al Hospedaje, articles 4 and 8). It is due on the payment for the stay.</li>")
+    return "<ul>" + "".join(voci) + "</ul>"
+
+
+def mx_fonti_extra():
+    fed, qr = MX["federali"], MX["quintana_roo"]
+    righe = [(fed["dnr"]["titolo"], fed["dnr"]["url"], fed["dnr"]["formato"], fed["dnr"]["controllato_il"]),
+             (fed["crociere"]["titolo"], fed["crociere"]["url"], fed["crociere"]["formato"], fed["crociere"]["controllato_il"]),
+             (qr["crociere"]["titolo"], qr["crociere"]["url"], "PDF (Spanish)", qr["crociere"]["controllato_il"]),
+             (qr["alloggio"]["titolo"], qr["alloggio"]["url"], qr["alloggio"]["formato"], qr["alloggio"]["controllato_il"]),
+             (qr["codice_fiscale"]["titolo"], qr["codice_fiscale"]["url"], qr["codice_fiscale"]["formato"], qr["codice_fiscale"]["controllato_il"])]
+    return "".join(f'<li><a href="{escape(u)}" rel="noopener">{escape(t)}</a> – {escape(fm)}, checked {data_lunga(c)}</li>' for t, u, fm, c in righe)
+
+
+def mx_faq_comuni():
+    o, f = mx_ora(), mx_futura()
+    p = UMA["prossima"]
+    fed = MX["federali"]["dnr"]
+    q = [(f"How much is the Visitax in {o['anno']}?",
+          f"From {data_lunga(o['dal'])} the Visitax is {mx_soldi(o['valore'])} per foreign visitor: 2.50 UMA under article 51-Octies of the Quintana Roo Law on Fees, "
+          f"with the {o['anno']} UMA of {mx_soldi(o['uma'])} published by INEGI ({mx_formula_testo(o)})."),
+         ("Do children pay the Visitax?",
+          "Yes. The official Visitax portal says there is no adult or child rate: all foreign tourists must pay, whatever their age."),
+         ("Is Visitax a scam?",
+          f"No. The Visitax is a real fee set by the law of Quintana Roo, and the official portal is {MX_VIS['sito_ufficiale_nome']}, run by the state tax administration (SATQ). "
+          f"The official fee is {mx_soldi(o['valore'])}; third-party sites may charge a service fee."),
+         ("Who collects Mexico's non-resident fee (DNR)?",
+          f"The DNR is {mx_soldi(fed['importo'])} in {fed['anno']}. The Ley Federal de Derechos says that for foreign visitors arriving by air, the international airline collects it "
+          "and pays it to the tax authority. If you arrive by land and stay no more than 7 days, you do not pay it.")]
+    if f:
+        q.append((f"How much will the Visitax be in {f['anno']}?", f"From {data_lunga(f['dal'])}: {mx_soldi(f['valore'])} per person ({mx_formula_testo(f)})."))
+    elif not any(v["anno"] == p["anno"] for v in UMA_VALORI):
+        q.append((f"How much will the Visitax be in {p['anno']}?",
+                  f"From {data_lunga(p['dal'])} it will be 2.50 × the {p['anno']} UMA. INEGI publishes the new UMA in January, and this page updates when it does. "
+                  f"Until {data_lunga(_giorno_prima(p['dal']))} the amount stays at {mx_soldi(o['valore'])}."))
+    return q
+
+
+def mx_faq_html(faq):
+    html = "".join(f'<details class="faq"><summary>{escape(a)}</summary><p>{escape(b)}</p></details>' for a, b in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage",
+          "mainEntity": [{"@type": "Question", "name": a, "acceptedAnswer": {"@type": "Answer", "text": b}} for a, b in faq]}
+    return f'<h2>Questions</h2><div class="faq-box">{html}</div>', ld
+
+
+def mx_box_cambi(rel):
+    v = next((x for x in CAMBI["voci"] if x.get("uma")), None)
+    righe = []
+    if v:
+        righe.append(f"<li><strong>{data_lunga(v['dal'])}:</strong> Visitax {escape(v['importo'])}</li>")
+    for x in CAMBI["voci"]:
+        if x["slug"] == "mexico" and not x.get("uma"):
+            righe.append(f"<li><strong>{data_lunga(x['dal'])}:</strong> cruise passengers, {escape(x['importo'][0].lower() + x['importo'][1:])}</li>")
+    return (f'<section class="card callout cambi-box" aria-label="Changes in 2027"><span class="ic">{ico("calendar")}</span>'
+            f'<div><p><strong>What changes in 2027</strong></p><ul>{"".join(righe)}</ul>'
+            f'<p class="small"><a href="{rel}tourist-tax-changes-2027/">All tourist tax changes in 2027, with official sources</a></p></div></section>')
+
+
+def box_noleggio_mx():
+    """Riquadro DiscoverCars (affiliati.json, voce _discovercars_messico), solo nelle pagine Messico e dopo le informazioni ufficiali."""
+    v = AFFILIATI.get("_discovercars_messico") or {}
+    url = (v.get("url") or "").strip()
+    if not url:
+        return ""
+    return (f'<section class="card noleggio-mx" style="margin-top:22px"><h2 style="margin-top:0">{escape(v["titolo"])}</h2>'
+            f'<p style="margin:0 0 8px"><a href="{escape(url)}" rel="sponsored noopener" target="_blank">{escape(v["nome"])}</a>: {escape(v["testo"])}</p>'
+            f'<p class="small" style="margin:0">{MON.RIGA_EN}</p></section>')
+
+
+def mx_griglia(rel, salta=""):
+    return ('<div class="griglia">' + "".join(f'<a href="{rel}{d["slug"]}/">{escape(d["name"])}<small>Visitax {mx_soldi(mx_ora()["valore"])} per person</small></a>'
+                                              for d in MX_DEST if d["slug"] != salta) + "</div>")
+
+
+def pagina_messico_dest(R):
+    slug = R["slug"]
+    rel = "../"
+    pg = MX["pagine"][slug]
+    o = mx_ora()
+    sub = {"crociere_usd": MX["quintana_roo"]["crociere_usd"], "alloggio": MX["quintana_roo"]["alloggio"]["percento"],
+           "alloggio_case": MX["quintana_roo"]["alloggio"]["percento_case"], "crociere_federale": mx_crociere_testo()}
+    faq = [(a.format(**sub), b.format(**sub)) for a, b in pg["faq"]] + mx_faq_comuni()
+    faq_html, ld = mx_faq_html(faq)
+    note = "".join(f"<li>{escape(n)}</li>" for n in [pg["luogo"]] + [n for n in R["note"] if "is in the state of Quintana Roo" not in n])
+    esenzioni = "<ul>" + "".join(f"<li>{escape(e)}</li>" for e in R["esenzioni"]) + "</ul>"
+    h1 = f"{R['name']} tourist tax {mx_anno()}: Visitax {mx_soldi(o['valore'])} per foreign visitor"
+    corpo = f"""<section class="hero">{h1_diviso(h1)}
+<p class="risposta">{escape(mx_risposta(R['name'], crociere=slug == "cozumel"))}</p></section>
+<section class="card summary" aria-label="Summary">
+<div><p class="cifra"><span class="lab">{ico("receipt")}Visitax {o['anno']}</span><span class="sr">: </span><strong>{escape(riassunto(R))}</strong></p>
+{chips(R, "Mexico", "Quintana Roo")}</div>
+<div><p class="lead">{escape(R['official_name'])}. The calculator below multiplies the official amount for your arrival date by the number of foreign travellers.</p>
+{fonte_breve(R)}</div>
+</section>
+{mx_avviso_ufficiale(rel)}
+{mx_box_cambi(rel)}
+{modulo_calcolatore("regola", rel=rel, cat_default="all")}
+{mx_formula_html()}
+<p class="esempio">{esempio(R)}</p>
+{AVVISO_MX}
+{AD}
+<h2>Visitax by year</h2>
+{mx_tabella_anni()}
+<h2>What to know in {escape(R['name'])}</h2>
+<ul>{note}</ul>
+<p><strong>Who collects it:</strong> {escape(R['chi_riscuote'])}</p>
+<h2>Exemptions (official)</h2>
+{esenzioni}
+<h2>Other fees for foreign visitors to Mexico</h2>
+{mx_altre_tasse(rel)}
+{faq_html}
+<h2>Official sources</h2>
+{fonti_html(R)}<ul>{mx_fonti_extra()}</ul>
+<p class="small">Spotted a change in the official amount? <a href="{rel}contact/?ref={slug}">Tell us</a>.</p>
+{box_noleggio_mx()}
+<h2>Other places in Quintana Roo</h2>
+{mx_griglia(rel, slug)}
+<p><a href="{rel}mexico/">All tourist taxes and fees in Mexico</a> · <a href="{rel}tourist-tax-changes-2027/">Tourist tax changes in 2027</a></p>
+{blocco_dati("regola", [R])}"""
+    descr = (f"{R['name']} tourist tax: the Quintana Roo Visitax is {mx_soldi(o['valore'])} per foreign visitor of any age (2.50 × UMA {mx_soldi(o['uma'])}). "
+             "Official law and calculator.")
+    pagina(f"{slug}/", mx_titolo(pg["titolo_nome"]), descr, corpo,
+           briciole=[("Mexico", "mexico/"), (R["name"], f"{slug}/")], jsonld_extra=ld)
+
+
+def pagina_messico():
+    rel = "../"
+    o = mx_ora()
+    fed, qr = MX["federali"], MX["quintana_roo"]
+    R = dict(MX_DEST[0], name="Quintana Roo (Visitax)", slug="mexico")
+    faq = mx_faq_comuni()
+    faq.insert(4, ("Do cruise passengers pay the Visitax?",
+                   f"No, if they paid the Quintana Roo cruise passenger fee: US${qr['crociere_usd']} per passenger, charged with the cruise ticket (article 51-Nonies). "
+                   + mx_crociere_testo()))
+    faq_html, ld = mx_faq_html(faq)
+    cr = mx_crociere_ora()
+    tab = [("Visitax (Quintana Roo)", "Foreign visitors entering Quintana Roo, any age", f"<strong>{mx_soldi(o['valore'])}</strong> (2.50 × UMA {mx_soldi(o['uma'])})",
+            f'Online on <a href="{escape(MX_VIS["sito_ufficiale"])}" rel="noopener">{escape(MX_VIS["sito_ufficiale_nome"])}</a> or through companies authorised by the SATQ'),
+           ("Non-resident fee (DNR, federal)", "Foreign tourists (visitors without permission to work)", f"<strong>{mx_soldi(fed['dnr']['importo'])}</strong> ({fed['dnr']['anno']})",
+            "Air: collected by the international airline (law). Land: free for stays of up to 7 days"),
+           ("Airport migration fee (federal)", "Passengers leaving Mexico on international flights", f"<strong>{mx_soldi(fed['uscita_aeroporto']['importo'])}</strong> ({fed['uscita_aeroporto']['anno']})",
+            "Collected by the airline (law)")]
+    if cr:
+        tab.append(("Cruise passengers (federal)", "Foreign cruise passengers, first entry", f"<strong>US${cr['usd']}</strong> in pesos until {data_lunga(cr['al'])}",
+                    "Reduced DNR set by the decree of 30 June 2025"))
+    tab += [("Cruise passengers (Quintana Roo)", "Passengers of cruise ships calling at a Quintana Roo port", f"<strong>US${qr['crociere_usd']}</strong>",
+             "Charged with the cruise ticket; replaces the Visitax"),
+            ("Lodging tax (Quintana Roo)", "Guests of hotels and rentals", f"<strong>{qr['alloggio']['percento']}%</strong> ({qr['alloggio']['percento_case']}% houses, apartments, villas)",
+             "On the payment for the stay (room only)")]
+    righe = "".join(f"<tr><td>{a}</td><td>{c}</td><td>{escape(b)}</td><td>{d}</td></tr>" for a, b, c, d in tab)
+    altri = ", ".join(MX["luoghi_senza_pagina"])
+    h1 = f"Mexico tourist tax {mx_anno()}: Visitax {mx_soldi(o['valore'])}, DNR {mx_soldi(fed['dnr']['importo'])} and cruise fees"
+    risp = (mx_risposta("Quintana Roo (Cancún, Tulum, Playa del Carmen, Cozumel, Isla Mujeres, Holbox)")
+            + f" Foreign tourists also pay Mexico's federal non-resident fee (DNR) of {mx_soldi(fed['dnr']['importo'])} in {fed['dnr']['anno']} "
+            "(Ley Federal de Derechos, article 8): the airline collects it if you fly in, and it is not due for land arrivals staying up to 7 days.")
+    corpo = f"""<section class="hero">{h1_diviso(h1)}
+<p class="risposta">{escape(risp)}</p></section>
+<h2 class="sr">At a glance</h2>
+<div class="tab"><table><thead><tr><th>Fee</th><th>Amount</th><th>Who pays</th><th>How it is paid</th></tr></thead><tbody>{righe}</tbody></table></div>
+<p class="fonte">Official sources: <a href="{escape(MX_VIS['legge']['url'])}" rel="noopener">Ley de Derechos del Estado de Quintana Roo</a> · <a href="{escape(UMA_VALORI[-1]['fonte']['url'])}" rel="noopener">INEGI UMA {UMA_VALORI[-1]['anno']}</a> · <a href="{escape(fed['dnr']['url'])}" rel="noopener">Ley Federal de Derechos</a> · <a href="{escape(fed['crociere']['url'])}" rel="noopener">decree of 30 June 2025</a> · checked on {MX_CHECK}</p>
+{mx_avviso_ufficiale(rel)}
+{mx_box_cambi(rel)}
+<h2>Visitax calculator</h2>
+{modulo_calcolatore("regola", rel=rel, cat_default="all")}
+{mx_formula_html()}
+<p class="esempio">{esempio(R)}</p>
+{AVVISO_MX}
+{AD}
+<h2>Visitax by year</h2>
+{mx_tabella_anni()}
+<h2>Where the Visitax applies</h2>
+<p>In the whole state of Quintana Roo. Pages with a calculator:</p>
+{mx_griglia(rel)}
+<p>The same fee applies in {escape(altri)} and every other place in Quintana Roo: it is a state fee with one amount for the whole state.</p>
+<h2>Who pays and how</h2>
+<ul><li>All foreign tourists who visit Quintana Roo pay it, children included: the official portal says there is no adult or child rate.</li>
+<li>The law says it is due when you enter the state. The official portal asks for your arrival and departure dates and the passport of each traveller, and gives a QR code for each person; you can download it again with "Recover your receipt".</li>
+<li>Exempt: foreign visitors entering through the state's southern border, and cruise passengers who paid the Quintana Roo cruise passenger fee.</li></ul>
+<h2>Other fees for foreign visitors to Mexico</h2>
+{mx_altre_tasse(rel)}
+<h2>Not covered</h2>
+<p>{escape(MX['non_coperti'])}</p>
+{faq_html}
+<h2>Official sources</h2>
+{fonti_html(R)}<ul>{mx_fonti_extra()}</ul>
+<p class="small">Spotted a change in an official amount? <a href="{rel}contact/?ref=mexico">Tell us</a>.</p>
+{box_noleggio_mx()}
+<p><a href="{rel}">Tourist tax calculator</a> · <a href="{rel}tourist-tax-changes-2027/">Tourist tax changes in 2027</a></p>
+{blocco_dati("regola", [R])}"""
+    descr = (f"Mexico tourist tax: Visitax {mx_soldi(o['valore'])} per person in Cancún and Quintana Roo, federal DNR {mx_soldi(fed['dnr']['importo'])}, "
+             "cruise and hotel taxes. Official laws and a calculator.")
+    pagina("mexico/", mx_titolo("Mexico", f", DNR {mx_soldi(fed['dnr']['importo'])}"), descr, corpo,
+           briciole=[("Mexico", "mexico/")], jsonld_extra=ld)
+
+
 def fr_slug_map():
     m, usati = {}, set()
     for code, nome, dep, _ in FR_TOP["comuni"]:
@@ -1665,7 +2079,7 @@ TIPI_HOME = [("users", "Per person per night", "Rome, Barcelona, Prague, Porto, 
              ("door", "Per room per night", "Greece and Iceland"),
              ("percent", "% of the room price", "Amsterdam, Berlin, Vienna, Edinburgh, Turkey"),
              ("bands", "Price bands", "Kyoto, Tokyo, Sapporo, Hakuba"),
-             ("plane", "Once per trip", "Bali")]
+             ("plane", "Once per trip", "Bali and Quintana Roo, Mexico (Cancún, Tulum, Playa del Carmen, Cozumel)")]
 
 
 def home():
@@ -1683,7 +2097,7 @@ def home():
 {modulo_calcolatore('tutte', con_destinazione=True, rel='')}
 </div></div>"""
     corpo = f"""<div class="card callout">{'<span class="ic">' + ico("search") + '</span>'}<p><strong>France:</strong> <a href="france/">search your town among {len(FR['comuni']):,} French towns</a>.</p></div>
-<div class="card callout cal-2027">{'<span class="ic">' + ico("calendar") + '</span>'}<p><strong>2027:</strong> <a href="tourist-tax-changes-2027/">{len(CAMBI['voci'])} tourist tax changes with an official date</a> – Turkey, Okinawa, Cardiff, Catalonia, Barcelona, Tokyo and Vienna.</p></div>
+<div class="card callout cal-2027">{'<span class="ic">' + ico("calendar") + '</span>'}<p><strong>2027:</strong> <a href="tourist-tax-changes-2027/">{len(CAMBI['voci'])} tourist tax changes with an official date</a> – Turkey, Okinawa, Quintana Roo (Mexico), Cardiff, Catalonia, Barcelona, Tokyo, Vienna and Mexican cruise ports.</p></div>
 {AVVISO}
 {AD}
 <h2>What the calculator covers</h2>
@@ -1694,7 +2108,7 @@ def home():
 <div class="griglia sez dest" id="lista-dest">{griglia}</div>
 <p><a href="france/">All French towns</a> · <a href="tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a> · <a href="tourist-tax-changes-2027/">Changes in 2027</a> · <a href="how-tourist-taxes-work/">How tourist taxes work</a></p>
 <h2>Countries</h2>
-<div class="griglia">{''.join(f'<a href="{"france" if s == "france" else "country/" + s}/">{escape(PAESI[s])}<small>{plur(len(gruppi.get(s, [])) if s != "france" else len(FR_TOP["comuni"]), "destination page")}</small></a>' for s in PAESI)}</div>
+<div class="griglia">{''.join(f'<a href="{link_paese(s)}">{escape(PAESI[s])}<small>{plur(len(gruppi.get(s, [])) if s != "france" else len(FR_TOP["comuni"]), "destination page")}</small></a>' for s in PAESI)}</div>
 {box_affiliati()}
 {blocco_dati('tutte', DEST)}"""
     pagina("", f"Tourist Tax Calculator {ANNO}: official rates per night for {len(DEST)} destination pages and 10,900 French towns",
@@ -1777,8 +2191,9 @@ def pagina_cambi_2027():
           "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
     primo, ultimo = vv[0]["dal"], vv[-1]["dal"]
     risp = (f"{len(vv)} tourist tax changes in 2027 already have an official date, from {data_lunga(primo)} to {data_lunga(ultimo)}: "
-            "Turkey returns to 2%, Okinawa starts a new tax, Cardiff starts the Welsh visitor levy at £1.30, Catalonia, Barcelona and Tokyo change on 1 April "
-            "and Vienna goes to 8% on 1 July.")
+            "Turkey returns to 2%, Okinawa starts a new tax and the Quintana Roo Visitax (Mexico) follows the new UMA on 1 February, "
+            "Cardiff starts the Welsh visitor levy at £1.30, Catalonia, Barcelona and Tokyo change on 1 April, "
+            "and on 1 July Vienna goes to 8% and Mexico raises its fee for cruise passengers.")
     corpo = f"""<section class="hero">{h1_diviso("Tourist tax changes in 2027: what changes, when and how much")}
 <p class="risposta">{escape(risp)}</p>
 <p class="small">We list a change only when an official act or tax authority page gives the date and the amount. List updated on {data_lunga(CAMBI['aggiornato_il'])}.</p></section>
@@ -1795,7 +2210,7 @@ def pagina_cambi_2027():
 <div class="faq-box">{faq_html}</div>
 <p><a href="{rel}">Tourist tax calculator</a> · <a href="{rel}tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a> · <a href="{rel}contact/?ref=changes-2027">Spotted a change? Tell us</a></p>"""
     pagina("tourist-tax-changes-2027/", "Tourist tax changes 2027: new rates and start dates (official sources)",
-           f"Tourist tax changes in 2027 with an official date: Turkey 2% (1 Jan), Okinawa (1 Feb), Cardiff £1.30, Catalonia, Barcelona, Tokyo 3% (1 Apr), Vienna 8% (1 Jul).",
+           f"Tourist tax changes in 2027 with an official date: Turkey 2%, Okinawa, Cancún Visitax, Cardiff £1.30, Catalonia, Barcelona, Tokyo 3%, Vienna 8%, Mexico cruises.",
            corpo, briciole=[("Tourist tax changes 2027", "tourist-tax-changes-2027/")], jsonld_extra=ld)
 
 
@@ -1813,7 +2228,7 @@ def pagina_come_funziona():
 <h2>4. Price bands</h2>
 <p>A fixed amount per person that depends on how much the room costs per person per night. Examples: <a href="{rel}kyoto/">Kyoto</a>, <a href="{rel}tokyo/">Tokyo</a>, <a href="{rel}sapporo/">Sapporo</a>, <a href="{rel}hakuba/">Hakuba</a>.</p>
 <h2>5. A one-off levy per trip</h2>
-<p>Paid once, not per night. Example: <a href="{rel}bali/">Bali</a>.</p>
+<p>Paid once, not per night. Examples: <a href="{rel}bali/">Bali</a> and the Visitax of Quintana Roo in Mexico (<a href="{rel}mexico/">Cancún, Tulum, Playa del Carmen, Cozumel</a>), which the law sets as 2.50 UMA, a reference value in pesos updated every February.</p>
 <h2>Seasons, maximum nights and exemptions</h2>
 <ul><li><strong>Seasons:</strong> lower rates in low season (Balearic Islands -75% from November to April; Greece November-March rates).</li>
 <li><strong>Maximum nights:</strong> many places stop charging after a number of nights (Barcelona and Florence 7, Rome 10, Edinburgh 5); the Balearics halve the tax from the 9th day.</li>
@@ -1844,9 +2259,10 @@ def about():
 <ul><li>France: "Tarifs taxe de séjour – DELTA", Direction générale des Finances publiques (DGFiP), <a href="{escape(FR['fonte'])}" rel="noopener">data.economie.gouv.fr</a>, Licence Ouverte / Open Licence version 2.0 (Etalab). Dataset updated {data_lunga(FR['dataset_modificato'])}; we keep only rates with a {ANNO} effective date. Modified: rates are reorganised and the totals for unclassified accommodation are calculated by us.</li>
 <li>France, choice of town pages: INSEE, <a href="{escape(FR['insee'])}" rel="noopener">Capacité des communes en hébergement touristique 2026</a>, Licence Ouverte / Open Licence.</li>
 <li>Wales (Cardiff): contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="noopener">Open Government Licence v3.0</a> (gov.wales, Welsh Revenue Authority).</li>
+<li>Mexico: laws of the State of Quintana Roo (Congress of Quintana Roo), the Ley Federal de Derechos (Chamber of Deputies), the decree of 30 June 2025 (SIDOF) and the UMA values of INEGI are cited as facts with a link to the official text; the Visitax amounts are calculated by us from the formula in the law (2.50 UMA). See the <a href="{rel}mexico/">Mexico page</a> for all sources.</li>
 <li>Laws, ordinances and official decisions are cited as facts with a link to the official text; we do not reproduce the documents.</li></ul>
 <h2>Destinations not published (official source not readable or incomplete)</h2>
-<p>Venice, Lisbon, the Algarve, Budapest, Croatia (Dubrovnik, Split), Cyprus, Naples, Bologna, Osaka, Glasgow, Quintana Roo (Visitax), Okinawa (starts 1 February 2027: see the <a href="{rel}tourist-tax-changes-2027/">2027 changes</a>), Egypt, Morocco and the Canary Islands. We will add them when we can verify a complete official source.</p>
+<p>Venice, Lisbon, the Algarve, Budapest, Croatia (Dubrovnik, Split), Cyprus, Naples, Bologna, Osaka, Glasgow, Okinawa (starts 1 February 2027: see the <a href="{rel}tourist-tax-changes-2027/">2027 changes</a>), Egypt, Morocco and the Canary Islands. We will add them when we can verify a complete official source.</p>
 <h2>Sources, destination by destination</h2>
 <p>France: see the <a href="{rel}france/">France page</a>.</p>
 {elenco}
@@ -1977,12 +2393,13 @@ def main():
     copia_grafica()
     home()
     for d in DEST:
-        pagina_destinazione(d)
+        (pagina_messico_dest if d["country_slug"] == "mexico" else pagina_destinazione)(d)
+    pagina_messico()
     pagina_francia()
     for c in FR_TOP["comuni"]:
         pagina_francia_comune(c[0])
     for s in PAESI:
-        if s != "france":
+        if s not in ("france", "mexico"):
             pagina_paese(s)
     pagina_europa()
     pagina_cambi_2027()
@@ -1996,6 +2413,10 @@ def main():
                     ([t["dal"]] if t.get("dal") else []) + ([(date.fromisoformat(t["al"]) + timedelta(days=1)).isoformat()] if t.get("al") else [])
                     if x > OGGI.isoformat()} | {f"{ANNO + 1}-01-01"})
     print("Date in cui rigenerare il sito (cambiano tariffe o titoli):", ", ".join(cambi))
+    p = UMA["prossima"]
+    if not any(v["anno"] == p["anno"] for v in UMA["valori"]):
+        print(f"Messico: UMA {p['anno']} non ancora nei dati. Da inizio gennaio {p['anno']}: python3 -I touristtax/raccolta/uma.py, poi rigenerare "
+              f"(Visitax dal {p['dal']}). Il 1/1/{p['anno']} controllare anche gli importi della Ley Federal de Derechos (DNR).")
     print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili; {len(DEST)} destinazioni, {len(FR_TOP['comuni'])} pagine comunali francesi, "
           f"{len(FR['comuni'])} comuni nella ricerca.")
 

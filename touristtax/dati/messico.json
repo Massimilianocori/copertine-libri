@@ -1,0 +1,178 @@
+{
+ "_nota": "Sezione Messico (30/10/2026). Tasse per i turisti stranieri: Visitax del Quintana Roo (2,50 UMA, importo ricalcolato da genera.py con dati/uma.json), diritto federale DNR, diritto migratorio in aeroporto, crocieristi (federale e statale), imposta sull'alloggio del Quintana Roo. Solo testi ufficiali letti con curl (data in 'controllato_il'). ISH di Baja California Sur, Jalisco e Città del Messico NON pubblicate: fonti ufficiali non leggibili dal server (cbcs.gob.mx e congresobcs.gob.mx 000, congresoweb.congresojal.gob.mx 403, data.consejeria.cdmx.gob.mx certificato TLS non verificabile).",
+ "visitax": {
+  "moltiplicatore_uma": 2.5,
+  "sito_ufficiale": "https://visitax.gob.mx/sitio/",
+  "sito_ufficiale_nome": "visitax.gob.mx",
+  "legge": {
+   "titolo": "Ley de Derechos del Estado de Quintana Roo, article 51-Octies (text with the last reform published in the Periódico Oficial del Estado on 18 December 2025)",
+   "url": "https://documentos.congresoqroo.gob.mx/leyes/L195-XVIII-20251218-L1820251216196-Ley-de-Derechos.pdf",
+   "elenco_versioni": "https://www.congresoqroo.gob.mx/leyes/195/",
+   "file_versione": "L195-XVIII-20251218-L1820251216196-Ley-de-Derechos.pdf",
+   "http": 200,
+   "formato": "PDF (Spanish)",
+   "controllato_il": "2026-10-30"
+  },
+  "portale": {
+   "titolo": "Visitax - official payment portal of the Quintana Roo Tax Administration Service (SATQ), FAQ",
+   "url": "https://visitax.gob.mx/sitio/",
+   "http": 200,
+   "formato": "HTML (English and Spanish)",
+   "controllato_il": "2026-10-30",
+   "prezzo_unitario": {
+    "valore": 293.0,
+    "anno": 2026,
+    "controllato_il": "2026-10-30",
+    "nota": "Pagina di pagamento https://visitax.gob.mx/sitio/registro.php: campo nascosto PRECIOUNITARIO = 293, totale mostrato come '<n × 293>.00 MXN' (js/validaciones/registro.js). 2,50 × 117,31 = 293,275 arrotondato al peso (Código Fiscal del Estado de Quintana Roo, art. 18)."
+   }
+  }
+ },
+ "federali": {
+  "dnr": {
+   "importo": 983.0,
+   "anno": 2026,
+   "titolo": "Ley Federal de Derechos, articles 8 (fraction I) and 11 (fraction II), text with the last reform published in the DOF on 7 November 2025; 2026 amounts updated by the Resolución Miscelánea Fiscal (DOF 28 December 2025)",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFD.pdf",
+   "http": 200,
+   "formato": "PDF (Spanish), Chamber of Deputies",
+   "controllato_il": "2026-10-30"
+  },
+  "uscita_aeroporto": {
+   "importo": 231.55,
+   "anno": 2026,
+   "titolo": "Ley Federal de Derechos, article 12 (migration services at airports for passengers leaving on international flights)",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFD.pdf",
+   "http": 200,
+   "controllato_il": "2026-10-30"
+  },
+  "crociere": {
+   "titolo": "Decree granting tax incentives on migration fees (cruise passengers), DOF 30 June 2025, in force 1 July 2025 to 30 September 2030 (SIDOF, Ministry of the Interior)",
+   "url": "https://sidof.segob.gob.mx/notas/docFuente/5761557",
+   "http": 200,
+   "formato": "HTML (Spanish)",
+   "controllato_il": "2026-10-30",
+   "periodi": [
+    {
+     "usd": 5,
+     "dal": "2025-07-01",
+     "al": "2026-07-31"
+    },
+    {
+     "usd": 10,
+     "dal": "2026-08-01",
+     "al": "2027-06-30"
+    },
+    {
+     "usd": 15,
+     "dal": "2027-07-01",
+     "al": "2028-07-31"
+    },
+    {
+     "usd": 21,
+     "dal": "2028-08-01",
+     "al": "2030-09-30"
+    }
+   ]
+  }
+ },
+ "quintana_roo": {
+  "crociere_usd": 5,
+  "crociere": {
+   "titolo": "Ley de Derechos del Estado de Quintana Roo, article 51-Nonies (fee for cruise passengers)",
+   "url": "https://documentos.congresoqroo.gob.mx/leyes/L195-XVIII-20251218-L1820251216196-Ley-de-Derechos.pdf",
+   "http": 200,
+   "controllato_il": "2026-10-30"
+  },
+  "alloggio": {
+   "percento": 5,
+   "percento_case": 6,
+   "titolo": "Ley del Impuesto al Hospedaje del Estado de Quintana Roo, articles 4 and 8 (text with the last reform published on 16 December 2025)",
+   "url": "https://documentos.congresoqroo.gob.mx/leyes/L187-XVIII-20251216-L1820251216189-Ley-del-Impuesto-al-Hospedaje.pdf",
+   "http": 200,
+   "formato": "PDF (Spanish)",
+   "controllato_il": "2026-10-30"
+  },
+  "codice_fiscale": {
+   "titolo": "Código Fiscal del Estado de Quintana Roo, article 18 (amounts rounded to the whole peso for payment; text with the last reform published on 16 December 2025)",
+   "url": "https://documentos.congresoqroo.gob.mx/codigos/C5-XVIII-16122025-20251220T182423-L1820251216192-C%C3%B3digo-Fiscal.pdf",
+   "http": 200,
+   "formato": "PDF (Spanish)",
+   "controllato_il": "2026-10-30"
+  }
+ },
+ "luoghi_senza_pagina": [
+  "Isla Mujeres",
+  "Holbox",
+  "Bacalar",
+  "Mahahual",
+  "Puerto Morelos",
+  "Chetumal"
+ ],
+ "non_coperti": "Hotel and lodging taxes of other Mexican states (for example Baja California Sur for Los Cabos, Jalisco for Puerto Vallarta, and Mexico City): we could not read the official texts from our server on 30 October 2026, so we do not show them.",
+ "domanda": {
+  "_nota": "Autocomplete Google del 30/10/2026 (suggestqueries.google.com, client=firefox, hl=en, gl=us/uk/ca: stesse risposte). Numero = suggerimenti restituiti.",
+  "visitax": "10: visitax cancun, visitax mexico, visitax quintana roo, visitax official website, visitax cancun airport, visitax cancun 2026, visitax cancun official site, visitax mexico official website (gl=uk: visitax mexico tui; gl=ca: visitax cost, visitax reddit, visitax departure date, visitax mexique)",
+  "cancun tourist tax": "10: official website, 2026, reddit, when to pay, 2025, cost, departure date, airport, tui",
+  "tulum tourist tax": "8: tulum tourism tax, tulum travel tax, tulum city tax, tulum tourist fee, is there a tourist tax in mexico, do you pay tourist tax in mexico",
+  "mexico tourist tax 2026": "5: mexico tourist fee 2026, what is mexico tourism tax, is there a tourist tax in mexico, how much is the mexican tourist tax",
+  "visitax scam": "7: visitax scam cancun, cancun airport visitax scam, visitax scam mexico, visitax online scam, visitax app scam, travelkore visitax scam",
+  "playa del carmen tourist tax": "6: playa del carmen hotel tax, playa del carmen city tax, mexico tourist tax playa del carmen",
+  "cozumel tourist tax": "7: cozumel visitor tax, cozumel city tax, how to pay cancun tourist tax",
+  "isla mujeres tourist tax": "4 (solo la query stessa sul tema)",
+  "holbox tourist tax": "4 (solo la query stessa sul tema)",
+  "quintana roo tourist tax": "10: 2026, 2025, reddit, visitax, departure date, official website, cost, quintana roo travel tax",
+  "mexico cruise tax": "10: increases, changes, 2025, tourism tax hike, passenger tax, port tax, tourist tax, ship tax",
+  "visitax children": "3: visitax mexico children, visitax cancun children",
+  "mexico non resident fee": "10: flight, dnr, mexican non resident fee dnr, mexico uk non resident fee, volaris mexico non resident fee, non resident fee to enter mexico"
+ },
+ "pagine": {
+  "cancun": {
+   "titolo_nome": "Cancun",
+   "luogo": "Cancún is in the state of Quintana Roo (municipality of Benito Juárez), so foreign visitors pay the state Visitax there.",
+   "faq": [
+    [
+     "Do I have to pay the Cancún tourist tax?",
+     "Yes, if you are a foreign visitor. The Visitax is mandatory for all foreign tourists who visit Quintana Roo, according to the official Visitax portal and article 51-Octies of the Quintana Roo Law on Fees. Mexican nationals do not pay it."
+    ],
+    [
+     "When do I pay the Visitax for Cancún?",
+     "The law says foreign visitors must pay it when they enter the state. The official portal asks for your arrival date, departure date and the passport of each traveller, and gives a QR code for each person that you can download again with 'Recover your receipt'."
+    ]
+   ]
+  },
+  "tulum": {
+   "titolo_nome": "Tulum",
+   "luogo": "Tulum is in the state of Quintana Roo (municipality of Tulum), so foreign visitors pay the state Visitax there.",
+   "faq": [
+    [
+     "Is the Tulum tourist tax the same as in Cancún?",
+     "Yes. The tourist fee for foreign visitors in Tulum is the Quintana Roo Visitax, the same state fee as in Cancún. Stays in Quintana Roo are also subject to the state lodging tax: {alloggio}% of the lodging price, or {alloggio_case}% for houses, apartments and villas."
+    ]
+   ]
+  },
+  "playa-del-carmen": {
+   "titolo_nome": "Playa del Carmen",
+   "luogo": "Playa del Carmen is in the state of Quintana Roo (municipality of Solidaridad), so foreign visitors pay the state Visitax there.",
+   "faq": [
+    [
+     "Is the Playa del Carmen tourist tax different from Cancún?",
+     "No. Playa del Carmen and Cancún are both in Quintana Roo, and the Visitax is a state fee with one amount for the whole state."
+    ]
+   ]
+  },
+  "cozumel": {
+   "titolo_nome": "Cozumel",
+   "luogo": "Cozumel is an island municipality of Quintana Roo, so foreign visitors who stay there pay the state Visitax. The official Visitax portal says it applies to Cozumel, whatever way you leave.",
+   "faq": [
+    [
+     "Do cruise passengers pay the Visitax in Cozumel?",
+     "Cruise passengers pay a different state fee: US${crociere_usd} per passenger, charged when they buy the cruise ticket (article 51-Nonies of the Quintana Roo Law on Fees). Paying it exempts them from the Visitax, and it is charged only at the first Quintana Roo port of the trip. Crew members are exempt."
+    ],
+    [
+     "Do cruise passengers also pay a federal fee in Mexico?",
+     "Yes. {crociere_federale}"
+    ]
+   ]
+  }
+ }
+}

@@ -288,7 +288,7 @@ details.faq p{margin:0 0 14px;color:var(--ink-2);max-width:760px}
 
 <label class="pieno" data-campo="cat"><span class="lt"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-bed"/></svg>Type of accommodation</span><select name="cat"></select></label>
 <label class="pieno" data-campo="zona" hidden><span class="lt"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-city"/></svg>Municipality</span><select name="zona"></select></label>
-<label data-campo="checkin"><span class="lt"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg>Check-in date</span><input type="date" name="checkin"></label>
+<label data-campo="checkin"><span class="lt"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg><span data-lab="checkin">Check-in date</span></span><input type="date" name="checkin"></label>
 <label data-campo="notti"><span class="lt"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-moon"/></svg>Nights</span><input type="number" name="notti" min="1" max="365" value="3" inputmode="numeric"></label>
 <label data-campo="paganti"><span class="lt"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-users"/></svg><span data-lab="paganti">Guests</span></span><input type="number" name="paganti" min="0" max="50" value="2" inputmode="numeric"></label>
 <label data-campo="esenti"><span class="lt"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-child"/></svg><span data-lab="esenti">Children</span></span><input type="number" name="esenti" min="0" max="50" value="0" inputmode="numeric"></label>
@@ -333,7 +333,7 @@ details.faq p{margin:0 0 14px;color:var(--ink-2);max-width:760px}
 <p class="f-base">Official sources only · the calculator runs in your browser.</p>
 </div></footer>
 <script>
-var VAL={"EUR":["€","",2],"GBP":["£","",2],"JPY":["¥","",0],"CZK":[""," CZK",0],"ISK":["ISK ","",0],"IDR":["IDR ","",0],"TRY":["TRY ","",2],"TND":["TND ","",2]};
+var VAL={"EUR":["€","",2],"GBP":["£","",2],"JPY":["¥","",0],"CZK":[""," CZK",0],"ISK":["ISK ","",0],"IDR":["IDR ","",0],"TRY":["TRY ","",2],"TND":["TND ","",2],"MXN":["MXN ","",2]};
 function r2(x){return Math.floor(x*100+0.5+1e-9)/100;}
 function grp(n,dec){var s=dec?r2(n).toFixed(2):String(Math.floor(n+0.5+1e-9));var p=s.split('.');p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,',');return p.join('.');}
 function soldi(v,c){var x=VAL[c];return x[0]+grp(v,x[2])+x[1];}
@@ -405,11 +405,12 @@ function calcola(R,cat,checkin,notti,paganti,esenti,stanze,prezzo,zona){
     var eta=R.esenti_sotto_eta;
     f.querySelector('[data-lab=paganti]').textContent=R.tipo==='per_trip'?'Travellers':(eta?'Guests aged '+eta+' or over':'Guests');
     f.querySelector('[data-lab=esenti]').textContent=eta?'Children under '+eta+' (exempt)':'';
+    f.querySelector('[data-lab=checkin]').textContent=R.etichetta_data||'Check-in date';
     var lp=f.querySelector('[data-lab=prezzo]');lp.textContent=(R.etichetta_prezzo||'Price per night')+' ('+R.currency+')';
     function aggiorna(){
       var tp=R.tipo,isNC=false;
       if(tp==='france'){var t=R.tariffe.filter(function(x){return x.cat===cat.value;})[0];isNC=t&&t.fr.u==='%';}
-      vis('checkin',tp!=='per_trip');vis('notti',tp!=='per_trip');
+      vis('checkin',tp!=='per_trip'||!!R.chiedi_data);vis('notti',tp!=='per_trip');
       vis('paganti',tp!=='per_room'&&tp!=='percent');vis('esenti',!!eta&&tp!=='per_room'&&tp!=='percent');
       vis('stanze',tp==='per_room');vis('prezzo',tp==='percent'||tp==='bands'||isNC);
       var notti=Math.max(1,Math.min(365,parseInt(q('notti').value,10)||1));
@@ -418,21 +419,21 @@ function calcola(R,cat,checkin,notti,paganti,esenti,stanze,prezzo,zona){
       var ci=q('checkin').value||primaData(R);
       var zs=q('zona');vis('zona',!!(R.zone&&R.zone.length));
       var o=calcola(R,cat.value,ci,notti,pag,eta?es:0,st,pr,(R.zone&&zs)?zs.value:'');
-      var cur=R.currency,tot=soldi(o.totale,cur);
+      var cur=R.currency,nessuno=tp==='per_trip'&&!o.righe.length,tot=nessuno?'Not yet official':soldi(o.totale,cur);
       var h='<div class="r-lab">Estimated tax for this stay</div><div class="tot">'+tot+'</div>';
       var kv=[],tassate=o.righe.reduce(function(s,g){return s+(g[2]>0?g[1]:0);},0);
       if(tp!=='per_trip'){kv.push(['Taxed nights',tassate+' of '+notti]);kv.push(['Average per night',soldi(o.totale/notti,cur)]);}
-      if((tp==='per_person'||tp==='france'||tp==='per_trip')&&pag>0)kv.push([tp==='per_trip'?'Per traveller':'Per paying guest',soldi(o.totale/pag,cur)]);
+      if((tp==='per_person'||tp==='france'||tp==='per_trip')&&pag>0&&!nessuno)kv.push([tp==='per_trip'?'Per traveller':'Per paying guest',soldi(o.totale/pag,cur)]);
       if(eta&&tp!=='per_room'&&tp!=='percent')kv.push(['Exempt (under '+eta+')',plur(es,'guest')]);
       if(tp==='per_room')kv.push(['Rooms or units',String(st)]);
       if(tp==='percent'||tp==='bands'||isNC)kv.push(['Price per night',soldi(pr,cur)]);
       h+='<dl class="r-dl">'+kv.map(function(x){return '<div><dt>'+esc(x[0])+'</dt><dd>'+esc(x[1])+'</dd></div>';}).join('')+'</dl><ul class="r-righe">';
       o.righe.forEach(function(g){h+='<li><span>'+(tp==='per_trip'?'':plur(g[1],'night')+' × ')+esc(g[0])+'</span><strong class="eq">= '+soldi(g[2],cur)+'</strong></li>';});
-      if(R.tipo==='per_trip'&&!o.righe.length)h+='<li>No verified amount.</li>';
+      if(R.tipo==='per_trip'&&!o.righe.length)h+='<li>'+esc(R.nota_senza_importo||'No verified amount.')+'</li>';
       if(o.escluse)h+='<li>'+plur(o.escluse,'night')+' beyond the maximum number of taxable nights: no tax.</li>';
       if(o.fuori)h+='<li>'+plur(o.fuori,'night')+' outside the collection period: no tax.</li>';
       if(o.prima)h+='<li>'+plur(o.prima,'night')+' before '+esc(R.in_vigore_testo||R.in_vigore_dal)+': no tax yet.</li>';
-      if(o.sconosciute)h+='<li>'+plur(o.sconosciute,'night')+' with no verified official rate for that date (not counted).</li>';
+      if(o.sconosciute&&tp!=='per_trip')h+='<li>'+plur(o.sconosciute,'night')+' with no verified official rate for that date (not counted).</li>';
       o.note.forEach(function(n){h+='<li>'+esc(n)+'</li>';});
       h+='</ul>';box.querySelector('[data-out]').innerHTML=h;
       var bar=box.querySelector('[data-bar]');if(bar){bar.querySelector('.r-bar-tot').textContent=tot;

@@ -1,5 +1,5 @@
 {
- "_nota": "Una voce per destinazione. Ogni tariffa viene da una fonte ufficiale (vedi 'fonti', con data del controllo). tipo: per_person | per_room | percent | bands | per_trip. Le date 'dal'/'al' sono le notti a cui la tariffa si applica. Per la Francia i dati sono in francia.json (raccolta/francia.py).",
+ "_nota": "Una voce per destinazione. Ogni tariffa viene da una fonte ufficiale (vedi 'fonti', con data del controllo). tipo: per_person | per_room | percent | bands | per_trip. Le date 'dal'/'al' sono le notti a cui la tariffa si applica. Per la Francia i dati sono in francia.json (raccolta/francia.py). Messico (30/10/2026): 'uma_moltiplicatore' = importo in UMA; le tariffe (tariffe vuote qui) le scrive genera.py da dati/uma.json, una per anno dal 1/2. 'chiedi_data' = il calcolatore per_trip chiede la data d'arrivo.",
  "destinazioni": [
   {
    "slug": "barcelona",
@@ -6545,6 +6545,238 @@
    "controllato_il": "2026-10-26",
    "breve_seo": "TND 4–12 per night for foreign guests",
    "risposta": "In Tunisia foreign guests pay 4 to 12 dinars per person per night: TND 12 in 4- and 5-star hotels, TND 8 in 3-star hotels and TND 4 in 2-star hotels and other accommodation; Tunisian and Maghreb nationals pay TND 3, 2 and 1. Each guest pays for at most 10 nights in a row."
+  },
+  {
+   "slug": "cancun",
+   "name": "Cancún",
+   "country": "Mexico",
+   "country_slug": "mexico",
+   "region": "Quintana Roo",
+   "currency": "MXN",
+   "official_name": "Visitax: fee for foreign visitors to Quintana Roo (Derecho a visitantes extranjeros, art. 51-Octies)",
+   "tipo": "per_trip",
+   "gruppo": "quintana-roo",
+   "uma_moltiplicatore": 2.5,
+   "chiedi_data": true,
+   "etichetta_data": "Arrival date in Quintana Roo",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "Foreign visitor entering Quintana Roo (any age)"
+    }
+   ],
+   "tariffe": [],
+   "chi_riscuote": "Paid online on the official Visitax portal of the Quintana Roo Tax Administration Service (SATQ), or through companies authorised by the SATQ; not at the hotel.",
+   "fonti": [
+    {
+     "titolo": "Ley de Derechos del Estado de Quintana Roo, article 51-Octies: 2.50 UMA per foreign visitor (last reform published 18 December 2025)",
+     "url": "https://documentos.congresoqroo.gob.mx/leyes/L195-XVIII-20251218-L1820251216196-Ley-de-Derechos.pdf",
+     "http": 200,
+     "formato": "PDF (Spanish)",
+     "controllato_il": "2026-10-30"
+    },
+    {
+     "titolo": "INEGI - UMA 2026: MXN 117.31 per day from 1 February 2026 (press release 1/26, 8 January 2026)",
+     "url": "https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/uma/uma2026.pdf",
+     "http": 200,
+     "formato": "PDF (Spanish)",
+     "controllato_il": "2026-10-30"
+    },
+    {
+     "titolo": "Visitax - official payment portal of the Quintana Roo Tax Administration Service (SATQ), FAQ: mandatory for all foreign tourists, no adult or child rate, applies to Cozumel",
+     "url": "https://visitax.gob.mx/sitio/",
+     "http": 200,
+     "formato": "HTML (English)",
+     "controllato_il": "2026-10-30"
+    }
+   ],
+   "note": [
+    "The amount is set by law as 2.50 UMA (Unidad de Medida y Actualización), the official reference value in pesos that INEGI updates every January, valid from 1 February. So the Visitax changes every 1 February.",
+    "The official portal says there is no adult or child rate: all foreign tourists pay, whatever their age.",
+    "Cancún is in the state of Quintana Roo (municipality of Benito Juárez).",
+    "Foreign visitors who enter Quintana Roo through the state's southern border are exempt (article 51-Octies).",
+    "Cruise passengers who paid the Quintana Roo cruise passenger fee (US$5, charged with the cruise ticket) do not pay the Visitax (article 51-Nonies)."
+   ],
+   "esenzioni": [
+    "Foreign visitors entering Quintana Roo through the southern border of the state",
+    "Cruise passengers who paid the Quintana Roo cruise passenger fee (article 51-Nonies)"
+   ],
+   "controllato_il": "2026-10-30",
+   "valid_from": ""
+  },
+  {
+   "slug": "tulum",
+   "name": "Tulum",
+   "country": "Mexico",
+   "country_slug": "mexico",
+   "region": "Quintana Roo",
+   "currency": "MXN",
+   "official_name": "Visitax: fee for foreign visitors to Quintana Roo (Derecho a visitantes extranjeros, art. 51-Octies)",
+   "tipo": "per_trip",
+   "gruppo": "quintana-roo",
+   "uma_moltiplicatore": 2.5,
+   "chiedi_data": true,
+   "etichetta_data": "Arrival date in Quintana Roo",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "Foreign visitor entering Quintana Roo (any age)"
+    }
+   ],
+   "tariffe": [],
+   "chi_riscuote": "Paid online on the official Visitax portal of the Quintana Roo Tax Administration Service (SATQ), or through companies authorised by the SATQ; not at the hotel.",
+   "fonti": [
+    {
+     "titolo": "Ley de Derechos del Estado de Quintana Roo, article 51-Octies: 2.50 UMA per foreign visitor (last reform published 18 December 2025)",
+     "url": "https://documentos.congresoqroo.gob.mx/leyes/L195-XVIII-20251218-L1820251216196-Ley-de-Derechos.pdf",
+     "http": 200,
+     "formato": "PDF (Spanish)",
+     "controllato_il": "2026-10-30"
+    },
+    {
+     "titolo": "INEGI - UMA 2026: MXN 117.31 per day from 1 February 2026 (press release 1/26, 8 January 2026)",
+     "url": "https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/uma/uma2026.pdf",
+     "http": 200,
+     "formato": "PDF (Spanish)",
+     "controllato_il": "2026-10-30"
+    },
+    {
+     "titolo": "Visitax - official payment portal of the Quintana Roo Tax Administration Service (SATQ), FAQ: mandatory for all foreign tourists, no adult or child rate, applies to Cozumel",
+     "url": "https://visitax.gob.mx/sitio/",
+     "http": 200,
+     "formato": "HTML (English)",
+     "controllato_il": "2026-10-30"
+    }
+   ],
+   "note": [
+    "The amount is set by law as 2.50 UMA (Unidad de Medida y Actualización), the official reference value in pesos that INEGI updates every January, valid from 1 February. So the Visitax changes every 1 February.",
+    "The official portal says there is no adult or child rate: all foreign tourists pay, whatever their age.",
+    "Tulum is in the state of Quintana Roo (municipality of Tulum).",
+    "Foreign visitors who enter Quintana Roo through the state's southern border are exempt (article 51-Octies).",
+    "Cruise passengers who paid the Quintana Roo cruise passenger fee (US$5, charged with the cruise ticket) do not pay the Visitax (article 51-Nonies)."
+   ],
+   "esenzioni": [
+    "Foreign visitors entering Quintana Roo through the southern border of the state",
+    "Cruise passengers who paid the Quintana Roo cruise passenger fee (article 51-Nonies)"
+   ],
+   "controllato_il": "2026-10-30",
+   "valid_from": ""
+  },
+  {
+   "slug": "playa-del-carmen",
+   "name": "Playa del Carmen",
+   "country": "Mexico",
+   "country_slug": "mexico",
+   "region": "Quintana Roo",
+   "currency": "MXN",
+   "official_name": "Visitax: fee for foreign visitors to Quintana Roo (Derecho a visitantes extranjeros, art. 51-Octies)",
+   "tipo": "per_trip",
+   "gruppo": "quintana-roo",
+   "uma_moltiplicatore": 2.5,
+   "chiedi_data": true,
+   "etichetta_data": "Arrival date in Quintana Roo",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "Foreign visitor entering Quintana Roo (any age)"
+    }
+   ],
+   "tariffe": [],
+   "chi_riscuote": "Paid online on the official Visitax portal of the Quintana Roo Tax Administration Service (SATQ), or through companies authorised by the SATQ; not at the hotel.",
+   "fonti": [
+    {
+     "titolo": "Ley de Derechos del Estado de Quintana Roo, article 51-Octies: 2.50 UMA per foreign visitor (last reform published 18 December 2025)",
+     "url": "https://documentos.congresoqroo.gob.mx/leyes/L195-XVIII-20251218-L1820251216196-Ley-de-Derechos.pdf",
+     "http": 200,
+     "formato": "PDF (Spanish)",
+     "controllato_il": "2026-10-30"
+    },
+    {
+     "titolo": "INEGI - UMA 2026: MXN 117.31 per day from 1 February 2026 (press release 1/26, 8 January 2026)",
+     "url": "https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/uma/uma2026.pdf",
+     "http": 200,
+     "formato": "PDF (Spanish)",
+     "controllato_il": "2026-10-30"
+    },
+    {
+     "titolo": "Visitax - official payment portal of the Quintana Roo Tax Administration Service (SATQ), FAQ: mandatory for all foreign tourists, no adult or child rate, applies to Cozumel",
+     "url": "https://visitax.gob.mx/sitio/",
+     "http": 200,
+     "formato": "HTML (English)",
+     "controllato_il": "2026-10-30"
+    }
+   ],
+   "note": [
+    "The amount is set by law as 2.50 UMA (Unidad de Medida y Actualización), the official reference value in pesos that INEGI updates every January, valid from 1 February. So the Visitax changes every 1 February.",
+    "The official portal says there is no adult or child rate: all foreign tourists pay, whatever their age.",
+    "Playa del Carmen is in the state of Quintana Roo (municipality of Solidaridad).",
+    "Foreign visitors who enter Quintana Roo through the state's southern border are exempt (article 51-Octies).",
+    "Cruise passengers who paid the Quintana Roo cruise passenger fee (US$5, charged with the cruise ticket) do not pay the Visitax (article 51-Nonies)."
+   ],
+   "esenzioni": [
+    "Foreign visitors entering Quintana Roo through the southern border of the state",
+    "Cruise passengers who paid the Quintana Roo cruise passenger fee (article 51-Nonies)"
+   ],
+   "controllato_il": "2026-10-30",
+   "valid_from": ""
+  },
+  {
+   "slug": "cozumel",
+   "name": "Cozumel",
+   "country": "Mexico",
+   "country_slug": "mexico",
+   "region": "Quintana Roo",
+   "currency": "MXN",
+   "official_name": "Visitax: fee for foreign visitors to Quintana Roo (Derecho a visitantes extranjeros, art. 51-Octies)",
+   "tipo": "per_trip",
+   "gruppo": "quintana-roo",
+   "uma_moltiplicatore": 2.5,
+   "chiedi_data": true,
+   "etichetta_data": "Arrival date in Quintana Roo",
+   "categorie": [
+    {
+     "id": "all",
+     "label": "Foreign visitor entering Quintana Roo (any age)"
+    }
+   ],
+   "tariffe": [],
+   "chi_riscuote": "Paid online on the official Visitax portal of the Quintana Roo Tax Administration Service (SATQ), or through companies authorised by the SATQ; not at the hotel.",
+   "fonti": [
+    {
+     "titolo": "Ley de Derechos del Estado de Quintana Roo, article 51-Octies: 2.50 UMA per foreign visitor (last reform published 18 December 2025)",
+     "url": "https://documentos.congresoqroo.gob.mx/leyes/L195-XVIII-20251218-L1820251216196-Ley-de-Derechos.pdf",
+     "http": 200,
+     "formato": "PDF (Spanish)",
+     "controllato_il": "2026-10-30"
+    },
+    {
+     "titolo": "INEGI - UMA 2026: MXN 117.31 per day from 1 February 2026 (press release 1/26, 8 January 2026)",
+     "url": "https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/uma/uma2026.pdf",
+     "http": 200,
+     "formato": "PDF (Spanish)",
+     "controllato_il": "2026-10-30"
+    },
+    {
+     "titolo": "Visitax - official payment portal of the Quintana Roo Tax Administration Service (SATQ), FAQ: mandatory for all foreign tourists, no adult or child rate, applies to Cozumel",
+     "url": "https://visitax.gob.mx/sitio/",
+     "http": 200,
+     "formato": "HTML (English)",
+     "controllato_il": "2026-10-30"
+    }
+   ],
+   "note": [
+    "The amount is set by law as 2.50 UMA (Unidad de Medida y Actualización), the official reference value in pesos that INEGI updates every January, valid from 1 February. So the Visitax changes every 1 February.",
+    "The official portal says there is no adult or child rate: all foreign tourists pay, whatever their age.",
+    "Cozumel is in the state of Quintana Roo (municipality of Cozumel).",
+    "Foreign visitors who enter Quintana Roo through the state's southern border are exempt (article 51-Octies).",
+    "Cruise passengers who paid the Quintana Roo cruise passenger fee (US$5, charged with the cruise ticket) do not pay the Visitax (article 51-Nonies)."
+   ],
+   "esenzioni": [
+    "Foreign visitors entering Quintana Roo through the southern border of the state",
+    "Cruise passengers who paid the Quintana Roo cruise passenger fee (article 51-Nonies)"
+   ],
+   "controllato_il": "2026-10-30",
+   "valid_from": ""
   }
  ]
 }

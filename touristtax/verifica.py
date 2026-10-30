@@ -13,6 +13,9 @@ Uso (dalla radice del repository, dopo python3 touristtax/genera.py):
 6. Pagina tourist-tax-changes-2027/ (fonti, date, coerenza con i dati, link, sitemap, FAQPage).
 7. Destinazioni aggiunte il 26/10/2026 (fonti 200, pagina, sitemap, pagina paese, tabella Europa).
 8. Titoli, descrizioni e risposte dirette delle pagine di destinazione.
+9. Sezione Messico (30/10/2026): pagine in sitemap, importi del Visitax ricalcolati qui dalla formula (2,50 × UMA di dati/uma.json),
+   titoli ≤ 70 caratteri con anno e importo, risposta con fonte e data, FAQPage visibile, avviso sul sito ufficiale (solo link a
+   visitax.gob.mx), link di affiliazione solo DiscoverCars con il nostro a_aid, dopo le informazioni ufficiali; voce 2027 del Visitax.
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
 domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
@@ -25,6 +28,7 @@ import re
 import subprocess
 import sys
 import tempfile
+from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -85,6 +89,11 @@ ESEMPI = [
     ("Porto, 2 adults + 1 child, 10 nights: 7 nights × €3 × 2", D["porto"], "all", "2026-11-01", 10, 2, 1, 1, 0, 42.00),
     ("Tunisia 4-5 stars, foreign guests, 2 people, 12 nights: 10 nights × TND 12 × 2", D["tunisia"], "h45f", "2026-11-01", 12, 2, 0, 1, 0, 240.00),
     ("Tunisia 3 stars, Tunisian nationals, 2 people, 3 nights: TND 2 × 2 × 3", D["tunisia"], "h3t", "2026-11-01", 3, 2, 0, 1, 0, 12.00),
+    # 30/10/2026: Visitax del Quintana Roo = 2,50 UMA (INEGI: 113,14 dal 1/2/2025, 117,31 dal 1/2/2026), a persona, una volta all'ingresso
+    # importo pagato = arrotondato al peso (Código Fiscal QRoo art. 18; il portale chiede MXN 293 a persona, 30/10/2026)
+    ("Cancún, 3 foreign visitors arriving 5 Nov 2026: 2.50 × 117.31 = 293.275 → MXN 293 × 3", D["cancun"], "all", "2026-11-05", 7, 3, 0, 1, 0, 879.00),
+    ("Tulum, 2 visitors arriving 31 Jan 2026 (UMA 2025): 2.50 × 113.14 = 282.85 → MXN 283 × 2", D["tulum"], "all", "2026-01-31", 5, 2, 0, 1, 0, 566.00),
+    ("Cozumel, 4 visitors (children pay too) arriving 1 Feb 2026: MXN 293 × 4", D["cozumel"], "all", "2026-02-01", 3, 4, 0, 1, 0, 1172.00),
 ]
 
 
@@ -356,6 +365,112 @@ def controlla_titoli():
     return errori
 
 
+MX_SLUG = ("mexico", "cancun", "tulum", "playa-del-carmen", "cozumel")
+MX_AID = "https://www.discovercars.com/?a_aid=Massimilianocori"
+
+
+def controlla_messico():
+    """9. Sezione Messico."""
+    errori = []
+    sm = _sitemap()
+    molt = G.MX["visitax"]["moltiplicatore_uma"]
+    if molt != 2.5:
+        errori.append(f"Messico: moltiplicatore UMA {molt} diverso da 2,50 (art. 51-Octies)")
+    # importi ricalcolati qui, indipendentemente da genera.tariffe_uma
+    attese = []
+    vv = sorted(G.UMA["valori"], key=lambda v: v["dal"])
+    for i, v in enumerate(vv):
+        if not re.match(r"https://www\.inegi\.org\.mx/.+\.pdf$", v["fonte"]["url"]) or v["fonte"]["http"] != 200:
+            errori.append(f"Messico: fonte UMA {v['anno']} non INEGI o non letta")
+        if v["dal"] != f"{v['anno']}-02-01":
+            errori.append(f"Messico: UMA {v['anno']} non in vigore dal 1° febbraio")
+        cent = round(v["diario"] * 250)  # 2,50 × UMA in centesimi (esatto a mezzo centesimo: arrotondo solo per il confronto)
+        esatto = v["diario"] * 2.5
+        importo = float(cent // 100 + (1 if cent % 100 > 50 else 0))  # al peso: 1-50 centavos giù, 51-99 su (CF QRoo art. 18)
+        attese.append((v["dal"], importo, v["diario"], esatto))
+    for slug in ("cancun", "tulum", "playa-del-carmen", "cozumel"):
+        R = D.get(slug)
+        if not R:
+            errori.append(f"Messico: destinazione mancante {slug}")
+            continue
+        tt = [(t["dal"], t["valore"], t["uma"]) for t in R["tariffe"]]
+        if [(a, round(b, 2)) for a, b, _ in tt] != [(a, round(b, 2)) for a, b, _, _ in attese]:
+            errori.append(f"Messico: tariffe di {slug} diverse dalla formula 2,50 × UMA: {tt} vs {attese}")
+    oggi = G.OGGI.isoformat()
+    ora = next((x for x in reversed(attese) if x[0] <= oggi), attese[-1])
+    imp = G.soldi(ora[1], "MXN")
+    formula = f"2.50 × {G.soldi(ora[2], 'MXN')} = MXN {('%.4f' % ora[3]).rstrip('0').rstrip('.')}, rounded to {imp}"
+    pp = G.MX["visitax"]["portale"].get("prezzo_unitario")
+    if pp and pp["anno"] == int(ora[0][:4]) and pp["valore"] != ora[1]:
+        errori.append(f"Messico: il portale ufficiale chiedeva {pp['valore']} nel {pp['anno']}, la formula dà {ora[1]}")
+    voce = next((v for v in G.CAMBI["voci"] if v.get("uma")), None)
+    if not voce or voce["dal"] != f"{voce['uma']['anno']}-02-01" or voce["slug"] != "mexico":
+        errori.append("Messico: voce del Visitax nella pagina 2027 mancante o con data diversa dal 1° febbraio dell'anno della prossima UMA")
+    for slug in MX_SLUG:
+        f = SITO / slug / "index.html"
+        if not f.exists():
+            errori.append(f"Messico: pagina mancante {slug}/")
+            continue
+        if f"{G.URL_SITO}/{slug}/" not in sm:
+            errori.append(f"Messico: {slug}/ non nella sitemap")
+        t = f.read_text(encoding="utf-8")
+        vis = G.MON.testo_visibile(t)
+        titolo = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(titolo) > 70 or "tourist tax" not in titolo or not re.search(r"20(26|27)", titolo) or "MXN" not in titolo:
+            errori.append(f"Messico: titolo oltre 70 caratteri o senza anno/importo: {slug}: {titolo} ({len(titolo)})")
+        if imp not in titolo and not voce_futura_nel_titolo(titolo, attese, oggi):
+            errori.append(f"Messico: il titolo di {slug} non ha l'importo in vigore {imp}")
+        r = re.search(r'<p class="risposta">(.*?)</p>', t, re.S)
+        prima = r.group(1).split(". ")[0] if r else ""
+        if not r or imp not in prima or "article 51-Octies" not in prima or "INEGI" not in prima or not re.search(r"checked on \d{1,2} [A-Z][a-z]+ 20\d\d", prima):
+            errori.append(f"Messico: la prima frase di {slug} non ha importo, fonte e data del controllo")
+        if formula not in vis:
+            errori.append(f"Messico: formula '{formula}' non mostrata in {slug}")
+        if f"The official fee is {imp} per person; third-party sites may charge a service fee." not in vis:
+            errori.append(f"Messico: avviso sul sito ufficiale mancante in {slug}")
+        for u in re.findall(r'href="([^"]+)"', t):
+            if "visitax" in u.lower() and not re.match(r"https://(www\.)?visitax\.gob\.mx/", u):
+                errori.append(f"Messico: link a un sito Visitax non ufficiale in {slug}: {u}")
+        if 'href="https://visitax.gob.mx/sitio/"' not in t:
+            errori.append(f"Messico: manca il link al sito ufficiale Visitax in {slug}")
+        ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S)]
+        faq = [x for x in ld if x.get("@type") == "FAQPage"]
+        if len(faq) != 1 or len(faq[0]["mainEntity"]) < 3:
+            errori.append(f"Messico: FAQPage mancante o con meno di 3 domande in {slug}")
+        else:
+            for q in faq[0]["mainEntity"]:
+                if G.escape(q["name"]) not in t or G.escape(q["acceptedAnswer"]["text"]) not in t:
+                    errori.append(f"Messico: domanda FAQ non visibile in {slug}: {q['name']}")
+        dnr = G.soldi(G.MX["federali"]["dnr"]["importo"], "MXN")
+        if dnr not in vis:
+            errori.append(f"Messico: importo DNR {dnr} mancante in {slug}")
+        # affiliazione: solo DiscoverCars con il nostro a_aid, rel sponsored noopener, dopo FAQ e fonti ufficiali
+        aff = G.MON.link_affiliati(t)
+        url_on = (G.AFFILIATI.get("_discovercars_messico") or {}).get("url", "")
+        for href, host, rel in aff:
+            if href != MX_AID or not {"sponsored", "noopener"} <= rel:
+                errori.append(f"Messico: link di affiliazione non ammesso in {slug}: {href} {rel}")
+        if url_on and len(aff) != 1:
+            errori.append(f"Messico: atteso 1 link DiscoverCars in {slug}, trovati {len(aff)}")
+        if aff:
+            pos = t.find(G.escape(MX_AID))
+            if pos < t.find("<h2>Official sources</h2>") or pos < t.find("<h2>Questions</h2>") or pos < t.find("mx-uff"):
+                errori.append(f"Messico: riquadro DiscoverCars prima delle informazioni ufficiali in {slug}")
+            if G.MON.RIGA_EN not in vis:
+                errori.append(f"Messico: riga di trasparenza mancante in {slug}")
+    # nessun link DiscoverCars fuori dalla sezione Messico
+    for f in SITO.rglob("*.html"):
+        rel = f.relative_to(SITO).parts[0]
+        if rel not in MX_SLUG and "discovercars.com" in f.read_text(encoding="utf-8"):
+            errori.append(f"Messico: link DiscoverCars fuori dalla sezione Messico: {f.relative_to(SITO)}")
+    return errori
+
+
+def voce_futura_nel_titolo(titolo, attese, oggi):
+    fut = [x for x in attese if x[0] > oggi]
+    return bool(fut) and G.soldi(fut[0][1], "MXN") in titolo
+
+
 def main():
     errori = controlla_esempi()
     print(f"Esempi a mano: {len(ESEMPI)} controllati, {len([e for e in errori if e.startswith('ESEMPIO')])} sbagliati")
@@ -376,9 +491,11 @@ def main():
     print(f"Destinazioni nuove ({', '.join(NUOVE_DEST)}): {len(en)} errori")
     et = controlla_titoli()
     print(f"Titoli, descrizioni e risposte dirette di {len(G.DEST)} destinazioni: {len(et)} errori")
+    ex = controlla_messico()
+    print(f"Sezione Messico ({len(MX_SLUG)} pagine, Visitax = 2,50 × UMA ricalcolato, titoli, FAQ, avviso sito ufficiale, DiscoverCars): {len(ex)} errori")
     em, im = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print(G.MON.riepilogo(G.SITO_ID, im, em))
-    tutti = errori + ej + el + ef + ea + ei + e7 + en + et + em
+    tutti = errori + ej + el + ef + ea + ei + e7 + en + et + ex + em
     for e in tutti[:40]:
         print("  -", e)
     if tutti:

@@ -1,6 +1,6 @@
 {
- "_nota": "Cambi di tassa turistica già decisi, con data ufficiale (pagina tourist-tax-changes-2027/). Una voce per cambio: luogo, slug della pagina del sito (vuoto se non c'è), data, cosa cambia, importo, fonte ufficiale (URL, HTTP, data del controllo). 'verifica' = elenco [slug, data]: verifica.py controlla che quella destinazione abbia davvero una tariffa (o un supplemento, o un cambio annunciato) che parte in quella data. Solo atti o pagine ufficiali: niente stampa. 'importo_breve' = cifra corta per la tabella in cima (stessi numeri di 'importo' e 'prima').",
- "aggiornato_il": "2026-10-26",
+ "_nota": "Cambi di tassa turistica già decisi, con data ufficiale (pagina tourist-tax-changes-2027/). Una voce per cambio: luogo, slug della pagina del sito (vuoto se non c'è), data, cosa cambia, importo, fonte ufficiale (URL, HTTP, data del controllo). 'verifica' = elenco [slug, data]: verifica.py controlla che quella destinazione abbia davvero una tariffa (o un supplemento, o un cambio annunciato) che parte in quella data. Solo atti o pagine ufficiali: niente stampa. 'importo_breve' = cifra corta per la tabella in cima (stessi numeri di 'importo' e 'prima'). Voce con 'uma' (Visitax del Quintana Roo): 'importo', 'prima' e 'importo_breve' li scrive genera.py da dati/uma.json (2,50 × UMA dell'anno; finché l'INEGI non pubblica la UMA 2027 la voce dice la formula).",
+ "aggiornato_il": "2026-10-30",
  "voci": [
   {
    "dal": "2027-01-01",
@@ -52,6 +52,27 @@
     "controllato_il": "2026-10-26"
    },
    "importo_breve": "2%, max ¥2,000 (new)"
+  },
+  {
+   "dal": "2027-02-01",
+   "luogo": "Quintana Roo (Mexico)",
+   "slug": "mexico",
+   "cosa": "The Visitax for foreign visitors (Cancún, Tulum, Playa del Carmen, Cozumel, Isla Mujeres, Holbox) is 2.50 UMA by law, and the UMA changes every 1 February. INEGI publishes the 2027 UMA in January 2027; this page and the calculators update when it does.",
+   "importo": "",
+   "prima": "",
+   "importo_breve": "",
+   "uma": {
+    "moltiplicatore": 2.5,
+    "anno": 2027
+   },
+   "riserva": "",
+   "verifica": [],
+   "fonte": {
+    "titolo": "Ley de Derechos del Estado de Quintana Roo, article 51-Octies (2.50 UMA), and INEGI, Unidad de Medida y Actualización",
+    "url": "https://documentos.congresoqroo.gob.mx/leyes/L195-XVIII-20251218-L1820251216196-Ley-de-Derechos.pdf",
+    "http": 200,
+    "controllato_il": "2026-10-30"
+   }
   },
   {
    "dal": "2027-04-01",
@@ -162,6 +183,23 @@
     "controllato_il": "2026-10-26"
    },
    "importo_breve": "8% (from 5%)"
+  },
+  {
+   "dal": "2027-07-01",
+   "luogo": "Mexico (cruise passengers)",
+   "slug": "mexico",
+   "cosa": "The federal fee paid by foreign cruise passengers on their first entry to Mexico goes up, as set by the decree of 30 June 2025 (paid in pesos at the Banco de México exchange rate). Re-entering on the same cruise stays free.",
+   "importo": "Peso equivalent of US$15 per foreign cruise passenger (until 31 July 2028, then US$21)",
+   "prima": "US$10",
+   "importo_breve": "US$15 (from US$10)",
+   "riserva": "",
+   "verifica": [],
+   "fonte": {
+    "titolo": "Decree granting tax incentives on migration fees (cruise passengers), DOF 30 June 2025 (SIDOF)",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5761557",
+    "http": 200,
+    "controllato_il": "2026-10-30"
+   }
   }
  ],
  "dopo": [
@@ -170,6 +208,12 @@
    "luogo": "Barcelona",
    "slug": "barcelona",
    "cosa": "City surcharge €7.00 per person per night (from €6.00)."
+  },
+  {
+   "dal": "2028-08-01",
+   "luogo": "Mexico (cruise passengers)",
+   "slug": "mexico",
+   "cosa": "Federal fee for foreign cruise passengers: peso equivalent of US$21 (from US$15), until 30 September 2030 (decree of 30 June 2025)."
   },
   {
    "dal": "2029-06-01",

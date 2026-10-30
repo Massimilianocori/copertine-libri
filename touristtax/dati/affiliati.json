@@ -1,6 +1,15 @@
 {
- "_nota": "RIQUADRO AFFILIATI (segnaposto). Compare sul sito solo per le voci con 'url' non vuoto. Inserire qui gli URL tracciati che Massimiliano riceve dopo l'iscrizione ai programmi (Stay22, Booking via CJ/Awin, assicurazione viaggio). Mai inventare URL.",
+ "_nota": "RIQUADRO AFFILIATI (segnaposto). Compare sul sito solo per le voci con 'url' non vuoto. Le voci che iniziano con '_' non entrano nel riquadro generico: hanno un posto loro (dal 30/10/2026 _discovercars_messico, solo nelle pagine Messico). Inserire qui gli URL tracciati che Massimiliano riceve dopo l'iscrizione ai programmi (Stay22, Booking via CJ/Awin, assicurazione viaggio). Mai inventare URL.",
  "stay22": {"url": "", "nome": "Stay22", "titolo": "Find a place to stay", "testo": "Compare hotels and apartments for your dates on one map."},
  "booking": {"url": "", "nome": "Booking.com", "titolo": "Book your hotel", "testo": "Hotels and apartments with free cancellation on many rooms."},
- "assicurazione": {"url": "", "nome": "", "titolo": "Travel insurance", "testo": "Cover for medical emergencies and travel problems abroad. Check what the plan covers before you buy."}
+ "assicurazione": {"url": "", "nome": "", "titolo": "Travel insurance", "testo": "Cover for medical emergencies and travel problems abroad. Check what the plan covers before you buy."},
+ "_discovercars_messico": {
+  "url": "https://www.discovercars.com/?a_aid=Massimilianocori",
+  "nome": "DiscoverCars",
+  "titolo": "Hire a car in Cancún and the Riviera Maya",
+  "testo": "Compare rental companies and prices on DiscoverCars, for example at Cancún airport.",
+  "nota": "Usato SOLO nelle pagine Messico (box_noleggio_mx in genera.py: /mexico/, Cancún, Tulum, Playa del Carmen, Cozumel), DOPO le informazioni ufficiali, i sorgenti e le domande frequenti. Link generale con a_aid (stesso link di beforeyoufly, voce _discovercars_noleggio): niente pagine di località di DiscoverCars, non verificabili. Link provato con curl il 30/10/2026: 200, a_aid presente nella pagina. Dominio discovercars.com nella whitelist di studio-business/strumenti/monetizzazione.json.",
+  "attivo_dal": "2026-10-30",
+  "nota_spegnimento": "Per spegnerlo: url vuoto e rigenerare (python3 touristtax/genera.py); verifica.py (controllo Messico) ammette nelle pagine Messico solo discovercars.com con questo a_aid."
+ }
 }

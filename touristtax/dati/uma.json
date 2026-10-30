@@ -1,0 +1,35 @@
+{
+ "_nota": "Valori ufficiali della UMA (Unidad de Medida y Actualización) pubblicati dall'INEGI ogni gennaio, in vigore dal 1° febbraio. Il Visitax del Quintana Roo = 2,50 UMA (art. 51-Octies Ley de Derechos del Estado de Quintana Roo): genera.py ricava da qui le tariffe delle pagine Messico (una per anno, dal 1/2 al 31/1 successivo; senza il valore dell'anno dopo, il calcolatore si ferma al 31/1). Aggiornamento: python3 -I touristtax/raccolta/uma.py (legge il comunicato INEGI dell'anno in 'prossima' e aggiunge il valore), poi python3 touristtax/genera.py. Solo valori letti nel comunicato ufficiale.",
+ "valori": [
+  {
+   "anno": 2025,
+   "diario": 113.14,
+   "dal": "2025-02-01",
+   "fonte": {
+    "titolo": "INEGI - Comunicado de prensa 1/25, Unidad de Medida y Actualización (UMA) 2025, 9 January 2025",
+    "url": "https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2025/uma/uma2025.pdf",
+    "http": 200,
+    "controllato_il": "2026-10-30"
+   }
+  },
+  {
+   "anno": 2026,
+   "diario": 117.31,
+   "dal": "2026-02-01",
+   "fonte": {
+    "titolo": "INEGI - Comunicado de prensa 1/26, Unidad de Medida y Actualización (UMA) 2026, 8 January 2026",
+    "url": "https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/uma/uma2026.pdf",
+    "http": 200,
+    "controllato_il": "2026-10-30"
+   }
+  }
+ ],
+ "prossima": {
+  "anno": 2027,
+  "dal": "2027-02-01",
+  "url": "https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2027/uma/uma2027.pdf",
+  "attesa": "INEGI publishes the new UMA in the first half of January (8 January in 2026, 9 January in 2025).",
+  "stato_30_10_2026": "Il percorso del 2027 risponde 200 ma con una pagina HTML 'Página no encontrada' (non ancora pubblicato): uma.py accetta solo un PDF che contiene 'a partir del 1 de febrero de 2027' e il valore diario."
+ },
+ "pagina_inegi": "https://www.inegi.org.mx/temas/uma/"
+}
