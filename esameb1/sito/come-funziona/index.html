@@ -305,6 +305,15 @@ table.conf td.si{color:var(--brand-ink);font-weight:650}
 table.conf td.no{color:var(--ink-3)}
 ol.passi li>div p{margin:4px 0 0;color:var(--ink-2);font-size:.95rem}
 ol.passi li .fonte{margin-top:6px}
+/* riquadro "Preparati alla prova orale" (link di affiliazione + link gratuito) */
+.prep{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px 16px;align-items:start;margin:44px 0 8px;border-left:4px solid var(--brand)}
+.prep .bolla{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--brand-soft);color:var(--brand)}
+.prep .bolla .i{width:22px;height:22px}
+.prep h2{margin:0 0 6px;font-size:1.25rem}
+.prep p{margin:0;color:var(--ink-2);max-width:68ch}
+.prep .azioni{margin:16px 0 0}
+.prep .aff-nota{margin:12px 0 0;font-size:.84rem;color:var(--ink-3)}
+@media (max-width:640px){.prep{grid-template-columns:1fr;gap:10px}.prep .bolla{width:40px;height:40px}}
 .piede .dati{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);padding:6px 12px;border-radius:999px;font-weight:600;color:#E8F0ED}
 @media (max-width:760px){.piede-griglia{grid-template-columns:1fr}}
 </style>
@@ -357,6 +366,16 @@ per CERT.IT l'orale si fa in presenza. A Roma Tre lo scritto del CERT.IT B1 si f
 <p>Ogni ente pubblica una prova d'esempio gratuita: è il modo migliore per capire com'è l'esame.</p>
 <div class="fatti"><div class="fatto"><div class="f-et"><span class="eb eb-CILS">CILS</span><span>Università per Stranieri di Siena</span></div><p>Prova d&#x27;esempio ufficiale del CILS B1 Cittadinanza, gratis: quaderno, audio, chiavi e criteri di valutazione.</p><a class="btn btn-2" href="https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm" rel="noopener">Apri la prova d'esempio <svg class="i" aria-hidden="true" focusable="false"><use href="#i-freccia"/></svg></a><div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm" rel="noopener">prove d&#x27;esempio CILS B1 Cittadinanza</a> · controllato il 26 ottobre 2026</span></div></div><div class="fatto"><div class="f-et"><span class="eb eb-CELI">CELI</span><span>Università per Stranieri di Perugia</span></div><p>Due prove d&#x27;esempio ufficiali del CELI 2 i cittadinanza, gratis, con le domande dell&#x27;orale.</p><a class="btn btn-2" href="https://cvcl.unistrapg.it/pagine/esami-celi-immigrati" rel="noopener">Apri la prova d'esempio <svg class="i" aria-hidden="true" focusable="false"><use href="#i-freccia"/></svg></a><div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cvcl.unistrapg.it/pagine/esami-celi-immigrati" rel="noopener">esami CELI immigrati, documenti</a> · controllato il 26 ottobre 2026</span></div></div><div class="fatto"><div class="f-et"><span class="eb eb-PLIDA">PLIDA</span><span>Società Dante Alighieri</span></div><p>Prove d&#x27;esempio e materiali gratuiti per il PLIDA B1.</p><a class="btn btn-2" href="https://plida.dante.global/it/preparati-allesame/" rel="noopener">Apri la prova d'esempio <svg class="i" aria-hidden="true" focusable="false"><use href="#i-freccia"/></svg></a><div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://plida.dante.global/it/preparati-allesame/" rel="noopener">PLIDA, Preparati all&#x27;esame</a> · controllato il 26 ottobre 2026</span></div></div><div class="fatto"><div class="f-et"><span class="eb eb-CERTIT">CERT.IT</span><span>Università degli Studi Roma Tre</span></div><p>Esempio ufficiale dell&#x27;esame B1 con gli audio, gratis.</p><a class="btn btn-2" href="https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/" rel="noopener">Apri la prova d'esempio <svg class="i" aria-hidden="true" focusable="false"><use href="#i-freccia"/></svg></a><div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/" rel="noopener">Università Roma Tre, livello B1</a> · controllato il 26 ottobre 2026</span></div></div></div>
 <p><a href="../esempi-esame-b1/">Le prove d'esempio ente per ente: cosa contengono (PDF, audio, soluzioni), com'è fatta la prova e come esercitarti</a></p>
+<section class="card prep" id="preparati" aria-labelledby="preparati-titolo">
+<span class="bolla"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-voce"/></svg></span>
+<div>
+<h2 id="preparati-titolo">Preparati alla prova orale</h2>
+<p>La prova orale è la parte che preoccupa molte persone. Per prepararti aiuta parlare spesso con un insegnante madrelingua, anche online.
+Su italki scegli tu un insegnante di italiano: fai lezioni 1 a 1 e paghi a lezione.</p>
+<div class="azioni"><a class="btn" href="https://www.italki.com/affshare?ref=af34201678" rel="sponsored noopener" target="_blank"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-voce"/></svg>Trova un insegnante di italiano su italki</a><a class="btn btn-2" href="../esempi-esame-b1/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg>Prove d'esame ufficiali gratuite</a></div>
+<p class="small aff-nota">Alcuni link sono di affiliazione: potremmo ricevere una commissione, senza costi in più per te.</p>
+</div>
+</section>
 <h2><svg class="i" aria-hidden="true" focusable="false"><use href="#i-euro"/></svg>Costo e risultati</h2>
 <p>CILS B1 Cittadinanza costa 100 €, CERT.IT B1 80 € a Roma Tre; per CELI e PLIDA il prezzo lo decide il centro. <a href="../costo/">Tutti i costi</a> ·
 <a href="../risultati/">Quando arrivano i risultati</a>.</p>

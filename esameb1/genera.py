@@ -45,13 +45,36 @@ sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
 import monetizzazione as MON  # noqa: E402
 SITO_ID = "esameb1"  # nome del sito in monetizzazione.json ("adsense_siti")
 ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti a capo + script ufficiale, subito dopo il meta di verifica Google
-AFFILIATI = json.loads((DATI / "affiliati.json").read_text(encoding="utf-8")) if (DATI / "affiliati.json").exists() else {}  # link di affiliazione: oggi nessuno (file assente)
+AFFILIATI = json.loads((DATI / "affiliati.json").read_text(encoding="utf-8")) if (DATI / "affiliati.json").exists() else {}  # link di affiliazione (dal 30/10/2026: italki)
 
 
 def ci_sono_affiliati():
     """True se il sito pubblica almeno un link di affiliazione (voce con "url" in dati/affiliati.json):
     accende la sezione privacy sui link di affiliazione. Domini ammessi in monetizzazione.json, controlli in verifica.py."""
     return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_"))
+
+
+def riquadro_preparati(rel, gratis=None):
+    """Riquadro «Preparati alla prova orale» (dal 30/10/2026): insegnante di italiano su italki (link di affiliazione,
+    dati/affiliati.json voce "italki") e, accanto, sempre un link gratuito alle prove d'esame ufficiali.
+    Vuoto se la voce non ha "url". Al massimo uno per pagina; mai nella privacy e nella 404.
+    Nessun prezzo: si aggiunge solo se verificato su italki.com. Nessuna promessa di superare l'esame."""
+    url = (AFFILIATI.get("italki") or {}).get("url", "")
+    if not url:
+        return ""
+    if not MON.dominio_ammesso(url):
+        raise SystemExit(f"affiliati.json: dominio non ammesso in monetizzazione.json: {url}")
+    gratis = gratis or f"{rel}esempi-esame-b1/"
+    return f"""<section class="card prep" id="preparati" aria-labelledby="preparati-titolo">
+<span class="bolla">{ic("voce")}</span>
+<div>
+<h2 id="preparati-titolo">Preparati alla prova orale</h2>
+<p>La prova orale è la parte che preoccupa molte persone. Per prepararti aiuta parlare spesso con un insegnante madrelingua, anche online.
+Su italki scegli tu un insegnante di italiano: fai lezioni 1 a 1 e paghi a lezione.</p>
+<div class="azioni"><a class="btn" href="{escape(url)}" rel="sponsored noopener" target="_blank">{ic("voce")}Trova un insegnante di italiano su italki</a><a class="btn btn-2" href="{gratis}">{ic("libro")}Prove d'esame ufficiali gratuite</a></div>
+{MON.nota_trasparenza("it")}
+</div>
+</section>"""
 
 
 def riquadro_trasparenza(corpo, lingua="it"):
@@ -446,6 +469,15 @@ table.conf td.si{color:var(--brand-ink);font-weight:650}
 table.conf td.no{color:var(--ink-3)}
 ol.passi li>div p{margin:4px 0 0;color:var(--ink-2);font-size:.95rem}
 ol.passi li .fonte{margin-top:6px}
+/* riquadro "Preparati alla prova orale" (link di affiliazione + link gratuito) */
+.prep{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px 16px;align-items:start;margin:44px 0 8px;border-left:4px solid var(--brand)}
+.prep .bolla{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--brand-soft);color:var(--brand)}
+.prep .bolla .i{width:22px;height:22px}
+.prep h2{margin:0 0 6px;font-size:1.25rem}
+.prep p{margin:0;color:var(--ink-2);max-width:68ch}
+.prep .azioni{margin:16px 0 0}
+.prep .aff-nota{margin:12px 0 0;font-size:.84rem;color:var(--ink-3)}
+@media (max-width:640px){.prep{grid-template-columns:1fr;gap:10px}.prep .bolla{width:40px;height:40px}}
 .piede .dati{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);padding:6px 12px;border-radius:999px;font-weight:600;color:#E8F0ED}
 @media (max-width:760px){.piede-griglia{grid-template-columns:1fr}}
 """
@@ -946,6 +978,7 @@ def home(prossime):
 {modulo()}
 </aside>
 </div>
+{riquadro_preparati("")}
 <section id="citta">
 <h2>{ic("pin")}Sedi per città</h2>
 <h3>Le città con più sedi</h3>
@@ -1087,6 +1120,7 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 {"".join(blocchi) or "<p>Nessuna sede trovata nelle fonti ufficiali.</p>"}
 {nota_mancano}
 </section>
+{riquadro_preparati("../../")}
 <section>
 <h2>{ic("info")}Prima di iscriverti</h2>
 {link_guide("../../")}
@@ -1199,6 +1233,7 @@ per CERT.IT l'orale si fa in presenza. A Roma Tre lo scritto del CERT.IT B1 si f
 <p>Ogni ente pubblica una prova d'esempio gratuita: è il modo migliore per capire com'è l'esame.</p>
 {schede_per_ente("esempi", bottone="Apri la prova d'esempio")}
 <p><a href="../esempi-esame-b1/">Le prove d'esempio ente per ente: cosa contengono (PDF, audio, soluzioni), com'è fatta la prova e come esercitarti</a></p>
+{riquadro_preparati("../")}
 <h2>{ic("euro")}Costo e risultati</h2>
 <p>CILS B1 Cittadinanza costa 100 €, CERT.IT B1 80 € a Roma Tre; per CELI e PLIDA il prezzo lo decide il centro. <a href="../costo/">Tutti i costi</a> ·
 <a href="../risultati/">Quando arrivano i risultati</a>.</p>
@@ -1225,7 +1260,8 @@ def pagina_costo():
 {link_guide("../", salta="costo/")}
 </section>
 <aside>{modulo()}</aside>
-</div>"""
+</div>
+{riquadro_preparati("../")}"""
     pagina("costo/index.html", "Esame B1 cittadinanza: quanto costa (CILS, CELI, PLIDA, CERT.IT) | EsameB1",
            "Quanto costa l'esame di italiano B1 per la cittadinanza: CILS B1 Cittadinanza 100 €, CERT.IT B1 80 € a Roma Tre, "
            "CELI e PLIDA a prezzo del centro d'esame. Con le fonti ufficiali.", corpo)
@@ -1557,6 +1593,7 @@ def pagina_esempi():
 </section>
 <aside>{modulo()}</aside>
 </div>
+{riquadro_preparati("../", gratis="#confronto")}
 <section>
 <h2 id="uso">{ic("scudo")}Condizioni d'uso dei materiali</h2>
 <p>Le prove d'esempio si scaricano gratis dai siti degli enti per prepararsi all'esame, ma non sono materiali liberi:</p>

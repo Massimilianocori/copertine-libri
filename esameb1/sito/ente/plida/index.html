@@ -305,6 +305,15 @@ table.conf td.si{color:var(--brand-ink);font-weight:650}
 table.conf td.no{color:var(--ink-3)}
 ol.passi li>div p{margin:4px 0 0;color:var(--ink-2);font-size:.95rem}
 ol.passi li .fonte{margin-top:6px}
+/* riquadro "Preparati alla prova orale" (link di affiliazione + link gratuito) */
+.prep{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px 16px;align-items:start;margin:44px 0 8px;border-left:4px solid var(--brand)}
+.prep .bolla{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--brand-soft);color:var(--brand)}
+.prep .bolla .i{width:22px;height:22px}
+.prep h2{margin:0 0 6px;font-size:1.25rem}
+.prep p{margin:0;color:var(--ink-2);max-width:68ch}
+.prep .azioni{margin:16px 0 0}
+.prep .aff-nota{margin:12px 0 0;font-size:.84rem;color:var(--ink-3)}
+@media (max-width:640px){.prep{grid-template-columns:1fr;gap:10px}.prep .bolla{width:40px;height:40px}}
 .piede .dati{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);padding:6px 12px;border-radius:999px;font-weight:600;color:#E8F0ED}
 @media (max-width:760px){.piede-griglia{grid-template-columns:1fr}}
 </style>

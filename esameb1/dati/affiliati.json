@@ -1,0 +1,10 @@
+{
+  "_nota": "Link di affiliazione di EsameB1. Li legge genera.py: una voce con 'url' non vuoto accende il riquadro «Preparati alla prova orale» (home, città, come-funziona, costo, esempi-esame-b1) e la sezione privacy sui link di affiliazione. Con 'url' vuoto il riquadro sparisce da solo. Domini ammessi in studio-business/strumenti/monetizzazione.json. Mai inventare URL.",
+  "italki": {
+    "url": "https://www.italki.com/affshare?ref=af34201678",
+    "nome": "italki",
+    "attivo_dal": "2026-10-30",
+    "compenso": "18 $ per ogni nuovo studente al primo acquisto",
+    "regole": "Vietata la pubblicità a pagamento per promuovere il link (regola italki). Nessun prezzo sulle pagine finché non è verificato su italki.com."
+  }
+}
