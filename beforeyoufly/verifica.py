@@ -82,6 +82,15 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     DiscoverCars con il nostro a_aid, dopo la risposta e le regole (stesso controllo del punto 18); niente nomi di compagnie di noleggio,
     reti o assistenti; link andata e ritorno con le pagine Driving abroad dello stesso Paese, link da home, About e indice Driving abroad.
     Nel browser (punto 7) 3 pagine a 375 px in tema chiaro e scuro e l'indice a 820 px.
+21. "Winter tyres and snow chains with a rental car" (dati/gomme.json da raccolta/gomme.py, 30/10/2026): fonti solo di ministeri, polizia,
+    agenzie per la sicurezza stradale e portali dei governi (domini ammessi), lette con HTTP 200; dalla cache (raccolta/.cache/gomme/) ogni frase
+    citata è nel testo salvato e l'impronta della zona citata è uguale al file; dati = dati/gomme_manuali.json; pagine Paese solo per i Paesi con
+    almeno 5 ricerche vere in dati/gomme_domanda.json (ricalcolate); prima frase = fonte, data e risposta; citazioni, traduzioni (per le fonti non
+    in inglese), link e date nella pagina; nessun numero nelle frasi nostre che non stia in una citazione; frase "ask the rental company whether
+    winter tyres or chains are included and at what cost"; FAQ da ricerche vere (JSON-LD = testo visibile); titoli <= 70 con la stagione 2026-27;
+    tabella dell'indice = dati, con il link alle fonti; solo il link generale DiscoverCars con il nostro a_aid, dopo la risposta e le regole;
+    link andata e ritorno con le pagine Driving abroad e Tolls dello stesso Paese, link da home, About, 404 e dagli indici Driving abroad e Tolls.
+    Nel browser (punto 7) 3 pagine a 375 px in tema chiaro e scuro e l'indice a 375 e 820 px.
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
 domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
@@ -646,6 +655,10 @@ def controlla_meta():
         des = unescape(re.search(r'<meta name="description" content="(.*?)">', t).group(1))
         if len(des) > G.LIMITE_DESCRIZIONE:
             errori.append(f"descrizione di {len(des)} caratteri (> 160) in {rel}")
+        if rel.startswith(G.GOM_BASE + "/"):  # sezione "Winter tyres with a rental car": fino a 70 caratteri con la stagione 2026-27 (il punto 21 controlla il resto)
+            if len(tit) > G.LIMITE_TITOLO_GOM or G.STAGIONE_GOM not in tit:
+                errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_GOM}) o senza la stagione in {rel}: {tit}")
+            continue
         if rel.startswith(G.PED_BASE + "/"):  # sezione "Tolls with a rental car": fino a 70 caratteri con l'anno (il punto 20 controlla il resto)
             if len(tit) > G.LIMITE_TITOLO_PED or str(G.ANNO) not in tit:
                 errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_PED}) o senza l'anno in {rel}: {tit}")
@@ -1387,7 +1400,7 @@ srv.listen(0, async () => {
                          citazioni: await p.$$eval('blockquote.cit', e => e.filter(x => x.getBoundingClientRect().height > 0).length) });
         if (tema === 'light') await p.screenshot({ path: process.argv[3] + '/' + u.split('/').filter(Boolean).join('-') + '-375.png', fullPage: false });
       }
-      if (u.startsWith('/tolls-rental-car/')) {
+      if (u.startsWith('/tolls-rental-car/') || u.startsWith('/winter-tyres-rental-car/')) {
         const vis = async (sel) => p.$eval(sel, e => { const r = e.getBoundingClientRect(); return r.height > 0 && r.width > 0 && r.width <= window.innerWidth; }).catch(() => false);
         out.prove.push({ caso: 'ped:' + tema + ':' + u, testo: await p.textContent('main'), risposta: await vis('#answer'), btn: await vis('[data-noleggio] a.btn'),
                          citazioni: await p.$$eval('blockquote.cit', e => e.filter(x => x.getBoundingClientRect().height > 0).length) });
@@ -1448,7 +1461,7 @@ srv.listen(0, async () => {
       await p.close(); }
     await ctx.close(); }
   const largo = await b.newContext({ viewport: { width: 820, height: 900 } });
-  for (const u of ['/', '/cabin-bags/', '/cabin-bags/ryanair/', '/available-in/', '/available-in/apple-pay/', '/driving-abroad/', '/driving-abroad/canadian-licence/', '/tolls-rental-car/']) { const p = await largo.newPage(); await p.goto(base + u, { waitUntil: 'load' });
+  for (const u of ['/', '/cabin-bags/', '/cabin-bags/ryanair/', '/available-in/', '/available-in/apple-pay/', '/driving-abroad/', '/driving-abroad/canadian-licence/', '/tolls-rental-car/', '/winter-tyres-rental-car/']) { const p = await largo.newPage(); await p.goto(base + u, { waitUntil: 'load' });
     const w = await p.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]); out.pagine.push({ url: u, tema: '820px', scroll: w[0], larghezza: w[1], errori: [] }); await p.close(); }
   await largo.close();
   await b.close(); srv.close(); console.log(JSON.stringify(out)); });
@@ -1474,6 +1487,7 @@ PAGINE_SRV_BROWSER = ["/available-in/", "/available-in/starlink/", "/available-i
 PAGINE_PAT_BROWSER = ["/driving-abroad/", "/driving-abroad/uk-licence/", "/driving-abroad/uk-licence/japan/", "/driving-abroad/canadian-licence/italy/",
                       "/driving-abroad/australian-licence/united-states/"]
 PAGINE_PED_BROWSER = ["/tolls-rental-car/", "/tolls-rental-car/portugal/", "/tolls-rental-car/austria/", "/tolls-rental-car/france/"]
+PAGINE_GOM_BROWSER = ["/winter-tyres-rental-car/", "/winter-tyres-rental-car/italy/", "/winter-tyres-rental-car/austria/", "/winter-tyres-rental-car/france/"]
 PAGINE_BAG_BROWSER = ["/cabin-bags/", "/cabin-bags/ryanair/", "/cabin-bags/does-my-bag-fit/", "/cabin-bags/size/40x30x20/", "/cabin-bags/eu-personal-item-rule/"]
 
 
@@ -1485,7 +1499,7 @@ def controlla_browser():
         fh.write(BROWSER_JS)
     try:
         r = subprocess.run(["node", fh.name, str(SITO), cartella, json.dumps(PAGINE_ESTERE_BROWSER), json.dumps(CASI_BORSA), json.dumps(PAGINE_BAG_BROWSER),
-                            json.dumps(PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER)],
+                            json.dumps(PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER)],
                            capture_output=True, text=True, timeout=600)
     finally:
         os.unlink(fh.name)
@@ -1574,7 +1588,7 @@ def controlla_browser():
             x = next((y for y in o["prove"] if y["caso"] == f"pat:{tema}:{u}"), None)
             if not x or not x["risposta"] or (u.count("/") == 4 and x["citazioni"] < 2):
                 errori.append(f"{u} ({tema}): risposta in alto o citazioni ufficiali non visibili a 375 px")
-    for u in PAGINE_PED_BROWSER:
+    for u in PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER:
         for tema in ("light", "dark"):
             x = next((y for y in o["prove"] if y["caso"] == f"ped:{tema}:{u}"), None)
             if not x or not x["risposta"] or (G.NOLEGGIO_AUTO and not x["btn"]) or (u.count("/") == 3 and x["citazioni"] < 3):
@@ -2007,10 +2021,10 @@ def controlla_patenti():
     # DiscoverCars solo nella sezione e nella home (riga della sezione Driving abroad)
     for q in SITO.rglob("*.html"):
         nome = q.relative_to(SITO).as_posix()
-        if nome.startswith((G.PAT_BASE + "/", G.PED_BASE + "/")) or nome == "index.html":
+        if nome.startswith((G.PAT_BASE + "/", G.PED_BASE + "/", G.GOM_BASE + "/")) or nome == "index.html":
             continue
         if "discovercars" in q.read_text(encoding="utf-8").lower():
-            errori.append(f"{nome}: link DiscoverCars fuori dalle sezioni Driving abroad e Tolls with a rental car e dalla home")
+            errori.append(f"{nome}: link DiscoverCars fuori dalle sezioni Driving abroad, Tolls e Winter tyres with a rental car e dalla home")
     for nome in ("patenti.json", "patenti_manuali.json", "patenti_domanda.json"):
         if VIETATE_SRV.search((SITO.parent / "dati" / nome).read_text(encoding="utf-8")):
             errori.append(f"dati/{nome}: nome di un assistente di intelligenza artificiale")
@@ -2213,6 +2227,214 @@ def controlla_pedaggi():
     return errori, conti
 
 
+_spec_gom = importlib.util.spec_from_file_location("raccolta_gomme", Path(__file__).resolve().parent / "raccolta" / "gomme.py")
+RGOM = importlib.util.module_from_spec(_spec_gom)
+_spec_gom.loader.exec_module(RGOM)
+# Fonti ammesse: ministeri, polizia, agenzie pubbliche per la sicurezza stradale, portali e raccolte di leggi dei governi (niente club, produttori, noleggi)
+FONTI_UFFICIALI_GOM = re.compile(r"^https://(?:www\.mit\.gov\.it|www\.poliziadistato\.it|www\.bmimi\.gv\.at|www\.bmv\.de|www\.gesetze-im-internet\.de|"
+                                 r"www\.service-public\.gouv\.fr|www\.ch\.ch|portalspv\.avp-rs\.si|www\.slovenia\.info|zagrebacka-policija\.gov\.hr|md\.gov\.cz|"
+                                 r"www\.slovensko\.sk|www\.vegvesen\.no|www\.transportstyrelsen\.se|traficom\.fi|www\.dgt\.es|www\.govern\.ad|www\.mobilitat\.ad)/")
+FRASE_NOLEGGIO_GOM = "ask the rental company whether winter tyres or chains are included and at what cost"
+
+
+def _numeri_gom(s):
+    """Numeri di un testo (date complete escluse; '5 000' -> '5000'; '3,5' -> '3.5'; '1st' -> '1')."""
+    s = re.sub(r"(?<=\d),(?=\d\b)", ".", s)  # "3,5 t" -> 3.5
+    return _numeri_ped(re.sub(r"\b\d{1,2} (?:January|February|March|April|May|June|July|August|September|October|November|December) \d{4}\b", " ", s))
+
+
+def controlla_gomme():
+    """Punto 21: dati = fonti = pagine; pagine solo con ricerche vere; prima frase; traduzioni; numeri; FAQ; DiscoverCars; link andata e ritorno."""
+    from html import unescape
+    errori = []
+    conti = {"paesi": 0, "pagine": 0, "fonti": 0, "citazioni": 0, "faq": 0, "cache": "no", "noleggio": 0, "link": 0}
+    if not G.GOM:
+        return ["dati/gomme.json mancante (rilanciare raccolta/gomme.py)"], conti
+    M = json.loads((SITO.parent / "dati" / "gomme_manuali.json").read_text(encoding="utf-8"))
+    if M["paesi"] != G.GOM["paesi"]:
+        errori.append("dati/gomme.json non è aggiornato rispetto a dati/gomme_manuali.json (rilanciare raccolta/gomme.py)")
+    D = json.loads((SITO.parent / "dati" / "gomme_domanda.json").read_text(encoding="utf-8"))
+    ricerche = {s for g in D["paesi"].values() for qq in g.values() for ss in qq.values() for s in ss}
+    # a) fonti: HTTP 200, solo domini ufficiali, data; dalla cache frasi e impronte ricalcolate
+    cache = RGOM.CACHE.exists()
+    for fid, F in G.GOM["fonti"].items():
+        conti["fonti"] += 1
+        if F["http"] != 200:
+            errori.append(f"fonte {fid}: HTTP {F['http']}")
+        if not FONTI_UFFICIALI_GOM.match(F["url"]):
+            errori.append(f"fonte {fid}: dominio non ufficiale o non previsto: {F['url']}")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F["letto_il"] or "") or F["letto_il"] > G.OGGI.isoformat():
+            errori.append(f"fonte {fid}: data di lettura non valida {F['letto_il']}")
+        f_c = RGOM.file_cache(fid)
+        if cache and f_c.exists():
+            t = RGOM.testo_fonte(f_c.read_bytes(), RGOM.FONTI[fid].get("tipo", "html"))
+            frasi = RGOM.frasi_fonte(G.GOM, fid)
+            for x in frasi:
+                if x not in t:
+                    errori.append(f"fonte {fid}: la frase non è nel testo salvato: {x[:70]}")
+            if RGOM.impronta_zona(t, frasi) != F["impronta"]:
+                errori.append(f"fonte {fid}: impronta diversa dal testo salvato (rilanciare raccolta/gomme.py)")
+            conti["cache"] = "sì"
+    # b) pagine Paese solo dove ci sono ricerche vere (ricalcolate da gomme_domanda.json)
+    attese_pag = sorted(p["iso2"] for p in M["paesi"] if len(RGOM.ricerche_paese(D, p["iso2"])) >= RGOM.MIN_RICERCHE)
+    if attese_pag != sorted(G.GOM_PAGINE):
+        errori.append(f"pagine Paese diverse dalle ricerche vere: attese {attese_pag}, nei dati {sorted(G.GOM_PAGINE)}")
+    sm = leggi("sitemap.xml")
+    attese = {G.url_gom(c) + "index.html" for c in attese_pag} | {f"{G.GOM_BASE}/index.html"}
+    trovate = {q.relative_to(SITO).as_posix() for q in (SITO / G.GOM_BASE).rglob("index.html")} if (SITO / G.GOM_BASE).exists() else set()
+    if attese != trovate:
+        errori.append(f"pagine winter-tyres diverse dai dati: mancano {sorted(attese - trovate)}, in più {sorted(trovate - attese)}")
+    for p in G.GOM_PAESI:
+        c = p["iso2"]
+        conti["paesi"] += 1
+        tr = p.get("traduzioni", {})
+        # parole nostre: nessun numero che non stia in una citazione (o nella sua traduzione, controllata a parte)
+        ammessi = set().union(*[_numeri_gom(x["x"]) for x in p["citazioni"]], {"2026", "27"})
+        for campo in ("risposta", "obbligo_breve", "periodo_breve", "catene_breve", "nota", "chi"):
+            extra = _numeri_gom(p.get(campo) or "") - ammessi
+            if extra:
+                errori.append(f"gomme {c}: numeri non presi dalle fonti in '{campo}': {sorted(extra)}")
+        for i, testo in tr.items():
+            x = next((y for y in p["citazioni"] if y["id"] == i), None)
+            if not x:
+                errori.append(f"gomme {c}: traduzione di una citazione che non c'è: {i}")
+            elif _numeri_gom(testo) - _numeri_gom(x["x"]) - {"6", "4", "7", "1"}:  # "Article 6(4)(e)", "7(1)": numeri dell'articolo riscritti
+                errori.append(f"gomme {c}: la traduzione di {i} ha numeri che non sono nella citazione: {sorted(_numeri_gom(testo) - _numeri_gom(x['x']))}")
+        for x in p["citazioni"]:
+            if G.GOM["fonti"][x["f"]]["lingua"] != "en" and x["id"] not in tr:
+                errori.append(f"gomme {c}: citazione {x['id']} non in inglese senza traduzione")
+        for q in p["faq"]:
+            extra = _numeri_gom(q["pre"] + " " + q["post"]) - ammessi
+            if extra:
+                errori.append(f"gomme {c}: numeri non presi dalle fonti nella FAQ «{q['q']}»: {sorted(extra)}")
+            if q["query"] not in ricerche:
+                errori.append(f"gomme {c}: FAQ «{q['q']}» senza una ricerca vera ({q['query']!r} non è in dati/gomme_domanda.json)")
+            lingue = {G.GOM["fonti"][cit_x["f"]]["lingua"] for cit_x in p["citazioni"] if cit_x["id"] in q["cit"]}
+            if lingue - {"en"} and "our translation from" not in q["pre"]:
+                errori.append(f"gomme {c}: FAQ «{q['q']}» cita una traduzione senza dirlo")
+        if p["noleggio"] != "non_detto" or any(re.search(r"\b(?:rent|rental|hire)", x["x"], re.I) for x in p["citazioni"]):
+            errori.append(f"gomme {c}: la sezione dice 'non menzionano le auto a noleggio': controllare noleggio e citazioni")
+        if c not in G.GOM_PAGINE:
+            continue
+        rel = G.url_gom(c) + "index.html"
+        if not (SITO / rel).exists():
+            continue
+        conti["pagine"] += 1
+        t = leggi(rel)
+        vis = unescape(re.sub(r"<[^>]+>", " ", t))
+        if f"<loc>{G.URL_SITO}/{G.url_gom(c)}</loc><lastmod>{G.data_gom(p)}</lastmod>" not in sm:
+            errori.append(f"{rel}: non in sitemap o lastmod diverso dalla data di lettura {G.data_gom(p)}")
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if tit != p["titolo"] or len(tit) > G.LIMITE_TITOLO_GOM or G.STAGIONE_GOM not in tit or p["nome"] not in tit:
+            errori.append(f"{rel}: titolo oltre {G.LIMITE_TITOLO_GOM} caratteri, senza la stagione o senza il Paese: {tit}")
+        m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t)
+        attesa = f"According to {p['chi']}, checked on {G.data_lunga(G.data_gom(p))}, {p['risposta']}"
+        if not m or unescape(m.group(1)) != attesa:
+            errori.append(f"{rel}: prima frase diversa da 'According to <fonte>, checked on <data>, <risposta>'")
+        for x in p["citazioni"]:
+            conti["citazioni"] += 1
+            if escape(x["x"], quote=False) not in t and escape(x["x"]) not in t:
+                errori.append(f"{rel}: citazione mancante: {x['x'][:60]}")
+            if x["id"] in tr and escape(tr[x["id"]]) not in t and escape(tr[x["id"]], quote=False) not in t:
+                errori.append(f"{rel}: traduzione mancante: {x['id']}")
+        for f in G.fonti_gom(p):
+            F = G.GOM["fonti"][f]
+            if f'href="{escape(F["pagina"])}"' not in t or f"checked on {G.data_lunga(F['letto_il'])}" not in vis:
+                errori.append(f"{rel}: manca il link o la data della fonte {f}")
+        sez = re.search(r'id="rental">.*?</h2>\s*<p data-nol-non-detto>(.*?)</p>', t, re.S)
+        if not sez or FRASE_NOLEGGIO_GOM not in unescape(sez.group(1)).lower() or "do not say whether rental cars come with winter tyres or chains" not in unescape(sez.group(1)):
+            errori.append(f"{rel}: manca la frase 'ask the rental company whether winter tyres or chains are included and at what cost'")
+        faq_ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)]
+        faq_ld = next((x for x in faq_ld if x.get("@type") == "FAQPage"), None)
+        attese_faq = G.faq_gom(p)
+        if not faq_ld or [(e["name"], e["acceptedAnswer"]["text"]) for e in faq_ld["mainEntity"]] != attese_faq:
+            errori.append(f"{rel}: FAQ JSON-LD diversa dalle domande previste")
+        for qd, a in attese_faq:
+            conti["faq"] += 1
+            if f"<h3>{escape(qd)}</h3><p>{escape(a)}</p>" not in t:
+                errori.append(f"{rel}: FAQ visibile diversa dal JSON-LD: {qd}")
+        errori += controlla_noleggio(t, rel, ['id="answer"', 'id="official"', 'id="rental"'])
+        if G.NOLEGGIO_AUTO and G.MON.link_affiliati(t):
+            conti["noleggio"] += 1
+        vis_en = unescape(re.sub(r"<[^>]+>", " ", re.sub(r'(?s)<blockquote class="cit" lang="(?!en)[a-z]+">.*?</blockquote>', " ", t)))
+        mm = NOMI_NOLEGGIO_PED.search(vis_en) or AFFILIATI_PAT.search(t) or VIETATE_SRV.search(vis)
+        if mm:
+            errori.append(f"{rel}: nome vietato (noleggio, rete o assistente) '{mm.group(0)}'")
+        if "not legal advice" not in vis:
+            errori.append(f"{rel}: manca 'not legal advice'")
+        # link andata e ritorno: Driving abroad e Tolls dello stesso Paese
+        for k in G.PATENTI:
+            if c in G.PAGINE_PAT[k]:
+                conti["link"] += 1
+                if f'href="../../{G.url_pat(k, c)}"' not in t:
+                    errori.append(f"{rel}: manca il link a {G.url_pat(k, c)}")
+                if f'href="../../../{G.url_gom(c)}"' not in leggi(G.url_pat(k, c) + "index.html"):
+                    errori.append(f"{G.url_pat(k, c)}: manca il link alla pagina delle gomme {G.url_gom(c)}")
+        if c in G.PED_PER:
+            conti["link"] += 1
+            if f'href="../../{G.url_ped(c)}"' not in t:
+                errori.append(f"{rel}: manca il link a {G.url_ped(c)}")
+            if f'href="../../{G.url_gom(c)}"' not in leggi(G.url_ped(c) + "index.html"):
+                errori.append(f"{G.url_ped(c)}: manca il link alla pagina delle gomme {G.url_gom(c)}")
+        if f'href="{G.url_gom(c)}"' not in leggi("index.html"):
+            errori.append(f"home senza link a {G.url_gom(c)}")
+    # c) indice: sitemap, titolo, tabella = dati, FAQ da ricerche vere, riquadro dopo la tabella
+    idx = f"{G.GOM_BASE}/index.html"
+    if (SITO / idx).exists():
+        t = leggi(idx)
+        if f"<loc>{G.URL_SITO}/{G.GOM_BASE}/</loc><lastmod>{G.GOM['controllato_il']}</lastmod>" not in sm:
+            errori.append("indice winter-tyres-rental-car non in sitemap o lastmod diverso")
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(tit) > G.LIMITE_TITOLO_GOM or G.STAGIONE_GOM not in tit:
+            errori.append(f"{idx}: titolo oltre {G.LIMITE_TITOLO_GOM} caratteri o senza la stagione: {tit}")
+        m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t)
+        if not m or unescape(m.group(1)) != G.prima_frase_gom() or f"last checked on {G.data_lunga(G.GOM['controllato_il'])}" not in unescape(m.group(1)):
+            errori.append(f"{idx}: prima frase diversa dai conteggi o senza la data")
+        righe = re.findall(r'<tr data-voce id="([a-z]{2})">(.*?)</tr>', t)
+        if [r[0].upper() for r in righe] != [p["iso2"] for p in G.GOM_PAESI]:
+            errori.append(f"{idx}: righe della tabella diverse dai Paesi dei dati")
+        for (cod, r), p in zip(righe, G.GOM_PAESI):
+            celle = [unescape(re.sub(r"<[^>]+>", "", x)) for x in re.findall(r"<td[^>]*>(.*?)</td>", r)]
+            fonti = " · ".join(e for e, _ in G.enti_gom(p))
+            if celle != [p["nome"], f"{G.OBBLIGO_GOM[p['obbligo']]} – {p['obbligo_breve']}", p["periodo_breve"], p["catene_breve"], "Not covered", fonti,
+                         G.data_lunga(G.data_gom(p))]:
+                errori.append(f"{idx}: riga {cod.upper()} diversa dai dati: {celle}")
+            for _, f in G.enti_gom(p):
+                if f'href="{escape(G.GOM["fonti"][f]["pagina"])}"' not in r:
+                    errori.append(f"{idx}: riga {cod.upper()} senza il link alla fonte {f}")
+        for f in M.get("faq_indice", []):
+            if f["query"] not in ricerche:
+                errori.append(f"{idx}: FAQ «{f['q']}» senza una ricerca vera")
+        if [q for q, _ in G.faq_indice_gom()] != [f["q"] for f in M.get("faq_indice", [])]:
+            errori.append(f"{idx}: FAQ diverse da faq_indice")
+        for q, a in G.faq_indice_gom():
+            conti["faq"] += 1
+            if f"<h3>{escape(q)}</h3><p>{escape(a)}</p>" not in t:
+                errori.append(f"{idx}: FAQ mancante: {q}")
+        errori += controlla_noleggio(t, idx, ['id="answer"', "</table>"])
+        mm = NOMI_NOLEGGIO_PED.search(unescape(re.sub(r"<[^>]+>", " ", t))) or AFFILIATI_PAT.search(t) or VIETATE_SRV.search(t)
+        if mm:
+            errori.append(f"{idx}: nome vietato '{mm.group(0)}'")
+        if G.NOLEGGIO_AUTO and G.MON.link_affiliati(t):
+            conti["noleggio"] += 1
+    else:
+        errori.append("indice winter-tyres-rental-car mancante")
+    # d) collegamenti in entrata e dati senza nomi di assistenti
+    if f'href="{G.GOM_BASE}/"' not in leggi("index.html"):
+        errori.append("home senza link alla sezione 'Winter tyres with a rental car'")
+    if 'id="winter-tyres-rental-car"' not in leggi("about/index.html"):
+        errori.append("About senza la sezione 'Winter tyres with a rental car'")
+    for pag in (f"{G.PAT_BASE}/index.html", f"{G.PED_BASE}/index.html"):
+        if f'href="../{G.GOM_BASE}/"' not in leggi(pag):
+            errori.append(f"{pag}: manca il link alla sezione delle gomme")
+    if 'href="/winter-tyres-rental-car/"' not in leggi("404.html"):
+        errori.append("404 senza link alla sezione delle gomme")
+    for nome in ("gomme.json", "gomme_manuali.json", "gomme_domanda.json"):
+        if VIETATE_SRV.search((SITO.parent / "dati" / nome).read_text(encoding="utf-8")):
+            errori.append(f"dati/{nome}: nome di un assistente di intelligenza artificiale")
+    return errori, conti
+
+
 def controlla_indexnow():
     """File chiave IndexNow in sito/: presente, con dentro solo la chiave, fuori dalla sitemap (scritto da genera.py accanto a robots.txt)."""
     errori = []
@@ -2244,7 +2466,7 @@ def main():
         o, cartella = info
         n375 = sum(1 for x in o["pagine"] if x["tema"] in ("light", "dark"))
         print(f"7. Browser 375 px: {len(o['pagine'])} viste ({n375 // 2} pagine × tema chiaro e scuro + {len(o['pagine']) - n375} a 820 px; nuove: "
-              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER + PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
+              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER + PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
               f"{len(o['prove'])} prove, {len(e7)} errori; schermate in {cartella}")
     else:
         print(f"7. Browser 375 px: {e7[0] if e7 else ''}")
@@ -2288,9 +2510,14 @@ def main():
           f"{c20['citazioni']} citazioni e {c20['prezzi']} prezzi nelle pagine (numeri solo dalle fonti), {c20['faq']} risposte FAQ da ricerche vere (JSON-LD = testo visibile), "
           f"titoli <= {G.LIMITE_TITOLO_PED} con l'anno, sitemap con lastmod della lettura, riquadro DiscoverCars (a_aid, dopo le regole) in {c20['noleggio']} pagine, "
           f"{c20['link_guida']} link andata e ritorno con Driving abroad; nessun altro noleggio né nome di assistente: {len(e20)} errori")
+    e21, c21 = controlla_gomme()
+    print(f"21. Winter tyres with a rental car: {c21['paesi']} Paesi, {c21['pagine']} pagine Paese (solo con ricerche vere), {c21['fonti']} fonti ufficiali "
+          f"(HTTP 200, domini ammessi; frasi e impronte ricalcolate dal testo salvato: {c21['cache']}), {c21['citazioni']} citazioni con traduzione se non in inglese, "
+          f"{c21['faq']} risposte FAQ da ricerche vere (JSON-LD = testo visibile), titoli <= {G.LIMITE_TITOLO_GOM} con la stagione {G.STAGIONE_GOM}, numeri solo dalle fonti, "
+          f"frase sul noleggio, riquadro DiscoverCars (a_aid, dopo le regole) in {c21['noleggio']} pagine, {c21['link']} link andata e ritorno con Driving abroad e Tolls: {len(e21)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21
     for e in tutti:
         print(" -", e)
     if tutti:

@@ -1,0 +1,1516 @@
+{
+ "_nota": "Ricerche vere (autocompletamento di Google, client=firefox, hl=en, gl=uk e gl=us) su gomme invernali e catene, anche con l'auto a noleggio. Una pagina Paese della sezione winter-tyres-rental-car/ esiste solo se almeno 5 suggerimenti diversi nominano il Paese e le gomme invernali o le catene (raccolta/gomme.py, ricerche_paese, MIN_RICERCHE); ogni domanda delle FAQ è una di queste ricerche (campo 'query' in gomme_manuali.json). Riscritto da raccolta/gomme.py --domanda.",
+ "letto_il": "2026-10-30",
+ "modelli": [
+  "winter tyres {p}",
+  "winter tires {p}",
+  "snow chains {p}",
+  "snow chains rental car {p}",
+  "are winter tyres mandatory in {p}",
+  "are winter tires mandatory in {p}",
+  "do you need snow chains in {p}"
+ ],
+ "extra": [
+  "winter tyres ",
+  "winter tires ",
+  "winter tyres rental car",
+  "winter tires rental car",
+  "snow chains rental car",
+  "snow chains hire car"
+ ],
+ "paesi": {
+  "IT": {
+   "uk": {
+    "winter tyres italy": [
+     "winter tyres italy",
+     "winter tyres italy law",
+     "winter tyres italy map",
+     "winter tyres italy car rental",
+     "winter tyres italy dates",
+     "snow tyres italy",
+     "sixt winter tyres italy",
+     "europcar winter tyres italy",
+     "hertz winter tyres italy",
+     "avis winter tyres italy"
+    ],
+    "winter tires italy": [
+     "winter tires italy",
+     "winter tyres italy law",
+     "snow tires italy",
+     "winter tyres italy map",
+     "winter tyres italy car rental",
+     "winter tyres italy dates",
+     "sixt italy winter tires",
+     "avis winter tires italy",
+     "mandatory winter tires italy",
+     "hertz winter tires italy"
+    ],
+    "snow chains italy": [
+     "snow chains italy law",
+     "snow chains italy",
+     "snow chains italy car rental",
+     "tire chains italy",
+     "snow chains italian",
+     "snow chains price italy",
+     "snow chains mandatory italy",
+     "buy snow chains italy",
+     "snow chains sign italy",
+     "snow chain rules italy"
+    ],
+    "snow chains rental car italy": [
+     "snow chains italy car rental",
+     "can you put snow chains on a rental car",
+     "snow chains for rental cars",
+     "do you need snow chains in italy",
+     "do rental cars come with snow chains",
+     "snow chains italy law"
+    ],
+    "are winter tyres mandatory in italy": [
+     "are winter tyres mandatory in italy",
+     "are winter tires mandatory in italy",
+     "are snow tires required in italy",
+     "are winter tyres compulsory in germany",
+     "which european countries require winter tyres"
+    ],
+    "are winter tires mandatory in italy": [
+     "are winter tires mandatory in italy",
+     "are winter tyres mandatory in italy",
+     "are snow tires required in italy",
+     "are winter tires mandatory in canada",
+     "are winter tires mandatory in manitoba"
+    ],
+    "do you need snow chains in italy": [
+     "do you need snow chains in italy",
+     "do you need snow chains to drive in italy",
+     "snow chains italy law",
+     "do i need snow chains"
+    ]
+   },
+   "us": {
+    "winter tyres italy": [
+     "winter tyres italy",
+     "winter tyres italy law",
+     "winter tyres italy map",
+     "winter tyres italy car rental",
+     "winter tyres italy dates",
+     "snow tyres italy",
+     "sixt winter tyres italy",
+     "europcar winter tyres italy",
+     "hertz winter tyres italy",
+     "avis winter tyres italy"
+    ],
+    "winter tires italy": [
+     "winter tires italy",
+     "winter tyres italy law",
+     "snow tires italy",
+     "winter tyres italy map",
+     "winter tyres italy car rental",
+     "winter tyres italy dates",
+     "sixt italy winter tires",
+     "avis winter tires italy",
+     "mandatory winter tires italy",
+     "hertz winter tires italy"
+    ],
+    "snow chains italy": [
+     "snow chains italy law",
+     "snow chains italy",
+     "snow chains italy car rental",
+     "tire chains italy",
+     "snow chains italian",
+     "snow chains price italy",
+     "snow chains mandatory italy",
+     "buy snow chains italy",
+     "snow chains sign italy",
+     "snow chain rules italy"
+    ],
+    "snow chains rental car italy": [
+     "snow chains italy car rental",
+     "can you put snow chains on a rental car",
+     "snow chains for rental cars",
+     "do you need snow chains in italy",
+     "do rental cars come with snow chains",
+     "snow chains italy law"
+    ],
+    "are winter tyres mandatory in italy": [
+     "are winter tyres mandatory in italy",
+     "are winter tires mandatory in italy",
+     "are snow tires required in italy",
+     "are winter tyres compulsory in germany",
+     "which european countries require winter tyres"
+    ],
+    "are winter tires mandatory in italy": [
+     "are winter tires mandatory in italy",
+     "are winter tyres mandatory in italy",
+     "are winter tires required in italy",
+     "are winter tyres required in italy",
+     "are winter tyres compulsory in italy",
+     "are snow tyres mandatory in italy",
+     "are snow tires required in italy",
+     "are winter tires mandatory in canada",
+     "are winter tires mandatory in manitoba"
+    ],
+    "do you need snow chains in italy": [
+     "do you need snow chains in italy",
+     "do you need snow chains to drive in italy",
+     "snow chains italy law",
+     "do i need snow chains"
+    ]
+   }
+  },
+  "AT": {
+   "uk": {
+    "winter tyres austria": [
+     "winter tyres austria",
+     "winter tyres austria dates",
+     "winter tyres austria rules",
+     "winter tyres austria law",
+     "winter tires austria mandatory",
+     "snow tyres austria",
+     "mandatory winter tyres austria"
+    ],
+    "winter tires austria": [
+     "winter tires austria",
+     "winter tires austria mandatory",
+     "winter tires austria rules",
+     "winter tires austria dates",
+     "snow tires austria",
+     "winter tyres austria law",
+     "winter tire change austria",
+     "winter tire season austria",
+     "austria winter tires regulations",
+     "winter tyres austria dates"
+    ],
+    "snow chains austria": [
+     "snow chains austria rules",
+     "snow chains austria",
+     "snow chains austria map",
+     "snow chains mandatory austria",
+     "buy snow chains austria",
+     "snow chain requirements austria",
+     "snow chain sign austria",
+     "austria snow chains law",
+     "textile snow chains austria",
+     "snow chains italy law"
+    ],
+    "snow chains rental car austria": [],
+    "are winter tyres mandatory in austria": [
+     "are winter tyres mandatory in austria",
+     "are winter tires mandatory in austria",
+     "when are winter tyres required in austria",
+     "when are winter tires required in austria",
+     "are winter tyres compulsory in germany"
+    ],
+    "are winter tires mandatory in austria": [
+     "are winter tires mandatory in austria",
+     "are winter tyres mandatory in austria",
+     "when are winter tires required in austria",
+     "when are winter tyres required in austria",
+     "winter tires law in austria",
+     "winter tires rules in austria",
+     "are winter tires mandatory in alberta"
+    ],
+    "do you need snow chains in austria": [
+     "do you need snow chains in austria",
+     "do you need snow chains to drive in austria",
+     "do you need snow chains in italy"
+    ]
+   },
+   "us": {
+    "winter tyres austria": [
+     "winter tyres austria",
+     "winter tyres austria dates",
+     "winter tyres austria rules",
+     "winter tyres austria law",
+     "winter tires austria mandatory",
+     "snow tyres austria",
+     "mandatory winter tyres austria"
+    ],
+    "winter tires austria": [
+     "winter tires austria",
+     "winter tires austria mandatory",
+     "winter tires austria rules",
+     "winter tires austria dates",
+     "snow tires austria",
+     "winter tyres austria law",
+     "winter tire change austria",
+     "winter tire season austria",
+     "austria winter tires regulations",
+     "winter tyres austria dates"
+    ],
+    "snow chains austria": [
+     "snow chains austria rules",
+     "snow chains austria",
+     "snow chains austria map",
+     "snow chains mandatory austria",
+     "buy snow chains austria",
+     "snow chain requirements austria",
+     "snow chain sign austria",
+     "austria snow chains law",
+     "textile snow chains austria",
+     "snow chains italy law"
+    ],
+    "snow chains rental car austria": [],
+    "are winter tyres mandatory in austria": [
+     "are winter tyres mandatory in austria",
+     "when are winter tyres required in austria",
+     "when are snow tires required in austria",
+     "are winter tyres compulsory in germany"
+    ],
+    "are winter tires mandatory in austria": [
+     "are winter tires mandatory in austria",
+     "are winter tyres mandatory in austria",
+     "when are winter tires required in austria",
+     "when are winter tyres required in austria",
+     "winter tires law in austria",
+     "winter tires rules in austria",
+     "are winter tires mandatory in alberta"
+    ],
+    "do you need snow chains in austria": [
+     "do you need snow chains in austria",
+     "do you need snow chains to drive in austria",
+     "do you need snow chains in italy"
+    ]
+   }
+  },
+  "DE": {
+   "uk": {
+    "winter tyres germany": [
+     "winter tyres germany",
+     "winter tyres germany dates 2026",
+     "winter tyres germany rules",
+     "winter tyres germany dates",
+     "winter tyres germany dates 2025",
+     "winter tyres germany law",
+     "winter tyres germany dates 2024",
+     "germany winter tyres fine",
+     "winter tyres germany 2025",
+     "winter tyres germany price"
+    ],
+    "winter tires germany": [
+     "winter tires germany",
+     "winter tires germany rules",
+     "winter tires germany price",
+     "winter tires germany law",
+     "winter tires germany period",
+     "winter tires germany 2025",
+     "winter tires germany buy",
+     "winter tires germany dates",
+     "winter tires germany symbol",
+     "winter tyres germany"
+    ],
+    "snow chains germany": [
+     "snow chains germany",
+     "snow chains germany law",
+     "snow chains german",
+     "snow chains sign germany",
+     "buy snow chains germany",
+     "snow chain requirements germany",
+     "snow chain rules germany",
+     "snow chains mandatory sign germany",
+     "snow chains optional sign.germany",
+     "maximum speed with snow chains germany"
+    ],
+    "snow chains rental car germany": [],
+    "are winter tyres mandatory in germany": [
+     "are winter tyres mandatory in germany",
+     "are winter tyres obligatory in germany",
+     "are snow tyres mandatory in germany",
+     "are snow tires mandatory in germany",
+     "are winter tires obligatory in germany",
+     "are snow tires required in germany",
+     "until when are winter tires mandatory in germany",
+     "what months are winter tires required in germany",
+     "are winter tyres compulsory in germany",
+     "do i need winter tyres in germany"
+    ],
+    "are winter tires mandatory in germany": [
+     "are winter tires mandatory in germany",
+     "are winter tyres required in germany",
+     "are snow tires required in germany",
+     "are snow tyres mandatory in germany",
+     "until when are winter tires mandatory in germany",
+     "what months are winter tires required in germany",
+     "winter tires rules in germany",
+     "winter tires law in germany",
+     "are winter tyres compulsory in germany"
+    ],
+    "do you need snow chains in germany": [
+     "do you need snow chains in germany",
+     "do you need snow chains in italy"
+    ]
+   },
+   "us": {
+    "winter tyres germany": [
+     "winter tyres germany",
+     "winter tyres germany dates 2026",
+     "winter tyres germany rules",
+     "winter tyres germany dates",
+     "winter tyres germany dates 2025",
+     "winter tyres germany law",
+     "winter tyres germany dates 2024",
+     "germany winter tyres fine",
+     "winter tyres germany 2025",
+     "winter tyres germany price"
+    ],
+    "winter tires germany": [
+     "winter tires germany",
+     "winter tires germany rules",
+     "winter tires germany price",
+     "winter tires germany law",
+     "winter tires germany period",
+     "winter tires germany 2025",
+     "winter tires germany buy",
+     "winter tires germany dates",
+     "winter tires germany symbol",
+     "winter tyres germany"
+    ],
+    "snow chains germany": [
+     "snow chains germany",
+     "snow chains germany law",
+     "snow chains german",
+     "snow chains sign germany",
+     "buy snow chains germany",
+     "snow chain requirements germany",
+     "snow chain rules germany",
+     "snow chains mandatory sign germany",
+     "snow chains optional sign.germany",
+     "maximum speed with snow chains germany"
+    ],
+    "snow chains rental car germany": [],
+    "are winter tyres mandatory in germany": [
+     "are winter tyres mandatory in germany",
+     "are winter tyres required in germany",
+     "are snow tyres mandatory in germany",
+     "are winter tires obligatory in germany",
+     "are snow tires required in germany",
+     "until when are winter tires mandatory in germany",
+     "what months are winter tires required in germany",
+     "winter tyres law in germany",
+     "are winter tyres compulsory in germany",
+     "do i need winter tyres in germany"
+    ],
+    "are winter tires mandatory in germany": [
+     "are winter tires mandatory in germany",
+     "are winter tyres required in germany",
+     "are snow tires required in germany",
+     "are snow tyres mandatory in germany",
+     "until when are winter tires mandatory in germany",
+     "what months are winter tires required in germany",
+     "winter tires rules in germany",
+     "winter tires law in germany",
+     "are winter tyres compulsory in germany"
+    ],
+    "do you need snow chains in germany": [
+     "do you need snow chains in germany",
+     "do you need snow chains in italy"
+    ]
+   }
+  },
+  "FR": {
+   "uk": {
+    "winter tyres france": [
+     "winter tyres france",
+     "winter tyres france map",
+     "winter tyres france map 2025",
+     "winter tyres france law",
+     "winter tyres france map 2024",
+     "winter tyres france rules",
+     "winter tyres france dates",
+     "winter tyres france 2025",
+     "snow tyres france",
+     "hertz winter tyres france"
+    ],
+    "winter tires france": [
+     "winter tires france rules",
+     "winter tires france",
+     "winter tyres france map",
+     "winter tyres france map 2025",
+     "winter tyres france law",
+     "winter tyres france map 2024",
+     "snow tires france",
+     "winter tyres france dates",
+     "winter tyres france 2025",
+     "winter tires french"
+    ],
+    "snow chains france": [
+     "snow chains france",
+     "snow chains france rules",
+     "snow chains france map",
+     "snow chains france law",
+     "snow chains france price",
+     "tire chains france",
+     "snow chains french alps",
+     "snow chains french",
+     "snow chains in france legal requirement",
+     "buy snow chains france"
+    ],
+    "snow chains rental car france": [],
+    "are winter tyres mandatory in france": [
+     "are winter tyres mandatory in france",
+     "are winter tires mandatory in france",
+     "are winter tyres required in france",
+     "are winter tires required in france",
+     "do i need winter tyres in france",
+     "are winter tyres compulsory in germany"
+    ],
+    "are winter tires mandatory in france": [
+     "are winter tires mandatory in france",
+     "are winter tyres mandatory in france",
+     "are winter tires required in france",
+     "are winter tyres required in france",
+     "is it illegal to not have winter tires",
+     "are winter tires mandatory in canada"
+    ],
+    "do you need snow chains in france": [
+     "do you need snow chains in france",
+     "do you legally need snow chains in france",
+     "do you need snow chains to drive in france",
+     "do.i need snow chains in france in april",
+     "do you need winter tyres and snow chains in france",
+     "do you need snow chains in france if you have winter tyres",
+     "do 4x4 need snow chains in france",
+     "can you use snow socks instead of chains in france",
+     "can you buy snow chains in france"
+    ]
+   },
+   "us": {
+    "winter tyres france": [
+     "winter tyres france",
+     "winter tyres france map",
+     "winter tyres france map 2025",
+     "winter tyres france law",
+     "winter tyres france map 2024",
+     "winter tyres france rules",
+     "winter tyres france dates",
+     "winter tyres france 2025",
+     "snow tyres france",
+     "hertz winter tyres france"
+    ],
+    "winter tires france": [
+     "winter tires france rules",
+     "winter tires france",
+     "winter tyres france map",
+     "winter tyres france map 2025",
+     "winter tyres france law",
+     "winter tyres france map 2024",
+     "snow tires france",
+     "winter tyres france dates",
+     "winter tyres france 2025",
+     "winter tires french"
+    ],
+    "snow chains france": [
+     "snow chains france rules",
+     "snow chains france",
+     "snow chains france map",
+     "snow chains france law",
+     "snow chains france price",
+     "tire chains france",
+     "snow chains french alps",
+     "snow chains french",
+     "snow chains in france legal requirement",
+     "buy snow chains france"
+    ],
+    "snow chains rental car france": [],
+    "are winter tyres mandatory in france": [
+     "are winter tyres mandatory in france",
+     "are winter tires mandatory in france",
+     "are winter tyres required in france",
+     "are winter tires required in france",
+     "do i need winter tyres in france",
+     "are winter tyres compulsory in germany"
+    ],
+    "are winter tires mandatory in france": [
+     "are winter tires mandatory in france",
+     "are winter tyres mandatory in france",
+     "are winter tires required in france",
+     "are winter tyres required in france",
+     "is it illegal to not have winter tires",
+     "are winter tires mandatory in canada"
+    ],
+    "do you need snow chains in france": [
+     "do you need snow chains in france",
+     "do i need snow chains in france",
+     "do you need to carry snow chains in france",
+     "do.i need snow chains in france in april",
+     "do you have to have snow chains in france",
+     "do i need snow chains to drive in france",
+     "do you need snow chains in france if you have winter tyres",
+     "do i have to have snow chains in france",
+     "do 4x4 need snow chains in france",
+     "do i need snow chains in france if i have winter tyres"
+    ]
+   }
+  },
+  "CH": {
+   "uk": {
+    "winter tyres switzerland": [
+     "winter tyres switzerland",
+     "winter tyres switzerland dates",
+     "winter tyres switzerland the law",
+     "winter tyres switzerland mandatory",
+     "winter tyres switzerland price",
+     "winter tires switzerland",
+     "snow tyres switzerland law",
+     "snow tyres switzerland",
+     "winter tires switzerland buy",
+     "winter tyres in switzerland rules"
+    ],
+    "winter tires switzerland": [
+     "winter tires switzerland",
+     "winter tires switzerland law",
+     "winter tires switzerland buy",
+     "winter tyres switzerland",
+     "winter tyres switzerland dates",
+     "snow tires switzerland",
+     "winter tyres switzerland mandatory",
+     "snow tires switzerland mandatory",
+     "winter tyres switzerland price",
+     "winter tire rules switzerland"
+    ],
+    "snow chains switzerland": [
+     "snow chains switzerland",
+     "snow chains switzerland law",
+     "snow chains requirements switzerland",
+     "snow chain sign switzerland",
+     "where to buy snow chains switzerland",
+     "do i need snow chains in switzerland"
+    ],
+    "snow chains rental car switzerland": [],
+    "are winter tyres mandatory in switzerland": [
+     "are winter tyres mandatory in switzerland",
+     "are winter tires mandatory in switzerland",
+     "are snow tyres mandatory in switzerland",
+     "are snow tires mandatory in switzerland",
+     "are winter tires required in switzerland",
+     "do you need winter tyres in switzerland",
+     "winter tires switzerland law",
+     "winter tyres switzerland dates"
+    ],
+    "are winter tires mandatory in switzerland": [
+     "are winter tires mandatory in switzerland",
+     "are winter tires required in switzerland",
+     "do you need winter tyres in switzerland",
+     "winter tires switzerland law",
+     "is it illegal to not have winter tires",
+     "are winter tires mandatory in canada",
+     "are winter tires mandatory in saskatchewan"
+    ],
+    "do you need snow chains in switzerland": [
+     "do you need snow chains in switzerland",
+     "do i need snow chains in switzerland in april",
+     "do you have to have snow chains in switzerland",
+     "do we need snow chains hire car switzerland"
+    ]
+   },
+   "us": {
+    "winter tyres switzerland": [
+     "winter tyres switzerland",
+     "winter tyres switzerland price",
+     "winter tires switzerland buy",
+     "winter tyres cost switzerland",
+     "buy winter tyres switzerland",
+     "europcar winter tyres switzerland",
+     "alamo winter tyres switzerland",
+     "best winter tyres switzerland",
+     "winter tyres in summer switzerland",
+     "when to change winter tyres switzerland"
+    ],
+    "winter tires switzerland": [
+     "winter tires switzerland",
+     "winter tires switzerland law",
+     "winter tires switzerland buy",
+     "winter tyres switzerland",
+     "winter tyres switzerland dates",
+     "snow tires switzerland",
+     "winter tyres switzerland mandatory",
+     "snow tires switzerland mandatory",
+     "winter tyres switzerland price",
+     "winter tire rules switzerland"
+    ],
+    "snow chains switzerland": [
+     "snow chains switzerland",
+     "snow chains switzerland law",
+     "snow chains requirements switzerland",
+     "snow chain sign switzerland",
+     "where to buy snow chains switzerland",
+     "do i need snow chains in switzerland"
+    ],
+    "snow chains rental car switzerland": [],
+    "are winter tyres mandatory in switzerland": [
+     "are winter tyres mandatory in switzerland",
+     "are winter tyres required in switzerland",
+     "do you need winter tyres in switzerland",
+     "winter tires switzerland law",
+     "winter tyres switzerland dates"
+    ],
+    "are winter tires mandatory in switzerland": [
+     "are winter tires mandatory in switzerland",
+     "are winter tires required in switzerland",
+     "do you need winter tyres in switzerland",
+     "winter tires switzerland law",
+     "is it illegal to not have winter tires",
+     "are winter tires mandatory in canada",
+     "are winter tires mandatory in saskatchewan"
+    ],
+    "do you need snow chains in switzerland": [
+     "do you need snow chains in switzerland",
+     "do i need snow chains in switzerland in april",
+     "do you have to have snow chains in switzerland",
+     "do we need snow chains hire car switzerland"
+    ]
+   }
+  },
+  "SI": {
+   "uk": {
+    "winter tyres slovenia": [
+     "winter tyres slovenia",
+     "slovenia winter tyres law",
+     "winter tyres switzerland dates",
+     "winter tyres austria dates"
+    ],
+    "winter tires slovenia": [
+     "winter tires slovenia",
+     "slovenia winter tires law",
+     "winter tire laws",
+     "winter tires deadline"
+    ],
+    "snow chains slovenia": [
+     "snow chains slovenia",
+     "snow chains italy law"
+    ],
+    "snow chains rental car slovenia": [],
+    "are winter tyres mandatory in slovenia": [
+     "are winter tyres mandatory in slovenia",
+     "are winter tyres compulsory in germany"
+    ],
+    "are winter tires mandatory in slovenia": [
+     "are winter tires mandatory in slovenia",
+     "are winter tires mandatory in canada",
+     "are winter tires mandatory in saskatchewan"
+    ],
+    "do you need snow chains in slovenia": [
+     "do i need snow chains in slovenia",
+     "do you need snow chains in italy"
+    ]
+   },
+   "us": {
+    "winter tyres slovenia": [
+     "winter tyres slovenia",
+     "slovenia winter tyres law",
+     "winter tyres switzerland dates",
+     "winter tyres austria dates"
+    ],
+    "winter tires slovenia": [
+     "winter tires slovenia",
+     "slovenia winter tires law",
+     "winter tire laws",
+     "winter tires deadline"
+    ],
+    "snow chains slovenia": [
+     "snow chains slovenia",
+     "snow chains italy law"
+    ],
+    "snow chains rental car slovenia": [],
+    "are winter tyres mandatory in slovenia": [
+     "are winter tyres mandatory in slovenia",
+     "are winter tyres compulsory in germany"
+    ],
+    "are winter tires mandatory in slovenia": [
+     "are winter tires mandatory in slovenia",
+     "are winter tires mandatory in canada",
+     "are winter tires mandatory in saskatchewan"
+    ],
+    "do you need snow chains in slovenia": [
+     "do i need snow chains in slovenia",
+     "do you need snow chains in italy"
+    ]
+   }
+  },
+  "HR": {
+   "uk": {
+    "winter tyres croatia": [
+     "winter tyres croatia",
+     "croatia winter tyres law",
+     "winter tyres austria dates",
+     "which european countries require winter tyres"
+    ],
+    "winter tires croatia": [
+     "winter tires croatia",
+     "croatia winter tires law",
+     "sweden winter tires dates",
+     "winter tyres sweden time"
+    ],
+    "snow chains croatia": [
+     "snow chains croatia"
+    ],
+    "snow chains rental car croatia": [],
+    "are winter tyres mandatory in croatia": [
+     "are winter tyres mandatory in croatia",
+     "are winter tyres compulsory in germany"
+    ],
+    "are winter tires mandatory in croatia": [
+     "are winter tires mandatory in croatia",
+     "are winter tires mandatory in canada",
+     "are winter tires mandatory in nova scotia"
+    ],
+    "do you need snow chains in croatia": []
+   },
+   "us": {
+    "winter tyres croatia": [
+     "winter tyres croatia",
+     "croatia winter tyres law",
+     "winter tyres austria dates",
+     "which european countries require winter tyres"
+    ],
+    "winter tires croatia": [
+     "winter tires croatia",
+     "croatia winter tires law",
+     "sweden winter tires dates",
+     "winter tyres sweden time"
+    ],
+    "snow chains croatia": [
+     "snow chains croatia"
+    ],
+    "snow chains rental car croatia": [],
+    "are winter tyres mandatory in croatia": [
+     "are winter tyres mandatory in croatia",
+     "are winter tyres compulsory in germany"
+    ],
+    "are winter tires mandatory in croatia": [
+     "are winter tires mandatory in croatia",
+     "are winter tires mandatory in canada",
+     "are winter tires mandatory in nova scotia"
+    ],
+    "do you need snow chains in croatia": []
+   }
+  },
+  "CZ": {
+   "uk": {
+    "winter tyres czech republic": [
+     "winter tyres czech republic",
+     "winter tires law czech republic",
+     "are winter tyres mandatory in czech republic"
+    ],
+    "winter tires czech republic": [
+     "winter tires czech republic",
+     "winter tires law czech republic",
+     "are winter tires mandatory in czech republic"
+    ],
+    "snow chains czech republic": [
+     "snow chains czech republic",
+     "where are snow chains legal"
+    ],
+    "snow chains rental car czech republic": [],
+    "are winter tyres mandatory in czech republic": [
+     "are winter tyres mandatory in czech republic",
+     "are winter tyres compulsory in germany",
+     "are winter tires mandatory in quebec"
+    ],
+    "are winter tires mandatory in czech republic": [
+     "are winter tires mandatory in czech republic",
+     "are winter tires mandatory in quebec",
+     "are winter tires mandatory in canada"
+    ],
+    "do you need snow chains in czech republic": []
+   },
+   "us": {
+    "winter tyres czech republic": [
+     "winter tyres czech republic",
+     "winter tires law czech republic",
+     "are winter tyres mandatory in czech republic"
+    ],
+    "winter tires czech republic": [
+     "winter tires czech republic",
+     "winter tires law czech republic",
+     "are winter tires mandatory in czech republic"
+    ],
+    "snow chains czech republic": [
+     "snow chains czech republic",
+     "where are snow chains legal"
+    ],
+    "snow chains rental car czech republic": [],
+    "are winter tyres mandatory in czech republic": [
+     "are winter tyres mandatory in czech republic",
+     "are winter tyres compulsory in germany",
+     "are winter tires mandatory in quebec"
+    ],
+    "are winter tires mandatory in czech republic": [
+     "are winter tires mandatory in czech republic",
+     "are winter tires mandatory in quebec",
+     "are winter tires mandatory in canada"
+    ],
+    "do you need snow chains in czech republic": []
+   }
+  },
+  "SK": {
+   "uk": {
+    "winter tyres slovakia": [
+     "winter tyres slovakia",
+     "slovakia winter tyres law",
+     "winter tyres sweden time"
+    ],
+    "winter tires slovakia": [
+     "winter tires slovakia",
+     "slovakia winter tires law",
+     "winter tire laws",
+     "winter tires sweden date"
+    ],
+    "snow chains slovakia": [
+     "snow chains slovakia",
+     "where are snow chains legal",
+     "are snow chains legal in ny"
+    ],
+    "snow chains rental car slovakia": [],
+    "are winter tyres mandatory in slovakia": [
+     "are winter tyres mandatory in slovakia",
+     "are winter tyres compulsory in germany",
+     "are winter tires mandatory in canada"
+    ],
+    "are winter tires mandatory in slovakia": [
+     "are winter tires mandatory in slovakia",
+     "are winter tires mandatory in canada",
+     "what states require winter tires",
+     "are winter tires mandatory in manitoba"
+    ],
+    "do you need snow chains in slovakia": []
+   },
+   "us": {
+    "winter tyres slovakia": [
+     "winter tyres slovakia",
+     "slovakia winter tyres law",
+     "winter tyres sweden time"
+    ],
+    "winter tires slovakia": [
+     "winter tires slovakia",
+     "winter tyres slovakia",
+     "slovakia winter tires law",
+     "winter tire laws",
+     "winter tires sweden date"
+    ],
+    "snow chains slovakia": [
+     "snow chains slovakia",
+     "where are snow chains legal",
+     "are snow chains legal in ny"
+    ],
+    "snow chains rental car slovakia": [],
+    "are winter tyres mandatory in slovakia": [
+     "are winter tyres mandatory in slovakia",
+     "are winter tyres compulsory in germany",
+     "are winter tires mandatory in canada"
+    ],
+    "are winter tires mandatory in slovakia": [
+     "are winter tires mandatory in slovakia",
+     "are winter tires mandatory in canada",
+     "what states require winter tires",
+     "are winter tires mandatory in manitoba"
+    ],
+    "do you need snow chains in slovakia": []
+   }
+  },
+  "NO": {
+   "uk": {
+    "winter tyres norway": [
+     "winter tyres norway",
+     "winter tyres norway dates",
+     "winter tyres norway price",
+     "winter tyres norway law",
+     "snow tyres norway",
+     "best winter tyres norway",
+     "winter tyres change norway",
+     "norway winter tyres rules",
+     "which european countries require winter tyres"
+    ],
+    "winter tires norway": [
+     "winter tires norway",
+     "winter tyres norway dates",
+     "snow tires norway",
+     "winter tyres norway price",
+     "winter tyres norway law",
+     "change winter tires norway",
+     "best winter tires norway",
+     "mandatory winter tires norway",
+     "norway winter tyres rules",
+     "winter snow tires vs all season"
+    ],
+    "snow chains norway": [
+     "snow chains norway",
+     "snow chains norway truck",
+     "snow chains near me",
+     "snow chains nearby"
+    ],
+    "snow chains rental car norway": [],
+    "are winter tyres mandatory in norway": [
+     "are winter tyres mandatory in norway",
+     "are winter tires mandatory in norway",
+     "when are winter tyres required in norway",
+     "norway winter tyres rules",
+     "are winter tires mandatory in netherlands"
+    ],
+    "are winter tires mandatory in norway": [
+     "are winter tires mandatory in norway",
+     "are winter tyres mandatory in norway",
+     "when are winter tyres required in norway",
+     "is it illegal to not have winter tires",
+     "are winter tires mandatory in canada",
+     "are winter tires mandatory in nova scotia"
+    ],
+    "do you need snow chains in norway": [
+     "do you need snow chains in norway",
+     "do i need snow chains"
+    ]
+   },
+   "us": {
+    "winter tyres norway": [
+     "winter tyres norway",
+     "winter tyres norway dates",
+     "winter tyres norway price",
+     "winter tyres norway law",
+     "snow tyres norway",
+     "best winter tyres norway",
+     "winter tyres change norway",
+     "norway winter tyres rules",
+     "which european countries require winter tyres"
+    ],
+    "winter tires norway": [
+     "winter tires norway",
+     "winter tyres norway dates",
+     "snow tires norway",
+     "winter tyres norway price",
+     "winter tyres norway law",
+     "change winter tires norway",
+     "best winter tires norway",
+     "mandatory winter tires norway",
+     "norway winter tyres rules",
+     "winter snow tires vs all season"
+    ],
+    "snow chains norway": [
+     "snow chains norway",
+     "snow chains norway truck",
+     "snow chains near me",
+     "snow chains nearby"
+    ],
+    "snow chains rental car norway": [],
+    "are winter tyres mandatory in norway": [
+     "are winter tyres mandatory in norway",
+     "are winter tires mandatory in norway",
+     "when are winter tyres required in norway",
+     "norway winter tyres rules",
+     "are winter tires mandatory in netherlands"
+    ],
+    "are winter tires mandatory in norway": [
+     "are winter tires mandatory in norway",
+     "are winter tyres mandatory in norway",
+     "when are winter tyres required in norway",
+     "is it illegal to not have winter tires",
+     "are winter tires mandatory in canada",
+     "are winter tires mandatory in nova scotia"
+    ],
+    "do you need snow chains in norway": [
+     "do you need snow chains in norway",
+     "do i need snow chains"
+    ]
+   }
+  },
+  "SE": {
+   "uk": {
+    "winter tyres sweden": [
+     "winter tyres sweden",
+     "winter tyres sweden dates",
+     "winter tyres sweden price",
+     "winter tyres sweden time",
+     "winter tyres sweden law",
+     "winter tyres sweden rules",
+     "winter tires sweden",
+     "snow tyres sweden",
+     "change winter tyres sweden",
+     "buy winter tyres sweden"
+    ],
+    "winter tires sweden": [
+     "winter tires sweden",
+     "winter tires sweden date",
+     "winter tires sweden law",
+     "winter tires sweden price",
+     "winter tires sweden rules",
+     "winter tires sweden time",
+     "winter tyres sweden",
+     "snow tires sweden",
+     "winter tires sverige",
+     "mandatory winter tires sweden"
+    ],
+    "snow chains sweden": [
+     "snow chains sweden",
+     "snow tire chains near me",
+     "snow chains near me",
+     "snow chains nearby"
+    ],
+    "snow chains rental car sweden": [],
+    "are winter tyres mandatory in sweden": [
+     "are winter tyres mandatory in sweden",
+     "when are winter tyres required in sweden",
+     "do i need winter tyres in sweden",
+     "sweden winter tyre rules",
+     "sweden winter tires dates",
+     "when to change winter tires in sweden"
+    ],
+    "are winter tires mandatory in sweden": [
+     "are winter tires mandatory in sweden",
+     "are winter tyres mandatory in sweden",
+     "when are winter tires required in sweden",
+     "when are winter tyres required in sweden",
+     "sweden winter tires dates",
+     "do i need winter tyres in sweden",
+     "are winter tires mandatory in canada"
+    ],
+    "do you need snow chains in sweden": [
+     "do you need snow chains in sweden",
+     "do i need snow chains in switzerland",
+     "do i need snow chains"
+    ]
+   },
+   "us": {
+    "winter tyres sweden": [
+     "winter tyres sweden",
+     "winter tyres sweden dates",
+     "winter tyres sweden price",
+     "winter tyres sweden time",
+     "winter tyres sweden law",
+     "winter tyres sweden rules",
+     "winter tires sweden",
+     "snow tyres sweden",
+     "change winter tyres sweden",
+     "buy winter tyres sweden"
+    ],
+    "winter tires sweden": [
+     "winter tires sweden",
+     "winter tires sweden date",
+     "winter tires sweden law",
+     "winter tires sweden price",
+     "winter tires sweden rules",
+     "winter tires sweden time",
+     "winter tyres sweden",
+     "snow tires sweden",
+     "winter tires sverige",
+     "mandatory winter tires sweden"
+    ],
+    "snow chains sweden": [
+     "snow chains sweden",
+     "snow tire chains near me",
+     "snow chains near me",
+     "snow chains nearby"
+    ],
+    "snow chains rental car sweden": [],
+    "are winter tyres mandatory in sweden": [
+     "are winter tyres mandatory in sweden",
+     "when are winter tyres required in sweden",
+     "do i need winter tyres in sweden",
+     "sweden winter tyre rules",
+     "sweden winter tires dates",
+     "when to change winter tires in sweden"
+    ],
+    "are winter tires mandatory in sweden": [
+     "are winter tires mandatory in sweden",
+     "are winter tyres mandatory in sweden",
+     "when are winter tires required in sweden",
+     "when are winter tyres required in sweden",
+     "sweden winter tires dates",
+     "do i need winter tyres in sweden",
+     "are winter tires mandatory in canada"
+    ],
+    "do you need snow chains in sweden": [
+     "do you need snow chains in sweden",
+     "do i need snow chains in switzerland",
+     "do i need snow chains"
+    ]
+   }
+  },
+  "FI": {
+   "uk": {
+    "winter tyres finland": [
+     "winter tyres finland",
+     "winter tyres finland rules",
+     "winter tyres finland price",
+     "winter tires finland",
+     "winter tires finland law",
+     "snow tyres finland",
+     "winter tires finland date",
+     "winter tyres change finland",
+     "best winter tyres finland",
+     "winter tyres change date finland"
+    ],
+    "winter tires finland": [
+     "winter tires finland",
+     "winter tires finland price",
+     "winter tires finland law",
+     "winter tires finland date",
+     "winter tyres finland",
+     "winter tyres finland rules",
+     "snow tires finland",
+     "winter tires nokian hakkapeliitta",
+     "winter tires nokian",
+     "winter tires nokian review"
+    ],
+    "snow chains finland": [
+     "snow chains finland",
+     "snow chains near me"
+    ],
+    "snow chains rental car finland": [],
+    "are winter tyres mandatory in finland": [
+     "are winter tyres mandatory in finland",
+     "when are winter tyres required in finland",
+     "are snow tires mandatory in trailers finland",
+     "when to change winter tires in finland",
+     "are winter tires mandatory in netherlands"
+    ],
+    "are winter tires mandatory in finland": [
+     "are winter tires mandatory in finland",
+     "are snow tires mandatory in trailers finland",
+     "when are winter tires required in finland",
+     "are winter tires mandatory in netherlands",
+     "are winter tires mandatory in canada",
+     "is it illegal to not have winter tires",
+     "are winter tires mandatory in alberta"
+    ],
+    "do you need snow chains in finland": [
+     "do you need snow chains in finland",
+     "do i need snow chains in switzerland"
+    ]
+   },
+   "us": {
+    "winter tyres finland": [
+     "winter tyres finland",
+     "winter tyres finland rules",
+     "winter tyres finland price",
+     "winter tires finland",
+     "winter tires finland law",
+     "snow tyres finland",
+     "winter tires finland date",
+     "winter tyres change finland",
+     "best winter tyres finland",
+     "winter tyres change date finland"
+    ],
+    "winter tires finland": [
+     "winter tires finland",
+     "winter tires finland price",
+     "winter tires finland law",
+     "winter tires finland date",
+     "winter tyres finland",
+     "winter tyres finland rules",
+     "snow tires finland",
+     "winter tires nokian hakkapeliitta",
+     "winter tires nokian",
+     "winter tires nokian review"
+    ],
+    "snow chains finland": [
+     "snow chains finland",
+     "snow chains near me"
+    ],
+    "snow chains rental car finland": [],
+    "are winter tyres mandatory in finland": [
+     "are winter tyres mandatory in finland",
+     "when are winter tyres required in finland",
+     "are snow tires mandatory in trailers finland",
+     "when to change winter tires in finland",
+     "are winter tires mandatory in netherlands"
+    ],
+    "are winter tires mandatory in finland": [
+     "are winter tires mandatory in finland",
+     "are snow tires mandatory in trailers finland",
+     "when are winter tires required in finland",
+     "are winter tires mandatory in netherlands",
+     "are winter tires mandatory in canada",
+     "is it illegal to not have winter tires",
+     "are winter tires mandatory in alberta"
+    ],
+    "do you need snow chains in finland": [
+     "do you need snow chains in finland",
+     "do i need snow chains in switzerland"
+    ]
+   }
+  },
+  "ES": {
+   "uk": {
+    "winter tyres spain": [
+     "winter tyres spain",
+     "winter tyres spain map",
+     "snow tyres spain",
+     "spain winter tyres law",
+     "do you need winter tyres in spain",
+     "which european countries require winter tyres"
+    ],
+    "winter tires spain": [
+     "winter tires spain",
+     "winter tyres spain map",
+     "do you need winter tyres in spain"
+    ],
+    "snow chains spain": [
+     "snow chains spain",
+     "snow chains spanish",
+     "snow chains sierra nevada spain",
+     "snow chains near me"
+    ],
+    "snow chains rental car spain": [],
+    "are winter tyres mandatory in spain": [
+     "are winter tyres mandatory in spain",
+     "do you need winter tyres in spain"
+    ],
+    "are winter tires mandatory in spain": [
+     "are winter tires mandatory in spain",
+     "do you need winter tyres in spain",
+     "are winter tires mandatory in netherlands"
+    ],
+    "do you need snow chains in spain": [
+     "do you need snow chains in spain",
+     "do you need snow chains in sierra nevada spain",
+     "do i need snow chains"
+    ]
+   },
+   "us": {
+    "winter tyres spain": [
+     "winter tyres spain",
+     "winter tyres spain map",
+     "snow tyres spain",
+     "spain winter tyres law",
+     "do you need winter tyres in spain",
+     "which european countries require winter tyres"
+    ],
+    "winter tires spain": [
+     "winter tires spain",
+     "winter tyres spain map",
+     "do you need winter tyres in spain"
+    ],
+    "snow chains spain": [
+     "snow chains spain",
+     "snow chains spanish",
+     "snow chains sierra nevada spain",
+     "snow chains near me"
+    ],
+    "snow chains rental car spain": [],
+    "are winter tyres mandatory in spain": [
+     "are winter tyres mandatory in spain",
+     "do you need winter tyres in spain"
+    ],
+    "are winter tires mandatory in spain": [
+     "are winter tires mandatory in spain",
+     "do you need winter tyres in spain",
+     "are winter tires mandatory in netherlands"
+    ],
+    "do you need snow chains in spain": [
+     "do you need snow chains in spain",
+     "do you need snow chains in sierra nevada spain",
+     "do i need snow chains"
+    ]
+   }
+  },
+  "AD": {
+   "uk": {
+    "winter tyres andorra": [
+     "winter tyres andorra",
+     "snow tyres andorra",
+     "which european countries require winter tyres",
+     "do you need winter tyres in spain"
+    ],
+    "winter tires andorra": [
+     "winter tires andorra",
+     "winter tires that can be used all year"
+    ],
+    "snow chains andorra": [
+     "snow chains andorra",
+     "buy snow chains andorra",
+     "snow tire chains near me",
+     "snow chains near me"
+    ],
+    "snow chains rental car andorra": [],
+    "are winter tyres mandatory in andorra": [
+     "are winter tires mandatory in andorra",
+     "which european countries require winter tyres",
+     "do you need winter tyres in spain"
+    ],
+    "are winter tires mandatory in andorra": [
+     "are winter tires mandatory in andorra",
+     "are winter tires mandatory in alberta"
+    ],
+    "do you need snow chains in andorra": [
+     "do you need snow chains in andorra",
+     "do you need snow chains to drive in andorra",
+     "do you need snow chains with awd"
+    ]
+   },
+   "us": {
+    "winter tyres andorra": [
+     "winter tyres andorra",
+     "snow tyres andorra",
+     "which european countries require winter tyres",
+     "do you need winter tyres in spain"
+    ],
+    "winter tires andorra": [
+     "winter tires andorra",
+     "winter tires that can be used all year"
+    ],
+    "snow chains andorra": [
+     "snow chains andorra",
+     "buy snow chains andorra",
+     "snow tire chains near me",
+     "snow chains near me"
+    ],
+    "snow chains rental car andorra": [],
+    "are winter tyres mandatory in andorra": [
+     "are winter tires mandatory in andorra",
+     "which european countries require winter tyres",
+     "do you need winter tyres in spain"
+    ],
+    "are winter tires mandatory in andorra": [
+     "are winter tires mandatory in andorra",
+     "are winter tires mandatory in alberta"
+    ],
+    "do you need snow chains in andorra": [
+     "do you need snow chains in andorra",
+     "do you need snow chains to drive in andorra",
+     "do you need snow chains with awd"
+    ]
+   }
+  },
+  "_extra": {
+   "uk": {
+    "winter tyres ": [
+     "winter tyres uk",
+     "winter tyres in summer",
+     "winter tyres germany",
+     "winter tyres sweden",
+     "winter tyres for sale",
+     "winter tyres vs summer tyres",
+     "winter tyres costco",
+     "winter tyres price",
+     "winter tyres sweden dates",
+     "winter tyres austria"
+    ],
+    "winter tires ": [
+     "winter tires sale",
+     "winter tires costco",
+     "winter tires bc",
+     "winter tires with rims",
+     "winter tires canadian tire",
+     "winter tires in summer",
+     "winter tires quebec",
+     "winter tires canada",
+     "winter tires calgary",
+     "winter tires vs all season"
+    ],
+    "winter tyres rental car": [
+     "winter tyres rental car",
+     "winter tyres car rental italy",
+     "winter tires rental car bc",
+     "winter tyres car rental calgary",
+     "snow tires rental car",
+     "winter tire car rental vancouver",
+     "winter tire car rental toronto",
+     "winter tires car rental japan",
+     "winter tires car rental tokyo",
+     "snow tires car rental calgary"
+    ],
+    "winter tires rental car": [
+     "winter tires rental car",
+     "winter tires rental car bc",
+     "winter tires car rental calgary",
+     "winter tires car rental italy",
+     "winter tires car rental toronto",
+     "winter tyres rental car",
+     "winter tires car rental japan",
+     "winter tires car rental tokyo",
+     "winter tyres car rental italy",
+     "snow tires car rental calgary"
+    ],
+    "snow chains rental car": [
+     "snow chains rental car",
+     "snow chain rental cardrona",
+     "tire chains rental car",
+     "tire chains rental car california",
+     "snow chains for car rental near me",
+     "snow chains italy car rental",
+     "snow chains for car rent",
+     "rental car snow chains california",
+     "can i put snow chains on rental car",
+     "how to get snow chains for rental car"
+    ],
+    "snow chains hire car": [
+     "snow chains hire car",
+     "snow chain hire cardrona",
+     "snow chain toyota rent a car",
+     "do we need snow chains hire car switzerland",
+     "can you put snow chains on a rental car",
+     "do rental cars come with snow chains",
+     "snow chains for rental cars"
+    ]
+   },
+   "us": {
+    "winter tyres ": [
+     "winter tyres price",
+     "winter tyres vs all season",
+     "winter tyres uk",
+     "winter tyres in summer",
+     "winter tyres germany",
+     "winter tyres sweden",
+     "winter tyres for sale",
+     "winter tyres vs summer tyres",
+     "winter tyres costco",
+     "winter tyres sweden dates"
+    ],
+    "winter tires ": [
+     "winter tires vs all season",
+     "winter tires in summer",
+     "winter tires for sale",
+     "winter tires cost",
+     "winter tires near me",
+     "winter tires costco",
+     "winter tires vs snow tires",
+     "winter tires for tesla model y",
+     "winter tires year round",
+     "winter tires with rims"
+    ],
+    "winter tyres rental car": [
+     "winter tyres rental car",
+     "winter tyres car rental italy",
+     "winter tires rental car bc",
+     "winter tyres car rental calgary",
+     "snow tires rental car",
+     "winter tire car rental vancouver",
+     "winter tire car rental toronto",
+     "winter tires car rental japan",
+     "winter tires car rental tokyo",
+     "snow tires car rental calgary"
+    ],
+    "winter tires rental car": [
+     "winter tires rental car",
+     "winter tires rental car bc",
+     "snow tires rental car",
+     "winter tires car rental calgary",
+     "winter tires car rental vancouver",
+     "winter tires car rental italy",
+     "winter tires car rental toronto",
+     "winter tires car rental japan",
+     "winter tires car rental tokyo",
+     "snow tires car rental calgary"
+    ],
+    "snow chains rental car": [
+     "snow chains rental car",
+     "snow chain rental cardrona",
+     "tire chains rental car california",
+     "snow chains for car rental near me",
+     "snow chains italy car rental",
+     "rental car snow chains california",
+     "rental car snow chains colorado",
+     "can you put snow chains on a rental car",
+     "do rental cars come with snow chains"
+    ],
+    "snow chains hire car": [
+     "snow chains hire car",
+     "snow chain hire cardrona",
+     "snow chain toyota rent a car",
+     "do we need snow chains hire car switzerland",
+     "can you put snow chains on a rental car",
+     "do rental cars come with snow chains",
+     "snow chains for rental cars"
+    ]
+   }
+  }
+ }
+}

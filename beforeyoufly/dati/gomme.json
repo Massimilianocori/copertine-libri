@@ -1,0 +1,1382 @@
+{
+ "_nota": "Gomme invernali e catene con l'auto a noleggio: fatti scritti a mano in dati/gomme_manuali.json (citazioni parola per parola), fonti rilette da raccolta/gomme.py (HTTP, data di lettura, impronta della zona citata). 'pagine' = Paesi con una pagina propria (ricerche vere in dati/gomme_domanda.json). Non modificare a mano: rilanciare lo script.",
+ "controllato_il": "2026-10-30",
+ "fonti": {
+  "ad_govern": {
+   "url": "https://www.govern.ad/ca/tematiques/comerc-i-consum/consum/consells-de-consum/informacio-pneumatics",
+   "pagina": "https://www.govern.ad/ca/tematiques/comerc-i-consum/consum/consells-de-consum/informacio-pneumatics",
+   "url_finale": "https://www.govern.ad/ca/tematiques/comerc-i-consum/consum/consells-de-consum/informacio-pneumatics",
+   "http": 200,
+   "byte": 703945,
+   "ente": "Government of Andorra",
+   "titolo": "Govern d'Andorra: Informació sobre els pneumàtics",
+   "lingua": "ca",
+   "tipo": "html",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "188b9e2eef425882",
+   "frasi": 2
+  },
+  "ad_mobilitat": {
+   "url": "https://www.mobilitat.ad/colors-neu",
+   "pagina": "https://www.mobilitat.ad/colors-neu",
+   "url_finale": "https://www.mobilitat.ad/colors-neu",
+   "http": 200,
+   "byte": 36768,
+   "ente": "Andorra Department of Mobility",
+   "titolo": "Departament de Mobilitat: Colors de la Neu",
+   "lingua": "ca",
+   "tipo": "html",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "0a5a268bda5869b3",
+   "frasi": 3
+  },
+  "at_bmimi": {
+   "url": "https://www.bmimi.gv.at/en/topics/transport/roads/safety/tyres.html",
+   "pagina": "https://www.bmimi.gv.at/en/topics/transport/roads/safety/tyres.html",
+   "url_finale": "https://www.bmimi.gv.at/en/topics/transport/roads/safety/tyres.html",
+   "http": 200,
+   "byte": 74736,
+   "ente": "Austrian Federal Ministry for Innovation, Mobility and Infrastructure",
+   "titolo": "BMIMI: Winter tyres and snow chains",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "095828028ab812cb",
+   "frasi": 8
+  },
+  "ch_chch": {
+   "url": "https://www.ch.ch/en/travel-and-emigrate/holidays-in-switzerland/how-to-behave-in-road-traffic/winter-tyres/",
+   "pagina": "https://www.ch.ch/en/travel-and-emigrate/holidays-in-switzerland/how-to-behave-in-road-traffic/winter-tyres/",
+   "url_finale": "https://www.ch.ch/en/travel-and-emigrate/holidays-in-switzerland/how-to-behave-in-road-traffic/winter-tyres/",
+   "http": 200,
+   "byte": 64246,
+   "ente": "ch.ch (Swiss Confederation, cantons and communes)",
+   "titolo": "ch.ch: Are winter tyres compulsory?",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "c343712adae9041e",
+   "frasi": 3
+  },
+  "cz_md": {
+   "url": "https://md.gov.cz/Media/Media-a-tiskove-zpravy/Ridicum-zacala-povinnost-prezout-na-zimni-pneumati",
+   "pagina": "https://md.gov.cz/Media/Media-a-tiskove-zpravy/Ridicum-zacala-povinnost-prezout-na-zimni-pneumati",
+   "url_finale": "https://md.gov.cz/Media/Media-a-tiskove-zpravy/Ridicum-zacala-povinnost-prezout-na-zimni-pneumati",
+   "http": 200,
+   "byte": 54003,
+   "ente": "Czech Ministry of Transport",
+   "titolo": "Ministerstvo dopravy: Řidičům začala povinnost přezout na zimní pneumatiky",
+   "lingua": "cs",
+   "tipo": "html",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "aff10a188c3a7da0",
+   "frasi": 3
+  },
+  "de_bmv": {
+   "url": "https://www.bmv.de/SharedDocs/DE/Artikel/StV/Strassenverkehr/winterreifen.html",
+   "pagina": "https://www.bmv.de/SharedDocs/DE/Artikel/StV/Strassenverkehr/winterreifen.html",
+   "url_finale": "https://www.bmv.de/SharedDocs/DE/Artikel/StV/Strassenverkehr/winterreifen.html",
+   "http": 200,
+   "byte": 183953,
+   "ente": "German Federal Ministry of Transport",
+   "titolo": "BMV: Winterreifenpflicht",
+   "lingua": "de",
+   "tipo": "html",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "2dac02d2e42cda55",
+   "frasi": 2
+  },
+  "de_stvo": {
+   "url": "https://www.gesetze-im-internet.de/stvo_2013/__2.html",
+   "pagina": "https://www.gesetze-im-internet.de/stvo_2013/__2.html",
+   "url_finale": "https://www.gesetze-im-internet.de/stvo_2013/__2.html",
+   "http": 200,
+   "byte": 9758,
+   "ente": "German Federal Ministry of Justice (Gesetze im Internet)",
+   "titolo": "Straßenverkehrs-Ordnung (StVO), § 2",
+   "lingua": "de",
+   "tipo": "html",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "ebf432d732dc8bb8",
+   "frasi": 1
+  },
+  "de_stvo3": {
+   "url": "https://www.gesetze-im-internet.de/stvo_2013/__3.html",
+   "pagina": "https://www.gesetze-im-internet.de/stvo_2013/__3.html",
+   "url_finale": "https://www.gesetze-im-internet.de/stvo_2013/__3.html",
+   "http": 200,
+   "byte": 7558,
+   "ente": "German Federal Ministry of Justice (Gesetze im Internet)",
+   "titolo": "Straßenverkehrs-Ordnung (StVO), § 3",
+   "lingua": "de",
+   "tipo": "html",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "9d61f4da7055b261",
+   "frasi": 1
+  },
+  "es_dgt": {
+   "url": "https://www.dgt.es/comunicacion/notas-de-prensa/nevadas-imprescindible-consultar-el-estado-de-las-carreteras-y-llevar-cadenas-o-neumaticos-de-invierno/",
+   "pagina": "https://www.dgt.es/comunicacion/notas-de-prensa/nevadas-imprescindible-consultar-el-estado-de-las-carreteras-y-llevar-cadenas-o-neumaticos-de-invierno/",
+   "url_finale": "https://www.dgt.es/comunicacion/notas-de-prensa/nevadas-imprescindible-consultar-el-estado-de-las-carreteras-y-llevar-cadenas-o-neumaticos-de-invierno/",
+   "http": 200,
+   "byte": 250203,
+   "ente": "Spanish Directorate-General for Traffic (DGT)",
+   "titolo": "DGT: Nevadas: imprescindible consultar el estado de las carreteras y llevar cadenas o neumáticos de invierno",
+   "lingua": "es",
+   "tipo": "html",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "046d06c00a87b679",
+   "frasi": 2
+  },
+  "fi_traficom": {
+   "url": "https://traficom.fi/en/news/remember-check-condition-and-symbols-winter-tyres-non-studded-winter-tyres-must-have-three-peak-mountain-snowflake-symbol",
+   "pagina": "https://traficom.fi/en/news/remember-check-condition-and-symbols-winter-tyres-non-studded-winter-tyres-must-have-three-peak-mountain-snowflake-symbol",
+   "url_finale": "https://traficom.fi/en/news/remember-check-condition-and-symbols-winter-tyres-non-studded-winter-tyres-must-have-three-peak-mountain-snowflake-symbol",
+   "http": 200,
+   "byte": 463422,
+   "ente": "Finnish Transport and Communications Agency (Traficom)",
+   "titolo": "Traficom: Remember to check the condition and symbols of winter tyres",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "ce252785631f6fc7",
+   "frasi": 4
+  },
+  "fr_sp": {
+   "url": "https://www.service-public.gouv.fr/particuliers/actualites/A14389",
+   "pagina": "https://www.service-public.gouv.fr/particuliers/actualites/A14389",
+   "url_finale": "https://www.service-public.gouv.fr/particuliers/actualites/A14389",
+   "http": 200,
+   "byte": 64127,
+   "ente": "Service-Public.fr (French government)",
+   "titolo": "Service-Public.fr: Pneus hiver, chaînes : quelles sont vos obligations jusqu'au 31 mars 2027 ?",
+   "lingua": "fr",
+   "tipo": "html",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "219a5337a9976bbd",
+   "frasi": 8
+  },
+  "hr_policija": {
+   "url": "https://zagrebacka-policija.gov.hr/vijesti/koristenje-zimske-opreme-na-vozilima-obvezno-od-15-studenoga-2024-do-15-travnja-2025-godine/99415",
+   "pagina": "https://zagrebacka-policija.gov.hr/vijesti/koristenje-zimske-opreme-na-vozilima-obvezno-od-15-studenoga-2024-do-15-travnja-2025-godine/99415",
+   "url_finale": "https://zagrebacka-policija.gov.hr/vijesti/koristenje-zimske-opreme-na-vozilima-obvezno-od-15-studenoga-2024-do-15-travnja-2025-godine/99415",
+   "http": 200,
+   "byte": 19107,
+   "ente": "Croatian Police (Zagreb Police Administration)",
+   "titolo": "Zagreb Police: Korištenje zimske opreme na vozilima obvezno od 15. studenoga",
+   "lingua": "hr",
+   "tipo": "html",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "cc031cabd05bc899",
+   "frasi": 5
+  },
+  "it_mit": {
+   "url": "https://www.mit.gov.it/nfsmitgov/files/media/normativa/2017-09/direttiva_ministeriale_prototocollo_1580_del_16-01-2013.pdf",
+   "pagina": "https://www.mit.gov.it/nfsmitgov/files/media/normativa/2017-09/direttiva_ministeriale_prototocollo_1580_del_16-01-2013.pdf",
+   "url_finale": "https://www.mit.gov.it/nfsmitgov/files/media/normativa/2017-09/direttiva_ministeriale_prototocollo_1580_del_16-01-2013.pdf",
+   "http": 200,
+   "byte": 277250,
+   "ente": "Italian Ministry of Infrastructure and Transport",
+   "titolo": "MIT: Direttiva sulla circolazione stradale in periodo invernale (prot. 1580, 16 January 2013), PDF",
+   "lingua": "it",
+   "tipo": "pdf",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "151ac0f5c3f3d7f7",
+   "frasi": 5
+  },
+  "it_polizia": {
+   "url": "https://www.poliziadistato.it/articolo/dal-15-novembre-scatta-l-obbligo-degli-pneumatici-invernali",
+   "pagina": "https://www.poliziadistato.it/articolo/dal-15-novembre-scatta-l-obbligo-degli-pneumatici-invernali",
+   "url_finale": "https://www.poliziadistato.it/articolo/dal-15-novembre-scatta-l-obbligo-degli-pneumatici-invernali",
+   "http": 200,
+   "byte": 51942,
+   "ente": "Polizia di Stato (Italian State Police)",
+   "titolo": "Polizia di Stato: Dal 15 novembre scatta l'obbligo degli pneumatici invernali",
+   "lingua": "it",
+   "tipo": "html",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "25d01dc4c8d73f88",
+   "frasi": 6
+  },
+  "no_vv": {
+   "url": "https://www.vegvesen.no/en/vehicles/own-and-maintain/tyre-requirements/",
+   "pagina": "https://www.vegvesen.no/en/vehicles/own-and-maintain/tyre-requirements/",
+   "url_finale": "https://www.vegvesen.no/en/vehicles/own-and-maintain/tyre-requirements/",
+   "http": 200,
+   "byte": 67781,
+   "ente": "Norwegian Public Roads Administration (Statens vegvesen)",
+   "titolo": "Statens vegvesen: Tyre requirements",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "245a625bcbc5f244",
+   "frasi": 6
+  },
+  "se_ts": {
+   "url": "https://www.transportstyrelsen.se/en/road/vehicles/winter-tyres/",
+   "pagina": "https://www.transportstyrelsen.se/en/road/vehicles/winter-tyres/",
+   "url_finale": "https://www.transportstyrelsen.se/en/road/vehicles/winter-tyres/",
+   "http": 200,
+   "byte": 110166,
+   "ente": "Swedish Transport Agency (Transportstyrelsen)",
+   "titolo": "Transportstyrelsen: Winter tyres",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "1420fe746305429b",
+   "frasi": 7
+  },
+  "si_avp": {
+   "url": "https://portalspv.avp-rs.si/novica?post=Spet+je+cas+za+zimsko+%27obutev%27",
+   "pagina": "https://portalspv.avp-rs.si/novica?post=Spet+je+cas+za+zimsko+%27obutev%27",
+   "url_finale": "https://portalspv.avp-rs.si/novica?post=Spet+je+cas+za+zimsko+%27obutev%27",
+   "http": 200,
+   "byte": 40337,
+   "ente": "Slovenian Traffic Safety Agency (AVP)",
+   "titolo": "AVP: Spet je čas za zimsko 'obutev'",
+   "lingua": "sl",
+   "tipo": "html",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "aaf7267a85e19f2f",
+   "frasi": 2
+  },
+  "si_sto": {
+   "url": "https://www.slovenia.info/en/plan-your-trip/getting-to-and-around-slovenia/to-slovenia-by-car",
+   "pagina": "https://www.slovenia.info/en/plan-your-trip/getting-to-and-around-slovenia/to-slovenia-by-car",
+   "url_finale": "https://www.slovenia.info/driving-to-and-around-slovenia-by-car",
+   "http": 200,
+   "byte": 697392,
+   "ente": "Slovenian Tourist Board",
+   "titolo": "Slovenia.info: Driving to and around Slovenia",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "0319594951e34823",
+   "frasi": 1
+  },
+  "sk_portal": {
+   "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_pravidla-cestnej-premavky/",
+   "pagina": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_pravidla-cestnej-premavky/",
+   "url_finale": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_pravidla-cestnej-premavky/",
+   "http": 200,
+   "byte": 71739,
+   "ente": "Slovensko.sk (Slovak government portal)",
+   "titolo": "Slovensko.sk: Pravidlá cestnej premávky",
+   "lingua": "sk",
+   "tipo": "html",
+   "letto_il": "2026-10-30",
+   "cambiato_il": "2026-10-30",
+   "impronta": "dddf73ad5d4c18a8",
+   "frasi": 1
+  }
+ },
+ "pagine": [
+  "AD",
+  "AT",
+  "CH",
+  "CZ",
+  "DE",
+  "ES",
+  "FI",
+  "FR",
+  "HR",
+  "IT",
+  "NO",
+  "SE",
+  "SI",
+  "SK"
+ ],
+ "paesi": [
+  {
+   "iso2": "IT",
+   "nome": "Italy",
+   "nome_frase": "Italy",
+   "obbligo": "si",
+   "titolo": "Winter Tyres in Italy with a Rental Car (2026-27): Dates and Chains",
+   "chi": "Italy's Ministry of Infrastructure and Transport and the Polizia di Stato",
+   "risposta": "there is no single national rule: each road owner can order that vehicles have winter tyres or snow chains on board, the Ministry's directive sets the period of these orders between 15 November and 15 April, and the rule applies on the roads where signs show it, even if there is no snow.",
+   "obbligo_breve": "on roads with a local order and road signs",
+   "periodo_breve": "15 November – 15 April (some roads have other dates)",
+   "catene_breve": "Chains on board instead of winter tyres",
+   "noleggio": "non_detto",
+   "nota": "Each road owner (ANAS, the motorway companies, regions, provinces and towns) issues its own order for its roads, so the rule depends on the road you drive on. We could not read the ANAS website from our server on 30 October 2026, so this page does not list single roads. The Polizia di Stato article is dated 6 November 2023; the Ministry directive is dated 16 January 2013. Both pages are in Italian: our English translation is under each quote.",
+   "citazioni": [
+    {
+     "id": "dir_strade",
+     "f": "it_mit",
+     "tema": "dove",
+     "x": "Fuori dai centri abitati, lungo le strade frequentemente interessate da precipitazioni nevose e fenomeni di pioggia ghiacciata (freezing rain) nel periodo invernale, gli enti proprietari o concessionari di strade possono, ai sensi dell’articolo 6, comma 4, lettera e), del decreto legislativo n. 285/1992, prescrivere che i veicoli a motore, esclusi i ciclomotori a due ruote e i motocicli, siano muniti di pneumatici invernali ovvero abbiano a bordo mezzi antisdrucciolevoli idonei alla marcia su neve e ghiaccio."
+    },
+    {
+     "id": "dir_comuni",
+     "f": "it_mit",
+     "tema": "dove",
+     "x": "Se ne dovessero ricorrere le condizioni i comuni possono adottare gli stessi provvedimenti anche all’interno dei centri abitati ai sensi dell’articolo 7, comma 1, del decreto legislativo n. 285/1992."
+    },
+    {
+     "id": "pol_ente",
+     "f": "it_polizia",
+     "tema": "dove",
+     "x": "L’obbligo è stabilito dall’ente proprietario della strada e reso noto mediante apposito cartello."
+    },
+    {
+     "id": "pol_cartelli",
+     "f": "it_polizia",
+     "tema": "dove",
+     "x": "L’obbligo di avere a bordo catene o pneumatici invernali è anche indicato lungo le strade da appositi cartelli che mostrano le tratte interessate; inoltre, l’obbligo va osservato anche se non c’è neve."
+    },
+    {
+     "id": "pol_zone",
+     "f": "it_polizia",
+     "tema": "dove",
+     "x": "Ad esempio, in alcune aree l’obbligo non viene applicato, come succede in diverse zone del Sud Italia. Al contrario, in alcune zone montane e nel Nord Italia le date possono essere modificate."
+    },
+    {
+     "id": "dir_periodo",
+     "f": "it_mit",
+     "tema": "quando",
+     "x": "Ai fini della necessaria uniformità si dispone che il periodo interessato dall’obbligo sia ricompreso tra il 15 novembre e il 15 aprile e che il provvedimento sia redatto utilizzando come riferimento il modello in allegato A."
+    },
+    {
+     "id": "dir_montagna",
+     "f": "it_mit",
+     "tema": "quando",
+     "x": "Resta impregiudicata la possibilità per gli enti proprietari di strade di adottare provvedimenti della stessa natura, con una estesa temporale diversa per strade o tratti di esse in condizioni particolari quali ad esempio strade di montagna a quote particolarmente alte."
+    },
+    {
+     "id": "pol_gomme",
+     "f": "it_polizia",
+     "tema": "gomme",
+     "x": "Gli pneumatici da neve (detti anche invernali o termici), considerati dispositivi da utilizzare in alternativa alle catene da neve ai fini del Codice della strada, sono contraddistinti da apposita sigla del tipo M+S o MS o M-S o M&S e da determinati simboli della categoria di velocità."
+    },
+    {
+     "id": "pol_catene",
+     "f": "it_polizia",
+     "tema": "catene",
+     "x": "Per tutte le altre tipologie di pneumatici è necessario dotarsi di catene a bordo."
+    },
+    {
+     "id": "dir_assi",
+     "f": "it_mit",
+     "tema": "catene",
+     "x": "Allo scopo di evitare interpretazioni non uniformi circa l’impiego dei mezzi antisdrucciolevoli, si chiarisce che i medesimi devono essere montati almeno sulle ruote degli assi motori."
+    },
+    {
+     "id": "pol_multa",
+     "f": "it_polizia",
+     "tema": "multa",
+     "x": "Circolare con un veicolo senza osservare l’obbligo imposto di tenere montati (o avere a bordo) mezzi antisdrucciolevoli o pneumatici invernali idonei alla marcia su neve o ghiaccio, comporta una sanzione pecuniaria. Non sono previste sanzioni accessorie ma è intimato al conducente di non proseguire il viaggio se prima non si dota dei predetti dispositivi."
+    }
+   ],
+   "traduzioni": {
+    "dir_strade": "Outside built-up areas, on roads often affected by snowfall and freezing rain in winter, the owners or operators of roads may, under Article 6(4)(e) of Legislative Decree no. 285/1992, require that motor vehicles, except two-wheeled mopeds and motorcycles, have winter tyres fitted or carry anti-skid devices suitable for driving on snow and ice.",
+    "dir_comuni": "If the conditions arise, towns may adopt the same measures inside built-up areas too, under Article 7(1) of Legislative Decree no. 285/1992.",
+    "pol_ente": "The obligation is set by the owner of the road and made known by a specific road sign.",
+    "pol_cartelli": "The obligation to carry chains or have winter tyres is also shown along the roads by specific signs that mark the sections concerned; also, the obligation applies even if there is no snow.",
+    "pol_zone": "For example, in some areas the obligation is not applied, as happens in several parts of Southern Italy. On the other hand, in some mountain areas and in Northern Italy the dates may be changed.",
+    "dir_periodo": "For the sake of uniformity, the period covered by the obligation is set between 15 November and 15 April, and the order is to be written using the model in annex A.",
+    "dir_montagna": "Road owners may still adopt measures of the same kind with a different period for roads or road sections in special conditions, such as mountain roads at very high altitude.",
+    "pol_gomme": "Snow tyres (also called winter or thermal tyres), which the Highway Code treats as an alternative to snow chains, carry a marking such as M+S, MS, M-S or M&S and certain speed category symbols.",
+    "pol_catene": "With all other types of tyres you must carry chains on board.",
+    "dir_assi": "To avoid different readings about the use of anti-skid devices, the directive makes clear that they must be fitted at least on the wheels of the driving axles.",
+    "pol_multa": "Driving a vehicle without respecting the obligation to have anti-skid devices or winter tyres fitted (or on board) leads to a fine. There are no additional penalties, but the driver is told not to continue the journey until they have this equipment."
+   },
+   "faq": [
+    {
+     "query": "are winter tyres mandatory in italy",
+     "q": "Are winter tyres mandatory in Italy?",
+     "cit": [
+      "pol_ente",
+      "pol_cartelli"
+     ],
+     "pre": "Only on the roads where the road owner has ordered it. The Polizia di Stato says (our translation from Italian):",
+     "post": "Winter tyres are one choice: snow chains on board are the other."
+    },
+    {
+     "query": "winter tyres italy dates",
+     "q": "What are the dates for winter tyres in Italy?",
+     "cit": [
+      "dir_periodo",
+      "dir_montagna"
+     ],
+     "pre": "The Ministry of Infrastructure and Transport says (our translation from Italian):",
+     "post": "Check the signs on the road you will use: some roads have other dates."
+    },
+    {
+     "query": "snow chains italy car rental",
+     "q": "Do I need snow chains in Italy with a rental car?",
+     "cit": [
+      "pol_catene"
+     ],
+     "pre": "On roads with the winter rule you need winter tyres or chains on board. The Polizia di Stato says (our translation from Italian):",
+     "post": "The official pages we read do not say whether rental cars come with winter tyres or chains."
+    }
+   ]
+  },
+  {
+   "iso2": "AT",
+   "nome": "Austria",
+   "nome_frase": "Austria",
+   "obbligo": "situazionale",
+   "titolo": "Winter Tyres in Austria with a Rental Car (2026-27): Rules and Chains",
+   "chi": "Austria's Federal Ministry for Innovation, Mobility and Infrastructure",
+   "risposta": "from 1 November to 15 April cars must have winter tyres on all four wheels when there is snow, slush or ice on the road, and snow chains on at least two drive wheels may replace winter tyres only where the road is continually or almost always under snow or ice.",
+   "obbligo_breve": "winter tyres on all four wheels in snow, slush or ice",
+   "periodo_breve": "1 November – 15 April",
+   "catene_breve": "Instead of winter tyres only on roads under snow or ice",
+   "noleggio": "non_detto",
+   "nota": "",
+   "citazioni": [
+    {
+     "id": "periodo",
+     "f": "at_bmimi",
+     "tema": "quando",
+     "x": "From 1 November to 15 April of the following year, passenger cars are subject to a situational winter equipment obligation."
+    },
+    {
+     "id": "condizioni",
+     "f": "at_bmimi",
+     "tema": "quando",
+     "x": "That means that drivers using the roads in wintry conditions during this period must have winter tyres fitted."
+    },
+    {
+     "id": "quattro",
+     "f": "at_bmimi",
+     "tema": "gomme",
+     "x": "When there is snow, slush or ice on the roads, private cars and goods vehicles up to 3.5 tonnes must be equipped for winter driving conditions with winter tyres fitted on all four wheels."
+    },
+    {
+     "id": "marchio",
+     "f": "at_bmimi",
+     "tema": "gomme",
+     "x": "Winter tyres are recognised as such in law if they bear the markings \"Matsch und Schnee\" (German for \"mud/slush and snow\"), commonly abbreviated to: M+S, M.S. or M&S."
+    },
+    {
+     "id": "battistrada",
+     "f": "at_bmimi",
+     "tema": "gomme",
+     "x": "In addition, tyres on private cars and goods vehicles up to a maximum gross vehicle weight of 3.5 tonnes must have a tread depth of at least 4 millimetres in the case of radial tyres (commonest type) and 5 millimetres in the case of cross-ply tyres."
+    },
+    {
+     "id": "catene",
+     "f": "at_bmimi",
+     "tema": "catene",
+     "x": "Private cars and goods vehicles up to a maximum gross vehicle weight of 3.5 tonnes may use snow chains instead of winter tyres. Chains must be fitted to at least two drive wheels. But this is only permitted where the road is continually or almost always under snow or ice."
+    },
+    {
+     "id": "multa",
+     "f": "at_bmimi",
+     "tema": "multa",
+     "x": "Driving in winter road conditions without winter tyres or snow chains incurs a fine of € 35. If other road users are endangered as a result, fines of up to € 5 000 may be imposed."
+    },
+    {
+     "id": "prova",
+     "f": "at_bmimi",
+     "tema": "multa",
+     "x": "This means that anyone who has an accident whilst driving with summer tyres must prove that the accident would still have happened if winter tyres or chains had been fitted."
+    }
+   ],
+   "traduzioni": {},
+   "faq": [
+    {
+     "query": "are winter tyres mandatory in austria",
+     "q": "Are winter tyres mandatory in Austria?",
+     "cit": [
+      "periodo",
+      "quattro"
+     ],
+     "pre": "Yes, in winter road conditions. The Austrian ministry says:",
+     "post": ""
+    },
+    {
+     "query": "winter tyres austria dates",
+     "q": "What are the dates for winter tyres in Austria?",
+     "cit": [
+      "periodo"
+     ],
+     "pre": "The Austrian ministry says:",
+     "post": ""
+    },
+    {
+     "query": "do you need snow chains in austria",
+     "q": "Do you need snow chains in Austria?",
+     "cit": [
+      "catene"
+     ],
+     "pre": "Chains can replace winter tyres only in some conditions. The Austrian ministry says:",
+     "post": ""
+    }
+   ]
+  },
+  {
+   "iso2": "DE",
+   "nome": "Germany",
+   "nome_frase": "Germany",
+   "obbligo": "situazionale",
+   "titolo": "Winter Tyres in Germany with a Rental Car (2026-27): The Rules",
+   "chi": "Germany's Federal Ministry of Transport and the Road Traffic Regulations (StVO)",
+   "risposta": "there are no fixed dates: in black ice, packed snow, slush, ice or frost you may only drive a car if all its wheels have winter tyres, and tyres count as winter tyres when they carry the Alpine symbol (a mountain with a snowflake).",
+   "obbligo_breve": "winter tyres on all wheels in ice, snow or slush",
+   "periodo_breve": "No dates: it depends on road conditions",
+   "catene_breve": "Speed limit with chains: 50 km/h",
+   "noleggio": "non_detto",
+   "nota": "The ministry page and the law are in German: our English translation is under each quote. The pages we read do not say when you must carry or fit snow chains.",
+   "citazioni": [
+    {
+     "id": "bmv_regola",
+     "f": "de_bmv",
+     "tema": "quando",
+     "x": "Bei Glatteis, Schneeglätte, Schneematsch, Eisglätte oder Reifglätte dürfen Kraftfahrzeuge nach § 2 Absatz 3a der Straßenverkehrs-Ordnung (StVO) nur gefahren werden, wenn alle Räder mit Winterreifen ausgerüstet sind, die den Anforderungen des § 36 Absatz 4 der Straßenverkehrs-Zulassungs-Ordnung (StVZO) genügen."
+    },
+    {
+     "id": "stvo_3a",
+     "f": "de_stvo",
+     "tema": "quando",
+     "x": "(3a) Der Führer eines Kraftfahrzeuges darf dies bei Glatteis, Schneeglätte, Schneematsch, Eisglätte oder Reifglätte nur fahren, wenn alle Räder mit Reifen ausgerüstet sind, die unbeschadet der allgemeinen Anforderungen an die Bereifung den Anforderungen des § 36 Absatz 4 der Straßenverkehrs-Zulassungs-Ordnung genügen."
+    },
+    {
+     "id": "alpine",
+     "f": "de_bmv",
+     "tema": "gomme",
+     "x": "Als Winterreifen gelten gemäß § 36 StVZO Reifen, die mit dem sogenannten Alpine-Symbol (Bergpiktogramm mit Schneeflocke) nach der UN-Regelung Nr. 117 gekennzeichnet sind."
+    },
+    {
+     "id": "catene_50",
+     "f": "de_stvo3",
+     "tema": "catene",
+     "x": "Die zulässige Höchstgeschwindigkeit beträgt für Kraftfahrzeuge mit Schneeketten auch unter günstigsten Umständen 50 km/h."
+    }
+   ],
+   "traduzioni": {
+    "bmv_regola": "In black ice, packed snow, slush, ice or frost, motor vehicles may only be driven, under § 2(3a) of the Road Traffic Regulations (StVO), if all wheels have winter tyres that meet the requirements of § 36(4) of the Road Vehicle Registration and Licensing Regulations (StVZO).",
+    "stvo_3a": "(3a) The driver of a motor vehicle may only drive it in black ice, packed snow, slush, ice or frost if all wheels have tyres that, in addition to the general tyre requirements, meet the requirements of § 36(4) of the Road Vehicle Registration and Licensing Regulations.",
+    "alpine": "Under § 36 StVZO, winter tyres are tyres marked with the so-called Alpine symbol (a mountain pictogram with a snowflake) under UN Regulation No. 117.",
+    "catene_50": "The maximum speed for motor vehicles with snow chains is 50 km/h, even in the best conditions."
+   },
+   "faq": [
+    {
+     "query": "are winter tyres mandatory in germany",
+     "q": "Are winter tyres mandatory in Germany?",
+     "cit": [
+      "bmv_regola"
+     ],
+     "pre": "Only in winter road conditions. The Federal Ministry of Transport says (our translation from German):",
+     "post": ""
+    },
+    {
+     "query": "winter tyres germany dates",
+     "q": "What are the dates for winter tyres in Germany?",
+     "cit": [
+      "bmv_regola"
+     ],
+     "pre": "The rule has no dates: it depends on the road. The Federal Ministry of Transport says (our translation from German):",
+     "post": ""
+    },
+    {
+     "query": "winter tires germany symbol",
+     "q": "Which symbol must winter tyres have in Germany?",
+     "cit": [
+      "alpine"
+     ],
+     "pre": "The Federal Ministry of Transport says (our translation from German):",
+     "post": ""
+    },
+    {
+     "query": "maximum speed with snow chains germany",
+     "q": "What is the maximum speed with snow chains in Germany?",
+     "cit": [
+      "catene_50"
+     ],
+     "pre": "The Road Traffic Regulations say (our translation from German):",
+     "post": ""
+    }
+   ]
+  },
+  {
+   "iso2": "FR",
+   "nome": "France",
+   "nome_frase": "France",
+   "obbligo": "si",
+   "titolo": "Winter Tyres in France with a Rental Car (2026-27): Loi Montagne",
+   "chi": "Service-Public.fr, the French government's information site",
+   "risposta": "from 1 November 2026 to 31 March 2027, in the mountain towns listed by the prefects of 34 departments and marked by road signs, cars must either carry snow chains or snow socks for at least 2 drive wheels or have 4 winter tyres; the rule applies only in those mountain areas.",
+   "obbligo_breve": "in signed mountain areas only",
+   "periodo_breve": "1 November – 31 March",
+   "catene_breve": "Carry chains or snow socks, or fit 4 winter tyres",
+   "noleggio": "non_detto",
+   "nota": "Service-Public.fr published this page on 20 October 2026 for the 2026-27 winter. It is in French: our English translation is under each quote.",
+   "citazioni": [
+    {
+     "id": "zone",
+     "f": "fr_sp",
+     "tema": "dove",
+     "x": "Il est obligatoire, dans certaines zones montagneuses, d'équiper son véhicule de pneus hiver ou de détenir des chaînes ou des chaussettes à neige durant la période hivernale."
+    },
+    {
+     "id": "prefetti",
+     "f": "fr_sp",
+     "tema": "dove",
+     "x": "Les préfets de 34 départements situés dans des massifs montagneux (Alpes, Corse, Massif central, Jura, Pyrénées, Vosges) doivent établir la liste des communes dans lesquelles un équipement des véhicules devient obligatoire en « période hivernale », c'est-à-dire du 1er novembre au 31 mars."
+    },
+    {
+     "id": "cartelli",
+     "f": "fr_sp",
+     "tema": "dove",
+     "x": "Un panonceau précise la période hivernale, afin de rappeler aux usagers que ces obligations ne s’appliquent que du 1er novembre au 31 mars. La signalisation est nécessaire pour que la mesure soit opposable."
+    },
+    {
+     "id": "obblighi",
+     "f": "fr_sp",
+     "tema": "catene",
+     "x": "Entre le 1er novembre 2026 et le 31 mars 2027, les véhicules légers, les utilitaires et les camping-cars doivent, dans les zones établies par les préfets de départements: soit détenir des dispositifs antidérapants amovibles permettant d’équiper « au moins 2 roues motrices » (chaînes à neige métalliques recommandées en cas d’usage fréquent de votre véhicule au sein de ces zones, chaussettes à neige textiles en cas d’usage occasionnel); soit être équipés de 4 pneumatiques adaptés à la conduite hivernale (pneus hiver)."
+    },
+    {
+     "id": "misura",
+     "f": "fr_sp",
+     "tema": "catene",
+     "x": "Vous devez vérifier que les dispositifs amovibles sont adaptés à la taille de vos roues et à l'espace entre la roue et la carrosserie."
+    },
+    {
+     "id": "3pmsf",
+     "f": "fr_sp",
+     "tema": "gomme",
+     "x": "Seuls les pneus 3PMSF sont admis en équivalence aux dispositifs antidérapants amovibles (3PMSF est l'acronyme de « Three peak mountain snow flake » qui signifie « Montagne à trois pics avec un flocon de neige »)."
+    },
+    {
+     "id": "altri_pneus",
+     "f": "fr_sp",
+     "tema": "gomme",
+     "x": "L’achat et l’utilisation d’autres types de pneus neige restent possibles, mais les usagers doivent dans ce cas détenir également des dispositifs antidérapants amovibles."
+    },
+    {
+     "id": "chiodi",
+     "f": "fr_sp",
+     "tema": "altro",
+     "x": "Cette obligation ne s'applique pas aux véhicules équipés de pneus à clous."
+    }
+   ],
+   "traduzioni": {
+    "zone": "In some mountain areas you must fit winter tyres to your vehicle or carry snow chains or snow socks during the winter period.",
+    "prefetti": "The prefects of 34 departments in mountain ranges (Alps, Corsica, Massif Central, Jura, Pyrenees, Vosges) must draw up the list of towns where vehicle equipment becomes mandatory in the “winter period”, that is from 1 November to 31 March.",
+    "cartelli": "A plate under the sign shows the winter period, to remind road users that these obligations only apply from 1 November to 31 March. The signs are needed for the rule to be enforceable.",
+    "obblighi": "Between 1 November 2026 and 31 March 2027, cars, vans and motorhomes must, in the areas set by the prefects of departments, either carry removable anti-skid devices for “at least 2 drive wheels” (metal snow chains are recommended if you often drive in these areas, textile snow socks for occasional use), or have 4 tyres suited to winter driving (winter tyres).",
+    "misura": "You must check that the removable devices fit the size of your wheels and the space between the wheel and the bodywork.",
+    "3pmsf": "Only 3PMSF tyres are accepted as equivalent to removable anti-skid devices (3PMSF stands for “Three peak mountain snow flake”, which means “mountain with three peaks and a snowflake”).",
+    "altri_pneus": "You can still buy and use other types of snow tyres, but in that case you must also carry removable anti-skid devices.",
+    "chiodi": "This obligation does not apply to vehicles with studded tyres."
+   },
+   "faq": [
+    {
+     "query": "are winter tyres mandatory in france",
+     "q": "Are winter tyres mandatory in France?",
+     "cit": [
+      "zone"
+     ],
+     "pre": "Only in some mountain areas, and snow chains or snow socks are an alternative. Service-Public.fr says (our translation from French):",
+     "post": ""
+    },
+    {
+     "query": "do i need snow chains in france if i have winter tyres",
+     "q": "Do I need snow chains in France if I have winter tyres?",
+     "cit": [
+      "3pmsf",
+      "altri_pneus"
+     ],
+     "pre": "It depends on the marking of the tyres. Service-Public.fr says (our translation from French):",
+     "post": ""
+    },
+    {
+     "query": "can you use snow socks instead of chains in france",
+     "q": "Can you use snow socks instead of chains in France?",
+     "cit": [
+      "obblighi"
+     ],
+     "pre": "Yes. Service-Public.fr says (our translation from French):",
+     "post": ""
+    },
+    {
+     "query": "winter tyres france map",
+     "q": "Where in France do the winter rules apply?",
+     "cit": [
+      "prefetti",
+      "cartelli"
+     ],
+     "pre": "Service-Public.fr says (our translation from French):",
+     "post": "Service-Public.fr links the list of towns from its page."
+    }
+   ]
+  },
+  {
+   "iso2": "CH",
+   "nome": "Switzerland",
+   "nome_frase": "Switzerland",
+   "obbligo": "no",
+   "titolo": "Winter Tyres in Switzerland with a Rental Car (2026-27): The Rules",
+   "chi": "ch.ch, the information portal of the Swiss Confederation, cantons and communes",
+   "risposta": "winter tyres are not compulsory in Switzerland, but drivers must always keep control of their vehicle, and a driver whose car is not properly equipped for the winter may be found liable after an accident.",
+   "obbligo_breve": "but you may be liable if the car is not equipped for winter",
+   "periodo_breve": "No legal period (advice: October to Easter)",
+   "catene_breve": "Not covered by the page we read",
+   "noleggio": "non_detto",
+   "nota": "",
+   "citazioni": [
+    {
+     "id": "no_obbligo",
+     "f": "ch_chch",
+     "tema": "quando",
+     "x": "In Switzerland, there is no legal obligation to fit your vehicle with winter tyres. However, drivers must always maintain control of their vehicle."
+    },
+    {
+     "id": "consiglio",
+     "f": "ch_chch",
+     "tema": "gomme",
+     "x": "It is worth changing your tyres before the first snow falls; it is recommended to fit vehicles with snow tires from October until Easter time."
+    },
+    {
+     "id": "responsabile",
+     "f": "ch_chch",
+     "tema": "multa",
+     "x": "In the case of an accident, the driver may be found liable if the car is not properly equipped for the winter. The insurance company may not cover the full cost of the damage or may even take action against the insured person for negligence."
+    }
+   ],
+   "traduzioni": {},
+   "faq": [
+    {
+     "query": "are winter tyres mandatory in switzerland",
+     "q": "Are winter tyres mandatory in Switzerland?",
+     "cit": [
+      "no_obbligo"
+     ],
+     "pre": "No. ch.ch says:",
+     "post": ""
+    },
+    {
+     "query": "winter tyres switzerland dates",
+     "q": "When should you have winter tyres in Switzerland?",
+     "cit": [
+      "consiglio"
+     ],
+     "pre": "There are no legal dates. ch.ch says:",
+     "post": ""
+    },
+    {
+     "query": "do we need snow chains hire car switzerland",
+     "q": "Do we need snow chains in a hire car in Switzerland?",
+     "cit": [
+      "responsabile"
+     ],
+     "pre": "The page we read does not cover snow chains, but it warns:",
+     "post": "Ask the rental company whether the car has winter tyres or chains."
+    }
+   ]
+  },
+  {
+   "iso2": "SI",
+   "nome": "Slovenia",
+   "nome_frase": "Slovenia",
+   "obbligo": "si",
+   "titolo": "Winter Tyres in Slovenia with a Rental Car (2026-27): Dates and Chains",
+   "chi": "the Slovenian Tourist Board and the Slovenian Traffic Safety Agency (AVP)",
+   "risposta": "from 15 November to 15 March cars must have the prescribed winter equipment: winter tyres with a tread depth of at least 3 mm, or summer tyres with snow chains carried in the vehicle.",
+   "obbligo_breve": "winter tyres, or summer tyres with chains in the car",
+   "periodo_breve": "15 November – 15 March",
+   "catene_breve": "Summer tyres plus chains carried in the car",
+   "noleggio": "non_detto",
+   "nota": "We could not read the websites of the Slovenian police and of the national traffic information centre from our server on 30 October 2026. The AVP article is dated 12 November 2025 and is in Slovenian: our English translation is under each quote.",
+   "citazioni": [
+    {
+     "id": "sto",
+     "f": "si_sto",
+     "tema": "quando",
+     "x": "From 15 November to 15 March, vehicles must have the prescribed winter equipment. This means winter tyres with a tread depth of at least 3 mm, or summer tyres with snow chains carried in the vehicle."
+    },
+    {
+     "id": "avp_legge",
+     "f": "si_avp",
+     "tema": "quando",
+     "x": "Zakonodaja od voznikov zahteva, da med 15. novembrom in 15. marcem svoja vozila opremijo z zimskimi pnevmatikami (razen izjem)."
+    },
+    {
+     "id": "avp_catene",
+     "f": "si_avp",
+     "tema": "catene",
+     "x": "Po 15. novembru si lahko razmišljanje privoščijo le tisti, ki bodo v prtljažnik svojega vozila dodali verige (ali podobne pripomočke), tisti, ki vozijo vseletne pnevmatike (tudi oznaka All sesason M+S), in seveda tisti, ki živijo v priobalnem pasu, ki ga določa zakon kot izjemo."
+    }
+   ],
+   "traduzioni": {
+    "avp_legge": "The law requires drivers to fit winter tyres to their vehicles between 15 November and 15 March (with exceptions).",
+    "avp_catene": "After 15 November, the only drivers who can still think it over are those who put chains (or similar devices) in the boot, those who drive on all-season tyres (also marked All season M+S), and of course those who live in the coastal area that the law sets as an exception."
+   },
+   "faq": [
+    {
+     "query": "are winter tyres mandatory in slovenia",
+     "q": "Are winter tyres mandatory in Slovenia?",
+     "cit": [
+      "sto"
+     ],
+     "pre": "From 15 November to 15 March, yes, or summer tyres with chains in the car. The Slovenian Tourist Board says:",
+     "post": ""
+    },
+    {
+     "query": "do i need snow chains in slovenia",
+     "q": "Do I need snow chains in Slovenia?",
+     "cit": [
+      "avp_catene"
+     ],
+     "pre": "Only if the car does not have winter or all-season tyres. The Slovenian Traffic Safety Agency says (our translation from Slovenian):",
+     "post": ""
+    }
+   ]
+  },
+  {
+   "iso2": "HR",
+   "nome": "Croatia",
+   "nome_frase": "Croatia",
+   "obbligo": "si",
+   "titolo": "Winter Tyres in Croatia with a Rental Car (2026-27): Dates and Chains",
+   "chi": "the Croatian Police",
+   "risposta": "on the designated winter sections of public roads, winter equipment is compulsory from 15 November to 15 April whatever the weather, and on any road vehicles without winter equipment may not drive in snow or ice; for cars, winter equipment means winter tyres (M+S) on all wheels, or summer tyres with at least 4 mm of tread plus snow chains on the drive wheels.",
+   "obbligo_breve": "on winter road sections, and on any road in snow or ice",
+   "periodo_breve": "15 November – 15 April",
+   "catene_breve": "Summer tyres (4 mm tread) plus chains on the drive wheels",
+   "noleggio": "non_detto",
+   "fonte_vecchia": true,
+   "nota": "The police page we quote was published on 13 November 2024 for the period from 15 November 2024 to 15 April 2025; it gives the period as every year from 15 November to 15 April. We did not find a newer police page for the 2026-27 winter, so the rules and the fine may have changed: check them before you travel. The page is in Croatian: our English translation is under each quote. The list of winter road sections is in the government decision the page names; we did not read that decision.",
+   "citazioni": [
+    {
+     "id": "odluka",
+     "f": "hr_policija",
+     "tema": "quando",
+     "x": "Podsjećamo, da je sukladno Odluci o obaveznoj uporabi zimske opreme na zimskim dionicama javnih cesta u Republici Hrvatskoj („NN“ br. 121/20.), propisana obaveza korištenja zimske opreme u razdoblju od 15. studenoga tekuće godine do 15. travnja iduće godine. Obavezna uporaba zimske opreme odnosi se na sve vrste motornih vozila bez obzira na vremenske uvjete i stanje kolnika, izuzev vozila oružanih snaga Republike Hrvatske."
+    },
+    {
+     "id": "uvjeti",
+     "f": "hr_policija",
+     "tema": "dove",
+     "x": "Sukladno članku 193. Zakona o sigurnosti prometa na cestama (NN 67/08, 48/10, 74/11, 80/13, 158/13, 92/14, 64/15, 108/17, 70/19, 42/20, 85/22, 114/22, 133/23) zimski uvjeti podrazumijevaju kolnik prekriven snijegom ili kad je na kolniku poledica. Za vrijeme zimskih uvjeta na cestama zabranjuje se promet motornim vozilima koja nemaju propisanu zimsku opremu i teretnim automobilima s priključnim vozilom."
+    },
+    {
+     "id": "oprema",
+     "f": "hr_policija",
+     "tema": "catene",
+     "x": "Zimskom opremom motornih vozila kategorije M i N čija najveća dopuštena masa nije veća od 3,5 t sukladno ovom Pravilniku, smatraju se zimski pneumatici (M+S) na svim kotačima ili ljetni pneumatici s najmanjom dubinom profila od 4 mm i s lancima za snijeg koji se postavljaju na pogonske kotače."
+    },
+    {
+     "id": "chiodi",
+     "f": "hr_policija",
+     "tema": "gomme",
+     "x": "Pneumatici s čavlima ne smiju se postavljati na motorna vozila."
+    },
+    {
+     "id": "multa",
+     "f": "hr_policija",
+     "tema": "multa",
+     "x": "Ako policijski službenik zatekne vozilo koje se kreće cestom na kojoj je kretanje te vrste vozila zabranjeno ili se kreće bez zimske opreme na dijelu ceste i u vrijeme kada je zimska oprema obvezna, naredit će vozaču da odmah prekine kretanje vozilom ili da vozilom nastavi kretanje na cesti na kojoj je kretanje te vrste vozila dopušteno, odnosno da upotrijebi zimsku opremu. U suprotnom, vozaču prijeti novčana kazna od 132,72 eura."
+    }
+   ],
+   "traduzioni": {
+    "odluka": "We remind you that, under the Decision on the mandatory use of winter equipment on winter sections of public roads in the Republic of Croatia (Official Gazette no. 121/20), winter equipment must be used from 15 November of the current year to 15 April of the next year. The mandatory use of winter equipment applies to all types of motor vehicles, whatever the weather and the state of the road, except vehicles of the Croatian armed forces.",
+    "uvjeti": "Under Article 193 of the Road Traffic Safety Act (Official Gazette 67/08, 48/10, 74/11, 80/13, 158/13, 92/14, 64/15, 108/17, 70/19, 42/20, 85/22, 114/22, 133/23), winter conditions mean a road covered with snow or with ice on it. During winter conditions, motor vehicles without the prescribed winter equipment and lorries with trailers may not use the roads.",
+    "oprema": "Under these Rules, winter equipment for motor vehicles of categories M and N with a maximum permitted weight of no more than 3.5 t means winter tyres (M+S) on all wheels, or summer tyres with a tread depth of at least 4 mm and snow chains fitted to the drive wheels.",
+    "chiodi": "Studded tyres must not be fitted to motor vehicles.",
+    "multa": "If a police officer finds a vehicle driving on a road where that type of vehicle is banned, or without winter equipment on a section of road and at a time when winter equipment is mandatory, the officer will order the driver to stop at once, or to continue on a road where that type of vehicle is allowed, or to use the winter equipment. Otherwise, the driver faces a fine of €132.72."
+   },
+   "faq": [
+    {
+     "query": "are winter tyres mandatory in croatia",
+     "q": "Are winter tyres mandatory in Croatia?",
+     "cit": [
+      "oprema"
+     ],
+     "pre": "Winter equipment is mandatory on winter road sections from 15 November to 15 April, and on any road in snow or ice; winter tyres are one choice. The Croatian Police say (our translation from Croatian):",
+     "post": ""
+    },
+    {
+     "query": "snow chains croatia",
+     "q": "Can I use snow chains instead of winter tyres in Croatia?",
+     "cit": [
+      "oprema"
+     ],
+     "pre": "Yes, with enough tread on the summer tyres. The Croatian Police say (our translation from Croatian):",
+     "post": ""
+    }
+   ]
+  },
+  {
+   "iso2": "CZ",
+   "nome": "Czechia",
+   "nome_frase": "Czechia",
+   "obbligo": "situazionale",
+   "titolo": "Winter Tyres in Czechia with a Rental Car (2026-27): The Rules",
+   "chi": "the Czech Ministry of Transport",
+   "risposta": "from 1 November to 31 March a car must have winter tyres whenever there is a continuous layer of snow, ice or frost on the road, or when these conditions can be expected; where the “Zimní výbava” (winter equipment) road sign stands, winter tyres are compulsory in all circumstances.",
+   "obbligo_breve": "always where the “Zimní výbava” sign stands",
+   "periodo_breve": "1 November – 31 March",
+   "catene_breve": "Not covered by the page we read",
+   "noleggio": "non_detto",
+   "fonte_vecchia": true,
+   "nota": "The ministry press release we quote is dated 1 November 2017. We did not find a newer ministry page, so the rules may have changed: check them before you travel. It is in Czech: our English translation is under each quote.",
+   "citazioni": [
+    {
+     "id": "legge",
+     "f": "cz_md",
+     "tema": "quando",
+     "x": "Zákon o silničním provozu stanovuje povinnost užít zimní pneumatiky v období od 1. listopadu do 31. března. V tomto období musí mít vozidlo zimní pneumatiky vždy, pokud se nachází na vozovce souvislá vrstva sněhu, ledu či námraza nebo tyto jevy lze vzhledem ke klimatickým podmínkám očekávat."
+    },
+    {
+     "id": "segnale",
+     "f": "cz_md",
+     "tema": "dove",
+     "x": "Tam, kde dopravní značka „Zimní výbava“ bude umístěna, musí mít vozidlo zimní pneumatiky za všech okolností."
+    },
+    {
+     "id": "battistrada",
+     "f": "cz_md",
+     "tema": "gomme",
+     "x": "Po 1. listopadu pak je za zhoršených podmínek povinnost mít při jízdě na autě zimní pneumatiky s odpovídajícím vzorkem, tedy minimálně 4 mm dezénem."
+    }
+   ],
+   "traduzioni": {
+    "legge": "The Road Traffic Act sets the obligation to use winter tyres from 1 November to 31 March. In this period a vehicle must always have winter tyres if there is a continuous layer of snow, ice or frost on the road, or if these conditions can be expected because of the weather.",
+    "segnale": "Where the “Zimní výbava” (winter equipment) road sign is placed, the vehicle must have winter tyres in all circumstances.",
+    "battistrada": "After 1 November, in bad conditions, a car must have winter tyres with a suitable tread, that is at least 4 mm."
+   },
+   "faq": [
+    {
+     "query": "are winter tyres mandatory in czech republic",
+     "q": "Are winter tyres mandatory in the Czech Republic?",
+     "cit": [
+      "legge"
+     ],
+     "pre": "In winter conditions, yes. The Czech Ministry of Transport says (our translation from Czech):",
+     "post": ""
+    },
+    {
+     "query": "winter tires law czech republic",
+     "q": "What does the Czech winter tyre law say about road signs?",
+     "cit": [
+      "segnale"
+     ],
+     "pre": "The Czech Ministry of Transport says (our translation from Czech):",
+     "post": ""
+    }
+   ]
+  },
+  {
+   "iso2": "SK",
+   "nome": "Slovakia",
+   "nome_frase": "Slovakia",
+   "obbligo": "situazionale",
+   "titolo": "Winter Tyres in Slovakia with a Rental Car (2026-27): The Rules",
+   "chi": "Slovensko.sk, the Slovak government portal",
+   "risposta": "cars must have tyres with the mountain symbol or the M+S, M.S or M&S marking on all axles when there is a continuous layer of snow, ice or frost on the road; the page we read gives no dates for cars.",
+   "obbligo_breve": "tyres for snow on all axles in snow, ice or frost",
+   "periodo_breve": "No dates on the page we read",
+   "catene_breve": "Not covered by the page we read",
+   "noleggio": "non_detto",
+   "nota": "The portal page is in Slovak: our English translation is under the quote.",
+   "citazioni": [
+    {
+     "id": "regola",
+     "f": "sk_portal",
+     "tema": "quando",
+     "x": "Pneumatiky označené horským symbolom alebo pneumatiky s označením „M+S“, „M.S“ alebo „M&S“ sú povinné pre osobné autá na všetkých nápravách, ak sa na vozovke nachádza súvislá snehová vrstva, ľad alebo námraza."
+    }
+   ],
+   "traduzioni": {
+    "regola": "Tyres marked with the mountain symbol, or tyres marked “M+S”, “M.S” or “M&S”, are mandatory for cars on all axles when there is a continuous layer of snow, ice or frost on the road."
+   },
+   "faq": [
+    {
+     "query": "are winter tyres mandatory in slovakia",
+     "q": "Are winter tyres mandatory in Slovakia?",
+     "cit": [
+      "regola"
+     ],
+     "pre": "In winter road conditions, yes. The Slovak government portal says (our translation from Slovak):",
+     "post": ""
+    }
+   ]
+  },
+  {
+   "iso2": "NO",
+   "nome": "Norway",
+   "nome_frase": "Norway",
+   "obbligo": "situazionale",
+   "titolo": "Winter Tyres in Norway with a Rental Car (2026-27): Dates and Rules",
+   "chi": "the Norwegian Public Roads Administration (Statens vegvesen)",
+   "risposta": "you may not use summer tyres on winter roads, and the car must have winter tyres, chains or similar whenever this is needed for enough road grip; from 1 November to the first Sunday after Easter Monday (16 October to 30 April in Nordland, Troms and Finnmark) tyres must have a tread depth of at least 3 millimetres.",
+   "obbligo_breve": "summer tyres not allowed on winter roads",
+   "periodo_breve": "1 November – first Sunday after Easter Monday (3 mm tread)",
+   "catene_breve": "Winter tyres, chains or similar when needed",
+   "noleggio": "non_detto",
+   "nota": "",
+   "citazioni": [
+    {
+     "id": "responsabile",
+     "f": "no_vv",
+     "tema": "quando",
+     "x": "As the driver, you are responsible for ensuring that the vehicle you are driving has sufficient road grip, all year round. In winter, the tyres on your vehicle must have a tread depth of at least 3 millimetres."
+    },
+    {
+     "id": "periodo",
+     "f": "no_vv",
+     "tema": "quando",
+     "x": "In winter, from 1 November to the first Sunday after Easter Monday inclusive, the required tread depth is at least 3 millimetres."
+    },
+    {
+     "id": "nord",
+     "f": "no_vv",
+     "tema": "quando",
+     "x": "In Nordland, Troms and Finnmark, the requirement for a tread depth of at least 3 millimetres applies from 16 October to 30 April inclusive."
+    },
+    {
+     "id": "estive",
+     "f": "no_vv",
+     "tema": "catene",
+     "x": "You cannot use summer tyres on winter roads, because summer tyres do not have sufficient road grip on ice and snow. The vehicle must have winter tyres (studded or non-studded), chains or similar also outside of the periods mentioned above if this is necessary in order to ensure sufficient road grip."
+    },
+    {
+     "id": "chiodi",
+     "f": "no_vv",
+     "tema": "gomme",
+     "x": "Studded tyres may only be used from 1 November to the first Sunday after Easter Monday inclusive."
+    },
+    {
+     "id": "chiodi_oltre",
+     "f": "no_vv",
+     "tema": "gomme",
+     "x": "If the weather and road surface conditions make it necessary, studded tyres and chains may be used beyond these dates."
+    }
+   ],
+   "traduzioni": {},
+   "faq": [
+    {
+     "query": "are winter tyres mandatory in norway",
+     "q": "Are winter tyres mandatory in Norway?",
+     "cit": [
+      "estive"
+     ],
+     "pre": "Statens vegvesen says:",
+     "post": ""
+    },
+    {
+     "query": "winter tyres norway dates",
+     "q": "What are the winter tyre dates in Norway?",
+     "cit": [
+      "periodo",
+      "nord"
+     ],
+     "pre": "Statens vegvesen says:",
+     "post": ""
+    },
+    {
+     "query": "do you need snow chains in norway",
+     "q": "Do you need snow chains in Norway?",
+     "cit": [
+      "estive"
+     ],
+     "pre": "Winter tyres, chains or similar are needed when road grip requires them. Statens vegvesen says:",
+     "post": ""
+    }
+   ]
+  },
+  {
+   "iso2": "SE",
+   "nome": "Sweden",
+   "nome_frase": "Sweden",
+   "obbligo": "situazionale",
+   "titolo": "Winter Tyres in Sweden with a Rental Car (2026-27): Dates and Rules",
+   "chi": "the Swedish Transport Agency (Transportstyrelsen)",
+   "risposta": "from 1 December to 31 March cars must have winter tyres or equivalent equipment when there are winter conditions on the road (snow, ice, slush or frost on any part of it); the tyres must carry the Alpine symbol or be studded, with a tread depth of at least 3 millimetres, and the rules also apply to cars registered abroad.",
+   "obbligo_breve": "snow, ice, slush or frost on the road",
+   "periodo_breve": "1 December – 31 March",
+   "catene_breve": "Named as “equivalent equipment” in the part on heavy vehicles",
+   "noleggio": "non_detto",
+   "nota": "",
+   "citazioni": [
+    {
+     "id": "periodo",
+     "f": "se_ts",
+     "tema": "quando",
+     "x": "When there are winter conditions on the road during the period from December 1st to March 31st, requirement of winter tyres or equivalent equipment applies to private car class I, private car class II (camper), light truck, light bus with a maximum total weight of 3.5 metric tons, and trailers towed by these vehicles."
+    },
+    {
+     "id": "condizioni",
+     "f": "se_ts",
+     "tema": "quando",
+     "x": "The road conditions are considered to be wintry when there is snow, ice, slush or frost on any part of the road. The Swedish Police decide whether there are wintry conditions on a certain road."
+    },
+    {
+     "id": "estero",
+     "f": "se_ts",
+     "tema": "dove",
+     "x": "The requirements apply to vehicles registered in Sweden as well as abroad."
+    },
+    {
+     "id": "alpine",
+     "f": "se_ts",
+     "tema": "gomme",
+     "x": "The tyres for these vehicles must be marked with the \"Alpine\" symbol (3-peak-mountain with snowflake), or be studded."
+    },
+    {
+     "id": "battistrada",
+     "f": "se_ts",
+     "tema": "gomme",
+     "x": "The depth of the tyre tread has to be at least 3 millimeters during wintry road conditions."
+    },
+    {
+     "id": "chiodi",
+     "f": "se_ts",
+     "tema": "gomme",
+     "x": "It is allowed to use studded tyres between October 1st to April 15th."
+    },
+    {
+     "id": "equivalente",
+     "f": "se_ts",
+     "tema": "catene",
+     "x": "Equivalent equipment refers to, among other things, snow chains and sand spreader, should be considered as winter tyres."
+    }
+   ],
+   "traduzioni": {},
+   "faq": [
+    {
+     "query": "are winter tyres mandatory in sweden",
+     "q": "Are winter tyres mandatory in Sweden?",
+     "cit": [
+      "periodo"
+     ],
+     "pre": "In winter road conditions, yes. The Swedish Transport Agency says:",
+     "post": ""
+    },
+    {
+     "query": "winter tyres sweden dates",
+     "q": "What are the winter tyre dates in Sweden?",
+     "cit": [
+      "periodo",
+      "chiodi"
+     ],
+     "pre": "The Swedish Transport Agency says:",
+     "post": ""
+    },
+    {
+     "query": "do i need winter tyres in sweden",
+     "q": "Do I need winter tyres in Sweden with a car from another country?",
+     "cit": [
+      "estero"
+     ],
+     "pre": "The Swedish Transport Agency says:",
+     "post": ""
+    }
+   ]
+  },
+  {
+   "iso2": "FI",
+   "nome": "Finland",
+   "nome_frase": "Finland",
+   "obbligo": "situazionale",
+   "titolo": "Winter Tyres in Finland with a Rental Car (2026-27): Dates and Rules",
+   "chi": "the Finnish Transport and Communications Agency (Traficom)",
+   "risposta": "a passenger car must use winter tyres during November and March if the weather so requires, and the tread of winter tyres must be at least 3.0 mm deep; non-studded winter tyres must also have the three-peak mountain snowflake symbol, which the Traficom news of 17 October 2024 made mandatory from the beginning of December that year.",
+   "obbligo_breve": "if the weather so requires",
+   "periodo_breve": "November – March, if the weather requires",
+   "catene_breve": "Not covered by the page we read",
+   "noleggio": "non_detto",
+   "fonte_vecchia": true,
+   "nota": "The Traficom news we quote is dated 17 October 2024. We did not find a newer Traficom page for the 2026-27 winter, so the rules may have changed: check them before you travel.",
+   "citazioni": [
+    {
+     "id": "dovrebbe",
+     "f": "fi_traficom",
+     "tema": "quando",
+     "x": "In a passenger car, winter tyres should be used between November and March if the weather so requires."
+    },
+    {
+     "id": "deve",
+     "f": "fi_traficom",
+     "tema": "quando",
+     "x": "In a passenger car, winter tyres must be used during November and March if the weather so requires. The depth of the principal tread grooves of a passenger car winter tyres must be at least 3.0 mm."
+    },
+    {
+     "id": "simbolo",
+     "f": "fi_traficom",
+     "tema": "gomme",
+     "x": "From the beginning of December, the symbol is mandatory for passenger car and van non-studded winter tyres."
+    },
+    {
+     "id": "dicembre",
+     "f": "fi_traficom",
+     "tema": "gomme",
+     "x": "“In December, you cannot use non-studded winter tyres that do not have the three-peak mountain snowflake symbol in winter conditions."
+    }
+   ],
+   "traduzioni": {},
+   "faq": [
+    {
+     "query": "are winter tyres mandatory in finland",
+     "q": "Are winter tyres mandatory in Finland?",
+     "cit": [
+      "deve"
+     ],
+     "pre": "Traficom says:",
+     "post": ""
+    },
+    {
+     "query": "when are winter tyres required in finland",
+     "q": "When are winter tyres required in Finland?",
+     "cit": [
+      "dovrebbe",
+      "simbolo"
+     ],
+     "pre": "Traficom says:",
+     "post": "This news is dated 17 October 2024: the symbol rule started at the beginning of December that year."
+    }
+   ]
+  },
+  {
+   "iso2": "ES",
+   "nome": "Spain",
+   "nome_frase": "Spain",
+   "obbligo": "situazionale",
+   "titolo": "Winter Tyres and Snow Chains in Spain with a Rental Car (2026-27)",
+   "chi": "Spain's Directorate-General for Traffic (DGT)",
+   "risposta": "the DGT page we read sets no fixed national period: when snow affects the roads, the DGT can restrict traffic for vehicles that do not have winter tyres or snow chains, and it asks drivers to carry chains in case they are needed or to have winter tyres fitted.",
+   "obbligo_breve": "when the DGT restricts traffic on snowy roads",
+   "periodo_breve": "No fixed period on the page we read",
+   "catene_breve": "Chains or winter tyres when the DGT restricts traffic",
+   "noleggio": "non_detto",
+   "fonte_vecchia": true,
+   "nota": "The DGT press release we quote is dated 16 January 2023 and was written for the snowfall forecast that week, not for the 2026-27 winter. It is in Spanish: our English translation is under each quote. We did not find on the DGT website a page that sets a national period for winter tyres.",
+   "citazioni": [
+    {
+     "id": "restrizioni",
+     "f": "es_dgt",
+     "tema": "quando",
+     "x": "En los casos de que la nieve afecte a la circulación de las carreteras, la Dirección General de Tráfico, para garantizar la fluidez y la seguridad vial, podrá establecer una serie de medias, como las que a continuación se enumeran: Restricciones a la circulación de vehículos pesados. Restricciones a la circulación a otros vehículos que no cuenten con neumáticos de invierno o cadenas."
+    },
+    {
+     "id": "disporre",
+     "f": "es_dgt",
+     "tema": "catene",
+     "x": "Con motivo de las afecciones a la circulación que se pueden producir en carretera debido a las precipitaciones en forma de nieve previstas durante esta tarde y días posteriores en numerosos puntos de la península, la Dirección General de Tráfico solicita a los ciudadanos que tengan que desplazarse por carretera consultar el pronóstico meteorológico y el estado de vialidad en el que se encuentran las vías por la que a circular, así como disponer de cadenas por si su utilización fuera necesaria para circular o llevar instalados neumáticos de invierno."
+    }
+   ],
+   "traduzioni": {
+    "restrizioni": "When snow affects traffic on the roads, the Directorate-General for Traffic, to keep traffic flowing safely, may set a number of measures, such as the following: restrictions on heavy vehicles; restrictions on other vehicles that do not have winter tyres or chains.",
+    "disporre": "Because of the disruption that the forecast snowfall in many parts of the peninsula may cause on the roads this afternoon and in the following days, the Directorate-General for Traffic asks people who need to travel by road to check the weather forecast and the state of the roads they will use, and to carry chains in case they are needed to drive, or to have winter tyres fitted."
+   },
+   "faq": [
+    {
+     "query": "are winter tyres mandatory in spain",
+     "q": "Are winter tyres mandatory in Spain?",
+     "cit": [
+      "restrizioni"
+     ],
+     "pre": "The DGT page we read sets no fixed period. The DGT says (our translation from Spanish):",
+     "post": ""
+    },
+    {
+     "query": "do you need snow chains in spain",
+     "q": "Do you need snow chains in Spain?",
+     "cit": [
+      "disporre"
+     ],
+     "pre": "On snowy roads, chains or winter tyres. The DGT says (our translation from Spanish):",
+     "post": ""
+    }
+   ]
+  },
+  {
+   "iso2": "AD",
+   "nome": "Andorra",
+   "nome_frase": "Andorra",
+   "obbligo": "si",
+   "titolo": "Winter Tyres and Snow Chains in Andorra with a Rental Car (2026-27)",
+   "chi": "the Government of Andorra and its Department of Mobility",
+   "risposta": "from 1 November to 15 May, special equipment must be used on snowy, partly snowy or icy roads, and drivers must carry snow chains or similar devices ready to use unless the car has winter tyres or M+S tyres; in the red snow phase, chains are compulsory for all vehicles.",
+   "obbligo_breve": "chains on board unless winter or M+S tyres",
+   "periodo_breve": "1 November – 15 May",
+   "catene_breve": "On board unless winter or M+S tyres; compulsory for all in the red phase",
+   "noleggio": "non_detto",
+   "nota": "Both pages are in Catalan: our English translation is under each quote.",
+   "citazioni": [
+    {
+     "id": "claus",
+     "f": "ad_govern",
+     "tema": "quando",
+     "x": "Tal com indica l'article 74 del Codi de circulació, la utilització de pneumàtics de claus està autoritzada a partir del dia 1 de novembre i fins al 15 de maig de cada any."
+    },
+    {
+     "id": "obbligo",
+     "f": "ad_govern",
+     "tema": "quando",
+     "x": "D'altra banda, en aquest mateix període, també regula l'obligació d'utlitzar equipaments especials en situacions on la calçada estigui nevada, parcialment nevada, o gelada i de dur a punt per ser utilitzats cadenes de neu o accessoris similars, llevat que circulin amb pneumàtics d'hivern o pneumàtics tipus M+S."
+    },
+    {
+     "id": "groga",
+     "f": "ad_mobilitat",
+     "tema": "catene",
+     "x": "FASE GROGA Indica presència de neu a la carretera. En aquesta fase és obligatori l’ús de pneumàtics especials o equipaments."
+    },
+    {
+     "id": "taronja",
+     "f": "ad_mobilitat",
+     "tema": "catene",
+     "x": "FASE TARONJA Indica presència de gel i, per tant, perill a la carretera. És obligatori l’ús de cadenes per a tots els vehicles de més de 3 tones i mitja."
+    },
+    {
+     "id": "vermella",
+     "f": "ad_mobilitat",
+     "tema": "catene",
+     "x": "FASE VERMELLA Indica condicions molt adverses a la carretera. És obligatori l’ús de cadenes per a tots els vehicles."
+    }
+   ],
+   "traduzioni": {
+    "claus": "As article 74 of the Traffic Code says, studded tyres may be used from 1 November to 15 May each year.",
+    "obbligo": "In the same period, it also sets the obligation to use special equipment when the road is snowy, partly snowy or icy, and to carry snow chains or similar devices ready to use, unless the car has winter tyres or M+S tyres.",
+    "groga": "YELLOW PHASE: there is snow on the road. In this phase special tyres or equipment are mandatory.",
+    "taronja": "ORANGE PHASE: there is ice and so danger on the road. Chains are mandatory for all vehicles over three and a half tonnes.",
+    "vermella": "RED PHASE: very bad conditions on the road. Chains are mandatory for all vehicles."
+   },
+   "faq": [
+    {
+     "query": "do you need snow chains in andorra",
+     "q": "Do you need snow chains in Andorra?",
+     "cit": [
+      "obbligo",
+      "vermella"
+     ],
+     "pre": "The Government of Andorra and its Department of Mobility say (our translation from Catalan):",
+     "post": ""
+    },
+    {
+     "query": "are winter tires mandatory in andorra",
+     "q": "Are winter tyres mandatory in Andorra?",
+     "cit": [
+      "obbligo"
+     ],
+     "pre": "Winter tyres or chains on board. The Government of Andorra says (our translation from Catalan):",
+     "post": ""
+    }
+   ]
+  }
+ ]
+}

@@ -3811,6 +3811,7 @@ def pagina_pat(k, c):
 {dove_idp(k)}
 {box_noleggio(k, c)}
 {link_ped(rel, c)}
+{link_gom(rel, c)}
 {f'<h2>Other licences in {escape(P)}</h2><div class="tab tab-b"><table><caption class="sr">International driving permit in {escape(P)} for other licences, from official advice</caption><thead><tr><th>Licence</th><th>In {escape(nome_srv(c))}</th><th>Checked</th></tr></thead><tbody>{"".join(altri)}</tbody></table></div>' if altri else ""}
 {f'<h2>Before you travel to {escape(P)}</h2><ul>' + "".join(f"<li>{x}</li>" for x in ingresso) + "</ul>" if ingresso else ""}
 {faq_h}
@@ -3922,6 +3923,7 @@ def pagina_hub_pat():
 <div class="tab tab-b tab-srv"><table><caption class="sr">Do you need an international driving permit? Official advice for UK, Canadian and Australian licences, by country, checked on {d}</caption><thead><tr><th>Country or territory</th>{"".join(f"<th>{escape(nomi[k])}</th>" for k in PATENTI)}</tr></thead><tbody>{righe}</tbody></table></div>
 {box_noleggio()}
 {f'<p class="altri-pass">{ico("car")}<span>Hiring a car? <a href="{rel}{PED_BASE}/">How to pay tolls and vignettes with a rental car in {len(PED_PAESI)} European countries</a></span></p>' if PED else ""}
+{f'<p class="altri-pass">{ico("car")}<span>Driving in winter? <a href="{rel}{GOM_BASE}/">Winter tyres and snow chains with a rental car in {len(GOM_PAESI)} European countries</a></span></p>' if GOM else ""}
 <h2>How we check</h2>
 <p>{metodo_pat("uk")} {metodo_pat("ca")} {metodo_pat("au")} We only use official government sources and never fill a gap with our own reading: where the advice is silent, we say so. More on the <a href="{rel}about/#driving-abroad">About page</a>.</p>"""
     pagina(f"{PAT_BASE}/", f"Driving Abroad: Do I Need an IDP? UK, Canada, Australia ({ANNO})",
@@ -4157,6 +4159,7 @@ def pagina_ped(p):
 {AD}
 {box_noleggio_ped(c)}
 {f'<h2>Driving in {escape(p["nome_frase"])} with your licence</h2>{guida}' if guida else ""}
+{link_gom(rel, c)}
 <h2>Other countries</h2>
 <div class="griglia">{altri}</div>
 {faq_h}
@@ -4199,7 +4202,7 @@ def pagina_indice_ped():
 {box_noleggio_ped()}
 <h2>How we check</h2>
 <p>We read the pages of each motorway operator or government (for example Infraestruturas de Portugal, Transport Infrastructure Ireland, AutoPASS, Autostrade per l'Italia, ASFINAG and the Swiss Federal Office for Customs and Border Security) and quote them word for word. A price appears only if we read it on an official page that answered normally on the day of the check; otherwise we say so. We write that a rule is about rental cars only when the official text says so. More on the <a href="{rel}about/#tolls-rental-car">About page</a>. Spotted a change? <a href="{rel}contact/?ref=tolls-rental-car">Tell us</a>.</p>
-<p><a href="{rel}{PAT_BASE}/">Driving abroad: do you need an international driving permit?</a></p>"""
+<p><a href="{rel}{PAT_BASE}/">Driving abroad: do you need an international driving permit?</a>{f' · <a href="{rel}{GOM_BASE}/">Winter tyres and snow chains with a rental car</a>' if GOM else ''}</p>"""
     desc = scegli([f"How to pay tolls and vignettes with a rental car in {len(PED_PAESI)} European countries, from motorway operators and governments, checked on {d}.",
                    f"Tolls and vignettes with a rental car in {len(PED_PAESI)} European countries, from official sources."], LIMITE_DESCRIZIONE)
     pagina(f"{PED_BASE}/", scegli([titolo_indice_ped(), f"Tolls with a Rental Car in Europe ({ANNO})"], LIMITE_TITOLO_PED), desc, corpo,
@@ -4225,6 +4228,293 @@ def about_ped(rel):
     return f"""<h2 id="tolls-rental-car">Tolls with a rental car</h2>
 <p>Sources: the pages of the motorway operators and governments of {len(PED_PAESI)} European countries ({escape(", ".join(enti))}), {len(PED["fonti"])} pages in all, read on {data_lunga(PED["controllato_il"])}. Each country page links every page it quotes.</p>
 <p>Rules: every sentence shown between quotation marks is copied word for word from the official page, and every price comes with the text that contains it. A price appears only if the official page answered normally on the day we checked it. We write that a rule is about rental cars only when the official text says so; otherwise the page says that the source does not mention rental cars. French and Spanish pages are quoted in the original language with our translation. We do not cover the toll programmes of rental companies, whose prices are commercial terms that we cannot check reliably. This is information, not legal advice.</p>"""
+
+
+# ---------------------------------------------------------------- Gomme invernali e catene con l'auto a noleggio (30/10/2026)
+# Fatti scritti a mano in dati/gomme_manuali.json (citazioni parola per parola, traduzioni nostre), fonti rilette da raccolta/gomme.py
+# (HTTP 200, data di lettura, impronta della zona citata) che scrive dati/gomme.json. Pagina Paese solo con ricerche vere (gomme.json, "pagine").
+# Riquadro DiscoverCars (stesso NOLEGGIO_AUTO) solo DOPO le regole ufficiali. Controlli: verifica.py, punto 21. Ricontrollo ogni ottobre.
+GOM_BASE = "winter-tyres-rental-car"
+_f_gom = DATI / "gomme.json"
+GOM = json.loads(_f_gom.read_text(encoding="utf-8")) if _f_gom.exists() else None
+GOM_PAESI = sorted(GOM["paesi"], key=lambda p: p["nome"]) if GOM else []
+GOM_PER = {p["iso2"]: p for p in GOM_PAESI}
+GOM_PAGINE = set(GOM["pagine"]) if GOM else set()
+STAGIONE_GOM = "2026-27"  # stagione invernale nei titoli (la regola vale da novembre ad aprile)
+LIMITE_TITOLO_GOM = 70
+TEMI_GOM = [("quando", "When the rule applies"), ("dove", "Where it applies"), ("gomme", "Which tyres count"), ("catene", "Snow chains"),
+            ("multa", "Fines and liability"), ("altro", "Also on the official pages")]
+OBBLIGO_GOM = {"si": "Yes, on set dates", "situazionale": "Only in winter conditions", "no": "No"}
+CLASSE_GOM = {"si": "manuale", "situazionale": "manuale", "no": "si"}
+LINGUE_GOM = {"it": "Italian", "de": "German", "fr": "French", "sl": "Slovenian", "hr": "Croatian", "cs": "Czech", "sk": "Slovak", "es": "Spanish", "ca": "Catalan"}
+FRASE_NOLEGGIO_GOM = "Ask the rental company whether winter tyres or chains are included and at what cost."
+NOLEGGIO_NON_DETTO_GOM = "The official pages we read do not say whether rental cars come with winter tyres or chains. " + FRASE_NOLEGGIO_GOM
+
+
+def url_gom(c=None):
+    return f"{GOM_BASE}/" + (f"{slug_srv(c)}/" if c else "")
+
+
+def ha_pagina_gom(c):
+    return c in GOM_PER and c in GOM_PAGINE
+
+
+def fonti_gom(p):
+    out = []
+    for c in p["citazioni"]:
+        if c["f"] not in out:
+            out.append(c["f"])
+    return out
+
+
+def enti_gom(p):
+    """(ente, prima fonte di quell'ente) per la colonna "Source" dell'indice: un link per ente."""
+    out = {}
+    for f in fonti_gom(p):
+        out.setdefault(GOM["fonti"][f]["ente"], f)
+    return list(out.items())
+
+
+def data_gom(p):
+    return max(GOM["fonti"][f]["letto_il"] for f in fonti_gom(p))
+
+
+def cit_gom(p, id_):
+    return next(c for c in p["citazioni"] if c["id"] == id_)
+
+
+def link_fonte_gom(fid, rel_titolo=None):
+    F = GOM["fonti"][fid]
+    return f'<a href="{escape(F["pagina"])}" rel="noopener">{escape(rel_titolo or F["titolo"])}</a>'
+
+
+def blocco_cit_gom(p, cc):
+    """Citazioni ufficiali raggruppate per fonte: virgolette, traduzione nostra (se la fonte non è in inglese), fonte e data."""
+    out, gruppi = [], []
+    for c in cc:
+        if gruppi and gruppi[-1][0] == c["f"]:
+            gruppi[-1][1].append(c)
+        else:
+            gruppi.append((c["f"], [c]))
+    tr = p.get("traduzioni", {})
+    for fid, gg in gruppi:
+        F = GOM["fonti"][fid]
+        h = "".join(f"<p>{escape(c['x'])}</p>" + (f'<p class="trad" lang="en"><em>Our translation:</em> {escape(tr[c["id"]])}</p>' if c["id"] in tr else "")
+                    for c in gg)
+        lingua = f' lang="{F["lingua"]}"' if F["lingua"] != "en" else ""
+        out.append(f'<blockquote class="cit"{lingua}>{h}</blockquote><p class="fonte">Source: {link_fonte_gom(fid)} ({escape(F["ente"])}), '
+                   f'checked on {data_lunga(F["letto_il"])}. Quoted word for word.</p>')
+    return "".join(out)
+
+
+def risposta_gom(p):
+    """Prima frase: chi lo dice, quando, la risposta."""
+    return f"According to {p['chi']}, checked on {data_lunga(data_gom(p))}, {p['risposta']}"
+
+
+def testo_cit_gom(p, id_):
+    """Testo di una citazione per le FAQ: in inglese (la frase ufficiale, o la nostra traduzione dichiarata nella domanda)."""
+    c = cit_gom(p, id_)
+    return p.get("traduzioni", {}).get(id_) or c["x"]
+
+
+def faq_gom(p):
+    out = []
+    for f in p["faq"]:
+        parti = ([f["pre"]] if f["pre"] else []) + [f"“{testo_cit_gom(p, i).strip('“”')}”" for i in f["cit"]] + ([f["post"]] if f["post"] else [])
+        out.append((f["q"], " ".join(parti)))
+    out.append((f"Does a rental car in {p['nome_frase']} come with winter tyres or snow chains?", NOLEGGIO_NON_DETTO_GOM))
+    out.append(("Where does this answer come from?", f"From the official pages of {p['chi']}, read on {data_lunga(data_gom(p))} and quoted word for word "
+                                                     "on this page (with our translation when the page is not in English). It is information, not legal advice."))
+    return out
+
+
+def html_faq_gom(faq):
+    h = "".join(f"<h3>{escape(q)}</h3><p>{escape(a)}</p>" for q, a in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
+    return f'<section class="faq"><h2>Questions</h2>{h}</section>', [ld]
+
+
+AVVISO_GOM = ('<p class="avviso"><strong>Local orders and road signs come first.</strong> We quote governments, police forces and road safety agencies '
+              'word for word, with the date we checked them; this is information, not legal advice. Before you drive, check the signs on your route '
+              'and ask the rental company whether winter tyres or chains are included and at what cost.</p>')
+
+
+def box_noleggio_gom(c=None):
+    """Riquadro "Hire a car" (DiscoverCars) per la sezione gomme: '' con NOLEGGIO_AUTO vuoto. Sempre dopo le regole ufficiali."""
+    if not NOLEGGIO_AUTO:
+        return ""
+    P = GOM_PER[c]["nome_frase"] if c else ""
+    dove = f" in {P}" if P else " in Europe"
+    return (f'<h2 id="hire-a-car">Hire a car{escape(dove)}</h2>'
+            f'<section class="card noleggio" aria-label="Car hire, affiliate link" data-noleggio>'
+            f'<p>Hiring a car{escape(dove)} this winter? Compare rental companies and prices on DiscoverCars. Before you book, '
+            f'{escape(FRASE_NOLEGGIO_GOM[0].lower() + FRASE_NOLEGGIO_GOM[1:])}</p>'
+            f'<p class="noleggio-btn"><a class="btn" href="{escape(NOLEGGIO_AUTO)}" rel="sponsored noopener" target="_blank">'
+            f'{ico("car")}Compare car hire{escape(" in " + P) if P else ""}</a></p>'
+            f'{MON.nota_trasparenza("en")}</section>')
+
+
+def link_gom(rel, c):
+    """Riga 'Winter tyres in X with a rental car' (pagine Driving abroad e Tolls dello stesso Paese)."""
+    if not ha_pagina_gom(c):
+        return ""
+    p = GOM_PER[c]
+    return (f'<p class="altri-pass">{ico("car")}<span>Driving in {escape(p["nome_frase"])} this winter? '
+            f'<a href="{rel}{url_gom(c)}">Winter tyres and snow chains in {escape(p["nome_frase"])} with a rental car</a></span></p>')
+
+
+def h1_gom(p):
+    return f"Winter tyres and snow chains in {p['nome_frase']} with a rental car ({STAGIONE_GOM})"
+
+
+def descrizione_gom(p):
+    d = data_lunga(data_gom(p))
+    ob = OBBLIGO_GOM[p["obbligo"]]
+    per = p["periodo_breve"]
+    per = per[:1].lower() + per[1:]  # "No legal period" -> "no legal period" dopo la virgola
+    return scegli([f"Winter tyres and snow chains in {p['nome_frase']} with a rental car: {ob.lower()}, {per}. Official sources, checked on {d}.",
+                   f"Winter tyres and snow chains in {p['nome_frase']} with a rental car: dates and rules from official sources, checked on {d}.",
+                   f"Winter tyres and snow chains in {p['nome_frase']} with a rental car, from official sources ({d})."], LIMITE_DESCRIZIONE)
+
+
+def pagina_gom(p):
+    rel = "../../"
+    c = p["iso2"]
+    temi = "".join(f'<h3>{escape(t)}</h3>{blocco_cit_gom(p, [x for x in p["citazioni"] if x["tema"] == k])}'
+                   for k, t in TEMI_GOM if any(x["tema"] == k for x in p["citazioni"]))
+    sguardo = (f'<tr><th scope="row">Obligation</th><td>{escape(OBBLIGO_GOM[p["obbligo"]])} – {escape(p["obbligo_breve"])}</td></tr>'
+               f'<tr><th scope="row">Period</th><td>{escape(p["periodo_breve"])}</td></tr>'
+               f'<tr><th scope="row">Snow chains</th><td>{escape(p["catene_breve"])}</td></tr>'
+               f'<tr><th scope="row">Rental cars</th><td>Not covered by the official pages: ask the rental company</td></tr>'
+               f'<tr><th scope="row">Checked</th><td>{data_lunga(data_gom(p))}</td></tr>')
+    altri = "".join(f'<a href="{rel}{url_gom(q["iso2"])}">{escape(q["nome"])}<small>{escape(OBBLIGO_GOM[q["obbligo"]])}</small></a>'
+                    for q in GOM_PAESI if q["iso2"] != c and ha_pagina_gom(q["iso2"]))
+    guida = link_guida(rel, c)
+    pedaggi = link_ped(rel, c)
+    faq_h, faq_ld = html_faq_gom(faq_gom(p))
+    corpo = f"""<section class="hero">{h1_diviso(h1_gom(p))}</section>
+<section class="card summary" aria-label="Answer">
+<div class="s-top"><span class="sq">{ico("car")}</span><span>Winter tyres · {escape(p["nome"])}</span><span>{STAGIONE_GOM}</span></div>
+<div class="s-body">
+<div class="esito e-srv {CLASSE_GOM[p["obbligo"]]}">{ico("check" if p["obbligo"] == "no" else "alert")}<strong>{escape(OBBLIGO_GOM[p["obbligo"]])} – {escape(p["obbligo_breve"])}</strong></div>
+<p class="lead" id="answer">{escape(risposta_gom(p))}</p>
+{f'<p class="small">{escape(p["nota"])}</p>' if p.get("nota") else ""}
+</div></section>
+{AVVISO_GOM}
+<h2>At a glance</h2>
+<div class="tab tab-g"><table><caption class="cap">Winter tyres and snow chains in {escape(p["nome_frase"])}: summary of the official sources, checked on {data_lunga(data_gom(p))}</caption><tbody>{sguardo}</tbody></table></div>
+<h2 id="official">What the official sources say</h2>
+{temi}
+<h2 id="rental">With a rental car</h2>
+<p data-nol-non-detto>{escape(NOLEGGIO_NON_DETTO_GOM)}</p>
+{AD}
+{box_noleggio_gom(c)}
+{f'<h2>More for drivers in {escape(p["nome_frase"])}</h2>{guida}{pedaggi}' if guida or pedaggi else ""}
+<h2>Other countries</h2>
+<div class="griglia">{altri}</div>
+{faq_h}
+<p class="small">Spotted a change? <a href="{rel}contact/?ref=winter-tyres-rental-car">Tell us</a>. <a href="{rel}{GOM_BASE}/">Winter tyres with a rental car: all countries</a>.</p>"""
+    pagina(url_gom(c), scegli([p["titolo"]], LIMITE_TITOLO_GOM), descrizione_gom(p), corpo,
+           briciole=[("Winter tyres with a rental car", f"{GOM_BASE}/"), (p["nome"], url_gom(c))], ld_extra=faq_ld)
+    LASTMOD[url_gom(c)] = data_gom(p)
+
+
+def vecchie_gom():
+    """Paesi la cui fonte più recente è di un inverno passato (campo fonte_vecchia in gomme_manuali.json): avviso nell'indice."""
+    vv = [p for p in GOM_PAESI if p.get("fonte_vecchia")]
+    if not vv:
+        return ""
+    return (f" For {elenco_gom(vv)} the newest official page we found was written for an earlier winter: "
+            "the country page gives its date, so check the rule again before you travel.")
+
+
+def elenco_gom(pp):
+    nomi = [p["nome"] for p in pp]
+    return nomi[0] if len(nomi) == 1 else ", ".join(nomi[:-1]) + " and " + nomi[-1]
+
+
+def prima_frase_gom():
+    g = {k: [p for p in GOM_PAESI if p["obbligo"] == k] for k in OBBLIGO_GOM}
+    verbo = "has" if len(g["no"]) == 1 else "have"
+    return (f"Of the {len(GOM_PAESI)} European countries on this page, {len(g['si'])} require winter tyres or snow chains on set dates, in some of them "
+            f"only on signed roads or in signed areas ({elenco_gom(g['si'])}), {len(g['situazionale'])} only in winter road conditions "
+            f"({elenco_gom(g['situazionale'])}) and {len(g['no'])} {verbo} no obligation ({elenco_gom(g['no'])}); for each one we quote the government, "
+            f"the police or the road safety agency, last checked on {data_lunga(GOM['controllato_il'])}.")
+
+
+def titolo_indice_gom():
+    return f"Winter Tyres and Snow Chains with a Rental Car in Europe ({STAGIONE_GOM})"
+
+
+def faq_indice_gom():
+    M = json.loads((DATI / "gomme_manuali.json").read_text(encoding="utf-8"))
+    it = GOM_PER.get("IT")
+    risposte = {
+        "do rental cars come with snow chains": f"None of the official pages we read for these {len(GOM_PAESI)} countries says whether rental cars come with "
+                                                f"winter tyres or snow chains. {FRASE_NOLEGGIO_GOM}",
+        "can you put snow chains on a rental car": "The official pages we read do not cover this. Ask the rental company whether chains are included, "
+                                                   "whether you may fit them and at what cost.",
+        "winter tyres car rental italy": ("The Italian official pages we read do not mention rental cars. In Italy the rule depends on the road: winter tyres, "
+                                          "or snow chains on board, where a local order and road signs require them, and a Ministry directive sets the "
+                                          f"period of these orders between 15 November and 15 April. {FRASE_NOLEGGIO_GOM}") if it else FRASE_NOLEGGIO_GOM,
+    }
+    return [(f["q"], risposte[f["query"]]) for f in M.get("faq_indice", []) if f["query"] in risposte]
+
+
+def pagina_indice_gom():
+    rel = "../"
+    righe = []
+    for p in GOM_PAESI:
+        nome = (f'<a href="{rel}{url_gom(p["iso2"])}">{escape(p["nome"])}</a>' if ha_pagina_gom(p["iso2"]) else escape(p["nome"]))
+        fonti = " · ".join(f'<a href="{escape(GOM["fonti"][f]["pagina"])}" rel="noopener">{escape(e)}</a>' for e, f in enti_gom(p))
+        righe.append(f'<tr data-voce id="{p["iso2"].lower()}"><td data-l="Country">{nome}</td>'
+                     f'<td data-l="Obligation"><strong>{escape(OBBLIGO_GOM[p["obbligo"]])}</strong> – {escape(p["obbligo_breve"])}</td>'
+                     f'<td data-l="Period">{escape(p["periodo_breve"])}</td><td data-l="Snow chains">{escape(p["catene_breve"])}</td>'
+                     f'<td data-l="Rental cars">Not covered</td><td data-l="Source">{fonti}</td>'
+                     f'<td data-l="Checked">{data_lunga(data_gom(p))}</td></tr>')
+    griglia = "".join(f'<a href="{rel}{url_gom(p["iso2"])}">{escape(p["nome"])}<small>{escape(OBBLIGO_GOM[p["obbligo"]])}</small></a>'
+                      for p in GOM_PAESI if ha_pagina_gom(p["iso2"]))
+    d = data_lunga(GOM["controllato_il"])
+    faq_h, faq_ld = html_faq_gom(faq_indice_gom())
+    corpo = f"""<section class="hero">{h1_diviso(f"Winter tyres and snow chains with a rental car in Europe ({STAGIONE_GOM})")}
+<p class="lead" id="answer">{escape(prima_frase_gom())}</p></section>
+<div class="griglia">{griglia}</div>
+{AVVISO_GOM}
+{AD}
+<h2>Every country</h2>
+<p>“Obligation”, “Period” and “Snow chains” are our short summaries; each country page quotes the official sentences, with the link and the date. “Not covered” means that the official pages we read do not say whether rental cars come with winter tyres or chains.{vecchie_gom()}</p>
+<div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a country, e.g. Austria" data-filtro-multi aria-label="Search countries"></div>
+<div class="tab tab-b tab-srv"><table><caption class="cap">Winter tyres and snow chains in {len(GOM_PAESI)} European countries, from official sources, checked on {d}</caption><thead><tr><th>Country</th><th>Obligation</th><th>Period</th><th>Snow chains</th><th>Rental cars</th><th>Source</th><th>Checked</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>
+{box_noleggio_gom()}
+{faq_h}
+<h2>How we check</h2>
+<p>We read the pages of ministries, police forces, road safety agencies and government portals (for example the Italian Ministry of Infrastructure and Transport, the Austrian transport ministry, Service-Public.fr, ch.ch, Statens vegvesen and Transportstyrelsen) and quote them word for word; pages in other languages are quoted in the original with our English translation. A country is listed only if its official page answered normally on the day of the check, and we say what we could not read. We write that a rule is about rental cars only when the official text says so: none of the pages we read does. We check every source again each October, before the winter season. More on the <a href="{rel}about/#winter-tyres-rental-car">About page</a>. Spotted a change? <a href="{rel}contact/?ref=winter-tyres-rental-car">Tell us</a>.</p>
+<p><a href="{rel}{PAT_BASE}/">Driving abroad: do you need an international driving permit?</a> · <a href="{rel}{PED_BASE}/">Tolls with a rental car</a></p>"""
+    desc = scegli([f"Winter tyres and snow chains with a rental car in {len(GOM_PAESI)} European countries: dates and rules from official sources, checked on {d}.",
+                   f"Winter tyres and snow chains with a rental car in {len(GOM_PAESI)} European countries, from official sources."], LIMITE_DESCRIZIONE)
+    pagina(f"{GOM_BASE}/", scegli([titolo_indice_gom(), f"Winter Tyres with a Rental Car in Europe ({STAGIONE_GOM})"], LIMITE_TITOLO_GOM), desc, corpo,
+           briciole=[("Winter tyres with a rental car", f"{GOM_BASE}/")], js=APP_JS_FILTRO, ld_extra=faq_ld)
+    LASTMOD[f"{GOM_BASE}/"] = GOM["controllato_il"]
+
+
+def home_gom():
+    if not GOM:
+        return ""
+    voci = "".join(f'<a href="{url_gom(p["iso2"])}">{escape(p["nome"])}<small>{escape(OBBLIGO_GOM[p["obbligo"]])}</small></a>'
+                   for p in GOM_PAESI if ha_pagina_gom(p["iso2"]))
+    return (f'<h2>Winter tyres and snow chains with a rental car</h2><p>When winter tyres or snow chains are required in {len(GOM_PAESI)} European '
+            f'countries this winter, from official sources: <a href="{GOM_BASE}/">every country in one table</a>.</p><div class="griglia">{voci}</div>')
+
+
+def about_gom(rel):
+    if not GOM:
+        return ""
+    enti = list(dict.fromkeys(F["ente"] for F in GOM["fonti"].values()))
+    return f"""<h2 id="winter-tyres-rental-car">Winter tyres and snow chains with a rental car</h2>
+<p>Sources: the pages of ministries, police forces, road safety agencies and government portals of {len(GOM_PAESI)} European countries ({escape(", ".join(enti))}), {len(GOM["fonti"])} pages in all, read on {data_lunga(GOM["controllato_il"])}. Each country page links every page it quotes.</p>
+<p>Rules: every sentence shown between quotation marks is copied word for word from the official page; pages in other languages are quoted in the original language with our English translation. A country is listed only if its official page answered normally on the day we checked it; where we could not read a source (for example the ANAS website in Italy), the page says so. We write that a rule is about rental cars only when the official text says so; otherwise the page says that the official pages do not say whether rental cars come with winter tyres or chains. We check every source again each October, before the winter season. This is information, not legal advice.</p>"""
 
 
 # ---------------------------------------------------------------- home e pagine di servizio
@@ -4278,6 +4568,7 @@ def home():
 {home_srv()}
 {home_pat()}
 {home_ped()}
+{home_gom()}
 {box_affiliati()}
 {dati_json('tutti-dati', [dati_client(P) for P in PAESI])}"""
     pagina("", f"Before You Fly {ANNO}: Passport, Visas, Liquids, Cabin Bags, EES",
@@ -4345,6 +4636,7 @@ def about():
 {about_srv(rel)}
 {about_pat(rel)}
 {about_ped(rel)}
+{about_gom(rel)}
 <h2>EES and ETIAS</h2>
 <p>European Commission (DG Migration and Home Affairs) pages and GOV.UK travel advice, last checked on {data_lunga(EES['controllato_il'])}. See the <a href="{rel}ees-etias/">EES and ETIAS page</a>.</p>
 <h2>Corrections</h2>
@@ -4413,7 +4705,7 @@ def extra():
 """)
     pagina("404.html", f"Page not found | {NOME}", "Page not found.",
            '<section class="hero"><h1>Page not found</h1><p class="lead">Go to the <a href="/">home page</a>, the <a href="/passport-validity/">passport validity rules</a> '
-           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> <a href="/driving-abroad/">driving abroad with your licence</a> or <a href="/tolls-rental-car/">tolls with a rental car</a>.</p></section>', indicizza=False, assoluto=True)
+           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> <a href="/driving-abroad/">driving abroad with your licence</a>, <a href="/tolls-rental-car/">tolls with a rental car</a> or <a href="/winter-tyres-rental-car/">winter tyres with a rental car</a>.</p></section>', indicizza=False, assoluto=True)
 
 
 def copia_grafica():
@@ -4515,6 +4807,27 @@ def controlli():
                 errori.append(f"pedaggi {p['iso2']}: titolo oltre {LIMITE_TITOLO_PED} caratteri o senza l'anno")
         if NOLEGGIO_AUTO:
             errori += [f"pedaggi: {e}" for e in MON.controlla_link_pagina(box_noleggio_ped(), "box_noleggio_ped", "en")[0]]
+    if GOM:  # gomme invernali e catene: fonti lette con HTTP 200, citazioni, traduzioni e FAQ coerenti (verifica.py, punto 21, ricontrolla tutto)
+        for p in GOM_PAESI:
+            ids = [c["id"] for c in p["citazioni"]]
+            if p["iso2"] not in PAESI_ISO or p["obbligo"] not in OBBLIGO_GOM or p["noleggio"] not in ("detto", "non_detto"):
+                errori.append(f"gomme {p['iso2']}: codice, obbligo o noleggio non validi")
+            if len(set(ids)) != len(ids):
+                errori.append(f"gomme {p['iso2']}: id di citazione duplicati")
+            for f in fonti_gom(p):
+                if f not in GOM["fonti"] or GOM["fonti"][f]["http"] != 200:
+                    errori.append(f"gomme {p['iso2']}: fonte {f} non letta con HTTP 200")
+                elif GOM["fonti"][f]["lingua"] != "en":
+                    errori += [f"gomme {p['iso2']}: citazione {c['id']} senza traduzione" for c in p["citazioni"] if c["f"] == f and c["id"] not in p.get("traduzioni", {})]
+            for q in p["faq"]:
+                if any(i not in ids for i in q["cit"]):
+                    errori.append(f"gomme {p['iso2']}: FAQ «{q['q']}» con citazione sconosciuta")
+            if p["noleggio"] == "detto":
+                errori.append(f"gomme {p['iso2']}: 'noleggio' = detto, ma la sezione non ha ancora frasi ufficiali sulle auto a noleggio")
+            if len(p["titolo"]) > LIMITE_TITOLO_GOM or STAGIONE_GOM not in p["titolo"]:
+                errori.append(f"gomme {p['iso2']}: titolo oltre {LIMITE_TITOLO_GOM} caratteri o senza la stagione {STAGIONE_GOM}")
+        if NOLEGGIO_AUTO:
+            errori += [f"gomme: {e}" for e in MON.controlla_link_pagina(box_noleggio_gom(), "box_noleggio_gom", "en")[0]]
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -4575,6 +4888,11 @@ def main():
         pagina_indice_ped()
         for p in PED_PAESI:
             pagina_ped(p)
+    if GOM:
+        pagina_indice_gom()
+        for p in GOM_PAESI:
+            if ha_pagina_gom(p["iso2"]):
+                pagina_gom(p)
     about()
     contatti()
     privacy()
@@ -4588,7 +4906,8 @@ def main():
           + f"; available in: indice + {len(SERVIZI_SRV)} servizi + {sum(len(pagine_srv(S)) for S in SERVIZI_SRV)} pagine servizio × Paese"
           + (f"; driving abroad: indice + {len(PATENTI)} patenti + {sum(len(PAGINE_PAT[k]) for k in PATENTI)} pagine Paese × patente "
              f"({', '.join(f'{k} {len(PAGINE_PAT[k])}' for k in PATENTI)})" if PAT else "")
-          + (f"; tolls with a rental car: indice + {len(PED_PAESI)} pagine Paese ({len(PED['fonti'])} fonti)" if PED else ""))
+          + (f"; tolls with a rental car: indice + {len(PED_PAESI)} pagine Paese ({len(PED['fonti'])} fonti)" if PED else "")
+          + (f"; winter tyres with a rental car: indice + {len(GOM_PAGINE & set(GOM_PER))} pagine Paese ({len(GOM['fonti'])} fonti)" if GOM else ""))
 
 
 if __name__ == "__main__":
