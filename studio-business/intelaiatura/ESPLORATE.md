@@ -513,3 +513,14 @@ Nessuna idea a 8. Lezione: i dati aperti della zona sono già usati da siti auto
 | Piani elettrici australiani per codice postale (API CDR dell'AER: 84 venditori, 200 senza chiave) | NO come sito (5): billhero.com.au per codice postale, whysolar per venditore; fonte da ricordare | ricerca-zona-canada-australia-2026-10-30 |
 | Affitti per sobborgo (AU), affitti per città (CA), tassa sulla casa per città (ON), stamp duty, NAPLAN, attese chirurgiche, medico di famiglia, SkillSelect, estrazioni PNP, tempi IRCC, LMIA/AEWV, rego, multe, assicurazione auto per CAP, tasse comunali NZ, parchi | NO o riserve deboli (3-5) | ricerca-zona-canada-australia-2026-10-30 |
 ---
+
+## Ricerca zona USA (30/10/2026)
+
+| Nicchia | Verdetto | Rapporto |
+|---|---|---|
+| Affollamento dei parchi nazionali USA mese per mese (NPS visite mensili 1979-2025, dominio pubblico; NOAA temperature) | **Voto 8** (sito nuovo; 800 / 4.800 / 25.000 €/anno; DiscoverCars, RVshare, Viator, Stay22) — in verifica indipendente | ricerca-zona-usa-2026-10-30 |
+| Piani Medicare Advantage che chiudono nel 2027 | 6,5 (YMYL, finestra 15/10-7/12, già coperto) | ricerca-zona-usa-2026-10-30 |
+| Sconti WUE sulle tasse universitarie | 6 (7 con permesso scritto WICHE: licenza non commerciale) | ricerca-zona-usa-2026-10-30 |
+| Filiali bancarie chiuse (FDIC) | 6 (branchspot già automatico) | ricerca-zona-usa-2026-10-30 |
+| Costo del GED per Stato | 6 (da passare alla corsia cloni di EsameB1) | ricerca-zona-usa-2026-10-30 |
+| Altre 12 famiglie (case pubbliche, premi assicurativi statali, licenze interstatali, animali esotici, bollette, detrazione auto USA) | NO / riserva, prove nel rapporto | ricerca-zona-usa-2026-10-30 |
