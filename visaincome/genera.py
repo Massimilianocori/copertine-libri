@@ -2032,7 +2032,7 @@ def pagina_rif_paese(p):
 <div class="s-body">
 <p class="cifra"><span class="c-lab">Schengen visas · applications made in {escape(art(nome))} · {A1}</span><span class="sr">: </span><strong>{pct(t1)}</strong> not issued ({intero(v1[3])} of {intero(decisioni(v1))} decisions)</p>
 <div class="kpi"><div><b>{intero(v1[0])}</b><span>applications</span></div><div><b>{intero(v1[1])}</b><span>uniform visas issued</span></div><div><b>{intero(v1[3])}</b><span>not issued</span></div><div><b>{punti(t1, t0) if t0 is not None else '–'}</b><span>change on {A0}{f' ({pct(t0)})' if t0 is not None else ''}</span></div></div>
-<p class="lead" style="margin-top:6px">{frase_basso} Of the {len(PAESI_RIF)} countries with the most applications, {escape(art(nome))} ranks {pos} (1 = lowest rate).</p>
+<p class="lead" style="margin-top:6px">{frase_basso} Of the {len(PAESI_RIF)} countries with the most applications, {escape(art(nome))} ranks {pos} (1 = lowest rate). Multiple-entry visas: {pct(quota_mev(MEV_PAESE[A1][p]))} of uniform visas issued in {A1} (<a href="#multiple-entry">by country</a>).</p>
 {fonte_ue_p(A1, A0)}
 {uk_kpi}
 {kpi_altri(au_r, nz_r, ca_r)}
@@ -2044,6 +2044,7 @@ def pagina_rif_paese(p):
 {tab}
 {fonte_ue_p(A1, A0)}
 {clas}
+{sezione_mev(p, rel)}
 <h2>By consulate</h2>
 <p class="lead">Each Schengen country's consulates (or visa sections) in {escape(art(nome))}, by number of applications in {A1}. Where a country is represented by another, the applications appear under the country that decided them.</p>
 {tab_c}
@@ -2062,7 +2063,7 @@ def pagina_rif_paese(p):
 <li>Full method: <a href="../#method">how we calculate the rates</a>.</li></ul>
 <h2>Other countries where people apply</h2>
 <div class="griglia">{griglia_altri}</div>
-<p><a href="../">Schengen visa refusal rates by country, {A1}</a> · <a href="../uk/">UK visa refusal rates by nationality</a> · <a href="../australia-visas/">Australia</a> · <a href="../new-zealand-visas/">New Zealand</a> · <a href="../canada-visas/">Canada</a> · <a href="{rel}">Visa income calculator</a></p>
+<p><a href="../">Schengen visa refusal rates by country, {A1}</a> · <a href="../multiple-entry-schengen-visa/">Multiple-entry Schengen visas by country</a> · <a href="../uk/">UK visa refusal rates by nationality</a> · <a href="../australia-visas/">Australia</a> · <a href="../new-zealand-visas/">New Zealand</a> · <a href="../canada-visas/">Canada</a> · <a href="{rel}">Visa income calculator</a></p>
 {link_tr_naz(p, rel)}"""
     plus = (["UK"] if con_uk else []) + (["Australia"] if au_r else [])
     coda = (", plus " + " and ".join(plus)) if plus else ""
@@ -2487,6 +2488,9 @@ def pagina_rif_panoramica():
 <p class="lead">"Which Schengen country has the lowest rejection rate for applicants from my country?" For the {len(PAESI_FACILE)} countries where at least {SOGLIA_FACILE} Schengen countries decided {intero(SOGLIA_CLASSIFICA)}+ applications, a page ranks every country and consulate from the lowest not-issued rate. Rates describe past decisions, not your chances.</p>
 <div class="griglia">{''.join(f'<a href="{SLUG_RIF[x]}/easiest-schengen-visa/"><span class="ic">{ico("passport")}</span><span>Easiest Schengen visa from {escape(art(nome_paese(x)))}<small>lowest rate: {escape(classifica(raggruppa(A1, 0, lambda r, x=x: r[1] == x))[0][0][0])}</small></span></a>' for x in PAESI_FACILE[:12])}</div>
 <p class="small">The other {len(PAESI_FACILE) - 12} rankings are linked from each country page.</p>
+<h2 id="multiple-entry">Multiple-entry Schengen visas ({A1})</h2>
+<p class="lead">In {A1}, {pct(quota_mev(MEV_TOT[A1]))} of the {intero(MEV_TOT[A1][0])} uniform visas issued were multiple-entry visas ({pct(quota_mev(MEV_TOT[A0]))} in {A0}). Which Schengen countries issue them most often, and the share in each country where people apply: <a href="multiple-entry-schengen-visa/">multiple-entry Schengen visas by country ({A1})</a>. The file does not say how long the visas were valid for.</p>
+{fonte_ue_p(A1, A0)}
 <h2>UK visitor visa refusal rate by nationality</h2>
 <p class="lead">The 12 nationalities with the most UK visitor visa decisions from {periodo_uk(T1)}. <a href="uk/">All nationalities, with student and work visa refusal rates</a>.</p>
 <div class="tab compatta"><table><thead><tr><th scope="col">Nationality</th><th class="n" scope="col">Refusal rate</th><th class="n" scope="col">Decisions</th><th class="n" scope="col">Refused</th></tr></thead><tbody>{"".join(uk_top)}</tbody></table></div>
@@ -2536,6 +2540,232 @@ def pagina_rif_panoramica():
     pagina(SEZ, f"Schengen visa rejection rate by country {A1} (official) and UK visa refusal rates",
            f"Official {A1} Schengen visa rejection rates: {pct(t1)} of decisions were visas not issued. Every Schengen country, {len(PAESI_RIF)} countries where people apply, and UK refusal rates by nationality.",
            corpo, ordina=True, testata=testata, jsonld_extra=ld, briciole=[("Visa refusal rates", SEZ)])
+
+
+# ---------------------------------------------------------------- Visti a ingressi multipli (MEV), 30/10/2026
+# Dalla colonna "Multiple entry uniform visas (MEVs) issued" dello stesso file della Commissione (8° elemento delle righe di dati/rifiuti.json).
+# Quota MEV = MEV ÷ visti uniformi rilasciati (compresi i MEV), come la colonna "Share of MEVs" del file. Gli LTV non entrano.
+# Il file non dice la durata di validità dei visti (1, 3, 5 anni...): le pagine lo scrivono.
+SOGLIA_MEV = 500   # visti uniformi rilasciati minimi (Stato × Paese, o Paese) per mostrare la quota MEV senza asterisco
+PERCORSO_MEV = f"{SEZ}multiple-entry-schengen-visa/"
+DATA_COMMISSIONE_MEV = "2026-10-30"  # pagina "Applying for a Schengen visa" riletta il 30/10/2026 (HTTP 200): definizioni di visto a ingresso singolo e multiplo
+URL_METADATI_UE = ("https://home-affairs.ec.europa.eu/document/download/b4626219-fa37-4650-8216-0c2bda466c74_en"
+                   "?filename=visa_statistics_-_quality_and_metadata_reporting.pdf")
+DATA_METADATI_UE = "2026-10-30"  # PDF dei metadati riletto il 30/10/2026 (HTTP 200): "single entry, double or multiple entries (MEV)"
+
+
+def mev_raggruppa(anno, i, filtro=None):
+    """{chiave: [visti uniformi rilasciati, di cui MEV]} raggruppando per Stato (i=0) o Paese di domanda (i=1)."""
+    out = defaultdict(lambda: [0, 0])
+    for r in UE[anno]:
+        if filtro is None or filtro(r):
+            out[r[i]][0] += r[4]
+            out[r[i]][1] += r[7]
+    return dict(out)
+
+
+def quota_mev(v):
+    return v[1] / v[0] if v and v[0] else None
+
+
+MEV_STATO = {a: mev_raggruppa(a, 0) for a in ANNI_UE}
+MEV_PAESE = {a: mev_raggruppa(a, 1) for a in ANNI_UE}
+MEV_TOT = {a: [sum(r[4] for r in UE[a]), sum(r[7] for r in UE[a])] for a in ANNI_UE}
+
+
+def cella_mev(q, poco=False):
+    """Cella con la quota MEV e una barretta (piena = 100%)."""
+    if q is None:
+        return '<td class="n" data-v="">–</td>'
+    larg = max(2, min(100, round(q * 100, 1)))
+    return (f'<td class="n" data-v="{q:.6f}"><span class="tb" aria-hidden="true"><i style="width:{larg}%"></i></span>'
+            f'<span class="tv">{pct(q)}{"*" if poco else ""}</span></td>')
+
+
+def punti_mev(v1, v0):
+    """Variazione in punti solo se entrambi gli anni superano la soglia."""
+    if not v0 or v1[0] < SOGLIA_MEV or v0[0] < SOGLIA_MEV:
+        return "–", ""
+    return punti(quota_mev(v1), quota_mev(v0)), f"{quota_mev(v1) - quota_mev(v0):.6f}"
+
+
+def mev_stati_paese(p):
+    """Stati con almeno SOGLIA_MEV visti rilasciati nel Paese p (anno più recente), dalla quota più alta; e gli Stati sotto soglia."""
+    s1 = mev_raggruppa(A1, 0, lambda r: r[1] == p)
+    s0 = mev_raggruppa(A0, 0, lambda r: r[1] == p)
+    ok = sorted([(s, v, s0.get(s)) for s, v in s1.items() if v[0] >= SOGLIA_MEV], key=lambda x: (-quota_mev(x[1]), x[0]))
+    sotto = sorted(s for s, v in s1.items() if 0 < v[0] < SOGLIA_MEV)
+    return ok, sotto
+
+
+COSA_MEV = (f'A multiple-entry visa "allows several visits to the Schengen area for as long as the visa is valid"; a single-entry visa allows one entry '
+            f'(<a href="{URL_COMMISSIONE_DOMANDA}" rel="noopener">European Commission</a>, checked on {data_lunga(DATA_COMMISSIONE_MEV)}). '
+            f'Every visit is still a short stay, of up to 90 days in any 180-day period. A multiple-entry visa is not a long-stay visa, a work permit or a residence permit.')
+LIMITI_MEV = ("The Commission's file only says whether each visa allows multiple entries: it does not say how long the visas were valid for. "
+              "The share describes visas issued in the past, not your chances: the consulate decides the number of entries and the validity of each visa.")
+
+
+def tabella_mev_paese(ok, rel):
+    righe = []
+    for s, v, v0 in ok:
+        d, dv = punti_mev(v, v0)
+        righe.append(f'<tr><td><a href="{rel}{SEZ}schengen/{SLUG_STATO[s]}/">{escape(s)}</a></td>{cella_mev(quota_mev(v))}'
+                     f'{cella_mev(quota_mev(v0), bool(v0) and v0[0] < SOGLIA_MEV)}<td class="n" data-v="{dv}">{d}</td>'
+                     f'<td class="n" data-v="{v[0]}">{intero(v[0])}</td><td class="n" data-v="{v[1]}">{intero(v[1])}</td></tr>')
+    return ('<div class="tab compatta"><table class="ord"><thead><tr>' + th_ord("Schengen country", False, "ascending") +
+            th_ord(f"Multiple-entry {A1}") + th_ord(f"{A0}") + th_ord("Change") + th_ord("Visas issued") + th_ord("Multiple-entry visas") +
+            f'</tr></thead><tbody>{"".join(righe)}</tbody></table></div>')
+
+
+def sezione_mev(p, rel):
+    """Riquadro "Multiple-entry Schengen visas issued in <Paese>" delle pagine dei rifiuti per Paese."""
+    nome = nome_paese(p)
+    v1, v0 = MEV_PAESE[A1][p], MEV_PAESE[A0].get(p)
+    q1, q0 = quota_mev(v1), quota_mev(v0)
+    ok, sotto = mev_stati_paese(p)
+    if len(ok) >= 2:
+        kpi = (f'<div><b>{pct(q0)}</b><span>in {A0}</span></div><div><b>{punti(q1, q0) if q0 is not None else "–"}</b><span>change on {A0}</span></div>'
+               f'<div><b>{escape(ok[0][0])}</b><span>highest share: {pct(quota_mev(ok[0][1]))}</span></div>'
+               f'<div><b>{escape(ok[-1][0])}</b><span>lowest share: {pct(quota_mev(ok[-1][1]))}</span></div>')
+        frase = (f'Among the {len(ok)} Schengen countries that issued at least {intero(SOGLIA_MEV)} visas in {escape(art(nome))} in {A1}, '
+                 f'<strong>{escape(ok[0][0])}</strong> gave the highest share of multiple-entry visas ({pct(quota_mev(ok[0][1]))}) and '
+                 f'<strong>{escape(ok[-1][0])}</strong> the lowest ({pct(quota_mev(ok[-1][1]))}).')
+    else:
+        kpi = (f'<div><b>{pct(q0)}</b><span>in {A0}</span></div><div><b>{punti(q1, q0) if q0 is not None else "–"}</b><span>change on {A0}</span></div>'
+               f'<div><b>{intero(v1[0])}</b><span>uniform visas issued</span></div><div><b>{intero(v1[1])}</b><span>multiple-entry visas</span></div>')
+        frase = (f'Fewer than two Schengen countries issued {intero(SOGLIA_MEV)} or more visas in {escape(art(nome))} in {A1}, so there is no comparison between countries.')
+    tab = ""
+    if ok:
+        tab = (f'<p class="small">Schengen countries that issued at least {intero(SOGLIA_MEV)} uniform visas in {escape(art(nome))} in {A1}, from the highest share of multiple-entry visas. '
+               f'Tap a column heading to sort. "Change" is in percentage points; * fewer than {intero(SOGLIA_MEV)} visas issued in {A0}.'
+               + (f' Not shown (fewer than {intero(SOGLIA_MEV)} visas issued): {escape(", ".join(sotto))}.' if sotto else "") + '</p>'
+               f'{tabella_mev_paese(ok, rel)}\n{fonte_ue_p(A1, A0)}')
+    return f"""<h2 id="multiple-entry">Multiple-entry Schengen visas issued in {escape(art(nome))} ({A1})</h2>
+<section class="card summary" aria-label="Multiple-entry visas">
+<div class="s-top">{ico("calendar")}<span>Multiple-entry visas</span><span>{escape(nome)} · {A1}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Schengen visas issued in {escape(art(nome))} · {A1}</span><span class="sr">: </span><strong>{pct(q1)}</strong> were multiple-entry visas ({intero(v1[1])} of {intero(v1[0])} uniform visas issued)</p>
+<div class="kpi">{kpi}</div>
+<p class="lead" style="margin-top:6px">{frase} All Schengen visas issued worldwide in {A1}: {pct(quota_mev(MEV_TOT[A1]))} multiple-entry. <a href="{rel}{PERCORSO_MEV}">Multiple-entry Schengen visas by country and by place of application</a>.</p>
+{fonte_ue_p(A1, A0)}
+</div></section>
+{tab}
+<p class="avviso"><strong>What this share means, and what it does not.</strong> {COSA_MEV} {LIMITI_MEV}</p>"""
+
+
+def pagina_rif_mev():
+    rel = "../../"
+    v1, v0 = MEV_TOT[A1], MEV_TOT[A0]
+    q1, q0 = quota_mev(v1), quota_mev(v0)
+    stati = sorted(STATI_UE, key=lambda s: (-quota_mev(MEV_STATO[A1][s]), s))
+    alto, basso = stati[0], stati[-1]
+    f1 = F_UE[A1]
+    righe_s = []
+    for s in stati:
+        v, w = MEV_STATO[A1][s], MEV_STATO[A0].get(s)
+        d, dv = punti_mev(v, w)
+        righe_s.append(f'<tr><td><a href="../schengen/{SLUG_STATO[s]}/">{escape(s)}</a></td>{cella_mev(quota_mev(v))}{cella_mev(quota_mev(w))}'
+                       f'<td class="n" data-v="{dv}">{d}</td><td class="n" data-v="{v[0]}">{intero(v[0])}</td><td class="n" data-v="{v[1]}">{intero(v[1])}</td></tr>')
+    paesi = sorted(PAESI_RIF, key=lambda p: (-quota_mev(MEV_PAESE[A1][p]), p))
+    righe_p = []
+    for p in paesi:
+        v, w = MEV_PAESE[A1][p], MEV_PAESE[A0].get(p)
+        d, dv = punti_mev(v, w)
+        ok, _ = mev_stati_paese(p)
+        cima = (f'{escape(ok[0][0])} ({pct(quota_mev(ok[0][1]))})' if len(ok) >= 2 else "–")
+        righe_p.append(f'<tr><td><a href="../{SLUG_RIF[p]}/#multiple-entry">{escape(nome_paese(p))}</a></td>{cella_mev(quota_mev(v))}{cella_mev(quota_mev(w))}'
+                       f'<td class="n" data-v="{dv}">{d}</td><td class="n" data-v="{v[0]}">{intero(v[0])}</td><td class="n" data-v="{v[1]}">{intero(v[1])}</td><td style="white-space:nowrap">{cima}</td></tr>')
+    top = [p for p in sorted(PAESI_RIF, key=lambda p: -MEV_PAESE[A1][p][0])[:10]]
+    piu, meno = paesi[:3], paesi[-3:][::-1]
+    elenco = lambda xs: ", ".join(f"{escape(art(nome_paese(x)))} ({pct(quota_mev(MEV_PAESE[A1][x]))})" for x in xs[:-1]) + \
+        f" and {escape(art(nome_paese(xs[-1])))} ({pct(quota_mev(MEV_PAESE[A1][xs[-1]]))})"
+
+    def q_paese(p):
+        v, w = MEV_PAESE[A1][p], MEV_PAESE[A0].get(p)
+        ok, _ = mev_stati_paese(p)
+        extra = (f" Among Schengen countries with at least {intero(SOGLIA_MEV)} visas issued there, {ok[0][0]} had the highest share ({pct(quota_mev(ok[0][1]))}) "
+                 f"and {ok[-1][0]} the lowest ({pct(quota_mev(ok[-1][1]))}).") if len(ok) >= 2 else ""
+        return (f"In {A1}, Schengen consulates in {art(nome_paese(p))} issued {intero(v[1])} multiple-entry visas out of {intero(v[0])} uniform visas: {pct(quota_mev(v))} "
+                f"({pct(quota_mev(w))} in {A0}).{extra} The figures count visas issued in {art(nome_paese(p))}, whatever the applicant's nationality. "
+                f'Details: <a href="../{SLUG_RIF[p]}/#multiple-entry">{escape(nome_paese(p))} page</a>.')
+
+    de, ch = MEV_STATO[A1]["Germany"], MEV_STATO[A1]["Switzerland"]
+    domande = [
+        ("Which Schengen country gives multiple-entry visas most often?",
+         f"In {A1}, {alto} had the highest share: {pct(quota_mev(MEV_STATO[A1][alto]))} of the {intero(MEV_STATO[A1][alto][0])} uniform visas it issued were multiple-entry visas. "
+         f"Next came {', '.join(f'{s} ({pct(quota_mev(MEV_STATO[A1][s]))})' for s in stati[1:4])}. The lowest share was {basso}'s ({pct(quota_mev(MEV_STATO[A1][basso]))}). "
+         f"Each country's figure mixes applicants from many places, so compare countries in the place where you apply (see the table by place of application)."),
+        ("What does a multiple-entry Schengen visa mean?",
+         f"The European Commission says a multiple-entry visa allows several visits to the Schengen area for as long as the visa is valid, while a single-entry visa allows you to enter the Schengen area once. "
+         f"Each visit is a short stay of up to 90 days in any 180-day period. It is not a long-stay visa or a residence permit."),
+        ("Multiple-entry vs single-entry Schengen visa: what do the statistics count?",
+         f"The Commission's file gives the total number of uniform visas issued and, within it, the number of multiple-entry visas (MEVs). The rest are single-entry or double-entry visas "
+         f'(<a href="{URL_METADATI_UE}" rel="noopener">Commission metadata</a>). Visas with limited territorial validity are counted separately and are not in these shares.'),
+        ("How long is a multiple-entry Schengen visa valid?",
+         f"The statistics do not say. The Commission's file records whether a visa allows multiple entries, not its validity, so we cannot tell how many were valid for a few months, one year or several years. "
+         f"The validity is printed on each visa and is decided by the consulate."),
+        ("Can I get a multiple-entry Schengen visa the first time I apply?",
+         f"These figures cannot answer that: they do not record whether applicants had visited the Schengen area before. The consulate decides the number of entries and the validity of each visa. "
+         f"What the figures show is that {pct(q1)} of all uniform visas issued in {A1} were multiple-entry visas."),
+        ("Multiple-entry Schengen visa requirements: is the passport rule different?",
+         f"Yes, on one point. The European Commission says the passport's expiry date should be at least 3 months after you leave the Schengen area, and for multiple-entry visas at least 3 months after your departure from the last country visited "
+         f'(<a href="{URL_COMMISSIONE_DOMANDA}" rel="noopener">Applying for a Schengen visa</a>, checked on {data_lunga(DATA_COMMISSIONE_MEV)}). Check the full list of documents with the consulate.'),
+        ("Multiple-entry Schengen visa for Indians: how many were issued in India?", q_paese("INDIA")),
+        ("Multiple-entry Schengen visa for Pakistani applicants: how many were issued in Pakistan?", q_paese("PAKISTAN")),
+        ("How often do Germany and Switzerland give multiple-entry Schengen visas?",
+         f"In {A1}, {pct(quota_mev(de))} of the {intero(de[0])} uniform visas issued by Germany were multiple-entry visas, and {pct(quota_mev(ch))} of the {intero(ch[0])} issued by Switzerland. "
+         f"The share in the place where you apply can be very different: see the country pages."),
+    ]
+    corpo = f"""<section class="hero">{h1_diviso(f"Multiple-entry Schengen visas in {A1}: which countries issue them most often")}
+<p class="lead">In {A1}, <strong>{pct(q1)}</strong> of the {intero(v1[0])} uniform Schengen visas issued were multiple-entry visas ({intero(v1[1])}), according to the European Commission's <a href="{escape(f1["url"])}" rel="noopener">Visa statistics for consulates {A1}</a> (file {escape(f1["file"])}, downloaded on {data_lunga(f1["scaricato_il"])}); {escape(alto)} issued the highest share ({pct(quota_mev(MEV_STATO[A1][alto]))}) and {escape(basso)} the lowest ({pct(quota_mev(MEV_STATO[A1][basso]))}).</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("calendar")}<span>Multiple-entry Schengen visas</span><span>{A1}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">All Schengen countries · all consulates · {A1}</span><span class="sr">: </span><strong>{pct(q1)}</strong> of uniform visas issued were multiple-entry ({intero(v1[1])} of {intero(v1[0])})</p>
+<div class="kpi"><div><b>{pct(q0)}</b><span>in {A0} ({intero(v0[1])} of {intero(v0[0])})</span></div><div><b>{punti(q1, q0)}</b><span>change on {A0}</span></div><div><b>{escape(alto)}</b><span>highest share: {pct(quota_mev(MEV_STATO[A1][alto]))}</span></div><div><b>{escape(basso)}</b><span>lowest share: {pct(quota_mev(MEV_STATO[A1][basso]))}</span></div></div>
+<p class="lead" style="margin-top:6px">By place of application ({len(PAESI_RIF)} countries with at least {intero(SOGLIA_PAGINA)} applications): highest shares in {elenco(piu)}; lowest in {elenco(meno)}.</p>
+{fonte_ue_p(A1, A0)}
+</div></section>
+<p class="avviso"><strong>Statistics, not advice.</strong> {COSA_MEV} {LIMITI_MEV}</p>
+{AD}
+<h2>Multiple-entry visas by Schengen country ({A1})</h2>
+<p class="small">All {len(STATI_UE)} Schengen countries that process visas, from the highest share of multiple-entry visas among the uniform visas they issued. Tap a column heading to sort. "Change" is in percentage points on {A0}.</p>
+<div class="tab compatta"><table class="ord"><thead><tr>{th_ord("Schengen country", False, "ascending")}{th_ord(f"Multiple-entry {A1}")}{th_ord(f"{A0}")}{th_ord("Change")}{th_ord("Visas issued")}{th_ord("Multiple-entry visas")}</tr></thead><tbody>{"".join(righe_s)}</tbody></table></div>
+{fonte_ue_p(A1, A0)}
+<h2>Multiple-entry visas by place of application ({A1})</h2>
+<p class="small">The {len(PAESI_RIF)} countries with at least {intero(SOGLIA_PAGINA)} Schengen visa applications in {A1}, from the highest share. The last column is the Schengen country with the highest share among those that issued at least {intero(SOGLIA_MEV)} visas there. Tap a column heading to sort, or type to filter.</p>
+<p class="filtro"><label><span class="sr">Filter countries</span><input type="search" placeholder="Filter: e.g. India" data-filtro="t-mev" autocomplete="off"></label></p>
+<div class="tab compatta"><table class="ord" id="t-mev"><thead><tr>{th_ord("Applied in", False, "ascending")}{th_ord(f"Multiple-entry {A1}")}{th_ord(f"{A0}")}{th_ord("Change")}{th_ord("Visas issued")}{th_ord("Multiple-entry visas")}{th_ord("Highest share", False, "ascending")}</tr></thead><tbody>{"".join(righe_p)}</tbody></table></div>
+{fonte_ue_p(A1, A0)}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>What these figures do not say</h2>
+<ul class="testo">
+<li><strong>Where the visa was issued, not your passport.</strong> The Commission counts visas by the country where the application was made: the figures for "India" are visas issued in India, including visas issued to residents of other nationalities.</li>
+<li><strong>Share of multiple-entry visas</strong> = multiple-entry uniform visas issued ÷ all uniform visas issued (multiple-entry visas included), the same as the "Share of MEVs" column in the Commission's file. Refused applications are not in the share: for those, see the <a href="../">refusal rates</a>.</li>
+<li><strong>No validity length.</strong> The file does not say how long each multiple-entry visa was valid for.</li>
+<li><strong>Minimum {intero(SOGLIA_MEV)} visas.</strong> On the country pages we compare Schengen countries only where they issued at least {intero(SOGLIA_MEV)} visas in that place; smaller numbers swing too much from year to year.</li>
+<li><strong>Where to apply.</strong> You must apply to the country of your main destination (or, for equal stays, the first you enter): see the <a href="{URL_COMMISSIONE_DOMANDA}" rel="noopener">European Commission page on applying for a Schengen visa</a>.</li></ul>
+<h2>Busiest places of application</h2>
+<div class="griglia">{''.join(f'<a href="../{SLUG_RIF[x]}/#multiple-entry"><span class="ic">{ico("passport")}</span><span>Multiple-entry visas issued in {escape(art(nome_paese(x)))}<small>{pct(quota_mev(MEV_PAESE[A1][x]))} of {intero(MEV_PAESE[A1][x][0])} visas in {A1}</small></span></a>' for x in top)}</div>
+{box_assicurazione(rel)}
+<h2>Official sources</h2>
+<ul class="fonti">
+<li><a href="{escape(f1["url"])}" rel="noopener">Visa statistics for consulates {A1}</a> – European Commission, XLSX ({escape(f1["file"])}), downloaded on {data_lunga(f1["scaricato_il"])}; columns "Total uniform visas issued (including MEV)" and "Multiple entry uniform visas (MEVs) issued"</li>
+<li><a href="{escape(F_UE[A0]["url"])}" rel="noopener">Visa statistics for consulates {A0}</a> – European Commission, XLSX, downloaded on {data_lunga(F_UE[A0]["scaricato_il"])}</li>
+<li><a href="{URL_METADATI_UE}" rel="noopener">Visa statistics: quality and metadata reporting</a> – European Commission, PDF, read on {data_lunga(DATA_METADATI_UE)}</li>
+<li><a href="{URL_COMMISSIONE_DOMANDA}" rel="noopener">Applying for a Schengen visa</a> – European Commission, checked on {data_lunga(DATA_COMMISSIONE_MEV)}</li></ul>
+<p class="small">© European Union. Reuse of Commission data is allowed under the <a href="https://commission.europa.eu/legal-notice_en" rel="noopener">Commission's reuse policy</a> (CC BY 4.0); the shares and changes on this page are our own calculations from the files above.</p>
+<p><a href="../">Schengen visa refusal rates by country, {A1}</a> · <a href="../uk/">UK visa refusal rates by nationality</a> · <a href="{rel}">Visa income calculator</a></p>"""
+    ld = [ld_faq(domande),
+          ld_dataset(f"Multiple-entry Schengen visas by country, {A1}",
+                     "Share of multiple-entry visas among uniform Schengen visas issued, by Schengen country and by country of application, recalculated from the European Commission's visa statistics for consulates.",
+                     PERCORSO_MEV, [F_UE[A1]["url"], F_UE[A0]["url"]], f"{A0}/{A1}", "https://creativecommons.org/licenses/by/4.0/")]
+    titolo = f"Multiple-entry Schengen visa: which countries give them most ({A1})"
+    descr = (f"Official {A1} figures: {pct(q1)} of uniform Schengen visas issued were multiple-entry. {alto} had the highest share ({pct(quota_mev(MEV_STATO[A1][alto]))}), "
+             f"{basso} the lowest. By Schengen country and by place of application, from the European Commission.")
+    pagina(PERCORSO_MEV, titolo, descr, corpo, ordina=True, jsonld_extra=ld,
+           briciole=[("Visa refusal rates", SEZ), ("Multiple-entry Schengen visas", PERCORSO_MEV)])
 
 
 # ---------------------------------------------------------------- Australia, Nuova Zelanda, Canada (26/10/2026)
@@ -4094,6 +4324,7 @@ def genera_rifiuti():
         pagina_rif_facile(p)
     for s in STATI_UE:
         pagina_rif_stato(s)
+    pagina_rif_mev()
     pagina_rif_uk()
     pagina_rif_uk_famiglia()
     pagina_rif_au()
@@ -4105,7 +4336,7 @@ def controlli_rifiuti():
     errori = []
     if len(PAESI_RIF) < 40:
         errori.append(f"rifiuti: solo {len(PAESI_RIF)} Paesi con pagina")
-    if len(set(SLUG_RIF.values())) != len(SLUG_RIF) or set(SLUG_RIF.values()) & {"uk", "schengen"}:
+    if len(set(SLUG_RIF.values())) != len(SLUG_RIF) or set(SLUG_RIF.values()) & {"uk", "schengen", "multiple-entry-schengen-visa"}:
         errori.append("rifiuti: slug dei Paesi duplicati o riservati")
     if len(PAESI_FACILE) < 30:
         errori.append(f"rifiuti: solo {len(PAESI_FACILE)} Paesi con la pagina 'easiest Schengen visa'")
@@ -4115,6 +4346,9 @@ def controlli_rifiuti():
     for k, f in RIF["fonti"].items():
         if not f.get("url", "").startswith("https://"):
             errori.append(f"rifiuti: fonte {k} senza URL")
+    for a in ANNI_UE:  # visti a ingressi multipli (30/10/2026): 8° elemento di ogni riga, mai negativo
+        if any(len(r) < 8 or r[7] < 0 for r in UE[a]):
+            errori.append(f"rifiuti: righe {a} senza la colonna dei visti a ingressi multipli: rilanciare raccolta/rifiuti.py")
     if URL_SAFETYWING and not URL_SAFETYWING.startswith("https://safetywing.com/"):
         errori.append("rifiuti: link SafetyWing non valido in dati/affiliati.json (_safetywing_schengen)")
     if not URL_SAFETYWING and not _SW.get("url_sospeso", "").startswith("https://safetywing.com/"):

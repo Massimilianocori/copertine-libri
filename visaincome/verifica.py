@@ -25,6 +25,9 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     tutte in sitemap e nessuna in più; titoli entro 70 caratteri con l'anno; numero principale, serie per anno e tabella per Paese
     uguali ai dati; fonte con data sotto ogni tabella; riquadro "what this number is"; JSON-LD; nessun link interno rotto nella sezione.
 13. Sitemap: ogni URL ha un lastmod vero (data valida, non nel futuro, uguale al registro dati/lastmod.json), nessun URL doppio.
+15. Visti Schengen a ingressi multipli (30/10/2026): pagina /visa-refusal-rates/multiple-entry-schengen-visa/ in sitemap, titolo entro 70
+    caratteri con l'anno, prima frase con numero, fonte e data; tabelle per Stato e per Paese e riquadro di ogni pagina per Paese
+    ricalcolati da dati/rifiuti.json (visti uniformi rilasciati e MEV), soglia 500 visti; link dall'indice e dalle pagine per Paese.
 Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
@@ -32,6 +35,7 @@ domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSe
 solo se AdSense è acceso per questo sito in monetizzazione.json.
 Esce con codice 1 se qualcosa non va.
 """
+import html
 import json
 import random
 import re
@@ -796,6 +800,135 @@ def controlla_lastmod():
     return errori, len(voci), len({d for _, d in voci})
 
 
+# ---------------------------------------------------------------- 15. Visti Schengen a ingressi multipli (30/10/2026)
+def controlla_mev():
+    """15. Ricalcolo indipendente da dati/rifiuti.json (colonne 4 = visti uniformi rilasciati, 7 = di cui MEV): pagina riassuntiva
+    in sitemap con titolo ≤ 70 e anno, prima frase con numero, fonte e data, tabelle per Stato e per Paese uguali ai dati,
+    riquadro in ogni pagina per Paese (cifra e righe degli Stati con almeno 500 visti), link dall'indice e dalle pagine per Paese."""
+    errori = []
+    R = json.loads((SITO.parent / "dati" / "rifiuti.json").read_text(encoding="utf-8"))
+    anni = sorted(R["schengen"], key=int)
+    a1, a0 = anni[-1], anni[-2]
+    soglia = 500
+    righe = {a: R["schengen"][a] for a in (a1, a0)}
+    if any(len(r) != 8 for a in righe for r in righe[a]):
+        return ["MEV: righe di dati/rifiuti.json senza la colonna dei visti a ingressi multipli"], 0
+
+    def somma(a, filtro):
+        v = [0, 0]
+        for r in righe[a]:
+            if filtro(r):
+                v[0] += r[4]
+                v[1] += r[7]
+        return v
+
+    def pc(v):
+        return f"{v[1] / v[0] * 100:.1f}%" if v[0] else "–"
+
+    def leggi_righe(tabella):
+        """[(nome, quota data-v, visti rilasciati, MEV)] dalle righe di una tabella MEV."""
+        out = []
+        for tr in re.findall(r"<tr><td>(.*?)</tr>", tabella, re.S):
+            nome = re.sub(r"<[^>]+>", "", tr.split("</td>", 1)[0])
+            dv = re.findall(r'data-v="([^"]*)"', tr)
+            out.append((html.unescape(nome), dv[0], int(dv[3]), int(dv[4])))
+        return out
+
+    percorso = "visa-refusal-rates/multiple-entry-schengen-visa/"
+    f = SITO / percorso / "index.html"
+    if not f.exists():
+        return [f"MEV: manca {percorso}"], 0
+    t = f.read_text(encoding="utf-8")
+    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    if f"{G.URL_SITO}/{percorso}</loc>" not in sitemap:
+        errori.append("MEV: pagina riassuntiva non in sitemap")
+    titolo = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+    if len(titolo) > 70 or a1 not in titolo:
+        errori.append(f"MEV: titolo oltre 70 caratteri o senza l'anno: {titolo!r} ({len(titolo)})")
+    tot1, tot0 = somma(a1, lambda r: True), somma(a0, lambda r: True)
+    corpo = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+    prima = re.search(r'<p class="lead">(.*?)</p>', corpo, re.S).group(1)
+    if (f"<strong>{pc(tot1)}</strong> of the {tot1[0]:,} uniform Schengen visas issued were multiple-entry visas ({tot1[1]:,})" not in prima
+            or "European Commission" not in prima or "home-affairs.ec.europa.eu" not in prima or not RE_DATA.search(prima)):
+        errori.append("MEV: prima frase senza numero ricalcolato, fonte (Commissione) o data")
+    if f"<b>{pc(tot0)}</b><span>in {a0} ({tot0[1]:,} of {tot0[0]:,})</span>" not in corpo:
+        errori.append(f"MEV: totale {a0} diverso dal ricalcolo")
+    tabelle = re.findall(r"<table.*?</table>", corpo, re.S)
+    if len(tabelle) != 2:
+        errori.append(f"MEV: {len(tabelle)} tabelle nella pagina riassuntiva (attese 2)")
+        return errori, 1
+    # per Stato Schengen: tutti, valori uguali, ordine dalla quota più alta
+    stati = sorted({r[0] for r in righe[a1]})
+    lette = leggi_righe(tabelle[0])
+    if sorted(x[0] for x in lette) != stati:
+        errori.append(f"MEV: righe della tabella per Stato ({len(lette)}) diverse dai {len(stati)} Stati dei dati")
+    for nome, dv, ril, mev in lette:
+        v = somma(a1, lambda r, s=nome: r[0] == s)
+        if [ril, mev] != v or abs(float(dv) - v[1] / v[0]) > 1e-6:
+            errori.append(f"MEV: riga {nome} della tabella per Stato diversa dal ricalcolo ({v})")
+    if [float(x[1]) for x in lette] != sorted((float(x[1]) for x in lette), reverse=True):
+        errori.append("MEV: tabella per Stato non ordinata dalla quota più alta")
+    # per Paese di domanda: i Paesi con almeno 10.000 domande (esclusi gli Stati Schengen), valori uguali
+    dom = {}
+    for r in righe[a1]:
+        dom[r[1]] = dom.get(r[1], 0) + r[3]
+    maiusc = {s.upper() for s in stati}
+    paesi = {p for p, n in dom.items() if n >= G.SOGLIA_PAGINA and p not in maiusc}
+    lette_p = leggi_righe(tabelle[1])
+    if len(lette_p) != len(paesi):
+        errori.append(f"MEV: {len(lette_p)} righe nella tabella per Paese, attese {len(paesi)}")
+    per_nome = {html.unescape(G.nome_paese(p)): p for p in paesi}  # solo i nomi visibili (configurazione), i numeri si ricalcolano qui
+    for nome, dv, ril, mev in lette_p:
+        p = per_nome.get(nome)
+        if not p:
+            errori.append(f"MEV: Paese {nome} nella tabella ma non tra quelli con {G.SOGLIA_PAGINA:,}+ domande")
+            continue
+        v = somma(a1, lambda r, p=p: r[1] == p)
+        if [ril, mev] != v or abs(float(dv) - v[1] / v[0]) > 1e-6:
+            errori.append(f"MEV: riga {nome} della tabella per Paese diversa dal ricalcolo ({v})")
+    for frase in ("FAQPage", '"@type": "Dataset"', "does not say how long", "not a long-stay visa", "Statistics, not advice."):
+        if frase not in t:
+            errori.append(f"MEV: manca {frase!r} nella pagina riassuntiva")
+    if re.search(r"you will (get|receive|be given) a multiple|guarantee[ds]? a multiple", t, re.I):
+        errori.append("MEV: promessa sul visto nella pagina riassuntiva")
+    # riquadro nelle pagine per Paese
+    n = 1
+    for p in sorted(paesi):
+        slug = G.SLUG_RIF[p]
+        fp = SITO / "visa-refusal-rates" / slug / "index.html"
+        tp = fp.read_text(encoding="utf-8")
+        n += 1
+        if 'id="multiple-entry"' not in tp or 'href="../multiple-entry-schengen-visa/"' not in tp:
+            errori.append(f"MEV: riquadro o link alla pagina riassuntiva mancanti in {slug}")
+            continue
+        sez = tp.split('id="multiple-entry"', 1)[1].split("<h2>By consulate</h2>", 1)[0]
+        v = somma(a1, lambda r, p=p: r[1] == p)
+        if f"<strong>{pc(v)}</strong> were multiple-entry visas ({v[1]:,} of {v[0]:,} uniform visas issued)" not in sez:
+            errori.append(f"MEV: cifra del riquadro di {slug} diversa dal ricalcolo ({pc(v)}, {v})")
+        if "does not say how long" not in sez:
+            errori.append(f"MEV: frase sulla durata mancante in {slug}")
+        attesi = {}
+        for r in righe[a1]:
+            if r[1] == p:
+                x = attesi.setdefault(r[0], [0, 0])
+                x[0] += r[4]
+                x[1] += r[7]
+        attesi = {s: x for s, x in attesi.items() if x[0] >= soglia}
+        tab = re.search(r"<table.*?</table>", sez, re.S)
+        lette_s = leggi_righe(tab.group(0)) if tab else []
+        if {x[0] for x in lette_s} != set(attesi):
+            errori.append(f"MEV: Stati nella tabella di {slug} diversi da quelli con {soglia}+ visti rilasciati")
+        for nome, dv, ril, mev in lette_s:
+            if attesi.get(nome) != [ril, mev]:
+                errori.append(f"MEV: riga {nome} di {slug} diversa dal ricalcolo ({attesi.get(nome)})")
+        if [float(x[1]) for x in lette_s] != sorted((float(x[1]) for x in lette_s), reverse=True):
+            errori.append(f"MEV: tabella di {slug} non ordinata dalla quota più alta")
+    indice = (SITO / "visa-refusal-rates" / "index.html").read_text(encoding="utf-8")
+    if 'href="multiple-entry-schengen-visa/"' not in indice or f"In {a1}, {pc(tot1)} of the {tot1[0]:,} uniform visas issued were multiple-entry visas" not in indice:
+        errori.append("MEV: l'indice della sezione non rimanda alla pagina riassuntiva o ha un totale diverso")
+    return errori, n
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -825,7 +958,9 @@ def main():
     print(f"13. Sitemap: {n13} URL con lastmod ({d13} date diverse, uguali al registro dati/lastmod.json): {len(e13)} errori")
     e14, i14 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("14. " + G.MON.riepilogo(G.SITO_ID, i14, e14))
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14
+    e15, n15 = controlla_mev()
+    print(f"15. Visti Schengen a ingressi multipli: {n15} pagine (riassuntiva + riquadri per Paese), numeri ricalcolati, sitemap, titolo, link: {len(e15)} errori")
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15
     for e in tutti:
         print(" -", e)
     if tutti:

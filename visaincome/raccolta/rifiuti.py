@@ -10,6 +10,8 @@ Fonti (vedi NOTE.md, sezione "Visa refusal rates"):
    Foglio "Data for consulates": una riga per Stato Schengen × Paese in cui si trova il consolato × consolato.
    Tasso ufficiale di "not issued" (rifiutati + esami interrotti, art. 8(2) del Codice dei visti):
    not issued / (rilasciati, compresi MEV + LTV + not issued). Lo script lo ricalcola e lo confronta con la colonna del file.
+   Dal 30/10/2026 si salva anche la colonna "Multiple entry uniform visas (MEVs) issued" (8° elemento di ogni riga): la quota
+   MEV / visti uniformi rilasciati si confronta con la colonna "Share of MEVs" del file, e le somme con i fogli dei totali.
 2. Home Office (Regno Unito), Immigration System Statistics: "Entry clearance visa applications and outcomes detailed
    datasets" (XLSX, foglio Data_Vis_D02: anno, trimestre, nazionalità, gruppo di visto, esito, decisioni), trovato
    dall'API dei contenuti di GOV.UK. Tasso di rifiuto = rifiutati / (concessi + rifiutati), come il "grant rate"
@@ -89,13 +91,14 @@ def file_ue(pagina_html):
 def leggi_ue(percorso, anno):
     wb = openpyxl.load_workbook(percorso, read_only=True, data_only=True)
     ws = wb["Data for consulates"]
-    righe, errori = [], []
+    righe, errori, anomalie = [], [], []
     intest = None
     for r in ws.iter_rows(values_only=True):
         if intest is None:
             intest = [str(x or "").strip() for x in r]
             attese = {0: "Schengen State", 1: "Country where consulate is located", 2: "Consulate", 8: "Uniform visas applied for",
-                      9: "Total uniform visas issued (including MEV)", 12: "Total LTVs issued", 13: "Uniform visas not issued",
+                      9: "Total uniform visas issued (including MEV)", 10: "Multiple entry uniform visas (MEVs) issued",
+                      11: "Share of MEVs on total number of uniform visas issued", 12: "Total LTVs issued", 13: "Uniform visas not issued",
                       14: "Not issued rate for uniform visas"}
             for i, t in attese.items():
                 if intest[i] != t:
@@ -110,30 +113,38 @@ def leggi_ue(percorso, anno):
         uff = r[14]
         if uff is not None and tasso is not None and abs(uff - tasso) > 1e-9:
             errori.append(f"UE {anno}: tasso ricalcolato diverso dal file per {stato}/{paese}/{cons}: {tasso} vs {uff}")
-        righe.append([stato, paese, cons, dom, ril, ltv, non])
-    # Controllo: somme per Stato = foglio "Totals - Schengen State"; somme per Paese = "Totals - third country"
-    per_stato = defaultdict(lambda: [0, 0, 0, 0])
-    per_paese = defaultdict(lambda: [0, 0, 0, 0])
-    for s, p, _c, dom, ril, ltv, non in righe:
+        mev = int(r[10] or 0)
+        if mev > ril:  # succede nel file ufficiale (2024: Czech Republic/UKRAINE/LVIV, 2 MEV e 0 visti): si tiene il dato e si annota
+            anomalie.append(f"{stato}/{paese}/{cons}: {mev} MEV, {ril} visti uniformi rilasciati")
+        quota_uff = r[11]
+        if ril and quota_uff is not None and abs(quota_uff - mev / ril) > 1e-9:
+            errori.append(f"UE {anno}: quota MEV ricalcolata diversa dal file per {stato}/{paese}/{cons}: {mev / ril} vs {quota_uff}")
+        righe.append([stato, paese, cons, dom, ril, ltv, non, mev])
+    # Controllo: somme per Stato = foglio "Totals - Schengen State"; somme per Paese = "Totals - third country" (MEV compresi)
+    per_stato = defaultdict(lambda: [0, 0, 0, 0, 0])
+    per_paese = defaultdict(lambda: [0, 0, 0, 0, 0])
+    for s, p, _c, dom, ril, ltv, non, mev in righe:
         for d in (per_stato[s], per_paese[p]):
-            d[0] += dom; d[1] += ril; d[2] += ltv; d[3] += non
+            d[0] += dom; d[1] += ril; d[2] += ltv; d[3] += non; d[4] += mev
     tot_stati = {}
     for r in wb["Totals - Schengen State"].iter_rows(values_only=True):
         if r[0] and isinstance(r[1], (int, float)) and str(r[0]).strip() in per_stato:
-            tot_stati[str(r[0]).strip()] = [int(r[i] or 0) for i in (1, 2, 4, 5)]
+            tot_stati[str(r[0]).strip()] = [int(r[i] or 0) for i in (1, 2, 4, 5, 3)]
     for s, v in per_stato.items():
         if tot_stati.get(s) != v:
             errori.append(f"UE {anno}: somme di {s} {v} diverse dal foglio dei totali {tot_stati.get(s)}")
     tot_paesi = {}
     for r in wb["Totals - third country"].iter_rows(values_only=True):
         if r[1] and isinstance(r[2], (int, float)) and r[0] is not None:
-            tot_paesi[str(r[1]).strip()] = [int(r[i] or 0) for i in (2, 3, 5, 6)]
+            tot_paesi[str(r[1]).strip()] = [int(r[i] or 0) for i in (2, 3, 5, 6, 4)]
     for p, v in per_paese.items():
         if p in tot_paesi and tot_paesi[p] != v:
             errori.append(f"UE {anno}: somme di {p} {v} diverse dal foglio dei totali {tot_paesi[p]}")
     if len(tot_paesi) < 100 or len(per_stato) < 25:
         errori.append(f"UE {anno}: troppo pochi Paesi ({len(tot_paesi)}) o Stati ({len(per_stato)})")
-    return righe, errori
+    if len(anomalie) > 5:
+        errori.append(f"UE {anno}: troppe righe con MEV oltre i visti rilasciati ({len(anomalie)})")
+    return righe, errori, anomalie
 
 
 # ---------------------------------------------------------------- Regno Unito
@@ -241,7 +252,7 @@ def main():
     fonti = {}
     for anno in sorted(anni)[-2:]:
         b, meta = scarica(anni[anno], GREZZI / f"schengen-consolati-{anno}.xlsx", nuovo)
-        righe, e = leggi_ue(GREZZI / f"schengen-consolati-{anno}.xlsx", anno)
+        righe, e, anom = leggi_ue(GREZZI / f"schengen-consolati-{anno}.xlsx", anno)
         errori += e
         ue[str(anno)] = righe
         nome = re.search(r'filename="?([^";]+)', meta.get("content_disposition", "") or "")
@@ -249,7 +260,8 @@ def main():
             "titolo": f"Visa statistics for consulates {anno}", "editore": "European Commission, DG Migration and Home Affairs",
             "url": anni[anno], "pagina": PAGINA_UE, "formato": "XLSX",
             "file": nome.group(1) if nome else anni[anno].rsplit("filename=", 1)[-1], "byte": len(b), "sha256": impronta(b),
-            "scaricato_il": meta.get("scaricato_il", oggi), "pagina_aggiornata": agg_pag.group(1) if agg_pag else "", "righe": len(righe)}
+            "scaricato_il": meta.get("scaricato_il", oggi), "pagina_aggiornata": agg_pag.group(1) if agg_pag else "", "righe": len(righe),
+            "mev_anomalie": anom}
     agg_uk, det, sin = allegati_uk()
     b_uk, meta_uk = scarica(det["url"], GREZZI / "uk-entry-clearance-outcomes.xlsx", nuovo)
     uk = leggi_uk(GREZZI / "uk-entry-clearance-outcomes.xlsx")
@@ -267,7 +279,7 @@ def main():
             print(" -", x)
         sys.exit(1)
     uscita = {"_nota": "Generato da raccolta/rifiuti.py: non modificare a mano. Righe Schengen: [Stato, Paese del consolato, consolato, "
-                       "domande, visti uniformi rilasciati (con MEV), LTV rilasciati, non rilasciati]. UK: nazionalità -> gruppo -> trimestre -> "
+                       "domande, visti uniformi rilasciati (con MEV), LTV rilasciati, non rilasciati, di cui visti uniformi a ingressi multipli (MEV)]. UK: nazionalità -> gruppo -> trimestre -> "
                        "[concessi, rifiutati, ritirati, decaduti]; la voce 'Family: Partner' è una parte del gruppo Family (tipo di visto del partner).",
               "generato_il": oggi, "fonti": fonti, "schengen": ue,
               "uk": {"trimestri": uk["trimestri"], "naz": uk["naz"]}}
