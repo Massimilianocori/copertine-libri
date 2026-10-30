@@ -505,6 +505,11 @@ Temi nuovi apposta, scelti per il momento dell'acquisto con un'affiliazione nomi
 
 ## Ricerca zona Canada, Australia, Nuova Zelanda (30/10/2026)
 
-| Nicchia | Verdetto | Rapporto |
+Nessuna idea a 8. Lezione: i dati aperti della zona sono già usati da siti automatici su pages.dev e da comparatori (billhero per codice postale, whysolar, catax-tools, the-northern-office, anzscosearch); il buco resta dove la regola è in prosa, diversa per provincia o Stato e con una data di cambio. Prove in `ricerca-zona-canada-australia-2026-10-30.md`.
+| Nicchia | Esito | Studio |
 |---|---|---|
-
+| **Guidare in Canada, Australia e NZ con la patente straniera, per provincia/Stato × Paese** (Ontario, Alberta, BC, Nova Scotia, NSW, QLD, WA 200; VIC, SA, TAS, ACT, NT 403/000; NZTA Incapsula; NSW cambiato il 1/2/2026, WA il 31/10/2026; DiscoverCars ~20 $, cookie 365 giorni) | **PASSA sotto l'asticella** (voto 7; 300-5.500 €/anno a 18 mesi, centrale 1.200; 22-35 ore) come parte del blocco "Before you drive" di Before You Fly insieme a patente all'estero (28/10) e pedaggi (29/10) | ricerca-zona-canada-australia-2026-10-30 |
+| Snowbird canadesi: giorni fuori provincia e negli USA | RISERVA (6): the-northern-office.pages.dev già per provincia; TuGo solo per residenti canadesi; Red Helm 3 $ | ricerca-zona-canada-australia-2026-10-30 |
+| Piani elettrici australiani per codice postale (API CDR dell'AER: 84 venditori, 200 senza chiave) | NO come sito (5): billhero.com.au per codice postale, whysolar per venditore; fonte da ricordare | ricerca-zona-canada-australia-2026-10-30 |
+| Affitti per sobborgo (AU), affitti per città (CA), tassa sulla casa per città (ON), stamp duty, NAPLAN, attese chirurgiche, medico di famiglia, SkillSelect, estrazioni PNP, tempi IRCC, LMIA/AEWV, rego, multe, assicurazione auto per CAP, tasse comunali NZ, parchi | NO o riserve deboli (3-5) | ricerca-zona-canada-australia-2026-10-30 |
+---
