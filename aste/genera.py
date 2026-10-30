@@ -16,6 +16,7 @@ import hashlib
 import json
 import re
 import shutil
+import sys
 import statistics
 import unicodedata
 from datetime import date, datetime, timedelta
@@ -39,6 +40,27 @@ SCRIPT_CONTATORE = ('<script>window.goatcounter={path:function(p){return locatio
 # IndexNow (Bing, Yandex, Naver, Seznam): chiave pubblica uguale per tutti i siti della rete. Il generatore scrive
 # sito/<chiave>.txt (contenuto: la chiave) accanto a robots.txt; l'invio degli URL lo fa studio-business/strumenti/indexnow.py.
 CHIAVE_INDEXNOW = "b5a26a844a465f58552debee2c8a0114"
+# Monetizzazione (30/10/2026): codice editore AdSense, elenco dei siti con la pubblicità e domini di affiliazione ammessi stanno
+# in un solo file comune, studio-business/strumenti/monetizzazione.json (logica in monetizzazione.py). Con il codice vuoto o con
+# questo sito fuori elenco non cambia nulla: niente script nel <head>, niente ads.txt, privacy di oggi.
+sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
+import monetizzazione as MON  # noqa: E402
+SITO_ID = "aste"  # nome del sito in monetizzazione.json ("adsense_siti")
+ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti a capo + script ufficiale, subito dopo il meta di verifica Google
+
+
+def ci_sono_affiliati():
+    """True se il sito pubblica almeno un link di affiliazione (voce con "url" in dati/affiliati.json):
+    accende la sezione privacy sui link di affiliazione. Domini ammessi in monetizzazione.json, controlli in verifica.py."""
+    return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_"))
+
+
+def riquadro_trasparenza(corpo, lingua="it"):
+    """Riga di trasparenza sui link di affiliazione in fondo al contenuto della pagina ("Alcuni link sono di affiliazione: ..."):
+    vuota finché la pagina non ha link rel="sponsored" o se un riquadro di affiliazione la mostra già."""
+    return MON.riga_trasparenza(corpo, lingua)
+
+
 URL_LIVE = "https://raw.githubusercontent.com/massimilianocori/copertine-libri/ccr-b7fd6b9e-n096cr/aste/dati/live.json"
 NOME = "Aste in Chiaro"
 PVP = "https://pvp.giustizia.it/pvp/"
@@ -651,7 +673,7 @@ def pagina(percorso, titolo, descrizione, corpo, tipo, briciole=None, indicizza=
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="google-site-verification" content="{GOOGLE_VERIFICA}">
+<meta name="google-site-verification" content="{GOOGLE_VERIFICA}">{ADSENSE_HEAD}
 <title>{h(titolo)}</title>
 <meta name="description" content="{h(descrizione)}">
 {f'<link rel="canonical" href="{url_pag}">' if indicizza else '<meta name="robots" content="noindex">'}
@@ -685,7 +707,7 @@ def pagina(percorso, titolo, descrizione, corpo, tipo, briciole=None, indicizza=
 <main id="main">
 {testata}
 <div class="wrap">
-{corpo}
+{corpo}{riquadro_trasparenza(corpo)}
 </div>
 </main>
 <footer><div class="wrap">
@@ -840,7 +862,7 @@ def box_mutuo():
     if not m.get("url"):
         return ""
     return f"""<aside class="mutuo-box" aria-label="Mutuo per l'asta"><div><p><strong>{h(m.get('titolo', ''))}</strong></p>
-<p class="small">{h(m.get('testo', ''))} Link sponsorizzato{(' di ' + h(m['nome'])) if m.get('nome') else ''}: non cambia i dati di questa pagina.</p></div>
+<p class="small">{h(m.get('testo', ''))} Link sponsorizzato{(' di ' + h(m['nome'])) if m.get('nome') else ''}: non cambia i dati di questa pagina. {MON.RIGA_IT}</p></div>
 <a class="btn" href="{h(m['url'])}" rel="sponsored noopener" target="_blank">{h(m.get('bottone', 'Scopri'))}</a></aside>"""
 
 
@@ -1331,6 +1353,9 @@ def contatti():
 
 
 def privacy():
+    # Cookie, link di affiliazione e pubblicità: con AdSense acceso (monetizzazione.json) o con link di affiliazione, il testo
+    # comune di monetizzazione.py (GoatCounter senza cookie, pubblicità con il consenso di Google); altrimenti il testo di oggi.
+    cookie = MON.privacy_cookie("it", SITO_ID, ci_sono_affiliati()) or """<h2>Cookie e contatore visite</h2><p>Il sito non usa cookie di profilazione. Per contare le visite usiamo <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, un contatore rispettoso della privacy: non usa cookie e non salva nulla nel browser, non crea profili e non conserva l'indirizzo IP, la firma completa del browser né altri identificativi. Tiene solo numeri aggregati (pagina, ora o giorno, browser, Paese, larghezza dello schermo) su server nell'Unione europea e non cede nulla a terzi; vedi l'<a href="https://www.goatcounter.com/help/privacy" rel="noopener">informativa privacy di GoatCounter</a>. Se aggiungeremo pubblicità o link sponsorizzati, aggiorneremo questa informativa e chiederemo il consenso dove serve, prima di qualsiasi cookie pubblicitario.</p>"""
     corpo = f"""<div class="testo"><p class="small">Ultimo aggiornamento: {MESI[OGGI.month - 1]} {OGGI.year}</p>
 <h2>Chi è il titolare</h2><p>Il titolare del trattamento è Massimiliano Cori (Italia), che gestisce {NOME} come progetto indipendente. Contatto: il <a href="{{rel}}contatti/">modulo contatti</a>.</p>
 <h2>I dati delle aste</h2><p>Pubblichiamo solo campi del lotto letti dal Portale delle Vendite Pubbliche: prezzi, date, comune, strada senza numero civico, tipologia, stato di occupazione, tribunale. <strong>Non pubblichiamo e non salviamo</strong> nomi, email, telefoni o codici fiscali di delegati, custodi e giudici, dati del debitore, documenti o allegati delle procedure. Per i veicoli non pubblichiamo la targa né la descrizione dell'annuncio. Se pensi che una pagina contenga un dato personale, scrivici: lo togliamo subito.</p>
@@ -1338,7 +1363,7 @@ def privacy():
 <h2>Il file dei prezzi aggiornati</h2><p>Per mostrarti prezzi e date del giorno, le pagine con le aste scaricano un piccolo file di dati da GitHub (raw.githubusercontent.com, servizio di GitHub, Inc.). Come per ogni richiesta web, GitHub riceve il tuo indirizzo IP e i dati tecnici del browser; il file non contiene dati personali e non usiamo cookie per questo.</p>
 <h2>Perché</h2><p>Per rispondere ai messaggi e correggere il sito. La base giuridica è il tuo consenso (art. 6, par. 1, lett. a GDPR), che puoi revocare quando vuoi.</p>
 <h2>Chi tratta i dati per noi</h2><p>Il sito e il modulo sono ospitati da Netlify, Inc., che conserva i messaggi per nostro conto e può trattarli fuori dall'Unione europea con le garanzie previste dal GDPR (clausole contrattuali standard). Netlify tiene registri tecnici del server (come gli indirizzi IP) per sicurezza. Non vendiamo e non cediamo i tuoi dati.</p>
-<h2>Cookie e contatore visite</h2><p>Il sito non usa cookie di profilazione. Per contare le visite usiamo <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, un contatore rispettoso della privacy: non usa cookie e non salva nulla nel browser, non crea profili e non conserva l'indirizzo IP, la firma completa del browser né altri identificativi. Tiene solo numeri aggregati (pagina, ora o giorno, browser, Paese, larghezza dello schermo) su server nell'Unione europea e non cede nulla a terzi; vedi l'<a href="https://www.goatcounter.com/help/privacy" rel="noopener">informativa privacy di GoatCounter</a>. Se aggiungeremo pubblicità o link sponsorizzati, aggiorneremo questa informativa e chiederemo il consenso dove serve, prima di qualsiasi cookie pubblicitario.</p>
+{cookie}
 <h2>Per quanto tempo</h2><p>I messaggi restano al massimo 12 mesi dall'ultimo scambio.</p>
 <h2>I tuoi diritti</h2><p>Puoi chiedere accesso, rettifica, cancellazione, limitazione, portabilità e opposizione (artt. 15–22 GDPR) e puoi rivolgerti al Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>).</p></div>"""
     testata = banda("Privacy", "Informativa sulla privacy", "Cosa raccogliamo (pochissimo) e cosa non pubblichiamo mai.", icona="shield")
@@ -1349,6 +1374,7 @@ def privacy():
 def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
+    MON.scrivi_ads_txt(SITO_ID, SITO)  # sito/ads.txt solo con AdSense acceso (monetizzazione.json)
     voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{OGGI.isoformat()}</lastmod></url>" for u in URLS)
     (SITO / "sitemap.xml").write_text(
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{voci}</urlset>\n')

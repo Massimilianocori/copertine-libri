@@ -313,6 +313,7 @@ def costruisci(g):
                     "scioperi": g.recenti()}
             dati_html = '<script type="application/json" id="dati">' + json.dumps(dati, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>"
         verifica = f'<meta name="google-site-verification" content="{g.GOOGLE_VERIFICA}">' if g.GOOGLE_VERIFICA else ""
+        verifica += g.ADSENSE_HEAD  # AdSense (monetizzazione.json in studio-business/strumenti): "" finché è spento
         lingua = g.link_lingua(f"{rel}{alt_en}", "en", "English", "EN") if alt_en is not None else ""
         voci_menu = [("it/oggi/", "Oggi"), ("it/domani/", "Domani"), ("it/questa-settimana/", "Settimana"), ("it/#citta", "Città"),
                      ("it/aeroporti/", "Aeroporti"), ("it/guida/", "Guide")]
@@ -352,7 +353,7 @@ def costruisci(g):
 {testata}
 <main class="wrap" id="main">
 {bc}
-{corpo}
+{corpo}{g.riquadro_trasparenza(corpo, "it")}
 </main>
 <footer><div class="wrap">
 <div class="piede-top">
@@ -625,11 +626,14 @@ def costruisci(g):
 <button class="btn" type="submit">Invia</button><p class="errore" data-errore hidden>Invio non riuscito. Riprova.</p></form>
 <div class="ok" data-ok hidden><strong>Grazie.</strong> Ti risponderemo via email.</div></section>""", briciole=[("Contatti", "it/contatti/")], con_dati=False)
 
+    # Cookie, link di affiliazione e pubblicità: con AdSense acceso (monetizzazione.json) o con link di affiliazione, il testo
+    # comune di monetizzazione.py in italiano; altrimenti il testo di oggi, invariato.
+    cookie = g.MON.privacy_cookie("it", g.SITO_ID, g.ci_sono_affiliati()) or """<h2>Cookie e contatore visite</h2><p>Il sito non usa cookie di profilazione. Per contare le visite usiamo <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, un contatore rispettoso della privacy: non usa cookie e non salva nulla nel browser, non crea profili e non conserva l'indirizzo IP, la firma completa del browser né altri identificativi. Tiene solo numeri aggregati (pagina, ora o giorno, browser, Paese, larghezza dello schermo) su server nell'Unione europea e non cede nulla a terzi; vedi l'<a href="https://www.goatcounter.com/help/privacy" rel="noopener">informativa privacy di GoatCounter</a>. Se in futuro aggiungeremo pubblicità aggiorneremo questa informativa e chiederemo il consenso dove serve.</p>"""
     pagina("it/privacy.html", f"Privacy | {g.NOME}", f"Informativa privacy di {g.NOME}.", f"""<section class="hero"><h1>Informativa privacy</h1><p class="small">Ultimo aggiornamento: ottobre 2026</p></section><div class="testo">
 <h2>Chi tratta i dati</h2><p>Titolare del trattamento è Massimiliano Cori (Italia), che gestisce {g.NOME} come progetto indipendente. Puoi scriverci dalla <a href="contatti/">pagina contatti</a> o rispondendo a una nostra email.</p>
 <h2>Quali dati raccogliamo</h2><p>Solo quello che scrivi nei moduli: per gli avvisi, email, date del viaggio e luogo; per i contatti, email e messaggio. Registriamo anche la pagina o il link da cui arrivi, per capire quali canali funzionano.</p>
 <h2>Perché</h2><p>Per mandarti gli avvisi sugli scioperi nelle date del tuo viaggio e per rispondere ai tuoi messaggi. La base giuridica è il tuo consenso (art. 6.1.a GDPR), che puoi ritirare quando vuoi.</p>
 <h2>Chi li gestisce per noi</h2><p>Il sito e i moduli sono ospitati da Netlify, Inc., che conserva i dati dei moduli per nostro conto e può trattarli fuori dall'UE con le garanzie previste dal GDPR (clausole contrattuali standard). Non vendiamo né cediamo i tuoi dati.</p>
-<h2>Cookie e contatore visite</h2><p>Il sito non usa cookie di profilazione. Per contare le visite usiamo <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, un contatore rispettoso della privacy: non usa cookie e non salva nulla nel browser, non crea profili e non conserva l'indirizzo IP, la firma completa del browser né altri identificativi. Tiene solo numeri aggregati (pagina, ora o giorno, browser, Paese, larghezza dello schermo) su server nell'Unione europea e non cede nulla a terzi; vedi l'<a href="https://www.goatcounter.com/help/privacy" rel="noopener">informativa privacy di GoatCounter</a>. Se in futuro aggiungeremo pubblicità aggiorneremo questa informativa e chiederemo il consenso dove serve.</p>
+{cookie}
 <h2>Per quanto tempo</h2><p>I dati degli avvisi restano finché le date del viaggio sono passate e poi vengono cancellati entro 60 giorni, salvo tua richiesta di cancellarli prima.</p>
 <h2>I tuoi diritti</h2><p>Puoi chiedere accesso, rettifica, cancellazione, limitazione, portabilità e opposizione (artt. 15-22 GDPR) e fare reclamo al Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>).</p></div>""", con_dati=False)

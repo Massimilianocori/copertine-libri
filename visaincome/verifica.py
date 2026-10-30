@@ -26,6 +26,10 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     uguali ai dati; fonte con data sotto ogni tabella; riquadro "what this number is"; JSON-LD; nessun link interno rotto nella sezione.
 13. Sitemap: ogni URL ha un lastmod vero (data valida, non nel futuro, uguale al registro dati/lastmod.json), nessun URL doppio.
 Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
+Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
+ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
+domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
+solo se AdSense è acceso per questo sito in monetizzazione.json.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -681,8 +685,10 @@ def controlla_trasferimenti():
             errori.append(f"Trasferimenti: JSON-LD mancante in {rel}: {tipi}")
         if rel != "moved-to/" and "What this number is, and what it is not" not in corpo:
             errori.append(f"Trasferimenti: riquadro 'what this number is' mancante in {rel}")
-        if re.search(r'ekta|travelpayouts|tp\.media|safetywing|rel="[^"]*sponsored|>Affiliate<', corpo, re.I):
-            errori.append(f"Trasferimenti: link di affiliazione in {rel}")
+        # link di affiliazione (dal 30/10/2026): ammessi solo come nel controllo comune 14 (domini di monetizzazione.json,
+        # rel="sponsored noopener", riga di trasparenza); qui restano vietati EKTA e Travelpayouts, che non sono in elenco
+        if re.search(r'ekta|travelpayouts|tp\.media', corpo, re.I):
+            errori.append(f"Trasferimenti: link a una rete di affiliazione non ammessa in {rel}")
     def num(n):
         return f"{n:,}"
     # pagine nazionalità × Paese: numero principale, anno prima e serie per anno
@@ -817,7 +823,9 @@ def main():
     print(f"12. Who moved where: {n12} pagine ({c12} nazionalità × Paese attese con 500+), numeri, titoli, fonti, JSON-LD e link: {len(e12)} errori")
     e13, n13, d13 = controlla_lastmod()
     print(f"13. Sitemap: {n13} URL con lastmod ({d13} date diverse, uguali al registro dati/lastmod.json): {len(e13)} errori")
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13
+    e14, i14 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
+    print("14. " + G.MON.riepilogo(G.SITO_ID, i14, e14))
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14
     for e in tutti:
         print(" -", e)
     if tutti:

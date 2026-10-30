@@ -56,6 +56,27 @@ SCRIPT_CONTATORE = ('<script>window.goatcounter={path:function(p){return locatio
 # IndexNow (Bing, Yandex, Naver, Seznam): chiave pubblica uguale per tutti i siti della rete. Il generatore scrive
 # sito/<chiave>.txt (contenuto: la chiave) accanto a robots.txt; l'invio degli URL lo fa studio-business/strumenti/indexnow.py.
 CHIAVE_INDEXNOW = "b5a26a844a465f58552debee2c8a0114"
+# Monetizzazione (30/10/2026): codice editore AdSense, elenco dei siti con la pubblicità e domini di affiliazione ammessi stanno
+# in un solo file comune, studio-business/strumenti/monetizzazione.json (logica in monetizzazione.py). Con il codice vuoto o con
+# questo sito fuori elenco non cambia nulla: niente script nel <head>, niente ads.txt, privacy di oggi.
+sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
+import monetizzazione as MON  # noqa: E402
+SITO_ID = "italystrikes"  # nome del sito in monetizzazione.json ("adsense_siti")
+ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti a capo + script ufficiale, subito dopo il meta di verifica Google
+
+
+def ci_sono_affiliati():
+    """True se il sito pubblica almeno un link di affiliazione (voce con "url" in dati/affiliati.json):
+    accende la sezione privacy sui link di affiliazione. Domini ammessi in monetizzazione.json, controlli in verifica.py."""
+    return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_"))
+
+
+def riquadro_trasparenza(corpo, lingua="en"):
+    """Riga di trasparenza sui link di affiliazione in fondo al contenuto della pagina ("Some links are affiliate links: ..."):
+    vuota finché la pagina non ha link rel="sponsored" o se un riquadro di affiliazione la mostra già."""
+    return MON.riga_trasparenza(corpo, lingua)
+
+
 # Satelliti (calcolatore codice fiscale, guida multe ZTL): spenti finché Massimiliano non dice sì alla pubblicazione.
 # Per vederli in prova senza pubblicarli: ITALYSTRIKES_SATELLITI=1 python3 italystrikes/genera.py (in una copia).
 SATELLITI_ATTIVI = True  # sì di Massimiliano il 10/10/2026
@@ -1107,6 +1128,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
             verifica += (f'<link rel="alternate" hreflang="en" href="{url_pag}"><link rel="alternate" hreflang="it" href="{URL_SITO}/{alt_it}">'
                          f'<link rel="alternate" hreflang="x-default" href="{url_pag}">')
     verifica += f'<meta name="impact-site-verification" value="{IMPACT_VERIFICA}">' if IMPACT_VERIFICA else ""
+    verifica += ADSENSE_HEAD  # AdSense (monetizzazione.json): "" finché è spento
     robots = "" if indicizza else '<meta name="robots" content="noindex">'
     voci_menu = [("today/", "Today"), ("tomorrow/", "Tomorrow"), ("this-week/", "This week"), ("#cities", "Cities"),
                  ("airports/", "Airports"), ("guides/", "Guides")]
@@ -1145,7 +1167,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
 {testata}
 <main class="wrap" id="main">
 {bc}
-{corpo}
+{corpo}{riquadro_trasparenza(corpo)}
 </main>
 <footer><div class="wrap">
 <div class="piede-top">
@@ -1346,9 +1368,8 @@ def box_affiliati():
         f'{svg("arrow")}<span class="hp"> ({escape(v["nome"])}, opens in a new tab)</span></a></li>' for k, v in voci)
     lista = f'<ul>{righe}</ul>' if voci else ""
     tag = '<span class="aff-tag">Affiliate</span>' if voci else ""
-    nota = ('<p class="nota">' + ("This is an affiliate link: if you buy through it" if len(voci) == 1 else
-                                  "These are affiliate links: if you buy through them")
-            + ' we may earn a small commission, at no extra cost to you. It helps keep this site free.</p>') if voci else ""
+    # riga di trasparenza comune (monetizzazione.py): la stessa frase che verifica e monetizzazione.py cercano nella pagina
+    nota = f'<p class="nota">{MON.RIGA_EN} It helps keep this site free.</p>' if voci else ""
     return (f'<section class="aff" aria-labelledby="aff-h"><div class="aff-t"><h2 id="aff-h">Stuck by a strike?</h2>{tag}</div>'
             f'{guida}{lista}{nota}</section>')
 
@@ -2245,12 +2266,15 @@ def contatti():
 
 
 def privacy():
+    # Cookie, link di affiliazione e pubblicità: con AdSense acceso (monetizzazione.json) o con link di affiliazione, il testo
+    # comune di monetizzazione.py (GoatCounter senza cookie, pubblicità con il consenso di Google); altrimenti il testo di oggi.
+    cookie = MON.privacy_cookie("en", SITO_ID, ci_sono_affiliati()) or """<h2>Cookies and visit counter</h2><p>This site does not use profiling cookies. To count visits we use <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, a privacy-friendly counter: it sets no cookies and stores nothing in your browser, builds no profiles and does not store your IP address, your full browser signature or any identifier. It keeps only aggregate numbers (page, hour or day, browser, country, screen width) on servers in the European Union and shares nothing with third parties; see <a href="https://www.goatcounter.com/help/privacy" rel="noopener">GoatCounter's privacy policy</a>. If we add advertising in the future, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>"""
     corpo = f"""<section class="hero"><h1>Privacy notice</h1><p class="small">Last updated: October 2026</p></section><div class="testo">
 <h2>Who is responsible</h2><p>The data controller is Massimiliano Cori (Italy), who runs {NOME} as an independent project. You can contact us through the <a href="contact/">contact form</a> or by replying to any email we send.</p>
 <h2>What we collect</h2><p>Only what you type in our forms: for strike alerts, your email, travel dates and place; for the contact form, your email and message; for the business request form, your work email, company and request. We also record the page or link you came from, to understand which channels work.</p>
 <h2>Why</h2><p>To send you strike alerts for your travel dates, and to answer your messages. The legal basis is your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time.</p>
 <h2>Who processes data for us</h2><p>The site and its forms are hosted by Netlify, Inc., which stores form data on our behalf and may process it outside the EU with the safeguards required by the GDPR (standard contractual clauses). We do not sell or share your data.</p>
-<h2>Cookies and visit counter</h2><p>This site does not use profiling cookies. To count visits we use <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, a privacy-friendly counter: it sets no cookies and stores nothing in your browser, builds no profiles and does not store your IP address, your full browser signature or any identifier. It keeps only aggregate numbers (page, hour or day, browser, country, screen width) on servers in the European Union and shares nothing with third parties; see <a href="https://www.goatcounter.com/help/privacy" rel="noopener">GoatCounter's privacy policy</a>. If we add advertising in the future, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>
+{cookie}
 <h2>How long</h2><p>Alert data is kept until your travel dates have passed, and then deleted within 60 days, unless you ask us to delete it earlier. Contact and business requests are kept for up to 12 months after our last exchange.</p>
 <h2>Your rights</h2><p>You can ask for access, correction, deletion, restriction, portability and objection (Articles 15–22 GDPR) and you can complain to the Italian data protection authority (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>) or the authority in your country.</p></div>"""
     pagina("privacy.html", f"Privacy | {NOME}", f"Privacy notice of {NOME}.", corpo)
@@ -2259,6 +2283,7 @@ def privacy():
 def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
+    MON.scrivi_ads_txt(SITO_ID, SITO)  # sito/ads.txt solo con AdSense acceso (monetizzazione.json)
     voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{OGGI.isoformat()}</lastmod></url>" for u in URLS)
     (SITO / "sitemap.xml").write_text(
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{voci}</urlset>\n')

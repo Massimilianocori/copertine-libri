@@ -21,6 +21,7 @@ import hashlib
 import json
 import re
 import shutil
+import sys
 from datetime import date
 from html import escape
 from pathlib import Path
@@ -42,6 +43,27 @@ SCRIPT_CONTATORE = ('<script>window.goatcounter={path:function(p){return locatio
 # IndexNow (Bing, Yandex, Naver, Seznam): chiave pubblica uguale per tutti i siti della rete. Il generatore scrive
 # sito/<chiave>.txt (contenuto: la chiave) accanto a robots.txt; l'invio degli URL lo fa studio-business/strumenti/indexnow.py.
 CHIAVE_INDEXNOW = "b5a26a844a465f58552debee2c8a0114"
+# Monetizzazione (30/10/2026): codice editore AdSense, elenco dei siti con la pubblicità e domini di affiliazione ammessi stanno
+# in un solo file comune, studio-business/strumenti/monetizzazione.json (logica in monetizzazione.py). Con il codice vuoto o con
+# questo sito fuori elenco non cambia nulla: niente script nel <head>, niente ads.txt, privacy di oggi.
+sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
+import monetizzazione as MON  # noqa: E402
+SITO_ID = "floodcost"  # nome del sito in monetizzazione.json ("adsense_siti")
+ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti a capo + script ufficiale, subito dopo il meta di verifica Google
+
+
+def ci_sono_affiliati():
+    """True se il sito pubblica almeno un link di affiliazione (voce con "url" in dati/affiliati.json):
+    accende la sezione privacy sui link di affiliazione. Domini ammessi in monetizzazione.json, controlli in verifica.py."""
+    return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_"))
+
+
+def riquadro_trasparenza(corpo, lingua="en"):
+    """Riga di trasparenza sui link di affiliazione in fondo al contenuto della pagina ("Some links are affiliate links: ..."):
+    vuota finché la pagina non ha link rel="sponsored" o se un riquadro di affiliazione la mostra già."""
+    return MON.riga_trasparenza(corpo, lingua)
+
+
 NOME = "FloodCost"
 API = "https://www.fema.gov/api/open"
 
@@ -563,7 +585,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="google-site-verification" content="{GOOGLE_VERIFICA}">
+<meta name="google-site-verification" content="{GOOGLE_VERIFICA}">{ADSENSE_HEAD}
 <title>{h(titolo)}</title>
 <meta name="description" content="{h(descrizione)}">
 {f'<link rel="canonical" href="{url_pag}">' if indicizza else '<meta name="robots" content="noindex">'}
@@ -596,7 +618,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <main id="main">
 {testata}
 <div class="wrap">
-{corpo}
+{corpo}{riquadro_trasparenza(corpo)}
 </div>
 </main>
 <footer><div class="wrap">
@@ -792,7 +814,7 @@ def box_quote():
         return ""
     v = voci[0]
     return (f'<aside class="quote-box" aria-label="Get a quote"><div><p><strong>{h(v["titolo"])}</strong></p><p class="small">{h(v["testo"])} '
-            f'Sponsored link: we may earn a commission, at no extra cost to you.</p></div>'
+            f'Sponsored link. {MON.RIGA_EN}</p></div>'
             f'<a class="btn" href="{h(v["url"])}" rel="sponsored noopener" target="_blank">{h(v.get("bottone", "Get a quote"))}{ico("arrow")}</a></aside>')
 
 
@@ -1210,15 +1232,18 @@ def contatti():
 
 
 def privacy():
+    # Cookie, link di affiliazione e pubblicità: con AdSense acceso (monetizzazione.json) o con link di affiliazione, il testo
+    # comune di monetizzazione.py (GoatCounter senza cookie, pubblicità con il consenso di Google); altrimenti il testo di oggi.
+    cookie = MON.privacy_cookie("en", SITO_ID, ci_sono_affiliati()) or """<h2>Cookies and visit counter</h2><p>This site does not use profiling cookies. To count visits we use <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, a privacy-friendly counter: it sets no cookies and stores nothing in your browser, builds no profiles and does not store your IP address, your full browser signature or any identifier. It keeps only aggregate numbers (page, hour or day, browser, country, screen width) on servers in the European Union and shares nothing with third parties; see <a href="https://www.goatcounter.com/help/privacy" rel="noopener">GoatCounter's privacy policy</a>. If we add advertising or affiliate links, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>"""
     corpo = f"""<div class="testo"><p class="small">Last updated: {MESI[OGGI.month - 1]} {OGGI.year}</p>
 <h2>Who is responsible</h2><p>The data controller is Massimiliano Cori (Italy), who runs {NOME} as an independent project. Contact: the <a href="{{rel}}contact/">contact form</a>.</p>
 <h2>What we collect</h2><p>Only what you type in the contact form: your email, the page or place and your message, plus the page you came from. The search box runs in your browser: what you type is not sent to us. If you switch the light or dark theme, your choice is stored in your browser only.</p>
 <h2>The data on this site</h2><p>The figures come from FEMA's public OpenFEMA data, which FEMA publishes without names or addresses. We publish only totals and medians of at least {MIN} policies or claims.</p>
 <h2>Why</h2><p>To answer your messages and correct the site. The legal basis is your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time.</p>
 <h2>Who processes data for us</h2><p>The site and its form are hosted by Netlify, Inc., which stores form data on our behalf and may process it outside the EU with the safeguards required by the GDPR (standard contractual clauses). Netlify keeps technical server logs (such as IP addresses) for security. We do not sell or share your data.</p>
-<h2>Cookies and visit counter</h2><p>This site does not use profiling cookies. To count visits we use <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, a privacy-friendly counter: it sets no cookies and stores nothing in your browser, builds no profiles and does not store your IP address, your full browser signature or any identifier. It keeps only aggregate numbers (page, hour or day, browser, country, screen width) on servers in the European Union and shares nothing with third parties; see <a href="https://www.goatcounter.com/help/privacy" rel="noopener">GoatCounter's privacy policy</a>. If we add advertising or affiliate links, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>
+{cookie}
 <h2>How long</h2><p>Messages are kept for up to 12 months after our last exchange.</p>
-<h2>Your rights</h2><p>You can ask for access, correction, deletion, restriction, portability and objection (Articles 15–22 GDPR) and you can complain to the Italian data protection authority (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>) or the authority where you live. California residents: we do not sell or share personal information.</p></div>"""
+<h2>Your rights</h2><p>You can ask for access, correction, deletion, restriction, portability and objection (Articles 15–22 GDPR) and you can complain to the Italian data protection authority (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>) or the authority where you live. {MON.frase_california(SITO_ID) or 'California residents: we do not sell or share personal information.'}</p></div>"""
     testata = banda("Privacy", "Privacy notice", "What we collect (very little) and why.")
     pagina("privacy.html", f"Privacy | {NOME}", f"Privacy notice of {NOME}.", corpo, testata=testata)
 
@@ -1249,6 +1274,7 @@ def indice_ricerca():
 def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
+    MON.scrivi_ads_txt(SITO_ID, SITO)  # sito/ads.txt solo con AdSense acceso (monetizzazione.json)
     voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{FONTI['generato_il']}</lastmod></url>" for u in URLS)
     (SITO / "sitemap.xml").write_text(
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{voci}</urlset>\n')

@@ -16,6 +16,10 @@ Uso (dalla radice del repository, dopo python3 aste/genera.py):
 9. Il riquadro mutuo non compare finché dati/affiliati.json non ha l'URL.
 10. Nessun nome di modelli o servizi di intelligenza artificiale nei file del progetto (cache esclusa).
 11. live.json: formato giusto e contiene ogni lotto pubblicato.
+Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
+ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
+domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
+solo se AdSense è acceso per questo sito in monetizzazione.json.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -225,6 +229,15 @@ def controlla_indexnow():
     print(f"File chiave IndexNow {f.name}: {'presente' if f.exists() else 'MANCANTE'}.")
 
 
+def controlla_monetizzazione():
+    """Controllo comune di monetizzazione (studio-business/strumenti/monetizzazione.py): link di affiliazione solo verso i domini
+    ammessi di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza; AdSense, ads.txt e privacy coerenti."""
+    errori, info = G.MON.controlla_sito(G.SITO_ID, SITO)
+    for e in errori:
+        errore(e)
+    print(G.MON.riepilogo(G.SITO_ID, info, errori) + ".")
+
+
 def main():
     pagine, canon, n_link = controlla_pagine()
     urls = controlla_sitemap(canon)
@@ -232,6 +245,7 @@ def main():
     controlla_parole_ai()
     print(f"Pagine HTML: {len(pagine)}; link interni controllati: {n_link}; URL in sitemap: {len(urls)}.")
     controlla_indexnow()
+    controlla_monetizzazione()
     if "--browser" in sys.argv:
         r = subprocess.run(["node", str(RADICE / "verifica_browser.js")])
         if r.returncode:

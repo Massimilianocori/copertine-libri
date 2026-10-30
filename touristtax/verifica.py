@@ -13,6 +13,10 @@ Uso (dalla radice del repository, dopo python3 touristtax/genera.py):
 6. Pagina tourist-tax-changes-2027/ (fonti, date, coerenza con i dati, link, sitemap, FAQPage).
 7. Destinazioni aggiunte il 26/10/2026 (fonti 200, pagina, sitemap, pagina paese, tabella Europa).
 8. Titoli, descrizioni e risposte dirette delle pagine di destinazione.
+Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
+ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
+domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
+solo se AdSense è acceso per questo sito in monetizzazione.json.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -372,7 +376,9 @@ def main():
     print(f"Destinazioni nuove ({', '.join(NUOVE_DEST)}): {len(en)} errori")
     et = controlla_titoli()
     print(f"Titoli, descrizioni e risposte dirette di {len(G.DEST)} destinazioni: {len(et)} errori")
-    tutti = errori + ej + el + ef + ea + ei + e7 + en + et
+    em, im = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
+    print(G.MON.riepilogo(G.SITO_ID, im, em))
+    tutti = errori + ej + el + ef + ea + ei + e7 + en + et + em
     for e in tutti[:40]:
         print("  -", e)
     if tutti:

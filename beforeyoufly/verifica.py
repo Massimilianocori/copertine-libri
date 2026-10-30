@@ -34,7 +34,7 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     "ordinato" di genera.entra_borsa uguale a un controllo indipendente sulle 6 rotazioni (4.000 casi casuali) e il motore JS uguale al
     Python (3.000 casi); le pagine per misura elencano esattamente le compagnie calcolate dai dati; indice con ricerca e compagnie escluse con
     il motivo; pagina UE con tutte le citazioni, le fonti ufficiali UE, le tappe dell'iter e la data; collegamenti da home e liquidi;
-    nessun link affiliato attivo (affiliati.json senza URL, nessun rel="sponsored"). Nel browser (punto 7): 5 pagine nuove a 375 px e
+    link affiliati solo verso i domini ammessi di monetizzazione.json (dal 30/10/2026; prima nessun link affiliato). Nel browser (punto 7): 5 pagine nuove a 375 px e
     10 casi dello strumento "Does my bag fit?" (borsa ruotata, misure uguali, decimali con punto e virgola, pollici, valore non valido),
     confrontati compagnia per compagnia con il Python; menu e home senza scorrimento orizzontale a 820 px.
 13. Documenti per chi ha la cittadinanza italiana (dati/documenti_it.json, fonte Viaggiare Sicuri): la cache delle schede (raccolta/.cache/it/,
@@ -69,8 +69,12 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     (e con una risposta della fonte), con prima frase = modello fisso (risposta, frase dell'ente, fonte, data), frasi ufficiali, link alla fonte,
     "not legal advice", frase su dove si ottiene il permesso, link alle pagine passaporto dello stesso Paese, FAQ (JSON-LD = testo visibile =
     prima frase), titolo <= 70 con "IDP" e l'anno, sitemap con lastmod = data della lettura; tabelle per patente uguali ai dati; nessun link
-    affiliato o di noleggio (NOLEGGIO_AUTO vuoto), nessun nome di assistente; link da home, About, pagine passaporto e "Available in?".
+    di noleggio o rete non ammessa (NOLEGGIO_AUTO solo con link di affiliazione validi), nessun nome di assistente; link da home, About, pagine passaporto e "Available in?".
     Nel browser (punto 7) 5 pagine nuove a 375 px in tema chiaro e scuro e 2 a 820 px.
+Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
+ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
+domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
+solo se AdSense è acceso per questo sito in monetizzazione.json.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -875,16 +879,13 @@ def controlla_bagagli():
     from html import unescape
     errori, conti = [], {"compagnie": len(G.COMPAGNIE), "misure": 0, "citazioni": 0, "faq": 0}
     oggi = G.OGGI.isoformat()
-    # nessun link affiliato attivo (decisione del 17/10/2026: siti solo informativi)
+    # link di affiliazione: dal 30/10/2026 (monetizzazione sbloccata) sono ammessi, ma solo verso i domini di monetizzazione.json;
+    # rel="sponsored noopener" e riga di trasparenza in ogni pagina li controlla il controllo comune (monetizzazione.py, punto 19)
     for k, v in G.AFFILIATI.items():
-        if isinstance(v, dict) and v.get("url"):
-            errori.append(f"affiliati.json: la voce '{k}' ha un URL (link affiliato attivo: decisione del 17/10 ancora valida?)")
+        if isinstance(v, dict) and v.get("url") and not G.MON.dominio_ammesso(v["url"]):
+            errori.append(f"affiliati.json: la voce '{k}' punta a un dominio non ammesso in monetizzazione.json")
     if "bagagli" not in G.AFFILIATI:
-        errori.append("affiliati.json: manca la voce vuota 'bagagli'")
-    for f in SITO.rglob("*.html"):
-        t = f.read_text(encoding="utf-8")
-        if 'rel="sponsored' in t:
-            errori.append(f"link affiliato attivo in {f.relative_to(SITO)}")
+        errori.append("affiliati.json: manca la voce 'bagagli'")
     for C in G.COMPAGNIE:
         rel = f"{G.BAG_BASE}/{C['slug']}/index.html"
         if not (SITO / rel).exists():
@@ -1730,9 +1731,11 @@ _spec_pat = importlib.util.spec_from_file_location("raccolta_patenti", Path(__fi
 RPAT = importlib.util.module_from_spec(_spec_pat)
 _spec_pat.loader.exec_module(RPAT)
 FONTI_UFFICIALI_PAT = re.compile(r"^https://(?:www\.gov\.uk/|travel\.gc\.ca/|data\.international\.gc\.ca/|www\.smartraveller\.gov\.au/)")
-# link affiliati e reti di affiliazione: mai nelle pagine di questa sezione (il riquadro "Hire a car" resta spento finché Massimiliano non decide)
-AFFILIATI_PAT = re.compile(r'rel="[^"]*sponsored|discovercars|rentalcars|economybookings|localrent|qeeq|travelpayouts|tp\.media|awin1?\.|tradedoubler|'
-                           r'impact\.com|partnerize|cj\.com|anrdoezrs|dpbolvw|kayak\.|skyscanner|booking\.com|expedia', re.I)
+# noleggi e reti non ammessi: mai nelle pagine di questa sezione. Dal 30/10/2026 i link di affiliazione verso i domini di
+# monetizzazione.json (per esempio DiscoverCars, Awin, Tradedoubler, CJ) sono ammessi con rel="sponsored noopener" e la riga di
+# trasparenza: li controlla il controllo comune (punto 19), qui restano vietati gli altri nomi.
+AFFILIATI_PAT = re.compile(r'rentalcars|economybookings|localrent|qeeq|travelpayouts|tp\.media|'
+                           r'impact\.com|partnerize|cj\.com|kayak\.|skyscanner|booking\.com|expedia', re.I)
 # controlli indipendenti dal classificatore: cosa devono contenere le frasi che decidono ogni esito
 IND_PAT = {
     "si": re.compile(r"international driv\w* (?:permit|licen)|\bIDPs?\b|international driver", re.I),
@@ -1909,8 +1912,10 @@ def controlla_patenti():
             if escape(D["frasi_generali"][k_dove]) not in t:
                 errori.append(f"{rel}: manca la frase ufficiale su dove si ottiene il permesso")
     # d) tutta la sezione: niente assistenti AI, niente affiliati, segnaposto spento, collegamenti in entrata
-    if G.NOLEGGIO_AUTO:
-        errori.append("NOLEGGIO_AUTO non vuoto: riquadro noleggio acceso senza approvazione")
+    if G.NOLEGGIO_AUTO:  # riquadro "Hire a car": dal 30/10/2026 solo con link di affiliazione ammessi e riga di trasparenza
+        if not G.MON.link_affiliati(G.NOLEGGIO_AUTO):
+            errori.append("NOLEGGIO_AUTO non vuoto ma senza link di affiliazione: il riquadro 'Hire a car' serve solo per il noleggio affiliato")
+        errori += [f"NOLEGGIO_AUTO: {e}" for e in G.MON.controlla_link_pagina(G.NOLEGGIO_AUTO, "NOLEGGIO_AUTO", "en")[0]]
     for q in (SITO / G.PAT_BASE).rglob("*.html"):
         t = q.read_text(encoding="utf-8")
         m = VIETATE_SRV.search(unescape(re.sub(r"<[^>]+>", " ", t))) or AFFILIATI_PAT.search(t)
@@ -1985,7 +1990,7 @@ def main():
     e12, cb = controlla_bagagli()
     e12 += controlla_js_borsa()
     print(f"12. Bagaglio a mano: {cb['compagnie']} compagnie, {cb['misure']} misure, {cb['citazioni']} citazioni, {cb['faq']} risposte FAQ, "
-          f"{len(G.MISURE_COMUNI)} pagine per misura, motore JS e rotazioni, pagina UE, affiliati spenti: {len(e12)} errori")
+          f"{len(G.MISURE_COMUNI)} pagine per misura, motore JS e rotazioni, pagina UE, affiliati solo ammessi: {len(e12)} errori")
     e13, ci = controlla_italiani()
     print(f"13. Documenti per italiani: {ci['pagine']} pagine Paese ({ci['senza']} schede senza pagina); riassunti: documento {ci['doc']}, validità {ci['val']}, "
           f"visto {ci['vis']} ({ci['manuali']} fatti scritti a mano); {ci['citazioni']} citazioni controllate sul campo della scheda; {ci['faq']} risposte FAQ; "
@@ -2004,8 +2009,10 @@ def main():
     e18, c18 = controlla_patenti()
     print(f"18. Driving abroad: {c18['paesi']} Paesi, {c18['voci']} voci Paese × patente ({c18['manuali']} fatti scritti a mano), ricalcolo dai grezzi: {c18['cache']}; "
           f"{c18['righe']} righe delle tabelle per patente uguali ai dati; {c18['pagine']} pagine Paese × patente (solo coppie cercate), {c18['citazioni']} frasi ufficiali "
-          f"nelle pagine, {c18['faq']} risposte FAQ; titoli <= {G.LIMITE_TITOLO_PAT}, sitemap con lastmod della lettura, nessun link affiliato né nome di assistente: {len(e18)} errori")
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18
+          f"nelle pagine, {c18['faq']} risposte FAQ; titoli <= {G.LIMITE_TITOLO_PAT}, sitemap con lastmod della lettura, nessun noleggio non ammesso né nome di assistente: {len(e18)} errori")
+    e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
+    print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19
     for e in tutti:
         print(" -", e)
     if tutti:

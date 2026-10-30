@@ -13,6 +13,10 @@ Uso (dalla radice del repository, dopo python3 floodcost/genera.py):
 6. Il riquadro affiliati non compare finché dati/affiliati.json non ha URL.
 7. Nessun nome di modelli o servizi di intelligenza artificiale nei file del progetto (cache esclusa).
 8. Se la cache esiste: la mediana nazionale e i conteggi ricalcolati dai dati grezzi coincidono con nazionale.json.
+Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
+ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
+domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
+solo se AdSense è acceso per questo sito in monetizzazione.json.
 Esce con codice 1 se qualcosa non va.
 """
 import json
@@ -256,12 +260,22 @@ def controlla_indexnow():
     print(f"File chiave IndexNow {f.name}: {'presente' if f.exists() else 'MANCANTE'}.")
 
 
+def controlla_monetizzazione():
+    """Controllo comune di monetizzazione (studio-business/strumenti/monetizzazione.py): link di affiliazione solo verso i domini
+    ammessi di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza; AdSense, ads.txt e privacy coerenti."""
+    errori, info = G.MON.controlla_sito(G.SITO_ID, SITO)
+    for e in errori:
+        errore(e)
+    print(G.MON.riepilogo(G.SITO_ID, info, errori) + ".")
+
+
 def main():
     controlla_pagine()
     controlla_dati()
     controlla_parole()
     controlla_cache()
     controlla_indexnow()
+    controlla_monetizzazione()
     if "--browser" in sys.argv:
         browser()
     if ERR:

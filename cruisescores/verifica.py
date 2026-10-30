@@ -14,10 +14,15 @@ Uso (dalla radice del repository, dopo python3 cruisescores/genera.py):
    hanno anche la data dell'ispezione.
 6. Dati: 100 - punti tolti = voto in ogni rapporto; storia ordinata; Green Sheet = ultima ispezione; nessun nome di persona
    (titolo + nome proprio) nel testo pubblicato.
-7. Affiliati: rel="sponsored" solo con URL in dati/affiliati.json; il link SafetyWing è quello concordato.
+7. Affiliati: rel="sponsored" solo con URL in dati/affiliati.json; il link SafetyWing è quello concordato; le altre voci con URL
+   solo verso i domini ammessi di monetizzazione.json (dal 30/10/2026).
 8. Parole vietate (nomi di modelli di intelligenza artificiale, testo segnaposto: elenco al contrario in _AL_CONTRARIO) in tutti i file del progetto (cache esclusa).
 9. Peso totale del sito (stampato; errore oltre 60 MB).
 10. Confronto con la fonte: 15 navi a caso riscaricate dal CDC (storia completa, ultimo voto, punti del rapporto più recente).
+Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
+ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
+domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
+solo se AdSense è acceso per questo sito in monetizzazione.json.
 Esce con codice 1 se qualcosa non va.
 """
 import http.server
@@ -255,9 +260,10 @@ def controlla_dati():
         errore("affiliati.json: il link SafetyWing non è quello concordato")
     if not sw and sw_sospeso != SW:
         errore("affiliati.json: link SafetyWing né attivo né sospeso con l'URL concordato")
+    # dal 30/10/2026 gli altri riquadri (es. crociere, escursioni) si possono accendere, ma solo verso i domini di monetizzazione.json
     for k, v in G.AFFILIATI.items():
-        if k != "assicurazione" and v.get("url"):
-            errore(f"affiliati.json: '{k}' ha un URL: controllare che sia un'affiliazione vera")
+        if k != "assicurazione" and v.get("url") and not G.MON.dominio_ammesso(v["url"]):
+            errore(f"affiliati.json: '{k}' punta a un dominio non ammesso in monetizzazione.json")
 
 
 # Parole vietate scritte al contrario, così questo file non le contiene in chiaro.
@@ -361,6 +367,15 @@ def controlla_indexnow():
     print(f"File chiave IndexNow {f.name}: {'presente' if f.exists() else 'MANCANTE'}.")
 
 
+def controlla_monetizzazione():
+    """Controllo comune di monetizzazione (studio-business/strumenti/monetizzazione.py): link di affiliazione solo verso i domini
+    ammessi di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza; AdSense, ads.txt e privacy coerenti."""
+    errori, info = G.MON.controlla_sito(G.SITO_ID, SITO)
+    for e in errori:
+        errore(e)
+    print(G.MON.riepilogo(G.SITO_ID, info, errori) + ".")
+
+
 def main():
     pagine = controlla_pagine()
     controlla_server(pagine)
@@ -370,6 +385,7 @@ def main():
     if "--senza-rete" not in sys.argv:
         controlla_fonte()
     controlla_indexnow()
+    controlla_monetizzazione()
     if "--browser" in sys.argv:
         browser()
     if ERR:
