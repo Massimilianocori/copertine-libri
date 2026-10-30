@@ -502,3 +502,9 @@ Temi nuovi apposta, scelti per il momento dell'acquisto con un'affiliazione nomi
 | Goethe A1/B1 per il visto nei Paesi di partenza | NO dal server (5): `goethe.de` 403 | ricerca-cloni-esameb1-2026-10-30 |
 | N-400 per ufficio USCIS (riletta) | NO confermato (4): `egov.uscis.gov` 403, novo-legal con le pagine per ufficio | ricerca-cloni-esameb1-2026-10-30 |
 | Patente in Giappone, KIIP, golden chance negli Emirati, zkouška A2 in Cechia | NO (2-4) | ricerca-cloni-esameb1-2026-10-30 |
+
+## Ricerca zona Canada, Australia, Nuova Zelanda (30/10/2026)
+
+| Nicchia | Verdetto | Rapporto |
+|---|---|---|
+
