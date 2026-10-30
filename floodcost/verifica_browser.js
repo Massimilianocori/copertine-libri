@@ -5,6 +5,9 @@ const { chromium } = require('/opt/node-tools/node_modules/playwright');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+// Pubblicità Google AdSense (accesa dal 30/10/2026): le richieste ai server degli annunci ricevono una risposta vuota,
+// così la prova non dipende da annunci esterni e da beacon interrotti; lo script e il suo indirizzo li controlla monetizzazione.py.
+const PUBBLICITA = /^https:\/\/([\w-]+\.)*(googlesyndication\.com|doubleclick\.net|googleadservices\.com|adtrafficquality\.google|fundingchoicesmessages\.google\.com)\//;
 
 const SITO = path.join(__dirname, 'sito');
 const SHOT = path.join(__dirname, 'cache', 'screenshot');
@@ -51,12 +54,13 @@ function campione() {
   for (const [w, hgt] of [[390, 844], [1280, 900]]) {
     for (const tema of ['light', 'dark']) {
       const ctx = await browser.newContext({ viewport: { width: w, height: hgt }, colorScheme: tema, deviceScaleFactor: 1 });
+      await ctx.route(PUBBLICITA, r => r.fulfill({ status: 200, contentType: 'text/javascript', body: '' }));
       for (const p of pagine) {
         const page = await ctx.newPage();
         const errori = [];
         page.on('pageerror', e => errori.push('JS: ' + e.message));
         page.on('console', m => { if (m.type() === 'error' && !(p === '/does-not-exist/' && /404/.test(m.text()))) errori.push('console: ' + m.text()); });
-        page.on('requestfailed', r => errori.push('richiesta fallita: ' + r.url()));
+        page.on('requestfailed', r => { if (!PUBBLICITA.test(r.url())) errori.push('richiesta fallita: ' + r.url()); });
         page.on('response', r => { if (r.status() >= 400 && !(p === '/does-not-exist/' && r.url().endsWith(p))) errori.push(r.status() + ' ' + r.url()); });
         await page.goto(base + p, { waitUntil: 'networkidle' });
         await page.evaluate(() => document.fonts.ready);

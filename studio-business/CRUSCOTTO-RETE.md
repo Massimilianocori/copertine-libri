@@ -125,7 +125,7 @@ A 12 mesi: realistico 1.000-4.000 €. Cifre lorde, prima di tasse e contributi.
 
 | Programma | Stato | Data | Prossimo passo |
 |---|---|---|---|
-| SafetyWing Ambassador | Account attivo; link tolti dai siti il 17/10 | 10/10/2026 | Rimettere i link dopo il passaggio al CAF (sì alla monetizzazione del 28/10) |
+| SafetyWing Ambassador | **Link di nuovo attivi** (sospesi dal 17 al 30/10): Italy Strikes 44 pagine, Visa Income 148, Cruise Health Scores 258 | 30/10/2026 | Escono con la prossima pubblicazione di ogni sito; guardare i clic per campagna nel pannello Ambassador |
 | Airalo (Impact) | **Respinto** ("non è il momento giusto", porta aperta) | 12/10/2026 | Ripresentare la domanda quando un sito supera 1.000 visite al mese, con i numeri |
 | Travelpayouts (Omio, Welcome Pickups, EKTA) | Account approvato, sito da verificare | 10/10/2026 | In pausa: la verifica chiede uno script con cookie di tracciamento, non compatibile con la privacy attuale senza banner dei cookie. Dal 17/10: chiedere al supporto la verifica con meta tag (testo pronto in `affiliazioni-2026-10-17.md` sez. 3) |
 | italki (diretto) | Da chiedere (n. 1) | 17/10/2026 | EsameB1. Commissione nel pannello dopo l'approvazione; dollari via PayPal. Scheda 1 di `affiliazioni-2026-10-17.md` |

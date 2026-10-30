@@ -1199,7 +1199,7 @@ def home():
                     f"Search HUD's list of <strong>{intero(len(A))} FHA-approved condo projects</strong> by name, city or ZIP code, and browse every state, county and city. "
                     f"Each listing shows when the approval expires.",
                     f'<ul class="trust"><li>{ico("db")}Copied from HUD\'s official lookup</li><li>{ico("calendar")}HUD data as of {data_lunga(ASOF)}</li>'
-                    f'<li>{ico("shield")}Free, no sign-up, no tracking</li></ul>')
+                    f'<li>{ico("shield")}Free, no sign-up{"" if MON.adsense_attivo(SITO_ID) else ", no tracking"}</li></ul>')  # con AdSense acceso «no tracking» non è più vero
     corpo = f"""<div class="pull">{blocco_cerca()}</div>
 <section class="card stats" style="margin-top:22px" aria-label="Key figures, United States">
 <div class="stat main"><b>{intero(len(A))}</b><span>FHA-approved condo projects in {n_stati} states and territories</span></div>

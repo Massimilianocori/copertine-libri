@@ -19,10 +19,10 @@
     "testo": "Independent lawyers can review your documents before you apply."
   },
   "_safetywing_schengen": {
-    "url": "",
+    "url": "https://safetywing.com/nomad-insurance?referenceID=26614957&campaign=visa-refusal-rates&utm_campaign=visa-refusal-rates&utm_source=26614957&utm_medium=Ambassador",
     "nome": "SafetyWing",
     "nota": "Usato SOLO nella sezione Visa refusal rates (box_assicurazione in genera.py), non nel riquadro generico. Stesso referenceID del link attivo di Italy Strikes, campagna visa-refusal-rates per distinguere i clic (15/10/2026).",
-    "url_sospeso": "https://safetywing.com/nomad-insurance?referenceID=26614957&campaign=visa-refusal-rates&utm_campaign=visa-refusal-rates&utm_source=26614957&utm_medium=Ambassador",
-    "nota_sospensione": "Sospeso il 17/10/2026 (decisione: siti solo informativi finché Massimiliano non aggiunge il codice ATECO 58.19.00 e parte con le affiliazioni). Per riattivare: copiare url_sospeso in url e rigenerare."
+    "attivo_dal": "2026-10-30",
+    "nota_riattivazione": "Sospeso dal 17/10 al 30/10/2026 (siti solo informativi in attesa del codice ATECO 58.19.00); riattivato il 30/10/2026 dopo il sì alla monetizzazione del 28/10 e il codice ATECO aggiunto dal CAF. Per spegnerlo: url vuoto e rigenerare."
   }
 }

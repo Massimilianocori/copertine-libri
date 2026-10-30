@@ -1481,7 +1481,16 @@ def contatti():
 def privacy():
     # Cookie, link di affiliazione e pubblicità: con AdSense acceso (monetizzazione.json) o con link di affiliazione, il testo
     # comune di monetizzazione.py (GoatCounter senza cookie, pubblicità con il consenso di Google); altrimenti il testo di oggi.
-    cookie = MON.privacy_cookie("en", SITO_ID, ci_sono_affiliati()) or """<h2>Cookies, visit counter and affiliate links</h2><p>This site does not use profiling cookies. To count visits we use <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, a privacy-friendly counter: it sets no cookies and stores nothing in your browser, builds no profiles and does not store your IP address, your full browser signature or any identifier. It keeps only aggregate numbers (page, hour or day, browser, country, screen width) on servers in the European Union and shares nothing with third parties; see <a href="https://www.goatcounter.com/help/privacy" rel="noopener">GoatCounter's privacy policy</a>. Some pages contain an affiliate link to SafetyWing (marked "Affiliate"): our site sets no cookie for it, but if you click it you go to SafetyWing's website, which uses its own cookies under its own privacy policy and tells SafetyWing that you came from us. If we add advertising in the future, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>"""
+    # Frase su SafetyWing del testo senza pubblicità: solo se il link SafetyWing è attivo (dal 17 al 30/10/2026 era sospeso e la
+    # frase non era vera). Con AdSense acceso o link attivi vale comunque il testo comune di monetizzazione.py.
+    FRASE_SW = (' Some pages contain an affiliate link to SafetyWing (marked "Affiliate"): our site sets no cookie for it, but if you click it '
+                "you go to SafetyWing's website, which uses its own cookies under its own privacy policy and tells SafetyWing that you came from us."
+                if URL_SAFETYWING else "")
+    cookie = MON.privacy_cookie("en", SITO_ID, ci_sono_affiliati())
+    if cookie and URL_SAFETYWING:
+        cookie += ("\n<p>Affiliate links to SafetyWing (travel medical insurance) appear in the box marked “Affiliate” on the visa refusal "
+                   "rate pages. Buying a policy does not change the decision on your visa.</p>")
+    cookie = cookie or f"""<h2>Cookies, visit counter{' and affiliate links' if URL_SAFETYWING else ''}</h2><p>This site does not use profiling cookies. To count visits we use <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, a privacy-friendly counter: it sets no cookies and stores nothing in your browser, builds no profiles and does not store your IP address, your full browser signature or any identifier. It keeps only aggregate numbers (page, hour or day, browser, country, screen width) on servers in the European Union and shares nothing with third parties; see <a href="https://www.goatcounter.com/help/privacy" rel="noopener">GoatCounter's privacy policy</a>.{FRASE_SW} If we add advertising in the future, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>"""
     corpo = f"""<section class="hero"><h1>Privacy notice</h1><p class="small">Last updated: October 2026</p></section><div class="testo">
 <h2>Who is responsible</h2><p>The data controller is Massimiliano Cori (Italy), who runs {NOME} as an independent project. You can contact us through the <a href="contact/">contact form</a>.</p>
 <h2>What we collect</h2><p>Only what you type in the contact form: your email, the visa or country and your message. We also record the page or link you came from, to understand which pages need corrections. The calculator runs in your browser: the household, currency and income you type in it are not sent to us.</p>
@@ -1812,7 +1821,7 @@ def box_assicurazione(rel):
             f'<p>{req} Check the minimum cover, the countries and the dates the consulate asks for, and the certificate you need, before you buy any policy.</p>'
             f'<p class="aff-r-cta"><a class="btn" href="{escape(URL_SAFETYWING)}" rel="sponsored noopener" target="_blank">See SafetyWing travel medical insurance{ico("arrow")}'
             f'<span class="sr"> (opens in a new tab)</span></a></p>'
-            f'<p class="small">SafetyWing sells travel medical insurance online. {MON.RIGA_EN} '
+            f'<p class="small">SafetyWing sells travel medical insurance for travellers and nomads online. {MON.RIGA_EN} '
             f'Buying insurance does not change the decision on your visa, and we do not know whether a given consulate accepts a given policy: check before you pay.</p></section>')
 
 

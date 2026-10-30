@@ -56,6 +56,20 @@ def ci_sono_affiliati():
     return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_"))
 
 
+def frase_monetizzazione():
+    """Frase della pagina About su pubblicità e link di affiliazione: vera in ogni combinazione (AdSense acceso o spento,
+    link di affiliazione presenti o no)."""
+    ads = MON.adsense_attivo(SITO_ID)
+    if ads and ci_sono_affiliati():
+        return ("The site shows advertising (Google AdSense) and contains clearly marked affiliate links (travel medical insurance); "
+                "neither ever changes the data.")
+    if ads:
+        return "The site shows advertising (Google AdSense); it never changes the data."
+    if ci_sono_affiliati():
+        return "The site contains clearly marked affiliate links (travel medical insurance); they never change the data."
+    return "The site may show advertising in the future; it will never change the data."
+
+
 def riquadro_trasparenza(corpo, lingua="en"):
     """Riga di trasparenza sui link di affiliazione in fondo al contenuto della pagina ("Some links are affiliate links: ..."):
     vuota finché la pagina non ha link rel="sponsored" o se un riquadro di affiliazione la mostra già."""
@@ -630,7 +644,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <h2>Explore</h2>
 <ul><li><a href="/ships/">All ships</a></li><li><a href="/cruise-lines/">Cruise lines</a></li><li><a href="/rankings/">Rankings</a></li><li><a href="/years/">Scores by year</a></li><li><a href="/outbreaks/">Outbreaks</a></li><li><a href="/methodology/">Methodology</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy.html">Privacy</a></li></ul>
 </div></div>
-<p class="f-base">Data: CDC Vessel Sanitation Program, Inspection Query Tool · data checked on {data_lunga(CONTROLLATO)} · updated weekly. Some links are affiliate links and are marked as such.</p>
+<p class="f-base">Data: CDC Vessel Sanitation Program, Inspection Query Tool · data checked on {data_lunga(CONTROLLATO)} · updated weekly.{' Some links are affiliate links and are marked as such.' if ci_sono_affiliati() else ''}</p>
 </div></footer>
 <script src="/assets/{JS_FILE}" defer></script>
 {SCRIPT_CONTATORE}
@@ -664,7 +678,7 @@ def box_affiliati():
         out.append(f'<aside class="aff" aria-labelledby="aff-{k}"><span class="ic">{ico("shield")}</span><div>'
                    f'<h2 id="aff-{k}">{h(v["titolo"])} <span class="aff-tag">Affiliate</span></h2>'
                    f'<p>{h(v["testo"])} {h(v.get("avvertenza", ""))}</p>'
-                   f'<p><a class="btn sec" href="{h(v["url"])}" rel="sponsored nofollow noopener" target="_blank">{h(v["bottone"])}{ico("external")}<span class="sr"> (opens in a new tab)</span></a></p>'
+                   f'<p><a class="btn sec" href="{h(v["url"])}" rel="sponsored noopener" target="_blank">{h(v["bottone"])}{ico("external")}<span class="sr"> (opens in a new tab)</span></a></p>'
                    f'<p class="small">{MON.RIGA_EN} It never changes the scores on this site.</p></div></aside>')
     return "".join(out)
 
@@ -1497,7 +1511,7 @@ def about():
 <li>We do not publish names of people.</li>
 <li>No advertiser or partner can change a score or a page.</li></ul>
 <h2>Who we are</h2>
-<p>{NOME} is an independent project run by Massimiliano Cori. It is not affiliated with the CDC, any government agency or any cruise line. The site may show advertising and contains clearly marked affiliate links (such as travel medical insurance); they never change the data.</p>
+<p>{NOME} is an independent project run by Massimiliano Cori. It is not affiliated with the CDC, any government agency or any cruise line. {frase_monetizzazione()}</p>
 <h2>Corrections</h2>
 <p>Found a mistake? <a href="/contact/?ref=about">Write to us</a>; we check the CDC record and correct the page at the next update.</p></div>"""
     testata = banda("About", f"About {NOME}", "An independent site that makes the CDC’s cruise ship inspection records easy to read.", piatta=True)
@@ -1523,7 +1537,16 @@ def contatti():
 def privacy():
     # Cookie, link di affiliazione e pubblicità: con AdSense acceso (monetizzazione.json) o con link di affiliazione, il testo
     # comune di monetizzazione.py (GoatCounter senza cookie, pubblicità con il consenso di Google); altrimenti il testo di oggi.
-    cookie = MON.privacy_cookie("en", SITO_ID, ci_sono_affiliati()) or """<h2>Cookies and visit counter</h2><p>This site sets no cookies and uses no tracking tools. To count visits we use <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, a privacy-friendly counter: it sets no cookies and stores nothing in your browser, builds no profiles and does not store your IP address, your full browser signature or any identifier. It keeps only aggregate numbers (page, hour or day, browser, country, screen width) on servers in the European Union and shares nothing with third parties; see <a href="https://www.goatcounter.com/help/privacy" rel="noopener">GoatCounter's privacy policy</a>. Some pages contain an affiliate link to SafetyWing (marked “Affiliate”): our site sets no cookie for it, but if you click it you go to SafetyWing’s website, which uses its own cookies under its own privacy policy and tells SafetyWing that you came from us. If we add advertising in the future, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>"""
+    # SafetyWing nominato solo quando il suo link è attivo (dal 17 al 30/10/2026 era sospeso e la frase non era vera).
+    sw = bool(AFFILIATI.get("assicurazione", {}).get("url"))
+    FRASE_SW = (" Some pages contain an affiliate link to SafetyWing (marked “Affiliate”): our site sets no cookie for it, but if you click it you go "
+                "to SafetyWing’s website, which uses its own cookies under its own privacy policy and tells SafetyWing that you came from us."
+                if sw else "")
+    cookie = MON.privacy_cookie("en", SITO_ID, ci_sono_affiliati())
+    if cookie and sw:
+        cookie += ("\n<p>Today the affiliate links on this site go to SafetyWing (travel medical insurance), in the box marked “Affiliate” "
+                   "on the home page and on ship and cruise line pages.</p>")
+    cookie = cookie or f"""<h2>Cookies and visit counter</h2><p>This site sets no cookies and uses no tracking tools. To count visits we use <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, a privacy-friendly counter: it sets no cookies and stores nothing in your browser, builds no profiles and does not store your IP address, your full browser signature or any identifier. It keeps only aggregate numbers (page, hour or day, browser, country, screen width) on servers in the European Union and shares nothing with third parties; see <a href="https://www.goatcounter.com/help/privacy" rel="noopener">GoatCounter's privacy policy</a>.{FRASE_SW} If we add advertising in the future, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>"""
     corpo = f"""<div class="testo"><p class="small">Last updated: {MESI[OGGI.month - 1]} {OGGI.year}</p>
 <h2>Who is responsible</h2><p>The data controller is Massimiliano Cori (Italy), who runs {NOME} as an independent project. Contact: the <a href="/contact/">contact form</a>.</p>
 <h2>What we collect</h2><p>Only what you type in the contact form: your email, the ship or page and your message, plus the page you came from. The ship search runs in your browser: what you type is not sent to us. If you switch between the light and dark theme, your choice is stored in your browser only.</p>
