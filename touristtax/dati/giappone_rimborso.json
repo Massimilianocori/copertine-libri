@@ -1,0 +1,80 @@
+{
+  "_nota": "Pagina /japan-tax-free-refund/ (30/10/2026). Fatti solo da fonti ufficiali in inglese (Japan Tourism Agency, National Tax Agency, Japan Customs / Ministry of Finance), lette con curl il 30/10/2026 (HTTP 200). I PDF della JTA sono immagini: letti come immagine. verifica.py (punto 10) ricalcola gli esempi e controlla che ogni fonte sia linkata con la data.",
+  "in_vigore_dal": "2026-11-01",
+  "controllato_il": "2026-10-30",
+  "soglia_yen": 5000,
+  "aliquote": {"standard": 10, "ridotta": 8},
+  "giorni_dogana": 90,
+  "esempio_scadenza": {"acquisto": "2026-11-01", "ultimo_giorno": "2027-01-30"},
+  "limite_un_milione_yen": 1000000,
+  "aeroporti_vjw": ["Narita", "Haneda", "Kansai", "Chubu Centrair", "Fukuoka", "New Chitose", "Naha"],
+  "tassa_partenza": {
+    "importo": 3000,
+    "prima": 1000,
+    "dal": "2026-07-01",
+    "esenti_sotto_anni": 2
+  },
+  "fonti": {
+    "jta_viaggiatori": {
+      "titolo": "Japan Tourism Agency: Information on the New Tax-Free Shopping System (Refund Method) for travellers",
+      "url": "https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00028.html",
+      "http": 200, "formato": "web page (English)", "controllato_il": "2026-10-30"
+    },
+    "jta_faq": {
+      "titolo": "Japan Tourism Agency: Frequently Asked Questions for Travelers (Refund Method)",
+      "url": "https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00027.html",
+      "http": 200, "formato": "web page (English)", "controllato_il": "2026-10-30"
+    },
+    "jta_volantino": {
+      "titolo": "Japan Tourism Agency, METI, National Tax Agency and Japan Customs: Tax-Free Shopping System — Refund Method leaflet for travellers (from 1 November 2026)",
+      "url": "https://www.mlit.go.jp/kankocho/tax-free/content/002028626.pdf",
+      "http": 200, "formato": "PDF, 2 pages (English)", "controllato_il": "2026-10-30"
+    },
+    "jta_beneficiari": {
+      "titolo": "Japan Tourism Agency: List of Eligible Tax-Free Goods Purchasers (Refund Method)",
+      "url": "https://www.mlit.go.jp/kankocho/tax-free/content/001990247.pdf",
+      "http": 200, "formato": "PDF, 1 page (English)", "controllato_il": "2026-10-30"
+    },
+    "jta_cambi": {
+      "titolo": "Japan Tourism Agency: Changes to Tax-Free Goods",
+      "url": "https://www.mlit.go.jp/kankocho/tax-free/content/001990246.pdf",
+      "http": 200, "formato": "PDF, 1 page (English)", "controllato_il": "2026-10-30"
+    },
+    "nta_rimborso": {
+      "titolo": "National Tax Agency: Tax-Free Shopping System will be shifted to the Refund Method from November 2026 (FY2025 Tax Reform, April 2025)",
+      "url": "https://www.nta.go.jp/publication/pamph/shohi/menzei/202506/pdf/0025006-106.pdf",
+      "http": 200, "formato": "PDF, 4 pages (English)", "controllato_il": "2026-10-30"
+    },
+    "nta_aliquote": {
+      "titolo": "National Tax Agency: Consumption Tax, Basic knowledge, No. 10 Consumption Tax rate",
+      "url": "https://www.nta.go.jp/english/taxes/consumption_tax/01.htm",
+      "http": 200, "formato": "web page (English)", "controllato_il": "2026-10-30"
+    },
+    "dogana": {
+      "titolo": "Japan Customs (Ministry of Finance): Tax Exemption (Refund) Program for Foreign Visitors",
+      "url": "https://www.customs.go.jp/kaigairyoko/taxrefund.htm",
+      "http": 200, "formato": "web page (English)", "controllato_il": "2026-10-30"
+    },
+    "dogana_mappe": {
+      "titolo": "Japan Customs: Locations of Tax Refund Kiosks and Customs Inspection Areas",
+      "url": "https://www.customs.go.jp/kaigairyoko/taxrefund/map.htm",
+      "http": 200, "formato": "web page (English and Japanese)", "controllato_il": "2026-10-30"
+    },
+    "nta_tassa_partenza": {
+      "titolo": "National Tax Agency: Q&A about the International Tourist Tax (April 2018, revised in April 2026)",
+      "url": "https://www.nta.go.jp/english/taxes/indirect/pdf/leaflet3.pdf",
+      "http": 200, "formato": "PDF, 44 pages (English)", "controllato_il": "2026-10-30"
+    }
+  },
+  "domanda": {
+    "_nota": "Autocomplete Google del 30/10/2026 (suggestqueries.google.com, client=firefox, hl=en), gl=us, gl=uk e gl=au: risposte quasi uguali nei tre Paesi.",
+    "japan tax free ": ["japan tax free shopping", "japan tax free qr code", "japan tax free changes", "japan tax free shopping changes 2026", "japan tax free rules", "japan tax free website", "japan tax free 2026", "japan tax free shopping changes", "japan tax free november 2026", "japan tax free bag", "japan tax free amount (uk)", "japan tax free calculator (uk)", "japan tax free coupon (uk, au)", "japan tax free tourist (au)", "japan tax free app (au)"],
+    "japan tax refund 2026": ["japan tax refund 2026 rate", "japan tax refund 2026 changes", "japan tax refund 2026 reddit", "japan tax refund 2026 november", "japan tax refund 2026 calculator", "japan tax refund 2026 amount", "japan tax refund 2026 percentage", "japan tax free 2026", "japan tax free 2026 change"],
+    "japan tax free november 2026": ["japan tax free november 2026 reddit", "japan tax refund november 2026", "japan tax refund november 2026 reddit", "japan tax free shopping november 2026", "japan tax free changes november 2026", "japan tax free rules", "is japan tax free", "is japan tax free for foreigners"],
+    "japan tax refund": ["japan tax refund changes", "japan tax refund 2026", "japan tax refund tourist", "japan tax refund rate", "japan tax refund website", "japan tax refund at airport", "japan tax refund for tourist 2026", "japan tax refund calculator", "japan tax refund changes 2026", "japan tax refund percentage (uk)", "japan tax refund app (uk, au)", "japan tax refund how much (au)"],
+    "japan tax free 2026": ["japan tax free 2026 change", "japan tax free 2026 reddit", "japan tax free 2026 rules", "japan tax exemption 2026", "japan tax refund 2026 rate"],
+    "japan tax free refund": ["japan tax free refund at airport", "japan tax free refund 2026", "japan tax free refund percentage", "japan tax free refund amount", "japan tax free refund process", "japan tax free refund changes", "japan tax free refund calculator", "japan tax free refund system"],
+    "japan tax free minimum": ["japan tax free minimum spend", "japan tax free minimum purchase", "japan tax free minimum age", "japan tax free minimum price", "japan tax free minimum limit", "japan tax refund minimum spend", "japan tax refund minimum purchase", "japan tax free amount"],
+    "japan departure tax": ["japan departure tax 2026", "japan departure tax price hike", "japan departure tax increase", "japan departure tax how to pay", "japan departure tax increase 2026", "japan departure tax reddit"]
+  }
+}

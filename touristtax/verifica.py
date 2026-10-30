@@ -16,6 +16,9 @@ Uso (dalla radice del repository, dopo python3 touristtax/genera.py):
 9. Sezione Messico (30/10/2026): pagine in sitemap, importi del Visitax ricalcolati qui dalla formula (2,50 × UMA di dati/uma.json),
    titoli ≤ 70 caratteri con anno e importo, risposta con fonte e data, FAQPage visibile, avviso sul sito ufficiale (solo link a
    visitax.gob.mx), link di affiliazione solo DiscoverCars con il nostro a_aid, dopo le informazioni ufficiali; voce 2027 del Visitax.
+10. Giappone, rimborso dell'imposta sui consumi dal 1/11/2026 (pagina japan-tax-free-refund/): dati uguali alle fonti lette, fonti
+   ufficiali (JTA, NTA, Dogane) con HTTP 200 e data, sitemap, link da home e pagine giapponesi, titolo ≤ 70 con l'anno, prima frase
+   con risposta, fonti e data, calcolo ricontrollato (esempi a mano, frazioni esatte, JS = Python), FAQPage visibile, nessun affiliato.
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
 domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
@@ -466,6 +469,135 @@ def controlla_messico():
     return errori
 
 
+# 10. Giappone: rimborso dell'imposta sui consumi per i turisti dal 1/11/2026 (pagina /japan-tax-free-refund/, 30/10/2026).
+# (beni al 10 %, alimenti all'8 %, importi con imposta?, rimborso massimo atteso calcolato a mano)
+ESEMPI_JP = [
+    (33000, 0, True, 3000),        # 33.000 con imposta = 30.000 + 3.000
+    (22000, 10800, True, 2800),    # 20.000 + 2.000; 10.000 + 800
+    (5400, 0, True, 0),            # 4.909 al netto: sotto la soglia di 5.000
+    (5500, 0, True, 500),          # esattamente 5.000 al netto: rimborso
+    (100000, 0, False, 10000),
+    (3000, 2000, False, 460),      # 5.000 al netto in tutto: 300 + 160
+    (0, 5399, True, 0),            # 4.999,07 al netto
+    (0, 5400, True, 400),          # 5.000 al netto, 8 %
+    (12345, 0, True, 1122),        # 12.345 / 11 = 1.122,27 → 1.122 (per difetto)
+    (2750, 2700, True, 450),       # 2.500 + 2.500 al netto = soglia; 250 + 200
+    (4999, 0, False, 0),
+    (1000000, 50000, True, 94612), # 90.909 + 3.703
+]
+
+
+def jp_atteso(a10, a8, incl, soglia):
+    """Calcolo indipendente da genera.jp_rimborso, in frazioni esatte."""
+    from fractions import Fraction as F
+    a10, a8 = F(int(round(a10))), F(int(round(a8)))
+    if incl:
+        n10, n8 = a10 * 100 / 110, a8 * 100 / 108
+    else:
+        n10, n8 = a10, a8
+    t10, t8 = n10 * F(10, 100), n8 * F(8, 100)
+    if n10 + n8 < soglia:
+        return 0
+    return int(t10) + int(t8)  # per difetto allo yen (importi non negativi)
+
+
+def controlla_giappone():
+    """10. Pagina /japan-tax-free-refund/: dati coerenti con le fonti lette (soglia 5.000 yen al netto, 10 % e 8 %, 90 giorni,
+    tassa di partenza 3.000 yen dal 1/7/2026), ogni fonte ufficiale con HTTP 200 e data, linkata nella pagina; pagina in sitemap e
+    linkata da home, pagina Giappone e pagine dei luoghi giapponesi; titolo ≤ 70 caratteri con l'anno; prima frase con risposta,
+    fonti e data; calcolo ricontrollato (esempi a mano, calcolo indipendente in frazioni, motore JS uguale al Python su casi casuali);
+    FAQPage uguale al testo visibile; nessun link di affiliazione."""
+    from datetime import date, timedelta
+    errori = []
+    J = G.JP
+    if J["soglia_yen"] != 5000 or J["aliquote"] != {"standard": 10, "ridotta": 8} or J["giorni_dogana"] != 90:
+        errori.append("Giappone: soglia, aliquote o giorni diversi da quelli letti nelle fonti (5.000 yen, 10/8 %, 90 giorni)")
+    if J["in_vigore_dal"] != "2026-11-01":
+        errori.append("Giappone: data di inizio diversa dal 1/11/2026")
+    sc = J["esempio_scadenza"]
+    if date.fromisoformat(sc["acquisto"]) + timedelta(days=J["giorni_dogana"]) != date.fromisoformat(sc["ultimo_giorno"]):
+        errori.append("Giappone: l'esempio della scadenza non è acquisto + 90 giorni (NTA: 1/11 → 30/1)")
+    tp = J["tassa_partenza"]
+    if (tp["importo"], tp["prima"], tp["dal"]) != (3000, 1000, "2026-07-01"):
+        errori.append("Giappone: tassa di partenza diversa dalla fonte NTA (3.000 yen dal 1/7/2026, prima 1.000)")
+    for k, fo in J["fonti"].items():
+        if fo.get("http") != 200 or not re.match(r"\d{4}-\d\d-\d\d$", fo.get("controllato_il", "")) or not fo["url"].startswith("https://"):
+            errori.append(f"Giappone: fonte {k} non letta (HTTP 200) o senza data")
+        if not re.match(r"https://www\.(mlit\.go\.jp/kankocho|nta\.go\.jp|customs\.go\.jp)/", fo["url"]):
+            errori.append(f"Giappone: fonte {k} non ufficiale (JTA, NTA, Dogane): {fo['url']}")
+    # calcolo: esempi a mano, frazioni esatte, Python
+    S = J["soglia_yen"]
+    for a10, a8, incl, att in ESEMPI_JP:
+        py, fr = G.jp_rimborso(a10, a8, incl)["tot"], jp_atteso(a10, a8, incl, S)
+        if not py == fr == att:
+            errori.append(f"Giappone: esempio {a10}+{a8} incl={incl}: atteso {att}, Python {py}, frazioni {fr}")
+    rnd = random.Random(11)
+    casi = [(a10, a8, incl) for a10, a8, incl, _ in ESEMPI_JP] + [
+        (rnd.choice([0, rnd.randint(0, 9000), rnd.randint(0, 2000000)]), rnd.choice([0, rnd.randint(0, 9000), rnd.randint(0, 300000)]), rnd.random() < 0.6)
+        for _ in range(1500)]
+    for a10, a8, incl in casi:
+        if G.jp_rimborso(a10, a8, incl)["tot"] != jp_atteso(a10, a8, incl, S):
+            errori.append(f"Giappone: Python diverso dal calcolo in frazioni: {a10}+{a8} incl={incl}")
+            break
+    if subprocess.run(["which", "node"], capture_output=True).returncode == 0:
+        with tempfile.TemporaryDirectory() as tmp:
+            f = Path(tmp) / "jp.js"
+            f.write_text(G.JP_JS + f"\nvar C={json.dumps(casi)};console.log(JSON.stringify(C.map(function(c){{return jpRimborso(c[0],c[1],c[2],{S}).tot;}})));",
+                         encoding="utf-8")
+            out = subprocess.run(["node", str(f)], capture_output=True, text=True)
+        if out.returncode != 0:
+            errori.append("Giappone: errore node: " + out.stderr[:300])
+        else:
+            for c, r in zip(casi, json.loads(out.stdout)):
+                if r != G.jp_rimborso(*c)["tot"]:
+                    errori.append(f"Giappone: JS diverso da Python: {c} js={r}")
+                    break
+    else:
+        errori.append("Giappone: node non trovato, confronto JS saltato")
+    # pagina
+    f = SITO / "japan-tax-free-refund" / "index.html"
+    if not f.exists():
+        return errori + ["Giappone: pagina japan-tax-free-refund/ mancante"]
+    t = f.read_text(encoding="utf-8")
+    vis = G.MON.testo_visibile(t)
+    if G.URL_SITO + "/japan-tax-free-refund/" not in _sitemap():
+        errori.append("Giappone: pagina non nella sitemap")
+    titolo = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+    if len(titolo) > 70 or "2026" not in titolo or "Japan" not in titolo or "tax" not in titolo.lower():
+        errori.append(f"Giappone: titolo oltre 70 caratteri o senza anno: {titolo} ({len(titolo)})")
+    r = re.search(r'<p class="risposta">(.*?)</p>', t, re.S)
+    prima = unescape(r.group(1)).split(". ")[0] if r else ""
+    for pezzo in ("1 November 2026", "10%", "8%", "¥5,000", "90 days", "Japan Tourism Agency", "National Tax Agency",
+                  f"checked on {G.data_lunga(J['controllato_il'])}"):
+        if pezzo not in prima:
+            errori.append(f"Giappone: la prima frase non contiene '{pezzo}'")
+    for fo in J["fonti"].values():
+        if G.escape(fo["url"]) not in t:
+            errori.append(f"Giappone: fonte non linkata nella pagina: {fo['url']}")
+    if f"checked {G.data_lunga(J['controllato_il'])}" not in vis:
+        errori.append("Giappone: data del controllo delle fonti non stampata")
+    for pezzo in ("up to ¥3,000 back", "= ¥2,800", "¥3,000 per departure", "data-jp", "jpRimborso"):
+        if pezzo not in t and pezzo not in vis:
+            errori.append(f"Giappone: manca '{pezzo}' nella pagina (esempi, tassa di partenza o calcolatore)")
+    ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S)]
+    faq = [x for x in ld if x.get("@type") == "FAQPage"]
+    if len(faq) != 1 or len(faq[0]["mainEntity"]) < 5:
+        errori.append("Giappone: FAQPage mancante o con meno di 5 domande")
+    else:
+        for q in faq[0]["mainEntity"]:
+            if G.escape(q["name"]) not in t or G.escape(q["acceptedAnswer"]["text"]) not in t:
+                errori.append(f"Giappone: domanda FAQ non visibile: {q['name']}")
+    if G.MON.link_affiliati(t):
+        errori.append("Giappone: link di affiliazione nella pagina del rimborso")
+    # collegamenti in entrata
+    entrate = [("index.html", 'href="japan-tax-free-refund/"'), ("country/japan/index.html", 'href="../../japan-tax-free-refund/"')]
+    entrate += [(f"{d['slug']}/index.html", 'href="../japan-tax-free-refund/"') for d in G.DEST if d["country_slug"] == "japan"]
+    for pag, link in entrate:
+        if link not in (SITO / pag).read_text(encoding="utf-8"):
+            errori.append(f"Giappone: {pag} non linka la pagina del rimborso")
+    return errori
+
+
 def voce_futura_nel_titolo(titolo, attese, oggi):
     fut = [x for x in attese if x[0] > oggi]
     return bool(fut) and G.soldi(fut[0][1], "MXN") in titolo
@@ -493,9 +625,11 @@ def main():
     print(f"Titoli, descrizioni e risposte dirette di {len(G.DEST)} destinazioni: {len(et)} errori")
     ex = controlla_messico()
     print(f"Sezione Messico ({len(MX_SLUG)} pagine, Visitax = 2,50 × UMA ricalcolato, titoli, FAQ, avviso sito ufficiale, DiscoverCars): {len(ex)} errori")
+    ejp = controlla_giappone()
+    print(f"Giappone, rimborso dal 1/11/2026 ({len(ESEMPI_JP)} esempi a mano, frazioni, JS, sitemap, titolo, prima frase, fonti, FAQ, link): {len(ejp)} errori")
     em, im = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print(G.MON.riepilogo(G.SITO_ID, im, em))
-    tutti = errori + ej + el + ef + ea + ei + e7 + en + et + ex + em
+    tutti = errori + ej + el + ef + ea + ei + e7 + en + et + ex + ejp + em
     for e in tutti[:40]:
         print("  -", e)
     if tutti:

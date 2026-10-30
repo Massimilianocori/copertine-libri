@@ -763,7 +763,7 @@ footer .f-altri a{font-weight:600}
 .cambi-box ul{margin:4px 0 6px;padding-left:18px;font-size:.95rem;color:var(--ink-2)}
 .cambi-box p{margin:0}
 .cal-2027{margin-top:10px}
-.sintesi{margin-top:18px}.sintesi td:first-child{white-space:nowrap}
+.sintesi{margin-top:18px}.sintesi td:first-child{white-space:nowrap}.jp-conf td:first-child{white-space:normal}
 @media (max-width:640px){.tab.sintesi td,.tab.sintesi th{min-width:0;padding:9px 10px}.tab.sintesi td:first-child,.tab.sintesi th:first-child{min-width:0}}
 .linea{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:14px}
 .vc{display:grid;grid-template-columns:96px minmax(0,1fr);background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh-1);overflow:hidden}
@@ -1536,6 +1536,7 @@ def pagina_destinazione(R):
 {fonte_breve(R)}</div>
 </section>
 {box_cambi(R, rel)}
+{jp_callout(rel) if R["country_slug"] == "japan" else ""}
 {modulo_calcolatore(id_dati, rel=rel, cat_default=cat_def)}
 {f'<p class="avviso">{escape(R["avviso_verifica"])}</p>' if R.get("avviso_verifica") else ""}
 {formula_html(R)}
@@ -1905,6 +1906,196 @@ def pagina_messico():
            briciole=[("Mexico", "mexico/")], jsonld_extra=ld)
 
 
+# ---------------------------------------------------------------- Giappone: rimborso dell'imposta sui consumi dal 1/11/2026
+# Pagina /japan-tax-free-refund/ (30/10/2026). Fatti da dati/giappone_rimborso.json (fonti ufficiali in inglese: Japan Tourism
+# Agency, National Tax Agency, Japan Customs). Il calcolatore (JP_JS) e jp_rimborso() danno lo stesso risultato; verifica.py (punto 10)
+# li confronta con un calcolo indipendente in frazioni esatte.
+JP = json.loads((DATI / "giappone_rimborso.json").read_text(encoding="utf-8"))
+JP_F = JP["fonti"]
+JP_SLUG = "japan-tax-free-refund/"
+JP_CHECK = data_lunga(JP["controllato_il"])
+
+
+def jp_rimborso(a10, a8, incluse=True, soglia=None):
+    """Rimborso massimo teorico negli acquisti di un giorno in un negozio. a10 = beni al 10 %, a8 = alimenti e bevande all'8 %,
+    in yen interi; incluse = gli importi comprendono l'imposta (prezzo pagato dal 1/11/2026). Imposta arrotondata per difetto
+    allo yen; soglia di 5.000 yen sul totale al netto dell'imposta (stessi passaggi di JP_JS)."""
+    soglia = JP["soglia_yen"] if soglia is None else soglia
+    a10, a8 = max(0, int(round(a10 or 0))), max(0, int(round(a8 or 0)))
+    if incluse:
+        t10, t8, n10, n8 = math.floor(a10 * 10 / 110), math.floor(a8 * 8 / 108), a10 * 100 / 110, a8 * 100 / 108
+    else:
+        t10, t8, n10, n8 = math.floor(a10 * 10 / 100), math.floor(a8 * 8 / 100), a10, a8
+    netto = n10 + n8
+    ok = netto >= soglia - 1e-9
+    return {"netto": netto, "ok": ok, "t10": t10 if ok else 0, "t8": t8 if ok else 0, "tot": (t10 + t8) if ok else 0}
+
+
+JP_JS = r"""
+function jpRimborso(a10,a8,incl,soglia){a10=Math.max(0,Math.round(+a10||0));a8=Math.max(0,Math.round(+a8||0));var t10,t8,n10,n8;
+  if(incl){t10=Math.floor(a10*10/110);t8=Math.floor(a8*8/108);n10=a10*100/110;n8=a8*100/108;}else{t10=Math.floor(a10*10/100);t8=Math.floor(a8*8/100);n10=a10;n8=a8;}
+  var netto=n10+n8,ok=netto>=soglia-1e-9;return {netto:netto,ok:ok,t10:ok?t10:0,t8:ok?t8:0,tot:ok?t10+t8:0};}
+"""
+
+JP_APP_JS = r"""
+(function(){var box=document.querySelector('[data-jp]');if(!box)return;var f=box.querySelector('form'),out=box.querySelector('[data-out]');
+  var S=+box.dataset.soglia;function y(v){return '¥'+Math.floor(v+0.5+1e-9).toLocaleString('en-US');}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function agg(){var a10=+f.a10.value||0,a8=+f.a8.value||0,incl=f.modo.value==='incl';var o=jpRimborso(a10,a8,incl,S);
+    var h='<div class="r-lab">Maximum refund</div><div class="tot">'+y(o.tot)+'</div>';
+    h+='<dl class="r-dl"><div><dt>Spent before tax</dt><dd>'+y(o.netto)+'</dd></div><div><dt>Minimum '+y(S)+'</dt><dd>'+(o.ok?'Reached':'Not reached')+'</dd></div></dl><ul class="r-righe">';
+    if(!o.ok){h+='<li>Below '+y(S)+' before tax in one shop on one day: this purchase does not qualify for the tax-free refund.</li>';}
+    else{if(a10>0)h+='<li><span>Goods at 10%: '+esc(y(Math.round(a10)))+(incl?' including tax':' before tax')+'</span><strong class="eq">= '+y(o.t10)+'</strong></li>';
+      if(a8>0)h+='<li><span>Food and drink at 8%: '+esc(y(Math.round(a8)))+(incl?' including tax':' before tax')+'</span><strong class="eq">= '+y(o.t8)+'</strong></li>';}
+    h+='<li>Theoretical maximum: the tax on your receipt. How it is paid, and whether the refund provider deducts anything, depends on the shop.</li></ul>';
+    out.innerHTML=h;}
+  f.addEventListener('input',agg);f.addEventListener('change',agg);f.addEventListener('submit',function(e){e.preventDefault();});agg();})();
+"""
+
+
+def yen(v):
+    return soldi(v, "JPY")
+
+
+def jp_link(chiave, testo=None):
+    f = JP_F[chiave]
+    return f'<a href="{escape(f["url"])}" rel="noopener">{escape(testo or f["titolo"])}</a>'
+
+
+def jp_risposta():
+    a = JP["aliquote"]
+    return (f"From {data_lunga(JP['in_vigore_dal'])}, visitors to Japan pay the {a['standard']}% consumption tax ({a['ridotta']}% on food and drink) "
+            f"at tax-free shops and get it back after Japan Customs checks the goods at the airport or seaport within {JP['giorni_dogana']} days of purchase, "
+            f"if they spend at least {yen(JP['soglia_yen'])} before tax in one shop on one day (Japan Tourism Agency and National Tax Agency, checked on {JP_CHECK}). "
+            f"Purchases made until {data_lunga(_giorno_prima(JP['in_vigore_dal']))} follow the old system, where the tax was taken off at the till.")
+
+
+def jp_faq():
+    a, p = JP["aliquote"], JP["tassa_partenza"]
+    s, g = yen(JP["soglia_yen"]), JP["giorni_dogana"]
+    es = jp_rimborso(33000, 0)
+    aer = ", ".join(JP["aeroporti_vjw"][:-1]) + " and " + JP["aeroporti_vjw"][-1]
+    return [
+        ("How does tax-free shopping in Japan change in November 2026?",
+         f"For purchases made from {data_lunga(JP['in_vigore_dal'])}, tax-free shops charge the consumption tax at the till. You get it back after Japan Customs "
+         f"confirms at the airport or seaport, within {g} days of the purchase, that you are taking the goods out of Japan. Until "
+         f"{data_lunga(_giorno_prima(JP['in_vigore_dal']))} the tax was taken off at the till."),
+        ("What is the minimum spend for a tax refund in Japan?",
+         f"{s} or more before tax, in the same shop on the same day. From {data_lunga(JP['in_vigore_dal'])} general goods and consumables (food, drinks, cosmetics) "
+         "count together and there is no maximum amount, but you may only buy what you can carry out of Japan yourself."),
+        ("What percentage is the Japan tax refund?",
+         f"The refund is the consumption tax: {a['standard']}% of the price before tax for most goods, {a['ridotta']}% for food and drink (not alcohol or eating out). "
+         f"On a price that includes tax, that is 10/110 (about 9.1%) or 8/108 (about 7.4%). For example, {yen(33000)} including tax gives back up to {yen(es['tot'])}."),
+        ("Where do I get the tax refund at the airport in Japan?",
+         "At a Tax Refund Kiosk (tax-free procedure terminal) in the international departure lobby, before you check in your luggage. You scan your passport: "
+         "a green result means you are done, a red result means a customs officer checks your goods. "
+         f"At {aer} airports you can also do it online with Visit Japan Web, on the dedicated Wi-Fi before the security check."),
+        ("When and how do I get the money back?",
+         "After the customs check. The tax-free shop, or the refund service provider it uses, pays you with the refund method you registered when you bought the goods. "
+         "The official sources list bank transfer, credit card, app or cash at the port of departure after the customs check; methods vary by shop, so ask when you buy."),
+        ("Can I eat or use tax-free items before leaving Japan?",
+         "Not if you want the refund. Sealed packaging is no longer required, but food, drinks and cosmetics used in Japan are not eligible. Customs checks each receipt as a whole: "
+         "if one item from a receipt is missing, nothing on that receipt is refunded. If you used something, tell a customs officer at the counter instead of using the kiosk."),
+        ("Who can get the tax refund in Japan?",
+         "Foreign nationals who do not live in Japan and have been in the country for less than six months since entry, for example as a Temporary Visitor, with their passport. "
+         "Japanese nationals who have lived abroad for two years or more can also use it within six months of a temporary return, with a supporting document."),
+        ("Is the Japan departure tax going up in 2026?",
+         f"It already has. The International Tourist Tax is {yen(p['importo'])} per departure from Japan from {data_lunga(p['dal'])} (it was {yen(p['prima'])}). "
+         f"Airlines and shipping companies collect it from passengers; children under {p['esenti_sotto_anni']} do not pay. If you bought your ticket before "
+         f"{data_lunga(p['dal'])} for a fixed departure date, the old {yen(p['prima'])} usually applies. It is separate from the tax-free refund."),
+    ]
+
+
+def jp_callout(rel):
+    """Riquadro di collegamento alla pagina del rimborso (home, pagina Giappone, pagine dei luoghi giapponesi)."""
+    return (f'<section class="card callout jp-box" aria-label="Japan tax-free refund"><span class="ic">{ico("receipt")}</span>'
+            f'<p><strong>Shopping in Japan?</strong> From {data_lunga(JP["in_vigore_dal"])} tax-free shops charge the {JP["aliquote"]["standard"]}% tax and refund it after a customs check when you leave. '
+            f'<a href="{rel}{JP_SLUG}">Japan tax-free refund: rules and calculator</a></p></section>')
+
+
+def pagina_giappone_rimborso():
+    rel = "../"
+    a, p, s, g = JP["aliquote"], JP["tassa_partenza"], yen(JP["soglia_yen"]), JP["giorni_dogana"]
+    sc = JP["esempio_scadenza"]
+    faq = jp_faq()
+    faq_html = "".join(f'<details class="faq"><summary>{escape(q)}</summary><p>{escape(r)}</p></details>' for q, r in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage",
+          "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": r}} for q, r in faq]}
+    e1, e2 = jp_rimborso(33000, 0), jp_rimborso(22000, 10800)
+    confronto = [
+        ("At the till", "Tax taken off: you paid the price before tax", f"You pay the price <strong>including tax</strong> and register a refund method"),
+        ("Minimum spend", f"{s} before tax per shop per day", f"<strong>{s}</strong> before tax per shop per day (unchanged)"),
+        ("Food, drinks, cosmetics", f"Separate category, maximum {yen(500000)}, sealed special packaging", "Same rules as other goods, <strong>no maximum</strong>, no special packaging"),
+        ("How much you can buy", "Not for business use or resale", "Only what you can <strong>carry out of Japan yourself</strong>"),
+        ("At departure", "Passport shown to customs", f"Passport at a kiosk <strong>within {g} days</strong> of purchase, before luggage check-in; goods may be inspected"),
+        ("The money", "–", "Refunded by the shop or its refund provider <strong>after the customs check</strong>"),
+    ]
+    righe = "".join(f"<tr><td>{x}</td><td>{escape(y)}</td><td>{z}</td></tr>" for x, y, z in confronto)
+    aer = ", ".join(JP["aeroporti_vjw"][:-1]) + " and " + JP["aeroporti_vjw"][-1]
+    calc = f"""<div class="card calc" data-jp data-soglia="{JP['soglia_yen']}">
+<div class="calc-grid">
+<form autocomplete="off">
+<div class="campi">
+<label class="pieno"><span class="lt">{ico("tag")}Prices you enter</span><select name="modo"><option value="incl">Including tax (the price you pay)</option><option value="escl">Before tax</option></select></label>
+<label><span class="lt">{ico("receipt")}Goods at {a['standard']}% (¥)</span><input type="number" name="a10" min="0" step="1" value="33000" inputmode="numeric"></label>
+<label><span class="lt">{ico("receipt")}Food and drink at {a['ridotta']}% (¥)</span><input type="number" name="a8" min="0" step="1" value="0" inputmode="numeric"></label>
+<p class="small pieno" style="margin:0">One shop, one day. {a['standard']}%: clothes, electronics, cosmetics, alcohol and most goods. {a['ridotta']}%: food and drinks, except alcohol.</p>
+</div>
+</form>
+<div class="calc-out">
+<div class="risultato" data-out aria-live="polite"><noscript>Turn on JavaScript to use the calculator. The formula and examples below show how the refund is worked out.</noscript></div>
+</div>
+</div>
+</div>"""
+    corpo = f"""<section class="hero">{h1_diviso(f"Japan tax-free shopping from {data_lunga(JP['in_vigore_dal'])}: you pay the tax, then get it back")}
+<p class="risposta">{escape(jp_risposta())}</p>
+<p class="fonte">Official sources: {jp_link("jta_viaggiatori", "Japan Tourism Agency (Refund Method, for travellers)")} · {jp_link("nta_rimborso", "National Tax Agency (FY2025 tax reform)")} · {jp_link("dogana", "Japan Customs")} · checked on {JP_CHECK}</p></section>
+<h2>Before and after {data_lunga(JP['in_vigore_dal'])}</h2>
+<div class="tab sintesi jp-conf"><table><thead><tr><th>What</th><th>Until {data_lunga(_giorno_prima(JP['in_vigore_dal']))}</th><th>From {data_lunga(JP['in_vigore_dal'])}</th></tr></thead><tbody>{righe}</tbody></table></div>
+<p class="fonte">Official sources: {jp_link("jta_cambi", "Japan Tourism Agency, Changes to Tax-Free Goods")} · {jp_link("nta_rimborso", "National Tax Agency")} · checked on {JP_CHECK}</p>
+<h2>Tax refund calculator</h2>
+{calc}
+<details class="formula" open><summary>{ico("calc")}Formula used</summary><p>Maximum refund = the consumption tax on the purchase. Prices before tax: {a['standard']}% × goods at {a['standard']}% + {a['ridotta']}% × food and drink at {a['ridotta']}%. Prices including tax: 10/110 × goods at {a['standard']}% + 8/108 × food and drink at {a['ridotta']}%, rounded down to the yen. No refund if the total before tax in one shop on one day is below {s}. Rates: {jp_link("nta_aliquote", "National Tax Agency, Consumption Tax rate")} (food and drink excluding alcohol and eating out at {a['ridotta']}%), checked on {JP_CHECK}.</p></details>
+<p class="esempio">Examples: a jacket for {yen(33000)} including tax → up to <strong>{yen(e1['tot'])}</strong> back. {yen(22000)} of goods at {a['standard']}% and {yen(10800)} of snacks at {a['ridotta']}% in the same shop on the same day → {yen(e2['t10'])} + {yen(e2['t8'])} = <strong>{yen(e2['tot'])}</strong>.</p>
+<p class="avviso"><strong>Not tax advice.</strong> This page explains the official rules for travellers. The refund itself comes from the tax-free shop or its refund service provider, which tells you how it is paid: check the details with the shop when you buy.</p>
+{AD}
+<h2>Who can get the refund</h2>
+<ul><li><strong>Foreign nationals who do not live in Japan</strong> and have been in Japan for less than six months since entry, such as Temporary Visitors (most tourists). Show your passport. Diplomats and official visitors are also eligible.</li>
+<li>People with a landing permit, for example cruise passengers (passport or a copy of it, with the landing permit), crew members, transit and port-of-call passengers.</li>
+<li><strong>Japanese nationals living abroad</strong> for two years or more, within six months of a temporary return to Japan, with their passport and a supporting document (Residency Certificate, a copy of the Koseki no Fuhyō, or a My Number Card showing the move abroad).</li></ul>
+<p class="fonte">Official source: {jp_link("jta_beneficiari")} · checked on {JP_CHECK}</p>
+<h2>How to get the refund, step by step</h2>
+<ol><li><strong>At the tax-free shop.</strong> Show your passport, spend at least {s} before tax that day in that shop, pay the price including tax and register how you want to be refunded (for example a credit card). Keep all the goods.</li>
+<li><strong>At the airport or seaport, within {g} days of the purchase.</strong> Before you check in your luggage, scan your passport at a Tax Refund Kiosk in the international departure lobby. Green result: done. Red result: take the goods to the customs inspection area. At {aer} airports you can also do it online with Visit Japan Web, connected to the customs Wi-Fi before the security check. The {g} days start the day after the purchase: goods bought on {data_lunga(sc['acquisto'])} must be checked by {data_lunga(sc['ultimo_giorno'])}.</li>
+<li><strong>After the customs check.</strong> The shop or its refund service provider sends the refund with the method you registered. Possible methods are bank transfer, credit card, app or cash at the port of departure; they vary by shop. Questions about the refund go to the shop.</li></ol>
+<p class="fonte">Official sources: {jp_link("jta_viaggiatori", "Japan Tourism Agency")} · {jp_link("jta_faq", "Japan Tourism Agency FAQ for travellers")} · {jp_link("dogana", "Japan Customs")} · {jp_link("dogana_mappe", "kiosk locations at each airport and seaport")} · checked on {JP_CHECK}</p>
+<h2>What can stop the refund</h2>
+<ul><li><strong>Checking in your luggage first.</strong> You must have all the goods with you at the kiosk. Checked luggage cannot be taken back for the tax-free procedure, and neither the airline nor customs compensates you if you miss your flight because of it.</li>
+<li><strong>One missing item.</strong> Customs checks each receipt as a whole: if one item from a receipt is missing (for example snacks you ate), nothing on that receipt is refunded. If you used something, do not use the kiosk: tell a customs officer at the counter.</li>
+<li><strong>Using consumables in Japan.</strong> Food, drinks and cosmetics used in Japan are not eligible, even though sealed packaging is no longer required.</li>
+<li><strong>Connecting flights.</strong> If you fly from a Japanese city to your international departure airport, do the procedure at the airport where you leave Japan.</li>
+<li><strong>Items of {yen(JP['limite_un_milione_yen'])} or more</strong> before tax: customs may ask for a certificate of authenticity or a warranty, so keep it with the item.</li>
+<li><strong>Not taking the goods out.</strong> If goods checked by customs do not leave Japan, the tax is collected and penalties apply.</li></ul>
+<h2>What you cannot buy tax-free</h2>
+<ul><li>Gold and platinum bullion, gold and platinum coins, and goods that are exempt from consumption tax.</li>
+<li>More than you can carry out of Japan yourself at departure. Separate shipping by post of tax-free goods ended on 31 March 2025; some shops can ship abroad for you: ask the shop.</li></ul>
+<p class="fonte">Official sources: {jp_link("nta_rimborso", "National Tax Agency")} · {jp_link("jta_faq", "Japan Tourism Agency FAQ")} · checked on {JP_CHECK}</p>
+<h2>Departure tax: {yen(p['importo'])} from {data_lunga(p['dal'])}</h2>
+<p>Japan's International Tourist Tax (the departure tax) went up from {yen(p['prima'])} to <strong>{yen(p['importo'])} per departure</strong> on {data_lunga(p['dal'])}. Airlines and shipping companies collect it from passengers. Children under {p['esenti_sotto_anni']} and some transit passengers who leave within 24 hours do not pay. Tickets bought before {data_lunga(p['dal'])} for a fixed departure date usually keep the old {yen(p['prima'])}, unless the departure date is changed after that day. This tax is not refunded by the tax-free system.</p>
+<p class="fonte">Official source: {jp_link("nta_tassa_partenza")} · checked on {JP_CHECK}</p>
+<p>Staying overnight? Many Japanese cities also charge an accommodation tax: <a href="{rel}tokyo/">Tokyo</a>, <a href="{rel}kyoto/">Kyoto</a>, <a href="{rel}sapporo/">Sapporo</a>, <a href="{rel}kutchan-niseko/">Kutchan (Niseko)</a>, <a href="{rel}hakuba/">Hakuba</a>. See <a href="{rel}country/japan/">all tourist taxes in Japan</a>.</p>
+<h2>Questions</h2>
+<div class="faq-box">{faq_html}</div>
+<h2>Official sources</h2>
+<ul>{"".join(f'<li><a href="{escape(f["url"])}" rel="noopener">{escape(f["titolo"])}</a> – {escape(f["formato"])}, checked {data_lunga(f["controllato_il"])}</li>' for f in JP_F.values())}</ul>
+<p class="small">Spotted a change in the official rules? <a href="{rel}contact/?ref=japan-tax-free-refund">Tell us</a>.</p>
+<p><a href="{rel}country/japan/">Tourist taxes in Japan</a> · <a href="{rel}">Tourist tax calculator</a> · <a href="{rel}tourist-tax-changes-2027/">Tourist tax changes in 2027</a></p>"""
+    pagina(JP_SLUG, "Japan tax free refund from November 2026: rules and calculator",
+           f"From {data_lunga(JP['in_vigore_dal'])} Japan refunds the {a['standard']}% consumption tax ({a['ridotta']}% on food) after a customs check at departure. "
+           f"Minimum {s} per shop per day, {g} days. Calculator and official sources.",
+           corpo, briciole=[("Japan", "country/japan/"), ("Tax-free refund from November 2026", JP_SLUG)], extra_js=JP_JS + JP_APP_JS, jsonld_extra=ld)
+
+
 def fr_slug_map():
     m, usati = {}, set()
     for code, nome, dep, _ in FR_TOP["comuni"]:
@@ -2016,6 +2207,7 @@ def pagina_paese(slug):
 {f'<p class="risposta">{escape(risp)}</p>' if risp else ""}
 {"" if risp else f'<p class="lead">{escape(testo_extra) if testo_extra else f"Official tourist tax rates in {escape(nome)}, with a calculator for each destination."}</p>'}</section>
 {f'<p class="small">What changes next: <a href="{rel}tourist-tax-changes-2027/">tourist tax changes in 2027</a>.</p>' if any(cambi_di(d["slug"]) for d in dd) else ""}
+{jp_callout(rel) if slug == "japan" else ""}
 <div class="tab"><table><thead><tr><th>Destination</th><th>Rate {ANNO}</th><th>Max taxable nights</th><th>Exempt</th></tr></thead><tbody>{righe}</tbody></table></div>
 {AVVISO}
 {AD}
@@ -2098,6 +2290,7 @@ def home():
 </div></div>"""
     corpo = f"""<div class="card callout">{'<span class="ic">' + ico("search") + '</span>'}<p><strong>France:</strong> <a href="france/">search your town among {len(FR['comuni']):,} French towns</a>.</p></div>
 <div class="card callout cal-2027">{'<span class="ic">' + ico("calendar") + '</span>'}<p><strong>2027:</strong> <a href="tourist-tax-changes-2027/">{len(CAMBI['voci'])} tourist tax changes with an official date</a> – Turkey, Okinawa, Quintana Roo (Mexico), Cardiff, Catalonia, Barcelona, Tokyo, Vienna and Mexican cruise ports.</p></div>
+{jp_callout('')}
 {AVVISO}
 {AD}
 <h2>What the calculator covers</h2>
@@ -2260,6 +2453,7 @@ def about():
 <li>France, choice of town pages: INSEE, <a href="{escape(FR['insee'])}" rel="noopener">Capacité des communes en hébergement touristique 2026</a>, Licence Ouverte / Open Licence.</li>
 <li>Wales (Cardiff): contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="noopener">Open Government Licence v3.0</a> (gov.wales, Welsh Revenue Authority).</li>
 <li>Mexico: laws of the State of Quintana Roo (Congress of Quintana Roo), the Ley Federal de Derechos (Chamber of Deputies), the decree of 30 June 2025 (SIDOF) and the UMA values of INEGI are cited as facts with a link to the official text; the Visitax amounts are calculated by us from the formula in the law (2.50 UMA). See the <a href="{rel}mexico/">Mexico page</a> for all sources.</li>
+<li>Japan tax-free refund: rules from the Japan Tourism Agency, the National Tax Agency and Japan Customs (Ministry of Finance), cited as facts with a link to each official page; see the <a href="{rel}japan-tax-free-refund/">Japan tax-free refund page</a> for all sources.</li>
 <li>Laws, ordinances and official decisions are cited as facts with a link to the official text; we do not reproduce the documents.</li></ul>
 <h2>Destinations not published (official source not readable or incomplete)</h2>
 <p>Venice, Lisbon, the Algarve, Budapest, Croatia (Dubrovnik, Split), Cyprus, Naples, Bologna, Osaka, Glasgow, Okinawa (starts 1 February 2027: see the <a href="{rel}tourist-tax-changes-2027/">2027 changes</a>), Egypt, Morocco and the Canary Islands. We will add them when we can verify a complete official source.</p>
@@ -2395,6 +2589,7 @@ def main():
     for d in DEST:
         (pagina_messico_dest if d["country_slug"] == "mexico" else pagina_destinazione)(d)
     pagina_messico()
+    pagina_giappone_rimborso()
     pagina_francia()
     for c in FR_TOP["comuni"]:
         pagina_francia_comune(c[0])
