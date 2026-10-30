@@ -1,0 +1,1663 @@
+{
+ "_nota": "Ricerche vere (autocompletamento di Google, client=firefox, hl=en, gl=us e gl=uk) sui pedaggi con l'auto a noleggio. Ogni domanda delle FAQ della sezione tolls-rental-car/ deve essere una di queste ricerche (campo 'query' in pedaggi_manuali.json). Riscritto da raccolta/pedaggi.py --domanda.",
+ "letto_il": "2026-10-30",
+ "modelli": [
+  "{p} tolls rental car",
+  "{p} tolls hire car",
+  "tolls in {p} rental car",
+  "{p} toll roads rental car",
+  "{p} vignette rental car",
+  "how to pay tolls in {p}",
+  "{p} tolls"
+ ],
+ "extra": [
+  "m50 toll rental car",
+  "m50 toll hire car",
+  "autopass rental car",
+  "portugal electronic tolls rental car",
+  "italy telepass rental car",
+  "austria vignette hire car",
+  "swiss vignette rental car"
+ ],
+ "paesi": {
+  "PT": {
+   "us": {
+    "portugal tolls rental car": [
+     "portugal tolls rental car",
+     "portugal road tolls rental car",
+     "electronic toll portugal rental car",
+     "how to pay tolls portugal rental car",
+     "are there tolls in portugal",
+     "toll roads in portugal",
+     "paying tolls in portugal"
+    ],
+    "portugal tolls hire car": [
+     "portugal tolls hire car",
+     "portugal tolls rental car",
+     "portugal toll roads rental car",
+     "a22 portugal tolls hire car",
+     "how to pay tolls in portugal rental car",
+     "are there tolls in portugal",
+     "toll roads in portugal",
+     "how do tolls work in portugal",
+     "paying tolls in portugal"
+    ],
+    "tolls in portugal rental car": [
+     "tolls in portugal rental car",
+     "toll roads portugal rental car",
+     "how to pay tolls in portugal rental car",
+     "how to pay tolls in portugal rental car online",
+     "how to pay tolls in portugal rental car sixt",
+     "how do tolls work in portugal with a rental car",
+     "toll roads in portugal",
+     "paying tolls in portugal",
+     "how much to rent a car in portugal"
+    ],
+    "portugal toll roads rental car": [
+     "portugal toll roads rental car",
+     "how to pay tolls in portugal rental car",
+     "toll roads in portugal"
+    ],
+    "portugal vignette rental car": [],
+    "how to pay tolls in portugal": [
+     "how to pay tolls in portugal",
+     "how to pay tolls in portugal with a rental car",
+     "how to pay tolls in portugal online",
+     "how to pay tolls in portugal rental car online",
+     "how to pay tolls in portugal rental car sixt",
+     "how to pay toll roads in portugal",
+     "how to pay electronic tolls in portugal",
+     "how to pay highway tolls in portugal",
+     "how to pay motorway tolls in portugal",
+     "how to pay missed tolls in portugal"
+    ],
+    "portugal tolls": [
+     "portugal tolls",
+     "portugal tolls website",
+     "portugal tolls rental car",
+     "portugal tolls pay after",
+     "portugal tolls online",
+     "portugal tolls pay online",
+     "portugal tolls map",
+     "portugal tolls registration",
+     "portugal tolls how to pay",
+     "portugal tolls cost"
+    ]
+   },
+   "uk": {
+    "portugal tolls rental car": [
+     "portugal tolls rental car",
+     "portugal road tolls rental car",
+     "electronic toll portugal rental car",
+     "how to pay tolls portugal rental car",
+     "are there tolls in portugal",
+     "toll roads in portugal",
+     "paying tolls in portugal"
+    ],
+    "portugal tolls hire car": [
+     "portugal tolls hire car",
+     "portugal tolls rental car",
+     "portugal toll roads rental car",
+     "a22 portugal tolls hire car",
+     "how to pay tolls in portugal rental car",
+     "are there tolls in portugal",
+     "toll roads in portugal",
+     "how do tolls work in portugal",
+     "paying tolls in portugal"
+    ],
+    "tolls in portugal rental car": [
+     "tolls in portugal rental car",
+     "toll roads portugal rental car",
+     "how to pay tolls in portugal rental car",
+     "how to pay tolls in portugal rental car online",
+     "how to pay tolls in portugal rental car sixt",
+     "how do tolls work in portugal with a rental car",
+     "toll roads in portugal",
+     "paying tolls in portugal",
+     "how much to rent a car in portugal"
+    ],
+    "portugal toll roads rental car": [
+     "portugal toll roads rental car",
+     "how to pay tolls in portugal rental car",
+     "toll roads in portugal"
+    ],
+    "portugal vignette rental car": [],
+    "how to pay tolls in portugal": [
+     "how to pay tolls in portugal",
+     "how to pay tolls in portugal with a rental car",
+     "how to pay tolls in portugal online",
+     "how to pay tolls in portugal rental car online",
+     "how to pay tolls in portugal rental car sixt",
+     "how to pay toll roads in portugal",
+     "how to pay electronic tolls in portugal",
+     "how to pay highway tolls in portugal",
+     "how to pay motorway tolls in portugal",
+     "how to pay missed tolls in portugal"
+    ],
+    "portugal tolls": [
+     "portugal tolls",
+     "portugal tolls pay after",
+     "portugal tolls website",
+     "portugal tolls rental car",
+     "portugal tolls online",
+     "portugal tolls pay online",
+     "portugal tolls map",
+     "portugal tolls registration",
+     "portugal tolls how to pay",
+     "portugal tolls cost"
+    ]
+   }
+  },
+  "IE": {
+   "us": {
+    "ireland tolls rental car": [
+     "ireland tolls rental car",
+     "ireland m50 toll rental car",
+     "ireland toll roads rental car",
+     "how to pay tolls in ireland with rental car",
+     "how do i pay tolls with a rental car"
+    ],
+    "ireland tolls hire car": [
+     "ireland tolls rental car",
+     "ireland toll roads rental car",
+     "how to pay tolls in ireland with rental car",
+     "how do i pay tolls with a rental car",
+     "how much does avis charge for tolls"
+    ],
+    "tolls in ireland rental car": [
+     "tolls in ireland rental car",
+     "toll roads in ireland rental car",
+     "paying tolls in ireland with rental car",
+     "how do tolls work in ireland with rental car",
+     "how do you pay tolls in ireland with a rental car",
+     "do rental cars pay tolls in ireland",
+     "how do i pay tolls with a rental car"
+    ],
+    "ireland toll roads rental car": [
+     "ireland toll roads rental car",
+     "how to pay tolls in ireland with rental car",
+     "tolls in ireland rental car",
+     "are there toll roads in ireland",
+     "do rental cars pay for tolls"
+    ],
+    "ireland vignette rental car": [],
+    "how to pay tolls in ireland": [
+     "how to pay tolls in ireland",
+     "how to pay tolls in ireland with rental car",
+     "how to pay tolls in ireland online",
+     "how to pay tolls in ireland m50",
+     "how to pay tolls in ireland m1",
+     "how to pay toll roads in ireland",
+     "how to pay motorway tolls in ireland",
+     "how to pay highway tolls in ireland",
+     "how to pay tolls in northern ireland",
+     "how to pay tolls in dublin ireland"
+    ],
+    "ireland tolls": [
+     "ireland tolls",
+     "ireland tolls pay",
+     "ireland tolls rental car",
+     "ireland tolls map",
+     "ireland tolls cost",
+     "ireland tolls pay online",
+     "ireland tolls credit card",
+     "ireland tolls payment",
+     "ireland tolls card",
+     "ireland tolls tag"
+    ]
+   },
+   "uk": {
+    "ireland tolls rental car": [
+     "ireland tolls rental car",
+     "ireland m50 toll rental car",
+     "ireland toll roads rental car",
+     "how to pay tolls in ireland with rental car",
+     "how do i pay tolls with a rental car"
+    ],
+    "ireland tolls hire car": [
+     "ireland tolls rental car",
+     "ireland toll roads rental car",
+     "how to pay tolls in ireland with rental car",
+     "how do i pay tolls with a rental car",
+     "how much does avis charge for tolls"
+    ],
+    "tolls in ireland rental car": [
+     "tolls in ireland rental car",
+     "toll roads in ireland rental car",
+     "paying tolls in ireland with rental car",
+     "how do tolls work in ireland with rental car",
+     "how do you pay tolls in ireland with a rental car",
+     "do rental cars pay tolls in ireland",
+     "how do i pay tolls with a rental car"
+    ],
+    "ireland toll roads rental car": [
+     "ireland toll roads rental car",
+     "how to pay tolls in ireland with rental car",
+     "tolls in ireland rental car",
+     "are there toll roads in ireland",
+     "do rental cars pay for tolls"
+    ],
+    "ireland vignette rental car": [],
+    "how to pay tolls in ireland": [
+     "how to pay tolls in ireland",
+     "how to pay tolls in ireland with rental car",
+     "how to pay tolls in ireland online",
+     "how to pay tolls in ireland m50",
+     "how to pay tolls in ireland m1",
+     "how to pay toll roads in ireland",
+     "how to pay motorway tolls in ireland",
+     "how to pay highway tolls in ireland",
+     "how to pay tolls in northern ireland",
+     "how to pay tolls in dublin ireland"
+    ],
+    "ireland tolls": [
+     "ireland tolls",
+     "ireland tolls pay",
+     "ireland tolls rental car",
+     "ireland tolls map",
+     "ireland tolls cost",
+     "ireland tolls pay online",
+     "ireland tolls credit card",
+     "ireland tolls payment",
+     "ireland tolls card",
+     "ireland tolls tag"
+    ]
+   }
+  },
+  "NO": {
+   "us": {
+    "norway tolls rental car": [
+     "norway tolls rental car",
+     "norway road tolls rental car",
+     "norway toll roads cost",
+     "how much are tolls in norway",
+     "do rental car companies pay for tolls",
+     "road tolls in norway"
+    ],
+    "norway tolls hire car": [
+     "norway tolls rental car",
+     "norway toll roads hire car",
+     "norway toll roads cost",
+     "how much are tolls in norway",
+     "hiring a car in norway",
+     "does hertz charge for tolls"
+    ],
+    "tolls in norway rental car": [
+     "toll roads norway rental car",
+     "how to pay tolls in norway rental car",
+     "how much are tolls in norway",
+     "road tolls in norway",
+     "how much to rent a car in norway",
+     "how to pay tolls in norway",
+     "renting a car in norway"
+    ],
+    "norway toll roads rental car": [
+     "norway toll roads rental car",
+     "norway toll roads cost",
+     "road tolls in norway",
+     "how much are tolls in norway",
+     "do rental car companies pay for tolls"
+    ],
+    "norway vignette rental car": [],
+    "how to pay tolls in norway": [
+     "how to pay tolls in norway",
+     "how to pay tolls in norway rental car",
+     "how to pay tolls in norway for foreigners",
+     "how to pay toll roads in norway",
+     "how to pay highway tolls in norway",
+     "how to pay tolls and ferries in norway",
+     "how are.tolls.paid in norway",
+     "how much are tolls in norway",
+     "toll roads in norway",
+     "norway toll roads cost"
+    ],
+    "norway tolls": [
+     "norway tolls",
+     "norway tolls rental car",
+     "norway tolls map",
+     "norway tolls app",
+     "norway tolls calculator",
+     "norway tolls how to pay",
+     "norway tolls price",
+     "norway tolls and ferries",
+     "norway tolls payment",
+     "norway road tolls"
+    ]
+   },
+   "uk": {
+    "norway tolls rental car": [
+     "norway tolls rental car",
+     "norway road tolls rental car",
+     "norway toll roads cost",
+     "how much are tolls in norway",
+     "do rental car companies pay for tolls",
+     "road tolls in norway"
+    ],
+    "norway tolls hire car": [
+     "norway tolls rental car",
+     "norway toll roads hire car",
+     "norway road tolls rental car",
+     "norway toll roads cost",
+     "how much are tolls in norway",
+     "hiring a car in norway",
+     "does hertz charge for tolls"
+    ],
+    "tolls in norway rental car": [
+     "toll roads norway rental car",
+     "how to pay tolls in norway rental car",
+     "how much are tolls in norway",
+     "road tolls in norway",
+     "how much to rent a car in norway",
+     "how to pay tolls in norway",
+     "renting a car in norway"
+    ],
+    "norway toll roads rental car": [
+     "norway toll roads rental car",
+     "norway toll roads cost",
+     "road tolls in norway",
+     "how much are tolls in norway",
+     "do rental car companies pay for tolls"
+    ],
+    "norway vignette rental car": [],
+    "how to pay tolls in norway": [
+     "how to pay tolls in norway",
+     "how to pay tolls in norway rental car",
+     "how to pay tolls in norway for foreigners",
+     "how to pay toll roads in norway",
+     "how to pay highway tolls in norway",
+     "how to pay tolls and ferries in norway",
+     "how are.tolls.paid in norway",
+     "how much are tolls in norway",
+     "toll roads in norway",
+     "norway toll roads cost"
+    ],
+    "norway tolls": [
+     "norway tolls",
+     "norway tolls rental car",
+     "norway tolls map",
+     "norway tolls app",
+     "norway tolls calculator",
+     "norway tolls how to pay",
+     "norway tolls price",
+     "norway tolls and ferries",
+     "norway tolls payment",
+     "norway road tolls"
+    ]
+   }
+  },
+  "IT": {
+   "us": {
+    "italy tolls rental car": [
+     "italy tolls rental car",
+     "italy toll roads rental car",
+     "how to pay tolls italy rental car",
+     "are there toll roads in italy",
+     "how much are tolls in italy"
+    ],
+    "italy tolls hire car": [
+     "italy tolls rental car",
+     "italy toll roads rental car",
+     "how to pay tolls in italy with rental car",
+     "are there toll roads in italy",
+     "do you italy car hire contact number",
+     "do you italy car hire",
+     "how much does it cost to rent a car in italy"
+    ],
+    "tolls in italy rental car": [
+     "tolls in italy rental car",
+     "how to pay tolls in italy with rental car online",
+     "how to pay tolls in italy with rental car without",
+     "how do you pay tolls in italy with a rental car",
+     "how do i pay tolls in italy with a rental car",
+     "are there toll roads in italy",
+     "how much are tolls in italy",
+     "how do you pay for toll roads in italy"
+    ],
+    "italy toll roads rental car": [
+     "italy toll roads rental car",
+     "are there toll roads in italy",
+     "how to pay tolls in italy with rental car",
+     "how do you pay for toll roads in italy",
+     "how much are toll roads in italy"
+    ],
+    "italy vignette rental car": [],
+    "how to pay tolls in italy": [
+     "how to pay tolls in italy",
+     "how to pay tolls in italy with rental car",
+     "how to pay tolls in italy with rental car online",
+     "how to pay tolls in italy online",
+     "how to pay tolls in italy with credit card",
+     "how to pay tolls in italy without telepass",
+     "how to pay tolls in italy highway",
+     "how to pay tolls in italy with rental car without",
+     "how to pay tolls in italy as a tourist",
+     "how to pay tolls in italy roads"
+    ],
+    "italy tolls": [
+     "italy tolls",
+     "italy tolls rental car",
+     "italy tolls calculator",
+     "italy tolls how to pay",
+     "italy tolls price",
+     "italy tolls payment",
+     "italy tolls pay by card",
+     "italy tolls telepass",
+     "italy tolls explained",
+     "how much are tolls in italy"
+    ]
+   },
+   "uk": {
+    "italy tolls rental car": [
+     "italy tolls rental car",
+     "italy toll roads rental car",
+     "how to pay tolls italy rental car",
+     "are there toll roads in italy",
+     "how much are tolls in italy"
+    ],
+    "italy tolls hire car": [
+     "italy tolls rental car",
+     "italy toll roads rental car",
+     "how to pay tolls in italy with rental car",
+     "are there toll roads in italy",
+     "do you italy car hire contact number",
+     "do you italy car hire",
+     "how much does it cost to rent a car in italy"
+    ],
+    "tolls in italy rental car": [
+     "tolls in italy rental car",
+     "paying tolls in italy rental car",
+     "toll roads in italy with rental car",
+     "how to pay tolls in italy with rental car online",
+     "how to pay tolls in italy with rental car without",
+     "how do tolls work in italy with rental cars",
+     "how do you pay tolls in italy with a rental car",
+     "are there toll roads in italy",
+     "how much are tolls in italy",
+     "how do you pay for toll roads in italy"
+    ],
+    "italy toll roads rental car": [
+     "italy toll roads rental car",
+     "are there toll roads in italy",
+     "how to pay tolls in italy with rental car",
+     "how do you pay for toll roads in italy",
+     "how much are toll roads in italy"
+    ],
+    "italy vignette rental car": [],
+    "how to pay tolls in italy": [
+     "how to pay tolls in italy",
+     "how to pay tolls in italy with rental car",
+     "how to pay tolls in italy with rental car online",
+     "how to pay tolls in italy online",
+     "how to pay tolls in italy with credit card",
+     "how to pay tolls in italy without telepass",
+     "how to pay tolls in italy highway",
+     "how to pay tolls in italy with rental car without",
+     "how to pay tolls in italy as a tourist",
+     "how to pay tolls in italy roads"
+    ],
+    "italy tolls": [
+     "italy tolls",
+     "italy tolls calculator",
+     "italy tolls rental car",
+     "italy tolls how to pay",
+     "italy tolls price",
+     "italy tolls payment",
+     "italy tolls pay by card",
+     "italy tolls telepass",
+     "italy tolls explained",
+     "how much are tolls in italy"
+    ]
+   }
+  },
+  "FR": {
+   "us": {
+    "france tolls rental car": [
+     "france tolls rental car",
+     "france toll roads rental car",
+     "how to pay tolls france rental car",
+     "are there tolls in france",
+     "toll roads in france",
+     "cost of tolls in france"
+    ],
+    "france tolls hire car": [
+     "france tolls rental car",
+     "france toll roads rental car",
+     "how do tolls work in france",
+     "are there tolls in france",
+     "cost of tolls in france",
+     "toll charges in france for cars"
+    ],
+    "tolls in france rental car": [
+     "tolls in france rental car",
+     "toll roads in france rental car",
+     "paying tolls in france rental car",
+     "how do tolls work in france rental car",
+     "how to pay tolls in france with rental car online",
+     "are there tolls in france",
+     "toll roads in france",
+     "how to use tolls in france",
+     "cost of tolls in france"
+    ],
+    "france toll roads rental car": [
+     "france toll roads rental car",
+     "tolls in france rental car",
+     "are there tolls in france",
+     "toll roads in france",
+     "can you avoid tolls in france",
+     "do rental cars pay for tolls"
+    ],
+    "france vignette rental car": [],
+    "how to pay tolls in france": [
+     "how to pay tolls in france with rental car",
+     "how to pay tolls in france",
+     "how to pay tolls in france online",
+     "how to pay tolls in france and spain",
+     "how to pay tolls in france and italy",
+     "how to pay tolls in france with rental car online",
+     "how to pay tolls in france as a tourist",
+     "how to pay tolls in france and belgium",
+     "how to pay tolls in france a13",
+     "how to pay toll roads in france"
+    ],
+    "france tolls": [
+     "france tolls",
+     "france tolls rental car",
+     "france tolls calculator",
+     "france tolls how to pay",
+     "france tolls cost",
+     "france tolls pay online",
+     "france tolls map",
+     "france tolls payment",
+     "france tolls motorway",
+     "france tolls tag"
+    ]
+   },
+   "uk": {
+    "france tolls rental car": [
+     "france tolls rental car",
+     "france toll roads rental car",
+     "how to pay tolls france rental car",
+     "are there tolls in france",
+     "toll roads in france",
+     "cost of tolls in france"
+    ],
+    "france tolls hire car": [
+     "france tolls rental car",
+     "france toll roads rental car",
+     "how do tolls work in france",
+     "are there tolls in france",
+     "cost of tolls in france",
+     "toll charges in france for cars"
+    ],
+    "tolls in france rental car": [
+     "tolls in france rental car",
+     "toll roads in france rental car",
+     "paying tolls in france rental car",
+     "how do tolls work in france rental car",
+     "how to pay tolls in france with rental car online",
+     "are there tolls in france",
+     "toll roads in france",
+     "how to use tolls in france",
+     "cost of tolls in france"
+    ],
+    "france toll roads rental car": [
+     "france toll roads rental car",
+     "tolls in france rental car",
+     "are there tolls in france",
+     "toll roads in france",
+     "can you avoid tolls in france",
+     "do rental cars pay for tolls"
+    ],
+    "france vignette rental car": [],
+    "how to pay tolls in france": [
+     "how to pay tolls in france",
+     "how to pay tolls in france with rental car",
+     "how to pay tolls in france online",
+     "how to pay tolls in france and spain",
+     "how to pay tolls in france and italy",
+     "how to pay tolls in france with rental car online",
+     "how to pay tolls in france as a tourist",
+     "how to pay tolls in france and belgium",
+     "how to pay tolls in france a13",
+     "how to pay toll roads in france"
+    ],
+    "france tolls": [
+     "france tolls",
+     "france tolls calculator",
+     "france tolls how to pay",
+     "france tolls cost",
+     "france tolls pay online",
+     "france tolls rental car",
+     "france tolls map",
+     "france tolls payment",
+     "france tolls motorway",
+     "france tolls tag"
+    ]
+   }
+  },
+  "ES": {
+   "us": {
+    "spain tolls rental car": [
+     "spain tolls rental car",
+     "spain toll roads rental car",
+     "are there toll roads in spain",
+     "spanish car rental companies",
+     "are toll roads in spain free",
+     "tolls in france rental car",
+     "how much to rent a car in spain"
+    ],
+    "spain tolls hire car": [
+     "spain tolls rental car",
+     "spain toll roads rental car",
+     "are there toll roads in spain",
+     "can you hire a car in france and drive to spain",
+     "can you drive a spanish hire car into gibraltar"
+    ],
+    "tolls in spain rental car": [
+     "tolls in spain rental car",
+     "how to pay tolls in spain rental car",
+     "how do tolls work in spain with rental cars",
+     "are there toll roads in spain",
+     "tolls in france rental car",
+     "can you take tolls in a rental car",
+     "are toll roads in spain free"
+    ],
+    "spain toll roads rental car": [
+     "spain toll roads rental car",
+     "are there toll roads in spain",
+     "are toll roads in spain free",
+     "are there still toll roads in spain",
+     "how much are toll roads in spain"
+    ],
+    "spain vignette rental car": [],
+    "how to pay tolls in spain": [
+     "how to pay tolls in spain",
+     "how to pay tolls in spain with a rental car",
+     "how to pay tolls in spain online",
+     "how to pay toll roads in spain",
+     "how to pay highway tolls in spain",
+     "how to pay motorway tolls in spain",
+     "how to pay tolls in france and spain",
+     "how to pay tolls on ap7 spain",
+     "how are tolls paid in spain",
+     "how to pay road.tolls.in france and spain"
+    ],
+    "spain tolls": [
+     "spain tolls",
+     "spain tolls map",
+     "spain tolls how to pay",
+     "spain tolls calculator",
+     "spain tolls rental car",
+     "spain tolls price",
+     "spain highway tolls",
+     "spain road tolls",
+     "spain motorway tolls",
+     "ap7 spain tolls"
+    ]
+   },
+   "uk": {
+    "spain tolls rental car": [
+     "spain tolls rental car",
+     "spain toll roads rental car",
+     "are there toll roads in spain",
+     "spanish car rental companies",
+     "are toll roads in spain free",
+     "tolls in france rental car",
+     "how much to rent a car in spain"
+    ],
+    "spain tolls hire car": [
+     "spain tolls rental car",
+     "spain toll roads rental car",
+     "are there toll roads in spain",
+     "can you hire a car in france and drive to spain",
+     "can you drive a spanish hire car into gibraltar"
+    ],
+    "tolls in spain rental car": [
+     "tolls in spain rental car",
+     "how to pay tolls in spain rental car",
+     "how do tolls work in spain with rental cars",
+     "are there toll roads in spain",
+     "tolls in france rental car",
+     "can you take tolls in a rental car",
+     "are toll roads in spain free"
+    ],
+    "spain toll roads rental car": [
+     "spain toll roads rental car",
+     "are there toll roads in spain",
+     "are toll roads in spain free",
+     "are there still toll roads in spain",
+     "how much are toll roads in spain"
+    ],
+    "spain vignette rental car": [],
+    "how to pay tolls in spain": [
+     "how to pay tolls in spain",
+     "how to pay tolls in spain with a rental car",
+     "how to pay tolls in spain online",
+     "how to pay toll roads in spain",
+     "how to pay highway tolls in spain",
+     "how to pay motorway tolls in spain",
+     "how to pay tolls in france and spain",
+     "how to pay tolls on ap7 spain",
+     "how are tolls paid in spain",
+     "how to pay road.tolls.in france and spain"
+    ],
+    "spain tolls": [
+     "spain tolls",
+     "spain tolls map",
+     "spain tolls how to pay",
+     "spain tolls calculator",
+     "spain tolls rental car",
+     "spain tolls price",
+     "spain highway tolls",
+     "spain road tolls",
+     "spain motorway tolls",
+     "ap7 spain tolls"
+    ]
+   }
+  },
+  "AT": {
+   "us": {
+    "austria tolls rental car": [
+     "austria tolls rental car",
+     "austria vignette rental car",
+     "austria toll sticker rental car",
+     "austria highway toll rental car",
+     "austria digital vignette rental car",
+     "are there toll roads in austria",
+     "how much is it to rent a car in austria",
+     "renting a car in austria",
+     "do rental car companies pay for tolls",
+     "does hertz charge for tolls"
+    ],
+    "austria tolls hire car": [
+     "austria tolls rental car",
+     "austria vignette hire car",
+     "austria vignette rental car",
+     "toll roads austria rental car",
+     "are there toll roads in austria",
+     "how much is it to rent a car in austria",
+     "how to pay tolls in austria",
+     "renting a car in austria",
+     "does hertz charge for tolls"
+    ],
+    "tolls in austria rental car": [
+     "tolls in austria rental car",
+     "toll roads austria rental car",
+     "how to pay tolls in austria rental car",
+     "are there toll roads in austria",
+     "how much is it to rent a car in austria",
+     "renting a car in austria",
+     "tolls in france rental car",
+     "how do i pay tolls with a rental car"
+    ],
+    "austria toll roads rental car": [
+     "austria highway toll rental car",
+     "are there toll roads in austria",
+     "do rental car companies pay for tolls",
+     "toll roads with a rental car",
+     "do you pay tolls in a rental car"
+    ],
+    "austria vignette rental car": [
+     "austria vignette rental car",
+     "austria digital vignette rental car",
+     "renting a car in austria",
+     "how much is it to rent a car in austria",
+     "do you need a vignette for austria",
+     "austria vignette price"
+    ],
+    "how to pay tolls in austria": [
+     "how to pay tolls in austria",
+     "how to pay tolls in austria rental car",
+     "how to pay tolls in austria online",
+     "how to pay toll roads in austria",
+     "how to pay highway tolls in austria",
+     "how to pay motorway tolls in austria",
+     "how are tolls paid in austria",
+     "how to pay austrian toll roads",
+     "are there toll roads in austria",
+     "tolls in austria motorways"
+    ],
+    "austria tolls": [
+     "austria tolls",
+     "austria tolls rental car",
+     "austria tolls map",
+     "austria tolls how to pay",
+     "austria tolls cost",
+     "austria tolls online",
+     "austria tolls road",
+     "austria tolls reddit",
+     "austria tolls highway",
+     "tolls austria motorways"
+    ]
+   },
+   "uk": {
+    "austria tolls rental car": [
+     "austria tolls rental car",
+     "austria vignette rental car",
+     "austria toll sticker rental car",
+     "austria highway toll rental car",
+     "austria digital vignette rental car",
+     "are there toll roads in austria",
+     "how much is it to rent a car in austria",
+     "renting a car in austria",
+     "do rental car companies pay for tolls",
+     "does hertz charge for tolls"
+    ],
+    "austria tolls hire car": [
+     "austria tolls rental car",
+     "austria vignette hire car",
+     "austria vignette rental car",
+     "toll roads austria rental car",
+     "are there toll roads in austria",
+     "how much is it to rent a car in austria",
+     "how to pay tolls in austria",
+     "renting a car in austria",
+     "does hertz charge for tolls"
+    ],
+    "tolls in austria rental car": [
+     "tolls in austria rental car",
+     "toll roads austria rental car",
+     "how to pay tolls in austria rental car",
+     "are there toll roads in austria",
+     "how much is it to rent a car in austria",
+     "renting a car in austria",
+     "tolls in france rental car",
+     "how do i pay tolls with a rental car"
+    ],
+    "austria toll roads rental car": [
+     "austria highway toll rental car",
+     "are there toll roads in austria",
+     "do rental car companies pay for tolls",
+     "toll roads with a rental car",
+     "do you pay tolls in a rental car"
+    ],
+    "austria vignette rental car": [
+     "austria vignette rental car",
+     "austria digital vignette rental car",
+     "renting a car in austria",
+     "how much is it to rent a car in austria",
+     "do you need a vignette for austria",
+     "austria vignette price"
+    ],
+    "how to pay tolls in austria": [
+     "how to pay tolls in austria",
+     "how to pay tolls in austria with rental car",
+     "how to pay tolls in austria online",
+     "how to pay toll roads in austria",
+     "how to pay highway tolls in austria",
+     "how to pay motorway tolls in austria",
+     "how do i pay tolls in austria",
+     "how are tolls paid in austria",
+     "how to pay austrian toll roads",
+     "are there toll roads in austria"
+    ],
+    "austria tolls": [
+     "austria tolls",
+     "austria tolls map",
+     "austria tolls cost",
+     "austria tolls rental car",
+     "austria tolls how to pay",
+     "austria tolls online",
+     "austria tolls road",
+     "austria tolls reddit",
+     "austria tolls highway",
+     "tolls austria motorways"
+    ]
+   }
+  },
+  "CH": {
+   "us": {
+    "switzerland tolls rental car": [
+     "switzerland tolls rental car",
+     "switzerland vignette rental car",
+     "switzerland toll pass rental car",
+     "are there toll roads in switzerland",
+     "toll roads in switzerland cost",
+     "are there tolls in switzerland",
+     "how much are tolls in switzerland",
+     "do you pay tolls in switzerland"
+    ],
+    "switzerland tolls hire car": [
+     "switzerland tolls rental car",
+     "switzerland vignette rental car",
+     "do you pay tolls in switzerland",
+     "are there toll roads in switzerland",
+     "toll roads in switzerland cost",
+     "how do toll roads work in switzerland",
+     "how much are tolls in switzerland"
+    ],
+    "tolls in switzerland rental car": [
+     "tolls in switzerland rental car",
+     "toll roads switzerland rental car",
+     "vignette switzerland rental car",
+     "how to pay tolls in switzerland rental car",
+     "do rental cars pay tolls in switzerland",
+     "are there toll roads in switzerland",
+     "toll roads in switzerland cost",
+     "how much are tolls in switzerland",
+     "are there tolls in switzerland",
+     "do you pay tolls in switzerland"
+    ],
+    "switzerland toll roads rental car": [
+     "switzerland toll roads rental car",
+     "are there toll roads in switzerland",
+     "toll roads in switzerland cost",
+     "how do toll roads work in switzerland",
+     "are there tolls in switzerland"
+    ],
+    "switzerland vignette rental car": [
+     "switzerland vignette rental car",
+     "swiss motorway vignette rental car",
+     "e vignette switzerland rental car",
+     "driving in switzerland vignette rental car",
+     "driving in switzerland vignette cost",
+     "can i drive in switzerland without a vignette",
+     "driving rental car from germany to switzerland",
+     "can i rent a car in italy and drive to switzerland"
+    ],
+    "how to pay tolls in switzerland": [
+     "how to pay tolls in switzerland",
+     "how to pay tolls in switzerland with rental car",
+     "how to pay vignette in switzerland",
+     "how to pay highway tolls in switzerland",
+     "how do tourists pay tolls in switzerland",
+     "how are tolls paid in switzerland",
+     "do you pay tolls in switzerland",
+     "how much are tolls in switzerland",
+     "toll roads in switzerland cost",
+     "swiss toll roads how to pay"
+    ],
+    "switzerland tolls": [
+     "switzerland tolls",
+     "switzerland tolls rental car",
+     "switzerland tolls cost",
+     "switzerland tolls map",
+     "switzerland tolls how to pay",
+     "tolls switzerland motorways",
+     "switzerland road tolls",
+     "switzerland highway tolls",
+     "switzerland driving tolls",
+     "hertz switzerland tolls"
+    ]
+   },
+   "uk": {
+    "switzerland tolls rental car": [
+     "switzerland tolls rental car",
+     "switzerland vignette rental car",
+     "switzerland toll pass rental car",
+     "are there toll roads in switzerland",
+     "toll roads in switzerland cost",
+     "are there tolls in switzerland",
+     "how much are tolls in switzerland",
+     "do you pay tolls in switzerland"
+    ],
+    "switzerland tolls hire car": [
+     "switzerland tolls rental car",
+     "switzerland vignette rental car",
+     "do you pay tolls in switzerland",
+     "are there toll roads in switzerland",
+     "toll roads in switzerland cost",
+     "how do toll roads work in switzerland",
+     "how much are tolls in switzerland"
+    ],
+    "tolls in switzerland rental car": [
+     "tolls in switzerland rental car",
+     "toll roads switzerland rental car",
+     "vignette switzerland rental car",
+     "how to pay tolls in switzerland rental car",
+     "do rental cars pay tolls in switzerland",
+     "are there toll roads in switzerland",
+     "toll roads in switzerland cost",
+     "how much are tolls in switzerland",
+     "are there tolls in switzerland",
+     "do you pay tolls in switzerland"
+    ],
+    "switzerland toll roads rental car": [
+     "switzerland toll roads rental car",
+     "are there toll roads in switzerland",
+     "toll roads in switzerland cost",
+     "how do toll roads work in switzerland",
+     "are there tolls in switzerland"
+    ],
+    "switzerland vignette rental car": [
+     "switzerland vignette rental car",
+     "swiss motorway vignette rental car",
+     "e vignette switzerland rental car",
+     "driving in switzerland vignette rental car",
+     "driving in switzerland vignette cost",
+     "can i drive in switzerland without a vignette",
+     "driving rental car from germany to switzerland",
+     "can i rent a car in italy and drive to switzerland"
+    ],
+    "how to pay tolls in switzerland": [
+     "how to pay tolls in switzerland with rental car",
+     "how to pay tolls in switzerland",
+     "how to pay vignette in switzerland",
+     "how to pay highway tolls in switzerland",
+     "how do tourists pay tolls in switzerland",
+     "how are tolls paid in switzerland",
+     "do you pay tolls in switzerland",
+     "how much are tolls in switzerland",
+     "toll roads in switzerland cost",
+     "swiss toll roads how to pay"
+    ],
+    "switzerland tolls": [
+     "switzerland tolls",
+     "switzerland tolls rental car",
+     "switzerland tolls cost",
+     "switzerland tolls map",
+     "switzerland tolls how to pay",
+     "tolls switzerland motorways",
+     "switzerland road tolls",
+     "switzerland highway tolls",
+     "switzerland driving tolls",
+     "hertz switzerland tolls"
+    ]
+   }
+  },
+  "SI": {
+   "us": {
+    "slovenia tolls rental car": [
+     "slovenia tolls rental car",
+     "slovenia toll roads rental car",
+     "tolls in france rental car",
+     "renting a car in slovenia",
+     "dollar rental car tolls"
+    ],
+    "slovenia tolls hire car": [
+     "slovenia tolls rental car",
+     "slovenia toll roads rental car",
+     "can i rent a car in slovenia and drive to croatia",
+     "renting a car in slovenia",
+     "how do i pay tolls with a rental car",
+     "does hertz charge for tolls"
+    ],
+    "tolls in slovenia rental car": [
+     "tolls in slovenia rental car",
+     "toll roads slovenia rental car",
+     "how to pay tolls in slovenia with rental car",
+     "tolls in france rental car",
+     "renting a car in slovenia",
+     "how do i pay tolls with a rental car"
+    ],
+    "slovenia toll roads rental car": [
+     "slovenia toll roads rental car",
+     "using toll roads in a rental car",
+     "toll roads with a rental car",
+     "driving rental car from italy to slovenia",
+     "do rental cars pay for tolls"
+    ],
+    "slovenia vignette rental car": [
+     "slovenia vignette rental car",
+     "slovenia e vignette rental car",
+     "do you need a vignette for slovenia",
+     "slovenia vignette price",
+     "driving rental car from italy to slovenia",
+     "renting a car in slovenia"
+    ],
+    "how to pay tolls in slovenia": [
+     "how to pay tolls in slovenia",
+     "how to pay tolls in slovenia with rental car",
+     "how to pay toll roads in slovenia",
+     "how to pay highway tolls in slovenia",
+     "how do i pay for tolls online",
+     "how to pay tolls in germany",
+     "how to pay tolls online",
+     "how to pay the toll roads"
+    ],
+    "slovenia tolls": [
+     "slovenia tolls",
+     "slovenia tolls rental car",
+     "slovenia tolls map",
+     "slovenia tolls payment",
+     "slovenia tolls or vignette",
+     "slovenia tolls price",
+     "slovenia road tolls",
+     "slovenia motorway tolls",
+     "slovenia highway tolls",
+     "slovenia road tolls map"
+    ]
+   },
+   "uk": {
+    "slovenia tolls rental car": [
+     "slovenia tolls rental car",
+     "slovenia toll roads rental car",
+     "tolls in france rental car",
+     "renting a car in slovenia",
+     "dollar rental car tolls"
+    ],
+    "slovenia tolls hire car": [
+     "slovenia tolls rental car",
+     "slovenia toll roads rental car",
+     "can i rent a car in slovenia and drive to croatia",
+     "renting a car in slovenia",
+     "how do i pay tolls with a rental car",
+     "does hertz charge for tolls"
+    ],
+    "tolls in slovenia rental car": [
+     "tolls in slovenia rental car",
+     "toll roads slovenia rental car",
+     "how to pay tolls in slovenia with rental car",
+     "tolls in france rental car",
+     "renting a car in slovenia",
+     "how do i pay tolls with a rental car"
+    ],
+    "slovenia toll roads rental car": [
+     "slovenia toll roads rental car",
+     "using toll roads in a rental car",
+     "toll roads with a rental car",
+     "driving rental car from italy to slovenia",
+     "do rental cars pay for tolls"
+    ],
+    "slovenia vignette rental car": [
+     "slovenia vignette rental car",
+     "slovenia e vignette rental car",
+     "do you need a vignette for slovenia",
+     "slovenia vignette price",
+     "driving rental car from italy to slovenia",
+     "renting a car in slovenia"
+    ],
+    "how to pay tolls in slovenia": [
+     "how to pay tolls in slovenia",
+     "how to pay tolls in slovenia with rental car",
+     "how to pay toll roads in slovenia",
+     "how to pay highway tolls in slovenia",
+     "how do i pay for tolls online",
+     "how to pay tolls in germany",
+     "how to pay tolls online",
+     "how to pay the toll roads"
+    ],
+    "slovenia tolls": [
+     "slovenia tolls",
+     "slovenia tolls rental car",
+     "slovenia tolls map",
+     "slovenia tolls payment",
+     "slovenia tolls or vignette",
+     "slovenia tolls price",
+     "slovenia road tolls",
+     "slovenia motorway tolls",
+     "slovenia highway tolls",
+     "slovenia road tolls map"
+    ]
+   }
+  },
+  "CZ": {
+   "us": {
+    "czech republic tolls rental car": [
+     "how to pay tolls in czech republic rental car",
+     "renting a car in czech republic",
+     "can you drive a rental car from germany to czech republic",
+     "tolls in france rental car"
+    ],
+    "czech republic tolls hire car": [],
+    "tolls in czech republic rental car": [
+     "how to pay tolls in czech republic rental car",
+     "toll roads in czech republic",
+     "tolls in france rental car",
+     "renting a car in czech republic",
+     "can you drive a rental car from germany to czech republic"
+    ],
+    "czech republic toll roads rental car": [],
+    "czech republic vignette rental car": [],
+    "how to pay tolls in czech republic": [
+     "how to pay tolls in czech republic",
+     "how to pay tolls in czech republic rental car",
+     "how to pay tolls in czech republic online",
+     "how to pay road tolls in czech republic",
+     "toll roads in czech republic",
+     "vignette czech republic price",
+     "can you pay with euro in prague",
+     "do you need a vignette for czech republic"
+    ],
+    "czech republic tolls": [
+     "czech republic tolls",
+     "czech republic toll roads",
+     "czech republic toll vignette",
+     "czech republic toll roads map",
+     "czech republic toll pass",
+     "czech republic toll box",
+     "czech republic toll free number",
+     "czech republic toll sticker",
+     "czech republic toll payment",
+     "czech republic toll map"
+    ]
+   },
+   "uk": {
+    "czech republic tolls rental car": [
+     "how to pay tolls in czech republic rental car",
+     "renting a car in czech republic",
+     "can you drive a rental car from germany to czech republic",
+     "tolls in france rental car"
+    ],
+    "czech republic tolls hire car": [],
+    "tolls in czech republic rental car": [
+     "how to pay tolls in czech republic rental car",
+     "toll roads in czech republic",
+     "tolls in france rental car",
+     "renting a car in czech republic",
+     "can you drive a rental car from germany to czech republic"
+    ],
+    "czech republic toll roads rental car": [],
+    "czech republic vignette rental car": [],
+    "how to pay tolls in czech republic": [
+     "how to pay tolls in czech republic",
+     "how to pay tolls in czech republic rental car",
+     "how to pay tolls in czech republic online",
+     "how to pay road tolls in czech republic",
+     "toll roads in czech republic",
+     "vignette czech republic price",
+     "can you pay with euro in prague",
+     "do you need a vignette for czech republic"
+    ],
+    "czech republic tolls": [
+     "czech republic tolls",
+     "czech republic toll roads",
+     "czech republic toll vignette",
+     "czech republic toll roads map",
+     "czech republic toll pass",
+     "czech republic toll box",
+     "czech republic toll free number",
+     "czech republic toll sticker",
+     "czech republic toll payment",
+     "czech republic toll map"
+    ]
+   }
+  },
+  "HU": {
+   "us": {
+    "hungary tolls rental car": [],
+    "hungary tolls hire car": [],
+    "tolls in hungary rental car": [],
+    "hungary toll roads rental car": [],
+    "hungary vignette rental car": [
+     "hungary vignette rental car",
+     "renting a car in hungary",
+     "hungary vignette price",
+     "do you need vignette in hungary"
+    ],
+    "how to pay tolls in hungary": [
+     "how to pay tolls in hungary",
+     "how to pay toll roads in hungary",
+     "how to pay highway toll in hungary",
+     "toll roads in hungary",
+     "how do i pay for tolls online",
+     "how to pay tolls online",
+     "hungary vignette price"
+    ],
+    "hungary tolls": [
+     "hungary tolls",
+     "hungary tolls or vignette",
+     "hungary tolls price",
+     "hungary tolls road",
+     "hungary tolls map",
+     "hungary tolls online",
+     "tolls hungary highway",
+     "hungary motorway tolls",
+     "hungary road tolls map",
+     "hungary hgv tolls"
+    ]
+   },
+   "uk": {
+    "hungary tolls rental car": [],
+    "hungary tolls hire car": [],
+    "tolls in hungary rental car": [],
+    "hungary toll roads rental car": [],
+    "hungary vignette rental car": [
+     "hungary vignette rental car",
+     "renting a car in hungary",
+     "hungary vignette price",
+     "do you need vignette in hungary"
+    ],
+    "how to pay tolls in hungary": [
+     "how to pay tolls in hungary",
+     "how to pay toll roads in hungary",
+     "how to pay highway toll in hungary",
+     "toll roads in hungary",
+     "how do i pay for tolls online",
+     "how to pay tolls online",
+     "hungary vignette price"
+    ],
+    "hungary tolls": [
+     "hungary tolls",
+     "hungary tolls or vignette",
+     "hungary tolls price",
+     "hungary tolls road",
+     "hungary tolls map",
+     "hungary tolls online",
+     "tolls hungary highway",
+     "hungary motorway tolls",
+     "hungary road tolls map",
+     "hungary hgv tolls"
+    ]
+   }
+  },
+  "HR": {
+   "us": {
+    "croatia tolls rental car": [
+     "croatia tolls rental car",
+     "renting a car in croatia",
+     "is it easy to rent a car in croatia",
+     "croatia toll roads how to pay",
+     "cheap car rental in croatia",
+     "do rental car companies pay for tolls"
+    ],
+    "croatia tolls hire car": [
+     "croatia tolls rental car",
+     "croatia toll roads how to pay",
+     "is it easy to rent a car in croatia",
+     "how much to rent a car in croatia",
+     "renting a car in croatia"
+    ],
+    "tolls in croatia rental car": [
+     "tolls in croatia rental car",
+     "toll road croatia rental car",
+     "how to pay tolls in croatia with rental car",
+     "is it easy to rent a car in croatia",
+     "renting a car in croatia",
+     "how much to rent a car in croatia",
+     "can you rent a car in croatia",
+     "cheap car rental in croatia"
+    ],
+    "croatia toll roads rental car": [
+     "toll road croatia rental car",
+     "toll roads with a rental car",
+     "croatia toll roads how to pay",
+     "do rental car companies pay for tolls",
+     "can you take tolls in a rental car",
+     "using toll roads in a rental car"
+    ],
+    "croatia vignette rental car": [],
+    "how to pay tolls in croatia": [
+     "how to pay tolls in croatia",
+     "how to pay tolls in croatia with rental car",
+     "how to pay toll roads in croatia",
+     "how to pay highway tolls in croatia",
+     "how to pay motorway tolls in croatia",
+     "how are tolls paid in croatia",
+     "can you pay in euros in croatia",
+     "croatia toll prices"
+    ],
+    "croatia tolls": [
+     "croatia tolls",
+     "croatia tolls rental car",
+     "croatia tolls payment",
+     "croatia tolls calculator",
+     "croatia tolls price",
+     "croatia tolls map",
+     "croatia tolls how to pay",
+     "croatia tolls calculator online",
+     "croatia tolls reddit",
+     "croatia tolls or vignette"
+    ]
+   },
+   "uk": {
+    "croatia tolls rental car": [
+     "croatia tolls rental car",
+     "renting a car in croatia",
+     "is it easy to rent a car in croatia",
+     "croatia toll roads how to pay",
+     "cheap car rental in croatia",
+     "do rental car companies pay for tolls"
+    ],
+    "croatia tolls hire car": [
+     "croatia tolls rental car",
+     "croatia toll roads how to pay",
+     "is it easy to rent a car in croatia",
+     "how much to rent a car in croatia",
+     "renting a car in croatia"
+    ],
+    "tolls in croatia rental car": [
+     "tolls in croatia rental car",
+     "toll road croatia rental car",
+     "how to pay tolls in croatia with rental car",
+     "is it easy to rent a car in croatia",
+     "renting a car in croatia",
+     "how much to rent a car in croatia",
+     "can you rent a car in croatia",
+     "cheap car rental in croatia"
+    ],
+    "croatia toll roads rental car": [
+     "toll road croatia rental car",
+     "toll roads with a rental car",
+     "croatia toll roads how to pay",
+     "do rental car companies pay for tolls",
+     "can you take tolls in a rental car",
+     "using toll roads in a rental car"
+    ],
+    "croatia vignette rental car": [],
+    "how to pay tolls in croatia": [
+     "how to pay tolls in croatia",
+     "how to pay tolls in croatia with rental car",
+     "how to pay toll roads in croatia",
+     "how to pay highway tolls in croatia",
+     "how to pay motorway tolls in croatia",
+     "how are tolls paid in croatia",
+     "can you pay in euros in croatia",
+     "croatia toll prices"
+    ],
+    "croatia tolls": [
+     "croatia tolls",
+     "croatia tolls payment",
+     "croatia tolls calculator",
+     "croatia tolls price",
+     "croatia tolls map",
+     "croatia tolls rental car",
+     "croatia tolls how to pay",
+     "croatia tolls calculator online",
+     "croatia tolls reddit",
+     "croatia tolls or vignette"
+    ]
+   }
+  },
+  "GR": {
+   "us": {
+    "greece tolls rental car": [
+     "greece tolls rental car",
+     "toll roads in greece",
+     "how much does it cost to rent a car in greece",
+     "how to pay tolls in italy with rental car",
+     "do rental cars pay for tolls",
+     "tolls in france rental car"
+    ],
+    "greece tolls hire car": [
+     "greece tolls rental car",
+     "how much does it cost to rent a car in greece",
+     "do rental cars pay for tolls",
+     "toll roads in greece",
+     "greece toll roads how to pay"
+    ],
+    "tolls in greece rental car": [
+     "how to pay tolls in greece with rental car",
+     "how much does it cost to rent a car in greece",
+     "toll roads in greece",
+     "how to pay tolls in italy with rental car",
+     "renting a car in greece",
+     "tolls in france rental car"
+    ],
+    "greece toll roads rental car": [],
+    "greece vignette rental car": [],
+    "how to pay tolls in greece": [
+     "how to pay tolls in greece with rental car",
+     "how to pay tolls in greece",
+     "how to pay toll roads in greece",
+     "how to pay highway tolls in greece",
+     "how are tolls paid in greece",
+     "toll roads in greece",
+     "how to pay european tolls",
+     "how to pay for toll roads in europe",
+     "how to pay tolls in italy"
+    ],
+    "greece tolls": [
+     "greece tolls",
+     "greece tolls calculator",
+     "greece tolls map",
+     "greece tolls price",
+     "greece tolls calculator by car",
+     "greece tolls rental car",
+     "greece tolls tag",
+     "greek tolls",
+     "greek tolls app",
+     "greece road tolls"
+    ]
+   },
+   "uk": {
+    "greece tolls rental car": [
+     "greece tolls rental car",
+     "toll roads in greece",
+     "how much does it cost to rent a car in greece",
+     "how to pay tolls in italy with rental car",
+     "do rental cars pay for tolls",
+     "tolls in france rental car"
+    ],
+    "greece tolls hire car": [
+     "greece tolls rental car",
+     "how much does it cost to rent a car in greece",
+     "do rental cars pay for tolls",
+     "toll roads in greece",
+     "greece toll roads how to pay"
+    ],
+    "tolls in greece rental car": [
+     "how to pay tolls in greece with rental car",
+     "how much does it cost to rent a car in greece",
+     "toll roads in greece",
+     "how to pay tolls in italy with rental car",
+     "renting a car in greece",
+     "tolls in france rental car"
+    ],
+    "greece toll roads rental car": [],
+    "greece vignette rental car": [],
+    "how to pay tolls in greece": [
+     "how to pay tolls in greece with rental car",
+     "how to pay tolls in greece",
+     "how to pay toll roads in greece",
+     "how to pay highway tolls in greece",
+     "how are tolls paid in greece",
+     "toll roads in greece",
+     "how to pay european tolls",
+     "how to pay for toll roads in europe",
+     "how to pay tolls in italy"
+    ],
+    "greece tolls": [
+     "greece tolls calculator",
+     "greece tolls",
+     "greece tolls map",
+     "greece tolls price",
+     "greece tolls calculator by car",
+     "greece tolls rental car",
+     "greece tolls tag",
+     "greek tolls",
+     "greek tolls app",
+     "greece road tolls"
+    ]
+   }
+  },
+  "_extra": {
+   "us": {
+    "m50 toll rental car": [
+     "m50 toll rental car",
+     "ireland m50 toll rental car",
+     "dublin m50 toll rental car",
+     "pay m50 toll rental car",
+     "where is the eflow toll on m50",
+     "how to pay m50 toll for uk car"
+    ],
+    "m50 toll hire car": [
+     "m50 toll hire car",
+     "m50 toll rental car",
+     "ireland m50 toll rental car",
+     "dublin m50 toll rental car",
+     "pay m50 toll rental car",
+     "how to pay m50 toll for uk car",
+     "do you have to pay m50 toll both ways",
+     "m50 toll rules"
+    ],
+    "autopass rental car": [
+     "autopass rental car",
+     "autopass rental car norway",
+     "autopass rent a car",
+     "do avis rental cars have ez pass",
+     "how much is held on a credit card for a rental car",
+     "does avis rental car take debit cards",
+     "which credit card is best for rental car",
+     "can i use my debit card for rental car"
+    ],
+    "portugal electronic tolls rental car": [],
+    "italy telepass rental car": [
+     "italy telepass rental car",
+     "how much is telepass italy",
+     "how does telepass work in italy"
+    ],
+    "austria vignette hire car": [
+     "austria vignette hire car",
+     "austria vignette rental car",
+     "austria digital vignette rental car",
+     "do you need a vignette for austria",
+     "austria vignette price",
+     "how much is it to rent a car in austria"
+    ],
+    "swiss vignette rental car": [
+     "swiss vignette rental car",
+     "swiss motorway vignette rental car",
+     "swiss e vignette rental car",
+     "swiss vignette cost",
+     "swiss road vignette cost",
+     "what is a swiss vignette",
+     "driving in switzerland vignette cost",
+     "vignette swiss price"
+    ]
+   },
+   "uk": {
+    "m50 toll rental car": [
+     "m50 toll rental car",
+     "ireland m50 toll rental car",
+     "dublin m50 toll rental car",
+     "pay m50 toll rental car",
+     "where is the eflow toll on m50",
+     "how to pay m50 toll for uk car"
+    ],
+    "m50 toll hire car": [
+     "m50 toll hire car",
+     "m50 toll rental car",
+     "ireland m50 toll rental car",
+     "dublin m50 toll rental car",
+     "how to pay m50 toll for uk car",
+     "do you have to pay m50 toll both ways",
+     "m50 toll rules"
+    ],
+    "autopass rental car": [
+     "autopass rental car",
+     "autopass rent a car",
+     "do avis rental cars have ez pass",
+     "how much is held on a credit card for a rental car",
+     "does avis rental car take debit cards",
+     "which credit card is best for rental car",
+     "can i use my debit card for rental car"
+    ],
+    "portugal electronic tolls rental car": [],
+    "italy telepass rental car": [
+     "italy telepass rental car",
+     "how much is telepass italy",
+     "how does telepass work in italy"
+    ],
+    "austria vignette hire car": [
+     "austria vignette hire car",
+     "austria vignette rental car",
+     "austria digital vignette rental car",
+     "do you need a vignette for austria",
+     "austria vignette price",
+     "how much is it to rent a car in austria"
+    ],
+    "swiss vignette rental car": [
+     "swiss vignette rental car",
+     "swiss motorway vignette rental car",
+     "swiss e vignette rental car",
+     "swiss vignette cost",
+     "swiss road vignette cost",
+     "what is a swiss vignette",
+     "driving in switzerland vignette cost",
+     "vignette swiss price"
+    ]
+   }
+  }
+ }
+}

@@ -73,6 +73,15 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     "sponsored noopener", target _blank, riga di trasparenza nel riquadro, sempre dopo la risposta e le regole ufficiali, avviso evidente
     sul permesso con esito "IDP needed" / "Local permit needed"; DiscoverCars altrove solo nella riga della home), nessun nome di assistente; link da home, About, pagine passaporto e "Available in?".
     Nel browser (punto 7) 5 pagine nuove a 375 px in tema chiaro e scuro e 2 a 820 px.
+20. "Tolls with a rental car" (dati/pedaggi.json da raccolta/pedaggi.py, 30/10/2026): fonti solo dei gestori e dei governi (domini ammessi), lette
+    con HTTP 200; se c'è la cache (raccolta/.cache/pedaggi/) ogni frase citata e ogni prova di prezzo è nel testo salvato e l'impronta della zona
+    citata è uguale al file; dati = dati/pedaggi_manuali.json; una pagina per Paese + indice, in sitemap con lastmod = data della lettura; prima
+    frase = fonte, data e risposta; citazioni, link e date delle fonti nella pagina; numeri dei prezzi presi dalla prova e nessun numero nelle frasi
+    nostre che non sia in una citazione o in una prova; "Rental cars" detto solo con una frase ufficiale sulle auto a noleggio; FAQ da ricerche
+    vere di dati/pedaggi_domanda.json (JSON-LD = testo visibile); titoli <= 70 con l'anno; tabella dell'indice = dati; solo il link generale
+    DiscoverCars con il nostro a_aid, dopo la risposta e le regole (stesso controllo del punto 18); niente nomi di compagnie di noleggio,
+    reti o assistenti; link andata e ritorno con le pagine Driving abroad dello stesso Paese, link da home, About e indice Driving abroad.
+    Nel browser (punto 7) 3 pagine a 375 px in tema chiaro e scuro e l'indice a 820 px.
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
 domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
@@ -637,6 +646,10 @@ def controlla_meta():
         des = unescape(re.search(r'<meta name="description" content="(.*?)">', t).group(1))
         if len(des) > G.LIMITE_DESCRIZIONE:
             errori.append(f"descrizione di {len(des)} caratteri (> 160) in {rel}")
+        if rel.startswith(G.PED_BASE + "/"):  # sezione "Tolls with a rental car": fino a 70 caratteri con l'anno (il punto 20 controlla il resto)
+            if len(tit) > G.LIMITE_TITOLO_PED or str(G.ANNO) not in tit:
+                errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_PED}) o senza l'anno in {rel}: {tit}")
+            continue
         if rel in pat or rel == f"{G.PAT_BASE}/index.html":  # sezione "Driving abroad": titoli fino a 70 caratteri con l'anno
             if len(tit) > G.LIMITE_TITOLO_PAT or str(G.ANNO) not in tit:
                 errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_PAT}) o senza l'anno in {rel}: {tit}")
@@ -1332,7 +1345,7 @@ srv.listen(0, async () => {
     const ctx = await b.newContext({ viewport: { width: 375, height: 800 }, colorScheme: tema });
     for (const u of ['/', '/passport-validity/spain/', '/liquids/', '/liquids/barcelona/', '/passport-validity/egypt/'].concat(JSON.parse(process.argv[4])).concat(JSON.parse(process.argv[6])).concat(JSON.parse(process.argv[7]))) {
       const p = await ctx.newPage(); const err = [];
-      p.on('console', m => { if (m.type() === 'error') err.push(m.text()); }); p.on('pageerror', e => err.push(String(e)));
+      p.on('console', m => { if (m.type() === 'error' && !m.text().startsWith('[Report Only]')) err.push(m.text()); /* CSP «Report Only» dei riquadri di Google (AdSense acceso): avvisi, non errori della pagina */ }); p.on('pageerror', e => err.push(String(e)));
       await p.goto(base + u, { waitUntil: 'load' });
       const w = await p.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
       out.pagine.push({ url: u, tema: tema, scroll: w[0], larghezza: w[1], errori: err });
@@ -1371,6 +1384,12 @@ srv.listen(0, async () => {
       if (u.startsWith('/canadian-passport/') || u.startsWith('/australian-passport/')) {
         const vis = async (sel) => p.$eval(sel, e => { const r = e.getBoundingClientRect(); return r.height > 0 && r.width > 0 && r.width <= window.innerWidth; }).catch(() => false);
         out.prove.push({ caso: 'estero:' + tema + ':' + u, testo: await p.textContent('main'), visa: await vis('#visa'), passport: await vis('#passport'),
+                         citazioni: await p.$$eval('blockquote.cit', e => e.filter(x => x.getBoundingClientRect().height > 0).length) });
+        if (tema === 'light') await p.screenshot({ path: process.argv[3] + '/' + u.split('/').filter(Boolean).join('-') + '-375.png', fullPage: false });
+      }
+      if (u.startsWith('/tolls-rental-car/')) {
+        const vis = async (sel) => p.$eval(sel, e => { const r = e.getBoundingClientRect(); return r.height > 0 && r.width > 0 && r.width <= window.innerWidth; }).catch(() => false);
+        out.prove.push({ caso: 'ped:' + tema + ':' + u, testo: await p.textContent('main'), risposta: await vis('#answer'), btn: await vis('[data-noleggio] a.btn'),
                          citazioni: await p.$$eval('blockquote.cit', e => e.filter(x => x.getBoundingClientRect().height > 0).length) });
         if (tema === 'light') await p.screenshot({ path: process.argv[3] + '/' + u.split('/').filter(Boolean).join('-') + '-375.png', fullPage: false });
       }
@@ -1429,7 +1448,7 @@ srv.listen(0, async () => {
       await p.close(); }
     await ctx.close(); }
   const largo = await b.newContext({ viewport: { width: 820, height: 900 } });
-  for (const u of ['/', '/cabin-bags/', '/cabin-bags/ryanair/', '/available-in/', '/available-in/apple-pay/', '/driving-abroad/', '/driving-abroad/canadian-licence/']) { const p = await largo.newPage(); await p.goto(base + u, { waitUntil: 'load' });
+  for (const u of ['/', '/cabin-bags/', '/cabin-bags/ryanair/', '/available-in/', '/available-in/apple-pay/', '/driving-abroad/', '/driving-abroad/canadian-licence/', '/tolls-rental-car/']) { const p = await largo.newPage(); await p.goto(base + u, { waitUntil: 'load' });
     const w = await p.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]); out.pagine.push({ url: u, tema: '820px', scroll: w[0], larghezza: w[1], errori: [] }); await p.close(); }
   await largo.close();
   await b.close(); srv.close(); console.log(JSON.stringify(out)); });
@@ -1454,6 +1473,7 @@ PAGINE_SRV_BROWSER = ["/available-in/", "/available-in/starlink/", "/available-i
                       "/available-in/youtube-premium/russia/"]
 PAGINE_PAT_BROWSER = ["/driving-abroad/", "/driving-abroad/uk-licence/", "/driving-abroad/uk-licence/japan/", "/driving-abroad/canadian-licence/italy/",
                       "/driving-abroad/australian-licence/united-states/"]
+PAGINE_PED_BROWSER = ["/tolls-rental-car/", "/tolls-rental-car/portugal/", "/tolls-rental-car/austria/", "/tolls-rental-car/france/"]
 PAGINE_BAG_BROWSER = ["/cabin-bags/", "/cabin-bags/ryanair/", "/cabin-bags/does-my-bag-fit/", "/cabin-bags/size/40x30x20/", "/cabin-bags/eu-personal-item-rule/"]
 
 
@@ -1465,7 +1485,7 @@ def controlla_browser():
         fh.write(BROWSER_JS)
     try:
         r = subprocess.run(["node", fh.name, str(SITO), cartella, json.dumps(PAGINE_ESTERE_BROWSER), json.dumps(CASI_BORSA), json.dumps(PAGINE_BAG_BROWSER),
-                            json.dumps(PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER)],
+                            json.dumps(PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER)],
                            capture_output=True, text=True, timeout=600)
     finally:
         os.unlink(fh.name)
@@ -1554,6 +1574,11 @@ def controlla_browser():
             x = next((y for y in o["prove"] if y["caso"] == f"pat:{tema}:{u}"), None)
             if not x or not x["risposta"] or (u.count("/") == 4 and x["citazioni"] < 2):
                 errori.append(f"{u} ({tema}): risposta in alto o citazioni ufficiali non visibili a 375 px")
+    for u in PAGINE_PED_BROWSER:
+        for tema in ("light", "dark"):
+            x = next((y for y in o["prove"] if y["caso"] == f"ped:{tema}:{u}"), None)
+            if not x or not x["risposta"] or (G.NOLEGGIO_AUTO and not x["btn"]) or (u.count("/") == 3 and x["citazioni"] < 3):
+                errori.append(f"{u} ({tema}): risposta, pulsante DiscoverCars o citazioni non visibili a 375 px")
     if sum(1 for x in o["prove"] if x["caso"].startswith("contrasto-")) != 2:
         errori.append("Prova del contrasto del controllo (tema chiaro e scuro) non eseguita")
     return errori, (o, cartella)
@@ -1982,10 +2007,10 @@ def controlla_patenti():
     # DiscoverCars solo nella sezione e nella home (riga della sezione Driving abroad)
     for q in SITO.rglob("*.html"):
         nome = q.relative_to(SITO).as_posix()
-        if nome.startswith(G.PAT_BASE + "/") or nome == "index.html":
+        if nome.startswith((G.PAT_BASE + "/", G.PED_BASE + "/")) or nome == "index.html":
             continue
         if "discovercars" in q.read_text(encoding="utf-8").lower():
-            errori.append(f"{nome}: link DiscoverCars fuori dalla sezione Driving abroad e dalla home")
+            errori.append(f"{nome}: link DiscoverCars fuori dalle sezioni Driving abroad e Tolls with a rental car e dalla home")
     for nome in ("patenti.json", "patenti_manuali.json", "patenti_domanda.json"):
         if VIETATE_SRV.search((SITO.parent / "dati" / nome).read_text(encoding="utf-8")):
             errori.append(f"dati/{nome}: nome di un assistente di intelligenza artificiale")
@@ -2003,6 +2028,188 @@ def controlla_patenti():
     for pag, link in prove:
         if (SITO / pag).exists() and f'href="{link}"' not in leggi(pag):
             errori.append(f"{pag}: manca il link alla pagina 'Driving in'")
+    return errori, conti
+
+
+# ---------------------------------------------------------------- 20. Pedaggi con l'auto a noleggio (30/10/2026)
+_spec_ped = importlib.util.spec_from_file_location("raccolta_pedaggi", Path(__file__).resolve().parent / "raccolta" / "pedaggi.py")
+RPED = importlib.util.module_from_spec(_spec_ped)
+_spec_ped.loader.exec_module(RPED)
+# Fonti ammesse: gestori delle autostrade o dei sistemi di pedaggio e governi (nessun rivenditore, nessuna compagnia di noleggio)
+FONTI_UFFICIALI_PED = re.compile(r"^https://(?:www\.pttolls\.com|www\.eflow\.ie|www\.tii\.ie|www\.autopass\.no|www\.autostrade\.it|www\.aliae\.com|"
+                                 r"peagereinvente\.aprr\.fr|www\.autopistas\.com|www\.hac\.hr|www\.aodos\.gr|help\.asfinag\.at|shop\.asfinag\.at|"
+                                 r"www\.bazg\.admin\.ch|www\.gov\.si|edalnice\.gov\.cz|nemzetiutdij\.hu)/")
+NOMI_NOLEGGIO_PED = re.compile(r"\b(?:hertz|avis|budget|enterprise|alamo|europcar|sixt|thrifty|dollar rent|goldcar|rentalcars|autoslash|tollguru|"
+                               r"platepass|e-toll|tollpass)\b", re.I)
+
+
+def _numeri_ped(s):
+    """Numeri di un testo, senza separatori delle migliaia ('5,550', '5 550' -> '5550'; '15,00' -> '15.00')."""
+    s = re.sub(r"\b\d{1,2} (?:January|February|March|April|May|June|July|August|September|October|November|December) \d{4}\b", " ", s)  # date
+    s = re.sub(r"(?<=\d)[ ,](?=\d{3}\b)", "", s)
+    s = re.sub(r"(?<=\d),(?=\d{2}\b)", ".", s)
+    out = set()
+    for n in re.findall(r"\d+(?:\.\d+)?", s):
+        out.add(n)
+        if n.endswith(".00"):
+            out.add(n[:-3])
+    return out
+
+
+def controlla_pedaggi():
+    """Punto 20: dati = fonti = pagine; titoli; sitemap; FAQ da ricerche vere; solo DiscoverCars con il nostro a_aid; link con Driving abroad."""
+    from html import unescape
+    errori = []
+    conti = {"paesi": 0, "fonti": 0, "citazioni": 0, "prezzi": 0, "faq": 0, "cache": "no", "noleggio": 0, "link_guida": 0}
+    if not G.PED:
+        return ["dati/pedaggi.json mancante (rilanciare raccolta/pedaggi.py)"], conti
+    M = json.loads((SITO.parent / "dati" / "pedaggi_manuali.json").read_text(encoding="utf-8"))
+    if M["paesi"] != G.PED["paesi"]:
+        errori.append("dati/pedaggi.json non è aggiornato rispetto a dati/pedaggi_manuali.json (rilanciare raccolta/pedaggi.py)")
+    D = json.loads((SITO.parent / "dati" / "pedaggi_domanda.json").read_text(encoding="utf-8"))
+    ricerche = {s for g in D["paesi"].values() for qq in g.values() for ss in qq.values() for s in ss}
+    # a) fonti: HTTP 200, solo domini ufficiali, data di lettura; se c'è la cache le frasi e l'impronta si ricalcolano dal testo salvato
+    cache = RPED.CACHE.exists()
+    for fid, F in G.PED["fonti"].items():
+        conti["fonti"] += 1
+        if F["http"] != 200:
+            errori.append(f"fonte {fid}: HTTP {F['http']}")
+        if not FONTI_UFFICIALI_PED.match(F["url"]) or not FONTI_UFFICIALI_PED.match(F["pagina"]):
+            errori.append(f"fonte {fid}: dominio non ufficiale o non previsto: {F['url']}")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F["letto_il"] or "") or F["letto_il"] > G.OGGI.isoformat():
+            errori.append(f"fonte {fid}: data di lettura non valida {F['letto_il']}")
+        f_c = RPED.CACHE / f"{fid}.{'json' if RPED.FONTI[fid].get('tipo') == 'api_hu' else 'html'}"
+        if cache and f_c.exists():
+            t = RPED.testo_fonte(f_c.read_text(encoding="utf-8"), RPED.FONTI[fid].get("tipo", "html"))
+            frasi = RPED.frasi_fonte(G.PED, fid)
+            for x in frasi:
+                if x not in t:
+                    errori.append(f"fonte {fid}: la frase non è nel testo salvato: {x[:70]}")
+            if RPED.impronta_zona(t, frasi) != F["impronta"]:
+                errori.append(f"fonte {fid}: impronta diversa dal testo salvato (rilanciare raccolta/pedaggi.py)")
+            conti["cache"] = "sì"
+    sm = leggi("sitemap.xml")
+    # b) una pagina per Paese, coerente con i dati
+    attese = {G.url_ped(p["iso2"]) + "index.html" for p in G.PED_PAESI} | {f"{G.PED_BASE}/index.html"}
+    trovate = {q.relative_to(SITO).as_posix() for q in (SITO / G.PED_BASE).rglob("index.html")} if (SITO / G.PED_BASE).exists() else set()
+    if attese != trovate:
+        errori.append(f"pagine della sezione diverse dai dati: in più {sorted(trovate - attese)}, mancanti {sorted(attese - trovate)}")
+    for p in G.PED_PAESI:
+        c, rel = p["iso2"], G.url_ped(p["iso2"]) + "index.html"
+        conti["paesi"] += 1
+        if not (SITO / rel).exists():
+            continue
+        t = leggi(rel)
+        vis = unescape(re.sub(r"<[^>]+>", " ", t))
+        if f"<loc>{G.URL_SITO}/{G.url_ped(c)}</loc><lastmod>{G.data_ped(p)}</lastmod>" not in sm:
+            errori.append(f"{rel}: non in sitemap o lastmod diverso dalla data di lettura {G.data_ped(p)}")
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if tit != p["titolo"] or len(tit) > G.LIMITE_TITOLO_PED or str(G.ANNO) not in tit or p["nome"].split()[0][:5].lower() not in tit.lower().replace("swiss", "switz"):
+            errori.append(f"{rel}: titolo oltre {G.LIMITE_TITOLO_PED} caratteri, senza anno o senza il Paese: {tit}")
+        # prima frase: chi, data, risposta
+        m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t)
+        attesa = f"According to {p['chi']}, checked on {G.data_lunga(G.data_ped(p))}, {p['risposta']}"
+        if not m or unescape(m.group(1)) != attesa:
+            errori.append(f"{rel}: prima frase diversa da 'According to <fonte>, checked on <data>, <risposta>'")
+        # citazioni e prezzi: nella pagina, con il link e la data della fonte
+        for x in p["citazioni"]:
+            conti["citazioni"] += 1
+            if escape(x["x"], quote=False) not in t and escape(x["x"]) not in t:
+                errori.append(f"{rel}: citazione mancante: {x['x'][:60]}")
+            if x["f"] not in G.PED["fonti"]:
+                errori.append(f"{rel}: citazione con fonte sconosciuta {x['f']}")
+        for f in G.fonti_ped(p):
+            F = G.PED["fonti"][f]
+            if f'href="{escape(F["pagina"])}"' not in t or f"checked on {G.data_lunga(F['letto_il'])}" not in vis:
+                errori.append(f"{rel}: manca il link o la data della fonte {f}")
+        for pr in p.get("prezzi", []):
+            conti["prezzi"] += 1
+            if not _numeri_ped(pr["importo"]) <= _numeri_ped(pr["prova"]):
+                errori.append(f"{rel}: prezzo «{pr['importo']}» con numeri che non sono nella prova «{pr['prova']}»")
+            if escape(pr["importo"]) not in t:
+                errori.append(f"{rel}: prezzo mancante nella tabella: {pr['importo']}")
+        # nessun numero inventato nelle frasi nostre: ogni numero è in una citazione o in una prova
+        ammessi = set().union(*[_numeri_ped(x["x"]) for x in p["citazioni"]], *[_numeri_ped(pr["prova"]) for pr in p.get("prezzi", [])], {str(G.ANNO)})
+        ammessi |= {"1", "10", "30", "2", "5"} & set().union(*[_numeri_ped(x["x"]) for x in p["citazioni"]], *[_numeri_ped(pr["prova"] + " " + pr["voce"]) for pr in p.get("prezzi", [])])
+        for campo in ("risposta", "come", "prezzo_breve", "noleggio_breve", "nota"):
+            extra = _numeri_ped(p.get(campo) or "") - ammessi
+            if extra:
+                errori.append(f"{rel}: numeri non presi dalle fonti in '{campo}': {sorted(extra)}")
+        for q in p["faq"]:
+            extra = _numeri_ped(q["pre"] + " " + q["post"]) - ammessi
+            if extra:
+                errori.append(f"{rel}: numeri non presi dalle fonti nella FAQ «{q['q']}»: {sorted(extra)}")
+        # noleggio: "detto" solo con una frase ufficiale che parla di auto a noleggio; altrimenti la frase fissa
+        nol = [x for x in p["citazioni"] if x["tema"] == "noleggio"]
+        if p["noleggio"] == "detto" and not any(re.search(r"rent|rental|hire", x["x"], re.I) for x in nol):
+            errori.append(f"{rel}: 'Rental cars' detto senza una frase ufficiale sulle auto a noleggio")
+        if p["noleggio"] != "detto" and "data-nol-non-detto" not in t:
+            errori.append(f"{rel}: manca la frase 'The official pages we read do not mention rental cars'")
+        # FAQ: domande da ricerche vere, JSON-LD = testo visibile, citazioni intere
+        faq_ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)]
+        faq_ld = next((x for x in faq_ld if x.get("@type") == "FAQPage"), None)
+        attese_faq = G.faq_ped(p)
+        if not faq_ld or [(e["name"], e["acceptedAnswer"]["text"]) for e in faq_ld["mainEntity"]] != attese_faq:
+            errori.append(f"{rel}: FAQ JSON-LD diversa dalle domande previste")
+        for qd, a in attese_faq:
+            conti["faq"] += 1
+            if f"<h3>{escape(qd)}</h3><p>{escape(a)}</p>" not in t:
+                errori.append(f"{rel}: FAQ visibile diversa dal JSON-LD: {qd}")
+        for q in p["faq"]:
+            if q["query"] not in ricerche:
+                errori.append(f"{rel}: FAQ «{q['q']}» senza una ricerca vera ({q['query']!r} non è in dati/pedaggi_domanda.json)")
+        # riquadro DiscoverCars: solo il nostro link generale, dopo la risposta e le regole ufficiali; niente altri noleggi
+        errori += controlla_noleggio(t, rel, ['id="answer"', 'id="official"', 'id="rental"'])
+        if G.NOLEGGIO_AUTO and G.MON.link_affiliati(t):
+            conti["noleggio"] += 1
+        vis_en = unescape(re.sub(r"<[^>]+>", " ", re.sub(r'(?s)<blockquote class="cit" lang="(?!en)[a-z]+">.*?</blockquote>', " ", t)))  # citazioni in francese/spagnolo escluse ("avis de paiement")
+        mm = NOMI_NOLEGGIO_PED.search(vis_en) or AFFILIATI_PAT.search(t) or VIETATE_SRV.search(vis)
+        if mm:
+            errori.append(f"{rel}: nome vietato (noleggio, rete o assistente) '{mm.group(0)}'")
+        if "not legal advice" not in vis:
+            errori.append(f"{rel}: manca 'not legal advice'")
+        # link con le pagine Driving abroad dello stesso Paese (andata e ritorno)
+        for k in G.PATENTI:
+            if c in G.PAGINE_PAT[k]:
+                conti["link_guida"] += 1
+                if f'href="../../{G.url_pat(k, c)}"' not in t:
+                    errori.append(f"{rel}: manca il link a {G.url_pat(k, c)}")
+                if f'href="../../../{G.url_ped(c)}"' not in leggi(G.url_pat(k, c) + "index.html"):
+                    errori.append(f"{G.url_pat(k, c)}: manca il link alla pagina dei pedaggi {G.url_ped(c)}")
+        if f'href="{G.url_ped(c)}"' not in leggi("index.html"):
+            errori.append(f"home senza link a {G.url_ped(c)}")
+    # c) indice: in sitemap, tabella uguale ai dati, riquadro dopo la tabella, titolo
+    idx = f"{G.PED_BASE}/index.html"
+    if (SITO / idx).exists():
+        t = leggi(idx)
+        if f"<loc>{G.URL_SITO}/{G.PED_BASE}/</loc><lastmod>{G.PED['controllato_il']}</lastmod>" not in sm:
+            errori.append("indice tolls-rental-car non in sitemap o lastmod diverso")
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(tit) > G.LIMITE_TITOLO_PED or str(G.ANNO) not in tit:
+            errori.append(f"{idx}: titolo oltre {G.LIMITE_TITOLO_PED} caratteri o senza l'anno: {tit}")
+        righe = re.findall(r'<tr data-voce id="([a-z]{2})">(.*?)</tr>', t)
+        if [r[0].upper() for r in righe] != [p["iso2"] for p in G.PED_PAESI]:
+            errori.append(f"{idx}: righe della tabella diverse dai Paesi dei dati")
+        for (cod, r), p in zip(righe, G.PED_PAESI):
+            celle = [unescape(re.sub(r"<[^>]+>", "", x)) for x in re.findall(r"<td[^>]*>(.*?)</td>", r)]
+            if celle != [p["nome"], p["come"], "Yes" if p["vignetta"] else "No", p["prezzo_breve"], p["noleggio_breve"], G.data_lunga(G.data_ped(p))]:
+                errori.append(f"{idx}: riga {cod.upper()} diversa dai dati: {celle}")
+        errori += controlla_noleggio(t, idx, ['id="answer"', "</table>"])
+        mm = NOMI_NOLEGGIO_PED.search(unescape(re.sub(r"<[^>]+>", " ", t))) or AFFILIATI_PAT.search(t)
+        if mm:
+            errori.append(f"{idx}: nome vietato '{mm.group(0)}'")
+        if G.NOLEGGIO_AUTO and G.MON.link_affiliati(t):
+            conti["noleggio"] += 1
+    # d) collegamenti in entrata e dati senza nomi di assistenti
+    if f'href="{G.PED_BASE}/"' not in leggi("index.html"):
+        errori.append("home senza link alla sezione 'Tolls with a rental car'")
+    if 'id="tolls-rental-car"' not in leggi("about/index.html"):
+        errori.append("About senza la sezione 'Tolls with a rental car'")
+    if f'href="../{G.PED_BASE}/"' not in leggi(f"{G.PAT_BASE}/index.html"):
+        errori.append("indice Driving abroad senza link alla sezione dei pedaggi")
+    for nome in ("pedaggi.json", "pedaggi_manuali.json", "pedaggi_domanda.json"):
+        if VIETATE_SRV.search((SITO.parent / "dati" / nome).read_text(encoding="utf-8")):
+            errori.append(f"dati/{nome}: nome di un assistente di intelligenza artificiale")
     return errori, conti
 
 
@@ -2037,7 +2244,7 @@ def main():
         o, cartella = info
         n375 = sum(1 for x in o["pagine"] if x["tema"] in ("light", "dark"))
         print(f"7. Browser 375 px: {len(o['pagine'])} viste ({n375 // 2} pagine × tema chiaro e scuro + {len(o['pagine']) - n375} a 820 px; nuove: "
-              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER + PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
+              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER + PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
               f"{len(o['prove'])} prove, {len(e7)} errori; schermate in {cartella}")
     else:
         print(f"7. Browser 375 px: {e7[0] if e7 else ''}")
@@ -2076,9 +2283,14 @@ def main():
     print(f"18. Driving abroad: {c18['paesi']} Paesi, {c18['voci']} voci Paese × patente ({c18['manuali']} fatti scritti a mano), ricalcolo dai grezzi: {c18['cache']}; "
           f"{c18['righe']} righe delle tabelle per patente uguali ai dati; {c18['pagine']} pagine Paese × patente (solo coppie cercate), {c18['citazioni']} frasi ufficiali "
           f"nelle pagine, {c18['faq']} risposte FAQ; titoli <= {G.LIMITE_TITOLO_PAT}, sitemap con lastmod della lettura, riquadro DiscoverCars (a_aid, dopo le regole) in {c18['noleggio']} pagine della sezione + home, {c18['avvisi_idp']} avvisi evidenti sul permesso; nessun altro noleggio né nome di assistente: {len(e18)} errori")
+    e20, c20 = controlla_pedaggi()
+    print(f"20. Tolls with a rental car: {c20['paesi']} Paesi, {c20['fonti']} fonti ufficiali (HTTP 200, domini ammessi; frasi e impronte ricalcolate dal testo salvato: {c20['cache']}), "
+          f"{c20['citazioni']} citazioni e {c20['prezzi']} prezzi nelle pagine (numeri solo dalle fonti), {c20['faq']} risposte FAQ da ricerche vere (JSON-LD = testo visibile), "
+          f"titoli <= {G.LIMITE_TITOLO_PED} con l'anno, sitemap con lastmod della lettura, riquadro DiscoverCars (a_aid, dopo le regole) in {c20['noleggio']} pagine, "
+          f"{c20['link_guida']} link andata e ritorno con Driving abroad; nessun altro noleggio né nome di assistente: {len(e20)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20
     for e in tutti:
         print(" -", e)
     if tutti:

@@ -1,0 +1,1423 @@
+{
+ "_nota": "Pedaggi con l'auto a noleggio: fatti scritti a mano il 30/10/2026. Ogni 'x' è una frase della fonte parola per parola (testo normalizzato da raccolta/pedaggi.py), ogni prezzo ha una 'prova' che contiene la cifra. 'risposta', 'come', 'prezzo_breve', 'noleggio_breve', i testi 'pre'/'post' delle FAQ, 'chi' (chi lo dice, nella prima frase) e le 'traduzioni' sono parole nostre, controllate da verifica.py (punto 20) contro citazioni e prezzi. noleggio = 'detto' solo se una frase ufficiale parla di auto a noleggio. Ogni FAQ nasce da una ricerca vera di dati/pedaggi_domanda.json ('query').",
+ "scritto_il": "2026-10-30",
+ "paesi": [
+  {
+   "iso2": "PT",
+   "nome": "Portugal",
+   "nome_frase": "Portugal",
+   "vignetta": false,
+   "noleggio": "detto",
+   "titolo": "Tolls in Portugal with a rental car (2026): how to pay",
+   "come": "Toll barriers on some motorways, electronic-only gantries (no booths) on others",
+   "prezzo_breve": "Varies by gantry; €0.32 fee per gantry if you pay afterwards",
+   "noleggio_breve": "By law the rental company must fit a toll device; ask for the toll service",
+   "risposta": "many motorways in Portugal have electronic tolls only, with no toll booths, and rental companies must fit each car with a toll device and subscribe to a toll payment system; you can ask for the toll service when you rent the car.",
+   "citazioni": [
+    {
+     "id": "sistemi",
+     "f": "pt_home",
+     "tema": "come",
+     "x": "Toll barriers where vehicles must stop. These include lanes for manual payment (collect a ticket as you enter the highway and pay the toll for your trip when you exit) and electronic lanes exclusively for customers with active payment systems."
+    },
+    {
+     "id": "elettronico",
+     "f": "pt_home",
+     "tema": "come",
+     "x": "This system consists of gateways mounted on highways that detect vehicles passing through, there being no need for physical toll booths or for vehicles to stop."
+    },
+    {
+     "id": "pannello",
+     "f": "pt_home",
+     "tema": "prezzo",
+     "x": "A panel near each gateway shows the toll fees to be paid."
+    },
+    {
+     "id": "estero",
+     "f": "pt_home",
+     "tema": "come",
+     "x": "If you use these roads with a foreign-registered vehicle, you must have an activated means of payment."
+    },
+    {
+     "id": "nol_legge",
+     "f": "pt_faq",
+     "tema": "noleggio",
+     "x": "Under Decree-Law No. 84-C/2022 of 9 December, companies renting vehicles without drivers on a rent-a-car and rent-a-cargo basis must equip each vehicle in their fleet with on-board equipment and subscribe to a toll payment system."
+    },
+    {
+     "id": "nol_servizio",
+     "f": "pt_faq",
+     "tema": "noleggio",
+     "x": "Many companies already have vehicles equipped with electronic devices, and customers can, if they wish, contract the service when renting the vehicle for direct debit of tolls. The conditions for the provision of the service must be checked with the Rent-a-Car company that has the contract with the respective collection entity (Via Verde Portugal)."
+    },
+    {
+     "id": "nol_pt",
+     "f": "pt_faq",
+     "tema": "noleggio",
+     "x": "In the case of a vehicle with a Portuguese registration number, and if the customer does not opt to use an electronic device and/or the Rent-a-Car company does not offer any toll payment service, the tolls can be paid later at CTT/Payshop. Please note that it may not be possible to fully match the billing period with the vehicle rental contract period."
+    },
+    {
+     "id": "nol_estero",
+     "f": "pt_faq",
+     "tema": "noleggio",
+     "x": "In the case of a vehicle with a foreign registration number, and if the customer does not opt to use an electronic device and/ or the Rent-a-Car company does not offer any toll payment service, the customer must subscribe to one of the available payment systems (more information here)."
+    },
+    {
+     "id": "dopo",
+     "f": "pt_home",
+     "tema": "scadenza",
+     "x": "After your journey, you have 15 business days to make the payment."
+    },
+    {
+     "id": "costo_dopo",
+     "f": "pt_home",
+     "tema": "prezzo",
+     "x": "In addition to the toll charges, you will pay €0.32 for each passage, up to a maximum of €2.56 per payment."
+    },
+    {
+     "id": "solo_pt",
+     "f": "pt_faq",
+     "tema": "scadenza",
+     "x": "Under Portuguese law, post-payment is only available for vehicles with Portuguese registration plates."
+    },
+    {
+     "id": "easytoll",
+     "f": "pt_faq",
+     "tema": "come",
+     "x": "EasyToll allows automatic toll payment by associating a bank card (Visa, Mastercard or Maestro) to the vehicle registration number. The tolls are debited directly from the card account, with an additional cost of €0.32 per trip. Registration is valid for 30 days and applies to all national motorways."
+    },
+    {
+     "id": "multa",
+     "f": "pt_faq",
+     "tema": "multa",
+     "x": "The administrative offences provided for in this law are punishable by a fine of at least five times the amount of the respective toll charge, but never less than €25, and a maximum amount corresponding to twice the minimum amount of the fine, subject to the maximum limits provided for in the General Tax Offences Regime."
+    }
+   ],
+   "prezzi": [
+    {
+     "voce": "Paying after the trip (Portuguese number plates): administrative cost",
+     "importo": "€0.32 per gantry, up to €2.56 per payment",
+     "f": "pt_home",
+     "prova": "In addition to the toll charges, you will pay €0.32 for each passage, up to a maximum of €2.56 per payment."
+    },
+    {
+     "voce": "EasyToll (foreign number plates, bank card linked to the plate): extra cost",
+     "importo": "€0.32 per trip",
+     "f": "pt_faq",
+     "prova": "with an additional cost of €0.32 per trip"
+    },
+    {
+     "voce": "Fine for an unpaid toll",
+     "importo": "at least five times the toll, never less than €25",
+     "f": "pt_faq",
+     "prova": "a fine of at least five times the amount of the respective toll charge, but never less than €25"
+    }
+   ],
+   "faq": [
+    {
+     "query": "how to pay tolls in portugal rental car",
+     "q": "How do I pay tolls in Portugal with a rental car?",
+     "cit": [
+      "nol_legge",
+      "nol_servizio"
+     ],
+     "pre": "Infraestruturas de Portugal says:",
+     "post": ""
+    },
+    {
+     "query": "portugal tolls pay after",
+     "q": "Can I pay Portuguese tolls after I drive?",
+     "cit": [
+      "dopo",
+      "costo_dopo",
+      "solo_pt"
+     ],
+     "pre": "Only with a Portuguese number plate. Infraestruturas de Portugal says:",
+     "post": ""
+    },
+    {
+     "query": "how to pay missed tolls in portugal",
+     "q": "What happens if I do not pay a toll in Portugal?",
+     "cit": [
+      "multa"
+     ],
+     "pre": "Infraestruturas de Portugal says:",
+     "post": ""
+    },
+    {
+     "query": "electronic toll portugal rental car",
+     "q": "What are electronic tolls in Portugal?",
+     "cit": [
+      "elettronico",
+      "pannello"
+     ],
+     "pre": "Infraestruturas de Portugal says:",
+     "post": ""
+    }
+   ],
+   "chi": "Infraestruturas de Portugal (PT Tolls)"
+  },
+  {
+   "iso2": "IE",
+   "nome": "Ireland",
+   "nome_frase": "Ireland",
+   "vignetta": false,
+   "noleggio": "detto",
+   "titolo": "M50 toll in Ireland with a rental car (2026): how to pay",
+   "come": "M50 (Dublin): barrier-free toll, cameras read the plate, no cash at the toll point",
+   "prezzo_breve": "€3.80 per trip for a car without an account (2026)",
+   "noleggio_breve": "Many large rental firms pay it for you: confirm who pays",
+   "risposta": "the M50 toll near Dublin has no barriers and no cash payment at the toll point, and you must pay by 8pm the next day (€3.80 for a car without an account in 2026) unless your rental company pays it for you; many larger rental companies do, so confirm who pays before you drive.",
+   "nota": "This page covers only the M50 barrier-free toll near Dublin; it does not cover the other Irish toll roads.",
+   "citazioni": [
+    {
+     "id": "dove",
+     "f": "ie_tii",
+     "tema": "come",
+     "x": "Barrier-Free Tolling is in operation on the M50 between Junction 6 (M50/N3 Blanchardstown) and Junction 7 (M50/N4 Lucan)."
+    },
+    {
+     "id": "contanti",
+     "f": "ie_tii",
+     "tema": "come",
+     "x": "There is no cash payment facility available at the tolling point on the M50."
+    },
+    {
+     "id": "scadenza",
+     "f": "ie_tii",
+     "tema": "scadenza",
+     "x": "Unregistered users must pay the toll by 8pm on the day following the journey."
+    },
+    {
+     "id": "turisti",
+     "f": "ie_eflow",
+     "tema": "come",
+     "x": "The M50 toll applies to all road users, including tourists."
+    },
+    {
+     "id": "nol_azienda",
+     "f": "ie_eflow",
+     "tema": "noleggio",
+     "x": "Many of the larger car rental companies operate a ‘company pays’ model so you don’t have to worry about paying tolls, however it is important you confirm with the rental company who is responsible for paying the tolls prior to using any tolls roads."
+    },
+    {
+     "id": "nol_tu",
+     "f": "ie_eflow",
+     "tema": "noleggio",
+     "x": "If you are responsible, then you must pay your toll before the 8pm next day deadline, to avoid unnecessary penalties."
+    },
+    {
+     "id": "online",
+     "f": "ie_eflow",
+     "tema": "come",
+     "x": "On-line at eflow.ie"
+    },
+    {
+     "id": "payzone",
+     "f": "ie_eflow",
+     "tema": "come",
+     "x": "At any retail outlet where you see the Payzone logo"
+    },
+    {
+     "id": "tariffe",
+     "f": "ie_tii",
+     "tema": "prezzo",
+     "x": "APPLICABLE TOLLS 2026"
+    },
+    {
+     "id": "auto",
+     "f": "ie_tii",
+     "tema": "prezzo",
+     "x": "Motor Cars (up to 8 passengers and driver) €2.60 €3.20 €3.80"
+    },
+    {
+     "id": "ritardo",
+     "f": "ie_tii",
+     "tema": "multa",
+     "x": "In accordance with the provisions of the Bye-Laws the Default Tolls for 2025 for late payment are as follows:"
+    },
+    {
+     "id": "ritardo1",
+     "f": "ie_tii",
+     "tema": "multa",
+     "x": "Initial Default Toll for a user/vehicle class is the Applicable Toll specified for the User/Vehicle Class plus €4.00"
+    },
+    {
+     "id": "ritardo2",
+     "f": "ie_tii",
+     "tema": "multa",
+     "x": "Additional Default Toll for a user/vehicle class is the Initial Default Toll specified for the User/Vehicle Class plus €51.00"
+    },
+    {
+     "id": "ritardo3",
+     "f": "ie_tii",
+     "tema": "multa",
+     "x": "Final Default Toll for a user/ vehicle class is the Additional Default Toll specified for the User/Vehicle Class plus €128.00"
+    }
+   ],
+   "prezzi": [
+    {
+     "voce": "Car with an M50 tag (2026)",
+     "importo": "€2.60",
+     "f": "ie_tii",
+     "prova": "Motor Cars (up to 8 passengers and driver) €2.60"
+    },
+    {
+     "voce": "Car with a video account (2026)",
+     "importo": "€3.20",
+     "f": "ie_tii",
+     "prova": "Motor Cars (up to 8 passengers and driver) €2.60 €3.20"
+    },
+    {
+     "voce": "Car without an account (unregistered, 2026)",
+     "importo": "€3.80",
+     "f": "ie_tii",
+     "prova": "Motor Cars (up to 8 passengers and driver) €2.60 €3.20 €3.80"
+    },
+    {
+     "voce": "Paid late: first default toll (TII lists it as the default toll for 2025)",
+     "importo": "toll + €4.00",
+     "f": "ie_tii",
+     "prova": "Applicable Toll specified for the User/Vehicle Class plus €4.00"
+    }
+   ],
+   "faq": [
+    {
+     "query": "how to pay tolls in ireland with rental car",
+     "q": "How do I pay the M50 toll with a rental car?",
+     "cit": [
+      "nol_azienda",
+      "nol_tu"
+     ],
+     "pre": "eFlow, which runs the M50 toll for Transport Infrastructure Ireland, says:",
+     "post": ""
+    },
+    {
+     "query": "ireland tolls cost",
+     "q": "How much is the M50 toll?",
+     "cit": [
+      "tariffe",
+      "auto"
+     ],
+     "pre": "Transport Infrastructure Ireland lists the car tolls for 2026 as tag, video account and unregistered:",
+     "post": ""
+    },
+    {
+     "query": "how to pay tolls in ireland m50",
+     "q": "How do I pay the M50 toll?",
+     "cit": [
+      "contanti",
+      "scadenza",
+      "online",
+      "payzone"
+     ],
+     "pre": "Transport Infrastructure Ireland and eFlow say:",
+     "post": ""
+    },
+    {
+     "query": "do rental cars pay tolls in ireland",
+     "q": "Do rental cars pay the M50 toll?",
+     "cit": [
+      "turisti",
+      "nol_azienda"
+     ],
+     "pre": "eFlow says:",
+     "post": ""
+    }
+   ],
+   "chi": "Transport Infrastructure Ireland and its eFlow toll service"
+  },
+  {
+   "iso2": "NO",
+   "nome": "Norway",
+   "nome_frase": "Norway",
+   "vignetta": false,
+   "noleggio": "non_detto",
+   "titolo": "Tolls in Norway with a rental car (2026): how AutoPASS works",
+   "come": "Automatic toll stations (AutoPASS): toll tag or photo of the plate, no booths",
+   "prezzo_breve": "Set by each toll company; no single national price",
+   "noleggio_breve": "Not mentioned by AutoPASS: ask the rental company",
+   "risposta": "all toll stations in Norway are automatic: a car without a toll tag is photographed and the toll is invoiced by post, while cars with an AutoPASS tag and agreement get a discount; AutoPASS does not say how rental companies pass tolls on, so ask before you book.",
+   "citazioni": [
+    {
+     "id": "automatiche",
+     "f": "no_system",
+     "tema": "come",
+     "x": "All toll stations in Norway are automated."
+    },
+    {
+     "id": "foto",
+     "f": "no_system",
+     "tema": "come",
+     "x": "Vehicles without a user agreement and toll payment tag will be identified through a photo of the vehicle’s registration number."
+    },
+    {
+     "id": "fattura",
+     "f": "no_payment",
+     "tema": "come",
+     "x": "If you pass a toll collection point without a tag and a user agreement, a photo will be taken of your vehicle registration number. You will receive an invoice by post for the regular toll rate, with no penalty charge, from the toll charger that owns the toll station you have passed."
+    },
+    {
+     "id": "tariffe",
+     "f": "no_rates",
+     "tema": "prezzo",
+     "x": "For information on toll rates, please contact a company"
+    },
+    {
+     "id": "sconto",
+     "f": "no_rates",
+     "tema": "prezzo",
+     "x": "All vehicles with a valid user agreement and toll payment tag in rate group 1 will get a 20 percent discount on toll transactions in most toll collection facilities."
+    }
+   ],
+   "prezzi": [],
+   "faq": [
+    {
+     "query": "how to pay tolls in norway rental car",
+     "q": "How do I pay tolls in Norway with a rental car?",
+     "cit": [
+      "automatiche",
+      "fattura"
+     ],
+     "pre": "AutoPASS, run by the Norwegian Public Roads Administration, says:",
+     "post": "It does not mention rental cars: ask the rental company whether the car has a toll tag and how it charges you for tolls."
+    },
+    {
+     "query": "how much are tolls in norway",
+     "q": "How much are tolls in Norway?",
+     "cit": [
+      "tariffe",
+      "sconto"
+     ],
+     "pre": "There is no single national price. AutoPASS says:",
+     "post": ""
+    },
+    {
+     "query": "norway tolls how to pay",
+     "q": "How do tolls work in Norway?",
+     "cit": [
+      "automatiche",
+      "foto"
+     ],
+     "pre": "AutoPASS says:",
+     "post": ""
+    }
+   ],
+   "chi": "AutoPASS (Norwegian Public Roads Administration)"
+  },
+  {
+   "iso2": "IT",
+   "nome": "Italy",
+   "nome_frase": "Italy",
+   "vignetta": false,
+   "noleggio": "non_detto",
+   "titolo": "Tolls in Italy with a rental car (2026): how to pay",
+   "come": "Toll booths: cash or card; yellow Telepass lanes only with a Telepass device",
+   "prezzo_breve": "Depends on the trip",
+   "noleggio_breve": "Not mentioned by the operator: ask the rental company",
+   "risposta": "on the Autostrade per l'Italia network you pay at toll booths in cash or by card, the yellow Telepass lanes are only for cars with a Telepass device, and an unpaid toll can be paid without extra charge within 15 days.",
+   "nota": "This page quotes Autostrade per l'Italia, which runs most of the Italian motorway network; a few motorways are run by other companies.",
+   "citazioni": [
+    {
+     "id": "contanti",
+     "f": "it_cash",
+     "tema": "come",
+     "x": "You can pay in cash both at manned and automated payment toll booths."
+    },
+    {
+     "id": "carte",
+     "f": "it_cards",
+     "tema": "come",
+     "x": "Where the picture of the 3 cards (Viacard plus 2 other generic cards) is displayed on a blue background, it is possible to pay the toll using the following cards and without any extra costs:"
+    },
+    {
+     "id": "carte_elenco",
+     "f": "it_cards",
+     "tema": "come",
+     "x": "Visa, MasterCard and American Express credit cards without entering a PIN code;"
+    },
+    {
+     "id": "giallo",
+     "f": "it_cash",
+     "tema": "come",
+     "x": "The yellow background unequivocally indicates dynamic collection with Telepass."
+    },
+    {
+     "id": "riservato",
+     "f": "it_cash",
+     "tema": "come",
+     "x": "In addition to the logo TELEPASS, the board says \"reserved for customers\" to further indicate that these gates are solely for use by holders of the Telpass device."
+    },
+    {
+     "id": "rete",
+     "f": "it_cash",
+     "tema": "altro",
+     "x": "along the 2,855 km of the Autostrade per l'Italia network"
+    },
+    {
+     "id": "mancato",
+     "f": "it_unpaid",
+     "tema": "multa",
+     "x": "In the event that the toll due (art. 176 paragraph 11 of the Italian Traffic Code) is not paid, either in full or in part, a receipt will be issued certifying the non-payment, both in the case of booths with an operator and in the case of automatic ones."
+    },
+    {
+     "id": "15giorni",
+     "f": "it_unpaid",
+     "tema": "scadenza",
+     "x": "Non-payment can be paid without charge within 15 days from the date of issue."
+    },
+    {
+     "id": "sollecito",
+     "f": "it_unpaid",
+     "tema": "multa",
+     "x": "Customers who fail to pay within 15 days of transit will receive a dunning letters by post to the car owner's home address, including the administration fee."
+    },
+    {
+     "id": "online",
+     "f": "it_unpaid",
+     "tema": "scadenza",
+     "x": "You can pay online after 24 hours from the transit date."
+    }
+   ],
+   "prezzi": [],
+   "faq": [
+    {
+     "query": "how to pay tolls in italy with rental car",
+     "q": "How do I pay tolls in Italy with a rental car?",
+     "cit": [
+      "contanti",
+      "carte"
+     ],
+     "pre": "Autostrade per l'Italia says:",
+     "post": "It does not mention rental cars: ask the rental company whether the car has a Telepass device and how it charges you for it."
+    },
+    {
+     "query": "how to pay tolls in italy without telepass",
+     "q": "Can I use the Telepass lane without Telepass?",
+     "cit": [
+      "giallo",
+      "riservato"
+     ],
+     "pre": "No. Autostrade per l'Italia says:",
+     "post": ""
+    },
+    {
+     "query": "how to pay tolls in italy with credit card",
+     "q": "Can I pay Italian tolls by credit card?",
+     "cit": [
+      "carte",
+      "carte_elenco"
+     ],
+     "pre": "Yes, in the lanes with the card sign. Autostrade per l'Italia says:",
+     "post": ""
+    },
+    {
+     "query": "how to pay tolls in italy online",
+     "q": "How do I pay an unpaid toll in Italy online?",
+     "cit": [
+      "mancato",
+      "online",
+      "15giorni"
+     ],
+     "pre": "Autostrade per l'Italia says:",
+     "post": ""
+    }
+   ],
+   "chi": "Autostrade per l'Italia"
+  },
+  {
+   "iso2": "FR",
+   "nome": "France",
+   "nome_frase": "France",
+   "vignetta": false,
+   "noleggio": "non_detto",
+   "titolo": "Tolls in France with a rental car (2026): how to pay",
+   "come": "Toll barriers (card, cash, tag); free-flow gantries on some new motorways such as the A79",
+   "prezzo_breve": "Depends on the trip",
+   "noleggio_breve": "Not mentioned by the operators: ask the rental company",
+   "risposta": "on motorways with toll barriers you pay at the barrier by toll tag, bank card or cash, while on free-flow motorways such as the A79 there are no barriers and, without a tag or an online registration, you have 72 hours to pay online.",
+   "nota": "This page quotes APRR and ALIAE (A79). We could not read the websites of the French motorway association and of some other operators from our server on 30 October 2026. The APRR pages are in French: our English translation is under each quote.",
+   "citazioni": [
+    {
+     "id": "barriera",
+     "f": "fr_aprr",
+     "tema": "come",
+     "x": "Le paiement s’opère de manière traditionnelle (télépéage, carte bancaire, espèces) pour l’ouverture des barrières de sortie."
+    },
+    {
+     "id": "senza_ticket",
+     "f": "fr_aprr",
+     "tema": "come",
+     "x": "Avec l’entrée sans ticket, le conducteur doit toujours transiter par une barrière de péage à la sortie de l’autoroute pour payer son trajet."
+    },
+    {
+     "id": "flusso",
+     "f": "fr_aprr",
+     "tema": "come",
+     "x": "En flux libre, la sortie – tout comme l’entrée – se fait sans arrêt, sans ticket et sans barrière."
+    },
+    {
+     "id": "a79",
+     "f": "fr_aliae",
+     "tema": "come",
+     "x": "The A79 is a new generation motorway between Sazeret and Digoin. This motorway offers a free-flow toll system."
+    },
+    {
+     "id": "portali",
+     "f": "fr_aliae",
+     "tema": "come",
+     "x": "6 gates over 88 kilometres make it possible to identify the license plate and type of vehicle and thus automatically create an invoice."
+    },
+    {
+     "id": "72h",
+     "f": "fr_aprr",
+     "tema": "scadenza",
+     "x": "Le parcours est automatiquement réglé si l’usager est muni d’un badge télépéage ou s’il s’est inscrit gratuitement en ligne. Sinon, il a 72 h pour régler son péage sur Internet."
+    },
+    {
+     "id": "nirio",
+     "f": "fr_aprr",
+     "tema": "scadenza",
+     "x": "Depuis juin 2024, il est également possible de régler son péage en flux libre en espèces ou par carte, dans le réseau bar-tabac-presse agréé Nirio, une solution de paiement du groupe FDJ."
+    },
+    {
+     "id": "nuove",
+     "f": "fr_aprr",
+     "tema": "altro",
+     "x": "Toutes les nouvelles autoroutes construites en France seront dotées du système de péage en flux libre."
+    },
+    {
+     "id": "10euro",
+     "f": "fr_aprr_oubli",
+     "tema": "multa",
+     "x": "Vous recevrez un avis de paiement accompagné d’une indemnité transactionnelle de 10€."
+    },
+    {
+     "id": "90euro",
+     "f": "fr_aprr_oubli",
+     "tema": "multa",
+     "x": "Si vous ne réglez pas dans les 15 jours suivant l’envoi de cet avis, cette indemnité passe à 90€, conformément à la Loi d’Orientation des Mobilités de 2019."
+    }
+   ],
+   "traduzioni": {
+    "barriera": "Payment is made the traditional way (toll tag, bank card, cash) to open the exit barriers.",
+    "senza_ticket": "With ticketless entry, the driver still has to pass a toll barrier at the motorway exit to pay for the trip.",
+    "flusso": "With free flow, the exit, like the entry, has no stop, no ticket and no barrier.",
+    "72h": "The trip is paid automatically if the driver has a toll tag or has registered online for free. Otherwise, they have 72 hours to pay the toll online.",
+    "nirio": "Since June 2024 you can also pay a free-flow toll in cash or by card at approved Nirio bar-tobacco-newsagent shops, a payment service of the FDJ group.",
+    "nuove": "All new motorways built in France will have free-flow tolling.",
+    "10euro": "You will receive a payment notice with a €10 settlement charge.",
+    "90euro": "If you do not pay within 15 days of the notice being sent, the charge rises to €90, under the 2019 Mobility Orientation Law."
+   },
+   "prezzi": [
+    {
+     "voce": "Free-flow toll not paid within 72 hours (A79, from the second time): settlement charge",
+     "importo": "€10",
+     "f": "fr_aprr_oubli",
+     "prova": "Vous recevrez un avis de paiement accompagné d’une indemnité transactionnelle de 10€."
+    },
+    {
+     "voce": "Settlement charge if still unpaid 15 days after the notice",
+     "importo": "€90",
+     "f": "fr_aprr_oubli",
+     "prova": "Si vous ne réglez pas dans les 15 jours suivant l’envoi de cet avis, cette indemnité passe à 90€"
+    }
+   ],
+   "faq": [
+    {
+     "query": "how to pay tolls in france with rental car",
+     "q": "How do I pay tolls in France with a rental car?",
+     "cit": [
+      "barriera",
+      "72h"
+     ],
+     "pre": "APRR says (in French; our translation is under each quote on this page):",
+     "post": "It does not mention rental cars: ask the rental company whether the car has a toll tag and how it charges you for it."
+    },
+    {
+     "query": "how to pay tolls in france online",
+     "q": "How do I pay a free-flow toll in France online?",
+     "cit": [
+      "72h",
+      "nirio"
+     ],
+     "pre": "APRR says (in French):",
+     "post": ""
+    },
+    {
+     "query": "how do tolls work in france",
+     "q": "How do tolls work in France?",
+     "cit": [
+      "senza_ticket",
+      "flusso"
+     ],
+     "pre": "APRR says (in French):",
+     "post": ""
+    }
+   ],
+   "chi": "the motorway operators APRR and ALIAE"
+  },
+  {
+   "iso2": "ES",
+   "nome": "Spain",
+   "nome_frase": "Spain",
+   "vignetta": false,
+   "noleggio": "non_detto",
+   "titolo": "Tolls in Spain with a rental car (2026): how to pay",
+   "come": "Toll booths on toll motorways: cash, card or Vía T tag",
+   "prezzo_breve": "Depends on the trip",
+   "noleggio_breve": "Not mentioned by the operator: ask the rental company",
+   "risposta": "on the toll motorways run by Abertis (Autopistas) you can pay by cash, card, Vía T tag or AWAI, and Vía T works in every toll lane marked with a «T».",
+   "nota": "This page quotes Autopistas (Abertis), which runs several Spanish toll motorways; other toll motorways are run by other companies. The pages are in Spanish: our English translation is under each quote.",
+   "citazioni": [
+    {
+     "id": "pagamento",
+     "f": "es_tarifas",
+     "tema": "come",
+     "x": "Medio de pago Efectivo Tarjeta Vía T AWAI"
+    },
+    {
+     "id": "tratti",
+     "f": "es_tarifas",
+     "tema": "altro",
+     "x": "Tramos Todos los tramos Bilbao - Zaragoza Castelldefels - El Vendrell León - Astorga San Rafael - Segovia Túnel del Cadí Túneles de Vallvidrera Villacastín - Ávila Villalba - Adanero"
+    },
+    {
+     "id": "viat",
+     "f": "es_viat",
+     "tema": "come",
+     "x": "Puedes utilizar Vía T en todas las vías de peaje señalizadas con el símbolo «T»."
+    },
+    {
+     "id": "viat_comodo",
+     "f": "es_viat",
+     "tema": "come",
+     "x": "No necesitarás buscar dinero o tarjetas de crédito, bajar la ventanilla, ni recoger el ticket."
+    }
+   ],
+   "traduzioni": {
+    "pagamento": "Payment method: cash, card, Vía T, AWAI.",
+    "tratti": "Sections: all sections, Bilbao–Zaragoza, Castelldefels–El Vendrell, León–Astorga, San Rafael–Segovia, Cadí Tunnel, Vallvidrera Tunnels, Villacastín–Ávila, Villalba–Adanero.",
+    "viat": "You can use Vía T in all toll lanes marked with the «T» symbol.",
+    "viat_comodo": "You will not need to look for money or credit cards, lower the window or take a ticket."
+   },
+   "prezzi": [],
+   "faq": [
+    {
+     "query": "how to pay tolls in spain rental car",
+     "q": "How do I pay tolls in Spain with a rental car?",
+     "cit": [
+      "pagamento",
+      "viat"
+     ],
+     "pre": "Autopistas (Abertis) lists these payment methods (in Spanish; our translation is under each quote on this page):",
+     "post": "It does not mention rental cars: ask the rental company whether the car has a Vía T tag and how it charges you for it."
+    },
+    {
+     "query": "are there toll roads in spain",
+     "q": "Are there toll roads in Spain?",
+     "cit": [
+      "tratti"
+     ],
+     "pre": "Yes. Autopistas (Abertis) lists its toll sections:",
+     "post": ""
+    },
+    {
+     "query": "how are tolls paid in spain",
+     "q": "How are tolls paid in Spain?",
+     "cit": [
+      "pagamento",
+      "viat_comodo"
+     ],
+     "pre": "Autopistas (Abertis) says (in Spanish):",
+     "post": ""
+    }
+   ],
+   "chi": "the motorway operator Autopistas (Abertis)"
+  },
+  {
+   "iso2": "AT",
+   "nome": "Austria",
+   "nome_frase": "Austria",
+   "vignetta": true,
+   "noleggio": "non_detto",
+   "titolo": "Austria vignette with a rental car (2026): prices and rules",
+   "come": "Vignette (digital or sticker) for motorways; extra section toll for some tunnels and passes",
+   "prezzo_breve": "€9.60 (1 day) to €106.80 (year 2026), digital, car",
+   "noleggio_breve": "Not mentioned by ASFINAG: check the plate with the official validity query",
+   "risposta": "cars up to 3.5 tonnes need a valid vignette on Austrian motorways and expressways; the digital vignette for a car costs €9.60 for 1 day, €12.80 for 10 days, €32.00 for 2 months and €106.80 for the 2026 annual vignette, and some tunnels and Alpine passes charge an extra section toll.",
+   "citazioni": [
+    {
+     "id": "obbligo",
+     "f": "at_vignette",
+     "tema": "come",
+     "x": "On Austria's motorways and expressways subject to tolls, vehicles up to and including 3.5 t require a valid vignette."
+    },
+    {
+     "id": "tempo",
+     "f": "at_help",
+     "tema": "come",
+     "x": "The vignette is a time-based toll for almost all motorways and expressways."
+    },
+    {
+     "id": "tratte",
+     "f": "at_help",
+     "tema": "come",
+     "x": "For certain tunnels and Alpine crossings (e.g., Brenner, Tauern, Karawanken), an additional section toll is charged."
+    },
+    {
+     "id": "annuale2027",
+     "f": "at_prezzi",
+     "tema": "prezzo",
+     "x": "Sales of the digital vignette for 2027 will start in early November 2026."
+    },
+    {
+     "id": "prima",
+     "f": "at_help",
+     "tema": "scadenza",
+     "x": "Buy the vignette before entering the toll network."
+    },
+    {
+     "id": "18giorni",
+     "f": "at_help",
+     "tema": "scadenza",
+     "x": "If the Digital Vignette is purchased via distance selling (e.g., as a private individual in the ASFINAG Mautshop or via the ASFINAG app), it is valid at the earliest from the 18th day after the online purchase. 1-day and 10-day vignettes are excluded — the waiting period does not apply to them."
+    },
+    {
+     "id": "multa",
+     "f": "at_help",
+     "tema": "multa",
+     "x": "Without a valid vignette, you risk a replacement toll or a fine of up to €3,000."
+    },
+    {
+     "id": "verifica",
+     "f": "at_vignette",
+     "tema": "noleggio",
+     "x": "You can check whether a valid digital vignette exists for a vehicle license plate number via the validity query."
+    }
+   ],
+   "prezzi": [
+    {
+     "voce": "1-day digital vignette, car",
+     "importo": "€9.60",
+     "f": "at_prezzi",
+     "prova": "1-day vignette Immediate validity possible! for car € 9.60"
+    },
+    {
+     "voce": "10-day digital vignette, car",
+     "importo": "€12.80",
+     "f": "at_prezzi",
+     "prova": "10-day vignette Immediate validity possible! for car € 12.80"
+    },
+    {
+     "voce": "2-month digital vignette, car",
+     "importo": "€32.00",
+     "f": "at_prezzi",
+     "prova": "2-month vignette for car € 32.00"
+    },
+    {
+     "voce": "Annual vignette 2026, car",
+     "importo": "€106.80",
+     "f": "at_prezzi",
+     "prova": "Annual vignette 2026 for car € 106.80"
+    }
+   ],
+   "faq": [
+    {
+     "query": "austria vignette rental car",
+     "q": "Does a rental car in Austria need a vignette?",
+     "cit": [
+      "obbligo",
+      "verifica"
+     ],
+     "pre": "ASFINAG, which runs the Austrian motorways, says:",
+     "post": "It does not say whether rental cars come with one: ask the rental company, and check the number plate with the validity query."
+    },
+    {
+     "query": "austria vignette price",
+     "q": "How much is the Austrian vignette in 2026?",
+     "cit": [],
+     "pre": "For a car, the official ASFINAG toll shop lists the digital vignette at €9.60 for 1 day, €12.80 for 10 days, €32.00 for 2 months and €106.80 for the 2026 annual vignette.",
+     "post": ""
+    },
+    {
+     "query": "do you need a vignette for austria",
+     "q": "Do you need a vignette for Austria?",
+     "cit": [
+      "tempo",
+      "multa"
+     ],
+     "pre": "Yes, on motorways and expressways. ASFINAG says:",
+     "post": ""
+    },
+    {
+     "query": "how to pay tolls in austria online",
+     "q": "Can I buy the Austrian vignette online?",
+     "cit": [
+      "18giorni"
+     ],
+     "pre": "Yes, but ASFINAG says:",
+     "post": ""
+    }
+   ],
+   "chi": "ASFINAG, the Austrian motorway company"
+  },
+  {
+   "iso2": "CH",
+   "nome": "Switzerland",
+   "nome_frase": "Switzerland",
+   "vignetta": true,
+   "noleggio": "detto",
+   "titolo": "Swiss vignette with a rental car (2026): price and rules",
+   "come": "Vignette (e-vignette or sticker), one price for the whole year",
+   "prezzo_breve": "CHF 40 per year",
+   "noleggio_breve": "Check online whether the car's plate already has an e-vignette",
+   "risposta": "you need a vignette to use Swiss motorways; it costs CHF 40 and is valid from 1 December of the previous year to 31 January of the following year, and you can check online whether a rental car's number plate already has an e-vignette.",
+   "citazioni": [
+    {
+     "id": "obbligo",
+     "f": "ch_main",
+     "tema": "come",
+     "x": "Use of Swiss motorways is subject to a charge. The motorway charge must be paid by motor vehicles and trailers that are not subject to the heavy vehicle charge. The charge is levied in the form of a vignette."
+    },
+    {
+     "id": "prima",
+     "f": "ch_main",
+     "tema": "scadenza",
+     "x": "Purchase your vignette before entering Switzerland."
+    },
+    {
+     "id": "prezzo",
+     "f": "ch_faq",
+     "tema": "prezzo",
+     "x": "The vignette is valid from 1 December of the previous year until 31 January of the following year and costs CHF 40."
+    },
+    {
+     "id": "esatto",
+     "f": "ch_faq",
+     "tema": "prezzo",
+     "x": "The FOCBS charges exactly CHF 40 and does not impose any fees."
+    },
+    {
+     "id": "noleggio",
+     "f": "ch_evignette",
+     "tema": "noleggio",
+     "x": "Before buying an e-vignette, for example, you can use the Via portal to check whether a valid e-vignette has already been purchased for a specific number plate. This could be useful in the case of a rental vehicle, for example."
+    }
+   ],
+   "prezzi": [
+    {
+     "voce": "Vignette (e-vignette or sticker), valid 1 Dec to 31 Jan of the following year",
+     "importo": "CHF 40",
+     "f": "ch_faq",
+     "prova": "The vignette is valid from 1 December of the previous year until 31 January of the following year and costs CHF 40."
+    }
+   ],
+   "faq": [
+    {
+     "query": "switzerland vignette rental car",
+     "q": "Does a rental car in Switzerland need a vignette?",
+     "cit": [
+      "obbligo",
+      "noleggio"
+     ],
+     "pre": "Yes, on motorways. The Federal Office for Customs and Border Security says:",
+     "post": ""
+    },
+    {
+     "query": "swiss vignette cost",
+     "q": "How much is the Swiss vignette?",
+     "cit": [
+      "prezzo",
+      "esatto"
+     ],
+     "pre": "The Federal Office for Customs and Border Security says:",
+     "post": ""
+    },
+    {
+     "query": "can i drive in switzerland without a vignette",
+     "q": "Can I drive in Switzerland without a vignette?",
+     "cit": [
+      "obbligo",
+      "prima"
+     ],
+     "pre": "Not on the motorways. The Federal Office for Customs and Border Security says:",
+     "post": ""
+    }
+   ],
+   "chi": "the Swiss Federal Office for Customs and Border Security"
+  },
+  {
+   "iso2": "SI",
+   "nome": "Slovenia",
+   "nome_frase": "Slovenia",
+   "vignetta": true,
+   "noleggio": "non_detto",
+   "titolo": "Slovenia vignette with a rental car (2026): what to check",
+   "come": "E-vignette (electronic) for motorways and express roads",
+   "prezzo_breve": "Not verified (the DARS website did not respond)",
+   "noleggio_breve": "Not mentioned by the government page: ask the rental company",
+   "risposta": "a car up to 3,500 kg must have an electronic vignette (e-vignette) to use Slovenian motorways and express roads, which are operated by DARS, the motorway company; we could not check e-vignette prices because the DARS website did not respond to us.",
+   "nota": "Prices are not shown: the DARS website (evinjeta.dars.si) did not respond to our checks on 30 October 2026, and we only publish prices that we read on an official page.",
+   "citazioni": [
+    {
+     "id": "obbligo",
+     "f": "si_gov",
+     "tema": "come",
+     "x": "The purchase of an electronic vignette for vehicles with a maximum permitted weight not exceeding 3 500 kg is compulsory for the use of toll roads, irrespective of the maximum weight of the trailer."
+    },
+    {
+     "id": "strade",
+     "f": "si_gov",
+     "tema": "come",
+     "x": "The toll roads subject to tolls for a fixed period of use are all motorways and express roads in Slovenia operated and maintained by DARS."
+    },
+    {
+     "id": "partner",
+     "f": "si_asfinag",
+     "tema": "come",
+     "x": "ASFINAG is an authorised online sales partner of DARS and sells the e-vignette without any additional fees."
+    },
+    {
+     "id": "tipi",
+     "f": "si_asfinag",
+     "tema": "altro",
+     "x": "The date of purchase counts as the first day, which means you can set the start of validity of weekly, monthly and annual vignettes to begin within the next 29 days."
+    },
+    {
+     "id": "subito",
+     "f": "si_asfinag",
+     "tema": "scadenza",
+     "x": "All Slovenian e-vignettes can be purchased with immediate validity."
+    }
+   ],
+   "prezzi": [],
+   "faq": [
+    {
+     "query": "slovenia vignette rental car",
+     "q": "Does a rental car in Slovenia need a vignette?",
+     "cit": [
+      "obbligo"
+     ],
+     "pre": "The Government of Slovenia says:",
+     "post": "It does not say whether rental cars come with one: ask the rental company before you book."
+    },
+    {
+     "query": "do you need a vignette for slovenia",
+     "q": "Do you need a vignette for Slovenia?",
+     "cit": [
+      "obbligo",
+      "strade"
+     ],
+     "pre": "Yes, an e-vignette. The Government of Slovenia says:",
+     "post": ""
+    },
+    {
+     "query": "how to pay tolls in slovenia",
+     "q": "How do I pay tolls in Slovenia?",
+     "cit": [
+      "partner",
+      "subito",
+      "tipi"
+     ],
+     "pre": "With an e-vignette. The Austrian motorway company ASFINAG, which also sells it, says:",
+     "post": ""
+    }
+   ],
+   "chi": "the Government of Slovenia"
+  },
+  {
+   "iso2": "CZ",
+   "nome": "Czechia",
+   "nome_frase": "the Czech Republic",
+   "vignetta": true,
+   "noleggio": "non_detto",
+   "titolo": "Czech vignette with a rental car (2026): prices and rules",
+   "come": "Electronic vignette for motorways",
+   "prezzo_breve": "CZK 230 (1 day) to CZK 2,570 (year), standard fuel",
+   "noleggio_breve": "Not mentioned: check the plate on eDalnice.gov.cz",
+   "risposta": "all four-wheel vehicles up to 3.5 tonnes need an electronic vignette on Czech toll roads; for a car on standard fuel it costs CZK 230 for 1 day, CZK 300 for 10 days, CZK 480 for 30 days and CZK 2,570 for a year (price list valid from 1 January 2026).",
+   "citazioni": [
+    {
+     "id": "obbligo",
+     "f": "cz_home",
+     "tema": "come",
+     "x": "All vehicles with four wheels and a maximum weight of 3.5 tons have an obligation to purchase an electronic vignette."
+    },
+    {
+     "id": "verifica",
+     "f": "cz_home",
+     "tema": "noleggio",
+     "x": "By entering the license plate you will find out if the vehicle has a valid electronic vignette or if the vehicle has been exempt."
+    },
+    {
+     "id": "multa",
+     "f": "cz_multe",
+     "tema": "multa",
+     "x": "A driver found to be on a toll road without a valid electronic vignette (without being exempt) faces a fine of up to CZK 20,000."
+    }
+   ],
+   "prezzi": [
+    {
+     "voce": "1-day vignette, standard fuel",
+     "importo": "CZK 230",
+     "f": "cz_prezzi",
+     "prova": "1-day Buy Standard fuel CZK 230"
+    },
+    {
+     "voce": "10-day vignette, standard fuel",
+     "importo": "CZK 300",
+     "f": "cz_prezzi",
+     "prova": "10-day Buy Standard fuel CZK 300"
+    },
+    {
+     "voce": "30-day vignette, standard fuel",
+     "importo": "CZK 480",
+     "f": "cz_prezzi",
+     "prova": "30-day Buy Standard fuel CZK 480"
+    },
+    {
+     "voce": "Annual vignette, standard fuel (price list valid from 1/1/2026)",
+     "importo": "CZK 2,570",
+     "f": "cz_prezzi",
+     "prova": "Price list valid: from 1/1/2026 Annual Buy Standard fuel CZK 2,570"
+    }
+   ],
+   "faq": [
+    {
+     "query": "how to pay tolls in czech republic rental car",
+     "q": "How do I pay tolls in the Czech Republic with a rental car?",
+     "cit": [
+      "obbligo",
+      "verifica"
+     ],
+     "pre": "With an electronic vignette. The official eDalnice.gov.cz site says:",
+     "post": "It does not say whether rental cars come with one: ask the rental company, and check the number plate on eDalnice.gov.cz."
+    },
+    {
+     "query": "vignette czech republic price",
+     "q": "How much is the Czech vignette?",
+     "cit": [],
+     "pre": "For a car on standard fuel, the official price list (valid from 1 January 2026) gives CZK 230 for 1 day, CZK 300 for 10 days, CZK 480 for 30 days and CZK 2,570 for a year.",
+     "post": ""
+    },
+    {
+     "query": "do you need a vignette for czech republic",
+     "q": "Do you need a vignette for the Czech Republic?",
+     "cit": [
+      "obbligo",
+      "multa"
+     ],
+     "pre": "Yes, an electronic one. eDalnice.gov.cz says:",
+     "post": ""
+    }
+   ],
+   "chi": "the official Czech e-vignette site eDalnice.gov.cz"
+  },
+  {
+   "iso2": "HU",
+   "nome": "Hungary",
+   "nome_frase": "Hungary",
+   "vignetta": true,
+   "noleggio": "non_detto",
+   "titolo": "Hungary vignette with a rental car (2026): prices and rules",
+   "come": "E-vignette (e-matrica) for toll roads",
+   "prezzo_breve": "HUF 5,550 (1 day) to HUF 61,760 (year), car",
+   "noleggio_breve": "Not mentioned: ask the rental company",
+   "risposta": "cars need an e-vignette on Hungarian toll roads; for a car (category D1) it costs HUF 5,550 for 1 day, HUF 6,900 for 10 days, HUF 11,170 for a month and HUF 61,760 for a national annual vignette (rates valid from 1 January 2026).",
+   "nota": "The official site loads its pages with JavaScript: we read the same text from the public data service the page itself uses.",
+   "citazioni": [
+    {
+     "id": "sistema",
+     "f": "hu_prezzi",
+     "tema": "come",
+     "x": "The e-vignette-based user charge system includes motorcycles, passenger cars and recreational vehicles (and their trailers), as well as trucks and buses with a maximum authorised total mass not exceeding 3.5 tonnes, motor vehicles not subject to toll charges under specific legislation, and the trailers of these vehicles."
+    },
+    {
+     "id": "validita",
+     "f": "hu_prezzi",
+     "tema": "prezzo",
+     "x": "The toll rates are valid as from 01.01.2026."
+    },
+    {
+     "id": "intestazione",
+     "f": "hu_prezzi",
+     "tema": "prezzo",
+     "x": "E-vignette vehicle category National Annual Discounted annual Daily Weekly (10-day) Monthly National Regional"
+    },
+    {
+     "id": "d1",
+     "f": "hu_prezzi",
+     "tema": "prezzo",
+     "x": "D1 5 550 6 900 11 170 61 760 7 190"
+    },
+    {
+     "id": "sovrapprezzo",
+     "f": "hu_multe",
+     "tema": "multa",
+     "x": "If an enforcement reveals that a motor vehicle has no valid e-vignette, a surcharge for unauthorized road use, corresponding to the category of the motor vehicle, will be imposed on the owner or the operator."
+    },
+    {
+     "id": "base",
+     "f": "hu_multe",
+     "tema": "multa",
+     "x": "Base surcharge (if paid within 60 days): HUF 27 790"
+    }
+   ],
+   "prezzi": [
+    {
+     "voce": "Daily e-vignette, car (D1)",
+     "importo": "HUF 5,550",
+     "f": "hu_prezzi",
+     "prova": "D1 5 550"
+    },
+    {
+     "voce": "Weekly (10-day) e-vignette, car (D1)",
+     "importo": "HUF 6,900",
+     "f": "hu_prezzi",
+     "prova": "D1 5 550 6 900"
+    },
+    {
+     "voce": "Monthly e-vignette, car (D1)",
+     "importo": "HUF 11,170",
+     "f": "hu_prezzi",
+     "prova": "D1 5 550 6 900 11 170"
+    },
+    {
+     "voce": "National annual e-vignette, car (D1)",
+     "importo": "HUF 61,760",
+     "f": "hu_prezzi",
+     "prova": "D1 5 550 6 900 11 170 61 760"
+    },
+    {
+     "voce": "Surcharge without a valid e-vignette (paid within 60 days)",
+     "importo": "HUF 27,790",
+     "f": "hu_multe",
+     "prova": "Base surcharge (if paid within 60 days): HUF 27 790"
+    }
+   ],
+   "faq": [
+    {
+     "query": "hungary vignette rental car",
+     "q": "Does a rental car in Hungary need a vignette?",
+     "cit": [
+      "sistema",
+      "sovrapprezzo"
+     ],
+     "pre": "Yes, an e-vignette. National Toll Payment Services says:",
+     "post": "It does not say whether rental cars come with one: ask the rental company before you book."
+    },
+    {
+     "query": "hungary vignette price",
+     "q": "How much is the Hungarian vignette?",
+     "cit": [
+      "validita"
+     ],
+     "pre": "For a car (category D1) the official rates are HUF 5,550 for 1 day, HUF 6,900 for 10 days, HUF 11,170 for a month and HUF 61,760 for a national annual vignette. National Toll Payment Services says:",
+     "post": ""
+    },
+    {
+     "query": "do you need vignette in hungary",
+     "q": "Do you need a vignette in Hungary?",
+     "cit": [
+      "sistema",
+      "base"
+     ],
+     "pre": "Yes. National Toll Payment Services says:",
+     "post": ""
+    }
+   ],
+   "chi": "Hungary's National Toll Payment Services"
+  },
+  {
+   "iso2": "HR",
+   "nome": "Croatia",
+   "nome_frase": "Croatia",
+   "vignetta": false,
+   "noleggio": "non_detto",
+   "titolo": "Tolls in Croatia with a rental car (2026): how to pay",
+   "come": "Toll plazas: ticket at the entry, pay at the exit (cash, card or ENC device)",
+   "prezzo_breve": "Depends on the distance",
+   "noleggio_breve": "Not mentioned by HAC: ask the rental company",
+   "risposta": "Croatian motorways have toll plazas where you take a ticket at the entry and pay at the exit by distance, in cash, by card (Diners, Mastercard, Maestro, Visa) or with an ENC device.",
+   "nota": "This page quotes Hrvatske autoceste (HAC), which runs most Croatian motorways; some motorways are run by other companies.",
+   "citazioni": [
+    {
+     "id": "distanza",
+     "f": "hr_toll",
+     "tema": "come",
+     "x": "The use of motorways and tolled structures under the competence of Hrvatske Autoceste d.o.o. implies the obligation of the user to pay a toll fee that is calculated based on the travelled distance between two toll location points and according to the vehicle category."
+    },
+    {
+     "id": "pagamento",
+     "f": "hr_toll",
+     "tema": "come",
+     "x": "At the toll collection points (toll plazas) the toll is paid either in cash, ETC or with cards Diners, Mastercard, Maestro, Visa, INA card and the card of MOLGROUP which are indicated as acceptable as the means of payment at the toll location."
+    },
+    {
+     "id": "enc",
+     "f": "hr_toll",
+     "tema": "come",
+     "x": "The users of electronic toll collection (ETC device – „ENC“) do not collect a toll ticket at the entry plaza; they pass through a dedicated lane and are liable to pay with the serviceable on board unit."
+    },
+    {
+     "id": "doppio",
+     "f": "hr_faq",
+     "tema": "multa",
+     "x": "Double amount of toll for the longest route and for the relevant category of vehicles from the point of exit for the travelled motorway route is charged to users if:"
+    },
+    {
+     "id": "doppio_1",
+     "f": "hr_faq",
+     "tema": "multa",
+     "x": "they appear at the toll plaza exit without a recording on the transit medium"
+    },
+    {
+     "id": "24ore",
+     "f": "hr_faq",
+     "tema": "altro",
+     "x": "The maximum time one is allowed to stay on a motorway is up to 24 hours."
+    },
+    {
+     "id": "enc_prezzo",
+     "f": "hr_faq",
+     "tema": "prezzo",
+     "x": "The ETC device is 15,00 €"
+    }
+   ],
+   "prezzi": [
+    {
+     "voce": "ENC (ETC) toll device",
+     "importo": "€15.00",
+     "f": "hr_faq",
+     "prova": "The ETC device is 15,00 €"
+    }
+   ],
+   "faq": [
+    {
+     "query": "how to pay tolls in croatia with rental car",
+     "q": "How do I pay tolls in Croatia with a rental car?",
+     "cit": [
+      "pagamento"
+     ],
+     "pre": "Hrvatske autoceste says:",
+     "post": "It does not mention rental cars: ask the rental company whether the car has an ENC device and how it charges you for it."
+    },
+    {
+     "query": "croatia tolls or vignette",
+     "q": "Does Croatia have tolls or a vignette?",
+     "cit": [
+      "distanza"
+     ],
+     "pre": "Tolls by distance, not a vignette. Hrvatske autoceste says:",
+     "post": ""
+    },
+    {
+     "query": "croatia toll roads how to pay",
+     "q": "How do you pay Croatian toll roads?",
+     "cit": [
+      "pagamento",
+      "doppio",
+      "doppio_1"
+     ],
+     "pre": "Hrvatske autoceste says:",
+     "post": ""
+    }
+   ],
+   "chi": "the motorway operator Hrvatske autoceste (HAC)"
+  },
+  {
+   "iso2": "GR",
+   "nome": "Greece",
+   "nome_frase": "Greece",
+   "vignetta": false,
+   "noleggio": "non_detto",
+   "titolo": "Tolls in Greece with a rental car (2026): how to pay",
+   "come": "Toll stations; on the Attiki Odos (Athens) you pay once at the entry, cash or card",
+   "prezzo_breve": "€2.80 on the Attiki Odos (car, cash)",
+   "noleggio_breve": "Not mentioned by the operator: ask the rental company",
+   "risposta": "on the Attiki Odos (Attica Tollway) around Athens you pay once, at the toll station when you enter, in cash or by card, and a private car pays €2.80 in cash.",
+   "nota": "This page covers the Attiki Odos (Attica Tollway) around Athens and its airport. Other Greek motorways have their own toll stations and prices.",
+   "citazioni": [
+    {
+     "id": "ingresso",
+     "f": "gr_aodos",
+     "tema": "come",
+     "x": "On the Attica Tollway, all toll stations are located at the entrances of the motorway, either frontally or side-facing."
+    },
+    {
+     "id": "una_volta",
+     "f": "gr_aodos",
+     "tema": "come",
+     "x": "Drivers are required to pay only once, upon entering the motorway."
+    },
+    {
+     "id": "contanti",
+     "f": "gr_aodos",
+     "tema": "come",
+     "x": "In cash on a lane with a toll collector"
+    },
+    {
+     "id": "carta",
+     "f": "gr_aodos",
+     "tema": "come",
+     "x": "By using a bank card in a lane with a toll collector (except DINERS and AMERICAN EXPRESS)"
+    },
+    {
+     "id": "tariffe",
+     "f": "gr_aodos",
+     "tema": "prezzo",
+     "x": "The rates for drivers making cash payments are as follows:"
+    },
+    {
+     "id": "auto",
+     "f": "gr_aodos",
+     "tema": "prezzo",
+     "x": "Private passenger cars, including passenger cars with a small trailer and rack."
+    }
+   ],
+   "prezzi": [
+    {
+     "voce": "Private car, cash, any distance (Attiki Odos)",
+     "importo": "€2.80",
+     "f": "gr_aodos",
+     "prova": "Their height should not exceed 1.30m over the first axle of two axles, or 1.30m over the third axle 2.80 €"
+    }
+   ],
+   "faq": [
+    {
+     "query": "how to pay tolls in greece with rental car",
+     "q": "How do I pay tolls in Greece with a rental car?",
+     "cit": [
+      "una_volta",
+      "contanti",
+      "carta"
+     ],
+     "pre": "On the Attiki Odos around Athens, the operator says:",
+     "post": "It does not mention rental cars: ask the rental company whether the car has an e-PASS tag and how it charges you for it."
+    },
+    {
+     "query": "greece tolls price",
+     "q": "How much are tolls in Greece?",
+     "cit": [
+      "tariffe",
+      "auto"
+     ],
+     "pre": "It depends on the motorway. On the Attiki Odos a private car pays €2.80 in cash; the operator says:",
+     "post": ""
+    },
+    {
+     "query": "how are tolls paid in greece",
+     "q": "How are tolls paid in Greece?",
+     "cit": [
+      "ingresso",
+      "una_volta"
+     ],
+     "pre": "On the Attiki Odos, the operator says:",
+     "post": ""
+    }
+   ],
+   "chi": "the Attiki Odos motorway operator"
+  }
+ ]
+}

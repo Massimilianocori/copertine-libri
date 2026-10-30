@@ -9,7 +9,7 @@
   "nome": "DiscoverCars",
   "titolo": "Hire a car",
   "testo": "Compare rental companies and prices on DiscoverCars.",
-  "nota": "Usato SOLO nel riquadro 'Hire a car' della sezione Driving abroad (box_noleggio in genera.py: indice, 3 pagine per patente, pagine Paese × patente, dopo la risposta e le regole ufficiali) e nella riga della home dedicata a Driving abroad (home_noleggio). Link generale con a_aid: niente pagine Paese di DiscoverCars, perché dal server rispondono 403 e non si possono verificare. Circa 20 $ a prenotazione, cookie 365 giorni. Offerta DiscoverCars: commissione più alta con il link sul sito entro 10 giorni e in home entro una settimana dal 30/10/2026.",
+  "nota": "Usato SOLO nel riquadro 'Hire a car' della sezione Driving abroad (box_noleggio in genera.py: indice, 3 pagine per patente, pagine Paese × patente, dopo la risposta e le regole ufficiali) e nella riga della home dedicata a Driving abroad (home_noleggio). Dal 30/10/2026 anche nel riquadro 'Hire a car' della sezione Tolls with a rental car (box_noleggio_ped: indice e 13 pagine Paese, dopo le regole ufficiali; verifica.py punto 20). Link generale con a_aid: niente pagine Paese di DiscoverCars, perché dal server rispondono 403 e non si possono verificare. Circa 20 $ a prenotazione, cookie 365 giorni. Offerta DiscoverCars: commissione più alta con il link sul sito entro 10 giorni e in home entro una settimana dal 30/10/2026.",
   "attivo_dal": "2026-10-30",
   "nota_spegnimento": "Per spegnerlo: url vuoto e rigenerare (python3 beforeyoufly/genera.py); verifica.py, punto 18, ammette nella sezione solo discovercars.com con questo a_aid."
  }

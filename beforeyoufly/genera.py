@@ -500,6 +500,9 @@ footer .f-altri a{font-weight:600}
 a.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--sign-ink)}a.btn:hover{color:var(--sign-ink)}a.btn .ico{color:var(--sign-ink)}
 .altri-pass.noleggio-home{flex-wrap:nowrap;align-items:flex-start}.noleggio-home .ico{flex:none;margin-top:4px}
 .noleggio{margin:14px 0 22px}.noleggio p{margin:0 0 12px}.noleggio p.aff-nota{margin:0}
+caption.cap{caption-side:top;text-align:left;padding:10px 12px;font-size:.84rem;color:var(--ink-3);background:var(--card)}
+.tab-g th[scope=row]{width:34%;background:transparent;color:var(--ink-3);border-right:1px solid var(--line)}
+blockquote.cit p.trad{font-size:.9rem;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:6px}
 .avviso.avviso-idp{background:var(--no-2);border-color:color-mix(in srgb,var(--no) 35%,transparent);font-size:1rem}.avviso.avviso-idp::before{background:var(--no)}
 .tab-pat td:nth-child(4){font-size:.9rem;color:var(--ink-2);min-width:16em}.tab-pat td:last-child{white-space:nowrap}
 @media (max-width:640px){.tab.tab-pat tr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px}.tab.tab-pat td:first-child,.tab.tab-pat td:nth-child(4){grid-column:1/-1}.tab-pat td:nth-child(4){min-width:0}}
@@ -3807,6 +3810,7 @@ def pagina_pat(k, c):
 <h2>What to bring and where to get an IDP</h2>
 {dove_idp(k)}
 {box_noleggio(k, c)}
+{link_ped(rel, c)}
 {f'<h2>Other licences in {escape(P)}</h2><div class="tab tab-b"><table><caption class="sr">International driving permit in {escape(P)} for other licences, from official advice</caption><thead><tr><th>Licence</th><th>In {escape(nome_srv(c))}</th><th>Checked</th></tr></thead><tbody>{"".join(altri)}</tbody></table></div>' if altri else ""}
 {f'<h2>Before you travel to {escape(P)}</h2><ul>' + "".join(f"<li>{x}</li>" for x in ingresso) + "</ul>" if ingresso else ""}
 {faq_h}
@@ -3917,6 +3921,7 @@ def pagina_hub_pat():
 <div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a country, e.g. Italy" data-filtro-multi aria-label="Search countries"></div>
 <div class="tab tab-b tab-srv"><table><caption class="sr">Do you need an international driving permit? Official advice for UK, Canadian and Australian licences, by country, checked on {d}</caption><thead><tr><th>Country or territory</th>{"".join(f"<th>{escape(nomi[k])}</th>" for k in PATENTI)}</tr></thead><tbody>{righe}</tbody></table></div>
 {box_noleggio()}
+{f'<p class="altri-pass">{ico("car")}<span>Hiring a car? <a href="{rel}{PED_BASE}/">How to pay tolls and vignettes with a rental car in {len(PED_PAESI)} European countries</a></span></p>' if PED else ""}
 <h2>How we check</h2>
 <p>{metodo_pat("uk")} {metodo_pat("ca")} {metodo_pat("au")} We only use official government sources and never fill a gap with our own reading: where the advice is silent, we say so. More on the <a href="{rel}about/#driving-abroad">About page</a>.</p>"""
     pagina(f"{PAT_BASE}/", f"Driving Abroad: Do I Need an IDP? UK, Canada, Australia ({ANNO})",
@@ -3961,6 +3966,265 @@ def about_pat(rel):
     return f"""<h2 id="driving-abroad">Driving abroad: international driving permits</h2>
 <p>Sources: for UK licences, the GOV.UK guide “Driving abroad” (<a href="{escape(g['uk']['pagina_idp'])}" rel="noopener">check if you need an international driving permit</a>, page updated {data_lunga(g['uk']['guida_aggiornata'])}, {g['uk']['righe_tabella']} rows in the table) and the driving paragraphs of the FCDO travel advice for each country; for Canadian licences, the “Driving” part of the “Laws and culture” section of the Government of Canada travel advice (travel.gc.ca, through the official open data files) and its <a href="{escape(g['ca']['pagina_idp'])}" rel="noopener">International Driving Permit page</a>; for Australian licences, the driving paragraphs of the “Local travel” part of the Smartraveller advice for each destination, read in a browser. All read on {data_lunga(PAT['controllato_il'])}, except Smartraveller ({data_lunga(g['au']['letto_dal'])}{"" if g['au']['letto_dal'] == g['au']['letto_al'] else " to " + data_lunga(g['au']['letto_al'])}). Licences: Open Government Licence v3.0, Open Government Licence – Canada, CC BY 4.0.</p>
 <p>Rules: the answer comes only from the official sentence, which we quote on the page. An answer is “IDP needed” only when the official text says you must have one, “No IDP needed” only when it says you can drive with your licence (or that you do not need an IDP), “It depends” when it sets a condition (length of stay, hiring a car, a translation, the region), “Recommended” when it says you should carry one, and “Local permit needed” when it says you need a local licence or permit. When official pages disagree, we give the more cautious answer and quote both. Where the advice is silent we write “Not stated”. Most answers are read with fixed wording rules; the rest were read one by one on 28 October 2026 and are checked again whenever the official text changes. A page for a single country and licence exists only where people search for it. This is information, not legal advice.</p>"""
+
+
+# ---------------------------------------------------------------- Pedaggi con l'auto a noleggio (30/10/2026)
+# Fatti scritti a mano in dati/pedaggi_manuali.json (citazioni parola per parola, prove dei prezzi), fonti rilette da raccolta/pedaggi.py
+# (HTTP 200, data di lettura, impronta della zona citata) che scrive dati/pedaggi.json. Riquadro DiscoverCars (stesso NOLEGGIO_AUTO della
+# sezione Driving abroad) solo DOPO le regole ufficiali. Controlli: verifica.py, punto 20.
+PED_BASE = "tolls-rental-car"
+_f_ped = DATI / "pedaggi.json"
+PED = json.loads(_f_ped.read_text(encoding="utf-8")) if _f_ped.exists() else None
+PED_PAESI = sorted(PED["paesi"], key=lambda p: p["nome"]) if PED else []
+PED_PER = {p["iso2"]: p for p in PED_PAESI}
+LIMITE_TITOLO_PED = 70  # come la sezione Driving abroad: fino a 70 caratteri con l'anno
+TEMI_PED = [("come", "How you pay"), ("prezzo", "Prices"), ("scadenza", "When and where to pay"), ("multa", "If you do not pay"), ("altro", "Also on the official pages")]
+
+
+def url_ped(c=None):
+    return f"{PED_BASE}/" + (f"{slug_srv(c)}/" if c else "")
+
+
+def fonti_ped(p):
+    """Fonti usate da un Paese, nell'ordine della prima citazione."""
+    out = []
+    for x in [c["f"] for c in p["citazioni"]] + [pr["f"] for pr in p.get("prezzi", [])]:
+        if x not in out:
+            out.append(x)
+    return out
+
+
+def data_ped(p):
+    return max(PED["fonti"][f]["letto_il"] for f in fonti_ped(p))
+
+
+def cit_ped(p, id_):
+    return next(c for c in p["citazioni"] if c["id"] == id_)
+
+
+def link_fonte_ped(fid):
+    F = PED["fonti"][fid]
+    return f'<a href="{escape(F["pagina"])}" rel="noopener">{escape(F["titolo"])}</a>'
+
+
+def blocco_cit_ped(p, cc):
+    """Citazioni ufficiali raggruppate per fonte: virgolette, traduzione nostra (se la fonte non è in inglese), fonte e data."""
+    out, gruppi = [], []
+    for c in cc:
+        if gruppi and gruppi[-1][0] == c["f"]:
+            gruppi[-1][1].append(c)
+        else:
+            gruppi.append((c["f"], [c]))
+    tr = p.get("traduzioni", {})
+    for fid, gg in gruppi:
+        F = PED["fonti"][fid]
+        h = "".join(f"<p>{escape(c['x'])}</p>" + (f'<p class="trad" lang="en"><em>Our translation:</em> {escape(tr[c["id"]])}</p>' if c["id"] in tr else "")
+                    for c in gg)
+        lingua = f' lang="{F["lingua"]}"' if F["lingua"] != "en" else ""
+        out.append(f'<blockquote class="cit"{lingua}>{h}</blockquote><p class="fonte">Source: {link_fonte_ped(fid)} ({escape(F["ente"])}), '
+                   f'checked on {data_lunga(F["letto_il"])}. Quoted word for word.</p>')
+    return "".join(out)
+
+
+def risposta_ped(p):
+    """Prima frase: chi lo dice, quando, la risposta (sez. 7 del rapporto del 28/10: fonte e data nella prima frase)."""
+    return f"According to {p['chi']}, checked on {data_lunga(data_ped(p))}, {p['risposta']}"
+
+
+NOLEGGIO_NON_DETTO_PED = ("The official pages we read do not mention rental cars. Before you book, ask the rental company whether the car has a toll tag "
+                          "and how it charges you for tolls and any fees.")
+NOLEGGIO_NON_DETTO_VIG = ("The official pages we read do not say whether rental cars come with a vignette. Before you book, ask the rental company whether "
+                          "the car will have a valid vignette for the dates of your trip.")
+
+
+def sezione_noleggio_ped(p):
+    cc = [c for c in p["citazioni"] if c["tema"] == "noleggio"]
+    if p["noleggio"] == "detto":
+        enti = list(dict.fromkeys(PED["fonti"][c["f"]]["ente"] for c in cc))  # chi lo dice davvero: l'ente delle fonti citate (accordo del verbo)
+        chi = " and ".join(enti)
+        return f"<p>{escape(chi)} {'says' if len(enti) == 1 else 'say'} this about rental cars:</p>{blocco_cit_ped(p, cc)}"
+    testo = NOLEGGIO_NON_DETTO_VIG if p["vignetta"] else NOLEGGIO_NON_DETTO_PED
+    extra = f"<p>The official site also says:</p>{blocco_cit_ped(p, cc)}" if cc else ""
+    return f'<p data-nol-non-detto>{escape(testo)}</p>{extra}'
+
+
+def tabella_prezzi_ped(p):
+    if not p.get("prezzi"):
+        return ""
+    righe = "".join(f'<tr><td data-l="Item">{escape(pr["voce"])}</td><td data-l="Price"><strong>{escape(pr["importo"])}</strong></td>'
+                    f'<td data-l="Source">{link_fonte_ped(pr["f"])}</td></tr>' for pr in p["prezzi"])
+    return (f'<h2 id="prices">Official prices</h2><div class="tab tab-b"><table><caption class="cap">Official prices for a car in {escape(p["nome_frase"])}, '
+            f'read on {data_lunga(data_ped(p))}</caption><thead><tr><th>Item</th><th>Price</th><th>Source</th></tr></thead><tbody>{righe}</tbody></table></div>')
+
+
+def faq_ped(p):
+    out = []
+    for f in p["faq"]:
+        parti = ([f["pre"]] if f["pre"] else []) + [f"“{cit_ped(p, i)['x']}”" for i in f["cit"]] + ([f["post"]] if f["post"] else [])
+        out.append((f["q"], " ".join(parti)))
+    out.append(("Where does this answer come from?", f"From the official pages of {p['chi']}, read on {data_lunga(data_ped(p))} and quoted word for word on "
+                                                     "this page. It is information, not legal advice."))
+    return out
+
+
+def html_faq_ped(p):
+    faq = faq_ped(p)
+    h = "".join(f"<h3>{escape(q)}</h3><p>{escape(a)}</p>" for q, a in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
+    return f'<section class="faq"><h2>Questions</h2>{h}</section>', [ld]
+
+
+AVVISO_PED = ('<p class="avviso"><strong>Prices and rules change, and each rental company has its own toll fees.</strong> We quote the motorway operators and '
+              'governments word for word, with the date we checked them; this is information, not legal advice. Before you drive, check the official page '
+              'and ask the rental company how it charges you for tolls.</p>')
+FRASE_NOLEGGIO_PED = {"pedaggio": "Before you book, ask how each company charges you for tolls.",
+                      "vignetta": "Before you book, ask whether the car comes with a valid vignette for your dates.",
+                      "indice": "Before you book, ask how each company charges you for tolls or a vignette."}
+
+
+def box_noleggio_ped(c=None):
+    """Riquadro "Hire a car" (DiscoverCars) per la sezione pedaggi: '' con NOLEGGIO_AUTO vuoto. Sempre dopo le regole ufficiali."""
+    if not NOLEGGIO_AUTO:
+        return ""
+    P = PED_PER[c]["nome_frase"] if c else ""
+    dove = f" in {P}" if P else " in Europe"
+    frase = FRASE_NOLEGGIO_PED[("vignetta" if PED_PER[c]["vignetta"] else "pedaggio") if c else "indice"]
+    return (f'<h2 id="hire-a-car">Hire a car{escape(dove)}</h2>'
+            f'<section class="card noleggio" aria-label="Car hire, affiliate link" data-noleggio>'
+            f'<p>Hiring a car{escape(dove)}? Compare rental companies and prices on DiscoverCars. {escape(frase)}</p>'
+            f'<p class="noleggio-btn"><a class="btn" href="{escape(NOLEGGIO_AUTO)}" rel="sponsored noopener" target="_blank">'
+            f'{ico("car")}Compare car hire{escape(" in " + P) if P else ""}</a></p>'
+            f'{MON.nota_trasparenza("en")}</section>')
+
+
+def link_ped(rel, c):
+    """Riga 'Tolls in X with a rental car' (pagine Driving abroad dello stesso Paese)."""
+    p = PED_PER.get(c)
+    if not p:
+        return ""
+    cosa = "vignette and tolls" if p["vignetta"] else "tolls"
+    return (f'<p class="altri-pass">{ico("car")}<span>Hiring a car in {escape(p["nome_frase"])}? '
+            f'<a href="{rel}{url_ped(c)}">How to pay {cosa} in {escape(p["nome_frase"])} with a rental car</a></span></p>')
+
+
+def h1_ped(p):
+    if p["vignetta"]:
+        n = len(p.get("prezzi", []))
+        cosa = "Prices and rules" if n > 1 else ("Price and rules" if n == 1 else "Rules and what to check")  # niente "prezzi" senza prezzi letti
+        return f"Do you need a vignette in {p['nome_frase']} with a rental car? {cosa} ({ANNO})"
+    return f"How to pay tolls in {p['nome_frase']} with a rental car ({ANNO})"
+
+
+def descrizione_ped(p):
+    d = data_lunga(data_ped(p))
+    cosa = "Vignette" if p["vignetta"] else "Tolls"
+    come = p["come"][0].lower() + p["come"][1:] if p["come"][1:2].islower() else p["come"]  # "M50 (Dublin)" resta com'è
+    return scegli([f"{cosa} in {p['nome_frase']} with a rental car – {come}. Official sources quoted, checked on {d}.",
+                   f"{cosa} in {p['nome_frase']} with a rental car: how to pay, prices and rules from official sources, checked on {d}.",
+                   f"{cosa} in {p['nome_frase']} with a rental car, from official sources ({d})."], LIMITE_DESCRIZIONE)
+
+
+def pagina_ped(p):
+    rel = "../../"
+    c = p["iso2"]
+    temi = "".join(f'<h3>{escape(t)}</h3>{blocco_cit_ped(p, [x for x in p["citazioni"] if x["tema"] == k])}'
+                   for k, t in TEMI_PED if any(x["tema"] == k for x in p["citazioni"]))
+    sguardo = (f'<tr><th scope="row">How you pay</th><td>{escape(p["come"])}</td></tr>'
+               f'<tr><th scope="row">Vignette</th><td>{"Yes" if p["vignetta"] else "No: tolls are charged per trip"}</td></tr>'
+               f'<tr><th scope="row">Price for a car</th><td>{escape(p["prezzo_breve"])}</td></tr>'
+               f'<tr><th scope="row">Rental cars</th><td>{escape(p["noleggio_breve"])}</td></tr>'
+               f'<tr><th scope="row">Checked</th><td>{data_lunga(data_ped(p))}</td></tr>')
+    altri = "".join(f'<a href="{rel}{url_ped(q["iso2"])}">{escape(q["nome"])}<small>{"Vignette" if q["vignetta"] else "Tolls per trip"}</small></a>'
+                    for q in PED_PAESI if q["iso2"] != c)
+    guida = link_guida(rel, c)
+    faq_h, faq_ld = html_faq_ped(p)
+    corpo = f"""<section class="hero">{h1_diviso(h1_ped(p))}</section>
+<section class="card summary" aria-label="Answer">
+<div class="s-top"><span class="sq">{ico("car")}</span><span>{"Vignette" if p["vignetta"] else "Tolls"} · {escape(p["nome"])}</span><span>{ANNO}</span></div>
+<div class="s-body">
+<p class="lead" id="answer">{escape(risposta_ped(p))}</p>
+{f'<p class="small">{escape(p["nota"])}</p>' if p.get("nota") else ""}
+</div></section>
+{AVVISO_PED}
+<h2>At a glance</h2>
+<div class="tab tab-g"><table><caption class="cap">Tolls in {escape(p["nome_frase"])} with a rental car: summary of the official sources, checked on {data_lunga(data_ped(p))}</caption><tbody>{sguardo}</tbody></table></div>
+{tabella_prezzi_ped(p)}
+<h2 id="official">What the official sources say</h2>
+{temi}
+<h2 id="rental">With a rental car</h2>
+{sezione_noleggio_ped(p)}
+{AD}
+{box_noleggio_ped(c)}
+{f'<h2>Driving in {escape(p["nome_frase"])} with your licence</h2>{guida}' if guida else ""}
+<h2>Other countries</h2>
+<div class="griglia">{altri}</div>
+{faq_h}
+<p class="small">Spotted a change? <a href="{rel}contact/?ref=tolls-rental-car">Tell us</a>. <a href="{rel}{PED_BASE}/">Tolls with a rental car: all countries</a>.</p>"""
+    pagina(url_ped(c), scegli([p["titolo"]], LIMITE_TITOLO_PED), descrizione_ped(p), corpo,
+           briciole=[("Tolls with a rental car", f"{PED_BASE}/"), (p["nome"], url_ped(c))], ld_extra=faq_ld)
+    LASTMOD[url_ped(c)] = data_ped(p)
+
+
+def prima_frase_ped():
+    v = [p for p in PED_PAESI if p["vignetta"]]
+    t = [p for p in PED_PAESI if not p["vignetta"]]
+    elenco = lambda pp: ", ".join(p["nome"] for p in pp[:-1]) + " and " + pp[-1]["nome"]
+    return (f"Of the {len(PED_PAESI)} European countries on this page, {len(v)} use a vignette for cars on their motorways ({elenco(v)}) and {len(t)} charge "
+            f"tolls per trip, at toll booths or by camera ({elenco(t)}); for each one we quote the motorway operator or the government, last checked on "
+            f"{data_lunga(PED['controllato_il'])}.")
+
+
+def titolo_indice_ped():
+    return f"Tolls with a Rental Car in Europe: How to Pay, {len(PED_PAESI)} Countries ({ANNO})"
+
+
+def pagina_indice_ped():
+    rel = "../"
+    righe = "".join(f'<tr data-voce id="{p["iso2"].lower()}"><td data-l="Country"><a href="{rel}{url_ped(p["iso2"])}">{escape(p["nome"])}</a></td>'
+                    f'<td data-l="How you pay">{escape(p["come"])}</td><td data-l="Vignette">{"Yes" if p["vignetta"] else "No"}</td>'
+                    f'<td data-l="Price for a car">{escape(p["prezzo_breve"])}</td><td data-l="Rental cars">{escape(p["noleggio_breve"])}</td>'
+                    f'<td data-l="Checked">{data_lunga(data_ped(p))}</td></tr>' for p in PED_PAESI)
+    griglia = "".join(f'<a href="{rel}{url_ped(p["iso2"])}">{escape(p["nome"])}<small>{escape("Vignette" if p["vignetta"] else "Tolls per trip")}</small></a>' for p in PED_PAESI)
+    d = data_lunga(PED["controllato_il"])
+    corpo = f"""<section class="hero">{h1_diviso(f"Tolls with a rental car in Europe: how to pay, country by country ({ANNO})")}
+<p class="lead" id="answer">{escape(prima_frase_ped())}</p></section>
+<div class="griglia">{griglia}</div>
+{AVVISO_PED}
+{AD}
+<h2>Every country</h2>
+<p>“How you pay”, “Price for a car” and “Rental cars” are our short summaries; each country page quotes the official sentences, with the link and the date. “Not mentioned” means that the official pages we read say nothing about rental cars.</p>
+<div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a country, e.g. Portugal" data-filtro-multi aria-label="Search countries"></div>
+<div class="tab tab-b tab-srv"><table><caption class="cap">Tolls and vignettes with a rental car in {len(PED_PAESI)} European countries, from official sources, checked on {d}</caption><thead><tr><th>Country</th><th>How you pay</th><th>Vignette</th><th>Price for a car</th><th>Rental cars</th><th>Checked</th></tr></thead><tbody>{righe}</tbody></table></div>
+{box_noleggio_ped()}
+<h2>How we check</h2>
+<p>We read the pages of each motorway operator or government (for example Infraestruturas de Portugal, Transport Infrastructure Ireland, AutoPASS, Autostrade per l'Italia, ASFINAG and the Swiss Federal Office for Customs and Border Security) and quote them word for word. A price appears only if we read it on an official page that answered normally on the day of the check; otherwise we say so. We write that a rule is about rental cars only when the official text says so. More on the <a href="{rel}about/#tolls-rental-car">About page</a>. Spotted a change? <a href="{rel}contact/?ref=tolls-rental-car">Tell us</a>.</p>
+<p><a href="{rel}{PAT_BASE}/">Driving abroad: do you need an international driving permit?</a></p>"""
+    desc = scegli([f"How to pay tolls and vignettes with a rental car in {len(PED_PAESI)} European countries, from motorway operators and governments, checked on {d}.",
+                   f"Tolls and vignettes with a rental car in {len(PED_PAESI)} European countries, from official sources."], LIMITE_DESCRIZIONE)
+    pagina(f"{PED_BASE}/", scegli([titolo_indice_ped(), f"Tolls with a Rental Car in Europe ({ANNO})"], LIMITE_TITOLO_PED), desc, corpo,
+           briciole=[("Tolls with a rental car", f"{PED_BASE}/")], js=APP_JS_FILTRO)
+    LASTMOD[f"{PED_BASE}/"] = PED["controllato_il"]
+
+
+def home_ped():
+    if not PED:
+        return ""
+    voci = "".join(f'<a href="{url_ped(p["iso2"])}">{escape(p["nome"])}<small>{escape("Vignette" if p["vignetta"] else "Tolls per trip")}</small></a>' for p in PED_PAESI)
+    return (f'<h2>Tolls with a rental car</h2><p>How to pay motorway tolls or buy a vignette in {len(PED_PAESI)} European countries, and what the official '
+            f'sources say about rental cars: <a href="{PED_BASE}/">every country in one table</a>.</p><div class="griglia">{voci}</div>')
+
+
+def about_ped(rel):
+    if not PED:
+        return ""
+    enti = []
+    for F in PED["fonti"].values():
+        if F["ente"] not in enti:
+            enti.append(F["ente"])
+    return f"""<h2 id="tolls-rental-car">Tolls with a rental car</h2>
+<p>Sources: the pages of the motorway operators and governments of {len(PED_PAESI)} European countries ({escape(", ".join(enti))}), {len(PED["fonti"])} pages in all, read on {data_lunga(PED["controllato_il"])}. Each country page links every page it quotes.</p>
+<p>Rules: every sentence shown between quotation marks is copied word for word from the official page, and every price comes with the text that contains it. A price appears only if the official page answered normally on the day we checked it. We write that a rule is about rental cars only when the official text says so; otherwise the page says that the source does not mention rental cars. French and Spanish pages are quoted in the original language with our translation. We do not cover the toll programmes of rental companies, whose prices are commercial terms that we cannot check reliably. This is information, not legal advice.</p>"""
 
 
 # ---------------------------------------------------------------- home e pagine di servizio
@@ -4013,6 +4277,7 @@ def home():
 <div class="griglia">{"".join(f'<a href="cabin-bags/{C["slug"]}/">{escape(C["nome"])}<small>{escape(misura_breve(borsa_gratis(C, "sotto") or borsa_gratis(C, "sopra")))} free</small></a>' for C in COMPAGNIE if C["slug"] in ("ryanair", "easyjet", "wizz-air", "jet2", "british-airways", "vueling", "lufthansa", "klm"))}</div>
 {home_srv()}
 {home_pat()}
+{home_ped()}
 {box_affiliati()}
 {dati_json('tutti-dati', [dati_client(P) for P in PAESI])}"""
     pagina("", f"Before You Fly {ANNO}: Passport, Visas, Liquids, Cabin Bags, EES",
@@ -4079,6 +4344,7 @@ def about():
 <p>Each airline's official baggage page, last read by us on {data_lunga(BAG['controllato_il'])} (the date and the link are on each airline page). Most airline sites need JavaScript or block simple automated requests, so we read them in a browser. Every size is quoted word for word; the short labels (“Free with every fare”, “Only with some fares, cabins or as a paid extra”) and the conversions marked “≈” are ours. An airline is included only if its official page shows the sizes; the airlines we left out and why are listed on the <a href="{rel}cabin-bags/">cabin bags page</a>. The bag checker compares the sides sorted from longest to shortest; airlines may measure differently, and their rule decides. The <a href="{rel}cabin-bags/eu-personal-item-rule/">EU personal item page</a> quotes Regulation (EU) 2026/2202 (EUR-Lex), the European Parliament's Legislative Observatory and the European Commission.</p>
 {about_srv(rel)}
 {about_pat(rel)}
+{about_ped(rel)}
 <h2>EES and ETIAS</h2>
 <p>European Commission (DG Migration and Home Affairs) pages and GOV.UK travel advice, last checked on {data_lunga(EES['controllato_il'])}. See the <a href="{rel}ees-etias/">EES and ETIAS page</a>.</p>
 <h2>Corrections</h2>
@@ -4147,7 +4413,7 @@ def extra():
 """)
     pagina("404.html", f"Page not found | {NOME}", "Page not found.",
            '<section class="hero"><h1>Page not found</h1><p class="lead">Go to the <a href="/">home page</a>, the <a href="/passport-validity/">passport validity rules</a> '
-           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> or <a href="/driving-abroad/">driving abroad with your licence</a>.</p></section>', indicizza=False, assoluto=True)
+           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> <a href="/driving-abroad/">driving abroad with your licence</a> or <a href="/tolls-rental-car/">tolls with a rental car</a>.</p></section>', indicizza=False, assoluto=True)
 
 
 def copia_grafica():
@@ -4230,6 +4496,25 @@ def controlli():
                 errori.append(f"patenti: NOLEGGIO_AUTO non punta a discovercars.com: {NOLEGGIO_AUTO}")
             for nome, h in (("box_noleggio", box_noleggio()), ("home_noleggio", home_noleggio())):
                 errori += [f"patenti: {e}" for e in MON.controlla_link_pagina(h, nome, "en")[0]]
+    if PED:  # pedaggi con l'auto a noleggio: fonti lette con HTTP 200, citazioni e FAQ coerenti (verifica.py, punto 20, ricontrolla tutto)
+        for p in PED_PAESI:
+            if p["iso2"] not in PAESI_ISO:
+                errori.append(f"pedaggi {p['iso2']}: codice non in paesi_iso.json")
+            ids = [c["id"] for c in p["citazioni"]]
+            if len(set(ids)) != len(ids):
+                errori.append(f"pedaggi {p['iso2']}: id di citazione duplicati")
+            for f in fonti_ped(p):
+                if f not in PED["fonti"] or PED["fonti"][f]["http"] != 200:
+                    errori.append(f"pedaggi {p['iso2']}: fonte {f} non letta con HTTP 200")
+            for q in p["faq"]:
+                if any(i not in ids for i in q["cit"]):
+                    errori.append(f"pedaggi {p['iso2']}: FAQ «{q['q']}» con citazione sconosciuta")
+            if (p["noleggio"] == "detto") != any(c["tema"] == "noleggio" and re.search(r"rent|hire|rental", c["x"], re.I) for c in p["citazioni"]):
+                errori.append(f"pedaggi {p['iso2']}: 'noleggio' = {p['noleggio']} senza (o con) una frase ufficiale sulle auto a noleggio")
+            if len(p["titolo"]) > LIMITE_TITOLO_PED or str(ANNO) not in p["titolo"]:
+                errori.append(f"pedaggi {p['iso2']}: titolo oltre {LIMITE_TITOLO_PED} caratteri o senza l'anno")
+        if NOLEGGIO_AUTO:
+            errori += [f"pedaggi: {e}" for e in MON.controlla_link_pagina(box_noleggio_ped(), "box_noleggio_ped", "en")[0]]
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -4286,6 +4571,10 @@ def main():
             pagina_patente(k)
             for c in PAGINE_PAT[k]:
                 pagina_pat(k, c)
+    if PED:
+        pagina_indice_ped()
+        for p in PED_PAESI:
+            pagina_ped(p)
     about()
     contatti()
     privacy()
@@ -4298,7 +4587,8 @@ def main():
           + f"; documenti per italiani: indice + {len(VOCI_IT)} pagine Paese ({len(SENZA_PAGINA_IT)} schede senza pagina)"
           + f"; available in: indice + {len(SERVIZI_SRV)} servizi + {sum(len(pagine_srv(S)) for S in SERVIZI_SRV)} pagine servizio × Paese"
           + (f"; driving abroad: indice + {len(PATENTI)} patenti + {sum(len(PAGINE_PAT[k]) for k in PATENTI)} pagine Paese × patente "
-             f"({', '.join(f'{k} {len(PAGINE_PAT[k])}' for k in PATENTI)})" if PAT else ""))
+             f"({', '.join(f'{k} {len(PAGINE_PAT[k])}' for k in PATENTI)})" if PAT else "")
+          + (f"; tolls with a rental car: indice + {len(PED_PAESI)} pagine Paese ({len(PED['fonti'])} fonti)" if PED else ""))
 
 
 if __name__ == "__main__":
