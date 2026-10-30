@@ -452,5 +452,32 @@
   "slug": "civitanova-marche",
   "provincia": "Macerata",
   "capoluogo": false
+ },
+ {
+  "nome": "Arezzo",
+  "slug": "arezzo",
+  "provincia": "Arezzo"
+ },
+ {
+  "nome": "Asti",
+  "slug": "asti",
+  "provincia": "Asti"
+ },
+ {
+  "nome": "Rovigo",
+  "slug": "rovigo",
+  "provincia": "Rovigo"
+ },
+ {
+  "nome": "Voghera",
+  "slug": "voghera",
+  "provincia": "Pavia",
+  "capoluogo": false
+ },
+ {
+  "nome": "Borgomanero",
+  "slug": "borgomanero",
+  "provincia": "Novara",
+  "capoluogo": false
  }
 ]
