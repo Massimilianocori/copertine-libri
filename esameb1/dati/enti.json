@@ -82,18 +82,18 @@
     "verificato_il": "2026-10-21"
    },
    "risultati": {
-    "testo": "Circa 3 mesi dopo l'esame. Li vedi online nella pagina «Il mio risultato» con il numero di matricola e la data di nascita. Per il B1 Cittadinanza l'Università di Padova indica circa 2 mesi. Il certificato si ritira alla sede dove hai fatto l'esame.",
+    "testo": "Circa 3 mesi dopo l'esame. Li vedi online nella pagina «Il mio risultato» con il numero di matricola e la data di nascita; da lì scarichi anche il certificato. Il certificato si ritira alla sede dove hai fatto l'esame.",
     "fonti": [
      {
       "nome": "Università per Stranieri di Siena, risultati",
       "url": "https://cils.unistrasi.it/1/127/201/Risultati_degli_esami.htm"
      },
      {
-      "nome": "Università di Padova, scheda CILS B1",
-      "url": "https://cla.unipd.it/en/wp-content/uploads/2025/09/Differenze-tra-B1-standard-e-B1-Cittadinanza_CILS.pdf"
+      "nome": "FAQ CILS",
+      "url": "https://cils.unistrasi.it/1/210/412/FAQ.htm"
      }
     ],
-    "verificato_il": "2026-10-12",
+    "verificato_il": "2026-10-30",
     "breve": "circa 3 mesi",
     "url": "https://cils.unistrasi.it/1/127/201/Risultati_degli_esami.htm"
    },
@@ -210,7 +210,7 @@
       "url": "https://cvcl.unistrapg.it/MC-API/Risorse/StreamRisorsa.ashx?guid=b682a9a2-1380-4d6c-9d54-496cbd0f4c18"
      }
     ],
-    "verificato_il": "2026-10-12",
+    "verificato_il": "2026-10-30",
     "breve": "circa 90 giorni lavorativi",
     "url": "https://cvcl.unistrapg.it/accesso-candidati-celi"
    },
@@ -326,14 +326,14 @@
     "verificato_il": "2026-10-21"
    },
    "risultati": {
-    "testo": "Li vedi online su certificazioneplida.dante.global con la tua email e la tua password; da lì scarichi anche il certificato. Per questo, prima di iscriverti apri un account sul sito PLIDA e dai la tua email al centro.",
+    "testo": "Li vedi online su certificazioneplida.dante.global con la tua email e la tua password; da lì scarichi anche il certificato. Per questo, prima di iscriverti apri un account su dante.global e dai la tua email al centro.",
     "fonti": [
      {
       "nome": "FAQ ufficiali PLIDA",
       "url": "https://plida.dante.global/it/faq/"
      }
     ],
-    "verificato_il": "2026-10-12",
+    "verificato_il": "2026-10-30",
     "breve": "online, nel tuo account",
     "url": "https://certificazioneplida.dante.global/"
    },

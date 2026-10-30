@@ -128,6 +128,8 @@ esempi = json.loads((DATI / "esempi.json").read_text())  # prove d'esempio uffic
 RICONG = json.loads((DATI / "ricongiungimento.json").read_text(encoding="utf-8"))  # reddito per il ricongiungimento (assegno sociale dell'anno, da aggiornare ogni gennaio)
 ENTE ={e["sigla"]: e for e in enti}
 SLUG_ENTE = {"CILS": "cils", "CELI": "celi", "PLIDA": "plida", "CERT.IT": "certit"}
+RISULTATI = json.loads((DATI / "risultati.json").read_text(encoding="utf-8"))  # pagine /risultati/<ente>/ (dal 30/10/2026): solo fatti scritti dall'ente, con fonte
+SLUG_RISULTATI = {s: r["slug"] for s, r in RISULTATI["enti"].items()}  # cils, celi, plida, cert-it
 
 
 def d(iso):
@@ -495,6 +497,19 @@ text-decoration:none;color:var(--ink);font-weight:750;box-shadow:var(--ombra);tr
 @media (max-width:640px){.es-vai{grid-template-columns:1fr 1fr;gap:8px}.es-vai a{padding:10px 12px;font-size:.95rem}.es-vai small{font-size:.8rem}.es-card{padding:16px}.es-testa .btn{flex:1 1 100%}.file-lista li{grid-template-columns:36px minmax(0,1fr)}.file-lista .fi{width:36px;height:36px}
 .file-lista .meta{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:center;gap:4px 10px;text-align:left;white-space:normal}}
 table.conf td.si{color:var(--brand-ink);font-weight:650}
+/* tabelle delle pagine risultati: su mobile ogni riga diventa una scheda con le etichette */
+.ris-tab table{min-width:680px}
+.ris-tab td .eb{margin-right:6px}
+.ris-tab .ris-guida{white-space:nowrap}
+@media (max-width:640px){.ris-tab table,.ris-tab tbody{display:block;min-width:0}.ris-tab thead{display:none}
+.ris-tab tr{display:block;padding:12px 14px;border-bottom:1px solid var(--line)}
+.ris-tab table.conf td{display:block;border:0;padding:3px 0}
+.ris-tab table.conf td:first-child{padding-bottom:6px}
+.ris-tab td[data-l]::before{content:attr(data-l);display:block;color:var(--ink-3);font-size:.8rem;font-weight:650;text-transform:uppercase;letter-spacing:.04em}
+.ris-tab tbody tr:last-child{border-bottom:0}}
+.ris-sez{margin-top:8px}
+.ris-sez>p{max-width:72ch}
+.ris-nota{color:var(--ink-2);font-size:.95rem;max-width:72ch}
 table.conf td.no{color:var(--ink-3)}
 ol.passi li>div p{margin:4px 0 0;color:var(--ink-2);font-size:.95rem}
 ol.passi li .fonte{margin-top:6px}
@@ -1029,7 +1044,7 @@ def home(prossime):
 {domanda("Come mi iscrivo?", "Ci si iscrive presso la sede d'esame, non su questo sito. Scegli una sede nella tua città, contattala e chiedi costo, documenti e scadenza.")}
 {domanda("Quanto costa l'esame B1 per la cittadinanza?", "CILS B1 Cittadinanza: 100 €, la stessa tassa in tutta Italia. CERT.IT B1: 80 € alla sede di Roma Tre. CELI e PLIDA: il prezzo lo decide il centro d'esame (per esempio CELI 2 i cittadinanza 90 € all'Università degli Studi di Milano). <a href=\"costo/\">Tutti i costi, con le fonti</a>.")}
 {domanda("Quanto dura l'esame?", "Lo scritto dura da 1 ora e 30 minuti (CERT.IT) a 2 ore e 20 minuti (CELI e PLIDA), secondo l'ente. Poi c'è un orale di 10-15 minuti, di solito lo stesso giorno. <a href=\"come-funziona/#durata\">Durata di ogni esame e cosa portare</a>.")}
-{domanda("Quando arrivano i risultati?", "CILS: circa 3 mesi dopo l'esame. CELI: circa 90 giorni lavorativi. PLIDA: li vedi online nel tuo account PLIDA. <a href=\"risultati/\">Dove vedere il risultato e come avere il certificato</a>.")}
+{domanda("Quando arrivano i risultati e dove li vedo?", "CILS: circa 3 mesi dopo l'esame, online con matricola e data di nascita. CELI: circa 90 giorni lavorativi, online nell'area riservata del CVCL. PLIDA: online nel tuo account PLIDA. CERT.IT: il sito di Roma Tre non lo spiega, chiedi alla sede. <a href=\"risultati/\">Risultati ente per ente</a>: " + ", ".join(f'<a href="risultati/{SLUG_RISULTATI[e]}/">{e}</a>' for e in ENTE) + ".")}
 {domanda("Dove trovo esempi gratis dell'esame B1?", "Ogni ente pubblica gratis sul suo sito una prova d'esempio ufficiale, con audio e soluzioni: CILS B1 Cittadinanza, CELI 2 i, PLIDA B1 e CERT.IT B1. <a href=\"esempi-esame-b1/\">Tutte le prove d'esempio, ente per ente</a>.")}
 {domanda("Si può fare l'esame online?", "No. L'esame B1 per la cittadinanza si fa in presenza, in una sede d'esame, con un documento d'identità. <a href=\"come-funziona/#online\">Fonti ufficiali</a>.")}
 <p class="small">Per chiedere la cittadinanza italiana per residenza o matrimonio serve un certificato di italiano di livello B1.
@@ -1157,6 +1172,7 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 <section>
 <h2>{ic("info")}Prima di iscriverti</h2>
 {link_guide("../../")}
+<p class="small">Dopo l'esame: {", ".join(f'<a href="../../risultati/{SLUG_RISULTATI[e]}/">risultati {e}</a>' for e in enti_qui)} (dove vederli e quando escono).</p>
 </section>
 <section><h2>{ic("pin")}Altre città</h2>{vicine_html}<div class="altre">{altre}</div></section>"""
     pagina(f"citta/{c['slug']}/index.html",
@@ -1194,7 +1210,8 @@ def pagina_ente(e, prossime):
 <li>{ic("web")}<a href="{escape(e['sito'])}" rel="noopener">sito ufficiale</a></li>
 <li>{ic("cal")}<a href="{escape(e['pagina_date'])}" rel="noopener">calendario ufficiale</a></li>
 <li>{ic("lista")}<a href="{escape(e['pagina_sedi'])}" rel="noopener">elenco ufficiale delle sedi</a></li>
-<li>{ic("libro")}<a href="../../esempi-esame-b1/#{SLUG_ENTE[sigla]}">Prove d'esempio {escape(sigla)}</a></li></ul>
+<li>{ic("libro")}<a href="../../esempi-esame-b1/#{SLUG_ENTE[sigla]}">Prove d'esempio {escape(sigla)}</a></li>
+<li>{ic("ok")}<a href="../../risultati/{SLUG_RISULTATI[sigla]}/">Risultati {escape(sigla)}</a></li></ul>
 </section>
 <div class="due">
 <section>
@@ -1207,6 +1224,7 @@ def pagina_ente(e, prossime):
 <h2 id="in-breve">{ic("info")}{escape(sigla)} B1 in breve: costo, durata, risultati</h2>
 <div class="fatti">{fatti}</div>
 <p><a href="../../esempi-esame-b1/#{SLUG_ENTE[sigla]}">{ic("libro")} Prove d'esempio {escape(sigla)}: cosa contengono, com'è fatta la prova e come esercitarti</a></p>
+<p><a href="../../risultati/{SLUG_RISULTATI[sigla]}/">{ic("ok")} Risultati {escape(sigla)}: dove vederli, quando escono, punteggio e cosa fare se non superi</a></p>
 </section>
 <section>
 <h2 id="sedi">{ic("edificio")}Sedi {escape(sigla)} in Italia ({len(sue)})</h2>
@@ -1300,28 +1318,221 @@ def pagina_costo():
            "CELI e PLIDA a prezzo del centro d'esame. Con le fonti ufficiali.", corpo)
 
 
+# ---------------------------------------------------------------- risultati (indice + una pagina per ente, dal 30/10/2026)
+# Dati in dati/risultati.json: solo fatti scritti dall'ente su pagine o documenti ufficiali, con la data di lettura.
+# Se l'ente non scrive un dato (tempi PLIDA e CERT.IT, pagina dei risultati CERT.IT) la pagina lo dice e non dà numeri.
+ANNO_RIS = OGGI.year  # l'anno nel titolo: è quello che la gente cerca ("risultati cils b1 cittadinanza 2026")
+
+
+def con_mail(testo_html):
+    """Gli indirizzi email ufficiali citati nel testo (già con escape) diventano link mailto."""
+    return re.sub(r"[\w.-]+@[\w-]+(?:\.[\w-]+)*\.it", lambda m: f'<a href="mailto:{m.group(0)}">{m.group(0)}</a>', testo_html)
+
+
+def fonte_ris(r, chiavi, parola="Fonte"):
+    link = " · ".join(f'<a href="{escape(r["fonti"][k]["url"])}" rel="noopener">{escape(r["fonti"][k]["nome"])}</a>' for k in chiavi)
+    quando = data_breve(RISULTATI["verificato_il"])
+    if parola == "Fonti lette":
+        return f'<div class="fonte">{ic("doc")}<span>Fonti lette il {quando}: {link}</span></div>'
+    una = len(chiavi) == 1
+    return f'<div class="fonte">{ic("doc")}<span>{"Fonte" if una else "Fonti"}: {link} · {"letta" if una else "lette"} il {quando}</span></div>'
+
+
+def tabella_risultati(rel, colonne):
+    """Tabella "risposta rapida" per ente. colonne: "dove" (dove vederli, cosa serve, tempi) o "esito" (punteggio, se non superi)."""
+    righe = []
+    for e in enti:
+        s = e["sigla"]
+        r = RISULTATI["enti"][s]
+        t = r["tabella"]
+        guida = f'<a class="ris-guida" href="{rel}{r["slug"]}/">Risultati {escape(s)} {ic("freccia")}</a>'
+        if colonne == "dove":
+            tempi = escape(t["tempi"]) if t.get("tempi") else '<span class="small">non scritto dall\'ente</span>'
+            celle = (f'<td data-l="Dove vedi il risultato">{escape(t["dove"])}</td><td data-l="Cosa ti serve">{escape(t["serve"])}</td>'
+                     f'<td data-l="Quanto tempo (scritto dall\'ente)">{tempi}</td>')
+        else:
+            celle = f'<td data-l="Per superare">{escape(t["superare"])}</td><td data-l="Se non superi">{escape(t["ripeti"])}</td>'
+        righe.append(f'<tr><td>{eb(s)}<strong>{escape(r["esame"])}</strong><br>{guida}</td>{celle}</tr>')
+    testa = ('<th scope="col">Ente</th><th scope="col">Dove vedi il risultato</th><th scope="col">Cosa ti serve</th><th scope="col">Quanto tempo (scritto dall\'ente)</th>'
+             if colonne == "dove" else '<th scope="col">Ente</th><th scope="col">Per superare</th><th scope="col">Se non superi una parte</th>')
+    return f'<div class="tab-wrap ris-tab"><table class="conf"><thead><tr>{testa}</tr></thead><tbody>{"".join(righe)}</tbody></table></div>'
+
+
+def faq_ris(faq):
+    jsonld = {"@context": "https://schema.org", "@type": "FAQPage",
+              "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
+    return jsonld, "".join(domanda(escape(q), con_mail(escape(a))) for q, a in faq)
+
+
+def controlla_titolo(titolo):
+    if len(titolo) > 70:
+        raise SystemExit(f"titolo più lungo di 70 caratteri ({len(titolo)}): {titolo}")
+    return titolo
+
+
 def pagina_risultati(prossime):
+    """Indice: risposta rapida ente per ente in alto (tabella), poi punteggio e cosa fare se non superi, le 4 guide, date e domande."""
+    v = data_breve(RISULTATI["verificato_il"])
+    R = RISULTATI["enti"]
+    fonti = " · ".join(f'<a href="{escape(R[s]["fonti"][R[s]["fonte_risposta"]]["url"])}" rel="noopener">{escape(s)}</a>' for s in ENTE)
+    guide = "".join(
+        f'<a href="{R[s]["slug"]}/">{ic("ok")}<span>Risultati {escape(R[s]["esame"])}<small>{escape(R[s]["titolo"])}</small></span></a>' for s in ENTE)
+    faq = [
+        ("Dove vedo i risultati dell'esame B1 per la cittadinanza?",
+         "Dipende dall'ente. CILS: online nella pagina «Il mio risultato» dell'Università per Stranieri di Siena, con matricola e data di nascita. "
+         "CELI: online nell'area riservata del CVCL di Perugia, con matricola e data di nascita, o al centro d'esame. PLIDA: online su "
+         "certificazioneplida.dante.global, con l'email e la password del tuo account. CERT.IT: il sito di Roma Tre non lo spiega, chiedi alla sede."),
+        ("Quando escono i risultati dell'esame B1?",
+         "CILS: circa 3 mesi dopo l'esame. CELI: circa 90 giorni lavorativi da quando le prove arrivano a Perugia. PLIDA e CERT.IT non scrivono i tempi "
+         "nelle pagine ufficiali che abbiamo letto: chiedi al centro d'esame."),
+        ("Il risultato arriva il giorno dell'esame?",
+         "Per CILS e CELI no. Per il CILS tutte le prove, anche l'orale registrato, sono valutate dal Centro CILS di Siena. Per il CELI lo scritto è corretto "
+         "dal CVCL di Perugia e la commissione dell'orale non comunica il punteggio al candidato. PLIDA e CERT.IT non lo scrivono nelle pagine che abbiamo letto."),
+        ("Quale punteggio serve per superare l'esame B1?",
+         "CILS: la sufficienza in ogni abilità. CELI 2 i cittadinanza: almeno 72 punti su 120 nello scritto, almeno 11 nell'orale e almeno 92 su 160 in tutto. "
+         "PLIDA B1: almeno 18 punti su 30 in ogni abilità. CERT.IT B1: il 60% dei punti nello scritto e il 60% nell'orale."),
+        ("Se non supero l'esame, devo rifare tutto?",
+         "Dipende dall'ente. CILS B1 Cittadinanza: sì, rifai tutto. CELI: entro un anno rifai solo lo scritto o solo l'orale, pagando il 70% della tassa. "
+         "PLIDA: entro 18 mesi recuperi solo le abilità non superate (da 1 a 3). CERT.IT: per il B1 il sito non lo dice, chiedi alla sede."),
+        ("Il certificato B1 scade?",
+         "L'Università per Stranieri di Siena scrive che oggi il certificato CILS non ha scadenza; l'Università per Stranieri di Perugia scrive che i "
+         "certificati CELI non hanno scadenza. Per PLIDA e CERT.IT non l'abbiamo trovato scritto nelle pagine lette."),
+    ]
+    jsonld, faq_html = faq_ris(faq)
     corpo = f"""<section class="hero">
 {briciole(("EsameB1", "../"), ("Risultati", None))}
-<h1>Risultati dell'esame B1 per la cittadinanza: quando arrivano e dove vederli</h1>
-<p class="lead">Il risultato non arriva il giorno dell'esame: lo pubblica l'ente, online, dopo alcuni mesi. Ecco i tempi e dove guardare per ogni ente.</p>
+<span class="occhiello">{ic("ok")}Fonti ufficiali degli enti · lette il {v}</span>
+<h1>Risultati dell'esame B1 per la cittadinanza {ANNO_RIS}: dove vederli, ente per ente</h1>
+<p class="lead">CILS e CELI pubblicano il risultato online con numero di matricola e data di nascita (CILS circa 3 mesi dopo l'esame, CELI circa 90 giorni lavorativi dopo l'arrivo delle prove a Perugia),
+PLIDA nel tuo account online, mentre il sito CERT.IT non spiega dove vederlo. Fonti: pagine ufficiali {fonti}, lette il {v}.</p>
 </section>
-{schede_per_ente("risultati", breve=True, bottone="Vedi il tuo risultato")}
+<section>
+<h2 id="dove">{ic("ok")}Risposta rapida: dove vedi il risultato</h2>
+{tabella_risultati("", "dove")}
+<p class="small">«Non scritto dall'ente»: l'ente non indica i tempi nelle pagine ufficiali che abbiamo letto. Non scriviamo tempi che l'ente non ha scritto: chiedi al centro dove hai fatto l'esame.</p>
+</section>
+<section>
+<h2 id="punteggio">{ic("lista")}Punteggio per superare e cosa fare se non superi</h2>
+{tabella_risultati("", "esito")}
+</section>
+<section>
+<h2 id="guide">{ic("info")}Le guide ente per ente</h2>
+<p>Passo per passo dove vedere il risultato, il certificato, il punteggio, cosa fare se non superi, le prossime date e le domande frequenti.</p>
+<div class="griglia link3">{guide}</div>
+</section>
 <div class="due">
 <section>
-<h2 id="date">{ic("cal")}Non hai superato l'esame? Le prossime date</h2>
+<h2 id="date">{ic("cal")}Devi rifare l'esame? Le prossime date</h2>
 {lista_sessioni(prossime[:6], con_filtri=False)}
 <p><a href="../#date">Tutte le date</a></p>
 </section>
 <aside>{modulo()}</aside>
 </div>
 <section>
+<h2 id="domande">{ic("info")}Domande frequenti</h2>
+{faq_html}
+</section>
+<section>
 <h2>{ic("info")}Altre domande</h2>
 {link_guide("../", salta="risultati/")}
 </section>"""
-    pagina("risultati/index.html", "Risultati esame B1 cittadinanza: quando arrivano e dove vederli | EsameB1",
-           "Quando escono i risultati dell'esame B1 per la cittadinanza (CILS circa 3 mesi, CELI circa 90 giorni lavorativi), "
-           "dove vederli online e come avere il certificato.", corpo)
+    pagina("risultati/index.html", controlla_titolo(f"Risultati B1 cittadinanza {ANNO_RIS}: CILS, CELI, PLIDA, CERT.IT | EsameB1"),
+           "Dove vedere i risultati dell'esame B1 per la cittadinanza ente per ente: CILS circa 3 mesi, CELI circa 90 giorni lavorativi, "
+           "PLIDA nel tuo account, CERT.IT dalla sede. Punteggio minimo e cosa fare se non superi.", corpo, jsonld)
+
+
+def pagina_risultati_ente(e, prossime):
+    s = e["sigla"]
+    r = RISULTATI["enti"][s]
+    v = data_breve(RISULTATI["verificato_il"])
+    voci = r["voci"]
+    f0 = r["fonti"][r["fonte_risposta"]]
+    t = r["tabella"]
+    bott = r["bottone"]
+    # in breve: tre schede
+    tempi_b = t["tempi"] if t.get("tempi") else "L'ente non lo scrive"
+    breve = (f'<div class="fatti">'
+             f'<div class="fatto"><div class="f-et">{ic("web")}<span>Dove</span></div><p>{escape(t["dove"])}</p></div>'
+             f'<div class="fatto"><div class="f-et">{ic("orologio")}<span>Quanto tempo</span></div>'
+             + (f'<div class="f-breve">{escape(tempi_b)}</div>' if len(tempi_b) <= 28 else f'<p><strong>{escape(tempi_b)}</strong></p>') + '</div>'
+             f'<div class="fatto"><div class="f-et">{ic("scudo")}<span>Cosa ti serve</span></div><p>{escape(t["serve"][0].upper() + t["serve"][1:])}.</p></div></div>')
+    # dove
+    dv = voci["dove"]
+    if dv.get("passi"):
+        passi = []
+        for i, x in enumerate(dv["passi"]):
+            extra = f' <a href="{escape(bott["url"])}" rel="noopener">Apri la pagina ufficiale</a>' if i == 0 else ""
+            passi.append(f"<li><span>{con_mail(escape(x))}{extra}</span></li>")
+        dove_html = f'<ol class="passi">{"".join(passi)}</ol>'
+    else:
+        dove_html = f'<p>{con_mail(escape(dv["testo"]))}</p>'
+    if dv.get("nota"):
+        dove_html += f'<p class="ris-nota">{con_mail(escape(dv["nota"]))}</p>'
+    nome_ente = escape(e["ente"])
+
+    def sezione(chiave, id_, icona, titolo, vuoto):
+        x = voci.get(chiave)
+        if not x:
+            return ""
+        testo = f'<p>{con_mail(escape(x["testo"]))}</p>' if x.get("testo") else f"<p>{vuoto}</p>"
+        return f'<section class="ris-sez"><h2 id="{id_}">{ic(icona)}{titolo}</h2>{testo}{fonte_ris(r, x["fonti"], "Fonti lette" if not x.get("testo") else "Fonte")}</section>'
+
+    tempi_vuoto = (f"Nelle pagine ufficiali che abbiamo letto, {escape(s)} ({nome_ente}) non scrive dopo quanto tempo escono i risultati. "
+                   "Non diamo tempi che l'ente non ha scritto: chiedi al centro dove hai fatto l'esame.")
+    cert_vuoto = f"Il sito ufficiale {escape(s)} non spiega quando e come ricevi il certificato: chiedilo alla sede dove hai fatto l'esame."
+    sezioni = "".join([
+        sezione("tempi", "quando", "orologio", f"Quando escono i risultati {escape(s)}", tempi_vuoto),
+        sezione("lettere", "lettere", "lista", "Come si legge il risultato", ""),
+        sezione("certificato", "certificato", "doc", f"Il certificato {escape(s)}", cert_vuoto),
+        sezione("punteggio", "punteggio", "ok", "Quale punteggio serve per superare", ""),
+        sezione("non_superato", "non-superato", "attenzione", "Se non hai superato l'esame", ""),
+        sezione("prove", "prove", "archivio", "Vedere le prove e fare ricorso", ""),
+        sezione("chiarimenti", "chiarimenti", "mail", "Domande sul risultato", ""),
+    ])
+    date_ente = [x for x in prossime if x["ente"] == s]
+    date_html = (lista_sessioni(date_ente[:6], con_filtri=False) if date_ente
+                 else "<p>Nessuna data futura pubblicata dall'ente per ora. Controlliamo il calendario ufficiale ogni settimana.</p>")
+    jsonld, faq_html = faq_ris(r["faq"])
+    altri = "".join(f'<a href="../{RISULTATI["enti"][x]["slug"]}/">Risultati {escape(x)}</a>' for x in ENTE if x != s)
+    corpo = f"""<section class="hero">
+{briciole(("EsameB1", "../../"), ("Risultati", "../"), (s, None))}
+<span class="occhiello">{ic("scudo")}{nome_ente} · fonti lette il {v}</span>
+<h1>Risultati {escape(r["esame"])}: {escape(r["titolo"])}</h1>
+<p class="lead">{con_mail(escape(r["risposta"]))} Fonte: <a href="{escape(f0["url"])}" rel="noopener">{escape(f0["nome"])}</a>, letta il {v}.</p>
+<div class="azioni"><a class="btn" href="{escape(bott["url"])}" rel="noopener">{ic("freccia")}{escape(bott["testo"])}</a><a class="btn btn-2" href="#date">{ic("cal")}Prossime date {escape(s)}</a></div>
+</section>
+<section class="ris-sez" aria-label="In breve">{breve}</section>
+<section class="ris-sez">
+<h2 id="dove">{ic("web")}Dove e come vedi il risultato</h2>
+{dove_html}
+{fonte_ris(r, dv["fonti"])}
+</section>
+{sezioni}
+<div class="due">
+<section>
+<h2 id="date">{ic("cal")}Prossime date {escape(s)} (livello B1)</h2>
+{date_html}
+<p><a href="../../ente/{SLUG_ENTE[s]}/">{escape(NOME_RICERCA[s])}: tutte le date, il costo e le sedi</a></p>
+</section>
+<aside>{modulo()}</aside>
+</div>
+<section>
+<h2 id="domande">{ic("info")}Domande frequenti sui risultati {escape(s)}</h2>
+{faq_html}
+</section>
+<section>
+<h2>{ic("ok")}Risultati degli altri enti</h2>
+<div class="altre"><a href="../">Tutti gli enti a confronto</a>{altri}</div>
+<h2>{ic("info")}Altre domande</h2>
+{link_guide("../../")}
+</section>"""
+    dove_desc = {True: "con email e password", False: "con matricola e data di nascita", None: "chiedendo alla sede"}[t.get("login")]
+    tempi_desc = f"Escono {t['tempi']}" if t.get("tempi") else "L'ente non scrive i tempi"
+    pagina(f"risultati/{r['slug']}/index.html",
+           controlla_titolo(f"Risultati {s} B1 cittadinanza {ANNO_RIS}: {r['titolo']} | EsameB1"),
+           f"Dove vedere i risultati {r['esame']} ({dove_desc}). {tempi_desc}. Certificato, punteggio minimo e cosa fare se non superi, "
+           "con le fonti ufficiali.", corpo, jsonld)
+
 
 def tabella_prove():
     """Tabella delle 4 prove con i tempi di ogni ente (dati/enti.json → fatti.durata.prove, con le stesse fonti della durata)."""
@@ -1951,6 +2162,9 @@ def main():
     urls.append("costo/")
     pagina_risultati(prossime)
     urls.append("risultati/")
+    for e in enti:
+        pagina_risultati_ente(e, prossime)
+        urls.append(f"risultati/{SLUG_RISULTATI[e['sigla']]}/")
     pagina_esenzioni()
     urls.append("esenzioni-e-domande/")
     pagina_esempi()

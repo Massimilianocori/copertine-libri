@@ -1,0 +1,453 @@
+{
+  "_nota": "Pagine /risultati/<ente>/ (dal 30/10/2026). Solo fatti scritti dall'ente su pagine o documenti ufficiali, riletti con curl (HTTP 200) alla data verificato_il. Se l'ente non scrive un dato (tempi PLIDA e CERT.IT, pagina risultati CERT.IT), la voce ha testo che lo dice e nessun numero. CERT.IT: niente link ai PDF di Roma Tre (note legali), solo pagine HTML.",
+  "verificato_il": "2026-10-30",
+  "enti": {
+    "CILS": {
+      "slug": "cils",
+      "esame": "CILS B1 Cittadinanza",
+      "titolo": "dove vederli e quando",
+      "risposta": "I risultati CILS si vedono online nella pagina «Il mio risultato» dell'Università per Stranieri di Siena, con il numero di matricola e la data di nascita, circa 3 mesi dopo l'esame.",
+      "fonte_risposta": "risultati",
+      "bottone": {
+        "testo": "Vedi il tuo risultato CILS",
+        "url": "https://online.unistrasi.it/riscils.asp"
+      },
+      "tabella": {
+        "dove": "Online, pagina «Il mio risultato» (Unistrasi)",
+        "serve": "numero di matricola e data di nascita, senza account",
+        "login": false,
+        "tempi": "circa 3 mesi dopo l'esame",
+        "superare": "la sufficienza in ogni abilità: ascolto, lettura, scrittura, orale",
+        "ripeti": "B1 Cittadinanza: rifai tutto l'esame. B1 standard: entro 18 mesi rifai solo le abilità non superate."
+      },
+      "fonti": {
+        "risultati": {
+          "nome": "Università per Stranieri di Siena, Risultati degli esami",
+          "url": "https://cils.unistrasi.it/1/127/201/Risultati_degli_esami.htm"
+        },
+        "pagina": {
+          "nome": "Unistrasi, «Il mio risultato»",
+          "url": "https://online.unistrasi.it/riscils.asp"
+        },
+        "faq": {
+          "nome": "FAQ CILS",
+          "url": "https://cils.unistrasi.it/1/210/412/FAQ.htm"
+        },
+        "valutazione": {
+          "nome": "CILS, La valutazione",
+          "url": "https://cils.unistrasi.it/1/117/83/La_valutazione.htm"
+        },
+        "b1c": {
+          "nome": "CILS, esame B1 Cittadinanza",
+          "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm"
+        },
+        "criteri": {
+          "nome": "Criteri di valutazione B1 Cittadinanza (PDF)",
+          "url": "https://cils.unistrasi.it/public/articoli/382/Criteri%20di%20valutazione%20B1%20cittadinanza_nuovi.pdf"
+        }
+      },
+      "voci": {
+        "dove": {
+          "passi": [
+            "Apri la pagina «Il mio risultato» dell'Università per Stranieri di Siena.",
+            "Scrivi il tuo numero di matricola, la tua data di nascita e il risultato della piccola somma di controllo. Non serve un account.",
+            "Se il risultato non compare, il tuo esame non è ancora stato valutato: aspetta che il Centro CILS finisca la valutazione."
+          ],
+          "fonti": [
+            "risultati",
+            "pagina",
+            "faq"
+          ]
+        },
+        "tempi": {
+          "testo": "Circa 3 mesi dopo la data dell'esame. Il Centro CILS non fa valutazioni anticipate: non puoi avere il risultato prima.",
+          "fonti": [
+            "risultati",
+            "valutazione"
+          ]
+        },
+        "certificato": {
+          "testo": "Dalla pagina «Il mio risultato» vedi l'esito e scarichi anche il certificato. Il certificato si ritira alla sede dove hai fatto l'esame. Oggi il certificato CILS non ha scadenza.",
+          "fonti": [
+            "faq",
+            "risultati"
+          ]
+        },
+        "punteggio": {
+          "testo": "Devi avere la sufficienza in ognuna delle abilità dell'esame: ascolto, lettura, scrittura e orale. Ogni abilità ha il suo punteggio. Nel B1 Cittadinanza ogni abilità vale al massimo 12 punti. Il numero minimo di punti per la sufficienza non è scritto nelle pagine ufficiali che abbiamo letto.",
+          "fonti": [
+            "valutazione",
+            "criteri"
+          ]
+        },
+        "non_superato": {
+          "testo": "CILS B1 Cittadinanza: non puoi recuperare solo la parte non superata. Rifai tutto l'esame in una sessione successiva. CILS B1 standard: ricevi un «attestato di capitalizzazione» con le abilità superate e non superate; entro 18 mesi puoi rifare solo le abilità non superate, anche in un'altra sede.",
+          "fonti": [
+            "b1c",
+            "valutazione"
+          ]
+        },
+        "prove": {
+          "testo": "Vuoi vedere le tue prove? Scrivi entro 30 giorni dalla pubblicazione dei risultati a trasparenzacertificazioni@unistrasi.it con nome e cognome, luogo e data di nascita, numero di matricola, email, la copia di un documento d'identità valido e il pagamento della tassa per l'accesso. Allo stesso indirizzo si scrive per fare ricorso.",
+          "fonti": [
+            "risultati",
+            "faq"
+          ]
+        }
+      },
+      "faq": [
+        [
+          "Dove vedo i risultati CILS B1 Cittadinanza online?",
+          "Sul sito dell'Università per Stranieri di Siena, nella pagina «Il mio risultato» (online.unistrasi.it/riscils.asp). Scrivi il numero di matricola e la data di nascita: non serve un account."
+        ],
+        [
+          "Quando escono i risultati dell'esame CILS?",
+          "Circa 3 mesi dopo la data dell'esame, secondo la pagina ufficiale «Risultati degli esami». Il Centro CILS non fa valutazioni anticipate."
+        ],
+        [
+          "Ho scritto matricola e data di nascita ma il risultato non c'è: perché?",
+          "Secondo l'Università per Stranieri di Siena, vuol dire che il tuo esame non è ancora stato valutato. Aspetta che il Centro CILS finisca la valutazione e riprova più tardi."
+        ],
+        [
+          "Qual è il punteggio minimo del CILS B1 Cittadinanza?",
+          "Serve la sufficienza in ognuna delle abilità: ascolto, lettura, scrittura e orale. Ogni abilità vale al massimo 12 punti. Il numero minimo di punti non è scritto nelle pagine ufficiali che abbiamo letto."
+        ],
+        [
+          "Dove prendo il certificato CILS B1 Cittadinanza?",
+          "Lo scarichi dalla pagina «Il mio risultato» e lo ritiri alla sede dove hai fatto l'esame (FAQ CILS)."
+        ],
+        [
+          "Se non supero una parte del CILS B1 Cittadinanza, devo rifare tutto?",
+          "Sì. Per il B1 Cittadinanza non c'è la «capitalizzazione»: rifai tutto l'esame in una sessione successiva. Solo nel CILS B1 standard puoi rifare, entro 18 mesi, le sole abilità non superate."
+        ],
+        [
+          "Posso vedere le mie prove o fare ricorso?",
+          "Sì. Scrivi a trasparenzacertificazioni@unistrasi.it; per vedere le prove la richiesta va fatta entro 30 giorni dalla pubblicazione dei risultati, con un documento d'identità e il pagamento della tassa per l'accesso."
+        ]
+      ]
+    },
+    "CELI": {
+      "slug": "celi",
+      "esame": "CELI 2 i cittadinanza",
+      "titolo": "dove vederli e quando",
+      "risposta": "I risultati CELI si vedono online nell'area riservata ai candidati CELI dell'Università per Stranieri di Perugia, con il numero di matricola e la data di nascita, circa 90 giorni lavorativi dopo che le prove arrivano a Perugia.",
+      "fonte_risposta": "regolamento",
+      "bottone": {
+        "testo": "Vedi il tuo risultato CELI",
+        "url": "https://cvcl.unistrapg.it/accesso-candidati-celi"
+      },
+      "tabella": {
+        "dove": "Online, area riservata ai candidati CELI (CVCL), o al centro d'esame",
+        "serve": "numero di matricola e data di nascita, senza account",
+        "login": false,
+        "tempi": "circa 90 giorni lavorativi da quando le prove arrivano a Perugia",
+        "superare": "CELI 2 i: scritto almeno 72/120, orale almeno 11, in tutto almeno 92/160",
+        "ripeti": "Entro 1 anno rifai solo la parte non superata (scritto o orale), con il 70% della tassa."
+      },
+      "fonti": {
+        "pagina": {
+          "nome": "CVCL, area riservata ai candidati CELI",
+          "url": "https://cvcl.unistrapg.it/accesso-candidati-celi"
+        },
+        "regolamento": {
+          "nome": "Regolamento degli esami CELI (PDF)",
+          "url": "https://cvcl.unistrapg.it/MC-API/Risorse/StreamRisorsa.ashx?guid=b682a9a2-1380-4d6c-9d54-496cbd0f4c18"
+        },
+        "iscrizione": {
+          "nome": "CVCL, iscrizione agli esami CELI",
+          "url": "https://cvcl.unistrapg.it/pagine/iscrizione-esami-celi-000"
+        },
+        "esami": {
+          "nome": "CVCL, esami CELI",
+          "url": "https://cvcl.unistrapg.it/pagine/esami-celi-lingua-italiana"
+        },
+        "criteri": {
+          "nome": "Criteri di valutazione CELI 2 i (PDF)",
+          "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-criteri-valutazione.pdf"
+        }
+      },
+      "voci": {
+        "dove": {
+          "passi": [
+            "Apri l'area riservata ai candidati CELI del CVCL (Università per Stranieri di Perugia).",
+            "Scrivi il numero di matricola, la data di nascita e il codice dell'immagine di controllo. Non serve un account.",
+            "Il risultato c'è anche al centro dove hai fatto l'esame, con i punti di ogni parte."
+          ],
+          "nota": "Il numero di matricola lo chiedi al centro d'esame, almeno 20 giorni dopo la scadenza delle iscrizioni. Se l'hai perso, chiedilo al centro dove hai fatto l'ultimo esame o scrivi al CVCL (certificazione@unistrapg.it). Usa sempre la stessa matricola anche per i prossimi esami CELI.",
+          "fonti": [
+            "pagina",
+            "regolamento"
+          ]
+        },
+        "tempi": {
+          "testo": "Circa 90 giorni lavorativi dal giorno in cui il CVCL riceve le prove dal centro. Può servire più tempo se ci sono controlli per gravi irregolarità sui fogli delle risposte.",
+          "fonti": [
+            "regolamento"
+          ]
+        },
+        "lettere": {
+          "testo": "Il risultato è una lettera. A (ottimo), B (buono) e C (sufficiente): esame superato, ricevi il certificato. D (insufficiente) ed E (gravemente insufficiente): esame non superato.",
+          "fonti": [
+            "regolamento"
+          ]
+        },
+        "certificato": {
+          "testo": "Il certificato è digitale: il CVCL lo manda al centro d'esame, che lo consegna a te. Se ti serve prima un documento che dice che hai superato l'esame, scarichi un documento provvisorio dall'area riservata. Il certificato CELI non ha scadenza.",
+          "fonti": [
+            "regolamento",
+            "iscrizione",
+            "esami"
+          ]
+        },
+        "punteggio": {
+          "testo": "CELI 2 i cittadinanza: lo scritto (lettura, scrittura e ascolto) è superato con almeno 72 punti su 120; l'orale con almeno 11 punti (la scala dell'orale va da 4 a 20 e poi conta doppio); l'esame intero con almeno 92 punti su 160. Devi superare sia lo scritto sia l'orale.",
+          "fonti": [
+            "criteri",
+            "regolamento"
+          ]
+        },
+        "non_superato": {
+          "testo": "Se superi lo scritto ma non l'orale, o il contrario, entro un anno puoi rifare solo la parte non superata, pagando il 70% della tassa intera. Deve essere lo stesso livello e lo stesso tipo d'esame (per esempio di nuovo il CELI 2 i).",
+          "fonti": [
+            "regolamento"
+          ]
+        },
+        "chiarimenti": {
+          "testo": "Per chiarimenti sul risultato scrivi a certificazione@unistrapg.it.",
+          "fonti": [
+            "regolamento"
+          ]
+        }
+      },
+      "faq": [
+        [
+          "Dove vedo i risultati CELI?",
+          "Online, nell'area riservata ai candidati CELI del CVCL dell'Università per Stranieri di Perugia (cvcl.unistrapg.it/accesso-candidati-celi), con il numero di matricola e la data di nascita. Il risultato è anche al centro dove hai fatto l'esame."
+        ],
+        [
+          "Quando escono i risultati CELI?",
+          "Circa 90 giorni lavorativi dal giorno in cui le prove arrivano al CVCL di Perugia, secondo il Regolamento degli esami CELI. Se servono controlli per gravi irregolarità, ci vuole di più."
+        ],
+        [
+          "Non ho il numero di matricola CELI: cosa faccio?",
+          "Chiedilo al centro d'esame: secondo il Regolamento si può chiedere almeno 20 giorni dopo la scadenza delle iscrizioni. Se l'hai perso, chiedilo al centro dove hai fatto l'ultimo esame."
+        ],
+        [
+          "Cosa vogliono dire le lettere A, B, C, D ed E?",
+          "A (ottimo), B (buono) e C (sufficiente) vogliono dire esame superato. D (insufficiente) ed E (gravemente insufficiente) vogliono dire esame non superato."
+        ],
+        [
+          "Qual è il punteggio minimo del CELI 2 i cittadinanza?",
+          "Scritto almeno 72 punti su 120, orale almeno 11 punti (scala da 4 a 20, che poi conta doppio), esame intero almeno 92 punti su 160. Devi superare sia lo scritto sia l'orale."
+        ],
+        [
+          "Mi serve subito un documento che dice che ho superato il CELI: come faccio?",
+          "Il certificato digitale arriva al centro d'esame, che te lo consegna. Se ti serve prima, dall'area riservata scarichi un documento provvisorio che dice che hai superato l'esame. Il Regolamento CELI non dice se il documento provvisorio basta per la domanda di cittadinanza."
+        ],
+        [
+          "Se non supero lo scritto o l'orale del CELI, devo rifare tutto?",
+          "No. Se superi una delle due parti, entro un anno rifai solo l'altra, allo stesso livello e tipo d'esame, pagando il 70% della tassa intera."
+        ]
+      ]
+    },
+    "PLIDA": {
+      "slug": "plida",
+      "esame": "PLIDA B1",
+      "titolo": "dove vederli online",
+      "risposta": "I risultati PLIDA si vedono online su certificazioneplida.dante.global, entrando con l'email e la password del tuo account dante.global; da lì scarichi anche il certificato. Nelle FAQ e nelle istruzioni ufficiali la Società Dante Alighieri non scrive dopo quanto tempo escono.",
+      "fonte_risposta": "faq",
+      "bottone": {
+        "testo": "Vai al tuo account PLIDA",
+        "url": "https://certificazioneplida.dante.global/"
+      },
+      "tabella": {
+        "dove": "Online, su certificazioneplida.dante.global",
+        "serve": "account: la tua email e la password",
+        "login": true,
+        "tempi": null,
+        "superare": "almeno 18/30 in ognuna delle 4 abilità",
+        "ripeti": "Entro 18 mesi recuperi da 1 a 3 abilità, anche in un altro centro."
+      },
+      "fonti": {
+        "faq": {
+          "nome": "FAQ PLIDA (domanda 8)",
+          "url": "https://plida.dante.global/it/faq/"
+        },
+        "pagina": {
+          "nome": "Società Dante Alighieri, certificazioneplida.dante.global",
+          "url": "https://certificazioneplida.dante.global/"
+        },
+        "istruzioni": {
+          "nome": "Istruzioni per scaricare i certificati PLIDA (PDF, 13/5/2025)",
+          "url": "https://cms.plida.dante.global/wp-content/uploads/2025/05/Istruzioni-accesso-def-2.pdf"
+        },
+        "account": {
+          "nome": "Istruzioni per aprire l'account (PDF)",
+          "url": "https://cms.plida.dante.global/wp-content/uploads/2025/04/Istruzioni-candidati-per-la-registrazione_4.pdf"
+        },
+        "quaderno": {
+          "nome": "Quaderno delle specifiche PLIDA B1 (PDF)",
+          "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf"
+        }
+      },
+      "voci": {
+        "dove": {
+          "passi": [
+            "Apri certificazioneplida.dante.global e clicca «Accedi». Attenzione: non è lo stesso indirizzo che hai usato per iscriverti.",
+            "Entra con la stessa email che hai dato al centro d'esame e con la tua password. Se non ricordi quale email hai usato, chiedila al centro.",
+            "Apri «I miei esami PLIDA»: lì trovi i punteggi e il risultato."
+          ],
+          "nota": "Serve un account: lo apri prima di iscriverti all'esame (istruzioni ufficiali in PDF) e al momento dell'iscrizione dai la tua email al centro.",
+          "fonti": [
+            "faq",
+            "istruzioni",
+            "account"
+          ]
+        },
+        "tempi": {
+          "testo": null,
+          "fonti": [
+            "faq"
+          ]
+        },
+        "certificato": {
+          "testo": "Lo scarichi tu, online: nel menu apri «I miei certificati PLIDA» e clicca sull'icona della stampante.",
+          "fonti": [
+            "faq",
+            "istruzioni"
+          ]
+        },
+        "punteggio": {
+          "testo": "Almeno 18 punti su 30 in ognuna delle 4 abilità: Ascoltare, Leggere, Scrivere e Parlare.",
+          "fonti": [
+            "quaderno"
+          ]
+        },
+        "non_superato": {
+          "testo": "Se non superi da 1 a 3 abilità, puoi recuperarle nei 18 mesi successivi, in tutte le sessioni del calendario PLIDA, anche più di una volta. Puoi farlo anche in un altro centro PLIDA: porta il tuo Codice personale, che ricevi alla prima iscrizione.",
+          "fonti": [
+            "quaderno"
+          ]
+        }
+      },
+      "faq": [
+        [
+          "Dove vedo i risultati PLIDA online?",
+          "Su certificazioneplida.dante.global: clicca «Accedi», entra con l'email che hai dato al centro d'esame e con la tua password, poi apri «I miei esami PLIDA» (FAQ ufficiali PLIDA)."
+        ],
+        [
+          "Serve un account per vedere il risultato PLIDA?",
+          "Sì. Serve l'account dante.global con email e password. Lo apri prima di iscriverti e dai la stessa email al centro d'esame."
+        ],
+        [
+          "Non ricordo con quale email mi sono iscritto: cosa faccio?",
+          "Chiedila al centro d'esame: secondo le istruzioni ufficiali PLIDA è il centro che ha registrato la tua email."
+        ],
+        [
+          "Quando escono i risultati PLIDA?",
+          "La Società Dante Alighieri non lo scrive nelle FAQ né nelle istruzioni ufficiali che abbiamo letto. Chiedilo al centro d'esame."
+        ],
+        [
+          "Qual è il punteggio minimo del PLIDA B1?",
+          "Almeno 18 punti su 30 in ogni abilità: Ascoltare, Leggere, Scrivere e Parlare (Quaderno delle specifiche PLIDA B1)."
+        ],
+        [
+          "Come scarico il certificato PLIDA B1?",
+          "Dal tuo account su certificazioneplida.dante.global: nel menu apri «I miei certificati PLIDA» e clicca sull'icona della stampante."
+        ],
+        [
+          "Se non supero una prova del PLIDA B1, devo rifare tutto?",
+          "No. Se non superi da 1 a 3 abilità, le recuperi nei 18 mesi successivi, anche più volte e anche in un altro centro PLIDA, con il tuo Codice personale."
+        ]
+      ]
+    },
+    "CERT.IT": {
+      "slug": "cert-it",
+      "esame": "CERT.IT B1",
+      "titolo": "dove chiederli",
+      "risposta": "Il sito ufficiale CERT.IT dell'Università Roma Tre non spiega dove e quando si vedono i risultati: chiedili alla sede dove hai fatto l'esame o, se l'hai fatto a Roma Tre, alla segreteria CERT.IT (certificazioneitaliano@uniroma3.it).",
+      "fonte_risposta": "contatti",
+      "bottone": {
+        "testo": "Contatti CERT.IT (Roma Tre)",
+        "url": "https://certificazioneitaliano.uniroma3.it/chi-siamo/contatti/"
+      },
+      "tabella": {
+        "dove": "Non indicato sul sito ufficiale: chiedi alla sede d'esame",
+        "serve": "chiedi alla sede",
+        "login": null,
+        "tempi": null,
+        "superare": "60% dei punti nello scritto (ascolto, lettura, scrittura) e 60% nell'orale",
+        "ripeti": "Il sito non lo dice per il B1: chiedi alla sede."
+      },
+      "fonti": {
+        "home": {
+          "nome": "CERT.IT, sito ufficiale (Roma Tre)",
+          "url": "https://certificazioneitaliano.uniroma3.it/"
+        },
+        "contatti": {
+          "nome": "CERT.IT, Contatti",
+          "url": "https://certificazioneitaliano.uniroma3.it/chi-siamo/contatti/"
+        },
+        "b1": {
+          "nome": "CERT.IT, Livello B1",
+          "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/"
+        },
+        "iscrizione": {
+          "nome": "CERT.IT, Iscrizione agli esami",
+          "url": "https://certificazioneitaliano.uniroma3.it/gli-esami/iscrizione-agli-esami/"
+        }
+      },
+      "voci": {
+        "dove": {
+          "testo": "Sul sito CERT.IT non c'è una pagina dei risultati. Abbiamo letto la home, «Iscrizione agli esami», «Indicazioni sullo svolgimento», «Livello B1» e «Contatti» e abbiamo cercato «risultati» nel sito: nessuna pagina spiega dove si vede il risultato. Se hai fatto l'esame in una sede convenzionata, chiedi alla sede. Se l'hai fatto a Roma Tre (via Ostiense), scrivi alla segreteria: certificazioneitaliano@uniroma3.it.",
+          "fonti": [
+            "home",
+            "contatti"
+          ]
+        },
+        "tempi": {
+          "testo": null,
+          "fonti": [
+            "home"
+          ]
+        },
+        "certificato": {
+          "testo": null,
+          "fonti": [
+            "home"
+          ]
+        },
+        "punteggio": {
+          "testo": "Devi avere il 60% dei punti nelle sezioni Ascolto, Lettura e Produzione scritta (contate insieme) e il 60% dei punti nella Produzione orale.",
+          "fonti": [
+            "b1"
+          ]
+        },
+        "non_superato": {
+          "testo": "Per il B1 la pagina delle iscrizioni indica solo la quota dell'esame intero (80 € a Roma Tre); le quote per singole sezioni ci sono solo per B2, C1 e C2. Il sito non dice se nel B1 puoi ripetere solo una parte: chiedilo alla sede. A Roma Tre, chi deve iscriversi a una singola sezione scrive a certificazioneitaliano@uniroma3.it.",
+          "fonti": [
+            "iscrizione"
+          ]
+        }
+      },
+      "faq": [
+        [
+          "Dove vedo i risultati CERT.IT?",
+          "Il sito ufficiale CERT.IT di Roma Tre non lo spiega. Chiedi alla sede dove hai fatto l'esame; se l'hai fatto a Roma Tre, scrivi a certificazioneitaliano@uniroma3.it."
+        ],
+        [
+          "Quando escono i risultati CERT.IT?",
+          "Roma Tre non lo scrive sul sito CERT.IT. Chiedilo alla sede d'esame o alla segreteria CERT.IT."
+        ],
+        [
+          "Qual è il punteggio minimo del CERT.IT B1?",
+          "Il 60% dei punti in Ascolto, Lettura e Produzione scritta insieme e il 60% nella Produzione orale (pagina ufficiale Livello B1)."
+        ],
+        [
+          "Se non supero una parte del CERT.IT B1, rifaccio tutto?",
+          "Il sito non lo dice per il B1: indica quote per singole sezioni solo per B2, C1 e C2. Chiedi alla sede; a Roma Tre scrivi a certificazioneitaliano@uniroma3.it."
+        ]
+      ]
+    }
+  }
+}

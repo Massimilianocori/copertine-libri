@@ -309,6 +309,19 @@ text-decoration:none;color:var(--ink);font-weight:750;box-shadow:var(--ombra);tr
 @media (max-width:640px){.es-vai{grid-template-columns:1fr 1fr;gap:8px}.es-vai a{padding:10px 12px;font-size:.95rem}.es-vai small{font-size:.8rem}.es-card{padding:16px}.es-testa .btn{flex:1 1 100%}.file-lista li{grid-template-columns:36px minmax(0,1fr)}.file-lista .fi{width:36px;height:36px}
 .file-lista .meta{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:center;gap:4px 10px;text-align:left;white-space:normal}}
 table.conf td.si{color:var(--brand-ink);font-weight:650}
+/* tabelle delle pagine risultati: su mobile ogni riga diventa una scheda con le etichette */
+.ris-tab table{min-width:680px}
+.ris-tab td .eb{margin-right:6px}
+.ris-tab .ris-guida{white-space:nowrap}
+@media (max-width:640px){.ris-tab table,.ris-tab tbody{display:block;min-width:0}.ris-tab thead{display:none}
+.ris-tab tr{display:block;padding:12px 14px;border-bottom:1px solid var(--line)}
+.ris-tab table.conf td{display:block;border:0;padding:3px 0}
+.ris-tab table.conf td:first-child{padding-bottom:6px}
+.ris-tab td[data-l]::before{content:attr(data-l);display:block;color:var(--ink-3);font-size:.8rem;font-weight:650;text-transform:uppercase;letter-spacing:.04em}
+.ris-tab tbody tr:last-child{border-bottom:0}}
+.ris-sez{margin-top:8px}
+.ris-sez>p{max-width:72ch}
+.ris-nota{color:var(--ink-2);font-size:.95rem;max-width:72ch}
 table.conf td.no{color:var(--ink-3)}
 ol.passi li>div p{margin:4px 0 0;color:var(--ink-2);font-size:.95rem}
 ol.passi li .fonte{margin-top:6px}
@@ -698,6 +711,7 @@ Su italki scegli tu un insegnante di italiano: fai lezioni 1 a 1 e paghi a lezio
 <section>
 <h2><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg>Prima di iscriverti</h2>
 <div class="griglia link3"><a href="../../costo/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-euro"/></svg><span>Quanto costa<small>i prezzi di ogni ente</small></span></a><a href="../../come-funziona/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-lista"/></svg><span>Come si svolge<small>durata, cosa portare, esempi</small></span></a><a href="../../risultati/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg><span>Risultati<small>quando arrivano e dove vederli</small></span></a><a href="../../esenzioni-e-domande/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-scudo"/></svg><span>Esenzioni e domande<small>chi non deve fare l'esame, orale, durata</small></span></a><a href="../../esempi-esame-b1/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg><span>Prove d'esempio<small>gratis, ufficiali, ente per ente</small></span></a></div>
+<p class="small">Dopo l'esame: <a href="../../risultati/cils/">risultati CILS</a>, <a href="../../risultati/celi/">risultati CELI</a> (dove vederli e quando escono).</p>
 </section>
 <section><h2><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Altre città</h2><h3><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>In Lombardia</h3><div class="altre"><a href="../bergamo/">Bergamo</a><a href="../brescia/">Brescia</a><a href="../busto-arsizio/">Busto Arsizio</a><a href="../como/">Como</a><a href="../crema/">Crema</a><a href="../cremona/">Cremona</a><a href="../gavardo/">Gavardo</a><a href="../lecco/">Lecco</a><a href="../lodi/">Lodi</a><a href="../mantova/">Mantova</a><a href="../milano/">Milano</a><a href="../monza/">Monza</a><a href="../treviglio/">Treviglio</a><a href="../varese/">Varese</a></div><h3>Altre città in Italia</h3><div class="altre"><a href="../bari/">Bari</a><a href="../bologna/">Bologna</a><a href="../catania/">Catania</a><a href="../firenze/">Firenze</a><a href="../genova/">Genova</a><a href="../macerata/">Macerata</a><a href="../napoli/">Napoli</a><a href="../padova/">Padova</a><a href="../roma/">Roma</a><a href="../torino/">Torino</a><a href="../vicenza/">Vicenza</a><a href="../../#citta">Tutte le 89 città</a></div></section>
 </main>
