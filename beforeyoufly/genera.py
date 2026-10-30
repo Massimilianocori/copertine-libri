@@ -20,6 +20,7 @@ import sys
 import unicodedata
 from datetime import date, timedelta
 from html import escape
+from urllib.parse import urlparse
 from pathlib import Path
 
 RADICE = Path(__file__).resolve().parent
@@ -496,6 +497,10 @@ footer .f-altri a{font-weight:600}
 @media (max-width:640px){.tab.tab-srv tr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px}.tab.tab-srv td:first-child{grid-column:1/-1}}
 .b-muto{background:var(--mute);color:var(--ink-2);border-color:var(--line-2)}
 .griglia.g-pat{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));margin-top:16px}.griglia.g-pat a .ico{color:var(--accent);margin-right:4px}
+a.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--sign-ink)}a.btn:hover{color:var(--sign-ink)}a.btn .ico{color:var(--sign-ink)}
+.altri-pass.noleggio-home{flex-wrap:nowrap;align-items:flex-start}.noleggio-home .ico{flex:none;margin-top:4px}
+.noleggio{margin:14px 0 22px}.noleggio p{margin:0 0 12px}.noleggio p.aff-nota{margin:0}
+.avviso.avviso-idp{background:var(--no-2);border-color:color-mix(in srgb,var(--no) 35%,transparent);font-size:1rem}.avviso.avviso-idp::before{background:var(--no)}
 .tab-pat td:nth-child(4){font-size:.9rem;color:var(--ink-2);min-width:16em}.tab-pat td:last-child{white-space:nowrap}
 @media (max-width:640px){.tab.tab-pat tr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px}.tab.tab-pat td:first-child,.tab.tab-pat td:nth-child(4){grid-column:1/-1}.tab-pat td:nth-child(4){min-width:0}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -3395,7 +3400,7 @@ def about_srv(rel):
 # travel.gc.ca, Smartraveller; esito da schemi fissi o da fatti scritti a mano in dati/patenti_manuali.json) e dati/patenti_domanda.json
 # (ricerche vere dell'autocompletamento: una pagina Paese × patente esiste SOLO per le coppie in "pagine" e solo se la fonte dice qualcosa).
 # Regole: la prima frase dice sì / no / dipende con la frase dell'ente tra virgolette, la fonte e la data; se la fonte non dice nulla:
-# "Not stated by <ente>", mai una deduzione; nessun consiglio legale personale; link affiliati solo nel riquadro NOLEGGIO_AUTO (vuoto oggi).
+# "Not stated by <ente>", mai una deduzione; nessun consiglio legale personale; link affiliati solo nel riquadro "Hire a car" (NOLEGGIO_AUTO, DiscoverCars, acceso dal 30/10/2026), dopo le regole ufficiali.
 PAT_BASE = "driving-abroad"
 _f_pat = DATI / "patenti.json"
 PAT = json.loads(_f_pat.read_text(encoding="utf-8")) if _f_pat.exists() else None
@@ -3403,10 +3408,12 @@ _f_pat_dom = DATI / "patenti_domanda.json"
 PAT_DOM = json.loads(_f_pat_dom.read_text(encoding="utf-8")) if _f_pat_dom.exists() else {"pagine": {}, "patenti": {}}
 PAT_PER = {p["iso2"]: p for p in PAT["paesi"]} if PAT else {}
 PAT_G = PAT["frasi_generali"] if PAT else {}
-# Segnaposto spento per un futuro riquadro "Hire a car" (noleggio auto, link affiliato): finché è vuoto non compare nulla.
-# Dal 30/10/2026 (monetizzazione sbloccata) si può accendere con l'HTML del riquadro: link solo verso domini di monetizzazione.json
-# (DiscoverCars), con rel="sponsored noopener" e la riga MON.RIGA_EN; lo controllano genera.py e verifica.py.
-NOLEGGIO_AUTO = ""
+# Riquadro "Hire a car" (noleggio auto, link di affiliazione DiscoverCars), acceso il 30/10/2026: NOLEGGIO_AUTO è l'URL di
+# dati/affiliati.json, voce "_discovercars_noleggio" (vuoto = riquadro spento, niente link). Link generale con il nostro a_aid, mai pagine
+# Paese di DiscoverCars non verificate (il sito risponde 403 dal server). Il riquadro (box_noleggio) va sempre DOPO la risposta e le regole
+# ufficiali, con rel="sponsored noopener", target="_blank" e la riga MON.RIGA_EN; con esito "IDP needed" o "Local permit needed" la frase
+# sul permesso è un avviso a parte, fuori dal riquadro commerciale. Lo controllano controlli() qui e il punto 18 di verifica.py.
+NOLEGGIO_AUTO = ((AFFILIATI.get("_discovercars_noleggio") or {}).get("url") or "").strip()
 PATENTI = {
     "uk": {"slug": "uk-licence", "agg": "UK", "lic": "UK licence", "ente": "GOV.UK", "Ente": "GOV.UK", "paese": "the UK",
            "titolo": "UK Licence", "chi": "a UK photocard driving licence", "Lic": "UK licence", "art": "a",
@@ -3730,9 +3737,47 @@ AVVISO_PAT = ('<p class="avviso"><strong>Rules change, and car hire companies ca
               'your car hire company or your travel insurer before you travel.</p>')
 
 
-def box_noleggio():
-    """Segnaposto del riquadro "Hire a car": spento finché NOLEGGIO_AUTO è vuoto."""
-    return NOLEGGIO_AUTO
+FRASE_NOLEGGIO = "Check the licence and IDP rules above before you book: the rental desk can refuse your booking without the right permit."
+
+
+def avviso_noleggio_pat(k, c):
+    """Con esito "IDP needed" o "Local permit needed": la frase sul permesso come avviso evidente (informazione di sicurezza, non pubblicità)."""
+    v, T, P = voce_pat(k, c), PATENTI[k], frase_srv(c)
+    if v["esito"] == "si":
+        testa = (f"IDP needed in {P}:", f"the official advice quoted above says you need an international driving permit to drive there with "
+                                         f"{T['art']} {T['lic']}.")
+    elif v["esito"] == "locale":
+        testa = (f"Local permit needed in {P}:", f"the official advice quoted above says an IDP alone is not enough with {T['art']} {T['lic']}, "
+                                                  "and that you need a local licence or permit.")
+    else:
+        return ""
+    return (f'<p class="avviso avviso-idp" data-avviso-idp><strong>{escape(testa[0])}</strong> {escape(testa[1])} '
+            f'<strong>{escape(FRASE_NOLEGGIO)}</strong></p>')
+
+
+def box_noleggio(k=None, c=None):
+    """Riquadro "Hire a car" (DiscoverCars, link di affiliazione): '' finché NOLEGGIO_AUTO è vuoto. Senza Paese (indice e pagine per patente)
+    il testo è generico. Va messo dopo la risposta e le regole ufficiali (verifica.py, punto 18, controlla la posizione)."""
+    if not NOLEGGIO_AUTO:
+        return ""
+    P = frase_srv(c) if c else ""
+    avviso = avviso_noleggio_pat(k, c) if k and c else ""
+    regole = "" if avviso else " " + (FRASE_NOLEGGIO if c else FRASE_NOLEGGIO.replace("rules above", "rules for your country in the table above"))
+    dove = f" in {P}" if P else " abroad"
+    return (f'<h2 id="hire-a-car">Hire a car{escape(dove) if P else ""}</h2>\n{avviso}'
+            f'<section class="card noleggio" aria-label="Car hire, affiliate link" data-noleggio>'
+            f'<p>Hiring a car{escape(dove)}? Compare rental companies and prices on DiscoverCars.{escape(regole)}</p>'
+            f'<p class="noleggio-btn"><a class="btn" href="{escape(NOLEGGIO_AUTO)}" rel="sponsored noopener" target="_blank">'
+            f'{ico("car")}Compare car hire{escape(" in " + P) if P else ""}</a></p>'
+            f'{MON.nota_trasparenza("en")}</section>')
+
+
+def home_noleggio():
+    """Riga discreta "Hire a car" nella sezione Driving abroad della home (stesso link DiscoverCars): '' con NOLEGGIO_AUTO vuoto."""
+    if not NOLEGGIO_AUTO:
+        return ""
+    return (f'<p class="altri-pass noleggio-home" data-noleggio>{ico("car")}<span>Hiring a car abroad? Check the permit rules for your country first, then '
+            f'<a href="{escape(NOLEGGIO_AUTO)}" rel="sponsored noopener" target="_blank">compare car hire on DiscoverCars</a>. {MON.RIGA_EN}</span></p>')
 
 
 def pagina_pat(k, c):
@@ -3761,7 +3806,7 @@ def pagina_pat(k, c):
 {AD}
 <h2>What to bring and where to get an IDP</h2>
 {dove_idp(k)}
-{box_noleggio()}
+{box_noleggio(k, c)}
 {f'<h2>Other licences in {escape(P)}</h2><div class="tab tab-b"><table><caption class="sr">International driving permit in {escape(P)} for other licences, from official advice</caption><thead><tr><th>Licence</th><th>In {escape(nome_srv(c))}</th><th>Checked</th></tr></thead><tbody>{"".join(altri)}</tbody></table></div>' if altri else ""}
 {f'<h2>Before you travel to {escape(P)}</h2><ul>' + "".join(f"<li>{x}</li>" for x in ingresso) + "</ul>" if ingresso else ""}
 {faq_h}
@@ -3822,6 +3867,7 @@ def pagina_patente(k):
 <div class="tab tab-b tab-pat"><table><caption class="sr">International driving permit with {T['art']} {escape(T['lic'])}, by country, from official advice</caption><thead><tr><th>Country or territory</th><th>IDP?</th><th>Type</th><th>Official wording</th><th>Checked</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>
 <h2>Where to get an international driving permit</h2>
 {dove_idp(k)}
+{box_noleggio(k)}
 <h2>How we read the official advice</h2>
 <p>{metodo_pat(k)} More on the <a href="{rel}about/#driving-abroad">About page</a>. Spotted a change? <a href="{rel}contact/?ref=driving-abroad">Tell us</a>.</p>
 <p><a href="{rel}{PAT_BASE}/">Driving abroad: UK, Canadian and Australian licences</a></p>"""
@@ -3870,6 +3916,7 @@ def pagina_hub_pat():
 <p>Click an answer for the official sentence, the source and the date. “Not stated” means that government's advice for the country says nothing about driving permits.</p>
 <div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a country, e.g. Italy" data-filtro-multi aria-label="Search countries"></div>
 <div class="tab tab-b tab-srv"><table><caption class="sr">Do you need an international driving permit? Official advice for UK, Canadian and Australian licences, by country, checked on {d}</caption><thead><tr><th>Country or territory</th>{"".join(f"<th>{escape(nomi[k])}</th>" for k in PATENTI)}</tr></thead><tbody>{righe}</tbody></table></div>
+{box_noleggio()}
 <h2>How we check</h2>
 <p>{metodo_pat("uk")} {metodo_pat("ca")} {metodo_pat("au")} We only use official government sources and never fill a gap with our own reading: where the advice is silent, we say so. More on the <a href="{rel}about/#driving-abroad">About page</a>.</p>"""
     pagina(f"{PAT_BASE}/", f"Driving Abroad: Do I Need an IDP? UK, Canada, Australia ({ANNO})",
@@ -3904,7 +3951,7 @@ def home_pat():
             voci.append(f'<a href="{url_pat(k, c)}">{escape(nome_srv(c))}, {escape(PATENTI[k]["lic"])}<small>{escape(ESITI_PAT[voce_pat(k, c)["esito"]][0])}</small></a>')
     return (f'<h2>Driving abroad: do you need an international driving permit?</h2><p>What GOV.UK, the Government of Canada and Smartraveller say about '
             f'driving in each country with a UK, Canadian or Australian licence, quoted with the date: <a href="{PAT_BASE}/">every country and every licence</a>.</p>'
-            f'<div class="griglia">{"".join(voci)}</div>')
+            f'<div class="griglia">{"".join(voci)}</div>{home_noleggio()}')
 
 
 def about_pat(rel):
@@ -4178,8 +4225,11 @@ def controlli():
         for k in ("uk_paypoint", "uk_costo", "uk_durata", "uk_sempre_patente", "uk_tabella", "uk_non_in_tabella", "ca_caa", "ca_anno", "ca_classe", "au_aaa", "au_falsi"):
             if not PAT_G.get(k):
                 errori.append(f"patenti: manca la frase generale {k}")
-        if NOLEGGIO_AUTO:  # dal 30/10/2026 il riquadro "Hire a car" si può accendere, ma solo con link di affiliazione validi
-            errori += [f"patenti: NOLEGGIO_AUTO: {e}" for e in MON.controlla_link_pagina(NOLEGGIO_AUTO, "NOLEGGIO_AUTO", "en")[0]]
+        if NOLEGGIO_AUTO:  # dal 30/10/2026 riquadro "Hire a car" acceso: solo DiscoverCars, link valido, riga di trasparenza
+            if not MON.dominio_ammesso(NOLEGGIO_AUTO) or not MON.dominio_in(urlparse(NOLEGGIO_AUTO).hostname, ["discovercars.com"]):
+                errori.append(f"patenti: NOLEGGIO_AUTO non punta a discovercars.com: {NOLEGGIO_AUTO}")
+            for nome, h in (("box_noleggio", box_noleggio()), ("home_noleggio", home_noleggio())):
+                errori += [f"patenti: {e}" for e in MON.controlla_link_pagina(h, nome, "en")[0]]
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 

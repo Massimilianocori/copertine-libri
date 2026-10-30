@@ -69,7 +69,9 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     (e con una risposta della fonte), con prima frase = modello fisso (risposta, frase dell'ente, fonte, data), frasi ufficiali, link alla fonte,
     "not legal advice", frase su dove si ottiene il permesso, link alle pagine passaporto dello stesso Paese, FAQ (JSON-LD = testo visibile =
     prima frase), titolo <= 70 con "IDP" e l'anno, sitemap con lastmod = data della lettura; tabelle per patente uguali ai dati; nessun link
-    di noleggio o rete non ammessa (NOLEGGIO_AUTO solo con link di affiliazione validi), nessun nome di assistente; link da home, About, pagine passaporto e "Available in?".
+    di noleggio o rete non ammessa: dal 30/10/2026 solo il riquadro "Hire a car" con il link generale DiscoverCars e il nostro a_aid (rel
+    "sponsored noopener", target _blank, riga di trasparenza nel riquadro, sempre dopo la risposta e le regole ufficiali, avviso evidente
+    sul permesso con esito "IDP needed" / "Local permit needed"; DiscoverCars altrove solo nella riga della home), nessun nome di assistente; link da home, About, pagine passaporto e "Available in?".
     Nel browser (punto 7) 5 pagine nuove a 375 px in tema chiaro e scuro e 2 a 820 px.
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
@@ -1732,11 +1734,50 @@ _spec_pat = importlib.util.spec_from_file_location("raccolta_patenti", Path(__fi
 RPAT = importlib.util.module_from_spec(_spec_pat)
 _spec_pat.loader.exec_module(RPAT)
 FONTI_UFFICIALI_PAT = re.compile(r"^https://(?:www\.gov\.uk/|travel\.gc\.ca/|data\.international\.gc\.ca/|www\.smartraveller\.gov\.au/)")
-# noleggi e reti non ammessi: mai nelle pagine di questa sezione. Dal 30/10/2026 i link di affiliazione verso i domini di
-# monetizzazione.json (per esempio DiscoverCars, Awin, Tradedoubler, CJ) sono ammessi con rel="sponsored noopener" e la riga di
-# trasparenza: li controlla il controllo comune (punto 19), qui restano vietati gli altri nomi.
+# noleggi e reti non ammessi: mai nelle pagine di questa sezione (nomi vietati anche come testo).
 AFFILIATI_PAT = re.compile(r'rentalcars|economybookings|localrent|qeeq|travelpayouts|tp\.media|'
                            r'impact\.com|partnerize|cj\.com|kayak\.|skyscanner|booking\.com|expedia', re.I)
+# Dal 30/10/2026 l'UNICO link di affiliazione ammesso nella sezione (e nella riga della home che la presenta) è DiscoverCars, link generale
+# con il nostro a_aid (dati/affiliati.json, "_discovercars_noleggio"): https, host discovercars.com, nessun percorso profondo inventato,
+# rel="sponsored noopener", target="_blank", riga di trasparenza nel riquadro, riquadro dopo la risposta e le regole ufficiali.
+NOLEGGIO_AID = "Massimilianocori"
+
+
+def link_noleggio_ok(href):
+    from urllib.parse import parse_qs, urlparse
+    u = urlparse(href)
+    return (u.scheme == "https" and u.hostname in ("www.discovercars.com", "discovercars.com") and u.path in ("", "/")
+            and parse_qs(u.query) == {"a_aid": [NOLEGGIO_AID]})
+
+
+def controlla_noleggio(t, nome, dopo):
+    """Errori sul riquadro "Hire a car" di una pagina della sezione (o della home). dopo = testi che devono stare PRIMA del riquadro
+    (risposta, regole ufficiali). Con NOLEGGIO_AUTO vuoto: nessun link di affiliazione."""
+    errori = []
+    voci = G.MON.link_affiliati(t)
+    if not G.NOLEGGIO_AUTO:
+        return [f"{nome}: link di affiliazione con il riquadro noleggio spento ({h})" for h, _, _ in voci]
+    if len(voci) != 1:
+        return [f"{nome}: attesi 1 link DiscoverCars, trovati {len(voci)} link di affiliazione"]
+    href, _, rel = voci[0]
+    if not link_noleggio_ok(href) or href != G.NOLEGGIO_AUTO:
+        errori.append(f"{nome}: link di noleggio diverso da DiscoverCars con a_aid={NOLEGGIO_AID}: {href}")
+    if not {"sponsored", "noopener"} <= rel:
+        errori.append(f"{nome}: link DiscoverCars senza rel=\"sponsored noopener\"")
+    tag = re.search(r'<a\b[^>]*href="' + re.escape(escape(href)) + r'"[^>]*>', t)
+    if not tag or 'target="_blank"' not in tag.group(0):
+        errori.append(f"{nome}: link DiscoverCars senza target=\"_blank\"")
+    i = t.find("data-noleggio")
+    if i < 0:
+        return errori + [f"{nome}: link DiscoverCars fuori dal riquadro 'Hire a car' (data-noleggio)"]
+    blocco = t[i:t.find("</section>", i) if "<section" in t[t.rfind("<", 0, i):i] else t.find("</p>", i)]
+    if G.MON.RIGA_EN not in blocco:
+        errori.append(f"{nome}: riga di trasparenza non nel riquadro noleggio")
+    for x in dopo:
+        j = t.find(x)
+        if j < 0 or j > i:
+            errori.append(f"{nome}: riquadro noleggio non dopo «{x[:50]}»")
+    return errori
 # controlli indipendenti dal classificatore: cosa devono contenere le frasi che decidono ogni esito
 IND_PAT = {
     "si": re.compile(r"international driv\w* (?:permit|licen)|\bIDPs?\b|international driver", re.I),
@@ -1760,7 +1801,7 @@ def _impronta_pat(v):
 def controlla_patenti():
     from html import unescape
     errori = []
-    conti = {"paesi": 0, "voci": 0, "manuali": 0, "pagine": 0, "faq": 0, "citazioni": 0, "cache": "assente", "righe": 0}
+    conti = {"paesi": 0, "voci": 0, "manuali": 0, "pagine": 0, "faq": 0, "citazioni": 0, "cache": "assente", "righe": 0, "noleggio": 0, "avvisi_idp": 0}
     f = SITO.parent / "dati" / "patenti.json"
     if not f.exists():
         return ["dati/patenti.json mancante (lanciare raccolta/patenti.py)"], conti
@@ -1895,6 +1936,14 @@ def controlla_patenti():
                 errori.append(f"{rel}: manca 'not legal advice'")
             if AFFILIATI_PAT.search(t):
                 errori.append(f"{rel}: link affiliato o di noleggio ({AFFILIATI_PAT.search(t).group(0)})")
+            errori += controlla_noleggio(t, rel, ['id="answer"', "<h2>What the official source says</h2>", "<h2>What to bring and where to get an IDP</h2>"])
+            avv = re.findall(r'<p class="avviso avviso-idp" data-avviso-idp>(.*?)</p>', t)
+            if G.NOLEGGIO_AUTO and v["esito"] in ("si", "locale"):
+                conti["avvisi_idp"] += 1
+                if len(avv) != 1 or escape(G.FRASE_NOLEGGIO) not in avv[0] or t.find("data-avviso-idp") > t.find("data-noleggio"):
+                    errori.append(f"{rel}: esito '{v['esito']}' senza l'avviso evidente sul permesso prima del riquadro noleggio")
+            elif avv:
+                errori.append(f"{rel}: avviso sul permesso con esito '{v['esito']}'")
             for x in G.ingresso_srv(c, "../../../"):
                 if x not in t:
                     errori.append(f"{rel}: manca il link alla pagina passaporto/visto dello stesso Paese")
@@ -1912,22 +1961,38 @@ def controlla_patenti():
             k_dove = {"uk": "uk_paypoint", "ca": "ca_caa", "au": "au_aaa"}[pat]
             if escape(D["frasi_generali"][k_dove]) not in t:
                 errori.append(f"{rel}: manca la frase ufficiale su dove si ottiene il permesso")
-    # d) tutta la sezione: niente assistenti AI, niente affiliati, segnaposto spento, collegamenti in entrata
-    if G.NOLEGGIO_AUTO:  # riquadro "Hire a car": dal 30/10/2026 solo con link di affiliazione ammessi e riga di trasparenza
-        if not G.MON.link_affiliati(G.NOLEGGIO_AUTO):
-            errori.append("NOLEGGIO_AUTO non vuoto ma senza link di affiliazione: il riquadro 'Hire a car' serve solo per il noleggio affiliato")
-        errori += [f"NOLEGGIO_AUTO: {e}" for e in G.MON.controlla_link_pagina(G.NOLEGGIO_AUTO, "NOLEGGIO_AUTO", "en")[0]]
+    # d) tutta la sezione: niente assistenti AI, nessun affiliato tranne DiscoverCars (riquadro "Hire a car"), collegamenti in entrata
+    if G.NOLEGGIO_AUTO and not link_noleggio_ok(G.NOLEGGIO_AUTO):
+        errori.append(f"NOLEGGIO_AUTO (dati/affiliati.json, _discovercars_noleggio) non è il link generale DiscoverCars con a_aid={NOLEGGIO_AID}: {G.NOLEGGIO_AUTO}")
     for q in (SITO / G.PAT_BASE).rglob("*.html"):
         t = q.read_text(encoding="utf-8")
+        nome = q.relative_to(SITO).as_posix()
         m = VIETATE_SRV.search(unescape(re.sub(r"<[^>]+>", " ", t))) or AFFILIATI_PAT.search(t)
         if m:
-            errori.append(f"{q.relative_to(SITO)}: parola o link vietati '{m.group(0)}'")
+            errori.append(f"{nome}: parola o link vietati '{m.group(0)}'")
+        prof = len(q.relative_to(SITO / G.PAT_BASE).parts)
+        if prof == 1:  # indice: dopo la tabella di tutti i Paesi
+            errori += controlla_noleggio(t, nome, ['id="answer"', "<h2>Every country, every licence</h2>", "</table>"])
+        elif prof == 2:  # pagina per patente: dopo la tabella e "dove si ottiene il permesso"
+            errori += controlla_noleggio(t, nome, ['id="answer"', "</table>", "<h2>Where to get an international driving permit</h2>"])
+        elif prof != 3:
+            errori.append(f"{nome}: pagina inattesa nella sezione")
+        if G.NOLEGGIO_AUTO and G.MON.link_affiliati(t):
+            conti["noleggio"] += 1
+    # DiscoverCars solo nella sezione e nella home (riga della sezione Driving abroad)
+    for q in SITO.rglob("*.html"):
+        nome = q.relative_to(SITO).as_posix()
+        if nome.startswith(G.PAT_BASE + "/") or nome == "index.html":
+            continue
+        if "discovercars" in q.read_text(encoding="utf-8").lower():
+            errori.append(f"{nome}: link DiscoverCars fuori dalla sezione Driving abroad e dalla home")
     for nome in ("patenti.json", "patenti_manuali.json", "patenti_domanda.json"):
         if VIETATE_SRV.search((SITO.parent / "dati" / nome).read_text(encoding="utf-8")):
             errori.append(f"dati/{nome}: nome di un assistente di intelligenza artificiale")
     home = leggi("index.html")
     if f'href="{G.PAT_BASE}/"' not in home:
         errori.append("home senza link alla sezione 'Driving abroad'")
+    errori += controlla_noleggio(home, "index.html (home)", ["<h2>Driving abroad: do you need an international driving permit?</h2>", f'href="{G.PAT_BASE}/"'])
     ab = leggi("about/index.html")
     if 'id="driving-abroad"' not in ab:
         errori.append("About senza la sezione 'Driving abroad'")
@@ -2010,7 +2075,7 @@ def main():
     e18, c18 = controlla_patenti()
     print(f"18. Driving abroad: {c18['paesi']} Paesi, {c18['voci']} voci Paese × patente ({c18['manuali']} fatti scritti a mano), ricalcolo dai grezzi: {c18['cache']}; "
           f"{c18['righe']} righe delle tabelle per patente uguali ai dati; {c18['pagine']} pagine Paese × patente (solo coppie cercate), {c18['citazioni']} frasi ufficiali "
-          f"nelle pagine, {c18['faq']} risposte FAQ; titoli <= {G.LIMITE_TITOLO_PAT}, sitemap con lastmod della lettura, nessun noleggio non ammesso né nome di assistente: {len(e18)} errori")
+          f"nelle pagine, {c18['faq']} risposte FAQ; titoli <= {G.LIMITE_TITOLO_PAT}, sitemap con lastmod della lettura, riquadro DiscoverCars (a_aid, dopo le regole) in {c18['noleggio']} pagine della sezione + home, {c18['avvisi_idp']} avvisi evidenti sul permesso; nessun altro noleggio né nome di assistente: {len(e18)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
     tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19

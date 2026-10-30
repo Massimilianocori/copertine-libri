@@ -1,7 +1,16 @@
 {
- "_nota": "RIQUADRO AFFILIATI (segnaposto). Compare sul sito solo per le voci con 'url' non vuoto. Inserire qui gli URL tracciati che Massimiliano riceve dopo l'iscrizione ai programmi (assicurazione di viaggio, eSIM, parcheggi/lounge in aeroporto). Mai inventare URL. La voce 'bagagli' (borse e trolley della misura giusta) compare solo nelle pagine del bagaglio a mano. Decisione del 17/10/2026: siti solo informativi, nessun link affiliato attivo finché Massimiliano non decide (verifica.py lo controlla).",
+ "_nota": "RIQUADRO AFFILIATI (segnaposto). Compare sul sito solo per le voci con 'url' non vuoto. Inserire qui gli URL tracciati che Massimiliano riceve dopo l'iscrizione ai programmi (assicurazione di viaggio, eSIM, parcheggi/lounge in aeroporto). Mai inventare URL. La voce 'bagagli' (borse e trolley della misura giusta) compare solo nelle pagine del bagaglio a mano. Decisione del 17/10/2026 (siti solo informativi) superata il 28/10/2026 dal sì alla monetizzazione: link ammessi solo verso i domini di studio-business/strumenti/monetizzazione.json, controllati da verifica.py. Le voci che iniziano con '_' non entrano nel riquadro generico: hanno un posto loro.",
  "assicurazione": {"url": "", "nome": "", "titolo": "Travel insurance", "testo": "Compare cover for medical costs and cancellations before you fly."},
  "esim": {"url": "", "nome": "", "titolo": "Mobile data abroad (eSIM)", "testo": "Set up a data plan for your destination before you land."},
  "aeroporto": {"url": "", "nome": "", "titolo": "Airport parking and lounges", "testo": "Book parking or a lounge at your departure airport."},
- "bagagli": {"url": "", "nome": "", "titolo": "Bags in the right size", "testo": "Under-seat bags and cabin cases by size."}
+ "bagagli": {"url": "", "nome": "", "titolo": "Bags in the right size", "testo": "Under-seat bags and cabin cases by size."},
+ "_discovercars_noleggio": {
+  "url": "https://www.discovercars.com/?a_aid=Massimilianocori",
+  "nome": "DiscoverCars",
+  "titolo": "Hire a car",
+  "testo": "Compare rental companies and prices on DiscoverCars.",
+  "nota": "Usato SOLO nel riquadro 'Hire a car' della sezione Driving abroad (box_noleggio in genera.py: indice, 3 pagine per patente, pagine Paese × patente, dopo la risposta e le regole ufficiali) e nella riga della home dedicata a Driving abroad (home_noleggio). Link generale con a_aid: niente pagine Paese di DiscoverCars, perché dal server rispondono 403 e non si possono verificare. Circa 20 $ a prenotazione, cookie 365 giorni. Offerta DiscoverCars: commissione più alta con il link sul sito entro 10 giorni e in home entro una settimana dal 30/10/2026.",
+  "attivo_dal": "2026-10-30",
+  "nota_spegnimento": "Per spegnerlo: url vuoto e rigenerare (python3 beforeyoufly/genera.py); verifica.py, punto 18, ammette nella sezione solo discovercars.com con questo a_aid."
+ }
 }
