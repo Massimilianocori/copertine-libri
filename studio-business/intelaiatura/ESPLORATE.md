@@ -533,3 +533,13 @@ Nessuna idea a 8. Lezione: i dati aperti della zona sono già usati da siti auto
 | Dove si tassa la pensione britannica (poi americana) Paese per Paese (manuale HMRC sui trattati, OGL) | 7,5, in coda dopo la n. 1 (350 / 1.500 / 4.000 €/anno) | ricerca-numeri-ufficiali-2026-10-30 |
 | Conversione della patente straniera Paese × Paese | 6,5 (fonti UAE, Italia, Irlanda chiuse; manca chi paga) | ricerca-numeri-ufficiali-2026-10-30 |
 | Studenti per università (HESA), previdenza USA all'estero (SSA), anabin, sanità espatriati, animali, tasse voli, case per stranieri, broker cambi, OSHC, scuole internazionali, taxi aeroporti | NO / riserva, prove nel rapporto | ricerca-numeri-ufficiali-2026-10-30 |
+
+## Ricerca zona Regno Unito e Irlanda (30/10/2026)
+
+| Nicchia | Verdetto | Rapporto |
+|---|---|---|
+| Prezzi dei veterinari per catena e città (UK, ordine CMA del 22/9/2026: liste prezzi entro 22/12/2026; dati RCVS ai siti approvati da 9/2027) | 6,5 → 8 condizionato (liste leggibili a gennaio 2027 + richiesta RCVS); controllo a gennaio 2027 | ricerca-zona-uk-irlanda-2026-10-30 |
+| Irlanda città per città (affitti RTB 446 località, Property Price Register, prima casa per Eircode; CC BY 4.0) | 7, sito nuovo (800-1.800 €/anno, ottimista 5-6k) | ricerca-zona-uk-irlanda-2026-10-30 |
+| Arrivi in Irlanda per nazionalità mese per mese (PPSN assegnati per Paese, CC BY 4.0) | 7, **da fare subito** come aggiunta a Visa Income (3-5 ore) | ricerca-zona-uk-irlanda-2026-10-30 |
+| Permessi di lavoro irlandesi rifiutati per nazionalità; promossi NCT per centro; scuole scozzesi | 6, riserva (licenza, 403, file mancante) | ricerca-zona-uk-irlanda-2026-10-30 |
+| Dentisti NHS, medici di base, scuole inglesi più richieste, case di riposo, aree protette, council tax 2027 | NO: siti automatici già presenti | ricerca-zona-uk-irlanda-2026-10-30 |
