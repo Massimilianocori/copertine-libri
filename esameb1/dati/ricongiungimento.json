@@ -1,0 +1,35 @@
+{
+  "_nota": "Reddito minimo per il ricongiungimento familiare. Da aggiornare ogni gennaio con l'importo dell'assegno sociale del nuovo anno (circolare INPS di rinnovo delle pensioni). Tutti i numeri della pagina sono calcolati da genera.py a partire da assegno_sociale.mensile × mensilita; controlli in genera.py (controlli_ricongiungimento).",
+  "anno": 2026,
+  "assegno_sociale": {
+    "anno": 2026,
+    "mensile": "546.24",
+    "mensilita": 13,
+    "annuo": "7101.12",
+    "anno_precedente": {"anno": 2025, "mensile": "538.69", "annuo": "7002.97"},
+    "fonte": "INPS, circolare n. 153 del 19 dicembre 2025 «Rinnovo delle pensioni, delle prestazioni assistenziali e delle prestazioni di accompagnamento alla pensione per l'anno 2026», allegato n. 2, tabella A (riga «1° gennaio 2026», colonna «Assegni sociali»: 546,24; «Importi annui»: 7.101,12) e tabella L.5 (assegno sociale 2026: 546,24 al mese, limite annuo 7.101,12)",
+    "url": "https://www.inps.it/it/it/inps-comunica/atti/circolari-messaggi-e-normativa/dettaglio.circolari-e-messaggi.2025.12.circolare-numero-153-del-19-12-2025_15109.html",
+    "url_allegato": "https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2025/12/Circolare_15109/Allegati/16486_Circolare-numero-153-del-19-12-2025_Allegato-n-2.pdf",
+    "perequazione": "Aumento provvisorio dell'1,4 % dal 1° gennaio 2026, salvo conguaglio: decreto MEF del 19 novembre 2025 (Gazzetta Ufficiale n. 277 del 28 novembre 2025), allegato n. 1 della stessa circolare",
+    "verificato_il": "2026-10-30"
+  },
+  "regola": {
+    "norma": "Art. 29, comma 3, lettera b), del decreto legislativo 25 luglio 1998, n. 286 (Testo unico sull'immigrazione), testo in vigore dal 4 ottobre 2025",
+    "testo": "di un reddito minimo annuo derivante da fonti lecite non inferiore all'importo annuo dell'assegno sociale aumentato della metà dell'importo dell'assegno sociale per ogni familiare da ricongiungere. Per il ricongiungimento di due o più figli di età inferiore agli anni quattordici è richiesto, in ogni caso, un reddito non inferiore al doppio dell'importo annuo dell'assegno sociale. Ai fini della determinazione del reddito si tiene conto anche del reddito annuo complessivo dei familiari conviventi con il richiedente",
+    "alloggio": "art. 29, comma 3, lettera a): alloggio conforme ai requisiti igienico-sanitari e di idoneità abitativa, accertati dai competenti uffici comunali; per un figlio sotto i 14 anni al seguito di uno dei genitori basta il consenso del titolare dell'alloggio",
+    "domanda": "art. 29, comma 7: domanda di nulla osta inviata con modalità informatiche allo Sportello unico per l'immigrazione della prefettura del luogo di dimora; comma 8: nulla osta entro 150 giorni dalla richiesta",
+    "rifugiati": "art. 29-bis: per chi ha lo status di rifugiato non si applica il comma 3 (reddito e alloggio)",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art29!vig=",
+    "url_29bis": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art29bis!vig=",
+    "verificato_il": "2026-10-30"
+  },
+  "sportello": {
+    "nome": "Ministero dell'Interno, «Sportello unico per l'immigrazione»",
+    "testo": "Lo Sportello unico, attivo in ogni prefettura, rilascia il nulla osta per ricongiungimento familiare a chi è regolarmente in Italia con un permesso di soggiorno di validità non inferiore a un anno, per: coniuge maggiorenne non separato legalmente; figli minorenni non coniugati, con il consenso dell'altro genitore; figli maggiorenni a carico (per invalidità totale); genitori a carico, se non hanno altri figli nel Paese di origine, oppure ultra 65enni con altri figli che non possano mantenerli per gravi motivi di salute",
+    "url": "https://www.interno.gov.it/it/temi/immigrazione-e-asilo/modalita-dingresso/sportello-unico-limmigrazione",
+    "portale_nome": "Portale Servizi – Ali Sportello Unico (Dipartimento per le libertà civili e l'immigrazione), accesso con SPID o CIE",
+    "portale_url": "https://portaleservizi.dlci.interno.it/AliSportello/ali/home.htm",
+    "verificato_il": "2026-10-30"
+  },
+  "familiari": [1, 2, 3, 4, 5]
+}

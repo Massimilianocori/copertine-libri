@@ -299,6 +299,13 @@ text-decoration:none;color:var(--ink);font-weight:750;box-shadow:var(--ombra);tr
 .file-lista .meta{display:flex;flex-direction:column;align-items:flex-end;gap:2px;font-size:.82rem;color:var(--ink-3);text-align:right;white-space:nowrap}
 .file-lista .meta strong{font-size:.78rem;font-weight:800;letter-spacing:.04em;color:var(--ink-2);background:var(--surface-2);padding:1px 7px;border-radius:5px}
 .es-tab table{min-width:680px}
+.rc-tab table{min-width:640px}
+.rc-tab caption{caption-side:top;text-align:left;padding:10px 12px;background:var(--surface)}
+@media (max-width:640px){.rc-tab table{min-width:0}.rc-tab thead,.rc-tab .rc-vuota{display:none}
+.rc-tab tr{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:12px;border-bottom:1px solid var(--line)}
+.rc-tab td{display:contents}.rc-tab td:first-child{display:block;grid-column:1/-1;margin-bottom:4px;padding:0;border:0}
+.rc-tab td[data-l]::before{content:attr(data-l);color:var(--ink-3);font-size:.88rem}
+.rc-tab tbody tr:last-child{border-bottom:0}}
 @media (max-width:640px){.es-vai{grid-template-columns:1fr 1fr;gap:8px}.es-vai a{padding:10px 12px;font-size:.95rem}.es-vai small{font-size:.8rem}.es-card{padding:16px}.es-testa .btn{flex:1 1 100%}.file-lista li{grid-template-columns:36px minmax(0,1fr)}.file-lista .fi{width:36px;height:36px}
 .file-lista .meta{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:center;gap:4px 10px;text-align:left;white-space:normal}}
 table.conf td.si{color:var(--brand-ink);font-weight:650}
@@ -667,6 +674,8 @@ Su italki scegli tu un insegnante di italiano: fai lezioni 1 a 1 e paghi a lezio
 <p>Serve un certificato di italiano almeno di livello B1, rilasciato da uno dei 4 enti riconosciuti: CILS (Università per Stranieri di Siena), CELI (Università per Stranieri di Perugia), PLIDA (Società Dante Alighieri) e CERT.IT (Università Roma Tre). Fonte: <a href="https://prefettura.interno.gov.it/sites/default/files/24/2024-06/certificato_di_conoscenza_della_lingua_italiana_-ente_privato-.pdf" rel="noopener">Prefettura – Ministero dell'Interno</a>. Per i casi particolari (titoli di studio italiani, esenzioni) leggi <a href="esenzioni-e-domande/">chi è esente secondo la norma</a> e chiedi alla Prefettura.</p></details>
 <details><summary>Chi è esente dall'esame B1?<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary>
 <p>Secondo le istruzioni del Ministero dell'Interno, non deve presentare il certificato chi ha firmato l'accordo di integrazione o ha il permesso di soggiorno UE per soggiornanti di lungo periodo. La legge (art. 9.1 della legge 91/1992) ammette al posto del certificato anche un titolo di studio di un istituto pubblico o paritario riconosciuto. <a href="esenzioni-e-domande/">Esenzioni, orale, durata e domande, con le fonti</a>.</p></details>
+<details><summary>Quanto reddito serve per il ricongiungimento familiare nel 2026?<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary>
+<p>Almeno 10.651,68 € l'anno con 1 familiare, più 3.550,56 € per ogni familiare in più: è l'assegno sociale 2026 dell'INPS aumentato della metà per ogni familiare (art. 29 del Testo unico immigrazione). <a href="reddito-ricongiungimento-familiare/">Tabella per numero di familiari, con le fonti</a>.</p></details>
 <details><summary>Che differenza c'è tra "B1 cittadinanza" e B1 normale?<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary>
 <p>CILS e CELI hanno un esame B1 pensato per la cittadinanza, con più sessioni durante l'anno. Il B1 "normale" degli stessi enti, il PLIDA B1 e il CERT.IT B1 sono anch'essi certificati di livello B1. Leggi la <a href="come-funziona/">pagina Come funziona</a>.</p></details>
 <details><summary>Come mi iscrivo?<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary>

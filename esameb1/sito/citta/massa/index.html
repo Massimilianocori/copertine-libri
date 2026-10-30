@@ -299,6 +299,13 @@ text-decoration:none;color:var(--ink);font-weight:750;box-shadow:var(--ombra);tr
 .file-lista .meta{display:flex;flex-direction:column;align-items:flex-end;gap:2px;font-size:.82rem;color:var(--ink-3);text-align:right;white-space:nowrap}
 .file-lista .meta strong{font-size:.78rem;font-weight:800;letter-spacing:.04em;color:var(--ink-2);background:var(--surface-2);padding:1px 7px;border-radius:5px}
 .es-tab table{min-width:680px}
+.rc-tab table{min-width:640px}
+.rc-tab caption{caption-side:top;text-align:left;padding:10px 12px;background:var(--surface)}
+@media (max-width:640px){.rc-tab table{min-width:0}.rc-tab thead,.rc-tab .rc-vuota{display:none}
+.rc-tab tr{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:12px;border-bottom:1px solid var(--line)}
+.rc-tab td{display:contents}.rc-tab td:first-child{display:block;grid-column:1/-1;margin-bottom:4px;padding:0;border:0}
+.rc-tab td[data-l]::before{content:attr(data-l);color:var(--ink-3);font-size:.88rem}
+.rc-tab tbody tr:last-child{border-bottom:0}}
 @media (max-width:640px){.es-vai{grid-template-columns:1fr 1fr;gap:8px}.es-vai a{padding:10px 12px;font-size:.95rem}.es-vai small{font-size:.8rem}.es-card{padding:16px}.es-testa .btn{flex:1 1 100%}.file-lista li{grid-template-columns:36px minmax(0,1fr)}.file-lista .fi{width:36px;height:36px}
 .file-lista .meta{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:center;gap:4px 10px;text-align:left;white-space:normal}}
 table.conf td.si{color:var(--brand-ink);font-weight:650}

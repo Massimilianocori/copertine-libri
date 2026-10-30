@@ -12,6 +12,7 @@ import shutil
 import sys
 import unicodedata
 from datetime import date
+from decimal import Decimal
 from html import escape
 from pathlib import Path
 
@@ -124,7 +125,8 @@ sessioni = json.loads((DATI / "sessioni.json").read_text())
 sedi = json.loads((DATI / "sedi.json").read_text())
 citta = json.loads((DATI / "citta.json").read_text())
 esempi = json.loads((DATI / "esempi.json").read_text())  # prove d'esempio ufficiali: solo link e descrizione, con data di verifica
-ENTE = {e["sigla"]: e for e in enti}
+RICONG = json.loads((DATI / "ricongiungimento.json").read_text(encoding="utf-8"))  # reddito per il ricongiungimento (assegno sociale dell'anno, da aggiornare ogni gennaio)
+ENTE ={e["sigla"]: e for e in enti}
 SLUG_ENTE = {"CILS": "cils", "CELI": "celi", "PLIDA": "plida", "CERT.IT": "certit"}
 
 
@@ -483,6 +485,13 @@ text-decoration:none;color:var(--ink);font-weight:750;box-shadow:var(--ombra);tr
 .file-lista .meta{display:flex;flex-direction:column;align-items:flex-end;gap:2px;font-size:.82rem;color:var(--ink-3);text-align:right;white-space:nowrap}
 .file-lista .meta strong{font-size:.78rem;font-weight:800;letter-spacing:.04em;color:var(--ink-2);background:var(--surface-2);padding:1px 7px;border-radius:5px}
 .es-tab table{min-width:680px}
+.rc-tab table{min-width:640px}
+.rc-tab caption{caption-side:top;text-align:left;padding:10px 12px;background:var(--surface)}
+@media (max-width:640px){.rc-tab table{min-width:0}.rc-tab thead,.rc-tab .rc-vuota{display:none}
+.rc-tab tr{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:12px;border-bottom:1px solid var(--line)}
+.rc-tab td{display:contents}.rc-tab td:first-child{display:block;grid-column:1/-1;margin-bottom:4px;padding:0;border:0}
+.rc-tab td[data-l]::before{content:attr(data-l);color:var(--ink-3);font-size:.88rem}
+.rc-tab tbody tr:last-child{border-bottom:0}}
 @media (max-width:640px){.es-vai{grid-template-columns:1fr 1fr;gap:8px}.es-vai a{padding:10px 12px;font-size:.95rem}.es-vai small{font-size:.8rem}.es-card{padding:16px}.es-testa .btn{flex:1 1 100%}.file-lista li{grid-template-columns:36px minmax(0,1fr)}.file-lista .fi{width:36px;height:36px}
 .file-lista .meta{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:center;gap:4px 10px;text-align:left;white-space:normal}}
 table.conf td.si{color:var(--brand-ink);font-weight:650}
@@ -1015,6 +1024,7 @@ def home(prossime):
 <h2>{ic("info")}Domande frequenti</h2>
 {domanda("Quale esame devo fare per la cittadinanza?", f'Serve un certificato di italiano almeno di livello B1, rilasciato da uno dei 4 enti riconosciuti: CILS (Università per Stranieri di Siena), CELI (Università per Stranieri di Perugia), PLIDA (Società Dante Alighieri) e CERT.IT (Università Roma Tre). Fonte: <a href="{PREFETTURA}" rel="noopener">Prefettura – Ministero dell\'Interno</a>. Per i casi particolari (titoli di studio italiani, esenzioni) leggi <a href="esenzioni-e-domande/">chi è esente secondo la norma</a> e chiedi alla Prefettura.')}
 {domanda("Chi è esente dall'esame B1?", 'Secondo le istruzioni del Ministero dell\'Interno, non deve presentare il certificato chi ha firmato l\'accordo di integrazione o ha il permesso di soggiorno UE per soggiornanti di lungo periodo. La legge (art. 9.1 della legge 91/1992) ammette al posto del certificato anche un titolo di studio di un istituto pubblico o paritario riconosciuto. <a href="esenzioni-e-domande/">Esenzioni, orale, durata e domande, con le fonti</a>.')}
+{domanda(f"Quanto reddito serve per il ricongiungimento familiare nel {RICONG['anno']}?", f"Almeno {euro(tabella_ricongiungimento()[0][1])} l'anno con 1 familiare, più {euro(Decimal(RICONG['assegno_sociale']['annuo']) / 2)} per ogni familiare in più: è l'assegno sociale {RICONG['anno']} dell'INPS aumentato della metà per ogni familiare (art. 29 del Testo unico immigrazione). <a href=\"reddito-ricongiungimento-familiare/\">Tabella per numero di familiari, con le fonti</a>.")}
 {domanda('Che differenza c\'è tra "B1 cittadinanza" e B1 normale?', 'CILS e CELI hanno un esame B1 pensato per la cittadinanza, con più sessioni durante l\'anno. Il B1 "normale" degli stessi enti, il PLIDA B1 e il CERT.IT B1 sono anch\'essi certificati di livello B1. Leggi la <a href="come-funziona/">pagina Come funziona</a>.')}
 {domanda("Come mi iscrivo?", "Ci si iscrive presso la sede d'esame, non su questo sito. Scegli una sede nella tua città, contattala e chiedi costo, documenti e scadenza.")}
 {domanda("Quanto costa l'esame B1 per la cittadinanza?", "CILS B1 Cittadinanza: 100 €, la stessa tassa in tutta Italia. CERT.IT B1: 80 € alla sede di Roma Tre. CELI e PLIDA: il prezzo lo decide il centro d'esame (per esempio CELI 2 i cittadinanza 90 € all'Università degli Studi di Milano). <a href=\"costo/\">Tutti i costi, con le fonti</a>.")}
@@ -1444,6 +1454,11 @@ cosa portare il giorno dell'esame è in <a href="../come-funziona/#durata">Come 
 {link_guide("../", salta="esenzioni-e-domande/")}
 </section>
 <section>
+<h2 id="ricongiungimento">{ic("euro")}Ricongiungimento familiare: quanto reddito serve</h2>
+<p>Vuoi far venire in Italia moglie, marito, figli o genitori? Per il nulla osta serve un reddito minimo che dipende dal numero di familiari:
+nel {RICONG['anno']} almeno {euro(tabella_ricongiungimento()[0][1])} l'anno con 1 familiare. <a href="../reddito-ricongiungimento-familiare/">Tabella {RICONG['anno']} del reddito per il ricongiungimento familiare, con le fonti</a>.</p>
+</section>
+<section>
 <h2>{ic("info")}Domande frequenti</h2>
 {faq_html}
 </section>"""
@@ -1638,6 +1653,215 @@ def pagina_esempi():
            "link ai file ufficiali, com'è fatta la prova e come esercitarti.", corpo, jsonld)
 
 
+# ---------------------------------------------------------------- reddito per il ricongiungimento familiare (dal 30/10/2026)
+def euro(x):
+    """Decimal → «10.651,68 €» (due decimali, punto per le migliaia, virgola per i decimali)."""
+    s = f"{x.quantize(Decimal('0.01')):,.2f}"
+    return s.replace(",", "X").replace(".", ",").replace("X", ".") + " €"
+
+
+def tabella_ricongiungimento():
+    """Righe della tabella: (familiari, reddito annuo, al mese su 12, al mese su 13). Regola dell'art. 29 c. 3 lett. b) del Testo unico:
+    assegno sociale annuo + metà dell'assegno sociale per ogni familiare. Importi esatti al centesimo (l'assegno annuo è pari)."""
+    a = RICONG["assegno_sociale"]
+    annuo = Decimal(a["annuo"])
+    righe = []
+    for n in RICONG["familiari"]:
+        tot = annuo + annuo / 2 * n
+        righe.append((n, tot, tot / 12, tot / 13))
+    return righe
+
+
+def controlli_ricongiungimento():
+    """Controlli dei dati del ricongiungimento: fonte e data, annuo = mensile × mensilità, numeri della tabella. Avviso dal nuovo anno."""
+    a, r = RICONG["assegno_sociale"], RICONG["regola"]
+    errori = []
+    for voce in (a, r, RICONG["sportello"]):
+        if not voce.get("url") or not voce.get("verificato_il"):
+            errori.append(f"ricongiungimento.json: voce senza url o verificato_il: {voce.get('fonte') or voce.get('norma') or voce.get('nome')}")
+    if Decimal(a["mensile"]) * a["mensilita"] != Decimal(a["annuo"]):
+        errori.append(f"ricongiungimento.json: {a['mensile']} × {a['mensilita']} non fa {a['annuo']}")
+    if a["anno"] != RICONG["anno"]:
+        errori.append("ricongiungimento.json: anno dell'assegno sociale diverso da «anno»")
+    righe = tabella_ricongiungimento()
+    if [n for n, *_ in righe] != list(range(1, len(righe) + 1)) or any(righe[i][1] >= righe[i + 1][1] for i in range(len(righe) - 1)):
+        errori.append("ricongiungimento.json: tabella dei familiari non in ordine")
+    if righe[0][1] != Decimal(a["annuo"]) * Decimal("1.5"):
+        errori.append("ricongiungimento: riga di 1 familiare diversa da 1,5 volte l'assegno sociale")
+    if errori:
+        raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
+    if OGGI.year > RICONG["anno"]:
+        print(f"AVVISO: dati/ricongiungimento.json usa l'assegno sociale {RICONG['anno']}: aggiornarlo con la circolare INPS del {OGGI.year} "
+              "(vedi NOTE.md, «Reddito per il ricongiungimento»).", file=sys.stderr)
+
+
+def pagina_ricongiungimento():
+    """Reddito minimo per il ricongiungimento familiare (art. 29 c. 3 lett. b del Testo unico immigrazione) con l'assegno sociale INPS dell'anno.
+    Nessun riquadro «Preparati alla prova orale»: la pagina non riguarda l'esame. Nessun consiglio sul caso personale."""
+    a, r, sp = RICONG["assegno_sociale"], RICONG["regola"], RICONG["sportello"]
+    anno = RICONG["anno"]
+    mens, annuo = Decimal(a["mensile"]), Decimal(a["annuo"])
+    meta = annuo / 2
+    doppio = annuo * 2
+    righe = tabella_ricongiungimento()
+    uno = righe[0]
+    tre = next(x for x in righe if x[0] == 3)
+    quattro = next(x for x in righe if x[0] == 4)
+    verifica = f"controllato il {data_breve(a['verificato_il'])}"
+    data_v = data_breve(a["verificato_il"])
+    fonte_inps = f'<a href="{escape(a["url"])}" rel="noopener">INPS, circolare n. 153 del 19 dicembre 2025</a>'
+    fonte_tab = f'<a href="{escape(a["url_allegato"])}" rel="noopener">allegato n. 2, tabella A (PDF)</a>'
+    fonte_legge = f'<a href="{escape(r["url"])}" rel="noopener">art. 29 del Testo unico immigrazione (d.lgs. 286/1998) su Normattiva</a>'
+    fonte_sui = f'<a href="{escape(sp["url"])}" rel="noopener">{escape(sp["nome"])}</a>'
+
+    def chi(n):
+        return {1: "per esempio moglie, marito o 1 figlio", 2: "per esempio moglie e 1 figlio, o 2 figli",
+                3: "per esempio moglie e 2 figli", 4: "per esempio moglie e 3 figli", 5: "per esempio moglie e 4 figli"}.get(n, "")
+
+    righe_html = "".join(
+        f'<tr><td><strong>{n} {"familiare" if n == 1 else "familiari"}</strong><br><span class="small">{chi(n)}</span></td>'
+        f'<td data-l="Persone in famiglia, con te">{n + 1} persone</td><td data-l="All\'anno"><strong>{euro(tot)}</strong></td>'
+        f'<td data-l="Al mese, su 12 mesi">{euro(m12)}</td><td data-l="Al mese, su 13 mensilità">{euro(m13)}</td></tr>'
+        for n, tot, m12, m13 in righe)
+    righe_html += (f'<tr><td><strong>2 o più figli sotto i 14 anni</strong><br><span class="small">regola speciale della legge, vedi sotto</span></td>'
+                   f'<td class="rc-vuota">–</td><td data-l="All\'anno"><strong>{euro(doppio)}</strong></td>'
+                   f'<td data-l="Al mese, su 12 mesi">{euro(doppio / 12)}</td><td data-l="Al mese, su 13 mensilità">{euro(doppio / 13)}</td></tr>')
+    tabella = (f'<div class="tab-wrap rc-tab"><table class="conf"><caption class="small">Reddito minimo {anno} per il ricongiungimento familiare, '
+               f'con l\'assegno sociale {anno} di {euro(annuo)} l\'anno</caption>'
+               '<thead><tr><th scope="col">Familiari da far venire</th><th scope="col">Persone in famiglia, con te</th><th scope="col">Reddito minimo all\'anno</th>'
+               '<th scope="col">Al mese, su 12 mesi</th><th scope="col">Al mese, su 13 mensilità</th></tr></thead>'
+               f'<tbody>{righe_html}</tbody></table></div>'
+               f'<div class="fonte">{ic("doc")}<span>Fonti: assegno sociale {anno}: {fonte_inps}, {fonte_tab} · regola: {fonte_legge} · {verifica}</span></div>')
+
+    risposta_breve = (f"Nel {anno} per il ricongiungimento familiare serve un reddito di almeno {euro(uno[1])} l'anno con 1 familiare, "
+                      f"più {euro(meta)} per ogni familiare in più. È l'assegno sociale {anno} ({euro(annuo)} l'anno, circolare INPS n. 153 del 19/12/2025) "
+                      f"aumentato della metà per ogni familiare, come dice l'art. 29 del Testo unico immigrazione. Dati controllati il {data_v}.")
+
+    faq = [
+        (f"Quanto reddito serve per il ricongiungimento familiare nel {anno}?",
+         f"Serve un reddito annuo di almeno {euro(uno[1])} per 1 familiare, {euro(righe[1][1])} per 2, {euro(tre[1])} per 3, {euro(quattro[1])} per 4 "
+         f"e {euro(righe[4][1])} per 5. Il calcolo è l'assegno sociale {anno} ({euro(annuo)} l'anno, fonte INPS) più la metà ({euro(meta)}) "
+         "per ogni familiare da far venire (art. 29 del Testo unico immigrazione)."),
+        ("Qual è il reddito minimo per il ricongiungimento della moglie (o del marito) o di 1 figlio?",
+         f"Per 1 familiare servono almeno {euro(uno[1])} l'anno, cioè circa {euro(uno[2])} al mese su 12 mesi. "
+         f"Per la moglie e 1 figlio (2 familiari) servono {euro(righe[1][1])} l'anno."),
+        (f"Quanto reddito serve per il ricongiungimento familiare per 4 persone nel {anno}?",
+         f"Dipende da come conti. Se 4 persone sono tutta la famiglia, tu compreso (per esempio tu, moglie e 2 figli), i familiari da far venire sono 3: "
+         f"servono {euro(tre[1])} l'anno. Se i familiari da far venire sono 4, servono {euro(quattro[1])} l'anno."),
+        ("Qual è la tabella del reddito per il ricongiungimento familiare?",
+         f"1 familiare {euro(uno[1])}; 2 familiari {euro(righe[1][1])}; 3 familiari {euro(tre[1])}; 4 familiari {euro(quattro[1])}; "
+         f"5 familiari {euro(righe[4][1])}; 2 o più figli sotto i 14 anni: almeno {euro(doppio)}, il doppio dell'assegno sociale. Importi annui {anno}."),
+        ("Il reddito di mia moglie o di altri familiari conta?",
+         "Sì, se vivono già con te in Italia: la legge dice che si tiene conto anche del reddito annuo complessivo dei familiari conviventi. "
+         "Il reddito deve venire da fonti lecite. Quali documenti presentare te lo dice lo Sportello unico per l'immigrazione."),
+        ("Dove si fa la domanda di ricongiungimento familiare?",
+         "Allo Sportello unico per l'immigrazione della Prefettura della provincia dove vivi, online, sul Portale Servizi del Ministero dell'Interno "
+         "(accesso con SPID o CIE). Per legge il nulla osta va rilasciato entro 150 giorni dalla richiesta."),
+        (f"L'importo cambia nel {anno + 1}?",
+         f"Sì: l'assegno sociale cambia ogni anno dal 1° gennaio e l'INPS pubblica il nuovo importo in una circolare (quello del {anno} è uscito il 19 dicembre "
+         f"{anno - 1}). Quando uscirà l'importo {anno + 1} aggiorneremo questa pagina."),
+    ]
+    jsonld = {"@context": "https://schema.org", "@type": "FAQPage",
+              "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": t}} for q, t in faq]}
+    faq_html = "".join(domanda(escape(q), escape(t)) for q, t in faq)
+
+    nota = ("Questa pagina spiega la regola e fa i conti, ma non è una consulenza legale. Decide lo Sportello unico per l'immigrazione della Prefettura: "
+            "<strong>per il tuo caso chiedi allo Sportello unico o a un patronato.</strong>")
+    corpo = f"""<section class="hero">
+{briciole(("EsameB1", "../"), ("Reddito per il ricongiungimento familiare", None))}
+<span class="occhiello">{ic("euro")}Con le fonti ufficiali · {data_v}</span>
+<h1>Reddito minimo per il ricongiungimento familiare {anno}</h1>
+<p class="lead">{escape(risposta_breve)}</p>
+<div class="risposta">
+<div class="slot"><div class="r-et">{ic("euro")}Con 1 familiare</div>
+<div class="r-data">{euro(uno[1])} <small>l'anno</small></div>
+<div class="r-cosa">moglie, marito o 1 figlio · circa {euro(uno[2])} al mese su 12 mesi</div></div>
+<div class="slot"><div class="r-et">{ic("lista")}Per ogni familiare in più</div>
+<div class="r-data">+ {euro(meta)}</div>
+<div class="r-cosa">è la metà dell'assegno sociale {anno} ({euro(annuo)} l'anno)</div>
+<p class="r-nota">2 o più figli sotto i 14 anni: almeno {euro(doppio)} l'anno.</p></div>
+<div class="r-piede"><a href="#tabella">Tabella per numero di familiari {ic("freccia")}</a><span>{ic("doc")}Fonti: INPS e Testo unico immigrazione</span></div>
+</div>
+</section>
+{avviso(nota)}
+<section>
+<h2 id="tabella">{ic("euro")}Tabella {anno}: reddito minimo per numero di familiari</h2>
+<p>Nella prima colonna conti solo i familiari che vuoi far venire in Italia. Nella seconda ci sei anche tu: per esempio «4 persone» sono tu, tua moglie e 2 figli, cioè 3 familiari da far venire.</p>
+{tabella}
+<p class="small">Per 6 o più familiari: {euro(annuo)} + {euro(meta)} per ogni familiare. La legge parla di reddito <strong>annuo</strong>: le colonne «al mese» sono solo un aiuto per confrontare con lo stipendio.</p>
+</section>
+<section>
+<h2 id="calcolo">{ic("lista")}Come si calcola</h2>
+<ol class="passi">
+<li><div><strong>L'assegno sociale {anno} è {euro(mens)} al mese, per 13 mensilità: {euro(mens)} × 13 = {euro(annuo)} l'anno.</strong>
+<p>L'importo annuo è nella tabella dell'INPS («Importi annui»), accanto a quello mensile. Nel {anno - 1} era {euro(Decimal(a["anno_precedente"]["mensile"]))} al mese, {euro(Decimal(a["anno_precedente"]["annuo"]))} l'anno.</p>
+<div class="fonte">{ic("doc")}<span>Fonte: {fonte_inps}, {fonte_tab} · {verifica}</span></div></div></li>
+<li><div><strong>Per ogni familiare si aggiunge la metà: {euro(meta)}.</strong>
+<p>La legge chiede un reddito annuo «non inferiore all'importo annuo dell'assegno sociale aumentato della metà dell'importo dell'assegno sociale per ogni familiare da ricongiungere».</p>
+<div class="fonte">{ic("doc")}<span>Fonte: {fonte_legge}, comma 3, lettera b) · {verifica}</span></div></div></li>
+<li><div><strong>Esempio: moglie e 2 figli = 3 familiari: {euro(annuo)} + 3 × {euro(meta)} = {euro(tre[1])} l'anno.</strong>
+<p>Al mese fa {euro(tre[2])} se dividi per 12 mesi, {euro(tre[3])} se dividi per 13 (per chi riceve anche la tredicesima).</p></div></li>
+</ol>
+<h3 id="figli-14">Due o più figli sotto i 14 anni</h3>
+<p>La legge aggiunge: «per il ricongiungimento di due o più figli di età inferiore agli anni quattordici è richiesto, in ogni caso, un reddito non inferiore al doppio dell'importo annuo dell'assegno sociale».
+Il doppio dell'assegno sociale {anno} è <strong>{euro(doppio)}</strong>. Se insieme ai figli arrivano altri familiari, o se i figli sono 3 o più, come si applicano le due regole lo decide lo Sportello unico: chiedi lì.</p>
+<div class="fonte">{ic("doc")}<span>Fonte: {fonte_legge}, comma 3, lettera b) · {verifica}</span></div>
+</section>
+<section>
+<h2 id="reddito">{ic("info")}Cosa conta come reddito</h2>
+<p>La legge chiede un reddito annuo «derivante da fonti lecite» e dice che <strong>si somma anche il reddito dei familiari che vivono già con te</strong>
+(«si tiene conto anche del reddito annuo complessivo dei familiari conviventi con il richiedente»). Quali documenti valgono per dimostrarlo, e di quale anno,
+te lo dice lo Sportello unico della tua Prefettura.</p>
+<div class="fonte">{ic("doc")}<span>Fonte: {fonte_legge}, comma 3, lettera b) · {verifica}</span></div>
+</section>
+<section>
+<h2 id="chi">{ic("ok")}Chi puoi far venire</h2>
+<p>Secondo il Ministero dell'Interno può chiedere il ricongiungimento chi è regolarmente in Italia con un <strong>permesso di soggiorno di almeno un anno</strong>, per:</p>
+<ul>
+<li>il coniuge maggiorenne, non separato legalmente;</li>
+<li>i figli minorenni non sposati, con il consenso dell'altro genitore;</li>
+<li>i figli maggiorenni a carico, per invalidità totale;</li>
+<li>i genitori a carico, se non hanno altri figli nel Paese di origine, oppure con più di 65 anni se gli altri figli non possono mantenerli per gravi motivi di salute.</li>
+</ul>
+<div class="fonte">{ic("doc")}<span>Fonte: {fonte_sui} · {verifica}</span></div>
+</section>
+<section>
+<h2 id="domanda">{ic("edificio")}Dove si fa la domanda</h2>
+<p>La domanda di <strong>nulla osta al ricongiungimento</strong> si manda online allo <strong>Sportello unico per l'immigrazione</strong> della Prefettura della provincia dove vivi,
+con i documenti su reddito e alloggio. Si compila sul <a href="{escape(sp["portale_url"])}" rel="noopener">Portale Servizi del Ministero dell'Interno</a>, con SPID o CIE.
+Per legge il nulla osta va rilasciato entro 150 giorni dalla richiesta.</p>
+<div class="fonte">{ic("doc")}<span>Fonti: {fonte_sui} · <a href="{escape(sp["portale_url"])}" rel="noopener">Portale Servizi – Sportello unico</a> · {fonte_legge}, commi 7 e 8 · {verifica}</span></div>
+<h3 id="alloggio">Alloggio idoneo</h3>
+<p>Oltre al reddito serve un <strong>alloggio</strong> che rispetti i requisiti igienico-sanitari e di idoneità abitativa, controllati dagli uffici del Comune
+(contano anche quante persone ci vivranno). Per un figlio sotto i 14 anni che arriva con uno dei genitori basta il consenso di chi è titolare della casa dove abiterà.</p>
+<div class="fonte">{ic("doc")}<span>Fonte: {fonte_legge}, comma 3, lettera a) · {verifica}</span></div>
+<p class="small">Per chi ha lo status di rifugiato i requisiti di reddito e di alloggio non si applicano (<a href="{escape(r["url_29bis"])}" rel="noopener">art. 29-bis del Testo unico</a>).</p>
+</section>
+<section>
+<h2 id="2027">{ic("cal")}Cosa cambia a gennaio {anno + 1}</h2>
+<p>L'assegno sociale cambia ogni anno dal 1° gennaio, e con lui tutti gli importi di questa pagina. L'importo {anno} l'INPS l'ha pubblicato nella circolare del 19 dicembre {anno - 1}.
+Quando uscirà l'importo {anno + 1} <strong>aggiorneremo la pagina</strong> con la nuova tabella. Quale anno conta per la tua domanda te lo dice lo Sportello unico.</p>
+</section>
+<section>
+<h2>{ic("info")}Domande frequenti</h2>
+{faq_html}
+</section>
+<div class="due">
+<section>
+<h2 id="esame">{ic("scudo")}E l'esame di italiano?</h2>
+<p>Questa pagina riguarda il reddito per il ricongiungimento. Se un giorno chiederai la <strong>cittadinanza italiana</strong>, servirà un certificato di italiano
+almeno B1 (con alcune esenzioni): <a href="../esenzioni-e-domande/">chi è esente e com'è l'esame</a>, <a href="../#date">tutte le date d'esame</a>, <a href="../#citta">sedi per città</a>.</p>
+</section>
+<aside>{modulo()}</aside>
+</div>"""
+    titolo = f"Reddito ricongiungimento familiare {anno}: tabella | EsameB1"
+    if len(titolo) > 70:
+        raise SystemExit(f"titolo troppo lungo ({len(titolo)}): {titolo}")
+    pagina("reddito-ricongiungimento-familiare/index.html", titolo,
+           f"Reddito minimo per il ricongiungimento familiare {anno}: {euro(uno[1])} l'anno con 1 familiare, + {euro(meta)} per ogni familiare. "
+           f"Tabella da 1 a 5 familiari, figli sotto i 14 anni, come si calcola, con le fonti INPS e Testo unico immigrazione.", corpo, jsonld)
+
+
 def privacy():
     # Cookie, link di affiliazione e pubblicità: con AdSense acceso (monetizzazione.json) o con link di affiliazione, il testo
     # comune di monetizzazione.py (GoatCounter senza cookie, pubblicità con il consenso di Google); altrimenti il testo di oggi.
@@ -1702,6 +1926,7 @@ def controlli(prossime):
 def main():
     prossime = sorted(future(sessioni), key=lambda s: (s["data"], s["ente"]))
     controlli(prossime)
+    controlli_ricongiungimento()
     if SITO.exists():
         conserva = {p.name: p.read_bytes() for p in SITO.glob("google*.html")}  # verifica Search Console
         shutil.rmtree(SITO)
@@ -1730,6 +1955,8 @@ def main():
     urls.append("esenzioni-e-domande/")
     pagina_esempi()
     urls.append("esempi-esame-b1/")
+    pagina_ricongiungimento()
+    urls.append("reddito-ricongiungimento-familiare/")
     privacy()
     urls.append("privacy.html")
     extra(urls)

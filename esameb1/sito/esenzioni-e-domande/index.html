@@ -299,6 +299,13 @@ text-decoration:none;color:var(--ink);font-weight:750;box-shadow:var(--ombra);tr
 .file-lista .meta{display:flex;flex-direction:column;align-items:flex-end;gap:2px;font-size:.82rem;color:var(--ink-3);text-align:right;white-space:nowrap}
 .file-lista .meta strong{font-size:.78rem;font-weight:800;letter-spacing:.04em;color:var(--ink-2);background:var(--surface-2);padding:1px 7px;border-radius:5px}
 .es-tab table{min-width:680px}
+.rc-tab table{min-width:640px}
+.rc-tab caption{caption-side:top;text-align:left;padding:10px 12px;background:var(--surface)}
+@media (max-width:640px){.rc-tab table{min-width:0}.rc-tab thead,.rc-tab .rc-vuota{display:none}
+.rc-tab tr{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:12px;border-bottom:1px solid var(--line)}
+.rc-tab td{display:contents}.rc-tab td:first-child{display:block;grid-column:1/-1;margin-bottom:4px;padding:0;border:0}
+.rc-tab td[data-l]::before{content:attr(data-l);color:var(--ink-3);font-size:.88rem}
+.rc-tab tbody tr:last-child{border-bottom:0}}
 @media (max-width:640px){.es-vai{grid-template-columns:1fr 1fr;gap:8px}.es-vai a{padding:10px 12px;font-size:.95rem}.es-vai small{font-size:.8rem}.es-card{padding:16px}.es-testa .btn{flex:1 1 100%}.file-lista li{grid-template-columns:36px minmax(0,1fr)}.file-lista .fi{width:36px;height:36px}
 .file-lista .meta{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:center;gap:4px 10px;text-align:left;white-space:normal}}
 table.conf td.si{color:var(--brand-ink);font-weight:650}
@@ -402,6 +409,11 @@ cosa portare il giorno dell'esame è in <a href="../come-funziona/#durata">Come 
 <section>
 <h2><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg>Risultati, costo, come iscriversi</h2>
 <div class="griglia link3"><a href="../costo/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-euro"/></svg><span>Quanto costa<small>i prezzi di ogni ente</small></span></a><a href="../come-funziona/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-lista"/></svg><span>Come si svolge<small>durata, cosa portare, esempi</small></span></a><a href="../risultati/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg><span>Risultati<small>quando arrivano e dove vederli</small></span></a><a href="../esempi-esame-b1/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg><span>Prove d'esempio<small>gratis, ufficiali, ente per ente</small></span></a></div>
+</section>
+<section>
+<h2 id="ricongiungimento"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-euro"/></svg>Ricongiungimento familiare: quanto reddito serve</h2>
+<p>Vuoi far venire in Italia moglie, marito, figli o genitori? Per il nulla osta serve un reddito minimo che dipende dal numero di familiari:
+nel 2026 almeno 10.651,68 € l'anno con 1 familiare. <a href="../reddito-ricongiungimento-familiare/">Tabella 2026 del reddito per il ricongiungimento familiare, con le fonti</a>.</p>
 </section>
 <section>
 <h2><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg>Domande frequenti</h2>
