@@ -578,3 +578,22 @@ Nessuna idea a 8. Lezione: i dati aperti della zona sono già usati da siti auto
 | Nicchia | Verdetto | Rapporto |
 |---|---|---|
 | Einbürgerungstest e DTZ/B1 città per città (Germania) | **Test NON PASSATO**: 31 sedi su 85 nelle 20 città più cercate con date leggibili (soglia 60; Berlino solo appuntamenti su service.berlin.de); voto 7, nessun sito nuovo | de-test/ESITO.md |
+
+## Caccia serale del 30/10/2026: studio all'estero
+
+Settore: studenti internazionali nel mondo. Già chiusi e non rifatti: soldi per il visto di studio (27/10), ore di lavoro (29/10), tasse universitarie (23/10), rifiuti dei visti di studio. Nessuna idea passa l'asticella dei siti nuovi; cinque sezioni o pagine per Visa Income Checker. Prove in `idee-2026-10-30-studio.md`.
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **Borse DSU, soglie ISEE/ISPE, ISEE parificato e tasse per gli extra-UE in Italia, ente per ente e università per università, in inglese** (DD MUR 175/2026: 7.171,11 € fuori sede; DD 176/2026: ISEE 28.339,88 €; 9 enti regionali su 16 letti; blog con cifre in conflitto; autocomplete pk/ng/bd/in "dsu scholarship" 10, "2027 deadline"; Uniplaces 12 % da verificare, Wise, italki) | **PASSA sotto l'asticella** (voto 7; 500 / 1.800 / 5.000 €/anno; 20-28 ore) come sezione "Study in Italy" di Visa Income Checker | idee-2026-10-30-studio |
+| **Tassa proposta da 70.000 $ sull'OPT (Federal Register 8/10/2026, commenti fino al 9/11/2026)** | **PASSA** come pagina-tracker (voto 6; 150 / 600 / 2.000 €; 3-5 ore; subito) | idee-2026-10-30-studio |
+| **Costo del visto di studio per destinazione × nazionalità nella valuta di chi paga** (gov.uk £558, IHS, SEVIS, tassa di integrità USA a macchia; Canada, USA, Francia, Irlanda chiusi; BCE senza PKR/NGN/BDT) | **PASSA sotto l'asticella** (voto 6; 200 / 700 / 2.000 €; 10-14 ore), unita alla riserva "soldi da dimostrare" del 27/10 | idee-2026-10-30-studio |
+| **Visto Graduate britannico: 2 anni fino al 31/12/2026, 18 mesi dal 1/1/2027** | **PASSA** come pagina con calcolatore (voto 5,5; 100 / 400 / 1.000 €; 2-3 ore; prima del 1/1/2027); NO come confronto tra Paesi (5 siti automatici su pages.dev) | idee-2026-10-30-studio |
+| Esami di inglese accettati per il visto di studio e punteggi (Australia: tabella ufficiale, TOEFL "for Australia" dal 21/1/2026; "is duolingo accepted for" 10) | RISERVA alta (6; 300 / 700 / 1.500 €; 8-12 ore) come aggiunta alla sezione SELT; licenza Home Affairs da leggere | idee-2026-10-30-studio |
+| Lista STEM OPT per codice CIP (USA) | RISERVA (5,5): ice.gov e studyinthestates 403, Federal Register solo con gli aggiornamenti | idee-2026-10-30-studio |
+| Programmi ammessi al PGWP per college (Canada) | NO oggi (4,5): canada.ca 000, college con elenchi propri | idee-2026-10-30-studio |
+| Contributo semestrale e tasse per gli extra-UE per università (Germania) | NO (4,5): circa 400 fonti (filtro duro) | idee-2026-10-30-studio |
+| Esonero dai frais différenciés per università (Francia) | RISERVA debole (5) | idee-2026-10-30-studio |
+| Conto bloccato tedesco 2027 | NO come idea (4): nessuna cifra ufficiale; una riga nella riserva del 27/10 | idee-2026-10-30-studio |
+| Soldi per il visto di studio in Giappone, Corea, Irlanda, Nuova Zelanda, USA (I-20) | NO (3,5): nessun importo ufficiale o fonte chiusa | idee-2026-10-30-studio |
+| Alloggi per studenti come idea a sé (Amber, University Living, HousingAnywhere, Spotahome) | NO come idea: pagine affiliati 404; Uniplaces resta il canale della sezione Italia | idee-2026-10-30-studio |
+| Tempi del certificato APS (India, Cina, Vietnam) | NO (4) | idee-2026-10-30-studio |
