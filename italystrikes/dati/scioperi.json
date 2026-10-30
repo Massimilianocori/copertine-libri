@@ -674,7 +674,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-27",
-  "visto_ultimo": "2026-10-29",
+  "visto_ultimo": "2026-10-30",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382381",
@@ -697,7 +697,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-28",
-  "visto_ultimo": "2026-10-29",
+  "visto_ultimo": "2026-10-30",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382437",
@@ -720,7 +720,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-28",
-  "visto_ultimo": "2026-10-29",
+  "visto_ultimo": "2026-10-30",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382665",
@@ -743,7 +743,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-29",
-  "visto_ultimo": "2026-10-29",
+  "visto_ultimo": "2026-10-30",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382734",
@@ -785,7 +785,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-27",
-  "visto_ultimo": "2026-10-29",
+  "visto_ultimo": "2026-10-30",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382399",
@@ -920,10 +920,23 @@
   "proclamazione": "2026-09-23",
   "ricezione": "23/09/2026",
   "note": "",
-  "stato": "in programma",
+  "stato": "revocato",
   "visto_prima": "2026-10-10",
   "visto_ultimo": "2026-10-23",
-  "modifiche": []
+  "modifiche": [
+   {
+    "il": "2026-10-30",
+    "campi": {
+     "stato": [
+      "in programma",
+      "revocato"
+     ]
+    },
+    "fonte": "cgsse",
+    "url": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/381401"
+   }
+  ],
+  "revoca_cgsse": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/381401"
  },
  "cgsse-382755": {
   "id": "cgsse-382755",
@@ -941,7 +954,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-29",
-  "visto_ultimo": "2026-10-29",
+  "visto_ultimo": "2026-10-30",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382755",
