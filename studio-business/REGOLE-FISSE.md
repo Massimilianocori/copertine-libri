@@ -79,3 +79,10 @@ Massimiliano: "il mondo è molto più grande, ci sono più opportunità e tu non
 - Se un giro trova solo idee da 6-7, il giro dopo cambia angolo: non ci si ferma.
 - Quando un ricercatore finisce, se c'è margine se ne avvia un altro su un angolo non coperto.
 - Non serve che Massimiliano lo chieda: è il modo normale di lavorare. È scritto anche nella skill `rete-siti` e nelle routine serale e del mercoledì.
+
+## Regola permanente del 30/10/2026: rete fitta di guadagno
+Massimiliano: "dobbiamo costruire una rete fitta di guadagno, dove prendiamo tutto quello che possiamo e la somma di tutte le cose è un numero grande".
+- Si costruisce ogni idea automatica, a costo zero e con guadagno atteso positivo, anche piccola (300-2.000 €/anno), preferibilmente come sezione di un sito esistente. L'asticella dei 5.000 €/anno e del voto 7 vale solo per i siti nuovi (che richiedono un passaggio di Massimiliano su Netlify e crediti).
+- Coda di costruzione sempre attiva: quando un costruttore finisce, parte il successivo dalla tabella "Idee in cantiere" del cruscotto (ordine: guadagno atteso per ora di lavoro), sempre con revisore indipendente prima della pubblicazione.
+- Ogni sezione nuova nasce con il suo modo di guadagnare: AdSense più il link affiliato adatto al pubblico, se esiste un programma attivo.
+- Si allarga la rete dei programmi di affiliazione: un programma per ogni tipo di pubblico (assicurazione visto Schengen, hotel, trasferimenti di denaro, eSIM, parcheggi in aeroporto, escursioni, corsi). Le iscrizioni si propongono a Massimiliano nelle pause dai libri KDP (priorità ai libri da 9).
