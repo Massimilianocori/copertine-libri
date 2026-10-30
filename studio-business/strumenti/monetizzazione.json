@@ -2,7 +2,9 @@
   "_come_si_usa": "Unico posto della monetizzazione della rete (pubblicità AdSense e link di affiliazione). Lo leggono tutti i genera.py tramite monetizzazione.py. AdSense si accende solo se adsense_client è compilato E il sito è in adsense_siti; poi si rigenera il sito. Comando rapido: python3 studio-business/strumenti/monetizzazione.py attiva ca-pub-XXXXXXXXXXXXXXXX esameb1. Controllo di tutti i siti: python3 studio-business/strumenti/monetizzazione.py verifica.",
   "adsense_client": "ca-pub-3750093987658434",
   "adsense_siti": [
-    "esameb1"
+    "esameb1",
+    "visaincome",
+    "beforeyoufly"
   ],
   "_siti_della_rete": [
     "italystrikes",

@@ -291,7 +291,8 @@ def controlla_struttura():
             errori.append(f"meta Google mancante in {f.relative_to(SITO)}")
         if f.name != "404.html" and f'<link rel="canonical" href="{G.URL_SITO}/' not in t:
             errori.append(f"canonical mancante in {f.relative_to(SITO)}")
-        if re.search(r'<script[^>]+src="(?!https://gc\.zgo\.at/count\.js")', t):  # ammesso solo il contatore GoatCounter
+        # ammessi solo il contatore GoatCounter e lo script AdSense (quello lo controlla il punto 19, monetizzazione.py)
+        if re.search(r'<script[^>]+src="(?!https://gc\.zgo\.at/count\.js"|https://pagead2\.googlesyndication\.com/pagead/js/adsbygoogle\.js\?client=ca-pub-\d{16}")', t):
             errori.append(f"script esterno in {f.relative_to(SITO)}")
     nf = leggi("404.html")
     rel = [h for h in re.findall(r'href="([^"]+)"', nf) if not h.startswith(("/", "http", "data:", "#", "mailto:"))]
