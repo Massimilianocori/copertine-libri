@@ -543,3 +543,13 @@ Nessuna idea a 8. Lezione: i dati aperti della zona sono già usati da siti auto
 | Arrivi in Irlanda per nazionalità mese per mese (PPSN assegnati per Paese, CC BY 4.0) | 7, **da fare subito** come aggiunta a Visa Income (3-5 ore) | ricerca-zona-uk-irlanda-2026-10-30 |
 | Permessi di lavoro irlandesi rifiutati per nazionalità; promossi NCT per centro; scuole scozzesi | 6, riserva (licenza, 403, file mancante) | ricerca-zona-uk-irlanda-2026-10-30 |
 | Dentisti NHS, medici di base, scuole inglesi più richieste, case di riposo, aree protette, council tax 2027 | NO: siti automatici già presenti | ricerca-zona-uk-irlanda-2026-10-30 |
+
+## Ricerca zona America Latina e Africa (30/10/2026)
+
+| Nicchia | Verdetto | Rapporto |
+|---|---|---|
+| Tasse per i turisti stranieri in Messico (Visitax Quintana Roo 2,50 UMA = 293,28 MXN dal 1/2/2026; DNR federale; tassa crocieristi) | 7,5, **in costruzione** come sezione di Tourist Tax (400 / 1.500 / 5.000 €/anno) | ricerca-zona-latam-africa-2026-10-30 |
+| Costi ufficiali dei permessi di residenza messicani (Ley Federal de Derechos) | sezione piccola di Visa Income, in coda (100-400 €/anno, 4-6 ore; controllare il SAT) | ricerca-zona-latam-africa-2026-10-30 |
+| Certificato febbre gialla per destinazione, provenienza e scalo (CDC, GOV.UK) | 7 solo con sì di Massimiliano al tema sanitario | ricerca-zona-latam-africa-2026-10-30 |
+| Residenza pensionati/nomadi America Latina; tariffe parchi Africa; tassa di soggiorno Marocco; auto americana in Messico; passaporti nigeriani/ghanesi/sudafricani all'estero | 5,5-6,5, riserva (fonti 403/000, concorrenti) | ricerca-zona-latam-africa-2026-10-30 |
+| Pubblici locali (WAEC/JAMB, SASSA, salario minimo, passaporti in patria) | NO: valgono poco e risponde il portale ufficiale | ricerca-zona-latam-africa-2026-10-30 |
