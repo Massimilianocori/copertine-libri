@@ -71,3 +71,11 @@ Lo stesso vale per guide, libri e pagine: la prima versione mostrata a Massimili
 
 ## Regola di Massimiliano (15/10/2026): "falli subito bene"
 Ogni sito o sezione nuova si consegna già finita alla prima volta: design rivisto con schermate su telefono e computer, chiaro e scuro, fino ad almeno 8,5/10; tutti i testi riletti (grammatica, accenti, numeri, date, tono naturale); casi limite provati; poi revisione indipendente su fatti e aspetto. Non si consegna niente che lui debba rimandare indietro.
+
+## Regola permanente del 30/10/2026: ricerca costante e in parallelo
+Massimiliano: "il mondo è molto più grande, ci sono più opportunità e tu non le stai trovando"; "devi impegnarti di più"; "ti spremi fino a quando non trovi cose fruttuose"; "tutto questo schema di lavoro deve essere costante"; "non te lo devo ripetere, scrivitelo".
+- Ogni sera almeno 3 ricercatori in parallelo, ogni mercoledì almeno 4, a rotazione su zone del mondo e settori non coperti di recente; cloni dei modelli che funzionano (EsameB1, Visa Income) e idee grandi con chi paga nominato.
+- Ogni idea da 8 in su: verificatore indipendente; se regge ed è a costo zero, si costruisce subito (costruttore, revisore, pubblicazione).
+- Se un giro trova solo idee da 6-7, il giro dopo cambia angolo: non ci si ferma.
+- Quando un ricercatore finisce, se c'è margine se ne avvia un altro su un angolo non coperto.
+- Non serve che Massimiliano lo chieda: è il modo normale di lavorare. È scritto anche nella skill `rete-siti` e nelle routine serale e del mercoledì.
