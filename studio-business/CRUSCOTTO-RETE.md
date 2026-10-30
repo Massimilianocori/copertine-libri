@@ -79,6 +79,8 @@ Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE)
 
 A 12 mesi: realistico 1.000-4.000 €. Cifre lorde, prima di tasse e contributi. Libri KDP esclusi.
 
+**Aggiornamento del 30/10/2026 (monetizzazione attiva, numeri veri: ~1.300 visite al mese sulla rete, EsameB1 ~750):** € ogni 1.000 visite stimati: AdSense 3-5 € (IT) / 6-10 € (EN) se approvato; italki 10-16 € (EsameB1); Amazon libri 1-2 €; SafetyWing 1-3 €; DiscoverCars 0-20 € (dipende dal traffico delle pagine Driving). Previsione: novembre 2026 20-40 €/mese; febbraio 2027 80-150; giugno 2027 150-350; ottobre 2027 250-800; primi 12 mesi ~1.500 € prudente, ~3.500 € ottimista (libri KDP esclusi). Primi incassi dicembre-febbraio (soglie: AdSense 70 €, Amazon 25 €). Da rifare a fine novembre con i clic veri dei link affiliati.
+
 ## 3. Decisioni per sito
 
 | Sito | Prossimo controllo | Soglia di quel controllo | Decisione attuale |
