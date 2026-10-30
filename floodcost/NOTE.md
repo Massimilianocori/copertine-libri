@@ -75,7 +75,7 @@ con 200 2.115. Le soglie sono in `raccolta/aggrega.py` (`SOGLIA_CONTEA`, `SOGLIA
 | `raccolta/controllo_api.py` | ricalcola 10 numeri pubblicati con richieste dirette all'API (senza cache) e stampa la tabella qui sotto |
 | `genera.py` | genera `sito/` (circa 3 secondi), `sito/netlify.toml`, sitemap, robots, `data/search.json` |
 | `verifica.py` | link, fonte e date su ogni pagina, celle piccole, sitemap, meta di verifica, parole vietate, ricalcolo indipendente della mediana nazionale dai dati grezzi; con `--browser` lancia `verifica_browser.js` |
-| `verifica_browser.js` | Playwright a 390 e 1280 px, tema chiaro e scuro: niente scorrimento orizzontale, niente errori JS o richieste fallite, ricerca e pulsante del tema funzionanti; screenshot in `cache/screenshot/` |
+| `verifica_browser.js` | Playwright a 375 (fino al 30/10/2026: 390) e 1280 px, tema chiaro e scuro: niente scorrimento orizzontale, niente errori JS o richieste fallite, ricerca e pulsante del tema funzionanti; screenshot in `cache/screenshot/` |
 | `dati/affiliati.json` | riquadro "get a quote": **nascosto** finché `quote.url` è vuoto. Mettere solo un URL di affiliazione vero (mai inventato) |
 | `grafica/` | font (Figtree e Source Serif 4, licenza OFL inclusa), `og.html` + `og.js` → `og.png` (immagine di condivisione) |
 
@@ -175,3 +175,87 @@ In più `verifica.py` ricalcola dai file grezzi, senza pandas, la mediana nazion
 - **AdSense acceso il 30/10/2026** (codice editore `ca-pub-3750093987658434`, già usato da EsameB1, Visa Income e Before You Fly): `python3 studio-business/strumenti/monetizzazione.py attiva ca-pub-3750093987658434 floodcost`, poi `python3 floodcost/genera.py`. Script ufficiale nel `<head>` di ogni pagina, `sito/ads.txt` (`google.com, pub-3750093987658434, DIRECT, f08c47fec0942fa0`), privacy `/privacy.html` con la sezione «Advertising (Google AdSense)» e la frase sulla California aggiornata.
 - **Controlli del 30/10/2026:** `python3 floodcost/verifica.py --browser` → «Tutti i controlli superati»; `monetizzazione.py verifica floodcost` → AdSense acceso, 0 errori; Playwright a 375 px su home (script AdSense caricato davvero): nessun errore JS, nessuno scorrimento orizzontale. Da fare in AdSense: aggiungere il sito (Siti → Aggiungi) e controllare che il messaggio di consenso UE copra anche questo dominio. Nessun commit, nessuna pubblicazione.
 - **`verifica_browser.js` e AdSense (30/10/2026):** con lo script AdSense nelle pagine Playwright segnalava come «richiesta fallita» i beacon di Google interrotti al cambio pagina (`pagead2.googlesyndication.com/pagead/ping`). Ora le richieste ai server degli annunci (costante `PUBBLICITA`: googlesyndication.com, doubleclick.net, googleadservices.com, adtrafficquality.google, fundingchoicesmessages.google.com) ricevono una risposta vuota e non contano come errori: la prova non dipende da annunci esterni. Lo script e il suo indirizzo li controlla `monetizzazione.py`.
+
+## Sezione "Disaster declarations and IRS tax relief by county" (30/10/2026)
+Idea: `studio-business/intelaiatura/ricerca-2026-10-28.md` candidata 1 (voto 7,5) e rivalutazione in `ricerca-profonda-2026-10-28-mercato.md`
+(candidata 2, pay-per-call non attivo: nessun link nuovo). Costruita per la regola del 30/10 (rete fitta di guadagno). Guadagno: AdSense già acceso.
+
+**Pagine (487, tutte nella sitemap con `lastmod` = data di lettura dei dati):**
+| Tipo | Quante | Regola |
+|---|---|---|
+| Indice `/disaster-relief/` | 1 | avvisi IRS aperti (scadenza ≥ data di lettura), 25 dichiarazioni FEMA più recenti, Stati, glossario, link ufficiali |
+| Stato `/disaster-relief/<stato>/` | 48 | ogni Stato/territorio con una dichiarazione FEMA negli ultimi 24 mesi o un avviso IRS dell'anno in corso o precedente |
+| Contea `/disaster-relief/<stato>/<contea>/` | 438 | dichiarazione negli ultimi 24 mesi (FEMA, o dello Stato citata dall'IRS) **e** domanda (sotto) |
+Prima frase della pagina contea = risposta (dichiarazione sì/no, poi nella scheda: assistenza individuale sì/no con l'ultima data per fare
+domanda `lastIAFilingDate`, scadenza IRS rinviata); fonte con data di lettura; frasi IRS tra virgolette con link; rimando alla pagina
+FloodCost della stessa contea (premio NFIP) o dello Stato; disasterassistance.gov e irs.gov; avviso "check with the IRS or a tax professional".
+Titoli ≤ 70 caratteri (con la scadenza IRS nel titolo quando c'è un avviso aperto). Menu e piè di pagina hanno "Disaster relief"; le pagine
+NFIP di Stato e contea e la home rimandano alla sezione (`rimando_disastri`, `teaser_disastri`).
+
+**Fonti e come si leggono** (`raccolta/disastri.py`):
+- OpenFEMA `DisasterDeclarationsSummaries` v2, `$filter=declarationDate ge '<oggi - 24 mesi>'`, a pagine da 1.000, conteggio controllato
+  (30/10/2026: 3.346 righe, 288 dichiarazioni, 1.652 contee, 66 aree tribali/speciali; riga più recente aggiornata 30/10/2026 19:06 UTC).
+  Pubblico dominio. **Termini d'uso** (`fema.gov/about/openfema/terms-conditions`, aggiornati 22/1/2025; letti con Playwright il
+  30/10/2026, curl dà 403): citare l'endpoint con la versione, la data e preferibilmente l'ora di lettura, dichiarare "This product uses
+  the Federal Emergency Management Agency's OpenFEMA API, but is not endorsed by FEMA. The Federal Government or FEMA cannot vouch…"
+  (testo esatto nel piè di pagina), niente logo/sigilli FEMA o DHS, non modificare i dati presentandoli come FEMA, niente
+  reidentificazione, dati non usati per decidere diritti o benefici di una persona. Rispettati: fonte "Disaster Declarations Summaries
+  (v2)" con link, "Read by our script on <data> at <ora> UTC" (`letto_alle_utc`), nessun logo FEMA, "not affiliated with FEMA".
+- IRS: indice `irs.gov/newsroom/tax-relief-in-disaster-situations` (sezione "Tax relief by date", voci con codice tipo `FL-2026-07`),
+  poi ogni comunicato degli Stati/territori dell'anno in corso e del precedente (57 il 30/10/2026; i codici `IR-` nazionali esclusi).
+  Da ogni comunicato: data, "Updated on", frase "now have until …", frase "… qualify for tax relief", chi ha dichiarato (FEMA o lo Stato).
+  **Contee collegate solo se il nome della frase è esattamente una contea del Census dello stesso Stato**; i nomi che non corrispondono
+  restano nella frase citata e la scheda dice "The notice also names “Park”, which we could not match…" (`nomi_non_trovati`; revisione
+  30/10/2026: prima un solo nome sbagliato scollegava tutto il comunicato, e IN-2026-01, aperto fino all'1/2/2027, mancava per 26 contee
+  dell'Indiana). Nomi non trovati il 30/10: IN-2026-01 "Park" (Parke), TN-2026-01 "Summer" (Sumner), MS-2025-01 "Davis", WA-2025-03
+  "Samish" (area tribale), VA-2025-03 "City of Bristol" e MO-2025-01 "City of St. Louis" (città indipendenti). Senza elenco leggibile:
+  aree tribali, isole NMI, "designated area", e i comunicati per tutto lo Stato.
+- Da sapere: dal 2026 diversi comunicati IRS seguono una **dichiarazione dello Stato** (TX-2026-05 62 contee, AL-2026-01 40, NE): molte
+  contee IRS non hanno l'assistenza individuale FEMA (campo `contee_con_ih_fema`); le contee senza righe FEMA hanno la pagina con la sola parte IRS.
+
+**Domanda (Google Autocomplete, `dati/disastri-domanda.json`, 1.070 query con data, riusate 28 giorni).** Query generali: "fema disaster
+declaration " (by county, search, 2026, indiana, hawaii…), "fema disaster declaration by county" → "fema disaster declarations by county",
+"federal disaster declarations by county"; "federal disaster area " → "tax relief", "lookup"; "disaster declaration county" → "counties texas",
+"travis county", "texas harris county"; "irs disaster relief " → "2026", "extension", "2026 texas", "washington state", "hawaii"; "irs tax
+extension disaster" → "disaster areas". Per Stato: "irs tax extension <stato> hurricane", "irs tax extension <stato> storm" (quasi sempre
+vuote), "irs disaster relief <stato>" (piene per 21 Stati), "fema disaster declaration <stato>". Per evento: "<evento> irs"/"<evento> fema"
+(hurricane isaias irs → extension, relief, deadline; tropical storm arthur irs extension; winter storm fern irs extension). Per contea:
+"<contea> fema", "<contea> disaster" (solo contee con assistenza individuale o in un avviso IRS: 536+).
+Regola della pagina contea: (contea) suggerimento con il nome e fema/irs/disaster declaration|relief|assistance… (non "flood map"; nomi
+ripetuti in più Stati solo con lo Stato nel suggerimento) 52; (irs-evento) in un avviso IRS aperto per un evento con domanda 70;
+(irs-stato) in un avviso IRS aperto e "irs disaster relief <stato>" con domanda 83; (fema-ia-stato) assistenza individuale FEMA e
+"fema disaster declaration <stato>" con domanda 229.
+
+**File:** `raccolta/disastri.py` → `dati/disastri.json` (con `letto_il` e `impronta` SHA-256 del contenuto) e `dati/disastri-domanda.json`;
+pagine in `genera.py` (sezione "Disaster declarations…": `pagina_dis_indice/stato/contea`); controllo `controlla_disastri` in `verifica.py`.
+
+**Aggiornamento consigliato: ogni lunedì con la routine** (gli avvisi IRS escono ogni settimana e cambiano: contee aggiunte, date di inizio):
+`python3 floodcost/raccolta/disastri.py` (2-3 minuti; con la cache della domanda; `--senza-domanda` per non toccare l'autocomplete) →
+`python3 floodcost/genera.py` → `python3 floodcost/verifica.py --browser` → commit di `floodcost/dati` e `floodcost/sito`. Una
+pubblicazione Netlify a settimana (15 crediti). Leggere le righe "senza contee" stampate dallo script: un comunicato nuovo non collegato
+va guardato a mano (resta comunque in pagina a livello di Stato).
+
+**Controlli del 30/10/2026:** `verifica.py --browser` tutto superato (3.404 pagine HTML, 3.403 nella sitemap; 116 caricamenti Playwright,
+29 pagine × 375/1280 px × chiaro/scuro, compresi indice, 3 Stati e 4 contee della sezione); `monetizzazione.py verifica floodcost` 0 errori.
+`controlla_disastri`: impronta, pagine attese e solo quelle, sitemap, titoli ≤ 70, numeri/codici/scadenze delle pagine uguali ai dati,
+prima frase che risponde, frasi obbligatorie, nessuna frase da consulenza, e 10 valori ricontrollati sull'API (senza dati locali):
+
+| Dichiarazione · contea | Pubblicato (data, IA/PA/HM) | API OpenFEMA | Esito |
+|---|---|---|---|
+| EM-3656-AL · Baldwin AL | 9/10/2026, 0/1/0 | uguale | OK |
+| DR-4951-HI · Honolulu HI | 7/10/2026, 0/1/0 | uguale | OK |
+| EM-3633-KY · Daviess KY | 24/1/2026, 0/1/0 | uguale | OK |
+| EM-3633-KY · Powell KY | 24/1/2026, 0/1/0 | uguale | OK |
+| DR-4925-MI · Osceola MI | 30/6/2026, 1/1/0 | uguale | OK |
+| DR-4899-MS · Montgomery MS | 6/2/2026, 1/1/0 | uguale | OK |
+| DR-4872-MO · Oregon MO | 21/5/2025, 1/1/0 | uguale | OK |
+| DR-4898-TN · Clay TN | 6/2/2026, 1/1/0 | uguale | OK |
+| DR-4935-TX · Frio TX | 1/9/2026, 0/1/0 | uguale | OK |
+| DR-4906-WA · King WA | 7/4/2026, 1/1/0 | uguale | OK |
+Controllati a mano anche Kerr County TX (3 dichiarazioni; DR-4879-TX con IA, ultima data 28/9/2025; TX-2026-05 → 1/2/2027), Santa Rosa FL
+(DR-4955-FL con IA fino al 28/12/2026; FL-2026-07 → 8/2/2027), Mobile AL (EM-3656-AL solo PA; AL-2026-01 → 4/2/2027).
+Non letti dal server: disasterassistance.gov (403: solo link). Nessun commit, nessuna pubblicazione.
+**Revisione indipendente 30/10/2026:** termini OpenFEMA letti (sopra); 19 contee in 18 Stati/territori confrontate con l'API e con i
+comunicati IRS scaricati (tutte giuste; tutte le 1.719 aree e 288 dichiarazioni coincidono con l'API); corretti: collegamento parziale
+dei comunicati IRS (+4 pagine Indiana), dichiarazione OpenFEMA col testo esatto, ora di lettura, prima frase degli Stati e dell'indice
+con la fonte ("FEMA lists…"), "No FEMA declaration" nelle griglie, riquadro "No open IRS postponed deadline today" al posto di "None open".

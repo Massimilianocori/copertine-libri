@@ -427,6 +427,13 @@ td .rb{display:block;min-width:120px}
 .btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:700;background:var(--accent);color:var(--on-accent);border:0;border-radius:var(--r-s);padding:12px 20px;cursor:pointer;min-height:46px;text-decoration:none}
 .btn:hover{background:var(--accent-h);color:var(--on-accent)}.btn:disabled{opacity:.6;cursor:wait}
 .ad-slot{margin:24px 0}.ad-slot:empty{display:none}
+.pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:.76rem;font-weight:700;background:var(--mute);color:var(--ink-3);white-space:nowrap;margin:1px 0}
+.pill.on{background:color-mix(in srgb,var(--down) 16%,transparent);color:var(--down)}
+.risposta{margin:8px 0 0;color:var(--ink);font-size:1rem;max-width:560px}
+.irs-card{margin:14px 0}.irs-card h3{margin:6px 0 8px}.irs-top{margin:0;font-size:.86rem;color:var(--ink-3)}
+blockquote.irs{margin:8px 0;padding:8px 14px;border-left:3px solid var(--sand);background:var(--sand-2);border-radius:0 var(--r-s) var(--r-s) 0;font-size:.93rem;color:var(--ink)}
+.link-uff{padding-left:20px}.link-uff li{margin-bottom:6px}
+.dt td:first-child{min-width:170px}
 .testo p,.testo li{max-width:780px}
 details.tutti{margin-top:10px}details.tutti summary{cursor:pointer;font-weight:700;color:var(--accent);padding:6px 0}
 .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
@@ -575,7 +582,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
     if jsonld_extra:
         ld.append(jsonld_extra)
     ld_html = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
-    voci_menu = [("states/", "States"), ("flood-zones/", "Flood zones"), ("methodology/", "Methodology"), ("about/", "About")]
+    voci_menu = [("states/", "States"), ("flood-zones/", "Flood zones"), ("disaster-relief/", "Disaster relief"), ("methodology/", "Methodology"), ("about/", "About")]
     menu = "".join(f'<a href="{rel}{u}"' + (' aria-current="page"' if percorso.startswith(u) else "") + f'>{t}</a>' for u, t in voci_menu)
     testata = testata.replace("{bc}", bc)
     corpo = corpo.replace("{rel}", rel).replace("{bc}", bc)
@@ -626,10 +633,10 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <a class="logo" href="{rel}">{LOGO}<span>Flood<b>Cost</b></span></a>
 <p><strong>{NOME}</strong> shows what National Flood Insurance Program (NFIP) policyholders actually pay, from FEMA's public policy and claims data. It is an independent site, not affiliated with FEMA, the NFIP or any insurer.
 <strong>These are past prices paid by other policyholders, not a quote.</strong> Your price depends on your building, its elevation and the coverage you choose. Private flood insurance is not included. Nothing here is insurance, financial or legal advice.</p>
-<p class="small" style="color:inherit">This product uses the FEMA OpenFEMA API, but is not endorsed by FEMA. The Federal Government or FEMA cannot vouch for the data or analyses derived from these data after the data have been retrieved from the Agency's website(s).</p>
+<p class="small" style="color:inherit">This product uses the Federal Emergency Management Agency’s OpenFEMA API, but is not endorsed by FEMA. The Federal Government or FEMA cannot vouch for the data or analyses derived from these data after the data have been retrieved from the Agency's website(s).</p>
 </div><div>
 <h2>Explore</h2>
-<ul><li><a href="{rel}states/">All states</a></li><li><a href="{rel}flood-zones/">Cost by flood zone</a></li><li><a href="{rel}methodology/">Methodology and sources</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li></ul>
+<ul><li><a href="{rel}states/">All states</a></li><li><a href="{rel}flood-zones/">Cost by flood zone</a></li><li><a href="{rel}disaster-relief/">Disaster declarations and IRS relief</a></li><li><a href="{rel}methodology/">Methodology and sources</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li></ul>
 </div></div>
 <p class="f-base">Data: FEMA OpenFEMA, policies in force on {data_lunga(RIF)}, retrieved {data_lunga(FONTI["scaricato_il"])} · Updated monthly.</p>
 </div></footer>
@@ -914,7 +921,8 @@ def pagina_area(tipo, chiave):
              f"Cost by flood zone, 1-year change and flood claims. FEMA data.")
     sub = (f"What homeowners with a National Flood Insurance Program policy actually pay, from FEMA's records of "
            f"{intero(A['h'][0])} home policies in force on {data_lunga(RIF)}.")
-    corpo = [scheda_chiave(A, nome_lungo, " ".join(x for x in (cfr, frase_zona_top(A)) if x)), AD, NON_QUOTE, box_quote()]
+    corpo = [scheda_chiave(A, nome_lungo, " ".join(x for x in (cfr, frase_zona_top(A)) if x)), AD, NON_QUOTE, box_quote(),
+             rimando_disastri(tipo, chiave) if tipo in ("stato", "contea") else ""]
     corpo.append(f'<h2>Cost by flood zone in {h(nome)}</h2><p class="lead">The flood zone on FEMA\'s map is one of the main price factors. '
                  f'Median and middle half of what insured homes paid, by the zone used to rate the policy.</p>{tabella_zone(A)}')
     occ = tabella_occ(A)
@@ -1042,6 +1050,7 @@ def home():
 <div style="margin-top:22px">{scheda_chiave(NAZ, "United States, all NFIP home policies", frase_zona_top(NAZ)).replace(" pull", "")}</div>
 {AD}
 {NON_QUOTE}
+{teaser_disastri()}
 <h2>Flood insurance cost by state</h2>
 <p class="lead">Median annual cost of an NFIP home policy. {estremi_stati()} Open a state for its counties, ZIP codes and flood zones.</p>
 {mappa_stati()}
@@ -1060,6 +1069,14 @@ def home():
     pagina("", f"Flood insurance cost by ZIP code, county and state | {NOME}",
            f"What NFIP flood insurance really costs: median {usd(H[1])} a year for a home. Look up the median cost by ZIP code, county, state and flood zone, "
            f"from FEMA's policy data, with flood claims since {FONTI['anno_sinistri_da']}.", corpo, testata=testata)
+
+
+def teaser_disastri():
+    if not DIS:
+        return ""
+    ap = [c for c in IRS_N if aperto(c)]
+    return (f'<p class="nota">{ico("alert")}<strong>Was your county in a federal disaster?</strong> FEMA declarations, individual assistance and '
+            f'IRS postponed tax deadlines ({len(ap)} IRS notices open today), county by county: <a href="{{rel}}{DIS_URL}">disaster declarations and IRS tax relief</a>.</p>')
 
 
 def pagina_stati():
@@ -1146,6 +1163,489 @@ def pagina_zone_hub():
            corpo, briciole=[("Flood zones", "flood-zones/")], testata=testata)
 
 
+# ---------------------------------------------------------------- sezione "Disaster declarations and IRS tax relief" (dati/disastri.json)
+# Dati da raccolta/disastri.py (OpenFEMA DisasterDeclarationsSummaries v2 + comunicati IRS). Pagine: /disaster-relief/ (indice),
+# una per Stato, una per contea solo dove c'è una dichiarazione negli ultimi 24 mesi e domanda (regola in dati/disastri-domanda.json).
+DIS = carica("disastri.json") if (DATI / "disastri.json").exists() else None
+DIS_URL = "disaster-relief/"
+DA_URL = "https://www.disasterassistance.gov/"
+IRS_INDICE = "https://www.irs.gov/newsroom/tax-relief-in-disaster-situations"
+IRS_FAQ = "https://www.irs.gov/businesses/small-businesses-self-employed/faqs-for-disaster-victims"
+TIPO_DICH = {"DR": "Major disaster", "EM": "Emergency", "FM": "Fire management"}
+PROG = [("IA", "Individual assistance", "help for households: FEMA's Individuals and Households Program"),
+        ("PA", "Public assistance", "help for state and local governments and some nonprofits to repair public facilities"),
+        ("HM", "Hazard mitigation", "funding to reduce the risk from future disasters")]
+AVVISO_DIS = (f'<p class="nota">{ico("info")}<strong>Official notices, not advice.</strong> This page reports what FEMA and the IRS have published. '
+              'Whether a postponed deadline or a FEMA program applies to you depends on where you live or do business and on your situation: '
+              f'check with the IRS or a tax professional, and apply for FEMA help only through <a href="{DA_URL}" rel="noopener">DisasterAssistance.gov</a>, FEMA\'s official site.</p>')
+
+
+def _dis_nomi():
+    sys.path.insert(0, str(RADICE / "raccolta"))
+    from disastri import STATI_NOMI  # noqa: E402
+    return STATI_NOMI
+
+
+if DIS:
+    DIS_NOMI = _dis_nomi()
+    DICH = DIS["dichiarazioni"]
+    AREE = DIS["aree"]
+    IRS_N = DIS["irs"]
+    DIS_OGGI = DIS["letto_il"]
+    DIS_DA = DIS["finestra_da"]
+    DIS_STATI = sorted({a["st"] for a in AREE.values()} | {c["st"] for c in IRS_N} | set(DIS["aree_speciali"]),
+                       key=lambda s: DIS_NOMI.get(s, s))
+    LASTMOD = {}
+
+
+def titolo_fema(t):
+    """'SEVERE STORMS, STRAIGHT-LINE WINDS, AND FLOODING' -> 'Severe Storms, Straight-Line Winds, and Flooding'."""
+    t = t.title()
+    t = re.sub(r"(?<=\s)(And|Of|The|In|On|For|To|A)(?=\s)", lambda m: m.group(1).lower(), t)
+    return re.sub(r"'S\b", "'s", t)
+
+
+def nome_dis_stato(st):
+    return DIS_NOMI.get(st, st)
+
+
+def url_dis_stato(st):
+    return DIS_URL + slug(nome_dis_stato(st)) + "/"
+
+
+def nome_dis_contea(f):
+    n = AREE[f]["nome"]
+    return n[:-5] + " (city)" if n.endswith(" city") else n
+
+
+def url_dis_contea(f):
+    return url_dis_stato(AREE[f]["st"]) + slug(AREE[f]["nome"]) + "/"
+
+
+def ha_pagina_dis(f):
+    return bool(AREE.get(f, {}).get("pagina"))
+
+
+def aperto(c):
+    return bool(c["scadenza"]) and c["scadenza"] >= DIS_OGGI
+
+
+def evento_irs(c):
+    t = c["titolo"]
+    m = re.search(r"(?:impacted by|affected by|victims of) (?:the )?(.+?)(?: in the | in | that |;|, various| various)", t)
+    e = m.group(1) if m else re.sub(r"^IRS[^,;]*?(announces|provides) tax relief for ", "", t)
+    return e[:1].upper() + e[1:]
+
+
+def irs_stato(st):
+    return [c for c in IRS_N if c["st"] == st]
+
+
+def irs_contea(f):
+    st = AREE[f]["st"]
+    return [c for c in IRS_N if c["st"] == st and (f in (c["contee"] or []) or c.get("intero_stato"))]
+
+
+def programmi(riga):
+    """riga = [codice, IH, IA, PA, HM] -> {'IA': bool, 'PA': bool, 'HM': bool}"""
+    return {"IA": bool(riga[1] or riga[2]), "PA": bool(riga[3]), "HM": bool(riga[4])}
+
+
+def pill(on, testo):
+    return f'<span class="pill{" on" if on else ""}">{testo}: {"yes" if on else "no"}</span>'
+
+
+def link_fema_api(filtro):
+    sel = "femaDeclarationString,declarationType,declarationDate,incidentType,declarationTitle,designatedArea,ihProgramDeclared,iaProgramDeclared,paProgramDeclared,hmProgramDeclared,incidentBeginDate,incidentEndDate,lastIAFilingDate"
+    par = {"$filter": filtro, "$select": sel, "$orderby": "declarationDate desc", "$top": "1000"}
+    return f"{API}/v2/DisasterDeclarationsSummaries?" + "&".join(f"{k}={quote(v, safe=',()')}" for k, v in par.items())
+
+
+def fonte_dis(filtro, notices=()):
+    F = DIS["fonti"]["fema"]
+    righe_irs = "".join(f'<li><a href="{h(c["url"])}" rel="noopener">IRS news release {h(c["codice"])}</a>'
+                        f'{", published " + data_breve(c["pubblicato"]) if c.get("pubblicato") else ""}'
+                        f'{", updated " + data_breve(c["aggiornato"]) if c.get("aggiornato") else ""}.</li>' for c in notices)
+    return f"""<aside class="fonti-box" aria-label="Sources">
+<h2>{ico("doc")}Where this comes from</h2>
+<ul>
+<li><a href="{h(F["dizionario"])}" rel="noopener">FEMA OpenFEMA – {h(F["titolo"])} (v{F["versione"]})</a>: every federal disaster declaration with the counties and programs it covers. We read the declarations made since {data_lunga(DIS_DA)}. FEMA describes this dataset as raw data from its emergency management system, "subject to a small percentage of human error".</li>
+<li><a href="{IRS_INDICE}" rel="noopener">IRS: Tax relief in disaster situations</a> and the IRS news releases it lists for {DIS_OGGI[:4]} and {int(DIS_OGGI[:4]) - 1}.</li>
+{righe_irs}</ul>
+<p>Read by our script on <strong data-letto>{data_lunga(DIS_OGGI)}</strong>{" at " + DIS["letto_alle_utc"] + " UTC" if DIS.get("letto_alle_utc") else ""}; we check for new declarations and IRS notices every week. Check the raw FEMA records yourself:
+<a href="{h(link_fema_api(filtro))}" rel="noopener nofollow">OpenFEMA API (JSON)</a>. Sentences in quotation marks are copied from the IRS releases.</p>
+</aside>"""
+
+
+def tabella_dich(righe, contea=None):
+    """righe: lista di [codice, IH, IA, PA, HM] (contea) o codici (Stato)."""
+    out = []
+    for r in righe:
+        k = r[0] if isinstance(r, list) else r
+        D = DICH[k]
+        if isinstance(r, list):
+            P = programmi(r)
+        else:
+            P = {"IA": D["ih"] or D["ia"], "PA": D["pa"], "HM": D["hm"]}
+        inc = data_breve(D["inizio"]) + (f" – {data_breve(D['fine'])}" if D.get("fine") and D["fine"] != D["inizio"] else "") if D.get("inizio") else "–"
+        aree = "" if contea else f'<td class="n" data-l="Areas">{intero(D["aree"])}</td>'
+        out.append(f'<tr data-dich="{k}"><td><strong>{k}</strong><br><span class="small">{h(titolo_fema(D["titolo"]))}</span></td>'
+                   f'<td data-l="Type">{TIPO_DICH.get(D["tipo"], D["tipo"])}<br><span class="small">{h(D["incidente"])}</span></td>'
+                   f'<td data-l="Incident">{inc}</td><td data-l="Declared" class="n" data-data="{D["data"]}">{data_breve(D["data"])}</td>'
+                   f'<td data-l="">{pill(P["IA"], "Individual aid")} {pill(P["PA"], "Public aid")} {pill(P["HM"], "Mitigation")}</td>{aree}</tr>')
+    th_aree = "" if contea else '<th class="n">Areas</th>'
+    return (f'<div class="tab"><table class="ot dt"><thead><tr><th>Declaration</th><th>Type</th><th>Incident period</th><th class="n">Declared</th>'
+            f'<th>Programs{" here" if contea else ""}</th>{th_aree}</tr></thead><tbody>{"".join(out)}</tbody></table></div>')
+
+
+def scheda_irs(c, evidenzia=None):
+    stato = ("open" if aperto(c) else "passed")
+    lista = ""
+    if c["contee"]:
+        voci = []
+        for f in c["contee"]:
+            n = h(nome_dis_contea(f)) if f in AREE else h(f)
+            if f == evidenzia:
+                voci.append(f"<strong>{n}</strong>")
+            elif ha_pagina_dis(f):
+                voci.append(f'<a href="{{rel}}{url_dis_contea(f)}">{n}</a>')
+            else:
+                voci.append(n)
+        lista = f'<p class="small"><strong>{len(c["contee"])} {"county" if len(c["contee"]) == 1 else "counties"} named in the notice:</strong> {", ".join(voci)}.</p>'
+        if c.get("nomi_non_trovati"):
+            lista += ('<p class="small">The notice also names ' + ", ".join(f"“{h(n)}”" for n in c["nomi_non_trovati"]) +
+                      ", which we could not match to a county in the Census list (for example an independent city or a name spelled "
+                      "differently): read the official list in the IRS release.</p>")
+    elif c.get("intero_stato"):
+        lista = '<p class="small">The notice covers the whole state or territory.</p>'
+    else:
+        lista = ('<p class="small">The notice does not name the areas in a form we can match to counties automatically'
+                 + (" (for example a tribal area, a territory or a name we could not find in the Census list)" if c.get("motivo_senza_contee") else "")
+                 + ': read the official list in the IRS release.</p>')
+    fonte = "a FEMA disaster declaration" if c.get("dichiarato_da") == "FEMA" else (f"a disaster declaration by the {h(c['dichiarato_da'])}" if c.get("dichiarato_da") else "a disaster declaration")
+    return f"""<article class="card irs-card" data-irs="{h(c["codice"])}" data-scadenza="{c["scadenza"] or ""}">
+<p class="irs-top"><span class="pill{" on" if aperto(c) else ""}">{"Open" if aperto(c) else "Deadline passed"}</span> <strong>{h(c["codice"])}</strong>{" · published " + data_breve(c["pubblicato"]) if c.get("pubblicato") else ""}{" · updated " + data_breve(c["aggiornato"]) if c.get("aggiornato") else ""}</p>
+<h3>{h(evento_irs(c))}: deadlines postponed to {data_lunga(c["scadenza"]) if c["scadenza"] else "see the notice"}</h3>
+{f'<blockquote class="irs">“{h(c["frase_scadenza"])}”</blockquote>' if c.get("frase_scadenza") else ""}
+{f'<blockquote class="irs">“{h(c["frase_localita"])}”</blockquote>' if c.get("frase_localita") else ""}
+{lista}
+<p class="small">The relief follows {fonte}. The new date has {"not passed yet" if stato == "open" else "passed"} (as of {data_breve(DIS_OGGI)}). <a href="{h(c["url"])}" rel="noopener">Read the IRS release {h(c["codice"])}</a>.</p>
+</article>"""
+
+
+def pl(n):
+    return "" if n == 1 else "s"
+
+
+def taglia(t, n=300):
+    """Meta description: al massimo n caratteri, tagliata a fine parola."""
+    return t if len(t) <= n else t[:n - 1].rsplit(" ", 1)[0].rstrip(",;:") + "…"
+
+
+def titolo_corto(varianti):
+    """Il primo titolo che sta in 70 caratteri, con " | FloodCost" se c'entra."""
+    for v in varianti:
+        if len(v) + len(" | " + NOME) <= 70:
+            return v + " | " + NOME
+    for v in varianti:
+        if len(v) <= 70:
+            return v
+    return varianti[-1][:70]
+
+
+def link_nfip(f=None, st=None):
+    """Rimando alle pagine FloodCost esistenti sul premio NFIP (stessa contea o stesso Stato)."""
+    if f and f in CONTEE:
+        C = CONTEE[f]
+        return (f'<p>{ico("house")} <strong>Flood insurance in {h(nome_contea(f))}:</strong> NFIP home policies here cost a median '
+                f'<strong>{usd(C["h"][1])} a year</strong> ({intero(C["h"][0])} homes insured on {data_lunga(RIF)}). Most homeowners policies do not cover flood damage. '
+                f'<a href="{{rel}}{url_contea(f)}">See flood insurance costs in {h(nome_contea(f))}</a>.</p>')
+    st = st or (AREE[f]["st"] if f else None)
+    if st in STATI and STATI[st].get("h"):
+        S = STATI[st]
+        return (f'<p>{ico("house")} <strong>Flood insurance in {h(S["nome"])}:</strong> NFIP home policies cost a median '
+                f'<strong>{usd(S["h"][1])} a year</strong> ({intero(S["h"][0])} homes insured on {data_lunga(RIF)}). Most homeowners policies do not cover flood damage. '
+                f'<a href="{{rel}}{url_stato(st)}">See flood insurance costs in {h(S["nome"])}</a>.</p>')
+    return ""
+
+
+def cosa_fare(f=None, st=None, notices=()):
+    irs_l = "".join(f'<li><a href="{h(c["url"])}" rel="noopener">IRS release {h(c["codice"])}</a>: {h(evento_irs(c))}</li>' for c in notices[:3])
+    return f"""<h2>Official links</h2>
+<ul class="link-uff">
+<li><a href="{DA_URL}" rel="noopener">DisasterAssistance.gov</a>: FEMA's official site to apply for individual assistance or check an application.</li>
+<li><a href="{IRS_INDICE}" rel="noopener">IRS: Tax relief in disaster situations</a>, the list of every IRS disaster notice, and the <a href="{IRS_FAQ}" rel="noopener">IRS FAQs for disaster victims</a>.</li>
+{irs_l}</ul>
+{link_nfip(f, st)}"""
+
+
+def frase_risposta(f):
+    """Prima frase della pagina contea: dichiarazione sì/no, assistenza individuale sì/no, scadenza IRS."""
+    A = AREE[f]
+    nome = nome_dis_contea(f)
+    d = A["d"]
+    parti = []
+    if d:
+        u = DICH[d[0][0]]
+        parti.append(f"Yes: FEMA lists {len(d)} federal disaster declaration{'s' if len(d) > 1 else ''} for {nome} since {data_lunga(DIS_DA)}; "
+                     f"the latest is {d[0][0]} ({titolo_fema(u['titolo'])}), declared {data_lunga(u['data'])}.")
+        con_ia = [r[0] for r in d if r[1] or r[2]]
+        if con_ia:
+            D = DICH[con_ia[0]]
+            ia = f"Individual assistance for households: yes ({', '.join(con_ia[:3])}{'…' if len(con_ia) > 3 else ''})"
+            if D.get("ultimo_ia"):
+                ia += (f"; FEMA's last date to apply under {con_ia[0]} is {data_lunga(D['ultimo_ia'])}." if D["ultimo_ia"] >= DIS_OGGI else
+                       f"; the last date to apply under {con_ia[0]} was {data_lunga(D['ultimo_ia'])}.")
+            else:
+                ia += "."
+            parti.append(ia)
+        else:
+            parti.append("Individual assistance for households: no, these declarations do not include it for this county.")
+    else:
+        c0 = max(irs_contea(f), key=lambda c: c["scadenza"] or "")
+        da_chi = "FEMA" if c0.get("dichiarato_da") == "FEMA" else (f"the {c0['dichiarato_da']}" if c0.get("dichiarato_da") else "a government authority")
+        parti.append(f"FEMA's data shows no federal declaration for {nome} since {data_lunga(DIS_DA)}, but the IRS names the county in notice {c0['codice']}, "
+                     f"which follows a disaster declaration by {da_chi}.")
+        parti.append("Individual assistance from FEMA: no.")
+    ap = [c for c in irs_contea(f) if aperto(c)]
+    pas = [c for c in irs_contea(f) if not aperto(c) and c["scadenza"]]
+    if ap:
+        c = max(ap, key=lambda c: c["scadenza"])
+        parti.append(f"IRS: federal tax deadlines are postponed to {data_lunga(c['scadenza'])} for {'the whole state' if c.get('intero_stato') else nome} (notice {c['codice']}).")
+    elif pas:
+        c = max(pas, key=lambda c: c["scadenza"])
+        parti.append(f"IRS: deadlines were postponed to {data_lunga(c['scadenza'])} (notice {c['codice']}); that date has passed and no IRS notice is open for {nome} today.")
+    else:
+        altri = [c for c in irs_stato(A["st"]) if aperto(c) and (not c["contee"] or c.get("nomi_non_trovati")) and not c.get("intero_stato")]
+        if altri:
+            parti.append(f"IRS: no notice we could read names {nome}, but an open IRS notice for {nome_dis_stato(A['st'])} ({altri[0]['codice']}) names areas we could not match to counties automatically, so check the official list.")
+        else:
+            parti.append(f"IRS: no disaster tax relief notice since {data_lunga(DIS_DA)} names {nome}.")
+    return parti
+
+
+def pagina_dis_contea(f):
+    A = AREE[f]
+    st = A["st"]
+    nome = nome_dis_contea(f)
+    nst = nome_dis_stato(st)
+    parti = frase_risposta(f)
+    notices = irs_contea(f)
+    ap = [c for c in notices if aperto(c)]
+    d = A["d"]
+    con_ia = any(r[1] or r[2] for r in d)
+    scad = max((c["scadenza"] for c in ap), default=None)
+    tiles = [(intero(len(d)), f"FEMA declaration{pl(len(d))} since {data_breve(DIS_DA)}"),
+             ("Yes" if con_ia else "No", "FEMA individual assistance declared"),
+             (data_breve(scad), "IRS postponed deadline") if scad else ("No", "open IRS postponed deadline today"),
+             (data_breve(DICH[d[0][0]]["data"]) if d else "–", "latest FEMA declaration")]
+    side = "".join(f'<div class="tile"><b>{v}</b><span>{t}</span></div>' for v, t in tiles)
+    key = f"""<section class="card key pull" aria-label="Answer" data-contea="{f}" data-n-dich="{len(d)}" data-ia="{int(con_ia)}" data-irs="{scad or ''}">
+<div class="key-top">{ico("alert")}<span>{h(nome)}, {h(st)}</span><span>Checked {data_breve(DIS_OGGI)}</span></div>
+<div class="key-body"><div class="key-main"><p class="k-lab">Disaster declarations and tax relief</p>
+{"".join(f'<p class="risposta">{h(p)}</p>' for p in parti[1:])}
+</div><div class="key-side">{side}</div></div></section>"""
+    corpo = [key, AD, AVVISO_DIS]
+    if d:
+        corpo.append(f'<h2>FEMA declarations for {h(nome)}</h2><p class="lead">Federal disaster declarations since {data_lunga(DIS_DA)} that include {h(nome)}, newest first, '
+                     f'with the programs FEMA declared for this county.</p>{tabella_dich(d, contea=f)}')
+        ia_aperte = [r[0] for r in d if (r[1] or r[2]) and DICH[r[0]].get("ultimo_ia") and DICH[r[0]]["ultimo_ia"] >= DIS_OGGI]
+        if ia_aperte:
+            corpo.append(f'<p class="small">FEMA\'s last date to apply for individual assistance: ' + "; ".join(f'{k}: <strong>{data_lunga(DICH[k]["ultimo_ia"])}</strong>' for k in ia_aperte) +
+                         f' (field "lastIAFilingDate" in FEMA\'s data). Apply at <a href="{DA_URL}" rel="noopener">DisasterAssistance.gov</a>.</p>')
+    corpo.append(f'<h2>IRS tax relief for {h(nome)}</h2>')
+    if notices:
+        corpo.append(f'<p class="lead">IRS disaster notices since {data_lunga(DIS_DA)} that name {h(nome)} or cover all of {h(nst)}, newest first.</p>' +
+                     "".join(scheda_irs(c, evidenzia=f) for c in sorted(notices, key=lambda c: c["scadenza"] or "", reverse=True)))
+    else:
+        altri = [c for c in irs_stato(st) if (not c["contee"] or c.get("nomi_non_trovati")) and not c.get("intero_stato")]
+        corpo.append(f'<p class="lead">No IRS disaster notice since {data_lunga(DIS_DA)} names {h(nome)} in a list we can read.'
+                     + (f' {len(altri)} notice{"s" if len(altri) > 1 else ""} for {h(nst)} name{"" if len(altri) > 1 else "s"} areas we could not match to counties automatically: '
+                        + ", ".join(f'<a href="{h(c["url"])}" rel="noopener">{h(c["codice"])}</a>' for c in altri) + "." if altri else "")
+                     + f' See all notices for <a href="{{rel}}{url_dis_stato(st)}">{h(nst)}</a>.</p>')
+    corpo.append(cosa_fare(f, st, notices))
+    vicine = sorted((g for g in AREE if g != f and AREE[g]["st"] == st and ha_pagina_dis(g)), key=lambda g: AREE[g]["nome"])
+    if vicine:
+        corpo.append(f'<h2>Other counties in {h(nst)}</h2>' + griglia([(url_dis_contea(g), nome_dis_contea(g), riassunto_contea(g)) for g in vicine[:24]]) +
+                     f'<p class="small"><a href="{{rel}}{url_dis_stato(st)}">All declarations and IRS notices for {h(nst)}</a></p>')
+    if d:
+        filtro = f"fipsStateCode eq '{f[:2]}' and fipsCountyCode eq '{f[2:]}' and declarationDate ge '{DIS_DA}'"
+    else:
+        filtro = f"fipsStateCode eq '{f[:2]}' and fipsCountyCode eq '{f[2:]}'"
+    corpo.append(fonte_dis(filtro, notices))
+    if ap:
+        c = max(ap, key=lambda c: c["scadenza"])
+        tv = [f"{nome}, {st}: FEMA declaration, IRS deadline {data_breve(c['scadenza'])}" if d else f"{nome}, {st}: IRS disaster deadline {data_breve(c['scadenza'])}",
+              f"{nome}, {st}: IRS disaster deadline {data_breve(c['scadenza'])}"]
+    else:
+        tv = []
+    tv += [f"{nome}, {st}: FEMA disaster declarations and IRS relief", f"{nome}, {st}: disaster declarations and IRS relief",
+           f"{nome}, {st}: FEMA and IRS disaster relief"]
+    titolo = titolo_corto(tv)
+    descr = taglia(" ".join(parti))
+    sub = h(parti[0])
+    testata = banda(f"Disaster relief · {nome}, {st}", f"Disaster declarations and IRS tax relief in {nome}, {nst}", sub)
+    percorso = url_dis_contea(f)
+    LASTMOD[percorso] = DIS_OGGI
+    pagina(percorso, titolo, descr, "\n".join(x for x in corpo if x),
+           briciole=[("Disaster relief", DIS_URL), (nst, url_dis_stato(st)), (nome, percorso)], testata=testata)
+    return True
+
+
+def riassunto_contea(f):
+    d = AREE[f]["d"]
+    ia = any(r[1] or r[2] for r in d)
+    ap = [c for c in irs_contea(f) if aperto(c)]
+    s = (f"{len(d)} FEMA declaration{'s' if len(d) != 1 else ''}" if d else "No FEMA declaration") + (" · individual aid" if ia else "")
+    if ap:
+        s += f" · IRS {data_breve(max(c['scadenza'] for c in ap))}"
+    return s
+
+
+def pagina_dis_stato(st):
+    nst = nome_dis_stato(st)
+    codici = sorted({k for k, D in DICH.items() if D["st"] == st}, key=lambda k: (DICH[k]["data"], k), reverse=True)
+    notices = irs_stato(st)
+    ap = [c for c in notices if aperto(c)]
+    contee = sorted((f for f, A in AREE.items() if A["st"] == st), key=lambda f: AREE[f]["nome"])
+    con_pag = [f for f in contee if ha_pagina_dis(f)]
+    n_ia = sum(1 for k in codici if DICH[k]["ih"] or DICH[k]["ia"])
+    tipi = {t: sum(1 for k in codici if DICH[k]["tipo"] == t) for t in ("DR", "EM", "FM")}
+    if codici:
+        nomi_t = {"DR": ("major disaster", "major disasters"), "EM": ("emergency", "emergencies"), "FM": ("fire management", "fire management")}
+        dett = ", ".join(f"{tipi[t]} {nomi_t[t][tipi[t] != 1]}" for t in ("DR", "EM", "FM") if tipi[t])
+        ia_t = (("it does not include" if len(codici) == 1 else "none includes") + " FEMA individual assistance" if n_ia == 0 else
+                f"{'it includes' if len(codici) == 1 else f'{n_ia} include' + ('s' if n_ia == 1 else '')} FEMA individual assistance")
+        f1 = f"FEMA lists {len(codici)} federal disaster declaration{'s' if len(codici) != 1 else ''} for {nst} since {data_lunga(DIS_DA)} ({dett}); {ia_t}."
+    else:
+        f1 = f"FEMA's data shows no federal disaster declaration for {nst} since {data_lunga(DIS_DA)}."
+    if ap:
+        f2 = (f"The IRS has {len(ap)} open disaster notice{'s' if len(ap) != 1 else ''} for {nst}, with federal tax deadlines postponed to "
+              + ", ".join(sorted({data_lunga(c['scadenza']) for c in ap})) + ".")
+    elif notices:
+        f2 = f"No IRS disaster notice for {nst} is open today; the latest postponed deadline was {data_lunga(max(c['scadenza'] for c in notices if c['scadenza']))}."
+    else:
+        f2 = f"The IRS has published no disaster tax relief notice for {nst} in {int(DIS_OGGI[:4]) - 1} or {DIS_OGGI[:4]}."
+    tiles = [(intero(len(codici)), f"FEMA declaration{pl(len(codici))} since {data_breve(DIS_DA)}"), (intero(n_ia), "with individual assistance"),
+             (intero(len(ap)), f"open IRS notice{pl(len(ap))}"), (intero(len(contee)), f"{'county' if len(contee) == 1 else 'counties'} in a declaration or IRS notice")]
+    side = "".join(f'<div class="tile"><b>{v}</b><span>{t}</span></div>' for v, t in tiles)
+    corpo = [f"""<section class="card key pull" aria-label="Summary" data-stato="{st}" data-n-dich="{len(codici)}" data-irs-aperti="{len(ap)}">
+<div class="key-top">{ico("alert")}<span>{h(nst)}</span><span>Checked {data_breve(DIS_OGGI)}</span></div>
+<div class="key-body"><div class="key-main"><p class="k-lab">Disaster declarations and tax relief</p><p class="risposta">{h(f2)}</p>
+{f'<p class="risposta">Latest FEMA declaration: {codici[0]} ({h(titolo_fema(DICH[codici[0]]["titolo"]))}), declared {data_lunga(DICH[codici[0]]["data"])}.</p>' if codici else ""}
+</div><div class="key-side">{side}</div></div></section>""", AD, AVVISO_DIS]
+    if ap:
+        corpo.append(f'<h2>Open IRS tax relief in {h(nst)}</h2><p class="lead">Notices whose postponed deadline has not passed yet (as of {data_lunga(DIS_OGGI)}).</p>' +
+                     "".join(scheda_irs(c) for c in sorted(ap, key=lambda c: c["scadenza"])))
+    vecchi = [c for c in notices if not aperto(c)]
+    if vecchi:
+        corpo.append(f'<h2>Earlier IRS notices for {h(nst)}</h2><div class="tab"><table class="ot"><thead><tr><th>Notice</th><th class="n">Deadline was</th><th class="n">Counties</th></tr></thead><tbody>' +
+                     "".join(f'<tr><td><a href="{h(c["url"])}" rel="noopener">{h(c["codice"])}</a><br><span class="small">{h(evento_irs(c))}</span></td>'
+                             f'<td class="n" data-l="Deadline was">{data_breve(c["scadenza"]) if c["scadenza"] else "–"}</td>'
+                             f'<td class="n" data-l="Counties">{len(c["contee"]) if c["contee"] else ("whole state" if c.get("intero_stato") else "see notice")}</td></tr>'
+                             for c in sorted(vecchi, key=lambda c: c["scadenza"] or "", reverse=True)) + "</tbody></table></div>")
+    if con_pag:
+        corpo.append(f'<h2>Counties in {h(nst)}</h2><p class="lead">Each county page answers three questions: is there a federal declaration, does it include individual assistance, '
+                     f'and has the IRS postponed tax deadlines.</p>' + griglia([(url_dis_contea(f), nome_dis_contea(f), riassunto_contea(f)) for f in con_pag]))
+    if codici:
+        corpo.append(f'<h2>FEMA declarations in {h(nst)}</h2><p class="lead">Every federal declaration since {data_lunga(DIS_DA)}, newest first. '
+                     f'"Areas" is the number of counties and other areas FEMA designated.</p>{tabella_dich(codici)}')
+    altre = [f for f in contee if not ha_pagina_dis(f)]
+    if altre:
+        corpo.append('<details class="tutti"><summary>All other counties with a declaration or IRS notice (' + intero(len(altre)) + ')</summary>'
+                     '<div class="tab"><table class="ot"><thead><tr><th>County</th><th class="n">Declarations</th><th>Latest</th><th>Individual aid</th></tr></thead><tbody>' +
+                     "".join(f'<tr><td>{h(nome_dis_contea(f))}</td><td class="n" data-l="Declarations">{len(AREE[f]["d"])}</td>'
+                             f'<td data-l="Latest">{AREE[f]["d"][0][0] if AREE[f]["d"] else "IRS notice only"}</td>'
+                             f'<td data-l="Individual aid">{"yes" if any(r[1] or r[2] for r in AREE[f]["d"]) else "no"}</td></tr>' for f in altre) +
+                     '</tbody></table></div><p class="small">These counties have no separate page: they have a declaration without individual assistance and no open IRS notice, '
+                     'or we found few searches about them.</p></details>')
+    sp = DIS["aree_speciali"].get(st) or {}
+    if sp:
+        corpo.append('<h3>Tribal and statewide areas in FEMA declarations</h3><p class="small">' +
+                     " · ".join(f'{h(n)} ({", ".join(r[0] for r in v)})' for n, v in sorted(sp.items())) + "</p>")
+    corpo.append(cosa_fare(None, st, ap or notices))
+    corpo.append(fonte_dis(f"state eq '{st}' and declarationDate ge '{DIS_DA}'", notices))
+    titolo = titolo_corto([f"{nst} disaster declarations and IRS tax relief ({DIS_OGGI[:4]})", f"{nst}: disaster declarations and IRS tax relief",
+                           f"{nst}: FEMA declarations, IRS relief"])
+    percorso = url_dis_stato(st)
+    LASTMOD[percorso] = DIS_OGGI
+    testata = banda(f"Disaster relief · {nst}", f"Disaster declarations and IRS tax relief in {nst}", h(f1))
+    pagina(percorso, titolo, taglia(f1 + " " + f2), "\n".join(x for x in corpo if x),
+           briciole=[("Disaster relief", DIS_URL), (nst, percorso)], testata=testata)
+    return True
+
+
+def pagina_dis_indice():
+    ap = sorted((c for c in IRS_N if aperto(c)), key=lambda c: (c["scadenza"], nome_dis_stato(c["st"])))
+    codici = sorted(DICH, key=lambda k: (DICH[k]["data"], k), reverse=True)
+    n_pag = sum(1 for f in AREE if ha_pagina_dis(f))
+    n_ia = sum(1 for k in codici if DICH[k]["ih"] or DICH[k]["ia"])
+    f1 = (f"FEMA's data lists {len(codici)} federal disaster declarations made since {data_lunga(DIS_DA)} ({n_ia} with individual assistance for households), "
+          f"and {len(ap)} IRS disaster notices are open today, with federal tax deadlines postponed to as late as {data_lunga(max(c['scadenza'] for c in ap))}." if ap else
+          f"FEMA's data lists {len(codici)} federal disaster declarations made since {data_lunga(DIS_DA)}; no IRS disaster notice is open today.")
+    righe_ap = "".join(f'<tr><td><a href="{{rel}}{url_dis_stato(c["st"])}">{h(nome_dis_stato(c["st"]))}</a></td>'
+                       f'<td data-l="">{h(evento_irs(c))}<br><span class="small"><a href="{h(c["url"])}" rel="noopener">{h(c["codice"])}</a></span></td>'
+                       f'<td class="n" data-l="New deadline"><strong>{data_breve(c["scadenza"])}</strong></td>'
+                       f'<td class="n" data-l="Counties">{len(c["contee"]) if c["contee"] else ("whole state" if c.get("intero_stato") else "see notice")}</td></tr>' for c in ap)
+    tiles = [(intero(len(codici)), f"FEMA declarations since {data_breve(DIS_DA)}"), (intero(n_ia), "with individual assistance"),
+             (intero(len(ap)), "open IRS notices"), (intero(n_pag), "county pages")]
+    side = "".join(f'<div class="tile"><b>{v}</b><span>{t}</span></div>' for v, t in tiles)
+    st_voci = []
+    for st in DIS_STATI:
+        n = sum(1 for k in codici if DICH[k]["st"] == st)
+        a = [c for c in irs_stato(st) if aperto(c)]
+        st_voci.append((url_dis_stato(st), nome_dis_stato(st), f"{n} declaration{'s' if n != 1 else ''}" + (f" · IRS {data_breve(max(c['scadenza'] for c in a))}" if a else "")))
+    corpo = f"""<section class="card key pull" aria-label="Summary" data-n-dich="{len(codici)}" data-irs-aperti="{len(ap)}">
+<div class="key-top">{ico("alert")}<span>United States</span><span>Checked {data_breve(DIS_OGGI)}</span></div>
+<div class="key-body"><div class="key-main"><p class="k-lab">Is my county a federal disaster area?</p>
+<p class="risposta">Pick your state below, then your county. Each county page says whether there is a federal disaster declaration, whether FEMA declared individual assistance, and whether the IRS has postponed tax deadlines, with the official sentence and link.</p>
+</div><div class="key-side">{side}</div></div></section>
+{AD}
+<h2>IRS tax relief open today</h2>
+<p class="lead">IRS disaster notices whose postponed deadline has not passed yet (as of {data_lunga(DIS_OGGI)}), soonest first. The IRS postpones many federal filing and payment deadlines for people who live or have a business in the covered area.</p>
+<div class="tab"><table class="ot"><thead><tr><th>State</th><th>Event and notice</th><th class="n">New deadline</th><th class="n">Counties</th></tr></thead><tbody>{righe_ap}</tbody></table></div>
+{AVVISO_DIS}
+<h2>Choose your state</h2>
+{griglia(st_voci)}
+<h2>Newest FEMA declarations</h2>
+<p class="lead">The {min(25, len(codici))} most recent federal declarations, newest first. Open a state for the full list and its counties.</p>
+{tabella_dich(codici[:25])}
+<h2>What the terms mean</h2>
+<div class="cols"><div class="card"><h3 style="margin-top:0">Types of declaration</h3><p class="small"><strong>Major disaster (DR)</strong> and <strong>emergency (EM)</strong> declarations are made by the President at a governor's or tribal leader's request; <strong>fire management (FM)</strong> declarations help pay to fight a wildfire. A county is in a declaration when FEMA lists it as a designated area.</p></div>
+<div class="card"><h3 style="margin-top:0">Programs</h3><p class="small">{" ".join(f"<strong>{n}</strong>: {d}." for _, n, d in PROG)} A declaration can include some programs and not others, and the programs can differ from county to county.</p></div></div>
+<div class="cols" style="margin-top:16px"><div class="card"><h3 style="margin-top:0">IRS tax relief</h3><p class="small">After a disaster declaration the IRS can postpone federal tax deadlines for people and businesses in the covered area. The IRS writes the covered counties in each news release; some recent releases follow a state's own disaster declaration, not FEMA's. In its releases the IRS writes that it "automatically identifies taxpayers located in the covered disaster area and applies filing and payment relief".</p></div>
+<div class="card"><h3 style="margin-top:0">What this site is</h3><p class="small">{NOME} is an independent site about flood insurance costs, built on FEMA's open data. This section gathers the official declarations and IRS notices by county so you can find yours quickly. It is not affiliated with FEMA or the IRS and gives no tax or legal advice.</p></div></div>
+{cosa_fare(None, None, ap)}
+{fonte_dis(f"declarationDate ge '{DIS_DA}'", ())}"""
+    testata = banda("FEMA + IRS · checked every week", "Disaster declarations and IRS tax relief by county", h(f1))
+    LASTMOD[DIS_URL] = DIS_OGGI
+    pagina(DIS_URL, titolo_corto(["Disaster declarations and IRS tax relief by county"]),
+           taglia(f"{f1} Find your state and county: FEMA declaration, individual assistance and the IRS deadline, with official links."),
+           corpo, briciole=[("Disaster relief", DIS_URL)], testata=testata)
+
+
+def sezione_disastri():
+    if not DIS:
+        return {"stati": 0, "contee": 0}
+    pagina_dis_indice()
+    n_s = sum(pagina_dis_stato(st) for st in DIS_STATI)
+    n_c = sum(pagina_dis_contea(f) for f in sorted(AREE) if ha_pagina_dis(f))
+    return {"stati": n_s, "contee": n_c}
+
+
+def rimando_disastri(tipo, chiave):
+    """Riga nelle pagine NFIP (Stato o contea) verso la pagina dei disastri, se esiste."""
+    if not DIS:
+        return ""
+    if tipo == "contea" and ha_pagina_dis(chiave):
+        return (f'<p class="nota">{ico("alert")}<strong>Disaster declarations:</strong> {h(riassunto_contea(chiave))}. '
+                f'<a href="{{rel}}{url_dis_contea(chiave)}">FEMA declarations and IRS tax relief in {h(nome_dis_contea(chiave))}</a>.</p>')
+    st = chiave if tipo == "stato" else None
+    if st and st in DIS_STATI:
+        return (f'<p class="nota">{ico("alert")}<strong>Disaster declarations:</strong> see <a href="{{rel}}{url_dis_stato(st)}">FEMA declarations and IRS tax relief in {h(nome_dis_stato(st))}</a>, county by county.</p>')
+    return ""
+
+
 # ---------------------------------------------------------------- pagine fisse
 def metodologia():
     dp, dc, dpen = (FONTI["dataset"][k] for k in ("NfipPolicies", "NfipClaims", "NfipResidentialPenetrationRates"))
@@ -1191,7 +1691,7 @@ def metodologia():
 <p>We refresh the data every month after FEMA's update. This edition: policies in force on {data_lunga(RIF)}, data retrieved {data_lunga(FONTI["scaricato_il"])}, pages built {data_lunga(FONTI["generato_il"])}.</p>
 <h2>Check any number</h2>
 <p>Each page has links to the OpenFEMA API with the filter for that area, so you can download the same records and recompute the figures. Spotted a problem? <a href="{{rel}}contact/?ref=methodology">Tell us</a>.</p>
-<p class="small">This product uses the FEMA OpenFEMA API, but is not endorsed by FEMA. The Federal Government or FEMA cannot vouch for the data or analyses derived from these data after the data have been retrieved from the Agency's website(s).</p>
+<p class="small">This product uses the Federal Emergency Management Agency’s OpenFEMA API, but is not endorsed by FEMA. The Federal Government or FEMA cannot vouch for the data or analyses derived from these data after the data have been retrieved from the Agency's website(s).</p>
 </div>"""
     testata = banda("Methodology", "How we calculate flood insurance costs", "What the data is, which policies we count, how we compute medians, and what the numbers cannot tell you.")
     pagina("methodology/", f"Methodology and sources | {NOME}",
@@ -1275,7 +1775,8 @@ def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
     MON.scrivi_ads_txt(SITO_ID, SITO)  # sito/ads.txt solo con AdSense acceso (monetizzazione.json)
-    voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{FONTI['generato_il']}</lastmod></url>" for u in URLS)
+    lm = LASTMOD if DIS else {}
+    voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{lm.get(u, FONTI['generato_il'])}</lastmod></url>" for u in URLS)
     (SITO / "sitemap.xml").write_text(
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{voci}</urlset>\n')
     (SITO / "netlify.toml").write_text("""[build]
@@ -1356,6 +1857,7 @@ def main():
     for z in ZONE_ORD:
         if ZONE[z]["pag"]:
             conti["zona"] += pagina_zona(z)
+    dis = sezione_disastri()
     metodologia()
     about()
     contatti()
@@ -1363,7 +1865,8 @@ def main():
     indice_ricerca()
     extra()
     print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili; Stati {conti['stato']}, contee {conti['contea']}, "
-          f"ZIP {conti['zip']}, zone {conti['zona']}. Polizze in vigore al {RIF}, dati scaricati il {FONTI['scaricato_il']}.")
+          f"ZIP {conti['zip']}, zone {conti['zona']}; disastri: indice, Stati {dis['stati']}, contee {dis['contee']}. "
+          f"Polizze in vigore al {RIF}, dati scaricati il {FONTI['scaricato_il']}.")
 
 
 if __name__ == "__main__":

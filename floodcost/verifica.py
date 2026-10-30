@@ -17,12 +17,16 @@ Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/moneti
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
 domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
 solo se AdSense è acceso per questo sito in monetizzazione.json.
+Sezione "Disaster declarations and IRS tax relief" (30/10/2026, controlla_disastri): impronta di dati/disastri.json, pagine
+attese (indice, Stati, contee con domanda) e solo quelle, tutte nella sitemap, titoli <= 70 caratteri, numeri e codici delle pagine
+uguali ai dati, frasi obbligatorie e nessun consiglio personale; 10 valori ricontrollati sull'API OpenFEMA (--senza-rete li salta).
 Esce con codice 1 se qualcosa non va.
 """
 import json
 import re
 import subprocess
 import sys
+from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse, unquote
@@ -269,6 +273,114 @@ def controlla_monetizzazione():
     print(G.MON.riepilogo(G.SITO_ID, info, errori) + ".")
 
 
+def controlla_disastri():
+    """Sezione disaster-relief/ (dati/disastri.json): impronta dei dati, pagine attese e solo quelle, tutte nella sitemap, titoli
+    <= 70 caratteri, coerenza tra pagine e dati (numero di dichiarazioni, assistenza individuale, scadenza IRS, codici), frasi
+    obbligatorie (fonte con data, rimandi ufficiali, nessun consiglio personale) e, se c'è rete, 10 valori ricontrollati sull'API."""
+    import hashlib
+    if not G.DIS:
+        print("Sezione disastri: dati assenti, controllo saltato.")
+        return
+    D = json.loads((DATI / "disastri.json").read_text(encoding="utf-8"))
+    imp = D.pop("impronta", None)
+    if hashlib.sha256(json.dumps(D, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest() != imp:
+        errore("disastri.json: impronta diversa dal contenuto")
+    attese = {G.DIS_URL} | {G.url_dis_stato(st) for st in G.DIS_STATI} | {G.url_dis_contea(f) for f in G.AREE if G.ha_pagina_dis(f)}
+    trovate = {p.relative_to(SITO).as_posix()[:-len("index.html")] for p in (SITO / G.DIS_URL).rglob("index.html")}
+    for x in sorted(attese - trovate):
+        errore(f"disastri: pagina mancante {x}")
+    for x in sorted(trovate - attese):
+        errore(f"disastri: pagina in più {x}")
+    locs = set(re.findall(r"<loc>([^<]+)</loc>", (SITO / "sitemap.xml").read_text(encoding="utf-8")))
+    for x in sorted(attese):
+        if f"{G.URL_SITO}/{x}" not in locs:
+            errore(f"disastri: {x} non è nella sitemap")
+    letto = G.data_lunga(G.DIS_OGGI)
+    consiglio = re.compile(r"\byou (?:are eligible|qualify|should|must)\b|\bwe recommend\b|\byour county qualifies\b", re.I)
+    for x in sorted(attese & trovate):
+        t = (SITO / x / "index.html").read_text(encoding="utf-8")
+        tit = re.search(r"<title>(.*?)</title>", t, re.S).group(1)
+        if len(unescape(tit)) > 70:
+            errore(f"disastri {x}: titolo di {len(unescape(tit))} caratteri")
+        for frase in ("check with the IRS or a tax professional", "www.disasterassistance.gov", "www.irs.gov", "OpenFEMA", letto):
+            if frase not in t:
+                errore(f"disastri {x}: manca '{frase}'")
+        corpo = re.sub(r"<[^>]+>", " ", t[t.find("<main"):])
+        m = consiglio.search(corpo)
+        if m:
+            errore(f"disastri {x}: frase da consulenza '{m.group(0)}'")
+    # coerenza pagine contea / Stato con i dati
+    for f, A in G.AREE.items():
+        if not G.ha_pagina_dis(f):
+            continue
+        x = G.url_dis_contea(f)
+        if x not in trovate:
+            continue
+        t = (SITO / x / "index.html").read_text(encoding="utf-8")
+        ia = int(any(r[1] or r[2] for r in A["d"]))
+        scad = max((c["scadenza"] for c in G.irs_contea(f) if G.aperto(c)), default="")
+        if f'data-n-dich="{len(A["d"])}"' not in t or f'data-ia="{ia}"' not in t or f'data-irs="{scad}"' not in t:
+            errore(f"disastri {x}: numeri della scheda diversi dai dati")
+        if set(re.findall(r'data-dich="([^"]+)"', t)) != {r[0] for r in A["d"]}:
+            errore(f"disastri {x}: dichiarazioni in pagina diverse dai dati")
+        for c in G.irs_contea(f):
+            if f'data-irs="{c["codice"]}" data-scadenza="{c["scadenza"] or ""}"' not in t:
+                errore(f"disastri {x}: comunicato IRS {c['codice']} mancante o con altra scadenza")
+        prima = re.search(r'<p class="sub">(.*?)</p>', t, re.S).group(1)
+        if not (prima.startswith("Yes:") or prima.startswith("FEMA&#x27;s data shows no")):
+            errore(f"disastri {x}: la prima frase non risponde")
+    for st in G.DIS_STATI:
+        x = G.url_dis_stato(st)
+        if x not in trovate:
+            continue
+        t = (SITO / x / "index.html").read_text(encoding="utf-8")
+        n = sum(1 for k, v in G.DICH.items() if v["st"] == st)
+        ap = sum(1 for c in G.irs_stato(st) if G.aperto(c))
+        if f'data-n-dich="{n}"' not in t or f'data-irs-aperti="{ap}"' not in t:
+            errore(f"disastri {x}: numeri dello Stato diversi dai dati")
+    print(f"Sezione disastri: {len(trovate)} pagine (indice, {len(G.DIS_STATI)} Stati, {len(trovate) - len(G.DIS_STATI) - 1} contee); dati letti il {G.DIS_OGGI}, impronta {str(imp)[:12]}.")
+    if "--senza-rete" not in sys.argv:
+        controlla_disastri_api(trovate)
+
+
+def controlla_disastri_api(trovate):
+    """10 valori pubblicati (contea x dichiarazione) ricontrollati con richieste dirette all'API OpenFEMA, senza i dati locali:
+    data della dichiarazione e programmi IA/PA/HM per quella contea, come scritti nella pagina."""
+    import urllib.parse
+    import urllib.request
+    coppie = []
+    contee = sorted(f for f in G.AREE if G.ha_pagina_dis(f) and G.AREE[f]["d"] and G.url_dis_contea(f) in trovate)
+    passo = max(1, len(contee) // 10)
+    for f in contee[::passo][:10]:
+        coppie.append((f, G.AREE[f]["d"][0][0]))
+    righe = []
+    for f, k in coppie:
+        t = (SITO / G.url_dis_contea(f) / "index.html").read_text(encoding="utf-8")
+        riga = re.search(r'<tr data-dich="' + re.escape(k) + r'">(.*?)</tr>', t, re.S).group(1)
+        pub = {"data": re.search(r'data-data="([^"]+)"', riga).group(1),
+               "IA": "Individual aid: yes" in riga, "PA": "Public aid: yes" in riga, "HM": "Mitigation: yes" in riga}
+        filtro = f"femaDeclarationString eq '{k}' and fipsStateCode eq '{f[:2]}' and fipsCountyCode eq '{f[2:]}'"
+        url = ("https://www.fema.gov/api/open/v2/DisasterDeclarationsSummaries?" +
+               urllib.parse.urlencode({"$filter": filtro, "$select": "declarationDate,ihProgramDeclared,iaProgramDeclared,paProgramDeclared,hmProgramDeclared"}))
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "floodcost-check/1.0"})
+            r = json.loads(urllib.request.urlopen(req, timeout=60).read())["DisasterDeclarationsSummaries"]
+        except Exception as e:
+            errore(f"API FEMA non raggiungibile per {k} {f}: {e} (usare --senza-rete per saltare)")
+            return
+        if not r:
+            errore(f"API FEMA: nessuna riga per {k} contea {f}")
+            continue
+        api = {"data": r[0]["declarationDate"][:10], "IA": any(x["ihProgramDeclared"] or x["iaProgramDeclared"] for x in r),
+               "PA": any(x["paProgramDeclared"] for x in r), "HM": any(x["hmProgramDeclared"] for x in r)}
+        ok = api == pub
+        if not ok:
+            errore(f"API FEMA {k} contea {f}: pubblicato {pub}, API {api}")
+        righe.append(f"  {k} · {G.AREE[f]['nome']}, {G.AREE[f]['st']} ({f}): pubblicato {pub['data']} IA={int(pub['IA'])} PA={int(pub['PA'])} HM={int(pub['HM'])}"
+                     f" | API {api['data']} IA={int(api['IA'])} PA={int(api['PA'])} HM={int(api['HM'])} → {'OK' if ok else 'DIVERSO'}")
+    print("Disastri, 10 valori ricontrollati sull'API OpenFEMA:\n" + "\n".join(righe))
+
+
 def main():
     controlla_pagine()
     controlla_dati()
@@ -276,6 +388,7 @@ def main():
     controlla_cache()
     controlla_indexnow()
     controlla_monetizzazione()
+    controlla_disastri()
     if "--browser" in sys.argv:
         browser()
     if ERR:

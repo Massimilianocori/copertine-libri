@@ -1,4 +1,4 @@
-// Controllo nel browser di FloodCost: 390 e 1280 px, tema chiaro e scuro; niente scorrimento orizzontale, niente errori JS,
+// Controllo nel browser di FloodCost: 375 e 1280 px, tema chiaro e scuro; niente scorrimento orizzontale, niente errori JS,
 // niente richieste fallite; la ricerca trova uno ZIP; il pulsante del tema cambia tema. Screenshot in floodcost/cache/screenshot/.
 // Uso: node floodcost/verifica_browser.js   (lo lancia anche python3 floodcost/verifica.py --browser)
 const { chromium } = require('/opt/node-tools/node_modules/playwright');
@@ -40,6 +40,10 @@ function campione() {
   }
   const zips = fs.existsSync(path.join(SITO, 'zip')) ? fs.readdirSync(path.join(SITO, 'zip')) : [];
   ['33904', '77002', '70458'].concat(zips.slice(0, 2)).filter(z => zips.includes(z)).forEach(z => pagine.push('/zip/' + z + '/'));
+  // sezione disastri (30/10/2026): indice, 3 Stati, 4 contee (con avviso IRS collegato, solo IRS, con assistenza individuale, nome lungo)
+  ['/disaster-relief/', '/disaster-relief/florida/', '/disaster-relief/texas/', '/disaster-relief/indiana/',
+   '/disaster-relief/florida/santa-rosa-county/', '/disaster-relief/texas/kerr-county/', '/disaster-relief/alabama/mobile-county/',
+   '/disaster-relief/washington/snohomish-county/'].filter(p => fs.existsSync(path.join(SITO, p, 'index.html'))).forEach(p => pagine.push(p));
   return [...new Set(pagine)];
 }
 
@@ -51,7 +55,7 @@ function campione() {
   const problemi = [];
   const pagine = campione();
   let n = 0;
-  for (const [w, hgt] of [[390, 844], [1280, 900]]) {
+  for (const [w, hgt] of [[375, 812], [1280, 900]]) {
     for (const tema of ['light', 'dark']) {
       const ctx = await browser.newContext({ viewport: { width: w, height: hgt }, colorScheme: tema, deviceScaleFactor: 1 });
       await ctx.route(PUBBLICITA, r => r.fulfill({ status: 200, contentType: 'text/javascript', body: '' }));
@@ -85,7 +89,7 @@ function campione() {
           await page.evaluate(() => { document.documentElement.removeAttribute('data-theme'); try { localStorage.removeItem('fc-theme'); } catch (e) {} });
         }
         const nome = (p === '/' ? 'home' : p.replace(/\//g, '_').replace(/^_|_$/g, '')) + `-${w}-${tema}.png`;
-        if (['/', '/florida/', '/flood-zones/zone-ae/', '/zip/33904/', '/methodology/', '/states/'].includes(p) || p.startsWith('/florida/') && p.split('/').length === 4 && !fs.existsSync(path.join(SHOT, 'contea-' + w + '-' + tema + '.png')))
+        if (['/', '/florida/', '/flood-zones/zone-ae/', '/zip/33904/', '/methodology/', '/states/', '/disaster-relief/', '/disaster-relief/texas/', '/disaster-relief/texas/kerr-county/', '/disaster-relief/alabama/mobile-county/'].includes(p) || p.startsWith('/florida/') && p.split('/').length === 4 && !fs.existsSync(path.join(SHOT, 'contea-' + w + '-' + tema + '.png')))
           await page.screenshot({ path: path.join(SHOT, p.startsWith('/florida/') && p !== '/florida/' ? 'contea-' + w + '-' + tema + '.png' : nome), fullPage: true });
         errori.forEach(e => problemi.push(`${w}px ${tema} ${p}: ${e}`));
         await page.close();
