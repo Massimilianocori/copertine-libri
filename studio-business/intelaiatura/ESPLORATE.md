@@ -524,3 +524,12 @@ Nessuna idea a 8. Lezione: i dati aperti della zona sono già usati da siti auto
 | Filiali bancarie chiuse (FDIC) | 6 (branchspot già automatico) | ricerca-zona-usa-2026-10-30 |
 | Costo del GED per Stato | 6 (da passare alla corsia cloni di EsameB1) | ricerca-zona-usa-2026-10-30 |
 | Altre 12 famiglie (case pubbliche, premi assicurativi statali, licenze interstatali, animali esotici, bollette, detrazione auto USA) | NO / riserva, prove nel rapporto | ricerca-zona-usa-2026-10-30 |
+
+## Ricerca numeri ufficiali che spostano soldi (30/10/2026)
+
+| Nicchia | Verdetto | Rapporto |
+|---|---|---|
+| Italy 7 % tax towns: Comuni ammessi alla flat tax del 7 % per pensionati stranieri (art. 24-ter TUIR; ISTAT popolazione CC BY 4.0) | **Voto 8** come sezione di Visa Income (1.100 / 4.500 / 15.000 €/anno, 14-22 ore) — in verifica indipendente (soglia 30.000 abitanti da confermare su Normattiva) | ricerca-numeri-ufficiali-2026-10-30 |
+| Dove si tassa la pensione britannica (poi americana) Paese per Paese (manuale HMRC sui trattati, OGL) | 7,5, in coda dopo la n. 1 (350 / 1.500 / 4.000 €/anno) | ricerca-numeri-ufficiali-2026-10-30 |
+| Conversione della patente straniera Paese × Paese | 6,5 (fonti UAE, Italia, Irlanda chiuse; manca chi paga) | ricerca-numeri-ufficiali-2026-10-30 |
+| Studenti per università (HESA), previdenza USA all'estero (SSA), anabin, sanità espatriati, animali, tasse voli, case per stranieri, broker cambi, OSHC, scuole internazionali, taxi aeroporti | NO / riserva, prove nel rapporto | ricerca-numeri-ufficiali-2026-10-30 |
