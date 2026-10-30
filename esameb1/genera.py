@@ -54,24 +54,44 @@ def ci_sono_affiliati():
     return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_"))
 
 
-def riquadro_preparati(rel, gratis=None):
-    """Riquadro «Preparati alla prova orale» (dal 30/10/2026): insegnante di italiano su italki (link di affiliazione,
-    dati/affiliati.json voce "italki") e, accanto, sempre un link gratuito alle prove d'esame ufficiali.
-    Vuoto se la voce non ha "url". Al massimo uno per pagina; mai nella privacy e nella 404.
-    Nessun prezzo: si aggiunge solo se verificato su italki.com. Nessuna promessa di superare l'esame."""
-    url = (AFFILIATI.get("italki") or {}).get("url", "")
-    if not url:
-        return ""
-    if not MON.dominio_ammesso(url):
+# Frasi Amazon (Programma di Affiliazione Amazon EU): la prima va accanto a ogni link Amazon, la seconda nella privacy.
+FRASE_AMAZON = "In qualità di Affiliato Amazon, ricevo un guadagno dagli acquisti idonei."
+PRIVACY_AMAZON = ("<h2>Programma di Affiliazione Amazon</h2><p>Partecipiamo al Programma di Affiliazione Amazon EU, un programma di "
+                  "affiliazione che permette ai siti di ricevere una commissione pubblicitaria pubblicizzando e fornendo link al sito Amazon.it. "
+                  f"{FRASE_AMAZON} I link ad Amazon.it portano a ricerche di libri: prezzi e disponibilità li vedi solo su Amazon e possono cambiare.</p>")
+
+
+def url_affiliato(voce):
+    """URL della voce di dati/affiliati.json ("" se assente); errore se il dominio non è ammesso o se Amazon non ha il tag."""
+    url = (AFFILIATI.get(voce) or {}).get("url", "")
+    if url and not MON.dominio_ammesso(url):
         raise SystemExit(f"affiliati.json: dominio non ammesso in monetizzazione.json: {url}")
+    if url and "amazon." in url and "tag=guideesami-21" not in url:
+        raise SystemExit(f"affiliati.json: link Amazon senza tag=guideesami-21: {url}")
+    return url
+
+
+def riquadro_preparati(rel, gratis=None):
+    """Riquadro «Preparati alla prova orale» (dal 30/10/2026): insegnante di italiano su italki (voce "italki" di dati/affiliati.json),
+    accanto sempre un link gratuito alle prove d'esame ufficiali e, sotto, un link discreto ai libri su Amazon.it (voce "amazon",
+    una ricerca con tag=guideesami-21) con la frase obbligatoria di Amazon. Vuoto se nessuna delle due voci ha "url".
+    Al massimo uno per pagina; mai nella privacy e nella 404. Nessun prezzo e nessuna promessa di superare l'esame."""
+    url = url_affiliato("italki")
+    amazon = url_affiliato("amazon")
+    if not url and not amazon:
+        return ""
     gratis = gratis or f"{rel}esempi-esame-b1/"
+    italki_txt = ("\nSu italki scegli tu un insegnante di italiano: fai lezioni 1 a 1 e paghi a lezione." if url else "")
+    italki_btn = (f'<a class="btn" href="{escape(url)}" rel="sponsored noopener" target="_blank">{ic("voce")}Trova un insegnante di italiano su italki</a>'
+                  if url else "")
+    libri = (f'\n<p class="prep-libri">{ic("libro")}<a href="{escape(amazon)}" rel="sponsored noopener" target="_blank">'
+             f'Libri per prepararsi all\'esame B1 su Amazon</a></p>\n<p class="small aff-nota">{FRASE_AMAZON}</p>' if amazon else "")
     return f"""<section class="card prep" id="preparati" aria-labelledby="preparati-titolo">
 <span class="bolla">{ic("voce")}</span>
 <div>
 <h2 id="preparati-titolo">Preparati alla prova orale</h2>
-<p>La prova orale è la parte che preoccupa molte persone. Per prepararti aiuta parlare spesso con un insegnante madrelingua, anche online.
-Su italki scegli tu un insegnante di italiano: fai lezioni 1 a 1 e paghi a lezione.</p>
-<div class="azioni"><a class="btn" href="{escape(url)}" rel="sponsored noopener" target="_blank">{ic("voce")}Trova un insegnante di italiano su italki</a><a class="btn btn-2" href="{gratis}">{ic("libro")}Prove d'esame ufficiali gratuite</a></div>
+<p>La prova orale è la parte che preoccupa molte persone. Per prepararti aiuta parlare spesso con un insegnante madrelingua, anche online.{italki_txt}</p>
+<div class="azioni">{italki_btn}<a class="btn btn-2" href="{gratis}">{ic("libro")}Prove d'esame ufficiali gratuite</a></div>{libri}
 {MON.nota_trasparenza("it")}
 </div>
 </section>"""
@@ -477,6 +497,9 @@ ol.passi li .fonte{margin-top:6px}
 .prep p{margin:0;color:var(--ink-2);max-width:68ch}
 .prep .azioni{margin:16px 0 0}
 .prep .aff-nota{margin:12px 0 0;font-size:.84rem;color:var(--ink-3)}
+.prep .prep-libri+.aff-nota{margin-top:4px}
+.prep .prep-libri{display:flex;align-items:center;gap:8px;margin:14px 0 0;font-size:.95rem}
+.prep .prep-libri .i{flex:none;color:var(--ink-3)}
 @media (max-width:640px){.prep{grid-template-columns:1fr;gap:10px}.prep .bolla{width:40px;height:40px}}
 .piede .dati{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);padding:6px 12px;border-radius:999px;font-weight:600;color:#E8F0ED}
 @media (max-width:760px){.piede-griglia{grid-template-columns:1fr}}
@@ -1624,7 +1647,7 @@ def privacy():
 <h2>Quali dati raccogliamo</h2><p>Solo se compili il modulo "Avvisami": la tua email, la città e l'ente che scegli, e la pagina o il link da cui arrivi (per capire quali canali funzionano).</p>
 <h2>Perché</h2><p>Per mandarti avvisi sulle date e sulle scadenze dell'esame B1. La base giuridica è il tuo consenso (art. 6.1.a GDPR), che puoi ritirare quando vuoi.</p>
 <h2>Chi li gestisce per noi</h2><p>Il sito e il modulo sono ospitati da Netlify, Inc., che conserva i dati del modulo per nostro conto. Netlify può trattare i dati fuori dall'UE con le garanzie previste dal GDPR (clausole contrattuali standard). Non vendiamo né cediamo i tuoi dati.</p>
-{cookie}
+{cookie}{PRIVACY_AMAZON if url_affiliato("amazon") else ""}
 <h2>Per quanto tempo</h2><p>Finché resti iscritto agli avvisi. Se chiedi la cancellazione, cancelliamo i tuoi dati.</p>
 <h2>I tuoi diritti</h2><p>Puoi chiedere accesso, correzione, cancellazione, limitazione, portabilità e opposizione (artt. 15-22 GDPR) e puoi fare reclamo al Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>).</p>"""
     pagina("privacy.html", "Privacy | EsameB1", "Informativa privacy del sito EsameB1.", corpo)

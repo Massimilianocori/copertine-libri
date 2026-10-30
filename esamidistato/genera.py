@@ -14,6 +14,7 @@ import sys
 from datetime import date
 from html import escape
 from pathlib import Path
+from urllib.parse import quote_plus
 
 RADICE = Path(__file__).resolve().parent
 DATI = RADICE / "dati"
@@ -45,7 +46,7 @@ sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
 import monetizzazione as MON  # noqa: E402
 SITO_ID = "esamidistato"  # nome del sito in monetizzazione.json ("adsense_siti")
 ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti a capo + script ufficiale, subito dopo il meta di verifica Google
-AFFILIATI = json.loads((DATI / "affiliati.json").read_text(encoding="utf-8")) if (DATI / "affiliati.json").exists() else {}  # link di affiliazione: oggi nessuno (file assente)
+AFFILIATI = json.loads((DATI / "affiliati.json").read_text(encoding="utf-8")) if (DATI / "affiliati.json").exists() else {}  # link di affiliazione (dal 30/10/2026: ricerche di libri su Amazon.it)
 
 
 def ci_sono_affiliati():
@@ -58,6 +59,57 @@ def riquadro_trasparenza(corpo, lingua="it"):
     """Riga di trasparenza sui link di affiliazione in fondo al contenuto della pagina ("Alcuni link sono di affiliazione: ..."):
     vuota finché la pagina non ha link rel="sponsored" o se un riquadro di affiliazione la mostra già."""
     return MON.riga_trasparenza(corpo, lingua)
+
+
+# Amazon.it (Programma di Affiliazione Amazon EU, dal 30/10/2026): solo ricerche di libri nel reparto Libri, con il tag del negozio.
+# La prima frase va accanto a ogni link Amazon, la seconda nella privacy. Nessun prezzo, nessuna recensione scritta a mano.
+FRASE_AMAZON = "In qualità di Affiliato Amazon, ricevo un guadagno dagli acquisti idonei."
+PRIVACY_AMAZON = ("<h2>Programma di Affiliazione Amazon</h2><p>Partecipiamo al Programma di Affiliazione Amazon EU, un programma di "
+                  "affiliazione che permette ai siti di ricevere una commissione pubblicitaria pubblicizzando e fornendo link al sito Amazon.it. "
+                  f"{FRASE_AMAZON} I link ad Amazon.it portano a ricerche di libri: prezzi e disponibilità li vedi solo su Amazon e possono cambiare.</p>")
+
+
+def url_amazon(slug=None):
+    """Ricerca Amazon.it per la professione (parole chiave in dati/affiliati.json → amazon.ricerche) o, senza slug, la ricerca
+    generale della home (amazon.url). "" se la voce amazon non ha url: allora i riquadri «Manuali per prepararsi» spariscono."""
+    voce = AFFILIATI.get("amazon") or {}
+    base = voce.get("url", "")
+    if not base:
+        return ""
+    if slug is None:
+        url = base
+    else:
+        parole = (voce.get("ricerche") or {}).get(slug)
+        if not parole:
+            raise SystemExit(f"affiliati.json: manca amazon.ricerche.{slug}")
+        url = f"https://www.amazon.it/s?k={quote_plus(parole)}&i=stripbooks&tag={voce['tag']}"
+    if not MON.dominio_ammesso(url) or "tag=guideesami-21" not in url:
+        raise SystemExit(f"affiliati.json: link Amazon non ammesso o senza tag=guideesami-21: {url}")
+    return url
+
+
+def riquadro_manuali(p=None):
+    """Riquadro sobrio «Manuali per prepararsi»: un link a una ricerca di libri su Amazon.it (professione p, o generale in home),
+    la frase obbligatoria di Amazon e la riga di trasparenza della rete. Vuoto se la voce amazon di affiliati.json non ha url."""
+    url = url_amazon(p["slug"] if p else None)
+    if not url:
+        return ""
+    if p:
+        chi = p["nome"].lower()
+        testo = ("Per studiare aiutano un manuale aggiornato e le raccolte di tracce degli anni passati. Prima di comprare controlla "
+                 "l'anno di edizione e che il libro sia per la tua professione.")
+        link = f"Manuali per l'esame di Stato {escape(chi)} su Amazon"
+    else:
+        testo = ("Un manuale aggiornato e le raccolte di tracce degli anni passati aiutano a studiare. Nella pagina della tua "
+                 "professione trovi una ricerca dedicata.")
+        link = "Manuali per l'esame di Stato su Amazon"
+    return f"""<section class="card manuali" aria-labelledby="manuali-titolo">
+<h2 id="manuali-titolo">{ic("libro")}Manuali per prepararsi</h2>
+<p>{testo}</p>
+<p class="manuali-link"><a href="{escape(url)}" rel="sponsored noopener" target="_blank">{link}</a></p>
+<p class="small aff-nota">{FRASE_AMAZON}</p>
+{MON.nota_trasparenza("it")}
+</section>"""
 
 
 OGGI = date.today()
@@ -133,6 +185,7 @@ ICONE = {
     "persone": '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>',
     "invia": '<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
     "lista": '<path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/>',
+    "libro": '<path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2Z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8Z"/>',
     "scudo": '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/>',
 }
 ICONA_ENTE = {"MUR": "laurea", "MIM": "squadra", "Giustizia": "bilancia"}
@@ -338,6 +391,13 @@ details>p{color:var(--ink-2)}
 .info dt .i{color:var(--oro);margin-top:3px}
 .info dd{margin:0;min-width:0;overflow-wrap:anywhere;color:var(--ink-2)}
 .info dt:first-of-type,.info dd:first-of-type{border-top:0}
+/* riquadro «Manuali per prepararsi» (link di affiliazione Amazon.it) */
+.manuali{margin:28px 0 0;border-left:3px solid var(--oro)}
+.manuali h2{margin:0 0 8px;font-size:1.2rem}
+.manuali p{margin:0;color:var(--ink-2);max-width:68ch}
+.manuali .manuali-link{margin:12px 0 0;font-weight:650}
+.manuali .aff-nota{margin:10px 0 0;font-size:.84rem;color:var(--ink-3)}
+.manuali .aff-nota+.aff-nota{margin-top:2px}
 table.conf{width:100%;border-collapse:collapse;font-size:.95rem;background:var(--surface)}
 table.conf th{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);background:var(--surface-2)}
 table.conf th,table.conf td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
@@ -789,6 +849,7 @@ def home(prossime):
 <section id="professioni">
 <h2>{ic("laurea")}Professioni</h2>
 <div class="griglia">{griglia_prof("")}</div>
+{riquadro_manuali()}
 </section>
 <section id="citta">
 <h2>{ic("pin")}Sedi per città</h2>
@@ -866,6 +927,7 @@ def pagina_professione(p, prossime):
 {passate}
 <p class="small">Date 2027: non ancora pubblicate (controllato il {data_breve(p['verificato_il'])}).</p>
 <section class="card info"><h2 style="margin-top:0">{ic("lista")}In breve</h2><dl>{dl}</dl></section>
+{riquadro_manuali(p)}
 </section>
 <aside>
 {modulo(rel, prof_scelta=slug)}
@@ -990,7 +1052,7 @@ def privacy():
 <h2>Quali dati raccogliamo</h2><p>Solo se compili il modulo "Avvisami": la tua email, la professione e la città che scegli, e la pagina o il link da cui arrivi (per capire quali canali funzionano).</p>
 <h2>Perché</h2><p>Per mandarti avvisi sulle date e sulle scadenze degli esami di Stato. La base giuridica è il tuo consenso (art. 6.1.a GDPR), che puoi ritirare quando vuoi.</p>
 <h2>Chi li gestisce per noi</h2><p>Il sito e il modulo sono ospitati da Netlify, Inc., che conserva i dati del modulo per nostro conto. Netlify può trattare i dati fuori dall'UE con le garanzie previste dal GDPR (clausole contrattuali standard). Non vendiamo né cediamo i tuoi dati.</p>
-{cookie}
+{cookie}{PRIVACY_AMAZON if url_amazon() else ""}
 <h2>Per quanto tempo</h2><p>Finché resti iscritto agli avvisi. Se chiedi la cancellazione, cancelliamo i tuoi dati.</p>
 <h2>I tuoi diritti</h2><p>Puoi chiedere accesso, correzione, cancellazione, limitazione, portabilità e opposizione (artt. 15-22 GDPR) e puoi fare reclamo al Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>).</p>"""
     pagina("privacy.html", "Privacy | EsamiDiStato", "Informativa privacy del sito EsamiDiStato.", corpo)

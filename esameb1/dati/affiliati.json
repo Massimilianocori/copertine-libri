@@ -1,10 +1,21 @@
 {
-  "_nota": "Link di affiliazione di EsameB1. Li legge genera.py: una voce con 'url' non vuoto accende il riquadro «Preparati alla prova orale» (home, città, come-funziona, costo, esempi-esame-b1) e la sezione privacy sui link di affiliazione. Con 'url' vuoto il riquadro sparisce da solo. Domini ammessi in studio-business/strumenti/monetizzazione.json. Mai inventare URL.",
+  "_nota": "Link di affiliazione di EsameB1. Li legge genera.py: una voce con 'url' non vuoto accende il riquadro «Preparati alla prova orale» (home, città, come-funziona, costo, esempi-esame-b1) e la sezione privacy sui link di affiliazione. Voce 'italki': pulsante principale; voce 'amazon': link discreto ai libri sotto i pulsanti, con la frase obbligatoria di Amazon. Con 'url' vuoto il link (o, se sono vuoti tutti e due, il riquadro) sparisce da solo. Domini ammessi in studio-business/strumenti/monetizzazione.json. Mai inventare URL.",
   "italki": {
     "url": "https://www.italki.com/affshare?ref=af34201678",
     "nome": "italki",
     "attivo_dal": "2026-10-30",
     "compenso": "18 $ per ogni nuovo studente al primo acquisto",
     "regole": "Vietata la pubblicità a pagamento per promuovere il link (regola italki). Nessun prezzo sulle pagine finché non è verificato su italki.com."
+  },
+  "amazon": {
+    "url": "https://www.amazon.it/s?k=esame+b1+cittadinanza+italiano&i=stripbooks&tag=guideesami-21",
+    "nome": "Amazon.it (Programma di Affiliazione Amazon EU)",
+    "id_negozio": "guideesami-21",
+    "attivo_dal": "2026-10-30",
+    "compenso": "5 % sui libri (Amazon esamina l'account dopo 3 vendite in 180 giorni)",
+    "tipo": "ricerca nel reparto Libri (i=stripbooks), parole chiave: esame b1 cittadinanza italiano",
+    "libri_verificati": [],
+    "nota_verifica": "30/10/2026: amazon.it risponde 503 (ricerca) e con la pagina di controllo anti-robot (/dp/) al server: nessun ASIN verificabile, quindi solo il link di ricerca. Libri diretti (/dp/ASIN?tag=guideesami-21) solo dopo averli visti su amazon.it.",
+    "regole": "Link sempre con tag=guideesami-21, rel=\"sponsored noopener\", target=\"_blank\". Nessun prezzo, nessuna recensione o valutazione scritta a mano. Accanto al link la frase «In qualità di Affiliato Amazon, ricevo un guadagno dagli acquisti idonei.». Mai link Amazon in email o PDF."
   }
 }

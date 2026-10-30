@@ -1,0 +1,33 @@
+{
+  "_nota": "Link di affiliazione di EsamiDiStato. Li legge genera.py. Voce 'amazon': 'url' è la ricerca generale (riquadro «Manuali per prepararsi» in home); 'ricerche' dà le parole chiave della ricerca Amazon di ogni pagina professione (slug di professioni.json). Il tag si aggiunge da 'tag'. Con 'url' vuoto i riquadri spariscono da soli e la privacy torna al testo senza affiliazione. Domini ammessi in studio-business/strumenti/monetizzazione.json. Mai inventare URL.",
+  "amazon": {
+    "url": "https://www.amazon.it/s?k=esame+di+stato+abilitazione+manuale&i=stripbooks&tag=guideesami-21",
+    "tag": "guideesami-21",
+    "nome": "Amazon.it (Programma di Affiliazione Amazon EU)",
+    "attivo_dal": "2026-10-30",
+    "compenso": "5 % sui libri (Amazon esamina l'account dopo 3 vendite in 180 giorni)",
+    "ricerche": {
+      "ingegnere": "esame di stato ingegnere manuale",
+      "architetto": "esame di stato architetto manuale",
+      "psicologo": "esame di stato psicologo manuale",
+      "biologo": "esame di stato biologo manuale",
+      "geologo": "esame di stato geologo",
+      "chimico": "esame di stato chimico",
+      "agronomo": "esame di stato agronomo",
+      "assistente-sociale": "esame di stato assistente sociale manuale",
+      "attuario": "esame di stato attuario",
+      "commercialista": "esame di stato commercialista manuale",
+      "farmacista": "esame di stato farmacista manuale",
+      "odontoiatra": "esame di stato odontoiatria",
+      "veterinario": "esame di stato veterinario",
+      "fisico": "esame di stato fisico",
+      "tecnologo-alimentare": "esame di stato tecnologo alimentare",
+      "geometra": "esame di stato geometra manuale",
+      "perito-agrario": "esame di stato perito agrario",
+      "agrotecnico": "esame di stato agrotecnico",
+      "avvocato": "esame avvocato manuale"
+    },
+    "nota_verifica": "30/10/2026: amazon.it risponde 503 (ricerca) e con la pagina di controllo anti-robot (/dp/) al server: parole chiave scelte a mano, nessun libro singolo (ASIN) linkato.",
+    "regole": "Link sempre con tag=guideesami-21, rel=\"sponsored noopener\", target=\"_blank\", reparto Libri (i=stripbooks). Nessun prezzo, nessuna recensione o valutazione scritta a mano. Accanto al link la frase «In qualità di Affiliato Amazon, ricevo un guadagno dagli acquisti idonei.». Mai link Amazon in email o PDF."
+  }
+}
