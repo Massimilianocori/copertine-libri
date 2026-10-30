@@ -1,8 +1,21 @@
 {
   "_come_si_usa": "Unico posto della monetizzazione della rete (pubblicità AdSense e link di affiliazione). Lo leggono tutti i genera.py tramite monetizzazione.py. AdSense si accende solo se adsense_client è compilato E il sito è in adsense_siti; poi si rigenera il sito. Comando rapido: python3 studio-business/strumenti/monetizzazione.py attiva ca-pub-XXXXXXXXXXXXXXXX esameb1. Controllo di tutti i siti: python3 studio-business/strumenti/monetizzazione.py verifica.",
-  "adsense_client": "",
-  "adsense_siti": [],
-  "_siti_della_rete": ["italystrikes", "touristtax", "visaincome", "beforeyoufly", "esameb1", "esamidistato", "floodcost", "aste", "fhacondos", "cruisescores"],
+  "adsense_client": "ca-pub-3750093987658434",
+  "adsense_siti": [
+    "esameb1"
+  ],
+  "_siti_della_rete": [
+    "italystrikes",
+    "touristtax",
+    "visaincome",
+    "beforeyoufly",
+    "esameb1",
+    "esamidistato",
+    "floodcost",
+    "aste",
+    "fhacondos",
+    "cruisescores"
+  ],
   "_domini_affiliazione_nota": "Solo domini (nessun ID, nessun link). Un link di affiliazione è ammesso solo se punta a uno di questi domini o a un loro sottodominio, ha rel=\"sponsored noopener\" e la pagina ha la riga di trasparenza. I link ad Amazon.it devono avere il tag di affiliazione (tag=). Per aggiungere un programma nuovo: aggiungere qui il dominio dei suoi link tracciati.",
   "domini_affiliazione": [
     "safetywing.com",
