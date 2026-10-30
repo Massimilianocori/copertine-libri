@@ -518,7 +518,7 @@ Nessuna idea a 8. Lezione: i dati aperti della zona sono già usati da siti auto
 
 | Nicchia | Verdetto | Rapporto |
 |---|---|---|
-| Affollamento dei parchi nazionali USA mese per mese (NPS visite mensili 1979-2025, dominio pubblico; NOAA temperature) | **Voto 8** (sito nuovo; 800 / 4.800 / 25.000 €/anno; DiscoverCars, RVshare, Viator, Stay22) — in verifica indipendente | ricerca-zona-usa-2026-10-30 |
+| Affollamento dei parchi nazionali USA mese per mese (NPS visite mensili 1979-2025, dominio pubblico; NOAA temperature) | **Abbassata a 7 dalla verifica** (parksdecoded.com usa già gli stessi dati con 3.264 pagine; domanda solo per ~17 parchi su 63; cookie corti): 430 / 1.700 / 9.000 €/anno. Come sito nuovo sotto l'asticella; versione ridotta (~250 pagine, 12-16 ore) possibile come sezione di Before You Fly in coda bassa | ricerca-zona-usa-2026-10-30, verifica-parchi-usa-2026-10-30 |
 | Piani Medicare Advantage che chiudono nel 2027 | 6,5 (YMYL, finestra 15/10-7/12, già coperto) | ricerca-zona-usa-2026-10-30 |
 | Sconti WUE sulle tasse universitarie | 6 (7 con permesso scritto WICHE: licenza non commerciale) | ricerca-zona-usa-2026-10-30 |
 | Filiali bancarie chiuse (FDIC) | 6 (branchspot già automatico) | ricerca-zona-usa-2026-10-30 |
