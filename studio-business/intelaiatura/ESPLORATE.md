@@ -529,7 +529,7 @@ Nessuna idea a 8. Lezione: i dati aperti della zona sono già usati da siti auto
 
 | Nicchia | Verdetto | Rapporto |
 |---|---|---|
-| Italy 7 % tax towns: Comuni ammessi alla flat tax del 7 % per pensionati stranieri (art. 24-ter TUIR; ISTAT popolazione CC BY 4.0) | **Voto 8** come sezione di Visa Income (1.100 / 4.500 / 15.000 €/anno, 14-22 ore) — in verifica indipendente (soglia 30.000 abitanti da confermare su Normattiva) | ricerca-numeri-ufficiali-2026-10-30 |
+| Italy 7 % tax towns: Comuni ammessi alla flat tax del 7 % per pensionati stranieri (art. 24-ter TUIR; ISTAT popolazione CC BY 4.0) | **Abbassata a 4,5 dalla verifica**: magictowns.it pubblica già gratis l'elenco completo (2.535 Comuni, per regione e Comune, mappa); il rapporto sbagliava Comuni del sisma (tetto 3.000 abolito nel 2022, ~111 Comuni in più) e anno di popolazione (1/1 dell'anno prima, circ. 21/E 2020). Soglia 30.000 confermata (L. 34/2026 art. 26; dal 2027 art. 247 D.Lgs. 117/2026 corretto dal D.Lgs. 141/2026). Al massimo una pagina di riferimento (2-3 ore) in coda bassa | ricerca-numeri-ufficiali-2026-10-30, verifica-7-tax-towns-2026-10-30 |
 | Dove si tassa la pensione britannica (poi americana) Paese per Paese (manuale HMRC sui trattati, OGL) | 7,5, in coda dopo la n. 1 (350 / 1.500 / 4.000 €/anno) | ricerca-numeri-ufficiali-2026-10-30 |
 | Conversione della patente straniera Paese × Paese | 6,5 (fonti UAE, Italia, Irlanda chiuse; manca chi paga) | ricerca-numeri-ufficiali-2026-10-30 |
 | Studenti per università (HESA), previdenza USA all'estero (SSA), anabin, sanità espatriati, animali, tasse voli, case per stranieri, broker cambi, OSHC, scuole internazionali, taxi aeroporti | NO / riserva, prove nel rapporto | ricerca-numeri-ufficiali-2026-10-30 |
