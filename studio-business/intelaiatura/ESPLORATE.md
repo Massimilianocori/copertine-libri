@@ -553,3 +553,12 @@ Nessuna idea a 8. Lezione: i dati aperti della zona sono già usati da siti auto
 | Certificato febbre gialla per destinazione, provenienza e scalo (CDC, GOV.UK) | 7 solo con sì di Massimiliano al tema sanitario | ricerca-zona-latam-africa-2026-10-30 |
 | Residenza pensionati/nomadi America Latina; tariffe parchi Africa; tassa di soggiorno Marocco; auto americana in Messico; passaporti nigeriani/ghanesi/sudafricani all'estero | 5,5-6,5, riserva (fonti 403/000, concorrenti) | ricerca-zona-latam-africa-2026-10-30 |
 | Pubblici locali (WAEC/JAMB, SASSA, salario minimo, passaporti in patria) | NO: valgono poco e risponde il portale ufficiale | ricerca-zona-latam-africa-2026-10-30 |
+
+## Ricerca zona Europa continentale, Golfo e Asia (30/10/2026)
+
+| Nicchia | Verdetto | Rapporto |
+|---|---|---|
+| Visto DTV della Thailandia ambasciata per ambasciata (~90 sedi sullo stesso sistema; costi diversi per sede; regole 31/8 e 15/9/2026) + visti pensionati/nomadi Asia e Golfo | 7,5 (8 con 150 visite/settimana e 2 % di clic a 30 gg), **in coda** come sezione di Visa Income (500-1.500 €/anno, 22-32 ore) | ricerca-zona-europa-asia-2026-10-30 |
+| Mietpreisbremse Comune per Comune (Germania) | 7, riserva alta (sito nuovo in tedesco, 800-2.400 €/anno) | ricerca-zona-europa-asia-2026-10-30 |
+| Assicurazione sanitaria per il visto (riesame) | NO: nessuno dei 12 programmi pubblica la commissione | ricerca-zona-europa-asia-2026-10-30 |
+| Tariffe governative Emirati/Arabia Saudita, scuole KHDA, affitti Dubai, cassa malattia per Comune in Giappone, tempi immigrazione Giappone, contributo casse malattia DE, affitti Svezia/Spagna/Francia/NL, mercati Singapore, carta di soggiorno Polonia | NO / riserva, prove nel rapporto | ricerca-zona-europa-asia-2026-10-30 |
