@@ -31,6 +31,13 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
 16. Test di inglese per i visti UK (SELT, 30/10/2026): ricalcolo da dati/selt.json (impronta, centri per città e per Paese, totali), pagine attese
     = indice + luoghi con domanda (tutte in sitemap, nessuna in più), titoli entro 70 caratteri, prima frase con numero, fonte e data,
     data del B2 solo con la fonte HC 1691 letta, nessun prezzo, link di affiliazione solo italki (ammesso, sponsored noopener, trasparenza).
+17. Irlanda, PPS assegnati per nazionalità (30/10/2026): ricalcolo da dati/ppsn.json (impronta, pagine attese, numeri del primo paragrafo,
+    tabelle mese per mese e anno per anno, confronto con gli stessi mesi, riquadro "what this number is", link dall'hub e colonna dell'indice);
+    10 valori a caso ricontrollati sui CSV ufficiali con un lettore proprio.
+18. Thailand DTV visa (30/10/2026): ricalcolo da dati/dtv.json (impronta, pagine attese = indice + sedi con domanda e dati, titoli ≤ 70,
+    prima frase con data, righe della tabella = sedi lette con costo, regola e link ufficiale, frammenti citati, avviso, nessuna promessa,
+    SafetyWing solo dopo le informazioni ufficiali e con la frase che l'assicurazione non è richiesta, link dal resto del sito);
+    online, 10 frammenti a caso ricontrollati sulle pagine ufficiali riscaricate.
 Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
@@ -198,7 +205,8 @@ def controlla_contenuti():
     deve("consulados/buenosaires" in es.lower() and "HANOI" in es, "ES: mancano le fonti dei consolati (Buenos Aires, Hanoi)")
     deve("€1,221 a month × 14 payments" in es, "ES: SMI non indicato come 1.221 × 14")
     # dal 30/10/2026 le pagine dei centri SELT (uk-english-test/chile/) nominano Santiago come città dell'elenco ufficiale: esclusa
-    senza_selt = "\n".join(f.read_text(encoding="utf-8") for f in SITO.rglob("*.html") if "uk-english-test" not in f.parts)
+    # dal 30/10/2026 anche l'elenco delle sedi thailandesi (thailand-dtv-visa/) nomina l'ambasciata a Santiago del Cile: esclusa
+    senza_selt = "\n".join(f.read_text(encoding="utf-8") for f in SITO.rglob("*.html") if "uk-english-test" not in f.parts and "thailand-dtv-visa" not in f.parts)
     deve("Santiago" not in senza_selt, "Attribuzione a Santiago del Cile ancora presente")
     deve("not €2,762" not in tutto and "not €3,295" not in tutto, "Frase 'not €…' ancora in home")
     it = leggi("italy-digital-nomad-visa/index.html")
@@ -640,7 +648,8 @@ def controlla_altri():
     return errori
 
 # ---------------------------------------------------------------- 12. "Who moved where" (28/10/2026)
-URL_UFFICIALI_TR = ("https://ec.europa.eu/eurostat/", "https://www.ircc.canada.ca/", "https://open.canada.ca/", "https://assets.publishing.service.gov.uk/")
+URL_UFFICIALI_TR = ("https://ec.europa.eu/eurostat/", "https://www.ircc.canada.ca/", "https://open.canada.ca/", "https://assets.publishing.service.gov.uk/",
+                    "https://www.gov.ie/", "https://assets.gov.ie/")  # gov.ie: PPS (Irlanda), dal 30/10/2026
 
 
 def controlla_trasferimenti():
@@ -669,6 +678,14 @@ def controlla_trasferimenti():
         uk = D["uk"]["cittadinanze"].get(c)
         if uk and sum(uk["anni"][y1]) >= 500:
             attese[f"{s}/uk"] = ("uk", c, None, uk)
+    # Irlanda (30/10/2026): pagina anche con almeno 500 PPS nell'ultimo anno intero; queste pagine si controllano nel punto 17
+    PP = json.loads((SITO.parent / "dati" / "ppsn.json").read_text(encoding="utf-8"))
+    ult = PP["mesi"][-1]
+    pieno = ult[:4] if ult.endswith("-12") else str(int(ult[:4]) - 1)
+    for c, s in slug_naz.items():
+        x = PP["nazionalita"].get(c)
+        if (x and (x["anni"].get(pieno) or 0) >= 500) or f"{s}/ireland" in attese:
+            attese[f"{s}/ireland"] = ("ie", c, "IE", None)
     base = SITO / "moved-to"
     trovate = {f.parent.relative_to(base).as_posix() for f in base.glob("*/*/index.html")}
     if trovate != set(attese):
@@ -681,8 +698,9 @@ def controlla_trasferimenti():
         if f"<loc>{G.URL_SITO}/{rel}</loc>" not in mappa:
             errori.append(f"Trasferimenti: {rel} non in sitemap")
         titolo = re.search(r"<title>(.*?)</title>", t).group(1)
-        if len(titolo.replace("&amp;", "&")) > 70 or y1 not in titolo:
-            errori.append(f"Trasferimenti: titolo di {rel} oltre 70 caratteri o senza {y1}: {titolo}")
+        anno_t = ult[:4] if rel.endswith("/ireland/") else y1   # pagine Irlanda: anno dei PPS
+        if len(titolo.replace("&amp;", "&")) > 70 or anno_t not in titolo:
+            errori.append(f"Trasferimenti: titolo di {rel} oltre 70 caratteri o senza {anno_t}: {titolo}")
         corpo = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
         for i, dopo in enumerate(corpo.split("<table")[1:], 1):
             m = re.match(r'.*?</table></div>\s*<p class="fonte">(.*?)</p>', dopo, re.S)
@@ -703,7 +721,7 @@ def controlla_trasferimenti():
     # pagine nazionalità × Paese: numero principale, anno prima e serie per anno
     for k, (tipo, c, g, v) in sorted(attese.items()):
         f = base / k / "index.html"
-        if not f.exists():
+        if not f.exists() or tipo == "ie":
             continue
         t = f.read_text(encoding="utf-8")
         lead = re.search(r'<p class="lead">(.*?)</p>', t, re.S).group(1)
@@ -1046,6 +1064,268 @@ def controlla_selt():
     return errori, n
 
 
+
+# ---------------------------------------------------------------- 17. Irlanda: PPS assegnati per nazionalità (30/10/2026)
+def _sorgente(url, nome_locale):
+    """File ufficiale grezzo: da raccolta/_grezzi/ se c'è, altrimenti scaricato (None se offline o non raggiungibile)."""
+    import urllib.request
+    f = SITO.parent / "raccolta" / "_grezzi" / nome_locale
+    if f.exists():
+        return f.read_bytes()
+    if "--offline" in sys.argv:
+        return None
+    try:
+        return urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"}), timeout=60).read()
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def controlla_ppsn():
+    """17. Ricalcolo indipendente da dati/ppsn.json: impronta; pagine 'nazionalità × Irlanda' attese (PPS ≥ 500 nell'ultimo anno intero
+    o primi permessi Eurostat ≥ 500) tutte in sitemap; titoli ≤ 70 con l'anno; prima frase con il numero dell'anno in corso, quello
+    dell'anno intero e la data della pagina gov.ie; tabella mese per mese e tabella anno per anno uguali ai dati; confronto con gli
+    stessi mesi dell'anno prima; riquadro "what this number is" con le frasi di gov.ie; cifra Eurostat uguale a trasferimenti.json;
+    blocco e link dalla pagina della nazionalità; colonna dell'indice. Più 10 valori a caso ricontrollati sui CSV ufficiali (letti qui
+    con un lettore proprio, non con raccolta/ppsn.py)."""
+    import csv
+    import hashlib
+    import io
+    errori = []
+    D = json.loads((SITO.parent / "dati" / "ppsn.json").read_text(encoding="utf-8"))
+    TR = json.loads((SITO.parent / "dati" / "trasferimenti.json").read_text(encoding="utf-8"))
+    cont = {"anni": D["anni"], "mesi": D["mesi"], "nazionalita": D["nazionalita"], "tutte": D["tutte"], "righe_sommate": D["righe_sommate"]}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != D["impronta"]:
+        errori.append("PPS: impronta di dati/ppsn.json diversa dal contenuto (file modificato a mano?)")
+    mesi = D["mesi"]
+    ult = mesi[-1]
+    ytd = ult[:4] if not ult.endswith("-12") else None
+    pieno = str(int(ult[:4]) - 1) if ytd else ult[:4]
+    mm = int(ult[5:])
+    nomi_mesi = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    def num(n):
+        return f"{n:,}"
+    def var(a, b):
+        x = (a - b) / b * 100
+        return f"{'+' if x > 0 else '−'}{abs(x):.{2 if abs(x) < 0.05 else 1}f}%"
+    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    agg = G.data_lunga(D["fonti"]["pagina"]["aggiornata"])
+    eu = TR["eurostat"]["dati"]
+    y1 = TR["anni"][-1]
+    n = 0
+    for c, x in D["nazionalita"].items():
+        s = G.NAZ_TR[c][0]
+        atteso = (x["anni"].get(pieno) or 0) >= 500 or ((eu.get(c, {}).get("IE", {}).get(y1) or [0])[0] or 0) >= 500
+        f = SITO / "moved-to" / s / "ireland" / "index.html"
+        if f.exists() != atteso:
+            errori.append(f"PPS: pagina {s}/ireland {'mancante' if atteso else 'in più'}")
+        hub = (SITO / "moved-to" / s / "index.html").read_text(encoding="utf-8")
+        if 'id="ireland-pps"' not in hub or (atteso and 'href="ireland/"' not in hub):
+            errori.append(f"PPS: blocco o link all'Irlanda mancante nella pagina della nazionalità {s}")
+        if not f.exists():
+            continue
+        n += 1
+        percorso = f"moved-to/{s}/ireland/"
+        t = f.read_text(encoding="utf-8")
+        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        if f"<loc>{G.URL_SITO}/{percorso}</loc>" not in sitemap:
+            errori.append(f"PPS: {percorso} non in sitemap")
+        titolo = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(titolo) > 70 or (ytd or pieno) not in titolo:
+            errori.append(f"PPS: titolo di {percorso} oltre 70 caratteri o senza l'anno: {titolo!r}")
+        lead = re.search(r'<p class="lead">(.*?)</p>', main, re.S).group(1)
+        n_ytd = sum(x["mesi"][f"{ytd}-{m:02d}"] for m in range(1, mm + 1)) if ytd else None
+        n_ytd0 = sum(x["mesi"][f"{pieno}-{m:02d}"] for m in range(1, mm + 1)) if ytd else None
+        if ytd and (f"<strong>{num(n_ytd)}</strong> PPS numbers to" not in lead or f"to {nomi_mesi[mm - 1]} {ytd}" not in lead):
+            errori.append(f"PPS: numero dell'anno in corso di {percorso} diverso dai dati ({n_ytd})")
+        if f"<strong>{num(x['anni'][pieno])}</strong> in {pieno}" not in lead or f"file updated on {agg}" not in lead:
+            errori.append(f"PPS: numero {pieno} o data della fonte di {percorso} diversi dai dati")
+        if ytd and (f"was {num(n_ytd0)}" not in lead or var(n_ytd, n_ytd0) not in lead):
+            errori.append(f"PPS: confronto con gli stessi mesi del {pieno} di {percorso} diverso dai dati")
+        piano = html.unescape(re.sub(r"<[^>]+>", "", main))
+        if "It is not a count of people who arrived" not in piano or D["fonti"]["servizio"]["frasi"][1] not in piano:
+            errori.append(f"PPS: riquadro 'what this number is' incompleto in {percorso}")
+        # tabella mese per mese
+        tab = re.search(r'id="t-pps-mesi">.*?<tbody>(.*?)</tbody>', main, re.S).group(1)
+        anni_m = sorted({m[:4] for m in mesi})
+        for i, riga in enumerate(re.findall(r'<tr><th scope="row">(\w+)</th>(.*?)</tr>', tab)):
+            if riga[0] not in nomi_mesi:
+                continue
+            celle = re.findall(r'data-v="(\d*)"', riga[1])
+            for a, v in zip(anni_m, celle):
+                atteso_v = x["mesi"].get(f"{a}-{nomi_mesi.index(riga[0]) + 1:02d}")
+                if (int(v) if v else None) != atteso_v:
+                    errori.append(f"PPS: {percorso} {riga[0]} {a} = {v}, atteso {atteso_v}")
+        # tabella anno per anno
+        tab = re.search(r'id="t-pps-anni">.*?<tbody>(.*?)</tbody>', main, re.S).group(1)
+        righe = re.findall(r'<tr><td>(\d{4})[^<]*</td><td class="n" data-v="(\d*)">', tab)
+        if len(righe) != len(D["anni"]) or any(int(v) != x["anni"][a] for a, v in righe):
+            errori.append(f"PPS: tabella anno per anno di {percorso} diversa dai dati")
+        r1 = eu.get(c, {}).get("IE", {}).get(y1)
+        if r1 and r1[0] and r1[0] >= 100 and f"<strong>{num(r1[0])}</strong> first residence permits" not in main:
+            errori.append(f"PPS: cifra Eurostat {y1} di {percorso} diversa da trasferimenti.json")
+        for frase in ("FAQPage", "Dataset", "BreadcrumbList", "CC BY 4.0", "What this number is, and what it is not"):
+            if frase not in t:
+                errori.append(f"PPS: manca {frase!r} in {percorso}")
+    idx = (SITO / "moved-to" / "index.html").read_text(encoding="utf-8")
+    if f"Ireland PPS {pieno}" not in idx or 'id="ireland"' not in idx:
+        errori.append("PPS: colonna o sezione Irlanda mancanti nell'indice moved-to")
+    # 10 valori a caso ricontrollati sui CSV ufficiali (lettore indipendente)
+    rng = random.Random(20261030)
+    grezzi = {}
+    for k in ("mensile", "annuale"):
+        b = _sorgente(D["fonti"][k]["url"], f"ppsn-{k}.csv")
+        if b is not None and hashlib.sha256(b).hexdigest() != D["fonti"][k]["sha256"]:
+            errori.append(f"PPS: il file {k} in raccolta/_grezzi/ non è quello usato per i dati (SHA-256 diverso)")
+        grezzi[k] = list(csv.reader(io.StringIO(b.decode("utf-8-sig")))) if b else None
+    ricontrollati = []
+    if grezzi["mensile"] and grezzi["annuale"]:
+        campioni = [("m", c, m) for c in D["nazionalita"] for m in mesi] + [("a", c, a) for c in D["nazionalita"] for a in D["anni"]]
+        for tipo, c, k in rng.sample(campioni, 10):
+            nome = D["nazionalita"][c]["nome"]
+            if tipo == "m":
+                etich = f"{k[:4]} {nomi_mesi[int(k[5:]) - 1]}"
+                v = sum(int(r[4]) for r in grezzi["mensile"][1:] if r[2] == nome and r[1] == etich and r[4].strip().isdigit())
+                dj = D["nazionalita"][c]["mesi"][k]
+                pag = SITO / "moved-to" / G.NAZ_TR[c][0] / "ireland" / "index.html"
+                ok_pag = True
+                if pag.exists():
+                    tab = re.search(r'id="t-pps-mesi">.*?<tbody>(.*?)</tbody>', pag.read_text(encoding="utf-8"), re.S).group(1)
+                    riga = re.search(rf'<th scope="row">{nomi_mesi[int(k[5:]) - 1]}</th>(.*?)</tr>', tab).group(1)
+                    ok_pag = re.findall(r'data-v="(\d*)"', riga)[sorted({m[:4] for m in mesi}).index(k[:4])] == str(v)
+            else:
+                v = sum(int(r[4]) for r in grezzi["annuale"][1:] if r[2] == nome and r[0] == k)
+                dj = D["nazionalita"][c]["anni"][k]
+                pag = SITO / "moved-to" / G.NAZ_TR[c][0] / "ireland" / "index.html"
+                ok_pag = (not pag.exists()) or bool(re.search(rf'<tr><td>{k}[^<]*</td><td class="n" data-v="{v}">', pag.read_text(encoding="utf-8")))
+            ricontrollati.append(f"{c} {k}: file {v}, dati {dj}, pagina {'ok' if ok_pag else 'DIVERSA'}")
+            if v != dj or not ok_pag:
+                errori.append(f"PPS: valore ricontrollato diverso dal file ufficiale: {c} {k} (file {v}, dati {dj})")
+    return errori, n, ricontrollati
+
+
+# ---------------------------------------------------------------- 18. Thailand DTV visa, ambasciata per ambasciata (30/10/2026)
+def controlla_dtv(online=True):
+    """18. Ricalcolo indipendente da dati/dtv.json: impronta; pagine attese (indice + sedi con domanda e con costo o regola sulla
+    residenza) tutte in sitemap e nessuna in più; titoli ≤ 70; prima frase con risposta, fonte e data; righe della tabella = sedi lette,
+    con costo e regola uguali ai dati; frammenti citati presenti; avviso "Not legal or immigration advice"; nessuna promessa
+    sull'approvazione; link di affiliazione solo SafetyWing (sponsored noopener, riga di trasparenza, dopo le informazioni ufficiali,
+    con la frase che l'assicurazione non è richiesta); collegamenti dal resto del sito. Online: 10 frammenti a caso ricontrollati
+    sulle pagine ufficiali riscaricate (con --offline si salta)."""
+    import hashlib
+    errori = []
+    D = json.loads((SITO.parent / "dati" / "dtv.json").read_text(encoding="utf-8"))
+    aff = json.loads((SITO.parent / "dati" / "affiliati.json").read_text(encoding="utf-8")).get("_safetywing_dtv", {})
+    cont = {"sedi": D["sedi"], "letture": D["letture"], "generale": D["generale"]}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != D["impronta"]:
+        errori.append("DTV: impronta di dati/dtv.json diversa dal contenuto (file modificato a mano?)")
+    L = D["letture"]
+    con_pag = [x["id"] for x in L if x["domanda"] and ("costo" in x or "residenza" in x)]
+    sez = SITO / "thailand-dtv-visa"
+    trovate = {f.parent.relative_to(sez).as_posix().replace(".", "") for f in sez.rglob("index.html")}
+    if trovate != set([""] + con_pag):
+        errori.append(f"DTV: pagine diverse da quelle attese (in più {sorted(trovate - set([''] + con_pag))}, mancanti {sorted(set([''] + con_pag) - trovate)})")
+    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    letto = G.data_lunga(D["letto_il"])
+    def costo(c):
+        pre, post = {"GBP": ("£", ""), "USD": ("US$", ""), "EUR": ("€", ""), "THB": ("", " baht (THB)"), "MYR": ("RM", ""), "SGD": ("S$", ""),
+                     "EGP": ("", " Egyptian pounds (EGP)"), "PLN": ("", " złoty (PLN)"), "INR": ("₹", ""), "CNY": ("", " yuan (CNY)")}[c["valuta"]]
+        return f"{pre}{c['importo']:,}{post}"
+    n = 0
+    for slug in [""] + con_pag:
+        f = sez / slug / "index.html" if slug else sez / "index.html"
+        if not f.exists():
+            continue
+        n += 1
+        percorso = f"thailand-dtv-visa/{slug + '/' if slug else ''}"
+        t = f.read_text(encoding="utf-8")
+        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        testo_main = html.unescape(re.sub(r"<[^>]+>", " ", main))
+        if f"<loc>{G.URL_SITO}/{percorso}</loc>" not in sitemap:
+            errori.append(f"DTV: {percorso} non in sitemap")
+        titolo = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(titolo) > 70:
+            errori.append(f"DTV: titolo oltre 70 caratteri in {percorso}: {titolo!r} ({len(titolo)})")
+        lead = html.unescape(re.sub(r"<[^>]+>", "", re.search(r'<p class="lead">(.*?)</p>', main, re.S).group(1)))
+        if letto not in lead:
+            errori.append(f"DTV: prima frase senza la data di lettura in {percorso}")
+        for frase in ("Not legal or immigration advice.", "FAQPage", "BreadcrumbList", "31 August 2026"):
+            if frase not in t:
+                errori.append(f"DTV: manca {frase!r} in {percorso}")
+        if re.search(r"\b(guarantee[sd]?|will be approved|will get (?:a|the|your) visa|100% approval|easy approval)\b", testo_main, re.I):
+            errori.append(f"DTV: promessa sull'approvazione in {percorso}")
+        # affiliazione
+        sw = re.findall(r'<a [^>]*href="([^"]*safetywing[^"]*)"[^>]*rel="([^"]*)"', main)
+        altri_sp = [h for h in re.findall(r'<a [^>]*href="([^"]+)"[^>]*rel="[^"]*sponsored', main) if "safetywing.com" not in h]
+        if altri_sp:
+            errori.append(f"DTV: link sponsorizzati non ammessi in {percorso}: {altri_sp[:2]}")
+        if aff.get("url"):
+            if len(sw) != 1 or html.unescape(sw[0][0]) != aff["url"] or sw[0][1] != "sponsored noopener":
+                errori.append(f"DTV: riquadro SafetyWing assente, doppio o con rel sbagliato in {percorso}")
+            if G.MON.RIGA_EN not in main or "Insurance is not a DTV requirement" not in main or "does not change the decision on your visa" not in main:
+                errori.append(f"DTV: riga di trasparenza o frase 'assicurazione non richiesta' mancanti in {percorso}")
+            if main.find("safetywing") < main.find("What the official page says" if slug else 'id="table"'):
+                errori.append(f"DTV: SafetyWing prima delle informazioni ufficiali in {percorso}")
+        elif sw:
+            errori.append(f"DTV: link SafetyWing in {percorso} ma voce spenta in dati/affiliati.json")
+        if slug:
+            x = next(y for y in L if y["id"] == slug)
+            if "costo" in x and costo(x["costo"]) not in lead:
+                errori.append(f"DTV: costo di {slug} nella prima frase diverso dai dati ({costo(x['costo'])})")
+            for campo in ("costo", "residenza", "saldo"):
+                if campo in x and html.escape(x[campo]["frammento"].rstrip("."), quote=False) not in main:
+                    errori.append(f"DTV: frammento {campo} di {slug} non citato nella pagina")
+            agg = G.data_lunga(max(p["modificata"] for p in x["pagine"]))
+            if agg not in lead:
+                errori.append(f"DTV: data di modifica della pagina ufficiale mancante nella prima frase di {slug}")
+        else:
+            tab = re.search(r'id="t-dtv">.*?<tbody>(.*?)</tbody>', main, re.S).group(1)
+            righe = re.findall(r"<tr>(.*?)</tr>", tab, re.S)
+            if len(righe) != len(L):
+                errori.append(f"DTV: la tabella dell'indice ha {len(righe)} righe, attese {len(L)}")
+            for x in L:
+                riga = next((r for r in righe if re.search(rf'>{re.escape(html.escape(x["sede"], quote=False))}<', r)), None)
+                if not riga:
+                    errori.append(f"DTV: riga di {x['sede']} mancante nell'indice")
+                    continue
+                if ("costo" in x and costo(x["costo"]) not in html.unescape(riga)) or ("costo" not in x and "Not written on the page" not in riga):
+                    errori.append(f"DTV: costo di {x['sede']} nell'indice diverso dai dati")
+                if "residenza" in x and html.escape(x["residenza"]["frammento"].rstrip("."), quote=False) not in riga:
+                    errori.append(f"DTV: regola sulla residenza di {x['sede']} nell'indice diversa dai dati")
+                if html.escape(x["pagine"][0]["url"]) not in riga and x["pagine"][0]["url"] not in riga:
+                    errori.append(f"DTV: link ufficiale di {x['sede']} mancante nell'indice")
+            altre = re.search(r'id="t-altre">.*?<tbody>(.*?)</tbody>', main, re.S).group(1)
+            if len(re.findall(r"<tr>", altre)) + len(L) != len(D["sedi"]):
+                errori.append("DTV: sedi lette + altre sedi diverso dall'elenco ufficiale")
+            for v in ("vientiane", "london", "washington-dc"):
+                x = next(y for y in L if y["id"] == v)
+                if costo(x["costo"]) not in lead:
+                    errori.append(f"DTV: costo di {v} mancante nella prima frase dell'indice")
+            if "60 countries and territories" not in main or "15 September 2026" not in main:
+                errori.append("DTV: sezione sull'esenzione di 30 giorni mancante o incompleta")
+    for f, link in (("index.html", 'href="thailand-dtv-visa/"'), ("digital-nomad-visa-income-requirements/index.html", 'href="../thailand-dtv-visa/"'),
+                    ("how-it-works/index.html", 'href="../thailand-dtv-visa/"')):
+        if link not in (SITO / f).read_text(encoding="utf-8"):
+            errori.append(f"DTV: {f} non rimanda alla sezione")
+    if "Thailand (DTV)," in (SITO / "digital-nomad-visa-income-requirements" / "index.html").read_text(encoding="utf-8"):
+        errori.append("DTV: la pagina dei nomadi elenca ancora la Thailandia tra i visti non coperti")
+    # 10 frammenti a caso ricontrollati sulle pagine ufficiali riscaricate
+    ricontrollati = []
+    if online:
+        sys.path.insert(0, str(SITO.parent / "raccolta"))
+        import dtv as R  # solo per scaricare e normalizzare il testo nello stesso modo
+        rng = random.Random(20261030)
+        campioni = [(x["id"], campo, v) for x in L for campo in ("costo", "residenza", "saldo") if campo in x for v in [x[campo]]]
+        campioni += [(x["id"], "altre", a) for x in L for a in x.get("altre", [])]
+        for sid, campo, v in rng.sample(campioni, 10):
+            x = next(y for y in L if y["id"] == sid)
+            u = x["pagine"][v["p"]]["url"]
+            letta = R.leggi(u)
+            ok = letta["ok"] and v["frammento"] in letta["_testo"]
+            ricontrollati.append(f"{sid} {campo}: {'presente' if ok else 'ASSENTE'} ({v['frammento'][:50]}…)")
+            if not ok:
+                errori.append(f"DTV: frammento non più nella pagina ufficiale: {sid} {campo} ({u})")
+    return errori, n, ricontrollati
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -1079,7 +1359,15 @@ def main():
     print(f"15. Visti Schengen a ingressi multipli: {n15} pagine (riassuntiva + riquadri per Paese), numeri ricalcolati, sitemap, titolo, link: {len(e15)} errori")
     e16, n16 = controlla_selt()
     print(f"16. Test di inglese UK (SELT): {n16} pagine (indice + città e Paesi con domanda), centri ricalcolati, sitemap, titoli, fonte, B2, affiliati: {len(e16)} errori")
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16
+    e17, n17, r17 = controlla_ppsn()
+    print(f"17. Irlanda, PPS per nazionalità: {n17} pagine, numeri, tabelle, fonte, link dall'hub; 10 valori ricontrollati sui CSV ufficiali: {len(r17)}: {len(e17)} errori")
+    for x in r17:
+        print("    ·", x)
+    e18, n18, r18 = controlla_dtv(online="--offline" not in sys.argv)
+    print(f"18. Thailand DTV visa: {n18} pagine (indice + sedi), costi, regole, frammenti, affiliati, link; frammenti ricontrollati online: {len(r18)}: {len(e18)} errori")
+    for x in r18:
+        print("    ·", x)
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18
     for e in tutti:
         print(" -", e)
     if tutti:

@@ -979,7 +979,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <p>Exchange rates: euro foreign exchange reference rates of the European Central Bank (source: ECB), for information only.</p>
 </div><div>
 <h2>Explore</h2>
-<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}moved-to/">Who moved where (by nationality)</a></li><li><a href="{rel}uk-english-test/">UK visa English tests (SELT)</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
+<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}moved-to/">Who moved where (by nationality)</a></li><li><a href="{rel}uk-english-test/">UK visa English tests (SELT)</a></li><li><a href="{rel}thailand-dtv-visa/">Thailand DTV visa by embassy</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
 </div></div>
 {blocco_altri(ALTRI_SITI, "Other useful tools for your trip")}
 <p class="f-base">Official sources only · the calculator runs in your browser · links marked "Affiliate" may earn us a commission.</p>
@@ -1329,6 +1329,9 @@ def home():
 <h2>UK visa English tests (SELT)</h2>
 <p class="lead">Which English level each UK visa needs (A1 for a first spouse visa, B1 for settlement and citizenship, B2 for settlement from {data_lunga(DATA_B2)}) and the {intero(len(CENTRI_UK))} approved test centres in the UK and {intero(len(CENTRI_EST))} abroad (Home Office lists of {data_lunga(DATA_ELENCO)}).</p>
 <p><a href="{SEZ_SELT}">UK visa English tests: levels and test centres</a> · {" · ".join(f'<a href="{SEZ_SELT}{SLUG_SELT[x]}/">{escape(NOMI_PAESI_SELT.get(x, x))}</a>' for x in ("London", "Birmingham", "Manchester", "Pakistan", "India", "Nigeria") if x in CITTA_PAG + PAESI_PAG)}</p>
+<h2>Thailand DTV visa by embassy</h2>
+<p class="lead">The DTV fee and who can apply change from one Thai embassy to another: {costo_dtv(next(L for L in LET_DTV if L["id"] == "vientiane")["costo"])} in Vientiane, {costo_dtv(next(L for L in LET_DTV if L["id"] == "london")["costo"])} in London, {costo_dtv(next(L for L in LET_DTV if L["id"] == "washington-dc")["costo"])} in Washington (official pages read on {data_lunga(LETTO_DTV)}), and since 31 August 2026 you apply where you live permanently.</p>
+<p><a href="{SEZ_DTV}">Thailand DTV visa: all embassies</a> · {" · ".join(f'<a href="{SEZ_DTV}{L["id"]}/">{escape(L["sede"])}</a>' for L in PAG_DTV if L["id"] in ("london", "ho-chi-minh-city", "vientiane", "kuala-lumpur", "singapore", "new-delhi"))}</p>
 <h2>Why our numbers can differ from other sites</h2>
 <p>Many thresholds are a percentage of an index that changes every year (a minimum wage, an average salary), so pages that still show last year's figure are out of date. With the {ANNO} indices, on {data_lunga('2026-10-10')}: Spain's digital nomad visa is 200% of the {ANNO} minimum wage, €2,442 a month over 14 payments (€34,188 a year, the same as €2,849 a month over 12 payments); Croatia's is 2.5 × the 2025 average net salary, €3,622.50 a month; Portugal's D8 is 4 × €920 = €3,680 a month. We recalculate from the official index and show the source and the date under every figure.</p>
 {box_affiliati()}"""
@@ -1371,7 +1374,8 @@ def pagina_confronto_nomadi():
 <h2>Calculator</h2>
 {modulo_calcolatore(rel=rel, paese='Portugal')}
 <h2>Not covered yet</h2>
-<p>We publish a visa only when we can read the complete rule on an official page or in the official gazette. Not covered on the date we checked, because the official source was not readable or was incomplete: Greece (digital nomad visa, financially independent person), Cyprus, Malta (Nomad Residence Permit), Estonia, Czechia, Romania, Latvia, Iceland, Costa Rica, Brazil, Panama, Colombia, Thailand (DTV), the United Arab Emirates and Mexico (amounts vary by consulate). See <a href="{rel}how-it-works/">How it works</a>.</p>"""
+<p>We publish a visa only when we can read the complete rule on an official page or in the official gazette. Not covered on the date we checked, because the official source was not readable or was incomplete: Greece (digital nomad visa, financially independent person), Cyprus, Malta (Nomad Residence Permit), Estonia, Czechia, Romania, Latvia, Iceland, Costa Rica, Brazil, Panama, Colombia, the United Arab Emirates and Mexico (amounts vary by consulate). See <a href="{rel}how-it-works/">How it works</a>.</p>
+<p>{ico("passport")} <strong>Thailand (DTV):</strong> the Destination Thailand Visa asks for savings (usually 500,000 baht in the bank), not a monthly income, and each Thai embassy sets its own fee and residence rule. See <a href="{rel}{SEZ_DTV}">Thailand DTV visa by embassy: fees and who can apply where</a>.</p>"""
     pagina("digital-nomad-visa-income-requirements/", f"Digital nomad visa income requirements {ANNO}: official amounts by country (table)",
            f"Digital nomad visa income requirements {ANNO} compared: Spain, Portugal, Croatia, Hungary and Italy, for singles, couples and families of 4, in euros and US dollars, with official sources.",
            corpo, calcolatore=True, briciole=[(f"Digital nomad visa income requirements {ANNO}", "digital-nomad-visa-income-requirements/")])
@@ -1439,7 +1443,9 @@ def pagina_come_funziona():
 <li>Schengen visa statistics: European Commission, DG Migration and Home Affairs (reuse authorised with acknowledgement of the source).</li>
 <li>Other ministry and immigration authority pages are cited with links; the amounts are facts taken from them.</li></ul>
 <h2>Not covered yet</h2>
-<p>Greece (digital nomad visa and financially independent person visa), Cyprus, Malta, Estonia, Czechia, Romania, Latvia, Iceland, Costa Rica, Brazil, Panama, Colombia, Thailand, the United Arab Emirates and Mexico: the official page could not be read by our checks, gave conflicting figures, or (Mexico) the amount depends on the consulate. Colombia's rule is in Colombian pesos, a currency the ECB does not publish.</p>
+<p>Greece (digital nomad visa and financially independent person visa), Cyprus, Malta, Estonia, Czechia, Romania, Latvia, Iceland, Costa Rica, Brazil, Panama, Colombia, the United Arab Emirates and Mexico: the official page could not be read by our checks, gave conflicting figures, or (Mexico) the amount depends on the consulate. Colombia's rule is in Colombian pesos, a currency the ECB does not publish. Thailand's DTV has no income threshold (it asks for savings) and its fee and residence rule change from embassy to embassy: see <a href="{rel}{SEZ_DTV}">Thailand DTV visa by embassy</a>.</p>
+<h2>9. Thailand DTV visa and Ireland's PPS numbers</h2>
+<p>The <a href="{rel}{SEZ_DTV}">Thailand DTV visa</a> pages quote the official DTV pages of the Thai embassies and consulates. A script reads each page again and checks that every fee and rule we show is still written there; if a page changes, nothing is updated until we read it again. The Ireland pages in <a href="{rel}{SEZ_TR}">Who moved where</a> use the monthly PPS number files of Ireland's Department of Social Protection (CC BY 4.0); a script checks that the months add up to the yearly totals.</p>
 </div>
 {AVVISO}
 {AD}"""
@@ -1495,7 +1501,7 @@ def privacy():
     cookie = MON.privacy_cookie("en", SITO_ID, ci_sono_affiliati())
     if cookie and URL_SAFETYWING:
         cookie += ("\n<p>Affiliate links to SafetyWing (travel medical insurance) appear in the box marked “Affiliate” on the visa refusal "
-                   "rate pages. Buying a policy does not change the decision on your visa.</p>")
+                   "rate pages" + (" and on the Thailand DTV visa pages" if URL_SW_DTV else "") + ". Buying a policy does not change the decision on your visa.</p>")
     if cookie and URL_ITALKI:
         cookie += ("\n<p>Affiliate links to italki (online English teachers) appear in the box marked “Affiliate” on the UK visa English test pages. "
                    "Lessons do not change your test result or the decision on your visa.</p>")
@@ -3631,7 +3637,35 @@ def val_tr(c, d, a):
     return sum(v) if v else None
 
 
-COPPIE_TR = {c: sorted([d for d in DEST_TR if (val_tr(c, d, Y1) or 0) >= SOGLIA_TR], key=lambda d: -val_tr(c, d, Y1)) for c in NAZ_TR}
+# Irlanda (30/10/2026): numeri PPS (PPSN) assegnati per nazionalità e mese (Department of Social Protection, CC BY 4.0, raccolta/ppsn.py).
+# La pagina "nazionalità × Irlanda" esiste se i primi permessi Eurostat OPPURE i PPS assegnati nell'ultimo anno intero sono almeno SOGLIA_TR.
+PPS = json.loads((DATI / "ppsn.json").read_text(encoding="utf-8"))
+PPS_NAZ = PPS["nazionalita"]
+PPS_MESI = PPS["mesi"]
+PPS_ULTIMO = PPS_MESI[-1]                                           # es. 2026-09
+PPS_YTD = PPS_ULTIMO[:4] if PPS_ULTIMO[5:] != "12" else None         # anno in corso (se non è finito)
+PPS_PIENO = str(int(PPS_ULTIMO[:4]) - 1) if PPS_YTD else PPS_ULTIMO[:4]   # ultimo anno intero (es. 2025)
+F_PPS = PPS["fonti"]
+
+
+def pps_anno(c, a):
+    x = PPS_NAZ.get(c)
+    return x["anni"].get(a) if x else None
+
+
+def pps_periodo(c, anno, fino=None):
+    """Somma dei mesi da gennaio al mese 'fino' (MM) dell'anno, dal file mensile."""
+    fino = fino or PPS_ULTIMO[5:]
+    x = PPS_NAZ.get(c)
+    if not x:
+        return None
+    v = [x["mesi"].get(f"{anno}-{m:02d}") for m in range(1, int(fino) + 1)]
+    return None if any(y is None for y in v) else sum(v)
+
+
+PPS_OK = [c for c in NAZ_TR if (pps_anno(c, PPS_PIENO) or 0) >= SOGLIA_TR]
+COPPIE_TR = {c: sorted([d for d in DEST_TR if (val_tr(c, d, Y1) or 0) >= SOGLIA_TR or (d == "ireland" and c in PPS_OK)],
+                       key=lambda d: -(val_tr(c, d, Y1) or 0)) for c in NAZ_TR}
 
 
 def variazione(a, b):
@@ -3813,8 +3847,12 @@ def scheda_coppia(c, d, rel_sez, chi=False):
     misura = {"eu": "first permits", "ca": "new permanent residents", "uk": "visas granted"}[tipo]
     testo = X if chi else nt
     icona = f'<span class="ic">{ico("passport")}</span>' if chi else icona_dest(d)
+    if d == "ireland" and c in PPS_OK:
+        piccolo = f"{intero(pps_anno(c, PPS_PIENO))} PPS numbers in {PPS_PIENO}"
+    else:
+        piccolo = f"{intero(val_tr(c, d, Y1))} {misura} in {Y1}"
     return (f'<a href="{rel_sez}{slug}/{d}/">{icona}<span>{escape(testo)}'
-            f'<small>{intero(val_tr(c, d, Y1))} {misura} in {Y1}</small></span></a>')
+            f'<small>{piccolo}</small></span></a>')
 
 
 def nome_motivo(n):
@@ -4061,6 +4099,181 @@ def pagina_tr_uk(c, d="uk"):
            corpo, jsonld_extra=[ld_faq(domande), ld], briciole=[("Who moved where", SEZ_TR), (X, f"{SEZ_TR}{slug}/"), ("United Kingdom", percorso)])
 
 
+# ---------- pagina nazionalità × Irlanda (PPS assegnati, Department of Social Protection; più i primi permessi Eurostat), 30/10/2026
+def fonte_pps_p(extra=""):
+    m = F_PPS["mensile"]
+    a = F_PPS["annuale"]
+    return (f'<p class="fonte">Source: Department of Social Protection (Ireland), <a href="{escape(F_PPS["pagina"]["url"])}" rel="noopener">{escape(F_PPS["pagina"]["titolo"])}</a> '
+            f'(gov.ie, page updated on {data_lunga(F_PPS["pagina"]["aggiornata"])}): <a href="{escape(m["url"])}" rel="noopener">PPSN registrations by year, month and country</a> and '
+            f'<a href="{escape(a["url"])}" rel="noopener">by year and country</a> (CSV, downloaded on {data_lunga(m["scaricato_il"])}), data to {mese_testo(PPS_ULTIMO)}. {extra}'
+            f'Licence: <a href="{escape(F_PPS["scheda"]["licenza_url"])}" rel="license noopener">{escape(F_PPS["scheda"]["licenza"])}</a> '
+            f'(<a href="{escape(F_PPS["scheda"]["url"])}" rel="noopener">data.gov.ie</a>).</p>')
+
+
+def periodo_pps():
+    return f"January–{MESI[int(PPS_ULTIMO[5:]) - 1]}"
+
+
+def cosa_pps(c):
+    _, X, cit, _, _, _ = NAZ_TR[c]
+    S = F_PPS["servizio"]
+    return (f'<section class="card cosa" aria-labelledby="cosa-h"><h2 id="cosa-h">What this number is, and what it is not</h2><ul class="testo">'
+            f'<li><strong>It is</strong> the number of PPS numbers (Personal Public Service numbers) that Ireland\'s Department of Social Protection allocated to people with '
+            f'{escape(cit.replace(" citizens", ""))} nationality, by month and year. GOV.IE says a PPS number "{escape(S["frasi"][0])}".</li>'
+            f'<li><strong>It is not</strong> a count of people who arrived: the online service is open to "{escape(S["frasi"][1])}", some people get a number before or long after they arrive, '
+            f'and some never move or leave again (<a href="{escape(S["url"])}" rel="noopener">GOV.IE, {escape(S["titolo"])}</a>, read on {data_lunga(S["letta_il"])}).</li>'
+            f'<li><strong>It leaves out</strong> {escape(X)} who already had a PPS number (for example from an earlier stay), and it counts each person by the nationality recorded by the Department.</li>'
+            f'<li><strong>It is not</strong> the number of {escape(X)} living in Ireland, which is much larger. Nothing on this page counts residents.</li></ul></section>')
+
+
+def tabella_pps_mesi(c, cit):
+    anni = sorted({m[:4] for m in PPS_MESI})
+    x = PPS_NAZ[c]["mesi"]
+    righe = []
+    for i in range(12):
+        celle = "".join(cella_n(x.get(f"{a}-{i + 1:02d}")) for a in anni)
+        righe.append(f'<tr><th scope="row">{MESI[i]}</th>{celle}</tr>')
+    tot = "".join(cella_n(sum(v for k, v in x.items() if k.startswith(a) and v is not None)) for a in anni)
+    righe.append(f'<tr class="tot-r"><th scope="row">Total</th>{tot}</tr>')
+    intest = "".join(f'<th class="n" scope="col">{a}{" (to " + MESI[int(PPS_ULTIMO[5:]) - 1][:3] + ")" if a == PPS_YTD else ""}</th>' for a in anni)
+    return (f'<div class="tab compatta"><table id="t-pps-mesi"><caption class="sr">PPS numbers allocated to {escape(cit)} by month, {anni[0]}–{anni[-1]}</caption>'
+            f'<thead><tr><th scope="col">Month</th>{intest}</tr></thead><tbody>{"".join(righe)}</tbody></table></div>')
+
+
+def tabella_pps_anni(c, cit):
+    righe = []
+    anni = PPS["anni"]
+    for a in reversed(anni):
+        v, v0 = pps_anno(c, a), pps_anno(c, str(int(a) - 1))
+        tutti = PPS["tutte"]["anni"].get(a)
+        quota = f'{v / tutti * 100:.1f}%' if v is not None and tutti else "–"
+        nome = f"{a} ({periodo_pps()})" if a == PPS_YTD else a
+        cambio = cella_var(v, v0) if a != PPS_YTD else '<td class="n">–</td>'
+        righe.append(f'<tr><td>{nome}</td>{cella_n(v)}{cambio}<td class="n">{quota}</td></tr>')
+    return (f'<div class="tab compatta"><table id="t-pps-anni"><caption class="sr">PPS numbers allocated to {escape(cit)} by year, {anni[0]}–{anni[-1]}</caption>'
+            f'<thead><tr><th scope="col">Year</th><th class="n" scope="col">PPS numbers</th><th class="n" scope="col">Change</th><th class="n" scope="col">Share of all PPS numbers</th></tr></thead>'
+            f'<tbody>{"".join(righe)}</tbody></table></div>')
+
+
+def pagina_tr_ie(c):
+    slug, X, cit, paese, _, parola = NAZ_TR[c]
+    d = "ireland"
+    rel = "../../../"
+    percorso = f"{SEZ_TR}{slug}/{d}/"
+    fino = PPS_ULTIMO[5:]
+    n_ytd = pps_periodo(c, PPS_YTD) if PPS_YTD else None
+    n_ytd0 = pps_periodo(c, PPS_PIENO, fino) if PPS_YTD else None
+    n1, n0 = pps_anno(c, PPS_PIENO), pps_anno(c, str(int(PPS_PIENO) - 1))
+    tutti1 = PPS["tutte"]["anni"][PPS_PIENO]
+    per = f"{periodo_pps()} {PPS_YTD}" if PPS_YTD else PPS_PIENO
+    per0 = f"{periodo_pps()} {PPS_PIENO}"
+    r1 = riga_eu(c, "IE", Y1)
+    t1 = r1[0] if r1 else None
+    s1 = segni_eu(c, "IE", Y1)
+    agg = data_lunga(F_PPS["pagina"]["aggiornata"])
+    if PPS_YTD:
+        risposta = (f"Ireland's Department of Social Protection allocated <strong>{intero(n_ytd)}</strong> PPS numbers to {escape(cit)} from {per.replace('–', ' to ')}, "
+                    f"and <strong>{intero(n1)}</strong> in {PPS_PIENO} (gov.ie, file updated on {agg}). ")
+        confronto = (f"From {per0.replace('–', ' to ')} the figure was {intero(n_ytd0)}, so the change on the same months of {PPS_PIENO} is {variazione(n_ytd, n_ytd0)}."
+                     if n_ytd0 else "")
+    else:
+        risposta = (f"Ireland's Department of Social Protection allocated <strong>{intero(n1)}</strong> PPS numbers to {escape(cit)} in {PPS_PIENO} (gov.ie, file updated on {agg}). ")
+        confronto = ""
+    prudente = "These are the most recent official monthly figures by nationality, but PPS numbers allocated are not the same as people who moved to Ireland: see what the number is and is not, below."
+    # Eurostat (primi permessi)
+    if r1 and t1 is not None and t1 >= SOGLIA_POCO:
+        righe_m = "".join(f'<tr><td>{nome}</td>{cella_n(r1[i], segno_html(s1, i))}<td class="n">{f"{r1[i] / t1 * 100:.1f}%" if r1[i] is not None and t1 else "–"}</td></tr>'
+                          for i, nome in MOTIVI_TR)
+        righe_m += f'<tr class="tot-r"><td>All reasons</td>{cella_n(t1, segno_html(s1, 0))}<td class="n">100%</td></tr>'
+        righe_s = "".join(f'<tr><td>{a}</td>{cella_n(riga_eu(c, "IE", a)[0], segno_html(segni_eu(c, "IE", a), 0))}</tr>' for a in anni_naz(c) if riga_eu(c, "IE", a))
+        sez_eu = (f'<h2 id="permits">First residence permits issued by Ireland to {escape(cit)} ({Y1})</h2>'
+                  f'<p>Ireland issued <strong>{intero(t1)}</strong> first residence permits to {escape(cit)} in {Y1}, according to Eurostat (data updated on {data_lunga(F_ES["aggiornato_il"])}). '
+                  f'{frase_cambio(t1, (riga_eu(c, "IE", Y0) or [None])[0], Y0)} {motivi_frase(r1)} This is a different measure from PPS numbers: never add the two together.</p>'
+                  f'<div class="tab compatta motivi"><table><caption class="sr">First residence permits issued by Ireland to {escape(cit)}, by reason, {Y1}</caption>'
+                  f'<thead><tr><th scope="col">Reason</th><th class="n" scope="col">{Y1}</th><th class="n" scope="col">Share</th></tr></thead><tbody>{righe_m}</tbody></table></div>'
+                  f'{fonte_es_p()}'
+                  f'<div class="tab compatta"><table><caption class="sr">First residence permits issued by Ireland to {escape(cit)} by year</caption>'
+                  f'<thead><tr><th scope="col">Year</th><th class="n" scope="col">First residence permits</th></tr></thead><tbody>{righe_s}</tbody></table></div>'
+                  f'{fonte_es_p("Eurostat revises past years when countries correct their data. ")}'
+                  + (f'<p class="small">{nota_segni(c, "IE", anni_naz(c))}</p>' if nota_segni(c, "IE", anni_naz(c)) else ""))
+    else:
+        sez_eu = (f'<h2 id="permits">First residence permits</h2><p>Ireland issued {intero(t1) if t1 is not None else "no"} first residence permits to {escape(cit)} in {Y1} (Eurostat, '
+                  f'data updated on {data_lunga(F_ES["aggiornato_il"])}). Ireland and the UK are in the <a href="https://www.irishimmigration.ie/at-the-border/common-travel-area/" rel="noopener">Common Travel Area</a>, '
+                  f'within which "Irish and British citizens can travel freely" (Irish Immigration Service Delivery), so for British citizens this page relies on PPS numbers.</p>' if c == "UK" else "")
+    domande = [
+        (f"How many {parola} moved to Ireland in {PPS_YTD or PPS_PIENO}?",
+         (f"There is no count of moves. The most recent official figure: Ireland allocated {intero(n_ytd)} PPS numbers to {cit} from {per.replace('–', ' to ')}"
+          + (f" ({variazione(n_ytd, n_ytd0)} on the same months of {PPS_PIENO})" if n_ytd0 else "") + f", according to the Department of Social Protection (data to {mese_testo(PPS_ULTIMO)})."
+          if PPS_YTD else f"Ireland allocated {intero(n1)} PPS numbers to {cit} in {PPS_PIENO}.")),
+        (f"How many {parola} moved to Ireland in {PPS_PIENO}?",
+         f"Ireland allocated {intero(n1)} PPS numbers to {cit} in {PPS_PIENO} ({variazione(n1, n0)} on {int(PPS_PIENO) - 1}), {n1 / tutti1 * 100:.1f}% of all PPS numbers allocated that year."
+         + (f" Separately, Ireland issued {intero(t1)} first residence permits to {cit} in {Y1} (Eurostat)." if t1 and t1 >= SOGLIA_POCO else "")),
+        (f"How many {parola} are in Ireland?",
+         "This page does not count residents. PPS numbers and residence permits are new allocations in a period; people who have lived in Ireland for years, "
+         "or who got their PPS number earlier, are not in these figures."),
+        ("Is a PPS number the same as a visa or a residence permit?",
+         "No. GOV.IE describes the PPS number as a number that helps you access social welfare benefits, public services and information in Ireland. Visas and residence permits are separate documents."),
+    ]
+    altri = [x for x in sorted(PPS_OK, key=lambda x: -(pps_anno(x, PPS_PIENO) or 0)) if x != c and "ireland" in COPPIE_TR[x]]
+    griglia = "".join(f'<a href="../../{NAZ_TR[x][0]}/ireland/"><span class="ic">{ico("passport")}</span><span>{escape(NAZ_TR[x][1])}'
+                      f'<small>{intero(pps_anno(x, PPS_PIENO))} PPS numbers in {PPS_PIENO}</small></span></a>' for x in altri)
+    kpi = [(intero(n_ytd0) if n_ytd0 is not None else "–", f"{per0}"), (variazione(n_ytd, n_ytd0) if n_ytd0 else "–", "change on the same months"),
+           (intero(n1), f"in {PPS_PIENO}, full year"), (f"{n1 / tutti1 * 100:.1f}%", f"of all PPS numbers allocated in {PPS_PIENO}")]
+    corpo = f"""<section class="hero"><h1>How many {escape(X)} moved to Ireland in {PPS_YTD or PPS_PIENO}? PPS numbers by month</h1>
+<p class="lead">{risposta}{confronto} {prudente}</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{bandiera("Ireland")}<span>PPS numbers allocated</span><span>{escape(cit)} · {per}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Ireland · {escape(cit)} · {per}</span><span class="sr">: </span><strong>{intero(n_ytd if PPS_YTD else n1)}</strong> PPS numbers</p>
+<div class="kpi">{"".join(f'<div><b>{v}</b><span>{escape(e)}</span></div>' for v, e in kpi)}</div>
+{fonte_pps_p()}
+</div></section>
+{cosa_pps(c)}
+{AD}
+<h2>PPS numbers allocated to {escape(cit)}, month by month</h2>
+<p class="small">Each cell is the number of PPS numbers allocated in that month. The Department publishes monthly figures by nationality from January {PPS_MESI[0][:4]}.</p>
+{tabella_pps_mesi(c, cit)}
+{fonte_pps_p()}
+<h2>PPS numbers allocated to {escape(cit)}, year by year ({PPS["anni"][0]}–{PPS["anni"][-1]})</h2>
+{tabella_pps_anni(c, cit)}
+{fonte_pps_p("Yearly figures are from the yearly file; the share is of all PPS numbers allocated in the year, Irish citizens included. ")}
+{f'<p class="small">In 2020 the yearly file lists British citizens under two world regions (European Union and Europe excluding EU); the figure here is the sum of the two rows.</p>' if c == "UK" else ''}
+{sez_eu}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>Visas and statistics for Ireland on this site</h2>
+{lista_link(link_sito_dest(d, rel) + link_sito_naz(c, rel))}
+{f'<h2>Other nationalities in Ireland: PPS numbers in {PPS_PIENO}</h2><div class="griglia">{griglia}</div>' if griglia else ''}
+<p><a href="../">How many {escape(X)} moved abroad</a> · <a href="../../">Who moved where: all nationalities</a> · <a href="{rel}">Visa income calculator</a></p>"""
+    anno_t = PPS_YTD or PPS_PIENO
+    titolo = titolo_breve([f"How many {X} moved to Ireland in {anno_t}? PPS numbers by month",
+                           f"How many {X} moved to Ireland in {anno_t}? Monthly PPS data", f"{X} moving to Ireland {anno_t}: PPS numbers by month",
+                           f"{X} moving to Ireland {anno_t}: PPS numbers"])
+    descr = (f"{intero(n_ytd if PPS_YTD else n1)} PPS numbers allocated to {cit} in Ireland ({per}); {intero(n1)} in {PPS_PIENO}. Month by month since {PPS_MESI[0][:4]}, "
+             f"year by year since {PPS['anni'][0]}. Department of Social Protection data.")
+    ld = ld_dataset(f"PPS numbers allocated to {cit} in Ireland, {PPS['anni'][0]}-{PPS_ULTIMO}", "Department of Social Protection PPSN registrations by nationality, by month and year.",
+                    percorso, [F_PPS["mensile"]["url"], F_PPS["annuale"]["url"]], f"{PPS['anni'][0]}/{PPS_ULTIMO}", F_PPS["scheda"]["licenza_url"])
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande), ld],
+           briciole=[("Who moved where", SEZ_TR), (X, f"{SEZ_TR}{slug}/"), ("Ireland", percorso)])
+
+
+def blocco_pps_hub(c):
+    """Riquadro 'Ireland: PPS numbers by month' nella pagina della nazionalità (link alla pagina Irlanda se esiste)."""
+    if c not in PPS_NAZ:
+        return ""
+    _, X, cit = NAZ_TR[c][:3]
+    n_ytd = pps_periodo(c, PPS_YTD) if PPS_YTD else None
+    n1 = pps_anno(c, PPS_PIENO)
+    link = ("ireland/" if "ireland" in COPPIE_TR[c] else None)
+    testo = (f"Ireland also publishes a monthly count by nationality: {intero(n_ytd)} PPS numbers allocated to {escape(cit)} from {periodo_pps().replace('–', ' to ')} {PPS_YTD}, "
+             f"{intero(n1)} in {PPS_PIENO} (Department of Social Protection, data to {mese_testo(PPS_ULTIMO)}). A PPS number is not a count of arrivals."
+             if PPS_YTD else f"Ireland allocated {intero(n1)} PPS numbers to {escape(cit)} in {PPS_PIENO} (Department of Social Protection).")
+    return (f'<section class="card" id="ireland-pps"><h2 style="margin-top:0">{ico("calendar")} Ireland: PPS numbers by month</h2><p>{testo}</p>'
+            + (f'<p><a href="{link}">How many {escape(X)} moved to Ireland: PPS numbers month by month</a></p>' if link else
+               f'<p class="small">Fewer than {intero(SOGLIA_TR)} in {PPS_PIENO}: no separate page.</p>')
+            + fonte_pps_p() + '</section>')
+
+
 # ---------- pagina della nazionalità (hub)
 def pagina_tr_naz(c):
     slug, X, cit, paese, _, parola = NAZ_TR[c]
@@ -4134,6 +4347,11 @@ def pagina_tr_naz(c):
         domande.append((f"How many {parola} moved to the UK in {Y1}?",
                         f"The UK granted {intero(sum(uk['anni'][Y1]))} work, study and family visas to {cit} in {Y1} (Home Office). "
                         + ('<a href="uk/">By type and year</a>.' if "uk" in COPPIE_TR[c] else "")))
+    if c in PPS_NAZ and PPS_YTD:
+        domande.append((f"How many {parola} moved to Ireland in {PPS_YTD}?",
+                        f"Ireland allocated {intero(pps_periodo(c, PPS_YTD))} PPS numbers to {cit} from {periodo_pps().replace('–', ' to ')} {PPS_YTD} "
+                        f"(Department of Social Protection); PPS numbers allocated are not the same as people who moved. "
+                        + ('<a href="ireland/">Month by month</a>.' if "ireland" in COPPIE_TR[c] else "")))
     domande.append((f"Is this the number of {X} living in Europe?",
                     f"No. These are new permits issued in {Y1}. {X} who have lived in Europe for years, renewed their permits or hold an EU passport are not counted."))
     nota_uk = (f'<p class="small">British citizens were EU citizens until the end of 2020 and did not need residence permits, so the series starts in {PRIMO_ANNO_UK}; '
@@ -4150,6 +4368,7 @@ def pagina_tr_naz(c):
 </div></section>
 {cosa_eu(c, "the EU", hub=True)}
 {AD}
+{blocco_pps_hub(c)}
 <h2>How many {escape(X)} moved to each EU country in {Y1}</h2>
 <p class="small">First residence permits issued to {escape(cit)}, by EU country, from the most. Tap a column heading to sort. Countries with at least {intero(SOGLIA_TR)} permits in {Y1} have their own page.</p>
 <div class="tab compatta"><table class="ord larga" id="t-tr"><caption class="sr">First residence permits issued to {escape(cit)} by EU country, {Y1} and {Y0}, with reasons for {Y1}</caption><thead><tr>{th_ord("Country", False, "ascending")}{th_ord(Y1)}{th_ord(Y0)}{th_ord("Change")}{th_ord("Family")}{th_ord("Education")}{th_ord("Work")}{th_ord("Other")}</tr></thead><tbody>{righe_ue}</tbody></table></div>
@@ -4193,7 +4412,7 @@ def pagina_tr_indice():
         if pesanti:
             rotture_idx.append(f"{X} ({', '.join(pesanti)})")
         righe.append(f'<tr><td><a href="{slug}/">{escape(X)}</a></td>{cella_n(u1, "<sup title=\"break in time series\">b</sup>" if pesanti else "")}{cella_n(u0)}{cella_var(u1, u0)}{cella_n(efta)}'
-                     f'{cella_n(ca["anni"][Y1] if ca else None)}{cella_n(sum(uk["anni"][Y1]) if uk else None)}</tr>')
+                     f'{cella_n(ca["anni"][Y1] if ca else None)}{cella_n(sum(uk["anni"][Y1]) if uk else None)}{cella_n(pps_anno(c, PPS_PIENO))}</tr>')
     us = riga_eu("US", "EU27_2020", Y1)[0], riga_eu("US", "EU27_2020", Y0)[0]
     uk_ = riga_eu("UK", "EU27_2020", Y1)[0]
     n_coppie = sum(len(v) for v in COPPIE_TR.values())
@@ -4210,25 +4429,31 @@ def pagina_tr_indice():
 {AD}
 <h2>By nationality ({Y1})</h2>
 <p class="small">Three different measures, never added together: first residence permits in the 27 EU countries and in Iceland, Liechtenstein, Norway and Switzerland (Eurostat); new permanent residents of Canada (IRCC); work, study and family visas granted by the UK (Home Office). Tap a column heading to sort.</p>
-<div class="tab compatta"><table class="ord larga"><caption class="sr">Moves abroad by nationality, {Y1}: EU first residence permits, EFTA first permits, new permanent residents of Canada, UK visas granted</caption><thead><tr>{th_ord("Nationality", False, "ascending")}{th_ord(f"EU {Y1}")}{th_ord(f"EU {Y0}")}{th_ord("Change")}{th_ord("EFTA")}{th_ord("Canada")}{th_ord("UK")}</tr></thead><tbody>{"".join(righe)}</tbody></table></div>
+<div class="tab compatta"><table class="ord larga"><caption class="sr">Moves abroad by nationality, {Y1}: EU first residence permits, EFTA first permits, new permanent residents of Canada, UK visas granted</caption><thead><tr>{th_ord("Nationality", False, "ascending")}{th_ord(f"EU {Y1}")}{th_ord(f"EU {Y0}")}{th_ord("Change")}{th_ord("EFTA")}{th_ord("Canada")}{th_ord("UK")}{th_ord(f"Ireland PPS {PPS_PIENO}")}</tr></thead><tbody>{"".join(righe)}</tbody></table></div>
 {fonte_es_p()}
 {fonte_pr_p()}
 {fonte_ukv_p()}
+{fonte_pps_p()}
 {f'<p class="small">b = in {Y1} Eurostat marks a break in the time series for a country that issued at least 10% of these permits: ' + "; ".join(rotture_idx) + f'. Part of the change from {Y0} may come from that.</p>' if rotture_idx else ''}
 <h2>Nationalities</h2>
 <div class="griglia">{schede}</div>
+<h2 id="ireland">Ireland: PPS numbers by nationality, month by month</h2>
+<p class="lead">Ireland's Department of Social Protection publishes every month how many PPS numbers it allocated to each nationality (data to {mese_testo(PPS_ULTIMO)}, page updated on {data_lunga(F_PPS["pagina"]["aggiornata"])}). These are the most recent official monthly figures by nationality, but PPS numbers allocated are not the same as people who moved to Ireland.</p>
+<div class="griglia">{"".join(f'<a href="{NAZ_TR[c][0]}/ireland/"><span class="ic">{ico("passport")}</span><span>{escape(NAZ_TR[c][1])} in Ireland<small>{intero(pps_periodo(c, PPS_YTD) if PPS_YTD else pps_anno(c, PPS_PIENO))} PPS numbers, {periodo_pps() + " " + PPS_YTD if PPS_YTD else PPS_PIENO}</small></span></a>' for c in sorted(PPS_OK, key=lambda x: -(pps_anno(x, PPS_PIENO) or 0)) if "ireland" in COPPIE_TR[c])}</div>
 <h2>How to read these figures</h2>
 <ul class="testo">
 <li><strong>EU and EFTA (Eurostat):</strong> residence permits valid for at least 3 months issued to non-EU citizens for the first time. They are not a count of moves or of residents, and they leave out people who also hold an EU passport.</li>
 <li><strong>Canada (IRCC):</strong> new permanent residents by citizenship. Many already lived in Canada on a temporary permit; temporary workers and students are not counted.</li>
 <li><strong>United Kingdom (Home Office):</strong> work, study and family visas granted to people applying from outside the UK, including dependants. Visitors are not counted.</li>
+<li><strong>Ireland (Department of Social Protection):</strong> PPS numbers allocated by nationality, by month from {PPS_MESI[0][:4]} and by year from {PPS["anni"][0]}. A PPS number gives access to public services; people living abroad can also get one, so it is not a count of moves.</li>
 <li><strong>Updates:</strong> Eurostat publishes each year once, in the autumn of the year after, and revises past years when countries correct their data. IRCC updates its file every month and the Home Office every quarter.</li>
 <li>We show a nationality and country page when there were at least {intero(SOGLIA_TR)} permits, new permanent residents or visas in {Y1}.</li></ul>
 <h2>Official sources</h2>
 <ul class="fonti">
 <li><a href="{escape(F_ES["pagina"])}" rel="noopener">Eurostat, {escape(F_ES["titolo"])}</a> – data updated on {data_lunga(F_ES["aggiornato_il"])}, downloaded from the Eurostat API on {data_lunga(F_ES["scaricato_il"])}; <a href="{escape(F_ES["metadati"])}" rel="noopener">definitions and metadata</a>; <a href="{escape(F_ES["licenza_url"])}" rel="license noopener">free re-use with acknowledgement</a>.</li>
 <li><a href="{escape(F_PR["pagina"])}" rel="noopener">IRCC, Permanent Residents – Monthly IRCC Updates</a> – <a href="{escape(F_PR["url"])}" rel="noopener">CSV</a> updated on {data_rfc(F_PR["ultima_modifica"])}, data to {mese_testo(F_PR["ultimo_mese"])}. Contains information licensed under the <a href="{escape(F_PR["licenza_url"])}" rel="license noopener">{escape(F_PR["licenza"])}</a>.</li>
-<li><a href="{escape(F_UKV["url"])}" rel="noopener">Home Office, {escape(F_UKV["titolo"])}</a> – published {escape(F_UKV["pubblicato"])}, next update {escape(F_UKV["prossimo"])}. Contains public sector information licensed under the <a href="{escape(F_UKV["licenza_url"])}" rel="license noopener">{escape(F_UKV["licenza"])}</a>.</li></ul>
+<li><a href="{escape(F_UKV["url"])}" rel="noopener">Home Office, {escape(F_UKV["titolo"])}</a> – published {escape(F_UKV["pubblicato"])}, next update {escape(F_UKV["prossimo"])}. Contains public sector information licensed under the <a href="{escape(F_UKV["licenza_url"])}" rel="license noopener">{escape(F_UKV["licenza"])}</a>.</li>
+<li><a href="{escape(F_PPS["pagina"]["url"])}" rel="noopener">Department of Social Protection, {escape(F_PPS["pagina"]["titolo"])}</a> – page updated on {data_lunga(F_PPS["pagina"]["aggiornata"])}, data to {mese_testo(PPS_ULTIMO)}; licence <a href="{escape(F_PPS["scheda"]["licenza_url"])}" rel="license noopener">{escape(F_PPS["scheda"]["licenza"])}</a> (<a href="{escape(F_PPS["scheda"]["url"])}" rel="noopener">data.gov.ie</a>).</li></ul>
 <p><a href="{rel}{SEZ}">Visa refusal rates</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements</a> · <a href="{rel}">Visa income calculator</a></p>"""
     ld = ld_dataset(f"First residence permits, new permanent residents and visas granted by nationality, {ANNI_TR[0]}-{Y1}",
                     "Eurostat first residence permits (EU and EFTA), IRCC new permanent residents of Canada and Home Office visas granted, for 12 nationalities.",
@@ -4244,13 +4469,15 @@ def blocco_tr_dest(nome_sito, rel):
     d = "uk" if nome_sito == "United Kingdom" else slug_testo(nome_sito)
     if d not in DEST_TR:
         return ""
-    chi = [c for c in sorted(NAZ_TR, key=lambda x: -(val_tr(x, d, Y1) or 0)) if d in COPPIE_TR[c]]
+    chiave = (lambda x: -(pps_anno(x, PPS_PIENO) or 0)) if d == "ireland" else (lambda x: -(val_tr(x, d, Y1) or 0))
+    chi = [c for c in sorted(NAZ_TR, key=chiave) if d in COPPIE_TR[c]]
     if not chi:
         return ""
     misura = ("work, study and family visas granted by the UK in " + Y1 + " (Home Office)" if d == "uk"
+              else f"PPS numbers allocated in {PPS_PIENO} (Department of Social Protection; a PPS number is not a count of arrivals), with first residence permits (Eurostat) as a separate measure" if d == "ireland"
               else f"first residence permits issued in {Y1} (Eurostat)")
     nf = DEST_TR[d][3]
-    return (f'<h2>Who moved to {escape(nf)} in {Y1}</h2><p class="lead">How many people of each nationality moved to {escape(nf)}: {misura}.</p>'
+    return (f'<h2>Who moved to {escape(nf)} in {Y1}</h2><p class="lead">{"New PPS numbers by nationality in " + escape(nf) if d == "ireland" else "How many people of each nationality moved to " + escape(nf)}: {misura}.</p>'
             f'<div class="griglia">{"".join(scheda_coppia(c, d, rel + SEZ_TR, chi=True) for c in chi)}</div>')
 
 
@@ -4259,6 +4486,9 @@ def genera_trasferimenti():
     for c in NAZ_TR:
         pagina_tr_naz(c)
         for d in COPPIE_TR[c]:
+            if d == "ireland":
+                pagina_tr_ie(c)
+                continue
             {"eu": pagina_tr_eu, "ca": pagina_tr_ca, "uk": pagina_tr_uk}[DEST_TR[d][0]](c, d)
 
 
@@ -4825,6 +5055,359 @@ def controlli_selt():
     return errori
 
 
+# ---------------------------------------------------------------- Thailand DTV visa, embassy by embassy (30/10/2026)
+# Dati: dati/dtv.json (raccolta/dtv.py): elenco ufficiale delle sedi (www.thaiembassy.org), pagine DTV lette con i frammenti di testo
+# controllati a ogni lancio, regola generale dal 31/8/2026 ed esenzione dal visto di 30 giorni dal 15/9/2026.
+# Pagine: /thailand-dtv-visa/ (indice con la tabella delle sedi) e /thailand-dtv-visa/<sede>/ solo per le sedi con domanda e dati.
+DTV = json.loads((DATI / "dtv.json").read_text(encoding="utf-8"))
+SEZ_DTV = "thailand-dtv-visa/"
+LET_DTV = DTV["letture"]
+SEDI_DTV = DTV["sedi"]
+GEN_DTV = DTV["generale"]
+LETTO_DTV = DTV["letto_il"]
+_SWD = AFFILIATI.get("_safetywing_dtv", {})
+URL_SW_DTV = _SWD.get("url", "")
+PAG_DTV = [L for L in LET_DTV if L["domanda"] and ("costo" in L or "residenza" in L)]
+VALUTE_DTV = {"GBP": ("£", ""), "USD": ("US$", ""), "EUR": ("€", ""), "THB": ("", " baht"), "MYR": ("RM", ""), "SGD": ("S$", ""),
+              "EGP": ("", " Egyptian pounds"), "PLN": ("", " złoty"), "INR": ("₹", ""), "CNY": ("", " yuan")}
+
+
+def costo_dtv(c):
+    pre, post = VALUTE_DTV[c["valuta"]]
+    return f'{pre}{intero(c["importo"])}{post}' + ("" if pre in ("£", "€", "US$", "S$", "RM", "₹") else f' ({c["valuta"]})')
+
+
+def eur_dtv(c):
+    if c["valuta"] == "EUR":
+        return c["importo"]
+    r = CAMBI["tassi"].get(c["valuta"])
+    return c["importo"] / r if r else None
+
+
+def pagina_dtv_url(L, i=None):
+    return L["pagine"][L[i]["p"] if i else 0]["url"]
+
+
+def citazione(v):
+    """Frammento ufficiale tra virgolette (con la nostra traduzione se la pagina non è in inglese)."""
+    if v.get("traduzione"):
+        return f'{escape(v["traduzione"])}: “{escape(v["frammento"])}”'
+    return f'“{escape(v["frammento"].rstrip("."))}”'
+
+
+def residenza_dtv(L, breve=False):
+    r = L.get("residenza")
+    if not r:
+        return "Not written in the text of the page"
+    data = L["pagine"][r["p"]]["modificata"]
+    if r["tipo"] == "vecchia":
+        return f'Page last updated on {data_lunga(data)}, before the 31 August 2026 change: {citazione(r)}'
+    return citazione(r)
+
+
+def paese_art(p):
+    """Nome del Paese con l'articolo quando l'inglese lo vuole (the United Kingdom, the United States...)."""
+    return ("the " + p) if p.startswith(("United ", "Philippines", "Netherlands", "Czech Republic", "Republic of")) else p
+
+
+def nome_sede(L):
+    return f'Royal Thai {"Embassy" if L["tipo"] == "Embassy" else "Consulate-General"} in {L["sede"]}'
+
+
+def fonte_dtv_p(L):
+    voci = "; ".join(f'<a href="{escape(pg["url"])}" rel="noopener">{escape(pg["titolo"])}</a> (updated by the {"embassy" if L["tipo"] == "Embassy" else "consulate"} on '
+                     f'{data_lunga(pg["modificata"])})' for pg in L["pagine"])
+    return f'<p class="fonte">Source: {escape(nome_sede(L))}, official website: {voci}. Read on {data_lunga(LETTO_DTV)}.</p>'
+
+
+def fonte_regola_p():
+    o, m = GEN_DTV["regola_osaka"], GEN_DTV["regola_mosca"]
+    a = DTV["fonti"]["annuncio_mfa"]
+    return (f'<p class="fonte">Sources: <a href="{escape(a["url"])}" rel="noopener">announcement of the Department of Consular Affairs</a>, Ministry of Foreign Affairs of Thailand, '
+            f'dated {data_lunga(a["data"])} (in Thai), as reported by the <a href="{escape(m["url"])}" rel="noopener">Royal Thai Embassy in Moscow</a> and the '
+            f'<a href="{escape(o["url"])}" rel="noopener">Royal Thai Consulate-General in Osaka</a> (pages read on {data_lunga(LETTO_DTV)}).</p>')
+
+
+def fonte_esenzione_p():
+    l, w = GEN_DTV["esenzione_londra"], GEN_DTV["esenzione_washington"]
+    return (f'<p class="fonte">Sources: Royal Thai Embassy, London, <a href="{escape(l["url"])}" rel="noopener">Visa Exemption and Visa on Arrival Schemes</a> '
+            f'(updated {data_lunga(l["modificata"])}); Royal Thai Embassy, Washington, DC, <a href="{escape(w["url"])}" rel="noopener">New Visa Exemption and Visa on Arrival</a> '
+            f'(updated {data_lunga(w["modificata"])}). Read on {data_lunga(LETTO_DTV)}.</p>')
+
+
+AVVISO_DTV = ('<p class="avviso"><strong>Not legal or immigration advice.</strong> This page reports what the official pages of the Thai embassies and consulates said '
+              'on the date we read them. Each mission decides on its own applications and can ask for more documents or an interview; paying the fee does not mean '
+              'the visa will be granted, and the fee is not refunded. Check the official page of the mission and the '
+              f'<a href="{DTV["fonti"]["evisa"]["url"]}" rel="noopener">Thai e-Visa website</a> before you apply.</p>')
+
+
+def regola_dtv(rel, breve=False):
+    a = DTV["fonti"]["annuncio_mfa"]
+    if breve:
+        return (f'<section class="card" id="rule-2026"><h2 style="margin-top:0">{ico("calendar")} The rule since 31 August 2026</h2>'
+                f'<p>Since 31 August 2026 DTV applicants must submit <strong>proof of permanent residence in the country or territory where they apply</strong> and a '
+                f'<strong>criminal record certificate</strong> (Department of Consular Affairs, announcement of {data_lunga(a["data"])}). '
+                f'Applications submitted before that date follow the old rules. <a href="{rel}{SEZ_DTV}#rule-2026">What changed</a>.</p>{fonte_regola_p()}</section>')
+    return f"""<h2 id="rule-2026">What changed on 31 August 2026</h2>
+<p>The Department of Consular Affairs of Thailand's Ministry of Foreign Affairs announced on {data_lunga(a["data"])} two changes to the documents for DTV applications, in force since 00.00 on 31 August 2026 (Thailand time):</p>
+<ul class="testo"><li><strong>Proof of permanent residence</strong> replaces the earlier "document indicating current location". The Consulate-General in Osaka words it as “{escape(GEN_DTV["regola_osaka"]["frammenti"][1])}”.</li>
+<li><strong>A certificate of criminal record clearance</strong> is added, “{escape(GEN_DTV["regola_osaka"]["frammenti"][2])}” (Osaka).</li>
+<li>Applications submitted before 31 August 2026 are processed under the earlier requirements.</li></ul>
+<p>In practice this means you apply where you live permanently, not where you happen to be travelling. Some missions spell it out: Singapore grants the DTV only to Singapore citizens and permanent residents; Vientiane asks applicants to be Lao nationals or permanent residents of the Lao PDR; Ho Chi Minh City accepts only a Temporary or Permanent Residence Card from foreigners. Check the row for your mission in the table.</p>
+{fonte_regola_p()}"""
+
+
+def esenzione_dtv(rel, breve=False):
+    if breve:
+        return (f'<p class="small">{ico("check")} Not sure you need a DTV? Since 15 September 2026, British, Irish and US passport holders, among others, can visit Thailand '
+                f'without a visa for up to 30 days for tourism. <a href="{rel}{SEZ_DTV}#visa-exemption">Visa exemption rules</a>.</p>')
+    l = GEN_DTV["esenzione_londra"]["frammenti"]
+    return f"""<h2 id="visa-exemption">Visa exemption: 30 days since 15 September 2026</h2>
+<p>For short tourist trips you may not need a DTV at all. Since 15 September 2026 the visa exemption is <strong>30 days</strong>: the Royal Thai Embassy in London writes that British and Irish passport holders, "as well as foreign travellers from many other countries", "{escape(l[2])}", and the Embassy in Washington lists 60 countries and territories, the United States among them (the list is an image on its page).</p>
+<ul class="testo"><li>Eligible passport holders can use the exemption "{escape(l[3])}" (London).</li>
+<li>Immigration officers may ask for "{escape(l[4])}" and for proof of accommodation and onward travel within 30 days.</li>
+<li>The London page says "{escape(l[5])}", through Thailand's Immigration Bureau.</li>
+<li>For Indian ordinary passport holders, the Embassy in New Delhi says the 30-day exemption "remains effective from 15 September 2026 until further announcement".</li></ul>
+{fonte_esenzione_p()}"""
+
+
+def box_assicurazione_dtv(rel):
+    """Riquadro SafetyWing dopo le informazioni ufficiali. Le pagine DTV lette non chiedono un'assicurazione: il riquadro lo dice."""
+    base = ("None of the DTV pages we read asks for health insurance (they ask for a passport, a photo, proof of residence, bank statements, "
+            "a criminal record certificate and proof of the purpose of your stay).")
+    if not URL_SW_DTV:
+        return ""
+    return (f'<section class="card aff-r" aria-labelledby="aff-d-h"><div class="aff-r-t"><span class="ic">{ico("shield")}</span>'
+            f'<h2 id="aff-d-h">Health cover for a long stay</h2><span class="aff-tag">Affiliate</span></div>'
+            f'<p>{base} A DTV allows stays of up to 180 days per entry. If you want health cover for a long stay, '
+            f'compare policies before you travel.</p>'
+            f'<p class="aff-r-cta"><a class="btn" href="{escape(URL_SW_DTV)}" rel="sponsored noopener" target="_blank">See SafetyWing nomad insurance{ico("arrow")}'
+            f'<span class="sr"> (opens in a new tab)</span></a></p>'
+            f'<p class="small">SafetyWing sells travel medical insurance for travellers and nomads online. {MON.RIGA_EN} Insurance is not a DTV requirement on the pages we read '
+            f'and does not change the decision on your visa.</p></section>')
+
+
+def riga_dtv(L, rel_sez):
+    link = f'<a href="{rel_sez}{L["id"]}/">{escape(L["sede"])}</a>' if L in PAG_DTV else escape(L["sede"])
+    c = L.get("costo")
+    costo = (f'<td data-v="{eur_dtv(c) or 0:.2f}">{costo_dtv(c)}</td>' if c else '<td data-v="">Not written on the page</td>')
+    e = eur_dtv(c) if c else None
+    eur = f'<td class="n" data-v="{e:.2f}">€{intero(round(e))}</td>' if e else '<td class="n" data-v="">–</td>'
+    pg = L["pagine"][0]
+    agg = max(x["modificata"] for x in L["pagine"])
+    return (f'<tr><td>{link}<br><span class="small">{escape(L["paese"])} · {"embassy" if L["tipo"] == "Embassy" else "consulate"}</span></td>{costo}{eur}'
+            f'<td class="small">{residenza_dtv(L)}</td><td><a href="{escape(pg["url"])}" rel="noopener">official page</a></td>'
+            f'<td data-v="{agg.replace("-", "")}">{data_lunga(agg)}</td></tr>')
+
+
+def pagina_dtv_indice():
+    rel = "../"
+    percorso = SEZ_DTV
+    con_costo = [L for L in LET_DTV if "costo" in L]
+    con_res = [L for L in LET_DTV if "residenza" in L]
+    lon = next(L for L in LET_DTV if L["id"] == "london")
+    vie = next(L for L in LET_DTV if L["id"] == "vientiane")
+    was = next(L for L in LET_DTV if L["id"] == "washington-dc")
+    ordinate = sorted(LET_DTV, key=lambda L: (0 if "costo" in L else 1, L["paese"], L["sede"]))
+    righe = "".join(riga_dtv(L, "") for L in ordinate)
+    lette = {L["sito"].split("//")[1].replace("www.", "") for L in LET_DTV}
+    altre = [s for s in SEDI_DTV if not s["dtv"]]
+    def stato(s):
+        if s["http"] != 200:
+            return "website not reachable from our checks"
+        if s.get("sistema") == "other":
+            return "own website (different system), not read"
+        if s.get("lingua_home") == "th":
+            return "website in Thai, no DTV page found"
+        return "no DTV page found"
+    righe_altre = "".join(f'<tr><td>{escape(s["sede"])}</td><td>{escape(s["paese"])}</td><td><a href="{escape(s["sito"])}" rel="noopener">website</a></td><td class="small">{stato(s)}</td></tr>'
+                          for s in sorted(altre, key=lambda s: (s["paese"], s["sede"])))
+    vecchie = [L for L in LET_DTV if L.get("residenza", {}).get("tipo") == "vecchia"]
+    prima = sorted([L for L in LET_DTV if max(x["modificata"] for x in L["pagine"]) < "2026-08-31"], key=lambda L: L["sede"])
+    eur = sorted(((eur_dtv(L["costo"]), L["id"]) for L in con_costo if eur_dtv(L["costo"])))
+    domande = [
+        ("How much does the Thailand DTV visa cost?",
+         f"It depends on the embassy or consulate, and each charges in its own currency. On the pages we read on {data_lunga(LETTO_DTV)}: "
+         + "; ".join(f'{L["sede"]} {costo_dtv(L["costo"])}' for L in sorted(con_costo, key=lambda L: L["sede"])) + "."),
+        ("Can I apply for the DTV in a country where I am only a tourist?",
+         "Not since 31 August 2026 at most missions: applicants must submit proof of permanent residence in the country or territory where they apply. "
+         "For example, Ho Chi Minh City accepts only a Temporary or Permanent Residence Card from foreigners, and Singapore grants the DTV only to its citizens and permanent residents."),
+        ("Do I need health insurance for the DTV?",
+         "None of the DTV pages we read lists health insurance among the required documents. Check the official page of your mission, because requirements can change."),
+        ("How much money do I need in the bank for the DTV?",
+         "Most pages ask for financial evidence of at least 500,000 baht, usually bank statements for the last 3 months. Some write it in their own currency: "
+         "£12,000 in London, US$16,000 in Washington, €15,000 in Helsinki; Hong Kong asks for 150,000 Hong Kong dollars and Cairo for 850,000 Egyptian pounds."),
+        ("Where do I apply for the DTV?",
+         f"Online, on the Thai e-Visa website ({DTV['fonti']['evisa']['url']}), choosing the embassy or consulate for the place where you live. Some missions add their own rules: "
+         "Vientiane takes the fee in cash and needs an appointment."),
+        ("Do I need a DTV for a short holiday?",
+         "Maybe not. Since 15 September 2026 many nationalities, including British, Irish and US citizens, can enter Thailand without a visa for up to 30 days for tourism."),
+    ]
+    ld = [ld_faq(domande), ld_dataset("Thailand DTV visa fees and residence rules by embassy",
+                                      f"Fees and residence rules for the Destination Thailand Visa read on the official pages of {len(LET_DTV)} Thai embassies and consulates.",
+                                      percorso, [DTV["fonti"]["elenco"]["url"]], LETTO_DTV, "https://creativecommons.org/licenses/by/4.0/")]
+    corpo = f"""<section class="hero">{h1_diviso(f"Thailand DTV visa by embassy: fees and who can apply where ({ANNO})")}
+<p class="lead">The Destination Thailand Visa (DTV) fee depends on where you apply: <strong>{costo_dtv(vie["costo"])}</strong> in cash at the embassy in Vientiane, <strong>{costo_dtv(lon["costo"])}</strong> in London and <strong>{costo_dtv(was["costo"])}</strong> in Washington, according to the official pages of the Thai embassies and consulates we read on {data_lunga(LETTO_DTV)}. Since 31 August 2026 you also need proof of permanent residence in the country where you apply and a criminal record certificate (Thai Ministry of Foreign Affairs).</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("passport")}<span>Thailand DTV visa</span><span>read on {data_lunga(LETTO_DTV)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Thai embassies and consulates with a DTV page we could read</span><span class="sr">: </span><strong>{len(LET_DTV)}</strong> of {len(SEDI_DTV)}</p>
+<div class="kpi"><div><b>{len(con_costo)}</b><span>with the fee written on the page</span></div><div><b>{len(con_res)}</b><span>with a residence rule on the page</span></div><div><b>€{intero(round(eur[0][0]))}–€{intero(round(eur[-1][0]))}</b><span>fee range in euros (ECB rates of {data_lunga(CAMBI["data"])})</span></div><div><b>30 days</b><span>visa exemption since 15 September 2026</span></div></div>
+<p class="fonte">Source: official websites of the Thai embassies and consulates-general (list: <a href="{DTV["fonti"]["elenco"]["url"]}" rel="noopener">Ministry of Foreign Affairs of Thailand</a>), read on {data_lunga(LETTO_DTV)}. Every row links to the page it comes from.</p>
+</div></section>
+{AVVISO_DTV}
+{AD}
+<h2 id="table">DTV fee and residence rule, embassy by embassy</h2>
+<p class="small">One row per embassy or consulate whose DTV page we could read. "Who can apply here" quotes the page. "Updated" is the date the mission last edited the page. Euro amounts are approximate (ECB reference rates of {data_lunga(CAMBI["data"])}); you pay in the currency shown. Type to filter, or tap a column heading to sort.</p>
+<p class="filtro"><label><span class="sr">Filter by city or country</span><input type="search" placeholder="Filter: e.g. Vietnam" data-filtro="t-dtv" autocomplete="off"></label></p>
+<div class="tab compatta"><table class="ord larga" id="t-dtv"><caption class="sr">Thailand DTV visa fee and residence rule by Thai embassy and consulate</caption><thead><tr>{th_ord("Embassy or consulate", False, "ascending")}{th_ord("Fee")}{th_ord("≈ in euros")}<th scope="col">Who can apply here (residence)</th><th scope="col">Official page</th>{th_ord("Updated")}</tr></thead><tbody>{righe}</tbody></table></div>
+<p class="fonte">Source: the official page linked in each row (websites of the Royal Thai Embassies and Consulates-General, Ministry of Foreign Affairs of Thailand), read on {data_lunga(LETTO_DTV)}. Fees in US dollars for Los Angeles, New York and Chicago come from the consulates' fee tables, which give the amount without a currency sign.</p>
+<p class="small">{len(prima)} of these pages were last updated before 31 August 2026 ({", ".join(L["sede"] for L in prima)}), so the ones that do not quote the new residence rule may be out of date; {len(vecchie)} of them ({", ".join(L["sede"] for L in vecchie)}) still describe the earlier rule. Several missions publish the DTV rules only as images or in Thai: we list them with "Not written on the page". Check with the mission before you apply.</p>
+{regola_dtv(rel)}
+{esenzione_dtv(rel)}
+<h2>How to apply</h2>
+<ul class="testo"><li>Apply online on the <a href="{DTV["fonti"]["evisa"]["url"]}" rel="noopener">Thai e-Visa website</a> and choose the embassy or consulate for the place where you live permanently.</li>
+<li>Prepare the documents on your mission's page: passport, photo, proof of permanent residence, bank statements (usually at least 500,000 baht over 3 months), a criminal record certificate and proof of the purpose (remote work, Muay Thai or cooking course, medical treatment, or being the spouse or child of a DTV holder).</li>
+<li>The DTV is valid for 5 years with multiple entries and stays of up to 180 days per entry, extendable once by up to 180 days at the Immigration Bureau, as the London page and others say.</li>
+<li>Processing can take a month or more (Kuala Lumpur: "approximately 1 month or more"). Fees are not refunded.</li></ul>
+<p class="fonte">Source: <a href="{escape(lon["pagine"][0]["url"])}" rel="noopener">Royal Thai Embassy, London, Destination Thailand Visa</a> (updated {data_lunga(lon["pagine"][0]["modificata"])}) and the pages linked in the table, read on {data_lunga(LETTO_DTV)}.</p>
+{box_assicurazione_dtv(rel)}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>Embassy pages on this site</h2>
+<div class="griglia">{"".join(f'<a href="{L["id"]}/"><span class="ic">{ico("passport")}</span><span>DTV visa in {escape(L["sede"])}<small>{costo_dtv(L["costo"]) if "costo" in L else "fee not on the page"} · {escape(L["paese"])}</small></span></a>' for L in sorted(PAG_DTV, key=lambda L: L["sede"]))}</div>
+<h2 id="other-missions">Other Thai embassies and consulates</h2>
+<p class="small">{len(altre)} of the {len(SEDI_DTV)} missions on the Ministry's list: we did not find a DTV page we could read on their websites on {data_lunga(LETTO_DTV)} (we looked at the menu and the visa pages). Check their websites or the e-Visa system.</p>
+<p class="filtro"><label><span class="sr">Filter missions</span><input type="search" placeholder="Filter: e.g. Japan" data-filtro="t-altre" autocomplete="off"></label></p>
+<div class="tab compatta"><table class="ord" id="t-altre"><thead><tr>{th_ord("Mission", False, "ascending")}{th_ord("Country", False, "ascending")}<th scope="col">Website</th><th scope="col">What we found</th></tr></thead><tbody>{righe_altre}</tbody></table></div>
+<p class="fonte">Source: list of Royal Thai Embassies and Consulates-General, <a href="{DTV["fonti"]["elenco"]["url"]}" rel="noopener">Ministry of Foreign Affairs of Thailand</a>, read on {data_lunga(LETTO_DTV)}.</p>
+<p><a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements in Europe</a> · <a href="{rel}{SEZ}">Visa refusal rates</a> · <a href="{rel}">Visa income calculator</a></p>"""
+    titolo = f"Thailand DTV visa by embassy {ANNO}: fees and residence rules"
+    descr = (f"DTV visa fee and residence rule at {len(LET_DTV)} Thai embassies and consulates: {costo_dtv(vie['costo'])} in Vientiane, {costo_dtv(lon['costo'])} in London, "
+             f"{costo_dtv(was['costo'])} in Washington. Proof of permanent residence since 31 August 2026; 30-day visa exemption since 15 September 2026.")
+    pagina(percorso, titolo, descr, corpo, ordina=True, jsonld_extra=ld, briciole=[("Thailand DTV visa by embassy", percorso)])
+
+
+def pagina_dtv_sede(L):
+    rel = "../../"
+    percorso = f"{SEZ_DTV}{L['id']}/"
+    c, r, s = L.get("costo"), L.get("residenza"), L.get("saldo")
+    stesso = [x for x in LET_DTV if x["paese"] == L["paese"] and x["id"] != L["id"]]
+    agg = max(x["modificata"] for x in L["pagine"])
+    chi = nome_sede(L)
+    frasi = []
+    if c:
+        pc = L["pagine"][c["p"]]["modificata"]
+        note = [escape(c["nota"])] if c.get("nota") else []
+        if pc < "2026-08-31" and pc != agg:
+            note.append(f'fee page last updated on {data_lunga(pc)}')
+        frasi.append(f'lists the DTV fee as <strong>{costo_dtv(c)}</strong>' + (f' ({"; ".join(note)})' if note else ""))
+    else:
+        frasi.append('does not write the DTV fee in the text of its page')
+    if r:
+        if r["tipo"] == "vecchia":
+            frasi.append(f'its page, last updated on {data_lunga(L["pagine"][r["p"]]["modificata"])} before the 31 August 2026 change, says on residence: {citazione(r)}')
+        elif r.get("traduzione"):
+            frasi.append(f'on residence, the page says that applicants {escape(r["traduzione"].replace(" (our translation from Spanish)", ""))} (our translation from Spanish)')
+        else:
+            frasi.append(f'on residence, the page says: {citazione(r)}')
+    elif agg < "2026-08-31":
+        frasi.append(f"its page, last updated on {data_lunga(agg)} before the 31 August 2026 change, does not write a residence rule; the general rule since that date is proof of permanent residence in the country where you apply")
+    else:
+        frasi.append("its page does not write a residence rule, so the general rule applies: proof of permanent residence in the country where you apply, since 31 August 2026")
+    prima = (f'The {escape(chi)} ' + "; ".join(frasi[:1]) + "".join("; " + f for f in frasi[1:]) + f' (official page updated on {data_lunga(agg)}, read on {data_lunga(LETTO_DTV)}).')
+    righe = []
+    if c:
+        righe.append(("Fee", costo_dtv(c) + (f' <span class="small">≈ €{intero(round(eur_dtv(c)))}</span>' if eur_dtv(c) and c["valuta"] != "EUR" else ""),
+                      f'“{escape(c["frammento"])}”' + (f' · {escape(c["nota"])}' if c.get("nota") else ""), L["pagine"][c["p"]]))
+    else:
+        righe.append(("Fee", "Not written on the page", "Check the e-Visa system when you apply.", L["pagine"][0]))
+    righe.append(("Who can apply here", residenza_dtv(L) if r else "Not written on the page (general rule: proof of permanent residence in the country where you apply)",
+                  "" if not r else ("Page updated before 31 August 2026" if r["tipo"] == "vecchia" else ""), L["pagine"][r["p"]] if r else L["pagine"][0]))
+    if s:
+        righe.append(("Money to show", citazione(s), "", L["pagine"][s["p"]]))
+    for a in L.get("altre", []):
+        righe.append(("Also on the page", citazione(a), "", L["pagine"][a["p"]]))
+    tab = "".join(f'<tr><th scope="row" style="vertical-align:top">{escape(a)}</th><td style="vertical-align:top">{b}{(" <span class=\"small\">" + cc + "</span>") if cc and a != "Fee" else ""}'
+                  f'{("<br><span class=\"small\">" + cc + "</span>") if cc and a == "Fee" else ""}</td>'
+                  f'<td style="vertical-align:top"><a href="{escape(pg["url"])}" rel="noopener">{escape(pg["titolo"][:60])}</a><br><span class="small">updated {data_lunga(pg["modificata"])}</span></td></tr>'
+                  for a, b, cc, pg in righe)
+    nota_paese = ""
+    if L["id"] == "ho-chi-minh-city":
+        h = next((x for x in LET_DTV if x["id"] == "hanoi"), None)
+        if h:
+            nota_paese = (f'<p>The Royal Thai Embassy in Hanoi also has a DTV page (<a href="{escape(h["pagine"][0]["url"])}" rel="noopener">official page</a>, '
+                          f'updated {data_lunga(h["pagine"][0]["modificata"])}), but its content is published as images in Thai, so we could not read the fee or the rules there.</p>')
+    domande = [
+        (f"How much is the DTV visa in {L['sede']}?",
+         (f"The {chi} lists the fee as {costo_dtv(c)}" + (f" ({c['nota']})" if c.get("nota") else "") + f", on its page updated on {data_lunga(L['pagine'][c['p']]['modificata'])}. Fees are not refunded."
+          if c else f"The {chi} does not write the fee on its DTV page. The e-Visa system shows it when you apply.")),
+        (f"Can I apply for the DTV in {L['sede']} if I do not live in {paese_art(L['paese'])}?",
+         ("Since 31 August 2026 applicants must submit proof of permanent residence in the country or territory where they apply. "
+          + ((f"The {chi}'s page was last updated on {data_lunga(L['pagine'][r['p']]['modificata'])}, before that change, and still says: {re.sub(r'<[^>]+>', '', citazione(r))}." if r["tipo"] == "vecchia"
+              else f"The {chi} writes that applicants {r['traduzione'].replace(' (our translation from Spanish)', '')} (our translation from Spanish): “{r['frammento']}”." if r.get("traduzione")
+              else f"The {chi} writes: {re.sub(r'<[^>]+>', '', citazione(r))}.") if r else "This mission's page does not add its own wording."))),
+        (f"How much money do I need for the DTV in {L['sede']}?",
+         (f"The {chi} asks for financial evidence: " + re.sub(r"<[^>]+>", "", citazione(s)) + "." if s else "Most missions ask for at least 500,000 baht in bank statements over 3 months; this page does not give an amount.")),
+        ("Do I need health insurance for the DTV?", "The DTV pages we read, this one included, do not list health insurance among the required documents."),
+    ]
+    altri_paese = (f'<h2>Other Thai missions in {escape(paese_art(L["paese"]))}</h2><ul class="testo">' + "".join(
+        f'<li>{(f"<a href=\"../{x["id"]}/\">" + escape(x["sede"]) + "</a>") if x in PAG_DTV else escape(x["sede"])}: '
+        f'{("fee " + costo_dtv(x["costo"])) if "costo" in x else "fee not written on the page"}; residence: {residenza_dtv(x)[0].lower() + residenza_dtv(x)[1:] if not x.get("residenza") else residenza_dtv(x)}</li>' for x in stesso) + "</ul>") if stesso else ""
+    corpo = f"""<section class="hero"><h1>Thailand DTV visa in {escape(L["sede"])}: fee and who can apply ({ANNO})</h1>
+<p class="lead">{prima}</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{bandiera(L["paese"]) if '<svg class="flag"' in bandiera(L["paese"]) else ico("passport")}<span>{escape(chi)}</span><span>read on {data_lunga(LETTO_DTV)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">DTV fee in {escape(L["sede"])}</span><span class="sr">: </span><strong>{costo_dtv(c) if c else "not on the page"}</strong></p>
+<div class="kpi"><div><b>{("€" + intero(round(eur_dtv(c)))) if c and eur_dtv(c) else "–"}</b><span>approximately, in euros (ECB {data_lunga(CAMBI["data"])})</span></div><div><b>{"Yes" if r and r["tipo"] != "vecchia" else ("Old rule" if r else "Not written")}</b><span>residence rule on the page</span></div><div><b>{data_lunga(agg)}</b><span>page last updated by the mission</span></div><div><b>5 years</b><span>validity, multiple entries</span></div></div>
+{fonte_dtv_p(L)}
+</div></section>
+{AVVISO_DTV}
+{AD}
+<h2>What the official page says</h2>
+<div class="tab compatta"><table id="t-sede"><caption class="sr">DTV rules at the {escape(chi)}</caption><thead><tr><th scope="col">Item</th><th scope="col">Official wording</th><th scope="col">Page</th></tr></thead><tbody>{tab}</tbody></table></div>
+{fonte_dtv_p(L)}
+{nota_paese}
+{regola_dtv(rel, breve=True)}
+{esenzione_dtv(rel, breve=True)}
+{altri_paese}
+{box_assicurazione_dtv(rel)}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<p><a href="../">Thailand DTV visa: all embassies and consulates</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements</a> · <a href="{rel}">Visa income calculator</a></p>"""
+    titolo = titolo_breve([f"Thailand DTV visa in {L['sede']} ({ANNO}): fee and who can apply", f"DTV visa {L['sede']} {ANNO}: fee and residence rule",
+                           f"DTV visa {L['sede']} {ANNO}: fee and rules", f"DTV visa {L['sede']} ({ANNO})"])
+    descr = (f"DTV visa at the {chi}: " + (f"fee {costo_dtv(c)}" if c else "fee not written on the page")
+             + f", who can apply there (residence rule), money to show and the official page (updated {data_lunga(agg)}, read {data_lunga(LETTO_DTV)}).")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)],
+           briciole=[("Thailand DTV visa by embassy", SEZ_DTV), (L["sede"], percorso)])
+
+
+def genera_dtv():
+    pagina_dtv_indice()
+    for L in PAG_DTV:
+        pagina_dtv_sede(L)
+
+
+def controlli_dtv():
+    errori = []
+    if len(SEDI_DTV) < 80:
+        errori.append(f"dtv: elenco delle sedi troppo corto ({len(SEDI_DTV)})")
+    if len(LET_DTV) < 20 or len(PAG_DTV) < 5:
+        errori.append("dtv: troppo poche sedi lette o con pagina")
+    for L in LET_DTV:
+        if "costo" in L and L["costo"]["valuta"] not in VALUTE_DTV:
+            errori.append(f"dtv: valuta {L['costo']['valuta']} senza simbolo (VALUTE_DTV)")
+        if any(not pg.get("modificata") or pg.get("http") != 200 for pg in L["pagine"]):
+            errori.append(f"dtv: pagina di {L['id']} senza data o non letta")
+    if URL_SW_DTV and not URL_SW_DTV.startswith("https://safetywing.com/"):
+        errori.append("dtv: link SafetyWing non valido in dati/affiliati.json (_safetywing_dtv)")
+    if len({L["id"] for L in LET_DTV}) != len(LET_DTV):
+        errori.append("dtv: id doppi")
+    return errori
+
+
 def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
@@ -4905,6 +5488,7 @@ def controlli():
     errori += controlli_altri()
     errori += controlli_trasferimenti()
     errori += controlli_selt()
+    errori += controlli_dtv()
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -4931,6 +5515,7 @@ def main():
     genera_rifiuti()
     genera_trasferimenti()
     genera_selt()
+    genera_dtv()
     pagina_come_funziona()
     about()
     contatti()
@@ -4940,7 +5525,8 @@ def main():
           f"cambi BCE del {CAMBI['data']}; visti rifiutati: {len(PAESI_RIF)} Paesi, {len(STATI_UE)} Stati Schengen ({A1}), UK fino al {TRIM[-1]}; "
           f"Australia {len(AU_OK)} nazionalità ({AU_A1}), Nuova Zelanda {len(NZ_OK)} ({NZ_A1}), Canada {len(CA_OK)} ({CA_A1}); "
           f"trasferimenti: {len(NAZ_TR)} nazionalità, {sum(len(v) for v in COPPIE_TR.values())} pagine nazionalità × Paese ({Y1}); "
-          f"test di inglese UK (SELT): {len(CITTA_PAG)} città e {len(PAESI_PAG)} Paesi con pagina (elenco del {DATA_ELENCO}).")
+          f"test di inglese UK (SELT): {len(CITTA_PAG)} città e {len(PAESI_PAG)} Paesi con pagina (elenco del {DATA_ELENCO}); "
+          f"DTV Thailandia: {len(LET_DTV)} sedi lette su {len(SEDI_DTV)}, {len(PAG_DTV)} con pagina; Irlanda (PPS): {len(PPS_OK)} nazionalità, dati a {PPS_ULTIMO}.")
 
 
 if __name__ == "__main__":

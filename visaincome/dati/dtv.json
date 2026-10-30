@@ -1,0 +1,3575 @@
+{
+"_nota": "Generato da raccolta/dtv.py: non modificare a mano (i valori letti a mano stanno in LETTURE dentro lo script). Fonte: siti delle ambasciate e dei consolati generali thailandesi (Ministero degli Esteri thailandese), letti il giorno indicato.",
+"generato_il": "2026-10-30",
+"letto_il": "2026-10-30",
+"impronta": "04fbf6615758c089ad8f",
+"fonti": {
+"elenco": {
+"url": "https://www.thaiembassy.org/",
+"titolo": "Thai Embassy and Consulates (Ministry of Foreign Affairs of Thailand)",
+"letto_il": "2026-10-30"
+},
+"annuncio_mfa": {
+"url": "https://consular.mfa.go.th/th/content/28-8-69-00?cate=5ddbe42115e39c4768007e1d",
+"titolo": "ประกาศแจ้งเตือน การปรับเพิ่มเอกสารประกอบคำร้องการตรวจลงตรา ประเภท ‘Destination Thailand Visa (DTV)",
+"data": "2026-08-28",
+"editore": "Department of Consular Affairs, Ministry of Foreign Affairs of Thailand",
+"letto_il": "2026-10-30"
+},
+"evisa": {
+"url": "https://www.thaievisa.go.th/",
+"titolo": "Thai e-Visa (official website)"
+}
+},
+"domanda": {
+"data": "2026-10-30",
+"metodo": "https://suggestqueries.google.com/complete/search?client=firefox&gl=<us|uk|in|vn>&hl=en&q=…",
+"query": {
+"us|dtv visa ": [
+"dtv visa thailand",
+"dtv visa thailand requirements",
+"dtv visa requirements",
+"dtv visa thailand price",
+"dtv visa cost",
+"dtv visa application",
+"dtv visa vietnam",
+"dtv visa reddit",
+"dtv visa thailand reddit",
+"dtv visa thailand application"
+],
+"us|dtv visa from": [
+"dtv visa from vietnam",
+"dtv visa from india",
+"dtv visa from laos",
+"dtv visa from thailand",
+"dtv visa from dubai",
+"dtv visa from bangladesh",
+"dtv visa from malaysia",
+"dtv visa for indians",
+"dtv visa for muay thai",
+"dtv visa for medical treatment"
+],
+"us|dtv visa embassy": [
+"dtv visa london embassy",
+"dtv visa thai embassy",
+"dtv visa thai embassy london",
+"dtv visa thai embassy singapore",
+"dtv visa thai embassy hanoi",
+"dtv visa uk embassy",
+"dtv visa thailand uk embassy",
+"dtv visa royal thai embassy",
+"visa embassy near me",
+"do you have to go to an embassy to get a visa"
+],
+"us|dtv visa thai embassy": [
+"dtv visa thai embassy",
+"dtv visa thai embassy london",
+"dtv visa thai embassy singapore",
+"dtv visa thai embassy hanoi",
+"dtv visa royal thai embassy",
+"dtv visa thailand uk embassy",
+"thai embassy dtv visa application",
+"thai embassy visa fee",
+"royal thai embassy visa requirements",
+"can i get thailand visa online"
+],
+"us|dtv visa fee": [
+"dtv visa fees",
+"dtv visa fee thailand",
+"dtv visa cost thailand",
+"dtv visa application fee",
+"dtv visa thailand application fee",
+"dtv visa thailand extension fee",
+"destination thailand visa dtv fee",
+"how much is dtv",
+"visa direct fees",
+"what is dtv"
+],
+"us|dtv visa price": [
+"dtv visa price",
+"dtv visa price thailand",
+"dtv visa fee thailand",
+"dtv visa cost and requirements",
+"dtv visa cost vietnam",
+"dtv visa thailand price english",
+"muay thai dtv visa price",
+"destination thailand visa dtv price",
+"how much is dtv",
+"dtv price"
+],
+"us|dtv visa cost": [
+"dtv visa cost",
+"dtv visa cost thailand",
+"dtv visa cost and requirements",
+"dtv visa cost vietnam",
+"dtv visa fee thailand",
+"dtv visa application cost",
+"muay thai dtv visa cost",
+"destination thailand visa dtv cost",
+"thailand 5 year dtv visa cost",
+"how much is dtv"
+],
+"us|dtv visa requirements": [
+"dtv visa requirements",
+"dtv visa requirements thailand",
+"dtv visa requirements vietnam",
+"dtv visa requirements reddit",
+"dtv visa required documents",
+"dtv visa application",
+"dtv visa rules",
+"dtv visa application form",
+"dtv visa application fee",
+"dtv visa application thailand"
+],
+"us|dtv visa insurance": [
+"dtv visa insurance'",
+"dtv visa health insurance",
+"dtv visa thailand insurance",
+"dtv visa thailand health insurance",
+"visa direct fees",
+"what does visa insurance cover"
+],
+"us|dtv visa london": [
+"dtv visa london embassy",
+"dtv visa london",
+"dtv visa thailand london",
+"dtv london embassy",
+"dtv visa thai embassy london",
+"is visa down uk",
+"how to apply for london visa online"
+],
+"us|dtv visa washington": [
+"dtv visa washington dc",
+"how much is dtv",
+"is dtv available in my area"
+],
+"us|dtv visa vientiane": [
+"dtv visa vientiane",
+"dtv visa thailand vientiane",
+"visa status options"
+],
+"us|dtv visa hanoi": [
+"dtv visa hanoi",
+"dtv visa hanoi requirements",
+"dtv visa thailand hanoi",
+"dtv hanoi embassy",
+"dtv visa thai embassy hanoi",
+"tv channels in vietnam"
+],
+"us|dtv visa ho chi minh": [
+"dtv visa ho chi minh",
+"dtv visa thailand ho chi minh",
+"thai embassy ho chi minh dtv visa",
+"do i need a visa for ho chi minh city",
+"ho chi minh airport arrival schedule",
+"ho chi minh flight status",
+"ho chi minh airport closed"
+],
+"us|dtv visa kuala lumpur": [
+"dtv visa kuala lumpur",
+"dtv visa thailand kuala lumpur",
+"how to get visa for kuala lumpur",
+"do you need a visa for kuala lumpur",
+"kuala lumpur visa cost",
+"is kuala lumpur visa on arrival",
+"do malaysian need visa to norway"
+],
+"us|dtv visa singapore": [
+"dtv visa singapore",
+"dtv visa singapore reddit",
+"dtv visa thailand singapore",
+"dtv visa thai embassy singapore",
+"how much is dtv"
+],
+"us|dtv visa phnom penh": [],
+"us|dtv visa new delhi": [],
+"us|dtv visa dubai": [
+"dtv visa from dubai",
+"dtv visa thailand dubai",
+"how to check dubai visa",
+"how to check dubai visa online"
+],
+"us|dtv visa penang": [],
+"us|dtv visa jakarta": [
+"dtv visa jakarta",
+"dtv visa thailand jakarta"
+],
+"us|dtv visa tokyo": [
+"dtv visa tokyo",
+"how to get tokyo visa",
+"tv channels in tokyo",
+"do you need a visa to go to tokyo",
+"do you need a visa to transit through japan"
+],
+"us|dtv visa sydney": [],
+"us|dtv visa los angeles": [
+"dtv visa los angeles",
+"thailand dtv visa los angeles",
+"how much is dtv",
+"is dtv available in my area"
+],
+"us|dtv visa new york": [],
+"us|dtv visa berlin": [
+"dtv visa berlin",
+"dtv visa thailand berlin",
+"how much is visa from kenya to germany"
+],
+"us|dtv visa savannakhet": [],
+"us|dtv visa manila": [
+"dtv visa manila"
+],
+"us|dtv visa seoul": [],
+"us|dtv visa hong kong": [
+"dtv visa hong kong",
+"dtv visa thailand hong kong",
+"how to check hong kong visa status",
+"how long does a hong kong visa take",
+"how can i check my visa status in hong kong"
+],
+"us|dtv visa taipei": [
+"dtv visa taipei",
+"dtv visa taiwan",
+"tv channels in taiwan",
+"do i need a visa to transit through taiwan",
+"do i need a visa for taiwan"
+],
+"us|dtv visa colombo": [],
+"us|dtv visa kathmandu": [],
+"us|dtv visa yangon": [
+"dtv visa yangon",
+"dtv visa thailand yangon",
+"how much is dtv",
+"what is dtv"
+],
+"us|dtv visa mumbai": [
+"dtv visa mumbai requirements",
+"how to get visa direct",
+"difference between tv and dtv"
+],
+"us|dtv visa chennai": [],
+"us|dtv visa kolkata": [],
+"us|dtv visa canberra": [
+"dtv visa canberra",
+"is dtv available in my area"
+],
+"us|dtv visa wellington": [],
+"us|dtv visa ottawa": [],
+"us|dtv visa vancouver": [],
+"us|dtv visa chicago": [
+"dtv visa chicago",
+"how much is dtv",
+"is dtv available in my area"
+],
+"us|dtv visa paris": [],
+"us|dtv visa madrid": [],
+"us|dtv visa lisbon": [],
+"us|dtv visa rome": [],
+"us|dtv visa the hague": [],
+"us|dtv visa stockholm": [],
+"us|dtv visa oslo": [],
+"us|dtv visa copenhagen": [],
+"us|dtv visa helsinki": [],
+"us|dtv visa budapest": [],
+"us|dtv visa prague": [],
+"us|dtv visa vienna": [],
+"us|dtv visa warsaw": [
+"dtv visa warsaw",
+"dtv visa thailand warsaw",
+"what is dtv terrestrial"
+],
+"us|dtv visa athens": [],
+"us|dtv visa ankara": [
+"dtv visa ankara",
+"do you need a visa to go to turkey from kenya"
+],
+"us|dtv visa doha": [],
+"us|dtv visa abu dhabi": [],
+"us|dtv visa riyadh": [],
+"us|dtv visa cairo": [],
+"us|dtv visa nairobi": [],
+"us|dtv visa pretoria": [],
+"us|dtv visa mexico": [
+"dtv visa thailand mexico",
+"does directv work in mexico",
+"do i need mexico visa if i have canada visa"
+],
+"us|dtv visa buenos aires": [],
+"us|dtv visa lima": [],
+"us|dtv visa santiago": [],
+"us|dtv visa bern": [],
+"us|dtv visa frankfurt": [
+"dtv visa frankfurt",
+"dtv visum frankfurt",
+"do you need a visa for frankfurt",
+"can i transit in frankfurt without visa",
+"do i need a transit visa for frankfurt germany"
+],
+"us|dtv visa munich": [
+"dtv visa münchen"
+],
+"us|dtv visa osaka": [],
+"us|dtv visa shanghai": [],
+"us|dtv visa guangzhou": [],
+"us|dtv visa beijing": [],
+"us|dtv visa dhaka": [],
+"us|dtv visa islamabad": [],
+"us|dtv visa karachi": [],
+"us|dtv visa siem reap": [],
+"us|dtv visa kota bharu": [],
+"us|dtv visa brunei": [],
+"us|dtv visa dili": [],
+"us|dtv visa moscow": [
+"dtv visa moscow",
+"dtv visa thailand moscow",
+"do you need a visa for moscow",
+"how to get moscow visa"
+],
+"us|dtv visa tel aviv": [],
+"us|dtv visa astana": [],
+"us|dtv visa bucharest": [],
+"us|dtv visa qingdao": [],
+"uk|dtv visa ": [
+"dtv visa thailand",
+"dtv visa thailand requirements",
+"dtv visa requirements",
+"dtv visa turkey",
+"dtv visa thailand price",
+"dtv visa cost",
+"dtv visa application",
+"dtv visa thailand for indian citizens",
+"dtv visa meaning",
+"dtv visa thailand reddit"
+],
+"uk|dtv visa from": [
+"dtv visa from vietnam",
+"dtv visa from india",
+"dtv visa from laos",
+"dtv visa from thailand",
+"dtv visa from dubai",
+"dtv visa from bangladesh",
+"dtv visa from malaysia",
+"dtv visa for indians",
+"dtv visa for muay thai",
+"dtv visa for medical treatment"
+],
+"uk|dtv visa embassy": [
+"dtv visa london embassy",
+"dtv visa thai embassy",
+"dtv visa thai embassy london",
+"dtv visa thai embassy singapore",
+"dtv visa thai embassy hanoi",
+"dtv visa uk embassy",
+"dtv visa thailand uk embassy",
+"dtv visa royal thai embassy",
+"visa embassy near me",
+"do you have to go to an embassy to get a visa"
+],
+"uk|dtv visa fee": [
+"dtv visa fees",
+"dtv visa fee thailand",
+"dtv visa cost thailand",
+"dtv visa application fee",
+"dtv visa thailand application fee",
+"dtv visa thailand extension fee",
+"destination thailand visa dtv fee",
+"how much is dtv",
+"visa direct fees",
+"what is dtv"
+],
+"uk|dtv visa vietnam": [
+"dtv visa vietnam",
+"dtv visa vietnam reddit",
+"dtv visa vietnam requirements",
+"dtv visa thailand vietnam",
+"dtv visa application vietnam",
+"dtv visa cost vietnam",
+"tv channels in vietnam",
+"do i need a visa for vietnam",
+"how to get a vietnam visa online"
+],
+"uk|dtv visa laos": [
+"dtv visa laos",
+"dtv visa thailand laos",
+"can i get a laos visa at the airport",
+"how to apply laos visa online",
+"do i need a visa for laos from australia"
+],
+"uk|dtv visa malaysia": [
+"dtv visa malaysia",
+"dtv visa thailand malaysia",
+"how to check malaysia visa online",
+"how to check malaysia visa"
+],
+"uk|dtv visa india": [
+"dtv visa india",
+"dtv visa india reddit",
+"dtv visa for indians",
+"dtv visa thailand india",
+"dtv visa thailand for indian citizens",
+"dtv visa thailand for indian",
+"how to take india visa"
+],
+"uk|dtv visa singapore": [
+"dtv visa singapore",
+"dtv visa singapore reddit",
+"dtv visa thailand singapore",
+"dtv visa thai embassy singapore",
+"how much is dtv"
+],
+"uk|dtv visa hong kong": [
+"dtv visa hong kong",
+"dtv visa thailand hong kong",
+"how to check hong kong visa status",
+"how long does a hong kong visa take",
+"how can i check my visa status in hong kong"
+],
+"uk|dtv visa usa": [
+"dtv visa usa",
+"dtv visa thailand usa"
+],
+"uk|dtv visa uk": [
+"dtv visa uk",
+"dtv visa uk embassy",
+"dtv visa thailand uk",
+"dtv visa thailand uk embassy",
+"apply for dtv visa uk",
+"how to check uk visa decision online"
+],
+"uk|dtv visa cambodia": [
+"dtv visa cambodia",
+"dtv visa thailand cambodia",
+"how to check cambodia visa online",
+"how to check cambodia visa status",
+"visa cost cambodia",
+"what are the visa requirements for cambodia"
+],
+"uk|dtv visa myanmar": [
+"dtv visa myanmar",
+"dtv visa thailand myanmar",
+"myanmar visa cost",
+"myanmar visa types"
+],
+"uk|dtv visa russia": [
+"dtv visa thailand russia",
+"can i get a visa to russia"
+],
+"uk|dtv visa egypt": [],
+"uk|dtv visa poland": [
+"dtv visa poland",
+"dtv visa thailand poland",
+"what is d type visa for poland",
+"do i need a visa to go to poland",
+"do you need a visa for poland",
+"do i need a visa to transit through poland"
+],
+"uk|dtv visa spain": [
+"dtv visa spain",
+"dtv nomad visa spain for couple",
+"what is a type d visa in spain",
+"which satellite for uk tv in spain",
+"how much is spain visa"
+],
+"uk|dtv visa italy": [
+"dtv visa italy",
+"how to get italy visa",
+"what is type d visa of italy",
+"how to get italy visa from canada"
+],
+"uk|dtv visa finland": [],
+"uk|dtv visa romania": [
+"dtv visa romania",
+"how to check romania visa online",
+"how to check romania work visa online",
+"tv channels in romania",
+"is romania visa free"
+],
+"uk|dtv visa hungary": [],
+"uk|dtv visa norway": [],
+"uk|dtv visa china": [
+"dtv visa china",
+"tv channels in china",
+"what is a t visa in china",
+"visa process for china"
+],
+"uk|dtv visa nepal": [],
+"uk|dtv visa sri lanka": [
+"dtv visa sri lanka",
+"visa cost sri lanka",
+"how to check sri lanka visa status",
+"what is the official sri lanka visa website"
+],
+"uk|dtv visa from vietnam": [
+"dtv visa from vietnam",
+"dtv visa thailand from vietnam",
+"dtv visa vietnam reddit",
+"dtv visa vietnam requirements",
+"dtv visa application vietnam",
+"dtv visa cost vietnam",
+"how to get a visa for vietnam",
+"how to get a vietnam visa online",
+"how to pay for vietnam visa",
+"how to check vietnam visa status"
+],
+"uk|dtv visa from laos": [
+"dtv visa from laos",
+"dtv visa thailand laos",
+"how to apply laos visa online",
+"can i get a laos visa at the airport",
+"visa free for laos passport"
+],
+"uk|dtv visa from india": [
+"dtv visa from india",
+"dtv visa thailand from india",
+"dtv visa for indians",
+"dtv visa india reddit",
+"dtv visa thailand for indian",
+"how to get visa for norway from india",
+"how to get x visa for india",
+"how to get visa direct"
+],
+"uk|dtv visa from malaysia": [
+"dtv visa from malaysia",
+"dtv visa thailand malaysia",
+"how to check malaysia visa online",
+"how to check malaysia visa",
+"can malaysian apply canada visa online",
+"do malaysian need visa to norway",
+"how to get visa for kuala lumpur"
+],
+"uk|dtv visa from uk": [
+"dtv visa thailand from uk",
+"dtv visa uk",
+"dtv visa uk embassy",
+"dtv visa thailand uk embassy",
+"how to check uk visa decision online",
+"do i need a visa for norway from uk after brexit",
+"is visa down uk"
+],
+"uk|dtv visa from usa": [
+"dtv visa thailand from usa",
+"dtv visa usa",
+"how to get visa from usa",
+"how much is dtv",
+"do us citizens need a visa for norway",
+"how to get visa direct"
+],
+"uk|dtv visa from cambodia": [
+"dtv visa cambodia",
+"dtv visa thailand cambodia",
+"how to check cambodia visa online",
+"how to check cambodia visa status",
+"visa cost cambodia",
+"how long does it take to get a visa for cambodia",
+"do i need a visa for cambodia"
+],
+"uk|dtv visa from hong kong": [
+"dtv visa hong kong",
+"dtv visa thailand hong kong",
+"do i need a visa to transit through hong kong",
+"how to check hong kong visa status",
+"how to get hong kong visa",
+"can i transit in hong kong without a visa"
+],
+"uk|dtv visa from singapore": [
+"dtv visa singapore",
+"dtv visa singapore reddit",
+"dtv visa thailand singapore",
+"how much is dtv",
+"how to get visa direct",
+"do i need a visa for singapore stopover"
+],
+"uk|dtv visa from russia": [
+"dtv visa thailand russia",
+"how to get a russian visa"
+],
+"uk|dtv visa london": [
+"dtv visa london embassy",
+"dtv visa london",
+"dtv visa thailand london",
+"dtv london embassy",
+"dtv visa thai embassy london",
+"is visa down uk",
+"how to apply for london visa online"
+],
+"uk|dtv visa ho chi minh": [
+"dtv visa ho chi minh",
+"dtv visa thailand ho chi minh",
+"thai embassy ho chi minh dtv visa",
+"do i need a visa for ho chi minh city",
+"ho chi minh airport arrival schedule",
+"ho chi minh flight status",
+"ho chi minh airport closed"
+],
+"uk|dtv visa vientiane": [
+"dtv visa vientiane",
+"dtv visa thailand vientiane",
+"visa status options"
+],
+"uk|dtv visa kuala lumpur": [
+"dtv visa kuala lumpur",
+"dtv visa thailand kuala lumpur",
+"how to get visa for kuala lumpur",
+"do you need a visa for kuala lumpur",
+"kuala lumpur visa cost",
+"is kuala lumpur visa on arrival",
+"do malaysian need visa to norway"
+],
+"uk|dtv visa washington": [
+"dtv visa washington dc",
+"how much is dtv",
+"is dtv available in my area"
+],
+"uk|dtv visa los angeles": [
+"dtv visa los angeles",
+"thailand dtv visa los angeles",
+"how much is dtv",
+"is dtv available in my area"
+],
+"uk|dtv visa new york": [],
+"uk|dtv visa chicago": [
+"dtv visa chicago",
+"how much is dtv",
+"is dtv available in my area"
+],
+"uk|dtv visa yangon": [
+"dtv visa yangon",
+"dtv visa thailand yangon",
+"how much is dtv",
+"what is dtv"
+],
+"uk|dtv visa moscow": [
+"dtv visa moscow",
+"dtv visa thailand moscow",
+"do you need a visa for moscow",
+"how to get moscow visa"
+],
+"uk|dtv visa warsaw": [
+"dtv visa warsaw",
+"dtv visa thailand warsaw",
+"what is dtv terrestrial"
+],
+"uk|dtv visa madrid": [],
+"uk|dtv visa rome": [],
+"uk|dtv visa helsinki": [],
+"uk|dtv visa bucharest": [],
+"uk|dtv visa budapest": [],
+"uk|dtv visa oslo": [],
+"uk|dtv visa cairo": [],
+"uk|dtv visa kota bharu": [],
+"uk|dtv visa savannakhet": [],
+"uk|dtv visa osaka": [],
+"uk|dtv visa qingdao": [],
+"uk|dtv visa new delhi": [],
+"in|dtv visa ": [
+"dtv visa thailand",
+"dtv visa thailand for indian citizens",
+"dtv visa thailand requirements",
+"dtv visa for indians",
+"dtv visa requirements",
+"dtv visa thailand cost",
+"dtv visa cost",
+"dtv visa turkey",
+"dtv visa thailand documents required",
+"dtv visa pattaya"
+],
+"in|dtv visa from": [
+"dtv visa from vietnam",
+"dtv visa from india",
+"dtv visa from laos",
+"dtv visa from thailand",
+"dtv visa from dubai",
+"dtv visa from bangladesh",
+"dtv visa from malaysia",
+"dtv visa for indians",
+"dtv visa for muay thai",
+"dtv visa for medical treatment"
+],
+"in|dtv visa embassy": [
+"dtv visa london embassy",
+"dtv visa thai embassy",
+"dtv visa thai embassy london",
+"dtv visa thai embassy singapore",
+"dtv visa thai embassy hanoi",
+"dtv visa uk embassy",
+"dtv visa thailand uk embassy",
+"dtv visa royal thai embassy",
+"visa embassy near me",
+"do you have to go to an embassy to get a visa"
+],
+"in|dtv visa fee": [
+"dtv visa fees",
+"dtv visa fee thailand",
+"dtv visa cost thailand",
+"dtv visa application fee",
+"dtv visa thailand application fee",
+"dtv visa thailand extension fee",
+"destination thailand visa dtv fee",
+"how much is dtv",
+"visa direct fees",
+"what is dtv"
+],
+"in|dtv visa vietnam": [
+"dtv visa vietnam",
+"dtv visa vietnam reddit",
+"dtv visa vietnam requirements",
+"dtv visa thailand vietnam",
+"dtv visa application vietnam",
+"dtv visa cost vietnam",
+"tv channels in vietnam",
+"do i need a visa for vietnam",
+"how to get a vietnam visa online"
+],
+"in|dtv visa laos": [
+"dtv visa laos",
+"dtv visa thailand laos",
+"can i get a laos visa at the airport",
+"how to apply laos visa online",
+"do i need a visa for laos from australia"
+],
+"in|dtv visa malaysia": [
+"dtv visa malaysia",
+"dtv visa thailand malaysia",
+"how to check malaysia visa online",
+"how to check malaysia visa"
+],
+"in|dtv visa india": [
+"dtv visa india",
+"dtv visa india reddit",
+"dtv visa for indians",
+"dtv visa thailand india",
+"dtv visa thailand for indian citizens",
+"dtv visa thailand for indian",
+"how to take india visa"
+],
+"in|dtv visa singapore": [
+"dtv visa singapore",
+"dtv visa singapore reddit",
+"dtv visa thailand singapore",
+"dtv visa thai embassy singapore",
+"how much is dtv"
+],
+"in|dtv visa hong kong": [
+"dtv visa hong kong",
+"dtv visa thailand hong kong",
+"how to check hong kong visa status",
+"how long does a hong kong visa take",
+"how can i check my visa status in hong kong"
+],
+"in|dtv visa usa": [
+"dtv visa usa",
+"dtv visa thailand usa"
+],
+"in|dtv visa uk": [
+"dtv visa uk",
+"dtv visa uk embassy",
+"dtv visa thailand uk",
+"dtv visa thailand uk embassy",
+"apply for dtv visa uk",
+"how to check uk visa decision online"
+],
+"in|dtv visa cambodia": [
+"dtv visa cambodia",
+"dtv visa thailand cambodia",
+"how to check cambodia visa online",
+"how to check cambodia visa status",
+"visa cost cambodia",
+"what are the visa requirements for cambodia"
+],
+"in|dtv visa myanmar": [
+"dtv visa myanmar",
+"dtv visa thailand myanmar",
+"myanmar visa cost",
+"myanmar visa types"
+],
+"in|dtv visa russia": [
+"dtv visa thailand russia",
+"can i get a visa to russia"
+],
+"in|dtv visa egypt": [],
+"in|dtv visa poland": [
+"dtv visa poland",
+"what is d type visa for poland",
+"do i need a visa to go to poland",
+"do you need a visa for poland",
+"do i need a visa to transit through poland"
+],
+"in|dtv visa spain": [
+"dtv visa spain",
+"dtv nomad visa spain for couple",
+"what is a type d visa in spain",
+"which satellite for uk tv in spain",
+"how much is spain visa"
+],
+"in|dtv visa italy": [
+"dtv visa italy",
+"how to get italy visa",
+"what is type d visa of italy",
+"how to get italy visa from canada"
+],
+"in|dtv visa finland": [],
+"in|dtv visa romania": [
+"dtv visa romania",
+"how to check romania visa online",
+"how to check romania work visa online",
+"tv channels in romania",
+"is romania visa free"
+],
+"in|dtv visa hungary": [],
+"in|dtv visa norway": [],
+"in|dtv visa china": [
+"dtv visa china",
+"tv channels in china",
+"what is a t visa in china",
+"visa process for china"
+],
+"in|dtv visa nepal": [],
+"in|dtv visa sri lanka": [
+"dtv visa sri lanka",
+"visa cost sri lanka",
+"how to check sri lanka visa status",
+"what is the official sri lanka visa website"
+],
+"in|dtv visa from vietnam": [
+"dtv visa from vietnam",
+"dtv visa thailand from vietnam",
+"dtv visa vietnam reddit",
+"dtv visa vietnam requirements",
+"dtv visa application vietnam",
+"dtv visa cost vietnam",
+"how to get a visa for vietnam",
+"how to get a vietnam visa online",
+"how to pay for vietnam visa",
+"how to check vietnam visa status"
+],
+"in|dtv visa from laos": [
+"dtv visa from laos",
+"dtv visa thailand laos",
+"how to apply laos visa online",
+"can i get a laos visa at the airport",
+"visa free for laos passport"
+],
+"in|dtv visa from india": [
+"dtv visa from india",
+"dtv visa india reddit",
+"dtv visa thailand for indian",
+"how to get visa for norway from india",
+"how to get x visa for india",
+"how to get visa direct"
+],
+"in|dtv visa from malaysia": [
+"dtv visa from malaysia",
+"dtv visa thailand malaysia",
+"how to check malaysia visa online",
+"how to check malaysia visa",
+"can malaysian apply canada visa online",
+"do malaysian need visa to norway",
+"how to get visa for kuala lumpur"
+],
+"in|dtv visa from uk": [
+"dtv visa thailand from uk",
+"dtv visa uk",
+"dtv visa uk embassy",
+"dtv visa thailand uk embassy",
+"how to check uk visa decision online",
+"do i need a visa for norway from uk after brexit",
+"is visa down uk"
+],
+"in|dtv visa from usa": [
+"dtv visa thailand from usa",
+"dtv visa usa",
+"how to get visa from usa",
+"how much is dtv",
+"do us citizens need a visa for norway",
+"how to get visa direct"
+],
+"in|dtv visa from cambodia": [
+"dtv visa cambodia",
+"dtv visa thailand cambodia",
+"how to check cambodia visa online",
+"how to check cambodia visa status",
+"visa cost cambodia",
+"how long does it take to get a visa for cambodia",
+"do i need a visa for cambodia"
+],
+"in|dtv visa from hong kong": [
+"dtv visa hong kong",
+"dtv visa thailand hong kong",
+"do i need a visa to transit through hong kong",
+"how to check hong kong visa status",
+"how to get hong kong visa",
+"can i transit in hong kong without a visa"
+],
+"in|dtv visa from singapore": [
+"dtv visa singapore",
+"dtv visa singapore reddit",
+"dtv visa thailand singapore",
+"how much is dtv",
+"how to get visa direct",
+"do i need a visa for singapore stopover"
+],
+"in|dtv visa from russia": [
+"dtv visa thailand russia",
+"how to get a russian visa"
+],
+"in|dtv visa london": [
+"dtv visa london embassy",
+"dtv visa london",
+"dtv visa thailand london",
+"dtv london embassy",
+"dtv visa thai embassy london",
+"is visa down uk",
+"how to apply for london visa online"
+],
+"in|dtv visa ho chi minh": [
+"dtv visa ho chi minh",
+"dtv visa thailand ho chi minh",
+"thai embassy ho chi minh dtv visa",
+"do i need a visa for ho chi minh city",
+"ho chi minh airport arrival schedule",
+"ho chi minh flight status",
+"ho chi minh airport closed"
+],
+"in|dtv visa vientiane": [
+"dtv visa vientiane",
+"dtv visa thailand vientiane",
+"visa status options"
+],
+"in|dtv visa kuala lumpur": [
+"dtv visa kuala lumpur",
+"dtv visa thailand kuala lumpur",
+"how to get visa for kuala lumpur",
+"do you need a visa for kuala lumpur",
+"kuala lumpur visa cost",
+"is kuala lumpur visa on arrival",
+"do malaysian need visa to norway"
+],
+"in|dtv visa washington": [
+"dtv visa washington dc",
+"how much is dtv",
+"is dtv available in my area"
+],
+"in|dtv visa los angeles": [
+"dtv visa los angeles",
+"thailand dtv visa los angeles",
+"how much is dtv",
+"is dtv available in my area"
+],
+"in|dtv visa new york": [],
+"in|dtv visa chicago": [
+"dtv visa chicago",
+"how much is dtv",
+"is dtv available in my area"
+],
+"in|dtv visa yangon": [
+"dtv visa yangon",
+"dtv visa thailand yangon",
+"how much is dtv",
+"what is dtv"
+],
+"in|dtv visa moscow": [
+"dtv visa moscow",
+"dtv visa thailand moscow",
+"do you need a visa for moscow",
+"how to get moscow visa"
+],
+"in|dtv visa warsaw": [
+"dtv visa warsaw",
+"dtv visa thailand warsaw",
+"what is dtv terrestrial"
+],
+"in|dtv visa madrid": [],
+"in|dtv visa rome": [],
+"in|dtv visa helsinki": [],
+"in|dtv visa bucharest": [],
+"in|dtv visa budapest": [],
+"in|dtv visa oslo": [],
+"in|dtv visa cairo": [],
+"in|dtv visa kota bharu": [],
+"in|dtv visa savannakhet": [],
+"in|dtv visa osaka": [],
+"in|dtv visa qingdao": [],
+"in|dtv visa new delhi": [],
+"vn|dtv visa ": [
+"dtv visa thailand",
+"dtv visa thailand requirements",
+"dtv visa requirements",
+"dtv visa thailand cost",
+"dtv visa application",
+"dtv visa vietnam",
+"dtv visa thailand reddit",
+"dtv visa turkey",
+"dtv visa cost",
+"dtv visa meaning"
+],
+"vn|dtv visa from": [
+"dtv visa from vietnam",
+"dtv visa from india",
+"dtv visa from laos",
+"dtv visa from thailand",
+"dtv visa from dubai",
+"dtv visa from bangladesh",
+"dtv visa from malaysia",
+"dtv visa for indians",
+"dtv visa for muay thai",
+"dtv visa for medical treatment"
+],
+"vn|dtv visa embassy": [
+"dtv visa london embassy",
+"dtv visa thai embassy",
+"dtv visa thai embassy london",
+"dtv visa thai embassy singapore",
+"dtv visa thai embassy hanoi",
+"dtv visa uk embassy",
+"dtv visa thailand uk embassy",
+"dtv visa royal thai embassy",
+"visa embassy near me",
+"do you have to go to an embassy to get a visa"
+],
+"vn|dtv visa fee": [
+"dtv visa fees",
+"dtv visa fee thailand",
+"dtv visa cost thailand",
+"dtv visa application fee",
+"dtv visa thailand application fee",
+"dtv visa thailand extension fee",
+"destination thailand visa dtv fee",
+"how much is dtv",
+"visa direct fees",
+"what is dtv"
+],
+"vn|dtv visa vietnam": [
+"dtv visa vietnam",
+"dtv visa vietnam reddit",
+"dtv visa vietnam requirements",
+"dtv visa thailand vietnam",
+"dtv visa application vietnam",
+"dtv visa cost vietnam",
+"tv channels in vietnam",
+"do i need a visa for vietnam",
+"how to get a vietnam visa online"
+],
+"vn|dtv visa laos": [
+"dtv visa laos",
+"dtv visa thailand laos",
+"can i get a laos visa at the airport",
+"how to apply laos visa online",
+"do i need a visa for laos from australia"
+],
+"vn|dtv visa malaysia": [
+"dtv visa malaysia",
+"how to check malaysia visa online",
+"how to check malaysia visa"
+],
+"vn|dtv visa india": [
+"dtv visa india",
+"dtv visa india reddit",
+"dtv visa for indians",
+"dtv visa thailand india",
+"dtv visa thailand for indian citizens",
+"dtv visa thailand for indian",
+"how to take india visa"
+],
+"vn|dtv visa singapore": [
+"dtv visa singapore",
+"dtv visa singapore reddit",
+"dtv visa thailand singapore",
+"dtv visa thai embassy singapore",
+"how much is dtv"
+],
+"vn|dtv visa hong kong": [
+"dtv visa hong kong",
+"dtv visa thailand hong kong",
+"how to check hong kong visa status",
+"how long does a hong kong visa take",
+"how can i check my visa status in hong kong"
+],
+"vn|dtv visa usa": [
+"dtv visa usa",
+"dtv visa thailand usa"
+],
+"vn|dtv visa uk": [
+"dtv visa uk",
+"dtv visa uk embassy",
+"dtv visa thailand uk",
+"dtv visa thailand uk embassy",
+"apply for dtv visa uk",
+"how to check uk visa decision online"
+],
+"vn|dtv visa cambodia": [
+"dtv visa cambodia",
+"dtv visa thailand cambodia",
+"how to check cambodia visa online",
+"how to check cambodia visa status",
+"visa cost cambodia",
+"what are the visa requirements for cambodia"
+],
+"vn|dtv visa myanmar": [
+"dtv visa myanmar",
+"dtv visa thailand myanmar",
+"myanmar visa cost",
+"myanmar visa types"
+],
+"vn|dtv visa russia": [
+"dtv visa thailand russia",
+"can i get a visa to russia"
+],
+"vn|dtv visa egypt": [],
+"vn|dtv visa poland": [
+"dtv visa poland",
+"dtv visa thailand poland",
+"what is d type visa for poland",
+"do i need a visa to go to poland",
+"do you need a visa for poland",
+"do i need a visa to transit through poland"
+],
+"vn|dtv visa spain": [
+"dtv visa spain",
+"dtv nomad visa spain for couple",
+"what is a type d visa in spain",
+"which satellite for uk tv in spain",
+"how much is spain visa"
+],
+"vn|dtv visa italy": [
+"dtv visa italy",
+"how to get italy visa",
+"what is type d visa of italy",
+"how to get italy visa from canada"
+],
+"vn|dtv visa finland": [],
+"vn|dtv visa romania": [
+"dtv visa romania",
+"how to check romania visa online",
+"how to check romania work visa online",
+"tv channels in romania",
+"is romania visa free"
+],
+"vn|dtv visa hungary": [],
+"vn|dtv visa norway": [],
+"vn|dtv visa china": [
+"dtv visa china",
+"tv channels in china",
+"what is a t visa in china",
+"visa process for china"
+],
+"vn|dtv visa nepal": [],
+"vn|dtv visa sri lanka": [
+"dtv visa sri lanka",
+"visa cost sri lanka",
+"how to check sri lanka visa status",
+"what is the official sri lanka visa website"
+],
+"vn|dtv visa from vietnam": [
+"dtv visa from vietnam",
+"dtv visa thailand from vietnam",
+"dtv visa vietnam reddit",
+"dtv visa vietnam requirements",
+"dtv visa application vietnam",
+"dtv visa cost vietnam",
+"how to get a visa for vietnam",
+"how to get a vietnam visa online",
+"how to pay for vietnam visa",
+"how to check vietnam visa status"
+],
+"vn|dtv visa from laos": [
+"dtv visa from laos",
+"dtv visa thailand laos",
+"how to apply laos visa online",
+"can i get a laos visa at the airport",
+"visa free for laos passport"
+],
+"vn|dtv visa from india": [
+"dtv visa from india",
+"dtv visa thailand from india",
+"dtv visa for indians",
+"dtv visa india reddit",
+"dtv visa thailand for indian",
+"how to get visa for norway from india",
+"how to get x visa for india",
+"how to get visa direct"
+],
+"vn|dtv visa from malaysia": [
+"dtv visa from malaysia",
+"dtv visa thailand malaysia",
+"how to check malaysia visa online",
+"how to check malaysia visa",
+"can malaysian apply canada visa online",
+"do malaysian need visa to norway",
+"how to get visa for kuala lumpur"
+],
+"vn|dtv visa from uk": [
+"dtv visa thailand from uk",
+"dtv visa uk",
+"dtv visa uk embassy",
+"dtv visa thailand uk embassy",
+"how to check uk visa decision online",
+"do i need a visa for norway from uk after brexit",
+"is visa down uk"
+],
+"vn|dtv visa from usa": [
+"dtv visa thailand from usa",
+"dtv visa usa",
+"how to get visa from usa",
+"how much is dtv",
+"do us citizens need a visa for norway",
+"how to get visa direct"
+],
+"vn|dtv visa from cambodia": [
+"dtv visa cambodia",
+"dtv visa thailand cambodia",
+"how to check cambodia visa online",
+"how to check cambodia visa status",
+"visa cost cambodia",
+"how long does it take to get a visa for cambodia",
+"do i need a visa for cambodia"
+],
+"vn|dtv visa from hong kong": [
+"dtv visa hong kong",
+"dtv visa thailand hong kong",
+"do i need a visa to transit through hong kong",
+"how to check hong kong visa status",
+"how to get hong kong visa",
+"can i transit in hong kong without a visa"
+],
+"vn|dtv visa from singapore": [
+"dtv visa singapore",
+"dtv visa singapore reddit",
+"dtv visa thailand singapore",
+"how much is dtv",
+"how to get visa direct",
+"do i need a visa for singapore stopover"
+],
+"vn|dtv visa from russia": [
+"dtv visa thailand russia",
+"how to get a russian visa"
+],
+"vn|dtv visa london": [
+"dtv visa london embassy",
+"thai dtv visa london",
+"is visa down uk",
+"how to apply for london visa online"
+],
+"vn|dtv visa ho chi minh": [
+"dtv visa ho chi minh",
+"dtv visa thailand ho chi minh",
+"thai embassy ho chi minh dtv visa",
+"do i need a visa for ho chi minh city",
+"ho chi minh airport arrival schedule",
+"ho chi minh flight status",
+"ho chi minh airport closed"
+],
+"vn|dtv visa vientiane": [
+"dtv visa vientiane",
+"dtv visa thailand vientiane",
+"visa status options"
+],
+"vn|dtv visa kuala lumpur": [
+"dtv visa kuala lumpur",
+"dtv visa thailand kuala lumpur",
+"how to get visa for kuala lumpur",
+"do you need a visa for kuala lumpur",
+"kuala lumpur visa cost",
+"is kuala lumpur visa on arrival",
+"do malaysian need visa to norway"
+],
+"vn|dtv visa washington": [
+"dtv visa washington dc",
+"how much is dtv",
+"is dtv available in my area"
+],
+"vn|dtv visa los angeles": [
+"dtv visa los angeles",
+"thailand dtv visa los angeles",
+"how much is dtv",
+"is dtv available in my area"
+],
+"vn|dtv visa new york": [],
+"vn|dtv visa chicago": [
+"dtv visa chicago",
+"how much is dtv",
+"is dtv available in my area"
+],
+"vn|dtv visa yangon": [
+"dtv visa yangon",
+"dtv visa thailand yangon",
+"how much is dtv",
+"what is dtv"
+],
+"vn|dtv visa moscow": [
+"dtv visa moscow",
+"dtv visa thailand moscow",
+"do you need a visa for moscow",
+"how to get moscow visa"
+],
+"vn|dtv visa warsaw": [
+"dtv visa warsaw",
+"dtv visa thailand warsaw",
+"what is dtv terrestrial"
+],
+"vn|dtv visa madrid": [],
+"vn|dtv visa rome": [],
+"vn|dtv visa helsinki": [],
+"vn|dtv visa bucharest": [],
+"vn|dtv visa budapest": [],
+"vn|dtv visa oslo": [],
+"vn|dtv visa cairo": [],
+"vn|dtv visa kota bharu": [],
+"vn|dtv visa savannakhet": [],
+"vn|dtv visa osaka": [],
+"vn|dtv visa qingdao": [],
+"vn|dtv visa new delhi": []
+}
+},
+"sedi": [
+{
+"sede": "Buenos Aires",
+"paese": "Argentina",
+"tipo": "Embassy",
+"sito": "https://buenos-aires.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Canberra",
+"paese": "Australia",
+"tipo": "Embassy",
+"sito": "https://canberra.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Vienna",
+"paese": "Austria",
+"tipo": "Embassy",
+"sito": "http://thaiembassy.at",
+"sistema": "other",
+"http": 0,
+"dtv": false
+},
+{
+"sede": "Manama",
+"paese": "Bahrain",
+"tipo": "Embassy",
+"sito": "https://manama.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Dhaka",
+"paese": "Bangladesh",
+"tipo": "Embassy",
+"sito": "https://dhaka.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Brussels",
+"paese": "Belgium",
+"tipo": "Embassy",
+"sito": "https://brussels.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Brasilia",
+"paese": "Brazil",
+"tipo": "Embassy",
+"sito": "https://brasilia.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Bandar Seri Begawan",
+"paese": "Brunei",
+"tipo": "Embassy",
+"sito": "https://bsb.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Phnom Penh",
+"paese": "Cambodia",
+"tipo": "Embassy",
+"sito": "https://phnompenh.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Ottawa",
+"paese": "Canada",
+"tipo": "Embassy",
+"sito": "https://ottawa.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Santiago",
+"paese": "Chile",
+"tipo": "Embassy",
+"sito": "https://santiago.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": false
+},
+{
+"sede": "Beijing",
+"paese": "China",
+"tipo": "Embassy",
+"sito": "https://thaiembbeij.org/th",
+"sistema": "other",
+"http": 200,
+"dtv": false
+},
+{
+"sede": "Prague",
+"paese": "Czech Republic",
+"tipo": "Embassy",
+"sito": "http://www.thaiembassy.cz",
+"sistema": "other",
+"http": 0,
+"dtv": false
+},
+{
+"sede": "Copenhagen",
+"paese": "Denmark",
+"tipo": "Embassy",
+"sito": "https://copenhagen.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Cairo",
+"paese": "Egypt",
+"tipo": "Embassy",
+"sito": "https://cairo.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Helsinki",
+"paese": "Finland",
+"tipo": "Embassy",
+"sito": "https://helsinki.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Paris",
+"paese": "France",
+"tipo": "Embassy",
+"sito": "https://www.thaiembassy.fr",
+"sistema": "other",
+"http": 200,
+"dtv": false
+},
+{
+"sede": "Berlin",
+"paese": "Germany",
+"tipo": "Embassy",
+"sito": "https://berlin.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": false
+},
+{
+"sede": "Athens",
+"paese": "Greece",
+"tipo": "Embassy",
+"sito": "https://athens.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Budapest",
+"paese": "Hungary",
+"tipo": "Embassy",
+"sito": "https://budapest.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "New Delhi",
+"paese": "India",
+"tipo": "Embassy",
+"sito": "https://newdelhi.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Jakarta",
+"paese": "Indonesia",
+"tipo": "Embassy",
+"sito": "http://www.thaiembassyjakarta.com",
+"sistema": "other",
+"http": 0,
+"dtv": false
+},
+{
+"sede": "Tehran",
+"paese": "Iran",
+"tipo": "Embassy",
+"sito": "https://tehran.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Tel Aviv",
+"paese": "Israel",
+"tipo": "Embassy",
+"sito": "https://telaviv.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Rome",
+"paese": "Italy",
+"tipo": "Embassy",
+"sito": "https://rome.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Tokyo",
+"paese": "Japan",
+"tipo": "Embassy",
+"sito": "http://www.thaiembassy.jp",
+"sistema": "other",
+"http": 0,
+"dtv": false
+},
+{
+"sede": "Amman",
+"paese": "Jordan",
+"tipo": "Embassy",
+"sito": "https://amman.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Astana",
+"paese": "Kazakhstan",
+"tipo": "Embassy",
+"sito": "https://astana.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Nairobi",
+"paese": "Kenya",
+"tipo": "Embassy",
+"sito": "https://nairobi.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": true
+},
+{
+"sede": "Kuwait",
+"paese": "Kuwait",
+"tipo": "Embassy",
+"sito": "https://kuwait.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Vientiane",
+"paese": "Laos",
+"tipo": "Embassy",
+"sito": "https://vientiane.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Kuala Lumpur",
+"paese": "Malaysia",
+"tipo": "Embassy",
+"sito": "https://kualalumpur.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Mexico City",
+"paese": "Mexico",
+"tipo": "Embassy",
+"sito": "https://mexico.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Rabat",
+"paese": "Morocco",
+"tipo": "Embassy",
+"sito": "https://rabat.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": false
+},
+{
+"sede": "Maputo",
+"paese": "Mozambique",
+"tipo": "Embassy",
+"sito": "https://maputo.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Yangon",
+"paese": "Myanmar",
+"tipo": "Embassy",
+"sito": "https://yangon.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Kathmandu",
+"paese": "Nepal",
+"tipo": "Embassy",
+"sito": "https://kathmandu.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "The Hague",
+"paese": "Netherlands",
+"tipo": "Embassy",
+"sito": "https://hague.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Wellington",
+"paese": "New Zealand",
+"tipo": "Embassy",
+"sito": "https://wellington.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": false
+},
+{
+"sede": "Abuja",
+"paese": "Nigeria",
+"tipo": "Embassy",
+"sito": "https://abuja.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Oslo",
+"paese": "Norway",
+"tipo": "Embassy",
+"sito": "https://oslo.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Muscat",
+"paese": "Oman",
+"tipo": "Embassy",
+"sito": "https://muscat.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": false
+},
+{
+"sede": "Islamabad",
+"paese": "Pakistan",
+"tipo": "Embassy",
+"sito": "https://islamabad.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Lima",
+"paese": "Peru",
+"tipo": "Embassy",
+"sito": "https://lima.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Manila",
+"paese": "Philippines",
+"tipo": "Embassy",
+"sito": "https://www.thaiembassymnl.ph",
+"sistema": "other",
+"http": 200,
+"dtv": false
+},
+{
+"sede": "Warsaw",
+"paese": "Poland",
+"tipo": "Embassy",
+"sito": "https://warsaw.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Lisbon",
+"paese": "Portugal",
+"tipo": "Embassy",
+"sito": "https://lisbon.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Doha",
+"paese": "Qatar",
+"tipo": "Embassy",
+"sito": "https://doha.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Seoul",
+"paese": "Republic of Korea",
+"tipo": "Embassy",
+"sito": "https://seoul.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Bucharest",
+"paese": "Romania",
+"tipo": "Embassy",
+"sito": "https://bucharest.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Moscow",
+"paese": "Russian Federation",
+"tipo": "Embassy",
+"sito": "https://moscow.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Riyadh",
+"paese": "Saudi Arabia",
+"tipo": "Embassy",
+"sito": "https://riyadh.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Dakar",
+"paese": "Senegal",
+"tipo": "Embassy",
+"sito": "https://dakar.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Singapore",
+"paese": "Singapore",
+"tipo": "Embassy",
+"sito": "https://singapore.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Pretoria",
+"paese": "South Africa",
+"tipo": "Embassy",
+"sito": "https://pretoria.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Madrid",
+"paese": "Spain",
+"tipo": "Embassy",
+"sito": "https://madrid.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Colombo",
+"paese": "Sri Lanka",
+"tipo": "Embassy",
+"sito": "https://colombo.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Stockholm",
+"paese": "Sweden",
+"tipo": "Embassy",
+"sito": "http://thaiembassy.se/en/home",
+"sistema": "other",
+"http": 0,
+"dtv": false
+},
+{
+"sede": "Bern",
+"paese": "Switzerland",
+"tipo": "Embassy",
+"sito": "https://www.thaiembassy.ch",
+"sistema": "other",
+"http": 200,
+"dtv": false
+},
+{
+"sede": "Dili",
+"paese": "Timor-Leste",
+"tipo": "Embassy",
+"sito": "https://dili.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Ankara",
+"paese": "Turkey",
+"tipo": "Embassy",
+"sito": "https://ankara.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Abu Dhabi",
+"paese": "United Arab Emirates",
+"tipo": "Embassy",
+"sito": "https://abudhabi.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "London",
+"paese": "United Kingdom",
+"tipo": "Embassy",
+"sito": "https://london.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Washington",
+"paese": "United States of America",
+"tipo": "Embassy",
+"sito": "https://washingtondc.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Hanoi",
+"paese": "Vietnam",
+"tipo": "Embassy",
+"sito": "https://rtehanoi.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": true
+},
+{
+"sede": "Sydney",
+"paese": "Australia",
+"tipo": "Consulate-General",
+"sito": "https://sydney.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Siem Reap",
+"paese": "Cambodia",
+"tipo": "Consulate-General",
+"sito": "https://siemreap.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Vancouver",
+"paese": "Canada",
+"tipo": "Consulate-General",
+"sito": "https://vancouver.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Guangzhou",
+"paese": "China",
+"tipo": "Consulate-General",
+"sito": "https://guangzhou.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": false
+},
+{
+"sede": "Hong Kong",
+"paese": "China",
+"tipo": "Consulate-General",
+"sito": "https://hongkong.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Kunming",
+"paese": "China",
+"tipo": "Consulate-General",
+"sito": "https://kunming.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": false
+},
+{
+"sede": "Shanghai",
+"paese": "China",
+"tipo": "Consulate-General",
+"sito": "https://thaishanghai.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": false
+},
+{
+"sede": "Xian",
+"paese": "China",
+"tipo": "Consulate-General",
+"sito": "https://xian.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Nanning",
+"paese": "China",
+"tipo": "Consulate-General",
+"sito": "https://nanning.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": true
+},
+{
+"sede": "Chengdu",
+"paese": "China",
+"tipo": "Consulate-General",
+"sito": "https://chengdu.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": true
+},
+{
+"sede": "Xiamen",
+"paese": "China",
+"tipo": "Consulate-General",
+"sito": "https://xiamen.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": false
+},
+{
+"sede": "Qingdao",
+"paese": "China",
+"tipo": "Consulate-General",
+"sito": "https://qingdao.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": true
+},
+{
+"sede": "Frankfurt",
+"paese": "Germany",
+"tipo": "Consulate-General",
+"sito": "https://frankfurt.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": false
+},
+{
+"sede": "Munich",
+"paese": "Germany",
+"tipo": "Consulate-General",
+"sito": "https://munich.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": false
+},
+{
+"sede": "Kolkata",
+"paese": "India",
+"tipo": "Consulate-General",
+"sito": "https://kolkata.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Mumbai",
+"paese": "India",
+"tipo": "Consulate-General",
+"sito": "https://mumbai.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Chennai",
+"paese": "India",
+"tipo": "Consulate-General",
+"sito": "https://chennai.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Osaka",
+"paese": "Japan",
+"tipo": "Consulate-General",
+"sito": "https://osaka.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Fukuoka",
+"paese": "Japan",
+"tipo": "Consulate-General",
+"sito": "https://fukuoka.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Savannakhet",
+"paese": "Laos",
+"tipo": "Consulate-General",
+"sito": "https://savannakhet.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": true
+},
+{
+"sede": "Kota Bharu",
+"paese": "Malaysia",
+"tipo": "Consulate-General",
+"sito": "https://kotabharu.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": true
+},
+{
+"sede": "Penang",
+"paese": "Malaysia",
+"tipo": "Consulate-General",
+"sito": "https://penang.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": false
+},
+{
+"sede": "Karachi",
+"paese": "Pakistan",
+"tipo": "Consulate-General",
+"sito": "https://karachi.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "th",
+"dtv": false
+},
+{
+"sede": "Jeddah",
+"paese": "Saudi Arabia",
+"tipo": "Consulate-General",
+"sito": "https://jeddah.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": false
+},
+{
+"sede": "Dubai",
+"paese": "United Arab Emirates",
+"tipo": "Consulate-General",
+"sito": "https://dubai.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Chicago",
+"paese": "United States of America",
+"tipo": "Consulate-General",
+"sito": "https://cgchicago.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Los Angeles",
+"paese": "United States of America",
+"tipo": "Consulate-General",
+"sito": "https://thaiconsulatela.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "New York",
+"paese": "United States of America",
+"tipo": "Consulate-General",
+"sito": "https://newyork.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+},
+{
+"sede": "Ho Chi Minh",
+"paese": "Vietnam",
+"tipo": "Consulate-General",
+"sito": "https://hochiminh.thaiembassy.org",
+"sistema": "thaiembassy.org",
+"http": 200,
+"lingua_home": "en",
+"dtv": true
+}
+],
+"letture": [
+{
+"id": "london",
+"sede": "London",
+"paese": "United Kingdom",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://london.thaiembassy.org/en/page/destination-thailand-visa",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa",
+"inserita": "2024-07-17",
+"modificata": "2026-09-08",
+"caratteri": 4137,
+"sha256": "e5e8dcd85ecd18518bb18bee9d068ee8bdde6af5a6f697719325fffc28f0e5d6"
+},
+{
+"url": "https://london.thaiembassy.org/en/page/visa-general-information",
+"http": 200,
+"ok": true,
+"titolo": "Visa General Information",
+"inserita": "2023-07-25",
+"modificata": "2026-09-08",
+"caratteri": 12293,
+"sha256": "ae40a0bdeaedd9d3ccb611c18a67e4a5b973202f35f27a7bbdca307efd4f923c"
+}
+],
+"costo": {
+"importo": 300,
+"valuta": "GBP",
+"frammento": "Visa Fee: £300",
+"p": 0
+},
+"residenza": {
+"tipo": "paese",
+"frammento": "Proof of permanent residence in the UK, Ireland, or the British Overseas Territories",
+"p": 0
+},
+"saldo": {
+"frammento": "amount of no less than £12,000 (500,000 THB)",
+"p": 0
+},
+"altre": [
+{
+"frammento": "the Embassy is unable to issue visas for foreign nationals who are outside the United Kingdom (UK), Ireland, or UK Territories",
+"p": 1
+},
+{
+"frammento": "The police clearance certificate must be issued within 6 months from the date of submission",
+"p": 1
+}
+],
+"domanda": [
+"apply for dtv visa uk",
+"dtv london embassy",
+"dtv visa london",
+"dtv visa london embassy",
+"dtv visa thai embassy london",
+"dtv visa thailand from uk",
+"dtv visa thailand london",
+"dtv visa thailand uk",
+"dtv visa thailand uk embassy",
+"dtv visa uk",
+"dtv visa uk embassy",
+"thai dtv visa london"
+],
+"sito": "https://london.thaiembassy.org"
+},
+{
+"id": "washington-dc",
+"sede": "Washington, DC",
+"paese": "United States",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://washingtondc.thaiembassy.org/en/page/dtv-visa",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2024-07-13",
+"modificata": "2026-09-10",
+"caratteri": 4917,
+"sha256": "a61b5e7c741323682f538659bc1fbcbc5f0506e30cf378e76188cc2f5cf9824f"
+}
+],
+"costo": {
+"importo": 400,
+"valuta": "USD",
+"frammento": "Fee: 400 USD",
+"p": 0
+},
+"residenza": {
+"tipo": "paese",
+"frammento": "Proof of permanent residence (i.e. valid U.S. Visa, Permanent resident Card)",
+"p": 0
+},
+"saldo": {
+"frammento": "ending balance of no less than 500,000 THB or ($16,000 USD)",
+"p": 0
+},
+"altre": [
+{
+"frammento": "A copy of the permanent resident alien card or a copy of a valid US visa (at least 6 months validity)",
+"p": 0
+}
+],
+"domanda": [
+"dtv visa thailand from usa",
+"dtv visa thailand usa",
+"dtv visa usa",
+"dtv visa washington dc"
+],
+"sito": "https://washingtondc.thaiembassy.org"
+},
+{
+"id": "los-angeles",
+"sede": "Los Angeles",
+"paese": "United States",
+"tipo": "Consulate-General",
+"pagine": [
+{
+"url": "https://thaiconsulatela.thaiembassy.org/en/publicservice/dtv-visa",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2024-07-16",
+"modificata": "2026-10-01",
+"caratteri": 4660,
+"sha256": "25239cd83610c568108dd5e769aec8ce73cdf11e41caf485e72cdfc98e5cbebe"
+},
+{
+"url": "https://thaiconsulatela.thaiembassy.org/en/page/visa-types-requirments",
+"http": 200,
+"ok": true,
+"titolo": "Visa Types & Requirments",
+"inserita": "2023-11-28",
+"modificata": "2026-09-01",
+"caratteri": 6032,
+"sha256": "0b9e8346370d7fb0849c9217494756e014140961a7dca417bf25b91fc0164514"
+},
+{
+"url": "https://thaiconsulatela.thaiembassy.org/en/page/visa-information",
+"http": 200,
+"ok": true,
+"titolo": "Visa Information",
+"inserita": "2021-12-08",
+"modificata": "2026-09-10",
+"caratteri": 4787,
+"sha256": "44554df14a001dd158384c3bec75e206d802d1b31e452fc5d05ac23d81996b8f"
+}
+],
+"costo": {
+"importo": 400,
+"valuta": "USD",
+"frammento": "DTV | Workcation (Digital Nomad/remote worker/foreign talent/freelancer | N/A | 400 |",
+"p": 1,
+"nota": "fee table of the consulate, price for multiple entries; the table does not print the currency"
+},
+"residenza": {
+"tipo": "paese",
+"frammento": "Proof of permanent residence (i.e. valid driving license, valid U.S. Visa, Permanent resident Card)",
+"p": 0
+},
+"saldo": {
+"frammento": "ending balance of no less than 500,000 THB",
+"p": 0
+},
+"altre": [
+{
+"frammento": "please apply through the Royal Thai Embassy or Royal Thai Consulate-General responsible for your state of residence",
+"p": 2
+}
+],
+"domanda": [
+"dtv visa los angeles",
+"thailand dtv visa los angeles"
+],
+"sito": "https://thaiconsulatela.thaiembassy.org"
+},
+{
+"id": "new-york",
+"sede": "New York",
+"paese": "United States",
+"tipo": "Consulate-General",
+"pagine": [
+{
+"url": "https://newyork.thaiembassy.org/en/page/visa-types-and-requirements",
+"http": 200,
+"ok": true,
+"titolo": "VISA Types and Requirements",
+"inserita": "2024-07-15",
+"modificata": "2026-09-02",
+"caratteri": 6225,
+"sha256": "3df0a2d745a644e7a81f319c59c13a1f872df583ce922c3c9fddbd0e197f1ee2"
+}
+],
+"costo": {
+"importo": 400,
+"valuta": "USD",
+"frammento": "DTV | Workcation (Digital Nomad/remote worker/foreign talent/freelancer | N/A | 400 |",
+"p": 0,
+"nota": "fee table of the consulate, price for multiple entries; the table does not print the currency"
+},
+"domanda": [],
+"sito": "https://newyork.thaiembassy.org"
+},
+{
+"id": "chicago",
+"sede": "Chicago",
+"paese": "United States",
+"tipo": "Consulate-General",
+"pagine": [
+{
+"url": "https://cgchicago.thaiembassy.org/en/page/visa-types-and-fees-v-2",
+"http": 200,
+"ok": true,
+"titolo": "Visa Types and Fees (V.2)",
+"inserita": "2024-06-11",
+"modificata": "2024-09-12",
+"caratteri": 5916,
+"sha256": "90f01f81e4f5d1fea90b2b670a57e7e41f5a9e83d9f121f23dd44a151376c3b6"
+}
+],
+"costo": {
+"importo": 400,
+"valuta": "USD",
+"frammento": "DTV | Workcation (Digital Nomad/remote worker/foreign talent/freelancer) | N/A | 400 |",
+"p": 0,
+"nota": "fee table of the consulate, price for multiple entries; the table does not print the currency"
+},
+"domanda": [
+"dtv visa chicago"
+],
+"sito": "https://cgchicago.thaiembassy.org"
+},
+{
+"id": "vientiane",
+"sede": "Vientiane",
+"paese": "Laos",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://vientiane.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2024-07-15",
+"modificata": "2024-07-17",
+"caratteri": 668,
+"sha256": "158d83f102cb18ff05c86fe565fd4e8800b8c00e5d208a9926d925bebd891771"
+},
+{
+"url": "https://vientiane.thaiembassy.org/en/page/applying-for-a-visa",
+"http": 200,
+"ok": true,
+"titolo": "Applying for a Visa",
+"inserita": "2023-01-09",
+"modificata": "2026-08-28",
+"caratteri": 3324,
+"sha256": "036ff8c9d5f6202dd7ceebbbaec26982a82e9b3ec0799af973f604c58e394a67"
+}
+],
+"costo": {
+"importo": 10000,
+"valuta": "THB",
+"frammento": "VISA FEE (Cash only in Thai Baht and non-refundable ) 10,000 Baht",
+"p": 0,
+"nota": "cash only, in Thai baht"
+},
+"residenza": {
+"tipo": "paese",
+"frammento": "Be Lao nationals or permanent residents of the Lao PDR",
+"p": 1
+},
+"altre": [
+{
+"frammento": "new additional requirements for Destination Thailand Visa (DTV) applications will take effect worldwide from 31 August 2026",
+"p": 1
+},
+{
+"frammento": "Walk-ins will not be accepted",
+"p": 0
+}
+],
+"domanda": [
+"dtv visa from laos",
+"dtv visa laos",
+"dtv visa thailand laos",
+"dtv visa thailand vientiane",
+"dtv visa vientiane"
+],
+"sito": "https://vientiane.thaiembassy.org"
+},
+{
+"id": "savannakhet",
+"sede": "Savannakhet",
+"paese": "Laos",
+"tipo": "Consulate-General",
+"pagine": [
+{
+"url": "https://savannakhet.thaiembassy.org/th/publicservice/destination-thailand-visa",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2024-07-19",
+"modificata": "2026-08-27",
+"caratteri": 3918,
+"sha256": "6a87486dfeae375a99354447d0afa2373f448eadd44490c80beec17084035a7d"
+}
+],
+"residenza": {
+"tipo": "paese",
+"frammento": "Proof of permanent residence in Lao PDR.",
+"p": 0
+},
+"saldo": {
+"frammento": "amount of not less than THB 500,000",
+"p": 0
+},
+"domanda": [],
+"sito": "https://savannakhet.thaiembassy.org"
+},
+{
+"id": "ho-chi-minh-city",
+"sede": "Ho Chi Minh City",
+"paese": "Vietnam",
+"tipo": "Consulate-General",
+"pagine": [
+{
+"url": "https://hochiminh.thaiembassy.org/en/page/destination-thailand-visa-dtv-thị-thực-điểm-đến-th",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV) | Thị thực Điểm đến Thái Lan",
+"inserita": "2024-08-02",
+"modificata": "2026-09-18",
+"caratteri": 4939,
+"sha256": "507a05caad4bde80a8cdb0d71b665a74fa9e188ac21204541f2f6bf4a8d99b0e"
+}
+],
+"costo": {
+"importo": 340,
+"valuta": "USD",
+"frammento": "Visa processing fee: 340 USD",
+"p": 0,
+"nota": "debit or credit card only"
+},
+"residenza": {
+"tipo": "carta",
+"frammento": "For foreigners: Only a Temporary Residence Card (TRC) or Permanent Residence Card (PRC) is accepted.",
+"p": 0
+},
+"saldo": {
+"frammento": "amount of no less than 500,000 THB",
+"p": 0
+},
+"altre": [
+{
+"frammento": "For Vietnamese citizens: A valid Vietnamese ID card",
+"p": 0
+},
+{
+"frammento": "Expedited visa application is NOT available",
+"p": 0
+}
+],
+"domanda": [
+"dtv visa application vietnam",
+"dtv visa cost vietnam",
+"dtv visa from vietnam",
+"dtv visa ho chi minh",
+"dtv visa requirements vietnam",
+"dtv visa thailand from vietnam",
+"dtv visa thailand ho chi minh",
+"dtv visa thailand vietnam",
+"dtv visa vietnam",
+"dtv visa vietnam reddit",
+"dtv visa vietnam requirements",
+"thai embassy ho chi minh dtv visa"
+],
+"sito": "https://hochiminh.thaiembassy.org"
+},
+{
+"id": "kuala-lumpur",
+"sede": "Kuala Lumpur",
+"paese": "Malaysia",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://kualalumpur.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2024-07-23",
+"modificata": "2026-09-07",
+"caratteri": 1841,
+"sha256": "dd1421eb8f0a67362b096d8c9c010a469f96884c35d7a4f54a0c2e9c78bf54f2"
+},
+{
+"url": "https://kualalumpur.thaiembassy.org/en/publicservice/visa-types-fees-requirements",
+"http": 200,
+"ok": true,
+"titolo": "Visa Types, Fees & Requirements",
+"inserita": "2024-07-22",
+"modificata": "2026-07-15",
+"caratteri": 6584,
+"sha256": "10d34717deb647a982d2dca5ddbda14bcbec3194319c26746f80e74a1379309d"
+}
+],
+"costo": {
+"importo": 1600,
+"valuta": "MYR",
+"frammento": "DTV | Workcation (digital nomad/remote worker/ foreign talent/freelancer) | N/A | 1,600 |",
+"p": 1,
+"frammento2": "Price for Multiple (MYR)",
+"nota": "fee table of the embassy, price for multiple entries, in ringgit"
+},
+"altre": [
+{
+"frammento": "The processing time for DTV may take approximately 1 month or more",
+"p": 0
+}
+],
+"domanda": [
+"dtv visa from malaysia",
+"dtv visa kuala lumpur",
+"dtv visa malaysia",
+"dtv visa thailand kuala lumpur",
+"dtv visa thailand malaysia"
+],
+"sito": "https://kualalumpur.thaiembassy.org"
+},
+{
+"id": "kota-bharu",
+"sede": "Kota Bharu",
+"paese": "Malaysia",
+"tipo": "Consulate-General",
+"pagine": [
+{
+"url": "https://kotabharu.thaiembassy.org/th/page/destination-thailand-visa-dtv",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2024-07-14",
+"modificata": "2024-07-14",
+"caratteri": 2735,
+"sha256": "b1ae05ef0ed10137258824deab369df99875dc75b6f936fe214ef3861a544f27"
+}
+],
+"costo": {
+"importo": 1600,
+"valuta": "MYR",
+"frammento": "Visa Fee : 1,600 Ringgit",
+"p": 0
+},
+"saldo": {
+"frammento": "with a minimum of 500,000 baht",
+"p": 0
+},
+"domanda": [],
+"sito": "https://kotabharu.thaiembassy.org"
+},
+{
+"id": "singapore",
+"sede": "Singapore",
+"paese": "Singapore",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://singapore.thaiembassy.org/en/page/dtv-visa-workcation",
+"http": 200,
+"ok": true,
+"titolo": "DTV Visa Workcation",
+"inserita": "2024-08-22",
+"modificata": "2026-09-07",
+"caratteri": 3430,
+"sha256": "22f2644a68cc63149ffbf5ddb1bab6bd2b442ab10ed6249dc62539d8fa356c8b"
+}
+],
+"costo": {
+"importo": 500,
+"valuta": "SGD",
+"frammento": "Multiple Entry : 500 SGD",
+"p": 0
+},
+"residenza": {
+"tipo": "paese",
+"frammento": "DTV Visa will only be granted by the Royal Thai Embassy Singapore to Singapore Citizens and Singapore Permanent Residents",
+"p": 0
+},
+"saldo": {
+"frammento": "balance at least 500,000 THB (Approximtely 20,000 SGD) for the past 3 months",
+"p": 0
+},
+"altre": [
+{
+"frammento": "Accept only Singapore and Thailand bank saving account",
+"p": 0
+}
+],
+"domanda": [
+"dtv visa singapore",
+"dtv visa singapore reddit",
+"dtv visa thai embassy singapore",
+"dtv visa thailand singapore"
+],
+"sito": "https://singapore.thaiembassy.org"
+},
+{
+"id": "yangon",
+"sede": "Yangon",
+"paese": "Myanmar",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://yangon.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv",
+"http": 200,
+"ok": true,
+"titolo": "DESTINATION THAILAND VISA (DTV)",
+"inserita": "2024-07-18",
+"modificata": "2024-07-18",
+"caratteri": 1649,
+"sha256": "ba08be60b3dd8fbcf322da74e629f0d159cf0ae8fefd4cd7b6646f5c695062ce"
+}
+],
+"costo": {
+"importo": 400,
+"valuta": "USD",
+"frammento": "Visa Fee 400 USD",
+"p": 0
+},
+"saldo": {
+"frammento": "no less than 500,000 THB or equivalent amount",
+"p": 0
+},
+"domanda": [
+"dtv visa myanmar",
+"dtv visa thailand myanmar",
+"dtv visa thailand yangon",
+"dtv visa yangon"
+],
+"sito": "https://yangon.thaiembassy.org"
+},
+{
+"id": "helsinki",
+"sede": "Helsinki",
+"paese": "Finland",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://helsinki.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2024-07-18",
+"modificata": "2026-09-03",
+"caratteri": 4419,
+"sha256": "192ebdc573ce37b29ed72fb9a43ae00c1cbc3c45510a3b7419802905d6630191"
+}
+],
+"costo": {
+"importo": 350,
+"valuta": "EUR",
+"frammento": "VISA Fee : 350 Euro",
+"p": 0
+},
+"residenza": {
+"tipo": "paese",
+"frammento": "a valid permanent residence permit card in Finland/Estonia",
+"p": 0
+},
+"saldo": {
+"frammento": "no less than 500,000 THB or (15,000 Euro)",
+"p": 0
+},
+"domanda": [],
+"sito": "https://helsinki.thaiembassy.org"
+},
+{
+"id": "budapest",
+"sede": "Budapest",
+"paese": "Hungary",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://budapest.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2026-02-06",
+"modificata": "2026-08-18",
+"caratteri": 3048,
+"sha256": "922c3ec03b6926ee1826c84b0de3f5aa111c81a583833cdcc9dbeaa522617636"
+}
+],
+"costo": {
+"importo": 350,
+"valuta": "EUR",
+"frammento": "Application fee : 350 euro for multiple entry",
+"p": 0
+},
+"residenza": {
+"tipo": "vecchia",
+"frammento": "Proof of current location such as a passport stamp or residence permit.",
+"p": 0
+},
+"domanda": [],
+"sito": "https://budapest.thaiembassy.org"
+},
+{
+"id": "bucharest",
+"sede": "Bucharest",
+"paese": "Romania",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://bucharest.thaiembassy.org/en/page/destination-thailand-visa-dtv",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2026-10-25",
+"modificata": "2026-10-25",
+"caratteri": 5548,
+"sha256": "7089bb5a70e5735b56668461db58f42b146cdfed9e49301d32345b1df26cf895"
+}
+],
+"costo": {
+"importo": 350,
+"valuta": "EUR",
+"frammento": "Visa fee : 350 EUR multiple entries",
+"p": 0
+},
+"residenza": {
+"tipo": "paese",
+"frammento": "Applicants who are Romanian or Bulgarian citizens, or who hold a valid long-term or permanent residence permit in Romania or Bulgaria, may apply for a DTV through the Royal Thai Embassy in Bucharest",
+"p": 0
+},
+"saldo": {
+"frammento": "demonstrating funds of at least THB 500,000",
+"p": 0
+},
+"domanda": [
+"dtv visa romania"
+],
+"sito": "https://bucharest.thaiembassy.org"
+},
+{
+"id": "rome",
+"sede": "Rome",
+"paese": "Italy",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://rome.thaiembassy.org/en/publicservice/dtv",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2025-10-21",
+"modificata": "2026-09-02",
+"caratteri": 3978,
+"sha256": "40d9353f4949bb217917e491702a35fbf6d28dc23498265063efdc264fd30ab0"
+},
+{
+"url": "https://rome.thaiembassy.org/en/content/adjustment-of-supporting-documents-for-dtv-applica",
+"http": 200,
+"ok": true,
+"titolo": "Adjustment of Supporting Documents for DTV Applications",
+"inserita": "2026-08-28",
+"modificata": "2026-08-28",
+"caratteri": 586,
+"sha256": "f19741b433376d3777691c6355dbf72c57ba6da9e5784c5018cb28f69aa7eeb6"
+}
+],
+"residenza": {
+"tipo": "paese",
+"frammento": "A document proving residency status in Italy, Cyprus, Albania, or Libya.",
+"p": 1
+},
+"saldo": {
+"frammento": "minimum balance of 500,000 THB or equivalent",
+"p": 0
+},
+"altre": [
+{
+"frammento": "Proof of permanent residence in the country where the application is submitted",
+"p": 0
+}
+],
+"domanda": [
+"dtv visa italy"
+],
+"sito": "https://rome.thaiembassy.org"
+},
+{
+"id": "madrid",
+"sede": "Madrid",
+"paese": "Spain",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://madrid.thaiembassy.org/en/publicservice/dtv",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2024-07-16",
+"modificata": "2026-09-22",
+"caratteri": 3743,
+"sha256": "8ed0e603d24d679a8062895e67ebcdb66ccb598aee61752503d3b9570979bdc5"
+},
+{
+"url": "https://madrid.thaiembassy.org/en/publicservice/annoucement-consular-service-fees-15-july-2024",
+"http": 200,
+"ok": true,
+"titolo": "Tasa de los servicios consulares",
+"inserita": "2022-08-25",
+"modificata": "2024-12-11",
+"caratteri": 1584,
+"sha256": "b5850cedf94bfccd12eeb36d3cc523eeff1681b40d642264b396fe8b22f133c1"
+}
+],
+"costo": {
+"importo": 350,
+"valuta": "EUR",
+"frammento": "Destination Thailand Visa (DTV) | 350",
+"p": 1,
+"frammento2": "Tasa (euros)",
+"nota": "fee table of the embassy, in Spanish, fees in euros"
+},
+"residenza": {
+"tipo": "paese",
+"frammento": "deberán ser nacionales españoles o andorranos, o residentes permanentes del Reino de España o del Principado de Andorra",
+"p": 0,
+"traduzione": "must be Spanish or Andorran nationals, or permanent residents of Spain or Andorra (our translation from Spanish)"
+},
+"saldo": {
+"frammento": "un depósito igual o superior a 500.000 bahts",
+"p": 0,
+"traduzione": "a deposit of 500,000 baht or more (our translation from Spanish)"
+},
+"domanda": [
+"dtv visa spain"
+],
+"sito": "https://madrid.thaiembassy.org"
+},
+{
+"id": "oslo",
+"sede": "Oslo",
+"paese": "Norway",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://oslo.thaiembassy.org/en/page/dtv",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2024-07-16",
+"modificata": "2026-09-15",
+"caratteri": 2178,
+"sha256": "b013d8da762636ad6e364c4d01410d2248481578feb1987c687faaf2700d430e"
+}
+],
+"residenza": {
+"tipo": "paese",
+"frammento": "Proof of permanent residence in Norway/Iceland.",
+"p": 0
+},
+"saldo": {
+"frammento": "an amount of no less than 500,000 THB",
+"p": 0
+},
+"domanda": [],
+"sito": "https://oslo.thaiembassy.org"
+},
+{
+"id": "moscow",
+"sede": "Moscow",
+"paese": "Russia",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://moscow.thaiembassy.org/en/publicservice/dtv",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2024-07-17",
+"modificata": "2026-09-12",
+"caratteri": 4330,
+"sha256": "b7bdf60d6ebb56a60db92c97728007e922e385d03cb15a3803ae15ad28acd5bf"
+}
+],
+"costo": {
+"importo": 350,
+"valuta": "USD",
+"frammento": "Visa processing Fee: 350 USD",
+"p": 0
+},
+"residenza": {
+"tipo": "paese",
+"frammento": "Proof of permanent residence in the country where the application is submitted.",
+"p": 0
+},
+"saldo": {
+"frammento": "minimum balance of 500,000 THB or equivalent",
+"p": 0
+},
+"altre": [
+{
+"frammento": "FOR NON-RUSSIAN CITIZENS , a copy of permanent residence permit or a copy of valid Russian visa and registration paper",
+"p": 0
+}
+],
+"domanda": [
+"dtv visa moscow",
+"dtv visa thailand moscow",
+"dtv visa thailand russia"
+],
+"sito": "https://moscow.thaiembassy.org"
+},
+{
+"id": "cairo",
+"sede": "Cairo",
+"paese": "Egypt",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://cairo.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2024-10-06",
+"modificata": "2025-09-25",
+"caratteri": 2736,
+"sha256": "c62f61a6f6d88ea8970b2871d1c88a1c14f986030f52f1b839051193186a0204"
+}
+],
+"costo": {
+"importo": 18000,
+"valuta": "EGP",
+"frammento": "18,000 EGP",
+"p": 0
+},
+"residenza": {
+"tipo": "vecchia",
+"frammento": "Every Non-Egyptian applicant must have an EGYPTIAN Residence visa",
+"p": 0
+},
+"saldo": {
+"frammento": "account balance of not less than 850,000 EGP for previous consecutive 3 months",
+"p": 0
+},
+"domanda": [],
+"sito": "https://cairo.thaiembassy.org"
+},
+{
+"id": "warsaw",
+"sede": "Warsaw",
+"paese": "Poland",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://warsaw.thaiembassy.org/en/page/visa-information",
+"http": 200,
+"ok": true,
+"titolo": "VISA APPLICATION",
+"inserita": "2019-09-15",
+"modificata": "2024-07-25",
+"caratteri": 18021,
+"sha256": "297781d3df2072c24c6f92a481d84a068f06050e0fa2e0b1f926ed29ae1399c9"
+}
+],
+"costo": {
+"importo": 1575,
+"valuta": "PLN",
+"frammento": "Pay application fee online: 1,575 PLN (multiple entries)",
+"p": 0
+},
+"residenza": {
+"tipo": "vecchia",
+"frammento": "applicants who are currently residing in Poland or Ukraine",
+"p": 0
+},
+"domanda": [
+"dtv visa poland",
+"dtv visa thailand poland",
+"dtv visa thailand warsaw",
+"dtv visa warsaw"
+],
+"sito": "https://warsaw.thaiembassy.org"
+},
+{
+"id": "new-delhi",
+"sede": "New Delhi",
+"paese": "India",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://newdelhi.thaiembassy.org/en/page/visa",
+"http": 200,
+"ok": true,
+"titolo": "Visa",
+"inserita": "2023-10-25",
+"modificata": "2026-09-16",
+"caratteri": 7555,
+"sha256": "63e49d11e8baa14891e7f89c353079cbc08e655b4b3cc7643a395df142661894"
+}
+],
+"costo": {
+"importo": 30000,
+"valuta": "INR",
+"frammento": "DTV | Multiple | 5 years | 180 days | 30,000 INR |",
+"p": 0,
+"nota": "fee table of the embassy"
+},
+"altre": [
+{
+"frammento": "The 30-day visa exemption for Indian ordinary passport holders for tourism and short-term business engagements purposes remains effective from 15 September 2026 until further announcement.",
+"p": 0
+}
+],
+"domanda": [
+"dtv visa for indians",
+"dtv visa from india",
+"dtv visa india",
+"dtv visa india reddit",
+"dtv visa thailand for indian",
+"dtv visa thailand for indian citizens",
+"dtv visa thailand from india",
+"dtv visa thailand india"
+],
+"sito": "https://newdelhi.thaiembassy.org"
+},
+{
+"id": "hong-kong",
+"sede": "Hong Kong",
+"paese": "China",
+"tipo": "Consulate-General",
+"pagine": [
+{
+"url": "https://hongkong.thaiembassy.org/en/page/visa-info",
+"http": 200,
+"ok": true,
+"titolo": "Visa - Information and Requirements",
+"inserita": "2019-09-20",
+"modificata": "2026-10-23",
+"caratteri": 16268,
+"sha256": "6c6b3784d250cf2f2bf58d6a52d9f9ff39b7ab91e63e57f498a86b62d52c34b9"
+}
+],
+"residenza": {
+"tipo": "paese",
+"frammento": "Applicants need to show proof of their permanent residence in Hong Kong SAR or Macau SAR",
+"p": 0
+},
+"saldo": {
+"frammento": "account balance / income of at least 150,000 HKD",
+"p": 0
+},
+"domanda": [
+"dtv visa hong kong",
+"dtv visa thailand hong kong"
+],
+"sito": "https://hongkong.thaiembassy.org"
+},
+{
+"id": "qingdao",
+"sede": "Qingdao",
+"paese": "China",
+"tipo": "Consulate-General",
+"pagine": [
+{
+"url": "https://qingdao.thaiembassy.org/th/page/86106-ข้อมูลวีซ่าประเภทต่าง-ๆ",
+"http": 200,
+"ok": true,
+"titolo": "ข้อมูลวีซ่าประเภทต่าง ๆ",
+"inserita": "2019-09-19",
+"modificata": "2025-09-15",
+"caratteri": 4237,
+"sha256": "34b44da02cc0b4057a4c6cbccfbcb126a8dbc66ce2f3da57aa66b631c0d97d6c"
+}
+],
+"costo": {
+"importo": 2300,
+"valuta": "CNY",
+"frammento": "Spouse and dependent children of DTV holders | 2,300 RMB",
+"p": 0,
+"nota": "fee table of the consulate"
+},
+"domanda": [],
+"sito": "https://qingdao.thaiembassy.org"
+},
+{
+"id": "osaka",
+"sede": "Osaka",
+"paese": "Japan",
+"tipo": "Consulate-General",
+"pagine": [
+{
+"url": "https://osaka.thaiembassy.org/en/content/announcement-updated-requirements-dtv",
+"http": 200,
+"ok": true,
+"titolo": "Announcement: Updated Requirements for Supporting Documents for Destination Thailand Visa (DTV)",
+"inserita": "2026-08-28",
+"modificata": "2026-08-28",
+"caratteri": 825,
+"sha256": "02c026a19dba34a75c3d732ebcbcbc88fc4adf11da511ab777bd7bce779305c2"
+}
+],
+"residenza": {
+"tipo": "generale",
+"frammento": "Proof of permanent residence in the country/territory where the visa application is submitted",
+"p": 0
+},
+"domanda": [],
+"sito": "https://osaka.thaiembassy.org"
+},
+{
+"id": "phnom-penh",
+"sede": "Phnom Penh",
+"paese": "Cambodia",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://phnompenh.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2024-07-23",
+"modificata": "2024-07-23",
+"caratteri": 1257,
+"sha256": "1c4c5b64ec93480fb880297f354b3160ab921563adde3d0320e897dbbf587b85"
+}
+],
+"saldo": {
+"frammento": "amount of no less than 500,000 THB",
+"p": 0
+},
+"domanda": [
+"dtv visa cambodia",
+"dtv visa thailand cambodia"
+],
+"sito": "https://phnompenh.thaiembassy.org"
+},
+{
+"id": "dubai",
+"sede": "Dubai",
+"paese": "United Arab Emirates",
+"tipo": "Consulate-General",
+"pagine": [
+{
+"url": "https://dubai.thaiembassy.org/en/content/destination-thailand-visa-dtv",
+"http": 200,
+"ok": true,
+"titolo": "DESTINATION THAILAND VISA (DTV) 📣",
+"inserita": "2026-09-04",
+"modificata": "2026-09-04",
+"caratteri": 99,
+"sha256": "20194d154fbac2f08213b0059558b6c12bc64e9adca2278aba4bdbe12f52eb26"
+}
+],
+"domanda": [
+"dtv visa from dubai",
+"dtv visa thailand dubai"
+],
+"sito": "https://dubai.thaiembassy.org"
+},
+{
+"id": "tel-aviv",
+"sede": "Tel Aviv",
+"paese": "Israel",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://telaviv.thaiembassy.org/en/content/destination-thailand-visa-dtv",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV) (a maximum period of stay of 180 days per entry)",
+"inserita": "2024-07-15",
+"modificata": "2024-07-15",
+"caratteri": 392,
+"sha256": "01c4eeecbf92bf9fa35ae0a53573eb3269019314236e2e3daf695f611a9a53a6"
+}
+],
+"domanda": [],
+"sito": "https://telaviv.thaiembassy.org"
+},
+{
+"id": "canberra",
+"sede": "Canberra",
+"paese": "Australia",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://canberra.thaiembassy.org/en/content/destination-thailand-visa-dtv",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2024-10-23",
+"modificata": "2024-10-23",
+"caratteri": 535,
+"sha256": "b2439c2c6313f7964456e9f8c8e65899d91e4c3d81449059203408a447f6a3e3"
+}
+],
+"domanda": [
+"dtv visa canberra"
+],
+"sito": "https://canberra.thaiembassy.org"
+},
+{
+"id": "pretoria",
+"sede": "Pretoria",
+"paese": "South Africa",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://pretoria.thaiembassy.org/en/page/destination-thailand-visa-dtv",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2024-07-15",
+"modificata": "2024-07-15",
+"caratteri": 94,
+"sha256": "e1d54bd58dd6bfb122f566f34b01d0d7bbe6d744dce6dea056435ee21a0dc630"
+}
+],
+"domanda": [],
+"sito": "https://pretoria.thaiembassy.org"
+},
+{
+"id": "dhaka",
+"sede": "Dhaka",
+"paese": "Bangladesh",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://dhaka.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv",
+"http": 200,
+"ok": true,
+"titolo": "DESTINATION THAILAND VISA (DTV)",
+"inserita": "2024-08-26",
+"modificata": "2024-08-26",
+"caratteri": 0,
+"sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
+],
+"domanda": [
+"dtv visa from bangladesh"
+],
+"sito": "https://dhaka.thaiembassy.org"
+},
+{
+"id": "bandar-seri-begawan",
+"sede": "Bandar Seri Begawan",
+"paese": "Brunei",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://bsb.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2024-12-27",
+"modificata": "2025-05-01",
+"caratteri": 0,
+"sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
+],
+"domanda": [],
+"sito": "https://bsb.thaiembassy.org"
+},
+{
+"id": "athens",
+"sede": "Athens",
+"paese": "Greece",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://athens.thaiembassy.org/en/content/announcement-no-2-2567-destination-thailand-visa",
+"http": 200,
+"ok": true,
+"titolo": "Announcement No. 2 / 2567 : Destination Thailand Visa",
+"inserita": "2024-07-16",
+"modificata": "2024-07-16",
+"caratteri": 0,
+"sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
+],
+"domanda": [],
+"sito": "https://athens.thaiembassy.org"
+},
+{
+"id": "hanoi",
+"sede": "Hanoi",
+"paese": "Vietnam",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://rtehanoi.thaiembassy.org/th/publicservice/destination-thailand-visa",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa",
+"inserita": "2024-10-05",
+"modificata": "2024-10-05",
+"caratteri": 0,
+"sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
+],
+"domanda": [
+"dtv hanoi embassy",
+"dtv visa hanoi",
+"dtv visa hanoi requirements",
+"dtv visa thai embassy hanoi",
+"dtv visa thailand hanoi"
+],
+"sito": "https://rtehanoi.thaiembassy.org"
+},
+{
+"id": "nanning",
+"sede": "Nanning",
+"paese": "China",
+"tipo": "Consulate-General",
+"pagine": [
+{
+"url": "https://nanning.thaiembassy.org/th/publicservice/destination-thailand-visa-dtv",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2024-07-17",
+"modificata": "2026-08-31",
+"caratteri": 0,
+"sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
+],
+"domanda": [],
+"sito": "https://nanning.thaiembassy.org"
+},
+{
+"id": "chengdu",
+"sede": "Chengdu",
+"paese": "China",
+"tipo": "Consulate-General",
+"pagine": [
+{
+"url": "https://chengdu.thaiembassy.org/th/content/destination-thailand-visa-dtv",
+"http": 200,
+"ok": true,
+"titolo": "Destination Thailand Visa (DTV)",
+"inserita": "2025-11-04",
+"modificata": "2025-11-04",
+"caratteri": 658,
+"sha256": "2f9eceb1e4e1dfa0de5ebbd17ea56ba7236c3fd454c874251f25d9dac09cd55b"
+}
+],
+"domanda": [],
+"sito": "https://chengdu.thaiembassy.org"
+},
+{
+"id": "nairobi",
+"sede": "Nairobi",
+"paese": "Kenya",
+"tipo": "Embassy",
+"pagine": [
+{
+"url": "https://nairobi.thaiembassy.org/th/publicservice/dtv",
+"http": 200,
+"ok": true,
+"titolo": "DTV",
+"inserita": "2025-11-04",
+"modificata": "2025-11-04",
+"caratteri": 127,
+"sha256": "eca65d31cceeaf250874145981fe1ae79fe33f43ef0facc05482434e22d8e44c"
+}
+],
+"domanda": [],
+"sito": "https://nairobi.thaiembassy.org"
+}
+],
+"generale": {
+"regola_osaka": {
+"url": "https://osaka.thaiembassy.org/en/content/announcement-updated-requirements-dtv",
+"frammenti": [
+"Effective from 31 August 2026",
+"Proof of permanent residence in the country/territory where the visa application is submitted",
+"Certificate of criminal record clearance issued by the country/territory of the applicant’s nationality or permanent residence",
+"Applications submitted before 31 August 2026 will be considered in accordance with the supporting document requirements applicable prior to the effective date"
+],
+"modificata": "2026-08-28",
+"sha256": "02c026a19dba34a75c3d732ebcbcbc88fc4adf11da511ab777bd7bce779305c2"
+},
+"regola_mosca": {
+"url": "https://moscow.thaiembassy.org/en/publicservice/adjustment-to-supporting-documents-for-destination-thailand-visa-dtv-a",
+"frammenti": [
+"According to an announcement published by the Department of Consular Affairs, Ministry of Foreign Affairs of Thailand, on 28 August 2026",
+"The revised requirements have been in effect since 00.00 hrs. on 31 August 2026 (Thailand local time)"
+],
+"modificata": "2026-09-02",
+"sha256": "e1640b595517769c5bc9807ccec04cc017762259911e71b8110cf0c27c0638b6"
+},
+"esenzione_londra": {
+"url": "https://london.thaiembassy.org/en/page/exemp-visa",
+"frammenti": [
+"Effective from 15 September 2026",
+"British and Irish passport holders, as well as foreign travellers from many other countries",
+"can enter Thailand without a visa for up to 30 days under the Visa Exemption Scheme for tourism purposes only",
+"only twice within a calendar year",
+"proof of sufficient funds of 20,000 THB per person",
+"they may request an extension of stay for up to 30 days"
+],
+"modificata": "2026-09-08",
+"sha256": "1af14288fefdfa6378b43790051241cae5015401f90c4507f88011c971901763"
+},
+"esenzione_washington": {
+"url": "https://washingtondc.thaiembassy.org/en/page/visaexempt-voajul2024",
+"frammenti": [
+"New Tourist Visa Exemption Scheme (30 Days) Effective Date 15 September 2026",
+"Nationals of the following 60 countries and territories are entitled to visa exemption for the purpose of tourism for up to 30 days period of stay"
+],
+"modificata": "2026-09-17",
+"sha256": "69fd565840be2d587754f3a00d1c2d1791ba82269a969a8a550a42db69656761"
+}
+}
+}
