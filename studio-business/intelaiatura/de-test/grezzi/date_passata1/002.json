@@ -1,0 +1,22 @@
+{
+ "nome": "Arab World IC GmbH",
+ "citta": "hamburg",
+ "url_partenza": "https://www.arabworld-ic.com/",
+ "pagine": [
+  {
+   "url": "https://www.arabworld-ic.com/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 1653174
+  },
+  {
+   "url": "https://www.arabworld-ic.com/einb%C3%BCrgerungstests",
+   "stato": 200,
+   "chiave": true,
+   "byte": 866670
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

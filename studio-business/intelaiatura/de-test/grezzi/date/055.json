@@ -1,0 +1,85 @@
+{
+ "nome": "Benedict GmbH",
+ "citta": "düsseldorf",
+ "url_partenza": "https://www.benedict-schulen.de/",
+ "pagine": [
+  {
+   "url": "https://www.benedict-schulen.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 147264,
+   "n_date": 19
+  },
+  {
+   "url": "https://www.benedict-schulen.de/einbuergerungstest/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 126917,
+   "n_date": 2
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-10",
+   "pagina": "https://www.benedict-schulen.de/"
+  },
+  {
+   "data": "2026-11-17",
+   "pagina": "https://www.benedict-schulen.de/"
+  },
+  {
+   "data": "2026-11-18",
+   "pagina": "https://www.benedict-schulen.de/"
+  },
+  {
+   "data": "2026-11-19",
+   "pagina": "https://www.benedict-schulen.de/"
+  },
+  {
+   "data": "2026-12-10",
+   "pagina": "https://www.benedict-schulen.de/"
+  },
+  {
+   "data": "2026-12-14",
+   "pagina": "https://www.benedict-schulen.de/"
+  },
+  {
+   "data": "2026-12-16",
+   "pagina": "https://www.benedict-schulen.de/einbuergerungstest/"
+  },
+  {
+   "data": "2026-12-17",
+   "pagina": "https://www.benedict-schulen.de/"
+  },
+  {
+   "data": "2027-01-05",
+   "pagina": "https://www.benedict-schulen.de/"
+  },
+  {
+   "data": "2027-01-14",
+   "pagina": "https://www.benedict-schulen.de/einbuergerungstest/"
+  },
+  {
+   "data": "2027-01-28",
+   "pagina": "https://www.benedict-schulen.de/"
+  },
+  {
+   "data": "2027-01-29",
+   "pagina": "https://www.benedict-schulen.de/"
+  },
+  {
+   "data": "2027-02-18",
+   "pagina": "https://www.benedict-schulen.de/"
+  },
+  {
+   "data": "2027-02-23",
+   "pagina": "https://www.benedict-schulen.de/"
+  },
+  {
+   "data": "2027-02-24",
+   "pagina": "https://www.benedict-schulen.de/"
+  }
+ ],
+ "esito": "date future in HTML"
+}

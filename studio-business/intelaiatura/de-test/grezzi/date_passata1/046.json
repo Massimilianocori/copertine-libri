@@ -1,0 +1,114 @@
+{
+ "nome": "VHS Stadt Leipzig",
+ "citta": "leipzig",
+ "url_partenza": "https://www.vhs-leipzig.de/",
+ "pagine": [
+  {
+   "url": "https://www.vhs-leipzig.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 213316
+  },
+  {
+   "url": "https://www.vhs-leipzig.de/p/kurse/beruf-karriere/berufsbezogene-sprachkurse-495-CAT-KAT556",
+   "stato": 200,
+   "chiave": false,
+   "byte": 130980
+  },
+  {
+   "url": "https://www.vhs-leipzig.de/programm/deutsch-und-integration?highcontrast=0&cHash=c47c8b66297eeac9fed1d057b1d64a2d",
+   "stato": 200,
+   "chiave": false,
+   "byte": 111743
+  },
+  {
+   "url": "https://www.vhs-leipzig.de/p/kurse/deutsch-integration/integrationskurse-bamf-495-CAT-KAT628",
+   "stato": 200,
+   "chiave": false,
+   "byte": 98797
+  },
+  {
+   "url": "https://www.vhs-leipzig.de/p/kurse/deutsch-integration/deutschkurse-a1-c2-495-CAT-KAT627",
+   "stato": 200,
+   "chiave": false,
+   "byte": 472178
+  },
+  {
+   "url": "https://www.vhs-leipzig.de/programm/deutsch-integration/pruefungen?highcontrast=0&cHash=6cba7594d0b74118b0877f268d64af93",
+   "stato": 200,
+   "chiave": true,
+   "byte": 216655,
+   "n_date": 33
+  },
+  {
+   "url": "https://www.vhs-leipzig.de/p/kurse/deutsch-integration/pruefungen/einbuergerungstest-495-C-F418892P",
+   "stato": 200,
+   "chiave": true,
+   "byte": 121113,
+   "n_date": 1
+  },
+  {
+   "url": "https://www.vhs-leipzig.de/p/kurse/deutsch-integration/pruefungen/einbuergerungstest-495-C-F418893P",
+   "stato": 200,
+   "chiave": true,
+   "byte": 121113,
+   "n_date": 1
+  },
+  {
+   "url": "https://www.vhs-leipzig.de/p/kurse/deutsch-integration/pruefungen/einbuergerungstest-495-C-G418880P",
+   "stato": 200,
+   "chiave": true,
+   "byte": 121138,
+   "n_date": 1
+  },
+  {
+   "url": "https://www.vhs-leipzig.de/p/kurse/deutsch-integration/pruefungen/einbuergerungstest-495-C-G418881P",
+   "stato": 200,
+   "chiave": true,
+   "byte": 121138,
+   "n_date": 1
+  },
+  {
+   "url": "https://www.vhs-leipzig.de/p/kurse/deutsch-integration/pruefungen/einbuergerungstest-495-C-G418882P",
+   "stato": 200,
+   "chiave": true,
+   "byte": 121137,
+   "n_date": 1
+  },
+  {
+   "url": "https://www.vhs-leipzig.de/p/kurse/deutsch-integration/pruefungen/einbuergerungstest-495-C-G418883P",
+   "stato": 200,
+   "chiave": true,
+   "byte": 121137,
+   "n_date": 1
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-07",
+   "pagina": "https://www.vhs-leipzig.de/programm/deutsch-integration/pruefungen?highcontrast=0&cHash=6cba7594d0b74118b0877f268d64af93"
+  },
+  {
+   "data": "2026-11-28",
+   "pagina": "https://www.vhs-leipzig.de/programm/deutsch-integration/pruefungen?highcontrast=0&cHash=6cba7594d0b74118b0877f268d64af93"
+  },
+  {
+   "data": "2026-12-15",
+   "pagina": "https://www.vhs-leipzig.de/p/kurse/deutsch-integration/pruefungen/einbuergerungstest-495-C-F418893P"
+  },
+  {
+   "data": "2027-01-12",
+   "pagina": "https://www.vhs-leipzig.de/p/kurse/deutsch-integration/pruefungen/einbuergerungstest-495-C-G418881P"
+  },
+  {
+   "data": "2027-02-05",
+   "pagina": "https://www.vhs-leipzig.de/p/kurse/deutsch-integration/pruefungen/einbuergerungstest-495-C-G418883P"
+  },
+  {
+   "data": "2027-02-06",
+   "pagina": "https://www.vhs-leipzig.de/programm/deutsch-integration/pruefungen?highcontrast=0&cHash=6cba7594d0b74118b0877f268d64af93"
+  }
+ ],
+ "esito": "date future in HTML"
+}

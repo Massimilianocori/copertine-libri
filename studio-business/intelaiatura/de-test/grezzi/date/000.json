@@ -1,0 +1,64 @@
+{
+ "nome": "Akademikerbund Hamburg e.V.",
+ "citta": "hamburg",
+ "url_partenza": "https://www.abh-kurse.de/",
+ "pagine": [
+  {
+   "url": "https://www.abh-kurse.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 90831
+  },
+  {
+   "url": "https://www.abh-kurse.de/programm/pruefungen/dtz-a2-b1-telc-sprachpruefung/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 79369,
+   "n_date": 4
+  },
+  {
+   "url": "https://www.abh-kurse.de/programm/kw/bereich/kursdetails/kurs/BWA-306-P/kursname/Deutsch-Test%20fuer%20Zuwanderer%20A2B1/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 62370
+  },
+  {
+   "url": "https://www.abh-kurse.de/programm/kw/bereich/kursdetails/kurs/BI-268-P/kursname/Deutsch-Test%20fuer%20Zuwanderer%20A2B1/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 62365
+  },
+  {
+   "url": "https://www.abh-kurse.de/programm/kw/bereich/kursdetails/kurs/BX-DZ-10-P/kursname/Deutsch-Test%20fuer%20Zuwanderer%20A2B1/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 62375
+  },
+  {
+   "url": "https://www.abh-kurse.de/programm/kw/bereich/kursdetails/kurs/BX-DZ-11-P/kursname/Deutsch-Test%20fuer%20Zuwanderer%20A2B1/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 62375
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-07",
+   "pagina": "https://www.abh-kurse.de/programm/pruefungen/dtz-a2-b1-telc-sprachpruefung/"
+  },
+  {
+   "data": "2026-11-21",
+   "pagina": "https://www.abh-kurse.de/programm/pruefungen/dtz-a2-b1-telc-sprachpruefung/"
+  },
+  {
+   "data": "2026-12-05",
+   "pagina": "https://www.abh-kurse.de/programm/pruefungen/dtz-a2-b1-telc-sprachpruefung/"
+  },
+  {
+   "data": "2026-12-19",
+   "pagina": "https://www.abh-kurse.de/programm/pruefungen/dtz-a2-b1-telc-sprachpruefung/"
+  }
+ ],
+ "esito": "date future in HTML"
+}

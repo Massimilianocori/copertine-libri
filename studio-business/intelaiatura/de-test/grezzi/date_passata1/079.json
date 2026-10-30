@@ -1,0 +1,67 @@
+{
+ "nome": "Inlingua Chemnitz",
+ "citta": "chemnitz",
+ "url_partenza": "https://www.inlingua-chemnitz.de/",
+ "pagine": [
+  {
+   "url": "https://www.inlingua-chemnitz.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 61751
+  },
+  {
+   "url": "https://www.inlingua-chemnitz.de/sprachpruefungen/einbuergerungstest/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 47268,
+   "n_date": 4
+  },
+  {
+   "url": "https://www.inlingua-chemnitz.de/sprachpruefungen/lid/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 47761
+  },
+  {
+   "url": "https://www.inlingua-chemnitz.de/sprachpruefungen/dtz/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 47371,
+   "n_date": 2
+  },
+  {
+   "url": "https://www.inlingua-chemnitz.de/sprachpruefungen/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 59779
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-05",
+   "pagina": "https://www.inlingua-chemnitz.de/sprachpruefungen/einbuergerungstest/"
+  },
+  {
+   "data": "2026-11-06",
+   "pagina": "https://www.inlingua-chemnitz.de/sprachpruefungen/dtz/"
+  },
+  {
+   "data": "2026-11-12",
+   "pagina": "https://www.inlingua-chemnitz.de/sprachpruefungen/einbuergerungstest/"
+  },
+  {
+   "data": "2027-01-04",
+   "pagina": "https://www.inlingua-chemnitz.de/sprachpruefungen/einbuergerungstest/"
+  },
+  {
+   "data": "2027-01-28",
+   "pagina": "https://www.inlingua-chemnitz.de/sprachpruefungen/einbuergerungstest/"
+  },
+  {
+   "data": "2027-01-29",
+   "pagina": "https://www.inlingua-chemnitz.de/sprachpruefungen/dtz/"
+  }
+ ],
+ "esito": "date future in HTML"
+}

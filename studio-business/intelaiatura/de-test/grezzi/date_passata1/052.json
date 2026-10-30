@@ -1,0 +1,116 @@
+{
+ "nome": "Berlitz Deutschland GmbH",
+ "citta": "düsseldorf",
+ "url_partenza": "https://www.berlitz.com/de-de",
+ "pagine": [
+  {
+   "url": "https://www.berlitz.com/de-de",
+   "stato": 200,
+   "chiave": true,
+   "byte": 329768
+  },
+  {
+   "url": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest",
+   "stato": 200,
+   "chiave": true,
+   "byte": 242262,
+   "n_date": 23
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-04",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2026-12-09",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2026-12-16",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-01-21",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-02-17",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-02-24",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-03-17",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-03-24",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-04-21",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-04-28",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-05-26",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-06-02",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-06-30",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-07-14",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-07-28",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-08-25",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-08-31",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-09-28",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-10-13",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-10-27",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-11-17",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-11-25",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  },
+  {
+   "data": "2027-12-17",
+   "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  }
+ ],
+ "esito": "date future in HTML"
+}

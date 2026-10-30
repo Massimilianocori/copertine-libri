@@ -1,0 +1,40 @@
+{
+ "nome": "Colón",
+ "citta": "hamburg",
+ "url_partenza": "https://www.colon.de/",
+ "pagine": [
+  {
+   "url": "https://www.colon.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 187143
+  },
+  {
+   "url": "https://www.colon.de/kurs-merkmal/telc-pruefung/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 168577
+  },
+  {
+   "url": "https://www.colon.de/pruefungen-fremdsprachen-institut-colon/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 146157
+  },
+  {
+   "url": "https://www.colon.de/pruefungen-fremdsprachen-institut-colon/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 146157
+  },
+  {
+   "url": "https://moodle.colon.de/local/colonplacement/start.php?test=de",
+   "stato": 200,
+   "chiave": false,
+   "byte": 28217
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

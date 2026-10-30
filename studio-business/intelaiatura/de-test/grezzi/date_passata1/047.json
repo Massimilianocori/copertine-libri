@@ -1,0 +1,22 @@
+{
+ "nome": "Ulmer Volkshochschule",
+ "citta": "ulm",
+ "url_partenza": "https://www.vh-ulm.de/",
+ "pagine": [
+  {
+   "url": "https://www.vh-ulm.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 172001
+  },
+  {
+   "url": "https://www.vh-ulm.de/abschluesse/einbuergerung",
+   "stato": 200,
+   "chiave": true,
+   "byte": 80856
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

@@ -1,0 +1,82 @@
+{
+ "nome": "Akademia Zentrum für Kommunikation und Bildung - Nürnberg",
+ "citta": "nürnberg",
+ "url_partenza": "https://www.linguademia.de/",
+ "pagine": [
+  {
+   "url": "https://linguademia.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 259710
+  },
+  {
+   "url": "https://linguademia.de/sprachkurse/deutschkurs/integrationskurs-in-nuernberg/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 418313
+  },
+  {
+   "url": "https://linguademia.de/sprachkurse/deutschkurs/deutsch-berufssprachkurs-in-nuernberg/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 411878
+  },
+  {
+   "url": "https://linguademia.de/sprachkurse/deutschkurs/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 420201
+  },
+  {
+   "url": "https://linguademia.de/sprachkurs/deutsch-im-einzelunterricht/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 373926
+  },
+  {
+   "url": "https://linguademia.de/sprachkurs/deutsch-intensiv/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 373972
+  },
+  {
+   "url": "https://linguademia.de/sprachkurs/englisch-im-einzelunterricht/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 373739
+  },
+  {
+   "url": "https://linguademia.de/sprachtests/einstufungstest/einstufungstest-deutsch/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 616686
+  },
+  {
+   "url": "https://linguademia.de/sprachtests/einstufungstest/einstufungstest-englisch/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 588082
+  },
+  {
+   "url": "https://linguademia.de/fur-unternehmen/gefoerderte-deutsch-sprachkurse/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 387508
+  },
+  {
+   "url": "https://linguademia.de/sprachkurs/job-bsk-pflege/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 377195
+  },
+  {
+   "url": "https://linguademia.de/sprachtests/referenzrahmen-fuer-sprachkenntnisse/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 163395
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

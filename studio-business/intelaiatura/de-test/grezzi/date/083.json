@@ -1,0 +1,16 @@
+{
+ "nome": "VHS Chemnitz",
+ "citta": "chemnitz",
+ "url_partenza": "https://www.vhs-chemnitz.de/",
+ "pagine": [
+  {
+   "url": "https://www.vhs-chemnitz.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 315102
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test non trovata"
+}

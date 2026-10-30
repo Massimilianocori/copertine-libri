@@ -1,0 +1,16 @@
+{
+ "nome": "VHS Berlin Friedrichshain-Kreuzberg",
+ "citta": "berlin",
+ "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/friedrichshain-kreuzberg/",
+ "pagine": [
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/friedrichshain-kreuzberg/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 87483
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

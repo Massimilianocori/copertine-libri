@@ -1,0 +1,526 @@
+[
+ {
+  "citta": "hamburg",
+  "punti": 26,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine'",
+   "top10 'einbürgerungstest termine h'",
+   "9 suggerimenti per 'einbürgerungstest termine hamburg'",
+   "top10 'dtz prüfung termine'",
+   "top10 'dtz prüfung termine h'",
+   "7 suggerimenti per 'dtz prüfung termine hamburg'"
+  ]
+ },
+ {
+  "citta": "berlin",
+  "punti": 24,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine'",
+   "top10 'einbürgerungstest termine b'",
+   "9 suggerimenti per 'einbürgerungstest termine berlin'",
+   "top10 'dtz prüfung termine'",
+   "top10 'dtz prüfung termine b'",
+   "5 suggerimenti per 'dtz prüfung termine berlin'"
+  ]
+ },
+ {
+  "citta": "frankfurt",
+  "punti": 22,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine f'",
+   "7 suggerimenti per 'einbürgerungstest termine frankfurt'",
+   "top10 'dtz prüfung termine'",
+   "top10 'dtz prüfung termine f'",
+   "7 suggerimenti per 'dtz prüfung termine frankfurt'"
+  ]
+ },
+ {
+  "citta": "münchen",
+  "punti": 19,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine m'",
+   "8 suggerimenti per 'einbürgerungstest termine münchen'",
+   "top10 'dtz prüfung termine'",
+   "top10 'dtz prüfung termine m'",
+   "3 suggerimenti per 'dtz prüfung termine münchen'"
+  ]
+ },
+ {
+  "citta": "köln",
+  "punti": 15,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine k'",
+   "7 suggerimenti per 'einbürgerungstest termine köln'",
+   "top10 'dtz prüfung termine k'",
+   "2 suggerimenti per 'dtz prüfung termine köln'"
+  ]
+ },
+ {
+  "citta": "stuttgart",
+  "punti": 15,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine s'",
+   "6 suggerimenti per 'einbürgerungstest termine stuttgart'",
+   "top10 'dtz prüfung termine s'",
+   "3 suggerimenti per 'dtz prüfung termine stuttgart'"
+  ]
+ },
+ {
+  "citta": "essen",
+  "punti": 15,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine e'",
+   "5 suggerimenti per 'einbürgerungstest termine essen'",
+   "top10 'dtz prüfung termine'",
+   "top10 'dtz prüfung termine e'",
+   "2 suggerimenti per 'dtz prüfung termine essen'"
+  ]
+ },
+ {
+  "citta": "leipzig",
+  "punti": 14,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine'",
+   "top10 'einbürgerungstest termine l'",
+   "4 suggerimenti per 'einbürgerungstest termine leipzig'",
+   "top10 'dtz prüfung termine l'",
+   "2 suggerimenti per 'dtz prüfung termine leipzig'"
+  ]
+ },
+ {
+  "citta": "ulm",
+  "punti": 14,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine u'",
+   "6 suggerimenti per 'einbürgerungstest termine ulm'",
+   "top10 'dtz prüfung termine u'",
+   "2 suggerimenti per 'dtz prüfung termine ulm'"
+  ]
+ },
+ {
+  "citta": "düsseldorf",
+  "punti": 13,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine'",
+   "top10 'einbürgerungstest termine d'",
+   "5 suggerimenti per 'einbürgerungstest termine düsseldorf'",
+   "3 suggerimenti per 'dtz prüfung termine düsseldorf'"
+  ]
+ },
+ {
+  "citta": "hannover",
+  "punti": 13,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine'",
+   "top10 'einbürgerungstest termine h'",
+   "5 suggerimenti per 'einbürgerungstest termine hannover'",
+   "3 suggerimenti per 'dtz prüfung termine hannover'"
+  ]
+ },
+ {
+  "citta": "nürnberg",
+  "punti": 13,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine'",
+   "top10 'einbürgerungstest termine n'",
+   "3 suggerimenti per 'einbürgerungstest termine nürnberg'",
+   "top10 'dtz prüfung termine n'",
+   "2 suggerimenti per 'dtz prüfung termine nürnberg'"
+  ]
+ },
+ {
+  "citta": "mannheim",
+  "punti": 13,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine m'",
+   "5 suggerimenti per 'einbürgerungstest termine mannheim'",
+   "top10 'dtz prüfung termine m'",
+   "2 suggerimenti per 'dtz prüfung termine mannheim'"
+  ]
+ },
+ {
+  "citta": "karlsruhe",
+  "punti": 13,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine k'",
+   "5 suggerimenti per 'einbürgerungstest termine karlsruhe'",
+   "top10 'dtz prüfung termine k'",
+   "2 suggerimenti per 'dtz prüfung termine karlsruhe'"
+  ]
+ },
+ {
+  "citta": "wiesbaden",
+  "punti": 13,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine w'",
+   "6 suggerimenti per 'einbürgerungstest termine wiesbaden'",
+   "4 suggerimenti per 'dtz prüfung termine wiesbaden'"
+  ]
+ },
+ {
+  "citta": "erfurt",
+  "punti": 13,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine e'",
+   "4 suggerimenti per 'einbürgerungstest termine erfurt'",
+   "top10 'dtz prüfung termine e'",
+   "3 suggerimenti per 'dtz prüfung termine erfurt'"
+  ]
+ },
+ {
+  "citta": "regensburg",
+  "punti": 13,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine r'",
+   "4 suggerimenti per 'einbürgerungstest termine regensburg'",
+   "top10 'dtz prüfung termine r'",
+   "3 suggerimenti per 'dtz prüfung termine regensburg'"
+  ]
+ },
+ {
+  "citta": "dortmund",
+  "punti": 12,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine'",
+   "top10 'einbürgerungstest termine d'",
+   "3 suggerimenti per 'einbürgerungstest termine dortmund'",
+   "4 suggerimenti per 'dtz prüfung termine dortmund'"
+  ]
+ },
+ {
+  "citta": "augsburg",
+  "punti": 12,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine a'",
+   "4 suggerimenti per 'einbürgerungstest termine augsburg'",
+   "top10 'dtz prüfung termine a'",
+   "2 suggerimenti per 'dtz prüfung termine augsburg'"
+  ]
+ },
+ {
+  "citta": "chemnitz",
+  "punti": 12,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine c'",
+   "3 suggerimenti per 'einbürgerungstest termine chemnitz'",
+   "top10 'dtz prüfung termine c'",
+   "3 suggerimenti per 'dtz prüfung termine chemnitz'"
+  ]
+ },
+ {
+  "citta": "freiburg",
+  "punti": 12,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine f'",
+   "3 suggerimenti per 'einbürgerungstest termine freiburg'",
+   "top10 'dtz prüfung termine f'",
+   "3 suggerimenti per 'dtz prüfung termine freiburg'"
+  ]
+ },
+ {
+  "citta": "potsdam",
+  "punti": 12,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine p'",
+   "6 suggerimenti per 'einbürgerungstest termine potsdam'",
+   "top10 'dtz prüfung termine p'",
+   "0 suggerimenti per 'dtz prüfung termine potsdam'"
+  ]
+ },
+ {
+  "citta": "saarbrücken",
+  "punti": 12,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine s'",
+   "5 suggerimenti per 'einbürgerungstest termine saarbrücken'",
+   "top10 'dtz prüfung termine s'",
+   "1 suggerimenti per 'dtz prüfung termine saarbrücken'"
+  ]
+ },
+ {
+  "citta": "ludwigshafen",
+  "punti": 12,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine l'",
+   "5 suggerimenti per 'einbürgerungstest termine ludwigshafen'",
+   "top10 'dtz prüfung termine l'",
+   "1 suggerimenti per 'dtz prüfung termine ludwigshafen'"
+  ]
+ },
+ {
+  "citta": "offenbach",
+  "punti": 12,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine o'",
+   "4 suggerimenti per 'einbürgerungstest termine offenbach'",
+   "top10 'dtz prüfung termine o'",
+   "2 suggerimenti per 'dtz prüfung termine offenbach'"
+  ]
+ },
+ {
+  "citta": "würzburg",
+  "punti": 12,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine w'",
+   "3 suggerimenti per 'einbürgerungstest termine würzburg'",
+   "top10 'dtz prüfung termine w'",
+   "3 suggerimenti per 'dtz prüfung termine würzburg'"
+  ]
+ },
+ {
+  "citta": "bonn",
+  "punti": 11,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine b'",
+   "6 suggerimenti per 'einbürgerungstest termine bonn'",
+   "2 suggerimenti per 'dtz prüfung termine bonn'"
+  ]
+ },
+ {
+  "citta": "bremen",
+  "punti": 10,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine b'",
+   "5 suggerimenti per 'einbürgerungstest termine bremen'",
+   "2 suggerimenti per 'dtz prüfung termine bremen'"
+  ]
+ },
+ {
+  "citta": "münster",
+  "punti": 10,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine m'",
+   "5 suggerimenti per 'einbürgerungstest termine münster'",
+   "2 suggerimenti per 'dtz prüfung termine münster'"
+  ]
+ },
+ {
+  "citta": "gelsenkirchen",
+  "punti": 10,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine g'",
+   "5 suggerimenti per 'einbürgerungstest termine gelsenkirchen'",
+   "2 suggerimenti per 'dtz prüfung termine gelsenkirchen'"
+  ]
+ },
+ {
+  "citta": "aachen",
+  "punti": 10,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine a'",
+   "4 suggerimenti per 'einbürgerungstest termine aachen'",
+   "top10 'dtz prüfung termine a'",
+   "0 suggerimenti per 'dtz prüfung termine aachen'"
+  ]
+ },
+ {
+  "citta": "hamm",
+  "punti": 10,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine h'",
+   "5 suggerimenti per 'einbürgerungstest termine hamm'",
+   "2 suggerimenti per 'dtz prüfung termine hamm'"
+  ]
+ },
+ {
+  "citta": "heidelberg",
+  "punti": 10,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine h'",
+   "5 suggerimenti per 'einbürgerungstest termine heidelberg'",
+   "2 suggerimenti per 'dtz prüfung termine heidelberg'"
+  ]
+ },
+ {
+  "citta": "darmstadt",
+  "punti": 10,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine d'",
+   "5 suggerimenti per 'einbürgerungstest termine darmstadt'",
+   "2 suggerimenti per 'dtz prüfung termine darmstadt'"
+  ]
+ },
+ {
+  "citta": "duisburg",
+  "punti": 9,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine d'",
+   "5 suggerimenti per 'einbürgerungstest termine duisburg'",
+   "1 suggerimenti per 'dtz prüfung termine duisburg'"
+  ]
+ },
+ {
+  "citta": "bochum",
+  "punti": 9,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine b'",
+   "4 suggerimenti per 'einbürgerungstest termine bochum'",
+   "2 suggerimenti per 'dtz prüfung termine bochum'"
+  ]
+ },
+ {
+  "citta": "braunschweig",
+  "punti": 9,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine b'",
+   "4 suggerimenti per 'einbürgerungstest termine braunschweig'",
+   "2 suggerimenti per 'dtz prüfung termine braunschweig'"
+  ]
+ },
+ {
+  "citta": "kiel",
+  "punti": 9,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine k'",
+   "4 suggerimenti per 'einbürgerungstest termine kiel'",
+   "2 suggerimenti per 'dtz prüfung termine kiel'"
+  ]
+ },
+ {
+  "citta": "magdeburg",
+  "punti": 9,
+  "dettaglio": [
+   "5 suggerimenti per 'einbürgerungstest termine magdeburg'",
+   "4 suggerimenti per 'dtz prüfung termine magdeburg'"
+  ]
+ },
+ {
+  "citta": "krefeld",
+  "punti": 9,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine k'",
+   "4 suggerimenti per 'einbürgerungstest termine krefeld'",
+   "2 suggerimenti per 'dtz prüfung termine krefeld'"
+  ]
+ },
+ {
+  "citta": "kassel",
+  "punti": 9,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine k'",
+   "4 suggerimenti per 'einbürgerungstest termine kassel'",
+   "2 suggerimenti per 'dtz prüfung termine kassel'"
+  ]
+ },
+ {
+  "citta": "ingolstadt",
+  "punti": 9,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine i'",
+   "5 suggerimenti per 'einbürgerungstest termine ingolstadt'",
+   "1 suggerimenti per 'dtz prüfung termine ingolstadt'"
+  ]
+ },
+ {
+  "citta": "osnabrück",
+  "punti": 9,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine o'",
+   "5 suggerimenti per 'einbürgerungstest termine osnabrück'",
+   "1 suggerimenti per 'dtz prüfung termine osnabrück'"
+  ]
+ },
+ {
+  "citta": "dresden",
+  "punti": 8,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine d'",
+   "4 suggerimenti per 'einbürgerungstest termine dresden'",
+   "1 suggerimenti per 'dtz prüfung termine dresden'"
+  ]
+ },
+ {
+  "citta": "mönchengladbach",
+  "punti": 8,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine m'",
+   "4 suggerimenti per 'einbürgerungstest termine mönchengladbach'",
+   "1 suggerimenti per 'dtz prüfung termine mönchengladbach'"
+  ]
+ },
+ {
+  "citta": "mainz",
+  "punti": 8,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine m'",
+   "3 suggerimenti per 'einbürgerungstest termine mainz'",
+   "2 suggerimenti per 'dtz prüfung termine mainz'"
+  ]
+ },
+ {
+  "citta": "lübeck",
+  "punti": 8,
+  "dettaglio": [
+   "3 suggerimenti per 'einbürgerungstest termine lübeck'",
+   "top10 'dtz prüfung termine l'",
+   "2 suggerimenti per 'dtz prüfung termine lübeck'"
+  ]
+ },
+ {
+  "citta": "wuppertal",
+  "punti": 7,
+  "dettaglio": [
+   "5 suggerimenti per 'einbürgerungstest termine wuppertal'",
+   "2 suggerimenti per 'dtz prüfung termine wuppertal'"
+  ]
+ },
+ {
+  "citta": "halle",
+  "punti": 7,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine h'",
+   "2 suggerimenti per 'einbürgerungstest termine halle'",
+   "2 suggerimenti per 'dtz prüfung termine halle'"
+  ]
+ },
+ {
+  "citta": "oberhausen",
+  "punti": 7,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine o'",
+   "2 suggerimenti per 'einbürgerungstest termine oberhausen'",
+   "2 suggerimenti per 'dtz prüfung termine oberhausen'"
+  ]
+ },
+ {
+  "citta": "göttingen",
+  "punti": 7,
+  "dettaglio": [
+   "4 suggerimenti per 'einbürgerungstest termine göttingen'",
+   "3 suggerimenti per 'dtz prüfung termine göttingen'"
+  ]
+ },
+ {
+  "citta": "rostock",
+  "punti": 6,
+  "dettaglio": [
+   "top10 'einbürgerungstest termine r'",
+   "2 suggerimenti per 'einbürgerungstest termine rostock'",
+   "1 suggerimenti per 'dtz prüfung termine rostock'"
+  ]
+ },
+ {
+  "citta": "heilbronn",
+  "punti": 6,
+  "dettaglio": [
+   "5 suggerimenti per 'einbürgerungstest termine heilbronn'",
+   "1 suggerimenti per 'dtz prüfung termine heilbronn'"
+  ]
+ },
+ {
+  "citta": "bielefeld",
+  "punti": 5,
+  "dettaglio": [
+   "4 suggerimenti per 'einbürgerungstest termine bielefeld'",
+   "1 suggerimenti per 'dtz prüfung termine bielefeld'"
+  ]
+ },
+ {
+  "citta": "hagen",
+  "punti": 4,
+  "dettaglio": [
+   "2 suggerimenti per 'einbürgerungstest termine hagen'",
+   "2 suggerimenti per 'dtz prüfung termine hagen'"
+  ]
+ }
+]

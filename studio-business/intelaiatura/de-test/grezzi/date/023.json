@@ -1,0 +1,132 @@
+{
+ "nome": "DRK Sozialdienste gGmbH Frankfurt a. M.",
+ "citta": "frankfurt",
+ "url_partenza": "https://www.drkfrankfurt.de/",
+ "pagine": [
+  {
+   "url": "https://www.drkfrankfurt.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 190411
+  },
+  {
+   "url": "https://www.drkfrankfurt.de/angebote/integration/jugendhilfe.html",
+   "stato": 200,
+   "chiave": false,
+   "byte": 135394
+  },
+  {
+   "url": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum.html",
+   "stato": 200,
+   "chiave": true,
+   "byte": 147823
+  },
+  {
+   "url": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html",
+   "stato": 200,
+   "chiave": true,
+   "byte": 134919,
+   "n_date": 9
+  },
+  {
+   "url": "https://www.drkfrankfurt.de/angebote/integration/wegbereiter.html",
+   "stato": 200,
+   "chiave": false,
+   "byte": 137556
+  },
+  {
+   "url": "https://www.drkfrankfurt.de/kurse/erste-hilfe/sehtest.html",
+   "stato": 200,
+   "chiave": false,
+   "byte": 135475
+  },
+  {
+   "url": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/integrationskurse/integrationskurse.html",
+   "stato": 200,
+   "chiave": true,
+   "byte": 142626
+  },
+  {
+   "url": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/selbstzahlerkurse.html",
+   "stato": 200,
+   "chiave": true,
+   "byte": 137100
+  },
+  {
+   "url": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/berufsbezogene-deutschkurse/standard-titel.html",
+   "stato": 200,
+   "chiave": true,
+   "byte": 141181
+  },
+  {
+   "url": "https://www.drkfrankfurt.de/start/spenden/spendenprojekte/testamentsspende.html",
+   "stato": 200,
+   "chiave": false,
+   "byte": 135543
+  },
+  {
+   "url": "https://www.drkfrankfurt.de/angebote/beratung/informationsveranstaltungen.html",
+   "stato": 200,
+   "chiave": false,
+   "byte": 149406
+  },
+  {
+   "url": "https://www.drkfrankfurt.de/angebote/integration/jugendhilfe/haus-borsigallee.html",
+   "stato": 200,
+   "chiave": false,
+   "byte": 150405
+  },
+  {
+   "url": "https://www.drkfrankfurt.de/angebote/integration/jugendhilfe/haus-vilbeler-landstrasse.html",
+   "stato": 200,
+   "chiave": false,
+   "byte": 135186
+  },
+  {
+   "url": "https://www.drkfrankfurt.de/angebote/integration/jugendhilfe/haus-schoene-aussicht.html",
+   "stato": 200,
+   "chiave": false,
+   "byte": 135878
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-10",
+   "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+  },
+  {
+   "data": "2026-11-24",
+   "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+  },
+  {
+   "data": "2026-12-08",
+   "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+  },
+  {
+   "data": "2027-01-05",
+   "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+  },
+  {
+   "data": "2027-01-19",
+   "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+  },
+  {
+   "data": "2027-02-02",
+   "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+  },
+  {
+   "data": "2027-02-16",
+   "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+  },
+  {
+   "data": "2027-03-02",
+   "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+  },
+  {
+   "data": "2027-03-16",
+   "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+  }
+ ],
+ "esito": "date future in HTML"
+}

@@ -1,0 +1,88 @@
+{
+ "nome": "VHS Berlin-Reinickendorf",
+ "citta": "berlin",
+ "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/reinickendorf/",
+ "pagine": [
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/reinickendorf/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 93145
+  },
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/mitte/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 92122
+  },
+  {
+   "url": "https://www.berlin.de/vhs/deutscher-einbuergerungstest/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 74049
+  },
+  {
+   "url": "https://www.berlin.de/einwanderung/einbuergerung/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 63748
+  },
+  {
+   "url": "https://service.berlin.de/dienstleistung/351180/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 94614
+  },
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/pankow/service/einbuergerungstest-vhs-pankow-1463977.php",
+   "stato": 200,
+   "chiave": true,
+   "byte": 91803,
+   "n_date": 2
+  },
+  {
+   "url": "https://service.berlin.de/dienstleistung/318998/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 62098
+  },
+  {
+   "url": "https://www.berlin.de/vhs/_assets/pankow/dokumente/einbuergerung_alle-formulare-und-hilfe_2026_froeb17.pdf?ts=1793199310",
+   "stato": 429
+  },
+  {
+   "url": "https://www.berlin.de/vhs/kurse/deutsch-integration/sprachtest-zur-einbuergerung-modelltest.pdf?ts=1754324083",
+   "stato": 429
+  },
+  {
+   "url": "https://liste-antraege-bc01.bda.service.berlin.de/intelliform/assistants/intelliForm-Mandanten/default/Assistants-Dialoge/LEA/EinbuergerungQuickCheck/dialog;jsessionid=J_7-yG0U-hnx30ImAiFvLetj2iXAFDoyQQybT6Rk.IF0?state=5287c0535e369170&cc=qM5W8azQwOwkGOgiCLI82fOMm41KtB50fp89f6wU-0",
+   "stato": 200,
+   "chiave": true,
+   "byte": 25294
+  },
+  {
+   "url": "https://www.berlin.de/einwanderung/_assets/muster-einverstaendniserklaerung-zum-einbuergerungsantrag-fuer-das-kind.docx",
+   "stato": 200
+  },
+  {
+   "url": "https://liste-antraege-bc01.bda.service.berlin.de/intelliform/assistants/intelliForm-Mandanten/default/Assistants-Dialoge/LEA/EinbuergerungQuickCheck/help.jsp",
+   "stato": 200,
+   "chiave": true,
+   "byte": 12301
+  }
+ ],
+ "pdf": [
+  "https://www.berlin.de/vhs/kurse/deutsch-integration/sprachtest-zur-einbuergerung-modelltest.pdf"
+ ],
+ "date": [
+  {
+   "data": "2026-11-23",
+   "pagina": "https://www.berlin.de/vhs/volkshochschulen/pankow/service/einbuergerungstest-vhs-pankow-1463977.php"
+  },
+  {
+   "data": "2027-02-15",
+   "pagina": "https://www.berlin.de/vhs/volkshochschulen/pankow/service/einbuergerungstest-vhs-pankow-1463977.php"
+  }
+ ],
+ "esito": "date future in HTML"
+}

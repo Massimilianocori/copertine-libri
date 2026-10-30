@@ -1,0 +1,22 @@
+{
+ "nome": "Volkshochschule der Stadt Regensburg, VHS Regensburg",
+ "citta": "regensburg",
+ "url_partenza": "https://www.vhs-regensburg.de/",
+ "pagine": [
+  {
+   "url": "https://www.vhs-regensburg.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 68267
+  },
+  {
+   "url": "https://www.vhs-regensburg.de/deutsch",
+   "stato": 200,
+   "chiave": true,
+   "byte": 35577
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

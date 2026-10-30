@@ -1,0 +1,302 @@
+[
+ {
+  "n": 1,
+  "citta": "hamburg",
+  "sede": "Akademikerbund Hamburg e.V.",
+  "data": "2026-12-05",
+  "tipo": "DTZ",
+  "pagina": "https://www.abh-kurse.de/programm/pruefungen/dtz-a2-b1-telc-sprachpruefung/",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 2,
+  "citta": "hamburg",
+  "sede": "IBH - Interkulturelle Bildung Hamburg e.V.",
+  "data": "2026-11-25",
+  "tipo": "EBT",
+  "pagina": "https://ibhev.de/einbuergerungstest/",
+  "giusta": false,
+  "nota": "è la data di apertura delle iscrizioni (25/11 ore 9), non la data del test; il test vero (11/01/2027) è sulla stessa pagina"
+ },
+ {
+  "n": 3,
+  "citta": "hamburg",
+  "sede": "KOM gGmbH",
+  "data": "2026-11-20",
+  "tipo": "DTZ",
+  "pagina": "https://www.kom-bildung.de/bildung/dtz",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 4,
+  "citta": "hamburg",
+  "sede": "Hamburger Volkshochschule",
+  "data": "2026-11-10",
+  "tipo": "EBT",
+  "pagina": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407022",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 5,
+  "citta": "berlin",
+  "sede": "VHS Berlin Treptow-Köpenick",
+  "data": "2026-12-10",
+  "tipo": "EBT",
+  "pagina": "https://www.berlin.de/vhs/volkshochschulen/treptow-koepenick/",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 6,
+  "citta": "berlin",
+  "sede": "VHS Berlin-Pankow",
+  "data": "2027-02-15",
+  "tipo": "EBT",
+  "pagina": "https://www.berlin.de/vhs/volkshochschulen/pankow/service/einbuergerungstest-vhs-pankow-1463977.php",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 7,
+  "citta": "frankfurt",
+  "sede": "DRK Sozialdienste gGmbH Frankfurt a. M.",
+  "data": "2027-03-16",
+  "tipo": "EBT",
+  "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 8,
+  "citta": "münchen",
+  "sede": "Münchner Volkshochschule GmbH",
+  "data": "2027-01-22",
+  "tipo": "EBT",
+  "pagina": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/einbuergerung-460-CAT-KAT7868",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 9,
+  "citta": "münchen",
+  "sede": "Anderwerk GmbH",
+  "data": "2026-11-18",
+  "tipo": "EBT",
+  "pagina": "https://www.anderwerk.de/deutsch-pruefungstermine-anmelden/",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 10,
+  "citta": "köln",
+  "sede": "VHS der Stadt Köln Amt für Weiterbildung",
+  "data": "2027-01-29",
+  "tipo": "EBT",
+  "pagina": "https://www.koelner-vhs.de/deutsch-integration/einbuergerungstest",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 11,
+  "citta": "köln",
+  "sede": "Berlitz Deutschland GmbH / Niederlassung Köln",
+  "data": "2026-11-04",
+  "tipo": "EBT",
+  "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 12,
+  "citta": "köln",
+  "sede": "Euro-Schulen Rheinland GmbH",
+  "data": "2026-11-30",
+  "tipo": "EBT",
+  "pagina": "https://www.euro-schulen.de/koeln/pruefungen-tests",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 13,
+  "citta": "stuttgart",
+  "sede": "VHS Stuttgart e.V.",
+  "data": "2027-03-13",
+  "tipo": "DTZ",
+  "pagina": "https://vhs-stuttgart.de/deutsch-integration/pruefungen/dtz",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 14,
+  "citta": "essen",
+  "sede": "inlingua Center Essen",
+  "data": "2026-11-28",
+  "tipo": "EBT",
+  "pagina": "https://www.inlingua-essen.de/sprachpruefungen/einbuergerungstest/",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 15,
+  "citta": "leipzig",
+  "sede": "Euro Schulen Leipzig GmbH",
+  "data": "2027-03-23",
+  "tipo": "EBT",
+  "pagina": "https://www.euro-schulen.de/leipzig/pruefungen-tests",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 16,
+  "citta": "leipzig",
+  "sede": "zu Hause e. V.",
+  "data": "2026-11-26",
+  "tipo": "EBT",
+  "pagina": "https://www.zuhause-ev.de/",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 17,
+  "citta": "leipzig",
+  "sede": "VHS Stadt Leipzig",
+  "data": "2027-01-12",
+  "tipo": "EBT",
+  "pagina": "https://www.vhs-leipzig.de/programm/deutsch-integration/pruefungen?highcontrast=0&cHash=6cba7594d0b74118b0877f268d64af93",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 18,
+  "citta": "ulm",
+  "sede": "Ulmer Volkshochschule",
+  "data": "2026-12-10",
+  "tipo": "EBT",
+  "pagina": "https://www.vh-ulm.de/vh-programm/kurs-finder?kfs_stichwort=&katzeitraumfilter=__reset__&katwotagefilter[]=__reset__&katkategorienfilter=2039",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 19,
+  "citta": "düsseldorf",
+  "sede": "Bénédict GmbH & Co. KG",
+  "data": "2027-01-14",
+  "tipo": "EBT",
+  "pagina": "https://www.benedict-schulen.de/einbuergerungstest/",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 20,
+  "citta": "düsseldorf",
+  "sede": "ASG-Bildungsforum",
+  "data": "2027-01-21",
+  "tipo": "EBT",
+  "pagina": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kategorie/1408?clearallkatfilter=true",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 21,
+  "citta": "düsseldorf",
+  "sede": "Berlitz Deutschland GmbH",
+  "data": "2027-05-26",
+  "tipo": "EBT",
+  "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 22,
+  "citta": "düsseldorf",
+  "sede": "Benedict GmbH",
+  "data": "2027-01-14",
+  "tipo": "EBT",
+  "pagina": "https://www.benedict-schulen.de/einbuergerungstest/",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 23,
+  "citta": "hannover",
+  "sede": "inlingua Sprachschule Hannover GmbH",
+  "data": "2026-12-04",
+  "tipo": "DTZ",
+  "pagina": "https://inlingua-hannover.de/",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 24,
+  "citta": "hannover",
+  "sede": "Volkshochschule Hannover",
+  "data": "2027-01-29",
+  "tipo": "EBT",
+  "pagina": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kategorie/3061?clearallkatfilter=true",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 25,
+  "citta": "hannover",
+  "sede": "Bildungsverein Soziales Lernen und Kommunikation e.V.",
+  "data": "2027-01-08",
+  "tipo": "EBT",
+  "pagina": "https://bildungsverein.de/kurs/271P71193/einbuergerungstest",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 26,
+  "citta": "hannover",
+  "sede": "BERGMANN Bildungsinstitut",
+  "data": "2026-11-26",
+  "tipo": "EBT",
+  "pagina": "https://www.bergmann-institut.org/einb%C3%BCrgerungstest",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 27,
+  "citta": "mannheim",
+  "sede": "Mannheimer Abendakademie und VHS GmbH",
+  "data": "2026-11-25",
+  "tipo": "EBT",
+  "pagina": "https://www.abendakademie-mannheim.de/programm/deutsch-als-fremdsprachezweitsprache",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 28,
+  "citta": "wiesbaden",
+  "sede": "VHS Wiesbaden e.V.",
+  "data": "2026-12-15",
+  "tipo": "EBT",
+  "pagina": "https://www.vhs-wiesbaden.de/fachbereiche-und-projekte/deutsch/einbuergerungstest",
+  "giusta": true,
+  "nota": "data e tipo d'esame corrispondono alla pagina"
+ },
+ {
+  "n": 29,
+  "citta": "wiesbaden",
+  "sede": "Euro-Schulen Rhein-Main GmbH",
+  "data": "2026-12-19",
+  "tipo": "EBT",
+  "pagina": "https://www.euro-schulen.de/wiesbaden/pruefungen-tests",
+  "giusta": false,
+  "nota": "è la data di un esame telc B2: l'estrattore ha preso il titolo della voce successiva"
+ },
+ {
+  "n": 30,
+  "citta": "dortmund",
+  "sede": "VHS Dortmund",
+  "data": "2026-11-30",
+  "tipo": "EBT",
+  "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen",
+  "giusta": false,
+  "nota": "è la fine di una finestra di prenotazione (02/11-30/11), non una data d'esame: VHS Dortmund non pubblica i giorni del test"
+ }
+]

@@ -1,0 +1,124 @@
+{
+ "nome": "Verein für Integration- und Bildung e.V. - Sprachakademie Hannover",
+ "citta": "hannover",
+ "url_partenza": "https://www.sprachakademie.org/",
+ "pagine": [
+  {
+   "url": "https://www.sprachakademie.org/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 118467
+  },
+  {
+   "url": "https://www.sprachakademie.org/leben-in-deutschland/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 115079
+  },
+  {
+   "url": "https://www.sprachakademie.org/dtz-telc-sprachpruefung/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 96458
+  },
+  {
+   "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/kurzbez/orderbyasc/1/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 112733
+  },
+  {
+   "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/beginndt/orderbyasc/1/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 112734
+  },
+  {
+   "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/ort/orderbyasc/1/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 112729
+  },
+  {
+   "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/nr/orderbyasc/1/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 112728
+  },
+  {
+   "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/kurzbez/orderbyasc/1/orderbyasc/0/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 112733
+  },
+  {
+   "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/beginndt/orderbyasc/1/orderbyasc/1/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 112734
+  },
+  {
+   "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/ort/orderbyasc/1/orderbyasc/1/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 112729
+  },
+  {
+   "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/nr/orderbyasc/1/orderbyasc/1/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 112728
+  },
+  {
+   "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/kurzbez/orderbyasc/1/orderbyasc/1/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 112733
+  },
+  {
+   "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/beginndt/orderbyasc/1/orderbyasc/0/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 112734
+  },
+  {
+   "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/ort/orderbyasc/1/orderbyasc/0/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 112729
+  },
+  {
+   "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/nr/orderbyasc/1/orderbyasc/0/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 112728
+  },
+  {
+   "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/kurzbez/orderbyasc/0/orderbyasc/1/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 112733
+  },
+  {
+   "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/beginndt/orderbyasc/0/orderbyasc/1/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 112734
+  },
+  {
+   "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/ort/orderbyasc/0/orderbyasc/1/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 112729
+  },
+  {
+   "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/nr/orderbyasc/0/orderbyasc/1/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 112728
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

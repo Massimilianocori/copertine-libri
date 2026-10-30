@@ -572,3 +572,9 @@ Nessuna idea a 8. Lezione: i dati aperti della zona sono già usati da siti auto
 | TOLC sede per sede con posti liberi (CISIA) | 6,5, sezione di EsamiDiStato dopo lettura delle condizioni CISIA (50-400 €/anno) | ricerca-settore-calendari-2026-10-30 |
 | Calendari scolastici e ponti (IT, DE, FR, ES, UK), pagamenti INPS/Rente/CAF/SNAP, scadenze fiscali, saldi, maturità, PAU, cambio dell'ora, rifiuti, santi patroni | NO (2-4,5): giornali e siti di calendari già forti | ricerca-settore-calendari-2026-10-30 |
 | Calendario venatorio per regione | 5, riserva debole | ricerca-settore-calendari-2026-10-30 |
+
+## Test Germania (30/10/2026)
+
+| Nicchia | Verdetto | Rapporto |
+|---|---|---|
+| Einbürgerungstest e DTZ/B1 città per città (Germania) | **Test NON PASSATO**: 31 sedi su 85 nelle 20 città più cercate con date leggibili (soglia 60; Berlino solo appuntamenti su service.berlin.de); voto 7, nessun sito nuovo | de-test/ESITO.md |

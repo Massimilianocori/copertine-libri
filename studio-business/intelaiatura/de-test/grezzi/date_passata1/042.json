@@ -1,0 +1,16 @@
+{
+ "nome": "Euro Schulen Leipzig GmbH",
+ "citta": "leipzig",
+ "url_partenza": "https://www.eso.de/",
+ "pagine": [
+  {
+   "url": "https://www.eso.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 216714
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test non trovata"
+}

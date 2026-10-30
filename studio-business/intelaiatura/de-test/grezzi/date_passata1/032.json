@@ -1,0 +1,22 @@
+{
+ "nome": "Bildungsinstitut Kavalchuk",
+ "citta": "münchen",
+ "url_partenza": "https://www.bik-courses.de/",
+ "pagine": [
+  {
+   "url": "https://bik-courses.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 223275
+  },
+  {
+   "url": "https://bik-courses.de/leben-in-deutschland/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 250469
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

@@ -1,0 +1,84 @@
+{
+ "nome": "VHS Berlin-Pankow",
+ "citta": "berlin",
+ "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/pankow/",
+ "pagine": [
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/pankow/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 94352
+  },
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/mitte/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 92122
+  },
+  {
+   "url": "https://www.berlin.de/vhs/deutscher-einbuergerungstest/",
+   "stato": 429
+  },
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/pankow/service/einbuergerungstest-vhs-pankow-1463977.php",
+   "stato": 200,
+   "chiave": true,
+   "byte": 91803,
+   "n_date": 2
+  },
+  {
+   "url": "https://www.berlin.de/einwanderung/einbuergerung/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 63748
+  },
+  {
+   "url": "https://www.berlin.de/vhs/_assets/pankow/dokumente/einbuergerung_alle-formulare-und-hilfe_2026_froeb17.pdf?ts=1793199310",
+   "stato": 429
+  },
+  {
+   "url": "https://www.berlin.de/vhs/kurse/deutsch-integration/sprachtest-zur-einbuergerung-modelltest.pdf?ts=1754324083",
+   "stato": 429
+  },
+  {
+   "url": "https://service.berlin.de/dienstleistung/318998/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 62098
+  },
+  {
+   "url": "https://liste-antraege-bc01.bda.service.berlin.de/intelliform/assistants/intelliForm-Mandanten/default/Assistants-Dialoge/LEA/EinbuergerungQuickCheck/dialog;jsessionid=GjXFRwt8dU0WbwFv9JB2_ohG3Aqcu_wAyo0GlW6J.IF0?state=7c199663ae6043f1&cc=ylkDCN09qQHx5reeKJp7zCmmJEFzz1mE8QTgj-w6-0",
+   "stato": 200,
+   "chiave": true,
+   "byte": 25294
+  },
+  {
+   "url": "https://www.berlin.de/einwanderung/_assets/muster-einverstaendniserklaerung-zum-einbuergerungsantrag-fuer-das-kind.docx",
+   "stato": 200
+  },
+  {
+   "url": "https://liste-antraege-bc01.bda.service.berlin.de/intelliform/assistants/intelliForm-Mandanten/default/Assistants-Dialoge/LEA/EinbuergerungQuickCheck/help.jsp",
+   "stato": 200,
+   "chiave": true,
+   "byte": 12301
+  },
+  {
+   "url": "https://liste-antraege-bc01.bda.service.berlin.de/intelliform/forms/default/bda/LEA/einbuergerung/index",
+   "stato": 200,
+   "chiave": true,
+   "byte": 14344
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-23",
+   "pagina": "https://www.berlin.de/vhs/volkshochschulen/pankow/service/einbuergerungstest-vhs-pankow-1463977.php"
+  },
+  {
+   "data": "2027-02-15",
+   "pagina": "https://www.berlin.de/vhs/volkshochschulen/pankow/service/einbuergerungstest-vhs-pankow-1463977.php"
+  }
+ ],
+ "esito": "date future in HTML"
+}

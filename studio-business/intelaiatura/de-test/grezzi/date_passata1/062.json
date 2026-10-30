@@ -1,0 +1,22 @@
+{
+ "nome": "BERGMANN Bildungsinstitut",
+ "citta": "hannover",
+ "url_partenza": "https://www.bergmann-institut.org/",
+ "pagine": [
+  {
+   "url": "https://www.bergmann-institut.org/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 1116790
+  },
+  {
+   "url": "https://www.bergmann-institut.org/einb%C3%BCrgerungstest",
+   "stato": 200,
+   "chiave": true,
+   "byte": 848140
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

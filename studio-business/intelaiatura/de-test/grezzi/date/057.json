@@ -1,0 +1,61 @@
+{
+ "nome": "Volkshochschule Hannover",
+ "citta": "hannover",
+ "url_partenza": "https://www.vhs-hannover.de/",
+ "pagine": [
+  {
+   "url": "https://www.vhs-hannover.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 155756
+  },
+  {
+   "url": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest",
+   "stato": 200,
+   "chiave": true,
+   "byte": 204695,
+   "n_date": 2
+  },
+  {
+   "url": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kategorie/3061?clearallkatfilter=true",
+   "stato": 200,
+   "chiave": true,
+   "byte": 205067,
+   "n_date": 2
+  },
+  {
+   "url": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kurs/Einbuergerungstest/271PP71138",
+   "stato": 200,
+   "chiave": true,
+   "byte": 83074,
+   "n_date": 2
+  },
+  {
+   "url": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kurs/Einbuergerungstest/271PP71139",
+   "stato": 200,
+   "chiave": true,
+   "byte": 83074,
+   "n_date": 2
+  },
+  {
+   "url": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/dozent/1",
+   "stato": 200,
+   "chiave": true,
+   "byte": 74159
+  },
+  {
+   "url": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kurs/Telc-Start-Deutsch-2-A2-Pruefung/262PP71117",
+   "stato": 200,
+   "chiave": true,
+   "byte": 83565
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2027-01-29",
+   "pagina": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kurs/Einbuergerungstest/271PP71139"
+  }
+ ],
+ "esito": "date future in HTML"
+}

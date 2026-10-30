@@ -1,0 +1,4173 @@
+[
+ {
+  "nome": "Akademikerbund Hamburg e.V.",
+  "citta": "hamburg",
+  "url_partenza": "https://www.abh-kurse.de/",
+  "pagine": [
+   {
+    "url": "https://www.abh-kurse.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 90831
+   },
+   {
+    "url": "https://www.abh-kurse.de/programm/pruefungen/dtz-a2-b1-telc-sprachpruefung/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 79369,
+    "n_date": 4
+   },
+   {
+    "url": "https://www.abh-kurse.de/programm/kw/bereich/kursdetails/kurs/BWA-306-P/kursname/Deutsch-Test%20fuer%20Zuwanderer%20A2B1/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 62370
+   },
+   {
+    "url": "https://www.abh-kurse.de/programm/kw/bereich/kursdetails/kurs/BI-268-P/kursname/Deutsch-Test%20fuer%20Zuwanderer%20A2B1/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 62365
+   },
+   {
+    "url": "https://www.abh-kurse.de/programm/kw/bereich/kursdetails/kurs/BX-DZ-10-P/kursname/Deutsch-Test%20fuer%20Zuwanderer%20A2B1/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 62375
+   },
+   {
+    "url": "https://www.abh-kurse.de/programm/kw/bereich/kursdetails/kurs/BX-DZ-11-P/kursname/Deutsch-Test%20fuer%20Zuwanderer%20A2B1/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 62375
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-07",
+    "pagina": "https://www.abh-kurse.de/programm/pruefungen/dtz-a2-b1-telc-sprachpruefung/"
+   },
+   {
+    "data": "2026-11-21",
+    "pagina": "https://www.abh-kurse.de/programm/pruefungen/dtz-a2-b1-telc-sprachpruefung/"
+   },
+   {
+    "data": "2026-12-05",
+    "pagina": "https://www.abh-kurse.de/programm/pruefungen/dtz-a2-b1-telc-sprachpruefung/"
+   },
+   {
+    "data": "2026-12-19",
+    "pagina": "https://www.abh-kurse.de/programm/pruefungen/dtz-a2-b1-telc-sprachpruefung/"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Arbeit, Bildung, Integration (ABI) e.V.",
+  "citta": "hamburg",
+  "url_partenza": "",
+  "pagine": [],
+  "pdf": [],
+  "date": [],
+  "esito": "senza sito"
+ },
+ {
+  "nome": "Arab World IC GmbH",
+  "citta": "hamburg",
+  "url_partenza": "https://www.arabworld-ic.com/",
+  "pagine": [
+   {
+    "url": "https://www.arabworld-ic.com/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1652955
+   },
+   {
+    "url": "https://www.arabworld-ic.com/einb%C3%BCrgerungstests",
+    "stato": 200,
+    "chiave": true,
+    "byte": 866670
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "Diakonisches Werk Hamburg, Landesverband der Inneren Mission e.V.",
+  "citta": "hamburg",
+  "url_partenza": "https://www.diakonie-hamburg.de/",
+  "pagine": [
+   {
+    "url": "https://www.diakonie-hamburg.de/de/start/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 179075
+   },
+   {
+    "url": "https://www.diakonie-hamburg.de/de/fachthemen/migration-integration/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 198646
+   },
+   {
+    "url": "https://www.diakonie-hamburg.de/de/fachthemen/migration-integration/flucht-asyl/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 186774
+   },
+   {
+    "url": "https://www.diakonie-hamburg.de/de/fachthemen/migration-integration/menschen-ohne-papiere/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 190428
+   },
+   {
+    "url": "https://www.diakonie-hamburg.de/de/fachthemen/migration-integration/integration/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 190589
+   },
+   {
+    "url": "https://www.diakonie-hamburg.de/de/adressen/HAMBURG.CARE.CONNECT/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 140685
+   },
+   {
+    "url": "https://www.diakonie-hamburg.de/de/fachthemen/migration-integration/erfolgreich-nach-deutschland/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 192132
+   },
+   {
+    "url": "https://www.diakonie-hamburg.de/de/fachthemen/migration-integration/migration-armut-eu/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 195024
+   },
+   {
+    "url": "https://www.diakonie-hamburg.de/de/adressen/Abschiebemonitoring/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 140244
+   },
+   {
+    "url": "https://www.diakonie-hamburg.de/de/fachthemen/migration-integration/fortbildungen/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 200566
+   },
+   {
+    "url": "https://www.diakonie-hamburg.de/de/presse/pressemitteilungen/Aus-fuer-zwoelf-Integrationszentren-Sechs-erfahrene-freie-Traeger-verlieren-zum-Jahresende-Foerderung-der-Sozialbehoerde/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 141861
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "IBH - Interkulturelle Bildung Hamburg e.V.",
+  "citta": "hamburg",
+  "url_partenza": "https://www.ibhev.de/",
+  "pagine": [
+   {
+    "url": "https://ibhev.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 272433,
+    "n_date": 1
+   },
+   {
+    "url": "https://ibhev.de/einbuergerungstest/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 193474,
+    "n_date": 6
+   },
+   {
+    "url": "https://ibhev.de/deutschtest-fuer-zuwanderer-dtz/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 188658
+   },
+   {
+    "url": "https://ibhev.de/leben-in-deutschland-lid/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 188428
+   },
+   {
+    "url": "https://staging.ibhev.de/einbuergerungstest/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 139102,
+    "n_date": 6
+   }
+  ],
+  "pdf": [
+   "https://ibhev.de/wp-content/uploads/Muster_Teilnehmermeldebogen_Einbuergerungstest.pdf",
+   "https://ibhev.de/wp-content/uploads/Muster_Teilnehmermeldebogen_Einbuergerungstest.pdf"
+  ],
+  "date": [
+   {
+    "data": "2026-11-25",
+    "pagina": "https://staging.ibhev.de/einbuergerungstest/"
+   },
+   {
+    "data": "2027-01-11",
+    "pagina": "https://staging.ibhev.de/einbuergerungstest/"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "DAA Deutsche Angestellten-Akademie GmbH",
+  "citta": "hamburg",
+  "url_partenza": "https://www.daa.de/",
+  "pagine": [
+   {
+    "url": "https://daa.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 109566
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test non trovata"
+ },
+ {
+  "nome": "KOM gGmbH",
+  "citta": "hamburg",
+  "url_partenza": "https://www.kom-bildung.de/",
+  "pagine": [
+   {
+    "url": "https://www.kom-bildung.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 321947
+   },
+   {
+    "url": "https://www.kom-bildung.de/deutsch",
+    "stato": 200,
+    "chiave": true,
+    "byte": 239345
+   },
+   {
+    "url": "https://www.kom-bildung.de/bildung/einbuergerungstest",
+    "stato": 200,
+    "chiave": true,
+    "byte": 183878
+   },
+   {
+    "url": "https://www.kom-bildung.de/bildung/test-leben-in-deutschland",
+    "stato": 200,
+    "chiave": true,
+    "byte": 257685
+   },
+   {
+    "url": "https://www.kom-bildung.de/bildung/dtz",
+    "stato": 200,
+    "chiave": true,
+    "byte": 207775,
+    "n_date": 6
+   },
+   {
+    "url": "https://www.kom-bildung.de/bildung/telc-deutsch-test",
+    "stato": 200,
+    "chiave": true,
+    "byte": 259069
+   },
+   {
+    "url": "https://www.kom-bildung.de/bildung/telc-b2",
+    "stato": 200,
+    "chiave": true,
+    "byte": 181853
+   },
+   {
+    "url": "https://www.kom-bildung.de/https:/www.telc.net/sprachpruefungen/deutsch/dtb-deutsch-test-fuer-den-beruf/deutsch-test-fuer-den-beruf-b2/",
+    "stato": 404
+   }
+  ],
+  "pdf": [
+   "https://www.kom-bildung.de/s/Informationsblatt-zum-Einburgerungstest.pdf"
+  ],
+  "date": [
+   {
+    "data": "2026-11-06",
+    "pagina": "https://www.kom-bildung.de/bildung/dtz"
+   },
+   {
+    "data": "2026-11-20",
+    "pagina": "https://www.kom-bildung.de/bildung/dtz"
+   },
+   {
+    "data": "2027-01-22",
+    "pagina": "https://www.kom-bildung.de/bildung/dtz"
+   },
+   {
+    "data": "2027-02-05",
+    "pagina": "https://www.kom-bildung.de/bildung/dtz"
+   },
+   {
+    "data": "2027-02-12",
+    "pagina": "https://www.kom-bildung.de/bildung/dtz"
+   },
+   {
+    "data": "2027-02-26",
+    "pagina": "https://www.kom-bildung.de/bildung/dtz"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Hamburger Volkshochschule",
+  "citta": "hamburg",
+  "url_partenza": "https://www.vhs-hamburg.de/",
+  "pagine": [
+   {
+    "url": "https://www.vhs-hamburg.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 450467
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/deutsch/einbuergerungstest-1058",
+    "stato": 200,
+    "chiave": true,
+    "byte": 353473,
+    "n_date": 18
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/deutsch/einbuergerungstest/informationen-haeufig-gestellte-fragen-743",
+    "stato": 200,
+    "chiave": true,
+    "byte": 235210
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407021",
+    "stato": 200,
+    "chiave": true,
+    "byte": 239870
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/merkzettel/hinzufuegen/407021/ajax?destination=/deutsch/einbuergerungstest-1058&compact=1",
+    "stato": "robots"
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407022",
+    "stato": 200,
+    "chiave": true,
+    "byte": 239870
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/merkzettel/hinzufuegen/407022/ajax?destination=/deutsch/einbuergerungstest-1058&compact=1",
+    "stato": "robots"
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407023",
+    "stato": 200,
+    "chiave": true,
+    "byte": 239870
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/merkzettel/hinzufuegen/407023/ajax?destination=/deutsch/einbuergerungstest-1058&compact=1",
+    "stato": "robots"
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407062",
+    "stato": 200,
+    "chiave": true,
+    "byte": 238638
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/merkzettel/hinzufuegen/407062/ajax?destination=/deutsch/einbuergerungstest-1058&compact=1",
+    "stato": "robots"
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407063",
+    "stato": 200,
+    "chiave": true,
+    "byte": 238638
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/merkzettel/hinzufuegen/407063/ajax?destination=/deutsch/einbuergerungstest-1058&compact=1",
+    "stato": "robots"
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407064",
+    "stato": 200,
+    "chiave": true,
+    "byte": 238638
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/merkzettel/hinzufuegen/407064/ajax?destination=/deutsch/einbuergerungstest-1058&compact=1",
+    "stato": "robots"
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407065",
+    "stato": 200,
+    "chiave": true,
+    "byte": 239870
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/merkzettel/hinzufuegen/407065/ajax?destination=/deutsch/einbuergerungstest-1058&compact=1",
+    "stato": "robots"
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407066",
+    "stato": 200,
+    "chiave": true,
+    "byte": 239870
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/merkzettel/hinzufuegen/407066/ajax?destination=/deutsch/einbuergerungstest-1058&compact=1",
+    "stato": "robots"
+   },
+   {
+    "url": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407069",
+    "stato": 200,
+    "chiave": true,
+    "byte": 239870
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-10",
+    "pagina": "https://www.vhs-hamburg.de/deutsch/einbuergerungstest-1058"
+   },
+   {
+    "data": "2026-11-19",
+    "pagina": "https://www.vhs-hamburg.de/deutsch/einbuergerungstest-1058"
+   },
+   {
+    "data": "2026-11-26",
+    "pagina": "https://www.vhs-hamburg.de/deutsch/einbuergerungstest-1058"
+   },
+   {
+    "data": "2026-12-03",
+    "pagina": "https://www.vhs-hamburg.de/deutsch/einbuergerungstest-1058"
+   },
+   {
+    "data": "2026-12-08",
+    "pagina": "https://www.vhs-hamburg.de/deutsch/einbuergerungstest-1058"
+   },
+   {
+    "data": "2026-12-10",
+    "pagina": "https://www.vhs-hamburg.de/deutsch/einbuergerungstest-1058"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Colón",
+  "citta": "hamburg",
+  "url_partenza": "https://www.colon.de/",
+  "pagine": [
+   {
+    "url": "https://www.colon.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 187143
+   },
+   {
+    "url": "https://www.colon.de/kurs-merkmal/telc-pruefung/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 168577
+   },
+   {
+    "url": "https://www.colon.de/pruefungen-fremdsprachen-institut-colon/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 146157
+   },
+   {
+    "url": "https://www.colon.de/pruefungen-fremdsprachen-institut-colon/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 146157
+   },
+   {
+    "url": "https://moodle.colon.de/local/colonplacement/start.php?test=de",
+    "stato": 200,
+    "chiave": false,
+    "byte": 28217
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "VHS Berlin-Tempelhof-Schöneberg",
+  "citta": "berlin",
+  "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/tempelhof-schoeneberg/",
+  "pagine": [
+   {
+    "url": "https://www.berlin.de/vhs/volkshochschulen/tempelhof-schoeneberg/",
+    "stato": 404
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "sito non raggiungibile (404)"
+ },
+ {
+  "nome": "VHS Berlin-Mitte",
+  "citta": "berlin",
+  "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/mitte/",
+  "pagine": [
+   {
+    "url": "https://www.berlin.de/vhs/volkshochschulen/mitte/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 92122
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "VHS Berlin-Charlottenburg City West",
+  "citta": "berlin",
+  "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/charlottenburg-wilmersdorf/",
+  "pagine": [
+   {
+    "url": "https://www.berlin.de/vhs/volkshochschulen/charlottenburg-wilmersdorf/",
+    "stato": 429
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "bloccato (429)"
+ },
+ {
+  "nome": "VHS Berlin-Neukölln Otto Suhr",
+  "citta": "berlin",
+  "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/neukoelln/",
+  "pagine": [
+   {
+    "url": "https://www.berlin.de/vhs/volkshochschulen/neukoelln/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 90167
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "Harri-Reinert-Volkshochschule Spandau",
+  "citta": "berlin",
+  "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/spandau/",
+  "pagine": [
+   {
+    "url": "https://www.berlin.de/vhs/volkshochschulen/spandau/",
+    "stato": 429
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "bloccato (429)"
+ },
+ {
+  "nome": "VHS Berlin Steglitz-Zehlendorf",
+  "citta": "berlin",
+  "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/steglitz-zehlendorf/",
+  "pagine": [
+   {
+    "url": "https://www.berlin.de/vhs/volkshochschulen/steglitz-zehlendorf/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 103518
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "VHS Berlin-Reinickendorf",
+  "citta": "berlin",
+  "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/reinickendorf/",
+  "pagine": [
+   {
+    "url": "https://www.berlin.de/vhs/volkshochschulen/reinickendorf/",
+    "stato": 429
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "bloccato (429)"
+ },
+ {
+  "nome": "VHS Berlin-Marzahn-Hellersdorf",
+  "citta": "berlin",
+  "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/marzahn-hellersdorf/",
+  "pagine": [
+   {
+    "url": "https://www.berlin.de/vhs/volkshochschulen/marzahn-hellersdorf/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 99925
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "VHS Berlin Lichtenberg",
+  "citta": "berlin",
+  "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/lichtenberg/",
+  "pagine": [
+   {
+    "url": "https://www.berlin.de/vhs/volkshochschulen/lichtenberg/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 106477
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "VHS Berlin Treptow-Köpenick",
+  "citta": "berlin",
+  "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/treptow-koepenick/",
+  "pagine": [
+   {
+    "url": "https://www.berlin.de/vhs/volkshochschulen/treptow-koepenick/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 89414,
+    "n_date": 5
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-11",
+    "pagina": "https://www.berlin.de/vhs/volkshochschulen/treptow-koepenick/"
+   },
+   {
+    "data": "2026-11-13",
+    "pagina": "https://www.berlin.de/vhs/volkshochschulen/treptow-koepenick/"
+   },
+   {
+    "data": "2026-12-05",
+    "pagina": "https://www.berlin.de/vhs/volkshochschulen/treptow-koepenick/"
+   },
+   {
+    "data": "2026-12-10",
+    "pagina": "https://www.berlin.de/vhs/volkshochschulen/treptow-koepenick/"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "VHS Berlin Friedrichshain-Kreuzberg",
+  "citta": "berlin",
+  "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/friedrichshain-kreuzberg/",
+  "pagine": [
+   {
+    "url": "https://www.berlin.de/vhs/volkshochschulen/friedrichshain-kreuzberg/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 87483
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "VHS Berlin-Pankow",
+  "citta": "berlin",
+  "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/pankow/",
+  "pagine": [
+   {
+    "url": "https://www.berlin.de/vhs/volkshochschulen/pankow/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 94352
+   },
+   {
+    "url": "https://www.berlin.de/vhs/volkshochschulen/pankow/service/einbuergerungstest-vhs-pankow-1463977.php",
+    "stato": 200,
+    "chiave": true,
+    "byte": 91803,
+    "n_date": 2
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-23",
+    "pagina": "https://www.berlin.de/vhs/volkshochschulen/pankow/service/einbuergerungstest-vhs-pankow-1463977.php"
+   },
+   {
+    "data": "2027-02-15",
+    "pagina": "https://www.berlin.de/vhs/volkshochschulen/pankow/service/einbuergerungstest-vhs-pankow-1463977.php"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "VHS Frankfurt am Main",
+  "citta": "frankfurt",
+  "url_partenza": "https://vhs.frankfurt.de/",
+  "pagine": [
+   {
+    "url": "https://vhs.frankfurt.de/de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 40463
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "Avicenna Institut e. V.",
+  "citta": "frankfurt",
+  "url_partenza": "https://www.avicenna-ev.de/",
+  "pagine": [
+   {
+    "url": "https://www.avicenna-ev.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1241987
+   },
+   {
+    "url": "https://www.avicenna-ev.de/dtz",
+    "stato": 200,
+    "chiave": true,
+    "byte": 773636
+   },
+   {
+    "url": "https://www.avicenna-ev.de/dtb",
+    "stato": 200,
+    "chiave": true,
+    "byte": 748487
+   },
+   {
+    "url": "https://www.avicenna-ev.de/lid",
+    "stato": 200,
+    "chiave": true,
+    "byte": 747816
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "DRK Sozialdienste gGmbH Frankfurt a. M.",
+  "citta": "frankfurt",
+  "url_partenza": "https://www.drkfrankfurt.de/",
+  "pagine": [
+   {
+    "url": "https://www.drkfrankfurt.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 190411
+   },
+   {
+    "url": "https://www.drkfrankfurt.de/angebote/integration/jugendhilfe.html",
+    "stato": 200,
+    "chiave": false,
+    "byte": 135394
+   },
+   {
+    "url": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum.html",
+    "stato": 200,
+    "chiave": true,
+    "byte": 147823
+   },
+   {
+    "url": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html",
+    "stato": 200,
+    "chiave": true,
+    "byte": 134919,
+    "n_date": 9
+   },
+   {
+    "url": "https://www.drkfrankfurt.de/angebote/integration/wegbereiter.html",
+    "stato": 200,
+    "chiave": false,
+    "byte": 137556
+   },
+   {
+    "url": "https://www.drkfrankfurt.de/kurse/erste-hilfe/sehtest.html",
+    "stato": 200,
+    "chiave": false,
+    "byte": 135475
+   },
+   {
+    "url": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/integrationskurse/integrationskurse.html",
+    "stato": 200,
+    "chiave": true,
+    "byte": 142626
+   },
+   {
+    "url": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/selbstzahlerkurse.html",
+    "stato": 200,
+    "chiave": true,
+    "byte": 137100
+   },
+   {
+    "url": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/berufsbezogene-deutschkurse/standard-titel.html",
+    "stato": 200,
+    "chiave": true,
+    "byte": 141181
+   },
+   {
+    "url": "https://www.drkfrankfurt.de/start/spenden/spendenprojekte/testamentsspende.html",
+    "stato": 200,
+    "chiave": false,
+    "byte": 135543
+   },
+   {
+    "url": "https://www.drkfrankfurt.de/angebote/beratung/informationsveranstaltungen.html",
+    "stato": 200,
+    "chiave": false,
+    "byte": 149406
+   },
+   {
+    "url": "https://www.drkfrankfurt.de/angebote/integration/jugendhilfe/haus-borsigallee.html",
+    "stato": 200,
+    "chiave": false,
+    "byte": 150405
+   },
+   {
+    "url": "https://www.drkfrankfurt.de/angebote/integration/jugendhilfe/haus-vilbeler-landstrasse.html",
+    "stato": 200,
+    "chiave": false,
+    "byte": 135186
+   },
+   {
+    "url": "https://www.drkfrankfurt.de/angebote/integration/jugendhilfe/haus-schoene-aussicht.html",
+    "stato": 200,
+    "chiave": false,
+    "byte": 135878
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-10",
+    "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+   },
+   {
+    "data": "2026-11-24",
+    "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+   },
+   {
+    "data": "2026-12-08",
+    "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+   },
+   {
+    "data": "2027-01-05",
+    "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+   },
+   {
+    "data": "2027-01-19",
+    "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+   },
+   {
+    "data": "2027-02-02",
+    "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+   },
+   {
+    "data": "2027-02-16",
+    "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+   },
+   {
+    "data": "2027-03-02",
+    "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+   },
+   {
+    "data": "2027-03-16",
+    "pagina": "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Lernstudio H&G Frankfurt UG",
+  "citta": "frankfurt",
+  "url_partenza": "",
+  "pagine": [],
+  "pdf": [],
+  "date": [],
+  "esito": "senza sito"
+ },
+ {
+  "nome": "Grone Bildungszentren Hessen gGmbH",
+  "citta": "frankfurt",
+  "url_partenza": "https://www.grone.de/",
+  "pagine": [
+   {
+    "url": "https://grone.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 3318992
+   },
+   {
+    "url": "https://grone.de/grone-guide/artikel/karriere-weiterbildung/ausbildung-der-ausbilderinnen-nach-aevo-so-funktioniert-die-qualifikation",
+    "stato": 200,
+    "chiave": false,
+    "byte": 865291
+   },
+   {
+    "url": "https://grone.de/grone-guide/artikel/ausbildung/pflegefachassistenz-ab-2027-was-sich-kuenftig-bei-der-ausbildung-in-pflegehilfe-und-pflegeassistenz-aendert",
+    "stato": 200,
+    "chiave": false,
+    "byte": 617669
+   },
+   {
+    "url": "https://grone.de/grone-guide/artikel/arbeitsmarkt/grundsicherungsgeld-hat-das-buergergeld-abgeloest-die-wichtigsten-aenderungen-auf-einen-blick",
+    "stato": 200,
+    "chiave": false,
+    "byte": 996619
+   },
+   {
+    "url": "https://grone.de/angebote/angebote-detail/ausbildung-der-ausbilderinnen-ada-nach-aevo-vorbereitung-auf-die-praktische-pruefung",
+    "stato": 200,
+    "chiave": false,
+    "byte": 451857
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test non trovata"
+ },
+ {
+  "nome": "BBZ Sprachenschule GmbH",
+  "citta": "frankfurt",
+  "url_partenza": "https://www.bbz-sprachschule.com/",
+  "pagine": [
+   {
+    "url": "https://www.bbz-sprachschule.com/",
+    "stato": "errore"
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "sito non raggiungibile (errore)"
+ },
+ {
+  "nome": "Bayerisches Rotes Kreuz",
+  "citta": "münchen",
+  "url_partenza": "https://www.brk-muenchen.de/",
+  "pagine": [
+   {
+    "url": "https://www.brk-muenchen.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 106328
+   },
+   {
+    "url": "https://www.brk-muenchen.de/aktuell/presse-service/meldung/terminankuendigung-kluge-vorsorge-durch-vollmacht-betreuungs-und-patientenverfuegung.html",
+    "stato": 200,
+    "chiave": false,
+    "byte": 70963
+   },
+   {
+    "url": "https://www.brk-muenchen.de/spenden/testamentspende.html",
+    "stato": 200,
+    "chiave": false,
+    "byte": 87834
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test non trovata"
+ },
+ {
+  "nome": "Münchner Volkshochschule GmbH",
+  "citta": "münchen",
+  "url_partenza": "https://www.mvhs.de/",
+  "pagine": [
+   {
+    "url": "https://www.mvhs.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 262816
+   },
+   {
+    "url": "https://www.mvhs.de/programm/info/sprachen/sprachpruefungen-und-zertifikate-einbuergerungstest",
+    "stato": 200,
+    "chiave": true,
+    "byte": 126893
+   },
+   {
+    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung-460-CAT-KAT7849",
+    "stato": 200,
+    "chiave": true,
+    "byte": 444671
+   },
+   {
+    "url": "https://www.mvhs.de/kurse//deutsch-integration/pruefungen-einbuergerung-460-CAT-KAT7849",
+    "stato": 200,
+    "chiave": true,
+    "byte": 444675
+   },
+   {
+    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/beratung-einstufungs-und-probetests-460-CAT-KAT7857?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+    "stato": 200,
+    "chiave": true,
+    "byte": 160142
+   },
+   {
+    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/a1-460-CAT-KAT7850?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+    "stato": 200,
+    "chiave": true,
+    "byte": 157336
+   },
+   {
+    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/a2-460-CAT-KAT18633?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+    "stato": 200,
+    "chiave": true,
+    "byte": 157087
+   },
+   {
+    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/b1-460-CAT-KAT20149?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+    "stato": 200,
+    "chiave": true,
+    "byte": 240730
+   },
+   {
+    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/b2-460-CAT-KAT7855?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+    "stato": 200,
+    "chiave": true,
+    "byte": 332468
+   },
+   {
+    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/c1-460-CAT-KAT20153?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+    "stato": 200,
+    "chiave": true,
+    "byte": 266780
+   },
+   {
+    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/c2-460-CAT-KAT7862?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+    "stato": 200,
+    "chiave": true,
+    "byte": 204132
+   },
+   {
+    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/pruefungen-deutsch-fuer-das-studium-460-CAT-KAT7859?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+    "stato": 200,
+    "chiave": true,
+    "byte": 166902
+   },
+   {
+    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/goethe-test-pro-460-CAT-KAT20759?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+    "stato": 200,
+    "chiave": true,
+    "byte": 150706
+   },
+   {
+    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/einbuergerung-460-CAT-KAT7868?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+    "stato": 200,
+    "chiave": true,
+    "byte": 167895,
+    "n_date": 3
+   },
+   {
+    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/online-deutsch-pruefungstraining-b1-teil-schreiben/selbstlernkurs-mit-tutorieller-begleitung-anmeldung-und-kursstart-jederzeit-moeglich-460-C-W671108",
+    "stato": 200,
+    "chiave": true,
+    "byte": 151683
+   },
+   {
+    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/online-deutsch-pruefungsziel-goethe-zertifikat-b2/selbstlernkurs-mit-tutorieller-begleitung-anmeldung-und-kursstart-jederzeit-moeglich-460-C-W671305",
+    "stato": 200,
+    "chiave": true,
+    "byte": 150807
+   },
+   {
+    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/online-deutsch-pruefungsziel-goethe-zertifikat-b2-teil-schreiben/selbstlernkurs-mit-tutorieller-begleitung-anmeldung-und-kursstart-jederzeit-moeglich-460-C-W671306",
+    "stato": 200,
+    "chiave": true,
+    "byte": 151707
+   },
+   {
+    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/online-deutsch-telc-deutsch-b2-teil-schreiben-pruefungstraining/selbstlernkurs-mit-tutorieller-begleitung-anmeldung-und-kursstart-jederzeit-moeglich-460-C-W671307",
+    "stato": 200,
+    "chiave": true,
+    "byte": 154631
+   },
+   {
+    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/online-deutsch-telc-c1-und-telc-c1-hochschule-pruefungstraining/selbstlernkurs-mit-tutorieller-begleitung-anmeldung-jederzeit-moeglich-460-C-W671445",
+    "stato": 200,
+    "chiave": true,
+    "byte": 154715
+   },
+   {
+    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/online-deutsch-goethe-zertifikat-c2-pruefungstraining-schreiben-teil-1-und-freies-schreiben-selbstlernkurs-mit-tutorieller-begleitung-anmeldung-und-kursstart-jederzeit-moeglich-460-C-W671531",
+    "stato": 200,
+    "chiave": true,
+    "byte": 157408
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-12-12",
+    "pagina": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/einbuergerung-460-CAT-KAT7868?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34"
+   },
+   {
+    "data": "2026-12-13",
+    "pagina": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/einbuergerung-460-CAT-KAT7868?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34"
+   },
+   {
+    "data": "2027-01-22",
+    "pagina": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/einbuergerung-460-CAT-KAT7868?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Inlingua Sprachschule U. & C. Bernau GmbH",
+  "citta": "münchen",
+  "url_partenza": "https://www.inlingua-muenchen.de/",
+  "pagine": [
+   {
+    "url": "https://www.inlingua-muenchen.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 82244
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/einstufungstest/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 68447
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 62627
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/termine-online-buchung/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 130883
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/kurs-und-pruefungssuche/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 75545
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/englischkurse/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 79571
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/englischkurse/zertifikatskurse-englisch/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 69947
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/englischkurse/general-english-im-alltag/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 80201
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/englischkurse/business-english/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 131993
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/englischkurse/englisch-privatunterricht/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 66350
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/englischkurse/gefoerderte-englischkurse/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 67824
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/englischkurse/kinderkurse-englisch/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 61767
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/deutschkurse/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 87831
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/deutschkurse/gruppenkurse-deutsch/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 88908
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/deutschkurse/privatunterricht-deutsch/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 67918
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/deutschkurse/zertifikatskurse-deutsch/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 70820
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/deutschkurse/integrationskurse-und-berufssprachkurse/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 76842
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/spanischkurse/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 62955
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/spanischkurse/gruppenkurse-spanisch/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 72110
+   },
+   {
+    "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/spanischkurse/intensivclubs-spanisch/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 68654
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "Anderwerk GmbH",
+  "citta": "münchen",
+  "url_partenza": "https://www.anderwerk.de/",
+  "pagine": [
+   {
+    "url": "https://www.anderwerk.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 179333
+   },
+   {
+    "url": "https://www.anderwerk.de/deutschkurse/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 245764
+   },
+   {
+    "url": "https://www.anderwerk.de/deutsch-pruefungstermine-anmelden/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 181837,
+    "n_date": 4
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-18",
+    "pagina": "https://www.anderwerk.de/deutsch-pruefungstermine-anmelden/"
+   },
+   {
+    "data": "2026-12-16",
+    "pagina": "https://www.anderwerk.de/deutsch-pruefungstermine-anmelden/"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Deutsche Angestellten-Akademie GmbH DAA München",
+  "citta": "münchen",
+  "url_partenza": "https://www.daa.de/",
+  "pagine": [
+   {
+    "url": "https://daa.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 109566
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test non trovata"
+ },
+ {
+  "nome": "Bildungsinstitut Kavalchuk",
+  "citta": "münchen",
+  "url_partenza": "https://www.bik-courses.de/",
+  "pagine": [
+   {
+    "url": "https://bik-courses.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 223275
+   },
+   {
+    "url": "https://bik-courses.de/leben-in-deutschland/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 250469
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "MAS Sprachschule München GmbH",
+  "citta": "münchen",
+  "url_partenza": "https://www.mas-sprachschule.de/",
+  "pagine": [
+   {
+    "url": "https://www.mas-sprachschule.de/",
+    "stato": "errore"
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "sito non raggiungibile (errore)"
+ },
+ {
+  "nome": "VHS der Stadt Köln Amt für Weiterbildung",
+  "citta": "köln",
+  "url_partenza": "https://www.vhs-koeln.de/",
+  "pagine": [
+   {
+    "url": "https://www.koelner-vhs.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 530446
+   },
+   {
+    "url": "https://www.koelner-vhs.de/deutsch-integration/einbuergerungstest",
+    "stato": 200,
+    "chiave": true,
+    "byte": 67145,
+    "n_date": 3
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-27",
+    "pagina": "https://www.koelner-vhs.de/deutsch-integration/einbuergerungstest"
+   },
+   {
+    "data": "2026-12-04",
+    "pagina": "https://www.koelner-vhs.de/deutsch-integration/einbuergerungstest"
+   },
+   {
+    "data": "2027-01-29",
+    "pagina": "https://www.koelner-vhs.de/deutsch-integration/einbuergerungstest"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Prisma Bildungsplattform e. V.",
+  "citta": "köln",
+  "url_partenza": "https://www.prisma-bp.de/",
+  "pagine": [
+   {
+    "url": "https://www.prisma-bp.de/",
+    "stato": 526
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "sito non raggiungibile (526)"
+ },
+ {
+  "nome": "Berlitz Deutschland GmbH / Niederlassung Köln",
+  "citta": "köln",
+  "url_partenza": "https://www.berlitz.com/de-de",
+  "pagine": [
+   {
+    "url": "https://www.berlitz.com/de-de",
+    "stato": 200,
+    "chiave": true,
+    "byte": 329768
+   },
+   {
+    "url": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest",
+    "stato": 200,
+    "chiave": true,
+    "byte": 242262,
+    "n_date": 23
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-04",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2026-12-09",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2026-12-16",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-01-21",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-02-17",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-02-24",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-03-17",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-03-24",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-04-21",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-04-28",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-05-26",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-06-02",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-06-30",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-07-14",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-07-28",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-08-25",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-08-31",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-09-28",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-10-13",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-10-27",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-11-17",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-11-25",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-12-17",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Euro-Schulen Rheinland GmbH",
+  "citta": "köln",
+  "url_partenza": "https://www.eso.de/",
+  "pagine": [
+   {
+    "url": "https://www.eso.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 216714
+   },
+   {
+    "url": "https://www.euro-schulen.de/koeln/pruefungen-tests",
+    "stato": 200,
+    "chiave": true,
+    "byte": 46920,
+    "n_date": 8
+   },
+   {
+    "url": "https://www.euro-schulen.de/koeln/bildungsangebote/details/A7TH__PO_2Q18S_1/Einbuergerungstest",
+    "stato": 200,
+    "chiave": true,
+    "byte": 100745
+   },
+   {
+    "url": "https://www.euro-schulen.de/koeln/bildungsangebote/details/DHT61_32Y2Q18S_1/Deutsch-Test-fuer-den-Beruf-DTB---B2",
+    "stato": 200,
+    "chiave": false,
+    "byte": 58228
+   },
+   {
+    "url": "https://www.euro-schulen.de/koeln/pruefungen-tests/A7TH__PO_2Q18S_",
+    "stato": 404
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-30",
+    "pagina": "https://www.euro-schulen.de/koeln/pruefungen-tests"
+   },
+   {
+    "data": "2026-12-11",
+    "pagina": "https://www.euro-schulen.de/koeln/pruefungen-tests"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "VHS Stuttgart e.V.",
+  "citta": "stuttgart",
+  "url_partenza": "https://www.vhs-stuttgart.de/",
+  "pagine": [
+   {
+    "url": "https://vhs-stuttgart.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1847314
+   },
+   {
+    "url": "https://vhs-stuttgart.de/deutsch-integration/pruefungen/dtz",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1729483,
+    "n_date": 9
+   },
+   {
+    "url": "https://vhs-stuttgart.de/deutsch-integration/pruefungen/test-leben-in-deutschland",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1779106,
+    "n_date": 20
+   },
+   {
+    "url": "https://vhs-stuttgart.de/deutsch-integration/pruefungen/einbuergerungstest",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1773346,
+    "n_date": 20
+   },
+   {
+    "url": "https://vhs-stuttgart.de/deutsch-integration/pruefungen/pruefungsvorbereitungen/dtz",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1701764,
+    "n_date": 2
+   },
+   {
+    "url": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63025X",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1680822,
+    "n_date": 3
+   },
+   {
+    "url": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63027X",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1680822,
+    "n_date": 3
+   },
+   {
+    "url": "https://vhs-stuttgart.de/programm/kurssuche/kurs/271-63023X",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1679505,
+    "n_date": 3
+   },
+   {
+    "url": "https://vhs-stuttgart.de/programm/kurssuche/kurs/271-63025X",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1679505,
+    "n_date": 3
+   },
+   {
+    "url": "https://vhs-stuttgart.de/programm/kurssuche/kurs/271-63026X",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1679505,
+    "n_date": 3
+   },
+   {
+    "url": "https://vhs-stuttgart.de/programm/kurssuche/kurs/271-63027X",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1679505,
+    "n_date": 3
+   },
+   {
+    "url": "https://vhs-stuttgart.de/programm/kurssuche/kurs/271-63029X",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1679505,
+    "n_date": 3
+   },
+   {
+    "url": "https://vhs-stuttgart.de/programm/kurssuche/kurs/271-63030X",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1679505,
+    "n_date": 3
+   },
+   {
+    "url": "https://vhs-stuttgart.de/programm/kurssuche/kurs/271-63032X",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1679505,
+    "n_date": 3
+   },
+   {
+    "url": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63195X",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1675139,
+    "n_date": 1
+   },
+   {
+    "url": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63196X",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1675139,
+    "n_date": 1
+   },
+   {
+    "url": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63197X",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1675139,
+    "n_date": 1
+   },
+   {
+    "url": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63198X",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1675139,
+    "n_date": 1
+   },
+   {
+    "url": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63199X",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1675139,
+    "n_date": 1
+   },
+   {
+    "url": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63205X",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1675343,
+    "n_date": 1
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-07",
+    "pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63025X"
+   },
+   {
+    "data": "2026-11-20",
+    "pagina": "https://vhs-stuttgart.de/deutsch-integration/pruefungen/test-leben-in-deutschland"
+   },
+   {
+    "data": "2026-11-21",
+    "pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63025X"
+   },
+   {
+    "data": "2026-12-05",
+    "pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63199X"
+   },
+   {
+    "data": "2026-12-11",
+    "pagina": "https://vhs-stuttgart.de/deutsch-integration/pruefungen/test-leben-in-deutschland"
+   },
+   {
+    "data": "2026-12-19",
+    "pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63205X"
+   },
+   {
+    "data": "2027-01-16",
+    "pagina": "https://vhs-stuttgart.de/deutsch-integration/pruefungen/einbuergerungstest"
+   },
+   {
+    "data": "2027-01-22",
+    "pagina": "https://vhs-stuttgart.de/deutsch-integration/pruefungen/test-leben-in-deutschland"
+   },
+   {
+    "data": "2027-02-12",
+    "pagina": "https://vhs-stuttgart.de/deutsch-integration/pruefungen/test-leben-in-deutschland"
+   },
+   {
+    "data": "2027-02-20",
+    "pagina": "https://vhs-stuttgart.de/deutsch-integration/pruefungen/einbuergerungstest"
+   },
+   {
+    "data": "2027-03-13",
+    "pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/271-63023X"
+   },
+   {
+    "data": "2027-03-19",
+    "pagina": "https://vhs-stuttgart.de/deutsch-integration/pruefungen/test-leben-in-deutschland"
+   },
+   {
+    "data": "2027-03-27",
+    "pagina": "https://vhs-stuttgart.de/deutsch-integration/pruefungen/einbuergerungstest"
+   },
+   {
+    "data": "2027-04-10",
+    "pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/271-63025X"
+   },
+   {
+    "data": "2027-04-16",
+    "pagina": "https://vhs-stuttgart.de/deutsch-integration/pruefungen/test-leben-in-deutschland"
+   },
+   {
+    "data": "2027-04-23",
+    "pagina": "https://vhs-stuttgart.de/deutsch-integration/pruefungen/test-leben-in-deutschland"
+   },
+   {
+    "data": "2027-04-24",
+    "pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/271-63026X"
+   },
+   {
+    "data": "2027-05-08",
+    "pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/271-63027X"
+   },
+   {
+    "data": "2027-06-05",
+    "pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/271-63029X"
+   },
+   {
+    "data": "2027-06-19",
+    "pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/271-63030X"
+   },
+   {
+    "data": "2027-07-17",
+    "pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/271-63032X"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "VHS Essen",
+  "citta": "essen",
+  "url_partenza": "https://www.vhs-essen.de/",
+  "pagine": [
+   {
+    "url": "https://www.vhs-essen.de/startseite_vhs_essen_de.de.html",
+    "stato": 200,
+    "chiave": true,
+    "byte": 183233
+   },
+   {
+    "url": "https://www.vhs-essen.de/kurse_und_veranstaltungen/einbuergerungstests/einbuergerungstests.de.html",
+    "stato": 200,
+    "chiave": true,
+    "byte": 157135
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "inlingua Center Essen",
+  "citta": "essen",
+  "url_partenza": "https://www.inlingua-essen.de/",
+  "pagine": [
+   {
+    "url": "https://www.inlingua-essen.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 80323,
+    "n_date": 3
+   },
+   {
+    "url": "https://www.inlingua-essen.de/sprachpruefungen/gast-dtz-pruefungen/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 49611
+   },
+   {
+    "url": "https://www.inlingua-essen.de/sprachpruefungen/einbuergerungstest/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 46275,
+    "n_date": 1
+   },
+   {
+    "url": "https://www.inlingua-essen.de/sprachkurse/details/dtz-gast-pruefung-3886/6042/?cHash=cdd544b95c61eb9cea40420f8063afa8",
+    "stato": 200,
+    "chiave": true,
+    "byte": 46170,
+    "n_date": 2
+   },
+   {
+    "url": "https://www.inlingua-essen.de/en/sprachkurse/language-examinations/dtz-gast-pruefung-3886/6042/?cHash=cdd544b95c61eb9cea40420f8063afa8",
+    "stato": 404
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-28",
+    "pagina": "https://www.inlingua-essen.de/sprachpruefungen/einbuergerungstest/"
+   },
+   {
+    "data": "2026-12-18",
+    "pagina": "https://www.inlingua-essen.de/sprachkurse/details/dtz-gast-pruefung-3886/6042/?cHash=cdd544b95c61eb9cea40420f8063afa8"
+   },
+   {
+    "data": "2027-01-04",
+    "pagina": "https://www.inlingua-essen.de/"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Leipziger Gesellschaft f. Bildung u. Arbeit mbH",
+  "citta": "leipzig",
+  "url_partenza": "https://www.lehmbaugruppe.de/",
+  "pagine": [
+   {
+    "url": "https://www.lehmbaugruppe.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 20248
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "Euro Schulen Leipzig GmbH",
+  "citta": "leipzig",
+  "url_partenza": "https://www.eso.de/",
+  "pagine": [
+   {
+    "url": "https://www.eso.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 216714
+   },
+   {
+    "url": "https://www.euro-schulen.de/leipzig/pruefungen-tests",
+    "stato": 200,
+    "chiave": true,
+    "byte": 37773,
+    "n_date": 8
+   },
+   {
+    "url": "https://www.euro-schulen.de/leipzig/bildungsangebote/details/A7TH__PO_2Q18S_1/Einbuergerungstest",
+    "stato": 200,
+    "chiave": true,
+    "byte": 100639,
+    "n_date": 4
+   },
+   {
+    "url": "https://www.euro-schulen.de/leipzig/news/details/neues-einbuergerungsgesetz-von-regierung-verabschiedet-1",
+    "stato": 200,
+    "chiave": true,
+    "byte": 36916,
+    "n_date": 4
+   },
+   {
+    "url": "https://www.euro-schulen.de/leipzig/pruefungen-tests/A7TH__PO_2Q18S_",
+    "stato": 404
+   },
+   {
+    "url": "https://www.euro-schulen.de/leipzig/bildungsangebote/details/A7TH__PO_2Q18S_",
+    "stato": "robots"
+   },
+   {
+    "url": "https://www.euro-schulen.de/leipzig/news/details/A7TH__PO_2Q18S_",
+    "stato": 404
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-05",
+    "pagina": "https://www.euro-schulen.de/leipzig/news/details/neues-einbuergerungsgesetz-von-regierung-verabschiedet-1"
+   },
+   {
+    "data": "2027-02-23",
+    "pagina": "https://www.euro-schulen.de/leipzig/news/details/neues-einbuergerungsgesetz-von-regierung-verabschiedet-1"
+   },
+   {
+    "data": "2027-03-09",
+    "pagina": "https://www.euro-schulen.de/leipzig/news/details/neues-einbuergerungsgesetz-von-regierung-verabschiedet-1"
+   },
+   {
+    "data": "2027-03-23",
+    "pagina": "https://www.euro-schulen.de/leipzig/news/details/neues-einbuergerungsgesetz-von-regierung-verabschiedet-1"
+   },
+   {
+    "data": "2027-04-20",
+    "pagina": "https://www.euro-schulen.de/leipzig/pruefungen-tests"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Language Coach Institute Cäcilia Thiessen",
+  "citta": "leipzig",
+  "url_partenza": "https://www.languagecoach.de/",
+  "pagine": [
+   {
+    "url": "https://www.languagecoach.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 42558
+   },
+   {
+    "url": "https://www.languagecoach.de/individuelle-sprachkurse",
+    "stato": 200,
+    "chiave": false,
+    "byte": 38000
+   },
+   {
+    "url": "https://www.languagecoach.de/individuelle-sprachkurse/aussprachekurse",
+    "stato": 200,
+    "chiave": false,
+    "byte": 41190
+   },
+   {
+    "url": "https://www.languagecoach.de/individuelle-sprachkurse/uebersicht-aussprachekurse",
+    "stato": 200,
+    "chiave": false,
+    "byte": 29468
+   },
+   {
+    "url": "https://www.languagecoach.de/individuelle-sprachkurse/intensivkurs-deutsch-a1-online",
+    "stato": 200,
+    "chiave": false,
+    "byte": 26520
+   },
+   {
+    "url": "https://www.languagecoach.de/individuelle-sprachkurse/intensivkurs-deutsch-b2-online",
+    "stato": 200,
+    "chiave": false,
+    "byte": 26012
+   },
+   {
+    "url": "https://www.languagecoach.de/individuelle-sprachkurse/intensivkurs-deutsch-c1-online",
+    "stato": 200,
+    "chiave": false,
+    "byte": 26742
+   },
+   {
+    "url": "https://www.languagecoach.de/individuelle-sprachkurse/intensivkurs-deutsch-b2-online-kopie-kopie2",
+    "stato": 200,
+    "chiave": false,
+    "byte": 25931
+   },
+   {
+    "url": "https://www.languagecoach.de/individuelle-sprachkurse/pruefungsvorbereitung-auf-die-fachsprachpruefung-fsp",
+    "stato": 200,
+    "chiave": false,
+    "byte": 26329
+   },
+   {
+    "url": "https://www.languagecoach.de/individuelle-sprachkurse/intensivkurs-deutsch-b2-online-kopie2-kopie-kopie",
+    "stato": 200,
+    "chiave": false,
+    "byte": 26844
+   },
+   {
+    "url": "https://www.languagecoach.de/individuelle-sprachkurse/einzelcoaching",
+    "stato": 200,
+    "chiave": false,
+    "byte": 30469
+   },
+   {
+    "url": "https://www.languagecoach.de/individuelle-sprachkurse/erlebniskurse",
+    "stato": 200,
+    "chiave": false,
+    "byte": 26841
+   },
+   {
+    "url": "https://www.languagecoach.de/gefoerderte-sprachkurse",
+    "stato": 200,
+    "chiave": false,
+    "byte": 37997
+   },
+   {
+    "url": "https://www.languagecoach.de/gefoerderte-sprachkurse/allgemeiner-integrationskurs",
+    "stato": 200,
+    "chiave": true,
+    "byte": 34720
+   },
+   {
+    "url": "https://www.languagecoach.de/gefoerderte-sprachkurse/zweitschriftlernerkurs",
+    "stato": 200,
+    "chiave": true,
+    "byte": 31401
+   },
+   {
+    "url": "https://www.languagecoach.de/gefoerderte-sprachkurse/geringliteralisiertenkurs",
+    "stato": 200,
+    "chiave": true,
+    "byte": 33142
+   },
+   {
+    "url": "https://www.languagecoach.de/gefoerderte-sprachkurse/alphabetisierungskurs",
+    "stato": 200,
+    "chiave": true,
+    "byte": 33387
+   },
+   {
+    "url": "https://www.languagecoach.de/gefoerderte-sprachkurse/berufsbezogene-deutschkurse",
+    "stato": 200,
+    "chiave": false,
+    "byte": 33031
+   },
+   {
+    "url": "https://www.languagecoach.de/gefoerderte-sprachkurse/deutsch-fuer-mediziner",
+    "stato": 200,
+    "chiave": false,
+    "byte": 31061
+   },
+   {
+    "url": "https://www.languagecoach.de/gefoerderte-sprachkurse/deutsch-fuer-gesundheitsfachberufe",
+    "stato": 200,
+    "chiave": false,
+    "byte": 32895
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "zu Hause e. V.",
+  "citta": "leipzig",
+  "url_partenza": "https://www.zuhause-ev.de/",
+  "pagine": [
+   {
+    "url": "https://www.zuhause-ev.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 7419,
+    "n_date": 3
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-10",
+    "pagina": "https://www.zuhause-ev.de/"
+   },
+   {
+    "data": "2026-11-17",
+    "pagina": "https://www.zuhause-ev.de/"
+   },
+   {
+    "data": "2026-11-26",
+    "pagina": "https://www.zuhause-ev.de/"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Learn and Speak Leipzig - Wolpert Schulungszentrum - Sprachschule Leipzig GmbH",
+  "citta": "leipzig",
+  "url_partenza": "https://www.las-leipzig.de/",
+  "pagine": [
+   {
+    "url": "https://t2955.am-track.pl/redir.php?panel=Market_Listing&params=id%3D4767358%26utm_source%3Dmarket_redirect%26utm_medium%3Dorganic&type=listing&id=4767358&medium=direct:direct&site=eu",
+    "stato": 403
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "bloccato (403)"
+ },
+ {
+  "nome": "VHS Stadt Leipzig",
+  "citta": "leipzig",
+  "url_partenza": "https://www.vhs-leipzig.de/",
+  "pagine": [
+   {
+    "url": "https://www.vhs-leipzig.de/",
+    "stato": "errore"
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "sito non raggiungibile (errore)"
+ },
+ {
+  "nome": "Ulmer Volkshochschule",
+  "citta": "ulm",
+  "url_partenza": "https://www.vh-ulm.de/",
+  "pagine": [
+   {
+    "url": "https://www.vh-ulm.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 172001
+   },
+   {
+    "url": "https://www.vh-ulm.de/abschluesse/einbuergerung",
+    "stato": 200,
+    "chiave": true,
+    "byte": 80856
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "VHS Düsseldorf WBZ am Hauptbahnhof",
+  "citta": "düsseldorf",
+  "url_partenza": "https://www.duesseldorf.de/vhs",
+  "pagine": [
+   {
+    "url": "https://www.duesseldorf.de/vhs",
+    "stato": "robots"
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "bloccato (robots)"
+ },
+ {
+  "nome": "Bénédict GmbH & Co. KG",
+  "citta": "düsseldorf",
+  "url_partenza": "https://www.benedict-schulen.de/",
+  "pagine": [
+   {
+    "url": "https://www.benedict-schulen.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 147264,
+    "n_date": 19
+   },
+   {
+    "url": "https://www.benedict-schulen.de/einbuergerungstest/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 126917,
+    "n_date": 2
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-10",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2026-11-17",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2026-11-18",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2026-11-19",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2026-12-10",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2026-12-14",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2026-12-16",
+    "pagina": "https://www.benedict-schulen.de/einbuergerungstest/"
+   },
+   {
+    "data": "2026-12-17",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2027-01-05",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2027-01-14",
+    "pagina": "https://www.benedict-schulen.de/einbuergerungstest/"
+   },
+   {
+    "data": "2027-01-28",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2027-01-29",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2027-02-18",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2027-02-23",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2027-02-24",
+    "pagina": "https://www.benedict-schulen.de/"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "ASG-Bildungsforum",
+  "citta": "düsseldorf",
+  "url_partenza": "https://www.asg-bildungsforum.de/",
+  "pagine": [
+   {
+    "url": "https://www.asg-bildungsforum.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 82960
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse",
+    "stato": 200,
+    "chiave": false,
+    "byte": 95469
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration",
+    "stato": 200,
+    "chiave": true,
+    "byte": 95529
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kategorie/Einbuergerungstests/1408",
+    "stato": 200,
+    "chiave": true,
+    "byte": 66991,
+    "n_date": 3
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests",
+    "stato": 200,
+    "chiave": true,
+    "byte": 65903,
+    "n_date": 3
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kategorie/1408?clearallkatfilter=true",
+    "stato": 200,
+    "chiave": true,
+    "byte": 66086,
+    "n_date": 3
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kurs/Deutsch-als-Fremdsprache-Einbuergerungstest/2601818010",
+    "stato": 200,
+    "chiave": true,
+    "byte": 45245
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kurs/Deutsch-als-Fremdsprache-Einbuergerungstest/2601818011",
+    "stato": 200,
+    "chiave": true,
+    "byte": 45241
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kurs/Deutsch-als-Fremdsprache-Einbuergerungstest/2701818001",
+    "stato": 200,
+    "chiave": true,
+    "byte": 45412
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/englischkurse",
+    "stato": 200,
+    "chiave": false,
+    "byte": 80956
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/franzoesischkurse",
+    "stato": 200,
+    "chiave": false,
+    "byte": 79640
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/spanischkurse",
+    "stato": 200,
+    "chiave": false,
+    "byte": 81180
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/italienischkurse",
+    "stato": 200,
+    "chiave": false,
+    "byte": 79691
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/niederlaendisch",
+    "stato": 200,
+    "chiave": false,
+    "byte": 79623
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/weitere-sprachen",
+    "stato": 200,
+    "chiave": false,
+    "byte": 84179
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/sprachkurse-fuer-kinder-jugendliche",
+    "stato": 200,
+    "chiave": false,
+    "byte": 69029
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/kategorie/Deutschkurse+DaZ+Integration/1402",
+    "stato": 200,
+    "chiave": true,
+    "byte": 96354
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/englischkurse/kategorie/Englischkurse/1410",
+    "stato": 200,
+    "chiave": false,
+    "byte": 81683
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/franzoesischkurse/kategorie/Franzoesischkurse/1416",
+    "stato": 200,
+    "chiave": false,
+    "byte": 80533
+   },
+   {
+    "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/spanischkurse/kategorie/Spanischkurse/1421",
+    "stato": 200,
+    "chiave": false,
+    "byte": 81995
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-26",
+    "pagina": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kategorie/1408?clearallkatfilter=true"
+   },
+   {
+    "data": "2026-12-10",
+    "pagina": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kategorie/1408?clearallkatfilter=true"
+   },
+   {
+    "data": "2027-01-21",
+    "pagina": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kategorie/1408?clearallkatfilter=true"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Sputnik - Integrations- und Übersetzungsdienst (SIÜD",
+  "citta": "düsseldorf",
+  "url_partenza": "",
+  "pagine": [],
+  "pdf": [],
+  "date": [],
+  "esito": "senza sito"
+ },
+ {
+  "nome": "Berlitz Deutschland GmbH",
+  "citta": "düsseldorf",
+  "url_partenza": "https://www.berlitz.com/de-de",
+  "pagine": [
+   {
+    "url": "https://www.berlitz.com/de-de",
+    "stato": 200,
+    "chiave": true,
+    "byte": 329768
+   },
+   {
+    "url": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest",
+    "stato": 200,
+    "chiave": true,
+    "byte": 242262,
+    "n_date": 23
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-04",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2026-12-09",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2026-12-16",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-01-21",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-02-17",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-02-24",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-03-17",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-03-24",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-04-21",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-04-28",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-05-26",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-06-02",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-06-30",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-07-14",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-07-28",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-08-25",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-08-31",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-09-28",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-10-13",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-10-27",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-11-17",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-11-25",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-12-17",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Study.on GmbH",
+  "citta": "düsseldorf",
+  "url_partenza": "https://www.studyon.de/",
+  "pagine": [
+   {
+    "url": "https://www.studyon.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 60637
+   },
+   {
+    "url": "https://www.studyon.de/prufungen",
+    "stato": 200,
+    "chiave": true,
+    "byte": 60935
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "DÜS Eckert Spracheninstitut GmbH",
+  "citta": "düsseldorf",
+  "url_partenza": "https://www.dues-eckert.de/",
+  "pagine": [
+   {
+    "url": "https://dues-eckert.com/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 255239
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "Benedict GmbH",
+  "citta": "düsseldorf",
+  "url_partenza": "https://www.benedict-schulen.de/",
+  "pagine": [
+   {
+    "url": "https://www.benedict-schulen.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 147264,
+    "n_date": 19
+   },
+   {
+    "url": "https://www.benedict-schulen.de/einbuergerungstest/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 126917,
+    "n_date": 2
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-10",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2026-11-17",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2026-11-18",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2026-11-19",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2026-12-10",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2026-12-14",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2026-12-16",
+    "pagina": "https://www.benedict-schulen.de/einbuergerungstest/"
+   },
+   {
+    "data": "2026-12-17",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2027-01-05",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2027-01-14",
+    "pagina": "https://www.benedict-schulen.de/einbuergerungstest/"
+   },
+   {
+    "data": "2027-01-28",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2027-01-29",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2027-02-18",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2027-02-23",
+    "pagina": "https://www.benedict-schulen.de/"
+   },
+   {
+    "data": "2027-02-24",
+    "pagina": "https://www.benedict-schulen.de/"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "inlingua Sprachschule Hannover GmbH",
+  "citta": "hannover",
+  "url_partenza": "https://www.inlingua-hannover.de/",
+  "pagine": [
+   {
+    "url": "https://inlingua-hannover.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 165349,
+    "n_date": 8
+   },
+   {
+    "url": "https://inlingua-hannover.de/course/deutsch-test-fuer-zuwanderer-dtz/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 133695,
+    "n_date": 6
+   },
+   {
+    "url": "https://inlingua-hannover.de/test/leben-in-deutschland-einbuergerungstest/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 118732,
+    "n_date": 4
+   },
+   {
+    "url": "https://inlingua-hannover.de/news/leben-in-deutschland-einbuergerungstest/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 103570
+   },
+   {
+    "url": "https://inlingua-hannover.de/news/telc-deutsch-b1-pruefung/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 104202
+   }
+  ],
+  "pdf": [
+   "https://inlingua-hannover.de/wp-content/uploads/2026/10/Anmeldeformular_DTZ_2026_ONLINE.pdf",
+   "https://inlingua-hannover.de/wp-content/uploads/2026/10/Anmeldeformular_DTZ_2026_ONLINE.pdf",
+   "https://inlingua-hannover.de/wp-content/uploads/2026/10/Anmeldeformular_DTZ_2026_ONLINE.pdf"
+  ],
+  "date": [
+   {
+    "data": "2026-11-10",
+    "pagina": "https://inlingua-hannover.de/course/deutsch-test-fuer-zuwanderer-dtz/"
+   },
+   {
+    "data": "2026-11-16",
+    "pagina": "https://inlingua-hannover.de/"
+   },
+   {
+    "data": "2026-11-23",
+    "pagina": "https://inlingua-hannover.de/"
+   },
+   {
+    "data": "2026-11-24",
+    "pagina": "https://inlingua-hannover.de/course/deutsch-test-fuer-zuwanderer-dtz/"
+   },
+   {
+    "data": "2026-12-04",
+    "pagina": "https://inlingua-hannover.de/course/deutsch-test-fuer-zuwanderer-dtz/"
+   },
+   {
+    "data": "2026-12-08",
+    "pagina": "https://inlingua-hannover.de/test/leben-in-deutschland-einbuergerungstest/"
+   },
+   {
+    "data": "2026-12-18",
+    "pagina": "https://inlingua-hannover.de/course/deutsch-test-fuer-zuwanderer-dtz/"
+   },
+   {
+    "data": "2026-12-22",
+    "pagina": "https://inlingua-hannover.de/test/leben-in-deutschland-einbuergerungstest/"
+   },
+   {
+    "data": "2027-01-12",
+    "pagina": "https://inlingua-hannover.de/test/leben-in-deutschland-einbuergerungstest/"
+   },
+   {
+    "data": "2027-01-15",
+    "pagina": "https://inlingua-hannover.de/course/deutsch-test-fuer-zuwanderer-dtz/"
+   },
+   {
+    "data": "2027-01-18",
+    "pagina": "https://inlingua-hannover.de/"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Volkshochschule Hannover",
+  "citta": "hannover",
+  "url_partenza": "https://www.vhs-hannover.de/",
+  "pagine": [
+   {
+    "url": "https://www.vhs-hannover.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 155756
+   },
+   {
+    "url": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest",
+    "stato": 200,
+    "chiave": true,
+    "byte": 204695,
+    "n_date": 2
+   },
+   {
+    "url": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kategorie/3061?clearallkatfilter=true",
+    "stato": 200,
+    "chiave": true,
+    "byte": 205067,
+    "n_date": 2
+   },
+   {
+    "url": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kurs/Einbuergerungstest/271PP71138",
+    "stato": 200,
+    "chiave": true,
+    "byte": 83074,
+    "n_date": 2
+   },
+   {
+    "url": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kurs/Einbuergerungstest/271PP71139",
+    "stato": 200,
+    "chiave": true,
+    "byte": 83074,
+    "n_date": 2
+   },
+   {
+    "url": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/dozent/1",
+    "stato": 200,
+    "chiave": true,
+    "byte": 74159
+   },
+   {
+    "url": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kurs/Telc-Start-Deutsch-2-A2-Pruefung/262PP71117",
+    "stato": 200,
+    "chiave": true,
+    "byte": 83565
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2027-01-29",
+    "pagina": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kurs/Einbuergerungstest/271PP71139"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Bildungsverein Soziales Lernen und Kommunikation e.V.",
+  "citta": "hannover",
+  "url_partenza": "https://www.bildungsverein.de/",
+  "pagine": [
+   {
+    "url": "https://bildungsverein.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 34360
+   },
+   {
+    "url": "https://bildungsverein.de/programm/sprachen-dieser-welt/fremdsprachen-tests/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 34034
+   },
+   {
+    "url": "https://bildungsverein.de/programm/sprachen-dieser-welt/rucktritt-von-sprachkursen/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 31143
+   },
+   {
+    "url": "https://bildungsverein.de/programm/deutsch-verbindet/integrationskurse/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 32596
+   },
+   {
+    "url": "https://bildungsverein.de/programm/deutsch-verbindet/berufssprachkurse/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 32381
+   },
+   {
+    "url": "https://bildungsverein.de/programm/deutsch-verbindet/prufungen/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 31468
+   },
+   {
+    "url": "https://bildungsverein.de/kurs/271P71193/einbuergerungstest",
+    "stato": 200,
+    "chiave": true,
+    "byte": 31415,
+    "n_date": 8
+   },
+   {
+    "url": "https://bildungsverein.de/aktuell/pr%C3%BCfungsvorbereitung-deutsch-telc-b2/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 29466
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-04",
+    "pagina": "https://bildungsverein.de/kurs/271P71193/einbuergerungstest"
+   },
+   {
+    "data": "2026-12-04",
+    "pagina": "https://bildungsverein.de/kurs/271P71193/einbuergerungstest"
+   },
+   {
+    "data": "2026-12-08",
+    "pagina": "https://bildungsverein.de/kurs/271P71193/einbuergerungstest"
+   },
+   {
+    "data": "2027-01-05",
+    "pagina": "https://bildungsverein.de/kurs/271P71193/einbuergerungstest"
+   },
+   {
+    "data": "2027-01-08",
+    "pagina": "https://bildungsverein.de/kurs/271P71193/einbuergerungstest"
+   },
+   {
+    "data": "2027-02-05",
+    "pagina": "https://bildungsverein.de/kurs/271P71193/einbuergerungstest"
+   },
+   {
+    "data": "2027-03-05",
+    "pagina": "https://bildungsverein.de/kurs/271P71193/einbuergerungstest"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Euro-Schulen Hannover GmbH",
+  "citta": "hannover",
+  "url_partenza": "https://www.eso.de/",
+  "pagine": [
+   {
+    "url": "https://www.eso.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 216714
+   },
+   {
+    "url": "https://www.euro-schulen.de/hannover/pruefungen-tests",
+    "stato": 200,
+    "chiave": true,
+    "byte": 26726
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "Verein für Integration- und Bildung e.V. - Sprachakademie Hannover",
+  "citta": "hannover",
+  "url_partenza": "https://www.sprachakademie.org/",
+  "pagine": [
+   {
+    "url": "https://www.sprachakademie.org/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 118467
+   },
+   {
+    "url": "https://www.sprachakademie.org/leben-in-deutschland/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 115079
+   },
+   {
+    "url": "https://www.sprachakademie.org/dtz-telc-sprachpruefung/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 96458
+   },
+   {
+    "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/kurzbez/orderbyasc/1/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 112733
+   },
+   {
+    "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/beginndt/orderbyasc/1/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 112734
+   },
+   {
+    "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/ort/orderbyasc/1/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 112729
+   },
+   {
+    "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/nr/orderbyasc/1/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 112728
+   },
+   {
+    "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/kurzbez/orderbyasc/1/orderbyasc/0/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 112733
+   },
+   {
+    "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/beginndt/orderbyasc/1/orderbyasc/1/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 112734
+   },
+   {
+    "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/ort/orderbyasc/1/orderbyasc/1/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 112729
+   },
+   {
+    "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/nr/orderbyasc/1/orderbyasc/1/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 112728
+   },
+   {
+    "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/kurzbez/orderbyasc/1/orderbyasc/1/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 112733
+   },
+   {
+    "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/beginndt/orderbyasc/1/orderbyasc/0/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 112734
+   },
+   {
+    "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/ort/orderbyasc/1/orderbyasc/0/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 112729
+   },
+   {
+    "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/nr/orderbyasc/1/orderbyasc/0/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 112728
+   },
+   {
+    "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/kurzbez/orderbyasc/0/orderbyasc/1/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 112733
+   },
+   {
+    "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/beginndt/orderbyasc/0/orderbyasc/1/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 112734
+   },
+   {
+    "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/ort/orderbyasc/0/orderbyasc/1/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 112729
+   },
+   {
+    "url": "https://www.sprachakademie.org/leben-in-deutschland/kw/bereich/kategorien/kategorie-id/13/orderby/nr/orderbyasc/0/orderbyasc/1/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 112728
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "Berlitz Deutschland GmbH - Standort Hannover",
+  "citta": "hannover",
+  "url_partenza": "https://www.berlitz.com/de-de",
+  "pagine": [
+   {
+    "url": "https://www.berlitz.com/de-de",
+    "stato": 200,
+    "chiave": true,
+    "byte": 329768
+   },
+   {
+    "url": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest",
+    "stato": 200,
+    "chiave": true,
+    "byte": 242262,
+    "n_date": 23
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-04",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2026-12-09",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2026-12-16",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-01-21",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-02-17",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-02-24",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-03-17",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-03-24",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-04-21",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-04-28",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-05-26",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-06-02",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-06-30",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-07-14",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-07-28",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-08-25",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-08-31",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-09-28",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-10-13",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-10-27",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-11-17",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-11-25",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   },
+   {
+    "data": "2027-12-17",
+    "pagina": "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "BERGMANN Bildungsinstitut",
+  "citta": "hannover",
+  "url_partenza": "https://www.bergmann-institut.org/",
+  "pagine": [
+   {
+    "url": "https://www.bergmann-institut.org/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 1116790
+   },
+   {
+    "url": "https://www.bergmann-institut.org/einb%C3%BCrgerungstest",
+    "stato": 200,
+    "chiave": true,
+    "byte": 848140
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "Akademia Zentrum für Kommunikation und Bildung - Nürnberg",
+  "citta": "nürnberg",
+  "url_partenza": "https://www.linguademia.de/",
+  "pagine": [
+   {
+    "url": "https://linguademia.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 259710
+   },
+   {
+    "url": "https://linguademia.de/sprachkurse/deutschkurs/integrationskurs-in-nuernberg/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 418313
+   },
+   {
+    "url": "https://linguademia.de/sprachkurse/deutschkurs/deutsch-berufssprachkurs-in-nuernberg/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 411878
+   },
+   {
+    "url": "https://linguademia.de/sprachkurse/deutschkurs/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 420201
+   },
+   {
+    "url": "https://linguademia.de/sprachkurs/deutsch-im-einzelunterricht/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 373926
+   },
+   {
+    "url": "https://linguademia.de/sprachkurs/deutsch-intensiv/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 373972
+   },
+   {
+    "url": "https://linguademia.de/sprachkurs/englisch-im-einzelunterricht/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 373739
+   },
+   {
+    "url": "https://linguademia.de/sprachtests/einstufungstest/einstufungstest-deutsch/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 616686
+   },
+   {
+    "url": "https://linguademia.de/sprachtests/einstufungstest/einstufungstest-englisch/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 588082
+   },
+   {
+    "url": "https://linguademia.de/fur-unternehmen/gefoerderte-deutsch-sprachkurse/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 387508
+   },
+   {
+    "url": "https://linguademia.de/sprachkurs/job-bsk-pflege/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 377195
+   },
+   {
+    "url": "https://linguademia.de/sprachtests/referenzrahmen-fuer-sprachkenntnisse/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 163395
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "Bildungszentrum Nürnberg",
+  "citta": "nürnberg",
+  "url_partenza": "https://www.bz.nuernberg.de/",
+  "pagine": [
+   {
+    "url": "https://bz.nuernberg.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 101523
+   },
+   {
+    "url": "https://bz.nuernberg.de/programm/ding",
+    "stato": 200,
+    "chiave": false,
+    "byte": 73161
+   },
+   {
+    "url": "https://bz.nuernberg.de/programm/ding/integrationskurse-bamf",
+    "stato": 200,
+    "chiave": true,
+    "byte": 181755
+   },
+   {
+    "url": "https://bz.nuernberg.de/programm/ding/berufssprachkurse-bamf",
+    "stato": 200,
+    "chiave": true,
+    "byte": 85657
+   },
+   {
+    "url": "https://bz.nuernberg.de/programm/ding/pruefungen",
+    "stato": 200,
+    "chiave": true,
+    "byte": 82466
+   },
+   {
+    "url": "https://bz.nuernberg.de/programm/ding/auskunft-beratung-deutsch-und-integration",
+    "stato": 200,
+    "chiave": false,
+    "byte": 60571
+   },
+   {
+    "url": "https://bz.nuernberg.de/programm/ding/einstufung-und-beratung",
+    "stato": 200,
+    "chiave": false,
+    "byte": 69085
+   },
+   {
+    "url": "https://bz.nuernberg.de/programm/ding/einstufung-und-beratung/beratung-und-anmeldung-fuer-integrationskurse/beratung-und-anmeldung-fuer-integrationskurse-99010-20251",
+    "stato": 200,
+    "chiave": false,
+    "byte": 61684
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "Mannheimer Abendakademie und VHS GmbH",
+  "citta": "mannheim",
+  "url_partenza": "https://www.abendakademie-mannheim.de/",
+  "pagine": [
+   {
+    "url": "https://www.abendakademie-mannheim.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 71523
+   },
+   {
+    "url": "https://www.abendakademie-mannheim.de/programm/deutsch-als-fremdsprachezweitsprache",
+    "stato": 200,
+    "chiave": true,
+    "byte": 222923,
+    "n_date": 1
+   },
+   {
+    "url": "https://www.abendakademie-mannheim.de/programm/deutsch-als-fremdsprachezweitsprache/kurs/Einbuergerungstest-November-AUSGEBUCHT/K380004",
+    "stato": 200,
+    "chiave": true,
+    "byte": 49429,
+    "n_date": 1
+   },
+   {
+    "url": "https://www.abendakademie-mannheim.de/programm/deutsch-als-fremdsprachezweitsprache/kurs/Einbuergerungstest-November-AUSGEBUCHT/index.php?id=177",
+    "stato": "robots"
+   },
+   {
+    "url": "https://www.abendakademie-mannheim.de/fuer-kundinnen/foerdermoeglichkeiten/integrationskurse-mit-foerderung-des-bamf",
+    "stato": 200,
+    "chiave": true,
+    "byte": 33164
+   },
+   {
+    "url": "https://www.abendakademie-mannheim.de/fuer-kundinnen/einstufungstests",
+    "stato": 200,
+    "chiave": false,
+    "byte": 30881
+   },
+   {
+    "url": "https://www.abendakademie-mannheim.de/fuer-kundinnen/einstufungstests/fremdsprachen",
+    "stato": 200,
+    "chiave": false,
+    "byte": 31920
+   },
+   {
+    "url": "https://www.abendakademie-mannheim.de/fuer-kundinnen/haeufig-gestellte-fragen/faq-deutsch-als-fremdsprache",
+    "stato": 200,
+    "chiave": false,
+    "byte": 31453
+   },
+   {
+    "url": "https://www.abendakademie-mannheim.de/programmbereiche/deutsch-als-fremdsprachezweitsprache",
+    "stato": 200,
+    "chiave": true,
+    "byte": 102052
+   }
+  ],
+  "pdf": [
+   "https://www.abendakademie-mannheim.de/fileadmin/user_upload/PDF-Dokumente/Allgemeine_Dokumente/Abteilung_3/DTZ-gast-Pruefungen.pdf"
+  ],
+  "date": [
+   {
+    "data": "2026-11-25",
+    "pagina": "https://www.abendakademie-mannheim.de/programm/deutsch-als-fremdsprachezweitsprache/kurs/Einbuergerungstest-November-AUSGEBUCHT/K380004"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Büro für Aus- und Weiterbildung Schweitzer&Cajic GbR",
+  "citta": "mannheim",
+  "url_partenza": "https://www.bfaw.de/",
+  "pagine": [
+   {
+    "url": "https://www.bfaw.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 22691
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "Volkshochschule Karlsruhe e.V.",
+  "citta": "karlsruhe",
+  "url_partenza": "https://www.vhs-karlsruhe.de/",
+  "pagine": [
+   {
+    "url": "https://www.vhs-karlsruhe.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 253489
+   },
+   {
+    "url": "https://www.vhs-karlsruhe.de/einbuergerungstest",
+    "stato": 200,
+    "chiave": true,
+    "byte": 135759
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "VHS Wiesbaden e.V.",
+  "citta": "wiesbaden",
+  "url_partenza": "https://www.vhs-wiesbaden.de/",
+  "pagine": [
+   {
+    "url": "https://www.vhs-wiesbaden.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 67950
+   },
+   {
+    "url": "https://www.vhs-wiesbaden.de/fachbereiche-und-projekte/deutsch/einbuergerungstest",
+    "stato": 200,
+    "chiave": true,
+    "byte": 50552
+   }
+  ],
+  "pdf": [
+   "http://www.vhs-wiesbaden.de/fileadmin/download/einbuergerung/bamf_testfragebogen.pdf",
+   "http://www.vhs-wiesbaden.de/fileadmin/download/einbuergerung/bestellung_und_abo.pdf"
+  ],
+  "date": [],
+  "esito": "solo PDF"
+ },
+ {
+  "nome": "Caritasverband Wiesbaden-Rheingau-Taunus e.V.",
+  "citta": "wiesbaden",
+  "url_partenza": "https://www.caritas-wirt.de/",
+  "pagine": [
+   {
+    "url": "https://www.caritas-wirt.de/",
+    "stato": "errore"
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "sito non raggiungibile (errore)"
+ },
+ {
+  "nome": "Euro-Schulen Rhein-Main GmbH",
+  "citta": "wiesbaden",
+  "url_partenza": "https://www.eso.de/",
+  "pagine": [
+   {
+    "url": "https://www.eso.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 216714
+   },
+   {
+    "url": "https://www.euro-schulen.de/wiesbaden/pruefungen-tests",
+    "stato": 200,
+    "chiave": true,
+    "byte": 42660,
+    "n_date": 8
+   },
+   {
+    "url": "https://www.euro-schulen.de/wiesbaden/bildungsangebote/details/A7TH__PO_2Q18S_1/Einbuergerungstest",
+    "stato": 200,
+    "chiave": true,
+    "byte": 100644
+   },
+   {
+    "url": "https://www.euro-schulen.de/wiesbaden/bildungsangebote/details/DHT61_32Y2Q18S_1/Deutsch-Test-fuer-den-Beruf-DTB---B2",
+    "stato": 200,
+    "chiave": false,
+    "byte": 58156
+   },
+   {
+    "url": "https://www.euro-schulen.de/wiesbaden/pruefungen-tests/A7TH__PO_2Q18S_",
+    "stato": 404
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-21",
+    "pagina": "https://www.euro-schulen.de/wiesbaden/pruefungen-tests"
+   },
+   {
+    "data": "2026-12-19",
+    "pagina": "https://www.euro-schulen.de/wiesbaden/pruefungen-tests"
+   },
+   {
+    "data": "2027-01-27",
+    "pagina": "https://www.euro-schulen.de/wiesbaden/pruefungen-tests"
+   },
+   {
+    "data": "2027-02-24",
+    "pagina": "https://www.euro-schulen.de/wiesbaden/pruefungen-tests"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Delphin Nachhilfe Sprachkurse e.V.",
+  "citta": "wiesbaden",
+  "url_partenza": "https://www.delphin-nachhilfe.de/",
+  "pagine": [
+   {
+    "url": "https://www.delphin-nachhilfe.de/",
+    "stato": "errore"
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "sito non raggiungibile (errore)"
+ },
+ {
+  "nome": "Lern-Planet GmbH",
+  "citta": "wiesbaden",
+  "url_partenza": "https://www.lern-planet.de/",
+  "pagine": [
+   {
+    "url": "https://lern-planet.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 108520
+   },
+   {
+    "url": "https://lern-planet.de/kurse/tests/dtz-deutsch-test-fuer-zuwanderer",
+    "stato": 200,
+    "chiave": true,
+    "byte": 95769
+   },
+   {
+    "url": "https://lern-planet.de/kurse/tests/einbuergerungstest",
+    "stato": 200,
+    "chiave": true,
+    "byte": 93799
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "Internationaler Bund - Jugendmigrationsdienst Erfurt GmbH",
+  "citta": "erfurt",
+  "url_partenza": "https://www.internationaler-bund.de/",
+  "pagine": [
+   {
+    "url": "https://www.internationaler-bund.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 164064
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test non trovata"
+ },
+ {
+  "nome": "Mitteldeutsches Institut für Qualifikation und berufliche Rehabilitation Erfurt",
+  "citta": "erfurt",
+  "url_partenza": "https://www.miqr.de/",
+  "pagine": [
+   {
+    "url": "https://mitteldeutsches-institut.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 365829
+   },
+   {
+    "url": "https://mitteldeutsches-institut.de/einbuergerungstest-erfurt/",
+    "stato": "robots"
+   },
+   {
+    "url": "https://mitteldeutsches-institut.de/deutschtest-zuwanderer-training/",
+    "stato": "robots"
+   },
+   {
+    "url": "https://mitteldeutsches-institut.de/einbuergerungstest-chemnitz-3/",
+    "stato": "robots"
+   },
+   {
+    "url": "https://mitteldeutsches-institut.de/einbuergerungstest-chemnitz/",
+    "stato": "robots"
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "Volkshochschule der Stadt Regensburg, VHS Regensburg",
+  "citta": "regensburg",
+  "url_partenza": "https://www.vhs-regensburg.de/",
+  "pagine": [
+   {
+    "url": "https://www.vhs-regensburg.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 68267
+   },
+   {
+    "url": "https://www.vhs-regensburg.de/deutsch",
+    "stato": 200,
+    "chiave": true,
+    "byte": 35577
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "VHS Dortmund",
+  "citta": "dortmund",
+  "url_partenza": "https://www.vhs.dortmund.de/",
+  "pagine": [
+   {
+    "url": "https://vhs.dortmund.de",
+    "stato": 200,
+    "chiave": true,
+    "byte": 61536
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen",
+    "stato": 200,
+    "chiave": true,
+    "byte": 81872,
+    "n_date": 10
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/kategorie/0",
+    "stato": 200,
+    "chiave": true,
+    "byte": 190337
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/595",
+    "stato": 200,
+    "chiave": true,
+    "byte": 49816
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/kategorie/115?clearallkatfilter=true",
+    "stato": 200,
+    "chiave": true,
+    "byte": 107878,
+    "n_date": 8
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/bereich/217",
+    "stato": 200,
+    "chiave": true,
+    "byte": 81029
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Albert-Schweitzer-Schule-Oer--Erkenschwick/840",
+    "stato": 200,
+    "chiave": true,
+    "byte": 49826
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Pestalozzi-Schule-Marl/785",
+    "stato": 200,
+    "chiave": true,
+    "byte": 49766
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Pestalozzischule-Duisbur/883",
+    "stato": 200,
+    "chiave": true,
+    "byte": 49772
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Schule-am-Volkspar/729",
+    "stato": 200,
+    "chiave": true,
+    "byte": 49754
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Schule-am-Volkspark/730",
+    "stato": 200,
+    "chiave": true,
+    "byte": 49757
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Albert-Schweitzer-Realschule/856",
+    "stato": 200,
+    "chiave": true,
+    "byte": 49784
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Albert-Schweitzer-Schule-Bottrop/874",
+    "stato": 200,
+    "chiave": true,
+    "byte": 49796
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Albrecht-Duerer-Gymnasium/857",
+    "stato": 200,
+    "chiave": true,
+    "byte": 49781
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Albrecht-Brinkmann-Grundschule/411",
+    "stato": 200,
+    "chiave": true,
+    "byte": 49856
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Amtmann-Kreyenfeld-Schule/739",
+    "stato": 200,
+    "chiave": true,
+    "byte": 49773
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Anne-Frank-Gesamtschule/96",
+    "stato": 200,
+    "chiave": true,
+    "byte": 49834
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Aplebecker-Grundschule/859",
+    "stato": 200,
+    "chiave": true,
+    "byte": 49764
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Aplerbecker-Grundschule-Gymnastikhalle/108",
+    "stato": 200,
+    "chiave": true,
+    "byte": 49894
+   },
+   {
+    "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Atelier-8-Frau-Martina-Noeckel/371",
+    "stato": 200,
+    "chiave": true,
+    "byte": 49866
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-02",
+    "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen"
+   },
+   {
+    "data": "2026-11-30",
+    "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen"
+   },
+   {
+    "data": "2026-12-01",
+    "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen"
+   },
+   {
+    "data": "2026-12-11",
+    "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/kategorie/115?clearallkatfilter=true"
+   },
+   {
+    "data": "2026-12-17",
+    "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen"
+   },
+   {
+    "data": "2027-01-04",
+    "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen"
+   },
+   {
+    "data": "2027-01-28",
+    "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Auslandsgesellschaft.de gGmbH",
+  "citta": "dortmund",
+  "url_partenza": "https://www.auslandsgesellschaft.de/",
+  "pagine": [
+   {
+    "url": "https://auslandsgesellschaft.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 447508
+   },
+   {
+    "url": "https://auslandsgesellschaft.de/sprachen-lernen/pruefungen/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 309404
+   },
+   {
+    "url": "https://auslandsgesellschaft.de/sprachen-lernen/pruefungen/leben-in-deutschland/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 288566
+   },
+   {
+    "url": "https://auslandsgesellschaft.de/sprachen-lernen/pruefungen/deutschtest-fuer-zuwanderer-dtz/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 300123
+   },
+   {
+    "url": "https://auslandsgesellschaft.de/sprachen-lernen/pruefungen/einbuergerungstest/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 352137,
+    "n_date": 2
+   },
+   {
+    "url": "https://auslandsgesellschaft.de/schulersprachkurse-in-den-ferien/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 319053
+   },
+   {
+    "url": "https://auslandsgesellschaft.de/black-friday-2025-jetzt-sprachkurse-und-reisen-guenstiger-buchen/",
+    "stato": 404
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-12-02",
+    "pagina": "https://auslandsgesellschaft.de/sprachen-lernen/pruefungen/einbuergerungstest/"
+   },
+   {
+    "data": "2026-12-17",
+    "pagina": "https://auslandsgesellschaft.de/sprachen-lernen/pruefungen/einbuergerungstest/"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "VHS Augsburg e.V.",
+  "citta": "augsburg",
+  "url_partenza": "https://www.vhs-augsburg.de/",
+  "pagine": [
+   {
+    "url": "https://www.vhs-augsburg.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 103427
+   },
+   {
+    "url": "https://www.vhs-augsburg.de/aktuelles/angst-hat-viele-gesichter",
+    "stato": 200,
+    "chiave": false,
+    "byte": 58331
+   },
+   {
+    "url": "https://www.vhs-augsburg.de/programm/sprachen?themenwelt=sprachen&thema=deutsch-integration-482-CAT-KAT200",
+    "stato": 200,
+    "chiave": false,
+    "byte": 69693
+   },
+   {
+    "url": "https://www.vhs-augsburg.de/pruefungen",
+    "stato": 200,
+    "chiave": true,
+    "byte": 56319
+   },
+   {
+    "url": "https://www.vhs-augsburg.de/pruefungen/einbuergerung",
+    "stato": 200,
+    "chiave": true,
+    "byte": 55536
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "Inlingua Chemnitz",
+  "citta": "chemnitz",
+  "url_partenza": "https://www.inlingua-chemnitz.de/",
+  "pagine": [
+   {
+    "url": "https://www.inlingua-chemnitz.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 61751
+   },
+   {
+    "url": "https://www.inlingua-chemnitz.de/sprachpruefungen/einbuergerungstest/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 47268,
+    "n_date": 4
+   },
+   {
+    "url": "https://www.inlingua-chemnitz.de/sprachpruefungen/lid/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 47761
+   },
+   {
+    "url": "https://www.inlingua-chemnitz.de/sprachpruefungen/dtz/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 47371,
+    "n_date": 2
+   },
+   {
+    "url": "https://www.inlingua-chemnitz.de/sprachpruefungen/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 59779
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-05",
+    "pagina": "https://www.inlingua-chemnitz.de/sprachpruefungen/einbuergerungstest/"
+   },
+   {
+    "data": "2026-11-06",
+    "pagina": "https://www.inlingua-chemnitz.de/sprachpruefungen/dtz/"
+   },
+   {
+    "data": "2026-11-12",
+    "pagina": "https://www.inlingua-chemnitz.de/sprachpruefungen/einbuergerungstest/"
+   },
+   {
+    "data": "2027-01-04",
+    "pagina": "https://www.inlingua-chemnitz.de/sprachpruefungen/einbuergerungstest/"
+   },
+   {
+    "data": "2027-01-28",
+    "pagina": "https://www.inlingua-chemnitz.de/sprachpruefungen/einbuergerungstest/"
+   },
+   {
+    "data": "2027-01-29",
+    "pagina": "https://www.inlingua-chemnitz.de/sprachpruefungen/dtz/"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Mitteldeutsches Institut für Qualifikation und berufliche Rehabilitation MIQR GmbH",
+  "citta": "chemnitz",
+  "url_partenza": "https://www.miqr.de/",
+  "pagine": [
+   {
+    "url": "https://mitteldeutsches-institut.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 365829
+   },
+   {
+    "url": "https://mitteldeutsches-institut.de/einbuergerungstest-chemnitz/",
+    "stato": "robots"
+   },
+   {
+    "url": "https://mitteldeutsches-institut.de/deutschtest-zuwanderer-training/",
+    "stato": "robots"
+   },
+   {
+    "url": "https://mitteldeutsches-institut.de/einbuergerungstest-erfurt/",
+    "stato": "robots"
+   },
+   {
+    "url": "https://mitteldeutsches-institut.de/einbuergerungstest-chemnitz-3/",
+    "stato": "robots"
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test senza date future"
+ },
+ {
+  "nome": "Euro-Schulen West-Sachsen GmbH / Chemnitz",
+  "citta": "chemnitz",
+  "url_partenza": "https://www.eso.de/",
+  "pagine": [
+   {
+    "url": "https://www.eso.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 216714
+   },
+   {
+    "url": "https://www.euro-schulen.de/chemnitz/pruefungen-tests",
+    "stato": 200,
+    "chiave": true,
+    "byte": 40516,
+    "n_date": 9
+   },
+   {
+    "url": "https://www.euro-schulen.de/chemnitz/news/details/neue-termine-fuer-b1b2-telc-pruefungen-und-einbuergerungstest",
+    "stato": 200,
+    "chiave": true,
+    "byte": 31719,
+    "n_date": 9
+   },
+   {
+    "url": "https://www.euro-schulen.de/chemnitz/bildungsangebote/details/M815__PO_2Q18S_1/Deutsch-Test-fuer-Zuwanderer-DTZ---Integrationskurs",
+    "stato": 200,
+    "chiave": true,
+    "byte": 75681,
+    "n_date": 4
+   },
+   {
+    "url": "https://www.euro-schulen.de/chemnitz/bildungsangebote/details/A7TH__PO_2Q18S_1/Einbuergerungstest",
+    "stato": 200,
+    "chiave": true,
+    "byte": 100906,
+    "n_date": 4
+   },
+   {
+    "url": "https://www.euro-schulen.de/chemnitz/pruefungen-tests/M815__PO_2Q18S_",
+    "stato": 404
+   },
+   {
+    "url": "https://www.euro-schulen.de/chemnitz/pruefungen-tests/A7TH__PO_2Q18S_",
+    "stato": 404
+   },
+   {
+    "url": "https://www.euro-schulen.de/chemnitz/news/details/M815__PO_2Q18S_",
+    "stato": 404
+   },
+   {
+    "url": "https://www.euro-schulen.de/chemnitz/news/details/A7TH__PO_2Q18S_",
+    "stato": 404
+   },
+   {
+    "url": "https://www.euro-schulen.de/chemnitz/bildungsangebote/details/M815__PO_2Q18S_",
+    "stato": "robots"
+   },
+   {
+    "url": "https://www.euro-schulen.de/chemnitz/bildungsangebote/details/A7TH__PO_2Q18S_",
+    "stato": "robots"
+   }
+  ],
+  "pdf": [],
+  "date": [
+   {
+    "data": "2026-11-02",
+    "pagina": "https://www.euro-schulen.de/chemnitz/bildungsangebote/details/A7TH__PO_2Q18S_1/Einbuergerungstest"
+   },
+   {
+    "data": "2026-11-06",
+    "pagina": "https://www.euro-schulen.de/chemnitz/news/details/neue-termine-fuer-b1b2-telc-pruefungen-und-einbuergerungstest"
+   },
+   {
+    "data": "2026-11-09",
+    "pagina": "https://www.euro-schulen.de/chemnitz/news/details/neue-termine-fuer-b1b2-telc-pruefungen-und-einbuergerungstest"
+   },
+   {
+    "data": "2026-11-20",
+    "pagina": "https://www.euro-schulen.de/chemnitz/bildungsangebote/details/A7TH__PO_2Q18S_1/Einbuergerungstest"
+   },
+   {
+    "data": "2026-11-30",
+    "pagina": "https://www.euro-schulen.de/chemnitz/bildungsangebote/details/A7TH__PO_2Q18S_1/Einbuergerungstest"
+   },
+   {
+    "data": "2026-12-18",
+    "pagina": "https://www.euro-schulen.de/chemnitz/pruefungen-tests"
+   },
+   {
+    "data": "2027-01-21",
+    "pagina": "https://www.euro-schulen.de/chemnitz/pruefungen-tests"
+   }
+  ],
+  "esito": "date future in HTML"
+ },
+ {
+  "nome": "Benedict School F+U gemeinnützige Bildungseinrichtung für Fortbildung und Umschulung Sachsen gGmbH",
+  "citta": "chemnitz",
+  "url_partenza": "https://www.fuu-sachsen.de/",
+  "pagine": [
+   {
+    "url": "https://fuu-sachsen.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 402326
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test non trovata"
+ },
+ {
+  "nome": "VHS Chemnitz",
+  "citta": "chemnitz",
+  "url_partenza": "https://www.vhs-chemnitz.de/",
+  "pagine": [
+   {
+    "url": "https://www.vhs-chemnitz.de/",
+    "stato": 200,
+    "chiave": false,
+    "byte": 315102
+   }
+  ],
+  "pdf": [],
+  "date": [],
+  "esito": "pagina del test non trovata"
+ },
+ {
+  "nome": "Sächsischer Volkshochschulverband",
+  "citta": "chemnitz",
+  "url_partenza": "https://www.vhs-sachsen.de/",
+  "pagine": [
+   {
+    "url": "https://vhs-sachsen.de/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 297057
+   },
+   {
+    "url": "https://vhs-sachsen.de/pruefungen/",
+    "stato": 200,
+    "chiave": true,
+    "byte": 315489
+   }
+  ],
+  "pdf": [
+   "https://vhs-sachsen.de/wp-content/uploads/2023/08/Informationen-und-Teilnahmebedingungen-fuer-Sprachenpruefungen-telc_DTZ_DTB-ab-8_2023.pdf",
+   "https://vhs-sachsen.de/wp-content/uploads/2025/04/Anmeldeformular-einbuergerungstest.pdf",
+   "https://vhs-sachsen.de/wp-content/uploads/2023/12/Anmeldeformular-DTZ-g.a.s.t_-12_2023.pdf",
+   "https://vhs-sachsen.de/wp-content/uploads/2025/05/Anmeldeformular-DTB-05_2025-2seitig.pdf"
+  ],
+  "date": [],
+  "esito": "solo PDF"
+ }
+]

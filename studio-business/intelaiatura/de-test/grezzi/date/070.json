@@ -1,0 +1,56 @@
+{
+ "nome": "Euro-Schulen Rhein-Main GmbH",
+ "citta": "wiesbaden",
+ "url_partenza": "https://www.eso.de/",
+ "pagine": [
+  {
+   "url": "https://www.eso.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 216714
+  },
+  {
+   "url": "https://www.euro-schulen.de/wiesbaden/pruefungen-tests",
+   "stato": 200,
+   "chiave": true,
+   "byte": 42660,
+   "n_date": 8
+  },
+  {
+   "url": "https://www.euro-schulen.de/wiesbaden/bildungsangebote/details/A7TH__PO_2Q18S_1/Einbuergerungstest",
+   "stato": 200,
+   "chiave": true,
+   "byte": 100644
+  },
+  {
+   "url": "https://www.euro-schulen.de/wiesbaden/bildungsangebote/details/DHT61_32Y2Q18S_1/Deutsch-Test-fuer-den-Beruf-DTB---B2",
+   "stato": 200,
+   "chiave": false,
+   "byte": 58156
+  },
+  {
+   "url": "https://www.euro-schulen.de/wiesbaden/pruefungen-tests/A7TH__PO_2Q18S_",
+   "stato": 404
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-21",
+   "pagina": "https://www.euro-schulen.de/wiesbaden/pruefungen-tests"
+  },
+  {
+   "data": "2026-12-19",
+   "pagina": "https://www.euro-schulen.de/wiesbaden/pruefungen-tests"
+  },
+  {
+   "data": "2027-01-27",
+   "pagina": "https://www.euro-schulen.de/wiesbaden/pruefungen-tests"
+  },
+  {
+   "data": "2027-02-24",
+   "pagina": "https://www.euro-schulen.de/wiesbaden/pruefungen-tests"
+  }
+ ],
+ "esito": "date future in HTML"
+}

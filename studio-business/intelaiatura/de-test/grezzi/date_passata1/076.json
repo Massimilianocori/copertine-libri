@@ -1,0 +1,113 @@
+{
+ "nome": "VHS Dortmund",
+ "citta": "dortmund",
+ "url_partenza": "https://www.vhs.dortmund.de/",
+ "pagine": [
+  {
+   "url": "https://vhs.dortmund.de",
+   "stato": 200,
+   "chiave": true,
+   "byte": 61536
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen",
+   "stato": 200,
+   "chiave": true,
+   "byte": 81872,
+   "n_date": 10
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/kategorie/0",
+   "stato": 200,
+   "chiave": true,
+   "byte": 190337
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/595",
+   "stato": 200,
+   "chiave": true,
+   "byte": 49816
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/kategorie/115?clearallkatfilter=true",
+   "stato": 200,
+   "chiave": true,
+   "byte": 107878,
+   "n_date": 8
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/kategorie/0?knr=26-73106D&browse=forward",
+   "stato": 200,
+   "chiave": true,
+   "byte": 189691
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/kategorie/0?knr=26-38505D&browse=forward",
+   "stato": 200,
+   "chiave": true,
+   "byte": 189813
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/kategorie/0?knr=26-39577D&browse=forward",
+   "stato": 200,
+   "chiave": true,
+   "byte": 190113
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/kategorie/0?knr=26-36140D&browse=forward",
+   "stato": 200,
+   "chiave": true,
+   "byte": 189691
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/kategorie/0?knr=26-39380D&browse=forward",
+   "stato": 200,
+   "chiave": true,
+   "byte": 189761
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/kategorie/0?knr=26-42536D&browse=forward",
+   "stato": 200,
+   "chiave": true,
+   "byte": 191311
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/kategorie/0?knr=26-36137D&browse=forward",
+   "stato": 200,
+   "chiave": true,
+   "byte": 190295
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-02",
+   "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen"
+  },
+  {
+   "data": "2026-11-30",
+   "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen"
+  },
+  {
+   "data": "2026-12-01",
+   "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen"
+  },
+  {
+   "data": "2026-12-11",
+   "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/kategorie/115?clearallkatfilter=true"
+  },
+  {
+   "data": "2026-12-17",
+   "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen"
+  },
+  {
+   "data": "2027-01-04",
+   "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen"
+  },
+  {
+   "data": "2027-01-28",
+   "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen"
+  }
+ ],
+ "esito": "date future in HTML"
+}

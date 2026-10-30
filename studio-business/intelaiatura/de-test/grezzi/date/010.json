@@ -1,0 +1,16 @@
+{
+ "nome": "VHS Berlin-Mitte",
+ "citta": "berlin",
+ "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/mitte/",
+ "pagine": [
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/mitte/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 92122
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

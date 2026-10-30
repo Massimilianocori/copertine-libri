@@ -1,0 +1,16 @@
+{
+ "nome": "DAA Deutsche Angestellten-Akademie GmbH",
+ "citta": "hamburg",
+ "url_partenza": "https://www.daa.de/",
+ "pagine": [
+  {
+   "url": "https://daa.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 109566
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test non trovata"
+}

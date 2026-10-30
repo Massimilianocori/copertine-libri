@@ -1,0 +1,27 @@
+{
+ "nome": "Sächsischer Volkshochschulverband",
+ "citta": "chemnitz",
+ "url_partenza": "https://www.vhs-sachsen.de/",
+ "pagine": [
+  {
+   "url": "https://vhs-sachsen.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 297057
+  },
+  {
+   "url": "https://vhs-sachsen.de/pruefungen/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 315489
+  }
+ ],
+ "pdf": [
+  "https://vhs-sachsen.de/wp-content/uploads/2023/08/Informationen-und-Teilnahmebedingungen-fuer-Sprachenpruefungen-telc_DTZ_DTB-ab-8_2023.pdf",
+  "https://vhs-sachsen.de/wp-content/uploads/2025/04/Anmeldeformular-einbuergerungstest.pdf",
+  "https://vhs-sachsen.de/wp-content/uploads/2023/12/Anmeldeformular-DTZ-g.a.s.t_-12_2023.pdf",
+  "https://vhs-sachsen.de/wp-content/uploads/2025/05/Anmeldeformular-DTB-05_2025-2seitig.pdf"
+ ],
+ "date": [],
+ "esito": "solo PDF"
+}

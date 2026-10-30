@@ -1,0 +1,22 @@
+{
+ "nome": "VHS Essen",
+ "citta": "essen",
+ "url_partenza": "https://www.vhs-essen.de/",
+ "pagine": [
+  {
+   "url": "https://www.vhs-essen.de/startseite_vhs_essen_de.de.html",
+   "stato": 200,
+   "chiave": true,
+   "byte": 183233
+  },
+  {
+   "url": "https://www.vhs-essen.de/kurse_und_veranstaltungen/einbuergerungstests/einbuergerungstests.de.html",
+   "stato": 200,
+   "chiave": true,
+   "byte": 157135
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

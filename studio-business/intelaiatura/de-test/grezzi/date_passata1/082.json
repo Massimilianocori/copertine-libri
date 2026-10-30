@@ -1,0 +1,16 @@
+{
+ "nome": "Benedict School F+U gemeinnützige Bildungseinrichtung für Fortbildung und Umschulung Sachsen gGmbH",
+ "citta": "chemnitz",
+ "url_partenza": "https://www.fuu-sachsen.de/",
+ "pagine": [
+  {
+   "url": "https://fuu-sachsen.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 402326
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test non trovata"
+}

@@ -1,0 +1,82 @@
+{
+ "nome": "Inlingua Sprachschule U. & C. Bernau GmbH",
+ "citta": "münchen",
+ "url_partenza": "https://www.inlingua-muenchen.de/",
+ "pagine": [
+  {
+   "url": "https://www.inlingua-muenchen.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 82244
+  },
+  {
+   "url": "https://www.inlingua-muenchen.de/einstufungstest/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 68447
+  },
+  {
+   "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 62627
+  },
+  {
+   "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/termine-online-buchung/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 130883
+  },
+  {
+   "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/kurs-und-pruefungssuche/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 75545
+  },
+  {
+   "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/englischkurse/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 79571
+  },
+  {
+   "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/englischkurse/zertifikatskurse-englisch/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 69947
+  },
+  {
+   "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/englischkurse/general-english-im-alltag/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 80201
+  },
+  {
+   "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/englischkurse/business-english/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 131993
+  },
+  {
+   "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/englischkurse/englisch-privatunterricht/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 66350
+  },
+  {
+   "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/englischkurse/gefoerderte-englischkurse/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 67824
+  },
+  {
+   "url": "https://www.inlingua-muenchen.de/kurse-und-pruefungen/englischkurse/kinderkurse-englisch/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 61767
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test non trovata"
+}

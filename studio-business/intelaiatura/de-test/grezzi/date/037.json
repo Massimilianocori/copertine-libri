@@ -1,0 +1,48 @@
+{
+ "nome": "Euro-Schulen Rheinland GmbH",
+ "citta": "köln",
+ "url_partenza": "https://www.eso.de/",
+ "pagine": [
+  {
+   "url": "https://www.eso.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 216714
+  },
+  {
+   "url": "https://www.euro-schulen.de/koeln/pruefungen-tests",
+   "stato": 200,
+   "chiave": true,
+   "byte": 46920,
+   "n_date": 8
+  },
+  {
+   "url": "https://www.euro-schulen.de/koeln/bildungsangebote/details/A7TH__PO_2Q18S_1/Einbuergerungstest",
+   "stato": 200,
+   "chiave": true,
+   "byte": 100745
+  },
+  {
+   "url": "https://www.euro-schulen.de/koeln/bildungsangebote/details/DHT61_32Y2Q18S_1/Deutsch-Test-fuer-den-Beruf-DTB---B2",
+   "stato": 200,
+   "chiave": false,
+   "byte": 58228
+  },
+  {
+   "url": "https://www.euro-schulen.de/koeln/pruefungen-tests/A7TH__PO_2Q18S_",
+   "stato": 404
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-30",
+   "pagina": "https://www.euro-schulen.de/koeln/pruefungen-tests"
+  },
+  {
+   "data": "2026-12-11",
+   "pagina": "https://www.euro-schulen.de/koeln/pruefungen-tests"
+  }
+ ],
+ "esito": "date future in HTML"
+}

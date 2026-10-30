@@ -1,0 +1,16 @@
+{
+ "nome": "Leipziger Gesellschaft f. Bildung u. Arbeit mbH",
+ "citta": "leipzig",
+ "url_partenza": "https://www.lehmbaugruppe.de/",
+ "pagine": [
+  {
+   "url": "https://www.lehmbaugruppe.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 20248
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

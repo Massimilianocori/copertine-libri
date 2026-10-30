@@ -1,0 +1,16 @@
+{
+ "nome": "VHS Frankfurt am Main",
+ "citta": "frankfurt",
+ "url_partenza": "https://vhs.frankfurt.de/",
+ "pagine": [
+  {
+   "url": "https://vhs.frankfurt.de/de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 40463
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

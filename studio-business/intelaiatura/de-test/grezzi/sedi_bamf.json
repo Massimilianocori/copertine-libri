@@ -1,0 +1,6632 @@
+[
+ {
+  "land": "BW",
+  "kreis": "Ostalbkreis",
+  "plz": "73430",
+  "ort": "Aalen",
+  "nome": "VHS Aalen",
+  "via": "Gmünder Str. 9",
+  "telefono": "07361/958331",
+  "dominio_email": "vhs-aalen.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Rems-Murr-Kreis",
+  "plz": "71522",
+  "ort": "Backnang",
+  "nome": "VHS Backnang e.V.",
+  "via": "Bahnhofstr. 2",
+  "telefono": "07191/966715",
+  "dominio_email": "vhs-backnang.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Breisgau-Hochschwarzwald",
+  "plz": "79189",
+  "ort": "Bad Krozingen",
+  "nome": "VHS Südlicher Breisgau e.V.",
+  "via": "Basler Str. 1",
+  "telefono": "07633/92650",
+  "dominio_email": "vhs-bad-krozingen.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Regionalverband Heilbronn-Franken",
+  "plz": "74906",
+  "ort": "Bad Rappenau",
+  "nome": "Sprachschule Mutig",
+  "via": "Hinter dem Schloß 16c",
+  "telefono": "07264/9598866",
+  "dominio_email": "sprachschule-mutig.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Waldshut",
+  "plz": "79713",
+  "ort": "Bad Säckingen",
+  "nome": "VHS Bad Säckingen",
+  "via": "Friedrichstr. 33",
+  "telefono": "07761/2101",
+  "dominio_email": "vhs-bad-saeckingen.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Baden-Baden",
+  "plz": "76532",
+  "ort": "Baden-Baden",
+  "nome": "VHS Baden-Baden e.V.",
+  "via": "Jägerweg 12",
+  "telefono": "07221/9965362",
+  "dominio_email": "vhs-baden-baden.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Zollernalbkreis",
+  "plz": "72336",
+  "ort": "Balingen",
+  "nome": "Volkshochschule Balingen",
+  "via": "Wilhelmstr. 36",
+  "telefono": "07433/9080-0",
+  "dominio_email": "vhs-balingen.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Biberach",
+  "plz": "88400",
+  "ort": "Biberach an der Riß",
+  "nome": "VHS Biberach an der Riß",
+  "via": "Schulstr. 8",
+  "telefono": "07351/51817",
+  "dominio_email": "biberach-riss.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Böblingen",
+  "plz": "71032",
+  "ort": "Böblingen",
+  "nome": "VHS Böblingen-Sindelfingen e.V.",
+  "via": "Im Höfle, Pestalozzistr. 4",
+  "telefono": "07031/64000",
+  "dominio_email": "vhs-aktuell.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Neckar-Odenwald-Kreis",
+  "plz": "74722",
+  "ort": "Buchen (Odenwald)",
+  "nome": "VHS Buchen e. V.",
+  "via": "Kellereistr. 48",
+  "telefono": "06281/557930",
+  "dominio_email": "vhs-buchen.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Calw",
+  "plz": "75365",
+  "ort": "Calw",
+  "nome": "VHS Calw e.V.",
+  "via": "Kirchplatz 3",
+  "telefono": "07051/93621",
+  "dominio_email": "vhs-calw.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Schwäbisch Hall",
+  "plz": "74564",
+  "ort": "Crailsheim",
+  "nome": "Städt. Volkshochschule Crailsheim",
+  "via": "Spitalstr. 2a",
+  "telefono": "07951/4033800",
+  "dominio_email": "crailsheim.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Emmendingen",
+  "plz": "79312",
+  "ort": "Emmendingen",
+  "nome": "VHS Nördlicher Breisgau",
+  "via": "Am Gaswerk 3",
+  "telefono": "07641/922527",
+  "dominio_email": "vhs-em.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Esslingen",
+  "plz": "73728",
+  "ort": "Esslingen am Neckar",
+  "nome": "VHS Esslingen",
+  "via": "Mettinger Str. 125",
+  "telefono": "0711/550210",
+  "dominio_email": "vhs-esslingen.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Freiburg im Breisgau",
+  "plz": "79098",
+  "ort": "Freiburg im Breisgau",
+  "nome": "VHS Freiburg e.V.",
+  "via": "Rotteckring 12",
+  "telefono": "0761/3689521",
+  "dominio_email": "vhs-freiburg.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Freiburg im Breisgau",
+  "plz": "79098",
+  "ort": "Freiburg im Breisgau",
+  "nome": "Verte GmbH - Inlingua Freiburg",
+  "via": "Friedrichstr. 45",
+  "telefono": "0761/21688714",
+  "dominio_email": "inlingua-freiburg.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Freudenstadt",
+  "plz": "72250",
+  "ort": "Freudenstadt",
+  "nome": "Kreisvolkshochschule Freudenstadt",
+  "via": "Landhausstr. 4",
+  "telefono": "07441/9201444",
+  "dominio_email": "vhs-kreisfds.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Bodenseekreis",
+  "plz": "88045",
+  "ort": "Friedrichshafen",
+  "nome": "VHS Bodenseekreis",
+  "via": "Glärnischstr. 1/3",
+  "telefono": "07541 2045468",
+  "dominio_email": "bodenseekreis.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Bodenseekreis",
+  "plz": "88045",
+  "ort": "Friedrichshafen",
+  "nome": "inlingua Sprachcenter Bodensee-Oberschwaben",
+  "via": "Bahnhofplatz 1",
+  "telefono": "07541/28680",
+  "dominio_email": "inlingua-friedrichshafen.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Bodenseekreis",
+  "plz": "88045",
+  "ort": "Friedrichshafen",
+  "nome": "VHS Friedrichshafen",
+  "via": "Charlottenstr. 12/2",
+  "telefono": "07541/20353434",
+  "dominio_email": "vhs-fn.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Göppingen",
+  "plz": "73312",
+  "ort": "Geislingen an der Steige",
+  "nome": "Volkshochschule Geislingen",
+  "via": "Schillerstr. 2",
+  "telefono": "07331/24269",
+  "dominio_email": "geislingen.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Göppingen",
+  "plz": "73033",
+  "ort": "Göppingen",
+  "nome": "Volkshochschule Göppingen",
+  "via": "Mörikestr. 16",
+  "telefono": "07161-65043041",
+  "dominio_email": "goeppingen.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Göppingen",
+  "plz": "73033",
+  "ort": "Göppingen",
+  "nome": "VHS Göppingen",
+  "via": "Mörikestr. 16",
+  "telefono": "07161 /6509741",
+  "dominio_email": "goeppingen.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Zollernalbkreis",
+  "plz": "72379",
+  "ort": "Hechingen",
+  "nome": "Städtische VHS Hechingen",
+  "via": "Münzgasse 4/1",
+  "telefono": "07471 5188",
+  "dominio_email": "vhs-hechingen.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Heidelberg",
+  "plz": "69115",
+  "ort": "Heidelberg",
+  "nome": "VHS Heidelberg",
+  "via": "Bergheimer Str. 76",
+  "telefono": "06221/911911",
+  "dominio_email": "vhs-hd.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Heidenheim",
+  "plz": "89522",
+  "ort": "Heidenheim an der Brenz",
+  "nome": "VHS Heidenheim",
+  "via": "Am Wedelgraben 5",
+  "telefono": "7322/3274422",
+  "dominio_email": "vhs-heidenheim.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Heilbronn",
+  "plz": "74072",
+  "ort": "Heilbronn",
+  "nome": "VHS Heilbronn gGmbH",
+  "via": "Kirchbrunnenstr. 12",
+  "telefono": "07131/996523",
+  "dominio_email": "vhs-heilbronn.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Karlsruhe, Landkreis Karlsruhe",
+  "plz": "76133",
+  "ort": "Karlsruhe",
+  "nome": "Volkshochschule Karlsruhe e.V.",
+  "via": "Kaiserallee 12e",
+  "telefono": "0721/9857521",
+  "dominio_email": "vhs.karlsruhe.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Esslingen",
+  "plz": "73230",
+  "ort": "Kirchheim unter Teck",
+  "nome": "VHS Kirchheim u. Teck e.V.",
+  "via": "Max-Eyth-Str. 18",
+  "telefono": "07021/973030",
+  "dominio_email": "vhskirchheim.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Ludwigsburg",
+  "plz": "70806",
+  "ort": "Kornwestheim",
+  "nome": "Griechischer Kulturverein e.V. - Träger des Sprachverbandes",
+  "via": "Bahnhofstr. 85",
+  "telefono": "",
+  "dominio_email": "t-online.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Hohenlohekreis",
+  "plz": "74653",
+  "ort": "Künzelsau",
+  "nome": "Zweckverband VHS Künzelsau",
+  "via": "Kirchplatz 9",
+  "telefono": "07940/92190",
+  "dominio_email": "vhskuen.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Lörrach",
+  "plz": "79539",
+  "ort": "Lörrach",
+  "nome": "Volkshochschule Lörrach & Steinen",
+  "via": "Untere Wallbrunnstr. 2",
+  "telefono": "07621 9567330",
+  "dominio_email": "loerrach.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Ludwigsburg",
+  "plz": "71638",
+  "ort": "Ludwigsburg",
+  "nome": "Schiller VHS Kreis Ludwigsburg",
+  "via": "Hindenburgstr. 46",
+  "telefono": "07141/14441668",
+  "dominio_email": "schiller-vhs.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Mannheim, Hockenheim",
+  "plz": "68161",
+  "ort": "Mannheim",
+  "nome": "Mannheimer Abendakademie und VHS GmbH",
+  "via": "U 1 16-19",
+  "telefono": "0621/1076166",
+  "dominio_email": "abendakademie-mannheim.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Mannheim",
+  "plz": "68161",
+  "ort": "Mannheim",
+  "nome": "Büro für Aus- und Weiterbildung Schweitzer&Cajic GbR",
+  "via": "P 3 ,6",
+  "telefono": "0621/25244",
+  "dominio_email": "bfaw.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Neckar-Odenwald-Kreis",
+  "plz": "74821",
+  "ort": "Mosbach",
+  "nome": "VHS Mosbach e.V.",
+  "via": "Hauptstr. 22",
+  "telefono": "06261/9186600",
+  "dominio_email": "vhs-mosbach.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Breisgau-Hochschwarzwald",
+  "plz": "79379",
+  "ort": "Müllheim",
+  "nome": "VHS Markgräflerland e.V.",
+  "via": "Gerbergasse 8",
+  "telefono": "07631/16686",
+  "dominio_email": "vhs-markgraeflerland.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Calw",
+  "plz": "72202",
+  "ort": "Nagold",
+  "nome": "VHS Oberes Nagoldtal",
+  "via": "Bahnhofstr",
+  "telefono": "07452/93150",
+  "dominio_email": "vhson.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Heilbronn",
+  "plz": "74172",
+  "ort": "Neckarsulm",
+  "nome": "VHS Neckarsulm",
+  "via": "Seestr. 15",
+  "telefono": "07132/353500",
+  "dominio_email": "neckarsulm.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Esslingen",
+  "plz": "72622",
+  "ort": "Nürtingen",
+  "nome": "VHS Nürtingen",
+  "via": "Schloßgartenstr. 2",
+  "telefono": "07022/75180",
+  "dominio_email": "vhs-nuertingen.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Ortenaukreis",
+  "plz": "77654",
+  "ort": "Offenburg",
+  "nome": "IDS Offenburg/VHS Offenburg e. V.",
+  "via": "Weingartenstr. 34b",
+  "telefono": "0781/9364200",
+  "dominio_email": "ids-offenburg.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Hohenlohekreis",
+  "plz": "74613",
+  "ort": "Öhringen",
+  "nome": "VHS Öhringen",
+  "via": "Schulstr. 6",
+  "telefono": "07941/ 684253",
+  "dominio_email": "oehringen.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Esslingen",
+  "plz": "73760",
+  "ort": "Ostfildern",
+  "nome": "Volkshochschule Ostfildern",
+  "via": "Esslinger Str. 26",
+  "telefono": "0711/3404802",
+  "dominio_email": "ostfildern.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Pforzheim, Landkreis Karlsruhe",
+  "plz": "75173",
+  "ort": "Pforzheim",
+  "nome": "PZ Pädagogisches Zentrum GmbH & Co KG",
+  "via": "Turnstr. 2-4",
+  "telefono": "07231/789330",
+  "dominio_email": "sprachschule-pforzheim.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Pforzheim",
+  "plz": "75172",
+  "ort": "Pforzheim",
+  "nome": "Volkshochschule Pforzheim-Enzkreis GmbH",
+  "via": "Zerrennerstr. 29",
+  "telefono": "07231/380026",
+  "dominio_email": "vhs-pforzheim.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Sigmaringen",
+  "plz": "88630",
+  "ort": "Pfullendorf",
+  "nome": "Volkshochschule Pfullendorf",
+  "via": "Kirchplatz 1",
+  "telefono": "07552/251132",
+  "dominio_email": "stadt-pfullendorf.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Ostalbkreis",
+  "plz": "73492",
+  "ort": "Rainau",
+  "nome": "VHS Ostalb e.V.",
+  "via": "Strutrain 2",
+  "telefono": "07961/8786986",
+  "dominio_email": "vhs-ostalb.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Rastatt",
+  "plz": "76437",
+  "ort": "Rastatt",
+  "nome": "VHS Landkreis Rastatt",
+  "via": "Am Schloßplatz 5",
+  "telefono": "07222/3813500",
+  "dominio_email": "landkreis-rastatt.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Ravensburg",
+  "plz": "88212",
+  "ort": "Ravensburg",
+  "nome": "VHS Ravensburg e.V.",
+  "via": "Gartenstr. 33",
+  "telefono": "0751/3619922",
+  "dominio_email": "vhs-rv.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Reutlingen",
+  "plz": "72764",
+  "ort": "Reutlingen",
+  "nome": "VHS Reutlingen GmbH",
+  "via": "Spendhausstr. 6",
+  "telefono": "07121/336131",
+  "dominio_email": "vhsrt.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Lörrach",
+  "plz": "79618",
+  "ort": "Rheinfelden (Baden)",
+  "nome": "VHS Rheinfelden e.V.",
+  "via": "Hardtstr. 6",
+  "telefono": "07623/72400",
+  "dominio_email": "vhs-rheinfelden.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Rottweil",
+  "plz": "78713",
+  "ort": "Schramberg",
+  "nome": "VHS Schramberg",
+  "via": "Hauptstr. 25",
+  "telefono": "07422/29-348",
+  "dominio_email": "schramberg.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Ostalbkreis",
+  "plz": "73525",
+  "ort": "Schwäbisch Gmünd",
+  "nome": "VHS Schwäbisch-Gmünd e.V.",
+  "via": "Münsterplatz 15",
+  "telefono": "07171/9251548",
+  "dominio_email": "gmuender-vhs.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Schwäbisch Hall",
+  "plz": "74523",
+  "ort": "Schwäbisch Hall",
+  "nome": "VHS Schwäbisch Hall e.V.",
+  "via": "Salinenstr. 6-10",
+  "telefono": "0791/9706623",
+  "dominio_email": "vhs-sha.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Schwäbisch Hall",
+  "plz": "74523",
+  "ort": "Schwäbisch Hall",
+  "nome": "Kompetenz & Bildung, Kunert & Buckel",
+  "via": "Im Hardt 82",
+  "telefono": "0177/6168603",
+  "dominio_email": "kompetenzundbildung.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Konstanz",
+  "plz": "78224",
+  "ort": "Singen (Hohentwiel)",
+  "nome": "VHS Landkreis Konstanz e.V.",
+  "via": "Theodor-Hanloser-Str. 19",
+  "telefono": "07731/95810",
+  "dominio_email": "vhs-landkreis-konstanz.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Rhein-Neckar-Kreis",
+  "plz": "74889",
+  "ort": "Sinsheim",
+  "nome": "VHS Sinsheim e. V.",
+  "via": "Muthstr. 16a",
+  "telefono": "07261-6577-0",
+  "dominio_email": "vhs-sinsheim.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Stuttgart",
+  "plz": "70173",
+  "ort": "Stuttgart",
+  "nome": "VHS Stuttgart e.V.",
+  "via": "Rotebühlplatz 28",
+  "telefono": "0711/1873800",
+  "dominio_email": "vhs-stuttgart.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Main-Tauber-Kreis",
+  "plz": "97941",
+  "ort": "Tauberbischofsheim",
+  "nome": "VHS Mittleres Taubertal e.V.",
+  "via": "Struwepfad 2",
+  "telefono": "09341/896800",
+  "dominio_email": "vhs-mt.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Breisgau-Hochschwarzwald",
+  "plz": "79822",
+  "ort": "Titisee-Neustadt",
+  "nome": "VHS Hochschwarzwald e.V.",
+  "via": "Sebastian-Kneipp-Anlage 2",
+  "telefono": "07651/1363",
+  "dominio_email": "vhs-hochschwarzwald.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Tübingen",
+  "plz": "72072",
+  "ort": "Tübingen",
+  "nome": "VHS Tübingen e.V.",
+  "via": "Katharinenstr. 18",
+  "telefono": "07071/560344",
+  "dominio_email": "vhs-tuebingen.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Tuttlingen",
+  "plz": "78532",
+  "ort": "Tuttlingen",
+  "nome": "VHS für Stadt und Kreis Tuttlingen e. V.",
+  "via": "Schulstr. 6",
+  "telefono": "07461/96910",
+  "dominio_email": "vhs-tuttlingen.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Ulm",
+  "plz": "89073",
+  "ort": "Ulm",
+  "nome": "Ulmer Volkshochschule",
+  "via": "Kornhausplatz 5",
+  "telefono": "0731/1530-0",
+  "dominio_email": "vh-ulm.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Schwarzwald-Baar-Kreis",
+  "plz": "78054",
+  "ort": "Villingen-Schwenningen",
+  "nome": "VHS Villingen-Schwenningen -Amt für Schule, Bildung und Sport",
+  "via": "Metzgergasse 8",
+  "telefono": "07720/822285",
+  "dominio_email": "villingen-schwenningen.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Rems-Murr-Kreis",
+  "plz": "71332",
+  "ort": "Waiblingen",
+  "nome": "VHS Unteres Remstal e.V.",
+  "via": "Bürgermühlenweg 4",
+  "telefono": "07151/958 8026",
+  "dominio_email": "vhs-unteres-remstal.de"
+ },
+ {
+  "land": "BW",
+  "kreis": "Landkreis Emmendingen",
+  "plz": "79183",
+  "ort": "Waldkirch",
+  "nome": "VHS Waldkirch",
+  "via": "Lange Str. 12",
+  "telefono": "",
+  "dominio_email": "vhs-waldkirch.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Aichach-Friedberg",
+  "plz": "86551",
+  "ort": "Aichach",
+  "nome": "VHS Landkreis Aichach-Friedberg e.V.",
+  "via": "Steubstr. 3",
+  "telefono": "08251/87370",
+  "dominio_email": "vhs-aichach-friedberg.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Altötting",
+  "plz": "84503",
+  "ort": "Altötting",
+  "nome": "VHS Alt-/Neuötting und Töging e. V.",
+  "via": "Neuöttinger Str. 32",
+  "telefono": "08671/12077",
+  "dominio_email": "t-online.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Amberg",
+  "plz": "92224",
+  "ort": "Amberg",
+  "nome": "Kolping-Bildungswerk Ostbayern, Bildungszentrum Amberg",
+  "via": "Kochkellerstr. 1a",
+  "telefono": "09621/9145690",
+  "dominio_email": "kolping-ostbayern.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Ansbach",
+  "plz": "91522",
+  "ort": "Ansbach",
+  "nome": "VHS des Landkreises Ansbach",
+  "via": "Crailsheimstr. 1",
+  "telefono": "0981/4686113",
+  "dominio_email": ""
+ },
+ {
+  "land": "BY",
+  "kreis": "Ansbach",
+  "plz": "91522",
+  "ort": "Ansbach",
+  "nome": "VHS Ansbach",
+  "via": "Kannenstr. 16",
+  "telefono": "0981/51311",
+  "dominio_email": "ansbach.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Rottal-Inn",
+  "plz": "94424",
+  "ort": "Arnstorf",
+  "nome": "Volkshochschule Arnstorf",
+  "via": "Marktplatz 8",
+  "telefono": "0351-245400",
+  "dominio_email": "arnstorf.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Aschaffenburg",
+  "plz": "63741",
+  "ort": "Aschaffenburg",
+  "nome": "VHS Aschaffenburg",
+  "via": "Auhofstr. 9",
+  "telefono": "06021 6262390",
+  "dominio_email": "vhs-aschaffenburg.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Aschaffenburg",
+  "plz": "63739",
+  "ort": "Aschaffenburg",
+  "nome": "Euro-Schulen Aschaffenburg GmbH",
+  "via": "Goldbacher Str. 6",
+  "telefono": "06021-448840",
+  "dominio_email": "eso.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Augsburg",
+  "plz": "86153",
+  "ort": "Augsburg",
+  "nome": "VHS Augsburg e.V.",
+  "via": "Willy-Brandt-Platz 3a",
+  "telefono": "0821/5026555",
+  "dominio_email": "vhs-augsburg.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Bad Kissingen",
+  "plz": "97688",
+  "ort": "Bad Kissingen",
+  "nome": "Städtische Volkshochschule Bad Kissingen und Hammelburg",
+  "via": "Rathausplatz 1",
+  "telefono": "0971 807 4210",
+  "dominio_email": "vhs-kisshab.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Berchtesgadener Land",
+  "plz": "83435",
+  "ort": "Bad Reichenhall",
+  "nome": "VHS Bad Reichenhall",
+  "via": "Aegidiplatz 3",
+  "telefono": "08651/63054",
+  "dominio_email": "kub-reichenhall.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Bamberg",
+  "plz": "96052",
+  "ort": "Bamberg",
+  "nome": "VHS Bamberg-Land",
+  "via": "Ludwigstr. 25",
+  "telefono": "0951/85760",
+  "dominio_email": "vhs-bamberg.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Bamberg",
+  "plz": "96052",
+  "ort": "Bamberg",
+  "nome": "VHS Bamberg, VHS Haus, Altes E-Werk",
+  "via": "Tränkgasse 4",
+  "telefono": "0951/871108",
+  "dominio_email": "vhs-bamberg.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Bayreuth",
+  "plz": "95444",
+  "ort": "Bayreuth",
+  "nome": "VHS Bayreuth",
+  "via": "Richard-Wagner-Str. 21",
+  "telefono": "0921/50703840",
+  "dominio_email": "stadt.bayreuth.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Eichstätt",
+  "plz": "92339",
+  "ort": "Beilngries",
+  "nome": "VHS Beilngries",
+  "via": "Ringstr. 16",
+  "telefono": "08461/266",
+  "dominio_email": "vhs-beilngries.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Straubing-Bogen",
+  "plz": "94327",
+  "ort": "Bogen",
+  "nome": "Volkshochschule Straubing-Bogen gGmbH",
+  "via": "Klosterhof 2",
+  "telefono": "09422/505600",
+  "dominio_email": "vhs-bildungszentrum.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Ostallgäu",
+  "plz": "86807",
+  "ort": "Buchloe",
+  "nome": "VHS Buchloe e.V.",
+  "via": "Bahnhofstr. 60",
+  "telefono": "08241/90233",
+  "dominio_email": "vhs-buchloe.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Altötting",
+  "plz": "84489",
+  "ort": "Burghausen",
+  "nome": "VHS Burghausen-Burgkirchen e. V.",
+  "via": "Marktler Str. 16",
+  "telefono": "08677/987780",
+  "dominio_email": "vhs-burghausen.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Cham",
+  "plz": "93413",
+  "ort": "Cham",
+  "nome": "VHS Landkreis Cham",
+  "via": "Pfarrer-Seidl-Str. 1",
+  "telefono": "09971/85010",
+  "dominio_email": "vhs-cham.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Coburg",
+  "plz": "96450",
+  "ort": "Coburg",
+  "nome": "vhs Coburg gGmbH",
+  "via": "Löwenstr. 15",
+  "telefono": "09561-8825-70",
+  "dominio_email": "vhs-coburg.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Dachau",
+  "plz": "85221",
+  "ort": "Dachau",
+  "nome": "VHS Dachau GmbH",
+  "via": "Dr.-Engert-Str. 5",
+  "telefono": "08131/3378640",
+  "dominio_email": "vhs-dachau.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Deggendorf",
+  "plz": "94469",
+  "ort": "Deggendorf",
+  "nome": "VHS Deggendorfer Land e. V.",
+  "via": "Amanstr. 11",
+  "telefono": "0991/320150",
+  "dominio_email": "vhs-deggendorf.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Dillingen an der Donau",
+  "plz": "89407",
+  "ort": "Dillingen an der Donau",
+  "nome": "VHS Dillingen a. d. Donau",
+  "via": "Königstr. 37/38",
+  "telefono": "09071/54108",
+  "dominio_email": "vhs-dillingen.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Dingolfing-Landau",
+  "plz": "84130",
+  "ort": "Dingolfing",
+  "nome": "VHS Dingolfing e. V.",
+  "via": "Stadionstr. 50",
+  "telefono": "08731/60809",
+  "dominio_email": "vhs-dingolfing.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Donau-Ries",
+  "plz": "86609",
+  "ort": "Donauwörth",
+  "nome": "Berufliche Fortbildungszentren der Bayerischen Wirtschaft bfz-Donauwörth-Ulm-Aalen",
+  "via": "Alois-Bauer-Str. 4",
+  "telefono": "08221/362811",
+  "dominio_email": "bfz.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Donau-Ries",
+  "plz": "86609",
+  "ort": "Donauwörth",
+  "nome": "VHS Donauwörth",
+  "via": "Spindeltal 5",
+  "telefono": "9068070",
+  "dominio_email": "vhs-don.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Freising",
+  "plz": "85386",
+  "ort": "Eching",
+  "nome": "VHS Eching e.V.",
+  "via": "Roßbergerstr. 8",
+  "telefono": "089/541955150",
+  "dominio_email": "vhs-eching.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Rottal-Inn",
+  "plz": "84307",
+  "ort": "Eggenfelden",
+  "nome": "VHS Eggenfelden e.V.",
+  "via": "Rathausplatz 1",
+  "telefono": "08721-1626",
+  "dominio_email": "vhs-rottalinn.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Erding",
+  "plz": "85435",
+  "ort": "Erding",
+  "nome": "Zweckverband Volkshochschule im Landkreis Erding",
+  "via": "Lethnerstr. 13",
+  "telefono": "812297870",
+  "dominio_email": "vhs-erding.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Erlangen",
+  "plz": "91054",
+  "ort": "Erlangen",
+  "nome": "VHS Erlangen",
+  "via": "Friedrichstr. 19/21",
+  "telefono": "09131/862667",
+  "dominio_email": "stadt.erlangen.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Neustadt a.d.Waldnaab",
+  "plz": "92676",
+  "ort": "Eschenbach i.d.OPf.",
+  "nome": "Volkshochschule Eschenbach/westlicher Landkreis Neustadt a.d. Waldnaab",
+  "via": "Karlsplatz 29",
+  "telefono": "09645/8283",
+  "dominio_email": "vhs-eschenbach.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Forchheim",
+  "plz": "91301",
+  "ort": "Forchheim",
+  "nome": "VHS des Landkreises Forchheim",
+  "via": "Hornschuchallee 20",
+  "telefono": "09191/861043",
+  "dominio_email": "vhs-forchheim.den"
+ },
+ {
+  "land": "BY",
+  "kreis": "Freising",
+  "plz": "85354",
+  "ort": "Freising",
+  "nome": "VHS Freising e.V.",
+  "via": "Kammergasse 12",
+  "telefono": "816149070",
+  "dominio_email": "vhs-freising.org"
+ },
+ {
+  "land": "BY",
+  "kreis": "Fürstenfeldbruck",
+  "plz": "82256",
+  "ort": "Fürstenfeldbruck",
+  "nome": "Volkshochschule Stadt Land Bruck gGmbH",
+  "via": "Niederbronnerweg 5",
+  "telefono": "08141/501420",
+  "dominio_email": "vhs-stadtlandbruck.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Fürth",
+  "plz": "90762",
+  "ort": "Fürth",
+  "nome": "VHS Fürth",
+  "via": "Hirschenstr. 27/29",
+  "telefono": "0911/9741707",
+  "dominio_email": "vhs-fuerth.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "München",
+  "plz": "85748",
+  "ort": "Garching b. München",
+  "nome": "VHS im Norden des Landkreises München e.V.",
+  "via": "Telschowstr. 5-7",
+  "telefono": "089/5505170",
+  "dominio_email": "vhs-nord.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Garmisch-Partenkirchen",
+  "plz": "82467",
+  "ort": "Garmisch-Partenkirchen",
+  "nome": "VHS Garmisch-Partenkirchen e.V.",
+  "via": "Burgstr. 21",
+  "telefono": "08821/95900",
+  "dominio_email": "vhs-gap.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Germering",
+  "plz": "82110",
+  "ort": "Germering",
+  "nome": "VHS Stadt Germering e.V.",
+  "via": "Industriestr. 2a",
+  "telefono": "089/80065226",
+  "dominio_email": "vhs-germering.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Freyung-Grafenau",
+  "plz": "94481",
+  "ort": "Grafenau",
+  "nome": "Volkshochschule des LK Freyung-Grafenau",
+  "via": "Frauenberg 17",
+  "telefono": "08552/96650",
+  "dominio_email": "vhs-freyung-grafenau.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Ebersberg",
+  "plz": "85567",
+  "ort": "Grafing b. München",
+  "nome": "VHS Ebersberger Land",
+  "via": "Griesstr. 27",
+  "telefono": "08092/81950",
+  "dominio_email": "vhs-ebersberger-land.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Fürstenfeldbruck",
+  "plz": "82194",
+  "ort": "Gröbenzell",
+  "nome": "VHS Gröbenzell e.V.",
+  "via": "Rathausstr. 1",
+  "telefono": "08142/448030",
+  "dominio_email": "vhs-groebenzell.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Günzburg",
+  "plz": "89312",
+  "ort": "Günzburg",
+  "nome": "Volkshochschule im Landkreis Günzburg e.V.",
+  "via": "Bürgermeister-Landmann-Platz 2",
+  "telefono": "08221/368630",
+  "dominio_email": "vhs-guenzburg.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Weißenburg-Gunzenhausen",
+  "plz": "91710",
+  "ort": "Gunzenhausen",
+  "nome": "VHS Gunzenhausen",
+  "via": "Dr.-Martin-Luther-Platz 4",
+  "telefono": "09831/881560",
+  "dominio_email": "vhs-gunzenhausen.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Erlangen-Höchstadt",
+  "plz": "91074",
+  "ort": "Herzogenaurach",
+  "nome": "VHS Herzogenaurach",
+  "via": "Badgasse 4",
+  "telefono": "09132/901320",
+  "dominio_email": "herzogenaurach.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landland Roth",
+  "plz": "91161",
+  "ort": "Hilpoltstein",
+  "nome": "VHS der Gemeinden im Landkreis Roth",
+  "via": "Maria-Dorothea-Str. 8",
+  "telefono": "09174/474940",
+  "dominio_email": "vhs-roth.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Hof",
+  "plz": "95028",
+  "ort": "Hof",
+  "nome": "VHS Hofer Land",
+  "via": "Ludwigstr. 7",
+  "telefono": "09281/71450",
+  "dominio_email": "vhshoferland.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Hof",
+  "plz": "95028",
+  "ort": "Hof",
+  "nome": "Berufliche Fortbildungszentren der Bayerischen Wirtschaft, bfz-Hof",
+  "via": "Schleizer Str. 5-7",
+  "telefono": "09281/72540",
+  "dominio_email": "bfz.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Miesbach",
+  "plz": "83607",
+  "ort": "Holzkirchen",
+  "nome": "vhs Oberland e.V.",
+  "via": "Max-Heimbucher-Str. 1",
+  "telefono": "08024/4678913",
+  "dominio_email": "vhs-oberland.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Ingolstadt",
+  "plz": "85049",
+  "ort": "Ingolstadt",
+  "nome": "Zentrum für fremdsprachliche Bildung Ingolstadt GmbH & Co. KG",
+  "via": "Ludwigstr. 18",
+  "telefono": "0841/8851850",
+  "dominio_email": "inlingua-ingolstadt.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Ingolstadt",
+  "plz": "85049",
+  "ort": "Ingolstadt",
+  "nome": "VHS Ingolstadt",
+  "via": "Hallstr. 5",
+  "telefono": "0841/3051849",
+  "dominio_email": "ingolstadt.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Ingolstadt",
+  "plz": "85049",
+  "ort": "Ingolstadt",
+  "nome": "Kolping Akademie Ingolstadt",
+  "via": "Johannesstr. 11",
+  "telefono": "0841/9330114",
+  "dominio_email": "kolping-ingolstadt.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Main-Spessart",
+  "plz": "97753",
+  "ort": "Karlstadt",
+  "nome": "Volkshochschule Karlstadt",
+  "via": "Langgasse 17",
+  "telefono": "09353 79022810",
+  "dominio_email": "vhs-karlstadt.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Kaufbeuren",
+  "plz": "87600",
+  "ort": "Kaufbeuren",
+  "nome": "VHS Kaufbeuren e.V.",
+  "via": "Spitaltor 5",
+  "telefono": "08341/999690",
+  "dominio_email": "vhs-kaufbeuren.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landsberg am Lech",
+  "plz": "86916",
+  "ort": "Kaufering",
+  "nome": "Volkshochschule Kaufering",
+  "via": "Albert-Schweitzer-Str. 4a",
+  "telefono": "08191/664220",
+  "dominio_email": "kaufering.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Kelheim",
+  "plz": "93309",
+  "ort": "Kelheim",
+  "nome": "VHS Weiterbildungsakademie Kelheim",
+  "via": "Lederergasse 2",
+  "telefono": "09441/175080",
+  "dominio_email": "vhs-weiterbildungsakademie.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Kempten (Allgäu)",
+  "plz": "87435",
+  "ort": "Kempten (Allgäu)",
+  "nome": "Volkshochschule Kempten e.V.",
+  "via": "Bodmanstr. 2",
+  "telefono": "0831/7049650",
+  "dominio_email": "vhs-kempten.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Kitzingen",
+  "plz": "97318",
+  "ort": "Kitzingen",
+  "nome": "VHS Kitzingen",
+  "via": "Hindenburgring Süd 3",
+  "telefono": "09321 92994531",
+  "dominio_email": "stadt-kitzingen.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Kronach",
+  "plz": "96317",
+  "ort": "Kronach",
+  "nome": "VHS Kreis Kronach e.V.",
+  "via": "Kulmbacher Str. 1",
+  "telefono": "09261-606021",
+  "dominio_email": "vhs-kronach.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Dingolfing-Landau",
+  "plz": "94405",
+  "ort": "Landau a.d.Isar",
+  "nome": "VHS Verband Landau e.V.",
+  "via": "Ludwigstr. 25",
+  "telefono": "09951/90180",
+  "dominio_email": "vhs-landau.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landsberg am Lech",
+  "plz": "86899",
+  "ort": "Landsberg am Lech",
+  "nome": "VHS der Stadt Landsberg/Lech",
+  "via": "Hubert-von-Herkomer-Str. 110",
+  "telefono": "8191128311",
+  "dominio_email": "landsberg.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landshut",
+  "plz": "84028",
+  "ort": "Landshut",
+  "nome": "VHS Landshut e.V.",
+  "via": "Ländgasse 41",
+  "telefono": "871922920",
+  "dominio_email": "vhs-landshut.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Nürnberger Land",
+  "plz": "91207",
+  "ort": "Lauf a.d.Pegnitz",
+  "nome": "VHS-ZV Unteres Pegnitztal",
+  "via": "Spitalstr. 5",
+  "telefono": "09123/1833323",
+  "dominio_email": "vhs-up.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Lindau (Bodensee",
+  "plz": "88131",
+  "ort": "Lindau (Bodensee)",
+  "nome": "Volkshochschule Lindau",
+  "via": "Uferweg 7",
+  "telefono": "08382/277480",
+  "dominio_email": "lindau.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Main-Spessart",
+  "plz": "97816",
+  "ort": "Lohr a. Main",
+  "nome": "VHS Lohr-Gemünden",
+  "via": "Schloßplatz 3",
+  "telefono": "09352-848485",
+  "dominio_email": "lohr.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Kelheim",
+  "plz": "84048",
+  "ort": "Mainburg",
+  "nome": "VHS Mainburg",
+  "via": "Mitterweg 8",
+  "telefono": "08751/877810",
+  "dominio_email": "vhs-mainburg.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Schwandorf",
+  "plz": "93142",
+  "ort": "Maxhütte-Haidhof",
+  "nome": "VHS im Städtedreieck",
+  "via": "Regensburger Str. 20",
+  "telefono": "09471/02270",
+  "dominio_email": "vhs-staedtedreieck.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Rhön-Grabfeld",
+  "plz": "97638",
+  "ort": "Mellrichstadt",
+  "nome": "VHS Rhön-Grabfeld gGmbH",
+  "via": "Marktplatz 2",
+  "telefono": "09776-7090980",
+  "dominio_email": "die-vhs.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Memmingen",
+  "plz": "87700",
+  "ort": "Memmingen",
+  "nome": "Volkshochschule Memmingen",
+  "via": "Donaustr. 1",
+  "telefono": "08331/8501616",
+  "dominio_email": "memmingen.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Unterallgäu",
+  "plz": "87719",
+  "ort": "Mindelheim",
+  "nome": "Volkshochschule im Landkreis Unterallgäu e.V.",
+  "via": "Maximilianstr. 60",
+  "telefono": "08261/738443",
+  "dominio_email": "vhs-ua.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Freising",
+  "plz": "85368",
+  "ort": "Moosburg a.d.Isar",
+  "nome": "VHS Moosburg e.V.",
+  "via": "Stadtplatz 2",
+  "telefono": "08761/722511",
+  "dominio_email": "vhs-moosburg.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Mühldorf a.Inn",
+  "plz": "84453",
+  "ort": "Mühldorf a. Inn",
+  "nome": "VHS Mühldorf e. V.",
+  "via": "Schlörstr. 1",
+  "telefono": "8631990314",
+  "dominio_email": "vhs-muehldorf.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "München",
+  "plz": "80336",
+  "ort": "München",
+  "nome": "Bayerisches Rotes Kreuz",
+  "via": "Goethestr. 53",
+  "telefono": "089/23730",
+  "dominio_email": "brk-muenchen.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "München",
+  "plz": "81675",
+  "ort": "München",
+  "nome": "Münchner Volkshochschule GmbH",
+  "via": "Einsteinstr. 28",
+  "telefono": "89480066540",
+  "dominio_email": "mvhs.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "München",
+  "plz": "80336",
+  "ort": "München",
+  "nome": "Inlingua Sprachschule U. & C. Bernau GmbH",
+  "via": "Sendlinger-Tor-Platz 6",
+  "telefono": "089/2311530",
+  "dominio_email": "inlingua-muenchen.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "München",
+  "plz": "80809",
+  "ort": "München",
+  "nome": "Anderwerk GmbH",
+  "via": "Hamburger Str. 32",
+  "telefono": "089/45104024",
+  "dominio_email": "anderwerk.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "München",
+  "plz": "80335",
+  "ort": "München",
+  "nome": "Deutsche Angestellten-Akademie GmbH DAA München",
+  "via": "Marsstr. 42",
+  "telefono": "089/544302",
+  "dominio_email": "daa.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "München",
+  "plz": "80807",
+  "ort": "München",
+  "nome": "Bildungsinstitut Kavalchuk",
+  "via": "Leopoldstr. 244",
+  "telefono": "089/21086845",
+  "dominio_email": "bik-courses.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "München",
+  "plz": "80336",
+  "ort": "München",
+  "nome": "MAS Sprachschule München GmbH",
+  "via": "Goethestr. 12",
+  "telefono": "089/46139464",
+  "dominio_email": "mas-sprachschule.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Neuburg-Schrobenhausen",
+  "plz": "86633",
+  "ort": "Neuburg a.d.Donau",
+  "nome": "VHS Neuburg/Donau",
+  "via": "Franziskanerstr. 200",
+  "telefono": "08431/9119",
+  "dominio_email": "vhsneuburg.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Freising",
+  "plz": "85375",
+  "ort": "Neufahrn b. Freising",
+  "nome": "vhs Neufahrn-Halbergmoos",
+  "via": "Bahnhofstr. 32",
+  "telefono": "08165/9751260",
+  "dominio_email": "vhs-neufahrn-halbergmoos.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Neumarkt i.d.OPf.",
+  "plz": "92318",
+  "ort": "Neumarkt i.d.OPf.",
+  "nome": "VHS Landkreis Neumarkt/Opf.",
+  "via": "Gartenstr. 1",
+  "telefono": "09181/259516",
+  "dominio_email": "vhs-neumarkt.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Regensburg",
+  "plz": "93073",
+  "ort": "Neutraubling",
+  "nome": "VHS Landkreis Regensburg",
+  "via": "Königsberger Str. 4",
+  "telefono": "09401/52550",
+  "dominio_email": "vhs-regensburger-land.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Neu-Ulm",
+  "plz": "86609",
+  "ort": "Neu-Ulm",
+  "nome": "Berufliche Fortbildungszentren der Bayerischen Wirtschaft bfz-Donauwörth-Ulm-Aalen",
+  "via": "Leibnizstr. 9",
+  "telefono": "0731/984860",
+  "dominio_email": "bfz.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Donau-Ries",
+  "plz": "86720",
+  "ort": "Nördlingen",
+  "nome": "VHS Nördlingen",
+  "via": "Marktplatz 1",
+  "telefono": "09081-84182",
+  "dominio_email": "rieser-volkshochschule.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Nürnberg",
+  "plz": "90443",
+  "ort": "Nürnberg",
+  "nome": "Akademia Zentrum für Kommunikation und Bildung - Nürnberg",
+  "via": "Bahnhofsplatz 6",
+  "telefono": "0911/2405620",
+  "dominio_email": "linguademia.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Nürnberg",
+  "plz": "90403",
+  "ort": "Nürnberg",
+  "nome": "Bildungszentrum Nürnberg",
+  "via": "Gewerbemuseumsplatz 1",
+  "telefono": "0911/2313147",
+  "dominio_email": "stadt.nuernberg.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "München",
+  "plz": "85764",
+  "ort": "Oberschleißheim",
+  "nome": "VHS Oberschleißheim e.V.",
+  "via": "Professor-Otto-Hupp-Str. 26c",
+  "telefono": "089/3153806",
+  "dominio_email": "vhsosh.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "München",
+  "plz": "85521",
+  "ort": "Ottobrunn",
+  "nome": "Volkshochschule SüdOst im Lkr. München GmbH",
+  "via": "Haidgraben 1c",
+  "telefono": "089/4423890",
+  "dominio_email": "vhs-suedost.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Passau",
+  "plz": "94032",
+  "ort": "Passau",
+  "nome": "Zweckverband Volkshochschule für Stadt und Landkreis Passau",
+  "via": "Nikolastr. 18",
+  "telefono": "0851/95980-0",
+  "dominio_email": "vhs-passau.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Pfaffenhofen a.d.Ilm",
+  "plz": "85276",
+  "ort": "Pfaffenhofen a.d.Ilm",
+  "nome": "VHS Landkreis Pfaffenhofen a. d. Ilm",
+  "via": "Hauptplatz 22",
+  "telefono": "8441274000",
+  "dominio_email": "landratsamt-paf.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Rottal-Inn",
+  "plz": "84347",
+  "ort": "Pfarrkirchen",
+  "nome": "Volkshochschule Pfarrkirchen",
+  "via": "Stadtplatz 2",
+  "telefono": "08561/3065130",
+  "dominio_email": "pfarrkirchen.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Fürstenfeldbruck",
+  "plz": "82178",
+  "ort": "Puchheim",
+  "nome": "VHS Puchheim e.V.",
+  "via": "Am Grünen Markt 7",
+  "telefono": "089/803710",
+  "dominio_email": "vhs-puchheim.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Regen",
+  "plz": "94209",
+  "ort": "Regen",
+  "nome": "VHS Arberland",
+  "via": "Amtsgerichtstr. 6-8",
+  "telefono": "09921/96054400",
+  "dominio_email": "vhs-arberland.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Regensburg",
+  "plz": "93047",
+  "ort": "Regensburg",
+  "nome": "Volkshochschule der Stadt Regensburg, VHS Regensburg",
+  "via": "Haidplatz 8",
+  "telefono": "0941/5072433",
+  "dominio_email": "regensburg.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Rosenheim",
+  "plz": "83022",
+  "ort": "Rosenheim",
+  "nome": "VHS Rosenheim",
+  "via": "Stollstr. 1",
+  "telefono": "08031/3651585",
+  "dominio_email": "rosenheim.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landshut",
+  "plz": "84056",
+  "ort": "Rottenburg a.d.Laaber",
+  "nome": "vhs Rottenburg e.V.",
+  "via": "Georg-Pöschl-Str. 16",
+  "telefono": "08781/201511",
+  "dominio_email": "vhs-rottenburg-laaber.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Neuburg-Schrobenhausen",
+  "plz": "86529",
+  "ort": "Schrobenhausen",
+  "nome": "vhs Schrobenhausen",
+  "via": "Lenbachstr. 22",
+  "telefono": "08252/89400",
+  "dominio_email": "vhs-sob.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Schwabach",
+  "plz": "91126",
+  "ort": "Schwabach",
+  "nome": "VHS Schwabach",
+  "via": "Königsplatz 29a",
+  "telefono": "09122/860204",
+  "dominio_email": "schwabach.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Schweinfurt",
+  "plz": "97421",
+  "ort": "Schweinfurt",
+  "nome": "VHS der Stadt Schweinfurt",
+  "via": "Markt 1",
+  "telefono": "09721 / 515444",
+  "dominio_email": "schweinfurt.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Wunsiedel i.Fichtelgebirge",
+  "plz": "95100",
+  "ort": "Selb",
+  "nome": "Volkshochschule Fichtelgebirge",
+  "via": "Ludwigsmühle 10",
+  "telefono": "09287/8005120",
+  "dominio_email": "vhs-fichtelgebirge.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Oberallgäu",
+  "plz": "87527",
+  "ort": "Sonthofen",
+  "nome": "Oberallgäuer Volkshochschule e. V.",
+  "via": "Hindelanger Str. 37",
+  "telefono": "08321/66730",
+  "dominio_email": "oa-vhs.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Starnberg",
+  "plz": "82319",
+  "ort": "Starnberg",
+  "nome": "VHS StarnbergAmmersee e.V.",
+  "via": "Bahnhofplatz 14",
+  "telefono": "08151/9731210",
+  "dominio_email": "vhs-starnbergammersee.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Straubing",
+  "plz": "94315",
+  "ort": "Straubing",
+  "nome": "VHS Straubing",
+  "via": "Steinweg 56",
+  "telefono": "09421/845714",
+  "dominio_email": "vhs-straubing.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Amberg-Sulzbach",
+  "plz": "92237",
+  "ort": "Sulzbach-Rosenberg",
+  "nome": "VHS Landkreis Amberg-Sulzbach",
+  "via": "Obere Gartenstr. 3",
+  "telefono": "09621/397700",
+  "dominio_email": "vhs-as.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "München",
+  "plz": "82024",
+  "ort": "Taufkirchen",
+  "nome": "Volkshochschule Taufkirchen e.V.",
+  "via": "Ahornring 121",
+  "telefono": "089/6145140",
+  "dominio_email": "vhs-taufkirchen.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Tirschenreuth",
+  "plz": "95643",
+  "ort": "Tirschenreuth",
+  "nome": "Volkshochschule des Landkreises Tirschenreuth / Tirschenreuth",
+  "via": "St.-Peter-Str. 33",
+  "telefono": "09631/88205",
+  "dominio_email": "tirschenreuth.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Traunstein",
+  "plz": "83301",
+  "ort": "Traunreut",
+  "nome": "Volkshochschule Traunreut e.V.",
+  "via": "Rathausplatz 7",
+  "telefono": "08669/86480",
+  "dominio_email": "vhs-traunreut.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Traunstein",
+  "plz": "83278",
+  "ort": "Traunstein",
+  "nome": "VHS Traunstein e.V.",
+  "via": "Stadtplatz 38a",
+  "telefono": "0861/1909716614",
+  "dominio_email": "vhs-traunstein.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Traunstein",
+  "plz": "83308",
+  "ort": "Trostberg",
+  "nome": "VHS Trostberg e.V.",
+  "via": "Heinrich-Braun-Str. 6",
+  "telefono": "08621/6493914",
+  "dominio_email": "vhs-trostberg.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "München",
+  "plz": "82008",
+  "ort": "Unterhaching",
+  "nome": "VHS Unterhaching e.V.",
+  "via": "Hans-Durach-Str. 17",
+  "telefono": "089/66547616",
+  "dominio_email": "vhs-unterhaching.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landshut",
+  "plz": "84137",
+  "ort": "Vilsbiburg",
+  "nome": "VHS Vilsbiburg",
+  "via": "Stadtplatz 30",
+  "telefono": "08741/2503",
+  "dominio_email": "vhs-vilsbiburg.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Mühldorf a.Inn",
+  "plz": "84478",
+  "ort": "Waldkraiburg",
+  "nome": "Volkshochschule Waldkraiburg e.V.",
+  "via": "Graslitzer Str. 17",
+  "telefono": "08638/889367",
+  "dominio_email": "vhs-waldkraiburg.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Rosenheim",
+  "plz": "83512",
+  "ort": "Wasserburg a. Inn",
+  "nome": "VHS Wasserburg / Inn e.V.",
+  "via": "Salzburger Str. 19",
+  "telefono": "08071/4873",
+  "dominio_email": "vhs-wasserburg.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Weiden i.d.OPf.",
+  "plz": "92637",
+  "ort": "Weiden i.d.OPf.",
+  "nome": "Volkshochschule Weiden-Neustadt gGmbH",
+  "via": "Luitpoldstr. 24",
+  "telefono": "0961/481780",
+  "dominio_email": "vhs-weiden-neustadt.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Landkreis Nürnberger Land",
+  "plz": "90610",
+  "ort": "Winkelhaid",
+  "nome": "VHS Schwarzachtal / Winkelhaid",
+  "via": "Penzenhofener Str. 1",
+  "telefono": "09187/909010",
+  "dominio_email": "vhs-schwarzachtal.de"
+ },
+ {
+  "land": "BY",
+  "kreis": "Würzburg",
+  "plz": "97070",
+  "ort": "Würzburg",
+  "nome": "VHS Würzburg und Umgebung e.V.",
+  "via": "Juliuspromenade 68",
+  "telefono": "0931-355930",
+  "dominio_email": "vhs-wuerzburg.de"
+ },
+ {
+  "land": "BE",
+  "kreis": "",
+  "plz": "10781",
+  "ort": "Berlin",
+  "nome": "VHS Berlin-Tempelhof-Schöneberg",
+  "via": "Barbarossaplatz 5",
+  "telefono": "030/90277/6990",
+  "dominio_email": "ba-ts.berlin.de"
+ },
+ {
+  "land": "BE",
+  "kreis": "",
+  "plz": "13347",
+  "ort": "Berlin",
+  "nome": "VHS Berlin-Mitte",
+  "via": "Antonstr. 37",
+  "telefono": "030/901847414",
+  "dominio_email": "ba-mitte.berlin.de"
+ },
+ {
+  "land": "BE",
+  "kreis": "",
+  "plz": "10627",
+  "ort": "Berlin",
+  "nome": "VHS Berlin-Charlottenburg City West",
+  "via": "Pestalozzistr. 40/41",
+  "telefono": "030/902928873",
+  "dominio_email": "charlottenburg-wilmersdorf.de"
+ },
+ {
+  "land": "BE",
+  "kreis": "",
+  "plz": "12053",
+  "ort": "Berlin",
+  "nome": "VHS Berlin-Neukölln Otto Suhr",
+  "via": "Boddinstr. 34",
+  "telefono": "030/902392915",
+  "dominio_email": "bezirksamt-neukoelln.de"
+ },
+ {
+  "land": "BE",
+  "kreis": "",
+  "plz": "13597",
+  "ort": "Berlin",
+  "nome": "Harri-Reinert-Volkshochschule Spandau",
+  "via": "Carl-Schurz-Str. 17",
+  "telefono": "030/902795000",
+  "dominio_email": "ba-spandau.berlin.de"
+ },
+ {
+  "land": "BE",
+  "kreis": "",
+  "plz": "12207",
+  "ort": "Berlin",
+  "nome": "VHS Berlin Steglitz-Zehlendorf",
+  "via": "Goethestr. 9/11",
+  "telefono": "030/902992241",
+  "dominio_email": "vhssz.de"
+ },
+ {
+  "land": "BE",
+  "kreis": "",
+  "plz": "13507",
+  "ort": "Berlin",
+  "nome": "VHS Berlin-Reinickendorf",
+  "via": "Am Borsigturm 6",
+  "telefono": "030/902944802",
+  "dominio_email": "reinickendorf.berlin.de"
+ },
+ {
+  "land": "BE",
+  "kreis": "",
+  "plz": "12627",
+  "ort": "Berlin",
+  "nome": "VHS Berlin-Marzahn-Hellersdorf",
+  "via": "Mark-Twain-Str. 27",
+  "telefono": "030/902932590",
+  "dominio_email": "ba-mh.berlin.de"
+ },
+ {
+  "land": "BE",
+  "kreis": "",
+  "plz": "10369",
+  "ort": "Berlin",
+  "nome": "VHS Berlin Lichtenberg",
+  "via": "Paul-Junius-Str. 71",
+  "telefono": "030/902965983",
+  "dominio_email": "lichtenberg.berlin.de"
+ },
+ {
+  "land": "BE",
+  "kreis": "",
+  "plz": "12437",
+  "ort": "Berlin",
+  "nome": "VHS Berlin Treptow-Köpenick",
+  "via": "Baumschulenstr. 79/81",
+  "telefono": "030/902974055",
+  "dominio_email": "ba-tk.berlin.de"
+ },
+ {
+  "land": "BE",
+  "kreis": "",
+  "plz": "10969",
+  "ort": "Berlin",
+  "nome": "VHS Berlin Friedrichshain-Kreuzberg",
+  "via": "Wassertorstr. 4",
+  "telefono": "030/22195518",
+  "dominio_email": "vhs-fk.de"
+ },
+ {
+  "land": "BE",
+  "kreis": "",
+  "plz": "10405",
+  "ort": "Berlin",
+  "nome": "VHS Berlin-Pankow",
+  "via": "Prenzlauer Allee 227/228",
+  "telefono": "030/902953928",
+  "dominio_email": "vhspankow.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Landkreis Potsdam-Mittelnark",
+  "plz": "14806",
+  "ort": "Bad Belzig",
+  "nome": "Kreisvolkshochschule Potsdam-Mittelmark GmbH",
+  "via": "Puschkinstr. 13",
+  "telefono": "033841/45430",
+  "dominio_email": "kvhs-pm.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Brandenburg an der Havel",
+  "plz": "14776",
+  "ort": "Brandenburg an der Havel",
+  "nome": "VHS Brandenburg an der Havel",
+  "via": "Upstallstraße 25",
+  "telefono": "03381/584310",
+  "dominio_email": "vhs-brandenburg.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Cottbus",
+  "plz": "03046",
+  "ort": "Cottbus",
+  "nome": "VHS Cottbus",
+  "via": "Berliner Str. 13/14",
+  "telefono": "0355/3806050",
+  "dominio_email": "cottbus.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Landkreis Barnim",
+  "plz": "16227",
+  "ort": "Eberswalde",
+  "nome": "Kreisvolkshochschule Barnim",
+  "via": "Fritz-Weineck-Str. 36",
+  "telefono": "03334/34597",
+  "dominio_email": "kvhs-barnim.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Landkreis Elbe-Elster",
+  "plz": "04910",
+  "ort": "Elsterwerda",
+  "nome": "KVHS Elbe-Elster",
+  "via": "Schloßplatz 1a",
+  "telefono": "03533/ 6208520",
+  "dominio_email": "lkee.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Landkreis Havelland",
+  "plz": "14612",
+  "ort": "Falkensee",
+  "nome": "Volkshochschule Havelland",
+  "via": "Poststraße 15",
+  "telefono": "03321/4036712",
+  "dominio_email": "havelland.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Frankfurt (Oder)",
+  "plz": "15230",
+  "ort": "Frankfurt (Oder)",
+  "nome": "VHS Frankfurt/Oder",
+  "via": "Gartenstr. 1",
+  "telefono": "0335/542025",
+  "dominio_email": "vhs-ffo.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Landkreis Oder-Spree",
+  "plz": "15517",
+  "ort": "Fürstenwalde /Spree",
+  "nome": "Volkshochschule Landkreis Oder-Spree",
+  "via": "Frankfurter Str. 70",
+  "telefono": "03361/747640",
+  "dominio_email": "vhs-los.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Landkreis DahmeSpreewald",
+  "plz": "15711",
+  "ort": "Königs Wusterhausen",
+  "nome": "VHS Dahme Spreewald",
+  "via": "Schulweg 1b",
+  "telefono": "03375/262500",
+  "dominio_email": "dahme-spreewald.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Landkreis Teltow-Fläming",
+  "plz": "14943",
+  "ort": "Luckenwalde",
+  "nome": "VHS Teltow Fläming",
+  "via": "Dessauer Str. 25",
+  "telefono": "03371/6083140",
+  "dominio_email": "teltow-flaeming.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Landkreis Ostprignitz-Ruppin",
+  "plz": "16816",
+  "ort": "Neuruppin",
+  "nome": "Kreisvolkshochschule Ostprignitz-Ruppin Regionalstelle Neuruppin Sitz Oberstufenzentrum (OSZ) Haus D",
+  "via": "Alt Ruppiner Allee 39",
+  "telefono": "03391/769160",
+  "dominio_email": "opr.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Landkreis Oberhavel",
+  "plz": "16515",
+  "ort": "Oranienburg",
+  "nome": "Volkshochschule Oberhavel",
+  "via": "Havelstr. 18",
+  "telefono": "03301/6015752",
+  "dominio_email": "oberhavel.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Landkreis Prignitz",
+  "plz": "19348",
+  "ort": "Perleberg",
+  "nome": "Kreisvolkshochschule Prignitz Landkreis Prignitz",
+  "via": "Berliner Str. 49",
+  "telefono": "03876/7130",
+  "dominio_email": "lkprignitz.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Potsdam",
+  "plz": "14467",
+  "ort": "Potsdam",
+  "nome": "VHS Potsdam",
+  "via": "Am Kanal 47",
+  "telefono": "0331/2894564",
+  "dominio_email": "rathaus.potsdam.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Landkreis Uckermark",
+  "plz": "17291",
+  "ort": "Prenzlau",
+  "nome": "Kreisvolkshochschule Uckermark",
+  "via": "Brüssower Allee 48",
+  "telefono": "03984/2551",
+  "dominio_email": "kvhs-uckermark.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Landkreis Uckermark",
+  "plz": "16303",
+  "ort": "Schwedt /Oder",
+  "nome": "VHS Schwedt/Oder",
+  "via": "Berliner Str. 52E",
+  "telefono": "03332/23333",
+  "dominio_email": "schwedt.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Landkreis Oberspreewald-Lausitz",
+  "plz": "01968",
+  "ort": "Senftenberg",
+  "nome": "KVHS-Oberspreewald-Lausitz",
+  "via": "Ritterstr. 5",
+  "telefono": "03573/8701571",
+  "dominio_email": "osl-online.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Landkreis Spree-Neiße",
+  "plz": "3130",
+  "ort": "Spremberg",
+  "nome": "Kreisvolkshochschule Spree-Neiße",
+  "via": "Mittelstr. 2",
+  "telefono": "03563/90647",
+  "dominio_email": "kreisvolkshochschule-spn.de"
+ },
+ {
+  "land": "BB",
+  "kreis": "Landkreis Märkisch-Oderland",
+  "plz": "15344",
+  "ort": "Strausberg",
+  "nome": "Zentrum für Erwachsenenbildung und Medien VHS Märkisch-Oderland",
+  "via": "Wriezener Str. 28",
+  "telefono": "03341/8506845",
+  "dominio_email": "landkreismol.de"
+ },
+ {
+  "land": "HB",
+  "kreis": "Bremen",
+  "plz": "28195",
+  "ort": "Bremen",
+  "nome": "Bremer Volkshochschule",
+  "via": "Faulenstr. 69",
+  "telefono": "0421/36118165",
+  "dominio_email": "vhs-bremen.de"
+ },
+ {
+  "land": "HB",
+  "kreis": "Bremerhaven",
+  "plz": "27568",
+  "ort": "Bremerhaven",
+  "nome": "VHS Bremerhaven",
+  "via": "Lloydstr. 15",
+  "telefono": "0471/590-0",
+  "dominio_email": "vhs.bremerhaven.de"
+ },
+ {
+  "land": "HH",
+  "kreis": "Hamburg",
+  "plz": "22767",
+  "ort": "Hamburg",
+  "nome": "Akademikerbund Hamburg e.V.",
+  "via": "Neue Große Bergstraße 6a",
+  "telefono": "040-63737260",
+  "dominio_email": "abh-kurse.de"
+ },
+ {
+  "land": "HH",
+  "kreis": "Hamburg",
+  "plz": "20099",
+  "ort": "Hamburg",
+  "nome": "Arbeit, Bildung, Integration (ABI) e.V.",
+  "via": "Steindamm 9",
+  "telefono": "040-53789960",
+  "dominio_email": "t-onlinde.de"
+ },
+ {
+  "land": "HH",
+  "kreis": "Hamburg",
+  "plz": "20459",
+  "ort": "Hamburg",
+  "nome": "Arab World IC GmbH",
+  "via": "Michaelispassage 1",
+  "telefono": "040-35772946",
+  "dominio_email": "arabworld-ic.com"
+ },
+ {
+  "land": "HH",
+  "kreis": "Hamburg",
+  "plz": "22767",
+  "ort": "Hamburg",
+  "nome": "Diakonisches Werk Hamburg, Landesverband der Inneren Mission e.V.",
+  "via": "Königstraße 54",
+  "telefono": "040-3577199-40",
+  "dominio_email": "diakonie-hamburg.de"
+ },
+ {
+  "land": "HH",
+  "kreis": "Hamburg",
+  "plz": "22089",
+  "ort": "Hamburg",
+  "nome": "IBH - Interkulturelle Bildung Hamburg e.V.",
+  "via": "Conventstraße 14",
+  "telefono": "040-25306250",
+  "dominio_email": "ibhev.de"
+ },
+ {
+  "land": "HH",
+  "kreis": "Hamburg",
+  "plz": "22083",
+  "ort": "Hamburg",
+  "nome": "DAA Deutsche Angestellten-Akademie GmbH",
+  "via": "Möllner Landstr. 8-12",
+  "telefono": "040-234620710",
+  "dominio_email": "daa.de"
+ },
+ {
+  "land": "HH",
+  "kreis": "Hamburg",
+  "plz": "22525",
+  "ort": "Hamburg",
+  "nome": "KOM gGmbH",
+  "via": "Kieler Str. 208",
+  "telefono": "040-319916016",
+  "dominio_email": "kom-bildung.de"
+ },
+ {
+  "land": "HH",
+  "kreis": "Hamburg",
+  "plz": "20357",
+  "ort": "Hamburg",
+  "nome": "Hamburger Volkshochschule",
+  "via": "Schanzenstr. 75/77",
+  "telefono": "",
+  "dominio_email": "vhs-hamburg.de"
+ },
+ {
+  "land": "HH",
+  "kreis": "Hamburg",
+  "plz": "20354",
+  "ort": "Hamburg",
+  "nome": "Colón",
+  "via": "Colonnaden 96",
+  "telefono": "040/345850",
+  "dominio_email": "colon.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Offenbach am Main",
+  "plz": "63065",
+  "ort": "Offenbach am Main",
+  "nome": "Magistrat der Stadt Offenbach Volkshochschule",
+  "via": "Berliner Str. 77",
+  "telefono": "069-80653141",
+  "dominio_email": "offenbach.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Darmstadt",
+  "plz": "64283",
+  "ort": "Darmstadt",
+  "nome": "Wissenschaftsstadt Darmstadt - Volkshochschule",
+  "via": "Große Bachgasse 2",
+  "telefono": "06151/133251",
+  "dominio_email": "darmstadt-vhs.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Main-Taunus-Kreis",
+  "plz": "65719",
+  "ort": "Hofheim am Taunus",
+  "nome": "VHS Main-Taunus-Kreis",
+  "via": "Alte Bleiche 5",
+  "telefono": "06192/990133",
+  "dominio_email": "vhs-mtk.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Main-Kinzig-Kreis",
+  "plz": "63571",
+  "ort": "Gelnhausen",
+  "nome": "Bildungspartner Main-Kinzig GmbH - Volkshochschule",
+  "via": "Frankfurter Str. 30",
+  "telefono": "06051/916790",
+  "dominio_email": "bildungspartner-mk.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Landkreis Groß-Gerau",
+  "plz": "64521",
+  "ort": "Groß-Gerau",
+  "nome": "Kreisvolkshochschule Groß-Gerau",
+  "via": "Wasserweg 2",
+  "telefono": "06152/1870402",
+  "dominio_email": "kvhsgg.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Landkreis Groß-Gerau",
+  "plz": "65428",
+  "ort": "Rüsselsheim am Main",
+  "nome": "Kultur 123 Stadt Rüsselsheim",
+  "via": "Am Treff 1",
+  "telefono": "06142/832839",
+  "dominio_email": "kultur123ruesselsheim.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Landkreis Offenbach",
+  "plz": "63303",
+  "ort": "Dreieich",
+  "nome": "VHS-Kreis Offenbach",
+  "via": "Frankfurter Str. 160/166",
+  "telefono": "06103-31311313",
+  "dominio_email": "kreis-offenbach.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Frankfurt am Main",
+  "plz": "60314",
+  "ort": "Frankfurt am Main",
+  "nome": "VHS Frankfurt am Main",
+  "via": "Sonnemannstr. 13",
+  "telefono": "069/21238387",
+  "dominio_email": "stadt-frankfurt.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Main-Kinzig-Kreis",
+  "plz": "63452",
+  "ort": "Hanau",
+  "nome": "VHS der Stadt Hanau",
+  "via": "Ulanenplatz 4",
+  "telefono": "06181/9238030",
+  "dominio_email": "vhs-hanau.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Darmstadt",
+  "plz": "64289",
+  "ort": "Darmstadt",
+  "nome": "VHS Darmstadt-Dieburg",
+  "via": "Jägertorstr. 207",
+  "telefono": "06151/8812304",
+  "dominio_email": "ladadi.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Frankfurt am Main",
+  "plz": "60313",
+  "ort": "Frankfurt am Main",
+  "nome": "Avicenna Institut e. V.",
+  "via": "Zeil 41",
+  "telefono": "069/71712874",
+  "dominio_email": "avicenna-ev.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Landkreis Bergstraße",
+  "plz": "64653",
+  "ort": "Lorsch",
+  "nome": "Kreisvolkshochschule Bergstraße",
+  "via": "Marktplatz 1",
+  "telefono": "06251/172960",
+  "dominio_email": "kvhs-bergstrasse.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Frankfurt am Main",
+  "plz": "60326",
+  "ort": "Frankfurt am Main",
+  "nome": "DRK Sozialdienste gGmbH Frankfurt a. M.",
+  "via": "Mainzer Landstr. 349",
+  "telefono": "069/26923349",
+  "dominio_email": "drkfrankfurt.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Frankfurt am Main",
+  "plz": "60313",
+  "ort": "Frankfurt am Main",
+  "nome": "Lernstudio H&G Frankfurt UG",
+  "via": "Bleichstr. 38a",
+  "telefono": "069/36603637",
+  "dominio_email": "gmail.com"
+ },
+ {
+  "land": "HE",
+  "kreis": "Frankfurt am Main",
+  "plz": "60594",
+  "ort": "Frankfurt am Main",
+  "nome": "Grone Bildungszentren Hessen gGmbH",
+  "via": "Gerbermühlstr. 11",
+  "telefono": "069-408998870",
+  "dominio_email": "grone.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Frankfurt am Main",
+  "plz": "60329",
+  "ort": "Frankfurt am Main",
+  "nome": "BBZ Sprachenschule GmbH",
+  "via": "Gutleutstr. 34-36",
+  "telefono": "069/348771460",
+  "dominio_email": "bbz-sprachschule.com"
+ },
+ {
+  "land": "HE",
+  "kreis": "Landkreis Bergstraße",
+  "plz": "68519",
+  "ort": "Viernheim",
+  "nome": "Volkshochschule Viernheim",
+  "via": "Kreuzstr. 2-4",
+  "telefono": "06204/988401",
+  "dominio_email": "viernheim.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Odenwaldkreis",
+  "plz": "64711",
+  "ort": "Erbach",
+  "nome": "Volkshochschule Odenwaldkreis",
+  "via": "Michelstädter Str. 12",
+  "telefono": "06062/701733",
+  "dominio_email": "odenwaldkreis.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Kassel",
+  "plz": "34117",
+  "ort": "Kassel",
+  "nome": "Akademische Bildungsplattform EV.",
+  "via": "Wilhelmsstr. 6",
+  "telefono": "0561/890202",
+  "dominio_email": "abplattform.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Kassel",
+  "plz": "34127",
+  "ort": "Kassel",
+  "nome": "Kulturzentrum Schlachthof",
+  "via": "Mombachstr. 10-12",
+  "telefono": "0561/220712202",
+  "dominio_email": "schlachthof-kassel.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Rheingau-Taunus-Kreis",
+  "plz": "65232",
+  "ort": "Taunusstein",
+  "nome": "VHS Rheingau-Taunus",
+  "via": "Erich-Kästner-Str. 5",
+  "telefono": "06128/927711",
+  "dominio_email": "vhs-rtk.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Fulda",
+  "plz": "36041",
+  "ort": "Fulda",
+  "nome": "Bildungsverein Kreidekreis e.V.",
+  "via": "Agnes-Huenninger-Str. 12",
+  "telefono": "0661/78450",
+  "dominio_email": "gmx.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Lahn-Dill-Kreis",
+  "plz": "35683",
+  "ort": "Dillenburg",
+  "nome": "VHS Lahn-Dill",
+  "via": "Bahnhofstr. 10",
+  "telefono": "02771/4077400",
+  "dominio_email": "vhs-lahn-dill.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Fulda",
+  "plz": "36037",
+  "ort": "Fulda",
+  "nome": "VHS der Stadt Fulda",
+  "via": "Unterm-Heilig-Kreuz 1",
+  "telefono": "0661/1021475",
+  "dominio_email": "fulda.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Kassel",
+  "plz": "34117",
+  "ort": "Kassel",
+  "nome": "Institut für Sprachen",
+  "via": "Die Freiheit 14",
+  "telefono": "0561/2860020",
+  "dominio_email": "ifs-kassel.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Kassel",
+  "plz": "34117",
+  "ort": "Kassel",
+  "nome": "SÜZ - Sprach und Übersetzungszentrum",
+  "via": "Garde-du-Corps-Str. 1",
+  "telefono": "0561/5214868 + 69",
+  "dominio_email": "suz-kassel.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Kassel",
+  "plz": "34121",
+  "ort": "Kassel",
+  "nome": "DIALOG-Bildungsinstitut Kassel",
+  "via": "Frankfurter Str. 170",
+  "telefono": "0561/710486",
+  "dominio_email": "dialog-kilian.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Gießen",
+  "plz": "35390",
+  "ort": "Gießen",
+  "nome": "Sprache und Bildung GmbH",
+  "via": "Katharinengasse 12-14",
+  "telefono": "0641/9717693",
+  "dominio_email": "sprache-und-bildung.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Wiesbaden",
+  "plz": "65197",
+  "ort": "Wiesbaden",
+  "nome": "VHS Wiesbaden e.V.",
+  "via": "Alcide-de-Gasperi-Str. 1,4,5",
+  "telefono": "0611/9889144",
+  "dominio_email": "vhs-wiesbaden.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Gießen",
+  "plz": "35394",
+  "ort": "Gießen",
+  "nome": "VHS der Universitätsstadt Gießen",
+  "via": "Fröbelstr. 65",
+  "telefono": "0641/3061479",
+  "dominio_email": "giessen.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Lahn-Dill-Kreis",
+  "plz": "35576",
+  "ort": "Wetzlar",
+  "nome": "Sprache & Bildung GmbH",
+  "via": "Philipsstr. 2",
+  "telefono": "06441/3819830",
+  "dominio_email": "sprache-und-bildung.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Kreis Limburg-Weilburg",
+  "plz": "65549",
+  "ort": "Limburg a.d. Lahn",
+  "nome": "VHS Kreis Limburg-Weilburg",
+  "via": "Diezer Str. 33-35",
+  "telefono": "06431/911614",
+  "dominio_email": "vhs-limburg-weilburg.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Fulda",
+  "plz": "36037",
+  "ort": "Fulda",
+  "nome": "inlingua Sprachschule Fulda",
+  "via": "Rabanusstr. 40/42",
+  "telefono": "0661/90272400",
+  "dominio_email": "inlingua-fulda.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Lahn-Dill-Kreis",
+  "plz": "35576",
+  "ort": "Wetzlar",
+  "nome": "VHS Wetzlar",
+  "via": "Bahnhofstr. 3",
+  "telefono": "06441/994308",
+  "dominio_email": "wetzlar.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Werra-Meißner-Kreis",
+  "plz": "37269",
+  "ort": "Eschwege",
+  "nome": "Eigenbetrieb Bildung und Jugend Werra-Meißner, Volkshochschule",
+  "via": "Vor dem Berge 1",
+  "telefono": "05651/742915",
+  "dominio_email": "vhs-werra-meissner.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Schwalm-Eder-Kreis",
+  "plz": "34576",
+  "ort": "Homberg",
+  "nome": "VHS des Schwalm-Eder-Kreises",
+  "via": "Parkstr. 6",
+  "telefono": "05681/7757755",
+  "dominio_email": "schwalm-eder-kreis.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Landkreis Marburg-Biedenkopf",
+  "plz": "35037",
+  "ort": "Marburg",
+  "nome": "VHS der Stadt Marburg",
+  "via": "Universitätsstr. 4",
+  "telefono": "06421/2011356",
+  "dominio_email": "marburg-stadt.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Kassel",
+  "plz": "34127",
+  "ort": "Kassel",
+  "nome": "Volkshochschule Region Kassel",
+  "via": "Holländische Str. 72/74",
+  "telefono": "0561/10031666",
+  "dominio_email": "landkreiskassel.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Hochtaunuskreis",
+  "plz": "61440",
+  "ort": "Oberursel (Taunus)",
+  "nome": "VHS Hochtaunus",
+  "via": "Füllerstr. 1",
+  "telefono": "06171/584839",
+  "dominio_email": "vhs-hochtaunus.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Landkreis Gießen",
+  "plz": "35423",
+  "ort": "Lich",
+  "nome": "VHS des Landkreises Gießen",
+  "via": "Kreuzweg 33",
+  "telefono": "0641/93905717",
+  "dominio_email": "lkgi.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Wetteraukreis",
+  "plz": "61169",
+  "ort": "Friedberg (Hessen)",
+  "nome": "Wetteraukreis - vhs Wetterau",
+  "via": "Friedensstr. 18",
+  "telefono": "06031/836646",
+  "dominio_email": "vhs-wetterau.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Vogelsbergkreis",
+  "plz": "36304",
+  "ort": "Alsfeld",
+  "nome": "VHS-Volkshochschule des Vogelsbergkreises",
+  "via": "Im Klaggarten 6",
+  "telefono": "06631/7927770",
+  "dominio_email": "vogelsbergkreis.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Kassel",
+  "plz": "34117",
+  "ort": "Kassel",
+  "nome": "BENGI e.V. Bettenhausener Frauengruppe International",
+  "via": "Kurt-Schumacher-Str. 29A",
+  "telefono": "0561/50958",
+  "dominio_email": "t-online.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Wiesbaden",
+  "plz": "65189",
+  "ort": "Wiesbaden",
+  "nome": "Caritasverband Wiesbaden-Rheingau-Taunus e.V.",
+  "via": "Gustav-Stresemann-Ring 3",
+  "telefono": "0611/174129",
+  "dominio_email": "caritas-wirt.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Landkreis Bergstraße",
+  "plz": "64625",
+  "ort": "Bensheim",
+  "nome": "Caritasverband Darmstadt e. V. Migrationsdienst Bergstraße",
+  "via": "Klostergasse 5a",
+  "telefono": "06251 854250",
+  "dominio_email": "caritas-darmstadt.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Wiesbaden",
+  "plz": "65185",
+  "ort": "Wiesbaden",
+  "nome": "Euro-Schulen Rhein-Main GmbH",
+  "via": "Luisenstr. 28",
+  "telefono": "0611/9920812",
+  "dominio_email": "eso.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Waldeck-Frankenberg",
+  "plz": "34497",
+  "ort": "Korbach",
+  "nome": "BZH Bildungszentrum Handel und Dienstleistungen gGmbH",
+  "via": "Briloner Landstr. 40a",
+  "telefono": "06421/48066500",
+  "dominio_email": "bz24.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Main-Kinzig-Kreis",
+  "plz": "63450",
+  "ort": "Hanau",
+  "nome": "Brüder-Grimm-Bildungszentrum e.V.",
+  "via": "Langstr. 60",
+  "telefono": "06181 12506",
+  "dominio_email": "bruedergrimm.net"
+ },
+ {
+  "land": "HE",
+  "kreis": "Wiesbaden",
+  "plz": "65183",
+  "ort": "Wiesbaden",
+  "nome": "Delphin Nachhilfe Sprachkurse e.V.",
+  "via": "Schwalbacher Str. 34",
+  "telefono": "0611-3603730",
+  "dominio_email": "delphin-nachhilfe.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Kassel",
+  "plz": "34117",
+  "ort": "Kassel",
+  "nome": "Das Spracheninstitut DSI",
+  "via": "Untere Königsstr. 58",
+  "telefono": "0561/72987109",
+  "dominio_email": "spracheninstitut.com"
+ },
+ {
+  "land": "HE",
+  "kreis": "Marburg-Biedenkopf",
+  "plz": "35260",
+  "ort": "Stadtallendorf",
+  "nome": "Lingua Oeconomicus",
+  "via": "Schlesierstr. 30",
+  "telefono": "06428/4416626",
+  "dominio_email": "lingua-oeconomicus.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Marburg",
+  "plz": "35039",
+  "ort": "Marburg",
+  "nome": "vhs Marburg-Biedenkopf",
+  "via": "Hermann-Jacobsohn-Weg 1",
+  "telefono": "06421/405-6710",
+  "dominio_email": "marburg-biedenkopf.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Landkreis Waldeck-Frankenberg",
+  "plz": "34497",
+  "ort": "Korbach",
+  "nome": "Kreisvolkshochschule Waldeck-Frankenberg",
+  "via": "Briloner Landstr. 36",
+  "telefono": "05631/97730",
+  "dominio_email": "vhs-waldeck-frankenberg.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Wiesbaden",
+  "plz": "65185",
+  "ort": "Wiesbaden",
+  "nome": "Lern-Planet GmbH",
+  "via": "Rheinstr. 95",
+  "telefono": "0611/3417341",
+  "dominio_email": "lern-planet.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Landkreis Marburg-Biedenkopf",
+  "plz": "35039",
+  "ort": "Marburg",
+  "nome": "DIWAN Marburg Akademie GmbH",
+  "via": "Neue Kasseler Str. 2",
+  "telefono": "06421/9839100",
+  "dominio_email": "diwan-marburg.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Wetteraukreis",
+  "plz": "35510",
+  "ort": "Butzbach",
+  "nome": "Internationaler Bund Südwest gGmbH",
+  "via": "Griedeler Str. 42",
+  "telefono": "06031/7917715",
+  "dominio_email": "ib.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Gießen",
+  "plz": "35398",
+  "ort": "Gießen",
+  "nome": "Bildungswerk der Hessischen Wirtschaft e.V.",
+  "via": "Philipp-Reis-Str. 4",
+  "telefono": "0641 98238-0",
+  "dominio_email": "bwhw.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Hochtaunuskreis",
+  "plz": "61440",
+  "ort": "Oberursel (Taunus)",
+  "nome": "Omega Institut",
+  "via": "Holzweg-Passage 12",
+  "telefono": "06171/92390-30",
+  "dominio_email": "omega-institut.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Hersfeld-Rotenburg",
+  "plz": "36251",
+  "ort": "Bad Hersfeld",
+  "nome": "VHS Hersfeld-Rotenburg",
+  "via": "Friedloser Str. 12",
+  "telefono": "06621-876303",
+  "dominio_email": "hef-rof.de"
+ },
+ {
+  "land": "HE",
+  "kreis": "Hochtaunuskreis",
+  "plz": "61348",
+  "ort": "Bad Homburg",
+  "nome": "VHS Bad Homburg e.V.",
+  "via": "Elisabethenstr. 4/8",
+  "telefono": "06172-23006",
+  "dominio_email": "vhs-badhomburg.de"
+ },
+ {
+  "land": "MV",
+  "kreis": "",
+  "plz": "17389",
+  "ort": "Anklam",
+  "nome": "Kreisvolkshochschule Vorpommern-Greifswald Standort Anklam/Wolgast",
+  "via": "Markt 7",
+  "telefono": "03971/2935748",
+  "dominio_email": "kreis-vg.de"
+ },
+ {
+  "land": "MV",
+  "kreis": "",
+  "plz": "18209",
+  "ort": "Bad Doberan",
+  "nome": "Volkshochschule des Landkreises Rostock Außenstelle Bad Doberan",
+  "via": "Neue Reihe 50",
+  "telefono": "03843/75540202",
+  "dominio_email": "lkros.de"
+ },
+ {
+  "land": "MV",
+  "kreis": "",
+  "plz": "18528",
+  "ort": "Bergen auf Rügen",
+  "nome": "KVHS Vorpommern Rügen Regionalstelle Rügen",
+  "via": "Störtebekerstr. 8 a",
+  "telefono": "03838 2005814",
+  "dominio_email": "lk-vr.de"
+ },
+ {
+  "land": "MV",
+  "kreis": "",
+  "plz": "17489",
+  "ort": "Greifswald , Hansestadt",
+  "nome": "Volkshochschule Vorpommern-Greifswald - Standort Greifswald",
+  "via": "Martin-Luther-Str. 7a",
+  "telefono": "03834/87604830",
+  "dominio_email": "kreis-vg.de"
+ },
+ {
+  "land": "MV",
+  "kreis": "",
+  "plz": "17033",
+  "ort": "Neubrandenburg",
+  "nome": "VHS des Landkreises Mecklenburgische Seenplatte Standort Neubrandenburg",
+  "via": "Bienenweg 1",
+  "telefono": "0395-35172011",
+  "dominio_email": "lk-seenplatte.de"
+ },
+ {
+  "land": "MV",
+  "kreis": "",
+  "plz": "19370",
+  "ort": "Parchim",
+  "nome": "Kreisvolkshochschule Geschäftsstelle Ludwigslust",
+  "via": "Putlitzer Str. 25",
+  "telefono": "03871-7224301",
+  "dominio_email": "kreis-lup.de"
+ },
+ {
+  "land": "MV",
+  "kreis": "",
+  "plz": "19370",
+  "ort": "Parchim",
+  "nome": "KVHS Ludwigslust-Parchim / Geschäftsstelle Parchim",
+  "via": "Eldestr. 7",
+  "telefono": "03834-87604830",
+  "dominio_email": "kreis-vg.de"
+ },
+ {
+  "land": "MV",
+  "kreis": "",
+  "plz": "17309",
+  "ort": "Pasewalk",
+  "nome": "Volkshochschule Vorpommern-Greifswald Standort Pasewalk",
+  "via": "Gemeindewiesenweg 8",
+  "telefono": "03834/87601851",
+  "dominio_email": "kreis-vg.de"
+ },
+ {
+  "land": "MV",
+  "kreis": "",
+  "plz": "18311",
+  "ort": "Ribnitz-Damgarten",
+  "nome": "KVHS Vorpommern-Rügen, Regionalstelle Ribnitz-Damgarten",
+  "via": "Mühlenstr. 10",
+  "telefono": "03821/8897603",
+  "dominio_email": "lk-vr.de"
+ },
+ {
+  "land": "MV",
+  "kreis": "",
+  "plz": "18055",
+  "ort": "Rostock",
+  "nome": "S&N Sprachakademie GmbH inlingua Rostock",
+  "via": "Herweghstr. 1",
+  "telefono": "0381-2429225",
+  "dominio_email": "inlingua-rostock.de"
+ },
+ {
+  "land": "MV",
+  "kreis": "",
+  "plz": "18057",
+  "ort": "Rostock",
+  "nome": "Volkshochschule der Hansestadt Rostock",
+  "via": "Am Kabutzenhof 20 a",
+  "telefono": "0381/3814300",
+  "dominio_email": "rostock.de"
+ },
+ {
+  "land": "MV",
+  "kreis": "",
+  "plz": "19055",
+  "ort": "Schwerin",
+  "nome": "Agentur der Wirtschaft GmbH",
+  "via": "Wismarsche Str. 302",
+  "telefono": "0385-4773320",
+  "dominio_email": "adwi.de"
+ },
+ {
+  "land": "MV",
+  "kreis": "",
+  "plz": "19055",
+  "ort": "Schwerin",
+  "nome": "VHS Ehm Welk, Landeshauptstadt Schwerin",
+  "via": "Puschkinstr. 13",
+  "telefono": "0385/591270",
+  "dominio_email": "schwerin.de"
+ },
+ {
+  "land": "MV",
+  "kreis": "",
+  "plz": "19061",
+  "ort": "Schwerin",
+  "nome": "Volkshochschulverband Mecklenburg-Vorpommern e. V.",
+  "via": "Berta-von-Suttner-Str. 5",
+  "telefono": "0385/3031550",
+  "dominio_email": ""
+ },
+ {
+  "land": "MV",
+  "kreis": "",
+  "plz": "18437",
+  "ort": "Stralsund",
+  "nome": "KVHS Vorpommern-Rügen, Regionalstelle Stralsund",
+  "via": "Tribseer Damm 76",
+  "telefono": "03831/482315",
+  "dominio_email": "lk-vr.de"
+ },
+ {
+  "land": "MV",
+  "kreis": "",
+  "plz": "23966",
+  "ort": "Wismar",
+  "nome": "Kreisvolkshochschule Nordwestmecklenburg Standort Wismar",
+  "via": "Badstaven 20",
+  "telefono": "03841/32670",
+  "dominio_email": "vhs-nwm.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Aurich",
+  "plz": "26605",
+  "ort": "Aurich",
+  "nome": "KVHS Aurich- Norden",
+  "via": "Oldersumer Str. 65/73",
+  "telefono": "04941/95800",
+  "dominio_email": ""
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Hannover",
+  "plz": "30890",
+  "ort": "Barsinghausen",
+  "nome": "VHS Calenberger Land",
+  "via": "Langenäcker 38",
+  "telefono": "05105/521634",
+  "dominio_email": "vhs-cl.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Diepholz",
+  "plz": "27211",
+  "ort": "Bassum",
+  "nome": "VHS des LK Diepholz",
+  "via": "Am Petermoor 1B",
+  "telefono": "04242/9764075",
+  "dominio_email": "vhs-diepholz.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Wesermarsch",
+  "plz": "26919",
+  "ort": "Brake (Unterweser)",
+  "nome": "KVHS Wesermarsch GmbH",
+  "via": "Bürgermeister-Müller-Str. 35",
+  "telefono": "04401/7076 100",
+  "dominio_email": "kvhs-wesermarsch.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Braunschweig",
+  "plz": "38100",
+  "ort": "Braunschweig",
+  "nome": "Volkshochschule Braunschweig GmbH",
+  "via": "Alte Waage 15",
+  "telefono": "",
+  "dominio_email": "vhsinternational.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Braunschweig",
+  "plz": "38100",
+  "ort": "Braunschweig",
+  "nome": "Berlitz Deutschland GmbH - Standort Braunschweig",
+  "via": "Waisenhausdamm 7",
+  "telefono": "0531/125313",
+  "dominio_email": "berlitz.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Stade",
+  "plz": "21614",
+  "ort": "Buxtehude",
+  "nome": "VHS Buxtehude",
+  "via": "Bertha-von-Suttner-Allee 9",
+  "telefono": "04161 74340",
+  "dominio_email": "stadt.buxtehude.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Stade",
+  "plz": "21614",
+  "ort": "Buxtehude",
+  "nome": "SBB Kompetenz gGmbH",
+  "via": "Brauereiweg 4",
+  "telefono": "04161/5039323",
+  "dominio_email": "sbb-nord.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Celle",
+  "plz": "29221",
+  "ort": "Celle",
+  "nome": "VHS Celle e.V.",
+  "via": "Trift 20",
+  "telefono": "05141/929820",
+  "dominio_email": "vhs-celle.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Cloppenburg",
+  "plz": "49661",
+  "ort": "Cloppenburg",
+  "nome": "VHS für den LK Cloppenburg e.V.",
+  "via": "Altes Stadttor 16",
+  "telefono": "04471/946924",
+  "dominio_email": "vhs-cloppenburg.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Cuxhaven",
+  "plz": "27474",
+  "ort": "Cuxhaven",
+  "nome": "VHS der Stadt Cuxhaven",
+  "via": "Abendrothstr. 16",
+  "telefono": "04721/70070950",
+  "dominio_email": "cuxhaven.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Delmenhorst",
+  "plz": "27749",
+  "ort": "Delmenhorst",
+  "nome": "VHS Delmenhorst gGmbH",
+  "via": "Am Turbinenhaus 11",
+  "telefono": "04221/98180-0",
+  "dominio_email": "vhs-delmenhorst.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Northeim",
+  "plz": "37574",
+  "ort": "Einbeck",
+  "nome": "Landkreis Northeim - Fachbereich Kreisvolkshochschule Northeim",
+  "via": "An der Schule 2",
+  "telefono": "05551/7088228",
+  "dominio_email": "kvhs-northeim.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Emden",
+  "plz": "26721",
+  "ort": "Emden",
+  "nome": "VHS Emden e.V.",
+  "via": "An der Berufsschule 3",
+  "telefono": "04921/9155-0",
+  "dominio_email": "vhs-emden.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Oldenburg",
+  "plz": "27777",
+  "ort": "Ganderkesee",
+  "nome": "regioVHS Ganderkesee-Hude",
+  "via": "Rathausstr. 24",
+  "telefono": "04222/44414",
+  "dominio_email": "regiovhs.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Gifhorn",
+  "plz": "38518",
+  "ort": "Gifhorn",
+  "nome": "Gemeinnützige Bildungs- und Kultur GmbH des Landkreises Gifhorn - Kreisvolkshochschule Gifhorn",
+  "via": "Freiherr-vom-Stein-Str. 24",
+  "telefono": "05371/9459611",
+  "dominio_email": "kvhs-gifhorn.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Goslar",
+  "plz": "33640",
+  "ort": "Goslar",
+  "nome": "Volkshochschule Landkreis Goslar",
+  "via": "Klubgartenstr. 6",
+  "telefono": "05321/767549",
+  "dominio_email": "vhs-goslar.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Göttingen",
+  "plz": "37081",
+  "ort": "Göttingen",
+  "nome": "Volkshochschule Göttingen Osterode gGmbH",
+  "via": "Bahnhofsallee 7",
+  "telefono": "0551/4952110",
+  "dominio_email": "vhs-goettingen.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Göttingen",
+  "plz": "37081",
+  "ort": "Göttingen",
+  "nome": "Alpha-Zentrum e.V.",
+  "via": "Jonaplatz 6",
+  "telefono": "0551/3070999",
+  "dominio_email": "alpha-zentrum.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Hameln-Pyrmont",
+  "plz": "31785",
+  "ort": "Hameln",
+  "nome": "VHS Hameln-Pyrmont",
+  "via": "Sedanstr. 11",
+  "telefono": "515194820",
+  "dominio_email": "vhs-hameln-pyrmont.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Hannover",
+  "plz": "30159",
+  "ort": "Hannover",
+  "nome": "inlingua Sprachschule Hannover GmbH",
+  "via": "Andreaestr. 3",
+  "telefono": "0511/324580",
+  "dominio_email": "inlingua-hannover.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Hannover",
+  "plz": "30159",
+  "ort": "Hannover",
+  "nome": "Volkshochschule Hannover",
+  "via": "Burgstr. 14",
+  "telefono": "0511/16844787",
+  "dominio_email": "hannover-stadt.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Hannover",
+  "plz": "30159",
+  "ort": "Hannover",
+  "nome": "Bildungsverein Soziales Lernen und Kommunikation e.V.",
+  "via": "Stadtstr. 17",
+  "telefono": "0511/344144",
+  "dominio_email": "bildungsverein.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Hannover",
+  "plz": "30161",
+  "ort": "Hannover",
+  "nome": "Euro-Schulen Hannover GmbH",
+  "via": "Hamburger Allee 26",
+  "telefono": "0511 336179330",
+  "dominio_email": "eso.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Hannover",
+  "plz": "30159",
+  "ort": "Hannover",
+  "nome": "Verein für Integration- und Bildung e.V. - Sprachakademie Hannover",
+  "via": "Goseriede 12 D",
+  "telefono": "0511/51533441",
+  "dominio_email": "sprachakademie.org"
+ },
+ {
+  "land": "NI",
+  "kreis": "Hannover",
+  "plz": "30159",
+  "ort": "Hannover",
+  "nome": "Berlitz Deutschland GmbH - Standort Hannover",
+  "via": "Ständehausstr. 2-3",
+  "telefono": "0511/327606",
+  "dominio_email": "berlitz.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Hannover",
+  "plz": "30159",
+  "ort": "Hannover",
+  "nome": "BERGMANN Bildungsinstitut",
+  "via": "Otto-Brenner-Str. 7",
+  "telefono": "0511/56964170",
+  "dominio_email": "bergmann-institut.org"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Helmstadt",
+  "plz": "38350",
+  "ort": "Helmstedt",
+  "nome": "Landkreis Helmstedt - Kreisvolkshochschule Helmstedt",
+  "via": "Bötticherstr. 2",
+  "telefono": "05351/120433",
+  "dominio_email": "kvhs-helmstedt.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Göttingen",
+  "plz": "37412",
+  "ort": "Herzberg am Harz",
+  "nome": "Ländliche Erwachsenenbildung in Niedersachsen e. V. - Standort Bildungszentrum Harz (LEB)",
+  "via": "Osteroder Str. 13",
+  "telefono": "05521 7389716",
+  "dominio_email": "leb.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Hildesamt",
+  "plz": "31134",
+  "ort": "Hildesheim",
+  "nome": "Volkshochschule (VHS) Hildesheim gGmbH",
+  "via": "Pfaffenstieg 4-5",
+  "telefono": "05121/9361 0",
+  "dominio_email": "vhs-hildesheim.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Holzminden",
+  "plz": "37603",
+  "ort": "Holzminden",
+  "nome": "Landkreis Holzminden - Eigenbetrieb Kreisvolkshochschule Holzminden",
+  "via": "Braunschweiger Str. 8",
+  "telefono": "05531/707526",
+  "dominio_email": "landkreis-holzminden.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Hannover",
+  "plz": "30880",
+  "ort": "Laatzen",
+  "nome": "Leine-VHS",
+  "via": "Senefelderstr. 19",
+  "telefono": "0511/89886203",
+  "dominio_email": "leine-vhs.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Hannover",
+  "plz": "30853",
+  "ort": "Langenhagen",
+  "nome": "Stadt Langenhagen - Volkshochschule Langenhagen",
+  "via": "Stadtparkallee 35",
+  "telefono": "0511/73079708",
+  "dominio_email": "vhs-langenhagen.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Leer",
+  "plz": "26789",
+  "ort": "Leer (Ostfriesland)",
+  "nome": "VHS Leer e.V.",
+  "via": "Haneburgallee 8",
+  "telefono": "0491/929920",
+  "dominio_email": "vhs-leer.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Hannover",
+  "plz": "31275",
+  "ort": "Lehrte",
+  "nome": "VHS Ostkreis Hannover",
+  "via": "Rathausplatz 2",
+  "telefono": "05132/50000",
+  "dominio_email": "vhs-ostkreis-hannover.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Osterholz",
+  "plz": "28865",
+  "ort": "Lilienthal",
+  "nome": "VHS Lilienthal-Grasberg-Ritterhude-Worpswede",
+  "via": "Klosterstr. 25",
+  "telefono": "04298/929240",
+  "dominio_email": "lilienthal.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Emsland",
+  "plz": "49808",
+  "ort": "Lingen (Ems)",
+  "nome": "VHS Lingen GmbH",
+  "via": "Elsterstr. 1",
+  "telefono": "0591/912020",
+  "dominio_email": "vhs-lingen.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Lüneburg",
+  "plz": "21337",
+  "ort": "Lüneburg",
+  "nome": "Bildungswerk der Niedersächsischen Wirtschaft gemeinnützige GmbH - Standort Region Heide",
+  "via": "Fährsteg 5a",
+  "telefono": "04131/3030712",
+  "dominio_email": "bnw.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Lüneburg",
+  "plz": "21335",
+  "ort": "Lüneburg",
+  "nome": "Volkshochschule REGION Lüneburg der Gemeinnützigen Bildungs- und Kulturgesellschaft Landkreis und Hansestadt Lüneburg mbH",
+  "via": "Haagestr. 4",
+  "telefono": "04131/15660",
+  "dominio_email": "vhslg.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Emsland",
+  "plz": "49716",
+  "ort": "Meppen",
+  "nome": "VHS Meppen GmbH",
+  "via": "Freiherr-vom-Stein-Str. 1",
+  "telefono": "05931/93730",
+  "dominio_email": "vhs-meppen.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Hannover",
+  "plz": "31535",
+  "ort": "Neustadt am Rübenberge",
+  "nome": "VHS Hannover Land",
+  "via": "Schloßstr. 1",
+  "telefono": "05032/9014473",
+  "dominio_email": "vhs-hannover-land.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Nienburg (Weser)",
+  "plz": "31582",
+  "ort": "Nienburg (Weser)",
+  "nome": "VHS Nienburg",
+  "via": "Rühmkorffstr. 12",
+  "telefono": "05021/96760",
+  "dominio_email": "kreis-ni.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Aurich",
+  "plz": "26506",
+  "ort": "Norden",
+  "nome": "KVHS Aurich-Norden gGmbH",
+  "via": "Uffenstr. 1",
+  "telefono": "04931/1870503",
+  "dominio_email": ""
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Grafschaft Bentheim",
+  "plz": "48529",
+  "ort": "Nordhorn",
+  "nome": "VHS Grafschaft-Bentheim",
+  "via": "Bernhard-Niehues-Str. 49",
+  "telefono": "05921/83650",
+  "dominio_email": "vhs-nordhorn.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Oldenburg",
+  "plz": "26122",
+  "ort": "Oldenburg",
+  "nome": "Euro-Schulen Oldenburg GmbH",
+  "via": "Staulinie 11",
+  "telefono": "0441/21840-0",
+  "dominio_email": "eso.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Oldenburg",
+  "plz": "26123",
+  "ort": "Oldenburg",
+  "nome": "Volkshochschule Oldenburg gGmbH",
+  "via": "Karlstr. 25",
+  "telefono": "0441 92391 50",
+  "dominio_email": "vhs-ol.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Osnabrück",
+  "plz": "49082",
+  "ort": "Osnabrück",
+  "nome": "VHS Osnabrücker Land gGmbH",
+  "via": "Am Schölerberg 1",
+  "telefono": "0541/5012713",
+  "dominio_email": "vhs-osland.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Osnabrück",
+  "plz": "49084",
+  "ort": "Osnabrück",
+  "nome": "VHS der Stadt Osnabrück",
+  "via": "Franz-Lenz-Str. 4",
+  "telefono": "0541/3237113",
+  "dominio_email": "vhs-os.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Osnabrück / Landkreis Diepholz",
+  "plz": "49074",
+  "ort": "Osnabrück",
+  "nome": "Eleganz Bildungsplattform e.V.",
+  "via": "Johannisstr. 98/99",
+  "telefono": "0541/57509",
+  "dominio_email": "eleganz-bp.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Osnabrück",
+  "plz": "49074",
+  "ort": "Osnabrück",
+  "nome": "Internationaler Bund (IB) IB West gGmbH für Bildung und soziale Dienste (IB West gGmbH) Niederlassung Niedersachsen/Bremen",
+  "via": "Möserstr. 35a",
+  "telefono": "0541/3589521",
+  "dominio_email": "ib.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Osnabrück",
+  "plz": "49074",
+  "ort": "Osnabrück",
+  "nome": "Inlingua Sprachschule Osnabrück",
+  "via": "Konrad-Adenauer-Ring 24",
+  "telefono": "",
+  "dominio_email": "inlingua-osnabrueck.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Osterholz",
+  "plz": "27711",
+  "ort": "Osterholz-Scharmbeck",
+  "nome": "VHS Osterholz-Scharmbeck-Hambergen e.V.",
+  "via": "Lange Str. 28",
+  "telefono": "04791/96230",
+  "dominio_email": "vhs-ohz.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Emsland",
+  "plz": "26871",
+  "ort": "Papenburg",
+  "nome": "VHS Papenburg gGmbH",
+  "via": "Hauptkanal rechts 72",
+  "telefono": "04961/82219",
+  "dominio_email": "vhs-papenburg.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Peine",
+  "plz": "31224",
+  "ort": "Peine",
+  "nome": "KVHS Peine",
+  "via": "Stederdorfer Str. 8/9",
+  "telefono": "05171/919129",
+  "dominio_email": "kvhs-peine.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Rotenburg (Wümme)",
+  "plz": "27356",
+  "ort": "Rotenburg (Wümme)",
+  "nome": "VHS Rotenburg",
+  "via": "Am Kirchhof 10",
+  "telefono": "04261/914512",
+  "dominio_email": "rotenburg-wuemme.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Salzgitter",
+  "plz": "38226",
+  "ort": "Salzgitter",
+  "nome": "Stadt Salzgitter - Fachdienst Bildung - Volkshochschule",
+  "via": "Thiestr. 26a",
+  "telefono": "05341/8393751",
+  "dominio_email": ""
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Harburg",
+  "plz": "21220",
+  "ort": "Seevetal",
+  "nome": "KVHS Landkreis Harburg",
+  "via": "Schulkamp 11a",
+  "telefono": "",
+  "dominio_email": "lkharburg.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Stade",
+  "plz": "21682",
+  "ort": "Stade",
+  "nome": "VHS Stade e. V.",
+  "via": "Wallstr. 17",
+  "telefono": "04141/40990",
+  "dominio_email": "vhs-stade.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Schaumburg",
+  "plz": "31655",
+  "ort": "Stadthagen",
+  "nome": "Volkshochschule Schaumburg",
+  "via": "Jahnstr. 21a",
+  "telefono": "05721/7037100",
+  "dominio_email": "vhs-schaumburg.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Uelzen",
+  "plz": "29525",
+  "ort": "Uelzen",
+  "nome": "Kreisvolkshochschule Uelzen-Lüchow-Dannenberg",
+  "via": "Veerßer Str. 2",
+  "telefono": "0581/976490",
+  "dominio_email": "allesbildung.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Vechta",
+  "plz": "49377",
+  "ort": "Vechta",
+  "nome": "KVHS Vechta e.V.",
+  "via": "Bahnhofstr. 1",
+  "telefono": "04441/9377823",
+  "dominio_email": "kvhs-vechta.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Verden",
+  "plz": "27283",
+  "ort": "Verden (Aller",
+  "nome": "KVHS Verden",
+  "via": "Artilleriestr. 8",
+  "telefono": "04231/15160",
+  "dominio_email": "landkreis-verden.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Heidekreis",
+  "plz": "29664",
+  "ort": "Walsrode",
+  "nome": "VHS Heidekreis gGmbH",
+  "via": "Kirchplatz 4",
+  "telefono": "05191/968289",
+  "dominio_email": "vhs-heidekreis.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Ammerland",
+  "plz": "26655",
+  "ort": "Westerstede",
+  "nome": "KVHS Ammerland",
+  "via": "Am Esch 10",
+  "telefono": "04488/565162",
+  "dominio_email": "kvhs-ammerland.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Oldenburg",
+  "plz": "27793",
+  "ort": "Wildeshausen",
+  "nome": "VHS Wildeshausen",
+  "via": "Wittekindstr. 9",
+  "telefono": "04431/71622",
+  "dominio_email": "vhs-wildeshausen.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Wilhelmshaven",
+  "plz": "26382",
+  "ort": "Wilhelmshaven",
+  "nome": "VHS und Musikschule der Stadt Wilhelmshaven gGmbH",
+  "via": "Virchowstr. 29",
+  "telefono": "04421/164011",
+  "dominio_email": "vhs-whv.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Wittmund",
+  "plz": "26409",
+  "ort": "Wittmund",
+  "nome": "VHS und Musikschule Friesland Wittmund gGmbH",
+  "via": "Breslauer Str. 19-21",
+  "telefono": "04461/987921",
+  "dominio_email": "vhs-frieslandwittmund.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Wolfenbüttel",
+  "plz": "38300",
+  "ort": "Wolfenbüttel",
+  "nome": "Bildungszentrum Landkreis Wolfenbüttel",
+  "via": "Harzstr. 2-5",
+  "telefono": "05331/84158",
+  "dominio_email": "lk-wf.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Wolfsburg",
+  "plz": "38440",
+  "ort": "Wolfsburg",
+  "nome": "Stadt Wolfsburg | Regiebetrieb Bildungshaus - Volkshochschule der Stadt Wolfsburg",
+  "via": "Hugo-Junkers-Weg 5",
+  "telefono": "05361/8913022",
+  "dominio_email": "vhs-wolfsburg.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Wolfsburg",
+  "plz": "38440",
+  "ort": "Wolfsburg",
+  "nome": "Arbeit und Leben Niedersachsen gGmbH - Standort Wolfsburg",
+  "via": "Heinrich-Nordhoff-Str. 99",
+  "telefono": "05363/708400",
+  "dominio_email": "aul-nds.de"
+ },
+ {
+  "land": "NI",
+  "kreis": "Landkreis Rotenburg (Wümme)",
+  "plz": "27404",
+  "ort": "Zeven",
+  "nome": "VHS Zeven Zweckverband",
+  "via": "Poststr. 10-12",
+  "telefono": "04281/93630",
+  "dominio_email": "vhs-zeven.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Städteregion Aachen",
+  "plz": "52062",
+  "ort": "Aachen",
+  "nome": "Akademischer Verein zu Euregio e.V.",
+  "via": "Harscampstr. 15/17",
+  "telefono": "0241/402568",
+  "dominio_email": "akademie-bildung.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Städteregion Aachen",
+  "plz": "52062",
+  "ort": "Aachen",
+  "nome": "VHS der Stadt Aachen",
+  "via": "Peterstr. 21/25",
+  "telefono": "0241/4792144",
+  "dominio_email": "mail.aachen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Städteregion Aachen",
+  "plz": "52062",
+  "ort": "Aachen",
+  "nome": "Sprachenakademie Aachen, gemeinnützige GmbH",
+  "via": "Buchkremerstr. 6",
+  "telefono": "0241/9204020",
+  "dominio_email": "spraachen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Borken",
+  "plz": "48683",
+  "ort": "Ahaus",
+  "nome": "VHS Ahaus",
+  "via": "Vagedesstr. 2",
+  "telefono": "02561/95370",
+  "dominio_email": "vhs-aktuellesforum.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Warendorf",
+  "plz": "59227",
+  "ort": "Ahlen",
+  "nome": "VHS der Stadt Ahlen",
+  "via": "Markt 15",
+  "telefono": "02382/59436",
+  "dominio_email": "stadt.ahlen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Städteregion Aachen",
+  "plz": "52477",
+  "ort": "Alsdorf",
+  "nome": "VHS Nordkreis Aachen",
+  "via": "Übacher Weg 36",
+  "telefono": "02405/4258176",
+  "dominio_email": "vhs-nordkreis-aachen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Höxter",
+  "plz": "33014",
+  "ort": "Bad Driburg",
+  "nome": "VHS Zweckverband Bad Driburg-Brakel-Nieheim-Steinheim",
+  "via": "Am Hellweg 9",
+  "telefono": "05253/974070",
+  "dominio_email": "vhs-driburg.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Minden-Lübbecke",
+  "plz": "32545",
+  "ort": "Bad Oeynhausen",
+  "nome": "VHS Bad Oeynhausen / Zweckverband Volkshochschule Minden",
+  "via": "Kaiserstr. 14",
+  "telefono": "05731/8695519",
+  "dominio_email": "vhs-badoeynhausen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Warendorf",
+  "plz": "59269",
+  "ort": "Beckum",
+  "nome": "VHS Beckum-Wadersloh",
+  "via": "Antoniusstr. 5 - 7",
+  "telefono": "02521/29700",
+  "dominio_email": "beckum.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Rhein-Erft-Kreis",
+  "plz": "50126",
+  "ort": "Bergheim",
+  "nome": "VHS Zweckverb. Bergheim",
+  "via": "Bethlehemer Str. 25",
+  "telefono": "02271/476017",
+  "dominio_email": "vhs-bergheim.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Rheinisch-Bergischer Kreis",
+  "plz": "51465",
+  "ort": "Bergisch Gladbach",
+  "nome": "Volkshochschule Bergisch Gladbach",
+  "via": "Buchmühlenstr. 12",
+  "telefono": "02202/142263",
+  "dominio_email": "stadt-gl.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Rheinisch-Bergischer Kreis",
+  "plz": "51469",
+  "ort": "Bergisch Gladbach",
+  "nome": "Wirtschaftsakademie Küster GmbH",
+  "via": "De-Gasperi-Str. 5",
+  "telefono": "02202-9576252",
+  "dominio_email": "wa-kuester.com"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Unna",
+  "plz": "59192",
+  "ort": "Bergkamen",
+  "nome": "VHS der Stadt Bergkamen",
+  "via": "Lessingstr. 2",
+  "telefono": "02307/284950",
+  "dominio_email": "bergkamen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Bielefeld",
+  "plz": "33607",
+  "ort": "Bielefeld",
+  "nome": "Volkshochschule Bielefeld",
+  "via": "Ravensberger Park 1",
+  "telefono": "0521/516629",
+  "dominio_email": "bielefeld.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Bielefeld",
+  "plz": "33602",
+  "ort": "Bielefeld",
+  "nome": "Internationaler Bund - IB West gGmbH für Bildung und soziale Dienste",
+  "via": "Herforder Str. 14",
+  "telefono": "0521/2607250",
+  "dominio_email": "ib.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Borken",
+  "plz": "46395",
+  "ort": "Bocholt",
+  "nome": "VHS Bocholt-Rhede-Isselburg",
+  "via": "Industriestr. 1",
+  "telefono": "02871/252235",
+  "dominio_email": "mail.bocholt.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Bochum",
+  "plz": "44787",
+  "ort": "Bochum",
+  "nome": "VHS Bochum",
+  "via": "Gustav-Heinemann-Platz 2/6",
+  "telefono": "0234/9102818",
+  "dominio_email": "bochum.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Bochum, Kreis Recklinghausen",
+  "plz": "44787",
+  "ort": "Bochum",
+  "nome": "Bochumer Bildungszentrum e.V.",
+  "via": "Westring 11-13",
+  "telefono": "0234/9128496",
+  "dominio_email": "bbz-ev.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Bonn",
+  "plz": "53177",
+  "ort": "Bonn",
+  "nome": "Kölner Wirtschaftsfachschule GmbH",
+  "via": "Koblenzer Str. 121-123",
+  "telefono": "0228/40387970",
+  "dominio_email": "wifa.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Bonn",
+  "plz": "53111",
+  "ort": "Bonn",
+  "nome": "VHS der Stadt Bonn",
+  "via": "Mülheimer Platz 1",
+  "telefono": "0228/773355",
+  "dominio_email": "bonn.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Bonn, Rhein-Sieg-Kreis",
+  "plz": "53111",
+  "ort": "Bonn",
+  "nome": "Bonner Bildungs-Center e.V.",
+  "via": "Dietkirchenstr. 30-32",
+  "telefono": "0228/3695541",
+  "dominio_email": "bbc-bonn.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Bonn",
+  "plz": "53111",
+  "ort": "Bonn",
+  "nome": "Euro-Schulen Rheinland GmbH, Standort Bonn",
+  "via": "Maximilianstr. 20",
+  "telefono": "02171/404730",
+  "dominio_email": "eso.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Bonn",
+  "plz": "53111",
+  "ort": "Bonn",
+  "nome": "DIWAN Marburg Akademie GmbH",
+  "via": "Oxfordstr. 12-16",
+  "telefono": "06421/9839100",
+  "dominio_email": "diwan-marburg.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Borken",
+  "plz": "46325",
+  "ort": "Borken",
+  "nome": "VHS Borken",
+  "via": "Heidener Str. 88",
+  "telefono": "02861/939225",
+  "dominio_email": "borken.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Rhein-Sieg-Kreis",
+  "plz": "53332",
+  "ort": "Bornheim",
+  "nome": "VHS für die Gemeinde Alfter und die Stadt Bornheim",
+  "via": "Alter Weiher 2",
+  "telefono": "02222/945460",
+  "dominio_email": "vhs-bornheim-alfter.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Bottrop",
+  "plz": "46236",
+  "ort": "Bottrop",
+  "nome": "Volkshochschule der Stadt Bottrop",
+  "via": "Böckenhoffstr. 30",
+  "telefono": "02041/703843",
+  "dominio_email": "bottrop.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Hochsauerlandkreis",
+  "plz": "59929",
+  "ort": "Brilon",
+  "nome": "VHS-Zweckverband Brilon-Marsberg-Olsberg",
+  "via": "Kreuziger Mauer 31",
+  "telefono": "29616416",
+  "dominio_email": "vhs-bmo.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Rhein-Erft-Kreis",
+  "plz": "50321",
+  "ort": "Brühl",
+  "nome": "VHS Rhein-Erft",
+  "via": "An der Synagoge 2",
+  "telefono": "02232/945070",
+  "dominio_email": "vhs-rhein-erft.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Recklinghausen",
+  "plz": "44575",
+  "ort": "Castrop-Rauxel",
+  "nome": "VHS Castrop-Rauxel",
+  "via": "Widumer Str. 26",
+  "telefono": "02305/5488414",
+  "dominio_email": "castrop-rauxel.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Coesfeld",
+  "plz": "48653",
+  "ort": "Coesfeld",
+  "nome": "VHS Coesfeld",
+  "via": "Osterwicker Str. 29",
+  "telefono": "02541/94810",
+  "dominio_email": "coesfeld.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Recklinghausen",
+  "plz": "45711",
+  "ort": "Datteln",
+  "nome": "VHS Datteln",
+  "via": "Genthiner Str. 7",
+  "telefono": "02363/107412",
+  "dominio_email": "stadt-datteln.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Lippe",
+  "plz": "32756",
+  "ort": "Detmold",
+  "nome": "Volkshochschule Detmold-Lemgo AöR",
+  "via": "Krumme Str. 20",
+  "telefono": "05231/977259",
+  "dominio_email": "vhs-detmold-lemgo.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Wesel",
+  "plz": "46535",
+  "ort": "Dinslaken",
+  "nome": "VHS Zweckverband Dinslaken - Voerde - Hünxe",
+  "via": "Friedrich-Ebert-Str. 84",
+  "telefono": "02064/41350",
+  "dominio_email": "vhs-dinslaken.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Rhein-Kreis Neuss",
+  "plz": "41539",
+  "ort": "Dormagen",
+  "nome": "VHS Dormagen",
+  "via": "Langemarkstr. 1/3",
+  "telefono": "02133/2574179",
+  "dominio_email": "stadt-dormagen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Recklinghausen",
+  "plz": "46282",
+  "ort": "Dorsten",
+  "nome": "VHS Dorsten",
+  "via": "Im Werth 6-17",
+  "telefono": "02362/664183",
+  "dominio_email": "dorsten.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Dortmund",
+  "plz": "44137",
+  "ort": "Dortmund",
+  "nome": "VHS Dortmund",
+  "via": "Kampstr. 47",
+  "telefono": "0231/5024708",
+  "dominio_email": "stadtdo.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Dortmund",
+  "plz": "44147",
+  "ort": "Dortmund",
+  "nome": "Auslandsgesellschaft.de gGmbH",
+  "via": "Steinstr. 48",
+  "telefono": "0231/838000",
+  "dominio_email": "auslandsgesellschaft.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Duisburg",
+  "plz": "47058",
+  "ort": "Duisburg",
+  "nome": "SfS Schulungsgesellschaft mbH - Vermittlung-Qualifizierung-Sprachtraining",
+  "via": "Königsberger Allee 69",
+  "telefono": "0203/300850",
+  "dominio_email": "sfs.nrw"
+ },
+ {
+  "land": "NW",
+  "kreis": "Duisburg",
+  "plz": "47051",
+  "ort": "Duisburg",
+  "nome": "VHS der Stadt Duisburg",
+  "via": "Steinsche Gasse 26",
+  "telefono": "0203/2833372",
+  "dominio_email": "stadt-duisburg.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Duisburg",
+  "plz": "47167",
+  "ort": "Duisburg",
+  "nome": "Gemeinnützige Gesellschaft für Beschäftigungsförderung",
+  "via": "Usedomstr. 17",
+  "telefono": "0203/54424190",
+  "dominio_email": "gfb-duisburg.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Duisburg",
+  "plz": "47051",
+  "ort": "Duisburg",
+  "nome": "EuBiA Rhein Ruhr Ost GmbH",
+  "via": "Gallenkampstr. 20",
+  "telefono": "0203/72839520",
+  "dominio_email": "eubia.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Duisburg",
+  "plz": "47166",
+  "ort": "Duisburg",
+  "nome": "Rheinischer Dialog- und Bildungsverein",
+  "via": "Kantstr. 30",
+  "telefono": "0203/4680280",
+  "dominio_email": "rdub.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Coesfeld",
+  "plz": "48249",
+  "ort": "Dülmen",
+  "nome": "VHS Dülmen - Haltern am See - Havixbeck",
+  "via": "Münsterstr. 29",
+  "telefono": "02594/12400",
+  "dominio_email": "duelmen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Düren",
+  "plz": "52348",
+  "ort": "Düren",
+  "nome": "VHS Rur-Eifel",
+  "via": "Violengasse 2",
+  "telefono": "02421/252577",
+  "dominio_email": "dueren.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Düren, Köln, Leverkusen",
+  "plz": "52349",
+  "ort": "Düren",
+  "nome": "Ideal Bildungsverein e.V.",
+  "via": "Paradiesplatz 11",
+  "telefono": "02421/209541",
+  "dominio_email": "idealbv.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Düsseldorf",
+  "plz": "40227",
+  "ort": "Düsseldorf",
+  "nome": "VHS Düsseldorf WBZ am Hauptbahnhof",
+  "via": "Bertha-von-Suttner-Platz 1",
+  "telefono": "0211/8993434",
+  "dominio_email": "duesseldorf.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Düsseldorf",
+  "plz": "40233",
+  "ort": "Düsseldorf",
+  "nome": "Bénédict GmbH & Co. KG",
+  "via": "Ackerstr. 3",
+  "telefono": "0211/355940155",
+  "dominio_email": "benedict-schulen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Düsseldorf",
+  "plz": "40227",
+  "ort": "Düsseldorf",
+  "nome": "ASG-Bildungsforum",
+  "via": "Werdener Str. 4",
+  "telefono": "0211/17400",
+  "dominio_email": "asg-bildungsforum.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Düsseldorf",
+  "plz": "40595",
+  "ort": "Düsseldorf",
+  "nome": "Sputnik - Integrations- und Übersetzungsdienst (SIÜD",
+  "via": "Wolfgang-Döring-Str. 4",
+  "telefono": "0211/17053011",
+  "dominio_email": ""
+ },
+ {
+  "land": "NW",
+  "kreis": "Düsseldorf",
+  "plz": "40215",
+  "ort": "Düsseldorf",
+  "nome": "Berlitz Deutschland GmbH",
+  "via": "Hüttenstr. 4",
+  "telefono": "0211/3027210",
+  "dominio_email": "berlitz.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Düsseldorf",
+  "plz": "40210",
+  "ort": "Düsseldorf",
+  "nome": "Study.on GmbH",
+  "via": "Immermannstr. 19",
+  "telefono": "0211/98595070",
+  "dominio_email": "studyon.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Düsseldorf, Essen",
+  "plz": "40210",
+  "ort": "Düsseldorf",
+  "nome": "DÜS Eckert Spracheninstitut GmbH",
+  "via": "Immermannstr. 65 C",
+  "telefono": "0211/2718200",
+  "dominio_email": "dues-eckert.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Düsseldorf",
+  "plz": "40233",
+  "ort": "Düsseldorf",
+  "nome": "Benedict GmbH",
+  "via": "Ackerstr. 3",
+  "telefono": "21103559400",
+  "dominio_email": "benedict-schulen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Steinfurt",
+  "plz": "48282",
+  "ort": "Emsdetten",
+  "nome": "Zweckverband VHS Emsdetten-Greven-Saerbeck",
+  "via": "Am Markt 9 - 10",
+  "telefono": "02572/960370",
+  "dominio_email": "vhs-egs.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Rhein-Erft-Kreis",
+  "plz": "50374",
+  "ort": "Erftstadt",
+  "nome": "VHS der Stadt Erftstadt",
+  "via": "Carl-Schurz-Str. 23",
+  "telefono": "02235/409273",
+  "dominio_email": "vhs-erftstadt.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Mettmann",
+  "plz": "40699",
+  "ort": "Erkrath",
+  "nome": "VHS der Stadt Erkrath - Haus der VHS",
+  "via": "Sedentaler Str. 105/107",
+  "telefono": "0211/24074304",
+  "dominio_email": "erkrath.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Städteregion Aachen",
+  "plz": "52249",
+  "ort": "Eschweiler",
+  "nome": "VHS Eschweiler",
+  "via": "Kaiserstr. 4a",
+  "telefono": "02403/70270",
+  "dominio_email": "eschweiler.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Minden-Lübbecke",
+  "plz": "32339",
+  "ort": "Espelkamp",
+  "nome": "Zweckverband Volkshochschule Lübbecker-Land",
+  "via": "Wilhelm-Kern-Platz 4",
+  "telefono": "05772/977118",
+  "dominio_email": "vhs-luebbeckerland.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Essen",
+  "plz": "45127",
+  "ort": "Essen",
+  "nome": "VHS Essen",
+  "via": "Burgplatz 1",
+  "telefono": "0201/8843140",
+  "dominio_email": "vhs.essen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Essen",
+  "plz": "45127",
+  "ort": "Essen",
+  "nome": "inlingua Center Essen",
+  "via": "Flachsmarkt 1",
+  "telefono": "0201/810130",
+  "dominio_email": "inlingua-essen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Euiskirchen",
+  "plz": "53879",
+  "ort": "Euskirchen",
+  "nome": "VHS Kreis Euskirchen",
+  "via": "Baumstr. 2",
+  "telefono": "225115780",
+  "dominio_email": "vhs-kreis-euskirchen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Rhein-Erft-Kreis",
+  "plz": "50226",
+  "ort": "Frechen",
+  "nome": "Volkshochschule Frechen",
+  "via": "Hauptstr. 110/112",
+  "telefono": "02234/5011253",
+  "dominio_email": "vhs-frechen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Kleve",
+  "plz": "47608",
+  "ort": "Geldern",
+  "nome": "VHS Gelderland",
+  "via": "Kapuzinerstr. 34",
+  "telefono": "02831/93750",
+  "dominio_email": "vhs-gelderland.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Gelsenkirchen",
+  "plz": "45879",
+  "ort": "Gelsenkirchen",
+  "nome": "VHS Stadt Gelsenkirchen",
+  "via": "Ebertstr. 19",
+  "telefono": "0209/1692508",
+  "dominio_email": "gelsenkirchen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Ennepe-Ruhr-Kreis",
+  "plz": "58285",
+  "ort": "Gevelsberg",
+  "nome": "VHS Ennepe-Ruhr-Süd",
+  "via": "Mittelstr. 86/88",
+  "telefono": "02332/91860",
+  "dominio_email": "vhs-en-sued.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Recklinghausen",
+  "plz": "45964",
+  "ort": "Gladbeck",
+  "nome": "VHS Gladbeck",
+  "via": "Friedrichstr. 55",
+  "telefono": "02043/992455",
+  "dominio_email": "stadt-gladbeck.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Rhein-Kreis Neuss",
+  "plz": "41515",
+  "ort": "Grevenbroich",
+  "nome": "VHS Grevenbroich",
+  "via": "Bergheimer Str. 44",
+  "telefono": "02181/608646",
+  "dominio_email": "grevenbroich.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Borken",
+  "plz": "48599",
+  "ort": "Gronau (Westf.)",
+  "nome": "Euregio-Volkshochschule Gronau",
+  "via": "Von-Keppel-Str. 10",
+  "telefono": "0252/12666",
+  "dominio_email": "gronau.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Oberbergischer Kreis",
+  "plz": "51645",
+  "ort": "Gummersbach",
+  "nome": "VHS Oberbergischer Kreis",
+  "via": "Mühlenbergweg 3",
+  "telefono": "02261/819050",
+  "dominio_email": "vhs.obk.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Oberbergischer Kreis",
+  "plz": "51643",
+  "ort": "Gummersbach",
+  "nome": "VHS Gummersbach",
+  "via": "Rathausplatz 1",
+  "telefono": "02261/87540",
+  "dominio_email": "vhs-gm.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Gütersloh",
+  "plz": "33330",
+  "ort": "Gütersloh",
+  "nome": "VHS Gütersloh",
+  "via": "Hohenzollernstr. 43",
+  "telefono": "05241/822041",
+  "dominio_email": "guetersloh.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Hagen",
+  "plz": "58089",
+  "ort": "Hagen",
+  "nome": "VHS Hagen",
+  "via": "Schwanenstr. 6/10",
+  "telefono": "02331 207 4291",
+  "dominio_email": "stadt-hagen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Hagen",
+  "plz": "58095",
+  "ort": "Hagen",
+  "nome": "Prisma Bildungsplattform e. V.",
+  "via": "Sparkassen-Karree 8",
+  "telefono": "02331/3486477",
+  "dominio_email": "prisma-bp.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Gütersloh",
+  "plz": "33790",
+  "ort": "Halle (Westf.)",
+  "nome": "VHS Ravensberg",
+  "via": "Kiskerstr. 2",
+  "telefono": "05201/81090",
+  "dominio_email": "vhs-ravensberg.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Hamm",
+  "plz": "59065",
+  "ort": "Hamm",
+  "nome": "VHS Hamm",
+  "via": "Platz der Deutschen Einheit 1",
+  "telefono": "02381/175648",
+  "dominio_email": "stadt.hamm.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Wesel",
+  "plz": "46499",
+  "ort": "Hamminkeln",
+  "nome": "Akademie Klausenhof",
+  "via": "Klausenhofstr. 100",
+  "telefono": "02852/890",
+  "dominio_email": "akademie-klausenhof.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Ennepe-Ruhr-Kreis",
+  "plz": "45527",
+  "ort": "Hattingen",
+  "nome": "Volkshochschule der Stadt Hattingen",
+  "via": "Marktplatz 4",
+  "telefono": "02324/2043514",
+  "dominio_email": "hattingen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Heinsberg",
+  "plz": "52525",
+  "ort": "Heinsberg",
+  "nome": "Anton-Heinen-Volkshochschule des Kreises Heinsberg",
+  "via": "Westpromenade 9",
+  "telefono": "02452/134324",
+  "dominio_email": "kreis-heinsberg.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Heerford",
+  "plz": "32052",
+  "ort": "Herford",
+  "nome": "Zweckverband VHS im Kreis Herford",
+  "via": "Münsterkirchplatz 1",
+  "telefono": "05221/5905-28",
+  "dominio_email": "vhsimkreisherford.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Herne",
+  "plz": "44623",
+  "ort": "Herne",
+  "nome": "VHS Herne",
+  "via": "Willi-Pohlmann-Platz 1",
+  "telefono": "",
+  "dominio_email": "herne.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Recklinghausen",
+  "plz": "45699",
+  "ort": "Herten",
+  "nome": "Volkshochschule Herten",
+  "via": "Resser Weg 1",
+  "telefono": "02366/303510",
+  "dominio_email": "herten.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Mettmann",
+  "plz": "40721",
+  "ort": "Hilden",
+  "nome": "Volkshochschul-Zweckverband Hilden-Haan",
+  "via": "Gerresheimer Str. 20",
+  "telefono": "02103/500543",
+  "dominio_email": "vhs-hilden-haan.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Höxter",
+  "plz": "37671",
+  "ort": "Höxter",
+  "nome": "Volkshochschule Höxter-Marienmünster",
+  "via": "Möllingerstr. 9",
+  "telefono": "05271/9634300",
+  "dominio_email": "vhs-hoexter.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Steinfurt",
+  "plz": "49477",
+  "ort": "Ibbenbüren",
+  "nome": "Bildungswerk Ibbenbüren e.V.",
+  "via": "Am Heidenturm 15",
+  "telefono": "05451/96730",
+  "dominio_email": "bildungswerk-ibbenbueren.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Steinfurt",
+  "plz": "49477",
+  "ort": "Ibbenbüren",
+  "nome": "VHS Ibbenbüren",
+  "via": "Oststr. 28",
+  "telefono": "05451/9314305",
+  "dominio_email": "ibbenbueren.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Märkischer Kreis",
+  "plz": "58636",
+  "ort": "Iserlohn",
+  "nome": "Euro-Schulen Westfalen GmbH",
+  "via": "Erich-Nörrenberg-Str. 7",
+  "telefono": "02371/7726876",
+  "dominio_email": "eso.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Märkischer Kreis",
+  "plz": "58644",
+  "ort": "Iserlohn",
+  "nome": "Volkshochschule Iserlohn",
+  "via": "Bahnhofsplatz 2",
+  "telefono": "02371/2171945",
+  "dominio_email": "iserlohn.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Hagen, Märkischer Kreis",
+  "plz": "58636",
+  "ort": "Iserlohn",
+  "nome": "Friedrich Sprachencenter und Bildungsakademie MK GmbH",
+  "via": "In der Bredde 37",
+  "telefono": "02371/25724",
+  "dominio_email": "inlingua-iserlohn.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Düren",
+  "plz": "52428",
+  "ort": "Jülich",
+  "nome": "VHS Jülicher Land",
+  "via": "Am Aachener Tor 16",
+  "telefono": "02461/63201",
+  "dominio_email": "juelich.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Rhein-Kreis Neuss",
+  "plz": "41564",
+  "ort": "Kaarst",
+  "nome": "VHS Kaarst-Korschenbroich",
+  "via": "Am Schulzentrum 18",
+  "telefono": "02131/963940",
+  "dominio_email": "vhs-kk.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Unna",
+  "plz": "59174",
+  "ort": "Kamen",
+  "nome": "VHS-Zweckverband Kamen-Bönen",
+  "via": "Bergstr. 11-13",
+  "telefono": "02307/9242052",
+  "dominio_email": "stadt-kamen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Märkischer Kreis",
+  "plz": "58566",
+  "ort": "Kierspe",
+  "nome": "VHS Volmetal",
+  "via": "Friedrich-Ebert-Str. 380",
+  "telefono": "2359/4644",
+  "dominio_email": "vhs-volmetal.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Kleve",
+  "plz": "47574",
+  "ort": "Kleve",
+  "nome": "VHS-Zweckverband Goch",
+  "via": "Hevelingstr. 123",
+  "telefono": "02823/6060",
+  "dominio_email": "vhs-goch.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Kleve",
+  "plz": "47533",
+  "ort": "Kleve",
+  "nome": "VHS der Stadt Kleve",
+  "via": "Landwehr 2 - 6",
+  "telefono": "02821/ 84717",
+  "dominio_email": "kleve.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Köln",
+  "plz": "50667",
+  "ort": "Köln",
+  "nome": "VHS der Stadt Köln Amt für Weiterbildung",
+  "via": "Cäcilienstr. 35",
+  "telefono": "22122123638",
+  "dominio_email": "stadt-koeln.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Köln",
+  "plz": "51063",
+  "ort": "Köln",
+  "nome": "Prisma Bildungsplattform e. V.",
+  "via": "Julius-Bau-Str. 2",
+  "telefono": "02331/3486477",
+  "dominio_email": "prisma-bp.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Köln",
+  "plz": "50667",
+  "ort": "Köln",
+  "nome": "Berlitz Deutschland GmbH / Niederlassung Köln",
+  "via": "Schildergasse 72-74",
+  "telefono": "0221/277390",
+  "dominio_email": "berlitz.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Köln",
+  "plz": "50933",
+  "ort": "Köln",
+  "nome": "Euro-Schulen Rheinland GmbH",
+  "via": "Widdersdorfer Str. 252",
+  "telefono": "0221/9496680",
+  "dominio_email": "es.koeln.eso.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Rhein-Sieg-Kreis",
+  "plz": "53639",
+  "ort": "Königswinter",
+  "nome": "VHS Siebengebirge",
+  "via": "Boserother Str. 74",
+  "telefono": "02244/889202",
+  "dominio_email": "vhs-siebengebirge.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Krefeld",
+  "plz": "47798",
+  "ort": "Krefeld",
+  "nome": "VHS Krefeld",
+  "via": "Von-der-Leyen-Platz 2",
+  "telefono": "02151/862684",
+  "dominio_email": "krefeld.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Lippe",
+  "plz": "32791",
+  "ort": "Lage",
+  "nome": "VHS Lippe-West",
+  "via": "Lange Str. 124",
+  "telefono": "05232/955025",
+  "dominio_email": "vhs-lw.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Mettmann",
+  "plz": "40764",
+  "ort": "Langenfeld (Rheinland)",
+  "nome": "VHS Langenfeld",
+  "via": "Konrad-Adenauer-Platz 1",
+  "telefono": "02173/7944502",
+  "dominio_email": "langenfeld.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Steinfurt",
+  "plz": "49525",
+  "ort": "Lengerich",
+  "nome": "VHS Lengerich",
+  "via": "Bahnhofstr. 106",
+  "telefono": "05481/93880",
+  "dominio_email": "vhs-lengerich.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Leverkusen",
+  "plz": "51373",
+  "ort": "Leverkusen",
+  "nome": "VHS Leverkusen",
+  "via": "Am Büchelter Hof 9",
+  "telefono": "0214/4064188",
+  "dominio_email": "vhs-leverkusen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Leverkusen",
+  "plz": "51379",
+  "ort": "Leverkusen",
+  "nome": "Euro-Schulen Rheinland GmbH - Euro-Schulen Leverkusen",
+  "via": "Bahnhofstr. 3",
+  "telefono": "02171/404730",
+  "dominio_email": "es.leverkusen.eso.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Soest",
+  "plz": "59557",
+  "ort": "Lippstadt",
+  "nome": "VHS Lippstadt; Lippstadt -Anröchte-Erwitte-Rüthen-Warstein",
+  "via": "Barthstr. 2",
+  "telefono": "02941/28950",
+  "dominio_email": "lippstadt.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Herford",
+  "plz": "32584",
+  "ort": "Löhne",
+  "nome": "VHS Löhne",
+  "via": "Alte Bünder Str. 14",
+  "telefono": "05732/100-594",
+  "dominio_email": "loehne.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Märkischer Kreis",
+  "plz": "58511",
+  "ort": "Lüdenscheid",
+  "nome": "Volkshochschule Lüdenscheid",
+  "via": "Alte Rathausstr. 1-3",
+  "telefono": "02351/171449",
+  "dominio_email": "luedenscheid.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Coesfeld",
+  "plz": "59348",
+  "ort": "Lüdinghausen",
+  "nome": "Volkshochschulkreis Lüdinghausen",
+  "via": "Amthaus 12",
+  "telefono": "02591/926484",
+  "dominio_email": "stadt-luedinghausen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Unna",
+  "plz": "44532",
+  "ort": "Lünen",
+  "nome": "Volkshochschule der Stadt Lünen",
+  "via": "Franz-Goormann-Str. 2",
+  "telefono": "02306/1042700",
+  "dominio_email": "luenen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Recklinghausen",
+  "plz": "45745",
+  "ort": "Marl",
+  "nome": "Stadt Marl die insel VHS Marl",
+  "via": "Wiesenstr. 22",
+  "telefono": "02365/50356699",
+  "dominio_email": "marl.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Rhein-Kreis Neuss",
+  "plz": "40670",
+  "ort": "Meerbusch",
+  "nome": "Volkshochschule Meerbusch",
+  "via": "Hochstr. 14",
+  "telefono": "02159/916503",
+  "dominio_email": "meerbusch.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Märkischer Kreis",
+  "plz": "58706",
+  "ort": "Menden (Sauerland)",
+  "nome": "VHS Menden-Hemer-Balve",
+  "via": "Untere Promenade 28",
+  "telefono": "02373/947130",
+  "dominio_email": "vhs-mhb.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Hochsauerlandkreis",
+  "plz": "59872",
+  "ort": "Meschede",
+  "nome": "VHS Hochsauerlandkreis",
+  "via": "Steinstr. 27",
+  "telefono": "0291/941179",
+  "dominio_email": "vhs-hsk.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Mettmann, Kreis Mettmann",
+  "plz": "40822",
+  "ort": "Mettmann",
+  "nome": "Volkshochschule der Städte Mettmann und Wülfrath",
+  "via": "Schwarzbachstr. 28",
+  "telefono": "02104/139240",
+  "dominio_email": "vhs-mettmann.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Minden-Lübbecke",
+  "plz": "32423",
+  "ort": "Minden",
+  "nome": "VHS Minden - Zweckverband Volkshochschule Minden",
+  "via": "Königswall 99",
+  "telefono": "0571/8376612",
+  "dominio_email": "vhs-minden.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Wesel",
+  "plz": "47441",
+  "ort": "Moers",
+  "nome": "VHS Moers",
+  "via": "Wilhelm-Schroeder-Str. 10",
+  "telefono": "02841/201565",
+  "dominio_email": "moers.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Mönchengladbach",
+  "plz": "41061",
+  "ort": "Mönchengladbach",
+  "nome": "Volkshochschule Mönchengladbach",
+  "via": "Lüpertzender Str. 85",
+  "telefono": "02161-256410",
+  "dominio_email": "moenchengladbach.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Mönchengladbach",
+  "plz": "41061",
+  "ort": "Mönchengladbach",
+  "nome": "Berlitz Mönchengladbach",
+  "via": "Berliner Platz 12",
+  "telefono": "02161/17077",
+  "dominio_email": "berlitz.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Mettmann",
+  "plz": "40789",
+  "ort": "Monheim am Rhein",
+  "nome": "VHS der Stadt Monheim am Rhein",
+  "via": "Tempelhofer Str. 15",
+  "telefono": "02173/9514111",
+  "dominio_email": "monheim.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Mülheim an der Ruhr",
+  "plz": "45473",
+  "ort": "Mülheim an der Ruhr",
+  "nome": "Heinrich-Thöne-Volkshochschule - Stadt Mülheim an der Ruhr - Amt für Kinder, Jugend und Schule",
+  "via": "Aktienstr. 45",
+  "telefono": "0208/4554321",
+  "dominio_email": "muelheim-ruhr.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Mühlheim an der Ruhr, Düsseldorf; Kreis Recklinghausen",
+  "plz": "45468",
+  "ort": "Mülheim an der Ruhr",
+  "nome": "Forum Bildungszentrum Neues Innovatives Lernzentrum e. V.",
+  "via": "Am Hauptbahnhof 4",
+  "telefono": "02131/2943078",
+  "dominio_email": "forum-bz.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Münster, Kreis Steinfurt, Kreis Warendorf",
+  "plz": "48143",
+  "ort": "Münster",
+  "nome": "German Language Academy, Deutsche Sprachenakademie",
+  "via": "Bahnhofstr. 3",
+  "telefono": "0251/2707680",
+  "dominio_email": "german-language-academy.com"
+ },
+ {
+  "land": "NW",
+  "kreis": "Münster",
+  "plz": "48143",
+  "ort": "Münster",
+  "nome": "VHS Münster",
+  "via": "Aegidiistraße 70",
+  "telefono": "0251/4924321",
+  "dominio_email": "stadt-muenster.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Rhein-Kreis Neuss",
+  "plz": "41460",
+  "ort": "Neuss",
+  "nome": "Volkshochschule Neuss",
+  "via": "Brückstr. 1",
+  "telefono": "02131/904151",
+  "dominio_email": "stadt.neuss.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Oberhausen",
+  "plz": "46045",
+  "ort": "Oberhausen",
+  "nome": "Volkshochschule der Stadt Oberhausen",
+  "via": "Langemarkstr. 19/21",
+  "telefono": "0208/8252886",
+  "dominio_email": "oberhausen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Oberhausen, Kreis Wesel, Gelsenkirchen",
+  "plz": "46145",
+  "ort": "Oberhausen",
+  "nome": "Millennium Bildungsverein e.V.",
+  "via": "Ramgestr. 6",
+  "telefono": "0208/6351988",
+  "dominio_email": "millennium-ev.org"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Steinfurt",
+  "plz": "48607",
+  "ort": "Ochtrup",
+  "nome": "VHS-Zweckverband der Stadt Ochtrup und der Gemeinden Neuenkirchen, Wettringen und Metelen",
+  "via": "Winkelstr. 1",
+  "telefono": "02553/93980",
+  "dominio_email": "vhs-ochtrup.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kresi Warendorf",
+  "plz": "59302",
+  "ort": "Oelde",
+  "nome": "Volkshochschule Oelde-Ennigerloh",
+  "via": "Herrenstr. 7",
+  "telefono": "02522/72722",
+  "dominio_email": "oelde.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Recklinghausen",
+  "plz": "45739",
+  "ort": "Oer-Erkenschwick",
+  "nome": "Volkshochschule der Stadt Oer-Erkenschwick",
+  "via": "Stimbergstr. 169",
+  "telefono": "02368/98710",
+  "dominio_email": "vhs-oe.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Olpe",
+  "plz": "57462",
+  "ort": "Olpe",
+  "nome": "Volkshochschule des Kreises Olpe",
+  "via": "Kurfürst-Heinrich-Str. 34",
+  "telefono": "02761/94203000",
+  "dominio_email": "vhs-kreis-olpe.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Olpe",
+  "plz": "57462",
+  "ort": "Olpe",
+  "nome": "Volkshochschule des Kreises Olpe",
+  "via": "Kurfürst-Heinrich-Str. 34",
+  "telefono": "02761/94203000",
+  "dominio_email": "vhs-kreis-olpe.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Rheinisch-Bergischer Kreis",
+  "plz": "51491",
+  "ort": "Overath",
+  "nome": "Volkshochschule Overath / Rösrath",
+  "via": "Schulstr. 15",
+  "telefono": "02204/97230",
+  "dominio_email": "vhsor.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Paderborn, Kreis Lippe",
+  "plz": "33106",
+  "ort": "Paderborn",
+  "nome": "Die Sprachwerkstatt GmbH - Priv. Institut für Kommunikation Wirtschaft u. Sprache GmbH",
+  "via": "Stettiner Str. 40/42",
+  "telefono": "05251/779990",
+  "dominio_email": "die-sprachwerkstatt.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Paderborn",
+  "plz": "33098",
+  "ort": "Paderborn",
+  "nome": "VHS Paderborn",
+  "via": "Am Stadelhof 8",
+  "telefono": "05251/8814306",
+  "dominio_email": "paderborn.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Mettmann",
+  "plz": "40878",
+  "ort": "Ratingen",
+  "nome": "VHS Ratingen",
+  "via": "Lintorfer Str. 3",
+  "telefono": "02102/5504301",
+  "dominio_email": "ratingen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Recklinghausen",
+  "plz": "45657",
+  "ort": "Recklinghausen",
+  "nome": "VHS Recklinghausen",
+  "via": "Herzogswall 17",
+  "telefono": "02361/501947",
+  "dominio_email": "recklinghausen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Remscheid",
+  "plz": "42853",
+  "ort": "Remscheid",
+  "nome": "VHS Remscheid",
+  "via": "Scharffstr. 4-6",
+  "telefono": "02191/162786",
+  "dominio_email": "remscheid.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Gütersloh",
+  "plz": "33378",
+  "ort": "Rheda-Wiedenbrück",
+  "nome": "VHS Reckenberg-Ems gGmbH",
+  "via": "Kirchplatz 2",
+  "telefono": "05242/90300",
+  "dominio_email": "vhs-re.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Rhein-Sieg-Kreis",
+  "plz": "53359",
+  "ort": "Rheinbach",
+  "nome": "VHS-Zweckverband Voreifel",
+  "via": "Koblenzer Str. 6",
+  "telefono": "02226/89226-25",
+  "dominio_email": "vhs-voreifel.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Wesel",
+  "plz": "47495",
+  "ort": "Rheinberg",
+  "nome": "VHS-ZV Alpen-Rheinberg - Sonsbeck-Xanten",
+  "via": "Lützenhofstr. 9",
+  "telefono": "02843/907400",
+  "dominio_email": "vhs-rheinberg.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Steinfurt",
+  "plz": "48431",
+  "ort": "Rheine",
+  "nome": "VHS Rheine, Josef Winckler Zentrum",
+  "via": "Neuenkirchener Str. 22",
+  "telefono": "059717/939128",
+  "dominio_email": "rheine.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Lippe",
+  "plz": "32816",
+  "ort": "Schieder-Schwalenberg",
+  "nome": "VHS Lippe-Ost",
+  "via": "Parkallee 7",
+  "telefono": "05282/98040",
+  "dominio_email": "vhslippe-ost.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Unna",
+  "plz": "58239",
+  "ort": "Schwerte",
+  "nome": "Kultur- und Weiterbildungsbetrieb der Stadt Schwerte-Volkshochschule-",
+  "via": "Am Markt 11",
+  "telefono": "02304/104822",
+  "dominio_email": "vhs-schwerte.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Unna",
+  "plz": "59379",
+  "ort": "Selm",
+  "nome": "VHS der Stadt Selm Bürgerhaus",
+  "via": "Willy-Brandt-Platz 2",
+  "telefono": "02592/696804",
+  "dominio_email": "stadtselm.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Rhein-Sieg-Kreis",
+  "plz": "53721",
+  "ort": "Siegburg",
+  "nome": "VHS-Zweckverband Rhein-Sieg",
+  "via": "Ringstr. 24",
+  "telefono": "02241/309746",
+  "dominio_email": "vhs-rhein-sieg.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Siegen-Wittgenstein",
+  "plz": "57072",
+  "ort": "Siegen",
+  "nome": "Volkshochschule-Siegen",
+  "via": "Markt 25",
+  "telefono": "0271/4043000",
+  "dominio_email": "vhs-stadt-siegen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Siegen-Wittgenstein",
+  "plz": "57074",
+  "ort": "Siegen",
+  "nome": "VHS Kreis Siegen-Wittgenstein",
+  "via": "Spandauer Str. 32",
+  "telefono": "0271/3331519",
+  "dominio_email": "siegen-wittgenstein.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Soest",
+  "plz": "59494",
+  "ort": "Soest",
+  "nome": "Kolping-Bildungswerk Paderborn gGmbH",
+  "via": "Nottebohmweg 2-8",
+  "telefono": "05251/2888518",
+  "dominio_email": "kolping-paderborn.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Soest",
+  "plz": "59494",
+  "ort": "Soest",
+  "nome": "VHS Soest",
+  "via": "Nöttenstr. 29",
+  "telefono": "02921/1031333",
+  "dominio_email": "soest.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Solingen",
+  "plz": "42651",
+  "ort": "Solingen",
+  "nome": "Bergische VHS- Solingen",
+  "via": "Mummstr. 10",
+  "telefono": "2122903252",
+  "dominio_email": "bergische-vhs.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Solingen",
+  "plz": "42651",
+  "ort": "Solingen",
+  "nome": "Internationaler Bund gGmbH Solingen",
+  "via": "Am Neumarkt 50a",
+  "telefono": "0212/38212961",
+  "dominio_email": "internationaler-bund.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Städteregion Aachen",
+  "plz": "52220",
+  "ort": "Stolberg (Rhld.)",
+  "nome": "VHS Stolberg",
+  "via": "Frankentalstr. 3",
+  "telefono": "02402/862457",
+  "dominio_email": "stolberg.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Hochsauerlandkreis",
+  "plz": "59846",
+  "ort": "Sundern (Sauerland)",
+  "nome": "Zweckverband VHS Arnsberg/Sundern",
+  "via": "Franz-Josef-Tigges-Platz 1",
+  "telefono": "029323/4070",
+  "dominio_email": "vhs-arnsberg-sundern.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Rhein-Sieg-Kreis",
+  "plz": "53840",
+  "ort": "Troisdorf",
+  "nome": "VHS für Troisdorf und Niederkassel",
+  "via": "Kaiserstr. 1a",
+  "telefono": "02241/8963172",
+  "dominio_email": "vhs-troisdorf.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Unna",
+  "plz": "59423",
+  "ort": "Unna",
+  "nome": "VHS Unna-Fröndenberg-Holzwickende/Zentrum f. Information u. Bildung",
+  "via": "Lindenplatz 1",
+  "telefono": "02303/1030",
+  "dominio_email": "stadt-unna.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Mettmann",
+  "plz": "42551",
+  "ort": "Velbert",
+  "nome": "VHS Zweckverband Velbert-Heiligenhaus",
+  "via": "Oststr. 20",
+  "telefono": "02051/94960",
+  "dominio_email": "vhs-vh.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Mettmann",
+  "plz": "42551",
+  "ort": "Velbert",
+  "nome": "Euro-Schulen Rhein-Ruhr-Wupper GmbH",
+  "via": "Oststr. 15",
+  "telefono": "02051/28700",
+  "dominio_email": "eso.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Mettmann",
+  "plz": "42551",
+  "ort": "Velbert",
+  "nome": "WIPA GmbH",
+  "via": "Südstr. 38",
+  "telefono": "2051288615",
+  "dominio_email": "wipa.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Viersen",
+  "plz": "41748",
+  "ort": "Viersen",
+  "nome": "Euro-Schulen Niederrhein GmbH",
+  "via": "Hormesfeld 9b",
+  "telefono": "02162/351040",
+  "dominio_email": "eso.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Viersen",
+  "plz": "41747",
+  "ort": "Viersen",
+  "nome": "VHS des Kreises Viersen",
+  "via": "Willy-Brandt-Ring 40",
+  "telefono": "02162/934814",
+  "dominio_email": "kreis-viersen.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Höxter",
+  "plz": "34414",
+  "ort": "Warburg",
+  "nome": "VHS-Zweckverband Diemel-Egge-Weser",
+  "via": "Zwischen den Städten 9",
+  "telefono": "05641/921710",
+  "dominio_email": "warburg.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Warendorf",
+  "plz": "48231",
+  "ort": "Warendorf",
+  "nome": "VHS Warendorf",
+  "via": "Freckenhorster Str. 43",
+  "telefono": "02581/93840",
+  "dominio_email": "vhs-warendorf.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Märkischer Kreis",
+  "plz": "58791",
+  "ort": "Werdohl",
+  "nome": "VHS Lennetal",
+  "via": "Brüderstr. 33",
+  "telefono": "023929/1830",
+  "dominio_email": "vhs-lennetal.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Soest",
+  "plz": "59457",
+  "ort": "Werl",
+  "nome": "Volkshochschule Werl-Wickede (Ruhr)-Ense",
+  "via": "Kirchplatz 5",
+  "telefono": "02922/972412",
+  "dominio_email": "vhs-werl.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Rheinisch-Bergischer Kreis",
+  "plz": "42929",
+  "ort": "Wermelskirchen",
+  "nome": "VHS Bergisch Land",
+  "via": "Schillerstr. 9",
+  "telefono": "02196/947040",
+  "dominio_email": "vhs-bergisch-land.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Unna",
+  "plz": "59368",
+  "ort": "Werne",
+  "nome": "VHS der Stadt Werne",
+  "via": "Bahnhofstr. 8",
+  "telefono": "02389/71554",
+  "dominio_email": "werne.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Wesel",
+  "plz": "46483",
+  "ort": "Wesel",
+  "nome": "VHS Wesel-Hamminkeln-Schermbeck",
+  "via": "Ritterstr. 10/14",
+  "telefono": "0281/ 2032366",
+  "dominio_email": "vhs-wesel.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Kreis Wesel",
+  "plz": "46485",
+  "ort": "Wesel",
+  "nome": "IB West gGmbH",
+  "via": "Schillwiese 13",
+  "telefono": "02151 / 978707",
+  "dominio_email": "ib.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Ennepe-Ruhr-Kreis, Bochum",
+  "plz": "58453",
+  "ort": "Witten",
+  "nome": "VHS Witten-Wetter-Herdecke",
+  "via": "Holzkampstr. 7",
+  "telefono": "02302/5818633",
+  "dominio_email": "vhs-wwh.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Ennepe-Ruhr-Kreis",
+  "plz": "58452",
+  "ort": "Witten",
+  "nome": "Lernimpuls Witten e. V.",
+  "via": "Berliner Str. 7",
+  "telefono": "02302/275863",
+  "dominio_email": "lernimpulsev.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Wuppertal",
+  "plz": "42103",
+  "ort": "Wuppertal",
+  "nome": "Bergische Volkshochschule Solingen-Wuppertal",
+  "via": "Auer Schulstr. 20",
+  "telefono": "0202/5632251",
+  "dominio_email": "bergische-vhs.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Wuppertal",
+  "plz": "42103",
+  "ort": "Wuppertal",
+  "nome": "WIPA Wuppertal GmbH",
+  "via": "Alte Freiheit 5",
+  "telefono": "0202/69800770",
+  "dominio_email": "wipa-wuppertal.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Wuppertal",
+  "plz": "42283",
+  "ort": "Wuppertal",
+  "nome": "Akzentschule",
+  "via": "Friedrich-Engels-Allee 367",
+  "telefono": "0202/2574100",
+  "dominio_email": "web.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Wuppertal",
+  "plz": "42283",
+  "ort": "Wuppertal",
+  "nome": "IEC - International Education Centers GmbH",
+  "via": "Friedrich-Engels-Allee 432",
+  "telefono": "20226158770",
+  "dominio_email": "internationaleducationcenters.de"
+ },
+ {
+  "land": "NW",
+  "kreis": "Wuppertal",
+  "plz": "42277",
+  "ort": "Wuppertal",
+  "nome": "Schulungscenter Wuppertal",
+  "via": "Berliner Str. 153A",
+  "telefono": "0202-89799886",
+  "dominio_email": "schulungscenter-wuppertal.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Ludwigshafen am Rhein",
+  "plz": "57610",
+  "ort": "Altenkirchen (Westerwald)",
+  "nome": "Kreisvolkshochschule Altenkirchen",
+  "via": "Rathausstr. 12",
+  "telefono": "",
+  "dominio_email": ""
+ },
+ {
+  "land": "RP",
+  "kreis": "Landau in der Pfalz",
+  "plz": "55232",
+  "ort": "Alzey",
+  "nome": "Kreis-VHS Alzey-Worms",
+  "via": "Theodor-Heuss-Ring 2",
+  "telefono": "06731/ 4086743",
+  "dominio_email": "alzey-worms.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Ludwigshafen am Rhein",
+  "plz": "56626",
+  "ort": "Andernach",
+  "nome": "VHS Andernach",
+  "via": "Am Stadtgraben 29",
+  "telefono": "",
+  "dominio_email": "andernach.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Speyer",
+  "plz": "67098",
+  "ort": "Bad Dürkheim",
+  "nome": "Kreis-VHS Bad Dürkheim",
+  "via": "Philipp-Fauth-Str. 11",
+  "telefono": "",
+  "dominio_email": "kreis-bad-duerkheim.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Frankenthal (Pfalz)",
+  "plz": "56130",
+  "ort": "Bad Ems",
+  "nome": "Kreis-VHS Rhein-Lahn",
+  "via": "Insel Silberau 1",
+  "telefono": "02603/972163",
+  "dominio_email": "kvhs-rhein-lahn.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landau in der Pfalz",
+  "plz": "55543",
+  "ort": "Bad Kreuznach",
+  "nome": "KUNZ Institut für Betriebswirtschaftliche Aus- und Weiterbildung",
+  "via": "Salinenstr. 25",
+  "telefono": "0671/40733",
+  "dominio_email": "kunz-institut.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Alzey-Worms",
+  "plz": "55545",
+  "ort": "Bad Kreuznach",
+  "nome": "Sprachschule Gamp und Léus",
+  "via": "Hochstr. 11-15",
+  "telefono": "0178 5343532",
+  "dominio_email": "web.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Worms",
+  "plz": "55543",
+  "ort": "Bad Kreuznach",
+  "nome": "VHS Bad Kreuznach",
+  "via": "Viktoriastr. 13",
+  "telefono": "",
+  "dominio_email": ""
+ },
+ {
+  "land": "RP",
+  "kreis": "Landau in der Pfalz",
+  "plz": "53474",
+  "ort": "Bad Neuenahr-Ahrweiler",
+  "nome": "Kreis-Volkshochschule Ahrweiler e.V.",
+  "via": "Wilhelmstr. 23",
+  "telefono": "02641/91233934",
+  "dominio_email": "kvhs-ahrweiler.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Germersheim",
+  "plz": "54470",
+  "ort": "Bernkastel-Kues",
+  "nome": "Volkshochschule Bernkastel-Kues",
+  "via": "Gestade 6",
+  "telefono": "06531-9716930",
+  "dominio_email": "bernkstel-kues.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Germersheim",
+  "plz": "54470",
+  "ort": "Bernkastel-Kues",
+  "nome": "VHS Bernkastel-Kues",
+  "via": "Gestade 6",
+  "telefono": "06531-9716930",
+  "dominio_email": "bernkastel-kues.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Mainz-Bingen",
+  "plz": "55411",
+  "ort": "Bingen am Rhein",
+  "nome": "VHS Bingen e.V.",
+  "via": "Freidhof 11",
+  "telefono": "",
+  "dominio_email": "vhs-bingen.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Pirmasens",
+  "plz": "55765",
+  "ort": "Birkenfeld",
+  "nome": "Kreisvolkshochschule Birkenfeld",
+  "via": "Schneewiesenstr. 25",
+  "telefono": "06782-15104",
+  "dominio_email": "landkreis-birkenfeld.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Koblenz",
+  "plz": "54634",
+  "ort": "Bitburg",
+  "nome": "VHS Bitburg",
+  "via": "Rathausplatz 3/4",
+  "telefono": "06561-6001-242",
+  "dominio_email": "bitburg.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Mainz",
+  "plz": "56154",
+  "ort": "Boppard",
+  "nome": "VHS Boppard",
+  "via": "Oberstr. 141",
+  "telefono": "06742/898866",
+  "dominio_email": ""
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Mainz-Bingen",
+  "plz": "56812",
+  "ort": "Cochem",
+  "nome": "VHS-Kreis Cochem-Zell",
+  "via": "Ravenestr. 17",
+  "telefono": "02671-61463",
+  "dominio_email": "cochem-zell.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Donnersbergkreis",
+  "plz": "54550",
+  "ort": "Daun",
+  "nome": "VHS Daun",
+  "via": "Leopoldstr. 29",
+  "telefono": "06592/939215",
+  "dominio_email": ""
+ },
+ {
+  "land": "RP",
+  "kreis": "Neustadt an der Weinstraße",
+  "plz": "67227",
+  "ort": "Frankenthal (Pfalz)",
+  "nome": "VHS Frankenthal e. V.",
+  "via": "Stephan-Cosacchi-Platz 1",
+  "telefono": "",
+  "dominio_email": "vhs-ft.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Trier",
+  "plz": "76726",
+  "ort": "Germersheim",
+  "nome": "KVHS Germersheim",
+  "via": "Luitpoldplatz 1",
+  "telefono": "07274/53319",
+  "dominio_email": "kreis-germersheim.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Bernkastel-Wittlich",
+  "plz": "54568",
+  "ort": "Gerolstein",
+  "nome": "Volkshochschule Gerolstein",
+  "via": "Kyllweg 1",
+  "telefono": "06591/131166",
+  "dominio_email": "gerolstein.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Koblenz",
+  "plz": "55743",
+  "ort": "Idar-Oberstein",
+  "nome": "IB Internationaler Bund Südwest gGmbH",
+  "via": "Nahestr. 48",
+  "telefono": "06781 5082693",
+  "dominio_email": "ib.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Zweibrücken",
+  "plz": "55218",
+  "ort": "Ingelheim am Rhein",
+  "nome": "Kreisvolkshochschule Mainz-Bingen e.V.",
+  "via": "Georg-Rückert-Str. 11",
+  "telefono": "06132/7877102",
+  "dominio_email": "kvhs-mainz-bingen.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Neuwied",
+  "plz": "67655",
+  "ort": "Kaiserslautern",
+  "nome": "VHS Kaiserslautern e.V.",
+  "via": "Kanalstr. 3",
+  "telefono": "0631/3625800",
+  "dominio_email": "vhs-kaiserslautern.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Cochem-Zell",
+  "plz": "67657",
+  "ort": "Kaiserslautern",
+  "nome": "Kreisvolkshohschule Kaiserslautern",
+  "via": "Lauterstr. 8",
+  "telefono": "",
+  "dominio_email": ""
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Ahrweiler",
+  "plz": "76870",
+  "ort": "Kandel",
+  "nome": "VHS Kandel e.V.",
+  "via": "Hauptstr. 61",
+  "telefono": "",
+  "dominio_email": ""
+ },
+ {
+  "land": "RP",
+  "kreis": "Rhein-Hunsrück-Kreis",
+  "plz": "55481",
+  "ort": "Kirchberg (Hunsrück)",
+  "nome": "VHS Hunsrück",
+  "via": "Auf der Mauer 8",
+  "telefono": "",
+  "dominio_email": "kirchberg-hunsrueck.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Kaiserslautern",
+  "plz": "67292",
+  "ort": "Kirchheimbolanden",
+  "nome": "KVHS Donnersbergkreis",
+  "via": "Uhlandstr. 2",
+  "telefono": "06352/ 710 -107",
+  "dominio_email": "donnersberg.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Mayen-Koblenz",
+  "plz": "56068",
+  "ort": "Koblenz",
+  "nome": "Bénédict-Akademie - Koblenz",
+  "via": "Löhrstr. 127",
+  "telefono": "0261-37654",
+  "dominio_email": "benedict-akademie-koblenz.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Westerwaldkreis",
+  "plz": "56068",
+  "ort": "Koblenz",
+  "nome": "ISL Sprachschule GmbH & Co. KG",
+  "via": "Rizzastr. 35",
+  "telefono": "0261/98823440",
+  "dominio_email": "isl-sprachschule.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Bad Dürkheim",
+  "plz": "56073",
+  "ort": "Koblenz",
+  "nome": "Volkshochschule Koblenz",
+  "via": "Hoevelstr. 6",
+  "telefono": "0261/123711",
+  "dominio_email": "vhs-koblenz.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Bernkastel-Wittlich",
+  "plz": "66869",
+  "ort": "Kusel",
+  "nome": "Kreisvolkshochschule Kusel",
+  "via": "Trierer Str. 49-51",
+  "telefono": "06381-917530-10",
+  "dominio_email": "kv-kus.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Mainz",
+  "plz": "76829",
+  "ort": "Landau in der Pfalz",
+  "nome": "ProfeS Gesellschaft für Bildung & Kommunikation mbH",
+  "via": "Max-von-Laue-Str. 3",
+  "telefono": "06341/1414430",
+  "dominio_email": "profes-gmbh.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Bad Kreuznach",
+  "plz": "76829",
+  "ort": "Landau in der Pfalz",
+  "nome": "VHS-Kreis Südliche Weinstraße",
+  "via": "Ander Kreuzmühle 2",
+  "telefono": "06341-940185",
+  "dominio_email": "suedliche-weinstrasse.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Worms",
+  "plz": "76829",
+  "ort": "Landau in der Pfalz",
+  "nome": "VHS Landau in der Pfalz e.V.",
+  "via": "Maximilianstr. 7",
+  "telefono": "06341/134990",
+  "dominio_email": "volkshochschule-landau.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Birkenfeld",
+  "plz": "67059",
+  "ort": "Ludwigshafen am Rhein",
+  "nome": "VHS Ludwigshafen",
+  "via": "Bürgerhof",
+  "telefono": "",
+  "dominio_email": "ludwigshafen.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Eifelkreis Bitburg-Prüm",
+  "plz": "67063",
+  "ort": "Ludwigshafen am Rhein",
+  "nome": "VHS Rhein-Pfalz-Kreis",
+  "via": "Europaplatz 5",
+  "telefono": "0621/59093490",
+  "dominio_email": "vhs-rpk.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Mainz",
+  "plz": "55116",
+  "ort": "Mainz",
+  "nome": "VHS Mainz",
+  "via": "Karmeliterplatz 1",
+  "telefono": "",
+  "dominio_email": "vhs-mainz.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Bernkastel-Wittlich",
+  "plz": "55116",
+  "ort": "Mainz",
+  "nome": "Sprachschule Dr. Ridder",
+  "via": "Neubrunnenstr. 8",
+  "telefono": "",
+  "dominio_email": "dr-ridder.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Kusel",
+  "plz": "55118",
+  "ort": "Mainz",
+  "nome": "Akademisches Bildungs-Center e.V.",
+  "via": "Rhabanusstr. 5",
+  "telefono": "06131/385147",
+  "dominio_email": "abc-mainz.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Trier",
+  "plz": "56410",
+  "ort": "Montabaur",
+  "nome": "VHS-Kreis-Westerwald e.V.",
+  "via": "Peter-Altmeier-Platz 1",
+  "telefono": "02602/124420",
+  "dominio_email": "vhs-ww.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Birkenfeld",
+  "plz": "67433",
+  "ort": "Neustadt an der Weinstraße",
+  "nome": "VHS Neustadt an der Weinstraße",
+  "via": "Lindenstr. 15",
+  "telefono": "",
+  "dominio_email": "neustadt.eu"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Bad Kreuznach",
+  "plz": "56564",
+  "ort": "Neuwied",
+  "nome": "VHS Neuwied \"Die Brücke\"",
+  "via": "Heddesdorfer Str. 33",
+  "telefono": "",
+  "dominio_email": "vhs-neuwied.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Rhein-Lahn-Kreis",
+  "plz": "56564",
+  "ort": "Neuwied",
+  "nome": "VHS-Kreis Neuwied",
+  "via": "Beverwijker Ring 5",
+  "telefono": "",
+  "dominio_email": ""
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Bernkastel-Wittlich",
+  "plz": "66953",
+  "ort": "Pirmasens",
+  "nome": "VHS-Kreis Südwestpfalz e.V.",
+  "via": "Unterer Sommerwaldweg 40/42",
+  "telefono": "06331/809334",
+  "dominio_email": "lksuedwestpfalz.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Bad Kreuznach",
+  "plz": "",
+  "ort": "Pirmasens",
+  "nome": "VHS Pirmasens",
+  "via": "Hans-Sachs-Str. 2",
+  "telefono": "",
+  "dominio_email": ""
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Vulkaneifel",
+  "plz": "67346",
+  "ort": "Speyer",
+  "nome": "VHS Speyer",
+  "via": "Bahnhofstr. 54",
+  "telefono": "06232/141363",
+  "dominio_email": "stadt-speyer.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Pirmasens",
+  "plz": "56841",
+  "ort": "Traben-Trarbach",
+  "nome": "Volkshochschule der Verbandsgemeinde Traben-Trarbach",
+  "via": "Am Markt 3",
+  "telefono": "",
+  "dominio_email": ""
+ },
+ {
+  "land": "RP",
+  "kreis": "Kaiserslautern",
+  "plz": "54290",
+  "ort": "Trier",
+  "nome": "Volkshochschule Trier",
+  "via": "Domfreihof 1b",
+  "telefono": "0651/7181439",
+  "dominio_email": "trier.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Altenkirchen (Westerwald)",
+  "plz": "54290",
+  "ort": "Trier",
+  "nome": "Euro Schulen Trier",
+  "via": "Nagelstr. 10",
+  "telefono": "0651/97561-14",
+  "dominio_email": "euroakademie.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Neuwied",
+  "plz": "54516",
+  "ort": "Wittlich",
+  "nome": "VHS Wittlich",
+  "via": "Kurfürstenstr. 1",
+  "telefono": "06571/107139131",
+  "dominio_email": "vg-wittlich-land.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Koblenz",
+  "plz": "67547",
+  "ort": "Worms",
+  "nome": "Volkshochschule der Stadt Worms",
+  "via": "Willy-Brandt-Ring 11",
+  "telefono": "0624/8534252",
+  "dominio_email": "worms.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Landkreis Vulkaneifel",
+  "plz": "67547",
+  "ort": "Worms",
+  "nome": "IBLA Germany GmbH",
+  "via": "Prinz-Carl-Anlage 36",
+  "telefono": "06241/304149",
+  "dominio_email": "web.de"
+ },
+ {
+  "land": "RP",
+  "kreis": "Rhein-Hunsrück-Kreis",
+  "plz": "66482",
+  "ort": "Zweibrücken",
+  "nome": "VHS Zweibrücken",
+  "via": "Johann-Schwebel-Str. 1",
+  "telefono": "06332/209740",
+  "dominio_email": "vhs-zweibruecken.de"
+ },
+ {
+  "land": "SL",
+  "kreis": "",
+  "plz": "66763",
+  "ort": "Dillingen",
+  "nome": "VHS Dillingen e. V.",
+  "via": "De-Lenoncourt-Str. 5",
+  "telefono": "06831/7506",
+  "dominio_email": "vhs-dillingen.de"
+ },
+ {
+  "land": "SL",
+  "kreis": "",
+  "plz": "66424",
+  "ort": "Homburg",
+  "nome": "VHS der Stadt Homburg-Saar e. V.",
+  "via": "Am Forum 5",
+  "telefono": "06841/101106",
+  "dominio_email": "homburg.de"
+ },
+ {
+  "land": "SL",
+  "kreis": "",
+  "plz": "66663",
+  "ort": "Merzig",
+  "nome": "K-VHS Kreis Merzig-Wadern e. V.",
+  "via": "Gutenbergstr. 14",
+  "telefono": "06861/829100",
+  "dominio_email": "vhsmails.de"
+ },
+ {
+  "land": "SL",
+  "kreis": "",
+  "plz": "66538",
+  "ort": "Neunkirchen",
+  "nome": "Volkshochschule Neunkirchen",
+  "via": "Marienstr. 2",
+  "telefono": "06821/202567",
+  "dominio_email": "nk-kultur.de"
+ },
+ {
+  "land": "SL",
+  "kreis": "",
+  "plz": "66564",
+  "ort": "Ottweiler",
+  "nome": "Kreisvolkshochschule Landkreis Neunkirchen",
+  "via": "Hohlstr. 7",
+  "telefono": "06824/9065335",
+  "dominio_email": "landkreis-neunkirchen.de"
+ },
+ {
+  "land": "SL",
+  "kreis": "",
+  "plz": "66119",
+  "ort": "Saarbrücken",
+  "nome": "VHS Regionalverband Saarbrücken",
+  "via": "Schloßplatz 2",
+  "telefono": "0681/5064351",
+  "dominio_email": "rvsbr.de"
+ },
+ {
+  "land": "SL",
+  "kreis": "",
+  "plz": "66740",
+  "ort": "Saarlouis",
+  "nome": "VHS der Stadt Saarlouis",
+  "via": "Kaiser-Friedrich-Ring 26",
+  "telefono": "06831/6989030",
+  "dominio_email": "saarlouis.de"
+ },
+ {
+  "land": "SL",
+  "kreis": "",
+  "plz": "66386",
+  "ort": "St. Ingbert",
+  "nome": "Mittelstadt St. Ingbert, GB 1-Hauptverwaltung, Zentrale Steuerung und Kultur/Abt. 12 Volkshochschule und Biosphäre",
+  "via": "Am Markt 12",
+  "telefono": "06894/13724",
+  "dominio_email": "st-ingbert.de"
+ },
+ {
+  "land": "SL",
+  "kreis": "",
+  "plz": "66606",
+  "ort": "St. Wendel",
+  "nome": "Kreisvolkshochschule St. Wendel",
+  "via": "Werschweilerstr. 14",
+  "telefono": "06851/8014011",
+  "dominio_email": "lkwnd.de"
+ },
+ {
+  "land": "SL",
+  "kreis": "",
+  "plz": "66333",
+  "ort": "Völklingen",
+  "nome": "VHS Völklingen",
+  "via": "Bismarckstr. 1",
+  "telefono": "06898/132585",
+  "dominio_email": "voelklingen.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Chemnitz",
+  "plz": "9112",
+  "ort": "Chemnitz",
+  "nome": "Inlingua Chemnitz",
+  "via": "Barbarossastr. 2",
+  "telefono": "0371/517000",
+  "dominio_email": "inlingua-chemnitz.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Chemnitz",
+  "plz": "09112",
+  "ort": "Chemnitz",
+  "nome": "Mitteldeutsches Institut für Qualifikation und berufliche Rehabilitation MIQR GmbH",
+  "via": "Barbarossastr. 2",
+  "telefono": "",
+  "dominio_email": "miqr.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Chemnitz",
+  "plz": "9111",
+  "ort": "Chemnitz",
+  "nome": "Euro-Schulen West-Sachsen GmbH / Chemnitz",
+  "via": "Brückenstr. 8",
+  "telefono": "",
+  "dominio_email": "eso.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Landkreis Görlitz",
+  "plz": "02763",
+  "ort": "Zittau",
+  "nome": "Volkshochschule Dreiländereck",
+  "via": "Neustadt 47",
+  "telefono": "357627830",
+  "dominio_email": "vhs-dle.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Landkreis Meißen",
+  "plz": "01445",
+  "ort": "Radebeul",
+  "nome": "VHS Meißen",
+  "via": "Sidonienstr. 1a",
+  "telefono": "",
+  "dominio_email": "vhs-lkmeissen.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Nordsachsen",
+  "plz": "04860",
+  "ort": "Torgau",
+  "nome": "Volkshochschule Nordsachsen",
+  "via": "Puschkinstr. 3",
+  "telefono": "",
+  "dominio_email": "vhs-nordsachsen.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Chemnitz",
+  "plz": "09112",
+  "ort": "Chemnitz",
+  "nome": "Benedict School F+U gemeinnützige Bildungseinrichtung für Fortbildung und Umschulung Sachsen gGmbH",
+  "via": "Falkeplatz 2",
+  "telefono": "",
+  "dominio_email": "fuu-sachsen.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Dresden",
+  "plz": "01277",
+  "ort": "Dresden",
+  "nome": "inlingua Sprachschule Dresden GmbH Co",
+  "via": "Karcherallee 41",
+  "telefono": "0351 / 494460",
+  "dominio_email": "inlingua.com"
+ },
+ {
+  "land": "SN",
+  "kreis": "Leipzig",
+  "plz": "04177",
+  "ort": "Leipzig",
+  "nome": "Leipziger Gesellschaft f. Bildung u. Arbeit mbH",
+  "via": "Lützner Str. 93-95",
+  "telefono": "",
+  "dominio_email": "lehmbaugruppe.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Dresden",
+  "plz": "01127",
+  "ort": "Dresden",
+  "nome": "die Sprachwerkstatt GmbH",
+  "via": "Großenhainer Str. 99",
+  "telefono": "0351 / 8975940",
+  "dominio_email": "die-sprachwerkstatt.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Vogtlandkreis",
+  "plz": "08527",
+  "ort": "Plauen",
+  "nome": "Volkshochschule Vogtland e.V",
+  "via": "Stresemannstr. 92",
+  "telefono": "",
+  "dominio_email": "vhs-vogtland.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Leipzig",
+  "plz": "04315",
+  "ort": "Leipzig",
+  "nome": "Euro Schulen Leipzig GmbH",
+  "via": "Atriumstr. 3",
+  "telefono": "",
+  "dominio_email": "eso.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Landkreis Anhalt-Bitterfeld",
+  "plz": "6803",
+  "ort": "Bitterfeld-Wolfen",
+  "nome": "Euro-Schulen Sachsen-Anhalt Süd GmbH Euro-Schule Bitterfeld/Wolfen",
+  "via": "Wasserturmstr. 1",
+  "telefono": "03494/798480",
+  "dominio_email": "eso.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Landkreis Görlitz",
+  "plz": "02826",
+  "ort": "Görlitz",
+  "nome": "VHS Görlitz e. V.",
+  "via": "Langenstr. 23",
+  "telefono": "03581 / 420980",
+  "dominio_email": "vhs-goerlitz.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Dresden",
+  "plz": "1067",
+  "ort": "Dresden",
+  "nome": "VHS Dresden e. V.",
+  "via": "Annenstr. 10",
+  "telefono": "",
+  "dominio_email": "vhs-dresden.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Erzgebirgskreis",
+  "plz": "08280",
+  "ort": "Aue",
+  "nome": "Volkshochschule im Kulturellen Bildungsbetrieb Erzgebirgskreis",
+  "via": "Rudolf-Breitscheid-Str. 28",
+  "telefono": "03771/ 5655840",
+  "dominio_email": "vhs-erz.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Landkreis Leipzig",
+  "plz": "04552",
+  "ort": "Borna",
+  "nome": "Kommunaler Eigenbetrieb \"Bildung und Kultur des Landkreises Leipzig\" Volkshochschule Landkreis Leipzig",
+  "via": "Jahnstr. 24a",
+  "telefono": "03433 / 744 633 0",
+  "dominio_email": "vhs-lkl.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Landkreis Meißen, Dresden",
+  "plz": "01069",
+  "ort": "Dresden",
+  "nome": "Euro-Schulen GmbH - Euro-Schulen Dresden - Meißen",
+  "via": "Wiener Platz 6",
+  "telefono": "0351 / 4763680",
+  "dominio_email": "eso.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Landkreis Görlitz",
+  "plz": "02826",
+  "ort": "Görlitz",
+  "nome": "Euro-Schulen Görlitz GmbH",
+  "via": "Straßburgpassage",
+  "telefono": "03581 / 76460",
+  "dominio_email": "eso.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Landkreis Zwickau",
+  "plz": "08056",
+  "ort": "Zwickau",
+  "nome": "Euro-Schulen West-Sachsen GmbH / Zwickau",
+  "via": "Max-Pechstein-Str. 29",
+  "telefono": "",
+  "dominio_email": "eso.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Landkreis Leipzig",
+  "plz": "04103",
+  "ort": "Leipzig",
+  "nome": "Language Coach Institute Cäcilia Thiessen",
+  "via": "Bauhofstr. 3-5",
+  "telefono": "",
+  "dominio_email": "languagecoach.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Leipzig",
+  "plz": "04107",
+  "ort": "Leipzig",
+  "nome": "zu Hause e. V.",
+  "via": "Hohe Str. 9-13",
+  "telefono": "0341 / 52917248",
+  "dominio_email": "zuhause-ev.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Leipzig",
+  "plz": "04103",
+  "ort": "Leipzig",
+  "nome": "Learn and Speak Leipzig - Wolpert Schulungszentrum - Sprachschule Leipzig GmbH",
+  "via": "Gutenbergplatz 1a-1e",
+  "telefono": "",
+  "dominio_email": "las-leipzig.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Landkreis Sächsische Schweiz Osterzgebirge",
+  "plz": "01796",
+  "ort": "Pirna",
+  "nome": "Volkshochschule Sächsische Schweiz-Osterzgebirge e.V.",
+  "via": "Geschwister-Scholl-Str. 2",
+  "telefono": "03501 / 710990",
+  "dominio_email": "vhs-ssoe.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Chemnitz",
+  "plz": "09111",
+  "ort": "Chemnitz",
+  "nome": "VHS Chemnitz",
+  "via": "Moritzstr. 20",
+  "telefono": "0371 / 4884343",
+  "dominio_email": "vhs-chemnitz.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Leipzig",
+  "plz": "04105",
+  "ort": "Leipzig",
+  "nome": "VHS Stadt Leipzig",
+  "via": "Löhrstr. 3/7",
+  "telefono": "",
+  "dominio_email": "leipzig.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Landkreis Bautzen",
+  "plz": "02977",
+  "ort": "Hoyerswerda",
+  "nome": "Zoo, Kultur und Bildung gGmbH - Volkshochschule",
+  "via": "Lausitzer Platz 4",
+  "telefono": "03571 600800",
+  "dominio_email": "vhs-hy.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Land Sachsen",
+  "plz": "9113",
+  "ort": "Chemnitz",
+  "nome": "Sächsischer Volkshochschulverband",
+  "via": "Bergstr. 61",
+  "telefono": "0371/3542750",
+  "dominio_email": "vhs-sachsen.de"
+ },
+ {
+  "land": "SN",
+  "kreis": "Landkreis Bautzen",
+  "plz": "02625",
+  "ort": "Bautzen",
+  "nome": "VHS-Kreis Bautzen",
+  "via": "Postplatz 3",
+  "telefono": "0172 9388 732",
+  "dominio_email": "kvhsbautzen.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Altmarkkreis Salzwede",
+  "plz": "29410",
+  "ort": "Salzwedel",
+  "nome": "VHS-Altmarkkreis Salzwedel",
+  "via": "Karl-Marx-Str. 15",
+  "telefono": "03901/840280",
+  "dominio_email": "altmarkkreis.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Burgenlandkreis",
+  "plz": "06712",
+  "ort": "Zeitz",
+  "nome": "VHS Burgenlandkreis \"Dr. Wilhelm Harnisch\"",
+  "via": "Domherrenstr. 1",
+  "telefono": "03443/3396800",
+  "dominio_email": "vhs-burgenlandkreis.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Halle (Saale)",
+  "plz": "06116",
+  "ort": "Halle (Saale)",
+  "nome": "CFN gGmbH Corporate Future Network",
+  "via": "Fiete-Schulze-Str. 13",
+  "telefono": "0345/5641820",
+  "dominio_email": "cfn-web.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Halle (Saale)",
+  "plz": "6108",
+  "ort": "Halle (Saale)",
+  "nome": "VHS Adolf Reichwein Halle (Saale)",
+  "via": "Oleariusstr. 7",
+  "telefono": "0345/2213385",
+  "dominio_email": "vhs-halle.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Halle (Saale), Dessau",
+  "plz": "6108",
+  "ort": "Halle (Saale)",
+  "nome": "Wolpert Schulungszentrum Sprachschule Halle GmbH",
+  "via": "Marktplatz 7",
+  "telefono": "0345/678980",
+  "dominio_email": "las-halle.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Landkreis Anhalt-Bitterfeld",
+  "plz": "06803",
+  "ort": "Bitterfeld-Wolfen",
+  "nome": "Euro-Schulen Sachsen-Anhalt Süd GmbH Euro-Schule Bitterfeld/Wolfen",
+  "via": "Wasserturmstr. 1",
+  "telefono": "03494/798480",
+  "dominio_email": "eso.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Landkreis Anhalt-Bitterfeld",
+  "plz": "06366",
+  "ort": "Köthen (Anhalt)",
+  "nome": "Kreisvolkshochschule Anhalt-Bitterfeld",
+  "via": "Siebenbrünnerpromenade 31",
+  "telefono": "03496/212033",
+  "dominio_email": "kvhs-abi.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Landkreis Börde",
+  "plz": "39340",
+  "ort": "Haldensleben",
+  "nome": "Kreisvolkshochschule Börde",
+  "via": "Warmsdorfer Str. 20",
+  "telefono": "03904/72407283",
+  "dominio_email": "landkreis-boerde.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Landkreis Harz",
+  "plz": "38820",
+  "ort": "Halberstadt",
+  "nome": "AFU Privates Bildungsinstitut GmbH",
+  "via": "Rudolf-Diesel-Str. 14",
+  "telefono": "03941/600142",
+  "dominio_email": "afu-gmbh.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Landkreis Harz",
+  "plz": "06484",
+  "ort": "Quedlinburg",
+  "nome": "Kreisvolkshochschule Harz GmbH",
+  "via": "Heiligegeiststr. 8",
+  "telefono": "03946/524030",
+  "dominio_email": "kvhs-harz.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Landkreis Jerichower Land",
+  "plz": "39288",
+  "ort": "Burg",
+  "nome": "KVHS-Kreis Jerichower Land",
+  "via": "Magdeburger Str. 24-26",
+  "telefono": "03921/9494300",
+  "dominio_email": "lkjl.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Landkreis Mansfeld-Südharz",
+  "plz": "06295",
+  "ort": "Lutherstadt Eisleben",
+  "nome": "Sprachschule 2000 GmbH",
+  "via": "Küstergasse 4",
+  "telefono": "03475/250353",
+  "dominio_email": "sprachschule2000.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Magdeburg",
+  "plz": "39104",
+  "ort": "Magdeburg",
+  "nome": "Städtische VHS Magdeburg",
+  "via": "Leibnizstr. 23",
+  "telefono": "0391/5354770",
+  "dominio_email": "vhs.magdeburg.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Magdeburg",
+  "plz": "39108",
+  "ort": "Magdeburg",
+  "nome": "Europäisches Bildungswerk f.B.u.G. gemeinnützige GmbH - Regionalbereich Sachsen-Anhalt",
+  "via": "Maxim-Gorki-Str. 14",
+  "telefono": "0391/5419829",
+  "dominio_email": "ebg.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Saalekreis",
+  "plz": "6217",
+  "ort": "Merseburg",
+  "nome": "Zukunftswerkstatt Mitteldeutschland GmbH-Standort Merseburg",
+  "via": "Geusaer Str. 81g",
+  "telefono": "03461/82150",
+  "dominio_email": "zukunft-mitteldeutschland.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Saalekreis",
+  "plz": "06217",
+  "ort": "Merseburg",
+  "nome": "Kreisvolkshochschule Saalekreis",
+  "via": "Am Saalehang 1",
+  "telefono": "03461/403817",
+  "dominio_email": "saalekreis.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Salzlandkreis",
+  "plz": "06406",
+  "ort": "Bernburg (Saale)",
+  "nome": "Kreisvolkshochschule Salzlandkreis",
+  "via": "Vor Dem Nienburger Tor 13a",
+  "telefono": "03471/6840",
+  "dominio_email": "kreis-slk.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Salzlandkreis",
+  "plz": "39418",
+  "ort": "Staßfurt",
+  "nome": "Staßfurter URANIA e.V.",
+  "via": "Prinzenberg 18",
+  "telefono": "03925/624295",
+  "dominio_email": "stassfurter-urania.de"
+ },
+ {
+  "land": "ST",
+  "kreis": "Stendal",
+  "plz": "39606",
+  "ort": "Osterburg (Altmark)",
+  "nome": "Kreisvolkshochschule Stendal",
+  "via": "Bahnhofstr. 3",
+  "telefono": "03937/895178",
+  "dominio_email": "landkreis-stendal.de"
+ },
+ {
+  "land": "SH",
+  "kreis": "alle Kreis und kreisfreie Stadt",
+  "plz": "24103",
+  "ort": "Kiel",
+  "nome": "Landesverband der Volkshochschulen Schleswig-Holsteins e.V.",
+  "via": "Holstenbrücke 7",
+  "telefono": "0431-97984-13",
+  "dominio_email": "vhs-sh.de"
+ },
+ {
+  "land": "TH",
+  "kreis": "diverse Kreise und kreisfreie Städte",
+  "plz": "07743",
+  "ort": "Jena",
+  "nome": "Thüringer Volkshochschulverband e.V.",
+  "via": "Saalbahnhofstr. 27",
+  "telefono": "03641/5342310",
+  "dominio_email": "vhs-th.de"
+ },
+ {
+  "land": "TH",
+  "kreis": "Eisenach",
+  "plz": "99817",
+  "ort": "Eisenach",
+  "nome": "Sprache & Bildung Hessen und Thüringen GmbH",
+  "via": "Bahnhofstr. 27",
+  "telefono": "03691/785337",
+  "dominio_email": "sprache-und-bildung.de"
+ },
+ {
+  "land": "TH",
+  "kreis": "Erfurt",
+  "plz": "99085",
+  "ort": "Erfurt",
+  "nome": "Internationaler Bund - Jugendmigrationsdienst Erfurt GmbH",
+  "via": "Hallesche Straße 20a",
+  "telefono": "0361-5983124",
+  "dominio_email": "ib.de"
+ },
+ {
+  "land": "TH",
+  "kreis": "Erfurt",
+  "plz": "99092",
+  "ort": "Erfurt",
+  "nome": "Mitteldeutsches Institut für Qualifikation und berufliche Rehabilitation Erfurt",
+  "via": "Heinrichstraße 89",
+  "telefono": "0361-511503-340",
+  "dominio_email": "miqr.de"
+ }
+]

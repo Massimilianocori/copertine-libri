@@ -1,0 +1,16 @@
+{
+ "nome": "DÜS Eckert Spracheninstitut GmbH",
+ "citta": "düsseldorf",
+ "url_partenza": "https://www.dues-eckert.de/",
+ "pagine": [
+  {
+   "url": "https://dues-eckert.com/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 255239
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

@@ -1,0 +1,14 @@
+{
+ "nome": "VHS Stadt Leipzig",
+ "citta": "leipzig",
+ "url_partenza": "https://www.vhs-leipzig.de/",
+ "pagine": [
+  {
+   "url": "https://www.vhs-leipzig.de/",
+   "stato": "errore"
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "sito non raggiungibile (errore)"
+}

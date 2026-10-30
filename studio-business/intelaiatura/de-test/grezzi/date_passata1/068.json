@@ -1,0 +1,85 @@
+{
+ "nome": "VHS Wiesbaden e.V.",
+ "citta": "wiesbaden",
+ "url_partenza": "https://www.vhs-wiesbaden.de/",
+ "pagine": [
+  {
+   "url": "https://www.vhs-wiesbaden.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 68019
+  },
+  {
+   "url": "https://www.vhs-wiesbaden.de/fachbereiche-und-projekte/deutsch/einbuergerungstest",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50552
+  },
+  {
+   "url": "https://www.vhs-wiesbaden.de/fachbereiche-und-projekte/deutsch/einbuergerungstest?dark-mode=1",
+   "stato": "robots"
+  },
+  {
+   "url": "https://www.vhs-wiesbaden.de/fachbereiche-und-projekte/deutsch/einbuergerungstest?size=0",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50615
+  },
+  {
+   "url": "https://www.vhs-wiesbaden.de/fachbereiche-und-projekte/deutsch/einbuergerungstest?size=1",
+   "stato": 200,
+   "chiave": true,
+   "byte": 52939
+  },
+  {
+   "url": "https://www.vhs-wiesbaden.de/fachbereiche-und-projekte/deutsch/einbuergerungstest?size=2",
+   "stato": 200,
+   "chiave": true,
+   "byte": 52939
+  },
+  {
+   "url": "https://www.vhs-wiesbaden.de/fachbereiche-und-projekte/deutsch/einbuergerungstest?dark-mode=0&size=1",
+   "stato": 200,
+   "chiave": true,
+   "byte": 53275
+  },
+  {
+   "url": "https://www.vhs-wiesbaden.de/fachbereiche-und-projekte/deutsch/einbuergerungstest?dark-mode=1&size=1",
+   "stato": "robots"
+  },
+  {
+   "url": "https://www.vhs-wiesbaden.de/fachbereiche-und-projekte/deutsch/einbuergerungstest?dark-mode=0&size=2",
+   "stato": 200,
+   "chiave": true,
+   "byte": 53275
+  },
+  {
+   "url": "https://www.vhs-wiesbaden.de/fachbereiche-und-projekte/deutsch/einbuergerungstest?dark-mode=1&size=2",
+   "stato": "robots"
+  },
+  {
+   "url": "https://www.vhs-wiesbaden.de/fachbereiche-und-projekte/deutsch/einbuergerungstest?dark-mode=0&size=0",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50867
+  }
+ ],
+ "pdf": [
+  "http://www.vhs-wiesbaden.de/fileadmin/download/einbuergerung/bamf_testfragebogen.pdf",
+  "http://www.vhs-wiesbaden.de/fileadmin/download/einbuergerung/bestellung_und_abo.pdf",
+  "http://www.vhs-wiesbaden.de/fileadmin/download/einbuergerung/bamf_testfragebogen.pdf",
+  "http://www.vhs-wiesbaden.de/fileadmin/download/einbuergerung/bestellung_und_abo.pdf",
+  "http://www.vhs-wiesbaden.de/fileadmin/download/einbuergerung/bamf_testfragebogen.pdf",
+  "http://www.vhs-wiesbaden.de/fileadmin/download/einbuergerung/bestellung_und_abo.pdf",
+  "http://www.vhs-wiesbaden.de/fileadmin/download/einbuergerung/bamf_testfragebogen.pdf",
+  "http://www.vhs-wiesbaden.de/fileadmin/download/einbuergerung/bestellung_und_abo.pdf",
+  "http://www.vhs-wiesbaden.de/fileadmin/download/einbuergerung/bamf_testfragebogen.pdf",
+  "http://www.vhs-wiesbaden.de/fileadmin/download/einbuergerung/bestellung_und_abo.pdf",
+  "http://www.vhs-wiesbaden.de/fileadmin/download/einbuergerung/bamf_testfragebogen.pdf",
+  "http://www.vhs-wiesbaden.de/fileadmin/download/einbuergerung/bestellung_und_abo.pdf",
+  "http://www.vhs-wiesbaden.de/fileadmin/download/einbuergerung/bamf_testfragebogen.pdf",
+  "http://www.vhs-wiesbaden.de/fileadmin/download/einbuergerung/bestellung_und_abo.pdf"
+ ],
+ "date": [],
+ "esito": "solo PDF"
+}

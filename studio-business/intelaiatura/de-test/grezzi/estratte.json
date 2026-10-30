@@ -1,0 +1,2268 @@
+[
+ {
+  "indice": 0,
+  "citta": "hamburg",
+  "nome": "Akademikerbund Hamburg e.V.",
+  "pagine_lette": 8,
+  "formati": [
+   "KuferWeb"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-07",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2026-11-21",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2026-12-05",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2026-12-19",
+    "tipo": "DTZ"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.abh-kurse.de/programm/pruefungen/dtz-a2-b1-telc-sprachpruefung/"
+  ],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 1,
+  "citta": "hamburg",
+  "nome": "Arbeit, Bildung, Integration (ABI) e.V.",
+  "pagine_lette": 0,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": []
+ },
+ {
+  "indice": 2,
+  "citta": "hamburg",
+  "nome": "Arab World IC GmbH",
+  "pagine_lette": 2,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 3,
+  "citta": "hamburg",
+  "nome": "Diakonisches Werk Hamburg, Landesverband der Inneren Mission e.V.",
+  "pagine_lette": 2,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 4,
+  "citta": "hamburg",
+  "nome": "IBH - Interkulturelle Bildung Hamburg e.V.",
+  "pagine_lette": 5,
+  "formati": [
+   "pagina CMS con testo libero"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-25",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-11",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://ibhev.de/",
+   "https://ibhev.de/einbuergerungstest/",
+   "https://staging.ibhev.de/einbuergerungstest/"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 5,
+  "citta": "hamburg",
+  "nome": "DAA Deutsche Angestellten-Akademie GmbH",
+  "pagine_lette": 0,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": []
+ },
+ {
+  "indice": 6,
+  "citta": "hamburg",
+  "nome": "KOM gGmbH",
+  "pagine_lette": 6,
+  "formati": [
+   "pagina CMS con testo libero"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-06",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2026-11-20",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2027-02-03",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-02-12",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2027-02-26",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2027-04-28",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-06-30",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-08-25",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-11-03",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [
+   "2027-01-22"
+  ],
+  "fonte": [
+   "https://www.kom-bildung.de/bildung/dtz",
+   "https://www.kom-bildung.de/bildung/einbuergerungstest"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 7,
+  "citta": "hamburg",
+  "nome": "Hamburger Volkshochschule",
+  "pagine_lette": 8,
+  "formati": [
+   "KuferWeb",
+   "altro catalogo corsi VHS"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-10",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-11-19",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-11-26",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-03",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-08",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-10",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.vhs-hamburg.de/deutsch/einbuergerungstest-1058",
+   "https://www.vhs-hamburg.de/kurs/einburgerungstest/407021",
+   "https://www.vhs-hamburg.de/kurs/einburgerungstest/407022",
+   "https://www.vhs-hamburg.de/kurs/einburgerungstest/407023",
+   "https://www.vhs-hamburg.de/kurs/einburgerungstest/407062",
+   "https://www.vhs-hamburg.de/kurs/einburgerungstest/407063",
+   "https://www.vhs-hamburg.de/kurs/einburgerungstest/407064"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 8,
+  "citta": "hamburg",
+  "nome": "Colón",
+  "pagine_lette": 1,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 9,
+  "citta": "berlin",
+  "nome": "VHS Berlin-Tempelhof-Schöneberg",
+  "pagine_lette": 1,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 10,
+  "citta": "berlin",
+  "nome": "VHS Berlin-Mitte",
+  "pagine_lette": 1,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 11,
+  "citta": "berlin",
+  "nome": "VHS Berlin-Charlottenburg City West",
+  "pagine_lette": 1,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 12,
+  "citta": "berlin",
+  "nome": "VHS Berlin-Neukölln Otto Suhr",
+  "pagine_lette": 1,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 13,
+  "citta": "berlin",
+  "nome": "Harri-Reinert-Volkshochschule Spandau",
+  "pagine_lette": 1,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 14,
+  "citta": "berlin",
+  "nome": "VHS Berlin Steglitz-Zehlendorf",
+  "pagine_lette": 1,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 15,
+  "citta": "berlin",
+  "nome": "VHS Berlin-Reinickendorf",
+  "pagine_lette": 1,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 16,
+  "citta": "berlin",
+  "nome": "VHS Berlin-Marzahn-Hellersdorf",
+  "pagine_lette": 1,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 17,
+  "citta": "berlin",
+  "nome": "VHS Berlin Lichtenberg",
+  "pagine_lette": 1,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 18,
+  "citta": "berlin",
+  "nome": "VHS Berlin Treptow-Köpenick",
+  "pagine_lette": 1,
+  "formati": [
+   "portale berlin.de (testo libero)"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-12-10",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.berlin.de/vhs/volkshochschulen/treptow-koepenick/"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 19,
+  "citta": "berlin",
+  "nome": "VHS Berlin Friedrichshain-Kreuzberg",
+  "pagine_lette": 1,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 20,
+  "citta": "berlin",
+  "nome": "VHS Berlin-Pankow",
+  "pagine_lette": 1,
+  "formati": [
+   "portale berlin.de (testo libero)"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2027-02-15",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [
+   "2026-11-23"
+  ],
+  "fonte": [
+   "https://www.berlin.de/vhs/volkshochschulen/pankow/service/einbuergerungstest-vhs-pankow-1463977.php"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 21,
+  "citta": "frankfurt",
+  "nome": "VHS Frankfurt am Main",
+  "pagine_lette": 1,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 22,
+  "citta": "frankfurt",
+  "nome": "Avicenna Institut e. V.",
+  "pagine_lette": 4,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 23,
+  "citta": "frankfurt",
+  "nome": "DRK Sozialdienste gGmbH Frankfurt a. M.",
+  "pagine_lette": 5,
+  "formati": [
+   "pagina CMS con testo libero"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-10",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-11-24",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-08",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-05",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-19",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-02-02",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-02-16",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-03-02",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-03-16",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.drkfrankfurt.de/angebote/integration/sprach-und-bildungszentrum/einbuergerungstest.html"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 24,
+  "citta": "frankfurt",
+  "nome": "Lernstudio H&G Frankfurt UG",
+  "pagine_lette": 0,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": []
+ },
+ {
+  "indice": 25,
+  "citta": "frankfurt",
+  "nome": "Grone Bildungszentren Hessen gGmbH",
+  "pagine_lette": 0,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": []
+ },
+ {
+  "indice": 26,
+  "citta": "frankfurt",
+  "nome": "BBZ Sprachenschule GmbH",
+  "pagine_lette": 0,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": []
+ },
+ {
+  "indice": 27,
+  "citta": "münchen",
+  "nome": "Bayerisches Rotes Kreuz",
+  "pagine_lette": 0,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": []
+ },
+ {
+  "indice": 28,
+  "citta": "münchen",
+  "nome": "Münchner Volkshochschule GmbH",
+  "pagine_lette": 9,
+  "formati": [
+   "Kursportal VHS (itemKG/Kufer SQL)"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-12-02",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-22",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-30",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-02-26",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [
+   "2026-12-12",
+   "2026-12-13",
+   "2027-01-09",
+   "2027-01-10",
+   "2027-01-30",
+   "2027-01-31",
+   "2027-02-05",
+   "2027-02-06"
+  ],
+  "fonte": [
+   "https://www.mvhs.de/kurse//deutsch-integration/pruefungen-einbuergerung-460-CAT-KAT7849",
+   "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung-460-CAT-KAT7849",
+   "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/b1-460-CAT-KAT20149?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+   "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/b2-460-CAT-KAT7855?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+   "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/einbuergerung-460-CAT-KAT7868"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 29,
+  "citta": "münchen",
+  "nome": "Inlingua Sprachschule U. & C. Bernau GmbH",
+  "pagine_lette": 1,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 30,
+  "citta": "münchen",
+  "nome": "Anderwerk GmbH",
+  "pagine_lette": 2,
+  "formati": [
+   "pagina CMS con testo libero"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-18",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-16",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [
+   "2026-11-18"
+  ],
+  "fonte": [
+   "https://www.anderwerk.de/deutsch-pruefungstermine-anmelden/"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 31,
+  "citta": "münchen",
+  "nome": "Deutsche Angestellten-Akademie GmbH DAA München",
+  "pagine_lette": 0,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": []
+ },
+ {
+  "indice": 32,
+  "citta": "münchen",
+  "nome": "Bildungsinstitut Kavalchuk",
+  "pagine_lette": 2,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 33,
+  "citta": "münchen",
+  "nome": "MAS Sprachschule München GmbH",
+  "pagine_lette": 0,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": []
+ },
+ {
+  "indice": 34,
+  "citta": "köln",
+  "nome": "VHS der Stadt Köln Amt für Weiterbildung",
+  "pagine_lette": 2,
+  "formati": [
+   "KuferWeb"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-27",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-04",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-29",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.koelner-vhs.de/deutsch-integration/einbuergerungstest"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 35,
+  "citta": "köln",
+  "nome": "Prisma Bildungsplattform e. V.",
+  "pagine_lette": 0,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": []
+ },
+ {
+  "indice": 36,
+  "citta": "köln",
+  "nome": "Berlitz Deutschland GmbH / Niederlassung Köln",
+  "pagine_lette": 2,
+  "formati": [
+   "Berlitz (elenco per città)"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-04",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-09",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-02-17",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-03-17",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-04-21",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-06-02",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-07-14",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-08-25",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-10-13",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-11-17",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-12-15",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 37,
+  "citta": "köln",
+  "nome": "Euro-Schulen Rheinland GmbH",
+  "pagine_lette": 2,
+  "formati": [
+   "pagina CMS con testo libero"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-30",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.euro-schulen.de/koeln/pruefungen-tests"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 38,
+  "citta": "stuttgart",
+  "nome": "VHS Stuttgart e.V.",
+  "pagine_lette": 8,
+  "formati": [
+   "KuferWeb"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-07",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2026-11-20",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-11-21",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2026-11-21",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-05",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2026-12-05",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-11",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-19",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2026-12-19",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-16",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-22",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-02-12",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-02-20",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-03-13",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2027-03-13",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-03-19",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-03-27",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-04-10",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2027-04-16",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-04-23",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-04-24",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2027-05-08",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2027-06-05",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2027-06-19",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2027-07-17",
+    "tipo": "DTZ"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://vhs-stuttgart.de/deutsch-integration/pruefungen/dtz",
+   "https://vhs-stuttgart.de/deutsch-integration/pruefungen/einbuergerungstest",
+   "https://vhs-stuttgart.de/deutsch-integration/pruefungen/pruefungsvorbereitungen/dtz",
+   "https://vhs-stuttgart.de/deutsch-integration/pruefungen/test-leben-in-deutschland",
+   "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63025X",
+   "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63027X",
+   "https://vhs-stuttgart.de/programm/kurssuche/kurs/271-63023X"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 39,
+  "citta": "essen",
+  "nome": "VHS Essen",
+  "pagine_lette": 2,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 40,
+  "citta": "essen",
+  "nome": "inlingua Center Essen",
+  "pagine_lette": 4,
+  "formati": [
+   "pagina CMS con testo libero"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-28",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-18",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2026-12-18",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-04",
+    "tipo": "DTZ"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.inlingua-essen.de/",
+   "https://www.inlingua-essen.de/sprachkurse/details/dtz-gast-pruefung-3886/6042/?cHash=cdd544b95c61eb9cea40420f8063afa8",
+   "https://www.inlingua-essen.de/sprachpruefungen/einbuergerungstest/"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 41,
+  "citta": "leipzig",
+  "nome": "Leipziger Gesellschaft f. Bildung u. Arbeit mbH",
+  "pagine_lette": 1,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 42,
+  "citta": "leipzig",
+  "nome": "Euro Schulen Leipzig GmbH",
+  "pagine_lette": 3,
+  "formati": [
+   "pagina CMS con testo libero"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2027-03-09",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-03-23",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-04-20",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.euro-schulen.de/leipzig/pruefungen-tests"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 43,
+  "citta": "leipzig",
+  "nome": "Language Coach Institute Cäcilia Thiessen",
+  "pagine_lette": 4,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 44,
+  "citta": "leipzig",
+  "nome": "zu Hause e. V.",
+  "pagine_lette": 1,
+  "formati": [
+   "pagina CMS con testo libero"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-26",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.zuhause-ev.de/"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 45,
+  "citta": "leipzig",
+  "nome": "Learn and Speak Leipzig - Wolpert Schulungszentrum - Sprachschule Leipzig GmbH",
+  "pagine_lette": 0,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": []
+ },
+ {
+  "indice": 46,
+  "citta": "leipzig",
+  "nome": "VHS Stadt Leipzig",
+  "pagine_lette": 7,
+  "formati": [
+   "Kursportal VHS (itemKG/Kufer SQL)",
+   "pagina CMS con testo libero"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-28",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-15",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-12",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-02-05",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-02-06",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.vhs-leipzig.de/p/kurse/deutsch-integration/pruefungen/einbuergerungstest-495-C-F418892P",
+   "https://www.vhs-leipzig.de/p/kurse/deutsch-integration/pruefungen/einbuergerungstest-495-C-F418893P",
+   "https://www.vhs-leipzig.de/p/kurse/deutsch-integration/pruefungen/einbuergerungstest-495-C-G418880P",
+   "https://www.vhs-leipzig.de/p/kurse/deutsch-integration/pruefungen/einbuergerungstest-495-C-G418881P",
+   "https://www.vhs-leipzig.de/p/kurse/deutsch-integration/pruefungen/einbuergerungstest-495-C-G418882P",
+   "https://www.vhs-leipzig.de/p/kurse/deutsch-integration/pruefungen/einbuergerungstest-495-C-G418883P",
+   "https://www.vhs-leipzig.de/programm/deutsch-integration/pruefungen?highcontrast=0&cHash=6cba7594d0b74118b0877f268d64af93"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 47,
+  "citta": "ulm",
+  "nome": "Ulmer Volkshochschule",
+  "pagine_lette": 3,
+  "formati": [
+   "KuferWeb"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-12-10",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-02-18",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.vh-ulm.de/vh-programm/kurs-finder?kfs_stichwort=&katzeitraumfilter=__reset__&katwotagefilter[]=__reset__&katkategorienfilter=2039"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 48,
+  "citta": "düsseldorf",
+  "nome": "VHS Düsseldorf WBZ am Hauptbahnhof",
+  "pagine_lette": 0,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": []
+ },
+ {
+  "indice": 49,
+  "citta": "düsseldorf",
+  "nome": "Bénédict GmbH & Co. KG",
+  "pagine_lette": 2,
+  "formati": [
+   "pagina CMS con testo libero"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2027-01-14",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [
+   "2026-12-16"
+  ],
+  "fonte": [
+   "https://www.benedict-schulen.de/",
+   "https://www.benedict-schulen.de/einbuergerungstest/"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 50,
+  "citta": "düsseldorf",
+  "nome": "ASG-Bildungsforum",
+  "pagine_lette": 8,
+  "formati": [
+   "KuferWeb"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-26",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-10",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-21",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests",
+   "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kategorie/1408?clearallkatfilter=true",
+   "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kategorie/Einbuergerungstests/1408",
+   "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kurs/Deutsch-als-Fremdsprache-Einbuergerungstest/2601818010",
+   "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kurs/Deutsch-als-Fremdsprache-Einbuergerungstest/2601818011",
+   "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kurs/Deutsch-als-Fremdsprache-Einbuergerungstest/2701818001"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 51,
+  "citta": "düsseldorf",
+  "nome": "Sputnik - Integrations- und Übersetzungsdienst (SIÜD",
+  "pagine_lette": 0,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": []
+ },
+ {
+  "indice": 52,
+  "citta": "düsseldorf",
+  "nome": "Berlitz Deutschland GmbH",
+  "pagine_lette": 2,
+  "formati": [
+   "Berlitz (elenco per città)"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-25",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-16",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-21",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-02-24",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-03-24",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-04-28",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-05-26",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-06-30",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-07-28",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-08-31",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-09-28",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-10-27",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-11-25",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-12-17",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.berlitz.com/de-de/erwachsene/sprachtests/einbuergerungstest"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 53,
+  "citta": "düsseldorf",
+  "nome": "Study.on GmbH",
+  "pagine_lette": 2,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 54,
+  "citta": "düsseldorf",
+  "nome": "DÜS Eckert Spracheninstitut GmbH",
+  "pagine_lette": 1,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 55,
+  "citta": "düsseldorf",
+  "nome": "Benedict GmbH",
+  "pagine_lette": 2,
+  "formati": [
+   "pagina CMS con testo libero"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2027-01-14",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [
+   "2026-12-16"
+  ],
+  "fonte": [
+   "https://www.benedict-schulen.de/",
+   "https://www.benedict-schulen.de/einbuergerungstest/"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 56,
+  "citta": "hannover",
+  "nome": "inlingua Sprachschule Hannover GmbH",
+  "pagine_lette": 5,
+  "formati": [
+   "pagina CMS con testo libero"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-12-04",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2026-12-04",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-08",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-18",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2026-12-22",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-12",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-15",
+    "tipo": "DTZ"
+   }
+  ],
+  "date_iscrizione": [
+   "2026-11-10",
+   "2026-11-24",
+   "2026-12-22"
+  ],
+  "fonte": [
+   "https://inlingua-hannover.de/",
+   "https://inlingua-hannover.de/course/deutsch-test-fuer-zuwanderer-dtz/",
+   "https://inlingua-hannover.de/test/leben-in-deutschland-einbuergerungstest/"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 57,
+  "citta": "hannover",
+  "nome": "Volkshochschule Hannover",
+  "pagine_lette": 8,
+  "formati": [
+   "KuferWeb"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-07",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-11-20",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-11",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-29",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest",
+   "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kategorie/3061?clearallkatfilter=true",
+   "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kurs/262PP71117?knrdel=262PP71117",
+   "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kurs/Einbuergerungstest/271PP71138",
+   "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kurs/Einbuergerungstest/271PP71139",
+   "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kurs/Telc-Start-Deutsch-2-A2-Pruefung/262PP71117"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 58,
+  "citta": "hannover",
+  "nome": "Bildungsverein Soziales Lernen und Kommunikation e.V.",
+  "pagine_lette": 3,
+  "formati": [
+   "KuferWeb"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-12-04",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-08",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-02-05",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-03-05",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [
+   "2026-11-04",
+   "2026-12-08",
+   "2027-01-05"
+  ],
+  "fonte": [
+   "https://bildungsverein.de/kurs/271P71193/einbuergerungstest"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 59,
+  "citta": "hannover",
+  "nome": "Euro-Schulen Hannover GmbH",
+  "pagine_lette": 1,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 60,
+  "citta": "hannover",
+  "nome": "Verein für Integration- und Bildung e.V. - Sprachakademie Hannover",
+  "pagine_lette": 8,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 61,
+  "citta": "hannover",
+  "nome": "Berlitz Deutschland GmbH - Standort Hannover",
+  "pagine_lette": 2,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 62,
+  "citta": "hannover",
+  "nome": "BERGMANN Bildungsinstitut",
+  "pagine_lette": 2,
+  "formati": [
+   "pagina CMS con testo libero"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-26",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.bergmann-institut.org/einb%C3%BCrgerungstest"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 63,
+  "citta": "nürnberg",
+  "nome": "Akademia Zentrum für Kommunikation und Bildung - Nürnberg",
+  "pagine_lette": 2,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 64,
+  "citta": "nürnberg",
+  "nome": "Bildungszentrum Nürnberg",
+  "pagine_lette": 3,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 65,
+  "citta": "mannheim",
+  "nome": "Mannheimer Abendakademie und VHS GmbH",
+  "pagine_lette": 4,
+  "formati": [
+   "KuferWeb"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-25",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.abendakademie-mannheim.de/programm/deutsch-als-fremdsprachezweitsprache",
+   "https://www.abendakademie-mannheim.de/programm/deutsch-als-fremdsprachezweitsprache/kurs/Einbuergerungstest-November-AUSGEBUCHT/K380004"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 66,
+  "citta": "mannheim",
+  "nome": "Büro für Aus- und Weiterbildung Schweitzer&Cajic GbR",
+  "pagine_lette": 1,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 67,
+  "citta": "karlsruhe",
+  "nome": "Volkshochschule Karlsruhe e.V.",
+  "pagine_lette": 2,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 68,
+  "citta": "wiesbaden",
+  "nome": "VHS Wiesbaden e.V.",
+  "pagine_lette": 2,
+  "formati": [
+   "KuferWeb"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-12-15",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [
+   "2026-11-12"
+  ],
+  "fonte": [
+   "https://www.vhs-wiesbaden.de/fachbereiche-und-projekte/deutsch/einbuergerungstest"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 69,
+  "citta": "wiesbaden",
+  "nome": "Caritasverband Wiesbaden-Rheingau-Taunus e.V.",
+  "pagine_lette": 0,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": []
+ },
+ {
+  "indice": 70,
+  "citta": "wiesbaden",
+  "nome": "Euro-Schulen Rhein-Main GmbH",
+  "pagine_lette": 2,
+  "formati": [
+   "pagina CMS con testo libero"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-12-19",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-27",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-02-24",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.euro-schulen.de/wiesbaden/pruefungen-tests"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 71,
+  "citta": "wiesbaden",
+  "nome": "Delphin Nachhilfe Sprachkurse e.V.",
+  "pagine_lette": 0,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": []
+ },
+ {
+  "indice": 72,
+  "citta": "wiesbaden",
+  "nome": "Lern-Planet GmbH",
+  "pagine_lette": 3,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 73,
+  "citta": "erfurt",
+  "nome": "Internationaler Bund - Jugendmigrationsdienst Erfurt GmbH",
+  "pagine_lette": 0,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": []
+ },
+ {
+  "indice": 74,
+  "citta": "erfurt",
+  "nome": "Mitteldeutsches Institut für Qualifikation und berufliche Rehabilitation Erfurt",
+  "pagine_lette": 2,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "robots",
+   "robots"
+  ]
+ },
+ {
+  "indice": 75,
+  "citta": "regensburg",
+  "nome": "Volkshochschule der Stadt Regensburg, VHS Regensburg",
+  "pagine_lette": 1,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200"
+  ]
+ },
+ {
+  "indice": 76,
+  "citta": "dortmund",
+  "nome": "VHS Dortmund",
+  "pagine_lette": 8,
+  "formati": [
+   "KuferWeb"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-02",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-11-30",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-01",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-11",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-17",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-04",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-28",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen",
+   "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/kategorie/115?clearallkatfilter=true"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 77,
+  "citta": "dortmund",
+  "nome": "Auslandsgesellschaft.de gGmbH",
+  "pagine_lette": 4,
+  "formati": [
+   "pagina CMS con testo libero"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-12-02",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-12-17",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-07",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-21",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-02-04",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-02-18",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-03-04",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-03-18",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-04-01",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-04-15",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-05-05",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-05-20",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-06-03",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-06-17",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://auslandsgesellschaft.de/sprachen-lernen/pruefungen/einbuergerungstest/"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 78,
+  "citta": "augsburg",
+  "nome": "VHS Augsburg e.V.",
+  "pagine_lette": 2,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 79,
+  "citta": "chemnitz",
+  "nome": "Inlingua Chemnitz",
+  "pagine_lette": 5,
+  "formati": [
+   "pagina CMS con testo libero"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-06",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2026-11-12",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-28",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-29",
+    "tipo": "DTZ"
+   }
+  ],
+  "date_iscrizione": [
+   "2026-11-05",
+   "2027-01-04"
+  ],
+  "fonte": [
+   "https://www.inlingua-chemnitz.de/sprachpruefungen/dtz/",
+   "https://www.inlingua-chemnitz.de/sprachpruefungen/einbuergerungstest/"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 80,
+  "citta": "chemnitz",
+  "nome": "Mitteldeutsches Institut für Qualifikation und berufliche Rehabilitation MIQR GmbH",
+  "pagine_lette": 2,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "robots",
+   "robots"
+  ]
+ },
+ {
+  "indice": 81,
+  "citta": "chemnitz",
+  "nome": "Euro-Schulen West-Sachsen GmbH / Chemnitz",
+  "pagine_lette": 4,
+  "formati": [
+   "pagina CMS con testo libero"
+  ],
+  "date_esame_future": [
+   {
+    "data": "2026-11-20",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2026-11-30",
+    "tipo": "DTZ"
+   },
+   {
+    "data": "2026-12-18",
+    "tipo": "EBT"
+   },
+   {
+    "data": "2027-01-21",
+    "tipo": "EBT"
+   }
+  ],
+  "date_iscrizione": [],
+  "fonte": [
+   "https://www.euro-schulen.de/chemnitz/pruefungen-tests"
+  ],
+  "leggibile_ebt": true,
+  "leggibile_qualsiasi": true,
+  "stati_http": [
+   "200",
+   "200",
+   "200",
+   "200"
+  ]
+ },
+ {
+  "indice": 82,
+  "citta": "chemnitz",
+  "nome": "Benedict School F+U gemeinnützige Bildungseinrichtung für Fortbildung und Umschulung Sachsen gGmbH",
+  "pagine_lette": 0,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": []
+ },
+ {
+  "indice": 83,
+  "citta": "chemnitz",
+  "nome": "VHS Chemnitz",
+  "pagine_lette": 0,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": []
+ },
+ {
+  "indice": 84,
+  "citta": "chemnitz",
+  "nome": "Sächsischer Volkshochschulverband",
+  "pagine_lette": 2,
+  "formati": [],
+  "date_esame_future": [],
+  "date_iscrizione": [],
+  "fonte": [],
+  "leggibile_ebt": false,
+  "leggibile_qualsiasi": false,
+  "stati_http": [
+   "200",
+   "200"
+  ]
+ }
+]

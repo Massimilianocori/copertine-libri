@@ -1,0 +1,92 @@
+{
+ "nome": "inlingua Sprachschule Hannover GmbH",
+ "citta": "hannover",
+ "url_partenza": "https://www.inlingua-hannover.de/",
+ "pagine": [
+  {
+   "url": "https://inlingua-hannover.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 165349,
+   "n_date": 8
+  },
+  {
+   "url": "https://inlingua-hannover.de/course/deutsch-test-fuer-zuwanderer-dtz/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 133695,
+   "n_date": 6
+  },
+  {
+   "url": "https://inlingua-hannover.de/test/leben-in-deutschland-einbuergerungstest/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 118732,
+   "n_date": 4
+  },
+  {
+   "url": "https://inlingua-hannover.de/news/leben-in-deutschland-einbuergerungstest/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 103570
+  },
+  {
+   "url": "https://inlingua-hannover.de/news/telc-deutsch-b1-pruefung/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 104202
+  }
+ ],
+ "pdf": [
+  "https://inlingua-hannover.de/wp-content/uploads/2026/10/Anmeldeformular_DTZ_2026_ONLINE.pdf",
+  "https://inlingua-hannover.de/wp-content/uploads/2026/10/Anmeldeformular_DTZ_2026_ONLINE.pdf",
+  "https://inlingua-hannover.de/wp-content/uploads/2026/10/Anmeldeformular_DTZ_2026_ONLINE.pdf"
+ ],
+ "date": [
+  {
+   "data": "2026-11-10",
+   "pagina": "https://inlingua-hannover.de/course/deutsch-test-fuer-zuwanderer-dtz/"
+  },
+  {
+   "data": "2026-11-16",
+   "pagina": "https://inlingua-hannover.de/"
+  },
+  {
+   "data": "2026-11-23",
+   "pagina": "https://inlingua-hannover.de/"
+  },
+  {
+   "data": "2026-11-24",
+   "pagina": "https://inlingua-hannover.de/course/deutsch-test-fuer-zuwanderer-dtz/"
+  },
+  {
+   "data": "2026-12-04",
+   "pagina": "https://inlingua-hannover.de/course/deutsch-test-fuer-zuwanderer-dtz/"
+  },
+  {
+   "data": "2026-12-08",
+   "pagina": "https://inlingua-hannover.de/test/leben-in-deutschland-einbuergerungstest/"
+  },
+  {
+   "data": "2026-12-18",
+   "pagina": "https://inlingua-hannover.de/course/deutsch-test-fuer-zuwanderer-dtz/"
+  },
+  {
+   "data": "2026-12-22",
+   "pagina": "https://inlingua-hannover.de/test/leben-in-deutschland-einbuergerungstest/"
+  },
+  {
+   "data": "2027-01-12",
+   "pagina": "https://inlingua-hannover.de/test/leben-in-deutschland-einbuergerungstest/"
+  },
+  {
+   "data": "2027-01-15",
+   "pagina": "https://inlingua-hannover.de/course/deutsch-test-fuer-zuwanderer-dtz/"
+  },
+  {
+   "data": "2027-01-18",
+   "pagina": "https://inlingua-hannover.de/"
+  }
+ ],
+ "esito": "date future in HTML"
+}

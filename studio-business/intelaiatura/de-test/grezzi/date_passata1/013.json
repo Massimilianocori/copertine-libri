@@ -1,0 +1,26 @@
+{
+ "nome": "Harri-Reinert-Volkshochschule Spandau",
+ "citta": "berlin",
+ "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/spandau/",
+ "pagine": [
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/spandau/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 84281
+  },
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/mitte/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 92122
+  },
+  {
+   "url": "https://www.berlin.de/vhs/deutscher-einbuergerungstest/",
+   "stato": 429
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

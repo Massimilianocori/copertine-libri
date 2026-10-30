@@ -1,0 +1,14 @@
+{
+ "nome": "VHS Berlin-Charlottenburg City West",
+ "citta": "berlin",
+ "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/charlottenburg-wilmersdorf/",
+ "pagine": [
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/charlottenburg-wilmersdorf/",
+   "stato": 429
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "bloccato (429)"
+}

@@ -1,0 +1,130 @@
+{
+ "nome": "Language Coach Institute Cäcilia Thiessen",
+ "citta": "leipzig",
+ "url_partenza": "https://www.languagecoach.de/",
+ "pagine": [
+  {
+   "url": "https://www.languagecoach.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 42558
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse",
+   "stato": 200,
+   "chiave": false,
+   "byte": 38000
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/aussprachekurse",
+   "stato": 200,
+   "chiave": false,
+   "byte": 41190
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/uebersicht-aussprachekurse",
+   "stato": 200,
+   "chiave": false,
+   "byte": 29468
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/intensivkurs-deutsch-a1-online",
+   "stato": 200,
+   "chiave": false,
+   "byte": 26520
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/intensivkurs-deutsch-b2-online",
+   "stato": 200,
+   "chiave": false,
+   "byte": 26012
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/intensivkurs-deutsch-c1-online",
+   "stato": 200,
+   "chiave": false,
+   "byte": 26742
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/intensivkurs-deutsch-b2-online-kopie-kopie2",
+   "stato": 200,
+   "chiave": false,
+   "byte": 25931
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/pruefungsvorbereitung-auf-die-fachsprachpruefung-fsp",
+   "stato": 200,
+   "chiave": false,
+   "byte": 26329
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/intensivkurs-deutsch-b2-online-kopie2-kopie-kopie",
+   "stato": 200,
+   "chiave": false,
+   "byte": 26844
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/einzelcoaching",
+   "stato": 200,
+   "chiave": false,
+   "byte": 30469
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/erlebniskurse",
+   "stato": 200,
+   "chiave": false,
+   "byte": 26841
+  },
+  {
+   "url": "https://www.languagecoach.de/gefoerderte-sprachkurse",
+   "stato": 200,
+   "chiave": false,
+   "byte": 37997
+  },
+  {
+   "url": "https://www.languagecoach.de/gefoerderte-sprachkurse/allgemeiner-integrationskurs",
+   "stato": 200,
+   "chiave": true,
+   "byte": 34720
+  },
+  {
+   "url": "https://www.languagecoach.de/gefoerderte-sprachkurse/zweitschriftlernerkurs",
+   "stato": 200,
+   "chiave": true,
+   "byte": 31401
+  },
+  {
+   "url": "https://www.languagecoach.de/gefoerderte-sprachkurse/geringliteralisiertenkurs",
+   "stato": 200,
+   "chiave": true,
+   "byte": 33142
+  },
+  {
+   "url": "https://www.languagecoach.de/gefoerderte-sprachkurse/alphabetisierungskurs",
+   "stato": 200,
+   "chiave": true,
+   "byte": 33387
+  },
+  {
+   "url": "https://www.languagecoach.de/gefoerderte-sprachkurse/berufsbezogene-deutschkurse",
+   "stato": 200,
+   "chiave": false,
+   "byte": 33031
+  },
+  {
+   "url": "https://www.languagecoach.de/gefoerderte-sprachkurse/deutsch-fuer-mediziner",
+   "stato": 200,
+   "chiave": false,
+   "byte": 31061
+  },
+  {
+   "url": "https://www.languagecoach.de/gefoerderte-sprachkurse/deutsch-fuer-gesundheitsfachberufe",
+   "stato": 200,
+   "chiave": false,
+   "byte": 32895
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

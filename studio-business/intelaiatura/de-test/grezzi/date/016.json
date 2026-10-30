@@ -1,0 +1,16 @@
+{
+ "nome": "VHS Berlin-Marzahn-Hellersdorf",
+ "citta": "berlin",
+ "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/marzahn-hellersdorf/",
+ "pagine": [
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/marzahn-hellersdorf/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 99925
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

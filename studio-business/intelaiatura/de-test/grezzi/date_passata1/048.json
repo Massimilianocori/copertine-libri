@@ -1,0 +1,14 @@
+{
+ "nome": "VHS Düsseldorf WBZ am Hauptbahnhof",
+ "citta": "düsseldorf",
+ "url_partenza": "https://www.duesseldorf.de/vhs",
+ "pagine": [
+  {
+   "url": "https://www.duesseldorf.de/vhs",
+   "stato": "robots"
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "bloccato (robots)"
+}

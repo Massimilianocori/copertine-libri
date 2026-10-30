@@ -1,0 +1,70 @@
+{
+ "nome": "Euro Schulen Leipzig GmbH",
+ "citta": "leipzig",
+ "url_partenza": "https://www.eso.de/",
+ "pagine": [
+  {
+   "url": "https://www.eso.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 216714
+  },
+  {
+   "url": "https://www.euro-schulen.de/leipzig/pruefungen-tests",
+   "stato": 200,
+   "chiave": true,
+   "byte": 37773,
+   "n_date": 8
+  },
+  {
+   "url": "https://www.euro-schulen.de/leipzig/bildungsangebote/details/A7TH__PO_2Q18S_1/Einbuergerungstest",
+   "stato": 200,
+   "chiave": true,
+   "byte": 100639,
+   "n_date": 4
+  },
+  {
+   "url": "https://www.euro-schulen.de/leipzig/news/details/neues-einbuergerungsgesetz-von-regierung-verabschiedet-1",
+   "stato": 200,
+   "chiave": true,
+   "byte": 36916,
+   "n_date": 4
+  },
+  {
+   "url": "https://www.euro-schulen.de/leipzig/pruefungen-tests/A7TH__PO_2Q18S_",
+   "stato": 404
+  },
+  {
+   "url": "https://www.euro-schulen.de/leipzig/bildungsangebote/details/A7TH__PO_2Q18S_",
+   "stato": "robots"
+  },
+  {
+   "url": "https://www.euro-schulen.de/leipzig/news/details/A7TH__PO_2Q18S_",
+   "stato": 404
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-05",
+   "pagina": "https://www.euro-schulen.de/leipzig/news/details/neues-einbuergerungsgesetz-von-regierung-verabschiedet-1"
+  },
+  {
+   "data": "2027-02-23",
+   "pagina": "https://www.euro-schulen.de/leipzig/news/details/neues-einbuergerungsgesetz-von-regierung-verabschiedet-1"
+  },
+  {
+   "data": "2027-03-09",
+   "pagina": "https://www.euro-schulen.de/leipzig/news/details/neues-einbuergerungsgesetz-von-regierung-verabschiedet-1"
+  },
+  {
+   "data": "2027-03-23",
+   "pagina": "https://www.euro-schulen.de/leipzig/news/details/neues-einbuergerungsgesetz-von-regierung-verabschiedet-1"
+  },
+  {
+   "data": "2027-04-20",
+   "pagina": "https://www.euro-schulen.de/leipzig/pruefungen-tests"
+  }
+ ],
+ "esito": "date future in HTML"
+}

@@ -1,0 +1,16 @@
+{
+ "nome": "VHS Berlin Lichtenberg",
+ "citta": "berlin",
+ "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/lichtenberg/",
+ "pagine": [
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/lichtenberg/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 106477
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

@@ -1,0 +1,16 @@
+{
+ "nome": "VHS Berlin Steglitz-Zehlendorf",
+ "citta": "berlin",
+ "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/steglitz-zehlendorf/",
+ "pagine": [
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/steglitz-zehlendorf/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 103518
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

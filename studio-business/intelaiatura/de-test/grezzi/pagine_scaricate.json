@@ -1,0 +1,131 @@
+{
+ "bamf_pagine": {
+  "pagina-BB.html": {
+   "stato": 200,
+   "xlsx": "Pruefstellen-BB.xlsx?__blob=publicationFile&v=13"
+  },
+  "pagina-BE.html": {
+   "stato": 200,
+   "xlsx": "Pruefstellen-BE.xlsx?__blob=publicationFile&v=13"
+  },
+  "pagina-BW.html": {
+   "stato": 200,
+   "xlsx": "Pruefstellen-BW.xlsx?__blob=publicationFile&v=53"
+  },
+  "pagina-BY.html": {
+   "stato": 200,
+   "xlsx": "Pruefstellen-BY.xlsx?__blob=publicationFile&v=77"
+  },
+  "pagina-HB.html": {
+   "stato": 200,
+   "xlsx": "Pruefstellen-HB.xlsx?__blob=publicationFile&v=7"
+  },
+  "pagina-HE.html": {
+   "stato": 200,
+   "xlsx": "Pruefstellen-HE.xlsx?__blob=publicationFile&v=40"
+  },
+  "pagina-HH.html": {
+   "stato": 200,
+   "xlsx": "Pruefstellen-HH.xlsx?__blob=publicationFile&v=22"
+  },
+  "pagina-MV.html": {
+   "stato": 200,
+   "xlsx": "Pruefstellen-MV.xlsx?__blob=publicationFile&v=17"
+  },
+  "pagina-NI.html": {
+   "stato": 200,
+   "xlsx": "Pruefstellen-NI.xlsx?__blob=publicationFile&v=45"
+  },
+  "pagina-NW.html": {
+   "stato": 200,
+   "xlsx": "Pruefstellen-NW.xlsx?__blob=publicationFile&v=68"
+  },
+  "pagina-RP.html": {
+   "stato": 200,
+   "xlsx": "Pruefstellen-RP.xlsx?__blob=publicationFile&v=25"
+  },
+  "pagina-SH.html": {
+   "stato": 200,
+   "xlsx": "Pruefstellen-SH.xlsx?__blob=publicationFile&v=6"
+  },
+  "pagina-SL.html": {
+   "stato": 200,
+   "xlsx": "Pruefstellen-SL.xlsx?__blob=publicationFile&v=7"
+  },
+  "pagina-SN.html": {
+   "stato": 200,
+   "xlsx": "Pruefstellen-SN.xlsx?__blob=publicationFile&v=26"
+  },
+  "pagina-ST.html": {
+   "stato": 200,
+   "xlsx": "Pruefstellen-ST.xlsx?__blob=publicationFile&v=12"
+  },
+  "pagina-TH.html": {
+   "stato": 200,
+   "xlsx": "Pruefstellen-TH.xlsx?__blob=publicationFile&v=12"
+  }
+ },
+ "berlino_pagine": {
+  "mitte.html": {
+   "stato": 200,
+   "byte": 92122
+  },
+  "st-122626.html": {
+   "stato": 200,
+   "byte": 46845
+  },
+  "st-122628.html": {
+   "stato": 200,
+   "byte": 58799
+  },
+  "st-122659.html": {
+   "stato": 200,
+   "byte": 51843
+  },
+  "st-122664.html": {
+   "stato": 200,
+   "byte": 47018
+  },
+  "st-122666.html": {
+   "stato": 200,
+   "byte": 53385
+  },
+  "st-122671.html": {
+   "stato": 200,
+   "byte": 46606
+  },
+  "st-325853.html": {
+   "stato": 200,
+   "byte": 52518
+  },
+  "st-325987.html": {
+   "stato": 200,
+   "byte": 48095
+  },
+  "st-351435.html": {
+   "stato": 200,
+   "byte": 47987
+  },
+  "st-351438.html": {
+   "stato": 200,
+   "byte": 57582
+  },
+  "st-351444.html": {
+   "stato": 200,
+   "byte": 50826
+  },
+  "st-351636.html": {
+   "stato": 200,
+   "byte": 56096
+  },
+  "st-351654.html": {
+   "stato": 200,
+   "byte": 50282
+  },
+  "vhs-einbuergerungstest.html": {
+   "stato": 200,
+   "byte": 74049
+  }
+ },
+ "nota": "HTML cancellato dopo la lettura: conteneva dati di contatto del personale. Indirizzi: bamf.de/SharedDocs/Anlagen/DE/Integration/Einbuergerung/Pruefstellen-<LAND>.html; service.berlin.de/dienstleistung/351180/standort/<id>/ (13 sedi, nessuna data); berlin.de/vhs/deutscher-einbuergerungstest/"
+}

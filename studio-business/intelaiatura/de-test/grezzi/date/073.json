@@ -1,0 +1,16 @@
+{
+ "nome": "Internationaler Bund - Jugendmigrationsdienst Erfurt GmbH",
+ "citta": "erfurt",
+ "url_partenza": "https://www.internationaler-bund.de/",
+ "pagine": [
+  {
+   "url": "https://www.internationaler-bund.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 164064
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test non trovata"
+}

@@ -1,0 +1,60 @@
+{
+ "nome": "Auslandsgesellschaft.de gGmbH",
+ "citta": "dortmund",
+ "url_partenza": "https://www.auslandsgesellschaft.de/",
+ "pagine": [
+  {
+   "url": "https://auslandsgesellschaft.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 447508
+  },
+  {
+   "url": "https://auslandsgesellschaft.de/sprachen-lernen/pruefungen/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 309404
+  },
+  {
+   "url": "https://auslandsgesellschaft.de/sprachen-lernen/pruefungen/leben-in-deutschland/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 288566
+  },
+  {
+   "url": "https://auslandsgesellschaft.de/sprachen-lernen/pruefungen/deutschtest-fuer-zuwanderer-dtz/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 300123
+  },
+  {
+   "url": "https://auslandsgesellschaft.de/sprachen-lernen/pruefungen/einbuergerungstest/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 352137,
+   "n_date": 2
+  },
+  {
+   "url": "https://auslandsgesellschaft.de/schulersprachkurse-in-den-ferien/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 319053
+  },
+  {
+   "url": "https://auslandsgesellschaft.de/black-friday-2025-jetzt-sprachkurse-und-reisen-guenstiger-buchen/",
+   "stato": 404
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-12-02",
+   "pagina": "https://auslandsgesellschaft.de/sprachen-lernen/pruefungen/einbuergerungstest/"
+  },
+  {
+   "data": "2026-12-17",
+   "pagina": "https://auslandsgesellschaft.de/sprachen-lernen/pruefungen/einbuergerungstest/"
+  }
+ ],
+ "esito": "date future in HTML"
+}

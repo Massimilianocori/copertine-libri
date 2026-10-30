@@ -1,0 +1,28 @@
+{
+ "nome": "Bayerisches Rotes Kreuz",
+ "citta": "münchen",
+ "url_partenza": "https://www.brk-muenchen.de/",
+ "pagine": [
+  {
+   "url": "https://www.brk-muenchen.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 106328
+  },
+  {
+   "url": "https://www.brk-muenchen.de/aktuell/presse-service/meldung/terminankuendigung-kluge-vorsorge-durch-vollmacht-betreuungs-und-patientenverfuegung.html",
+   "stato": 200,
+   "chiave": false,
+   "byte": 70963
+  },
+  {
+   "url": "https://www.brk-muenchen.de/spenden/testamentspende.html",
+   "stato": 200,
+   "chiave": false,
+   "byte": 87834
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test non trovata"
+}

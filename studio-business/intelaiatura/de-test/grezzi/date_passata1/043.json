@@ -1,0 +1,82 @@
+{
+ "nome": "Language Coach Institute Cäcilia Thiessen",
+ "citta": "leipzig",
+ "url_partenza": "https://www.languagecoach.de/",
+ "pagine": [
+  {
+   "url": "https://www.languagecoach.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 42564
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse",
+   "stato": 200,
+   "chiave": false,
+   "byte": 38003
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/aussprachekurse",
+   "stato": 200,
+   "chiave": false,
+   "byte": 41193
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/uebersicht-aussprachekurse",
+   "stato": 200,
+   "chiave": false,
+   "byte": 29475
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/intensivkurs-deutsch-a1-online",
+   "stato": 200,
+   "chiave": false,
+   "byte": 26523
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/intensivkurs-deutsch-b2-online",
+   "stato": 200,
+   "chiave": false,
+   "byte": 26025
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/intensivkurs-deutsch-c1-online",
+   "stato": 200,
+   "chiave": false,
+   "byte": 26738
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/intensivkurs-deutsch-b2-online-kopie-kopie2",
+   "stato": 200,
+   "chiave": false,
+   "byte": 25931
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/pruefungsvorbereitung-auf-die-fachsprachpruefung-fsp",
+   "stato": 200,
+   "chiave": false,
+   "byte": 26336
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/intensivkurs-deutsch-b2-online-kopie2-kopie-kopie",
+   "stato": 200,
+   "chiave": false,
+   "byte": 26844
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/einzelcoaching",
+   "stato": 200,
+   "chiave": false,
+   "byte": 30469
+  },
+  {
+   "url": "https://www.languagecoach.de/individuelle-sprachkurse/erlebniskurse",
+   "stato": 200,
+   "chiave": false,
+   "byte": 26834
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test non trovata"
+}

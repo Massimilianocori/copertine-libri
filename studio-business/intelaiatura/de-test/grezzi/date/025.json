@@ -1,0 +1,40 @@
+{
+ "nome": "Grone Bildungszentren Hessen gGmbH",
+ "citta": "frankfurt",
+ "url_partenza": "https://www.grone.de/",
+ "pagine": [
+  {
+   "url": "https://grone.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 3318992
+  },
+  {
+   "url": "https://grone.de/grone-guide/artikel/karriere-weiterbildung/ausbildung-der-ausbilderinnen-nach-aevo-so-funktioniert-die-qualifikation",
+   "stato": 200,
+   "chiave": false,
+   "byte": 865291
+  },
+  {
+   "url": "https://grone.de/grone-guide/artikel/ausbildung/pflegefachassistenz-ab-2027-was-sich-kuenftig-bei-der-ausbildung-in-pflegehilfe-und-pflegeassistenz-aendert",
+   "stato": 200,
+   "chiave": false,
+   "byte": 617669
+  },
+  {
+   "url": "https://grone.de/grone-guide/artikel/arbeitsmarkt/grundsicherungsgeld-hat-das-buergergeld-abgeloest-die-wichtigsten-aenderungen-auf-einen-blick",
+   "stato": 200,
+   "chiave": false,
+   "byte": 996619
+  },
+  {
+   "url": "https://grone.de/angebote/angebote-detail/ausbildung-der-ausbilderinnen-ada-nach-aevo-vorbereitung-auf-die-praktische-pruefung",
+   "stato": 200,
+   "chiave": false,
+   "byte": 451857
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test non trovata"
+}

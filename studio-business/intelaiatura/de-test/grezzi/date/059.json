@@ -1,0 +1,22 @@
+{
+ "nome": "Euro-Schulen Hannover GmbH",
+ "citta": "hannover",
+ "url_partenza": "https://www.eso.de/",
+ "pagine": [
+  {
+   "url": "https://www.eso.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 216714
+  },
+  {
+   "url": "https://www.euro-schulen.de/hannover/pruefungen-tests",
+   "stato": 200,
+   "chiave": true,
+   "byte": 26726
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

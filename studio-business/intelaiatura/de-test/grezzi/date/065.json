@@ -1,0 +1,71 @@
+{
+ "nome": "Mannheimer Abendakademie und VHS GmbH",
+ "citta": "mannheim",
+ "url_partenza": "https://www.abendakademie-mannheim.de/",
+ "pagine": [
+  {
+   "url": "https://www.abendakademie-mannheim.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 71523
+  },
+  {
+   "url": "https://www.abendakademie-mannheim.de/programm/deutsch-als-fremdsprachezweitsprache",
+   "stato": 200,
+   "chiave": true,
+   "byte": 222923,
+   "n_date": 1
+  },
+  {
+   "url": "https://www.abendakademie-mannheim.de/programm/deutsch-als-fremdsprachezweitsprache/kurs/Einbuergerungstest-November-AUSGEBUCHT/K380004",
+   "stato": 200,
+   "chiave": true,
+   "byte": 49429,
+   "n_date": 1
+  },
+  {
+   "url": "https://www.abendakademie-mannheim.de/programm/deutsch-als-fremdsprachezweitsprache/kurs/Einbuergerungstest-November-AUSGEBUCHT/index.php?id=177",
+   "stato": "robots"
+  },
+  {
+   "url": "https://www.abendakademie-mannheim.de/fuer-kundinnen/foerdermoeglichkeiten/integrationskurse-mit-foerderung-des-bamf",
+   "stato": 200,
+   "chiave": true,
+   "byte": 33164
+  },
+  {
+   "url": "https://www.abendakademie-mannheim.de/fuer-kundinnen/einstufungstests",
+   "stato": 200,
+   "chiave": false,
+   "byte": 30881
+  },
+  {
+   "url": "https://www.abendakademie-mannheim.de/fuer-kundinnen/einstufungstests/fremdsprachen",
+   "stato": 200,
+   "chiave": false,
+   "byte": 31920
+  },
+  {
+   "url": "https://www.abendakademie-mannheim.de/fuer-kundinnen/haeufig-gestellte-fragen/faq-deutsch-als-fremdsprache",
+   "stato": 200,
+   "chiave": false,
+   "byte": 31453
+  },
+  {
+   "url": "https://www.abendakademie-mannheim.de/programmbereiche/deutsch-als-fremdsprachezweitsprache",
+   "stato": 200,
+   "chiave": true,
+   "byte": 102052
+  }
+ ],
+ "pdf": [
+  "https://www.abendakademie-mannheim.de/fileadmin/user_upload/PDF-Dokumente/Allgemeine_Dokumente/Abteilung_3/DTZ-gast-Pruefungen.pdf"
+ ],
+ "date": [
+  {
+   "data": "2026-11-25",
+   "pagina": "https://www.abendakademie-mannheim.de/programm/deutsch-als-fremdsprachezweitsprache/kurs/Einbuergerungstest-November-AUSGEBUCHT/K380004"
+  }
+ ],
+ "esito": "date future in HTML"
+}

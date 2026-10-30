@@ -1,0 +1,22 @@
+{
+ "nome": "Study.on GmbH",
+ "citta": "düsseldorf",
+ "url_partenza": "https://www.studyon.de/",
+ "pagine": [
+  {
+   "url": "https://www.studyon.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 60637
+  },
+  {
+   "url": "https://www.studyon.de/prufungen",
+   "stato": 200,
+   "chiave": true,
+   "byte": 60935
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

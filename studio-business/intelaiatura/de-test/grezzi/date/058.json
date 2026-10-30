@@ -1,0 +1,88 @@
+{
+ "nome": "Bildungsverein Soziales Lernen und Kommunikation e.V.",
+ "citta": "hannover",
+ "url_partenza": "https://www.bildungsverein.de/",
+ "pagine": [
+  {
+   "url": "https://bildungsverein.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 34360
+  },
+  {
+   "url": "https://bildungsverein.de/programm/sprachen-dieser-welt/fremdsprachen-tests/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 34034
+  },
+  {
+   "url": "https://bildungsverein.de/programm/sprachen-dieser-welt/rucktritt-von-sprachkursen/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 31143
+  },
+  {
+   "url": "https://bildungsverein.de/programm/deutsch-verbindet/integrationskurse/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 32596
+  },
+  {
+   "url": "https://bildungsverein.de/programm/deutsch-verbindet/berufssprachkurse/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 32381
+  },
+  {
+   "url": "https://bildungsverein.de/programm/deutsch-verbindet/prufungen/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 31468
+  },
+  {
+   "url": "https://bildungsverein.de/kurs/271P71193/einbuergerungstest",
+   "stato": 200,
+   "chiave": true,
+   "byte": 31415,
+   "n_date": 8
+  },
+  {
+   "url": "https://bildungsverein.de/aktuell/pr%C3%BCfungsvorbereitung-deutsch-telc-b2/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 29466
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-04",
+   "pagina": "https://bildungsverein.de/kurs/271P71193/einbuergerungstest"
+  },
+  {
+   "data": "2026-12-04",
+   "pagina": "https://bildungsverein.de/kurs/271P71193/einbuergerungstest"
+  },
+  {
+   "data": "2026-12-08",
+   "pagina": "https://bildungsverein.de/kurs/271P71193/einbuergerungstest"
+  },
+  {
+   "data": "2027-01-05",
+   "pagina": "https://bildungsverein.de/kurs/271P71193/einbuergerungstest"
+  },
+  {
+   "data": "2027-01-08",
+   "pagina": "https://bildungsverein.de/kurs/271P71193/einbuergerungstest"
+  },
+  {
+   "data": "2027-02-05",
+   "pagina": "https://bildungsverein.de/kurs/271P71193/einbuergerungstest"
+  },
+  {
+   "data": "2027-03-05",
+   "pagina": "https://bildungsverein.de/kurs/271P71193/einbuergerungstest"
+  }
+ ],
+ "esito": "date future in HTML"
+}

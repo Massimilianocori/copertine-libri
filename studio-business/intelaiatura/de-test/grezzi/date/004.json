@@ -1,0 +1,55 @@
+{
+ "nome": "IBH - Interkulturelle Bildung Hamburg e.V.",
+ "citta": "hamburg",
+ "url_partenza": "https://www.ibhev.de/",
+ "pagine": [
+  {
+   "url": "https://ibhev.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 272433,
+   "n_date": 1
+  },
+  {
+   "url": "https://ibhev.de/einbuergerungstest/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 193474,
+   "n_date": 6
+  },
+  {
+   "url": "https://ibhev.de/deutschtest-fuer-zuwanderer-dtz/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 188658
+  },
+  {
+   "url": "https://ibhev.de/leben-in-deutschland-lid/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 188428
+  },
+  {
+   "url": "https://staging.ibhev.de/einbuergerungstest/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 139102,
+   "n_date": 6
+  }
+ ],
+ "pdf": [
+  "https://ibhev.de/wp-content/uploads/Muster_Teilnehmermeldebogen_Einbuergerungstest.pdf",
+  "https://ibhev.de/wp-content/uploads/Muster_Teilnehmermeldebogen_Einbuergerungstest.pdf"
+ ],
+ "date": [
+  {
+   "data": "2026-11-25",
+   "pagina": "https://staging.ibhev.de/einbuergerungstest/"
+  },
+  {
+   "data": "2027-01-11",
+   "pagina": "https://staging.ibhev.de/einbuergerungstest/"
+  }
+ ],
+ "esito": "date future in HTML"
+}

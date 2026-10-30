@@ -1,0 +1,84 @@
+{
+ "nome": "KOM gGmbH",
+ "citta": "hamburg",
+ "url_partenza": "https://www.kom-bildung.de/",
+ "pagine": [
+  {
+   "url": "https://www.kom-bildung.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 321947
+  },
+  {
+   "url": "https://www.kom-bildung.de/deutsch",
+   "stato": 200,
+   "chiave": true,
+   "byte": 239345
+  },
+  {
+   "url": "https://www.kom-bildung.de/bildung/einbuergerungstest",
+   "stato": 200,
+   "chiave": true,
+   "byte": 183878
+  },
+  {
+   "url": "https://www.kom-bildung.de/bildung/test-leben-in-deutschland",
+   "stato": 200,
+   "chiave": true,
+   "byte": 257685
+  },
+  {
+   "url": "https://www.kom-bildung.de/bildung/dtz",
+   "stato": 200,
+   "chiave": true,
+   "byte": 207775,
+   "n_date": 6
+  },
+  {
+   "url": "https://www.kom-bildung.de/bildung/telc-deutsch-test",
+   "stato": 200,
+   "chiave": true,
+   "byte": 259069
+  },
+  {
+   "url": "https://www.kom-bildung.de/bildung/telc-b2",
+   "stato": 200,
+   "chiave": true,
+   "byte": 181853
+  },
+  {
+   "url": "https://www.kom-bildung.de/https:/www.telc.net/sprachpruefungen/deutsch/dtb-deutsch-test-fuer-den-beruf/deutsch-test-fuer-den-beruf-b2/",
+   "stato": 404
+  }
+ ],
+ "pdf": [
+  "https://www.kom-bildung.de/s/Informationsblatt-zum-Einburgerungstest.pdf"
+ ],
+ "date": [
+  {
+   "data": "2026-11-06",
+   "pagina": "https://www.kom-bildung.de/bildung/dtz"
+  },
+  {
+   "data": "2026-11-20",
+   "pagina": "https://www.kom-bildung.de/bildung/dtz"
+  },
+  {
+   "data": "2027-01-22",
+   "pagina": "https://www.kom-bildung.de/bildung/dtz"
+  },
+  {
+   "data": "2027-02-05",
+   "pagina": "https://www.kom-bildung.de/bildung/dtz"
+  },
+  {
+   "data": "2027-02-12",
+   "pagina": "https://www.kom-bildung.de/bildung/dtz"
+  },
+  {
+   "data": "2027-02-26",
+   "pagina": "https://www.kom-bildung.de/bildung/dtz"
+  }
+ ],
+ "esito": "date future in HTML"
+}

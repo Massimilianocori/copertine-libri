@@ -1,0 +1,32 @@
+{
+ "nome": "VHS Berlin-Pankow",
+ "citta": "berlin",
+ "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/pankow/",
+ "pagine": [
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/pankow/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 94352
+  },
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/pankow/service/einbuergerungstest-vhs-pankow-1463977.php",
+   "stato": 200,
+   "chiave": true,
+   "byte": 91803,
+   "n_date": 2
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-23",
+   "pagina": "https://www.berlin.de/vhs/volkshochschulen/pankow/service/einbuergerungstest-vhs-pankow-1463977.php"
+  },
+  {
+   "data": "2027-02-15",
+   "pagina": "https://www.berlin.de/vhs/volkshochschulen/pankow/service/einbuergerungstest-vhs-pankow-1463977.php"
+  }
+ ],
+ "esito": "date future in HTML"
+}

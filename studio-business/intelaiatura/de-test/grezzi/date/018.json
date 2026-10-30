@@ -1,0 +1,34 @@
+{
+ "nome": "VHS Berlin Treptow-Köpenick",
+ "citta": "berlin",
+ "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/treptow-koepenick/",
+ "pagine": [
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/treptow-koepenick/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 89414,
+   "n_date": 5
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-11",
+   "pagina": "https://www.berlin.de/vhs/volkshochschulen/treptow-koepenick/"
+  },
+  {
+   "data": "2026-11-13",
+   "pagina": "https://www.berlin.de/vhs/volkshochschulen/treptow-koepenick/"
+  },
+  {
+   "data": "2026-12-05",
+   "pagina": "https://www.berlin.de/vhs/volkshochschulen/treptow-koepenick/"
+  },
+  {
+   "data": "2026-12-10",
+   "pagina": "https://www.berlin.de/vhs/volkshochschulen/treptow-koepenick/"
+  }
+ ],
+ "esito": "date future in HTML"
+}

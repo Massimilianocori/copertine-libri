@@ -1,0 +1,144 @@
+{
+ "nome": "Münchner Volkshochschule GmbH",
+ "citta": "münchen",
+ "url_partenza": "https://www.mvhs.de/",
+ "pagine": [
+  {
+   "url": "https://www.mvhs.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 262816
+  },
+  {
+   "url": "https://www.mvhs.de/programm/info/sprachen/sprachpruefungen-und-zertifikate-einbuergerungstest",
+   "stato": 200,
+   "chiave": true,
+   "byte": 126893
+  },
+  {
+   "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung-460-CAT-KAT7849",
+   "stato": 200,
+   "chiave": true,
+   "byte": 444671
+  },
+  {
+   "url": "https://www.mvhs.de/kurse//deutsch-integration/pruefungen-einbuergerung-460-CAT-KAT7849",
+   "stato": 200,
+   "chiave": true,
+   "byte": 444675
+  },
+  {
+   "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/beratung-einstufungs-und-probetests-460-CAT-KAT7857?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+   "stato": 200,
+   "chiave": true,
+   "byte": 160142
+  },
+  {
+   "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/a1-460-CAT-KAT7850?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+   "stato": 200,
+   "chiave": true,
+   "byte": 157336
+  },
+  {
+   "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/a2-460-CAT-KAT18633?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+   "stato": 200,
+   "chiave": true,
+   "byte": 157087
+  },
+  {
+   "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/b1-460-CAT-KAT20149?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+   "stato": 200,
+   "chiave": true,
+   "byte": 240730
+  },
+  {
+   "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/b2-460-CAT-KAT7855?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+   "stato": 200,
+   "chiave": true,
+   "byte": 332468
+  },
+  {
+   "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/c1-460-CAT-KAT20153?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+   "stato": 200,
+   "chiave": true,
+   "byte": 266780
+  },
+  {
+   "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/c2-460-CAT-KAT7862?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+   "stato": 200,
+   "chiave": true,
+   "byte": 204132
+  },
+  {
+   "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/pruefungen-deutsch-fuer-das-studium-460-CAT-KAT7859?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+   "stato": 200,
+   "chiave": true,
+   "byte": 166902
+  },
+  {
+   "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/goethe-test-pro-460-CAT-KAT20759?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+   "stato": 200,
+   "chiave": true,
+   "byte": 150706
+  },
+  {
+   "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/einbuergerung-460-CAT-KAT7868?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34",
+   "stato": 200,
+   "chiave": true,
+   "byte": 167895,
+   "n_date": 3
+  },
+  {
+   "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/online-deutsch-pruefungstraining-b1-teil-schreiben/selbstlernkurs-mit-tutorieller-begleitung-anmeldung-und-kursstart-jederzeit-moeglich-460-C-W671108",
+   "stato": 200,
+   "chiave": true,
+   "byte": 151683
+  },
+  {
+   "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/online-deutsch-pruefungsziel-goethe-zertifikat-b2/selbstlernkurs-mit-tutorieller-begleitung-anmeldung-und-kursstart-jederzeit-moeglich-460-C-W671305",
+   "stato": 200,
+   "chiave": true,
+   "byte": 150807
+  },
+  {
+   "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/online-deutsch-pruefungsziel-goethe-zertifikat-b2-teil-schreiben/selbstlernkurs-mit-tutorieller-begleitung-anmeldung-und-kursstart-jederzeit-moeglich-460-C-W671306",
+   "stato": 200,
+   "chiave": true,
+   "byte": 151707
+  },
+  {
+   "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/online-deutsch-telc-deutsch-b2-teil-schreiben-pruefungstraining/selbstlernkurs-mit-tutorieller-begleitung-anmeldung-und-kursstart-jederzeit-moeglich-460-C-W671307",
+   "stato": 200,
+   "chiave": true,
+   "byte": 154631
+  },
+  {
+   "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/online-deutsch-telc-c1-und-telc-c1-hochschule-pruefungstraining/selbstlernkurs-mit-tutorieller-begleitung-anmeldung-jederzeit-moeglich-460-C-W671445",
+   "stato": 200,
+   "chiave": true,
+   "byte": 154715
+  },
+  {
+   "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/online-deutsch-goethe-zertifikat-c2-pruefungstraining-schreiben-teil-1-und-freies-schreiben-selbstlernkurs-mit-tutorieller-begleitung-anmeldung-und-kursstart-jederzeit-moeglich-460-C-W671531",
+   "stato": 200,
+   "chiave": true,
+   "byte": 157408
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-12-12",
+   "pagina": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/einbuergerung-460-CAT-KAT7868?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34"
+  },
+  {
+   "data": "2026-12-13",
+   "pagina": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/einbuergerung-460-CAT-KAT7868?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34"
+  },
+  {
+   "data": "2027-01-22",
+   "pagina": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/einbuergerung-460-CAT-KAT7868?tx_itemkgconnect_categorys%5Bfilters%5D%5Bbookable%5D=Bookable&tx_itemkgconnect_categorys%5Bpage%5D=0&tx_itemkgconnect_categorys%5Bsword%5D=&cHash=74aae851a4f7a8e24fa7847867513e34"
+  }
+ ],
+ "esito": "date future in HTML"
+}

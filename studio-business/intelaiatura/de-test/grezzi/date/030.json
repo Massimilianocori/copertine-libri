@@ -1,0 +1,38 @@
+{
+ "nome": "Anderwerk GmbH",
+ "citta": "münchen",
+ "url_partenza": "https://www.anderwerk.de/",
+ "pagine": [
+  {
+   "url": "https://www.anderwerk.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 179333
+  },
+  {
+   "url": "https://www.anderwerk.de/deutschkurse/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 245764
+  },
+  {
+   "url": "https://www.anderwerk.de/deutsch-pruefungstermine-anmelden/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 181837,
+   "n_date": 4
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-18",
+   "pagina": "https://www.anderwerk.de/deutsch-pruefungstermine-anmelden/"
+  },
+  {
+   "data": "2026-12-16",
+   "pagina": "https://www.anderwerk.de/deutsch-pruefungstermine-anmelden/"
+  }
+ ],
+ "esito": "date future in HTML"
+}

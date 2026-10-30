@@ -1,0 +1,14 @@
+{
+ "nome": "VHS Berlin Steglitz-Zehlendorf",
+ "citta": "berlin",
+ "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/steglitz-zehlendorf/",
+ "pagine": [
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/steglitz-zehlendorf/",
+   "stato": 429
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "bloccato (429)"
+}

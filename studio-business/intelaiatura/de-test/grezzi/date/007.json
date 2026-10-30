@@ -1,0 +1,140 @@
+{
+ "nome": "Hamburger Volkshochschule",
+ "citta": "hamburg",
+ "url_partenza": "https://www.vhs-hamburg.de/",
+ "pagine": [
+  {
+   "url": "https://www.vhs-hamburg.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 450467
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/deutsch/einbuergerungstest-1058",
+   "stato": 200,
+   "chiave": true,
+   "byte": 353473,
+   "n_date": 18
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/deutsch/einbuergerungstest/informationen-haeufig-gestellte-fragen-743",
+   "stato": 200,
+   "chiave": true,
+   "byte": 235210
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407021",
+   "stato": 200,
+   "chiave": true,
+   "byte": 239870
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/merkzettel/hinzufuegen/407021/ajax?destination=/deutsch/einbuergerungstest-1058&compact=1",
+   "stato": "robots"
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407022",
+   "stato": 200,
+   "chiave": true,
+   "byte": 239870
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/merkzettel/hinzufuegen/407022/ajax?destination=/deutsch/einbuergerungstest-1058&compact=1",
+   "stato": "robots"
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407023",
+   "stato": 200,
+   "chiave": true,
+   "byte": 239870
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/merkzettel/hinzufuegen/407023/ajax?destination=/deutsch/einbuergerungstest-1058&compact=1",
+   "stato": "robots"
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407062",
+   "stato": 200,
+   "chiave": true,
+   "byte": 238638
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/merkzettel/hinzufuegen/407062/ajax?destination=/deutsch/einbuergerungstest-1058&compact=1",
+   "stato": "robots"
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407063",
+   "stato": 200,
+   "chiave": true,
+   "byte": 238638
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/merkzettel/hinzufuegen/407063/ajax?destination=/deutsch/einbuergerungstest-1058&compact=1",
+   "stato": "robots"
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407064",
+   "stato": 200,
+   "chiave": true,
+   "byte": 238638
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/merkzettel/hinzufuegen/407064/ajax?destination=/deutsch/einbuergerungstest-1058&compact=1",
+   "stato": "robots"
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407065",
+   "stato": 200,
+   "chiave": true,
+   "byte": 239870
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/merkzettel/hinzufuegen/407065/ajax?destination=/deutsch/einbuergerungstest-1058&compact=1",
+   "stato": "robots"
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407066",
+   "stato": 200,
+   "chiave": true,
+   "byte": 239870
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/merkzettel/hinzufuegen/407066/ajax?destination=/deutsch/einbuergerungstest-1058&compact=1",
+   "stato": "robots"
+  },
+  {
+   "url": "https://www.vhs-hamburg.de/kurs/einburgerungstest/407069",
+   "stato": 200,
+   "chiave": true,
+   "byte": 239870
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-10",
+   "pagina": "https://www.vhs-hamburg.de/deutsch/einbuergerungstest-1058"
+  },
+  {
+   "data": "2026-11-19",
+   "pagina": "https://www.vhs-hamburg.de/deutsch/einbuergerungstest-1058"
+  },
+  {
+   "data": "2026-11-26",
+   "pagina": "https://www.vhs-hamburg.de/deutsch/einbuergerungstest-1058"
+  },
+  {
+   "data": "2026-12-03",
+   "pagina": "https://www.vhs-hamburg.de/deutsch/einbuergerungstest-1058"
+  },
+  {
+   "data": "2026-12-08",
+   "pagina": "https://www.vhs-hamburg.de/deutsch/einbuergerungstest-1058"
+  },
+  {
+   "data": "2026-12-10",
+   "pagina": "https://www.vhs-hamburg.de/deutsch/einbuergerungstest-1058"
+  }
+ ],
+ "esito": "date future in HTML"
+}

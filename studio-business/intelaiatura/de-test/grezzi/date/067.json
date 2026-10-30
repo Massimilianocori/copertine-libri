@@ -1,0 +1,22 @@
+{
+ "nome": "Volkshochschule Karlsruhe e.V.",
+ "citta": "karlsruhe",
+ "url_partenza": "https://www.vhs-karlsruhe.de/",
+ "pagine": [
+  {
+   "url": "https://www.vhs-karlsruhe.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 253489
+  },
+  {
+   "url": "https://www.vhs-karlsruhe.de/einbuergerungstest",
+   "stato": 200,
+   "chiave": true,
+   "byte": 135759
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

@@ -1,0 +1,16 @@
+{
+ "nome": "VHS der Stadt Köln Amt für Weiterbildung",
+ "citta": "köln",
+ "url_partenza": "https://www.vhs-koeln.de/",
+ "pagine": [
+  {
+   "url": "https://www.koelner-vhs.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 530446
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

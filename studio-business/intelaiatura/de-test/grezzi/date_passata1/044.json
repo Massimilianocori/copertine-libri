@@ -1,0 +1,30 @@
+{
+ "nome": "zu Hause e. V.",
+ "citta": "leipzig",
+ "url_partenza": "https://www.zuhause-ev.de/",
+ "pagine": [
+  {
+   "url": "https://www.zuhause-ev.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 7419,
+   "n_date": 3
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-10",
+   "pagina": "https://www.zuhause-ev.de/"
+  },
+  {
+   "data": "2026-11-17",
+   "pagina": "https://www.zuhause-ev.de/"
+  },
+  {
+   "data": "2026-11-26",
+   "pagina": "https://www.zuhause-ev.de/"
+  }
+ ],
+ "esito": "date future in HTML"
+}

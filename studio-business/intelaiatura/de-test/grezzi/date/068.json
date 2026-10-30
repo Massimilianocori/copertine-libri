@@ -1,0 +1,25 @@
+{
+ "nome": "VHS Wiesbaden e.V.",
+ "citta": "wiesbaden",
+ "url_partenza": "https://www.vhs-wiesbaden.de/",
+ "pagine": [
+  {
+   "url": "https://www.vhs-wiesbaden.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 67950
+  },
+  {
+   "url": "https://www.vhs-wiesbaden.de/fachbereiche-und-projekte/deutsch/einbuergerungstest",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50552
+  }
+ ],
+ "pdf": [
+  "http://www.vhs-wiesbaden.de/fileadmin/download/einbuergerung/bamf_testfragebogen.pdf",
+  "http://www.vhs-wiesbaden.de/fileadmin/download/einbuergerung/bestellung_und_abo.pdf"
+ ],
+ "date": [],
+ "esito": "solo PDF"
+}

@@ -1,0 +1,32 @@
+{
+ "nome": "Mitteldeutsches Institut für Qualifikation und berufliche Rehabilitation MIQR GmbH",
+ "citta": "chemnitz",
+ "url_partenza": "https://www.miqr.de/",
+ "pagine": [
+  {
+   "url": "https://mitteldeutsches-institut.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 365829
+  },
+  {
+   "url": "https://mitteldeutsches-institut.de/einbuergerungstest-chemnitz/",
+   "stato": "robots"
+  },
+  {
+   "url": "https://mitteldeutsches-institut.de/deutschtest-zuwanderer-training/",
+   "stato": "robots"
+  },
+  {
+   "url": "https://mitteldeutsches-institut.de/einbuergerungstest-erfurt/",
+   "stato": "robots"
+  },
+  {
+   "url": "https://mitteldeutsches-institut.de/einbuergerungstest-chemnitz-3/",
+   "stato": "robots"
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

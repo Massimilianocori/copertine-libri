@@ -1,0 +1,54 @@
+{
+ "nome": "inlingua Center Essen",
+ "citta": "essen",
+ "url_partenza": "https://www.inlingua-essen.de/",
+ "pagine": [
+  {
+   "url": "https://www.inlingua-essen.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 80323,
+   "n_date": 3
+  },
+  {
+   "url": "https://www.inlingua-essen.de/sprachpruefungen/gast-dtz-pruefungen/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 49611
+  },
+  {
+   "url": "https://www.inlingua-essen.de/sprachpruefungen/einbuergerungstest/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 46275,
+   "n_date": 1
+  },
+  {
+   "url": "https://www.inlingua-essen.de/sprachkurse/details/dtz-gast-pruefung-3886/6042/?cHash=cdd544b95c61eb9cea40420f8063afa8",
+   "stato": 200,
+   "chiave": true,
+   "byte": 46170,
+   "n_date": 2
+  },
+  {
+   "url": "https://www.inlingua-essen.de/en/sprachkurse/language-examinations/dtz-gast-pruefung-3886/6042/?cHash=cdd544b95c61eb9cea40420f8063afa8",
+   "stato": 404
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-28",
+   "pagina": "https://www.inlingua-essen.de/sprachpruefungen/einbuergerungstest/"
+  },
+  {
+   "data": "2026-12-18",
+   "pagina": "https://www.inlingua-essen.de/sprachkurse/details/dtz-gast-pruefung-3886/6042/?cHash=cdd544b95c61eb9cea40420f8063afa8"
+  },
+  {
+   "data": "2027-01-04",
+   "pagina": "https://www.inlingua-essen.de/"
+  }
+ ],
+ "esito": "date future in HTML"
+}
