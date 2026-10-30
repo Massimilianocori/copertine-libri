@@ -24,5 +24,13 @@
     "nota": "Usato SOLO nella sezione Visa refusal rates (box_assicurazione in genera.py), non nel riquadro generico. Stesso referenceID del link attivo di Italy Strikes, campagna visa-refusal-rates per distinguere i clic (15/10/2026).",
     "attivo_dal": "2026-10-30",
     "nota_riattivazione": "Sospeso dal 17/10 al 30/10/2026 (siti solo informativi in attesa del codice ATECO 58.19.00); riattivato il 30/10/2026 dopo il sì alla monetizzazione del 28/10 e il codice ATECO aggiunto dal CAF. Per spegnerlo: url vuoto e rigenerare."
+  },
+  "_italki_selt": {
+    "url": "https://www.italki.com/affshare?ref=af34201678",
+    "nome": "italki",
+    "nota": "Usato SOLO nella sezione UK visa English tests (box_italki in genera.py): riquadro «Prepare for the speaking test» dopo le informazioni ufficiali, non nel riquadro generico. Stesso link di affiliazione di EsameB1 (esameb1/dati/affiliati.json, voce italki): porta alla home di italki, dove si sceglie anche un insegnante di inglese (30/10/2026).",
+    "attivo_dal": "2026-10-30",
+    "compenso": "18 $ per ogni nuovo studente al primo acquisto (come EsameB1)",
+    "regole": "Vietata la pubblicità a pagamento per promuovere il link (regola italki). Nessun prezzo sulle pagine, nessuna promessa sul risultato del test o sul visto. rel=\"sponsored noopener\" e riga di trasparenza. Per spegnerlo: url vuoto e rigenerare."
   }
 }

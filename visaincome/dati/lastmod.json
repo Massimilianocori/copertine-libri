@@ -2,16 +2,16 @@
 "_nota": "Scritto da genera.py: percorso -> [data dell'ultima modifica del contenuto, impronta]. Non modificare a mano.",
 "pagine": {
 "": [
-"2026-10-28",
-"e5399a56d088f81cbd93"
+"2026-10-30",
+"a3684bb651d50df95b28"
 ],
 "about/": [
 "2026-10-15",
 "f31d17088e4c9e91a70d"
 ],
 "austria-eu-blue-card/": [
-"2026-10-15",
-"9c890d41f5f47d55a182"
+"2026-10-30",
+"f1d2fcc6cacf3c4353d7"
 ],
 "contact/": [
 "2026-10-11",
@@ -70,40 +70,40 @@
 "8b07538a574f7068387b"
 ],
 "croatia-digital-nomad-visa/": [
-"2026-10-15",
-"aa49e02e8a94ab43ca7f"
+"2026-10-30",
+"585334440b76d84e33d1"
 ],
 "denmark-pay-limit-scheme/": [
-"2026-10-15",
-"4ed456a8a383a46ff236"
+"2026-10-30",
+"f53911db398c7b90845e"
 ],
 "digital-nomad-visa-income-requirements/": [
 "2026-10-14",
 "37e4b2aa5120f6fe0f18"
 ],
 "france-eu-blue-card/": [
-"2026-10-15",
-"d8706ee3316c2a57192e"
+"2026-10-30",
+"8446055904edb90acba8"
 ],
 "germany-eu-blue-card/": [
-"2026-10-15",
-"d468fe47a3cb7468e9ba"
+"2026-10-30",
+"3c0246351455699b86e6"
 ],
 "how-it-works/": [
-"2026-10-15",
-"eaef3d300322f6fa9f2f"
+"2026-10-30",
+"a91cb11094134c377b2a"
 ],
 "hungary-white-card/": [
-"2026-10-15",
-"80f8fa02641d8285700f"
+"2026-10-30",
+"3ef19e2f437a52106bf8"
 ],
 "ireland-critical-skills-employment-permit/": [
-"2026-10-15",
-"680606569b2068d19419"
+"2026-10-30",
+"e467af22378794db108c"
 ],
 "italy-digital-nomad-visa/": [
-"2026-10-15",
-"af262ef16e3b8c6b6cd5"
+"2026-10-30",
+"87d12f76c1ad00194258"
 ],
 "moved-to/": [
 "2026-10-28",
@@ -986,44 +986,368 @@
 "346319878dc2e25066ad"
 ],
 "netherlands-eu-blue-card/": [
-"2026-10-15",
-"6cf8d4da86b906d36a29"
+"2026-10-30",
+"1c16b2f9d4b592532a14"
 ],
 "netherlands-highly-skilled-migrant/": [
-"2026-10-15",
-"90b6f2cf5c8382b463d2"
+"2026-10-30",
+"0a6375059d7f2ea8ac03"
 ],
 "portugal-d7-visa/": [
-"2026-10-15",
-"536f2079c885092df35b"
+"2026-10-30",
+"b1992f1db135868a83c0"
 ],
 "portugal-d8-digital-nomad-visa/": [
-"2026-10-15",
-"131d183768e9ffe70dd9"
+"2026-10-30",
+"ed4a434adeda6d30b44b"
 ],
 "privacy.html": [
 "2026-10-30",
-"fbb91e1b5733acd333eb"
+"a673180f1afd0d1c0173"
 ],
 "spain-digital-nomad-visa/": [
-"2026-10-15",
-"b1fdd673974dbcfac87a"
+"2026-10-30",
+"0e339cfcc2e256bdbd59"
 ],
 "spain-non-lucrative-visa/": [
-"2026-10-15",
-"94585ec6b717d2c63eb1"
+"2026-10-30",
+"af6f37d33473ff710e58"
 ],
 "sweden-eu-blue-card/": [
-"2026-10-15",
-"e0c32495a337b9d7466d"
+"2026-10-30",
+"6204265f82853671b8df"
+],
+"uk-english-test/": [
+"2026-10-30",
+"85323862fa84f8c28138"
+],
+"uk-english-test/albania/": [
+"2026-10-30",
+"c6bf34c8eaee1db26aac"
+],
+"uk-english-test/algeria/": [
+"2026-10-30",
+"42fb994843713493894c"
+],
+"uk-english-test/argentina/": [
+"2026-10-30",
+"fde336897445c9a54a45"
+],
+"uk-english-test/armenia/": [
+"2026-10-30",
+"27294947422d2c0cdc3d"
+],
+"uk-english-test/australia/": [
+"2026-10-30",
+"bf0ed4f7e8ce6c088a56"
+],
+"uk-english-test/azerbaijan/": [
+"2026-10-30",
+"90586705fa71e81408bc"
+],
+"uk-english-test/bahrain/": [
+"2026-10-30",
+"ec9131fe7534bb1910c1"
+],
+"uk-english-test/bangladesh/": [
+"2026-10-30",
+"c26cbb15421cc74d242e"
+],
+"uk-english-test/belfast/": [
+"2026-10-30",
+"d06758459eed0dcf69ac"
+],
+"uk-english-test/birmingham/": [
+"2026-10-30",
+"fb8893dbf7c7ec570f28"
+],
+"uk-english-test/bradford/": [
+"2026-10-30",
+"2589970c85692af84140"
+],
+"uk-english-test/brazil/": [
+"2026-10-30",
+"55e4f6f8ffbd8b45814e"
+],
+"uk-english-test/bristol/": [
+"2026-10-30",
+"3f31a29f77fe4d348eee"
+],
+"uk-english-test/cambridge/": [
+"2026-10-30",
+"5bbea1dcdb41c5557c1e"
+],
+"uk-english-test/cardiff/": [
+"2026-10-30",
+"bf8ec3a2362aa2df5bcc"
+],
+"uk-english-test/chile/": [
+"2026-10-30",
+"7ab693a6ee8dc6cb527f"
+],
+"uk-english-test/china/": [
+"2026-10-30",
+"dd5e8ddc68e2328e8dcc"
+],
+"uk-english-test/colombia/": [
+"2026-10-30",
+"7190dae86b46d8258944"
+],
+"uk-english-test/coventry/": [
+"2026-10-30",
+"f4120127ab13a5051864"
+],
+"uk-english-test/croydon/": [
+"2026-10-30",
+"087d8c661c4f715f0464"
+],
+"uk-english-test/cyprus-south/": [
+"2026-10-30",
+"0c69dcc72dba5a0b383d"
+],
+"uk-english-test/ecuador/": [
+"2026-10-30",
+"2dd7f480be966dfdae17"
+],
+"uk-english-test/edinburgh/": [
+"2026-10-30",
+"1b04945588dc84ef6312"
+],
+"uk-english-test/egypt/": [
+"2026-10-30",
+"2edf5ce5e2eaee245c59"
+],
+"uk-english-test/exeter/": [
+"2026-10-30",
+"54bf4251319f313e39f8"
+],
+"uk-english-test/georgia/": [
+"2026-10-30",
+"620dd231d6464670c9b1"
+],
+"uk-english-test/ghana/": [
+"2026-10-30",
+"e942f645e844836f8c0b"
+],
+"uk-english-test/glasgow/": [
+"2026-10-30",
+"5391efbec2d83af923e4"
+],
+"uk-english-test/india/": [
+"2026-10-30",
+"8be706c45216b5151cc8"
+],
+"uk-english-test/indonesia/": [
+"2026-10-30",
+"a4dd7ccaa04db7c9fe14"
+],
+"uk-english-test/iran/": [
+"2026-10-30",
+"81a6d1dfee297583f937"
+],
+"uk-english-test/iraq/": [
+"2026-10-30",
+"94dcce84e06f4dc26fd7"
+],
+"uk-english-test/israel/": [
+"2026-10-30",
+"b8e28a274672c087c542"
+],
+"uk-english-test/jordan/": [
+"2026-10-30",
+"4c4346d15f64162c51ca"
+],
+"uk-english-test/kazakhstan/": [
+"2026-10-30",
+"1ee75e23a4ffe5317ac0"
+],
+"uk-english-test/kuwait/": [
+"2026-10-30",
+"67529117d9ef73968cd8"
+],
+"uk-english-test/lebanon/": [
+"2026-10-30",
+"649e86160242a75195cc"
+],
+"uk-english-test/leeds/": [
+"2026-10-30",
+"e8c64704612c8940e91a"
+],
+"uk-english-test/leicester/": [
+"2026-10-30",
+"b395226447f21084c25a"
+],
+"uk-english-test/liverpool/": [
+"2026-10-30",
+"05b0c5341d5a3fd53016"
+],
+"uk-english-test/london/": [
+"2026-10-30",
+"01e43a753fcfd2577f18"
+],
+"uk-english-test/maidstone/": [
+"2026-10-30",
+"73f67a57bfa51ebca6ed"
+],
+"uk-english-test/malaysia/": [
+"2026-10-30",
+"62382341932819883182"
+],
+"uk-english-test/manchester/": [
+"2026-10-30",
+"a1d547bb43e039ee1a29"
+],
+"uk-english-test/mexico/": [
+"2026-10-30",
+"6fd8dd86277bcc44c285"
+],
+"uk-english-test/milton-keynes/": [
+"2026-10-30",
+"99ecafd02b7836f5b986"
+],
+"uk-english-test/morocco/": [
+"2026-10-30",
+"9123ca3c69a97335ae4a"
+],
+"uk-english-test/nepal/": [
+"2026-10-30",
+"110a267936526fb596de"
+],
+"uk-english-test/newcastle/": [
+"2026-10-30",
+"6ceabafe550c4eda2435"
+],
+"uk-english-test/nigeria/": [
+"2026-10-30",
+"8c31f860b9d63b204b1e"
+],
+"uk-english-test/oman/": [
+"2026-10-30",
+"080ae7a65d43b94f4e8f"
+],
+"uk-english-test/oxford/": [
+"2026-10-30",
+"4ce2d201dbcb304ef574"
+],
+"uk-english-test/pakistan/": [
+"2026-10-30",
+"5ad3cc31cf802feb41d7"
+],
+"uk-english-test/peru/": [
+"2026-10-30",
+"55eb9775bd74525e18f3"
+],
+"uk-english-test/peterborough/": [
+"2026-10-30",
+"b37caf5b0a34aec2b498"
+],
+"uk-english-test/philippines/": [
+"2026-10-30",
+"0bdc81ba3baf241482c6"
+],
+"uk-english-test/portsmouth/": [
+"2026-10-30",
+"d1e1381f3521a2831b65"
+],
+"uk-english-test/portugal/": [
+"2026-10-30",
+"6d0c7cb9933d86da5114"
+],
+"uk-english-test/preston/": [
+"2026-10-30",
+"46955b0a2feb21a9bc66"
+],
+"uk-english-test/qatar/": [
+"2026-10-30",
+"30fa6333ff6697ce2d70"
+],
+"uk-english-test/saudi-arabia/": [
+"2026-10-30",
+"55de3c6a22d7bb48efbf"
+],
+"uk-english-test/sheffield/": [
+"2026-10-30",
+"39aca7ae3b5f7af5029b"
+],
+"uk-english-test/singapore/": [
+"2026-10-30",
+"c35804d838e6ffbc4005"
+],
+"uk-english-test/south-africa/": [
+"2026-10-30",
+"c84cdcb214cccec50424"
+],
+"uk-english-test/southampton/": [
+"2026-10-30",
+"a148e2579ba4393a5742"
+],
+"uk-english-test/spain/": [
+"2026-10-30",
+"7de82efdf7b1f7db25f4"
+],
+"uk-english-test/sri-lanka/": [
+"2026-10-30",
+"1a2c4991ac5c9384f27d"
+],
+"uk-english-test/stratford/": [
+"2026-10-30",
+"c664b46add809fe97623"
+],
+"uk-english-test/taiwan/": [
+"2026-10-30",
+"79a50a2e6c1f35c57651"
+],
+"uk-english-test/tajikistan/": [
+"2026-10-30",
+"98f78a7a46a7d131dbdf"
+],
+"uk-english-test/thailand/": [
+"2026-10-30",
+"090a55afe47405895d85"
+],
+"uk-english-test/tunisia/": [
+"2026-10-30",
+"a533394be8552d4e03fa"
+],
+"uk-english-test/turkey/": [
+"2026-10-30",
+"92558db8a381d0925818"
+],
+"uk-english-test/uganda/": [
+"2026-10-30",
+"69dcf6128fd288b1bcca"
+],
+"uk-english-test/united-arab-emirates/": [
+"2026-10-30",
+"4fa84d8cf59385f8e8fd"
+],
+"uk-english-test/uxbridge/": [
+"2026-10-30",
+"0afba9ef663cbeee73e4"
+],
+"uk-english-test/uzbekistan/": [
+"2026-10-30",
+"4122dd2379266982b014"
+],
+"uk-english-test/vietnam/": [
+"2026-10-30",
+"d2750538fab5af797358"
+],
+"uk-english-test/wolverhampton/": [
+"2026-10-30",
+"fd3e7583070f8c22a2fe"
+],
+"uk-english-test/zambia/": [
+"2026-10-30",
+"6172b5ac242e6c533b02"
 ],
 "uk-skilled-worker-visa/": [
-"2026-10-15",
-"3b7c7c917f524166cd85"
+"2026-10-30",
+"38175085f61bd6f90f2e"
 ],
 "uk-spouse-visa/": [
-"2026-10-15",
-"30b50fd556d62dcaeb26"
+"2026-10-30",
+"d1f5743a3f3ee7e0642d"
 ],
 "visa-refusal-rates/": [
 "2026-10-30",

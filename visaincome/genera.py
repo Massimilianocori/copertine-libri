@@ -979,7 +979,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <p>Exchange rates: euro foreign exchange reference rates of the European Central Bank (source: ECB), for information only.</p>
 </div><div>
 <h2>Explore</h2>
-<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}moved-to/">Who moved where (by nationality)</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
+<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}moved-to/">Who moved where (by nationality)</a></li><li><a href="{rel}uk-english-test/">UK visa English tests (SELT)</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
 </div></div>
 {blocco_altri(ALTRI_SITI, "Other useful tools for your trip")}
 <p class="f-base">Official sources only · the calculator runs in your browser · links marked "Affiliate" may earn us a commission.</p>
@@ -1240,7 +1240,8 @@ def pagina_programma(P):
 {link_sorelle}
 {link_simili}
 <p><a href="{rel}country/{P['paese_slug']}/">All visa income requirements in {escape(P['paese'])}</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements {ANNO}</a> · <a href="{rel}work-visa-salary-thresholds/">Work visa salary thresholds {ANNO}</a></p>
-{link_rifiuti(P['paese'], rel)}"""
+{link_rifiuti(P['paese'], rel)}
+{link_selt(P, rel)}"""
     descr = (f"{nome_prog(P)} {ANNO}: minimum {riassunto(P)} for the main applicant, with family members and conversion to USD, GBP, INR and more. "
              f"Official source and check date.")
     pagina(f"{P['slug']}/", titolo_prog(P), descr, corpo, calcolatore=True,
@@ -1325,6 +1326,9 @@ def home():
 <p class="lead">How many Americans, British people, Indians and others moved to Europe, Canada and the UK in {Y1}: official first residence permits by country and reason (Eurostat, updated {data_lunga(F_ES["aggiornato_il"])}), new permanent residents of Canada and UK visas granted.</p>
 <div class="griglia">{''.join(f'<a href="{SEZ_TR}{NAZ_TR[c][0]}/"><span class="ic">{ico("globe")}</span><span>How many {escape(NAZ_TR[c][1])} moved to Europe<small>{intero(riga_eu(c, "EU27_2020", Y1)[0])} first permits in the EU in {Y1}</small></span></a>' for c in ("US", "UK", "CA", "AU", "IN", "PK", "NG", "PH"))}</div>
 <p><a href="{SEZ_TR}">Who moved where: all {len(NAZ_TR)} nationalities</a></p>
+<h2>UK visa English tests (SELT)</h2>
+<p class="lead">Which English level each UK visa needs (A1 for a first spouse visa, B1 for settlement and citizenship, B2 for settlement from {data_lunga(DATA_B2)}) and the {intero(len(CENTRI_UK))} approved test centres in the UK and {intero(len(CENTRI_EST))} abroad (Home Office lists of {data_lunga(DATA_ELENCO)}).</p>
+<p><a href="{SEZ_SELT}">UK visa English tests: levels and test centres</a> · {" · ".join(f'<a href="{SEZ_SELT}{SLUG_SELT[x]}/">{escape(NOMI_PAESI_SELT.get(x, x))}</a>' for x in ("London", "Birmingham", "Manchester", "Pakistan", "India", "Nigeria") if x in CITTA_PAG + PAESI_PAG)}</p>
 <h2>Why our numbers can differ from other sites</h2>
 <p>Many thresholds are a percentage of an index that changes every year (a minimum wage, an average salary), so pages that still show last year's figure are out of date. With the {ANNO} indices, on {data_lunga('2026-10-10')}: Spain's digital nomad visa is 200% of the {ANNO} minimum wage, €2,442 a month over 14 payments (€34,188 a year, the same as €2,849 a month over 12 payments); Croatia's is 2.5 × the 2025 average net salary, €3,622.50 a month; Portugal's D8 is 4 × €920 = €3,680 a month. We recalculate from the official index and show the source and the date under every figure.</p>
 {box_affiliati()}"""
@@ -1426,6 +1430,8 @@ def pagina_come_funziona():
 <p>Every source shows the date we checked it. We re-check all programmes every January, when minimum wages, the Dutch and German salary thresholds, Denmark's pay limit and many other amounts change, and whenever an official page changes. If we cannot read an official source, we do not publish the visa.</p>
 <h2>7. Visa refusal rates</h2>
 <p>The <a href="{rel}visa-refusal-rates/">visa refusal rates</a> pages use the European Commission's yearly Schengen visa statistics (by Schengen country, consulate and country where the application was made) and the Home Office's quarterly UK entry clearance visa datasets (by nationality). A script downloads the official files, recalculates every rate and checks it against the official totals. <a href="{rel}visa-refusal-rates/#method">Full method</a>.</p>
+<h2>8. UK visa English tests</h2>
+<p>The <a href="{rel}uk-english-test/">UK visa English tests (SELT)</a> pages use the Home Office lists of approved test centres and approved tests (ODS files on GOV.UK, updated every few weeks), the GOV.UK guidance for each visa and the Statement of Changes HC 1691 for the B2 level from {data_lunga(DATA_B2)}. A script downloads the lists every week, checks that the sentences we rely on are still in the official pages, and stops if anything changed. We do not show test fees: they are set by each provider.</p>
 <h2>Licences and attributions</h2>
 <ul><li>Laws, decrees and official notices (BOE, Gazzetta Ufficiale, Bundesanzeiger, Normattiva) are cited as facts with a link to the official text; we do not reproduce the documents.</li>
 <li>Exchange rates: European Central Bank, euro foreign exchange reference rates (source: ECB).</li>
@@ -1490,6 +1496,9 @@ def privacy():
     if cookie and URL_SAFETYWING:
         cookie += ("\n<p>Affiliate links to SafetyWing (travel medical insurance) appear in the box marked “Affiliate” on the visa refusal "
                    "rate pages. Buying a policy does not change the decision on your visa.</p>")
+    if cookie and URL_ITALKI:
+        cookie += ("\n<p>Affiliate links to italki (online English teachers) appear in the box marked “Affiliate” on the UK visa English test pages. "
+                   "Lessons do not change your test result or the decision on your visa.</p>")
     cookie = cookie or f"""<h2>Cookies, visit counter{' and affiliate links' if URL_SAFETYWING else ''}</h2><p>This site does not use profiling cookies. To count visits we use <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, a privacy-friendly counter: it sets no cookies and stores nothing in your browser, builds no profiles and does not store your IP address, your full browser signature or any identifier. It keeps only aggregate numbers (page, hour or day, browser, country, screen width) on servers in the European Union and shares nothing with third parties; see <a href="https://www.goatcounter.com/help/privacy" rel="noopener">GoatCounter's privacy policy</a>.{FRASE_SW} If we add advertising in the future, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>"""
     corpo = f"""<section class="hero"><h1>Privacy notice</h1><p class="small">Last updated: October 2026</p></section><div class="testo">
 <h2>Who is responsible</h2><p>The data controller is Massimiliano Cori (Italy), who runs {NOME} as an independent project. You can contact us through the <a href="contact/">contact form</a>.</p>
@@ -4356,6 +4365,466 @@ def controlli_rifiuti():
     return errori
 
 
+# ---------------------------------------------------------------- UK visa English tests (SELT), 30/10/2026
+# Dati: dati/selt.json (raccolta/selt.py): elenchi ufficiali dei centri e dei test approvati dal Home Office (GOV.UK, OGL v3.0),
+# frasi delle guide GOV.UK sui livelli per visto e dello Statement of Changes HC 1691 (B2 per la residenza dal 26/3/2027).
+# Pagine: /uk-english-test/ (indice), /uk-english-test/<città>/ (città britanniche), /uk-english-test/<paese>/ (Paesi esteri),
+# solo per i luoghi con domanda (autocompletamento salvato in selt.json, soglia SOGLIA_DOMANDA di raccolta/selt.py).
+SELT = json.loads((DATI / "selt.json").read_text(encoding="utf-8"))
+SEZ_SELT = "uk-english-test/"
+F_SELT = SELT["fonti"]
+LIV = SELT["livelli"]
+HC1691 = F_SELT["hc1691"]
+SOGLIA_DOMANDA_SELT = SELT["domanda"].get("soglia", 1)
+CENTRI_UK = SELT["centri"]["uk"]        # [fornitore, nome, città, indirizzo, disponibilità]
+CENTRI_EST = SELT["centri"]["estero"]   # [fornitore, nome, Paese, città, indirizzo, disponibilità]
+FORN = SELT["fornitori"]
+_I = AFFILIATI.get("_italki_selt", {})
+URL_ITALKI = _I.get("url", "")
+NOMI_FORN = {"IELTS SELT Consortium": "IELTS SELT Consortium", "LanguageCert": "LanguageCert", "Pearson": "Pearson (PTE)",
+             "Trinity College London": "Trinity College London", "PSI": "PSI Services (Skills for English)"}
+NOMI_PAESI_SELT = {"USA": "United States", "Bosnia & Herzegovina": "Bosnia and Herzegovina", "Democratic Republic of Congo": "DR Congo",
+                   "Cyprus (South)": "Cyprus (south)", "Cyprus (North)": "Northern Cyprus", "Virgin Islands (US)": "US Virgin Islands"}
+SLUG_CITTA_SELT = {"Newcastle upon Tyne": "newcastle"}
+CITTA_SELT = sorted({r[2] for r in CENTRI_UK})
+PAESI_SELT = sorted({r[2] for r in CENTRI_EST})
+DOM_C = SELT["domanda"].get("citta", {})
+DOM_P = SELT["domanda"].get("paesi", {})
+CITTA_PAG = [c for c in CITTA_SELT if len(DOM_C.get(c, [])) >= SOGLIA_DOMANDA_SELT]
+PAESI_PAG = [p for p in PAESI_SELT if len(DOM_P.get(p, [])) >= SOGLIA_DOMANDA_SELT]
+SLUG_SELT = {**{c: SLUG_CITTA_SELT.get(c) or slug_testo(c) for c in CITTA_SELT},
+             **{p: slug_testo(NOMI_PAESI_SELT.get(p, p)) for p in PAESI_SELT}}
+DATA_ELENCO = F_SELT["centri_uk"]["data_elenco"]
+ANNO_SELT = DATA_ELENCO[:4]
+DATA_B2 = HC1691["in_vigore"]
+
+
+def nome_p_selt(p, maiuscola=False):
+    return art(NOMI_PAESI_SELT.get(p, p), maiuscola)
+
+
+def nome_test(t):
+    """Nome del test come nell'elenco ufficiale, con 'LanguageCert' scritto come nei file e un refuso evidente corretto ('Grace 3')."""
+    t = re.sub(r"\s+", " ", t.replace("LANGUAGECERT", "LanguageCert").replace("Life Skills–", "Life Skills –")).strip()
+    return t.replace("(GESE) Grace 3", "(GESE) Grade 3")
+
+
+def nome_forn_test(f):
+    """Fornitore come scritto negli elenchi dei test ('PSI Service (UK) Ltd') -> nome breve usato nelle pagine."""
+    return NOMI_FORN.get("PSI" if f.startswith("PSI") else f, f)
+
+
+def test_di(f):
+    return ", ".join(nome_test(x) for x in FORN[f]["test"])
+
+
+def elenco_e(xs):
+    xs = list(xs)
+    return xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " and " + xs[-1]
+
+
+def titolo_breve(varianti):
+    return next(t for t in varianti + [varianti[-1]] if len(t) <= 70)
+
+
+def centri_n(n):
+    return f"{intero(n)} approved centre{'s' if n != 1 else ''}"
+
+
+def fonte_selt_p(estero=False, entrambi=False):
+    chiavi = ["centri_uk", "centri_estero"] if entrambi else (["centri_estero"] if estero else ["centri_uk"])
+    nomi = {"centri_uk": "List of approved test centres in the UK", "centri_estero": "List of approved test centres outside the UK"}
+    files = "; ".join(f'<a href="{escape(F_SELT[k]["url"])}" rel="noopener">{nomi[k]}</a> (ODS, list dated {data_lunga(F_SELT[k]["data_elenco"])}, '
+                      f'downloaded on {data_lunga(F_SELT[k]["scaricato_il"])})' for k in chiavi)
+    return (f'<p class="fonte">Source: Home Office, {files}, from the GOV.UK page <a href="{F_SELT["pagina"]["url"]}" rel="noopener">'
+            f'{escape(F_SELT["pagina"]["titolo"])}</a> (updated {data_lunga(F_SELT["pagina"]["aggiornata"])}). Contains public sector information licensed under the '
+            f'<a href="{F_SELT["pagina"]["licenza_url"]}" rel="noopener">Open Government Licence v3.0</a>.</p>')
+
+
+def fonte_liv(chiave, testo_link=None):
+    L = LIV[chiave]
+    return f'<a href="{L["url"]}" rel="noopener">{escape(testo_link or L["titolo"])}</a> (GOV.UK, read on {data_lunga(L["letta_il"])})'
+
+
+def fonte_hc():
+    return (f'<a href="{HC1691["memorandum"]}" rel="noopener">explanatory memorandum to the Statement of Changes HC 1691</a>, paragraphs 5.60–5.62, '
+            f'and the <a href="{HC1691["testo"]}" rel="noopener">rule changes</a> (published on GOV.UK on {data_lunga(HC1691["pubblicato"])}, read on {data_lunga(HC1691["letto_il"])})')
+
+
+AVVISO_SELT = ('<p class="avviso"><strong>Not immigration or legal advice.</strong> This page lists the Home Office\'s approved test centres and the '
+               'levels written in the GOV.UK guidance on the dates shown. Some people do not need a test (for example nationals of some English-speaking '
+               'countries, people over 65, or people with a degree taught in English). Check the guidance for your own route on GOV.UK, and the provider\'s '
+               'website for dates and fees, before you book.</p>')
+
+
+def righe_livelli(rel):
+    """Tabella 'quale livello per quale visto' (frasi delle guide GOV.UK salvate in selt.json, controllate da raccolta/selt.py)."""
+    v = [
+        ("Partner or parent visa (family), first application", "A1", "Speaking and listening", fonte_liv("partner_primo", "Family visas: knowledge of English")),
+        ("Partner or parent visa, extending after 2.5 years", "A2", "Speaking and listening", fonte_liv("partner_proroga", "Family visas: knowledge of English")),
+        (f"Settlement (indefinite leave to remain), application made before {data_lunga(DATA_B2)}", "B1", "Speaking and listening",
+         fonte_liv("cittadinanza_residenza", "Prove your knowledge of English for citizenship and settling")),
+        (f"Settlement on the routes listed in HC 1691, application made on or after {data_lunga(DATA_B2)}", "B2", "Speaking and listening", fonte_hc()),
+        ("British citizenship", "B1", "Speaking and listening", fonte_liv("cittadinanza_residenza", "Prove your knowledge of English for citizenship and settling")),
+        ("Skilled Worker and Health and Care Worker visas (new applications)", "B2", "Reading, writing, speaking and listening",
+         fonte_liv("skilled_worker", "Skilled Worker visa") + "; " + fonte_liv("health_care", "Health and Care Worker visa")),
+        ("Student visa, course at degree level or above", "B2", "Reading, writing, speaking and listening", fonte_liv("studente", "Student visa")),
+        ("Student visa, course below degree level", "B1", "Reading, writing, speaking and listening", fonte_liv("studente", "Student visa")),
+        ("High Potential Individual and Scale-up Worker visas", "B2", "Reading, writing, speaking and listening",
+         fonte_liv("hpi", "High Potential Individual visa") + "; " + fonte_liv("scale_up", "Scale-up Worker visa")),
+    ]
+    return "".join(f'<tr><td>{escape(a)}</td><td><strong>{b}</strong></td><td>{c}</td><td class="small">{d}</td></tr>' for a, b, c, d in v), len(v)
+
+
+def tabella_livelli(rel):
+    righe, _ = righe_livelli(rel)
+    return (f'<div class="tab compatta"><table id="t-livelli"><thead><tr><th scope="col">Application</th><th scope="col">Minimum level (CEFR)</th>'
+            f'<th scope="col">Skills tested</th><th scope="col">Official source</th></tr></thead><tbody>{righe}</tbody></table></div>'
+            f'<p class="small">Skills tested: GOV.UK, <a href="{F_SELT["pagina"]["url"]}" rel="noopener">{escape(F_SELT["pagina"]["titolo"])}</a> '
+            f'(citizenship, parent, partner and settlement: speaking and listening test; Skilled Worker, Health and Care Worker, Student, High Potential Individual '
+            f'and Scale-up: reading, writing, speaking and listening). People who already had a Skilled Worker or Health and Care Worker visa before 8 January 2026 '
+            f'and are extending need B1 ({fonte_liv("skilled_worker_prima", "Skilled Worker visa")}).</p>')
+
+
+def test_per_livello(dove, livello, tipo):
+    return [(r[3], nome_test(r[2]), r[4]) for r in SELT["test"][dove] if r[0] == livello and r[1] == tipo]
+
+
+def nessun_b2_due_abilita():
+    """True se negli elenchi ufficiali non c'è un test B2 di sola comprensione e produzione orale (2-facet)."""
+    return not test_per_livello("uk", "B2", "2-facet") and not test_per_livello("estero", "B2", "2-facet")
+
+
+def tabella_test():
+    righe = []
+    for liv, tipo, uso in (("A1", "2-facet", "First partner or parent visa"), ("A2", "2-facet", "Partner or parent extension after 2.5 years"),
+                           ("B1", "2-facet", "Settlement and citizenship (speaking and listening)"), ("B1", "4-facet", "Student below degree level (four skills)"),
+                           ("B2", "4-facet", "Skilled Worker, Health and Care Worker, degree-level Student and others (four skills)"),
+                           ("B2", "2-facet", f"Settlement from {data_lunga(DATA_B2)} (speaking and listening)")):
+        uk = test_per_livello("uk", liv, tipo)
+        es = test_per_livello("estero", liv, tipo)
+        fmt = lambda xs: "<br>".join(f"{escape(n)} <span class=\"small\">({escape(nome_forn_test(f))}; minimum grade: {escape(m)})</span>" for f, n, m in xs) or "<em>None on the list</em>"  # noqa: E731
+        righe.append(f'<tr><td><strong>{liv}</strong> · {"speaking and listening" if tipo == "2-facet" else "four skills"}<br><span class="small">{escape(uso)}</span></td>'
+                     f'<td>{fmt(uk)}</td><td>{fmt(es)}</td></tr>')
+    return (f'<div class="tab compatta"><table id="t-test"><thead><tr><th scope="col">Level and use</th><th scope="col">Approved tests taken in the UK</th>'
+            f'<th scope="col">Approved tests taken outside the UK</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>'
+            f'<p class="fonte">Source: Home Office, <a href="{F_SELT["test_uk"]["url"]}" rel="noopener">List of approved secure English language tests taken in the UK</a> and '
+            f'<a href="{F_SELT["test_estero"]["url"]}" rel="noopener">taken outside the UK</a> (ODS, downloaded on {data_lunga(F_SELT["test_uk"]["scaricato_il"])}), '
+            f'Open Government Licence v3.0. "Four skills" = reading, writing, speaking and listening. The full lists also include C1 and C2.</p>')
+
+
+def sezione_b2(rel, breve=False):
+    vuoto = nessun_b2_due_abilita()
+    nota_test = (f' On the approved lists we read on {data_lunga(F_SELT["test_uk"]["scaricato_il"])}, there is no speaking-and-listening-only test at B2: '
+                 f'every B2 test listed assesses all four skills.' if vuoto else "")
+    if breve:
+        return (f'<section class="card" id="b2-2027"><h2 style="margin-top:0">{ico("calendar")} B2 for settlement from {data_lunga(DATA_B2)}</h2>'
+                f'<p>For settlement applications made on or after {data_lunga(DATA_B2)}, the UK Statement of Changes HC 1691 raises the English level from B1 to '
+                f'<strong>B2 in speaking and listening</strong> on the routes it lists (Skilled Worker, Settlement Family Life, Long Residence, Global Talent and others). '
+                f'Applications made before that date still need B1.{nota_test} <a href="{rel}{SEZ_SELT}#b2-2027">What changes in 2027</a>.</p>'
+                f'<p class="fonte">Source: {fonte_hc()}.</p></section>')
+    return f"""<h2 id="b2-2027">The 2027 change: B2 for settlement</h2>
+<p><strong>From {data_lunga(DATA_B2)}, settlement applications on many routes need English at B2 in speaking and listening instead of B1.</strong> The explanatory memorandum to the Statement of Changes HC 1691 says: "This change increases the English language requirement for settlement to B2 level […] for a number of immigration routes where the existing requirement is at B1 level" and "These changes will come into force on 26 March 2027." The rules apply the new level by date of application: before {data_lunga(DATA_B2)}, B1; on or after that date, B2.</p>
+<ul class="testo"><li><strong>Routes listed in the memorandum:</strong> Appendix KoLL (the general knowledge of language and life rules for settlement), Skilled Worker, Minister of Religion, Representative of an Overseas Business, UK Ancestry, Global Talent, Scale-up, Innovator Founder, International Sportsperson, Child Relative (Sponsors with Protection), Long Residence, Bereaved Partner, Private Life and Settlement Family Life.</li>
+<li><strong>Who it affects:</strong> the memorandum says the changes "will therefore apply to those already on a pathway to settlement in the UK"; the start was put off to 2027 to give people time to meet the new level.</li>
+<li><strong>Citizenship</strong> is not one of the routes listed. The GOV.UK guide for citizenship and settling still asks for B1 or above: {fonte_liv("cittadinanza_residenza", "Prove your knowledge of English for citizenship and settling")}.</li>
+<li><strong>Test results last 2 years</strong> for a new application, so check the date your result was awarded against the date you plan to apply.</li></ul>
+<p>{nota_test.strip() or ""} Check the provider's website before you book a test for a settlement application made on or after {data_lunga(DATA_B2)}.</p>
+<p class="fonte">Source: {fonte_hc()}.</p>"""
+
+
+def box_italki(rel):
+    """Riquadro «Prepare for the speaking test» (italki, voce _italki_selt di dati/affiliati.json): dopo le informazioni ufficiali.
+    Vuoto se il link non è attivo. Nessun prezzo, nessuna promessa sul risultato del test o sul visto."""
+    if not URL_ITALKI:
+        return ""
+    return (f'<section class="card aff-r" aria-labelledby="aff-i-h"><div class="aff-r-t"><span class="ic">{ico("user")}</span>'
+            f'<h2 id="aff-i-h">Prepare for the speaking test</h2><span class="aff-tag">Affiliate</span></div>'
+            f'<p>For partner, parent, settlement and citizenship applications the SELT tests speaking and listening only. Speaking English often with a teacher, '
+            f'even online, is one way to prepare. On italki you choose an English teacher and pay per lesson.</p>'
+            f'<p class="aff-r-cta"><a class="btn" href="{escape(URL_ITALKI)}" rel="sponsored noopener" target="_blank">Find an English teacher on italki{ico("arrow")}'
+            f'<span class="sr"> (opens in a new tab)</span></a></p>'
+            f'<p class="small">{MON.RIGA_EN} A teacher cannot book your test or change your result: you book the test only on the provider\'s website, and lessons '
+            f'do not change the decision on your visa.</p></section>')
+
+
+def come_prenotare(estero=False):
+    forn = ["IELTS SELT Consortium", "LanguageCert", "Pearson", "PSI"] if estero else ["IELTS SELT Consortium", "LanguageCert", "Pearson", "Trinity College London"]
+    link = elenco_e(f'<a href="{escape(FORN[f]["url"])}" rel="noopener">{escape(NOMI_FORN[f])}</a>' for f in forn)
+    return (f'<ul class="testo"><li>Book on the provider\'s own website: {link}. GOV.UK says to check the provider\'s website for dates and to make sure the centre is open: '
+            f'"Do not contact the test centre directly."</li>'
+            f'<li>Book the SELT version of the test (for example IELTS for UKVI or IELTS Life Skills, not ordinary IELTS). The approved names are: '
+            + "; ".join(f'{escape(NOMI_FORN[f])}: {escape(test_di(f))}' for f in forn) + '.</li>'
+            f'<li>"You should be able to take a test within 28 days of booking, but it may not always be at the location nearest to you." '
+            f'Use the name exactly as it is on your passport or identity document.</li>'
+            f'<li>Test results are valid for 2 years from the date the test is awarded. After you pass, you get a SELT reference number to use in your application.</li>'
+            f'<li>Fees are set by each provider and are not on the Home Office lists, so we do not show them. If you book through an agent, GOV.UK says its fees should be '
+            f'"the same as, or lower than, the price on the test provider\'s website".</li></ul>'
+            f'<p class="fonte">Source: GOV.UK, <a href="{F_SELT["pagina"]["url"]}" rel="noopener">{escape(F_SELT["pagina"]["titolo"])}</a> '
+            f'(updated {data_lunga(F_SELT["pagina"]["aggiornata"])}, read on {data_lunga(F_SELT["pagina"]["letta_il"])}).</p>')
+
+
+def link_luoghi_selt(rel_sez, escludi=None):
+    c = " · ".join(f'<a href="{rel_sez}{SLUG_SELT[x]}/">{escape(x)}</a>' for x in CITTA_PAG if x != escludi)
+    p = " · ".join(f'<a href="{rel_sez}{SLUG_SELT[x]}/">{escape(NOMI_PAESI_SELT.get(x, x))}</a>' for x in PAESI_PAG if x != escludi)
+    return f'<h2>Other places</h2><p><strong>UK:</strong> {c}</p><p><strong>Outside the UK:</strong> {p}</p>'
+
+
+def fornitori_di(righe, i=0):
+    ordine = ["IELTS SELT Consortium", "LanguageCert", "Pearson", "Trinity College London", "PSI"]
+    return [f for f in ordine if any(r[i] == f for r in righe)]
+
+
+def pagina_selt_citta(c):
+    rel = "../../"
+    percorso = f"{SEZ_SELT}{SLUG_SELT[c]}/"
+    qui = [r for r in CENTRI_UK if r[2] == c]
+    chiave = "Newcastle" if c.startswith("Newcastle") else c
+    altri = [r for r in CENTRI_UK if r[2] != c and re.search(r"\b" + re.escape(chiave) + r"\b", r[1])]
+    qui.sort(key=lambda r: (r[0], r[1]))
+    forn = fornitori_di(qui)
+    n = len(qui)
+    righe = "".join(f'<tr><td>{escape(NOMI_FORN[r[0]])}</td><td>{escape(r[1])}</td><td>{escape(r[3])}</td></tr>' for r in qui)
+    righe_altri = "".join(f'<tr><td>{escape(NOMI_FORN[r[0]])}</td><td>{escape(r[1])}</td><td>{escape(r[3])} <span class="small">(listed under {escape(r[2])})</span></td></tr>' for r in altri)
+    nomi_forn = elenco_e(NOMI_FORN[f] for f in forn)
+    domande = [
+        (f"Where can I take a SELT in {c}?",
+         f"The Home Office list dated {data_lunga(DATA_ELENCO)} has {centri_n(n)} in {c}: " + "; ".join(f"{r[1]} ({NOMI_FORN[r[0]]})" for r in qui) +
+         ". Book on the provider's website, not at the centre."),
+        (f"Which English test do I need for a UK visa?",
+         f"A1 speaking and listening for a first partner or parent visa, A2 to extend after 2.5 years, B1 for settlement and citizenship, and B2 (four skills) for "
+         f"Skilled Worker and most degree-level Student visas. For settlement applications made on or after {data_lunga(DATA_B2)} on the routes listed in HC 1691, B2 in speaking and listening."),
+        (f"Does every centre in {c} offer every test?",
+         "The Home Office list does not say which tests or dates each centre offers. Check the provider's booking page: GOV.UK says you should be able to take a test "
+         "within 28 days of booking, but not always at the nearest location."),
+        ("How much does the test cost?",
+         "Fees are set by each provider and are not on the Home Office lists, so we do not show them. Check the provider's website before you book."),
+    ]
+    london = ""
+    if c in ("Croydon", "Stratford", "Uxbridge") and "London" in CITTA_PAG:
+        london = f'<p class="small">{escape(c)} is in Greater London: see also <a href="../{SLUG_SELT["London"]}/">SELT test centres in London</a>.</p>'
+    elif c == "London":
+        vicini = [x for x in ("Croydon", "Stratford", "Uxbridge") if x in CITTA_SELT]
+        london = ('<p class="small">The official list puts some Greater London centres under their own town: ' +
+                  ", ".join((f'<a href="../{SLUG_SELT[x]}/">{x}</a>' if x in CITTA_PAG else x) + f" ({sum(1 for r in CENTRI_UK if r[2] == x)})" for x in vicini) + ".</p>")
+    corpo = f"""<section class="hero">{h1_diviso(f"SELT test centres in {c}: {centri_n(n)} for UK visas")}
+<p class="lead">There {"are" if n != 1 else "is"} <strong>{centri_n(n)}</strong> for UK visa English tests (SELT) in {escape(c)}, run by {escape(nomi_forn)}, according to the Home Office list of approved test centres dated {data_lunga(DATA_ELENCO)} (GOV.UK, downloaded on {data_lunga(F_SELT["centri_uk"]["scaricato_il"])}). You book the test on the provider's website, not at the centre.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{bandiera("United Kingdom")}<span>{escape(c)}</span><span>list of {data_lunga(DATA_ELENCO)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Approved SELT centres in {escape(c)}</span><span class="sr">: </span><strong>{n}</strong> from {len(forn)} provider{"s" if len(forn) != 1 else ""}</p>
+<div class="kpi">{"".join(f'<div><b>{sum(1 for r in qui if r[0] == f)}</b><span>{escape(NOMI_FORN[f])}</span></div>' for f in forn)}</div>
+{fonte_selt_p()}
+</div></section>
+{AVVISO_SELT}
+{AD}
+<h2>Approved test centres in {escape(c)}</h2>
+<div class="tab compatta"><table id="t-centri"><thead><tr><th scope="col">Provider</th><th scope="col">Centre</th><th scope="col">Address</th></tr></thead><tbody>{righe}</tbody></table></div>
+{fonte_selt_p()}
+<p class="small">The test names to book for each provider are under <a href="#how-to-book">How to book</a>.</p>
+{london}
+{f'<h3>Listed under another town, with {escape(chiave)} in the centre name</h3><div class="tab compatta"><table><thead><tr><th scope="col">Provider</th><th scope="col">Centre</th><th scope="col">Address</th></tr></thead><tbody>{righe_altri}</tbody></table></div>' if altri else ""}
+<h2>Which level for which visa</h2>
+{tabella_livelli(rel)}
+{sezione_b2(rel, breve=True)}
+<h2 id="how-to-book">How to book</h2>
+{come_prenotare()}
+{box_italki(rel)}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+{link_luoghi_selt("../", c)}
+<p><a href="../">UK visa English tests: all centres and levels</a> · <a href="{rel}uk-spouse-visa/">UK spouse visa income requirement</a> · <a href="{rel}{SEZ}uk/family-visas/">UK family visa refusal rates</a></p>"""
+    titolo = titolo_breve([f"SELT test centres in {c}: {centri_n(n)} for UK visas ({ANNO_SELT})",
+                           f"SELT test centres in {c}: {centri_n(n)} ({ANNO_SELT})", f"SELT test centres in {c} ({ANNO_SELT})"])
+    descr = (f"{centri_n(n).capitalize()} for UK visa English tests (SELT) in {c}: {nomi_forn}. Addresses from the Home Office list of "
+             f"{data_lunga(DATA_ELENCO)}, which level you need, and the B2 change from {data_lunga(DATA_B2)}.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)],
+           briciole=[("UK visa English tests", SEZ_SELT), (c, percorso)])
+
+
+def pagina_selt_paese(p):
+    rel = "../../"
+    percorso = f"{SEZ_SELT}{SLUG_SELT[p]}/"
+    qui = sorted([r for r in CENTRI_EST if r[2] == p], key=lambda r: (r[3], r[0], r[1]))
+    n = len(qui)
+    citta = {}
+    for r in qui:
+        citta[r[3]] = citta.get(r[3], 0) + 1
+    ord_citta = sorted(citta, key=lambda x: (-citta[x], x))
+    forn = fornitori_di(qui)
+    nome = nome_p_selt(p)
+    nomi_forn = elenco_e(NOMI_FORN[f] for f in forn)
+    a1 = [t for t in test_per_livello("estero", "A1", "2-facet") if any(f == t[0] or (t[0].startswith("PSI") and f == "PSI") for f in forn)]
+    righe = "".join(f'<tr><td>{escape(r[3])}</td><td>{escape(NOMI_FORN[r[0]])}</td><td>{escape(r[1])}</td><td>{escape(r[4])}</td></tr>' for r in qui)
+    elenco_citta = ", ".join(f"{x} ({citta[x]})" for x in ord_citta[:8]) + (f" and {len(ord_citta) - 8} more" if len(ord_citta) > 8 else "")
+    domande = [
+        (f"Where can I take the A1 English test for a UK spouse visa in {nome}?",
+         f"At an approved SELT centre: the Home Office list dated {data_lunga(DATA_ELENCO)} has {centri_n(n)} in {nome}, in {elenco_citta}. "
+         f"The A1 speaking and listening tests approved outside the UK from the providers with centres in {nome} are: "
+         + "; ".join(f"{t[1]} from {nome_forn_test(t[0])}" for t in a1) + "."),
+        (f"How many SELT test centres are there in {nome}?",
+         f"{centri_n(n).capitalize()} in {len(citta)} cit{'ies' if len(citta) != 1 else 'y'}, from {nomi_forn} (Home Office list dated {data_lunga(DATA_ELENCO)})."),
+        ("Does every centre offer every test?",
+         "The Home Office list does not say which tests or dates each centre offers. Check the provider's booking page before you travel."),
+        ("How much does the test cost?",
+         "Fees are set by each provider and are not on the Home Office lists, so we do not show them. If you use an agent, GOV.UK says its fees "
+         "should be the same as, or lower than, the price on the provider's website."),
+        ("Is the English level for UK settlement going up?",
+         f"Yes, on many routes: for settlement applications made on or after {data_lunga(DATA_B2)}, HC 1691 raises the level from B1 to B2 in speaking and listening."),
+    ]
+    filtro = (f'<p class="filtro"><label><span class="sr">Filter by city</span><input type="search" placeholder="Filter by city: e.g. {escape(ord_citta[0])}" '
+              f'data-filtro="t-centri" autocomplete="off"></label></p>' if n > 12 else "")
+    corpo = f"""<section class="hero">{h1_diviso(f"UK visa English test in {nome}: {centri_n(n)} (SELT)")}
+<p class="lead">There {"are" if n != 1 else "is"} <strong>{centri_n(n)}</strong> for UK visa English tests (SELT) in {escape(nome)}, in {escape(elenco_citta)}, run by {escape(nomi_forn)}, according to the Home Office list of approved test centres outside the UK dated {data_lunga(DATA_ELENCO)} (GOV.UK, downloaded on {data_lunga(F_SELT["centri_estero"]["scaricato_il"])}). The first partner (spouse) visa needs A1 in speaking and listening.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("globe")}<span>{escape(NOMI_PAESI_SELT.get(p, p))}</span><span>list of {data_lunga(DATA_ELENCO)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Approved SELT centres in {escape(nome)}</span><span class="sr">: </span><strong>{n}</strong> in {len(citta)} cit{"ies" if len(citta) != 1 else "y"}</p>
+<div class="kpi">{"".join(f'<div><b>{sum(1 for r in qui if r[0] == f)}</b><span>{escape(NOMI_FORN[f])}</span></div>' for f in forn)}</div>
+{fonte_selt_p(estero=True)}
+</div></section>
+{AVVISO_SELT}
+{AD}
+<h2>Approved test centres in {escape(nome)}</h2>
+{filtro}
+<div class="tab compatta"><table id="t-centri"><thead><tr><th scope="col">City</th><th scope="col">Provider</th><th scope="col">Centre</th><th scope="col">Address</th></tr></thead><tbody>{righe}</tbody></table></div>
+{fonte_selt_p(estero=True)}
+<h2>Which level for which visa</h2>
+{tabella_livelli(rel)}
+{sezione_b2(rel, breve=True)}
+<h2>How to book</h2>
+{come_prenotare(estero=True)}
+{box_italki(rel)}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+{link_luoghi_selt("../", p)}
+<p><a href="../">UK visa English tests: all centres and levels</a> · <a href="{rel}uk-spouse-visa/">UK spouse visa income requirement</a> · <a href="{rel}{SEZ}uk/family-visas/">UK family visa refusal rates</a></p>"""
+    titolo = titolo_breve([f"UK visa English test in {nome}: {centri_n(n)} (SELT, {ANNO_SELT})",
+                           f"UK visa English test in {nome}: {n} SELT centres ({ANNO_SELT})", f"SELT test centres in {nome} ({ANNO_SELT})",
+                           f"SELT centres in {nome}"])
+    descr = (f"{centri_n(n).capitalize()} for UK visa English tests (SELT) in {nome}: {nomi_forn}. Cities and addresses from the Home Office list of "
+             f"{data_lunga(DATA_ELENCO)}, the A1 test for the spouse visa and the B2 change from {data_lunga(DATA_B2)}.")
+    pagina(percorso, titolo, descr, corpo, ordina=n > 12, jsonld_extra=[ld_faq(domande)],
+           briciole=[("UK visa English tests", SEZ_SELT), (NOMI_PAESI_SELT.get(p, p), percorso)])
+
+
+def pagina_selt_indice():
+    rel = "../"
+    percorso = SEZ_SELT
+    n_uk, n_est = len(CENTRI_UK), len(CENTRI_EST)
+    righe_c = []
+    for c in sorted(CITTA_SELT, key=lambda x: (-sum(1 for r in CENTRI_UK if r[2] == x), x)):
+        qui = [r for r in CENTRI_UK if r[2] == c]
+        nome = f'<a href="{SLUG_SELT[c]}/">{escape(c)}</a>' if c in CITTA_PAG else escape(c)
+        righe_c.append(f'<tr><td>{nome}</td><td class="n" data-v="{len(qui)}">{len(qui)}</td><td>{escape(", ".join(NOMI_FORN[f] for f in fornitori_di(qui)))}</td></tr>')
+    righe_p = []
+    for p in sorted(PAESI_SELT, key=lambda x: (-sum(1 for r in CENTRI_EST if r[2] == x), x)):
+        qui = [r for r in CENTRI_EST if r[2] == p]
+        nome = f'<a href="{SLUG_SELT[p]}/">{escape(NOMI_PAESI_SELT.get(p, p))}</a>' if p in PAESI_PAG else escape(NOMI_PAESI_SELT.get(p, p))
+        righe_p.append(f'<tr><td>{nome}</td><td class="n" data-v="{len(qui)}">{len(qui)}</td><td class="n" data-v="{len({r[3] for r in qui})}">{len({r[3] for r in qui})}</td>'
+                       f'<td>{escape(", ".join(NOMI_FORN[f] for f in fornitori_di(qui)))}</td></tr>')
+    per_forn_uk = {f: sum(1 for r in CENTRI_UK if r[0] == f) for f in fornitori_di(CENTRI_UK)}
+    domande = [
+        ("What English level do I need for a UK spouse visa?",
+         f"A1 in speaking and listening for the first partner visa, and A2 when you extend after 2.5 years (GOV.UK). For settlement after 5 years, B1 for applications made "
+         f"before {data_lunga(DATA_B2)}; HC 1691 raises it to B2 in speaking and listening for applications made on or after that date on the routes it lists, which include "
+         f"Settlement Family Life. GOV.UK says a B1 or higher result from your first visa can be used again for settlement if it is still on the approved list; "
+         f"on those routes a B1 result counts only for applications made before {data_lunga(DATA_B2)}."),
+        ("Is the B2 English requirement for ILR confirmed?",
+         f"Yes. The Statement of Changes HC 1691, published on GOV.UK on {data_lunga(HC1691['pubblicato'])}, sets B2 for settlement applications made on or after "
+         f"{data_lunga(DATA_B2)} on the routes it lists. Its explanatory memorandum says: \"These changes will come into force on 26 March 2027.\""),
+        ("What is the difference between IELTS for UKVI and IELTS Life Skills?",
+         "On the Home Office lists, IELTS Life Skills tests speaking and listening (A1, A2 and B1: the levels for partner, parent, settlement and citizenship applications), "
+         "while IELTS for UKVI tests all four skills (B1 to C2, with a minimum score in each skill), used for work and study visas."),
+        ("How long is a SELT result valid?",
+         "Two years from the date the test is awarded, for a new application. For citizenship, and in some cases settlement, GOV.UK explains when an older B1 or higher result can still be used."),
+        ("Can I take the test outside the UK?",
+         f"Yes. Outside the UK the approved providers are PSI Services, IELTS SELT Consortium, LanguageCert and Pearson, with {intero(n_est)} centres in "
+         f"{len(PAESI_SELT)} countries and territories on the list dated {data_lunga(DATA_ELENCO)}. If there is no approved centre in your country, you have to travel to another country."),
+        ("How much does a SELT cost?",
+         "Fees are set by each provider. They are not on the Home Office lists, so we do not show them: check the provider's website."),
+    ]
+    ld = [ld_faq(domande), ld_dataset("Approved UK visa English test (SELT) centres", f"{n_uk} centres in the UK and {n_est} outside the UK approved by the Home Office.",
+                                       percorso, [F_SELT["centri_uk"]["url"], F_SELT["centri_estero"]["url"]], ANNO_SELT,
+                                       F_SELT["pagina"]["licenza_url"])]
+    corpo = f"""<section class="hero">{h1_diviso("UK visa English tests (SELT): test centres by city and the 2027 B2 change")}
+<p class="lead">To prove your English for a UK visa with a test, you must pass a Secure English Language Test (SELT) at one of the <strong>{intero(n_uk)} approved centres in the UK</strong> or <strong>{intero(n_est)} outside the UK</strong> (Home Office lists dated {data_lunga(DATA_ELENCO)}, GOV.UK page updated {data_lunga(F_SELT["pagina"]["aggiornata"])}). The level depends on the visa: A1 for a first partner visa, A2 to extend it, B1 for settlement and citizenship, and <strong>B2 for settlement applications made on or after {data_lunga(DATA_B2)}</strong> on the routes listed in the Statement of Changes HC 1691.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{bandiera("United Kingdom")}<span>UK visa English tests</span><span>lists of {data_lunga(DATA_ELENCO)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Approved SELT centres</span><span class="sr">: </span><strong>{intero(n_uk + n_est)}</strong> ({intero(n_uk)} in the UK, {intero(n_est)} outside)</p>
+<div class="kpi"><div><b>{len(CITTA_SELT)}</b><span>UK towns and cities with a centre</span></div><div><b>{len(PAESI_SELT)}</b><span>countries and territories outside the UK</span></div><div><b>{len(per_forn_uk)}</b><span>providers in the UK ({escape(", ".join(NOMI_FORN[f].split(" (")[0] for f in per_forn_uk))})</span></div><div><b>B2</b><span>for settlement from {data_lunga(DATA_B2)}</span></div></div>
+{fonte_selt_p(entrambi=True)}
+</div></section>
+{AVVISO_SELT}
+{AD}
+<h2>Which level for which visa</h2>
+{tabella_livelli(rel)}
+{sezione_b2(rel)}
+<h2>Which test to book</h2>
+<p>Each provider has its own SELT version. Book the exact test on the Home Office list for your level: for example IELTS Life Skills A1 for a first partner visa, not ordinary IELTS.</p>
+{tabella_test()}
+<h2 id="uk-centres">Test centres in the UK</h2>
+<p class="small">{intero(n_uk)} centres in {len(CITTA_SELT)} towns and cities, by number of centres. Tap a column heading to sort.</p>
+<div class="tab compatta"><table class="ord" id="t-uk-c"><thead><tr>{th_ord("Town or city", False, "ascending")}{th_ord("Centres")}<th scope="col">Providers</th></tr></thead><tbody>{"".join(righe_c)}</tbody></table></div>
+{fonte_selt_p()}
+<h2 id="outside-uk">Test centres outside the UK</h2>
+<p class="small">{intero(n_est)} centres in {len(PAESI_SELT)} countries and territories, by number of centres. Type to filter, or tap a column heading to sort.</p>
+<p class="filtro"><label><span class="sr">Filter countries</span><input type="search" placeholder="Filter: e.g. Pakistan" data-filtro="t-est" autocomplete="off"></label></p>
+<div class="tab compatta"><table class="ord" id="t-est"><thead><tr>{th_ord("Country or territory", False, "ascending")}{th_ord("Centres")}{th_ord("Cities")}<th scope="col">Providers</th></tr></thead><tbody>{"".join(righe_p)}</tbody></table></div>
+{fonte_selt_p(estero=True)}
+<p class="small">Country names are as written in the Home Office file, with a few spellings made consistent ({escape(", ".join(f"{a} → {b}" for a, b in SELT["normalizzazioni"]["paesi"].items()))}). In the UK list, "Newcastle" and "Newcastle Upon Tyne" are shown together as Newcastle upon Tyne.</p>
+<h2>How to book</h2>
+{come_prenotare()}
+{box_italki(rel)}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+{link_luoghi_selt("")}
+<p><a href="{rel}uk-spouse-visa/">UK spouse visa income requirement</a> · <a href="{rel}{SEZ}uk/family-visas/">UK spouse and family visa refusal rates</a> · <a href="{rel}uk-skilled-worker-visa/">UK Skilled Worker salary threshold</a></p>"""
+    titolo = "UK visa English test (SELT): levels, test centres and B2 from 2027"
+    descr = (f"Which English test for which UK visa (A1, A2, B1, B2), the {intero(n_uk)} approved SELT centres in the UK and {intero(n_est)} abroad "
+             f"(Home Office lists of {data_lunga(DATA_ELENCO)}), and B2 for settlement from {data_lunga(DATA_B2)}.")
+    pagina(percorso, titolo, descr, corpo, ordina=True, jsonld_extra=ld, briciole=[("UK visa English tests", percorso)])
+
+
+def link_selt(P, rel):
+    """Riga di collegamento dalle pagine dei visti UK alla sezione dei test di inglese."""
+    if P.get("paese") != "United Kingdom":
+        return ""
+    return (f'<p class="small">{ico("check")} English test for this visa: see <a href="{rel}{SEZ_SELT}">UK visa English tests (SELT): levels and approved test centres</a>, '
+            f'including B2 for settlement from {data_lunga(DATA_B2)}.</p>')
+
+
+def genera_selt():
+    pagina_selt_indice()
+    for c in CITTA_PAG:
+        pagina_selt_citta(c)
+    for p in PAESI_PAG:
+        pagina_selt_paese(p)
+
+
+def controlli_selt():
+    errori = []
+    if len(CENTRI_UK) < 40 or len(CENTRI_EST) < 600:
+        errori.append(f"selt: troppo pochi centri ({len(CENTRI_UK)}, {len(CENTRI_EST)})")
+    if len(set(SLUG_SELT.values())) != len(SLUG_SELT):
+        errori.append("selt: slug di città e Paesi duplicati")
+    if {r[0] for r in CENTRI_UK + CENTRI_EST} - set(NOMI_FORN):
+        errori.append(f"selt: fornitori senza nome: {({r[0] for r in CENTRI_UK + CENTRI_EST} - set(NOMI_FORN))}")
+    if not CITTA_PAG or not PAESI_PAG:
+        errori.append("selt: nessuna città o nessun Paese con domanda (rilanciare raccolta/selt.py --domanda)")
+    if DATA_B2 != "2027-03-26" or "These changes will come into force on 26 March 2027" not in " ".join(HC1691["frasi_memorandum"]):
+        errori.append("selt: data del B2 diversa da quella letta nella nota esplicativa di HC 1691")
+    for k in ("partner_primo", "partner_proroga", "cittadinanza_residenza", "skilled_worker", "skilled_worker_prima", "health_care", "studente", "hpi", "scale_up"):
+        if k not in LIV or LIV[k].get("http") != 200:
+            errori.append(f"selt: livello {k} non letto")
+    if URL_ITALKI and not URL_ITALKI.startswith("https://www.italki.com/"):
+        errori.append("selt: link italki non valido in dati/affiliati.json (_italki_selt)")
+    if any(f not in FORN or not FORN[f].get("url", "").startswith("https://") for f in NOMI_FORN):
+        errori.append("selt: link dei fornitori mancanti in dati/selt.json")
+    return errori
+
+
 def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
@@ -4435,6 +4904,7 @@ def controlli():
     errori += controlli_rifiuti()
     errori += controlli_altri()
     errori += controlli_trasferimenti()
+    errori += controlli_selt()
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -4460,6 +4930,7 @@ def main():
     pagina_confronto_lavoro()
     genera_rifiuti()
     genera_trasferimenti()
+    genera_selt()
     pagina_come_funziona()
     about()
     contatti()
@@ -4468,7 +4939,8 @@ def main():
     print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili; {len(PROG)} programmi in {len(PAESI)} paesi; "
           f"cambi BCE del {CAMBI['data']}; visti rifiutati: {len(PAESI_RIF)} Paesi, {len(STATI_UE)} Stati Schengen ({A1}), UK fino al {TRIM[-1]}; "
           f"Australia {len(AU_OK)} nazionalità ({AU_A1}), Nuova Zelanda {len(NZ_OK)} ({NZ_A1}), Canada {len(CA_OK)} ({CA_A1}); "
-          f"trasferimenti: {len(NAZ_TR)} nazionalità, {sum(len(v) for v in COPPIE_TR.values())} pagine nazionalità × Paese ({Y1}).")
+          f"trasferimenti: {len(NAZ_TR)} nazionalità, {sum(len(v) for v in COPPIE_TR.values())} pagine nazionalità × Paese ({Y1}); "
+          f"test di inglese UK (SELT): {len(CITTA_PAG)} città e {len(PAESI_PAG)} Paesi con pagina (elenco del {DATA_ELENCO}).")
 
 
 if __name__ == "__main__":

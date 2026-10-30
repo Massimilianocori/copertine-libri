@@ -1,6 +1,6 @@
 # Visa Income Checker – note di lavoro
 
-Costruito il 10/10/2026. Sito statico in inglese, generato da `genera.py` in `sito/` (37 pagine + 404; dal 15/10/2026 141 pagine con la sezione "Visa refusal rates"; dal 21/10/2026 186 con le 45 pagine "Easiest Schengen visa"; dal 28/10/2026 410 con la sezione "Who moved where" e la pagina dei visti UK di famiglia; dal 30/10/2026 411 con la pagina dei visti Schengen a ingressi multipli).
+Costruito il 10/10/2026. Sito statico in inglese, generato da `genera.py` in `sito/` (37 pagine + 404; dal 15/10/2026 141 pagine con la sezione "Visa refusal rates"; dal 21/10/2026 186 con le 45 pagine "Easiest Schengen visa"; dal 28/10/2026 410 con la sezione "Who moved where" e la pagina dei visti UK di famiglia; dal 30/10/2026 411 con la pagina dei visti Schengen a ingressi multipli, poi 492 con la sezione "UK visa English tests": 81 pagine).
 Indirizzo previsto: `https://visa-income-checker.netlify.app` (costante `URL_SITO` in `genera.py`, unico punto da cambiare).
 Corretto il 10/10/2026 dopo la revisione indipendente (vedi "Correzioni dopo la revisione").
 
@@ -27,6 +27,8 @@ per il confronto "sopra/sotto la soglia").
 | `dati/rifiuti_altri.json` | dati delle sezioni Australia, Nuova Zelanda e Canada (generato, non modificare a mano) |
 | `raccolta/trasferimenti.py` | dal 28/10/2026: scarica Eurostat `migr_resfirst`, IRCC (residenti permanenti per cittadinanza) e legge il file del Home Office già usato da `rifiuti.py`; scrive `dati/trasferimenti.json` |
 | `dati/trasferimenti.json` | dati della sezione "Who moved where" (generato, non modificare a mano) |
+| `raccolta/selt.py` | dal 30/10/2026: scarica la pagina SELT di GOV.UK e i 4 ODS (centri e test approvati nel Regno Unito e fuori), controlla le frasi delle guide GOV.UK sui livelli e di HC 1691 (B2 dal 26/3/2027); con `--domanda` rifà l'autocompletamento; scrive `dati/selt.json` |
+| `dati/selt.json` | dati della sezione "UK visa English tests" con data, impronta (SHA-256 del contenuto) e SHA-256 di ogni file (generato, non modificare a mano) |
 | `dati/lastmod.json` | registro scritto da `genera.py`: per ogni URL la data dell'ultima modifica del contenuto e la sua impronta (serve al `lastmod` della sitemap) |
 
 ## Cambi automatici
@@ -370,3 +372,50 @@ Dal rapporto `studio-business/intelaiatura/ricerca-2026-10-28.md` (candidata 3, 
 ### Da ricontrollare
 - **1/6/2027**: con il file 2026 della Commissione (`rifiuti.py --nuovo`) le pagine si aggiornano da sole; ricontrollare l'anomalia MEV > visti e i titoli con l'anno.
 - Misura (rapporto): a 30 giorni dalla pubblicazione visite rimandate dagli assistenti conversazionali (GoatCounter, provenienze) e ricerche "multiple entry" in Search Console sulla pagina `multiple-entry-schengen-visa` e sulle ancore `#multiple-entry`.
+
+## 30/10/2026 — Sezione "UK visa English tests (SELT): test centres by city and the 2027 B2 change"
+
+Dal rapporto `studio-business/intelaiatura/ricerca-cloni-esameb1-2026-10-30.md`, sez. 3.2 (voto 7,5 come sezione). Non pubblicata (nessun commit).
+
+### Fonti (tutte GOV.UK, Open Government Licence v3.0; lette il 30/10/2026, HTTP 200)
+| Fonte | URL | Cosa |
+|---|---|---|
+| "Prove your English language abilities with a secure English language test (SELT)" (Home Office) | https://www.gov.uk/guidance/prove-your-english-language-abilities-with-a-secure-english-language-test-selt (API: `/api/content/guidance/...`) | aggiornata il 26/10/2026; fornitori nel Regno Unito (Trinity, IELTS SELT Consortium, LanguageCert, Pearson) e fuori (PSI, IELTS, LanguageCert, Pearson); nomi dei test; 28 giorni; validità 2 anni; tariffe degli intermediari |
+| List of approved test centres in the UK (ODS, 7.855 byte) | https://assets.publishing.service.gov.uk/media/6adf1017b62d80a107bc5caf/List_of_approved_test_centres_in_the_UK_from_October_2026_23.10.2026.ods | **84 centri** in 28 città (elenco del 23/10/2026; colonne Provider, Name of TC, Country, Address, City, Availability; tutti "Available") |
+| List of approved test centres outside the UK (ODS, 95.191 byte) | https://assets.publishing.service.gov.uk/media/6adf10212263175ac2aca3fd/List_of_approved_test_centres_outside_the_UK_from_October_2026_23.10.2026.ods | **1.312 centri** in 140 Paesi e territori (IELTS 567, PSI 327, LanguageCert 213, Pearson 205) |
+| List of approved SELT taken in / outside the UK (ODS) | link sulla stessa pagina (`...Tests_taken_in_the_UK+_5_.ods`, `...outside_the_UK+_1_.ods`) | test per livello CEFR, tipo (2-facet = parlato e ascolto, 4-facet = quattro abilità), voto minimo |
+| Guide dei visti, parte "Knowledge of English" | uk-family-visa, english-language, skilled-worker-visa, health-care-worker-visa, student-visa, high-potential-individual-visa, scale-up-worker-visa | A1 primo visto partner/genitore; A2 proroga dopo 2,5 anni; B1 cittadinanza e residenza; B2 Skilled Worker, Health and Care, HPI, Scale-up (B1 per chi aveva il visto prima dell'8/1/2026); Student B2 laurea, B1 sotto |
+| **Statement of Changes HC 1691** (5/3/2026, su GOV.UK dal 6/3/2026): nota esplicativa par. 5.60-5.62 e testo delle regole (APP KOLL2-3, APP SF1-2) | https://www.gov.uk/government/publications/statement-of-changes-to-the-immigration-rules-hc-1619-5-march-2026 | **B2 in parlato e ascolto per la residenza (settlement) per le domande dal 26/3/2027** sulle 14 appendici elencate (KoLL, Skilled Worker, Settlement Family Life, Long Residence, Global Talent…); prima di quella data B1. "5.62 These changes will come into force on 26 March 2027." La cittadinanza non è nell'elenco. HC 259 (9/7/2026) e HC 584 (3/9/2026) riletti: nessun cambio a questa data |
+
+Nota (fatto, non interpretazione): negli elenchi dei test approvati letti il 30/10/2026 **non c'è un test B2 di solo parlato e ascolto** (2-facet): tutti i B2 sono a quattro abilità. Le pagine lo dicono. Prezzi: nessuno (non sono negli elenchi ufficiali; GOV.UK dice solo che gli intermediari non devono costare più del sito del fornitore); skillsforenglish.com risponde 403 al server.
+
+### Dati e script
+- `python3 visaincome/raccolta/selt.py` → `dati/selt.json` (data, impronta, SHA-256 dei file). Si ferma senza toccare il JSON se: cambiano intestazioni o fornitori, i centri calano di oltre il 30%, PSI compare nel Regno Unito o Trinity all'estero, manca una delle frasi GOV.UK su cui si basano le pagine (livelli, 28 giorni, validità, tariffe) o una frase di HC 1691.
+- Normalizzazioni (registrate nel JSON): Paesi "GHANA", "Sri lanka", "morocco" → forma normale; "Guayaquil" → Ecuador; "Cyprus" (un centro a Limassol) → "Cyprus (South)"; città "Newcastle" e "Newcastle Upon Tyne" → Newcastle upon Tyne. Refuso del file dei test "GESE Grace 3" mostrato come "Grade 3" (`nome_test()` in `genera.py`).
+- **Aggiornamento: ogni lunedì con la routine**: `python3 visaincome/raccolta/selt.py && python3 visaincome/genera.py && python3 visaincome/verifica.py` (l'elenco dei centri cambia ogni 1-3 settimane; l'URL dell'ODS cambia e lo script lo ritrova dalla pagina). Una volta al mese, o quando compare l'avviso "luoghi nuovi senza dati di domanda": `selt.py --domanda` (circa 10 minuti).
+
+### Domanda (autocompletamento Google, 30/10/2026, `client=firefox&hl=en`)
+- Generali (salvate in `selt.json` → `domanda.generali`, gl=uk/in/pk/ng, risultati quasi uguali): "selt test centre" → birmingham, near me, in pakistan, london, manchester, in india, croydon, leeds; "ielts for ukvi" → general training, academic, means, life skills a1/b1, b2, skilled worker visa, cost; "a1 english test for uk spouse visa" → in pakistan, example, questions, in pakistan price, expiry date, validity period, in india, in islamabad (con "in": nigeria, ghana, iran); "b1 english test for citizenship" → online, near me, fee, book, birmingham, manchester, glasgow; "english test for ilr" → cost, b2, near me, validity, 2027, spouse visa; "b2 english test for ilr" → sample, uk, spouse visa, 2027; "selt b2" → test, sample pdf, booking, preparation.
+- Per luogo (gl=uk): città con "selt test centre / ielts for ukvi / b1 english test / a1 english test / english test for citizenship <città>"; Paesi con "selt test centre in / a1 english test for uk spouse visa in / ielts life skills / ielts for ukvi <Paese>". Conta come domanda un suggerimento con il nome del luogo e un termine dei test (selt, ukvi, life skills, a1-b2, spouse, citizenship, ilr…), esclusi quelli sul test usato per un altro Paese ("ielts ukvi for canada", "accepted in"). Soglia 1. Risultato: **tutte le 28 città** (Cambridge 22, London 14, Birmingham e Manchester 10; Exeter, Maidstone, Uxbridge 1) e **52 Paesi** (Pakistan 11, Bangladesh e India 4, Albania, Ghana, Marocco, Nepal, Nigeria 2; gli altri 1, quasi sempre "ielts ukvi <Paese>"). 88 Paesi senza domanda: solo nella tabella dell'indice, senza pagina.
+
+### Pagine (81, tutte in sitemap)
+- `/uk-english-test/` (titolo "UK visa English test (SELT): levels, test centres and B2 from 2027", 66 caratteri; H1 con il nome della sezione): prima frase con 84 e 1.312 centri, date degli elenchi e B2 dal 26/3/2027; tabella "quale livello per quale visto" con la fonte GOV.UK per riga; sezione sul cambio 2027 con le citazioni di HC 1691; tabella dei test da prenotare per livello (Regno Unito / estero); tabelle delle 28 città e dei 140 Paesi (ordinabili, filtro); come prenotare; FAQ; JSON-LD FAQPage e Dataset.
+- `/uk-english-test/<città>/` (28) e `/uk-english-test/<paese>/` (52; slug `cyprus-south`, `united-states`…): prima frase con numero, fornitori, data dell'elenco e fonte; tabella dei centri (fornitore, nome, indirizzo; all'estero anche la città, con filtro sopra 12 righe); Londra rimanda a Croydon, Stratford e Uxbridge e viceversa; riquadro B2 breve; FAQ (per i Paesi: i test A1 dei fornitori presenti).
+- Avviso "Not immigration or legal advice" su ogni pagina; nessun prezzo; la lista ufficiale non dice quali test e date offre ogni centro (scritto nelle FAQ).
+- Collegamenti: menu a piè di pagina ("UK visa English tests (SELT)"), home (sezione con 6 link), pagine dei visti UK (`link_selt`), How it works (punto 8), privacy (riga su italki).
+
+### Monetizzazione
+- AdSense già attivo (annunci automatici). **italki**: voce `_italki_selt` in `dati/affiliati.json` (stesso link di EsameB1 `https://www.italki.com/affshare?ref=af34201678`, dominio `italki.com` già ammesso in `monetizzazione.json`): riquadro «Prepare for the speaking test» (`box_italki()`), etichetta "Affiliate", dopo "How to book" (cioè dopo le informazioni ufficiali), `rel="sponsored noopener"`, riga di trasparenza, nessun prezzo, nessuna promessa sul risultato o sul visto. Con il trattino basso la voce non entra nel riquadro generico `box_affiliati()`. Per spegnerlo: `url` vuoto e rigenerare.
+
+### Controlli
+- `verifica.py` controllo 16 (nuovo, ricalcolo da `dati/selt.json`): impronta del JSON; pagine = indice + luoghi con domanda (tutte in sitemap, nessuna in più); titoli ≤ 70; prima frase con numero ricalcolato e data dell'elenco; righe della tabella = centri del luogo (nome e indirizzo); tabelle dell'indice (28 città, 140 Paesi, somme); la data "26 March 2027" solo se `selt.json` contiene la frase di HC 1691; nessun prezzo; avviso, OGL, FAQPage; link di affiliazione solo italki, solo se attivo, `sponsored noopener`, riga di trasparenza, dopo "How to book". Il controllo 6 ("Santiago") ora esclude le pagine SELT (Santiago è una città dell'elenco cileno). Provato con una pagina alterata a mano: gli errori escono.
+- Esito 30/10/2026: `python3 visaincome/verifica.py` **TUTTO OK** (492 URL in sitemap, 0 link interni rotti); `python3 studio-business/strumenti/monetizzazione.py verifica visaincome` 0 errori (230 link di affiliazione in 230 pagine su 493).
+- Controlli a campione contro gli ODS originali (letti con uno script separato, non con `selt.py`): Glasgow 4 e Leeds 4 centri con tutti i nomi; Nigeria 19 (Lagos 10, Abuja 6), Bangladesh 30 (Dhaka 15, Sylhet 10), India 145: uguali alle pagine.
+- Playwright 375 e 1280 px, chiaro e scuro (indice, London, Pakistan, China con 185 righe, Glasgow, Stratford): nessuno scorrimento orizzontale, tabelle dentro lo schermo, nessun errore JS.
+- Revisione indipendente 30/10/2026 (fonti riscaricate: 4 ODS, guida SELT, 7 guide dei visti, HC 1691 memorandum e testo delle regole, HC 259 e HC 584): 5 città e 5 Paesi a caso uguali agli ODS (centri, nomi, indirizzi, fornitori); livelli e cambio B2 uguali alle fonti. Corretti: tolto "differ by country / by test and country" dalle FAQ sui prezzi (non nelle fonti); FAQ dell'indice sul riuso del B1 per la residenza: ora dice che sulle rotte di HC 1691 il B1 vale solo per le domande prima del 26/3/2027 (regola KOLL 2.2).
+
+### Da ricontrollare
+- Ogni lunedì: `selt.py` (vedi sopra). Se GOV.UK aggiorna le guide (es. nuovo test B2 di parlato e ascolto, o una data diversa per il B2), lo script si ferma: rileggere e aggiornare frasi e testi.
+- **26/3/2027**: dal giorno dopo le frasi "before 26 March 2027" diventano storia: rivedere prima frase e tabella dei livelli (B2 come livello attuale per la residenza).
+- Misura (rapporto): a 30 giorni dalla pubblicazione ≥ 100 visite a settimana sulla sezione (GoatCounter, filtro `uk-english-test`); clic italki nel pannello italki.
+

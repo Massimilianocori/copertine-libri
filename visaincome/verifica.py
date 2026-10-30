@@ -28,6 +28,9 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
 15. Visti Schengen a ingressi multipli (30/10/2026): pagina /visa-refusal-rates/multiple-entry-schengen-visa/ in sitemap, titolo entro 70
     caratteri con l'anno, prima frase con numero, fonte e data; tabelle per Stato e per Paese e riquadro di ogni pagina per Paese
     ricalcolati da dati/rifiuti.json (visti uniformi rilasciati e MEV), soglia 500 visti; link dall'indice e dalle pagine per Paese.
+16. Test di inglese per i visti UK (SELT, 30/10/2026): ricalcolo da dati/selt.json (impronta, centri per città e per Paese, totali), pagine attese
+    = indice + luoghi con domanda (tutte in sitemap, nessuna in più), titoli entro 70 caratteri, prima frase con numero, fonte e data,
+    data del B2 solo con la fonte HC 1691 letta, nessun prezzo, link di affiliazione solo italki (ammesso, sponsored noopener, trasparenza).
 Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
@@ -194,7 +197,9 @@ def controlla_contenuti():
     deve("€2,442</strong> a month × 14 payments" in es and "€2,849 a month if spread over 12 payments" in es, "ES: manca la forma ufficiale 2.442 × 14 con l'equivalente su 12")
     deve("consulados/buenosaires" in es.lower() and "HANOI" in es, "ES: mancano le fonti dei consolati (Buenos Aires, Hanoi)")
     deve("€1,221 a month × 14 payments" in es, "ES: SMI non indicato come 1.221 × 14")
-    deve("Santiago" not in tutto, "Attribuzione a Santiago del Cile ancora presente")
+    # dal 30/10/2026 le pagine dei centri SELT (uk-english-test/chile/) nominano Santiago come città dell'elenco ufficiale: esclusa
+    senza_selt = "\n".join(f.read_text(encoding="utf-8") for f in SITO.rglob("*.html") if "uk-english-test" not in f.parts)
+    deve("Santiago" not in senza_selt, "Attribuzione a Santiago del Cile ancora presente")
     deve("not €2,762" not in tutto and "not €3,295" not in tutto, "Frase 'not €…' ancora in home")
     it = leggi("italy-digital-nomad-visa/index.html")
     deve("passive income such as social security, rents or stocks is not considered" in it and "consboston.esteri.it" in it, "IT: manca la regola sul reddito passivo (consolato di Boston)")
@@ -929,6 +934,118 @@ def controlla_mev():
     return errori, n
 
 
+# ---------------------------------------------------------------- 16. Test di inglese per i visti UK (SELT), 30/10/2026
+def controlla_selt():
+    """16. Ricalcolo indipendente da dati/selt.json: impronta dei dati; pagine attese (indice + città e Paesi con domanda) tutte in
+    sitemap e nessuna in più; titoli ≤ 70; prima frase con numero, fonte e data; righe delle tabelle = centri dell'elenco (nome e
+    indirizzo); data del B2 solo se letta nella fonte ufficiale (HC 1691); nessun prezzo; avviso; JSON-LD; link di affiliazione
+    solo italki (dominio ammesso, rel="sponsored noopener", riga di trasparenza) e solo se attivo in dati/affiliati.json."""
+    import hashlib
+    errori = []
+    D = json.loads((SITO.parent / "dati" / "selt.json").read_text(encoding="utf-8"))
+    aff = json.loads((SITO.parent / "dati" / "affiliati.json").read_text(encoding="utf-8")).get("_italki_selt", {})
+    contenuto = {"centri": D["centri"], "test": D["test"]}
+    if hashlib.sha256(json.dumps(contenuto, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != D["impronta"]:
+        errori.append("SELT: impronta di dati/selt.json diversa dal contenuto (file modificato a mano?)")
+    uk, est = D["centri"]["uk"], D["centri"]["estero"]
+    if len(uk) != D["fonti"]["centri_uk"]["righe"] or len(est) != D["fonti"]["centri_estero"]["righe"]:
+        errori.append("SELT: numero di centri diverso dalle righe del file ufficiale")
+    soglia = D["domanda"]["soglia"]
+    citta = sorted({r[2] for r in uk})
+    paesi = sorted({r[2] for r in est})
+    citta_pag = [c for c in citta if len(D["domanda"]["citta"].get(c, [])) >= soglia]
+    paesi_pag = [p for p in paesi if len(D["domanda"]["paesi"].get(p, [])) >= soglia]
+    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    sez = SITO / "uk-english-test"
+    attese = {"": None}
+    attese.update({G.SLUG_SELT[c]: ("uk", c) for c in citta_pag})
+    attese.update({G.SLUG_SELT[p]: ("estero", p) for p in paesi_pag})  # slug: configurazione del generatore; i numeri si ricalcolano qui
+    trovate = {f.parent.relative_to(sez).as_posix().replace(".", "") for f in sez.rglob("index.html")}
+    if trovate != set(attese):
+        errori.append(f"SELT: pagine diverse da quelle attese (in più: {sorted(trovate - set(attese))[:5]}, mancanti: {sorted(set(attese) - trovate)[:5]})")
+    hc = D["fonti"]["hc1691"]
+    b2_ok = hc.get("in_vigore") == "2027-03-26" and any("come into force on 26 March 2027" in f for f in hc.get("frasi_memorandum", []))
+    data_el = G.data_lunga(D["fonti"]["centri_uk"]["data_elenco"])
+    url_it = aff.get("url", "")
+    n = 0
+    for slug, chi in attese.items():
+        f = sez / slug / "index.html" if slug else sez / "index.html"
+        if not f.exists():
+            continue
+        n += 1
+        percorso = f"uk-english-test/{slug + '/' if slug else ''}"
+        t = f.read_text(encoding="utf-8")
+        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        if f"{G.URL_SITO}/{percorso}</loc>" not in sitemap:
+            errori.append(f"SELT: {percorso} non in sitemap")
+        titolo = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(titolo) > 70:
+            errori.append(f"SELT: titolo oltre 70 caratteri in {percorso}: {titolo!r} ({len(titolo)})")
+        prima = re.search(r'<p class="lead">(.*?)</p>', main, re.S).group(1)
+        if data_el not in prima or not RE_DATA.search(prima):
+            errori.append(f"SELT: prima frase senza la data dell'elenco in {percorso}")
+        for frase in ("Not immigration or legal advice.", "FAQPage", "Open Government Licence v3.0", "list dated"):
+            if frase not in t:
+                errori.append(f"SELT: manca {frase!r} in {percorso}")
+        if re.search(r"[£$€₹]\s?\d|\bRs\.?\s?\d|\bPKR\s?\d|\bINR\s?\d|\bGBP\s?\d", re.sub(r"<[^>]+>", " ", main)):
+            errori.append(f"SELT: prezzo nella pagina {percorso} (nessuna fonte ufficiale del fornitore letta)")
+        if "26 March 2027" in t and not b2_ok:
+            errori.append(f"SELT: data del B2 in {percorso} senza la fonte ufficiale in dati/selt.json")
+        # link di affiliazione
+        sponsor = re.findall(r'<a [^>]*rel="([^"]*sponsored[^"]*)"[^>]*>', main) + re.findall(r'<a [^>]*href="([^"]*italki[^"]*)"', main)
+        link_it = re.findall(r'<a [^>]*href="(https?://[^"]*italki\.com[^"]*)"[^>]*rel="([^"]*)"', main)
+        if url_it:
+            if len(link_it) != 1 or link_it[0][0] != html.escape(url_it) and link_it[0][0] != url_it or link_it[0][1] != "sponsored noopener":
+                errori.append(f"SELT: riquadro italki assente, doppio o con rel sbagliato in {percorso}")
+            if G.MON.RIGA_EN not in main:
+                errori.append(f"SELT: riga di trasparenza mancante in {percorso}")
+            if not G.MON.dominio_ammesso(url_it):
+                errori.append("SELT: dominio del link italki non tra quelli ammessi in monetizzazione.json")
+            if main.find("aff-i-h") < main.find("How to book</h2>") or main.find("How to book</h2>") < 0:
+                errori.append(f"SELT: riquadro italki prima delle informazioni ufficiali in {percorso}")
+        elif link_it or sponsor:
+            errori.append(f"SELT: link di affiliazione in {percorso} ma _italki_selt non è attivo")
+        for h, r in re.findall(r'<a [^>]*href="(https?://[^"]+)"[^>]*rel="([^"]*sponsored[^"]*)"', main):
+            if "italki.com" not in h:
+                errori.append(f"SELT: link sponsorizzato non ammesso in {percorso}: {h}")
+        if chi is None:
+            tot = f"<strong>{len(uk):,} approved centres in the UK</strong> or <strong>{len(est):,} outside the UK</strong>"
+            if tot not in prima:
+                errori.append("SELT: totali della prima frase dell'indice diversi dal ricalcolo")
+            for tid, attesi in (("t-uk-c", {c: sum(1 for r in uk if r[2] == c) for c in citta}), ("t-est", {p: sum(1 for r in est if r[2] == p) for p in paesi})):
+                tab = re.search(r'<table[^>]*id="%s".*?</table>' % tid, main, re.S)
+                righe = re.findall(r'<tr><td>(.*?)</td><td class="n" data-v="(\d+)"', tab.group(0)) if tab else []
+                if len(righe) != len(attesi) or sorted(int(x[1]) for x in righe) != sorted(attesi.values()) or sum(int(x[1]) for x in righe) != sum(attesi.values()):
+                    errori.append(f"SELT: tabella {tid} dell'indice diversa dal ricalcolo ({len(righe)} righe, attese {len(attesi)})")
+            if b2_ok and "B2 for settlement applications made on or after 26 March 2027" not in prima:
+                errori.append("SELT: prima frase dell'indice senza il cambio B2 del 26 March 2027")
+            continue
+        dove, luogo = chi
+        qui = [r for r in uk if r[2] == luogo] if dove == "uk" else [r for r in est if r[2] == luogo]
+        m = len(qui)
+        if f"<strong>{m:,} approved centre{'s' if m != 1 else ''}</strong>" not in prima:
+            errori.append(f"SELT: numero di centri nella prima frase di {percorso} diverso da {m}")
+        tab = re.search(r'<table[^>]*id="t-centri".*?</table>', main, re.S)
+        righe = re.findall(r"<tr><td>", tab.group(0)) if tab else []
+        if len(righe) != m:
+            errori.append(f"SELT: {len(righe)} righe nella tabella di {percorso}, attesi {m} centri")
+        corpo_tab = html.unescape(tab.group(0)) if tab else ""
+        for r in qui:
+            nome, ind = (r[1], r[3]) if dove == "uk" else (r[1], r[4])
+            if nome not in corpo_tab or ind not in corpo_tab:
+                errori.append(f"SELT: centro {nome!r} o indirizzo mancante in {percorso}")
+                break
+        if dove == "estero":
+            for c in {r[3] for r in qui}:
+                if f"<td>{html.escape(c)}</td>" not in tab.group(0):
+                    errori.append(f"SELT: città {c} mancante in {percorso}")
+    # collegamenti dal resto del sito
+    for f, link in (("index.html", 'href="uk-english-test/"'), ("uk-spouse-visa/index.html", 'href="../uk-english-test/"')):
+        if link not in (SITO / f).read_text(encoding="utf-8"):
+            errori.append(f"SELT: {f} non rimanda alla sezione")
+    return errori, n
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -960,7 +1077,9 @@ def main():
     print("14. " + G.MON.riepilogo(G.SITO_ID, i14, e14))
     e15, n15 = controlla_mev()
     print(f"15. Visti Schengen a ingressi multipli: {n15} pagine (riassuntiva + riquadri per Paese), numeri ricalcolati, sitemap, titolo, link: {len(e15)} errori")
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15
+    e16, n16 = controlla_selt()
+    print(f"16. Test di inglese UK (SELT): {n16} pagine (indice + città e Paesi con domanda), centri ricalcolati, sitemap, titoli, fonte, B2, affiliati: {len(e16)} errori")
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16
     for e in tutti:
         print(" -", e)
     if tutti:
