@@ -490,3 +490,15 @@ Temi nuovi apposta, scelti per il momento dell'acquisto con un'affiliazione nomi
 | Regola del 30 % per gli espatriati nei Paesi Bassi (soglie 2027) | NO (4): una cifra l'anno della Belastingdienst, studi fiscali; consulenza fiscale | idee-2026-10-29 |
 | Kindergeld 2027 per gli espatriati (Germania) | NO (3): domanda in tedesco, Familienkasse e giornali; una cifra | idee-2026-10-29 |
 | Ore di lavoro permesse agli studenti internazionali, Paese per Paese | NO (5): università, IDP e agenzie già prime; pubblico a bassa pubblicità; nessuna affiliazione al momento giusto | idee-2026-10-29 |
+
+## Ricerca cloni di EsameB1 nel mondo (30/10/2026)
+
+| Nicchia | Verdetto | Rapporto |
+|---|---|---|
+| **Einbürgerungstest + B1 per città (DE)**, riletta con la curva di EsameB1 | **RISERVA alta** (voto 7,5; 8 con il test di 3 giorni sulle date; 1.200-9.700 €/anno a 18 mesi; 30-40 ore; sito nuovo) | ricerca-cloni-esameb1-2026-10-30 |
+| **Test di inglese SELT per città e per visto, con il B2 dal 26/3/2027 (UK)** | **PASSA sotto l'asticella** (voto 7; 7,5 come sezione di Visa Income Checker; 600-4.000 €/anno; 15-22 ore) | ricerca-cloni-esameb1-2026-10-30 |
+| Examen civique + TCF IRN per città (FR) | RISERVA alta (6,5): domanda per arrondissement, ma CCIP vieta la riproduzione e FEI ha l'anti-robot; 8 con il permesso scritto | ricerca-cloni-esameb1-2026-10-30 |
+| TEF/TCF Canada per città | RISERVA (6): stesse fonti chiuse della Francia | ricerca-cloni-esameb1-2026-10-30 |
+| Goethe A1/B1 per il visto nei Paesi di partenza | NO dal server (5): `goethe.de` 403 | ricerca-cloni-esameb1-2026-10-30 |
+| N-400 per ufficio USCIS (riletta) | NO confermato (4): `egov.uscis.gov` 403, novo-legal con le pagine per ufficio | ricerca-cloni-esameb1-2026-10-30 |
+| Patente in Giappone, KIIP, golden chance negli Emirati, zkouška A2 in Cechia | NO (2-4) | ricerca-cloni-esameb1-2026-10-30 |
