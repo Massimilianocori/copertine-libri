@@ -562,3 +562,13 @@ Nessuna idea a 8. Lezione: i dati aperti della zona sono già usati da siti auto
 | Mietpreisbremse Comune per Comune (Germania) | 7, riserva alta (sito nuovo in tedesco, 800-2.400 €/anno) | ricerca-zona-europa-asia-2026-10-30 |
 | Assicurazione sanitaria per il visto (riesame) | NO: nessuno dei 12 programmi pubblica la commissione | ricerca-zona-europa-asia-2026-10-30 |
 | Tariffe governative Emirati/Arabia Saudita, scuole KHDA, affitti Dubai, cassa malattia per Comune in Giappone, tempi immigrazione Giappone, contributo casse malattia DE, affitti Svezia/Spagna/Francia/NL, mercati Singapore, carta di soggiorno Polonia | NO / riserva, prove nel rapporto | ricerca-zona-europa-asia-2026-10-30 |
+
+## Ricerca settore calendari e date ufficiali (30/10/2026)
+
+| Nicchia | Verdetto | Rapporto |
+|---|---|---|
+| Quando escono i biglietti, chiusure e giorni gratis delle grandi attrazioni con iCal (Cenacolo, Vaticano, Pompei, Uffizi, Anna Frank, Alhambra, Sagrada) | 7,5 (8 con Viator e 1.500 impressioni in 30 gg), **in coda** come sezione di Before You Fly (300 / 1.100 / 4.000 €/anno, 16-24 ore) | ricerca-settore-calendari-2026-10-30 |
+| Gomme invernali e catene per Paese con le date, per chi noleggia | 6, **in coda urgente** come aggiunta a Driving abroad (entro 15/11; 120-1.200 €/anno) | ricerca-settore-calendari-2026-10-30 |
+| TOLC sede per sede con posti liberi (CISIA) | 6,5, sezione di EsamiDiStato dopo lettura delle condizioni CISIA (50-400 €/anno) | ricerca-settore-calendari-2026-10-30 |
+| Calendari scolastici e ponti (IT, DE, FR, ES, UK), pagamenti INPS/Rente/CAF/SNAP, scadenze fiscali, saldi, maturità, PAU, cambio dell'ora, rifiuti, santi patroni | NO (2-4,5): giornali e siti di calendari già forti | ricerca-settore-calendari-2026-10-30 |
+| Calendario venatorio per regione | 5, riserva debole | ricerca-settore-calendari-2026-10-30 |
