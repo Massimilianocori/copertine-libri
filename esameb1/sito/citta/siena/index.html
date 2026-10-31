@@ -326,6 +326,24 @@ table.conf td.no{color:var(--ink-3)}
 ol.passi li>div p{margin:4px 0 0;color:var(--ink-2);font-size:.95rem}
 ol.passi li .fonte{margin-top:6px}
 /* riquadro "Preparati alla prova orale" (link di affiliazione + link gratuito) */
+/* calcolatore dei redditi e pagine prefettura (31/10/2026) */
+.calc{max-width:560px;margin-top:0}
+.calc-esito{display:grid;gap:10px;margin-top:16px;max-width:720px}
+.calc-esito>div{border:1.5px solid var(--line-2);border-left-width:6px;border-radius:var(--r);padding:12px 14px;background:var(--surface)}
+.calc-esito>div.si{border-left-color:var(--brand)}.calc-esito>div.no{border-left-color:var(--rosso)}
+.c-tit{font-weight:700}.c-soglia{color:var(--ink-2);font-size:.95rem}.c-esito{font-weight:700}
+.calc-esito>div.si .c-esito{color:var(--brand-ink)}.calc-esito>div.no .c-esito{color:var(--rosso)}
+.uff{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.uff li{display:flex;gap:10px;align-items:flex-start;overflow-wrap:anywhere}
+.uff li .i{color:var(--brand);margin-top:.25em}
+.uff b{font-weight:650}
+.citaz{border-left:3px solid var(--line-2);padding:2px 0 2px 12px;margin:8px 0;color:var(--ink-2);font-style:italic;overflow-wrap:anywhere}
+.locali{display:grid;gap:12px}
+main a[href^="mailto:"]{overflow-wrap:anywhere;word-break:break-word}
+@media (max-width:640px){.pref-tab tr{display:block;padding:12px}.pref-tab table.conf td,.pref-tab table.conf td:first-child{display:block;border:0;padding:2px 0;margin:0}
+.pref-tab td[data-l]::before{display:block;font-size:.8rem;margin-top:6px}}
+.pref-tab td{overflow-wrap:anywhere}
+.pref-tab td a{white-space:normal}
 .prep{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px 16px;align-items:start;margin:44px 0 8px;border-left:4px solid var(--brand)}
 .prep .bolla{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--brand-soft);color:var(--brand)}
 .prep .bolla .i{width:22px;height:22px}
@@ -339,6 +357,17 @@ ol.passi li .fonte{margin-top:6px}
 @media (max-width:640px){.prep{grid-template-columns:1fr;gap:10px}.prep .bolla{width:40px;height:40px}}
 .piede .dati{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);padding:6px 12px;border-radius:999px;font-weight:600;color:#E8F0ED}
 @media (max-width:760px){.piede-griglia{grid-template-columns:1fr}}
+@font-face{font-family:"Figtree";src:url("/fonts/figtree-latin-ext.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0}
+@font-face{font-family:"Figtree";src:url("/fonts/onest-cyrillic.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap;unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+nav.menu details.lingue{position:relative;background:none;border:0;margin:0;border-radius:999px}
+nav.menu details.lingue>summary{display:inline-flex;align-items:center;gap:5px;padding:8px 10px;border-radius:999px;color:var(--ink-2);font-weight:600;font-size:.97rem;justify-content:flex-start}
+nav.menu details.lingue>summary:hover,nav.menu details.lingue[open]>summary{color:var(--brand-ink);background:var(--brand-soft)}
+nav.menu details.lingue>summary .i{transform:none;color:inherit;width:18px;height:18px}
+nav.menu details.lingue>ul{position:absolute;right:0;top:calc(100% + 6px);z-index:30;margin:0;padding:6px;list-style:none;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.14);min-width:170px}
+nav.menu details.lingue li{margin:0}
+nav.menu details.lingue li a{display:block;padding:9px 12px;border-radius:8px}
+nav.menu details.lingue li a[aria-current]{color:var(--brand-ink);background:var(--brand-soft)}
+@media (max-width:640px){nav.menu details.lingue>summary{padding:8px 7px;font-size:.95rem;gap:4px}}
 </style>
 
 </head>
@@ -352,7 +381,7 @@ ol.passi li .fonte{margin-top:6px}
 <rect x="11" y="25.6" width="6" height="2.4" rx="1.1" fill="#3FB37F"/><rect x="17" y="25.6" width="6" height="2.4" rx="1.1" fill="#FFFFFF"/><rect x="23" y="25.6" width="6" height="2.4" rx="1.1" fill="#E4573D"/>
 </svg><span class="logo-testo">Esame<b>B1</b></span></a>
 <nav class="menu" aria-label="Menu">
-<a href="../../#date">Date</a><a href="../../#citta">Città</a><a href="../../come-funziona/"><span class="lungo">Come funziona</span><span class="corto">Guida</span></a><a class="nav-cta" href="#avvisami" aria-label="Avvisami"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-campana"/></svg><span class="lungo">Avvisami</span></a>
+<a href="../../#date">Date</a><a href="../../#citta">Città</a><a href="../../come-funziona/"><span class="lungo">Come funziona</span><span class="corto">Guida</span></a><details class="lingue"><summary aria-label="Lingua: Italiano"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg><span>IT</span></summary><ul><li><a href="../../" hreflang="it" lang="it" aria-current="true">Italiano</a></li><li><a href="../../en/" hreflang="en" lang="en">English</a></li><li><a href="../../uk/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../../ro/" hreflang="ro" lang="ro">Română</a></li></ul></details><a class="nav-cta" href="#avvisami" aria-label="Avvisami"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-campana"/></svg><span class="lungo">Avvisami</span></a>
 </nav>
 </div></header>
 <main class="wrap" id="contenuto">
@@ -365,121 +394,121 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 <div class="slot" data-slot><div class="r-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossimo esame</div><div data-fino="2026-11-11">
 <div class="r-data">11 novembre <small>2026</small></div>
 <div class="r-cosa"><span class="eb eb-CELI">CELI</span><span>CELI 2 (B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta vicino" data-conta="2026-11-11" data-modo="esame">tra 12 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta vicino" data-conta="2026-11-11" data-modo="esame">tra 11 giorni</span></p>
 </div><div data-fino="2026-11-18" hidden>
 <div class="r-data">18 novembre <small>2026</small></div>
 <div class="r-cosa"><span class="eb eb-PLIDA">PLIDA</span><span>PLIDA B1</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2026-11-18" data-modo="esame">tra 19 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2026-11-18" data-modo="esame">tra 18 giorni</span></p>
 </div><div data-fino="2026-12-03" hidden>
 <div class="r-data">3 dicembre <small>2026</small></div>
 <div class="r-cosa"><span class="eb eb-CILS">CILS</span><span>CILS B1 Cittadinanza, CILS B1 standard</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2026-12-03" data-modo="esame">tra 34 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2026-12-03" data-modo="esame">tra 33 giorni</span></p>
 </div><div data-fino="2027-02-11" hidden>
 <div class="r-data">11 febbraio <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CERTIT">CERT.IT</span><span>CERT.IT B1 (sessione A2/B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-11" data-modo="esame">tra 104 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-11" data-modo="esame">tra 103 giorni</span></p>
 </div><div data-fino="2027-02-17" hidden>
 <div class="r-data">17 febbraio <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CELI">CELI</span><span>CELI 2 i cittadinanza (B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-17" data-modo="esame">tra 110 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-17" data-modo="esame">tra 109 giorni</span></p>
 </div><div data-fino="2027-02-18" hidden>
 <div class="r-data">18 febbraio <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CILS">CILS</span><span>CILS B1 Cittadinanza</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-18" data-modo="esame">tra 111 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-18" data-modo="esame">tra 110 giorni</span></p>
 </div><div data-fino="2027-03-09" hidden>
 <div class="r-data">9 marzo <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CELI">CELI</span><span>CELI 2 (B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-03-09" data-modo="esame">tra 130 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-03-09" data-modo="esame">tra 129 giorni</span></p>
 </div><div data-fino="2027-04-08" hidden>
 <div class="r-data">8 aprile <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CILS">CILS</span><span>CILS B1 Cittadinanza</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-04-08" data-modo="esame">tra 160 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-04-08" data-modo="esame">tra 159 giorni</span></p>
 </div><div data-fino="2027-05-20" hidden>
 <div class="r-data">20 maggio <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CELI">CELI</span><span>CELI 2 i cittadinanza (B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-20" data-modo="esame">tra 202 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-20" data-modo="esame">tra 201 giorni</span></p>
 </div><div data-fino="2027-05-20" hidden>
 <div class="r-data">20 maggio <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CERTIT">CERT.IT</span><span>CERT.IT B1 (sessione A2/B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-20" data-modo="esame">tra 202 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-20" data-modo="esame">tra 201 giorni</span></p>
 </div><div data-fino="2027-06-10" hidden>
 <div class="r-data">10 giugno <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CILS">CILS</span><span>CILS B1 Cittadinanza, CILS B1 standard</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-10" data-modo="esame">tra 223 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-10" data-modo="esame">tra 222 giorni</span></p>
 </div><div data-fino="2027-06-11" hidden>
 <div class="r-data">11 giugno <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CELI">CELI</span><span>CELI 2 (B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-11" data-modo="esame">tra 224 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-11" data-modo="esame">tra 223 giorni</span></p>
 </div></div>
 <div class="slot" data-slot><div class="r-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni ancora aperte</div><div data-fino="2026-10-09" hidden>
 <div class="r-data"><small>entro il</small> 9 ottobre 2026</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CELI">CELI</span> del <strong>11 novembre</strong></div>
-<p style="margin:12px 0 0"><span class="conta urg" data-conta="2026-10-09" data-modo="scad">mancano -21 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta urg" data-conta="2026-10-09" data-modo="scad">mancano -22 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2026-10-24" hidden>
 <div class="r-data"><small>entro il</small> 24 ottobre 2026</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>3 dicembre</strong></div>
-<p style="margin:12px 0 0"><span class="conta urg" data-conta="2026-10-24" data-modo="scad">mancano -6 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta urg" data-conta="2026-10-24" data-modo="scad">mancano -7 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-01-18">
 <div class="r-data"><small>entro il</small> 18 gennaio 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>18 febbraio</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-01-18" data-modo="scad">mancano 80 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-01-18" data-modo="scad">mancano 79 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-01-22" hidden>
 <div class="r-data"><small>entro il</small> 22 gennaio 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CELI">CELI</span> del <strong>17 febbraio</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-01-22" data-modo="scad">mancano 84 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-01-22" data-modo="scad">mancano 83 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-02-09" hidden>
 <div class="r-data"><small>entro il</small> 9 febbraio 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CELI">CELI</span> del <strong>9 marzo</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-09" data-modo="scad">mancano 102 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-09" data-modo="scad">mancano 101 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-03-08" hidden>
 <div class="r-data"><small>entro l'</small>8 marzo 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>8 aprile</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-03-08" data-modo="scad">mancano 129 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-03-08" data-modo="scad">mancano 128 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-04-20" hidden>
 <div class="r-data"><small>entro il</small> 20 aprile 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CELI">CELI</span> del <strong>20 maggio</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-04-20" data-modo="scad">mancano 172 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-04-20" data-modo="scad">mancano 171 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-05-01" hidden>
 <div class="r-data"><small>entro il</small> 1 maggio 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>10 giugno</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-01" data-modo="scad">mancano 183 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-01" data-modo="scad">mancano 182 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-05-11" hidden>
 <div class="r-data"><small>entro l'</small>11 maggio 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CELI">CELI</span> del <strong>11 giugno</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-11" data-modo="scad">mancano 193 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-11" data-modo="scad">mancano 192 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-06-22" hidden>
 <div class="r-data"><small>entro il</small> 22 giugno 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>22 luglio</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-22" data-modo="scad">mancano 235 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-22" data-modo="scad">mancano 234 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-08-17" hidden>
 <div class="r-data"><small>entro il</small> 17 agosto 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CELI">CELI</span> del <strong>15 settembre</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-08-17" data-modo="scad">mancano 291 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-08-17" data-modo="scad">mancano 290 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-09-21" hidden>
 <div class="r-data"><small>entro il</small> 21 settembre 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>21 ottobre</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-09-21" data-modo="scad">mancano 326 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-09-21" data-modo="scad">mancano 325 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-10-16" hidden>
 <div class="r-data"><small>entro il</small> 16 ottobre 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CELI">CELI</span> del <strong>16 novembre</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-10-16" data-modo="scad">mancano 351 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-10-16" data-modo="scad">mancano 350 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-10-23" hidden>
 <div class="r-data"><small>entro il</small> 23 ottobre 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>2 dicembre</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-10-23" data-modo="scad">mancano 358 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-10-23" data-modo="scad">mancano 357 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><p data-riserva class="r-nota" hidden>In questo momento non ci sono termini nazionali aperti: per PLIDA e CERT.IT la scadenza la decide ogni centro. Chiedi alla sede.</p></div>
 <div class="r-piede"><a href="#date">Tutte le date <svg class="i" aria-hidden="true" focusable="false"><use href="#i-freccia"/></svg></a><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg>Le date d'esame sono le stesse in tutta Italia.</span></div>
@@ -491,15 +520,15 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 <h2 id="per-ente"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossime date a Siena, ente per ente</h2>
 <div class="perente"><article class="pe pe-CILS">
 <div class="pe-testa"><span class="eb eb-CILS">CILS</span><a href="#sedi-cils"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>1 sede a Siena</a></div>
-<div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossimo esame</div><div data-fino="2026-12-03"><div class="pe-data">3 dicembre 2026<span class="conta " data-conta="2026-12-03" data-modo="esame">tra 34 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza, CILS B1 standard</p></div><div data-fino="2027-02-18" hidden><div class="pe-data">18 febbraio 2027<span class="conta " data-conta="2027-02-18" data-modo="esame">tra 111 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza</p></div><div data-fino="2027-04-08" hidden><div class="pe-data">8 aprile 2027<span class="conta " data-conta="2027-04-08" data-modo="esame">tra 160 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza</p></div><div data-fino="2027-06-10" hidden><div class="pe-data">10 giugno 2027<span class="conta " data-conta="2027-06-10" data-modo="esame">tra 223 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza, CILS B1 standard</p></div><div data-fino="2027-07-22" hidden><div class="pe-data">22 luglio 2027<span class="conta " data-conta="2027-07-22" data-modo="esame">tra 265 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza</p></div><div data-fino="2027-10-21" hidden><div class="pe-data">21 ottobre 2027<span class="conta " data-conta="2027-10-21" data-modo="esame">tra 356 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza</p></div><div data-fino="2027-12-02" hidden><div class="pe-data">2 dicembre 2027<span class="conta " data-conta="2027-12-02" data-modo="esame">tra 398 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza, CILS B1 standard</p></div></div>
-<div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni (termine nazionale)</div><div data-fino="2026-10-24" hidden><div class="pe-data">entro il 24 ottobre 2026<span class="conta urg" data-conta="2026-10-24" data-modo="scad">mancano -6 giorni</span></div><p class="pe-cosa">per l'esame del 3 dicembre 2026</p></div><div data-fino="2027-01-18"><div class="pe-data">entro il 18 gennaio 2027<span class="conta " data-conta="2027-01-18" data-modo="scad">mancano 80 giorni</span></div><p class="pe-cosa">per l'esame del 18 febbraio 2027</p></div><div data-fino="2027-03-08" hidden><div class="pe-data">entro l'8 marzo 2027<span class="conta " data-conta="2027-03-08" data-modo="scad">mancano 129 giorni</span></div><p class="pe-cosa">per l'esame dell'8 aprile 2027</p></div><div data-fino="2027-05-01" hidden><div class="pe-data">entro il 1 maggio 2027<span class="conta " data-conta="2027-05-01" data-modo="scad">mancano 183 giorni</span></div><p class="pe-cosa">per l'esame del 10 giugno 2027</p></div><div data-fino="2027-06-22" hidden><div class="pe-data">entro il 22 giugno 2027<span class="conta " data-conta="2027-06-22" data-modo="scad">mancano 235 giorni</span></div><p class="pe-cosa">per l'esame del 22 luglio 2027</p></div><div data-fino="2027-09-21" hidden><div class="pe-data">entro il 21 settembre 2027<span class="conta " data-conta="2027-09-21" data-modo="scad">mancano 326 giorni</span></div><p class="pe-cosa">per l'esame del 21 ottobre 2027</p></div><div data-fino="2027-10-23" hidden><div class="pe-data">entro il 23 ottobre 2027<span class="conta " data-conta="2027-10-23" data-modo="scad">mancano 358 giorni</span></div><p class="pe-cosa">per l'esame del 2 dicembre 2027</p></div><p class="pe-cosa" data-riserva hidden>Nessun termine nazionale aperto: chiedi alla sede.</p></div>
+<div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossimo esame</div><div data-fino="2026-12-03"><div class="pe-data">3 dicembre 2026<span class="conta " data-conta="2026-12-03" data-modo="esame">tra 33 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza, CILS B1 standard</p></div><div data-fino="2027-02-18" hidden><div class="pe-data">18 febbraio 2027<span class="conta " data-conta="2027-02-18" data-modo="esame">tra 110 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza</p></div><div data-fino="2027-04-08" hidden><div class="pe-data">8 aprile 2027<span class="conta " data-conta="2027-04-08" data-modo="esame">tra 159 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza</p></div><div data-fino="2027-06-10" hidden><div class="pe-data">10 giugno 2027<span class="conta " data-conta="2027-06-10" data-modo="esame">tra 222 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza, CILS B1 standard</p></div><div data-fino="2027-07-22" hidden><div class="pe-data">22 luglio 2027<span class="conta " data-conta="2027-07-22" data-modo="esame">tra 264 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza</p></div><div data-fino="2027-10-21" hidden><div class="pe-data">21 ottobre 2027<span class="conta " data-conta="2027-10-21" data-modo="esame">tra 355 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza</p></div><div data-fino="2027-12-02" hidden><div class="pe-data">2 dicembre 2027<span class="conta " data-conta="2027-12-02" data-modo="esame">tra 397 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza, CILS B1 standard</p></div></div>
+<div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni (termine nazionale)</div><div data-fino="2026-10-24" hidden><div class="pe-data">entro il 24 ottobre 2026<span class="conta urg" data-conta="2026-10-24" data-modo="scad">mancano -7 giorni</span></div><p class="pe-cosa">per l'esame del 3 dicembre 2026</p></div><div data-fino="2027-01-18"><div class="pe-data">entro il 18 gennaio 2027<span class="conta " data-conta="2027-01-18" data-modo="scad">mancano 79 giorni</span></div><p class="pe-cosa">per l'esame del 18 febbraio 2027</p></div><div data-fino="2027-03-08" hidden><div class="pe-data">entro l'8 marzo 2027<span class="conta " data-conta="2027-03-08" data-modo="scad">mancano 128 giorni</span></div><p class="pe-cosa">per l'esame dell'8 aprile 2027</p></div><div data-fino="2027-05-01" hidden><div class="pe-data">entro il 1 maggio 2027<span class="conta " data-conta="2027-05-01" data-modo="scad">mancano 182 giorni</span></div><p class="pe-cosa">per l'esame del 10 giugno 2027</p></div><div data-fino="2027-06-22" hidden><div class="pe-data">entro il 22 giugno 2027<span class="conta " data-conta="2027-06-22" data-modo="scad">mancano 234 giorni</span></div><p class="pe-cosa">per l'esame del 22 luglio 2027</p></div><div data-fino="2027-09-21" hidden><div class="pe-data">entro il 21 settembre 2027<span class="conta " data-conta="2027-09-21" data-modo="scad">mancano 325 giorni</span></div><p class="pe-cosa">per l'esame del 21 ottobre 2027</p></div><div data-fino="2027-10-23" hidden><div class="pe-data">entro il 23 ottobre 2027<span class="conta " data-conta="2027-10-23" data-modo="scad">mancano 357 giorni</span></div><p class="pe-cosa">per l'esame del 2 dicembre 2027</p></div><p class="pe-cosa" data-riserva hidden>Nessun termine nazionale aperto: chiedi alla sede.</p></div>
 </article><article class="pe pe-CELI">
 <div class="pe-testa"><span class="eb eb-CELI">CELI</span><a href="#sedi-celi"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>1 sede a Siena</a></div>
-<div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossimo esame</div><div data-fino="2026-11-11"><div class="pe-data">11 novembre 2026<span class="conta vicino" data-conta="2026-11-11" data-modo="esame">tra 12 giorni</span></div><p class="pe-cosa">CELI 2 (B1)</p></div><div data-fino="2027-02-17" hidden><div class="pe-data">17 febbraio 2027<span class="conta " data-conta="2027-02-17" data-modo="esame">tra 110 giorni</span></div><p class="pe-cosa">CELI 2 i cittadinanza (B1)</p></div><div data-fino="2027-03-09" hidden><div class="pe-data">9 marzo 2027<span class="conta " data-conta="2027-03-09" data-modo="esame">tra 130 giorni</span></div><p class="pe-cosa">CELI 2 (B1)</p></div><div data-fino="2027-05-20" hidden><div class="pe-data">20 maggio 2027<span class="conta " data-conta="2027-05-20" data-modo="esame">tra 202 giorni</span></div><p class="pe-cosa">CELI 2 i cittadinanza (B1)</p></div><div data-fino="2027-06-11" hidden><div class="pe-data">11 giugno 2027<span class="conta " data-conta="2027-06-11" data-modo="esame">tra 224 giorni</span></div><p class="pe-cosa">CELI 2 (B1)</p></div><div data-fino="2027-09-15" hidden><div class="pe-data">15 settembre 2027<span class="conta " data-conta="2027-09-15" data-modo="esame">tra 320 giorni</span></div><p class="pe-cosa">CELI 2 i cittadinanza (B1)</p></div><div data-fino="2027-11-16" hidden><div class="pe-data">16 novembre 2027<span class="conta " data-conta="2027-11-16" data-modo="esame">tra 382 giorni</span></div><p class="pe-cosa">CELI 2 (B1)</p></div></div>
-<div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni (termine nazionale)</div><div data-fino="2026-10-09" hidden><div class="pe-data">entro il 9 ottobre 2026<span class="conta urg" data-conta="2026-10-09" data-modo="scad">mancano -21 giorni</span></div><p class="pe-cosa">per l'esame dell'11 novembre 2026</p></div><div data-fino="2027-01-22"><div class="pe-data">entro il 22 gennaio 2027<span class="conta " data-conta="2027-01-22" data-modo="scad">mancano 84 giorni</span></div><p class="pe-cosa">per l'esame del 17 febbraio 2027</p></div><div data-fino="2027-02-09" hidden><div class="pe-data">entro il 9 febbraio 2027<span class="conta " data-conta="2027-02-09" data-modo="scad">mancano 102 giorni</span></div><p class="pe-cosa">per l'esame del 9 marzo 2027</p></div><div data-fino="2027-04-20" hidden><div class="pe-data">entro il 20 aprile 2027<span class="conta " data-conta="2027-04-20" data-modo="scad">mancano 172 giorni</span></div><p class="pe-cosa">per l'esame del 20 maggio 2027</p></div><div data-fino="2027-05-11" hidden><div class="pe-data">entro l'11 maggio 2027<span class="conta " data-conta="2027-05-11" data-modo="scad">mancano 193 giorni</span></div><p class="pe-cosa">per l'esame dell'11 giugno 2027</p></div><div data-fino="2027-08-17" hidden><div class="pe-data">entro il 17 agosto 2027<span class="conta " data-conta="2027-08-17" data-modo="scad">mancano 291 giorni</span></div><p class="pe-cosa">per l'esame del 15 settembre 2027</p></div><div data-fino="2027-10-16" hidden><div class="pe-data">entro il 16 ottobre 2027<span class="conta " data-conta="2027-10-16" data-modo="scad">mancano 351 giorni</span></div><p class="pe-cosa">per l'esame del 16 novembre 2027</p></div><p class="pe-cosa" data-riserva hidden>Nessun termine nazionale aperto: chiedi alla sede.</p></div>
+<div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossimo esame</div><div data-fino="2026-11-11"><div class="pe-data">11 novembre 2026<span class="conta vicino" data-conta="2026-11-11" data-modo="esame">tra 11 giorni</span></div><p class="pe-cosa">CELI 2 (B1)</p></div><div data-fino="2027-02-17" hidden><div class="pe-data">17 febbraio 2027<span class="conta " data-conta="2027-02-17" data-modo="esame">tra 109 giorni</span></div><p class="pe-cosa">CELI 2 i cittadinanza (B1)</p></div><div data-fino="2027-03-09" hidden><div class="pe-data">9 marzo 2027<span class="conta " data-conta="2027-03-09" data-modo="esame">tra 129 giorni</span></div><p class="pe-cosa">CELI 2 (B1)</p></div><div data-fino="2027-05-20" hidden><div class="pe-data">20 maggio 2027<span class="conta " data-conta="2027-05-20" data-modo="esame">tra 201 giorni</span></div><p class="pe-cosa">CELI 2 i cittadinanza (B1)</p></div><div data-fino="2027-06-11" hidden><div class="pe-data">11 giugno 2027<span class="conta " data-conta="2027-06-11" data-modo="esame">tra 223 giorni</span></div><p class="pe-cosa">CELI 2 (B1)</p></div><div data-fino="2027-09-15" hidden><div class="pe-data">15 settembre 2027<span class="conta " data-conta="2027-09-15" data-modo="esame">tra 319 giorni</span></div><p class="pe-cosa">CELI 2 i cittadinanza (B1)</p></div><div data-fino="2027-11-16" hidden><div class="pe-data">16 novembre 2027<span class="conta " data-conta="2027-11-16" data-modo="esame">tra 381 giorni</span></div><p class="pe-cosa">CELI 2 (B1)</p></div></div>
+<div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni (termine nazionale)</div><div data-fino="2026-10-09" hidden><div class="pe-data">entro il 9 ottobre 2026<span class="conta urg" data-conta="2026-10-09" data-modo="scad">mancano -22 giorni</span></div><p class="pe-cosa">per l'esame dell'11 novembre 2026</p></div><div data-fino="2027-01-22"><div class="pe-data">entro il 22 gennaio 2027<span class="conta " data-conta="2027-01-22" data-modo="scad">mancano 83 giorni</span></div><p class="pe-cosa">per l'esame del 17 febbraio 2027</p></div><div data-fino="2027-02-09" hidden><div class="pe-data">entro il 9 febbraio 2027<span class="conta " data-conta="2027-02-09" data-modo="scad">mancano 101 giorni</span></div><p class="pe-cosa">per l'esame del 9 marzo 2027</p></div><div data-fino="2027-04-20" hidden><div class="pe-data">entro il 20 aprile 2027<span class="conta " data-conta="2027-04-20" data-modo="scad">mancano 171 giorni</span></div><p class="pe-cosa">per l'esame del 20 maggio 2027</p></div><div data-fino="2027-05-11" hidden><div class="pe-data">entro l'11 maggio 2027<span class="conta " data-conta="2027-05-11" data-modo="scad">mancano 192 giorni</span></div><p class="pe-cosa">per l'esame dell'11 giugno 2027</p></div><div data-fino="2027-08-17" hidden><div class="pe-data">entro il 17 agosto 2027<span class="conta " data-conta="2027-08-17" data-modo="scad">mancano 290 giorni</span></div><p class="pe-cosa">per l'esame del 15 settembre 2027</p></div><div data-fino="2027-10-16" hidden><div class="pe-data">entro il 16 ottobre 2027<span class="conta " data-conta="2027-10-16" data-modo="scad">mancano 350 giorni</span></div><p class="pe-cosa">per l'esame del 16 novembre 2027</p></div><p class="pe-cosa" data-riserva hidden>Nessun termine nazionale aperto: chiedi alla sede.</p></div>
 </article><article class="pe pe-PLIDA">
 <div class="pe-testa"><span class="eb eb-PLIDA">PLIDA</span><a href="#sedi-plida"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>1 sede a Siena</a></div>
-<div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossimo esame</div><div data-fino="2026-11-18"><div class="pe-data">18 novembre 2026<span class="conta " data-conta="2026-11-18" data-modo="esame">tra 19 giorni</span></div><p class="pe-cosa">PLIDA B1</p></div></div>
+<div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossimo esame</div><div data-fino="2026-11-18"><div class="pe-data">18 novembre 2026<span class="conta " data-conta="2026-11-18" data-modo="esame">tra 18 giorni</span></div><p class="pe-cosa">PLIDA B1</p></div></div>
 <div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni (termine nazionale)</div><p class="pe-cosa" style="margin:0">La scadenza la decide ogni centro PLIDA: chiedila alla sede.</p></div>
 </article></div>
 </section>
@@ -704,7 +733,7 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 <h2 id="preparati-titolo">Preparati alla prova orale</h2>
 <p>La prova orale è la parte che preoccupa molte persone. Per prepararti aiuta parlare spesso con un insegnante madrelingua, anche online.
 Su italki scegli tu un insegnante di italiano: fai lezioni 1 a 1 e paghi a lezione.</p>
-<div class="azioni"><a class="btn" href="https://www.italki.com/affshare?ref=af34201678" rel="sponsored noopener" target="_blank"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-voce"/></svg>Trova un insegnante di italiano su italki</a><a class="btn btn-2" href="../../esempi-esame-b1/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg>Prove d'esame ufficiali gratuite</a></div>
+<div class="azioni"><a class="btn" href="https://www.italki.com/affshare?ref=af34201678" rel="sponsored noopener" target="_blank"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-voce"/></svg>Trova un insegnante di italiano su italki</a><a class="btn btn-2" href="../../esempi/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg>Prove d'esame ufficiali gratuite</a></div>
 <p class="prep-libri"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg><a href="https://www.amazon.it/s?k=esame+b1+cittadinanza+italiano&amp;i=stripbooks&amp;tag=guideesami-21" rel="sponsored noopener" target="_blank">Libri per prepararsi all'esame B1 su Amazon</a></p>
 <p class="small aff-nota">In qualità di Affiliato Amazon, ricevo un guadagno dagli acquisti idonei.</p>
 <p class="small aff-nota">Alcuni link sono di affiliazione: potremmo ricevere una commissione, senza costi in più per te.</p>
@@ -712,11 +741,16 @@ Su italki scegli tu un insegnante di italiano: fai lezioni 1 a 1 e paghi a lezio
 </section>
 <section>
 <h2><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg>Prima di iscriverti</h2>
-<div class="griglia link3"><a href="../../costo/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-euro"/></svg><span>Quanto costa<small>i prezzi di ogni ente</small></span></a><a href="../../come-funziona/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-lista"/></svg><span>Come si svolge<small>durata, cosa portare, esempi</small></span></a><a href="../../esenzioni-e-domande/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-scudo"/></svg><span>Esenzioni e domande<small>chi non deve fare l'esame, orale, durata</small></span></a><a href="../../esempi-esame-b1/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg><span>Prove d'esempio<small>gratis, ufficiali, ente per ente</small></span></a></div>
+<div class="griglia link3"><a href="../../costo/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-euro"/></svg><span>Quanto costa<small>i prezzi di ogni ente</small></span></a><a href="../../come-funziona/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-lista"/></svg><span>Come si svolge<small>durata, cosa portare, esempi</small></span></a><a href="../../esenzioni-e-domande/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-voce"/></svg><span>Orale e domande<small>com'è l'orale, durata, domande</small></span></a><a href="../../esonero-test-italiano/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-scudo"/></svg><span>Chi è esonerato<small>dal B1 e dal test A2, con le fonti</small></span></a><a href="../../esempi/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg><span>Prove d'esempio<small>gratis, ufficiali, ente per ente</small></span></a><a href="../../esempi/confronto/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-lista"/></svg><span>I 4 esami a confronto<small>durata, prove, punteggio</small></span></a><a href="../../cittadinanza/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Dopo il B1: la domanda<small>prefettura per prefettura</small></span></a><a href="../../reddito-minimo-cittadinanza/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-euro"/></svg><span>Reddito minimo<small>cittadinanza e carta di soggiorno</small></span></a></div>
 </section>
 <section>
 <h2 id="risultati"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>Dopo l'esame: i risultati</h2>
 <div class="griglia link3"><a href="../../risultati/cils/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg><span>Risultati CILS<small>dove vederli e quando</small></span></a><a href="../../risultati/celi/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg><span>Risultati CELI<small>dove vederli e quando</small></span></a><a href="../../risultati/plida/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg><span>Risultati PLIDA<small>dove vederli online</small></span></a><a href="../../risultati/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-lista"/></svg><span>Tutti gli enti a confronto<small>tempi, punteggio, se non superi</small></span></a></div>
+</section>
+<section>
+<h2 id="domanda-cittadinanza"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg>Dopo il B1: la domanda di cittadinanza</h2>
+<p>Con il certificato B1 la domanda si manda online; poi la segue la <strong>Prefettura di Siena</strong>. Prima controlla il reddito minimo.</p>
+<div class="griglia link3"><a href="../../cittadinanza/#siena"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Prefettura di Siena<small>contatti dell'ufficio cittadinanza</small></span></a><a href="../../reddito-minimo-cittadinanza/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-euro"/></svg><span>Reddito minimo per la cittadinanza<small>soglie ufficiali e calcolatore</small></span></a><a href="../../cittadinanza/#come"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-lista"/></svg><span>Come si presenta la domanda<small>online, 250 €, documenti</small></span></a></div>
 </section>
 <section><h2><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Altre città</h2><h3><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>In Toscana</h3><div class="altre"><a href="../arezzo/">Arezzo</a><a href="../firenze/">Firenze</a><a href="../grosseto/">Grosseto</a><a href="../livorno/">Livorno</a><a href="../lucca/">Lucca</a><a href="../massa/">Massa</a><a href="../pisa/">Pisa</a><a href="../prato/">Prato</a></div><h3>Altre città in Italia</h3><div class="altre"><a href="../bari/">Bari</a><a href="../bologna/">Bologna</a><a href="../catania/">Catania</a><a href="../genova/">Genova</a><a href="../macerata/">Macerata</a><a href="../milano/">Milano</a><a href="../napoli/">Napoli</a><a href="../padova/">Padova</a><a href="../roma/">Roma</a><a href="../torino/">Torino</a><a href="../vicenza/">Vicenza</a><a href="../../#citta">Tutte le 94 città</a></div></section>
 </main>
@@ -729,7 +763,7 @@ Su italki scegli tu un insegnante di italiano: fai lezioni 1 a 1 e paghi a lezio
 <rect x="11" y="25.6" width="6" height="2.4" rx="1.1" fill="#3FB37F"/><rect x="17" y="25.6" width="6" height="2.4" rx="1.1" fill="#FFFFFF"/><rect x="23" y="25.6" width="6" height="2.4" rx="1.1" fill="#E4573D"/>
 </svg><span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="../../#date">Date d'esame</a></li><li><a href="../../#citta">Sedi per città</a></li><li><a href="../../come-funziona/">Come funziona</a></li><li><a href="../../costo/">Costo</a></li><li><a href="../../risultati/">Risultati</a></li><li><a href="../../esenzioni-e-domande/">Esenzioni e domande</a></li><li><a href="../../esempi-esame-b1/">Prove d'esempio</a></li><li><a href="../../ente/cils/">CILS</a></li><li><a href="../../ente/celi/">CELI</a></li><li><a href="../../ente/plida/">PLIDA</a></li><li><a href="../../ente/certit/">CERT.IT</a></li><li><a href="../../privacy.html">Privacy</a></li>
+<li><a href="../../#date">Date d'esame</a></li><li><a href="../../#citta">Sedi per città</a></li><li><a href="../../come-funziona/">Come funziona</a></li><li><a href="../../costo/">Costo</a></li><li><a href="../../risultati/">Risultati</a></li><li><a href="../../esenzioni-e-domande/">Orale e domande</a></li><li><a href="../../esonero-test-italiano/">Chi è esonerato</a></li><li><a href="../../esempi/">Prove d'esempio</a></li><li><a href="../../esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="../../cittadinanza/">Domanda di cittadinanza</a></li><li><a href="../../reddito-minimo-cittadinanza/">Reddito minimo</a></li><li><a href="../../ente/cils/">CILS</a></li><li><a href="../../ente/celi/">CELI</a></li><li><a href="../../ente/plida/">PLIDA</a></li><li><a href="../../ente/certit/">CERT.IT</a></li><li><a href="../../en/" hreflang="en" lang="en">English</a></li><li><a href="../../uk/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../../ro/" hreflang="ro" lang="ro">Română</a></li><li><a href="../../privacy.html">Privacy</a></li>
 </ul>
 </div>
 <div>
@@ -808,6 +842,7 @@ Questo sito non dà consulenza sulla pratica di cittadinanza: per quella vedi la
     });
   });
 })();
+document.addEventListener('click',function(e){document.querySelectorAll('details.lingue[open]').forEach(function(x){if(!x.contains(e.target))x.open=false;});});
 </script>
 <script>window.goatcounter={path:function(p){return location.host+p}}</script><script data-goatcounter="https://rete-siti.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>

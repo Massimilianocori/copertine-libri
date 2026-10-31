@@ -6,6 +6,9 @@
 <title>Privacy | EsameB1</title>
 <meta name="description" content="Informativa privacy del sito EsameB1.">
 <link rel="canonical" href="https://esameb1.netlify.app/privacy.html">
+<link rel="alternate" hreflang="it" href="https://esameb1.netlify.app/privacy.html">
+<link rel="alternate" hreflang="en" href="https://esameb1.netlify.app/en/privacy/">
+<link rel="alternate" hreflang="x-default" href="https://esameb1.netlify.app/privacy.html">
 <meta property="og:title" content="Privacy | EsameB1">
 <meta property="og:description" content="Informativa privacy del sito EsameB1.">
 <meta property="og:type" content="website">
@@ -326,6 +329,24 @@ table.conf td.no{color:var(--ink-3)}
 ol.passi li>div p{margin:4px 0 0;color:var(--ink-2);font-size:.95rem}
 ol.passi li .fonte{margin-top:6px}
 /* riquadro "Preparati alla prova orale" (link di affiliazione + link gratuito) */
+/* calcolatore dei redditi e pagine prefettura (31/10/2026) */
+.calc{max-width:560px;margin-top:0}
+.calc-esito{display:grid;gap:10px;margin-top:16px;max-width:720px}
+.calc-esito>div{border:1.5px solid var(--line-2);border-left-width:6px;border-radius:var(--r);padding:12px 14px;background:var(--surface)}
+.calc-esito>div.si{border-left-color:var(--brand)}.calc-esito>div.no{border-left-color:var(--rosso)}
+.c-tit{font-weight:700}.c-soglia{color:var(--ink-2);font-size:.95rem}.c-esito{font-weight:700}
+.calc-esito>div.si .c-esito{color:var(--brand-ink)}.calc-esito>div.no .c-esito{color:var(--rosso)}
+.uff{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.uff li{display:flex;gap:10px;align-items:flex-start;overflow-wrap:anywhere}
+.uff li .i{color:var(--brand);margin-top:.25em}
+.uff b{font-weight:650}
+.citaz{border-left:3px solid var(--line-2);padding:2px 0 2px 12px;margin:8px 0;color:var(--ink-2);font-style:italic;overflow-wrap:anywhere}
+.locali{display:grid;gap:12px}
+main a[href^="mailto:"]{overflow-wrap:anywhere;word-break:break-word}
+@media (max-width:640px){.pref-tab tr{display:block;padding:12px}.pref-tab table.conf td,.pref-tab table.conf td:first-child{display:block;border:0;padding:2px 0;margin:0}
+.pref-tab td[data-l]::before{display:block;font-size:.8rem;margin-top:6px}}
+.pref-tab td{overflow-wrap:anywhere}
+.pref-tab td a{white-space:normal}
 .prep{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px 16px;align-items:start;margin:44px 0 8px;border-left:4px solid var(--brand)}
 .prep .bolla{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--brand-soft);color:var(--brand)}
 .prep .bolla .i{width:22px;height:22px}
@@ -339,6 +360,17 @@ ol.passi li .fonte{margin-top:6px}
 @media (max-width:640px){.prep{grid-template-columns:1fr;gap:10px}.prep .bolla{width:40px;height:40px}}
 .piede .dati{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);padding:6px 12px;border-radius:999px;font-weight:600;color:#E8F0ED}
 @media (max-width:760px){.piede-griglia{grid-template-columns:1fr}}
+@font-face{font-family:"Figtree";src:url("/fonts/figtree-latin-ext.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0}
+@font-face{font-family:"Figtree";src:url("/fonts/onest-cyrillic.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap;unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+nav.menu details.lingue{position:relative;background:none;border:0;margin:0;border-radius:999px}
+nav.menu details.lingue>summary{display:inline-flex;align-items:center;gap:5px;padding:8px 10px;border-radius:999px;color:var(--ink-2);font-weight:600;font-size:.97rem;justify-content:flex-start}
+nav.menu details.lingue>summary:hover,nav.menu details.lingue[open]>summary{color:var(--brand-ink);background:var(--brand-soft)}
+nav.menu details.lingue>summary .i{transform:none;color:inherit;width:18px;height:18px}
+nav.menu details.lingue>ul{position:absolute;right:0;top:calc(100% + 6px);z-index:30;margin:0;padding:6px;list-style:none;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.14);min-width:170px}
+nav.menu details.lingue li{margin:0}
+nav.menu details.lingue li a{display:block;padding:9px 12px;border-radius:8px}
+nav.menu details.lingue li a[aria-current]{color:var(--brand-ink);background:var(--brand-soft)}
+@media (max-width:640px){nav.menu details.lingue>summary{padding:8px 7px;font-size:.95rem;gap:4px}}
 </style>
 
 </head>
@@ -352,7 +384,7 @@ ol.passi li .fonte{margin-top:6px}
 <rect x="11" y="25.6" width="6" height="2.4" rx="1.1" fill="#3FB37F"/><rect x="17" y="25.6" width="6" height="2.4" rx="1.1" fill="#FFFFFF"/><rect x="23" y="25.6" width="6" height="2.4" rx="1.1" fill="#E4573D"/>
 </svg><span class="logo-testo">Esame<b>B1</b></span></a>
 <nav class="menu" aria-label="Menu">
-<a href="./#date">Date</a><a href="./#citta">Città</a><a href="./come-funziona/"><span class="lungo">Come funziona</span><span class="corto">Guida</span></a><a class="nav-cta" href="./#avvisami" aria-label="Avvisami"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-campana"/></svg><span class="lungo">Avvisami</span></a>
+<a href="./#date">Date</a><a href="./#citta">Città</a><a href="./come-funziona/"><span class="lungo">Come funziona</span><span class="corto">Guida</span></a><details class="lingue"><summary aria-label="Lingua: Italiano"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-web"/></svg><span>IT</span></summary><ul><li><a href="./privacy.html" hreflang="it" lang="it" aria-current="true">Italiano</a></li><li><a href="./en/privacy/" hreflang="en" lang="en">English</a></li><li><a href="./uk/" hreflang="uk" lang="uk">Українська</a></li><li><a href="./ro/" hreflang="ro" lang="ro">Română</a></li></ul></details><a class="nav-cta" href="./#avvisami" aria-label="Avvisami"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-campana"/></svg><span class="lungo">Avvisami</span></a>
 </nav>
 </div></header>
 <main class="wrap" id="contenuto">
@@ -376,7 +408,7 @@ ol.passi li .fonte{margin-top:6px}
 <rect x="11" y="25.6" width="6" height="2.4" rx="1.1" fill="#3FB37F"/><rect x="17" y="25.6" width="6" height="2.4" rx="1.1" fill="#FFFFFF"/><rect x="23" y="25.6" width="6" height="2.4" rx="1.1" fill="#E4573D"/>
 </svg><span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="./#date">Date d'esame</a></li><li><a href="./#citta">Sedi per città</a></li><li><a href="./come-funziona/">Come funziona</a></li><li><a href="./costo/">Costo</a></li><li><a href="./risultati/">Risultati</a></li><li><a href="./esenzioni-e-domande/">Esenzioni e domande</a></li><li><a href="./esempi-esame-b1/">Prove d'esempio</a></li><li><a href="./ente/cils/">CILS</a></li><li><a href="./ente/celi/">CELI</a></li><li><a href="./ente/plida/">PLIDA</a></li><li><a href="./ente/certit/">CERT.IT</a></li><li><a href="./privacy.html">Privacy</a></li>
+<li><a href="./#date">Date d'esame</a></li><li><a href="./#citta">Sedi per città</a></li><li><a href="./come-funziona/">Come funziona</a></li><li><a href="./costo/">Costo</a></li><li><a href="./risultati/">Risultati</a></li><li><a href="./esenzioni-e-domande/">Orale e domande</a></li><li><a href="./esonero-test-italiano/">Chi è esonerato</a></li><li><a href="./esempi/">Prove d'esempio</a></li><li><a href="./esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="./cittadinanza/">Domanda di cittadinanza</a></li><li><a href="./reddito-minimo-cittadinanza/">Reddito minimo</a></li><li><a href="./ente/cils/">CILS</a></li><li><a href="./ente/celi/">CELI</a></li><li><a href="./ente/plida/">PLIDA</a></li><li><a href="./ente/certit/">CERT.IT</a></li><li><a href="./en/privacy/" hreflang="en" lang="en">English</a></li><li><a href="./uk/" hreflang="uk" lang="uk">Українська</a></li><li><a href="./ro/" hreflang="ro" lang="ro">Română</a></li><li><a href="./privacy.html">Privacy</a></li>
 </ul>
 </div>
 <div>
@@ -455,6 +487,7 @@ Questo sito non dà consulenza sulla pratica di cittadinanza: per quella vedi la
     });
   });
 })();
+document.addEventListener('click',function(e){document.querySelectorAll('details.lingue[open]').forEach(function(x){if(!x.contains(e.target))x.open=false;});});
 </script>
 <script>window.goatcounter={path:function(p){return location.host+p}}</script><script data-goatcounter="https://rete-siti.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
