@@ -1,0 +1,2465 @@
+{
+ "_nota": "Regole del trasporto pubblico per città: fatti scritti a mano in dati/trasporti_manuali.json (citazioni parola per parola), fonti rilette da raccolta/trasporti.py (HTTP, data di lettura, impronta della zona citata); 'non_lette' = esito dell'ultima richiesta alla pagina ufficiale delle città senza pagina (nessun aggiramento). Non modificare a mano: rilanciare lo script.",
+ "controllato_il": "2026-10-31",
+ "fonti": {
+  "ath_fines": {
+   "url": "https://www.oasa.gr/en/passenger-service/information/payment-of-fines/",
+   "url_finale": "https://www.oasa.gr/en/passenger-service/information/payment-of-fines/",
+   "http": 200,
+   "byte": 266129,
+   "ente": "OASA (Athens Urban Transport Organisation)",
+   "titolo": "OASA: Information – payment of fines",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "c6dbfc3c1200b34c",
+   "frasi": 2
+  },
+  "ath_info": {
+   "url": "https://www.oasa.gr/en/tickets/useful-information/",
+   "url_finale": "https://www.oasa.gr/en/tickets/useful-information/",
+   "http": 200,
+   "byte": 268327,
+   "ente": "OASA (Athens Urban Transport Organisation)",
+   "titolo": "OASA: Useful information – validation of tickets and cards",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "65549074889213db",
+   "frasi": 3
+  },
+  "bcn_bank": {
+   "url": "https://www.tmb.cat/en/barcelona-fares-metro-bus/bank-card-validation",
+   "url_finale": "https://www.tmb.cat/en/barcelona-fares-metro-bus/bank-card-validation",
+   "http": 200,
+   "byte": 310633,
+   "ente": "TMB (Transports Metropolitans de Barcelona)",
+   "titolo": "TMB: Bank card validation",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "ab44ba56a10efa47",
+   "frasi": 3
+  },
+  "bcn_inf": {
+   "url": "https://www.tmb.cat/en/customer-service/user-guide/infringements-statements",
+   "url_finale": "https://www.tmb.cat/en/customer-service/user-guide/infringements-statements",
+   "http": 200,
+   "byte": 316266,
+   "ente": "TMB (Transports Metropolitans de Barcelona)",
+   "titolo": "TMB: Offences and appeals",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "0e33c702ec3856be",
+   "frasi": 3
+  },
+  "bcn_valid": {
+   "url": "https://www.tmb.cat/en/fares-metro-bus-barcelona/t-mobilitat/how-it-works/how-to-validate",
+   "url_finale": "https://www.tmb.cat/en/fares-metro-bus-barcelona/t-mobilitat/how-it-works/how-to-validate",
+   "http": 200,
+   "byte": 324700,
+   "ente": "TMB (Transports Metropolitans de Barcelona)",
+   "titolo": "TMB: How to validate T-mobilitat",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "eab7caffbf4e46f0",
+   "frasi": 1
+  },
+  "ber_ctrl": {
+   "url": "https://www.bvg.de/en/subscriptions-and-tickets/ticket-control",
+   "url_finale": "https://www.bvg.de/en/subscriptions-and-tickets/ticket-control",
+   "http": 200,
+   "byte": 43203,
+   "ente": "BVG (Berliner Verkehrsbetriebe)",
+   "titolo": "BVG: Ticket control – information about fines and legal rights",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "309b4ebad6248d82",
+   "frasi": 2
+  },
+  "ber_faq": {
+   "url": "https://www.bvg.de/en/tourists/faq-tourists",
+   "url_finale": "https://www.bvg.de/en/tourists/faq-tourists",
+   "http": 200,
+   "byte": 73105,
+   "ente": "BVG (Berliner Verkehrsbetriebe)",
+   "titolo": "BVG: FAQ for tourists",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "346ce09efa97ae8a",
+   "frasi": 2
+  },
+  "bru_bank": {
+   "url": "https://www.stib-mivb.be/buy/your-bank-card-is-your-ticket",
+   "url_finale": "https://www.stib-mivb.be/buy/your-bank-card-is-your-ticket",
+   "http": 200,
+   "byte": 39471,
+   "ente": "STIB-MIVB",
+   "titolo": "STIB-MIVB: Your bank card is your ticket",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "ab8fd75f23421380",
+   "frasi": 4
+  },
+  "bru_fines": {
+   "url": "https://www.stib-mivb.be/Home/support-client/fines-and-infringements.html",
+   "url_finale": "https://www.stib-mivb.be/Home/support-client/fines-and-infringements.html",
+   "http": 200,
+   "byte": 37647,
+   "ente": "STIB-MIVB",
+   "titolo": "STIB-MIVB: Fines and infringements",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "8a330535514c8540",
+   "frasi": 2
+  },
+  "bud_news": {
+   "url": "https://bkk.hu/en/news/2026/04/buy-and-validate-your-single-ticket-with-a-single-tap.16407/",
+   "url_finale": "https://bkk.hu/en/news/2026/04/buy-and-validate-your-single-ticket-with-a-single-tap.16407/",
+   "http": 200,
+   "byte": 37592,
+   "ente": "BKK (Centre for Budapest Transport)",
+   "titolo": "BKK news, 22 April 2026: Buy and validate your single ticket with a single tap",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "4cca8381910c44b1",
+   "frasi": 3
+  },
+  "bud_nov": {
+   "url": "https://bkk.hu/en/news/2026/10/ticket-validation-has-become-simpler-on-bkks-lines-in-street-level-transport.17477/",
+   "url_finale": "https://bkk.hu/en/news/2026/10/ticket-validation-has-become-simpler-on-bkks-lines-in-street-level-transport.17477/",
+   "http": 200,
+   "byte": 34964,
+   "ente": "BKK (Centre for Budapest Transport)",
+   "titolo": "BKK news, 29 October 2026: Ticket validation has become simpler on BKK’s lines in street-level transport",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "f66e0b389c27d532",
+   "frasi": 2
+  },
+  "bud_pen": {
+   "url": "https://bkk.hu/en/tickets-and-passes/information-about-penalty-fares/general-information/",
+   "url_finale": "https://bkk.hu/en/tickets-and-passes/information-about-penalty-fares/general-information/",
+   "http": 200,
+   "byte": 34007,
+   "ente": "BKK (Centre for Budapest Transport)",
+   "titolo": "BKK: Penalty fare – general information",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "19fa3d1a4138bf37",
+   "frasi": 2
+  },
+  "bud_valid": {
+   "url": "https://bkk.hu/en/tickets-and-passes/validation-of-paper-tickets/",
+   "url_finale": "https://bkk.hu/en/tickets-and-passes/validation-of-paper-tickets/",
+   "http": 200,
+   "byte": 34902,
+   "ente": "BKK (Centre for Budapest Transport)",
+   "titolo": "BKK: Guide for tourists on how to use tickets, travelcards and passes",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "cb71a78c97ac81f5",
+   "frasi": 2
+  },
+  "dub_fare": {
+   "url": "https://www.transportforireland.ie/fares/fare-evasion-on-tfi-services/",
+   "url_finale": "https://www.transportforireland.ie/fares/fare-evasion-on-tfi-services/",
+   "http": 200,
+   "byte": 88580,
+   "ente": "Transport for Ireland (National Transport Authority)",
+   "titolo": "TFI: Fare evasion on TFI services",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "2e605fecd1c26812",
+   "frasi": 3
+  },
+  "dub_luas": {
+   "url": "https://www.transportforireland.ie/fares/luas-fares/",
+   "url_finale": "https://www.transportforireland.ie/fares/luas-fares/",
+   "http": 200,
+   "byte": 85430,
+   "ente": "Transport for Ireland (National Transport Authority)",
+   "titolo": "TFI: Luas tram fare info",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "915e6ef0e4fbb9ee",
+   "frasi": 1
+  },
+  "edi_cond": {
+   "url": "https://edinburghtrams.com/contactless-payment-cards-conditions-use",
+   "url_finale": "https://edinburghtrams.com/contactless-payment-cards-conditions-use",
+   "http": 200,
+   "byte": 63485,
+   "ente": "Edinburgh Trams",
+   "titolo": "Edinburgh Trams: Contactless payment cards – conditions of use",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "8fe2c3a3b1a73de8",
+   "frasi": 2
+  },
+  "edi_tap": {
+   "url": "https://edinburghtrams.com/tap-tap",
+   "url_finale": "https://edinburghtrams.com/tap-tap",
+   "http": 200,
+   "byte": 91885,
+   "ente": "Edinburgh Trams",
+   "titolo": "Edinburgh Trams: Tap On, Tap Off",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "1911dcaec321be71",
+   "frasi": 1
+  },
+  "gva_good": {
+   "url": "https://www.tpg.ch/en/travel-good-standing",
+   "url_finale": "https://www.tpg.ch/en/travel-good-standing",
+   "http": 200,
+   "byte": 99850,
+   "ente": "tpg (Transports publics genevois)",
+   "titolo": "tpg: Travel in good standing",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "0d5251ea16cc34f1",
+   "frasi": 3
+  },
+  "ham_tarif": {
+   "url": "https://www.hvv.de/resource/blob/2384/80b8c14227b0bea5dbfbf7c9e44d2b94/hvv_tarif_gemeinschaftstarif_befoerderungsbedingungen.pdf",
+   "url_finale": "https://www.hvv.de/resource/blob/2384/80b8c14227b0bea5dbfbf7c9e44d2b94/hvv_tarif_gemeinschaftstarif_befoerderungsbedingungen.pdf",
+   "http": 200,
+   "byte": 1758198,
+   "ente": "hvv (Hamburger Verkehrsverbund)",
+   "titolo": "hvv Gemeinschaftstarif, valid from 1 October 2026 (PDF)",
+   "lingua": "de",
+   "tipo": "pdf",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "2eb4a2fc699e7674",
+   "frasi": 7
+  },
+  "lis_bank": {
+   "url": "https://www.metrolisboa.pt/en/metro-bank-card/",
+   "url_finale": "https://www.metrolisboa.pt/en/metro-bank-card/",
+   "http": 200,
+   "byte": 242936,
+   "ente": "Metropolitano de Lisboa",
+   "titolo": "Metro Lisboa: Metro + bank card",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "85c7d59fb8c42f02",
+   "frasi": 2
+  },
+  "lis_legal": {
+   "url": "https://www.metrolisboa.pt/en/travel/legal-information/",
+   "url_finale": "https://www.metrolisboa.pt/en/travel/legal-information/",
+   "http": 200,
+   "byte": 236021,
+   "ente": "Metropolitano de Lisboa",
+   "titolo": "Metro Lisboa: Legal information",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "b9202b51f1092171",
+   "frasi": 3
+  },
+  "mad_emv": {
+   "url": "https://www.metromadrid.es/en/travel-in-the-metro/passenger-regulations/rules-for-the-use-of-emv-compliant-contactless-bank-cards",
+   "url_finale": "https://www.metromadrid.es/en/travel-in-the-metro/passenger-regulations/rules-for-the-use-of-emv-compliant-contactless-bank-cards",
+   "http": 200,
+   "byte": 86037,
+   "ente": "Metro de Madrid",
+   "titolo": "Metro de Madrid: Rules for the use of EMV-compliant contactless bank cards",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "d34ce5eb2ff3d1ae",
+   "frasi": 3
+  },
+  "mad_sur": {
+   "url": "https://www.metromadrid.es/en/surcharge",
+   "url_finale": "https://www.metromadrid.es/en/surcharge",
+   "http": 200,
+   "byte": 51902,
+   "ente": "Metro de Madrid",
+   "titolo": "Metro de Madrid: Extraordinary travel card top-up",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "d8951027bab50f91",
+   "frasi": 1
+  },
+  "mil_cless": {
+   "url": "https://www.atm.it/en/ViaggiaConNoi/Biglietti/Pages/contactless_cards_metro.aspx",
+   "url_finale": "https://www.atm.it/en/ViaggiaConNoi/Biglietti/Pages/contactless_cards_metro.aspx",
+   "http": 200,
+   "byte": 70277,
+   "ente": "ATM (Azienda Trasporti Milanesi)",
+   "titolo": "ATM: Contactless pay as you go",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "bdba04afcb481879",
+   "frasi": 4
+  },
+  "mil_guida": {
+   "url": "https://www.atm.it/it/ViaggiaConNoi/Guide/Pagine/Usarebigliettieabbonamenti.aspx",
+   "url_finale": "https://www.atm.it/it/ViaggiaConNoi/Guide/Pagine/Usarebigliettieabbonamenti.aspx",
+   "http": 200,
+   "byte": 59099,
+   "ente": "ATM (Azienda Trasporti Milanesi)",
+   "titolo": "ATM: Usare biglietti e abbonamenti (guide)",
+   "lingua": "it",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "7316827f212ba9e6",
+   "frasi": 1
+  },
+  "mil_mi34": {
+   "url": "https://nuovosistematariffario.atm.it/static/tariffe/mi3-mi4/index.html",
+   "url_finale": "https://nuovosistematariffario.atm.it/static/tariffe/mi3-mi4/index.html",
+   "http": 200,
+   "byte": 1913,
+   "ente": "ATM (Azienda Trasporti Milanesi)",
+   "titolo": "ATM fare finder (STIBM): Mi3 – Mi4 tickets and passes",
+   "lingua": "it",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "acbcc85ee6538e2c",
+   "frasi": 1
+  },
+  "mil_sanz": {
+   "url": "https://www.atm.it/it/ViaggiaConNoi/Abbonamenti/Documents/Sanzioni_ATM.pdf",
+   "url_finale": "https://www.atm.it/it/ViaggiaConNoi/Abbonamenti/Documents/Sanzioni_ATM.pdf",
+   "http": 200,
+   "byte": 212029,
+   "ente": "ATM (Azienda Trasporti Milanesi)",
+   "titolo": "ATM: Sanzioni amministrative dal 09/01/2023 (PDF)",
+   "lingua": "it",
+   "tipo": "pdf",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "21c2b79e825f3b0c",
+   "frasi": 3
+  },
+  "mtl_1trip": {
+   "url": "https://www.stm.info/en/info/fares/transit-fares/1-trip",
+   "url_finale": "https://www.stm.info/en/fares-pricing/1-trip",
+   "http": 200,
+   "byte": 78376,
+   "ente": "STM (Société de transport de Montréal)",
+   "titolo": "STM: 1-trip, All modes A",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "b5eea95b22c7ef47",
+   "frasi": 1
+  },
+  "mtl_fares": {
+   "url": "https://www.stm.info/en/fares-pricing",
+   "url_finale": "https://www.stm.info/en/fares-pricing",
+   "http": 200,
+   "byte": 99250,
+   "ente": "STM (Société de transport de Montréal)",
+   "titolo": "STM: Fares and pricing",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "64e31578617cfe6e",
+   "frasi": 2
+  },
+  "muc_ebe": {
+   "url": "https://www.mvg.de/services/ebe.html?lang=en",
+   "url_finale": "https://www.mvg.de/services/ebe.html?lang=en",
+   "http": 200,
+   "byte": 70934,
+   "ente": "MVG (Münchner Verkehrsgesellschaft)",
+   "titolo": "MVG: Erhöhtes Beförderungsentgelt",
+   "lingua": "de",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "a99347181257334d",
+   "frasi": 4
+  },
+  "osl_ctrl": {
+   "url": "https://ruter.no/en/about-our-tickets/ticket-control",
+   "url_finale": "https://ruter.no/en/about-our-tickets/ticket-control",
+   "http": 200,
+   "byte": 359196,
+   "ente": "Ruter",
+   "titolo": "Ruter: Ticket inspections",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "cd72b61e0912ecec",
+   "frasi": 3
+  },
+  "osl_single": {
+   "url": "https://ruter.no/en/about-our-tickets/single-ticket",
+   "url_finale": "https://ruter.no/en/about-our-tickets/single-ticket",
+   "http": 200,
+   "byte": 374057,
+   "ente": "Ruter",
+   "titolo": "Ruter: Single ticket",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "36122002b935a93a",
+   "frasi": 2
+  },
+  "prg_cash": {
+   "url": "https://www.dpp.cz/en/fares/cashless-payment-of-fare",
+   "url_finale": "https://www.dpp.cz/en/fares/cashless-payment-of-fare",
+   "http": 200,
+   "byte": 111524,
+   "ente": "DPP (Prague Public Transit Company)",
+   "titolo": "DPP: Cashless payment of fare",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "ec0faa47b0ecc3d0",
+   "frasi": 3
+  },
+  "prg_sur": {
+   "url": "https://www.dpp.cz/en/fares/penalties-transport-inspectors/surcharge-amount",
+   "url_finale": "https://www.dpp.cz/en/fares/penalties-transport-inspectors/surcharge-amount",
+   "http": 200,
+   "byte": 109627,
+   "ente": "DPP (Prague Public Transit Company)",
+   "titolo": "DPP: Surcharge amount",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "7157ea6968d40658",
+   "frasi": 2
+  },
+  "prg_tarif": {
+   "url": "https://pid.cz/en/new-pid-tariff-from-1-january-2026-dont-pay-more-than-you-have-to/",
+   "url_finale": "https://pid.cz/en/new-pid-tariff-from-1-january-2026-dont-pay-more-than-you-have-to/",
+   "http": 200,
+   "byte": 133573,
+   "ente": "PID (Prague Integrated Transport)",
+   "titolo": "PID: New PID tariff from 1 January 2026",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "c20b509443308b6c",
+   "frasi": 1
+  },
+  "tor_pop": {
+   "url": "https://www.ttc.ca/Fares-and-passes/Proof-of-Payment-and-fare-inspection",
+   "url_finale": "https://www.ttc.ca/Fares-and-passes/Proof-of-Payment-and-fare-inspection",
+   "http": 200,
+   "byte": 43278,
+   "ente": "TTC (Toronto Transit Commission)",
+   "titolo": "TTC: Proof-of-Payment and fare inspection",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "c5e9c1c95d0354c9",
+   "frasi": 4
+  },
+  "van_enf": {
+   "url": "https://www.translink.ca/transit-fares/fare-enforcement",
+   "url_finale": "https://www.translink.ca/transit-fares/fare-enforcement",
+   "http": 200,
+   "byte": 1079740,
+   "ente": "TransLink",
+   "titolo": "TransLink: Fare enforcement",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "10f19d84669ca225",
+   "frasi": 3
+  },
+  "van_inf": {
+   "url": "https://www.translink.ca/transit-fares/fare-infraction",
+   "url_finale": "https://www.translink.ca/transit-fares/fare-infraction",
+   "http": 200,
+   "byte": 1078672,
+   "ente": "TransLink",
+   "titolo": "TransLink: Fare infraction",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "8ceefcd50c59c9e1",
+   "frasi": 1
+  },
+  "zrh_insp": {
+   "url": "https://www.zvv.ch/en/travelcards-and-tickets/sales-and-support/ticket-inspection/inspection.html",
+   "url_finale": "https://www.zvv.ch/en/travelcards-and-tickets/sales-and-support/ticket-inspection/inspection.html",
+   "http": 200,
+   "byte": 84537,
+   "ente": "ZVV (Zürcher Verkehrsverbund)",
+   "titolo": "ZVV: Ticket inspection",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "a94ff59db1ce93de",
+   "frasi": 1
+  },
+  "zrh_pen": {
+   "url": "https://www.zvv.ch/en/travelcards-and-tickets/sales-and-support/ticket-inspection/penalty-fares.html",
+   "url_finale": "https://www.zvv.ch/en/travelcards-and-tickets/sales-and-support/ticket-inspection/penalty-fares.html",
+   "http": 200,
+   "byte": 84984,
+   "ente": "ZVV (Zürcher Verkehrsverbund)",
+   "titolo": "ZVV: Penalty fares in the ZVV region",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "83d499a3a5cb287d",
+   "frasi": 2
+  }
+ },
+ "non_lette": {
+  "amsterdam": {
+   "url": "https://www.gvb.nl/en/boarding-means-checking-in",
+   "http": 200,
+   "antirobot": false,
+   "byte": 123922,
+   "testo": 3037,
+   "provato_il": "2026-10-31"
+  },
+  "bologna": {
+   "url": "https://www.tper.it/sanzioni-a-bordo-mezzo",
+   "http": 200,
+   "antirobot": false,
+   "byte": 197253,
+   "testo": 10882,
+   "provato_il": "2026-10-31"
+  },
+  "copenhagen": {
+   "url": "https://m.dk/en/travel-with-the-metro/contact-and-customer-service/inspection-fee/",
+   "http": 200,
+   "antirobot": false,
+   "byte": 195900,
+   "testo": 1768,
+   "provato_il": "2026-10-31"
+  },
+  "florence": {
+   "url": "https://www.at-bus.it/en/fines",
+   "http": 200,
+   "antirobot": true,
+   "byte": 130609,
+   "testo": 5472,
+   "provato_il": "2026-10-31"
+  },
+  "helsinki": {
+   "url": "https://www.hsl.fi/en/tickets-and-fares/penalty-fare",
+   "http": 403,
+   "antirobot": false,
+   "byte": 0,
+   "testo": 0,
+   "provato_il": "2026-10-31"
+  },
+  "krakow": {
+   "url": "https://ztp.krakow.pl/en/kmk-public-transport/kmk-ticket-inspection",
+   "http": 200,
+   "antirobot": false,
+   "byte": 145759,
+   "testo": 13748,
+   "provato_il": "2026-10-31"
+  },
+  "london": {
+   "url": "https://tfl.gov.uk/fares/find-fares/penalty-fares-and-how-to-pay-them",
+   "http": 403,
+   "antirobot": false,
+   "byte": 0,
+   "testo": 0,
+   "provato_il": "2026-10-31"
+  },
+  "lyon": {
+   "url": "https://www.tcl.fr/en/help/fraud-and-fines/amount-fines",
+   "http": 403,
+   "antirobot": false,
+   "byte": 0,
+   "testo": 0,
+   "provato_il": "2026-10-31"
+  },
+  "naples": {
+   "url": "https://www.anm.it/index.php?option=com_content&task=view&id=1421&Itemid=415",
+   "http": 200,
+   "antirobot": true,
+   "byte": 403907,
+   "testo": 54,
+   "provato_il": "2026-10-31"
+  },
+  "new-york": {
+   "url": "https://www.mta.info/fares-tolls/subway-bus",
+   "http": 403,
+   "antirobot": false,
+   "byte": 0,
+   "testo": 0,
+   "provato_il": "2026-10-31"
+  },
+  "paris": {
+   "url": "https://www.iledefrance-mobilites.fr/en/actualites/valider-transports-carte-bancaire-ile-de-france",
+   "http": 403,
+   "antirobot": false,
+   "byte": 0,
+   "testo": 0,
+   "provato_il": "2026-10-31"
+  },
+  "porto": {
+   "url": "https://en.metrodoporto.pt/pages/394",
+   "http": 200,
+   "antirobot": false,
+   "byte": 59101,
+   "testo": 10789,
+   "provato_il": "2026-10-31"
+  },
+  "riga": {
+   "url": "https://www.rigassatiksme.lv/en/about-us/frequently-asked-questions/ticket-control",
+   "http": 403,
+   "antirobot": false,
+   "byte": 0,
+   "testo": 0,
+   "provato_il": "2026-10-31"
+  },
+  "rome": {
+   "url": "https://www.atac.roma.it/customer-experience/multe-e-rimborsi",
+   "http": 200,
+   "antirobot": true,
+   "byte": 15074,
+   "testo": 716,
+   "provato_il": "2026-10-31"
+  },
+  "stockholm": {
+   "url": "https://sl.se/en/fares-and-tickets/penalties-and-enforcement",
+   "http": 200,
+   "antirobot": false,
+   "byte": 78916,
+   "testo": 25,
+   "provato_il": "2026-10-31"
+  },
+  "sydney": {
+   "url": "https://www.opal.com.au/en/opal-fares/travelling_with_a_valid_ticket",
+   "http": 200,
+   "antirobot": true,
+   "byte": 212,
+   "testo": 0,
+   "provato_il": "2026-10-31"
+  },
+  "turin": {
+   "url": "https://www.gtt.to.it/cms/biglietti-abbonamenti/8600-faq-contactless",
+   "http": 0,
+   "antirobot": false,
+   "byte": 52,
+   "testo": 0,
+   "provato_il": "2026-10-31"
+  },
+  "valencia": {
+   "url": "https://www.metrovalencia.es/en/regulations/",
+   "http": 0,
+   "antirobot": false,
+   "byte": 128,
+   "testo": 0,
+   "provato_il": "2026-10-31"
+  },
+  "venice": {
+   "url": "https://avm.avmspa.it/en/content/fines-actv",
+   "http": 200,
+   "antirobot": false,
+   "byte": 28280,
+   "testo": 7393,
+   "provato_il": "2026-10-31"
+  },
+  "vienna": {
+   "url": "https://www.wienerlinien.at/befoerderungsbedingungen",
+   "http": 200,
+   "antirobot": true,
+   "byte": 17325,
+   "testo": 1177,
+   "provato_il": "2026-10-31"
+  },
+  "warsaw": {
+   "url": "https://www.wtp.waw.pl/en/additional-fees/",
+   "http": 202,
+   "antirobot": false,
+   "byte": 2003,
+   "testo": 0,
+   "provato_il": "2026-10-31"
+  }
+ },
+ "citta": [
+  {
+   "id": "amsterdam",
+   "nome": "Amsterdam",
+   "paese": "Netherlands",
+   "iso2": "NL",
+   "slug": "amsterdam",
+   "letta": false,
+   "ente": "GVB",
+   "url_provato": "https://www.gvb.nl/en/boarding-means-checking-in",
+   "motivo_tipo": "bloccata",
+   "motivo": "GVB’s pages answered several of our checks with HTTP 403 (they opened at other times), so we could not confirm its rules."
+  },
+  {
+   "id": "athens",
+   "nome": "Athens",
+   "paese": "Greece",
+   "iso2": "GR",
+   "slug": "athens",
+   "letta": true,
+   "chi": "OASA, the Athens Urban Transport Organisation",
+   "rete": "metro, tram, trolleybuses and buses",
+   "multa": "€100 (€50 with a reduced-fare ticket)",
+   "contactless": "si",
+   "contactless_breve": "Yes, for full-fare tickets: tap a contactless bank card, phone or watch without buying a ticket first",
+   "convalida": "si",
+   "convalida_breve": "Yes: at every metro and suburban railway entry and exit, once when you board a bus, trolleybus or tram",
+   "pagamento": "ATH.ENA card or ticket, or a contactless bank card for full-fare tickets",
+   "cambio": {
+    "testo": "Fine set by the Joint Ministerial Decision in the Government Gazette of 28 May 2026",
+    "data": "2026-05-28",
+    "cit": "ath3"
+   },
+   "risposta": "passengers without a valid ticket get a fine of €100, or €50 if they are entitled to a reduced fare; you validate at every metro entry and exit and once on buses, trolleybuses and trams, and full-fare tickets can be paid by tapping a contactless bank card.",
+   "citazioni": [
+    {
+     "id": "ath1",
+     "f": "ath_info",
+     "tema": "multa",
+     "x": "If during check-in you do not present a valid ticket or card, you will be charged with a fine amounting to €100 or €50 for persons eligible for discount ticket."
+    },
+    {
+     "id": "ath3",
+     "f": "ath_fines",
+     "tema": "multa",
+     "x": "the Ticket Inspector is obliged to impose a fine of one hundred (100) euros for passengers required to hold a full-fare ticket, and fifty (50) euros for passengers entitled to a reduced-fare ticket (Joint Ministerial Decision No. 80212 – Government Gazette B΄ 3005/28.05.2026)."
+    },
+    {
+     "id": "ath4",
+     "f": "ath_fines",
+     "tema": "multa",
+     "x": "The imposed fine is reduced by 50% upon the purchase and activation of an unlimited travel card of at least 30 days, within a deadline of ten (10) calendar days from the date the fine was imposed,"
+    },
+    {
+     "id": "ath5",
+     "f": "ath_info",
+     "tema": "convalida",
+     "x": "Validate your ticket or card every time you enter or exit the Metro or Suburban railway stations. Validate your ticket or card only once when you board buses, trolleybuses and tramways."
+    },
+    {
+     "id": "ath6",
+     "f": "ath_info",
+     "tema": "pagamento",
+     "x": "New alternative option for contactless payment using either physical (plastic) or virtual (NFC-based like Apple Pay wallet or Google Pay wallet in smartphone or smartwatch), without having to pre-purchase the ticket."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the fine on the Athens metro?",
+     "query": "athens metro fine",
+     "pre": "OASA says:",
+     "cit": [
+      "ath3"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Does the Athens metro accept contactless?",
+     "query": "does athens metro accept contactless",
+     "pre": "Yes, for full-fare tickets. OASA calls it:",
+     "cit": [
+      "ath6"
+     ],
+     "post": "Tap the same card at the readers."
+    },
+    {
+     "q": "How do ticket validation rules work in Athens?",
+     "query": "athens metro ticket validation",
+     "pre": "OASA says:",
+     "cit": [
+      "ath5"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "barcelona",
+   "nome": "Barcelona",
+   "paese": "Spain",
+   "iso2": "ES",
+   "slug": "barcelona",
+   "letta": true,
+   "chi": "TMB, which runs Barcelona’s metro and buses",
+   "rete": "TMB metro and buses",
+   "multa": "€100 minimum charge (50% off if paid on the spot or within two working days)",
+   "contactless": "parziale",
+   "contactless_breve": "Partly: a contactless Visa, Mastercard or American Express buys a single ticket on TMB buses and at some metro entrances",
+   "convalida": "si",
+   "convalida_breve": "Yes: a non-validated ticket counts as fraud; T-mobilitat cards and phones are validated at the reader",
+   "pagamento": "T-mobilitat card or phone, single tickets, or a contactless bank card on buses and at some metro entrances",
+   "risposta": "travelling without a ticket or with a non-validated ticket is fraud, and inspectors ask for a minimum charge of €100, with a 50% discount if you pay on the spot or within two working days; a contactless bank card can buy a single ticket on buses and at some metro entrances.",
+   "citazioni": [
+    {
+     "id": "bcn1",
+     "f": "bcn_inf",
+     "tema": "multa",
+     "x": "You commit the offense of fraud when, at a ticket inspection: You do not have a transport ticket; i.e. you do not present a ticket or magnetic card or a T-mobilitat card of any kind (cardboard card, personalised card or electronic wallet). You use the electronic wallet and your mobile phone battery has run out. You have an invalid transport ticket, such as: A non-validated ticket."
+    },
+    {
+     "id": "bcn2",
+     "f": "bcn_inf",
+     "tema": "multa",
+     "x": "In these cases, the conductors will request the payment of a minimum penalty of €100."
+    },
+    {
+     "id": "bcn3",
+     "f": "bcn_inf",
+     "tema": "multa",
+     "x": "You can benefit from a 50% discount on the amount: If you are under 18 years old. If you are over 18 years old and you pay the minimum charge at the time of the inspection or within the following two working days."
+    },
+    {
+     "id": "bcn4",
+     "f": "bcn_bank",
+     "tema": "pagamento",
+     "x": "When you get on the bus through the first door, you will find a reader in front of the cab. It is the contactless bank card reader that allows you to buy and validate the single bus ticket in a single step, just by approaching the card."
+    },
+    {
+     "id": "bcn5",
+     "f": "bcn_bank",
+     "tema": "pagamento",
+     "x": "In some metro accesses, there is a special validation machine thay allows you to buy and validate a single ticket with a bank card. Bank cards accepted and validation The bank card reader accepts Visa, Mastercard and American Express credit cards in any format (card, mobile or watch)."
+    },
+    {
+     "id": "bcn6",
+     "f": "bcn_bank",
+     "tema": "altro",
+     "x": "If you have used this purchase and validation system and there is a ticket inspection, you only need to let the inspectors know the last four digits of the card you paid with."
+    },
+    {
+     "id": "bcn7",
+     "f": "bcn_valid",
+     "tema": "convalida",
+     "x": "All you need to do is hold the support up to the contactless icon on the validators on buses and on the metro."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the fine on the Barcelona metro?",
+     "query": "barcelona metro fine",
+     "pre": "TMB says:",
+     "cit": [
+      "bcn2",
+      "bcn3"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Does the Barcelona metro take contactless?",
+     "query": "does barcelona metro take contactless",
+     "pre": "Partly. TMB says:",
+     "cit": [
+      "bcn5",
+      "bcn4"
+     ],
+     "post": "On an inspection, you give the last digits of the card you paid with."
+    },
+    {
+     "q": "Do you need to validate metro tickets in Barcelona?",
+     "query": "do you need to validate metro tickets in barcelona",
+     "pre": "Yes. Travelling with a non-validated ticket counts as fraud. TMB says:",
+     "cit": [
+      "bcn1"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "berlin",
+   "nome": "Berlin",
+   "paese": "Germany",
+   "iso2": "DE",
+   "slug": "berlin",
+   "letta": true,
+   "chi": "BVG, Berlin’s public transport company",
+   "rete": "BVG U-Bahn, trams and buses",
+   "multa": "€60 (€7 if you forgot a personal BVG subscription and prove it within 7 days)",
+   "contactless": "non_detto",
+   "contactless_breve": "Not stated on the BVG pages we read: buy tickets at machines, BVG shops or in the BVG apps",
+   "convalida": "si",
+   "convalida_breve": "Yes: stamp paper tickets at the yellow or red validators; activate app tickets before you travel",
+   "pagamento": "Ticket machines, BVG customer centres and shops, BVG apps",
+   "risposta": "riding without a valid ticket costs a €60 fine (the “increased transportation fee”), and paper tickets must be stamped at the yellow or red validators before the trip, while app tickets must be activated before the journey begins.",
+   "citazioni": [
+    {
+     "id": "ber1",
+     "f": "ber_ctrl",
+     "tema": "multa",
+     "x": "You did not have a valid ticket at the time of the ticket control - for whatever reason. In this case you have to bite the bullet and pay the full 60 € fine."
+    },
+    {
+     "id": "ber2",
+     "f": "ber_ctrl",
+     "tema": "multa",
+     "x": "You have a personalized BVG subscription, but have forgotten your fahrCard. In this case, you have 7 days to prove that you were the owner of the fahrCard at the time of the ticket control and will only have to pay a processing fee of €7 instead of the €60 fine."
+    },
+    {
+     "id": "ber3",
+     "f": "ber_faq",
+     "tema": "convalida",
+     "x": "Do I have to validate my ticket before starting my trip? Yes, paper tickets must be stamped at the yellow or red validators (boxes). Digital tickets must be activated in the app before the journey begins, if not already done at the time of purchase."
+    },
+    {
+     "id": "ber4",
+     "f": "ber_faq",
+     "tema": "pagamento",
+     "x": "Where can I buy tickets? You can get tickets: at ticket machines in stations and at stops at BVG customer centers and shops via the BVG-Apps (Fahrinfo-App, Ticket-App, Jelbi-App)"
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the fine for no ticket in Berlin?",
+     "query": "fine for no ticket berlin",
+     "pre": "BVG says:",
+     "cit": [
+      "ber1",
+      "ber2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need to validate tickets in Berlin?",
+     "query": "do you need to validate tickets in berlin",
+     "pre": "Yes. BVG says:",
+     "cit": [
+      "ber3"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How do you pay for the metro in Berlin?",
+     "query": "how to pay for metro in berlin",
+     "pre": "BVG lists these places to buy tickets:",
+     "cit": [
+      "ber4"
+     ],
+     "post": "The BVG pages we read do not mention paying by tapping a bank card at the gate or on board."
+    }
+   ]
+  },
+  {
+   "id": "bologna",
+   "nome": "Bologna",
+   "paese": "Italy",
+   "iso2": "IT",
+   "slug": "bologna",
+   "letta": false,
+   "ente": "TPER",
+   "url_provato": "https://www.tper.it/sanzioni-a-bordo-mezzo",
+   "motivo_tipo": "senza_importo",
+   "motivo": "TPER’s pages that opened do not state the fine for travelling without a ticket (its 2025 service charter lists other fines only)."
+  },
+  {
+   "id": "brussels",
+   "nome": "Brussels",
+   "paese": "Belgium",
+   "iso2": "BE",
+   "slug": "brussels",
+   "letta": true,
+   "chi": "STIB-MIVB, Brussels’ public transport company",
+   "rete": "STIB-MIVB metro, trams and buses",
+   "multa": "€107 (€214 for a second fine within 24 months)",
+   "contactless": "si",
+   "contactless_breve": "Yes: €2.40 a journey at metro gates and on buses and trams, up to €8.50 a day",
+   "convalida": "si",
+   "convalida_breve": "Yes: validate your card or device at every connection",
+   "pagamento": "Contactless bank card, phone or watch, MOBIB card or tickets",
+   "risposta": "the fine for not holding a valid or validated ticket is €107, and €214 for a second fine within 24 months; you can pay by tapping a contactless bank card, phone or watch (€2.40 a journey, at most €8.50 a day) and must validate the same card at each connection.",
+   "citazioni": [
+    {
+     "id": "bru1",
+     "f": "bru_fines",
+     "tema": "multa",
+     "x": "The fine for not holding a valid and/or validated ticket is €107; the amount from the second fine within 24 months is €214."
+    },
+    {
+     "id": "bru2",
+     "f": "bru_fines",
+     "tema": "multa",
+     "x": "If you have a valid season ticket, but didn't validate it, the fine will be €10, provided that it is paid within 10 working days. After this period, the amount will be increased to €107."
+    },
+    {
+     "id": "bru3",
+     "f": "bru_bank",
+     "tema": "pagamento",
+     "x": "Then you can pay contactless in every STIB-MIVB metro station, tram or bus: For one journey, you pay € 2.40 at the metro gates or when boarding the bus or tram. Validate the same card or smart device at each connection. If you change vehicles within 60 minutes of the first validation, you can get on and off for free. You pay a maximum of € 8.50 per day."
+    },
+    {
+     "id": "bru4",
+     "f": "bru_bank",
+     "tema": "convalida",
+     "x": "Validate the same card or smart device at each connection."
+    },
+    {
+     "id": "bru5",
+     "f": "bru_bank",
+     "tema": "altro",
+     "x": "You need at least € 2.40 in your bank account. If not, your bank card will be blocked."
+    },
+    {
+     "id": "bru6",
+     "f": "bru_bank",
+     "tema": "altro",
+     "x": "With the same card, smartphone or smartwatch, it’s not possible to validate for multiple people."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the fine on the Brussels metro?",
+     "query": "brussels metro fine",
+     "pre": "STIB-MIVB says:",
+     "cit": [
+      "bru1",
+      "bru2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you pay contactless on the Brussels metro?",
+     "query": "brussels metro contactless payment",
+     "pre": "Yes. STIB-MIVB says:",
+     "cit": [
+      "bru3"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you have to validate tickets in Brussels?",
+     "query": "do you have to validate tickets in brussels",
+     "pre": "Yes: the fine applies to tickets that are not valid or not validated. STIB-MIVB says:",
+     "cit": [
+      "bru1",
+      "bru4"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "budapest",
+   "nome": "Budapest",
+   "paese": "Hungary",
+   "iso2": "HU",
+   "slug": "budapest",
+   "letta": true,
+   "chi": "BKK, the Centre for Budapest Transport",
+   "rete": "metro, trams, trolleybuses, buses and suburban railway",
+   "multa": "30,000 HUF from 2 November 2026 (15,000 HUF if paid on the spot or within two working days); before that 25,000 HUF (12,000 HUF on the spot)",
+   "contactless": "parziale",
+   "contactless_breve": "Partly: since 22 April 2026, a bank card tap buys and validates a single ticket on all metro lines and the 100E airport bus",
+   "convalida": "si",
+   "convalida_breve": "Yes: stamp paper tickets before you enter the metro, or right after boarding other vehicles",
+   "pagamento": "Paper tickets and travelcards, the BudapestGO app, or a bank card tap (Pay&GO) on the metro and the 100E airport bus",
+   "cambio": {
+    "testo": "Penalty fares rise from 2 November 2026: 25,000 HUF becomes 30,000 HUF, and 12,000 HUF (on the spot or within two working days) becomes 15,000 HUF",
+    "data": "2026-11-02",
+    "cit": "bud8"
+   },
+   "risposta": "the basic penalty fare is 25,000 HUF, reduced to 12,000 HUF if you pay on the spot, and from 2 November 2026 these amounts rise to 30,000 HUF and 15,000 HUF; paper tickets must be validated before you start a metro trip or immediately after boarding other vehicles, and since 22 April 2026 a bank card tap buys and validates a single ticket on all metro lines.",
+   "citazioni": [
+    {
+     "id": "bud1",
+     "f": "bud_pen",
+     "tema": "multa",
+     "x": "The basic penalty fare of 25,000 HUF is reduced to 12,000 HUF if you pay it on the spot."
+    },
+    {
+     "id": "bud2",
+     "f": "bud_pen",
+     "tema": "multa",
+     "x": "If you do not pay your debt within 30 days, you will have to pay 50,000 HUF."
+    },
+    {
+     "id": "bud3",
+     "f": "bud_valid",
+     "tema": "convalida",
+     "x": "Tickets must be validated on the metro network before starting your trip, on other vehicles immediately after boarding before the vehicle departs."
+    },
+    {
+     "id": "bud4",
+     "f": "bud_valid",
+     "tema": "convalida",
+     "x": "Please note that the row of machines is also a platform boundary line: if you cross this line without a ticket or a non-validated ticket, you can already be fined!"
+    },
+    {
+     "id": "bud5",
+     "f": "bud_news",
+     "tema": "pagamento",
+     "x": "The essence of the Pay&GO payment system is that ticket purchase and validation occur in a single step by tapping a bankcard (or other smart device) against the ticket validator."
+    },
+    {
+     "id": "bud6",
+     "f": "bud_news",
+     "tema": "cambio",
+     "x": "The service is currently available in Budapest on the 100E Airport Express bus and the M1 metro line, but starting 22 April, BKK will expand it to metro lines M2, M3 and M4 as well."
+    },
+    {
+     "id": "bud7",
+     "f": "bud_news",
+     "tema": "cambio",
+     "x": "According to plans, the bankcard-based payment system will be gradually rolled out across the entire Budapest and metropolitan area public transport network starting in 2028."
+    },
+    {
+     "id": "bud8",
+     "f": "bud_nov",
+     "tema": "cambio",
+     "x": "From 2 November 2026, in parallel with the development to facilitate ticket validation, certain penalty fares will also change. The amount of the penalty fare paid on the spot or within two working days will rise from 12,000 HUF to 15,000 HUF, whilst the penalty fare paid within 30 days will rise from 25,000 HUF to 30,000 HUF."
+    },
+    {
+     "id": "bud9",
+     "f": "bud_nov",
+     "tema": "convalida",
+     "x": "It is important to note that digital tickets must be validated immediately after boarding."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the fine for no ticket in Budapest?",
+     "query": "fine for no ticket budapest",
+     "pre": "BKK says:",
+     "cit": [
+      "bud1",
+      "bud2",
+      "bud8"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you pay contactless on the Budapest metro?",
+     "query": "budapest metro contactless payment",
+     "pre": "Yes, for single tickets on the metro. BKK says:",
+     "cit": [
+      "bud5",
+      "bud6"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need to validate tickets in Budapest?",
+     "query": "do you need to validate tickets in budapest",
+     "pre": "Yes, paper tickets. BKK says:",
+     "cit": [
+      "bud3",
+      "bud4"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "copenhagen",
+   "nome": "Copenhagen",
+   "paese": "Denmark",
+   "iso2": "DK",
+   "slug": "copenhagen",
+   "letta": false,
+   "ente": "Metroselskabet (Copenhagen Metro)",
+   "url_provato": "https://m.dk/en/travel-with-the-metro/contact-and-customer-service/inspection-fee/",
+   "motivo_tipo": "senza_importo",
+   "motivo": "The Copenhagen Metro pages that opened do not state the amount of the inspection fee."
+  },
+  {
+   "id": "dublin",
+   "nome": "Dublin",
+   "paese": "Ireland",
+   "iso2": "IE",
+   "slug": "dublin",
+   "letta": true,
+   "chi": "Transport for Ireland (TFI), run by the National Transport Authority",
+   "rete": "TFI services: Dublin Bus, Luas, DART and Irish Rail, Bus Éireann",
+   "multa": "€100 standard fare plus the unpaid fare (€50 if paid within 21 days on Dublin Bus, €45 within 14 days on Luas)",
+   "contactless": "non_detto",
+   "contactless_breve": "Not stated on the TFI pages we read: they cover the TFI Leap Card and tickets",
+   "convalida": "si",
+   "convalida_breve": "Yes on the Luas: tap on at the platform validator before boarding and tap off when you leave",
+   "pagamento": "TFI Leap Card or tickets",
+   "risposta": "fare evasion may result in a €100 standard fare (penalty fine) plus your unpaid fare, reduced to €50 if paid within 21 days on Dublin Bus and to €45 within 14 days on the Luas, where you must tap on at the platform before boarding and tap off when you leave.",
+   "citazioni": [
+    {
+     "id": "dub1",
+     "f": "dub_fare",
+     "tema": "multa",
+     "x": "All passengers must have a valid ticket before boarding for their journey. Fare evasion is a criminal offence and may result in: A €100 standard fare (penalty fine) for an unpaid fare, you may need to pay a fine of €100 plus your unpaid fare. A fine of up to €1,000 and a court appearance"
+    },
+    {
+     "id": "dub2",
+     "f": "dub_fare",
+     "tema": "multa",
+     "x": "Dublin Bus If you pay the fine within 21 days, the fine is reduced to €50 (plus the standard unpaid fare).."
+    },
+    {
+     "id": "dub3",
+     "f": "dub_fare",
+     "tema": "multa",
+     "x": "Luas If you pay the fine within 14 days, the fine is reduced to €45 (plus the standard unpaid fare).."
+    },
+    {
+     "id": "dub4",
+     "f": "dub_luas",
+     "tema": "convalida",
+     "x": "To ensure you’re charged correctly and avoid a €100 Standard Fare Notice: Tap-on at the platform validator before boarding Tap-off when exiting the Luas"
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the fine for no ticket on the Luas?",
+     "query": "fine for no ticket on luas",
+     "pre": "Transport for Ireland says:",
+     "cit": [
+      "dub1",
+      "dub3"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you have to validate tram tickets in Dublin?",
+     "query": "do you have to validate tram tickets in dublin",
+     "pre": "On the Luas you tap on and off. Transport for Ireland says:",
+     "cit": [
+      "dub4"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How do you pay for public transport in Dublin?",
+     "query": "how to pay for public transportation in dublin",
+     "pre": "Transport for Ireland says you need a valid ticket before boarding:",
+     "cit": [
+      "dub1"
+     ],
+     "post": "The TFI pages we read do not mention paying by tapping a bank card; they cover the TFI Leap Card and tickets."
+    }
+   ]
+  },
+  {
+   "id": "edinburgh",
+   "nome": "Edinburgh",
+   "paese": "United Kingdom",
+   "iso2": "GB",
+   "slug": "edinburgh",
+   "letta": true,
+   "chi": "Edinburgh Trams",
+   "rete": "Edinburgh Trams (the trams only)",
+   "multa": "£10 on-board fare if you have not tapped on (trams)",
+   "contactless": "si",
+   "contactless_breve": "Yes: tap a contactless card or device on the platform validator (Tap On, Tap Off)",
+   "convalida": "si",
+   "convalida_breve": "Yes: tap on at the platform validator before boarding, and tap off at the end",
+   "pagamento": "Contactless card or device (Tap On, Tap Off) or a ticket from the platform machine",
+   "risposta": "if you have not tapped on, you are not considered to have a valid ticket and are charged the on-board fare of £10, so tap your contactless card or device on the platform validator before you board the tram.",
+   "citazioni": [
+    {
+     "id": "edi1",
+     "f": "edi_tap",
+     "tema": "multa",
+     "x": "If you have not tapped on, you will not be considered to have a valid ticket, and will automatically be charged the onboard fare of £10."
+    },
+    {
+     "id": "edi2",
+     "f": "edi_cond",
+     "tema": "convalida",
+     "x": "If you board the tram without a successful tap, you will be charged equivalent to the on-board fare having boarded without a valid ticket."
+    },
+    {
+     "id": "edi3",
+     "f": "edi_cond",
+     "tema": "convalida",
+     "x": "3.1 You must ‘tap on’ by successfully tapping your contactless payment card or device on the Platform Validator at the start of each journey, before boarding the tram."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the fine on Edinburgh Trams?",
+     "query": "edinburgh trams fine",
+     "pre": "Edinburgh Trams says:",
+     "cit": [
+      "edi1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can I use contactless on Edinburgh Trams?",
+     "query": "can i use contactless on edinburgh trams",
+     "pre": "Yes: you tap a contactless card or device on the platform validator. The conditions of use say:",
+     "cit": [
+      "edi3",
+      "edi2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need to validate Edinburgh tram tickets?",
+     "query": "do you need to validate edinburgh tram tickets",
+     "pre": "If you pay by contactless, tap on before boarding. The conditions of use say:",
+     "cit": [
+      "edi2"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "florence",
+   "nome": "Florence",
+   "paese": "Italy",
+   "iso2": "IT",
+   "slug": "florence",
+   "letta": false,
+   "ente": "Autolinee Toscane",
+   "url_provato": "https://www.at-bus.it/en/fines",
+   "motivo_tipo": "senza_importo",
+   "motivo": "Autolinee Toscane’s fines page opened, but the amounts are not in its text."
+  },
+  {
+   "id": "geneva",
+   "nome": "Geneva",
+   "paese": "Switzerland",
+   "iso2": "CH",
+   "slug": "geneva",
+   "letta": true,
+   "chi": "tpg, Geneva’s public transport company",
+   "rete": "tpg trams, buses and trolleybuses",
+   "multa": "CHF 100 if paid to the inspector, CHF 125 if paid later (first offence, adults)",
+   "contactless": "non_detto",
+   "contactless_breve": "Not stated on the tpg page we read",
+   "convalida": "non_detto",
+   "convalida_breve": "Not stated on the tpg page we read: have a valid ticket before the check",
+   "pagamento": "Not stated on the tpg page we read",
+   "risposta": "passengers without a valid ticket pay a surcharge on top of the ticket: for adults, CHF 100 if paid straight to the inspector or CHF 125 if paid later for a first offence, then CHF 165 and CHF 195 for later offences.",
+   "citazioni": [
+    {
+     "id": "gva1",
+     "f": "gva_good",
+     "tema": "multa",
+     "x": "Passengers without a valid ticket during checks will have to pay a supplement in addition to the transport ticket, in accordance with national tariff provisions (T600)."
+    },
+    {
+     "id": "gva2",
+     "f": "gva_good",
+     "tema": "multa",
+     "x": "Amount of surcharges for travelers without a valid ticket Determinant age Scale applicable for the 1st offense Scale applicable from the 2nd offense Scale applicable from the 3rd offense Immediate payment to the controller Deferred payment (increased surcharge) Single surcharge Single surcharge from 18 years old CHF 100.- CHF 125.- CHF 165.- CHF 195.-"
+    },
+    {
+     "id": "gva3",
+     "f": "gva_good",
+     "tema": "multa",
+     "x": "Your travel pass is recognized at the time of check, and is valid. You can pay CHF 5 directly to the inspection team."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the public transport fine in Geneva?",
+     "query": "geneva public transport fine",
+     "pre": "tpg says (the first two amounts are for a first offence, paid at once or later):",
+     "cit": [
+      "gva1",
+      "gva2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What if I forgot my travel pass in Geneva?",
+     "query": "geneva public transport fine",
+     "pre": "tpg says:",
+     "cit": [
+      "gva3"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "hamburg",
+   "nome": "Hamburg",
+   "paese": "Germany",
+   "iso2": "DE",
+   "slug": "hamburg",
+   "letta": true,
+   "chi": "hvv, the Hamburg transport association (tariff valid from 1 October 2026)",
+   "rete": "hvv U-Bahn, S-Bahn, buses and ferries",
+   "multa": "€60 (€7 if you later show a valid personal season ticket)",
+   "contactless": "parziale",
+   "contactless_breve": "Partly: in a pilot since 1 October 2026, a bank or credit card, Google Pay or Apple Pay buys selected tickets at marked hvv machines at selected stops, and the card is your proof of ticket",
+   "convalida": "si",
+   "convalida_breve": "Only tickets that need validating: stamp them straight away in vehicles with validators",
+   "pagamento": "Ticket machines and sales points (cash, or cashless at some), or a bank card or phone at marked machines in the open-payment pilot",
+   "risposta": "a passenger without a valid ticket must pay an increased fare of €60, also when caught leaving a vehicle or a fenced station area without one, and tickets that need validating must be stamped straight away.",
+   "citazioni": [
+    {
+     "id": "ham1",
+     "f": "ham_tarif",
+     "tema": "multa",
+     "x": "(1) Der Fahrgast hat ein erhöhtes Beförderungsentgelt von 60 Euro zu zahlen, wenn er 1. sich keinen gültigen Fahrausweis beschafft hat 2. sich einen solchen beschafft hat, ihn aber bei der Prüfung nicht vorzeigt.",
+     "tr": "(1) The passenger must pay an increased fare of 60 euros if he 1. has not obtained a valid ticket, 2. has obtained one but does not show it when checked."
+    },
+    {
+     "id": "ham2",
+     "f": "ham_tarif",
+     "tema": "multa",
+     "x": "Das erhöhte Beförderungsentgelt ist auch dann zu zahlen, wenn jemand ein Fahrzeug ohne gültigen Fahrausweis oder ein abgegrenztes Bahngebiet ohne gültigen Fahrausweis verlässt.",
+     "tr": "The increased fare must also be paid if someone leaves a vehicle or a fenced-off railway area without a valid ticket."
+    },
+    {
+     "id": "ham3",
+     "f": "ham_tarif",
+     "tema": "multa",
+     "x": "(2) Das erhöhte Beförderungsentgelt ermäßigt sich auf 7 Euro,",
+     "tr": "(2) The increased fare is reduced to 7 euros if (the passenger later proves that he held a valid personal season ticket)."
+    },
+    {
+     "id": "ham4",
+     "f": "ham_tarif",
+     "tema": "convalida",
+     "x": "In Fahrzeugen mit Entwertern hat der Fahrgast den Fahrausweis entsprechend der Beförderungsstrecke unverzüglich zu entwerten und sich von der Entwertung zu überzeugen.",
+     "tr": "In vehicles with validators, the passenger must validate the ticket for the journey immediately and make sure it has been validated."
+    },
+    {
+     "id": "ham5",
+     "f": "ham_tarif",
+     "tema": "pagamento",
+     "x": "(4) An bestimmten Verkaufsstellen und Verkaufsgeräten ist auch die bargeldlose Zahlung zulässig.",
+     "tr": "(4) At certain sales points and ticket machines, cashless payment is also allowed."
+    },
+    {
+     "id": "ham6",
+     "f": "ham_tarif",
+     "tema": "pagamento",
+     "x": "Das tarifliche Sonderangebot „Open-Payment Pilotprojekt“ läuft unter dem Vorbehalt jederzeitigen Widerrufs vom 1. Oktober 2026 bis auf Weiteres.",
+     "tr": "The special tariff offer “Open-Payment pilot project” runs from 1 October 2026 until further notice, subject to withdrawal at any time."
+    },
+    {
+     "id": "ham7",
+     "f": "ham_tarif",
+     "tema": "pagamento",
+     "x": "Mit einem zugelassenen ID-Medium (elektronische Zahlungsmittel wie Bank- oder Kreditkarten sowie Google- und Apple-Pay), können Tickets an dafür vorgesehenen Vertriebsgeräten gekauft werden. Hierbei ist nur der Kauf von ausgewählten Tickets des Bartarifs gemäß Abschnitt 10 des hvv Gemeinschaftstarifs an entsprechend gekennzeichneten hvv Vertriebsgeräten an ausgewählten Haltestellen möglich. Das verwendete ID-Medium dient als Ticketnachweis.",
+     "tr": "With an approved ID medium (electronic means of payment such as bank or credit cards and Google Pay and Apple Pay), tickets can be bought at the ticket machines provided for this. Only selected tickets of the single-fare tariff under section 10 of the hvv tariff can be bought, at hvv ticket machines marked accordingly at selected stops. The ID medium used serves as proof of the ticket."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Do you need to validate tickets in Hamburg?",
+     "query": "do you need to validate tickets in hamburg",
+     "pre": "Only tickets that need validating. The hvv tariff says (our translation from German):",
+     "cit": [
+      "ham4"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the fine for no ticket in Hamburg?",
+     "query": "hamburg metro ticket",
+     "pre": "The hvv tariff says (our translation from German):",
+     "cit": [
+      "ham1",
+      "ham2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How do you pay for the metro in Hamburg?",
+     "query": "how to pay for metro in hamburg",
+     "pre": "The hvv tariff says (our translation from German):",
+     "cit": [
+      "ham5",
+      "ham7"
+     ],
+     "post": "The pilot covers selected tickets at marked machines at selected stops only."
+    }
+   ]
+  },
+  {
+   "id": "helsinki",
+   "nome": "Helsinki",
+   "paese": "Finland",
+   "iso2": "FI",
+   "slug": "helsinki",
+   "letta": false,
+   "ente": "HSL",
+   "url_provato": "https://www.hsl.fi/en/tickets-and-fares/penalty-fare",
+   "motivo_tipo": "bloccata",
+   "motivo": "The HSL pages answered our check with HTTP 403."
+  },
+  {
+   "id": "krakow",
+   "nome": "Kraków",
+   "paese": "Poland",
+   "iso2": "PL",
+   "slug": "krakow",
+   "letta": false,
+   "ente": "ZTP Kraków",
+   "url_provato": "https://ztp.krakow.pl/en/kmk-public-transport/kmk-ticket-inspection",
+   "motivo_tipo": "senza_importo",
+   "motivo": "The ZTP Kraków page answered some of our checks with HTTP 403; when it opened, it did not state the amount of the additional fee for travelling without a valid ticket."
+  },
+  {
+   "id": "lisbon",
+   "nome": "Lisbon",
+   "paese": "Portugal",
+   "iso2": "PT",
+   "slug": "lisbon",
+   "letta": true,
+   "chi": "Metropolitano de Lisboa, the Lisbon Metro",
+   "rete": "Lisbon Metro",
+   "multa": "€120 to €350 for a serious offence (50% off if paid to the inspector or within 15 weekdays)",
+   "contactless": "si",
+   "contactless_breve": "Yes: tap a contactless bank card at the Metro validators, no ticket needed",
+   "convalida": "si",
+   "convalida_breve": "Yes: tap your card or ticket at the validator",
+   "pagamento": "Contactless bank card at the validators, or a ticket",
+   "risposta": "travelling without a valid ticket is punishable with a fine from €120 to €350 for a serious offence, with a 50% reduction if you pay voluntarily to the inspector or at the Metro offices within 15 weekdays; you can also travel by tapping a contactless bank card at the validators.",
+   "citazioni": [
+    {
+     "id": "lis1",
+     "f": "lis_legal",
+     "tema": "multa",
+     "x": "Lack of a valid ticket/card, travelling with an invalid ticket/card or refusal to allow the Metro ticket inspectors or the contactless system to verify the ticket’s validity, is punishable with a fine ranging from 120€ to 350€, in case of a serious offense."
+    },
+    {
+     "id": "lis2",
+     "f": "lis_legal",
+     "tema": "multa",
+     "x": "For minor offenses, the minimum and maximum fines are reduced by 75% for first offenses and by 40% for repeated offenses."
+    },
+    {
+     "id": "lis3",
+     "f": "lis_legal",
+     "tema": "multa",
+     "x": "Offending passengers may benefit from a 50% reduction if they voluntarily pay the applicable fines directly to the ticket inspector or at the Metro offices within 15 weekdays following notice,"
+    },
+    {
+     "id": "lis4",
+     "f": "lis_bank",
+     "tema": "pagamento",
+     "x": "Did you know you can travel on the Metro using just your contactless bank card directly at the validators? No ticket, no queues, no fuss."
+    },
+    {
+     "id": "lis5",
+     "f": "lis_bank",
+     "tema": "convalida",
+     "x": "Hold your contactless bank card up to the validator.  Enjoy the journey. The charge is applied automatically. No further action required on your part."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the fine on the Lisbon metro?",
+     "query": "lisbon metro fine",
+     "pre": "Metro Lisboa says:",
+     "cit": [
+      "lis1",
+      "lis3"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Does the Lisbon metro take contactless?",
+     "query": "does lisbon metro take contactless",
+     "pre": "Yes. Metro Lisboa says:",
+     "cit": [
+      "lis4",
+      "lis5"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "london",
+   "nome": "London",
+   "paese": "United Kingdom",
+   "iso2": "GB",
+   "slug": "london",
+   "letta": false,
+   "ente": "Transport for London (TfL)",
+   "url_provato": "https://tfl.gov.uk/fares/find-fares/penalty-fares-and-how-to-pay-them",
+   "motivo_tipo": "bloccata",
+   "motivo": "The TfL pages on penalty fares and contactless answered our check with HTTP 403."
+  },
+  {
+   "id": "lyon",
+   "nome": "Lyon",
+   "paese": "France",
+   "iso2": "FR",
+   "slug": "lyon",
+   "letta": false,
+   "ente": "TCL",
+   "url_provato": "https://www.tcl.fr/en/help/fraud-and-fines/amount-fines",
+   "motivo_tipo": "bloccata",
+   "motivo": "The TCL pages answered our check with HTTP 403."
+  },
+  {
+   "id": "madrid",
+   "nome": "Madrid",
+   "paese": "Spain",
+   "iso2": "ES",
+   "slug": "madrid",
+   "letta": true,
+   "chi": "Metro de Madrid",
+   "rete": "Metro de Madrid",
+   "multa": "€80 surcharge (€40 if paid within 15 working days) on the Metro",
+   "contactless": "parziale",
+   "contactless_breve": "Partly: contactless bank cards work at some signposted Metro gates",
+   "convalida": "si",
+   "convalida_breve": "Yes: validate at the gates before each trip, and at the exit where there are gates",
+   "pagamento": "Public Transport Card, or a contactless bank card at some signposted gates",
+   "risposta": "if you travel on the Metro without a valid ticket or card you must pay an €80 extraordinary surcharge, halved to €40 if you pay within 15 working days, and contactless bank cards are accepted at some signposted gates.",
+   "citazioni": [
+    {
+     "id": "mad1",
+     "f": "mad_sur",
+     "tema": "multa",
+     "x": "If you travel without a valid transport ticket or card, you will be obliged to pay the amount of €80 by way of an extraordinary surcharge, in application of the provisions of Article 28 of the Metropolitan Railway of Madrid Travel Regulation. This amount will be reduced by half (€40) if payment is settled within the maximum period of 15 working days"
+    },
+    {
+     "id": "mad2",
+     "f": "mad_emv",
+     "tema": "pagamento",
+     "x": "Metro de Madrid allows access to the network through the use of EMV-compatible contactless bank cards through some of its validation equipment, conveniently signposted, without the need to have a transport ticket previously loaded on the Public Transport Card."
+    },
+    {
+     "id": "mad3",
+     "f": "mad_emv",
+     "tema": "convalida",
+     "x": "Validation by bank card may only be carried out at toll equipment which is authorised and marked with a specific visual identification"
+    },
+    {
+     "id": "mad4",
+     "f": "mad_emv",
+     "tema": "altro",
+     "x": "Users are responsible for keeping the device active; otherwise, during an inspection, the measures foreseen for the absence of a valid ticket will be applied."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the fine on the Madrid metro?",
+     "query": "madrid metro fine",
+     "pre": "Metro de Madrid says:",
+     "cit": [
+      "mad1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Does the Madrid metro take contactless?",
+     "query": "does madrid metro take contactless",
+     "pre": "Yes, at some gates. Metro de Madrid says:",
+     "cit": [
+      "mad2",
+      "mad3"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "milan",
+   "nome": "Milan",
+   "paese": "Italy",
+   "iso2": "IT",
+   "slug": "milan",
+   "letta": true,
+   "chi": "ATM, Milan’s public transport company",
+   "rete": "ATM metro, trams, buses and trolleybuses",
+   "multa": "€39.30 plus the ticket if paid to the inspector (€56.50 within 5 days, €71.50 within 60 days, plus the ticket; ATM table dated 9 January 2023)",
+   "contactless": "si",
+   "contactless_breve": "Yes: tap in (and out on the metro) with a contactless card, phone or watch; not on S lines and Trenord trains",
+   "convalida": "si",
+   "convalida_breve": "Yes: tap in at the gate or on board; tap out on the metro, or pay an extra cost",
+   "pagamento": "Contactless bank card, phone or watch, ATM app or tickets",
+   "nota": "ATM’s fine table is dated 9 January 2023. It works the fine out from the lowest-class STIBM single ticket at €1.70, not from the €2.20 Milan city ticket; ATM’s fare finder still lists €1.70 for a two-zone ticket outside Milan (Mi3 - Mi4), and ATM’s ticket guide still links to the table. The amount on your fine notice is what counts.",
+   "risposta": "contactless bank cards, phones and watches work as a ticket on ATM metro, trams and buses if you tap in (and on the metro tap out), and ATM’s fine table, dated 9 January 2023 and still linked from ATM’s ticket guide, gives €39.30 plus the ticket if you pay the inspector on the spot.",
+   "citazioni": [
+    {
+     "id": "mil1",
+     "f": "mil_sanz",
+     "tema": "multa",
+     "x": "SANZIONI AMMINISTRATIVE dal 09/01/2023 Art. 46 L.R. 6/2012 e successive modifiche ( pari a 100 volte il costo del biglietto di classe minima di corsa semplice del sistema tariffario STIBM € 1,70 )",
+     "tr": "ADMINISTRATIVE FINES from 09/01/2023 Art. 46 Regional Law 6/2012 and later amendments (equal to 100 times the cost of the lowest-class single ticket of the STIBM fare system € 1.70 )"
+    },
+    {
+     "id": "mil2",
+     "f": "mil_sanz",
+     "tema": "multa",
+     "x": "► A bordo dei mezzi direttamente a mani del personale accertatore ridotta ad 1/3 e Scontata del 30% (oltre al prezzo della corsa);",
+     "tr": "► On board, directly to the inspection staff, reduced to 1/3 and discounted by 30% (plus the fare);"
+    },
+    {
+     "id": "mil3",
+     "f": "mil_sanz",
+     "tema": "multa",
+     "x": "Se pagata all’atto della contestazione a mani del personale accertatore Se pagata entro 5 giorni dalla contestazione o dalla notifica Se pagata entro 60 giorni dalla contestazione o dalla notifica IMPORTO € 39,30 € 39,30 € 56,50 SPESE PROCEDIMENTO TOTALE € 39,30 + biglietto * € 56,50 + biglietto * € 71,50 + biglietto * € 15,00 € 15,00",
+     "tr": "(table row, read across) If paid at the time of the inspection, to the inspection staff: amount € 39.30, total € 39.30 + ticket. If paid within 5 days of the inspection or notification: amount € 39.30, procedure costs € 15.00, total € 56.50 + ticket. If paid within 60 days of the inspection or notification: amount € 56.50, procedure costs € 15.00, total € 71.50 + ticket."
+    },
+    {
+     "id": "mil8",
+     "f": "mil_guida",
+     "tema": "multa",
+     "x": "Durante un controllo venite multati se non avete un biglietto o un abbonamento valido. Trovate i codici d’infrazione e gli importi delle multe a questa pagina.",
+     "tr": "During an inspection you are fined if you do not have a valid ticket or pass. You will find the offence codes and the amounts of the fines on this page (the link opens the ATM table quoted above)."
+    },
+    {
+     "id": "mil9",
+     "f": "mil_mi34",
+     "tema": "multa",
+     "x": "Mi3 - Mi4 Biglietti Costo Biglietto ordinario - valido 75' 1,70 €",
+     "tr": "Mi3 - Mi4 Tickets Cost Ordinary ticket - valid 75' 1.70 €"
+    },
+    {
+     "id": "mil4",
+     "f": "mil_cless",
+     "tema": "pagamento",
+     "x": "Contactless bank cards issued by Mastercard, Visa, American Express, Maestro and VPay can be used to pay as you go for travel. Prepaid Postepay cards issued by VISA and PagoBancomat debit cards are not accepted."
+    },
+    {
+     "id": "mil5",
+     "f": "mil_cless",
+     "tema": "pagamento",
+     "x": "Contactless is not accepted on other operator’s services like Trenord trains, nor railway lines (S lines)."
+    },
+    {
+     "id": "mil6",
+     "f": "mil_cless",
+     "tema": "convalida",
+     "x": "CASE 2. On the metro you didn’t tap in when starting your journey but you tapped out upon leaving. In this case, the system cannot understand the starting station, therefore a total cost of 5€ is applied and taken in two separate payments on different days: 2.20€ (ticket cost) + 2.80€ (extra cost)"
+    },
+    {
+     "id": "mil7",
+     "f": "mil_cless",
+     "tema": "altro",
+     "x": "What do i do if a ticket inspector asks to see my ticket? You simply show them the card or device used when tapping in."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the fine on the Milan metro?",
+     "query": "milan metro fine",
+     "pre": "ATM’s fine table, dated 9 January 2023 and still linked from ATM’s ticket guide, says (our translation from Italian):",
+     "cit": [
+      "mil2",
+      "mil3"
+     ],
+     "post": "The table is based on the lowest-class STIBM single ticket (€1.70), which ATM’s fare finder still lists; the amount on your fine notice is what counts."
+    },
+    {
+     "q": "Can you use contactless on the Milan metro?",
+     "query": "milan metro can you use contactless",
+     "pre": "Yes. ATM says:",
+     "cit": [
+      "mil4",
+      "mil5"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need to validate metro tickets in Milan?",
+     "query": "do you need to validate metro tickets in milan",
+     "pre": "With a contactless card you tap in, and on the metro tap out too. If you forget to tap in, ATM says:",
+     "cit": [
+      "mil6"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "montreal",
+   "nome": "Montreal",
+   "paese": "Canada",
+   "iso2": "CA",
+   "slug": "montreal",
+   "letta": true,
+   "chi": "the STM (Société de transport de Montréal)",
+   "rete": "STM métro and buses",
+   "multa": "Up to $500 plus fees",
+   "contactless": "non_detto",
+   "contactless_breve": "Not stated on the STM pages we read: fares go on the STM’s reloadable or occasional smart cards",
+   "convalida": "si",
+   "convalida_breve": "Yes: your validated fare is your proof of payment; keep it for the whole trip",
+   "pagamento": "Chrono app, fare vending machines and station agents in the métro, online",
+   "risposta": "your validated fare is your proof of payment and you must show it to inspectors on request; without it you could face fines of up to $500, not including fees.",
+   "citazioni": [
+    {
+     "id": "mtl1",
+     "f": "mtl_fares",
+     "tema": "convalida",
+     "x": "How do I prove I paid my fare during a fare check? Your validated fare is your proof of payment. Keep it with you at all times during your trip and show it to inspectors if asked."
+    },
+    {
+     "id": "mtl2",
+     "f": "mtl_fares",
+     "tema": "multa",
+     "x": "If you don’t have proof of payment, you could face fines of up to $500 (not including fees)."
+    },
+    {
+     "id": "mtl4",
+     "f": "mtl_1trip",
+     "tema": "pagamento",
+     "x": "Where to buy this fare Online On the Chrono app In the métro Fare vending machines From station agent"
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the fine on the Montreal metro?",
+     "query": "montreal metro fine",
+     "pre": "The STM says:",
+     "cit": [
+      "mtl2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How do you pay for the metro in Montreal?",
+     "query": "how to pay for metro in montreal",
+     "pre": "The STM lists these ways to buy a 1-trip fare:",
+     "cit": [
+      "mtl4"
+     ],
+     "post": "The STM pages we read do not mention paying by tapping a bank card."
+    }
+   ]
+  },
+  {
+   "id": "munich",
+   "nome": "Munich",
+   "paese": "Germany",
+   "iso2": "DE",
+   "slug": "munich",
+   "letta": true,
+   "chi": "MVG, Munich’s public transport company",
+   "rete": "MVG U-Bahn, trams and buses",
+   "multa": "€60 (€7 if you forgot a valid personal ticket and show it within 14 days)",
+   "contactless": "non_detto",
+   "contactless_breve": "Not stated on the MVG page we read",
+   "convalida": "si",
+   "convalida_breve": "Yes on buses and trams: buy or stamp your ticket as you board",
+   "pagamento": "Not stated on the MVG page we read",
+   "risposta": "if you are found without a valid ticket you pay the increased fare of €60, and on buses and trams you must buy or validate your ticket as soon as you board.",
+   "citazioni": [
+    {
+     "id": "muc1",
+     "f": "muc_ebe",
+     "tema": "multa",
+     "x": "Wenn Sie ohne gültiges Ticket angetroffen wurden, fällt das erhöhte Beförderungsentgelt (EBE) von 60 Euro an.",
+     "tr": "If you are found without a valid ticket, the increased fare (EBE) of 60 euros is charged."
+    },
+    {
+     "id": "muc2",
+     "f": "muc_ebe",
+     "tema": "multa",
+     "x": "Haben Sie Ihren gültigen, persönlichen Fahrschein nur vergessen? Dann reichen Sie Ihr Ticket innerhalb von 14 Tagen über die Upload-Funktion im EBE-Kontaktformular oder in unseren MVG-Kundencentern nach. Die Bearbeitungsgebühr beträgt 7 Euro.",
+     "tr": "Did you just forget your valid personal ticket? Then submit it within 14 days through the upload in the EBE contact form or at our MVG customer centres. The processing fee is 7 euros."
+    },
+    {
+     "id": "muc3",
+     "f": "muc_ebe",
+     "tema": "convalida",
+     "x": "Bei Bus und Tram muss bereits beim Einstieg der Fahrausweis gekauft oder entwertet werden.",
+     "tr": "On buses and trams, the ticket must be bought or validated as you board."
+    },
+    {
+     "id": "muc4",
+     "f": "muc_ebe",
+     "tema": "convalida",
+     "x": "Ein Fahrgast, der ein Fahrzeug betritt und nicht unverzüglich eine Fahrkarte kauft, am Entwerter vorbeigeht, davor stehen bleibt oder sich hinsetzt, hat sich keine gültige Fahrkarte beschafft und muss bei einer Kontrolle 60 EUR bezahlen.",
+     "tr": "A passenger who boards a vehicle and does not immediately buy a ticket, walks past the validator, stands in front of it or sits down has not obtained a valid ticket and must pay 60 EUR if checked."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the fine for no ticket in Munich?",
+     "query": "fine for no ticket munich",
+     "pre": "MVG says (our translation from German):",
+     "cit": [
+      "muc1",
+      "muc2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need to validate tickets in Munich?",
+     "query": "do you need to validate tickets in munich",
+     "pre": "Yes, on buses and trams as you board. MVG says (our translation from German):",
+     "cit": [
+      "muc3",
+      "muc4"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "naples",
+   "nome": "Naples",
+   "paese": "Italy",
+   "iso2": "IT",
+   "slug": "naples",
+   "letta": false,
+   "ente": "ANM",
+   "url_provato": "https://www.anm.it/index.php?option=com_content&task=view&id=1421&Itemid=415",
+   "motivo_tipo": "bloccata",
+   "motivo": "ANM’s pages show only a loading screen without JavaScript, so our check read no rules."
+  },
+  {
+   "id": "new-york",
+   "nome": "New York",
+   "paese": "United States",
+   "iso2": "US",
+   "slug": "new-york",
+   "letta": false,
+   "ente": "MTA",
+   "url_provato": "https://www.mta.info/fares-tolls/subway-bus",
+   "motivo_tipo": "bloccata",
+   "motivo": "The MTA pages answered our check with HTTP 403."
+  },
+  {
+   "id": "oslo",
+   "nome": "Oslo",
+   "paese": "Norway",
+   "iso2": "NO",
+   "slug": "oslo",
+   "letta": true,
+   "chi": "Ruter, the public transport authority for Oslo and Akershus",
+   "rete": "Ruter buses, metro, trams and boats",
+   "multa": "NOK 1,200 paid to the inspector by card, NOK 1,470 by invoice (adults)",
+   "contactless": "non_detto",
+   "contactless_breve": "Not stated on the Ruter pages we read: buy in the Ruter app, on a travel card, or on board buses and boats (with a surcharge)",
+   "convalida": "si",
+   "convalida_breve": "Buy (and activate) your ticket before you board or enter the metro fare zone",
+   "pagamento": "Ruter app, travel card, or on board buses and boats (more expensive)",
+   "risposta": "travelling without a valid ticket costs adults NOK 1,200 paid to the inspector by card or NOK 1,470 by invoice, and you must buy your ticket before boarding or entering the metro fare control zone.",
+   "citazioni": [
+    {
+     "id": "osl1",
+     "f": "osl_ctrl",
+     "tema": "multa",
+     "x": "Adults (18 years and older): NOK 1,200 if you pay by card directly to the ticket inspector, NOK 1,470 if you receive an invoice. Young people under 18: NOK 1,200, regardless of payment method. Counterfeit ticket: 2,600 kroner, and the ticket will be confiscated. The rates are set by the Ministry of Transport."
+    },
+    {
+     "id": "osl2",
+     "f": "osl_ctrl",
+     "tema": "convalida",
+     "x": "You must purchase your ticket before boarding. You must also purchase it before entering the fare control zone at the metro station. If the ticket was purchased at the same time as the ticket inspectors boarded, it will not be valid and you will be fined."
+    },
+    {
+     "id": "osl3",
+     "f": "osl_single",
+     "tema": "pagamento",
+     "x": "Purchase a single ticket in the Ruter app on your mobile. Purchase a physical travel card. On board the bus and boat. It's a bit more expensive."
+    },
+    {
+     "id": "osl4",
+     "f": "osl_single",
+     "tema": "altro",
+     "x": "If you buy a single ticket on board a bus or boat, an onboard surcharge of NOK 20 applies for adults and NOK 10 for children and seniors."
+    },
+    {
+     "id": "osl5",
+     "f": "osl_ctrl",
+     "tema": "altro",
+     "x": "If the card reader on board is not working and you have not been able to purchase a ticket by any other means, you will not have to pay a penalty fare if your ticket is checked."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the public transport fine in Oslo?",
+     "query": "oslo public transport fine",
+     "pre": "Ruter says:",
+     "cit": [
+      "osl1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How do you pay for the metro in Oslo?",
+     "query": "how to pay for metro in oslo",
+     "pre": "Ruter says:",
+     "cit": [
+      "osl3",
+      "osl2"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "paris",
+   "nome": "Paris",
+   "paese": "France",
+   "iso2": "FR",
+   "slug": "paris",
+   "letta": false,
+   "ente": "Île-de-France Mobilités (RATP pages also blocked)",
+   "url_provato": "https://www.iledefrance-mobilites.fr/en/actualites/valider-transports-carte-bancaire-ile-de-france",
+   "motivo_tipo": "bloccata",
+   "motivo": "The Île-de-France Mobilités and RATP pages answered our check with HTTP 403."
+  },
+  {
+   "id": "porto",
+   "nome": "Porto",
+   "paese": "Portugal",
+   "iso2": "PT",
+   "slug": "porto",
+   "letta": false,
+   "ente": "Metro do Porto",
+   "url_provato": "https://en.metrodoporto.pt/pages/394",
+   "motivo_tipo": "contrasto",
+   "motivo": "Metro do Porto’s English FAQ gives a 95 EUR fine, but its own 2018 notice describes a newer fines regime: we do not state an amount."
+  },
+  {
+   "id": "prague",
+   "nome": "Prague",
+   "paese": "Czechia",
+   "iso2": "CZ",
+   "slug": "prague",
+   "letta": true,
+   "chi": "DPP, the Prague Public Transit Company",
+   "rete": "metro, trams and buses in Prague (PID)",
+   "multa": "CZK 1,200 on the spot, CZK 1,500 within 15 days, CZK 2,000 otherwise",
+   "contactless": "si",
+   "contactless_breve": "Yes: buy a ticket by card at the terminal on board trams and buses (use the door with the contactless symbol)",
+   "convalida": "dipende",
+   "convalida_breve": "Tickets bought in advance: yes, validate them; tickets from the on-board card terminal: no",
+   "pagamento": "Card terminals on trams and buses, the PID Lítačka app, ticket machines",
+   "cambio": {
+    "testo": "Higher surcharges from 1 January 2026 (new PID tariff)",
+    "data": "2026-01-01",
+    "cit": "prg3"
+   },
+   "risposta": "the standard surcharge for travelling without a valid ticket is CZK 2,000, reduced to CZK 1,500 if paid within 15 days and to CZK 1,200 if paid on the spot; a ticket bought by card on board a tram or bus is valid at once and is not validated again.",
+   "citazioni": [
+    {
+     "id": "prg1",
+     "f": "prg_sur",
+     "tema": "multa",
+     "x": "CZK 2,000 – the standard surcharge for travelling without a valid travel document"
+    },
+    {
+     "id": "prg2",
+     "f": "prg_sur",
+     "tema": "multa",
+     "x": "If paid on the spot during inspection, the standard surcharge for travelling without a valid travel document is reduced to CZK 1,200."
+    },
+    {
+     "id": "prg3",
+     "f": "prg_tarif",
+     "tema": "cambio",
+     "x": "Increase in fare surcharges In the territory of Prague (zones P, 0, B) Surcharge for travelling without a valid ticket: 1,200 CZK (on the spot) 1,500 CZK (within 15 days) 2,000 CZK (other cases)"
+    },
+    {
+     "id": "prg4",
+     "f": "prg_cash",
+     "tema": "pagamento",
+     "x": "A passenger intending to purchase a ticket by card is obliged to use a door labelled with the contactless payment symbol when boarding a tram or bus and is required to purchase a ticket immediately after boarding the vehicle."
+    },
+    {
+     "id": "prg5",
+     "f": "prg_cash",
+     "tema": "convalida",
+     "x": "The ticket issued by the terminal is transferable and valid from the moment of issue. The ticket shall not be further validated, the necessary data (zone, time, date) are marked on it."
+    },
+    {
+     "id": "prg6",
+     "f": "prg_cash",
+     "tema": "convalida",
+     "x": "In such cases, the passenger is obliged to obtain a valid ticket immediately in another way (e.g. by validating a ticket purchased in advance, by purchasing SMS ticket or a ticket from MA)."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the fine for no ticket in Prague?",
+     "query": "fine for no ticket prague",
+     "pre": "DPP says:",
+     "cit": [
+      "prg1",
+      "prg2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need to validate tickets in Prague?",
+     "query": "do you need to validate tickets in prague",
+     "pre": "A ticket bought in advance has to be validated; a ticket bought by card from the terminal on board does not. DPP says:",
+     "cit": [
+      "prg5",
+      "prg6"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you pay contactless in Prague?",
+     "query": "prague transport contactless",
+     "pre": "Yes, on trams and buses. DPP says:",
+     "cit": [
+      "prg4"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "riga",
+   "nome": "Riga",
+   "paese": "Latvia",
+   "iso2": "LV",
+   "slug": "riga",
+   "letta": false,
+   "ente": "Rīgas satiksme",
+   "url_provato": "https://www.rigassatiksme.lv/en/about-us/frequently-asked-questions/ticket-control",
+   "motivo_tipo": "bloccata",
+   "motivo": "Rīgas satiksme’s pages answered our check with HTTP 403."
+  },
+  {
+   "id": "rome",
+   "nome": "Rome",
+   "paese": "Italy",
+   "iso2": "IT",
+   "slug": "rome",
+   "letta": false,
+   "ente": "ATAC",
+   "url_provato": "https://www.atac.roma.it/customer-experience/multe-e-rimborsi",
+   "motivo_tipo": "bloccata",
+   "motivo": "ATAC’s pages answered our check with an anti-robot page; the City of Rome pages that opened date from 2018 and 2019, too old to state today’s fine."
+  },
+  {
+   "id": "stockholm",
+   "nome": "Stockholm",
+   "paese": "Sweden",
+   "iso2": "SE",
+   "slug": "stockholm",
+   "letta": false,
+   "ente": "SL",
+   "url_provato": "https://sl.se/en/fares-and-tickets/penalties-and-enforcement",
+   "motivo_tipo": "bloccata",
+   "motivo": "SL’s page loads its text with JavaScript only, so our check read no rules."
+  },
+  {
+   "id": "sydney",
+   "nome": "Sydney",
+   "paese": "Australia",
+   "iso2": "AU",
+   "slug": "sydney",
+   "letta": false,
+   "ente": "Transport for NSW (Opal)",
+   "url_provato": "https://www.opal.com.au/en/opal-fares/travelling_with_a_valid_ticket",
+   "motivo_tipo": "bloccata",
+   "motivo": "The Opal page returned an almost empty answer, with no rules in it."
+  },
+  {
+   "id": "toronto",
+   "nome": "Toronto",
+   "paese": "Canada",
+   "iso2": "CA",
+   "slug": "toronto",
+   "letta": true,
+   "chi": "the TTC (Toronto Transit Commission)",
+   "rete": "TTC subway, streetcars and buses",
+   "multa": "Up to $425, or a criminal charge",
+   "contactless": "si",
+   "contactless_breve": "Yes: tap an Interac debit or credit card or a mobile wallet; the tapped card is your proof of payment",
+   "convalida": "si",
+   "convalida_breve": "Yes: tap every time you board a vehicle or enter a station, even after the fare cap",
+   "pagamento": "PRESTO card or PRESTO Ticket, Interac debit or credit card, mobile wallet",
+   "risposta": "not paying your fare may result in a fine with penalties up to $425 or a criminal charge; a tapped PRESTO card, debit or credit card or mobile wallet is your proof of payment, so tap every time and show the same card or device if asked.",
+   "citazioni": [
+    {
+     "id": "tor1",
+     "f": "tor_pop",
+     "tema": "multa",
+     "x": "Not paying your fare is illegal and may result in a fine with penalties up to $425 or a criminal charge."
+    },
+    {
+     "id": "tor2",
+     "f": "tor_pop",
+     "tema": "pagamento",
+     "x": "What counts as Proof-of-Payment A tapped PRESTO card A tapped PRESTO Ticket A tapped Interac® Debit or credit card (including mobile wallet) A valid paper transfer or Proof-of-Payment (POP) receipt A TTC Convention Pass"
+    },
+    {
+     "id": "tor3",
+     "f": "tor_pop",
+     "tema": "convalida",
+     "x": "If you have reached the monthly fare cap, you must still tap every time you board a vehicle or enter a station. Your tapped card or device is your Proof-of-Payment."
+    },
+    {
+     "id": "tor4",
+     "f": "tor_pop",
+     "tema": "altro",
+     "x": "During fare inspection, show the same payment method you used to pay or tap."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the TTC fine?",
+     "query": "toronto ttc fine",
+     "pre": "The TTC says:",
+     "cit": [
+      "tor1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you pay contactless on the Toronto subway?",
+     "query": "toronto subway contactless",
+     "pre": "Yes. The TTC lists what counts as proof of payment:",
+     "cit": [
+      "tor2",
+      "tor4"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "turin",
+   "nome": "Turin",
+   "paese": "Italy",
+   "iso2": "IT",
+   "slug": "turin",
+   "letta": false,
+   "ente": "GTT",
+   "url_provato": "https://www.gtt.to.it/cms/biglietti-abbonamenti/8600-faq-contactless",
+   "motivo_tipo": "bloccata",
+   "motivo": "GTT’s website closed the connection on our check."
+  },
+  {
+   "id": "valencia",
+   "nome": "Valencia",
+   "paese": "Spain",
+   "iso2": "ES",
+   "slug": "valencia",
+   "letta": false,
+   "ente": "Metrovalencia and EMT Valencia",
+   "url_provato": "https://www.metrovalencia.es/en/regulations/",
+   "motivo_tipo": "bloccata",
+   "motivo": "The Metrovalencia site sends an incomplete certificate chain, so we could not open it securely, and EMT Valencia closed the connection."
+  },
+  {
+   "id": "vancouver",
+   "nome": "Vancouver",
+   "paese": "Canada",
+   "iso2": "CA",
+   "slug": "vancouver",
+   "letta": true,
+   "chi": "TransLink, Metro Vancouver’s transit authority",
+   "rete": "SkyTrain, buses, SeaBus and West Coast Express",
+   "multa": "$173 (if unpaid, it goes up by $40 on the 180th day and by $60 on the 366th day)",
+   "contactless": "si",
+   "contactless_breve": "Yes: contactless credit cards, Interac debit cards and mobile wallets at Compass Card Readers",
+   "convalida": "si",
+   "convalida_breve": "Yes: always tap when boarding, even with a monthly pass",
+   "pagamento": "Compass card or ticket, contactless credit or debit card, mobile wallet, cash at fare boxes and machines",
+   "risposta": "not paying your fare, or using the wrong fare, could result in a fine of $173, and you must always tap when boarding, even with a valid monthly pass; contactless credit and debit cards and mobile wallets are accepted at Compass Card Readers.",
+   "citazioni": [
+    {
+     "id": "van1",
+     "f": "van_enf",
+     "tema": "multa",
+     "x": "Not paying your fare, or using incorrect fare, could result in a fine of $173."
+    },
+    {
+     "id": "van2",
+     "f": "van_enf",
+     "tema": "convalida",
+     "x": "You must always tap when boarding transit, even if you have a valid monthly pass. Failure to do so could result in a $173 fine."
+    },
+    {
+     "id": "van3",
+     "f": "van_enf",
+     "tema": "pagamento",
+     "x": "Valid Proof of Payment includes: Using a Compass product with sufficient fare. Contactless Credit Cards, Interac Debit Cards, or any Mobile Wallet at Compass Card Readers. Using cash at fare boxes or Compass Vending Machines."
+    },
+    {
+     "id": "van4",
+     "f": "van_inf",
+     "tema": "multa",
+     "x": "On the 180th day after the ticket was issued (except as set out in the fare collection bylaw) your fine will go up by $40. On the 366th day after the ticket was issued your fine will go up by $60."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the transit fine in Vancouver?",
+     "query": "vancouver transit fine",
+     "pre": "TransLink says:",
+     "cit": [
+      "van1",
+      "van4"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you pay contactless on the SkyTrain?",
+     "query": "vancouver skytrain contactless",
+     "pre": "Yes. TransLink says:",
+     "cit": [
+      "van3",
+      "van2"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "venice",
+   "nome": "Venice",
+   "paese": "Italy",
+   "iso2": "IT",
+   "slug": "venice",
+   "letta": false,
+   "ente": "AVM/ACTV",
+   "url_provato": "https://avm.avmspa.it/en/content/fines-actv",
+   "motivo_tipo": "senza_importo",
+   "motivo": "ACTV’s fines page opened, but it gives the legal basis and no amount."
+  },
+  {
+   "id": "vienna",
+   "nome": "Vienna",
+   "paese": "Austria",
+   "iso2": "AT",
+   "slug": "vienna",
+   "letta": false,
+   "ente": "Wiener Linien",
+   "url_provato": "https://www.wienerlinien.at/befoerderungsbedingungen",
+   "motivo_tipo": "bloccata",
+   "motivo": "Wiener Linien’s pages answered our check with an anti-robot page; the City of Vienna press release that opened dates from 2022, too old to state today’s fee."
+  },
+  {
+   "id": "warsaw",
+   "nome": "Warsaw",
+   "paese": "Poland",
+   "iso2": "PL",
+   "slug": "warsaw",
+   "letta": false,
+   "ente": "Warszawski Transport Publiczny",
+   "url_provato": "https://www.wtp.waw.pl/en/additional-fees/",
+   "motivo_tipo": "bloccata",
+   "motivo": "The WTP page answered with an empty challenge page (HTTP 202)."
+  },
+  {
+   "id": "zurich",
+   "nome": "Zurich",
+   "paese": "Switzerland",
+   "iso2": "CH",
+   "slug": "zurich",
+   "letta": true,
+   "chi": "ZVV, the Zurich transport network",
+   "rete": "trams, buses, S-Bahn and boats in the ZVV area",
+   "multa": "CHF 100 for a first offence (CHF 140 for a second, CHF 220 for a third)",
+   "contactless": "non_detto",
+   "contactless_breve": "Not stated on the ZVV pages we read: buy at machines, sales outlets, online or in the ZVV app",
+   "convalida": "dipende",
+   "convalida_breve": "Only tickets for validation: stamp them at the machine or right after boarding the bus",
+   "pagamento": "Ticket machines, sales outlets, online, ZVV app",
+   "risposta": "travelling without a valid ticket costs CHF 100 for a first offence, CHF 140 for a second and CHF 220 for a third within two years, and you must have a valid ticket before you board.",
+   "citazioni": [
+    {
+     "id": "zrh1",
+     "f": "zrh_pen",
+     "tema": "multa",
+     "x": "Penalty fares for travelling without a valid ticket Penalty fare for 1st offence CHF 100.– Penalty fare for 2nd offence CHF 140.– Penalty fare for 3rd offense (incl. CHF 50.– for the application fee to request criminal proceedings) CHF 220.– In all cases, the amount includes a flat-rate fare of CHF 10.–"
+    },
+    {
+     "id": "zrh2",
+     "f": "zrh_pen",
+     "tema": "multa",
+     "x": "The amount of the fine depends on the number of times you have been caught without a valid ticket in the last two years."
+    },
+    {
+     "id": "zrh3",
+     "f": "zrh_insp",
+     "tema": "convalida",
+     "x": "You must check that you have a valid ticket before boarding. On vehicles where the driver sells tickets, the ticket must be purchased when boarding. Tickets for validation must be stamped at the ticket machine or immediately after boarding at the validation machine on the bus."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the fine for no ticket in Zurich?",
+     "query": "zurich fine for no ticket",
+     "pre": "ZVV says:",
+     "cit": [
+      "zrh1",
+      "zrh2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need to validate tram tickets in Zurich?",
+     "query": "do you need to validate tram tickets in zurich",
+     "pre": "Only tickets that need validating. ZVV says:",
+     "cit": [
+      "zrh3"
+     ],
+     "post": ""
+    }
+   ]
+  }
+ ],
+ "faq_indice": [
+  {
+   "q": "What is the fine for not validating a ticket?",
+   "query": "fine for not validating ticket"
+  },
+  {
+   "q": "Can I pay contactless on the metro?",
+   "query": "contactless payment metro"
+  },
+  {
+   "q": "What is the fine for no ticket?",
+   "query": "fine for no ticket"
+  }
+ ]
+}

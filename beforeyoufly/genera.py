@@ -3812,7 +3812,7 @@ def pagina_pat(k, c):
 {dove_idp(k)}
 {box_noleggio(k, c)}
 {link_ped(rel, c)}
-{link_gom(rel, c)}{link_fl(rel, c)}
+{link_gom(rel, c)}{link_fl(rel, c)}{link_tr_paese(rel, c)}
 {f'<h2>Other licences in {escape(P)}</h2><div class="tab tab-b"><table><caption class="sr">International driving permit in {escape(P)} for other licences, from official advice</caption><thead><tr><th>Licence</th><th>In {escape(nome_srv(c))}</th><th>Checked</th></tr></thead><tbody>{"".join(altri)}</tbody></table></div>' if altri else ""}
 {f'<h2>Before you travel to {escape(P)}</h2><ul>' + "".join(f"<li>{x}</li>" for x in ingresso) + "</ul>" if ingresso else ""}
 {faq_h}
@@ -3926,6 +3926,7 @@ def pagina_hub_pat():
 {f'<p class="altri-pass">{ico("car")}<span>Hiring a car? <a href="{rel}{PED_BASE}/">How to pay tolls and vignettes with a rental car in {len(PED_PAESI)} European countries</a></span></p>' if PED else ""}
 {f'<p class="altri-pass">{ico("car")}<span>Driving in winter? <a href="{rel}{GOM_BASE}/">Winter tyres and snow chains with a rental car in {len(GOM_PAESI)} European countries</a></span></p>' if GOM else ""}
 {f'<p class="altri-pass">{ico("car")}<span>Staying longer or moving? <a href="{rel}{FL_BASE}/">How long you can drive on a foreign licence in Canada, Australia and New Zealand, by province and state</a></span></p>' if FL else ""}
+{f'<p class="altri-pass">{ico("globe")}<span>Not driving? <a href="{rel}{TR_BASE}/">Public transport fines, validation and contactless payment in {len(TR_CITTA)} cities</a></span></p>' if TR else ""}
 <h2>How we check</h2>
 <p>{metodo_pat("uk")} {metodo_pat("ca")} {metodo_pat("au")} We only use official government sources and never fill a gap with our own reading: where the advice is silent, we say so. More on the <a href="{rel}about/#driving-abroad">About page</a>.</p>"""
     pagina(f"{PAT_BASE}/", f"Driving Abroad: Do I Need an IDP? UK, Canada, Australia ({ANNO})",
@@ -5056,6 +5057,7 @@ def pagina_big(a):
 {sezione_giorni_big(a)}
 {box_ufficiale_big(a)}
 {box_tour_big(a)}
+{link_tr_big(rel, a["slug"])}
 {faq_h}
 <h2>Other attractions</h2>
 <div class="griglia">{altri}</div>
@@ -5485,6 +5487,283 @@ def about_fl(rel):
 <p>Rules: every sentence shown between quotation marks is copied word for word from the official page; the short summaries in the tables are ours. Some official websites answer automated checks with an error or an anti-robot page; we do not try to pass those checks and we do not take their rules from other websites, so we say that the page did not open and give no rule ({escape(", ".join(non))}). For Québec we quote the Highway Safety Code on LegisQuébec because the SAAQ website did not open. This is information, not legal advice.</p>"""
 
 
+# ---------------------------------------------------------------- "Before you ride": regole del trasporto pubblico per città (31/10/2026)
+# Come si paga (carta contactless, app, biglietto), se e come si convalida, multa ufficiale per chi viaggia senza biglietto valido.
+# Fatti scritti a mano in dati/trasporti_manuali.json (citazioni parola per parola dalle pagine dell'azienda di trasporto, dell'autorità dei
+# trasporti o del comune), fonti rilette da raccolta/trasporti.py (HTTP 200, data, impronta) che scrive dati/trasporti.json. Una pagina solo
+# per le città con la multa letta da una pagina ufficiale attuale; le altre restano nell'indice come "Not read" con il motivo, senza dati.
+# Nessun riquadro di affiliazione: nessun link Wise attivo nei dati (affiliati.json) al 31/10/2026; AdSense sì (spazio {AD}).
+TR_BASE = "public-transport-rules"
+_f_tr = DATI / "trasporti.json"
+TR = json.loads(_f_tr.read_text(encoding="utf-8")) if _f_tr.exists() else None
+TR_CITTA = TR["citta"] if TR else []
+TR_LETTE = [c for c in TR_CITTA if c["letta"]]
+TR_PER = {c["id"]: c for c in TR_CITTA}
+LIMITE_TITOLO_TR = 70
+TEMI_TR = [("multa", "Fines"), ("pagamento", "How to pay"), ("convalida", "Validating and tapping"), ("cambio", "Changes announced"),
+           ("altro", "Also on the official pages")]
+CONTACTLESS_TR = {"si": "Yes", "parziale": "Partly", "non_detto": "Not stated", "no": "No"}
+CONVALIDA_TR = {"si": "Yes", "dipende": "It depends", "non_detto": "Not stated", "no": "No"}
+LINGUE_TR = {"de": "German", "it": "Italian"}
+# Paesi esclusi dai link nelle pagine Driving abroad: le pagine Canada, Australia e Nuova Zelanda sono già revisionate (contenuto da non toccare)
+TR_NO_LINK_PAT = {"CA", "AU", "NZ"}
+# Attrazioni di "When do tickets go on sale?" -> città della sezione (riga "Getting there by public transport?")
+TR_BIG = {"last-supper-milan": "milan", "anne-frank-house": "amsterdam", "sagrada-familia": "barcelona"}
+
+
+def url_tr(c=None):
+    return f"{TR_BASE}/" if c is None else f"{TR_BASE}/{c['slug']}/"
+
+
+def fonti_tr(c):
+    out = []
+    for x in c["citazioni"]:
+        if x["f"] not in out:
+            out.append(x["f"])
+    return out
+
+
+def data_tr(c):
+    return max(TR["fonti"][f]["letto_il"] for f in fonti_tr(c))
+
+
+def cit_tr(c, id_):
+    return next(x for x in c["citazioni"] if x["id"] == id_)
+
+
+def link_fonte_tr(fid):
+    F = TR["fonti"][fid]
+    return f'<a href="{escape(F["url"])}" rel="noopener">{escape(F["titolo"])}</a>'
+
+
+def blocco_cit_tr(cc):
+    """Citazioni raggruppate per fonte: virgolette, traduzione nostra (fonti non inglesi), fonte, ente e data."""
+    out, gruppi = [], []
+    for x in cc:
+        if gruppi and gruppi[-1][0] == x["f"]:
+            gruppi[-1][1].append(x)
+        else:
+            gruppi.append((x["f"], [x]))
+    for fid, gg in gruppi:
+        F = TR["fonti"][fid]
+        h = "".join(f"<p>{escape(x['x'])}</p>" + (f'<p class="trad" lang="en"><em>Our translation:</em> {escape(x["tr"])}</p>' if x.get("tr") else "")
+                    for x in gg)
+        lingua = f' lang="{F["lingua"]}"' if F["lingua"] != "en" else ""
+        out.append(f'<blockquote class="cit"{lingua}>{h}</blockquote><p class="fonte">Source: {link_fonte_tr(fid)} ({escape(F["ente"])}), '
+                   f'checked on {data_lunga(F["letto_il"])}. Quoted word for word.</p>')
+    return "".join(out)
+
+
+def risposta_tr(c):
+    return f"According to {c['chi']}, checked on {data_lunga(data_tr(c))}, {c['risposta']}"
+
+
+def faq_tr(c):
+    """Domande da ricerche vere: parole nostre (pre, post) + citazioni; le citazioni non inglesi entrano con la traduzione nostra."""
+    out = []
+    for f in c["faq"]:
+        parti = [f["pre"]] if f["pre"] else []
+        for i in f["cit"]:
+            x = cit_tr(c, i)
+            parti.append(f"“{x.get('tr') or x['x']}”")
+        if f["post"]:
+            parti.append(f["post"])
+        out.append((f["q"], " ".join(parti)))
+    return out
+
+
+def html_faq_tr(faq):
+    h = "".join(f"<h3>{escape(q)}</h3><p>{escape(a)}</p>" for q, a in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
+    return f'<section class="faq"><h2>Questions</h2>{h}</section>', [ld]
+
+
+AVVISO_TR = ('<p class="avviso"><strong>Fines and payment rules change, often at the start of the year.</strong> We quote the transport '
+             'company’s own pages word for word, with the date we checked them; this is information, not legal advice. The inspector, '
+             'the fine notice and the official page decide.</p>')
+
+
+def mezzo_tr(c):
+    # Edimburgo: letta solo la pagina dei tram, il titolo non promette tutta la rete
+    return "Trams" if c["id"] == "edinburgh" else "Public Transport"
+
+
+def h1_tr(c):
+    return f"{c['nome']} {mezzo_tr(c).lower()}: the fine, validation and contactless payment ({ANNO})"
+
+
+def titoli_tr(c):
+    n, m = c["nome"], mezzo_tr(c)
+    return [f"{n} {m} Fine, Validation and Contactless ({ANNO})", f"{n} {m}: Fine, Validation, Contactless ({ANNO})",
+            f"{n} {m} Fine and Contactless ({ANNO})"]
+
+
+def descrizione_tr(c):
+    d = data_lunga(data_tr(c))
+    m = c["multa"]
+    return scegli([f"{c['nome']}: fine without a valid ticket {m}; contactless bank card: {CONTACTLESS_TR[c['contactless']].lower()}. Official source, checked on {d}.",
+                   f"{c['nome']}: fine without a valid ticket {m}. Official source, checked on {d}.",
+                   f"{c['nome']} public transport: the official fine, validation and contactless rules, checked on {d}."], LIMITE_DESCRIZIONE)
+
+
+def cambio_tr(c):
+    return f"{c['cambio']['testo']}" if c.get("cambio") else "None on the pages we read"
+
+
+def pagina_tr(c):
+    rel = "../../"
+    temi = "".join(f'<h3>{escape(t)}</h3>{blocco_cit_tr([x for x in c["citazioni"] if x["tema"] == k])}'
+                   for k, t in TEMI_TR if any(x["tema"] == k for x in c["citazioni"]))
+    sguardo = (f'<tr><th scope="row">Network</th><td>{escape(c["rete"])}</td></tr>'
+               f'<tr><th scope="row">Fine without a valid ticket</th><td>{escape(c["multa"])}</td></tr>'
+               f'<tr><th scope="row">Contactless bank card</th><td>{escape(c["contactless_breve"])}</td></tr>'
+               f'<tr><th scope="row">Validate or tap?</th><td>{escape(c["convalida_breve"])}</td></tr>'
+               f'<tr><th scope="row">How to pay</th><td>{escape(c["pagamento"])}</td></tr>'
+               f'<tr><th scope="row">Change announced</th><td>{escape(cambio_tr(c))}</td></tr>'
+               f'<tr><th scope="row">Checked</th><td>{data_lunga(data_tr(c))}</td></tr>')
+    altri = "".join(f'<a href="{rel}{url_tr(x)}">{escape(x["nome"])}<small>{escape(x["multa"].split(" (")[0])}</small></a>'
+                    for x in TR_LETTE if x["id"] != c["id"])
+    guida = link_guida(rel, c["iso2"])
+    faq_h, faq_ld = html_faq_tr(faq_tr(c))
+    corpo = f"""<section class="hero">{h1_diviso(h1_tr(c))}</section>
+<section class="card summary" aria-label="Answer">
+<div class="s-top"><span class="sq">{ico("globe")}</span><span>Public transport · {escape(c["nome"])}</span><span>{ANNO}</span></div>
+<div class="s-body">
+<p class="lead" id="answer">{escape(risposta_tr(c))}</p>
+{f'<p class="small" data-nota>{escape(c["nota"])}</p>' if c.get("nota") else ""}
+</div></section>
+{AVVISO_TR}
+<h2>At a glance</h2>
+<div class="tab tab-g"><table><caption class="cap">{escape(c["nome"])} public transport: our summary of the official sources, checked on {data_lunga(data_tr(c))}</caption><tbody>{sguardo}</tbody></table></div>
+<h2 id="official">What the official sources say</h2>
+{temi}
+{AD}
+{f'<h2>Driving instead?</h2>{guida}' if guida else ""}
+<h2>Other cities</h2>
+<div class="griglia">{altri}</div>
+<p><a href="{rel}{TR_BASE}/">Public transport rules in {len(TR_CITTA)} cities: every fine in one table</a></p>
+{faq_h}
+<p class="small">Spotted a change? <a href="{rel}contact/?ref={TR_BASE}">Tell us</a>.</p>"""
+    pagina(url_tr(c), scegli(titoli_tr(c), LIMITE_TITOLO_TR), descrizione_tr(c), corpo,
+           briciole=[("Public transport rules", f"{TR_BASE}/"), (c["nome"], url_tr(c))], ld_extra=faq_ld)
+    LASTMOD[url_tr(c)] = data_tr(c)
+
+
+def enti_tr(c):
+    out = {}
+    for f in fonti_tr(c):
+        out.setdefault(TR["fonti"][f]["ente"], f)
+    return list(out.items())
+
+
+def non_letta_tr(c):
+    """Riga "Not read": il motivo e la pagina ufficiale provata (nessun aggiramento, nessun dato)."""
+    P = (TR.get("non_lette") or {}).get(c["id"]) or {}
+    quando = f" (checked on {data_lunga(P['provato_il'])})" if P.get("provato_il") else ""
+    return (f'Not read{quando}. {escape(c["motivo"])} Official page: <a href="{escape(c["url_provato"])}" rel="noopener">{escape(c["ente"])}</a>.')
+
+
+def riga_tr(c, rel):
+    if not c["letta"]:
+        return (f'<tr data-voce id="{c["id"]}"><td data-l="City">{escape(c["nome"])}<br><small>{escape(c["paese"])}</small></td>'
+                f'<td data-l="Rules" colspan="4">{non_letta_tr(c)}</td></tr>')
+    fonti = " · ".join(f'<a href="{escape(TR["fonti"][f]["url"])}" rel="noopener">{escape(e)}</a>' for e, f in enti_tr(c))
+    return (f'<tr data-voce id="{c["id"]}"><td data-l="City"><a href="{rel}{url_tr(c)}">{escape(c["nome"])}</a><br><small>{escape(c["paese"])}</small></td>'
+            f'<td data-l="Fine without a valid ticket">{escape(c["multa"])}</td>'
+            f'<td data-l="Contactless bank card">{CONTACTLESS_TR[c["contactless"]]}</td>'
+            f'<td data-l="Validate or tap?">{CONVALIDA_TR[c["convalida"]]}</td>'
+            f'<td data-l="Source, checked">{fonti}, {data_lunga(data_tr(c))}</td></tr>')
+
+
+def prima_frase_tr():
+    lette, tot = len(TR_LETTE), len(TR_CITTA)
+    return (f"According to the official pages of the transport companies and authorities of {lette} of the {tot} cities we checked, read on "
+            f"{data_lunga(TR['controllato_il'])}, the table below gives the fine for travelling without a valid ticket, whether you can pay with a "
+            f"contactless bank card and whether you must validate or tap, with the source of each rule; for the other {tot - lette} cities the "
+            "official page did not open for our check or did not state a current fine, so we give no rules for them.")
+
+
+def titolo_indice_tr():
+    return [f"Public Transport Fines, Validation and Contactless by City ({ANNO})", f"Public Transport Fines and Contactless by City ({ANNO})"]
+
+
+def faq_indice_tr():
+    """Risposte costruite dai riassunti delle città lette (i numeri vengono dalle citazioni, controllati da verifica.py)."""
+    def elenco(campo, valori):
+        return ", ".join(c["nome"] for c in TR_LETTE if c[campo] in valori)
+    risposte = {
+        "fine for no ticket": "It depends on the city. On the official pages we read: "
+                              + "; ".join(f"{c['nome']}: {c['multa']}" for c in TR_LETTE) + ".",
+        "contactless payment metro": (f"In some cities. Yes in {elenco('contactless', ('si',))}; partly (some lines, gates or tickets) in "
+                                      f"{elenco('contactless', ('parziale',))}. The pages we read do not say for {elenco('contactless', ('non_detto',))}."),
+    }
+    return [(f["q"], risposte[f["query"]]) for f in TR["faq_indice"] if risposte.get(f["query"])]
+
+
+def pagina_indice_tr():
+    rel = "../"
+    d = data_lunga(TR["controllato_il"])
+    righe = "".join(riga_tr(c, rel) for c in TR_CITTA)
+    faq_h, faq_ld = html_faq_tr(faq_indice_tr())
+    corpo = f"""<section class="hero">{h1_diviso(f"Before you ride: public transport fines, validation and contactless payment by city ({ANNO})")}
+<p class="lead" id="answer">{escape(prima_frase_tr())}</p></section>
+{AVVISO_TR}
+<p>“Fine without a valid ticket” is our short summary of the official amount (paying on the spot or late can change it: each city page quotes the rule). “Contactless bank card” says whether the official pages let you pay by tapping a bank card, phone or watch; “Validate or tap?” whether you must stamp, tap or check in. “Not stated” means the pages we read do not say.</p>
+<div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a city or country, e.g. Prague" data-filtro-multi aria-label="Search cities"></div>
+<div class="tab tab-b tab-srv"><table><caption class="cap">Public transport rules in {len(TR_CITTA)} cities: {len(TR_LETTE)} read from the official pages, checked on {d}</caption><thead><tr><th>City</th><th>Fine without a valid ticket</th><th>Contactless bank card</th><th>Validate or tap?</th><th>Source, checked</th></tr></thead><tbody>{righe}</tbody></table></div>
+{AD}
+{faq_h}
+<h2>How we check</h2>
+<p>We read the pages of each city’s transport company or transport authority (for example BVG, DPP, BKK, TMB, STIB-MIVB, OASA, Ruter, the TTC and TransLink) and quote them word for word with the date; German and Italian quotes come with our translation. A city gets a page only if its official page states a current fine for travelling without a valid ticket. Some official websites answer automated checks with an error or an anti-robot page: we do not try to pass those checks and we do not copy their rules from other websites, so those rows say “Not read”. We check every source again every three months, and in January, when many fines change. More on the <a href="{rel}about/#{TR_BASE}">About page</a>. Spotted a change? <a href="{rel}contact/?ref={TR_BASE}">Tell us</a>.</p>
+<p><a href="{rel}{PAT_BASE}/">Driving instead? Do you need an international driving permit?</a></p>"""
+    desc = scegli([f"Official public transport fines, contactless payment and validation rules in {len(TR_LETTE)} cities, from the transport companies, checked on {d}.",
+                   f"Public transport fines and contactless rules by city, from official pages, checked on {d}."], LIMITE_DESCRIZIONE)
+    pagina(f"{TR_BASE}/", scegli(titolo_indice_tr(), LIMITE_TITOLO_TR), desc, corpo,
+           briciole=[("Public transport rules", f"{TR_BASE}/")], js=APP_JS_FILTRO, ld_extra=faq_ld)
+    LASTMOD[f"{TR_BASE}/"] = TR["controllato_il"]
+
+
+def link_tr_paese(rel, iso2):
+    """Riga 'Using public transport in X?' nelle pagine Driving abroad dei Paesi con almeno una città letta (non CA, AU, NZ)."""
+    if not TR or iso2 in TR_NO_LINK_PAT:
+        return ""
+    cc = [c for c in TR_LETTE if c["iso2"] == iso2]
+    if not cc:
+        return ""
+    ll = " · ".join(f'<a href="{rel}{url_tr(c)}">{escape(c["nome"])}</a>' for c in cc)
+    return (f'<p class="altri-pass">{ico("globe")}<span>Using public transport instead? The fine without a valid ticket, validation and '
+            f'contactless payment: {ll}</span></p>')
+
+
+def link_tr_big(rel, slug):
+    """Riga 'Getting there by public transport?' nelle pagine "When do tickets go on sale?" delle attrazioni in una città letta."""
+    c = TR_PER.get(TR_BIG.get(slug, ""))
+    if not TR or not c or not c["letta"]:
+        return ""
+    return (f'<p class="altri-pass">{ico("globe")}<span>Getting there by public transport? <a href="{rel}{url_tr(c)}">{escape(c["nome"])}: '
+            f'the fine without a valid ticket, validation and contactless payment</a></span></p>')
+
+
+def home_tr():
+    if not TR:
+        return ""
+    voci = "".join(f'<a href="{url_tr(c)}">{escape(c["nome"])}<small>{escape(c["multa"].split(" (")[0])}</small></a>' for c in TR_LETTE)
+    return (f'<h2>Before you ride: public transport rules by city</h2><p>The official fine for travelling without a valid ticket, whether you '
+            f'can tap a contactless bank card and whether you must validate, in {len(TR_LETTE)} cities, from the transport companies’ own pages: '
+            f'<a href="{TR_BASE}/">every city in one table</a>.</p><div class="griglia">{voci}</div>')
+
+
+def about_tr(rel):
+    if not TR:
+        return ""
+    enti = list(dict.fromkeys(F["ente"] for F in TR["fonti"].values()))
+    non = [c["nome"] for c in TR_CITTA if not c["letta"]]
+    return f"""<h2 id="{TR_BASE}">Public transport rules by city</h2>
+<p>Sources: the official pages of the transport companies and transport authorities ({escape(", ".join(enti))}), {len(TR["fonti"])} pages in all, read on {data_lunga(TR["controllato_il"])}. Each city page links every page it quotes.</p>
+<p>Rules: every sentence shown between quotation marks is copied word for word from the official page (German and Italian with our translation); the short summaries in the table are ours. A city gets a page only when its official page states a current fine for travelling without a valid ticket. Some official websites answer automated checks with an error or an anti-robot page, or do not state the fine; we do not try to pass those checks and we do not take rules from other websites, so these cities have no page and the table says why: {escape(", ".join(non))}. This is information, not legal advice.</p>"""
+
+
 def home():
     auto = sum(1 for P in PAESI if P["regola"])
     due = [A for A in AER["aeroporti"] if A["regola"] == "2l"]
@@ -5538,6 +5817,7 @@ def home():
 {home_gom()}
 {home_big()}
 {home_fl()}
+{home_tr()}
 {box_affiliati()}
 {dati_json('tutti-dati', [dati_client(P) for P in PAESI])}"""
     pagina("", f"Before You Fly {ANNO}: Passport, Visas, Liquids, Cabin Bags, EES",
@@ -5608,6 +5888,7 @@ def about():
 {about_gom(rel)}
 {about_big(rel)}
 {about_fl(rel)}
+{about_tr(rel)}
 <h2>EES and ETIAS</h2>
 <p>European Commission (DG Migration and Home Affairs) pages and GOV.UK travel advice, last checked on {data_lunga(EES['controllato_il'])}. See the <a href="{rel}ees-etias/">EES and ETIAS page</a>.</p>
 <h2>Corrections</h2>
@@ -5676,7 +5957,7 @@ def extra():
 """)
     pagina("404.html", f"Page not found | {NOME}", "Page not found.",
            '<section class="hero"><h1>Page not found</h1><p class="lead">Go to the <a href="/">home page</a>, the <a href="/passport-validity/">passport validity rules</a> '
-           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> <a href="/driving-abroad/">driving abroad with your licence</a>, <a href="/tolls-rental-car/">tolls with a rental car</a>, <a href="/winter-tyres-rental-car/">winter tyres with a rental car</a>, <a href="/foreign-licence-canada-australia-nz/">driving in Canada, Australia and New Zealand on a foreign licence</a> or <a href="/ticket-release-dates/">when tickets go on sale at major attractions</a>.</p></section>', indicizza=False, assoluto=True)
+           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> <a href="/driving-abroad/">driving abroad with your licence</a>, <a href="/tolls-rental-car/">tolls with a rental car</a>, <a href="/winter-tyres-rental-car/">winter tyres with a rental car</a>, <a href="/foreign-licence-canada-australia-nz/">driving in Canada, Australia and New Zealand on a foreign licence</a>, <a href="/ticket-release-dates/">when tickets go on sale at major attractions</a> or <a href="/public-transport-rules/">public transport fines and contactless payment by city</a>.</p></section>', indicizza=False, assoluto=True)
 
 
 def copia_grafica():
@@ -5851,6 +6132,39 @@ def controlli():
                 errori.append(f"patente straniera {g['id']}: titolo oltre {LIMITE_TITOLO_FL} caratteri")
         if NOLEGGIO_AUTO:
             errori += [f"patente straniera: {e}" for e in MON.controlla_link_pagina(box_noleggio_fl(), "box_noleggio_fl", "en")[0]]
+    if TR:  # trasporto pubblico per città: fonti con HTTP 200, citazioni e FAQ coerenti, titoli (verifica.py, punto 24, ricontrolla tutto)
+        ids_tutti = [x["id"] for c in TR_CITTA for x in c.get("citazioni", [])]
+        if len(set(ids_tutti)) != len(ids_tutti):
+            errori.append("trasporti: id di citazione duplicati")
+        if len({c["slug"] for c in TR_CITTA}) != len(TR_CITTA):
+            errori.append("trasporti: slug duplicati")
+        for c in TR_CITTA:
+            if c["iso2"] not in PAESI_ISO:
+                errori.append(f"trasporti {c['id']}: codice Paese non in paesi_iso.json")
+            if not c["letta"]:
+                if c.get("citazioni") or not c.get("motivo") or not c.get("url_provato") or c["id"] not in (TR.get("non_lette") or {}):
+                    errori.append(f"trasporti {c['id']}: non letta con citazioni, senza motivo o senza la prova registrata")
+                continue
+            ids = {x["id"] for x in c["citazioni"]}
+            for f in fonti_tr(c):
+                if f not in TR["fonti"] or TR["fonti"][f]["http"] != 200:
+                    errori.append(f"trasporti {c['id']}: fonte {f} non letta con HTTP 200")
+                elif TR["fonti"][f]["lingua"] != "en":
+                    errori += [f"trasporti {c['id']}: citazione {x['id']} senza traduzione" for x in c["citazioni"] if x["f"] == f and not x.get("tr")]
+            for k in ("chi", "rete", "multa", "contactless_breve", "convalida_breve", "pagamento", "risposta"):
+                if not c.get(k):
+                    errori.append(f"trasporti {c['id']}: manca {k}")
+            if c["contactless"] not in CONTACTLESS_TR or c["convalida"] not in CONVALIDA_TR:
+                errori.append(f"trasporti {c['id']}: contactless o convalida non validi")
+            if not any(x["tema"] == "multa" for x in c["citazioni"]):
+                errori.append(f"trasporti {c['id']}: pagina senza una citazione sulla multa")
+            if c.get("cambio") and (c["cambio"]["cit"] not in ids or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", c["cambio"]["data"])):
+                errori.append(f"trasporti {c['id']}: cambio senza citazione o data")
+            for q in c["faq"]:
+                if not q["cit"] or any(i not in ids for i in q["cit"]):
+                    errori.append(f"trasporti {c['id']}: FAQ «{q['q']}» senza citazioni o con citazione sconosciuta")
+            if len(scegli(titoli_tr(c), LIMITE_TITOLO_TR)) > LIMITE_TITOLO_TR:
+                errori.append(f"trasporti {c['id']}: titolo oltre {LIMITE_TITOLO_TR} caratteri")
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -5925,6 +6239,10 @@ def main():
         pagina_indice_fl()
         for g in FL_LETTE:
             pagina_fl(g)
+    if TR:
+        pagina_indice_tr()
+        for c in TR_LETTE:
+            pagina_tr(c)
     about()
     contatti()
     privacy()
@@ -5941,7 +6259,8 @@ def main():
           + (f"; tolls with a rental car: indice + {len(PED_PAESI)} pagine Paese ({len(PED['fonti'])} fonti)" if PED else "")
           + (f"; winter tyres with a rental car: indice + {len(GOM_PAGINE & set(GOM_PER))} pagine Paese ({len(GOM['fonti'])} fonti)" if GOM else "")
           + (f"; ticket release dates: indice + {len(BIG_ATT)} pagine attrazione + {len(BIG_ATT)} calendari .ics ({len(BIG['fonti'])} fonti)" if BIG else "")
-          + (f"; foreign licence Canada/Australia/NZ: indice + {len(FL_LETTE)} pagine ({len(FL_GIUR) - len(FL_LETTE)} giurisdizioni non lette, {len(FL['fonti'])} fonti)" if FL else ""))
+          + (f"; foreign licence Canada/Australia/NZ: indice + {len(FL_LETTE)} pagine ({len(FL_GIUR) - len(FL_LETTE)} giurisdizioni non lette, {len(FL['fonti'])} fonti)" if FL else "")
+          + (f"; public transport rules: indice + {len(TR_LETTE)} pagine città ({len(TR_CITTA) - len(TR_LETTE)} città non lette, {len(TR['fonti'])} fonti)" if TR else ""))
 
 
 if __name__ == "__main__":

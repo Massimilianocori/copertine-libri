@@ -110,6 +110,15 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     Paese; FAQ da ricerche vere (JSON-LD = testo visibile); titoli <= 70 con l'anno; riquadro DiscoverCars dopo la risposta e le regole; link da
     home, About, 404, indice Driving abroad e pagine Driving abroad di Canada, Australia e Nuova Zelanda. Nel browser (punto 7) 4 pagine a 375 px
     in tema chiaro e scuro e l'indice a 820 px.
+24. "Before you ride: public transport rules by city" (dati/trasporti.json da raccolta/trasporti.py, 31/10/2026): fonti solo delle aziende e
+    autorità dei trasporti (domini ammessi), lette con HTTP 200; dalla copia salvata (raccolta/.cache/trasporti/) ogni citazione è nel testo
+    parola per parola e l'impronta della zona citata è uguale al file; dati = dati/trasporti_manuali.json; città non lette senza dati né pagina,
+    con la prova registrata (e un errore se la pagina ufficiale ora risponde 200 con testo); pagine = città lette + indice; prima frase = fonte,
+    data e risposta; citazioni, traduzioni, link e date nella pagina; nessun numero nelle frasi nostre (riassunti, risposta, nota, cambio, FAQ,
+    traduzioni) che non stia in una citazione; FAQ da ricerche vere (JSON-LD = testo visibile, traduzione dichiarata); titoli <= 70 con l'anno;
+    sitemap con lastmod della lettura; nessun link di affiliazione (nessun link Wise attivo nei dati); link da home, About, 404, indice Driving
+    abroad, pagine Driving abroad dei Paesi con una città letta (mai Canada, Australia, Nuova Zelanda: pagine già revisionate) e pagine
+    "When do tickets go on sale?" di Milano, Amsterdam e Barcellona. Nel browser (punto 7) indice e 3 città a 375 px chiaro/scuro, indice a 820 px.
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
 domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
@@ -683,6 +692,10 @@ def controlla_meta():
         if rel.startswith(G.BIG_BASE + "/"):  # sezione "When do tickets go on sale?": fino a 70 caratteri con gli anni 2026-27 (il punto 22 controlla il resto)
             if len(tit) > G.LIMITE_TITOLO_BIG or G.STAGIONE_BIG not in tit:
                 errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_BIG}) o senza gli anni in {rel}: {tit}")
+            continue
+        if rel.startswith(G.TR_BASE + "/"):  # sezione "Public transport rules": fino a 70 caratteri con l'anno (il punto 24 controlla il resto)
+            if len(tit) > G.LIMITE_TITOLO_TR or str(G.ANNO) not in tit:
+                errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_TR}) o senza l'anno in {rel}: {tit}")
             continue
         if rel.startswith(G.FL_BASE + "/"):  # sezione "Foreign licence in Canada, Australia and NZ": fino a 70 caratteri con l'anno (il punto 23 controlla il resto)
             if len(tit) > G.LIMITE_TITOLO_FL or str(G.ANNO) not in tit:
@@ -1429,7 +1442,7 @@ srv.listen(0, async () => {
                          citazioni: await p.$$eval('blockquote.cit', e => e.filter(x => x.getBoundingClientRect().height > 0).length) });
         if (tema === 'light') await p.screenshot({ path: process.argv[3] + '/' + u.split('/').filter(Boolean).join('-') + '-375.png', fullPage: false });
       }
-      if (u.startsWith('/tolls-rental-car/') || u.startsWith('/winter-tyres-rental-car/') || u.startsWith('/foreign-licence-canada-australia-nz/')) {
+      if (u.startsWith('/tolls-rental-car/') || u.startsWith('/winter-tyres-rental-car/') || u.startsWith('/foreign-licence-canada-australia-nz/') || u.startsWith('/public-transport-rules/')) {
         const vis = async (sel) => p.$eval(sel, e => { const r = e.getBoundingClientRect(); return r.height > 0 && r.width > 0 && r.width <= window.innerWidth; }).catch(() => false);
         out.prove.push({ caso: 'ped:' + tema + ':' + u, testo: await p.textContent('main'), risposta: await vis('#answer'), btn: await vis('[data-noleggio] a.btn'),
                          citazioni: await p.$$eval('blockquote.cit', e => e.filter(x => x.getBoundingClientRect().height > 0).length) });
@@ -1490,7 +1503,7 @@ srv.listen(0, async () => {
       await p.close(); }
     await ctx.close(); }
   const largo = await b.newContext({ viewport: { width: 820, height: 900 } });
-  for (const u of ['/', '/cabin-bags/', '/cabin-bags/ryanair/', '/available-in/', '/available-in/apple-pay/', '/driving-abroad/', '/driving-abroad/canadian-licence/', '/tolls-rental-car/', '/winter-tyres-rental-car/', '/foreign-licence-canada-australia-nz/']) { const p = await largo.newPage(); await p.goto(base + u, { waitUntil: 'load' });
+  for (const u of ['/', '/cabin-bags/', '/cabin-bags/ryanair/', '/available-in/', '/available-in/apple-pay/', '/driving-abroad/', '/driving-abroad/canadian-licence/', '/tolls-rental-car/', '/winter-tyres-rental-car/', '/foreign-licence-canada-australia-nz/', '/public-transport-rules/']) { const p = await largo.newPage(); await p.goto(base + u, { waitUntil: 'load' });
     const w = await p.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]); out.pagine.push({ url: u, tema: '820px', scroll: w[0], larghezza: w[1], errori: [] }); await p.close(); }
   await largo.close();
   await b.close(); srv.close(); console.log(JSON.stringify(out)); });
@@ -1517,6 +1530,7 @@ PAGINE_PAT_BROWSER = ["/driving-abroad/", "/driving-abroad/uk-licence/", "/drivi
                       "/driving-abroad/australian-licence/united-states/"]
 PAGINE_PED_BROWSER = ["/tolls-rental-car/", "/tolls-rental-car/portugal/", "/tolls-rental-car/austria/", "/tolls-rental-car/france/"]
 PAGINE_GOM_BROWSER = ["/winter-tyres-rental-car/", "/winter-tyres-rental-car/italy/", "/winter-tyres-rental-car/austria/", "/winter-tyres-rental-car/france/"]
+PAGINE_TR_BROWSER = ["/public-transport-rules/", "/public-transport-rules/prague/", "/public-transport-rules/milan/", "/public-transport-rules/budapest/"]
 PAGINE_FL_BROWSER = ["/foreign-licence-canada-australia-nz/", "/foreign-licence-canada-australia-nz/canada/ontario/", "/foreign-licence-canada-australia-nz/australia/new-south-wales/", "/foreign-licence-canada-australia-nz/new-zealand/"]
 PAGINE_BAG_BROWSER = ["/cabin-bags/", "/cabin-bags/ryanair/", "/cabin-bags/does-my-bag-fit/", "/cabin-bags/size/40x30x20/", "/cabin-bags/eu-personal-item-rule/"]
 
@@ -1529,7 +1543,7 @@ def controlla_browser():
         fh.write(BROWSER_JS)
     try:
         r = subprocess.run(["node", fh.name, str(SITO), cartella, json.dumps(PAGINE_ESTERE_BROWSER), json.dumps(CASI_BORSA), json.dumps(PAGINE_BAG_BROWSER),
-                            json.dumps(PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER + PAGINE_FL_BROWSER)],
+                            json.dumps(PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER + PAGINE_FL_BROWSER + PAGINE_TR_BROWSER)],
                            capture_output=True, text=True, timeout=600)
     finally:
         os.unlink(fh.name)
@@ -1628,6 +1642,11 @@ def controlla_browser():
             x = next((y for y in o["prove"] if y["caso"] == f"ped:{tema}:{u}"), None)
             if not x or not x["risposta"] or (G.NOLEGGIO_AUTO and not x["btn"]) or (u != "/foreign-licence-canada-australia-nz/" and x["citazioni"] < 3):
                 errori.append(f"{u} ({tema}): risposta, pulsante DiscoverCars o citazioni non visibili a 375 px")
+    for u in PAGINE_TR_BROWSER:
+        for tema in ("light", "dark"):
+            x = next((y for y in o["prove"] if y["caso"] == f"ped:{tema}:{u}"), None)
+            if not x or not x["risposta"] or x["btn"] or (u != "/public-transport-rules/" and x["citazioni"] < 3):
+                errori.append(f"{u} ({tema}): risposta o citazioni non visibili a 375 px, o riquadro di affiliazione presente")
     if sum(1 for x in o["prove"] if x["caso"].startswith("contrasto-")) != 2:
         errori.append("Prova del contrasto del controllo (tema chiaro e scuro) non eseguita")
     return errori, (o, cartella)
@@ -2987,6 +3006,221 @@ def controlla_biglietti():
     return errori, conti
 
 
+# ---------------------------------------------------------------- 24. Regole del trasporto pubblico per città (31/10/2026)
+_spec_tr = importlib.util.spec_from_file_location("raccolta_trasporti", Path(__file__).resolve().parent / "raccolta" / "trasporti.py")
+RTR = importlib.util.module_from_spec(_spec_tr)
+_spec_tr.loader.exec_module(RTR)
+# Fonti ammesse: aziende di trasporto, autorità e consorzi dei trasporti delle città (niente blog, guide, forum, rivenditori)
+FONTI_UFFICIALI_TR = re.compile(r"^https://(?:www\.gvb\.nl|www\.oasa\.gr|www\.tmb\.cat|www\.bvg\.de|www\.stib-mivb\.be|bkk\.hu|www\.transportforireland\.ie|"
+                                r"edinburghtrams\.com|www\.tpg\.ch|www\.hvv\.de|www\.metrolisboa\.pt|www\.metromadrid\.es|www\.atm\.it|nuovosistematariffario\.atm\.it|www\.stm\.info|"
+                                r"www\.mvg\.de|ruter\.no|www\.dpp\.cz|pid\.cz|www\.ttc\.ca|www\.translink\.ca|www\.zvv\.ch|ztp\.krakow\.pl)/")
+# Pagine provate per le città non lette: aziende e autorità dei trasporti delle città
+FONTI_NON_LETTE_TR = re.compile(r"^https://(?:www\.gvb\.nl|tfl\.gov\.uk|www\.iledefrance-mobilites\.fr|www\.atac\.roma\.it|www\.wienerlinien\.at|www\.mta\.info|www\.hsl\.fi|"
+                                r"sl\.se|www\.wtp\.waw\.pl|www\.opal\.com\.au|www\.gtt\.to\.it|www\.anm\.it|www\.tcl\.fr|www\.rigassatiksme\.lv|ztp\.krakow\.pl|"
+                                r"www\.metrovalencia\.es|m\.dk|www\.at-bus\.it|avm\.avmspa\.it|www\.tper\.it|en\.metrodoporto\.pt)/")
+# Nessun link di affiliazione nella sezione (nessun link Wise attivo nei dati al 31/10/2026): nemmeno nomi di reti o rivenditori di biglietti
+VIETATI_TR = re.compile(r"\bwise\b|prf\.hn|partnerize|trainline|omio|rail ?europe|getyourguide|tiqets|klook|viator|discovercars", re.I)
+
+
+def controlla_trasporti():
+    """Punto 24: fonti = dati = pagine; città non lette senza dati; prima frase; citazioni parola per parola contro la copia della fonte;
+    numeri delle frasi nostre solo dalle citazioni; FAQ da ricerche vere (JSON-LD = testo visibile); titoli; sitemap; nessuna affiliazione;
+    link in entrata (home, About, 404, Driving abroad, ticket-release-dates)."""
+    from html import unescape
+    errori = []
+    conti = {"citta": 0, "lette": 0, "pagine": 0, "fonti": 0, "citazioni": 0, "faq": 0, "cache": "no", "non_lette": 0, "link": 0}
+    if not G.TR:
+        return ["dati/trasporti.json mancante (rilanciare raccolta/trasporti.py)"], conti
+    M = json.loads((SITO.parent / "dati" / "trasporti_manuali.json").read_text(encoding="utf-8"))
+    if M["citta"] != G.TR["citta"] or M.get("faq_indice", []) != G.TR.get("faq_indice", []):
+        errori.append("dati/trasporti.json non è aggiornato rispetto a dati/trasporti_manuali.json (rilanciare la raccolta)")
+    D = json.loads((SITO.parent / "dati" / "trasporti_domanda.json").read_text(encoding="utf-8"))
+    ricerche = RTR.tutte_ricerche(D)
+    # a) fonti: HTTP 200, domini ufficiali, data; dalla copia salvata ogni citazione parola per parola e l'impronta della zona citata
+    cache = RTR.CACHE.exists()
+    for fid, F in G.TR["fonti"].items():
+        conti["fonti"] += 1
+        if F["http"] != 200:
+            errori.append(f"fonte {fid}: HTTP {F['http']}")
+        if not FONTI_UFFICIALI_TR.match(F["url"]):
+            errori.append(f"fonte {fid}: dominio non ufficiale o non previsto: {F['url']}")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F["letto_il"] or "") or F["letto_il"] > G.OGGI.isoformat():
+            errori.append(f"fonte {fid}: data di lettura non valida {F['letto_il']}")
+        f_c = RTR.file_cache(fid) if fid in RTR.FONTI else None
+        if cache and f_c and f_c.exists():
+            t = RTR.testo_fonte(f_c.read_bytes(), RTR.FONTI[fid].get("tipo", "html"))
+            frasi = RTR.frasi_fonte(G.TR, fid)
+            for x in frasi:
+                if x not in t:
+                    errori.append(f"fonte {fid}: la citazione non è parola per parola nella copia della fonte: {x[:70]}")
+            if RTR.impronta_zona(t, frasi) != F["impronta"]:
+                errori.append(f"fonte {fid}: impronta diversa dalla copia salvata (rilanciare la raccolta)")
+            conti["cache"] = "sì"
+    # b) pagine = città lette + indice
+    sm = leggi("sitemap.xml")
+    attese = {G.url_tr(c) + "index.html" for c in G.TR_LETTE} | {f"{G.TR_BASE}/index.html"}
+    trovate = {q.relative_to(SITO).as_posix() for q in (SITO / G.TR_BASE).rglob("*.html")} if (SITO / G.TR_BASE).exists() else set()
+    if attese != trovate:
+        errori.append(f"pagine {G.TR_BASE} diverse dai dati: mancano {sorted(attese - trovate)}, in più {sorted(trovate - attese)}")
+    tutti_numeri = set().union(*[_numeri_gom(x["x"]) for c in G.TR_LETTE for x in c["citazioni"]])
+    for c in G.TR_CITTA:
+        conti["citta"] += 1
+        # c) città non lette: nessun dato, nessuna pagina, prova registrata su una pagina ufficiale
+        if not c["letta"]:
+            conti["non_lette"] += 1
+            P = (G.TR.get("non_lette") or {}).get(c["id"])
+            if c.get("citazioni") or c.get("multa") or (SITO / G.url_tr(c)).exists() or not P:
+                errori.append(f"{c['id']}: città non letta con dati, con una pagina propria o senza la prova registrata")
+            if not FONTI_NON_LETTE_TR.match(c["url_provato"]):
+                errori.append(f"{c['id']}: pagina provata fuori dai domini previsti: {c['url_provato']}")
+            # (se la pagina ora risponde 200 con testo lo segnala raccolta/trasporti.py con «ATTENZIONE»: alcuni siti rispondono 403 a intermittenza)
+            continue
+        conti["lette"] += 1
+        # d) numeri delle parole nostre solo dalle citazioni della città (e dal titolo delle sue fonti)
+        ammessi = set().union(*[_numeri_gom(x["x"]) for x in c["citazioni"]], *[_numeri_gom(G.TR["fonti"][f]["titolo"]) for f in G.fonti_tr(c)], {str(G.ANNO)})
+        nostre = [c.get(k) or "" for k in ("chi", "rete", "multa", "contactless_breve", "convalida_breve", "pagamento", "risposta", "nota")]
+        nostre += [(c.get("cambio") or {}).get("testo", "")] + [x.get("tr", "") for x in c["citazioni"]]
+        for s in nostre:
+            extra = _numeri_gom(s) - ammessi
+            if extra:
+                errori.append(f"{c['id']}: numeri non presi dalle fonti: {sorted(extra)} in «{s[:60]}»")
+        if not any(x["tema"] == "multa" for x in c["citazioni"]):
+            errori.append(f"{c['id']}: pagina senza citazione sulla multa")
+        if c.get("cambio"):
+            x = G.cit_tr(c, c["cambio"]["cit"])
+            if x["tema"] not in ("cambio", "multa"):
+                errori.append(f"{c['id']}: il cambio annunciato non è legato a una citazione sul cambio o sulla multa")
+        for q in c["faq"]:
+            extra = _numeri_gom(q["pre"] + " " + q["post"] + " " + q["q"]) - ammessi
+            if extra:
+                errori.append(f"{c['id']}: numeri non presi dalle fonti nella FAQ «{q['q']}»: {sorted(extra)}")
+            if q["query"] not in ricerche:
+                errori.append(f"{c['id']}: FAQ «{q['q']}» senza una ricerca vera ({q['query']!r})")
+            if any(G.TR["fonti"][G.cit_tr(c, i)["f"]]["lingua"] != "en" for i in q["cit"]) and "our translation" not in q["pre"]:
+                errori.append(f"{c['id']}: FAQ «{q['q']}» con citazione tradotta senza dirlo")
+        rel = G.url_tr(c) + "index.html"
+        if not (SITO / rel).exists():
+            continue
+        conti["pagine"] += 1
+        t = leggi(rel)
+        vis = unescape(re.sub(r"<[^>]+>", " ", t))
+        if f"<loc>{G.URL_SITO}/{G.url_tr(c)}</loc><lastmod>{G.data_tr(c)}</lastmod>" not in sm:
+            errori.append(f"{rel}: non in sitemap o lastmod diverso dalla data di lettura {G.data_tr(c)}")
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(tit) > G.LIMITE_TITOLO_TR or str(G.ANNO) not in tit or c["nome"] not in tit or tit != G.scegli(G.titoli_tr(c), G.LIMITE_TITOLO_TR):
+            errori.append(f"{rel}: titolo oltre {G.LIMITE_TITOLO_TR} caratteri, senza l'anno o il nome, o non tra le forme previste: {tit}")
+        m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t)
+        attesa = f"According to {c['chi']}, checked on {G.data_lunga(G.data_tr(c))}, {c['risposta']}"
+        if not m or unescape(m.group(1)) != attesa:
+            errori.append(f"{rel}: prima frase diversa da 'According to <fonte>, checked on <data>, <risposta>'")
+        for x in c["citazioni"]:
+            conti["citazioni"] += 1
+            if escape(x["x"], quote=False) not in t and escape(x["x"]) not in t:
+                errori.append(f"{rel}: citazione mancante: {x['x'][:60]}")
+            if x.get("tr") and escape(x["tr"], quote=False) not in t and escape(x["tr"]) not in t:
+                errori.append(f"{rel}: traduzione mancante: {x['tr'][:60]}")
+        for f in G.fonti_tr(c):
+            F = G.TR["fonti"][f]
+            if f'href="{escape(F["url"])}"' not in t or f"checked on {G.data_lunga(F['letto_il'])}" not in vis:
+                errori.append(f"{rel}: manca il link o la data della fonte {f}")
+        if c.get("nota") and "data-nota" not in t:
+            errori.append(f"{rel}: manca la nota di prudenza")
+        faq_ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)]
+        faq_ld = next((x for x in faq_ld if x.get("@type") == "FAQPage"), None)
+        attese_faq = G.faq_tr(c)
+        if not faq_ld or [(e["name"], e["acceptedAnswer"]["text"]) for e in faq_ld["mainEntity"]] != attese_faq:
+            errori.append(f"{rel}: FAQ JSON-LD diversa dalle domande previste")
+        for qd, a in attese_faq:
+            conti["faq"] += 1
+            if f"<h3>{escape(qd)}</h3><p>{escape(a)}</p>" not in t:
+                errori.append(f"{rel}: FAQ visibile diversa dal JSON-LD: {qd}")
+        if G.MON.link_affiliati(t) or 'rel="sponsored' in t:
+            errori.append(f"{rel}: link di affiliazione nella sezione (nessun link Wise attivo nei dati)")
+        mm = VIETATI_TR.search(vis) or VIETATE_SRV.search(vis) or AGGIRARE.search(vis)
+        if mm:
+            errori.append(f"{rel}: parola vietata (affiliazione, rivenditore, assistente o aggiramento) '{mm.group(0)}'")
+        if "not legal advice" not in vis:
+            errori.append(f"{rel}: manca 'not legal advice'")
+        if f'href="../../{G.TR_BASE}/"' not in t:
+            errori.append(f"{rel}: manca il link all'indice della sezione")
+    # e) indice: sitemap, titolo, prima frase, righe = dati, righe "Not read", FAQ
+    idx = f"{G.TR_BASE}/index.html"
+    if (SITO / idx).exists():
+        t = leggi(idx)
+        vis = unescape(re.sub(r"<[^>]+>", " ", t))
+        if f"<loc>{G.URL_SITO}/{G.TR_BASE}/</loc><lastmod>{G.TR['controllato_il']}</lastmod>" not in sm:
+            errori.append(f"indice {G.TR_BASE} non in sitemap o lastmod diverso")
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(tit) > G.LIMITE_TITOLO_TR or str(G.ANNO) not in tit:
+            errori.append(f"{idx}: titolo oltre {G.LIMITE_TITOLO_TR} caratteri o senza l'anno: {tit}")
+        m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t)
+        if not m or unescape(m.group(1)) != G.prima_frase_tr() or f"read on {G.data_lunga(G.TR['controllato_il'])}" not in unescape(m.group(1)):
+            errori.append(f"{idx}: prima frase diversa dai conteggi o senza la data")
+        righe = re.findall(r'<tr data-voce id="([a-z-]+)">(.*?)</tr>', t)
+        if [r[0] for r in righe] != [c["id"] for c in G.TR_CITTA]:
+            errori.append(f"{idx}: righe della tabella diverse dalle città dei dati")
+        for (cod, r), c in zip(righe, G.TR_CITTA):
+            celle = [unescape(re.sub(r"<[^>]+>", "", x)) for x in re.findall(r"<td[^>]*>(.*?)</td>", r)]
+            if not c["letta"]:
+                resto = re.sub(r"\(checked on \d{1,2} \w+ \d{4}\)", "", celle[1] if len(celle) == 2 else "").replace(c["motivo"], "")
+                if len(celle) != 2 or not celle[1].startswith("Not read") or c["motivo"] not in celle[1] or re.search(r"\d", resto):
+                    errori.append(f"{idx}: riga {cod} non letta senza 'Not read' e il motivo, o con dati")
+                continue
+            if celle[1:4] != [c["multa"], G.CONTACTLESS_TR[c["contactless"]], G.CONVALIDA_TR[c["convalida"]]]:
+                errori.append(f"{idx}: riga {cod} diversa dai dati: {celle[1:4]}")
+            if f'href="../{G.url_tr(c)}"' not in r:
+                errori.append(f"{idx}: riga {cod} senza il link alla pagina")
+        for f in M.get("faq_indice", []):
+            if f["query"] not in ricerche:
+                errori.append(f"{idx}: FAQ «{f['q']}» senza una ricerca vera")
+        for q, a in G.faq_indice_tr():
+            conti["faq"] += 1
+            if f"<h3>{escape(q)}</h3><p>{escape(a)}</p>" not in t:
+                errori.append(f"{idx}: FAQ mancante: {q}")
+            extra = _numeri_gom(a) - tutti_numeri - {str(G.ANNO)}
+            if extra:
+                errori.append(f"{idx}: numeri non presi dalle fonti nella FAQ «{q}»: {sorted(extra)}")
+        if G.MON.link_affiliati(t) or 'rel="sponsored' in t:
+            errori.append(f"{idx}: link di affiliazione nella sezione")
+        mm = VIETATI_TR.search(vis) or VIETATE_SRV.search(vis) or AGGIRARE.search(vis)
+        if mm:
+            errori.append(f"{idx}: parola vietata '{mm.group(0)}'")
+    else:
+        errori.append(f"indice {G.TR_BASE} mancante")
+    # f) collegamenti in entrata: home, About, 404, indice Driving abroad, pagine Driving abroad dei Paesi con una città letta (non CA/AU/NZ),
+    #    pagine "When do tickets go on sale?" delle attrazioni in una città letta
+    if f'href="{G.TR_BASE}/"' not in leggi("index.html"):
+        errori.append("home senza link alla sezione del trasporto pubblico")
+    if f'id="{G.TR_BASE}"' not in leggi("about/index.html"):
+        errori.append("About senza la sezione del trasporto pubblico")
+    if f'href="/{G.TR_BASE}/"' not in leggi("404.html"):
+        errori.append("404 senza link alla sezione del trasporto pubblico")
+    if f'href="../{G.TR_BASE}/"' not in leggi(f"{G.PAT_BASE}/index.html"):
+        errori.append(f"{G.PAT_BASE}/index.html: manca il link alla sezione del trasporto pubblico")
+    for k in G.PATENTI:
+        for iso in G.PAGINE_PAT[k]:
+            t = leggi(G.url_pat(k, iso) + "index.html")
+            cc = [c for c in G.TR_LETTE if c["iso2"] == iso]
+            for c in cc:
+                presente = f'href="../../../{G.url_tr(c)}"' in t
+                if iso in G.TR_NO_LINK_PAT and presente:
+                    errori.append(f"{G.url_pat(k, iso)}: link aggiunto a una pagina Canada/Australia/NZ già revisionata")
+                elif iso not in G.TR_NO_LINK_PAT:
+                    conti["link"] += 1
+                    if not presente:
+                        errori.append(f"{G.url_pat(k, iso)}: manca il link a {G.url_tr(c)}")
+    for slug, cid in G.TR_BIG.items():
+        c = G.TR_PER.get(cid)
+        if c and c["letta"] and (SITO / G.url_big(slug)).exists():
+            conti["link"] += 1
+            if f'href="../../{G.url_tr(c)}"' not in leggi(G.url_big(slug) + "index.html"):
+                errori.append(f"{G.url_big(slug)}: manca il link a {G.url_tr(c)}")
+    for nome in ("trasporti.json", "trasporti_manuali.json", "trasporti_domanda.json"):
+        if VIETATE_SRV.search((SITO.parent / "dati" / nome).read_text(encoding="utf-8")):
+            errori.append(f"dati/{nome}: nome di un assistente di intelligenza artificiale")
+    return errori, conti
+
+
 def controlla_indexnow():
     """File chiave IndexNow in sito/: presente, con dentro solo la chiave, fuori dalla sitemap (scritto da genera.py accanto a robots.txt)."""
     errori = []
@@ -3018,7 +3252,7 @@ def main():
         o, cartella = info
         n375 = sum(1 for x in o["pagine"] if x["tema"] in ("light", "dark"))
         print(f"7. Browser 375 px: {len(o['pagine'])} viste ({n375 // 2} pagine × tema chiaro e scuro + {len(o['pagine']) - n375} a 820 px; nuove: "
-              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER + PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER + PAGINE_FL_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
+              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER + PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER + PAGINE_FL_BROWSER + PAGINE_TR_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
               f"{len(o['prove'])} prove, {len(e7)} errori; schermate in {cartella}")
     else:
         print(f"7. Browser 375 px: {e7[0] if e7 else ''}")
@@ -3078,9 +3312,15 @@ def main():
           f"frasi e impronte ricalcolate dal testo salvato: {c23['cache']}), {c23['citazioni']} citazioni, numeri solo dalle fonti, {c23['faq']} risposte FAQ da ricerche vere "
           f"(JSON-LD = testo visibile), titoli <= {G.LIMITE_TITOLO_FL} con l'anno, sitemap con lastmod della lettura, riquadro DiscoverCars (a_aid, dopo le regole) in "
           f"{c23['noleggio']} pagine, {c23['link']} link dalle pagine Driving abroad: {len(e23)} errori")
+    e24, c24 = controlla_trasporti()
+    print(f"24. Public transport rules: {c24['citta']} città ({c24['lette']} lette, {c24['non_lette']} non lette senza dati né pagina), {c24['pagine']} pagine città, "
+          f"{c24['fonti']} fonti ufficiali (HTTP 200, domini ammessi; citazioni parola per parola e impronte ricalcolate dalla copia salvata: {c24['cache']}), "
+          f"{c24['citazioni']} citazioni nelle pagine, numeri solo dalle fonti, {c24['faq']} risposte FAQ da ricerche vere (JSON-LD = testo visibile), "
+          f"titoli <= {G.LIMITE_TITOLO_TR} con l'anno, sitemap con lastmod della lettura, nessun link di affiliazione, {c24['link']} link da Driving abroad "
+          f"e ticket-release-dates: {len(e24)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24
     for e in tutti:
         print(" -", e)
     if tutti:
