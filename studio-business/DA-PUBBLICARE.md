@@ -4,6 +4,7 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
+| visaincome | Cerimonie di cittadinanza australiane (`/australian-citizenship-ceremony-wait-times/` + 132), revisione 31/10 pubblicabile | 31/10/2026, pubblicabile | Visa Income già pubblicato il 31/10: pubblicare il 1/11 |
 | beforeyoufly | Animali UK→UE (`/pets/…` 27 pagine) e pedaggi Croazia dal 1/3/2027, revisione 31/10 pubblicabile | 31/10/2026, pubblicabile | Before You Fly già pubblicato il 31/10: pubblicare il 1/11 |
 | beforeyoufly (prossimo giro) | Amsterdam: la pagina GVB ora si apre (multa 70 € + tariffa), da aggiungere ai mezzi pubblici | da fare | segnalato dal revisore del 31/10 |
 
