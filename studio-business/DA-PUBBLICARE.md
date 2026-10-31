@@ -15,3 +15,4 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 | dopo il 2/11/2026 | Before You Fly, Budapest: le multe BKK nuove (30.000/15.000 HUF) sono in vigore? togliere "from 2 November" |
 | dopo il 9/11/2026 | Visa Income, OPT: chiusi i commenti sulla proposta da $70.000; controllare Federal Register e la causa sulla regola dei 30 giorni |
 | dopo il 30/11/2026 | Visa Income, Study in Italy: riscrivere le frasi sulla scadenza del visto del 30/11/2026 |
+| esameb1 | Esempi (`/esempi/` + 5), `/esonero-test-italiano/`, redirect da `/esempi-esame-b1/`; revisione 31/10 pubblicabile | Dopo la pubblicazione: IndexNow dei 7 URL; lunedì rilanciare `python3 esameb1/raccolta/esempi.py` (78/79 per un errore di rete sulla pagina della Corte costituzionale) |
