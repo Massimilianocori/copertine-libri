@@ -86,3 +86,13 @@ Massimiliano: "dobbiamo costruire una rete fitta di guadagno, dove prendiamo tut
 - Coda di costruzione sempre attiva: quando un costruttore finisce, parte il successivo dalla tabella "Idee in cantiere" del cruscotto (ordine: guadagno atteso per ora di lavoro), sempre con revisore indipendente prima della pubblicazione.
 - Ogni sezione nuova nasce con il suo modo di guadagnare: AdSense più il link affiliato adatto al pubblico, se esiste un programma attivo.
 - Si allarga la rete dei programmi di affiliazione: un programma per ogni tipo di pubblico (assicurazione visto Schengen, hotel, trasferimenti di denaro, eSIM, parcheggi in aeroporto, escursioni, corsi). Le iscrizioni si propongono a Massimiliano nelle pause dai libri KDP (priorità ai libri da 9).
+
+## Regola permanente del 31/10/2026: risparmiare i crediti Netlify
+
+Il 30/10/2026 il piano Netlify ha finito i 1.000 crediti del mese (ciclo dal 15 al 14): circa 86 pubblicazioni da 15 crediti. Le pubblicazioni sul sito ufficiale si sono fermate; Massimiliano ha ricaricato 10 $ (500 crediti) il 31/10.
+- Ogni pubblicazione di un sito costa 15 crediti: parte quando cambia la sua cartella `sito/`.
+- Massimo **una pubblicazione per sito al giorno**. Le sezioni pronte nello stesso giorno si salvano insieme e si spingono insieme (un solo push), di sera.
+- Prima di un push si raccolgono tutti i lavori già revisionati; non si fa un push per ogni sezione.
+- Gli aggiornamenti automatici (scioperi, aste, EsameB1) pubblicano solo se i dati sono davvero cambiati.
+- Se arriva l'email "75% dei crediti", si rallenta subito: solo pubblicazioni urgenti (scioperi, scadenze).
+- Nuove ricariche sono una spesa: si chiede sempre prima a Massimiliano.
