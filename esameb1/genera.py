@@ -44,6 +44,7 @@ CHIAVE_INDEXNOW = "b5a26a844a465f58552debee2c8a0114"
 # questo sito fuori elenco non cambia nulla: niente script nel <head>, niente ads.txt, privacy di oggi.
 sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
 import monetizzazione as MON  # noqa: E402
+import genera_en as EN  # noqa: E402  sezione inglese /en/ (dal 31/10/2026): COPPIE e IT_EN per hreflang e link «English»
 SITO_ID = "esameb1"  # nome del sito in monetizzazione.json ("adsense_siti")
 ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti a capo + script ufficiale, subito dopo il meta di verifica Google
 AFFILIATI = json.loads((DATI / "affiliati.json").read_text(encoding="utf-8")) if (DATI / "affiliati.json").exists() else {}  # link di affiliazione (dal 30/10/2026: italki)
@@ -686,6 +687,12 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
     canonico = URL_SITO + "/" + (percorso[:-10] if percorso.endswith("index.html") else percorso)
     ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else ""
     home_href = rel or "./"
+    # Sezione inglese (31/10/2026): hreflang reciproci solo se la pagina ha l'equivalente in genera_en.COPPIE; il link «English»
+    # del menu porta all'equivalente o, se non c'è, alla home inglese /en/.
+    en = EN.IT_EN.get(percorso)
+    alternati = (f'\n<link rel="alternate" hreflang="it" href="{canonico}">\n<link rel="alternate" hreflang="en" href="{URL_SITO}/{en}">'
+                 f'\n<link rel="alternate" hreflang="x-default" href="{canonico}">') if en else ""
+    inglese = f"{rel or '/'}{en or 'en/'}" if rel else f"/{en or 'en/'}"
     enti_link = "".join(f'<li><a href="{rel}ente/{SLUG_ENTE[e]}/">{e}</a></li>' for e in ENTE)
     altri_siti = "".join(f'<li><a href="{u}" rel="noopener">{n}</a>: {escape(d)} Un altro sito gratuito e indipendente dello stesso gestore.</li>'
                          for u, n, d in ALTRI_SITI)
@@ -696,7 +703,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(titolo)}</title>
 <meta name="description" content="{escape(descrizione)}">
-<link rel="canonical" href="{canonico}">
+<link rel="canonical" href="{canonico}">{alternati}
 <meta property="og:title" content="{escape(titolo)}">
 <meta property="og:description" content="{escape(descrizione)}">
 <meta property="og:type" content="website">
@@ -718,7 +725,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
 <header class="top"><div class="wrap">
 <a class="logo" href="{home_href}" aria-label="{NOME}, pagina iniziale">{MARCHIO}<span class="logo-testo">Esame<b>B1</b></span></a>
 <nav class="menu" aria-label="Menu">
-<a href="{rel}#date">Date</a><a href="{rel}#citta">Città</a><a href="{rel}come-funziona/"><span class="lungo">Come funziona</span><span class="corto">Guida</span></a><a class="nav-cta" href="{avvisami}" aria-label="Avvisami">{ic("campana")}<span class="lungo">Avvisami</span></a>
+<a href="{rel}#date">Date</a><a href="{rel}#citta">Città</a><a href="{rel}come-funziona/"><span class="lungo">Come funziona</span><span class="corto">Guida</span></a><a class="lingua" href="{inglese}" hreflang="en" lang="en"><span class="lungo">English</span><span class="corto">EN</span></a><a class="nav-cta" href="{avvisami}" aria-label="Avvisami">{ic("campana")}<span class="lungo">Avvisami</span></a>
 </nav>
 </div></header>
 <main class="wrap" id="contenuto">
@@ -729,7 +736,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
 <div>
 <a class="logo" href="{home_href}">{MARCHIO}<span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Orale e domande</a></li><li><a href="{rel}esonero-test-italiano/">Chi è esonerato</a></li><li><a href="{rel}esempi/">Prove d'esempio</a></li><li><a href="{rel}esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="{rel}cittadinanza/">Domanda di cittadinanza</a></li><li><a href="{rel}reddito-minimo-cittadinanza/">Reddito minimo</a></li>{enti_link}<li><a href="{rel}privacy.html">Privacy</a></li>
+<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Orale e domande</a></li><li><a href="{rel}esonero-test-italiano/">Chi è esonerato</a></li><li><a href="{rel}esempi/">Prove d'esempio</a></li><li><a href="{rel}esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="{rel}cittadinanza/">Domanda di cittadinanza</a></li><li><a href="{rel}reddito-minimo-cittadinanza/">Reddito minimo</a></li>{enti_link}<li><a href="{inglese}" hreflang="en" lang="en">English</a></li><li><a href="{rel}privacy.html">Privacy</a></li>
 </ul>
 </div>
 <div>
@@ -3360,8 +3367,10 @@ def main():
             urls.append(f"cittadinanza/{pref_url(sl)}/")
     privacy()
     urls.append("privacy.html")
+    urls += EN.genera(sys.modules[__name__], prossime)  # sezione inglese /en/ (genera_en.py)
     extra(urls)
-    print(f"Sito generato in {SITO}: {len(urls)} pagine, {len(prossime)} sessioni future, {len(sedi)} sedi.")
+    n_en = EN.controlli(sys.modules[__name__])  # cifre /en/ = cifre italiane, hreflang reciproci, calcolatore identico
+    print(f"Sito generato in {SITO}: {len(urls)} pagine ({n_en} in inglese, controllate), {len(prossime)} sessioni future, {len(sedi)} sedi.")
 
 
 if __name__ == "__main__":
