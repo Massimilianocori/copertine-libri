@@ -96,3 +96,12 @@ Il 30/10/2026 il piano Netlify ha finito i 1.000 crediti del mese (ciclo dal 15 
 - Gli aggiornamenti automatici (scioperi, aste, EsameB1) pubblicano solo se i dati sono davvero cambiati.
 - Se arriva l'email "75% dei crediti", si rallenta subito: solo pubblicazioni urgenti (scioperi, scadenze).
 - Nuove ricariche sono una spesa: si chiede sempre prima a Massimiliano.
+
+## Regola permanente del 31/10/2026: aprire sempre nuovi fronti (priorità)
+
+Massimiliano, 31/10/2026: "va benissimo ottimizzare quello che abbiamo fatto ma è ancora più importante aprire sempre nuovi fronti e opportunità, è così che cambiamo marcia. Possiamo decuplicare il valore di quello che abbiamo adesso." (Lo ripeteva da giorni.)
+- Un **fronte nuovo** non è una sezione in più di un sito esistente: è un canale, un pubblico, una lingua, un prodotto o un modello di guadagno che oggi non usiamo (esempi: guide nelle lingue degli immigrati, prodotti nostri come libri KDP o prodotti digitali, traffico da assistenti AI e dataset aperti, vendita di dati/API, avvisi a pagamento, nuovi Paesi, nuovi settori).
+- **Ogni giorno** almeno un ricercatore lavora su un fronte nuovo (oltre ai ricercatori sulle zone/settori); **ogni mercoledì** almeno due. I fronti già esplorati si annotano in `intelaiatura/ESPLORATE.md` con il file `fronti-AAAA-MM-GG-*.md`.
+- Ottimizzare e allargare ciò che funziona resta il lavoro quotidiano, ma **non sostituisce** l'apertura di fronti nuovi: le due cose vanno avanti insieme, sempre.
+- Se un fronte promettente richiede di allentare un vincolo (piccola spesa, nuovo account, una piattaforma di pagamento), si propone a Massimiliano con i numeri: decide lui.
+- Le idee ≥ 8 passano dal verificatore indipendente, come sempre; le migliori si costruiscono subito.
