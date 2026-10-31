@@ -1,0 +1,1072 @@
+{
+ "_nota": "Ricerche vere (autocompletamento di Google, client=firefox, hl=en, gl=gb) sugli animali in viaggio dalla Gran Bretagna. Una pagina Paese esiste solo se una ricerca sul Paese ha suggerimenti; ogni FAQ della sezione pets/ ha la sua 'query' qui. Riscritto da raccolta/animali.py --domanda.",
+ "letto_il": "2026-10-31",
+ "modelli": [
+  "taking dog to {p}",
+  "taking dog to {p} from uk",
+  "dog to {p} from uk",
+  "taking cat to {p}"
+ ],
+ "generali_lette": [
+  "animal health certificate",
+  "animal health certificate dog",
+  "ahc for dogs",
+  "pet passport uk",
+  "pet passport uk to eu",
+  "uk pet passport 2027",
+  "pet passport 2027",
+  "new pet passport rules uk",
+  "taking dog to europe from uk",
+  "taking dog abroad",
+  "taking a dog abroad from uk",
+  "rabies vaccine dog travel",
+  "how long after rabies vaccine can dog travel",
+  "tapeworm treatment for dogs travelling",
+  "dog tapeworm treatment before travel",
+  "bringing dog back to uk",
+  "bringing dog back to uk from france",
+  "bringing dog to uk",
+  "pet friendly airlines to uk",
+  "dog friendly ferry",
+  "ferry with dog to",
+  "eurotunnel dog",
+  "flying dog to uk",
+  "approved routes pet travel uk"
+ ],
+ "paesi": {
+  "AT": {
+   "taking dog to austria": [
+    "taking dog to austria from uk",
+    "taking dog to austria",
+    "bringing dog to austria",
+    "can i take my dog to europe from australia",
+    "how to take my dog to another country",
+    "can i bring my dog to italy"
+   ],
+   "taking dog to austria from uk": [
+    "taking dog to austria from uk",
+    "can i take my dog to austria from uk",
+    "can i take my dog to australia from uk",
+    "is austria dog friendly",
+    "can i take my dog to europe from australia",
+    "can i take my dog to italy from uk"
+   ],
+   "dog to austria from uk": [
+    "taking dog to austria from uk",
+    "can i take my dog to austria from uk",
+    "how to drive to austria from uk",
+    "can you drive to austria from uk",
+    "how to get to austria from uk"
+   ],
+   "taking cat to austria": [
+    "bringing cat to austria",
+    "can i bring my cat to italy",
+    "can i bring my cat to another country",
+    "can i take my cat to australia from uk",
+    "can i bring my cat to germany"
+   ]
+  },
+  "BE": {
+   "taking dog to belgium": [
+    "taking dog to belgium from uk",
+    "taking dog to belgium",
+    "bringing dog to belgium",
+    "taking your dog to belgium",
+    "moving a dog to belgium",
+    "can i take my dog to belgium",
+    "is belgium dog friendly"
+   ],
+   "taking dog to belgium from uk": [
+    "taking dog to belgium from uk",
+    "can i take my dog to belgium from uk",
+    "can i take my dog to belgium",
+    "taking dog to eu from uk",
+    "is belgium dog friendly"
+   ],
+   "dog to belgium from uk": [
+    "taking dog to belgium from uk",
+    "can i take my dog to belgium from uk",
+    "bringing a dog from belgium to uk",
+    "can i take my dog to belgium",
+    "how to get to belgium from uk",
+    "how to drive to belgium from uk"
+   ],
+   "taking cat to belgium": [
+    "bringing cat to belgium",
+    "can i bring my cat to the netherlands",
+    "can i take my dog to belgium",
+    "how to take your cat abroad"
+   ]
+  },
+  "BG": {
+   "taking dog to bulgaria": [
+    "taking dog to bulgaria",
+    "bringing a dog to bulgaria",
+    "can i take my dog to belgium"
+   ],
+   "taking dog to bulgaria from uk": [
+    "can i take my dog to bulgaria from uk",
+    "bringing a dog from bulgaria to uk"
+   ],
+   "dog to bulgaria from uk": [
+    "dog from bulgaria to uk",
+    "can i take my dog to bulgaria from uk",
+    "bringing a dog from bulgaria to uk",
+    "how to drive to bulgaria from uk"
+   ],
+   "taking cat to bulgaria": []
+  },
+  "HR": {
+   "taking dog to croatia": [
+    "taking dog to croatia",
+    "taking dogs to croatia from uk",
+    "taking your dog to croatia",
+    "can i bring my dog to croatia",
+    "is croatia dog friendly",
+    "can i take my dog to cyprus"
+   ],
+   "taking dog to croatia from uk": [
+    "taking dogs to croatia from uk",
+    "can i bring my dog to croatia",
+    "taking a dog to cyprus from uk",
+    "is croatia dog friendly"
+   ],
+   "dog to croatia from uk": [
+    "taking dogs to croatia from uk",
+    "importing a dog from croatia to uk",
+    "can i bring my dog to croatia",
+    "how to get to croatia from uk",
+    "how to drive to croatia from uk",
+    "can you fly direct to croatia from uk"
+   ],
+   "taking cat to croatia": []
+  },
+  "CY": {
+   "taking dog to cyprus": [
+    "taking dog to cyprus from uk",
+    "taking dog to cyprus",
+    "taking pets to cyprus from uk",
+    "bringing dog to cyprus",
+    "moving dog to cyprus",
+    "taking pets to cyprus",
+    "can i take my dog to cyprus"
+   ],
+   "taking dog to cyprus from uk": [
+    "taking dog to cyprus from uk",
+    "taking pets to cyprus from uk",
+    "can i take my dog to cyprus from uk",
+    "can i take my dog to cyprus"
+   ],
+   "dog to cyprus from uk": [
+    "taking dog to cyprus from uk",
+    "flying dog to cyprus from uk",
+    "pet travel to cyprus from uk",
+    "can i take my dog to cyprus from uk",
+    "how to get a dog to cyprus from uk",
+    "dog flights from cyprus to uk",
+    "dog from uk to cyprus",
+    "adopt a dog from cyprus to uk",
+    "bringing a dog from cyprus to uk",
+    "moving dog from uk to cyprus"
+   ],
+   "taking cat to cyprus": [
+    "taking cats to cyprus",
+    "taking a cat to cyprus from uk",
+    "can i take my cat to cyprus",
+    "how to take a cat home from cyprus",
+    "early taming of the cat in cyprus",
+    "taking a car to cyprus from uk"
+   ]
+  },
+  "CZ": {
+   "taking dog to czech republic": [
+    "bringing dog to czech republic",
+    "bringing pets to czech republic",
+    "is prague dog friendly",
+    "can i bring my dog to dominican republic"
+   ],
+   "taking dog to czech republic from uk": [],
+   "dog to czech republic from uk": [
+    "importing a dog from czech republic to uk"
+   ],
+   "taking cat to czech republic": [
+    "bringing pets to czech republic"
+   ]
+  },
+  "DK": {
+   "taking dog to denmark": [
+    "taking dog to denmark from uk",
+    "taking dog to denmark",
+    "bringing a dog to denmark",
+    "moving dog to denmark",
+    "taking pets to denmark",
+    "bring your dog to denmark",
+    "is denmark dog friendly",
+    "is copenhagen dog friendly"
+   ],
+   "taking dog to denmark from uk": [
+    "taking dog to denmark from uk",
+    "can i take my dog to denmark from uk",
+    "is denmark dog friendly"
+   ],
+   "dog to denmark from uk": [
+    "taking dog to denmark from uk",
+    "can i take my dog to denmark from uk"
+   ],
+   "taking cat to denmark": [
+    "bringing cat to denmark",
+    "moving cat to denmark",
+    "taking a cat to denmark",
+    "can you take your cat to another country",
+    "can i bring my cat to portugal",
+    "how to take your cat abroad"
+   ]
+  },
+  "EE": {
+   "taking dog to estonia": [],
+   "taking dog to estonia from uk": [],
+   "dog to estonia from uk": [],
+   "taking cat to estonia": []
+  },
+  "FI": {
+   "taking dog to finland": [
+    "taking dog to finland",
+    "taking a dog to finland from uk",
+    "moving with dog to finland from usa",
+    "is finland dog friendly",
+    "how to get a dog in finland",
+    "how to buy a dog in finland",
+    "can i bring my dog to the netherlands"
+   ],
+   "taking dog to finland from uk": [
+    "taking a dog to finland from uk",
+    "can i take my dog to finland from uk",
+    "how to get a dog in finland",
+    "how to buy a dog in finland"
+   ],
+   "dog to finland from uk": [
+    "taking a dog to finland from uk",
+    "can i take my dog to finland from uk",
+    "how to get a dog in finland"
+   ],
+   "taking cat to finland": [
+    "bringing cat to finland",
+    "how to take your cat abroad",
+    "can you take your cat to another country",
+    "can i bring my cat to the netherlands",
+    "can i bring my cat to another country"
+   ]
+  },
+  "FR": {
+   "taking dog to france": [
+    "taking dog to france from uk",
+    "taking dog to france",
+    "taking dog to france from us",
+    "taking dog to france rules",
+    "taking dog to france on holiday",
+    "taking dog to france with eu pet passport",
+    "taking dog to france eurotunnel",
+    "taking dog to france requirements",
+    "taking dog to france and spain from uk",
+    "taking dog to france from jersey"
+   ],
+   "taking dog to france from uk": [
+    "taking dog to france from uk",
+    "taking dogs to france from uk after brexit",
+    "taking pets to france from uk",
+    "bringing dog to france from uk",
+    "taking puppy to france from uk",
+    "taking dog food to france from uk",
+    "taking a dog to france from uk by car",
+    "taking dog to france eurotunnel from uk",
+    "taking a dog to france from uk cost",
+    "rules for taking dog to france from uk"
+   ],
+   "dog to france from uk": [
+    "dog to france from uk",
+    "pets to france from uk",
+    "taking dog to france from uk",
+    "dog travel to france from uk",
+    "bringing dog to france from uk",
+    "dog passport to france from uk",
+    "driving dog to france from uk",
+    "dogs going to france from uk",
+    "taking dogs to france from uk after brexit",
+    "taking a dog to france from uk by car"
+   ],
+   "taking cat to france": [
+    "taking cat to france",
+    "taking cat to france from uk",
+    "taking cat to france from us",
+    "taking pets to france",
+    "taking pets to france from uk",
+    "bringing cat to france",
+    "moving cat to france",
+    "bringing cat to france from uk",
+    "cost of taking a cat to france",
+    "can i take my cat to france"
+   ]
+  },
+  "DE": {
+   "taking dog to germany": [
+    "taking dog to germany from uk",
+    "taking dog to germany",
+    "taking dog to germany from us",
+    "taking dogs to germany from usa",
+    "bringing dog to germany",
+    "moving dog to germany",
+    "taking pets to germany",
+    "taking pets to germany military",
+    "taking my dog to germany",
+    "taking dog from india to germany"
+   ],
+   "taking dog to germany from uk": [
+    "taking dog to germany from uk",
+    "can i take my dog to germany from uk",
+    "can i take my dog to germany",
+    "can i bring my dog to germany from usa"
+   ],
+   "dog to germany from uk": [
+    "taking dog to germany from uk",
+    "can i take my dog to germany from uk",
+    "dog from germany to uk",
+    "travelling to germany from uk with dog",
+    "bringing dog from germany to uk",
+    "moving dog from uk to germany",
+    "can i take my dog to germany",
+    "can i bring my dog to germany from usa"
+   ],
+   "taking cat to germany": [
+    "taking cat to germany from uk",
+    "taking cat to germany",
+    "bringing cat to germany",
+    "taking pets to germany",
+    "moving cat to germany",
+    "bringing cat to germany from us",
+    "taking pets to germany military",
+    "bringing cat to germany from usa",
+    "taking my cat to germany",
+    "taking cat from india to germany"
+   ]
+  },
+  "GR": {
+   "taking dog to greece": [
+    "taking dog to greece from uk",
+    "taking dog to greece",
+    "bring dog to greece from usa",
+    "bringing dog to greece",
+    "taking pets to greece",
+    "taking my dog to greece",
+    "moving a dog to greece",
+    "can you take dog to greece"
+   ],
+   "taking dog to greece from uk": [
+    "taking dog to greece from uk",
+    "can you take dogs to greece from uk",
+    "can i take my dog to greece"
+   ],
+   "dog to greece from uk": [
+    "taking dog to greece from uk",
+    "can i take my dog to greece from uk",
+    "can i fly my dog to greece from uk",
+    "dog from greece to uk",
+    "dog transport from greece to uk",
+    "bringing dog from greece to uk",
+    "adopt a dog from greece to uk",
+    "can i take my dog to greece"
+   ],
+   "taking cat to greece": [
+    "taking cat to greece",
+    "taking pets to greece",
+    "bringing cat to greece",
+    "taking a cat from greece to uk",
+    "can i bring my cat to greece",
+    "can i take my cat to greece",
+    "can i bring a cat home from greece",
+    "how to bring a cat back from greece"
+   ]
+  },
+  "HU": {
+   "taking dog to hungary": [
+    "bring dog to.hungary",
+    "taking a dog to hungary"
+   ],
+   "taking dog to hungary from uk": [],
+   "dog to hungary from uk": [
+    "dog transport from hungary to uk",
+    "importing a dog from hungary to uk",
+    "bringing a dog from hungary to uk",
+    "how to get to hungary from uk"
+   ],
+   "taking cat to hungary": []
+  },
+  "IE": {
+   "taking dog to ireland": [
+    "taking dog to ireland from uk",
+    "taking dog to ireland",
+    "taking dog to ireland on ferry",
+    "taking dog to ireland from usa",
+    "taking dog to ireland from england",
+    "bringing dog to ireland",
+    "taking pets to ireland from uk",
+    "bringing dog to ireland from uk",
+    "taking pets to ireland",
+    "bringing dog to ireland from usa"
+   ],
+   "taking dog to ireland from uk": [
+    "taking dog to ireland from uk",
+    "taking pets to ireland from uk",
+    "bringing dog to ireland from uk",
+    "taking dog to northern ireland from uk",
+    "taking dog to southern ireland from uk",
+    "taking pet dog to ireland from uk",
+    "taking dog to ireland from england",
+    "taking dog to republic of ireland from uk",
+    "rules for taking dogs to ireland from uk",
+    "can you take dogs to ireland from uk"
+   ],
+   "dog to ireland from uk": [
+    "dog to ireland from uk",
+    "taking dog to ireland from uk",
+    "dog travel to ireland from uk",
+    "bringing dog to ireland from uk",
+    "dogs to northern ireland from uk",
+    "dogs going to ireland from uk",
+    "dog friendly ferry to ireland from uk",
+    "taking pet dog to ireland from uk",
+    "taking dog to northern ireland from uk",
+    "taking dog to southern ireland from uk"
+   ],
+   "taking cat to ireland": [
+    "taking cat to ireland from uk",
+    "taking cat to ireland",
+    "taking pets to ireland from uk",
+    "taking pets to ireland",
+    "bringing cat to ireland from usa",
+    "bringing cat to ireland",
+    "moving cat to ireland",
+    "bringing cat to ireland from canada",
+    "taking pets to ireland from south africa",
+    "taking pets to ireland from usa"
+   ]
+  },
+  "IT": {
+   "taking dog to italy": [
+    "taking dog to italy",
+    "taking dog to italy from uk",
+    "taking dog to italy from us",
+    "taking dog to italy from usa",
+    "taking dog to italy from canada",
+    "bring dog to italy",
+    "taking pets to italy",
+    "moving dog to italy",
+    "taking pets to italy from usa",
+    "bringing dog to italy for vacation"
+   ],
+   "taking dog to italy from uk": [
+    "taking dog to italy from uk",
+    "taking a dog to italy from uk by car",
+    "can you take dogs to italy from uk",
+    "can i take my dog to italy from uk by car",
+    "can i take my dog to italy from usa",
+    "can i bring my dog to italy"
+   ],
+   "dog to italy from uk": [
+    "taking dog to italy from uk",
+    "dog travel to italy from uk",
+    "taking a dog to italy from uk by car",
+    "can i take my dog to italy from uk",
+    "can i fly my dog to italy from uk",
+    "dog from italy to uk",
+    "driving to italy from uk with dog",
+    "bring dog from italy to uk",
+    "flying dog from uk to italy",
+    "moving dog from uk to italy"
+   ],
+   "taking cat to italy": [
+    "taking cat to italy",
+    "bringing cat to italy",
+    "taking pets to italy",
+    "moving cat to italy",
+    "taking pets to italy from usa",
+    "taking a cat to italy from usa",
+    "taking your cat to italy",
+    "bringing a cat to italy from usa",
+    "bringing a cat to italy from canada",
+    "taking a cat from uk to italy"
+   ]
+  },
+  "LV": {
+   "taking dog to latvia": [
+    "taking a dog to latvia",
+    "can i bring my dog to the netherlands",
+    "can i bring my dog to italy"
+   ],
+   "taking dog to latvia from uk": [],
+   "dog to latvia from uk": [],
+   "taking cat to latvia": []
+  },
+  "LT": {
+   "taking dog to lithuania": [
+    "bringing dog to lithuania",
+    "taking dog from uk to lithuania",
+    "how to say dog in lithuanian",
+    "can i bring my dog to the netherlands"
+   ],
+   "taking dog to lithuania from uk": [
+    "taking dog from uk to lithuania",
+    "taking dog to poland from uk",
+    "can i take my dog to amsterdam from uk"
+   ],
+   "dog to lithuania from uk": [
+    "taking dog from uk to lithuania",
+    "how to get to lithuania from uk"
+   ],
+   "taking cat to lithuania": []
+  },
+  "LU": {
+   "taking dog to luxembourg": [
+    "bringing dog to luxembourg",
+    "is luxembourg dog friendly"
+   ],
+   "taking dog to luxembourg from uk": [],
+   "dog to luxembourg from uk": [],
+   "taking cat to luxembourg": []
+  },
+  "MT": {
+   "taking dog to malta": [
+    "taking dog to malta from uk",
+    "taking dogs to malta",
+    "bringing dog to malta",
+    "importing dog to malta",
+    "taking pets to malta",
+    "taking my dog to malta"
+   ],
+   "taking dog to malta from uk": [
+    "taking dog to malta from uk",
+    "can i take my dog to malta from uk",
+    "is malta dog friendly"
+   ],
+   "dog to malta from uk": [
+    "taking dog to malta from uk",
+    "can i take my dog to malta from uk",
+    "how to drive to malta from uk",
+    "is malta dog friendly",
+    "how to get to malta from uk"
+   ],
+   "taking cat to malta": [
+    "taking pets to malta",
+    "bringing cat to malta",
+    "how to take your cat abroad",
+    "can i bring my cat to malaysia",
+    "why are there so many cats in malta"
+   ]
+  },
+  "NL": {
+   "taking dog to netherlands": [
+    "taking dog to netherlands from uk",
+    "taking dog to netherlands",
+    "bringing dog to netherlands from us",
+    "bring dog to netherlands",
+    "moving dog to netherlands",
+    "taking pets to netherlands",
+    "bring my dog to netherlands",
+    "can i bring my dog to the netherlands",
+    "can i take my dog to amsterdam",
+    "how to get a dog in the netherlands"
+   ],
+   "taking dog to netherlands from uk": [
+    "taking dog to netherlands from uk",
+    "taking dog to holland from uk",
+    "can i bring my dog to the netherlands",
+    "how to bring a dog to the netherlands",
+    "can i take my dog to amsterdam from uk",
+    "taking a dog to netherlands",
+    "can i take my dog to amsterdam"
+   ],
+   "dog to netherlands from uk": [
+    "taking dog to netherlands from uk",
+    "pet travel to netherlands from uk",
+    "ferry to netherlands from uk with dog",
+    "travelling to netherlands from uk with dog",
+    "bringing dog from netherlands to uk",
+    "how to bring a dog to the netherlands",
+    "can i bring my dog to the netherlands",
+    "can i take my dog to amsterdam from uk",
+    "how to get a dog in the netherlands"
+   ],
+   "taking cat to netherlands": [
+    "taking cat to netherlands",
+    "bringing cat to netherlands",
+    "moving cat to netherlands",
+    "taking a cat from uk to netherlands",
+    "can i bring my cat to the netherlands",
+    "getting a cat in the netherlands"
+   ]
+  },
+  "PL": {
+   "taking dog to poland": [
+    "taking dog to poland from uk",
+    "taking dog to poland",
+    "bringing dog to poland from usa",
+    "bring dog to poland",
+    "taking my dog to poland",
+    "moving a dog to poland",
+    "is poland dog friendly"
+   ],
+   "taking dog to poland from uk": [
+    "taking dog to poland from uk",
+    "can i take my dog to poland from uk",
+    "taking a dog to poland"
+   ],
+   "dog to poland from uk": [
+    "taking dog to poland from uk",
+    "traveling with dog to poland from uk",
+    "pet travel to poland from uk",
+    "can i take my dog to poland from uk",
+    "dog from uk to poland",
+    "bringing dog from poland to uk",
+    "importing dog from poland to uk",
+    "is poland dog friendly",
+    "taking a dog to poland"
+   ],
+   "taking cat to poland": [
+    "taking cat to poland from uk",
+    "bringing cat to poland",
+    "taking a cat to poland",
+    "can i bring my cat to germany"
+   ]
+  },
+  "PT": {
+   "taking dog to portugal": [
+    "taking dog to portugal from uk",
+    "taking dog to portugal",
+    "taking dog to portugal from us",
+    "bringing dog to portugal from us",
+    "bring dog to portugal",
+    "taking pets to portugal",
+    "bringing dog to portugal from canada",
+    "moving dog to portugal",
+    "taking my dog to portugal",
+    "bringing my dog to portugal"
+   ],
+   "taking dog to portugal from uk": [
+    "taking dog to portugal from uk",
+    "can you take dogs to portugal from uk",
+    "can i take my dog to portugal"
+   ],
+   "dog to portugal from uk": [
+    "taking dog to portugal from uk",
+    "flying dog to portugal from uk",
+    "can i take my dog to portugal from uk",
+    "cost of flying a dog to portugal from uk",
+    "dog from uk to portugal",
+    "ferry to portugal from uk with dog",
+    "bring dog from portugal to uk",
+    "travel with dog from portugal to uk",
+    "moving dog from uk to portugal",
+    "can i take my dog to portugal"
+   ],
+   "taking cat to portugal": [
+    "taking cat to portugal",
+    "taking pets to portugal",
+    "bringing cat to portugal",
+    "bringing cat to portugal from us",
+    "moving cat to portugal",
+    "taking my cat to portugal",
+    "can i bring my cat to portugal"
+   ]
+  },
+  "RO": {
+   "taking dog to romania": [
+    "taking a dog to romania",
+    "can i take my dog to romania"
+   ],
+   "taking dog to romania from uk": [],
+   "dog to romania from uk": [
+    "pet travel to romania from uk",
+    "dog from romania to uk",
+    "importing dog from romania to uk",
+    "bringing dog from romania to uk",
+    "adopt a dog from romania to uk",
+    "can i take my dog to romania"
+   ],
+   "taking cat to romania": []
+  },
+  "SK": {
+   "taking dog to slovakia": [],
+   "taking dog to slovakia from uk": [],
+   "dog to slovakia from uk": [],
+   "taking cat to slovakia": []
+  },
+  "SI": {
+   "taking dog to slovenia": [
+    "bringing dog to slovenia",
+    "is slovenia dog friendly",
+    "how to take dog to another country"
+   ],
+   "taking dog to slovenia from uk": [],
+   "dog to slovenia from uk": [],
+   "taking cat to slovenia": []
+  },
+  "ES": {
+   "taking dog to spain": [
+    "taking dog to spain from uk",
+    "taking dog to spain",
+    "taking dog to spain from us",
+    "taking dog to spain from ireland",
+    "taking dog to spain on holiday",
+    "taking dogs to spain by ferry",
+    "bringing dog to spain",
+    "bringing dog to spain from usa",
+    "taking pets to spain",
+    "taking pets to spain from uk"
+   ],
+   "taking dog to spain from uk": [
+    "taking dog to spain from uk",
+    "taking pets to spain from uk",
+    "bringing dog to spain from uk",
+    "moving dogs to spain from uk",
+    "moving pets to spain from uk",
+    "taking dog to france and spain from uk",
+    "can you take dog to spain from uk",
+    "what airlines take dogs to spain from uk",
+    "dog to spain from uk",
+    "can i take my dog to spain on holiday"
+   ],
+   "dog to spain from uk": [
+    "dog to spain from uk",
+    "taking dog to spain from uk",
+    "dog travel to spain from uk",
+    "dog transport to spain from uk",
+    "fly dog to spain from uk",
+    "driving dog to spain from uk",
+    "bringing dog to spain from uk",
+    "moving dogs to spain from uk",
+    "dog friendly ferries to spain from uk",
+    "dog friendly cabins to spain from uk"
+   ],
+   "taking cat to spain": [
+    "taking cat to spain",
+    "taking cat to spain from uk",
+    "taking pets to spain",
+    "bringing cat to spain",
+    "moving cat to spain",
+    "taking pets to spain from uk",
+    "taking pets to spain from us",
+    "taking my cat to spain",
+    "bringing a cat to spain from usa",
+    "can i take my cat to spain"
+   ]
+  },
+  "SE": {
+   "taking dog to sweden": [
+    "taking dog to sweden from uk",
+    "taking dog to sweden",
+    "bring dog to sweden from usa",
+    "bring dog to sweden",
+    "moving dog to sweden",
+    "taking pets to sweden",
+    "taking your dog to sweden",
+    "bringing my dog to sweden",
+    "taking a dog from sweden to norway",
+    "can i take my dog to sweden"
+   ],
+   "taking dog to sweden from uk": [
+    "taking dog to sweden from uk",
+    "can i take my dog to sweden from uk",
+    "can i take my dog to sweden"
+   ],
+   "dog to sweden from uk": [
+    "taking dog to sweden from uk",
+    "can i take my dog to sweden from uk",
+    "travelling to sweden from uk with dog",
+    "importing dog from sweden to uk",
+    "bring dog from sweden to uk",
+    "can i take my dog to sweden",
+    "how to get to sweden from uk"
+   ],
+   "taking cat to sweden": [
+    "bring cat to sweden from usa",
+    "bringing cat to sweden",
+    "moving cat to sweden",
+    "taking pets to sweden",
+    "taking a cat to sweden",
+    "can i bring my cat to another country",
+    "sweden cat laws"
+   ]
+  },
+  "NO": {
+   "taking dog to norway": [
+    "taking dog to norway from uk",
+    "taking dog to norway",
+    "bringing dog to norway",
+    "bring dog to norway from us",
+    "moving dog to norway",
+    "taking pets to norway",
+    "taking my dog to norway",
+    "bringing your dog to norway",
+    "taking a dog from sweden to norway",
+    "taking my dog from uk to norway"
+   ],
+   "taking dog to norway from uk": [
+    "taking dog to norway from uk",
+    "can you take dogs to norway from uk",
+    "taking my dog from uk to norway",
+    "can i bring my dog to norway",
+    "is norway dog friendly"
+   ],
+   "dog to norway from uk": [
+    "taking dog to norway from uk",
+    "fly dog to norway from uk",
+    "dog friendly ferry to norway from uk",
+    "pet travel to norway from uk",
+    "can i take my dog to norway from uk",
+    "travelling to norway from uk with dog",
+    "importing a dog from norway to uk",
+    "can i bring my dog to norway"
+   ],
+   "taking cat to norway": [
+    "taking cat to norway",
+    "bringing cat to norway",
+    "moving cat to norway",
+    "how to take your cat abroad",
+    "can i bring my cat to the netherlands",
+    "can you take your cat to another country"
+   ]
+  }
+ },
+ "generali": {
+  "animal health certificate": [
+   "animal health certificate",
+   "animal health certificate cost",
+   "animal health certificate near me",
+   "animal health certificate uk",
+   "animal health certificate online",
+   "animal health certificate pdf",
+   "animal health certificate pdf free download",
+   "animal health certificates uk north",
+   "animal health certificate folkestone",
+   "animal health certificate (ahc)"
+  ],
+  "animal health certificate dog": [
+   "animal health certificate dog",
+   "animal health certificate dog uk",
+   "animal health certificate pet passport",
+   "animal health certificate veterinary",
+   "animal health certificate for dogs near me",
+   "animal health certificate vs pet passport",
+   "animal health certificate eu pet passport",
+   "dog animal health certificate cost",
+   "cheapest animal health certificate near me for dogs",
+   "cost of animal health certificate uk for dogs"
+  ],
+  "ahc for dogs": [
+   "ahc for dogs",
+   "ahc for dogs near me",
+   "ahc for dogs cost",
+   "ahc for dogs uk",
+   "ahc certificate for dogs",
+   "cheap ahc for dogs",
+   "ahc certificate cost for dogs",
+   "ahc certificate near me for dogs",
+   "ahc vets near me for dogs",
+   "what is cmr1 in dogs"
+  ],
+  "pet passport uk": [
+   "pet passport uk",
+   "pet passport uk price",
+   "pet passport uk to france",
+   "pet passport uk to ireland",
+   "pet passport uk to eu",
+   "pet passport uk coming back",
+   "pet passport uk update",
+   "pet passport uk to ireland requirements",
+   "pet passport uk 2027",
+   "pet passport uk to usa"
+  ],
+  "pet passport uk to eu": [
+   "pet passport uk to eu",
+   "dog passport uk to europe",
+   "pet passport uk eu deal",
+   "eu pet passport uk to ireland",
+   "eu pet passport uk to france",
+   "how to get a pet passport uk to europe",
+   "eu pet passport travel to uk",
+   "eu pet passport entry to uk",
+   "how to get an eu pet passport in uk",
+   "pet passport uk cost"
+  ],
+  "uk pet passport 2027": [
+   "uk pet passport 2027",
+   "uk pet passport 2027 cost",
+   "uk pet passport 2027 requirements",
+   "new pet passport rules uk",
+   "what is a pet passport uk"
+  ],
+  "pet passport 2027": [
+   "pet passport 2027",
+   "uk pet passport 2027",
+   "uk pet passport 2027 cost",
+   "uk pet passport 2027 requirements",
+   "pet passport requirements",
+   "pet passport example"
+  ],
+  "new pet passport rules uk": [
+   "new pet passport rules uk for dogs",
+   "new pet passport rules uk",
+   "pet passport rules uk",
+   "pet passport rules uk to france",
+   "pet passport rules"
+  ],
+  "taking dog to europe from uk": [
+   "taking dog to europe from uk",
+   "taking dog to europe from uk cost",
+   "taking dog to europe from uk after brexit",
+   "taking dog to eu from uk",
+   "taking pets to europe from uk",
+   "bringing dog to europe from uk",
+   "taking pet to eu from uk",
+   "bringing dog to eu from uk",
+   "taking dog on holiday to europe from uk",
+   "rules for taking dogs to europe from uk"
+  ],
+  "taking dog abroad": [
+   "taking dog abroad from uk",
+   "taking dog abroad",
+   "taking dog abroad to france",
+   "taking dog abroad on holiday",
+   "taking dog abroad cost",
+   "taking dog abroad by car",
+   "taking dogs abroad by plane",
+   "taking dogs abroad by plane from uk",
+   "taking dogs abroad by plane ryanair",
+   "taking dogs abroad rules"
+  ],
+  "taking a dog abroad from uk": [
+   "taking a dog abroad from uk",
+   "can you take a dog abroad from uk",
+   "taking pets abroad from uk",
+   "how do you take a dog abroad from uk",
+   "bringing a dog from abroad to uk",
+   "taking dogs abroad by plane from uk",
+   "can i take my dog abroad"
+  ],
+  "rabies vaccine dog travel": [
+   "rabies vaccine dog travel",
+   "pet travel rabies vaccine",
+   "rabies vaccine for dogs travelling to europe",
+   "rabies vaccine for dogs travelling to france",
+   "rabies vaccine for dogs travelling to spain",
+   "rabies vaccine for dogs travelling to usa",
+   "rabies vaccine for dogs travelling to ireland",
+   "rabies vaccine for dogs travelling to uk",
+   "rabies vaccine before travel dog",
+   "rabies vaccine how long before travel dog"
+  ],
+  "how long after rabies vaccine can dog travel": [
+   "how long after rabies vaccine can dog travel",
+   "how long after rabies booster can dogs travel",
+   "how long after rabies vaccine can dogs go out"
+  ],
+  "tapeworm treatment for dogs travelling": [
+   "tapeworm treatment for dogs travelling to uk",
+   "tapeworm treatment for dogs travelling to ireland",
+   "tapeworm treatment for dogs travelling to france",
+   "tapeworm treatment for dogs travel",
+   "tapeworm treatment for dogs travel cost",
+   "tapeworm treatment for dogs before travel",
+   "how would a dog get tapeworm",
+   "what to do if your dog has tapeworms",
+   "how much is tapeworm treatment for dogs"
+  ],
+  "dog tapeworm treatment before travel": [],
+  "bringing dog back to uk": [
+   "bringing dog back to uk",
+   "bringing dog back to uk from eu",
+   "bringing dog back to uk from spain",
+   "bringing a dog back to uk from australia",
+   "bring back dog licence uk",
+   "what are the rules for bringing a dog into the uk",
+   "can i bring a dog back from ireland to uk",
+   "bringing a dog to uk"
+  ],
+  "bringing dog back to uk from france": [
+   "bringing dog back to uk from france",
+   "can i bring a dog back from ireland to uk"
+  ],
+  "bringing dog to uk": [
+   "bringing dog to uk from usa",
+   "bringing dog to uk",
+   "bringing dog to uk from poland",
+   "bringing dog to uk from eu",
+   "bringing dog to uk from ireland",
+   "bringing dog to uk quarantine",
+   "bringing dog to uk from canada",
+   "bringing dog to uk from france",
+   "bringing dog to uk from philippines",
+   "bringing dog to uk requirements"
+  ],
+  "pet friendly airlines to uk": [
+   "pet friendly airlines to uk",
+   "pet friendly airlines uk to spain",
+   "pet friendly airlines uk to usa",
+   "pet friendly airlines uk to australia",
+   "pet friendly flights to uk",
+   "dog friendly airlines uk to europe",
+   "dog friendly airlines uk to spain",
+   "dog friendly flights uk to italy",
+   "dog friendly flights uk to spain",
+   "dog friendly flights uk to canada"
+  ],
+  "dog friendly ferry": [
+   "dog friendly ferry to france",
+   "dog friendly ferry",
+   "dog friendly ferry to ireland",
+   "dog friendly ferry uk to spain",
+   "dog friendly ferry to jersey",
+   "dog friendly ferry to ireland from uk",
+   "dog friendly ferry to spain",
+   "dog friendly ferry to amsterdam",
+   "dog friendly ferry ireland to france",
+   "dog friendly ferry sydney"
+  ],
+  "ferry with dog to": [
+   "ferry with dog to spain",
+   "ferry with dog to france",
+   "ferry with dog to ireland",
+   "ferry with dog to uk",
+   "ferry with dog uk to france",
+   "ferry with dog uk to spain",
+   "ferry to dog island",
+   "ferry to dog island florida",
+   "ferry to jersey with dog",
+   "ferry to santander with dog"
+  ],
+  "eurotunnel dog": [
+   "eurotunnel dogs",
+   "eurotunnel dog rules",
+   "eurotunnel dogs allowed",
+   "eurotunnel dog travel",
+   "eurotunnel dog requirements",
+   "eurotunnel dogs uk to france",
+   "eurotunnel dog check in",
+   "eurotunnel dog friendly",
+   "eurotunnel dog cost",
+   "eurotunnel dogs to uk"
+  ],
+  "flying dog to uk": [
+   "flying dog to uk",
+   "flying dog to uk from usa",
+   "flying dog to uk from australia",
+   "flying dog to uk from canada",
+   "flying dogs to uk from aus",
+   "flying dog uk to spain",
+   "dog flight to uk",
+   "fly dog uk to australia",
+   "fly dog uk to new zealand",
+   "fly dog uk to france"
+  ],
+  "approved routes pet travel uk": []
+ }
+}

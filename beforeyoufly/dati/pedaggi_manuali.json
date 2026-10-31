@@ -1,5 +1,5 @@
 {
- "_nota": "Pedaggi con l'auto a noleggio: fatti scritti a mano il 30/10/2026. Ogni 'x' è una frase della fonte parola per parola (testo normalizzato da raccolta/pedaggi.py), ogni prezzo ha una 'prova' che contiene la cifra. 'risposta', 'come', 'prezzo_breve', 'noleggio_breve', i testi 'pre'/'post' delle FAQ, 'chi' (chi lo dice, nella prima frase) e le 'traduzioni' sono parole nostre, controllate da verifica.py (punto 20) contro citazioni e prezzi. noleggio = 'detto' solo se una frase ufficiale parla di auto a noleggio. Ogni FAQ nasce da una ricerca vera di dati/pedaggi_domanda.json ('query').",
+ "_nota": "Pedaggi con l'auto a noleggio: fatti scritti a mano il 30/10/2026. Ogni 'x' è una frase della fonte parola per parola (testo normalizzato da raccolta/pedaggi.py), ogni prezzo ha una 'prova' che contiene la cifra. 'risposta', 'come', 'prezzo_breve', 'noleggio_breve', i testi 'pre'/'post' delle FAQ, 'chi' (chi lo dice, nella prima frase) e le 'traduzioni' sono parole nostre, controllate da verifica.py (punto 20) contro citazioni e prezzi. noleggio = 'detto' solo se una frase ufficiale parla di auto a noleggio. Ogni FAQ nasce da una ricerca vera di dati/pedaggi_domanda.json ('query'). Dal 31/10/2026 la Croazia ha anche 'cambio' (riquadro con data: frasi nostre controllate come le altre), 'temi_titoli', 'noleggio_pre' e citazioni in croato della legge sui pedaggi (NN 156/2025) con 'traduzioni'.",
  "scritto_il": "2026-10-30",
  "paesi": [
   {
@@ -1235,12 +1235,12 @@
    "nome_frase": "Croatia",
    "vignetta": false,
    "noleggio": "non_detto",
-   "titolo": "Tolls in Croatia with a rental car (2026): how to pay",
-   "come": "Toll plazas: ticket at the entry, pay at the exit (cash, card or ENC device)",
+   "titolo": "Tolls in Croatia with a rental car (2026): new system from March 2027",
+   "come": "Toll plazas until 28 February 2027; from 1 March 2027, no toll plazas: ENC device or number plate recognition",
    "prezzo_breve": "Depends on the distance",
-   "noleggio_breve": "Not mentioned by HAC: ask the rental company",
-   "risposta": "Croatian motorways have toll plazas where you take a ticket at the entry and pay at the exit by distance, in cash, by card (Diners, Mastercard, Maestro, Visa) or with an ENC device.",
-   "nota": "This page quotes Hrvatske autoceste (HAC), which runs most Croatian motorways; some motorways are run by other companies.",
+   "noleggio_breve": "Not mentioned by HAC or the new law: ask the rental company",
+   "risposta": "until 28 February 2027 Croatian motorways have toll plazas: you take a ticket at the entry and pay at the exit by distance, in cash, by card (Diners, Mastercard, Maestro, Visa) or with an ENC device. From 1 March 2027 the Toll Collection Act brings in tolls without toll plazas or stopping: a car pays with an ENC device or by automatic number plate recognition, after its plate and a valid means of payment are registered in the system.",
+   "nota": "This page quotes Hrvatske autoceste (HAC), which runs most Croatian motorways, its Crolibertas project site and the Toll Collection Act (Zakon o naplati cestarine) as published in the Official Gazette (Narodne novine). The law is in Croatian: our English translation is under each quote.",
    "citazioni": [
     {
      "id": "distanza",
@@ -1283,6 +1283,90 @@
      "f": "hr_faq",
      "tema": "prezzo",
      "x": "The ETC device is 15,00 €"
+    },
+    {
+     "id": "hr_stupanje",
+     "f": "hr_zakon",
+     "tema": "dal_2027",
+     "x": "Ovaj Zakon stupa na snagu osmoga dana od dana objave u »Narodnim novinama«, osim odredbi članka 14., članka 15. stavaka 1. do 5., članaka 16. do 22., članka 23. stavaka 1. do 7., članaka 24. do 27., članka 28. stavaka 1. do 15., članaka 29. do 31., članka 32. stavaka 1., 2. i 3., članaka 33. do 37., članka 38. stavaka 1. do 9., članka 39. stavaka 1. do 6., članka 40., članka 41. stavaka 1. do 7., članka 42. stavaka 1. do 6., članka 43., članka 44. stavaka 1. do 9., članaka 45. i 46., članka 47. stavaka 1., 2. i 3., članaka 48. i 49. te članaka 52. do 57., koji stupaju na snagu 1. ožujka 2027."
+    },
+    {
+     "id": "hr_laka",
+     "f": "hr_zakon",
+     "tema": "dal_2027",
+     "x": "(2) Za laka vozila primjenjuje se mikrovalna tehnologija na frekvenciji 5,8 GHz uz upotrebu ENC uređaja ili tehnologija automatskog prepoznavanja registarskih pločica."
+    },
+    {
+     "id": "hr_prijava",
+     "f": "hr_zakon",
+     "tema": "dal_2027",
+     "x": "(2) Za uključenje u ESNC potrebno je u ESNC prijaviti sljedeće: – po APRP modelu podatke s registarskih pločica vozila i valjano sredstvo plaćanja – po ENC modelu podatke s registarskih pločica vozila, serijski broj ili crtični kod ENC uređaja i valjano sredstvo plaćanja."
+    },
+    {
+     "id": "hr_gdje",
+     "f": "hr_zakon",
+     "tema": "dal_2027",
+     "x": "(3) Uključenje u ESNC može se provesti na sljedećim naplatnim korisničkim mjestima: – putem jedinstvenog nacionalnog web prodajnog mjesta za uključenje u ESNC – putem mobilnih aplikacija za uključenje u ESNC, drugih digitalnih servisa te putem online bankarstva kreditnih institucija – na namjenskim stazama za brzo uključenje u ESNC – u prodajnim uredima subjekata za naplatu cestarine – na prodajnim mjestima trećih osoba s kojima su subjekti za naplatu cestarine sklopili ugovor o posredovanju."
+    },
+    {
+     "id": "hr_obveza",
+     "f": "hr_zakon",
+     "tema": "dal_2027",
+     "x": "(1) Korisnik je dužan: – prije početka i tijekom upotrebe autoceste ili objekta pod naplatom lakim vozilom osigurati uključenje u ESNC, sukladno članku 16. stavcima 1. i 7. ovoga Zakona, osim ako nije dostupna mogućnost uključenja u ESNC"
+    },
+    {
+     "id": "hr_bez",
+     "f": "hr_zakon",
+     "tema": "dal_2027",
+     "x": "(1) Vozač vozila koji upotrebljava autocestu odnosno objekt pod naplatom bez uključenja u ESNC u skladu s člankom 16. ovoga Zakona, dužan je platiti subjektu za naplatu cestarine naknadu cestarine kao korist ostvarenu po pravilima o stjecanju bez osnove i posebnu naknadu (zakonski penal) zbog upotrebe autoceste odnosno objekta pod naplatom bez uključenja (u daljnjem tekstu: zakonski penal), u visini određenoj stavkom 9. ovoga članka."
+    },
+    {
+     "id": "hr_penal",
+     "f": "hr_zakon",
+     "tema": "dal_2027",
+     "x": "(9) Zakonski penal iz stavka 1. ovoga članka iznosi 120,00 eura."
+    },
+    {
+     "id": "hr_sustav",
+     "f": "hr_crolibertas",
+     "tema": "dal_2027",
+     "x": "The Crolibertas system will be introduced on all motorways in the Republic of Croatia operated by Hrvatske Autoceste (HAC), Bina Istra, and Autocesta Zagreb–Macelj."
+    },
+    {
+     "id": "hr_obu",
+     "f": "hr_crolibertas",
+     "tema": "dal_2027",
+     "x": "Use of the OBU will be mandatory for heavy vehicles (as is the case in Austria and Slovenia). Light vehicle users will have the option to choose between the OBU or license plate recognition."
+    },
+    {
+     "id": "hr_data_hac",
+     "f": "hr_crolibertas_zakon",
+     "tema": "dal_2027",
+     "x": "Upon entry into force, the Act repeals the relevant provisions of the Roads Act, and the new system will be fully applied starting 1 March 2027."
+    },
+    {
+     "id": "hr_test",
+     "f": "hr_crolibertas_test",
+     "tema": "dal_2027",
+     "x": "Testing will continue until the new Crolibertas toll collection system is fully implemented."
+    },
+    {
+     "id": "hr_tvrtka",
+     "f": "hr_zakon",
+     "tema": "noleggio",
+     "x": "(2) Obvezu iz stavka 1. podstavaka 1. i 2. ovoga članka za vozilo koje se koristi za obavljanje djelatnosti pravne osobe, fizičke osobe obrtnika ili osobe koja obavlja samostalnu djelatnost dužan je provesti vlasnik vozila odnosno osoba koja ima pravo koristiti vozilo na temelju ugovora o leasingu ili sličnog ugovora."
+    },
+    {
+     "id": "hr_vozac",
+     "f": "hr_zakon",
+     "tema": "noleggio",
+     "x": "(3) Ako vlasnik vozila odnosno osoba koja ima pravo koristiti vozilo na temelju ugovora o leasingu ili sličnog ugovora ne izvrši obvezu iz stavka 2. ovoga članka, uključenje vozila iz stavka 2. ovoga članka u ESNC dužan je osigurati vozač."
+    },
+    {
+     "id": "hr_solidarno",
+     "f": "hr_zakon",
+     "tema": "noleggio",
+     "x": "(11) Za naknadu cestarine i zakonski penal iz stavka 1. ovoga članka solidarno s vozačem odgovaraju: – vlasnik vozila, osim u slučaju iz članka 6. stavka 3. ovoga Zakona – osoba koja ima pravo koristiti vozilo na temelju ugovora o leasingu ili sličnog ugovora – korisnik ENC uređaja."
     }
    ],
    "prezzi": [
@@ -1301,7 +1385,19 @@
       "pagamento"
      ],
      "pre": "Hrvatske autoceste says:",
-     "post": "It does not mention rental cars: ask the rental company whether the car has an ENC device and how it charges you for it."
+     "post": "It does not mention rental cars: ask the rental company whether the car has an ENC device and how it charges you for it. From 1 March 2027 the system changes (see the next question)."
+    },
+    {
+     "query": "croatia new toll system",
+     "q": "What is Croatia's new toll system?",
+     "cit": [
+      "hr_data_hac",
+      "hr_sustav",
+      "hr_obu",
+      "hr_test"
+     ],
+     "pre": "Under the Toll Collection Act, the toll system without toll plazas starts on 1 March 2027; until 28 February 2027 you pay at toll plazas. HAC's Crolibertas site says:",
+     "post": "Check the Crolibertas site before you travel."
     },
     {
      "query": "croatia tolls or vignette",
@@ -1322,9 +1418,44 @@
      ],
      "pre": "Hrvatske autoceste says:",
      "post": ""
+    },
+    {
+     "query": "do rental car companies pay for tolls",
+     "q": "Do rental car companies pay the tolls in Croatia?",
+     "cit": [],
+     "pre": "Neither HAC nor the Toll Collection Act mentions rental cars. From 1 March 2027 the law says that a vehicle used for a company's business must be registered in the toll system by its owner or leasing user, and otherwise by the driver; it does not say whether this covers rental cars.",
+     "post": "Before you book, ask the rental company whether the car will be registered in the Croatian toll system or has an ENC device, and how it charges you for tolls and any penalties."
     }
    ],
-   "chi": "the motorway operator Hrvatske autoceste (HAC)"
+   "chi": "the motorway operator Hrvatske autoceste (HAC) and Croatia's Toll Collection Act",
+   "cambio": {
+    "dal": "2027-03-01",
+    "titolo": "From 1 March 2027 (by law): tolls without toll plazas",
+    "frasi": [
+     "Until 28 February 2027: toll plazas, as described by HAC below (ticket at the entry, payment at the exit).",
+     "From 1 March 2027: the articles of the Toll Collection Act on the new electronic toll system come into force. For cars the law allows an ENC device or automatic number plate recognition.",
+     "To use the motorway, the vehicle must first be registered in the system with its number plate and a valid means of payment (and the ENC device, if you use one): online, in a mobile app, in dedicated quick-registration lanes, at operators' sales offices or at partner sales points.",
+     "Using the motorway without registering costs the toll plus a statutory penalty of €120, under the same law.",
+     "HAC's Crolibertas site says that the new system will be fully applied from 1 March 2027 and that testing will continue until it is fully implemented: check it before you travel."
+    ]
+   },
+   "traduzioni": {
+    "hr_stupanje": "This Act enters into force on the eighth day after its publication in the Official Gazette (Narodne novine), except for the provisions of Article 14, Article 15(1) to (5), Articles 16 to 22, Article 23(1) to (7), Articles 24 to 27, Article 28(1) to (15), Articles 29 to 31, Article 32(1), (2) and (3), Articles 33 to 37, Article 38(1) to (9), Article 39(1) to (6), Article 40, Article 41(1) to (7), Article 42(1) to (6), Article 43, Article 44(1) to (9), Articles 45 and 46, Article 47(1), (2) and (3), Articles 48 and 49 and Articles 52 to 57, which enter into force on 1 March 2027.",
+    "hr_laka": "(2) For light vehicles, microwave technology at a frequency of 5.8 GHz with the use of an ENC device, or automatic number plate recognition technology, is used.",
+    "hr_prijava": "(2) To join the ESNC (the electronic toll system), the following must be registered in the ESNC: – under the APRP model (number plate recognition), the vehicle's number plate data and a valid means of payment – under the ENC model, the vehicle's number plate data, the serial number or barcode of the ENC device and a valid means of payment.",
+    "hr_gdje": "(3) Registration in the ESNC can be done at the following points: – through the single national web sales point for registration in the ESNC – through mobile apps for registration in the ESNC, other digital services and the online banking of credit institutions – in dedicated lanes for quick registration in the ESNC – in the sales offices of the toll operators – at the sales points of third parties that have an agency contract with the toll operators.",
+    "hr_obveza": "(1) The user must: – before and during the use of a motorway or a tolled structure with a light vehicle, make sure the vehicle is registered in the ESNC, in line with Article 16(1) and (7) of this Act, unless registration in the ESNC is not available",
+    "hr_penal": "(9) The statutory penalty referred to in paragraph 1 of this Article is €120.00.",
+    "hr_tvrtka": "(2) For a vehicle used to carry out the business of a legal person, a sole trader or a self-employed person, the obligation in paragraph 1, indents 1 and 2, of this Article must be met by the owner of the vehicle or by the person entitled to use the vehicle under a leasing or similar contract.",
+    "hr_vozac": "(3) If the owner of the vehicle or the person entitled to use the vehicle under a leasing or similar contract does not meet the obligation in paragraph 2 of this Article, the driver must make sure that the vehicle referred to in paragraph 2 is registered in the ESNC.",
+    "hr_solidarno": "(11) The following are jointly liable with the driver for the toll compensation and the statutory penalty referred to in paragraph 1 of this Article: – the owner of the vehicle, except in the case referred to in Article 6(3) of this Act – the person entitled to use the vehicle under a leasing or similar contract – the user of the ENC device.",
+    "hr_bez": "(1) A driver who uses a motorway or a tolled structure without being registered in the ESNC in line with Article 16 of this Act must pay the toll operator the toll compensation, as a benefit obtained without legal basis, and a special charge (statutory penalty) for using the motorway or tolled structure without registration (hereinafter: statutory penalty), in the amount set in paragraph 9 of this Article."
+   },
+   "noleggio_pre": "The new law does not name rental cars either. For vehicles used for a company's business, and on who pays if a vehicle is not registered, it says:",
+   "temi_titoli": {
+    "come": "How you pay until 28 February 2027 (toll plazas)",
+    "dal_2027": "From 1 March 2027: the Toll Collection Act and the Crolibertas system"
+   }
   },
   {
    "iso2": "GR",

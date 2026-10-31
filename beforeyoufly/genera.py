@@ -351,6 +351,11 @@ h3{font-size:1.1rem;margin:22px 0 8px}
 .avviso::before{content:"";position:absolute;left:16px;top:14px;width:20px;height:20px;background:var(--warn);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4M12 8h.01'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4M12 8h.01'/%3E%3C/svg%3E") center/contain no-repeat}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;min-width:0;box-shadow:var(--sh-1)}
 .summary{padding:0;overflow:hidden;margin-top:8px;box-shadow:var(--sh-2)}
+.cambio{margin:18px 0;border-left:4px solid var(--sign)}
+.cambio h2{margin:0 0 10px;font-size:1.2rem}
+.cambio ul{margin:0 0 10px;padding-left:20px}
+.cambio li{margin:0 0 6px}
+.cambio .small{margin:0}
 .s-top{display:flex;align-items:center;gap:10px;background:var(--board);color:var(--on-board-2);padding:9px 18px;font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
 .s-top .sq{display:grid;place-items:center;width:26px;height:26px;border-radius:6px;background:var(--sign);color:var(--sign-ink)}
 .s-top .sq .ico{width:16px;height:16px;stroke-width:2.3}
@@ -530,6 +535,7 @@ ICONE = {
     "book": '<path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H11v18H5.5A1.5 1.5 0 0 1 4 19.5zM20 4.5A1.5 1.5 0 0 0 18.5 3H13v18h5.5a1.5 1.5 0 0 0 1.5-1.5z"/>',
     "bag": '<rect x="4" y="7.5" width="16" height="12.5" rx="2.5"/><path d="M9 7.5V5a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 5v2.5M8 20v1.5M16 20v1.5M9 11.5v5M15 11.5v5"/>',
     "globe": '<circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 4 6 4 9.5s-1.4 6.9-4 9.5c-2.6-2.6-4-6-4-9.5s1.4-6.9 4-9.5z"/>',
+    "paw": '<circle cx="7" cy="8.5" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="17" cy="8.5" r="2"/><circle cx="19" cy="13.5" r="1.8"/><path d="M12 11.5c-3 0-6 4.2-6 6.6 0 1.8 1.4 2.4 3 2.4 1.2 0 2-.6 3-.6s1.8.6 3 .6c1.6 0 3-.6 3-2.4 0-2.4-3-6.6-6-6.6z"/>',
     "car": '<path d="M5 16.5V12l1.8-4.6A2 2 0 0 1 8.7 6h6.6a2 2 0 0 1 1.9 1.4L19 12v4.5"/><path d="M3.5 12h17v4.5h-17zM7 16.5V19M17 16.5V19"/><circle cx="7.5" cy="14.2" r=".9"/><circle cx="16.5" cy="14.2" r=".9"/>',
     "bed": '<path d="M3 5v15M3 16h18M21 20v-6.5a2.5 2.5 0 0 0-2.5-2.5H11v5"/><circle cx="7" cy="12.5" r="1.8"/>',
     "apps": '<rect x="3.5" y="3.5" width="7" height="7" rx="1.8"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.8"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.8"/><path d="M17 13.5v7M13.5 17h7"/>',
@@ -3816,7 +3822,7 @@ def pagina_pat(k, c):
 {dove_idp(k)}
 {box_noleggio(k, c)}
 {link_ped(rel, c)}
-{link_gom(rel, c)}{link_fl(rel, c)}{link_tr_paese(rel, c)}
+{link_gom(rel, c)}{link_fl(rel, c)}{link_tr_paese(rel, c)}{link_pet(rel, c) if k == "uk" else ""}
 {f'<h2>Other licences in {escape(P)}</h2><div class="tab tab-b"><table><caption class="sr">International driving permit in {escape(P)} for other licences, from official advice</caption><thead><tr><th>Licence</th><th>In {escape(nome_srv(c))}</th><th>Checked</th></tr></thead><tbody>{"".join(altri)}</tbody></table></div>' if altri else ""}
 {f'<h2>Before you travel to {escape(P)}</h2><ul>' + "".join(f"<li>{x}</li>" for x in ingresso) + "</ul>" if ingresso else ""}
 {faq_h}
@@ -3981,13 +3987,15 @@ def about_pat(rel):
 # Fatti scritti a mano in dati/pedaggi_manuali.json (citazioni parola per parola, prove dei prezzi), fonti rilette da raccolta/pedaggi.py
 # (HTTP 200, data di lettura, impronta della zona citata) che scrive dati/pedaggi.json. Riquadro DiscoverCars (stesso NOLEGGIO_AUTO della
 # sezione Driving abroad) solo DOPO le regole ufficiali. Controlli: verifica.py, punto 20.
+# Dal 31/10/2026 un Paese può avere un "cambio" con data (Croazia: caselli fino al 28/2/2027, pedaggio senza caselli dal 1/3/2027 per legge):
+# riquadro con le frasi nostre (box_cambio_ped), citazioni del tema "dal_2027" con traduzione, titoli dei temi per Paese ("temi_titoli").
 PED_BASE = "tolls-rental-car"
 _f_ped = DATI / "pedaggi.json"
 PED = json.loads(_f_ped.read_text(encoding="utf-8")) if _f_ped.exists() else None
 PED_PAESI = sorted(PED["paesi"], key=lambda p: p["nome"]) if PED else []
 PED_PER = {p["iso2"]: p for p in PED_PAESI}
 LIMITE_TITOLO_PED = 70  # come la sezione Driving abroad: fino a 70 caratteri con l'anno
-TEMI_PED = [("come", "How you pay"), ("prezzo", "Prices"), ("scadenza", "When and where to pay"), ("multa", "If you do not pay"), ("altro", "Also on the official pages")]
+TEMI_PED = [("come", "How you pay"), ("dal_2027", "Changes already set by law"), ("prezzo", "Prices"), ("scadenza", "When and where to pay"), ("multa", "If you do not pay"), ("altro", "Also on the official pages")]
 
 
 def url_ped(c=None):
@@ -4053,7 +4061,7 @@ def sezione_noleggio_ped(p):
         chi = " and ".join(enti)
         return f"<p>{escape(chi)} {'says' if len(enti) == 1 else 'say'} this about rental cars:</p>{blocco_cit_ped(p, cc)}"
     testo = NOLEGGIO_NON_DETTO_VIG if p["vignetta"] else NOLEGGIO_NON_DETTO_PED
-    extra = f"<p>The official site also says:</p>{blocco_cit_ped(p, cc)}" if cc else ""
+    extra = f"<p>{escape(p.get('noleggio_pre') or 'The official site also says:')}</p>{blocco_cit_ped(p, cc)}" if cc else ""
     return f'<p data-nol-non-detto>{escape(testo)}</p>{extra}'
 
 
@@ -4134,11 +4142,24 @@ def descrizione_ped(p):
                    f"{cosa} in {p['nome_frase']} with a rental car, from official sources ({d})."], LIMITE_DESCRIZIONE)
 
 
+def box_cambio_ped(p):
+    """Riquadro "dal giorno X (per legge)": frasi nostre, ognuna ripresa dalle citazioni sotto (Croazia dal 1/3/2027). '' senza cambio."""
+    C = p.get("cambio")
+    if not C:
+        return ""
+    fonti = [f for f in fonti_ped(p) if any(x["f"] == f and x["tema"] in ("dal_2027", "noleggio") for x in p["citazioni"])]
+    righe = "".join(f"<li>{escape(x)}</li>" for x in C["frasi"])
+    return (f'<section class="card cambio" aria-labelledby="change" data-cambio="{C["dal"]}"><h2 id="change">{escape(C["titolo"])}</h2><ul>{righe}</ul>'
+            f'<p class="small">Our summary of the official texts quoted below: {", ".join(link_fonte_ped(f) for f in fonti)}, '
+            f'checked on {data_lunga(max(PED["fonti"][f]["letto_il"] for f in fonti))}.</p></section>')
+
+
 def pagina_ped(p):
     rel = "../../"
     c = p["iso2"]
-    temi = "".join(f'<h3>{escape(t)}</h3>{blocco_cit_ped(p, [x for x in p["citazioni"] if x["tema"] == k])}'
-                   for k, t in TEMI_PED if any(x["tema"] == k for x in p["citazioni"]))
+    titoli_temi = {**dict(TEMI_PED), **p.get("temi_titoli", {})}
+    temi = "".join(f'<h3>{escape(titoli_temi[k])}</h3>{blocco_cit_ped(p, [x for x in p["citazioni"] if x["tema"] == k])}'
+                   for k, _ in TEMI_PED if any(x["tema"] == k for x in p["citazioni"]))
     sguardo = (f'<tr><th scope="row">How you pay</th><td>{escape(p["come"])}</td></tr>'
                f'<tr><th scope="row">Vignette</th><td>{"Yes" if p["vignetta"] else "No: tolls are charged per trip"}</td></tr>'
                f'<tr><th scope="row">Price for a car</th><td>{escape(p["prezzo_breve"])}</td></tr>'
@@ -4155,6 +4176,7 @@ def pagina_ped(p):
 <p class="lead" id="answer">{escape(risposta_ped(p))}</p>
 {f'<p class="small">{escape(p["nota"])}</p>' if p.get("nota") else ""}
 </div></section>
+{box_cambio_ped(p)}
 {AVVISO_PED}
 <h2>At a glance</h2>
 <div class="tab tab-g"><table><caption class="cap">Tolls in {escape(p["nome_frase"])} with a rental car: summary of the official sources, checked on {data_lunga(data_ped(p))}</caption><tbody>{sguardo}</tbody></table></div>
@@ -4167,6 +4189,7 @@ def pagina_ped(p):
 {box_noleggio_ped(c)}
 {f'<h2>Driving in {escape(p["nome_frase"])} with your licence</h2>{guida}' if guida else ""}
 {link_gom(rel, c)}
+{link_pet(rel, c)}
 <h2>Other countries</h2>
 <div class="griglia">{altri}</div>
 {faq_h}
@@ -6158,6 +6181,649 @@ def about_tr(rel):
 <p>Rules: every sentence shown between quotation marks is copied word for word from the official page (German and Italian with our translation); the short summaries in the table are ours. A city gets a page only when its official page states a current fine for travelling without a valid ticket. Some official websites answer automated checks with an error or an anti-robot page, or do not state the fine; we do not try to pass those checks and we do not take rules from other websites, so these cities have no page and the table says why: {escape(", ".join(non))}. This is information, not legal advice.</p>"""
 
 
+# ---------------------------------------------------------------- Animali: dal Regno Unito all'UE con cane, gatto o furetto (31/10/2026)
+# Piano: studio-business/intelaiatura/idee-2026-10-30-animali.md (sez. 2-4). Citazioni parola per parola da GOV.UK (APHA, Defra; OGL v3.0) e dalla
+# Commissione europea, scritte a mano in dati/animali_manuali.json e rilette da raccolta/animali.py (HTTP 200, data, impronta), che copia anche
+# le tabelle GOV.UK delle rotte approvate per entrare in Gran Bretagna e i link della Commissione per Paese in dati/animali.json.
+# Pagine: indice, calcolatore delle date (motore Python = JS, verifica.py punto 26), passaporto britannico 2027 (pagina che segue la data),
+# rotte approvate, una pagina "dal Regno Unito a [Paese]" solo per i Paesi con ricerche vere (dati/animali_domanda.json).
+# Nessun consiglio veterinario ("check with your vet and the official page"); nessun link di affiliazione (nessun programma pertinente attivo).
+PET_BASE = "pets"
+_f_pet = DATI / "animali.json"
+PET = json.loads(_f_pet.read_text(encoding="utf-8")) if _f_pet.exists() else None
+_f_pet_dom = DATI / "animali_domanda.json"
+PET_DOM = json.loads(_f_pet_dom.read_text(encoding="utf-8")) if _f_pet_dom.exists() else {"paesi": {}, "generali": {}}
+PET_CALC = f"{PET_BASE}/date-calculator/"
+PET_PASS = f"{PET_BASE}/uk-pet-passport-2027/"
+PET_ROTTE = f"{PET_BASE}/approved-routes-great-britain/"
+LIMITE_TITOLO_PET = 70
+TENIA_PET = ["FI", "IE", "MT", "NO"]  # GOV.UK: verme solitario prima di entrare (più l'Irlanda del Nord, che non è una destinazione di questa sezione)
+PET_CIT = {c["id"]: c for c in PET["citazioni"]} if PET else {}
+PET_PAESI = PET["paesi"] if PET else []
+PET_PER = {p["iso2"]: p for p in PET_PAESI}
+PET_QUERY = {"CZ": "czech republic"}  # nome nelle ricerche, se diverso dal nome in minuscolo
+PET_DAL_MARE = {"FR": "France", "NL": "Netherlands", "ES": "Spain"}  # Paesi con rotte via mare nella tabella GOV.UK (nome della tabella)
+
+
+def ricerche_pet():
+    """Tutte le ricerche vere lette (suggerimenti dell'autocompletamento), Paesi e generali."""
+    out = set()
+    for d in list(PET_DOM["paesi"].values()) + [PET_DOM["generali"]]:
+        for ss in d.values():
+            out.update(ss)
+    return out
+
+
+RICERCHE_PET = ricerche_pet()
+
+
+def query_pet(p):
+    return PET_QUERY.get(p["iso2"], p["nome"].lower())
+
+
+def ricerca_paese_pet(p):
+    """Prima ricerca vera "dal Regno Unito" per il Paese (None = niente pagina): un suggerimento che nomina il Paese e il Regno Unito."""
+    q = query_pet(p)
+    for m in ("taking dog to {p} from uk", "dog to {p} from uk", "taking a dog to {p} from uk"):
+        if m.format(p=q) in RICERCHE_PET:
+            return m.format(p=q)
+    for ss in PET_DOM["paesi"].get(p["iso2"], {}).values():
+        for s in ss:
+            if q in s and re.search(r"\b(?:from|to) uk\b|\buk to\b", s):
+                return s
+    return None
+
+
+PET_PAGINE = sorted([p for p in PET_PAESI if ricerca_paese_pet(p)], key=lambda p: p["nome"]) if PET else []
+
+
+def slug_pet(p):
+    return "uk-to-" + re.sub(r"[^a-z]+", "-", p["nome"].lower()).strip("-")
+
+
+def url_pet(p=None):
+    return f"{PET_BASE}/" + (f"{slug_pet(p)}/" if p else "")
+
+
+def ha_pagina_pet(c):
+    return any(p["iso2"] == c for p in PET_PAGINE)
+
+
+def tenia_pet(c):
+    return c in TENIA_PET
+
+
+def data_pet(ids=None):
+    """Data di lettura più recente delle fonti usate (tutte, se ids è None)."""
+    ff = {PET_CIT[i]["f"] for i in ids} if ids else set(PET["fonti"])
+    return max(PET["fonti"][f]["letto_il"] for f in ff)
+
+
+def link_fonte_pet(fid):
+    F = PET["fonti"][fid]
+    return f'<a href="{escape(F["pagina"])}" rel="noopener">{escape(F["titolo"])}</a>'
+
+
+def html_cit_pet(c):
+    if c.get("elenco"):
+        return f"<p>{escape(c['elenco'][0])}</p><ul>" + "".join(f"<li>{escape(x)}</li>" for x in c["elenco"][1:]) + "</ul>"
+    return f"<p>{escape(c['x'])}</p>"
+
+
+def testo_cit_pet(c):
+    """Citazione come testo continuo (FAQ e JSON-LD): le voci di un elenco separate da punto e virgola."""
+    if c.get("elenco"):
+        return c["elenco"][0] + " " + "; ".join(c["elenco"][1:]) + "."
+    return c["x"]
+
+
+def blocco_cit_pet(ids):
+    """Citazioni raggruppate per fonte, con link, ente e data di lettura (stesso formato delle altre sezioni)."""
+    out, gruppi = [], []
+    for i in ids:
+        c = PET_CIT[i]
+        if gruppi and gruppi[-1][0] == c["f"]:
+            gruppi[-1][1].append(c)
+        else:
+            gruppi.append((c["f"], [c]))
+    for fid, cc in gruppi:
+        F = PET["fonti"][fid]
+        agg = f", page updated on {data_lunga(F['aggiornato_il'])}" if F.get("aggiornato_il") and fid in ("gov_rotte", "gov_aria", "gov_mare", "gov_sps") else ""
+        out.append(f'<blockquote class="cit">{"".join(html_cit_pet(c) for c in cc)}</blockquote><p class="fonte">Source: {link_fonte_pet(fid)} '
+                   f'({escape(F["ente"])}){agg}, checked on {data_lunga(F["letto_il"])}. Quoted word for word.</p>')
+    return "".join(out)
+
+
+AVVISO_PET = ('<p class="avviso"><strong>This is not veterinary advice.</strong> A missing step can mean that your pet is refused entry or put into quarantine. '
+              'We quote GOV.UK and the European Commission word for word, with the date we checked them. Check with your vet and the official page before you travel.</p>')
+NOTA_OGL_PET = (f'<p class="small">GOV.UK text: contains public sector information licensed under the <a href="{OGL}" rel="noopener">Open Government Licence v3.0</a>. '
+                'European Commission text: reuse authorised with acknowledgement of the source. Before You Fly is not a government site.</p>')
+
+
+def faq_pet(voci, extra_data):
+    """FAQ da dati/animali_manuali.json: pre + citazioni intere + post; l'ultima domanda dice da dove viene la risposta."""
+    out = []
+    for f in voci:
+        parti = ([f["pre"]] if f.get("pre") else []) + [f"“{testo_cit_pet(PET_CIT[i])}”" for i in f.get("cit", [])] + ([f["post"]] if f.get("post") else [])
+        out.append((f["q"], " ".join(parti)))
+    out.append(("Where does this answer come from?", f"From GOV.UK and the European Commission, read on {data_lunga(extra_data)} and quoted word for word on "
+                                                     "this page. It is information, not veterinary or legal advice: check with your vet and the official page."))
+    return out
+
+
+def html_faq_pet(faq):
+    h = "".join(f"<h3>{escape(q)}</h3><p>{escape(a)}</p>" for q, a in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
+    return f'<section class="faq"><h2>Questions</h2>{h}</section>', [ld]
+
+
+def faq_paese_pet(p):
+    """FAQ della pagina Paese dai modelli di dati/animali_manuali.json ('paese'): solo le domande con una ricerca vera per quel Paese."""
+    out = []
+    t = tenia_pet(p["iso2"])
+    for m in PET["faq"]["paese"]:
+        if m.get("solo") == "tenia" and not t or m.get("solo") == "no_tenia" and t:
+            continue
+        q = next((x.format(p=query_pet(p)) for x in m["query"] if x.format(p=query_pet(p)) in RICERCHE_PET), None)
+        if not q:
+            continue
+        sost = lambda s: s.replace("{paese}", p["nome"])
+        out.append({"query": q, "q": sost(m["q"]), "cit": m["cit"], "pre": sost(m.get("pre", "")), "post": sost(m.get("post", ""))})
+    return out
+
+
+# ---- motore del calcolatore (uguale a PET_JS; verifica.py lo confronta su casi a mano e casuali)
+def _data_pet_ok(s):
+    if not re.fullmatch(r"[0-9]{4}-[0-9]{2}-[0-9]{2}", s or ""):
+        return False
+    try:
+        d = date.fromisoformat(s)
+    except ValueError:
+        return False
+    return 1990 <= d.year <= 2100
+
+
+def _meno_ore(giorno, ora, h):
+    return (datetime.fromisoformat(f"{giorno}T{ora}") - timedelta(hours=h)).strftime("%Y-%m-%dT%H:%M")
+
+
+def calcola_pet(I):
+    """I: dict di stringhe (da, specie, dest, nascita, chip, vaccino, tipo, attesa, prelievo, arrivo, ora_arrivo, ritorno, ora_ritorno).
+    Regole: GOV.UK (microchip prima o insieme al vaccino; 12 settimane; almeno 21 giorni pieni, il giorno 1 è il giorno dopo il vaccino; AHC valido
+    10 giorni, il giorno 1 è quello del rilascio; verme solitario tra 120 e 24 ore prima dell'arrivo; rientro in Gran Bretagna con l'AHC meno di
+    6 mesi dopo l'ingresso nell'UE) e Commissione europea (prelievo almeno 30 giorni dopo il vaccino, AHC non prima di 90 giorni dal prelievo)."""
+    g = lambda k: str(I.get(k) or "").strip()
+    da, specie, dest, tipo = g("da") or "gb", g("specie") or "cane", g("dest"), g("tipo") or "primo"
+    if da not in ("gb", "elenco", "non_elenco") or specie not in ("cane", "gatto", "furetto") or tipo not in ("primo", "richiamo") or dest not in PET_PER:
+        return {"errore": "scelta", "campo": None, "esito": None, "passi": [], "primo": None}
+    for k in ("chip", "vaccino", "arrivo") + (("prelievo",) if da == "non_elenco" else ()):
+        if not _data_pet_ok(g(k)):
+            return {"errore": "data", "campo": k, "esito": None, "passi": [], "primo": None}
+    for k in ("nascita", "ritorno"):
+        if g(k) and not _data_pet_ok(g(k)):
+            return {"errore": "data", "campo": k, "esito": None, "passi": [], "primo": None}
+    ora_a, ora_r = g("ora_arrivo") or "12:00", g("ora_ritorno") or "12:00"
+    for k, o in (("ora_arrivo", ora_a), ("ora_ritorno", ora_r)):
+        if not re.fullmatch(r"(?:[01][0-9]|2[0-3]):[0-5][0-9]", o):
+            return {"errore": "ora", "campo": k, "esito": None, "passi": [], "primo": None}
+    attesa = 0
+    if tipo == "primo":
+        a = g("attesa") or "21"
+        if not re.fullmatch(r"[0-9]{1,3}", a) or not 21 <= int(a) <= 365:
+            return {"errore": "attesa", "campo": "attesa", "esito": None, "passi": [], "primo": None}
+        attesa = int(a)
+    chip, vaccino, arrivo, nascita, ritorno = g("chip"), g("vaccino"), g("arrivo"), g("nascita"), g("ritorno")
+    if arrivo < vaccino:
+        return {"errore": "ordine", "campo": "arrivo", "esito": None, "passi": [], "primo": None}
+    if ritorno and ritorno < arrivo:
+        return {"errore": "ordine", "campo": "ritorno", "esito": None, "passi": [], "primo": None}
+    passi = [{"id": "chip", "esito": "ok" if chip <= vaccino else "no", "d": {"chip": chip, "vaccino": vaccino}}]
+    if nascita:
+        dodici = piu_giorni(nascita, 84)
+        passi.append({"id": "eta", "esito": "ok" if vaccino >= dodici else "no", "d": {"dodici": dodici}})
+    if tipo == "primo":
+        pronto = piu_giorni(vaccino, attesa + 1)
+        passi.append({"id": "attesa", "esito": "ok" if pronto <= arrivo else "no", "d": {"pronto": pronto, "giorni": attesa}})
+    else:
+        pronto = vaccino
+        passi.append({"id": "richiamo", "esito": "ok", "d": {"pronto": pronto}})
+    if da == "non_elenco":
+        prelievo = g("prelievo")
+        minimo, ahc_dal = piu_giorni(vaccino, 30), piu_giorni(prelievo, 90)
+        passi.append({"id": "sangue", "esito": "ok" if prelievo >= minimo and ahc_dal <= arrivo else "no",
+                      "d": {"minimo": minimo, "ahc_dal": ahc_dal, "prelievo_ok": prelievo >= minimo}})
+        pronto = max(pronto, ahc_dal)
+    if pronto <= arrivo:
+        passi.append({"id": "ahc", "esito": "ok", "d": {"dal": max(piu_giorni(arrivo, -9), pronto), "al": arrivo}})
+    else:
+        passi.append({"id": "ahc", "esito": "no", "d": {"primo": pronto, "ultimo": piu_giorni(pronto, 9)}})
+    if specie == "cane" and dest in TENIA_PET:
+        passi.append({"id": "tenia", "esito": "info", "d": {"dal": _meno_ore(arrivo, ora_a, 120), "al": _meno_ore(arrivo, ora_a, 24)}})
+    if da == "gb" and ritorno:
+        ultimo = piu_giorni(piu_mesi(arrivo, 6), -1)
+        passi.append({"id": "ritorno", "esito": "ok" if ritorno <= ultimo else "no", "d": {"ultimo": ultimo}})
+        if specie == "cane":
+            if dest in TENIA_PET:
+                passi.append({"id": "tenia_ritorno_no", "esito": "info", "d": {}})
+            else:
+                passi.append({"id": "tenia_ritorno", "esito": "info", "d": {"dal": _meno_ore(ritorno, ora_r, 120), "al": _meno_ore(ritorno, ora_r, 24)}})
+    return {"errore": None, "campo": None, "esito": "no" if any(x["esito"] == "no" for x in passi) else "ok", "passi": passi, "primo": pronto}
+
+
+PET_MOTORE_JS = r"""
+var PET_TENIA=["FI","IE","MT","NO"];
+function petPd(s){var m=/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/.exec(s||'');if(!m)return null;var y=+m[1],mo=+m[2],d=+m[3];if(y<1990||y>2100)return null;
+  var t=Date.UTC(y,mo-1,d),x=new Date(t);return (x.getUTCFullYear()===y&&x.getUTCMonth()===mo-1&&x.getUTCDate()===d)?t:null;}
+function petFd(t){return new Date(t).toISOString().slice(0,10);}
+function petPg(s,n){return petFd(petPd(s)+n*864e5);}
+function petPm(s,m){var y=+s.slice(0,4),mo=+s.slice(5,7),d=+s.slice(8,10);mo+=m;y+=Math.floor((mo-1)/12);mo=((mo-1)%12+12)%12+1;
+  var u=[31,(y%4===0&&(y%100!==0||y%400===0))?29:28,31,30,31,30,31,31,30,31,30,31][mo-1];return String(y).padStart(4,'0')+'-'+String(mo).padStart(2,'0')+'-'+String(Math.min(d,u)).padStart(2,'0');}
+function petMo(g,o,h){var t=petPd(g)+((+o.slice(0,2))*60+(+o.slice(3,5)))*6e4-h*36e5;return new Date(t).toISOString().slice(0,16);}
+function calcolaPet(I,PAESI){
+  var g=function(k){return String(I[k]==null?'':I[k]).trim();};
+  var da=g('da')||'gb',specie=g('specie')||'cane',dest=g('dest'),tipo=g('tipo')||'primo';
+  var vuoto=function(e,c){return {errore:e,campo:c,esito:null,passi:[],primo:null};};
+  if(['gb','elenco','non_elenco'].indexOf(da)<0||['cane','gatto','furetto'].indexOf(specie)<0||['primo','richiamo'].indexOf(tipo)<0||PAESI.indexOf(dest)<0)return vuoto('scelta',null);
+  var obb=['chip','vaccino','arrivo'].concat(da==='non_elenco'?['prelievo']:[]);
+  for(var i=0;i<obb.length;i++){if(petPd(g(obb[i]))===null)return vuoto('data',obb[i]);}
+  var fac=['nascita','ritorno'];for(i=0;i<fac.length;i++){if(g(fac[i])&&petPd(g(fac[i]))===null)return vuoto('data',fac[i]);}
+  var oa=g('ora_arrivo')||'12:00',orr=g('ora_ritorno')||'12:00',re=/^(?:[01][0-9]|2[0-3]):[0-5][0-9]$/;
+  if(!re.test(oa))return vuoto('ora','ora_arrivo');if(!re.test(orr))return vuoto('ora','ora_ritorno');
+  var attesa=0;if(tipo==='primo'){var a=g('attesa')||'21';if(!/^[0-9]{1,3}$/.test(a)||+a<21||+a>365)return vuoto('attesa','attesa');attesa=+a;}
+  var chip=g('chip'),vaccino=g('vaccino'),arrivo=g('arrivo'),nascita=g('nascita'),ritorno=g('ritorno');
+  if(arrivo<vaccino)return vuoto('ordine','arrivo');if(ritorno&&ritorno<arrivo)return vuoto('ordine','ritorno');
+  var passi=[{id:'chip',esito:chip<=vaccino?'ok':'no',d:{chip:chip,vaccino:vaccino}}],pronto;
+  if(nascita){var dodici=petPg(nascita,84);passi.push({id:'eta',esito:vaccino>=dodici?'ok':'no',d:{dodici:dodici}});}
+  if(tipo==='primo'){pronto=petPg(vaccino,attesa+1);passi.push({id:'attesa',esito:pronto<=arrivo?'ok':'no',d:{pronto:pronto,giorni:attesa}});}
+  else{pronto=vaccino;passi.push({id:'richiamo',esito:'ok',d:{pronto:pronto}});}
+  if(da==='non_elenco'){var prelievo=g('prelievo'),minimo=petPg(vaccino,30),ahcDal=petPg(prelievo,90);
+    passi.push({id:'sangue',esito:(prelievo>=minimo&&ahcDal<=arrivo)?'ok':'no',d:{minimo:minimo,ahc_dal:ahcDal,prelievo_ok:prelievo>=minimo}});
+    if(ahcDal>pronto)pronto=ahcDal;}
+  if(pronto<=arrivo){var dal=petPg(arrivo,-9);passi.push({id:'ahc',esito:'ok',d:{dal:dal>pronto?dal:pronto,al:arrivo}});}
+  else passi.push({id:'ahc',esito:'no',d:{primo:pronto,ultimo:petPg(pronto,9)}});
+  if(specie==='cane'&&PET_TENIA.indexOf(dest)>=0)passi.push({id:'tenia',esito:'info',d:{dal:petMo(arrivo,oa,120),al:petMo(arrivo,oa,24)}});
+  if(da==='gb'&&ritorno){var ultimo=petPg(petPm(arrivo,6),-1);passi.push({id:'ritorno',esito:ritorno<=ultimo?'ok':'no',d:{ultimo:ultimo}});
+    if(specie==='cane'){if(PET_TENIA.indexOf(dest)>=0)passi.push({id:'tenia_ritorno_no',esito:'info',d:{}});
+      else passi.push({id:'tenia_ritorno',esito:'info',d:{dal:petMo(ritorno,orr,120),al:petMo(ritorno,orr,24)}});}}
+  return {errore:null,campo:null,esito:passi.some(function(x){return x.esito==='no';})?'no':'ok',passi:passi,primo:pronto};
+}
+"""
+
+PET_UI_JS = r"""
+(function(){var box=document.querySelector('[data-pet-calc]');if(!box)return;
+  var D=JSON.parse(document.getElementById('pet-dati').textContent),form=box.querySelector('form'),out=box.querySelector('[data-out]');
+  var MESI=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var gl=function(s){var d=new Date(petPd(s.slice(0,10)));return d.getUTCDate()+' '+MESI[d.getUTCMonth()]+' '+d.getUTCFullYear()+(s.length>10?' at '+s.slice(11,16):'');};
+  var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};
+  var NOMI_CAMPI={chip:'microchip date',vaccino:'rabies vaccination date',arrivo:'date you arrive in the EU',prelievo:'blood sample date',nascita:'date of birth',ritorno:'date you come back',ora_arrivo:'arrival time',ora_ritorno:'return time'};
+  try{var q=new URLSearchParams(location.search).get('dest');if(q&&D.paesi[q])form.dest.value=q;}catch(e){}
+  function testo(x,I){var d=x.d,n=D.paesi[I.dest];
+    switch(x.id){
+      case 'chip':return x.esito==='ok'?'Microchip: put in on '+gl(d.chip)+', on or before the rabies vaccination ('+gl(d.vaccino)+').':'The microchip ('+gl(d.chip)+') was put in after the rabies vaccination ('+gl(d.vaccino)+'). GOV.UK: your pet will need to be vaccinated again.';
+      case 'eta':return x.esito==='ok'?'Age: your pet was at least 12 weeks old on the vaccination date (12 weeks old on '+gl(d.dodici)+').':'Your pet was under 12 weeks old on the vaccination date (12 weeks old on '+gl(d.dodici)+'): ask your vet, the vaccination does not meet the rule.';
+      case 'attesa':return 'Rabies wait: '+d.giorni+' full days, counting from the day after the vaccination. Earliest day to get the animal health certificate and enter the EU: '+gl(d.pronto)+'.'+(x.esito==='no'?' That is after your arrival date.':'');
+      case 'richiamo':return 'Booster with no break in the vaccine cover: GOV.UK says you do not need to wait. Ask your vet to confirm that there was no break.';
+      case 'sangue':return 'Blood test: the sample must be taken at least 30 days after the vaccination (from '+gl(d.minimo)+')'+(d.prelievo_ok?'':' – your date is too early')+', and the certificate cannot be issued until 90 days after the sample ('+gl(d.ahc_dal)+').';
+      case 'ahc':return x.esito==='ok'?'Animal health certificate: have it issued between '+gl(d.dal)+' and '+gl(d.al)+'. It is valid for entering the EU for 10 days, counting the day it is issued as day 1.':'You cannot enter on that date: the earliest day for the certificate is '+gl(d.primo)+', and with a certificate issued that day you can enter up to and including '+gl(d.ultimo)+'.';
+      case 'tenia':return 'Tapeworm treatment for dogs going to '+n+': a vet must give it no earlier than '+gl(d.dal)+' and no later than '+gl(d.al)+' (between 120 and 24 hours before your arrival time).';
+      case 'ritorno':return x.esito==='ok'?'Coming back to Great Britain with the same certificate: arrive by '+gl(d.ultimo)+' (less than 6 months after you entered the EU).':'You come back too late for the certificate: with an animal health certificate you must be back by '+gl(d.ultimo)+' (less than 6 months after you entered the EU). After that GOV.UK says you need a Great Britain pet health certificate.';
+      case 'tenia_ritorno':return 'Tapeworm treatment before you come back to Great Britain: a vet must give it between '+gl(d.dal)+' and '+gl(d.al)+'.';
+      case 'tenia_ritorno_no':return 'No tapeworm treatment is needed to come back to Great Britain directly from '+n+'.';}
+    return '';}
+  function aggiorna(){var I={};['da','specie','dest','nascita','chip','vaccino','tipo','attesa','prelievo','arrivo','ora_arrivo','ritorno','ora_ritorno'].forEach(function(k){I[k]=form[k]?form[k].value:'';});
+    box.querySelector('[data-campo=prelievo]').hidden=I.da!=='non_elenco';box.querySelector('[data-campo=attesa]').hidden=I.tipo!=='primo';
+    box.querySelectorAll('[data-solo-gb]').forEach(function(e){e.hidden=I.da!=='gb';});
+    if(!I.chip||!I.vaccino||!I.arrivo){out.innerHTML='<p style="margin:0">Enter the microchip date, the rabies vaccination date and the date you plan to arrive in the EU.</p>';return;}
+    var R=calcolaPet(I,Object.keys(D.paesi));
+    if(R.errore){var m=R.errore==='attesa'?'The wait must be a whole number of days, at least 21 (ask your vet which wait applies to the vaccine used).':
+      R.errore==='ordine'?(R.campo==='arrivo'?'The arrival date is before the vaccination date.':'The return date is before the arrival date.'):
+      R.errore==='ora'?'Check the '+NOMI_CAMPI[R.campo]+' (hours and minutes).':'Check the '+(NOMI_CAMPI[R.campo]||'choices')+'.';
+      out.innerHTML='<p data-errore-pet style="margin:0">'+esc(m)+'</p>';return;}
+    out.innerHTML='<div class="esito '+(R.esito==='ok'?'si':'no')+'"><strong>'+(R.esito==='ok'?'Your dates work with these rules':'Your dates do not work: see the points marked ✗')+'</strong></div><ul>'+
+      R.passi.map(function(x){return '<li class="'+(x.esito==='no'?'ko':'ok')+'" data-passo="'+x.id+'"><span class="m">'+(x.esito==='no'?'✗':(x.esito==='ok'?'✓':'•'))+'</span>'+esc(testo(x,I))+'</li>';}).join('')+
+      '</ul><p class="small" style="margin:10px 0 0">Check these dates with your vet and the official pages before you travel.</p>';}
+  form.addEventListener('input',aggiorna);form.addEventListener('change',aggiorna);aggiorna();})();
+"""
+
+
+def modulo_pet(dest=None):
+    opz = "".join(f'<option value="{p["iso2"]}"{" selected" if p["iso2"] == (dest or "FR") else ""}>{escape(p["nome"])}</option>'
+                  for p in sorted(PET_PAESI, key=lambda p: p["nome"]))
+    return f"""<div class="card checker" data-pet-calc>
+<div class="checker-h">{ico("paw")}<span>Pet travel dates · dog, cat or ferret</span></div>
+<div class="checker-b">
+<form class="calc" autocomplete="off">
+<div class="campi">
+<label><span class="lt">{ico("globe")}Travelling from</span><select name="da"><option value="gb" selected>Great Britain (England, Scotland, Wales)</option><option value="elenco">Another non-EU country on the EU list (no blood test)</option><option value="non_elenco">A non-EU country not on the EU list (blood test)</option></select></label>
+<label><span class="lt">{ico("paw")}Pet</span><select name="specie"><option value="cane" selected>Dog</option><option value="gatto">Cat</option><option value="furetto">Ferret</option></select></label>
+<label><span class="lt">{ico("globe")}Arriving in</span><select name="dest">{opz}</select></label>
+<label><span class="lt">{ico("calendar")}Microchip date</span><input type="date" name="chip"></label>
+<label><span class="lt">{ico("calendar")}Rabies vaccination date</span><input type="date" name="vaccino"></label>
+<label><span class="lt">{ico("check")}Vaccination</span><select name="tipo"><option value="primo" selected>First vaccination (or a new course)</option><option value="richiamo">Booster, no break in cover</option></select></label>
+<label data-campo="attesa"><span class="lt">{ico("calendar")}Wait your vet gives (days, at least 21)</span><input type="number" name="attesa" value="21" min="21" max="365" inputmode="numeric"></label>
+<label data-campo="prelievo" hidden><span class="lt">{ico("calendar")}Blood sample date</span><input type="date" name="prelievo"></label>
+<label><span class="lt">{ico("calendar")}Date of birth (optional)</span><input type="date" name="nascita"></label>
+<label><span class="lt">{ico("cal-in")}Date you arrive in the EU</span><input type="date" name="arrivo"></label>
+<label><span class="lt">{ico("cal-in")}Arrival time</span><input type="time" name="ora_arrivo" value="12:00"></label>
+<label data-solo-gb><span class="lt">{ico("cal-out")}Date you come back to GB (optional)</span><input type="date" name="ritorno"></label>
+<label data-solo-gb><span class="lt">{ico("cal-out")}Time you come back</span><input type="time" name="ora_ritorno" value="12:00"></label>
+</div>
+</form>
+<div class="risultato" data-out aria-live="polite" style="margin-top:14px"><noscript>Turn on JavaScript to use the calculator. The official rules are quoted on this page.</noscript></div>
+<p class="small" style="margin:12px 0 0">{ico("lock")} The calculator runs in your browser: your dates are not sent anywhere. It applies the official sentences quoted below literally; it is not veterinary advice.</p>
+</div>
+</div>{dati_json("pet-dati", {"paesi": {p["iso2"]: p["nome"] for p in PET_PAESI}})}"""
+
+
+def frase_calcolo_pet(R, nome):
+    """Testo dell'esempio statico (stesse frasi del JS per gli esiti 'ok')."""
+    out = []
+    for x in R["passi"]:
+        d = x["d"]
+        if x["id"] == "attesa":
+            out.append(f"Rabies wait: {d['giorni']} full days, counting from the day after the vaccination. Earliest day to get the animal health certificate and enter the EU: {data_lunga(d['pronto'])}.")
+        elif x["id"] == "ahc" and x["esito"] == "ok":
+            out.append(f"Animal health certificate: have it issued between {data_lunga(d['dal'])} and {data_lunga(d['al'])}. It is valid for entering the EU for 10 days, counting the day it is issued as day 1.")
+    return out
+
+
+# ---- pagine
+def link_paesi_pet(rel, salta=None):
+    return "".join(f'<a href="{rel}{url_pet(p)}">{escape(p["nome"])}<small>{"Dogs: tapeworm treatment" if tenia_pet(p["iso2"]) else "AHC, no tapeworm to enter"}</small></a>'
+                   for p in PET_PAGINE if p["iso2"] != salta)
+
+
+def pagina_indice_pet():
+    rel = "../"
+    d = data_lunga(data_pet())
+    ids_passi = [("microchip", "1. Microchip", ["e_chip"]), ("rabies", "2. Rabies vaccination and the wait", ["e_12sett", "e_21", "e_attesa_vet", "e_richiamo"]),
+                 ("ahc", "3. Animal health certificate (AHC)", ["e_ahc10", "e_ahc_ov", "e_5pets", "e_ogni_viaggio", "e_proseguire", "e_dichiarazione", "e_passaporto_no", "u_uk"]),
+                 ("tapeworm", "4. Tapeworm treatment (dogs, some countries)", ["e_tenia", "e_tenia_quando", "u_tenia_paesi"]),
+                 ("arrival", "5. At the border", ["e_ingresso", "u_ingresso"]),
+                 ("return", "6. Coming back to Great Britain", ["g_ahc", "g_oltre6", "g_tenia", "e_ritorno_tenia", "g_rotta", "g_quarantena"])]
+    passi = "".join(f'<h2 id="{k}">{escape(t)}</h2>{blocco_cit_pet(ii)}' for k, t, ii in ids_passi)
+    faq_h, faq_ld = html_faq_pet(faq_pet(PET["faq"]["indice"], data_pet()))
+    corpo = f"""<section class="hero">{h1_diviso(f"Taking a dog or cat from the UK to the EU ({ANNO}): what you need")}
+<p class="lead" id="answer">{escape(prima_frase_pet())}</p></section>
+{box_2027_pet(rel)}
+{AVVISO_PET}
+<section class="card" aria-label="Date calculator"><h2 style="margin-top:0">{ico("calendar")}When can your pet travel?</h2>
+<p>Enter the microchip and rabies vaccination dates and the day you arrive: the <a href="{rel}{PET_CALC}">pet travel date calculator</a> gives the earliest day for the animal health certificate, the 10-day window and the tapeworm times for dogs.</p></section>
+<h2>Country by country</h2>
+<p>Each page adds the tapeworm rule, the European Commission's links for the points of entry and the national rules, and the approved routes back to Great Britain.</p>
+<div class="griglia">{link_paesi_pet(rel)}</div>
+{AD}
+<h2 id="steps">What GOV.UK and the European Commission say, step by step</h2>
+<p>{escape(PET_CIT["e_regole_paese"]["x"])} (GOV.UK)</p>
+{passi}
+<h2>Approved routes into Great Britain</h2>
+<p>To come back by air, sea or rail you must use a carrier and route approved by APHA (except from Ireland, the UK, the Channel Islands and the Isle of Man): <a href="{rel}{PET_ROTTE}">every approved airline, ferry and train</a>.</p>
+{faq_h}
+<p class="small">Spotted a change? <a href="{rel}contact/?ref=pets">Tell us</a>. Help from the government: {escape(PET_CIT["e_aiuto"]["x"])}</p>
+{NOTA_OGL_PET}"""
+    desc = scegli([f"Microchip, rabies vaccine and 21-day wait, animal health certificate, tapeworm: taking a dog or cat from the UK to the EU, from GOV.UK, checked {d}.",
+                   f"Taking a dog or cat from the UK to the EU: AHC, rabies, tapeworm and return rules from GOV.UK, checked on {d}."], LIMITE_DESCRIZIONE)
+    pagina(f"{PET_BASE}/", scegli([f"Taking a Dog or Cat from the UK to the EU ({ANNO}): AHC Rules"], LIMITE_TITOLO_PET), desc, corpo,
+           briciole=[("Pets: UK to EU", f"{PET_BASE}/")], ld_extra=faq_ld)
+    LASTMOD[f"{PET_BASE}/"] = data_pet()
+
+
+def prima_frase_pet():
+    return (f"According to GOV.UK (Animal and Plant Health Agency), checked on {data_lunga(data_pet(['e_chip', 'e_21', 'e_ahc10', 'e_passaporto_no']))}, "
+            "to take a dog, cat or ferret from Great Britain to an EU country you need a microchip, a rabies vaccination given at least 21 full days "
+            "before you travel and an animal health certificate (AHC) from an official vet, which is valid for entering the EU for 10 days; if you live in "
+            "England, Scotland or Wales you cannot use a pet passport.")
+
+
+def box_2027_pet(rel):
+    return (f'<section class="card cambio" aria-labelledby="pp2027"><h2 id="pp2027">Changes expected in 2027</h2>'
+            f'<p>GOV.UK says that pet owners will be able to get a multiuse pet passport for EU travel when the UK–EU SPS agreement takes effect: '
+            f'“{escape(PET_CIT["s_data"]["x"])}” Until then, the animal health certificate rules on this page apply. '
+            f'<a href="{rel}{PET_PASS}">What GOV.UK says so far about the 2027 pet passport</a>.</p></section>')
+
+
+def pagina_calcolatore_pet():
+    rel = "../../"
+    es = calcola_pet({"da": "gb", "specie": "gatto", "dest": "FR", "chip": "2026-10-01", "vaccino": "2026-10-01", "tipo": "primo", "attesa": "30", "arrivo": "2026-11-10"})
+    righe_es = "".join(f"<li>{escape(x)}</li>" for x in frase_calcolo_pet(es, "France"))
+    ids_regole = ["e_chip", "e_12sett", "e_21", "e_richiamo", "e_ahc10", "e_tenia_quando", "g_ahc", "g_tenia", "g_sangue", "g_sangue_3mesi", "u_titolo", "u_esenti", "u_mare"]
+    faq_h, faq_ld = html_faq_pet(faq_pet(PET["faq"]["calcolatore"], data_pet()))
+    d = data_lunga(data_pet(ids_regole))
+    corpo = f"""<section class="hero">{h1_diviso(f"When can my dog or cat enter the EU? Pet travel date calculator ({ANNO})")}
+<p class="lead" id="answer">According to GOV.UK and the European Commission, checked on {d}, a dog, cat or ferret can get its animal health certificate and enter the EU at the earliest after a wait of at least 21 full days from its first rabies vaccination (day 1 is the day after the vaccination), and must then enter within 10 days of the certificate being issued; this calculator applies those rules to your dates.</p></section>
+{modulo_pet()}
+{AVVISO_PET}
+<h2 id="example">GOV.UK's own example, through the calculator</h2>
+<p>GOV.UK: “{escape(PET_CIT["e_esempio"]["x"])}” With a vaccination and microchip on 1 October 2026, a 30-day wait and arrival on 10 November 2026, the calculator gives:</p>
+<ul>{righe_es}</ul>
+<h2 id="rules">The rules the calculator applies</h2>
+<p>Each result above comes from one of these official sentences. Where a rule depends on the vaccine, the vet or the journey (for example a longer wait for some vaccines, or extra days for a sea crossing), the calculator asks you or leaves it out: check with your vet.</p>
+{blocco_cit_pet(ids_regole)}
+<p>How we count: “at least 21 full days” with day 1 the day after the vaccination means that the earliest day is the vaccination date plus 22 days; “valid for travel any time within 10 days”, with day 1 the day of issue, means up to and including the issue date plus 9 days; “less than 6 months since the date you entered the EU” means up to the day before the same date 6 months later; 12 weeks of age is 84 days after the date of birth.</p>
+{AD}
+<h2>Country pages</h2>
+<div class="griglia">{link_paesi_pet(rel)}</div>
+{faq_h}
+<p class="small"><a href="{rel}{PET_BASE}/">Taking a dog or cat from the UK to the EU: all the rules</a> · <a href="{rel}{PET_PASS}">UK pet passport 2027</a> · <a href="{rel}{PET_ROTTE}">Approved routes into Great Britain</a></p>
+{NOTA_OGL_PET}"""
+    desc = scegli([f"Earliest date your dog, cat or ferret can enter the EU: rabies wait, animal health certificate window, tapeworm times. Official rules, checked {d}.",
+                   "Pet travel date calculator: rabies wait, AHC window and tapeworm times from GOV.UK and the European Commission."], LIMITE_DESCRIZIONE)
+    pagina(PET_CALC, scegli([f"Pet Travel Date Calculator: UK to EU, Rabies Wait and AHC ({ANNO})"], LIMITE_TITOLO_PET), desc, corpo,
+           briciole=[("Pets: UK to EU", f"{PET_BASE}/"), ("Date calculator", PET_CALC)], js=PET_MOTORE_JS + PET_UI_JS, ld_extra=faq_ld)
+    LASTMOD[PET_CALC] = data_pet(ids_regole)
+
+
+def pagina_passaporto_pet():
+    rel = "../../"
+    ids = ["s_data", "s_passaporto", "s_trattative", "s_calendario"]
+    d = data_lunga(data_pet(ids))
+    F = PET["fonti"]["gov_sps"]
+    sguardo = (f'<tr><th scope="row">Today</th><td>An animal health certificate for each trip from Great Britain to the EU</td></tr>'
+               f'<tr><th scope="row">Expected</th><td>A multiuse pet passport valid for EU travel</td></tr>'
+               f'<tr><th scope="row">When</th><td>GOV.UK: “mid-2027”, subject to negotiations; no exact date on the pages we read</td></tr>'
+               f'<tr><th scope="row">Cost and how to apply</th><td>Not published on the GOV.UK pages we read</td></tr>'
+               f'<tr><th scope="row">Checked</th><td>{d} (GOV.UK page updated on {data_lunga(F["aggiornato_il"])})</td></tr>')
+    faq_h, faq_ld = html_faq_pet(faq_pet(PET["faq"]["passaporto"], data_pet(ids)))
+    corpo = f"""<section class="hero">{h1_diviso(f"UK pet passport 2027: what GOV.UK says so far")}
+<p class="lead" id="answer">According to GOV.UK (Defra), checked on {d}, the UK–EU SPS agreement is intended to take effect in mid-2027, and pet owners will then be able to get a multiuse pet passport valid for EU travel instead of a new animal health certificate for each trip; GOV.UK gives no exact date or cost yet, and until then you still need an animal health certificate.</p></section>
+{AVVISO_PET}
+<h2>At a glance</h2>
+<div class="tab tab-g"><table><caption class="cap">UK pet passport for EU travel: what the GOV.UK pages say, checked on {d}</caption><tbody>{sguardo}</tbody></table></div>
+<h2 id="official">What GOV.UK says</h2>
+{blocco_cit_pet(ids)}
+<h2 id="today">What you need today</h2>
+{blocco_cit_pet(["e_passaporto_no", "e_ahc10", "e_ogni_viaggio"])}
+{blocco_cit_pet(["u_uk"])}
+<p>Step by step: <a href="{rel}{PET_BASE}/">taking a dog or cat from the UK to the EU</a>, and the <a href="{rel}{PET_CALC}">date calculator</a>.</p>
+{AD}
+<h2>How we follow this page</h2>
+<p>We re-read the GOV.UK page at every update of this site and compare the quoted text with the previous reading: when GOV.UK publishes a date, a cost or new steps, this page changes and shows the new date of the check. Last check: {d}.</p>
+{faq_h}
+<p class="small">Spotted a change? <a href="{rel}contact/?ref=pets-2027">Tell us</a>.</p>
+{NOTA_OGL_PET}"""
+    desc = scegli([f"Will UK pet passports return in 2027? What GOV.UK says about the SPS agreement and the multiuse pet passport, checked on {d}.",
+                   f"UK pet passport 2027: what GOV.UK says so far, checked on {d}."], LIMITE_DESCRIZIONE)
+    pagina(PET_PASS, scegli([f"UK Pet Passport 2027: What GOV.UK Says So Far (Checked {data_lunga(data_pet(ids)).split(' ', 1)[1]})",
+                             "UK Pet Passport 2027: What GOV.UK Says So Far"], LIMITE_TITOLO_PET), desc, corpo,
+           briciole=[("Pets: UK to EU", f"{PET_BASE}/"), ("UK pet passport 2027", PET_PASS)], ld_extra=faq_ld)
+    LASTMOD[PET_PASS] = data_pet(ids)
+
+
+def righe_rotte_pet(righe, colonne, filtro=None):
+    out = []
+    for r in righe:
+        if filtro and not filtro(r):
+            continue
+        out.append("<tr data-voce>" + "".join(f'<td data-l="{escape(t)}">{escape(r[k])}</td>' for k, t in colonne) + "</tr>")
+    return "".join(out)
+
+
+def pagina_rotte_pet():
+    rel = "../../"
+    R = PET["rotte"]
+    ids = ["r_solo", "r_esenzioni", "g_cargo", "a_stiva", "a_aggiornate", "m_limiti", "g_compagnia"]
+    d = data_lunga(data_pet(ids))
+    agg = data_lunga(PET["fonti"]["gov_aria"]["aggiornato_il"])
+    nc = sum(1 for r in R["aria"] if r["tipo"] == "commerciale")
+    nch = R["charter"]
+    col_m = [("da", "From"), ("rotta", "Route"), ("compagnia", "Company")]
+    col_a = [("compagnia", "Airline"), ("aeroporti", "UK airports (animal reception centre)")]
+    faq_h, faq_ld = html_faq_pet(faq_pet(PET["faq"]["rotte"], data_pet(ids)))
+    corpo = f"""<section class="hero">{h1_diviso(f"Bringing a pet to Great Britain: approved airlines, ferries and trains ({ANNO})")}
+<p class="lead" id="answer">According to GOV.UK (Animal and Plant Health Agency), in lists updated on {agg} and checked on {d}, you can bring a pet dog, cat or ferret into England or Scotland only with an approved carrier on an approved route ({nc} commercial airlines, {nch} charter operators, {len(R["mare"])} ferry routes, {len(R["treno"])} rail routes and {len(R["crociera"])} cruise routes), unless you travel from the UK, the Channel Islands, the Isle of Man or Ireland; there are no approved routes to Wales.</p></section>
+{AVVISO_PET}
+<h2 id="official">What GOV.UK says</h2>
+{blocco_cit_pet(ids)}
+<h2 id="ferries">Ferry routes</h2>
+<div class="tab tab-b"><table><caption class="cap">Approved ferry routes into Great Britain for pets (GOV.UK, updated on {data_lunga(PET["fonti"]["gov_mare"]["aggiornato_il"])}, checked on {data_lunga(PET["fonti"]["gov_mare"]["letto_il"])})</caption><thead><tr><th>From</th><th>Route</th><th>Company</th></tr></thead><tbody>{righe_rotte_pet(R["mare"], col_m)}</tbody></table></div>
+<h2 id="rail">Rail (Eurotunnel and Eurostar)</h2>
+<div class="tab tab-b"><table><caption class="cap">Approved rail routes for pets (GOV.UK)</caption><thead><tr><th>Country you’re travelling from</th><th>Route</th><th>Company</th></tr></thead><tbody>{righe_rotte_pet(R["treno"], [("da", "From"), ("rotta", "Route"), ("compagnia", "Company")])}</tbody></table></div>
+<h2 id="cruises">Cruises</h2>
+<div class="tab tab-b"><table><caption class="cap">Approved cruise routes for pets (GOV.UK)</caption><thead><tr><th>Country you’re travelling from</th><th>Route</th><th>Company</th></tr></thead><tbody>{righe_rotte_pet(R["crociera"], [("da", "From"), ("rotta", "Route"), ("compagnia", "Company")])}</tbody></table></div>
+{AD}
+<h2 id="airlines">Airlines and UK airports</h2>
+<p>{escape(PET_CIT["a_stiva"]["x"])} (GOV.UK, about the {nc} commercial airlines.) Type an airline or an airport to filter.</p>
+<div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type an airline or airport, e.g. Air Canada or Manchester" data-filtro-multi aria-label="Search airlines and airports"></div>
+<h3>Commercial airlines</h3>
+<div class="tab tab-b"><table><caption class="cap">Approved commercial airlines for pets travelling to Great Britain (GOV.UK, updated on {agg})</caption><thead><tr><th>Airline</th><th>UK airports (animal reception centre)</th></tr></thead><tbody>{righe_rotte_pet(R["aria"], col_a, lambda r: r["tipo"] == "commerciale")}</tbody></table></div>
+<h3>Charter airlines</h3>
+<p>GOV.UK also lists {nch} approved charter operators (private and business flights), each with the UK airports it can fly pets to. We do not copy that list here: see <a href="{escape(PET["fonti"]["gov_aria"]["pagina"])}#charter-airlines" rel="noopener">section 2, “Charter airlines”, of the GOV.UK list</a>.</p>
+<p class="small">Tables copied row by row from GOV.UK. Ask the carrier whether it will take your pet on your date before you book.</p>
+{faq_h}
+<p class="small"><a href="{rel}{PET_BASE}/">Taking a dog or cat from the UK to the EU</a> · <a href="{rel}{PET_CALC}">Pet travel date calculator</a> · <a href="{rel}{PET_PASS}">UK pet passport 2027</a></p>
+{NOTA_OGL_PET}"""
+    desc = scegli([f"Which airlines, ferries and trains can bring a dog, cat or ferret into Great Britain: the APHA approved routes from GOV.UK, updated {agg}.",
+                   "Approved airlines, ferries and trains for pets travelling to Great Britain, from GOV.UK."], LIMITE_DESCRIZIONE)
+    pagina(PET_ROTTE, scegli([f"Bringing a Pet to Great Britain: Approved Airlines and Ferries ({ANNO})", f"Pets into Great Britain: Approved Airlines and Ferries ({ANNO})"],
+                             LIMITE_TITOLO_PET), desc, corpo, briciole=[("Pets: UK to EU", f"{PET_BASE}/"), ("Approved routes", PET_ROTTE)],
+           js=APP_JS_FILTRO, ld_extra=faq_ld)
+    LASTMOD[PET_ROTTE] = data_pet(ids)
+
+
+def rotte_ritorno_pet(p):
+    """Rotte via mare e treno approvate DAL Paese verso la Gran Bretagna (tabella GOV.UK)."""
+    nome = PET_DAL_MARE.get(p["iso2"], p["nome"])
+    R = PET["rotte"]
+    return [r for r in R["mare"] if r["da"] == nome] + [r for r in R["treno"] if r["da"] == nome] + [r for r in R["crociera"] if r["da"] == nome]
+
+
+def risposta_paese_pet(p):
+    n = p["nome"]
+    base = (f"According to GOV.UK and the European Commission, checked on {data_lunga(data_pet())}, to take a dog, cat or ferret from Great Britain to {n} you need "
+            "a microchip, a rabies vaccination given at least 21 full days before you travel and an animal health certificate, valid for entering the EU for 10 days")
+    if tenia_pet(p["iso2"]):
+        return base + (f"; {n} is on GOV.UK's tapeworm list, so a vet must treat your dog no less than 24 hours and no more than 120 hours before you arrive, "
+                       f"and no tapeworm treatment is needed to come back to Great Britain directly from {n}.")
+    return base + f"; {n} is not on GOV.UK's tapeworm list, so dogs need no tapeworm treatment to enter, but they need one before coming back to Great Britain."
+
+
+def pagina_paese_pet(p):
+    rel = "../../"
+    c, n = p["iso2"], p["nome"]
+    t = tenia_pet(c)
+    rotte = rotte_ritorno_pet(p)
+    dp = data_lunga(data_pet())
+    ing = "".join(f'<a href="{escape(u)}" rel="noopener">{"Points of entry" if i == 0 else "Points of entry (English version)"}</a> ' for i, u in enumerate(p["ingresso"]))
+    info = "".join(f'<a href="{escape(u)}" rel="noopener">{"National information" if i == 0 else "National information (English version)"}</a> ' for i, u in enumerate(p["info"]))
+    if c == "IE":
+        ritorno_rotte = f"<p>Approved routes are not needed from Ireland. GOV.UK says:</p>{blocco_cit_pet(['g_rotta'])}"
+        breve_rotte = "Not needed from Ireland (GOV.UK)"
+    elif rotte:
+        ritorno_rotte = (f'<div class="tab tab-b"><table><caption class="cap">Approved routes from {escape(n)} to Great Britain for pets (GOV.UK, updated on '
+                         f'{data_lunga(PET["fonti"]["gov_mare"]["aggiornato_il"])})</caption><thead><tr><th>Route</th><th>Company</th></tr></thead><tbody>'
+                         f'{righe_rotte_pet(rotte, [("rotta", "Route"), ("compagnia", "Company")])}</tbody></table></div>')
+        breve_rotte = f"{len(rotte)} by sea or rail, plus approved airlines"
+    else:
+        ritorno_rotte = (f'<p>GOV.UK lists no approved ferry, rail or cruise route from {escape(n)}: by air, pets travel as cargo with an approved airline, '
+                         f'or you can drive to an approved route from another country (for example the ferries and Eurotunnel from France). '
+                         f'See <a href="{rel}{PET_ROTTE}#airlines">the approved airlines and UK airports</a> and <a href="{rel}{PET_ROTTE}#ferries">the ferry and rail routes</a>.</p>')
+        breve_rotte = f"No sea or rail route from {n} in the GOV.UK list: approved airlines, or a listed route from another country"
+    sguardo = (f'<tr><th scope="row">Document</th><td>Animal health certificate from an official vet (a pet passport cannot be used if you live in England, Scotland or Wales)</td></tr>'
+               f'<tr><th scope="row">Rabies</th><td>At least 21 full days after the first vaccination</td></tr>'
+               f'<tr><th scope="row">Tapeworm to enter (dogs)</th><td>{"Yes: 24 to 120 hours before you arrive" if t else "No"}</td></tr>'
+               f'<tr><th scope="row">Tapeworm to return to GB (dogs)</th><td>{"No, directly from " + escape(n) if t else "Yes: 24 hours to 5 days before you arrive back"}</td></tr>'
+               f'<tr><th scope="row">Approved routes back to GB</th><td>{escape(breve_rotte)}</td></tr>'
+               f'<tr><th scope="row">Checked</th><td>{dp}</td></tr>')
+    faq_h, faq_ld = html_faq_pet(faq_pet(faq_paese_pet(p), data_pet()))
+    altri = link_paesi_pet(rel, salta=c)
+    guida = link_guida_pet(rel, c)
+    corpo = f"""<section class="hero">{h1_diviso(f"Taking your dog or cat from the UK to {n} ({ANNO})")}</section>
+<section class="card summary" aria-label="Answer">
+<div class="s-top"><span class="sq">{ico("paw")}</span><span>Pets · UK to {escape(n)}</span><span>{ANNO}</span></div>
+<div class="s-body"><p class="lead" id="answer">{escape(risposta_paese_pet(p))}</p></div></section>
+{box_2027_pet(rel)}
+{AVVISO_PET}
+<h2>At a glance</h2>
+<div class="tab tab-g"><table><caption class="cap">Taking a pet from Great Britain to {escape(n)}: our summary of the official sources, checked on {dp}</caption><tbody>{sguardo}</tbody></table></div>
+<section class="card" aria-label="Date calculator" style="margin-top:18px"><h2 style="margin-top:0">{ico("calendar")}Your dates for {escape(n)}</h2>
+<p><a href="{rel}{PET_CALC}?dest={c}">Open the date calculator for {escape(n)}</a>: earliest day for the animal health certificate, the 10-day window{", the tapeworm times" if t else ""} and the date you must be back.</p></section>
+<h2 id="official">What GOV.UK says</h2>
+{blocco_cit_pet(["e_chip", "e_21", "e_ahc10", "e_ahc_ov", "e_passaporto_no"])}
+<h2 id="tapeworm">Tapeworm treatment for dogs</h2>
+{f"<p>{escape(n)} is on the GOV.UK list:</p>" if t else f"<p>{escape(n)} is not on the GOV.UK list, so there is no tapeworm rule to enter:</p>"}
+{blocco_cit_pet(["e_tenia", "e_tenia_quando"] if t else ["e_tenia"])}
+<h2 id="arrival">Arriving in {escape(n)}</h2>
+{blocco_cit_pet(["e_ingresso", "e_regole_paese"])}
+<p>The European Commission links these official pages for {escape(n)}: {ing}{info if info else "(no link to national information on the Commission page on " + dp + ")"}</p>
+{blocco_cit_pet(["p_intro"])}
+{AD}
+<h2 id="return">Coming back to Great Britain from {escape(n)}</h2>
+{blocco_cit_pet(["g_ahc", "g_oltre6"] + (["e_ritorno_tenia"] if t else ["g_tenia"]))}
+{ritorno_rotte}
+{guida}
+<h2>Other countries</h2>
+<div class="griglia">{altri}</div>
+{faq_h}
+<p class="small">Spotted a change? <a href="{rel}contact/?ref=pets">Tell us</a>. <a href="{rel}{PET_BASE}/">Taking a dog or cat from the UK to the EU: all the rules</a> · <a href="{rel}{PET_ROTTE}">Approved routes</a></p>
+{NOTA_OGL_PET}"""
+    desc = scegli([f"Taking a dog or cat from the UK to {n}: microchip, rabies wait, animal health certificate{', tapeworm' if t else ''} and the way back. Official, checked {dp}.",
+                   f"Taking a dog or cat from the UK to {n}: rules from GOV.UK and the European Commission, checked on {dp}."], LIMITE_DESCRIZIONE)
+    pagina(url_pet(p), scegli([f"Taking a Dog from the UK to {n} ({ANNO}): AHC and Rules", f"Taking a Dog from the UK to {n} ({ANNO})"], LIMITE_TITOLO_PET), desc, corpo,
+           briciole=[("Pets: UK to EU", f"{PET_BASE}/"), (n, url_pet(p))], ld_extra=faq_ld)
+    LASTMOD[url_pet(p)] = data_pet()
+
+
+def link_guida_pet(rel, c):
+    """Collegamenti con le sezioni sulla guida (patente britannica, pedaggi) dello stesso Paese: chi va in auto con il cane passa da lì."""
+    voci = []
+    if PAT and c in PAGINE_PAT.get("uk", []):
+        voci.append(f'<a href="{rel}{url_pat("uk", c)}">Driving in {escape(PET_PER[c]["nome"])} with a UK licence</a>')
+    if PED and c in PED_PER:
+        voci.append(f'<a href="{rel}{url_ped(c)}">Tolls in {escape(PED_PER[c]["nome_frase"])}</a>')
+    if not voci:
+        return ""
+    return f'<p class="altri-pass">{ico("car")}<span>Driving there with your pet? {" · ".join(voci)}</span></p>'
+
+
+def link_pet(rel, c):
+    """Riga 'Travelling with your dog?' nelle pagine dello stesso Paese di altre sezioni (Driving abroad UK, Tolls)."""
+    p = PET_PER.get(c)
+    if not PET or not p or not ha_pagina_pet(c):
+        return ""
+    return (f'<p class="altri-pass">{ico("paw")}<span>Taking your dog or cat? <a href="{rel}{url_pet(p)}">Pet rules from the UK to {escape(p["nome"])}: '
+            f'animal health certificate, rabies{", tapeworm" if tenia_pet(c) else ""}</a></span></p>')
+
+
+def home_pet():
+    if not PET:
+        return ""
+    voci = "".join(f'<a href="{url_pet(p)}">{escape(p["nome"])}<small>{"Dogs: tapeworm treatment" if tenia_pet(p["iso2"]) else "AHC, no tapeworm to enter"}</small></a>'
+                   for p in PET_PAGINE[:12])
+    return (f'<h2>Travelling with a dog or cat from the UK</h2><p>Microchip, rabies vaccination, animal health certificate and tapeworm rules from GOV.UK: '
+            f'<a href="{PET_BASE}/">taking a pet from the UK to the EU</a>, the <a href="{PET_CALC}">pet travel date calculator</a>, the '
+            f'<a href="{PET_PASS}">2027 pet passport</a> and the <a href="{PET_ROTTE}">approved routes into Great Britain</a>.</p><div class="griglia">{voci}</div>')
+
+
+def about_pet(rel):
+    if not PET:
+        return ""
+    return f"""<h2 id="{PET_BASE}">Pets: from the UK to the EU</h2>
+<p>Sources: GOV.UK guides of the Animal and Plant Health Agency (“Taking your pet dog, cat or ferret abroad”, “Bringing your pet dog, cat or ferret to Great Britain”), the Defra page on the UK–EU SPS agreement for the veterinary sector, the GOV.UK lists of approved air, sea and rail carriers and routes, read through the GOV.UK Content API, and three pages of the European Commission (DG Health and Food Safety) on bringing pets into the EU, the travellers' points of entry and each country's information, {len(PET["fonti"])} pages in all, read on {data_lunga(PET["controllato_il"])}. GOV.UK text is licensed under the <a href="{OGL}" rel="noopener">Open Government Licence v3.0</a>.</p>
+<p>Rules: every sentence between quotation marks is copied word for word; the tables of approved routes are copied row by row; the summaries and the date calculator are ours. The European Commission's page says that the EU rules are now in Commission Delegated Regulation (EU) 2026/131; EUR-Lex does not answer our automated checks, so we quote the Commission's own summary of the rules rather than the regulation itself. We give no veterinary advice: every page says to check with your vet and the official page. A country gets a page only when people search for taking a pet there from the UK. This is information, not legal advice.</p>"""
+
+
+
 def home():
     auto = sum(1 for P in PAESI if P["regola"])
     due = [A for A in AER["aeroporti"] if A["regola"] == "2l"]
@@ -6213,6 +6879,7 @@ def home():
 {home_fl()}
 {home_tr()}
 {home_tb()}
+{home_pet()}
 {box_affiliati()}
 {dati_json('tutti-dati', [dati_client(P) for P in PAESI])}"""
     pagina("", f"Before You Fly {ANNO}: Passport, Visas, Liquids, Cabin Bags, EES",
@@ -6285,6 +6952,7 @@ def about():
 {about_fl(rel)}
 {about_tr(rel)}
 {about_tb(rel)}
+{about_pet(rel)}
 <h2>EES and ETIAS</h2>
 <p>European Commission (DG Migration and Home Affairs) pages and GOV.UK travel advice, last checked on {data_lunga(EES['controllato_il'])}. See the <a href="{rel}ees-etias/">EES and ETIAS page</a>.</p>
 <h2>Corrections</h2>
@@ -6692,6 +7360,13 @@ def main():
             pagina_tb(c)
         if TB_EUR:
             pagina_es()
+    if PET:
+        pagina_indice_pet()
+        pagina_calcolatore_pet()
+        pagina_passaporto_pet()
+        pagina_rotte_pet()
+        for p in PET_PAGINE:
+            pagina_paese_pet(p)
     about()
     contatti()
     privacy()
@@ -6711,7 +7386,9 @@ def main():
           + (f"; foreign licence Canada/Australia/NZ: indice + {len(FL_LETTE)} pagine ({len(FL_GIUR) - len(FL_LETTE)} giurisdizioni non lette, {len(FL['fonti'])} fonti)" if FL else "")
           + (f"; public transport rules: indice + {len(TR_LETTE)} pagine città ({len(TR_CITTA) - len(TR_LETTE)} città non lette, {len(TR['fonti'])} fonti)" if TR else "")
           + (f"; train luggage rules: indice + {len(TB_LETTE)} pagine compagnia ({len(TB_COMP) - len(TB_LETTE)} non lette, {len(TB['fonti'])} fonti)"
-             + (f" + Eurostar check-in ({len(TB_EUR['stazioni'])} stazioni)" if TB_EUR else "") if TB else ""))
+             + (f" + Eurostar check-in ({len(TB_EUR['stazioni'])} stazioni)" if TB_EUR else "") if TB else "")
+          + (f"; pets UK to EU: indice + calcolatore + passaporto 2027 + rotte approvate ({len(PET['rotte']['aria'])} compagnie aeree, {PET['rotte']['charter']} charter contati) + {len(PET_PAGINE)} pagine Paese "
+             f"({len(PET['fonti'])} fonti)" if PET else ""))
 
 
 if __name__ == "__main__":

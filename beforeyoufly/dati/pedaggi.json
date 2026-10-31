@@ -1,17 +1,17 @@
 {
  "_nota": "Pedaggi con l'auto a noleggio: fatti scritti a mano in dati/pedaggi_manuali.json (citazioni parola per parola e prove dei prezzi), fonti rilette da raccolta/pedaggi.py (HTTP, data di lettura, impronta della zona citata). Non modificare a mano: rilanciare lo script.",
- "controllato_il": "2026-10-30",
+ "controllato_il": "2026-10-31",
  "fonti": {
   "at_help": {
    "url": "https://help.asfinag.at/en/vignette-and-section-tolls/",
    "pagina": "https://help.asfinag.at/en/vignette-and-section-tolls/",
    "url_finale": "https://help.asfinag.at/en/vignette-and-section-tolls/",
    "http": 200,
-   "byte": 188439,
+   "byte": 188409,
    "ente": "ASFINAG",
    "titolo": "ASFINAG help: Vignette and section tolls",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "46e7b8ca06e8a027",
    "frasi": 5
@@ -21,11 +21,11 @@
    "pagina": "https://shop.asfinag.at/en/toll-products/digital-vignette/?type=Car",
    "url_finale": "https://shop.asfinag.at/en/toll-products/digital-vignette/?type=Car",
    "http": 200,
-   "byte": 40172,
+   "byte": 40719,
    "ente": "ASFINAG",
    "titolo": "ASFINAG toll shop: Digital Vignette for cars",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "2fa5f87402953d20",
    "frasi": 5
@@ -35,11 +35,11 @@
    "pagina": "https://shop.asfinag.at/en/products/digital-vignette/",
    "url_finale": "https://shop.asfinag.at/en/products/digital-vignette/",
    "http": 200,
-   "byte": 39906,
+   "byte": 40493,
    "ente": "ASFINAG",
    "titolo": "ASFINAG toll shop: Digital vignette",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "9f6bbba0faef816e",
    "frasi": 2
@@ -49,11 +49,11 @@
    "pagina": "https://www.bazg.admin.ch/en/electronic-vignette-via-portal-purchase",
    "url_finale": "https://www.bazg.admin.ch/en/electronic-vignette-via-portal-purchase",
    "http": 200,
-   "byte": 431867,
+   "byte": 431871,
    "ente": "Federal Office for Customs and Border Security (FOCBS)",
    "titolo": "FOCBS: Electronic vignette (Via portal)",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "a713e61b512e6714",
    "frasi": 1
@@ -67,7 +67,7 @@
    "ente": "Federal Office for Customs and Border Security (FOCBS)",
    "titolo": "FOCBS: FAQ vignette and e-vignette purchase",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "0403807a16119596",
    "frasi": 3
@@ -77,11 +77,11 @@
    "pagina": "https://www.bazg.admin.ch/en/motorway-charge-vignette",
    "url_finale": "https://www.bazg.admin.ch/en/motorway-charge-vignette",
    "http": 200,
-   "byte": 376305,
+   "byte": 381287,
    "ente": "Federal Office for Customs and Border Security (FOCBS)",
    "titolo": "FOCBS: Motorway charge (vignette)",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "e9a716cef92d0dc6",
    "frasi": 2
@@ -95,7 +95,7 @@
    "ente": "State Fund for Transport Infrastructure (eDalnice.gov.cz)",
    "titolo": "eDalnice.gov.cz: Electronic Vignette – official state e-shop",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "798d3dde3c4036e3",
    "frasi": 2
@@ -109,7 +109,7 @@
    "ente": "State Fund for Transport Infrastructure (eDalnice.gov.cz)",
    "titolo": "eDalnice.gov.cz: Inspection and fines",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "c13b47a66f1bbfba",
    "frasi": 1
@@ -123,7 +123,7 @@
    "ente": "State Fund for Transport Infrastructure (eDalnice.gov.cz)",
    "titolo": "eDalnice.gov.cz: Price list",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "8e6a44147ef974ed",
    "frasi": 4
@@ -133,11 +133,11 @@
    "pagina": "https://www.autopistas.com/es/beneficios/tarifas-y-descuentos",
    "url_finale": "https://www.autopistas.com/es/beneficios/tarifas-y-descuentos",
    "http": 200,
-   "byte": 163771,
+   "byte": 163772,
    "ente": "Autopistas (Abertis)",
    "titolo": "Autopistas (Abertis): Tarifas y descuentos",
    "lingua": "es",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "73ee54c6ed7731c8",
    "frasi": 2
@@ -147,11 +147,11 @@
    "pagina": "https://www.autopistas.com/es/beneficios/servicios/via-t",
    "url_finale": "https://www.autopistas.com/es/beneficios/servicios/via-t",
    "http": 200,
-   "byte": 82874,
+   "byte": 82875,
    "ente": "Autopistas (Abertis)",
    "titolo": "Autopistas (Abertis): Vía T",
    "lingua": "es",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "3f68ad198fe8528f",
    "frasi": 2
@@ -165,7 +165,7 @@
    "ente": "ALIAE (A79 motorway concession, APRR group)",
    "titolo": "ALIAE: the A79 motorway",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "f38870dfdeafd732",
    "frasi": 2
@@ -179,7 +179,7 @@
    "ente": "APRR",
    "titolo": "APRR: Flux libre sur ALIAE et entrées sans tickets sur AREA",
    "lingua": "fr",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "9cbdf472f433054a",
    "frasi": 6
@@ -193,7 +193,7 @@
    "ente": "APRR",
    "titolo": "APRR: Péage en flux libre : que faire si j’oublie de payer ?",
    "lingua": "fr",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "e0f3376c3578013f",
    "frasi": 4
@@ -203,25 +203,67 @@
    "pagina": "https://www.aodos.gr/en/diodia-e-pass/tolls/",
    "url_finale": "https://www.aodos.gr/en/diodia-e-pass/tolls/",
    "http": 200,
-   "byte": 92627,
+   "byte": 92821,
    "ente": "Attiki Odos",
    "titolo": "Attiki Odos (Attica Tollway): Tolls",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "483612da05466563",
    "frasi": 7
+  },
+  "hr_crolibertas": {
+   "url": "https://crolibertas.hr/en/o-sustavu-crolibertas/",
+   "pagina": "https://crolibertas.hr/en/o-sustavu-crolibertas/",
+   "url_finale": "https://crolibertas.hr/en/o-sustavu-crolibertas/",
+   "http": 200,
+   "byte": 82512,
+   "ente": "Hrvatske autoceste (HAC), Crolibertas project site",
+   "titolo": "Crolibertas: About the system",
+   "lingua": "en",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "6135b0d14b601ee2",
+   "frasi": 2
+  },
+  "hr_crolibertas_test": {
+   "url": "https://crolibertas.hr/en/obavijest-testiranje-i-uspostava-crolibertas-sustava-naplate-cestarine/",
+   "pagina": "https://crolibertas.hr/en/obavijest-testiranje-i-uspostava-crolibertas-sustava-naplate-cestarine/",
+   "url_finale": "https://crolibertas.hr/en/obavijest-testiranje-i-uspostava-crolibertas-sustava-naplate-cestarine/",
+   "http": 200,
+   "byte": 79468,
+   "ente": "Hrvatske autoceste (HAC), Crolibertas project site",
+   "titolo": "Crolibertas: Notice – Testing and Implementation of the Crolibertas Toll Collection System (5 October 2026)",
+   "lingua": "en",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "a09380af06738087",
+   "frasi": 1
+  },
+  "hr_crolibertas_zakon": {
+   "url": "https://crolibertas.hr/en/toll-collection-act-adopted/",
+   "pagina": "https://crolibertas.hr/en/toll-collection-act-adopted/",
+   "url_finale": "https://crolibertas.hr/en/toll-collection-act-adopted/",
+   "http": 200,
+   "byte": 77275,
+   "ente": "Hrvatske autoceste (HAC), Crolibertas project site",
+   "titolo": "Crolibertas: Toll Collection Act Adopted (24 December 2025)",
+   "lingua": "en",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "18d52d41663f9c74",
+   "frasi": 1
   },
   "hr_faq": {
    "url": "https://www.hac.hr/en/toll/faq",
    "pagina": "https://www.hac.hr/en/toll/faq",
    "url_finale": "https://www.hac.hr/en/toll/faq",
    "http": 200,
-   "byte": 160366,
+   "byte": 160423,
    "ente": "Hrvatske autoceste (HAC)",
    "titolo": "Hrvatske autoceste: Toll FAQ",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "0f33b71152cd270b",
    "frasi": 5
@@ -231,14 +273,28 @@
    "pagina": "https://www.hac.hr/en/toll",
    "url_finale": "https://www.hac.hr/en/toll",
    "http": 200,
-   "byte": 138155,
+   "byte": 138187,
    "ente": "Hrvatske autoceste (HAC)",
    "titolo": "Hrvatske autoceste: Toll",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "c77e7a894742d5dc",
    "frasi": 3
+  },
+  "hr_zakon": {
+   "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2025_12_156_2346.html",
+   "pagina": "https://narodne-novine.nn.hr/clanci/sluzbeni/2025_12_156_2346.html",
+   "url_finale": "https://narodne-novine.nn.hr/clanci/sluzbeni/2025_12_156_2346.html",
+   "http": 200,
+   "byte": 189232,
+   "ente": "Narodne novine, Official Gazette of the Republic of Croatia",
+   "titolo": "Zakon o naplati cestarine (Toll Collection Act), NN 156/2025",
+   "lingua": "hr",
+   "letto_il": "2026-10-31",
+   "cambiato_il": "2026-10-31",
+   "impronta": "dd021d4f9a06d12a",
+   "frasi": 10
   },
   "hu_multe": {
    "url": "https://nemzetiutdij.hu/cms/api/public/nemzetiutdij/contents/menuitem/6a01d0a9ca5a4e0013642a71",
@@ -249,7 +305,7 @@
    "ente": "National Toll Payment Services (Nemzeti Útdíjfizetési Szolgáltató)",
    "titolo": "Nemzeti Útdíjfizetési Szolgáltató: Surcharge, differential surcharge",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "a564448e7f71c3b5",
    "frasi": 3
@@ -263,7 +319,7 @@
    "ente": "National Toll Payment Services (Nemzeti Útdíjfizetési Szolgáltató)",
    "titolo": "Nemzeti Útdíjfizetési Szolgáltató: E-vignette rates",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "1f76df1e1ff1870a",
    "frasi": 8
@@ -277,7 +333,7 @@
    "ente": "eFlow (Transport Infrastructure Ireland)",
    "titolo": "eFlow: About the M50 Toll Road",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "1d04d18b2473d75a",
    "frasi": 5
@@ -287,11 +343,11 @@
    "pagina": "https://www.tii.ie/en/roads-tolling/tolling-information/toll-locations-and-charges/m50-barrier-free-tolling/",
    "url_finale": "https://www.tii.ie/en/roads-tolling/tolling-information/toll-locations-and-charges/m50-barrier-free-tolling/",
    "http": 200,
-   "byte": 25018,
+   "byte": 25384,
    "ente": "Transport Infrastructure Ireland",
    "titolo": "TII: M50 Barrier Free Tolling (toll locations and charges)",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "a0bafadb6186a7ed",
    "frasi": 13
@@ -305,7 +361,7 @@
    "ente": "Autostrade per l'Italia",
    "titolo": "Autostrade per l'Italia: Payment methods – Credit card",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "02381401753fd11c",
    "frasi": 2
@@ -315,11 +371,11 @@
    "pagina": "https://www.autostrade.it/en/servizi-al-cliente/pedaggio/metodi-di-pagamento/contanti",
    "url_finale": "https://www.autostrade.it/en/servizi-al-cliente/pedaggio/metodi-di-pagamento/contanti",
    "http": 200,
-   "byte": 176340,
+   "byte": 176338,
    "ente": "Autostrade per l'Italia",
    "titolo": "Autostrade per l'Italia: Payment methods – Cash",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "4e6e48c92ba03ef3",
    "frasi": 4
@@ -329,11 +385,11 @@
    "pagina": "https://www.autostrade.it/en/servizi-al-cliente/pedaggio/mancato-pagamento/paga-online",
    "url_finale": "https://www.autostrade.it/en/servizi-al-cliente/pedaggio/mancato-pagamento/paga-online",
    "http": 200,
-   "byte": 182465,
+   "byte": 182466,
    "ente": "Autostrade per l'Italia",
    "titolo": "Autostrade per l'Italia: Unpaid toll – Pay online",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "297a3c7e8a8aa737",
    "frasi": 4
@@ -343,11 +399,11 @@
    "pagina": "https://www.autopass.no/en/user/payment/",
    "url_finale": "https://www.autopass.no/en/user/payment/",
    "http": 200,
-   "byte": 19609,
+   "byte": 19639,
    "ente": "AutoPASS (Norwegian Public Roads Administration)",
    "titolo": "AutoPASS: Payment",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "b451be5ae0031879",
    "frasi": 1
@@ -361,7 +417,7 @@
    "ente": "AutoPASS (Norwegian Public Roads Administration)",
    "titolo": "AutoPASS: Rates and discounts",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "e18e5a8c1d4ccbb9",
    "frasi": 2
@@ -371,11 +427,11 @@
    "pagina": "https://www.autopass.no/en/user/the-road-toll-system/",
    "url_finale": "https://www.autopass.no/en/user/the-road-toll-system/",
    "http": 200,
-   "byte": 23593,
+   "byte": 23623,
    "ente": "AutoPASS (Norwegian Public Roads Administration)",
    "titolo": "AutoPASS: The road toll system",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "1ec454c59ba98edd",
    "frasi": 2
@@ -389,7 +445,7 @@
    "ente": "Infraestruturas de Portugal",
    "titolo": "PT Tolls: FAQ – Frequently Asked Questions – Tolls",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "3dab5bd64783878d",
    "frasi": 9
@@ -403,7 +459,7 @@
    "ente": "Infraestruturas de Portugal",
    "titolo": "PT Tolls (Infraestruturas de Portugal): toll systems and how to pay",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "7f5418596c3ad80e",
    "frasi": 7
@@ -413,11 +469,11 @@
    "pagina": "https://shop.asfinag.at/en/products/slovenian-e-vignette/",
    "url_finale": "https://shop.asfinag.at/en/products/slovenian-e-vignette/",
    "http": 200,
-   "byte": 39403,
+   "byte": 39902,
    "ente": "ASFINAG",
    "titolo": "ASFINAG toll shop: Slovenian e-vignette",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "50e7af0ed3f2988f",
    "frasi": 3
@@ -431,7 +487,7 @@
    "ente": "Government of Slovenia (Ministry of Infrastructure and Energy)",
    "titolo": "GOV.SI: Tolls",
    "lingua": "en",
-   "letto_il": "2026-10-30",
+   "letto_il": "2026-10-31",
    "cambiato_il": "2026-10-30",
    "impronta": "ca66b611c7b9a3f2",
    "frasi": 2
@@ -1671,12 +1727,12 @@
    "nome_frase": "Croatia",
    "vignetta": false,
    "noleggio": "non_detto",
-   "titolo": "Tolls in Croatia with a rental car (2026): how to pay",
-   "come": "Toll plazas: ticket at the entry, pay at the exit (cash, card or ENC device)",
+   "titolo": "Tolls in Croatia with a rental car (2026): new system from March 2027",
+   "come": "Toll plazas until 28 February 2027; from 1 March 2027, no toll plazas: ENC device or number plate recognition",
    "prezzo_breve": "Depends on the distance",
-   "noleggio_breve": "Not mentioned by HAC: ask the rental company",
-   "risposta": "Croatian motorways have toll plazas where you take a ticket at the entry and pay at the exit by distance, in cash, by card (Diners, Mastercard, Maestro, Visa) or with an ENC device.",
-   "nota": "This page quotes Hrvatske autoceste (HAC), which runs most Croatian motorways; some motorways are run by other companies.",
+   "noleggio_breve": "Not mentioned by HAC or the new law: ask the rental company",
+   "risposta": "until 28 February 2027 Croatian motorways have toll plazas: you take a ticket at the entry and pay at the exit by distance, in cash, by card (Diners, Mastercard, Maestro, Visa) or with an ENC device. From 1 March 2027 the Toll Collection Act brings in tolls without toll plazas or stopping: a car pays with an ENC device or by automatic number plate recognition, after its plate and a valid means of payment are registered in the system.",
+   "nota": "This page quotes Hrvatske autoceste (HAC), which runs most Croatian motorways, its Crolibertas project site and the Toll Collection Act (Zakon o naplati cestarine) as published in the Official Gazette (Narodne novine). The law is in Croatian: our English translation is under each quote.",
    "citazioni": [
     {
      "id": "distanza",
@@ -1719,6 +1775,90 @@
      "f": "hr_faq",
      "tema": "prezzo",
      "x": "The ETC device is 15,00 €"
+    },
+    {
+     "id": "hr_stupanje",
+     "f": "hr_zakon",
+     "tema": "dal_2027",
+     "x": "Ovaj Zakon stupa na snagu osmoga dana od dana objave u »Narodnim novinama«, osim odredbi članka 14., članka 15. stavaka 1. do 5., članaka 16. do 22., članka 23. stavaka 1. do 7., članaka 24. do 27., članka 28. stavaka 1. do 15., članaka 29. do 31., članka 32. stavaka 1., 2. i 3., članaka 33. do 37., članka 38. stavaka 1. do 9., članka 39. stavaka 1. do 6., članka 40., članka 41. stavaka 1. do 7., članka 42. stavaka 1. do 6., članka 43., članka 44. stavaka 1. do 9., članaka 45. i 46., članka 47. stavaka 1., 2. i 3., članaka 48. i 49. te članaka 52. do 57., koji stupaju na snagu 1. ožujka 2027."
+    },
+    {
+     "id": "hr_laka",
+     "f": "hr_zakon",
+     "tema": "dal_2027",
+     "x": "(2) Za laka vozila primjenjuje se mikrovalna tehnologija na frekvenciji 5,8 GHz uz upotrebu ENC uređaja ili tehnologija automatskog prepoznavanja registarskih pločica."
+    },
+    {
+     "id": "hr_prijava",
+     "f": "hr_zakon",
+     "tema": "dal_2027",
+     "x": "(2) Za uključenje u ESNC potrebno je u ESNC prijaviti sljedeće: – po APRP modelu podatke s registarskih pločica vozila i valjano sredstvo plaćanja – po ENC modelu podatke s registarskih pločica vozila, serijski broj ili crtični kod ENC uređaja i valjano sredstvo plaćanja."
+    },
+    {
+     "id": "hr_gdje",
+     "f": "hr_zakon",
+     "tema": "dal_2027",
+     "x": "(3) Uključenje u ESNC može se provesti na sljedećim naplatnim korisničkim mjestima: – putem jedinstvenog nacionalnog web prodajnog mjesta za uključenje u ESNC – putem mobilnih aplikacija za uključenje u ESNC, drugih digitalnih servisa te putem online bankarstva kreditnih institucija – na namjenskim stazama za brzo uključenje u ESNC – u prodajnim uredima subjekata za naplatu cestarine – na prodajnim mjestima trećih osoba s kojima su subjekti za naplatu cestarine sklopili ugovor o posredovanju."
+    },
+    {
+     "id": "hr_obveza",
+     "f": "hr_zakon",
+     "tema": "dal_2027",
+     "x": "(1) Korisnik je dužan: – prije početka i tijekom upotrebe autoceste ili objekta pod naplatom lakim vozilom osigurati uključenje u ESNC, sukladno članku 16. stavcima 1. i 7. ovoga Zakona, osim ako nije dostupna mogućnost uključenja u ESNC"
+    },
+    {
+     "id": "hr_bez",
+     "f": "hr_zakon",
+     "tema": "dal_2027",
+     "x": "(1) Vozač vozila koji upotrebljava autocestu odnosno objekt pod naplatom bez uključenja u ESNC u skladu s člankom 16. ovoga Zakona, dužan je platiti subjektu za naplatu cestarine naknadu cestarine kao korist ostvarenu po pravilima o stjecanju bez osnove i posebnu naknadu (zakonski penal) zbog upotrebe autoceste odnosno objekta pod naplatom bez uključenja (u daljnjem tekstu: zakonski penal), u visini određenoj stavkom 9. ovoga članka."
+    },
+    {
+     "id": "hr_penal",
+     "f": "hr_zakon",
+     "tema": "dal_2027",
+     "x": "(9) Zakonski penal iz stavka 1. ovoga članka iznosi 120,00 eura."
+    },
+    {
+     "id": "hr_sustav",
+     "f": "hr_crolibertas",
+     "tema": "dal_2027",
+     "x": "The Crolibertas system will be introduced on all motorways in the Republic of Croatia operated by Hrvatske Autoceste (HAC), Bina Istra, and Autocesta Zagreb–Macelj."
+    },
+    {
+     "id": "hr_obu",
+     "f": "hr_crolibertas",
+     "tema": "dal_2027",
+     "x": "Use of the OBU will be mandatory for heavy vehicles (as is the case in Austria and Slovenia). Light vehicle users will have the option to choose between the OBU or license plate recognition."
+    },
+    {
+     "id": "hr_data_hac",
+     "f": "hr_crolibertas_zakon",
+     "tema": "dal_2027",
+     "x": "Upon entry into force, the Act repeals the relevant provisions of the Roads Act, and the new system will be fully applied starting 1 March 2027."
+    },
+    {
+     "id": "hr_test",
+     "f": "hr_crolibertas_test",
+     "tema": "dal_2027",
+     "x": "Testing will continue until the new Crolibertas toll collection system is fully implemented."
+    },
+    {
+     "id": "hr_tvrtka",
+     "f": "hr_zakon",
+     "tema": "noleggio",
+     "x": "(2) Obvezu iz stavka 1. podstavaka 1. i 2. ovoga članka za vozilo koje se koristi za obavljanje djelatnosti pravne osobe, fizičke osobe obrtnika ili osobe koja obavlja samostalnu djelatnost dužan je provesti vlasnik vozila odnosno osoba koja ima pravo koristiti vozilo na temelju ugovora o leasingu ili sličnog ugovora."
+    },
+    {
+     "id": "hr_vozac",
+     "f": "hr_zakon",
+     "tema": "noleggio",
+     "x": "(3) Ako vlasnik vozila odnosno osoba koja ima pravo koristiti vozilo na temelju ugovora o leasingu ili sličnog ugovora ne izvrši obvezu iz stavka 2. ovoga članka, uključenje vozila iz stavka 2. ovoga članka u ESNC dužan je osigurati vozač."
+    },
+    {
+     "id": "hr_solidarno",
+     "f": "hr_zakon",
+     "tema": "noleggio",
+     "x": "(11) Za naknadu cestarine i zakonski penal iz stavka 1. ovoga članka solidarno s vozačem odgovaraju: – vlasnik vozila, osim u slučaju iz članka 6. stavka 3. ovoga Zakona – osoba koja ima pravo koristiti vozilo na temelju ugovora o leasingu ili sličnog ugovora – korisnik ENC uređaja."
     }
    ],
    "prezzi": [
@@ -1737,7 +1877,19 @@
       "pagamento"
      ],
      "pre": "Hrvatske autoceste says:",
-     "post": "It does not mention rental cars: ask the rental company whether the car has an ENC device and how it charges you for it."
+     "post": "It does not mention rental cars: ask the rental company whether the car has an ENC device and how it charges you for it. From 1 March 2027 the system changes (see the next question)."
+    },
+    {
+     "query": "croatia new toll system",
+     "q": "What is Croatia's new toll system?",
+     "cit": [
+      "hr_data_hac",
+      "hr_sustav",
+      "hr_obu",
+      "hr_test"
+     ],
+     "pre": "Under the Toll Collection Act, the toll system without toll plazas starts on 1 March 2027; until 28 February 2027 you pay at toll plazas. HAC's Crolibertas site says:",
+     "post": "Check the Crolibertas site before you travel."
     },
     {
      "query": "croatia tolls or vignette",
@@ -1758,9 +1910,44 @@
      ],
      "pre": "Hrvatske autoceste says:",
      "post": ""
+    },
+    {
+     "query": "do rental car companies pay for tolls",
+     "q": "Do rental car companies pay the tolls in Croatia?",
+     "cit": [],
+     "pre": "Neither HAC nor the Toll Collection Act mentions rental cars. From 1 March 2027 the law says that a vehicle used for a company's business must be registered in the toll system by its owner or leasing user, and otherwise by the driver; it does not say whether this covers rental cars.",
+     "post": "Before you book, ask the rental company whether the car will be registered in the Croatian toll system or has an ENC device, and how it charges you for tolls and any penalties."
     }
    ],
-   "chi": "the motorway operator Hrvatske autoceste (HAC)"
+   "chi": "the motorway operator Hrvatske autoceste (HAC) and Croatia's Toll Collection Act",
+   "cambio": {
+    "dal": "2027-03-01",
+    "titolo": "From 1 March 2027 (by law): tolls without toll plazas",
+    "frasi": [
+     "Until 28 February 2027: toll plazas, as described by HAC below (ticket at the entry, payment at the exit).",
+     "From 1 March 2027: the articles of the Toll Collection Act on the new electronic toll system come into force. For cars the law allows an ENC device or automatic number plate recognition.",
+     "To use the motorway, the vehicle must first be registered in the system with its number plate and a valid means of payment (and the ENC device, if you use one): online, in a mobile app, in dedicated quick-registration lanes, at operators' sales offices or at partner sales points.",
+     "Using the motorway without registering costs the toll plus a statutory penalty of €120, under the same law.",
+     "HAC's Crolibertas site says that the new system will be fully applied from 1 March 2027 and that testing will continue until it is fully implemented: check it before you travel."
+    ]
+   },
+   "traduzioni": {
+    "hr_stupanje": "This Act enters into force on the eighth day after its publication in the Official Gazette (Narodne novine), except for the provisions of Article 14, Article 15(1) to (5), Articles 16 to 22, Article 23(1) to (7), Articles 24 to 27, Article 28(1) to (15), Articles 29 to 31, Article 32(1), (2) and (3), Articles 33 to 37, Article 38(1) to (9), Article 39(1) to (6), Article 40, Article 41(1) to (7), Article 42(1) to (6), Article 43, Article 44(1) to (9), Articles 45 and 46, Article 47(1), (2) and (3), Articles 48 and 49 and Articles 52 to 57, which enter into force on 1 March 2027.",
+    "hr_laka": "(2) For light vehicles, microwave technology at a frequency of 5.8 GHz with the use of an ENC device, or automatic number plate recognition technology, is used.",
+    "hr_prijava": "(2) To join the ESNC (the electronic toll system), the following must be registered in the ESNC: – under the APRP model (number plate recognition), the vehicle's number plate data and a valid means of payment – under the ENC model, the vehicle's number plate data, the serial number or barcode of the ENC device and a valid means of payment.",
+    "hr_gdje": "(3) Registration in the ESNC can be done at the following points: – through the single national web sales point for registration in the ESNC – through mobile apps for registration in the ESNC, other digital services and the online banking of credit institutions – in dedicated lanes for quick registration in the ESNC – in the sales offices of the toll operators – at the sales points of third parties that have an agency contract with the toll operators.",
+    "hr_obveza": "(1) The user must: – before and during the use of a motorway or a tolled structure with a light vehicle, make sure the vehicle is registered in the ESNC, in line with Article 16(1) and (7) of this Act, unless registration in the ESNC is not available",
+    "hr_penal": "(9) The statutory penalty referred to in paragraph 1 of this Article is €120.00.",
+    "hr_tvrtka": "(2) For a vehicle used to carry out the business of a legal person, a sole trader or a self-employed person, the obligation in paragraph 1, indents 1 and 2, of this Article must be met by the owner of the vehicle or by the person entitled to use the vehicle under a leasing or similar contract.",
+    "hr_vozac": "(3) If the owner of the vehicle or the person entitled to use the vehicle under a leasing or similar contract does not meet the obligation in paragraph 2 of this Article, the driver must make sure that the vehicle referred to in paragraph 2 is registered in the ESNC.",
+    "hr_solidarno": "(11) The following are jointly liable with the driver for the toll compensation and the statutory penalty referred to in paragraph 1 of this Article: – the owner of the vehicle, except in the case referred to in Article 6(3) of this Act – the person entitled to use the vehicle under a leasing or similar contract – the user of the ENC device.",
+    "hr_bez": "(1) A driver who uses a motorway or a tolled structure without being registered in the ESNC in line with Article 16 of this Act must pay the toll operator the toll compensation, as a benefit obtained without legal basis, and a special charge (statutory penalty) for using the motorway or tolled structure without registration (hereinafter: statutory penalty), in the amount set in paragraph 9 of this Article."
+   },
+   "noleggio_pre": "The new law does not name rental cars either. For vehicles used for a company's business, and on who pays if a vehicle is not registered, it says:",
+   "temi_titoli": {
+    "come": "How you pay until 28 February 2027 (toll plazas)",
+    "dal_2027": "From 1 March 2027: the Toll Collection Act and the Crolibertas system"
+   }
   },
   {
    "iso2": "GR",

@@ -4,6 +4,7 @@ Uso (dalla radice del repository):
     python3 -I beforeyoufly/raccolta/pedaggi.py             rilegge le fonti, controlla le frasi citate, scrive dati/pedaggi.json
     python3 -I beforeyoufly/raccolta/pedaggi.py --cache     come sopra ma senza rete, dalle copie in raccolta/.cache/pedaggi/
     python3 -I beforeyoufly/raccolta/pedaggi.py --domanda   rilegge anche l'autocompletamento di Google (dati/pedaggi_domanda.json)
+    python3 -I beforeyoufly/raccolta/pedaggi.py --domanda-nuove   legge solo le ricerche nuove di DOMANDA_EXTRA e le aggiunge al file
     python3 -I beforeyoufly/raccolta/pedaggi.py --testo ID  stampa il testo normalizzato di una fonte (per scrivere le citazioni)
 
 Regole (decise il 30/10/2026):
@@ -16,6 +17,10 @@ Regole (decise il 30/10/2026):
   - Impronta (SHA-256, 16 caratteri) della "zona citata" di ogni fonte: il testo normalizzato dall'inizio della prima frase citata alla
     fine dell'ultima. Se cambia, il cambio va in dati/pedaggi_cambi.json (la pagina intorno alle citazioni è cambiata: rileggerla).
   - Ungheria: il sito nemzetiutdij.hu si carica in JavaScript; si legge l'API pubblica che usa la pagina stessa (stesso contenuto).
+  - Croazia (31/10/2026): il sistema a caselli di HAC vale fino al 28/2/2027; dal 1/3/2027 entrano in vigore gli articoli della legge sui
+    pedaggi (Zakon o naplati cestarine, NN 156/2025, art. 67) sul pedaggio senza caselli (ESNC/Crolibertas). La legge si cita in croato con
+    la nostra traduzione; il sito Crolibertas di HAC scrive la data nella notizia del 24/12/2025 («fully applied starting 1 March 2027», fonte
+    hr_crolibertas_zakon) e nell'avviso del 5/10/2026 dice che i test continuano. Nessuna fonte parla delle auto a noleggio.
   - Pagine grezze in raccolta/.cache/pedaggi/ (escluse da git).
 """
 import hashlib
@@ -56,6 +61,17 @@ FONTI = {
     "es_viat": {"url": "https://www.autopistas.com/es/beneficios/servicios/via-t", "ente": "Autopistas (Abertis)", "titolo": "Autopistas (Abertis): Vía T", "lingua": "es"},
     "hr_toll": {"url": "https://www.hac.hr/en/toll", "ente": "Hrvatske autoceste (HAC)", "titolo": "Hrvatske autoceste: Toll"},
     "hr_faq": {"url": "https://www.hac.hr/en/toll/faq", "ente": "Hrvatske autoceste (HAC)", "titolo": "Hrvatske autoceste: Toll FAQ"},
+    # Croazia dal 1/3/2027 (aggiunte il 31/10/2026): sito del progetto Crolibertas di HAC e legge sui pedaggi (Narodne novine, la Gazzetta ufficiale)
+    "hr_crolibertas": {"url": "https://crolibertas.hr/en/o-sustavu-crolibertas/", "ente": "Hrvatske autoceste (HAC), Crolibertas project site",
+                       "titolo": "Crolibertas: About the system"},
+    "hr_crolibertas_test": {"url": "https://crolibertas.hr/en/obavijest-testiranje-i-uspostava-crolibertas-sustava-naplate-cestarine/",
+                            "ente": "Hrvatske autoceste (HAC), Crolibertas project site",
+                            "titolo": "Crolibertas: Notice – Testing and Implementation of the Crolibertas Toll Collection System (5 October 2026)"},
+    # notizia del 24/12/2025 sul sito Crolibertas: è la pagina di HAC che scrive la data («fully applied starting 1 March 2027»); aggiunta alla revisione del 31/10/2026
+    "hr_crolibertas_zakon": {"url": "https://crolibertas.hr/en/toll-collection-act-adopted/", "ente": "Hrvatske autoceste (HAC), Crolibertas project site",
+                             "titolo": "Crolibertas: Toll Collection Act Adopted (24 December 2025)"},
+    "hr_zakon": {"url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2025_12_156_2346.html", "ente": "Narodne novine, Official Gazette of the Republic of Croatia",
+                 "titolo": "Zakon o naplati cestarine (Toll Collection Act), NN 156/2025", "lingua": "hr"},
     "gr_aodos": {"url": "https://www.aodos.gr/en/diodia-e-pass/tolls/", "ente": "Attiki Odos", "titolo": "Attiki Odos (Attica Tollway): Tolls"},
     "at_help": {"url": "https://help.asfinag.at/en/vignette-and-section-tolls/", "ente": "ASFINAG", "titolo": "ASFINAG help: Vignette and section tolls"},
     "at_vignette": {"url": "https://shop.asfinag.at/en/products/digital-vignette/", "ente": "ASFINAG", "titolo": "ASFINAG toll shop: Digital vignette"},
@@ -80,7 +96,8 @@ DOMANDA_PAESI = {"PT": "portugal", "IE": "ireland", "NO": "norway", "IT": "italy
 DOMANDA_MODELLI = ["{p} tolls rental car", "{p} tolls hire car", "tolls in {p} rental car", "{p} toll roads rental car", "{p} vignette rental car",
                    "how to pay tolls in {p}", "{p} tolls"]
 DOMANDA_EXTRA = ["m50 toll rental car", "m50 toll hire car", "autopass rental car", "portugal electronic tolls rental car", "italy telepass rental car",
-                 "austria vignette hire car", "swiss vignette rental car"]
+                 "austria vignette hire car", "swiss vignette rental car",
+                 "croatia toll system", "croatia new toll system", "croatia tolls 2027"]  # le ultime tre dal 31/10/2026 (pedaggio senza caselli dal 1/3/2027)
 
 
 def leggi(url):
@@ -127,11 +144,17 @@ def impronta_zona(testo, frasi):
     return hashlib.sha256(testo[a:b].encode("utf-8")).hexdigest()[:16]
 
 
-def domanda():
-    out = {}
+def domanda(solo_nuove=False):
+    """Autocompletamento di Google. Con solo_nuove=True legge solo le ricerche che dati/pedaggi_domanda.json non ha ancora e le aggiunge,
+    senza toccare quelle già lette (così le FAQ già scritte restano legate alle ricerche lette quel giorno)."""
+    f_dom = DATI / "pedaggi_domanda.json"
+    prima = json.loads(f_dom.read_text(encoding="utf-8")) if (solo_nuove and f_dom.exists()) else None
+    out = prima["paesi"] if prima else {}
     for gl in ("us", "uk"):
         query = [(c, m.format(p=p)) for c, p in DOMANDA_PAESI.items() for m in DOMANDA_MODELLI] + [("_extra", q) for q in DOMANDA_EXTRA]
         for c, q in query:
+            if prima and q in out.get(c, {}).get(gl, {}):
+                continue
             u = "https://suggestqueries.google.com/complete/search?client=firefox&gl=%s&hl=en&q=%s" % (gl, urllib.parse.quote(q))
             try:
                 sugg = json.loads(leggi(u)[2])[1]
@@ -142,9 +165,11 @@ def domanda():
             time.sleep(0.25)
     doc = {"_nota": "Ricerche vere (autocompletamento di Google, client=firefox, hl=en, gl=us e gl=uk) sui pedaggi con l'auto a noleggio. "
                     "Ogni domanda delle FAQ della sezione tolls-rental-car/ deve essere una di queste ricerche (campo 'query' in pedaggi_manuali.json). "
-                    "Riscritto da raccolta/pedaggi.py --domanda.",
-           "letto_il": date.today().isoformat(), "modelli": DOMANDA_MODELLI, "extra": DOMANDA_EXTRA, "paesi": out}
-    (DATI / "pedaggi_domanda.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
+                    "Riscritto da raccolta/pedaggi.py --domanda (tutte) o --domanda-nuove (solo le ricerche non ancora lette, aggiunte; data in 'aggiunte_il').",
+           "letto_il": prima["letto_il"] if prima else date.today().isoformat(), "modelli": DOMANDA_MODELLI, "extra": DOMANDA_EXTRA, "paesi": out}
+    if prima:
+        doc["aggiunte_il"] = date.today().isoformat()
+    f_dom.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
     print("domanda:", {c: sum(len(v) for g in d.values() for v in g.values()) for c, d in out.items()})
 
 
@@ -227,4 +252,6 @@ if __name__ == "__main__":
         sys.exit(0)
     if "--domanda" in sys.argv:
         domanda()
+    elif "--domanda-nuove" in sys.argv:
+        domanda(solo_nuove=True)
     main()

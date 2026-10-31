@@ -132,6 +132,18 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     o depositi bagagli; link da home, About, 404, pagina EES, indice del bagaglio a mano, e nessun link nelle pagine già revisionate
     (trasporto pubblico, patente straniera). Nel browser (punto 7) indice, 3 compagnie e la pagina Eurostar a 375 px chiaro/scuro, indice
     e pagina Eurostar a 820 px.
+26. "Pets: from the UK to the EU" (dati/animali.json da raccolta/animali.py, 31/10/2026): fonti solo GOV.UK e Commissione europea, HTTP 200
+    e data; dalla copia salvata (raccolta/.cache/animali/) ogni citazione è nel testo, l'impronta è uguale, le tabelle GOV.UK delle rotte
+    approvate e i link della Commissione per Paese sono uguali ai dati; dati = dati/animali_manuali.json; pagine = indice, calcolatore,
+    passaporto 2027, rotte e un Paese solo con una ricerca vera che nomina il Paese e il Regno Unito; prima frase con fonte e data; ogni
+    paragrafo tra virgolette è una citazione dei dati; numeri delle frasi nostre solo dalle citazioni; FAQ da ricerche vere (JSON-LD =
+    testo visibile); lista del verme solitario ricavata dalla frase di GOV.UK; righe delle rotte nella pagina = tabelle; nessun consiglio
+    veterinario ("Check with your vet and the official page" in ogni pagina), nessun link di affiliazione; calcolatore: 18 casi fatti a
+    mano (tra cui l'esempio di GOV.UK), JS = Python su 3.000 casi casuali, Playwright a 375 px (chiaro e scuro) e 1280 px con 3 casi e
+    ?dest=; passaporto 2027: errore da giugno 2027 (pagina da riscrivere); link andata e ritorno con Driving abroad (patente britannica) e Tolls.
+20. (aggiunta del 31/10/2026) Croazia: caselli fino al 28/2/2027 e pedaggio senza caselli dal 1/3/2027, con la frase della legge (NN 156/2025,
+    art. 67) citata e presente nella copia salvata della Gazzetta ufficiale, fonti Crolibertas linkate, traduzione di ogni citazione non
+    inglese, riquadro del cambio non scaduto (errore dal 1/3/2027: pagina da riscrivere al presente) e frase "ask the rental company".
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
 domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
@@ -717,6 +729,10 @@ def controlla_meta():
         if rel.startswith(G.FL_BASE + "/"):  # sezione "Foreign licence in Canada, Australia and NZ": fino a 70 caratteri con l'anno (il punto 23 controlla il resto)
             if len(tit) > G.LIMITE_TITOLO_FL or str(G.ANNO) not in tit:
                 errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_FL}) o senza l'anno in {rel}: {tit}")
+            continue
+        if rel.startswith(G.PET_BASE + "/"):  # sezione "Pets: from the UK to the EU": fino a 70 caratteri con l'anno (il punto 26 controlla il resto)
+            if len(tit) > G.LIMITE_TITOLO_PET or str(G.ANNO) not in tit:
+                errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_PET}) o senza l'anno in {rel}: {tit}")
             continue
         if rel.startswith(G.PED_BASE + "/"):  # sezione "Tolls with a rental car": fino a 70 caratteri con l'anno (il punto 20 controlla il resto)
             if len(tit) > G.LIMITE_TITOLO_PED or str(G.ANNO) not in tit:
@@ -2131,7 +2147,13 @@ _spec_ped.loader.exec_module(RPED)
 # Fonti ammesse: gestori delle autostrade o dei sistemi di pedaggio e governi (nessun rivenditore, nessuna compagnia di noleggio)
 FONTI_UFFICIALI_PED = re.compile(r"^https://(?:www\.pttolls\.com|www\.eflow\.ie|www\.tii\.ie|www\.autopass\.no|www\.autostrade\.it|www\.aliae\.com|"
                                  r"peagereinvente\.aprr\.fr|www\.autopistas\.com|www\.hac\.hr|www\.aodos\.gr|help\.asfinag\.at|shop\.asfinag\.at|"
-                                 r"www\.bazg\.admin\.ch|www\.gov\.si|edalnice\.gov\.cz|nemzetiutdij\.hu)/")
+                                 r"www\.bazg\.admin\.ch|www\.gov\.si|edalnice\.gov\.cz|nemzetiutdij\.hu|crolibertas\.hr|narodne-novine\.nn\.hr)/")
+# Croazia (31/10/2026): caselli fino al 28/2/2027, pedaggio senza caselli dal 1/3/2027 per legge (Zakon o naplati cestarine, NN 156/2025, art. 67).
+# Frase della legge che fissa la data, scritta qui a mano: deve essere citata nella pagina e trovarsi nel testo salvato della Gazzetta ufficiale.
+HR_DATA_LEGGE = "koji stupaju na snagu 1. ožujka 2027."
+# Frase di HAC (sito Crolibertas, notizia del 24/12/2025) con la stessa data: citata nella pagina e presente nella copia salvata (revisione del 31/10/2026).
+HR_DATA_HAC = "the new system will be fully applied starting 1 March 2027."
+HR_FONTI_2027 = ("hr_zakon", "hr_crolibertas", "hr_crolibertas_test", "hr_crolibertas_zakon")
 NOMI_NOLEGGIO_PED = re.compile(r"\b(?:hertz|avis|budget|enterprise|alamo|europcar|sixt|thrifty|dollar rent|goldcar|rentalcars|autoslash|tollguru|"
                                r"platepass|e-toll|tollpass)\b", re.I)
 
@@ -2153,7 +2175,7 @@ def controlla_pedaggi():
     """Punto 20: dati = fonti = pagine; titoli; sitemap; FAQ da ricerche vere; solo DiscoverCars con il nostro a_aid; link con Driving abroad."""
     from html import unescape
     errori = []
-    conti = {"paesi": 0, "fonti": 0, "citazioni": 0, "prezzi": 0, "faq": 0, "cache": "no", "noleggio": 0, "link_guida": 0}
+    conti = {"paesi": 0, "fonti": 0, "citazioni": 0, "prezzi": 0, "faq": 0, "cache": "no", "noleggio": 0, "link_guida": 0, "croazia_2027": 0}
     if not G.PED:
         return ["dati/pedaggi.json mancante (rilanciare raccolta/pedaggi.py)"], conti
     M = json.loads((SITO.parent / "dati" / "pedaggi_manuali.json").read_text(encoding="utf-8"))
@@ -2224,14 +2246,61 @@ def controlla_pedaggi():
         # nessun numero inventato nelle frasi nostre: ogni numero è in una citazione o in una prova
         ammessi = set().union(*[_numeri_ped(x["x"]) for x in p["citazioni"]], *[_numeri_ped(pr["prova"]) for pr in p.get("prezzi", [])], {str(G.ANNO)})
         ammessi |= {"1", "10", "30", "2", "5"} & set().union(*[_numeri_ped(x["x"]) for x in p["citazioni"]], *[_numeri_ped(pr["prova"] + " " + pr["voce"]) for pr in p.get("prezzi", [])])
-        for campo in ("risposta", "come", "prezzo_breve", "noleggio_breve", "nota"):
-            extra = _numeri_ped(p.get(campo) or "") - ammessi
+        for campo in ("risposta", "come", "prezzo_breve", "noleggio_breve", "nota", "cambio"):
+            testo_campo = " ".join(p["cambio"]["frasi"] + [p["cambio"]["titolo"]]) if campo == "cambio" and p.get("cambio") else (p.get(campo) or "") if campo != "cambio" else ""
+            extra = _numeri_ped(testo_campo) - ammessi
             if extra:
                 errori.append(f"{rel}: numeri non presi dalle fonti in '{campo}': {sorted(extra)}")
         for q in p["faq"]:
             extra = _numeri_ped(q["pre"] + " " + q["post"]) - ammessi
             if extra:
                 errori.append(f"{rel}: numeri non presi dalle fonti nella FAQ «{q['q']}»: {sorted(extra)}")
+        # citazioni non in inglese: ognuna con la sua traduzione nella pagina (francese, spagnolo, croato...)
+        for x in p["citazioni"]:
+            if G.PED["fonti"][x["f"]]["lingua"] != "en":
+                tr = p.get("traduzioni", {}).get(x["id"])
+                if not tr or escape(tr, quote=False) not in t and escape(tr) not in t:
+                    errori.append(f"{rel}: citazione in {G.PED['fonti'][x['f']]['lingua']} senza traduzione nella pagina: {x['id']}")
+        # cambio con data (riquadro "From ... (by law)"): presente, e non ancora scaduto (dopo la data la pagina va riscritta al presente)
+        if p.get("cambio"):
+            C = p["cambio"]
+            if f'data-cambio="{C["dal"]}"' not in t:
+                errori.append(f"{rel}: manca il riquadro del cambio del {C['dal']}")
+            if G.OGGI.isoformat() >= C["dal"]:
+                errori.append(f"{rel}: il cambio del {C['dal']} è già in vigore: riscrivere la pagina al presente (risposta, come, titolo, riquadro)")
+            if any(x["f"] not in G.PED["fonti"] for x in p["citazioni"] if x["tema"] == "dal_2027") or not any(x["tema"] == "dal_2027" for x in p["citazioni"]):
+                errori.append(f"{rel}: cambio senza citazioni ufficiali del tema 'dal_2027'")
+        if c == "HR":
+            conti["croazia_2027"] = 0
+            for frase in ("28 February 2027", "1 March 2027"):
+                if frase not in p["risposta"] or frase not in p["come"] or frase not in vis:
+                    errori.append(f"{rel}: la Croazia deve dire '{frase}' nella risposta, in 'How you pay' e nella pagina")
+            if "2027" not in tit:
+                errori.append(f"{rel}: titolo della Croazia senza il 2027: {tit}")
+            for fid in HR_FONTI_2027:
+                F = G.PED["fonti"].get(fid)
+                if not F or F["http"] != 200 or f'href="{escape(F["pagina"])}"' not in t:
+                    errori.append(f"{rel}: fonte {fid} (HAC/Crolibertas o legge) mancante, non letta con HTTP 200 o non linkata")
+                else:
+                    conti["croazia_2027"] += 1
+            legge = [x for x in p["citazioni"] if x["f"] == "hr_zakon" and HR_DATA_LEGGE in x["x"]]
+            if not legge or escape(legge[0]["x"], quote=False) not in t:
+                errori.append(f"{rel}: manca la frase della legge con la data ({HR_DATA_LEGGE!r})")
+            f_z = RPED.CACHE / "hr_zakon.html"
+            if cache and f_z.exists() and HR_DATA_LEGGE not in RPED.testo_fonte(f_z.read_text(encoding="utf-8")):
+                errori.append(f"{rel}: la data della legge non è più nel testo salvato della Gazzetta ufficiale")
+            hac = [x for x in p["citazioni"] if x["f"] == "hr_crolibertas_zakon" and HR_DATA_HAC in x["x"]]
+            if not hac or escape(hac[0]["x"], quote=False) not in t:
+                errori.append(f"{rel}: manca la frase di HAC (Crolibertas) con la data ({HR_DATA_HAC!r})")
+            f_h = RPED.CACHE / "hr_crolibertas_zakon.html"
+            if cache and f_h.exists() and HR_DATA_HAC not in RPED.testo_fonte(f_h.read_text(encoding="utf-8")):
+                errori.append(f"{rel}: la data di HAC non è più nel testo salvato del sito Crolibertas")
+            if "does not give a start date" in vis:
+                errori.append(f"{rel}: la pagina dice che HAC non scrive la data, ma la notizia Crolibertas del 24/12/2025 la scrive")
+            if p["noleggio"] == "detto" or "ask the rental company" not in vis.lower():
+                errori.append(f"{rel}: le fonti non parlano delle auto a noleggio: la pagina deve dirlo e consigliare di chiedere al noleggiatore")
+            if "Toll plazas: ticket at the entry, pay at the exit" in t:
+                errori.append(f"{rel}: frase vecchia sui caselli senza la data del 28/2/2027")
         # noleggio: "detto" solo con una frase ufficiale che parla di auto a noleggio; altrimenti la frase fissa
         nol = [x for x in p["citazioni"] if x["tema"] == "noleggio"]
         if p["noleggio"] == "detto" and not any(re.search(r"rent|rental|hire", x["x"], re.I) for x in nol):
@@ -3562,6 +3631,425 @@ def controlla_treni_bagagli():
     return errori, conti
 
 
+# ---------------------------------------------------------------- 26. Animali: dal Regno Unito all'UE con cane, gatto o furetto (31/10/2026)
+_spec_ani = importlib.util.spec_from_file_location("raccolta_animali", Path(__file__).resolve().parent / "raccolta" / "animali.py")
+RANI = importlib.util.module_from_spec(_spec_ani)
+_spec_ani.loader.exec_module(RANI)
+# Fonti ammesse: GOV.UK (APHA, Defra) e Commissione europea (DG SANTE)
+FONTI_UFFICIALI_PET = re.compile(r"^https://(?:www\.gov\.uk|food\.ec\.europa\.eu)/")
+# Paesi della lista del verme solitario, ricavati qui dalla frase di GOV.UK (elenco), non dalla costante di genera.py
+NOMI_ISO_PET = {"Finland": "FI", "Ireland": "IE", "Malta": "MT", "Norway": "NO"}
+# Frasi da consiglio veterinario o da vendita: mai nelle frasi nostre della sezione (citazioni escluse)
+CONSIGLIO_VET = re.compile(r"\b(?:dose|dosage|mg/kg|we recommend|our advice|you should (?:give|vaccinate|treat|use)|best (?:vaccine|tapeworm|product)|buy)\b", re.I)
+# Casi del calcolatore fatti a mano (date contate sul calendario, indipendenti da genera.calcola_pet): ingresso, campi attesi del risultato
+CASI_PET = [
+    ("esempio GOV.UK: vaccino 1/10, attesa 30 giorni, certificato dal 1/11, ingresso fino al 10/11 compreso",
+     {"da": "gb", "specie": "gatto", "dest": "FR", "chip": "2026-10-01", "vaccino": "2026-10-01", "tipo": "primo", "attesa": "30", "arrivo": "2026-11-10"},
+     {"esito": "ok", "attesa.pronto": "2026-11-01", "ahc.dal": "2026-11-01", "ahc.al": "2026-11-10"}),
+    ("21 giorni pieni: vaccino 1/10, primo giorno 23/10; arrivo il 22/10 troppo presto",
+     {"da": "gb", "specie": "cane", "dest": "ES", "chip": "2026-09-30", "vaccino": "2026-10-01", "tipo": "primo", "attesa": "21", "arrivo": "2026-10-22"},
+     {"esito": "no", "attesa.pronto": "2026-10-23", "ahc.primo": "2026-10-23", "ahc.ultimo": "2026-11-01"}),
+    ("21 giorni pieni: arrivo il 23/10, certificato solo il 23/10",
+     {"da": "gb", "specie": "cane", "dest": "ES", "chip": "2026-10-01", "vaccino": "2026-10-01", "arrivo": "2026-10-23"},
+     {"esito": "ok", "ahc.dal": "2026-10-23", "ahc.al": "2026-10-23"}),
+    ("microchip dopo il vaccino", {"da": "gb", "specie": "cane", "dest": "IT", "chip": "2026-10-02", "vaccino": "2026-10-01", "arrivo": "2026-12-01"},
+     {"esito": "no", "chip": "no"}),
+    ("12 settimane: nato il 1/7, 12 settimane il 23/9, vaccino il 22/9", {"da": "gb", "specie": "cane", "dest": "IT", "nascita": "2026-07-01", "chip": "2026-09-01",
+     "vaccino": "2026-09-22", "arrivo": "2026-12-01"}, {"esito": "no", "eta": "no", "eta.dodici": "2026-09-23"}),
+    ("12 settimane: vaccino il 23/9", {"da": "gb", "specie": "cane", "dest": "IT", "nascita": "2026-07-01", "chip": "2026-09-01", "vaccino": "2026-09-23",
+     "arrivo": "2026-12-01"}, {"esito": "ok", "eta": "ok"}),
+    ("verme solitario per l'Irlanda: arrivo 10/11 alle 13:00, trattamento dal 5/11 13:00 al 9/11 13:00 (esempio GOV.UK: lunedì 13:00 -> da martedì a sabato)",
+     {"da": "gb", "specie": "cane", "dest": "IE", "chip": "2026-01-01", "vaccino": "2026-01-01", "arrivo": "2026-11-10", "ora_arrivo": "13:00"},
+     {"esito": "ok", "tenia.dal": "2026-11-05T13:00", "tenia.al": "2026-11-09T13:00"}),
+    ("gatto in Irlanda: niente verme solitario", {"da": "gb", "specie": "gatto", "dest": "IE", "chip": "2026-01-01", "vaccino": "2026-01-01", "arrivo": "2026-11-10"},
+     {"esito": "ok", "tenia": None}),
+    ("rientro meno di 6 mesi: ingresso 31/8/2026, ultimo giorno 27/2/2027", {"da": "gb", "specie": "gatto", "dest": "PT", "chip": "2026-01-01", "vaccino": "2026-01-01",
+     "arrivo": "2026-08-31", "ritorno": "2027-02-27"}, {"esito": "ok", "ritorno.ultimo": "2027-02-27"}),
+    ("rientro il 28/2/2027: troppo tardi", {"da": "gb", "specie": "gatto", "dest": "PT", "chip": "2026-01-01", "vaccino": "2026-01-01", "arrivo": "2026-08-31",
+     "ritorno": "2027-02-28"}, {"esito": "no", "ritorno": "no"}),
+    ("verme solitario al rientro dalla Francia: rientro 20/11 alle 09:30", {"da": "gb", "specie": "cane", "dest": "FR", "chip": "2026-01-01", "vaccino": "2026-01-01",
+     "arrivo": "2026-11-10", "ritorno": "2026-11-20", "ora_ritorno": "09:30"}, {"esito": "ok", "tenia_ritorno.dal": "2026-11-15T09:30", "tenia_ritorno.al": "2026-11-19T09:30"}),
+    ("rientro dalla Norvegia: niente verme solitario al rientro", {"da": "gb", "specie": "cane", "dest": "NO", "chip": "2026-01-01", "vaccino": "2026-01-01",
+     "arrivo": "2026-11-10", "ritorno": "2026-11-20"}, {"esito": "ok", "tenia_ritorno_no": "info"}),
+    ("richiamo senza interruzione: nessuna attesa", {"da": "gb", "specie": "cane", "dest": "DE", "chip": "2025-01-01", "vaccino": "2026-11-01", "tipo": "richiamo",
+     "arrivo": "2026-11-01"}, {"esito": "ok", "ahc.dal": "2026-11-01", "ahc.al": "2026-11-01"}),
+    ("esame del sangue: prelievo 30 giorni dopo il vaccino, certificato 90 giorni dopo il prelievo", {"da": "non_elenco", "specie": "cane", "dest": "DE",
+     "chip": "2026-01-10", "vaccino": "2026-01-10", "prelievo": "2026-02-09", "arrivo": "2026-05-10"}, {"esito": "ok", "sangue.minimo": "2026-02-09",
+     "sangue.ahc_dal": "2026-05-10", "ahc.dal": "2026-05-10"}),
+    ("esame del sangue troppo presto (29 giorni)", {"da": "non_elenco", "specie": "cane", "dest": "DE", "chip": "2026-01-10", "vaccino": "2026-01-10",
+     "prelievo": "2026-02-08", "arrivo": "2026-06-10"}, {"esito": "no", "sangue": "no"}),
+    ("attesa sotto i 21 giorni: errore", {"da": "gb", "specie": "cane", "dest": "FR", "chip": "2026-01-01", "vaccino": "2026-01-01", "attesa": "20", "arrivo": "2026-03-01"},
+     {"errore": "attesa"}),
+    ("data impossibile: errore sul campo", {"da": "gb", "specie": "cane", "dest": "FR", "chip": "2026-02-30", "vaccino": "2026-01-01", "arrivo": "2026-03-01"},
+     {"errore": "data", "campo": "chip"}),
+    ("arrivo prima del vaccino: errore", {"da": "gb", "specie": "cane", "dest": "FR", "chip": "2026-01-01", "vaccino": "2026-03-01", "arrivo": "2026-02-01"},
+     {"errore": "ordine", "campo": "arrivo"}),
+]
+# Casi provati nel browser (375 e 1280 px): i testi devono contenere le date lunghe attese
+CASI_PET_BROWSER = [
+    ({"da": "gb", "specie": "gatto", "dest": "FR", "chip": "2026-10-01", "vaccino": "2026-10-01", "attesa": "30", "arrivo": "2026-11-10"},
+     ["1 November 2026", "10 November 2026"], "si"),
+    ({"da": "gb", "specie": "cane", "dest": "IE", "chip": "2026-01-01", "vaccino": "2026-01-01", "arrivo": "2026-11-10", "ora_arrivo": "13:00", "ritorno": "2026-11-20"},
+     ["5 November 2026 at 13:00", "9 November 2026 at 13:00", "No tapeworm treatment is needed to come back"], "si"),
+    ({"da": "gb", "specie": "cane", "dest": "ES", "chip": "2026-10-02", "vaccino": "2026-10-01", "arrivo": "2026-10-22"},
+     ["vaccinated again", "23 October 2026"], "no"),
+]
+
+
+def _campo_pet(R, chiave):
+    if chiave in ("esito", "errore", "campo"):
+        return R[chiave]
+    pid, _, k = chiave.partition(".")
+    x = next((p for p in R["passi"] if p["id"] == pid), None)
+    if x is None:
+        return None
+    return x["esito"] if not k else x["d"].get(k)
+
+
+def _entrate_casuali_pet(n=3000, seme=11):
+    rnd = random.Random(seme)
+    paesi = [p["iso2"] for p in G.PET_PAESI]
+    base = date(2025, 6, 1)
+    out = []
+    for _ in range(n):
+        g = lambda a, b: (base + timedelta(days=rnd.randint(a, b))).isoformat()
+        v = rnd.randint(0, 500)
+        I = {"da": rnd.choice(["gb", "gb", "elenco", "non_elenco", "x"]), "specie": rnd.choice(["cane", "gatto", "furetto"]), "dest": rnd.choice(paesi + ["XX"]),
+             "chip": g(v - 40, v + 3), "vaccino": (base + timedelta(days=v)).isoformat(), "tipo": rnd.choice(["primo", "primo", "richiamo"]),
+             "attesa": rnd.choice(["21", "21", "30", "20", "abc", "", "366"]), "arrivo": g(v - 5, v + 200),
+             "ora_arrivo": rnd.choice(["12:00", "00:15", "23:59", "07:05", "25:00", ""]), "nascita": rnd.choice(["", g(v - 120, v - 60)]),
+             "prelievo": g(v + 20, v + 60), "ritorno": rnd.choice(["", g(v + 10, v + 400)]), "ora_ritorno": rnd.choice(["12:00", "18:30", ""])}
+        if rnd.random() < 0.03:
+            I[rnd.choice(["chip", "vaccino", "arrivo", "prelievo"])] = rnd.choice(["2026-02-29", "2026-13-01", "1980-01-01", "x"])
+        out.append(I)
+    return out
+
+
+def controlla_js_pet():
+    """Motore JS del calcolatore (lo stesso testo della pagina) contro Python: casi a mano + 3.000 casuali."""
+    casi = [c[1] for c in CASI_PET] + _entrate_casuali_pet()
+    paesi = [p["iso2"] for p in G.PET_PAESI]
+    script = (G.PET_MOTORE_JS + "\nvar P=" + json.dumps(paesi) + ";var casi=" + json.dumps(casi) + ";\n"
+              "console.log(JSON.stringify(casi.map(function(c){return calcolaPet(c,P);})));")
+    with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as fh:
+        fh.write(script)
+    try:
+        r = subprocess.run(["node", fh.name], capture_output=True, text=True, timeout=120)
+    except FileNotFoundError:
+        return ["node non trovato: confronto JS del calcolatore animali saltato"], 0
+    finally:
+        os.unlink(fh.name)
+    if r.returncode != 0:
+        return ["Errore JS calcolatore animali: " + r.stderr[:500]], 0
+    errori = []
+    for c, js in zip(casi, json.loads(r.stdout)):
+        py = G.calcola_pet(c)
+        if json.dumps(py, sort_keys=True) != json.dumps(js, sort_keys=True):
+            errori.append(f"calcolatore animali: JS diverso dal Python per {c}: py {py} js {js}")
+    return errori[:20], len(casi)
+
+
+BROWSER_PET_JS = r"""
+const { chromium } = require('/opt/node-tools/node_modules/playwright');
+const http = require('http'); const fs = require('fs'); const path = require('path');
+const ROOT = process.argv[2], PAGINE = JSON.parse(process.argv[3]), CASI = JSON.parse(process.argv[4]), CARTELLA = process.argv[5];
+const srv = http.createServer((req, res) => { let p = decodeURIComponent(req.url.split('?')[0]); if (p.endsWith('/')) p += 'index.html';
+  const f = path.join(ROOT, p); if (!f.startsWith(ROOT) || !fs.existsSync(f)) { res.writeHead(404); res.end('404'); return; }
+  res.writeHead(200, {'Content-Type': p.endsWith('.html') ? 'text/html; charset=utf-8' : 'application/octet-stream'}); res.end(fs.readFileSync(f)); });
+srv.listen(0, async () => {
+  const base = 'http://127.0.0.1:' + srv.address().port; const out = {pagine: [], casi: []};
+  const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+  for (const [larghezza, tema] of [[375, 'light'], [375, 'dark'], [1280, 'light']]) {
+    const ctx = await b.newContext({ viewport: { width: larghezza, height: 900 }, colorScheme: tema });
+    for (const u of PAGINE) {
+      const p = await ctx.newPage(); const err = [];
+      p.on('console', m => { if (m.type() === 'error' && !m.text().startsWith('[Report Only]')) err.push(m.text()); }); p.on('pageerror', e => err.push(String(e)));
+      await p.goto(base + u, { waitUntil: 'load' });
+      const w = await p.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
+      const risp = await p.$eval('#answer', e => { const r = e.getBoundingClientRect(); return r.height > 0 && r.width <= window.innerWidth; }).catch(() => false);
+      const cit = await p.$$eval('blockquote.cit', e => e.filter(x => x.getBoundingClientRect().height > 0).length);
+      out.pagine.push({ url: u, larghezza: larghezza, tema: tema, scroll: w[0], vista: w[1], errori: err, risposta: risp, citazioni: cit });
+      if (tema === 'light') await p.screenshot({ path: CARTELLA + '/' + (u.split('/').filter(Boolean).join('-') || 'home') + '-' + larghezza + '.png', fullPage: false });
+      if (u.indexOf('date-calculator') >= 0) {
+        for (let i = 0; i < CASI.length; i++) { const c = CASI[i][0];
+          await p.goto(base + u, { waitUntil: 'load' });
+          for (const k of ['da', 'specie', 'dest', 'tipo']) if (c[k]) await p.selectOption('[name=' + k + ']', c[k]);
+          for (const k of ['chip', 'vaccino', 'attesa', 'nascita', 'prelievo', 'arrivo', 'ora_arrivo', 'ritorno', 'ora_ritorno']) if (c[k] !== undefined) await p.fill('[name=' + k + ']', c[k]);
+          const r = await p.evaluate(() => ({ testo: document.querySelector('[data-out]').textContent, si: !!document.querySelector('[data-out] .esito.si'), no: !!document.querySelector('[data-out] .esito.no') }));
+          const w2 = await p.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
+          out.casi.push({ caso: i, larghezza: larghezza, tema: tema, testo: r.testo, si: r.si, no: r.no, scroll: w2[0], vista: w2[1] });
+          if (i === 1 && tema === 'light') await p.screenshot({ path: CARTELLA + '/calcolatore-irlanda-' + larghezza + '.png', fullPage: true }); }
+        await p.goto(base + u + '?dest=MT', { waitUntil: 'load' });
+        out.dest = await p.$eval('[name=dest]', e => e.value);
+      }
+      await p.close(); }
+    await ctx.close(); }
+  await b.close(); srv.close(); console.log(JSON.stringify(out)); });
+"""
+
+
+def controlla_browser_pet(pagine):
+    if os.environ.get("BYF_NO_BROWSER") == "1":
+        return [], "saltato (BYF_NO_BROWSER=1)"
+    cartella = tempfile.mkdtemp(prefix="pets-")
+    with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as fh:
+        fh.write(BROWSER_PET_JS)
+    try:
+        r = subprocess.run(["node", fh.name, str(SITO), json.dumps(pagine), json.dumps(CASI_PET_BROWSER), cartella], capture_output=True, text=True, timeout=600)
+    except FileNotFoundError:
+        return ["node non trovato: prova nel browser della sezione animali saltata"], "no"
+    finally:
+        os.unlink(fh.name)
+    if r.returncode != 0:
+        return ["Errore Playwright (animali): " + r.stderr[:800]], "no"
+    o = json.loads(r.stdout)
+    errori = []
+    for x in o["pagine"]:
+        if x["scroll"] > x["vista"]:
+            errori.append(f"{x['url']} ({x['larghezza']} px, {x['tema']}): scorrimento orizzontale {x['scroll']} > {x['vista']}")
+        if x["errori"]:
+            errori.append(f"{x['url']} ({x['larghezza']} px, {x['tema']}): errori in console {x['errori'][:2]}")
+        if not x["risposta"] or x["citazioni"] < 1:
+            errori.append(f"{x['url']} ({x['larghezza']} px, {x['tema']}): risposta in alto o citazioni non visibili")
+    for x in o["casi"]:
+        atteso, colore = CASI_PET_BROWSER[x["caso"]][1], CASI_PET_BROWSER[x["caso"]][2]
+        if any(a not in x["testo"] for a in atteso) or not x[colore]:
+            errori.append(f"calcolatore nel browser ({x['larghezza']} px, {x['tema']}), caso {x['caso']}: atteso {atteso} ({colore}), letto {x['testo'][:300]}")
+        if x["scroll"] > x["vista"]:
+            errori.append(f"calcolatore ({x['larghezza']} px): scorrimento orizzontale con il risultato")
+    if len(o["casi"]) != 3 * len(CASI_PET_BROWSER):
+        errori.append(f"calcolatore: provati {len(o['casi'])} casi nel browser invece di {3 * len(CASI_PET_BROWSER)}")
+    if o.get("dest") != "MT":
+        errori.append("calcolatore: ?dest=MT non preseleziona Malta")
+    return errori, f"{len(o['pagine'])} viste (375 px chiaro/scuro e 1280 px), {len(o['casi'])} prove del calcolatore, schermate in {cartella}"
+
+
+def controlla_animali():
+    """Punto 26: fonti e citazioni, tabelle e link ricalcolati dalla copia salvata, pagine = dati, prima frase, numeri, FAQ, nessun consiglio
+    veterinario né affiliazione, calcolatore (casi a mano, JS = Python, browser a 375 e 1280 px), collegamenti, data del 2027."""
+    from html import unescape
+    errori = []
+    conti = {"fonti": 0, "cache": "no", "pagine": 0, "paesi": 0, "citazioni": 0, "faq": 0, "righe_rotte": 0, "casi": 0, "js": 0, "browser": "", "link": 0}
+    if not G.PET:
+        return ["dati/animali.json mancante (rilanciare raccolta/animali.py)"], conti
+    M = json.loads((SITO.parent / "dati" / "animali_manuali.json").read_text(encoding="utf-8"))
+    if M["citazioni"] != G.PET["citazioni"] or M["faq"] != G.PET["faq"]:
+        errori.append("dati/animali.json non è aggiornato rispetto a dati/animali_manuali.json (rilanciare raccolta/animali.py)")
+    ricerche = set()
+    D = json.loads((SITO.parent / "dati" / "animali_domanda.json").read_text(encoding="utf-8"))
+    for d in list(D["paesi"].values()) + [D["generali"]]:
+        for ss in d.values():
+            ricerche.update(ss)
+    # a) fonti: HTTP 200, domini ufficiali, data; dalla copia salvata: frasi, impronte, tabelle e link per Paese ricalcolati
+    cache = RANI.CACHE.exists()
+    for fid, F in G.PET["fonti"].items():
+        conti["fonti"] += 1
+        if F["http"] != 200:
+            errori.append(f"fonte {fid}: HTTP {F['http']}")
+        if not FONTI_UFFICIALI_PET.match(F["url"]) or not FONTI_UFFICIALI_PET.match(F["pagina"]):
+            errori.append(f"fonte {fid}: dominio non ufficiale {F['url']}")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F["letto_il"] or "") or F["letto_il"] > G.OGGI.isoformat():
+            errori.append(f"fonte {fid}: data di lettura non valida {F['letto_il']}")
+        tipo = RANI.FONTI[fid].get("tipo", "html")
+        f_c = RANI.CACHE / f"{fid}.{'json' if tipo == 'govuk' else 'html'}"
+        if cache and f_c.exists():
+            raw = f_c.read_text(encoding="utf-8")
+            t = RANI.testo_fonte(raw, tipo)
+            frasi = [c["x"] for c in G.PET["citazioni"] if c["f"] == fid]
+            for x in frasi:
+                if x not in t:
+                    errori.append(f"fonte {fid}: frase non più nel testo salvato: {x[:70]}")
+            if frasi and RANI.impronta_zona(t, frasi) != F["impronta"]:
+                errori.append(f"fonte {fid}: impronta diversa dal testo salvato (rilanciare raccolta/animali.py)")
+            if fid == "gov_aria":
+                ta = RANI.tabelle_aria(raw)
+                if [r for r in ta if r["tipo"] == "commerciale"] != G.PET["rotte"]["aria"] or sum(1 for r in ta if r["tipo"] == "charter") != G.PET["rotte"]["charter"]:
+                    errori.append("tabella delle compagnie aeree (o numero dei charter) diversa dalla copia salvata di GOV.UK")
+            if fid == "gov_mare":
+                m = RANI.tabelle_mare(raw)
+                if any(m[k] != G.PET["rotte"][k] for k in ("mare", "crociera", "treno")):
+                    errori.append("tabelle di traghetti, crociere e treni diverse dalla copia salvata di GOV.UK")
+            if fid == "ue_ingresso":
+                L = RANI.link_ue(raw)
+                for p in G.PET_PAESI:
+                    if L.get(p["nome_ue"]) != p["ingresso"]:
+                        errori.append(f"{p['iso2']}: link della Commissione ai punti di ingresso diverso dalla copia salvata")
+            conti["cache"] = "sì"
+    for c in G.PET["citazioni"]:
+        if c.get("elenco") and " ".join(c["elenco"]) != c["x"]:
+            errori.append(f"citazione {c['id']}: le voci dell'elenco non ricompongono la frase")
+    tenia_fonte = {NOMI_ISO_PET[x] for x in G.PET_CIT["e_tenia"]["elenco"][1:] if x in NOMI_ISO_PET}
+    if tenia_fonte != set(G.TENIA_PET):
+        errori.append(f"lista del verme solitario diversa dalla frase di GOV.UK: {sorted(tenia_fonte)} contro {G.TENIA_PET}")
+    # b) pagine = dati, sitemap, titoli
+    sm = leggi("sitemap.xml")
+    attese = {G.PET_BASE + "/", G.PET_CALC, G.PET_PASS, G.PET_ROTTE} | {G.url_pet(p) for p in G.PET_PAGINE}
+    trovate = {q.parent.relative_to(SITO).as_posix() + "/" for q in (SITO / G.PET_BASE).rglob("index.html")} if (SITO / G.PET_BASE).exists() else set()
+    if attese != trovate:
+        errori.append(f"pagine della sezione pets diverse dai dati: in più {sorted(trovate - attese)}, mancanti {sorted(attese - trovate)}")
+    for p in G.PET_PAESI:
+        r = G.ricerca_paese_pet(p)
+        if (r is not None) != (p in G.PET_PAGINE) or (r and r not in ricerche) or (r and G.query_pet(p) not in r):
+            errori.append(f"{p['iso2']}: pagina Paese senza una ricerca vera che nomina il Paese e il Regno Unito (o ricerca senza pagina)")
+    citazioni_x = {c["x"] for c in G.PET["citazioni"] if not c.get("elenco")} | {c["elenco"][0] for c in G.PET["citazioni"] if c.get("elenco")}
+    voci_elenco = {v for c in G.PET["citazioni"] if c.get("elenco") for v in c["elenco"][1:]}
+    numeri_cit = set().union(*[_numeri_ped(c["x"]) for c in G.PET["citazioni"]])
+    ref_home = leggi("index.html")
+    for rel in sorted(attese):
+        f = SITO / rel / "index.html"
+        if not f.exists():
+            continue
+        conti["pagine"] += 1
+        t = f.read_text(encoding="utf-8")
+        vis = unescape(re.sub(r"<[^>]+>", " ", t))
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(tit) > G.LIMITE_TITOLO_PET or str(G.ANNO) not in tit:
+            errori.append(f"{rel}: titolo oltre {G.LIMITE_TITOLO_PET} caratteri o senza l'anno: {tit}")
+        lm = re.search(re.escape(f"<loc>{G.URL_SITO}/{rel}</loc><lastmod>") + r"(\d{4}-\d{2}-\d{2})</lastmod>", sm)
+        if not lm or lm.group(1) not in {F["letto_il"] for F in G.PET["fonti"].values()}:
+            errori.append(f"{rel}: non in sitemap o lastmod diverso da una data di lettura delle fonti")
+        m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t, re.S)
+        lead = unescape(re.sub(r"<[^>]+>", "", m.group(1))) if m else ""
+        if not re.match(r"According to (?:GOV\.UK|GOV\.UK and the European Commission)\b[^,]*, (?:in lists updated on \d{1,2} \w+ \d{4} and )?checked on \d{1,2} \w+ \d{4}, ", lead):
+            errori.append(f"{rel}: la prima frase non dice fonte e data ('According to GOV.UK ..., checked on <data>, ...'): {lead[:120]}")
+        # citazioni: ogni paragrafo e voce dei riquadri è una frase ufficiale; link e data della fonte
+        for bq in re.findall(r'(?s)<blockquote class="cit">(.*?)</blockquote>', t):
+            for x in re.findall(r"(?s)<p>(.*?)</p>", bq):
+                conti["citazioni"] += 1
+                if unescape(x) not in citazioni_x:
+                    errori.append(f"{rel}: testo tra virgolette che non è una citazione dei dati: {unescape(x)[:70]}")
+            for x in re.findall(r"(?s)<li>(.*?)</li>", bq):
+                if unescape(x) not in voci_elenco:
+                    errori.append(f"{rel}: voce di elenco citata che non è nei dati: {unescape(x)[:70]}")
+        for fid, F in G.PET["fonti"].items():
+            if f'href="{escape(F["pagina"])}"' in t and f"checked on {G.data_lunga(F['letto_il'])}" not in vis:
+                errori.append(f"{rel}: fonte {fid} linkata senza la data del controllo")
+        # frasi nostre: niente numeri che non siano nelle citazioni (salvo date, anno e conteggi delle tabelle), niente consigli veterinari
+        t_main = t[t.find("<main"):t.find("</main>")]
+        nostre = unescape(re.sub(r"<[^>]+>", " ", re.sub(r'(?s)<blockquote class="cit">.*?</blockquote>|<script.*?</script>|<div class="tab tab-b">.*?</table></div>|<footer.*?</footer>|'
+                                                      r'<div class="card checker".*?</noscript></div>', " ", t_main)))
+        nostre = re.sub(r"\b(?:Regulation|Implementing Regulation|Delegated Regulation) \(EU\)(?: No)? \d+/\d+", " ", nostre)
+        extra_ok = {str(G.ANNO), "2027", "3.0", "1", "2", "3", "4", "5", "6"} | ({str(len(G.PET["rotte"][k])) for k in ("mare", "treno", "crociera")} |
+                                                                                 {str(len(G.PET["rotte"]["aria"])), str(G.PET["rotte"]["charter"])}
+                                                                                 if rel == G.PET_ROTTE else set())
+        extra_ok |= {str(len(G.rotte_ritorno_pet(p))) for p in G.PET_PAGINE if G.url_pet(p) == rel}  # "N by sea or rail" (righe della tabella GOV.UK)
+        if rel == G.PET_CALC:
+            extra_ok |= {"22", "9", "84"}  # "How we count": 21 + 1, 10 - 1, 12 settimane = 84 giorni (spiegati nella pagina)
+        extra = _numeri_ped(nostre) - numeri_cit - extra_ok
+        if extra:
+            errori.append(f"{rel}: numeri nelle frasi nostre che non sono nelle citazioni: {sorted(extra)[:8]}")
+        mm = CONSIGLIO_VET.search(nostre)
+        if mm:
+            errori.append(f"{rel}: frase da consiglio veterinario o da vendita: '{mm.group(0)}'")
+        if "Check with your vet and the official page" not in vis:
+            errori.append(f"{rel}: manca 'Check with your vet and the official page'")
+        if G.MON.link_affiliati(t) or 'rel="sponsored' in t:
+            errori.append(f"{rel}: link di affiliazione nella sezione pets (nessun programma pertinente attivo)")
+        mm = VIETATE_SRV.search(vis)
+        if mm:
+            errori.append(f"{rel}: nome vietato '{mm.group(0)}'")
+        # FAQ: ricerche vere, JSON-LD = testo visibile
+        faq_ld = next((x for x in (json.loads(y) for y in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)) if x.get("@type") == "FAQPage"), None)
+        vis_faq = re.findall(r"(?s)<section class=\"faq\">.*?</section>", t)
+        if not faq_ld or not vis_faq:
+            errori.append(f"{rel}: FAQ mancanti")
+        else:
+            for e in faq_ld["mainEntity"]:
+                conti["faq"] += 1
+                if f"<h3>{escape(e['name'])}</h3><p>{escape(e['acceptedAnswer']['text'])}</p>" not in vis_faq[0]:
+                    errori.append(f"{rel}: FAQ visibile diversa dal JSON-LD: {e['name']}")
+        if f'href="{rel}"' not in ref_home and rel != G.PET_BASE + "/" and not any(p for p in G.PET_PAGINE if G.url_pet(p) == rel):
+            errori.append(f"home senza link a {rel}")
+    for chiave in ("indice", "calcolatore", "passaporto", "rotte"):
+        for q in G.PET["faq"][chiave]:
+            if q["query"] not in ricerche:
+                errori.append(f"FAQ «{q['q']}» senza una ricerca vera ({q['query']!r})")
+            extra = _numeri_ped(q["pre"] + " " + q["post"]) - numeri_cit
+            if extra:
+                errori.append(f"FAQ «{q['q']}»: numeri non presi dalle citazioni {sorted(extra)}")
+    # c) pagine Paese: verme solitario, link della Commissione, rotte di ritorno, FAQ da ricerche vere, collegamenti con le sezioni sulla guida
+    hub = leggi(f"{G.PET_BASE}/index.html")
+    for p in G.PET_PAGINE:
+        c, rel = p["iso2"], G.url_pet(p)
+        conti["paesi"] += 1
+        t = leggi(rel + "index.html")
+        vis = unescape(re.sub(r"<[^>]+>", " ", t))
+        cella = re.search(r'Tapeworm to enter \(dogs\)</th><td>(.*?)</td>', t)
+        if not cella or cella.group(1).startswith("Yes") != (c in tenia_fonte):
+            errori.append(f"{rel}: riga 'Tapeworm to enter' diversa dalla lista di GOV.UK")
+        if (c in tenia_fonte) != ("is on GOV.UK's tapeworm list" in vis):
+            errori.append(f"{rel}: prima frase sul verme solitario diversa dalla lista di GOV.UK")
+        for u in p["ingresso"] + p["info"]:
+            if f'href="{escape(u)}"' not in t:
+                errori.append(f"{rel}: manca il link della Commissione {u[:60]}")
+        rotte = G.rotte_ritorno_pet(p)
+        if c != "IE":
+            for r in rotte:
+                conti["righe_rotte"] += 1
+                if f'<td data-l="Route">{escape(r["rotta"])}</td><td data-l="Company">{escape(r["compagnia"])}</td>' not in t:
+                    errori.append(f"{rel}: rotta di ritorno mancante {r['rotta']}")
+        elif "You do not need to use an approved route if you’re travelling within the UK or from Ireland." not in unescape(t):
+            errori.append(f"{rel}: manca la frase di GOV.UK sulle rotte dall'Irlanda")
+        for q in G.faq_paese_pet(p):
+            if q["query"] not in ricerche or G.query_pet(p) not in q["query"]:
+                errori.append(f"{rel}: FAQ «{q['q']}» senza una ricerca vera sul Paese ({q['query']!r})")
+            extra = _numeri_ped(q["pre"] + " " + q["post"]) - numeri_cit
+            if extra:
+                errori.append(f"{rel}: numeri non presi dalle citazioni nella FAQ «{q['q']}»: {sorted(extra)}")
+        if f'href="../{G.url_pet(p)[len(G.PET_BASE) + 1:]}"' not in hub and f'href="../{rel}"' not in hub:
+            errori.append(f"indice pets senza link a {rel}")
+        if f'href="../../{G.PET_CALC}?dest={c}"' not in t:
+            errori.append(f"{rel}: manca il link al calcolatore con il Paese scelto")
+        if G.PAT and c in G.PAGINE_PAT.get("uk", []):
+            conti["link"] += 1
+            if f'href="../../{G.url_pat("uk", c)}"' not in t or f'href="../../../{rel}"' not in leggi(G.url_pat("uk", c) + "index.html"):
+                errori.append(f"{rel}: manca il link andata e ritorno con {G.url_pat('uk', c)}")
+        if G.PED and c in G.PED_PER:
+            conti["link"] += 1
+            if f'href="../../{G.url_ped(c)}"' not in t or f'href="../../{rel}"' not in leggi(G.url_ped(c) + "index.html"):
+                errori.append(f"{rel}: manca il link andata e ritorno con {G.url_ped(c)}")
+    # d) rotte: tabelle della pagina = dati
+    tr = leggi(G.PET_ROTTE + "index.html")
+    n_righe = len(re.findall(r"<tr data-voce>", tr))
+    attese_righe = sum(len(G.PET["rotte"][k]) for k in ("aria", "mare", "crociera", "treno"))
+    conti["righe_rotte"] += n_righe
+    if n_righe != attese_righe:
+        errori.append(f"{G.PET_ROTTE}: {n_righe} righe nelle tabelle invece di {attese_righe}")
+    # gli operatori charter (571 righe, voli privati) non si copiano: alcuni nomi coincidono con nomi di assistenti di IA; link alla sezione di GOV.UK
+    if "#charter-airlines" not in tr:
+        errori.append(f"{G.PET_ROTTE}: manca il link alla sezione 'Charter airlines' di GOV.UK")
+    # e) passaporto 2027: la pagina segue la data di GOV.UK
+    tp = unescape(leggi(G.PET_PASS + "index.html"))
+    if "It is our intention that the agreement will take effect in mid-2027." not in tp:
+        errori.append(f"{G.PET_PASS}: manca la frase di GOV.UK sulla data (mid-2027)")
+    if G.OGGI.isoformat() >= "2027-06-01":
+        errori.append(f"{G.PET_PASS}: è già metà 2027: rileggere GOV.UK e riscrivere la pagina del passaporto (e il riquadro 'Changes expected in 2027')")
+    # f) calcolatore: casi a mano, esempio GOV.UK nella pagina, JS = Python, browser
+    for nome, I, atteso in CASI_PET:
+        conti["casi"] += 1
+        R = G.calcola_pet(I)
+        diversi = {k: (_campo_pet(R, k), v) for k, v in atteso.items() if _campo_pet(R, k) != v}
+        if diversi:
+            errori.append(f"calcolatore, caso «{nome}»: {diversi}")
+    tc = unescape(leggi(G.PET_CALC + "index.html"))
+    if "between 1 November 2026 and 10 November 2026" not in tc or "up to and including 10 November" not in tc:
+        errori.append(f"{G.PET_CALC}: l'esempio di GOV.UK non dà le stesse date nel calcolatore")
+    e_js, n_js = controlla_js_pet()
+    errori += e_js
+    conti["js"] = n_js
+    e_b, conti["browser"] = controlla_browser_pet(["/" + x for x in [G.PET_BASE + "/", G.PET_CALC, G.PET_PASS, G.PET_ROTTE] + [G.url_pet(p) for p in G.PET_PAGINE[:4]]])
+    errori += e_b
+    # g) collegamenti in entrata e dati senza nomi di assistenti
+    if f'href="{G.PET_BASE}/"' not in ref_home:
+        errori.append("home senza link alla sezione pets")
+    if f'id="{G.PET_BASE}"' not in leggi("about/index.html"):
+        errori.append("About senza la sezione pets")
+    for nome in ("animali.json", "animali_manuali.json", "animali_domanda.json"):
+        if VIETATE_SRV.search((SITO.parent / "dati" / nome).read_text(encoding="utf-8")):
+            errori.append(f"dati/{nome}: nome di un assistente di intelligenza artificiale")
+    return errori, conti
+
+
 def controlla_indexnow():
     """File chiave IndexNow in sito/: presente, con dentro solo la chiave, fuori dalla sitemap (scritto da genera.py accanto a robots.txt)."""
     errori = []
@@ -3636,7 +4124,9 @@ def main():
     print(f"20. Tolls with a rental car: {c20['paesi']} Paesi, {c20['fonti']} fonti ufficiali (HTTP 200, domini ammessi; frasi e impronte ricalcolate dal testo salvato: {c20['cache']}), "
           f"{c20['citazioni']} citazioni e {c20['prezzi']} prezzi nelle pagine (numeri solo dalle fonti), {c20['faq']} risposte FAQ da ricerche vere (JSON-LD = testo visibile), "
           f"titoli <= {G.LIMITE_TITOLO_PED} con l'anno, sitemap con lastmod della lettura, riquadro DiscoverCars (a_aid, dopo le regole) in {c20['noleggio']} pagine, "
-          f"{c20['link_guida']} link andata e ritorno con Driving abroad; nessun altro noleggio né nome di assistente: {len(e20)} errori")
+          f"{c20['link_guida']} link andata e ritorno con Driving abroad; Croazia: caselli fino al 28/2/2027 e pedaggio senza caselli dal 1/3/2027 con "
+          f"{c20['croazia_2027']} fonti (legge NN 156/2025 citata con la data, Crolibertas), traduzioni, riquadro con data non scaduta, frase sul noleggio; "
+          f"nessun altro noleggio né nome di assistente: {len(e20)} errori")
     e21, c21 = controlla_gomme()
     print(f"21. Winter tyres with a rental car: {c21['paesi']} Paesi, {c21['pagine']} pagine Paese (solo con ricerche vere), {c21['fonti']} fonti ufficiali "
           f"(HTTP 200, domini ammessi; frasi e impronte ricalcolate dal testo salvato: {c21['cache']}), {c21['citazioni']} citazioni con traduzione se non in inglese, "
@@ -3666,9 +4156,16 @@ def main():
           f"della tabella Eurostar e impronte ricalcolate dalla copia salvata: {c25['cache']}), {c25['citazioni']} citazioni nelle pagine, numeri "
           f"solo dalle fonti, {c25['faq']} risposte FAQ da ricerche vere (JSON-LD = testo visibile), titoli <= {G.LIMITE_TITOLO_TB} con l'anno, "
           f"sitemap con lastmod della lettura, nessun link di affiliazione, {c25['link']} link in entrata: {len(e25)} errori")
+    e26, c26 = controlla_animali()
+    print(f"26. Pets UK to EU: {c26['fonti']} fonti ufficiali (GOV.UK e Commissione, HTTP 200; frasi, impronte, tabelle delle rotte e link per Paese ricalcolati "
+          f"dalla copia salvata: {c26['cache']}), {c26['pagine']} pagine (indice, calcolatore, passaporto 2027, rotte, {c26['paesi']} Paesi con ricerche vere), "
+          f"{c26['citazioni']} paragrafi citati tutti uguali ai dati, prima frase con fonte e data, numeri solo dalle citazioni, {c26['faq']} risposte FAQ da "
+          f"ricerche vere (JSON-LD = testo visibile), verme solitario = lista di GOV.UK, {c26['righe_rotte']} righe di rotte = tabelle GOV.UK, "
+          f"calcolatore: {c26['casi']} casi a mano e {c26['js']} casi JS = Python, browser: {c26['browser']}; {c26['link']} link andata e ritorno con "
+          f"Driving abroad e Tolls; nessun consiglio veterinario, nessuna affiliazione, data del passaporto 2027 non scaduta: {len(e26)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26
     for e in tutti:
         print(" -", e)
     if tutti:

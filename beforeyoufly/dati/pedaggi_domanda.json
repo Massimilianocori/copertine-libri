@@ -1,5 +1,5 @@
 {
- "_nota": "Ricerche vere (autocompletamento di Google, client=firefox, hl=en, gl=us e gl=uk) sui pedaggi con l'auto a noleggio. Ogni domanda delle FAQ della sezione tolls-rental-car/ deve essere una di queste ricerche (campo 'query' in pedaggi_manuali.json). Riscritto da raccolta/pedaggi.py --domanda.",
+ "_nota": "Ricerche vere (autocompletamento di Google, client=firefox, hl=en, gl=us e gl=uk) sui pedaggi con l'auto a noleggio. Ogni domanda delle FAQ della sezione tolls-rental-car/ deve essere una di queste ricerche (campo 'query' in pedaggi_manuali.json). Riscritto da raccolta/pedaggi.py --domanda (tutte) o --domanda-nuove (solo le ricerche non ancora lette, aggiunte; data in 'aggiunte_il').",
  "letto_il": "2026-10-30",
  "modelli": [
   "{p} tolls rental car",
@@ -17,7 +17,10 @@
   "portugal electronic tolls rental car",
   "italy telepass rental car",
   "austria vignette hire car",
-  "swiss vignette rental car"
+  "swiss vignette rental car",
+  "croatia toll system",
+  "croatia new toll system",
+  "croatia tolls 2027"
  ],
  "paesi": {
   "PT": {
@@ -1604,7 +1607,26 @@
      "what is a swiss vignette",
      "driving in switzerland vignette cost",
      "vignette swiss price"
-    ]
+    ],
+    "croatia toll system": [
+     "croatia toll system",
+     "croatia toll roads",
+     "croatia toll roads how to pay",
+     "croatia toll roads map",
+     "croatia toll road payment",
+     "croatia toll road calculator",
+     "croatia toll roads vignette",
+     "croatia toll roads price",
+     "croatia digital toll system",
+     "croatia new toll system"
+    ],
+    "croatia new toll system": [
+     "croatia new toll system",
+     "cost of toll bridges in denmark",
+     "new toll fee",
+     "croatia toll prices"
+    ],
+    "croatia tolls 2027": []
    },
    "uk": {
     "m50 toll rental car": [
@@ -1656,8 +1678,28 @@
      "what is a swiss vignette",
      "driving in switzerland vignette cost",
      "vignette swiss price"
-    ]
+    ],
+    "croatia toll system": [
+     "croatia toll system",
+     "croatia toll roads",
+     "croatia toll roads how to pay",
+     "croatia toll roads map",
+     "croatia toll road payment",
+     "croatia toll road calculator",
+     "croatia toll roads vignette",
+     "croatia toll roads price",
+     "croatia digital toll system",
+     "croatia new toll system"
+    ],
+    "croatia new toll system": [
+     "croatia new toll system",
+     "cost of toll bridges in denmark",
+     "new toll fee",
+     "croatia toll prices"
+    ],
+    "croatia tolls 2027": []
    }
   }
- }
+ },
+ "aggiunte_il": "2026-10-31"
 }

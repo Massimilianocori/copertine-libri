@@ -1,0 +1,613 @@
+{
+ "_nota": "Animali in viaggio (sezione pets/, 31/10/2026): citazioni scritte a mano. Ogni 'x' è testo della fonte parola per parola (testo normalizzato da raccolta/animali.py); 'elenco' è la stessa frase divisa nelle voci di un elenco della pagina ufficiale (introduzione + voci, unite da uno spazio = 'x'), per mostrarla come elenco. Le FAQ hanno una 'query' che deve essere una ricerca vera di dati/animali_domanda.json; 'pre' e 'post' sono parole nostre, controllate da verifica.py (punto 26): nessun numero che non sia nelle citazioni, nessun consiglio veterinario.",
+ "scritto_il": "2026-10-31",
+ "citazioni": [
+  {
+   "id": "e_regole_paese",
+   "f": "gov_estero",
+   "tema": "prima",
+   "x": "Check what you need to do before you can travel with your pet dog, cat or ferret to an EU country. You’ll also need to check for any additional rules or requirements for the country you’re travelling to. These rules also apply to assistance dogs."
+  },
+  {
+   "id": "e_chip",
+   "f": "gov_estero",
+   "tema": "microchip",
+   "x": "You must get your pet microchipped before, or at the same time as, their rabies vaccination. If you do not, they’ll need to be vaccinated again."
+  },
+  {
+   "id": "e_12sett",
+   "f": "gov_estero",
+   "tema": "vaccino",
+   "x": "Your vet needs proof that your pet is at least 12 weeks old before vaccinating them."
+  },
+  {
+   "id": "e_21",
+   "f": "gov_estero",
+   "tema": "vaccino",
+   "x": "You will have to wait at least 21 full days after the first rabies vaccination (or the last of the first course of rabies vaccinations) is given. Day 1 is the day after the rabies vaccination."
+  },
+  {
+   "id": "e_attesa_vet",
+   "f": "gov_estero",
+   "tema": "vaccino",
+   "x": "Ask your vet how long you must wait - some rabies vaccinations take longer to work than others."
+  },
+  {
+   "id": "e_richiamo",
+   "f": "gov_estero",
+   "tema": "vaccino",
+   "x": "You do not need to wait to travel after a booster vaccination if there has been no break in the vaccine cover."
+  },
+  {
+   "id": "e_esempio",
+   "f": "gov_estero",
+   "tema": "ahc",
+   "x": "A vet vaccinates your pet against rabies on 1 October using a vaccine which takes 30 days to work. You can go to your vet to get an animal health certificate on 1 November. After the animal health certificate is issued on 1 November, you can enter the EU with your pet any time up to and including 10 November."
+  },
+  {
+   "id": "e_ahc10",
+   "f": "gov_estero",
+   "tema": "ahc",
+   "x": "You must get an animal health certificate before you enter the EU. The certificate is valid for travel any time within 10 days after it’s issued by your vet, so you’ll need to travel during this time. Day 1 is the date the animal health certificate is issued."
+  },
+  {
+   "id": "e_ahc_ov",
+   "f": "gov_estero",
+   "tema": "ahc",
+   "x": "You must take your pet to your vet to get an animal health certificate. The certificate needs to be signed by an ‘official veterinarian’ (OV)."
+  },
+  {
+   "id": "e_5pets",
+   "f": "gov_estero",
+   "tema": "ahc",
+   "x": "You can add up to 5 pets to an animal health certificate."
+  },
+  {
+   "id": "e_ogni_viaggio",
+   "f": "gov_estero",
+   "tema": "ahc",
+   "x": "You will need to get a new animal health certificate for each separate trip you take with your pet to the EU."
+  },
+  {
+   "id": "e_proseguire",
+   "f": "gov_estero",
+   "tema": "ahc",
+   "x": "You can use the same certificate for onward travel between EU countries during the same trip, for up to 6 months after entering the EU."
+  },
+  {
+   "id": "e_dichiarazione",
+   "f": "gov_estero",
+   "tema": "ahc",
+   "x": "When you get the certificate, your vet will also give you a declaration to sign. This confirms that you will not sell or re-home the pet while you’re abroad."
+  },
+  {
+   "id": "e_passaporto_no",
+   "f": "gov_estero",
+   "tema": "passaporto",
+   "x": "If you live in England, Scotland or Wales, you cannot use a pet passport to enter the EU - even if it was issued in the EU. If you use a pet passport instead of an animal health certificate, your pet may be refused entry."
+  },
+  {
+   "id": "e_tenia",
+   "f": "gov_estero",
+   "tema": "tenia",
+   "elenco": [
+    "A vet must treat your dog for tapeworm and record it in their pet travel document if you’re travelling to:",
+    "Finland",
+    "Ireland",
+    "Malta",
+    "Northern Ireland (unless you have a Northern Ireland pet travel document)",
+    "Norway"
+   ],
+   "x": "A vet must treat your dog for tapeworm and record it in their pet travel document if you’re travelling to: Finland Ireland Malta Northern Ireland (unless you have a Northern Ireland pet travel document) Norway"
+  },
+  {
+   "id": "e_tenia_quando",
+   "f": "gov_estero",
+   "tema": "tenia",
+   "elenco": [
+    "The treatment must be given:",
+    "no less than 24 hours before you arrive",
+    "no more than 5 days (120 hours) before you arrive"
+   ],
+   "x": "The treatment must be given: no less than 24 hours before you arrive no more than 5 days (120 hours) before you arrive"
+  },
+  {
+   "id": "e_ritorno_tenia",
+   "f": "gov_estero",
+   "tema": "ritorno",
+   "x": "You do not need a treatment for your return journey if you’re travelling back from Finland, Ireland, Northern Ireland, Malta or Norway."
+  },
+  {
+   "id": "e_ingresso",
+   "f": "gov_estero",
+   "tema": "arrivo",
+   "x": "You’ll need to go through a travellers’ point of entry when you arrive in an EU country."
+  },
+  {
+   "id": "e_piu5",
+   "f": "gov_estero",
+   "tema": "numero",
+   "elenco": [
+    "You cannot take more than 5 pets in a private vehicle to an EU country unless you’re:",
+    "attending or training for an event",
+    "exporting for commercial purposes"
+   ],
+   "x": "You cannot take more than 5 pets in a private vehicle to an EU country unless you’re: attending or training for an event exporting for commercial purposes"
+  },
+  {
+   "id": "e_aiuto",
+   "f": "gov_estero",
+   "tema": "aiuto",
+   "x": "Contact the Animal and Plant Health Agency (APHA) for more information about pet travel."
+  },
+  {
+   "id": "g_rotta",
+   "f": "gov_gb",
+   "tema": "ritorno",
+   "x": "Check your route is approved for pet travel. You do not need to use an approved route if you’re travelling within the UK or from Ireland."
+  },
+  {
+   "id": "g_tenia",
+   "f": "gov_gb",
+   "tema": "ritorno",
+   "x": "If you have a dog, you may need a vet to give them tapeworm treatment. Your dog must be treated no less than 24 hours before (and no more than 5 days before) you arrive in Great Britain."
+  },
+  {
+   "id": "g_tenia_no",
+   "f": "gov_gb",
+   "tema": "ritorno",
+   "x": "You do not need to treat your dog for tapeworm if you’re coming directly to Great Britain from Finland, Ireland, Northern Ireland, Malta or Norway."
+  },
+  {
+   "id": "g_ahc",
+   "f": "gov_gb",
+   "tema": "ritorno",
+   "elenco": [
+    "Your pet can enter Great Britain (England, Wales and Scotland) with an animal health certificate (AHC) if all the following apply:",
+    "the AHC was issued in Great Britain",
+    "you’re travelling from the EU or another country where you can use an AHC",
+    "it’s less than 6 months since the date you entered the EU or a country that accepts AHCs"
+   ],
+   "x": "Your pet can enter Great Britain (England, Wales and Scotland) with an animal health certificate (AHC) if all the following apply: the AHC was issued in Great Britain you’re travelling from the EU or another country where you can use an AHC it’s less than 6 months since the date you entered the EU or a country that accepts AHCs"
+  },
+  {
+   "id": "g_oltre6",
+   "f": "gov_gb",
+   "tema": "ritorno",
+   "x": "If you stay abroad for more than 6 months, to bring your pet back to Great Britain you’ll need a Great Britain pet health certificate."
+  },
+  {
+   "id": "g_quarantena",
+   "f": "gov_gb",
+   "tema": "ritorno",
+   "x": "Your pet may be put into quarantine for up to 4 months if you do not follow these rules - or refused entry if you travelled by sea. You’re responsible for any fees or charges."
+  },
+  {
+   "id": "g_cargo",
+   "f": "gov_gb",
+   "tema": "rotte",
+   "elenco": [
+    "Pets have to travel as cargo on a plane unless:",
+    "you’re flying on a chartered private plane",
+    "you’re travelling with a guide or assistance dog"
+   ],
+   "x": "Pets have to travel as cargo on a plane unless: you’re flying on a chartered private plane you’re travelling with a guide or assistance dog"
+  },
+  {
+   "id": "g_compagnia",
+   "f": "gov_gb",
+   "tema": "rotte",
+   "x": "Check if the company you’re travelling with allows you to bring pets before you travel."
+  },
+  {
+   "id": "g_sangue",
+   "f": "gov_gb",
+   "tema": "sangue",
+   "x": "Your pet must have a blood sample taken at least 30 days after the rabies vaccination."
+  },
+  {
+   "id": "g_sangue_3mesi",
+   "f": "gov_gb",
+   "tema": "sangue",
+   "x": "You must wait 3 months from the date the blood sample was taken before you travel."
+  },
+  {
+   "id": "s_data",
+   "f": "gov_sps",
+   "tema": "passaporto_2027",
+   "x": "It is our intention that the agreement will take effect in mid-2027."
+  },
+  {
+   "id": "s_passaporto",
+   "f": "gov_sps",
+   "tema": "passaporto_2027",
+   "x": "Travelling to the EU with pet dogs, cats and ferrets is expected to become easier and cheaper. Pet owners will be able to get a multiuse pet passport valid for EU travel, rather than obtaining a new animal health certificate for each trip. In the meantime, owners will still need an animal health certificate for their dog, cat or ferret if they are travelling from Great Britain to an EU country."
+  },
+  {
+   "id": "s_trattative",
+   "f": "gov_sps",
+   "tema": "passaporto_2027",
+   "x": "As negotiations are ongoing, not all details are confirmed at this stage."
+  },
+  {
+   "id": "s_calendario",
+   "f": "gov_sps",
+   "tema": "passaporto_2027",
+   "elenco": [
+    "The following timeline sets out the expected stages for introducing the SPS agreement and when further information will be published:",
+    "summer 2026 – further details on upcoming changes announced, including on any exceptions and transition periods",
+    "autumn 2026 – detailed guidance and support, including checklists and practical tools, made available",
+    "mid-2027 – agreement takes effect (subject to negotiations)"
+   ],
+   "x": "The following timeline sets out the expected stages for introducing the SPS agreement and when further information will be published: summer 2026 – further details on upcoming changes announced, including on any exceptions and transition periods autumn 2026 – detailed guidance and support, including checklists and practical tools, made available mid-2027 – agreement takes effect (subject to negotiations)"
+  },
+  {
+   "id": "r_solo",
+   "f": "gov_rotte",
+   "tema": "rotte",
+   "x": "You can only use these carriers and routes approved by the Animal and Plant Health Agency to bring your pet to England or Scotland. There are no approved routes to Wales."
+  },
+  {
+   "id": "r_esenzioni",
+   "f": "gov_rotte",
+   "tema": "rotte",
+   "elenco": [
+    "You do not have to use an approved carrier or route if you travel to England, Scotland or Wales from:",
+    "UK countries",
+    "the Channel Islands",
+    "the Isle of Man",
+    "the Republic of Ireland"
+   ],
+   "x": "You do not have to use an approved carrier or route if you travel to England, Scotland or Wales from: UK countries the Channel Islands the Isle of Man the Republic of Ireland"
+  },
+  {
+   "id": "a_aggiornate",
+   "f": "gov_aria",
+   "tema": "rotte",
+   "x": "We update these lists when we are told of changes. You should check with your travel company if you want to make sure they are still approved."
+  },
+  {
+   "id": "a_stiva",
+   "f": "gov_aria",
+   "tema": "rotte",
+   "x": "These airlines transport pets in the hold of the plane."
+  },
+  {
+   "id": "m_limiti",
+   "f": "gov_mare",
+   "tema": "rotte",
+   "x": "Limitations may apply for acceptance of animals for travel. Contact the carrier for details before you book."
+  },
+  {
+   "id": "u_reg",
+   "f": "ue_condizioni",
+   "tema": "ue",
+   "x": "Specific animal health requirements on traveling with pet animals (dogs, cats or ferrets) from non-EU countries are laid down in Commission Delegated Regulation (EU) 2026/131."
+  },
+  {
+   "id": "u_5",
+   "f": "ue_condizioni",
+   "tema": "ue",
+   "x": "The maximum number of pet animals (dogs, cats or ferrets) which may be moved for non-commercial purposes is 5 in a single vehicle."
+  },
+  {
+   "id": "u_12",
+   "f": "ue_condizioni",
+   "tema": "ue",
+   "x": "The pet animal was at least 12 weeks old at the date the vaccine was administered. The date of administration of the vaccine does not precede the date of identification or reading of the microchip. The period of validity of the vaccination starts not less than 21 days from the completion of the vaccination protocol for the primary vaccination, and any subsequent vaccination was carried out within the period of validity of the preceding vaccination."
+  },
+  {
+   "id": "u_titolo",
+   "f": "ue_condizioni",
+   "tema": "sangue",
+   "x": "The test must be carried out without undue delay after sample collection on a sample collected by an authorised veterinarian at least 30 days after the date of the primary vaccination, or within a current valid vaccination series, and not less than 90 days before the date of issue of the animal health certificate accompanying the animal movement."
+  },
+  {
+   "id": "u_esenti",
+   "f": "ue_condizioni",
+   "tema": "sangue",
+   "x": "The test is not required for pet animals (dogs, cats or ferrets) moved into an EU country from a territory or a third country listed in Annex I and Annex II to Commission Implementing Regulation (EU) 2026/636"
+  },
+  {
+   "id": "u_tenia_paesi",
+   "f": "ue_condizioni",
+   "tema": "tenia",
+   "x": "Pet dogs (not pet cats or pet ferrets) must be treated against the parasite Echinococcus multilocularis prior to entering: any EU country listed in Annex XIX to Commission Implementing Regulation (EU) 2021/620, (Finland, Ireland, Malta and United Kingdom (Northern Ireland)). Norway."
+  },
+  {
+   "id": "u_tenia",
+   "f": "ue_condizioni",
+   "tema": "tenia",
+   "x": "Be administered by a veterinarian within a period of not more than 120 hours and not less than 24 hours before the time of scheduled entry."
+  },
+  {
+   "id": "u_mare",
+   "f": "ue_condizioni",
+   "tema": "ahc",
+   "x": "In the case of a transport by sea, that period of 10 days is extended by an additional period corresponding to the duration of the journey by sea."
+  },
+  {
+   "id": "u_6mesi",
+   "f": "ue_condizioni",
+   "tema": "ahc",
+   "x": "For further movements into other EU countries, the certificate is valid from the date of the documentary and identity checks for a total of 6 months or until the date of expiry of the anti-rabies vaccination whichever is earlier."
+  },
+  {
+   "id": "u_uk",
+   "f": "ue_condizioni",
+   "tema": "passaporto",
+   "x": "An EU pet passport issued to a pet owner resident in Great Britain is no longer a valid document for travelling with pets from Great Britain to the EU."
+  },
+  {
+   "id": "u_ingresso",
+   "f": "ue_condizioni",
+   "tema": "arrivo",
+   "x": "The pet animal (dog, cat or ferret) must pass through a travellers' point of entry designated by each EU country. The owner must, at the time of entry, contact the competent authority present at the point of entry for the purposes of the documentary and identity checks."
+  },
+  {
+   "id": "i_intro",
+   "f": "ue_ingresso",
+   "tema": "arrivo",
+   "x": "Dogs, cats and ferrets moved for non-commercial purposes into an EU country from a non-EU country or territory other than Andorra, Switzerland, Faroe Islands, Gibraltar, Greenland, Iceland, Liechtenstein, Monaco, Norway, San Marino, and Vatican City State, must enter through the following travellers' points of entry designated by each EU country, where they are subjected to documentary and identity checks by the competent authorities:"
+  },
+  {
+   "id": "p_intro",
+   "f": "ue_paesi",
+   "tema": "arrivo",
+   "x": "In this section, you will find general information regarding the animal health requirements applicable to pet animals moved between and into EU countries. You can also get the information about the national measures aimed at restricting the movement of certain species and breeds of pet animals on the basis apart from animal health."
+  }
+ ],
+ "faq": {
+  "indice": [
+   {
+    "query": "animal health certificate (ahc)",
+    "q": "What is an animal health certificate (AHC)?",
+    "cit": [
+     "e_ahc10",
+     "e_ahc_ov",
+     "e_5pets"
+    ],
+    "pre": "It is the document your dog, cat or ferret needs to travel from Great Britain to an EU country. GOV.UK says:",
+    "post": ""
+   },
+   {
+    "query": "animal health certificate vs pet passport",
+    "q": "Animal health certificate or pet passport: which do I need?",
+    "cit": [
+     "e_passaporto_no",
+     "u_uk"
+    ],
+    "pre": "If you live in England, Scotland or Wales, an animal health certificate. GOV.UK and the European Commission say:",
+    "post": "GOV.UK expects a multiuse pet passport for EU travel from mid-2027: see our page on the 2027 pet passport."
+   },
+   {
+    "query": "taking dog to europe from uk after brexit",
+    "q": "What do I need to take my dog to Europe from the UK after Brexit?",
+    "cit": [
+     "e_chip",
+     "e_21",
+     "e_ahc10"
+    ],
+    "pre": "GOV.UK says:",
+    "post": "Dogs going to Finland, Ireland, Malta or Norway also need a tapeworm treatment before they arrive."
+   },
+   {
+    "query": "bringing dog back to uk from eu",
+    "q": "What do I need to bring my dog back to the UK from the EU?",
+    "cit": [
+     "g_ahc",
+     "g_tenia"
+    ],
+    "pre": "GOV.UK says:",
+    "post": "The tapeworm treatment is not needed if you come back directly from Finland, Ireland, Northern Ireland, Malta or Norway."
+   }
+  ],
+  "calcolatore": [
+   {
+    "query": "how long after rabies vaccine can dog travel",
+    "q": "How long after the rabies vaccine can my dog travel?",
+    "cit": [
+     "e_21",
+     "e_attesa_vet"
+    ],
+    "pre": "GOV.UK says:",
+    "post": "The calculator on this page counts the days for you."
+   },
+   {
+    "query": "how long after rabies booster can dogs travel",
+    "q": "How long after a rabies booster can my dog travel?",
+    "cit": [
+     "e_richiamo"
+    ],
+    "pre": "GOV.UK says:",
+    "post": "If the booster was late, ask your vet: the wait may start again."
+   },
+   {
+    "query": "tapeworm treatment for dogs before travel",
+    "q": "When must my dog have the tapeworm treatment before travel?",
+    "cit": [
+     "e_tenia_quando",
+     "g_tenia"
+    ],
+    "pre": "Only for some countries (Finland, Ireland, Malta, Northern Ireland and Norway) and for the trip back to Great Britain. GOV.UK says:",
+    "post": ""
+   }
+  ],
+  "passaporto": [
+   {
+    "query": "uk pet passport 2027",
+    "q": "Is the UK pet passport coming back in 2027?",
+    "cit": [
+     "s_passaporto",
+     "s_data"
+    ],
+    "pre": "That is what GOV.UK expects:",
+    "post": "GOV.UK gives no exact date on the pages we read."
+   },
+   {
+    "query": "uk pet passport 2027 requirements",
+    "q": "What are the requirements for the 2027 UK pet passport?",
+    "cit": [
+     "s_trattative"
+    ],
+    "pre": "GOV.UK has not published them on the pages we read. It says:",
+    "post": "Until then, the animal health certificate rules apply."
+   },
+   {
+    "query": "uk pet passport 2027 cost",
+    "q": "How much will the 2027 UK pet passport cost?",
+    "cit": [
+     "s_passaporto"
+    ],
+    "pre": "GOV.UK has not published a cost on the pages we read. It says:",
+    "post": ""
+   },
+   {
+    "query": "pet passport uk eu deal",
+    "q": "When does the UK–EU deal on pet travel start?",
+    "cit": [
+     "s_calendario"
+    ],
+    "pre": "GOV.UK gives this timeline:",
+    "post": ""
+   }
+  ],
+  "rotte": [
+   {
+    "query": "pet friendly airlines to uk",
+    "q": "Which airlines can fly my dog to the UK?",
+    "cit": [
+     "a_stiva",
+     "g_cargo"
+    ],
+    "pre": "Only the airlines approved by the Animal and Plant Health Agency, listed on this page. GOV.UK says:",
+    "post": ""
+   },
+   {
+    "query": "eurotunnel dogs to uk",
+    "q": "Can I take my dog to the UK on Eurotunnel?",
+    "cit": [
+     "g_compagnia"
+    ],
+    "pre": "Eurotunnel Le Shuttle, Calais (Coquelles) to Folkestone (Cheriton), is on the GOV.UK list of approved rail routes. GOV.UK also says:",
+    "post": ""
+   },
+   {
+    "query": "ferry with dog to uk",
+    "q": "Which ferries can I take with my dog to the UK?",
+    "cit": [
+     "m_limiti"
+    ],
+    "pre": "The approved ferry routes are in the table on this page, by country. GOV.UK says:",
+    "post": ""
+   },
+   {
+    "query": "flying dog to uk from usa",
+    "q": "Can I fly my dog to the UK from the USA?",
+    "cit": [
+     "g_cargo"
+    ],
+    "pre": "Only with an approved airline. GOV.UK says:",
+    "post": "Check which documents your pet needs on GOV.UK’s page on bringing your pet to Great Britain."
+   }
+  ],
+  "paese": [
+   {
+    "query": [
+     "taking dog to {p} from uk",
+     "dog to {p} from uk",
+     "taking dog to {p}"
+    ],
+    "solo": "tenia",
+    "q": "What do I need to take my dog from the UK to {paese}?",
+    "cit": [
+     "e_chip",
+     "e_21",
+     "e_ahc10"
+    ],
+    "pre": "GOV.UK says:",
+    "post": "A vet must also treat your dog for tapeworm before you arrive in {paese}."
+   },
+   {
+    "query": [
+     "taking dog to {p} from uk",
+     "dog to {p} from uk",
+     "taking dog to {p}"
+    ],
+    "solo": "no_tenia",
+    "q": "What do I need to take my dog from the UK to {paese}?",
+    "cit": [
+     "e_chip",
+     "e_21",
+     "e_ahc10"
+    ],
+    "pre": "GOV.UK says:",
+    "post": "{paese} is not on GOV.UK’s tapeworm list, so no tapeworm treatment is needed to enter."
+   },
+   {
+    "query": [
+     "taking cat to {p}"
+    ],
+    "q": "Are the rules the same for a cat?",
+    "cit": [
+     "e_regole_paese",
+     "u_tenia_paesi"
+    ],
+    "pre": "Yes for the microchip, the rabies vaccination and the animal health certificate; the tapeworm treatment is for dogs only. GOV.UK and the European Commission say:",
+    "post": ""
+   },
+   {
+    "query": [
+     "tapeworm treatment for dogs travelling to {p}"
+    ],
+    "solo": "tenia",
+    "q": "When does my dog need the tapeworm treatment for {paese}?",
+    "cit": [
+     "e_tenia_quando"
+    ],
+    "pre": "GOV.UK says:",
+    "post": ""
+   },
+   {
+    "query": [
+     "tapeworm treatment for dogs travelling to {p}"
+    ],
+    "solo": "no_tenia",
+    "q": "Does my dog need tapeworm treatment to travel to {paese}?",
+    "cit": [
+     "g_tenia"
+    ],
+    "pre": "Not to enter {paese}: it is not on GOV.UK’s list. But your dog needs one before you come back to Great Britain. GOV.UK says:",
+    "post": ""
+   },
+   {
+    "query": [
+     "bringing dog back to uk from {p}",
+     "can i bring a dog back from {p} to uk"
+    ],
+    "solo": "tenia",
+    "q": "What do I need to bring my dog back to the UK from {paese}?",
+    "cit": [
+     "g_ahc",
+     "g_tenia_no"
+    ],
+    "pre": "GOV.UK says:",
+    "post": ""
+   },
+   {
+    "query": [
+     "bringing dog back to uk from {p}",
+     "can i bring a dog back from {p} to uk"
+    ],
+    "solo": "no_tenia",
+    "q": "What do I need to bring my dog back to the UK from {paese}?",
+    "cit": [
+     "g_ahc",
+     "g_tenia"
+    ],
+    "pre": "GOV.UK says:",
+    "post": ""
+   }
+  ]
+ }
+}
