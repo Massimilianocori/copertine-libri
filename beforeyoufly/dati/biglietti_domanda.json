@@ -1,0 +1,647 @@
+{
+ "_nota": "Ricerche vere (autocompletamento di Google, client=firefox, hl=en, gl=us e gl=uk) sull'uscita dei biglietti, le chiusure e i giorni gratis delle attrazioni della sezione ticket-release-dates/. Ogni domanda delle FAQ è una di queste ricerche (campo 'query' in biglietti_manuali.json). Riscritto da raccolta/biglietti.py --domanda.",
+ "letto_il": "2026-10-30",
+ "domande": [
+  "when do last supper tickets go on sale",
+  "last supper tickets",
+  "last supper tickets release",
+  "last supper milan tickets",
+  "last supper free sunday",
+  "is the last supper open on",
+  "when do vatican tickets go on sale",
+  "when do vatican museum tickets go on sale",
+  "vatican museum free sunday",
+  "is the vatican museum open on",
+  "is the vatican open on",
+  "vatican museums closed",
+  "anne frank house tickets",
+  "anne frank house tickets release",
+  "when do anne frank house tickets go on sale",
+  "anne frank house ticket release date",
+  "is anne frank house open on",
+  "when do pompeii tickets go on sale",
+  "pompeii tickets",
+  "pompeii free sunday",
+  "is pompeii open on",
+  "pompeii closed",
+  "when do alhambra tickets go on sale",
+  "alhambra tickets",
+  "when are alhambra tickets released",
+  "is the alhambra open on",
+  "when do sagrada familia tickets go on sale",
+  "sagrada familia tickets",
+  "how far in advance sagrada familia tickets",
+  "is sagrada familia open on"
+ ],
+ "ricerche": {
+  "us": {
+   "when do last supper tickets go on sale": [
+    "when do last supper tickets go on sale",
+    "when do last supper tickets go on sale for may 2026",
+    "when do last supper tickets go on sale for september 2026",
+    "when do last supper tickets go on sale for june 2026",
+    "when do last supper tickets go on sale for september",
+    "when do last supper tickets go on sale for may",
+    "when do tickets for the last supper go on sale for october 2026",
+    "when do last supper tickets go on sale for november",
+    "when do last supper tickets go on sale for june",
+    "when do last supper tickets go on sale for march 2026"
+   ],
+   "last supper tickets": [
+    "last supper tickets",
+    "last supper tickets milan",
+    "last supper tickets official website",
+    "last supper tickets official",
+    "last supper tickets last minute",
+    "last supper tickets milan italy",
+    "last supper tickets milan official site",
+    "last supper tickets skip the line",
+    "last supper tickets reddit",
+    "last supper tickets 2026"
+   ],
+   "last supper tickets release": [
+    "last supper tickets released wednesday",
+    "last supper tickets release date",
+    "last supper tickets release",
+    "last supper tickets release time",
+    "last supper tickets on sale",
+    "when are last supper tickets released for september 2026",
+    "how far in advance are last supper tickets released",
+    "how to get tickets to see the last supper in milan"
+   ],
+   "last supper milan tickets": [
+    "last supper milan tickets",
+    "last supper milan tickets official site",
+    "last supper milan tickets last minute",
+    "last supper milan tickets official",
+    "last supper milan tickets price",
+    "last supper milan tickets resale",
+    "last supper milan tickets sold out",
+    "last supper milan tickets online",
+    "last supper milan tickets today",
+    "last supper milan tickets for may 2026"
+   ],
+   "last supper free sunday": [
+    "last supper free sunday tickets",
+    "last supper free sunday",
+    "was the last supper on a thursday"
+   ],
+   "is the last supper open on": [
+    "is the last supper open on mondays",
+    "is the last supper open on sunday",
+    "is the last supper museum open on sunday",
+    "is the last supper museum open on mondays",
+    "is the last supper in milan open on mondays",
+    "is the last supper in milan open on sundays",
+    "last supper opening hours",
+    "where is the last supper today"
+   ],
+   "when do vatican tickets go on sale": [
+    "when do vatican tickets go on sale",
+    "when do vatican tickets go on sale reddit",
+    "what time do vatican tickets go on sale",
+    "when do vatican museum tickets go on sale",
+    "when do vatican tour tickets go on sale",
+    "what time do vatican museum tickets go on sale",
+    "what time of day do vatican tickets go on sale",
+    "how early do vatican tickets go on sale",
+    "can you buy vatican tickets at the door",
+    "how far in advance can you book vatican tickets"
+   ],
+   "when do vatican museum tickets go on sale": [
+    "when do vatican museum tickets go on sale",
+    "can you buy tickets at the vatican museum",
+    "can you buy vatican tickets at the door",
+    "how to buy tickets to vatican museum",
+    "is vatican museum worth it"
+   ],
+   "vatican museum free sunday": [
+    "vatican museum free sunday",
+    "vatican museum free sunday reddit",
+    "vatican museum free sunday tickets",
+    "vatican city free sunday",
+    "vatican museum free days",
+    "vatican museum free entry sunday",
+    "vatican museum free last sunday of the month",
+    "vatican museum free last sunday",
+    "vatican museum free first sunday",
+    "vatican city visit sunday"
+   ],
+   "is the vatican museum open on": [
+    "is the vatican museum open on sunday",
+    "is the vatican museum open on mondays",
+    "is the vatican museum open on saturday",
+    "is the vatican museum open on easter sunday",
+    "is the vatican museum open on wednesday",
+    "is the vatican museum open on good friday",
+    "is the vatican museum open on christmas day",
+    "is the vatican museum open on new year's day",
+    "is the vatican museum open on easter monday",
+    "is the vatican museum open on christmas eve"
+   ],
+   "is the vatican open on": [
+    "is the vatican open on sundays",
+    "is the vatican open on mondays",
+    "is the vatican open on saturday",
+    "is the vatican open on sundays for tours",
+    "is the vatican open on wednesdays",
+    "is the vatican open on sundays for tourists",
+    "is the vatican open on christmas day",
+    "is the vatican open on august 15",
+    "is the vatican open on january 1st",
+    "is the vatican open on new year's day"
+   ],
+   "vatican museums closed": [
+    "vatican museums closing time",
+    "what day is the vatican museum closed",
+    "is the vatican museum open today",
+    "is the vatican closed",
+    "when did the vatican museum open to the public"
+   ],
+   "anne frank house tickets": [
+    "anne frank house tickets",
+    "anne frank house tickets amsterdam",
+    "anne frank house tickets official site",
+    "anne frank house tickets sold out",
+    "anne frank house tickets 2026",
+    "anne frank house tickets english",
+    "anne frank house tickets chicago",
+    "anne frank house tickets reddit",
+    "anne frank house tickets official site amsterdam",
+    "anne frank house tickets cost"
+   ],
+   "anne frank house tickets release": [
+    "anne frank house tickets release time",
+    "anne frank house tickets release",
+    "anne frank house ticket release date calculator",
+    "does anne frank house release tickets day of",
+    "when does anne frank house release tickets",
+    "does anne frank house release more tickets",
+    "anne frank house entry fee",
+    "anne frank house tickets price",
+    "anne frank house entrance fee",
+    "can you buy tickets for anne frank house on the day"
+   ],
+   "when do anne frank house tickets go on sale": [
+    "when do anne frank house tickets go on sale",
+    "what time do anne frank house tickets go on sale"
+   ],
+   "anne frank house ticket release date": [
+    "anne frank house ticket release date calculator",
+    "anne frank house tickets change date",
+    "anne frank house tickets price",
+    "anne frank house entry fee",
+    "anne frank house entrance fee",
+    "can you buy tickets for anne frank house on the day",
+    "when can i buy anne frank house tickets"
+   ],
+   "is anne frank house open on": [
+    "is anne frank house open on sundays",
+    "is anne frank house open on christmas day",
+    "is anne frank house open on mondays",
+    "is anne frank house open on kings day",
+    "is anne frank house open in december",
+    "is anne frank's house in amsterdam",
+    "is anne frank house in the centre of amsterdam",
+    "is anne frank house in jordaan",
+    "is anne frank's house in amsterdam real",
+    "is anne frank house in central amsterdam"
+   ],
+   "when do pompeii tickets go on sale": [
+    "when do pompeii tickets go on sale",
+    "how early do pompeii tickets go on sale",
+    "what time do rush tickets go on sale",
+    "do i need to buy mezquita tickets in advance",
+    "what time do garth tickets go on sale"
+   ],
+   "pompeii tickets": [
+    "pompeii tickets",
+    "pompeii tickets official site",
+    "pompeii tickets official",
+    "pompeii tickets skip the line",
+    "pompeii tickets price",
+    "pompeii tickets online",
+    "pompeii tickets vivaticket",
+    "pompeii tickets reddit",
+    "pompeii tickets official site reddit",
+    "pompeii tickets official vivaticket"
+   ],
+   "pompeii free sunday": [
+    "pompeii free sunday",
+    "pompeii free sunday tickets",
+    "pompeii free sunday reddit",
+    "pompeii free entry sunday",
+    "pompeii free first sunday",
+    "pompeii free first sunday of the month",
+    "is pompeii free",
+    "is pompeii open on sunday",
+    "is pompeii free to visit"
+   ],
+   "is pompeii open on": [
+    "is pompeii open on sunday",
+    "is pompeii open on mondays",
+    "is pompeii open on new year's day",
+    "is pompeii open on easter sunday",
+    "is pompeii open on tuesdays",
+    "is pompeii open on ferragosto",
+    "is pompeii open on christmas day",
+    "is pompeii open on saturday",
+    "is pompeii open on easter",
+    "is pompeii open on may 1"
+   ],
+   "pompeii closed": [
+    "pompeii closed days",
+    "pompeii closed",
+    "pompeii closed on tuesdays",
+    "is pompeii closed on sundays",
+    "is pompeii closed on mondays",
+    "is pompeii closed on easter",
+    "is pompeii closed on may 1st",
+    "is pompeii closed in november",
+    "is pompeii closed in october",
+    "is pompeii closed today"
+   ],
+   "when do alhambra tickets go on sale": [
+    "when do alhambra tickets go on sale",
+    "when do alhambra panto tickets go on sale",
+    "can you buy alhambra tickets on the day",
+    "how far in advance can you book alhambra tickets",
+    "how to buy alhambra tickets",
+    "do you need to book alhambra tickets in advance"
+   ],
+   "alhambra tickets": [
+    "alhambra tickets",
+    "alhambra tickets granada",
+    "alhambra tickets official website",
+    "alhambra tickets official",
+    "alhambra tickets spain",
+    "alhambra tickets parking",
+    "alhambra tickets jacksonville",
+    "alhambra tickets reddit",
+    "alhambra tickets official site",
+    "alhambra tickets online"
+   ],
+   "when are alhambra tickets released": [
+    "when are alhambra tickets released",
+    "how far in advance can you book alhambra tickets",
+    "can you buy alhambra tickets on the day",
+    "do you need to book alhambra tickets in advance",
+    "how to buy alhambra tickets"
+   ],
+   "is the alhambra open on": [
+    "is the alhambra open on sundays",
+    "is the alhambra open on mondays",
+    "is the alhambra open on christmas day",
+    "is the alhambra open on easter sunday",
+    "is the alhambra open on easter",
+    "is the alhambra open on christmas",
+    "is alhambra open in january",
+    "is the alhambra open in december",
+    "is the alhambra open in february",
+    "is alhambra open in october"
+   ],
+   "when do sagrada familia tickets go on sale": [
+    "when do sagrada familia tickets go on sale",
+    "can you buy sagrada familia tickets on the day",
+    "how far in advance to book sagrada familia tickets",
+    "can you buy tickets at sagrada familia",
+    "where to buy sagrada familia tickets",
+    "how far in advance do barcelona tickets go on sale"
+   ],
+   "sagrada familia tickets": [
+    "sagrada familia tickets",
+    "sagrada familia tickets official",
+    "sagrada familia tickets reddit",
+    "sagrada familia tickets sold out",
+    "sagrada familia tickets with tower access",
+    "sagrada familia tickets on the day",
+    "sagrada familia tickets skip the line",
+    "sagrada família tickets official site",
+    "sagrada familia tickets last minute",
+    "sagrada familia tickets cost"
+   ],
+   "how far in advance sagrada familia tickets": [
+    "how far in advance sagrada familia tickets",
+    "how much sagrada familia tickets",
+    "how far in advance to book sagrada familia tickets",
+    "can you buy sagrada familia tickets on the day",
+    "do i need to book sagrada familia in advance",
+    "how to get tickets to sagrada familia",
+    "where to buy sagrada familia tickets"
+   ],
+   "is sagrada familia open on": [
+    "is sagrada familia open on sundays",
+    "is sagrada familia open on christmas day",
+    "is sagrada familia open on mondays",
+    "is sagrada familia open today",
+    "is sagrada familia closed",
+    "is sagrada familia open",
+    "when did sagrada familia open to the public"
+   ]
+  },
+  "uk": {
+   "when do last supper tickets go on sale": [
+    "when do last supper tickets go on sale",
+    "when do last supper tickets go on sale for may 2026",
+    "when do last supper tickets go on sale for september 2026",
+    "when do last supper tickets go on sale for june 2026",
+    "when do last supper tickets go on sale for september",
+    "when do last supper tickets go on sale for may",
+    "when do tickets for the last supper go on sale for october 2026",
+    "when do last supper tickets go on sale for november",
+    "when do last supper tickets go on sale for june",
+    "when do last supper tickets go on sale for march 2026"
+   ],
+   "last supper tickets": [
+    "last supper tickets",
+    "last supper tickets milan",
+    "last supper tickets official website",
+    "last supper tickets last minute",
+    "last supper tickets official",
+    "last supper tickets today",
+    "last supper tickets milan official site",
+    "last supper tickets milan italy",
+    "last supper tickets reddit",
+    "last supper tickets september 2026"
+   ],
+   "last supper tickets release": [
+    "last supper tickets released wednesday",
+    "last supper tickets release date",
+    "last supper tickets release",
+    "last supper tickets release time",
+    "last supper tickets on sale",
+    "when are last supper tickets released for september 2026",
+    "how far in advance are last supper tickets released",
+    "how to get tickets to see the last supper in milan"
+   ],
+   "last supper milan tickets": [
+    "last supper milan tickets",
+    "last supper milan tickets official site",
+    "last supper milan tickets last minute",
+    "last supper milan tickets official",
+    "last supper milan tickets price",
+    "last supper milan tickets resale",
+    "last supper milan tickets sold out",
+    "last supper milan tickets online",
+    "last supper milan tickets today",
+    "last supper milan tickets for may 2026"
+   ],
+   "last supper free sunday": [
+    "last supper free sunday tickets",
+    "last supper free sunday",
+    "was the last supper on a thursday"
+   ],
+   "is the last supper open on": [
+    "is the last supper open on mondays",
+    "is the last supper open on sunday",
+    "is the last supper museum open on sunday",
+    "is the last supper museum open on mondays",
+    "is the last supper in milan open on mondays",
+    "is the last supper in milan open on sundays",
+    "last supper opening hours",
+    "where is the last supper today"
+   ],
+   "when do vatican tickets go on sale": [
+    "when do vatican tickets go on sale",
+    "when do vatican tickets go on sale reddit",
+    "what time do vatican tickets go on sale",
+    "when do vatican museum tickets go on sale",
+    "when do vatican tour tickets go on sale",
+    "what time do vatican museum tickets go on sale",
+    "what time of day do vatican tickets go on sale",
+    "how early do vatican tickets go on sale",
+    "can you buy vatican tickets at the door",
+    "how far in advance can you book vatican tickets"
+   ],
+   "when do vatican museum tickets go on sale": [
+    "when do vatican museum tickets go on sale",
+    "can you buy tickets at the vatican museum",
+    "can you buy vatican tickets at the door",
+    "how to buy tickets to vatican museum",
+    "is vatican museum worth it"
+   ],
+   "vatican museum free sunday": [
+    "vatican museum free sunday",
+    "vatican museum free sunday reddit",
+    "vatican museum free sunday tickets",
+    "vatican city free sunday",
+    "vatican museum free days",
+    "vatican museum free entry sunday",
+    "vatican museum free last sunday of the month",
+    "vatican museum free last sunday",
+    "vatican museum free first sunday",
+    "vatican city visit sunday"
+   ],
+   "is the vatican museum open on": [
+    "is the vatican museum open on sunday",
+    "is the vatican museum open on mondays",
+    "is the vatican museum open on saturday",
+    "is the vatican museum open on easter sunday",
+    "is the vatican museum open on wednesday",
+    "is the vatican museum open on good friday",
+    "is the vatican museum open on christmas day",
+    "is the vatican museum open on new year's day",
+    "is the vatican museum open on easter monday",
+    "is the vatican museum open on christmas eve"
+   ],
+   "is the vatican open on": [
+    "is the vatican open on sundays",
+    "is the vatican open on mondays",
+    "is the vatican open on saturday",
+    "is the vatican open on sundays for tours",
+    "is the vatican open on wednesdays",
+    "is the vatican open on sundays for tourists",
+    "is the vatican open on christmas day",
+    "is the vatican open on august 15",
+    "is the vatican open on january 1st",
+    "is the vatican open on new year's day"
+   ],
+   "vatican museums closed": [
+    "vatican museums closing time",
+    "what day is the vatican museum closed",
+    "is the vatican museum open today",
+    "is the vatican closed",
+    "when did the vatican museum open to the public"
+   ],
+   "anne frank house tickets": [
+    "anne frank house tickets",
+    "anne frank house tickets sold out",
+    "anne frank house tickets on the day",
+    "anne frank house tickets amsterdam",
+    "anne frank house tickets official site",
+    "anne frank house tickets 2026",
+    "anne frank house tickets price",
+    "anne frank house tickets english",
+    "anne frank house tickets reddit",
+    "anne frank house tickets resale"
+   ],
+   "anne frank house tickets release": [
+    "anne frank house tickets release time",
+    "anne frank house tickets release",
+    "anne frank house ticket release date calculator",
+    "does anne frank house release tickets day of",
+    "when does anne frank house release tickets",
+    "does anne frank house release more tickets",
+    "anne frank house entry fee",
+    "anne frank house tickets price",
+    "anne frank house entrance fee",
+    "can you buy tickets for anne frank house on the day"
+   ],
+   "when do anne frank house tickets go on sale": [
+    "when do anne frank house tickets go on sale",
+    "what time do anne frank house tickets go on sale"
+   ],
+   "anne frank house ticket release date": [
+    "anne frank house ticket release date calculator",
+    "anne frank house tickets change date",
+    "anne frank house tickets price",
+    "anne frank house entry fee",
+    "anne frank house entrance fee",
+    "can you buy tickets for anne frank house on the day",
+    "when can i buy anne frank house tickets"
+   ],
+   "is anne frank house open on": [
+    "is anne frank house open on sundays",
+    "is anne frank house open on christmas day",
+    "is anne frank house open on mondays",
+    "is anne frank house open on kings day",
+    "is anne frank house open in december",
+    "is anne frank's house in amsterdam",
+    "is anne frank house in the centre of amsterdam",
+    "is anne frank house in jordaan",
+    "is anne frank's house in amsterdam real",
+    "is anne frank house in central amsterdam"
+   ],
+   "when do pompeii tickets go on sale": [
+    "when do pompeii tickets go on sale",
+    "how early do pompeii tickets go on sale",
+    "what time do rush tickets go on sale",
+    "do i need to buy mezquita tickets in advance",
+    "what time do garth tickets go on sale"
+   ],
+   "pompeii tickets": [
+    "pompeii tickets",
+    "pompeii tickets official site",
+    "pompeii tickets official",
+    "pompeii tickets price",
+    "pompeii tickets online",
+    "pompeii tickets vivaticket",
+    "pompeii tickets skip the line",
+    "pompeii tickets reddit",
+    "pompeii tickets tour",
+    "pompeii tickets where to buy"
+   ],
+   "pompeii free sunday": [
+    "pompeii free sunday",
+    "pompeii free sunday tickets",
+    "pompeii free sunday reddit",
+    "pompeii free entrance sunday",
+    "is pompeii free on the first sunday of the month",
+    "is pompeii free",
+    "is pompeii open on sunday",
+    "is pompeii free to visit"
+   ],
+   "is pompeii open on": [
+    "is pompeii open on sunday",
+    "is pompeii open on mondays",
+    "is pompeii open on easter sunday",
+    "is pompeii open on tuesdays",
+    "is pompeii open on ferragosto",
+    "is pompeii open on new year's day",
+    "is pompeii open on christmas day",
+    "is pompeii open on saturday",
+    "is pompeii open on easter",
+    "is pompeii open on may 1"
+   ],
+   "pompeii closed": [
+    "pompeii closed days",
+    "pompeii closed",
+    "pompeii closed on tuesdays",
+    "is pompeii closed on sundays",
+    "is pompeii closed on mondays",
+    "is pompeii closed on easter",
+    "is pompeii closed on may 1st",
+    "is pompeii closed in november",
+    "is pompeii closed in october",
+    "is pompeii closed today"
+   ],
+   "when do alhambra tickets go on sale": [
+    "when do alhambra tickets go on sale",
+    "when do alhambra panto tickets go on sale",
+    "can you buy alhambra tickets on the day",
+    "how far in advance can you book alhambra tickets",
+    "how to buy alhambra tickets",
+    "do you need to book alhambra tickets in advance"
+   ],
+   "alhambra tickets": [
+    "alhambra tickets",
+    "alhambra tickets official website",
+    "alhambra tickets granada",
+    "alhambra tickets official",
+    "alhambra tickets online",
+    "alhambra tickets reddit",
+    "alhambra tickets bradford",
+    "alhambra tickets spain",
+    "alhambra tickets sold out",
+    "alhambra tickets dunfermline"
+   ],
+   "when are alhambra tickets released": [
+    "when are alhambra tickets released",
+    "how far in advance can you book alhambra tickets",
+    "can you buy alhambra tickets on the day",
+    "do you need to book alhambra tickets in advance",
+    "how to buy alhambra tickets"
+   ],
+   "is the alhambra open on": [
+    "is the alhambra open on sundays",
+    "is the alhambra open on mondays",
+    "is the alhambra open on christmas day",
+    "is the alhambra open on easter sunday",
+    "is the alhambra open on easter",
+    "is the alhambra open on christmas",
+    "is alhambra open in january",
+    "is the alhambra open in december",
+    "is the alhambra open in february",
+    "is alhambra open in october"
+   ],
+   "when do sagrada familia tickets go on sale": [
+    "when do sagrada familia tickets go on sale",
+    "can you buy sagrada familia tickets on the day",
+    "how far in advance to book sagrada familia tickets",
+    "can you buy tickets at sagrada familia",
+    "where to buy sagrada familia tickets",
+    "how far in advance do barcelona tickets go on sale"
+   ],
+   "sagrada familia tickets": [
+    "sagrada familia tickets",
+    "sagrada familia tickets official",
+    "sagrada familia tickets on the day",
+    "sagrada familia tickets price",
+    "sagrada familia tickets today",
+    "sagrada familia tickets reddit",
+    "sagrada familia tickets last minute",
+    "sagrada familia tickets sold out",
+    "sagrada familia tickets with tower access",
+    "sagrada família tickets official site"
+   ],
+   "how far in advance sagrada familia tickets": [
+    "how far in advance sagrada familia tickets",
+    "how much sagrada familia tickets",
+    "how far in advance to book sagrada familia tickets",
+    "can you buy sagrada familia tickets on the day",
+    "do i need to book sagrada familia in advance",
+    "how to get tickets to sagrada familia",
+    "where to buy sagrada familia tickets"
+   ],
+   "is sagrada familia open on": [
+    "is sagrada familia open on sundays",
+    "is sagrada familia open on christmas day",
+    "is sagrada familia open on mondays",
+    "is sagrada familia open today",
+    "is sagrada familia closed",
+    "is sagrada familia open",
+    "when did sagrada familia open to the public"
+   ]
+  }
+ }
+}

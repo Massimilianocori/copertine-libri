@@ -1,0 +1,1156 @@
+{
+ "_nota": "Regole scritte a mano il 30/10/2026 dalle pagine ufficiali (raccolta/biglietti.py le rilegge e controlla le citazioni). Le date NON si scrivono qui: genera.py le calcola dalle regole per i prossimi 6 mesi. Tipi: uscite settimanale (giorno 0 = lunedì, ora locale nel fuso dell'attrazione) e prima_domenica (giorni_prima la prima domenica del mese); gratis prima_domenica o ultima_domenica (eccezioni_md, pasqua); chiusure md (ogni anno), date (una volta), settimana (giorni della settimana, solo nel testo); orari_speciali md/date. FAQ: tipo testo, uscita, gratis, giorno (md); 'query' = una ricerca vera di biglietti_domanda.json.",
+ "attrazioni": [
+  {
+   "slug": "last-supper-milan",
+   "nome": "Leonardo's Last Supper",
+   "nome_lungo": "Leonardo's Last Supper (Museo del Cenacolo Vinciano)",
+   "citta": "Milan",
+   "paese": "Italy",
+   "fuso": "Europe/Rome",
+   "ora_locale": "Milan time",
+   "chi": "the official Last Supper Museum website",
+   "sito": "https://cenacolovinciano.org/en/",
+   "biglietteria": {
+    "url": "https://cenacolovinciano.vivaticket.it/",
+    "nome": "cenacolovinciano.vivaticket.it",
+    "cit": [
+     "cen_gratis_uscita"
+    ]
+   },
+   "titolo": "When Do Last Supper Tickets Go on Sale? Release Dates 2026-27",
+   "h1": "When do Last Supper tickets go on sale? Release dates, closures and free Sundays (2026-27)",
+   "risposta": "tickets open in blocks every three months, and additional tickets go on sale every Wednesday at 12 noon (Milan time): the next Wednesday release is {next:mercoledi}.",
+   "uscite": [
+    {
+     "id": "mercoledi",
+     "tipo": "settimanale",
+     "giorno": 2,
+     "ora": "12:00",
+     "titolo": "Additional Last Supper tickets go on sale",
+     "breve": "Additional tickets: every Wednesday at 12 noon",
+     "cit": [
+      "cen_mercoledi"
+     ],
+     "indice": "extra tickets every Wednesday at 12 noon"
+    },
+    {
+     "id": "domenica-gratis",
+     "tipo": "prima_domenica",
+     "giorni_prima": 4,
+     "ora": "12:00",
+     "titolo": "Free first-Sunday Last Supper tickets go on sale",
+     "breve": "Free first-Sunday tickets: the Wednesday before, at 12 noon",
+     "per": "free admission",
+     "cit": [
+      "cen_gratis_uscita"
+     ]
+    }
+   ],
+   "uscite_testo": [
+    {
+     "titolo": "Blocks every three months",
+     "cit": [
+      "cen_trim0",
+      "cen_trim1",
+      "cen_trim2",
+      "cen_trim3",
+      "cen_trim4",
+      "cen_2026"
+     ],
+     "nota": "The two official texts do not match: the table puts November and December in the opening held in September, but the notice on the same page put September to December 2026 on sale on Tuesday 23 June. The table also gives the month, not the day. So we do not calculate the date of the next block: check the official page."
+    }
+   ],
+   "gratis": {
+    "tipo": "prima_domenica",
+    "breve": "First Sunday of the month (booking still required)",
+    "cit": [
+     "cen_gratis_uscita",
+     "cen_gratis_giorni",
+     "cen_prenota"
+    ]
+   },
+   "chiusure": {
+    "md": [
+     "12-25",
+     "01-01"
+    ],
+    "date": [],
+    "settimana": [
+     0
+    ],
+    "breve": "Every Monday, 1 January and 25 December",
+    "cit": [
+     "cen_chiusure"
+    ]
+   },
+   "orari_speciali": [],
+   "orari": {
+    "breve": "Tuesday to Sunday, 8:15 am to 7 pm",
+    "cit": [
+     "cen_orari"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "cen_prenota",
+     "f": "cen_info",
+     "tema": "biglietti",
+     "x": "Advance reservations for entrance to the Last Supper Museum are required at all times, for everyone (even infants) and for all types of admissions (even free ones)."
+    },
+    {
+     "id": "cen_trim0",
+     "f": "cen_info",
+     "tema": "uscita",
+     "x": "Reservations will open quarterly on the following schedule:"
+    },
+    {
+     "id": "cen_trim1",
+     "f": "cen_info",
+     "tema": "uscita",
+     "x": "In September opening for rservations: November, December and January"
+    },
+    {
+     "id": "cen_trim2",
+     "f": "cen_info",
+     "tema": "uscita",
+     "x": "In December opening for reservations: February, March and April"
+    },
+    {
+     "id": "cen_trim3",
+     "f": "cen_info",
+     "tema": "uscita",
+     "x": "In March opening for reservations: May, June and July"
+    },
+    {
+     "id": "cen_trim4",
+     "f": "cen_info",
+     "tema": "uscita",
+     "x": "In June, opening for reservations: August, September and October"
+    },
+    {
+     "id": "cen_mercoledi",
+     "f": "cen_info",
+     "tema": "uscita",
+     "x": "Additional tickets will go on sale every Wednesday at 12 noon throughout the following week, exclusively on the online purchasing platform."
+    },
+    {
+     "id": "cen_2026",
+     "f": "cen_info",
+     "tema": "uscita",
+     "x": "*Admissions for September–December 2026 will go on sale Tuesday, June 23 at 12:00 p.m through the usual sales channels"
+    },
+    {
+     "id": "cen_scalping",
+     "f": "cen_info",
+     "tema": "biglietti",
+     "x": "Tickets are named to prevent scalping."
+    },
+    {
+     "id": "cen_gratis_uscita",
+     "f": "cen_info",
+     "tema": "gratis",
+     "x": "Free admissions related to the first Sundays of the month will be made available exclusively on the online sales platform https://cenacolovinciano.vivaticket.it/ starting at 12 noon on the previous Wednesday morning."
+    },
+    {
+     "id": "cen_gratis_giorni",
+     "f": "cen_info",
+     "tema": "gratis",
+     "x": "On some days admission is free or reduced for all: tickets are usually made available on the preceding Wednesday starting at 12 noon."
+    },
+    {
+     "id": "cen_esauriti",
+     "f": "cen_info",
+     "tema": "biglietti",
+     "x": "Didn’t find tickets for the date you’re interested in? Check the website several times, as availability updates daily."
+    },
+    {
+     "id": "cen_orari",
+     "f": "cen_info",
+     "tema": "orari",
+     "x": "Museum: Tuesday to Sunday: 8.15 a.m. to 7 p.m. (with last admission at 6:45 p.m.)."
+    },
+    {
+     "id": "cen_chiusure",
+     "f": "cen_info",
+     "tema": "chiusure",
+     "x": "Closed every Monday and on January 1 and December 25. (unless otherwise indicated by the superior Ministry of Culture)."
+    }
+   ],
+   "faq": [
+    {
+     "q": "When do Last Supper tickets go on sale?",
+     "query": "when do last supper tickets go on sale",
+     "tipo": "uscita",
+     "regola": "mercoledi",
+     "pre": "Tickets open in blocks every three months, but the official page does not give the exact day of the next block. Extra tickets have a fixed day:",
+     "cit": [
+      "cen_mercoledi"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Are Last Supper tickets released on Wednesdays?",
+     "query": "last supper tickets released wednesday",
+     "tipo": "uscita",
+     "regola": "mercoledi",
+     "pre": "Yes, additional tickets. The official page says:",
+     "cit": [
+      "cen_mercoledi"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How far in advance are Last Supper tickets released?",
+     "query": "how far in advance are last supper tickets released",
+     "tipo": "testo",
+     "pre": "The official page gives a quarterly table and a notice that do not match:",
+     "cit": [
+      "cen_trim1",
+      "cen_trim2",
+      "cen_2026"
+     ],
+     "post": "Because of this we do not calculate the next block. Check the official page, and look for extra tickets every Wednesday."
+    },
+    {
+     "q": "How do you get free Sunday tickets for the Last Supper?",
+     "query": "last supper free sunday tickets",
+     "tipo": "uscita",
+     "regola": "domenica-gratis",
+     "pre": "Even free tickets must be booked. The official page says:",
+     "cit": [
+      "cen_gratis_uscita"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the Last Supper open on Mondays?",
+     "query": "is the last supper open on mondays",
+     "tipo": "testo",
+     "pre": "No. The official page says:",
+     "cit": [
+      "cen_chiusure"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the official website for Last Supper tickets?",
+     "query": "last supper tickets official website",
+     "tipo": "testo",
+     "pre": "The official museum website is cenacolovinciano.org, and it sends you to its online sales platform:",
+     "cit": [
+      "cen_gratis_uscita",
+      "cen_scalping"
+     ],
+     "post": "Other websites may resell tickets or sell tours at a higher price."
+    }
+   ]
+  },
+  {
+   "slug": "vatican-museums",
+   "nome": "Vatican Museums",
+   "nome_lungo": "Vatican Museums and Sistine Chapel",
+   "citta": "Rome (Vatican City)",
+   "paese": "Vatican City",
+   "fuso": "Europe/Rome",
+   "ora_locale": "Rome time",
+   "chi": "the official Vatican Museums website",
+   "sito": "https://www.museivaticani.va/",
+   "biglietteria": {
+    "url": "https://tickets.museivaticani.va/",
+    "nome": "tickets.museivaticani.va",
+    "cit": [
+     "vat_ufficiale"
+    ]
+   },
+   "titolo": "Vatican Museums 2026-27: Free Sundays, Closures, Official Tickets",
+   "h1": "Vatican Museums: when tickets go on sale, closing days and free Sundays (2026-27)",
+   "risposta": "the official pages give no fixed day on which tickets go on sale, and the only official site for buying tickets online is tickets.museivaticani.va; the next free last Sunday is {next_free} and the next holiday closure is {next_closure}.",
+   "uscite": [],
+   "uscite_testo": [
+    {
+     "titolo": "No fixed release day",
+     "cit": [
+      "vat_ufficiale"
+     ],
+     "nota": "The official pages we can read do not say how many days or months ahead tickets go on sale, so we do not calculate a date. The ticket site itself did not answer our checks."
+    }
+   ],
+   "gratis": {
+    "tipo": "ultima_domenica",
+    "eccezioni_md": [
+     "06-29",
+     "12-25",
+     "12-26",
+     "12-31"
+    ],
+    "pasqua": true,
+    "breve": "Last Sunday of the month, 9 am to 2 pm (not on Easter Sunday, 29 June, 25, 26 or 31 December)",
+    "cit": [
+     "vat_ultima",
+     "vat_gratis"
+    ]
+   },
+   "chiusure": {
+    "md": [
+     "01-01",
+     "01-06",
+     "02-11",
+     "03-19",
+     "05-01",
+     "06-29",
+     "08-14",
+     "08-15",
+     "11-01",
+     "12-08",
+     "12-25",
+     "12-26"
+    ],
+    "date": [],
+    "settimana": [
+     6
+    ],
+    "escluse_md": {
+     "04-06": "The official list also gives 6 April, which was Easter Monday in 2026. It does not give the date for 2027, so we leave it out of the calculation."
+    },
+    "breve": "Sundays (except the last Sunday of the month) and the holidays on the official list",
+    "cit": [
+     "vat_chiusure"
+    ]
+   },
+   "orari_speciali": [
+    {
+     "data": "2026-11-10",
+     "testo": "All sectors closed from 8 am to 9 am",
+     "cit": [
+      "vat_10nov"
+     ]
+    }
+   ],
+   "orari": {
+    "breve": "Monday to Saturday, 8 am to 8 pm (last entry 6 pm)",
+    "cit": [
+     "vat_orari"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "vat_orari",
+     "f": "vat_orari",
+     "tema": "orari",
+     "x": "From Monday to Saturday 08.00 a.m. – 08.00 p.m. (final entry 06.00 p.m.)"
+    },
+    {
+     "id": "vat_ufficiale",
+     "f": "vat_orari",
+     "tema": "biglietti",
+     "x": "The only official site for purchasing tickets online is https://tickets.museivaticani.va Please beware of potential scams and websites that use domains similar to the official one, which may charge significantly higher prices."
+    },
+    {
+     "id": "vat_ultima",
+     "f": "vat_orari",
+     "tema": "gratis",
+     "x": "Every last Sunday of the month (provided this does not coincide with Easter Sunday, 29* June Sts. Peter and Paul, 25 December Christmas Day, 26 December Feast of St. Stephen and 31 December Feast of St. Sylvester) 09.00 a.m. – 02.00 p.m. (final entry 12.30 p.m.) Free entry"
+    },
+    {
+     "id": "vat_chiusure",
+     "f": "vat_orari",
+     "tema": "chiusure",
+     "x": "Closures Sunday (except the last Sunday of each month, if not in conjunction with the Feast of 29* June, Saints Peter and Paul) 1 and 6 January 11 February 19 March 6 April 1 May 29* June 14 and 15 August 1 November 8, 25 and 26 December"
+    },
+    {
+     "id": "vat_10nov",
+     "f": "vat_orari",
+     "tema": "chiusure",
+     "x": "VATICAN MUSEUMS (all sectors) Period: 10 November Hour of closure: 08.00 a.m. – 09.00 a.m."
+    },
+    {
+     "id": "vat_gratis",
+     "f": "vat_tariffe",
+     "tema": "gratis",
+     "x": "Free entry Vatican Museums Last Sunday of the month (subject to the Calendar of museum openings/closures)."
+    }
+   ],
+   "faq": [
+    {
+     "q": "When do Vatican Museums tickets go on sale?",
+     "query": "when do vatican tickets go on sale",
+     "tipo": "testo",
+     "pre": "The official pages we can read give no fixed release day or time. They do say where to buy:",
+     "cit": [
+      "vat_ufficiale"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the Vatican Museum free on the last Sunday of the month?",
+     "query": "vatican museum free last sunday of the month",
+     "tipo": "gratis",
+     "pre": "Yes, with exceptions. The official page says:",
+     "cit": [
+      "vat_ultima"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the Vatican Museum open on Sunday?",
+     "query": "is the vatican museum open on sunday",
+     "tipo": "testo",
+     "pre": "Only on the last Sunday of the month, with free entry. The official list of closures starts with:",
+     "cit": [
+      "vat_chiusure"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the Vatican Museum open on Christmas Eve?",
+     "query": "is the vatican museum open on christmas eve",
+     "tipo": "giorno",
+     "md": "12-24",
+     "pre": "",
+     "cit": [
+      "vat_chiusure"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the Vatican open on January 1st?",
+     "query": "is the vatican open on january 1st",
+     "tipo": "giorno",
+     "md": "01-01",
+     "pre": "",
+     "cit": [
+      "vat_chiusure"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the Vatican Museum open on Easter Monday?",
+     "query": "is the vatican museum open on easter monday",
+     "tipo": "testo",
+     "pre": "The official list of closing days includes 6 April, which was Easter Monday in 2026, but it gives no date for 2027:",
+     "cit": [
+      "vat_chiusure"
+     ],
+     "post": "Check the official calendar before you plan a visit around Easter."
+    }
+   ]
+  },
+  {
+   "slug": "anne-frank-house",
+   "nome": "Anne Frank House",
+   "nome_lungo": "Anne Frank House",
+   "citta": "Amsterdam",
+   "paese": "Netherlands",
+   "fuso": "Europe/Amsterdam",
+   "ora_locale": "Amsterdam time",
+   "chi": "the official Anne Frank House website",
+   "sito": "https://www.annefrank.org/en/",
+   "biglietteria": {
+    "url": "https://www.annefrank.org/en/museum/tickets/",
+    "nome": "annefrank.org",
+    "cit": [
+     "af_solo"
+    ]
+   },
+   "titolo": "Anne Frank House Ticket Release Dates 2026-27: Every Tuesday",
+   "h1": "Anne Frank House: ticket release dates, every Tuesday at 10am CET (2026-27)",
+   "risposta": "every Tuesday at 10am CET all tickets become available for a visit six weeks later: the next release is {next:martedi} (Amsterdam time), and six weeks after it is {visita:martedi}.",
+   "uscite": [
+    {
+     "id": "martedi",
+     "tipo": "settimanale",
+     "giorno": 1,
+     "ora": "10:00",
+     "visita_dopo_giorni": 42,
+     "titolo": "Anne Frank House tickets go on sale",
+     "breve": "Every Tuesday at 10am CET, for a visit six weeks later",
+     "cit": [
+      "af_martedi"
+     ],
+     "indice": "every Tuesday at 10am CET"
+    }
+   ],
+   "uscite_testo": [],
+   "gratis": null,
+   "chiusure": {
+    "md": [],
+    "date": [
+     "2026-09-21"
+    ],
+    "settimana": [],
+    "breve": "",
+    "cit": [
+     "af_eccezioni"
+    ]
+   },
+   "orari_speciali": [
+    {
+     "data": "2026-11-07",
+     "testo": "Open 9:00 to 18:30",
+     "cit": [
+      "af_eccezioni"
+     ]
+    },
+    {
+     "md": "12-25",
+     "testo": "Open 9:00 to 17:00",
+     "cit": [
+      "af_eccezioni"
+     ]
+    },
+    {
+     "md": "12-31",
+     "testo": "Open 9:00 to 17:00",
+     "cit": [
+      "af_eccezioni"
+     ]
+    },
+    {
+     "md": "01-01",
+     "testo": "Open 12:00 to 22:00",
+     "cit": [
+      "af_eccezioni"
+     ]
+    },
+    {
+     "md": "04-27",
+     "testo": "Open 9:00 to 17:00 (King's Day)",
+     "cit": [
+      "af_eccezioni"
+     ]
+    },
+    {
+     "md": "05-04",
+     "testo": "Open 9:00 to 17:00",
+     "cit": [
+      "af_eccezioni"
+     ]
+    }
+   ],
+   "orari": {
+    "breve": "Every day, 9:00 to 22:00",
+    "cit": [
+     "af_orari"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "af_solo",
+     "f": "af_tickets",
+     "tema": "biglietti",
+     "x": "Tickets only available through this website!"
+    },
+    {
+     "id": "af_martedi",
+     "f": "af_tickets",
+     "tema": "uscita",
+     "x": "Every Tuesday at 10am CET all tickets become available for a visit six weeks later."
+    },
+    {
+     "id": "af_orari",
+     "f": "af_tickets",
+     "tema": "orari",
+     "x": "Opening hours daily 9:00 to 22:00"
+    },
+    {
+     "id": "af_porta",
+     "f": "af_tickets",
+     "tema": "biglietti",
+     "x": "Tickets are not sold at the door, only online."
+    },
+    {
+     "id": "af_eccezioni",
+     "f": "af_tickets",
+     "tema": "chiusure",
+     "x": "Exceptions to the opening hours 1 January 12:00 - 22:00 27 April - King's Day 9:00 - 17:00 4 May 9:00 - 17:00 20 September 2026 9:00 - 17:00 21 September 2026 - Yom Kippur closed 7 November 2026 9:00 - 18:30 25 December 9:00 - 17:00 31 December 9:00 - 17:00"
+    },
+    {
+     "id": "af_esauriti",
+     "f": "af_faq",
+     "tema": "biglietti",
+     "x": "Tickets sell out very fast. If there are no more tickets available on the selected date, we are sold out. There is no ticket sales in the museum."
+    }
+   ],
+   "faq": [
+    {
+     "q": "When do Anne Frank House tickets go on sale?",
+     "query": "when do anne frank house tickets go on sale",
+     "tipo": "uscita",
+     "regola": "martedi",
+     "pre": "Every Tuesday. The official page says:",
+     "cit": [
+      "af_martedi"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What time are Anne Frank House tickets released?",
+     "query": "anne frank house tickets release time",
+     "tipo": "testo",
+     "pre": "At 10am CET, as the official page writes it:",
+     "cit": [
+      "af_martedi"
+     ],
+     "post": "In summer the Netherlands uses CEST, and the page does not say whether the time then changes, so be ready from 10:00 Amsterdam time."
+    },
+    {
+     "q": "Is there an Anne Frank House ticket release date calculator?",
+     "query": "anne frank house ticket release date calculator",
+     "tipo": "uscita",
+     "regola": "martedi",
+     "pre": "You do not need one: count six weeks back from your visit and look at the Tuesday release. The official rule is:",
+     "cit": [
+      "af_martedi"
+     ],
+     "post": "The official page does not say which days of that week each Tuesday release covers, so check the ticket page on the Tuesday before you plan to book."
+    },
+    {
+     "q": "Does the Anne Frank House release tickets on the day?",
+     "query": "does anne frank house release tickets day of",
+     "tipo": "testo",
+     "pre": "The official pages say tickets are sold online only:",
+     "cit": [
+      "af_porta",
+      "af_esauriti"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the Anne Frank House open on Christmas Day?",
+     "query": "is anne frank house open on christmas day",
+     "tipo": "giorno",
+     "md": "12-25",
+     "pre": "",
+     "cit": [
+      "af_eccezioni"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the Anne Frank House open on King's Day?",
+     "query": "is anne frank house open on kings day",
+     "tipo": "giorno",
+     "md": "04-27",
+     "pre": "",
+     "cit": [
+      "af_eccezioni"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the official site for Anne Frank House tickets?",
+     "query": "anne frank house tickets official site",
+     "tipo": "testo",
+     "pre": "The museum's own website, annefrank.org:",
+     "cit": [
+      "af_solo"
+     ],
+     "post": "Other websites may resell tickets or sell tours at a higher price."
+    }
+   ]
+  },
+  {
+   "slug": "pompeii",
+   "nome": "Pompeii",
+   "nome_lungo": "Pompeii Archaeological Park",
+   "citta": "Pompeii (near Naples)",
+   "paese": "Italy",
+   "fuso": "Europe/Rome",
+   "ora_locale": "Italian time",
+   "chi": "the official website of the Archaeological Park of Pompeii",
+   "sito": "https://pompeiisites.org/en/",
+   "biglietteria": {
+    "url": "https://pompeii.vivaticket.it/",
+    "nome": "pompeii.vivaticket.it",
+    "cit": [
+     "pom_venditore"
+    ]
+   },
+   "titolo": "Pompeii Free Sundays and Closed Days 2026-27, Official Tickets",
+   "h1": "Pompeii: free Sundays, closing days and official tickets (2026-27)",
+   "risposta": "Pompeii is closed on 25 December and 1 January and entry is free on the first Sunday of every month: the next free Sunday is {next_free}. The official page gives no date on which online tickets go on sale.",
+   "uscite": [],
+   "uscite_testo": [
+    {
+     "titolo": "No fixed release day",
+     "cit": [
+      "pom_online"
+     ],
+     "nota": "The official timetable page does not say how far in advance online tickets go on sale, so we do not calculate a date."
+    }
+   ],
+   "gratis": {
+    "tipo": "prima_domenica",
+    "breve": "First Sunday of every month (Domenica al Museo)",
+    "cit": [
+     "pom_gratis"
+    ]
+   },
+   "chiusure": {
+    "md": [
+     "12-25",
+     "01-01"
+    ],
+    "date": [],
+    "settimana": [],
+    "breve": "25 December and 1 January",
+    "cit": [
+     "pom_chiusure"
+    ]
+   },
+   "orari_speciali": [],
+   "orari": {
+    "breve": "Pompeii: 9:00 to 17:00 from 15 October to 15 March (last entry 15:30)",
+    "cit": [
+     "pom_orari"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "pom_venditore",
+     "f": "pom_home",
+     "tema": "biglietti",
+     "x": "It is possible to buy the ticket online, through the www.vivaticket.it circuit (Official seller)."
+    },
+    {
+     "id": "pom_online",
+     "f": "pom_orari",
+     "tema": "biglietti",
+     "x": "To purchase online tickets for the Great Pompeii sites, visit www.vivaticket. In Pompeii, tickets are personal and there is a daily limit of 20,000 entries."
+    },
+    {
+     "id": "pom_orari",
+     "f": "pom_orari",
+     "tema": "orari",
+     "x": "Opening hours from 15 October to 15 March Sites Opening Last entrance Closing POMPEII 9.00 15.30 17.00"
+    },
+    {
+     "id": "pom_martedi",
+     "f": "pom_orari",
+     "tema": "orari",
+     "x": "VILLA ARIANNA and VILLA SAN MARCO (STABIAE) (closed on Tuesdays) 9.00 16.00 17.00 VILLA DI POPPEA – OPLONTIS (closed on Tuesdays)"
+    },
+    {
+     "id": "pom_chiusure",
+     "f": "pom_orari",
+     "tema": "chiusure",
+     "x": "Closed on: 25th December, 1st January (Unless otherwise communicated. Click here)"
+    },
+    {
+     "id": "pom_gratis",
+     "f": "pom_orari",
+     "tema": "gratis",
+     "x": "Free ticket every first Sunday of the month – Entry measures for free admission days including Domenica al Museo (first Sunday of every month)."
+    },
+    {
+     "id": "pom_biglietterie",
+     "f": "pom_orari",
+     "tema": "biglietti",
+     "x": "The official ticket offices of the Pompeii Archaeological Park are located only within the archaeological area, at the entrances Porta Marina, Piazza Anfiteatro and Piazza Esedra."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Is Pompeii free on the first Sunday of the month?",
+     "query": "pompeii free first sunday of the month",
+     "tipo": "gratis",
+     "pre": "Yes. The official page says:",
+     "cit": [
+      "pom_gratis"
+     ],
+     "post": ""
+    },
+    {
+     "q": "When do Pompeii tickets go on sale?",
+     "query": "when do pompeii tickets go on sale",
+     "tipo": "testo",
+     "pre": "The official timetable page does not say how far in advance tickets go on sale. It says:",
+     "cit": [
+      "pom_online"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is Pompeii open on Christmas Day?",
+     "query": "is pompeii open on christmas day",
+     "tipo": "giorno",
+     "md": "12-25",
+     "pre": "",
+     "cit": [
+      "pom_chiusure"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is Pompeii open on New Year's Day?",
+     "query": "is pompeii open on new year's day",
+     "tipo": "giorno",
+     "md": "01-01",
+     "pre": "",
+     "cit": [
+      "pom_chiusure"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is Pompeii closed on Tuesdays?",
+     "query": "pompeii closed on tuesdays",
+     "tipo": "testo",
+     "pre": "In the official timetable, the note “closed on Tuesdays” is next to other sites of the Park, not next to Pompeii:",
+     "cit": [
+      "pom_martedi"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the official site for Pompeii tickets?",
+     "query": "pompeii tickets official site",
+     "tipo": "testo",
+     "pre": "The Park's website, pompeiisites.org, names its official online seller:",
+     "cit": [
+      "pom_venditore",
+      "pom_biglietterie"
+     ],
+     "post": "Other websites may resell tickets or sell tours at a higher price."
+    }
+   ]
+  },
+  {
+   "slug": "alhambra",
+   "nome": "Alhambra",
+   "nome_lungo": "Alhambra and Generalife",
+   "citta": "Granada",
+   "paese": "Spain",
+   "fuso": "Europe/Madrid",
+   "ora_locale": "Spanish time",
+   "chi": "the official Alhambra website (Patronato de la Alhambra y Generalife)",
+   "sito": "https://www.alhambra-patronato.es/en",
+   "biglietteria": {
+    "url": "https://tickets.alhambra-patronato.es/en/",
+    "nome": "tickets.alhambra-patronato.es",
+    "cit": [
+     "alh_dove"
+    ]
+   },
+   "titolo": "Alhambra Tickets 2026-27: When They Go on Sale, Closed Days",
+   "h1": "Alhambra: when tickets go on sale, closing days and the official site (2026-27)",
+   "risposta": "tickets can be bought online until 23:59 on the day before your visit, but the page does not say how far ahead they go on sale; the Monumental Complex is closed on 25 December and 1 January (next: {next_closure}).",
+   "uscite": [],
+   "uscite_testo": [
+    {
+     "titolo": "No fixed release day",
+     "cit": [
+      "alh_anticipo",
+      "alh_domanda",
+      "alh_2018"
+     ],
+     "nota": "A press release of 8 January 2018 said tickets could be bought between three months and two hours before the visit. The current page does not repeat this and gives a different last moment (23:59 on the day before), so we do not calculate a date."
+    }
+   ],
+   "gratis": null,
+   "chiusure": {
+    "md": [
+     "12-25",
+     "01-01"
+    ],
+    "date": [],
+    "settimana": [],
+    "breve": "25 December and 1 January",
+    "cit": [
+     "alh_chiusure"
+    ]
+   },
+   "orari_speciali": [],
+   "orari": {
+    "breve": "Every day, 8:30 to 18:00 from 15 October to 31 March",
+    "cit": [
+     "alh_orari"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "alh_orari",
+     "f": "alh_orari",
+     "tema": "orari",
+     "x": "DayTour October 15th - March 31th Monday - Sunday 08:30 - 18:00 H TICKET OFFICE: 08:00 - 18:00 H April 1st - October 14th Monday - Sunday 08:30 - 20:00 H"
+    },
+    {
+     "id": "alh_chiusure",
+     "f": "alh_orari",
+     "tema": "chiusure",
+     "x": "December 25th and January 1st / Closing days"
+    },
+    {
+     "id": "alh_anticipo",
+     "f": "alh_orari",
+     "tema": "uscita",
+     "x": "The purchase of tickets by natural persons may be carried out in advance until 23:59 h the day prior to the visit online, in the network of ATMs enabled for this, and by telephone, with a bank card."
+    },
+    {
+     "id": "alh_domanda",
+     "f": "alh_orari",
+     "tema": "uscita",
+     "x": "Due to the high demand, it is recommended to acquire tickets in advance through the various channels established for this purpose."
+    },
+    {
+     "id": "alh_dove",
+     "f": "alh_faq",
+     "tema": "biglietti",
+     "x": "Where can I buy tickets? In advance: Official website. Phone number: +34 858 889 002. Automatic machines located in the Alhambra and in the Andalusi monuments. Ticket Office, access pavilion (subject to availability for the current day)."
+    },
+    {
+     "id": "alh_2018",
+     "f": "alh_2018",
+     "tema": "uscita",
+     "x": "users will be able to buy their tickets online ( tickets.alhambra-patronato.es ) anytime between three months and two hours prior to their visit"
+    }
+   ],
+   "faq": [
+    {
+     "q": "When do Alhambra tickets go on sale?",
+     "query": "when do alhambra tickets go on sale",
+     "tipo": "testo",
+     "pre": "The current official page does not say how far ahead tickets go on sale. It says:",
+     "cit": [
+      "alh_anticipo",
+      "alh_domanda"
+     ],
+     "post": "An older official press release, from 2018, spoke of three months before the visit; it is not repeated on the current page."
+    },
+    {
+     "q": "Can you buy Alhambra tickets on the day?",
+     "query": "can you buy alhambra tickets on the day",
+     "tipo": "testo",
+     "pre": "Only at the ticket office, if any are left. The official FAQ says:",
+     "cit": [
+      "alh_dove"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the Alhambra open on Christmas Day?",
+     "query": "is the alhambra open on christmas day",
+     "tipo": "giorno",
+     "md": "12-25",
+     "pre": "",
+     "cit": [
+      "alh_chiusure"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the Alhambra open on Mondays?",
+     "query": "is the alhambra open on mondays",
+     "tipo": "testo",
+     "pre": "Yes. The official timetable for day visits says:",
+     "cit": [
+      "alh_orari"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the official website for Alhambra tickets?",
+     "query": "alhambra tickets official website",
+     "tipo": "testo",
+     "pre": "The Patronato de la Alhambra y Generalife sells tickets on its own website. The official FAQ says:",
+     "cit": [
+      "alh_dove"
+     ],
+     "post": "Other websites may resell tickets or sell tours at a higher price."
+    }
+   ]
+  },
+  {
+   "slug": "sagrada-familia",
+   "nome": "Sagrada Família",
+   "nome_lungo": "Basílica de la Sagrada Família",
+   "citta": "Barcelona",
+   "paese": "Spain",
+   "fuso": "Europe/Madrid",
+   "ora_locale": "Barcelona time",
+   "chi": "the official Sagrada Família website",
+   "sito": "https://sagradafamilia.org/en/",
+   "biglietteria": {
+    "url": "https://sagradafamilia.org/en/tickets",
+    "nome": "sagradafamilia.org",
+    "cit": [
+     "sf_come",
+     "sf_online"
+    ]
+   },
+   "titolo": "Sagrada Família Tickets 2026-27: How Far Ahead, Hours, Official Site",
+   "h1": "Sagrada Família: how far ahead tickets go on sale, holiday hours and the official site (2026-27)",
+   "risposta": "tickets can currently be bought roughly two months before the visit, so there is no exact release day to calculate; there is no closing day on the official timetable, and the Basilica opens 9:00 am to 2:00 pm on 25 and 26 December and 1 and 6 January.",
+   "uscite": [],
+   "uscite_testo": [
+    {
+     "titolo": "About two months ahead",
+     "cit": [
+      "sf_anticipo"
+     ],
+     "nota": "“Roughly two months” is not an exact rule, so we do not calculate a date."
+    }
+   ],
+   "gratis": null,
+   "chiusure": {
+    "md": [],
+    "date": [],
+    "settimana": [],
+    "breve": "",
+    "cit": [
+     "sf_orari"
+    ]
+   },
+   "orari_speciali": [
+    {
+     "md": "12-25",
+     "testo": "Open 9:00 am to 2:00 pm",
+     "cit": [
+      "sf_speciali"
+     ]
+    },
+    {
+     "md": "12-26",
+     "testo": "Open 9:00 am to 2:00 pm",
+     "cit": [
+      "sf_speciali"
+     ]
+    },
+    {
+     "md": "01-01",
+     "testo": "Open 9:00 am to 2:00 pm",
+     "cit": [
+      "sf_speciali"
+     ]
+    },
+    {
+     "md": "01-06",
+     "testo": "Open 9:00 am to 2:00 pm",
+     "cit": [
+      "sf_speciali"
+     ]
+    }
+   ],
+   "orari": {
+    "breve": "November to February: Monday to Saturday 9:00 am to 6:00 pm, Sundays 10:30 am to 6:00 pm",
+    "cit": [
+     "sf_orari"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "sf_come",
+     "f": "sf_faq",
+     "tema": "biglietti",
+     "x": "You can buy tickets through our official app or by clicking here."
+    },
+    {
+     "id": "sf_anticipo",
+     "f": "sf_faq",
+     "tema": "uscita",
+     "x": "Tickets can currently be purchased roughly two months before the visit."
+    },
+    {
+     "id": "sf_giorno",
+     "f": "sf_faq",
+     "tema": "biglietti",
+     "x": "You can buy tickets using the direct purchase QR codes around the Basilica. Availability will be based on occupancy at the time."
+    },
+    {
+     "id": "sf_orari",
+     "f": "sf_orari",
+     "tema": "orari",
+     "x": "November through February: Monday to Saturday from 9:00 am to 6:00 pm. Sundays from 10:30 am to 6:00 pm."
+    },
+    {
+     "id": "sf_speciali",
+     "f": "sf_orari",
+     "tema": "chiusure",
+     "x": "Special opening hours On 25 and 26 December, 1 and 6 January, opening hours will be from 9:00 am to 2:00 pm."
+    },
+    {
+     "id": "sf_modifiche",
+     "f": "sf_orari",
+     "tema": "chiusure",
+     "x": "The opening times and days may occasionally be modified by the management due to special events taking place inside the Basilica."
+    },
+    {
+     "id": "sf_online",
+     "f": "sf_orari",
+     "tema": "biglietti",
+     "x": "Tickets can only be purchased online."
+    }
+   ],
+   "faq": [
+    {
+     "q": "How far in advance do you need to book Sagrada Família tickets?",
+     "query": "how far in advance to book sagrada familia tickets",
+     "tipo": "testo",
+     "pre": "The official FAQ says:",
+     "cit": [
+      "sf_anticipo"
+     ],
+     "post": "It does not give an exact day, so check the official ticket page about two months before your visit."
+    },
+    {
+     "q": "Can you buy Sagrada Família tickets on the day?",
+     "query": "can you buy sagrada familia tickets on the day",
+     "tipo": "testo",
+     "pre": "Only if there is space left. The official FAQ says:",
+     "cit": [
+      "sf_giorno"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the Sagrada Família open on Christmas Day?",
+     "query": "is sagrada familia open on christmas day",
+     "tipo": "giorno",
+     "md": "12-25",
+     "pre": "",
+     "cit": [
+      "sf_speciali"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the Sagrada Família open on Sundays?",
+     "query": "is sagrada familia open on sundays",
+     "tipo": "testo",
+     "pre": "Yes. The official timetable says:",
+     "cit": [
+      "sf_orari",
+      "sf_modifiche"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the official site for Sagrada Família tickets?",
+     "query": "sagrada familia tickets official",
+     "tipo": "testo",
+     "pre": "The Basilica's own website, sagradafamilia.org, and its official app:",
+     "cit": [
+      "sf_come",
+      "sf_online"
+     ],
+     "post": "Other websites may resell tickets or sell tours at a higher price."
+    }
+   ]
+  }
+ ],
+ "escluse": [
+  {
+   "nome": "Colosseum (Rome)",
+   "motivo": "The official websites (colosseo.it and its ticket site) did not answer our server normally on 30 October 2026, like other sites of the Italian Ministry of Culture."
+  },
+  {
+   "nome": "Galleria Borghese (Rome)",
+   "motivo": "The official website did not answer our server on 30 October 2026."
+  },
+  {
+   "nome": "Acropolis and other Greek sites (Athens)",
+   "motivo": "The official websites of the Greek Ministry of Culture and its ticket site did not answer our server normally on 30 October 2026."
+  }
+ ]
+}

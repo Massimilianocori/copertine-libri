@@ -91,6 +91,16 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     tabella dell'indice = dati, con il link alle fonti; solo il link generale DiscoverCars con il nostro a_aid, dopo la risposta e le regole;
     link andata e ritorno con le pagine Driving abroad e Tolls dello stesso Paese, link da home, About, 404 e dagli indici Driving abroad e Tolls.
     Nel browser (punto 7) 3 pagine a 375 px in tema chiaro e scuro e l'indice a 375 e 820 px.
+22. "When do tickets go on sale?" (dati/biglietti.json da raccolta/biglietti.py, 30/10/2026): fonti solo dei siti ufficiali delle attrazioni
+    (domini ammessi), lette con HTTP 200; dalla cache (raccolta/.cache/biglietti/) ogni frase citata è nel testo salvato e l'impronta della zona
+    citata è uguale al file; dati = dati/biglietti_manuali.json; date dei prossimi 6 mesi ricalcolate qui in modo indipendente (giorno per giorno,
+    Pasqua da una tabella scritta a mano) e coerenti con la regola (giorno della settimana nominato dalla citazione, sei settimane dopo, mercoledì
+    prima della prima domenica); tabella della pagina = date calcolate; file .ics validi (CRLF, righe <= 75 byte, VCALENDAR/VEVENT, UID unici,
+    DTSTAMP, DTSTART, SUMMARY, DESCRIPTION) con le stesse date e la stessa ora locale; prima frase = fonte, data e risposta con la prossima data;
+    citazioni, link e date delle fonti nella pagina; nessun numero nelle frasi nostre che non stia in una citazione; FAQ da ricerche vere di
+    dati/biglietti_domanda.json (JSON-LD = testo visibile); titoli <= 70 con gli anni 2026-27; pagine in sitemap; link esterni solo verso i siti
+    ufficiali e le biglietterie che indicano (più Google Calendar e il blocco degli altri siti), riquadro della biglietteria ufficiale con
+    "resellers may charge more", nessun rivenditore nominato; riquadro Viator spento finché VIATOR_TOUR è vuoto; link da home, About e 404.
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
 domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
@@ -106,7 +116,9 @@ import sys
 import tempfile
 from html import escape
 from html.parser import HTMLParser
+from datetime import date, datetime, timedelta
 from pathlib import Path
+from urllib.parse import urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import genera as G  # noqa: E402
@@ -238,7 +250,7 @@ def controlla_link():
         p = Link()
         p.feed(f.read_text(encoding="utf-8"))
         for h in p.href:
-            if h.startswith(("http://", "https://", "mailto:", "data:", "#", "javascript:")):
+            if h.startswith(("http://", "https://", "webcal://", "mailto:", "data:", "#", "javascript:")):
                 continue
             h = h.split("#")[0].split("?")[0]
             if not h:
@@ -658,6 +670,10 @@ def controlla_meta():
         if rel.startswith(G.GOM_BASE + "/"):  # sezione "Winter tyres with a rental car": fino a 70 caratteri con la stagione 2026-27 (il punto 21 controlla il resto)
             if len(tit) > G.LIMITE_TITOLO_GOM or G.STAGIONE_GOM not in tit:
                 errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_GOM}) o senza la stagione in {rel}: {tit}")
+            continue
+        if rel.startswith(G.BIG_BASE + "/"):  # sezione "When do tickets go on sale?": fino a 70 caratteri con gli anni 2026-27 (il punto 22 controlla il resto)
+            if len(tit) > G.LIMITE_TITOLO_BIG or G.STAGIONE_BIG not in tit:
+                errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_BIG}) o senza gli anni in {rel}: {tit}")
             continue
         if rel.startswith(G.PED_BASE + "/"):  # sezione "Tolls with a rental car": fino a 70 caratteri con l'anno (il punto 20 controlla il resto)
             if len(tit) > G.LIMITE_TITOLO_PED or str(G.ANNO) not in tit:
@@ -2435,6 +2451,328 @@ def controlla_gomme():
     return errori, conti
 
 
+_spec_big = importlib.util.spec_from_file_location("raccolta_biglietti", Path(__file__).resolve().parent / "raccolta" / "biglietti.py")
+RBIG = importlib.util.module_from_spec(_spec_big)
+_spec_big.loader.exec_module(RBIG)
+# Domini ufficiali: siti delle attrazioni e biglietterie che le loro pagine ufficiali indicano (nessun rivenditore, nessuna guida)
+DOMINI_UFFICIALI_BIG = {"cenacolovinciano.org", "cenacolovinciano.vivaticket.it", "www.museivaticani.va", "tickets.museivaticani.va",
+                        "www.annefrank.org", "pompeiisites.org", "pompeii.vivaticket.it", "www.alhambra-patronato.es", "tickets.alhambra-patronato.es",
+                        "sagradafamilia.org"}
+# Rivenditori e venditori di visite: mai nominati né linkati nella sezione (Viator solo nel riquadro, quando VIATOR_TOUR sarà acceso)
+RIVENDITORI_BIG = re.compile(r"lastsupperticket|tiqets|getyourguide|headout|musement|civitatis|klook|ticketbar|tickitto|isango|city ?wonders|"
+                             r"walks of italy|take walks|viator|tripadvisor|ticketone|vaticanmuseum\.co|thevaticantickets|lastsupper\.shop", re.I)
+# Pasqua scritta qui a mano (calendario gregoriano), indipendente dal calcolo di genera.pasqua
+PASQUA_BIG = {2026: date(2026, 4, 5), 2027: date(2027, 3, 28), 2028: date(2028, 4, 16), 2029: date(2029, 4, 1), 2030: date(2030, 4, 21)}
+
+
+def _fine_finestra_big(oggi, mesi):
+    y, m = oggi.year + (oggi.month - 1 + mesi) // 12, (oggi.month - 1 + mesi) % 12 + 1
+    ultimo = (date(y + (m == 12), m % 12 + 1, 1) - timedelta(days=1)).day
+    return date(y, m, min(oggi.day, ultimo))
+
+
+def _attesi_big(a, oggi):
+    """Ricalcolo indipendente: per ogni giorno della finestra, quali regole lo toccano. Insieme di (data, ora, tipo, regola)."""
+    fine = _fine_finestra_big(oggi, G.MESI_BIG)
+    out, d = set(), oggi
+    while d <= fine:
+        md = d.strftime("%m-%d")
+        prima_dom = d.weekday() == 6 and d.day <= 7
+        ultima_dom = d.weekday() == 6 and (d + timedelta(days=7)).month != d.month
+        for r in a["uscite"]:
+            if r["tipo"] == "settimanale" and d.weekday() == r["giorno"]:
+                out.add((d.isoformat(), r["ora"], "uscita", r["id"]))
+            if r["tipo"] == "prima_domenica":
+                s = d + timedelta(days=r["giorni_prima"])
+                if s.weekday() == 6 and s.day <= 7:
+                    out.add((d.isoformat(), r["ora"], "uscita", r["id"]))
+        g = a.get("gratis")
+        if g and ((g["tipo"] == "prima_domenica" and prima_dom) or (g["tipo"] == "ultima_domenica" and ultima_dom)):
+            if d.year not in PASQUA_BIG:
+                raise SystemExit(f"verifica.py: aggiungere la Pasqua {d.year} a PASQUA_BIG")
+            if not (md in g.get("eccezioni_md", []) or (g.get("pasqua") and d == PASQUA_BIG[d.year])):
+                out.add((d.isoformat(), None, "gratis", g["tipo"]))
+        if md in a["chiusure"]["md"] or d.isoformat() in a["chiusure"]["date"]:
+            out.add((d.isoformat(), None, "chiusura", "chiusure"))
+        if any(o.get("md") == md or o.get("data") == d.isoformat() for o in a["orari_speciali"]):
+            out.add((d.isoformat(), None, "orario", "orari"))
+        d += timedelta(days=1)
+    return out
+
+
+def _numeri_big(s):
+    return {int(x) for x in re.findall(r"\d+", s)}
+
+
+def _ics_righe(testo, nome, errori):
+    """Controlli di forma RFC 5545 essenziali; restituisce le righe "aperte" (unfold)."""
+    if not testo.endswith("\r\n") or re.search(r"(?<!\r)\n", testo):
+        errori.append(f"{nome}: righe non terminate da CRLF")
+    fisiche = testo.split("\r\n")[:-1]
+    for r in fisiche:
+        if len(r.encode("utf-8")) > 75:
+            errori.append(f"{nome}: riga di {len(r.encode('utf-8'))} byte (> 75)")
+            break
+    aperte = []
+    for r in fisiche:
+        if r.startswith(" ") and aperte:
+            aperte[-1] += r[1:]
+        else:
+            aperte.append(r)
+    return aperte
+
+
+def controlla_biglietti():
+    """Punto 22: dati = fonti = pagine; date ricalcolate in modo indipendente; .ics validi e uguali alle date; titoli; solo link ufficiali."""
+    from html import unescape
+    from zoneinfo import ZoneInfo
+    errori = []
+    conti = {"attrazioni": 0, "fonti": 0, "citazioni": 0, "faq": 0, "date": 0, "eventi_ics": 0, "cache": "no", "link_esterni": 0}
+    if not G.BIG:
+        return ["dati/biglietti.json mancante (rilanciare raccolta/biglietti.py)"], conti
+    M = json.loads((SITO.parent / "dati" / "biglietti_manuali.json").read_text(encoding="utf-8"))
+    if M["attrazioni"] != G.BIG["attrazioni"] or M["escluse"] != G.BIG["escluse"]:
+        errori.append("dati/biglietti.json non è aggiornato rispetto a dati/biglietti_manuali.json (rilanciare raccolta/biglietti.py)")
+    D = json.loads((SITO.parent / "dati" / "biglietti_domanda.json").read_text(encoding="utf-8"))
+    ricerche = RBIG.tutte_ricerche(D)
+    # a) fonti: HTTP 200, solo domini ufficiali, data; dalla cache frasi e impronte ricalcolate
+    cache = RBIG.CACHE.exists()
+    for fid, F in G.BIG["fonti"].items():
+        conti["fonti"] += 1
+        if F["http"] != 200:
+            errori.append(f"fonte {fid}: HTTP {F['http']}")
+        if urlparse(F["url"]).hostname not in DOMINI_UFFICIALI_BIG or not F["url"].startswith("https://"):
+            errori.append(f"fonte {fid}: dominio non ufficiale o non previsto: {F['url']}")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F["letto_il"] or "") or F["letto_il"] > G.OGGI.isoformat():
+            errori.append(f"fonte {fid}: data di lettura non valida {F['letto_il']}")
+        f_c = RBIG.file_cache(fid)
+        if cache and f_c.exists():
+            t = RBIG.testo_fonte(f_c.read_bytes())
+            frasi = RBIG.frasi_fonte(G.BIG, fid)
+            for x in frasi:
+                if x not in t:
+                    errori.append(f"fonte {fid}: la frase non è nel testo salvato: {x[:70]}")
+            if RBIG.impronta_zona(t, frasi) != F["impronta"]:
+                errori.append(f"fonte {fid}: impronta diversa dal testo salvato (rilanciare raccolta/biglietti.py)")
+            conti["cache"] = "sì"
+    # b) pagine: esattamente indice + una per attrazione, in sitemap; nessun'altra pagina nella sezione
+    sm = leggi("sitemap.xml")
+    attese = {G.url_big(a["slug"]) + "index.html" for a in G.BIG_ATT} | {f"{G.BIG_BASE}/index.html"}
+    trovate = {q.relative_to(SITO).as_posix() for q in (SITO / G.BIG_BASE).rglob("index.html")} if (SITO / G.BIG_BASE).exists() else set()
+    if attese != trovate:
+        errori.append(f"pagine ticket-release-dates diverse dai dati: mancano {sorted(attese - trovate)}, in più {sorted(trovate - attese)}")
+    for p in sorted(attese):
+        if f"<loc>{G.URL_SITO}/{p[:-len('index.html')]}</loc>" not in sm:
+            errori.append(f"{p}: non in sitemap")
+    host_altri = {urlparse(u).hostname for u, _, _ in G.ALTRI_SITI}
+    ammessi_host = DOMINI_UFFICIALI_BIG | host_altri | {urlparse(G.URL_SITO).hostname, "calendar.google.com"}
+    if G.VIATOR_TOUR:
+        ammessi_host.add(urlparse(G.VIATOR_TOUR).hostname)
+    oggi = G.OGGI
+    for a in G.BIG_ATT:
+        conti["attrazioni"] += 1
+        s = a["slug"]
+        ids = {c["id"] for c in a["citazioni"]}
+        # parole nostre: nessun numero che non stia in una citazione, nel titolo di una fonte o tra gli anni della finestra
+        ammessi = set().union(*[_numeri_big(c["x"]) for c in a["citazioni"]], *[_numeri_big(G.BIG["fonti"][f]["titolo"]) for f in G.fonti_big(a)],
+                              {2026, 2027})
+        campi = [("risposta", re.sub(r"\{[^}]+\}", " ", a["risposta"])), ("orari", a["orari"]["breve"]), ("chiusure", a["chiusure"]["breve"])]
+        campi += [("gratis", a["gratis"]["breve"])] if a.get("gratis") else []
+        campi += [(f"uscita {r['id']}", r["breve"] + " " + r.get("indice", "")) for r in a["uscite"]]
+        campi += [(f"testo {t['titolo']}", t["nota"]) for t in a["uscite_testo"]] + [("escluse", x) for x in a["chiusure"].get("escluse_md", {}).values()]
+        campi += [(f"orario {o.get('md') or o.get('data')}", o["testo"]) for o in a["orari_speciali"]]
+        campi += [(f"FAQ «{q['q']}»", q["pre"] + " " + q["post"]) for q in a["faq"]]
+        for nome, testo in campi:
+            extra = _numeri_big(testo) - ammessi
+            if extra:
+                errori.append(f"biglietti {s}: numeri non presi dalle fonti in {nome}: {sorted(extra)}")
+        for q in a["faq"]:
+            if q["query"] not in ricerche:
+                errori.append(f"biglietti {s}: FAQ «{q['q']}» senza una ricerca vera ({q['query']!r} non è in dati/biglietti_domanda.json)")
+        B = a["biglietteria"]
+        if urlparse(B["url"]).hostname not in DOMINI_UFFICIALI_BIG or not B["url"].startswith("https://") or not B["cit"]:
+            errori.append(f"biglietti {s}: biglietteria non ufficiale o senza la frase ufficiale che la indica: {B['url']}")
+        # c) date: ricalcolo indipendente = genera.eventi_big; coerenza con la regola
+        ev = G.eventi_big(a)
+        attesi = _attesi_big(a, oggi)
+        fatti = {(e["data"], e["ora"], e["tipo"], e["regola"]) for e in ev}
+        if attesi != fatti or len(ev) != len(fatti):
+            errori.append(f"biglietti {s}: date calcolate diverse dal ricalcolo indipendente: mancano {sorted(attesi - fatti)[:3]}, in più {sorted(fatti - attesi)[:3]}")
+        for e in ev:
+            conti["date"] += 1
+            d = date.fromisoformat(e["data"])
+            if e["tipo"] == "uscita":
+                r = next(x for x in a["uscite"] if x["id"] == e["regola"])
+                if r["tipo"] == "settimanale" and (d.weekday() != r["giorno"] or (r.get("visita_dopo_giorni") and
+                                                                                  e["visita"] != (d + timedelta(days=r["visita_dopo_giorni"])).isoformat())):
+                    errori.append(f"biglietti {s}: uscita {e['data']} non coerente con la regola settimanale")
+                if r["tipo"] == "prima_domenica" and (date.fromisoformat(e["visita"]) - d).days != r["giorni_prima"]:
+                    errori.append(f"biglietti {s}: uscita {e['data']} non coerente con la prima domenica {e['visita']}")
+                giorno_cit = G.GIORNI_SETT[d.weekday()]
+                if r["tipo"] == "settimanale" and not any(giorno_cit in G.cit_big(a, i)["x"] for i in r["cit"]):
+                    errori.append(f"biglietti {s}: la citazione della regola {r['id']} non nomina {giorno_cit}")
+        if not (oggi.isoformat() <= min((e["data"] for e in ev), default=oggi.isoformat())
+                and max((e["data"] for e in ev), default=oggi.isoformat()) <= _fine_finestra_big(oggi, G.MESI_BIG).isoformat()):
+            errori.append(f"biglietti {s}: date fuori dalla finestra di {G.MESI_BIG} mesi")
+        if s == "anne-frank-house" and len([e for e in ev if e["tipo"] == "uscita"]) < 25:
+            errori.append(f"biglietti {s}: meno di 25 martedì di uscita in sei mesi")
+        # d) pagina
+        rel = G.url_big(s) + "index.html"
+        if not (SITO / rel).exists():
+            continue
+        t = leggi(rel)
+        vis = unescape(re.sub(r"<[^>]+>", " ", t))
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if tit != a["titolo"] or len(tit) > G.LIMITE_TITOLO_BIG or G.STAGIONE_BIG not in tit:
+            errori.append(f"{rel}: titolo oltre {G.LIMITE_TITOLO_BIG} caratteri, senza gli anni o diverso dai dati: {tit}")
+        m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t)
+        prima = unescape(re.sub(r"<[^>]+>", "", m.group(1))) if m else ""
+        if "data-vecchie=" not in t or ("{next" in a["risposta"] and "data-prox=" not in (m.group(1) if m else "")):
+            errori.append(f"{rel}: mancano le date 'prossime' aggiornate nel browser o l'avviso per le date passate")
+        if prima != G.risposta_big(a) or not prima.startswith(f"According to {a['chi']}, checked on {G.data_lunga(G.data_big(a))}, "):
+            errori.append(f"{rel}: prima frase diversa da 'According to <fonte>, checked on <data>, <risposta>'")
+        for r in a["uscite"]:
+            e0 = G.prossimo_big(a, "uscita", r["id"])
+            if f"{{next:{r['id']}}}" in a["risposta"] and (not e0 or G.giorno_lungo(e0["data"]) not in prima):
+                errori.append(f"{rel}: la prima frase non ha la prossima uscita calcolata ({r['id']})")
+        righe = re.findall(r'<tr data-data="(\d{4}-\d{2}-\d{2})" data-tipo="([a-z]+)">', t)
+        if sorted(righe) != sorted((e["data"], e["tipo"]) for e in ev):
+            errori.append(f"{rel}: righe della tabella diverse dalle date calcolate")
+        for c in a["citazioni"]:
+            conti["citazioni"] += 1
+            if escape(c["x"], quote=False) not in t and escape(c["x"]) not in t:
+                errori.append(f"{rel}: citazione mancante: {c['x'][:60]}")
+        for f in G.fonti_big(a):
+            F = G.BIG["fonti"][f]
+            if f'href="{escape(F["pagina"])}"' not in t or f"checked on {G.data_lunga(F['letto_il'])}" not in vis:
+                errori.append(f"{rel}: manca il link o la data della fonte {f}")
+        if f"Official tickets for the {a['nome_lungo']} are sold at" not in vis or "resellers may charge more" not in vis \
+                or f'href="{escape(a["biglietteria"]["url"])}"' not in t:
+            errori.append(f"{rel}: manca il riquadro della biglietteria ufficiale con l'avviso sui rivenditori")
+        faq_ld = next((x for x in (json.loads(y) for y in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)) if x.get("@type") == "FAQPage"), None)
+        attese_faq = G.faq_big(a)
+        if not faq_ld or [(e["name"], e["acceptedAnswer"]["text"]) for e in faq_ld["mainEntity"]] != attese_faq:
+            errori.append(f"{rel}: FAQ JSON-LD diversa dalle domande previste")
+        for qd, r_ in attese_faq:
+            conti["faq"] += 1
+            if f"<h3>{escape(qd)}</h3><p>{escape(r_)}</p>" not in t:
+                errori.append(f"{rel}: FAQ visibile diversa dal JSON-LD: {qd}")
+        # e) .ics: forma, eventi = date calcolate, ora locale = regola
+        f_ics = SITO / G.url_ics_big(s)
+        if not f_ics.exists():
+            errori.append(f"{G.url_ics_big(s)}: file mancante")
+            continue
+        if f'href="../../{G.url_ics_big(s)}"' not in t or "webcal://" not in t:
+            errori.append(f"{rel}: mancano i link al calendario")
+        with open(f_ics, encoding="utf-8", newline="") as fh:
+            testo_ics = fh.read()
+        aperte = _ics_righe(testo_ics, G.url_ics_big(s), errori)
+        if aperte[:2] != ["BEGIN:VCALENDAR", "VERSION:2.0"] or aperte[-1] != "END:VCALENDAR" or not any(x.startswith("PRODID:") for x in aperte):
+            errori.append(f"{G.url_ics_big(s)}: intestazione o chiusura VCALENDAR non valide")
+        eventi, cur = [], None
+        for x in aperte:
+            if x == "BEGIN:VEVENT":
+                cur = {}
+            elif x == "END:VEVENT":
+                eventi.append(cur)
+                cur = None
+            elif cur is not None:
+                k, _, v = x.partition(":")
+                cur[k] = v
+        if testo_ics.count("BEGIN:VEVENT") != testo_ics.count("END:VEVENT") or len(eventi) != len(ev):
+            errori.append(f"{G.url_ics_big(s)}: {len(eventi)} eventi invece di {len(ev)}")
+        uid = [e.get("UID") for e in eventi]
+        if len(set(uid)) != len(uid) or not all(uid):
+            errori.append(f"{G.url_ics_big(s)}: UID mancanti o duplicati")
+        dal_ics = set()
+        for e in eventi:
+            conti["eventi_ics"] += 1
+            if not all(k in e for k in ("DTSTAMP", "SUMMARY", "DESCRIPTION")) or not ("DTSTART" in e or "DTSTART;VALUE=DATE" in e):
+                errori.append(f"{G.url_ics_big(s)}: evento senza DTSTAMP, DTSTART, SUMMARY o DESCRIPTION: {e.get('UID')}")
+                continue
+            if "DTSTART;VALUE=DATE" in e:
+                dd = e["DTSTART;VALUE=DATE"]
+                dal_ics.add((f"{dd[:4]}-{dd[4:6]}-{dd[6:]}", None))
+            else:
+                u = datetime.strptime(e["DTSTART"], "%Y%m%dT%H%M%SZ").replace(tzinfo=ZoneInfo("UTC")).astimezone(ZoneInfo(a["fuso"]))
+                dal_ics.add((u.date().isoformat(), u.strftime("%H:%M")))
+        if dal_ics != {(e["data"], e["ora"]) for e in ev}:
+            errori.append(f"{G.url_ics_big(s)}: date o ore diverse dalle date calcolate")
+        # f) link esterni solo ufficiali; nessun rivenditore nominato
+        for h in re.findall(r'href="((?:https?|webcal)://[^"]+)"', t.split('<main id="main">', 1)[-1].split("</main>", 1)[0]):
+            conti["link_esterni"] += 1
+            if urlparse(unescape(h)).hostname not in ammessi_host:
+                errori.append(f"{rel}: link non ufficiale {h[:80]}")
+        mm = RIVENDITORI_BIG.search(vis) or VIETATE_SRV.search(vis)
+        if mm and not (G.VIATOR_TOUR and mm.group(0).lower() == "viator"):
+            errori.append(f"{rel}: nome di rivenditore o assistente '{mm.group(0)}'")
+        if "not affiliated with any museum or ticket seller" not in vis:
+            errori.append(f"{rel}: manca l'avviso di indipendenza")
+    # g) indice
+    idx = f"{G.BIG_BASE}/index.html"
+    if (SITO / idx).exists():
+        t = leggi(idx)
+        vis = unescape(re.sub(r"<[^>]+>", " ", t))
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(tit) > G.LIMITE_TITOLO_BIG or G.STAGIONE_BIG not in tit:
+            errori.append(f"{idx}: titolo oltre {G.LIMITE_TITOLO_BIG} caratteri o senza gli anni: {tit}")
+        m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t)
+        if not m or unescape(re.sub(r"<[^>]+>", "", m.group(1))) != G.prima_frase_big() or f"last checked on {G.data_lunga(G.BIG['controllato_il'])}" not in unescape(m.group(1)) \
+                or "data-prox=" not in m.group(1) or "data-vecchie=" not in t:
+            errori.append(f"{idx}: prima frase diversa dai dati o senza la data")
+        righe = re.findall(r'<tr data-voce id="([a-z-]+)">(.*?)</tr>', t)
+        if [r[0] for r in righe] != [a["slug"] for a in G.BIG_ATT]:
+            errori.append(f"{idx}: righe della tabella diverse dalle attrazioni dei dati")
+        for (sl, r), a in zip(righe, G.BIG_ATT):
+            e = G.prossimo_big(a, "uscita")
+            if (e and G.giorno_lungo(e["data"]) not in unescape(r)) or (not e and "No exact date published" not in r):
+                errori.append(f"{idx}: riga {sl} con la prossima uscita diversa dal calcolo")
+            if f'href="{escape(a["biglietteria"]["url"])}"' not in r:
+                errori.append(f"{idx}: riga {sl} senza la biglietteria ufficiale")
+        for a in G.BIG_ATT:
+            if f'href="../{G.url_ics_big(a["slug"])}"' not in t:
+                errori.append(f"{idx}: manca il calendario di {a['slug']}")
+        for qd, r_ in G.faq_indice_big():
+            conti["faq"] += 1
+            if f"<h3>{escape(qd)}</h3><p>{escape(r_)}</p>" not in t:
+                errori.append(f"{idx}: FAQ mancante: {qd}")
+        for h in re.findall(r'href="((?:https?|webcal)://[^"]+)"', t.split('<main id="main">', 1)[-1].split("</main>", 1)[0]):
+            conti["link_esterni"] += 1
+            if urlparse(unescape(h)).hostname not in ammessi_host:
+                errori.append(f"{idx}: link non ufficiale {h[:80]}")
+        mm = RIVENDITORI_BIG.search(vis) or VIETATE_SRV.search(vis)
+        if mm and not (G.VIATOR_TOUR and mm.group(0).lower() == "viator"):
+            errori.append(f"{idx}: nome di rivenditore o assistente '{mm.group(0)}'")
+        for x in G.BIG["escluse"]:
+            if escape(x["nome"]) not in t:
+                errori.append(f"{idx}: manca l'attrazione esclusa {x['nome']}")
+    else:
+        errori.append("indice ticket-release-dates mancante")
+    # h) Viator: spento = nessun riquadro né link; acceso = solo viator.com, sponsored, trasparenza, dopo la biglietteria ufficiale
+    for p in sorted(attese):
+        if not (SITO / p).exists():
+            continue
+        t = leggi(p)
+        if not G.VIATOR_TOUR:
+            if "data-tour" in t or "viator.com" in t or 'id="guided-tours"' in t:
+                errori.append(f"{p}: riquadro Viator presente con VIATOR_TOUR vuoto")
+        else:
+            errori += [f"{p}: {e}" for e in G.MON.controlla_link_pagina(t, p, "en")[0]]
+            if p != idx and t.find("data-tour") < t.find('id="official-tickets"'):
+                errori.append(f"{p}: riquadro Viator prima della biglietteria ufficiale")
+    # i) collegamenti in entrata e dati senza nomi di assistenti
+    if f'href="{G.BIG_BASE}/"' not in leggi("index.html"):
+        errori.append("home senza link alla sezione 'Ticket release dates'")
+    if 'id="ticket-release-dates"' not in leggi("about/index.html"):
+        errori.append("About senza la sezione 'Ticket release dates'")
+    if 'href="/ticket-release-dates/"' not in leggi("404.html"):
+        errori.append("404 senza link alla sezione dei biglietti")
+    for nome in ("biglietti.json", "biglietti_manuali.json", "biglietti_domanda.json"):
+        if VIETATE_SRV.search((SITO.parent / "dati" / nome).read_text(encoding="utf-8")):
+            errori.append(f"dati/{nome}: nome di un assistente di intelligenza artificiale")
+    return errori, conti
+
+
 def controlla_indexnow():
     """File chiave IndexNow in sito/: presente, con dentro solo la chiave, fuori dalla sitemap (scritto da genera.py accanto a robots.txt)."""
     errori = []
@@ -2515,9 +2853,14 @@ def main():
           f"(HTTP 200, domini ammessi; frasi e impronte ricalcolate dal testo salvato: {c21['cache']}), {c21['citazioni']} citazioni con traduzione se non in inglese, "
           f"{c21['faq']} risposte FAQ da ricerche vere (JSON-LD = testo visibile), titoli <= {G.LIMITE_TITOLO_GOM} con la stagione {G.STAGIONE_GOM}, numeri solo dalle fonti, "
           f"frase sul noleggio, riquadro DiscoverCars (a_aid, dopo le regole) in {c21['noleggio']} pagine, {c21['link']} link andata e ritorno con Driving abroad e Tolls: {len(e21)} errori")
+    e22, c22 = controlla_biglietti()
+    print(f"22. Ticket release dates: {c22['attrazioni']} attrazioni, {c22['fonti']} fonti ufficiali (HTTP 200, domini ammessi; frasi e impronte ricalcolate dal testo salvato: {c22['cache']}), "
+          f"{c22['citazioni']} citazioni nelle pagine, {c22['date']} date calcolate uguali al ricalcolo indipendente e coerenti con la regola, {c22['eventi_ics']} eventi .ics validi "
+          f"(CRLF, righe <= 75 byte, UID unici, date e ore = tabella), {c22['faq']} risposte FAQ da ricerche vere (JSON-LD = testo visibile), titoli <= {G.LIMITE_TITOLO_BIG} con gli anni {G.STAGIONE_BIG}, "
+          f"pagine in sitemap, {c22['link_esterni']} link esterni tutti ufficiali, nessun rivenditore, riquadro Viator {'acceso' if G.VIATOR_TOUR else 'spento'}: {len(e22)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22
     for e in tutti:
         print(" -", e)
     if tutti:

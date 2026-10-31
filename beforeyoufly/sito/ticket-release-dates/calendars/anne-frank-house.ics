@@ -1,0 +1,604 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Before You Fly//Ticket release dates//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Anne Frank House: ticket releases and closures
+X-WR-TIMEZONE:Europe/Amsterdam
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2026-11-03@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20261103T090000Z
+DTEND:20261103T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 15 
+ Dec 2026)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-orario-orari-2026-11-07@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Anne Frank House: open 9:00 to 18:30
+DESCRIPTION:Official rule: “Exceptions to the opening hours 1 January 12:
+ 00 - 22:00 27 April - King's Day 9:00 - 17:00 4 May 9:00 - 17:00 20 Septem
+ ber 2026 9:00 - 17:00 21 September 2026 - Yom Kippur closed 7 November 202
+ 6 9:00 - 18:30 25 December 9:00 - 17:00 31 December 9:00 - 17:00”\nSourc
+ e: https://www.annefrank.org/en/museum/tickets/ (checked on 30 October 202
+ 6)\nDate calculated by Before You Fly from the official rule. Rules can ch
+ ange: check the official page before you book.\nOfficial tickets: https://
+ www.annefrank.org/en/museum/tickets/\nhttps://before-you-fly.netlify.app/t
+ icket-release-dates/anne-frank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2026-11-10@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20261110T090000Z
+DTEND:20261110T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 22 
+ Dec 2026)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2026-11-17@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20261117T090000Z
+DTEND:20261117T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 29 
+ Dec 2026)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2026-11-24@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20261124T090000Z
+DTEND:20261124T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 5 J
+ an 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2026-12-01@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20261201T090000Z
+DTEND:20261201T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 12 
+ Jan 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2026-12-08@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20261208T090000Z
+DTEND:20261208T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 19 
+ Jan 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2026-12-15@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20261215T090000Z
+DTEND:20261215T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 26 
+ Jan 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2026-12-22@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20261222T090000Z
+DTEND:20261222T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 2 F
+ eb 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-orario-orari-2026-12-25@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:Anne Frank House: open 9:00 to 17:00
+DESCRIPTION:Official rule: “Exceptions to the opening hours 1 January 12:
+ 00 - 22:00 27 April - King's Day 9:00 - 17:00 4 May 9:00 - 17:00 20 Septem
+ ber 2026 9:00 - 17:00 21 September 2026 - Yom Kippur closed 7 November 202
+ 6 9:00 - 18:30 25 December 9:00 - 17:00 31 December 9:00 - 17:00”\nSourc
+ e: https://www.annefrank.org/en/museum/tickets/ (checked on 30 October 202
+ 6)\nDate calculated by Before You Fly from the official rule. Rules can ch
+ ange: check the official page before you book.\nOfficial tickets: https://
+ www.annefrank.org/en/museum/tickets/\nhttps://before-you-fly.netlify.app/t
+ icket-release-dates/anne-frank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2026-12-29@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20261229T090000Z
+DTEND:20261229T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 9 F
+ eb 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-orario-orari-2026-12-31@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Anne Frank House: open 9:00 to 17:00
+DESCRIPTION:Official rule: “Exceptions to the opening hours 1 January 12:
+ 00 - 22:00 27 April - King's Day 9:00 - 17:00 4 May 9:00 - 17:00 20 Septem
+ ber 2026 9:00 - 17:00 21 September 2026 - Yom Kippur closed 7 November 202
+ 6 9:00 - 18:30 25 December 9:00 - 17:00 31 December 9:00 - 17:00”\nSourc
+ e: https://www.annefrank.org/en/museum/tickets/ (checked on 30 October 202
+ 6)\nDate calculated by Before You Fly from the official rule. Rules can ch
+ ange: check the official page before you book.\nOfficial tickets: https://
+ www.annefrank.org/en/museum/tickets/\nhttps://before-you-fly.netlify.app/t
+ icket-release-dates/anne-frank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-orario-orari-2027-01-01@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:Anne Frank House: open 12:00 to 22:00
+DESCRIPTION:Official rule: “Exceptions to the opening hours 1 January 12:
+ 00 - 22:00 27 April - King's Day 9:00 - 17:00 4 May 9:00 - 17:00 20 Septem
+ ber 2026 9:00 - 17:00 21 September 2026 - Yom Kippur closed 7 November 202
+ 6 9:00 - 18:30 25 December 9:00 - 17:00 31 December 9:00 - 17:00”\nSourc
+ e: https://www.annefrank.org/en/museum/tickets/ (checked on 30 October 202
+ 6)\nDate calculated by Before You Fly from the official rule. Rules can ch
+ ange: check the official page before you book.\nOfficial tickets: https://
+ www.annefrank.org/en/museum/tickets/\nhttps://before-you-fly.netlify.app/t
+ icket-release-dates/anne-frank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2027-01-05@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20270105T090000Z
+DTEND:20270105T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 16 
+ Feb 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2027-01-12@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20270112T090000Z
+DTEND:20270112T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 23 
+ Feb 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2027-01-19@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20270119T090000Z
+DTEND:20270119T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 2 M
+ ar 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2027-01-26@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20270126T090000Z
+DTEND:20270126T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 9 M
+ ar 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2027-02-02@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20270202T090000Z
+DTEND:20270202T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 16 
+ Mar 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2027-02-09@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20270209T090000Z
+DTEND:20270209T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 23 
+ Mar 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2027-02-16@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20270216T090000Z
+DTEND:20270216T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 30 
+ Mar 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2027-02-23@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20270223T090000Z
+DTEND:20270223T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 6 A
+ pr 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2027-03-02@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20270302T090000Z
+DTEND:20270302T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 13 
+ Apr 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2027-03-09@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20270309T090000Z
+DTEND:20270309T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 20 
+ Apr 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2027-03-16@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20270316T090000Z
+DTEND:20270316T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 27 
+ Apr 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2027-03-23@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20270323T090000Z
+DTEND:20270323T093000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 4 M
+ ay 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2027-03-30@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20270330T080000Z
+DTEND:20270330T083000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 11 
+ May 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2027-04-06@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20270406T080000Z
+DTEND:20270406T083000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 18 
+ May 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2027-04-13@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20270413T080000Z
+DTEND:20270413T083000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 25 
+ May 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2027-04-20@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20270420T080000Z
+DTEND:20270420T083000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 1 J
+ un 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-orario-orari-2027-04-27@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART;VALUE=DATE:20270427
+DTEND;VALUE=DATE:20270428
+SUMMARY:Anne Frank House: open 9:00 to 17:00 (King's Day)
+DESCRIPTION:Official rule: “Exceptions to the opening hours 1 January 12:
+ 00 - 22:00 27 April - King's Day 9:00 - 17:00 4 May 9:00 - 17:00 20 Septem
+ ber 2026 9:00 - 17:00 21 September 2026 - Yom Kippur closed 7 November 202
+ 6 9:00 - 18:30 25 December 9:00 - 17:00 31 December 9:00 - 17:00”\nSourc
+ e: https://www.annefrank.org/en/museum/tickets/ (checked on 30 October 202
+ 6)\nDate calculated by Before You Fly from the official rule. Rules can ch
+ ange: check the official page before you book.\nOfficial tickets: https://
+ www.annefrank.org/en/museum/tickets/\nhttps://before-you-fly.netlify.app/t
+ icket-release-dates/anne-frank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:anne-frank-house-uscita-martedi-2027-04-27@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART:20270427T080000Z
+DTEND:20270427T083000Z
+SUMMARY:Anne Frank House tickets go on sale (visit six weeks later: Tue 8 J
+ un 2027)
+DESCRIPTION:Official rule: “Every Tuesday at 10am CET all tickets become 
+ available for a visit six weeks later.”\nSource: https://www.annefrank.o
+ rg/en/museum/tickets/ (checked on 30 October 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.annefrank.org/en/museu
+ m/tickets/\nhttps://before-you-fly.netlify.app/ticket-release-dates/anne-f
+ rank-house/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/anne-frank-hous
+ e/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

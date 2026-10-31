@@ -1,0 +1,42 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Before You Fly//Ticket release dates//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Alhambra: ticket releases and closures
+X-WR-TIMEZONE:Europe/Madrid
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:alhambra-chiusura-chiusure-2026-12-25@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:Alhambra: closed
+DESCRIPTION:Official rule: “December 25th and January 1st / Closing days
+ ”\nSource: https://www.alhambra-patronato.es/en/visit/opening-hours-and-
+ prices (checked on 30 October 2026)\nDate calculated by Before You Fly fro
+ m the official rule. Rules can change: check the official page before you 
+ book.\nOfficial tickets: https://tickets.alhambra-patronato.es/en/\nhttps:
+ //before-you-fly.netlify.app/ticket-release-dates/alhambra/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/alhambra/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:alhambra-chiusura-chiusure-2027-01-01@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:Alhambra: closed
+DESCRIPTION:Official rule: “December 25th and January 1st / Closing days
+ ”\nSource: https://www.alhambra-patronato.es/en/visit/opening-hours-and-
+ prices (checked on 30 October 2026)\nDate calculated by Before You Fly fro
+ m the official rule. Rules can change: check the official page before you 
+ book.\nOfficial tickets: https://tickets.alhambra-patronato.es/en/\nhttps:
+ //before-you-fly.netlify.app/ticket-release-dates/alhambra/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/alhambra/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

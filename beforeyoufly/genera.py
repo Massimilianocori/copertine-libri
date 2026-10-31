@@ -18,7 +18,7 @@ import re
 import shutil
 import sys
 import unicodedata
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from html import escape
 from urllib.parse import urlparse
 from pathlib import Path
@@ -499,6 +499,7 @@ footer .f-altri a{font-weight:600}
 .griglia.g-pat{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));margin-top:16px}.griglia.g-pat a .ico{color:var(--accent);margin-right:4px}
 a.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--sign-ink)}a.btn:hover{color:var(--sign-ink)}a.btn .ico{color:var(--sign-ink)}
 .altri-pass.noleggio-home{flex-wrap:nowrap;align-items:flex-start}.noleggio-home .ico{flex:none;margin-top:4px}
+.cal-link{display:flex;gap:8px;align-items:flex-start;margin:12px 0}.cal-link .ico{flex:none;margin-top:3px;color:var(--accent)}.cal-lista{padding-left:20px}.cal-lista .cal-link{margin:4px 0 10px}details.tutte{margin:10px 0}details.tutte summary{cursor:pointer;font-weight:700;padding:6px 0}.ufficiale{margin:22px 0}.ufficiale p{margin:0 0 10px}
 .noleggio{margin:14px 0 22px}.noleggio p{margin:0 0 12px}.noleggio p.aff-nota{margin:0}
 caption.cap{caption-side:top;text-align:left;padding:10px 12px;font-size:.84rem;color:var(--ink-3);background:var(--card)}
 .tab-g th[scope=row]{width:34%;background:transparent;color:var(--ink-3);border-right:1px solid var(--line)}
@@ -4517,6 +4518,654 @@ def about_gom(rel):
 <p>Rules: every sentence shown between quotation marks is copied word for word from the official page; pages in other languages are quoted in the original language with our English translation. A country is listed only if its official page answered normally on the day we checked it; where we could not read a source (for example the ANAS website in Italy), the page says so. We write that a rule is about rental cars only when the official text says so; otherwise the page says that the official pages do not say whether rental cars come with winter tyres or chains. We check every source again each October, before the winter season. This is information, not legal advice.</p>"""
 
 
+# ---------------------------------------------------------------- Quando escono i biglietti delle grandi attrazioni (30/10/2026)
+# Regole scritte a mano in dati/biglietti_manuali.json (citazioni parola per parola), fonti rilette da raccolta/biglietti.py (HTTP 200, data di
+# lettura, impronta della zona citata) che scrive dati/biglietti.json. Le DATE non sono scritte da nessuna parte: le calcola eventi_big() dalla
+# regola ufficiale, da oggi a MESI_BIG mesi dopo, a ogni generazione (verifica.py, punto 22, le ricalcola in modo indipendente). Per ogni
+# attrazione un file .ics (stesso metodo dei calendari di italystrikes/genera.py: testo con escape, righe piegate a 75 byte, CRLF) con le uscite
+# dei biglietti, i giorni gratis, le chiusure e gli orari speciali. Link solo alle biglietterie ufficiali indicate dalle pagine ufficiali.
+from zoneinfo import ZoneInfo  # noqa: E402
+
+BIG_BASE = "ticket-release-dates"
+_f_big = DATI / "biglietti.json"
+BIG = json.loads(_f_big.read_text(encoding="utf-8")) if _f_big.exists() else None
+BIG_ATT = BIG["attrazioni"] if BIG else []
+BIG_PER = {a["slug"]: a for a in BIG_ATT}
+MESI_BIG = 6  # finestra delle date calcolate: da oggi a 6 mesi dopo
+STAGIONE_BIG = "2026-27"  # anni nei titoli (la finestra va da fine ottobre 2026 ad aprile 2027): da cambiare quando la finestra passa al 2027-28
+LIMITE_TITOLO_BIG = 70
+GIORNI_SETT = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+# Riquadro "Guided tours with skip-the-line" (Viator, 8 %): SPENTO. Il programma non è ancora approvato (30/10/2026). Quando arriva il link
+# generale con il nostro ID, scriverlo qui (https, dominio viator.com): il riquadro compare sotto la biglietteria ufficiale, con
+# rel="sponsored noopener" e la riga di trasparenza (verifica.py, punto 22, e monetizzazione.py lo controllano). Vuoto = nessun riquadro.
+VIATOR_TOUR = ""
+TIPI_BIG = {"uscita": "Tickets go on sale", "gratis": "Free entry", "chiusura": "Closed", "orario": "Special hours"}
+
+
+def url_big(slug=None):
+    return f"{BIG_BASE}/" + (f"{slug}/" if slug else "")
+
+
+def url_ics_big(slug):
+    return f"{BIG_BASE}/calendars/{slug}.ics"
+
+
+def fonti_big(a):
+    out = []
+    for c in a["citazioni"]:
+        if c["f"] not in out:
+            out.append(c["f"])
+    return out
+
+
+def data_big(a):
+    return max(BIG["fonti"][f]["letto_il"] for f in fonti_big(a))
+
+
+def cit_big(a, id_):
+    return next(c for c in a["citazioni"] if c["id"] == id_)
+
+
+def fine_big():
+    return piu_mesi(OGGI.isoformat(), MESI_BIG)
+
+
+def pasqua(anno):
+    """Domenica di Pasqua (calendario gregoriano, algoritmo anonimo di Meeus/Jones/Butcher)."""
+    a, b, c = anno % 19, anno // 100, anno % 100
+    d, e = b // 4, b % 4
+    f = (b + 8) // 25
+    g = (b - f + 1) // 3
+    h = (19 * a + b - d - g + 15) % 30
+    i, k = c // 4, c % 4
+    l_ = (32 + 2 * e + 2 * i - h - k) % 7
+    m = (a + 11 * h + 22 * l_) // 451
+    mese = (h + l_ - 7 * m + 114) // 31
+    giorno = (h + l_ - 7 * m + 114) % 31 + 1
+    return date(anno, mese, giorno)
+
+
+def domeniche_big(quale):
+    """Prima o ultima domenica di ogni mese, dal mese di oggi a un mese dopo la fine della finestra (iso)."""
+    out, y, m = [], OGGI.year, OGGI.month
+    fine = date.fromisoformat(fine_big())
+    while date(y, m, 1) <= fine + timedelta(days=31):
+        if quale == "prima":
+            d = date(y, m, 1)
+            d += timedelta(days=(6 - d.weekday()) % 7)
+        else:
+            d = date(y + (m == 12), m % 12 + 1, 1) - timedelta(days=1)
+            d -= timedelta(days=(d.weekday() - 6) % 7)
+        out.append(d)
+        y, m = y + (m == 12), m % 12 + 1
+    return out
+
+
+def gratis_saltate(a):
+    """Ultime domeniche della finestra senza ingresso gratuito per le eccezioni scritte nella fonte: [(data iso, motivo)]."""
+    g = a.get("gratis")
+    if not g or g["tipo"] != "ultima_domenica":
+        return []
+    out, fine = [], fine_big()
+    for d in domeniche_big("ultima"):
+        if not (OGGI.isoformat() <= d.isoformat() <= fine):
+            continue
+        if g.get("pasqua") and d == pasqua(d.year):
+            out.append((d.isoformat(), "Easter Sunday"))
+        elif d.strftime("%m-%d") in g.get("eccezioni_md", []):
+            out.append((d.isoformat(), "one of the exceptions on the official list"))
+    return out
+
+
+def eventi_big(a):
+    """Tutte le date calcolate dalle regole, da oggi a MESI_BIG mesi dopo: dict con data, ora (o None), tipo, regola, titolo, visita, testo."""
+    oggi, fine = OGGI.isoformat(), fine_big()
+    dentro = lambda d: oggi <= d.isoformat() <= fine  # noqa: E731
+    giorni_f = [OGGI + timedelta(days=i) for i in range(giorni(oggi, fine) + 1)]
+    ev = []
+    for r in a["uscite"]:
+        if r["tipo"] == "settimanale":
+            for d in giorni_f:
+                if d.weekday() == r["giorno"]:
+                    ev.append({"data": d.isoformat(), "ora": r["ora"], "tipo": "uscita", "regola": r["id"], "titolo": r["titolo"],
+                               "visita": (d + timedelta(days=r["visita_dopo_giorni"])).isoformat() if r.get("visita_dopo_giorni") else None})
+        elif r["tipo"] == "prima_domenica":
+            for s in domeniche_big("prima"):
+                d = s - timedelta(days=r["giorni_prima"])
+                if dentro(d):
+                    ev.append({"data": d.isoformat(), "ora": r["ora"], "tipo": "uscita", "regola": r["id"], "titolo": r["titolo"],
+                               "visita": s.isoformat()})
+    g = a.get("gratis")
+    if g:
+        saltate = {d for d, _ in gratis_saltate(a)}
+        for s in domeniche_big("prima" if g["tipo"] == "prima_domenica" else "ultima"):
+            if dentro(s) and s.isoformat() not in saltate:
+                ev.append({"data": s.isoformat(), "ora": None, "tipo": "gratis", "regola": g["tipo"], "titolo": f"{a['nome']}: free entry", "visita": None})
+    C = a["chiusure"]
+    for d in giorni_f:
+        if d.strftime("%m-%d") in C["md"] or d.isoformat() in C["date"]:
+            ev.append({"data": d.isoformat(), "ora": None, "tipo": "chiusura", "regola": "chiusure", "titolo": f"{a['nome']}: closed", "visita": None})
+        for o in a["orari_speciali"]:
+            if o.get("md") == d.strftime("%m-%d") or o.get("data") == d.isoformat():
+                ev.append({"data": d.isoformat(), "ora": None, "tipo": "orario", "regola": "orari", "titolo": f"{a['nome']}: {o['testo'][:1].lower() + o['testo'][1:]}",
+                           "visita": None, "testo": o["testo"]})
+    ordine = {"chiusura": 0, "orario": 1, "gratis": 2, "uscita": 3}
+    return sorted(ev, key=lambda e: (e["data"], ordine[e["tipo"]], e["ora"] or "", e["regola"]))
+
+
+def prossimo_big(a, tipo, regola=None):
+    return next((e for e in eventi_big(a) if e["tipo"] == tipo and (regola is None or e["regola"] == regola)), None)
+
+
+def giorno_lungo(iso):
+    return f"{GIORNI_SETT[date.fromisoformat(iso).weekday()]} {data_lunga(iso)}"
+
+
+def giorno_breve(iso):
+    d = date.fromisoformat(iso)
+    return f"{GIORNI_SETT[d.weekday()][:3]} {d.day} {MESI[d.month - 1][:3]} {d.year}"
+
+
+def cambio_ora_big(a):
+    """Primo giorno della finestra in cui il fuso dell'attrazione passa all'ora legale (iso) o None."""
+    z = ZoneInfo(a["fuso"])
+    oggi, fine = OGGI, date.fromisoformat(fine_big())
+    prima = datetime(oggi.year, oggi.month, oggi.day, 12, tzinfo=z).utcoffset()
+    d = oggi
+    while d <= fine:
+        if datetime(d.year, d.month, d.day, 12, tzinfo=z).utcoffset() > prima:
+            return d.isoformat()
+        d += timedelta(days=1)
+    return None
+
+
+def nota_ora_big(a, r):
+    """Avviso per le regole scritte in CET (Anne Frank House) quando nella finestra arriva l'ora legale."""
+    if "CET" not in cit_big(a, r["cit"][0])["x"]:
+        return ""
+    c = cambio_ora_big(a)
+    if not c:
+        return ""
+    h, mi = r["ora"].split(":")
+    return (f"The official page writes {cit_ora_big(a, r)}. From {data_lunga(c)} {a['citta']} is on summer time (CEST): the page does not say whether "
+            f"the release then moves to {int(h) + 1:02d}:{mi} Amsterdam time, so our calendar keeps {r['ora']} Amsterdam time, the earlier of the two.")
+
+
+def cit_ora_big(a, r):
+    m = re.search(r"\b\d{1,2}(?:[.:]\d{2})?\s?(?:am|a\.m\.|noon|pm|p\.m\.)?\s?CET\b|\b12 noon\b", cit_big(a, r["cit"][0])["x"])
+    return m.group(0) if m else r["ora"]
+
+
+def quando_big(e, a):
+    return f"{giorno_lungo(e['data'])} at {e['ora']}" if e.get("ora") else giorno_lungo(e["data"])
+
+
+FINE_PROX_BIG = "after the last date we calculated: check the official page"
+
+
+def prox_big(cands, vuoto):
+    """Una data "prossima" (HTML). Nella pagina c'è il primo candidato (iso, testo) calcolato alla generazione; BIG_JS mostra nel browser il
+    primo candidato non ancora passato, così una pagina non rigenerata per settimane non dà per "prossima" una data passata."""
+    if not cands:
+        return escape(vuoto)
+    js = json.dumps([[d, t] for d, t in cands] + [["9999-12-31", FINE_PROX_BIG]], ensure_ascii=False)
+    return f'<span data-prox="{escape(js)}">{escape(cands[0][1])}</span>'
+
+
+def risposta_big(a, html=False):
+    """Prima frase: chi lo dice, quando lo abbiamo controllato, la risposta con la prossima data calcolata (html=True: date aggiornabili)."""
+    def sost(m):
+        k, _, r = m.group(1).partition(":")
+        if k in ("next", "visita"):
+            ee = [e for e in eventi_big(a) if e["tipo"] == "uscita" and e["regola"] == r]
+            cands, vuoto = [(e["data"], quando_big(e, a) if k == "next" else giorno_lungo(e["visita"])) for e in ee], "not in the next six months"
+        else:
+            ee = [e for e in eventi_big(a) if e["tipo"] == ("gratis" if k == "next_free" else "chiusura")]
+            cands, vuoto = [(e["data"], giorno_lungo(e["data"])) for e in ee], "none in the next six months"
+        if html:
+            return prox_big(cands, vuoto)
+        return cands[0][1] if cands else vuoto
+    testa = f"According to {a['chi']}, checked on {data_lunga(data_big(a))}, "
+    segnaposto = r"\{([a-z_]+(?::[a-z-]+)?)\}"
+    if not html:
+        return testa + re.sub(segnaposto, sost, a["risposta"])
+    parti = re.split(segnaposto, a["risposta"])  # pari: testo, dispari: nome del segnaposto
+    return escape(testa) + "".join(escape(x) if i % 2 == 0 else sost(re.match(r"(.*)", x)) for i, x in enumerate(parti))
+
+
+def avviso_date_big(prima_data):
+    """Nascosto; BIG_JS lo mostra quando la data calcolata più vicina è passata (pagina non rigenerata da allora)."""
+    return (f'<p class="avviso" data-vecchie="{prima_data}" hidden><strong>Some of the dates on this page have passed.</strong> We calculated them on '
+            f'{data_lunga(OGGI.isoformat())}: the table and the “next” dates at the top skip past dates in your browser, but the text further down '
+            f'may still name them. Check the official page before you book.</p>')
+
+
+def testo_cit_big(a, id_):
+    return cit_big(a, id_)["x"].strip("“”*")
+
+
+def frase_uscite_big(a, regola):
+    ee = [e for e in eventi_big(a) if e["tipo"] == "uscita" and e["regola"] == regola][:3]
+    if not ee:
+        return "There is no release under this rule in the next six months."
+    tz = a["ora_locale"]
+    if ee[0].get("visita") and next(r for r in a["uscite"] if r["id"] == regola)["tipo"] == "prima_domenica":
+        return f"The next one is {giorno_lungo(ee[0]['data'])} at {ee[0]['ora']} {tz}, for {giorno_lungo(ee[0]['visita'])}."
+    elenco = ", ".join(giorno_lungo(e["data"]) for e in ee[:-1]) + " and " + giorno_lungo(ee[-1]["data"]) if len(ee) > 1 else giorno_lungo(ee[0]["data"])
+    frase = f"The next releases are on {elenco}, at {ee[0]['ora']} {tz}."
+    if ee[0].get("visita"):
+        frase += f" Six weeks after the first one is {giorno_lungo(ee[0]['visita'])}."
+    return frase
+
+
+def frase_gratis_big(a):
+    ee = [e for e in eventi_big(a) if e["tipo"] == "gratis"][:3]
+    if not ee:
+        return "There is no free day in the next six months."
+    elenco = ", ".join(giorno_lungo(e["data"]) for e in ee[:-1]) + " and " + giorno_lungo(ee[-1]["data"]) if len(ee) > 1 else giorno_lungo(ee[0]["data"])
+    frase = f"The next free days are {elenco}."
+    for d, motivo in gratis_saltate(a):
+        frase += f" There is no free entry on {giorno_lungo(d)} ({motivo})."
+    return frase
+
+
+def risposta_giorno_big(a, md):
+    """Risposta a "Is X open on <giorno>?" dalla lista ufficiale: chiuso, orario speciale o non nella lista. Prossima occorrenza del giorno."""
+    y = OGGI.year if md >= OGGI.strftime("%m-%d") else OGGI.year + 1
+    iso = f"{y}-{md}"
+    gg = giorno_lungo(iso)
+    if md in a["chiusure"]["md"]:
+        return f"No. {gg} is on the official list of closing days:"
+    o = next((o for o in a["orari_speciali"] if o.get("md") == md), None)
+    if o:
+        t = o["testo"]
+        t = t[:1].lower() + t[1:]
+        return f"Yes, with special hours on {gg} ({t}). The official page says:"
+    if date.fromisoformat(iso).weekday() in a["chiusure"]["settimana"]:
+        return f"No. {gg} falls on a weekly closing day. The official page says:"
+    return f"Yes, as far as the official list shows: {gg} is not one of the closing days it lists. The official list says:"
+
+
+def faq_big(a):
+    out = []
+    for f in a["faq"]:
+        parti = [risposta_giorno_big(a, f["md"])] if f["tipo"] == "giorno" else []
+        parti += [f["pre"]] if f["pre"] else []
+        parti += [f"“{testo_cit_big(a, i)}”" for i in f["cit"]]
+        if f["tipo"] == "uscita":
+            parti.append(frase_uscite_big(a, f["regola"]))
+        elif f["tipo"] == "gratis":
+            parti.append(frase_gratis_big(a))
+        parti += [f["post"]] if f["post"] else []
+        out.append((f["q"], " ".join(parti)))
+    out.append(("Where does this answer come from?", f"From {a['chi']}, read on {data_lunga(data_big(a))} and quoted word "
+                                                     "for word on this page. The dates are calculated by us from the official rule, from today to six months "
+                                                     "ahead; museums can change their rules, so check the official page before you book."))
+    return out
+
+
+def html_faq_big(faq):
+    h = "".join(f"<h3>{escape(q)}</h3><p>{escape(r)}</p>" for q, r in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": r}} for q, r in faq]}
+    return f'<section class="faq"><h2>Questions</h2>{h}</section>', [ld]
+
+
+def link_fonte_big(fid):
+    F = BIG["fonti"][fid]
+    return f'<a href="{escape(F["pagina"])}" rel="noopener">{escape(F["titolo"])}</a>'
+
+
+def blocco_cit_big(a, ids):
+    """Citazioni ufficiali raggruppate per fonte, con link e data."""
+    out, gruppi = [], []
+    for i in ids:
+        c = cit_big(a, i)
+        if gruppi and gruppi[-1][0] == c["f"]:
+            gruppi[-1][1].append(c)
+        else:
+            gruppi.append((c["f"], [c]))
+    for fid, cc in gruppi:
+        F = BIG["fonti"][fid]
+        paragrafi = "".join(f"<p>{escape(c['x'])}</p>" for c in cc)
+        out.append(f'<blockquote class="cit">{paragrafi}</blockquote>'
+                   f'<p class="fonte">Source: {link_fonte_big(fid)} ({escape(F["ente"])}), checked on {data_lunga(F["letto_il"])}. Quoted word for word.</p>')
+    return "".join(out)
+
+
+# ---- iCal (stesso metodo di italystrikes/genera.py: _ics_testo, _ics_riga)
+def _ics_testo(t):
+    return t.replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", "\\n")
+
+
+def _ics_riga(r):
+    b = r.encode("utf-8")
+    out, cur = [], b""
+    for ch in r:
+        c = ch.encode("utf-8")
+        if len(cur) + len(c) > (75 if not out else 74):
+            out.append(cur)
+            cur = b""
+        cur += c
+    out.append(cur)
+    return "\r\n ".join(x.decode("utf-8") for x in out) if len(b) > 75 else r
+
+
+def _utc_big(a, iso, ora):
+    h, m = (int(x) for x in ora.split(":"))
+    d = date.fromisoformat(iso)
+    return datetime(d.year, d.month, d.day, h, m, tzinfo=ZoneInfo(a["fuso"])).astimezone(ZoneInfo("UTC"))
+
+
+def regola_di_big(a, e):
+    if e["tipo"] == "uscita":
+        return next(r for r in a["uscite"] if r["id"] == e["regola"])
+    if e["tipo"] == "gratis":
+        return a["gratis"]
+    if e["tipo"] == "chiusura":
+        return a["chiusure"]
+    return next(o for o in a["orari_speciali"] if o.get("md") == e["data"][5:] or o.get("data") == e["data"])
+
+
+def sommario_ics_big(a, e):
+    if e["tipo"] == "uscita" and e.get("visita"):
+        r = regola_di_big(a, e)
+        return e["titolo"] + (f" (for {giorno_breve(e['visita'])})" if r["tipo"] == "prima_domenica" else f" (visit six weeks later: {giorno_breve(e['visita'])})")
+    return e["titolo"]
+
+
+def ics_big(a):
+    stamp = f"{OGGI:%Y%m%d}T000000Z"
+    pag = f"{URL_SITO}/{url_big(a['slug'])}"
+    righe = ["BEGIN:VCALENDAR", "VERSION:2.0", f"PRODID:-//{NOME}//Ticket release dates//EN", "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
+             f"X-WR-CALNAME:{_ics_testo(a['nome'] + ': ticket releases and closures')}", f"X-WR-TIMEZONE:{a['fuso']}",
+             "REFRESH-INTERVAL;VALUE=DURATION:P1D", "X-PUBLISHED-TTL:P1D"]
+    for e in eventi_big(a):
+        r = regola_di_big(a, e)
+        cit = " ".join(testo_cit_big(a, i) for i in r.get("cit", []))
+        desc = (f"Official rule: “{cit}”\nSource: {', '.join(BIG['fonti'][f]['pagina'] for f in dict.fromkeys(cit_big(a, i)['f'] for i in r.get('cit', [])))}"
+                f" (checked on {data_lunga(data_big(a))})\nDate calculated by {NOME} from the official rule. Rules can change: check the official page before you book.\n"
+                f"Official tickets: {a['biglietteria']['url']}\n{pag}")
+        uid = f"{a['slug']}-{e['tipo']}-{e['regola']}-{e['data']}@{urlparse(URL_SITO).hostname}"
+        if e["ora"]:
+            ini = _utc_big(a, e["data"], e["ora"])
+            tempo = [f"DTSTART:{ini:%Y%m%dT%H%M%SZ}", f"DTEND:{ini + timedelta(minutes=30):%Y%m%dT%H%M%SZ}"]
+        else:
+            tempo = [f"DTSTART;VALUE=DATE:{e['data'].replace('-', '')}", f"DTEND;VALUE=DATE:{piu_giorni(e['data'], 1).replace('-', '')}"]
+        righe += ["BEGIN:VEVENT", f"UID:{uid}", f"DTSTAMP:{stamp}", *tempo, f"SUMMARY:{_ics_testo(sommario_ics_big(a, e))}",
+                  f"DESCRIPTION:{_ics_testo(desc)}", f"URL:{pag}", "TRANSP:TRANSPARENT", "STATUS:CONFIRMED", "END:VEVENT"]
+    righe.append("END:VCALENDAR")
+    return "\r\n".join(_ics_riga(x) for x in righe) + "\r\n"
+
+
+def scrivi_ics_big():
+    cart = SITO / BIG_BASE / "calendars"
+    cart.mkdir(parents=True, exist_ok=True)
+    for a in BIG_ATT:
+        with open(SITO / url_ics_big(a["slug"]), "w", encoding="utf-8", newline="") as fh:
+            fh.write(ics_big(a))
+
+
+def link_cal_big(a, rel):
+    from urllib.parse import quote
+    https = f"{URL_SITO}/{url_ics_big(a['slug'])}"
+    webcal = "webcal://" + https.split("://", 1)[1]
+    google = "https://calendar.google.com/calendar/render?cid=" + quote(webcal, safe="")
+    return (f'<p class="cal-link">{ico("cal-in")}<span><a href="{escape(google)}" rel="noopener">Add to Google Calendar</a> · '
+            f'<a href="{escape(webcal)}">Apple / Outlook</a> · <a href="{rel}{url_ics_big(a["slug"])}" download>Download the .ics file</a></span></p>')
+
+
+# ---- pagine
+AVVISO_BIG = ('<p class="avviso"><strong>Museums can change their rules, add closures or release extra tickets at short notice.</strong> We quote their '
+              'official pages word for word, with the date we checked them, and calculate the dates from the official rule. Before you book, check the '
+              'official page. This site is not affiliated with any museum or ticket seller.</p>')
+BIG_JS = r"""(function(){var d=new Date(),o=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+document.querySelectorAll('tr[data-data]').forEach(function(r){if(r.getAttribute('data-data')<o)r.hidden=true;});
+document.querySelectorAll('[data-prox]').forEach(function(s){try{var c=JSON.parse(s.getAttribute('data-prox'));for(var i=0;i<c.length;i++){if(c[i][0]>=o){s.textContent=c[i][1];break;}}}catch(e){}});
+document.querySelectorAll('[data-vecchie]').forEach(function(p){if(p.getAttribute('data-vecchie')<o)p.hidden=false;});})();"""
+
+
+def box_ufficiale_big(a):
+    B = a["biglietteria"]
+    return (f'<section class="card ufficiale" aria-label="Official tickets"><h2 style="margin-top:0" id="official-tickets">Official tickets</h2>'
+            f'<p>Official tickets for the {escape(a["nome_lungo"])} are sold at <a href="{escape(B["url"])}" rel="noopener">{escape(B["nome"])}</a>; '
+            f'resellers may charge more.</p>{blocco_cit_big(a, list(dict.fromkeys(B["cit"] + [c["id"] for c in a["citazioni"] if c["tema"] == "biglietti"])))}</section>')
+
+
+def box_tour_big(a=None):
+    """Riquadro "Guided tours with skip-the-line" (Viator): '' finché VIATOR_TOUR è vuoto. Sempre dopo la biglietteria ufficiale."""
+    if not VIATOR_TOUR:
+        return ""
+    dove = f" at the {a['nome_lungo']}" if a else ""
+    return (f'<h2 id="guided-tours">Guided tours with skip-the-line</h2><section class="card noleggio" aria-label="Guided tours, affiliate link" data-tour>'
+            f'<p>Official tickets sold out? A guided tour that includes the entry ticket{escape(dove)} can still be available, usually at a higher price than '
+            f'the official ticket.</p><p class="noleggio-btn"><a class="btn" href="{escape(VIATOR_TOUR)}" rel="sponsored noopener" target="_blank">'
+            f'{ico("calendar")}See guided tours on Viator</a></p>{MON.nota_trasparenza("en")}</section>')
+
+
+def righe_eventi_big(a, ee):
+    out = []
+    for e in ee:
+        if e["tipo"] == "uscita":
+            r = regola_di_big(a, e)
+            cosa = f"{escape(r['breve'])}" + (f" – for {escape(giorno_lungo(e['visita']))}" if r["tipo"] == "prima_domenica" else
+                                              f" ({escape(giorno_lungo(e['visita']))})" if e.get("visita") else "")
+        elif e["tipo"] == "orario":
+            cosa = escape(e["testo"])
+        elif e["tipo"] == "gratis":
+            cosa = escape(a["gratis"]["breve"])
+        else:
+            cosa = "on the official list of closing days"
+        ora = f"{e['ora']} {escape(a['ora_locale'])}" if e["ora"] else ("All day" if e["tipo"] == "chiusura" else "Opening hours")
+        out.append(f'<tr data-data="{e["data"]}" data-tipo="{e["tipo"]}"><td data-l="Date">{escape(giorno_lungo(e["data"]))}</td>'
+                   f'<td data-l="What"><strong>{TIPI_BIG[e["tipo"]]}</strong> – {cosa}</td><td data-l="Time">{ora}</td></tr>')
+    return "".join(out)
+
+
+def tabella_eventi_big(a):
+    ee = eventi_big(a)
+    testa = '<thead><tr><th>Date</th><th>What</th><th>Time</th></tr></thead>'
+    cap = (f'<caption class="cap">{escape(a["nome"])}: dates calculated from the official rules, from {data_lunga(OGGI.isoformat())} to '
+           f'{data_lunga(fine_big())}</caption>')
+    if len(ee) <= 14:
+        return f'<div class="tab tab-b tab-big"><table>{cap}{testa}<tbody>{righe_eventi_big(a, ee)}</tbody></table></div>'
+    return (f'<div class="tab tab-b tab-big"><table>{cap}{testa}<tbody>{righe_eventi_big(a, ee[:12])}</tbody></table></div>'
+            f'<details class="tutte"><summary>Show all {len(ee)} dates</summary><div class="tab tab-b tab-big"><table>'
+            f'<caption class="cap">{escape(a["nome"])}: the other dates</caption>{testa}<tbody>{righe_eventi_big(a, ee[12:])}</tbody></table></div></details>')
+
+
+def sezione_regole_big(a):
+    """Come escono i biglietti: regole calcolate (con la citazione) e regole solo citate (con il motivo)."""
+    out = []
+    for r in a["uscite"]:
+        nota = nota_ora_big(a, r)
+        out.append(f'<h3>{escape(r["breve"])}</h3>{blocco_cit_big(a, r["cit"])}'
+                   f'<p class="small">We calculate these dates from the official rule.{" " + escape(nota) if nota else ""}</p>')
+    for t in a["uscite_testo"]:
+        out.append(f'<h3>{escape(t["titolo"])}</h3>{blocco_cit_big(a, t["cit"])}<p class="small">{escape(t["nota"])}</p>')
+    return "".join(out)
+
+
+def sezione_giorni_big(a):
+    out = []
+    g = a.get("gratis")
+    if g:
+        out.append(f'<h3 id="free-days">Free days: {escape(g["breve"])}</h3>{blocco_cit_big(a, g["cit"])}'
+                   f'<p class="small">{escape(frase_gratis_big(a))}</p>')
+    else:
+        out.append('<h3 id="free-days">Free days</h3><p>The official pages we read list no free entry days for everyone.</p>')
+    C = a["chiusure"]
+    ch = [e for e in eventi_big(a) if e["tipo"] == "chiusura"]
+    breve = C["breve"] or ("No closing day on the official list for the next six months" if not ch else "")
+    nota_escl = " ".join(C.get("escluse_md", {}).values())
+    sett = (" " + ", ".join(f"every {GIORNI_SETT[i]}" for i in C["settimana"]) + " (weekly closing day, not listed in the table)") if C["settimana"] else ""
+    out.append(f'<h3 id="closures">Closing days: {escape(breve)}</h3>{blocco_cit_big(a, C["cit"])}'
+               f'<p class="small">Next six months: {escape(", ".join(giorno_lungo(e["data"]) for e in ch) or "none")}.{escape(sett) if sett else ""}'
+               f'{" " + escape(nota_escl) if nota_escl else ""}</p>')
+    if a["orari_speciali"]:
+        ids = list(dict.fromkeys(i for o in a["orari_speciali"] for i in o["cit"]))
+        out.append(f'<h3>Special opening hours</h3>{blocco_cit_big(a, ids)}')
+    out.append(f'<h3>Opening hours: {escape(a["orari"]["breve"])}</h3>{blocco_cit_big(a, a["orari"]["cit"])}')
+    return "".join(out)
+
+
+def titolo_big(a):
+    return a["titolo"]
+
+
+def descrizione_big(a):
+    d = data_lunga(data_big(a))
+    e = prossimo_big(a, "uscita")
+    if e:
+        cands = [f"{a['nome']}: next ticket release {giorno_breve(e['data'])} at {e['ora']}, closures and free days, from the official website ({d}).",
+                 f"{a['nome']}: next ticket release {giorno_breve(e['data'])}, closures and free days, from the official website."]
+    else:
+        cands = [f"{a['nome']}: when tickets go on sale, closing days and free days, from the official website, checked on {d}.",
+                 f"{a['nome']}: when tickets go on sale, closing days and free days, from the official website."]
+    return scegli(cands, LIMITE_DESCRIZIONE)
+
+
+def pagina_big(a):
+    rel = "../../"
+    faq_h, faq_ld = html_faq_big(faq_big(a))
+    altri = "".join(f'<a href="{rel}{url_big(b["slug"])}">{escape(b["nome"])}<small>{escape(b["citta"])}</small></a>' for b in BIG_ATT if b["slug"] != a["slug"])
+    e = prossimo_big(a, "uscita")
+    tutte = eventi_big(a)
+    cand_usc = [(x["data"], quando_big(x, a)) for x in tutte if x["tipo"] == "uscita"]
+    esito = (f'{ico("calendar")}<strong>Next ticket release: {prox_big(cand_usc, "")} ({escape(a["ora_locale"])})</strong>' if e else
+             f'{ico("alert")}<strong>No exact release day to calculate: see the official rule below</strong>')
+    corpo = f"""<section class="hero">{h1_diviso(a["h1"])}</section>
+<section class="card summary" aria-label="Answer">
+<div class="s-top"><span class="sq">{ico("calendar")}</span><span>Tickets · {escape(a["nome"])}, {escape(a["citta"])}</span><span>{STAGIONE_BIG}</span></div>
+<div class="s-body">
+<div class="esito e-srv {"si" if e else "manuale"}">{esito}</div>
+<p class="lead" id="answer">{risposta_big(a, html=True)}</p>
+<p class="small">Official tickets: <a href="{escape(a["biglietteria"]["url"])}" rel="noopener">{escape(a["biglietteria"]["nome"])}</a>. Dates calculated on {data_lunga(OGGI.isoformat())}.</p>
+</div></section>
+{avviso_date_big(tutte[0]["data"]) if tutte else ""}
+{AVVISO_BIG}
+<h2 id="dates">Next six months: ticket releases, free days and closures</h2>
+{tabella_eventi_big(a)}
+{link_cal_big(a, rel)}
+<p class="small">The calendar file has the same dates as the table, with the official rule and the link in each event. It is rebuilt when we update this site; past dates are hidden from the table in your browser.</p>
+{AD}
+<h2 id="how">How tickets go on sale: the official rule</h2>
+{sezione_regole_big(a)}
+<h2 id="closed">Free days, closing days and opening hours</h2>
+{sezione_giorni_big(a)}
+{box_ufficiale_big(a)}
+{box_tour_big(a)}
+{faq_h}
+<h2>Other attractions</h2>
+<div class="griglia">{altri}</div>
+<p class="small">Spotted a change? <a href="{rel}contact/?ref=ticket-release-dates">Tell us</a>. <a href="{rel}{BIG_BASE}/">Ticket release dates: all attractions</a>.</p>"""
+    pagina(url_big(a["slug"]), scegli([titolo_big(a)], LIMITE_TITOLO_BIG), descrizione_big(a), corpo,
+           briciole=[("Ticket release dates", url_big()), (a["nome"], url_big(a["slug"]))], js=BIG_JS, ld_extra=faq_ld)
+
+
+def regola_breve_big(a):
+    if a["uscite"]:
+        return "; ".join(r["breve"] for r in a["uscite"])
+    return a["uscite_testo"][0]["titolo"] if a["uscite_testo"] else "Not published"
+
+
+def prima_frase_big(html=False):
+    calc = [a for a in BIG_ATT if a["uscite"]]
+    prossimi = sorted(((e, a) for a in calc for e in eventi_big(a) if e["tipo"] == "uscita"), key=lambda x: (x[0]["data"], x[0]["ora"]))
+    cands = list(dict.fromkeys((e["data"], f"{'' if "'s " in a['nome'] else 'the '}{a['nome']} on {quando_big(e, a)} ({a['ora_locale']})") for e, a in prossimi))
+    regole = "; ".join(f"{b['nome']}: {b['uscite'][0].get('indice') or b['uscite'][0]['breve']}" for b in calc)
+    testa = (f"Of the {len(BIG_ATT)} major attractions on this page, {len(calc)} publish a fixed weekly rule for releasing tickets ({regole}), and the "
+             f"next release is at ")
+    coda = (f"; for each attraction we quote the official website, last checked on {data_lunga(BIG['controllato_il'])}, and calculate the dates "
+            f"from its rule.")
+    if html:
+        return escape(testa) + prox_big(cands, "") + escape(coda)
+    return testa + cands[0][1] + coda
+
+
+def chiusura_sett_big(a):
+    """Giorni di chiusura settimanali (non nella colonna "Next closing day" dell'indice, che ha solo le date)."""
+    g = a.get("gratis") or {}
+    out = []
+    for i in a["chiusure"]["settimana"]:
+        out.append(f"every {GIORNI_SETT[i]}" + (" except the last one of the month" if i == 6 and g.get("tipo") == "ultima_domenica" else ""))
+    return ("also closed " + " and ".join(out)) if out else ""
+
+
+def titolo_indice_big():
+    return f"When Do Tickets Go on Sale? Major Attractions {STAGIONE_BIG} Release Dates"
+
+
+def faq_indice_big():
+    return [faq_big(a)[0] for a in BIG_ATT]
+
+
+def pagina_indice_big():
+    rel = "../"
+    righe = []
+    for a in BIG_ATT:
+        ee = eventi_big(a)
+        e = prossimo_big(a, "uscita")
+        g = prossimo_big(a, "gratis")
+        c = prossimo_big(a, "chiusura")
+        B = a["biglietteria"]
+        righe.append(f'<tr data-voce id="{a["slug"]}"><td data-l="Attraction"><a href="{rel}{url_big(a["slug"])}">{escape(a["nome"])}</a> '
+                     f'<small>{escape(a["citta"])}</small></td>'
+                     f'<td data-l="How tickets go on sale">{escape(regola_breve_big(a))}</td>'
+                     f'<td data-l="Next release">{prox_big([(x["data"], quando_big(x, a)) for x in ee if x["tipo"] == "uscita"], "") if e else "No exact date published"}</td>'
+                     f'<td data-l="Next free day">{prox_big([(x["data"], giorno_lungo(x["data"])) for x in ee if x["tipo"] == "gratis"], "") if g else "None"}</td>'
+                     f'<td data-l="Next closing day">{prox_big([(x["data"], giorno_lungo(x["data"])) for x in ee if x["tipo"] == "chiusura"], "") if c else "None on the official list"}'
+                     f'{f" <small>({escape(chiusura_sett_big(a))})</small>" if chiusura_sett_big(a) else ""}</td>'
+                     f'<td data-l="Official tickets"><a href="{escape(B["url"])}" rel="noopener">{escape(B["nome"])}</a></td>'
+                     f'<td data-l="Checked">{data_lunga(data_big(a))}</td></tr>')
+    griglia = "".join(f'<a href="{rel}{url_big(a["slug"])}">{escape(a["nome"])}<small>{escape(a["citta"])}</small></a>' for a in BIG_ATT)
+    cal = "".join(f'<li><strong>{escape(a["nome"])}</strong>{link_cal_big(a, rel)}</li>' for a in BIG_ATT)
+    escl = "".join(f'<li>{escape(x["nome"])}: {escape(x["motivo"])}</li>' for x in BIG["escluse"])
+    faq_h, faq_ld = html_faq_big(faq_indice_big())
+    d = data_lunga(BIG["controllato_il"])
+    corpo = f"""<section class="hero">{h1_diviso(f"When do tickets go on sale? Major attractions: release dates, closures and free days ({STAGIONE_BIG})")}
+<p class="lead" id="answer">{prima_frase_big(html=True)}</p></section>
+<div class="griglia">{griglia}</div>
+{avviso_date_big(min(x["data"] for b in BIG_ATT for x in eventi_big(b)))}
+{AVVISO_BIG}
+{AD}
+<h2>Every attraction</h2>
+<p>“How tickets go on sale” is our short summary of the official rule; each attraction page quotes it word for word, with the link and the date. We calculate a date only when the official rule is exact (a day of the week and a time, or “the first Sunday of the month”); when the official page says “roughly”, gives no day, or two official texts disagree, we show the text and no date. Dates calculated on {data_lunga(OGGI.isoformat())}.</p>
+<div class="tab tab-b tab-srv"><table><caption class="cap">Ticket releases, free days and closures at {len(BIG_ATT)} major attractions, from the official websites, checked on {d}</caption><thead><tr><th>Attraction</th><th>How tickets go on sale</th><th>Next release</th><th>Next free day</th><th>Next closing day</th><th>Official tickets</th><th>Checked</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>
+<p class="small">Official tickets are sold at the websites in the table; resellers may charge more.</p>
+<h2 id="calendars">Add the dates to your calendar</h2>
+<p>One calendar per attraction, with the ticket releases, free days and closures of the next six months, the official rule and the link in each event.</p>
+<ul class="cal-lista">{cal}</ul>
+{box_tour_big()}
+{faq_h}
+<h2>Attractions we left out</h2>
+<p>We include an attraction only if its official website answered normally on the day we checked it. For now we left out:</p>
+<ul>{escl}</ul>
+<h2>How we check</h2>
+<p>We read the official websites of the museums and sites (and nothing else: no blogs, guides or ticket resellers), quote the rules word for word and calculate the dates of the next six months from them. The pages and the calendar files show the date of our last check. More on the <a href="{rel}about/#ticket-release-dates">About page</a>. Spotted a change? <a href="{rel}contact/?ref=ticket-release-dates">Tell us</a>.</p>"""
+    desc = scegli([f"When tickets go on sale at {len(BIG_ATT)} major attractions (Last Supper, Vatican, Anne Frank House, Pompeii, Alhambra, Sagrada Família), from official sites.",
+                   f"When tickets go on sale, closing days and free days at {len(BIG_ATT)} major attractions, from the official websites."], LIMITE_DESCRIZIONE)
+    pagina(url_big(), scegli([titolo_indice_big(), f"Ticket Release Dates {STAGIONE_BIG}: Major Attractions"], LIMITE_TITOLO_BIG), desc, corpo,
+           briciole=[("Ticket release dates", url_big())], js=BIG_JS, ld_extra=faq_ld)
+
+
+def home_big():
+    if not BIG:
+        return ""
+    voci = "".join(f'<a href="{url_big(a["slug"])}">{escape(a["nome"])}<small>{escape(a["citta"])}</small></a>' for a in BIG_ATT)
+    return (f'<h2>When do tickets go on sale?</h2><p>Ticket release dates, closing days and free days at {len(BIG_ATT)} major attractions, calculated '
+            f'from the official rules, with a calendar file for each: <a href="{BIG_BASE}/">all attractions in one table</a>.</p><div class="griglia">{voci}</div>')
+
+
+def about_big(rel):
+    if not BIG:
+        return ""
+    enti = list(dict.fromkeys(F["ente"] for F in BIG["fonti"].values()))
+    return f"""<h2 id="ticket-release-dates">Ticket release dates, closures and free days</h2>
+<p>Sources: the official websites of {len(BIG_ATT)} major attractions ({escape(", ".join(enti))}), {len(BIG["fonti"])} pages in all, read on {data_lunga(BIG["controllato_il"])}. Each attraction page links every page it quotes.</p>
+<p>Rules: every sentence shown between quotation marks is copied word for word from the official page. We calculate dates only from an exact official rule (a day of the week and a time, “the first Sunday of the month”, “the last Sunday of the month” with the exceptions the page lists, or a fixed date); the dates cover the next six months from the day we build the page, and the calendar files have the same dates. When the official page says “roughly”, gives no day, or two official texts disagree, we show the text and calculate nothing. We link only the ticket websites that the official pages name; other websites may resell tickets at a higher price. An attraction is included only if its official website answered normally on the day we checked it. This is information, not advice: museums decide.</p>"""
+
+
 # ---------------------------------------------------------------- home e pagine di servizio
 def home():
     auto = sum(1 for P in PAESI if P["regola"])
@@ -4569,6 +5218,7 @@ def home():
 {home_pat()}
 {home_ped()}
 {home_gom()}
+{home_big()}
 {box_affiliati()}
 {dati_json('tutti-dati', [dati_client(P) for P in PAESI])}"""
     pagina("", f"Before You Fly {ANNO}: Passport, Visas, Liquids, Cabin Bags, EES",
@@ -4637,6 +5287,7 @@ def about():
 {about_pat(rel)}
 {about_ped(rel)}
 {about_gom(rel)}
+{about_big(rel)}
 <h2>EES and ETIAS</h2>
 <p>European Commission (DG Migration and Home Affairs) pages and GOV.UK travel advice, last checked on {data_lunga(EES['controllato_il'])}. See the <a href="{rel}ees-etias/">EES and ETIAS page</a>.</p>
 <h2>Corrections</h2>
@@ -4705,7 +5356,7 @@ def extra():
 """)
     pagina("404.html", f"Page not found | {NOME}", "Page not found.",
            '<section class="hero"><h1>Page not found</h1><p class="lead">Go to the <a href="/">home page</a>, the <a href="/passport-validity/">passport validity rules</a> '
-           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> <a href="/driving-abroad/">driving abroad with your licence</a>, <a href="/tolls-rental-car/">tolls with a rental car</a> or <a href="/winter-tyres-rental-car/">winter tyres with a rental car</a>.</p></section>', indicizza=False, assoluto=True)
+           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> <a href="/driving-abroad/">driving abroad with your licence</a>, <a href="/tolls-rental-car/">tolls with a rental car</a>, <a href="/winter-tyres-rental-car/">winter tyres with a rental car</a> or <a href="/ticket-release-dates/">when tickets go on sale at major attractions</a>.</p></section>', indicizza=False, assoluto=True)
 
 
 def copia_grafica():
@@ -4828,6 +5479,29 @@ def controlli():
                 errori.append(f"gomme {p['iso2']}: titolo oltre {LIMITE_TITOLO_GOM} caratteri o senza la stagione {STAGIONE_GOM}")
         if NOLEGGIO_AUTO:
             errori += [f"gomme: {e}" for e in MON.controlla_link_pagina(box_noleggio_gom(), "box_noleggio_gom", "en")[0]]
+    if BIG:  # biglietti delle attrazioni: fonti lette con HTTP 200, citazioni e regole coerenti (verifica.py, punto 22, ricontrolla tutto)
+        for a in BIG_ATT:
+            ids = [c["id"] for c in a["citazioni"]]
+            if len(set(ids)) != len(ids):
+                errori.append(f"biglietti {a['slug']}: id di citazione duplicati")
+            for f in fonti_big(a):
+                if f not in BIG["fonti"] or BIG["fonti"][f]["http"] != 200:
+                    errori.append(f"biglietti {a['slug']}: fonte {f} non letta con HTTP 200")
+            for r in a["uscite"] + a["uscite_testo"] + [a["chiusure"], a["orari"], a["biglietteria"]] + ([a["gratis"]] if a.get("gratis") else []) + a["orari_speciali"]:
+                if not r.get("cit") or any(i not in ids for i in r["cit"]):
+                    errori.append(f"biglietti {a['slug']}: regola senza citazione o con citazione sconosciuta")
+            for r in a["uscite"]:
+                if r["tipo"] not in ("settimanale", "prima_domenica") or not re.fullmatch(r"\d{2}:\d{2}", r["ora"]):
+                    errori.append(f"biglietti {a['slug']}: regola di uscita {r['id']} non valida")
+            for q in a["faq"]:
+                if q["tipo"] not in ("testo", "uscita", "gratis", "giorno") or any(i not in ids for i in q["cit"]):
+                    errori.append(f"biglietti {a['slug']}: FAQ «{q['q']}» non valida")
+            if len(a["titolo"]) > LIMITE_TITOLO_BIG or STAGIONE_BIG not in a["titolo"]:
+                errori.append(f"biglietti {a['slug']}: titolo oltre {LIMITE_TITOLO_BIG} caratteri o senza gli anni {STAGIONE_BIG}")
+        if VIATOR_TOUR:
+            if not MON.dominio_ammesso(VIATOR_TOUR) or not MON.dominio_in(urlparse(VIATOR_TOUR).hostname, ["viator.com"]):
+                errori.append(f"biglietti: VIATOR_TOUR non punta a viator.com: {VIATOR_TOUR}")
+            errori += [f"biglietti: {e}" for e in MON.controlla_link_pagina(box_tour_big(), "box_tour_big", "en")[0]]
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -4893,6 +5567,11 @@ def main():
         for p in GOM_PAESI:
             if ha_pagina_gom(p["iso2"]):
                 pagina_gom(p)
+    if BIG:
+        pagina_indice_big()
+        for a in BIG_ATT:
+            pagina_big(a)
+        scrivi_ics_big()
     about()
     contatti()
     privacy()
@@ -4907,7 +5586,8 @@ def main():
           + (f"; driving abroad: indice + {len(PATENTI)} patenti + {sum(len(PAGINE_PAT[k]) for k in PATENTI)} pagine Paese × patente "
              f"({', '.join(f'{k} {len(PAGINE_PAT[k])}' for k in PATENTI)})" if PAT else "")
           + (f"; tolls with a rental car: indice + {len(PED_PAESI)} pagine Paese ({len(PED['fonti'])} fonti)" if PED else "")
-          + (f"; winter tyres with a rental car: indice + {len(GOM_PAGINE & set(GOM_PER))} pagine Paese ({len(GOM['fonti'])} fonti)" if GOM else ""))
+          + (f"; winter tyres with a rental car: indice + {len(GOM_PAGINE & set(GOM_PER))} pagine Paese ({len(GOM['fonti'])} fonti)" if GOM else "")
+          + (f"; ticket release dates: indice + {len(BIG_ATT)} pagine attrazione + {len(BIG_ATT)} calendari .ics ({len(BIG['fonti'])} fonti)" if BIG else ""))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,146 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Before You Fly//Ticket release dates//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Pompeii: ticket releases and closures
+X-WR-TIMEZONE:Europe/Rome
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:pompeii-gratis-prima_domenica-2026-11-01@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Pompeii: free entry
+DESCRIPTION:Official rule: “Free ticket every first Sunday of the month 
+ – Entry measures for free admission days including Domenica al Museo (fi
+ rst Sunday of every month).”\nSource: https://pompeiisites.org/en/visiti
+ ng-info/timetables-and-tickets/ (checked on 30 October 2026)\nDate calcula
+ ted by Before You Fly from the official rule. Rules can change: check the 
+ official page before you book.\nOfficial tickets: https://pompeii.vivatick
+ et.it/\nhttps://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:pompeii-gratis-prima_domenica-2026-12-06@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Pompeii: free entry
+DESCRIPTION:Official rule: “Free ticket every first Sunday of the month 
+ – Entry measures for free admission days including Domenica al Museo (fi
+ rst Sunday of every month).”\nSource: https://pompeiisites.org/en/visiti
+ ng-info/timetables-and-tickets/ (checked on 30 October 2026)\nDate calcula
+ ted by Before You Fly from the official rule. Rules can change: check the 
+ official page before you book.\nOfficial tickets: https://pompeii.vivatick
+ et.it/\nhttps://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:pompeii-chiusura-chiusure-2026-12-25@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:Pompeii: closed
+DESCRIPTION:Official rule: “Closed on: 25th December\, 1st January (Unles
+ s otherwise communicated. Click here)”\nSource: https://pompeiisites.org
+ /en/visiting-info/timetables-and-tickets/ (checked on 30 October 2026)\nDa
+ te calculated by Before You Fly from the official rule. Rules can change: 
+ check the official page before you book.\nOfficial tickets: https://pompei
+ i.vivaticket.it/\nhttps://before-you-fly.netlify.app/ticket-release-dates/
+ pompeii/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:pompeii-chiusura-chiusure-2027-01-01@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:Pompeii: closed
+DESCRIPTION:Official rule: “Closed on: 25th December\, 1st January (Unles
+ s otherwise communicated. Click here)”\nSource: https://pompeiisites.org
+ /en/visiting-info/timetables-and-tickets/ (checked on 30 October 2026)\nDa
+ te calculated by Before You Fly from the official rule. Rules can change: 
+ check the official page before you book.\nOfficial tickets: https://pompei
+ i.vivaticket.it/\nhttps://before-you-fly.netlify.app/ticket-release-dates/
+ pompeii/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:pompeii-gratis-prima_domenica-2027-01-03@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270104
+SUMMARY:Pompeii: free entry
+DESCRIPTION:Official rule: “Free ticket every first Sunday of the month 
+ – Entry measures for free admission days including Domenica al Museo (fi
+ rst Sunday of every month).”\nSource: https://pompeiisites.org/en/visiti
+ ng-info/timetables-and-tickets/ (checked on 30 October 2026)\nDate calcula
+ ted by Before You Fly from the official rule. Rules can change: check the 
+ official page before you book.\nOfficial tickets: https://pompeii.vivatick
+ et.it/\nhttps://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:pompeii-gratis-prima_domenica-2027-02-07@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART;VALUE=DATE:20270207
+DTEND;VALUE=DATE:20270208
+SUMMARY:Pompeii: free entry
+DESCRIPTION:Official rule: “Free ticket every first Sunday of the month 
+ – Entry measures for free admission days including Domenica al Museo (fi
+ rst Sunday of every month).”\nSource: https://pompeiisites.org/en/visiti
+ ng-info/timetables-and-tickets/ (checked on 30 October 2026)\nDate calcula
+ ted by Before You Fly from the official rule. Rules can change: check the 
+ official page before you book.\nOfficial tickets: https://pompeii.vivatick
+ et.it/\nhttps://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:pompeii-gratis-prima_domenica-2027-03-07@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:Pompeii: free entry
+DESCRIPTION:Official rule: “Free ticket every first Sunday of the month 
+ – Entry measures for free admission days including Domenica al Museo (fi
+ rst Sunday of every month).”\nSource: https://pompeiisites.org/en/visiti
+ ng-info/timetables-and-tickets/ (checked on 30 October 2026)\nDate calcula
+ ted by Before You Fly from the official rule. Rules can change: check the 
+ official page before you book.\nOfficial tickets: https://pompeii.vivatick
+ et.it/\nhttps://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:pompeii-gratis-prima_domenica-2027-04-04@before-you-fly.netlify.app
+DTSTAMP:20261030T000000Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:Pompeii: free entry
+DESCRIPTION:Official rule: “Free ticket every first Sunday of the month 
+ – Entry measures for free admission days including Domenica al Museo (fi
+ rst Sunday of every month).”\nSource: https://pompeiisites.org/en/visiti
+ ng-info/timetables-and-tickets/ (checked on 30 October 2026)\nDate calcula
+ ted by Before You Fly from the official rule. Rules can change: check the 
+ official page before you book.\nOfficial tickets: https://pompeii.vivatick
+ et.it/\nhttps://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
