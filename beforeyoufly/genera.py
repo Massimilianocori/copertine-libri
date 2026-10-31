@@ -71,7 +71,7 @@ ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti 
 def ci_sono_affiliati():
     """True se il sito pubblica almeno un link di affiliazione (voce con "url" in dati/affiliati.json e il riquadro noleggio NOLEGGIO_AUTO):
     accende la sezione privacy sui link di affiliazione. Domini ammessi in monetizzazione.json, controlli in verifica.py."""
-    return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_")) or bool(NOLEGGIO_AUTO) or bool(STAY22_BIG)
+    return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_")) or bool(NOLEGGIO_AUTO) or bool(STAY22_BIG) or bool(SW_IN)
 
 
 def riquadro_trasparenza(corpo, lingua="en"):
@@ -609,7 +609,8 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
                      ("ees-etias/", "scan", "EES &amp; ETIAS"), (f"{SRV_BASE}/", "apps", "Apps by country"),
                      ("about/", "book", "Sources")]
     menu = "".join(f'<a href="{rel}{u}"' + (' aria-current="page"' if u == percorso else "") + f'>{ico(i)}{t}</a>' for u, i, t in voci_menu)
-    piede = PIEDE_IT.replace("{rel}", rel) if it else f"""<footer><div class="wrap">
+    lang_en = ' lang="en"' if lingua not in ("en", "it") else ""  # pagine in tedesco e francese (sezione India): menu e piè di pagina restano in inglese
+    piede = PIEDE_IT.replace("{rel}", rel) if it else f"""<footer{lang_en}><div class="wrap">
 <div class="f-grid"><div>
 <a class="logo" href="{rel}">{MARCHIO}<span>Before <b>You Fly</b></span></a>
 <p><strong>{NOME}</strong> is an independent site, not affiliated with any government, airport or airline. Every rule is quoted from an official source, linked under it with the date we checked it.
@@ -652,7 +653,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <body>
 {SPRITE}
 <a class="skip" href="#main">{"Vai al contenuto" if it else "Skip to content"}</a>
-<header class="top"><div class="wrap">
+<header class="top"{lang_en}><div class="wrap">
 <a class="logo" href="{rel}">{MARCHIO}<span>Before <b>You Fly</b></span></a>
 <nav class="menu" aria-label="Menu">{menu}</nav>
 <details class="nav-m"><summary aria-label="{"Apri il menu" if it else "Open the menu"}">{ico("menu")}Menu</summary><nav aria-label="Menu">{menu}</nav></details>
@@ -974,7 +975,7 @@ def pagina_paese(P):
 </div>
 </section>
 {altri_passaporti(rel, uk_slug=P["slug"])}
-{link_guida(rel, ISO_DA_FCDO.get(P["slug"]), "uk")}
+{link_guida(rel, ISO_DA_FCDO.get(P["slug"]), "uk")}{link_india(rel, ISO_DA_FCDO.get(P["slug"]), "uk")}
 {sezione_visto(P)}
 <h2>Passport validity: official text “{escape(titolo_sez)}”</h2>
 {testo_ufficiale(P)}
@@ -1424,7 +1425,7 @@ def pagina_estera(v):
 </div>
 </section>
 {altri_passaporti(rel, voce=v)}
-{link_guida(rel, v["p"].get("iso") if k == "ca" else ISO_DA_AU.get(_chiave_nome(v["p"]["nome"])), k)}
+{link_guida(rel, v["p"].get("iso") if k == "ca" else ISO_DA_AU.get(_chiave_nome(v["p"]["nome"])), k)}{link_india(rel, v["p"].get("iso") if k == "ca" else ISO_DA_AU.get(_chiave_nome(v["p"]["nome"])), k)}
 {sezione_visto_estero(v, rel)}
 {sezione_validita_estera(v)}
 {avviso_estero(k, rel)}
@@ -6823,6 +6824,922 @@ def about_pet(rel):
 <p>Rules: every sentence between quotation marks is copied word for word; the tables of approved routes are copied row by row; the summaries and the date calculator are ours. The European Commission's page says that the EU rules are now in Commission Delegated Regulation (EU) 2026/131; EUR-Lex does not answer our automated checks, so we quote the Commission's own summary of the rules rather than the regulation itself. We give no veterinary advice: every page says to check with your vet and the official page. A country gets a page only when people search for taking a pet there from the UK. This is information, not legal advice.</p>"""
 
 
+# ---------------------------------------------------------------- e-Visa per l'India: costo per nazionalità, visto all'arrivo, e-Arrival card (31/10/2026)
+# Idea n. 1 (voto 7) di studio-business/intelaiatura/wf-2026-10-31-india-nri.md. Costi SOLO dalle due tabelle ufficiali in PDF del governo indiano
+# (indianvisaonline.gov.in, Bureau of Immigration), estratte in automatico da raccolta/india_evisa.py in dati/india_evisa.json (verifica.py, punto 27,
+# le rilegge dal PDF salvato con un secondo metodo e confronta numero di Paesi e valori). Citazioni brevi (al massimo 40 parole) da
+# dati/india_evisa_manuali.json. Pagine per nazionalità solo con ricerche vere (dati/india_evisa_domanda.json); una pagina in tedesco e una in
+# francese (ricerche vere "indien visum kosten", "visa inde prix"). Avviso evidente in ogni pagina: pagare solo sul sito ufficiale. Nessun link
+# a rivenditori di visti. Affiliazione: solo SafetyWing (assicurazione medica di viaggio, già attivo nella rete, dominio in monetizzazione.json),
+# riquadro dopo le informazioni ufficiali, solo nelle pagine in inglese; AdSense sì (spazio {AD}). CSS della sezione in STILE_IN, solo nelle sue pagine.
+IN_BASE = "india-e-visa-fee"
+IN_VOA = "india-visa-on-arrival"
+IN_ARR = "india-e-arrival-card"
+IN_DE = f"{IN_BASE}/indien-e-visum-kosten"
+IN_FR = f"{IN_BASE}/prix-e-visa-inde"
+_f_in = DATI / "india_evisa.json"
+IN = json.loads(_f_in.read_text(encoding="utf-8")) if _f_in.exists() else None
+IN_PAESI = IN["paesi"] if IN else []
+IN_PER = {p["iso2"]: p for p in IN_PAESI}
+IN_PAGINE = IN["pagine"] if IN else []
+IN_PAG_PER = {g["iso2"]: g for g in IN_PAGINE}
+IN_CIT = {c["id"]: c for c in IN["citazioni"]} if IN else {}
+LIMITE_TITOLO_IN = 70
+IN_EVISA = "https://indianvisaonline.gov.in/evisa/"
+IN_EARRIVAL = "https://indianvisaonline.gov.in/earrival/"
+COL_TV = [("tv30_apr_giu", "e-Tourist 30 days (April–June)"), ("tv30_lug_mar", "e-Tourist 30 days (July–March)"), ("tv1", "e-Tourist 1 year"),
+          ("tv5", "e-Tourist 5 years")]
+COL_ALTRI = [("business", "e-Business"), ("medico", "e-Medical"), ("accompagnatore", "e-Medical Attendant")]
+COL_IN = COL_TV + COL_ALTRI
+SW_IN = ((AFFILIATI.get("_safetywing_india") or {}).get("url") or "").strip()
+MESI_DE = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
+MESI_FR = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
+NOMI_DE = {"DE": "Deutschland", "AT": "Österreich", "CH": "Schweiz", "LI": "Liechtenstein"}
+NOMI_FR = {"FR": "France", "BE": "Belgique", "CH": "Suisse", "LU": "Luxembourg", "MC": "Monaco", "MA": "Maroc",
+           "Algeria": "Algérie", "Democratic Republic of the Congo": "République démocratique du Congo"}
+# tipi di visto nelle pagine in tedesco e francese
+COL_DE = {"tv30_apr_giu": "e-Tourist 30 Tage (April–Juni)", "tv30_lug_mar": "e-Tourist 30 Tage (Juli–März)", "tv1": "e-Tourist 1 Jahr",
+          "tv5": "e-Tourist 5 Jahre", "business": "e-Business", "medico": "e-Medical", "accompagnatore": "e-Medical Attendant"}
+COL_FR = {"tv30_apr_giu": "e-Tourist 30 jours (avril–juin)", "tv30_lug_mar": "e-Tourist 30 jours (juillet–mars)", "tv1": "e-Tourist 1 an",
+          "tv5": "e-Tourist 5 ans", "business": "e-Business", "medico": "e-Medical", "accompagnatore": "e-Medical Attendant"}
+# traduzioni nostre delle citazioni mostrate nelle pagine in tedesco e francese
+TRAD_IN = {
+    "de": {"ev_ufficiale": "Nein, https://indianvisaonline.gov.in/evisa/ ist die einzige offizielle Website, um die e-Visa-Dienste zu beantragen.",
+           "pdf_3": "Eine Bankgebühr von 3 % wird zusätzlich auf die jeweilige e-Visa-Gebühr erhoben.",
+           "ev_4giorni": "Die Gebühr muss mindestens 4 Tage vor dem voraussichtlichen Reisedatum bezahlt werden, sonst wird der Antrag nicht bearbeitet.",
+           "ev_rimborso": "Die e-Visa-Gebühr wird nach der Zahlung nicht erstattet, da sie für die Bearbeitung des Antrags gilt und nicht von der Erteilung oder Ablehnung der elektronischen Reisegenehmigung (ETA) abhängt."},
+    "fr": {"ev_ufficiale": "Non, https://indianvisaonline.gov.in/evisa/ est le seul site officiel pour demander les services e-Visa.",
+           "pdf_3": "Des frais bancaires de 3 % s’ajoutent aux frais d’e-Visa applicables.",
+           "ev_4giorni": "Les frais doivent être payés au moins 4 jours avant la date de voyage prévue, sinon la demande ne sera pas traitée.",
+           "ev_rimborso": "Les frais d’e-Visa ne sont pas remboursables une fois payés, car ils couvrent le traitement de la demande et ne dépendent ni de l’octroi ni du refus de l’autorisation électronique de voyage (ETA)."},
+}
+STILE_IN = ("<style>.tab-in[data-vista] td[data-c],.tab-in[data-vista] th[data-c]{display:none}.tab-in[data-vista=tutti] td[data-c],"
+            ".tab-in[data-vista=tutti] th[data-c]{display:table-cell}"
+            + "".join(f".tab-in[data-vista={k}] td[data-c={k}],.tab-in[data-vista={k}] th[data-c={k}]{{display:table-cell}}" for k, _ in COL_IN)
+            + "@media (max-width:640px){.tab.tab-b.tab-in tr{display:grid}"
+            + "".join(f".tab-in[data-vista={k}] td[data-c={k}]{{display:block}}" for k, _ in COL_IN)
+            + ".tab-in[data-vista=tutti] td[data-c]{display:block}}"
+            ".filtri-in{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:10px;align-items:end;margin:6px 0 4px}"
+            ".filtri-in label{display:block;font-size:.85rem;color:var(--ink-2);min-width:0}.filtri-in .cerca{margin:4px 0 0}"
+            ".filtri-in select{font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1.5px solid var(--line-2);border-radius:var(--r-s);"
+            "padding:10px 12px;width:100%;min-width:0;min-height:46px;margin-top:4px}"
+            "@media (max-width:640px){.filtri-in{grid-template-columns:1fr}}"
+            "td.n{font-variant-numeric:tabular-nums}.elenco-in{columns:2 180px;column-gap:24px;padding-left:20px}"
+            "@media (max-width:640px){.tab.tab-in1 td,.tab.tab-in1 th,.tab.tab-in1 td:first-child,.tab.tab-in1 th:first-child{min-width:0;padding:8px 10px}"
+            ".tab.tab-b td[data-l]::before{letter-spacing:.03em}}"
+            "</style>")
+IN_JS = r"""(function(){var t=document.querySelector('[data-in-tab]');if(!t)return;var inp=document.querySelector('[data-in-cerca]'),sel=document.querySelector('[data-in-tipo]'),n=document.querySelector('[data-in-n]');
+function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');}
+function f(){var v=norm(inp.value.trim()),k=0;t.querySelectorAll('tr[data-voce]').forEach(function(r){var ok=!v||norm(r.cells[0].textContent+' '+(r.getAttribute('data-alias')||'')).indexOf(v)>=0;r.hidden=!ok;if(ok)k++;});t.setAttribute('data-vista',sel.value);if(n)n.textContent=String(k);}
+inp.addEventListener('input',f);sel.addEventListener('change',f);f();})();"""
+
+
+def url_in(g=None):
+    return f"{IN_BASE}/" if g is None else f"{IN_BASE}/{IN_PER[g['iso2']]['slug']}/"
+
+
+def usd(v):
+    return "–" if v is None else f"${v}"
+
+
+def con3(v):
+    """Costo con la commissione bancaria del 3 % (nostro calcolo, arrotondato al centesimo)."""
+    if v is None:
+        return "–"
+    c = round(v * 103) / 100
+    return f"${int(c)}" if c == int(c) else f"${c:.2f}"
+
+
+def val_in(p, k):
+    """Valore della tabella per il Paese p e la colonna k: None = nessun valore (Paese non nella tabella e-Tourist, o '-' nella tabella)."""
+    src = p["tv"] if k.startswith("tv") else p["altri"]
+    return None if src is None else src.get(k)
+
+
+def grezzo_in(p, k):
+    """Come la tabella scrive il valore: '00', '10', '-' o assente (Paese non nella tabella)."""
+    fid = "fee_tv" if k.startswith("tv") else "fee_altri"
+    r = next((r for r in IN["tabelle"][fid]["righe"] if r["iso2"] == p["iso2"]), None)
+    if not r:
+        return None
+    return r["grezzi"][[c for c, _ in IN["tabelle"][fid]["colonne"]].index(k)]
+
+
+def cella_in(p, k):
+    g = grezzo_in(p, k)
+    if g is None:
+        return '<span class="small">not in table</span>'
+    if g == "-":
+        return '<span class="small">“-” (no fee given)</span>'
+    return escape(usd(int(g)))
+
+
+def data_tab_in(fid):
+    return IN["tabelle"][fid]["data"]
+
+
+def data_in():
+    return IN["controllato_il"]
+
+
+def data_file_in():
+    return max(IN["fonti"][f]["file_del"] for f in ("fee_tv", "fee_altri"))
+
+
+def moda_in(k):
+    """Valore più frequente di una colonna e quanti Paesi lo hanno (Paesi presenti nella tabella, '-' escluso)."""
+    vv = [val_in(p, k) for p in IN_PAESI if grezzo_in(p, k) not in (None, "-")]
+    conta = {}
+    for v in vv:
+        conta[v] = conta.get(v, 0) + 1
+    v = max(conta, key=lambda x: (conta[x], -x))
+    return v, conta[v], len(vv)
+
+
+def link_pdf_in(fid):
+    F = IN["fonti"][fid]
+    return f'<a href="{escape(F["url"])}" rel="noopener">{escape(F["titolo"])}</a>'
+
+
+def fonte_tabelle_in(cosa="Figures copied from the official tables", con_3=True):
+    return (f'<p class="fonte">Source: {link_pdf_in("fee_tv")}, dated {data_lunga(data_tab_in("fee_tv"))}, and {link_pdf_in("fee_altri")}, dated '
+            f'{data_lunga(data_tab_in("fee_altri"))} (Bureau of Immigration, Ministry of Home Affairs, Government of India). Both files were updated on '
+            f'the official website on {data_lunga(data_file_in())}; checked on {data_lunga(data_in())}. {cosa}'
+            + ('; the “with 3% bank charge” figures are our calculation.</p>' if con_3 else '.</p>'))
+
+
+def blocco_cit_in(ids, lingua="en"):
+    """Citazioni raggruppate per fonte: virgolette, fonte, ente e data (in tedesco e francese con la traduzione nostra)."""
+    out, gruppi = [], []
+    for i in ids:
+        c = IN_CIT[i]
+        if gruppi and gruppi[-1][0] == c["f"]:
+            gruppi[-1][1].append(c)
+        else:
+            gruppi.append((c["f"], [c]))
+    for fid, cc in gruppi:
+        F = IN["fonti"][fid]
+        etichetta = {"de": "Unsere Übersetzung:", "fr": "Notre traduction :"}.get(lingua)
+        h = "".join(f'<p lang="en">{escape(c["x"])}</p>' + (f'<p class="trad"><em>{etichetta}</em> {escape(TRAD_IN[lingua][c["id"]])}</p>' if etichetta else "")
+                    for c in cc)
+        if lingua == "de":
+            fonte = f'Quelle: <a href="{escape(F["url"])}" rel="noopener">{escape(F["titolo"])}</a> (Bureau of Immigration, Regierung von Indien), geprüft am {data_de(F["letto_il"])}. Wörtlich zitiert.'
+        elif lingua == "fr":
+            fonte = f'Source : <a href="{escape(F["url"])}" rel="noopener">{escape(F["titolo"])}</a> (Bureau of Immigration, gouvernement de l’Inde), vérifié le {data_fr(F["letto_il"])}. Cité mot pour mot.'
+        else:
+            fonte = (f'Source: <a href="{escape(F["url"])}" rel="noopener">{escape(F["titolo"])}</a> (Bureau of Immigration, Government of India), '
+                     f'checked on {data_lunga(F["letto_il"])}. Quoted word for word.')
+        out.append(f'<blockquote class="cit">{h}</blockquote><p class="fonte">{fonte}</p>')
+    return "".join(out)
+
+
+def testo_cit_in(ids):
+    return " ".join(f"“{IN_CIT[i]['x']}”" for i in ids)
+
+
+def data_de(iso):
+    d = date.fromisoformat(iso)
+    return f"{d.day}. {MESI_DE[d.month - 1]} {d.year}"
+
+
+def data_fr(iso):
+    d = date.fromisoformat(iso)
+    return f"{'1er' if d.day == 1 else d.day} {MESI_FR[d.month - 1]} {d.year}"
+
+
+def avviso_in(lingua="en", cosa="visto"):
+    """Avviso evidente: pagare solo sul sito ufficiale (in ogni pagina della sezione, subito dopo la risposta)."""
+    a = f'<a href="{IN_EVISA}" rel="noopener">indianvisaonline.gov.in</a>'
+    if cosa == "arrivo":
+        return (f'<p class="avviso avviso-idp" data-avviso-ufficiale><strong>Use only the official site, <a href="{IN_EARRIVAL}" rel="noopener">indianvisaonline.gov.in</a>, '
+                'or the official app.</strong> Do not pay an unofficial site to fill it in for you: the Government of India says it does not authorise '
+                'agents to charge fees for the e-Arrival card. We are not the government.</p>')
+    if lingua == "de":
+        return (f'<p class="avviso avviso-idp" data-avviso-ufficiale><strong>Zahlen Sie nur auf der offiziellen Website {a}.</strong> Inoffizielle Websites '
+                'verlangen mehr als die staatliche Gebühr. Wir sind keine Behörde und verkaufen keine Visa.</p>')
+    if lingua == "fr":
+        return (f'<p class="avviso avviso-idp" data-avviso-ufficiale><strong>Payez uniquement sur le site officiel {a}.</strong> Les sites non officiels '
+                'facturent plus que les frais du gouvernement. Nous ne sommes pas une administration et ne vendons pas de visas.</p>')
+    return (f'<p class="avviso avviso-idp" data-avviso-ufficiale><strong>Pay only on the official site, {a}.</strong> Unofficial sites charge more '
+            'than the government fee shown here. We are not the government and we do not sell visas.</p>')
+
+
+def html_faq_in(faq, titolo="Questions"):
+    h = "".join(f"<h3>{escape(q)}</h3><p>{escape(a)}</p>" for q, a in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
+    return f'<section class="faq"><h2>{escape(titolo)}</h2>{h}</section>', [ld]
+
+
+def faq_cit_in(ff):
+    """FAQ con parole nostre (pre, post) e citazioni (cit): risposta in testo semplice."""
+    out = []
+    for f in ff:
+        parti = ([f["pre"]] if f.get("pre") else []) + [testo_cit_in(f.get("cit", []))] + ([f["post"]] if f.get("post") else [])
+        out.append((f["q"], " ".join(x for x in parti if x)))
+    return out
+
+
+def box_assicurazione_in():
+    """Riquadro SafetyWing (assicurazione medica di viaggio, link di affiliazione): '' finché _safetywing_india è vuoto. Dopo le regole ufficiali."""
+    if not SW_IN:
+        return ""
+    return (f'<h2 id="travel-insurance">Optional: travel medical insurance for India <span class="aff-tag">Affiliate</span></h2>'
+            f'<section class="card noleggio" aria-label="Travel medical insurance, affiliate link" data-assicurazione>'
+            '<p><strong>Travel insurance is not a requirement for the India e-Visa or the visa on arrival:</strong> none of the official pages we quote, '
+            'including the e-Visa page’s lists of documents, asks for it, so it is your choice. The e-Visa fee pays only for processing your '
+            'application and includes no insurance. If you want cover for medical costs during your trip anyway, SafetyWing sells travel medical insurance online; check what '
+            'the policy covers before you buy.</p>'
+            f'<p class="noleggio-btn"><a class="btn" href="{escape(SW_IN)}" rel="sponsored noopener" target="_blank">{ico("shield")}See SafetyWing travel medical insurance</a></p>'
+            f'{MON.nota_trasparenza("en")}</section>')
+
+
+# ---- frasi con le cifre (solo dalle tabelle)
+def tv_frase(p):
+    """'$10 for 30 days (April to June), $25 for 30 days (July to March), $40 for one year and $484 for five years'."""
+    v = [val_in(p, k) for k, _ in COL_TV]
+    return f"{usd(v[0])} for 30 days (April to June), {usd(v[1])} for 30 days (July to March), {usd(v[2])} for one year and {usd(v[3])} for five years"
+
+
+def altri_frase(p):
+    """'the e-Business Visa is $242, the e-Medical Visa $129 and the e-Medical Attendant Visa $129' ("-" = nessun valore nella tabella)."""
+    parti = []
+    for i, (k, n) in enumerate(COL_ALTRI):
+        g = grezzo_in(p, k)
+        if g == "-":
+            parti.append(f"the {n} Visa has “-” (no fee given)")
+        else:
+            parti.append(f"the {n} Visa {'is ' if i == 0 or grezzo_in(p, COL_ALTRI[i - 1][0]) == '-' else ''}{usd(val_in(p, k))}")
+    return ", ".join(parti[:-1]) + " and " + parti[-1]
+
+
+def risposta_in(g):
+    p = IN_PER[g["iso2"]]
+    c = g["cittadini"]
+    inizio = (f"According to the Government of India’s official e-Visa fee tables (Bureau of Immigration), dated {data_lunga(data_tab_in('fee_tv'))} "
+              f"and {data_lunga(data_tab_in('fee_altri'))} and checked on {data_lunga(data_in())}, ")
+    if p["tv"] is None:
+        return inizio + f"{p['nome_pdf']} is not in the e-Tourist Visa fee table; in the table for the other e-Visas, for {c} {altri_frase(p)}."
+    return inizio + f"the e-Tourist Visa for {c} costs {tv_frase(p)}, plus a 3% bank charge; {altri_frase(p)}."
+
+
+def confronto_in(p, chi):
+    """Differenze dal valore più frequente di ogni colonna (cifre solo dalle tabelle)."""
+    diverse = []
+    for k, n in COL_IN:
+        g = grezzo_in(p, k)
+        if g in (None, "-"):
+            continue
+        m, cnt, tot = moda_in(k)
+        if val_in(p, k) != m:
+            diverse.append(f"{n} {usd(val_in(p, k))} (most common: {usd(m)}, for {cnt} of {tot} nationalities)")
+    if not diverse:
+        return f"{chi[0].upper() + chi[1:]} pay the most common fee in every column of the two official tables."
+    return f"Fees for {chi} that differ from the most common fee in the official tables: " + "; ".join(diverse) + "."
+
+
+def righe_tipi_in(p):
+    out = []
+    for k, n in COL_IN:
+        g = grezzo_in(p, k)
+        if g is None:
+            out.append(f'<tr data-c="{k}"><th scope="row">{escape(n)}</th><td>Not in the e-Tourist table</td><td>–</td></tr>')
+        elif g == "-":
+            out.append(f'<tr data-c="{k}"><th scope="row">{escape(n)}</th><td>“-” in the table (no fee given)</td><td>–</td></tr>')
+        else:
+            out.append(f'<tr data-c="{k}"><th scope="row">{escape(n)}</th><td class="n">{escape(usd(int(g)))}</td><td class="n">{escape(con3(int(g)))}</td></tr>')
+    return "".join(out)
+
+
+def titoli_in(g):
+    p = IN_PER[g["iso2"]]
+    c = g["cittadini"].replace(" citizens", " Citizens").replace(" nationals", " Nationals")
+    if p["tv"] is None:
+        return [f"India e-Visa Fee for {c} ({ANNO}): e-Medical {usd(val_in(p, 'medico'))}", f"India e-Visa Fee for {c} ({ANNO})"]
+    return [f"India e-Visa Fee for {c} ({ANNO}): 5 Years {usd(val_in(p, 'tv5'))}", f"India e-Visa Fee for {c} ({ANNO})",
+            f"India e-Visa Fee: {g['titolo']} ({ANNO})"]
+
+
+def descrizione_in(g):
+    p = IN_PER[g["iso2"]]
+    d = data_lunga(data_in())
+    if p["tv"] is None:
+        return scegli([f"India e-Visa fees for {g['cittadini']} from the official tables: e-Medical {usd(val_in(p, 'medico'))}. Checked on {d}. Pay only on indianvisaonline.gov.in."],
+                      LIMITE_DESCRIZIONE)
+    return scegli([f"India e-Visa fee for {g['cittadini']}: 30 days {usd(val_in(p, 'tv30_lug_mar'))}, 1 year {usd(val_in(p, 'tv1'))}, 5 years {usd(val_in(p, 'tv5'))}, "
+                   f"e-Business {usd(val_in(p, 'business'))}. Official tables, checked on {d}.",
+                   f"India e-Visa fee for {g['cittadini']} from the official tables, checked on {d}."], LIMITE_DESCRIZIONE)
+
+
+DOMANDE_CAT_IN = {"generale": "How much is the India e-Visa for {c}?", "5anni": "How much is the 5-year India e-Visa for {c}?",
+                  "1anno": "How much is the one-year India e-Visa for {c}?", "30giorni": "How much is the 30-day India e-Visa for {c}?",
+                  "business": "How much is the India e-Business Visa for {c}?", "medico": "How much is the India e-Medical Visa for {c}?"}
+
+
+def risposta_cat_in(g, cat):
+    p, c = IN_PER[g["iso2"]], g["cittadini"]
+    tab = f"In the official table dated {data_lunga(data_tab_in('fee_tv'))}"
+    tab2 = f"In the official table dated {data_lunga(data_tab_in('fee_altri'))}"
+    if cat in ("generale", "5anni", "1anno", "30giorni") and p["tv"] is None:
+        return (f"{p['nome_pdf']} is not in the official e-Tourist Visa fee table. {tab2}, for {c} {altri_frase(p)}. "
+                "For a tourist visa, check the official website before you apply.")
+    if cat == "generale":
+        return f"{tab}, the e-Tourist Visa for {c} costs {tv_frase(p)}. {tab2}, {altri_frase(p)}. A 3% bank charge is added."
+    if cat == "5anni":
+        return f"{tab}, the 5-year e-Tourist Visa for {c} costs {usd(val_in(p, 'tv5'))}; with the 3% bank charge that is {con3(val_in(p, 'tv5'))}."
+    if cat == "1anno":
+        return f"{tab}, the one-year e-Tourist Visa for {c} costs {usd(val_in(p, 'tv1'))}; with the 3% bank charge that is {con3(val_in(p, 'tv1'))}."
+    if cat == "30giorni":
+        return (f"{tab}, the 30-day e-Tourist Visa for {c} costs {usd(val_in(p, 'tv30_apr_giu'))} in the “April to June” column and "
+                f"{usd(val_in(p, 'tv30_lug_mar'))} in the “July to March” column, plus a 3% bank charge.")
+    k = "business" if cat == "business" else "medico"
+    if grezzo_in(p, k) == "-":
+        return f"{tab2}, the e-Business Visa for {c} shows “-”: the table gives no fee."
+    nome_k = "e-Business" if k == "business" else "e-Medical"
+    if val_in(p, k) == 0:
+        base = f"{tab2}, the {nome_k} Visa for {c} shows $0: no fee."
+    else:
+        base = f"{tab2}, the {nome_k} Visa for {c} costs {usd(val_in(p, k))}; with the 3% bank charge that is {con3(val_in(p, k))}."
+    return base + (f" The e-Medical Attendant Visa: {usd(val_in(p, 'accompagnatore'))}." if k == "medico" else "")
+
+
+def voa_paese_in(iso):
+    """Visto all'arrivo per nazionalità, dalle citazioni: 'si' (Giappone, Corea del Sud), 'condizionato' (Emirati), 'no'."""
+    return {"JP": "si", "KR": "si", "AE": "condizionato"}.get(iso, "no")
+
+
+def risposta_voa_in(g):
+    c = g["cittadini"]
+    s = voa_paese_in(g["iso2"])
+    if s == "si":
+        return f"Yes. {testo_cit_in(['ev_voa'])} {c[0].upper() + c[1:]} can also apply for an e-Visa online."
+    if s == "condizionato":
+        return f"Only if they have had an Indian e-Visa or paper visa before. {testo_cit_in(['ev_voa', 'voa_uae'])}"
+    return f"No. {testo_cit_in(['ev_voa'])} {testo_cit_in(['ev_voa_altri'])}"
+
+
+def faq_in(g):
+    c = g["cittadini"]
+    ordine = ["generale", "5anni", "1anno", "30giorni", "business", "medico"]
+    out = [(DOMANDE_CAT_IN[f["categoria"]].format(c=c), risposta_cat_in(g, f["categoria"])) for f in sorted(g["faq"], key=lambda f: ordine.index(f["categoria"]))]
+    if g.get("voa"):
+        out.append((f"Can {c} get a visa on arrival in India?", risposta_voa_in(g)))
+    return out
+
+
+def link_governo_in(rel, iso):
+    """Pagine del sito per chi ha il passaporto britannico, canadese o australiano: regole d'ingresso dell'India del proprio governo."""
+    voci = []
+    if iso == "GB" and "india" in UK_CON_PAGINA:
+        voci.append(f'<a href="{rel}passport-validity/india/">India entry requirements (FCDO) for British passports</a>')
+    for k, iso_k in (("ca", "CA"), ("au", "AU")):
+        if iso == iso_k:
+            v = next((v for v in VOCI.get(k, []) if v["slug"] == "india"), None)
+            if v:
+                voci.append(f'<a href="{rel}{v["url_pag"]}">India entry requirements for {ESTERI[k]["agg"]} passports</a>')
+    pat = {"GB": "uk", "CA": "ca", "AU": "au"}.get(iso)
+    if pat and PAT and "IN" in PAGINE_PAT.get(pat, []):
+        voci.append(f'<a href="{rel}{url_pat(pat, "IN")}">Driving in India with a {escape(PATENTI[pat]["lic"])}</a>')
+    if not voci:
+        return ""
+    return f'<p class="altri-pass">{ico("passport")}<span>Your own government’s advice: {" · ".join(voci)}</span></p>'
+
+
+def link_india(rel, iso, k=None):
+    """Riga 'India e-Visa fee' nelle pagine passaporto (britannica, canadese, australiana) dell'India: '' per ogni altra pagina."""
+    if not IN or iso != "IN":
+        return ""
+    g = IN_PAG_PER.get({"uk": "GB", "ca": "CA", "au": "AU"}.get(k))
+    if not g:
+        return ""
+    p = IN_PER[g["iso2"]]
+    return (f'<p class="altri-pass">{ico("globe")}<span>Visa fee: <a href="{rel}{url_in(g)}">India e-Visa fee for {escape(g["cittadini"])}</a> '
+            f'({usd(val_in(p, "tv5"))} for five years in the official table) · <a href="{rel}{IN_ARR}/">e-Arrival card</a></span></p>')
+
+
+def link_voa_arr_in(rel):
+    return (f'<p class="altri-pass">{ico("scan")}<span>Also before you fly to India: <a href="{rel}{IN_ARR}/">the e-Arrival card</a> (within 72 hours '
+            f'before arrival) · <a href="{rel}{IN_VOA}/">who can get a visa on arrival</a></span></p>')
+
+
+def griglia_in(rel, salta=None):
+    return "".join(f'<a href="{rel}{url_in(g)}">{escape(IN_PER[g["iso2"]]["nome"])}<small>5 years: {escape(usd(val_in(IN_PER[g["iso2"]], "tv5")))}</small></a>'
+                   if IN_PER[g["iso2"]]["tv"] else
+                   f'<a href="{rel}{url_in(g)}">{escape(IN_PER[g["iso2"]]["nome"])}<small>e-Medical: {escape(usd(val_in(IN_PER[g["iso2"]], "medico")))}</small></a>'
+                   for g in sorted(IN_PAGINE, key=lambda g: IN_PER[g["iso2"]]["nome"]) if g["iso2"] != salta)
+
+
+NOTA_STAGIONI_IN = ("The official e-Tourist table has two columns for the 30-day visa, headed “April to June” and “July to March”; it does not say "
+                    "whether the month is the month you apply or the month you arrive. Where the table shows “00” we show $0.")
+
+
+def sezione_validita_in():
+    return f'<h2>Which e-Tourist Visa: 30 days, one year or five years</h2>{blocco_cit_in(["ev_val30", "ev_val1_5", "ev_180", "ev_valb", "ev_passaporto"])}'
+
+
+def sezione_pagare_in():
+    return (f'<h2 id="how-to-pay">How and when to pay</h2><p>Asked whether any website other than the government’s can take your application, '
+            f'the official e-Visa page answers:</p>{blocco_cit_in(["ev_ufficiale", "ev_intermediari"])}<p>When to apply and pay:</p>'
+            f'{blocco_cit_in(["ev_4giorni", "ev_quando", "ev_3"])}<p>If your e-Visa is refused:</p>{blocco_cit_in(["ev_rimborso"])}'
+            f'<p>Asked whether you have to pay anything else at the airport, the official e-Visa page answers:</p>{blocco_cit_in(["ev_aeroporto"])}')
+
+
+def pagina_in(g):
+    rel = "../../"
+    p = IN_PER[g["iso2"]]
+    c = g["cittadini"]
+    faq_h, faq_ld = html_faq_in(faq_in(g))
+    voa = ""
+    if voa_paese_in(g["iso2"]) != "no":
+        voa = (f'<h2>Visa on arrival</h2>{blocco_cit_in(["ev_voa"] + (["voa_uae"] if g["iso2"] == "AE" else []))}'
+               f'<p><a href="{rel}{IN_VOA}/">Visa on arrival in India: cost, airports and conditions</a></p>')
+    corpo = f"""{STILE_IN}<section class="hero">{h1_diviso(f"India e-Visa fee for {c} ({ANNO}): tourist, business and medical")}</section>
+<section class="card summary" aria-label="Answer">
+<div class="s-top"><span class="sq">{ico("passport")}</span><span>India e-Visa · {escape(p["nome"])}</span><span>{ANNO}</span></div>
+<div class="s-body">
+<p class="lead" id="answer">{escape(risposta_in(g))}</p>
+<p class="small">{escape(confronto_in(p, c))}</p>
+</div></section>
+{avviso_in()}
+<h2>e-Visa fees for {escape(c)}</h2>
+<div class="tab tab-g tab-in1"><table><caption class="cap">{escape(p["nome"])} (“{escape(p["nome_pdf"])}” in the official tables): fee in US dollars</caption><thead><tr><th>e-Visa</th><th>Official fee</th><th>With 3% bank charge</th></tr></thead><tbody>{righe_tipi_in(p)}</tbody></table></div>
+{fonte_tabelle_in()}
+{blocco_cit_in(["pdf_3"])}
+<p class="small">{escape(NOTA_STAGIONI_IN)} The second table’s title also names the e-Conference Visa, but the table has no separate column for it.</p>
+{AD}
+{sezione_validita_in()}
+{sezione_pagare_in()}
+{voa}
+<p class="altri-pass">{ico("takeoff")}<span>Entering India with an e-Visa: <a href="{rel}{IN_BASE}/#ports">airports and seaports on the official lists</a> (not land borders)</span></p>
+{link_voa_arr_in(rel)}
+{link_governo_in(rel, g["iso2"])}
+{box_assicurazione_in()}
+<h2>Other nationalities</h2>
+<div class="griglia">{griglia_in(rel, g["iso2"])}</div>
+<p><a href="{rel}{IN_BASE}/">India e-Visa fees for all {len(IN_PAESI)} countries in the official tables</a></p>
+{faq_h}
+<p class="small">This page is information, not legal advice. Immigration officers at the border decide. Spotted a change? <a href="{rel}contact/?ref={IN_BASE}">Tell us</a>.</p>"""
+    pagina(url_in(g), scegli(titoli_in(g), LIMITE_TITOLO_IN), descrizione_in(g), corpo,
+           briciole=[("India e-Visa fee", f"{IN_BASE}/"), (p["nome"], url_in(g))], ld_extra=faq_ld)
+    LASTMOD[url_in(g)] = data_in()
+
+
+# ---- indice
+def riga_in(p, rel):
+    g = IN_PAG_PER.get(p["iso2"])
+    nome = f'<a href="{rel}{url_in(g)}">{escape(p["nome_pdf"])}</a>' if g else escape(p["nome_pdf"])
+    alias = " ".join([p["nome"], *p["alias"]])
+    return (f'<tr data-voce id="{p["iso2"].lower()}" data-alias="{escape(alias)}"><td data-l="Country">{nome}</td>'
+            + "".join(f'<td class="n" data-c="{k}" data-l="{escape(n)}">{cella_in(p, k)}</td>' for k, n in COL_IN) + "</tr>")
+
+
+def prima_frase_in():
+    return (f"According to the Government of India’s two official e-Visa fee tables (Bureau of Immigration), dated {data_lunga(data_tab_in('fee_tv'))} "
+            f"and {data_lunga(data_tab_in('fee_altri'))} and checked on {data_lunga(data_in())}, the fee depends on your nationality: the table below "
+            f"gives the e-Tourist, e-Business, e-Medical and e-Medical Attendant fees in US dollars for all {len(IN_PAESI)} countries and territories "
+            "in the tables, and a 3% bank charge is added.")
+
+
+def titoli_indice_in():
+    return [f"India e-Visa Fee by Nationality ({ANNO}): Official Table, {len(IN_PAESI)} Countries", f"India e-Visa Fee by Nationality ({ANNO})"]
+
+
+def nazioni_moda_in(k, valore):
+    return [p for p in IN_PAESI if grezzo_in(p, k) not in (None, "-") and val_in(p, k) == valore]
+
+
+UE_IN = ["AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK",
+         "SI", "ES", "SE"]
+
+
+def eccezioni_in(k, pp=None, n=None):
+    """'UAE $415, Ecuador $240, ...': i Paesi con un valore diverso dal più frequente, dal più alto (al massimo n)."""
+    m = moda_in(k)[0]
+    pp = [p for p in (pp or IN_PAESI) if grezzo_in(p, k) not in (None, "-") and val_in(p, k) != m]
+    pp.sort(key=lambda p: (-val_in(p, k), p["nome"]))
+    return [f"{p['nome']} {usd(val_in(p, k))}" for p in pp[:n]] if n else [f"{p['nome']} {usd(val_in(p, k))}" for p in pp]
+
+
+def faq_indice_in():
+    m = {k: moda_in(k) for k, _ in COL_IN}
+    tipici = [p for p in IN_PAESI if p["tv"] and all(val_in(p, k) == m[k][0] for k, _ in COL_TV)]
+    risposte = {
+        "prezzo": (f"It depends on your nationality and on the type of e-Visa. In the e-Tourist table dated {data_lunga(data_tab_in('fee_tv'))}, "
+                   f"{len(tipici)} of the {len([p for p in IN_PAESI if p['tv']])} nationalities pay {usd(m['tv30_apr_giu'][0])} for 30 days (April to June), "
+                   f"{usd(m['tv30_lug_mar'][0])} for 30 days (July to March), {usd(m['tv1'][0])} for one year and {usd(m['tv5'][0])} for five years; the "
+                   "others pay different amounts, and some pay nothing. Find your nationality in the table above. A 3% bank charge is added."),
+        "5anni": (f"{usd(m['tv5'][0])} for {m['tv5'][1]} of the {m['tv5'][2]} nationalities in the official e-Tourist table. The exceptions: "
+                  + ", ".join(x for x in eccezioni_in("tv5") if not x.endswith(" $0"))
+                  + f"; {len([p for p in IN_PAESI if p['tv'] and val_in(p, 'tv5') == 0])} nationalities pay $0 (see the table). A 3% bank charge is added."),
+        "business": (f"{usd(m['business'][0])} for {m['business'][1]} of the {m['business'][2]} nationalities with a fee in the official table. The highest: "
+                     + ", ".join(eccezioni_in("business", n=8)) + "; some nationalities pay $0 (see the table). A 3% bank charge is added."),
+        "medico": (f"{usd(m['medico'][0])} for {m['medico'][1]} of the {m['medico'][2]} nationalities in the official table. The exceptions with a fee: "
+                   + ", ".join(x for x in eccezioni_in("medico") if not x.endswith(" $0")) + "; some nationalities pay $0 (see the table). "
+                   + ("For every nationality the table gives the e-Medical Attendant Visa the same fee as the e-Medical Visa. " if uguali_medico_accompagnatore() else "")
+                   + "A 3% bank charge is added."),
+        "ue": ue_frase_in(),
+    }
+    out = []
+    for f in IN["faq"]["indice"]:
+        if f["id"] in risposte:
+            out.append((f["q"], risposte[f["id"]]))
+        else:
+            out += faq_cit_in([f])
+    return out
+
+
+def ue_frase_in():
+    ue = [IN_PER[c] for c in UE_IN if c in IN_PER]
+    m = {k: moda_in(k)[0] for k, _ in COL_IN}
+    tv_ok = all(p["tv"] and all(val_in(p, k) == m[k] for k, _ in COL_TV) for p in ue)
+    parti = []
+    if tv_ok:
+        parti.append(f"All {len(ue)} EU countries are in the official e-Tourist table with the same fees: {usd(m['tv30_apr_giu'])} for 30 days (April to June), "
+                     f"{usd(m['tv30_lug_mar'])} for 30 days (July to March), {usd(m['tv1'])} for one year and {usd(m['tv5'])} for five years.")
+    diverse = eccezioni_in("business", ue)
+    parti.append(f"The e-Business Visa is {usd(m['business'])} for most EU citizens" + (", except " + ", ".join(diverse) if diverse else "") + ".")
+    parti.append("A 3% bank charge is added.")
+    return " ".join(parti)
+
+
+def uguali_medico_accompagnatore():
+    return all(val_in(p, "medico") == val_in(p, "accompagnatore") for p in IN_PAESI)
+
+
+def fuori_in():
+    voci = IN.get("fuori_tabella", [])
+    if not voci:
+        return ""
+    nn = [v["nome"] for v in voci]
+    nomi = ", ".join(nn[:-1]) + " and " + nn[-1] if len(nn) > 1 else nn[0]
+    return (f'<h2 id="not-in-the-tables">Not in the tables</h2><p>People also search for the India e-Visa fee for nationals of {escape(nomi)}. '
+            'None of these is in either official fee table. The e-Visa page says:</p>' + blocco_cit_in(["ev_idonei", "ev_pakistan", "ev_afghan"]))
+
+
+def sezione_porti_in(rel):
+    P = IN["porti"]
+    aer = "".join(f"<li>{escape(x)}</li>" for x in P["aeroporti_faq"])
+    porti = "".join(f"<li>{escape(x)}</li>" for x in P["porti_faq"])
+    return f"""<h2 id="ports">Where you can enter India with an e-Visa</h2>
+<p>The official e-Visa page gives two different lists, and we show both. Its answers to frequently asked questions say:</p>
+{blocco_cit_in(["ev_porti_aerei", "ev_porti_partenza"])}
+<p>The {len(P["aeroporti_faq"])} airports named there:</p><ul class="elenco-in">{aer}</ul>
+<p>The {len(P["porti_faq"])} seaports named in the same answer:</p><ul class="elenco-in">{porti}</ul>
+<p>The box “Authorized Immigration Checkposts” on the same page says something different:</p>
+{blocco_cit_in(["ev_porti_37", "ev_porti_38"])}
+<p>Its list of {len(P["aeroporti_faq"]) + len(P["aeroporti_solo_lista"])} airports adds {escape(", ".join(P["aeroporti_solo_lista"][:-1]))} and {escape(P["aeroporti_solo_lista"][-1])}. For cruise passengers, another answer on the same page names only five seaports, and land borders are not allowed:</p>
+{blocco_cit_in(["ev_crociera", "ev_terra"])}
+<p class="small">The official texts disagree on the number of airports and seaports. If you are arriving at an airport or port that is only on one of the lists, check with your airline, cruise line or the Bureau of Immigration before you travel.</p>"""
+
+
+def piu_cercati_in(rel):
+    """Scorciatoia sopra la tabella (lunga sul telefono): le nazionalità con più ricerche vere."""
+    gg = sorted(IN_PAGINE, key=lambda g: -len(g["ricerche"]))[:6]
+    return (f'<p class="altri-pass">{ico("passport")}<span>Most searched: '
+            + " · ".join(f'<a href="{rel}{url_in(g)}">{escape(IN_PER[g["iso2"]]["nome"])}</a>' for g in gg) + "</span></p>")
+
+
+def pagina_indice_in():
+    rel = "../"
+    d = data_lunga(data_in())
+    righe = "".join(riga_in(p, rel) for p in sorted(IN_PAESI, key=lambda p: p["nome_pdf"].lower()))
+    opzioni = '<option value="tutti">All types</option>' + "".join(f'<option value="{k}">{escape(n)}</option>' for k, n in COL_IN)
+    faq_h, faq_ld = html_faq_in(faq_indice_in())
+    n_tv = len([p for p in IN_PAESI if p["tv"]])
+    corpo = f"""{STILE_IN}<section class="hero">{h1_diviso(f"India e-Visa fee by nationality ({ANNO}): the official table for every country")}
+<p class="lead" id="answer">{escape(prima_frase_in())}</p></section>
+{avviso_in()}
+{piu_cercati_in(rel)}
+<div class="filtri-in"><label>Your nationality<span class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="e.g. UK, United States, Germany" data-in-cerca aria-label="Search your nationality"></span></label>
+<label>Type of e-Visa<select data-in-tipo aria-label="Type of e-Visa">{opzioni}</select></label></div>
+<p class="small" aria-live="polite">Showing <span data-in-n>{len(IN_PAESI)}</span> of {len(IN_PAESI)} countries and territories. Fees in US dollars, without the 3% bank charge.</p>
+<div class="tab tab-b tab-srv tab-in" data-in-tab data-vista="tutti"><table><caption class="cap">India e-Visa fee by nationality in US dollars, from the official tables (checked on {d})</caption><thead><tr><th>Country (as in the tables)</th>{"".join(f'<th data-c="{k}">{escape(n)}</th>' for k, n in COL_IN)}</tr></thead><tbody>{righe}</tbody></table></div>
+<ul>
+<li>e-Tourist table: {n_tv} countries and territories, dated {data_lunga(data_tab_in("fee_tv"))}. Table for the e-Business, e-Medical and e-Medical Attendant Visas: {len(IN_PAESI)}, dated {data_lunga(data_tab_in("fee_altri"))}. Both files were updated on the official website on {data_lunga(data_file_in())}.</li>
+<li>{escape(NOTA_STAGIONI_IN)} “-” means the table gives no fee; “not in table” means the country is not in the e-Tourist table.</li>
+<li>The second table’s title also names the e-Conference Visa, but the table has no separate column for it. Other e-Visas (e-Student, e-Transit and others) are not in these two tables.</li>
+</ul>
+{fonte_tabelle_in("Every figure is copied from the two PDF tables by our script, which also checks that it has read every row", con_3=False)}
+{blocco_cit_in(["pdf_3", "ev_paese"])}
+{AD}
+<h2>Fee pages by nationality</h2>
+<div class="griglia">{griglia_in(rel)}</div>
+<p class="altri-pass">{ico("globe")}<span lang="de"><a href="{rel}{IN_DE}/" hreflang="de">Indien e-Visum Kosten (auf Deutsch)</a></span> · <span lang="fr"><a href="{rel}{IN_FR}/" hreflang="fr">Prix du e-Visa pour l’Inde (en français)</a></span></p>
+{fuori_in()}
+{sezione_validita_in()}
+{sezione_pagare_in()}
+{sezione_porti_in(rel)}
+<h2>Visa on arrival and the e-Arrival card</h2>
+{blocco_cit_in(["ev_voa"])}
+<p><a href="{rel}{IN_VOA}/">Visa on arrival in India: who is eligible, cost and airports</a> · <a href="{rel}{IN_ARR}/">India e-Arrival card: who must fill it in, and when</a></p>
+{box_assicurazione_in()}
+{faq_h}
+<h2>How we check</h2>
+<p>Our script downloads the two official PDF tables from indianvisaonline.gov.in, reads every row (serial number, country, fees) and stops if a row is missing, if the column headings or the note on the 3% bank charge change, or if a country name is not recognised; a second, independent reading of the same PDF must give the same countries and the same figures. We quote the official e-Visa pages word for word, in short extracts, with the date we checked them, and we link no visa agencies. More on the <a href="{rel}about/#{IN_BASE}">About page</a>. This page is information, not legal advice. Spotted a change? <a href="{rel}contact/?ref={IN_BASE}">Tell us</a>.</p>"""
+    desc = scegli([f"India e-Visa fee for every nationality ({len(IN_PAESI)} countries): e-Tourist 30 days, 1 and 5 years, e-Business, e-Medical. Official tables, checked on {d}.",
+                   f"India e-Visa fee by nationality from the official tables of the Government of India, checked on {d}."], LIMITE_DESCRIZIONE)
+    pagina(f"{IN_BASE}/", scegli(titoli_indice_in(), LIMITE_TITOLO_IN), desc, corpo, briciole=[("India e-Visa fee", f"{IN_BASE}/")], js=IN_JS, ld_extra=faq_ld)
+    LASTMOD[f"{IN_BASE}/"] = data_in()
+
+
+# ---- visto all'arrivo
+def prima_frase_voa_in():
+    return (f"According to India’s official visa website and the Bureau of Immigration, checked on {data_lunga(data_in())}, a visa on arrival is only "
+            "for nationals of Japan, South Korea and the UAE, and UAE nationals only if they have had an Indian e-Visa or paper visa before; "
+            "everyone else who can get an e-Visa must apply online and wait for it to be granted before travelling.")
+
+
+def pagina_voa_in():
+    rel = "../"
+    faq_h, faq_ld = html_faq_in(faq_cit_in(IN["faq"]["voa"]))
+    jp, ae = IN_PAG_PER.get("JP"), IN_PAG_PER.get("AE")
+    fee = " · ".join(f'<a href="{rel}{url_in(g)}">e-Visa fee for {escape(g["cittadini"])}</a>' for g in (jp, ae) if g)
+    corpo = f"""<section class="hero">{h1_diviso(f"Visa on arrival in India ({ANNO}): who is eligible, cost and airports")}</section>
+<section class="card summary" aria-label="Answer">
+<div class="s-top"><span class="sq">{ico("passport")}</span><span>India · visa on arrival</span><span>{ANNO}</span></div>
+<div class="s-body"><p class="lead" id="answer">{escape(prima_frase_voa_in())}</p></div></section>
+{avviso_in()}
+<h2>Who is eligible</h2>
+{blocco_cit_in(["ev_voa", "ev_voa_altri"])}
+<p>The official visa-on-arrival page lists further eligibility conditions (including six months of passport validity and a return or onward ticket). The first one sets the length and purpose of the visit, and the page also has advice for UAE nationals visiting India for the first time:</p>
+{blocco_cit_in(["voa_scopo", "voa_uae"])}
+<h2>Who cannot get it</h2>
+{blocco_cit_in(["voa_pakistan", "voa_diplomatici"])}
+<h2>Cost and form</h2>
+{blocco_cit_in(["voa_costo", "voa_pagare", "voa_modulo"])}
+{AD}
+<h2>Airports</h2>
+<p>The two official pages give different lists for UAE nationals. India’s visa website says:</p>
+{blocco_cit_in(["voa_dove"])}
+<p>The Bureau of Immigration says:</p>
+{blocco_cit_in(["boi_voa_dove"])}
+<p class="small">If you are a UAE national arriving at Cochin, Calicut or Ahmedabad, check with the Bureau of Immigration or your airline before you travel: only one of the two official pages lists these airports.</p>
+<h2>How long it lasts</h2>
+{blocco_cit_in(["voa_durata", "voa_non_estendibile"])}
+<h2>No visa needed: Nepal, Bhutan and the Maldives</h2>
+{blocco_cit_in(["boi_senza_visto", "boi_maldive"])}
+<h2>Everyone else: the e-Visa</h2>
+<p>If your country is not one of the three, you need an e-Visa (or a regular visa from an Indian embassy or consulate) before you travel. <a href="{rel}{IN_BASE}/">India e-Visa fee by nationality</a>{(" · " + fee) if fee else ""}.</p>
+<p class="altri-pass">{ico("scan")}<span>Every foreign visitor, with or without a visa on arrival: <a href="{rel}{IN_ARR}/">fill in the e-Arrival card within 72 hours before arrival</a></span></p>
+{box_assicurazione_in()}
+{faq_h}
+<p class="small">This page is information, not legal advice. Immigration officers at the border decide. Spotted a change? <a href="{rel}contact/?ref={IN_VOA}">Tell us</a>.</p>"""
+    desc = scegli([f"Visa on arrival in India: only Japan, South Korea and the UAE (with a previous Indian visa). Cost, airports, 60 days. Official, checked on {data_lunga(data_in())}."],
+                  LIMITE_DESCRIZIONE)
+    pagina(f"{IN_VOA}/", scegli([f"Visa on Arrival in India ({ANNO}): Who Is Eligible, Cost and Airports", f"Visa on Arrival in India ({ANNO})"], LIMITE_TITOLO_IN),
+           desc, corpo, briciole=[("Visa on arrival in India", f"{IN_VOA}/")], ld_extra=faq_ld)
+    LASTMOD[f"{IN_VOA}/"] = data_in()
+
+
+# ---- e-Arrival card
+def prima_frase_arr_in():
+    return (f"According to the Bureau of Immigration and India’s official visa website, checked on {data_lunga(data_in())}, foreigners and OCI "
+            "cardholders must complete the e-Arrival card online within 72 hours before they arrive in India, at indianvisaonline.gov.in/earrival "
+            "or in the official “Indian Visa Su-Swagatam” app; it is arrival information, not a visa.")
+
+
+def pagina_arr_in():
+    rel = "../"
+    faq_h, faq_ld = html_faq_in(faq_cit_in(IN["faq"]["arrivo"]))
+    corpo = f"""<section class="hero">{h1_diviso(f"India e-Arrival card ({ANNO}): who must fill it in, when and where")}</section>
+<section class="card summary" aria-label="Answer">
+<div class="s-top"><span class="sq">{ico("scan")}</span><span>India · e-Arrival card</span><span>{ANNO}</span></div>
+<div class="s-body"><p class="lead" id="answer">{escape(prima_frase_arr_in())}</p>
+<p class="noleggio-btn"><a class="btn" href="{IN_EARRIVAL}" rel="noopener">{ico("arrow")}Official e-Arrival card form</a></p></div></section>
+{avviso_in(cosa="arrivo")}
+<h2>Who and when</h2>
+{blocco_cit_in(["home_arrivo_obbligo", "home_arrivo"])}
+{blocco_cit_in(["gg_arrivo"])}
+<p class="small">One sentence on India’s visa website says “can complete”, the other and the Bureau of Immigration say “must complete”. The official pages we read speak of foreigners and OCI cardholders and do not mention Indian passport holders.</p>
+<h2>It is not a visa</h2>
+{blocco_cit_in(["home_arrivo_cosa"])}
+{blocco_cit_in(["gg_ingresso"])}
+<p>You still need an e-Visa, another Indian visa or an OCI card, unless you are a citizen of Nepal, Bhutan or the Maldives (visa-free entry, according to the Bureau of Immigration). <a href="{rel}{IN_BASE}/">India e-Visa fee by nationality</a> · <a href="{rel}{IN_VOA}/">visa on arrival</a></p>
+{AD}
+<h2>Is there a fee?</h2>
+<p>None of the official pages we read mentions a fee for the e-Arrival card, and the Government of India says it does not authorise agents to charge for it:</p>
+{blocco_cit_in(["home_agenti"])}
+<h2>The Air Suvidha self-declaration form</h2>
+{blocco_cit_in(["home_suvidha"])}
+{faq_h}
+<p class="small">This page is information, not legal advice. Immigration officers at the border decide. Spotted a change? <a href="{rel}contact/?ref={IN_ARR}">Tell us</a>.</p>"""
+    desc = scegli([f"India e-Arrival card: foreigners and OCI cardholders fill it in online within 72 hours before arrival. Official site and app, checked on {data_lunga(data_in())}."],
+                  LIMITE_DESCRIZIONE)
+    pagina(f"{IN_ARR}/", scegli([f"India e-Arrival Card ({ANNO}): Who Must Fill It In, When and Where", f"India e-Arrival Card ({ANNO})"], LIMITE_TITOLO_IN),
+           desc, corpo, briciole=[("India e-Arrival card", f"{IN_ARR}/")], ld_extra=faq_ld)
+    LASTMOD[f"{IN_ARR}/"] = data_in()
+
+
+# ---- pagine in tedesco e francese (ricerche vere "indien visum kosten", "visa inde prix")
+def usd_l(v, lingua):
+    if v is None:
+        return "–"
+    return f"{v} US-Dollar" if lingua == "de" else f"{v} dollars US"
+
+
+def con3_l(v, lingua):
+    c = con3(v)[1:]
+    return (c.replace(".", ",") + " US-Dollar") if lingua == "de" else (c.replace(".", ",") + " dollars US")
+
+
+def tabella_lingua_in(paesi, lingua):
+    nomi = NOMI_DE if lingua == "de" else NOMI_FR
+    col = COL_DE if lingua == "de" else COL_FR
+    testa = "Land" if lingua == "de" else "Pays"
+    righe = "".join(f'<tr data-voce id="{p["iso2"].lower()}"><td data-l="{testa}">{escape(nomi[p["iso2"]])}</td>'
+                    + "".join(f'<td class="n" data-l="{escape(col[k])}">{escape(usd(val_in(p, k)))}</td>' for k, _ in COL_IN) + "</tr>" for p in paesi)
+    cap = ("Kosten des e-Visums für Indien in US-Dollar, aus den offiziellen Tabellen" if lingua == "de"
+           else "Prix du e-Visa pour l’Inde en dollars US, d’après les tableaux officiels")
+    return (f'<div class="tab tab-b tab-srv"><table><caption class="cap">{cap}</caption><thead><tr><th>{testa}</th>'
+            + "".join(f"<th>{escape(col[k])}</th>" for k, _ in COL_IN) + f"</tr></thead><tbody>{righe}</tbody></table></div>")
+
+
+def uguali_in(paesi, k):
+    vv = {val_in(p, k) for p in paesi}
+    return vv.pop() if len(vv) == 1 else None
+
+
+def fonte_lingua_in(lingua):
+    a, b = link_pdf_in("fee_tv"), link_pdf_in("fee_altri")
+    if lingua == "de":
+        return (f'<p class="fonte">Quelle: {a} vom {data_de(data_tab_in("fee_tv"))} und {b} vom {data_de(data_tab_in("fee_altri"))} (Bureau of Immigration, '
+                f'Innenministerium, Regierung von Indien), auf der offiziellen Website aktualisiert am {data_de(data_file_in())}, geprüft am {data_de(data_in())}. '
+                'Zahlen aus den offiziellen Tabellen übernommen; die Beträge mit 3 % Bankgebühr sind unsere Rechnung.</p>')
+    return (f'<p class="fonte">Source : {a} du {data_fr(data_tab_in("fee_tv"))} et {b} du {data_fr(data_tab_in("fee_altri"))} (Bureau of Immigration, '
+            f'ministère de l’Intérieur, gouvernement de l’Inde), mis à jour sur le site officiel le {data_fr(data_file_in())}, vérifié le {data_fr(data_in())}. '
+            'Chiffres repris des tableaux officiels ; les montants avec les 3 % de frais bancaires sont notre calcul.</p>')
+
+
+def faq_lingua_in(lingua, paesi):
+    u = {k: uguali_in(paesi, k) for k, _ in COL_IN}
+    L = lingua
+    risposte = {}
+    if L == "de":
+        alle = "für Deutschland, Österreich, die Schweiz und Liechtenstein"
+        risposte = {
+            "kosten": (f"Laut der offiziellen Tabelle vom {data_de(data_tab_in('fee_tv'))} kostet das e-Tourist-Visum {alle} {usd_l(u['tv30_apr_giu'], L)} für 30 Tage "
+                       f"(April bis Juni), {usd_l(u['tv30_lug_mar'], L)} für 30 Tage (Juli bis März), {usd_l(u['tv1'], L)} für ein Jahr und {usd_l(u['tv5'], L)} "
+                       "für fünf Jahre, zuzüglich 3 % Bankgebühr."),
+            "30tage": (f"{usd_l(u['tv30_apr_giu'], L)} in der Spalte „April to June“ und {usd_l(u['tv30_lug_mar'], L)} in der Spalte „July to March“ der offiziellen "
+                       "Tabelle, zuzüglich 3 % Bankgebühr. Die Tabelle sagt nicht, ob der Monat der Antragstellung oder der Einreise gemeint ist."),
+            "1jahr": f"{usd_l(u['tv1'], L)}, mit 3 % Bankgebühr {con3_l(u['tv1'], L)} (unsere Rechnung).",
+            "business": (f"Laut der offiziellen Tabelle vom {data_de(data_tab_in('fee_altri'))} kostet das e-Business-Visum "
+                         + (f"{alle} {usd_l(u['business'], L)}" if u["business"] is not None else
+                            ", ".join(f"für {NOMI_DE[p['iso2']]} {usd_l(val_in(p, 'business'), L)}" for p in paesi)) + ", zuzüglich 3 % Bankgebühr."),
+            "schweiz": (f"Für Schweizer Staatsangehörige{' gelten dieselben Beträge wie für Deutsche' if all(val_in(IN_PER['CH'], k) == val_in(IN_PER['DE'], k) for k, _ in COL_IN) else ''}: "
+                        f"{usd_l(val_in(IN_PER['CH'], 'tv1'), L)} für das e-Tourist-Visum für ein Jahr, {usd_l(val_in(IN_PER['CH'], 'tv5'), L)} für fünf Jahre, "
+                        f"{usd_l(val_in(IN_PER['CH'], 'business'), L)} für das e-Business-Visum, zuzüglich 3 % Bankgebühr."),
+            "oesterreich": (f"Für österreichische Staatsangehörige: {usd_l(val_in(IN_PER['AT'], 'tv30_lug_mar'), L)} für 30 Tage (Juli bis März), "
+                            f"{usd_l(val_in(IN_PER['AT'], 'tv1'), L)} für ein Jahr, {usd_l(val_in(IN_PER['AT'], 'tv5'), L)} für fünf Jahre, zuzüglich 3 % Bankgebühr."),
+            "euro": ("Die offizielle Tabelle nennt nur US-Dollar. Wie viel Sie in Euro oder Franken zahlen, hängt vom Wechselkurs Ihrer Karte oder Bank ab; "
+                     "dazu kommt die Bankgebühr von 3 %."),
+            "offiziell": ("Die offizielle Website ist indianvisaonline.gov.in/evisa/. Die indische Regierung schreibt: „" + IN_CIT["ev_ufficiale"]["x"] + "“ "
+                          "(Unsere Übersetzung: " + TRAD_IN["de"]["ev_ufficiale"] + ") Inoffizielle Websites verlangen mehr als die staatliche Gebühr."),
+        }
+    else:
+        ref = IN_PER["FR"]
+        risposte = {
+            "prix": (f"Selon le tableau officiel du {data_fr(data_tab_in('fee_tv'))}, le e-Visa touristique coûte, pour les Français, {usd_l(val_in(ref, 'tv30_apr_giu'), L)} "
+                     f"pour 30 jours (avril à juin), {usd_l(val_in(ref, 'tv30_lug_mar'), L)} pour 30 jours (juillet à mars), {usd_l(val_in(ref, 'tv1'), L)} pour un an "
+                     f"et {usd_l(val_in(ref, 'tv5'), L)} pour cinq ans, plus 3 % de frais bancaires."),
+            "30jours": (f"{usd_l(val_in(ref, 'tv30_apr_giu'), L)} dans la colonne « April to June » et {usd_l(val_in(ref, 'tv30_lug_mar'), L)} dans la colonne "
+                        "« July to March » du tableau officiel, plus 3 % de frais bancaires. Le tableau ne dit pas s’il s’agit du mois de la demande ou de l’arrivée."),
+            "1an": f"{usd_l(val_in(ref, 'tv1'), L)} pour les Français, soit {con3_l(val_in(ref, 'tv1'), L)} avec les 3 % de frais bancaires (notre calcul).",
+            "5ans": f"{usd_l(val_in(ref, 'tv5'), L)} pour les Français, soit {con3_l(val_in(ref, 'tv5'), L)} avec les 3 % de frais bancaires (notre calcul).",
+            "business": ("Selon le tableau officiel du " + data_fr(data_tab_in("fee_altri")) + " : "
+                         + ", ".join(f"{NOMI_FR[p['iso2']]} {usd_l(val_in(p, 'business'), L)}" for p in paesi) + ", plus 3 % de frais bancaires."),
+            "belgique": (f"Pour les Belges : {usd_l(val_in(IN_PER['BE'], 'tv30_lug_mar'), L)} pour 30 jours (juillet à mars), {usd_l(val_in(IN_PER['BE'], 'tv1'), L)} "
+                         f"pour un an, {usd_l(val_in(IN_PER['BE'], 'tv5'), L)} pour cinq ans (e-Visa touristique), plus 3 % de frais bancaires."),
+            "suisse": (f"Pour les Suisses : {usd_l(val_in(IN_PER['CH'], 'tv30_lug_mar'), L)} pour 30 jours (juillet à mars), {usd_l(val_in(IN_PER['CH'], 'tv1'), L)} "
+                       f"pour un an, {usd_l(val_in(IN_PER['CH'], 'tv5'), L)} pour cinq ans (e-Visa touristique), plus 3 % de frais bancaires."),
+            "maroc": (f"Pour les Marocains : {usd_l(val_in(IN_PER['MA'], 'tv30_lug_mar'), L)} pour 30 jours (juillet à mars), {usd_l(val_in(IN_PER['MA'], 'tv1'), L)} "
+                      f"pour un an, {usd_l(val_in(IN_PER['MA'], 'tv5'), L)} pour cinq ans (e-Visa touristique), plus 3 % de frais bancaires."),
+            "officiel": ("Le site officiel est indianvisaonline.gov.in/evisa/. Le gouvernement indien écrit : « " + IN_CIT["ev_ufficiale"]["x"] + " » "
+                         "(Notre traduction : " + TRAD_IN["fr"]["ev_ufficiale"] + ") Les sites non officiels facturent plus que les frais du gouvernement."),
+        }
+    return [(f["q"], risposte[f["id"]]) for f in IN["faq"][lingua] if f["id"] in risposte]
+
+
+def prima_frase_lingua_in(lingua, paesi):
+    u = {k: uguali_in(paesi, k) for k, _ in COL_IN}
+    L = lingua
+    if L == "de":
+        return (f"Laut den offiziellen Gebührentabellen der indischen Regierung (Bureau of Immigration) vom {data_de(data_tab_in('fee_tv'))} und vom "
+                f"{data_de(data_tab_in('fee_altri'))}, geprüft am {data_de(data_in())}, kostet das e-Tourist-Visum für Indien für Staatsangehörige Deutschlands, "
+                f"Österreichs, der Schweiz und Liechtensteins {usd_l(u['tv30_apr_giu'], L)} für 30 Tage (April bis Juni), {usd_l(u['tv30_lug_mar'], L)} für 30 Tage (Juli bis März), "
+                f"{usd_l(u['tv1'], L)} für ein Jahr und {usd_l(u['tv5'], L)} für fünf Jahre, zuzüglich 3 % Bankgebühr.")
+    ref = IN_PER["FR"]
+    return (f"Selon les tableaux officiels des frais du gouvernement indien (Bureau of Immigration) du {data_fr(data_tab_in('fee_tv'))} et du "
+            f"{data_fr(data_tab_in('fee_altri'))}, vérifiés le {data_fr(data_in())}, le e-Visa touristique pour l’Inde coûte pour les Français "
+            f"{usd_l(val_in(ref, 'tv30_apr_giu'), L)} pour 30 jours (avril à juin), {usd_l(val_in(ref, 'tv30_lug_mar'), L)} pour 30 jours (juillet à mars), "
+            f"{usd_l(val_in(ref, 'tv1'), L)} pour un an et {usd_l(val_in(ref, 'tv5'), L)} pour cinq ans, plus 3 % de frais bancaires"
+            + (" ; les autres pays du tableau ci-dessous paient les mêmes montants pour le e-Visa touristique." if all(val_in(p, k) == val_in(ref, k) for p in paesi for k, _ in COL_TV)
+               else " ; les montants des autres pays sont dans le tableau ci-dessous."))
+
+
+def pagina_lingua_in(lingua):
+    rel = "../../"
+    PL = IN["pagine_lingua"][lingua]
+    paesi = [IN_PER[c] for c in PL["paesi"]]
+    url = (IN_DE if lingua == "de" else IN_FR) + "/"
+    faq_h, faq_ld = html_faq_in(faq_lingua_in(lingua, paesi), "Fragen" if lingua == "de" else "Questions")
+    if lingua == "de":
+        h1 = f"Indien e-Visum Kosten ({ANNO}): offizielle Preise für Deutschland, Österreich und die Schweiz"
+        titoli = [f"Indien e-Visum Kosten ({ANNO}): Deutschland, Österreich, Schweiz", f"Indien e-Visum Kosten ({ANNO})"]
+        desc = f"Was kostet das e-Visum für Indien? Offizielle Tabelle: 30 Tage, 1 Jahr, 5 Jahre, e-Business, für DE, AT, CH. Geprüft am {data_de(data_in())}."
+        testi = {"top": "Indien e-Visum · Kosten", "tab": "Kosten nach Staatsangehörigkeit (US-Dollar)",
+                 "noti": ("Die offizielle Tabelle nennt nur US-Dollar. Für das 30-Tage-Visum hat sie zwei Spalten, „April to June“ und „July to March“; "
+                          "sie sagt nicht, ob der Monat der Antragstellung oder der Einreise gemeint ist. Die Tabelle für die weiteren e-Visa nennt im Titel "
+                          "auch das e-Conference-Visum, hat dafür aber keine eigene Spalte."),
+                 "pagare": "Zahlung und Fristen", "en": "Alle Länder auf Englisch: India e-Visa fee by nationality",
+                 "chiusura": "Diese Seite ist eine Information, keine Rechtsberatung. An der Grenze entscheiden die Einwanderungsbeamten."}
+    else:
+        h1 = f"Prix du e-Visa pour l’Inde ({ANNO}) : tarifs officiels pour la France, la Belgique, la Suisse et le Maroc"
+        titoli = [f"Prix du e-Visa pour l’Inde ({ANNO}) : France, Belgique, Suisse", f"Prix du e-Visa pour l’Inde ({ANNO})"]
+        desc = f"Prix du e-Visa pour l’Inde d’après le tableau officiel : 30 jours, 1 an, 5 ans, business, pour FR, BE, CH, LU, MC, MA. Vérifié le {data_fr(data_in())}."
+        art_fr = {"Algérie": "l’Algérie", "République démocratique du Congo": "la République démocratique du Congo"}
+        fuori = " et ".join(art_fr.get(NOMI_FR[x], NOMI_FR[x]) for x in PL.get("fuori", []))
+        fuori = fuori[:1].upper() + fuori[1:]
+        testi = {"top": "e-Visa Inde · prix", "tab": "Prix par nationalité (dollars US)",
+                 "noti": ("Le tableau officiel donne les prix uniquement en dollars US. Pour le visa de 30 jours, il a deux colonnes, « April to June » et "
+                          "« July to March » ; il ne dit pas s’il s’agit du mois de la demande ou de l’arrivée. Le titre du tableau des autres e-Visa cite "
+                          f"aussi le e-Conference Visa, sans colonne à part. {fuori} ne figurent dans aucun des deux tableaux officiels."),
+                 "pagare": "Paiement et délais", "en": "Tous les pays en anglais : India e-Visa fee by nationality",
+                 "chiusura": "Cette page est une information, pas un conseil juridique. À la frontière, les agents de l’immigration décident."}
+    corpo = f"""{STILE_IN}<section class="hero">{h1_diviso(h1)}</section>
+<section class="card summary" aria-label="{"Antwort" if lingua == "de" else "Réponse"}">
+<div class="s-top"><span class="sq">{ico("passport")}</span><span>{escape(testi["top"])}</span><span>{ANNO}</span></div>
+<div class="s-body"><p class="lead" id="answer">{escape(prima_frase_lingua_in(lingua, paesi))}</p></div></section>
+{avviso_in(lingua)}
+<h2>{escape(testi["tab"])}</h2>
+{tabella_lingua_in(paesi, lingua)}
+{fonte_lingua_in(lingua)}
+{blocco_cit_in(["pdf_3"], lingua)}
+<p class="small">{escape(testi["noti"])}</p>
+{AD}
+<h2>{escape(testi["pagare"])}</h2>
+<p>{"Auf die Frage, ob eine andere Website als die der Regierung den Antrag annehmen kann, antwortet die offizielle e-Visa-Seite:" if lingua == "de" else "À la question de savoir si un autre site que celui du gouvernement peut recevoir la demande, la page officielle du e-Visa répond :"}</p>
+{blocco_cit_in(["ev_ufficiale"], lingua)}
+{blocco_cit_in(["ev_4giorni", "ev_rimborso"], lingua)}
+<p class="altri-pass">{ico("globe")}<span lang="en"><a href="{rel}{IN_BASE}/" hreflang="en">{escape(testi["en"])}</a> · <a href="{rel}{IN_ARR}/" hreflang="en">India e-Arrival card</a> · <a href="{rel}{IN_VOA}/" hreflang="en">Visa on arrival</a></span></p>
+{faq_h}
+<p class="small">{escape(testi["chiusura"])} <a href="{rel}contact/?ref={IN_BASE}">{"Fehler gefunden? Schreiben Sie uns" if lingua == "de" else "Une erreur ? Écrivez-nous"}</a>.</p>"""
+    pagina(url, scegli(titoli, LIMITE_TITOLO_IN), scegli([desc], LIMITE_DESCRIZIONE), corpo,
+           briciole=[("India e-Visa fee", f"{IN_BASE}/"), ("Deutsch" if lingua == "de" else "Français", url)], ld_extra=faq_ld, lingua=lingua)
+    LASTMOD[url] = data_in()
+
+
+def home_in():
+    if not IN:
+        return ""
+    voci = "".join(f'<a href="{url_in(IN_PAG_PER[c])}">{escape(IN_PER[c]["nome"])}<small>5 years: {escape(usd(val_in(IN_PER[c], "tv5")))}</small></a>'
+                   for c in ("GB", "US", "CA", "AU", "DE", "SG") if c in IN_PAG_PER)
+    return (f'<h2>Going to India? The e-Visa fee by nationality</h2><p>The fee for every e-Visa type and nationality, from the Government of India’s '
+            f'official tables: <a href="{IN_BASE}/">India e-Visa fee by nationality</a>, <a href="{IN_VOA}/">visa on arrival</a> and the '
+            f'<a href="{IN_ARR}/">e-Arrival card</a>.</p><div class="griglia">{voci}</div>')
+
+
+def about_in(rel):
+    if not IN:
+        return ""
+    return f"""<h2 id="{IN_BASE}">India e-Visa fee, visa on arrival and e-Arrival card</h2>
+<p>Sources: the Government of India’s two official fee tables in PDF on <a href="{IN_EVISA}" rel="noopener">indianvisaonline.gov.in</a> (“{escape(IN["fonti"]["fee_tv"]["titolo"])}”, dated {data_lunga(data_tab_in("fee_tv"))}, and “{escape(IN["fonti"]["fee_altri"]["titolo"])}”, dated {data_lunga(data_tab_in("fee_altri"))}), the e-Visa, visa on arrival and home pages of the same website, and two pages of the Bureau of Immigration (Ministry of Home Affairs) on boi.gov.in, {len(IN["fonti"])} sources in all, read on {data_lunga(data_in())}.</p>
+<p>Rules: every fee is copied from the official PDF tables by our script, which checks that it has read every row and stops if anything changes; a second reading of the same files with a different method must give the same countries and figures. The Bureau of Immigration says that any use of its material beyond downloading needs its approval, so we publish the figures as facts and quote its texts only in short extracts, with the link and the date. We link only to the official website for applying and paying, never to visa agencies. A nationality gets its own page only when people search for the fee for it; the German and French pages exist because people search for the fee in those languages. This is information, not legal advice.</p>"""
+
+
+def controlli_in():
+    """Controlli della sezione India in genera.py (verifica.py, punto 27, ricontrolla tutto)."""
+    errori = []
+    if not IN:
+        return errori
+    for fid in ("fee_tv", "fee_altri"):
+        F = IN["fonti"][fid]
+        T = IN["tabelle"][fid]
+        if F["http"] != 200 or F["righe"] != len(T["righe"]) or [r["n"] for r in T["righe"]] != list(range(1, len(T["righe"]) + 1)):
+            errori.append(f"india {fid}: tabella non letta con HTTP 200 o righe non consecutive")
+    for c in IN["citazioni"]:
+        if IN["fonti"][c["f"]]["http"] != 200:
+            errori.append(f"india: citazione {c['id']} da una fonte non letta con HTTP 200")
+    ids = set(IN_CIT)
+    for gruppo, ff in IN["faq"].items():
+        for f in ff:
+            if any(i not in ids for i in f.get("cit", [])):
+                errori.append(f"india: FAQ {gruppo} «{f['q']}» con citazione sconosciuta")
+    for g in IN_PAGINE:
+        if g["iso2"] not in IN_PER:
+            errori.append(f"india: pagina per {g['iso2']} senza dati")
+        elif len(scegli(titoli_in(g), LIMITE_TITOLO_IN)) > LIMITE_TITOLO_IN:
+            errori.append(f"india {g['iso2']}: titolo oltre {LIMITE_TITOLO_IN} caratteri")
+    if len({IN_PER[g["iso2"]]["slug"] for g in IN_PAGINE}) != len(IN_PAGINE) or any(IN_PER[g["iso2"]]["slug"] in ("indien-e-visum-kosten", "prix-e-visa-inde") for g in IN_PAGINE):
+        errori.append("india: slug delle pagine per nazionalità duplicati")
+    if SW_IN and not SW_IN.startswith("https://safetywing.com/"):
+        errori.append("india: link SafetyWing non valido in dati/affiliati.json (_safetywing_india)")
+    for lingua in ("de", "fr"):
+        for c in IN["pagine_lingua"][lingua]["paesi"]:
+            if c not in IN_PER or not IN_PER[c]["tv"]:
+                errori.append(f"india: pagina {lingua}, Paese {c} non nelle tabelle")
+    return errori
+
 
 def home():
     auto = sum(1 for P in PAESI if P["regola"])
@@ -6880,6 +7797,7 @@ def home():
 {home_tr()}
 {home_tb()}
 {home_pet()}
+{home_in()}
 {box_affiliati()}
 {dati_json('tutti-dati', [dati_client(P) for P in PAESI])}"""
     pagina("", f"Before You Fly {ANNO}: Passport, Visas, Liquids, Cabin Bags, EES",
@@ -6953,6 +7871,7 @@ def about():
 {about_tr(rel)}
 {about_tb(rel)}
 {about_pet(rel)}
+{about_in(rel)}
 <h2>EES and ETIAS</h2>
 <p>European Commission (DG Migration and Home Affairs) pages and GOV.UK travel advice, last checked on {data_lunga(EES['controllato_il'])}. See the <a href="{rel}ees-etias/">EES and ETIAS page</a>.</p>
 <h2>Corrections</h2>
@@ -7021,7 +7940,7 @@ def extra():
 """)
     pagina("404.html", f"Page not found | {NOME}", "Page not found.",
            '<section class="hero"><h1>Page not found</h1><p class="lead">Go to the <a href="/">home page</a>, the <a href="/passport-validity/">passport validity rules</a> '
-           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> <a href="/driving-abroad/">driving abroad with your licence</a>, <a href="/tolls-rental-car/">tolls with a rental car</a>, <a href="/winter-tyres-rental-car/">winter tyres with a rental car</a>, <a href="/foreign-licence-canada-australia-nz/">driving in Canada, Australia and New Zealand on a foreign licence</a>, <a href="/ticket-release-dates/">when tickets go on sale at major attractions</a>, <a href="/public-transport-rules/">public transport fines and contactless payment by city</a>, <a href="/train-luggage-rules/">luggage rules on European trains</a> or <a href="/eurostar-check-in-times/">Eurostar check-in times</a>.</p></section>', indicizza=False, assoluto=True)
+           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> <a href="/driving-abroad/">driving abroad with your licence</a>, <a href="/tolls-rental-car/">tolls with a rental car</a>, <a href="/winter-tyres-rental-car/">winter tyres with a rental car</a>, <a href="/foreign-licence-canada-australia-nz/">driving in Canada, Australia and New Zealand on a foreign licence</a>, <a href="/ticket-release-dates/">when tickets go on sale at major attractions</a>, <a href="/public-transport-rules/">public transport fines and contactless payment by city</a>, <a href="/train-luggage-rules/">luggage rules on European trains</a>, <a href="/eurostar-check-in-times/">Eurostar check-in times</a> or the <a href="/india-e-visa-fee/">India e-Visa fee by nationality</a>.</p></section>', indicizza=False, assoluto=True)
 
 
 def copia_grafica():
@@ -7276,6 +8195,7 @@ def controlli():
                     errori.append(f"Eurostar: FAQ «{f['q']}» senza stazione o citazioni note")
             if len(scegli(titolo_es(), LIMITE_TITOLO_TB)) > LIMITE_TITOLO_TB:
                 errori.append("Eurostar: titolo oltre il limite")
+    errori += controlli_in()
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -7367,6 +8287,14 @@ def main():
         pagina_rotte_pet()
         for p in PET_PAGINE:
             pagina_paese_pet(p)
+    if IN:
+        pagina_indice_in()
+        for g in IN_PAGINE:
+            pagina_in(g)
+        pagina_voa_in()
+        pagina_arr_in()
+        pagina_lingua_in("de")
+        pagina_lingua_in("fr")
     about()
     contatti()
     privacy()
@@ -7388,7 +8316,9 @@ def main():
           + (f"; train luggage rules: indice + {len(TB_LETTE)} pagine compagnia ({len(TB_COMP) - len(TB_LETTE)} non lette, {len(TB['fonti'])} fonti)"
              + (f" + Eurostar check-in ({len(TB_EUR['stazioni'])} stazioni)" if TB_EUR else "") if TB else "")
           + (f"; pets UK to EU: indice + calcolatore + passaporto 2027 + rotte approvate ({len(PET['rotte']['aria'])} compagnie aeree, {PET['rotte']['charter']} charter contati) + {len(PET_PAGINE)} pagine Paese "
-             f"({len(PET['fonti'])} fonti)" if PET else ""))
+             f"({len(PET['fonti'])} fonti)" if PET else "")
+          + (f"; India e-Visa: indice ({len(IN_PAESI)} Paesi) + {len(IN_PAGINE)} pagine per nazionalità + visto all'arrivo + e-Arrival card + pagine in tedesco e francese "
+             f"({len(IN['fonti'])} fonti)" if IN else ""))
 
 
 if __name__ == "__main__":

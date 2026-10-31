@@ -13,6 +13,13 @@
   "attivo_dal": "2026-10-30",
   "nota_spegnimento": "Per spegnerlo: url vuoto e rigenerare (python3 beforeyoufly/genera.py); verifica.py, punto 18, ammette nella sezione solo discovercars.com con questo a_aid."
  },
+ "_safetywing_india": {
+  "url": "https://safetywing.com/nomad-insurance?referenceID=26614957&campaign=india-e-visa&utm_campaign=india-e-visa&utm_source=26614957&utm_medium=Ambassador",
+  "nome": "SafetyWing",
+  "nota": "Riquadro 'Travel medical insurance for India' (SafetyWing Ambassador, stesso referenceID già attivo su Italy Strikes, Visa Income e Cruise Health Scores; campagna india-e-visa) SOLO nella sezione India e-Visa in inglese: indice india-e-visa-fee/, pagine per nazionalità e pagina del visto all'arrivo (box_assicurazione_in in genera.py), dopo le informazioni ufficiali, con etichetta Affiliate, rel=\"sponsored noopener\" e la riga di trasparenza. Titolo 'Optional: travel medical insurance for India'; il testo dice in grassetto che l'assicurazione non è un requisito per l'e-Visa né per il visto all'arrivo (nessuna pagina ufficiale citata la chiede) e che il costo dell'e-Visa non la comprende. Nessun link a rivenditori di visti.",
+  "attivo_dal": "2026-10-31",
+  "nota_spegnimento": "Per spegnerlo: url vuoto e rigenerare (python3 beforeyoufly/genera.py); verifica.py, punto 27, ammette nella sezione solo safetywing.com con questo referenceID e nessun altro link sponsorizzato."
+ },
  "_stay22_alloggi": {
   "nome": "Stay22",
   "nota": "Riquadro 'Where to stay' (Stay22, AID massimilianocori, porta a Booking.com) SOLO nella sezione Ticket release dates: un link per pagina attrazione, ognuno solo sulla sua pagina (box_alloggio_big in genera.py, dopo la biglietteria ufficiale), e una riga con i 6 link nell'indice (riga_alloggi_big, dopo i calendari). Link brevi dal pannello Stay22 di Massimiliano: ognuno apre la pagina di Booking.com degli hotel della città (controllato il 31/10/2026), non dell'attrazione; per Pompei la città è Napoli. Nessuna promessa di prezzi o disponibilità.",

@@ -1,0 +1,10632 @@
+{
+ "_nota": "e-Visa per l'India: tabelle ufficiali dei costi estratte dai PDF (pdftotext -layout) e fonti rilette da raccolta/india_evisa.py (HTTP, Last-Modified, data di lettura, impronta); citazioni e FAQ da dati/india_evisa_manuali.json; pagine per nazionalità solo con ricerche vere (dati/india_evisa_domanda.json). Non modificare a mano: rilanciare lo script.",
+ "controllato_il": "2026-10-31",
+ "fonti": {
+  "fee_tv": {
+   "url": "https://indianvisaonline.gov.in/evisa/images/Etourist_fee_final.pdf",
+   "url_finale": "https://indianvisaonline.gov.in/evisa/images/Etourist_fee_final.pdf",
+   "http": 200,
+   "byte": 561734,
+   "ente": "Bureau of Immigration, Ministry of Home Affairs (Government of India)",
+   "titolo": "Country/Territory Wise e-Tourist Visa Fee (in US $)",
+   "tipo": "pdf",
+   "last_modified": "Fri, 30 Oct 2026 11:39:36 GMT",
+   "file_del": "2026-10-30",
+   "letto_il": "2026-10-31",
+   "sha256": "9d421607c20f6a810113a982625170f720bc20bc08b2c8c793a6303e66cbe9f5",
+   "righe": 175,
+   "data_tabella": "2026-09-08",
+   "impronta": "9d421607c20f6a81",
+   "cambiato_il": "2026-10-31",
+   "frasi": 1
+  },
+  "fee_altri": {
+   "url": "https://indianvisaonline.gov.in/evisa/images/eTV_revised_fee_final.pdf",
+   "url_finale": "https://indianvisaonline.gov.in/evisa/images/eTV_revised_fee_final.pdf",
+   "http": 200,
+   "byte": 542280,
+   "ente": "Bureau of Immigration, Ministry of Home Affairs (Government of India)",
+   "titolo": "Country/Territory Wise e-Visa Fee (e-Business, e-Medical, e-Medical Attendant and e-Conference Visa)",
+   "tipo": "pdf",
+   "last_modified": "Fri, 30 Oct 2026 11:39:38 GMT",
+   "file_del": "2026-10-30",
+   "letto_il": "2026-10-31",
+   "sha256": "bba19619ec91a5a0accb14a94edadb29a664791f22ebf5e2c521a6bc240e8260",
+   "righe": 176,
+   "data_tabella": "2026-04-15",
+   "impronta": "bba19619ec91a5a0",
+   "cambiato_il": "2026-10-31",
+   "frasi": 0
+  },
+  "evisa": {
+   "url": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+   "url_finale": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+   "http": 200,
+   "byte": 192952,
+   "ente": "Bureau of Immigration, Ministry of Home Affairs (Government of India)",
+   "titolo": "Indian Visa Online: e-Visa",
+   "tipo": "html",
+   "last_modified": "Fri, 30 Oct 2026 11:39:40 GMT",
+   "file_del": "2026-10-30",
+   "letto_il": "2026-10-31",
+   "impronta": "7072fe234b5d579b",
+   "cambiato_il": "2026-10-31",
+   "frasi": 26
+  },
+  "ivo_home": {
+   "url": "https://indianvisaonline.gov.in/",
+   "url_finale": "https://indianvisaonline.gov.in/",
+   "http": 200,
+   "byte": 18333,
+   "ente": "Bureau of Immigration, Ministry of Home Affairs (Government of India)",
+   "titolo": "Indian Visa Online (home page)",
+   "tipo": "html",
+   "last_modified": "Wed, 19 Aug 2026 12:32:36 GMT",
+   "file_del": "2026-08-19",
+   "letto_il": "2026-10-31",
+   "impronta": "63faf647e0a3ad51",
+   "cambiato_il": "2026-10-31",
+   "frasi": 5
+  },
+  "voa": {
+   "url": "https://indianvisaonline.gov.in/visa/visa-on-arrival.html",
+   "url_finale": "https://indianvisaonline.gov.in/visa/visa-on-arrival.html",
+   "http": 200,
+   "byte": 12770,
+   "ente": "Bureau of Immigration, Ministry of Home Affairs (Government of India)",
+   "titolo": "Indian Visa Online: Visa on Arrival",
+   "tipo": "html",
+   "last_modified": "Wed, 14 Oct 2026 10:30:18 GMT",
+   "file_del": "2026-10-14",
+   "letto_il": "2026-10-31",
+   "impronta": "c44ff8b47895fc38",
+   "cambiato_il": "2026-10-31",
+   "frasi": 10
+  },
+  "boi_voa": {
+   "url": "https://boi.gov.in/boi/contents/travelling-to-india/foreigners/visa-free-regime-visa-on-arrival",
+   "url_finale": "https://boi.gov.in/boi/contents/travelling-to-india/foreigners/visa-free-regime-visa-on-arrival",
+   "http": 200,
+   "byte": 290339,
+   "ente": "Bureau of Immigration, Ministry of Home Affairs (Government of India)",
+   "titolo": "Bureau of Immigration: Visa free Regime & Visa on Arrival",
+   "tipo": "html",
+   "last_modified": null,
+   "file_del": null,
+   "letto_il": "2026-10-31",
+   "impronta": "ec570255dc69f46c",
+   "cambiato_il": "2026-10-31",
+   "frasi": 3
+  },
+  "boi_gg": {
+   "url": "https://boi.gov.in/boi/contents/travelling-to-india/general-guidelines",
+   "url_finale": "https://boi.gov.in/boi/contents/travelling-to-india/general-guidelines",
+   "http": 200,
+   "byte": 289682,
+   "ente": "Bureau of Immigration, Ministry of Home Affairs (Government of India)",
+   "titolo": "Bureau of Immigration: General Guidelines (travelling to India)",
+   "tipo": "html",
+   "last_modified": null,
+   "file_del": null,
+   "letto_il": "2026-10-31",
+   "impronta": "81b7d79e60b60893",
+   "cambiato_il": "2026-10-31",
+   "frasi": 2
+  }
+ },
+ "tabelle": {
+  "fee_tv": {
+   "titolo": "Country/Territory Wise e-Tourist Visa Fee (in US $)",
+   "colonne": [
+    [
+     "tv30_apr_giu",
+     "30 days e-TV (April to June)"
+    ],
+    [
+     "tv30_lug_mar",
+     "30 days e-TV (July to March)"
+    ],
+    [
+     "tv1",
+     "01 year e-TV"
+    ],
+    [
+     "tv5",
+     "05 years e-TV"
+    ]
+   ],
+   "data": "2026-09-08",
+   "righe": [
+    {
+     "n": 1,
+     "nome_pdf": "Albania",
+     "iso2": "AL",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 2,
+     "nome_pdf": "Andorra",
+     "iso2": "AD",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 3,
+     "nome_pdf": "Angola",
+     "iso2": "AO",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 4,
+     "nome_pdf": "Anguilla",
+     "iso2": "AI",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 5,
+     "nome_pdf": "Antigua & Barbuda",
+     "iso2": "AG",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 6,
+     "nome_pdf": "Argentina",
+     "iso2": "AR",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 7,
+     "nome_pdf": "Armenia",
+     "iso2": "AM",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 8,
+     "nome_pdf": "Aruba",
+     "iso2": "AW",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 9,
+     "nome_pdf": "Australia",
+     "iso2": "AU",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 10,
+     "nome_pdf": "Austria",
+     "iso2": "AT",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 11,
+     "nome_pdf": "Azerbaijan",
+     "iso2": "AZ",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 12,
+     "nome_pdf": "Bahamas",
+     "iso2": "BS",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 13,
+     "nome_pdf": "Bahrain",
+     "iso2": "BH",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 14,
+     "nome_pdf": "Barbados",
+     "iso2": "BB",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 15,
+     "nome_pdf": "Belarus",
+     "iso2": "BY",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 16,
+     "nome_pdf": "Belgium",
+     "iso2": "BE",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 17,
+     "nome_pdf": "Belize",
+     "iso2": "BZ",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 18,
+     "nome_pdf": "Benin",
+     "iso2": "BJ",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 19,
+     "nome_pdf": "Bolivia",
+     "iso2": "BO",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 20,
+     "nome_pdf": "Bosnia & Herzegovina",
+     "iso2": "BA",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 21,
+     "nome_pdf": "Botswana",
+     "iso2": "BW",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 22,
+     "nome_pdf": "Brazil",
+     "iso2": "BR",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 23,
+     "nome_pdf": "Brunei",
+     "iso2": "BN",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 24,
+     "nome_pdf": "Bulgaria",
+     "iso2": "BG",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 25,
+     "nome_pdf": "Burundi",
+     "iso2": "BI",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 26,
+     "nome_pdf": "Cambodia",
+     "iso2": "KH",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 27,
+     "nome_pdf": "Cameroon Republic",
+     "iso2": "CM",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 28,
+     "nome_pdf": "Canada",
+     "iso2": "CA",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 29,
+     "nome_pdf": "Cape Verde",
+     "iso2": "CV",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 30,
+     "nome_pdf": "Cayman Island",
+     "iso2": "KY",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 31,
+     "nome_pdf": "Chile",
+     "iso2": "CL",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 32,
+     "nome_pdf": "Colombia",
+     "iso2": "CO",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 33,
+     "nome_pdf": "Comoros",
+     "iso2": "KM",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 34,
+     "nome_pdf": "Cook Islands",
+     "iso2": "CK",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 35,
+     "nome_pdf": "Costa Rica",
+     "iso2": "CR",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 36,
+     "nome_pdf": "Cote D'Ivoire",
+     "iso2": "CI",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 37,
+     "nome_pdf": "Croatia",
+     "iso2": "HR",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 38,
+     "nome_pdf": "Cuba",
+     "iso2": "CU",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 39,
+     "nome_pdf": "Cyprus",
+     "iso2": "CY",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 40,
+     "nome_pdf": "Czech Republic",
+     "iso2": "CZ",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 41,
+     "nome_pdf": "Denmark",
+     "iso2": "DK",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 42,
+     "nome_pdf": "Djibouti",
+     "iso2": "DJ",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 43,
+     "nome_pdf": "Dominica",
+     "iso2": "DM",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 44,
+     "nome_pdf": "Dominican Republic",
+     "iso2": "DO",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 45,
+     "nome_pdf": "East Timor",
+     "iso2": "TL",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 46,
+     "nome_pdf": "Ecuador",
+     "iso2": "EC",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 47,
+     "nome_pdf": "El Salvador",
+     "iso2": "SV",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 48,
+     "nome_pdf": "Equatorial Guinea",
+     "iso2": "GQ",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 49,
+     "nome_pdf": "Eritrea",
+     "iso2": "ER",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 50,
+     "nome_pdf": "Estonia",
+     "iso2": "EE",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 51,
+     "nome_pdf": "Fiji",
+     "iso2": "FJ",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 52,
+     "nome_pdf": "Finland",
+     "iso2": "FI",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 53,
+     "nome_pdf": "France",
+     "iso2": "FR",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 54,
+     "nome_pdf": "Gabon",
+     "iso2": "GA",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 55,
+     "nome_pdf": "Gambia",
+     "iso2": "GM",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 56,
+     "nome_pdf": "Georgia",
+     "iso2": "GE",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 57,
+     "nome_pdf": "Germany",
+     "iso2": "DE",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 58,
+     "nome_pdf": "Ghana",
+     "iso2": "GH",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 59,
+     "nome_pdf": "Gibraltar",
+     "iso2": "GI",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 484
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "484"
+     ]
+    },
+    {
+     "n": 60,
+     "nome_pdf": "Greece",
+     "iso2": "GR",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 61,
+     "nome_pdf": "Grenada",
+     "iso2": "GD",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 62,
+     "nome_pdf": "Guatemala",
+     "iso2": "GT",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 63,
+     "nome_pdf": "Guernsey",
+     "iso2": "GG",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 484
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "484"
+     ]
+    },
+    {
+     "n": 64,
+     "nome_pdf": "Guinea",
+     "iso2": "GN",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 65,
+     "nome_pdf": "Guyana",
+     "iso2": "GY",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 66,
+     "nome_pdf": "Haiti",
+     "iso2": "HT",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 67,
+     "nome_pdf": "Honduras",
+     "iso2": "HN",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 68,
+     "nome_pdf": "Hungary",
+     "iso2": "HU",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 69,
+     "nome_pdf": "Iceland",
+     "iso2": "IS",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 70,
+     "nome_pdf": "Indonesia",
+     "iso2": "ID",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 71,
+     "nome_pdf": "Ireland",
+     "iso2": "IE",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 72,
+     "nome_pdf": "Isle of Man",
+     "iso2": "IM",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 484
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "484"
+     ]
+    },
+    {
+     "n": 73,
+     "nome_pdf": "Israel",
+     "iso2": "IL",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 74,
+     "nome_pdf": "Italy",
+     "iso2": "IT",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 75,
+     "nome_pdf": "Jamaica",
+     "iso2": "JM",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 76,
+     "nome_pdf": "Japan",
+     "iso2": "JP",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 25,
+      "tv5": 25
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "25",
+      "25"
+     ]
+    },
+    {
+     "n": 77,
+     "nome_pdf": "Jersey",
+     "iso2": "JE",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 484
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "484"
+     ]
+    },
+    {
+     "n": 78,
+     "nome_pdf": "Jordan",
+     "iso2": "JO",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 79,
+     "nome_pdf": "Kazakhstan",
+     "iso2": "KZ",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 80,
+     "nome_pdf": "Kenya",
+     "iso2": "KE",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 81,
+     "nome_pdf": "Kiribati",
+     "iso2": "KI",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 82,
+     "nome_pdf": "Kuwait",
+     "iso2": "KW",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 83,
+     "nome_pdf": "Kyrgyzstan",
+     "iso2": "KG",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 84,
+     "nome_pdf": "Laos",
+     "iso2": "LA",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 85,
+     "nome_pdf": "Latvia",
+     "iso2": "LV",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 86,
+     "nome_pdf": "Lesotho",
+     "iso2": "LS",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 87,
+     "nome_pdf": "Liberia",
+     "iso2": "LR",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 88,
+     "nome_pdf": "Liechtenstein",
+     "iso2": "LI",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 89,
+     "nome_pdf": "Lithuania",
+     "iso2": "LT",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 90,
+     "nome_pdf": "Luxembourg",
+     "iso2": "LU",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 91,
+     "nome_pdf": "Macedonia",
+     "iso2": "MK",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 92,
+     "nome_pdf": "Madagascar",
+     "iso2": "MG",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 93,
+     "nome_pdf": "Malawi",
+     "iso2": "MW",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 94,
+     "nome_pdf": "Malaysia",
+     "iso2": "MY",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 95,
+     "nome_pdf": "Mali",
+     "iso2": "ML",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 96,
+     "nome_pdf": "Malta",
+     "iso2": "MT",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 97,
+     "nome_pdf": "Marshall Islands",
+     "iso2": "MH",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 98,
+     "nome_pdf": "Mauritania",
+     "iso2": "MR",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 99,
+     "nome_pdf": "Mauritius",
+     "iso2": "MU",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 100,
+     "nome_pdf": "Mexico",
+     "iso2": "MX",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 101,
+     "nome_pdf": "Micronesia",
+     "iso2": "FM",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 102,
+     "nome_pdf": "Moldova",
+     "iso2": "MD",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 103,
+     "nome_pdf": "Monaco",
+     "iso2": "MC",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 104,
+     "nome_pdf": "Mongolia",
+     "iso2": "MN",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 105,
+     "nome_pdf": "Montenegro",
+     "iso2": "ME",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 106,
+     "nome_pdf": "Montserrat",
+     "iso2": "MS",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 107,
+     "nome_pdf": "Morocco",
+     "iso2": "MA",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 108,
+     "nome_pdf": "Mozambique",
+     "iso2": "MZ",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 220
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "220"
+     ]
+    },
+    {
+     "n": 109,
+     "nome_pdf": "Myanmar",
+     "iso2": "MM",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 110,
+     "nome_pdf": "Namibia",
+     "iso2": "NA",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 111,
+     "nome_pdf": "Nauru",
+     "iso2": "NR",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 112,
+     "nome_pdf": "Netherlands",
+     "iso2": "NL",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 113,
+     "nome_pdf": "New Zealand",
+     "iso2": "NZ",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 114,
+     "nome_pdf": "Nicaragua",
+     "iso2": "NI",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 115,
+     "nome_pdf": "Niger Republic",
+     "iso2": "NE",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 116,
+     "nome_pdf": "Niue Island",
+     "iso2": "NU",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 117,
+     "nome_pdf": "Norway",
+     "iso2": "NO",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 118,
+     "nome_pdf": "Oman",
+     "iso2": "OM",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 119,
+     "nome_pdf": "Palau",
+     "iso2": "PW",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 120,
+     "nome_pdf": "Palestine",
+     "iso2": "PS",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 121,
+     "nome_pdf": "Panama",
+     "iso2": "PA",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 122,
+     "nome_pdf": "Papua New Guinea",
+     "iso2": "PG",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 123,
+     "nome_pdf": "Paraguay",
+     "iso2": "PY",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 124,
+     "nome_pdf": "Peru",
+     "iso2": "PE",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 125,
+     "nome_pdf": "Philippines",
+     "iso2": "PH",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 126,
+     "nome_pdf": "Poland",
+     "iso2": "PL",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 127,
+     "nome_pdf": "Portugal",
+     "iso2": "PT",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 128,
+     "nome_pdf": "Qatar",
+     "iso2": "QA",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 129,
+     "nome_pdf": "Republic Of Korea",
+     "iso2": "KR",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 130,
+     "nome_pdf": "Romania",
+     "iso2": "RO",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 131,
+     "nome_pdf": "Russia",
+     "iso2": "RU",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 40,
+      "tv5": 120
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "40",
+      "120"
+     ]
+    },
+    {
+     "n": 132,
+     "nome_pdf": "Rwanda",
+     "iso2": "RW",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 133,
+     "nome_pdf": "Saint Christopher And Nevis",
+     "iso2": "KN",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 134,
+     "nome_pdf": "Saint Lucia",
+     "iso2": "LC",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 135,
+     "nome_pdf": "Saint Vincent And The Grenadines",
+     "iso2": "VC",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 136,
+     "nome_pdf": "Samoa",
+     "iso2": "WS",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 137,
+     "nome_pdf": "San Marino",
+     "iso2": "SM",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 138,
+     "nome_pdf": "Saudi Arabia",
+     "iso2": "SA",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 139,
+     "nome_pdf": "Senegal",
+     "iso2": "SN",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 140,
+     "nome_pdf": "Serbia",
+     "iso2": "RS",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 141,
+     "nome_pdf": "Seychelles",
+     "iso2": "SC",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 142,
+     "nome_pdf": "Sierra Leone",
+     "iso2": "SL",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 143,
+     "nome_pdf": "Singapore",
+     "iso2": "SG",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 25,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "25",
+      "200"
+     ]
+    },
+    {
+     "n": 144,
+     "nome_pdf": "Slovakia",
+     "iso2": "SK",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 145,
+     "nome_pdf": "Slovenia",
+     "iso2": "SI",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 146,
+     "nome_pdf": "Solomon Islands",
+     "iso2": "SB",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 147,
+     "nome_pdf": "South Africa",
+     "iso2": "ZA",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 25,
+      "tv5": 25
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "25",
+      "25"
+     ]
+    },
+    {
+     "n": 148,
+     "nome_pdf": "Spain",
+     "iso2": "ES",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 149,
+     "nome_pdf": "Sri Lanka",
+     "iso2": "LK",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 25,
+      "tv5": 25
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "25",
+      "25"
+     ]
+    },
+    {
+     "n": 150,
+     "nome_pdf": "Suriname",
+     "iso2": "SR",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 151,
+     "nome_pdf": "Swaziland",
+     "iso2": "SZ",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 152,
+     "nome_pdf": "Sweden",
+     "iso2": "SE",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 153,
+     "nome_pdf": "Switzerland",
+     "iso2": "CH",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 154,
+     "nome_pdf": "Taiwan",
+     "iso2": "TW",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 155,
+     "nome_pdf": "Tajikistan",
+     "iso2": "TJ",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 156,
+     "nome_pdf": "Tanzania",
+     "iso2": "TZ",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 157,
+     "nome_pdf": "Thailand",
+     "iso2": "TH",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 158,
+     "nome_pdf": "Togo",
+     "iso2": "TG",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 159,
+     "nome_pdf": "Tonga",
+     "iso2": "TO",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 160,
+     "nome_pdf": "Trinidad And Tobago",
+     "iso2": "TT",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 161,
+     "nome_pdf": "Turks And Caicos",
+     "iso2": "TC",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 162,
+     "nome_pdf": "Tuvalu",
+     "iso2": "TV",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 163,
+     "nome_pdf": "Uganda",
+     "iso2": "UG",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 164,
+     "nome_pdf": "Ukraine",
+     "iso2": "UA",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 165,
+     "nome_pdf": "United Arab Emirates",
+     "iso2": "AE",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 166,
+     "nome_pdf": "United Kingdom (UK)",
+     "iso2": "GB",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 484
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "484"
+     ]
+    },
+    {
+     "n": 167,
+     "nome_pdf": "United States Of America",
+     "iso2": "US",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 160
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "160"
+     ]
+    },
+    {
+     "n": 168,
+     "nome_pdf": "Uruguay",
+     "iso2": "UY",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 169,
+     "nome_pdf": "Uzbekistan",
+     "iso2": "UZ",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 170,
+     "nome_pdf": "Vanuatu",
+     "iso2": "VU",
+     "valori": {
+      "tv30_apr_giu": 0,
+      "tv30_lug_mar": 0,
+      "tv1": 0,
+      "tv5": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 171,
+     "nome_pdf": "Vatican City - Holy See",
+     "iso2": "VA",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 172,
+     "nome_pdf": "Venezuela",
+     "iso2": "VE",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 173,
+     "nome_pdf": "Vietnam",
+     "iso2": "VN",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 174,
+     "nome_pdf": "Zambia",
+     "iso2": "ZM",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    },
+    {
+     "n": 175,
+     "nome_pdf": "Zimbabwe",
+     "iso2": "ZW",
+     "valori": {
+      "tv30_apr_giu": 10,
+      "tv30_lug_mar": 25,
+      "tv1": 40,
+      "tv5": 200
+     },
+     "grezzi": [
+      "10",
+      "25",
+      "40",
+      "200"
+     ]
+    }
+   ]
+  },
+  "fee_altri": {
+   "titolo": "Country/Territory Wise e-Visa Fee (e-Business, e-Medical, e-Medical Attendant and e-Conference Visa)",
+   "colonne": [
+    [
+     "business",
+     "e-Business Visa"
+    ],
+    [
+     "medico",
+     "e-Medical Visa"
+    ],
+    [
+     "accompagnatore",
+     "e-Medical Attendant Visa"
+    ]
+   ],
+   "data": "2026-04-15",
+   "righe": [
+    {
+     "n": 1,
+     "nome_pdf": "Albania",
+     "iso2": "AL",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 2,
+     "nome_pdf": "Andorra",
+     "iso2": "AD",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 3,
+     "nome_pdf": "Angola",
+     "iso2": "AO",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 4,
+     "nome_pdf": "Anguilla",
+     "iso2": "AI",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 5,
+     "nome_pdf": "Antigua & Barbuda",
+     "iso2": "AG",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 6,
+     "nome_pdf": "Argentina",
+     "iso2": "AR",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 7,
+     "nome_pdf": "Armenia",
+     "iso2": "AM",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 8,
+     "nome_pdf": "Aruba",
+     "iso2": "AW",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 9,
+     "nome_pdf": "Australia",
+     "iso2": "AU",
+     "valori": {
+      "business": 215,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "215",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 10,
+     "nome_pdf": "Austria",
+     "iso2": "AT",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 11,
+     "nome_pdf": "Azerbaijan",
+     "iso2": "AZ",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 12,
+     "nome_pdf": "Bahamas",
+     "iso2": "BS",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 13,
+     "nome_pdf": "Bahrain",
+     "iso2": "BH",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 14,
+     "nome_pdf": "Bangladesh",
+     "iso2": "BD",
+     "valori": {
+      "business": null,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "-",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 15,
+     "nome_pdf": "Barbados",
+     "iso2": "BB",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 16,
+     "nome_pdf": "Belarus",
+     "iso2": "BY",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 17,
+     "nome_pdf": "Belgium",
+     "iso2": "BE",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 18,
+     "nome_pdf": "Belize",
+     "iso2": "BZ",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 19,
+     "nome_pdf": "Benin",
+     "iso2": "BJ",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 20,
+     "nome_pdf": "Bolivia",
+     "iso2": "BO",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 21,
+     "nome_pdf": "Bosnia & Herzegovina",
+     "iso2": "BA",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 22,
+     "nome_pdf": "Botswana",
+     "iso2": "BW",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 23,
+     "nome_pdf": "Brazil",
+     "iso2": "BR",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 24,
+     "nome_pdf": "Brunei",
+     "iso2": "BN",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 25,
+     "nome_pdf": "Bulgaria",
+     "iso2": "BG",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 26,
+     "nome_pdf": "Burundi",
+     "iso2": "BI",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 27,
+     "nome_pdf": "Cambodia",
+     "iso2": "KH",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 28,
+     "nome_pdf": "Cameroon Republic",
+     "iso2": "CM",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 29,
+     "nome_pdf": "Canada",
+     "iso2": "CA",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 30,
+     "nome_pdf": "Cape Verde",
+     "iso2": "CV",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 31,
+     "nome_pdf": "Cayman Island",
+     "iso2": "KY",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 32,
+     "nome_pdf": "Chile",
+     "iso2": "CL",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 33,
+     "nome_pdf": "Colombia",
+     "iso2": "CO",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 34,
+     "nome_pdf": "Comoros",
+     "iso2": "KM",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 35,
+     "nome_pdf": "Cook Islands",
+     "iso2": "CK",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 36,
+     "nome_pdf": "Costa Rica",
+     "iso2": "CR",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 37,
+     "nome_pdf": "Cote D'Ivoire",
+     "iso2": "CI",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 38,
+     "nome_pdf": "Croatia",
+     "iso2": "HR",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 39,
+     "nome_pdf": "Cuba",
+     "iso2": "CU",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 40,
+     "nome_pdf": "Cyprus",
+     "iso2": "CY",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 41,
+     "nome_pdf": "Czech Republic",
+     "iso2": "CZ",
+     "valori": {
+      "business": 190,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "190",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 42,
+     "nome_pdf": "Denmark",
+     "iso2": "DK",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 43,
+     "nome_pdf": "Djibouti",
+     "iso2": "DJ",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 44,
+     "nome_pdf": "Dominica",
+     "iso2": "DM",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 45,
+     "nome_pdf": "Dominican Republic",
+     "iso2": "DO",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 46,
+     "nome_pdf": "East Timor",
+     "iso2": "TL",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 47,
+     "nome_pdf": "Ecuador",
+     "iso2": "EC",
+     "valori": {
+      "business": 240,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "240",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 48,
+     "nome_pdf": "El Salvador",
+     "iso2": "SV",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 49,
+     "nome_pdf": "Equatorial Guinea",
+     "iso2": "GQ",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 50,
+     "nome_pdf": "Eritrea",
+     "iso2": "ER",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 51,
+     "nome_pdf": "Estonia",
+     "iso2": "EE",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 52,
+     "nome_pdf": "Fiji",
+     "iso2": "FJ",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 53,
+     "nome_pdf": "Finland",
+     "iso2": "FI",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 54,
+     "nome_pdf": "France",
+     "iso2": "FR",
+     "valori": {
+      "business": 165,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "165",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 55,
+     "nome_pdf": "Gabon",
+     "iso2": "GA",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 56,
+     "nome_pdf": "Gambia",
+     "iso2": "GM",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 57,
+     "nome_pdf": "Georgia",
+     "iso2": "GE",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 58,
+     "nome_pdf": "Germany",
+     "iso2": "DE",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 59,
+     "nome_pdf": "Ghana",
+     "iso2": "GH",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 60,
+     "nome_pdf": "Gibraltar",
+     "iso2": "GI",
+     "valori": {
+      "business": 242,
+      "medico": 129,
+      "accompagnatore": 129
+     },
+     "grezzi": [
+      "242",
+      "129",
+      "129"
+     ]
+    },
+    {
+     "n": 61,
+     "nome_pdf": "Greece",
+     "iso2": "GR",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 62,
+     "nome_pdf": "Grenada",
+     "iso2": "GD",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 63,
+     "nome_pdf": "Guatemala",
+     "iso2": "GT",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 64,
+     "nome_pdf": "Guernsey",
+     "iso2": "GG",
+     "valori": {
+      "business": 242,
+      "medico": 129,
+      "accompagnatore": 129
+     },
+     "grezzi": [
+      "242",
+      "129",
+      "129"
+     ]
+    },
+    {
+     "n": 65,
+     "nome_pdf": "Guinea",
+     "iso2": "GN",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 66,
+     "nome_pdf": "Guyana",
+     "iso2": "GY",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 67,
+     "nome_pdf": "Haiti",
+     "iso2": "HT",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 68,
+     "nome_pdf": "Honduras",
+     "iso2": "HN",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 69,
+     "nome_pdf": "Hungary",
+     "iso2": "HU",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 70,
+     "nome_pdf": "Iceland",
+     "iso2": "IS",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 71,
+     "nome_pdf": "Indonesia",
+     "iso2": "ID",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 72,
+     "nome_pdf": "Ireland",
+     "iso2": "IE",
+     "valori": {
+      "business": 200,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "200",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 73,
+     "nome_pdf": "Isle of Man",
+     "iso2": "IM",
+     "valori": {
+      "business": 242,
+      "medico": 129,
+      "accompagnatore": 129
+     },
+     "grezzi": [
+      "242",
+      "129",
+      "129"
+     ]
+    },
+    {
+     "n": 74,
+     "nome_pdf": "Israel",
+     "iso2": "IL",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 75,
+     "nome_pdf": "Italy",
+     "iso2": "IT",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 76,
+     "nome_pdf": "Jamaica",
+     "iso2": "JM",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 77,
+     "nome_pdf": "Japan",
+     "iso2": "JP",
+     "valori": {
+      "business": 25,
+      "medico": 25,
+      "accompagnatore": 25
+     },
+     "grezzi": [
+      "25",
+      "25",
+      "25"
+     ]
+    },
+    {
+     "n": 78,
+     "nome_pdf": "Jersey",
+     "iso2": "JE",
+     "valori": {
+      "business": 242,
+      "medico": 129,
+      "accompagnatore": 129
+     },
+     "grezzi": [
+      "242",
+      "129",
+      "129"
+     ]
+    },
+    {
+     "n": 79,
+     "nome_pdf": "Jordan",
+     "iso2": "JO",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 80,
+     "nome_pdf": "Kazakhstan",
+     "iso2": "KZ",
+     "valori": {
+      "business": 120,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "120",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 81,
+     "nome_pdf": "Kenya",
+     "iso2": "KE",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 82,
+     "nome_pdf": "Kiribati",
+     "iso2": "KI",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 83,
+     "nome_pdf": "Kuwait",
+     "iso2": "KW",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 84,
+     "nome_pdf": "Kyrgyzstan",
+     "iso2": "KG",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 85,
+     "nome_pdf": "Laos",
+     "iso2": "LA",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 86,
+     "nome_pdf": "Latvia",
+     "iso2": "LV",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 87,
+     "nome_pdf": "Lesotho",
+     "iso2": "LS",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 88,
+     "nome_pdf": "Liberia",
+     "iso2": "LR",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 89,
+     "nome_pdf": "Liechtenstein",
+     "iso2": "LI",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 90,
+     "nome_pdf": "Lithuania",
+     "iso2": "LT",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 91,
+     "nome_pdf": "Luxembourg",
+     "iso2": "LU",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 92,
+     "nome_pdf": "Macedonia",
+     "iso2": "MK",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 93,
+     "nome_pdf": "Madagascar",
+     "iso2": "MG",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 94,
+     "nome_pdf": "Malawi",
+     "iso2": "MW",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 95,
+     "nome_pdf": "Malaysia",
+     "iso2": "MY",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 96,
+     "nome_pdf": "Mali",
+     "iso2": "ML",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 97,
+     "nome_pdf": "Malta",
+     "iso2": "MT",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 98,
+     "nome_pdf": "Marshall Islands",
+     "iso2": "MH",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 99,
+     "nome_pdf": "Mauritania",
+     "iso2": "MR",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 100,
+     "nome_pdf": "Mauritius",
+     "iso2": "MU",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 101,
+     "nome_pdf": "Mexico",
+     "iso2": "MX",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 102,
+     "nome_pdf": "Micronesia",
+     "iso2": "FM",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 103,
+     "nome_pdf": "Moldova",
+     "iso2": "MD",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 104,
+     "nome_pdf": "Monaco",
+     "iso2": "MC",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 105,
+     "nome_pdf": "Mongolia",
+     "iso2": "MN",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 106,
+     "nome_pdf": "Montenegro",
+     "iso2": "ME",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 107,
+     "nome_pdf": "Montserrat",
+     "iso2": "MS",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 108,
+     "nome_pdf": "Morocco",
+     "iso2": "MA",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 109,
+     "nome_pdf": "Mozambique",
+     "iso2": "MZ",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 110,
+     "nome_pdf": "Myanmar",
+     "iso2": "MM",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 111,
+     "nome_pdf": "Namibia",
+     "iso2": "NA",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 112,
+     "nome_pdf": "Nauru",
+     "iso2": "NR",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 113,
+     "nome_pdf": "Netherlands",
+     "iso2": "NL",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 114,
+     "nome_pdf": "New Zealand",
+     "iso2": "NZ",
+     "valori": {
+      "business": 130,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "130",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 115,
+     "nome_pdf": "Nicaragua",
+     "iso2": "NI",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 116,
+     "nome_pdf": "Niger Republic",
+     "iso2": "NE",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 117,
+     "nome_pdf": "Niue Island",
+     "iso2": "NU",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 118,
+     "nome_pdf": "Norway",
+     "iso2": "NO",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 119,
+     "nome_pdf": "Oman",
+     "iso2": "OM",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 120,
+     "nome_pdf": "Palau",
+     "iso2": "PW",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 121,
+     "nome_pdf": "Palestine",
+     "iso2": "PS",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 122,
+     "nome_pdf": "Panama",
+     "iso2": "PA",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 123,
+     "nome_pdf": "Papua New Guinea",
+     "iso2": "PG",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 124,
+     "nome_pdf": "Paraguay",
+     "iso2": "PY",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 125,
+     "nome_pdf": "Peru",
+     "iso2": "PE",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 126,
+     "nome_pdf": "Philippines",
+     "iso2": "PH",
+     "valori": {
+      "business": 220,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "220",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 127,
+     "nome_pdf": "Poland",
+     "iso2": "PL",
+     "valori": {
+      "business": 145,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "145",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 128,
+     "nome_pdf": "Portugal",
+     "iso2": "PT",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 129,
+     "nome_pdf": "Qatar",
+     "iso2": "QA",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 130,
+     "nome_pdf": "Republic Of Korea",
+     "iso2": "KR",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 131,
+     "nome_pdf": "Romania",
+     "iso2": "RO",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 132,
+     "nome_pdf": "Russia",
+     "iso2": "RU",
+     "valori": {
+      "business": 120,
+      "medico": 120,
+      "accompagnatore": 120
+     },
+     "grezzi": [
+      "120",
+      "120",
+      "120"
+     ]
+    },
+    {
+     "n": 133,
+     "nome_pdf": "Rwanda",
+     "iso2": "RW",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 134,
+     "nome_pdf": "Saint Christopher And Nevis",
+     "iso2": "KN",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 135,
+     "nome_pdf": "Saint Lucia",
+     "iso2": "LC",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 136,
+     "nome_pdf": "Saint Vincent And The Grenadines",
+     "iso2": "VC",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 137,
+     "nome_pdf": "Samoa",
+     "iso2": "WS",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 138,
+     "nome_pdf": "San Marino",
+     "iso2": "SM",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 139,
+     "nome_pdf": "Saudi Arabia",
+     "iso2": "SA",
+     "valori": {
+      "business": 215,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "215",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 140,
+     "nome_pdf": "Senegal",
+     "iso2": "SN",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 141,
+     "nome_pdf": "Serbia",
+     "iso2": "RS",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 142,
+     "nome_pdf": "Seychelles",
+     "iso2": "SC",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 143,
+     "nome_pdf": "Sierra Leone",
+     "iso2": "SL",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 144,
+     "nome_pdf": "Singapore",
+     "iso2": "SG",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 145,
+     "nome_pdf": "Slovakia",
+     "iso2": "SK",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 146,
+     "nome_pdf": "Slovenia",
+     "iso2": "SI",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 147,
+     "nome_pdf": "Solomon Islands",
+     "iso2": "SB",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 148,
+     "nome_pdf": "South Africa",
+     "iso2": "ZA",
+     "valori": {
+      "business": 25,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "25",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 149,
+     "nome_pdf": "Spain",
+     "iso2": "ES",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 150,
+     "nome_pdf": "Sri Lanka",
+     "iso2": "LK",
+     "valori": {
+      "business": 80,
+      "medico": 25,
+      "accompagnatore": 25
+     },
+     "grezzi": [
+      "80",
+      "25",
+      "25"
+     ]
+    },
+    {
+     "n": 151,
+     "nome_pdf": "Suriname",
+     "iso2": "SR",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 152,
+     "nome_pdf": "Swaziland",
+     "iso2": "SZ",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 153,
+     "nome_pdf": "Sweden",
+     "iso2": "SE",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 154,
+     "nome_pdf": "Switzerland",
+     "iso2": "CH",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 155,
+     "nome_pdf": "Taiwan",
+     "iso2": "TW",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 156,
+     "nome_pdf": "Tajikistan",
+     "iso2": "TJ",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 157,
+     "nome_pdf": "Tanzania",
+     "iso2": "TZ",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 158,
+     "nome_pdf": "Thailand",
+     "iso2": "TH",
+     "valori": {
+      "business": 200,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "200",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 159,
+     "nome_pdf": "Togo",
+     "iso2": "TG",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 160,
+     "nome_pdf": "Tonga",
+     "iso2": "TO",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 161,
+     "nome_pdf": "Trinidad And Tobago",
+     "iso2": "TT",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 162,
+     "nome_pdf": "Turks And Caicos",
+     "iso2": "TC",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 163,
+     "nome_pdf": "Tuvalu",
+     "iso2": "TV",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 164,
+     "nome_pdf": "Uganda",
+     "iso2": "UG",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 165,
+     "nome_pdf": "Ukraine",
+     "iso2": "UA",
+     "valori": {
+      "business": 130,
+      "medico": 85,
+      "accompagnatore": 85
+     },
+     "grezzi": [
+      "130",
+      "85",
+      "85"
+     ]
+    },
+    {
+     "n": 166,
+     "nome_pdf": "United Arab Emirates",
+     "iso2": "AE",
+     "valori": {
+      "business": 415,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "415",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 167,
+     "nome_pdf": "United Kingdom (UK)",
+     "iso2": "GB",
+     "valori": {
+      "business": 242,
+      "medico": 129,
+      "accompagnatore": 129
+     },
+     "grezzi": [
+      "242",
+      "129",
+      "129"
+     ]
+    },
+    {
+     "n": 168,
+     "nome_pdf": "United States Of America",
+     "iso2": "US",
+     "valori": {
+      "business": 140,
+      "medico": 100,
+      "accompagnatore": 100
+     },
+     "grezzi": [
+      "140",
+      "100",
+      "100"
+     ]
+    },
+    {
+     "n": 169,
+     "nome_pdf": "Uruguay",
+     "iso2": "UY",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 170,
+     "nome_pdf": "Uzbekistan",
+     "iso2": "UZ",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 171,
+     "nome_pdf": "Vanuatu",
+     "iso2": "VU",
+     "valori": {
+      "business": 0,
+      "medico": 0,
+      "accompagnatore": 0
+     },
+     "grezzi": [
+      "00",
+      "00",
+      "00"
+     ]
+    },
+    {
+     "n": 172,
+     "nome_pdf": "Vatican City - Holy See",
+     "iso2": "VA",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 173,
+     "nome_pdf": "Venezuela",
+     "iso2": "VE",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 174,
+     "nome_pdf": "Vietnam",
+     "iso2": "VN",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 175,
+     "nome_pdf": "Zambia",
+     "iso2": "ZM",
+     "valori": {
+      "business": 0,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "00",
+      "80",
+      "80"
+     ]
+    },
+    {
+     "n": 176,
+     "nome_pdf": "Zimbabwe",
+     "iso2": "ZW",
+     "valori": {
+      "business": 120,
+      "medico": 80,
+      "accompagnatore": 80
+     },
+     "grezzi": [
+      "120",
+      "80",
+      "80"
+     ]
+    }
+   ]
+  }
+ },
+ "paesi": [
+  {
+   "iso2": "AL",
+   "nome": "Albania",
+   "nome_pdf": "Albania",
+   "slug": "albania",
+   "alias": [
+    "Republic of Albania"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "AD",
+   "nome": "Andorra",
+   "nome_pdf": "Andorra",
+   "slug": "andorra",
+   "alias": [
+    "Principality of Andorra"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "AO",
+   "nome": "Angola",
+   "nome_pdf": "Angola",
+   "slug": "angola",
+   "alias": [
+    "Republic of Angola"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "AI",
+   "nome": "Anguilla",
+   "nome_pdf": "Anguilla",
+   "slug": "anguilla",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "AG",
+   "nome": "Antigua and Barbuda",
+   "nome_pdf": "Antigua & Barbuda",
+   "slug": "antigua-and-barbuda",
+   "alias": [
+    "Antigua & Barbuda"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "AR",
+   "nome": "Argentina",
+   "nome_pdf": "Argentina",
+   "slug": "argentina",
+   "alias": [
+    "Argentine Republic"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "AM",
+   "nome": "Armenia",
+   "nome_pdf": "Armenia",
+   "slug": "armenia",
+   "alias": [
+    "Republic of Armenia"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "AW",
+   "nome": "Aruba",
+   "nome_pdf": "Aruba",
+   "slug": "aruba",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "AU",
+   "nome": "Australia",
+   "nome_pdf": "Australia",
+   "slug": "australia",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 215,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "AT",
+   "nome": "Austria",
+   "nome_pdf": "Austria",
+   "slug": "austria",
+   "alias": [
+    "Republic of Austria"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "AZ",
+   "nome": "Azerbaijan",
+   "nome_pdf": "Azerbaijan",
+   "slug": "azerbaijan",
+   "alias": [
+    "Republic of Azerbaijan"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "BS",
+   "nome": "Bahamas",
+   "nome_pdf": "Bahamas",
+   "slug": "bahamas",
+   "alias": [
+    "Commonwealth of the Bahamas",
+    "The Bahamas"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "BH",
+   "nome": "Bahrain",
+   "nome_pdf": "Bahrain",
+   "slug": "bahrain",
+   "alias": [
+    "Kingdom of Bahrain"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "BD",
+   "nome": "Bangladesh",
+   "nome_pdf": "Bangladesh",
+   "slug": "bangladesh",
+   "alias": [
+    "People's Republic of Bangladesh"
+   ],
+   "tv": null,
+   "altri": {
+    "business": null,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "BB",
+   "nome": "Barbados",
+   "nome_pdf": "Barbados",
+   "slug": "barbados",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "BY",
+   "nome": "Belarus",
+   "nome_pdf": "Belarus",
+   "slug": "belarus",
+   "alias": [
+    "Republic of Belarus"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "BE",
+   "nome": "Belgium",
+   "nome_pdf": "Belgium",
+   "slug": "belgium",
+   "alias": [
+    "Kingdom of Belgium"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "BZ",
+   "nome": "Belize",
+   "nome_pdf": "Belize",
+   "slug": "belize",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "BJ",
+   "nome": "Benin",
+   "nome_pdf": "Benin",
+   "slug": "benin",
+   "alias": [
+    "Republic of Benin"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "BO",
+   "nome": "Bolivia",
+   "nome_pdf": "Bolivia",
+   "slug": "bolivia",
+   "alias": [
+    "Bolivia, Plurinational State of",
+    "Plurinational State of Bolivia"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "BA",
+   "nome": "Bosnia and Herzegovina",
+   "nome_pdf": "Bosnia & Herzegovina",
+   "slug": "bosnia-and-herzegovina",
+   "alias": [
+    "Bosnia",
+    "Bosnia & Herzegovina",
+    "Bosnia-Herzegovina",
+    "Republic of Bosnia and Herzegovina"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "BW",
+   "nome": "Botswana",
+   "nome_pdf": "Botswana",
+   "slug": "botswana",
+   "alias": [
+    "Republic of Botswana"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "BR",
+   "nome": "Brazil",
+   "nome_pdf": "Brazil",
+   "slug": "brazil",
+   "alias": [
+    "Federative Republic of Brazil"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "BN",
+   "nome": "Brunei",
+   "nome_pdf": "Brunei",
+   "slug": "brunei",
+   "alias": [
+    "Brunei Darussalam"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "BG",
+   "nome": "Bulgaria",
+   "nome_pdf": "Bulgaria",
+   "slug": "bulgaria",
+   "alias": [
+    "Republic of Bulgaria"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "BI",
+   "nome": "Burundi",
+   "nome_pdf": "Burundi",
+   "slug": "burundi",
+   "alias": [
+    "Republic of Burundi"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "KH",
+   "nome": "Cambodia",
+   "nome_pdf": "Cambodia",
+   "slug": "cambodia",
+   "alias": [
+    "Kingdom of Cambodia"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "CM",
+   "nome": "Cameroon",
+   "nome_pdf": "Cameroon Republic",
+   "slug": "cameroon",
+   "alias": [
+    "Republic of Cameroon"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "CA",
+   "nome": "Canada",
+   "nome_pdf": "Canada",
+   "slug": "canada",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "CV",
+   "nome": "Cape Verde",
+   "nome_pdf": "Cape Verde",
+   "slug": "cape-verde",
+   "alias": [
+    "Cabo Verde",
+    "Republic of Cabo Verde"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "KY",
+   "nome": "Cayman Islands",
+   "nome_pdf": "Cayman Island",
+   "slug": "cayman-islands",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "CL",
+   "nome": "Chile",
+   "nome_pdf": "Chile",
+   "slug": "chile",
+   "alias": [
+    "Republic of Chile"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "CO",
+   "nome": "Colombia",
+   "nome_pdf": "Colombia",
+   "slug": "colombia",
+   "alias": [
+    "Republic of Colombia"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "KM",
+   "nome": "Comoros",
+   "nome_pdf": "Comoros",
+   "slug": "comoros",
+   "alias": [
+    "Union of the Comoros"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "CK",
+   "nome": "Cook Islands",
+   "nome_pdf": "Cook Islands",
+   "slug": "cook-islands",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "CR",
+   "nome": "Costa Rica",
+   "nome_pdf": "Costa Rica",
+   "slug": "costa-rica",
+   "alias": [
+    "Republic of Costa Rica"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "CI",
+   "nome": "Côte d'Ivoire",
+   "nome_pdf": "Cote D'Ivoire",
+   "slug": "c-te-d-ivoire",
+   "alias": [
+    "Cote d'Ivoire",
+    "Ivory Coast",
+    "Republic of Côte d'Ivoire"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "HR",
+   "nome": "Croatia",
+   "nome_pdf": "Croatia",
+   "slug": "croatia",
+   "alias": [
+    "Republic of Croatia"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "CU",
+   "nome": "Cuba",
+   "nome_pdf": "Cuba",
+   "slug": "cuba",
+   "alias": [
+    "Republic of Cuba"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "CY",
+   "nome": "Cyprus",
+   "nome_pdf": "Cyprus",
+   "slug": "cyprus",
+   "alias": [
+    "Republic of Cyprus"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "CZ",
+   "nome": "Czechia",
+   "nome_pdf": "Czech Republic",
+   "slug": "czechia",
+   "alias": [
+    "Czech Republic"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 190,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "DK",
+   "nome": "Denmark",
+   "nome_pdf": "Denmark",
+   "slug": "denmark",
+   "alias": [
+    "Kingdom of Denmark"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "DJ",
+   "nome": "Djibouti",
+   "nome_pdf": "Djibouti",
+   "slug": "djibouti",
+   "alias": [
+    "Republic of Djibouti"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "DM",
+   "nome": "Dominica",
+   "nome_pdf": "Dominica",
+   "slug": "dominica",
+   "alias": [
+    "Commonwealth of Dominica"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "DO",
+   "nome": "Dominican Republic",
+   "nome_pdf": "Dominican Republic",
+   "slug": "dominican-republic",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "TL",
+   "nome": "Timor-Leste",
+   "nome_pdf": "East Timor",
+   "slug": "timor-leste",
+   "alias": [
+    "Democratic Republic of Timor-Leste",
+    "East Timor"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "EC",
+   "nome": "Ecuador",
+   "nome_pdf": "Ecuador",
+   "slug": "ecuador",
+   "alias": [
+    "Republic of Ecuador"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 240,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "SV",
+   "nome": "El Salvador",
+   "nome_pdf": "El Salvador",
+   "slug": "el-salvador",
+   "alias": [
+    "Republic of El Salvador"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "GQ",
+   "nome": "Equatorial Guinea",
+   "nome_pdf": "Equatorial Guinea",
+   "slug": "equatorial-guinea",
+   "alias": [
+    "Republic of Equatorial Guinea"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "ER",
+   "nome": "Eritrea",
+   "nome_pdf": "Eritrea",
+   "slug": "eritrea",
+   "alias": [
+    "the State of Eritrea"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "EE",
+   "nome": "Estonia",
+   "nome_pdf": "Estonia",
+   "slug": "estonia",
+   "alias": [
+    "Republic of Estonia"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "FJ",
+   "nome": "Fiji",
+   "nome_pdf": "Fiji",
+   "slug": "fiji",
+   "alias": [
+    "Republic of Fiji"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "FI",
+   "nome": "Finland",
+   "nome_pdf": "Finland",
+   "slug": "finland",
+   "alias": [
+    "Republic of Finland"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "FR",
+   "nome": "France",
+   "nome_pdf": "France",
+   "slug": "france",
+   "alias": [
+    "French Republic"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 165,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "GA",
+   "nome": "Gabon",
+   "nome_pdf": "Gabon",
+   "slug": "gabon",
+   "alias": [
+    "Gabonese Republic"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "GM",
+   "nome": "Gambia",
+   "nome_pdf": "Gambia",
+   "slug": "gambia",
+   "alias": [
+    "Republic of the Gambia",
+    "The Gambia"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "GE",
+   "nome": "Georgia",
+   "nome_pdf": "Georgia",
+   "slug": "georgia",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "DE",
+   "nome": "Germany",
+   "nome_pdf": "Germany",
+   "slug": "germany",
+   "alias": [
+    "Federal Republic of Germany"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "GH",
+   "nome": "Ghana",
+   "nome_pdf": "Ghana",
+   "slug": "ghana",
+   "alias": [
+    "Republic of Ghana"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "GI",
+   "nome": "Gibraltar",
+   "nome_pdf": "Gibraltar",
+   "slug": "gibraltar",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 484
+   },
+   "altri": {
+    "business": 242,
+    "medico": 129,
+    "accompagnatore": 129
+   }
+  },
+  {
+   "iso2": "GR",
+   "nome": "Greece",
+   "nome_pdf": "Greece",
+   "slug": "greece",
+   "alias": [
+    "Hellenic Republic"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "GD",
+   "nome": "Grenada",
+   "nome_pdf": "Grenada",
+   "slug": "grenada",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "GT",
+   "nome": "Guatemala",
+   "nome_pdf": "Guatemala",
+   "slug": "guatemala",
+   "alias": [
+    "Republic of Guatemala"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "GG",
+   "nome": "Guernsey",
+   "nome_pdf": "Guernsey",
+   "slug": "guernsey",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 484
+   },
+   "altri": {
+    "business": 242,
+    "medico": 129,
+    "accompagnatore": 129
+   }
+  },
+  {
+   "iso2": "GN",
+   "nome": "Guinea",
+   "nome_pdf": "Guinea",
+   "slug": "guinea",
+   "alias": [
+    "Republic of Guinea"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "GY",
+   "nome": "Guyana",
+   "nome_pdf": "Guyana",
+   "slug": "guyana",
+   "alias": [
+    "Republic of Guyana"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "HT",
+   "nome": "Haiti",
+   "nome_pdf": "Haiti",
+   "slug": "haiti",
+   "alias": [
+    "Republic of Haiti"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "HN",
+   "nome": "Honduras",
+   "nome_pdf": "Honduras",
+   "slug": "honduras",
+   "alias": [
+    "Republic of Honduras"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "HU",
+   "nome": "Hungary",
+   "nome_pdf": "Hungary",
+   "slug": "hungary",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "IS",
+   "nome": "Iceland",
+   "nome_pdf": "Iceland",
+   "slug": "iceland",
+   "alias": [
+    "Republic of Iceland"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "ID",
+   "nome": "Indonesia",
+   "nome_pdf": "Indonesia",
+   "slug": "indonesia",
+   "alias": [
+    "Republic of Indonesia"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "IE",
+   "nome": "Ireland",
+   "nome_pdf": "Ireland",
+   "slug": "ireland",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 200,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "IM",
+   "nome": "Isle of Man",
+   "nome_pdf": "Isle of Man",
+   "slug": "isle-of-man",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 484
+   },
+   "altri": {
+    "business": 242,
+    "medico": 129,
+    "accompagnatore": 129
+   }
+  },
+  {
+   "iso2": "IL",
+   "nome": "Israel",
+   "nome_pdf": "Israel",
+   "slug": "israel",
+   "alias": [
+    "State of Israel"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "IT",
+   "nome": "Italy",
+   "nome_pdf": "Italy",
+   "slug": "italy",
+   "alias": [
+    "Italian Republic"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "JM",
+   "nome": "Jamaica",
+   "nome_pdf": "Jamaica",
+   "slug": "jamaica",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "JP",
+   "nome": "Japan",
+   "nome_pdf": "Japan",
+   "slug": "japan",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 25,
+    "tv5": 25
+   },
+   "altri": {
+    "business": 25,
+    "medico": 25,
+    "accompagnatore": 25
+   }
+  },
+  {
+   "iso2": "JE",
+   "nome": "Jersey",
+   "nome_pdf": "Jersey",
+   "slug": "jersey",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 484
+   },
+   "altri": {
+    "business": 242,
+    "medico": 129,
+    "accompagnatore": 129
+   }
+  },
+  {
+   "iso2": "JO",
+   "nome": "Jordan",
+   "nome_pdf": "Jordan",
+   "slug": "jordan",
+   "alias": [
+    "Hashemite Kingdom of Jordan"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "KZ",
+   "nome": "Kazakhstan",
+   "nome_pdf": "Kazakhstan",
+   "slug": "kazakhstan",
+   "alias": [
+    "Republic of Kazakhstan"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "KE",
+   "nome": "Kenya",
+   "nome_pdf": "Kenya",
+   "slug": "kenya",
+   "alias": [
+    "Republic of Kenya"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "KI",
+   "nome": "Kiribati",
+   "nome_pdf": "Kiribati",
+   "slug": "kiribati",
+   "alias": [
+    "Republic of Kiribati"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "KW",
+   "nome": "Kuwait",
+   "nome_pdf": "Kuwait",
+   "slug": "kuwait",
+   "alias": [
+    "State of Kuwait"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "KG",
+   "nome": "Kyrgyzstan",
+   "nome_pdf": "Kyrgyzstan",
+   "slug": "kyrgyzstan",
+   "alias": [
+    "Kyrgyz Republic"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "LA",
+   "nome": "Laos",
+   "nome_pdf": "Laos",
+   "slug": "laos",
+   "alias": [
+    "Lao PDR",
+    "Lao People's Democratic Republic"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "LV",
+   "nome": "Latvia",
+   "nome_pdf": "Latvia",
+   "slug": "latvia",
+   "alias": [
+    "Republic of Latvia"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "LS",
+   "nome": "Lesotho",
+   "nome_pdf": "Lesotho",
+   "slug": "lesotho",
+   "alias": [
+    "Kingdom of Lesotho"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "LR",
+   "nome": "Liberia",
+   "nome_pdf": "Liberia",
+   "slug": "liberia",
+   "alias": [
+    "Republic of Liberia"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "LI",
+   "nome": "Liechtenstein",
+   "nome_pdf": "Liechtenstein",
+   "slug": "liechtenstein",
+   "alias": [
+    "Principality of Liechtenstein"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "LT",
+   "nome": "Lithuania",
+   "nome_pdf": "Lithuania",
+   "slug": "lithuania",
+   "alias": [
+    "Republic of Lithuania"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "LU",
+   "nome": "Luxembourg",
+   "nome_pdf": "Luxembourg",
+   "slug": "luxembourg",
+   "alias": [
+    "Grand Duchy of Luxembourg"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "MK",
+   "nome": "North Macedonia",
+   "nome_pdf": "Macedonia",
+   "slug": "north-macedonia",
+   "alias": [
+    "Macedonia",
+    "Republic of North Macedonia"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "MG",
+   "nome": "Madagascar",
+   "nome_pdf": "Madagascar",
+   "slug": "madagascar",
+   "alias": [
+    "Republic of Madagascar"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "MW",
+   "nome": "Malawi",
+   "nome_pdf": "Malawi",
+   "slug": "malawi",
+   "alias": [
+    "Republic of Malawi"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "MY",
+   "nome": "Malaysia",
+   "nome_pdf": "Malaysia",
+   "slug": "malaysia",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "ML",
+   "nome": "Mali",
+   "nome_pdf": "Mali",
+   "slug": "mali",
+   "alias": [
+    "Republic of Mali"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "MT",
+   "nome": "Malta",
+   "nome_pdf": "Malta",
+   "slug": "malta",
+   "alias": [
+    "Republic of Malta"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "MH",
+   "nome": "Marshall Islands",
+   "nome_pdf": "Marshall Islands",
+   "slug": "marshall-islands",
+   "alias": [
+    "Republic of the Marshall Islands"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "MR",
+   "nome": "Mauritania",
+   "nome_pdf": "Mauritania",
+   "slug": "mauritania",
+   "alias": [
+    "Islamic Republic of Mauritania"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "MU",
+   "nome": "Mauritius",
+   "nome_pdf": "Mauritius",
+   "slug": "mauritius",
+   "alias": [
+    "Republic of Mauritius"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "MX",
+   "nome": "Mexico",
+   "nome_pdf": "Mexico",
+   "slug": "mexico",
+   "alias": [
+    "United Mexican States"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "FM",
+   "nome": "Micronesia",
+   "nome_pdf": "Micronesia",
+   "slug": "micronesia",
+   "alias": [
+    "Federated States of Micronesia",
+    "Micronesia, Federated States of"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "MD",
+   "nome": "Moldova",
+   "nome_pdf": "Moldova",
+   "slug": "moldova",
+   "alias": [
+    "Moldova, Republic of",
+    "Republic of Moldova"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "MC",
+   "nome": "Monaco",
+   "nome_pdf": "Monaco",
+   "slug": "monaco",
+   "alias": [
+    "Principality of Monaco"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "MN",
+   "nome": "Mongolia",
+   "nome_pdf": "Mongolia",
+   "slug": "mongolia",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "ME",
+   "nome": "Montenegro",
+   "nome_pdf": "Montenegro",
+   "slug": "montenegro",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "MS",
+   "nome": "Montserrat",
+   "nome_pdf": "Montserrat",
+   "slug": "montserrat",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "MA",
+   "nome": "Morocco",
+   "nome_pdf": "Morocco",
+   "slug": "morocco",
+   "alias": [
+    "Kingdom of Morocco"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "MZ",
+   "nome": "Mozambique",
+   "nome_pdf": "Mozambique",
+   "slug": "mozambique",
+   "alias": [
+    "Republic of Mozambique"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 220
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "MM",
+   "nome": "Myanmar",
+   "nome_pdf": "Myanmar",
+   "slug": "myanmar",
+   "alias": [
+    "Burma",
+    "Republic of Myanmar"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "NA",
+   "nome": "Namibia",
+   "nome_pdf": "Namibia",
+   "slug": "namibia",
+   "alias": [
+    "Republic of Namibia"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "NR",
+   "nome": "Nauru",
+   "nome_pdf": "Nauru",
+   "slug": "nauru",
+   "alias": [
+    "Republic of Nauru"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "NL",
+   "nome": "Netherlands",
+   "nome_pdf": "Netherlands",
+   "slug": "netherlands",
+   "alias": [
+    "Holland",
+    "Kingdom of the Netherlands"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "NZ",
+   "nome": "New Zealand",
+   "nome_pdf": "New Zealand",
+   "slug": "new-zealand",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 130,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "NI",
+   "nome": "Nicaragua",
+   "nome_pdf": "Nicaragua",
+   "slug": "nicaragua",
+   "alias": [
+    "Republic of Nicaragua"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "NE",
+   "nome": "Niger",
+   "nome_pdf": "Niger Republic",
+   "slug": "niger",
+   "alias": [
+    "Republic of the Niger"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "NU",
+   "nome": "Niue",
+   "nome_pdf": "Niue Island",
+   "slug": "niue",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "NO",
+   "nome": "Norway",
+   "nome_pdf": "Norway",
+   "slug": "norway",
+   "alias": [
+    "Kingdom of Norway"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "OM",
+   "nome": "Oman",
+   "nome_pdf": "Oman",
+   "slug": "oman",
+   "alias": [
+    "Sultanate of Oman"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "PW",
+   "nome": "Palau",
+   "nome_pdf": "Palau",
+   "slug": "palau",
+   "alias": [
+    "Republic of Palau"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "PS",
+   "nome": "Palestine",
+   "nome_pdf": "Palestine",
+   "slug": "palestine",
+   "alias": [
+    "Palestine, State of",
+    "Palestinian Territories",
+    "the State of Palestine"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "PA",
+   "nome": "Panama",
+   "nome_pdf": "Panama",
+   "slug": "panama",
+   "alias": [
+    "Republic of Panama"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "PG",
+   "nome": "Papua New Guinea",
+   "nome_pdf": "Papua New Guinea",
+   "slug": "papua-new-guinea",
+   "alias": [
+    "Independent State of Papua New Guinea"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "PY",
+   "nome": "Paraguay",
+   "nome_pdf": "Paraguay",
+   "slug": "paraguay",
+   "alias": [
+    "Republic of Paraguay"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "PE",
+   "nome": "Peru",
+   "nome_pdf": "Peru",
+   "slug": "peru",
+   "alias": [
+    "Republic of Peru"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "PH",
+   "nome": "Philippines",
+   "nome_pdf": "Philippines",
+   "slug": "philippines",
+   "alias": [
+    "Republic of the Philippines",
+    "The Philippines"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 220,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "PL",
+   "nome": "Poland",
+   "nome_pdf": "Poland",
+   "slug": "poland",
+   "alias": [
+    "Republic of Poland"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 145,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "PT",
+   "nome": "Portugal",
+   "nome_pdf": "Portugal",
+   "slug": "portugal",
+   "alias": [
+    "Portuguese Republic"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "QA",
+   "nome": "Qatar",
+   "nome_pdf": "Qatar",
+   "slug": "qatar",
+   "alias": [
+    "State of Qatar"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "KR",
+   "nome": "South Korea",
+   "nome_pdf": "Republic Of Korea",
+   "slug": "south-korea",
+   "alias": [
+    "Korea",
+    "Korea, Republic of",
+    "Republic of Korea"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "RO",
+   "nome": "Romania",
+   "nome_pdf": "Romania",
+   "slug": "romania",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "RU",
+   "nome": "Russia",
+   "nome_pdf": "Russia",
+   "slug": "russia",
+   "alias": [
+    "Russian Federation"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 40,
+    "tv5": 120
+   },
+   "altri": {
+    "business": 120,
+    "medico": 120,
+    "accompagnatore": 120
+   }
+  },
+  {
+   "iso2": "RW",
+   "nome": "Rwanda",
+   "nome_pdf": "Rwanda",
+   "slug": "rwanda",
+   "alias": [
+    "Rwandese Republic"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "KN",
+   "nome": "Saint Kitts and Nevis",
+   "nome_pdf": "Saint Christopher And Nevis",
+   "slug": "saint-kitts-and-nevis",
+   "alias": [
+    "Saint Kitts & Nevis",
+    "St Kitts and Nevis",
+    "St. Kitts & Nevis",
+    "St. Kitts and Nevis"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "LC",
+   "nome": "Saint Lucia",
+   "nome_pdf": "Saint Lucia",
+   "slug": "saint-lucia",
+   "alias": [
+    "St Lucia",
+    "St. Lucia"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "VC",
+   "nome": "Saint Vincent and the Grenadines",
+   "nome_pdf": "Saint Vincent And The Grenadines",
+   "slug": "saint-vincent-and-the-grenadines",
+   "alias": [
+    "Saint Vincent & the Grenadines",
+    "St Vincent and the Grenadines",
+    "St. Vincent & Grenadines",
+    "St. Vincent and the Grenadines"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "WS",
+   "nome": "Samoa",
+   "nome_pdf": "Samoa",
+   "slug": "samoa",
+   "alias": [
+    "Independent State of Samoa"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "SM",
+   "nome": "San Marino",
+   "nome_pdf": "San Marino",
+   "slug": "san-marino",
+   "alias": [
+    "Republic of San Marino"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "SA",
+   "nome": "Saudi Arabia",
+   "nome_pdf": "Saudi Arabia",
+   "slug": "saudi-arabia",
+   "alias": [
+    "Kingdom of Saudi Arabia"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 215,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "SN",
+   "nome": "Senegal",
+   "nome_pdf": "Senegal",
+   "slug": "senegal",
+   "alias": [
+    "Republic of Senegal"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "RS",
+   "nome": "Serbia",
+   "nome_pdf": "Serbia",
+   "slug": "serbia",
+   "alias": [
+    "Republic of Serbia"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "SC",
+   "nome": "Seychelles",
+   "nome_pdf": "Seychelles",
+   "slug": "seychelles",
+   "alias": [
+    "Republic of Seychelles"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "SL",
+   "nome": "Sierra Leone",
+   "nome_pdf": "Sierra Leone",
+   "slug": "sierra-leone",
+   "alias": [
+    "Republic of Sierra Leone"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "SG",
+   "nome": "Singapore",
+   "nome_pdf": "Singapore",
+   "slug": "singapore",
+   "alias": [
+    "Republic of Singapore"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 25,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "SK",
+   "nome": "Slovakia",
+   "nome_pdf": "Slovakia",
+   "slug": "slovakia",
+   "alias": [
+    "Slovak Republic"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "SI",
+   "nome": "Slovenia",
+   "nome_pdf": "Slovenia",
+   "slug": "slovenia",
+   "alias": [
+    "Republic of Slovenia"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "SB",
+   "nome": "Solomon Islands",
+   "nome_pdf": "Solomon Islands",
+   "slug": "solomon-islands",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "ZA",
+   "nome": "South Africa",
+   "nome_pdf": "South Africa",
+   "slug": "south-africa",
+   "alias": [
+    "Republic of South Africa"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 25,
+    "tv5": 25
+   },
+   "altri": {
+    "business": 25,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "ES",
+   "nome": "Spain",
+   "nome_pdf": "Spain",
+   "slug": "spain",
+   "alias": [
+    "Kingdom of Spain"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "LK",
+   "nome": "Sri Lanka",
+   "nome_pdf": "Sri Lanka",
+   "slug": "sri-lanka",
+   "alias": [
+    "Democratic Socialist Republic of Sri Lanka"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 25,
+    "tv5": 25
+   },
+   "altri": {
+    "business": 80,
+    "medico": 25,
+    "accompagnatore": 25
+   }
+  },
+  {
+   "iso2": "SR",
+   "nome": "Suriname",
+   "nome_pdf": "Suriname",
+   "slug": "suriname",
+   "alias": [
+    "Republic of Suriname"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "SZ",
+   "nome": "Eswatini",
+   "nome_pdf": "Swaziland",
+   "slug": "eswatini",
+   "alias": [
+    "Kingdom of Eswatini",
+    "Swaziland"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "SE",
+   "nome": "Sweden",
+   "nome_pdf": "Sweden",
+   "slug": "sweden",
+   "alias": [
+    "Kingdom of Sweden"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "CH",
+   "nome": "Switzerland",
+   "nome_pdf": "Switzerland",
+   "slug": "switzerland",
+   "alias": [
+    "Swiss Confederation"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "TW",
+   "nome": "Taiwan",
+   "nome_pdf": "Taiwan",
+   "slug": "taiwan",
+   "alias": [
+    "Taiwan, Province of China"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "TJ",
+   "nome": "Tajikistan",
+   "nome_pdf": "Tajikistan",
+   "slug": "tajikistan",
+   "alias": [
+    "Republic of Tajikistan"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "TZ",
+   "nome": "Tanzania",
+   "nome_pdf": "Tanzania",
+   "slug": "tanzania",
+   "alias": [
+    "Tanzania, United Republic of",
+    "United Republic of Tanzania"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "TH",
+   "nome": "Thailand",
+   "nome_pdf": "Thailand",
+   "slug": "thailand",
+   "alias": [
+    "Kingdom of Thailand"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 200,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "TG",
+   "nome": "Togo",
+   "nome_pdf": "Togo",
+   "slug": "togo",
+   "alias": [
+    "Togolese Republic"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "TO",
+   "nome": "Tonga",
+   "nome_pdf": "Tonga",
+   "slug": "tonga",
+   "alias": [
+    "Kingdom of Tonga"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "TT",
+   "nome": "Trinidad and Tobago",
+   "nome_pdf": "Trinidad And Tobago",
+   "slug": "trinidad-and-tobago",
+   "alias": [
+    "Republic of Trinidad and Tobago",
+    "Trinidad & Tobago"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "TC",
+   "nome": "Turks and Caicos Islands",
+   "nome_pdf": "Turks And Caicos",
+   "slug": "turks-and-caicos-islands",
+   "alias": [
+    "Turks & Caicos Islands",
+    "Turks and Caicos"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "TV",
+   "nome": "Tuvalu",
+   "nome_pdf": "Tuvalu",
+   "slug": "tuvalu",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "UG",
+   "nome": "Uganda",
+   "nome_pdf": "Uganda",
+   "slug": "uganda",
+   "alias": [
+    "Republic of Uganda"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "UA",
+   "nome": "Ukraine",
+   "nome_pdf": "Ukraine",
+   "slug": "ukraine",
+   "alias": [],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 130,
+    "medico": 85,
+    "accompagnatore": 85
+   }
+  },
+  {
+   "iso2": "AE",
+   "nome": "United Arab Emirates",
+   "nome_pdf": "United Arab Emirates",
+   "slug": "united-arab-emirates",
+   "alias": [
+    "Abu Dhabi",
+    "Dubai",
+    "UAE"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 415,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "GB",
+   "nome": "United Kingdom",
+   "nome_pdf": "United Kingdom (UK)",
+   "slug": "united-kingdom",
+   "alias": [
+    "Britain",
+    "England",
+    "Great Britain",
+    "Northern Ireland",
+    "Scotland",
+    "UK",
+    "United Kingdom of Great Britain and Northern Ireland",
+    "Wales"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 484
+   },
+   "altri": {
+    "business": 242,
+    "medico": 129,
+    "accompagnatore": 129
+   }
+  },
+  {
+   "iso2": "US",
+   "nome": "United States",
+   "nome_pdf": "United States Of America",
+   "slug": "united-states",
+   "alias": [
+    "America",
+    "The United States",
+    "US",
+    "USA",
+    "United States of America"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 160
+   },
+   "altri": {
+    "business": 140,
+    "medico": 100,
+    "accompagnatore": 100
+   }
+  },
+  {
+   "iso2": "UY",
+   "nome": "Uruguay",
+   "nome_pdf": "Uruguay",
+   "slug": "uruguay",
+   "alias": [
+    "Eastern Republic of Uruguay"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "UZ",
+   "nome": "Uzbekistan",
+   "nome_pdf": "Uzbekistan",
+   "slug": "uzbekistan",
+   "alias": [
+    "Republic of Uzbekistan"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "VU",
+   "nome": "Vanuatu",
+   "nome_pdf": "Vanuatu",
+   "slug": "vanuatu",
+   "alias": [
+    "Republic of Vanuatu"
+   ],
+   "tv": {
+    "tv30_apr_giu": 0,
+    "tv30_lug_mar": 0,
+    "tv1": 0,
+    "tv5": 0
+   },
+   "altri": {
+    "business": 0,
+    "medico": 0,
+    "accompagnatore": 0
+   }
+  },
+  {
+   "iso2": "VA",
+   "nome": "Vatican City",
+   "nome_pdf": "Vatican City - Holy See",
+   "slug": "vatican-city",
+   "alias": [
+    "Holy See",
+    "Holy See (Vatican City State)",
+    "Vatican"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "VE",
+   "nome": "Venezuela",
+   "nome_pdf": "Venezuela",
+   "slug": "venezuela",
+   "alias": [
+    "Bolivarian Republic of Venezuela",
+    "Venezuela, Bolivarian Republic of"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "VN",
+   "nome": "Vietnam",
+   "nome_pdf": "Vietnam",
+   "slug": "vietnam",
+   "alias": [
+    "Socialist Republic of Viet Nam",
+    "Viet Nam"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "ZM",
+   "nome": "Zambia",
+   "nome_pdf": "Zambia",
+   "slug": "zambia",
+   "alias": [
+    "Republic of Zambia"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 0,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  },
+  {
+   "iso2": "ZW",
+   "nome": "Zimbabwe",
+   "nome_pdf": "Zimbabwe",
+   "slug": "zimbabwe",
+   "alias": [
+    "Republic of Zimbabwe"
+   ],
+   "tv": {
+    "tv30_apr_giu": 10,
+    "tv30_lug_mar": 25,
+    "tv1": 40,
+    "tv5": 200
+   },
+   "altri": {
+    "business": 120,
+    "medico": 80,
+    "accompagnatore": 80
+   }
+  }
+ ],
+ "pagine": [
+  {
+   "iso2": "GB",
+   "titolo": "UK",
+   "cittadini": "UK citizens",
+   "frase": "the UK",
+   "ricerche": [
+    "how much is an indian visa for a uk citizen",
+    "how much is an indian visa from uk",
+    "how much is india e visa from uk",
+    "india business visa cost uk",
+    "india e tourist visa fees uk",
+    "india e visa cost for uk",
+    "india e visa cost for uk citizens",
+    "india e visa cost from uk",
+    "india e visa cost uk",
+    "india e visa fee for uk citizens",
+    "india e visa fee from uk",
+    "india e visa fee uk",
+    "india e visa fees for uk citizens",
+    "india e visa fees from uk",
+    "india e visa fees uk",
+    "india tourist visa cost from uk",
+    "india tourist visa fees for uk citizens",
+    "india tourist visa fees from uk",
+    "india visa cost for british",
+    "india visa cost for uk",
+    "india visa cost for uk citizens",
+    "india visa cost from uk",
+    "india visa costs uk",
+    "india visa fee for british citizens",
+    "india visa fee for british passport",
+    "india visa fee for uk",
+    "india visa fee for uk citizens",
+    "india visa fee uk",
+    "india visa fees from uk",
+    "india visa price from uk",
+    "india visa price uk",
+    "indian 5 year visa cost uk",
+    "indian e visa 5 years fees uk",
+    "indian e visa cost for british citizens",
+    "indian e visa cost for uk citizens",
+    "indian e visa cost from uk",
+    "indian e visa cost uk",
+    "indian e visa fees for british citizens",
+    "indian e visa fees for uk citizen",
+    "indian e visa fees from uk",
+    "indian visa cost for uk",
+    "indian visa cost for uk citizens",
+    "indian visa cost from uk",
+    "indian visa cost uk 30 days",
+    "indian visa fee for british passport",
+    "indian visa fee in uk",
+    "indian visa fees for british citizens",
+    "indian visa fees for uk citizens",
+    "indian visa fees for uk passport holders",
+    "indian visa price for uk"
+   ],
+   "faq": [
+    {
+     "categoria": "5anni",
+     "query": "indian 5 year visa cost uk"
+    },
+    {
+     "categoria": "30giorni",
+     "query": "indian visa cost uk 30 days"
+    },
+    {
+     "categoria": "business",
+     "query": "india business visa cost uk"
+    },
+    {
+     "categoria": "generale",
+     "query": "how much is an indian visa for a uk citizen"
+    }
+   ],
+   "voa": "india visa on arrival for uk citizens"
+  },
+  {
+   "iso2": "US",
+   "titolo": "US",
+   "cittadini": "US citizens",
+   "frase": "the US",
+   "ricerche": [
+    "how much does india visa cost for us citizens",
+    "how much is an indian visa for us citizens",
+    "india business visa cost for us citizens",
+    "india e visa cost for us citizens",
+    "india e visa fee for us citizens",
+    "india e visa fees for us citizens",
+    "india e visa fees usa",
+    "india tourist visa fee for us citizens",
+    "india tourist visa fee for usa",
+    "india visa cost for us",
+    "india visa cost for us citizens",
+    "india visa cost from usa",
+    "india visa fee for us citizens",
+    "india visa fee for usa",
+    "india visa fee from usa",
+    "india visa fee usa",
+    "india visa price for us citizens",
+    "indian e visa cost for us citizens",
+    "indian e visa fees for us citizens",
+    "indian visa cost for us",
+    "indian visa cost for us citizens",
+    "indian visa fee for us citizens",
+    "indian visa fees for us"
+   ],
+   "faq": [
+    {
+     "categoria": "business",
+     "query": "india business visa cost for us citizens"
+    },
+    {
+     "categoria": "generale",
+     "query": "how much does india visa cost for us citizens"
+    }
+   ],
+   "voa": "india visa on arrival for us citizens"
+  },
+  {
+   "iso2": "CA",
+   "titolo": "Canadian",
+   "cittadini": "Canadian citizens",
+   "frase": "Canada",
+   "ricerche": [
+    "e visa fees to india from canada",
+    "how much is an indian visa for canadians",
+    "india e visa cost for canadians",
+    "india e visa cost from canada",
+    "india e visa fee canada",
+    "india e visa fee for canadian citizens",
+    "india e visa fees from canada",
+    "india tourist visa fees from canada",
+    "india visa cost canada",
+    "india visa cost for canadians",
+    "india visa cost from canada",
+    "india visa fee canada",
+    "india visa fee for canadian citizen",
+    "india visa fee for canadians",
+    "india visa fees from canada",
+    "india visitor visa fees from canada",
+    "indian e visa cost canada",
+    "indian e visa fee for canadian citizen",
+    "indian e visa fees canada",
+    "indian e visa fees for canadian citizens",
+    "indian e visa fees from canada",
+    "indian e visa fees from canada for 1 year",
+    "indian e visa fees from canada for 5 years",
+    "indian visa cost for canadian",
+    "indian visa cost for canadians",
+    "indian visa cost from canada",
+    "indian visa fee for canadian",
+    "indian visa fee for canadian citizens",
+    "indian visa fees for canadian citizens",
+    "indian visa fees from canada",
+    "indian visa fees in canada"
+   ],
+   "faq": [
+    {
+     "categoria": "5anni",
+     "query": "indian e visa fees from canada for 5 years"
+    },
+    {
+     "categoria": "1anno",
+     "query": "indian e visa fees from canada for 1 year"
+    },
+    {
+     "categoria": "generale",
+     "query": "e visa fees to india from canada"
+    }
+   ],
+   "voa": "india visa on arrival for canadian citizens"
+  },
+  {
+   "iso2": "AU",
+   "titolo": "Australian",
+   "cittadini": "Australian citizens",
+   "frase": "Australia",
+   "ricerche": [
+    "e visa fees for india from australia",
+    "how much is an indian visa for australian citizens",
+    "how much is an indian visa for australians",
+    "india e visa cost australia",
+    "india tourist visa fees from australia",
+    "india visa cost australia",
+    "india visa cost for australian citizens",
+    "india visa cost from australia",
+    "india visa cost in australia",
+    "india visa fee for australian",
+    "india visa fee for australian citizens",
+    "india visa fee from australia",
+    "india visa fees from australia",
+    "india visitor visa fees australia",
+    "indian e visa cost australia",
+    "indian e visa fee from australia",
+    "indian e visa fees for australian citizens",
+    "indian visa cost for australian",
+    "indian visa cost for australian citizens",
+    "indian visa cost for australians",
+    "indian visa cost from australia",
+    "indian visa fee australia",
+    "indian visa fee for australian citizens",
+    "indian visa fees australia",
+    "indian visa fees for australian citizens"
+   ],
+   "faq": [
+    {
+     "categoria": "generale",
+     "query": "e visa fees for india from australia"
+    }
+   ],
+   "voa": "india visa on arrival for australian citizens"
+  },
+  {
+   "iso2": "NZ",
+   "titolo": "New Zealand",
+   "cittadini": "New Zealand citizens",
+   "frase": "New Zealand",
+   "ricerche": [
+    "e visa fees for india from new zealand",
+    "india e visa fees nz",
+    "india visa cost nz",
+    "india visa fee for nz citizens",
+    "india visa fees for nz citizens",
+    "indian visa fees nz"
+   ],
+   "faq": [
+    {
+     "categoria": "generale",
+     "query": "e visa fees for india from new zealand"
+    }
+   ],
+   "voa": null
+  },
+  {
+   "iso2": "IE",
+   "titolo": "Irish",
+   "cittadini": "Irish citizens",
+   "frase": "Ireland",
+   "ricerche": [
+    "how much is an indian visa for irish citizens",
+    "india visa cost for irish citizens",
+    "indian visa cost ireland"
+   ],
+   "faq": [
+    {
+     "categoria": "generale",
+     "query": "how much is an indian visa for irish citizens"
+    }
+   ],
+   "voa": null
+  },
+  {
+   "iso2": "DE",
+   "titolo": "German",
+   "cittadini": "German citizens",
+   "frase": "Germany",
+   "ricerche": [
+    "india e visa fee germany",
+    "india visa cost for german citizens",
+    "india visa fee germany",
+    "india visa fees from germany",
+    "indian tourist visa fees for german passport holders",
+    "indian visa fees for german citizens"
+   ],
+   "faq": [
+    {
+     "categoria": "generale",
+     "query": "india e visa fee germany"
+    }
+   ],
+   "voa": "india visa on arrival for german citizens"
+  },
+  {
+   "iso2": "MY",
+   "titolo": "Malaysian",
+   "cittadini": "Malaysian citizens",
+   "frase": "Malaysia",
+   "ricerche": [
+    "how much is india e visa for malaysian",
+    "india business visa fee for malaysian",
+    "india e visa fee for malaysian",
+    "india e visa price for malaysian",
+    "india tourist visa price for malaysian",
+    "india visa cost for malaysian",
+    "india visa fee for malaysian",
+    "india visa price for malaysian 2025",
+    "indian e visa fees for malaysia",
+    "indian visa fees for malaysia"
+   ],
+   "faq": [
+    {
+     "categoria": "business",
+     "query": "india business visa fee for malaysian"
+    },
+    {
+     "categoria": "generale",
+     "query": "how much is india e visa for malaysian"
+    }
+   ],
+   "voa": "india visa on arrival for malaysian"
+  },
+  {
+   "iso2": "SG",
+   "titolo": "Singapore",
+   "cittadini": "Singapore citizens",
+   "frase": "Singapore",
+   "ricerche": [
+    "how much is india e visa for singaporean",
+    "india business visa fee for singaporean",
+    "india e business visa fee for singaporean",
+    "india e visa fee for singaporean",
+    "india visa cost for singapore",
+    "india visa cost for singaporean",
+    "india visa fee for singaporean",
+    "indian visa fee for singapore",
+    "indian visa fees in singapore"
+   ],
+   "faq": [
+    {
+     "categoria": "business",
+     "query": "india business visa fee for singaporean"
+    },
+    {
+     "categoria": "generale",
+     "query": "how much is india e visa for singaporean"
+    }
+   ],
+   "voa": null
+  },
+  {
+   "iso2": "ZA",
+   "titolo": "South African",
+   "cittadini": "South African citizens",
+   "frase": "South Africa",
+   "ricerche": [
+    "how much is an indian visa for south africans",
+    "india visa cost for south africans",
+    "indian visa fees for south africa"
+   ],
+   "faq": [
+    {
+     "categoria": "generale",
+     "query": "how much is an indian visa for south africans"
+    }
+   ],
+   "voa": null
+  },
+  {
+   "iso2": "PH",
+   "titolo": "Filipino",
+   "cittadini": "Filipino citizens",
+   "frase": "the Philippines",
+   "ricerche": [
+    "india visa cost for philippines",
+    "india visa fee for filipino",
+    "india visa fee philippines",
+    "indian e visa cost for filipino",
+    "indian visa fees for philippines",
+    "indian visa fees for philippines nationals"
+   ],
+   "faq": [
+    {
+     "categoria": "generale",
+     "query": "india visa cost for philippines"
+    }
+   ],
+   "voa": "india visa on arrival for filipinos"
+  },
+  {
+   "iso2": "LK",
+   "titolo": "Sri Lankan",
+   "cittadini": "Sri Lankan citizens",
+   "frase": "Sri Lanka",
+   "ricerche": [
+    "india business visa price in sri lanka",
+    "india visa cost for sri lanka",
+    "india visa cost for sri lankans",
+    "india visa fee for sri lankan",
+    "india visa fees for sri lanka",
+    "india visa price for sri lankan",
+    "india visa price from sri lanka",
+    "india visa price in sri lanka",
+    "indian e visa fee for sri lanka",
+    "indian e visa fee for sri lankan citizens",
+    "indian e visa fee for sri lankans",
+    "indian e visa price in sri lanka",
+    "indian tourist visa fee for sri lankans",
+    "indian visa cost for sri lanka",
+    "indian visa cost for sri lankans",
+    "indian visa fee for sri lanka",
+    "indian visa fee for sri lankan passport",
+    "indian visa fee for sri lankan passport holders",
+    "indian visa fee for sri lankans",
+    "indian visa fees for sri lankan citizens",
+    "indian visa fees in sri lanka"
+   ],
+   "faq": [
+    {
+     "categoria": "business",
+     "query": "india business visa price in sri lanka"
+    },
+    {
+     "categoria": "generale",
+     "query": "india visa cost for sri lanka"
+    }
+   ],
+   "voa": "india visa on arrival for sri lankans"
+  },
+  {
+   "iso2": "BD",
+   "titolo": "Bangladeshi",
+   "cittadini": "Bangladeshi citizens",
+   "frase": "Bangladesh",
+   "ricerche": [
+    "india medical visa fee for bangladeshi",
+    "india medical visa fee from bangladesh",
+    "india tourist visa fee for bangladeshi",
+    "india tourist visa fee for bangladeshi 2026",
+    "india tourist visa fee from bangladesh",
+    "india tourist visa price in bangladesh",
+    "india visa cost for bangladeshi",
+    "india visa cost from bangladesh",
+    "india visa fee bangladesh",
+    "india visa fee for bangladesh",
+    "india visa fee for bangladeshi",
+    "india visa fee from bangladesh",
+    "india visa price in bangladesh",
+    "indian e visa fee for bangladeshi",
+    "indian medical visa fee for bangladeshi",
+    "indian medical visa fee for bangladeshi 2025",
+    "indian medical visa fee for bangladeshi 2026",
+    "indian tourist visa cost for bangladeshi",
+    "indian tourist visa fee for bangladeshi",
+    "indian transit visa fee for bangladeshi",
+    "indian visa application fee for bangladeshi",
+    "indian visa cost for bangladesh",
+    "indian visa cost for bangladeshi",
+    "indian visa cost from bangladesh",
+    "indian visa cost in bangladesh",
+    "indian visa fee for bangladesh",
+    "indian visa fee for bangladeshi",
+    "indian visa fee for bangladeshi 2025",
+    "indian visa fee for bangladeshi 2026",
+    "indian visa fee for bangladeshi citizen",
+    "indian visa fee for bd",
+    "indian visa fee from bangladesh",
+    "indian visa fee in bangladesh",
+    "indian visa fee payment bangladesh",
+    "indian visa fee payment for bangladesh",
+    "indian visa fee payment online bangladesh",
+    "indian visa fee payment online bd"
+   ],
+   "faq": [
+    {
+     "categoria": "medico",
+     "query": "india medical visa fee for bangladeshi"
+    },
+    {
+     "categoria": "generale",
+     "query": "india tourist visa fee for bangladeshi"
+    }
+   ],
+   "voa": null
+  },
+  {
+   "iso2": "TH",
+   "titolo": "Thai",
+   "cittadini": "Thai citizens",
+   "frase": "Thailand",
+   "ricerche": [
+    "india visa fee for thai citizens",
+    "india visa fee for thailand",
+    "india visa fees for thailand",
+    "indian e visa fees for thai citizens",
+    "indian visa cost for thailand",
+    "indian visa fee for thai nationals",
+    "indian visa fees for thailand"
+   ],
+   "faq": [
+    {
+     "categoria": "generale",
+     "query": "india visa fee for thai citizens"
+    }
+   ],
+   "voa": "india visa on arrival for thai citizens"
+  },
+  {
+   "iso2": "RU",
+   "titolo": "Russian",
+   "cittadini": "Russian citizens",
+   "frase": "Russia",
+   "ricerche": [
+    "indian e visa fees for russian citizens",
+    "indian visa cost for russian",
+    "indian visa fees for russian citizens"
+   ],
+   "faq": [
+    {
+     "categoria": "generale",
+     "query": "indian e visa fees for russian citizens"
+    }
+   ],
+   "voa": null
+  },
+  {
+   "iso2": "IT",
+   "titolo": "Italian",
+   "cittadini": "Italian citizens",
+   "frase": "Italy",
+   "ricerche": [
+    "india visa fees from italy",
+    "indian e visa fees for italian citizens",
+    "indian visa fees from italy"
+   ],
+   "faq": [
+    {
+     "categoria": "generale",
+     "query": "india visa fees from italy"
+    }
+   ],
+   "voa": null
+  },
+  {
+   "iso2": "JP",
+   "titolo": "Japanese",
+   "cittadini": "Japanese citizens",
+   "frase": "Japan",
+   "ricerche": [
+    "india visa fee for japanese",
+    "indian visa fee for japan",
+    "indian visa for japan cost"
+   ],
+   "faq": [
+    {
+     "categoria": "generale",
+     "query": "india visa fee for japanese"
+    }
+   ],
+   "voa": "india visa on arrival for japanese"
+  },
+  {
+   "iso2": "MM",
+   "titolo": "Myanmar",
+   "cittadini": "Myanmar citizens",
+   "frase": "Myanmar",
+   "ricerche": [
+    "india e visa fees for myanmar citizen",
+    "india visa fee for myanmar",
+    "india visa fee for myanmar citizen",
+    "india visa fees for myanmar citizen"
+   ],
+   "faq": [
+    {
+     "categoria": "generale",
+     "query": "india e visa fees for myanmar citizen"
+    }
+   ],
+   "voa": null
+  },
+  {
+   "iso2": "GH",
+   "titolo": "Ghanaian",
+   "cittadini": "Ghanaian citizens",
+   "frase": "Ghana",
+   "ricerche": [
+    "india visa fee for ghanaians",
+    "india visa fee in ghana",
+    "indian visa fees in ghana"
+   ],
+   "faq": [
+    {
+     "categoria": "generale",
+     "query": "india visa fee for ghanaians"
+    }
+   ],
+   "voa": null
+  },
+  {
+   "iso2": "KE",
+   "titolo": "Kenyan",
+   "cittadini": "Kenyan citizens",
+   "frase": "Kenya",
+   "ricerche": [
+    "india visa fee from kenya",
+    "india visa fees for kenyans",
+    "india visa price in kenya",
+    "indian medical visa fees for kenyan citizens",
+    "indian visa fees for kenyan citizens"
+   ],
+   "faq": [
+    {
+     "categoria": "medico",
+     "query": "indian medical visa fees for kenyan citizens"
+    },
+    {
+     "categoria": "generale",
+     "query": "india visa fee from kenya"
+    }
+   ],
+   "voa": null
+  },
+  {
+   "iso2": "AE",
+   "titolo": "UAE",
+   "cittadini": "UAE nationals",
+   "frase": "the UAE",
+   "ricerche": [
+    "indian visa cost for uae",
+    "indian visa cost from uae",
+    "indian visa fees for uae nationals"
+   ],
+   "faq": [
+    {
+     "categoria": "generale",
+     "query": "indian visa cost for uae"
+    }
+   ],
+   "voa": "india visa on arrival for uae"
+  },
+  {
+   "iso2": "VN",
+   "titolo": "Vietnamese",
+   "cittadini": "Vietnamese citizens",
+   "frase": "Vietnam",
+   "ricerche": [
+    "india visa fee for vietnamese",
+    "indian visa fee for vietnam",
+    "indian visa for vietnam cost"
+   ],
+   "faq": [
+    {
+     "categoria": "generale",
+     "query": "india visa fee for vietnamese"
+    }
+   ],
+   "voa": "indian visa on arrival for vietnam"
+  },
+  {
+   "iso2": "ID",
+   "titolo": "Indonesian",
+   "cittadini": "Indonesian citizens",
+   "frase": "Indonesia",
+   "ricerche": [
+    "indian visa fee for indonesia",
+    "indian visa price for indonesia"
+   ],
+   "faq": [
+    {
+     "categoria": "generale",
+     "query": "indian visa fee for indonesia"
+    }
+   ],
+   "voa": "indian visa on arrival indonesia"
+  }
+ ],
+ "fuori_tabella": [
+  {
+   "nome": "China",
+   "ricerche": [
+    "india visa fee for chinese citizens",
+    "indian visa fee for china"
+   ]
+  },
+  {
+   "nome": "Pakistan",
+   "ricerche": [
+    "5 year india visa cost for pakistani",
+    "india visa fee for pakistan",
+    "india visa fee for pakistani",
+    "india visa price for pakistan",
+    "india visa price in pakistan",
+    "india visa price in pakistan 2025"
+   ]
+  },
+  {
+   "nome": "Nigeria",
+   "ricerche": [
+    "india medical visa fee in nigeria",
+    "india visa fee for nigeria",
+    "india visa fee for nigerians",
+    "indian medical visa fee for nigerians",
+    "indian medical visa fee in nigeria",
+    "indian visa cost for nigerians",
+    "indian visa fees in nigeria"
+   ]
+  },
+  {
+   "nome": "Egypt",
+   "ricerche": [
+    "indian visa cost for egyptian",
+    "indian visa price for egyptian living in dubai"
+   ]
+  },
+  {
+   "nome": "Turkey",
+   "ricerche": [
+    "india visa fee for turkish citizens"
+   ]
+  },
+  {
+   "nome": "Afghanistan",
+   "ricerche": [
+    "india visa fee for afghanistan",
+    "india visa price for afghanistan",
+    "india visa price in afghanistan",
+    "indian e visa fee for afghan nationals",
+    "indian visa fee for afghan nationals",
+    "indian visa price for afghanistan"
+   ]
+  },
+  {
+   "nome": "Hong Kong",
+   "ricerche": [
+    "india visa fee hong kong"
+   ]
+  }
+ ],
+ "citazioni": [
+  {
+   "id": "ev_ufficiale",
+   "f": "evisa",
+   "tema": "ufficiale",
+   "x": "No, https://indianvisaonline.gov.in/evisa/ is only the official website to apply for the e-Visa Services."
+  },
+  {
+   "id": "ev_intermediari",
+   "f": "evisa",
+   "tema": "pagare",
+   "x": "Services of e-Visa are completely online and no facilitation is required by any intermediary / travel agents etc."
+  },
+  {
+   "id": "ev_express",
+   "f": "evisa",
+   "tema": "pagare",
+   "x": "Government of India makes no provision of charging of any emergency fees or additional fees for grant of any emergency / express e-visa."
+  },
+  {
+   "id": "ev_aeroporto",
+   "f": "evisa",
+   "tema": "pagare",
+   "x": "No. You have already paid the required processing fee online. The applicants are advised to beware of unscrupulous elements/ travel agents/ intermediaries demanding extra payment."
+  },
+  {
+   "id": "home_agenti",
+   "f": "ivo_home",
+   "tema": "pagare",
+   "x": "The Government of India does not authorize any agent or intermediaries to charge fees for emergency, express visa, eVisas and eArrival card."
+  },
+  {
+   "id": "ev_paese",
+   "f": "evisa",
+   "tema": "costo",
+   "x": "e-Visa fee is country/Territory specific."
+  },
+  {
+   "id": "ev_3",
+   "f": "evisa",
+   "tema": "costo",
+   "x": "Bank transaction charges of 3% will be charged additionally on applicable e-Visa fees."
+  },
+  {
+   "id": "pdf_3",
+   "f": "fee_tv",
+   "tema": "costo",
+   "x": "Bank charge of 3% will be charged additional on applicable e-Visa fees."
+  },
+  {
+   "id": "ev_solo_processo",
+   "f": "evisa",
+   "tema": "costo",
+   "x": "No, there is no fee other than the processing fee for e-Visa application and it is non-refundable."
+  },
+  {
+   "id": "ev_4giorni",
+   "f": "evisa",
+   "tema": "quando",
+   "x": "The fee must be paid at least 4 days before the expected date of travel otherwise application will not be processed."
+  },
+  {
+   "id": "ev_quando",
+   "f": "evisa",
+   "tema": "quando",
+   "x": "For e-Tourist Visa (30 days), applicants of the eligible countries/territories may apply online minimum 4 days in advance of the date of arrival. Such application can be made 120 days in advance from proposed date of travel."
+  },
+  {
+   "id": "ev_rimborso",
+   "f": "evisa",
+   "tema": "rimborso",
+   "x": "e-Visa fee once submitted is non-refundable as the fee is for processing of the application and is not dependent on either Grant or Rejection of Electronic Travel Authorization (ETA)."
+  },
+  {
+   "id": "ev_val30",
+   "f": "evisa",
+   "tema": "validita",
+   "x": "For e-Tourist Visa (30 days), the validity would be 30 days from the date of your first arrival in India."
+  },
+  {
+   "id": "ev_val1_5",
+   "f": "evisa",
+   "tema": "validita",
+   "x": "For e-Tourist Visa (01 year / 05 years), the validity would be 365 days / 05 years from the date of grant of ETA with Multiple entries"
+  },
+  {
+   "id": "ev_180",
+   "f": "evisa",
+   "tema": "validita",
+   "x": "Maximum stay in India during one Calender Year should not exceed 180 days for 1 year and 5 year Tourist Visa."
+  },
+  {
+   "id": "ev_valb",
+   "f": "evisa",
+   "tema": "validita",
+   "x": "For e-Business Visa, the validity would be 365 days from the date of grant of ETA with Multiple entries and continuous stay during each visit which shall not exceed 180 days"
+  },
+  {
+   "id": "ev_passaporto",
+   "f": "evisa",
+   "tema": "validita",
+   "x": "Applicant's passport should have at least six months validity at the time of making application for grant of e-Visa."
+  },
+  {
+   "id": "ev_idonei",
+   "f": "evisa",
+   "tema": "ufficiale",
+   "x": "Nationals of countries listed on the e-Visa website https://indianvisaonline.gov.in/evisa/ are eligible to apply for e-Visa Services."
+  },
+  {
+   "id": "ev_pakistan",
+   "f": "evisa",
+   "tema": "ufficiale",
+   "x": "International Travellers having Pakistani Passport or Pakistani origin may please apply for regular Visa at Indian Mission."
+  },
+  {
+   "id": "ev_afghan",
+   "f": "evisa",
+   "tema": "ufficiale",
+   "x": "Afghanistan Nationals may apply online visa on New AFGHAN Portal(https://indianvisaonline.gov.in/avisa)"
+  },
+  {
+   "id": "ev_porti_aerei",
+   "f": "evisa",
+   "tema": "porti",
+   "x": "You may arrive at 33 designated Airports"
+  },
+  {
+   "id": "ev_porti_partenza",
+   "f": "evisa",
+   "tema": "porti",
+   "x": "You may depart from any of the Indian Immigration Check Posts (ICPs)."
+  },
+  {
+   "id": "ev_porti_37",
+   "f": "evisa",
+   "tema": "porti",
+   "x": "Persons holding eVisa will be allowed to enter into India only through the designated international airports (37)"
+  },
+  {
+   "id": "ev_porti_38",
+   "f": "evisa",
+   "tema": "porti",
+   "x": "eVisa facility is also been provided for entry at 38 major Indian seaport for cruise tourists"
+  },
+  {
+   "id": "ev_terra",
+   "f": "evisa",
+   "tema": "terra",
+   "x": "No, You can only enter through the designated airports/seaports which are listed on the e-Visa website."
+  },
+  {
+   "id": "ev_crociera",
+   "f": "evisa",
+   "tema": "crociera",
+   "x": "Entry by cruise ship is allowed with the ETA through 5 designated seaports namely Mumbai, Chennai, Cochin, Goa and Mangalore seaports."
+  },
+  {
+   "id": "ev_voa",
+   "f": "evisa",
+   "tema": "voa_chi",
+   "x": "The Visa on Arrival facility is only for the nationals of Japan, South Korea and UAE (only for such UAE nationals who had earlier obtained e-Visa or regular/paper visa for India)."
+  },
+  {
+   "id": "ev_voa_altri",
+   "f": "evisa",
+   "tema": "voa_chi",
+   "x": "For the nationals of all other countries eligible for e-Visa, the e-visa application have to be filled online and the applicant must wait till the confirmation/Grant of ETA for travelling to India."
+  },
+  {
+   "id": "voa_scopo",
+   "f": "voa",
+   "tema": "voa_chi",
+   "x": "Who is visiting India for a period not exceeding 60 days and for business, tourism, conference and medical purposes;"
+  },
+  {
+   "id": "voa_uae",
+   "f": "voa",
+   "tema": "voa_chi",
+   "x": "UAE nationals who are coming to India for the first time are advised to apply for e-Visa or regular/paper visa."
+  },
+  {
+   "id": "voa_costo",
+   "f": "voa",
+   "tema": "voa_costo",
+   "x": "A fee of Rs. 2,000/- or equivalent in foreign currency per passenger (including children), will be charged from each Japanese, South Korean and UAE nationals for the grant of Visa-on-Arrival."
+  },
+  {
+   "id": "voa_pagare",
+   "f": "voa",
+   "tema": "voa_costo",
+   "x": "The visa fee is required to be paid before grant of the visa."
+  },
+  {
+   "id": "voa_dove",
+   "f": "voa",
+   "tema": "voa_dove",
+   "x": "Visa-on-Arrival is provided to Japanese, South Korean and UAE nationals only at six designated international airports at Bangalore, Chennai, Delhi, Hyderabad, Kolkata and Mumbai."
+  },
+  {
+   "id": "boi_voa_dove",
+   "f": "boi_voa",
+   "tema": "voa_dove",
+   "x": "Visa on arrival will be provided to Japanese and Republic of Korea nationals only at Delhi. Mumbai. Chennai, Kolkata, Bengaluru and Hyderbad while for UAE national at Delhi, Mumbai, Chennai, Kolkata, Bengaluru, Hyderabad, Cochin, Calicut and Ahmedabad."
+  },
+  {
+   "id": "voa_durata",
+   "f": "voa",
+   "tema": "voa_durata",
+   "x": "The Immigration officer may grant a double entry ‘Visa-on-Arrival’ valid up to 60 days."
+  },
+  {
+   "id": "voa_non_estendibile",
+   "f": "voa",
+   "tema": "voa_durata",
+   "x": "Visa-on-Arrival shall be non-extendable and non-convertible."
+  },
+  {
+   "id": "voa_pakistan",
+   "f": "voa",
+   "tema": "voa_esclusi",
+   "x": "This facility is not available to any person if he/she or either of his/her parents or grandparents (paternal or maternal) was born in or permanent resident of Pakistan."
+  },
+  {
+   "id": "voa_diplomatici",
+   "f": "voa",
+   "tema": "voa_esclusi",
+   "x": "The Visa-on-Arrival facility is not available to holders of Diplomatic/Official passports."
+  },
+  {
+   "id": "voa_modulo",
+   "f": "voa",
+   "tema": "voa_costo",
+   "x": "Japanese, South Korean and UAE nationals would be required to fill an application form (Annexure I)."
+  },
+  {
+   "id": "boi_senza_visto",
+   "f": "boi_voa",
+   "tema": "senza_visto",
+   "x": "Exemption from the requirement of an Indian visa or Visa Free Entry into India is available for the Citizens of Nepal, Bhutan and Maldives."
+  },
+  {
+   "id": "boi_maldive",
+   "f": "boi_voa",
+   "tema": "senza_visto",
+   "x": "Visa free entry can be availed by Maldivians whose purpose of visit to India is exclusively for Business/Medical treatment/Tourism and the stay in India does not exceed a period of 90 days."
+  },
+  {
+   "id": "home_arrivo",
+   "f": "ivo_home",
+   "tema": "arrivo_chi",
+   "x": "Foreigners and OCI Card holders can complete and submit the e-Arrival card online within 72 hours before their arrival in India at boi.gov.in or indianvisaonline.gov.in or via official 'Indian Visa Su-Swagatam' Mobile App."
+  },
+  {
+   "id": "home_arrivo_obbligo",
+   "f": "ivo_home",
+   "tema": "arrivo_chi",
+   "x": "Foreign Nationals and OCI/eOCI cardholders must complete and submit the eArrival Card (https://indianvisaonline.gov.in/earrival/)."
+  },
+  {
+   "id": "home_arrivo_cosa",
+   "f": "ivo_home",
+   "tema": "arrivo_cosa",
+   "x": "This is for arrival information, not a visa."
+  },
+  {
+   "id": "home_suvidha",
+   "f": "ivo_home",
+   "tema": "arrivo_altro",
+   "x": "All Passengers must also fill the Self-Declaration Form (https://airsuvidha.civilaviation.gov.in/) before reaching the Arrival Immigration Counters"
+  },
+  {
+   "id": "gg_arrivo",
+   "f": "boi_gg",
+   "tema": "arrivo_dove",
+   "x": "Foreigner must complete and submit the e-Arrival card online within 72 hours before their arrival in India at https://indianvisaonline.gov.in/earrival or via official Indian Visa Su-Swagatam mobile app."
+  },
+  {
+   "id": "gg_ingresso",
+   "f": "boi_gg",
+   "tema": "arrivo_altro",
+   "x": "Grant of an Indian Visa/Visa Free Regime does not confer the right of entry which is subjected to the discretion of Immigration Authorities."
+  }
+ ],
+ "faq": {
+  "indice": [
+   {
+    "id": "prezzo",
+    "q": "How much is the India e-Visa?",
+    "query": "how much is india e visa"
+   },
+   {
+    "id": "5anni",
+    "q": "How much is the 5-year India e-Visa?",
+    "query": "india 5 year e visa cost"
+   },
+   {
+    "id": "business",
+    "q": "How much is the India e-Business Visa?",
+    "query": "india e business visa fee"
+   },
+   {
+    "id": "medico",
+    "q": "How much is the India e-Medical Visa?",
+    "query": "india medical visa fee"
+   },
+   {
+    "id": "ue",
+    "q": "How much is the India e-Visa for EU citizens?",
+    "query": "india visa fee for eu citizens"
+   },
+   {
+    "id": "pagare",
+    "q": "How do I pay the Indian e-Visa fee?",
+    "query": "how to pay indian e visa fee",
+    "pre": "Online, on the official website only. Asked whether any other website can take applications, the official e-Visa page answers:",
+    "cit": [
+     "ev_ufficiale",
+     "ev_4giorni",
+     "ev_3"
+    ]
+   },
+   {
+    "id": "rimborso",
+    "q": "Is the Indian e-Visa fee refunded if my visa is refused?",
+    "query": "indian visa fee refund",
+    "pre": "No. The official e-Visa page says:",
+    "cit": [
+     "ev_rimborso"
+    ]
+   },
+   {
+    "id": "transito",
+    "q": "How much is the India e-Transit Visa?",
+    "query": "how much is india e transit visa",
+    "pre": "The two official fee tables do not give a fee for the e-Transit Visa: they cover only the e-Tourist, e-Business, e-Medical and e-Medical Attendant visas. The e-Visa page says the fee is set by country:",
+    "cit": [
+     "ev_paese"
+    ],
+    "post": "Check the fee shown on the official website before you pay."
+   }
+  ],
+  "voa": [
+   {
+    "q": "Which countries get a visa on arrival in India?",
+    "query": "india visa on arrival countries",
+    "pre": "Only three, according to the official e-Visa page:",
+    "cit": [
+     "ev_voa"
+    ]
+   },
+   {
+    "q": "Can US citizens get a visa on arrival in India?",
+    "query": "india visa on arrival for us citizens",
+    "pre": "No. The official e-Visa page says:",
+    "cit": [
+     "ev_voa",
+     "ev_voa_altri"
+    ]
+   },
+   {
+    "q": "Can UK citizens get a visa on arrival in India?",
+    "query": "india visa on arrival for uk citizens",
+    "pre": "No. The visa on arrival is only for nationals of Japan, South Korea and the UAE; the official e-Visa page says:",
+    "cit": [
+     "ev_voa_altri"
+    ]
+   },
+   {
+    "q": "How much is the visa on arrival in India?",
+    "query": "indian visa on arrival cost",
+    "pre": "India’s official visa website says:",
+    "cit": [
+     "voa_costo"
+    ]
+   },
+   {
+    "q": "Can UAE nationals get a visa on arrival in India?",
+    "query": "india visa on arrival for uae nationals",
+    "pre": "Only if they have had an Indian e-Visa or paper visa before. The official visa website says:",
+    "cit": [
+     "voa_uae"
+    ]
+   }
+  ],
+  "arrivo": [
+   {
+    "q": "Who needs to fill in the India e-Arrival card?",
+    "query": "e arrival card india who needs to fill",
+    "pre": "Foreigners and OCI cardholders. India’s official visa website says:",
+    "cit": [
+     "home_arrivo_obbligo"
+    ]
+   },
+   {
+    "q": "When should I fill in the India e-Arrival card?",
+    "query": "india e arrival card when to fill",
+    "pre": "In the 72 hours before you arrive. The Bureau of Immigration says:",
+    "cit": [
+     "gg_arrivo"
+    ]
+   },
+   {
+    "q": "Do OCI cardholders need the e-Arrival card?",
+    "query": "india e arrival card for oci holders",
+    "pre": "Yes. India’s official visa website says:",
+    "cit": [
+     "home_arrivo_obbligo"
+    ]
+   },
+   {
+    "q": "Do Indian citizens need the e-Arrival card?",
+    "query": "india e arrival card for indian citizens",
+    "pre": "The official pages we read speak only of foreigners and OCI cardholders and do not mention Indian passport holders:",
+    "cit": [
+     "home_arrivo"
+    ],
+    "post": "If you travel on an Indian passport, check with your airline or the Bureau of Immigration."
+   },
+   {
+    "q": "Is the e-Arrival card the same as the e-Visa?",
+    "query": "india e visa e arrival card",
+    "pre": "No. India’s official visa website says of the e-Arrival card:",
+    "cit": [
+     "home_arrivo_cosa"
+    ],
+    "post": "You still need your e-Visa (or another visa or OCI card) to enter India."
+   },
+   {
+    "q": "What is the official e-Arrival card website, and is there an app?",
+    "query": "india e arrival card official website",
+    "pre": "The form is at indianvisaonline.gov.in/earrival. India’s official visa website says:",
+    "cit": [
+     "home_arrivo"
+    ]
+   },
+   {
+    "q": "Do I also need the Air Suvidha form?",
+    "query": "e arrival card india and air suvidha",
+    "pre": "India’s official visa website says:",
+    "cit": [
+     "home_suvidha"
+    ]
+   }
+  ],
+  "de": [
+   {
+    "id": "kosten",
+    "q": "Was kostet das e-Visum für Indien?",
+    "query": "indien e visum kosten"
+   },
+   {
+    "id": "30tage",
+    "q": "Was kostet das e-Visum für Indien für 30 Tage?",
+    "query": "kosten e visum indien 30 tage"
+   },
+   {
+    "id": "1jahr",
+    "q": "Was kostet das e-Visum für Indien für ein Jahr?",
+    "query": "kosten e visum indien 1 jahr"
+   },
+   {
+    "id": "business",
+    "q": "Was kostet das e-Business-Visum für Indien?",
+    "query": "e business visum indien kosten"
+   },
+   {
+    "id": "schweiz",
+    "q": "Was kostet das Indien-Visum für Schweizer?",
+    "query": "visum indien kosten schweiz"
+   },
+   {
+    "id": "oesterreich",
+    "q": "Was kostet das Indien-Visum für Österreicher?",
+    "query": "visum indien österreich kosten"
+   },
+   {
+    "id": "euro",
+    "q": "Was kostet das Indien-Visum in Euro?",
+    "query": "visum indien kosten euro"
+   },
+   {
+    "id": "offiziell",
+    "q": "Wo ist die offizielle Seite für das e-Visum?",
+    "query": "e visum indien offizielle seite kosten"
+   }
+  ],
+  "fr": [
+   {
+    "id": "prix",
+    "q": "Quel est le prix du e-Visa pour l’Inde ?",
+    "query": "e visa inde prix"
+   },
+   {
+    "id": "30jours",
+    "q": "Quel est le prix du e-Visa de 30 jours pour l’Inde ?",
+    "query": "prix e visa inde 30 jours"
+   },
+   {
+    "id": "1an",
+    "q": "Quel est le prix du e-Visa d’un an pour l’Inde ?",
+    "query": "e visa inde 1 an prix"
+   },
+   {
+    "id": "5ans",
+    "q": "Quel est le prix du e-Visa de 5 ans pour l’Inde ?",
+    "query": "e visa inde 5 ans prix"
+   },
+   {
+    "id": "business",
+    "q": "Quel est le prix du e-Visa business pour l’Inde ?",
+    "query": "prix e visa business inde"
+   },
+   {
+    "id": "belgique",
+    "q": "Quel est le prix du visa pour l’Inde pour les Belges ?",
+    "query": "visa inde belgique prix"
+   },
+   {
+    "id": "suisse",
+    "q": "Quel est le prix du visa pour l’Inde pour les Suisses ?",
+    "query": "visa inde suisse prix"
+   },
+   {
+    "id": "maroc",
+    "q": "Quel est le prix du visa pour l’Inde pour les Marocains ?",
+    "query": "prix visa inde pour marocain"
+   },
+   {
+    "id": "officiel",
+    "q": "Quel est le site officiel du e-Visa pour l’Inde ?",
+    "query": "e visa inde site officiel"
+   }
+  ]
+ },
+ "pagine_lingua": {
+  "de": {
+   "paesi": [
+    "DE",
+    "AT",
+    "CH",
+    "LI"
+   ]
+  },
+  "fr": {
+   "paesi": [
+    "FR",
+    "BE",
+    "CH",
+    "LU",
+    "MC",
+    "MA"
+   ],
+   "fuori": [
+    "Algeria",
+    "Democratic Republic of the Congo"
+   ],
+   "fuori_ricerche": [
+    "e visa inde algerie",
+    "prix visa inde en rdc"
+   ]
+  }
+ },
+ "porti": {
+  "aeroporti_faq": [
+   "Ahmedabad",
+   "Amritsar",
+   "Bagdogra",
+   "Bengaluru",
+   "Bhubaneshwar",
+   "Calicut",
+   "Chennai",
+   "Chandigarh",
+   "Cochin",
+   "Coimbatore",
+   "Delhi",
+   "Gaya",
+   "Goa(Dabolim)",
+   "Goa(Mopa)",
+   "Guwahati",
+   "Hyderabad",
+   "Indore",
+   "Jaipur",
+   "Kannur",
+   "Kolkata",
+   "Lucknow",
+   "Madurai",
+   "Mangalore",
+   "Mumbai",
+   "Nagpur",
+   "Port Blair",
+   "Pune",
+   "Surat",
+   "Tiruchirapalli",
+   "Trivandrum",
+   "Varanasi",
+   "Vijayawada",
+   "Vishakhapatnam"
+  ],
+  "porti_faq": [
+   "Agatti",
+   "Calicut",
+   "Chennai",
+   "Cochin",
+   "Goa",
+   "Kamarajar",
+   "Kandla",
+   "Kattupali",
+   "Kolkata",
+   "Kollam",
+   "Mangalore",
+   "Mumbai",
+   "Mundra",
+   "Nhava Sheva",
+   "Port Blair",
+   "Vallarpadam",
+   "Vishakhapatnam",
+   "Vizhinjam",
+   "Vizhinjam International"
+  ],
+  "aeroporti_solo_lista": [
+   "Navi Mumbai",
+   "Bhopal",
+   "Tirupati",
+   "Bhogapuram"
+  ]
+ }
+}

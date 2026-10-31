@@ -1,0 +1,110 @@
+{
+ "_nota": "e-Visa per l'India (sezione india-e-visa-fee/, pagine india-visa-on-arrival/ e india-e-arrival-card/), scritto a mano il 31/10/2026. 'citazioni': frasi copiate parola per parola dal testo normalizzato delle fonti di raccolta/india_evisa.py (al massimo 40 parole: il Bureau of Immigration chiede il permesso per riusare i suoi testi, quindi solo citazioni brevi con link e data); 'faq': ogni domanda è legata a una ricerca vera di dati/india_evisa_domanda.json (campo 'query'); le risposte con cifre le costruisce genera.py dalle tabelle (campo 'id'), le altre sono parole nostre ('pre', 'post') più citazioni ('cit'), senza numeri che non stiano nelle citazioni. 'porti': elenchi degli aeroporti e dei porti come li scrive la pagina e-Visa (FAQ Q11 e riquadro 'Authorized Immigration Checkposts'), ricontrollati da verifica.py sul testo salvato.",
+ "citazioni": [
+  {"id": "ev_ufficiale", "f": "evisa", "tema": "ufficiale", "x": "No, https://indianvisaonline.gov.in/evisa/ is only the official website to apply for the e-Visa Services."},
+  {"id": "ev_intermediari", "f": "evisa", "tema": "pagare", "x": "Services of e-Visa are completely online and no facilitation is required by any intermediary / travel agents etc."},
+  {"id": "ev_express", "f": "evisa", "tema": "pagare", "x": "Government of India makes no provision of charging of any emergency fees or additional fees for grant of any emergency / express e-visa."},
+  {"id": "ev_aeroporto", "f": "evisa", "tema": "pagare", "x": "No. You have already paid the required processing fee online. The applicants are advised to beware of unscrupulous elements/ travel agents/ intermediaries demanding extra payment."},
+  {"id": "home_agenti", "f": "ivo_home", "tema": "pagare", "x": "The Government of India does not authorize any agent or intermediaries to charge fees for emergency, express visa, eVisas and eArrival card."},
+  {"id": "ev_paese", "f": "evisa", "tema": "costo", "x": "e-Visa fee is country/Territory specific."},
+  {"id": "ev_3", "f": "evisa", "tema": "costo", "x": "Bank transaction charges of 3% will be charged additionally on applicable e-Visa fees."},
+  {"id": "pdf_3", "f": "fee_tv", "tema": "costo", "x": "Bank charge of 3% will be charged additional on applicable e-Visa fees."},
+  {"id": "ev_solo_processo", "f": "evisa", "tema": "costo", "x": "No, there is no fee other than the processing fee for e-Visa application and it is non-refundable."},
+  {"id": "ev_4giorni", "f": "evisa", "tema": "quando", "x": "The fee must be paid at least 4 days before the expected date of travel otherwise application will not be processed."},
+  {"id": "ev_quando", "f": "evisa", "tema": "quando", "x": "For e-Tourist Visa (30 days), applicants of the eligible countries/territories may apply online minimum 4 days in advance of the date of arrival. Such application can be made 120 days in advance from proposed date of travel."},
+  {"id": "ev_rimborso", "f": "evisa", "tema": "rimborso", "x": "e-Visa fee once submitted is non-refundable as the fee is for processing of the application and is not dependent on either Grant or Rejection of Electronic Travel Authorization (ETA)."},
+  {"id": "ev_val30", "f": "evisa", "tema": "validita", "x": "For e-Tourist Visa (30 days), the validity would be 30 days from the date of your first arrival in India."},
+  {"id": "ev_val1_5", "f": "evisa", "tema": "validita", "x": "For e-Tourist Visa (01 year / 05 years), the validity would be 365 days / 05 years from the date of grant of ETA with Multiple entries"},
+  {"id": "ev_180", "f": "evisa", "tema": "validita", "x": "Maximum stay in India during one Calender Year should not exceed 180 days for 1 year and 5 year Tourist Visa."},
+  {"id": "ev_valb", "f": "evisa", "tema": "validita", "x": "For e-Business Visa, the validity would be 365 days from the date of grant of ETA with Multiple entries and continuous stay during each visit which shall not exceed 180 days"},
+  {"id": "ev_passaporto", "f": "evisa", "tema": "validita", "x": "Applicant's passport should have at least six months validity at the time of making application for grant of e-Visa."},
+  {"id": "ev_idonei", "f": "evisa", "tema": "ufficiale", "x": "Nationals of countries listed on the e-Visa website https://indianvisaonline.gov.in/evisa/ are eligible to apply for e-Visa Services."},
+  {"id": "ev_pakistan", "f": "evisa", "tema": "ufficiale", "x": "International Travellers having Pakistani Passport or Pakistani origin may please apply for regular Visa at Indian Mission."},
+  {"id": "ev_afghan", "f": "evisa", "tema": "ufficiale", "x": "Afghanistan Nationals may apply online visa on New AFGHAN Portal(https://indianvisaonline.gov.in/avisa)"},
+  {"id": "ev_porti_aerei", "f": "evisa", "tema": "porti", "x": "You may arrive at 33 designated Airports"},
+  {"id": "ev_porti_partenza", "f": "evisa", "tema": "porti", "x": "You may depart from any of the Indian Immigration Check Posts (ICPs)."},
+  {"id": "ev_porti_37", "f": "evisa", "tema": "porti", "x": "Persons holding eVisa will be allowed to enter into India only through the designated international airports (37)"},
+  {"id": "ev_porti_38", "f": "evisa", "tema": "porti", "x": "eVisa facility is also been provided for entry at 38 major Indian seaport for cruise tourists"},
+  {"id": "ev_terra", "f": "evisa", "tema": "terra", "x": "No, You can only enter through the designated airports/seaports which are listed on the e-Visa website."},
+  {"id": "ev_crociera", "f": "evisa", "tema": "crociera", "x": "Entry by cruise ship is allowed with the ETA through 5 designated seaports namely Mumbai, Chennai, Cochin, Goa and Mangalore seaports."},
+  {"id": "ev_voa", "f": "evisa", "tema": "voa_chi", "x": "The Visa on Arrival facility is only for the nationals of Japan, South Korea and UAE (only for such UAE nationals who had earlier obtained e-Visa or regular/paper visa for India)."},
+  {"id": "ev_voa_altri", "f": "evisa", "tema": "voa_chi", "x": "For the nationals of all other countries eligible for e-Visa, the e-visa application have to be filled online and the applicant must wait till the confirmation/Grant of ETA for travelling to India."},
+  {"id": "voa_scopo", "f": "voa", "tema": "voa_chi", "x": "Who is visiting India for a period not exceeding 60 days and for business, tourism, conference and medical purposes;"},
+  {"id": "voa_uae", "f": "voa", "tema": "voa_chi", "x": "UAE nationals who are coming to India for the first time are advised to apply for e-Visa or regular/paper visa."},
+  {"id": "voa_costo", "f": "voa", "tema": "voa_costo", "x": "A fee of Rs. 2,000/- or equivalent in foreign currency per passenger (including children), will be charged from each Japanese, South Korean and UAE nationals for the grant of Visa-on-Arrival."},
+  {"id": "voa_pagare", "f": "voa", "tema": "voa_costo", "x": "The visa fee is required to be paid before grant of the visa."},
+  {"id": "voa_dove", "f": "voa", "tema": "voa_dove", "x": "Visa-on-Arrival is provided to Japanese, South Korean and UAE nationals only at six designated international airports at Bangalore, Chennai, Delhi, Hyderabad, Kolkata and Mumbai."},
+  {"id": "boi_voa_dove", "f": "boi_voa", "tema": "voa_dove", "x": "Visa on arrival will be provided to Japanese and Republic of Korea nationals only at Delhi. Mumbai. Chennai, Kolkata, Bengaluru and Hyderbad while for UAE national at Delhi, Mumbai, Chennai, Kolkata, Bengaluru, Hyderabad, Cochin, Calicut and Ahmedabad."},
+  {"id": "voa_durata", "f": "voa", "tema": "voa_durata", "x": "The Immigration officer may grant a double entry ‘Visa-on-Arrival’ valid up to 60 days."},
+  {"id": "voa_non_estendibile", "f": "voa", "tema": "voa_durata", "x": "Visa-on-Arrival shall be non-extendable and non-convertible."},
+  {"id": "voa_pakistan", "f": "voa", "tema": "voa_esclusi", "x": "This facility is not available to any person if he/she or either of his/her parents or grandparents (paternal or maternal) was born in or permanent resident of Pakistan."},
+  {"id": "voa_diplomatici", "f": "voa", "tema": "voa_esclusi", "x": "The Visa-on-Arrival facility is not available to holders of Diplomatic/Official passports."},
+  {"id": "voa_modulo", "f": "voa", "tema": "voa_costo", "x": "Japanese, South Korean and UAE nationals would be required to fill an application form (Annexure I)."},
+  {"id": "boi_senza_visto", "f": "boi_voa", "tema": "senza_visto", "x": "Exemption from the requirement of an Indian visa or Visa Free Entry into India is available for the Citizens of Nepal, Bhutan and Maldives."},
+  {"id": "boi_maldive", "f": "boi_voa", "tema": "senza_visto", "x": "Visa free entry can be availed by Maldivians whose purpose of visit to India is exclusively for Business/Medical treatment/Tourism and the stay in India does not exceed a period of 90 days."},
+  {"id": "home_arrivo", "f": "ivo_home", "tema": "arrivo_chi", "x": "Foreigners and OCI Card holders can complete and submit the e-Arrival card online within 72 hours before their arrival in India at boi.gov.in or indianvisaonline.gov.in or via official 'Indian Visa Su-Swagatam' Mobile App."},
+  {"id": "home_arrivo_obbligo", "f": "ivo_home", "tema": "arrivo_chi", "x": "Foreign Nationals and OCI/eOCI cardholders must complete and submit the eArrival Card (https://indianvisaonline.gov.in/earrival/)."},
+  {"id": "home_arrivo_cosa", "f": "ivo_home", "tema": "arrivo_cosa", "x": "This is for arrival information, not a visa."},
+  {"id": "home_suvidha", "f": "ivo_home", "tema": "arrivo_altro", "x": "All Passengers must also fill the Self-Declaration Form (https://airsuvidha.civilaviation.gov.in/) before reaching the Arrival Immigration Counters"},
+  {"id": "gg_arrivo", "f": "boi_gg", "tema": "arrivo_dove", "x": "Foreigner must complete and submit the e-Arrival card online within 72 hours before their arrival in India at https://indianvisaonline.gov.in/earrival or via official Indian Visa Su-Swagatam mobile app."},
+  {"id": "gg_ingresso", "f": "boi_gg", "tema": "arrivo_altro", "x": "Grant of an Indian Visa/Visa Free Regime does not confer the right of entry which is subjected to the discretion of Immigration Authorities."}
+ ],
+ "porti": {
+  "aeroporti_faq": ["Ahmedabad", "Amritsar", "Bagdogra", "Bengaluru", "Bhubaneshwar", "Calicut", "Chennai", "Chandigarh", "Cochin", "Coimbatore", "Delhi", "Gaya", "Goa(Dabolim)", "Goa(Mopa)", "Guwahati", "Hyderabad", "Indore", "Jaipur", "Kannur", "Kolkata", "Lucknow", "Madurai", "Mangalore", "Mumbai", "Nagpur", "Port Blair", "Pune", "Surat", "Tiruchirapalli", "Trivandrum", "Varanasi", "Vijayawada", "Vishakhapatnam"],
+  "porti_faq": ["Agatti", "Calicut", "Chennai", "Cochin", "Goa", "Kamarajar", "Kandla", "Kattupali", "Kolkata", "Kollam", "Mangalore", "Mumbai", "Mundra", "Nhava Sheva", "Port Blair", "Vallarpadam", "Vishakhapatnam", "Vizhinjam", "Vizhinjam International"],
+  "aeroporti_solo_lista": ["Navi Mumbai", "Bhopal", "Tirupati", "Bhogapuram"]
+ },
+ "faq": {
+  "indice": [
+   {"id": "prezzo", "q": "How much is the India e-Visa?", "query": "how much is india e visa"},
+   {"id": "5anni", "q": "How much is the 5-year India e-Visa?", "query": "india 5 year e visa cost"},
+   {"id": "business", "q": "How much is the India e-Business Visa?", "query": "india e business visa fee"},
+   {"id": "medico", "q": "How much is the India e-Medical Visa?", "query": "india medical visa fee"},
+   {"id": "ue", "q": "How much is the India e-Visa for EU citizens?", "query": "india visa fee for eu citizens"},
+   {"id": "pagare", "q": "How do I pay the Indian e-Visa fee?", "query": "how to pay indian e visa fee", "pre": "Online, on the official website only. Asked whether any other website can take applications, the official e-Visa page answers:", "cit": ["ev_ufficiale", "ev_4giorni", "ev_3"]},
+   {"id": "rimborso", "q": "Is the Indian e-Visa fee refunded if my visa is refused?", "query": "indian visa fee refund", "pre": "No. The official e-Visa page says:", "cit": ["ev_rimborso"]},
+   {"id": "transito", "q": "How much is the India e-Transit Visa?", "query": "how much is india e transit visa", "pre": "The two official fee tables do not give a fee for the e-Transit Visa: they cover only the e-Tourist, e-Business, e-Medical and e-Medical Attendant visas. The e-Visa page says the fee is set by country:", "cit": ["ev_paese"], "post": "Check the fee shown on the official website before you pay."}
+  ],
+  "voa": [
+   {"q": "Which countries get a visa on arrival in India?", "query": "india visa on arrival countries", "pre": "Only three, according to the official e-Visa page:", "cit": ["ev_voa"]},
+   {"q": "Can US citizens get a visa on arrival in India?", "query": "india visa on arrival for us citizens", "pre": "No. The official e-Visa page says:", "cit": ["ev_voa", "ev_voa_altri"]},
+   {"q": "Can UK citizens get a visa on arrival in India?", "query": "india visa on arrival for uk citizens", "pre": "No. The visa on arrival is only for nationals of Japan, South Korea and the UAE; the official e-Visa page says:", "cit": ["ev_voa_altri"]},
+   {"q": "How much is the visa on arrival in India?", "query": "indian visa on arrival cost", "pre": "India’s official visa website says:", "cit": ["voa_costo"]},
+   {"q": "Can UAE nationals get a visa on arrival in India?", "query": "india visa on arrival for uae nationals", "pre": "Only if they have had an Indian e-Visa or paper visa before. The official visa website says:", "cit": ["voa_uae"]}
+  ],
+  "arrivo": [
+   {"q": "Who needs to fill in the India e-Arrival card?", "query": "e arrival card india who needs to fill", "pre": "Foreigners and OCI cardholders. India’s official visa website says:", "cit": ["home_arrivo_obbligo"]},
+   {"q": "When should I fill in the India e-Arrival card?", "query": "india e arrival card when to fill", "pre": "In the 72 hours before you arrive. The Bureau of Immigration says:", "cit": ["gg_arrivo"]},
+   {"q": "Do OCI cardholders need the e-Arrival card?", "query": "india e arrival card for oci holders", "pre": "Yes. India’s official visa website says:", "cit": ["home_arrivo_obbligo"]},
+   {"q": "Do Indian citizens need the e-Arrival card?", "query": "india e arrival card for indian citizens", "pre": "The official pages we read speak only of foreigners and OCI cardholders and do not mention Indian passport holders:", "cit": ["home_arrivo"], "post": "If you travel on an Indian passport, check with your airline or the Bureau of Immigration."},
+   {"q": "Is the e-Arrival card the same as the e-Visa?", "query": "india e visa e arrival card", "pre": "No. India’s official visa website says of the e-Arrival card:", "cit": ["home_arrivo_cosa"], "post": "You still need your e-Visa (or another visa or OCI card) to enter India."},
+   {"q": "What is the official e-Arrival card website, and is there an app?", "query": "india e arrival card official website", "pre": "The form is at indianvisaonline.gov.in/earrival. India’s official visa website says:", "cit": ["home_arrivo"]},
+   {"q": "Do I also need the Air Suvidha form?", "query": "e arrival card india and air suvidha", "pre": "India’s official visa website says:", "cit": ["home_suvidha"]}
+  ],
+  "de": [
+   {"id": "kosten", "q": "Was kostet das e-Visum für Indien?", "query": "indien e visum kosten"},
+   {"id": "30tage", "q": "Was kostet das e-Visum für Indien für 30 Tage?", "query": "kosten e visum indien 30 tage"},
+   {"id": "1jahr", "q": "Was kostet das e-Visum für Indien für ein Jahr?", "query": "kosten e visum indien 1 jahr"},
+   {"id": "business", "q": "Was kostet das e-Business-Visum für Indien?", "query": "e business visum indien kosten"},
+   {"id": "schweiz", "q": "Was kostet das Indien-Visum für Schweizer?", "query": "visum indien kosten schweiz"},
+   {"id": "oesterreich", "q": "Was kostet das Indien-Visum für Österreicher?", "query": "visum indien österreich kosten"},
+   {"id": "euro", "q": "Was kostet das Indien-Visum in Euro?", "query": "visum indien kosten euro"},
+   {"id": "offiziell", "q": "Wo ist die offizielle Seite für das e-Visum?", "query": "e visum indien offizielle seite kosten"}
+  ],
+  "fr": [
+   {"id": "prix", "q": "Quel est le prix du e-Visa pour l’Inde ?", "query": "e visa inde prix"},
+   {"id": "30jours", "q": "Quel est le prix du e-Visa de 30 jours pour l’Inde ?", "query": "prix e visa inde 30 jours"},
+   {"id": "1an", "q": "Quel est le prix du e-Visa d’un an pour l’Inde ?", "query": "e visa inde 1 an prix"},
+   {"id": "5ans", "q": "Quel est le prix du e-Visa de 5 ans pour l’Inde ?", "query": "e visa inde 5 ans prix"},
+   {"id": "business", "q": "Quel est le prix du e-Visa business pour l’Inde ?", "query": "prix e visa business inde"},
+   {"id": "belgique", "q": "Quel est le prix du visa pour l’Inde pour les Belges ?", "query": "visa inde belgique prix"},
+   {"id": "suisse", "q": "Quel est le prix du visa pour l’Inde pour les Suisses ?", "query": "visa inde suisse prix"},
+   {"id": "maroc", "q": "Quel est le prix du visa pour l’Inde pour les Marocains ?", "query": "prix visa inde pour marocain"},
+   {"id": "officiel", "q": "Quel est le site officiel du e-Visa pour l’Inde ?", "query": "e visa inde site officiel"}
+  ]
+ },
+ "pagine_lingua": {
+  "de": {"paesi": ["DE", "AT", "CH", "LI"]},
+  "fr": {"paesi": ["FR", "BE", "CH", "LU", "MC", "MA"], "fuori": ["Algeria", "Democratic Republic of the Congo"], "fuori_ricerche": ["e visa inde algerie", "prix visa inde en rdc"]}
+ }
+}

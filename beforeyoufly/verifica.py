@@ -144,12 +144,23 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
 20. (aggiunta del 31/10/2026) Croazia: caselli fino al 28/2/2027 e pedaggio senza caselli dal 1/3/2027, con la frase della legge (NN 156/2025,
     art. 67) citata e presente nella copia salvata della Gazzetta ufficiale, fonti Crolibertas linkate, traduzione di ogni citazione non
     inglese, riquadro del cambio non scaduto (errore dal 1/3/2027: pagina da riscrivere al presente) e frase "ask the rental company".
+27. "India e-Visa fee by nationality" (dati/india_evisa.json da raccolta/india_evisa.py, 31/10/2026): fonti solo indianvisaonline.gov.in e
+    boi.gov.in, HTTP 200 e data; i due PDF salvati hanno l'impronta SHA-256 registrata; SECONDA LETTURA INDIPENDENTE dei PDF (pdfplumber,
+    o pdftotext -raw se manca): numero di righe = numero di Paesi dei dati = ultimo numero d'ordine, ogni nome e ogni valore uguale ai dati;
+    citazioni (al massimo 40 parole) ed elenchi dei porti parola per parola nella copia salvata; pagine = indice + nazionalità ricalcolate
+    dalle ricerche vere (almeno 2 sul costo che nominano la nazionalità) + visto all'arrivo + e-Arrival card + tedesco e francese (solo con
+    ricerche vere nella lingua); ogni cella delle tabelle nelle pagine = PDF (non le funzioni di genera.py); prima frase con fonte e data;
+    avviso "only on the official site" con il link ufficiale prima del primo titolo; nel contenuto solo link ufficiali o SafetyWing
+    sponsorizzato (etichetta, trasparenza, dopo le informazioni ufficiali, solo in inglese); nessun rivenditore di visti; FAQ da ricerche vere
+    (JSON-LD = testo visibile); titoli <= 70 con l'anno; sitemap; link in entrata; nessun link nelle sezioni già revisionate; Playwright a
+    375 px (chiaro e scuro) e 1280 px su 8 pagine, con il filtro per Paese e per tipo di visto.
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
 domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
 solo se AdSense è acceso per questo sito in monetizzazione.json.
 Esce con codice 1 se qualcosa non va.
 """
+import hashlib
 import json
 import os
 import random
@@ -733,6 +744,10 @@ def controlla_meta():
         if rel.startswith(G.PET_BASE + "/"):  # sezione "Pets: from the UK to the EU": fino a 70 caratteri con l'anno (il punto 26 controlla il resto)
             if len(tit) > G.LIMITE_TITOLO_PET or str(G.ANNO) not in tit:
                 errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_PET}) o senza l'anno in {rel}: {tit}")
+            continue
+        if rel.startswith((G.IN_BASE + "/", G.IN_VOA + "/", G.IN_ARR + "/")):  # sezione "India e-Visa fee": fino a 70 caratteri con l'anno (il punto 27 controlla il resto)
+            if len(tit) > G.LIMITE_TITOLO_IN or str(G.ANNO) not in tit:
+                errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_IN}) o senza l'anno in {rel}: {tit}")
             continue
         if rel.startswith(G.PED_BASE + "/"):  # sezione "Tolls with a rental car": fino a 70 caratteri con l'anno (il punto 20 controlla il resto)
             if len(tit) > G.LIMITE_TITOLO_PED or str(G.ANNO) not in tit:
@@ -4050,6 +4065,415 @@ def controlla_animali():
     return errori, conti
 
 
+# ---------------------------------------------------------------- 27. e-Visa per l'India: costo per nazionalità, visto all'arrivo, e-Arrival card (31/10/2026)
+_spec_in = importlib.util.spec_from_file_location("raccolta_india_evisa", Path(__file__).resolve().parent / "raccolta" / "india_evisa.py")
+RIN = importlib.util.module_from_spec(_spec_in)
+_spec_in.loader.exec_module(RIN)
+# Fonti ammesse: portale ufficiale del governo indiano per i visti e Bureau of Immigration
+FONTI_UFFICIALI_IN = re.compile(r"^https://(?:indianvisaonline\.gov\.in|boi\.gov\.in)/")
+# Link esterni ammessi nelle pagine della sezione (oltre ai link interni): solo siti ufficiali e, sponsorizzato, SafetyWing
+LINK_AMMESSI_IN = re.compile(r"^https://(?:indianvisaonline\.gov\.in/|boi\.gov\.in/|airsuvidha\.civilaviation\.gov\.in/|before-you-fly\.netlify\.app/"
+                             r"|safetywing\.com/nomad-insurance\?referenceID=26614957&(?:amp;)?campaign=india-e-visa&)")
+# Rivenditori e "servizi visto": mai nominati né linkati nella sezione
+RIVENDITORI_IN = re.compile(r"ivisa|visahq|travisa|cibt|visacentral|atlys|visa ?guide\.world|india-?visa-?online(?!\.gov)|indian-?visa-?online(?!\.gov)"
+                            r"|evisa-?india|e-?visa-?india\.|india-?evisa\.|visa-?india\.|indiavisa\.|onlinevisa|visasnews|holidify|immihelp|sbnri"
+                            r"|visafeecalculator|calendar-uk|discovercars|stay22|booking\.com|viator", re.I)
+COLONNE_PDF_IN = {"fee_tv": 4, "fee_altri": 3}
+
+
+def righe_pdf_indipendenti(f, k):
+    """Seconda lettura del PDF, indipendente da raccolta/india_evisa.py: pdfplumber (pdfminer) se c'è, altrimenti pdftotext -raw.
+    Righe "N Nome v1 v2 ..." con i nomi su due righe ricomposti; restituisce ([(n, nome, [grezzi])], metodo)."""
+    try:
+        import pdfplumber
+        with pdfplumber.open(str(f)) as pdf:
+            testo = "\n".join(pg.extract_text() or "" for pg in pdf.pages)
+        metodo = "pdfplumber"
+    except ImportError:
+        testo = subprocess.run(["pdftotext", "-raw", str(f), "-"], capture_output=True, text=True, check=True).stdout
+        metodo = "pdftotext -raw"
+    rx = re.compile(r"^(\d{1,3}) (.+?) ((?:\d+|-)(?: (?:\d+|-)){%d})$" % (k - 1))
+    righe, prec = [], None
+    for linea in testo.splitlines():
+        linea = re.sub(r"\s+", " ", linea).strip()
+        m = rx.match(linea)
+        if m:
+            righe.append([int(m.group(1)), m.group(2), m.group(3).split()])
+            prec = righe[-1]
+        elif prec is not None and re.fullmatch(r"[A-Za-z][A-Za-z .'&()-]*", linea) and not linea.startswith("Note"):
+            prec[1] += " " + linea
+            prec = None
+        else:
+            prec = None
+    return righe, metodo
+
+
+def _vis_in(t):
+    from html import unescape
+    return unescape(re.sub(r"<[^>]+>", " ", re.sub(r"(?s)<style>.*?</style>|<script.*?</script>", " ", t)))
+
+
+def _numeri_in(s):
+    return set(re.findall(r"\d+(?:[.,]\d+)?", s))
+
+
+def controlla_india():
+    """Punto 27: PDF salvati = dati (seconda lettura indipendente: numero di Paesi e ogni valore), fonti ufficiali, citazioni parola per parola,
+    pagine = dati (nazionalità solo con ricerche vere), tabelle nelle pagine = PDF, prima frase con fonte e data, avviso sul sito ufficiale,
+    nessun rivenditore di visti, solo link ufficiali o SafetyWing sponsorizzato, FAQ da ricerche vere (JSON-LD = testo visibile), titoli,
+    sitemap, pagine in tedesco e francese, collegamenti in entrata; browser a 375 e 1280 px con il filtro della tabella."""
+    from html import unescape
+    errori = []
+    conti = {"fonti": 0, "paesi": 0, "righe_tv": 0, "righe_altri": 0, "valori": 0, "metodo": "-", "pagine": 0, "citazioni": 0, "faq": 0,
+             "link": 0, "browser": "-", "nazionalita": 0}
+    I = G.IN
+    if not I:
+        return ["dati/india_evisa.json mancante (rilanciare raccolta/india_evisa.py)"], conti
+    M = json.loads((SITO.parent / "dati" / "india_evisa_manuali.json").read_text(encoding="utf-8"))
+    D = json.loads((SITO.parent / "dati" / "india_evisa_domanda.json").read_text(encoding="utf-8"))
+    if M["citazioni"] != I["citazioni"] or M["faq"] != I["faq"] or M["porti"] != I["porti"] or M["pagine_lingua"] != I["pagine_lingua"]:
+        errori.append("dati/india_evisa.json non è aggiornato rispetto a dati/india_evisa_manuali.json (rilanciare la raccolta)")
+    ricerche = RIN.tutte_ricerche(D)
+    # a) fonti: dominio ufficiale, HTTP 200, date; PDF salvati con la stessa impronta; citazioni nel testo salvato; elenchi dei porti
+    for fid, F in I["fonti"].items():
+        conti["fonti"] += 1
+        if F["http"] != 200 or not FONTI_UFFICIALI_IN.match(F["url"]):
+            errori.append(f"fonte {fid}: HTTP {F['http']} o dominio non ufficiale {F['url']}")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F["letto_il"] or "") or F["letto_il"] > G.OGGI.isoformat():
+            errori.append(f"fonte {fid}: data di lettura non valida")
+        f_c = RIN.file_cache(fid)
+        if not f_c.exists():
+            errori.append(f"fonte {fid}: copia salvata mancante (rilanciare raccolta/india_evisa.py)")
+            continue
+        if F["tipo"] == "pdf" and hashlib.sha256(f_c.read_bytes()).hexdigest() != F["sha256"]:
+            errori.append(f"fonte {fid}: il PDF salvato non è quello da cui sono stati estratti i dati (rilanciare la raccolta)")
+        t = RIN.testo_fonte(fid, f_c)
+        for c in I["citazioni"]:
+            if c["f"] == fid and c["x"] not in t:
+                errori.append(f"fonte {fid}: citazione {c['id']} non parola per parola nel testo salvato")
+        if fid == "evisa":
+            errori += RIN.controlla_porti(M, t)
+    for c in I["citazioni"]:
+        if len(c["x"].split()) > RIN.MAX_PAROLE:
+            errori.append(f"citazione {c['id']} oltre {RIN.MAX_PAROLE} parole")
+    # b) seconda lettura dei PDF: stesso numero di righe e di Paesi, numeri d'ordine 1..N, stessi nomi e stessi valori dei dati
+    pdf = {}
+    for fid, k in COLONNE_PDF_IN.items():
+        righe, metodo = righe_pdf_indipendenti(RIN.file_cache(fid), k)
+        conti["metodo"] = metodo
+        T = I["tabelle"][fid]
+        conti["righe_tv" if fid == "fee_tv" else "righe_altri"] = len(righe)
+        if [r[0] for r in righe] != list(range(1, len(righe) + 1)):
+            errori.append(f"{fid}: la seconda lettura del PDF non dà numeri d'ordine consecutivi")
+        if len(righe) != len(T["righe"]) or len(righe) != I["fonti"][fid]["righe"]:
+            errori.append(f"{fid}: {len(righe)} righe nel PDF (seconda lettura) contro {len(T['righe'])} nei dati")
+        for r, d in zip(righe, T["righe"]):
+            if r[0] != d["n"] or r[1] != d["nome_pdf"] or r[2] != d["grezzi"]:
+                errori.append(f"{fid}: riga {r[0]} diversa: PDF {r[1]} {r[2]}, dati {d['nome_pdf']} {d['grezzi']}")
+            atteso = {c: (None if g == "-" else int(g)) for (c, _), g in zip(T["colonne"], r[2])}
+            if atteso != d["valori"]:
+                errori.append(f"{fid}: riga {r[0]} {r[1]}: valori dei dati diversi dal PDF")
+            conti["valori"] += len(r[2])
+        pdf[fid] = {d["iso2"]: dict(zip([c for c, _ in T["colonne"]], r[2])) for r, d in zip(righe, T["righe"])}
+    union = set(pdf["fee_tv"]) | set(pdf["fee_altri"])
+    conti["paesi"] = len(union)
+    if {p["iso2"] for p in G.IN_PAESI} != union or len(G.IN_PAESI) != len(union):
+        errori.append("Paesi dei dati diversi dall'unione delle due tabelle del PDF")
+
+    def attesa_cella(iso, k):
+        """Testo atteso di una cella, dal PDF (seconda lettura), non dalle funzioni di genera.py."""
+        fid = "fee_tv" if k.startswith("tv") else "fee_altri"
+        g = pdf[fid].get(iso, {}).get(k)
+        if g is None:
+            return "not in table"
+        return "“-” (no fee given)" if g == "-" else f"${int(g)}"
+
+    # c) pagine = dati: indice, nazionalità con ricerche vere (ricalcolate dall'autocompletamento), visto all'arrivo, e-Arrival, tedesco, francese
+    pag_attese = RIN.pagine_paese(D, union)
+    conti["nazionalita"] = len(pag_attese)
+    if [(g["iso2"], g["faq"], g["voa"]) for g in pag_attese] != [(g["iso2"], g["faq"], g["voa"]) for g in G.IN_PAGINE]:
+        errori.append("pagine per nazionalità diverse da quelle ricalcolate dalle ricerche vere")
+    for g in pag_attese:
+        if len(g["ricerche"]) < RIN.MIN_RICERCHE or any(not RIN.parla_di(s, RIN.NAZIONALITA[g["iso2"]]["parole"]) or s not in ricerche for s in g["ricerche"]):
+            errori.append(f"{g['iso2']}: pagina senza ricerche vere sufficienti sulla nazionalità")
+    attese = ({G.url_in(g) + "index.html" for g in G.IN_PAGINE} | {f"{G.IN_BASE}/index.html", f"{G.IN_DE}/index.html", f"{G.IN_FR}/index.html"})
+    trovate = {q.relative_to(SITO).as_posix() for q in (SITO / G.IN_BASE).rglob("*.html")} if (SITO / G.IN_BASE).exists() else set()
+    if attese != trovate:
+        errori.append(f"pagine {G.IN_BASE} diverse dai dati: mancano {sorted(attese - trovate)}, in più {sorted(trovate - attese)}")
+    sm = leggi("sitemap.xml")
+    tutte = sorted(attese) + [f"{G.IN_VOA}/index.html", f"{G.IN_ARR}/index.html"]
+    tutti_numeri = set().union(*[_numeri_in(c["x"]) for c in I["citazioni"]])
+
+    def comune(rel, t, lingua):
+        """Controlli di ogni pagina della sezione."""
+        conti["pagine"] += 1
+        vis = _vis_in(t)
+        if f"<loc>{G.URL_SITO}/{rel[:-len('index.html')]}</loc><lastmod>{I['controllato_il']}</lastmod>" not in sm:
+            errori.append(f"{rel}: non in sitemap o lastmod diverso dalla data di lettura")
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(tit) > G.LIMITE_TITOLO_IN or str(G.ANNO) not in tit:
+            errori.append(f"{rel}: titolo oltre {G.LIMITE_TITOLO_IN} caratteri o senza l'anno: {tit}")
+        if f'<html lang="{lingua}">' not in t:
+            errori.append(f"{rel}: lingua della pagina diversa da {lingua}")
+        if lingua != "en" and ('<header class="top" lang="en">' not in t or '<footer lang="en">' not in t):
+            errori.append(f"{rel}: menu e piè di pagina in inglese senza lang=\"en\"")
+        m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t)
+        inizio = {"en": "According to ", "de": "Laut ", "fr": "Selon "}[lingua]
+        data = {"en": G.data_lunga, "de": G.data_de, "fr": G.data_fr}[lingua](I["controllato_il"])
+        if not m or not unescape(m.group(1)).startswith(inizio) or data not in unescape(m.group(1)):
+            errori.append(f"{rel}: prima frase senza fonte o senza la data di controllo")
+        # avviso evidente sul sito ufficiale, con il link ufficiale
+        av = re.search(r'<p class="avviso avviso-idp" data-avviso-ufficiale>(.*?)</p>', t)
+        if not av or 'href="https://indianvisaonline.gov.in/' not in av.group(1) or t.find("data-avviso-ufficiale") > t.find('<h2'):
+            errori.append(f"{rel}: avviso sul sito ufficiale mancante, senza link ufficiale o non prima del primo titolo")
+        elif lingua == "en" and not re.search(r"(Pay|Use) only on the official site|Use only the official site", av.group(1)):
+            errori.append(f"{rel}: avviso senza 'only on the official site'")
+        # link esterni: solo ufficiali (o SafetyWing sponsorizzato); nessun rivenditore nominato
+        corpo = t[t.find("<main"):t.find("</main>")]  # contenuto della pagina (menu, piè di pagina e siti fratelli sono uguali in tutto il sito)
+        for h in re.findall(r'<a [^>]*href="(https?://[^"]+)"', corpo):
+            if not LINK_AMMESSI_IN.match(h):
+                errori.append(f"{rel}: link esterno non ammesso {h}")
+        mm = (RIVENDITORI_IN.search(_vis_in(corpo)) or RIVENDITORI_IN.search(" ".join(re.findall(r'href="([^"]+)"', corpo))) or VIETATE_SRV.search(vis)
+              or AGGIRARE.search(vis))
+        if mm:
+            errori.append(f"{rel}: parola vietata (rivenditore di visti, altra affiliazione, assistente o aggiramento) '{mm.group(0)}'")
+        sp = re.findall(r'<a [^>]*rel="sponsored[^"]*"[^>]*>', t)
+        for a in sp:
+            if "safetywing.com" not in a or 'target="_blank"' not in a or 'rel="sponsored noopener"' not in a:
+                errori.append(f"{rel}: link sponsorizzato non ammesso o senza rel/target: {a[:80]}")
+        if sp and (lingua != "en" or G.MON.RIGA_EN not in vis or 'class="aff-tag">Affiliate<' not in t):
+            errori.append(f"{rel}: link sponsorizzato senza etichetta o riga di trasparenza, o in una pagina non inglese")
+        if sp and t.find("data-assicurazione") < max(t.find('id="how-to-pay"'), t.find("Everyone else: the e-Visa")):
+            errori.append(f"{rel}: riquadro SafetyWing prima delle informazioni ufficiali")
+        # citazioni: ogni paragrafo tra virgolette (blockquote, lang en) è una citazione dei dati, al massimo 40 parole
+        testi = {c["x"] for c in I["citazioni"]}
+        for b in re.findall(r'<blockquote class="cit">(.*?)</blockquote>', t, re.S):
+            for x in re.findall(r'<p lang="en">(.*?)</p>', b):
+                conti["citazioni"] += 1
+                if unescape(x) not in testi:
+                    errori.append(f"{rel}: citazione non nei dati: {unescape(x)[:60]}")
+        for fid in {c["f"] for c in I["citazioni"] if escape(c["x"], quote=False) in t or escape(c["x"]) in t}:
+            if f'href="{escape(I["fonti"][fid]["url"])}"' not in t:
+                errori.append(f"{rel}: manca il link alla fonte {fid}")
+        # FAQ: JSON-LD = testo visibile
+        ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)]
+        fq = next((x for x in ld if x.get("@type") == "FAQPage"), None)
+        if not fq:
+            errori.append(f"{rel}: FAQ JSON-LD mancante")
+        else:
+            for e in fq["mainEntity"]:
+                conti["faq"] += 1
+                if f"<h3>{escape(e['name'])}</h3><p>{escape(e['acceptedAnswer']['text'])}</p>" not in t:
+                    errori.append(f"{rel}: FAQ visibile diversa dal JSON-LD: {e['name']}")
+        if not re.search(r"not legal advice|keine Rechtsberatung|pas un conseil juridique", vis):
+            errori.append(f"{rel}: manca 'not legal advice'")
+        return vis, fq
+
+    # d) indice: righe = PDF (seconda lettura), filtro, FAQ da ricerche vere, numeri delle risposte solo dalle tabelle e dalle citazioni
+    idx = f"{G.IN_BASE}/index.html"
+    if (SITO / idx).exists():
+        t = leggi(idx)
+        vis, fq = comune(idx, t, "en")
+        righe = re.findall(r'<tr data-voce id="([a-z]{2})" data-alias="[^"]*">(.*?)</tr>', t)
+        if sorted(r[0].upper() for r in righe) != sorted(union):
+            errori.append(f"{idx}: righe della tabella diverse dai Paesi del PDF ({len(righe)} contro {len(union)})")
+        for iso, r in righe:
+            celle = re.findall(r'<td[^>]*data-c="([a-z0-9_]+)"[^>]*>(.*?)</td>', r)
+            if [c for c, _ in celle] != [k for k, _ in G.COL_IN]:
+                errori.append(f"{idx}: riga {iso} con colonne diverse")
+                continue
+            for k, cel in celle:
+                if unescape(re.sub(r"<[^>]+>", "", cel)) != attesa_cella(iso.upper(), k):
+                    errori.append(f"{idx}: riga {iso}, {k}: «{unescape(re.sub(r'<[^>]+>', '', cel))}» invece di «{attesa_cella(iso.upper(), k)}»")
+        for g in G.IN_PAGINE:
+            if f'href="../{G.url_in(g)}"' not in t:
+                errori.append(f"{idx}: manca il link alla pagina {g['iso2']}")
+        for x in ("data-in-cerca", "data-in-tipo", "data-in-tab", f'href="../{G.IN_DE}/"', f'href="../{G.IN_FR}/"', 'id="ports"'):
+            if x not in t:
+                errori.append(f"{idx}: manca {x}")
+        for f in M["faq"]["indice"]:
+            if f["query"] not in ricerche:
+                errori.append(f"{idx}: FAQ «{f['q']}» senza ricerca vera")
+        valori = {str(int(v)) for tab in pdf.values() for r in tab.values() for v in r.values() if v != "-"}
+        for q, a in G.faq_indice_in():
+            # cifre in dollari solo dalle tabelle (o dalle citazioni); i numeri fino al numero dei Paesi sono conteggi delle righe
+            extra = {n for n in _numeri_in(a) if "." not in n and "," not in n and int(n) > len(union)} - valori - tutti_numeri - {str(G.ANNO)}
+            if extra:
+                errori.append(f"{idx}: numeri non presi dalle tabelle nella FAQ «{q}»: {sorted(extra)}")
+    else:
+        errori.append(f"indice {G.IN_BASE} mancante")
+    # e) pagine per nazionalità: tabella = PDF, prima frase con le cifre del PDF, FAQ da ricerche vere sulla nazionalità
+    for g in G.IN_PAGINE:
+        rel = G.url_in(g) + "index.html"
+        if not (SITO / rel).exists():
+            continue
+        t = leggi(rel)
+        vis, fq = comune(rel, t, "en")
+        iso = g["iso2"]
+        for k, n in G.COL_IN:
+            m = re.search(r'<tr data-c="%s"><th scope="row">[^<]*</th><td[^>]*>(.*?)</td>' % k, t)
+            att = attesa_cella(iso, k)
+            letto = unescape(m.group(1)) if m else None
+            if att == "not in table":
+                ok = letto == "Not in the e-Tourist table"
+            elif att.startswith("“-”"):
+                ok = letto == "“-” in the table (no fee given)"
+            else:
+                ok = letto == att
+            if not ok:
+                errori.append(f"{rel}: riga {k} «{letto}» diversa dal PDF «{att}»")
+        lead = unescape(re.search(r'<p class="lead" id="answer">(.*?)</p>', t).group(1))
+        val = {str(int(v)) for r in (pdf["fee_tv"].get(iso, {}), pdf["fee_altri"].get(iso, {})) for v in r.values() if v != "-"}
+        extra = {n for n in _numeri_in(lead) if n not in val and n not in {"8", "15", "31", "2026", "3", "30"}}
+        if extra:
+            errori.append(f"{rel}: numeri della prima frase non presi dalla riga del PDF: {sorted(extra)}")
+        for f in g["faq"]:
+            if f["query"] not in ricerche or not RIN.parla_di(f["query"], RIN.NAZIONALITA[iso]["parole"]):
+                errori.append(f"{rel}: FAQ senza una ricerca vera sulla nazionalità ({f['query']!r})")
+        if fq and len(fq["mainEntity"]) != len(g["faq"]) + (1 if g.get("voa") else 0):
+            errori.append(f"{rel}: numero di FAQ diverso dalle ricerche vere")
+        if f'href="../../{G.IN_BASE}/"' not in t or f'href="../../{G.IN_ARR}/"' not in t:
+            errori.append(f"{rel}: mancano i link all'indice o alla e-Arrival card")
+    # f) visto all'arrivo ed e-Arrival card
+    for rel, gruppo in ((f"{G.IN_VOA}/index.html", "voa"), (f"{G.IN_ARR}/index.html", "arrivo")):
+        if not (SITO / rel).exists():
+            errori.append(f"{rel} mancante")
+            continue
+        t = leggi(rel)
+        comune(rel, t, "en")
+        for f in M["faq"][gruppo]:
+            if f["query"] not in ricerche:
+                errori.append(f"{rel}: FAQ «{f['q']}» senza ricerca vera")
+            extra = _numeri_in(f.get("pre", "") + " " + f.get("post", "")) - tutti_numeri
+            if extra:
+                errori.append(f"{rel}: numeri nelle parole nostre non presi dalle citazioni: {sorted(extra)}")
+    if (SITO / f"{G.IN_ARR}/index.html").exists() and f'href="{G.IN_EARRIVAL}"' not in leggi(f"{G.IN_ARR}/index.html"):
+        errori.append("e-Arrival: manca il link al modulo ufficiale")
+    # g) pagine in tedesco e francese: tabella = PDF, ricerche vere nella lingua
+    for lingua, base in (("de", G.IN_DE), ("fr", G.IN_FR)):
+        rel = f"{base}/index.html"
+        if not (SITO / rel).exists():
+            continue
+        t = leggi(rel)
+        comune(rel, t, lingua)
+        sugg = set(RIN.suggerimenti(D, lingua))
+        if len(sugg) < 10:
+            errori.append(f"{rel}: troppe poche ricerche vere in {lingua} per giustificare la pagina")
+        for f in M["faq"][lingua]:
+            if f["query"] not in sugg:
+                errori.append(f"{rel}: FAQ «{f['q']}» senza ricerca vera in {lingua}")
+        righe = re.findall(r'<tr data-voce id="([a-z]{2})">(.*?)</tr>', t)
+        if [r[0].upper() for r in righe] != I["pagine_lingua"][lingua]["paesi"]:
+            errori.append(f"{rel}: righe diverse dai Paesi previsti")
+        for iso, r in righe:
+            celle = [unescape(re.sub(r"<[^>]+>", "", x)) for x in re.findall(r'<td class="n"[^>]*>(.*?)</td>', r)]
+            if celle != [attesa_cella(iso.upper(), k) for k, _ in G.COL_IN]:
+                errori.append(f"{rel}: riga {iso} diversa dal PDF: {celle}")
+    # h) collegamenti in entrata; nessun link nelle pagine già revisionate e non pubblicate (animali, pedaggi)
+    entrata = [("index.html", f'href="{G.IN_BASE}/"'), ("about/index.html", f'id="{G.IN_BASE}"'), ("404.html", f'href="/{G.IN_BASE}/"'),
+               ("passport-validity/india/index.html", f'href="../../{G.IN_BASE}/united-kingdom/"'),
+               ("canadian-passport/india/index.html", f'href="../../{G.IN_BASE}/canada/"'),
+               ("australian-passport/india/index.html", f'href="../../{G.IN_BASE}/australia/"')]
+    for f, h in entrata:
+        conti["link"] += 1
+        if h not in leggi(f):
+            errori.append(f"{f}: manca il link {h}")
+    for base in (G.PET_BASE, G.PED_BASE, G.TB_BASE, G.TR_BASE, G.FL_BASE):
+        for q in (SITO / base).rglob("*.html"):
+            if G.IN_BASE in q.read_text(encoding="utf-8"):
+                errori.append(f"{q.relative_to(SITO)}: link aggiunto a una pagina già revisionata")
+    for nome in ("india_evisa.json", "india_evisa_manuali.json", "india_evisa_domanda.json"):
+        if VIETATE_SRV.search((SITO.parent / "dati" / nome).read_text(encoding="utf-8")):
+            errori.append(f"dati/{nome}: nome di un assistente di intelligenza artificiale")
+    # i) browser: 375 px (chiaro e scuro) e 1280 px, filtro della tabella
+    e, conti["browser"] = controlla_browser_in()
+    errori += e
+    return errori, conti
+
+
+BROWSER_IN_JS = r"""
+const { chromium } = require('/opt/node-tools/node_modules/playwright');
+const http = require('http'); const fs = require('fs'); const path = require('path');
+const ROOT = process.argv[2]; const PAGINE = JSON.parse(process.argv[3]); const CARTELLA = process.argv[4];
+const TIPI = {'.html':'text/html; charset=utf-8','.xml':'application/xml','.txt':'text/plain'};
+const srv = http.createServer((req, res) => { let p = decodeURIComponent(req.url.split('?')[0]); if (p.endsWith('/')) p += 'index.html';
+  const f = path.join(ROOT, p); if (!f.startsWith(ROOT) || !fs.existsSync(f)) { res.writeHead(404); res.end(''); return; }
+  res.writeHead(200, {'Content-Type': TIPI[path.extname(f)] || 'application/octet-stream'}); res.end(fs.readFileSync(f)); });
+srv.listen(0, async () => {
+  const base = 'http://127.0.0.1:' + srv.address().port; const out = {pagine: [], filtro: []};
+  const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+  for (const [w, tema] of [[375, 'light'], [375, 'dark'], [1280, 'light']]) {
+    const ctx = await b.newContext({ viewport: { width: w, height: 900 }, colorScheme: tema });
+    for (const u of PAGINE) {
+      const p = await ctx.newPage(); const err = [];
+      p.on('console', m => { if (m.type() === 'error' && !m.text().startsWith('[Report Only]')) err.push(m.text()); }); p.on('pageerror', e => err.push(String(e)));
+      await p.goto(base + u, { waitUntil: 'load' });
+      const r = await p.evaluate(() => ({ scroll: document.documentElement.scrollWidth, vista: window.innerWidth,
+        risposta: (() => { const a = document.querySelector('#answer'); return !!a && a.getBoundingClientRect().height > 0; })(),
+        avviso: (() => { const a = document.querySelector('[data-avviso-ufficiale]'); return !!a && a.getBoundingClientRect().height > 0 && a.getBoundingClientRect().top < 2600; })() }));
+      out.pagine.push(Object.assign({ url: u, larghezza: w, tema: tema, errori: err }, r));
+      if (tema === 'light') await p.screenshot({ path: CARTELLA + '/' + (u.split('/').filter(Boolean).join('-') || 'home') + '-' + w + '.png', fullPage: false });
+      if (u === '/india-e-visa-fee/' && tema === 'light') {
+        await p.fill('[data-in-cerca]', 'united kingdom');
+        const uk = await p.evaluate(() => [...document.querySelectorAll('tr[data-voce]')].filter(r => !r.hidden).map(r => r.id));
+        await p.fill('[data-in-cerca]', 'usa');
+        const us = await p.evaluate(() => [...document.querySelectorAll('tr[data-voce]')].filter(r => !r.hidden).map(r => r.id));
+        await p.fill('[data-in-cerca]', 'gb'); await p.fill('[data-in-cerca]', '');
+        await p.selectOption('[data-in-tipo]', 'tv5');
+        const col = await p.evaluate(() => { const r = document.querySelector('tr[data-voce]#gb');
+          return [...r.cells].filter(c => getComputedStyle(c).display !== 'none').map(c => c.textContent.trim()); });
+        const n = await p.textContent('[data-in-n]');
+        const sw = await p.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
+        out.filtro.push({ larghezza: w, uk: uk, us: us, colonne: col, n: n, scroll: sw[0], vista: sw[1] });
+        await p.screenshot({ path: CARTELLA + '/indice-filtro-' + w + '.png', fullPage: false });
+      }
+      await p.close();
+    }
+    await ctx.close();
+  }
+  await b.close(); srv.close(); console.log(JSON.stringify(out));
+});
+"""
+PAGINE_IN_BROWSER = ["/india-e-visa-fee/", "/india-e-visa-fee/united-kingdom/", "/india-e-visa-fee/united-states/", "/india-e-visa-fee/bangladesh/",
+                     "/india-e-visa-fee/indien-e-visum-kosten/", "/india-e-visa-fee/prix-e-visa-inde/", "/india-visa-on-arrival/", "/india-e-arrival-card/"]
+
+
+def controlla_browser_in():
+    if os.environ.get("BYF_NO_BROWSER") == "1":
+        return [], "saltato (BYF_NO_BROWSER=1)"
+    cartella = tempfile.mkdtemp(prefix="india-")
+    with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as fh:
+        fh.write(BROWSER_IN_JS)
+    try:
+        r = subprocess.run(["node", fh.name, str(SITO), json.dumps(PAGINE_IN_BROWSER), cartella], capture_output=True, text=True, timeout=600)
+    except FileNotFoundError:
+        return ["node non trovato: prova nel browser della sezione India saltata"], "no"
+    finally:
+        os.unlink(fh.name)
+    if r.returncode != 0:
+        return ["Errore Playwright (India): " + r.stderr[:800]], "no"
+    o = json.loads(r.stdout)
+    errori = []
+    for x in o["pagine"]:
+        if x["scroll"] > x["vista"]:
+            errori.append(f"{x['url']} ({x['larghezza']} px, {x['tema']}): scorrimento orizzontale {x['scroll']} > {x['vista']}")
+        if x["errori"]:
+            errori.append(f"{x['url']} ({x['larghezza']} px, {x['tema']}): errori in console {x['errori'][:2]}")
+        if not x["risposta"] or not x["avviso"]:
+            errori.append(f"{x['url']} ({x['larghezza']} px, {x['tema']}): risposta o avviso sul sito ufficiale non visibili in alto")
+    tv5 = G.val_in(G.IN_PER["GB"], "tv5")
+    for f in o["filtro"]:
+        if f["uk"] != ["gb"] or f["us"] != ["us"]:
+            errori.append(f"filtro ({f['larghezza']} px): 'united kingdom' -> {f['uk']}, 'usa' -> {f['us']}")
+        if len(f["colonne"]) != 2 or f["colonne"][1] != f"${tv5}":
+            errori.append(f"filtro per tipo ({f['larghezza']} px): colonne visibili {f['colonne']} invece di Paese + ${tv5}")
+        if f["n"] != str(len(G.IN_PAESI)) or f["scroll"] > f["vista"]:
+            errori.append(f"filtro ({f['larghezza']} px): conteggio {f['n']} o scorrimento orizzontale")
+    if len(o["filtro"]) != 2:
+        errori.append("filtro della tabella non provato a 375 e 1280 px")
+    return errori, f"{len(o['pagine'])} viste (8 pagine a 375 px chiaro/scuro e 1280 px), filtro per Paese e per tipo provato a 375 e 1280 px, schermate in {cartella}"
+
+
 def controlla_indexnow():
     """File chiave IndexNow in sito/: presente, con dentro solo la chiave, fuori dalla sitemap (scritto da genera.py accanto a robots.txt)."""
     errori = []
@@ -4163,9 +4587,17 @@ def main():
           f"ricerche vere (JSON-LD = testo visibile), verme solitario = lista di GOV.UK, {c26['righe_rotte']} righe di rotte = tabelle GOV.UK, "
           f"calcolatore: {c26['casi']} casi a mano e {c26['js']} casi JS = Python, browser: {c26['browser']}; {c26['link']} link andata e ritorno con "
           f"Driving abroad e Tolls; nessun consiglio veterinario, nessuna affiliazione, data del passaporto 2027 non scaduta: {len(e26)} errori")
+    e27, c27 = controlla_india()
+    print(f"27. India e-Visa fee: {c27['fonti']} fonti ufficiali (indianvisaonline.gov.in e boi.gov.in, HTTP 200; PDF salvati con la stessa impronta, "
+          f"citazioni e elenchi dei porti parola per parola nel testo salvato), seconda lettura indipendente dei PDF ({c27['metodo']}): "
+          f"{c27['righe_tv']} righe e-Tourist e {c27['righe_altri']} righe e-Business/e-Medical = dati, {c27['valori']} valori uguali, {c27['paesi']} Paesi; "
+          f"{c27['pagine']} pagine ({c27['nazionalita']} nazionalità solo con ricerche vere, tedesco e francese con ricerche vere), tabelle nelle pagine = PDF, "
+          f"prima frase con fonte e data, avviso sul sito ufficiale in alto, solo link ufficiali o SafetyWing sponsorizzato, nessun rivenditore di visti, "
+          f"{c27['citazioni']} citazioni <= {RIN.MAX_PAROLE} parole tutte nei dati, {c27['faq']} risposte FAQ (JSON-LD = testo visibile), titoli <= {G.LIMITE_TITOLO_IN}, "
+          f"sitemap con lastmod, {c27['link']} link in entrata; browser: {c27['browser']}: {len(e27)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27
     for e in tutti:
         print(" -", e)
     if tutti:
