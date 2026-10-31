@@ -417,7 +417,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Reggio Calabria",
   "sigla": "RC",
-  "regione": "Calabria"
+  "regione": "Calabria",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -603,7 +604,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Caserta",
   "sigla": "CE",
-  "regione": "Campania"
+  "regione": "Campania",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -631,7 +633,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Napoli",
   "sigla": "NA",
-  "regione": "Campania"
+  "regione": "Campania",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -687,7 +690,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Napoli",
   "sigla": "NA",
-  "regione": "Campania"
+  "regione": "Campania",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CELI",
@@ -746,7 +750,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Napoli",
   "sigla": "NA",
-  "regione": "Campania"
+  "regione": "Campania",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -873,7 +878,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Napoli",
   "sigla": "NA",
-  "regione": "Campania"
+  "regione": "Campania",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CELI",
@@ -931,7 +937,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Napoli",
   "sigla": "NA",
-  "regione": "Campania"
+  "regione": "Campania",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CELI",
@@ -1336,7 +1343,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Forlì-Cesena",
   "sigla": "FC",
-  "regione": "Emilia-Romagna"
+  "regione": "Emilia-Romagna",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -1682,7 +1690,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Reggio nell'Emilia",
   "sigla": "RE",
-  "regione": "Emilia-Romagna"
+  "regione": "Emilia-Romagna",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CELI",
@@ -1711,7 +1720,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Reggio nell'Emilia",
   "sigla": "RE",
-  "regione": "Emilia-Romagna"
+  "regione": "Emilia-Romagna",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -1753,7 +1763,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Rimini",
   "sigla": "RN",
-  "regione": "Emilia-Romagna"
+  "regione": "Emilia-Romagna",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -2043,7 +2054,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Frosinone",
   "sigla": "FR",
-  "regione": "Lazio"
+  "regione": "Lazio",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "PLIDA",
@@ -2072,7 +2084,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Frosinone",
   "sigla": "FR",
-  "regione": "Lazio"
+  "regione": "Lazio",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "PLIDA",
@@ -2130,7 +2143,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Roma",
   "sigla": "RM",
-  "regione": "Lazio"
+  "regione": "Lazio",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CERT.IT",
@@ -2144,7 +2158,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Roma",
   "sigla": "RM",
-  "regione": "Lazio"
+  "regione": "Lazio",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CELI",
@@ -2201,7 +2216,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Roma",
   "sigla": "RM",
-  "regione": "Lazio"
+  "regione": "Lazio",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -2512,7 +2528,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Roma",
   "sigla": "RM",
-  "regione": "Lazio"
+  "regione": "Lazio",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -3073,7 +3090,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Genova",
   "sigla": "GE",
-  "regione": "Liguria"
+  "regione": "Liguria",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -3186,7 +3204,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Imperia",
   "sigla": "IM",
-  "regione": "Liguria"
+  "regione": "Liguria",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -3329,7 +3348,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Bergamo",
   "sigla": "BG",
-  "regione": "Lombardia"
+  "regione": "Lombardia",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -3400,7 +3420,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Brescia",
   "sigla": "BS",
-  "regione": "Lombardia"
+  "regione": "Lombardia",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -3457,7 +3478,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Brescia",
   "sigla": "BS",
-  "regione": "Lombardia"
+  "regione": "Lombardia",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -4283,7 +4305,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Milano",
   "sigla": "MI",
-  "regione": "Lombardia"
+  "regione": "Lombardia",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -4369,7 +4392,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Monza e della Brianza",
   "sigla": "MB",
-  "regione": "Lombardia"
+  "regione": "Lombardia",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -4613,7 +4637,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Varese",
   "sigla": "VA",
-  "regione": "Lombardia"
+  "regione": "Lombardia",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -6013,7 +6038,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Foggia",
   "sigla": "FG",
-  "regione": "Puglia"
+  "regione": "Puglia",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -6157,7 +6183,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Lecce",
   "sigla": "LE",
-  "regione": "Puglia"
+  "regione": "Puglia",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CELI",
@@ -6415,7 +6442,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Caltanissetta",
   "sigla": "CL",
-  "regione": "Sicilia"
+  "regione": "Sicilia",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "PLIDA",
@@ -6851,7 +6879,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Ragusa",
   "sigla": "RG",
-  "regione": "Sicilia"
+  "regione": "Sicilia",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CELI",
@@ -7494,7 +7523,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Livorno",
   "sigla": "LI",
-  "regione": "Toscana"
+  "regione": "Toscana",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -8216,7 +8246,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Perugia",
   "sigla": "PG",
-  "regione": "Umbria"
+  "regione": "Umbria",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",
@@ -9164,7 +9195,8 @@
   "verificato_il": "2026-10-26",
   "provincia": "Vicenza",
   "sigla": "VI",
-  "regione": "Veneto"
+  "regione": "Veneto",
+  "fonte_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/"
  },
  {
   "ente": "CILS",

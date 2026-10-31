@@ -12,5 +12,25 @@
   "nota": "Usato SOLO nel riquadro 'Hire a car' della sezione Driving abroad (box_noleggio in genera.py: indice, 3 pagine per patente, pagine Paese × patente, dopo la risposta e le regole ufficiali) e nella riga della home dedicata a Driving abroad (home_noleggio). Dal 30/10/2026 anche nel riquadro 'Hire a car' della sezione Tolls with a rental car (box_noleggio_ped: indice e 13 pagine Paese, dopo le regole ufficiali; verifica.py punto 20). Link generale con a_aid: niente pagine Paese di DiscoverCars, perché dal server rispondono 403 e non si possono verificare. Circa 20 $ a prenotazione, cookie 365 giorni. Offerta DiscoverCars: commissione più alta con il link sul sito entro 10 giorni e in home entro una settimana dal 30/10/2026.",
   "attivo_dal": "2026-10-30",
   "nota_spegnimento": "Per spegnerlo: url vuoto e rigenerare (python3 beforeyoufly/genera.py); verifica.py, punto 18, ammette nella sezione solo discovercars.com con questo a_aid."
+ },
+ "_stay22_alloggi": {
+  "nome": "Stay22",
+  "nota": "Riquadro 'Where to stay' (Stay22, AID massimilianocori, porta a Booking.com) SOLO nella sezione Ticket release dates: un link per pagina attrazione, ognuno solo sulla sua pagina (box_alloggio_big in genera.py, dopo la biglietteria ufficiale), e una riga con i 6 link nell'indice (riga_alloggi_big, dopo i calendari). Link brevi dal pannello Stay22 di Massimiliano: ognuno apre la pagina di Booking.com degli hotel della città (controllato il 31/10/2026), non dell'attrazione; per Pompei la città è Napoli. Nessuna promessa di prezzi o disponibilità.",
+  "attivo_dal": "2026-10-31",
+  "nota_spegnimento": "Per spegnere un link: url vuoto nella sua voce e rigenerare (python3 beforeyoufly/genera.py); tutti vuoti = nessun riquadro. verifica.py, punto 22, controlla che ogni link sia solo sulla sua pagina e nell'indice, con rel=\"sponsored noopener\".",
+  "link": {
+   "last-supper-milan": {"url": "https://booking.stay22.com/massimilianocori/oRlYad6Fi0", "citta": "Milan", "titolo": "Where to stay near the Last Supper",
+                         "frase": "Staying in Milan for your visit? This link opens the Booking.com page of hotels across Milan, not only near the Last Supper: check the distance on the map before you book."},
+   "vatican-museums": {"url": "https://booking.stay22.com/massimilianocori/VSsB9hodRs", "citta": "Rome", "titolo": "Where to stay near the Vatican Museums",
+                       "frase": "Staying in Rome for your visit? This link opens the Booking.com page of hotels across Rome, not only near the Vatican Museums: check the distance on the map before you book."},
+   "anne-frank-house": {"url": "https://booking.stay22.com/massimilianocori/ozO_-oUfr2", "citta": "Amsterdam", "titolo": "Where to stay near the Anne Frank House",
+                        "frase": "Staying in Amsterdam for your visit? This link opens the Booking.com page of hotels across Amsterdam, not only near the Anne Frank House: check the distance on the map before you book."},
+   "pompeii": {"url": "https://booking.stay22.com/massimilianocori/u-N-WOGcIm", "citta": "Naples", "titolo": "Where to stay for a visit to Pompeii",
+               "frase": "Naples is a common base for visiting Pompeii. This link opens the Booking.com page of hotels in Naples, not in Pompeii: check how you will get to the site before you book."},
+   "alhambra": {"url": "https://booking.stay22.com/massimilianocori/0UazHB16fM", "citta": "Granada", "titolo": "Where to stay near the Alhambra",
+                "frase": "Staying in Granada for your visit? This link opens the Booking.com page of hotels across Granada, not only near the Alhambra: check the distance on the map before you book."},
+   "sagrada-familia": {"url": "https://booking.stay22.com/massimilianocori/Sshoexu46U", "citta": "Barcelona", "titolo": "Where to stay near the Sagrada Família",
+                       "frase": "Staying in Barcelona for your visit? This link opens the Booking.com page of hotels across Barcelona, not only near the Sagrada Família: check the distance on the map before you book."}
+  }
  }
 }

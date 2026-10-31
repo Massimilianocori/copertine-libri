@@ -1,0 +1,57 @@
+{
+  "_nota": "Dati nazionali della sezione /cittadinanza/ (domanda di cittadinanza): solo ciò che scrivono il Ministero dell'Interno e il Dipartimento per le libertà civili e l'immigrazione, con fonte e data. Le frasi in 'citazioni' le controlla raccolta/prefetture.py --controlla. I dati di ogni Prefettura sono in prefetture.json (raccolta automatica) e prefetture_locali.json (punti scelti a mano, con la frase esatta).",
+  "fonti": {
+    "domanda": {
+      "nome": "Ministero dell'Interno, «Cittadinanza: invia la tua domanda»",
+      "url": "https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza/cittadinanza-invia-tua-domanda",
+      "verificato_il": "2026-10-31"
+    },
+    "consulta": {
+      "nome": "Ministero dell'Interno, «Cittadinanza: consulta la pratica»",
+      "url": "https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza/cittadinanza-consulta-pratica",
+      "verificato_il": "2026-10-31"
+    },
+    "residenza": {
+      "nome": "Dipartimento per le libertà civili e l'immigrazione, «Concessione della cittadinanza italiana per residenza (art. 9)»",
+      "url": "https://libertaciviliimmigrazione.dlci.interno.gov.it/temi/concessione-della-cittadinanza-italiana-residenza-sul-territorio-italiano-ai-sensi-dellart-9",
+      "verificato_il": "2026-10-31"
+    },
+    "portale": {
+      "nome": "Portale Servizi del Ministero dell'Interno, domanda di cittadinanza (ALI Cittadinanza)",
+      "url": "https://portaleservizi.dlci.interno.it/AliCittadinanza/ali/home.htm",
+      "verificato_il": "2026-10-31"
+    },
+    "elenco": {
+      "nome": "Prefetture - Uffici territoriali del Governo, elenco",
+      "url": "https://prefettura.interno.gov.it/it/prefetture",
+      "verificato_il": "2026-10-31"
+    },
+    "legge": {
+      "nome": "Legge 5 febbraio 1992, n. 91, art. 9-ter (termine del procedimento), testo vigente su Normattiva",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-02-05;91~art9ter!vig=",
+      "verificato_il": "2026-10-31"
+    }
+  },
+  "pec_ministero": "comunicazione.cittadinanza@pecdlci.interno.it",
+  "polo_orienta": {"telefono": "06 69000700", "pec": "poloorientacittadinanza@pecdlci.interno.it", "giorni": "lunedì, mercoledì e venerdì dalle 9.30 alle 17.30"},
+  "contributo_eur": 250,
+  "citazioni": [
+    {"fonte": "domanda", "testo": "Il richiedente la cittadinanza italiana residente in Italia accede tramite il proprio SPID o CIE sul portale informatico dedicato alla procedura"},
+    {"fonte": "domanda", "testo": "atto di nascita e certificato penale formati dalle autorità del Paese di origine"},
+    {"fonte": "domanda", "testo": "certificazione attestante la conoscenza della lingua italiana, non inferiore al livello B1 del QCER"},
+    {"fonte": "domanda", "testo": "ricevuta del pagamento del contributo di euro 250,00 previsto"},
+    {"fonte": "domanda", "testo": "estremi della marca da bollo telematica"},
+    {"fonte": "domanda", "testo": "Il possesso di un indirizzo pec, da indicare nell'apposito campo, rende più rapida e sicura la comunicazione con gli Uffici di cittadinanza"},
+    {"fonte": "domanda", "testo": "comunicazione.cittadinanza@pecdlci.interno.it"},
+    {"fonte": "domanda", "testo": "Ogni invio dovrà riguardare una sola domanda di cittadinanza, specificando nell'oggetto il numero identificativo della pratica (K10/K10C"},
+    {"fonte": "domanda", "testo": "non dovranno superare singolarmente la dimensione di 5 MB per un massimo complessivo di 15MB"},
+    {"fonte": "consulta", "testo": "Per verificare on line lo stato di avanzamento della propria domanda di cittadinanza, è disponibile un servizio web"},
+    {"fonte": "consulta", "testo": "A decorrere dal primo luglio 2024 il servizio è attivo nei giorni di lunedì, mercoledì e venerdì dalle ore 9.30 alle ore 17.30"},
+    {"fonte": "consulta", "testo": "0669000700"},
+    {"fonte": "consulta", "testo": "poloorientacittadinanza@pecdlci.interno.it"},
+    {"fonte": "residenza", "testo": "Per le domande presentate a partire dal 20 dicembre 2020 il termine massimo di conclusione dei procedimenti di concessione della cittadinanza italiana è di ventiquattro mesi prorogabili fino a un massimo di trentasei mesi"},
+    {"fonte": "residenza", "testo": "f) allo straniero che risiede legalmente da almeno dieci anni nel territorio della Repubblica"},
+    {"fonte": "legge", "testo": "ventiquattro mesi prorogabili fino al massimo di trentasei mesi"},
+    {"fonte": "legge", "testo": "dalla data di presentazione della domanda"}
+  ]
+}

@@ -100,7 +100,9 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     citazioni, link e date delle fonti nella pagina; nessun numero nelle frasi nostre che non stia in una citazione; FAQ da ricerche vere di
     dati/biglietti_domanda.json (JSON-LD = testo visibile); titoli <= 70 con gli anni 2026-27; pagine in sitemap; link esterni solo verso i siti
     ufficiali e le biglietterie che indicano (più Google Calendar e il blocco degli altri siti), riquadro della biglietteria ufficiale con
-    "resellers may charge more", nessun rivenditore nominato; riquadro Viator spento finché VIATOR_TOUR è vuoto; link da home, About e 404.
+    "resellers may charge more", nessun rivenditore nominato; riquadro Viator spento finché VIATOR_TOUR è vuoto; link da home, About e 404;
+    Stay22 (31/10/2026): i 6 link attesi, ognuno solo sulla pagina della sua attrazione e tutti nell'indice, rel="sponsored noopener",
+    target _blank, etichetta Affiliate e riga di trasparenza nel riquadro, dopo la biglietteria ufficiale, Pompei = hotel a Napoli; stay22 altrove = errore.
 23. "Driving in Canada, Australia and New Zealand on a foreign licence" (dati/patente_straniera.json da raccolta/patente_straniera.py, 31/10/2026):
     fonti solo degli enti delle patenti e dei governi (domini ammessi), lette con HTTP 200; dalla cache (raccolta/.cache/patente_straniera/) ogni
     frase citata è nel testo salvato e l'impronta della zona citata è uguale al file; dati = dati/patente_straniera_manuali.json; le pagine
@@ -2721,6 +2723,72 @@ RIVENDITORI_BIG = re.compile(r"lastsupperticket|tiqets|getyourguide|headout|muse
 PASQUA_BIG = {2026: date(2026, 4, 5), 2027: date(2027, 3, 28), 2028: date(2028, 4, 16), 2029: date(2029, 4, 1), 2030: date(2030, 4, 21)}
 
 
+# Stay22 (alloggi, verso Booking.com): link brevi del pannello di Massimiliano, AID massimilianocori, scritti qui a mano (31/10/2026)
+HOST_STAY22 = "booking.stay22.com"
+STAY22_ATTESI = {"last-supper-milan": "https://booking.stay22.com/massimilianocori/oRlYad6Fi0",
+                 "vatican-museums": "https://booking.stay22.com/massimilianocori/VSsB9hodRs",
+                 "anne-frank-house": "https://booking.stay22.com/massimilianocori/ozO_-oUfr2",
+                 "pompeii": "https://booking.stay22.com/massimilianocori/u-N-WOGcIm",
+                 "alhambra": "https://booking.stay22.com/massimilianocori/0UazHB16fM",
+                 "sagrada-familia": "https://booking.stay22.com/massimilianocori/Sshoexu46U"}
+
+
+def controlla_stay22_big(attese, idx, conti):
+    """Link Stay22: dati = elenco atteso; ogni link solo sulla sua pagina attrazione e nell'indice; rel, target, trasparenza, etichetta,
+    posizione dopo la biglietteria ufficiale; per Pompei il testo dice Napoli; stay22 in nessun'altra pagina del sito."""
+    from html import unescape
+    errori = []
+    conti["stay22"] = 0
+    dati = {s: v["url"] for s, v in G.STAY22_BIG.items()}
+    if dati and dati != STAY22_ATTESI:
+        errori.append(f"affiliati.json, _stay22_alloggi: link diversi da quelli attesi: {sorted(set(dati.items()) ^ set(STAY22_ATTESI.items()))}")
+    if "pompeii" in G.STAY22_BIG and G.STAY22_BIG["pompeii"]["citta"] != "Naples":
+        errori.append("Stay22 pompeii: il link porta agli hotel di Napoli, la città nei dati deve essere Naples")
+    pagine = {G.url_big(a["slug"]) + "index.html": a["slug"] for a in G.BIG_ATT}
+    for p in sorted(attese):
+        if not (SITO / p).exists():
+            continue
+        t = leggi(p)
+        voci = [(h, r) for h, host, r in G.MON.link_affiliati(t) if G.MON.dominio_in(host, ["stay22.com"])]
+        attesi = set(dati.values()) if p == idx else ({dati[pagine[p]]} if pagine.get(p) in dati else set())
+        trovati = [h for h, _ in voci]
+        if set(trovati) != attesi or len(trovati) != len(attesi):
+            errori.append(f"{p}: link Stay22 {sorted(trovati)} invece di {sorted(attesi)}")
+        for h, r in voci:
+            conti["stay22"] += 1
+            if not {"sponsored", "noopener"} <= r:
+                errori.append(f"{p}: link Stay22 senza rel=\"sponsored noopener\" ({h})")
+            tag = re.search(r'<a\b[^>]*href="' + re.escape(escape(h)) + r'"[^>]*>', t)
+            if not tag or 'target="_blank"' not in tag.group(0):
+                errori.append(f"{p}: link Stay22 senza target=\"_blank\" ({h})")
+        if not attesi:
+            if "data-alloggio" in t:
+                errori.append(f"{p}: riquadro 'Where to stay' senza link")
+            continue
+        i = t.find("data-alloggio")
+        if i < 0 or any(t.find(f'href="{escape(h)}"') < i for h in trovati):
+            errori.append(f"{p}: link Stay22 fuori dal riquadro 'Where to stay' (data-alloggio)")
+            continue
+        blocco = t[i:t.find("</section>", i)]
+        if G.MON.RIGA_EN not in blocco:
+            errori.append(f"{p}: riga di trasparenza non nel riquadro 'Where to stay'")
+        if '<span class="aff-tag">Affiliate</span>' not in t[t.rfind('id="where-to-stay"', 0, i):i]:
+            errori.append(f"{p}: riquadro 'Where to stay' senza l'etichetta Affiliate")
+        prima = 'id="official-tickets"' if p != idx else 'id="calendars"'
+        if not 0 <= t.find(prima) < i:
+            errori.append(f"{p}: riquadro 'Where to stay' non dopo «{prima}»")
+        if p != idx and pagine[p] == "pompeii" and "hotels in Naples, not in Pompeii" not in unescape(blocco):
+            errori.append(f"{p}: il riquadro Stay22 di Pompei non dice che il link mostra hotel a Napoli")
+        if re.search(r"cheapest|best price|lowest price|guaranteed|available now|book now", unescape(blocco), re.I):
+            errori.append(f"{p}: promessa di prezzo o disponibilità nel riquadro 'Where to stay'")
+    # stay22 in nessun'altra pagina del sito
+    for q in SITO.rglob("*.html"):
+        nome = q.relative_to(SITO).as_posix()
+        if nome not in attese and "stay22" in q.read_text(encoding="utf-8").lower():
+            errori.append(f"{nome}: link Stay22 fuori dalla sezione Ticket release dates")
+    return errori
+
+
 def _fine_finestra_big(oggi, mesi):
     y, m = oggi.year + (oggi.month - 1 + mesi) // 12, (oggi.month - 1 + mesi) % 12 + 1
     ultimo = (date(y + (m == 12), m % 12 + 1, 1) - timedelta(days=1)).day
@@ -2824,6 +2892,8 @@ def controlla_biglietti():
     ammessi_host = DOMINI_UFFICIALI_BIG | host_altri | {urlparse(G.URL_SITO).hostname, "calendar.google.com"}
     if G.VIATOR_TOUR:
         ammessi_host.add(urlparse(G.VIATOR_TOUR).hostname)
+    if G.STAY22_BIG:
+        ammessi_host.add(HOST_STAY22)
     oggi = G.OGGI
     for a in G.BIG_ATT:
         conti["attrazioni"] += 1
@@ -3016,6 +3086,9 @@ def controlla_biglietti():
             errori += [f"{p}: {e}" for e in G.MON.controlla_link_pagina(t, p, "en")[0]]
             if p != idx and t.find("data-tour") < t.find('id="official-tickets"'):
                 errori.append(f"{p}: riquadro Viator prima della biglietteria ufficiale")
+    # h2) Stay22 ("Where to stay"): ogni link dei dati SOLO sulla pagina della sua attrazione (e nell'indice, che li ha tutti), con
+    # rel="sponsored noopener", target="_blank", riga di trasparenza ed etichetta "Affiliate" nel riquadro, dopo la biglietteria ufficiale
+    errori += controlla_stay22_big(attese, idx, conti)
     # i) collegamenti in entrata e dati senza nomi di assistenti
     if f'href="{G.BIG_BASE}/"' not in leggi("index.html"):
         errori.append("home senza link alla sezione 'Ticket release dates'")
@@ -3573,7 +3646,8 @@ def main():
     print(f"22. Ticket release dates: {c22['attrazioni']} attrazioni, {c22['fonti']} fonti ufficiali (HTTP 200, domini ammessi; frasi e impronte ricalcolate dal testo salvato: {c22['cache']}), "
           f"{c22['citazioni']} citazioni nelle pagine, {c22['date']} date calcolate uguali al ricalcolo indipendente e coerenti con la regola, {c22['eventi_ics']} eventi .ics validi "
           f"(CRLF, righe <= 75 byte, UID unici, date e ore = tabella), {c22['faq']} risposte FAQ da ricerche vere (JSON-LD = testo visibile), titoli <= {G.LIMITE_TITOLO_BIG} con gli anni {G.STAGIONE_BIG}, "
-          f"pagine in sitemap, {c22['link_esterni']} link esterni tutti ufficiali, nessun rivenditore, riquadro Viator {'acceso' if G.VIATOR_TOUR else 'spento'}: {len(e22)} errori")
+          f"pagine in sitemap, {c22['link_esterni']} link esterni tutti ufficiali, nessun rivenditore, riquadro Viator {'acceso' if G.VIATOR_TOUR else 'spento'}, "
+          f"{c22.get('stay22', 0)} link Stay22 (ognuno solo sulla sua pagina e nell'indice, sponsored, dopo la biglietteria ufficiale): {len(e22)} errori")
     e23, c23 = controlla_patente_straniera()
     print(f"23. Foreign licence Canada/Australia/NZ: {c23['giur']} giurisdizioni ({c23['lette']} lette, {c23['bloccate']} pagine ufficiali che non si aprono, "
           f"nessuna regola scritta per quelle), {c23['pagine']} pagine (nessuna pagina patente × destinazione), {c23['fonti']} fonti ufficiali (HTTP 200, domini ammessi; "

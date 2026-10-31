@@ -1,0 +1,168 @@
+{
+  "_nota": "Redditi minimi per stranieri (pagina /reddito-minimo-cittadinanza/). Soglie della cittadinanza: fisse in euro dal 1995 (parametri del D.L. 382/1989), riportate dal Vademecum del Ministero dell'Interno del 23/4/2025 e dal PDF della Prefettura. Carta di soggiorno: assegno sociale dell'anno, preso da ricongiungimento.json (da aggiornare ogni gennaio). Ogni frase in 'citazioni' è controllata da raccolta/redditi.py nel testo della fonte. Calcoli in centesimi interi, uguali in Python (genera.py) e nel calcolatore JS.",
+  "cittadinanza": {
+    "solo": "8263.31",
+    "con_coniuge": "11362.05",
+    "per_figlio": "516.00",
+    "casi_pdf": [
+      {
+        "coniuge": false,
+        "figli": 1,
+        "importo": "8779.31"
+      },
+      {
+        "coniuge": false,
+        "figli": 2,
+        "importo": "9295.31"
+      },
+      {
+        "coniuge": false,
+        "figli": 3,
+        "importo": "9811.31"
+      },
+      {
+        "coniuge": false,
+        "figli": 4,
+        "importo": "10327.31"
+      },
+      {
+        "coniuge": true,
+        "figli": 1,
+        "importo": "11878.05"
+      },
+      {
+        "coniuge": true,
+        "figli": 2,
+        "importo": "12394.05"
+      },
+      {
+        "coniuge": true,
+        "figli": 3,
+        "importo": "12910.05"
+      },
+      {
+        "coniuge": true,
+        "figli": 4,
+        "importo": "13426.05"
+      }
+    ],
+    "norma": "art. 3, comma 2, del D.L. 25 novembre 1989, n. 382 (convertito dalla legge 25 gennaio 1990, n. 8), confermato dall'art. 2, comma 15, della legge 28 dicembre 1995, n. 549",
+    "fonti": {
+      "vademecum": {
+        "nome": "Ministero dell'Interno, Vademecum per la concessione della cittadinanza (circolare n. 20475 del 23 aprile 2025, PDF), § 2.6",
+        "breve": "Vademecum del Ministero dell'Interno (23/4/2025)",
+        "url": "https://libertaciviliimmigrazione.dlci.interno.gov.it/sites/default/files/2025-06/vademecum_23_aprile_2025.pdf",
+        "verificato_il": "2026-10-31"
+      },
+      "pdf_prefettura": {
+        "nome": "Prefettura di Catanzaro, «Redditi richiesti per la domanda di cittadinanza per residenza e modalità per la loro indicazione e aggiornamento» (PDF, rel. 30/11/2021), allegato della pagina Cittadinanza",
+        "breve": "PDF della Prefettura di Catanzaro «Redditi richiesti per la domanda di cittadinanza»",
+        "url": "https://prefettura.interno.gov.it/sites/default/files/16/2024-05/redditoimponibile.pdf",
+        "verificato_il": "2026-10-31"
+      },
+      "milano": {
+        "nome": "Prefettura di Milano, pagina «Cittadinanza» (aggiornata il 22/9/2026), «Requisiti reddituali»",
+        "breve": "Prefettura di Milano, pagina Cittadinanza",
+        "url": "https://prefettura.interno.gov.it/it/prefetture/milano/cittadinanza",
+        "verificato_il": "2026-10-31"
+      }
+    }
+  },
+  "carta_soggiorno": {
+    "nome_ufficiale": "permesso di soggiorno UE per soggiornanti di lungo periodo",
+    "fonti": {
+      "tu9": {
+        "nome": "Testo unico immigrazione (d.lgs. 286/1998), art. 9, comma 1, su Normattiva",
+        "breve": "art. 9 del Testo unico immigrazione",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9!vig=",
+        "verificato_il": "2026-10-31"
+      }
+    }
+  },
+  "citazioni": [
+    {
+      "fonte": "vademecum",
+      "testo": "reddito imponibile fino a € 8.263,31, incrementato fino a € 11.362,05 di reddito complessivo in presenza del coniuge a carico e in ragione di ulteriori € 516,00 per ogni figlio o familiare a carico"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "i redditi da indicare sono esclusivamente quelli imponibili IRPEF, per i quali siano stati assolti i relativi obblighi fiscali in Italia (quelli all'estero non vengono considerati), desunti dalle dichiarazioni reddituali presentate negli ultimi tre anni all'Agenzia delle entrate"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "il reddito o pensione di cittadinanza"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "il denaro depositato su conto corrente"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "la pensione percepita all'estero ed ivi sottoposta a tassazione"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "l'indennità di disoccupazione (poiché, anche se imponibile, ha natura di sussidio, quale la NASpI)"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "i redditi prodotti dal coniuge che risieda all'estero"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "redditi prodotti dalla parte unita civilmente"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "rendite INAIL continuative"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "dal convivente non legato da alcun rapporto giuridico all'istante (anche in presenza di prole)"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "potrà essere valutata in via equitativa la misura della flessione"
+    },
+    {
+      "fonte": "pdf_prefettura",
+      "testo": "€ 8.263,31 per il richiedente la cittadinanza senza coniuge né figli a carico"
+    },
+    {
+      "fonte": "pdf_prefettura",
+      "testo": "€ 11.362,05 per il richiedente la cittadinanza con coniuge a carico"
+    },
+    {
+      "fonte": "pdf_prefettura",
+      "testo": "€ 516,00 ulteriori per ogni figlio a carico del richiedente la cittadinanza"
+    },
+    {
+      "fonte": "pdf_prefettura",
+      "testo": "richiedente con coniuge e 2 figli a carico: € 12.394,05"
+    },
+    {
+      "fonte": "pdf_prefettura",
+      "testo": "per il Modello 730: importo del Reddito imponibile nel Prospetto di liquidazione"
+    },
+    {
+      "fonte": "pdf_prefettura",
+      "testo": "possono essere considerati anche i redditi dei familiari presenti nello stesso stato di famiglia del richiedente"
+    },
+    {
+      "fonte": "pdf_prefettura",
+      "testo": "un reddito inferiore ai limiti sopra indicati, le domande verranno rifiutate direttamente in via telematica"
+    },
+    {
+      "fonte": "pdf_prefettura",
+      "testo": "I requisiti reddituali dovranno essere mantenuti fino alla data del giuramento"
+    },
+    {
+      "fonte": "milano",
+      "testo": "nell'ultimo triennio, risulti superiore ai parametri stabiliti dall'art. 3 del D.L. 382/1989"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "Lo straniero in possesso, da almeno cinque anni, di un permesso di soggiorno in corso di validità, che dimostra la disponibilità di un reddito non inferiore all'importo annuo dell'assegno sociale e, nel caso di richiesta relativa ai familiari, di un reddito sufficiente secondo i parametri indicati nell'articolo 29, comma 3, lettera b)"
+    }
+  ]
+}

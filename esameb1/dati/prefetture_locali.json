@@ -1,0 +1,2014 @@
+{
+ "_nota": "Punti locali scelti a mano leggendo la pagina «Cittadinanza» di ogni Prefettura (e, se indicato in 'url', una sua pagina correlata). Ogni punto e ogni contatto ha la frase esatta della fonte in 'citazioni': raccolta/prefetture.py --controlla verifica che ci sia ancora. Nessun nome di persona. 'lead' continua la prima frase della pagina («Secondo la pagina … della Prefettura di X (aggiornata il …, letta il …), »). Una pagina /cittadinanza/<prefettura>/ si genera solo con almeno 2 punti.",
+ "letto_il": "2026-10-31",
+ "prefetture": {
+  "milano": {
+   "lead": "la domanda si manda online con SPID e, per tutto quello che riguarda la pratica, l'ufficio cittadinanza chiede di scrivere solo alla sua PEC, con il codice K10 nell'oggetto. Il ricevimento è per appuntamento.",
+   "descrizione": "Cittadinanza alla Prefettura di Milano: PEC per la pratica, email dell'ufficio, ricevimento su appuntamento, rimborso dei 250 €. Con fonte e data.",
+   "contatti": [
+    {
+     "tipo": "pec",
+     "valore": "comunicazione.cittadinanza.prefmi@pec.interno.it",
+     "citazioni": [
+      "si prega di scrivere esclusivamente all'indirizzo comunicazione.cittadinanza.prefmi@pec.interno.it"
+     ],
+     "nota": "informazioni sulla pratica, documenti in più, accesso agli atti, cambio di residenza"
+    },
+    {
+     "tipo": "email",
+     "valore": "cittadinanza.pref_milano@interno.it",
+     "citazioni": [
+      "cittadinanza.pref_milano@interno.it"
+     ],
+     "nota": "email dell'ufficio"
+    },
+    {
+     "tipo": "ricevimento",
+     "valore": "Per appuntamento",
+     "citazioni": [
+      "Per appuntamento"
+     ]
+    },
+    {
+     "tipo": "indirizzo",
+     "valore": "Corso Monforte 31, 20122 Milano",
+     "citazioni": [
+      "Prefettura UTG Milano, Corso Monforte 31, 20122 Milano"
+     ],
+     "nota": "indirizzo per la raccomandata di rimborso"
+    }
+   ],
+   "punti": [
+    {
+     "titolo": "Informazioni sulla pratica: solo per PEC",
+     "testo": "Per sapere come va la tua domanda, mandare documenti in più o chiedere di vedere gli atti, la Prefettura chiede di scrivere <strong>solo</strong> alla PEC dell'ufficio, con il codice K10 della pratica e il tipo di richiesta nell'oggetto.",
+     "citazioni": [
+      "si prega di scrivere esclusivamente all'indirizzo comunicazione.cittadinanza.prefmi@pec.interno.it"
+     ],
+     "icona": "mail"
+    },
+    {
+     "titolo": "Se cambi residenza durante la pratica",
+     "testo": "Comunicalo subito alla stessa PEC, con «cittadinanza K10/... - cambio di residenza» nell'oggetto, un'autocertificazione e un documento d'identità valido.",
+     "citazioni": [
+      "Eventuali cambi di residenza in corso di procedimento devono essere tempestivamente comunicati all'indirizzo comunicazione.cittadinanza.prefmi@pec.interno.it"
+     ],
+     "icona": "pin"
+    },
+    {
+     "titolo": "Rimborso del contributo di 250 €",
+     "testo": "Se hai pagato per errore o due volte, puoi chiedere i soldi indietro con una raccomandata A/R all'Ufficio Cittadinanza, Corso Monforte 31, 20122 Milano: modulo firmato (è tra gli allegati), documento d'identità e codice fiscale, marca da bollo da 16 €, ricevuta del pagamento, IBAN.",
+     "citazioni": [
+      "è possibile chiedere la restituzione mediante invio di apposita istanza a mezzo raccomandata A/R all'indirizzo Prefettura UTG Milano, Corso Monforte 31, 20122 Milano"
+     ],
+     "icona": "euro"
+    },
+    {
+     "titolo": "Arrivato in Italia prima dei 14 anni",
+     "testo": "Chi è entrato in Italia prima dei 14 anni e ha sempre avuto la residenza legale può allegare un'autocertificazione dello storico di residenza al posto del certificato penale del Paese di origine.",
+     "citazioni": [
+      "possono allegare un'autocertificazione dello storico di residenza in sostituzione del certificato penale del Paese di origine"
+     ],
+     "icona": "doc"
+    },
+    {
+     "titolo": "Nomi diversi tra SPID e documenti",
+     "testo": "Se i tuoi dati nello SPID non sono uguali a quelli dei documenti, allega un'attestazione consolare di esatte generalità, legalizzata. Le donne che vogliono tenere il cognome del marito allegano il certificato del matrimonio fatto all'estero.",
+     "citazioni": [
+      "allegando alla propria domanda un'attestazione consolare di esatte generalità"
+     ],
+     "icona": "doc"
+    },
+    {
+     "titolo": "Decreto e giuramento",
+     "testo": "A fine pratica la Prefettura manda il decreto per PEC, tramite PagoPA, all'indirizzo scritto nella domanda; poi fissi la data del giuramento al Comune di residenza.",
+     "citazioni": [
+      "fissazione della data del giuramento presso il comune di residenza"
+     ],
+     "icona": "ok"
+    }
+   ]
+  },
+  "roma": {
+   "lead": "l'ufficio cittadinanza è in Via Stendhal 1 e ha una casella email (che non riceve PEC) e una PEC separata. Lo sportello informazioni si prenota online e il telefono dell'ufficio risponde dal lunedì al giovedì, dalle 9.30 alle 12.",
+   "descrizione": "Cittadinanza alla Prefettura di Roma: Via Stendhal 1, PEC ed email (diverse), telefono e orari, prenotazione dello sportello, notifica SEND e giuramento.",
+   "contatti": [
+    {
+     "tipo": "indirizzo",
+     "valore": "Via Stendhal 1, 00144 Roma",
+     "citazioni": [
+      "Indirizzo: Via Stendhal 1 00144 Roma"
+     ]
+    },
+    {
+     "tipo": "pec",
+     "valore": "comunicazione.cittadinanza.prefrm@pec.interno.it",
+     "citazioni": [
+      "Si prega di inviare le P.E.C. all'indirizzo comunicazione.cittadinanza.prefrm@pec.interno.it"
+     ],
+     "nota": "solo PEC: accesso agli atti e comunicazioni"
+    },
+    {
+     "tipo": "email",
+     "valore": "cittadinanza.pref_roma@interno.it",
+     "citazioni": [
+      "casella non abilitata a ricevere PEC"
+     ],
+     "nota": "solo email, non PEC: anche per il cambio di residenza"
+    },
+    {
+     "tipo": "telefono",
+     "valore": "06 67295222",
+     "citazioni": [
+      "dal lunedì al giovedì, dalle ore 09:30 alle ore 12:00, al numero 0667295222"
+     ],
+     "nota": "dal lunedì al giovedì, 9.30-12.00",
+     "url": "https://prefettura.interno.gov.it/it/prefetture/roma/comunica-lufficio"
+    },
+    {
+     "tipo": "telefono",
+     "valore": "06 67291",
+     "citazioni": [
+      "Telefono: 06/67291"
+     ],
+     "nota": "centralino"
+    },
+    {
+     "tipo": "prenotazione",
+     "valore": "https://prenotazioni.utgroma.it/",
+     "citazioni": [
+      "è possibile prenotarsi per accedere allo sportello informazioni di Via Stendhal 1 tramite prenotazione sul portale"
+     ],
+     "nota": "sportello informazioni di Via Stendhal 1",
+     "url": "https://prefettura.interno.gov.it/it/prefetture/roma/comunica-lufficio"
+    }
+   ],
+   "punti": [
+    {
+     "titolo": "Email e PEC sono due caselle diverse",
+     "testo": "La casella cittadinanza.pref_roma@interno.it non riceve PEC: le PEC inviate lì non hanno risposta. Le PEC vanno a comunicazione.cittadinanza.prefrm@pec.interno.it.",
+     "citazioni": [
+      "casella non abilitata a ricevere PEC"
+     ],
+     "icona": "mail"
+    },
+    {
+     "titolo": "Sportello informazioni su prenotazione",
+     "testo": "Allo sportello informazioni di Via Stendhal 1 si va solo prenotando sul portale prenotazioni.utgroma.it.",
+     "citazioni": [
+      "è possibile prenotarsi per accedere allo sportello informazioni di Via Stendhal 1 tramite prenotazione sul portale"
+     ],
+     "icona": "cal",
+     "url": "https://prefettura.interno.gov.it/it/prefetture/roma/comunica-lufficio",
+     "fonte": "«Comunica con l'Ufficio»"
+    },
+    {
+     "titolo": "Accesso agli atti solo per PEC",
+     "testo": "Per vedere gli atti della pratica scrivi alla PEC con il numero K10 nell'oggetto e la copia del documento d'identità; niente carta.",
+     "citazioni": [
+      "L'accesso agli atti avviene esclusivamente in modalità telematica attraverso la posta elettronica certificata comunicazione.cittadinanza.prefrm@pec.interno.it"
+     ],
+     "icona": "doc",
+     "url": "https://prefettura.interno.gov.it/it/prefetture/roma/comunica-lufficio",
+     "fonte": "«Comunica con l'Ufficio»"
+    },
+    {
+     "titolo": "Cambio di residenza: per email",
+     "testo": "Se cambi residenza durante la pratica, scrivi all'email dell'ufficio (cittadinanza.pref_roma@interno.it) da un indirizzo email normale.",
+     "citazioni": [
+      "ogni eventuale cambio di residenza andrà obbligatoriamente comunicato a questo Ufficio inviando un'email a cittadinanza.pref_roma@interno.it"
+     ],
+     "icona": "pin",
+     "url": "https://prefettura.interno.gov.it/it/prefetture/roma/come-presentare-domanda-residenza",
+     "fonte": "«Come presentare la domanda per residenza»"
+    },
+    {
+     "titolo": "Notifica del decreto (SEND) e giuramento",
+     "testo": "Il decreto arriva con la piattaforma SEND di PagoPA, alla PEC o, senza domicilio digitale, con raccomandata. Poi si prenota il giuramento: chi abita nel Comune di Roma lo prenota online sul sito del Comune, chi abita in un altro Comune della provincia contatta lo Stato civile del suo Comune.",
+     "citazioni": [
+      "Piattaforma Notifiche Digitali di PagoPa (SEND)",
+      "Per i residenti presso gli altri Comuni della Provincia di Roma si invita a prendere contatti con l'Ufficio Stato Civile del proprio Comune di residenza"
+     ],
+     "icona": "ok",
+     "url": "https://prefettura.interno.gov.it/it/prefetture/roma/avviso-notifica-decreti-cittadinanza",
+     "fonte": "«Avviso notifica decreti di cittadinanza»"
+    },
+    {
+     "titolo": "Certificato di nascita originale",
+     "testo": "Per alcuni richiedenti l'ufficio ha tenuto l'originale del certificato di nascita e non lo restituisce: per il giuramento non serve.",
+     "citazioni": [
+      "non procederà alla sua restituzione"
+     ],
+     "icona": "doc",
+     "url": "https://prefettura.interno.gov.it/it/prefetture/roma/avviso-allutenza-certificati-nascita",
+     "fonte": "«Avviso all'Utenza - Certificati di nascita»"
+    }
+   ]
+  },
+  "brescia": {
+   "lead": "l'ufficio non riceve di persona chi ha già fatto domanda: le informazioni sulla pratica si chiedono per PEC, e la pagina indica due telefoni.",
+   "descrizione": "Cittadinanza alla Prefettura di Brescia: le due PEC (informazioni e cambio di residenza), i telefoni, niente ricevimento per le pratiche.",
+   "contatti": [
+    {
+     "tipo": "pec",
+     "valore": "cittadinanza.prefbs@pec.interno.it",
+     "citazioni": [
+      "si prega di scrivere esclusivamente all'indirizzo cittadinanza.prefbs@pec.interno.it"
+     ],
+     "nota": "informazioni sulla pratica, documenti in più, accesso agli atti"
+    },
+    {
+     "tipo": "pec",
+     "valore": "comunicazione.cittadinanza.prefbs@pec.interno.it",
+     "citazioni": [
+      "Eventuali cambi di residenza in corso di procedimento devono essere tempestivamente comunicati all'indirizzo comunicazione.cittadinanza.prefbs@pec.interno.it"
+     ],
+     "nota": "cambio di residenza"
+    },
+    {
+     "tipo": "telefono",
+     "valore": "030 2906307 - 030 2404827",
+     "citazioni": [
+      "Tel. 030/2906307 - 030/2404827"
+     ]
+    },
+    {
+     "tipo": "ricevimento",
+     "valore": "Nessun ricevimento per chi ha già fatto domanda",
+     "citazioni": [
+      "QUESTA PREFETTURA NON EFFETTUA IL RICEVIMENTO DEGLI UTENTI CHE HANNO INOLTRATO ISTANZE DI CITTADINANZA"
+     ]
+    }
+   ],
+   "punti": [
+    {
+     "titolo": "Niente sportello per le pratiche",
+     "testo": "La Prefettura scrive che non riceve chi ha già mandato la domanda: le informazioni sullo stato della pratica si chiedono solo nei modi indicati (PEC).",
+     "citazioni": [
+      "QUESTA PREFETTURA NON EFFETTUA IL RICEVIMENTO DEGLI UTENTI CHE HANNO INOLTRATO ISTANZE DI CITTADINANZA"
+     ],
+     "icona": "attenzione"
+    },
+    {
+     "titolo": "Due PEC, per due cose diverse",
+     "testo": "Per informazioni, documenti in più e accesso agli atti la pagina indica cittadinanza.prefbs@pec.interno.it; per il cambio di residenza comunicazione.cittadinanza.prefbs@pec.interno.it. In tutti e due i casi scrivi il codice K10 nell'oggetto.",
+     "citazioni": [
+      "si prega di scrivere esclusivamente all'indirizzo cittadinanza.prefbs@pec.interno.it",
+      "comunicati all'indirizzo comunicazione.cittadinanza.prefbs@pec.interno.it"
+     ],
+     "icona": "mail"
+    },
+    {
+     "titolo": "Rifugiati e protezione sussidiaria",
+     "testo": "Chi ha lo status di rifugiato o la protezione sussidiaria può presentare atti notori fatti in Tribunale al posto dei certificati di nascita e penale del Paese di origine.",
+     "citazioni": [
+      "in sostituzione dei certificati di nascita e penale del Paese di origine potrà produrre idonei atti notori formati presso il Tribunale"
+     ],
+     "icona": "doc"
+    },
+    {
+     "titolo": "Nomi diversi tra SPID e documenti",
+     "testo": "Se i dati dello SPID non sono uguali a quelli dei documenti, allega un'attestazione consolare di esatte generalità, legalizzata.",
+     "citazioni": [
+      "allegando alla propria domanda un'attestazione consolare di esatte generalità"
+     ],
+     "icona": "doc"
+    }
+   ]
+  },
+  "bergamo": {
+   "lead": "l'ufficio è in Via Zelasco 3 e allo sportello si va solo se convocati; il telefono risponde dal lunedì al venerdì, dalle 9 alle 12.",
+   "descrizione": "Cittadinanza alla Prefettura di Bergamo: Via Zelasco 3, telefono e orari, PEC, sportello solo su convocazione, versamento dei 250 € valido un anno.",
+   "contatti": [
+    {
+     "tipo": "indirizzo",
+     "valore": "Via Zelasco n. 3, piano terra",
+     "citazioni": [
+      "Ubicazione dell'Ufficio: Via Zelasco n. 3 - piano terra"
+     ]
+    },
+    {
+     "tipo": "ricevimento",
+     "valore": "Sportello solo su convocazione",
+     "citazioni": [
+      "L'ACCESSO AGLI SPORTELLI E' RISERVATO ESCLUSIVAMENTE AGLI UTENTI FORMALMENTE CONVOCATI DA QUEST'UFFICIO"
+     ]
+    },
+    {
+     "tipo": "telefono",
+     "valore": "035 276412",
+     "citazioni": [
+      "Telefono: 035/276412 da lunedì a venerdì dalle ore 9,00 alle ore 12,00"
+     ],
+     "nota": "da lunedì a venerdì, 9.00-12.00"
+    },
+    {
+     "tipo": "pec",
+     "valore": "comunicazione.cittadinanza@pecdlci.interno.it",
+     "citazioni": [
+      "P.E.C. : comunicazione.cittadinanza@pecdlci.interno.it"
+     ],
+     "nota": "PEC del Ministero, con il numero K10 nell'oggetto"
+    },
+    {
+     "tipo": "pec",
+     "valore": "comunicazione.cittadinanza.prefbg@pec.interno.it",
+     "citazioni": [
+      "comunicazione.cittadinanza.prefbg@pec.interno.it (è obbligatorio indicare nell'oggetto il n. K10/ o K10/C)"
+     ],
+     "nota": "in copia; anche per il cambio di residenza"
+    }
+   ],
+   "punti": [
+    {
+     "titolo": "Sportello solo su convocazione",
+     "testo": "Agli sportelli si entra solo se l'ufficio ti ha convocato: senza convocazione non si viene ricevuti. La convocazione arriva sul portale del Ministero, per il controllo dei documenti originali.",
+     "citazioni": [
+      "L'ACCESSO AGLI SPORTELLI E' RISERVATO ESCLUSIVAMENTE AGLI UTENTI FORMALMENTE CONVOCATI DA QUEST'UFFICIO",
+      "per il controllo della documentazione in originale"
+     ],
+     "icona": "attenzione"
+    },
+    {
+     "titolo": "Il versamento di 250 € vale un anno",
+     "testo": "La Prefettura non accetta domande con il pagamento del contributo fatto da più di un anno. I soldi non usati si possono chiedere indietro al Ministero con il modulo di rimborso.",
+     "citazioni": [
+      "non saranno più accettate istanze con versamenti effettuati da oltre un anno"
+     ],
+     "icona": "euro"
+    },
+    {
+     "titolo": "Cambio di residenza",
+     "testo": "Se cambi residenza durante la pratica, scrivi alla PEC comunicazione.cittadinanza.prefbg@pec.interno.it con la copia di un documento.",
+     "citazioni": [
+      "devono essere tempestivamente comunicati al seguente indirizzo di posta elettronica: comunicazione.cittadinanza.prefbg@pec.interno.it"
+     ],
+     "icona": "pin"
+    },
+    {
+     "titolo": "Domanda rifiutata perché incompleta",
+     "testo": "Se la domanda viene rifiutata perché mancano documenti o sono sbagliati, se ne può presentare una nuova. Il certificato penale vale 6 mesi e scaduto non si può riusare.",
+     "citazioni": [
+      "In caso di rifiuto per incompletezza o irregolarità della domanda, è possibile presentare una nuova domanda"
+     ],
+     "icona": "info"
+    }
+   ]
+  },
+  "treviso": {
+   "lead": "le richieste sulle pratiche vanno alla PEC dell'ufficio; il telefono risponde il lunedì e il mercoledì dalle 9 alle 10, e il ricevimento è per appuntamento.",
+   "descrizione": "Cittadinanza alla Prefettura di Treviso: PEC per le pratiche, email, telefono e orari delle telefonate, appuntamento, rimborso dei 250 €. Con fonte e data.",
+   "contatti": [
+    {
+     "tipo": "pec",
+     "valore": "comunicazione.cittadinanza.preftv@pec.interno.it",
+     "citazioni": [
+      "vanno inoltrate all'indirizzo di posta elettronica certificata comunicazione.cittadinanza.preftv@pec.interno.it"
+     ],
+     "nota": "richieste e comunicazioni sulle pratiche"
+    },
+    {
+     "tipo": "email",
+     "valore": "cittadinanza.pref_treviso@interno.it",
+     "citazioni": [
+      "cittadinanza.pref_treviso@interno.it"
+     ],
+     "nota": "email dell'ufficio (scheda «Cittadinanza ex art. 5, matrimonio»)"
+    },
+    {
+     "tipo": "telefono",
+     "valore": "0422 592442",
+     "citazioni": [
+      "0422 592442"
+     ]
+    },
+    {
+     "tipo": "orari",
+     "valore": "Telefonate: lunedì e mercoledì, 9.00-10.00",
+     "citazioni": [
+      "Orario delle telefonate: lunedì e mercoledì dalle ore 9.00 alle ore 10.00"
+     ]
+    },
+    {
+     "tipo": "ricevimento",
+     "valore": "Per appuntamento",
+     "citazioni": [
+      "Per appuntamento"
+     ]
+    },
+    {
+     "tipo": "indirizzo",
+     "valore": "Piazza dei Signori 22, 31100 Treviso",
+     "citazioni": [
+      "piazza dei Signori n. 22, 31100"
+     ],
+     "nota": "per la raccomandata con la ricevuta originale del bollettino"
+    }
+   ],
+   "punti": [
+    {
+     "titolo": "Pratiche: scrivi alla PEC",
+     "testo": "Richieste e comunicazioni sulle pratiche di cittadinanza vanno mandate alla PEC comunicazione.cittadinanza.preftv@pec.interno.it.",
+     "citazioni": [
+      "Le richieste/comunicazioni relative alle pratiche di cittadinanza vanno inoltrate all'indirizzo di posta elettronica certificata comunicazione.cittadinanza.preftv@pec.interno.it"
+     ],
+     "icona": "mail"
+    },
+    {
+     "titolo": "Rimborso del contributo di 250 €",
+     "testo": "Se hai pagato per errore, chiedi il rimborso per email o PEC a protocollo.preftv@pec.interno.it, oggetto «Richiesta di rimborso del contributo di cittadinanza», con il modulo della pagina, la ricevuta e un documento. Se hai pagato con il bollettino di carta, la ricevuta originale va spedita con raccomandata A/R in Piazza dei Signori 22.",
+     "citazioni": [
+      "protocollo.preftv@pec.interno.it",
+      "Richiesta di rimborso del contributo di cittadinanza"
+     ],
+     "icona": "euro"
+    },
+    {
+     "titolo": "Se la pratica è in ritardo",
+     "testo": "La pagina ricorda che chi pensa di subire un ritardo può chiedere l'intervento sostitutivo dell'Ispettorato Generale di amministrazione del Ministero, con il modello che trovi tra gli allegati, alla PEC iga@pec.interno.it con la carta d'identità.",
+     "citazioni": [
+      "può chiedere l'intervento sostitutivo dell'Ispettorato Generale di amministrazione"
+     ],
+     "icona": "orologio"
+    }
+   ]
+  },
+  "torino": {
+   "lead": "per le comunicazioni con l'ufficio cittadinanza si usa solo la sua email istituzionale, con il codice K10 nell'oggetto; la pagina non indica un telefono né orari di ricevimento.",
+   "descrizione": "Cittadinanza alla Prefettura di Torino: l'unica email dell'ufficio, accesso agli atti, moduli, notifica del decreto e giuramento. Con fonte e data.",
+   "contatti": [
+    {
+     "tipo": "email",
+     "valore": "cittadinanza.pref_torino@interno.it",
+     "citazioni": [
+      "utilizzare esclusivamente la seguente email istituzionale: cittadinanza.pref_torino@interno.it"
+     ],
+     "nota": "l'unica casella per scrivere all'ufficio, con il K10 nell'oggetto; anche per l'accesso agli atti"
+    },
+    {
+     "tipo": "pec",
+     "valore": "comunicazione.cittadinanza@pecdlci.interno.it",
+     "citazioni": [
+      "Per comunicazioni e/o informazioni dirette al Ministero dell'Interno, utilizzare il seguente indirizzo P.E.C.: comunicazione.cittadinanza@pecdlci.interno.it"
+     ],
+     "nota": "solo per il Ministero"
+    }
+   ],
+   "nota_contatti": "La pagina non scrive un telefono né orari di ricevimento per l'ufficio cittadinanza.",
+   "punti": [
+    {
+     "titolo": "Una sola email per l'ufficio",
+     "testo": "Per scrivere all'Ufficio Cittadinanza di Torino usa solo cittadinanza.pref_torino@interno.it, con il codice K10 della pratica nell'oggetto. La PEC del Ministero serve per scrivere al Ministero.",
+     "citazioni": [
+      "utilizzare esclusivamente la seguente email istituzionale: cittadinanza.pref_torino@interno.it"
+     ],
+     "icona": "mail"
+    },
+    {
+     "titolo": "Accesso agli atti",
+     "testo": "La richiesta di vedere gli atti si manda alla stessa email, con la copia di un documento (e la delega, se scrive un'altra persona). Il modulo è tra gli allegati.",
+     "citazioni": [
+      "Eventuali istanze di accesso agli atti, dovranno essere indirizzate"
+     ],
+     "icona": "doc"
+    },
+    {
+     "titolo": "Il bollettino da 250 € vale un anno",
+     "testo": "La Prefettura scrive che il versamento del contributo si può usare per un anno dalla data del pagamento; i soldi non usati si chiedono indietro al Ministero.",
+     "citazioni": [
+      "un anno dalla data del versamento"
+     ],
+     "icona": "euro"
+    },
+    {
+     "titolo": "Reddito: chi della famiglia conta",
+     "testo": "Per arrivare alla soglia di reddito la pagina di Torino parla dei parenti di primo grado presenti nello stato di famiglia. Le regole complete del Ministero sono nella pagina sul reddito minimo.",
+     "citazioni": [
+      "i parenti di primo grado presenti sullo stato di famiglia"
+     ],
+     "icona": "euro"
+    },
+    {
+     "titolo": "Decreto e giuramento",
+     "testo": "Il decreto si scarica dalla «Piattaforma Notifiche» del Portale Cives; poi si contatta il Comune di residenza per fissare il giuramento.",
+     "citazioni": [
+      "all'interno del Portale Cives, in cui è possibile scaricare il relativo decreto"
+     ],
+     "icona": "ok"
+    }
+   ]
+  },
+  "verona": {
+   "lead": "l'ufficio cittadinanza è in via S. Maria Antica 1, non convoca più allo sportello chi ha fatto domanda e ha uno sportello telefonico il mercoledì dalle 10 alle 13.",
+   "descrizione": "Cittadinanza alla Prefettura di Verona: sede, sportello telefonico del mercoledì, email e PEC, cambio di residenza, niente convocazioni. Con fonte e data.",
+   "contatti": [
+    {
+     "tipo": "indirizzo",
+     "valore": "Via S. Maria Antica 1, Verona",
+     "citazioni": [
+      "Sede: via S. Maria Antica 1, Verona"
+     ]
+    },
+    {
+     "tipo": "telefono",
+     "valore": "045 8673411",
+     "citazioni": [
+      "Sportello telefonico: mercoledì dalle 10.00 alle 13.00 al 0458673411"
+     ],
+     "nota": "sportello telefonico"
+    },
+    {
+     "tipo": "orari",
+     "valore": "Sportello telefonico: mercoledì, 10.00-13.00",
+     "citazioni": [
+      "Sportello telefonico: mercoledì dalle 10.00 alle 13.00"
+     ]
+    },
+    {
+     "tipo": "email",
+     "valore": "cittadinanza.pref_verona@interno.it",
+     "citazioni": [
+      "Email dell'ufficio: cittadinanza.pref_verona@interno.it"
+     ]
+    },
+    {
+     "tipo": "pec",
+     "valore": "cittadinanza.prefvr@pec.interno.it",
+     "citazioni": [
+      "cittadinanza.prefvr@pec.interno.it (PEC)"
+     ],
+     "nota": "anche per il cambio di residenza"
+    }
+   ],
+   "punti": [
+    {
+     "titolo": "Niente più convocazioni allo sportello",
+     "testo": "Chi ha fatto domanda non viene più chiamato allo sportello per l'identificazione e il controllo dei documenti: tutto avviene online. Per vedere lo stato della pratica bisogna associarla al proprio SPID.",
+     "citazioni": [
+      "chi ha fatto domanda di cittadinanza non sarà più convocato allo sportello per l'identificazione e il controllo della documentazione"
+     ],
+     "icona": "attenzione"
+    },
+    {
+     "titolo": "Cambio di residenza",
+     "testo": "Comunicalo alla Prefettura per PEC (cittadinanza.prefvr@pec.interno.it) o per email (cittadinanza.pref_verona@interno.it), con il K10 nell'oggetto.",
+     "citazioni": [
+      "In caso di cambio di residenza , è necessario comunicarlo alla Prefettura via email cittadinanza.prefvr@pec.interno.it (PEC) o cittadinanza.pref_verona@interno.it"
+     ],
+     "icona": "pin"
+    },
+    {
+     "titolo": "Problemi tecnici: Help Desk, non Prefettura",
+     "testo": "Per cambiare email o telefono, o se non riesci ad associare la pratica allo SPID, la Prefettura dice di rivolgersi all'Help Desk del Ministero, non a lei.",
+     "citazioni": [
+      "bisogna rivolgersi all'help desk, non alla Prefettura di Verona"
+     ],
+     "icona": "info"
+    },
+    {
+     "titolo": "Nomi uguali su tutti i documenti",
+     "testo": "Nome, cognome, luogo e data di nascita devono essere identici su certificato di nascita, certificato penale, passaporto, permesso e carta d'identità; se sono diversi serve un'attestazione da allegare alla domanda.",
+     "citazioni": [
+      "siano perfettamente concordanti su tutti i documenti"
+     ],
+     "icona": "doc"
+    },
+    {
+     "titolo": "Arrivato in Italia prima dei 14 anni",
+     "testo": "Chi è entrato in Italia prima dei 14 anni e ha la residenza legale senza interruzioni non deve presentare il certificato penale del Paese di origine.",
+     "citazioni": [
+      "Se sei entrato in Italia prima del 14° anno di età e se hai la residenza legale senza interruzioni sul territorio italiano non è necessario produrre il certificato penale"
+     ],
+     "icona": "doc"
+    }
+   ]
+  },
+  "varese": {
+   "lead": "il cambio di residenza durante la pratica si comunica all'email dell'ufficio cittadinanza e, a fine pratica, il decreto va al Comune di residenza, che lo notifica e fissa il giuramento.",
+   "descrizione": "Cittadinanza alla Prefettura di Varese: email dell'ufficio, cambio di residenza, contributo con pagoPA, decreto inviato al Comune. Con fonte e data.",
+   "contatti": [
+    {
+     "tipo": "email",
+     "valore": "cittadinanza.pref_varese@interno.it",
+     "citazioni": [
+      "comunicati al seguente indirizzo di posta elettronica: cittadinanza.pref_varese@interno.it"
+     ],
+     "nota": "anche per il cambio di residenza"
+    }
+   ],
+   "nota_contatti": "La pagina non scrive un telefono, una PEC propria né orari di ricevimento per l'ufficio cittadinanza.",
+   "punti": [
+    {
+     "titolo": "Cambio di residenza: per email",
+     "testo": "Se cambi residenza durante la pratica, scrivi subito a cittadinanza.pref_varese@interno.it.",
+     "citazioni": [
+      "Eventuali cambi di residenza in corso di procedimento devono essere tempestivamente comunicati al seguente indirizzo di posta elettronica: cittadinanza.pref_varese@interno.it"
+     ],
+     "icona": "pin"
+    },
+    {
+     "titolo": "Decreto al Comune",
+     "testo": "Se la pratica va bene, la Prefettura manda il decreto al Comune di residenza, che te lo notifica e fissa la data del giuramento.",
+     "citazioni": [
+      "la Prefettura provvederà a trasmettere telematicamente il decreto di conferimento della cittadinanza al Comune di residenza"
+     ],
+     "icona": "ok"
+    },
+    {
+     "titolo": "Domanda rifiutata perché incompleta",
+     "testo": "Se la domanda viene rifiutata per documenti mancanti o sbagliati, puoi presentarne una nuova riusando la ricevuta del contributo già pagato. Il certificato penale vale 6 mesi.",
+     "citazioni": [
+      "è possibile presentare una nuova domanda , riutilizzando la ricevuta del pagamento del contributo già versato"
+     ],
+     "icona": "info"
+    }
+   ]
+  },
+  "bologna": {
+   "lead": "lo sportello cittadinanza non convoca più i richiedenti: la pratica si chiude tutta online. Il cambio di residenza si comunica all'email dell'ufficio e il decreto va al Comune di residenza.",
+   "descrizione": "Cittadinanza alla Prefettura di Bologna: email dell'ufficio, niente sportello, cambio di residenza, contributo con pagoPA, decreto al Comune.",
+   "contatti": [
+    {
+     "tipo": "email",
+     "valore": "cittadinanza.pref_bologna@interno.it",
+     "citazioni": [
+      "comunicati al seguente indirizzo di posta elettronica: cittadinanza.pref_bologna@interno.it"
+     ],
+     "nota": "anche per il cambio di residenza"
+    }
+   ],
+   "nota_contatti": "La pagina non scrive un telefono, una PEC propria né orari: lo sportello cittadinanza non riceve più (vedi sotto).",
+   "punti": [
+    {
+     "titolo": "Sportello sospeso: tutto online",
+     "testo": "Non serve più la convocazione allo sportello per l'identificazione e il controllo dei documenti: gli appuntamenti fissati dal 31 maggio 2021 sono stati annullati. Per non rallentare la pratica, associala al tuo SPID.",
+     "citazioni": [
+      "non sarà più necessaria la convocazione allo sportello per l'identificazione e il controllo della documentazione",
+      "Gli appuntamenti fissati per lo sportello cittadinanza dal 31 maggio 2021 sono, pertanto, annullati"
+     ],
+     "icona": "attenzione"
+    },
+    {
+     "titolo": "Cambio di residenza: per email",
+     "testo": "Se cambi residenza durante la pratica, scrivi subito a cittadinanza.pref_bologna@interno.it.",
+     "citazioni": [
+      "Eventuali cambi di residenza in corso di procedimento devono essere tempestivamente comunicati al seguente indirizzo di posta elettronica: cittadinanza.pref_bologna@interno.it"
+     ],
+     "icona": "pin"
+    },
+    {
+     "titolo": "Contributo e bollo con pagoPA",
+     "testo": "Il contributo di 250 € e la marca da bollo da 16 € si pagano online con pagoPA mentre presenti la domanda.",
+     "citazioni": [
+      "effettuare il pagamento digitale del contributo di 250 euro e della marca da bollo di € 16,00 direttamente all'atto della presentazione della domanda"
+     ],
+     "icona": "euro"
+    },
+    {
+     "titolo": "Decreto al Comune",
+     "testo": "Se la pratica va bene, la Prefettura manda il decreto al Comune di residenza, che te lo notifica e fissa il giuramento.",
+     "citazioni": [
+      "la Prefettura provvederà a trasmettere telematicamente il decreto di conferimento della cittadinanza al Comune di residenza"
+     ],
+     "icona": "ok"
+    },
+    {
+     "titolo": "Modulo per lo storico di residenza",
+     "testo": "Tra gli allegati della pagina c'è il modulo «Autocertificazione storico di residenza».",
+     "citazioni": [
+      "Autocertificazione storico di residenza"
+     ],
+     "icona": "doc"
+    }
+   ]
+  },
+  "modena": {
+   "lead": "l'ufficio cittadinanza è in via Mascherella 6 e riceve solo su convocazione; il servizio di ricevimento telefonico del martedì è sospeso.",
+   "descrizione": "Cittadinanza alla Prefettura di Modena: via Mascherella 6, ricevimento solo su convocazione, telefono sospeso, chi ha SPID non viene convocato.",
+   "contatti": [
+    {
+     "tipo": "indirizzo",
+     "valore": "Via Mascherella n. 6, Modena",
+     "citazioni": [
+      "Via Mascherella n. 6"
+     ]
+    },
+    {
+     "tipo": "ricevimento",
+     "valore": "Solo su convocazione",
+     "citazioni": [
+      "Si riceve solo su convocazione"
+     ]
+    },
+    {
+     "tipo": "telefono",
+     "valore": "Ricevimento telefonico sospeso",
+     "citazioni": [
+      "Il servizio di ricevimento telefonico dell'Ufficio Cittadinanza, previsto nella giornata di martedì, dalle ore 12.00 alle ore 13.00 è sospeso"
+     ],
+     "nota": "era il martedì, 12.00-13.00"
+    }
+   ],
+   "nota_contatti": "La pagina non scrive un'email o una PEC dell'ufficio cittadinanza: per le comunicazioni sulla pratica usa il portale o la PEC del Ministero (vedi sotto).",
+   "punti": [
+    {
+     "titolo": "Si riceve solo su convocazione",
+     "testo": "All'ufficio si va solo se convocati. Chi ha lo SPID non viene più convocato in Prefettura per l'identificazione e il controllo dei documenti.",
+     "citazioni": [
+      "Si riceve solo su convocazione",
+      "gli utenti in possesso dell'identità digitale certificata SPID non saranno più convocati presso la Prefettura per l'identificazione"
+     ],
+     "icona": "attenzione"
+    },
+    {
+     "titolo": "Telefono sospeso, sportello in arrivo",
+     "testo": "Il ricevimento telefonico del martedì (12-13) è sospeso. La Prefettura dice di controllare il suo sito: lì annuncerà l'apertura di uno sportello con accesso diretto da via Mascherella 6.",
+     "citazioni": [
+      "è sospeso",
+      "verrà comunicata l'apertura di uno sportello dedicato, con accesso diretto al pubblico da via Mascherella n.6"
+     ],
+     "icona": "tel"
+    },
+    {
+     "titolo": "Rifugiati senza certificati",
+     "testo": "Chi è rifugiato e non può avere l'atto di nascita o il certificato penale può presentare un atto di notorietà e una dichiarazione sostitutiva.",
+     "citazioni": [
+      "puoi produrre un atto di notorietà in sostituzione dell'atto di nascita"
+     ],
+     "icona": "doc"
+    }
+   ]
+  },
+  "firenze": {
+   "lead": "per informazioni particolari l'ufficio risponde solo all'email cittadinanza.pref_firenze@interno.it, e lo stato della pratica si vede solo sul portale del Ministero. L'ufficio è in via Antonio Giacomini 8, secondo piano.",
+   "descrizione": "Cittadinanza alla Prefettura di Firenze: email dell'ufficio, via Giacomini 8, codice K10 dopo 10 giorni, solleciti, rimborso dei 250 €.",
+   "contatti": [
+    {
+     "tipo": "email",
+     "valore": "cittadinanza.pref_firenze@interno.it",
+     "citazioni": [
+      "Per richieste di informazioni particolari l'Ufficio risponderà esclusivamente al seguente indirizzo e-mail: cittadinanza.pref_firenze@interno.it"
+     ],
+     "nota": "informazioni particolari e cambio di indirizzo, con il codice della pratica"
+    },
+    {
+     "tipo": "indirizzo",
+     "valore": "Via Antonio Giacomini 8, Firenze, secondo piano",
+     "citazioni": [
+      "Ubicazione dell'Ufficio: Via Antonio Giacomini 8 - Firenze - secondo piano"
+     ],
+     "url": "https://prefettura.interno.gov.it/it/prefetture/firenze/uffici/aree-e-servizi/area-4-tutela-dei-diritti-civili-cittadinanza-e-immigrazione"
+    },
+    {
+     "tipo": "orari",
+     "valore": "Consegna a mano del rimborso: martedì 9-12, giovedì 14-16 (Corpo di Guardia)",
+     "citazioni": [
+      "nei giorni di martedì dalle ore 9:00 alle ore 12:00 e giovedì dalle ore 14:00 alle ore 16:00"
+     ],
+     "nota": "solo per l'istanza di rimborso del contributo"
+    }
+   ],
+   "nota_contatti": "La pagina non scrive un telefono o una PEC propria per l'ufficio cittadinanza.",
+   "punti": [
+    {
+     "titolo": "Stato della pratica solo sul portale",
+     "testo": "La Prefettura scrive che lo stato delle domande si vede unicamente sul portale «Cittadinanza» del Ministero; per informazioni particolari risponde solo all'email dell'ufficio.",
+     "citazioni": [
+      "Lo stato delle istanze in corso di trattazione è reperibile unicamente dagli utenti consultando il portale"
+     ],
+     "icona": "web"
+    },
+    {
+     "titolo": "Il codice K10 arriva dopo 10 giorni lavorativi",
+     "testo": "Se la domanda è accettata, la comunicazione di avvio e il codice K10 arrivano 10 giorni lavorativi dopo l'invio.",
+     "citazioni": [
+      "10 giorni lavorativi dopo l'inserimento dell'istanza"
+     ],
+     "icona": "orologio"
+    },
+    {
+     "titolo": "Niente solleciti prima della scadenza",
+     "testo": "L'ufficio chiede di non mandare solleciti o diffide prima che passi il termine (24 mesi per le domande dal 20/12/2020, 48 prima). Dopo, i solleciti vanno via PEC al Ministero.",
+     "citazioni": [
+      "di non inviare solleciti o diffide a questo Ufficio prima della scadenza del suddetto termine",
+      "eventuali richieste di sollecito dovranno essere inviate via P.E.C. al Ministero dell'Interno"
+     ],
+     "icona": "attenzione"
+    },
+    {
+     "titolo": "Rimborso del contributo non usato",
+     "testo": "Chi ha pagato i 250 € e non li ha usati può chiedere il rimborso con il modulo della pagina e due copie di un documento: per raccomandata A/R o a mano al Corpo di Guardia di via Giacomini 8 (martedì 9-12, giovedì 14-16).",
+     "citazioni": [
+      "L'utente che abbia provveduto al versamento di un contributo per l'istanza di cittadinanza e non l'abbia utilizzato, può richiederne il rimborso",
+      "consegnata a mano al Corpo di Guardia della Prefettura - sede di Via A. Giacomini n. 8"
+     ],
+     "icona": "euro"
+    },
+    {
+     "titolo": "Cambio di indirizzo",
+     "testo": "Basta una email all'ufficio cittadinanza con il codice della pratica e il nuovo indirizzo.",
+     "citazioni": [
+      "È sufficiente inviare una mail all'Ufficio Cittadinanza della Prefettura"
+     ],
+     "icona": "pin",
+     "url": "https://prefettura.interno.gov.it/it/prefetture/firenze/faq-cittadinanza",
+     "fonte": "«F.A.Q. Cittadinanza»"
+    },
+    {
+     "titolo": "Permesso di lungo periodo di carta",
+     "testo": "Chi ha allegato il permesso di lungo periodo in formato cartaceo deve chiederne l'aggiornamento in Questura e mandarlo al Ministero.",
+     "citazioni": [
+      "è ugualmente necessario recarsi presso la competente Questura, richiedere l'aggiornamento"
+     ],
+     "icona": "doc"
+    }
+   ]
+  },
+  "napoli": {
+   "lead": "l'ufficio cittadinanza è in via Vespucci 172 e tutte le comunicazioni sulla pratica avvengono solo online: documenti e richieste di carta non vengono considerati.",
+   "descrizione": "Cittadinanza alla Prefettura di Napoli: via Vespucci 172, PEC dell'ufficio, comunicazioni solo online, convocazione per gli originali sul portale.",
+   "contatti": [
+    {
+     "tipo": "indirizzo",
+     "valore": "Via Vespucci 172, Napoli",
+     "citazioni": [
+      "Indirizzo: Via Vespucci, 172 - Napoli"
+     ]
+    },
+    {
+     "tipo": "pec",
+     "valore": "comunicazione.cittadinanza.prefna@pec.interno.it",
+     "citazioni": [
+      "Indirizzo P.E.C. : comunicazione.cittadinanza.prefna@pec.interno.it"
+     ]
+    }
+   ],
+   "nota_contatti": "La pagina elenca anche telefoni ed email di singoli funzionari: non li riportiamo. Non indica orari di ricevimento.",
+   "punti": [
+    {
+     "titolo": "Solo online, niente carta",
+     "testo": "Comunicazioni, documenti e richieste di informazioni sulla pratica passano solo per i canali online: istanze o documenti di carta non vengono presi in considerazione.",
+     "citazioni": [
+      "non saranno quindi presi in considerazione istanze o documenti che dovessero pervenire in forma cartacea"
+     ],
+     "icona": "web"
+    },
+    {
+     "titolo": "Convocazione per gli originali",
+     "testo": "Le comunicazioni dell'ufficio arrivano nell'area riservata del portale, tra cui la data di convocazione agli sportelli per il controllo dei documenti originali; prima arriva un messaggio all'email scritta nella domanda.",
+     "citazioni": [
+      "la data di convocazione presso gli sportelli della Prefettura per il controllo degli originali dei documenti allegati in formato elettronico"
+     ],
+     "icona": "cal"
+    },
+    {
+     "titolo": "Giuramento entro 6 mesi",
+     "testo": "Se la pratica va bene, la Prefettura notifica il decreto e hai 6 mesi per giurare al Comune di residenza.",
+     "citazioni": [
+      "entro sei mesi dalla notifica"
+     ],
+     "icona": "ok"
+    }
+   ]
+  },
+  "ancona": {
+   "lead": "comunicazioni, documenti e richieste di accesso agli atti sulle pratiche vanno alla casella PEC del protocollo della Prefettura; il decreto arriva con la Piattaforma Notifiche di PagoPA.",
+   "descrizione": "Cittadinanza alla Prefettura di Ancona: PEC per comunicazioni e accesso agli atti, pagamento con pagoPA, notifica del decreto, giuramento, rimborso.",
+   "contatti": [
+    {
+     "tipo": "pec",
+     "valore": "protocollo.prefan@pec.interno.it",
+     "citazioni": [
+      "alla Prefettura-U.T.G. di Ancona alla seguente casella: protocollo.prefan@pec.interno.it"
+     ],
+     "nota": "comunicazioni, documenti e accesso agli atti sulle pratiche"
+    }
+   ],
+   "nota_contatti": "La pagina non scrive un telefono, un'email ordinaria o orari di ricevimento per l'ufficio cittadinanza.",
+   "punti": [
+    {
+     "titolo": "Comunicazioni e accesso agli atti: una sola PEC",
+     "testo": "Per mandare comunicazioni o documenti sulla pratica, o per chiedere di vedere gli atti, la Prefettura indica la PEC protocollo.prefan@pec.interno.it.",
+     "citazioni": [
+      "dovranno essere indirizzare alla Prefettura-U.T.G. di Ancona alla seguente casella"
+     ],
+     "icona": "mail"
+    },
+    {
+     "titolo": "Contributo e bollo con pagoPA",
+     "testo": "Contributo e marca da bollo si pagano con pagoPA direttamente nel Portale Servizi, mentre compili la domanda.",
+     "citazioni": [
+      "Ora è possibile pagare il contributo e la marca da bollo per le richieste di cittadinanza tramite pagoPA"
+     ],
+     "icona": "euro"
+    },
+    {
+     "titolo": "Decreto e giuramento",
+     "testo": "Il decreto arriva con la Piattaforma Notifiche (PagoPA) al tuo domicilio digitale; entro 6 mesi devi giurare al Comune di residenza, altrimenti il decreto non ha effetto.",
+     "citazioni": [
+      "La notifica al richiedente del provvedimento di concessione della cittadinanza avviene con la PIATTAFORMA NOTIFICHE",
+      "In mancanza di giuramento nei termini indicati il decreto non produrrà alcun effetto"
+     ],
+     "icona": "ok"
+    },
+    {
+     "titolo": "Ritiro della domanda e rimborso",
+     "testo": "Tra gli allegati c'è il modulo «Istanza ritiro e rimborso».",
+     "citazioni": [
+      "Istanza ritiro e rimborso"
+     ],
+     "icona": "doc"
+    }
+   ]
+  },
+  "rimini": {
+   "lead": "le richieste all'ufficio si mandano alla sua PEC con il numero K10 nell'oggetto, e lo sportello telefonico è aperto il mercoledì dalle 9 alle 11. Lo sportello di persona non convoca più i richiedenti.",
+   "descrizione": "Cittadinanza alla Prefettura di Rimini: PEC dell'ufficio, sportello telefonico del mercoledì, niente convocazioni, notifica del decreto con SEND.",
+   "contatti": [
+    {
+     "tipo": "pec",
+     "valore": "comunicazione.cittadinanza.prefrn@pec.interno.it",
+     "citazioni": [
+      "Per richieste dirette all'ufficio, inviare una mail a: comunicazione.cittadinanza.prefrn@pec.interno.it"
+     ],
+     "nota": "richieste all'ufficio, con K10 e numero della pratica nell'oggetto"
+    },
+    {
+     "tipo": "orari",
+     "valore": "Sportello telefonico: mercoledì, 9-11",
+     "citazioni": [
+      "Lo sportello telefonico è aperto il mercoledì dalle 9 alle 11"
+     ],
+     "nota": "la pagina non scrive il numero"
+    }
+   ],
+   "punti": [
+    {
+     "titolo": "Richieste all'ufficio: per PEC",
+     "testo": "Scrivi alla PEC comunicazione.cittadinanza.prefrn@pec.interno.it e metti nell'oggetto il protocollo della pratica nel formato K10/ seguito dal numero.",
+     "citazioni": [
+      "avendo cura di mettere nell'oggetto il protocollo della pratica nel formato: K10/"
+     ],
+     "icona": "mail"
+    },
+    {
+     "titolo": "Niente convocazioni allo sportello",
+     "testo": "Non serve più la convocazione allo sportello per l'identificazione e il controllo dei documenti: la pratica si chiude online. Associa la pratica al tuo SPID.",
+     "citazioni": [
+      "per i richiedenti la cittadinanza italiana non sarà più necessaria la convocazione allo sportello"
+     ],
+     "icona": "attenzione"
+    },
+    {
+     "titolo": "Il decreto arriva con SEND",
+     "testo": "Dal 1° febbraio 2024 il decreto si notifica solo con la Piattaforma Notifiche Digitali di PagoPA: alla PEC se hai un domicilio digitale, altrimenti con una raccomandata A/R. La notifica si perfeziona il decimo giorno dopo il deposito dell'avviso. Controlla spesso PEC, portale e piattaforma.",
+     "citazioni": [
+      "A partire dal 1° febbraio 2024, la notifica dei decreti di cittadinanza avviene esclusivamente tramite la Piattaforma Notifiche Digitali",
+      "La notifica si perfeziona il decimo giorno successivo al deposito dell'AAR"
+     ],
+     "icona": "ok"
+    },
+    {
+     "titolo": "Domanda ritirata: rimborso",
+     "testo": "Tra gli allegati c'è il modulo per ritirare la domanda e chiedere il rimborso.",
+     "citazioni": [
+      "istanza_ritiro_e_rimborso"
+     ],
+     "icona": "doc"
+    }
+   ]
+  },
+  "perugia": {
+   "lead": "l'ufficio è in Corso Cavour 125, riceve per appuntamento e risponde al telefono il mercoledì (12.30-13.30) e il giovedì (9.30-12.30); per variazioni e documenti c'è la PEC.",
+   "descrizione": "Cittadinanza alla Prefettura di Perugia: Corso Cavour 125, telefoni e orari, email e PEC, ricevimento su appuntamento, reddito della famiglia.",
+   "contatti": [
+    {
+     "tipo": "indirizzo",
+     "valore": "Corso Cavour 125, Perugia",
+     "citazioni": [
+      "Corso Cavour, 125"
+     ]
+    },
+    {
+     "tipo": "telefono",
+     "valore": "075 5682341",
+     "citazioni": [
+      "il mercoledì dalle ore 12,30 alle 13,30 al n. 075 5682341"
+     ],
+     "nota": "mercoledì 12.30-13.30"
+    },
+    {
+     "tipo": "telefono",
+     "valore": "334 6907343",
+     "citazioni": [
+      "il giovedì dalle ore 9,30 alle ore 12,30 al n. 334 6907343"
+     ],
+     "nota": "giovedì 9.30-12.30"
+    },
+    {
+     "tipo": "email",
+     "valore": "cittadinanza.pref_perugia@interno.it",
+     "citazioni": [
+      "via email all'indirizzo: cittadinanza.pref_perugia@interno.it"
+     ]
+    },
+    {
+     "tipo": "pec",
+     "valore": "comunicazione.cittadinanza.prefpg@pec.interno.it",
+     "citazioni": [
+      "inviare una P.E.C. al seguente indirizzo: comunicazione.cittadinanza.prefpg@pec.interno.it"
+     ],
+     "nota": "variazioni di residenza o stato di famiglia, documenti in più, chiarimenti"
+    },
+    {
+     "tipo": "ricevimento",
+     "valore": "Per appuntamento",
+     "citazioni": [
+      "Per appuntamento"
+     ]
+    }
+   ],
+   "punti": [
+    {
+     "titolo": "Variazioni e documenti: per PEC",
+     "testo": "Per comunicare cambi di residenza o di stato di famiglia, mandare documenti in più o chiedere chiarimenti sulla pratica, la Prefettura indica la PEC comunicazione.cittadinanza.prefpg@pec.interno.it.",
+     "citazioni": [
+      "Per comunicare alla Prefettura eventuali variazioni di residenza/stato di famiglia, per integrazioni documentali o per richieste di chiarimenti"
+     ],
+     "icona": "mail"
+    },
+    {
+     "titolo": "Due telefoni, due giorni",
+     "testo": "075 5682341 il mercoledì dalle 12.30 alle 13.30; 334 6907343 il giovedì dalle 9.30 alle 12.30. Oppure l'email dell'ufficio.",
+     "citazioni": [
+      "il mercoledì dalle ore 12,30 alle 13,30 al n. 075 5682341",
+      "il giovedì dalle ore 9,30 alle ore 12,30 al n. 334 6907343"
+     ],
+     "icona": "tel"
+    },
+    {
+     "titolo": "Reddito: 3 anni (2 per l'art. 9 lettera a)",
+     "testo": "Il reddito deve essere stabile nei 3 anni prima della domanda e fino al giuramento; per l'art. 9 lettera a) la pagina dice che si possono considerare anche solo i 2 anni prima. Contano i redditi dei familiari conviventi dell'art. 433 del Codice civile.",
+     "citazioni": [
+      "può essere considerata anche solo nei due anni precedenti la domanda",
+      "possono essere presi in considerazione i redditi dei componenti conviventi del nucleo familiare elencati all'articolo 433 del Codice Civile"
+     ],
+     "icona": "euro"
+    }
+   ]
+  },
+  "reggio-emilia": {
+   "lead": "per informazioni c'è uno sportello telefonico il martedì e il giovedì dalle 11.30 alle 13 e uno sportello «di prima informazione» in Prefettura in alcune date; si può anche scrivere alla PEC del protocollo.",
+   "descrizione": "Cittadinanza alla Prefettura di Reggio Emilia: sportello telefonico e orari, date dello sportello di prima informazione, PEC per le pratiche.",
+   "contatti": [
+    {
+     "tipo": "telefono",
+     "valore": "0522 458490",
+     "citazioni": [
+      "SPORTELLO TELEFONICO al numero 0522/458490 MARTEDI' e GIOVEDI' dalle 11:30 alle 13:00"
+     ],
+     "nota": "sportello telefonico"
+    },
+    {
+     "tipo": "orari",
+     "valore": "Telefono: martedì e giovedì, 11.30-13.00",
+     "citazioni": [
+      "MARTEDI' e GIOVEDI' dalle 11:30 alle 13:00"
+     ]
+    },
+    {
+     "tipo": "pec",
+     "valore": "protocollo.prefre@pec.interno.it",
+     "citazioni": [
+      "È inoltre possibile scrivere all'indirizzo protocollo.prefre@pec.interno.it"
+     ],
+     "nota": "con il numero K10 e un'email ordinaria per la risposta; riceve anche email ordinarie"
+    }
+   ],
+   "punti": [
+    {
+     "titolo": "Sportello «di prima informazione»: le date",
+     "testo": "La Prefettura apre uno sportello di prima informazione in alcune date. Le prossime scritte sulla pagina: 2 novembre, 16 novembre e 14 dicembre 2026, dalle 9.30 alle 11.30. Controlla la pagina per le date nuove.",
+     "citazioni": [
+      "SPORTELLO \"DI PRIMA INFORMAZIONE\" presso gli sportelli della Prefettura nelle seguenti date",
+      "02 novembre 2026",
+      "16 novembre 2026",
+      "14 dicembre 2026"
+     ],
+     "icona": "cal"
+    },
+    {
+     "titolo": "Sportello telefonico",
+     "testo": "Il numero 0522 458490 risponde il martedì e il giovedì dalle 11.30 alle 13. La pagina avvisa quando il servizio è sospeso per manutenzione.",
+     "citazioni": [
+      "SPORTELLO TELEFONICO al numero 0522/458490"
+     ],
+     "icona": "tel"
+    },
+    {
+     "titolo": "Scrivere alla Prefettura",
+     "testo": "Alla PEC protocollo.prefre@pec.interno.it scrivi il numero della pratica (K10/… o K10/C/…) e un'email ordinaria per la risposta. La pagina dice che la casella riceve anche email ordinarie.",
+     "citazioni": [
+      "specificando numero della pratica (K10/… - K10/C/…) e indirizzo di posta elettronica ordinaria al quale dare riscontro"
+     ],
+     "icona": "mail"
+    },
+    {
+     "titolo": "Avvisi all'utenza",
+     "testo": "Nella pagina ci sono avvisi su IO App e Polo Orienta, sulla nuova notifica dei decreti (SEND) e sui punti di ritiro SEND.",
+     "citazioni": [
+      "Cittadinanza Digitale: IO App e Polo Orienta",
+      "Punti di ritiro SEND"
+     ],
+     "icona": "info"
+    }
+   ]
+  },
+  "cuneo": {
+   "lead": "per scrivere all'ufficio cittadinanza si usa solo la sua email istituzionale, con il codice della pratica nell'oggetto; c'è anche una PEC dell'ufficio. La pagina non indica telefono né orari.",
+   "descrizione": "Cittadinanza alla Prefettura di Cuneo: email e PEC dell'ufficio, bollettino valido un anno, reddito della famiglia, notifica del decreto e giuramento.",
+   "contatti": [
+    {
+     "tipo": "email",
+     "valore": "cittadinanza.pref_cuneo@interno.it",
+     "citazioni": [
+      "utilizzare esclusivamente la seguente email istituzionale: cittadinanza.pref_cuneo@interno.it"
+     ],
+     "nota": "l'unica email per scrivere all'ufficio, con il K10 nell'oggetto"
+    },
+    {
+     "tipo": "pec",
+     "valore": "cittadinanza.prefcn@pec.interno.it",
+     "citazioni": [
+      "Indirizzo di Posta Elettronica certificata: cittadinanza.prefcn@pec.interno.it"
+     ]
+    }
+   ],
+   "nota_contatti": "La pagina non scrive un telefono né orari di ricevimento per l'ufficio cittadinanza.",
+   "punti": [
+    {
+     "titolo": "Una sola email per l'ufficio",
+     "testo": "Per comunicazioni e informazioni all'Ufficio Cittadinanza di Cuneo usa solo cittadinanza.pref_cuneo@interno.it, con il codice della pratica nell'oggetto. Per il Ministero c'è la sua PEC.",
+     "citazioni": [
+      "Per comunicazioni e/o informazioni dirette all'Ufficio Cittadinanza della Prefettura di Cuneo, utilizzare esclusivamente la seguente email istituzionale"
+     ],
+     "icona": "mail"
+    },
+    {
+     "titolo": "Il bollettino da 250 € vale un anno",
+     "testo": "Il versamento del contributo si può usare per un anno dalla data del pagamento; i soldi non usati si chiedono indietro al Ministero.",
+     "citazioni": [
+      "un anno dalla data del versamento"
+     ],
+     "icona": "euro"
+    },
+    {
+     "titolo": "Reddito: chi della famiglia conta",
+     "testo": "La pagina parla dei parenti di primo grado nello stato di famiglia; il reddito si guarda nei 3 anni prima della domanda e deve restare fino al giuramento.",
+     "citazioni": [
+      "i parenti di primo grado presenti sullo stato di famiglia",
+      "La capacità reddituale è considerata nel triennio antecedente la domanda"
+     ],
+     "icona": "euro"
+    },
+    {
+     "titolo": "Decreto e giuramento",
+     "testo": "Il decreto si scarica dalla «Piattaforma Notifiche» del Portale Cives; poi si contatta il Comune di residenza per il giuramento.",
+     "citazioni": [
+      "all'interno del Portale Cives, in cui è possibile scaricare il relativo decreto"
+     ],
+     "icona": "ok"
+    }
+   ]
+  },
+  "genova": {
+   "lead": "l'ufficio cittadinanza risponde al telefono il lunedì e il mercoledì dalle 9 alle 11 e per email o PEC, sempre con il codice K10 nell'oggetto. Le legalizzazioni si fanno all'URP, su appuntamento.",
+   "descrizione": "Cittadinanza alla Prefettura di Genova: telefono e orari, email e PEC dell'ufficio, legalizzazioni all'URP, rimborso dei 250 €, domande incomplete.",
+   "contatti": [
+    {
+     "tipo": "telefono",
+     "valore": "010 5360434",
+     "citazioni": [
+      "0105360434 dalle ore 9 alle ore 11 del lunedì e mercoledì"
+     ],
+     "nota": "lunedì e mercoledì, 9-11"
+    },
+    {
+     "tipo": "email",
+     "valore": "cittadinanza.pref_genova@interno.it",
+     "citazioni": [
+      "utilizzare la seguente email istituzionale: cittadinanza.pref_genova@interno.it"
+     ],
+     "nota": "con il K10 nell'oggetto"
+    },
+    {
+     "tipo": "pec",
+     "valore": "comunicazione.cittadinanza.prefge@pec.interno.it",
+     "citazioni": [
+      "si può altresì inoltrare una mail pec all'indirizzo comunicazione.cittadinanza.prefge@pec.interno.it"
+     ],
+     "nota": "con il K10 nell'oggetto"
+    },
+    {
+     "tipo": "indirizzo",
+     "valore": "URP: Largo Eros Lanfranco 1, Genova, piano terra",
+     "citazioni": [
+      "Largo Eros Lanfranco 1 Genova"
+     ],
+     "nota": "legalizzazioni, su appuntamento: tel. 010 53601, urp.pref_genova@interno.it"
+    }
+   ],
+   "punti": [
+    {
+     "titolo": "Telefono, email o PEC",
+     "testo": "L'ufficio si contatta al 010 5360434 il lunedì e il mercoledì dalle 9 alle 11, oppure per email (cittadinanza.pref_genova@interno.it) o PEC (comunicazione.cittadinanza.prefge@pec.interno.it), sempre con il codice K10 nell'oggetto.",
+     "citazioni": [
+      "0105360434 dalle ore 9 alle ore 11 del lunedì e mercoledì"
+     ],
+     "icona": "tel"
+    },
+    {
+     "titolo": "Legalizzazioni all'URP",
+     "testo": "In Prefettura le legalizzazioni si fanno all'Ufficio Relazioni con il Pubblico, Largo Eros Lanfranco 1, piano terra, su appuntamento (tel. 010 53601 o urp.pref_genova@interno.it).",
+     "citazioni": [
+      "Le legalizzazioni sono effettuate in Prefettura presso L'Ufficio Relazioni con il Pubblico"
+     ],
+     "icona": "doc"
+    },
+    {
+     "titolo": "Rimborso del contributo",
+     "testo": "Il rimborso dei 250 € non usati si chiede alla Prefettura con un'istanza in bollo da 16 €, con il modulo «Richiesta di rimborso contributo cittadinanza» tra gli allegati.",
+     "citazioni": [
+      "mediante apposita istanza in marca da bollo da euro 16 a questa Prefettura"
+     ],
+     "icona": "euro"
+    },
+    {
+     "titolo": "Domande incomplete: inammissibili",
+     "testo": "Le domande incomplete, con dati sbagliati o documenti mancanti o illeggibili sono dichiarate inammissibili: la Prefettura chiede la massima attenzione quando compili.",
+     "citazioni": [
+      "Le domande incomplete, contenenti dati errati e/o documentazione mancante o illegibile saranno dichiarate inammissibili"
+     ],
+     "icona": "attenzione"
+    },
+    {
+     "titolo": "Cittadini ucraini",
+     "testo": "L'esonero dai certificati del Paese d'origine per i cittadini ucraini è finito il 1° gennaio 2026: la Prefettura scrive che certificato di nascita e certificato penale servono anche per le pratiche ancora in corso. Chi ha una pratica in corso può mandarli per PEC, con il K10 nell'oggetto.",
+     "citazioni": [
+      "ha cessato di avere effetto a partire dal 1° gennaio 2026",
+      "Per coloro che hanno istanze ancora in corso si consiglia di trasmettere tali certificati via pec"
+     ],
+     "icona": "info"
+    }
+   ]
+  },
+  "lecco": {
+   "lead": "l'ufficio indica un'email e due telefoni; se la domanda è incompleta o irregolare la Prefettura non la accetta, ma si può reinserire dopo aver corretto.",
+   "descrizione": "Cittadinanza alla Prefettura di Lecco: email dell'ufficio, telefoni, domanda non accettata e nuovo inserimento, pagamento con pagoPA. Con fonte e data.",
+   "contatti": [
+    {
+     "tipo": "email",
+     "valore": "immigrazione.pref_lecco@interno.it",
+     "citazioni": [
+      "Email dell'ufficio: immigrazione.pref_lecco@interno.it"
+     ]
+    },
+    {
+     "tipo": "telefono",
+     "valore": "0341 279636 - 0341 279400",
+     "citazioni": [
+      "0341/279636",
+      "0341/279400"
+     ]
+    },
+    {
+     "tipo": "ricevimento",
+     "valore": "Per appuntamento",
+     "citazioni": [
+      "Ricevimento: Per appuntamento"
+     ]
+    }
+   ],
+   "nota_contatti": "La pagina non scrive una PEC propria per l'ufficio.",
+   "punti": [
+    {
+     "titolo": "Domanda «non accettata»: si può rifare",
+     "testo": "Se mancano i requisiti o la domanda è incompleta o irregolare, la Prefettura non la accetta; dopo aver corretto, puoi inserire di nuovo la domanda.",
+     "citazioni": [
+      "procederà, in caso di carenza dei predetti requisiti, a \" non accettare\" l'istanza",
+      "potrà procedere ad un nuovo inserimento della domanda di cittadinanza"
+     ],
+     "icona": "attenzione"
+    },
+    {
+     "titolo": "Contributo e bollo con pagoPA",
+     "testo": "Contributo di 250 € e imposta di bollo si possono pagare con pagoPA direttamente dal portale, mentre presenti la domanda.",
+     "citazioni": [
+      "è possibile effettuare il pagamento dell'imposta di bollo e/o del contributo di 250€ tramite PagoPA direttamente dal portale"
+     ],
+     "icona": "euro"
+    },
+    {
+     "titolo": "Reddito: il PDF della Prefettura",
+     "testo": "Tra gli allegati c'è il documento «Determinazione del reddito imponibile ai fini della richiesta della cittadinanza italiana per residenza».",
+     "citazioni": [
+      "Determinazione del reddito imponibile ai fini della richiesta della cittadinanza italiana per residenza"
+     ],
+     "icona": "doc"
+    }
+   ]
+  },
+  "parma": {
+   "lead": "le richieste di informazioni sulle pratiche non si accolgono più allo sportello: lo stato della pratica si vede online. Il ricevimento è per appuntamento, al piano terra del Palazzo di Prefettura.",
+   "descrizione": "Cittadinanza alla Prefettura di Parma: PEC, ricevimento su appuntamento, niente informazioni allo sportello, residenza continua fino al giuramento.",
+   "contatti": [
+    {
+     "tipo": "pec",
+     "valore": "protocollo.prefpr@pec.interno.it",
+     "citazioni": [
+      "protocollo.prefpr@pec.interno.it"
+     ],
+     "nota": "PEC indicata nella scheda dell'ufficio"
+    },
+    {
+     "tipo": "ricevimento",
+     "valore": "Per appuntamento",
+     "citazioni": [
+      "Per appuntamento"
+     ]
+    },
+    {
+     "tipo": "indirizzo",
+     "valore": "Piano terra, Palazzo di Prefettura",
+     "citazioni": [
+      "Piano Terra - Palazzo di Prefettura"
+     ]
+    }
+   ],
+   "nota_contatti": "La pagina non scrive un telefono o un'email ordinaria per l'ufficio cittadinanza.",
+   "punti": [
+    {
+     "titolo": "Niente informazioni allo sportello",
+     "testo": "Le richieste di informazioni sulle pratiche non vengono più accolte allo sportello: lo stato della pratica si vede sul portale del Ministero.",
+     "citazioni": [
+      "Le richieste di informazioni sulle pratiche per l'acquisto della cittadinanza italiana NON SARANNO PIU' ACCOLTE ALLO SPORTELLO"
+     ],
+     "icona": "attenzione"
+    },
+    {
+     "titolo": "Residenza senza interruzioni",
+     "testo": "La residenza deve restare continua, senza interruzioni, fino al giuramento.",
+     "citazioni": [
+      "La residenza deve essere continuativa e ininterrotta fino al momento del giuramento"
+     ],
+     "icona": "pin"
+    },
+    {
+     "titolo": "Figli minori",
+     "testo": "Se ottieni la cittadinanza, i figli minori che vivono con te e sono residenti in Italia al momento del giuramento diventano anche loro italiani.",
+     "citazioni": [
+      "i figli minori conviventi e regolarmente residenti sul territorio presenti al momento del giuramento acquistano la cittadinanza italiana"
+     ],
+     "icona": "ok"
+    }
+   ]
+  },
+  "venezia": {
+   "lead": "ogni cambio di residenza va comunicato all'ufficio cittadinanza per email, con un'autocertificazione; le legalizzazioni dei documenti si fanno su prenotazione online, il martedì e il giovedì.",
+   "descrizione": "Cittadinanza alla Prefettura di Venezia: email per il cambio di residenza, legalizzazioni su prenotazione, documenti, rimborso del contributo.",
+   "contatti": [
+    {
+     "tipo": "email",
+     "valore": "cittadinanza.pref_venezia@interno.it",
+     "citazioni": [
+      "dovrà essere inviata tramite email a cittadinanza.pref_venezia@interno"
+     ],
+     "nota": "cambio di residenza, con autocertificazione",
+     "url": "https://prefettura.interno.gov.it/it/prefetture/venezia/cittadinanza-italiana"
+    },
+    {
+     "tipo": "prenotazione",
+     "valore": "http://www.utgvenezia.it/booking/",
+     "citazioni": [
+      "http://www.utgvenezia.it/booking/"
+     ],
+     "nota": "legalizzazioni: martedì e giovedì, solo su prenotazione",
+     "url": "https://prefettura.interno.gov.it/it/prefetture/venezia/legalizzazione-documenti"
+    }
+   ],
+   "nota_contatti": "Le pagine non scrivono un telefono o una PEC propria per l'ufficio cittadinanza.",
+   "punti": [
+    {
+     "titolo": "Cambio di residenza: autocertificazione per email",
+     "testo": "Comunica ogni cambio di residenza, con la data, con un'autocertificazione firmata mandata per email all'ufficio cittadinanza.",
+     "citazioni": [
+      "E' indispensabile comunicare all'Ufficio Cittadinanza ogni eventuale cambio di residenza, specificando la data di decorrenza"
+     ],
+     "icona": "pin",
+     "url": "https://prefettura.interno.gov.it/it/prefetture/venezia/cittadinanza-italiana",
+     "fonte": "«Cittadinanza Italiana»"
+    },
+    {
+     "titolo": "Legalizzazioni su prenotazione",
+     "testo": "Dal 3 giugno 2025 l'ufficio legalizzazioni riceve solo su prenotazione online, il martedì e il giovedì; patronati e agenzie solo il giovedì dalle 12 alle 13.",
+     "citazioni": [
+      "il pubblico sarà ricevuto su prenotazione",
+      "Le Agenzie di trattazione di pratiche amministrative/Caf/Patronati verranno ricevute UNICAMENTE il giovedì dalle ore 12,00 alle ore 13,00"
+     ],
+     "icona": "cal",
+     "url": "https://prefettura.interno.gov.it/it/prefetture/venezia/legalizzazione-documenti",
+     "fonte": "«Legalizzazione documenti»"
+    },
+    {
+     "titolo": "Certificati penali di altri Paesi",
+     "testo": "Chi dopo i 14 anni ha vissuto in altri Paesi, oltre a quello di nascita, presenta anche i certificati penali di quei Paesi, in originale, legalizzati e tradotti.",
+     "citazioni": [
+      "Chi è stato residente in altri Paesi oltre quello di nascita dopo i 14 anni dovrà presentare anche i certificati penali di quei paesi esteri"
+     ],
+     "icona": "doc"
+    },
+    {
+     "titolo": "Nomi diversi",
+     "testo": "Se le tue generalità non sono uguali su tutti i documenti serve un'attestazione consolare, un atto di matrimonio legalizzato e tradotto o un AVIZ.",
+     "citazioni": [
+      "ATTESTAZIONE CONSOLARE o ATTO DI MATRIMONIO LEGALIZZATO E TRADOTTO o AVIZ"
+     ],
+     "icona": "doc"
+    }
+   ]
+  },
+  "udine": {
+   "lead": "le variazioni di residenza o di stato di famiglia si comunicano all'email dell'Area IV o alla PEC del protocollo, e la pratica si può seguire anche con l'App IO. Il certificato penale lo chiede anche a chi vive in Italia da prima dei 14 anni.",
+   "descrizione": "Cittadinanza alla Prefettura di Udine: email e PEC per le variazioni, App IO, certificato penale anche per chi è in Italia da piccolo, rimborso dei 250 €.",
+   "contatti": [
+    {
+     "tipo": "email",
+     "valore": "area4.pref_udine@interno.it",
+     "citazioni": [
+      "e-mail: area4.pref_udine@interno.it"
+     ],
+     "nota": "variazioni di residenza o stato di famiglia"
+    },
+    {
+     "tipo": "pec",
+     "valore": "protocollo.prefud@pec.interno.it",
+     "citazioni": [
+      "pec: protocollo.prefud@pec.interno.it"
+     ],
+     "nota": "variazioni di residenza o stato di famiglia"
+    }
+   ],
+   "nota_contatti": "La pagina non scrive un telefono né orari di ricevimento.",
+   "punti": [
+    {
+     "titolo": "Certificato penale anche per chi è in Italia da prima dei 14 anni",
+     "testo": "La pagina di Udine chiede i certificati penali del Paese di origine, tradotti e legalizzati, anche a chi è nato in Italia o vi risiede da prima dei 14 anni. Altre Prefetture scrivono il contrario: chiedi all'ufficio.",
+     "citazioni": [
+      "anche per coloro che sono nati e risiedono in Italia da prima del 14° anno di età"
+     ],
+     "icona": "attenzione"
+    },
+    {
+     "titolo": "Variazioni: email o PEC",
+     "testo": "Ogni variazione di residenza o di stato di famiglia va comunicata all'email area4.pref_udine@interno.it o alla PEC protocollo.prefud@pec.interno.it.",
+     "citazioni": [
+      "Qualunque variazione sulla residenza e/o stato di famiglia dovrà essere comunicato all'Ufficio"
+     ],
+     "icona": "mail"
+    },
+    {
+     "titolo": "La pratica sull'App IO",
+     "testo": "Si può seguire la domanda anche dall'App IO dei servizi pubblici.",
+     "citazioni": [
+      "è possibile monitorare l'istanza di cittadinanza anche dall'App dei servizi pubblici IO"
+     ],
+     "icona": "web"
+    },
+    {
+     "titolo": "Rimborso del contributo",
+     "testo": "Per il rimborso dei 250 € pagati per errore servono la ricevuta originale, documento e codice fiscale, IBAN e il modulo della pagina. Sui tempi del pagamento decide il Ministero.",
+     "citazioni": [
+      "Per poter procedere al rimborso del contributo di cittadinanza, erroneamente o indebitamente pagato",
+      "Non si terrà conto di eventuali richieste inerenti i tempi di liquidazione"
+     ],
+     "icona": "euro"
+    }
+   ]
+  },
+  "bari": {
+   "lead": "l'ufficio indica due telefoni (lunedì, mercoledì e giovedì) e la sua PEC; per lo stato della domanda rimanda al Polo Orienta del Ministero.",
+   "descrizione": "Cittadinanza alla Prefettura di Bari: telefoni e giorni, PEC dell'ufficio, Polo Orienta, documenti, PEC di patronati e avvocati solo con delega.",
+   "contatti": [
+    {
+     "tipo": "telefono",
+     "valore": "080 5293080 - 080 5293149",
+     "citazioni": [
+      "Telefono: 0805293080 - 0805293149"
+     ],
+     "nota": "lunedì, mercoledì e giovedì"
+    },
+    {
+     "tipo": "pec",
+     "valore": "comunicazione.cittadinanza.prefba@pec.interno.it",
+     "citazioni": [
+      "Indirizzo di posta elettronica PEC: comunicazione.cittadinanza.prefba@pec.interno.it"
+     ]
+    }
+   ],
+   "nota_contatti": "La pagina non scrive un'email ordinaria né orari di ricevimento.",
+   "punti": [
+    {
+     "titolo": "Stato della domanda: Polo Orienta",
+     "testo": "Per informazioni sulla tua domanda la Prefettura indica il Contact Center Polo Orienta del Ministero: 06 69000700, lunedì, mercoledì e venerdì dalle 9.30 alle 17.30.",
+     "citazioni": [
+      "Per richiedere informazioni sulla propria domanda di cittadinanza l'interessato potrà contattare il Contact Center Polo Orienta"
+     ],
+     "icona": "tel"
+    },
+    {
+     "titolo": "PEC di patronati e avvocati: serve la delega",
+     "testo": "Se nella domanda c'è la PEC di un patronato o di un avvocato senza una delega o un mandato, la Prefettura la toglie (vale anche per la notifica del decreto).",
+     "citazioni": [
+      "Gli indirizzi PEC riferiti a Patronati o Avvocati saranno rimossi se non è presente apposita delega/mandato da parte del richiedente"
+     ],
+     "icona": "attenzione"
+    },
+    {
+     "titolo": "Nomi diversi tra i documenti",
+     "testo": "Se i dati anagrafici non sono uguali su tutti i documenti, allega una dichiarazione consolare di esatte generalità del Consolato del tuo Paese in Italia.",
+     "citazioni": [
+      "è necessario allegare una dichiarazione consolare di esatte generalità rilasciata dal Consolato del Paese d'origine in Italia"
+     ],
+     "icona": "doc"
+    },
+    {
+     "titolo": "Contributo e bollo con pagoPA",
+     "testo": "Contributo di 250 € e marca da bollo da 16 € si possono pagare con pagoPA mentre compili la domanda.",
+     "citazioni": [
+      "Anche il pagamento della marca da bollo potrà essere effettuata tramite PagoPA contestualmente alla compilazione della domanda"
+     ],
+     "icona": "euro"
+    }
+   ]
+  },
+  "palermo": {
+   "lead": "il ricevimento è solo telefonico, il martedì e il giovedì dalle 9.30 alle 12, attraverso il centralino; l'ufficio è in via Sampolo 69 e ha una PEC.",
+   "descrizione": "Cittadinanza alla Prefettura di Palermo: ricevimento solo telefonico e orari, centralino, via Sampolo 69, PEC dell'ufficio, rimborso dei 250 €.",
+   "contatti": [
+    {
+     "tipo": "ricevimento",
+     "valore": "Solo telefonico",
+     "citazioni": [
+      "La modalità di ricevimento è solo telefonica"
+     ]
+    },
+    {
+     "tipo": "orari",
+     "valore": "Martedì e giovedì, 9.30-12.00",
+     "citazioni": [
+      "Martedì dalle 09:30 alle 12:00",
+      "Giovedì dalle 09:30 alle 12:00"
+     ]
+    },
+    {
+     "tipo": "telefono",
+     "valore": "091 338111 (centralino)",
+     "citazioni": [
+      "Il ricevimento telefonico viene effettuato esclusivamente tramite il numero del centralino: 091338111"
+     ]
+    },
+    {
+     "tipo": "pec",
+     "valore": "cittadinanza.prefpa@pec.interno.it",
+     "citazioni": [
+      "cittadinanza.prefpa@pec.interno.it"
+     ],
+     "nota": "anche per il rimborso del contributo"
+    },
+    {
+     "tipo": "indirizzo",
+     "valore": "Via Sampolo n. 69, Palermo",
+     "citazioni": [
+      "Ubicazione dell'Ufficio : Via Sampolo n. 69 - Palermo"
+     ]
+    }
+   ],
+   "nota_contatti": "La pagina elenca anche le email di singoli funzionari: non le riportiamo.",
+   "punti": [
+    {
+     "titolo": "Ricevimento solo per telefono",
+     "testo": "L'ufficio non riceve di persona: si chiama il centralino 091 338111 il martedì o il giovedì dalle 9.30 alle 12.",
+     "citazioni": [
+      "La modalità di ricevimento è solo telefonica",
+      "esclusivamente tramite il numero del centralino"
+     ],
+     "icona": "tel"
+    },
+    {
+     "titolo": "Rimborso del contributo per PEC",
+     "testo": "Le richieste di rimborso dei 250 € pagati per errore vanno alla PEC dell'ufficio cittadinanza, con i documenti richiesti nei formati indicati, altrimenti il rimborso non si fa.",
+     "citazioni": [
+      "le istanze di rimborso delle somme erroneamente o indebitamente versate, andranno indirizzate a questa Prefettura di Palermo",
+      "Non potrà procedersi al rimborso in caso di mancata produzione della documentazione richiesta"
+     ],
+     "icona": "euro"
+    },
+    {
+     "titolo": "Decreto con la Piattaforma Notifiche",
+     "testo": "Il decreto si notifica con la Piattaforma Notifiche Digitali di PagoPA; la circolare con gli adempimenti è allegata alla pagina.",
+     "citazioni": [
+      "ha aderito alla Piattaforma Notifiche Digitali"
+     ],
+     "icona": "ok"
+    }
+   ]
+  },
+  "prato": {
+   "lead": "dall'8 giugno 2026 gli appuntamenti all'ufficio cittadinanza si prenotano solo online, con il servizio «Prenotazioni on line AGENDA»; l'ufficio è al piano terra, stanza 9.",
+   "descrizione": "Cittadinanza alla Prefettura di Prato: appuntamenti solo con la prenotazione online, email, centralino e PEC, notifica del decreto con SEND.",
+   "contatti": [
+    {
+     "tipo": "prenotazione",
+     "valore": "https://agenda.interno.gov.it/",
+     "citazioni": [
+      "https://agenda.interno.gov.it/"
+     ],
+     "nota": "«Prenotazioni on line AGENDA», dall'8 giugno 2026, per tutti gli appuntamenti"
+    },
+    {
+     "tipo": "email",
+     "valore": "immigrazione.pref_prato@interno.it",
+     "citazioni": [
+      "immigrazione.pref_prato@interno.it"
+     ]
+    },
+    {
+     "tipo": "ricevimento",
+     "valore": "Per appuntamento",
+     "citazioni": [
+      "Per appuntamento"
+     ]
+    },
+    {
+     "tipo": "indirizzo",
+     "valore": "Piano terra, stanza 9",
+     "citazioni": [
+      "piano terra, stanza 9"
+     ]
+    },
+    {
+     "tipo": "telefono",
+     "valore": "0574 4301 (centralino)",
+     "citazioni": [
+      "Tel. Centralino: 0574/4301"
+     ],
+     "url": "https://prefettura.interno.gov.it/it/prefetture/prato/uffici/aree-e-servizi/area-4-tutela-dei-diritti-civili-cittadinanza-e-immigrazione"
+    },
+    {
+     "tipo": "pec",
+     "valore": "protocollo.prefpo@pec.interno.it",
+     "citazioni": [
+      "PEC: protocollo.prefpo@pec.interno.it"
+     ],
+     "url": "https://prefettura.interno.gov.it/it/prefetture/prato/uffici/aree-e-servizi/area-4-tutela-dei-diritti-civili-cittadinanza-e-immigrazione"
+    }
+   ],
+   "punti": [
+    {
+     "titolo": "Appuntamenti solo online",
+     "testo": "Dall'8 giugno 2026 per prenotare un appuntamento all'Ufficio Cittadinanza si usa il servizio online «Prenotazioni on line AGENDA» (link sulla pagina della Prefettura). Porta i documenti della pratica.",
+     "citazioni": [
+      "a decorrere da lunedì 8 giugno 2026",
+      "di effettuare la prenotazione tramite il portale dedicato"
+     ],
+     "icona": "cal"
+    },
+    {
+     "titolo": "Il decreto arriva con SEND",
+     "testo": "Dal 1° febbraio 2024 tutti i decreti di cittadinanza (matrimonio e residenza) si notificano con la Piattaforma Notifiche Digitali: arriva un «Avviso di Avvenuta Ricezione» e poi si legge il decreto.",
+     "citazioni": [
+      "A partire dal 1° febbraio 2024"
+     ],
+     "icona": "ok",
+     "url": "https://prefettura.interno.gov.it/it/prefetture/prato/novita-2024-notifica-dei-decreti-cittadinanza-tramite-piattaforma-notifiche-digitali",
+     "fonte": "«Novità 2024 - Notifica dei decreti»"
+    },
+    {
+     "titolo": "Rifugiati",
+     "testo": "I rifugiati possono presentare una dichiarazione sostitutiva dell'atto di notorietà per le generalità e la posizione giudiziaria, al posto dei documenti del Paese di origine.",
+     "citazioni": [
+      "I rifugiati politici, in luogo della documentazione indicata ai punti precedenti, potranno produrre dichiarazione sostitutiva dell'atto di notorietà"
+     ],
+     "icona": "doc"
+    }
+   ]
+  },
+  "ravenna": {
+   "lead": "le richieste all'ufficio vanno alla sua PEC con il numero K10 nell'oggetto; il telefono risponde il martedì e il giovedì dalle 10 alle 11, e il decreto viene mandato al Comune.",
+   "descrizione": "Cittadinanza alla Prefettura di Ravenna: PEC per le richieste, telefono martedì e giovedì, ricevimento su appuntamento, decreto inviato al Comune.",
+   "contatti": [
+    {
+     "tipo": "pec",
+     "valore": "comunicazione.cittadinanza.prefra@pec.interno.it",
+     "citazioni": [
+      "Per richieste dirette all'ufficio, inviare una mail a: comunicazione.cittadinanza.prefra@pec.interno.it"
+     ],
+     "nota": "richieste all'ufficio, con K10 e numero nell'oggetto"
+    },
+    {
+     "tipo": "telefono",
+     "valore": "0544 294434",
+     "citazioni": [
+      "0544/294434 dalle ore 10.00 alle 11.00 il martedì e giovedì"
+     ],
+     "nota": "martedì e giovedì, 10-11"
+    },
+    {
+     "tipo": "ricevimento",
+     "valore": "Per appuntamento",
+     "citazioni": [
+      "Per appuntamento"
+     ]
+    },
+    {
+     "tipo": "pec",
+     "valore": "protocollo.prefra@pec.interno.it",
+     "citazioni": [
+      "protocollo.prefra@pec.interno.it"
+     ],
+     "nota": "PEC del protocollo, nella scheda dell'ufficio"
+    }
+   ],
+   "punti": [
+    {
+     "titolo": "Richieste all'ufficio: per PEC",
+     "testo": "Scrivi a comunicazione.cittadinanza.prefra@pec.interno.it con il protocollo della pratica nel formato K10/ seguito dal numero.",
+     "citazioni": [
+      "mettendo nell'oggetto il protocollo della pratica nel formato: k10/"
+     ],
+     "icona": "mail"
+    },
+    {
+     "titolo": "Telefono due giorni a settimana",
+     "testo": "0544 294434, il martedì e il giovedì dalle 10 alle 11.",
+     "citazioni": [
+      "0544/294434 dalle ore 10.00 alle 11.00 il martedì e giovedì"
+     ],
+     "icona": "tel"
+    },
+    {
+     "titolo": "Decreto al Comune",
+     "testo": "Il decreto viene mandato dalla Prefettura agli uffici del Comune, dove è notificato e si fissa la data del giuramento.",
+     "citazioni": [
+      "il decreto di concessione della cittadinanza verrà inviato da questa Prefettura agli uffici comunali"
+     ],
+     "icona": "ok"
+    }
+   ]
+  },
+  "pavia": {
+   "lead": "per questioni particolari si chiede un appuntamento per email o PEC, scrivendo l'argomento; il decreto lo notifica la Prefettura e poi si giura in Comune entro 6 mesi.",
+   "descrizione": "Cittadinanza alla Prefettura di Pavia: email e PEC per chiedere un appuntamento, centralino, atto di notorietà per i rifugiati, notifica e giuramento.",
+   "contatti": [
+    {
+     "tipo": "pec",
+     "valore": "cittadinanza.prefpv@pec.interno.it",
+     "citazioni": [
+      "cittadinanza.prefpv@pec.interno.it"
+     ],
+     "nota": "per chiedere un appuntamento, con l'argomento"
+    },
+    {
+     "tipo": "email",
+     "valore": "cittadinanza.pref_pavia@interno.it",
+     "citazioni": [
+      "cittadinanza.pref_pavia@interno.it"
+     ],
+     "nota": "per chiedere un appuntamento, con l'argomento"
+    },
+    {
+     "tipo": "telefono",
+     "valore": "0382 5121",
+     "citazioni": [
+      "Telefono: 0382/5121"
+     ]
+    }
+   ],
+   "nota_contatti": "La pagina elenca anche telefoni ed email di singoli funzionari: non li riportiamo.",
+   "punti": [
+    {
+     "titolo": "Appuntamento per problemi particolari",
+     "testo": "Per informazioni generali su problemi particolari si può fissare un appuntamento: chiedilo per email o PEC, scrivendo l'argomento.",
+     "citazioni": [
+      "potrà essere fissato un appuntamento da richiedere, specificando l'argomento"
+     ],
+     "icona": "cal"
+    },
+    {
+     "titolo": "Rifugiati: atto di notorietà con 4 testimoni",
+     "testo": "Per i rifugiati la pagina indica un atto di notorietà, reso sotto giuramento da quattro testimoni in tribunale, sulle generalità e sulla posizione giudiziaria nel Paese di origine.",
+     "citazioni": [
+      "reso sotto giuramento da quattro testimoni presso il tribunale"
+     ],
+     "icona": "doc"
+    },
+    {
+     "titolo": "Nomi o luoghi diversi",
+     "testo": "Se cognome o nomi di luoghi esteri sono scritti in modo diverso nei documenti, serve un attestato consolare di concordanza, legalizzato.",
+     "citazioni": [
+      "l'interessato produrrà un attestato consolare di concordanza"
+     ],
+     "icona": "doc"
+    }
+   ]
+  },
+  "cremona": {
+   "lead": "all'ufficio si entra solo su appuntamento, in tre fasce orarie la settimana, e per informazioni si telefona il lunedì e il venerdì.",
+   "descrizione": "Cittadinanza alla Prefettura di Cremona: orari degli appuntamenti, orari e numeri per le telefonate, PEC, primo piano. Con fonte e data.",
+   "contatti": [
+    {
+     "tipo": "ricevimento",
+     "valore": "Solo su appuntamento: martedì 9-11, mercoledì 14-15, giovedì 11-13",
+     "citazioni": [
+      "martedì: dalle ore 9.00 alle ore 11.00",
+      "mercoledì: dalle ore 14.00 alle ore 15.00",
+      "giovedì: dalle ore 11.00 alle ore 13.00"
+     ]
+    },
+    {
+     "tipo": "telefono",
+     "valore": "0372 488426 - 0372 488440",
+     "citazioni": [
+      "0372 488426",
+      "0372 488440"
+     ]
+    },
+    {
+     "tipo": "orari",
+     "valore": "Telefonate: lunedì 11-13, venerdì 9-11",
+     "citazioni": [
+      "lunedì dalle 11.00 alle 13.00",
+      "venerdì dalle 9.00 alle 11.00"
+     ]
+    },
+    {
+     "tipo": "pec",
+     "valore": "protocollo.prefcr@pec.interno.it",
+     "citazioni": [
+      "protocollo.prefcr@pec.interno.it"
+     ]
+    },
+    {
+     "tipo": "indirizzo",
+     "valore": "Primo piano",
+     "citazioni": [
+      "I° Piano"
+     ]
+    }
+   ],
+   "punti": [
+    {
+     "titolo": "Accesso solo su appuntamento",
+     "testo": "Agli uffici della Prefettura si entra solo su appuntamento: martedì 9-11, mercoledì 14-15, giovedì 11-13.",
+     "citazioni": [
+      "sarà consentito esclusivamente su appuntamento nelle seguenti giornate e fasce orarie"
+     ],
+     "icona": "cal"
+    },
+    {
+     "titolo": "Informazioni per telefono",
+     "testo": "Per informazioni si telefona il lunedì dalle 11 alle 13 e il venerdì dalle 9 alle 11.",
+     "citazioni": [
+      "Per informazioni è necessario telefonare nelle seguenti giornate e fasce orarie"
+     ],
+     "icona": "tel"
+    },
+    {
+     "titolo": "Senza B1 o titolo la domanda non passa",
+     "testo": "Le domande presentate dal 4 dicembre 2018 senza le autocertificazioni o le attestazioni sulla lingua italiana non possono essere accolte.",
+     "citazioni": [
+      "se prive delle autocertificazioni o attestazioni sopra ricordate, non potranno essere accolte"
+     ],
+     "icona": "attenzione"
+    }
+   ]
+  },
+  "lucca": {
+   "lead": "l'ufficio cittadinanza è nel Palazzo Ducale (Cortile Carrara 20, 2° piano), riceve il lunedì e il venerdì dalle 9 alle 12 e ha una PEC; le comunicazioni sulla pratica arrivano sul portale e valgono come notifica.",
+   "descrizione": "Cittadinanza alla Prefettura di Lucca: Palazzo Ducale, orari, telefoni, PEC, domanda non modificabile, comunicazioni sul portale con valore di notifica.",
+   "contatti": [
+    {
+     "tipo": "indirizzo",
+     "valore": "Piazza Napoleone, Palazzo Ducale, Cortile Carrara n. 20, 2° piano",
+     "citazioni": [
+      "Piazza Napoleone - Palazzo Ducale - Cortile Carrara n. 20, 2° piano"
+     ]
+    },
+    {
+     "tipo": "orari",
+     "valore": "Lunedì e venerdì, 9.00-12.00",
+     "citazioni": [
+      "Lunedì",
+      "Venerdì"
+     ]
+    },
+    {
+     "tipo": "telefono",
+     "valore": "0583 424460 / 638 (residenza), 0583 424412 (matrimonio)",
+     "citazioni": [
+      "0583 424 460 - 638",
+      "0583 424412"
+     ]
+    },
+    {
+     "tipo": "pec",
+     "valore": "comunicazione.cittadinanza.preflu@pec.interno.it",
+     "citazioni": [
+      "comunicazione.cittadinanza.preflu@pec.interno.it"
+     ]
+    }
+   ],
+   "punti": [
+    {
+     "titolo": "La domanda non si può correggere dopo",
+     "testo": "L'ufficio non può più modificare quello che hai inserito online: compila la domanda con la massima attenzione.",
+     "citazioni": [
+      "Il sistema informatico NON consente più alcuna modifica da parte dell'Ufficio Cittadinanza rispetto a quanto inserito online dall'interessato"
+     ],
+     "icona": "attenzione"
+    },
+    {
+     "titolo": "Le comunicazioni del portale valgono come notifica",
+     "testo": "Preavvisi di inammissibilità o di diniego arrivano nella sezione «Comunicazioni» del portale (CIVES): quella comunicazione ha valore di notifica. Controllala spesso.",
+     "citazioni": [
+      "LA COMUNICAZIONE INVIATA TRAMITE PORTALE CON MODALITA' INFORMATICA HA VALORE DI NOTIFICA"
+     ],
+     "icona": "web"
+    },
+    {
+     "titolo": "Tieni aggiornato il telefono",
+     "testo": "La Prefettura chiede di aggiornare i numeri di telefono scritti nella domanda e di essere reperibili per le comunicazioni sulla notifica del decreto.",
+     "citazioni": [
+      "Si prega di AGGIORNARE sempre le UTENZE TELEFONICHE indicate nella domanda"
+     ],
+     "icona": "tel"
+    }
+   ]
+  },
+  "catania": {
+   "lead": "il ricevimento è su appuntamento all'URP, in via A. Manzoni 81, quarto piano; il decreto arriva con SEND alla PEC indicata nella domanda.",
+   "descrizione": "Cittadinanza alla Prefettura di Catania: ricevimento su appuntamento all'URP di via Manzoni 81, notifica del decreto con SEND, pagamento con pagoPA.",
+   "contatti": [
+    {
+     "tipo": "ricevimento",
+     "valore": "Previo appuntamento, all'URP",
+     "citazioni": [
+      "Previo appuntamento, presso l'URP"
+     ],
+     "url": "https://prefettura.interno.gov.it/it/prefetture/catania/concessione-cittadinanza-matrimonio"
+    },
+    {
+     "tipo": "indirizzo",
+     "valore": "Via A. Manzoni n. 81, Catania, piano IV",
+     "citazioni": [
+      "Via A. Manzoni, n. 81, Catania, Piano IV"
+     ],
+     "url": "https://prefettura.interno.gov.it/it/prefetture/catania/concessione-cittadinanza-matrimonio"
+    }
+   ],
+   "nota_contatti": "Le pagine indicano telefoni ed email di singoli funzionari: non li riportiamo. La pagina principale «Cittadinanza» rimanda a due pagine, per matrimonio e per residenza.",
+   "punti": [
+    {
+     "titolo": "Ricevimento su appuntamento all'URP",
+     "testo": "Si riceve solo previo appuntamento, all'URP, in via A. Manzoni 81, quarto piano.",
+     "citazioni": [
+      "Previo appuntamento, presso l'URP"
+     ],
+     "icona": "cal",
+     "url": "https://prefettura.interno.gov.it/it/prefetture/catania/concessione-cittadinanza-matrimonio",
+     "fonte": "«Concessione cittadinanza per matrimonio»"
+    },
+    {
+     "titolo": "Decreto con SEND e codice IUN",
+     "testo": "Il decreto arriva con SEND: nell'Avviso di Avvenuta Ricezione, alla PEC indicata nella domanda, c'è il codice IUN per scaricare i documenti da portare al Comune per il giuramento.",
+     "citazioni": [
+      "è presente il Codice univoco Identificativo della Notifica"
+     ],
+     "icona": "ok",
+     "url": "https://prefettura.interno.gov.it/it/prefetture/catania/concessione-cittadinanza-matrimonio",
+     "fonte": "«Concessione cittadinanza per matrimonio»"
+    },
+    {
+     "titolo": "Pratica: tutto online con SPID",
+     "testo": "Stato della pratica e comunicazioni si vedono in autonomia, con SPID, nel portale.",
+     "citazioni": [
+      "possono essere consultatati in tempo reale in autonomia tramite accesso con SPID alla pratica"
+     ],
+     "icona": "web",
+     "url": "https://prefettura.interno.gov.it/it/prefetture/catania/concessione-cittadinanza-matrimonio",
+     "fonte": "«Concessione cittadinanza per matrimonio»"
+    }
+   ]
+  }
+ }
+}

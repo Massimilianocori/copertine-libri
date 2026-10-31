@@ -515,6 +515,24 @@ table.conf td.no{color:var(--ink-3)}
 ol.passi li>div p{margin:4px 0 0;color:var(--ink-2);font-size:.95rem}
 ol.passi li .fonte{margin-top:6px}
 /* riquadro "Preparati alla prova orale" (link di affiliazione + link gratuito) */
+/* calcolatore dei redditi e pagine prefettura (31/10/2026) */
+.calc{max-width:560px;margin-top:0}
+.calc-esito{display:grid;gap:10px;margin-top:16px;max-width:720px}
+.calc-esito>div{border:1.5px solid var(--line-2);border-left-width:6px;border-radius:var(--r);padding:12px 14px;background:var(--surface)}
+.calc-esito>div.si{border-left-color:var(--brand)}.calc-esito>div.no{border-left-color:var(--rosso)}
+.c-tit{font-weight:700}.c-soglia{color:var(--ink-2);font-size:.95rem}.c-esito{font-weight:700}
+.calc-esito>div.si .c-esito{color:var(--brand-ink)}.calc-esito>div.no .c-esito{color:var(--rosso)}
+.uff{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.uff li{display:flex;gap:10px;align-items:flex-start;overflow-wrap:anywhere}
+.uff li .i{color:var(--brand);margin-top:.25em}
+.uff b{font-weight:650}
+.citaz{border-left:3px solid var(--line-2);padding:2px 0 2px 12px;margin:8px 0;color:var(--ink-2);font-style:italic;overflow-wrap:anywhere}
+.locali{display:grid;gap:12px}
+main a[href^="mailto:"]{overflow-wrap:anywhere;word-break:break-word}
+@media (max-width:640px){.pref-tab tr{display:block;padding:12px}.pref-tab table.conf td,.pref-tab table.conf td:first-child{display:block;border:0;padding:2px 0;margin:0}
+.pref-tab td[data-l]::before{display:block;font-size:.8rem;margin-top:6px}}
+.pref-tab td{overflow-wrap:anywhere}
+.pref-tab td a{white-space:normal}
 .prep{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px 16px;align-items:start;margin:44px 0 8px;border-left:4px solid var(--brand)}
 .prep .bolla{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--brand-soft);color:var(--brand)}
 .prep .bolla .i{width:22px;height:22px}
@@ -711,7 +729,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
 <div>
 <a class="logo" href="{home_href}">{MARCHIO}<span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Orale e domande</a></li><li><a href="{rel}esonero-test-italiano/">Chi è esonerato</a></li><li><a href="{rel}esempi/">Prove d'esempio</a></li><li><a href="{rel}esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li>{enti_link}<li><a href="{rel}privacy.html">Privacy</a></li>
+<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Orale e domande</a></li><li><a href="{rel}esonero-test-italiano/">Chi è esonerato</a></li><li><a href="{rel}esempi/">Prove d'esempio</a></li><li><a href="{rel}esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="{rel}cittadinanza/">Domanda di cittadinanza</a></li><li><a href="{rel}reddito-minimo-cittadinanza/">Reddito minimo</a></li>{enti_link}<li><a href="{rel}privacy.html">Privacy</a></li>
 </ul>
 </div>
 <div>
@@ -865,7 +883,7 @@ def scheda_sede(s, con_citta=False):
     return f"""<li class="s-{s['ente'].replace('.', '')}"><div class="nome">{eb(s['ente'])}<span>{escape(s['nome'])}</span></div>
 {f'<div class="det">{ic("pin")}<span>{"<br>".join(righe)}</span></div>' if righe else ""}
 {f'<div class="contatti">{"".join(contatti)}</div>' if contatti else ""}
-<div class="fonte">{ic("doc")}<span>Fonte: <a href="{escape(s['fonte'])}" rel="noopener">elenco ufficiale {escape(s['ente'])}</a></span></div></li>"""
+<div class="fonte">{ic("doc")}<span>Fonte: <a href="{escape(s.get('fonte_pagina') or s['fonte'])}" rel="noopener">elenco ufficiale {escape(s['ente'])}</a></span></div></li>"""
 
 
 def jsonld_sessioni(lista):
@@ -1046,16 +1064,20 @@ def schede_per_ente(chiave, breve=False, bottone=None):
         scheda_fatto(e, chiave, titolo=f'{eb(e["sigla"])}<span>{escape(e["ente"])}</span>', breve=breve, bottone=bottone) for e in enti) + "</div>"
 
 
-def link_guide(rel, salta=None):
+def link_guide(rel, salta=None, dopo_b1=True):
+    """Griglia delle guide. dopo_b1=False: senza le 2 voci del 31/10/2026 (domanda e reddito), per le pagine esempi ed esonero già revisionate."""
     voci = [("costo/", "euro", "Quanto costa", "i prezzi di ogni ente"),
             ("come-funziona/", "lista", "Come si svolge", "durata, cosa portare, esempi"),
             ("risultati/", "ok", "Risultati", "quando arrivano e dove vederli"),
             ("esenzioni-e-domande/", "voce", "Orale e domande", "com'è l'orale, durata, domande"),
             ("esonero-test-italiano/", "scudo", "Chi è esonerato", "dal B1 e dal test A2, con le fonti"),
             ("esempi/", "libro", "Prove d'esempio", "gratis, ufficiali, ente per ente"),
-            ("esempi/confronto/", "lista", "I 4 esami a confronto", "durata, prove, punteggio")]
+            ("esempi/confronto/", "lista", "I 4 esami a confronto", "durata, prove, punteggio"),
+            ("cittadinanza/", "edificio", "Dopo il B1: la domanda", "prefettura per prefettura"),
+            ("reddito-minimo-cittadinanza/", "euro", "Reddito minimo", "cittadinanza e carta di soggiorno")]
     return '<div class="griglia link3">' + "".join(
-        f'<a href="{rel}{h}">{ic(i)}<span>{t}<small>{sm}</small></span></a>' for h, i, t, sm in voci if h != salta) + "</div>"
+        f'<a href="{rel}{h}">{ic(i)}<span>{t}<small>{sm}</small></span></a>' for h, i, t, sm in voci
+        if h != salta and (dopo_b1 or h not in ("cittadinanza/", "reddito-minimo-cittadinanza/"))) + "</div>"
 
 
 # Città più cercate (blocco in home): Search Console e GoatCounter fino al 27/10/2026 (Milano 22 visite in una settimana, Verona 12,
@@ -1192,6 +1214,23 @@ Controlliamo il calendario ogni settimana: <a href="#avvisami">avvisami quando e
     return f'<div class="perente">{"".join(schede)}</div>'
 
 
+def sezione_dopo_b1(c):
+    """Pagina città → la sua Prefettura (il «passo successivo» dopo l'esame): pagina locale se c'è, altrimenti la riga dell'indice."""
+    sl = pref_di(c["provincia"])
+    if not sl:
+        return ""
+    nome = PREF[sl]["nome"]
+    if ha_pagina_pref(sl):
+        pref = f'<a href="../../cittadinanza/{pref_url(sl)}/">{ic("edificio")}<span>Prefettura di {escape(nome)}<small>contatti e cosa scrive sulla cittadinanza</small></span></a>'
+    else:
+        pref = f'<a href="../../cittadinanza/#{pref_url(sl)}">{ic("edificio")}<span>Prefettura di {escape(nome)}<small>contatti dell\'ufficio cittadinanza</small></span></a>'
+    return f"""<section>
+<h2 id="domanda-cittadinanza">{ic("edificio")}Dopo il B1: la domanda di cittadinanza</h2>
+<p>Con il certificato B1 la domanda si manda online; poi la segue la <strong>Prefettura di {escape(nome)}</strong>. Prima controlla il reddito minimo.</p>
+<div class="griglia link3">{pref}<a href="../../reddito-minimo-cittadinanza/">{ic("euro")}<span>Reddito minimo per la cittadinanza<small>soglie ufficiali e calcolatore</small></span></a><a href="../../cittadinanza/#come">{ic("lista")}<span>Come si presenta la domanda<small>online, 250 €, documenti</small></span></a></div>
+</section>"""
+
+
 def pagina_citta(c, prossime):
     qui = [s for s in sedi if s["provincia"] == c["provincia"]]
     in_citta = [s for s in qui if nel_capoluogo(s, c)]
@@ -1276,6 +1315,7 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 <h2 id="risultati">{ic("ok")}Dopo l'esame: i risultati</h2>
 <div class="griglia link3">{"".join(f'<a href="../../risultati/{SLUG_RISULTATI[e]}/">{ic("ok")}<span>Risultati {e}<small>{escape(RISULTATI["enti"][e]["titolo"])}</small></span></a>' for e in enti_qui)}<a href="../../risultati/">{ic("lista")}<span>Tutti gli enti a confronto<small>tempi, punteggio, se non superi</small></span></a></div>
 </section>
+{sezione_dopo_b1(c)}
 <section><h2>{ic("pin")}Altre città</h2>{vicine_html}<div class="altre">{altre}</div></section>"""
     # Titolo con la prossima data degli enti che hanno sedi qui: si aggiorna da solo a ogni rigenerazione (dati/sessioni.json).
     a_c = f"{'ad' if c['nome'][0] == 'A' else 'a'} {c['nome']}"  # come a_(), senza escape: titolo e description li passa escape() in pagina()
@@ -2020,7 +2060,7 @@ Scegli l'ente: per ognuno trovi i link ai file ufficiali (per CERT.IT la pagina 
 </section>
 <section>
 <h2>{ic("info")}Altre domande</h2>
-{link_guide("../", salta="esempi/")}
+{link_guide("../", salta="esempi/", dopo_b1=False)}
 </section>"""
     pagina("esempi/index.html",
            titolo_pagina("Esempi esame B1 cittadinanza: prove ufficiali PDF e audio, 4 enti"),
@@ -2104,7 +2144,7 @@ def pagina_esempi_ente(e, prossime):
 <h2>{ic("libro")}Esempi degli altri enti</h2>
 <div class="altre"><a href="../">Tutti gli esempi</a>{altri}<a href="../confronto/">I 4 esami a confronto</a><a href="../../esonero-test-italiano/">Chi è esonerato</a></div>
 <h2>{ic("info")}Altre domande</h2>
-{link_guide("../../", salta="esempi/")}
+{link_guide("../../", salta="esempi/", dopo_b1=False)}
 </section>"""
     n = len(e["file"])
     sup = t["superare"]
@@ -2216,7 +2256,7 @@ Il <a href="{escape(vade["url"])}" rel="noopener">Vademecum del Ministero dell'I
 {riquadro_preparati("../../", gratis="../")}
 <section>
 <h2>{ic("info")}Altre domande</h2>
-{link_guide("../../", salta="esempi/confronto/")}
+{link_guide("../../", salta="esempi/confronto/", dopo_b1=False)}
 </section>"""
     pagina("esempi/confronto/index.html",
            titolo_pagina("CILS, CELI, PLIDA o CERT.IT? Differenze dell'esame B1"),
@@ -2392,7 +2432,7 @@ il decreto chiede un certificato «non inferiore» all'A2.</p>
 </section>
 <section>
 <h2>{ic("info")}Altre domande</h2>
-{link_guide("../", salta="esonero-test-italiano/")}
+{link_guide("../", salta="esonero-test-italiano/", dopo_b1=False)}
 </section>"""
     pagina("esonero-test-italiano/index.html",
            titolo_pagina("Esonero test di italiano: cittadinanza B1 e carta di soggiorno"),
@@ -2607,6 +2647,574 @@ almeno B1 (con alcune esenzioni): <a href="../esonero-test-italiano/">chi è eso
                               "per ogni familiare. Tabella da 1 a 5, fonti INPS."), corpo, jsonld)
 
 
+# ---------------------------------------------------------------- redditi minimi (dal 31/10/2026)
+REDDITI = json.loads((DATI / "redditi.json").read_text(encoding="utf-8"))  # soglie della cittadinanza e regola della carta di soggiorno, con fonti
+
+
+def cent(x):
+    """«8263.31» → 826331 centesimi (interi: Python e JS fanno gli stessi conti)."""
+    return int((Decimal(str(x)) * 100).to_integral_value())
+
+
+def euro_c(c):
+    return euro(Decimal(c) / 100)
+
+
+def calcola_redditi(coniuge, figli, reddito):
+    """Confronto reddito/soglie, tutto in centesimi. coniuge: bool; figli: figli (o familiari) a carico; reddito: centesimi l'anno.
+    Cittadinanza (Vademecum del Ministero): 8.263,31 da solo, 11.362,05 con coniuge a carico, + 516,00 per figlio o familiare a carico.
+    Carta di soggiorno (art. 9 TU): assegno sociale annuo; per la richiesta anche per i familiari, + metà assegno per familiare (art. 29 c. 3 b).
+    Stessa logica della funzione JS calcolaRedditi della pagina (controllo in raccolta/redditi.py)."""
+    c = REDDITI["cittadinanza"]
+    annuo = cent(RICONG["assegno_sociale"]["annuo"])
+    familiari = (1 if coniuge else 0) + figli
+    soglie = {"cittadinanza": cent(c["con_coniuge"] if coniuge else c["solo"]) + cent(c["per_figlio"]) * figli,
+              "carta_solo": annuo, "carta_famiglia": annuo + annuo // 2 * familiari}
+    return {k: {"soglia": v, "sopra": reddito >= v, "differenza": reddito - v} for k, v in soglie.items()} | {"familiari": familiari}
+
+
+JS_REDDITI = """/*calcolo-inizio*/
+function calcolaRedditi(coniuge, figli, reddito){
+  var S=%s;
+  var familiari=(coniuge?1:0)+figli;
+  var soglie={cittadinanza:(coniuge?S.conCon:S.solo)+S.figlio*figli, carta_solo:S.annuo, carta_famiglia:S.annuo+Math.floor(S.annuo/2)*familiari};
+  var r={};
+  for(var k in soglie){r[k]={soglia:soglie[k],sopra:reddito>=soglie[k],differenza:reddito-soglie[k]};}
+  r.familiari=familiari;
+  return r;
+}
+/*calcolo-fine*/
+(function(){
+  var f=document.getElementById('calc-redditi');if(!f)return;
+  function eur(c){var n=Math.abs(c),e=Math.floor(n/100),d=String(n%%100).padStart(2,'0');return e.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g,'.')+','+d+' \\u20ac';}
+  function leggiEuro(t){t=String(t||'').replace(/[\\s\\u20ac]/g,'');if(!t)return null;
+    if(/,\\d{1,2}$/.test(t)){t=t.replace(/\\./g,'').replace(',','.');}else if(/\\.\\d{1,2}$/.test(t)&&t.split('.').length===2){}else{t=t.replace(/[.,]/g,'');}
+    var v=Number(t);return isFinite(v)&&v>=0?Math.round(v*100):null;}
+  var out=document.getElementById('calc-esito');
+  function riga(id,titolo,x,chi){var el=out.querySelector('[data-r="'+id+'"]');if(!el)return;
+    el.hidden=false;el.className='c-riga '+(x.sopra?'si':'no');
+    el.querySelector('.c-tit').textContent=titolo;
+    el.querySelector('.c-soglia').textContent='Soglia: '+eur(x.soglia)+' l\\u2019anno';
+    el.querySelector('.c-esito').textContent=x.sopra?('Sei sopra la soglia di '+eur(x.differenza)+'.'):('Sei sotto la soglia: mancano '+eur(-x.differenza)+'.');
+    el.querySelector('.c-chi').textContent=chi;}
+  function calcola(ev){if(ev)ev.preventDefault();
+    var coniuge=f.coniuge.checked,figli=Math.max(0,Math.min(20,parseInt(f.figli.value,10)||0));
+    var reddito=leggiEuro(f.reddito.value),err=f.querySelector('[data-errore]');
+    if(reddito===null){err.hidden=false;out.hidden=true;return;}
+    err.hidden=true;out.hidden=false;
+    var r=calcolaRedditi(coniuge,figli,reddito);
+    riga('cittadinanza','Cittadinanza italiana per residenza',r.cittadinanza,'Decide la Prefettura: guarda il reddito imponibile IRPEF degli ultimi 3 anni.');
+    riga('carta_solo','Carta di soggiorno (permesso UE di lungo periodo), solo per te',r.carta_solo,'Decide la Questura.');
+    var fam=out.querySelector('[data-r="carta_famiglia"]');
+    if(r.familiari>0){riga('carta_famiglia','Carta di soggiorno anche per '+(r.familiari===1?'1 familiare':r.familiari+' familiari'),r.carta_famiglia,'Decide la Questura.');}else{fam.hidden=true;}
+    out.querySelector('[data-quattordici]').hidden=figli<2;
+  }
+  f.addEventListener('submit',calcola);
+  f.addEventListener('change',function(){if(f.reddito.value)calcola();});
+})();"""
+
+
+def pagina_redditi():
+    """Redditi minimi per stranieri: cittadinanza per residenza (soglie del Ministero) e carta di soggiorno (assegno sociale), con calcolatore.
+    Il ricongiungimento ha la sua pagina: qui solo il collegamento. Nessun riquadro «Preparati»: la pagina non riguarda l'esame."""
+    c, ca = REDDITI["cittadinanza"], REDDITI["carta_soggiorno"]
+    F = {**c["fonti"], **ca["fonti"]}
+    a = RICONG["assegno_sociale"]
+    anno = RICONG["anno"]
+    solo, con, fig = cent(c["solo"]), cent(c["con_coniuge"]), cent(c["per_figlio"])
+    annuo = cent(a["annuo"])
+    meta = annuo // 2
+    data_v = data_breve(min(f["verificato_il"] for f in F.values()))
+
+    def fonte(*chiavi, extra=""):
+        link = " · ".join(f'<a href="{escape(F[k]["url"])}" rel="noopener">{escape(F[k]["breve"])}</a>' for k in chiavi)
+        return f'<div class="fonte">{ic("doc")}<span>Fonte: {link}{extra} · controllato il {data_breve(max(F[k]["verificato_il"] for k in chiavi))}</span></div>'
+
+    fonte_inps = (f' · assegno sociale {anno}: <a href="{escape(a["url"])}" rel="noopener">INPS, circolare n. 153 del 19/12/2025</a> '
+                  f'(<a href="{escape(a["url_allegato"])}" rel="noopener">tabella A</a>)')
+    # tabella cittadinanza: 0-4 figli, da solo / con coniuge (stessi numeri del PDF della Prefettura, controllati in redditi.py)
+    righe_c = "".join(
+        f'<tr><td><strong>{n} {"figlio" if n == 1 else "figli"} a carico</strong></td>'
+        f'<td data-l="Senza coniuge">{euro_c(calcola_redditi(False, n, 0)["cittadinanza"]["soglia"])}</td>'
+        f'<td data-l="Con coniuge a carico">{euro_c(calcola_redditi(True, n, 0)["cittadinanza"]["soglia"])}</td></tr>' for n in range(0, 5))
+    tab_c = (f'<div class="tab-wrap rc-tab"><table class="conf"><caption class="small">Reddito imponibile minimo all\'anno per la cittadinanza per residenza</caption>'
+             '<thead><tr><th scope="col">Figli (o altri familiari) a carico</th><th scope="col">Senza coniuge</th><th scope="col">Con coniuge a carico</th></tr></thead>'
+             f'<tbody>{righe_c}</tbody></table></div>')
+    righe_k = "".join(
+        f'<tr><td><strong>{"solo per te" if n == 0 else ("te e 1 familiare" if n == 1 else f"te e {n} familiari")}</strong></td>'
+        f'<td data-l="Persone">{n + 1} {"persona" if n == 0 else "persone"}</td><td data-l="All\'anno"><strong>{euro_c(annuo + meta * n)}</strong></td>'
+        f'<td data-l="Al mese, su 12">{euro_c(round((annuo + meta * n) / 12))}</td></tr>' for n in range(0, 6))
+    tab_k = (f'<div class="tab-wrap rc-tab"><table class="conf"><caption class="small">Reddito minimo {anno} per la carta di soggiorno (permesso UE di lungo periodo)</caption>'
+             '<thead><tr><th scope="col">Per chi chiedi la carta</th><th scope="col">Persone</th><th scope="col">Reddito minimo all\'anno</th><th scope="col">Al mese, su 12 mesi</th></tr></thead>'
+             f'<tbody>{righe_k}</tbody></table></div>')
+    ex3a, ex3b = calcola_redditi(True, 1, 0)["cittadinanza"]["soglia"], calcola_redditi(False, 2, 0)["cittadinanza"]["soglia"]
+    ex4a = calcola_redditi(True, 2, 0)["cittadinanza"]["soglia"]
+    js_soglie = json.dumps({"solo": solo, "conCon": con, "figlio": fig, "annuo": annuo})
+    faq = [
+        (f"Qual è il reddito minimo per la cittadinanza italiana nel {anno}?",
+         f"Per la cittadinanza per residenza servono almeno {euro_c(solo)} l'anno di reddito imponibile se sei solo, {euro_c(con)} con il coniuge a carico, "
+         f"più {euro_c(fig)} per ogni figlio o familiare a carico. Sono le soglie scritte dal Ministero dell'Interno nel Vademecum del 23 aprile 2025; "
+         "non cambiano ogni anno."),
+        ("Il reddito per la cittadinanza è lordo o netto?",
+         "Conta il reddito imponibile IRPEF dichiarato in Italia. Per il modello 730 è il «Reddito imponibile» nel Prospetto di liquidazione, come scrive la Prefettura. "
+         "Non è lo stipendio netto in busta paga."),
+        ("Quanto reddito serve per la cittadinanza per 3 o 4 persone?",
+         f"3 persone: con coniuge e 1 figlio a carico {euro_c(ex3a)}, oppure da solo con 2 figli a carico {euro_c(ex3b)}. "
+         f"4 persone (tu, coniuge e 2 figli a carico): {euro_c(ex4a)}. Sono importi all'anno."),
+        ("Conta il reddito del coniuge o del convivente?",
+         "Sì per il coniuge, la parte unita civilmente e gli altri familiari dell'art. 433 del Codice civile. "
+         "Il Vademecum del Ministero dice che non conta il reddito del convivente senza un legame giuridico, anche con figli, né quello del coniuge che vive all'estero. "
+         "Conta invece il convivente con un contratto di convivenza."),
+        ("Cosa succede se il reddito della cittadinanza è insufficiente in un anno?",
+         "Secondo il Vademecum la Prefettura può valutare «in via equitativa» un calo di reddito in un solo anno o seguito da un lavoro stabile. "
+         "La domanda con reddito sotto le soglie, invece, può essere rifiutata subito online. Il reddito va mantenuto fino al giuramento."),
+        (f"Quanto reddito serve per la carta di soggiorno nel {anno}?",
+         f"Almeno l'assegno sociale {anno}: {euro_c(annuo)} l'anno solo per te. Se chiedi la carta anche per i familiari si aggiunge la metà "
+         f"({euro_c(meta)}) per ognuno: per 4 persone (tu e 3 familiari) {euro_c(annuo + meta * 3)}. Decide la Questura."),
+        ("Le soglie cambiano nel 2027?",
+         f"Quelle della cittadinanza no: sono fisse in euro dal 1995. Quelle della carta di soggiorno sì, perché seguono l'assegno sociale, che l'INPS aggiorna ogni gennaio: "
+         "aggiorneremo la pagina con il nuovo importo."),
+    ]
+    faq_html = "".join(domanda(escape(q), escape(t)) for q, t in faq)
+    jsonld = {"@context": "https://schema.org"} | faq_jsonld([(escape(q), escape(t)) for q, t in faq])
+    lead = (f"Per la cittadinanza italiana per residenza serve un reddito imponibile di almeno {euro_c(solo)} l'anno se sei solo, {euro_c(con)} con il coniuge a carico "
+            f"e {euro_c(fig)} in più per ogni figlio a carico: lo scrive il Ministero dell'Interno nel Vademecum del 23 aprile 2025 (letto il {data_v}). "
+            f"Per la carta di soggiorno serve almeno l'assegno sociale {anno}, {euro_c(annuo)} l'anno (art. 9 del Testo unico immigrazione).")
+    corpo = f"""<section class="hero">
+{briciole(("EsameB1", "../"), ("Redditi minimi per stranieri", None))}
+<span class="occhiello">{ic("euro")}Con le fonti ufficiali · {data_v}</span>
+<h1>Reddito minimo per la cittadinanza italiana e la carta di soggiorno {anno}</h1>
+<p class="lead">{escape(lead)}</p>
+<div class="risposta">
+<div class="slot"><div class="r-et">{ic("scudo")}Cittadinanza (Prefettura)</div>
+<div class="r-data">{euro_c(solo)} <small>l'anno</small></div>
+<div class="r-cosa">da solo · {euro_c(con)} con coniuge a carico · + {euro_c(fig)} per figlio</div></div>
+<div class="slot"><div class="r-et">{ic("doc")}Carta di soggiorno (Questura)</div>
+<div class="r-data">{euro_c(annuo)} <small>l'anno</small></div>
+<div class="r-cosa">solo per te · + {euro_c(meta)} per ogni familiare</div></div>
+<div class="r-piede"><a href="#calcola">Fai il conto con la tua famiglia {ic("freccia")}</a><span>{ic("doc")}Fonti: Ministero dell'Interno, Prefettura, Testo unico, INPS</span></div>
+</div>
+</section>
+{avviso("Questa pagina confronta il tuo reddito con le soglie ufficiali, ma non è una consulenza. <strong>Per la cittadinanza decide la Prefettura, per la carta di soggiorno decide la Questura.</strong> Per il tuo caso chiedi a loro o a un patronato.")}
+<section>
+<h2 id="calcola">{ic("lista")}Calcola: sei sopra o sotto le soglie?</h2>
+<form class="form calc card" id="calc-redditi" novalidate>
+<label class="check"><input type="checkbox" name="coniuge"><span>Ho il coniuge (o la parte unita civilmente) fiscalmente a carico</span></label>
+<p class="small">Se il coniuge ha un suo reddito e non è a carico, non spuntare la casella: il suo reddito imponibile si somma al tuo nel campo qui sotto (la soglia più alta vale solo «in presenza del coniuge a carico», scrive il Vademecum).</p>
+<label>Figli (o altri familiari) a carico<input type="number" name="figli" min="0" max="20" value="0" inputmode="numeric"></label>
+<label>Reddito imponibile della famiglia all'anno, in euro<input type="text" name="reddito" inputmode="decimal" placeholder="per esempio 12.500" autocomplete="off"></label>
+<button class="btn" type="submit">{ic("euro")}Confronta con le soglie</button>
+<p class="errore" data-errore hidden>Scrivi il reddito in euro, per esempio 12.500 o 12500,50.</p>
+</form>
+<div class="calc-esito" id="calc-esito" aria-live="polite" hidden>
+<div data-r="cittadinanza" hidden><div class="c-tit"></div><div class="c-soglia"></div><div class="c-esito"></div><div class="c-chi small"></div></div>
+<div data-r="carta_solo" hidden><div class="c-tit"></div><div class="c-soglia"></div><div class="c-esito"></div><div class="c-chi small"></div></div>
+<div data-r="carta_famiglia" hidden><div class="c-tit"></div><div class="c-soglia"></div><div class="c-esito"></div><div class="c-chi small"></div></div>
+<p class="small" data-quattordici hidden>Con 2 o più figli sotto i 14 anni, per il ricongiungimento la legge chiede almeno {euro_c(annuo * 2)} l'anno: per la carta di soggiorno chiedi alla Questura se vale anche per te.</p>
+<p class="small">Il calcolo usa solo le soglie ufficiali. Non sa se il tuo reddito è «imponibile», di quali anni è, né se i documenti vanno bene: <strong>decide la Prefettura (cittadinanza) o la Questura (carta di soggiorno)</strong>. Per far venire i familiari in Italia guarda il <a href="../reddito-ricongiungimento-familiare/">reddito per il ricongiungimento</a>.</p>
+</div>
+<p class="small">Il calcolo resta nel tuo browser: non salviamo nulla.</p>
+</section>
+<section>
+<h2 id="cittadinanza">{ic("scudo")}Cittadinanza per residenza: quanto reddito serve</h2>
+<p>Il Ministero dell'Interno usa come soglia i limiti di reddito per l'esenzione dal ticket sanitario dei pensionati: <strong>{euro_c(solo)}</strong> per chi è solo,
+<strong>{euro_c(con)}</strong> con il coniuge a carico e <strong>{euro_c(fig)} in più</strong> per ogni figlio o familiare a carico ({escape(c["norma"])}).</p>
+{fonte("vademecum", "pdf_prefettura")}
+{tab_c}
+<p class="small">Per 5 o più figli: aggiungi {euro_c(fig)} per ogni figlio. I numeri della tabella sono gli stessi del PDF della Prefettura.</p>
+<h3 id="quale-reddito">Quale reddito conta: lordo o netto?</h3>
+<p>Contano <strong>solo i redditi imponibili IRPEF dichiarati in Italia</strong> negli <strong>ultimi 3 anni</strong>; quelli all'estero non contano. Nel modello 730 è il «Reddito imponibile» del Prospetto di liquidazione;
+nel modello Redditi PF e nella Certificazione Unica la Prefettura spiega quali righe sommare. Nella domanda si scrivono i codici ricevuta delle dichiarazioni.</p>
+{fonte("pdf_prefettura", "vademecum")}
+<h3 id="famiglia">Il reddito della famiglia</h3>
+<p>Si può sommare il reddito dei familiari dell'art. 433 del Codice civile che sono nello stato di famiglia: coniuge (o parte unita civilmente, o convivente con contratto scritto di convivenza), figli, genitori, generi e nuore, suoceri, fratelli e sorelle.
+<strong>Non contano</strong>, secondo il Vademecum: il convivente senza legame giuridico (anche con figli in comune), il patrigno o la matrigna, il coniuge che vive all'estero.</p>
+{fonte("vademecum", "pdf_prefettura")}
+<h3 id="non-conta">Cosa non conta come reddito</h3>
+<ul>
+<li>il reddito o la pensione di cittadinanza;</li>
+<li>i soldi sul conto corrente;</li>
+<li>la pensione presa e tassata all'estero;</li>
+<li>la disoccupazione (NASpI), anche se è tassata.</li>
+</ul>
+<p>Contano invece, tra gli altri: lavoro, pensioni italiane (anche di invalidità), rendite INAIL continuative, redditi della parte unita civilmente.</p>
+{fonte("vademecum")}
+<h3 id="anni">Se un anno è andato male</h3>
+<p>Se il reddito scende in un solo anno, o poi arriva un lavoro stabile, il Vademecum dice che la Prefettura può valutare il calo «in via equitativa». Ma se il reddito dichiarato è sotto le soglie la domanda può essere <strong>rifiutata subito online</strong>,
+e il reddito va <strong>mantenuto fino al giuramento</strong>: la Prefettura lo ricontrolla prima del decreto.</p>
+{fonte("vademecum", "pdf_prefettura")}
+</section>
+<section>
+<h2 id="carta-di-soggiorno">{ic("doc")}Carta di soggiorno (permesso UE di lungo periodo): quanto reddito serve</h2>
+<p>La legge chiede almeno <strong>5 anni</strong> di permesso di soggiorno e un reddito <strong>non inferiore all'assegno sociale</strong>: nel {anno} sono <strong>{euro_c(annuo)} l'anno</strong>.
+Se chiedi la carta anche per i familiari, il reddito deve seguire le regole del ricongiungimento: assegno sociale <strong>+ {euro_c(meta)} per ogni familiare</strong>. Serve anche un alloggio idoneo.</p>
+{fonte("tu9", extra=fonte_inps)}
+{tab_k}
+<p class="small">«Al mese» è solo un aiuto per confrontare: la legge parla di reddito annuo. Quali documenti e quale reddito valgono lo decide la Questura. Per la carta serve anche il test di italiano A2, con alcune esenzioni: <a href="../esonero-test-italiano/">chi è esonerato</a>.</p>
+</section>
+<section>
+<h2 id="ricongiungimento">{ic("pin")}Ricongiungimento familiare</h2>
+<p>Per far venire in Italia moglie, marito, figli o genitori il reddito minimo segue l'assegno sociale, con una regola speciale per 2 o più figli sotto i 14 anni. Tabella, calcolo e fonti sono in una pagina a parte.</p>
+<div class="griglia link3"><a href="../reddito-ricongiungimento-familiare/">{ic("euro")}<span>Reddito per il ricongiungimento familiare {anno}<small>tabella da 1 a 5 familiari</small></span></a>
+<a href="../cittadinanza/">{ic("edificio")}<span>Domanda di cittadinanza, prefettura per prefettura<small>ufficio, contatti, contributo di 250 €</small></span></a>
+<a href="../esonero-test-italiano/">{ic("scudo")}<span>Chi è esonerato dal B1 e dal test A2<small>con le fonti</small></span></a></div>
+</section>
+<section>
+<h2>{ic("info")}Domande frequenti</h2>
+{faq_html}
+</section>
+<div class="due">
+<section>
+<h2 id="esame">{ic("cal")}E l'esame di italiano?</h2>
+<p>Per la cittadinanza per residenza serve anche un certificato di italiano almeno B1 (con alcune esenzioni). Trovi <a href="../#date">tutte le date d'esame</a>, le <a href="../#citta">sedi per città</a>
+e <a href="../cittadinanza/">come si presenta la domanda nella tua Prefettura</a>.</p>
+</section>
+<aside>{modulo()}</aside>
+</div>
+<script>{JS_REDDITI % js_soglie}</script>"""
+    titolo = titolo_pagina(f"Reddito minimo cittadinanza italiana {anno}: tabella e calcolo",
+                           f"Reddito minimo cittadinanza {anno}: tabella e calcolo")
+    descr = descrizione_pagina(
+        f"Reddito minimo per la cittadinanza italiana {anno}: {euro_c(solo)} da solo, {euro_c(con)} con coniuge, + {euro_c(fig)} per figlio. "
+        f"Carta di soggiorno: {euro_c(annuo)}. Calcolatore.",
+        f"Reddito minimo cittadinanza {anno}: {euro_c(solo)} da solo, {euro_c(con)} con coniuge, + {euro_c(fig)} per figlio. Carta di soggiorno {euro_c(annuo)}.")
+    pagina("reddito-minimo-cittadinanza/index.html", titolo, descr, corpo, jsonld)
+
+
+# ---------------------------------------------------------------- domanda di cittadinanza, prefettura per prefettura (dal 31/10/2026)
+PREF = {r["slug"]: r for r in json.loads((DATI / "prefetture.json").read_text(encoding="utf-8"))["prefetture"]}  # raccolta/prefetture.py
+PREF_LOC = json.loads((DATI / "prefetture_locali.json").read_text(encoding="utf-8"))  # punti locali scelti a mano, con la frase esatta
+CITT = json.loads((DATI / "cittadinanza.json").read_text(encoding="utf-8"))  # dati nazionali (Ministero), con fonti
+SIGLE = {"agrigento": "ag", "alessandria": "al", "ancona": "an", "aosta": "ao", "arezzo": "ar", "ascoli-piceno": "ap", "asti": "at", "avellino": "av",
+         "bari": "ba", "barletta-andria-trani": "bt", "belluno": "bl", "benevento": "bn", "bergamo": "bg", "biella": "bi", "bologna": "bo", "bolzano": "bz",
+         "brescia": "bs", "brindisi": "br", "cagliari": "ca", "caltanissetta": "cl", "campobasso": "cb", "caserta": "ce", "catania": "ct", "catanzaro": "cz",
+         "chieti": "ch", "como": "co", "cosenza": "cs", "cremona": "cr", "crotone": "kr", "cuneo": "cn", "enna": "en", "fermo": "fm", "ferrara": "fe",
+         "firenze": "fi", "foggia": "fg", "forli-cesena": "fc", "frosinone": "fr", "genova": "ge", "gorizia": "go", "grosseto": "gr", "imperia": "im",
+         "isernia": "is", "laquila": "aq", "latina": "lt", "lecce": "le", "lecco": "lc", "livorno": "li", "lodi": "lo", "lucca": "lu", "macerata": "mc",
+         "mantova": "mn", "massa-carrara": "ms", "matera": "mt", "messina": "me", "milano": "mi", "modena": "mo", "monza-e-brianza": "mb", "napoli": "na",
+         "novara": "no", "nuoro": "nu", "oristano": "or", "padova": "pd", "palermo": "pa", "parma": "pr", "pavia": "pv", "perugia": "pg", "pesaro-urbino": "pu",
+         "pescara": "pe", "piacenza": "pc", "pisa": "pi", "pistoia": "pt", "pordenone": "pn", "potenza": "pz", "prato": "po", "ragusa": "rg", "ravenna": "ra",
+         "reggio-calabria": "rc", "reggio-emilia": "re", "rieti": "ri", "rimini": "rn", "roma": "rm", "rovigo": "ro", "salerno": "sa", "sassari": "ss",
+         "savona": "sv", "siena": "si", "siracusa": "sr", "sondrio": "so", "spezia": "sp", "taranto": "ta", "teramo": "te", "terni": "tr", "torino": "to",
+         "trapani": "tp", "trento": "tn", "treviso": "tv", "trieste": "ts", "udine": "ud", "varese": "va", "venezia": "ve", "verbano-cusio-ossola": "vb",
+         "vercelli": "vc", "verona": "vr", "vibo-valentia": "vv", "vicenza": "vi", "viterbo": "vt"}
+URL_PREF = {"laquila": "l-aquila", "spezia": "la-spezia"}  # indirizzo della nostra pagina, se diverso dallo slug del Ministero
+PROV_PREF = {"Monza e della Brianza": "monza-e-brianza", "Reggio nell'Emilia": "reggio-emilia", "Pesaro e Urbino": "pesaro-urbino",
+             "La Spezia": "spezia", "L'Aquila": "laquila"}
+
+
+def pref_url(sl):
+    return URL_PREF.get(sl, sl)
+
+
+def pref_di(provincia):
+    """Slug della prefettura per la provincia scritta in citta.json/sedi.json ("Bolzano/Bozen" → "bolzano")."""
+    sl = PROV_PREF.get(provincia, slug(provincia))
+    return sl if sl in PREF else None
+
+
+def ha_pagina_pref(sl):
+    return sl in PREF_LOC["prefetture"] and len(PREF_LOC["prefetture"][sl].get("punti", [])) >= 2
+
+
+def caselle_proprie(sl):
+    """Caselle scritte sulla pagina della Prefettura che sono sue (nome o sigla della provincia nell'indirizzo): niente caselle di altre prefetture
+    copiate per errore, niente caselle del Ministero (quelle nazionali sono nella pagina indice)."""
+    r = PREF[sl]
+    nome = re.sub(r"[^a-z]", "", norma_luogo(r["nome"]))
+    tutte = [m for v in r.get("rubrica", {}).values() for m in re.findall(r"[\w.+-]+@[\w.-]+", v)] + r.get("email_testo", [])
+    proprie = []
+    for m in dict.fromkeys(x.lower() for x in tutte):
+        loc = m.split("@")[0].replace("_", "").replace("-", "").replace(".", "")
+        if "pecdlci" in m or loc.startswith(("depenalizzazione", "sanzioni", "patenti", "elettorale", "antimafia", "contenzioso")):
+            continue  # caselle del Ministero o di altri uffici della Prefettura (non la cittadinanza)
+        if nome[:6] in loc or loc.endswith("pref" + SIGLE[sl]) or loc.endswith("comgov" + SIGLE[sl]):
+            proprie.append(m)
+    return proprie
+
+
+def data_it(testo):
+    """«Martedì 22 Settembre 2026, ore 08:50» → «22 settembre 2026» (vuoto se non si legge)."""
+    m = re.search(r"(\d{1,2}) (\w+) (\d{4})", testo or "")
+    if not m or m.group(2).lower() not in MESI:
+        return ""
+    return f"{int(m.group(1))} {m.group(2).lower()} {m.group(3)}"
+
+
+def fonte_citt(*chiavi):
+    F = CITT["fonti"]
+    link = " · ".join(f'<a href="{escape(F[k]["url"])}" rel="noopener">{escape(F[k]["nome"])}</a>' for k in chiavi)
+    return f'<div class="fonte">{ic("doc")}<span>Fonte: {link} · controllato il {data_breve(max(F[k]["verificato_il"] for k in chiavi))}</span></div>'
+
+
+def come_domanda(rel):
+    """Come si presenta la domanda, in breve (dati nazionali del Ministero): uguale per tutte le prefetture, quindi corto e con link all'indice."""
+    F = CITT["fonti"]
+    return f"""<ol class="passi">
+<li><div><strong>Domanda solo online</strong>, sul <a href="{escape(F["portale"]["url"])}" rel="noopener">Portale Servizi del Ministero dell'Interno</a> (ALI Cittadinanza), con <strong>SPID o CIE</strong>.</div></li>
+<li><div><strong>Documenti da allegare</strong>: documento di riconoscimento, atto di nascita e certificato penale del Paese di origine, certificato di italiano almeno <a href="{rel}#date">B1</a> (salvo <a href="{rel}esonero-test-italiano/">esoneri</a>), ricevuta del contributo, estremi della marca da bollo telematica.</div></li>
+<li><div><strong>Contributo di {CITT["contributo_eur"]} €</strong>: si allega la ricevuta del pagamento.</div></li>
+<li><div><strong>Reddito</strong>: servono almeno le <a href="{rel}reddito-minimo-cittadinanza/">soglie del Ministero</a> negli ultimi 3 anni (per residenza).</div></li>
+<li><div><strong>Dopo l'invio</strong>: la pratica ha un numero K10; lo stato si vede online con le stesse credenziali.</div></li>
+</ol>
+{fonte_citt("domanda", "consulta")}"""
+
+
+# Indirizzi scritti dalle Prefetture che il 31/10/2026 non rispondevano dal server (nessuna risposta, non un rifiuto):
+# si mostrano come testo, non come link. Ricontrollare e togliere da qui quando rispondono.
+NON_RAGGIUNGIBILI = {"http://www.utgvenezia.it/booking/", "https://prenotazioni.utgroma.it/"}
+TIPI_CONTATTO = {"email": ("mail", "Email"), "pec": ("mail", "PEC"), "telefono": ("tel", "Telefono"), "orari": ("orologio", "Orari"),
+                 "ricevimento": ("orologio", "Ricevimento"), "indirizzo": ("pin", "Indirizzo"), "prenotazione": ("cal", "Prenotazione")}
+
+
+def contatti_di(sl):
+    """[(tipo, valore, nota)]: scelti a mano (con la frase esatta) se ci sono, altrimenti i campi d'ufficio raccolti dalla pagina."""
+    loc = PREF_LOC["prefetture"].get(sl, {})
+    if loc.get("contatti"):
+        return [(c["tipo"], c["valore"], c.get("nota", "")) for c in loc["contatti"]]
+    rub = PREF[sl].get("rubrica", {})
+    out = [(t, rub[k], "") for k, t in (("Ricevimento", "ricevimento"), ("Orari", "orari"), ("Telefoni", "telefono"), ("Telefono", "telefono"),
+                                         ("Ubicazione", "indirizzo")) if rub.get(k)]
+    return out + [("pec" if "pec" in m.split("@")[1] else "email", m, "") for m in caselle_proprie(sl)]
+
+
+def contatti_pref(sl):
+    html_r = []
+    for tipo, val, nota in contatti_di(sl):
+        icona, et = TIPI_CONTATTO[tipo]
+        if tipo in ("email", "pec"):
+            v = f'<a href="mailto:{escape(val)}">{escape(val)}</a>'
+        elif tipo == "prenotazione" and val.startswith("http") and val not in NON_RAGGIUNGIBILI:
+            v = f'<a href="{escape(val)}" rel="noopener">{escape(val)}</a>'
+        else:
+            v = escape(val)
+        html_r.append(f'<li>{ic(icona)}<span><b>{et}:</b> {v}{f" <span class=small>({escape(nota)})</span>" if nota else ""}</span></li>')
+    return "".join(html_r)
+
+
+def faq_prefettura(sl):
+    """Domande frequenti della pagina prefettura: quelle cercate su Google («prefettura X cittadinanza pec / telefono / orari»),
+    con le risposte prese solo dai contatti scritti dalla Prefettura; più quelle scelte a mano in prefetture_locali.json."""
+    nome = PREF[sl]["nome"]
+    cc = contatti_di(sl)
+    def di_tipo(*tipi):
+        return [(v, n) for t, v, n in cc if t in tipi]
+    fonte = f"(pagina «Cittadinanza» della Prefettura di {nome}, letta il {data_breve(PREF[sl]['letto_il'])})"
+    pec, mail, tel, ore = di_tipo("pec"), di_tipo("email"), di_tipo("telefono"), di_tipo("orari", "ricevimento")
+    faq = []
+    if pec:
+        faq.append((f"Qual è la PEC dell'ufficio cittadinanza della Prefettura di {nome}?",
+                    "; ".join(f"{v}" + (f" ({n})" if n else "") for v, n in pec) + f" {fonte}. Scrivi sempre il numero K10 della pratica nell'oggetto."))
+    else:
+        faq.append((f"Qual è la PEC dell'ufficio cittadinanza della Prefettura di {nome}?",
+                    f"La pagina della Prefettura non indica una PEC propria per la cittadinanza. Il Ministero indica {CITT['pec_ministero']}, con il numero K10 nell'oggetto."))
+    if mail:
+        faq.append((f"Qual è l'email dell'ufficio cittadinanza di {nome}?", "; ".join(v + (f" ({n})" if n else "") for v, n in mail) + f" {fonte}."))
+    faq.append((f"Qual è il telefono dell'ufficio cittadinanza della Prefettura di {nome}?",
+                ("; ".join(v + (f" ({n})" if n else "") for v, n in tel) + f" {fonte}.") if tel else
+                f"La pagina della Prefettura non scrive un numero di telefono per la cittadinanza. C'è il Polo Orienta del Ministero: {CITT['polo_orienta']['telefono']}, {CITT['polo_orienta']['giorni']}."))
+    if ore:
+        faq.append((f"Quali sono gli orari dell'ufficio cittadinanza di {nome}? Serve l'appuntamento?", "; ".join(v + (f" ({n})" if n else "") for v, n in ore) + f" {fonte}."))
+    faq.append((f"Come si presenta la domanda di cittadinanza a {nome}?",
+                f"Online, sul Portale Servizi del Ministero dell'Interno, con SPID o CIE, come in tutta Italia; la segue la Prefettura di {nome}. "
+                f"Si allegano documento, atto di nascita, certificato penale, certificato B1 (salvo esoneri) e la ricevuta del contributo di {CITT['contributo_eur']} €."))
+    return faq + [tuple(x) for x in PREF_LOC["prefetture"].get(sl, {}).get("faq", [])]
+
+
+def nome_file(t):
+    t = re.sub(r"\.(pdf|docx?|rtf|odt)$", "", t.strip(), flags=re.I).replace("_", " ").replace("-", " ").strip()
+    return (t[:1].upper() + t[1:]) if t else "Allegato"
+
+
+def citta_della_pref(sl):
+    return [c for c in citta if pref_di(c["provincia"]) == sl]
+
+
+def pagina_prefettura(sl, prossime):
+    r, loc = PREF[sl], PREF_LOC["prefetture"][sl]
+    nome = r["nome"]
+    di = f"di {nome}"
+    agg = data_it(r.get("ultimo_aggiornamento", ""))
+    letto = data_breve(r["letto_il"])
+    url = r["url"]
+    fonte_pref = (f'<div class="fonte">{ic("doc")}<span>Fonte: <a href="{escape(url)}" rel="noopener">Prefettura {escape(di)}, pagina «Cittadinanza»</a>'
+                  f'{f" (aggiornata il {agg})" if agg else ""} · letta il {letto}</span></div>')
+    punti = []
+    for pnt in loc["punti"]:
+        u = pnt.get("url") or url
+        nome_fonte = pnt.get("fonte") or "pagina «Cittadinanza»"
+        cit = "".join(f'<p class="citaz">«{escape(c)}»</p>' for c in pnt["citazioni"][:1])
+        punti.append(f'<div class="fatto"><div class="f-et">{ic(pnt.get("icona", "info"))}<span>{escape(pnt["titolo"])}</span></div><p>{pnt["testo"]}</p>{cit}'
+                     f'<div class="fonte">{ic("doc")}<span>Fonte: <a href="{escape(u)}" rel="noopener">Prefettura {escape(di)}, {escape(nome_fonte)}</a> · letta il {letto}</span></div></div>')
+    allegati = "".join(f'<li>{ic("doc")}<a href="{escape(a["url"])}" rel="noopener">{escape(nome_file(a["titolo"]))}</a></li>'
+                       for a in r.get("allegati", []) if a["titolo"].strip() and a.get("stato") == 200)  # solo i file che rispondono 200
+    cc = citta_della_pref(sl)
+    sedi_prov = [s for s in sedi if pref_di(s["provincia"]) == sl]
+    if cc:
+        esame = (f"In provincia {di} ci sono <strong>{n_sedi(len(sedi_prov))}</strong> dove fare l'esame B1 per la cittadinanza: "
+                 + ", ".join(f'<a href="../../citta/{c["slug"]}/">esame B1 {a_(c)}</a>' for c in cc) + ".")
+    else:
+        esame = f'Trovi date e sedi dell\'esame B1 nella <a href="../../#citta">pagina delle città</a>.'
+    p = prossima_di(prossime)
+    contatti = contatti_pref(sl)
+    faq = faq_prefettura(sl)
+    faq_html = "".join(domanda(escape(q), escape(t)) for q, t in faq)
+    lead = (f'Secondo la <a href="{escape(url)}" rel="noopener">pagina «Cittadinanza» della Prefettura {escape(di)}</a>'
+            f'{f" (aggiornata il {agg}, letta il {letto})" if agg else f" (letta il {letto})"}, {loc["lead"]}')
+    corpo = f"""<section class="hero">
+{briciole(("EsameB1", "../../"), ("Cittadinanza", "../"), (nome, None))}
+<span class="occhiello">{ic("edificio")}Prefettura {escape(di)} · letta il {letto}</span>
+<h1>Domanda di cittadinanza a {escape(nome)}: cosa dice la Prefettura</h1>
+<p class="lead">{lead}</p>
+</section>
+{avviso(f"Qui trovi solo quello che scrive la Prefettura {escape(di)} sulla sua pagina, con la data di lettura. <strong>Decide la Prefettura</strong>: per il tuo caso scrivi all'ufficio o chiedi a un patronato. Questo sito non è della Prefettura.")}
+<section>
+<h2 id="contatti">{ic("mail")}Ufficio cittadinanza: contatti</h2>
+{f'<ul class="uff">{contatti}</ul>' if contatti else f'<p>La pagina della Prefettura non indica contatti specifici dell\'ufficio: usa la <a href="{escape(url)}" rel="noopener">pagina ufficiale</a>.</p>'}
+{f'<p class="small">{loc["nota_contatti"]}</p>' if loc.get("nota_contatti") else ""}
+{fonte_pref}
+<div class="azioni"><a class="btn btn-2" href="{escape(url)}" rel="noopener">{ic("web")}Pagina «Cittadinanza» della Prefettura {escape(di)} {ic("freccia")}</a></div>
+</section>
+<section>
+<h2 id="locale">{ic("info")}Cosa scrive la Prefettura {escape(di)}</h2>
+<div class="fatti locali">{"".join(punti)}</div>
+{f'<h3 id="moduli">Moduli e documenti sulla pagina della Prefettura</h3><ul class="uff">{allegati}</ul>' if allegati else ""}
+</section>
+<section>
+<h2 id="domanda">{ic("lista")}Come si presenta la domanda (uguale in tutta Italia)</h2>
+{come_domanda("../../")}
+<p class="small">Più dettagli, tempi e contatti nazionali: <a href="../#come">domanda di cittadinanza, la guida</a>.</p>
+</section>
+<section>
+<h2 id="esame">{ic("cal")}Prima della domanda: l'esame B1</h2>
+<p>{esame}{f" Prossimo esame: {data_lunga(p['data'])} ({escape(p['ente'])})." if p else ""}</p>
+</section>
+{f'<section><h2>{ic("info")}Domande frequenti</h2>{faq_html}</section>' if faq else ""}
+<section>
+<h2>{ic("pin")}Altre prefetture</h2>
+<div class="altre">{"".join(f'<a href="../{pref_url(x)}/">{escape(PREF[x]["nome"])}</a>' for x in sorted(PREF, key=lambda x: PREF[x]["nome"]) if x != sl and ha_pagina_pref(x) and PREF[x]["regione"] == r["regione"])}<a href="../#elenco">Tutte le 106 prefetture</a></div>
+</section>"""
+    jsonld = {"@context": "https://schema.org"} | faq_jsonld([(escape(q), escape(t)) for q, t in faq]) if faq else None
+    tipi = {t for t, _, _ in contatti_di(sl)}
+    parti = [n for t, n in (("pec", "PEC"), ("email", "email"), ("telefono", "telefono"), ("orari", "orari")) if t in tipi]
+    elenco = (", ".join(parti[:-1]) + " e " + parti[-1]) if len(parti) > 1 else (parti[0] if parti else "contatti")
+    titolo = titolo_pagina(f"Cittadinanza Prefettura {di}: {elenco}",
+                           f"Cittadinanza Prefettura {di}: PEC e contatti",
+                           f"Cittadinanza Prefettura {di}: contatti",
+                           f"Cittadinanza {nome}: contatti della Prefettura")
+    descr = descrizione_pagina(loc["descrizione"])
+    pagina(f"cittadinanza/{pref_url(sl)}/index.html", titolo, descr, corpo, jsonld)
+
+
+def pagina_cittadinanza(prossime):
+    """Indice /cittadinanza/: come si fa la domanda (dati nazionali con fonte) e le 106 prefetture per regione, con i contatti scritti
+    da ognuna (solo caselle d'ufficio della Prefettura stessa) e il link alla pagina locale dove c'è qualcosa di locale da dire."""
+    F, po = CITT["fonti"], CITT["polo_orienta"]
+    letto = data_breve(max(f["verificato_il"] for f in F.values()))
+    regioni = {}
+    for sl, r in sorted(PREF.items(), key=lambda x: x[1]["nome"]):
+        regioni.setdefault(r["regione"], []).append(sl)
+    blocchi = []
+    for reg in sorted(regioni):
+        righe = []
+        for sl in regioni[reg]:
+            r = PREF[sl]
+            nome = escape(r["nome"])
+            cella_nome = (f'<a href="{pref_url(sl)}/"><strong>{nome}</strong></a>' if ha_pagina_pref(sl) else f"<strong>{nome}</strong>")
+            if r["stato"] == 200:
+                cc = contatti_di(sl)  # scelti a mano se ci sono, altrimenti i campi d'ufficio della pagina
+                mail = "<br>".join(f'<a href="mailto:{escape(v)}">{escape(v)}</a>' for t, v, _ in cc if t in ("email", "pec")) or '<span class="small">non indicata</span>'
+                quando = "<br>".join(escape(v) for t, v, _ in cc if t in ("orari", "ricevimento")) or '<span class="small">non indicato</span>'
+                agg = data_it(r.get("ultimo_aggiornamento", ""))
+                uff = f'<a href="{escape(r["url"])}" rel="noopener">pagina ufficiale</a>{f"<br><span class=small>aggiornata il {agg}</span>" if agg else ""}'
+            else:
+                mail, quando = '<span class="small">–</span>', '<span class="small">–</span>'
+                uff = f'<a href="https://prefettura.interno.gov.it/it/prefetture" rel="noopener">elenco delle Prefetture</a><br><span class="small">pagina Cittadinanza non raggiungibile il {data_breve(r["letto_il"])}</span>'
+            loc = f'<a href="{pref_url(sl)}/">Cosa scrive la Prefettura</a>' if ha_pagina_pref(sl) else '<span class="small">nulla di locale in più</span>'
+            righe.append(f'<tr id="{pref_url(sl)}"><td>{cella_nome}</td><td data-l="Email e PEC">{mail}</td><td data-l="Ricevimento">{quando}</td>'
+                         f'<td data-l="Fonte">{uff}</td><td data-l="Qui">{loc}</td></tr>')
+        blocchi.append(f'<h3 id="{slug(reg)}">{escape(reg)}</h3><div class="tab-wrap rc-tab pref-tab"><table class="conf">'
+                       '<thead><tr><th scope="col">Prefettura</th><th scope="col">Email e PEC dell\'ufficio</th><th scope="col">Ricevimento</th><th scope="col">Fonte</th><th scope="col">Qui</th></tr></thead>'
+                       f'<tbody>{"".join(righe)}</tbody></table></div>')
+    con_pagina = [sl for sl in PREF if ha_pagina_pref(sl)]
+    lette = sum(1 for r in PREF.values() if r["stato"] == 200)
+    griglia = "".join(f'<a href="{pref_url(sl)}/">{ic("edificio")}<span>{escape(PREF[sl]["nome"])}<small>Prefettura, cittadinanza</small></span></a>'
+                      for sl in sorted(con_pagina, key=lambda x: PREF[x]["nome"]))
+    faq = [
+        ("Dove si presenta la domanda di cittadinanza italiana?",
+         "Solo online, sul Portale Servizi del Ministero dell'Interno (ALI Cittadinanza), con SPID o CIE. La domanda poi la segue la Prefettura della provincia dove abiti."),
+        ("Quanto costa la domanda di cittadinanza?",
+         f"Il contributo è di {CITT['contributo_eur']} €: nella domanda si allega la ricevuta del pagamento. Servono anche gli estremi della marca da bollo telematica."),
+        ("Quanto tempo ci vuole per la cittadinanza?",
+         "Per le domande dal 20 dicembre 2020 la legge (art. 9-ter della legge 91/1992) fissa il termine in 24 mesi, prorogabili fino al massimo di 36 mesi dalla data della domanda, "
+         "come scrive anche il Dipartimento per le libertà civili e l'immigrazione. È un termine di legge, non una previsione sulla tua pratica."),
+        ("Come controllo lo stato della mia pratica di cittadinanza?",
+         "Online, nel servizio del Ministero, con le stesse credenziali usate per la domanda. C'è anche il contact center Polo Orienta: "
+         f"{po['telefono']}, {po['giorni']}, con il numero K10 della domanda."),
+        ("Qual è la PEC per la cittadinanza?",
+         f"Il Ministero indica {CITT['pec_ministero']}, con il numero della pratica (K10) nell'oggetto. Molte Prefetture indicano anche una loro PEC: la trovi nell'elenco qui sotto."),
+        ("Serve l'esame B1 per la cittadinanza?",
+         "Sì, per residenza e per matrimonio serve un certificato di italiano almeno B1, salvo alcuni esoneri (per esempio chi ha il permesso UE di lungo periodo o un titolo di studio italiano)."),
+    ]
+    faq_html = "".join(domanda(escape(q), escape(t)) for q, t in faq)
+    jsonld = {"@context": "https://schema.org"} | faq_jsonld([(escape(q), escape(t)) for q, t in faq])
+    corpo = f"""<section class="hero">
+{briciole(("EsameB1", "../"), ("Domanda di cittadinanza", None))}
+<span class="occhiello">{ic("edificio")}Dopo l'esame B1 · fonti lette il {letto}</span>
+<h1>Domanda di cittadinanza italiana, prefettura per prefettura</h1>
+<p class="lead">La domanda di cittadinanza si manda solo online, sul Portale Servizi del Ministero dell'Interno con SPID o CIE, e costa {CITT["contributo_eur"]} € di contributo: lo scrive il Ministero dell'Interno (pagina letta il {letto}).
+Qui sotto, per ognuna delle {len(PREF)} Prefetture, i contatti dell'ufficio cittadinanza scritti sulla sua pagina ufficiale.</p>
+<div class="risposta">
+<div class="slot"><div class="r-et">{ic("web")}Dove</div><div class="r-data">Online <small>SPID o CIE</small></div><div class="r-cosa">Portale Servizi del Ministero dell'Interno</div></div>
+<div class="slot"><div class="r-et">{ic("euro")}Quanto costa</div><div class="r-data">{CITT["contributo_eur"]} € <small>contributo</small></div><div class="r-cosa">più la marca da bollo telematica</div></div>
+<div class="r-piede"><a href="#elenco">Trova la tua Prefettura {ic("freccia")}</a><span>{ic("doc")}Fonti: Ministero dell'Interno e Prefetture</span></div>
+</div>
+</section>
+{avviso("Questo sito non è del Ministero né delle Prefetture e non dà consulenza sulla pratica. <strong>Decide la Prefettura.</strong> Per il tuo caso scrivi all'ufficio cittadinanza o chiedi a un patronato.")}
+<section>
+<h2 id="come">{ic("lista")}Come si presenta la domanda</h2>
+{come_domanda("../")}
+<p>Prima di inviarla controlla il <a href="../reddito-minimo-cittadinanza/">reddito minimo</a> (con il calcolatore) e il <a href="../#date">certificato B1</a>.</p>
+</section>
+<section>
+<h2 id="dopo">{ic("orologio")}Dopo la domanda: tempi e stato della pratica</h2>
+<ul>
+<li><strong>Tempi:</strong> per le domande dal 20 dicembre 2020 la legge fissa il termine in <strong>24 mesi, prorogabili fino al massimo di 36</strong> dalla data di presentazione della domanda (<a href="{escape(F["legge"]["url"])}" rel="noopener">art. 9-ter della legge 91/1992</a>). È un termine di legge, non una previsione: la durata reale della tua pratica può essere diversa.</li>
+<li><strong>Stato della pratica:</strong> si vede online, con le stesse credenziali usate per la domanda.</li>
+<li><strong>Comunicazioni:</strong> il Ministero indica la PEC <a href="mailto:{CITT["pec_ministero"]}">{CITT["pec_ministero"]}</a>, una sola domanda per messaggio, con il numero K10 nell'oggetto; allegati in PDF, TIFF o JPEG fino a 5 MB l'uno e 15 MB in tutto.</li>
+<li><strong>Polo Orienta</strong> (contact center del Ministero): tel. {po["telefono"]}, {po["giorni"]}, PEC <a href="mailto:{po["pec"]}">{po["pec"]}</a>. Tieni pronto il numero K10 e un documento.</li>
+</ul>
+{fonte_citt("legge", "residenza", "domanda", "consulta")}
+</section>
+{f'<section><h2 id="locali">{ic("edificio")}Prefetture con informazioni locali</h2><p>Per queste Prefetture abbiamo letto la pagina e riportato quello che scrivono di loro: contatti, orari, avvisi, regole sui documenti.</p><div class="griglia">{griglia}</div></section>' if griglia else ""}
+<section>
+<h2 id="elenco">{ic("pin")}Le {len(PREF)} Prefetture: contatti dell'ufficio cittadinanza</h2>
+<p>Email e PEC sono quelle che ogni Prefettura scrive sulla sua pagina «Cittadinanza» ({lette} pagine lette il {data_breve(max(r["letto_il"] for r in PREF.values()))}); mostriamo solo le caselle d'ufficio della Prefettura stessa. «Non indicata»: la pagina non la scrive, usa il link alla pagina ufficiale.</p>
+<div class="altre">{"".join(f'<a href="#{slug(r)}">{escape(r)}</a>' for r in sorted(regioni))}</div>
+{"".join(blocchi)}
+{fonte_citt("elenco")}
+</section>
+<section>
+<h2>{ic("info")}Domande frequenti</h2>
+{faq_html}
+</section>
+<div class="due">
+<section>
+<h2 id="esame">{ic("cal")}Non hai ancora il B1?</h2>
+<p>Trovi <a href="../#date">tutte le date d'esame</a>, le <a href="../#citta">sedi per città</a>, <a href="../costo/">quanto costa</a> e <a href="../esonero-test-italiano/">chi è esonerato</a>.</p>
+</section>
+<aside>{modulo()}</aside>
+</div>
+{riquadro_preparati("../")}"""
+    titolo = titolo_pagina("Domanda di cittadinanza: prefettura per prefettura, contatti",
+                           "Domanda di cittadinanza: le 106 prefetture e i contatti")
+    descr = descrizione_pagina(f"Domanda di cittadinanza italiana: online con SPID, contributo di {CITT['contributo_eur']} €, termine di legge 24-36 mesi. "
+                               "Email e PEC dell'ufficio cittadinanza di ogni Prefettura.",
+                               f"Domanda di cittadinanza: online con SPID, contributo di {CITT['contributo_eur']} €, termine di legge 24-36 mesi. "
+                               "Email e PEC dell'ufficio cittadinanza di ogni Prefettura.")
+    pagina("cittadinanza/index.html", titolo, descr, corpo, jsonld)
+
+
 def privacy():
     # Cookie, link di affiliazione e pubblicità: con AdSense acceso (monetizzazione.json) o con link di affiliazione, il testo
     # comune di monetizzazione.py (GoatCounter senza cookie, pubblicità con il consenso di Google); altrimenti il testo di oggi.
@@ -2677,6 +3285,23 @@ def controlli(prossime):
             errori.append(f"città senza sedi: {c['nome']}")
     if not prossime:
         errori.append("nessuna sessione futura")
+    # sezione /cittadinanza/ e redditi (31/10/2026): ogni punto e contatto locale con la frase della fonte; fonti con data
+    for sl, p in PREF_LOC["prefetture"].items():
+        if sl not in PREF:
+            errori.append(f"prefetture_locali.json: prefettura sconosciuta {sl}")
+        for x in p.get("punti", []) + p.get("contatti", []):
+            if not x.get("citazioni"):
+                errori.append(f"prefetture_locali.json: {sl}: voce senza citazione: {x.get('titolo') or x.get('valore')}")
+        for x in p.get("contatti", []):
+            if x["tipo"] not in TIPI_CONTATTO:
+                errori.append(f"prefetture_locali.json: {sl}: tipo di contatto sconosciuto {x['tipo']}")
+    for f in list(CITT["fonti"].values()) + list(REDDITI["cittadinanza"]["fonti"].values()) + list(REDDITI["carta_soggiorno"]["fonti"].values()):
+        if not f.get("url") or not f.get("verificato_il"):
+            errori.append(f"fonte senza url o data: {f.get('nome')}")
+    c = REDDITI["cittadinanza"]
+    for caso in c["casi_pdf"]:  # la tabella del PDF della Prefettura deve coincidere con la formula
+        if calcola_redditi(caso["coniuge"], caso["figli"], 0)["cittadinanza"]["soglia"] != cent(caso["importo"]):
+            errori.append(f"redditi.json: caso {caso} diverso dalla formula")
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -2725,6 +3350,14 @@ def main():
     urls.append("esonero-test-italiano/")
     pagina_ricongiungimento()
     urls.append("reddito-ricongiungimento-familiare/")
+    pagina_redditi()
+    urls.append("reddito-minimo-cittadinanza/")
+    pagina_cittadinanza(prossime)
+    urls.append("cittadinanza/")
+    for sl in sorted(PREF):
+        if ha_pagina_pref(sl):
+            pagina_prefettura(sl, prossime)
+            urls.append(f"cittadinanza/{pref_url(sl)}/")
     privacy()
     urls.append("privacy.html")
     extra(urls)

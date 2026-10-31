@@ -42,6 +42,9 @@ FONTI = {
     "plida_api": "https://api.dante.global/danteheadquarter/list-not-secured",
     "plida_pagina": "https://www.dante.global/it/contatti/lista-contatti",
     "certit_centri": "https://certificazioneitaliano.uniroma3.it/wp-content/uploads/sites/30/file_locked/2025/09/Centri-convenzionati-italiani_202509.pdf",
+    # Pagina HTML ufficiale che contiene il PDF dei centri: è questa che il sito linka (le note legali di Roma Tre vietano
+    # il «deep linking»). Il PDF resta in "fonte" come provenienza del dato (31/10/2026).
+    "certit_centri_pagina": "https://certificazioneitaliano.uniroma3.it/gli-esami/centri-desame/",
     "istat_comuni": "https://www.istat.it/storage/codici-unita-amministrative/Elenco-comuni-italiani.csv",
 }
 
@@ -255,6 +258,7 @@ def sedi_certit():
             "ente": "CERT.IT", "nome": r[0], "indirizzo": via, "cap": cap, "citta": citta,
             "regione_fonte": regione, "telefono": r[3] if len(r) > 3 else "",
             "email": (EMAIL.findall(r[2] if len(r) > 2 else "") or [""])[0], "fonte": FONTI["certit_centri"],
+            "fonte_pagina": FONTI["certit_centri_pagina"],
         })
     # controllo: ogni email del PDF deve appartenere a una sede letta
     import pdfplumber
@@ -263,7 +267,7 @@ def sedi_certit():
     lette = " ".join(" ".join(s.values()) for s in sedi).lower()
     for extra in SUPPLEMENTI_CERTIT:
         if extra["email"].lower() not in lette:
-            sedi.append(dict(extra, fonte=FONTI["certit_centri"]))
+            sedi.append(dict(extra, fonte=FONTI["certit_centri"], fonte_pagina=FONTI["certit_centri_pagina"]))
             lette += " " + extra["email"].lower()
     mancanti = [e for e in email_pdf if e not in lette and not any(e.split("@")[1] in x for x in lette.split())]
     if mancanti:

@@ -71,7 +71,7 @@ ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti 
 def ci_sono_affiliati():
     """True se il sito pubblica almeno un link di affiliazione (voce con "url" in dati/affiliati.json e il riquadro noleggio NOLEGGIO_AUTO):
     accende la sezione privacy sui link di affiliazione. Domini ammessi in monetizzazione.json, controlli in verifica.py."""
-    return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_")) or bool(NOLEGGIO_AUTO)
+    return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_")) or bool(NOLEGGIO_AUTO) or bool(STAY22_BIG)
 
 
 def riquadro_trasparenza(corpo, lingua="en"):
@@ -500,6 +500,7 @@ footer .f-altri a{font-weight:600}
 a.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--sign-ink)}a.btn:hover{color:var(--sign-ink)}a.btn .ico{color:var(--sign-ink)}
 .altri-pass.noleggio-home{flex-wrap:nowrap;align-items:flex-start}.noleggio-home .ico{flex:none;margin-top:4px}
 .cal-link{display:flex;gap:8px;align-items:flex-start;margin:12px 0}.cal-link .ico{flex:none;margin-top:3px;color:var(--accent)}.cal-lista{padding-left:20px}.cal-lista .cal-link{margin:4px 0 10px}details.tutte{margin:10px 0}details.tutte summary{cursor:pointer;font-weight:700;padding:6px 0}.ufficiale{margin:22px 0}.ufficiale p{margin:0 0 10px}
+.aff-tag{display:inline-block;vertical-align:middle;margin-left:6px;font-family:var(--mono);font-size:.68rem;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);border:1px solid var(--line-2);border-radius:999px;padding:1px 8px}
 .noleggio{margin:14px 0 22px}.noleggio p{margin:0 0 12px}.noleggio p.aff-nota{margin:0}
 caption.cap{caption-side:top;text-align:left;padding:10px 12px;font-size:.84rem;color:var(--ink-3);background:var(--card)}
 .tab-g th[scope=row]{width:34%;background:transparent;color:var(--ink-3);border-right:1px solid var(--line)}
@@ -530,6 +531,7 @@ ICONE = {
     "bag": '<rect x="4" y="7.5" width="16" height="12.5" rx="2.5"/><path d="M9 7.5V5a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 5v2.5M8 20v1.5M16 20v1.5M9 11.5v5M15 11.5v5"/>',
     "globe": '<circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 4 6 4 9.5s-1.4 6.9-4 9.5c-2.6-2.6-4-6-4-9.5s1.4-6.9 4-9.5z"/>',
     "car": '<path d="M5 16.5V12l1.8-4.6A2 2 0 0 1 8.7 6h6.6a2 2 0 0 1 1.9 1.4L19 12v4.5"/><path d="M3.5 12h17v4.5h-17zM7 16.5V19M17 16.5V19"/><circle cx="7.5" cy="14.2" r=".9"/><circle cx="16.5" cy="14.2" r=".9"/>',
+    "bed": '<path d="M3 5v15M3 16h18M21 20v-6.5a2.5 2.5 0 0 0-2.5-2.5H11v5"/><circle cx="7" cy="12.5" r="1.8"/>',
     "apps": '<rect x="3.5" y="3.5" width="7" height="7" rx="1.8"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.8"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.8"/><path d="M17 13.5v7M13.5 17h7"/>',
 }
 
@@ -4543,6 +4545,11 @@ GIORNI_SETT = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday
 # generale con il nostro ID, scriverlo qui (https, dominio viator.com): il riquadro compare sotto la biglietteria ufficiale, con
 # rel="sponsored noopener" e la riga di trasparenza (verifica.py, punto 22, e monetizzazione.py lo controllano). Vuoto = nessun riquadro.
 VIATOR_TOUR = ""
+# Riquadro "Where to stay" (Stay22 → Booking.com, AID massimilianocori): ACCESO dal 31/10/2026. Link in dati/affiliati.json, voce
+# "_stay22_alloggi" → "link" (uno per attrazione, per slug; url vuoto = niente riquadro su quella pagina). Ogni link apre la pagina Booking.com
+# degli hotel della CITTÀ (Napoli per Pompei), quindi il testo lo dice e non promette prezzi né disponibilità. Posizione: dopo la biglietteria
+# ufficiale (e dopo l'eventuale riquadro Viator); nell'indice una riga con tutti i link dopo i calendari. verifica.py, punto 22, controlla tutto.
+STAY22_BIG = {s: v for s, v in ((AFFILIATI.get("_stay22_alloggi") or {}).get("link") or {}).items() if (v.get("url") or "").strip()}
 TIPI_BIG = {"uscita": "Tickets go on sale", "gratis": "Free entry", "chiusura": "Closed", "orario": "Special hours"}
 
 
@@ -4947,6 +4954,33 @@ def box_tour_big(a=None):
             f'{ico("calendar")}See guided tours on Viator</a></p>{MON.nota_trasparenza("en")}</section>')
 
 
+def box_alloggio_big(a):
+    """Riquadro "Where to stay" (Stay22, link di affiliazione verso Booking.com) della pagina attrazione: '' se l'attrazione non ha un link.
+    Sempre dopo la biglietteria ufficiale."""
+    v = STAY22_BIG.get(a["slug"])
+    if not v:
+        return ""
+    return (f'<h2 id="where-to-stay">{escape(v["titolo"])} <span class="aff-tag">Affiliate</span></h2>'
+            f'<section class="card noleggio" aria-label="Where to stay, affiliate link" data-alloggio>'
+            f'<p>{escape(v["frase"])}</p><p class="noleggio-btn"><a class="btn" href="{escape(v["url"])}" rel="sponsored noopener" target="_blank">'
+            f'{ico("bed")}See hotels in {escape(v["citta"])} on Booking.com</a></p>'
+            f'<p class="small">Link through our partner Stay22. Prices and availability are only those shown on Booking.com.</p>'
+            f'{MON.nota_trasparenza("en")}</section>')
+
+
+def riga_alloggi_big(rel):
+    """Riga "Where to stay" dell'indice (tutti i link Stay22, uno per città): '' senza link. Dopo i calendari."""
+    voci = [(a, STAY22_BIG[a["slug"]]) for a in BIG_ATT if a["slug"] in STAY22_BIG]
+    if not voci:
+        return ""
+    link = " · ".join(f'<a href="{escape(v["url"])}" rel="sponsored noopener" target="_blank">{escape(v["citta"])}</a>' for _, v in voci)
+    return (f'<h2 id="where-to-stay">Where to stay <span class="aff-tag">Affiliate</span></h2>'
+            f'<section class="card noleggio" aria-label="Where to stay, affiliate links" data-alloggio>'
+            f'<p>Hotels on Booking.com in each city, through our partner Stay22: {link}. Each link opens the hotels of the whole city, '
+            f'not only those near the attraction; for Pompeii it shows hotels in Naples, a common base for the visit.</p>'
+            f'{MON.nota_trasparenza("en")}</section>')
+
+
 def righe_eventi_big(a, ee):
     out = []
     for e in ee:
@@ -5059,6 +5093,7 @@ def pagina_big(a):
 {sezione_giorni_big(a)}
 {box_ufficiale_big(a)}
 {box_tour_big(a)}
+{box_alloggio_big(a)}
 {link_tr_big(rel, a["slug"])}
 {faq_h}
 <h2>Other attractions</h2>
@@ -5142,6 +5177,7 @@ def pagina_indice_big():
 <p>One calendar per attraction, with the ticket releases, free days and closures of the next six months, the official rule and the link in each event.</p>
 <ul class="cal-lista">{cal}</ul>
 {box_tour_big()}
+{riga_alloggi_big(rel)}
 {faq_h}
 <h2>Attractions we left out</h2>
 <p>We include an attraction only if its official website answered normally on the day we checked it. For now we left out:</p>
@@ -6463,6 +6499,11 @@ def controlli():
             if not MON.dominio_ammesso(VIATOR_TOUR) or not MON.dominio_in(urlparse(VIATOR_TOUR).hostname, ["viator.com"]):
                 errori.append(f"biglietti: VIATOR_TOUR non punta a viator.com: {VIATOR_TOUR}")
             errori += [f"biglietti: {e}" for e in MON.controlla_link_pagina(box_tour_big(), "box_tour_big", "en")[0]]
+        for s, v in STAY22_BIG.items():  # Stay22: solo booking.stay22.com/massimilianocori/, solo attrazioni esistenti
+            if s not in BIG_PER or not MON.dominio_ammesso(v["url"]) or not v["url"].startswith("https://booking.stay22.com/massimilianocori/"):
+                errori.append(f"biglietti: link Stay22 non valido per {s}: {v['url']}")
+            elif s in BIG_PER:
+                errori += [f"biglietti: {e}" for e in MON.controlla_link_pagina(box_alloggio_big(BIG_PER[s]), "box_alloggio_big", "en")[0]]
     if FL:  # patente straniera in Canada, Australia e NZ: fonti con HTTP 200, citazioni note, titoli (verifica.py, punto 23, ricontrolla tutto)
         ids_tutti = [c["id"] for g in FL_GIUR for c in g["citazioni"]]
         if len(set(ids_tutti)) != len(ids_tutti):
