@@ -5881,7 +5881,7 @@
    ],
    "note": [
     "In Kutchan Town (which includes the Niseko Hirafu ski area) the Hokkaido tax and the town tax together are a uniform 3% of the accommodation charge (宿泊料金, the tax base named in the Ministry's consent), from 1 April 2026. The official sources we read do not say whether meals are excluded: ask the property.",
-    "Other Niseko-area resorts are in different municipalities (Niseko Town, Rusutsu, Akaigawa) with their own rules: this page covers Kutchan only.",
+    "Other Niseko-area resorts are in different municipalities with their own rules: Niseko Town (a flat 3% including the Hokkaido tax from 1 November 2026), Rusutsu and Akaigawa (Kiroro). Each has its own page in the Japan accommodation tax section.",
     "There is no age exemption: only school trips and some nursery events are exempt."
    ],
    "esenzioni": [
@@ -6132,7 +6132,7 @@
     "Since 1 June 2026 guests in Hakuba pay a village tax and a prefectural tax, per person per night, based on the accommodation charge per person per night.",
     "Nagano Prefecture charges half its normal rate in Hakuba (because the village has its own tax): ¥100 for the first three years, then ¥150.",
     "No tax below ¥6,000 per person per night. Totals shown are village + prefecture.",
-    "Nozawa Onsen has its own tax from 1 June 2026 (3.5% of the accommodation charge for the first three years, then 5%, per the Ministry's consent): not covered on this page."
+    "Nozawa Onsen has its own tax from 1 June 2026 (3.5% of the accommodation charge for the first three years, then 5%, per the Ministry's consent, plus half the Nagano tax): see its page in the Japan accommodation tax section."
    ],
    "esenzioni": [
     "Stays below ¥6,000 per person per night",
@@ -6777,6 +6777,255 @@
    ],
    "controllato_il": "2026-10-30",
    "valid_from": ""
+  },
+  {
+   "slug": "brussels",
+   "name": "Brussels",
+   "country": "Belgium",
+   "country_slug": "belgium",
+   "region": "Brussels-Capital Region",
+   "currency": "EUR",
+   "official_name": "Brussels-Capital Region tax on tourist accommodation establishments, municipal surcharges included",
+   "tipo": "per_room",
+   "categorie": [
+    {
+     "id": "std",
+     "label": "Hotels, apartments and other tourist accommodation (standard rate)"
+    },
+    {
+     "id": "home",
+     "label": "Homestays (rooms in the host's home)"
+    },
+    {
+     "id": "camp",
+     "label": "Campsites"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "std",
+     "dal": "2026-01-01",
+     "valore": 5
+    },
+    {
+     "cat": "home",
+     "dal": "2026-01-01",
+     "valore": 4
+    },
+    {
+     "cat": "camp",
+     "dal": "2026-01-01",
+     "valore": 3
+    }
+   ],
+   "valid_from": "2026-01-01",
+   "esente_da_notti": 91,
+   "chi_riscuote": "The operator of the accommodation registers with Brussels Fiscality, declares the overnight stays and pays the tax every month (MyTax platform).",
+   "fonti": [
+    {
+     "titolo": "Brussels-Capital Region (be.brussels, Brussels Fiscality) - Regional tax on tourist accommodation establishments: €5 per unit (standard), €4 (homestays), €3 (campsites) from the 2026 tax year, municipal surcharges included",
+     "url": "https://be.brussels/en/taxes-finances/taxes/taxes-businesses-and-professional-activities/regional-tax-tourist-accommodation-establishments",
+     "http": 200,
+     "formato": "HTML (English)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Brussels-Capital Region (be.brussels) - Tax on tourist accommodation establishments: higher rates from 1 January 2026 (published 9 December 2025; an accommodation unit is a bedroom or a space arranged for sleeping)",
+     "url": "https://be.brussels/en/taxes-finances/tax-tourist-accommodation-establishments-higher-rates-1-january-2026",
+     "http": 200,
+     "formato": "HTML (English)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Région de Bruxelles-Capitale (be.brussels) - Taxe régionale sur les établissements d'hébergement touristique (French version)",
+     "url": "https://be.brussels/fr/impots-financement/impots-et-taxes/fiscalite-des-entreprises-et-activites-professionnelles/taxe-regionale-sur-les-etablissements-dhebergement-touristique",
+     "http": 200,
+     "formato": "HTML (French)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "Charged per accommodation unit (a bedroom or a space arranged for sleeping) per overnight stay, whatever the number of guests.",
+    "The amount includes the municipal surcharges that the 19 municipalities add to the regional tax.",
+    "From 1 January 2026: €5 standard rate, €4 homestays; campsites stay at €3. Before 2026 it was €4 (standard) and €3 (homestays and campsites).",
+    "Stays of more than 90 days do not count as tourist stays and are not taxed: the calculator treats a booking of 91 nights or more as exempt."
+   ],
+   "esenzioni": [
+    "Stays of more than 90 days (not a tourist stay)",
+    "Social tourism accommodation centres"
+   ],
+   "prezzo_esempio": 150,
+   "controllato_il": "2026-10-31",
+   "risposta": "Since 1 January 2026 the Brussels tourist tax is €5 per room per night (€4 in homestays, €3 on campsites), whatever the number of guests and with the municipal surcharges included (Brussels-Capital Region, be.brussels, checked on 31 October 2026). Stays of more than 90 days are not taxed."
+  },
+  {
+   "slug": "ghent",
+   "name": "Ghent",
+   "country": "Belgium",
+   "country_slug": "belgium",
+   "region": "Flanders",
+   "currency": "EUR",
+   "official_name": "City of Ghent tax on providing tourist accommodation (belasting op het verstrekken van logies)",
+   "tipo": "per_person",
+   "categorie": [
+    {
+     "id": "c2",
+     "label": "Hotels, B&Bs and holiday rentals whose operator is registered as a resident (category 2)"
+    },
+    {
+     "id": "c3",
+     "label": "Holiday rentals and other room-related accommodation whose operator is not registered as a resident (category 3)"
+    },
+    {
+     "id": "c1",
+     "label": "Campsites and other site-related accommodation, and hostels (category 1)"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "c1",
+     "dal": "2026-01-01",
+     "al": "2028-12-31",
+     "valore": 1.96
+    },
+    {
+     "cat": "c1",
+     "dal": "2029-01-01",
+     "al": "2031-12-31",
+     "valore": 2.05
+    },
+    {
+     "cat": "c2",
+     "dal": "2026-01-01",
+     "al": "2028-12-31",
+     "valore": 3.93
+    },
+    {
+     "cat": "c2",
+     "dal": "2029-01-01",
+     "al": "2031-12-31",
+     "valore": 4.2
+    },
+    {
+     "cat": "c3",
+     "dal": "2026-01-01",
+     "al": "2028-12-31",
+     "valore": 6.61
+    },
+    {
+     "cat": "c3",
+     "dal": "2029-01-01",
+     "al": "2031-12-31",
+     "valore": 6.96
+    }
+   ],
+   "esenti_sotto_eta": 18,
+   "valid_from": "2026-01-01",
+   "chi_riscuote": "The operator of the accommodation owes the tax and declares the overnight stays to the City every six months; whether it appears separately on your bill depends on the accommodation.",
+   "fonti": [
+    {
+     "titolo": "City of Ghent (stad.gent) - Belasting verstrekken logies: rates per person aged 18 or over per night by category, 2026-2028 and 2029-2031, exemptions",
+     "url": "https://stad.gent/nl/over-gent-stadsbestuur/stadsbelastingen/belasting-verstrekken-logies",
+     "http": 200,
+     "formato": "HTML (Dutch)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "Charged per person aged 18 or over per night, whether or not the night is paid for.",
+    "The category is the one the accommodation is registered in (Basisregister Vlaams Logiesaanbod).",
+    "The amounts are excluding VAT, as in the regulation; the City also lists them including VAT: €2.20, €4.40 and €7.40 (2026-2028), €2.30, €4.70 and €7.80 (2029-2031). The calculator uses the amounts excluding VAT."
+   ],
+   "esenzioni": [
+    "Children and teenagers under 18",
+    "Hostels recognised with the youth tourism label",
+    "Accommodation covered by article 3 of the Flemish accommodation decree",
+    "Nights booked through the Steunpunt Vakantieparticipatie (social tourism)",
+    "Rooms temporarily used, at the request of the City or a Ghent higher-education institution, for purposes such as student housing"
+   ],
+   "prezzo_esempio": 150,
+   "controllato_il": "2026-10-31",
+   "risposta": "Since 1 January 2026 the Ghent tourist tax is €1.96, €3.93 or €6.61 per person aged 18 or over per night, depending on the accommodation category, until the end of 2028 (City of Ghent, stad.gent, checked on 31 October 2026). From 2029 to 2031 it is €2.05, €4.20 and €6.96; children under 18 pay nothing."
+  },
+  {
+   "slug": "bruges",
+   "name": "Bruges",
+   "country": "Belgium",
+   "country_slug": "belgium",
+   "region": "Flanders",
+   "currency": "EUR",
+   "official_name": "City of Bruges tax on providing accommodation (belasting op het verstrekken van logies)",
+   "tipo": "per_person",
+   "categorie": [
+    {
+     "id": "room",
+     "label": "Hotels, B&Bs, holiday homes and other room-related accommodation"
+    },
+    {
+     "id": "camp",
+     "label": "Campsites and other site-related accommodation"
+    }
+   ],
+   "tariffe": [
+    {
+     "cat": "room",
+     "dal": "2026-01-01",
+     "al": "2027-12-31",
+     "valore": 3.75
+    },
+    {
+     "cat": "room",
+     "dal": "2028-01-01",
+     "al": "2031-12-31",
+     "valore": 5
+    },
+    {
+     "cat": "camp",
+     "dal": "2026-01-01",
+     "al": "2027-12-31",
+     "valore": 1.5
+    },
+    {
+     "cat": "camp",
+     "dal": "2028-01-01",
+     "al": "2031-12-31",
+     "valore": 2
+    }
+   ],
+   "esenti_sotto_eta": 18,
+   "valid_from": "2026-01-01",
+   "chi_riscuote": "The operator of the accommodation owes the tax (article 3) and declares the overnight stays to the City every quarter; whether it appears separately on your bill depends on the accommodation.",
+   "fonti": [
+    {
+     "titolo": "City of Bruges - Belastingreglement op het verstrekken van logies (tax regulation on accommodation), approved by the city council on 26 November 2025, published 1 December 2025: articles 4 (rates) and 10 (exemptions)",
+     "url": "https://www.brugge.be/sites/default/files/2025-12/Belastingreglement%20op%20het%20verstrekken%20van%20logies%20GR%2026%20november%202025.pdf",
+     "http": 200,
+     "formato": "PDF (Dutch)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "City of Bruges - Belastingreglement op vakantiewoningen (holiday homes), 26 November 2025: article 4 (€3.75 per person aged 18 or over per night in 2026-2027, €5 from 2028, plus a yearly flat amount for the owner)",
+     "url": "https://www.brugge.be/sites/default/files/2025-12/Belastingreglement%20op%20vakantiewoningen%20GR%2026%20november%202025.pdf",
+     "http": 200,
+     "formato": "PDF (Dutch)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "Charged per person aged 18 or over per night. The regulation applies from 1 January 2026 to 31 December 2031.",
+    "Licensed holiday homes fall under a separate regulation with the same amount per guest (€3.75 per person aged 18 or over per night in 2026-2027, €5 from 2028), plus a yearly flat amount paid by the owner.",
+    "Bruges has announced a charge for cruise and coach day visitors from 2027 (reported by VRT News in March 2025). We have not found an official regulation for it on brugge.be, so we show no amount."
+   ],
+   "esenzioni": [
+    "Children and teenagers under 18",
+    "Non-profit hospitals, clinics and care homes",
+    "Boarding schools",
+    "Facilities rented only to recognised socio-cultural associations (youth, sports, theatre groups and similar)",
+    "Nights booked through social tourism offices (programme 'Iedereen verdient vakantie')"
+   ],
+   "prezzo_esempio": 150,
+   "controllato_il": "2026-10-31",
+   "risposta": "In 2026 and 2027 the Bruges tourist tax is €3.75 per person aged 18 or over per night in hotels, B&Bs and holiday homes and €1.50 on campsites; from 1 January 2028 it is €5 and €2 (City of Bruges tax regulation of 26 November 2025, checked on 31 October 2026). Children under 18 pay nothing."
   }
  ]
 }

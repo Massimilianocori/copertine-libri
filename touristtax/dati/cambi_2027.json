@@ -1,6 +1,6 @@
 {
  "_nota": "Cambi di tassa turistica già decisi, con data ufficiale (pagina tourist-tax-changes-2027/). Una voce per cambio: luogo, slug della pagina del sito (vuoto se non c'è), data, cosa cambia, importo, fonte ufficiale (URL, HTTP, data del controllo). 'verifica' = elenco [slug, data]: verifica.py controlla che quella destinazione abbia davvero una tariffa (o un supplemento, o un cambio annunciato) che parte in quella data. Solo atti o pagine ufficiali: niente stampa. 'importo_breve' = cifra corta per la tabella in cima (stessi numeri di 'importo' e 'prima'). Voce con 'uma' (Visitax del Quintana Roo): 'importo', 'prima' e 'importo_breve' li scrive genera.py da dati/uma.json (2,50 × UMA dell'anno; finché l'INEGI non pubblica la UMA 2027 la voce dice la formula).",
- "aggiornato_il": "2026-10-30",
+ "aggiornato_il": "2026-10-31",
  "voci": [
   {
    "dal": "2027-01-01",
@@ -39,8 +39,8 @@
   {
    "dal": "2027-02-01",
    "luogo": "Okinawa (Japan)",
-   "slug": "",
-   "cosa": "New prefectural accommodation tax on hotels, ryokan, simple lodging and minpaku. In Motobu, Onna, Chatan, Miyakojima, Ishigaki and Nago, which plan their own municipal tax, it is split between prefecture (0.8% up to ¥800) and municipality (1.2% up to ¥1,200).",
+   "slug": "japan-accommodation-tax-2027",
+   "cosa": "New prefectural accommodation tax on hotels, ryokan, simple lodging and minpaku. In Ishigaki, Miyakojima, Nago, Motobu, Onna and Chatan, whose own municipal taxes start the same day, it is split between prefecture (0.8% up to ¥800) and municipality (1.2% up to ¥1,200): the total stays 2%.",
    "importo": "2% of the room-only price per person per night (rounded down to the nearest ¥1,000), up to ¥2,000",
    "prima": "no tax",
    "riserva": "",
@@ -49,7 +49,7 @@
     "titolo": "Okinawa Prefecture - 沖縄県宿泊税 (Okinawa accommodation tax): start date 1 February 2027, rate, cap, exemptions",
     "url": "https://www.pref.okinawa.jp/kurashikankyo/zeikin/1003660/1036559/1036550.html",
     "http": 200,
-    "controllato_il": "2026-10-26"
+    "controllato_il": "2026-10-31"
    },
    "importo_breve": "2%, max ¥2,000 (new)"
   },
@@ -72,6 +72,23 @@
     "url": "https://documentos.congresoqroo.gob.mx/leyes/L195-XVIII-20251218-L1820251216196-Ley-de-Derechos.pdf",
     "http": 200,
     "controllato_il": "2026-10-30"
+   }
+  },
+  {
+   "dal": "2027-03-01",
+   "luogo": "Wakkanai and Shirahama (Japan)",
+   "slug": "japan-accommodation-tax-2027",
+   "cosa": "Two new municipal accommodation taxes. In Wakkanai (Hokkaido) the town tax is added to the Hokkaido tax (¥100 to ¥500), so the total is ¥300 to ¥700. In Shirahama (Wakayama) children under 12 are exempt.",
+   "importo": "Wakkanai ¥200 per person per night (plus the Hokkaido tax); Shirahama ¥200 to ¥1,000 per person per night by price band",
+   "prima": "Hokkaido tax only in Wakkanai; no tax in Shirahama",
+   "importo_breve": "¥200; ¥200–¥1,000 (new)",
+   "riserva": "",
+   "verifica": [],
+   "fonte": {
+    "titolo": "Ministry of Internal Affairs and Communications - consent to the Wakkanai City accommodation tax (30 June 2026); Shirahama Town: consent of 30 September 2026 (001093325)",
+    "url": "https://www.soumu.go.jp/main_content/001080173.pdf",
+    "http": 200,
+    "controllato_il": "2026-10-31"
    }
   },
   {
@@ -163,6 +180,40 @@
    "importo_breve": "3% from ¥13,000 (from ¥100–¥200)"
   },
   {
+   "dal": "2027-04-01",
+   "luogo": "Tomakomai, Yamagata, Fujiyoshida, Fujikawaguchiko, Unzen, Kagoshima and Ibusuki (Japan)",
+   "slug": "japan-accommodation-tax-2027",
+   "cosa": "Seven new municipal accommodation taxes on the same day, including the two Mount Fuji towns of Fujiyoshida and Fujikawaguchiko. In Tomakomai the 3% includes the Hokkaido tax.",
+   "importo": "Tomakomai and Yamagata 3% of the accommodation charge; Fujiyoshida, Fujikawaguchiko, Kagoshima and Ibusuki ¥200 per person per night; Unzen ¥100 below ¥5,000 and ¥350 from ¥5,000",
+   "prima": "no municipal tax",
+   "importo_breve": "¥100–¥350 or 3% (new)",
+   "riserva": "",
+   "verifica": [],
+   "fonte": {
+    "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (list as of 1 October 2026: start dates of approved accommodation taxes) and the Minister's consents of 30 June, 28 August and 30 September 2026",
+    "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+    "http": 200,
+    "controllato_il": "2026-10-31"
+   }
+  },
+  {
+   "dal": "2027-04-01",
+   "luogo": "Nagasaki (Japan)",
+   "slug": "japan-accommodation-tax-2027",
+   "cosa": "New price bands for the Nagasaki City accommodation tax: the middle band now starts at ¥6,000 instead of ¥10,000 and rises from ¥200 to ¥300. Still no tax-free threshold.",
+   "importo": "¥100 below ¥6,000, ¥300 from ¥6,000 to ¥19,999, ¥500 from ¥20,000, per person per night",
+   "prima": "¥100 below ¥10,000, ¥200 from ¥10,000, ¥500 from ¥20,000",
+   "importo_breve": "¥100 / ¥300 / ¥500 (from ¥100 / ¥200 / ¥500)",
+   "riserva": "",
+   "verifica": [],
+   "fonte": {
+    "titolo": "Nagasaki City - 宿泊税 (rates until 31 March 2027 and from 1 April 2027)",
+    "url": "https://www.city.nagasaki.lg.jp/page/5301.html",
+    "http": 200,
+    "controllato_il": "2026-10-31"
+   }
+  },
+  {
    "dal": "2027-07-01",
    "luogo": "Vienna (Austria)",
    "slug": "vienna",
@@ -200,9 +251,32 @@
     "http": 200,
     "controllato_il": "2026-10-30"
    }
+  },
+  {
+   "dal": "2027-10-01",
+   "luogo": "Kitahiroshima (Japan)",
+   "slug": "japan-accommodation-tax-2027",
+   "cosa": "New municipal accommodation tax in the city of the Hokkaido Ballpark F Village. The 3% is the total with the Hokkaido tax.",
+   "importo": "3% of the accommodation charge (including the Hokkaido tax)",
+   "prima": "Hokkaido tax only (¥100 to ¥500 per person per night)",
+   "importo_breve": "3% incl. Hokkaido tax (new)",
+   "riserva": "",
+   "verifica": [],
+   "fonte": {
+    "titolo": "Ministry of Internal Affairs and Communications - consent to the Kitahiroshima City accommodation tax (3% of the accommodation charge), 30 June 2026",
+    "url": "https://www.soumu.go.jp/main_content/001080172.pdf",
+    "http": 200,
+    "controllato_il": "2026-10-31"
+   }
   }
  ],
  "dopo": [
+  {
+   "dal": "2028-01-01",
+   "luogo": "Bruges (Belgium)",
+   "slug": "bruges",
+   "cosa": "Accommodation tax €5.00 per person aged 18 or over per night (from €3.75); campsites €2.00 (from €1.50). Regulation of 26 November 2025, valid until 2031."
+  },
   {
    "dal": "2028-04-01",
    "luogo": "Barcelona",
@@ -216,11 +290,17 @@
    "cosa": "Federal fee for foreign cruise passengers: peso equivalent of US$21 (from US$15), until 30 September 2030 (decree of 30 June 2025)."
   },
   {
+   "dal": "2029-01-01",
+   "luogo": "Ghent (Belgium)",
+   "slug": "ghent",
+   "cosa": "Accommodation tax per person aged 18 or over per night rises to €2.05, €4.20 and €6.96 by category (from €1.96, €3.93 and €6.61), until 2031."
+  },
+  {
    "dal": "2029-06-01",
    "luogo": "Hakuba (Japan)",
    "slug": "hakuba",
    "cosa": "End of the reduced rates of the first three years: the Hakuba and Nagano amounts go up in every taxed price band."
   }
  ],
- "non_elencati": "Not listed because we could not read an official act with the date and amount: Venice's 2027 access fee calendar (the City's sites block automated reading), Milan's 2027 rates (not published when we last checked the City's site, on 10 October 2026), and the Catalan rate for Barcelona from April 2027."
+ "non_elencati": "Not listed because we could not read an official act with the date and amount: Venice's 2027 access fee calendar (the City's sites block automated reading), Milan's 2027 rates (not published when we last checked the City's site, on 10 October 2026), and the Catalan rate for Barcelona from April 2027. Oita Prefecture (Japan) has an approved accommodation tax of ¥100 to ¥2,000 per person per night, but its start date is only 'January 2027 or later': see the Japan accommodation tax 2027 page."
 }

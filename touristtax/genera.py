@@ -87,9 +87,9 @@ PAESI = {  # slug paese -> (nome, aggettivo/nota breve)
     "france": "France", "spain": "Spain", "greece": "Greece", "turkey": "Turkey", "netherlands": "Netherlands",
     "germany": "Germany", "austria": "Austria", "czech-republic": "Czech Republic", "united-kingdom": "United Kingdom",
     "italy": "Italy", "japan": "Japan", "indonesia": "Indonesia", "iceland": "Iceland", "malta": "Malta", "portugal": "Portugal",
-    "tunisia": "Tunisia", "mexico": "Mexico"}
+    "tunisia": "Tunisia", "mexico": "Mexico", "belgium": "Belgium"}
 EUROPA = {"france", "spain", "greece", "netherlands", "germany", "austria", "czech-republic", "united-kingdom", "italy", "iceland", "turkey",
-          "malta", "portugal"}
+          "malta", "portugal", "belgium"}
 VALUTE = {"EUR": ("€", "", 2), "GBP": ("£", "", 2), "JPY": ("¥", "", 0), "CZK": ("", " CZK", 0), "ISK": ("ISK ", "", 0),
           "IDR": ("IDR ", "", 0), "TRY": ("TRY ", "", 2), "TND": ("TND ", "", 2),
           "MXN": ("MXN ", "", 2)}
@@ -1057,7 +1057,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
     robots = "" if indicizza else '<meta name="robots" content="noindex">'
     alt = (f'<link rel="alternate" hreflang="en" href="{url_pag}"><link rel="alternate" hreflang="x-default" href="{url_pag}">'
            if indicizza else "")
-    voci_menu = [("", "Calculator"), ("tourist-taxes-europe-2026/", "Europe 2026"), ("france/", "France"), ("country/japan/", "Japan"),
+    voci_menu = [("", "Calculator"), ("tourist-taxes-europe-2026/", "Europe 2026"), ("france/", "France"), ("japan-accommodation-tax/", "Japan"),
                  ("how-tourist-taxes-work/", "How it works"), ("about/", "Sources")]
     menu = "".join(f'<a href="{rel}{u}"{" aria-current=\"page\"" if u == percorso else ""}>{t}</a>' for u, t in voci_menu)
     testo = f"""<!DOCTYPE html>
@@ -1536,7 +1536,7 @@ def pagina_destinazione(R):
 {fonte_breve(R)}</div>
 </section>
 {box_cambi(R, rel)}
-{jp_callout(rel) if R["country_slug"] == "japan" else ""}
+{(jt_callout(rel) + jp_callout(rel)) if R["country_slug"] == "japan" else ""}
 {modulo_calcolatore(id_dati, rel=rel, cat_default=cat_def)}
 {f'<p class="avviso">{escape(R["avviso_verifica"])}</p>' if R.get("avviso_verifica") else ""}
 {formula_html(R)}
@@ -2083,7 +2083,7 @@ def pagina_giappone_rimborso():
 <h2>Departure tax: {yen(p['importo'])} from {data_lunga(p['dal'])}</h2>
 <p>Japan's International Tourist Tax (the departure tax) went up from {yen(p['prima'])} to <strong>{yen(p['importo'])} per departure</strong> on {data_lunga(p['dal'])}. Airlines and shipping companies collect it from passengers. Children under {p['esenti_sotto_anni']} and some transit passengers who leave within 24 hours do not pay. Tickets bought before {data_lunga(p['dal'])} for a fixed departure date usually keep the old {yen(p['prima'])}, unless the departure date is changed after that day. This tax is not refunded by the tax-free system.</p>
 <p class="fonte">Official source: {jp_link("nta_tassa_partenza")} · checked on {JP_CHECK}</p>
-<p>Staying overnight? Many Japanese cities also charge an accommodation tax: <a href="{rel}tokyo/">Tokyo</a>, <a href="{rel}kyoto/">Kyoto</a>, <a href="{rel}sapporo/">Sapporo</a>, <a href="{rel}kutchan-niseko/">Kutchan (Niseko)</a>, <a href="{rel}hakuba/">Hakuba</a>. See <a href="{rel}country/japan/">all tourist taxes in Japan</a>.</p>
+<p>Staying overnight? {sum(1 for e in JT["enti"] if e["stato"] == "in_vigore")} Japanese prefectures and cities also charge an accommodation tax, for example <a href="{rel}tokyo/">Tokyo</a>, <a href="{rel}kyoto/">Kyoto</a>, <a href="{rel}{JT_ENTI["osaka"]["pagina"]}">Osaka</a>, <a href="{rel}sapporo/">Sapporo</a> and <a href="{rel}{JT_ENTI["fukuoka"]["pagina"]}">Fukuoka</a>. See <a href="{rel}{JT_HUB}">the Japan accommodation tax in every place, with a calculator</a>.</p>
 <h2>Questions</h2>
 <div class="faq-box">{faq_html}</div>
 <h2>Official sources</h2>
@@ -2094,6 +2094,799 @@ def pagina_giappone_rimborso():
            f"From {data_lunga(JP['in_vigore_dal'])} Japan refunds the {a['standard']}% consumption tax ({a['ridotta']}% on food) after a customs check at departure. "
            f"Minimum {s} per shop per day, {g} days. Calculator and official sources.",
            corpo, briciole=[("Japan", "country/japan/"), ("Tax-free refund from November 2026", JP_SLUG)], extra_js=JP_JS + JP_APP_JS, jsonld_extra=ld)
+
+
+# ---------------------------------------------------------------- Giappone: tasse di soggiorno (宿泊税) in tutto il paese (31/10/2026)
+# Dati: dati/giappone_tasse.json (49 enti in vigore e 18 approvati per il 2027, dall'elenco del Ministero degli Affari interni al
+# 1/10/2026; tariffe dai consensi del Ministro e dalle pagine degli enti). Ogni ente è un "luogo" del calcolatore: per un Comune
+# si sommano la tassa comunale e quella della Prefettura (con la tariffa della Prefettura dentro quel Comune, "pref_regole"); dove
+# la percentuale comunale comprende già la tassa della Prefettura (Kutchan, Niseko dal 1/11/2026, Tomakomai, Kitahiroshima) la
+# Prefettura non si aggiunge ("include_pref"). jt_calcola() e JT_JS danno lo stesso risultato (verifica.py, controllo 11).
+JT = json.loads((DATI / "giappone_tasse.json").read_text(encoding="utf-8"))
+JT_ELENCO = json.loads((DATI / "giappone_elenco_mic.json").read_text(encoding="utf-8"))
+JT_ENTI = {e["id"]: e for e in JT["enti"]}
+JT_PREF = {e["pref"]: e for e in JT["enti"] if e["livello"] == "prefecture"}
+JT_HUB = "japan-accommodation-tax/"
+JT_27 = "japan-accommodation-tax-2027/"
+JT_CHECK = data_lunga(JT["controllato_il"])
+JT_LISTA_AL = data_lunga(JT_ELENCO["alla_data"])
+JT_PREZZO_LAB = "Room-only price per night for all guests (¥)"
+JT_ESEMPIO = {"okinawa": 17000, "ishigaki": 17000, "miyakojima": 17000, "motobu": 17000, "onna": 17000, "chatan": 17000, "nago": 17000}
+JT_FONTE_NOMI = [("soumu.go.jp", "Ministry of Internal Affairs and Communications"), ("hokkaido-shukuhakuzei.pref.hokkaido", "Hokkaido Government"),
+                 ("pref.hokkaido.lg.jp", "Hokkaido Government"), ("town.niseko", "Niseko Town"), ("pref.fukuoka", "Fukuoka Prefecture"),
+                 ("pref.okinawa", "Okinawa Prefecture"), ("pref.nagano", "Nagano Prefecture"), ("city.nagasaki", "Nagasaki City"),
+                 ("kanazawa", "Kanazawa City"), ("tax.metro.tokyo", "Tokyo Bureau of Taxation"), ("city.kyoto", "Kyoto City"),
+                 ("city.sapporo", "Sapporo City")]
+
+
+def jt_nome_fonte(url):
+    return next(n for k, n in JT_FONTE_NOMI if k in url)
+
+
+def jt_luogo(e):
+    """Luogo del calcolatore: componenti (tassa del Comune e della Prefettura) con le loro regole."""
+    eta = lambda x: bool(x.get("eta_esente"))
+    comp = [{"label": e["nome_tassa"], "regole": e["regole"], "eta": eta(e), "pref": False}]
+    P = JT_PREF.get(e["pref"]) if e["livello"] == "municipality" else None
+    if P:
+        comp.append({"label": P["nome_tassa"], "regole": e.get("pref_regole", P["regole"]), "eta": eta(P), "pref": True})
+    etichetta = JT["eta"][e["eta_esente"]]["label"] if e.get("eta_esente") else ""
+    return {"id": e["id"], "nome": e["en"], "pref": (P or e)["en"] if e["livello"] == "municipality" and P else (e.get("pref_en") or e["en"]),
+            "pagina": e["pagina"], "comp": comp, "eta_label": etichetta, "prezzo": JT_ESEMPIO.get(e["id"], 30000),
+            "inizio_testo": e.get("inizio_testo") or (data_lunga(e["inizio"]) if e.get("inizio") else ""),
+            "tariffe": e.get("inizio_nota") == "tariffe"}
+
+
+JT_LUOGHI = [jt_luogo(e) for e in JT["enti"]]
+JT_L = {x["id"]: x for x in JT_LUOGHI}
+
+
+def jt_regola(regole, d):
+    for r in regole:
+        if (not r.get("dal") or r["dal"] <= d) and (not r.get("al") or d <= r["al"]):
+            return r
+    return None
+
+
+def jt_quota(r, pp):
+    """Imposta a persona per notte per un prezzo a persona pp (stessi passaggi di jtQuota nel JS)."""
+    if r["tipo"] == "bande":
+        for lo, hi, v in r["bande"]:
+            if pp >= lo and (hi is None or pp < hi):
+                return v
+        return 0
+    if pp < r.get("min", 0):
+        return 0
+    base = pp
+    if r.get("arrot"):
+        base = math.floor(base / r["arrot"]) * r["arrot"]
+    if r.get("base_max"):
+        base = min(base, r["base_max"])
+    v = base * r["valore"] / 100
+    if r.get("cap") is not None:
+        v = min(v, r["cap"])
+    return v
+
+
+def jt_attive(L, d):
+    """[(componente, regola)] valide nella data d, senza la Prefettura quando la percentuale comunale la comprende."""
+    att = [(c, jt_regola(c["regole"], d)) for c in L["comp"]]
+    salta = any(r and r.get("include_pref") for _, r in att)
+    return [(c, r) for c, r in att if r and not (c["pref"] and salta)]
+
+
+def jt_calcola(L, checkin, notti, prezzo, ospiti, bambini=0):
+    """prezzo = prezzo della camera senza pasti per notte per tutti gli ospiti; le fasce usano prezzo / ospiti.
+    {'totale', 'comp': [[etichetta, importo, notti tassate]], 'prima': notti senza nessuna tassa ancora in vigore, 'inclusa': notti in cui
+    la tassa della Prefettura è compresa nella percentuale comunale}. Uguale a jtCalcola nel JS."""
+    out = {"totale": 0, "comp": [[c["label"], 0, 0] for c in L["comp"]], "prima": 0, "inclusa": 0}
+    if ospiti < 1 or notti < 1:
+        return out
+    pp = prezzo / ospiti
+    bambini = max(0, min(bambini, ospiti))
+    d0 = date.fromisoformat(checkin)
+    for i in range(notti):
+        d = (d0 + timedelta(days=i)).isoformat()
+        att = [(k, jt_regola(c["regole"], d)) for k, c in enumerate(L["comp"])]
+        if all(r is None for _, r in att):
+            out["prima"] += 1
+            continue
+        salta = any(r and r.get("include_pref") for _, r in att)
+        if salta and any(c["pref"] for c in L["comp"]):
+            out["inclusa"] += 1
+        for k, r in att:
+            c = L["comp"][k]
+            if r is None or (c["pref"] and salta):
+                continue
+            n = ospiti - (bambini if c["eta"] else 0)
+            out["comp"][k][1] += jt_quota(r, pp) * n
+            out["comp"][k][2] += 1
+    out["totale"] = sum(x[1] for x in out["comp"])
+    return out
+
+
+JT_JS = r"""
+function jtRegola(R,d){for(var i=0;i<R.length;i++){var r=R[i];if((!r.dal||r.dal<=d)&&(!r.al||d<=r.al))return r;}return null;}
+function jtQuota(r,pp){if(r.tipo==='bande'){for(var i=0;i<r.bande.length;i++){var b=r.bande[i];if(pp>=b[0]&&(b[1]===null||pp<b[1]))return b[2];}return 0;}
+  if(pp<(r.min||0))return 0;var base=pp;if(r.arrot)base=Math.floor(base/r.arrot)*r.arrot;if(r.base_max)base=Math.min(base,r.base_max);
+  var v=base*r.valore/100;if(r.cap!==undefined&&r.cap!==null)v=Math.min(v,r.cap);return v;}
+function jtCalcola(L,ci,notti,prezzo,ospiti,bambini){var out={totale:0,comp:L.comp.map(function(c){return [c.label,0,0];}),prima:0,inclusa:0};
+  if(ospiti<1||notti<1)return out;var pp=prezzo/ospiti;bambini=Math.max(0,Math.min(bambini||0,ospiti));
+  var haPref=L.comp.some(function(c){return c.pref;});
+  for(var i=0;i<notti;i++){var d=addDays(ci,i);var att=L.comp.map(function(c){return jtRegola(c.regole,d);});
+    if(att.every(function(r){return r===null;})){out.prima++;continue;}
+    var salta=att.some(function(r){return r&&r.include_pref;});if(salta&&haPref)out.inclusa++;
+    for(var k=0;k<att.length;k++){var r=att[k],c=L.comp[k];if(r===null||(c.pref&&salta))continue;
+      var n=ospiti-(c.eta?bambini:0);out.comp[k][1]+=jtQuota(r,pp)*n;out.comp[k][2]+=1;}}
+  out.totale=out.comp.reduce(function(s,x){return s+x[1];},0);return out;}
+"""
+
+JT_APP_JS = r"""
+(function(){var box=document.querySelector('[data-jt]');if(!box)return;var D=JSON.parse(document.getElementById('jt-dati').textContent);
+  var f=box.querySelector('form'),out=box.querySelector('[data-out]'),sel=f.querySelector('[name=luogo]'),link=box.querySelector('[data-link]');
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function y(v){return soldi(v,'JPY');}
+  function oggi(){var x=new Date();return new Date(Date.UTC(x.getFullYear(),x.getMonth(),x.getDate())).toISOString().slice(0,10);}
+  function primaData(L){var o=oggi();if(L.comp.some(function(c){return jtRegola(c.regole,o);}))return o;
+    var ds=[];L.comp.forEach(function(c){c.regole.forEach(function(r){if(r.dal&&r.dal>o)ds.push(r.dal);});});ds.sort();return ds[0]||o;}
+  if(sel){var gr={},ord=[];D.forEach(function(L,i){if(!gr[L.pref]){gr[L.pref]=[];ord.push(L.pref);}gr[L.pref].push(i);});
+    sel.innerHTML=ord.map(function(p){return '<optgroup label="'+esc(p)+'">'+gr[p].map(function(i){return '<option value="'+i+'">'+esc(D[i].nome)+'</option>';}).join('')+'</optgroup>';}).join('');}
+  function L(){return sel?D[+sel.value]:D[0];}
+  function q(n){return f.querySelector('[name='+n+']');}
+  function prepara(){var P=L();q('checkin').value=primaData(P);if(!box.dataset.prezzoToccato)q('prezzo').value=P.prezzo;
+    var b=f.querySelector('[data-campo=esenti]');b.hidden=!P.eta_label;f.querySelector('[data-lab=esenti]').textContent=P.eta_label||'Children';
+    if(link){link.href=link.dataset.base+P.pagina;link.querySelector('span').textContent='Rates, exemptions and official sources for '+P.nome;}}
+  function agg(){var P=L();var notti=Math.max(1,Math.min(365,parseInt(q('notti').value,10)||1));var osp=Math.max(1,Math.min(50,parseInt(q('ospiti').value,10)||1));
+    var bam=P.eta_label?Math.max(0,parseInt(q('bambini').value,10)||0):0;var pr=Math.max(0,parseFloat(q('prezzo').value)||0);var ci=q('checkin').value||primaData(P);
+    var o=jtCalcola(P,ci,notti,pr,osp,bam);
+    var h='<div class="r-lab">Estimated accommodation tax for this stay</div><div class="tot">'+y(o.totale)+'</div>';
+    h+='<dl class="r-dl"><div><dt>Average per night</dt><dd>'+y(o.totale/notti)+'</dd></div><div><dt>Price per person per night</dt><dd>'+y(pr/osp)+'</dd></div></dl><ul class="r-righe">';
+    o.comp.forEach(function(x,k){if(x[2]>0)h+='<li><span>'+esc(x[0])+', '+plur(x[2],'night')+'</span><strong class="eq">= '+y(x[1])+'</strong></li>';});
+    if(o.inclusa)h+='<li>'+plur(o.inclusa,'night')+': the '+esc(P.comp[P.comp.length-1].label)+' is included in the percentage above.</li>';
+    if(o.prima)h+='<li>'+plur(o.prima,'night')+(P.tariffe?' before the current rates ('+esc(P.inizio_testo)+'): not calculated, earlier rates applied.':(P.inizio_testo?' before the start ('+esc(P.inizio_testo)+')':'')+': no tax yet.')+'</li>';
+    if(bam)h+='<li>'+plur(bam,'child','children')+' not counted where the age exemption applies.</li>';
+    h+='</ul>';out.innerHTML=h;}
+  if(sel)sel.addEventListener('change',function(){prepara();agg();});
+  q('prezzo').addEventListener('input',function(){box.dataset.prezzoToccato='1';});
+  f.addEventListener('input',function(e){if(e.target!==sel)agg();});f.addEventListener('change',function(e){if(e.target!==sel)agg();});
+  f.addEventListener('submit',function(e){e.preventDefault();});prepara();agg();})();
+"""
+
+
+def jt_desc(r, breve_=False):
+    """Una regola in parole: '¥200', '¥100–¥500 by price band', '3% of the price', '2% (max ¥2,000)'."""
+    if r["tipo"] == "pct":
+        s = f"{num(r['valore'])}%" + (f" (max {yen(r['cap'])})" if r.get("cap") is not None else "")
+        return s if breve_ else s + " of the price" + (f" from {yen(r['min'])} per person" if r.get("min") else "")
+    nz = [v for _, _, v in r["bande"] if v]
+    if not nz:
+        return "no tax"
+    soglia = next((lo for lo, _, v in r["bande"] if v), 0)
+    s = yen(min(nz)) if min(nz) == max(nz) else f"{yen(min(nz))}–{yen(max(nz))}" + ("" if breve_ else " by price band")
+    return s + (f" (no tax below {yen(soglia)})" if soglia and not breve_ else "")
+
+
+def jt_desc_lunga(r):
+    """Una regola in una frase: '¥200 to ¥500 per person per night by price band, with no tax below ¥5,000'."""
+    if r["tipo"] == "pct":
+        return (f"{num(r['valore'])}% of the room-only price per person per night" + (f" from {yen(r['min'])} per person" if r.get("min") else "")
+                + (f", up to {yen(r['cap'])}" if r.get("cap") is not None else "")
+                + (f"; the price is rounded down to the nearest {yen(r['arrot'])}" if r.get("arrot") else ""))
+    nz = [v for _, _, v in r["bande"] if v]
+    soglia = next((lo for lo, _, v in r["bande"] if v), 0)
+    s = (f"{yen(nz[0])} per person per night" if min(nz) == max(nz) else f"{yen(min(nz))} to {yen(max(nz))} per person per night by price band")
+    return s + (f", with no tax below {yen(soglia)}" if soglia else "")
+
+
+def jt_breve(L, d):
+    """Cifra complessiva per titolo, H1 e tabelle in una data: '¥300–¥700', '3%', '2% (max ¥2,000)', '3.5% + ¥100'."""
+    att = jt_attive(L, d)
+    if not att:
+        return ""
+    pct = [r for _, r in att if r["tipo"] == "pct"]
+    fisse = [r for _, r in att if r["tipo"] == "bande"]
+    if pct and not fisse:
+        tot = sum(r["valore"] for r in pct)
+        cap = sum(r["cap"] for r in pct) if all(r.get("cap") is not None for r in pct) else None
+        return f"{num(round(tot, 4))}%" + (f" (max {yen(cap)})" if cap is not None else "")
+    if pct:
+        return " + ".join(jt_desc(r, True) for r in pct + fisse)
+    righe = jt_tabella(L, d)
+    tot = [x[3] for x in righe if x[3]]
+    return yen(min(tot)) if min(tot) == max(tot) else f"{yen(min(tot))}–{yen(max(tot))}"
+
+
+def jt_unita(L, d):
+    att = jt_attive(L, d)
+    if att and all(r["tipo"] == "pct" for _, r in att):
+        return "of the room price"
+    return "per person per night"
+
+
+def jt_tabella(L, d):
+    """Fasce di prezzo a persona con l'importo di ogni componente e il totale (solo importi fissi): [(da, a, [importi], totale)]."""
+    att = jt_attive(L, d)
+    if not att or any(r["tipo"] == "pct" for _, r in att):
+        return []
+    punti = sorted({b[0] for _, r in att for b in r["bande"]})
+    righe = []
+    for i, lo in enumerate(punti):
+        hi = punti[i + 1] if i + 1 < len(punti) else None
+        v = [jt_quota(r, lo) for _, r in att]
+        if righe and righe[-1][2] == v:
+            righe[-1] = (righe[-1][0], hi, v, sum(v))
+        else:
+            righe.append((lo, hi, v, sum(v)))
+    return righe
+
+
+def jt_fascia_testo(lo, hi):
+    if lo == 0 and hi is not None:
+        return f"Up to {yen(hi - 1)}"
+    if hi is None:
+        return f"{yen(lo)} or more"
+    return f"{yen(lo)} to {yen(hi - 1)}"
+
+
+def jt_date_cambio(L):
+    """Date future (dopo oggi) in cui cambia una regola del luogo."""
+    oggi = OGGI.isoformat()
+    ds = set()
+    for c in L["comp"]:
+        for r in c["regole"]:
+            if r.get("dal") and r["dal"] > oggi:
+                ds.add(r["dal"])
+            if r.get("al") and r["al"] >= oggi:
+                ds.add((date.fromisoformat(r["al"]) + timedelta(days=1)).isoformat())
+    return sorted(ds)
+
+
+def jt_giorno_rif(L):
+    """Oggi se una tassa è già in vigore, altrimenti la prima data di partenza (None se la data non è fissata)."""
+    oggi = OGGI.isoformat()
+    if jt_attive(L, oggi):
+        return oggi
+    ds = jt_date_cambio(L)
+    return ds[0] if ds else None
+
+
+def jt_anni(L):
+    rif = jt_giorno_rif(L)
+    if rif is None:
+        return "2027"
+    if rif[:4] == "2027":
+        return "2027"
+    return f"{ANNO} and {ANNO + 1}" if any(d[:4] == "2027" for d in jt_date_cambio(L)) else str(ANNO)
+
+
+def jt_nome_titolo(e):
+    """Nome per titolo e H1: 'Osaka', 'Okinawa' (si cerca così); 'Fukuoka Prefecture' resta intero per non confonderlo con Fukuoka City."""
+    if e["livello"] == "prefecture" and e["id"] != "fukuoka-prefecture":
+        return e["en"].replace(" Prefecture", "")
+    return e["en"].replace(" (Tomamu)", "")
+
+
+def jt_rif_nuova(e, L):
+    """Data di riferimento di titolo e risposta: per una tassa approvata la sua partenza, altrimenti jt_giorno_rif()."""
+    if e["stato"] == "approvato" and e.get("inizio") and e["inizio"] > OGGI.isoformat():
+        return e["inizio"]
+    return jt_giorno_rif(L)
+
+
+def jt_titolo(e, L):
+    nome = jt_nome_titolo(e)
+    rif = jt_rif_nuova(e, L)
+    if rif is None:
+        cifra = jt_desc({"tipo": "bande", "bande": e["bande_previste"]}, True)
+        cand = [f"{nome} accommodation tax 2027: {cifra} per person per night", f"{nome} accommodation tax 2027: {cifra} per night"]
+    else:
+        b, u = jt_breve(L, rif), jt_unita(L, rif)
+        da = f" from {data_breve(rif)}" if rif > OGGI.isoformat() else ""
+        anni_ = "2027" if rif[:4] == "2027" else jt_anni(L)
+        dopo = [d for d in jt_date_cambio(L) if d > rif and d[:4] <= "2027" and jt_breve(L, d) != b]
+        ora = f"{b} now, {jt_breve(L, dopo[0])} from {data_breve(dopo[0])}" if dopo and not da else ""
+        cand = ([f"{nome} accommodation tax {anni_}: {ora} (calculator)", f"{nome} accommodation tax {anni_}: {ora}"] if ora else []) + [
+            f"{nome} accommodation tax {anni_}: {b} {u}{da} (calculator)", f"{nome} accommodation tax {anni_}: {b} {u}{da}",
+            f"{nome} accommodation tax {anni_}: {b}{da} (calculator)", f"{nome} accommodation tax {anni_}: {b}{da}",
+            f"{nome} accommodation tax {anni_}: {b}"]
+    return next((t for t in cand if len(t) <= 70), f"{nome} accommodation tax {ANNO + 1 if rif is None else jt_anni(L)}")
+
+
+def jt_fonti(e):
+    """Fonti dell'ente e (per un Comune) della Prefettura, senza doppioni, nell'ordine dei dati."""
+    out, visti = [], set()
+    P = JT_PREF.get(e["pref"]) if e["livello"] == "municipality" else None
+    for fo in e["fonti"] + (P["fonti"] if P else []):
+        if fo["url"] not in visti:
+            visti.add(fo["url"])
+            out.append(fo)
+    return out
+
+
+def jt_composizione(e, L, d):
+    """'Otaru City accommodation tax ¥200 + Hokkaido accommodation tax ¥100–¥500 by price band' nella data d."""
+    att = jt_attive(L, d)
+    if len(att) == 1 and att[0][1].get("include_pref"):
+        P = JT_PREF[e["pref"]]
+        return f"a single {jt_desc(att[0][1])}, which includes the {P['nome_tassa']}"
+    return " plus ".join(f"{c['label']} {jt_desc(r)}" for c, r in att)
+
+
+def jt_bande_frase(b):
+    """Fasce in parole: '¥100 below ¥6,000, ¥300 from ¥6,000 and ¥500 from ¥20,000'."""
+    righe = [f"{yen(v)} below {yen(hi)}" if lo == 0 else f"{yen(v)} from {yen(lo)}" for lo, hi, v in b]
+    return ", ".join(righe[:-1]) + " and " + righe[-1] if len(righe) > 1 else righe[0]
+
+
+def jt_nuove_fasce(L, prima, dopo):
+    """Se nella data `dopo` la cifra breve è uguale a quella di `prima` ma cambiano le fasce di una sola tassa a fasce (Nagasaki 1/4/2027),
+    le nuove fasce in parole; altrimenti ''."""
+    if jt_breve(L, dopo) != jt_breve(L, prima):
+        return ""
+    att = jt_attive(L, dopo)
+    if len(att) != 1 or att[0][1]["tipo"] != "bande":
+        return ""
+    return jt_bande_frase(att[0][1]["bande"])
+
+
+def jt_fuori(e):
+    """Per una Prefettura con Comuni tassati: ' outside Fukuoka City and Kitakyushu' (o una frase generica se sono molti)."""
+    if e["livello"] != "prefecture":
+        return ""
+    mm = [x["en"] for x in JT["enti"] if x["pref"] == e["id"] and x["livello"] == "municipality" and x["stato"] == "in_vigore"]
+    if not mm:
+        return ""
+    if len(mm) > 6:
+        return " outside the towns and cities with their own tax (listed below)"
+    return " outside " + (", ".join(mm[:-1]) + " and " + mm[-1] if len(mm) > 1 else mm[0])
+
+
+def jt_risposta(e, L):
+    """Prima frase: cifra, composizione, fonte e data del controllo."""
+    fo = [jt_nome_fonte(f["url"]) for f in jt_fonti(e)]
+    fonti = " and ".join(list(dict.fromkeys(fo))[:2])
+    rif = jt_rif_nuova(e, L)
+    nome = e["en"]
+    if rif is None:
+        b = e["bande_previste"]
+        return (f"{nome} has approved an accommodation tax of {jt_desc({'tipo': 'bande', 'bande': b}, True).replace('–', ' to ')} per person per night, set by the "
+                f"room-only price per person ({jt_bande_frase(b)}), starting in January 2027 or later ({fonti}, checked on {JT_CHECK}). "
+                "The exact start date has not been set yet.")
+    oggi = OGGI.isoformat()
+    inizi = [r["dal"] for _, r in jt_attive(L, rif) if r.get("dal")]
+    quando = f"From {data_lunga(rif)}, " if rif > oggi else (f"Since {data_lunga(max(inizi))}, " if inizi else "")
+    b, u = jt_breve(L, rif), jt_unita(L, rif)
+    att = jt_attive(L, rif)
+    if len(att) == 1 and not att[0][1].get("include_pref"):
+        s = f"{quando}the {att[0][0]['label']}{jt_fuori(e)} is {jt_desc_lunga(att[0][1])} ({fonti}, checked on {JT_CHECK})."
+    else:
+        s = (f"{quando}the accommodation tax in {nome}{jt_fuori(e)} is {b.replace('–', ' to ')} {u}: {jt_composizione(e, L, rif)} "
+             f"({fonti}, checked on {JT_CHECK}).")
+    s = s[0].upper() + s[1:]
+    dopo = [d for d in jt_date_cambio(L) if d > rif]
+    if dopo:
+        d = dopo[0]
+        nuove = jt_nuove_fasce(L, rif, d)
+        if nuove:
+            s += f" From {data_lunga(d)} the price bands change: {nuove}."
+        else:
+            s += f" From {data_lunga(d)} it changes to {jt_breve(L, d).replace('–', ' to ')} {jt_unita(L, d)}: {jt_composizione(e, L, d)}."
+    if rif > oggi and jt_attive(L, oggi):
+        s += (f" Until {data_lunga((date.fromisoformat(rif) - timedelta(days=1)).isoformat())} only the "
+              f"{jt_composizione(e, L, oggi)} applies.")
+    return s
+
+
+def jt_tabella_html(e, L, d):
+    att = jt_attive(L, d)
+    righe = jt_tabella(L, d)
+    if not att:
+        return ""
+    if not righe:
+        li = "".join(f"<li><strong>{escape(c['label'])}:</strong> {escape(jt_desc(r))}"
+                     + (f"; the base is the price per person rounded down to the nearest {yen(r['arrot'])}, counted up to {yen(r['base_max'])}" if r.get("arrot") else "")
+                     + (" (includes the prefectural tax)" if r.get("include_pref") else "") + "</li>" for c, r in att)
+        return f"<ul>{li}</ul>"
+    th = "".join(f"<th>{escape(c['label'].replace(' accommodation tax', ''))}</th>" for c, _ in att) if len(att) > 1 else ""
+    tr = "".join(f"<tr><td>{jt_fascia_testo(lo, hi)}</td>" + ("".join(f"<td>{yen(x)}</td>" for x in v) if len(att) > 1 else "")
+                 + f"<td><strong>{yen(t)}</strong></td></tr>" for lo, hi, v, t in righe)
+    return (f'<div class="tab sintesi"><table><thead><tr><th>Room-only price per person per night</th>{th}<th>{"Total " if len(att) > 1 else ""}per person per night</th>'
+            f"</tr></thead><tbody>{tr}</tbody></table></div>")
+
+
+def jt_periodi(L):
+    """Periodi con regole diverse a partire da oggi (o dalla partenza): [(dal, al)]."""
+    rif = jt_giorno_rif(L)
+    if rif is None:
+        return []
+    ds = [rif] + [d for d in jt_date_cambio(L) if d > rif]
+    return [(d, (date.fromisoformat(ds[i + 1]) - timedelta(days=1)).isoformat() if i + 1 < len(ds) else None) for i, d in enumerate(ds)]
+
+
+def jt_esempio(L):
+    rif = jt_giorno_rif(L)
+    if rif is None:
+        return ""
+    o = jt_calcola(L, rif, 3, L["prezzo"], 2)
+    return (f"Example: 2 guests, room-only price {yen(L['prezzo'])} per night ({yen(L['prezzo'] / 2)} per person), 3 nights from {data_lunga(rif)} → "
+            f"<strong>{yen(o['totale'])}</strong> in total.")
+
+
+def jt_calcolatore(luoghi, rel, con_scelta=False):
+    scelta = (f'<label class="pieno"><span class="lt">{ico("pin")}City, town or prefecture</span><select name="luogo"></select></label>' if con_scelta else "")
+    link = (f'<p class="calc-link"><a data-link data-base="{rel}" href="{rel}{luoghi[0]["pagina"]}"><span>Rates, exemptions and official sources</span>{ico("arrow")}</a></p>'
+            if con_scelta else "")
+    dati = json.dumps(luoghi, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    return f"""<div class="card calc" data-jt>
+<div class="calc-grid">
+<form autocomplete="off">
+<div class="campi">
+{scelta}
+<label data-campo="checkin"><span class="lt">{ico("calendar")}Check-in date</span><input type="date" name="checkin"></label>
+<label data-campo="notti"><span class="lt">{ico("moon")}Nights</span><input type="number" name="notti" min="1" max="365" value="3" inputmode="numeric"></label>
+<label data-campo="paganti"><span class="lt">{ico("users")}Guests</span><input type="number" name="ospiti" min="1" max="50" value="2" inputmode="numeric"></label>
+<label data-campo="esenti" hidden><span class="lt">{ico("child")}<span data-lab="esenti">Children</span></span><input type="number" name="bambini" min="0" max="50" value="0" inputmode="numeric"></label>
+<label class="pieno" data-campo="prezzo"><span class="lt">{ico("tag")}{JT_PREZZO_LAB}</span><input type="number" name="prezzo" min="0" step="any" value="{luoghi[0]['prezzo']}" inputmode="decimal"></label>
+</div>
+</form>
+<div class="calc-out">
+<div class="risultato" data-out aria-live="polite"><noscript>Turn on JavaScript to use the calculator. The rate tables show every official amount.</noscript></div>
+{link}
+</div>
+</div>
+</div>
+<script type="application/json" id="jt-dati">{dati}</script>"""
+
+
+JT_FORMULA = ("Tax per night = for each tax that applies (city, town or village, and prefecture): the amount for the band of the room-only price per person "
+              "(price per night ÷ guests), or the percentage of that price per person (Okinawa: rounded down to the nearest ¥1,000, counted up to ¥100,000, "
+              "with a maximum per person), times the guests who pay. A tax counts only on nights from its start date. Children are left out only where "
+              "the official rules exempt them by age. The accommodation may round the amounts: check the final figure with them.")
+
+
+def jt_callout(rel):
+    n_in = sum(1 for e in JT["enti"] if e["stato"] == "in_vigore")
+    n_ap = sum(1 for e in JT["enti"] if e["stato"] == "approvato")
+    return (f'<section class="card callout jt-box" aria-label="Japan accommodation tax"><span class="ic">{ico("bed")}</span>'
+            f'<p><strong>Staying elsewhere in Japan?</strong> {n_in} prefectures and cities charge an accommodation tax and {n_ap} more start in 2027. '
+            f'<a href="{rel}{JT_HUB}">Japan accommodation tax: every place, with a calculator</a> · <a href="{rel}{JT_27}">2027 start dates</a></p></section>')
+
+
+def jt_link(e, rel):
+    return f'<a href="{rel}{e["pagina"]}">{escape(e["en"])}</a>'
+
+
+def jt_quando(e, corto=False):
+    data_lunga = data_breve if corto else globals()["data_lunga"]
+    if e["stato"] == "approvato":
+        return f"Starts {data_lunga(e['inizio'])}" if e.get("inizio") else ("Jan 2027 or later" if corto else f"Starts {e.get('inizio_testo', '2027')}")
+    if e.get("inizio") and e.get("inizio_da") == "mic":
+        return f"Since {data_lunga(e['inizio'])}"
+    if e.get("inizio") and e["inizio"] <= OGGI.isoformat():
+        if e.get("inizio_nota") == "tariffe":
+            return f"Current rates since {data_lunga(e['inizio'])}"
+        if e.get("inizio_da") == "consenso":
+            return f"Since {data_lunga(e['inizio'])}" + ("" if corto else " (start date planned in the Minister's consent)")
+        return f"Since {data_lunga(e['inizio'])}"
+    return "In force"
+
+
+def jt_riga_sintesi(e, rel):
+    L = JT_L[e["id"]]
+    rif = jt_giorno_rif(L)
+    if rif is None:
+        cifra = jt_desc({"tipo": "bande", "bande": e["bande_previste"]}, True)
+    else:
+        cifra = jt_breve(L, rif) + (" of the room price" if jt_unita(L, rif) == "of the room price" else "")
+    return f"<tr><td>{jt_link(e, rel)}<br><span class=\"small\">{escape(e['ja'])}</span></td><td>{escape(cifra)}</td><td>{escape(jt_quando(e, corto=True))}</td></tr>"
+
+
+def jt_ordine_pref():
+    """Prefetture in ordine geografico approssimativo (nord → sud) per raggruppare le tabelle."""
+    ordine = ["hokkaido", "aomori", "iwate", "miyagi", "yamagata-pref", "tochigi", "tokyo", "kanagawa", "yamanashi", "nagano", "ishikawa", "gifu",
+              "shizuoka", "aichi", "mie", "kyoto-pref", "osaka", "wakayama", "shimane", "hiroshima", "fukuoka-prefecture", "nagasaki-pref",
+              "kumamoto-pref", "oita", "miyazaki-pref", "kagoshima-pref", "okinawa"]
+    return ordine
+
+
+def jt_gruppi(stati=("in_vigore", "approvato")):
+    """{pref_id: [enti]} con la Prefettura prima dei suoi Comuni, nell'ordine geografico."""
+    g = {}
+    for e in JT["enti"]:
+        if e["stato"] in stati:
+            g.setdefault(e["pref"], []).append(e)
+    for k in g:
+        g[k].sort(key=lambda e: (e["livello"] != "prefecture", e["stato"] != "in_vigore", e["en"]))
+    ordine = jt_ordine_pref()
+    return [(k, g[k]) for k in sorted(g, key=lambda k: ordine.index(k) if k in ordine else 99)]
+
+
+def jt_nome_pref(pid, enti):
+    e = enti[0]
+    return e["en"] if e["livello"] == "prefecture" else e.get("pref_en", pid)
+
+
+def pagina_jt_luogo(e):
+    L = JT_L[e["id"]]
+    rel = "../../"
+    P = JT_PREF.get(e["pref"]) if e["livello"] == "municipality" else None
+    rif = jt_giorno_rif(L)
+    titolo = jt_titolo(e, L)
+    h1 = titolo.replace(" (calculator)", "")
+    tabelle = ""
+    for dal, al in jt_periodi(L):
+        if dal <= OGGI.isoformat():
+            intest = f"Rates now" + (f" (until {data_lunga(al)})" if al else "")
+        else:
+            intest = f"From {data_lunga(dal)}" + (f" to {data_lunga(al)}" if al else "")
+        tabelle += f"<h3>{intest}</h3>{jt_tabella_html(e, L, dal)}"
+    if rif is None:
+        tabelle = "<h3>Approved rates (start date not fixed)</h3>" + jt_tabella_html(e, {"comp": [{"label": e["nome_tassa"], "regole": [{"tipo": "bande", "bande": e["bande_previste"]}], "eta": False, "pref": False}]}, OGGI.isoformat())
+    ese = e["esenzioni"] + ([f"{P['en']} tax: {x[0].lower() + x[1:]}" for x in P["esenzioni"]] if P else [])
+    esenzioni = ("<ul>" + "".join(f"<li>{escape(x)}</li>" for x in ese) + "</ul>") if ese else "<p>The official sources list no exemptions.</p>"
+    note = e["note"] + ([n for n in P["note"]] if P and e["pref"] in ("hokkaido", "nagano", "okinawa", "fukuoka-prefecture", "miyagi") else [])
+    sorelle = [x for x in JT["enti"] if x["pref"] == e["pref"] and x["id"] != e["id"]]
+    stato = (f"In force: {e['ja']} is on the Ministry of Internal Affairs and Communications list of local taxes in force on {JT_LISTA_AL}."
+             if e["stato"] == "in_vigore" else
+             f"Approved, not yet in force: on the Ministry's list of {JT_LISTA_AL}, {e['ja']} has an ordinance and the Minister's consent, with the start "
+             + (f"planned for {data_lunga(e['inizio'])}." if e.get("inizio") else f"planned for {e.get('inizio_testo')}."))
+    cambi = [d for d in jt_date_cambio(L) if d > OGGI.isoformat()]
+    box = ""
+    if cambi:
+        li = "".join(f"<li><strong>{data_lunga(d)}:</strong> " + escape(f"new price bands ({jt_nuove_fasce(L, OGGI.isoformat(), d)})" if jt_nuove_fasce(L, OGGI.isoformat(), d)
+                                                                       else f"{jt_breve(L, d)} {jt_unita(L, d)}") + "</li>" for d in cambi[:3])
+        box = (f'<section class="card callout cambi-box" aria-label="Upcoming changes"><span class="ic">{ico("calendar")}</span>'
+               f'<div><p><strong>Upcoming changes</strong></p><ul>{li}</ul><p class="small"><a href="{rel}{JT_27}">Japan accommodation tax 2027: all new taxes and start dates</a></p></div></section>')
+    pref_sez = ""
+    if e["livello"] == "prefecture":
+        mm = [x for x in JT["enti"] if x["pref"] == e["id"] and x["livello"] == "municipality"]
+        if mm:
+            inclusa = {"hokkaido": " (in Kutchan, Niseko, Tomakomai and Kitahiroshima a single percentage includes both)",
+                       "okinawa": " (0.8% to the prefecture and 1.2% to the municipality, 2% in all)"}.get(e["id"], "")
+            pref_sez = (f"<h2>Cities, towns and villages in {escape(e['en'])} with their own tax</h2><p>In these places you pay the local tax and the {escape(e['nome_tassa'])} "
+                        f"together{inclusa}. The figures are the totals.</p>"
+                        '<div class="tab sintesi"><table><thead><tr><th>Place</th><th>Total per person per night</th><th>Start</th></tr></thead><tbody>'
+                        + "".join(jt_riga_sintesi(x, rel) for x in mm) + "</tbody></table></div>")
+    fonti = "".join(f'<li><a href="{escape(f["url"])}" rel="noopener">{escape(f["titolo"])}</a> – {escape(f["formato"])}, checked {data_lunga(f["controllato_il"])}</li>'
+                    for f in jt_fonti(e))
+    f0 = jt_fonti(e)[0]
+    calc = jt_calcolatore([L], rel) if rif is not None else (f'<p class="avviso"><strong>No calculator yet.</strong> The start date is not fixed; '
+                                                                f'we will add it when {escape(e["en"])} publishes it.</p>')
+    nome_p = (P["en"] if P else (e.get("pref_en") or e["en"]))
+    corpo = f"""<section class="hero">{h1_diviso(h1)}
+<p class="risposta">{escape(jt_risposta(e, L))}</p>
+<p class="fonte">Official source: <a href="{escape(f0['url'])}" rel="noopener">{escape(f0['titolo'])}</a> · checked on {data_lunga(f0['controllato_il'])}</p></section>
+{box}
+{calc}
+<details class="formula"><summary>{ico("calc")}Formula used</summary><p>{escape(JT_FORMULA)}</p></details>
+{f'<p class="esempio">{jt_esempio(L)}</p>' if rif else ""}
+{AVVISO}
+{AD}
+<h2>Official rates</h2>
+<p>{escape(e['nome_tassa'])} (宿泊税, {escape(e['ja'])}){f" and {escape(P['nome_tassa'])} ({escape(P['ja'])})" if P and any(c['pref'] for c in L['comp']) else ""}, per person per night, by room-only price per person per night.</p>
+{tabelle}
+<p class="small">{escape(stato)}</p>
+{pref_sez}
+<h2>Practical notes</h2>
+<ul>{"".join(f"<li>{escape(n)}</li>" for n in note)}<li>The price used for the bands is the room-only price per person per night. Most official explanations exclude meals and consumption tax: ask your accommodation what it includes.</li></ul>
+<p><strong>Who collects it:</strong> the accommodation (hotel, ryokan, guesthouse or private lodging) collects the tax from guests and pays it to the local government (special collection, 特別徴収).</p>
+<h2>Exemptions (official)</h2>
+{esenzioni}
+<h2>Official sources</h2>
+<ul>{fonti}</ul>
+<p class="small">Spotted a change in the official rate? <a href="{rel}contact/?ref=jp-{e['id']}">Tell us</a>.</p>
+{f'<h2>Other places in {escape(nome_p)}</h2><div class="griglia">' + "".join(f'<a href="{rel}{x["pagina"]}">{escape(x["en"])}<small>{escape(jt_quando(x))}</small></a>' for x in sorelle) + "</div>" if sorelle else ""}
+<p><a href="{rel}{JT_HUB}">Japan accommodation tax: all places</a> · <a href="{rel}{JT_27}">New taxes in 2027</a> · <a href="{rel}{JP_SLUG}">Japan tax-free refund</a></p>"""
+    br = [("Japan accommodation tax", JT_HUB)] + ([(P["en"], P["pagina"])] if P and P["pagina"].startswith(JT_HUB) else []) + [(e["en"], e["pagina"])]
+    rif = jt_rif_nuova(e, L)
+    if rif is None:
+        cifra = jt_desc({"tipo": "bande", "bande": e["bande_previste"]}, True) + " per person per night, start date not fixed yet"
+    else:
+        cifra = f"{jt_breve(L, rif)} {jt_unita(L, rif)}" + (f" from {data_lunga(rif)}" if rif > OGGI.isoformat() else "")
+    descr = (f"{e['en']} accommodation tax ({e['ja']}): {cifra}. Rate table, exemptions, official sources and a calculator.")
+    pagina(e["pagina"], titolo, descr, corpo, briciole=br, extra_js=JT_JS + JT_APP_JS)
+
+
+def jt_faq():
+    vv = [e for e in JT["enti"] if e["stato"] == "in_vigore"]
+    ap = [e for e in JT["enti"] if e["stato"] == "approvato"]
+    tk, ky, osk = JT_L["tokyo"], JT_L["kyoto"], JT_L["osaka"]
+    oggi = OGGI.isoformat()
+    return [
+        ("Which places in Japan charge an accommodation tax?",
+         f"On {JT_LISTA_AL}, {len(vv)} local governments: {sum(1 for e in vv if e['livello'] == 'prefecture')} prefectures "
+         f"({', '.join(e['en'] for e in vv if e['livello'] == 'prefecture')}) and {sum(1 for e in vv if e['livello'] == 'municipality')} cities, towns and villages, "
+         f"according to the Ministry of Internal Affairs and Communications. {len(ap)} more have been approved and start in 2027."),
+        ("Do I pay both the prefecture and the city tax?",
+         "Yes, where both charge one. In Hokkaido the prefectural tax is added to the town or city tax (except in Kutchan and, from 1 November 2026, Niseko, "
+         "where one 3% covers both). In Fukuoka City and Kitakyushu the prefecture charges ¥50 on top of the city tax, in Sendai ¥100, and in the five Nagano "
+         "municipalities with their own tax half the prefectural rate. The calculator adds them up."),
+        ("How much is the accommodation tax in Tokyo, Kyoto and Osaka?",
+         f"Tokyo: {jt_breve(tk, oggi)} per person per night now (no tax below ¥10,000), 3% from ¥13,000 per person from 1 April 2027. "
+         f"Kyoto: {jt_breve(ky, oggi)} per person per night by price band. Osaka Prefecture: {jt_breve(osk, oggi)} per person per night, no tax below ¥5,000."),
+        ("Do children pay the accommodation tax in Japan?",
+         "Usually yes: most taxes have no age exemption. Some places exempt children: under 12 in Atami, Gero, Yugawara, Nasu and Shirahama; children up to primary-school age "
+         "in Takayama, Gifu, Ibusuki and (town tax only) Toyako. School trips are exempt almost everywhere."),
+        ("Is the price per room or per person?",
+         "The tax is per person per night, and the band depends on the room-only price per person per night: the room price divided by the number of guests. "
+         "Meals and consumption tax are usually left out; check with the accommodation."),
+    ]
+
+
+def pagina_jt_hub():
+    rel = "../"
+    vv = [e for e in JT["enti"] if e["stato"] == "in_vigore"]
+    ap = [e for e in JT["enti"] if e["stato"] == "approvato"]
+    oggi = OGGI.isoformat()
+    importi = [x[3] for L in JT_LUOGHI for x in jt_tabella(L, oggi) if x[3]]
+    pct = sorted({num(r["valore"]) for L in JT_LUOGHI for _, r in jt_attive(L, oggi) if r["tipo"] == "pct"}, key=float)
+    risp = (f"On {JT_LISTA_AL}, {len(vv)} local governments in Japan charged an accommodation tax ({sum(1 for e in vv if e['livello'] == 'prefecture')} prefectures and "
+            f"{sum(1 for e in vv if e['livello'] == 'municipality')} cities, towns and villages) and {len(ap)} more were approved to start in 2027, according to the "
+            f"Ministry of Internal Affairs and Communications (list checked on {JT_CHECK}). Amounts range from {yen(min(importi))} to {yen(max(importi))} per person per night"
+            + (f", or {pct[0] + '% to ' + pct[-1] if len(pct) > 1 else pct[0]}% of the room price" if pct else "")
+            + "; where a prefecture and a city both tax, you pay both.")
+    righe = ""
+    for pid, enti in jt_gruppi(("in_vigore",)):
+        righe += f'<tr class="grp"><th colspan="3">{escape(jt_nome_pref(pid, enti))}</th></tr>' + "".join(jt_riga_sintesi(e, rel) for e in enti)
+    faq = jt_faq()
+    faq_html = "".join(f'<details class="faq"><summary>{escape(q)}</summary><p>{escape(a)}</p></details>' for q, a in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage",
+          "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
+    lista = JT["fonte_elenco"]
+    altre = [JT_ENTI["hokkaido"]["fonti"][0], JT_ENTI["fukuoka-prefecture"]["fonti"][0], JT_ENTI["nagano"]["fonti"][0], JT_ENTI["okinawa"]["fonti"][0]]
+    luoghi = sorted(JT_LUOGHI, key=lambda L: (jt_ordine_pref().index(JT_ENTI[L["id"]]["pref"]) if JT_ENTI[L["id"]]["pref"] in jt_ordine_pref() else 99,
+                                              JT_ENTI[L["id"]]["livello"] != "prefecture", L["nome"]))
+    luoghi = [L for L in luoghi if jt_giorno_rif(L) is not None]
+    corpo = f"""<section class="hero">{h1_diviso(f"Japan accommodation tax {ANNO}: every prefecture and city, with a calculator")}
+<p class="risposta">{escape(risp)}</p>
+<p class="fonte">Official source: <a href="{escape(lista['url'])}" rel="noopener">{escape(lista['titolo'])}</a> · checked on {data_lunga(lista['controllato_il'])}</p></section>
+<div class="card callout cal-2027"><span class="ic">{ico("calendar")}</span><p><strong>2027:</strong> <a href="{rel}{JT_27}">{len(ap)} new accommodation taxes with their start dates</a> – Okinawa and five more places on 1 February, Tokyo's new 3% and seven new city taxes on 1 April.</p></div>
+<h2>Calculator</h2>
+{jt_calcolatore(luoghi, rel, con_scelta=True)}
+<details class="formula"><summary>{ico("calc")}Formula used</summary><p>{escape(JT_FORMULA)}</p></details>
+{AVVISO}
+{AD}
+<h2>Accommodation tax by prefecture and city ({len(vv)} in force)</h2>
+<p>Totals per person per night today, prefecture and city together. Each place has its own page with the rate table, the start date, the exemptions and the official sources.</p>
+<div class="tab sintesi"><table><thead><tr><th>Place</th><th>Tax per person per night</th><th>Start</th></tr></thead><tbody>{righe}</tbody></table></div>
+<h2>How prefecture and city taxes add up</h2>
+<ul><li><strong>Hokkaido:</strong> the Hokkaido tax (¥100, ¥200 or ¥500 by price) is added to the tax of the town or city. Kutchan and, from 1 November 2026, Niseko charge one flat 3% that includes it; Tomakomai (April 2027) and Kitahiroshima (October 2027) will do the same.</li>
+<li><strong>Fukuoka:</strong> ¥200 in the prefecture; in Fukuoka City and Kitakyushu the prefecture charges ¥50 and the city ¥150 (Fukuoka City ¥450 from ¥20,000).</li>
+<li><strong>Miyagi:</strong> ¥300 in the prefecture; in Sendai ¥100 to the prefecture and ¥200 to the city.</li>
+<li><strong>Nagano:</strong> ¥200 for the first three years (then ¥300); in Matsumoto, Karuizawa, Achi, Hakuba and Nozawa Onsen half that, plus the local tax.</li>
+<li><strong>Okinawa (from 1 February 2027):</strong> 2% (max ¥2,000); in Ishigaki, Miyakojima, Nago, Motobu, Onna and Chatan 0.8% to the prefecture and 1.2% to the municipality.</li></ul>
+<p class="fonte">Official sources: {" · ".join(f'<a href="{escape(f["url"])}" rel="noopener">{escape(jt_nome_fonte(f["url"]))}</a>' for f in altre)} · checked on {JT_CHECK}</p>
+<h2>Questions</h2>
+<div class="faq-box">{faq_html}</div>
+<h2>How we check the rates</h2>
+<p>The list of places comes from the Ministry of Internal Affairs and Communications (法定外税の状況, as of {JT_LISTA_AL}). Each rate comes from the Minister's consent to the tax (published by the Ministry) or from the official page of the prefecture or city, linked on each page with the date we checked it. We re-check the Ministry's list and its press releases every quarter.</p>
+<p class="small">Spotted a change? <a href="{rel}contact/?ref=japan-accommodation-tax">Tell us</a>.</p>
+<p><a href="{rel}country/japan/">Tourist taxes in Japan</a> · <a href="{rel}{JP_SLUG}">Japan tax-free refund</a> · <a href="{rel}tourist-tax-changes-2027/">All tourist tax changes in 2027</a></p>"""
+    pagina(JT_HUB, f"Japan accommodation tax {ANNO}: all {len(vv)} places and calculator",
+           f"Japan accommodation tax by prefecture and city: {len(vv)} taxes in force on {JT_LISTA_AL} and {len(ap)} approved for 2027. Official rates, start dates and a calculator.",
+           corpo, briciole=[("Japan accommodation tax", JT_HUB)], extra_js=JT_JS + JT_APP_JS, jsonld_extra=ld)
+
+
+def jt_bande_testo(L, d):
+    """'¥100 / ¥300 / ¥500 per person per night (bands from ¥6,000 and ¥20,000)': per distinguere due tabelle con lo stesso minimo e massimo."""
+    rr = jt_tabella(L, d)
+    los = [yen(x[0]) for x in rr[1:]]
+    return (" / ".join(yen(x[3]) for x in rr) + " per person per night"
+            + (f" (bands from {', '.join(los[:-1]) + ' and ' + los[-1] if len(los) > 1 else los[0]})" if los else ""))
+
+
+def jt_eventi_2027():
+    """Calendario: nuove tasse (approvate) e cambi di tasse esistenti tra oggi e il 31/12/2027, con data, luogo, importo, fonte."""
+    oggi = OGGI.isoformat()
+    ev = []
+    for e in JT["enti"]:
+        L = JT_L[e["id"]]
+        if e["stato"] == "approvato":
+            if e.get("inizio"):
+                cifra = f"{jt_breve(L, e['inizio'])} {jt_unita(L, e['inizio'])}"
+                ev.append({"dal": e["inizio"], "e": e, "nuova": True, "cifra": cifra, "dett": jt_composizione(e, L, e["inizio"])})
+            else:
+                ev.append({"dal": None, "e": e, "nuova": True, "cifra": jt_desc({"tipo": "bande", "bande": e["bande_previste"]}, True) + " per person per night",
+                           "dett": "start date not fixed yet (January 2027 or later)"})
+            continue
+        for d in jt_date_cambio(L):
+            if d <= "2027-12-31" and d > oggi:
+                prima = (date.fromisoformat(d) - timedelta(days=1)).isoformat()
+                if [r for _, r in jt_attive(L, d)] != [r for _, r in jt_attive(L, prima)]:
+                    dopo_, prima_ = f"{jt_breve(L, d)} {jt_unita(L, d)}", f"{jt_breve(L, prima)} {jt_unita(L, prima)}"
+                    if dopo_ == prima_:
+                        dopo_, prima_ = jt_bande_testo(L, d), jt_bande_testo(L, prima)
+                    ev.append({"dal": d, "e": e, "nuova": False, "cifra": dopo_, "dett": jt_composizione(e, L, d), "prima": prima_})
+    return sorted(ev, key=lambda x: (x["dal"] or "2027-01-00", x["e"]["livello"] != "prefecture", x["e"]["en"]))
+
+
+def jt_faq_2027(ev):
+    nuove = [x for x in ev if x["nuova"]]
+    oki = JT_L["okinawa"]
+    per_data = {}
+    for x in nuove:
+        per_data.setdefault(x["dal"], []).append(x["e"]["en"])
+    elenco = "; ".join((data_lunga(d) if d else "January 2027 or later") + ": " + ", ".join(n) for d, n in per_data.items())
+    return [
+        ("Which new accommodation taxes start in Japan in 2027?",
+         f"{len(nuove)} approved taxes, by start date: {elenco} (Ministry of Internal Affairs and Communications list of {JT_LISTA_AL})."),
+        ("How much is the Okinawa accommodation tax?",
+         f"From 1 February 2027, {jt_breve(oki, '2027-02-01')} of the room-only price per person per night, rounded down to the nearest ¥1,000. In Ishigaki, Miyakojima, Nago, "
+         "Motobu, Onna and Chatan the same 2% is split between the prefecture (0.8%, max ¥800) and the municipality (1.2%, max ¥1,200)."),
+        ("Is there an accommodation tax at Mount Fuji?",
+         "Yes, from 1 April 2027 in Fujiyoshida and Fujikawaguchiko: ¥200 per person per night each, with school trips exempt."),
+        ("Which existing taxes change in 2027?",
+         "Tokyo moves to 3% of the room-only price per person per night from ¥13,000 (1 April 2027), and Nagasaki changes its bands to ¥100, ¥300 and ¥500 "
+         "(1 April 2027). Niseko already moves to a flat 3% on 1 November 2026."),
+    ]
+
+
+def pagina_jt_2027():
+    rel = "../"
+    ev = jt_eventi_2027()
+    nuove = [x for x in ev if x["nuova"]]
+    righe = ""
+    for x in ev:
+        e = x["e"]
+        quando = data_breve(x["dal"]) if x["dal"] else "Jan 2027 or later"
+        L = JT_L[e["id"]]
+        if x["nuova"]:
+            cosa = "New: " + (jt_breve(L, x["dal"]) if x["dal"] else jt_desc({"tipo": "bande", "bande": e["bande_previste"]}, True))
+        else:
+            prima_ = (date.fromisoformat(x["dal"]) - timedelta(days=1)).isoformat()
+            cosa = "Change: " + (jt_breve(L, x["dal"]) if jt_breve(L, x["dal"]) != jt_breve(L, prima_) else "new price bands")
+        righe += f"<tr><td><strong>{escape(quando)}</strong></td><td>{jt_link(e, rel)}<br><span class=\"small\">{escape(e['ja'])}</span></td><td>{escape(cosa)}</td></tr>"
+    schede = ""
+    for x in ev:
+        e = x["e"]
+        fo = e["fonti"][0]
+        d = x["dal"]
+        g, m = (str(date.fromisoformat(d).day), f"{MESI_BREVI[date.fromisoformat(d).month - 1]} {d[:4]}") if d else ("Jan", "2027 or later")
+        schede += f"""<li class="vc"><div class="vc-data"><span class="vc-g">{g}</span><span class="vc-m">{m}</span></div>
+<div class="vc-c"><h3>{jt_link(e, rel)} <span class="small">{escape(e['ja'])}</span></h3>
+<p class="vc-imp"><span class="vc-lab">{"New" if x["nuova"] else "Change"}</span> {escape(x['cifra'])}</p>
+{f'<p class="vc-prima"><span class="vc-lab">Before</span> {escape(x["prima"])}</p>' if not x["nuova"] else ""}
+<p>{escape(x['dett'][0].upper() + x['dett'][1:])}.</p>
+<p class="fonte">Official source: <a href="{escape(fo['url'])}" rel="noopener">{escape(fo['titolo'])}</a> · checked on {data_lunga(fo['controllato_il'])}</p>
+<a class="vc-calc" href="{rel}{e['pagina']}">{ico("calc")}Rates and calculator</a></div></li>"""
+    per_data = {}
+    for x in nuove:
+        per_data.setdefault(x["dal"], []).append(x["e"]["en"])
+    parti = []
+    for d, n in per_data.items():
+        nomi_ = ", ".join(n[:-1]) + " and " + n[-1] if len(n) > 1 else n[0]
+        parti.append(f"{nomi_} {'on ' + data_lunga(d)[:-5] if d else 'from January 2027 or later'}")
+    risp = (f"{len(nuove)} more Japanese local governments will charge an accommodation tax in 2027: " + "; ".join(parti)
+            + f" (Ministry of Internal Affairs and Communications list as of {JT_LISTA_AL}, checked on {JT_CHECK}). Tokyo and Nagasaki also change their rates on 1 April 2027.")
+    faq = jt_faq_2027(ev)
+    faq_html = "".join(f'<details class="faq"><summary>{escape(q)}</summary><p>{escape(a)}</p></details>' for q, a in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage",
+          "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
+    lista = JT["fonte_elenco"]
+    corpo = f"""<section class="hero">{h1_diviso(f"Japan accommodation tax 2027: {len(nuove)} new taxes and the start dates")}
+<p class="risposta">{escape(risp)}</p>
+<p class="fonte">Official source: <a href="{escape(lista['url'])}" rel="noopener">{escape(lista['titolo'])}</a> · checked on {data_lunga(lista['controllato_il'])}</p></section>
+<h2 class="sr">At a glance</h2>
+<div class="tab sintesi"><table><thead><tr><th>From</th><th>Where</th><th>What</th></tr></thead><tbody>{righe}</tbody></table></div>
+{AVVISO}
+{AD}
+<h2>Each change, with the official source</h2>
+<ol class="linea">{schede}</ol>
+<h2>Questions</h2>
+<div class="faq-box">{faq_html}</div>
+<p>We list a new tax only when the Ministry's list shows the ordinance and the Minister's consent. The rates come from the Minister's consent, published by the Ministry. Taxes still being discussed (for example in other prefectures) are not listed.</p>
+<p><a href="{rel}{JT_HUB}">Japan accommodation tax: all places and calculator</a> · <a href="{rel}tourist-tax-changes-2027/">All tourist tax changes in 2027</a> · <a href="{rel}contact/?ref=japan-2027">Spotted a change? Tell us</a></p>"""
+    pagina(JT_27, f"Japan accommodation tax 2027: {len(nuove)} new taxes, dates and rates",
+           f"Japan accommodation tax 2027: {len(nuove)} new taxes approved (Okinawa, Ishigaki, Fujikawaguchiko, Kagoshima and more) with start dates, rates and official sources.",
+           corpo, briciole=[("Japan accommodation tax", JT_HUB), ("2027", JT_27)], jsonld_extra=ld)
+
+
+def pagine_jt():
+    for e in JT["enti"]:
+        if e["pagina"].startswith(JT_HUB):
+            pagina_jt_luogo(e)
+    pagina_jt_hub()
+    pagina_jt_2027()
 
 
 def fr_slug_map():
@@ -2201,13 +2994,17 @@ def pagina_paese(slug):
         "turkey": "Turkey's accommodation tax is national: a percentage of the accommodation price excluding VAT, the same everywhere.",
         "japan": "In Japan accommodation taxes are set by prefectures and cities. Some places have both (for example Hokkaido and Sapporo, Nagano and Hakuba). The Ministry of Internal Affairs and Communications publishes the official list of all of them.",
         "italy": "In Italy each city sets its own imposta (or contributo) di soggiorno per person per night, with its own maximum nights and age exemptions.",
+        "belgium": ("In Belgium the Brussels-Capital Region and individual cities such as Ghent and Bruges set their own tourist tax. Brussels charges per room per night; Ghent and Bruges per "
+                    "person aged 18 or over per night. Antwerp is not covered yet: the City's tax page does not open for automatic reading (HTTP 403). Bruges has "
+                    "announced a charge for cruise and coach day visitors from 2027 (VRT News, March 2025), but we have not found an official regulation on brugge.be, "
+                    "so we show no amount."),
     }.get(slug, "")
     tit, h1, risp = paese_seo(slug, dd)
     corpo = f"""<section class="hero">{h1_diviso(h1) if h1 else f"<h1>Tourist taxes in {escape(nome)} {ANNO}</h1>"}
 {f'<p class="risposta">{escape(risp)}</p>' if risp else ""}
 {"" if risp else f'<p class="lead">{escape(testo_extra) if testo_extra else f"Official tourist tax rates in {escape(nome)}, with a calculator for each destination."}</p>'}</section>
 {f'<p class="small">What changes next: <a href="{rel}tourist-tax-changes-2027/">tourist tax changes in 2027</a>.</p>' if any(cambi_di(d["slug"]) for d in dd) else ""}
-{jp_callout(rel) if slug == "japan" else ""}
+{(jt_callout(rel) + jp_callout(rel)) if slug == "japan" else ""}
 <div class="tab"><table><thead><tr><th>Destination</th><th>Rate {ANNO}</th><th>Max taxable nights</th><th>Exempt</th></tr></thead><tbody>{righe}</tbody></table></div>
 {AVVISO}
 {AD}
@@ -2289,7 +3086,8 @@ def home():
 {modulo_calcolatore('tutte', con_destinazione=True, rel='')}
 </div></div>"""
     corpo = f"""<div class="card callout">{'<span class="ic">' + ico("search") + '</span>'}<p><strong>France:</strong> <a href="france/">search your town among {len(FR['comuni']):,} French towns</a>.</p></div>
-<div class="card callout cal-2027">{'<span class="ic">' + ico("calendar") + '</span>'}<p><strong>2027:</strong> <a href="tourist-tax-changes-2027/">{len(CAMBI['voci'])} tourist tax changes with an official date</a> – Turkey, Okinawa, Quintana Roo (Mexico), Cardiff, Catalonia, Barcelona, Tokyo, Vienna and Mexican cruise ports.</p></div>
+<div class="card callout cal-2027">{'<span class="ic">' + ico("calendar") + '</span>'}<p><strong>2027:</strong> <a href="tourist-tax-changes-2027/">{len(CAMBI['voci'])} tourist tax changes with an official date</a> – Turkey, Okinawa and 17 more Japanese places, Quintana Roo (Mexico), Cardiff, Catalonia, Barcelona, Tokyo, Vienna and Mexican cruise ports.</p></div>
+{jt_callout('')}
 {jp_callout('')}
 {AVVISO}
 {AD}
@@ -2330,7 +3128,7 @@ def pagina_europa():
 {AVVISO}
 {AD}
 <h2>Not covered yet</h2>
-<p>We only publish a destination when we can read a complete official source. Not covered on the date we checked: Venice, Lisbon and the Algarve, Budapest, Croatia (Dubrovnik, Split), Cyprus, Glasgow. See <a href="{rel}about/">About and sources</a>.</p>"""
+<p>We only publish a destination when we can read a complete official source. Not covered on the date we checked: Venice, Lisbon and the Algarve, Budapest, Croatia (Dubrovnik, Split), Cyprus, Glasgow, Antwerp. See <a href="{rel}about/">About and sources</a>.</p>"""
     pagina("tourist-taxes-europe-2026/", f"Tourist taxes in Europe {ANNO}: city by city table (official rates)",
            f"Tourist taxes in Europe {ANNO}: official rates for Paris, Barcelona, Mallorca, Greece, Amsterdam, Berlin, Vienna, Prague, Edinburgh, Cardiff, Rome, Florence, Milan, Malta, Porto, Iceland and Turkey.",
            corpo, briciole=[(f"Tourist taxes in Europe {ANNO}", "tourist-taxes-europe-2026/")])
@@ -2385,13 +3183,16 @@ def pagina_cambi_2027():
     primo, ultimo = vv[0]["dal"], vv[-1]["dal"]
     risp = (f"{len(vv)} tourist tax changes in 2027 already have an official date, from {data_lunga(primo)} to {data_lunga(ultimo)}: "
             "Turkey returns to 2%, Okinawa starts a new tax and the Quintana Roo Visitax (Mexico) follows the new UMA on 1 February, "
-            "Cardiff starts the Welsh visitor levy at £1.30, Catalonia, Barcelona and Tokyo change on 1 April, "
-            "and on 1 July Vienna goes to 8% and Mexico raises its fee for cruise passengers.")
+            "Wakkanai and Shirahama start new taxes on 1 March, "
+            "Cardiff starts the Welsh visitor levy at £1.30, Catalonia, Barcelona and Tokyo change on 1 April, when Tomakomai, Yamagata, Fujiyoshida, Fujikawaguchiko, "
+            "Unzen, Kagoshima and Ibusuki start new taxes and Nagasaki changes its bands, "
+            "on 1 July Vienna goes to 8% and Mexico raises its fee for cruise passengers, and Kitahiroshima starts a new tax on 1 October.")
     corpo = f"""<section class="hero">{h1_diviso("Tourist tax changes in 2027: what changes, when and how much")}
 <p class="risposta">{escape(risp)}</p>
 <p class="small">We list a change only when an official act or tax authority page gives the date and the amount. List updated on {data_lunga(CAMBI['aggiornato_il'])}.</p></section>
 <h2 class="sr">At a glance</h2>
 <div class="tab sintesi"><table><thead><tr><th>From</th><th>Where</th><th>New amount</th></tr></thead><tbody>{sintesi}</tbody></table></div>
+<div class="card callout cal-2027"><span class="ic">{ico("calendar")}</span><p><strong>Japan:</strong> <a href="{rel}{JT_27}">all {sum(1 for e in JT["enti"] if e["stato"] == "approvato")} new Japanese accommodation taxes in 2027, place by place</a>, with rates and start dates.</p></div>
 <ol class="linea">{''.join(voci)}</ol>
 {AVVISO}
 {AD}
@@ -2403,7 +3204,7 @@ def pagina_cambi_2027():
 <div class="faq-box">{faq_html}</div>
 <p><a href="{rel}">Tourist tax calculator</a> · <a href="{rel}tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a> · <a href="{rel}contact/?ref=changes-2027">Spotted a change? Tell us</a></p>"""
     pagina("tourist-tax-changes-2027/", "Tourist tax changes 2027: new rates and start dates (official sources)",
-           f"Tourist tax changes in 2027 with an official date: Turkey 2%, Okinawa, Cancún Visitax, Cardiff £1.30, Catalonia, Barcelona, Tokyo 3%, Vienna 8%, Mexico cruises.",
+           f"Tourist tax changes in 2027 with an official date: Turkey 2%, Okinawa and new Japanese taxes, Cancún Visitax, Cardiff £1.30, Catalonia, Barcelona, Tokyo 3%, Vienna 8%.",
            corpo, briciole=[("Tourist tax changes 2027", "tourist-tax-changes-2027/")], jsonld_extra=ld)
 
 
@@ -2453,10 +3254,11 @@ def about():
 <li>France, choice of town pages: INSEE, <a href="{escape(FR['insee'])}" rel="noopener">Capacité des communes en hébergement touristique 2026</a>, Licence Ouverte / Open Licence.</li>
 <li>Wales (Cardiff): contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="noopener">Open Government Licence v3.0</a> (gov.wales, Welsh Revenue Authority).</li>
 <li>Mexico: laws of the State of Quintana Roo (Congress of Quintana Roo), the Ley Federal de Derechos (Chamber of Deputies), the decree of 30 June 2025 (SIDOF) and the UMA values of INEGI are cited as facts with a link to the official text; the Visitax amounts are calculated by us from the formula in the law (2.50 UMA). See the <a href="{rel}mexico/">Mexico page</a> for all sources.</li>
+<li>Japan accommodation tax: the list of taxes in force and approved comes from the Ministry of Internal Affairs and Communications (法定外税の状況); rates from the Minister's consents published by the Ministry and from prefecture and city pages, cited as facts with a link; see the <a href="{rel}{JT_HUB}">Japan accommodation tax page</a> and each place's page for all sources.</li>
 <li>Japan tax-free refund: rules from the Japan Tourism Agency, the National Tax Agency and Japan Customs (Ministry of Finance), cited as facts with a link to each official page; see the <a href="{rel}japan-tax-free-refund/">Japan tax-free refund page</a> for all sources.</li>
 <li>Laws, ordinances and official decisions are cited as facts with a link to the official text; we do not reproduce the documents.</li></ul>
 <h2>Destinations not published (official source not readable or incomplete)</h2>
-<p>Venice, Lisbon, the Algarve, Budapest, Croatia (Dubrovnik, Split), Cyprus, Naples, Bologna, Osaka, Glasgow, Okinawa (starts 1 February 2027: see the <a href="{rel}tourist-tax-changes-2027/">2027 changes</a>), Egypt, Morocco and the Canary Islands. We will add them when we can verify a complete official source.</p>
+<p>Venice, Lisbon, the Algarve, Budapest, Croatia (Dubrovnik, Split), Cyprus, Naples, Bologna, Glasgow, Antwerp, Egypt, Morocco and the Canary Islands. We will add them when we can verify a complete official source.</p>
 <h2>Sources, destination by destination</h2>
 <p>France: see the <a href="{rel}france/">France page</a>.</p>
 {elenco}
@@ -2590,6 +3392,7 @@ def main():
         (pagina_messico_dest if d["country_slug"] == "mexico" else pagina_destinazione)(d)
     pagina_messico()
     pagina_giappone_rimborso()
+    pagine_jt()
     pagina_francia()
     for c in FR_TOP["comuni"]:
         pagina_francia_comune(c[0])
@@ -2607,7 +3410,9 @@ def main():
     cambi = sorted({x for d in DEST for t in d["tariffe"] + d.get("supplementi", []) for x in
                     ([t["dal"]] if t.get("dal") else []) + ([(date.fromisoformat(t["al"]) + timedelta(days=1)).isoformat()] if t.get("al") else [])
                     if x > OGGI.isoformat()} | {f"{ANNO + 1}-01-01"})
+    cambi_jt = sorted({d for L in JT_LUOGHI for d in jt_date_cambio(L)})
     print("Date in cui rigenerare il sito (cambiano tariffe o titoli):", ", ".join(cambi))
+    print("Giappone, tasse di soggiorno: rigenerare anche il", ", ".join(cambi_jt), "- e controllare le fonti ogni trimestre con python3 -I touristtax/raccolta/giappone.py")
     p = UMA["prossima"]
     if not any(v["anno"] == p["anno"] for v in UMA["valori"]):
         print(f"Messico: UMA {p['anno']} non ancora nei dati. Da inizio gennaio {p['anno']}: python3 -I touristtax/raccolta/uma.py, poi rigenerare "

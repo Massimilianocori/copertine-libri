@@ -1,0 +1,4348 @@
+{
+ "_nota": "Tasse di soggiorno in Giappone (宿泊税), 31/10/2026. Elenco degli enti dal PDF del Ministero degli Affari interni (法定外税の状況, al 1/10/2026); tariffe dai consensi del Ministro (PDF soumu.go.jp), dalla tabella unica dell'Hokkaido e dalle pagine di Prefetture e Comuni. regole: tipo 'bande' = [da, a (escluso), yen a persona per notte] sul prezzo per persona per notte; 'pct' = percentuale del prezzo per persona, con min (soglia), arrot (base arrotondata per difetto), base_max e cap (tetto a persona per notte); include_pref = la percentuale comprende la tassa della Prefettura. pref_regole = tariffa della Prefettura dentro quel Comune. Controllo: python3 -I touristtax/raccolta/giappone.py",
+ "controllato_il": "2026-10-31",
+ "fonte_elenco": {
+  "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+  "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+  "http": 200,
+  "formato": "PDF (Japanese)",
+  "controllato_il": "2026-10-31"
+ },
+ "elenco_mic_conteggi": {
+  "in_vigore": 49,
+  "prefetture_in_vigore": 7,
+  "comuni_in_vigore": 42,
+  "approvati": 18
+ },
+ "eta": {
+  "under12": {
+   "label": "Children under 12",
+   "testo": "children under 12 do not pay"
+  },
+  "primaria": {
+   "label": "Children of primary-school age or younger",
+   "testo": "children up to primary-school age do not pay (the exact rule is in the exemptions)"
+  }
+ },
+ "enti": [
+  {
+   "id": "tokyo",
+   "ja": "東京都",
+   "en": "Tokyo",
+   "livello": "prefecture",
+   "pref": "tokyo",
+   "stato": "in_vigore",
+   "inizio": null,
+   "inizio_da": "",
+   "nome_tassa": "Tokyo Metropolitan accommodation tax",
+   "regole": [
+    {
+     "al": "2027-03-31",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       10000,
+       0
+      ],
+      [
+       10000,
+       15000,
+       100
+      ],
+      [
+       15000,
+       null,
+       200
+      ]
+     ]
+    },
+    {
+     "dal": "2027-04-01",
+     "tipo": "pct",
+     "valore": 3,
+     "min": 13000
+    }
+   ],
+   "esenzioni": [
+    "Until 31 March 2027: stays below ¥10,000 per person per night",
+    "From 1 April 2027: stays below ¥13,000 per person per night"
+   ],
+   "fonti": [
+    {
+     "titolo": "Tokyo Metropolitan Government Bureau of Taxation - accommodation tax FAQ",
+     "url": "https://www.tax.metro.tokyo.lg.jp/shitsumon/leisure/general_01",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-26"
+    },
+    {
+     "titolo": "Tokyo Metropolitan Government Bureau of Taxation - 宿泊税の見直し (3% from ¥13,000 per person per night from 1 April 2027)",
+     "url": "https://www.tax.metro.tokyo.lg.jp/kazei/leisure/shuk/shuk_minaoshi",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-26"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 June 2026: change of the Tokyo accommodation tax (3% from ¥13,000, in force 1 April 2027)",
+     "url": "https://www.soumu.go.jp/main_content/001080178.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "Until 31 March 2027 hotels and ryokan only; from 1 April 2027 simple lodging and minpaku are covered too."
+   ],
+   "pagina": "tokyo/"
+  },
+  {
+   "id": "osaka",
+   "ja": "大阪府",
+   "en": "Osaka Prefecture",
+   "livello": "prefecture",
+   "pref": "osaka",
+   "stato": "in_vigore",
+   "inizio": "2025-09-01",
+   "inizio_da": "consenso",
+   "nome_tassa": "Osaka Prefecture accommodation tax",
+   "regole": [
+    {
+     "dal": "2025-09-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       5000,
+       0
+      ],
+      [
+       5000,
+       15000,
+       200
+      ],
+      [
+       15000,
+       20000,
+       400
+      ],
+      [
+       20000,
+       null,
+       500
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "Stays below ¥5,000 per person per night",
+    "School trips and similar school activities (pupils and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 18 February 2025: change of the Osaka Prefecture accommodation tax (¥200 / ¥400 / ¥500, tax-free below ¥5,000, in force 1 September 2025)",
+     "url": "https://www.soumu.go.jp/main_content/000991905.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "The Osaka Prefecture tax covers the whole prefecture, including Osaka City: there is no separate city tax.",
+    "The prefecture's own website did not open for automatic reading (HTTP 408), so the rates come from the Minister's consent to the change and the Ministry's list of taxes in force."
+   ],
+   "pagina": "japan-accommodation-tax/osaka/",
+   "inizio_nota": "tariffe"
+  },
+  {
+   "id": "fukuoka-prefecture",
+   "ja": "福岡県",
+   "en": "Fukuoka Prefecture",
+   "livello": "prefecture",
+   "pref": "fukuoka-prefecture",
+   "stato": "in_vigore",
+   "inizio": "2020-04-01",
+   "inizio_da": "pagina",
+   "nome_tassa": "Fukuoka Prefecture accommodation tax",
+   "regole": [
+    {
+     "dal": "2020-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [],
+   "fonti": [
+    {
+     "titolo": "Fukuoka Prefecture - 宿泊税の概要 (rates in the prefecture, Fukuoka City and Kitakyushu; in force since 1 April 2020)",
+     "url": "https://www.pref.fukuoka.lg.jp/contents/syukuhakuzei.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "The prefectural rate is ¥200 outside Fukuoka City and Kitakyushu, and ¥50 inside them (where the city tax is added).",
+    "The prefecture says the tax applies whatever the guest's age, whenever an accommodation charge is paid."
+   ],
+   "pagina": "japan-accommodation-tax/fukuoka-prefecture/"
+  },
+  {
+   "id": "miyagi",
+   "ja": "宮城県",
+   "en": "Miyagi Prefecture",
+   "livello": "prefecture",
+   "pref": "miyagi",
+   "stato": "in_vigore",
+   "inizio": "2026-01-13",
+   "inizio_da": "mic",
+   "nome_tassa": "Miyagi Prefecture accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-01-13",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       300
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "Stays below ¥6,000 per person per night",
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 21 March 2025: new Miyagi Prefecture accommodation tax (¥300; ¥100 in Sendai; tax-free below ¥6,000)",
+     "url": "https://www.soumu.go.jp/main_content/000998109.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "Inside Sendai the prefectural rate is ¥100 and Sendai City adds ¥200."
+   ],
+   "pagina": "japan-accommodation-tax/miyagi/"
+  },
+  {
+   "id": "hokkaido",
+   "ja": "北海道",
+   "en": "Hokkaido",
+   "livello": "prefecture",
+   "pref": "hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Hokkaido accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       20000,
+       100
+      ],
+      [
+       20000,
+       50000,
+       200
+      ],
+      [
+       50000,
+       null,
+       500
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 31 July 2025: new Hokkaido accommodation tax (¥100 / ¥200 / ¥500)",
+     "url": "https://www.soumu.go.jp/main_content/001022967.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Hokkaido Government - accommodation tax page (rate table, ordinance, Q&A)",
+     "url": "https://www.pref.hokkaido.lg.jp/kz/kkd/230824.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "The Hokkaido tax is added to the municipal tax where a town or city has its own. In Kutchan and (from 1 November 2026) Niseko the total is a flat 3% that already includes the Hokkaido tax."
+   ],
+   "pagina": "japan-accommodation-tax/hokkaido/"
+  },
+  {
+   "id": "hiroshima",
+   "ja": "広島県",
+   "en": "Hiroshima Prefecture",
+   "livello": "prefecture",
+   "pref": "hiroshima",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Hiroshima Prefecture accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "Stays below ¥6,000 per person per night",
+    "School trips and similar school activities (pupils and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 21 March 2025: new Hiroshima Prefecture accommodation tax (¥200, tax-free below ¥6,000)",
+     "url": "https://www.soumu.go.jp/main_content/000998114.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "Covers the whole prefecture, including Hiroshima City and Miyajima. The Miyajima visit tax (Hatsukaichi City) is a separate tax for visitors to the island, not an accommodation tax."
+   ],
+   "pagina": "japan-accommodation-tax/hiroshima/"
+  },
+  {
+   "id": "nagano",
+   "ja": "長野県",
+   "en": "Nagano Prefecture",
+   "livello": "prefecture",
+   "pref": "nagano",
+   "stato": "in_vigore",
+   "inizio": "2026-06-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Nagano Prefecture accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-06-01",
+     "al": "2029-05-31",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       200
+      ]
+     ]
+    },
+    {
+     "dal": "2029-06-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       300
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "Stays below ¥6,000 per person per night",
+    "Educational or research stays of kindergarten, school and university students (and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Nagano Prefecture - 長野県宿泊税 (¥300, ¥200 for the first three years from 1 June 2026; tax-free below ¥6,000; different amounts in Matsumoto, Karuizawa, Achi, Hakuba and Nozawa Onsen)",
+     "url": "https://www.pref.nagano.lg.jp/kankoki/syukuhakuzei/zei_gaiyou.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 11 November 2025: new Nagano Prefecture accommodation tax (¥300, ¥200 for three years; half rate where a municipality taxes)",
+     "url": "https://www.soumu.go.jp/main_content/001040415.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Nagano Prefecture - accommodation tax ordinance as amended (supplementary provisions: half rate in Matsumoto, Karuizawa, Achi, Hakuba and Nozawa Onsen)",
+     "url": "https://www.pref.nagano.lg.jp/kankoki/syukuhakuzei/documents/jorei_r0803.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "In Matsumoto, Karuizawa, Achi, Hakuba and Nozawa Onsen, which have their own tax, the prefecture charges half: ¥100 for the first three years, then ¥150."
+   ],
+   "pagina": "japan-accommodation-tax/nagano/"
+  },
+  {
+   "id": "oita",
+   "ja": "大分県",
+   "en": "Oita Prefecture",
+   "livello": "prefecture",
+   "pref": "oita",
+   "stato": "approvato",
+   "inizio": null,
+   "inizio_da": "",
+   "nome_tassa": "Oita Prefecture accommodation tax",
+   "regole": [],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 September 2026: new Oita Prefecture accommodation tax (¥100 to ¥2,000; start planned from January 2027)",
+     "url": "https://www.soumu.go.jp/main_content/001093324.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "Approved: the Minister consented on 30 September 2026. The start is planned for January 2027 or later; the exact date has not been fixed yet, so the calculator does not apply it."
+   ],
+   "pagina": "japan-accommodation-tax/oita/",
+   "bande_previste": [
+    [
+     0,
+     5000,
+     100
+    ],
+    [
+     5000,
+     20000,
+     200
+    ],
+    [
+     20000,
+     100000,
+     500
+    ],
+    [
+     100000,
+     null,
+     2000
+    ]
+   ],
+   "inizio_testo": "January 2027 or later (date not fixed yet)"
+  },
+  {
+   "id": "okinawa",
+   "ja": "沖縄県",
+   "en": "Okinawa Prefecture",
+   "livello": "prefecture",
+   "pref": "okinawa",
+   "stato": "approvato",
+   "inizio": "2027-02-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Okinawa Prefecture accommodation tax",
+   "regole": [
+    {
+     "dal": "2027-02-01",
+     "tipo": "pct",
+     "valore": 2,
+     "cap": 2000,
+     "arrot": 1000,
+     "base_max": 100000
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Club activities organised as part of school education (pupils and accompanying staff)",
+    "Students taking part in tournaments organised by the Japan Junior High School Physical Culture Association and other bodies set by rule (and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Okinawa Prefecture - 沖縄県宿泊税 (start 1 February 2027, 2% capped at ¥2,000; 0.8% + 1.2% where a municipality also taxes; base rounded down to ¥1,000)",
+     "url": "https://www.pref.okinawa.jp/kurashikankyo/zeikin/1003660/1036559/1036550.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 13 February 2026: new Okinawa Prefecture accommodation tax (2%, max ¥2,000; 0.8%, max ¥800, where a municipality also taxes)",
+     "url": "https://www.soumu.go.jp/main_content/001055672.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "The base is the room-only price per person per night, rounded down to the nearest ¥1,000 and counted up to ¥100,000.",
+    "In Ishigaki, Miyakojima, Nago, Motobu, Onna and Chatan the prefecture charges 0.8% (max ¥800) and the municipality 1.2% (max ¥1,200): the total stays 2%, max ¥2,000."
+   ],
+   "pagina": "japan-accommodation-tax/okinawa/"
+  },
+  {
+   "id": "kyoto",
+   "ja": "京都市",
+   "en": "Kyoto",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "kyoto-pref",
+   "pref_en": "Kyoto Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2026-03-01",
+   "inizio_da": "pagina",
+   "nome_tassa": "Kyoto City accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       200
+      ],
+      [
+       6000,
+       20000,
+       400
+      ],
+      [
+       20000,
+       50000,
+       1000
+      ],
+      [
+       50000,
+       100000,
+       4000
+      ],
+      [
+       100000,
+       null,
+       10000
+      ]
+     ],
+     "dal": "2026-03-01"
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Kyoto City - accommodation tax overview and 2026 rate revision (in force 1 March 2026)",
+     "url": "https://www.city.kyoto.lg.jp/gyozai/page/0000236942.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 3 October 2025: change of the Kyoto City accommodation tax (¥200 to ¥10,000, in force 1 March 2026)",
+     "url": "https://www.soumu.go.jp/main_content/001034288.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "kyoto/",
+   "inizio_nota": "tariffe"
+  },
+  {
+   "id": "kanazawa",
+   "ja": "金沢市",
+   "en": "Kanazawa",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "ishikawa",
+   "pref_en": "Ishikawa Prefecture",
+   "stato": "in_vigore",
+   "inizio": null,
+   "inizio_da": "",
+   "nome_tassa": "Kanazawa City accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       5000,
+       0
+      ],
+      [
+       5000,
+       20000,
+       200
+      ],
+      [
+       20000,
+       null,
+       500
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "Stays below ¥5,000 per person per night (since October 2024)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Kanazawa City - Information on accommodation tax (poster: none below ¥5,000, ¥200, ¥500; tax-free below ¥5,000 since October 2024)",
+     "url": "https://www4.city.kanazawa.lg.jp/material/files/group/17/poster_B2_1.pdf",
+     "http": 200,
+     "formato": "PDF (English)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "The price is the cost of the overnight stay on its own, without meals or consumption tax (City of Kanazawa)."
+   ],
+   "pagina": "japan-accommodation-tax/kanazawa/"
+  },
+  {
+   "id": "kutchan",
+   "ja": "倶知安町",
+   "en": "Kutchan",
+   "livello": "municipality",
+   "tipo_ente": "Town",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "consenso",
+   "nome_tassa": "Kutchan Town accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-04-01",
+     "tipo": "pct",
+     "valore": 3,
+     "include_pref": true
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 31 July 2025: change of the Kutchan Town accommodation tax (3% of the accommodation charge, from 1 April 2026)",
+     "url": "https://www.soumu.go.jp/main_content/001022974.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Hokkaido Government - poster for Kutchan Town: Hokkaido tax + Kutchan tax = uniform 3%",
+     "url": "https://hokkaido-shukuhakuzei.pref.hokkaido.lg.jp/poster/PDF/tax_B2pos_C-05kuchan.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese and English)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "Kutchan includes the Niseko Hirafu ski area. The 3% is the total: it includes the Hokkaido tax."
+   ],
+   "pagina": "kutchan-niseko/",
+   "inizio_nota": "tariffe"
+  },
+  {
+   "id": "fukuoka",
+   "ja": "福岡市",
+   "en": "Fukuoka City",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "fukuoka-prefecture",
+   "pref_en": "Fukuoka Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2020-04-01",
+   "inizio_da": "pagina",
+   "nome_tassa": "Fukuoka City accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       20000,
+       150
+      ],
+      [
+       20000,
+       null,
+       450
+      ]
+     ],
+     "dal": "2020-04-01"
+    }
+   ],
+   "esenzioni": [],
+   "fonti": [
+    {
+     "titolo": "Fukuoka Prefecture - 宿泊税の概要 (rates in the prefecture, Fukuoka City and Kitakyushu; in force since 1 April 2020)",
+     "url": "https://www.pref.fukuoka.lg.jp/contents/syukuhakuzei.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "Fukuoka City collects the prefectural ¥50 together with its own tax."
+   ],
+   "pagina": "japan-accommodation-tax/fukuoka/",
+   "pref_regole": [
+    {
+     "dal": "2020-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       50
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kitakyushu",
+   "ja": "北九州市",
+   "en": "Kitakyushu",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "fukuoka-prefecture",
+   "pref_en": "Fukuoka Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2020-04-01",
+   "inizio_da": "pagina",
+   "nome_tassa": "Kitakyushu City accommodation tax",
+   "regole": [
+    {
+     "dal": "2020-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       150
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [],
+   "fonti": [
+    {
+     "titolo": "Fukuoka Prefecture - 宿泊税の概要 (rates in the prefecture, Fukuoka City and Kitakyushu; in force since 1 April 2020)",
+     "url": "https://www.pref.fukuoka.lg.jp/contents/syukuhakuzei.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "Kitakyushu collects the prefectural ¥50 together with its own tax."
+   ],
+   "pagina": "japan-accommodation-tax/kitakyushu/",
+   "pref_regole": [
+    {
+     "dal": "2020-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       50
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nagasaki",
+   "ja": "長崎市",
+   "en": "Nagasaki",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "nagasaki-pref",
+   "pref_en": "Nagasaki Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2023-04-01",
+   "inizio_da": "pagina",
+   "nome_tassa": "Nagasaki City accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       10000,
+       100
+      ],
+      [
+       10000,
+       20000,
+       200
+      ],
+      [
+       20000,
+       null,
+       500
+      ]
+     ],
+     "dal": "2023-04-01",
+     "al": "2027-03-31"
+    },
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       100
+      ],
+      [
+       6000,
+       20000,
+       300
+      ],
+      [
+       20000,
+       null,
+       500
+      ]
+     ],
+     "dal": "2027-04-01"
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Pupils taking part in sports or cultural tournaments with an overnight stay as a school club or local club (and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Nagasaki City - 宿泊税 (current rates until 31 March 2027 and new rates from 1 April 2027)",
+     "url": "https://www.city.nagasaki.lg.jp/page/5301.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 September 2026: change of the Nagasaki City accommodation tax (¥100 / ¥300 / ¥500 from 1 April 2027)",
+     "url": "https://www.soumu.go.jp/main_content/001093328.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 24 June 2022: new Nagasaki City accommodation tax",
+     "url": "https://www.soumu.go.jp/main_content/000821762.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "No tax-free threshold: every stay pays at least ¥100."
+   ],
+   "pagina": "japan-accommodation-tax/nagasaki/"
+  },
+  {
+   "id": "niseko",
+   "ja": "ニセコ町",
+   "en": "Niseko",
+   "livello": "municipality",
+   "tipo_ente": "Town",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2024-11-01",
+   "inizio_da": "pagina",
+   "nome_tassa": "Niseko Town accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       5001,
+       100
+      ],
+      [
+       5001,
+       20000,
+       200
+      ],
+      [
+       20000,
+       50000,
+       500
+      ],
+      [
+       50000,
+       100000,
+       1000
+      ],
+      [
+       100000,
+       null,
+       2000
+      ]
+     ],
+     "dal": "2024-11-01",
+     "al": "2026-10-31"
+    },
+    {
+     "dal": "2026-11-01",
+     "tipo": "pct",
+     "valore": 3,
+     "include_pref": true
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)",
+    "Others the Mayor decides"
+   ],
+   "fonti": [
+    {
+     "titolo": "Niseko Town - flyer: from 1 November 2026, 3% of the accommodation fee (Hokkaido tax + Niseko Town tax)",
+     "url": "https://www.town.niseko.lg.jp/resources/output/contents/file/release/10654/63029/syukuhakuzeikaiseitirasi.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese and English)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Niseko Town - 宿泊税 (accommodation tax since 1 November 2024; flat 3% from 1 November 2026)",
+     "url": "https://www.town.niseko.lg.jp/kurashi/tax/syukuhakuzei/",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 27 March 2026: change of the Niseko Town accommodation tax (3% of the accommodation charge, from 1 November 2026)",
+     "url": "https://www.soumu.go.jp/main_content/001063500.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 12 March 2024: new Niseko Town accommodation tax (¥100 to ¥2,000)",
+     "url": "https://www.soumu.go.jp/main_content/000934628.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "Until 31 October 2026: town tax by price band (¥100 for ¥5,000 or less, ¥200 up to ¥19,999, ¥500, ¥1,000, ¥2,000 from ¥100,000) plus the Hokkaido tax.",
+    "From 1 November 2026: a flat 3% of the accommodation fee per person per night, which already includes the Hokkaido tax (town flyer).",
+    "The accommodation fee is the cost of the stay and related services, without food and consumption tax (town flyer)."
+   ],
+   "pagina": "japan-accommodation-tax/niseko/"
+  },
+  {
+   "id": "tokoname",
+   "ja": "常滑市",
+   "en": "Tokoname",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "aichi",
+   "pref_en": "Aichi Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2025-01-06",
+   "inizio_da": "consenso",
+   "nome_tassa": "Tokoname City accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 14 June 2024: new Tokoname City accommodation tax (¥200 per person per night; start planned 6 January 2025)",
+     "url": "https://www.soumu.go.jp/main_content/000952982.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "Tokoname is the city of Chubu Centrair International Airport.",
+    "The Minister's consent lists no exemptions."
+   ],
+   "pagina": "japan-accommodation-tax/tokoname/"
+  },
+  {
+   "id": "atami",
+   "ja": "熱海市",
+   "en": "Atami",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "shizuoka",
+   "pref_en": "Shizuoka Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2025-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Atami City accommodation tax",
+   "regole": [
+    {
+     "dal": "2025-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "Children under 12",
+    "School trips and other school events",
+    "Others set by city rules"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 14 June 2024: new Atami City accommodation tax (¥200 per person per night, for five years)",
+     "url": "https://www.soumu.go.jp/main_content/000952048.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "The ordinance sets the tax for five years from the start."
+   ],
+   "pagina": "japan-accommodation-tax/atami/",
+   "eta_esente": "under12"
+  },
+  {
+   "id": "takayama",
+   "ja": "高山市",
+   "en": "Takayama",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "gifu",
+   "pref_en": "Gifu Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2025-10-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Takayama City accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       10000,
+       100
+      ],
+      [
+       10000,
+       30000,
+       200
+      ],
+      [
+       30000,
+       null,
+       300
+      ]
+     ],
+     "dal": "2025-10-01"
+    }
+   ],
+   "esenzioni": [
+    "Children up to the first 31 March after their 12th birthday (primary-school age)",
+    "School trips and similar (pupils, accompanying staff and carers)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 21 March 2025: new Takayama City accommodation tax (¥100 / ¥200 / ¥300)",
+     "url": "https://www.soumu.go.jp/main_content/000998111.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/takayama/",
+   "eta_esente": "primaria"
+  },
+  {
+   "id": "gero",
+   "ja": "下呂市",
+   "en": "Gero",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "gifu",
+   "pref_en": "Gifu Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2025-10-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Gero City accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       5000,
+       100
+      ],
+      [
+       5000,
+       null,
+       200
+      ]
+     ],
+     "dal": "2025-10-01"
+    }
+   ],
+   "esenzioni": [
+    "Children under 12",
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Others the Mayor approves"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 21 March 2025: new Gero City accommodation tax (¥100 / ¥200)",
+     "url": "https://www.soumu.go.jp/main_content/000998112.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/gero/",
+   "eta_esente": "under12"
+  },
+  {
+   "id": "akaigawa",
+   "ja": "赤井川村",
+   "en": "Akaigawa",
+   "livello": "municipality",
+   "tipo_ente": "Village",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2025-11-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Akaigawa Village accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       8000,
+       0
+      ],
+      [
+       8000,
+       20000,
+       200
+      ],
+      [
+       20000,
+       null,
+       500
+      ]
+     ],
+     "dal": "2025-11-01"
+    }
+   ],
+   "esenzioni": [
+    "Village tax: stays below ¥8,000 per person per night",
+    "School trips and similar school activities (pupils and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 6 August 2024: new Akaigawa Village accommodation tax (¥200 / ¥500, tax-free below ¥8,000)",
+     "url": "https://www.soumu.go.jp/main_content/000960808.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "Akaigawa is home to the Kiroro ski resort. Below ¥8,000 per person only the Hokkaido tax (¥100) is due."
+   ],
+   "pagina": "japan-accommodation-tax/akaigawa/"
+  },
+  {
+   "id": "hirosaki",
+   "ja": "弘前市",
+   "en": "Hirosaki",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "aomori",
+   "pref_en": "Aomori Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2025-12-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Hirosaki City accommodation tax",
+   "regole": [
+    {
+     "dal": "2025-12-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 22 July 2025: new Hirosaki City accommodation tax (¥200)",
+     "url": "https://www.soumu.go.jp/main_content/001021351.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/hirosaki/"
+  },
+  {
+   "id": "matsue",
+   "ja": "松江市",
+   "en": "Matsue",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "shimane",
+   "pref_en": "Shimane Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2025-12-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Matsue City accommodation tax",
+   "regole": [
+    {
+     "dal": "2025-12-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       5000,
+       0
+      ],
+      [
+       5000,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "Stays below ¥5,000 per person per night",
+    "School trips and similar school activities (pupils and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 21 March 2025: new Matsue City accommodation tax (¥200, tax-free below ¥5,000)",
+     "url": "https://www.soumu.go.jp/main_content/000998113.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/matsue/"
+  },
+  {
+   "id": "sendai",
+   "ja": "仙台市",
+   "en": "Sendai",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "miyagi",
+   "pref_en": "Miyagi Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2026-01-13",
+   "inizio_da": "mic",
+   "nome_tassa": "Sendai City accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-01-13",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "Stays below ¥6,000 per person per night",
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 21 March 2025: new Sendai City accommodation tax (¥200, tax-free below ¥6,000)",
+     "url": "https://www.soumu.go.jp/main_content/000998110.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 21 March 2025: new Miyagi Prefecture accommodation tax (¥100 inside Sendai)",
+     "url": "https://www.soumu.go.jp/main_content/000998109.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/sendai/",
+   "pref_regole": [
+    {
+     "dal": "2026-01-13",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       100
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sapporo",
+   "ja": "札幌市",
+   "en": "Sapporo",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Sapporo City accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       50000,
+       200
+      ],
+      [
+       50000,
+       null,
+       500
+      ]
+     ],
+     "dal": "2026-04-01"
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "City of Sapporo - accommodation tax (city + Hokkaido amounts, from 1 April 2026)",
+     "url": "https://www.city.sapporo.jp/citytax/shukuhakuzei/index.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-10"
+    },
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 21 March 2025: new Sapporo City accommodation tax (¥200 / ¥500)",
+     "url": "https://www.soumu.go.jp/main_content/000998103.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "sapporo/"
+  },
+  {
+   "id": "hakodate",
+   "ja": "函館市",
+   "en": "Hakodate",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Hakodate City accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       20000,
+       100
+      ],
+      [
+       20000,
+       50000,
+       200
+      ],
+      [
+       50000,
+       100000,
+       500
+      ],
+      [
+       100000,
+       null,
+       2000
+      ]
+     ],
+     "dal": "2026-04-01"
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 22 July 2025: new Hakodate City accommodation tax (¥100 to ¥2,000)",
+     "url": "https://www.soumu.go.jp/main_content/001021347.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/hakodate/"
+  },
+  {
+   "id": "otaru",
+   "ja": "小樽市",
+   "en": "Otaru",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Otaru City accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 21 March 2025: new Otaru City accommodation tax (¥200 per person per night)",
+     "url": "https://www.soumu.go.jp/main_content/000998104.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/otaru/"
+  },
+  {
+   "id": "asahikawa",
+   "ja": "旭川市",
+   "en": "Asahikawa",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Asahikawa City accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 22 July 2025: new Asahikawa City accommodation tax (¥200 per person per night)",
+     "url": "https://www.soumu.go.jp/main_content/001021345.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/asahikawa/"
+  },
+  {
+   "id": "kushiro",
+   "ja": "釧路市",
+   "en": "Kushiro",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Kushiro City accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 21 March 2025: new Kushiro City accommodation tax (¥200 per person per night)",
+     "url": "https://www.soumu.go.jp/main_content/000998105.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/kushiro/"
+  },
+  {
+   "id": "obihiro",
+   "ja": "帯広市",
+   "en": "Obihiro",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Obihiro City accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 22 July 2025: new Obihiro City accommodation tax (¥200 per person per night)",
+     "url": "https://www.soumu.go.jp/main_content/001021346.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/obihiro/"
+  },
+  {
+   "id": "kitami",
+   "ja": "北見市",
+   "en": "Kitami",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Kitami City accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 21 March 2025: new Kitami City accommodation tax (¥200 per person per night)",
+     "url": "https://www.soumu.go.jp/main_content/000998106.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/kitami/"
+  },
+  {
+   "id": "abashiri",
+   "ja": "網走市",
+   "en": "Abashiri",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Abashiri City accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 21 March 2025: new Abashiri City accommodation tax (¥200 per person per night)",
+     "url": "https://www.soumu.go.jp/main_content/000998108.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/abashiri/"
+  },
+  {
+   "id": "otofuke",
+   "ja": "音更町",
+   "en": "Otofuke",
+   "livello": "municipality",
+   "tipo_ente": "Town",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Otofuke Town accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 22 July 2025: new Otofuke Town accommodation tax (¥200 per person per night)",
+     "url": "https://www.soumu.go.jp/main_content/001021349.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/otofuke/"
+  },
+  {
+   "id": "koshimizu",
+   "ja": "小清水町",
+   "en": "Koshimizu",
+   "livello": "municipality",
+   "tipo_ente": "Town",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Koshimizu Town accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 13 February 2026: new Koshimizu Town accommodation tax (¥200 per person per night)",
+     "url": "https://www.soumu.go.jp/main_content/001055667.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/koshimizu/"
+  },
+  {
+   "id": "furano",
+   "ja": "富良野市",
+   "en": "Furano",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Furano City accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       20000,
+       200
+      ],
+      [
+       20000,
+       50000,
+       300
+      ],
+      [
+       50000,
+       null,
+       500
+      ]
+     ],
+     "dal": "2026-04-01"
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 22 July 2025: new Furano City accommodation tax (¥200 / ¥300 / ¥500)",
+     "url": "https://www.soumu.go.jp/main_content/001021348.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/furano/"
+  },
+  {
+   "id": "toyako",
+   "ja": "洞爺湖町",
+   "en": "Toyako",
+   "livello": "municipality",
+   "tipo_ente": "Town",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Toyako Town accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       20000,
+       200
+      ],
+      [
+       20000,
+       50000,
+       500
+      ],
+      [
+       50000,
+       null,
+       1000
+      ]
+     ],
+     "dal": "2026-04-01"
+    }
+   ],
+   "esenzioni": [
+    "Town tax: children up to the end of primary school",
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 13 February 2026: new Toyako Town accommodation tax (¥200 / ¥500 / ¥1,000)",
+     "url": "https://www.soumu.go.jp/main_content/001055668.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "The age exemption is in the town tax only: the Hokkaido tax is still due."
+   ],
+   "pagina": "japan-accommodation-tax/toyako/",
+   "eta_esente": "primaria"
+  },
+  {
+   "id": "shintoku",
+   "ja": "新得町",
+   "en": "Shintoku",
+   "livello": "municipality",
+   "tipo_ente": "Town",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Shintoku Town accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       5000,
+       50
+      ],
+      [
+       5000,
+       20000,
+       100
+      ],
+      [
+       20000,
+       50000,
+       200
+      ],
+      [
+       50000,
+       null,
+       500
+      ]
+     ],
+     "dal": "2026-04-01"
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 September 2025: new Shintoku Town accommodation tax (¥50 to ¥500)",
+     "url": "https://www.soumu.go.jp/main_content/001033233.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/shintoku/"
+  },
+  {
+   "id": "rusutsu",
+   "ja": "留寿都村",
+   "en": "Rusutsu",
+   "livello": "municipality",
+   "tipo_ente": "Village",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Rusutsu Village accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       20000,
+       100
+      ],
+      [
+       20000,
+       50000,
+       200
+      ],
+      [
+       50000,
+       null,
+       500
+      ]
+     ],
+     "dal": "2026-04-01"
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 September 2025: new Rusutsu Village accommodation tax (¥100 / ¥200 / ¥500)",
+     "url": "https://www.soumu.go.jp/main_content/001033241.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/rusutsu/"
+  },
+  {
+   "id": "shimukappu",
+   "ja": "占冠村",
+   "en": "Shimukappu (Tomamu)",
+   "livello": "municipality",
+   "tipo_ente": "Village",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Shimukappu Village accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       20000,
+       100
+      ],
+      [
+       20000,
+       50000,
+       200
+      ],
+      [
+       50000,
+       null,
+       500
+      ]
+     ],
+     "dal": "2026-04-01"
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",
+     "url": "https://www.pref.hokkaido.lg.jp/fs/1/3/0/4/4/4/1/3/_/%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A70301.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 22 July 2025: new Shimukappu Village accommodation tax (¥100 / ¥200 / ¥500)",
+     "url": "https://www.soumu.go.jp/main_content/001021350.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "Shimukappu is the village of the Tomamu resort."
+   ],
+   "pagina": "japan-accommodation-tax/shimukappu/"
+  },
+  {
+   "id": "yugawara",
+   "ja": "湯河原町",
+   "en": "Yugawara",
+   "livello": "municipality",
+   "tipo_ente": "Town",
+   "pref": "kanagawa",
+   "pref_en": "Kanagawa Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Yugawara Town accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       50000,
+       300
+      ],
+      [
+       50000,
+       null,
+       500
+      ]
+     ],
+     "dal": "2026-04-01"
+    }
+   ],
+   "esenzioni": [
+    "Children under 12",
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Victims of earthquakes and other disasters"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 September 2025: new Yugawara Town accommodation tax (¥300 / ¥500)",
+     "url": "https://www.soumu.go.jp/main_content/001033234.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/yugawara/",
+   "eta_esente": "under12"
+  },
+  {
+   "id": "gifu-city",
+   "ja": "岐阜市",
+   "en": "Gifu",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "gifu",
+   "pref_en": "Gifu Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Gifu City accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "Children up to the first 31 March after their 12th birthday (primary-school age)",
+    "School trips and similar school activities (pupils and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 22 July 2025: new Gifu City accommodation tax (¥200)",
+     "url": "https://www.soumu.go.jp/main_content/001021352.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/gifu/",
+   "eta_esente": "primaria"
+  },
+  {
+   "id": "toba",
+   "ja": "鳥羽市",
+   "en": "Toba",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "mie",
+   "pref_en": "Mie Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2026-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Toba City accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 22 July 2025: new Toba City accommodation tax (¥200)",
+     "url": "https://www.soumu.go.jp/main_content/001021353.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "The Minister's consent lists no exemptions."
+   ],
+   "pagina": "japan-accommodation-tax/toba/"
+  },
+  {
+   "id": "matsumoto",
+   "ja": "松本市",
+   "en": "Matsumoto",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "nagano",
+   "pref_en": "Nagano Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2026-06-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Matsumoto City accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-06-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       100
+      ]
+     ],
+     "al": "2029-05-31"
+    },
+    {
+     "dal": "2029-06-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       150
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "Stays below ¥6,000 per person per night",
+    "Educational or research stays of kindergarten, school and university students (and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 13 February 2026: new Matsumoto City accommodation tax (¥150, ¥100 for three years; tax-free below ¥6,000)",
+     "url": "https://www.soumu.go.jp/main_content/001055669.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Nagano Prefecture - 長野県宿泊税 (¥300, ¥200 for the first three years from 1 June 2026; tax-free below ¥6,000; different amounts in Matsumoto, Karuizawa, Achi, Hakuba and Nozawa Onsen)",
+     "url": "https://www.pref.nagano.lg.jp/kankoki/syukuhakuzei/zei_gaiyou.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Nagano Prefecture - accommodation tax ordinance as amended (supplementary provisions: half rate in Matsumoto, Karuizawa, Achi, Hakuba and Nozawa Onsen)",
+     "url": "https://www.pref.nagano.lg.jp/kankoki/syukuhakuzei/documents/jorei_r0803.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/matsumoto/",
+   "pref_regole": [
+    {
+     "dal": "2026-06-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       100
+      ]
+     ],
+     "al": "2029-05-31"
+    },
+    {
+     "dal": "2029-06-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       150
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "karuizawa",
+   "ja": "軽井沢町",
+   "en": "Karuizawa",
+   "livello": "municipality",
+   "tipo_ente": "Town",
+   "pref": "nagano",
+   "pref_en": "Nagano Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2026-06-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Karuizawa Town accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       10000,
+       100
+      ],
+      [
+       10000,
+       100000,
+       150
+      ],
+      [
+       100000,
+       null,
+       600
+      ]
+     ],
+     "dal": "2026-06-01",
+     "al": "2029-05-31"
+    },
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       10000,
+       150
+      ],
+      [
+       10000,
+       100000,
+       200
+      ],
+      [
+       100000,
+       null,
+       650
+      ]
+     ],
+     "dal": "2029-06-01"
+    }
+   ],
+   "esenzioni": [
+    "Stays below ¥6,000 per person per night",
+    "Educational or research stays of kindergarten, school and university students (and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 September 2025: new Karuizawa Town accommodation tax (¥150 / ¥200 / ¥650; ¥100 / ¥150 / ¥600 for three years)",
+     "url": "https://www.soumu.go.jp/main_content/001033231.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Nagano Prefecture - 長野県宿泊税 (¥300, ¥200 for the first three years from 1 June 2026; tax-free below ¥6,000; different amounts in Matsumoto, Karuizawa, Achi, Hakuba and Nozawa Onsen)",
+     "url": "https://www.pref.nagano.lg.jp/kankoki/syukuhakuzei/zei_gaiyou.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Nagano Prefecture - accommodation tax ordinance as amended (supplementary provisions: half rate in Matsumoto, Karuizawa, Achi, Hakuba and Nozawa Onsen)",
+     "url": "https://www.pref.nagano.lg.jp/kankoki/syukuhakuzei/documents/jorei_r0803.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/karuizawa/",
+   "pref_regole": [
+    {
+     "dal": "2026-06-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       100
+      ]
+     ],
+     "al": "2029-05-31"
+    },
+    {
+     "dal": "2029-06-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       150
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "achi",
+   "ja": "阿智村",
+   "en": "Achi",
+   "livello": "municipality",
+   "tipo_ente": "Village",
+   "pref": "nagano",
+   "pref_en": "Nagano Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2026-06-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Achi Village accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-06-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "Stays below ¥6,000 per person per night",
+    "Educational or research stays of kindergarten, school and university students (and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 September 2025: new Achi Village accommodation tax (¥200, tax-free below ¥6,000)",
+     "url": "https://www.soumu.go.jp/main_content/001033228.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Nagano Prefecture - 長野県宿泊税 (¥300, ¥200 for the first three years from 1 June 2026; tax-free below ¥6,000; different amounts in Matsumoto, Karuizawa, Achi, Hakuba and Nozawa Onsen)",
+     "url": "https://www.pref.nagano.lg.jp/kankoki/syukuhakuzei/zei_gaiyou.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Nagano Prefecture - accommodation tax ordinance as amended (supplementary provisions: half rate in Matsumoto, Karuizawa, Achi, Hakuba and Nozawa Onsen)",
+     "url": "https://www.pref.nagano.lg.jp/kankoki/syukuhakuzei/documents/jorei_r0803.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/achi/",
+   "pref_regole": [
+    {
+     "dal": "2026-06-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       100
+      ]
+     ],
+     "al": "2029-05-31"
+    },
+    {
+     "dal": "2029-06-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       150
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hakuba",
+   "ja": "白馬村",
+   "en": "Hakuba",
+   "livello": "municipality",
+   "tipo_ente": "Village",
+   "pref": "nagano",
+   "pref_en": "Nagano Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2026-06-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Hakuba Village accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       20000,
+       100
+      ],
+      [
+       20000,
+       50000,
+       300
+      ],
+      [
+       50000,
+       100000,
+       800
+      ],
+      [
+       100000,
+       null,
+       1800
+      ]
+     ],
+     "dal": "2026-06-01",
+     "al": "2029-05-31"
+    },
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       20000,
+       150
+      ],
+      [
+       20000,
+       50000,
+       350
+      ],
+      [
+       50000,
+       100000,
+       850
+      ],
+      [
+       100000,
+       null,
+       1850
+      ]
+     ],
+     "dal": "2029-06-01"
+    }
+   ],
+   "esenzioni": [
+    "Stays below ¥6,000 per person per night",
+    "Educational or research stays of kindergarten, school and university students (and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 September 2025: new Hakuba Village accommodation tax (reduced for the first three years)",
+     "url": "https://www.soumu.go.jp/main_content/001033236.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Nagano Prefecture - 長野県宿泊税 (¥300, ¥200 for the first three years from 1 June 2026; tax-free below ¥6,000; different amounts in Matsumoto, Karuizawa, Achi, Hakuba and Nozawa Onsen)",
+     "url": "https://www.pref.nagano.lg.jp/kankoki/syukuhakuzei/zei_gaiyou.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Nagano Prefecture - accommodation tax ordinance as amended (supplementary provisions: half rate in Matsumoto, Karuizawa, Achi, Hakuba and Nozawa Onsen)",
+     "url": "https://www.pref.nagano.lg.jp/kankoki/syukuhakuzei/documents/jorei_r0803.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "hakuba/",
+   "pref_regole": [
+    {
+     "dal": "2026-06-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       100
+      ]
+     ],
+     "al": "2029-05-31"
+    },
+    {
+     "dal": "2029-06-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       150
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nozawa-onsen",
+   "ja": "野沢温泉村",
+   "en": "Nozawa Onsen",
+   "livello": "municipality",
+   "tipo_ente": "Village",
+   "pref": "nagano",
+   "pref_en": "Nagano Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2026-06-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Nozawa Onsen Village accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-06-01",
+     "al": "2029-05-31",
+     "tipo": "pct",
+     "valore": 3.5,
+     "min": 6000
+    },
+    {
+     "dal": "2029-06-01",
+     "tipo": "pct",
+     "valore": 5,
+     "min": 6000
+    }
+   ],
+   "esenzioni": [
+    "Stays below ¥6,000 per person per night",
+    "Educational or research stays of kindergarten, school and university students (and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 13 February 2026: new Nozawa Onsen Village accommodation tax (5%, 3.5% for the first three years; tax-free below ¥6,000)",
+     "url": "https://www.soumu.go.jp/main_content/001055670.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Nagano Prefecture - 長野県宿泊税 (¥300, ¥200 for the first three years from 1 June 2026; tax-free below ¥6,000; different amounts in Matsumoto, Karuizawa, Achi, Hakuba and Nozawa Onsen)",
+     "url": "https://www.pref.nagano.lg.jp/kankoki/syukuhakuzei/zei_gaiyou.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Nagano Prefecture - accommodation tax ordinance as amended (supplementary provisions: half rate in Matsumoto, Karuizawa, Achi, Hakuba and Nozawa Onsen)",
+     "url": "https://www.pref.nagano.lg.jp/kankoki/syukuhakuzei/documents/jorei_r0803.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/nozawa-onsen/",
+   "pref_regole": [
+    {
+     "dal": "2026-06-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       100
+      ]
+     ],
+     "al": "2029-05-31"
+    },
+    {
+     "dal": "2029-06-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       6000,
+       0
+      ],
+      [
+       6000,
+       null,
+       150
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kumamoto",
+   "ja": "熊本市",
+   "en": "Kumamoto",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "kumamoto-pref",
+   "pref_en": "Kumamoto Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2026-07-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Kumamoto City accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-07-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 22 July 2025: new Kumamoto City accommodation tax (¥200 per person per night)",
+     "url": "https://www.soumu.go.jp/main_content/001021354.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "The Minister's consent lists no exemptions."
+   ],
+   "pagina": "japan-accommodation-tax/kumamoto/"
+  },
+  {
+   "id": "miyazaki",
+   "ja": "宮崎市",
+   "en": "Miyazaki",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "miyazaki-pref",
+   "pref_en": "Miyazaki Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2026-07-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Miyazaki City accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-07-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 13 February 2026: new Miyazaki City accommodation tax (¥200 per person per night)",
+     "url": "https://www.soumu.go.jp/main_content/001055671.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "The Minister's consent lists no exemptions."
+   ],
+   "pagina": "japan-accommodation-tax/miyazaki/"
+  },
+  {
+   "id": "morioka",
+   "ja": "盛岡市",
+   "en": "Morioka",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "iwate",
+   "pref_en": "Iwate Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2026-10-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Morioka City accommodation tax",
+   "regole": [
+    {
+     "dal": "2026-10-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 27 March 2026: new Morioka City accommodation tax (¥200 per person per night)",
+     "url": "https://www.soumu.go.jp/main_content/001063499.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "The Minister's consent lists no exemptions."
+   ],
+   "pagina": "japan-accommodation-tax/morioka/"
+  },
+  {
+   "id": "nasu",
+   "ja": "那須町",
+   "en": "Nasu",
+   "livello": "municipality",
+   "tipo_ente": "Town",
+   "pref": "tochigi",
+   "pref_en": "Tochigi Prefecture",
+   "stato": "in_vigore",
+   "inizio": "2026-10-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Nasu Town accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       10000,
+       100
+      ],
+      [
+       10000,
+       20000,
+       300
+      ],
+      [
+       20000,
+       30000,
+       500
+      ],
+      [
+       30000,
+       50000,
+       800
+      ],
+      [
+       50000,
+       100000,
+       1500
+      ],
+      [
+       100000,
+       null,
+       3000
+      ]
+     ],
+     "dal": "2026-10-01"
+    }
+   ],
+   "esenzioni": [
+    "Children under 12",
+    "School trips and similar school activities (pupils and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 September 2025: new Nasu Town accommodation tax (¥100 to ¥3,000)",
+     "url": "https://www.soumu.go.jp/main_content/001033235.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/nasu/",
+   "eta_esente": "under12"
+  },
+  {
+   "id": "ishigaki",
+   "ja": "石垣市",
+   "en": "Ishigaki",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "okinawa",
+   "pref_en": "Okinawa Prefecture",
+   "stato": "approvato",
+   "inizio": "2027-02-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Ishigaki City accommodation tax",
+   "regole": [
+    {
+     "dal": "2027-02-01",
+     "tipo": "pct",
+     "valore": 1.2,
+     "cap": 1200,
+     "arrot": 1000,
+     "base_max": 100000
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Club activities organised as part of school education (pupils and accompanying staff)",
+    "Students at tournaments organised by the Japan Junior High School Physical Culture Association and other bodies set by rule (and staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 13 February 2026: new Ishigaki City accommodation tax (1.2% of the price per person per night, max ¥1,200)",
+     "url": "https://www.soumu.go.jp/main_content/001055673.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Okinawa Prefecture - 沖縄県宿泊税 (start 1 February 2027, 2% capped at ¥2,000; 0.8% + 1.2% where a municipality also taxes; base rounded down to ¥1,000)",
+     "url": "https://www.pref.okinawa.jp/kurashikankyo/zeikin/1003660/1036559/1036550.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/ishigaki/",
+   "pref_regole": [
+    {
+     "dal": "2027-02-01",
+     "tipo": "pct",
+     "valore": 0.8,
+     "cap": 800,
+     "arrot": 1000,
+     "base_max": 100000
+    }
+   ]
+  },
+  {
+   "id": "miyakojima",
+   "ja": "宮古島市",
+   "en": "Miyakojima",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "okinawa",
+   "pref_en": "Okinawa Prefecture",
+   "stato": "approvato",
+   "inizio": "2027-02-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Miyakojima City accommodation tax",
+   "regole": [
+    {
+     "dal": "2027-02-01",
+     "tipo": "pct",
+     "valore": 1.2,
+     "cap": 1200,
+     "arrot": 1000,
+     "base_max": 100000
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Club activities organised as part of school education (pupils and accompanying staff)",
+    "Students at tournaments organised by the Japan Junior High School Physical Culture Association and other bodies set by rule (and staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 13 February 2026: new Miyakojima City accommodation tax (1.2% of the price per person per night, max ¥1,200)",
+     "url": "https://www.soumu.go.jp/main_content/001055674.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Okinawa Prefecture - 沖縄県宿泊税 (start 1 February 2027, 2% capped at ¥2,000; 0.8% + 1.2% where a municipality also taxes; base rounded down to ¥1,000)",
+     "url": "https://www.pref.okinawa.jp/kurashikankyo/zeikin/1003660/1036559/1036550.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/miyakojima/",
+   "pref_regole": [
+    {
+     "dal": "2027-02-01",
+     "tipo": "pct",
+     "valore": 0.8,
+     "cap": 800,
+     "arrot": 1000,
+     "base_max": 100000
+    }
+   ]
+  },
+  {
+   "id": "motobu",
+   "ja": "本部町",
+   "en": "Motobu",
+   "livello": "municipality",
+   "tipo_ente": "Town",
+   "pref": "okinawa",
+   "pref_en": "Okinawa Prefecture",
+   "stato": "approvato",
+   "inizio": "2027-02-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Motobu Town accommodation tax",
+   "regole": [
+    {
+     "dal": "2027-02-01",
+     "tipo": "pct",
+     "valore": 1.2,
+     "cap": 1200,
+     "arrot": 1000,
+     "base_max": 100000
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Club activities organised as part of school education (pupils and accompanying staff)",
+    "Students at tournaments organised by the Japan Junior High School Physical Culture Association and other bodies set by rule (and staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 13 February 2026: new Motobu Town accommodation tax (1.2% of the price per person per night, max ¥1,200)",
+     "url": "https://www.soumu.go.jp/main_content/001055675.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Okinawa Prefecture - 沖縄県宿泊税 (start 1 February 2027, 2% capped at ¥2,000; 0.8% + 1.2% where a municipality also taxes; base rounded down to ¥1,000)",
+     "url": "https://www.pref.okinawa.jp/kurashikankyo/zeikin/1003660/1036559/1036550.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/motobu/",
+   "pref_regole": [
+    {
+     "dal": "2027-02-01",
+     "tipo": "pct",
+     "valore": 0.8,
+     "cap": 800,
+     "arrot": 1000,
+     "base_max": 100000
+    }
+   ]
+  },
+  {
+   "id": "onna",
+   "ja": "恩納村",
+   "en": "Onna",
+   "livello": "municipality",
+   "tipo_ente": "Village",
+   "pref": "okinawa",
+   "pref_en": "Okinawa Prefecture",
+   "stato": "approvato",
+   "inizio": "2027-02-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Onna Village accommodation tax",
+   "regole": [
+    {
+     "dal": "2027-02-01",
+     "tipo": "pct",
+     "valore": 1.2,
+     "cap": 1200,
+     "arrot": 1000,
+     "base_max": 100000
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Club activities organised as part of school education (pupils and accompanying staff)",
+    "Students at tournaments organised by the Japan Junior High School Physical Culture Association and other bodies set by rule (and staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 13 February 2026: new Onna Village accommodation tax (1.2% of the price per person per night, max ¥1,200)",
+     "url": "https://www.soumu.go.jp/main_content/001055676.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Okinawa Prefecture - 沖縄県宿泊税 (start 1 February 2027, 2% capped at ¥2,000; 0.8% + 1.2% where a municipality also taxes; base rounded down to ¥1,000)",
+     "url": "https://www.pref.okinawa.jp/kurashikankyo/zeikin/1003660/1036559/1036550.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/onna/",
+   "pref_regole": [
+    {
+     "dal": "2027-02-01",
+     "tipo": "pct",
+     "valore": 0.8,
+     "cap": 800,
+     "arrot": 1000,
+     "base_max": 100000
+    }
+   ]
+  },
+  {
+   "id": "chatan",
+   "ja": "北谷町",
+   "en": "Chatan",
+   "livello": "municipality",
+   "tipo_ente": "Town",
+   "pref": "okinawa",
+   "pref_en": "Okinawa Prefecture",
+   "stato": "approvato",
+   "inizio": "2027-02-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Chatan Town accommodation tax",
+   "regole": [
+    {
+     "dal": "2027-02-01",
+     "tipo": "pct",
+     "valore": 1.2,
+     "cap": 1200,
+     "arrot": 1000,
+     "base_max": 100000
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Club activities organised as part of school education (pupils and accompanying staff)",
+    "Students at tournaments organised by the Japan Junior High School Physical Culture Association and other bodies set by rule (and staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 13 February 2026: new Chatan Town accommodation tax (1.2% of the price per person per night, max ¥1,200)",
+     "url": "https://www.soumu.go.jp/main_content/001055677.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Okinawa Prefecture - 沖縄県宿泊税 (start 1 February 2027, 2% capped at ¥2,000; 0.8% + 1.2% where a municipality also taxes; base rounded down to ¥1,000)",
+     "url": "https://www.pref.okinawa.jp/kurashikankyo/zeikin/1003660/1036559/1036550.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/chatan/",
+   "pref_regole": [
+    {
+     "dal": "2027-02-01",
+     "tipo": "pct",
+     "valore": 0.8,
+     "cap": 800,
+     "arrot": 1000,
+     "base_max": 100000
+    }
+   ]
+  },
+  {
+   "id": "nago",
+   "ja": "名護市",
+   "en": "Nago",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "okinawa",
+   "pref_en": "Okinawa Prefecture",
+   "stato": "approvato",
+   "inizio": "2027-02-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Nago City accommodation tax",
+   "regole": [
+    {
+     "dal": "2027-02-01",
+     "tipo": "pct",
+     "valore": 1.2,
+     "cap": 1200,
+     "arrot": 1000,
+     "base_max": 100000
+    }
+   ],
+   "esenzioni": [
+    "Students at tournaments organised by the Japan Junior High School Physical Culture Association and other bodies set by rule (and staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 June 2026: new Nago City accommodation tax (1.2% of the price per person per night, max ¥1,200)",
+     "url": "https://www.soumu.go.jp/main_content/001080177.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Okinawa Prefecture - 沖縄県宿泊税 (start 1 February 2027, 2% capped at ¥2,000; 0.8% + 1.2% where a municipality also taxes; base rounded down to ¥1,000)",
+     "url": "https://www.pref.okinawa.jp/kurashikankyo/zeikin/1003660/1036559/1036550.html",
+     "http": 200,
+     "formato": "HTML (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/nago/",
+   "pref_regole": [
+    {
+     "dal": "2027-02-01",
+     "tipo": "pct",
+     "valore": 0.8,
+     "cap": 800,
+     "arrot": 1000,
+     "base_max": 100000
+    }
+   ]
+  },
+  {
+   "id": "wakkanai",
+   "ja": "稚内市",
+   "en": "Wakkanai",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "approvato",
+   "inizio": "2027-03-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Wakkanai City accommodation tax",
+   "regole": [
+    {
+     "dal": "2027-03-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 June 2026: new Wakkanai City accommodation tax (¥200 per person per night)",
+     "url": "https://www.soumu.go.jp/main_content/001080173.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/wakkanai/"
+  },
+  {
+   "id": "shirahama",
+   "ja": "白浜町",
+   "en": "Shirahama",
+   "livello": "municipality",
+   "tipo_ente": "Town",
+   "pref": "wakayama",
+   "pref_en": "Wakayama Prefecture",
+   "stato": "approvato",
+   "inizio": "2027-03-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Shirahama Town accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       10000,
+       200
+      ],
+      [
+       10000,
+       20000,
+       300
+      ],
+      [
+       20000,
+       50000,
+       500
+      ],
+      [
+       50000,
+       null,
+       1000
+      ]
+     ],
+     "dal": "2027-03-01"
+    }
+   ],
+   "esenzioni": [
+    "Children under 12",
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Victims of earthquakes and other disasters"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 September 2026: new Shirahama Town accommodation tax (¥200 to ¥1,000)",
+     "url": "https://www.soumu.go.jp/main_content/001093325.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/shirahama/",
+   "eta_esente": "under12"
+  },
+  {
+   "id": "tomakomai",
+   "ja": "苫小牧市",
+   "en": "Tomakomai",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "approvato",
+   "inizio": "2027-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Tomakomai City accommodation tax",
+   "regole": [
+    {
+     "dal": "2027-04-01",
+     "tipo": "pct",
+     "valore": 3,
+     "include_pref": true
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 June 2026: new Tomakomai City accommodation tax (3% of the accommodation charge)",
+     "url": "https://www.soumu.go.jp/main_content/001080171.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - Local Finance Council papers on the Tomakomai and Kitahiroshima taxes: total with the Hokkaido tax = 3% of the accommodation charge",
+     "url": "https://www.soumu.go.jp/main_content/001082757.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "The 3% is the total with the Hokkaido tax (Ministry papers)."
+   ],
+   "pagina": "japan-accommodation-tax/tomakomai/"
+  },
+  {
+   "id": "yamagata",
+   "ja": "山形市",
+   "en": "Yamagata",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "yamagata-pref",
+   "pref_en": "Yamagata Prefecture",
+   "stato": "approvato",
+   "inizio": "2027-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Yamagata City accommodation tax",
+   "regole": [
+    {
+     "dal": "2027-04-01",
+     "tipo": "pct",
+     "valore": 3
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 June 2026: new Yamagata City accommodation tax (3% of the accommodation charge)",
+     "url": "https://www.soumu.go.jp/main_content/001080174.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/yamagata/"
+  },
+  {
+   "id": "fujiyoshida",
+   "ja": "富士吉田市",
+   "en": "Fujiyoshida",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "yamanashi",
+   "pref_en": "Yamanashi Prefecture",
+   "stato": "approvato",
+   "inizio": "2027-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Fujiyoshida City accommodation tax",
+   "regole": [
+    {
+     "dal": "2027-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 June 2026: new Fujiyoshida City accommodation tax (¥200 per person per night)",
+     "url": "https://www.soumu.go.jp/main_content/001080175.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/fujiyoshida/"
+  },
+  {
+   "id": "fujikawaguchiko",
+   "ja": "富士河口湖町",
+   "en": "Fujikawaguchiko",
+   "livello": "municipality",
+   "tipo_ente": "Town",
+   "pref": "yamanashi",
+   "pref_en": "Yamanashi Prefecture",
+   "stato": "approvato",
+   "inizio": "2027-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Fujikawaguchiko Town accommodation tax",
+   "regole": [
+    {
+     "dal": "2027-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 June 2026: new Fujikawaguchiko Town accommodation tax (¥200 per person per night)",
+     "url": "https://www.soumu.go.jp/main_content/001080176.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/fujikawaguchiko/"
+  },
+  {
+   "id": "unzen",
+   "ja": "雲仙市",
+   "en": "Unzen",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "nagasaki-pref",
+   "pref_en": "Nagasaki Prefecture",
+   "stato": "approvato",
+   "inizio": "2027-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Unzen City accommodation tax",
+   "regole": [
+    {
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       5000,
+       100
+      ],
+      [
+       5000,
+       null,
+       350
+      ]
+     ],
+     "dal": "2027-04-01"
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 28 August 2026: new Unzen City accommodation tax (¥100 / ¥350)",
+     "url": "https://www.soumu.go.jp/main_content/001088923.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/unzen/"
+  },
+  {
+   "id": "kagoshima",
+   "ja": "鹿児島市",
+   "en": "Kagoshima",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "kagoshima-pref",
+   "pref_en": "Kagoshima Prefecture",
+   "stato": "approvato",
+   "inizio": "2027-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Kagoshima City accommodation tax",
+   "regole": [
+    {
+     "dal": "2027-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "School trips (pupils and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 September 2026: new Kagoshima City accommodation tax (¥200 per person per night)",
+     "url": "https://www.soumu.go.jp/main_content/001093326.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/kagoshima/"
+  },
+  {
+   "id": "ibusuki",
+   "ja": "指宿市",
+   "en": "Ibusuki",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "kagoshima-pref",
+   "pref_en": "Kagoshima Prefecture",
+   "stato": "approvato",
+   "inizio": "2027-04-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Ibusuki City accommodation tax",
+   "regole": [
+    {
+     "dal": "2027-04-01",
+     "tipo": "bande",
+     "bande": [
+      [
+       0,
+       null,
+       200
+      ]
+     ]
+    }
+   ],
+   "esenzioni": [
+    "Children up to the first 31 March after their 12th birthday (primary-school age)",
+    "School trips and similar school activities (pupils and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 September 2026: new Ibusuki City accommodation tax (¥200 per person per night)",
+     "url": "https://www.soumu.go.jp/main_content/001093327.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [],
+   "pagina": "japan-accommodation-tax/ibusuki/",
+   "eta_esente": "primaria"
+  },
+  {
+   "id": "kitahiroshima",
+   "ja": "北広島市",
+   "en": "Kitahiroshima",
+   "livello": "municipality",
+   "tipo_ente": "City",
+   "pref": "hokkaido",
+   "pref_en": "Hokkaido",
+   "stato": "approvato",
+   "inizio": "2027-10-01",
+   "inizio_da": "mic",
+   "nome_tassa": "Kitahiroshima City accommodation tax",
+   "regole": [
+    {
+     "dal": "2027-10-01",
+     "tipo": "pct",
+     "valore": 3,
+     "include_pref": true
+    }
+   ],
+   "esenzioni": [
+    "School trips and similar school activities (pupils and accompanying staff)",
+    "Events of certified childcare centres and nurseries (children and accompanying staff)"
+   ],
+   "fonti": [
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - consent of 30 June 2026: new Kitahiroshima City accommodation tax (3% of the accommodation charge)",
+     "url": "https://www.soumu.go.jp/main_content/001080172.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - Local Finance Council papers on the Tomakomai and Kitahiroshima taxes: total with the Hokkaido tax = 3% of the accommodation charge",
+     "url": "https://www.soumu.go.jp/main_content/001082757.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    },
+    {
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
+     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "http": 200,
+     "formato": "PDF (Japanese)",
+     "controllato_il": "2026-10-31"
+    }
+   ],
+   "note": [
+    "Kitahiroshima is the city of the Hokkaido Ballpark F Village. The 3% is the total with the Hokkaido tax (Ministry papers)."
+   ],
+   "pagina": "japan-accommodation-tax/kitahiroshima/"
+  }
+ ],
+ "ultimo_comunicato": 476
+}

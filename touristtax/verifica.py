@@ -16,6 +16,12 @@ Uso (dalla radice del repository, dopo python3 touristtax/genera.py):
 9. Sezione Messico (30/10/2026): pagine in sitemap, importi del Visitax ricalcolati qui dalla formula (2,50 × UMA di dati/uma.json),
    titoli ≤ 70 caratteri con anno e importo, risposta con fonte e data, FAQPage visibile, avviso sul sito ufficiale (solo link a
    visitax.gob.mx), link di affiliazione solo DiscoverCars con il nostro a_aid, dopo le informazioni ufficiali; voce 2027 del Visitax.
+11. Giappone, tasse di soggiorno in tutto il paese (31/10/2026): enti = istantanea dell'elenco del Ministero degli Affari interni
+   (49 in vigore, 18 approvati, date di partenza), fonti ufficiali go.jp/lg.jp con HTTP 200 e data, fasce ben formate, esempi a mano,
+   ricalcolo indipendente in frazioni, motore JS = Python, motore nuovo = pagine esistenti (Tokyo, Kyoto, Sapporo, Kutchan, Hakuba),
+   pagine (titolo ≤ 70, prima frase con cifra, fonte e data, fonti linkate, calcolatore, sitemap), pagina riassuntiva e pagina 2027.
+12. Belgio (31/10/2026): Bruxelles, Gand, Bruges con fonti ufficiali datate, esempi a mano, titoli e prima frase, Anversa non coperta,
+   nessun importo non ufficiale per la tassa di Bruges su crocieristi e pullman, tabella Europa, cambi 2028-2029.
 10. Giappone, rimborso dell'imposta sui consumi dal 1/11/2026 (pagina japan-tax-free-refund/): dati uguali alle fonti lette, fonti
    ufficiali (JTA, NTA, Dogane) con HTTP 200 e data, sitemap, link da home e pagine giapponesi, titolo ≤ 70 con l'anno, prima frase
    con risposta, fonti e data, calcolo ricontrollato (esempi a mano, frazioni esatte, JS = Python), FAQPage visibile, nessun affiliato.
@@ -598,6 +604,307 @@ def controlla_giappone():
     return errori
 
 
+# 11. Giappone: tasse di soggiorno in tutto il paese (31/10/2026). Esempi calcolati a mano dalle fonti:
+# (descrizione, id luogo, check-in, notti, prezzo per notte per tutti, ospiti, bambini esenti per età, totale atteso in yen)
+ESEMPI_JT = [
+    ("Otaru, ¥30,000 for 2 (¥15,000 each), 3 nights: (¥200 city + ¥100 Hokkaido) × 2 × 3", "otaru", "2026-11-10", 3, 30000, 2, 0, 1800),
+    ("Sapporo, ¥120,000 for 2 (¥60,000 each), 2 nights: (¥500 + ¥500) × 2 × 2", "sapporo", "2026-11-10", 2, 120000, 2, 0, 4000),
+    ("Niseko, ¥60,000 for 2, from 30 Oct 2026, 3 nights: 2 × (¥500 town + ¥200 Hokkaido) × 2 + 3% × ¥30,000 × 2 from 1 Nov", "niseko", "2026-10-30", 3, 60000, 2, 0, 4600),
+    ("Kutchan, ¥50,000 for 2, 2 nights: 3% × ¥25,000 × 2 × 2 (Hokkaido tax included)", "kutchan", "2026-12-01", 2, 50000, 2, 0, 3000),
+    ("Fukuoka City, ¥50,000 for 2 (¥25,000 each), 1 night: (¥450 city + ¥50 prefecture) × 2", "fukuoka", "2026-11-01", 1, 50000, 2, 0, 1000),
+    ("Kitakyushu, ¥8,000 for 1, 1 night: ¥150 + ¥50", "kitakyushu", "2026-11-01", 1, 8000, 1, 0, 200),
+    ("Sendai, ¥10,000 for 2 (¥5,000 each, below ¥6,000), 1 night: no tax", "sendai", "2026-11-01", 1, 10000, 2, 0, 0),
+    ("Sendai, ¥14,000 for 2 (¥7,000 each), 1 night: (¥200 + ¥100 Miyagi) × 2", "sendai", "2026-11-01", 1, 14000, 2, 0, 600),
+    ("Matsumoto, ¥20,000 for 2, 1 night in 2026: (¥100 + ¥100 Nagano) × 2", "matsumoto", "2026-11-01", 1, 20000, 2, 0, 400),
+    ("Matsumoto, ¥20,000 for 2, 1 night from 1 Jun 2029: (¥150 + ¥150) × 2", "matsumoto", "2029-06-01", 1, 20000, 2, 0, 600),
+    ("Karuizawa, ¥250,000 for 2 (¥125,000 each), 1 night: (¥600 + ¥100) × 2", "karuizawa", "2026-11-01", 1, 250000, 2, 0, 1400),
+    ("Nozawa Onsen, ¥40,000 for 2 (¥20,000 each), 2 nights: (3.5% × 20,000 = ¥700 + ¥100 Nagano) × 2 × 2", "nozawa-onsen", "2026-12-20", 2, 40000, 2, 0, 3200),
+    ("Okinawa, ¥17,000 for 2 (¥8,500 each → base ¥8,000), 1 night: 2% × 8,000 = ¥160 × 2 (Okinawa's own example)", "okinawa", "2027-02-01", 1, 17000, 2, 0, 320),
+    ("Ishigaki, same stay: (1.2% + 0.8%) × 8,000 = ¥96 + ¥64 per person × 2", "ishigaki", "2027-02-01", 1, 17000, 2, 0, 320),
+    ("Okinawa, ¥300,000 for 1: base capped at ¥100,000 → ¥2,000", "okinawa", "2027-02-01", 1, 300000, 1, 0, 2000),
+    ("Okinawa, night of 31 Jan 2027: not yet in force", "okinawa", "2027-01-31", 1, 17000, 2, 0, 0),
+    ("Atami, ¥20,000 for 3 with 1 child under 12, 1 night: ¥200 × 2", "atami", "2026-11-01", 1, 20000, 3, 1, 400),
+    ("Toyako, ¥30,000 for 2 with 1 child (¥15,000 each), 1 night: town ¥200 × 1 + Hokkaido ¥100 × 2", "toyako", "2026-11-01", 1, 30000, 2, 1, 400),
+    ("Tomakomai, ¥20,000 for 2, 31 Mar + 1 Apr 2027: Hokkaido ¥100 × 2, then 3% × ¥10,000 × 2", "tomakomai", "2027-03-31", 2, 20000, 2, 0, 800),
+    ("Nagasaki, ¥16,000 for 2 (¥8,000 each), 31 Mar + 1 Apr 2027: ¥100 × 2, then ¥300 × 2", "nagasaki", "2027-03-31", 2, 16000, 2, 0, 800),
+    ("Tokyo, ¥40,000 for 2 (¥20,000 each), 1 night from 1 Apr 2027: 3% × 20,000 × 2", "tokyo", "2027-04-01", 1, 40000, 2, 0, 1200),
+    ("Kyoto, ¥30,000 for 2, 1 night: ¥400 × 2", "kyoto", "2026-11-01", 1, 30000, 2, 0, 800),
+    ("Hakuba, ¥50,000 for 2 (¥25,000 each), 1 night: (¥300 + ¥100) × 2", "hakuba", "2026-12-01", 1, 50000, 2, 0, 800),
+    ("Shintoku, ¥8,000 for 2 (¥4,000 each), 1 night: (¥50 + ¥100) × 2", "shintoku", "2026-11-01", 1, 8000, 2, 0, 300),
+    ("Akaigawa, ¥14,000 for 2 (¥7,000 each, below ¥8,000), 1 night: Hokkaido ¥100 × 2 only", "akaigawa", "2026-11-01", 1, 14000, 2, 0, 200),
+    ("Wakkanai, ¥30,000 for 2, 1 night from 1 Mar 2027: (¥200 + ¥100) × 2", "wakkanai", "2027-03-01", 1, 30000, 2, 0, 600),
+    ("Osaka, ¥32,000 for 2 (¥16,000 each), 1 night: ¥400 × 2", "osaka", "2026-11-01", 1, 32000, 2, 0, 800),
+    ("Kanazawa, ¥9,000 for 2 (¥4,500 each), 1 night: no tax below ¥5,000", "kanazawa", "2026-11-01", 1, 9000, 2, 0, 0),
+    ("Nasu, ¥240,000 for 2 (¥120,000 each), 1 night: ¥3,000 × 2", "nasu", "2026-11-01", 1, 240000, 2, 0, 6000),
+    ("Oita: start date not fixed, no tax counted", "oita", "2027-06-01", 2, 30000, 2, 0, 0),
+]
+DOMINI_JP = re.compile(r"https://([a-z0-9-]+\.)*(go\.jp|lg\.jp|pref\.okinawa\.jp|city\.sapporo\.jp)/")
+
+
+def jt_indipendente(J, eid, ci, notti, prezzo, ospiti, bambini):
+    """Ricalcolo indipendente dai dati JSON (non usa genera.py): frazioni esatte, componenti del Comune e della Prefettura."""
+    from datetime import date, timedelta
+    from fractions import Fraction as F
+    en = {e["id"]: e for e in J["enti"]}
+    e = en[eid]
+    pref = {x["pref"]: x for x in J["enti"] if x["livello"] == "prefecture"}
+    comp = [(e["regole"], bool(e.get("eta_esente")), False)]
+    if e["livello"] == "municipality" and e["pref"] in pref:
+        P = pref[e["pref"]]
+        comp.append((e.get("pref_regole", P["regole"]), bool(P.get("eta_esente")), True))
+    pp = F(prezzo) / ospiti
+    tot = F(0)
+    for i in range(notti):
+        d = (date.fromisoformat(ci) + timedelta(days=i)).isoformat()
+        att = []
+        for regole, eta, is_pref in comp:
+            r = next((r for r in regole if r.get("dal", "0000") <= d <= r.get("al", "9999")), None)
+            att.append((r, eta, is_pref))
+        incl = any(r and r.get("include_pref") for r, _, _ in att)
+        for r, eta, is_pref in att:
+            if not r or (is_pref and incl):
+                continue
+            n = ospiti - (min(bambini, ospiti) if eta else 0)
+            if r["tipo"] == "bande":
+                q = next((F(v) for lo, hi, v in r["bande"] if lo <= pp and (hi is None or pp < hi)), F(0))
+            elif pp < r.get("min", 0):
+                q = F(0)
+            else:
+                base = pp
+                if r.get("arrot"):
+                    base = F((base // r["arrot"]) * r["arrot"])
+                if r.get("base_max"):
+                    base = min(base, F(r["base_max"]))
+                q = base * F(str(r["valore"])) / 100
+                if r.get("cap") is not None:
+                    q = min(q, F(r["cap"]))
+            tot += q * n
+    return tot
+
+
+def controlla_giappone_tasse():
+    """11. Tasse di soggiorno in Giappone: dati = istantanea dell'elenco del Ministero (49 in vigore, 18 approvati, date); fonti ufficiali
+    (domini go.jp / lg.jp) con HTTP 200 e data; regole ben formate; esempi a mano; ricalcolo indipendente in frazioni = Python; JS = Python;
+    per Tokyo, Kyoto, Sapporo, Kutchan e Hakuba il nuovo motore dà lo stesso totale delle pagine esistenti; pagine (titolo ≤ 70 caratteri,
+    prima frase con fonte e data, tutte le fonti linkate, calcolatore, sitemap), pagina riassuntiva e pagina 2027 (tutti i 18 enti con la data),
+    FAQPage = testo visibile, link in entrata, nessun link di affiliazione."""
+    from datetime import date, timedelta
+    errori = []
+    J, E = G.JT, G.JT_ELENCO
+    enti = J["enti"]
+    per_ja = {e["ja"]: e for e in enti}
+    if E["url"] != J["fonte_elenco"]["url"] or E["alla_data"] != "2026-10-01":
+        errori.append("JP tasse: istantanea dell'elenco MIC non corrisponde alla fonte (URL o data)")
+    vig = {e["ja"] for e in enti if e["stato"] == "in_vigore"}
+    app = {e["ja"]: e.get("inizio") for e in enti if e["stato"] == "approvato"}
+    if vig != set(E["in_vigore"]):
+        errori.append(f"JP tasse: enti in vigore diversi dall'elenco MIC: {sorted(vig ^ set(E['in_vigore']))}")
+    if set(app) != set(E["approvati"]):
+        errori.append(f"JP tasse: enti approvati diversi dall'elenco MIC: {sorted(set(app) ^ set(E['approvati']))}")
+    for ja, d in E["approvati"].items():
+        if ja in app and (app[ja] or "") != (d if re.match(r"\d{4}-\d\d-\d\d$", d) else ""):
+            errori.append(f"JP tasse: {ja} data di partenza {app.get(ja)} diversa dall'elenco ({d})")
+    for ja, d in E["partenze"].items():
+        if ja in per_ja and per_ja[ja].get("inizio_da") == "mic" and per_ja[ja].get("inizio") != d:
+            errori.append(f"JP tasse: {ja} partenza {per_ja[ja].get('inizio')} diversa dall'elenco ({d})")
+    c = J["elenco_mic_conteggi"]
+    if (len(vig), sum(1 for e in enti if e["stato"] == "in_vigore" and e["livello"] == "prefecture"), len(app)) != (c["in_vigore"], c["prefetture_in_vigore"], c["approvati"]) \
+            or (c["in_vigore"], c["approvati"]) != (49, 18):
+        errori.append("JP tasse: conteggi diversi da 49 in vigore (7 Prefetture) e 18 approvati")
+    for e in enti:
+        if not e["fonti"]:
+            errori.append(f"JP tasse: {e['id']} senza fonti")
+        for fo in e["fonti"]:
+            if fo.get("http") != 200 or not re.match(r"\d{4}-\d\d-\d\d$", fo.get("controllato_il", "")) or not DOMINI_JP.match(fo["url"]):
+                errori.append(f"JP tasse: {e['id']} fonte non ufficiale, non letta o senza data: {fo['url']}")
+        for r in e["regole"] + e.get("pref_regole", []):
+            if r["tipo"] == "bande":
+                b = r["bande"]
+                if b[0][0] != 0 or b[-1][1] is not None or any(b[i][1] != b[i + 1][0] for i in range(len(b) - 1)) or any(x[0] >= (x[1] or 1e12) for x in b):
+                    errori.append(f"JP tasse: {e['id']} fasce non contigue o non crescenti: {b}")
+            elif r["tipo"] != "pct" or not 0 < r["valore"] <= 10:
+                errori.append(f"JP tasse: {e['id']} regola sconosciuta: {r}")
+            if r.get("include_pref") and e["pref"] != "hokkaido":
+                errori.append(f"JP tasse: include_pref fuori dall'Hokkaido: {e['id']}")
+        if e.get("pref_regole") and e["pref"] not in G.JT_PREF:
+            errori.append(f"JP tasse: {e['id']} ha pref_regole ma la Prefettura non ha la tassa")
+        if e["stato"] == "in_vigore" and not e["regole"]:
+            errori.append(f"JP tasse: {e['id']} in vigore senza regole")
+    # calcolo
+    for descr, lid, ci, n, pr, osp, bam, att in ESEMPI_JT:
+        py = G.jt_calcola(G.JT_L[lid], ci, n, pr, osp, bam)["totale"]
+        ind = jt_indipendente(J, lid, ci, n, pr, osp, bam)
+        if abs(py - att) > 1e-6 or ind != att:
+            errori.append(f"JP tasse: esempio sbagliato: {descr}: atteso {att}, Python {py}, indipendente {float(ind)}")
+    rnd = random.Random(23)
+    casi = []
+    for _ in range(2500):
+        L = rnd.choice(G.JT_LUOGHI)
+        ci = (date(2026, 10, 1) + timedelta(days=rnd.randint(0, 1300))).isoformat()
+        casi.append([L["id"], ci, rnd.randint(1, 30), rnd.choice([rnd.randint(0, 40000), rnd.randint(0, 400000), round(rnd.uniform(0, 250000), 2)]),
+                     rnd.randint(1, 6), rnd.randint(0, 3)])
+    for lid, ci, n, pr, osp, bam in casi:
+        py = G.jt_calcola(G.JT_L[lid], ci, n, pr, osp, bam)["totale"]
+        ind = jt_indipendente(J, lid, ci, n, pr, osp, bam)
+        if abs(py - float(ind)) > 1e-6:
+            errori.append(f"JP tasse: Python diverso dal ricalcolo indipendente: {lid} {ci} {n} {pr} {osp} {bam}: {py} / {float(ind)}")
+            break
+    if subprocess.run(["which", "node"], capture_output=True).returncode == 0:
+        with tempfile.TemporaryDirectory() as tmp:
+            f = Path(tmp) / "jt.js"
+            f.write_text(G.MOTORE_JS + G.JT_JS + "\nvar L=" + json.dumps(G.JT_L, ensure_ascii=False) + ";var C=" + json.dumps(casi) +
+                         ";console.log(JSON.stringify(C.map(function(c){var o=jtCalcola(L[c[0]],c[1],c[2],c[3],c[4],c[5]);return [o.totale,o.comp,o.prima,o.inclusa];})));",
+                         encoding="utf-8")
+            out = subprocess.run(["node", str(f)], capture_output=True, text=True)
+        if out.returncode != 0:
+            errori.append("JP tasse: errore node: " + out.stderr[:300])
+        else:
+            for c_, r in zip(casi, json.loads(out.stdout)):
+                o = G.jt_calcola(G.JT_L[c_[0]], *c_[1:])
+                py = [o["totale"], o["comp"], o["prima"], o["inclusa"]]
+                if abs(py[0] - r[0]) > 1e-6 or [[x[0], x[2]] for x in py[1]] != [[x[0], x[2]] for x in r[1]] or py[2:] != r[2:] \
+                        or any(abs(a[1] - b[1]) > 1e-6 for a, b in zip(py[1], r[1])):
+                    errori.append(f"JP tasse: JS diverso da Python: {c_}: py={py} js={r}")
+                    break
+    else:
+        errori.append("JP tasse: node non trovato, confronto JS saltato")
+    # nuovo motore = motore delle 5 pagine esistenti
+    for slug, lid in (("tokyo", "tokyo"), ("kyoto", "kyoto"), ("sapporo", "sapporo"), ("kutchan-niseko", "kutchan"), ("hakuba", "hakuba")):
+        R = D[slug]
+        for _ in range(300):
+            ci = (date(2026, 11, 1) + timedelta(days=rnd.randint(0, 1200))).isoformat()
+            n, osp, pr = rnd.randint(1, 20), rnd.randint(1, 5), rnd.choice([rnd.randint(0, 300000), round(rnd.uniform(0, 60000), 2)])
+            a = G.calcola(R, "all", ci, n, osp, 0, 1, pr)["totale"]
+            b = G.jt_calcola(G.JT_L[lid], ci, n, pr, osp)["totale"]
+            if abs(a - b) > 1e-6:
+                errori.append(f"JP tasse: {slug}: pagina esistente {a} ≠ nuovo motore {b} ({ci}, {n} notti, {osp} ospiti, {pr})")
+                break
+    # pagine
+    sm = _sitemap()
+    oggi = G.OGGI.isoformat()
+    for e in enti:
+        p = e["pagina"]
+        if not p.startswith(G.JT_HUB):
+            continue
+        f = SITO / p / "index.html"
+        if not f.exists():
+            errori.append(f"JP tasse: pagina mancante {p}")
+            continue
+        t = f.read_text(encoding="utf-8")
+        titolo = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(titolo) > 70 or "accommodation tax" not in titolo or not re.search(r"202[67]", titolo):
+            errori.append(f"JP tasse: titolo oltre 70 caratteri o senza anno: {titolo} ({len(titolo)})")
+        r = re.search(r'<p class="risposta">(.*?)</p>', t, re.S)
+        prima = unescape(r.group(1)).split(". ")[0] if r else ""
+        if f"checked on {G.JT_CHECK}" not in prima or not re.search(r"Ministry of Internal Affairs|Government|Prefecture|City|Town|Bureau", prima) \
+                or not re.search(r"¥|%", prima):
+            errori.append(f"JP tasse: {p}: la prima frase non ha cifra, fonte e data del controllo")
+        for fo in G.jt_fonti(e):
+            if G.escape(fo["url"]) not in t:
+                errori.append(f"JP tasse: {p}: fonte non linkata {fo['url']}")
+        if f"{G.URL_SITO}/{p}" not in sm:
+            errori.append(f"JP tasse: {p} non nella sitemap")
+        if G.jt_giorno_rif(G.JT_L[e["id"]]) is not None:
+            m = re.search(r'<script type="application/json" id="jt-dati">(.*?)</script>', t, re.S)
+            if not m or json.loads(m.group(1).replace("<\\/", "</")) != [G.JT_L[e["id"]]] or "jtCalcola" not in t:
+                errori.append(f"JP tasse: {p}: calcolatore mancante o con dati diversi")
+        if G.MON.link_affiliati(t):
+            errori.append(f"JP tasse: {p}: link di affiliazione")
+    hub = (SITO / G.JT_HUB / "index.html").read_text(encoding="utf-8")
+    p27 = (SITO / G.JT_27 / "index.html").read_text(encoding="utf-8")
+    for nome, t, url in (("pagina riassuntiva", hub, G.JT_HUB), ("pagina 2027", p27, G.JT_27)):
+        titolo = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(titolo) > 70 or "Japan accommodation tax" not in titolo:
+            errori.append(f"JP tasse: {nome}: titolo {titolo} ({len(titolo)})")
+        if f"{G.URL_SITO}/{url}" not in sm:
+            errori.append(f"JP tasse: {nome} non nella sitemap")
+        r = re.search(r'<p class="risposta">(.*?)</p>', t, re.S)
+        if not r or f"checked on {G.JT_CHECK}" not in unescape(r.group(1)).split(". Amounts")[0].split(". Tokyo")[0] or "Ministry of Internal Affairs" not in r.group(1):
+            errori.append(f"JP tasse: {nome}: prima frase senza fonte e data")
+        if G.escape(J["fonte_elenco"]["url"]) not in t:
+            errori.append(f"JP tasse: {nome}: elenco del Ministero non linkato")
+        ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S)]
+        faq = [x for x in ld if x.get("@type") == "FAQPage"]
+        if len(faq) != 1 or len(faq[0]["mainEntity"]) < 4:
+            errori.append(f"JP tasse: {nome}: FAQPage mancante")
+        else:
+            for q in faq[0]["mainEntity"]:
+                if G.escape(q["name"]) not in t or G.escape(q["acceptedAnswer"]["text"]) not in t:
+                    errori.append(f"JP tasse: {nome}: domanda FAQ non visibile: {q['name']}")
+        if G.MON.link_affiliati(t):
+            errori.append(f"JP tasse: {nome}: link di affiliazione")
+    for e in enti:
+        link = f'href="../{e["pagina"]}"'
+        if e["stato"] == "in_vigore" and link not in hub:
+            errori.append(f"JP tasse: la pagina riassuntiva non linka {e['pagina']}")
+        if e["stato"] == "approvato":
+            if link not in p27:
+                errori.append(f"JP tasse: la pagina 2027 non linka {e['pagina']}")
+            quando = G.data_breve(e["inizio"]) if e.get("inizio") else "Jan 2027 or later"
+            if not re.search(r"<td><strong>" + re.escape(quando) + r"</strong></td><td>" + re.escape(f'<a href="../{e["pagina"]}">'), p27):
+                errori.append(f"JP tasse: pagina 2027: {e['en']} senza la data {quando}")
+    for pag, link in [("index.html", f'href="{G.JT_HUB}"'), ("country/japan/index.html", f'href="../../{G.JT_HUB}"'),
+                      ("tourist-tax-changes-2027/index.html", f'href="../{G.JT_27}"'), ("japan-tax-free-refund/index.html", f'href="../{G.JT_HUB}"')] + \
+            [(f"{d['slug']}/index.html", f'href="../{G.JT_HUB}"') for d in G.DEST if d["country_slug"] == "japan"]:
+        if link not in (SITO / pag).read_text(encoding="utf-8"):
+            errori.append(f"JP tasse: {pag} non linka {link}")
+    return errori
+
+
+# 12. Belgio (31/10/2026): Bruxelles, Gand, Bruges da fonti ufficiali. Esempi a mano:
+ESEMPI_BE = [
+    ("Brussels standard, 2 rooms, 3 nights: €5 × 2 × 3", "brussels", "std", "2026-11-01", 3, 2, 0, 2, 0, 30.00),
+    ("Brussels homestay, 1 room, 2 nights: €4 × 2", "brussels", "home", "2026-11-01", 2, 2, 0, 1, 0, 8.00),
+    ("Brussels, 91 nights: more than 90 days, not taxed", "brussels", "std", "2026-11-01", 91, 2, 0, 1, 0, 0.00),
+    ("Ghent category 2, 2 adults + 1 child, 2 nights: €3.93 × 2 × 2", "ghent", "c2", "2026-11-01", 2, 2, 1, 1, 0, 15.72),
+    ("Ghent category 3, 2 adults, 1 night in 2029: €6.96 × 2", "ghent", "c3", "2029-01-01", 1, 2, 0, 1, 0, 13.92),
+    ("Bruges hotel, 2 adults, 31 Dec 2027 + 1 Jan 2028: €3.75 × 2 + €5 × 2", "bruges", "room", "2027-12-31", 2, 2, 0, 1, 0, 17.50),
+    ("Bruges campsite, 2 adults + 2 children, 3 nights: €1.50 × 2 × 3", "bruges", "camp", "2026-07-01", 3, 2, 2, 1, 0, 9.00),
+]
+
+
+def controlla_belgio():
+    """12. Belgio: tre destinazioni con fonti ufficiali (be.brussels, stad.gent, brugge.be) lette (HTTP 200) e datate; esempi a mano; titolo ≤ 70
+    con anno e cifra; prima frase con fonte e data; pagina Belgio con Anversa non coperta e nessun importo per crocieristi e pullman di Bruges;
+    tabella Europa; voci 2028-2029 nella pagina dei cambi."""
+    errori = []
+    domini = {"brussels": "https://be.brussels/", "ghent": "https://stad.gent/", "bruges": "https://www.brugge.be/"}
+    for slug, dom in domini.items():
+        if slug not in D:
+            errori.append(f"Belgio: {slug} mancante nei dati")
+            continue
+        R = D[slug]
+        if any(f["http"] != 200 or not f.get("controllato_il") or not f["url"].startswith(dom) for f in R["fonti"]):
+            errori.append(f"Belgio: {slug}: fonte non ufficiale ({dom}), non letta o senza data")
+        t = (SITO / slug / "index.html").read_text(encoding="utf-8")
+        titolo = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(titolo) > 70:
+            errori.append(f"Belgio: {slug}: titolo oltre 70 caratteri: {titolo}")
+        r = re.search(r'<p class="risposta">(.*?)</p>', t, re.S)
+        prima = unescape(r.group(1)).split(". ")[0] if r else ""
+        if "checked on 31 October 2026" not in prima or "€" not in prima:
+            errori.append(f"Belgio: {slug}: la prima frase non ha cifra, fonte e data")
+    for descr, slug, cat, ci, n, p, es, st, pr, att in ESEMPI_BE:
+        o = G.calcola(D[slug], cat, ci, n, p, es, st, pr)
+        if abs(o["totale"] - att) > 0.005:
+            errori.append(f"Belgio: esempio sbagliato: {descr}: atteso {att}, calcolato {o['totale']}")
+    paese = (SITO / "country" / "belgium" / "index.html").read_text(encoding="utf-8")
+    if "Antwerp is not covered" not in paese or "we show no amount" not in paese:
+        errori.append("Belgio: pagina paese senza la riga su Anversa o sulla tassa di Bruges per crocieristi")
+    br = G.MON.testo_visibile((SITO / "bruges" / "index.html").read_text(encoding="utf-8"))
+    if re.search(r"€4(?!\d)|4 euro", br):
+        errori.append("Belgio: Bruges mostra un importo per crocieristi e pullman non confermato da fonti ufficiali")
+    europa = (SITO / "tourist-taxes-europe-2026" / "index.html").read_text(encoding="utf-8")
+    for slug in domini:
+        if f'href="../{slug}/"' not in europa:
+            errori.append(f"Belgio: {slug} non nella tabella Europa")
+    dopo = {x["slug"]: x["dal"] for x in G.CAMBI["dopo"]}
+    if dopo.get("bruges") != "2028-01-01" or dopo.get("ghent") != "2029-01-01" \
+            or not any(t.get("dal") == "2028-01-01" for t in D["bruges"]["tariffe"]) or not any(t.get("dal") == "2029-01-01" for t in D["ghent"]["tariffe"]):
+        errori.append("Belgio: cambi 2028 (Bruges) e 2029 (Gand) non coerenti con i dati")
+    return errori
+
+
 def voce_futura_nel_titolo(titolo, attese, oggi):
     fut = [x for x in attese if x[0] > oggi]
     return bool(fut) and G.soldi(fut[0][1], "MXN") in titolo
@@ -627,9 +934,14 @@ def main():
     print(f"Sezione Messico ({len(MX_SLUG)} pagine, Visitax = 2,50 × UMA ricalcolato, titoli, FAQ, avviso sito ufficiale, DiscoverCars): {len(ex)} errori")
     ejp = controlla_giappone()
     print(f"Giappone, rimborso dal 1/11/2026 ({len(ESEMPI_JP)} esempi a mano, frazioni, JS, sitemap, titolo, prima frase, fonti, FAQ, link): {len(ejp)} errori")
+    ejt = controlla_giappone_tasse()
+    print(f"Giappone, tasse di soggiorno ({len(G.JT['enti'])} enti = elenco MIC, {len(ESEMPI_JT)} esempi a mano, ricalcolo indipendente, JS, "
+          f"5 pagine esistenti, {sum(1 for e in G.JT['enti'] if e['pagina'].startswith(G.JT_HUB))} pagine, riassunto, 2027): {len(ejt)} errori")
+    ebe = controlla_belgio()
+    print(f"Belgio (Bruxelles, Gand, Bruges: fonti, {len(ESEMPI_BE)} esempi a mano, titoli, prima frase, Anversa, Europa, cambi 2028-2029): {len(ebe)} errori")
     em, im = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print(G.MON.riepilogo(G.SITO_ID, im, em))
-    tutti = errori + ej + el + ef + ea + ei + e7 + en + et + ex + ejp + em
+    tutti = errori + ej + el + ef + ea + ei + e7 + en + et + ex + ejp + ejt + ebe + em
     for e in tutti[:40]:
         print("  -", e)
     if tutti:
