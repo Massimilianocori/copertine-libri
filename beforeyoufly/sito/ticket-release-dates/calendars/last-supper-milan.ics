@@ -10,7 +10,7 @@ X-PUBLISHED-TTL:P1D
 BEGIN:VEVENT
 UID:last-supper-milan-gratis-prima_domenica-2026-11-01@before-you-fly.netli
  fy.app
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:Leonardo's Last Supper: free entry
@@ -34,7 +34,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2026-11-04@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20261104T110000Z
 DTEND:20261104T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -53,7 +53,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2026-11-11@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20261111T110000Z
 DTEND:20261111T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -72,7 +72,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2026-11-18@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20261118T110000Z
 DTEND:20261118T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -91,7 +91,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2026-11-25@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20261125T110000Z
 DTEND:20261125T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -110,7 +110,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-domenica-gratis-2026-12-02@before-you-fly.netl
  ify.app
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20261202T110000Z
 DTEND:20261202T113000Z
 SUMMARY:Free first-Sunday Last Supper tickets go on sale (for Sun 6 Dec 202
@@ -131,7 +131,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2026-12-02@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20261202T110000Z
 DTEND:20261202T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -150,7 +150,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-gratis-prima_domenica-2026-12-06@before-you-fly.netli
  fy.app
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:Leonardo's Last Supper: free entry
@@ -174,7 +174,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2026-12-09@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20261209T110000Z
 DTEND:20261209T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -193,7 +193,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2026-12-16@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20261216T110000Z
 DTEND:20261216T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -212,7 +212,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2026-12-23@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20261223T110000Z
 DTEND:20261223T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -231,7 +231,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-chiusura-chiusure-2026-12-25@before-you-fly.netlify.a
  pp
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART;VALUE=DATE:20261225
 DTEND;VALUE=DATE:20261226
 SUMMARY:Leonardo's Last Supper: closed
@@ -250,7 +250,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-domenica-gratis-2026-12-30@before-you-fly.netl
  ify.app
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20261230T110000Z
 DTEND:20261230T113000Z
 SUMMARY:Free first-Sunday Last Supper tickets go on sale (for Sun 3 Jan 202
@@ -271,7 +271,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2026-12-30@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20261230T110000Z
 DTEND:20261230T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -290,7 +290,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-chiusura-chiusure-2027-01-01@before-you-fly.netlify.a
  pp
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:Leonardo's Last Supper: closed
@@ -309,7 +309,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-gratis-prima_domenica-2027-01-03@before-you-fly.netli
  fy.app
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART;VALUE=DATE:20270103
 DTEND;VALUE=DATE:20270104
 SUMMARY:Leonardo's Last Supper: free entry
@@ -333,7 +333,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2027-01-06@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270106T110000Z
 DTEND:20270106T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -352,7 +352,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2027-01-13@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270113T110000Z
 DTEND:20270113T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -371,7 +371,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2027-01-20@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270120T110000Z
 DTEND:20270120T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -390,7 +390,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2027-01-27@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270127T110000Z
 DTEND:20270127T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -409,7 +409,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-domenica-gratis-2027-02-03@before-you-fly.netl
  ify.app
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270203T110000Z
 DTEND:20270203T113000Z
 SUMMARY:Free first-Sunday Last Supper tickets go on sale (for Sun 7 Feb 202
@@ -430,7 +430,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2027-02-03@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270203T110000Z
 DTEND:20270203T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -449,7 +449,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-gratis-prima_domenica-2027-02-07@before-you-fly.netli
  fy.app
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART;VALUE=DATE:20270207
 DTEND;VALUE=DATE:20270208
 SUMMARY:Leonardo's Last Supper: free entry
@@ -473,7 +473,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2027-02-10@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270210T110000Z
 DTEND:20270210T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -492,7 +492,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2027-02-17@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270217T110000Z
 DTEND:20270217T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -511,7 +511,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2027-02-24@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270224T110000Z
 DTEND:20270224T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -530,7 +530,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-domenica-gratis-2027-03-03@before-you-fly.netl
  ify.app
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270303T110000Z
 DTEND:20270303T113000Z
 SUMMARY:Free first-Sunday Last Supper tickets go on sale (for Sun 7 Mar 202
@@ -551,7 +551,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2027-03-03@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270303T110000Z
 DTEND:20270303T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -570,7 +570,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-gratis-prima_domenica-2027-03-07@before-you-fly.netli
  fy.app
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART;VALUE=DATE:20270307
 DTEND;VALUE=DATE:20270308
 SUMMARY:Leonardo's Last Supper: free entry
@@ -594,7 +594,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2027-03-10@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270310T110000Z
 DTEND:20270310T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -613,7 +613,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2027-03-17@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270317T110000Z
 DTEND:20270317T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -632,7 +632,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2027-03-24@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270324T110000Z
 DTEND:20270324T113000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -651,7 +651,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-domenica-gratis-2027-03-31@before-you-fly.netl
  ify.app
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270331T100000Z
 DTEND:20270331T103000Z
 SUMMARY:Free first-Sunday Last Supper tickets go on sale (for Sun 4 Apr 202
@@ -672,7 +672,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2027-03-31@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270331T100000Z
 DTEND:20270331T103000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -691,7 +691,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-gratis-prima_domenica-2027-04-04@before-you-fly.netli
  fy.app
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART;VALUE=DATE:20270404
 DTEND;VALUE=DATE:20270405
 SUMMARY:Leonardo's Last Supper: free entry
@@ -715,7 +715,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2027-04-07@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270407T100000Z
 DTEND:20270407T103000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -734,7 +734,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2027-04-14@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270414T100000Z
 DTEND:20270414T103000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -753,7 +753,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2027-04-21@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270421T100000Z
 DTEND:20270421T103000Z
 SUMMARY:Additional Last Supper tickets go on sale
@@ -772,7 +772,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-domenica-gratis-2027-04-28@before-you-fly.netl
  ify.app
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270428T100000Z
 DTEND:20270428T103000Z
 SUMMARY:Free first-Sunday Last Supper tickets go on sale (for Sun 2 May 202
@@ -793,7 +793,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:last-supper-milan-uscita-mercoledi-2027-04-28@before-you-fly.netlify.ap
  p
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART:20270428T100000Z
 DTEND:20270428T103000Z
 SUMMARY:Additional Last Supper tickets go on sale
