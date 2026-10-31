@@ -4,5 +4,5 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
-| visaincome | Residenza Messico (`/mexico-residency/` + 12), revisione 31/10/2026 pubblicabile; OPT USA (`/us-opt/` + 5) e UK Graduate visa (`/uk-graduate-visa/` + 3) | 31/10/2026, pubblicabile | Visa Income già pubblicato il 31/10 alle 00:30 circa (ora di Roma): pubblicare la sera del 31/10 |
+| visaincome | Study in Italy (`/study-in-italy/` + 14), revisione 31/10 pubblicabile; Residenza Messico (`/mexico-residency/` + 12), revisione 31/10/2026 pubblicabile; OPT USA (`/us-opt/` + 5) e UK Graduate visa (`/uk-graduate-visa/` + 3) | 31/10/2026, pubblicabile | Visa Income già pubblicato il 31/10 alle 00:30 circa (ora di Roma): pubblicare la sera del 31/10 |
 | beforeyoufly | Patente straniera Canada/Australia/NZ (`/foreign-licence-canada-australia-nz/` + 14), revisione 31/10/2026 pubblicabile | Before You Fly pubblicato il 31/10 alle 00:30 circa con i biglietti: pubblicare la sera del 31/10 (NZ cambia dal 1/11) |
