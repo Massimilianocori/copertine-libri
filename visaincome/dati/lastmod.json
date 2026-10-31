@@ -3,7 +3,7 @@
 "pagine": {
 "": [
 "2026-10-31",
-"36ccafd6bb41750757c3"
+"bacd23cf5da2c785749e"
 ],
 "about/": [
 "2026-10-15",
@@ -18,56 +18,56 @@
 "2e236fe76e8b0a613874"
 ],
 "country/austria/": [
-"2026-10-28",
-"3e74cbeef44ad9ea26ec"
+"2026-10-31",
+"7d0ddd66f58572dc4aea"
 ],
 "country/croatia/": [
-"2026-10-28",
-"5e14159c7d575dcd712d"
+"2026-10-31",
+"d6e8a65de62393a7e576"
 ],
 "country/denmark/": [
-"2026-10-28",
-"0d0d942c35ee42a0213d"
+"2026-10-31",
+"f58d5d9f8c58604e8721"
 ],
 "country/france/": [
-"2026-10-28",
-"989089394df8f6cd0b58"
+"2026-10-31",
+"f66a8697180c422cfb11"
 ],
 "country/germany/": [
-"2026-10-28",
-"deb2aad5095898632e6f"
+"2026-10-31",
+"b97e27b033ce26dd4035"
 ],
 "country/hungary/": [
-"2026-10-28",
-"50c0ccea30c7e2d4f5ad"
+"2026-10-31",
+"bb0051dc883505c9e06f"
 ],
 "country/ireland/": [
-"2026-10-30",
-"e1a5c10a589cbe89d6e6"
+"2026-10-31",
+"7060654a226b774ab997"
 ],
 "country/italy/": [
-"2026-10-28",
-"c6fb836fd9fa153cd093"
+"2026-10-31",
+"087713dbdb583d11ec29"
 ],
 "country/netherlands/": [
-"2026-10-28",
-"89f63f07021be494fa9a"
+"2026-10-31",
+"c813e2726922b088c831"
 ],
 "country/portugal/": [
-"2026-10-28",
-"39e388f77033c1de0423"
+"2026-10-31",
+"993d2d731a17cd8b25a2"
 ],
 "country/spain/": [
-"2026-10-28",
-"68d19a27f65d259f789a"
+"2026-10-31",
+"5bb6e7cacaad70ee4a85"
 ],
 "country/sweden/": [
-"2026-10-28",
-"669c2849f2b8ccbacf7e"
+"2026-10-31",
+"81a23c5390013764d654"
 ],
 "country/united-kingdom/": [
-"2026-10-28",
-"8b07538a574f7068387b"
+"2026-10-31",
+"bace9c953ddc81af628c"
 ],
 "croatia-digital-nomad-visa/": [
 "2026-10-31",
@@ -91,7 +91,7 @@
 ],
 "how-it-works/": [
 "2026-10-31",
-"d4605e14ef024055dd1d"
+"59158fca4b606a00c8c3"
 ],
 "hungary-white-card/": [
 "2026-10-31",
@@ -103,7 +103,7 @@
 ],
 "italy-digital-nomad-visa/": [
 "2026-10-31",
-"272946387463ae27360e"
+"298ac7a47208411278f1"
 ],
 "mexico-residency/": [
 "2026-10-31",
@@ -1068,6 +1068,66 @@
 "spain-non-lucrative-visa/": [
 "2026-10-31",
 "5250c618129cf1da17a2"
+],
+"study-in-italy/": [
+"2026-10-31",
+"3b0778e9a56792fae9bb"
+],
+"study-in-italy/adisu-campania/": [
+"2026-10-31",
+"b0206741e4e3a821e85e"
+],
+"study-in-italy/disco-lazio/": [
+"2026-10-31",
+"3dd7488142323f286687"
+],
+"study-in-italy/dsu-scholarship-deadlines/": [
+"2026-10-31",
+"6afe2e60dfb9df28212d"
+],
+"study-in-italy/dsu-toscana/": [
+"2026-10-31",
+"65e2f30a10a2b20d578c"
+],
+"study-in-italy/er-go/": [
+"2026-10-31",
+"7c2cff4d37d339450827"
+],
+"study-in-italy/ersu-catania/": [
+"2026-10-31",
+"ad2510cc1dd5a1368ca4"
+],
+"study-in-italy/ersu-palermo/": [
+"2026-10-31",
+"1a0e7215f670313379da"
+],
+"study-in-italy/health-insurance/": [
+"2026-10-31",
+"60adda4ed4b3867c9399"
+],
+"study-in-italy/isee-parificato/": [
+"2026-10-31",
+"25c94306547b93a9b1fb"
+],
+"study-in-italy/particularly-poor-countries/": [
+"2026-10-31",
+"6054c16ffd57c6befffa"
+],
+"study-in-italy/politecnico-di-milano/": [
+"2026-10-31",
+"8ee5fb4fc3d39f9832c5"
+],
+"study-in-italy/student-visa-funds/": [
+"2026-10-31",
+"e46b90f02ba4e7813ba8"
+],
+"study-in-italy/university-of-milan/": [
+"2026-10-31",
+"182f14922b033d7f4e7a"
+],
+"study-in-italy/university-of-padua/": [
+"2026-10-31",
+"7ca38581806328b2dc07"
 ],
 "sweden-eu-blue-card/": [
 "2026-10-31",

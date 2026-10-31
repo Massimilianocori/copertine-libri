@@ -52,6 +52,12 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     SafetyWing solo dopo le informazioni ufficiali e con la frase che non è un requisito, nessuna promessa, link dal resto del sito,
     costanti del calcolatore = dati e motore JS = calcolo Python indipendente (casi fissi + 400 a caso); online: 10 frammenti a caso
     riletti su LFD, Anexo 4, INEGI e Lineamientos (le pagine dei consolati non si rileggono qui: il sito SRE ha una verifica anti-bot).
+22. Study in Italy (31/10/2026): ricalcolo da dati/studio_italia.json (impronta), pagine attese (indice + 5 pagine tematiche + una per ente DSU)
+    tutte in sitemap e nessuna in più, titoli ≤ 70, prima frase con fonte e data di lettura, cifre nazionali (mezzi per il visto, borse minime,
+    limiti ISEE/ISPE, costi del permesso ricalcolati, SSN), tabella degli enti e pagine per ente con limiti, importi, scadenze e frammenti dei
+    bandi, elenco dei Paesi particolarmente poveri completo, tabella delle valute ricalcolata, esempio ISEE ricalcolato, enti non letti elencati,
+    tutte le fonti citate, SafetyWing solo nella pagina dell'assicurazione e dopo le informazioni ufficiali, link dal resto del sito, costanti
+    del calcolatore = dati e motore JS = calcolo Python indipendente (casi fissi + 400 a caso); online: 12 frammenti a caso riletti sulle fonti.
 Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
@@ -1902,6 +1908,242 @@ def controlla_mx(online=True):
     return errori, len(P), n_js, riletti
 
 
+# ---------------------------------------------------------------- 22. Study in Italy (31/10/2026)
+def py_it(i, k):
+    """Stesso risultato di CALC_IT.isee (ISEE_JS), scritto qui senza le funzioni di genera.py."""
+    try:
+        n = int(float(i["n"])) if i["n"] not in ("", None) else 0
+    except ValueError:
+        return None
+    if not (1 <= n <= 20) or i["reddito"] in ("", None):
+        return None
+
+    def num(v):
+        if v in ("", None):
+            return 0.0
+        x = float(v)
+        return x if x >= 0 else None
+    red, ris, mq, mut = num(i["reddito"]), num(i["risparmi"]), num(i["mq"]), num(i["mutuo"])
+    if None in (red, ris, mq, mut):
+        return None
+    t = 1 if i["val"] == "EUR" else k["cambi"].get(i["anno"], {}).get(i["val"])
+    if not t:
+        return None
+    isr, mob = _r2(red / t), _r2(ris / t)
+    imm = _r2(max(0, mq * k["mq"] - _r2(mut / t)))
+    isp = _r2(mob + imm)
+    ise = _r2(isr + k["quota"] * isp)
+    s = k["scala"]
+    sc = s[str(n)] if n <= 5 else _r2(s["5"] + (n - 5) * s["oltre"])
+    isee, ispe = _r2(ise / sc), _r2(isp / sc)
+    righe = [{"id": e["id"], "ok_isee": isee <= e["isee"], "ok_ispe": ispe <= e["ispe"], "ok": isee <= e["isee"] and ispe <= e["ispe"],
+              "top": isee <= e["isee"] and ispe <= e["ispe"] and isee <= e["fs_isee"]} for e in k["enti"]]
+    return {"t": t, "isr": isr, "mob": mob, "imm": imm, "isp": isp, "ise": ise, "scala": sc, "isee": isee, "ispe": ispe, "righe": righe,
+            "povero": i["paese"] in k["poveri"], "unimi_auto": i["paese"] not in ("", "other") and i["paese"] not in k["unimi"]}
+
+
+def casi_it(k, seme=22, n=400):
+    rng = random.Random(seme)
+    base = {"n": 4, "val": "EUR", "anno": "2025", "reddito": 10000, "risparmi": 0, "mq": 0, "mutuo": 0, "paese": ""}
+    casi = [dict(base, reddito=""), dict(base, n=0), dict(base, n=21), dict(base, reddito=-5), dict(base, val="XXX"), dict(base, n="2.7"),
+            dict(base, paese="Bangladesh"), dict(base, paese="Pakistan"), dict(base, paese="United States"), dict(base, paese="other")]
+    for e in k["enti"]:   # esattamente sul limite e un centesimo sopra (ISEE e ISPE), in euro, una persona
+        casi += [dict(base, n=1, reddito=e["isee"]), dict(base, n=1, reddito=round(e["isee"] + 0.01, 2)),
+                 dict(base, n=1, reddito=0, risparmi=e["ispe"]), dict(base, n=1, reddito=0, risparmi=round(e["ispe"] + 0.01, 2)),
+                 dict(base, n=1, reddito=e["fs_isee"]), dict(base, n=1, reddito=round(e["fs_isee"] + 0.01, 2))]
+    valute = ["EUR"] + list(k["cambi"]["2025"])
+    paesi = ["", "other", "India", "Pakistan", "Nigeria", "Bangladesh", "Nepal", "Iran", "United States", "Japan", "Egypt"]
+    for _ in range(n):
+        v = rng.choice(valute)
+        anno = rng.choice(["2024", "2025"])
+        t = 1 if v == "EUR" else k["cambi"][anno][v]
+        casi.append({"n": rng.randint(1, 9), "val": v, "anno": anno, "reddito": round(rng.uniform(0, 45000) * t, rng.choice([0, 2])),
+                     "risparmi": round(rng.choice([0, rng.uniform(0, 90000)]) * t, 0), "mq": rng.choice([0, 0, 60, 95.5, 120, 240, 400]),
+                     "mutuo": round(rng.choice([0, 0, rng.uniform(0, 80000)]) * t, 0), "paese": rng.choice(paesi)})
+    return casi
+
+
+def controlla_it(online=True):
+    import hashlib
+    errori = []
+    D = json.loads((SITO.parent / "dati" / "studio_italia.json").read_text(encoding="utf-8"))
+    cont = {k: D[k] for k in ("letture", "fonti", "enti", "non_letti", "poveri", "unimi_allegato1", "cambi_bdi")}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != D["impronta"]:
+        errori.append("Italia: impronta di dati/studio_italia.json diversa dal contenuto")
+    L = {k: v["valore"] for k, v in D["letture"].items()}
+    letto = G.data_lunga(D["letto_il"])
+    enti = D["enti"]
+
+    def e_(x):
+        x = float(x)
+        return "€" + (f"{x:,.0f}" if x.is_integer() else f"{x:,.2f}")
+    if (L["mezzi"], L["dsu_fs"], L["isee_max"], L["ispe_max"], L["ssn_minimo"]) != (10179.85, 7171.11, 28339.88, 61608.48, 700):
+        errori.append("Italia: cifre nazionali diverse da quelle scritte nelle FAQ (10.179,85 / 7.171,11 / 28.339,88 / 61.608,48 / 700): rivedere i testi")
+    for E in enti:
+        if E["isee"]["valore"] > L["isee_max"] or E["ispe"]["valore"] > L["ispe_max"]:
+            errori.append(f"Italia: {E['id']} con limiti sopra il massimo nazionale")
+    tema = ["student-visa-funds", "isee-parificato", "dsu-scholarship-deadlines", "particularly-poor-countries", "health-insurance"]
+    attese = [""] + tema + [E["id"] for E in enti]
+    P = _pagine_sezione("study-in-italy/", attese, errori, "Italia", affiliati=True)
+    tutto = ""
+    for s_, (t, main, testo, lead, percorso) in P.items():
+        tutto += main
+        prima = re.split(r"(?<=[a-z0-9)%])\.\s+(?=[A-Z])", lead)[0]
+        if letto not in prima:
+            errori.append(f"Italia: data di lettura non nella prima frase in {percorso}")
+        elif not re.search(r"procedures|call|decree|Normattiva|Ministry", prima.split(letto)[0]):
+            errori.append(f"Italia: prima frase senza la fonte prima della data in {percorso}")
+        if re.search(r"(?i)you will get (the|a|your) (visa|scholarship)|guarantee[sd]? (the|a|your) (visa|scholarship)|will be approved", testo):
+            errori.append(f"Italia: promessa in {percorso}")
+        m = main.find('class="card aff-r"')
+        if m >= 0:
+            pezzo = html.unescape(main[m:main.find("</section>", m)])
+            if s_ != "health-insurance":
+                errori.append(f"Italia: riquadro affiliato fuori dalla pagina dell'assicurazione ({percorso})")
+            if 'rel="sponsored noopener"' not in pezzo or "safetywing.com" not in pezzo or "SSN registration is the official route" not in pezzo:
+                errori.append(f"Italia: riquadro SafetyWing senza sponsored noopener o senza la frase sul SSN in {percorso}")
+            if m < main.find("Not legal or immigration advice.") or m < main.find("The three options in the procedures"):
+                errori.append(f"Italia: riquadro SafetyWing prima delle informazioni ufficiali in {percorso}")
+        for a in re.findall(r'<a [^>]*rel="[^"]*sponsored[^"]*"[^>]*>', main):
+            if "safetywing.com" not in a or s_ != "health-insurance":
+                errori.append(f"Italia: link sponsorizzato non previsto in {percorso}")
+        km = re.search(r"data-isee data-rel=\"[^\"]*\" data-primo=\"[^\"]*\" data-v='[^']*' data-k='(.*?)'", main)
+        if s_ in ("", "isee-parificato") or s_ in [E["id"] for E in enti]:
+            if not km:
+                errori.append(f"Italia: calcolatore assente in {percorso}")
+            else:
+                k = json.loads(html.unescape(km.group(1)))
+                attesi = {"enti": [{"id": E["id"], "nome": E["nome"], "isee": E["isee"]["valore"], "ispe": E["ispe"]["valore"], "fs": E["fs"]["valore"],
+                                    "fs_isee": E["fs"]["fino_isee"]} for E in enti],
+                          "scala": L["scala"], "mq": 500, "quota": 0.2, "cambi": D["cambi_bdi"]["anni"]}
+                if {x: k[x] for x in attesi} != attesi:
+                    errori.append(f"Italia: costanti del calcolatore diverse dai dati in {percorso}")
+                if sorted(k["poveri"]) != sorted(G.NOMI_POVERI_IT.get(p, p) for p in D["poveri"]):
+                    errori.append(f"Italia: elenco dei Paesi poveri del calcolatore diverso dal decreto in {percorso}")
+                if any(G.PAESI_ALL1_IT[p] not in D["unimi_allegato1"] for p in k["unimi"]):
+                    errori.append(f"Italia: Paese del calcolatore non nell'allegato 1 UNIMI in {percorso}")
+            if "window.CALC_IT=C" not in t:
+                errori.append(f"Italia: script del calcolatore mancante in {percorso}")
+    base_ps = L["ps_marca"] + L["ps_poste"] + L["ps_documento"]
+    if "" in P:
+        t, main, testo, lead, _ = P[""]
+        for x in (e_(L["mezzi"]), e_(L["dsu_fs"]), e_(L["isee_max"]), e_(L["ispe_max"]), G.data_lunga(L["visto_scadenza"]), e_(round(base_ps + L["ps_contributo_1"], 2))):
+            if x not in testo:
+                errori.append(f"Italia: indice senza {x!r}")
+        tab = re.search(r'id="t-enti-it".*?<tbody>(.*?)</tbody>', main, re.S)
+        righe = re.findall(r"<tr>(.*?)</tr>", tab.group(1), re.S) if tab else []
+        if len(righe) != len(enti):
+            errori.append(f"Italia: righe della tabella degli enti {len(righe)} invece di {len(enti)}")
+        for E in enti:
+            riga = html.unescape(next((r for r in righe if f'href="{E["id"]}/"' in r), ""))
+            for x in (e_(E["isee"]["valore"]), e_(E["ispe"]["valore"]), e_(E["fs"]["valore"]), G.data_lunga(E["scadenza"]["valore"])):
+                if x not in riga:
+                    errori.append(f"Italia: tabella, {E['id']} senza {x}")
+            if E["fonti"][0] and D["fonti"][E["fonti"][0]]["url"] not in riga:
+                errori.append(f"Italia: tabella senza il bando di {E['id']}")
+        for x in D["non_letti"]:
+            if html.escape(x["url"]) not in main:
+                errori.append(f"Italia: ente non letto non elencato: {x['nome']}")
+    if "student-visa-funds" in P:
+        t, main, testo, lead, _ = P["student-visa-funds"]
+        for x in (e_(round(base_ps + L["ps_contributo_1"], 2)), e_(round(base_ps + L["ps_contributo_2"], 2)), e_(L["ps_documento"]), e_(L["ps_contributo_2"])):
+            if x not in testo:
+                errori.append(f"Italia: pagina dei mezzi senza {x!r}")
+        tab = re.search(r'id="t-mezzi-it".*?<tbody>(.*?)</tbody>', main, re.S)
+        for r in re.findall(r"<tr>(.*?)</tr>", tab.group(1) if tab else "", re.S):
+            v = re.search(r'<th[^>]*>([A-Z]{3}) ', r).group(1)
+            tasso = G.CAMBI["tassi"][v] if v in G.CAMBI["tassi"] else D["cambi_bdi"]["anni"]["2025"][v]
+            if f"{L['mezzi'] * tasso:,.0f}" not in r:
+                errori.append(f"Italia: conversione dei mezzi in {v} sbagliata")
+    if "isee-parificato" in P:
+        testo = P["isee-parificato"][2]
+        t_ = D["cambi_bdi"]["anni"]["2025"]["PKR"]
+        isr, mob = _r2(1500000 / t_), _r2(600000 / t_)
+        isp = _r2(mob + 120 * 500)
+        isee = _r2(_r2(isr + 0.2 * isp) / L["scala"]["4"])
+        for x in (e_(isee), e_(_r2(isp / L["scala"]["4"])), "1.57", "2.46", "0.35"):
+            if x not in testo:
+                errori.append(f"Italia: pagina ISEE senza {x!r} (esempio o scala)")
+    if "particularly-poor-countries" in P:
+        testo = P["particularly-poor-countries"][2]
+        if len(D["poveri"]) != 46:
+            errori.append(f"Italia: {len(D['poveri'])} Paesi poveri (il decreto ne elenca 46): rivedere i testi")
+        for p in D["poveri"]:
+            if html.unescape(G.NOMI_POVERI_IT.get(p, p)) not in testo:
+                errori.append(f"Italia: Paese povero non elencato: {p}")
+        for p in ("India", "Pakistan", "Nigeria"):
+            if p in D["poveri"]:
+                errori.append(f"Italia: {p} è ora tra i Paesi poveri: rivedere le FAQ")
+    if "health-insurance" in P and e_(L["ssn_minimo"]) not in P["health-insurance"][2]:
+        errori.append("Italia: pagina dell'assicurazione senza il minimo SSN")
+    if "dsu-scholarship-deadlines" in P:
+        testo = P["dsu-scholarship-deadlines"][2]
+        for E in enti:
+            if G.data_lunga(E["scadenza"]["valore"]) not in testo:
+                errori.append(f"Italia: pagina delle scadenze senza la scadenza di {E['id']}")
+    for E in enti:
+        if E["id"] not in P:
+            continue
+        t, main, testo, lead, percorso = P[E["id"]]
+        for x in (e_(E["isee"]["valore"]), e_(E["ispe"]["valore"]), e_(E["fs"]["valore"]), G.data_lunga(E["scadenza"]["valore"])):
+            if x not in lead:
+                errori.append(f"Italia: prima frase di {E['id']} senza {x}")
+        d_ = D["fonti"][E["fonti"][0]].get("data")
+        if d_ and G.data_lunga(d_) not in lead:
+            errori.append(f"Italia: data del bando non nella prima frase di {E['id']}")
+        for c in ("isee", "ispe", "fs", "fs_cifra", "fs_fascia", "fs_base", "servizi", "scadenza", "estero", "estero_cambio", "estero_regola", "estero_scad_fr", "isee_conferma", "poveri"):
+            v = E.get(c)
+            if v and html.escape(v["frammento"], quote=False) not in main and html.escape(v["frammento"]) not in main:
+                errori.append(f"Italia: frammento del bando non citato nella pagina di {E['id']} ({c})")
+        for k_ in E["fonti"]:
+            if html.escape(D["fonti"][k_]["url"]) not in main:
+                errori.append(f"Italia: link al bando mancante nella pagina di {E['id']}")
+    for k_, f in D["fonti"].items():
+        if html.escape(f["url"]) not in tutto:
+            errori.append(f"Italia: fonte non citata in nessuna pagina della sezione: {k_}")
+    for f, link in (("index.html", 'href="study-in-italy/"'), ("how-it-works/index.html", 'href="../study-in-italy/"'),
+                    ("italy-digital-nomad-visa/index.html", 'href="../study-in-italy/"'), ("country/italy/index.html", 'href="../../study-in-italy/"'),
+                    ("about/index.html", 'href="../study-in-italy/"')):
+        if link not in (SITO / f).read_text(encoding="utf-8"):
+            errori.append(f"Italia: {f} non rimanda alla sezione")
+    # motore JS del calcolatore (preso dalla pagina pubblicata) = calcolo Python
+    n_js = 0
+    if "" in P:
+        t, main = P[""][0], P[""][1]
+        js = next(x for x in re.findall(r"<script>(.*?)</script>", t, re.S) if "window.CALC_IT=C" in x)
+        k = json.loads(html.unescape(re.search(r"data-isee data-rel=\"[^\"]*\" data-primo=\"[^\"]*\" data-v='[^']*' data-k='(.*?)'", main).group(1)))
+        casi = casi_it(k)
+        casi_js = [{a: ("" if b is None else (str(b) if a in ("n", "reddito", "risparmi", "mq", "mutuo") else b)) for a, b in c.items()} for c in casi]
+        prog = ("var window={};var document={querySelectorAll:function(){return [];}};\n" + js + "\nvar K=" + json.dumps(k) + ";var CASI=" + json.dumps(casi_js)
+                + ";console.log(JSON.stringify(CASI.map(function(c){return window.CALC_IT.isee(c,K);})));")
+        with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as fh:
+            fh.write(prog)
+        r = subprocess.run(["node", fh.name], capture_output=True, text=True, timeout=120)
+        if r.returncode != 0:
+            errori.append(f"Italia: JS del calcolatore non eseguibile: {r.stderr[-300:]}")
+        else:
+            diff = [(c_, j) for c_, j in zip(casi_js, json.loads(r.stdout)) if py_it(c_, k) != j]
+            n_js = len(casi)
+            errori += [f"Italia: calcolatore {c_}: JS {str(j)[:160]} ≠ Python {str(py_it(c_, k))[:160]}" for c_, j in diff[:5]]
+    riletti = []
+    if online:
+        sys.path.insert(0, str(SITO.parent / "raccolta"))
+        import studio_italia as RI
+        voci = [(k_, v["fonte"], v["frammento"]) for k_, v in D["letture"].items()]
+        voci += [(f"{E['id']}.{c}", E[c]["fonte"], E[c]["frammento"]) for E in enti for c in ("isee", "fs", "scadenza", "estero") if E.get(c)]
+        rng = random.Random(20261031)
+        scelte = rng.sample(voci, 12)
+        testi = {}
+        for nome, fonte, fr in scelte:
+            if fonte not in testi:
+                _m, testi[fonte] = RI.leggi(RI.FONTI[fonte])
+            ok = fr in testi[fonte]
+            riletti.append(f"{fonte} {nome}: {'presente' if ok else 'ASSENTE'}")
+            if not ok:
+                errori.append(f"Italia: frammento {nome} non più in {fonte}")
+    return errori, len(P), n_js, riletti
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -1953,7 +2195,11 @@ def main():
     print(f"21. Mexico residency: {n21} pagine, costi 2026, calcolo UMA, consolati e frammenti, affiliati, link, calcolatore (JS = Python su {j21} casi); riletti online: {len(r21)}: {len(e21)} errori")
     for x in r21:
         print("    ·", x)
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21
+    e22, n22, j22, r22 = controlla_it(online="--offline" not in sys.argv)
+    print(f"22. Study in Italy: {n22} pagine, cifre nazionali, enti DSU e frammenti dei bandi, Paesi poveri, cambi, esempio ISEE, affiliati, link, calcolatore (JS = Python su {j22} casi); riletti online: {len(r22)}: {len(e22)} errori")
+    for x in r22:
+        print("    ·", x)
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22
     for e in tutti:
         print(" -", e)
     if tutti:

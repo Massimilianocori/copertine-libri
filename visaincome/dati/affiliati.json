@@ -46,5 +46,13 @@
     "nota": "Usato SOLO nella sezione Mexico residency (box_assicurazione_mx in genera.py), dopo le informazioni ufficiali. Stesso referenceID 26614957 del link attivo (_safetywing_schengen), campagna mexico-residency per contare i clic a parte (31/10/2026). Nessuna delle pagine dei consolati lette il 31/10/2026 chiede un'assicurazione sanitaria per il visto di residente: il riquadro lo dice e non presenta la polizza come requisito.",
     "attivo_dal": "2026-10-31",
     "regole": "rel=\"sponsored noopener\", etichetta Affiliate, riga di trasparenza; nessuna promessa sul visto. Per spegnerlo: url vuoto e rigenerare."
+  },
+  "_safetywing_italia": {
+    "url": "",
+    "nome": "SafetyWing",
+    "nota": "SPENTO il 31/10/2026 dalla revisione indipendente: il piano Essential di SafetyWing ha un massimale complessivo (US$250.000), mentre la circolare MUR/MAECI 2026-2028 chiede una polizza senza limitazioni od eccezioni per il ricovero ospedaliero urgente: il riquadro poteva far pensare che bastasse per il permesso. Non riattivare senza una conferma scritta (Questura o ateneo) che la polizza è accettata. Era: solo nella pagina study-in-italy/health-insurance/, referenceID 26614957, campagna study-in-italy.",
+    "attivo_dal": "",
+    "regole": "rel=\"sponsored noopener\", etichetta Affiliate, riga di trasparenza; nessuna promessa su visto o permesso. Per spegnerlo: url vuoto e rigenerare.",
+    "url_spento": "https://safetywing.com/nomad-insurance?referenceID=26614957&campaign=study-in-italy&utm_campaign=study-in-italy&utm_source=26614957&utm_medium=Ambassador"
   }
 }

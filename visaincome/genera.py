@@ -981,7 +981,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <p>Exchange rates: euro foreign exchange reference rates of the European Central Bank (source: ECB), for information only.</p>
 </div><div>
 <h2>Explore</h2>
-<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}moved-to/">Who moved where (by nationality)</a></li><li><a href="{rel}uk-english-test/">UK visa English tests (SELT)</a></li><li><a href="{rel}thailand-dtv-visa/">Thailand DTV visa by embassy</a></li><li><a href="{rel}us-opt/">US OPT and STEM OPT: fees and deadlines</a></li><li><a href="{rel}uk-graduate-visa/">UK Graduate visa: 2 years or 18 months</a></li><li><a href="{rel}mexico-residency/">Mexico residency: fees and income by consulate</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
+<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}moved-to/">Who moved where (by nationality)</a></li><li><a href="{rel}uk-english-test/">UK visa English tests (SELT)</a></li><li><a href="{rel}thailand-dtv-visa/">Thailand DTV visa by embassy</a></li><li><a href="{rel}us-opt/">US OPT and STEM OPT: fees and deadlines</a></li><li><a href="{rel}uk-graduate-visa/">UK Graduate visa: 2 years or 18 months</a></li><li><a href="{rel}mexico-residency/">Mexico residency: fees and income by consulate</a></li><li><a href="{rel}study-in-italy/">Study in Italy: visa funds and DSU scholarships</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
 </div></div>
 {blocco_altri(ALTRI_SITI, "Other useful tools for your trip")}
 <p class="f-base">Official sources only · the calculator runs in your browser · links marked "Affiliate" may earn us a commission.</p>
@@ -1243,7 +1243,7 @@ def pagina_programma(P):
 {link_simili}
 <p><a href="{rel}country/{P['paese_slug']}/">All visa income requirements in {escape(P['paese'])}</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements {ANNO}</a> · <a href="{rel}work-visa-salary-thresholds/">Work visa salary thresholds {ANNO}</a></p>
 {link_rifiuti(P['paese'], rel)}
-{link_selt(P, rel)}{link_graduate(P, rel)}"""
+{link_selt(P, rel)}{link_graduate(P, rel)}{link_studio_it(P, rel)}"""
     descr = (f"{nome_prog(P)} {ANNO}: minimum {riassunto(P)} for the main applicant, with family members and conversion to USD, GBP, INR and more. "
              f"Official source and check date.")
     pagina(f"{P['slug']}/", titolo_prog(P), descr, corpo, calcolatore=True,
@@ -1274,6 +1274,7 @@ def pagina_paese(slug):
 <div class="griglia" style="margin-top:20px">{''.join(scheda(p, rel) for p in pp)}</div>
 <p><a href="{rel}">All countries</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visas compared</a></p>
 {link_rifiuti(nome, rel)}
+{link_studio_it({"paese": nome}, rel)}
 {blocco_tr_dest(nome, rel)}"""
     pagina(f"country/{slug}/", f"{nome} visa income requirements {ANNO}: official amounts and calculator",
            f"Official minimum income and salary thresholds for {nome} visas in {ANNO}, with family members, currency conversion and sources.",
@@ -1340,6 +1341,9 @@ def home():
 <h2>Mexico residency by consulate</h2>
 <p class="lead">A Mexican temporary resident card costs {mxn(TASSE_MX["1"][1])} for up to one year in {ANNO} (Diario Oficial, read on {data_lunga(LETTO_MX)}), and the visa asks for a net income above {mxn(pesos_uma(GIORNI_MX["tr"][0]))} a month, which each consulate publishes in its own currency.</p>
 <p><a href="{SEZ_MX}">Mexico residency: fees and income by consulate</a> · <a href="{SEZ_MX}income-requirements/">Income requirements</a> · <a href="{SEZ_MX}fees/">Fees {ANNO}</a> · {" · ".join(f'<a href="{SEZ_MX}{C["id"]}/">{escape(C["sede"])}</a>' for C in CONS_MX if C["id"] in ("new-york", "las-vegas", "san-diego", "london", "vancouver"))}</p>
+<h2>Study in Italy: visa funds and DSU scholarships</h2>
+<p class="lead">The Italian student visa for 2026/27 asks for {eur(LIT["mezzi"])} a year (Ministry of University and Research procedures, read on {data_lunga(LETTO_IT)}), and regional DSU scholarships pay an off-campus student at least {eur(LIT["dsu_fs"])} when the family's ISEE stays under the limit, up to {eur(LIT["isee_max"])}.</p>
+<p><a href="{SEZ_IT}">Study in Italy 2026/27</a> · <a href="{SEZ_IT}student-visa-funds/">Visa bank balance</a> · <a href="{SEZ_IT}isee-parificato/">ISEE parificato</a> · <a href="{SEZ_IT}dsu-scholarship-deadlines/">DSU deadlines</a> · {" · ".join(f'<a href="{SEZ_IT}{E["id"]}/">{escape(E["nome"])}</a>' for E in ENTI_IT if E["id"] in ("university-of-milan", "politecnico-di-milano", "disco-lazio", "er-go", "university-of-padua"))}</p>
 <h2>Why our numbers can differ from other sites</h2>
 <p>Many thresholds are a percentage of an index that changes every year (a minimum wage, an average salary), so pages that still show last year's figure are out of date. With the {ANNO} indices, on {data_lunga('2026-10-10')}: Spain's digital nomad visa is 200% of the {ANNO} minimum wage, €2,442 a month over 14 payments (€34,188 a year, the same as €2,849 a month over 12 payments); Croatia's is 2.5 × the 2025 average net salary, €3,622.50 a month; Portugal's D8 is 4 × €920 = €3,680 a month. We recalculate from the official index and show the source and the date under every figure.</p>
 {box_affiliati()}"""
@@ -1459,6 +1463,8 @@ def pagina_come_funziona():
 <p>The <a href="{rel}{SEZ_OPT}">US OPT and STEM OPT</a> pages use the USCIS fee schedule (Form G-1055), the USCIS pages on Form I-765, OPT and STEM OPT, the SEVP help pages and the Federal Register; the <a href="{rel}{SEZ_GRAD}">UK Graduate visa</a> pages use GOV.UK, the Immigration Rules (Appendix Graduate), the Statement of Changes HC 1333 and the Home Office fees table. A script reads every page again and checks that each figure we show is still written there; if a page changes, nothing is updated until we read it again. Proposals and rules on hold are labelled as such. The date calculators run in your browser.</p>
 <h2>11. Mexico residency</h2>
 <p>The <a href="{rel}{SEZ_MX}">Mexico residency</a> pages use the Ley Federal de Derechos and Annex 4 of the {ANNO} Miscellaneous Tax Resolution (Diario Oficial) for the fees, the visa guidelines of 25 July 2025 for the days of UMA, INEGI for the UMA value, and the official pages of the Mexican consulates for the amounts in their currency. A consulate is listed only if its own page writes the amount and is from {ANNO}. A script reads every source again and checks that each figure is still written there; if a page changes, nothing is updated until we read it again. We re-read the fees and the UMA every January (new Miscellaneous Tax Resolution, new UMA from 1 February).</p>
+<h2>12. Study in Italy</h2>
+<p>The <a href="{rel}{SEZ_IT}">Study in Italy</a> pages use the Ministry of University and Research and Foreign Ministry procedures for international students (published on Universitaly), the Ministry's decrees on scholarship amounts, ISEE limits and particularly poor countries, Poste Italiane and the Polizia di Stato for the residence permit costs, Normattiva for the health service contribution and the ISEE equivalence scale, the Bank of Italy for the annual average exchange rates, and the 2026/27 calls of the regional scholarship agencies and universities. A script reads every source again and checks that each figure is still written there; if a call changes, nothing is updated until we read it again. The ISEE estimate is ours and is labelled as such: the CAF or the agency calculates the official figure. We re-read the calls every summer, when the new ones come out.</p>
 </div>
 {AVVISO}
 {AD}"""
@@ -1514,7 +1520,7 @@ def privacy():
     cookie = MON.privacy_cookie("en", SITO_ID, ci_sono_affiliati())
     if cookie and URL_SAFETYWING:
         cookie += ("\n<p>Affiliate links to SafetyWing (travel medical insurance) appear in the box marked “Affiliate” on the visa refusal "
-                   "rate pages" + (" and on the Thailand DTV visa pages" if URL_SW_DTV else "") + (" and on the Mexico residency pages" if URL_SW_MX else "") + ". Buying a policy does not change the decision on your visa.</p>")
+                   "rate pages" + (" and on the Thailand DTV visa pages" if URL_SW_DTV else "") + (" and on the Mexico residency pages" if URL_SW_MX else "") + (" and on the Study in Italy health insurance page" if URL_SW_IT else "") + ". Buying a policy does not change the decision on your visa.</p>")
     if cookie and URL_ITALKI:
         cookie += ("\n<p>Affiliate links to italki (online English teachers) appear in the box marked “Affiliate” on the UK visa English test pages. "
                    "Lessons do not change your test result or the decision on your visa.</p>")
@@ -6841,6 +6847,774 @@ def controlli_mx():
     return errori
 
 
+# ---------------------------------------------------------------- Study in Italy: soldi per il visto e borse DSU per gli studenti internazionali (31/10/2026)
+# Dati: dati/studio_italia.json, scritto da raccolta/studio_italia.py (circolare MUR/MAECI 2026-2028, decreti MUR 175 e 176/2026, D.M. 176/2026,
+# Poste Italiane, Polizia di Stato, Normattiva, Banca d'Italia, bandi 2026/27 di 9 enti). Ogni cifra viene da "letture" o da "enti" (valore + frammento).
+# Il calcolatore (ISEE_JS) gira nel browser; verifica.py (controllo 22) lo confronta con un calcolo Python indipendente.
+SI = json.loads((DATI / "studio_italia.json").read_text(encoding="utf-8"))
+SEZ_IT = "study-in-italy/"
+LIT = {k: v["valore"] for k, v in SI["letture"].items()}
+FIT = SI["fonti"]
+ENTI_IT = SI["enti"]
+NON_LETTI_IT = SI["non_letti"]
+POVERI_IT = SI["poveri"]
+LETTO_IT = SI["letto_il"]
+CAMBI_IT = SI["cambi_bdi"]["anni"]
+_SWI = AFFILIATI.get("_safetywing_italia", {})
+URL_SW_IT = _SWI.get("url", "")
+# Paesi del menu del calcolatore: (nome inglese, nome nell'Allegato 1 del bando UNIMI o "")
+# Gli altri Paesi dell'Allegato 1 (soprattutto UE ed EFTA) non hanno bisogno del visto: si scelgono come "Other country".
+PAESI_ALL1_IT = {"Australia": "AUSTRALIA", "Bahrain": "BAHREIN", "Canada": "CANADA", "Chile": "CILE", "Hong Kong": "HONG KONG", "Israel": "ISRAELE",
+                 "Japan": "GIAPPONE", "Kuwait": "KUWAIT", "New Zealand": "NUOVA ZELANDA", "Oman": "OMAN", "Panama": "PANAMA", "Qatar": "QATAR",
+                 "Russia": "RUSSIA", "Saudi Arabia": "ARABIA SAUDITA", "Singapore": "SINGAPORE", "South Korea": "COREA DEL SUD", "Switzerland": "SVIZZERA",
+                 "Taiwan": "TAIWAN", "United Arab Emirates": "EMIRATI ARABI UNITI", "United Kingdom": "REGNO UNITO", "United States": "STATI UNITI D' AMERICA",
+                 "Uruguay": "URUGUAY", "Costa Rica": "COSTA RICA", "Trinidad and Tobago": "TRINIDAD E TOBAGO", "Norway": "NORVEGIA"}
+ALTRI_PAESI_IT = ["Albania", "Algeria", "Argentina", "Armenia", "Azerbaijan", "Belarus", "Bolivia", "Bosnia and Herzegovina", "Brazil", "Cameroon", "China",
+                  "Colombia", "Côte d'Ivoire", "Ecuador", "Egypt", "Georgia", "Ghana", "India", "Indonesia", "Iran", "Iraq", "Jordan", "Kazakhstan", "Kenya",
+                  "Kosovo", "Kyrgyzstan", "Lebanon", "Libya", "Malaysia", "Mexico", "Moldova", "Mongolia", "Montenegro", "Morocco", "Nigeria", "North Macedonia",
+                  "Pakistan", "Palestine", "Paraguay", "Peru", "Philippines", "Serbia", "South Africa", "Sri Lanka", "Tajikistan", "Thailand", "Tunisia",
+                  "Turkey", "Turkmenistan", "Ukraine", "Uzbekistan", "Venezuela", "Vietnam", "Zimbabwe"]
+NOMI_POVERI_IT = {"Democratic People's Republic of Korea": "North Korea", "Lao People's Democratic Republic": "Laos", "Syrian Arab Republic": "Syria",
+                  "Democratic Republic of the Congo": "DR Congo"}
+PAESI_IT = sorted(set(ALTRI_PAESI_IT) | set(PAESI_ALL1_IT) | {NOMI_POVERI_IT.get(p, p) for p in POVERI_IT})
+POVERI_BREVI = [NOMI_POVERI_IT.get(p, p) for p in POVERI_IT]
+VALUTE_IT = ["EUR"] + list(CAMBI_IT["2025"])
+NOMI_VALUTE_IT = {"EUR": "euro", "USD": "US dollar", "GBP": "pound sterling", "INR": "Indian rupee", "PKR": "Pakistani rupee", "BDT": "Bangladeshi taka",
+                  "NGN": "Nigerian naira", "IRR": "Iranian rial", "NPR": "Nepalese rupee", "LKR": "Sri Lankan rupee", "EGP": "Egyptian pound",
+                  "TRY": "Turkish lira", "MAD": "Moroccan dirham", "GHS": "Ghanaian cedi", "KES": "Kenyan shilling", "ETB": "Ethiopian birr",
+                  "CNY": "Chinese yuan", "VND": "Vietnamese dong", "IDR": "Indonesian rupiah", "PHP": "Philippine peso", "UZS": "Uzbek sum",
+                  "KZT": "Kazakh tenge", "AZN": "Azerbaijani manat", "BRL": "Brazilian real", "MXN": "Mexican peso", "COP": "Colombian peso"}
+VALUTA_PAESE_IT = {"India": "INR", "Pakistan": "PKR", "Bangladesh": "BDT", "Nigeria": "NGN", "Iran": "IRR", "Nepal": "NPR", "Sri Lanka": "LKR",
+                   "Egypt": "EGP", "Turkey": "TRY", "Morocco": "MAD", "Ghana": "GHS", "Kenya": "KES", "Ethiopia": "ETB", "China": "CNY", "Vietnam": "VND",
+                   "Indonesia": "IDR", "Philippines": "PHP", "Uzbekistan": "UZS", "Kazakhstan": "KZT", "Azerbaijan": "AZN", "Brazil": "BRL", "Mexico": "MXN",
+                   "Colombia": "COP", "United States": "USD", "United Kingdom": "GBP"}
+
+
+def eur(x):
+    """€10,179.85 / €25,000."""
+    x = float(x)
+    return "€" + (f"{x:,.0f}" if x.is_integer() else f"{x:,.2f}")
+
+
+def ent(i):
+    return next(E for E in ENTI_IT if E["id"] == i)
+
+
+def link_fonte_it(k, testo=None):
+    f = FIT[k]
+    return f'<a href="{escape(f["url"])}" rel="noopener">{escape(testo or (f["editore"] + ", " + f["titolo"]))}</a>'
+
+
+def fonte_it_p(chiavi=(), extra=""):
+    voci = [link_fonte_it(k) for k in chiavi]
+    return (f'<p class="fonte">Source{"s" if len(voci) + bool(extra) > 1 else ""}: {"; ".join(voci)}{("; " if voci and extra else "") + extra}. '
+            f'Read on {data_lunga(LETTO_IT)}.</p>')
+
+
+def data_bando(E):
+    f = FIT[E["fonti"][0]]
+    return f"PDF dated {data_lunga(f['data'])}" if f.get("data") else "official PDF"
+
+
+def scad_testo(E, breve=False):
+    s = E["scadenza"]
+    t = data_lunga(s["valore"]) + (f", {s['ora']} Italian time" if s.get("ora") and not breve else "")
+    return t
+
+
+def metodo_testo(E):
+    if E["metodo"] == "caf":
+        if E["id"] == "ersu-palermo":
+            return "an ISEE parificato calculated by an Italian CAF (tax assistance centre)"
+        if E["id"] == "ersu-catania":
+            return "an ISEE parificato from the CAF chosen by ERSU Catania"
+        if E["id"] == "adisu-campania":
+            return "an ISEE parificato filled in at a CAF (tax assistance centre)"
+        return "an ISEE parificato from the CAF (tax assistance centre) that has an agreement with the " + ("university" if E["id"] in ("politecnico-di-milano", "university-of-padua") else "agency")
+    if E.get("allegato1"):
+        return "documents only from the countries in Annex 1 of the call; everyone else is placed in the first income band"
+    return "legalised and translated documents sent to the agency, which calculates the indicator"
+
+
+def fs_testo(E):
+    """Borsa massima per fuori sede, con quello che comprende (pasti, alloggio) se il bando lo scrive."""
+    fs = E["fs"]["valore"]
+    sv = E.get("servizi")
+    if E["id"] == "dsu-toscana":
+        return f"{eur(fs)} in cash plus a free room and two free meals a day (valued at {eur(sv['alloggio'])} and {eur(sv['mensa'])})"
+    if E["id"] == "disco-lazio":
+        return f"{eur(fs)} plus two free meals a day (valued at {eur(sv['mensa'])})"
+    if E["id"] in ("university-of-milan", "politecnico-di-milano"):
+        return f"{eur(fs)} plus one free meal a day ({eur(fs + sv['mensa'])} in all)"
+    if E["id"] == "er-go":
+        return f"{eur(fs)}, part of which can be taken as meals"
+    if E["id"] == "university-of-padua":
+        return f"{eur(fs)}, part of it paid as one meal a day (and as rent if you live in an ESU residence)"
+    if E["id"] == "adisu-campania":
+        return f"{eur(fs)}, 15% more if your ISEE is at most half of the {eur(E['isee']['valore'])} limit"
+    return eur(fs)
+
+
+def stato_scad(d):
+    return '<span class="stato sospesa">Closed</span>' if d < LETTO_IT else '<span class="stato vigore">Open</span>'
+
+
+AVVISO_IT = ('<p class="avviso"><strong>Not legal or immigration advice.</strong> This page reports what the Italian ministries and the regional '
+             'scholarship calls said on the date we read them. The consulate decides on your visa, and the agency or university decides on your '
+             'scholarship after checking your documents. Always read the official call before you apply.</p>')
+
+
+# ---------- calcolatore ISEE / ISPE parificato (stima prudente)
+K_IT = {"enti": [{"id": E["id"], "nome": E["nome"], "isee": E["isee"]["valore"], "ispe": E["ispe"]["valore"], "fs": E["fs"]["valore"], "fs_isee": E["fs"]["fino_isee"]}
+                 for E in ENTI_IT],
+        "scala": LIT["scala"], "mq": 500, "quota": 0.2, "cambi": CAMBI_IT, "poveri": POVERI_BREVI, "unimi": sorted(PAESI_ALL1_IT)}
+
+ISEE_JS = r"""
+(function(){
+function r2(x){return Math.round(x*100)/100;}
+function scala(n,s){if(n<=5)return s[String(n)];return r2(s['5']+(n-5)*s.oltre);}
+function num(v){if(v===''||v===null||v===undefined)return 0;var x=+v;return x>=0?x:NaN;}
+var C={isee:function(i,k){
+ var n=Math.floor(+i.n);if(!(n>=1&&n<=20))return null;if(i.reddito===''||i.reddito===null||i.reddito===undefined)return null;
+ var red=num(i.reddito),ris=num(i.risparmi),mq=num(i.mq),mut=num(i.mutuo);if(isNaN(red)||isNaN(ris)||isNaN(mq)||isNaN(mut))return null;
+ var t=i.val==='EUR'?1:(k.cambi[i.anno]||{})[i.val];if(!t)return null;
+ var isr=r2(red/t),mob=r2(ris/t),imm=r2(Math.max(0,mq*k.mq-r2(mut/t))),isp=r2(mob+imm),ise=r2(isr+k.quota*isp),sc=scala(n,k.scala);
+ var isee=r2(ise/sc),ispe=r2(isp/sc);
+ var righe=k.enti.map(function(e){var a=isee<=e.isee,b=ispe<=e.ispe;return {id:e.id,ok_isee:a,ok_ispe:b,ok:a&&b,top:(a&&b&&isee<=e.fs_isee)};});
+ return {t:t,isr:isr,mob:mob,imm:imm,isp:isp,ise:ise,scala:sc,isee:isee,ispe:ispe,righe:righe,
+  povero:k.poveri.indexOf(i.paese)>=0,unimi_auto:(i.paese!==''&&i.paese!=='other'&&k.unimi.indexOf(i.paese)<0)};}};
+window.CALC_IT=C;
+function fmt(x){var d=Math.abs(x-Math.round(x))<1e-9?0:2;return '€'+x.toFixed(d).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function nome(k,id){for(var j=0;j<k.enti.length;j++)if(k.enti[j].id===id)return k.enti[j];return null;}
+document.querySelectorAll('[data-isee]').forEach(function(box){var k=JSON.parse(box.getAttribute('data-k'));var f=box.querySelector('form');var out=box.querySelector('[data-out]');
+ var rel=box.getAttribute('data-rel')||'';var primo=box.getAttribute('data-primo')||'';var V=JSON.parse(box.getAttribute('data-v')||'{}');var ultimoPaese='';
+ function go(){try{
+  if(f.paese.value!==ultimoPaese){ultimoPaese=f.paese.value;if(V[ultimoPaese])f.valuta.value=V[ultimoPaese];}
+  var r=C.isee({n:f.n.value,val:f.valuta.value,anno:f.anno.value,reddito:f.reddito.value,risparmi:f.risparmi.value,mq:f.mq.value,mutuo:f.mutuo.value,paese:f.paese.value},k);
+  if(!r){out.innerHTML='<p class="small">Type your family\'s total gross income for the year to see an estimate.</p>';return;}
+  var h='';
+  if(r.povero)h+='<p class="it-nota"><b>Particularly poor country.</b> For students whose family lives in '+f.paese.value+', the calls ask for a certificate from the Italian embassy that you do not belong to a well-known high-income family, in place of the income calculation (check your call).</p>';
+  h+='<p class="r-lab">Estimated ISEE (prudent)</p><p class="tot">'+fmt(r.isee)+'</p><p class="r-anno">ISPE (assets) '+fmt(r.ispe)+' · scale '+r.scala.toFixed(2)+' for '+f.n.value+' '+(+f.n.value===1?'person':'people')+'</p><ul class="r-righe">';
+  var rr=r.righe.slice();if(primo)rr.sort(function(a,b){return (b.id===primo)-(a.id===primo);});
+  rr.forEach(function(x){var e=nome(k,x.id);var lab=x.ok?'✓ Within both limits':(!x.ok_isee&&!x.ok_ispe?'✗ Above both limits':(!x.ok_isee?'✗ Above the ISEE limit':'✗ Above the ISPE limit'));
+   h+='<li class="'+(x.ok?'it-ok':'it-no')+'"><span class="r-lab">'+lab+' · <a href="'+rel+e.id+'/">'+e.nome+'</a></span><b>ISEE up to '+fmt(e.isee)+' · ISPE up to '+fmt(e.ispe)+'</b>'+
+    '<span class="small">'+(x.top?'Your estimate is in the band for the '+fmt(e.fs)+' off-campus amount (ISEE up to '+fmt(e.fs_isee)+').':(x.ok?'Within the limits, above the '+fmt(e.fs)+' band (ISEE up to '+fmt(e.fs_isee)+'): a smaller amount.':''))+
+    (x.id==='university-of-milan'&&r.unimi_auto?' At this university, students from countries outside Annex 1 of the call are placed in the first band without the calculation.':'')+'</span></li>';});
+  h+='</ul><p class="small" style="margin-top:10px">Income '+fmt(r.isr)+' + 20% of assets ('+fmt(r.mob)+' savings + '+fmt(r.imm)+' buildings) = '+fmt(r.ise)+', divided by '+r.scala.toFixed(2)+'. '+
+   (f.valuta.value==='EUR'?'':'Converted at '+r.t+' '+f.valuta.value+' per euro, the Bank of Italy average for '+f.anno.value+'. ')+
+   'An estimate: the CAF or the agency calculates the official figure from your documents. The deductions we leave out can only lower it; a different exchange rate or income we have not counted can raise it.</p>';
+  out.innerHTML=h;}catch(e){out.innerHTML='';}}
+ f.addEventListener('input',go);f.addEventListener('change',go);f.addEventListener('submit',function(e){e.preventDefault();go();});go();});
+})();
+"""
+CSS += (".r-righe li.it-ok{border-color:var(--ok)}.r-righe li.it-ok .r-lab{color:var(--ok)}.r-righe li.it-no .r-lab{color:var(--no)}"
+        ".r-righe li .r-lab a{color:inherit}.it-nota{background:var(--warn-2);border-radius:var(--r-s);padding:9px 12px;font-size:.92rem;margin:0 0 12px}"
+        ".formula-it{font-family:var(--serif);font-size:1.05rem;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:12px 14px;overflow-wrap:anywhere}")
+
+
+def calc_it(rel_sez, primo=""):
+    opz_p = ('<option value="">Choose a country</option>' + "".join(f'<option value="{escape(p)}">{escape(p)}</option>' for p in PAESI_IT)
+             + '<option value="other">Other country</option>')
+    opz_v = "".join(f'<option value="{v}"{" selected" if v == "EUR" else ""}>{v} – {NOMI_VALUTE_IT[v]}</option>' for v in VALUTE_IT)
+    campi = (f'<label class="pieno"><span class="lt">{ico("globe")}Where your family lives</span><select name="paese">{opz_p}</select></label>'
+             f'<label><span class="lt">{ico("family")}People in the family</span><input type="number" name="n" min="1" max="20" step="1" value="4" inputmode="numeric"></label>'
+             f'<label><span class="lt">{ico("calendar")}Income year</span><select name="anno"><option value="2025" selected>2025</option><option value="2024">2024</option></select></label>'
+             f'<label class="pieno"><span class="lt">{ico("exchange")}Currency</span><select name="valuta">{opz_v}</select></label>'
+             f'<label class="pieno"><span class="lt">{ico("wallet")}Total gross income of the family in that year</span><input type="number" name="reddito" min="0" step="any" placeholder="e.g. 18000" inputmode="decimal"></label>'
+             f'<label><span class="lt">{ico("coins")}Savings and investments (31 Dec)</span><input type="number" name="risparmi" min="0" step="any" placeholder="0" inputmode="decimal"></label>'
+             f'<label><span class="lt">{ico("list")}Buildings owned (m², all)</span><input type="number" name="mq" min="0" step="any" placeholder="e.g. 120" inputmode="decimal"></label>'
+             f'<label class="pieno"><span class="lt">{ico("list")}Mortgage still owed (same currency)</span><input type="number" name="mutuo" min="0" step="any" placeholder="0" inputmode="decimal"></label>')
+    nota = (f'Prudent estimate with the formula in the calls: income plus 20% of assets (savings plus buildings at {eur(500)} per m²), divided by the '
+            f'equivalence scale of DPCM 159/2013. We leave out the allowances and scale increases that can only lower the result. Currencies are converted '
+            f'at the Bank of Italy annual average, as the calls ask. Nothing you type leaves your browser.')
+    return (f'<section class="card calc" data-isee data-rel="{rel_sez}" data-primo="{primo}" data-v=\'{json.dumps(VALUTA_PAESE_IT, separators=(",", ":"))}\' '
+            f'data-k=\'{json.dumps(K_IT, separators=(",", ":"), ensure_ascii=False).replace(chr(39), "&#39;")}\' aria-label="ISEE parificato estimate">'
+            f'<div class="calc-grid"><form autocomplete="off"><h2 style="margin:0 0 14px;font-size:1.2rem">{ico("calc")} Estimate your ISEE parificato</h2>'
+            f'<div class="campi">{campi}</div><p class="small" style="margin:12px 0 0">{nota}</p></form>'
+            f'<div class="calc-out"><div class="risultato" data-out aria-live="polite"><noscript>Turn on JavaScript to use the estimate; the limits are in the table below.</noscript></div></div></div></section>')
+
+
+# ---------- tabelle e blocchi comuni
+def tabella_enti_it(rel_sez):
+    righe = ""
+    for E in sorted(ENTI_IT, key=lambda E: -E["fs"]["valore"] - (E.get("servizi", {}).get("valore", 0) if E["id"] in ("dsu-toscana", "disco-lazio") else 0)):
+        righe += (f'<tr><th scope="row"><a href="{rel_sez}{E["id"]}/">{escape(E["nome"])}</a><span class="small"><br>{escape(", ".join(E["citta"][:3]))}</span></th>'
+                  f'<td class="n">{eur(E["isee"]["valore"])}</td><td class="n">{eur(E["ispe"]["valore"])}</td><td>{fs_testo(E)} <span class="small">(ISEE up to {eur(E["fs"]["fino_isee"])})</span></td>'
+                  f'<td>{scad_testo(E, True)} {stato_scad(E["scadenza"]["valore"])}</td><td class="small">{escape(metodo_testo(E))}</td>'
+                  f'<td><a href="{escape(FIT[E["fonti"][0]]["url"])}" rel="noopener">call</a> <span class="small">({data_bando(E)})</span></td></tr>')
+    tab = (f'<div class="tab compatta"><table id="t-enti-it"><caption class="sr">DSU scholarships 2026/27 for international students by agency</caption><thead><tr>'
+           f'<th scope="col">Agency or university</th><th scope="col" class="n">ISEE limit</th><th scope="col" class="n">ISPE limit</th><th scope="col">Off-campus amount (top band)</th>'
+           f'<th scope="col">2026/27 deadline</th><th scope="col">Income abroad</th><th scope="col">Official call</th></tr></thead><tbody>{righe}</tbody></table></div>')
+    return pila(tab)
+
+
+def non_letti_it():
+    voci = "".join(f'<li><a href="{escape(x["url"])}" rel="noopener">{escape(x["nome"])}</a>: {escape(x["motivo"])}.</li>' for x in NON_LETTI_IT)
+    return (f'<h2 id="not-covered">Agencies we could not read</h2><p class="small">We searched for these 2026/27 calls on {data_lunga(LETTO_IT)} and publish no figures '
+            f'for them until we can read the official call:</p><ul class="testo small">{voci}</ul>')
+
+
+def griglia_enti_it(rel_sez, escludi=""):
+    return ('<div class="griglia">' + "".join(
+        f'<a href="{rel_sez}{E["id"]}/"><span class="ic">{ico("coins")}</span><span>{escape(E["nome"])}<small>{escape(E["regione"])} · up to {eur(E["fs"]["valore"])}'
+        f'{" + room and meals" if E["id"] == "dsu-toscana" else (" + meals" if E["id"] in ("disco-lazio", "university-of-milan", "politecnico-di-milano") else "")} · ISEE {eur(E["isee"]["valore"])}</small></span></a>'
+        for E in ENTI_IT if E["id"] != escludi) + "</div>")
+
+
+PAGINE_TEMA_IT = [("student-visa-funds/", "Student visa funds: €10,179.85 a year", "wallet"), ("isee-parificato/", "ISEE parificato: formula, documents, calculator", "calc"),
+                  ("dsu-scholarship-deadlines/", "DSU deadlines and amounts by region", "calendar"), ("particularly-poor-countries/", "Particularly poor countries list", "globe"),
+                  ("health-insurance/", "Health cover: SSN €700 or a policy", "shield")]
+
+
+def link_tema_it(rel_sez, escludi=""):
+    voci = [("", "Study in Italy: overview", "passport")] + PAGINE_TEMA_IT
+    return ('<div class="griglia">' + "".join(f'<a href="{rel_sez}{p}"><span class="ic">{ico(i)}</span><span>{t}</span></a>' for p, t, i in voci if p != escludi) + "</div>")
+
+
+def costi_permesso_it():
+    base = LIT["ps_marca"] + LIT["ps_poste"] + LIT["ps_documento"]
+    righe = [("Revenue stamp (marca da bollo) on the form", LIT["ps_marca"], "poste"), ("Fee paid at the post office counter", LIT["ps_poste"], "poste"),
+             ("Electronic permit card (postal payment slip)", LIT["ps_documento"], "poste"),
+             ("Contribution, permit of more than 3 months and up to 1 year", LIT["ps_contributo_1"], "polizia"),
+             ("Contribution, permit of more than 1 year and up to 2 years (instead of the line above)", LIT["ps_contributo_2"], "polizia")]
+    corpo = "".join(f'<tr><th scope="row">{a}</th><td class="n">{eur(v)}</td><td class="small">{escape(FIT[k]["editore"])}</td></tr>' for a, v, k in righe)
+    corpo += (f'<tr><th scope="row"><strong>Total, permit up to 1 year</strong></th><td class="n"><strong>{eur(round(base + LIT["ps_contributo_1"], 2))}</strong></td><td class="small">sum</td></tr>'
+              f'<tr><th scope="row"><strong>Total, permit of 1 to 2 years</strong></th><td class="n"><strong>{eur(round(base + LIT["ps_contributo_2"], 2))}</strong></td><td class="small">sum</td></tr>')
+    return (f'<div class="tab compatta"><table id="t-permesso-it"><caption class="sr">Cost of a study residence permit in Italy</caption><thead><tr><th scope="col">What you pay</th>'
+            f'<th scope="col" class="n">Amount</th><th scope="col">Source</th></tr></thead><tbody>{corpo}</tbody></table></div>')
+
+
+def mezzi_valute_it():
+    """10.179,85 € nelle valute più usate: cambi BCE di riserva (dati/cambi.json) dove la BCE pubblica la valuta, media 2025 della Banca d'Italia per le altre."""
+    righe = ""
+    for v in ("USD", "GBP", "INR", "CNY", "TRY", "IDR", "PHP", "BRL", "MXN", "PKR", "BDT", "NGN", "IRR", "NPR", "LKR", "EGP", "GHS", "KES", "MAD", "VND", "UZS"):
+        if v in CAMBI["tassi"]:
+            t, fonte = CAMBI["tassi"][v], f'ECB, {data_lunga(CAMBI["data"])}'
+        else:
+            t, fonte = CAMBI_IT["2025"][v], "Bank of Italy, 2025 average"
+        x = LIT["mezzi"] * t
+        righe += f'<tr><th scope="row">{v} <span class="small">({NOMI_VALUTE_IT[v]})</span></th><td class="n">{x:,.0f}</td><td class="n small">{t:,.4f}</td><td class="small">{fonte}</td></tr>'
+    return pila(f'<div class="tab compatta"><table id="t-mezzi-it"><caption class="sr">Italian student visa funds in other currencies</caption><thead><tr><th scope="col">Currency</th>'
+                f'<th scope="col" class="n">{eur(LIT["mezzi"])} is about</th><th scope="col" class="n">Rate (per euro)</th><th scope="col">Rate source</th></tr></thead><tbody>{righe}</tbody></table></div>')
+
+
+def tabella_scala_it():
+    s = LIT["scala"]
+    righe = "".join(f'<tr><th scope="row">{n}</th><td class="n">{s[str(n)]:.2f}</td></tr>' for n in range(1, 6))
+    righe += f'<tr><th scope="row">each extra person</th><td class="n">+{s["oltre"]:.2f}</td></tr>'
+    return (f'<div class="tab compatta"><table id="t-scala-it"><caption class="sr">ISEE equivalence scale</caption><thead><tr><th scope="col">People in the family</th>'
+            f'<th scope="col" class="n">Scale</th></tr></thead><tbody>{righe}</tbody></table></div>')
+
+
+def esempio_isee_it():
+    """Esempio: famiglia di 4, reddito 2025 di 1.500.000 PKR, risparmi 600.000 PKR, casa di 120 m²."""
+    t = CAMBI_IT["2025"]["PKR"]
+    red, ris, mq = 1500000, 600000, 120
+    isr, mob = _r2_it(red / t), _r2_it(ris / t)
+    imm = _r2_it(max(0, mq * 500 - 0))
+    isp = _r2_it(mob + imm)
+    ise = _r2_it(isr + 0.2 * isp)
+    sc = LIT["scala"]["4"]
+    return {"t": t, "red": red, "ris": ris, "mq": mq, "isr": isr, "mob": mob, "imm": imm, "isp": isp, "ise": ise, "sc": sc,
+            "isee": _r2_it(ise / sc), "ispe": _r2_it(isp / sc)}
+
+
+def _r2_it(x):
+    return math.floor(x * 100 + 0.5) / 100
+
+
+def box_assicurazione_it(rel):
+    if not URL_SW_IT:
+        return ""
+    return (f'<section class="card aff-r" aria-labelledby="aff-i-h"><div class="aff-r-t"><span class="ic">{ico("shield")}</span>'
+            f'<h2 id="aff-i-h">Travel medical cover before the SSN</h2><span class="aff-tag">Affiliate</span></div>'
+            f'<p>The official routes are the ones above: voluntary registration with the National Health Service (at least {eur(LIT["ssn_minimo"])} a year) '
+            f'or a policy with no limits on urgent hospital care for your whole stay. SafetyWing sells travel medical insurance online; if you want cover for '
+            f'the journey, compare policies before you go. We have not checked whether a police headquarters (Questura) accepts it for the residence '
+            f'permit, so ask before you rely on it.</p>'
+            f'<p class="aff-r-cta"><a class="btn" href="{escape(URL_SW_IT)}" rel="sponsored noopener" target="_blank">See SafetyWing travel medical insurance{ico("arrow")}'
+            f'<span class="sr"> (opens in a new tab)</span></a></p>'
+            f'<p class="small">{MON.RIGA_EN} Insurance from us or anyone else does not change the decision on your visa or permit; SSN registration is the official route.</p></section>')
+
+
+def domande_comuni_it():
+    return [
+        ("How much money do I need for an Italian student visa in 2026/27?",
+         f"{eur(LIT['mezzi'])} a year, according to the procedures of the Ministry of University and Research and the Foreign Ministry valid for 2026/27 and "
+         "2027/28. The money must come from legal, traceable sources, preferably your own or your family's."),
+        ("Does a DSU scholarship count as proof of funds for the visa?",
+         "Only when it has been awarded. The procedures say that applying for, or being eligible for, a regional scholarship does not count without an explicit "
+         "certificate that the scholarship was assigned to you."),
+        ("What are the ISEE and ISPE limits for DSU scholarships in 2026/27?",
+         f"The national maximum is {eur(LIT['isee_max'])} for the ISEE and {eur(LIT['ispe_max'])} for the ISPE (MUR Directorial Decree 176 of 10 February 2026); "
+         f"each region can set lower limits, from {eur(min(E['isee']['valore'] for E in ENTI_IT))} in the calls we read."),
+        ("How much is the DSU scholarship for off-campus students?",
+         f"The Ministry's minimum for 2026/27 is {eur(LIT['dsu_fs'])} a year (MUR Directorial Decree 175 of 10 February 2026), paid in full when the ISEE is up to "
+         f"two thirds of the agency's limit and reduced above that, down to half. Most calls add 15% for the lowest incomes: "
+         f"{eur(max(E['fs']['valore'] for E in ENTI_IT))} at the agencies that pay it in cash. Some agencies pay part of it as free meals or a room."),
+    ]
+
+
+# ---------- pagine
+def pagina_it_indice():
+    rel = "../"
+    percorso = SEZ_IT
+    domande = domande_comuni_it() + [
+        ("What is the ISEE parificato?",
+         "The economic indicator that replaces the Italian ISEE when your family's income and assets are abroad. It adds up the family's income and 20% of its "
+         "assets, then divides by a scale that depends on the number of people. A CAF or the agency calculates it from official documents from your country."),
+        ("When do the DSU calls for 2027/28 open?",
+         f"We do not know yet. The 2026/27 calls we read opened between {data_lunga(min(E['scadenza']['aperta_dal'] for E in ENTI_IT if E['scadenza'].get('aperta_dal')))} "
+         f"and {data_lunga(max(E['scadenza']['aperta_dal'] for E in ENTI_IT if E['scadenza'].get('aperta_dal')))} and closed between "
+         f"{data_lunga(min(E['scadenza']['valore'] for E in ENTI_IT))} and {data_lunga(max(E['scadenza']['valore'] for E in ENTI_IT))}. Watch your agency's website from June 2027."),
+    ]
+    ld = [ld_faq(domande), ld_dataset("DSU scholarships 2026/27 for international students in Italy",
+                                      f"ISEE and ISPE limits, off-campus amounts, deadlines and rules for income abroad from the 2026/27 calls of {len(ENTI_IT)} Italian right-to-study agencies and universities.",
+                                      percorso, [FIT["circolare"]["url"], FIT["dd175"]["url"], FIT["dd176"]["url"]] + [FIT[E["fonti"][0]]["url"] for E in ENTI_IT],
+                                      "2026/2027", "https://creativecommons.org/licenses/by/4.0/")]
+    fs_max = max(E["fs"]["valore"] for E in ENTI_IT)
+    corpo = f"""<section class="hero">{h1_diviso("Study in Italy 2026/27: visa funds, DSU scholarships and ISEE parificato")}
+<p class="lead">To get an Italian student visa for 2026/27 you must show <strong>{eur(LIT["mezzi"])}</strong> a year, according to the procedures of the Ministry of University and Research and the Foreign Ministry read on {data_lunga(LETTO_IT)}. The Ministry's minimum DSU scholarship for an off-campus student is <strong>{eur(LIT["dsu_fs"])}</strong> (up to {eur(fs_max)} for the lowest incomes, less as the ISEE nears the limit) if the family's ISEE stays under {eur(LIT["isee_max"])} or a lower regional limit.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("passport")}<span>Study in Italy</span><span>read on {data_lunga(LETTO_IT)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Funds for the student visa, a year</span><span class="sr">: </span><strong>{eur(LIT["mezzi"])}</strong></p>
+<div class="kpi"><div><b>{eur(LIT["dsu_fs"])}</b><span>minimum DSU scholarship, off-campus student</span></div><div><b>{eur(LIT["isee_max"])}</b><span>highest ISEE limit allowed</span></div><div><b>{eur(LIT["ispe_max"])}</b><span>highest ISPE limit allowed</span></div><div><b>{data_lunga(LIT["visto_scadenza"])}</b><span>last day for visa applications, 2026/27 bachelor's and master's degree courses</span></div></div>
+{fonte_it_p(("circolare", "dd175", "dd176"))}
+</div></section>
+{AVVISO_IT}
+{AD}
+{calc_it("")}
+<h2 id="agencies">DSU scholarships 2026/27 by agency</h2>
+<p class="small">One row per call we read on {data_lunga(LETTO_IT)}. You need both indicators under the limit. "Off-campus" (fuori sede) is the rate for students who rent near the university; students whose family lives abroad generally count as off-campus when they pay rent near the university for the period the call requires. All the 2026/27 application windows have closed.</p>
+{tabella_enti_it("")}
+<p class="fonte">Source: the official call linked in each row, read on {data_lunga(LETTO_IT)}. Amounts are for the general case in the first year: STEM courses for women, students with disabilities and later years have other amounts in the calls.</p>
+<h2 id="visa">The visa: money, deadline and permit</h2>
+<p>The procedures for 2026/27 and 2027/28 set the funds at {eur(LIT["mezzi"])} a year, from legal and traceable sources, preferably your own or a relative's up to the fourth degree. A DSU scholarship counts only once it has been awarded. For bachelor's and master's degree courses (laurea, laurea magistrale, single-cycle) and AFAM academic diplomas, the visa application must reach the consulate by {data_lunga(LIT["visto_scadenza"])} (for 2027/28, by {data_lunga(LIT["visto_scadenza_27"])}); universities can set an earlier date, and other courses (university Master, PhD, Erasmus, single courses, foundation) have no fixed date but not after classes start. Within {LIT["permesso_giorni"]} working days of arrival you apply for the residence permit, which costs {eur(round(LIT["ps_marca"] + LIT["ps_poste"] + LIT["ps_documento"] + LIT["ps_contributo_1"], 2))} for up to one year.</p>
+{fonte_it_p(("circolare", "poste", "polizia"))}
+<p><a href="student-visa-funds/">Visa funds in your currency and the permit costs</a> · <a href="health-insurance/">Health insurance: SSN or a policy</a></p>
+<h2 id="isee">Income abroad: the ISEE parificato</h2>
+<p>If your family lives abroad you cannot get a normal Italian ISEE. The calls use an "ISEE parificato": the family's income plus 20% of its assets (savings, and buildings counted at {eur(500)} per square metre), divided by the equivalence scale (2.46 for a family of four). Some agencies want it from a CAF they have an agreement with; others calculate it themselves from your documents. In most calls, students from the {len(POVERI_IT)} countries on the Ministry's "particularly poor" list (Bangladesh and Nepal among them) bring a certificate from the Italian embassy instead.</p>
+{fonte_it_p(("scala", "dm176"))}
+<p><a href="isee-parificato/">ISEE parificato: formula, documents and who calculates it</a> · <a href="particularly-poor-countries/">Particularly poor countries 2026/27</a> · <a href="dsu-scholarship-deadlines/">Deadlines and amounts by region</a></p>
+{non_letti_it()}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>Agency pages</h2>
+{griglia_enti_it("")}
+<h2>More on studying in Italy</h2>
+{link_tema_it("", "")}
+<p><a href="{rel}italy-digital-nomad-visa/">Italy digital nomad visa income</a> · <a href="{rel}{SEZ_GRAD}">UK Graduate visa</a> · <a href="{rel}{SEZ_OPT}">US OPT</a> · <a href="{rel}{SEZ}">Schengen visa refusal rates</a></p>"""
+    titolo = "Study in Italy 2026/27: visa funds, DSU scholarships and ISEE"
+    descr = (f"Italian student visa 2026/27: {eur(LIT['mezzi'])} a year. DSU scholarships from {eur(LIT['dsu_fs'])} for off-campus students, ISEE and ISPE limits "
+             f"of {len(ENTI_IT)} agencies, deadlines and an ISEE parificato estimate.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=ld, briciole=[("Study in Italy", percorso)], script=ISEE_JS)
+
+
+def pagina_it_mezzi():
+    rel = "../../"
+    percorso = f"{SEZ_IT}student-visa-funds/"
+    base = LIT["ps_marca"] + LIT["ps_poste"] + LIT["ps_documento"]
+    domande = domande_comuni_it()[:2] + [
+        ("Can my parents' bank account be used for the Italian student visa?",
+         "The procedures prefer funds in your own name but accept funds made available by your family, up to relatives of the fourth degree. The consulate "
+         "checks where the money comes from and whether it fits your family's income and assets."),
+        ("How much does the Italian residence permit for study cost?",
+         f"{eur(round(base + LIT['ps_contributo_1'], 2))} for a permit of up to one year: a {eur(LIT['ps_marca'])} revenue stamp, {eur(LIT['ps_poste'])} at the post office, "
+         f"{eur(LIT['ps_documento'])} for the card and a {eur(LIT['ps_contributo_1'])} contribution ({eur(LIT['ps_contributo_2'])} for 1 to 2 years)."),
+        ("When must I apply for the residence permit?",
+         f"Within {LIT['permesso_giorni']} working days of arriving in Italy, through the post office or the university's desk. Renew it at least "
+         f"{LIT['rinnovo_giorni']} days before it expires."),
+    ]
+    corpo = f"""<section class="hero"><h1>Italy student visa bank balance 2026/27: {eur(LIT["mezzi"])} a year</h1>
+<p class="lead">The Italian student visa for 2026/27 asks for <strong>{eur(LIT["mezzi"])}</strong> a year of means of support, according to the Ministry of University and Research and Foreign Ministry procedures (published on Universitaly, PDF dated {data_lunga(FIT["circolare"]["data"])}) read on {data_lunga(LETTO_IT)}. The same amount applies to 2027/28. For 2026/27 bachelor's and master's degree courses (laurea, laurea magistrale, single-cycle) and AFAM academic diplomas, the visa application must reach the consulate by {data_lunga(LIT["visto_scadenza"])}, or by an earlier date your university sets; other courses (university Master, PhD, Erasmus, single courses, foundation) have no fixed date but not after classes start.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("wallet")}<span>Student visa (type D)</span><span>read on {data_lunga(LETTO_IT)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Means of support, a year</span><span class="sr">: </span><strong>{eur(LIT["mezzi"])}</strong></p>
+<div class="kpi"><div><b>{data_lunga(LIT["visto_scadenza"])}</b><span>visa deadline, 2026/27 bachelor's and master's degree courses</span></div><div><b>{LIT["permesso_giorni"]} working days</b><span>to apply for the residence permit after arrival</span></div><div><b>{eur(round(base + LIT["ps_contributo_1"], 2))}</b><span>residence permit up to 1 year</span></div><div><b>{eur(LIT["ssn_minimo"])}</b><span>minimum SSN registration a year</span></div></div>
+{fonte_it_p(("circolare",))}
+</div></section>
+{AVVISO_IT}
+{AD}
+<h2>What the procedures say about the money</h2>
+<ul class="testo"><li>“{escape(SI["letture"]["mezzi"]["frammento"])}”: {eur(LIT["mezzi"])} a year.</li>
+<li>The money must be legal and traceable, preferably yours or made available by your family (relatives up to the fourth degree). Where your country allows it, an account in your name with recurring or locked funds is preferred.</li>
+<li>The consulate checks where the funds come from, the account's movements and whether they fit your family's income and assets.</li>
+<li>Funds can also come from Italian institutions, universities, governments or foreign institutions the embassy considers reliable. A DSU scholarship counts only with a certificate that it has been awarded: “{escape(SI["letture"]["mezzi_borsa"]["frammento"])}”.</li>
+<li>You also need housing in Italy; being eligible for a university residence place is not enough.</li></ul>
+{fonte_it_p(("circolare",))}
+<p class="small">The procedures give a yearly amount only. Some consulates write it as a monthly amount on their own pages: check the page of the consulate where you apply.</p>
+<h2>{eur(LIT["mezzi"])} in your currency</h2>
+{mezzi_valute_it()}
+<p class="fonte">Conversion: ECB reference rates of {data_lunga(CAMBI["data"])} where the ECB publishes the currency; Bank of Italy 2025 annual average for the others (the ECB does not publish them). The consulate uses its own rate on the day: keep a margin.</p>
+<h2>After you arrive: the residence permit</h2>
+<p>Within {LIT["permesso_giorni"]} working days of arrival you send the application for a study residence permit (permesso di soggiorno per studio) through a post office kit or your university's desk; the post office gives you a receipt and an appointment at the police headquarters (Questura) for fingerprints. Renew it at least {LIT["rinnovo_giorni"]} days before it expires.</p>
+{costi_permesso_it()}
+{fonte_it_p(("poste", "polizia", "circolare"))}
+<h2>Health cover</h2>
+<p>When you apply for the permit you must show health cover for medical care and hospital stays: a consular declaration under a health agreement between Italy and your country, or a policy with no limits on urgent hospital care for the whole stay. Once you hold a study permit, the law also lets you register voluntarily with the National Health Service (SSN), for at least {eur(LIT["ssn_minimo"])} a year. <a href="../health-insurance/">The options in detail</a>.</p>
+{fonte_it_p(("circolare", "ssn"))}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+{link_tema_it("../", "student-visa-funds/")}"""
+    titolo = f"Italy student visa bank balance 2026/27: {eur(LIT['mezzi'])} a year"
+    descr = (f"Italian student visa 2026/27: {eur(LIT['mezzi'])} a year of funds (MUR procedures), in USD, INR, PKR, BDT, NGN and more; visa deadline "
+             f"{data_lunga(LIT['visto_scadenza'])}; residence permit {eur(round(base + LIT['ps_contributo_1'], 2))}.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)], briciole=[("Study in Italy", SEZ_IT), ("Student visa funds", percorso)])
+
+
+def pagina_it_isee():
+    rel = "../../"
+    percorso = f"{SEZ_IT}isee-parificato/"
+    es = esempio_isee_it()
+    righe = ""
+    for E in ENTI_IT:
+        anno = f"income of {E['anno_redditi']}" if E.get("anno_redditi") else "see the call"
+        sc = E.get("estero_scadenza")
+        righe += (f'<tr><th scope="row"><a href="../{E["id"]}/">{escape(E["nome"])}</a></th><td>{escape(metodo_testo(E))}</td>'
+                  f'<td class="small">“{escape(E["estero"]["frammento"])}”</td><td>{data_lunga(sc) if sc else scad_testo(E, True)}</td><td class="small">{anno}</td></tr>')
+    tab = pila(f'<div class="tab compatta"><table id="t-metodo-it"><caption class="sr">Who calculates the ISEE parificato at each agency</caption><thead><tr><th scope="col">Agency</th>'
+               f'<th scope="col">Who calculates it</th><th scope="col">Words in the call</th><th scope="col">Documents due by</th><th scope="col">Year</th></tr></thead><tbody>{righe}</tbody></table></div>')
+    domande = [
+        ("What is the ISEE parificato?",
+         "The indicator Italian scholarship agencies use when a student's family income and assets are abroad. It replaces the ISEE that Italian residents get from INPS."),
+        ("How is the ISEE parificato calculated?",
+         f"Total income of the family in the year, plus 20% of its assets (savings and investments, and buildings at {eur(500)} per square metre), divided by "
+         f"the equivalence scale: 1 for one person, 1.57 for two, 2.04 for three, 2.46 for four, 2.85 for five, plus 0.35 for each extra person. "
+         "The ISPE is the assets alone divided by the same scale."),
+        ("Which documents do I need for the ISEE parificato?",
+         "Official documents from your country, legalised (or apostilled) and translated into Italian, showing: who is in the family, each member's income for the "
+         "year, the buildings each member owns with their area in square metres, and savings and investments at 31 December. Self-declarations are not accepted."),
+        ("Where do I get the ISEE parificato?",
+         "From a CAF (tax assistance centre) that has an agreement with your agency or university, where the call asks for it (DiSCo Lazio, Politecnico di Milano, "
+         "Padua, ERSU Palermo and Catania, ADISU Campania). ER.GO, DSU Toscana and the University of Milan calculate it themselves from the documents you upload."),
+        ("Which exchange rate is used?",
+         "The Bank of Italy average for the income year, as the calls of ER.GO and DiSCo say; DSU Toscana writes the 2025 average euro exchange rate."),
+    ]
+    corpo = f"""<section class="hero"><h1>ISEE parificato 2026/27: formula, documents and calculator</h1>
+<p class="lead">The ISEE parificato adds your family's income to 20% of its assets, counting buildings abroad at <strong>{eur(500)} per square metre</strong>, and divides by the equivalence scale, according to the 2026/27 scholarship calls (University of Milan, ER.GO, DSU Toscana, DiSCo) and DPCM 159/2013 read on {data_lunga(LETTO_IT)}. It must stay under each agency's limit, from {eur(min(E["isee"]["valore"] for E in ENTI_IT))} to {eur(max(E["isee"]["valore"] for E in ENTI_IT))}.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("calc")}<span>ISEE parificato</span><span>read on {data_lunga(LETTO_IT)}</span></div>
+<div class="s-body">
+<p class="formula-it">ISEE = (income + 20% × (savings + m² × {eur(500)} − mortgage)) ÷ scale<br>ISPE = (savings + m² × {eur(500)} − mortgage) ÷ scale</p>
+<div class="kpi"><div><b>{eur(LIT["isee_max"])}</b><span>highest ISEE limit allowed (MUR)</span></div><div><b>{eur(LIT["ispe_max"])}</b><span>highest ISPE limit allowed (MUR)</span></div><div><b>2.46</b><span>scale for a family of four</span></div><div><b>{eur(500)}/m²</b><span>value of a building abroad</span></div></div>
+{fonte_it_p(("unimi", "scala", "dd176"))}
+</div></section>
+{AVVISO_IT}
+{AD}
+{calc_it("../")}
+<h2>The formula, step by step</h2>
+<ol class="testo"><li><strong>Income</strong>: the gross income of every family member in the year, converted into euros at the Bank of Italy average rate for that year.</li>
+<li><strong>Assets</strong>: savings and investments at 31 December, plus the buildings the family owns (land is not counted) at {eur(500)} per square metre, minus any mortgage still owed.</li>
+<li><strong>Economic situation</strong>: income plus 20% of the assets.</li>
+<li><strong>Divide by the scale</strong> for the number of people in the family. The result is the ISEE; the assets divided by the scale are the ISPE.</li></ol>
+<p>The University of Milan's call describes it this way: “{escape(ent("university-of-milan")["estero_regola"]["frammento"])}”. The allowances of the Italian ISEE (on rent, on savings, on the family home) and the extra points of the scale for families with children are applied by the CAF or the agency case by case; our estimate leaves them out, so with the same documents and exchange rate the official figure can only be the same or lower.</p>
+<h3>The equivalence scale</h3>
+{tabella_scala_it()}
+{fonte_it_p(("scala", "unimi", "ergo"))}
+<h3>An example</h3>
+<p>A family of four in Pakistan with a 2025 income of PKR {es["red"]:,}, savings of PKR {es["ris"]:,} and a {es["mq"]} m² house: at {es["t"]} rupees per euro (Bank of Italy 2025 average) the income is {eur(es["isr"])} and the assets {eur(es["isp"])} ({eur(es["mob"])} + {es["mq"]} × {eur(500)}). ISEE = ({eur(es["isr"])} + 20% × {eur(es["isp"])}) ÷ {es["sc"]} = <strong>{eur(es["isee"])}</strong>; ISPE = {eur(es["isp"])} ÷ {es["sc"]} = <strong>{eur(es["ispe"])}</strong>.</p>
+<h2>Who calculates it, agency by agency</h2>
+{tab}
+<p class="fonte">Source: the 2026/27 calls linked on each agency page, read on {data_lunga(LETTO_IT)}. "Year": the year of the income the call asks for, where it says so.</p>
+<h2>The documents</h2>
+<ul class="testo"><li>Family composition, from the registry office or another public authority (with divorce or death certificates if a parent is missing).</li>
+<li>Each member's gross income in the year, from the tax authority (or the employer's certificate, or the payslips), and a statement for members with no income.</li>
+<li>Buildings each member owns, with the area in square metres; or a statement that nobody owns any.</li>
+<li>Savings and investments of each member at 31 December, and any mortgage still owed.</li>
+<li>All legalised by the Italian embassy (or apostilled where allowed) and translated into Italian; ER.GO and DiSCo say that no self-declaration or affidavit is accepted.</li></ul>
+{fonte_it_p(("ergo", "disco", "unimi"))}
+<p class="small">Students from countries on the <a href="../particularly-poor-countries/">particularly poor list</a> bring a certificate from the Italian embassy instead of the income documents. ER.GO and DSU Toscana warn that they have authorised no paid agents or intermediaries; at DiSCo the CAFs with an agreement assist students for free.</p>
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+{link_tema_it("../", "isee-parificato/")}"""
+    titolo = "ISEE parificato 2026/27: formula, documents and calculator"
+    descr = (f"How the ISEE parificato is calculated for international students in Italy: income + 20% of assets, buildings at {eur(500)}/m², equivalence scale; "
+             f"documents, CAF rules of {len(ENTI_IT)} agencies and an estimate in your currency.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)], briciole=[("Study in Italy", SEZ_IT), ("ISEE parificato", percorso)], script=ISEE_JS)
+
+
+def pagina_it_scadenze():
+    rel = "../../"
+    percorso = f"{SEZ_IT}dsu-scholarship-deadlines/"
+    righe = ""
+    for E in sorted(ENTI_IT, key=lambda E: E["scadenza"]["valore"]):
+        s = E["scadenza"]
+        sc = E.get("estero_scadenza")
+        righe += (f'<tr><th scope="row"><a href="../{E["id"]}/">{escape(E["nome"])}</a></th><td>{data_lunga(s["aperta_dal"]) if s.get("aperta_dal") else "–"}</td>'
+                  f'<td>{scad_testo(E)} {stato_scad(s["valore"])}</td><td>{(data_lunga(sc) + " " + stato_scad(sc)) if sc else "same as the application"}</td>'
+                  f'<td class="n">{eur(E["fs"]["valore"])}</td></tr>')
+    tab = pila(f'<div class="tab compatta"><table id="t-scadenze-it"><caption class="sr">DSU scholarship deadlines 2026/27</caption><thead><tr><th scope="col">Agency</th>'
+               f'<th scope="col">Opened</th><th scope="col">Application deadline</th><th scope="col">Income-abroad documents</th><th scope="col" class="n">Top off-campus amount</th></tr></thead>'
+               f'<tbody>{righe}</tbody></table></div>')
+    prima = min(ENTI_IT, key=lambda E: E["scadenza"]["valore"])
+    ultima = max(ENTI_IT, key=lambda E: E["scadenza"]["valore"])
+    aperte = [E for E in ENTI_IT if E.get("estero_scadenza") and E["estero_scadenza"] >= LETTO_IT]
+    domande = [
+        ("What is the DSU scholarship deadline for 2026/27?",
+         f"It depends on the agency: from {scad_testo(prima, True)} ({prima['nome']}) to {scad_testo(ultima, True)} ({ultima['nome']}) in the calls we read. "
+         "All the 2026/27 application windows have closed."),
+        ("What is the DSU scholarship deadline for 2027/28?",
+         f"No 2027/28 call has been published yet. The 2026/27 calls we read opened between {data_lunga(min(E['scadenza']['aperta_dal'] for E in ENTI_IT if E['scadenza'].get('aperta_dal')))} "
+         f"and {data_lunga(max(E['scadenza']['aperta_dal'] for E in ENTI_IT if E['scadenza'].get('aperta_dal')))}: check your agency's site from June 2027."),
+        ("Can I apply for a DSU scholarship before I get the visa?",
+         "Yes. The calls are open to students who are not enrolled yet, and several agencies give international students more time for the income documents. "
+         "The scholarship counts for the visa only once it has been awarded."),
+    ]
+    corpo = f"""<section class="hero"><h1>DSU scholarship Italy 2026/27: deadlines and amounts by region</h1>
+<p class="lead">The 2026/27 DSU calls closed between <strong>{scad_testo(prima, True)}</strong> ({escape(prima["nome"])}) and <strong>{scad_testo(ultima, True)}</strong> ({escape(ultima["nome"])}), according to the official calls of {len(ENTI_IT)} agencies and universities read on {data_lunga(LETTO_IT)}. {"Some still accept income-abroad documents from applicants: " + ", ".join(f"{E['nome']} until {data_lunga(E['estero_scadenza'])}" for E in sorted(aperte, key=lambda E: E["estero_scadenza"])) + "." if aperte else ""}</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("calendar")}<span>DSU calls 2026/27</span><span>read on {data_lunga(LETTO_IT)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Minimum off-campus scholarship (MUR)</span><span class="sr">: </span><strong>{eur(LIT["dsu_fs"])}</strong></p>
+<div class="kpi"><div><b>{eur(LIT["dsu_pend"])}</b><span>commuting student</span></div><div><b>{eur(LIT["dsu_sede"])}</b><span>student living at home</span></div><div><b>+{LIT["dsu_istat"]}%</b><span>update from 2025/26 (ISTAT prices)</span></div><div><b>{len(ENTI_IT)}</b><span>calls read</span></div></div>
+{fonte_it_p(("dd175",))}
+</div></section>
+{AVVISO_IT}
+{AD}
+<h2>Deadlines and amounts</h2>
+{tab}
+<p class="fonte">Source: the 2026/27 calls linked on each agency page, read on {data_lunga(LETTO_IT)}. "Top off-campus amount" is the highest amount for the general case; DSU Toscana adds a free room and meals, DiSCo and the two Milan universities add meals.</p>
+<h2>How the amount is set</h2>
+<p>The Ministry sets minimum amounts each year: for 2026/27 {eur(LIT["dsu_fs"])} for an off-campus student, {eur(LIT["dsu_pend"])} for a commuter and {eur(LIT["dsu_sede"])} for a student living at home, {LIT["dsu_istat"]}% more than in 2025/26. The full amount is paid when the ISEE is up to two thirds of the agency's limit; above that it falls, down to half. Most calls add 15% when the ISEE is up to half of the limit, which gives {eur(round(LIT["dsu_fs"] * 1.15, 2))} for an off-campus student.</p>
+{fonte_it_p(("dd175", "ergo", "adisurc"))}
+{non_letti_it()}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>Agency pages</h2>
+{griglia_enti_it("../")}
+{link_tema_it("../", "dsu-scholarship-deadlines/")}"""
+    titolo = "DSU scholarship Italy 2026/27: deadlines and amounts by region"
+    descr = (f"DSU scholarship deadlines 2026/27 in Italy, agency by agency ({scad_testo(prima, True)} to {scad_testo(ultima, True)}), document deadlines still open "
+             f"and off-campus amounts from {eur(LIT['dsu_fs'])}.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)], briciole=[("Study in Italy", SEZ_IT), ("DSU deadlines", percorso)])
+
+
+def pagina_it_poveri():
+    rel = "../../"
+    percorso = f"{SEZ_IT}particularly-poor-countries/"
+    lista = "".join(f"<li>{escape(NOMI_POVERI_IT.get(p, p))}</li>" for p in POVERI_IT)
+    menzioni = [E for E in ENTI_IT if E.get("poveri")]
+    domande = [
+        ("Which countries are particularly poor for Italian scholarships in 2026/27?",
+         f"{len(POVERI_IT)} countries listed in MUR Ministerial Decree 176 of 24 February 2026, including Bangladesh, Nepal, Ethiopia, Myanmar, Senegal and Afghanistan. "
+         "India, Pakistan, Nigeria and Iran are not on the list."),
+        ("What changes for students from a particularly poor country?",
+         "In most calls, instead of documenting the family's income and assets, you bring a certificate from the Italian embassy in your country saying that you do not belong to "
+         "a family that is well known for its high income and social standing. Some calls also accept it from a partner university or a guarantor institution."),
+        ("Is Pakistan on the particularly poor countries list?",
+         "No. Students whose family lives in Pakistan document their income and assets and get an ISEE parificato. The same applies to India, Nigeria and Iran."),
+    ]
+    corpo = f"""<section class="hero"><h1>Particularly poor countries 2026/27: the list for Italian scholarships</h1>
+<p class="lead">For 2026/27 the Italian Ministry of University and Research lists <strong>{len(POVERI_IT)} particularly poor countries</strong>, including Bangladesh and Nepal, in Ministerial Decree 176 of 24 February 2026 read on {data_lunga(LETTO_IT)}. In most of the 2026/27 DSU calls we read, students whose family lives there bring a certificate from the Italian embassy instead of the ISEE parificato.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("globe")}<span>Particularly poor countries</span><span>read on {data_lunga(LETTO_IT)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Countries on the 2026/27 list</span><span class="sr">: </span><strong>{len(POVERI_IT)}</strong></p>
+{fonte_it_p(("dm176",))}
+</div></section>
+{AVVISO_IT}
+{AD}
+<h2>The list</h2>
+<ul class="testo" style="columns:2 12rem">{lista}</ul>
+{fonte_it_p(("dm176",))}
+<h2>What the calls ask instead</h2>
+<p>A certificate from the Italian diplomatic representation in your country stating that you do not belong to a family “notoriamente di alto reddito ed elevato livello sociale” (well known for its high income and social standing). The calls of {", ".join(E["nome"] for E in menzioni)} mention the list; ERSU Palermo and ERSU Catania also keep some scholarships for these students and for refugees. The University of Milan places students from every country outside its Annex 1 in the first band, and the University of Padua's call does not mention the list. DiSCo and Politecnico di Milano also accept it from a university in your country that has an agreement with the Italian one; Politecnico di Milano and ADISU Campania accept it, for first-year students, from Italian institutions that act as guarantors and would repay it if it is revoked. The certificate must arrive by the call's deadline.</p>
+{fonte_it_p(("ergo", "dsut", "disco", "polimi", "palermo", "catania", "adisurc"))}
+<p class="small">The Ministry draws up the list every year with the Foreign Ministry, starting from the OECD list of countries that receive development aid. If your family lives in a country that is not on it, you need the <a href="../isee-parificato/">ISEE parificato</a>. ER.GO also accepts the certificate from students coming from areas affected by conflict or humanitarian crises not on the list.</p>
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+{link_tema_it("../", "particularly-poor-countries/")}"""
+    titolo = "Particularly poor countries 2026/27: list for Italian scholarships"
+    descr = (f"The {len(POVERI_IT)} particularly poor countries of MUR Ministerial Decree 176/2026 (Bangladesh, Nepal, Ethiopia and more): what DSU scholarship calls ask "
+             "from their students instead of the ISEE parificato.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)], briciole=[("Study in Italy", SEZ_IT), ("Particularly poor countries", percorso)])
+
+
+def pagina_it_salute():
+    rel = "../../"
+    percorso = f"{SEZ_IT}health-insurance/"
+    domande = [
+        ("How much is the SSN voluntary registration for students in Italy?",
+         f"At least {eur(LIT['ssn_minimo'])} a year: the law (art. 34 of Legislative Decree 286/1998) sets that minimum for students with a study permit. "
+         "The registration does not cover dependent family members. The law lets the Health Ministry update the amount by decree, so check it with your local health authority (ASL)."),
+        ("Is private health insurance accepted for the Italian student permit?",
+         "Yes, if it is valid in Italy and has no limits or exceptions on the cost of urgent hospital care for the whole stay (a foreign policy), or if an Italian "
+         "insurer declares the same (an Italian policy). A consular declaration under an agreement between Italy and your country also works."),
+        ("When do I show the health insurance?",
+         "When you apply for the residence permit, according to the 2026/27 procedures, which list a consular declaration, a foreign policy or an Italian policy. "
+         "SSN voluntary registration is open to students who hold a study permit."),
+    ]
+    corpo = f"""<section class="hero"><h1>Health insurance for the Italian student visa: SSN or a policy</h1>
+<p class="lead">Students with a study permit can join Italy's National Health Service (SSN) for at least <strong>{eur(LIT["ssn_minimo"])} a year</strong>, according to article 34 of Legislative Decree 286/1998 on Normattiva read on {data_lunga(LETTO_IT)}. For the residence permit application itself, the 2026/27 procedures list three forms of cover: a consular declaration under a health agreement, or a foreign or Italian policy with no limits on urgent hospital care.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("shield")}<span>Health cover</span><span>read on {data_lunga(LETTO_IT)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">SSN voluntary registration, students, a year</span><span class="sr">: </span><strong>at least {eur(LIT["ssn_minimo"])}</strong></p>
+{fonte_it_p(("ssn", "circolare"))}
+</div></section>
+{AVVISO_IT}
+{AD}
+<h2>The three options in the procedures</h2>
+<ol class="testo"><li>A consular declaration of your right to health care under an agreement between Italy and your country.</li>
+<li>A foreign insurance policy valid in Italy, “{escape(SI["letture"]["assicurazione_polizza"]["frammento"])}” (with no limits or exceptions on the charges for urgent hospital care for its whole duration).</li>
+<li>A policy with an Italian insurer, with the insurer's declaration that it has no such limits.</li></ol>
+<p>Separately, the law opens voluntary registration with the SSN to “{escape(SI["letture"]["ssn_studenti"]["frammento"])}” (foreigners in Italy with a study permit). The contribution is “{escape(SI["letture"]["ssn_minimo"]["frammento"])}” (at least {eur(LIT["ssn_minimo"])} a year for students) and does not cover dependants. The law allows a yearly decree of the Health Ministry to update the minimum, so ask your ASL for the amount when you register. The procedures do not list SSN registration among the forms of cover for the permit application, so ask your university's international office what to show until you are registered.</p>
+{fonte_it_p(("circolare", "ssn"))}
+{box_assicurazione_it(rel)}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+{link_tema_it("../", "health-insurance/")}"""
+    titolo = f"Italy student visa health insurance: SSN {eur(LIT['ssn_minimo'])} or a policy"
+    descr = (f"Health cover for the Italian study permit: the three forms in the 2026/27 MUR procedures (consular declaration or a policy with no limits on urgent "
+             f"hospital care) and SSN voluntary registration from {eur(LIT['ssn_minimo'])} a year (art. 34 TU 286/1998).")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)], briciole=[("Study in Italy", SEZ_IT), ("Health insurance", percorso)])
+
+
+def pagina_it_ente(E):
+    rel = "../../"
+    percorso = f"{SEZ_IT}{E['id']}/"
+    fb = FIT[E["fonti"][0]]
+    citazioni = [("ISEE and ISPE limits", f'{eur(E["isee"]["valore"])} / {eur(E["ispe"]["valore"])}', E["isee"]["frammento"], E["isee"]["fonte"])]
+    if E["ispe"]["frammento"] != E["isee"]["frammento"]:
+        citazioni[0] = ("ISEE limit", eur(E["isee"]["valore"]), E["isee"]["frammento"], E["isee"]["fonte"])
+        citazioni.append(("ISPE limit", eur(E["ispe"]["valore"]), E["ispe"]["frammento"], E["ispe"]["fonte"]))
+    if E.get("isee_conferma"):
+        citazioni.append(("ISEE bands (confirm the €25,000 limit)", f'{eur(E["fs"]["fino_isee"])}', E["isee_conferma"]["frammento"], E["isee_conferma"]["fonte"]))
+    citazioni.append(("Highest off-campus amount", eur(E["fs"]["valore"]), E["fs"]["frammento"], E["fs"]["fonte"]))
+    for c, lab in (("fs_cifra", "Highest off-campus amount (table)"), ("fs_fascia", "Band for that amount"), ("fs_base", "Full base amount"), ("servizi", "Services included")):
+        if E.get(c) and E[c]["frammento"] not in [x[2] for x in citazioni]:
+            citazioni.append((lab, eur(E[c]["valore"]) if "valore" in E[c] else "–", E[c]["frammento"], E[c]["fonte"]))
+    citazioni.append(("Application deadline", scad_testo(E, True), E["scadenza"]["frammento"], E["scadenza"]["fonte"]))
+    citazioni.append(("Income abroad", "–", E["estero"]["frammento"], E["estero"]["fonte"]))
+    for c, lab in (("estero_scad_fr", "Income-abroad documents due"), ("estero_cambio", "Exchange rate"), ("estero_regola", "Formula"), ("poveri", "Particularly poor countries")):
+        if E.get(c):
+            citazioni.append((lab, data_lunga(E["estero_scadenza"]) if c == "estero_scad_fr" else ("certificate" if c == "poveri" else "–"), E[c]["frammento"], E[c]["fonte"]))
+    righe_c = "".join(f'<tr><th scope="row">{a}</th><td class="n">{b}</td><td class="small">“{escape(c)}”</td><td>{link_fonte_it(k, "PDF")}</td></tr>' for a, b, c, k in citazioni)
+    tab_c = pila(f'<div class="tab compatta"><table id="t-cit-it"><caption class="sr">What the official call says</caption><thead><tr><th scope="col">What</th>'
+                 f'<th scope="col" class="n">Value</th><th scope="col">Words in the call (Italian)</th><th scope="col">Source</th></tr></thead><tbody>{righe_c}</tbody></table></div>')
+    sc = E.get("estero_scadenza")
+    if E["metodo"] == "caf":
+        estero = (f"Students whose family's income and assets are abroad need {escape(metodo_testo(E))}. You bring the official documents from your country "
+                  f"(family composition, income, buildings with their area, savings), legalised and translated into Italian, and the CAF issues the "
+                  f"ISEE and ISPE parificato" + (f"; if you applied by the deadline, the call gives you until {data_lunga(sc)} to submit it" if sc else f", by the application deadline") + ".")
+    elif E.get("allegato1"):
+        estero = (f"The University of Milan asks for income documents only from students whose family lives in one of the {len(SI['unimi_allegato1'])} countries of Annex 1 "
+                  f"of its call (mostly high-income ones such as the United States, the United Kingdom, Canada, Japan, the Gulf states and EU countries) and calculates "
+                  f"the ISEE parificato itself. Students from every other country, including India, Pakistan, Nigeria, Bangladesh and Iran, are placed in the first "
+                  f"income band, the one with the highest amount; the university can ask for the documents later to check.")
+    else:
+        estero = (f"{escape(E['nome'])} calculates the economic situation itself from the documents you upload: family composition, income, buildings with "
+                  f"their area and savings, issued by the authorities of your country, legalised and translated into Italian, by the application deadline. "
+                  f"It does not accept self-declarations.")
+    altri_regione = [X for X in ENTI_IT if X["regione"] == E["regione"] and X["id"] != E["id"]]
+    domande = [
+        (f"What is the ISEE limit for the {E['nome']} scholarship in 2026/27?",
+         f"{eur(E['isee']['valore'])} for the ISEE and {eur(E['ispe']['valore'])} for the ISPE, according to the 2026/27 call. Both must be under the limit."),
+        (f"How much is the {E['nome']} scholarship for off-campus students?",
+         f"{fs_testo(E)[0].upper() + fs_testo(E)[1:]} with an ISEE up to {eur(E['fs']['fino_isee'])}; less above that."),
+        (f"What was the {E['nome']} scholarship deadline for 2026/27?",
+         f"{scad_testo(E)}." + (f" International students with income abroad who applied in time {'had' if sc < LETTO_IT else 'have'} until {data_lunga(sc)} for the ISEE parificato or the documents." if sc else "")
+         + " The 2027/28 call is not out yet."),
+        (f"How do international students prove their income for {E['nome']}?",
+         re.sub(r"<[^>]+>", "", estero)),
+    ]
+    inglese = f' <a href="{escape(fb["inglese"])}" rel="noopener">English translation of the call</a> (the Italian text prevails).' if fb.get("inglese") else ""
+    corpo = f"""<section class="hero"><h1>{escape(E["nome"])} scholarship 2026/27: ISEE limit, amount and deadline</h1>
+<p class="lead">{escape(E["nome"])} gives off-campus students <strong>{fs_testo(E)}</strong> with an ISEE up to {eur(E["fs"]["fino_isee"])}, and accepts an ISEE up to <strong>{eur(E["isee"]["valore"])}</strong> and an ISPE up to <strong>{eur(E["ispe"]["valore"])}</strong>, according to its official 2026/27 call ({data_bando(E)}) read on {data_lunga(LETTO_IT)}. The application deadline was {scad_testo(E, True)}.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("coins")}<span>{escape(E["nome_lungo"])}</span><span>read on {data_lunga(LETTO_IT)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Off-campus scholarship, ISEE up to {eur(E["fs"]["fino_isee"])}</span><span class="sr">: </span><strong>{eur(E["fs"]["valore"])}</strong></p>
+<div class="kpi"><div><b>{eur(E["isee"]["valore"])}</b><span>ISEE limit</span></div><div><b>{eur(E["ispe"]["valore"])}</b><span>ISPE limit</span></div><div><b>{scad_testo(E, True)}</b><span>application deadline {stato_scad(E["scadenza"]["valore"])}</span></div><div><b>{data_lunga(sc) if sc else ("CAF" if E["metodo"] == "caf" else "documents")}</b><span>{"income-abroad documents due" if sc else "how income abroad is assessed"}</span></div></div>
+<p class="fonte">Source: {link_fonte_it(E["fonti"][0])} ({data_bando(E)}), read on {data_lunga(LETTO_IT)}.{inglese}</p>
+</div></section>
+{AVVISO_IT}
+{AD}
+<p>For students at {escape(E["universita"])} ({escape(", ".join(E["citta"]))}).</p>
+{f'<p class="small">{ico("alert")} Note: {escape(E["isee"]["nota"])}.</p>' if E["isee"].get("nota") else ""}
+<h2>What the official call says</h2>
+{tab_c}
+<p class="fonte">Source: {"; ".join(link_fonte_it(k) for k in E["fonti"])}, read on {data_lunga(LETTO_IT)}. Quotes are short extracts of the Italian text; the call is the reference.</p>
+<h2>International students: income abroad</h2>
+<p>{estero}</p>
+<p class="small">{poveri_ente_it(E)} How the indicator is calculated: <a href="../isee-parificato/">ISEE parificato</a>.</p>
+<h2>Estimate your ISEE and ISPE</h2>
+{calc_it("../", E["id"])}
+<h2>The visa is separate</h2>
+<p>The scholarship does not replace the visa funds: you must show {eur(LIT["mezzi"])} a year, and a DSU scholarship counts only once it has been awarded. <a href="../student-visa-funds/">Visa funds and permit costs</a>.</p>
+{fonte_it_p(("circolare",))}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>{"Other calls in " + escape(E["regione"]) if altri_regione else "Other agencies"}</h2>
+{griglia_enti_it("../", E["id"])}
+{link_tema_it("../")}"""
+    t = f"{E['nome']} scholarship 2026/27: ISEE limit, amount and deadline"
+    if len(t) > 70:
+        t = f"{E['nome']} scholarship 2026/27: ISEE limit and amount"
+    descr = (f"{E['nome']} DSU scholarship 2026/27: ISEE up to {eur(E['isee']['valore'])}, ISPE up to {eur(E['ispe']['valore'])}, off-campus up to "
+             f"{eur(E['fs']['valore'])}, deadline {scad_testo(E, True)}, and how international students prove income abroad.")
+    pagina(percorso, t, descr, corpo, jsonld_extra=[ld_faq(domande)], briciole=[("Study in Italy", SEZ_IT), (E["nome"], percorso)], script=ISEE_JS)
+
+
+def poveri_ente_it(E):
+    """Frase sui Paesi particolarmente poveri: solo quello che il bando dell'ente dice."""
+    if E.get("poveri"):
+        return (f'Family in a <a href="../particularly-poor-countries/">particularly poor country</a> (such as Bangladesh or Nepal)? The {escape(E["nome"])} call '
+                f'asks for a certificate from the Italian embassy stating that you do not belong to a well-known high-income family (see the quote above).')
+    if E.get("allegato1"):
+        return ('Bangladesh, Nepal and the other <a href="../particularly-poor-countries/">particularly poor countries</a> are not in Annex 1, so their '
+                'students are placed in the first band like everyone outside it.')
+    return (f'The {escape(E["nome"])} call does not mention the <a href="../particularly-poor-countries/">particularly poor countries</a> list: '
+            f'if your family lives in one of them, ask the office what to bring.')
+
+
+def link_studio_it(P, rel):
+    """Riga dalle pagine Italia del sito alla sezione Study in Italy."""
+    if P.get("paese") != "Italy":
+        return ""
+    return (f'<p class="small">{ico("check")} Coming to Italy to study? The student visa asks for {eur(LIT["mezzi"])} a year in 2026/27: '
+            f'<a href="{rel}{SEZ_IT}">Study in Italy: visa funds, DSU scholarships and ISEE</a>.</p>')
+
+
+def genera_it():
+    pagina_it_indice()
+    pagina_it_mezzi()
+    pagina_it_isee()
+    pagina_it_scadenze()
+    pagina_it_poveri()
+    pagina_it_salute()
+    for E in ENTI_IT:
+        pagina_it_ente(E)
+
+
+def controlli_it():
+    import hashlib
+    errori = []
+    cont = {k: SI[k] for k in ("letture", "fonti", "enti", "non_letti", "poveri", "unimi_allegato1", "cambi_bdi")}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != SI["impronta"]:
+        errori.append("studio_italia: impronta del JSON diversa dal contenuto (file modificato a mano?)")
+    if any(f.get("http") != 200 for f in FIT.values()):
+        errori.append("studio_italia: fonte non letta (HTTP diverso da 200)")
+    if not (8 <= len(ENTI_IT) <= 12):
+        errori.append(f"studio_italia: {len(ENTI_IT)} enti (attesi 8-12)")
+    for E in ENTI_IT:
+        if E["isee"]["valore"] > LIT["isee_max"] or E["ispe"]["valore"] > LIT["ispe_max"]:
+            errori.append(f"studio_italia: {E['id']} sopra i limiti nazionali")
+    for it_ in PAESI_ALL1_IT.values():
+        if it_ not in SI["unimi_allegato1"]:
+            errori.append(f"studio_italia: {it_} non nell'allegato 1 UNIMI")
+    if set(PAESI_ALL1_IT) & set(POVERI_BREVI):
+        errori.append("studio_italia: un Paese è sia nell'allegato 1 UNIMI sia tra i poveri")
+    for v in VALUTE_IT[1:]:
+        if v not in NOMI_VALUTE_IT or v not in CAMBI_IT["2024"]:
+            errori.append(f"studio_italia: valuta {v} senza nome o senza cambio 2024")
+    if URL_SW_IT and not URL_SW_IT.startswith("https://safetywing.com/"):
+        errori.append("studio_italia: link SafetyWing non valido in dati/affiliati.json (_safetywing_italia)")
+    return errori
+
+
 def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
@@ -6924,6 +7698,7 @@ def controlli():
     errori += controlli_dtv()
     errori += controlli_studio()
     errori += controlli_mx()
+    errori += controlli_it()
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -6953,6 +7728,7 @@ def main():
     genera_dtv()
     genera_studio()
     genera_mx()
+    genera_it()
     pagina_come_funziona()
     about()
     contatti()
@@ -6964,7 +7740,7 @@ def main():
           f"trasferimenti: {len(NAZ_TR)} nazionalità, {sum(len(v) for v in COPPIE_TR.values())} pagine nazionalità × Paese ({Y1}); "
           f"test di inglese UK (SELT): {len(CITTA_PAG)} città e {len(PAESI_PAG)} Paesi con pagina (elenco del {DATA_ELENCO}); "
           f"DTV Thailandia: {len(LET_DTV)} sedi lette su {len(SEDI_DTV)}, {len(PAG_DTV)} con pagina; Irlanda (PPS): {len(PPS_OK)} nazionalità, dati a {PPS_ULTIMO}; "
-          f"Messico: {len(CONS_MX)} consolati, UMA {UMA_MX}.")
+          f"Messico: {len(CONS_MX)} consolati, UMA {UMA_MX}; Study in Italy: {len(ENTI_IT)} enti DSU, mezzi {LIT['mezzi']} €.")
 
 
 if __name__ == "__main__":
