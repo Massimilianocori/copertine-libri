@@ -17,7 +17,7 @@ import re
 import shutil
 import sys
 from collections import defaultdict
-from datetime import date
+from datetime import date, timedelta
 from html import escape
 from pathlib import Path
 
@@ -901,7 +901,7 @@ def blocco_dati():
             json.dumps(d, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>")
 
 
-def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, calcolatore=False, jsonld_extra=None, assoluto=False, testata="", ordina=False):
+def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, calcolatore=False, jsonld_extra=None, assoluto=False, testata="", ordina=False, script=""):
     file = percorso if percorso.endswith(".html") else (percorso + "index.html")
     profondita = file.count("/")
     rel = "/" if assoluto else ("../" * profondita or "./")  # 404: link assoluti, Netlify la serve a qualsiasi profondità
@@ -925,6 +925,8 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
     js = f"<script>{MOTORE_JS}{APP_JS}</script>" if calcolatore else f"<script>{FORM_JS}</script>"
     if ordina:
         js += f"<script>{ORDINA_JS}</script>"
+    if script:  # calcolatori delle sezioni per studenti (STUDIO_JS)
+        js += f"<script>{script}</script>"
     dati = blocco_dati() if calcolatore else ""
     voci_menu = [("", "Calculator"), ("digital-nomad-visa-income-requirements/", "Digital nomad visas"), ("work-visa-salary-thresholds/", "Work visas"),
                  ("visa-refusal-rates/", "Refusal rates"), ("how-it-works/", "How it works"), ("about/", "About")]
@@ -979,7 +981,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <p>Exchange rates: euro foreign exchange reference rates of the European Central Bank (source: ECB), for information only.</p>
 </div><div>
 <h2>Explore</h2>
-<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}moved-to/">Who moved where (by nationality)</a></li><li><a href="{rel}uk-english-test/">UK visa English tests (SELT)</a></li><li><a href="{rel}thailand-dtv-visa/">Thailand DTV visa by embassy</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
+<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}moved-to/">Who moved where (by nationality)</a></li><li><a href="{rel}uk-english-test/">UK visa English tests (SELT)</a></li><li><a href="{rel}thailand-dtv-visa/">Thailand DTV visa by embassy</a></li><li><a href="{rel}us-opt/">US OPT and STEM OPT: fees and deadlines</a></li><li><a href="{rel}uk-graduate-visa/">UK Graduate visa: 2 years or 18 months</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
 </div></div>
 {blocco_altri(ALTRI_SITI, "Other useful tools for your trip")}
 <p class="f-base">Official sources only · the calculator runs in your browser · links marked "Affiliate" may earn us a commission.</p>
@@ -1241,7 +1243,7 @@ def pagina_programma(P):
 {link_simili}
 <p><a href="{rel}country/{P['paese_slug']}/">All visa income requirements in {escape(P['paese'])}</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements {ANNO}</a> · <a href="{rel}work-visa-salary-thresholds/">Work visa salary thresholds {ANNO}</a></p>
 {link_rifiuti(P['paese'], rel)}
-{link_selt(P, rel)}"""
+{link_selt(P, rel)}{link_graduate(P, rel)}"""
     descr = (f"{nome_prog(P)} {ANNO}: minimum {riassunto(P)} for the main applicant, with family members and conversion to USD, GBP, INR and more. "
              f"Official source and check date.")
     pagina(f"{P['slug']}/", titolo_prog(P), descr, corpo, calcolatore=True,
@@ -1332,6 +1334,9 @@ def home():
 <h2>Thailand DTV visa by embassy</h2>
 <p class="lead">The DTV fee and who can apply change from one Thai embassy to another: {costo_dtv(next(L for L in LET_DTV if L["id"] == "vientiane")["costo"])} in Vientiane, {costo_dtv(next(L for L in LET_DTV if L["id"] == "london")["costo"])} in London, {costo_dtv(next(L for L in LET_DTV if L["id"] == "washington-dc")["costo"])} in Washington (official pages read on {data_lunga(LETTO_DTV)}), and since 31 August 2026 you apply where you live permanently.</p>
 <p><a href="{SEZ_DTV}">Thailand DTV visa: all embassies</a> · {" · ".join(f'<a href="{SEZ_DTV}{L["id"]}/">{escape(L["sede"])}</a>' for L in PAG_DTV if L["id"] in ("london", "ho-chi-minh-city", "vientiane", "kuala-lumpur", "singapore", "new-delhi"))}</p>
+<h2>Students: US OPT and the UK Graduate visa</h2>
+<p class="lead">OPT and the STEM OPT extension cost {usd(vo("tassa_online"))} online or {usd(vo("tassa_carta"))} on paper (Form I-765), and you file from {vo("finestra")["prima"]} days before to {vo("finestra")["dopo"]} days after your program end date (USCIS, read on {data_lunga(LETTO_OPT)}). The UK Graduate visa lasts 2 years if you apply by 31 December 2026 and 18 months from 1 January 2027 (GOV.UK, read on {data_lunga(LETTO_GRAD)}).</p>
+<p><a href="{SEZ_OPT}">US OPT and STEM OPT: fees and deadlines</a> · <a href="{SEZ_OPT}opt-application-deadline-calculator/">OPT deadline calculator</a> · <a href="{SEZ_OPT}opt-unemployment-days/">OPT unemployment days</a> · <a href="{SEZ_GRAD}">UK Graduate visa</a> · <a href="{SEZ_GRAD}18-months/">Graduate visa 18 months</a> · <a href="{SEZ_GRAD}cost/">Graduate visa cost</a></p>
 <h2>Why our numbers can differ from other sites</h2>
 <p>Many thresholds are a percentage of an index that changes every year (a minimum wage, an average salary), so pages that still show last year's figure are out of date. With the {ANNO} indices, on {data_lunga('2026-10-10')}: Spain's digital nomad visa is 200% of the {ANNO} minimum wage, €2,442 a month over 14 payments (€34,188 a year, the same as €2,849 a month over 12 payments); Croatia's is 2.5 × the 2025 average net salary, €3,622.50 a month; Portugal's D8 is 4 × €920 = €3,680 a month. We recalculate from the official index and show the source and the date under every figure.</p>
 {box_affiliati()}"""
@@ -1446,6 +1451,8 @@ def pagina_come_funziona():
 <p>Greece (digital nomad visa and financially independent person visa), Cyprus, Malta, Estonia, Czechia, Romania, Latvia, Iceland, Costa Rica, Brazil, Panama, Colombia, the United Arab Emirates and Mexico: the official page could not be read by our checks, gave conflicting figures, or (Mexico) the amount depends on the consulate. Colombia's rule is in Colombian pesos, a currency the ECB does not publish. Thailand's DTV has no income threshold (it asks for savings) and its fee and residence rule change from embassy to embassy: see <a href="{rel}{SEZ_DTV}">Thailand DTV visa by embassy</a>.</p>
 <h2>9. Thailand DTV visa and Ireland's PPS numbers</h2>
 <p>The <a href="{rel}{SEZ_DTV}">Thailand DTV visa</a> pages quote the official DTV pages of the Thai embassies and consulates. A script reads each page again and checks that every fee and rule we show is still written there; if a page changes, nothing is updated until we read it again. The Ireland pages in <a href="{rel}{SEZ_TR}">Who moved where</a> use the monthly PPS number files of Ireland's Department of Social Protection (CC BY 4.0); a script checks that the months add up to the yearly totals.</p>
+<h2>10. US OPT and the UK Graduate visa</h2>
+<p>The <a href="{rel}{SEZ_OPT}">US OPT and STEM OPT</a> pages use the USCIS fee schedule (Form G-1055), the USCIS pages on Form I-765, OPT and STEM OPT, the SEVP help pages and the Federal Register; the <a href="{rel}{SEZ_GRAD}">UK Graduate visa</a> pages use GOV.UK, the Immigration Rules (Appendix Graduate), the Statement of Changes HC 1333 and the Home Office fees table. A script reads every page again and checks that each figure we show is still written there; if a page changes, nothing is updated until we read it again. Proposals and rules on hold are labelled as such. The date calculators run in your browser.</p>
 </div>
 {AVVISO}
 {AD}"""
@@ -5408,6 +5415,870 @@ def controlli_dtv():
     return errori
 
 
+# ---------------------------------------------------------------- Studenti: US OPT / STEM OPT e UK Graduate visa (30/10/2026)
+# Dati: dati/opt.json (raccolta/opt.py: USCIS, ICE/SEVP, Federal Register, eCFR) e dati/graduate.json (raccolta/graduate.py: GOV.UK).
+# Ogni cifra delle pagine viene da "letture" (valore + frammento del testo ufficiale, ricontrollato a ogni raccolta).
+# I calcolatori (STUDIO_JS) girano nel browser; verifica.py confronta i loro risultati con un calcolo Python indipendente.
+OPT = json.loads((DATI / "opt.json").read_text(encoding="utf-8"))
+GRAD = json.loads((DATI / "graduate.json").read_text(encoding="utf-8"))
+SEZ_OPT = "us-opt/"
+SEZ_GRAD = "uk-graduate-visa/"
+LO, FO, FR_OPT = OPT["letture"], OPT["fonti"], OPT["federal_register"]
+LG, FG = GRAD["letture"], GRAD["fonti"]
+LETTO_OPT, LETTO_GRAD = OPT["letto_il"], GRAD["letto_il"]
+_MESI_US = {m: i + 1 for i, m in enumerate(MESI)}
+
+
+def vo(k):
+    return LO[k]["valore"]
+
+
+def vg(k):
+    return LG[k]["valore"]
+
+
+def data_us(s):
+    """'10/07/2026' (USCIS) o 'July 27, 2026' (Study in the States) -> ISO; '' se non si legge."""
+    m = re.fullmatch(r"(\d{2})/(\d{2})/(\d{4})", s or "")
+    if m:
+        return f"{m.group(3)}-{m.group(1)}-{m.group(2)}"
+    m = re.fullmatch(r"([A-Z][a-z]+) (\d{1,2}), (\d{4})", s or "")
+    if m and m.group(1) in _MESI_US:
+        return f"{m.group(3)}-{_MESI_US[m.group(1)]:02d}-{int(m.group(2)):02d}"
+    return ""
+
+
+def usd(n):
+    return f"${n:,}"
+
+
+def gbp(x):
+    """£1,552.50 / £937 (senza ,00 per gli importi interi), come gbp() del JS."""
+    s = f"{x:,.2f}"
+    return "£" + (s[:-3] if s.endswith(".00") else s)
+
+
+def link_fonte_opt(k):
+    f = FO[k]
+    agg = data_us(f.get("aggiornata", ""))
+    return (f'<a href="{escape(f["url"])}" rel="noopener">{escape(f["editore"].split(" (")[0])}, {escape(f["titolo"])}</a>'
+            + (f' (page updated {data_lunga(agg)})' if agg else ""))
+
+
+def link_fr(k, breve=False):
+    d = FR_OPT[k]
+    tipo = {"Proposed Rule": "proposed rule", "Rule": "final rule", "Notice": "notice"}[d["type"]]
+    if breve:
+        return f'<a href="{escape(d["html_url"])}" rel="noopener">{escape(d["citation"])}</a>'
+    return f'Federal Register, <a href="{escape(d["html_url"])}" rel="noopener">{escape(d["title"])}</a> ({tipo}, {escape(d["citation"])}, {data_lunga(d["publication_date"])})'
+
+
+def fonte_opt_p(chiavi=(), fr=(), extra=""):
+    voci = [link_fonte_opt(k) for k in chiavi] + [link_fr(k) for k in fr]
+    return f'<p class="fonte">Source{"s" if len(voci) > 1 else ""}: {"; ".join(voci)}{extra}. Read on {data_lunga(LETTO_OPT)}.</p>'
+
+
+def link_fonte_grad(k):
+    f = FG[k]
+    return f'<a href="{escape(f["url"])}" rel="noopener">GOV.UK, {escape(f["titolo_nostro"])}</a>'
+
+
+def fonte_grad_p(chiavi=(), extra=""):
+    voci = [link_fonte_grad(k) for k in chiavi]
+    return (f'<p class="fonte">Source{"s" if len(voci) > 1 else ""}: {"; ".join(voci)}{extra}. Read on {data_lunga(LETTO_GRAD)}. '
+            f'Contains public sector information licensed under the Open Government Licence v3.0.</p>')
+
+
+AVVISO_OPT = ('<p class="avviso"><strong>Not legal or immigration advice.</strong> This page reports what USCIS, ICE (SEVP) and the Federal Register said on the date we read them. '
+              'Your designated school official (DSO) and USCIS decide on your case, and rules can change quickly: check with your DSO and USCIS before you file.</p>')
+AVVISO_GRAD = ('<p class="avviso"><strong>Not legal or immigration advice.</strong> This page reports what GOV.UK and the Immigration Rules said on the date we read them. '
+               'The Home Office decides on your application and can change the rules or the fees: check GOV.UK or ask the Home Office before you apply.</p>')
+
+# Costanti dei calcolatori, dai dati ufficiali (le stesse nel JS e nei controlli)
+K_FINESTRA = {"prima": vo("finestra")["prima"], "dopo": vo("finestra")["dopo"], "dso": vo("finestra")["dso"], "inizio": vo("inizio_max"),
+              "nuova": vo("regola_30")}
+K_STEM = {"prima": vo("finestra_stem")["prima"], "dso": vo("finestra_stem")["dso"], "proroga": vo("proroga_stem")}
+K_DISOCC = {"opt": vo("disoccupazione"), "stem": vo("disoccupazione_stem")}
+K_GRAD = {"cambio": vg("durata_18_mesi")["dal"], "m_prima": vg("durata_2_anni")["mesi"], "m_dopo": vg("durata_18_mesi")["mesi"],
+          "m_phd": vg("durata_phd")["mesi"], "sett": vg("decisione_settimane"), "tassa": vg("tassa"), "ihs_a": vg("ihs_adulti"), "ihs_m": vg("ihs_minori")}
+
+STUDIO_JS = r"""
+(function(){
+var M=['January','February','March','April','May','June','July','August','September','October','November','December'];
+function pd(s){var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(s||'');if(!m)return null;var d=new Date(Date.UTC(+m[1],+m[2]-1,+m[3]));return (d.getUTCMonth()===+m[2]-1&&d.getUTCDate()===+m[3])?d:null;}
+function ad(d,n){return new Date(d.getTime()+n*864e5);}
+function iso(d){return d.toISOString().slice(0,10);}
+function am(d,n){var t=new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+n,1));var u=new Date(Date.UTC(t.getUTCFullYear(),t.getUTCMonth()+1,0)).getUTCDate();return new Date(Date.UTC(t.getUTCFullYear(),t.getUTCMonth(),Math.min(d.getUTCDate(),u)));}
+function gg(a,b){return Math.round((pd(b)-pd(a))/864e5);}
+function dl(s){var d=pd(s);return d?d.getUTCDate()+' '+M[d.getUTCMonth()]+' '+d.getUTCFullYear():'';}
+function gbp(x){var s=(Math.round(x*100)/100).toFixed(2);if(s.slice(-3)==='.00')s=s.slice(0,-3);return '£'+s.replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+var C={
+finestra:function(fine,dso,k){var e=pd(fine);if(!e)return null;var r={apre:iso(ad(e,-k.prima)),chiude:iso(ad(e,k.dopo)),limite:'fine',inizio_max:iso(ad(e,k.inizio)),chiude_30:iso(ad(e,k.nuova))};
+ var d=pd(dso);if(d){var l=iso(ad(d,k.dso));r.dso_entro=l;if(l<r.chiude){r.chiude=l;r.limite='dso';}if(l<r.chiude_30)r.chiude_30=l;if(iso(d)>r.apre){r.apre=iso(d);r.apre_dso=true;}}
+ r.impossibile=r.apre>r.chiude;return r;},
+disoccupazione:function(inizio,limite,usati,oggi){var s=pd(inizio);if(!s)return null;var r={limite:limite,ultimo:iso(ad(s,limite-1)),oltre:iso(ad(s,limite))};
+ if(usati!==null&&usati!==''&&!isNaN(+usati)){var u=Math.max(0,Math.floor(+usati));r.usati=u;r.rimasti=Math.max(0,limite-u);var o=pd(oggi);if(o&&r.rimasti>0)r.ultimo_da_oggi=iso(ad(o,r.rimasti-1));}return r;},
+stem:function(scad,dso,k){var e=pd(scad);if(!e)return null;var r={apre:iso(ad(e,-k.prima)),scade:iso(e),proroga_fino:iso(ad(e,k.proroga))};
+ var d=pd(dso);if(d){r.dso_entro=iso(ad(d,k.dso));if(iso(d)>r.apre){r.apre=iso(d);r.apre_dso=true;}}r.impossibile=r.apre>=r.scade||!!(r.dso_entro&&r.dso_entro<r.apre);return r;},
+graduate:function(dom,tipo,dec,scad,k){var a=pd(dom);if(!a)return null;var m=tipo==='phd'?k.m_phd:(dom<k.cambio?k.m_prima:k.m_dopo);
+ var d8=ad(a,k.sett*7);var r={mesi:m,prima_del_cambio:dom<k.cambio,giorni_al_cambio:gg(dom,k.cambio),fine_subito:iso(am(a,m)),decisione_8:iso(d8),fine_8:iso(am(d8,m))};
+ var d=pd(dec);if(d){if(iso(d)<dom)r.dec_errore=true;else{r.decisione=iso(d);r.fine=iso(am(d,m));}}
+ var s=pd(scad);if(s){r.scad=iso(s);r.tardi=dom>=iso(s);}return r;},
+costo:function(mesi,adulti,figli,k){adulti=Math.max(1,Math.floor(+adulti||1));figli=Math.max(0,Math.floor(+figli||0));var ia=k.ihs_a*mesi/12,im=k.ihs_m*mesi/12;
+ var t=(adulti+figli)*k.tassa,i=adulti*ia+figli*im;return {tasse:t,ihs:i,totale:t+i,ihs_adulto:ia,ihs_figlio:im,persone:adulti+figli};}
+};
+window.CALC_STUDIO=C;window.CALC_STUDIO_DATA={dl:dl,gbp:gbp};
+function oggi(){var n=new Date();return n.getFullYear()+'-'+String(n.getMonth()+1).padStart(2,'0')+'-'+String(n.getDate()).padStart(2,'0');}
+function riga(l,v,n){return '<li><span class="r-lab">'+l+'</span><b>'+v+'</b>'+(n?'<span class="small">'+n+'</span>':'')+'</li>';}
+function stato(a,b,t){if(t<a)return 'The window opens in '+gg(t,a)+' day'+(gg(t,a)===1?'':'s')+'.';if(t<=b)return 'The window is open: '+(gg(t,b)+1)+' day'+(gg(t,b)===0?'':'s')+' left, today included.';return 'This window has closed.';}
+var R={
+finestra:function(f,k){var r=C.finestra(f.fine.value,f.dso.value,k);if(!r)return '<p class="small">Enter your program end date (on your Form I-20).</p>';
+ if(r.impossibile)return '<div class="esito warn">With these dates there is no valid filing day: USCIS must receive Form I-765 within '+k.dso+' days of the DSO recommendation and no later than '+k.dopo+' days after the program end date. Ask your DSO.</div>';
+ var t=oggi();return '<p class="r-lab">File Form I-765 for post-completion OPT</p><p class="tot">'+dl(r.apre)+' <span>to</span> '+dl(r.chiude)+'</p>'+
+ '<p class="r-anno">'+stato(r.apre,r.chiude,t)+'</p><ul class="r-righe">'+
+ riga('Earliest filing date',dl(r.apre),r.apre_dso?'the day your DSO recommends OPT in SEVIS':k.prima+' days before the program end date')+
+ riga('Last filing date',dl(r.chiude),r.limite==='dso'?k.dso+' days after the DSO recommendation (earlier than '+k.dopo+' days after the program end date)':k.dopo+' days after the program end date'+(r.dso_entro?'':'; with a DSO recommendation, also within '+k.dso+' days of it'))+
+ riga('Latest OPT start date you can request',dl(r.inizio_max),k.inizio+' days after the program end date')+
+ '</ul><p class="small">On hold: a final rule of 17 July 2026 would cut the '+k.dopo+' days after the program end date to '+k.nuova+', making the last day '+dl(r.chiude_30)+(r.chiude_30===r.chiude?' (the same date: the DSO limit comes first)':'')+'; a federal court postponed it and USCIS applies the previous rules.</p>';},
+disoccupazione:function(f,k){var lim=f.tipo.value==='stem'?k.stem:k.opt;var t=oggi();var r=C.disoccupazione(f.inizio.value,lim,f.usati.value,t);if(!r)return '<p class="small">Enter the start date on your OPT EAD card.</p>';
+ var h='<p class="r-lab">Unemployment limit</p><p class="tot">'+lim+' <span>days in total</span></p><ul class="r-righe">'+
+ riga('If you have no job from the start date','Day '+lim+' is '+dl(r.ultimo),'from '+dl(r.oltre)+' you would be over the limit');
+ if(lim===k.stem&&r.usati===undefined)h+='<li class="small">The '+k.stem+' days include the days used during post-completion OPT (at most '+k.opt+'): enter them under "Days already used".</li>';
+ if(r.usati!==undefined){h+=riga('Days left','<span>'+r.rimasti+'</span>',r.usati+' of '+lim+' days used');if(r.ultimo_da_oggi)h+=riga('If you stay without a job from today','Last day within the limit: '+dl(r.ultimo_da_oggi),'');else h+='<li class="esito no">No unemployment days left.</li>';}
+ return h+'</ul>';},
+stem:function(f,k){var r=C.stem(f.scad.value,f.dso.value,k);if(!r)return '<p class="small">Enter the end date on your current OPT EAD card.</p>';
+ if(r.impossibile)return '<div class="esito warn">With these dates there is no valid filing day: ask your DSO.</div>';
+ var dsoPrima=!!(r.dso_entro&&r.dso_entro<r.scade);
+ return '<p class="r-lab">File the STEM OPT extension (Form I-765)</p><p class="tot">'+dl(r.apre)+(dsoPrima?' <span>to</span> '+dl(r.dso_entro):' <span>to before</span> '+dl(r.scade))+'</p>'+(dsoPrima?'<p class="r-anno">The '+k.dso+'-day limit from the DSO recommendation ends before your EAD expires, so it is your real deadline.</p>':'')+'<ul class="r-righe">'+
+ riga('Window opens',dl(r.apre),r.apre_dso?'the day your DSO recommends the extension':k.prima+' days before your current OPT EAD expires')+
+ riga('File before your current EAD expires',dl(r.scade),r.dso_entro?'and within '+k.dso+' days of the DSO recommendation: by '+dl(r.dso_entro):'and within '+k.dso+' days of the DSO recommendation')+
+ riga('If the EAD expires while the application is pending','You can keep working up to '+dl(r.proroga_fino),'automatic extension of up to '+k.proroga+' days, if you filed on time')+'</ul>';},
+graduate:function(f,k){var r=C.graduate(f.dom.value,f.tipo.value,f.dec.value,f.scad?f.scad.value:'',k);if(!r)return '<p class="small">Enter the date you will apply.</p>';
+ var dur=r.mesi===36?'3 years':(r.mesi===24?'2 years':'18 months');var h='';
+ if(r.tardi)h+='<div class="esito no">Your Student visa expires on '+dl(r.scad)+': you must apply before that date.</div>';
+ h+='<p class="r-lab">Your Graduate visa lasts</p><p class="tot">'+dur+'</p><p class="r-anno">'+(r.mesi===36?'PhD or other doctoral qualification: 3 years, before and after 1 January 2027.':(r.prima_del_cambio?'Applying on or before 31 December 2026: 2 years. '+(r.giorni_al_cambio>0?'From 1 January 2027 it would be 18 months.':''):'Applying on or after 1 January 2027: 18 months.'))+'</p><ul class="r-righe">';
+ if(r.decisione)h+=riga('Decision on '+dl(r.decisione),'Ends about '+dl(r.fine),dur+' from the decision date');
+ else if(r.dec_errore)h+='<li class="esito warn">The decision date cannot be before the application date.</li>';
+ h+=riga('If approved the day you apply','Ends about '+dl(r.fine_subito),'')+riga('If approved after '+k.sett+' weeks ('+dl(r.decisione_8)+')','Ends about '+dl(r.fine_8),'')+'</ul>';
+ var c=C.costo(r.mesi,f.adulti?f.adulti.value:1,f.figli?f.figli.value:0,k);
+ h+='<p class="r-lab" style="margin-top:14px">Cost for '+c.persone+' '+(c.persone===1?'person':'people')+'</p><p class="tot" style="font-size:1.9rem">'+gbp(c.totale)+'</p><p class="small">'+gbp(c.tasse)+' application fees + '+gbp(c.ihs)+' health surcharge ('+gbp(c.ihs_adulto)+' per adult'+(c.ihs_figlio&&f.figli&&+f.figli.value>0?', '+gbp(c.ihs_figlio)+' per child':'')+'). The visa starts on the decision date; the exact end date is on your eVisa.</p>';
+ return h;}
+};
+document.querySelectorAll('[data-studio]').forEach(function(box){var tipo=box.getAttribute('data-studio');var k=JSON.parse(box.getAttribute('data-k'));var f=box.querySelector('form');var out=box.querySelector('[data-out]');
+ if(f.dom&&!f.dom.value)f.dom.value=oggi();
+ function go(){try{out.innerHTML=R[tipo](f,k);}catch(e){out.innerHTML='';}}
+ f.addEventListener('input',go);f.addEventListener('change',go);f.addEventListener('submit',function(e){e.preventDefault();go();});go();});
+})();
+"""
+
+CSS_STUDIO = (".r-righe{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}"
+              ".r-righe li{background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:9px 12px;font-size:.92rem;line-height:1.4}"
+              ".r-righe li b{display:block;font-family:var(--serif);font-size:1.08rem;color:var(--ink);margin:2px 0;font-variant-numeric:tabular-nums}"
+              ".r-righe li .r-lab{display:block}.r-righe li .small{display:block}"
+              ".calc .tot span{font-size:.95rem}.stato{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;"
+              "border-radius:6px;padding:2px 8px;border:1px solid var(--line-2);white-space:nowrap}.stato.vigore{background:var(--ok-2);color:var(--ok)}"
+              ".stato.proposta{background:var(--warn-2);color:var(--warn)}.stato.sospesa{background:var(--accent-2);color:var(--accent)}"
+              "table.pila tbody th{text-transform:none;letter-spacing:0;font-size:.92rem;background:none;color:var(--ink);vertical-align:top}"
+              "@media (max-width:640px){table.pila thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}"
+              "table.pila,table.pila tbody,table.pila tr,table.pila th,table.pila td{display:block;width:100%}"
+              "table.pila tr{border-bottom:1px solid var(--line);padding:8px 0}table.pila tr:last-child{border-bottom:0}"
+              ".tab.compatta table.pila td,.tab.compatta table.pila th{border:0;padding:3px 14px;min-width:0;text-align:left;white-space:normal;background:none}"
+              "table.pila tbody th{font-weight:700;padding-top:6px}"
+              "table.pila td[data-l]::before{content:attr(data-l);display:block;font-weight:700;color:var(--ink-3);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}}")
+
+
+def pila(tab):
+    """Tabella che sotto i 640 px diventa una pila di schede: classe "pila" e data-l (intestazione della colonna) su ogni cella."""
+    teste = [re.sub(r"<[^>]+>", "", h).strip() for h in re.findall(r"<th[^>]*>(.*?)</th>", re.search(r"<thead>(.*?)</thead>", tab, re.S).group(1), re.S)]
+    def riga(m):
+        i = [0]
+        def cella(c):
+            n = i[0]
+            i[0] += 1
+            return f'<{c.group(1)} data-l="{escape(teste[n]) if n < len(teste) else ""}"'
+        return re.sub(r"<(td|th)(?= |>)", cella, m.group(0))
+    corpo = re.sub(r"<tr>.*?</tr>", riga, re.search(r"<tbody>.*?</tbody>", tab, re.S).group(0), flags=re.S)
+    tab = re.sub(r"<tbody>.*?</tbody>", lambda _: corpo, tab, count=1, flags=re.S)
+    return re.sub(r"<table ", '<table class="pila" ', tab, count=1)
+
+
+def calc_box(tipo, k, campi, titolo, nota=""):
+    """Calcolatore (riquadro .calc): campi = HTML dei campi del modulo; il risultato lo scrive STUDIO_JS."""
+    return (f'<section class="card calc" data-studio="{tipo}" data-k=\'{json.dumps(k, separators=(",", ":"))}\' aria-label="{escape(titolo)}">'
+            f'<div class="calc-grid"><form autocomplete="off"><h2 style="margin:0 0 14px;font-size:1.2rem">{ico("calc")} {escape(titolo)}</h2><div class="campi">{campi}</div>'
+            f'{f"<p class=\"small\" style=\"margin:12px 0 0\">{nota}</p>" if nota else ""}</form>'
+            f'<div class="calc-out"><div class="risultato" data-out aria-live="polite"><noscript>Turn on JavaScript to use the calculator; the rules are in the tables below.</noscript></div></div></div></section>')
+
+
+def campo_data(nome, etichetta, icona="calendar", pieno=True, valore=""):
+    return (f'<label{" class=\"pieno\"" if pieno else ""}><span class="lt">{ico(icona)}{etichetta}</span>'
+            f'<input type="date" name="{nome}" value="{valore}" min="2020-01-01" max="2035-12-31"></label>')
+
+
+def calc_finestra():
+    return calc_box("finestra", K_FINESTRA,
+                    campo_data("fine", "Program end date (on your Form I-20)") + campo_data("dso", "DSO recommendation date in SEVIS (optional)", "check"),
+                    "OPT filing window calculator", "Post-completion OPT. The calculator uses the rules USCIS applies today; it runs in your browser and sends nothing.")
+
+
+def calc_disoccupazione():
+    campi = (campo_data("inizio", "OPT start date (on your EAD card)") +
+             f'<label><span class="lt">{ico("list")}Type of OPT</span><select name="tipo"><option value="opt">Post-completion OPT ({K_DISOCC["opt"]} days)</option>'
+             f'<option value="stem">With STEM extension ({K_DISOCC["stem"]} days)</option></select></label>'
+             f'<label><span class="lt">{ico("calc")}Days already used (optional)</span><input type="number" name="usati" min="0" max="150" inputmode="numeric" placeholder="e.g. 20"></label>')
+    return calc_box("disoccupazione", K_DISOCC, campi, "OPT unemployment days calculator",
+                    "Days already used: the unemployment counter in your SEVP Portal or your DSO can tell you. Runs in your browser.")
+
+
+def calc_stem():
+    return calc_box("stem", K_STEM, campo_data("scad", "End date of your current OPT EAD") + campo_data("dso", "DSO recommendation date for the extension (optional)", "check"),
+                    "STEM OPT extension filing window", "Runs in your browser and sends nothing.")
+
+
+def calc_graduate(tipo="altro"):
+    opz = "".join(f'<option value="{v}"{" selected" if v == tipo else ""}>{t}</option>' for v, t in
+                  (("altro", "Bachelor's or master's degree (or other eligible course)"), ("phd", "PhD or other doctoral qualification")))
+    campi = (campo_data("dom", "Date you apply") +
+             f'<label class="pieno"><span class="lt">{ico("passport")}Qualification</span><select name="tipo">{opz}</select></label>' +
+             campo_data("dec", "Decision date, if you know it (optional)", "check", pieno=False) +
+             campo_data("scad", "Student visa expiry (optional)", "alert", pieno=False) +
+             f'<label><span class="lt">{ico("user")}Adults incl. you</span><input type="number" name="adulti" min="1" max="10" value="1" inputmode="numeric"></label>'
+             f'<label><span class="lt">{ico("child")}Children under 18</span><input type="number" name="figli" min="0" max="10" value="0" inputmode="numeric"></label>')
+    return calc_box("graduate", K_GRAD, campi, "Graduate visa length, end date and cost",
+                    "Partner and children count only if they are your dependants. Runs in your browser and sends nothing.")
+
+
+# ---------- testi comuni OPT
+def tabella_costi_opt():
+    p = FR_OPT["tasse_opt"]
+    righe = [
+        ("Form I-765, filed online (OPT, STEM OPT)", usd(vo("tassa_online")), '<span class="stato vigore">In force</span>', link_fonte_opt("g1055_i765")),
+        ("Form I-765, filed on paper", usd(vo("tassa_carta")), '<span class="stato vigore">In force</span>', link_fonte_opt("g1055_i765")),
+        (f"Premium processing (Form I-907): decision within {vo('premium_giorni')} business days", usd(vo("premium")),
+         f'<span class="stato vigore">In force</span> <span class="small">since {data_lunga(vo("premium_dal"))}; it was {usd(vo("premium_prima"))}</span>',
+         link_fonte_opt("g1055_i907") + "; " + link_fr("premium", breve=True)),
+        ("Extra fee of Public Law 119-21 (H.R. 1) on some work permits", "Not listed for OPT",
+         '<span class="small">The fee schedule lists it for categories such as parolees, TPS and asylum applicants, not for the OPT categories (c)(3)</span>',
+         link_fonte_opt("g1055_i765")),
+        ("Proposed OPT fee, paid by the school", f'{usd(vo("proposta_importi")["iniziale"])} first OPT · {usd(vo("proposta_importi")["successiva"])} later OPT',
+         f'<span class="stato proposta">Proposal</span> <span class="small">not in force; comments until {data_lunga(p["comments_close_on"])}</span>',
+         link_fr("tasse_opt", breve=True)),
+    ]
+    corpo = "".join(f'<tr><th scope="row">{a}</th><td class="n">{b}</td><td>{c}</td><td class="small">{d}</td></tr>' for a, b, c, d in righe)
+    return pila(f'<div class="tab compatta"><table id="t-costi-opt"><caption class="sr">OPT and STEM OPT costs</caption><thead><tr><th scope="col">What</th><th scope="col" class="n">Amount</th>'
+            f'<th scope="col">Status</th><th scope="col">Official source</th></tr></thead><tbody>{corpo}</tbody></table></div>')
+
+
+def tabella_finestre_opt():
+    f, s = vo("finestra"), vo("finestra_stem")
+    righe = [
+        ("Pre-completion OPT", f"Up to {f['prima']} days before you complete one full academic year, after the DSO recommendation", "You cannot start work before the full academic year"),
+        ("Post-completion OPT", f"From {f['prima']} days before to {f['dopo']} days after your program end date",
+         f"Within {f['dso']} days of the DSO recommendation in SEVIS; start date no later than {vo('inizio_max')} days after the program end date"),
+        ("24-month STEM OPT extension", f"Up to {s['prima']} days before your current OPT EAD expires", f"Within {s['dso']} days of the DSO recommendation"),
+    ]
+    corpo = "".join(f'<tr><th scope="row">{a}</th><td>{b}</td><td>{c}</td></tr>' for a, b, c in righe)
+    return (pila(f'<div class="tab compatta"><table id="t-finestre-opt"><caption class="sr">When to file Form I-765 for OPT</caption><thead><tr><th scope="col">Type</th>'
+            f'<th scope="col">When to file Form I-765</th><th scope="col">Also</th></tr></thead><tbody>{corpo}</tbody></table></div>')
+            + fonte_opt_p(("i765", "opt", "stem", "sevp_opt", "ice")))
+
+
+def tabella_stato_opt(rel):
+    p, ds, pr, h = FR_OPT["tasse_opt"], FR_OPT["durata_fissa"], FR_OPT["premium"], FR_OPT["hr1_2027"]
+    righe = [
+        (f'OPT fees of {usd(vo("proposta_importi")["iniziale"])} and {usd(vo("proposta_importi")["successiva"])}', '<span class="stato proposta">Proposal</span>',
+         f'Proposed on {data_lunga(p["publication_date"])}; comments close on {data_lunga(p["comments_close_on"])}. Not in force. <a href="{rel}{SEZ_OPT}opt-fee-proposal/">Details</a>', link_fr("tasse_opt", True)),
+        (f'Filing deadline and grace period cut from 60 to {vo("regola_30")} days', '<span class="stato sospesa">Final rule on hold</span>',
+         f'Published on {data_lunga(ds["publication_date"])}, due to take effect on {data_lunga(ds["effective_on"])}; a federal court postponed it on {data_lunga(vo("rinvio_regola"))} and USCIS applies the previous rules. '
+         f'<a href="{rel}{SEZ_OPT}opt-grace-period/">Details</a>', link_fr("durata_fissa", True)),
+        (f'Premium processing fee {usd(vo("premium"))}', '<span class="stato vigore">In force</span>', f'Since {data_lunga(pr["effective_on"])} (inflation adjustment).', link_fr("premium", True)),
+        ('H.R. 1 fees, fiscal year 2027', '<span class="stato vigore">In force</span>',
+         f'Adjusted from {data_lunga(h["effective_on"])}; they apply to other categories (for example parolees, TPS and asylum applicants), not to OPT.', link_fr("hr1_2027", True)),
+    ]
+    corpo = "".join(f'<tr><th scope="row">{a}</th><td>{b}</td><td>{c}</td><td class="small">{d}</td></tr>' for a, b, c, d in righe)
+    return (pila(f'<div class="tab compatta"><table id="t-stato-opt"><caption class="sr">OPT rule changes and their status</caption><thead><tr><th scope="col">Change</th><th scope="col">Status</th>'
+            f'<th scope="col">What it means today</th><th scope="col">Federal Register</th></tr></thead><tbody>{corpo}</tbody></table></div>')
+            + fonte_opt_p(("i765", "g1055_i765"), ("tasse_opt", "durata_fissa", "premium", "hr1_2027")))
+
+
+def link_opt(rel, escludi=""):
+    voci = [("", "US OPT and STEM OPT: fees and deadlines"), ("opt-application-deadline-calculator/", "OPT application deadline calculator"),
+            ("opt-unemployment-days/", "OPT unemployment days (90 / 150)"), ("stem-opt-extension-fee/", "STEM OPT extension fee and window"),
+            ("opt-fee-proposal/", "The $70,000 OPT fee proposal"), ("opt-grace-period/", "OPT grace period: 60 or 30 days")]
+    return ('<div class="griglia">' + "".join(f'<a href="{rel}{SEZ_OPT}{p}"><span class="ic">{ico("calendar" if "calc" in p or "days" in p else "coins" if "fee" in p else "passport")}</span><span>{t}</span></a>'
+                                              for p, t in voci if p != escludi) + "</div>")
+
+
+def esempi_finestra():
+    """Tre esempi calcolati qui (Python), uguali al calcolatore."""
+    righe = ""
+    for fine in ("2026-12-18", "2027-05-15", "2027-08-31"):
+        e = date.fromisoformat(fine)
+        a, c, c30 = e - timedelta(days=K_FINESTRA["prima"]), e + timedelta(days=K_FINESTRA["dopo"]), e + timedelta(days=K_FINESTRA["nuova"])
+        righe += (f'<tr><td>{data_lunga(fine)}</td><td>{data_lunga(a.isoformat())}</td><td>{data_lunga(c.isoformat())}</td>'
+                  f'<td class="small">{data_lunga(c30.isoformat())}</td></tr>')
+    return pila(f'<div class="tab compatta"><table id="t-esempi-opt"><caption class="sr">Examples of OPT filing windows</caption><thead><tr><th scope="col">Program end date</th>'
+            f'<th scope="col">Earliest filing</th><th scope="col">Last filing (rule applied today)</th><th scope="col">Last filing if the 30-day rule takes effect</th></tr></thead>'
+            f'<tbody>{righe}</tbody></table></div>')
+
+
+# ---------- pagine OPT
+def pagina_opt_indice():
+    rel = "../"
+    percorso = SEZ_OPT
+    f, s = vo("finestra"), vo("finestra_stem")
+    domande = [
+        ("How much does OPT cost in 2026?",
+         f"The Form I-765 filing fee is {usd(vo('tassa_online'))} if you file online and {usd(vo('tassa_carta'))} on paper (USCIS fee schedule, edition read on {data_lunga(LETTO_OPT)}). "
+         f"Premium processing costs {usd(vo('premium'))} more and gets a decision within {vo('premium_giorni')} business days."),
+        ("When can I apply for OPT?",
+         f"For post-completion OPT, USCIS must receive Form I-765 from {f['prima']} days before to {f['dopo']} days after your program end date, and within {f['dso']} days of your DSO's recommendation in SEVIS."),
+        ("How long is OPT?", f"Up to {vo('mesi_opt')} months at each education level; with a STEM degree you can apply for a {vo('mesi_stem')}-month extension."),
+        ("How many days can I be unemployed on OPT?",
+         f"{K_DISOCC['opt']} days in total on post-completion OPT, and {K_DISOCC['stem']} days in total if you also get the STEM extension (the {K_DISOCC['stem']} include the days used before)."),
+        ("Is the $70,000 OPT fee in force?",
+         f"No. It is a proposed rule published on {data_lunga(FR_OPT['tasse_opt']['publication_date'])}; comments close on {data_lunga(FR_OPT['tasse_opt']['comments_close_on'])}. "
+         "As proposed, the school would pay it, not the student. A final rule would have to be published before it applies."),
+        ("Has the OPT deadline changed to 30 days?",
+         f"Not for now. A final rule of {data_lunga(FR_OPT['durata_fissa']['publication_date'])} would cut the 60 days to 30, but a federal court postponed it on {data_lunga(vo('rinvio_regola'))} "
+         "and USCIS says it is applying the previous rules. Check with your DSO before relying on the 60 days."),
+    ]
+    corpo = f"""<section class="hero">{h1_diviso(f"US OPT and STEM OPT: fees, filing deadlines and unemployment days ({ANNO})")}
+<p class="lead">Form I-765 for OPT or a STEM OPT extension costs <strong>{usd(vo("tassa_online"))} online or {usd(vo("tassa_carta"))} on paper</strong>, and for post-completion OPT you can file it from {f["prima"]} days before to {f["dopo"]} days after your program end date, according to the USCIS fee schedule and Form I-765 page read on {data_lunga(LETTO_OPT)}. OPT lasts up to {vo("mesi_opt")} months per education level, plus {vo("mesi_stem")} months with the STEM extension, with at most {K_DISOCC["opt"]} days of unemployment ({K_DISOCC["stem"]} with STEM).</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("passport")}<span>US OPT and STEM OPT</span><span>read on {data_lunga(LETTO_OPT)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Form I-765 filing fee (OPT and STEM OPT)</span><span class="sr">: </span><strong>{usd(vo("tassa_online"))} online · {usd(vo("tassa_carta"))} paper</strong></p>
+<div class="kpi"><div><b>{usd(vo("premium"))}</b><span>premium processing, decision within {vo("premium_giorni")} business days</span></div><div><b>{f["prima"]} / {f["dopo"]} days</b><span>before / after the program end date</span></div><div><b>{vo("mesi_opt")} + {vo("mesi_stem")} months</b><span>OPT + STEM extension</span></div><div><b>{K_DISOCC["opt"]} / {K_DISOCC["stem"]} days</b><span>unemployment limit (OPT / with STEM)</span></div></div>
+{fonte_opt_p(("g1055_i765", "g1055_i907", "i765", "sevp_disoccupazione"))}
+</div></section>
+{AVVISO_OPT}
+{AD}
+{calc_finestra()}
+{calc_disoccupazione()}
+<h2 id="fees">OPT and STEM OPT fees in {ANNO}</h2>
+<p>OPT and the STEM extension use the same form and the same fee. The fee schedule lists online filing at {usd(vo("tassa_online"))} and paper filing at {usd(vo("tassa_carta"))}; USCIS accepts Form I-765 online for post-completion OPT and for the STEM extension.</p>
+{tabella_costi_opt()}
+{fonte_opt_p(("g1055_i765", "g1055_i907", "premium", "online"), ("premium",))}
+<h2 id="deadlines">When to file</h2>
+{tabella_finestre_opt()}
+<p>You cannot start working until USCIS approves Form I-765 and you have the Employment Authorization Document (EAD). If you file the STEM extension on time and your OPT EAD expires while it is pending, your work authorization is extended automatically for up to {vo("proroga_stem")} days.</p>
+<h2 id="unemployment">Unemployment days</h2>
+<p>On post-completion OPT you can be unemployed for <strong>{K_DISOCC["opt"]} days</strong> in total. With the STEM extension the total is <strong>{K_DISOCC["stem"]} days</strong>, which includes the days used during post-completion OPT. SEVIS counts from the actual OPT start date and adds each day without employer information in your record. <a href="opt-unemployment-days/">How the days are counted</a>.</p>
+{fonte_opt_p(("sevp_disoccupazione", "stem"))}
+<h2 id="changes">Proposed or on hold: what is not the rule today</h2>
+<p>Several changes to OPT were published in {ANNO}. Only some are in force:</p>
+{tabella_stato_opt(rel)}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>OPT pages on this site</h2>
+{link_opt(rel, "")}
+<p><a href="{rel}{SEZ_GRAD}">Studying in the UK instead? UK Graduate visa: 2 years or 18 months</a> · <a href="{rel}{SEZ}united-states/">Schengen visa refusal rates for applications made in the United States</a></p>"""
+    titolo = f"US OPT and STEM OPT {ANNO}: fees, deadlines and calculator"
+    descr = (f"OPT costs {usd(vo('tassa_online'))} online or {usd(vo('tassa_carta'))} on paper (Form I-765); file from {f['prima']} days before to {f['dopo']} days after your program end date. "
+             f"Calculator for the filing window and the {K_DISOCC['opt']}/{K_DISOCC['stem']} unemployment days, and the status of the $70,000 fee proposal.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)], briciole=[("US OPT and STEM OPT", percorso)], script=STUDIO_JS)
+
+
+def pagina_opt_scadenza():
+    rel = "../../"
+    percorso = f"{SEZ_OPT}opt-application-deadline-calculator/"
+    f = vo("finestra")
+    domande = [
+        ("What is the OPT application deadline?",
+         f"USCIS must receive Form I-765 for post-completion OPT no later than {f['dopo']} days after your program end date and within {f['dso']} days of the date your DSO enters the recommendation in SEVIS, whichever comes first."),
+        ("How early can I apply for OPT?", f"Up to {f['prima']} days before your program end date, once your DSO has recommended OPT in SEVIS."),
+        ("Does the 30-day DSO rule matter if I am still within 60 days?",
+         f"Yes. Both limits apply: if your DSO recommended OPT on 1 June and your program ended on 15 May, the {f['dso']}-day limit ends on 1 July, before the {f['dopo']}-day limit."),
+        ("What start date can I ask for?", f"A date on or after your program end date and no more than {vo('inizio_max')} days after it (SEVP)."),
+        ("Is the deadline now 30 days after the program end date?",
+         f"A final rule of {data_lunga(FR_OPT['durata_fissa']['publication_date'])} would make it {vo('regola_30')} days, but its effective date was postponed by a federal court on {data_lunga(vo('rinvio_regola'))}; USCIS says it applies the previous rules ({f['dopo']} days). The calculator shows both dates."),
+    ]
+    corpo = f"""<section class="hero"><h1>OPT application deadline calculator ({ANNO})</h1>
+<p class="lead">For post-completion OPT you can file Form I-765 from <strong>{f["prima"]} days before to {f["dopo"]} days after your program end date</strong>, and within {f["dso"]} days of your DSO's recommendation in SEVIS (USCIS, Form I-765 page, read on {data_lunga(LETTO_OPT)}). Enter your dates to see your window.</p></section>
+{calc_finestra()}
+{AVVISO_OPT}
+{AD}
+<h2>The three dates that decide your window</h2>
+<ul class="testo"><li><strong>Program end date</strong> (on your Form I-20): the window opens {f["prima"]} days before it and closes {f["dopo"]} days after it.</li>
+<li><strong>DSO recommendation date</strong>: USCIS must receive your application within {f["dso"]} days of the day your DSO enters the recommendation in SEVIS. If that comes first, it is your real deadline.</li>
+<li><strong>Requested start date</strong>: on or after the program end date and no more than {vo("inizio_max")} days after it.</li></ul>
+{fonte_opt_p(("i765", "opt", "sevp_opt"))}
+<h2>Examples</h2>
+<p>Without a DSO date. The last column shows the date under the postponed rule of {data_lunga(FR_OPT["durata_fissa"]["publication_date"])}, which is not applied today.</p>
+{esempi_finestra()}
+{fonte_opt_p(("i765",), ("durata_fissa",))}
+<h2>Fees</h2>
+<p>Form I-765 costs {usd(vo("tassa_online"))} online or {usd(vo("tassa_carta"))} on paper; premium processing costs {usd(vo("premium"))} more and gets a decision within {vo("premium_giorni")} business days. You cannot start working before you receive the EAD.</p>
+{fonte_opt_p(("g1055_i765", "g1055_i907", "premium"))}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>More on OPT</h2>
+{link_opt(rel, "opt-application-deadline-calculator/")}"""
+    titolo = f"OPT application deadline calculator: {f['prima']} days before, {f['dopo']} after"
+    descr = (f"Find your OPT filing window: Form I-765 from {f['prima']} days before to {f['dopo']} days after your program end date, within {f['dso']} days of the DSO "
+             f"recommendation (USCIS, read {data_lunga(LETTO_OPT)}). Shows the postponed 30-day rule too.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)],
+           briciole=[("US OPT and STEM OPT", SEZ_OPT), ("OPT application deadline calculator", percorso)], script=STUDIO_JS)
+
+
+def pagina_opt_disoccupazione():
+    rel = "../../"
+    percorso = f"{SEZ_OPT}opt-unemployment-days/"
+    o, s = K_DISOCC["opt"], K_DISOCC["stem"]
+    agg = data_us(FO["sevp_disoccupazione"]["aggiornata"])
+    domande = [
+        ("How many unemployment days are allowed on OPT?", f"{o} days in total during post-completion OPT, and {s} days in total if you get the 24-month STEM extension."),
+        ("Do the 150 STEM days start from zero?", f"No. The {s} days include the days you used during post-completion OPT: if you used 40, you have {s - 40} left for the STEM extension."),
+        ("When does the unemployment clock start?", "SEVIS looks back to the actual OPT start date and counts each day without employer information in your record."),
+        ("Do weekends count as unemployment days?", "SEVP's help page says SEVIS counts each day without employer information; it does not exclude weekends. Ask your DSO how your days were counted."),
+        ("What happens after the limit?", f"SEVP's SEVIS Help Hub lists “Exceeded Unemployment Time” among the reasons a DHS official can terminate a student's SEVIS record: more than {o} days of unemployment on post-completion OPT, or more than {s} with the STEM extension. Talk to your DSO before you reach the limit."),
+    ]
+    corpo = f"""<section class="hero"><h1>OPT unemployment days: {o} days, or {s} with STEM ({ANNO})</h1>
+<p class="lead">On post-completion OPT you can be unemployed for <strong>{o} days in total</strong>, and for <strong>{s} days in total</strong> if you also get the 24-month STEM extension, according to SEVP's SEVIS Help Hub (page updated {data_lunga(agg)}, read on {data_lunga(LETTO_OPT)}). The calculator shows when you would reach the limit.</p></section>
+{calc_disoccupazione()}
+{AVVISO_OPT}
+{AD}
+<h2>How SEVIS counts the days</h2>
+<ul class="testo"><li>It looks back to the <strong>actual OPT start date</strong> of that period of OPT.</li>
+<li>It counts <strong>each day without employer information</strong> in your SEVIS record. A record without employer information counts as unemployed, so report a new job to your DSO quickly (within 10 days).</li>
+<li>The {s} days of the STEM extension <strong>include</strong> the days used during post-completion OPT (USCIS: "an additional 60 days").</li></ul>
+{fonte_opt_p(("sevp_disoccupazione", "sevp_opt", "stem"))}
+<h2>Examples</h2>
+<div class="tab compatta"><table id="t-esempi-disocc"><caption class="sr">Examples of unemployment limits</caption><thead><tr><th scope="col">OPT start date</th><th scope="col">Limit</th><th scope="col">Day {o} (no job from the start)</th></tr></thead><tbody>
+{"".join(f'<tr><td>{data_lunga(d)}</td><td>{o} days</td><td>{data_lunga((date.fromisoformat(d) + timedelta(days=o - 1)).isoformat())}</td></tr>' for d in ("2026-06-01", "2026-12-15", "2027-07-01"))}
+</tbody></table></div>
+<p class="small">If you have a job for part of the time, only the days without employer information count: use the "days already used" field with the number from your SEVP Portal.</p>
+<h2>After OPT ends</h2>
+<p>When your OPT ends, the F-1 grace period to leave or change status is 60 days under the rules USCIS applies today; a final rule that would cut it to 30 days is on hold. <a href="../opt-grace-period/">OPT grace period: 60 or 30 days</a>.</p>
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>More on OPT</h2>
+{link_opt(rel, "opt-unemployment-days/")}"""
+    titolo = f"OPT unemployment days: {o} days, {s} with STEM (calculator)"
+    descr = (f"OPT allows {o} days of unemployment in total, {s} with the STEM extension (SEVP, read {data_lunga(LETTO_OPT)}). "
+             "Calculator: when you reach the limit, how SEVIS counts the days, and examples.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)],
+           briciole=[("US OPT and STEM OPT", SEZ_OPT), ("OPT unemployment days", percorso)], script=STUDIO_JS)
+
+
+def pagina_opt_stem():
+    rel = "../../"
+    percorso = f"{SEZ_OPT}stem-opt-extension-fee/"
+    s = vo("finestra_stem")
+    domande = [
+        ("How much is the STEM OPT extension fee?",
+         f"{usd(vo('tassa_online'))} online or {usd(vo('tassa_carta'))} on paper (Form I-765, the same fee as OPT). Premium processing costs {usd(vo('premium'))} more."),
+        ("When should I apply for the STEM OPT extension?",
+         f"Up to {s['prima']} days before your current OPT EAD expires, and within {s['dso']} days of your DSO's recommendation in SEVIS."),
+        ("Can I keep working while the STEM extension is pending?",
+         f"Yes, if you filed on time and your OPT EAD expires while the application is pending: your work authorization is extended automatically for up to {vo('proroga_stem')} days."),
+        ("Is there a $30,000 STEM OPT fee?",
+         f"Not today. DHS proposed on {data_lunga(FR_OPT['tasse_opt']['publication_date'])} a fee of {usd(vo('proposta_importi')['successiva'])} for any OPT after the first, STEM extension included, paid by the school. It is a proposal, not a rule."),
+        ("How many unemployment days do I have on STEM OPT?", f"{K_DISOCC['stem']} in total, including the days used during post-completion OPT."),
+    ]
+    corpo = f"""<section class="hero"><h1>STEM OPT extension fee {ANNO}: {usd(vo("tassa_online"))} online, {usd(vo("tassa_carta"))} by mail</h1>
+<p class="lead">The 24-month STEM OPT extension is filed on Form I-765 with the same fee as OPT: <strong>{usd(vo("tassa_online"))} online or {usd(vo("tassa_carta"))} on paper</strong>, plus {usd(vo("premium"))} if you want premium processing, according to the USCIS fee schedule (Form G-1055) read on {data_lunga(LETTO_OPT)}. You can file up to {s["prima"]} days before your current OPT EAD expires.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("coins")}<span>STEM OPT extension</span><span>read on {data_lunga(LETTO_OPT)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Form I-765 fee for the STEM extension</span><span class="sr">: </span><strong>{usd(vo("tassa_online"))} online · {usd(vo("tassa_carta"))} paper</strong></p>
+<div class="kpi"><div><b>{usd(vo("premium"))}</b><span>premium processing (optional)</span></div><div><b>{vo("mesi_stem")} months</b><span>length of the extension</span></div><div><b>{s["prima"]} days</b><span>before your OPT EAD expires: window opens</span></div><div><b>{vo("proroga_stem")} days</b><span>automatic extension while pending</span></div></div>
+{fonte_opt_p(("g1055_i765", "g1055_i907", "stem"))}
+</div></section>
+{AVVISO_OPT}
+{AD}
+{calc_stem()}
+<h2>What you file</h2>
+<ul class="testo"><li>Form I-765 with the fee, your employer's name as listed in E-Verify and its E-Verify company identification number.</li>
+<li>A Form I-20 endorsed by your DSO within the last 60 days, after your DSO has reviewed the Form I-983 training plan.</li>
+<li>A copy of your STEM degree (on the DHS STEM Designated Degree Program List).</li></ul>
+{fonte_opt_p(("stem", "ice"))}
+<h2>Fees</h2>
+{tabella_costi_opt()}
+<p class="small">The proposed fee would be paid by the school before the DSO recommends OPT, for recommendations dated on or after the effective date of a final rule; it is not in force. <a href="../opt-fee-proposal/">What the proposal says</a>.</p>
+{fonte_opt_p(("g1055_i765", "g1055_i907"), ("tasse_opt",))}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>More on OPT</h2>
+{link_opt(rel, "stem-opt-extension-fee/")}"""
+    titolo = f"STEM OPT extension fee {ANNO}: {usd(vo('tassa_online'))} online, {usd(vo('tassa_carta'))} by mail"
+    descr = (f"STEM OPT extension: Form I-765 fee {usd(vo('tassa_online'))} online or {usd(vo('tassa_carta'))} on paper, premium processing {usd(vo('premium'))} (USCIS, read {data_lunga(LETTO_OPT)}). "
+             f"Filing window calculator, {vo('proroga_stem')}-day extension, and the proposed school fee.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)],
+           briciole=[("US OPT and STEM OPT", SEZ_OPT), ("STEM OPT extension fee", percorso)], script=STUDIO_JS)
+
+
+def pagina_opt_proposta():
+    rel = "../../"
+    percorso = f"{SEZ_OPT}opt-fee-proposal/"
+    p = FR_OPT["tasse_opt"]
+    i, s = vo("proposta_importi")["iniziale"], vo("proposta_importi")["successiva"]
+    domande = [
+        ("Is the $70,000 OPT fee in force?", f"No. It is a notice of proposed rulemaking published on {data_lunga(p['publication_date'])}. It would apply only after DHS publishes a final rule."),
+        ("Who would pay the OPT fee?", f"As proposed, the SEVP-certified school, for each F-1 student, before the DSO recommends OPT in SEVIS. It is separate from the {usd(vo('tassa_online'))}/{usd(vo('tassa_carta'))} Form I-765 fee."),
+        ("Would it apply to the STEM OPT extension?", f"Yes, as proposed: {usd(s)} for any OPT after the first, STEM extension included."),
+        ("When would it start?", f"DHS proposes that the final rule take effect {vo('proposta_60_giorni')} days after it is published; the fee would apply to DSO recommendations dated on or after that day."),
+        ("Can I comment?", f"Yes, until {data_lunga(p['comments_close_on'])}, on regulations.gov, docket {vo('proposta_docket')}."),
+    ]
+    corpo = f"""<section class="hero"><h1>OPT ${i:,} fee proposal: what DHS proposed and where it stands</h1>
+<p class="lead">On {data_lunga(p["publication_date"])} DHS proposed a fee of <strong>{usd(i)} for a student's first OPT and {usd(s)} for any later OPT</strong>, paid by the school; it is a proposal, not a rule, and comments close on {data_lunga(p["comments_close_on"])} (Federal Register, {escape(p["citation"])}, read on {data_lunga(LETTO_OPT)}). Today OPT still costs the Form I-765 fee of {usd(vo("tassa_online"))} online or {usd(vo("tassa_carta"))} on paper.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("alert")}<span>Proposed rule, not in force</span><span>read on {data_lunga(LETTO_OPT)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Proposed OPT fee per student, paid by the school</span><span class="sr">: </span><strong>{usd(i)} first OPT · {usd(s)} later OPT</strong></p>
+<div class="kpi"><div><b>Proposal</b><span>status on {data_lunga(LETTO_OPT)}</span></div><div><b>{data_lunga(p["comments_close_on"])}</b><span>comments close</span></div><div><b>{vo("proposta_60_giorni")} days</b><span>after a final rule: proposed start</span></div><div><b>{usd(vo("tassa_online"))}</b><span>what you pay today (I-765 online)</span></div></div>
+<p class="fonte">Source: {link_fr("tasse_opt")}, summary and proposed 8 CFR 214.13(i); docket {escape(vo("proposta_docket"))}. Read on {data_lunga(LETTO_OPT)}.</p>
+</div></section>
+{AVVISO_OPT}
+{AD}
+<h2>What the proposal says</h2>
+<ul class="testo"><li>A <strong>{usd(i)}</strong> fee "for initial OPT" and <strong>{usd(s)}</strong> "for any subsequent OPT", for each F-1 student.</li>
+<li>The school (the SEVP-certified institution) would pay it before the DSO recommends OPT in SEVIS; USCIS would not grant the work permit before the fee is paid.</li>
+<li>The {usd(s)} fee would apply to any OPT after the first one, "regardless of whether it is another pre-completion OPT, postcompletion OPT, or STEM OPT extension".</li>
+<li>DHS proposes that the final rule take effect {vo("proposta_60_giorni")} days after publication, for DSO recommendations dated on or after that day.</li></ul>
+{fonte_opt_p((), ("tasse_opt",))}
+<h2>What it does not change today</h2>
+<p>Nothing changes until a final rule is published. Form I-765 still costs {usd(vo("tassa_online"))} online or {usd(vo("tassa_carta"))} on paper, the filing window is unchanged, and the proposal may change after the comments. The Federal Register will publish any final rule; we will update this page when it does.</p>
+{tabella_stato_opt(rel)}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>More on OPT</h2>
+{link_opt(rel, "opt-fee-proposal/")}"""
+    titolo = f"OPT ${i:,} fee proposal: what DHS proposed and its status"
+    descr = (f"DHS proposed on {data_lunga(p['publication_date'])} a {usd(i)} fee for first OPT and {usd(s)} for later OPT, paid by schools. Not in force; comments until "
+             f"{data_lunga(p['comments_close_on'])} ({p['citation']}). What it would change and what you pay today.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)],
+           briciole=[("US OPT and STEM OPT", SEZ_OPT), ("OPT fee proposal", percorso)], script=STUDIO_JS)
+
+
+def pagina_opt_grazia():
+    rel = "../../"
+    percorso = f"{SEZ_OPT}opt-grace-period/"
+    ds = FR_OPT["durata_fissa"]
+    ec = OPT["ecfr"]
+    domande = [
+        ("What is the OPT grace period in 2026?",
+         f"60 days under the rules USCIS applies today. A final rule of {data_lunga(ds['publication_date'])} would cut it to {vo('regola_grazia_30')} days, but a federal court postponed it on {data_lunga(vo('rinvio_regola'))}."),
+        ("Is the OPT application deadline 60 or 30 days after graduation?",
+         f"USCIS's Form I-765 page still says no later than 60 days after your program end date and says USCIS will proceed under the previous regulatory provisions while the court order stands."),
+        ("Why does the online Code of Federal Regulations say 30 days?",
+         f"The eCFR shows the text as amended by the rule from {data_lunga('2026-09-15')}. The court order postponed the rule's effective date; USCIS says it is applying the previous rules. Ask your DSO which dates SEVIS uses for you."),
+        ("Can the 30-day rule come back?", "Yes. USCIS writes that DHS disagrees with the order and will implement the rule if the order is lifted. Check this page and your DSO."),
+    ]
+    corpo = f"""<section class="hero"><h1>OPT grace period {ANNO}: 60 days, and the 30-day rule on hold</h1>
+<p class="lead">After you finish your program or your OPT, the F-1 grace period is still <strong>60 days</strong> under the rules USCIS applies today: a final rule published on {data_lunga(ds["publication_date"])} would cut it to {vo("regola_grazia_30")} days, but a federal court postponed it on {data_lunga(vo("rinvio_regola"))} and USCIS says it is applying the previous rules (USCIS, Form I-765 page, read on {data_lunga(LETTO_OPT)}).</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("calendar")}<span>F-1 grace period and OPT deadline</span><span>read on {data_lunga(LETTO_OPT)}</span></div>
+<div class="s-body">
+<div class="kpi"><div><b>60 days</b><span>grace period, rules applied today</span></div><div><b>{vo("finestra")["dopo"]} days</b><span>after the program end date: OPT filing deadline today</span></div><div><b>{vo("regola_30")} days</b><span>under the rule on hold</span></div><div><b>{data_lunga(vo("rinvio_regola"))}</b><span>court order postponing the rule</span></div></div>
+{fonte_opt_p(("i765",), ("durata_fissa",))}
+</div></section>
+{AVVISO_OPT}
+{AD}
+<h2>What the July {ANNO} rule would change</h2>
+<ul class="testo"><li>F-1 students would be admitted for a fixed period (up to 4 years) instead of "duration of status".</li>
+<li>The grace period after a program or OPT would be {vo("regola_grazia_30")} days instead of 60.</li>
+<li>The last day to file for post-completion OPT, and the latest start date you can request, would move from 60 to {vo("regola_30")} days after the program end date.</li></ul>
+{fonte_opt_p((), ("durata_fissa",))}
+<h2>Where it stands</h2>
+<p>The rule was due to take effect on {data_lunga(ds["effective_on"])}. On {data_lunga(vo("rinvio_regola"))} the U.S. District Court for the District of Massachusetts postponed its effective date; USCIS writes: "Until such time, USCIS will proceed under the previous regulatory provisions." The online Code of Federal Regulations (eCFR) already shows the amended text ({ec["giorni_dopo_fine_programma"]} days, version of {data_lunga(ec["ultima_versione"])}); the previous text, with 60 days, is the <a href="{escape(ec["precedente"]["url"])}" rel="noopener">version of {data_lunga(ec["precedente"]["data"])}</a>.</p>
+<p class="fonte">Sources: {link_fonte_opt("i765")}; <a href="{escape(ec["pagina"])}" rel="noopener">eCFR, 8 CFR 214.2</a> (versions of {data_lunga(ec["ultima_versione"])} and {data_lunga(ec["precedente"]["data"])}). Read on {data_lunga(LETTO_OPT)}.</p>
+<h2>Your OPT filing window under both rules</h2>
+{calc_finestra()}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>More on OPT</h2>
+{link_opt(rel, "opt-grace-period/")}"""
+    titolo = f"OPT grace period {ANNO}: 60 days, and the 30-day rule on hold"
+    descr = (f"The F-1 grace period after OPT is still 60 days: the {data_lunga(ds['publication_date'])} rule cutting it to 30 days was postponed by a court on "
+             f"{data_lunga(vo('rinvio_regola'))} (USCIS, read {data_lunga(LETTO_OPT)}). What would change and your filing window.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)],
+           briciole=[("US OPT and STEM OPT", SEZ_OPT), ("OPT grace period", percorso)], script=STUDIO_JS)
+
+
+# ---------- UK Graduate visa
+def ihs(mesi, rate):
+    return rate * mesi / 12
+
+
+def tabella_costi_grad():
+    righe = ""
+    for mesi, nome in ((24, "2 years (apply on or before 31 December 2026)"), (18, "18 months (apply on or after 1 January 2027)"), (36, "3 years (PhD)")):
+        a = ihs(mesi, K_GRAD["ihs_a"])
+        c = ihs(mesi, K_GRAD["ihs_m"])
+        righe += (f'<tr><th scope="row">{nome}</th><td class="n">{gbp(K_GRAD["tassa"])}</td><td class="n">{gbp(a)}</td><td class="n"><strong>{gbp(K_GRAD["tassa"] + a)}</strong></td>'
+                  f'<td class="n">{gbp(K_GRAD["tassa"] + c)}</td></tr>')
+    return pila(f'<div class="tab compatta"><table id="t-costi-grad"><caption class="sr">UK Graduate visa cost per person</caption><thead><tr><th scope="col">Visa length</th>'
+            f'<th scope="col" class="n">Application fee</th><th scope="col" class="n">Health surcharge (adult)</th><th scope="col" class="n">Total, one adult</th>'
+            f'<th scope="col" class="n">Total, child under 18</th></tr></thead><tbody>{righe}</tbody></table></div>')
+
+
+def tabella_famiglie_grad():
+    righe = ""
+    for nome, a, f in (("You alone", 1, 0), ("You and your partner", 2, 0), ("Partner and 1 child", 2, 1), ("Partner and 2 children", 2, 2)):
+        celle = "".join(f'<td class="n">{gbp((a + f) * K_GRAD["tassa"] + a * ihs(m, K_GRAD["ihs_a"]) + f * ihs(m, K_GRAD["ihs_m"]))}</td>' for m in (24, 18, 36))
+        righe += f'<tr><th scope="row">{nome}</th>{celle}</tr>'
+    return pila(f'<div class="tab compatta"><table id="t-famiglie-grad"><caption class="sr">UK Graduate visa total cost by family</caption><thead><tr><th scope="col">Who applies</th>'
+            f'<th scope="col" class="n">2 years</th><th scope="col" class="n">18 months</th><th scope="col" class="n">3 years (PhD)</th></tr></thead><tbody>{righe}</tbody></table></div>')
+
+
+def tabella_durata_grad():
+    righe = [("Bachelor's, master's or other eligible course", "2 years", "18 months"), ("PhD or other doctoral qualification", "3 years", "3 years")]
+    corpo = "".join(f'<tr><th scope="row">{a}</th><td>{b}</td><td>{c}</td></tr>' for a, b, c in righe)
+    return pila(f'<div class="tab compatta"><table id="t-durata-grad"><caption class="sr">UK Graduate visa length by application date</caption><thead><tr><th scope="col">Qualification</th>'
+            f'<th scope="col">Apply on or before 31 December 2026</th><th scope="col">Apply on or after 1 January 2027</th></tr></thead><tbody>{corpo}</tbody></table></div>')
+
+
+def link_grad(rel, escludi=None):
+    voci = [("", "UK Graduate visa: length, cost and end date"), ("18-months/", "Graduate visa 18 months from 2027"),
+            ("cost/", "Graduate visa cost 2026"), ("phd/", "Graduate visa after a PhD: 3 years")]
+    return ('<div class="griglia">' + "".join(f'<a href="{rel}{SEZ_GRAD}{p}"><span class="ic">{ico("coins" if "cost" in p else "calendar")}</span><span>{t}</span></a>'
+                                              for p, t in voci if p != escludi) + "</div>")
+
+
+def citazione_regola():
+    return (f'<blockquote class="indice"><p style="margin:0">“{escape(LG["regola_18"]["frammento"])}”</p></blockquote>'
+            f'<p class="fonte">Source: {link_fonte_grad("appendice")}, GR 8.1 (amended by {link_fonte_grad("hc1333")}). Read on {data_lunga(LETTO_GRAD)}. '
+            f'Contains public sector information licensed under the Open Government Licence v3.0.</p>')
+
+
+def faq_grad_comuni():
+    return [
+        ("How long is the UK Graduate visa?",
+         "2 years if you apply on or before 31 December 2026 and 18 months if you apply on or after 1 January 2027. After a PhD or other doctoral qualification it lasts 3 years."),
+        ("How much does the Graduate visa cost?",
+         f"{gbp(K_GRAD['tassa'])} application fee plus the immigration health surcharge of {gbp(K_GRAD['ihs_a'])} a year: {gbp(ihs(24, K_GRAD['ihs_a']))} for 2 years, "
+         f"{gbp(ihs(18, K_GRAD['ihs_a']))} for 18 months, {gbp(ihs(36, K_GRAD['ihs_a']))} for 3 years."),
+        ("When does the Graduate visa start?", "From the day your application is approved, not from the day you apply. You usually get a decision within 8 weeks."),
+        ("Can I extend the Graduate visa?", "No. You may be able to switch to another visa, for example a Skilled Worker visa."),
+    ]
+
+
+def pagina_grad_indice():
+    rel = "../"
+    percorso = SEZ_GRAD
+    domande = faq_grad_comuni() + [
+        ("Does the date I apply or the date of the decision count?", "The date you apply: the 18 months apply to applications made on or after 1 January 2027. The visa then runs from the decision date."),
+        ("Can my partner and children come?", "If they are your dependants on your current Student visa (or children born in the UK during it), they can apply; their visa ends on the same date as yours."),
+    ]
+    corpo = f"""<section class="hero">{h1_diviso(f"UK Graduate visa: how long it lasts, what it costs and when it ends ({ANNO})")}
+<p class="lead">A UK Graduate visa lasts <strong>2 years if you apply on or before 31 December 2026 and 18 months if you apply on or after 1 January 2027</strong> (3 years after a PhD), and costs {gbp(K_GRAD["tassa"])} plus the immigration health surcharge of {gbp(K_GRAD["ihs_a"])} a year, according to the GOV.UK Graduate visa guide read on {data_lunga(LETTO_GRAD)}. The calculator gives your length, end date and cost.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("passport")}<span>UK Graduate visa</span><span>read on {data_lunga(LETTO_GRAD)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Length for bachelor's and master's graduates</span><span class="sr">: </span><strong>2 years → 18 months from 1 January 2027</strong></p>
+<div class="kpi"><div><b>3 years</b><span>after a PhD, unchanged</span></div><div><b>{gbp(K_GRAD["tassa"])}</b><span>application fee per person</span></div><div><b>{gbp(K_GRAD["ihs_a"])}</b><span>health surcharge per year (adult)</span></div><div><b>{gbp(K_GRAD["tassa"] + ihs(24, K_GRAD["ihs_a"]))}</b><span>total for one adult, 2 years</span></div></div>
+{fonte_grad_p(("guida", "appendice"))}
+</div></section>
+{AVVISO_GRAD}
+{AD}
+{calc_graduate()}
+<h2 id="length">How long the Graduate visa lasts</h2>
+{tabella_durata_grad()}
+<p>What counts is the <strong>date you apply</strong>. The visa then starts on the day your application is approved and runs from that date; your partner's and children's visas end on the same date as yours.</p>
+{citazione_regola()}
+<p>The Home Office's explanatory memorandum to HC 1333 adds: “{escape(LG["memorandum_526"]["frammento"])}” <a href="18-months/">What the 18-month change means</a>.</p>
+{fonte_grad_p(("memorandum",))}
+<h2 id="cost">What it costs</h2>
+<p>Each person pays the {gbp(K_GRAD["tassa"])} application fee and the immigration health surcharge (IHS): {gbp(K_GRAD["ihs_a"])} a year for adults and {gbp(K_GRAD["ihs_m"])} a year for children under 18. For 18 months the surcharge is one year plus half a year.</p>
+{tabella_costi_grad()}
+{fonte_grad_p(("guida", "ihs", "tariffe"), f' (table "{escape(GRAD["tariffa_ods"]["titolo"])}")')}
+<h2 id="apply">When and how to apply</h2>
+<ul class="testo"><li>You must be in the UK and apply <strong>before your Student visa expires</strong>.</li>
+<li>You can apply once your university or college has told the Home Office that you have successfully completed your course; you do not have to wait for graduation.</li>
+<li>You usually get a decision within 8 weeks, and you can stay in the UK while you wait.</li>
+<li>You cannot extend a Graduate visa; you may be able to switch to another visa, for example a <a href="{rel}uk-skilled-worker-visa/">Skilled Worker visa (salary thresholds)</a>.</li></ul>
+{fonte_grad_p(("guida",))}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>Graduate visa pages</h2>
+{link_grad(rel, "")}
+<p><a href="{rel}uk-english-test/">UK visa English tests (SELT)</a> · <a href="{rel}{SEZ_OPT}">Studying in the US? OPT and STEM OPT fees and deadlines</a> · <a href="{rel}{SEZ}uk/">UK visa refusal rates by nationality</a></p>"""
+    titolo = f"UK Graduate visa {ANNO}: 2 years or 18 months, cost and end date"
+    descr = (f"UK Graduate visa: 2 years if you apply by 31 December 2026, 18 months from 1 January 2027, 3 years after a PhD; {gbp(K_GRAD['tassa'])} fee plus "
+             f"{gbp(K_GRAD['ihs_a'])} a year health surcharge (GOV.UK, read {data_lunga(LETTO_GRAD)}). Calculator for end date and cost.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)], briciole=[("UK Graduate visa", percorso)], script=STUDIO_JS)
+
+
+def pagina_grad_18():
+    rel = "../../"
+    percorso = f"{SEZ_GRAD}18-months/"
+    domande = [
+        ("When does the Graduate visa change to 18 months?", "For applications made on or after 1 January 2027. If you apply on or before 31 December 2026, you get 2 years."),
+        ("Does the 18 months apply to PhD graduates?", "No. After a PhD or other doctoral qualification the Graduate visa stays at 3 years."),
+        ("If I apply in December 2026 and the decision comes in 2027, do I get 2 years?",
+         "The rule looks at the date the application is made: an application made before 1 January 2027 falls under the 2-year rule. The visa then runs from the decision date."),
+        ("Why is the Graduate visa being cut to 18 months?",
+         "The Home Office's explanatory memorandum says the change follows the May 2025 Immigration White Paper and that too many graduates were not moving into graduate-level jobs."),
+        ("Does the shorter visa cost less?",
+         f"The application fee is the same ({gbp(K_GRAD['tassa'])}); the health surcharge is lower: {gbp(ihs(18, K_GRAD['ihs_a']))} for 18 months instead of {gbp(ihs(24, K_GRAD['ihs_a']))} for 2 years."),
+    ]
+    esempi = "".join(f'<tr><td>{data_lunga(d)}</td><td>{q}</td><td>{dur}</td></tr>' for d, q, dur in
+                     (("2026-12-15", "Master's degree", "2 years"), ("2026-12-31", "Bachelor's degree", "2 years"), ("2027-01-01", "Master's degree", "18 months"),
+                      ("2027-03-10", "PhD", "3 years")))
+    corpo = f"""<section class="hero"><h1>Graduate visa 18 months: the change from 1 January 2027</h1>
+<p class="lead">From <strong>1 January 2027</strong> the UK Graduate visa lasts <strong>18 months instead of 2 years</strong> for bachelor's and master's graduates; the date that counts is the day you apply, and PhD graduates keep 3 years (Immigration Rules, Appendix Graduate GR 8.1, as amended by Statement of Changes HC 1333; read on GOV.UK on {data_lunga(LETTO_GRAD)}).</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("calendar")}<span>Graduate visa length</span><span>read on {data_lunga(LETTO_GRAD)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Apply on or after 1 January 2027</span><span class="sr">: </span><strong>18 months</strong></p>
+<div class="kpi"><div><b>2 years</b><span>apply on or before 31 December 2026</span></div><div><b>3 years</b><span>PhD, before and after</span></div><div><b>{gbp(ihs(18, K_GRAD["ihs_a"]))}</b><span>health surcharge for 18 months</span></div><div><b>{gbp(ihs(24, K_GRAD["ihs_a"]))}</b><span>health surcharge for 2 years</span></div></div>
+{fonte_grad_p(("appendice", "hc1333", "guida"))}
+</div></section>
+{AVVISO_GRAD}
+{AD}
+{calc_graduate()}
+<h2>The rule</h2>
+{citazione_regola()}
+<p>The Home Office's explanatory memorandum to HC 1333 (paragraph 5.26) says: “{escape(LG["memorandum_526"]["frammento"])}”</p>
+{fonte_grad_p(("memorandum",))}
+<h2>Examples</h2>
+<div class="tab compatta"><table id="t-esempi-grad"><caption class="sr">Graduate visa length by application date</caption><thead><tr><th scope="col">You apply on</th><th scope="col">Qualification</th><th scope="col">Graduate visa length</th></tr></thead><tbody>{esempi}</tbody></table></div>
+<h2>If you finish your course in late 2026</h2>
+<ul class="testo"><li>You can apply once your university or college has told the Home Office that you completed the course: you do not have to wait for graduation.</li>
+<li>You must be in the UK and apply before your Student visa expires.</li>
+<li>Applying in December 2026 gives 2 years; applying from 1 January 2027 gives 18 months. Ask your university when it will report your completion.</li></ul>
+{fonte_grad_p(("guida",))}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>More on the Graduate visa</h2>
+{link_grad(rel, "18-months/")}"""
+    titolo = "Graduate visa 18 months: the change from 1 January 2027"
+    descr = (f"The UK Graduate visa drops from 2 years to 18 months for applications made on or after 1 January 2027; PhD stays 3 years (Appendix Graduate, HC 1333, "
+             f"read {data_lunga(LETTO_GRAD)}). Calculator and examples.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)],
+           briciole=[("UK Graduate visa", SEZ_GRAD), ("18 months from 2027", percorso)], script=STUDIO_JS)
+
+
+def pagina_grad_costo():
+    rel = "../../"
+    percorso = f"{SEZ_GRAD}cost/"
+    t24 = K_GRAD["tassa"] + ihs(24, K_GRAD["ihs_a"])
+    t18 = K_GRAD["tassa"] + ihs(18, K_GRAD["ihs_a"])
+    t36 = K_GRAD["tassa"] + ihs(36, K_GRAD["ihs_a"])
+    domande = [
+        ("How much is the Graduate visa in 2026?", f"{gbp(t24)} for one adult applying on or before 31 December 2026: {gbp(K_GRAD['tassa'])} fee plus {gbp(ihs(24, K_GRAD['ihs_a']))} health surcharge for 2 years."),
+        ("How much is it from January 2027?", f"{gbp(t18)} for one adult: the same {gbp(K_GRAD['tassa'])} fee plus {gbp(ihs(18, K_GRAD['ihs_a']))} health surcharge for 18 months."),
+        ("How much do dependants pay?", f"Each dependant pays the {gbp(K_GRAD['tassa'])} fee and the health surcharge: the adult rate for a partner, {gbp(K_GRAD['ihs_m'])} a year for a child under 18."),
+        ("Do I pay the health surcharge if I have private insurance?", "Yes: GOV.UK says you still need to pay it even if you have private medical insurance."),
+        ("Is the fee refunded if I am refused?", "GOV.UK says you get the fee back only if you cancel before UKVI has started processing your application. Check GOV.UK for the health surcharge."),
+    ]
+    corpo = f"""<section class="hero"><h1>Graduate visa cost {ANNO}: {gbp(K_GRAD["tassa"])} fee plus health surcharge</h1>
+<p class="lead">The UK Graduate visa costs <strong>{gbp(K_GRAD["tassa"])}</strong> per person plus the immigration health surcharge: {gbp(ihs(24, K_GRAD["ihs_a"]))} for 2 years, {gbp(ihs(18, K_GRAD["ihs_a"]))} for 18 months and {gbp(ihs(36, K_GRAD["ihs_a"]))} for 3 years, so <strong>{gbp(t24)}</strong> in total for one adult applying in 2026 (GOV.UK Graduate visa guide and Home Office fees table of {escape(GRAD["tariffa_ods"]["titolo"].split(", ")[-1])}, read on {data_lunga(LETTO_GRAD)}).</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("coins")}<span>Graduate visa cost, one adult</span><span>read on {data_lunga(LETTO_GRAD)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">2 years (apply on or before 31 December 2026)</span><span class="sr">: </span><strong>{gbp(t24)}</strong></p>
+<div class="kpi"><div><b>{gbp(t18)}</b><span>18 months (from 1 January 2027)</span></div><div><b>{gbp(t36)}</b><span>3 years (PhD)</span></div><div><b>{gbp(K_GRAD["tassa"])}</b><span>application fee, also for dependants</span></div><div><b>{gbp(K_GRAD["ihs_m"])}</b><span>health surcharge per year, child under 18</span></div></div>
+{fonte_grad_p(("guida", "ihs", "tariffe"))}
+</div></section>
+{AVVISO_GRAD}
+{AD}
+{calc_graduate()}
+<h2>Cost per person</h2>
+{tabella_costi_grad()}
+{fonte_grad_p(("guida", "ihs", "tariffe"))}
+<h2>Cost for a family</h2>
+<p>Partner and children count only if they are your dependants. Totals include the {gbp(K_GRAD["tassa"])} fee for each person and the health surcharge ({gbp(K_GRAD["ihs_a"])} a year for adults, {gbp(K_GRAD["ihs_m"])} for children under 18).</p>
+{tabella_famiglie_grad()}
+<h2>How the health surcharge is worked out</h2>
+<ul class="testo"><li>{gbp(K_GRAD["ihs_a"])} per year for adults and {gbp(K_GRAD["ihs_m"])} per year for applicants under 18 at the time of application.</li>
+<li>For a visa of more than one year and up to 18 months, you pay one year plus half a year: {gbp(ihs(18, K_GRAD["ihs_a"]))} for an adult.</li>
+<li>Dependants aged 18 or over usually pay the same amount as you. You pay even if you have private medical insurance.</li></ul>
+{fonte_grad_p(("ihs",))}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>More on the Graduate visa</h2>
+{link_grad(rel, "cost/")}"""
+    titolo = f"Graduate visa cost {ANNO}: {gbp(K_GRAD['tassa'])} fee plus health surcharge"
+    descr = (f"UK Graduate visa cost: {gbp(K_GRAD['tassa'])} fee plus health surcharge, {gbp(t24)} for one adult for 2 years, {gbp(t18)} for 18 months, {gbp(t36)} for 3 years "
+             f"(GOV.UK, read {data_lunga(LETTO_GRAD)}). Family totals and calculator.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)],
+           briciole=[("UK Graduate visa", SEZ_GRAD), ("Cost", percorso)], script=STUDIO_JS)
+
+
+def pagina_grad_phd():
+    rel = "../../"
+    percorso = f"{SEZ_GRAD}phd/"
+    t36 = K_GRAD["tassa"] + ihs(36, K_GRAD["ihs_a"])
+    domande = [
+        ("How long is the Graduate visa after a PhD?", "3 years, if you completed a PhD or other doctoral qualification with your Student visa."),
+        ("Does the 2027 change affect PhD graduates?", "No. The 18 months from 1 January 2027 apply to other qualifications; PhD graduates continue to get 3 years."),
+        ("How much does the PhD Graduate visa cost?", f"{gbp(t36)} for one adult: {gbp(K_GRAD['tassa'])} fee plus {gbp(ihs(36, K_GRAD['ihs_a']))} health surcharge for 3 years."),
+        ("When does it start?", "On the day your application is approved. You must apply before your Student visa expires, from inside the UK."),
+    ]
+    corpo = f"""<section class="hero"><h1>Graduate visa after a PhD: 3 years, also after 2027</h1>
+<p class="lead">After a PhD or other doctoral qualification the UK Graduate visa lasts <strong>3 years</strong>, and this does not change on 1 January 2027, when other graduates move to 18 months (Immigration Rules, Appendix Graduate GR 8.1, and the HC 1333 explanatory memorandum, read on GOV.UK on {data_lunga(LETTO_GRAD)}). It costs {gbp(K_GRAD["tassa"])} plus {gbp(ihs(36, K_GRAD["ihs_a"]))} of health surcharge.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("passport")}<span>Graduate visa after a PhD</span><span>read on {data_lunga(LETTO_GRAD)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Length</span><span class="sr">: </span><strong>3 years</strong></p>
+<div class="kpi"><div><b>{gbp(t36)}</b><span>total, one adult</span></div><div><b>{gbp(ihs(36, K_GRAD["ihs_a"]))}</b><span>health surcharge, 3 years</span></div><div><b>{gbp(K_GRAD["tassa"])}</b><span>application fee</span></div><div><b>8 weeks</b><span>usual time for a decision</span></div></div>
+{fonte_grad_p(("guida", "appendice", "memorandum"))}
+</div></section>
+{AVVISO_GRAD}
+{AD}
+{calc_graduate("phd")}
+<h2>The rule</h2>
+<p>The table in GR 8.1 gives "PhD or other doctoral qualification: 3 years" from the date of decision, with no cut-off date. The memorandum to HC 1333 says the 18 months apply "with PhD graduates continuing to receive three years of leave".</p>
+{fonte_grad_p(("appendice", "memorandum"))}
+<h2>Cost</h2>
+{tabella_costi_grad()}
+{fonte_grad_p(("guida", "ihs", "tariffe"))}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>More on the Graduate visa</h2>
+{link_grad(rel, "phd/")}"""
+    titolo = "Graduate visa after a PhD: 3 years, also after 2027"
+    descr = (f"After a PhD the UK Graduate visa lasts 3 years, also for applications from 1 January 2027 (Appendix Graduate, read {data_lunga(LETTO_GRAD)}); "
+             f"cost {gbp(t36)} for one adult. Calculator for end date and cost.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)],
+           briciole=[("UK Graduate visa", SEZ_GRAD), ("After a PhD", percorso)], script=STUDIO_JS)
+
+
+def link_graduate(P, rel):
+    """Riga dalla pagina UK Skilled Worker alla sezione Graduate visa."""
+    if P.get("slug") != "uk-skilled-worker-visa":
+        return ""
+    return (f'<p class="small">{ico("check")} Finishing a UK degree? The <a href="{rel}{SEZ_GRAD}">Graduate visa</a> lasts 2 years if you apply by 31 December 2026 '
+            f'and 18 months from 1 January 2027; you can switch to Skilled Worker from it.</p>')
+
+
+def genera_studio():
+    pagina_opt_indice()
+    pagina_opt_scadenza()
+    pagina_opt_disoccupazione()
+    pagina_opt_stem()
+    pagina_opt_proposta()
+    pagina_opt_grazia()
+    pagina_grad_indice()
+    pagina_grad_18()
+    pagina_grad_costo()
+    pagina_grad_phd()
+
+
+def controlli_studio():
+    errori = []
+    for nome, D in (("opt", OPT), ("graduate", GRAD)):
+        cont = {k: D[k] for k in (("letture", "fonti", "federal_register", "ecfr") if nome == "opt" else ("letture", "fonti", "tariffa_ods"))}
+        import hashlib
+        if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != D["impronta"]:
+            errori.append(f"{nome}: impronta del JSON diversa dal contenuto (file modificato a mano?)")
+        if any(f.get("http") not in (200, None) for f in D["fonti"].values()):
+            errori.append(f"{nome}: fonte non letta (HTTP diverso da 200)")
+    if FR_OPT["tasse_opt"]["type"] != "Proposed Rule":
+        errori.append("opt: la proposta sulle tasse OPT non è più una proposta: rileggere e aggiornare le pagine")
+    if OPT["ecfr"]["giorni_dopo_fine_programma"] not in (30, 60):
+        errori.append("opt: eCFR senza il numero di giorni")
+    if K_GRAD["cambio"] != "2027-01-01" or K_GRAD["m_dopo"] != 18:
+        errori.append("graduate: data o durata del cambio diverse da quelle scritte nei testi (1/1/2027, 18 mesi): rivedere i testi")
+    return errori
+
+
+CSS += CSS_STUDIO  # stili dei calcolatori e delle etichette di stato (tutte le pagine hanno lo stesso CSS)
+
+
 def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
@@ -5489,6 +6360,7 @@ def controlli():
     errori += controlli_trasferimenti()
     errori += controlli_selt()
     errori += controlli_dtv()
+    errori += controlli_studio()
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -5516,6 +6388,7 @@ def main():
     genera_trasferimenti()
     genera_selt()
     genera_dtv()
+    genera_studio()
     pagina_come_funziona()
     about()
     contatti()

@@ -3,7 +3,7 @@
 "pagine": {
 "": [
 "2026-10-30",
-"ec3ad9fc89a19cdc8fd8"
+"e4e3cb4866fd4cab94e1"
 ],
 "about/": [
 "2026-10-15",
@@ -91,7 +91,7 @@
 ],
 "how-it-works/": [
 "2026-10-30",
-"83a1912d1f1f130e0da8"
+"510d2e7818c8c1a5bcf2"
 ],
 "hungary-white-card/": [
 "2026-10-30",
@@ -1413,13 +1413,53 @@
 "2026-10-30",
 "6172b5ac242e6c533b02"
 ],
+"uk-graduate-visa/": [
+"2026-10-30",
+"86d71bcbd877ec240f39"
+],
+"uk-graduate-visa/18-months/": [
+"2026-10-30",
+"31aca0974f950cebee6f"
+],
+"uk-graduate-visa/cost/": [
+"2026-10-30",
+"6c978a54fa79fb590afe"
+],
+"uk-graduate-visa/phd/": [
+"2026-10-30",
+"5f1a23a5f96ba5a154df"
+],
 "uk-skilled-worker-visa/": [
 "2026-10-30",
-"38175085f61bd6f90f2e"
+"3ddb7b3ac32b3c5d0998"
 ],
 "uk-spouse-visa/": [
 "2026-10-30",
 "d1f5743a3f3ee7e0642d"
+],
+"us-opt/": [
+"2026-10-30",
+"91a48657a07007f41444"
+],
+"us-opt/opt-application-deadline-calculator/": [
+"2026-10-30",
+"3b13540b661f21e12f3f"
+],
+"us-opt/opt-fee-proposal/": [
+"2026-10-30",
+"bef627a9956528e1b34e"
+],
+"us-opt/opt-grace-period/": [
+"2026-10-30",
+"3f663895992ce06a1444"
+],
+"us-opt/opt-unemployment-days/": [
+"2026-10-31",
+"5c2c6eef50fcc2a4085b"
+],
+"us-opt/stem-opt-extension-fee/": [
+"2026-10-30",
+"e5c16b4a8499d7df74cd"
 ],
 "visa-refusal-rates/": [
 "2026-10-30",

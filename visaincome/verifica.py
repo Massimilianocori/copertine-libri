@@ -38,6 +38,14 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     prima frase con data, righe della tabella = sedi lette con costo, regola e link ufficiale, frammenti citati, avviso, nessuna promessa,
     SafetyWing solo dopo le informazioni ufficiali e con la frase che l'assicurazione non è richiesta, link dal resto del sito);
     online, 10 frammenti a caso ricontrollati sulle pagine ufficiali riscaricate.
+19. US OPT e STEM OPT (30/10/2026): ricalcolo da dati/opt.json (impronta), pagine attese (indice + 5) tutte in sitemap e nessuna in più,
+    titoli ≤ 70, prima frase con fonte e data di lettura, cifre ufficiali presenti (tariffe I-765, premium processing, 90/60/30 giorni,
+    90/150 giorni di disoccupazione), la proposta da 70.000 $ sempre come proposta, la regola dei 30 giorni come rinviata, link alle fonti,
+    calcolatori presenti con le costanti dei dati, motore JS dei calcolatori uguale a un calcolo Python indipendente (casi fissi + 400 a caso),
+    nessun link sponsorizzato; online: documenti del Federal Register e pagina I-765 di USCIS riletti (tipo, date, frammenti).
+20. UK Graduate visa (30/10/2026): ricalcolo da dati/graduate.json (impronta), pagine attese (indice + 3), titoli ≤ 70, prima frase con fonte
+    e data, durate (2 anni fino al 31/12/2026, 18 mesi dal 1/1/2027, 3 anni PhD), tariffa e IHS, tabelle dei costi ricalcolate, calcolatore,
+    stesso confronto JS/Python, OGL; online: guida GOV.UK e Appendix Graduate rilette e frammenti ricontrollati.
 Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
@@ -53,6 +61,7 @@ import subprocess
 import sys
 import time
 import tempfile
+import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -1326,6 +1335,359 @@ def controlla_dtv(online=True):
                 errori.append(f"DTV: frammento non più nella pagina ufficiale: {sid} {campo} ({u})")
     return errori, n, ricontrollati
 
+# ---------------------------------------------------------------- 19-20. Sezioni per studenti: US OPT e UK Graduate visa (30/10/2026)
+from datetime import date as _date, timedelta as _td
+import calendar as _cal
+
+
+def _d(s):
+    try:
+        return _date.fromisoformat(s) if s else None
+    except ValueError:
+        return None
+
+
+def _am(d, n):
+    """Aggiunge n mesi; se il giorno non esiste nel mese di arrivo, ultimo giorno del mese."""
+    y, m = divmod(d.month - 1 + n, 12)
+    y += d.year
+    return _date(y, m + 1, min(d.day, _cal.monthrange(y, m + 1)[1]))
+
+
+def py_finestra(fine, dso, k):
+    e = _d(fine)
+    if not e:
+        return None
+    r = {"apre": (e - _td(k["prima"])).isoformat(), "chiude": (e + _td(k["dopo"])).isoformat(), "limite": "fine",
+         "inizio_max": (e + _td(k["inizio"])).isoformat(), "chiude_30": (e + _td(k["nuova"])).isoformat()}
+    d = _d(dso)
+    if d:
+        l = (d + _td(k["dso"])).isoformat()
+        r["dso_entro"] = l
+        if l < r["chiude"]:
+            r["chiude"], r["limite"] = l, "dso"
+        r["chiude_30"] = min(r["chiude_30"], l)
+        if d.isoformat() > r["apre"]:
+            r["apre"], r["apre_dso"] = d.isoformat(), True
+    r["impossibile"] = r["apre"] > r["chiude"]
+    return r
+
+
+def py_disoccupazione(inizio, limite, usati, oggi):
+    s = _d(inizio)
+    if not s:
+        return None
+    r = {"limite": limite, "ultimo": (s + _td(limite - 1)).isoformat(), "oltre": (s + _td(limite)).isoformat()}
+    if usati is not None:
+        u = max(0, int(usati))
+        r["usati"], r["rimasti"] = u, max(0, limite - u)
+        if r["rimasti"] > 0:
+            r["ultimo_da_oggi"] = (_d(oggi) + _td(r["rimasti"] - 1)).isoformat()
+    return r
+
+
+def py_stem(scad, dso, k):
+    e = _d(scad)
+    if not e:
+        return None
+    r = {"apre": (e - _td(k["prima"])).isoformat(), "scade": e.isoformat(), "proroga_fino": (e + _td(k["proroga"])).isoformat()}
+    d = _d(dso)
+    if d:
+        r["dso_entro"] = (d + _td(k["dso"])).isoformat()
+        if d.isoformat() > r["apre"]:
+            r["apre"], r["apre_dso"] = d.isoformat(), True
+    r["impossibile"] = r["apre"] >= r["scade"] or bool(r.get("dso_entro") and r["dso_entro"] < r["apre"])
+    return r
+
+
+def py_graduate(dom, tipo, dec, scad, k):
+    a = _d(dom)
+    if not a:
+        return None
+    m = k["m_phd"] if tipo == "phd" else (k["m_prima"] if dom < k["cambio"] else k["m_dopo"])
+    d8 = a + _td(k["sett"] * 7)
+    r = {"mesi": m, "prima_del_cambio": dom < k["cambio"], "giorni_al_cambio": (_d(k["cambio"]) - a).days, "fine_subito": _am(a, m).isoformat(),
+         "decisione_8": d8.isoformat(), "fine_8": _am(d8, m).isoformat()}
+    d = _d(dec)
+    if d:
+        if d.isoformat() < dom:
+            r["dec_errore"] = True
+        else:
+            r["decisione"], r["fine"] = d.isoformat(), _am(d, m).isoformat()
+    s = _d(scad)
+    if s:
+        r["scad"], r["tardi"] = s.isoformat(), dom >= s.isoformat()
+    return r
+
+
+def py_costo(mesi, adulti, figli, k):
+    ia, im = k["ihs_a"] * mesi / 12, k["ihs_m"] * mesi / 12
+    t, i = (adulti + figli) * k["tassa"], adulti * ia + figli * im
+    return {"tasse": t, "ihs": i, "totale": t + i, "ihs_adulto": ia, "ihs_figlio": im, "persone": adulti + figli}
+
+
+def casi_studio(seme=30, n=400):
+    rng = random.Random(seme)
+    def gd(a="2026-01-01", b="2028-12-31"):
+        x, y = _date.fromisoformat(a), _date.fromisoformat(b)
+        return (x + _td(rng.randint(0, (y - x).days))).isoformat()
+    fissi = [("finestra", ["2026-12-18", "", None]), ("finestra", ["2027-05-15", "2027-06-01", None]), ("finestra", ["2027-08-31", "2027-05-20", None]),
+             ("disoccupazione", ["2026-06-01", 90, 20, "2026-10-30"]), ("disoccupazione", ["2027-01-10", 150, None, "2026-10-30"]),
+             ("stem", ["2027-03-31", "", None]), ("stem", ["2026-11-15", "2026-11-20", None]),
+             ("graduate", ["2026-12-31", "altro", "", "", None]), ("graduate", ["2027-01-01", "altro", "2027-02-20", "", None]),
+             ("graduate", ["2028-08-31", "altro", "", "", None]), ("graduate", ["2027-03-10", "phd", "", "2027-02-01", None]),
+             ("costo", [18, 2, 1, None]), ("costo", [24, 1, 0, None]), ("costo", [36, 3, 2, None])]
+    casuali = []
+    for _ in range(n):
+        tipo = rng.choice(["finestra", "disoccupazione", "stem", "graduate", "costo"])
+        if tipo == "finestra":
+            f = gd()
+            casuali.append((tipo, [f, rng.choice(["", (_d(f) + _td(rng.randint(-120, 90))).isoformat()]), None]))
+        elif tipo == "disoccupazione":
+            casuali.append((tipo, [gd(), rng.choice([90, 150]), rng.choice([None, rng.randint(0, 160)]), gd("2026-10-01", "2027-12-31")]))
+        elif tipo == "stem":
+            f = gd()
+            casuali.append((tipo, [f, rng.choice(["", (_d(f) + _td(rng.randint(-150, 30))).isoformat()]), None]))
+        elif tipo == "graduate":
+            a = gd("2026-06-01", "2028-06-30")
+            casuali.append((tipo, [a, rng.choice(["altro", "phd"]), rng.choice(["", (_d(a) + _td(rng.randint(-10, 200))).isoformat()]),
+                                   rng.choice(["", gd("2026-06-01", "2028-06-30")]), None]))
+        else:
+            casuali.append((tipo, [rng.choice([18, 24, 36]), rng.randint(1, 4), rng.randint(0, 4), None]))
+    return fissi + casuali
+
+
+def confronta_js_studio(file_pagina, k_tutti):
+    """Esegue con node il JS dei calcolatori preso dalla pagina pubblicata e lo confronta con le funzioni Python qui sopra."""
+    t = (SITO / file_pagina).read_text(encoding="utf-8")
+    js = next(s for s in re.findall(r"<script>(.*?)</script>", t, re.S) if "window.CALC_STUDIO=C" in s)
+    casi = casi_studio()
+    prog = ("var window={};var document={querySelectorAll:function(){return [];}};\n" + js +
+            "\nvar K=" + json.dumps(k_tutti) + ";var CASI=" + json.dumps(casi) + ";var C=window.CALC_STUDIO;var out=CASI.map(function(c){var a=c[1];"
+            "if(c[0]==='finestra')return C.finestra(a[0],a[1],K.finestra);if(c[0]==='disoccupazione')return C.disoccupazione(a[0],a[1],a[2]===null?'':a[2],a[3]);"
+            "if(c[0]==='stem')return C.stem(a[0],a[1],K.stem);if(c[0]==='graduate')return C.graduate(a[0],a[1],a[2],a[3],K.graduate);"
+            "return C.costo(a[0],a[1],a[2],K.graduate);});console.log(JSON.stringify(out));")
+    with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as f:
+        f.write(prog)
+    r = subprocess.run(["node", f.name], capture_output=True, text=True, timeout=120)
+    if r.returncode != 0:
+        return [f"JS dei calcolatori non eseguibile: {r.stderr[-300:]}"], 0
+    ris = json.loads(r.stdout)
+    errori = []
+    for (tipo, a), j in zip(casi, ris):
+        if tipo == "finestra":
+            p = py_finestra(a[0], a[1], k_tutti["finestra"])
+        elif tipo == "disoccupazione":
+            p = py_disoccupazione(a[0], a[1], a[2], a[3])
+        elif tipo == "stem":
+            p = py_stem(a[0], a[1], k_tutti["stem"])
+        elif tipo == "graduate":
+            p = py_graduate(a[0], a[1], a[2], a[3], k_tutti["graduate"])
+        else:
+            p = py_costo(a[0], a[1], a[2], k_tutti["graduate"])
+        if p != j:
+            errori.append(f"calcolatore {tipo} {a}: JS {j} ≠ Python {p}")
+    return errori[:10], len(casi)
+
+
+def _pagine_sezione(sez, attese, errori, nome):
+    cart = SITO / sez.rstrip("/")
+    trovate = {f.parent.relative_to(cart).as_posix().replace(".", "") for f in cart.rglob("index.html")}
+    if trovate != set(attese):
+        errori.append(f"{nome}: pagine diverse da quelle attese (in più {sorted(trovate - set(attese))}, mancanti {sorted(set(attese) - trovate)})")
+    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    out = {}
+    for s in attese:
+        f = cart / s / "index.html" if s else cart / "index.html"
+        if not f.exists():
+            continue
+        percorso = f"{sez}{s + '/' if s else ''}"
+        t = f.read_text(encoding="utf-8")
+        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        if f"<loc>{G.URL_SITO}/{percorso}</loc>" not in sitemap:
+            errori.append(f"{nome}: {percorso} non in sitemap")
+        titolo = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(titolo) > 70:
+            errori.append(f"{nome}: titolo oltre 70 caratteri in {percorso} ({len(titolo)})")
+        for x in ("FAQPage", "BreadcrumbList", "Not legal or immigration advice.", 'rel="canonical"'):
+            if x not in t:
+                errori.append(f"{nome}: manca {x!r} in {percorso}")
+        if re.search(r'rel="[^"]*sponsored', main):
+            errori.append(f"{nome}: link sponsorizzato in {percorso} (nessuna affiliazione prevista in questa sezione)")
+        lead = html.unescape(re.sub(r"<[^>]+>", "", re.search(r'<p class="lead">(.*?)</p>', main, re.S).group(1)))
+        out[s] = (t, main, html.unescape(re.sub(r"<[^>]+>", " ", main)), lead, percorso)
+    return out
+
+
+def controlla_opt(online=True):
+    import hashlib
+    errori = []
+    D = json.loads((SITO.parent / "dati" / "opt.json").read_text(encoding="utf-8"))
+    cont = {k: D[k] for k in ("letture", "fonti", "federal_register", "ecfr")}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != D["impronta"]:
+        errori.append("OPT: impronta di dati/opt.json diversa dal contenuto")
+    L = {k: v["valore"] for k, v in D["letture"].items()}
+    fr = D["federal_register"]
+    letto = G.data_lunga(D["letto_il"])
+    attese = ["", "opt-application-deadline-calculator", "opt-unemployment-days", "stem-opt-extension-fee", "opt-fee-proposal", "opt-grace-period"]
+    P = _pagine_sezione("us-opt/", attese, errori, "OPT")
+    usd = lambda n: f"${n:,}"  # noqa: E731
+    k_fin = {"prima": L["finestra"]["prima"], "dopo": L["finestra"]["dopo"], "dso": L["finestra"]["dso"], "inizio": L["inizio_max"], "nuova": L["regola_30"]}
+    k_stem = {"prima": L["finestra_stem"]["prima"], "dso": L["finestra_stem"]["dso"], "proroga": L["proroga_stem"]}
+    k_dis = {"opt": L["disoccupazione"], "stem": L["disoccupazione_stem"]}
+    if L["finestra"] != L["finestra_opt"] or L["disoccupazione_uscis"] != k_dis or L["mesi_opt"] != L["mesi_opt_uscis"] or L["finestra_stem_i765"] != L["finestra_stem"]["prima"]:
+        errori.append("OPT: due fonti ufficiali danno valori diversi per la stessa regola (letture)")
+    calcolatori = {"": ("finestra", "disoccupazione"), "opt-application-deadline-calculator": ("finestra",), "opt-unemployment-days": ("disoccupazione",),
+                   "stem-opt-extension-fee": ("stem",), "opt-grace-period": ("finestra",), "opt-fee-proposal": ()}
+    costanti = {"finestra": k_fin, "disoccupazione": k_dis, "stem": k_stem}
+    for s, (t, main, testo, lead, percorso) in P.items():
+        if letto not in lead or re.search(r"\. [A-Z]", lead.split(letto)[0]):
+            errori.append(f"OPT: data di lettura non nella prima frase in {percorso}")
+        primo = lead.split(f"{letto}")[0]
+        if not re.search(r"USCIS|SEVP|Federal Register", primo):
+            errori.append(f"OPT: prima frase senza la fonte prima della data in {percorso}")
+        for tipo in calcolatori[s]:
+            m = re.search(rf'data-studio="{tipo}" data-k=\'(.*?)\'', main)
+            if not m or json.loads(m.group(1)) != costanti[tipo]:
+                errori.append(f"OPT: calcolatore {tipo} assente o con costanti diverse dai dati in {percorso}")
+        if calcolatori[s] and "window.CALC_STUDIO=C" not in t:
+            errori.append(f"OPT: script dei calcolatori mancante in {percorso}")
+        if usd(L["proposta_importi"]["iniziale"]) in testo:
+            pezzi = re.split(r"[.:|]\s", html.unescape(re.sub(r"<[^>]+>", " | ", main)))
+            for frase in [x for x in pezzi if "$70,000" in x]:
+                if re.search(r"\b(is|are) (now )?in force|takes effect on|must pay \$70", frase) and "not in force" not in frase and "Is the" not in frase:
+                    errori.append(f"OPT: frase che presenta la proposta come regola in {percorso}: {frase.strip()[:120]}")
+    if "" in P:
+        t, main, testo, lead, _ = P[""]
+        for x in (usd(L["tassa_online"]), usd(L["tassa_carta"]), usd(L["premium"]), f'{L["finestra"]["prima"]} days', f'{L["finestra"]["dopo"]} days',
+                  f'{k_dis["opt"]} days', f'{k_dis["stem"]} days', f'{L["mesi_stem"]} months', "Proposal", "Final rule on hold", "In force"):
+            if x not in testo:
+                errori.append(f"OPT: indice senza {x!r}")
+        for u in [v["url"] for v in D["fonti"].values()] + [v["html_url"] for v in fr.values()]:
+            if html.escape(u) not in main and u not in main:
+                errori.append(f"OPT: fonte non citata nell'indice: {u}")
+    if "stem-opt-extension-fee" in P:
+        testo = P["stem-opt-extension-fee"][2]
+        for x in (usd(L["tassa_online"]), usd(L["tassa_carta"]), usd(L["premium"]), f'{L["proroga_stem"]} days', usd(L["proposta_importi"]["successiva"])):
+            if x not in testo:
+                errori.append(f"OPT: pagina STEM senza {x!r}")
+    if "opt-fee-proposal" in P:
+        testo = P["opt-fee-proposal"][2]
+        for x in ("$70,000", "$30,000", "not in force", G.data_lunga(fr["tasse_opt"]["comments_close_on"]), fr["tasse_opt"]["citation"], "ICEB-2026-0100", "school"):
+            if x not in testo:
+                errori.append(f"OPT: pagina della proposta senza {x!r}")
+        if fr["tasse_opt"]["type"] != "Proposed Rule" or L["proposta_importi"] != {"iniziale": 70000, "successiva": 30000}:
+            errori.append("OPT: la proposta non è più una proposta da 70.000/30.000 $: rivedere i testi (anche le domande scritte a mano)")
+    if "opt-grace-period" in P:
+        testo = P["opt-grace-period"][2]
+        for x in ("postponed", "60 days", f'{L["regola_30"]} days', G.data_lunga(L["rinvio_regola"]), "previous regulatory provisions", D["ecfr"]["precedente"]["url"]):
+            if x not in testo and html.escape(x) not in P["opt-grace-period"][1]:
+                errori.append(f"OPT: pagina del periodo di grazia senza {x!r}")
+    if "opt-unemployment-days" in P:
+        if "Count each day without employer information" not in D["letture"]["conteggio_giorni"]["frammento"] or "each day without employer information" not in P["opt-unemployment-days"][2]:
+            errori.append("OPT: regola di conteggio dei giorni di disoccupazione mancante")
+    for f, link in (("index.html", 'href="us-opt/"'), ("how-it-works/index.html", 'href="../us-opt/"'), ("about/index.html", 'href="../us-opt/"')):
+        if link not in (SITO / f).read_text(encoding="utf-8"):
+            errori.append(f"OPT: {f} non rimanda alla sezione")
+    e_js, n_js = confronta_js_studio("us-opt/index.html", {"finestra": k_fin, "stem": k_stem, "graduate": json.loads(re.search(
+        r'data-studio="graduate" data-k=\'(.*?)\'', (SITO / "uk-graduate-visa/index.html").read_text(encoding="utf-8")).group(1))})
+    errori += e_js
+    riletti = []
+    if online:
+        for k, d in fr.items():
+            try:
+                x = json.loads(urllib.request.urlopen(f"https://www.federalregister.gov/api/v1/documents/{d['document_number']}.json", timeout=60).read())
+                ok = all(x.get(c) == d.get(c) for c in ("type", "publication_date", "effective_on", "comments_close_on", "citation"))
+            except Exception as e:  # noqa: BLE001
+                ok, x = False, {"errore": str(e)[:80]}
+            riletti.append(f"Federal Register {d['citation']}: {'uguale' if ok else 'CAMBIATO'}")
+            if not ok:
+                errori.append(f"OPT: documento del Federal Register cambiato o non leggibile: {d['citation']}")
+        r = subprocess.run(["node", str(SITO.parent / "raccolta" / "browser.js"), D["fonti"]["i765"]["url"]], capture_output=True, text=True, timeout=300)
+        try:
+            tx = json.loads(r.stdout)[D["fonti"]["i765"]["url"]]["testo"]
+        except (ValueError, KeyError):
+            tx = ""
+        for k in ("finestra", "finestra_stem_i765", "rinvio_regola", "regole_precedenti"):
+            ok = D["letture"][k]["frammento"] in tx
+            riletti.append(f"USCIS I-765 {k}: {'presente' if ok else 'ASSENTE'}")
+            if not ok:
+                errori.append(f"OPT: frammento {k} non più nella pagina I-765 di USCIS")
+    return errori, len(P), n_js, riletti
+
+
+def controlla_graduate(online=True):
+    import hashlib
+    errori = []
+    D = json.loads((SITO.parent / "dati" / "graduate.json").read_text(encoding="utf-8"))
+    cont = {k: D[k] for k in ("letture", "fonti", "tariffa_ods")}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != D["impronta"]:
+        errori.append("Graduate: impronta di dati/graduate.json diversa dal contenuto")
+    L = {k: v["valore"] for k, v in D["letture"].items()}
+    letto = G.data_lunga(D["letto_il"])
+    k = {"cambio": L["durata_18_mesi"]["dal"], "m_prima": L["durata_2_anni"]["mesi"], "m_dopo": L["durata_18_mesi"]["mesi"], "m_phd": L["durata_phd"]["mesi"],
+         "sett": L["decisione_settimane"], "tassa": L["tassa"], "ihs_a": L["ihs_adulti"], "ihs_m": L["ihs_minori"]}
+    if (k["cambio"], k["m_prima"], k["m_dopo"], k["m_phd"], L["durata_2_anni"]["fino_al"]) != ("2027-01-01", 24, 18, 36, "2026-12-31"):
+        errori.append("Graduate: durate o date diverse da quelle scritte nei testi delle pagine: rivedere i testi")
+    if L["ihs_anno"] != L["ihs_adulti"] or abs(L["ihs_18"] - 1.5 * L["ihs_adulti"]) > 0.001 or L["ihs_24"] != 2 * L["ihs_adulti"] or L["ihs_36"] != 3 * L["ihs_adulti"]:
+        errori.append("Graduate: importi della guida e della pagina IHS non coerenti")
+    if D["tariffa_ods"]["riga"][2] != f"£{L['tassa']:,}":
+        errori.append("Graduate: tariffa della tabella ODS diversa dalla guida")
+    P = _pagine_sezione("uk-graduate-visa/", ["", "18-months", "cost", "phd"], errori, "Graduate")
+    gbp = lambda x: "£" + (f"{x:,.2f}"[:-3] if f"{x:,.2f}".endswith(".00") else f"{x:,.2f}")  # noqa: E731
+    for s, (t, main, testo, lead, percorso) in P.items():
+        if letto not in lead or re.search(r"\. [A-Z]", lead.split(letto)[0]):
+            errori.append(f"Graduate: data di lettura non nella prima frase in {percorso}")
+        if not re.search(r"GOV\.UK|Immigration Rules", lead.split(letto)[0]):
+            errori.append(f"Graduate: prima frase senza fonte in {percorso}")
+        m = re.search(r'data-studio="graduate" data-k=\'(.*?)\'', main)
+        if not m or json.loads(m.group(1)) != k:
+            errori.append(f"Graduate: calcolatore assente o con costanti diverse dai dati in {percorso}")
+        if "Open Government Licence v3.0" not in testo:
+            errori.append(f"Graduate: manca l'attribuzione OGL in {percorso}")
+        for x in ("1 January 2027", "18 months", "3 years", gbp(L["tassa"])):
+            if x not in testo:
+                errori.append(f"Graduate: manca {x!r} in {percorso}")
+    if "" in P:
+        testo, main = P[""][2], P[""][1]
+        for x in ("31 December 2026", gbp(L["ihs_adulti"]), gbp(L["ihs_minori"]), gbp(L["ihs_18"]), gbp(L["ihs_24"]), gbp(L["ihs_36"]), "8 weeks", "before your Student visa expires"):
+            if x not in testo:
+                errori.append(f"Graduate: indice senza {x!r}")
+        for u in [v["url"] for v in D["fonti"].values()]:
+            if html.escape(u) not in main and u not in main:
+                errori.append(f"Graduate: fonte non citata nell'indice: {u}")
+        if html.escape(D["letture"]["regola_18"]["frammento"], quote=False) not in main:
+            errori.append("Graduate: citazione di GR 8.1 mancante")
+    if "cost" in P:
+        tab = re.search(r'id="t-famiglie-grad".*?<tbody>(.*?)</tbody>', P["cost"][1], re.S).group(1)
+        for (a, f), riga in zip(((1, 0), (2, 0), (2, 1), (2, 2)), re.findall(r"<tr>(.*?)</tr>", tab, re.S)):
+            for mesi in (24, 18, 36):
+                v = gbp(py_costo(mesi, a, f, k)["totale"])
+                if v not in riga:
+                    errori.append(f"Graduate: tabella famiglie, {a} adulti {f} figli {mesi} mesi: atteso {v}")
+    for f, link in (("index.html", 'href="uk-graduate-visa/"'), ("how-it-works/index.html", 'href="../uk-graduate-visa/"'),
+                    ("uk-skilled-worker-visa/index.html", 'href="../uk-graduate-visa/"')):
+        if link not in (SITO / f).read_text(encoding="utf-8"):
+            errori.append(f"Graduate: {f} non rimanda alla sezione")
+    e_js, n_js = confronta_js_studio("uk-graduate-visa/index.html", {"finestra": {"prima": 90, "dopo": 60, "dso": 30, "inizio": 60, "nuova": 30},
+                                                                     "stem": {"prima": 90, "dso": 60, "proroga": 180}, "graduate": k})
+    errori += e_js
+    riletti = []
+    if online:
+        sys.path.insert(0, str(SITO.parent / "raccolta"))
+        import graduate as RG
+        for fonte in ("guida", "appendice", "ihs"):
+            r = RG.leggi_pagina(RG.PAGINE[fonte][0])
+            tx = r[1] if len(r) == 3 else ""
+            for key, v in D["letture"].items():
+                if v["fonte"] == fonte:
+                    ok = v["frammento"] in tx
+                    riletti.append(f"GOV.UK {fonte} {key}: {'presente' if ok else 'ASSENTE'}")
+                    if not ok:
+                        errori.append(f"Graduate: frammento {key} non più nella pagina GOV.UK ({fonte})")
+    return errori, len(P), n_js, riletti
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -1367,7 +1729,13 @@ def main():
     print(f"18. Thailand DTV visa: {n18} pagine (indice + sedi), costi, regole, frammenti, affiliati, link; frammenti ricontrollati online: {len(r18)}: {len(e18)} errori")
     for x in r18:
         print("    ·", x)
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18
+    e19, n19, j19, r19 = controlla_opt(online="--offline" not in sys.argv)
+    print(f"19. US OPT e STEM OPT: {n19} pagine, cifre, fonti, proposta e regola rinviata, calcolatori (JS = Python su {j19} casi); riletti online: {len(r19)}: {len(e19)} errori")
+    for x in r19:
+        print("    ·", x)
+    e20, n20, j20, r20 = controlla_graduate(online="--offline" not in sys.argv)
+    print(f"20. UK Graduate visa: {n20} pagine, durate, tariffa e IHS, tabelle ricalcolate, calcolatore (JS = Python su {j20} casi); frammenti riletti online: {len(r20)}: {len(e20)} errori")
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20
     for e in tutti:
         print(" -", e)
     if tutti:
