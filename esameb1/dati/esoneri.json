@@ -1,0 +1,237 @@
+{
+  "verificato_il": "2026-10-31",
+  "nota": "Pagina /esonero-test-italiano/: chi non deve presentare il certificato B1 per la cittadinanza (art. 9.1 legge 91/1992) e chi non deve fare il test A2 per il permesso UE per soggiornanti di lungo periodo (art. 9 TU immigrazione, DM 7 dicembre 2021 che ha sostituito il DM 4 giugno 2010). Solo frasi lette nelle fonti ufficiali; 'citazioni' controllate da raccolta/esempi.py (fonte scaricata, frase presente). Decide sempre la Prefettura (cittadinanza) o la Questura (permesso UE).",
+  "fonti": {
+    "legge91": {
+      "nome": "Legge 91/1992, art. 9.1 (testo in vigore su Normattiva)",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-02-05;91~art9.1!vig="
+    },
+    "domanda": {
+      "nome": "Ministero dell'Interno, «Cittadinanza: invia la tua domanda»",
+      "url": "https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza/cittadinanza-invia-tua-domanda"
+    },
+    "vademecum": {
+      "nome": "Ministero dell'Interno, Vademecum per la concessione della cittadinanza (circolare n. 20475 del 23 aprile 2025, PDF)",
+      "url": "https://libertaciviliimmigrazione.dlci.interno.gov.it/sites/default/files/2025-06/vademecum_23_aprile_2025.pdf"
+    },
+    "vademecum_pagina": {
+      "nome": "Circolare n. 20475 del 23 aprile 2025",
+      "url": "https://libertaciviliimmigrazione.dlci.interno.gov.it/documentazione/circolari/circolare-20475-del-23-aprile-2025-vademecum-la-concessione-della"
+    },
+    "circ14605": {
+      "nome": "Circolare n. 14605 del 13 marzo 2025 (PDF)",
+      "url": "https://libertaciviliimmigrazione.dlci.interno.gov.it/sites/default/files/2025-04/circolare_014605_13_03_2025.pdf"
+    },
+    "corte25": {
+      "nome": "Corte costituzionale, sentenza n. 25 del 2025",
+      "url": "https://www.cortecostituzionale.it/scheda-pronuncia/2025/25"
+    },
+    "tu9": {
+      "nome": "Testo unico immigrazione, art. 9 (Normattiva)",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9!vig="
+    },
+    "dm2021": {
+      "nome": "Decreto del Ministro dell'Interno 7 dicembre 2021 (Gazzetta Ufficiale n. 36 del 12 febbraio 2022)",
+      "url": "https://www.gazzettaufficiale.it/eli/id/2022/02/12/22A01025/sg",
+      "articoli": {
+        "1": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=1&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+        "2": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=2&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+        "3": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=3&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+        "4": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=4&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+        "5": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=5&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+        "6": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=6&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+        "7": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=7&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+        "8": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=1&art.codiceRedazionale=22A01025&art.idArticolo=1&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0"
+      },
+      "nota_articoli": "Testo degli articoli 1-7 e dell'Allegato A ('8') dalla Gazzetta Ufficiale: si leggono dopo aver aperto la pagina ELI (stessa sessione, cookie)."
+    },
+    "minint_test": {
+      "nome": "Ministero dell'Interno, «Test di conoscenza della lingua italiana»",
+      "url": "https://www.interno.gov.it/it/temi/immigrazione-e-asilo/modalita-dingresso/test-conoscenza-lingua-italiana"
+    },
+    "lecco": {
+      "nome": "Prefettura di Lecco, guida al test di italiano",
+      "url": "https://prefettura.interno.gov.it/it/prefetture/lecco/esame-conoscenza-lingua-italiana-richiedenti-permesso-soggiorno"
+    },
+    "portale": {
+      "nome": "Portale Servizi del Ministero dell'Interno (domanda del test)",
+      "url": "https://portaleservizi.dlci.interno.it/"
+    },
+    "mur959": {
+      "nome": "Ministero dell'Università, decreto n. 959 del 14 novembre 2025 (PDF)",
+      "url": "https://www.mur.gov.it/sites/default/files/2025-12/Decreto%20Ministeriale%20n.%20959%20del%2014-11-2025.pdf"
+    }
+  },
+  "citazioni": [
+    {
+      "fonte": "legge91",
+      "testo": "non inferiore al livello B1 del Quadro comune europeo di riferimento per la conoscenza delle lingue"
+    },
+    {
+      "fonte": "legge91",
+      "testo": "che non abbiano sottoscritto l'accordo di integrazione di cui all'articolo 4-bis"
+    },
+    {
+      "fonte": "legge91",
+      "testo": "o che non siano titolari di permesso di soggiorno UE per soggiornanti di lungo periodo"
+    },
+    {
+      "fonte": "legge91",
+      "testo": "nella parte in cui non esonera dalla prova della conoscenza della lingua italiana il richiedente affetto da gravi limitazioni alla capacità di apprendimento linguistico"
+    },
+    {
+      "fonte": "domanda",
+      "testo": "sono esclusi coloro che abbiano sottoscritto l’accordo di integrazione"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "a partire dalla scuola secondaria di primo grado"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "Il titolo di studio deve essere conseguito necessariamente in lingua italiana"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "ricongiungimento familiare e coesione familiare"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "rilasciato dal 9 dicembre 2010"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "mediante produzione di certificazione del"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "Permane, invece, l’obbligo di effettuare l’esame B1 per i cittadini dell’Unione Europea"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "Carta di soggiorno per familiare o coniuge di cittadino italiano o UE"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "di Reggio Calabria"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "non sono considerati validi i certificati di corsi di qualificazione professionale"
+    },
+    {
+      "fonte": "circ14605",
+      "testo": "prodotte unitamente alla prescritta certificazione di una struttura sanitaria pubblica italiana"
+    },
+    {
+      "fonte": "corte25",
+      "testo": "derivanti dall’età, da patologie o da disabilità, attestate mediante certificazione rilasciata dalla struttura sanitaria pubblica"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "è subordinato al superamento, da parte del richiedente, di un test di conoscenza della lingua italiana"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "La disposizione di cui al comma 2-bis non si applica allo straniero titolare di protezione internazionale"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "non è richiesto il superamento del test di cui al primo periodo"
+    },
+    {
+      "fonte": "dm2021",
+      "art": 1,
+      "testo": "ai figli minori degli anni quattordici"
+    },
+    {
+      "fonte": "dm2021",
+      "art": 1,
+      "testo": "gravi limitazioni alla capacita' di apprendimento linguistico derivanti dall'eta', da patologie o da handicap"
+    },
+    {
+      "fonte": "dm2021",
+      "art": 2,
+      "testo": "in corrispondenza al livello A2"
+    },
+    {
+      "fonte": "dm2021",
+      "art": 3,
+      "testo": "convoca, entro sessanta giorni dalla richiesta"
+    },
+    {
+      "fonte": "dm2021",
+      "art": 3,
+      "testo": "Per superare il test il candidato deve conseguire almeno l'ottanta per cento del punteggio complessivo"
+    },
+    {
+      "fonte": "dm2021",
+      "art": 3,
+      "testo": "puo' essere svolto con modalita' scritte di tipo non informatico"
+    },
+    {
+      "fonte": "dm2021",
+      "art": 4,
+      "testo": "rilasciato dagli enti certificatori riconosciuti, di cui all'allegato A"
+    },
+    {
+      "fonte": "dm2021",
+      "art": 4,
+      "testo": "Centri provinciali per l'istruzione degli adulti"
+    },
+    {
+      "fonte": "dm2021",
+      "art": 4,
+      "testo": "nell'ambito dei crediti maturati per l'accordo di integrazione"
+    },
+    {
+      "fonte": "dm2021",
+      "art": 4,
+      "testo": "diploma di scuola secondaria di primo o secondo grado presso un istituto scolastico appartenente al sistema italiano di istruzione"
+    },
+    {
+      "fonte": "dm2021",
+      "art": 4,
+      "testo": "o frequenta in Italia il dottorato o un master universitario"
+    },
+    {
+      "fonte": "dm2021",
+      "art": 4,
+      "testo": "art. 27, comma 1, lettere a), c), d), e q)"
+    },
+    {
+      "fonte": "dm2021",
+      "art": 7,
+      "testo": "abroga e sostituisce il decreto ministeriale 4 giugno 2010"
+    },
+    {
+      "fonte": "dm2021",
+      "art": 8,
+      "testo": "di Reggio Calabria"
+    },
+    {
+      "fonte": "minint_test",
+      "testo": "soltanto dopo 90 giorni dalla data del precedente esame"
+    },
+    {
+      "fonte": "minint_test",
+      "testo": "traduttore/interprete"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "Prova di comprensione orale (durata 25 minuti)"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "Prova di comprensione scritta (durata 25 minuti)"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "Prova di interazione scritta (durata 10 minuti)"
+    },
+    {
+      "fonte": "mur959",
+      "testo": "sono inseriti nell’Elenco di cui all’articolo 1 per un periodo di un anno"
+    }
+  ]
+}

@@ -1,0 +1,740 @@
+{
+ "data": "2026-10-31",
+ "link": {
+  "https://cils.unistrasi.it/public/articoli/382/Prototipo%20Quaderno%20B1%20Cittadinanza.pdf": {
+   "stato": 200,
+   "tipo": "application/pdf",
+   "byte": 167840,
+   "modificato": "Wed, 05 Mar 2025 10:56:06 GMT"
+  },
+  "https://cils.unistrasi.it/public/articoli/382/UNO_B1%20cittadinanza.mp3": {
+   "stato": 200,
+   "tipo": "audio/mpeg",
+   "byte": 39540279,
+   "modificato": "Wed, 05 Mar 2025 10:56:01 GMT"
+  },
+  "https://cils.unistrasi.it/public/articoli/382/TRASCRIZIONI%20B1%20Cittadinanza.pdf": {
+   "stato": 200,
+   "tipo": "application/pdf",
+   "byte": 33943,
+   "modificato": "Wed, 05 Mar 2025 10:56:02 GMT"
+  },
+  "https://cils.unistrasi.it/public/articoli/382/PS_B1_Cittadinanza.pdf": {
+   "stato": 200,
+   "tipo": "application/pdf",
+   "byte": 38020,
+   "modificato": "Wed, 05 Mar 2025 10:56:05 GMT"
+  },
+  "https://cils.unistrasi.it/public/articoli/382/Input%20aggiuntivo_B1citt_1_PO.pdf": {
+   "stato": 200,
+   "tipo": "application/pdf",
+   "byte": 12679,
+   "modificato": "Wed, 05 Mar 2025 10:56:07 GMT"
+  },
+  "https://cils.unistrasi.it/public/articoli/382/Chiavi%20B1%20Cittadinanza%20AGGIORNATE.pdf": {
+   "stato": 200,
+   "tipo": "application/pdf",
+   "byte": 55339,
+   "modificato": "Thu, 22 May 2025 10:26:17 GMT"
+  },
+  "https://cils.unistrasi.it/public/articoli/382/Criteri%20di%20valutazione%20B1%20cittadinanza_nuovi.pdf": {
+   "stato": 200,
+   "tipo": "application/pdf",
+   "byte": 98125,
+   "modificato": "Mon, 20 Apr 2026 09:16:29 GMT"
+  },
+  "https://cils.unistrasi.it/public/articoli/382/B1_CITTADINANZA_v2.pdf": {
+   "stato": 200,
+   "tipo": "application/pdf",
+   "byte": 1517399,
+   "modificato": "Wed, 05 Mar 2025 10:56:16 GMT"
+  },
+  "https://cils.unistrasi.it/public/articoli/382/B1%20Cittadinanza_Sillabo.pdf": {
+   "stato": 200,
+   "tipo": "application/pdf",
+   "byte": 161581,
+   "modificato": "Wed, 14 Jan 2026 15:14:27 GMT"
+  },
+  "https://www.unistrapg.it/sites/default/files/docs/certificazioni/esempio-CELI-2-i.zip": {
+   "stato": 200,
+   "tipo": "application/zip",
+   "byte": 19357366,
+   "modificato": "Wed, 11 Dec 2019 14:44:25 GMT"
+  },
+  "https://cvcl.unistrapg.it/MC-API/Risorse/StreamRisorsa.ashx?guid=ec46a955-c57e-4ada-8d96-406c7c92ccc8": {
+   "stato": 200,
+   "tipo": "application/x-zip-compressed",
+   "byte": 42326291,
+   "modificato": null
+  },
+  "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-esempi-imput-orale.pdf": {
+   "stato": 200,
+   "tipo": "application/pdf",
+   "byte": 587301,
+   "modificato": "Tue, 16 Apr 2019 09:38:28 GMT"
+  },
+  "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-fogli-risposte.pdf": {
+   "stato": 200,
+   "tipo": "application/pdf",
+   "byte": 3693244,
+   "modificato": "Tue, 16 Apr 2019 09:39:45 GMT"
+  },
+  "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-descrizione-esame.pdf": {
+   "stato": 200,
+   "tipo": "application/pdf",
+   "byte": 315585,
+   "modificato": "Tue, 16 Apr 2019 09:34:42 GMT"
+  },
+  "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-criteri-valutazione.pdf": {
+   "stato": 200,
+   "tipo": "application/pdf",
+   "byte": 275493,
+   "modificato": "Tue, 16 Apr 2019 09:41:57 GMT"
+  },
+  "https://cms.plida.dante.global/wp-content/uploads/2024/03/PLIDA-B1_prova-esempio-1.zip": {
+   "stato": 200,
+   "tipo": "application/zip",
+   "byte": 44779928,
+   "modificato": "Fri, 22 Mar 2024 11:52:28 GMT"
+  },
+  "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf": {
+   "stato": 200,
+   "tipo": "application/pdf",
+   "byte": 2914565,
+   "modificato": "Mon, 12 Oct 2026 11:11:57 GMT"
+  },
+  "https://cms.plida.dante.global/wp-content/uploads/2022/11/PLIDA-B1-Prova-Scrivere-Commentata.pdf": {
+   "stato": 200,
+   "tipo": "application/pdf",
+   "byte": 1833246,
+   "modificato": "Mon, 16 Jan 2023 14:48:58 GMT"
+  },
+  "https://cms.plida.dante.global/wp-content/uploads/2022/11/PLIDA-B1-Criteri-valutazione-prove-Parlare.pdf": {
+   "stato": 200,
+   "tipo": "application/pdf",
+   "byte": 482611,
+   "modificato": "Mon, 16 Jan 2023 14:48:43 GMT"
+  },
+  "https://cms.plida.dante.global/wp-content/uploads/2022/11/PLIDA-B1-Criteri-valutazione-prove-Scrivere.pdf": {
+   "stato": 200,
+   "tipo": "application/pdf",
+   "byte": 390726,
+   "modificato": "Mon, 16 Jan 2023 14:48:59 GMT"
+  },
+  "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm": {
+   "stato": 200,
+   "tipo": "text/html",
+   "byte": 53632,
+   "modificato": null
+  },
+  "https://cils.unistrasi.it/1/94/28/Come_si_svolgono_gli_esami_CILS.htm": {
+   "stato": 200,
+   "tipo": "text/html",
+   "byte": 49481,
+   "modificato": null
+  },
+  "https://cils.unistrasi.it/1/117/83/La_valutazione.htm": {
+   "stato": 200,
+   "tipo": "text/html",
+   "byte": 48350,
+   "modificato": null
+  },
+  "https://cvcl.unistrapg.it/pagine/esami-celi-immigrati": {
+   "stato": 200,
+   "tipo": "text/html",
+   "byte": 136620,
+   "modificato": null
+  },
+  "https://cvcl.unistrapg.it/MC-API/Risorse/StreamRisorsa.ashx?guid=b682a9a2-1380-4d6c-9d54-496cbd0f4c18": {
+   "stato": 200,
+   "tipo": "application/pdf",
+   "byte": 1624045,
+   "modificato": null
+  },
+  "https://plida.dante.global/it/preparati-allesame/": {
+   "stato": 200,
+   "tipo": "text/html",
+   "byte": 311397,
+   "modificato": null
+  },
+  "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/": {
+   "stato": 200,
+   "tipo": "text/html",
+   "byte": 63429,
+   "modificato": null
+  },
+  "https://certificazioneitaliano.uniroma3.it/gli-esami/indicazioni-sullo-svolgimento/": {
+   "stato": 200,
+   "tipo": "text/html",
+   "byte": 47937,
+   "modificato": null
+  },
+  "https://certificazioneitaliano.uniroma3.it/gli-esami/iscrizione-agli-esami/": {
+   "stato": 200,
+   "tipo": "text/html",
+   "byte": 54624,
+   "modificato": null
+  },
+  "https://www.unistrasi.it/1/493/2426/Note_legali.htm": {
+   "stato": 200,
+   "tipo": "text/html",
+   "byte": 58377,
+   "modificato": null
+  },
+  "https://www.uniroma3.it/note-legali/": {
+   "stato": 200,
+   "tipo": "text/html",
+   "byte": 116181,
+   "modificato": null
+  },
+  "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-02-05;91~art9.1!vig=": {
+   "stato": 200,
+   "tipo": "text/html",
+   "byte": null,
+   "modificato": null
+  },
+  "https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza/cittadinanza-invia-tua-domanda": {
+   "stato": 200,
+   "tipo": "text/html",
+   "byte": null,
+   "modificato": "Fri, 30 Oct 2026 15:15:30 GMT"
+  },
+  "https://libertaciviliimmigrazione.dlci.interno.gov.it/sites/default/files/2025-06/vademecum_23_aprile_2025.pdf": {
+   "stato": 200,
+   "tipo": "",
+   "byte": null,
+   "modificato": null
+  },
+  "https://libertaciviliimmigrazione.dlci.interno.gov.it/documentazione/circolari/circolare-20475-del-23-aprile-2025-vademecum-la-concessione-della": {
+   "stato": 200,
+   "tipo": "",
+   "byte": null,
+   "modificato": null
+  },
+  "https://libertaciviliimmigrazione.dlci.interno.gov.it/sites/default/files/2025-04/circolare_014605_13_03_2025.pdf": {
+   "stato": 200,
+   "tipo": "",
+   "byte": null,
+   "modificato": null
+  },
+  "https://www.cortecostituzionale.it/scheda-pronuncia/2025/25": {
+   "stato": 200,
+   "tipo": "text/html",
+   "byte": 15071,
+   "modificato": null
+  },
+  "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9!vig=": {
+   "stato": 200,
+   "tipo": "text/html",
+   "byte": null,
+   "modificato": null
+  },
+  "https://www.gazzettaufficiale.it/eli/id/2022/02/12/22A01025/sg": {
+   "stato": 200,
+   "tipo": "text/html",
+   "byte": 17332,
+   "modificato": null
+  },
+  "https://www.interno.gov.it/it/temi/immigrazione-e-asilo/modalita-dingresso/test-conoscenza-lingua-italiana": {
+   "stato": 200,
+   "tipo": "text/html",
+   "byte": null,
+   "modificato": "Fri, 30 Oct 2026 15:18:42 GMT"
+  },
+  "https://prefettura.interno.gov.it/it/prefetture/lecco/esame-conoscenza-lingua-italiana-richiedenti-permesso-soggiorno": {
+   "stato": 200,
+   "tipo": "text/html",
+   "byte": null,
+   "modificato": "Sat, 31 Oct 2026 08:58:05 GMT"
+  },
+  "https://portaleservizi.dlci.interno.it/": {
+   "stato": 200,
+   "tipo": "text/html",
+   "byte": 8325,
+   "modificato": "Wed, 07 Jan 2026 16:14:44 GMT"
+  },
+  "https://www.mur.gov.it/sites/default/files/2025-12/Decreto%20Ministeriale%20n.%20959%20del%2014-11-2025.pdf": {
+   "stato": 200,
+   "tipo": "application/pdf",
+   "byte": 541672,
+   "modificato": null
+  }
+ },
+ "frasi": [
+  {
+   "chi": "CILS",
+   "url": "https://cils.unistrasi.it/public/articoli/382/B1%20Cittadinanza_Sillabo.pdf",
+   "testo": "I testi sono fatti ascoltare due volte",
+   "presente": true
+  },
+  {
+   "chi": "CILS",
+   "url": "https://cils.unistrasi.it/public/articoli/382/B1%20Cittadinanza_Sillabo.pdf",
+   "testo": "Da 80 a 120 parole",
+   "presente": true
+  },
+  {
+   "chi": "CILS",
+   "url": "https://cils.unistrasi.it/public/articoli/382/B1%20Cittadinanza_Sillabo.pdf",
+   "testo": "durata della presentazione: 1 minuto circa",
+   "presente": true
+  },
+  {
+   "chi": "CILS",
+   "url": "https://cils.unistrasi.it/public/articoli/382/B1%20Cittadinanza_Sillabo.pdf",
+   "testo": "30 minuti circa",
+   "presente": true
+  },
+  {
+   "chi": "CILS",
+   "url": "https://cils.unistrasi.it/public/articoli/382/Criteri%20di%20valutazione%20B1%20cittadinanza_nuovi.pdf",
+   "testo": "Test a scelta multipla composto da 6 item",
+   "presente": true
+  },
+  {
+   "chi": "CILS",
+   "url": "https://cils.unistrasi.it/public/articoli/382/Criteri%20di%20valutazione%20B1%20cittadinanza_nuovi.pdf",
+   "testo": "Test vero/Falso composto da 12 item",
+   "presente": true
+  },
+  {
+   "chi": "CILS",
+   "url": "https://cils.unistrasi.it/public/articoli/382/Criteri%20di%20valutazione%20B1%20cittadinanza_nuovi.pdf",
+   "testo": "Test a completamento con scelta multipla composto da 6 item",
+   "presente": true
+  },
+  {
+   "chi": "CILS",
+   "url": "https://cils.unistrasi.it/public/articoli/382/Criteri%20di%20valutazione%20B1%20cittadinanza_nuovi.pdf",
+   "testo": "efficacia comunicativa: fino a punti 3",
+   "presente": true
+  },
+  {
+   "chi": "CILS",
+   "url": "https://cils.unistrasi.it/public/articoli/382/Criteri%20di%20valutazione%20B1%20cittadinanza_nuovi.pdf",
+   "testo": "correttezza morfosintattica: fino a punti 4",
+   "presente": true
+  },
+  {
+   "chi": "CILS",
+   "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm",
+   "testo": "Per questo livello non è consentita la \"capitalizzazione\"",
+   "presente": true
+  },
+  {
+   "chi": "CILS",
+   "url": "https://cils.unistrasi.it/1/94/28/Come_si_svolgono_gli_esami_CILS.htm",
+   "testo": "Devi scrivere solo con una penna nera",
+   "presente": true
+  },
+  {
+   "chi": "CILS",
+   "url": "https://cils.unistrasi.it/1/94/28/Come_si_svolgono_gli_esami_CILS.htm",
+   "testo": "analisi delle strutture di comunicazione",
+   "presente": true
+  },
+  {
+   "chi": "CILS",
+   "url": "https://cils.unistrasi.it/1/117/83/La_valutazione.htm",
+   "testo": "raggiungere la soglia di sufficienza in ognuna delle abilità",
+   "presente": true
+  },
+  {
+   "chi": "CELI",
+   "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-descrizione-esame.pdf",
+   "testo": "Durata totale dell’esame: 2 ore e 30 minuti",
+   "presente": true
+  },
+  {
+   "chi": "CELI",
+   "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-descrizione-esame.pdf",
+   "testo": "minimo 40, massimo 50",
+   "presente": true
+  },
+  {
+   "chi": "CELI",
+   "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-descrizione-esame.pdf",
+   "testo": "minimo 80, massimo 90",
+   "presente": true
+  },
+  {
+   "chi": "CELI",
+   "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-descrizione-esame.pdf",
+   "testo": "Operare un confronto interculturale",
+   "presente": true
+  },
+  {
+   "chi": "CELI",
+   "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-criteri-valutazione.pdf",
+   "testo": "superata con punteggio ≥ 72",
+   "presente": true
+  },
+  {
+   "chi": "CELI",
+   "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-criteri-valutazione.pdf",
+   "testo": "superata con punteggio ≥ 11",
+   "presente": true
+  },
+  {
+   "chi": "CELI",
+   "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-criteri-valutazione.pdf",
+   "testo": "superato con punteggio ≥ 92",
+   "presente": true
+  },
+  {
+   "chi": "CELI",
+   "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-criteri-valutazione.pdf",
+   "testo": "0/47",
+   "presente": true
+  },
+  {
+   "chi": "CELI",
+   "url": "https://cvcl.unistrapg.it/MC-API/Risorse/StreamRisorsa.ashx?guid=b682a9a2-1380-4d6c-9d54-496cbd0f4c18",
+   "testo": "capitalizzare per un anno il risultato parziale ottenuto",
+   "presente": true
+  },
+  {
+   "chi": "CELI",
+   "url": "https://cvcl.unistrapg.it/MC-API/Risorse/StreamRisorsa.ashx?guid=b682a9a2-1380-4d6c-9d54-496cbd0f4c18",
+   "testo": "pagando il 70% della tassa complessiva",
+   "presente": true
+  },
+  {
+   "chi": "PLIDA",
+   "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+   "testo": "almeno 18/30 in ogni abilità",
+   "presente": true
+  },
+  {
+   "chi": "PLIDA",
+   "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+   "testo": "La prova Ascoltare dura 40 minuti circa",
+   "presente": true
+  },
+  {
+   "chi": "PLIDA",
+   "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+   "testo": "La prova Leggere dura 40 minuti",
+   "presente": true
+  },
+  {
+   "chi": "PLIDA",
+   "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+   "testo": "La prova Scrivere dura 60 minuti",
+   "presente": true
+  },
+  {
+   "chi": "PLIDA",
+   "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+   "testo": "La prova Parlare dura circa 15 minuti",
+   "presente": true
+  },
+  {
+   "chi": "PLIDA",
+   "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+   "testo": "possono recuperarle nei 18 mesi",
+   "presente": true
+  },
+  {
+   "chi": "PLIDA",
+   "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+   "testo": "Codice personale",
+   "presente": true
+  },
+  {
+   "chi": "PLIDA",
+   "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+   "testo": "minimo 110 – massimo 150",
+   "presente": true
+  },
+  {
+   "chi": "PLIDA",
+   "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+   "testo": "minimo 70 – massimo 100",
+   "presente": true
+  },
+  {
+   "chi": "PLIDA",
+   "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+   "testo": "dieci minuti di tempo per trascrivere le risposte",
+   "presente": true
+  },
+  {
+   "chi": "PLIDA",
+   "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+   "testo": "penna a inchiostro non cancellabile blu o nero",
+   "presente": true
+  },
+  {
+   "chi": "CERT.IT",
+   "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/",
+   "testo": "durano complessivamente 90 minuti",
+   "presente": true
+  },
+  {
+   "chi": "CERT.IT",
+   "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/",
+   "testo": "La sezione Produzione orale dura 10 minuti",
+   "presente": true
+  },
+  {
+   "chi": "CERT.IT",
+   "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/",
+   "testo": "il 60% del punteggio totale nelle sezioni Ascolto, Lettura e Produzione scritta",
+   "presente": true
+  },
+  {
+   "chi": "CERT.IT",
+   "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/",
+   "testo": "viene somministrato in formato elettronico",
+   "presente": true
+  },
+  {
+   "chi": "CERT.IT",
+   "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/",
+   "testo": "tra le 50 e le 80 parole",
+   "presente": true
+  },
+  {
+   "chi": "CERT.IT",
+   "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/",
+   "testo": "Ascolterai il testo due volte",
+   "presente": true
+  },
+  {
+   "chi": "esonero/legge91",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-02-05;91~art9.1!vig=",
+   "testo": "non inferiore al livello B1 del Quadro comune europeo di riferimento per la conoscenza delle lingue",
+   "presente": true
+  },
+  {
+   "chi": "esonero/legge91",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-02-05;91~art9.1!vig=",
+   "testo": "che non abbiano sottoscritto l'accordo di integrazione di cui all'articolo 4-bis",
+   "presente": true
+  },
+  {
+   "chi": "esonero/legge91",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-02-05;91~art9.1!vig=",
+   "testo": "o che non siano titolari di permesso di soggiorno UE per soggiornanti di lungo periodo",
+   "presente": true
+  },
+  {
+   "chi": "esonero/legge91",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-02-05;91~art9.1!vig=",
+   "testo": "nella parte in cui non esonera dalla prova della conoscenza della lingua italiana il richiedente affetto da gravi limitazioni alla capacità di apprendimento linguistico",
+   "presente": true
+  },
+  {
+   "chi": "esonero/domanda",
+   "url": "https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza/cittadinanza-invia-tua-domanda",
+   "testo": "sono esclusi coloro che abbiano sottoscritto l’accordo di integrazione",
+   "presente": true
+  },
+  {
+   "chi": "esonero/vademecum",
+   "url": "https://libertaciviliimmigrazione.dlci.interno.gov.it/sites/default/files/2025-06/vademecum_23_aprile_2025.pdf",
+   "testo": "a partire dalla scuola secondaria di primo grado",
+   "presente": true
+  },
+  {
+   "chi": "esonero/vademecum",
+   "url": "https://libertaciviliimmigrazione.dlci.interno.gov.it/sites/default/files/2025-06/vademecum_23_aprile_2025.pdf",
+   "testo": "Il titolo di studio deve essere conseguito necessariamente in lingua italiana",
+   "presente": true
+  },
+  {
+   "chi": "esonero/vademecum",
+   "url": "https://libertaciviliimmigrazione.dlci.interno.gov.it/sites/default/files/2025-06/vademecum_23_aprile_2025.pdf",
+   "testo": "ricongiungimento familiare e coesione familiare",
+   "presente": true
+  },
+  {
+   "chi": "esonero/vademecum",
+   "url": "https://libertaciviliimmigrazione.dlci.interno.gov.it/sites/default/files/2025-06/vademecum_23_aprile_2025.pdf",
+   "testo": "rilasciato dal 9 dicembre 2010",
+   "presente": true
+  },
+  {
+   "chi": "esonero/vademecum",
+   "url": "https://libertaciviliimmigrazione.dlci.interno.gov.it/sites/default/files/2025-06/vademecum_23_aprile_2025.pdf",
+   "testo": "mediante produzione di certificazione del",
+   "presente": true
+  },
+  {
+   "chi": "esonero/vademecum",
+   "url": "https://libertaciviliimmigrazione.dlci.interno.gov.it/sites/default/files/2025-06/vademecum_23_aprile_2025.pdf",
+   "testo": "Permane, invece, l’obbligo di effettuare l’esame B1 per i cittadini dell’Unione Europea",
+   "presente": true
+  },
+  {
+   "chi": "esonero/vademecum",
+   "url": "https://libertaciviliimmigrazione.dlci.interno.gov.it/sites/default/files/2025-06/vademecum_23_aprile_2025.pdf",
+   "testo": "Carta di soggiorno per familiare o coniuge di cittadino italiano o UE",
+   "presente": true
+  },
+  {
+   "chi": "esonero/vademecum",
+   "url": "https://libertaciviliimmigrazione.dlci.interno.gov.it/sites/default/files/2025-06/vademecum_23_aprile_2025.pdf",
+   "testo": "di Reggio Calabria",
+   "presente": true
+  },
+  {
+   "chi": "esonero/vademecum",
+   "url": "https://libertaciviliimmigrazione.dlci.interno.gov.it/sites/default/files/2025-06/vademecum_23_aprile_2025.pdf",
+   "testo": "non sono considerati validi i certificati di corsi di qualificazione professionale",
+   "presente": true
+  },
+  {
+   "chi": "esonero/circ14605",
+   "url": "https://libertaciviliimmigrazione.dlci.interno.gov.it/sites/default/files/2025-04/circolare_014605_13_03_2025.pdf",
+   "testo": "prodotte unitamente alla prescritta certificazione di una struttura sanitaria pubblica italiana",
+   "presente": true
+  },
+  {
+   "chi": "esonero/corte25",
+   "url": "https://www.cortecostituzionale.it/scheda-pronuncia/2025/25",
+   "testo": "derivanti dall’età, da patologie o da disabilità, attestate mediante certificazione rilasciata dalla struttura sanitaria pubblica",
+   "presente": true
+  },
+  {
+   "chi": "esonero/tu9",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9!vig=",
+   "testo": "è subordinato al superamento, da parte del richiedente, di un test di conoscenza della lingua italiana",
+   "presente": true
+  },
+  {
+   "chi": "esonero/tu9",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9!vig=",
+   "testo": "La disposizione di cui al comma 2-bis non si applica allo straniero titolare di protezione internazionale",
+   "presente": true
+  },
+  {
+   "chi": "esonero/tu9",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9!vig=",
+   "testo": "non è richiesto il superamento del test di cui al primo periodo",
+   "presente": true
+  },
+  {
+   "chi": "esonero/dm2021 art. 1",
+   "url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=1&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+   "testo": "ai figli minori degli anni quattordici",
+   "presente": true
+  },
+  {
+   "chi": "esonero/dm2021 art. 1",
+   "url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=1&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+   "testo": "gravi limitazioni alla capacita' di apprendimento linguistico derivanti dall'eta', da patologie o da handicap",
+   "presente": true
+  },
+  {
+   "chi": "esonero/dm2021 art. 2",
+   "url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=2&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+   "testo": "in corrispondenza al livello A2",
+   "presente": true
+  },
+  {
+   "chi": "esonero/dm2021 art. 3",
+   "url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=3&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+   "testo": "convoca, entro sessanta giorni dalla richiesta",
+   "presente": true
+  },
+  {
+   "chi": "esonero/dm2021 art. 3",
+   "url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=3&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+   "testo": "Per superare il test il candidato deve conseguire almeno l'ottanta per cento del punteggio complessivo",
+   "presente": true
+  },
+  {
+   "chi": "esonero/dm2021 art. 3",
+   "url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=3&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+   "testo": "puo' essere svolto con modalita' scritte di tipo non informatico",
+   "presente": true
+  },
+  {
+   "chi": "esonero/dm2021 art. 4",
+   "url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=4&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+   "testo": "rilasciato dagli enti certificatori riconosciuti, di cui all'allegato A",
+   "presente": true
+  },
+  {
+   "chi": "esonero/dm2021 art. 4",
+   "url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=4&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+   "testo": "Centri provinciali per l'istruzione degli adulti",
+   "presente": true
+  },
+  {
+   "chi": "esonero/dm2021 art. 4",
+   "url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=4&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+   "testo": "nell'ambito dei crediti maturati per l'accordo di integrazione",
+   "presente": true
+  },
+  {
+   "chi": "esonero/dm2021 art. 4",
+   "url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=4&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+   "testo": "diploma di scuola secondaria di primo o secondo grado presso un istituto scolastico appartenente al sistema italiano di istruzione",
+   "presente": true
+  },
+  {
+   "chi": "esonero/dm2021 art. 4",
+   "url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=4&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+   "testo": "o frequenta in Italia il dottorato o un master universitario",
+   "presente": true
+  },
+  {
+   "chi": "esonero/dm2021 art. 4",
+   "url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=4&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+   "testo": "art. 27, comma 1, lettere a), c), d), e q)",
+   "presente": true
+  },
+  {
+   "chi": "esonero/dm2021 art. 7",
+   "url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=22A01025&art.idArticolo=7&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+   "testo": "abroga e sostituisce il decreto ministeriale 4 giugno 2010",
+   "presente": true
+  },
+  {
+   "chi": "esonero/dm2021 art. 8",
+   "url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=1&art.codiceRedazionale=22A01025&art.idArticolo=1&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2022-02-12&art.progressivo=0",
+   "testo": "di Reggio Calabria",
+   "presente": true
+  },
+  {
+   "chi": "esonero/minint_test",
+   "url": "https://www.interno.gov.it/it/temi/immigrazione-e-asilo/modalita-dingresso/test-conoscenza-lingua-italiana",
+   "testo": "soltanto dopo 90 giorni dalla data del precedente esame",
+   "presente": true
+  },
+  {
+   "chi": "esonero/minint_test",
+   "url": "https://www.interno.gov.it/it/temi/immigrazione-e-asilo/modalita-dingresso/test-conoscenza-lingua-italiana",
+   "testo": "traduttore/interprete",
+   "presente": true
+  },
+  {
+   "chi": "esonero/lecco",
+   "url": "https://prefettura.interno.gov.it/it/prefetture/lecco/esame-conoscenza-lingua-italiana-richiedenti-permesso-soggiorno",
+   "testo": "Prova di comprensione orale (durata 25 minuti)",
+   "presente": true
+  },
+  {
+   "chi": "esonero/lecco",
+   "url": "https://prefettura.interno.gov.it/it/prefetture/lecco/esame-conoscenza-lingua-italiana-richiedenti-permesso-soggiorno",
+   "testo": "Prova di comprensione scritta (durata 25 minuti)",
+   "presente": true
+  },
+  {
+   "chi": "esonero/lecco",
+   "url": "https://prefettura.interno.gov.it/it/prefetture/lecco/esame-conoscenza-lingua-italiana-richiedenti-permesso-soggiorno",
+   "testo": "Prova di interazione scritta (durata 10 minuti)",
+   "presente": true
+  },
+  {
+   "chi": "esonero/mur959",
+   "url": "https://www.mur.gov.it/sites/default/files/2025-12/Decreto%20Ministeriale%20n.%20959%20del%2014-11-2025.pdf",
+   "testo": "sono inseriti nell’Elenco di cui all’articolo 1 per un periodo di un anno",
+   "presente": true
+  }
+ ],
+ "avvisi": []
+}

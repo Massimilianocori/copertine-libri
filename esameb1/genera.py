@@ -81,7 +81,7 @@ def riquadro_preparati(rel, gratis=None):
     amazon = url_affiliato("amazon")
     if not url and not amazon:
         return ""
-    gratis = gratis or f"{rel}esempi-esame-b1/"
+    gratis = gratis or f"{rel}esempi/"
     italki_txt = ("\nSu italki scegli tu un insegnante di italiano: fai lezioni 1 a 1 e paghi a lezione." if url else "")
     italki_btn = (f'<a class="btn" href="{escape(url)}" rel="sponsored noopener" target="_blank">{ic("voce")}Trova un insegnante di italiano su italki</a>'
                   if url else "")
@@ -125,6 +125,7 @@ sessioni = json.loads((DATI / "sessioni.json").read_text())
 sedi = json.loads((DATI / "sedi.json").read_text())
 citta = json.loads((DATI / "citta.json").read_text())
 esempi = json.loads((DATI / "esempi.json").read_text())  # prove d'esempio ufficiali: solo link e descrizione, con data di verifica
+esoneri = json.loads((DATI / "esoneri.json").read_text(encoding="utf-8"))  # chi è esonerato dal B1 (cittadinanza) e dal test A2 (permesso UE), con fonti
 RICONG = json.loads((DATI / "ricongiungimento.json").read_text(encoding="utf-8"))  # reddito per il ricongiungimento (assegno sociale dell'anno, da aggiornare ogni gennaio)
 ENTE ={e["sigla"]: e for e in enti}
 SLUG_ENTE = {"CILS": "cils", "CELI": "celi", "PLIDA": "plida", "CERT.IT": "certit"}
@@ -710,7 +711,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
 <div>
 <a class="logo" href="{home_href}">{MARCHIO}<span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Esenzioni e domande</a></li><li><a href="{rel}esempi-esame-b1/">Prove d'esempio</a></li>{enti_link}<li><a href="{rel}privacy.html">Privacy</a></li>
+<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Orale e domande</a></li><li><a href="{rel}esonero-test-italiano/">Chi è esonerato</a></li><li><a href="{rel}esempi/">Prove d'esempio</a></li><li><a href="{rel}esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li>{enti_link}<li><a href="{rel}privacy.html">Privacy</a></li>
 </ul>
 </div>
 <div>
@@ -1049,8 +1050,10 @@ def link_guide(rel, salta=None):
     voci = [("costo/", "euro", "Quanto costa", "i prezzi di ogni ente"),
             ("come-funziona/", "lista", "Come si svolge", "durata, cosa portare, esempi"),
             ("risultati/", "ok", "Risultati", "quando arrivano e dove vederli"),
-            ("esenzioni-e-domande/", "scudo", "Esenzioni e domande", "chi non deve fare l'esame, orale, durata"),
-            ("esempi-esame-b1/", "libro", "Prove d'esempio", "gratis, ufficiali, ente per ente")]
+            ("esenzioni-e-domande/", "voce", "Orale e domande", "com'è l'orale, durata, domande"),
+            ("esonero-test-italiano/", "scudo", "Chi è esonerato", "dal B1 e dal test A2, con le fonti"),
+            ("esempi/", "libro", "Prove d'esempio", "gratis, ufficiali, ente per ente"),
+            ("esempi/confronto/", "lista", "I 4 esami a confronto", "durata, prove, punteggio")]
     return '<div class="griglia link3">' + "".join(
         f'<a href="{rel}{h}">{ic(i)}<span>{t}<small>{sm}</small></span></a>' for h, i, t, sm in voci if h != salta) + "</div>"
 
@@ -1079,15 +1082,15 @@ def faq_jsonld(faq):
 # ---------------------------------------------------------------- pagine
 def home(prossime):
     faq = [  # (domanda, risposta in HTML): visibili in pagina e, senza tag, nel JSON-LD FAQPage
-        ("Quale esame devo fare per la cittadinanza?", f'Serve un certificato di italiano almeno di livello B1, rilasciato da uno dei 4 enti riconosciuti: CILS (Università per Stranieri di Siena), CELI (Università per Stranieri di Perugia), PLIDA (Società Dante Alighieri) e CERT.IT (Università Roma Tre). Fonte: <a href="{PREFETTURA}" rel="noopener">Prefettura – Ministero dell\'Interno</a>. Per i casi particolari (titoli di studio italiani, esenzioni) leggi <a href="esenzioni-e-domande/">chi è esente secondo la norma</a> e chiedi alla Prefettura.'),
-        ("Chi è esente dall'esame B1?", 'Secondo le istruzioni del Ministero dell\'Interno, non deve presentare il certificato chi ha firmato l\'accordo di integrazione o ha il permesso di soggiorno UE per soggiornanti di lungo periodo. La legge (art. 9.1 della legge 91/1992) ammette al posto del certificato anche un titolo di studio di un istituto pubblico o paritario riconosciuto. <a href="esenzioni-e-domande/">Esenzioni, orale, durata e domande, con le fonti</a>.'),
+        ("Quale esame devo fare per la cittadinanza?", f'Serve un certificato di italiano almeno di livello B1, rilasciato da un ente riconosciuto. I 4 enti principali, con sedi in tutta Italia, sono CILS (Università per Stranieri di Siena), CELI (Università per Stranieri di Perugia), PLIDA (Società Dante Alighieri) e CERT.IT (Università Roma Tre). Fonte: <a href="{PREFETTURA}" rel="noopener">Prefettura – Ministero dell\'Interno</a>. Il Vademecum del Ministero (2025) elenca anche l\'Università per Stranieri «Dante Alighieri» di Reggio Calabria. Per i casi particolari (titoli di studio italiani, esenzioni) leggi <a href="esonero-test-italiano/">chi è esonerato secondo la legge e il Ministero</a> e chiedi alla Prefettura.'),
+        ("Chi è esente dall'esame B1?", 'Secondo le istruzioni del Ministero dell\'Interno, non deve presentare il certificato chi ha firmato l\'accordo di integrazione o ha il permesso di soggiorno UE per soggiornanti di lungo periodo. Dal 2025 (sentenza n. 25 della Corte costituzionale) è esonerato anche chi ha gravi limitazioni nell\'imparare la lingua, certificate da una struttura sanitaria pubblica. La legge (art. 9.1 della legge 91/1992) ammette al posto del certificato anche un titolo di studio di un istituto pubblico o paritario riconosciuto. <a href="esonero-test-italiano/">Chi è esonerato, con le fonti</a>.'),
         (f"Quanto reddito serve per il ricongiungimento familiare nel {RICONG['anno']}?", f"Almeno {euro(tabella_ricongiungimento()[0][1])} l'anno con 1 familiare, più {euro(Decimal(RICONG['assegno_sociale']['annuo']) / 2)} per ogni familiare in più: è l'assegno sociale {RICONG['anno']} dell'INPS aumentato della metà per ogni familiare (art. 29 del Testo unico immigrazione). <a href=\"reddito-ricongiungimento-familiare/\">Tabella per numero di familiari, con le fonti</a>."),
         ('Che differenza c\'è tra "B1 cittadinanza" e B1 normale?', 'CILS e CELI hanno un esame B1 pensato per la cittadinanza, con più sessioni durante l\'anno. Il B1 "normale" degli stessi enti, il PLIDA B1 e il CERT.IT B1 sono anch\'essi certificati di livello B1. Leggi la <a href="come-funziona/">pagina Come funziona</a>.'),
         ("Come mi iscrivo?", "Ci si iscrive presso la sede d'esame, non su questo sito. Scegli una sede nella tua città, contattala e chiedi costo, documenti e scadenza."),
         ("Quanto costa l'esame B1 per la cittadinanza?", "CILS B1 Cittadinanza: 100 €, la stessa tassa in tutta Italia. CERT.IT B1: 80 € alla sede di Roma Tre. CELI e PLIDA: il prezzo lo decide il centro d'esame (per esempio CELI 2 i cittadinanza 90 € all'Università degli Studi di Milano). <a href=\"costo/\">Tutti i costi, con le fonti</a>."),
         ("Quanto dura l'esame?", "Lo scritto dura da 1 ora e 30 minuti (CERT.IT) a 2 ore e 20 minuti (CELI e PLIDA), secondo l'ente. Poi c'è un orale di 10-15 minuti, di solito lo stesso giorno. <a href=\"come-funziona/#durata\">Durata di ogni esame e cosa portare</a>."),
         ("Quando arrivano i risultati e dove li vedo?", "CILS: circa 3 mesi dopo l'esame, online con matricola e data di nascita. CELI: circa 90 giorni lavorativi, online nell'area riservata del CVCL. PLIDA: online nel tuo account PLIDA. CERT.IT: il sito di Roma Tre non lo spiega, chiedi alla sede. <a href=\"risultati/\">Risultati ente per ente</a>: " + ", ".join(f'<a href="risultati/{SLUG_RISULTATI[e]}/">{e}</a>' for e in ENTE) + "."),
-        ("Dove trovo esempi gratis dell'esame B1?", "Ogni ente pubblica gratis sul suo sito una prova d'esempio ufficiale, con audio e soluzioni: CILS B1 Cittadinanza, CELI 2 i, PLIDA B1 e CERT.IT B1. <a href=\"esempi-esame-b1/\">Tutte le prove d'esempio, ente per ente</a>."),
+        ("Dove trovo esempi gratis dell'esame B1?", "Ogni ente pubblica gratis sul suo sito una prova d'esempio ufficiale, con audio e soluzioni: CILS B1 Cittadinanza, CELI 2 i, PLIDA B1 e CERT.IT B1. <a href=\"esempi/\">Tutte le prove d'esempio, ente per ente</a>."),
         ("Si può fare l'esame online?", "No. L'esame B1 per la cittadinanza si fa in presenza, in una sede d'esame, con un documento d'identità. <a href=\"come-funziona/#online\">Fonti ufficiali</a>."),
     ]
     faq_html = "\n".join(domanda(q, a) for q, a in faq)
@@ -1100,7 +1103,7 @@ def home(prossime):
     corpo = f"""<section class="hero">
 <span class="occhiello">{ic("scudo")}CILS · CELI · PLIDA · CERT.IT</span>
 <h1>Esame di italiano B1 per la cittadinanza: tutte le date 2026 e 2027</h1>
-<p class="lead">Date, scadenze e sedi dei 4 enti riconosciuti, per chi chiede la cittadinanza italiana per residenza o matrimonio.</p>
+<p class="lead">Date, scadenze e sedi dei 4 enti principali, per chi chiede la cittadinanza italiana per residenza o matrimonio.</p>
 {risposta(prossime)}
 <div class="azioni"><a class="btn" href="#avvisami">{ic("campana")}Avvisami per la mia città</a><a class="btn btn-2" href="#citta">{ic("pin")}Trova una sede</a></div>
 <ul class="cifre"><li>{ic("edificio")}<span><strong>{len(sedi)}</strong> sedi d'esame in Italia</span></li>
@@ -1133,7 +1136,7 @@ def home(prossime):
 <h2>{ic("info")}Domande frequenti</h2>
 {faq_html}
 <p class="small">Per chiedere la cittadinanza italiana per residenza o matrimonio serve un certificato di italiano di livello B1.
-Qui trovi in un solo posto le date, le scadenze e le sedi dei 4 enti riconosciuti: CILS, CELI, PLIDA e CERT.IT.</p>
+Qui trovi in un solo posto le date, le scadenze e le sedi dei 4 enti principali: CILS, CELI, PLIDA e CERT.IT.</p>
 </section>"""
     p = prossime[0]  # main() si ferma se non ci sono sessioni future
     titolo = titolo_pagina(f"Esame B1 cittadinanza {anni(prossime)}: prossima data {giorno_mese(p['data'])}",
@@ -1327,7 +1330,7 @@ def pagina_ente(e, prossime):
 <li>{ic("web")}<a href="{escape(e['sito'])}" rel="noopener">sito ufficiale</a></li>
 <li>{ic("cal")}<a href="{escape(e['pagina_date'])}" rel="noopener">calendario ufficiale</a></li>
 <li>{ic("lista")}<a href="{escape(e['pagina_sedi'])}" rel="noopener">elenco ufficiale delle sedi</a></li>
-<li>{ic("libro")}<a href="../../esempi-esame-b1/#{SLUG_ENTE[sigla]}">Prove d'esempio {escape(sigla)}</a></li>
+<li>{ic("libro")}<a href="../../esempi/{SLUG_ENTE[sigla]}/">Prove d'esempio {escape(sigla)}</a></li>
 <li>{ic("ok")}<a href="../../risultati/{SLUG_RISULTATI[sigla]}/">Risultati {escape(sigla)}</a></li></ul>
 </section>
 <div class="due">
@@ -1340,7 +1343,7 @@ def pagina_ente(e, prossime):
 <section>
 <h2 id="in-breve">{ic("info")}{escape(sigla)} B1 in breve: costo, durata, risultati</h2>
 <div class="fatti">{fatti}</div>
-<p><a href="../../esempi-esame-b1/#{SLUG_ENTE[sigla]}">{ic("libro")} Prove d'esempio {escape(sigla)}: cosa contengono, com'è fatta la prova e come esercitarti</a></p>
+<p><a href="../../esempi/{SLUG_ENTE[sigla]}/">{ic("libro")} Prove d'esempio {escape(sigla)}: PDF e audio ufficiali, com'è fatto l'esame prova per prova, punteggio per superare</a></p>
 <p><a href="../../risultati/{SLUG_RISULTATI[sigla]}/">{ic("ok")} Risultati {escape(sigla)}: dove vederli, quando escono, punteggio e cosa fare se non superi</a></p>
 </section>
 <section>
@@ -1394,10 +1397,11 @@ def come_funziona():
 <p>Dal 4 dicembre 2018 chi chiede la cittadinanza italiana <strong>per residenza o per matrimonio</strong> deve dimostrare di conoscere l'italiano
 almeno al livello B1 (art. 9.1 della legge 91/1992). Si può farlo con un titolo di studio italiano oppure con un certificato di un ente riconosciuto.
 Fonte: <a href="{PREFETTURA}" rel="noopener">Prefettura – Ministero dell'Interno</a>. Chi ha firmato l'accordo di integrazione o ha il permesso UE di lungo periodo è esente:
-<a href="../esenzioni-e-domande/">chi non deve fare l'esame, secondo la norma</a>. Per il tuo caso specifico chiedi alla Prefettura: questo sito non dà consulenza.</p>
-<h2>{ic("scudo")}I 4 enti riconosciuti</h2>
+<a href="../esonero-test-italiano/">chi è esonerato, secondo la legge e il Ministero</a>. Per il tuo caso specifico chiedi alla Prefettura: questo sito non dà consulenza.</p>
+<h2>{ic("scudo")}I 4 enti principali</h2>
 <div class="tab-wrap"><table class="conf"><thead><tr><th>Ente</th><th>Esame per la cittadinanza</th><th>Sedi in Italia</th><th></th></tr></thead>
 <tbody>{righe}</tbody></table></div>
+<p class="small">Il Vademecum del Ministero dell'Interno (2025) elenca anche un quinto ente, l'Università per Stranieri «Dante Alighieri» di Reggio Calabria: <a href="../esonero-test-italiano/">quali certificati valgono, con le fonti</a>.</p>
 <h2>{ic("lista")}Come ci si iscrive</h2>
 <ol class="passi">
 <li><span>Scegli una data dal <a href="../#date">calendario</a>.</span></li>
@@ -1417,7 +1421,8 @@ per CERT.IT l'orale si fa in presenza. A Roma Tre lo scritto del CERT.IT B1 si f
 <h2 id="esempi">{ic("libro")}Esempi d'esame gratis (sito ufficiale)</h2>
 <p>Ogni ente pubblica una prova d'esempio gratuita: è il modo migliore per capire com'è l'esame.</p>
 {schede_per_ente("esempi", bottone="Apri la prova d'esempio")}
-<p><a href="../esempi-esame-b1/">Le prove d'esempio ente per ente: cosa contengono (PDF, audio, soluzioni), com'è fatta la prova e come esercitarti</a></p>
+<p><a href="../esempi/">Le prove d'esempio ente per ente: cosa contengono (PDF, audio, soluzioni), com'è fatta la prova e come esercitarti</a> ·
+<a href="../esempi/confronto/">CILS, CELI, PLIDA e CERT.IT a confronto: durata, prove e punteggio</a></p>
 {riquadro_preparati("../")}
 <h2>{ic("euro")}Costo e risultati</h2>
 <p>CILS B1 Cittadinanza costa 100 €, CERT.IT B1 80 € a Roma Tre; per CELI e PLIDA il prezzo lo decide il centro. <a href="../costo/">Tutti i costi</a> ·
@@ -1425,7 +1430,7 @@ per CERT.IT l'orale si fa in presenza. A Roma Tre lo scritto del CERT.IT B1 si f
 {modulo()}"""
     pagina("come-funziona/index.html", titolo_pagina("Esame B1 cittadinanza: come funziona, quanto dura, cosa portare"),
            descrizione_pagina(f"Le 4 prove dell'esame B1 per la cittadinanza (ascolto, lettura, scrittura, orale di 10-15 minuti), i {len(enti)} enti "
-                              "riconosciuti, cosa portare, esempi gratis."), corpo)
+                              "principali, cosa portare, esempi gratis."), corpo)
 
 
 def pagina_costo():
@@ -1692,29 +1697,20 @@ def tabella_prove():
 def pagina_esenzioni():
     """Esenzioni dall'esame B1 (art. 9.1 legge 91/1992), prove, orale, durata, domande. Ogni affermazione ha la sua fonte ufficiale."""
     fonte_minint = f'<a href="{MININT_DOMANDA}" rel="noopener">Ministero dell\'Interno, «Cittadinanza: invia la tua domanda»</a>'
-    fonte_milano = f'<a href="{PREFETTURA_MILANO}" rel="noopener">Prefettura di Milano, pagina Cittadinanza</a>'
     fonte_pdf = f'<a href="{PREFETTURA}" rel="noopener">nota della Prefettura sul certificato B1</a>'
     verifica = "controllato il 21 ottobre 2026"
 
-    def scheda(icona, titolo, testo, fonte):
-        return (f'<div class="fatto"><div class="f-et">{ic(icona)}<span>{titolo}</span></div><p>{testo}</p>'
-                f'<div class="fonte">{ic("doc")}<span>Fonte: {fonte} · {verifica}</span></div></div>')
-
-    esenti = '<div class="fatti">' + scheda(
-        "ok", "Chi ha firmato l'accordo di integrazione",
-        "Secondo le istruzioni del Ministero dell'Interno, chi ha sottoscritto l'accordo di integrazione (art. 4-bis del Testo unico sull'immigrazione, "
-        "decreto legislativo 286/1998) è escluso dall'obbligo di presentare il certificato di lingua.", fonte_minint) + scheda(
-        "ok", "Chi ha il permesso di soggiorno UE per soggiornanti di lungo periodo",
-        "Stessa fonte: è escluso chi è titolare del permesso di soggiorno UE per soggiornanti di lungo periodo (art. 9 del Testo unico). "
-        "La Prefettura di Milano precisa: rilasciato dopo il 9 dicembre 2010 e in corso di validità.", f"{fonte_minint}; {fonte_milano}") + scheda(
-        "doc", "Chi ha un titolo di studio riconosciuto",
-        "Al posto del certificato vale un titolo di studio rilasciato da un istituto di istruzione pubblico o paritario, in Italia o all'estero, "
-        "riconosciuto dal Ministero dell'Istruzione e dal Ministero degli Affari Esteri. Secondo la Prefettura di Milano basta l'autocertificazione "
-        "se il titolo viene da un ente pubblico; serve la copia autenticata se viene da un istituto paritario o privato.", fonte_milano) + scheda(
-        "info", "Chi ha gravi limitazioni certificate",
-        "La Prefettura di Milano scrive che è escluso dal test linguistico «lo straniero affetto da gravi limitazioni alla capacità di apprendimento "
-        "linguistico derivanti dall'età, da patologie o da handicap, attestate mediante certificazione rilasciata da struttura sanitaria pubblica».",
-        fonte_milano) + "</div>"
+    # Dal 31/10/2026 i casi di esonero, con tutte le fonti, sono nella pagina /esonero-test-italiano/: qui solo il riassunto.
+    fonte_esonero = (f'<a href="{escape(esoneri["fonti"]["legge91"]["url"])}" rel="noopener">art. 9.1 della legge 91/1992</a> · '
+                     f'<a href="{escape(esoneri["fonti"]["vademecum"]["url"])}" rel="noopener">Vademecum del Ministero dell\'Interno (aprile 2025)</a>')
+    esenti = f"""<ul class="cifre" style="flex-direction:column;align-items:flex-start;gap:8px">
+<li>{ic("ok")}<span>chi ha firmato l'<strong>accordo di integrazione</strong> (art. 4-bis del Testo unico sull'immigrazione)</span></li>
+<li>{ic("ok")}<span>chi ha il <strong>permesso di soggiorno UE per soggiornanti di lungo periodo</strong> (la «carta di soggiorno»)</span></li>
+<li>{ic("ok")}<span>chi ha <strong>gravi limitazioni</strong> nell'imparare la lingua per età, malattia o disabilità, con certificato di una struttura sanitaria pubblica (sentenza n. 25/2025 della Corte costituzionale)</span></li>
+<li>{ic("doc")}<span>al posto del certificato vale un <strong>titolo di studio</strong> in lingua italiana di una scuola pubblica o paritaria, dalla scuola media in su</span></li>
+</ul>
+<div class="fonte">{ic("doc")}<span>Fonti: {fonte_esonero} · lette il {data_breve(esoneri["verificato_il"])}</span></div>
+<p><a class="btn btn-2" href="../esonero-test-italiano/">{ic("scudo")}Chi è esonerato: tutti i casi, i documenti e le fonti</a></p>"""
 
     esempi = "".join(
         f'<li><span>{eb(e["sigla"])} <a href="{escape(e["fatti"]["esempi"]["url"])}" rel="noopener">{escape(e["fatti"]["esempi"]["testo"])}</a></span></li>'
@@ -1722,9 +1718,10 @@ def pagina_esenzioni():
 
     faq = [
         ("Chi è esente dall'esame B1 per la cittadinanza?",
-         "Secondo le istruzioni del Ministero dell'Interno, non deve presentare il certificato chi ha firmato l'accordo di integrazione (art. 4-bis del Testo unico "
-         "sull'immigrazione) e chi ha il permesso di soggiorno UE per soggiornanti di lungo periodo. Per tutti gli altri serve un certificato di livello almeno B1 "
-         "di CILS, CELI, PLIDA o CERT.IT, oppure un titolo di studio di un istituto pubblico o paritario riconosciuto. La Prefettura valuta ogni caso."),
+         "Secondo la legge e le istruzioni del Ministero dell'Interno, non deve presentare il certificato chi ha firmato l'accordo di integrazione (art. 4-bis del Testo unico "
+         "sull'immigrazione) e chi ha il permesso di soggiorno UE per soggiornanti di lungo periodo. Dal 2025 (sentenza n. 25 della Corte costituzionale) è esonerato anche chi ha "
+         "gravi limitazioni nell'imparare la lingua, certificate da una struttura sanitaria pubblica. Per tutti gli altri serve un certificato di livello almeno B1 "
+         "di un ente riconosciuto, oppure un titolo di studio in italiano di un istituto pubblico o paritario. La Prefettura valuta ogni caso. Tutti i casi sono nella pagina «Chi è esonerato»."),
         ("Ho un diploma o una laurea italiana: devo fare l'esame B1?",
          "Secondo la norma (art. 9.1 della legge 91/1992) al posto del certificato vale un titolo di studio rilasciato da un istituto di istruzione pubblico o "
          "paritario riconosciuto dal Ministero dell'Istruzione e dal Ministero degli Affari Esteri. La Prefettura di Milano indica l'autocertificazione per i titoli "
@@ -1750,21 +1747,21 @@ def pagina_esenzioni():
     nota_consulenza = ("Questo sito non dà consulenza sulla pratica di cittadinanza. Ogni domanda la valuta la Prefettura: per il tuo caso chiedi lì, "
                        f'oppure leggi la <a href="{MININT_CITTADINANZA}" rel="noopener">pagina del Ministero dell\'Interno</a>.')
     corpo = f"""<section class="hero">
-{briciole(("EsameB1", "../"), ("Esenzioni e domande", None))}
+{briciole(("EsameB1", "../"), ("Orale e domande", None))}
 <span class="occhiello">{ic("scudo")}Con le fonti ufficiali</span>
-<h1>Esenzione dall'esame B1 per la cittadinanza: chi non deve farlo, e com'è fatto l'esame</h1>
-<p class="lead">Chi è esente secondo la legge, quali titoli valgono al posto del certificato, com'è l'orale, quanto dura e che domande ci sono. Accanto a ogni risposta c'è la fonte ufficiale.</p>
+<h1>Esame B1 per la cittadinanza: com'è l'orale, quanto dura, che domande ci sono (e chi è esente)</h1>
+<p class="lead">Secondo i documenti ufficiali di CILS, CELI, PLIDA, CERT.IT e del Ministero dell'Interno (letti l'ultima volta il {data_breve(max([esoneri["verificato_il"]] + [e["fatti"]["durata"]["verificato_il"] for e in enti]))}): com'è fatto l'esame, com'è l'orale ente per ente, quanto dura e dove vedere domande vere. In breve anche chi è esente. Accanto a ogni risposta c'è la fonte ufficiale.</p>
 </section>
 {avviso(nota_consulenza)}
 <div class="due">
 <section>
-<h2 id="esenzioni">{ic("scudo")}Chi è esente dall'esame B1</h2>
+<h2 id="esenzioni">{ic("scudo")}Chi è esente dall'esame B1, in breve</h2>
 <p>Dal 4 dicembre 2018 chi chiede la cittadinanza per residenza o per matrimonio deve avere una conoscenza dell'italiano almeno di livello B1.
 Lo dice l'<strong>art. 9.1 della legge 91/1992</strong>, inserito dal decreto-legge 113/2018 (il «decreto sicurezza»), convertito dalla legge 132/2018.
-La stessa norma dice chi non deve presentare il certificato.</p>
+Non deve presentare il certificato:</p>
 {esenti}
 <h3>Tutti gli altri: serve il certificato</h3>
-<p>Chi non rientra nei casi sopra deve allegare alla domanda un certificato di livello almeno B1 di uno dei 4 enti riconosciuti: CILS, CELI, PLIDA, CERT.IT.
+<p>Chi non rientra nei casi sopra deve allegare alla domanda un certificato di livello almeno B1 di un ente riconosciuto: CILS, CELI, PLIDA, CERT.IT (i 4 enti principali) o l'Università per Stranieri «Dante Alighieri» di Reggio Calabria, che il Vademecum del Ministero elenca come quinto ente.
 La nota della Prefettura aggiunge che la certificazione si può conseguire anche presso i CPIA (Centri provinciali per l'istruzione degli adulti): molti CPIA sono sedi d'esame degli enti,
 li trovi nell'<a href="../#citta">elenco per città</a>.</p>
 <div class="fonte">{ic("doc")}<span>Fonti: {fonte_pdf} · {fonte_minint} · <a href="{DLCI_RESIDENZA}" rel="noopener">Dipartimento per le libertà civili, cittadinanza per residenza</a> ·
@@ -1791,7 +1788,8 @@ cosa portare il giorno dell'esame è in <a href="../come-funziona/#durata">Come 
 <h2 id="domande">{ic("libro")}Le domande dell'esame: dove vedere esempi veri</h2>
 <p>Non esiste una lista di domande da imparare a memoria: le prove cambiano a ogni sessione. Il modo migliore per capire com'è l'esame è la prova d'esempio ufficiale, gratis:</p>
 <ul class="cifre" style="flex-direction:column;align-items:flex-start;gap:10px">{esempi}</ul>
-<p class="small">Gli argomenti sono quelli della vita di ogni giorno: casa, lavoro, servizi, salute, messaggi ed email. <a href="../esempi-esame-b1/">Tutte le prove d'esempio, ente per ente, con cosa contengono</a>.</p>
+<p class="small">Gli argomenti sono quelli della vita di ogni giorno: casa, lavoro, servizi, salute, messaggi ed email. <a href="../esempi/">Tutte le prove d'esempio, ente per ente, con cosa contengono</a> ·
+<a href="../esempi/confronto/">i 4 esami a confronto</a>.</p>
 </section>
 <section>
 <h2>{ic("info")}Risultati, costo, come iscriversi</h2>
@@ -1807,9 +1805,27 @@ nel {RICONG['anno']} almeno {euro(tabella_ricongiungimento()[0][1])} l'anno con 
 {faq_html}
 </section>"""
     pagina("esenzioni-e-domande/index.html",
-           titolo_pagina("Esenzione esame B1 cittadinanza: chi è esente, orale, durata"),
-           descrizione_pagina("Chi è esente dall'esame B1 per la cittadinanza (art. 9.1 legge 91/1992): accordo di integrazione, permesso UE, "
-                              "titolo di studio. Orale, durata e domande."), corpo, jsonld)
+           titolo_pagina("Esame B1 cittadinanza: orale, durata, domande ed esenzioni"),
+           descrizione_pagina("Esame B1 per la cittadinanza: com'è l'orale di CILS, CELI, PLIDA e CERT.IT, quanto dura ogni prova, che domande ci sono "
+                              "e, in breve, chi è esente."), corpo, jsonld)
+
+
+# ---------------------------------------------------------------- prove d'esempio: indice /esempi/, una pagina per ente, confronto (dal 31/10/2026)
+# Dati in dati/esempi.json (file ufficiali, struttura dell'esame, consigli, domande frequenti, frasi citate) e, per punteggio e
+# recupero, dati/risultati.json. Controllo ripetibile dei link e delle frasi citate: raccolta/esempi.py. I file restano sui siti
+# degli enti: solo link (CERT.IT nemmeno quelli: note legali di Roma Tre sul deep linking). /esempi-esame-b1/ → /esempi/ (301).
+ICONA_FILE = {"PDF": "doc", "MP3": "cuffie", "ZIP": "archivio"}
+ES = {e["sigla"]: e for e in esempi["enti"]}
+TITOLI_ESEMPI = {  # (titolo della pagina, h1): parole cercate su Google il 31/10/2026 ("cils b1 cittadinanza pdf", "celi b1 cittadinanza esempio"...)
+    "CILS": ("CILS B1 Cittadinanza: prove d'esame PDF, audio e chiavi",
+             "CILS B1 Cittadinanza: l'esempio d'esame ufficiale, PDF e audio"),
+    "CELI": ("Esempio esame CELI B1 cittadinanza (CELI 2 i): PDF, audio, orale",
+             "CELI 2 i cittadinanza (B1): gli esempi d'esame ufficiali, PDF, audio e orale"),
+    "PLIDA": ("PLIDA B1 esempio: prova d'esame PDF, audio e soluzioni",
+              "PLIDA B1: la prova d'esempio ufficiale, PDF, audio e soluzioni"),
+    "CERT.IT": ("CERT.IT B1 esempio d'esame: com'è fatto, PDF e audio ufficiali",
+                "CERT.IT B1: l'esempio d'esame ufficiale e com'è fatto l'esame"),
+}
 
 
 def peso(byte):
@@ -1823,124 +1839,129 @@ def host(url):
     return re.sub(r"^https?://(www\.)?([^/]+).*$", r"\2", url)
 
 
-def pagina_esempi():
-    """Prove d'esempio ufficiali B1 dei 4 enti (dati/esempi.json): solo link ai file degli enti e descrizione presa dai loro documenti."""
-    verifica = data_breve(esempi["verificato_il"])
-    icona_file = {"PDF": "doc", "MP3": "cuffie", "ZIP": "archivio"}
+def link_fonti(lista):
+    return " · ".join(f'<a href="{escape(x["url"])}" rel="noopener">{escape(x["nome"])}</a>' for x in lista)
 
-    def fonti(lista):
-        return " · ".join(f'<a href="{escape(x["url"])}" rel="noopener">{escape(x["nome"])}</a>' for x in lista)
 
-    def riga_file(f):
-        # Senza "url" (ente che non vuole link diretti ai file): solo il nome, niente link.
-        dim = (f'{f["numero"]} × ' if f.get("numero") else "") + peso(f["byte"])
-        dettagli = [escape(dim)] + ([f'{f["pagine"]} pag.'] if f.get("pagine") else []) + [escape(f["data"])]
-        nome = (f'<a href="{escape(f["url"])}" rel="noopener">{escape(f["nome"])}</a>' if f.get("url")
-                else f'<span class="nome">{escape(f["nome"])}</span>')
-        return (f'<li><span class="fi">{ic(icona_file[f["formato"]])}</span>'
-                f'<div>{nome}'
-                f'<span class="cosa">{escape(f["contenuto"][0].upper() + f["contenuto"][1:])}.</span></div>'
-                f'<div class="meta"><strong>{f["formato"]}</strong><span>{" · ".join(dettagli)}</span></div></li>')
+def riga_file(f):
+    """Una riga dell'elenco dei file. Senza "url" (ente che non vuole link diretti ai file): solo il nome, niente link."""
+    dim = (f'{f["numero"]} × ' if f.get("numero") else "") + peso(f["byte"])
+    dettagli = [escape(dim)] + ([f'{f["pagine"]} pag.'] if f.get("pagine") else []) + [escape(f["data"])]
+    nome = (f'<a href="{escape(f["url"])}" rel="noopener">{escape(f["nome"])}</a>' if f.get("url")
+            else f'<span class="nome">{escape(f["nome"])}</span>')
+    return (f'<li><span class="fi">{ic(ICONA_FILE[f["formato"]])}</span>'
+            f'<div>{nome}<span class="cosa">{escape(f["contenuto"][0].upper() + f["contenuto"][1:])}.</span></div>'
+            f'<div class="meta"><strong>{f["formato"]}</strong><span>{" · ".join(dettagli)}</span></div></li>')
 
-    def prove_ente(e):
-        parti = ENTE[e["sigla"]]["fatti"]["durata"]["prove"]["parti"]
-        return '<ul class="es-prove">' + "".join(
-            f'<li><b>{escape(" + ".join(x.capitalize() for x in p["prove"]))}</b><span>{escape(p["tempo"])}</span></li>' for p in parti) + "</ul>"
 
-    schede = []
-    for e in esempi["enti"]:
-        s = e["sigla"]
-        sl = SLUG_ENTE[s]
-        n_file = len(e["file"])
-        diretti = e.get("link_diretti", True)
-        if diretti:
-            host_file = list(dict.fromkeys(host(f["url"]) for f in e["file"]))
-            titolo_file = "I file ufficiali"
-            nota_file = (f'Ogni link apre il file sul sito {" o ".join(escape(h) for h in host_file)}. '
-                         "Data: ultima modifica del file sul server dell'ente, o data scritta nel file.")
-            testa = f"{n_file} file gratuiti, si scaricano senza registrazione."
-            controllo = f"Link controllati il {verifica}: i {n_file} file si aprono tutti (stato 200), con il formato e la dimensione indicati."
-        else:
-            titolo_file = "Cosa trovi sulla pagina ufficiale"
-            nota_file = escape(e["senza_link_diretti"])
-            testa = "L'esempio d'esame è in fondo alla pagina: è gratuito e si scarica senza registrazione."
-            controllo = f"Pagina e file controllati il {verifica}: si aprono (stato 200), con il formato e la dimensione indicati."
-        schede.append(f"""<section>
-<h2 id="{sl}">{eb(s)}<span>Prove d'esempio {escape(e["esame"])}</span></h2>
-<div class="es-card es-{s.replace(".", "")}">
-<div class="es-testa"><p>Pagina ufficiale: {escape(e["pagina"]["nome"])}, sul sito {escape(host(e["pagina"]["url"]))}.
-{testa}</p>
-<a class="btn" href="{escape(e["pagina"]["url"])}" rel="noopener">Pagina ufficiale {escape(s)} {ic("freccia")}</a></div>
-<h3>Com'è fatta la prova</h3>
-<p>{escape(e["prova"])}</p>
-{prove_ente(e)}
-<div class="fonte">{ic("doc")}<span>Fonte: {fonti(e["fonti_prova"])} · controllato il {verifica}</span></div>
-<h3>{titolo_file}</h3>
-<p class="small" style="margin:0">{nota_file}</p>
-<ul class="file-lista">{"".join(riga_file(f) for f in e["file"])}</ul>
-<div class="fonte">{ic("ok")}<span>{controllo}
-<a href="../ente/{sl}/">Date, costo e sedi {escape(s)}</a></span></div>
-</div>
-</section>""")
+def blocco_file(e):
+    """I file ufficiali di un ente (link diretti) o, per CERT.IT, cosa trovi sulla pagina ufficiale (senza link ai file)."""
+    v = data_breve(esempi["verificato_il"])
+    n = len(e["file"])
+    if e.get("link_diretti", True):
+        host_file = " o ".join(escape(h) for h in dict.fromkeys(host(f["url"]) for f in e["file"]))
+        nota = f"Ogni link apre il file sul sito {host_file}. Data: ultima modifica del file sul server dell'ente, o data scritta nel file."
+        controllo = f"Link controllati il {v}: i {n} file si aprono tutti (stato 200), con il formato e la dimensione indicati."
+    else:
+        nota = escape(e["senza_link_diretti"])
+        controllo = f"Pagina e file controllati il {v}: si aprono (stato 200), con il formato e la dimensione indicati."
+    return (f'<p class="small" style="margin:0">{nota}</p><ul class="file-lista">{"".join(riga_file(f) for f in e["file"])}</ul>'
+            f'<div class="fonte">{ic("ok")}<span>{controllo}</span></div>')
 
-    vai = "".join(
-        f'<a class="es-{e["sigla"].replace(".", "")}" href="#{SLUG_ENTE[e["sigla"]]}"><span class="ri">{eb(e["sigla"])}{ic("giu")}</span>'
-        f'<span>{escape(e["esame"])}</span><small>{f'{len(e["file"])} file' if e.get("link_diretti", True) else "dalla pagina ufficiale"} · {escape(e["materiali"]["audio"])}</small></a>' for e in esempi["enti"])
 
-    def cella(v):
-        return f'<td class="{"no" if v.startswith("no") else "si"}">{escape(v)}</td>'
+def tabella_struttura(e):
+    """Prova per prova: cosa devi fare, tempo, punti (dati/esempi.json → prove). Su mobile ogni riga diventa una scheda."""
     righe = "".join(
-        f'<tr><td>{eb(e["sigla"])}<br><span class="small">{escape(e["esame"])}</span></td>'
+        f'<tr><td><strong>{escape(p["nome"])}</strong></td><td data-l="Cosa devi fare">{escape(p["cosa"])}</td>'
+        f'<td data-l="Tempo">{escape(p["tempo"])}</td><td data-l="Punti">{escape(p["punti"])}</td></tr>' for p in e["prove"])
+    return ('<div class="tab-wrap ris-tab"><table class="conf"><thead><tr><th scope="col">Prova</th><th scope="col">Cosa devi fare</th>'
+            f'<th scope="col">Tempo</th><th scope="col">Punti</th></tr></thead><tbody>{righe}</tbody></table></div>')
+
+
+def fonte_risultati(s, chiave):
+    """Fonte di una voce di dati/risultati.json (punteggio, non_superato), con la data di lettura."""
+    r = RISULTATI["enti"][s]
+    lista = [r["fonti"][k] for k in r["voci"][chiave]["fonti"]]
+    return f'<div class="fonte">{ic("doc")}<span>{"Fonte" if len(lista) == 1 else "Fonti"}: {link_fonti(lista)} · {"letta" if len(lista) == 1 else "lette"} il {data_breve(RISULTATI["verificato_il"])}</span></div>'
+
+
+def date_ente_html(prossime, s, rel):
+    date_e = [x for x in prossime if x["ente"] == s]
+    corpo = (lista_sessioni(date_e[:6], con_filtri=False) if date_e
+             else "<p>Nessuna data futura pubblicata dall'ente per ora. Controlliamo il calendario ufficiale ogni settimana.</p>")
+    return corpo + f'<p><a href="{rel}ente/{SLUG_ENTE[s]}/">{escape(NOME_RICERCA[s])}: tutte le date, il costo e le sedi</a></p>'
+
+
+def faq_html_e_jsonld(faq):
+    jsonld = {"@context": "https://schema.org", "@type": "FAQPage",
+              "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
+    return jsonld, "".join(domanda(escape(q), escape(a)) for q, a in faq)
+
+
+def pagina_esempi(prossime):
+    """Indice /esempi/: cosa pubblica ogni ente, durata e punteggio in breve, come esercitarti, condizioni d'uso, domande."""
+    v = data_breve(esempi["verificato_il"])
+    vai = "".join(
+        f'<a class="es-{e["sigla"].replace(".", "")}" id="{SLUG_ENTE[e["sigla"]]}" href="{SLUG_ENTE[e["sigla"]]}/"><span class="ri">{eb(e["sigla"])}{ic("freccia")}</span>'
+        f'<span>{escape(e["esame"])}</span><small>{f"{len(e['file'])} file" if e.get("link_diretti", True) else "dalla pagina ufficiale"} · '
+        f'{escape(e["materiali"]["audio"])}</small></a>' for e in esempi["enti"])
+
+    def cella(x):
+        return f'<td class="{"no" if x.startswith("no") else "si"}">{escape(x)}</td>'
+    righe = "".join(
+        f'<tr><td>{eb(e["sigla"])}<br><a href="{SLUG_ENTE[e["sigla"]]}/">{escape(e["esame"])}</a></td>'
         + "".join(cella(e["materiali"][k]) for k in ("audio", "soluzioni", "trascrizioni", "orale"))
         + f'<td>{escape(e["aggiornato"])}</td></tr>' for e in esempi["enti"])
     tabella = (f'<div class="tab-wrap es-tab"><table class="conf"><thead><tr><th>Esame</th><th>Audio</th><th>Soluzioni</th><th>Trascrizione dell\'audio</th>'
                f'<th>Orale</th><th>File del</th></tr></thead><tbody>{righe}</tbody></table></div>')
+    breve = "".join(
+        f'<tr><td>{eb(s)}<strong>{escape(ES[s]["esame"])}</strong><br><a class="ris-guida" href="{SLUG_ENTE[s]}/">Esempio e prove {escape(s)} {ic("freccia")}</a></td>'
+        f'<td data-l="Quanto dura">{escape(ENTE[s]["fatti"]["durata"]["prove"]["totale"])}</td>'
+        f'<td data-l="Per superare">{escape(RISULTATI["enti"][s]["tabella"]["superare"])}</td>'
+        f'<td data-l="Se non superi una parte">{escape(RISULTATI["enti"][s]["tabella"]["ripeti"])}</td></tr>' for s in ENTE)
+    tab_breve = ('<div class="tab-wrap ris-tab"><table class="conf"><thead><tr><th scope="col">Esame</th><th scope="col">Quanto dura</th>'
+                 f'<th scope="col">Per superare</th><th scope="col">Se non superi una parte</th></tr></thead><tbody>{breve}</tbody></table></div>')
 
     # Consigli presi dai documenti ufficiali degli enti (ognuno con la sua fonte).
-    E = {e["sigla"]: e for e in esempi["enti"]}
     cils_svolg = "https://cils.unistrasi.it/1/94/28/Come_si_svolgono_gli_esami_CILS.htm"
-    quaderno_plida = E["PLIDA"]["fonti_prova"][0]
-    certit_pag = E["CERT.IT"]["fonti_prova"][0]
+    quaderno_plida = ES["PLIDA"]["fonti_prova"][0]
+    certit_pag = ES["CERT.IT"]["fonti_prova"][0]
     consigli = [
-        ("orologio", "Fai la prova intera, con i tempi veri e nell'ordine dell'esame",
+        ("Fai la prova intera, con i tempi veri e nell'ordine dell'esame",
          "All'esame CILS si comincia con l'ascolto, poi la lettura, poi la scrittura; l'orale è di solito nel pomeriggio. "
          "PLIDA scrive il tempo all'inizio di ogni prova e non permette appunti, dizionari, libri né telefono: allenati allo stesso modo.",
          [{"nome": "CILS, come si svolgono gli esami", "url": cils_svolg}, quaderno_plida]),
-        ("cuffie", "Ascolta ogni audio due volte, non di più",
+        ("Ascolta ogni audio due volte, non di più",
          "Nel CILS B1 Cittadinanza ogni testo dell'ascolto si sente due volte; nel CERT.IT B1 lo dicono le consegne delle prove di ascolto 1 e 2. "
          "Dopo la prova controlla con la trascrizione (CILS, CELI e PLIDA la pubblicano) le parti che non hai capito.",
-         [E["CILS"]["fonti_prova"][0], certit_pag]),
-        ("matita", "Segna le risposte sul foglio delle risposte, con la penna giusta",
+         [ES["CILS"]["fonti_prova"][0], certit_pag]),
+        ("Segna le risposte sul foglio delle risposte, con la penna giusta",
          "Stampa il foglio delle risposte ufficiale. CILS accetta solo la penna nera; PLIDA chiede una penna non cancellabile blu o nera, niente matita né bianchetto, "
          "e dà 10 minuti alla fine per copiare le risposte sul foglio. Poi correggi con le chiavi.",
          [{"nome": "CILS, come si svolgono gli esami", "url": cils_svolg}, quaderno_plida]),
-        ("doc", "Nella scrittura conta le parole e rileggi con i criteri ufficiali",
+        ("Nella scrittura conta le parole e rileggi con i criteri ufficiali",
          "Ogni ente chiede un numero preciso di parole: CILS un'email di 80-120, CELI 40-50 e 80-90, PLIDA 110-150 e 70-100, CERT.IT testi brevi (50-80 parole negli esempi della pagina B1). "
          "I criteri di valutazione dicono cosa conta: per CILS efficacia comunicativa, correttezza, lessico, ortografia. PLIDA pubblica anche una prova di scrittura commentata.",
-         [{"nome": "criteri di valutazione CILS (PDF)", "url": E["CILS"]["fonti_prova"][1]["url"]}, E["CELI"]["fonti_prova"][0], quaderno_plida, certit_pag]),
-        ("voce", "Prepara l'orale ad alta voce, cominciando da te",
+         [{"nome": "criteri di valutazione CILS (PDF)", "url": ES["CILS"]["fonti_prova"][1]["url"]}, ES["CELI"]["fonti_prova"][0], quaderno_plida, certit_pag]),
+        ("Prepara l'orale ad alta voce, cominciando da te",
          "Tutti e quattro gli orali cominciano con una presentazione: CILS circa 1 minuto partendo da una lista di domande, PLIDA circa 2 minuti (non valutati) sui tuoi progetti di studio o lavoro, "
          "CELI e CERT.IT con domande su di te. "
          "Poi esercitati sulle tracce ufficiali: le immagini e le domande dell'input orale CELI, la prova del candidato PLIDA (3 minuti di preparazione, con appunti), il «Parlato» CERT.IT.",
-         [E["CILS"]["fonti_prova"][0], quaderno_plida, E["CELI"]["fonti_prova"][0], {"nome": "input orale CELI 2 i (PDF)", "url": E["CELI"]["file"][2]["url"]}, certit_pag]),
+         [ES["CILS"]["fonti_prova"][0], quaderno_plida, ES["CELI"]["fonti_prova"][0], {"nome": "input orale CELI 2 i (PDF)", "url": ES["CELI"]["file"][2]["url"]}, certit_pag]),
     ]
     passi = "".join(
-        f'<li><div><strong>{t}</strong><p>{escape(x)}</p><div class="fonte">{ic("doc")}<span>Fonte: {fonti(f)}</span></div></div></li>'
-        for _i, t, x, f in consigli)
-
+        f'<li><div><strong>{t}</strong><p>{escape(x)}</p><div class="fonte">{ic("doc")}<span>Fonte: {link_fonti(f)}</span></div></div></li>'
+        for t, x, f in consigli)
     uso = "".join(f'<li><span><strong>{escape(u["ente"])}</strong>: {escape(u["testo"])} (<a href="{escape(u["url"])}" rel="noopener">fonte</a>).</span></li>' for u in esempi["uso"])
 
     faq = [
-        ("Dove trovo le prove d'esempio CILS B1 cittadinanza?",
-         "Sul sito ufficiale dell'Università per Stranieri di Siena, alla pagina «Prove Liv. B1 c»: quaderno, file audio MP3, trascrizione dell'audio, tracce di scrittura e orale, "
-         "chiavi, criteri di valutazione e foglio delle risposte. Sono gratis e si scaricano senza registrazione (controllato il " + verifica + ")."),
-        ("Dove trovo le prove d'esempio CELI 2 i cittadinanza?",
-         "Sulla pagina «Esami CELI immigrati» del CVCL, Università per Stranieri di Perugia, nella parte CELI 2 i: due esempi completi in zip (fascicoli, audio MP3, chiavi), "
-         "gli esempi di immagini e domande dell'orale e i fogli delle risposte."),
+        ("Dove trovo gli esempi ufficiali dell'esame B1 per la cittadinanza?",
+         "Ogni ente li pubblica gratis sul suo sito: CILS (Università per Stranieri di Siena) alla pagina «Prove Liv. B1 c», CELI (Università per Stranieri di Perugia) alla pagina «Esami CELI immigrati», "
+         "PLIDA (Società Dante Alighieri) alla pagina «Preparati all'esame», CERT.IT (Università Roma Tre) in fondo alla pagina «Livello B1». Si scaricano senza registrazione (controllato il " + v + ")."),
         ("C'è una simulazione dell'esame B1 per la cittadinanza?",
          "Gli enti pubblicano prove d'esempio complete, con audio e soluzioni: stampale e falle con i tempi veri, è la simulazione più vicina all'esame. "
-         "Nelle pagine ufficiali che abbiamo controllato il " + verifica + " non c'è un test interattivo online. "
-         "Il CERT.IT B1 a Roma Tre si fa al computer (nei centri convenzionati su carta), ma sempre in sede."),
+         "Nelle pagine ufficiali che abbiamo controllato il " + v + " non c'è un test interattivo online. "
+         "Il CERT.IT B1 a Roma Tre si fa al computer (nei centri convenzionati chiedi alla sede), ma sempre in sede."),
         ("L'esame B1 per la cittadinanza è difficile?",
          "Dipende da quanto sei preparato. Il livello B1 chiede di capire i punti principali di testi chiari sulla vita di tutti i giorni e di farsi capire: il sillabo CILS parla di "
          "una produzione «comunicativamente efficace, anche se contiene errori». Per superarlo servono il 60% dei punti nello scritto e nell'orale del CERT.IT, almeno 18 su 30 in ogni abilità "
@@ -1948,25 +1969,30 @@ def pagina_esempi():
         ("Le prove d'esempio hanno le soluzioni e l'audio?",
          "Sì, tutte e quattro. CILS: chiavi, MP3 e trascrizione. CELI: chiavi, MP3 e trascrizione dentro i due zip. PLIDA: soluzioni, trascrizioni e MP3 nello zip. "
          "CERT.IT: chiavi e 3 file MP3; nei file pubblicati non c'è la trascrizione dell'audio."),
+        ("Le domande dell'esame sono le stesse degli esempi?",
+         "No. Le prove cambiano a ogni sessione: gli esempi servono a capire com'è fatto l'esame (tipo di domande, tempi, punti), non a imparare le risposte a memoria."),
     ]
-    jsonld = {"@context": "https://schema.org", "@type": "FAQPage",
-              "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
-    faq_html = "".join(domanda(escape(q), escape(a)) for q, a in faq)
-
+    jsonld, faq_html = faq_html_e_jsonld(faq)
     corpo = f"""<section class="hero">
 {briciole(("EsameB1", "../"), ("Prove d'esempio", None))}
-<span class="occhiello">{ic("libro")}Fonti ufficiali · controllato il {verifica}</span>
-<h1>Esempi d'esame B1 per la cittadinanza: le prove ufficiali gratis, ente per ente</h1>
-<p class="lead">CILS, CELI, PLIDA e CERT.IT pubblicano gratis una prova d'esempio dell'esame B1, con audio e soluzioni. Qui trovi i link ai file ufficiali (per CERT.IT alla pagina dell'ente), cosa c'è dentro, com'è fatta la prova e come esercitarti.</p>
-<nav class="es-vai" aria-label="Vai all'ente">{vai}</nav>
+<span class="occhiello">{ic("libro")}Fonti ufficiali · controllato il {v}</span>
+<h1>Esempi d'esame B1 per la cittadinanza: le prove ufficiali gratis, PDF e audio</h1>
+<p class="lead">Secondo le pagine ufficiali dei 4 enti, controllate il {v}, CILS, CELI, PLIDA e CERT.IT pubblicano gratis una prova d'esempio del B1 con audio e soluzioni.
+Scegli l'ente: per ognuno trovi i link ai file ufficiali (per CERT.IT la pagina dell'ente), com'è fatta ogni prova, quanto dura e quanti punti servono.</p>
+<nav class="es-vai" aria-label="Esempi ente per ente">{vai}</nav>
 </section>
 {avviso("I file sono degli enti e restano sui loro siti: qui ci sono solo i link e una descrizione. Sono protetti dal diritto d'autore: scaricali per studiare, ma non ricaricarli su altri siti. <a href=\"#uso\">Le condizioni d'uso</a>.")}
 <section>
-<h2 id="confronto">{ic("lista")}Cosa trovi, ente per ente</h2>
+<h2 id="confronto">{ic("lista")}Cosa trovi negli esempi, ente per ente</h2>
 {tabella}
-<p class="small">Tutti e quattro gli esami hanno le stesse prove: ascolto, lettura, scrittura e orale. Quanto dura ogni prova: <a href="../esenzioni-e-domande/#prove">tabella dei tempi</a>.</p>
 </section>
-{"".join(schede)}
+<section>
+<h2 id="durata">{ic("orologio")}Durata e punteggio, in breve</h2>
+<p>Tutti e quattro gli esami hanno ascolto, lettura, scrittura e orale. Cambiano i tempi, il modo di contare i punti e cosa succede se non superi una parte.</p>
+{tab_breve}
+<p><a href="confronto/">{ic("lista")} I 4 esami a confronto, prova per prova: tipo di domande, parole da scrivere, orale</a></p>
+<div class="fonte">{ic("doc")}<span>Fonti: i documenti ufficiali citati in ogni pagina ente · durata da sillabi e descrizioni (somma dei tempi delle prove, se l'ente non dà il totale) · punteggi letti il {data_breve(RISULTATI["verificato_il"])}</span></div>
+</section>
 <div class="due">
 <section>
 <h2 id="esercitarti">{ic("ok")}Come esercitarti</h2>
@@ -1977,11 +2003,16 @@ def pagina_esempi():
 </div>
 {riquadro_preparati("../", gratis="#confronto")}
 <section>
+<h2 id="esonero">{ic("scudo")}Devi davvero fare l'esame?</h2>
+<p>Non tutti devono presentare il certificato B1 per la cittadinanza: per esempio chi ha il permesso di soggiorno UE per soggiornanti di lungo periodo o ha firmato l'accordo di integrazione.
+<a href="../esonero-test-italiano/">Chi è esonerato dal B1 e dal test A2 per la carta di soggiorno, con le fonti</a>.</p>
+</section>
+<section>
 <h2 id="uso">{ic("scudo")}Condizioni d'uso dei materiali</h2>
 <p>Le prove d'esempio si scaricano gratis dai siti degli enti per prepararsi all'esame, ma non sono materiali liberi:</p>
 <ul>{uso}<li><span><strong>CELI</strong>: sul sito del CVCL non abbiamo trovato una nota specifica; valgono le regole generali del diritto d'autore.</span></li></ul>
 <p>Se sei un insegnante e vuoi usarle in classe, condividi il link alla pagina ufficiale; per altri usi chiedi all'ente.</p>
-<div class="fonte">{ic("doc")}<span>Note lette il {verifica}.</span></div>
+<div class="fonte">{ic("doc")}<span>Note lette il 26 ottobre 2026.</span></div>
 </section>
 <section>
 <h2 id="domande">{ic("info")}Domande frequenti</h2>
@@ -1989,12 +2020,384 @@ def pagina_esempi():
 </section>
 <section>
 <h2>{ic("info")}Altre domande</h2>
-{link_guide("../", salta="esempi-esame-b1/")}
+{link_guide("../", salta="esempi/")}
 </section>"""
-    pagina("esempi-esame-b1/index.html",
-           titolo_pagina("Esempi esame B1 cittadinanza: prove ufficiali gratis, 4 enti"),
-           descrizione_pagina("Prove d'esempio ufficiali e gratuite dell'esame B1 per la cittadinanza (CILS, CELI 2 i, PLIDA, CERT.IT) con audio e "
-                              "soluzioni, e come esercitarti."), corpo, jsonld)
+    pagina("esempi/index.html",
+           titolo_pagina("Esempi esame B1 cittadinanza: prove ufficiali PDF e audio, 4 enti"),
+           descrizione_pagina("Prove d'esempio ufficiali e gratuite dell'esame B1 per la cittadinanza (CILS, CELI 2 i, PLIDA, CERT.IT) con PDF, audio e "
+                              "soluzioni. Durata e punteggio."), corpo, jsonld)
+
+
+def pagina_esempi_ente(e, prossime):
+    """/esempi/<ente>/: file ufficiali, struttura prova per prova, punteggio per superare, recupero, come usare l'esempio, date, domande."""
+    s = e["sigla"]
+    sl = SLUG_ENTE[s]
+    v = data_breve(esempi["verificato_il"])
+    en = ENTE[s]
+    t = RISULTATI["enti"][s]["tabella"]
+    voci = RISULTATI["enti"][s]["voci"]
+    totale = en["fatti"]["durata"]["prove"]["totale"]
+    nome_pagina = e["pagina"]["nome"].split(", ")[0]
+    formati = sorted({f["formato"] for f in e["file"]}, key=["PDF", "MP3", "ZIP"].index)
+    if e.get("link_diretti", True):
+        prima = (f"Secondo la pagina ufficiale «{escape(nome_pagina)}» ({escape(en['ente'])}), controllata il {v}, l'esempio d'esame del {escape(e['esame'])} "
+                 f"è gratis e si scarica senza registrazione: {len(e['file'])} file ({', '.join(formati)}).")
+    else:
+        prima = (f"Secondo la pagina ufficiale «{escape(nome_pagina)}» ({escape(en['ente'])}), controllata il {v}, l'esempio d'esame del {escape(e['esame'])} "
+                 "è gratis e si scarica in fondo a quella pagina: uno zip con 4 PDF e 3 file audio.")
+    breve = (f'<div class="fatti">'
+             f'<div class="fatto"><div class="f-et">{ic("orologio")}<span>Quanto dura</span></div><p><strong>{escape(totale[0].upper() + totale[1:])}</strong></p></div>'
+             f'<div class="fatto"><div class="f-et">{ic("ok")}<span>Per superare</span></div><p>{escape(t["superare"][0].upper() + t["superare"][1:])}</p></div>'
+             f'<div class="fatto"><div class="f-et">{ic("attenzione")}<span>Se non superi una parte</span></div><p>{escape(t["ripeti"])}</p></div></div>')
+    passi = "".join(
+        f'<li><div><strong>{escape(c["t"])}</strong><p>{escape(c["x"])}</p><div class="fonte">{ic("doc")}<span>Fonte: {link_fonti(c["fonti"])}</span></div></div></li>'
+        for c in e["come_usare"])
+    jsonld, faq_html = faq_html_e_jsonld(e["faq"])
+    altri = "".join(f'<a href="../{SLUG_ENTE[x]}/">Esempio {escape(x)}</a>' for x in ENTE if x != s)
+    titolo_file = "I file ufficiali" if e.get("link_diretti", True) else "Cosa trovi sulla pagina ufficiale"
+    corpo = f"""<section class="hero">
+{briciole(("EsameB1", "../../"), ("Prove d'esempio", "../"), (s, None))}
+<span class="occhiello">{ic("libro")}{escape(en["ente"])} · controllato il {v}</span>
+<h1>{escape(TITOLI_ESEMPI[s][1])}</h1>
+<p class="lead">{prima} Qui sotto trovi cosa c'è nei file, com'è fatto l'esame prova per prova e quanti punti servono per superarlo.</p>
+<div class="azioni"><a class="btn" href="{escape(e["pagina"]["url"])}" rel="noopener">{ic("freccia")}Pagina ufficiale {escape(s)}</a><a class="btn btn-2" href="#file">{ic("archivio")}{titolo_file}</a></div>
+</section>
+<section class="ris-sez" aria-label="In breve">{breve}</section>
+<section>
+<h2 id="file">{ic("archivio")}{titolo_file}</h2>
+<div class="es-card es-{s.replace(".", "")}">{blocco_file(e)}</div>
+</section>
+<section>
+<h2 id="prove">{ic("lista")}Com'è fatto l'esame {escape(e["esame"])}, prova per prova</h2>
+{tabella_struttura(e)}
+<p class="ris-nota">{escape(e["nota_prove"])} In tutto: {escape(totale)}.</p>
+<div class="fonte">{ic("doc")}<span>{"Fonte" if len(e["fonti_struttura"]) == 1 else "Fonti"}: {link_fonti(e["fonti_struttura"])} · controllato il {v}</span></div>
+</section>
+<section class="ris-sez">
+<h2 id="punteggio">{ic("ok")}Quanti punti servono per superare</h2>
+<p>{con_mail(escape(voci["punteggio"]["testo"]))}</p>
+{fonte_risultati(s, "punteggio")}
+</section>
+<section class="ris-sez">
+<h2 id="non-superato">{ic("attenzione")}Se non superi una parte</h2>
+<p>{con_mail(escape(voci["non_superato"]["testo"]))}</p>
+{fonte_risultati(s, "non_superato")}
+<p><a href="../../risultati/{SLUG_RISULTATI[s]}/">Risultati {escape(s)}: dove vederli e quando escono</a></p>
+</section>
+<section>
+<h2 id="come-usare">{ic("matita")}Come usare questo esempio</h2>
+<ol class="passi">{passi}</ol>
+</section>
+<div class="due">
+<section>
+<h2 id="date">{ic("cal")}Prossime date {escape(s)} (livello B1)</h2>
+{date_ente_html(prossime, s, "../../")}
+</section>
+<aside>{modulo()}</aside>
+</div>
+{riquadro_preparati("../../", gratis="#file")}
+<section>
+<h2 id="domande">{ic("info")}Domande frequenti sull'esempio {escape(s)}</h2>
+{faq_html}
+</section>
+<section>
+<h2>{ic("libro")}Esempi degli altri enti</h2>
+<div class="altre"><a href="../">Tutti gli esempi</a>{altri}<a href="../confronto/">I 4 esami a confronto</a><a href="../../esonero-test-italiano/">Chi è esonerato</a></div>
+<h2>{ic("info")}Altre domande</h2>
+{link_guide("../../", salta="esempi/")}
+</section>"""
+    n = len(e["file"])
+    sup = t["superare"]
+    descr = descrizione_pagina(
+        f"{e['esame']}: esempio d'esame ufficiale gratis ({n} file: {', '.join(formati)}), com'è fatta ogni prova, durata e punteggio per superare: {sup}.",
+        f"{e['esame']}: esempio d'esame ufficiale gratis ({', '.join(formati)}), com'è fatta ogni prova e punteggio per superare: {sup}.",
+        f"{e['esame']}: esempio d'esame ufficiale gratis, com'è fatta ogni prova, quanto dura e punteggio per superare: {sup}.",
+        f"{e['esame']}: esempio d'esame ufficiale gratis ({', '.join(formati)}), prove, durata, punteggio per superare e cosa fare se non superi.")
+    pagina(f"esempi/{sl}/index.html", titolo_pagina(TITOLI_ESEMPI[s][0]), descr, corpo, jsonld)
+
+
+def pagina_confronto(prossime):
+    """/esempi/confronto/: i 4 esami B1 a confronto (durata, prove, scrittura, orale, punteggio, recupero, costo, sedi)."""
+    v = data_breve(esempi["verificato_il"])
+    vr = data_breve(RISULTATI["verificato_il"])
+    righe_breve = []
+    for s in ENTE:
+        en = ENTE[s]
+        orale = next(p for p in ES[s]["prove"] if p["nome"] in ("Orale", "Parlare"))
+        p = prossima_di(prossime, [s])
+        prossimo = f'{data_breve(p["data"])}' if p else "nessuna data nuova pubblicata"
+        righe_breve.append(
+            f'<tr><td>{eb(s)}<strong>{escape(ES[s]["esame"])}</strong><br><a class="ris-guida" href="../{SLUG_ENTE[s]}/">Esempio {escape(s)} {ic("freccia")}</a></td>'
+            f'<td data-l="Quanto dura">{escape(en["fatti"]["durata"]["prove"]["totale"])}</td>'
+            f'<td data-l="Orale">{escape(orale["tempo"])}</td>'
+            f'<td data-l="Per superare">{escape(RISULTATI["enti"][s]["tabella"]["superare"])}</td>'
+            f'<td data-l="Se non superi una parte">{escape(RISULTATI["enti"][s]["tabella"]["ripeti"])}</td>'
+            f'<td data-l="Costo">{escape(en["fatti"]["costo"]["breve"])}</td>'
+            f'<td data-l="Prossima data B1">{escape(prossimo)}<br><span class="small">{sum(1 for x in sedi if x["ente"] == s)} sedi in Italia</span></td></tr>')
+    tab_breve = ('<div class="tab-wrap ris-tab"><table class="conf"><thead><tr><th scope="col">Esame</th><th scope="col">Quanto dura</th><th scope="col">Orale</th>'
+                 '<th scope="col">Per superare</th><th scope="col">Se non superi una parte</th><th scope="col">Costo</th><th scope="col">Prossima data B1</th></tr></thead>'
+                 f'<tbody>{"".join(righe_breve)}</tbody></table></div>')
+
+    def prova_di(s, *nomi):
+        p = next(x for x in ES[s]["prove"] if x["nome"].split(" (")[0] in nomi)
+        return f'{escape(p["cosa"])} <span class="small">({escape(p["tempo"])})</span>'
+    colonne = [("Ascolto", ("Ascolto", "Ascoltare")), ("Lettura", ("Lettura", "Lettura e grammatica", "Leggere")),
+               ("Scrittura", ("Scrittura", "Scrivere")), ("Orale", ("Orale", "Parlare"))]
+    righe_prove = "".join(
+        f'<tr><td>{eb(s)}<strong>{escape(ES[s]["esame"])}</strong></td>'
+        + "".join(f'<td data-l="{c}">{prova_di(s, *nomi)}</td>' for c, nomi in colonne) + "</tr>" for s in ENTE)
+    tab_prove = ('<div class="tab-wrap ris-tab cf-tab"><table class="conf"><thead><tr><th scope="col">Esame</th>'
+                 + "".join(f'<th scope="col">{c}</th>' for c, _ in colonne) + f'</tr></thead><tbody>{righe_prove}</tbody></table></div>')
+    fonti_tutte = " · ".join(f'{escape(s)}: {link_fonti(ES[s]["fonti_struttura"][:1])}' for s in ENTE)
+    citt = "".join(f'<li><span>{eb(s)} {escape(ENTE[s]["cittadinanza"])}</span></li>' for s in ENTE)
+    vade = esoneri["fonti"]["vademecum"]
+    faq = [
+        ("Qual è l'esame B1 più facile per la cittadinanza?",
+         "Nessun ente dice che il suo esame è più facile, e non lo diciamo noi. Gli esami sono diversi: CILS B1 Cittadinanza ha una sola email da scrivere ma non permette di rifare solo una parte; "
+         "PLIDA chiede 18 punti su 30 in ogni abilità e permette di recuperare le abilità non superate per 18 mesi; CELI 2 i ha un orale con domande di educazione civica; "
+         "CERT.IT a Roma Tre si fa al computer. Il modo migliore per scegliere è fare due prove d'esempio ufficiali e vedere dove vai meglio."),
+        ("Che differenza c'è tra CILS, CELI e PLIDA?",
+         "Tutti e tre hanno ascolto, lettura, scrittura e orale. Cambiano i tempi (CILS circa 2 ore, CELI 2 i 2 ore e 30 minuti, PLIDA circa 2 ore e 35 minuti), le prove di scrittura "
+         "(CILS un'email di 80-120 parole; CELI risposte brevi, un'email di 40-50 e un messaggio di 80-90; PLIDA due testi di 110-150 e 70-100), l'orale e le regole se non superi una parte."),
+        ("Quanto dura l'esame B1 per la cittadinanza?",
+         "Sommando i tempi delle prove scritti dagli enti: CERT.IT 1 ora e 40 minuti, CILS B1 Cittadinanza circa 2 ore, CELI 2 i 2 ore e 30 minuti (dato dell'ente), PLIDA B1 circa 2 ore e 35 minuti. "
+         "L'orale dura da 10 a 15 minuti e di solito si fa dopo lo scritto."),
+        ("Posso rifare solo la parte che non ho superato?",
+         "Dipende dall'ente. CILS B1 Cittadinanza: no, si rifà tutto l'esame. CELI: entro un anno rifai solo lo scritto o solo l'orale, pagando il 70% della tassa. "
+         "PLIDA: entro 18 mesi recuperi da 1 a 3 abilità, anche in un altro centro. CERT.IT: il sito non lo dice per il B1, chiedi alla sede."),
+        ("Per la cittadinanza vale qualunque dei 4 esami?",
+         "Il Vademecum del Ministero dell'Interno (aprile 2025) elenca come enti certificatori riconosciuti l'Università per Stranieri di Siena (CILS), l'Università per Stranieri di Perugia (CELI), "
+         "l'Università Roma Tre (CERT.IT), la Società Dante Alighieri (PLIDA) e l'Università per Stranieri «Dante Alighieri» di Reggio Calabria (che questo sito non tratta). Il certificato deve essere almeno di livello B1. Per il tuo caso chiedi alla Prefettura."),
+    ]
+    jsonld, faq_html = faq_html_e_jsonld(faq)
+    corpo = f"""<section class="hero">
+{briciole(("EsameB1", "../../"), ("Prove d'esempio", "../"), ("Confronto", None))}
+<span class="occhiello">{ic("lista")}Fonti ufficiali · controllato il {v}</span>
+<h1>CILS, CELI, PLIDA o CERT.IT: l'esame B1 per la cittadinanza a confronto</h1>
+<p class="lead">Secondo i documenti ufficiali dei 4 enti (sillabi, descrizioni dell'esame e pagine del livello B1, controllati il {v}), tutti e quattro gli esami hanno ascolto, lettura, scrittura e orale.
+Cambiano la durata, il tipo di domande, il punteggio per superare e cosa succede se non superi una parte.</p>
+</section>
+<section>
+<h2 id="in-breve">{ic("orologio")}In breve: durata, punteggio, recupero, costo</h2>
+{tab_breve}
+<div class="fonte">{ic("doc")}<span>Fonti: durata da sillabi e descrizioni ufficiali (somma dei tempi delle prove, se l'ente non dà il totale); punteggi e recupero dalle pagine e dai regolamenti degli enti, letti il {vr}; costo dalle pagine ufficiali (<a href="../../costo/">tutti i costi</a>); date e sedi dal nostro <a href="../../#date">calendario</a>.</span></div>
+</section>
+<section>
+<h2 id="prove">{ic("lista")}Prova per prova: cosa devi fare</h2>
+<p>Le stesse quattro abilità, ma domande diverse. Nel CELI 2 i lettura e scrittura si fanno insieme in 2 ore; nel CERT.IT ascolto, lettura e scrittura in 90 minuti in tutto.</p>
+{tab_prove}
+<div class="fonte">{ic("doc")}<span>Fonti: {fonti_tutte} · controllato il {v}</span></div>
+</section>
+<section>
+<h2 id="differenze">{ic("info")}Le differenze che contano</h2>
+<ul class="cifre" style="flex-direction:column;align-items:flex-start;gap:10px">
+<li>{ic("attenzione")}<span><strong>Se non superi una parte.</strong> CILS B1 Cittadinanza: rifai tutto. CELI: rifai solo lo scritto o solo l'orale entro un anno (70% della tassa). PLIDA: recuperi fino a 3 abilità entro 18 mesi, anche in un altro centro. CERT.IT: il sito non lo dice per il B1.</span></li>
+<li>{ic("matita")}<span><strong>Scrittura.</strong> CILS: un'email di 80-120 parole. CELI 2 i: 4 risposte brevi, un'email di 40-50 parole, un messaggio di 80-90. PLIDA: due testi di 110-150 e 70-100 parole. CERT.IT: due testi di 50-80 parole.</span></li>
+<li>{ic("voce")}<span><strong>Orale.</strong> CILS: presentazione e dialogo, circa 10 minuti. CELI 2 i: 5 compiti in 10-12 minuti, con domande di educazione civica. PLIDA: interazione (anche con un altro candidato) e monologo, circa 15 minuti. CERT.IT: intervista, simulazione di ruolo e monologo in 10 minuti.</span></li>
+<li>{ic("web")}<span><strong>Su carta o al computer.</strong> A Roma Tre lo scritto del CERT.IT B1 si fa al computer; negli esempi degli altri enti le risposte si scrivono sul foglio delle risposte.</span></li>
+</ul>
+<h3>Esame «cittadinanza» o B1 normale?</h3>
+<ul class="cifre" style="flex-direction:column;align-items:flex-start;gap:8px">{citt}</ul>
+</section>
+<section>
+<h2 id="scegliere">{ic("ok")}Come scegliere</h2>
+<p>Nessun ente scrive che il suo esame è più facile, e non lo diciamo noi. Per decidere guarda tre cose: <strong>la data</strong> (quale sessione arriva prima, con l'iscrizione ancora aperta),
+<strong>la sede</strong> (quale ente ha una sede vicino a te) e <strong>il tipo di prove</strong>: fai la prova d'esempio di due enti con i tempi veri e scegli quella in cui vai meglio.
+Il <a href="{escape(vade["url"])}" rel="noopener">Vademecum del Ministero dell'Interno</a> elenca gli enti certificatori riconosciuti: ci sono tutti e quattro, più l'Università per Stranieri «Dante Alighieri» di Reggio Calabria.</p>
+<div class="altre">{"".join(f'<a href="../{SLUG_ENTE[s]}/">Esempio {escape(s)}</a>' for s in ENTE)}<a href="../../#date">Tutte le date</a><a href="../../#citta">Sedi per città</a></div>
+</section>
+<div class="due">
+<section>
+<h2 id="domande">{ic("info")}Domande frequenti</h2>
+{faq_html}
+</section>
+<aside>{modulo()}</aside>
+</div>
+{riquadro_preparati("../../", gratis="../")}
+<section>
+<h2>{ic("info")}Altre domande</h2>
+{link_guide("../../", salta="esempi/confronto/")}
+</section>"""
+    pagina("esempi/confronto/index.html",
+           titolo_pagina("CILS, CELI, PLIDA o CERT.IT? Differenze dell'esame B1"),
+           descrizione_pagina("CILS, CELI, PLIDA e CERT.IT a confronto: durata dell'esame B1 per la cittadinanza, prove, orale, punteggio per superare, "
+                              "recupero e costo, con le fonti."), corpo, jsonld)
+
+
+def pagina_esonero():
+    """/esonero-test-italiano/: chi è esonerato dal certificato B1 per la cittadinanza e dal test A2 per il permesso UE di lungo periodo.
+    Solo regole lette nelle fonti ufficiali di dati/esoneri.json (frasi controllate da raccolta/esempi.py). Decide la Prefettura/Questura."""
+    F = esoneri["fonti"]
+    v = data_breve(esoneri["verificato_il"])
+
+    def a(chiave, testo=None):
+        return f'<a href="{escape(F[chiave]["url"])}" rel="noopener">{escape(testo or F[chiave]["nome"])}</a>'
+
+    def fonte(*chiavi):
+        return f'<div class="fonte">{ic("doc")}<span>{"Fonte" if len(chiavi) == 1 else "Fonti"}: {" · ".join(a(k) for k in chiavi)} · {"letta" if len(chiavi) == 1 else "lette"} il {v}</span></div>'
+
+    def scheda(icona, titolo, testo, *chiavi):
+        return (f'<div class="fatto"><div class="f-et">{ic(icona)}<span>{titolo}</span></div><p>{testo}</p>{fonte(*chiavi)}</div>')
+
+    citt = '<div class="fatti">' + scheda(
+        "ok", "Chi ha firmato l'accordo di integrazione",
+        "È escluso dall'obbligo chi ha sottoscritto l'accordo di integrazione (art. 4-bis del Testo unico sull'immigrazione). Il Vademecum del Ministero precisa: "
+        "sono le persone entrate in Italia con il ricongiungimento o la coesione familiare, che lo dimostrano con l'attestazione della Prefettura (Sportello unico) "
+        "e scrivono nella domanda gli estremi dell'accordo.", "legge91", "vademecum") + scheda(
+        "ok", "Chi ha il permesso UE per soggiornanti di lungo periodo",
+        "È escluso chi ha il permesso di soggiorno UE per soggiornanti di lungo periodo (la «carta di soggiorno»). Secondo il Vademecum vale anche il vecchio permesso «CE» "
+        "per soggiornanti di lungo periodo, se rilasciato dal 9 dicembre 2010, quando è entrato in vigore il test di italiano.", "legge91", "vademecum") + scheda(
+        "info", "Chi ha gravi limitazioni nell'imparare la lingua",
+        "Con la sentenza n. 25 del 2025 la Corte costituzionale ha esonerato chi ha gravi limitazioni alla capacità di imparare la lingua per l'età, per malattie o per disabilità. "
+        "Serve un certificato di una <strong>struttura sanitaria pubblica</strong>: secondo il Ministero non basta il certificato del medico di base. "
+        "Chi vive in Italia e ha un certificato medico straniero deve aggiungere quello di una struttura sanitaria pubblica italiana; chi vive all'estero presenta il certificato "
+        "straniero tradotto e legalizzato.", "corte25", "circ14605", "vademecum") + scheda(
+        "doc", "Al posto del certificato: un titolo di studio in italiano",
+        "Chi non è esonerato può presentare, al posto del certificato B1, un titolo di studio di un istituto pubblico o paritario riconosciuto, dalla scuola secondaria di primo grado "
+        "(la scuola media) in su, preso <strong>in lingua italiana</strong>. Se il titolo viene da un ente pubblico basta l'autocertificazione con gli estremi; se viene da un istituto "
+        "paritario o privato serve una copia autenticata.", "legge91", "vademecum") + "</div>"
+
+    devono = f"""<ul class="cifre" style="flex-direction:column;align-items:flex-start;gap:8px">
+<li>{ic("attenzione")}<span>i <strong>cittadini dell'Unione europea</strong>;</span></li>
+<li>{ic("attenzione")}<span>chi ha la <strong>carta di soggiorno per familiare</strong> o coniuge di cittadino italiano o dell'Unione: non è il permesso UE per soggiornanti di lungo periodo;</span></li>
+<li>{ic("attenzione")}<span>i cittadini britannici e i loro familiari con la carta di soggiorno dell'Accordo di recesso («Brexit»).</span></li>
+</ul>"""
+
+    a2_non = '<div class="fatti">' + scheda(
+        "ok", "Figli sotto i 14 anni",
+        "Il decreto non si applica ai figli minori di 14 anni, anche nati fuori dal matrimonio, del richiedente e del coniuge.", "dm2021") + scheda(
+        "info", "Gravi limitazioni certificate",
+        "Non fa il test chi ha gravi limitazioni nell'imparare la lingua per età, malattie o handicap, con certificato di una struttura sanitaria pubblica, "
+        "da allegare alla domanda di permesso.", "dm2021") + scheda(
+        "doc", "Chi ha già un certificato almeno A2",
+        "Un certificato di livello A2 o superiore di un ente riconosciuto: l'allegato A del decreto elenca Università Roma Tre (CERT.IT), Università per Stranieri di Perugia (CELI), "
+        "Università per Stranieri di Siena (CILS), Società Dante Alighieri (PLIDA) e Università per Stranieri «Dante Alighieri» di Reggio Calabria. "
+        "Quindi anche il certificato B1 fatto per la cittadinanza.", "dm2021") + scheda(
+        "doc", "Corso al CPIA o accordo di integrazione con livello A2",
+        "Chi ha fatto un corso di italiano in un CPIA (Centro provinciale per l'istruzione degli adulti) e ha un titolo finale almeno A2; "
+        "chi ha avuto riconosciuto il livello A2 nei crediti dell'accordo di integrazione.", "dm2021") + scheda(
+        "doc", "Diploma o università in Italia",
+        "Chi ha il diploma di scuola secondaria di primo o secondo grado (scuola media o superiore) di una scuola italiana o di un CPIA, "
+        "chi è iscritto a un'università italiana, o fa in Italia un dottorato o un master universitario.", "dm2021") + scheda(
+        "doc", "Alcuni lavoratori",
+        "Chi è entrato in Italia ed è dirigente o lavoratore altamente qualificato, professore universitario o ricercatore, traduttore o interprete, "
+        "giornalista accreditato (art. 27, comma 1, lettere a, c, d e q del Testo unico).", "dm2021", "minint_test") + scheda(
+        "scudo", "Protezione internazionale e ricerca",
+        "Secondo l'art. 9 del Testo unico il test non si applica a chi ha la protezione internazionale e non è richiesto per il permesso rilasciato per attività di ricerca "
+        "presso università ed enti vigilati dal Ministero dell'Università.", "tu9") + "</div>"
+
+    righe = [
+        ("Accordo di integrazione firmato", "Esonerato", "Fa il test, salvo livello A2 riconosciuto nei crediti dell'accordo"),
+        ("Permesso UE per soggiornanti di lungo periodo", "Esonerato", "Non serve: è il permesso che già hai"),
+        ("Gravi limitazioni certificate da una struttura sanitaria pubblica", "Esonerato", "Esonerato"),
+        ("Certificato di italiano A2 di un ente riconosciuto", "Non basta: serve almeno B1", "Non fa il test"),
+        ("Certificato B1 di un ente riconosciuto", "Vale", "Non fa il test"),
+        ("Diploma di scuola media o superiore italiana", "Vale al posto del certificato (titolo in italiano)", "Non fa il test"),
+        ("Figlio sotto i 14 anni", "Non trattato nelle fonti lette", "Non fa il test"),
+        ("Cittadino dell'Unione europea o familiare con carta di soggiorno per familiare", "Deve avere il B1", "Non trattato nelle fonti lette"),
+    ]
+    tab = ('<div class="tab-wrap ris-tab"><table class="conf"><thead><tr><th scope="col">Il tuo caso</th><th scope="col">Cittadinanza (certificato B1)</th>'
+           '<th scope="col">Carta di soggiorno (test A2)</th></tr></thead><tbody>'
+           + "".join(f'<tr><td><strong>{escape(c)}</strong></td><td data-l="Cittadinanza (B1)">{escape(b1)}</td><td data-l="Carta di soggiorno (A2)">{escape(a2)}</td></tr>'
+                     for c, b1, a2 in righe) + "</tbody></table></div>")
+
+    faq = [
+        ("Chi è esonerato dall'esame B1 per la cittadinanza?",
+         "Secondo l'art. 9.1 della legge 91/1992 e il Vademecum del Ministero dell'Interno: chi ha firmato l'accordo di integrazione, chi ha il permesso di soggiorno UE per soggiornanti "
+         "di lungo periodo (anche il vecchio permesso CE rilasciato dal 9 dicembre 2010) e, dal 2025, chi ha gravi limitazioni nell'imparare la lingua certificate da una struttura sanitaria pubblica. "
+         "Al posto del certificato vale un titolo di studio in italiano di una scuola pubblica o paritaria, dalla scuola media in su. Decide la Prefettura."),
+        ("Ho la carta di soggiorno: devo fare l'esame B1 per la cittadinanza?",
+         "Se la tua carta è il permesso di soggiorno UE per soggiornanti di lungo periodo, la legge ti esclude dall'obbligo del certificato. Non vale per la carta di soggiorno per familiare "
+         "di cittadino italiano o dell'Unione: in quel caso il Ministero chiede il B1."),
+        ("Con un certificato medico posso non fare l'esame B1?",
+         "Sì, se il certificato è di una struttura sanitaria pubblica e attesta gravi limitazioni nell'imparare la lingua per età, malattie o disabilità (sentenza n. 25/2025 della Corte costituzionale). "
+         "Il Ministero dell'Interno (circolare n. 14605 del 13 marzo 2025) scrive che non basta il certificato del medico di base."),
+        ("Ho un diploma italiano: devo fare l'esame B1?",
+         "No, se è un titolo di una scuola pubblica o paritaria, dalla scuola media in su, preso in lingua italiana: vale al posto del certificato. Per un titolo di un ente pubblico basta "
+         "l'autocertificazione; per un istituto paritario o privato serve la copia autenticata."),
+        ("Chi non deve fare il test di italiano A2 per la carta di soggiorno?",
+         "Secondo il decreto del Ministro dell'Interno del 7 dicembre 2021: i figli sotto i 14 anni, chi ha gravi limitazioni certificate da una struttura sanitaria pubblica, chi ha un certificato "
+         "almeno A2 di un ente riconosciuto, chi ha un titolo A2 di un corso al CPIA o il livello A2 nei crediti dell'accordo di integrazione, chi ha un diploma di scuola media o superiore italiana "
+         "o studia in un'università italiana, e alcuni lavoratori entrati con l'art. 27 del Testo unico. Il Testo unico esclude anche chi ha la protezione internazionale."),
+        ("Il certificato B1 vale anche per la carta di soggiorno?",
+         "Sì: il decreto del 7 dicembre 2021 esonera dal test chi ha un certificato di livello almeno A2 di uno degli enti dell'allegato A (Roma Tre, Stranieri di Perugia, Stranieri di Siena, "
+         "Società Dante Alighieri, Stranieri «Dante Alighieri» di Reggio Calabria). Il certificato si allega in copia autentica."),
+        ("Se non supero il test A2, quando posso rifarlo?",
+         "Il Ministero dell'Interno scrive che puoi chiedere di ripetere il test con la stessa procedura online, ma solo dopo 90 giorni dalla data dell'esame precedente."),
+    ]
+    jsonld, faq_html = faq_html_e_jsonld(faq)
+    corpo = f"""<section class="hero">
+{briciole(("EsameB1", "../"), ("Chi è esonerato", None))}
+<span class="occhiello">{ic("scudo")}Legge, decreti e Ministero · letti il {v}</span>
+<h1>Chi è esonerato dal test di italiano: cittadinanza (B1) e carta di soggiorno (A2)</h1>
+<p class="lead">Secondo l'art. 9.1 della legge 91/1992 (testo in vigore letto su Normattiva il {v}) e il Vademecum del Ministero dell'Interno (circolare n. 20475 del 23 aprile 2025),
+per la cittadinanza non deve presentare il certificato B1 chi ha firmato l'accordo di integrazione, chi ha il permesso UE per soggiornanti di lungo periodo e chi ha gravi limitazioni certificate
+da una struttura sanitaria pubblica. Per la carta di soggiorno il test A2 della Prefettura non serve, per esempio, a chi ha già un certificato almeno A2 o un diploma italiano (decreto del Ministro dell'Interno 7 dicembre 2021).</p>
+<nav class="es-vai" aria-label="Vai alla sezione"><a href="#cittadinanza"><span class="ri"><strong>Cittadinanza</strong>{ic("giu")}</span><span>Esame B1</span><small>chi è esonerato, titolo di studio</small></a>
+<a href="#carta-di-soggiorno"><span class="ri"><strong>Carta di soggiorno</strong>{ic("giu")}</span><span>Test A2 della Prefettura</span><small>chi non lo fa, come funziona</small></a></nav>
+</section>
+{avviso("Questa pagina riassume le regole scritte nelle fonti ufficiali, ma <strong>decide sempre l'ufficio</strong>: la Prefettura per la cittadinanza, la Questura per il permesso UE di lungo periodo. Questo sito non dà consulenza: per il tuo caso chiedi a loro o a un patronato.")}
+<section>
+<h2 id="riepilogo">{ic("lista")}Riepilogo: il tuo caso</h2>
+{tab}
+<div class="fonte">{ic("doc")}<span>Fonti: {a("legge91")} · {a("vademecum")} · {a("dm2021")} · lette il {v}. Le righe sono spiegate più sotto, con le fonti di ogni regola.</span></div>
+</section>
+<div class="due">
+<section>
+<h2 id="cittadinanza">{ic("scudo")}Cittadinanza: chi non deve presentare il certificato B1</h2>
+<p>Dal 4 dicembre 2018 chi chiede la cittadinanza per matrimonio o per residenza (articoli 5 e 9 della legge 91/1992) deve avere una conoscenza dell'italiano almeno di livello B1.
+La legge e il Ministero dell'Interno escludono questi casi:</p>
+{citt}
+<h3>Chi deve avere comunque il B1</h3>
+<p>Secondo il Vademecum del Ministero restano obbligati:</p>
+{devono}
+<h3>Quali certificati valgono</h3>
+<p>Un certificato almeno B1 di un ente certificatore riconosciuto. Il Vademecum elenca: Università per Stranieri di Siena (CILS), Università per Stranieri di Perugia (CELI),
+Università Roma Tre (CERT.IT), Società Dante Alighieri (PLIDA) e Università per Stranieri «Dante Alighieri» di Reggio Calabria. Il certificato si può prendere anche nei CPIA.
+<strong>Non valgono</strong> i certificati dei corsi di qualificazione professionale regionali.</p>
+{fonte("vademecum", "domanda")}
+<p><a href="../#date">Date dell'esame B1</a> · <a href="../esempi/">Prove d'esempio ufficiali</a> · <a href="../esempi/confronto/">I 4 esami a confronto</a></p>
+</section>
+<aside>{modulo()}</aside>
+</div>
+<section>
+<h2 id="carta-di-soggiorno">{ic("doc")}Carta di soggiorno: il test di italiano A2</h2>
+<p>Per avere il permesso di soggiorno UE per soggiornanti di lungo periodo (la «carta di soggiorno») bisogna superare un test di conoscenza dell'italiano (art. 9, comma 2-bis, del Testo unico).
+Il livello richiesto è l'<strong>A2</strong>: capire frasi ed espressioni di uso frequente. Le regole sono nel decreto del Ministro dell'Interno del 7 dicembre 2021, che ha sostituito
+il decreto del 4 giugno 2010 (alcune pagine di Prefetture e del Ministero citano ancora quello del 2010: i casi di esonero sono scritti allo stesso modo).</p>
+{fonte("tu9", "dm2021")}
+<h3>Come funziona il test</h3>
+<ol class="passi">
+<li><span>Fai la domanda online alla Prefettura della provincia dove abiti, sul {a("portale", "Portale Servizi del Ministero dell'Interno")}.</span></li>
+<li><span>La Prefettura ti convoca entro 60 giorni, con giorno, ora e luogo.</span></li>
+<li><span>Il test si fa al computer; se lo chiedi, su carta. Controlla che tu capisca brevi testi e sappia interagire. Per esempio la Prefettura di Lecco descrive tre prove: comprensione orale (25 minuti), comprensione scritta (25 minuti) e interazione scritta (10 minuti).</span></li>
+<li><span>Per superarlo serve almeno l'<strong>80%</strong> del punteggio. Il risultato va alla Questura, che rilascia il permesso se ci sono gli altri requisiti.</span></li>
+<li><span>Se non lo superi puoi rifarlo con una nuova domanda: secondo il Ministero solo dopo 90 giorni dall'esame precedente.</span></li>
+</ol>
+{fonte("dm2021", "minint_test", "lecco")}
+<h3 id="a2-esonero">Chi non fa il test A2</h3>
+{a2_non}
+<p class="ris-nota">Con il certificato, il titolo del CPIA o il diploma alleghi alla domanda di permesso una copia autentica; per l'accordo di integrazione o il lavoro dell'art. 27 basta una dichiarazione.
+Dal 2025 il Ministero dell'Università tiene un elenco degli enti certificatori: i cinque enti del decreto sono inseriti per un anno, poi controllati ({a("mur959", "decreto n. 959 del 14 novembre 2025")}).</p>
+</section>
+<section>
+<h2 id="due-usi">{ic("ok")}Un certificato, due usi</h2>
+<p>Chi ha il permesso UE per soggiornanti di lungo periodo è esonerato dal B1 per la cittadinanza. E chi ha già un certificato B1 di un ente riconosciuto non deve fare il test A2 per la carta di soggiorno:
+il decreto chiede un certificato «non inferiore» all'A2.</p>
+{fonte("legge91", "dm2021")}
+</section>
+<section>
+<h2 id="domande">{ic("info")}Domande frequenti</h2>
+{faq_html}
+</section>
+<section>
+<h2>{ic("info")}Altre domande</h2>
+{link_guide("../", salta="esonero-test-italiano/")}
+</section>"""
+    pagina("esonero-test-italiano/index.html",
+           titolo_pagina("Esonero test di italiano: cittadinanza B1 e carta di soggiorno"),
+           descrizione_pagina("Chi non deve fare l'esame B1 per la cittadinanza o il test A2 per la carta di soggiorno: accordo di integrazione, permesso UE, "
+                              "certificato medico, diploma."), corpo, jsonld)
 
 
 # ---------------------------------------------------------------- reddito per il ricongiungimento familiare (dal 30/10/2026)
@@ -2194,7 +2597,7 @@ Quando uscirà l'importo {anno + 1} <strong>aggiorneremo la pagina</strong> con 
 <section>
 <h2 id="esame">{ic("scudo")}E l'esame di italiano?</h2>
 <p>Questa pagina riguarda il reddito per il ricongiungimento. Se un giorno chiederai la <strong>cittadinanza italiana</strong>, servirà un certificato di italiano
-almeno B1 (con alcune esenzioni): <a href="../esenzioni-e-domande/">chi è esente e com'è l'esame</a>, <a href="../#date">tutte le date d'esame</a>, <a href="../#citta">sedi per città</a>.</p>
+almeno B1 (con alcune esenzioni): <a href="../esonero-test-italiano/">chi è esonerato</a>, <a href="../#date">tutte le date d'esame</a>, <a href="../#citta">sedi per città</a>.</p>
 </section>
 <aside>{modulo()}</aside>
 </div>"""
@@ -2231,6 +2634,19 @@ def extra(urls):
   command = ""
   # Pubblica solo se è cambiato qualcosa in esameb1/sito (ogni pubblicazione consuma crediti Netlify).
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ."
+
+# La pagina delle prove d'esempio è diventata la sezione /esempi/ (31/10/2026): il vecchio indirizzo resta valido.
+[[redirects]]
+  from = "/esempi-esame-b1"
+  to = "/esempi/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/esempi-esame-b1/*"
+  to = "/esempi/"
+  status = 301
+  force = true
 
 [[headers]]
   for = "/*"
@@ -2298,8 +2714,15 @@ def main():
         urls.append(f"risultati/{SLUG_RISULTATI[e['sigla']]}/")
     pagina_esenzioni()
     urls.append("esenzioni-e-domande/")
-    pagina_esempi()
-    urls.append("esempi-esame-b1/")
+    pagina_esempi(prossime)
+    urls.append("esempi/")
+    for e in esempi["enti"]:
+        pagina_esempi_ente(e, prossime)
+        urls.append(f"esempi/{SLUG_ENTE[e['sigla']]}/")
+    pagina_confronto(prossime)
+    urls.append("esempi/confronto/")
+    pagina_esonero()
+    urls.append("esonero-test-italiano/")
     pagina_ricongiungimento()
     urls.append("reddito-ricongiungimento-familiare/")
     privacy()
