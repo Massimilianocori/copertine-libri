@@ -20,7 +20,7 @@ per il confronto "sopra/sotto la soglia").
 | `dati/cambi.json` | cambi BCE di riserva, scritti nelle pagine alla generazione (`raccolta/cambi.py`) |
 | `dati/affiliati.json` | riquadro affiliati: compare solo quando un URL è compilato |
 | `raccolta/cambi.py` | scarica `eurofxref-daily.xml` della BCE; se qualcosa non va non tocca il file |
-| `verifica.py` | esempi a mano, confronto JS/Python, link, fonti sotto la cifra, parole vietate, sezione visti rifiutati (controllo 7; `--offline` salta i link esterni), pagine "easiest" e visti UK studio/lavoro (controllo 8), Australia/Nuova Zelanda/Canada (controllo 11), visti Schengen a ingressi multipli (controllo 15), Schengen visa from the UK / from Dubai (controllo 24) |
+| `verifica.py` | esempi a mano, confronto JS/Python, link, fonti sotto la cifra, parole vietate, sezione visti rifiutati (controllo 7; `--offline` salta i link esterni), pagine "easiest" e visti UK studio/lavoro (controllo 8), Australia/Nuova Zelanda/Canada (controllo 11), visti Schengen a ingressi multipli (controllo 15), Schengen visa from the UK / from Dubai (controllo 24), esperimento delle pagine citabili (controllo 25) |
 | `raccolta/rifiuti.py` | scarica e legge i file ufficiali sui visti rifiutati (Commissione Europea, Home Office) e scrive `dati/rifiuti.json`; i file grezzi vanno in `raccolta/_grezzi/` (esclusi da git) |
 | `dati/rifiuti.json` | dati della sezione "Visa refusal rates" (generato, non modificare a mano); dal 30/10/2026 ogni riga Schengen ha un 8° elemento: visti a ingressi multipli (MEV) rilasciati |
 | `raccolta/rifiuti_altri.py` | dal 26/10/2026: scarica e legge i file ufficiali di Australia (Home Affairs), Nuova Zelanda (INZ) e Canada (IRCC) e scrive `dati/rifiuti_altri.json` |
@@ -44,6 +44,7 @@ per il confronto "sopra/sotto la soglia").
 | `raccolta/schengen_residenti.py` | dal 31/10/2026: rilegge pagina della Commissione "Applying for a Schengen visa", Codice dei visti (testo consolidato dal Publications Office), tabella degli importi di riferimento, tabelle CBUAE (ancoraggio AED/USD) e 8 pagine ufficiali di ambasciate (fornitori); controlla i frammenti; scrive `dati/schengen_residenti.json`; `--domanda` rifà l'autocompletamento (gl=gb, ae) |
 | `dati/schengen_residenti.json` | sezione "Schengen visa from the UK / from Dubai": tassa, copertura, tempi, regole con frammento, importi di riferimento di 28 Stati, fornitori letti, ancoraggio, 13 fonti (HTTP, SHA-256), domanda, impronta (generato) |
 | `dati/lastmod.json` | registro scritto da `genera.py`: per ogni URL la data dell'ultima modifica del contenuto e la sua impronta (serve al `lastmod` della sitemap) |
+| `raccolta/esperimento_citazioni.py` + `dati/esperimento_citazioni.json` | dal 31/10/2026: esperimento A/B sulle pagine Paese dei rifiuti (`assegna` fatto una volta, `misura`, `impronte`); il JSON tiene coppie, gruppi, linea di base e impronte delle pagine di controllo (scritto dallo script, non a mano) |
 
 ## Cambi automatici
 
@@ -711,3 +712,10 @@ Impronta del JSON; valori ufficiali attesi (90/45/30.000/3,6725); pagine attese 
 - **A ogni rigenerazione** rilanciare prima `raccolta/cambi.py` se si vuole il cambio del giorno; ogni 3 mesi `raccolta/schengen_residenti.py` (tabella degli importi di riferimento: la Commissione la aggiorna quando uno Stato notifica un cambio; nuove tabelle mensili CBUAE: aggiornare gli URL in `FONTI`).
 - Misura: a 30 giorni visite a `/schengen-visa-from-uk/` e `/schengen-visa-from-dubai/` (GoatCounter) e impressioni su "schengen visa from uk", "<stato> visa from uk", "schengen visa from dubai" (Search Console); la vecchia pagina UK aveva 0 visite.
 
+## 31/10/2026 — Esperimento "pagine più facili da citare" (A/B sulle pagine Paese dei rifiuti)
+
+Piano, coppie, metrica, soglia e date: `studio-business/intelaiatura/esperimento-citazioni-2026-10-31.md`.
+- 72 pagine Paese di `/visa-refusal-rates/` (escluse `united-kingdom` e `united-arab-emirates`, cambiate oggi per la sezione Schengen dal Regno Unito/Dubai) in 36 coppie simili per visite GoatCounter 17-31/10 e domande 2025; in ogni coppia una trattata scelta con seme fisso 20261031 (`raccolta/esperimento_citazioni.py assegna`, gruppi in `dati/esperimento_citazioni.json`).
+- Solo le 36 trattate: "Updated on <data>" sotto il titolo (data del registro lastmod: segnaposto nella pagina, impronta calcolata sul segnaposto, sostituito in `extra()` dopo `date_lastmod()`), `dateModified` in `WebPage` e `Dataset` (nessun `datePublished`: non c'era), riquadro "Key figures" in cima (4 frasi con domande, tasso non rilasciati, visti rilasciati, confronto con l'anno prima; fonte con link e data; licenza), `data.csv` della pagina e schema `Dataset` CC BY 4.0 (avviso legale della Commissione letto il 31/10/2026, Decisione 2011/833/UE), CSS solo in quelle pagine (`pagina(css_extra=…)`).
+- Le 36 di controllo restano identiche byte per byte (confronto prima/dopo del 31/10; impronte nel JSON). Controllo 25 in `verifica.py`.
+- **Durante l'esperimento (fino al 28/12/2026)** non cambiare le pagine Paese dei rifiuti; dopo un aggiornamento dei dati voluto: `python3 visaincome/raccolta/esperimento_citazioni.py impronte --motivo "..."` e una riga nel piano.

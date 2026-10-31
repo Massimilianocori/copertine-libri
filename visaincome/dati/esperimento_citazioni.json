@@ -1,0 +1,962 @@
+{
+ "_nota": "Esperimento A/B sulle pagine Paese di /visa-refusal-rates/ (31/10/2026). Scritto da raccolta/esperimento_citazioni.py assegna: non modificare a mano. Piano, metrica e soglia: studio-business/intelaiatura/esperimento-citazioni-2026-10-31.md.",
+ "creato_il": "2026-10-31",
+ "seme": 20261031,
+ "metodo": "pagine ordinate per visite dall'assistente misurato, poi visite totali, poi domande di visto dell'ultimo anno, poi slug; coppie di pagine vicine; in ogni coppia random.Random(seme).random() < 0.5 sceglie la prima pagina come trattata, altrimenti la seconda",
+ "linea_base": {
+  "fonte": "GoatCounter stats/hits e stats/hits/{id}",
+  "dal": "2026-10-17",
+  "al": "2026-10-31"
+ },
+ "escluse": {
+  "united-kingdom": "pagina cambiata il 31/10/2026 per la sezione Schengen visa from the UK (titolo e primo paragrafo)",
+  "united-arab-emirates": "pagina cambiata il 31/10/2026 per la sezione Schengen visa from Dubai (titolo e primo paragrafo)"
+ },
+ "pagine": {
+  "china": {
+   "nome": "China",
+   "domande": 1915149,
+   "visite": 1,
+   "visite_assistente": 1
+  },
+  "turkiye": {
+   "nome": "Türkiye",
+   "domande": 1268376,
+   "visite": 4,
+   "visite_assistente": 4
+  },
+  "india": {
+   "nome": "India",
+   "domande": 1153748,
+   "visite": 4,
+   "visite_assistente": 3
+  },
+  "russia": {
+   "nome": "Russia",
+   "domande": 679425,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "morocco": {
+   "nome": "Morocco",
+   "domande": 619827,
+   "visite": 3,
+   "visite_assistente": 3
+  },
+  "saudi-arabia": {
+   "nome": "Saudi Arabia",
+   "domande": 553967,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "algeria": {
+   "nome": "Algeria",
+   "domande": 444577,
+   "visite": 2,
+   "visite_assistente": 2
+  },
+  "thailand": {
+   "nome": "Thailand",
+   "domande": 264190,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "philippines": {
+   "nome": "Philippines",
+   "domande": 235674,
+   "visite": 4,
+   "visite_assistente": 3
+  },
+  "egypt": {
+   "nome": "Egypt",
+   "domande": 226865,
+   "visite": 1,
+   "visite_assistente": 1
+  },
+  "indonesia": {
+   "nome": "Indonesia",
+   "domande": 223862,
+   "visite": 1,
+   "visite_assistente": 1
+  },
+  "south-africa": {
+   "nome": "South Africa",
+   "domande": 195946,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "tunisia": {
+   "nome": "Tunisia",
+   "domande": 188579,
+   "visite": 5,
+   "visite_assistente": 5
+  },
+  "united-states": {
+   "nome": "United States",
+   "domande": 187033,
+   "visite": 1,
+   "visite_assistente": 1
+  },
+  "kazakhstan": {
+   "nome": "Kazakhstan",
+   "domande": 182002,
+   "visite": 1,
+   "visite_assistente": 0
+  },
+  "belarus": {
+   "nome": "Belarus",
+   "domande": 157028,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "kuwait": {
+   "nome": "Kuwait",
+   "domande": 146194,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "lebanon": {
+   "nome": "Lebanon",
+   "domande": 120364,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "vietnam": {
+   "nome": "Vietnam",
+   "domande": 116289,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "nigeria": {
+   "nome": "Nigeria",
+   "domande": 113359,
+   "visite": 4,
+   "visite_assistente": 4
+  },
+  "armenia": {
+   "nome": "Armenia",
+   "domande": 111550,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "iran": {
+   "nome": "Iran",
+   "domande": 107512,
+   "visite": 4,
+   "visite_assistente": 4
+  },
+  "ecuador": {
+   "nome": "Ecuador",
+   "domande": 106167,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "azerbaijan": {
+   "nome": "Azerbaijan",
+   "domande": 104143,
+   "visite": 2,
+   "visite_assistente": 2
+  },
+  "qatar": {
+   "nome": "Qatar",
+   "domande": 102930,
+   "visite": 2,
+   "visite_assistente": 1
+  },
+  "pakistan": {
+   "nome": "Pakistan",
+   "domande": 89270,
+   "visite": 18,
+   "visite_assistente": 16
+  },
+  "cote-d-ivoire": {
+   "nome": "Côte d'Ivoire",
+   "domande": 81886,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "kenya": {
+   "nome": "Kenya",
+   "domande": 77760,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "jordan": {
+   "nome": "Jordan",
+   "domande": 73264,
+   "visite": 1,
+   "visite_assistente": 1
+  },
+  "angola": {
+   "nome": "Angola",
+   "domande": 72766,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "senegal": {
+   "nome": "Senegal",
+   "domande": 71923,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "iraq": {
+   "nome": "Iraq",
+   "domande": 70312,
+   "visite": 6,
+   "visite_assistente": 5
+  },
+  "ghana": {
+   "nome": "Ghana",
+   "domande": 63725,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "uzbekistan": {
+   "nome": "Uzbekistan",
+   "domande": 61328,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "cameroon": {
+   "nome": "Cameroon",
+   "domande": 57469,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "oman": {
+   "nome": "Oman",
+   "domande": 53700,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "dominican-republic": {
+   "nome": "Dominican Republic",
+   "domande": 52063,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "dr-congo": {
+   "nome": "DR Congo",
+   "domande": 52048,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "canada": {
+   "nome": "Canada",
+   "domande": 43982,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "libya": {
+   "nome": "Libya",
+   "domande": 43701,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "singapore": {
+   "nome": "Singapore",
+   "domande": 39226,
+   "visite": 1,
+   "visite_assistente": 0
+  },
+  "bangladesh": {
+   "nome": "Bangladesh",
+   "domande": 38642,
+   "visite": 5,
+   "visite_assistente": 5
+  },
+  "cuba": {
+   "nome": "Cuba",
+   "domande": 38585,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "israel": {
+   "nome": "Israel",
+   "domande": 31500,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "kyrgyzstan": {
+   "nome": "Kyrgyzstan",
+   "domande": 30843,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "ireland": {
+   "nome": "Ireland",
+   "domande": 30696,
+   "visite": 1,
+   "visite_assistente": 1
+  },
+  "cape-verde": {
+   "nome": "Cape Verde",
+   "domande": 27598,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "ethiopia": {
+   "nome": "Ethiopia",
+   "domande": 26166,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "republic-of-the-congo": {
+   "nome": "Republic of the Congo",
+   "domande": 25693,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "sri-lanka": {
+   "nome": "Sri Lanka",
+   "domande": 25663,
+   "visite": 1,
+   "visite_assistente": 1
+  },
+  "mauritania": {
+   "nome": "Mauritania",
+   "domande": 25265,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "bahrain": {
+   "nome": "Bahrain",
+   "domande": 25110,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "guinea": {
+   "nome": "Guinea",
+   "domande": 22335,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "mongolia": {
+   "nome": "Mongolia",
+   "domande": 21997,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "mozambique": {
+   "nome": "Mozambique",
+   "domande": 21695,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "suriname": {
+   "nome": "Suriname",
+   "domande": 21281,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "uganda": {
+   "nome": "Uganda",
+   "domande": 20691,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "serbia": {
+   "nome": "Serbia",
+   "domande": 19656,
+   "visite": 1,
+   "visite_assistente": 1
+  },
+  "australia": {
+   "nome": "Australia",
+   "domande": 19163,
+   "visite": 1,
+   "visite_assistente": 0
+  },
+  "gabon": {
+   "nome": "Gabon",
+   "domande": 17270,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "madagascar": {
+   "nome": "Madagascar",
+   "domande": 16489,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "japan": {
+   "nome": "Japan",
+   "domande": 16369,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "bolivia": {
+   "nome": "Bolivia",
+   "domande": 16230,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "tanzania": {
+   "nome": "Tanzania",
+   "domande": 16227,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "hong-kong": {
+   "nome": "Hong Kong",
+   "domande": 15954,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "benin": {
+   "nome": "Benin",
+   "domande": 15364,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "cambodia": {
+   "nome": "Cambodia",
+   "domande": 14228,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "cyprus": {
+   "nome": "Cyprus",
+   "domande": 12980,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "mali": {
+   "nome": "Mali",
+   "domande": 11336,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "georgia": {
+   "nome": "Georgia",
+   "domande": 10642,
+   "visite": 1,
+   "visite_assistente": 1
+  },
+  "togo": {
+   "nome": "Togo",
+   "domande": 10427,
+   "visite": 0,
+   "visite_assistente": 0
+  },
+  "equatorial-guinea": {
+   "nome": "Equatorial Guinea",
+   "domande": 10139,
+   "visite": 0,
+   "visite_assistente": 0
+  }
+ },
+ "coppie": [
+  {
+   "n": 1,
+   "pagine": [
+    "pakistan",
+    "iraq"
+   ],
+   "trattata": "pakistan"
+  },
+  {
+   "n": 2,
+   "pagine": [
+    "tunisia",
+    "bangladesh"
+   ],
+   "trattata": "bangladesh"
+  },
+  {
+   "n": 3,
+   "pagine": [
+    "turkiye",
+    "nigeria"
+   ],
+   "trattata": "turkiye"
+  },
+  {
+   "n": 4,
+   "pagine": [
+    "iran",
+    "india"
+   ],
+   "trattata": "india"
+  },
+  {
+   "n": 5,
+   "pagine": [
+    "philippines",
+    "morocco"
+   ],
+   "trattata": "philippines"
+  },
+  {
+   "n": 6,
+   "pagine": [
+    "algeria",
+    "azerbaijan"
+   ],
+   "trattata": "algeria"
+  },
+  {
+   "n": 7,
+   "pagine": [
+    "qatar",
+    "china"
+   ],
+   "trattata": "china"
+  },
+  {
+   "n": 8,
+   "pagine": [
+    "egypt",
+    "indonesia"
+   ],
+   "trattata": "egypt"
+  },
+  {
+   "n": 9,
+   "pagine": [
+    "united-states",
+    "jordan"
+   ],
+   "trattata": "jordan"
+  },
+  {
+   "n": 10,
+   "pagine": [
+    "ireland",
+    "sri-lanka"
+   ],
+   "trattata": "sri-lanka"
+  },
+  {
+   "n": 11,
+   "pagine": [
+    "serbia",
+    "georgia"
+   ],
+   "trattata": "georgia"
+  },
+  {
+   "n": 12,
+   "pagine": [
+    "kazakhstan",
+    "singapore"
+   ],
+   "trattata": "singapore"
+  },
+  {
+   "n": 13,
+   "pagine": [
+    "australia",
+    "russia"
+   ],
+   "trattata": "australia"
+  },
+  {
+   "n": 14,
+   "pagine": [
+    "saudi-arabia",
+    "thailand"
+   ],
+   "trattata": "saudi-arabia"
+  },
+  {
+   "n": 15,
+   "pagine": [
+    "south-africa",
+    "belarus"
+   ],
+   "trattata": "belarus"
+  },
+  {
+   "n": 16,
+   "pagine": [
+    "kuwait",
+    "lebanon"
+   ],
+   "trattata": "kuwait"
+  },
+  {
+   "n": 17,
+   "pagine": [
+    "vietnam",
+    "armenia"
+   ],
+   "trattata": "armenia"
+  },
+  {
+   "n": 18,
+   "pagine": [
+    "ecuador",
+    "cote-d-ivoire"
+   ],
+   "trattata": "cote-d-ivoire"
+  },
+  {
+   "n": 19,
+   "pagine": [
+    "kenya",
+    "angola"
+   ],
+   "trattata": "kenya"
+  },
+  {
+   "n": 20,
+   "pagine": [
+    "senegal",
+    "ghana"
+   ],
+   "trattata": "ghana"
+  },
+  {
+   "n": 21,
+   "pagine": [
+    "uzbekistan",
+    "cameroon"
+   ],
+   "trattata": "uzbekistan"
+  },
+  {
+   "n": 22,
+   "pagine": [
+    "oman",
+    "dominican-republic"
+   ],
+   "trattata": "oman"
+  },
+  {
+   "n": 23,
+   "pagine": [
+    "dr-congo",
+    "canada"
+   ],
+   "trattata": "canada"
+  },
+  {
+   "n": 24,
+   "pagine": [
+    "libya",
+    "cuba"
+   ],
+   "trattata": "libya"
+  },
+  {
+   "n": 25,
+   "pagine": [
+    "israel",
+    "kyrgyzstan"
+   ],
+   "trattata": "kyrgyzstan"
+  },
+  {
+   "n": 26,
+   "pagine": [
+    "cape-verde",
+    "ethiopia"
+   ],
+   "trattata": "cape-verde"
+  },
+  {
+   "n": 27,
+   "pagine": [
+    "republic-of-the-congo",
+    "mauritania"
+   ],
+   "trattata": "republic-of-the-congo"
+  },
+  {
+   "n": 28,
+   "pagine": [
+    "bahrain",
+    "guinea"
+   ],
+   "trattata": "guinea"
+  },
+  {
+   "n": 29,
+   "pagine": [
+    "mongolia",
+    "mozambique"
+   ],
+   "trattata": "mongolia"
+  },
+  {
+   "n": 30,
+   "pagine": [
+    "suriname",
+    "uganda"
+   ],
+   "trattata": "uganda"
+  },
+  {
+   "n": 31,
+   "pagine": [
+    "gabon",
+    "madagascar"
+   ],
+   "trattata": "gabon"
+  },
+  {
+   "n": 32,
+   "pagine": [
+    "japan",
+    "bolivia"
+   ],
+   "trattata": "japan"
+  },
+  {
+   "n": 33,
+   "pagine": [
+    "tanzania",
+    "hong-kong"
+   ],
+   "trattata": "tanzania"
+  },
+  {
+   "n": 34,
+   "pagine": [
+    "benin",
+    "cambodia"
+   ],
+   "trattata": "benin"
+  },
+  {
+   "n": 35,
+   "pagine": [
+    "cyprus",
+    "mali"
+   ],
+   "trattata": "cyprus"
+  },
+  {
+   "n": 36,
+   "pagine": [
+    "togo",
+    "equatorial-guinea"
+   ],
+   "trattata": "togo"
+  }
+ ],
+ "trattate": [
+  "algeria",
+  "armenia",
+  "australia",
+  "bangladesh",
+  "belarus",
+  "benin",
+  "canada",
+  "cape-verde",
+  "china",
+  "cote-d-ivoire",
+  "cyprus",
+  "egypt",
+  "gabon",
+  "georgia",
+  "ghana",
+  "guinea",
+  "india",
+  "japan",
+  "jordan",
+  "kenya",
+  "kuwait",
+  "kyrgyzstan",
+  "libya",
+  "mongolia",
+  "oman",
+  "pakistan",
+  "philippines",
+  "republic-of-the-congo",
+  "saudi-arabia",
+  "singapore",
+  "sri-lanka",
+  "tanzania",
+  "togo",
+  "turkiye",
+  "uganda",
+  "uzbekistan"
+ ],
+ "controllo": [
+  "angola",
+  "azerbaijan",
+  "bahrain",
+  "bolivia",
+  "cambodia",
+  "cameroon",
+  "cuba",
+  "dominican-republic",
+  "dr-congo",
+  "ecuador",
+  "equatorial-guinea",
+  "ethiopia",
+  "hong-kong",
+  "indonesia",
+  "iran",
+  "iraq",
+  "ireland",
+  "israel",
+  "kazakhstan",
+  "lebanon",
+  "madagascar",
+  "mali",
+  "mauritania",
+  "morocco",
+  "mozambique",
+  "nigeria",
+  "qatar",
+  "russia",
+  "senegal",
+  "serbia",
+  "south-africa",
+  "suriname",
+  "thailand",
+  "tunisia",
+  "united-states",
+  "vietnam"
+ ],
+ "impronte_controllo": {
+  "angola": {
+   "contenuto": "166606dd4ee23585c4ed",
+   "file_sha256": "e54e22c6229dd22987db8cd970b5f5af5df76e85763c2eefc7154845ddd6a095"
+  },
+  "azerbaijan": {
+   "contenuto": "92e0aed7fdf30ef03e92",
+   "file_sha256": "fb24f24bd8b8194dac837cd911c17847033895fc8054fd82bfc3aa781b1c1a91"
+  },
+  "bahrain": {
+   "contenuto": "2d86915121b688ab2475",
+   "file_sha256": "7f7ea864a90591d88d489f0a24087365c2f4cc45c2b8cf2c598b7d737fd970bf"
+  },
+  "bolivia": {
+   "contenuto": "8390f593a590f6babf1a",
+   "file_sha256": "cbbf49fb3f6e69f5a4d1417e178fbff644622127dc6a7f676690a75104c42511"
+  },
+  "cambodia": {
+   "contenuto": "5b64e412c7d7f879d705",
+   "file_sha256": "597df68915d75ff4542b7edaf3e53ff14a1f0d13ee74a3aa2d79aa9c492e46ab"
+  },
+  "cameroon": {
+   "contenuto": "d3b826e7e571c55978a5",
+   "file_sha256": "fd927658f6eae9914814ad407dabe811814e8b56aed538a34db310ce2ad5ad07"
+  },
+  "cuba": {
+   "contenuto": "f546b416485c3395f87a",
+   "file_sha256": "8614ab1043c503b4d2c86eea3f74552d1d2bec555d54374d87e67dc5366aa253"
+  },
+  "dominican-republic": {
+   "contenuto": "cb33860b83c59c2b1865",
+   "file_sha256": "79879f6a088b63aaf8e4b25c98d96a52e21c6b5b06df3142958e21b14b02abb5"
+  },
+  "dr-congo": {
+   "contenuto": "4979626c84bf4b2e0c87",
+   "file_sha256": "f12900422d096c52f6fde8b7da9a0d79f391704b8a61974c41dc74c7a81c3455"
+  },
+  "ecuador": {
+   "contenuto": "def6a8c2fe507a2200d9",
+   "file_sha256": "89b2b56ee6465cda3f31234ada6db2d202dcf8681591d040c353e7c7bc1ea057"
+  },
+  "equatorial-guinea": {
+   "contenuto": "5bc5de35cc042f60bd5d",
+   "file_sha256": "cae53f83de6f4d179757b4bb809378f71edf7e7736313e415650af957304f45a"
+  },
+  "ethiopia": {
+   "contenuto": "c39a9b94ed5bd2de6a98",
+   "file_sha256": "37522abf593d857a435c35dba7786f9f6ac85eb6cc29332f3baad04b01d56694"
+  },
+  "hong-kong": {
+   "contenuto": "bff6ce93a838a82cd2e0",
+   "file_sha256": "8d4a95e903bf2bb1071de57d0592b960678ec4d8a9d6e54e2acff56c8b6e2e71"
+  },
+  "indonesia": {
+   "contenuto": "880783e20c9c272e1f24",
+   "file_sha256": "a58a57f839564557c5cb04a2542c541485180fab77a47ca212e752155666e9b7"
+  },
+  "iran": {
+   "contenuto": "ccc92acf1c71ccc6c22c",
+   "file_sha256": "1da3fb1f874ed2c9a531b72bacfccf2506ee09a23ddeb2e5c0d6917a81860d3a"
+  },
+  "iraq": {
+   "contenuto": "b2f82ec17848674ed236",
+   "file_sha256": "575aa51a477b7abf5c153a2454d0f35234c616e184e22da61e32a1cf5fac9fbc"
+  },
+  "ireland": {
+   "contenuto": "bbcf525cea8faff9a6db",
+   "file_sha256": "3b7dec62281b130a68b51990737eb4b3517c8d1c875885b90eeffc6d807583ad"
+  },
+  "israel": {
+   "contenuto": "c8401cd78842ed64eccf",
+   "file_sha256": "66fd74692606f2a40e644495fb58aae43f3513c50f975a394fa09d74e79bde66"
+  },
+  "kazakhstan": {
+   "contenuto": "be951980cf4739ae73e9",
+   "file_sha256": "9fbc36d026a743f736c93e4dba9b7fa39d7cde27b0b985844b4598e7bf444fb0"
+  },
+  "lebanon": {
+   "contenuto": "66dfb31530104607d890",
+   "file_sha256": "7171c011912e86966cf16d42fd1e02e9ccf63b87ed9bed697c6aaa62818e0ede"
+  },
+  "madagascar": {
+   "contenuto": "093a9cc5f9bccef5bd52",
+   "file_sha256": "ceff12d5462cf2f3d230b1c067a79cd50b13adfbaf466a33a4c44474b45cc171"
+  },
+  "mali": {
+   "contenuto": "6f9eea43bc96f861cc90",
+   "file_sha256": "569ec2d3483cbb043bbafeb97048d653a749a34ffaf13ea4fce0db1770afa4dc"
+  },
+  "mauritania": {
+   "contenuto": "13ab54d5e520e005bd68",
+   "file_sha256": "6d9cfa5828b501825f24408e02e4fb6b5a40764b036a73d14288bd2f027aadd9"
+  },
+  "morocco": {
+   "contenuto": "5e94dddad68981beed24",
+   "file_sha256": "d54a20a5ed634e13e8527c3be85d7b4076a1993661fb0db93a0c12f3771ae23f"
+  },
+  "mozambique": {
+   "contenuto": "1c650f4f923361bda1e1",
+   "file_sha256": "23e27ae35ccef8f8f0afc70c59e5e4e53f13ca45d3230ed2fdc9a0eb1c7ee70a"
+  },
+  "nigeria": {
+   "contenuto": "f5e16e5bbefdcb48f14a",
+   "file_sha256": "d5b61566173da340930934a1035292c945c612468f22a29e00252e4b2a279300"
+  },
+  "qatar": {
+   "contenuto": "10d5ffa48b0eba8e75b2",
+   "file_sha256": "debb9fe87ea269e7bac211970775323f8efa6185431df7c69b70f87041a0003d"
+  },
+  "russia": {
+   "contenuto": "7ee07ba5a01c7c523ced",
+   "file_sha256": "aaa85ce0e47b93c34ff406f548debf1b437184d40144dc9a505e112add68b3a1"
+  },
+  "senegal": {
+   "contenuto": "f1b0beb8aa33cca323d4",
+   "file_sha256": "67f27ef5bcab78de7eb67751bf660a906ed450295f8c5b0be628c3557d9e0f6a"
+  },
+  "serbia": {
+   "contenuto": "fcd62516f2f7cdb9aba1",
+   "file_sha256": "47ed0022173977ca6decdac8ec4bc921a2f46e36c8b8a8541234fa87d0302a32"
+  },
+  "south-africa": {
+   "contenuto": "6fd27f7824e4169477f7",
+   "file_sha256": "e0a5764e96de7e5f9b1dce6bdee81ca606d34ea2d2e0fd50b96ebfb29e5c78fd"
+  },
+  "suriname": {
+   "contenuto": "7c032e14ff440d6ae020",
+   "file_sha256": "7ccd1292892f56e4dd4a2d3c7784378ef773719893824841642e7d9b35b1845d"
+  },
+  "thailand": {
+   "contenuto": "850eb7758cb91025a133",
+   "file_sha256": "9491bdcefb18949411622796ef52a2139f62cbec9d64ac9b4be727c43fca59b2"
+  },
+  "tunisia": {
+   "contenuto": "3659c82a676ff1a0264c",
+   "file_sha256": "e850e65b95289991bbc2365251824f26fb63e434ef156858d054adff638a08ad"
+  },
+  "united-states": {
+   "contenuto": "84822151a7025e5e5c49",
+   "file_sha256": "01976b6769c5eb230980d714fde0b5dbeb36eca2a3483631d1fefcf7983d80fc"
+  },
+  "vietnam": {
+   "contenuto": "a0befe15cf7a707c3199",
+   "file_sha256": "45e94069d4c9dca76da9d656ca4efaf97c728599cb77e96efb0cc6583545b424"
+  }
+ },
+ "impronte_aggiornate": []
+}

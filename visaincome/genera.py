@@ -901,7 +901,7 @@ def blocco_dati():
             json.dumps(d, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>")
 
 
-def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, calcolatore=False, jsonld_extra=None, assoluto=False, testata="", ordina=False, script=""):
+def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, calcolatore=False, jsonld_extra=None, assoluto=False, testata="", ordina=False, script="", css_extra=""):
     file = percorso if percorso.endswith(".html") else (percorso + "index.html")
     profondita = file.count("/")
     rel = "/" if assoluto else ("../" * profondita or "./")  # 404: link assoluti, Netlify la serve a qualsiasi profondità
@@ -955,7 +955,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 {robots}
 <link rel="icon" href="{FAVICON}">
 <link rel="preload" href="/assets/fonts/ibm-plex-serif-700.woff2" as="font" type="font/woff2" crossorigin>
-<style>{CSS}</style>
+<style>{CSS}{css_extra}</style>
 {ld_html}
 </head>
 <body>
@@ -1012,6 +1012,7 @@ VECCHIE = {}    # percorso -> impronta della pagina in sito/ prima della generaz
 
 def impronta_contenuto(testo):
     import hashlib
+    testo = normalizza_data_agg(testo)  # esperimento citazioni: la data "Updated on" scritta dopo il registro non entra nell'impronta
     tit = re.search(r"<title>(.*?)</title>", testo, re.S)
     des = re.search(r'<meta name="description" content="(.*?)">', testo, re.S)
     ld = re.findall(r'<script type="application/ld\+json">(.*?)</script>', testo, re.S)
@@ -1566,6 +1567,130 @@ DATA_COMMISSIONE_DOMANDA = "2026-10-15"  # letta il 15/10/2026 (HTTP 200): dove 
 _SW = AFFILIATI.get("_safetywing_schengen", {})
 URL_SAFETYWING = _SW.get("url", "")
 
+# ---------------------------------------------------------------- Esperimento "pagine più facili da citare" (31/10/2026)
+# Piano: studio-business/intelaiatura/esperimento-citazioni-2026-10-31.md. Gruppi in dati/esperimento_citazioni.json
+# (scritto una volta da raccolta/esperimento_citazioni.py assegna, seme fisso). SOLO le pagine Paese "trattate" ricevono:
+# data "Updated on" sotto il titolo, dateModified nel JSON-LD (WebPage e Dataset), riquadro "Key figures" in cima,
+# schema Dataset con data.csv della pagina (licenza CC BY 4.0). Le pagine di controllo restano byte per byte come prima.
+# La data è quella del registro lastmod (ultima modifica del contenuto): nella pagina si scrive un segnaposto, l'impronta
+# si calcola sul segnaposto e extra() lo sostituisce dopo date_lastmod(), così la data non cambia a ogni generazione.
+FILE_ESPERIMENTO = DATI / "esperimento_citazioni.json"
+ESP = json.loads(FILE_ESPERIMENTO.read_text(encoding="utf-8")) if FILE_ESPERIMENTO.exists() else {}
+TRATTATE = set(ESP.get("trattate", []))
+AGG_ISO, AGG_TESTO = "__DATA_AGG__", "__DATA_AGG_TESTO__"
+SEGNI_ESPERIMENTO = ('class="agg"', 'id="key-figures"', '"dateModified"', "data.csv", '"@type": "Dataset"', AGG_ISO, AGG_TESTO)
+LICENZA_UE = "https://creativecommons.org/licenses/by/4.0/"
+URL_AVVISO_UE = "https://commission.europa.eu/legal-notice_en"   # letta il 31/10/2026 (HTTP 200): CC BY 4.0, Decisione 2011/833/UE
+DATA_AVVISO_UE = "2026-10-31"
+COLONNE_CSV = ["year", "place_of_application", "schengen_country", "applications", "uniform_visas_issued", "multiple_entry_visas_issued",
+               "ltv_visas_issued", "not_issued", "decisions", "not_issued_rate_percent"]
+CSS_ESP = (".hero .agg{font-size:.9rem;color:var(--ink-3);margin:-2px 0 10px}.hero .agg time{font-weight:700;color:var(--ink-2)}"
+           ".kf{margin:10px 0 14px;border-left:4px solid var(--gold)}.kf h2{margin:0 0 8px;font-size:1.15rem}"
+           ".kf ul{margin:0;padding-left:20px;display:grid;gap:6px}.kf li{line-height:1.45}.kf li b{font-variant-numeric:tabular-nums}"
+           ".kf .fonte{margin-top:10px}")
+_RE_AGG = re.compile(r'(<time class="agg-t" datetime=")\d{4}-\d{2}-\d{2}(">)[^<]*(</time>)')
+_RE_AGG_LD = re.compile(r'("dateModified": ")\d{4}-\d{2}-\d{2}(")')
+
+
+def normalizza_data_agg(testo):
+    """Rimette i segnaposto al posto delle date scritte (impronta uguale prima e dopo la sostituzione)."""
+    if "agg-t" not in testo and '"dateModified"' not in testo:
+        return testo
+    testo = _RE_AGG.sub(lambda m: m.group(1) + AGG_ISO + m.group(2) + AGG_TESTO + m.group(3), testo)
+    return _RE_AGG_LD.sub(lambda m: m.group(1) + AGG_ISO + m.group(2), testo)
+
+
+def scrivi_date_esperimento(date_):
+    for slug in sorted(TRATTATE):
+        perc = f"{SEZ}{slug}/"
+        f = SITO / perc / "index.html"
+        if perc not in date_ or not f.exists():
+            raise SystemExit(f"esperimento: pagina trattata {perc} non generata")
+        f.write_text(f.read_text(encoding="utf-8").replace(AGG_ISO, date_[perc]).replace(AGG_TESTO, data_lunga(date_[perc])), encoding="utf-8")
+
+
+def righe_csv(p):
+    """Righe del data.csv di una pagina Paese: per anno (dal più recente), totale e poi ogni Stato Schengen con domande o decisioni."""
+    out = []
+    for a in reversed(ANNI_UE):
+        righe = [r for r in UE[a] if r[1] == p]
+        if not righe:
+            continue
+        per = defaultdict(lambda: [0, 0, 0, 0, 0])
+        for r in righe:
+            v = per[r[0]]
+            v[0] += r[3]; v[1] += r[4]; v[2] += r[5]; v[3] += r[6]; v[4] += r[7]
+        tot = [sum(v[i] for v in per.values()) for i in range(5)]
+        for s, v in [("All Schengen countries", tot)] + sorted(per.items(), key=lambda x: (-x[1][0], x[0])):
+            if v[0] == 0 and decisioni(v) == 0:
+                continue
+            t = tasso(v)
+            out.append([a, nome_paese(p), s, v[0], v[1], v[4], v[2], v[3], decisioni(v), "" if t is None else f"{t * 100:.1f}"])
+    return out
+
+
+def scrivi_csv(p, slug):
+    import csv
+    import io
+    buf = io.StringIO()
+    w = csv.writer(buf, lineterminator="\n")
+    w.writerow(COLONNE_CSV)
+    w.writerows(righe_csv(p))
+    (SITO / SEZ / slug / "data.csv").write_text(buf.getvalue(), encoding="utf-8")
+
+
+def riquadro_cifre(p, nome):
+    """Riquadro "Key figures": frasi brevi e complete con i numeri ufficiali, l'anno e la fonte con link e data."""
+    v1, v0 = PER_PAESE[A1][p], PER_PAESE[A0].get(p)
+    t1, t0 = tasso(v1), (tasso(v0) if v0 else None)
+    luogo = escape(art(nome))
+    righe = [f'<li>In {A1}, <b>{intero(v1[0])}</b> Schengen visa applications were made in {luogo}.</li>',
+             f'<li>In {A1}, <b>{pct(t1)}</b> of Schengen visa decisions on applications made in {luogo} were "not issued": '
+             f'<b>{intero(v1[3])}</b> of <b>{intero(decisioni(v1))}</b> decisions.</li>',
+             f'<li>Schengen countries issued <b>{intero(v1[1])}</b> uniform visas on applications made in {luogo} in {A1}.</li>']
+    if t0 is not None:
+        d = round((t1 - t0) * 100, 1)
+        verso = "the same as" if d == 0 else (f"{abs(d):.1f} percentage points " + ("higher than" if d > 0 else "lower than"))
+        righe.append(f'<li>The {A1} not-issued rate in {luogo} was {verso} in {A0}, when it was <b>{pct(t0)}</b>.</li>')
+    f = F_UE[A1]
+    return (f'<section class="card kf" id="key-figures" aria-labelledby="kf-h"><h2 id="kf-h">Key figures</h2><ul>{"".join(righe)}</ul>'
+            f'<p class="fonte">Source: <a href="{escape(f["url"])}" rel="noopener">European Commission, Visa statistics for consulates {A1}</a> '
+            f'({escape(f["formato"])}, downloaded on {data_lunga(f["scaricato_il"])}); calendar year {A1}'
+            + (f', compared with <a href="{escape(F_UE[A0]["url"])}" rel="noopener">{A0}</a>' if t0 is not None else "") +
+            f'. Not-issued rate = visas not issued ÷ (uniform visas issued + visas with limited territorial validity + visas not issued). '
+            f'© European Union; reuse allowed under CC BY 4.0 (<a href="{URL_AVVISO_UE}" rel="noopener">Commission legal notice</a>, Decision 2011/833/EU, '
+            f'checked on {data_lunga(DATA_AVVISO_UE)}). <a href="data.csv" download>Download these figures (CSV)</a>, CC BY 4.0.</p></section>')
+
+
+def ld_esperimento(p, nome, slug, titolo):
+    url = f"{URL_SITO}/{SEZ}{slug}/"
+    pagina_ld = {"@context": "https://schema.org", "@type": "WebPage", "name": titolo, "url": url, "dateModified": AGG_ISO,
+                 "isPartOf": {"@type": "WebSite", "name": NOME, "url": URL_SITO + "/"}}
+    ds = {"@context": "https://schema.org", "@type": "Dataset",
+          "name": f"Schengen visa applications and refusals in {art(nome)}, {A0}–{A1}",
+          "description": (f"Schengen short-stay visa applications made in {art(nome)} in {A0} and {A1}, by Schengen country: applications, "
+                          f"uniform visas issued (of which multiple-entry), visas with limited territorial validity, visas not issued and the "
+                          f"not-issued rate (visas not issued ÷ decisions). Recalculated from the European Commission's Visa statistics for consulates."),
+          "url": url, "creator": {"@type": "Organization", "name": NOME, "url": URL_SITO + "/"},
+          "isBasedOn": [F_UE[A1]["url"], F_UE[A0]["url"]], "temporalCoverage": f"{A0}/{A1}", "spatialCoverage": nome,
+          "license": LICENZA_UE, "isAccessibleForFree": True, "dateModified": AGG_ISO,
+          "creditText": f"Source: European Commission (DG Migration and Home Affairs), Visa statistics for consulates {A0} and {A1}; processing: {NOME}",
+          "distribution": [{"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": f"{url}data.csv"}]}
+    return [pagina_ld, ds]
+
+
+def controlli_esperimento():
+    errori = []
+    if not ESP:
+        return errori
+    slugs = {SLUG_RIF[p] for p in PAESI_RIF}
+    in_coppia = [s for c in ESP["coppie"] for s in c["pagine"]]
+    if len(in_coppia) != len(set(in_coppia)) or set(in_coppia) | set(ESP["escluse"]) != slugs:
+        errori.append("esperimento: le coppie non coprono esattamente le pagine Paese (meno le escluse)")
+    if any(c["trattata"] not in c["pagine"] for c in ESP["coppie"]) or TRATTATE != {c["trattata"] for c in ESP["coppie"]}:
+        errori.append("esperimento: elenco delle trattate diverso dalle coppie")
+    return errori
+
 _NOMI = {"TÜRKIYE": "Türkiye", "RUSSIAN FEDERATION": "Russia", "USA": "United States", "COTE D'IVOIRE": "Côte d'Ivoire",
          "CONGO (DEMOCRATIC REPUBLIC)": "DR Congo", "CONGO (BRAZZAVILLE)": "Republic of the Congo", "HONG KONG S.A.R.": "Hong Kong",
          "MACAO S.A.R.": "Macao", "PALESTINIAN AUTHORITY": "Palestinian territories"}
@@ -2077,9 +2202,12 @@ def pagina_rif_paese(p):
                    f'{intero(decisioni(v1))} applications they decided (European Commission); among the countries with at least {intero(SOGLIA_SR)} applications, the lowest rate was {escape(art(SR_PAG[p][0]))} ({pct(tasso(sr_stati(p)[SR_PAG[p][0]]))}). '
                    f'Fees in {"pounds" if R_["valuta"] == "GBP" else "dirhams"}, insurance and money to show for each country: '
                    f'<a href="{rel}{R_["sez"]}">Schengen visa {R_["da"]}, country by country</a>.</p>')
+    trattata = slug in TRATTATE
+    agg = (f'<p class="agg">Updated on <time class="agg-t" datetime="{AGG_ISO}">{AGG_TESTO}</time> · Data: European Commission, {A1}</p>\n'
+           if trattata else "")
     corpo = f"""<section class="hero">{h1_diviso(titolo_h1)}
-{lead_sr}<p class="lead">How many Schengen visa applications made in {escape(art(nome))} were not issued in {A1}, country by country and consulate by consulate, with the easiest and hardest countries for {escape(demonimo(p))}{', and how many UK ' + tipi_uk + ' visa applications by nationals of ' + escape(art(nome)) + ' were refused' if con_uk else ''}{(', with the latest figures for ' + ', '.join(dest[:-1]) + (' and ' if len(dest) > 1 else '') + dest[-1]) if dest else ''}. Official figures only.</p></section>
-{nota_dest}
+{agg}{lead_sr}<p class="lead">How many Schengen visa applications made in {escape(art(nome))} were not issued in {A1}, country by country and consulate by consulate, with the easiest and hardest countries for {escape(demonimo(p))}{', and how many UK ' + tipi_uk + ' visa applications by nationals of ' + escape(art(nome)) + ' were refused' if con_uk else ''}{(', with the latest figures for ' + ', '.join(dest[:-1]) + (' and ' if len(dest) > 1 else '') + dest[-1]) if dest else ''}. Official figures only.</p></section>
+{riquadro_cifre(p, nome) if trattata else ""}{nota_dest}
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{ico("passport")}<span>Visa refusal rates</span><span>{escape(nome)}</span></div>
 <div class="s-body">
@@ -2134,8 +2262,13 @@ def pagina_rif_paese(p):
              + (f", and the UK refusal rate for nationals of {art(nome)} ({', '.join(f'{NOMI_BREVI_UK[g]} {pct(uk_r[g][0])}' for g in uk_r)})" if con_uk else "") + "."
              + (f" Australia student visas: {pct(au_r[0])} refused ({AU_A1})." if au_r else "")
              + (" New Zealand and Canada figures too." if nz_r and ca_r else " New Zealand figures too." if nz_r else " Canada figures too." if ca_r else ""))
-    pagina(f"{SEZ}{slug}/", titolo, descr, corpo, ordina=True,
-           briciole=[("Visa refusal rates", SEZ), (nome, f"{SEZ}{slug}/")])
+    if trattata:
+        pagina(f"{SEZ}{slug}/", titolo, descr, corpo, ordina=True, briciole=[("Visa refusal rates", SEZ), (nome, f"{SEZ}{slug}/")],
+               jsonld_extra=ld_esperimento(p, nome, slug, titolo), css_extra=CSS_ESP)
+        scrivi_csv(p, slug)
+    else:
+        pagina(f"{SEZ}{slug}/", titolo, descr, corpo, ordina=True,
+               briciole=[("Visa refusal rates", SEZ), (nome, f"{SEZ}{slug}/")])
 
 
 # Pagine "Easiest Schengen visa from <Paese>" (21/10/2026): solo per i Paesi in cui almeno SOGLIA_FACILE Stati Schengen hanno deciso
@@ -8597,6 +8730,7 @@ def extra():
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
     MON.scrivi_ads_txt(SITO_ID, SITO)  # sito/ads.txt solo con AdSense acceso (monetizzazione.json)
     date_ = date_lastmod()
+    scrivi_date_esperimento(date_)  # esperimento citazioni (31/10/2026): data "Updated on" e dateModified = lastmod della pagina
     voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{date_[u]}</lastmod></url>" for u in URLS)
     (SITO / "sitemap.xml").write_text(
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{voci}</urlset>\n')
@@ -8669,6 +8803,7 @@ def controlli():
     if len({P["slug"] for P in PROG}) != len(PROG):
         errori.append("slug duplicati")
     errori += controlli_rifiuti()
+    errori += controlli_esperimento()
     errori += controlli_altri()
     errori += controlli_trasferimenti()
     errori += controlli_selt()

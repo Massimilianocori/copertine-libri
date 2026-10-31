@@ -73,6 +73,12 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     Stato convertiti; fornitori dei servizi visti solo dove letti; riquadro AXA spento (e acceso con un URL di prova: rel sponsored e dicitura);
     link da home, piè di pagina, pagine dei rifiuti (Regno Unito, Emirati, easiest, Stati Schengen) e panoramica; titoli delle pagine dei rifiuti
     di Regno Unito ed Emirati con "Schengen visa from".
+25. Esperimento "pagine più facili da citare" (31/10/2026, dati/esperimento_citazioni.json): coppie e gruppi ricalcolati dal seme e dalla
+    linea di base salvata (stesso risultato), coppie = pagine Paese meno le escluse, una trattata per coppia; ogni pagina trattata ha la data
+    "Updated on" sotto il titolo uguale al lastmod del registro, dateModified uguale nel JSON-LD (WebPage e Dataset), niente datePublished
+    (non c'era), riquadro "Key figures" prima del riepilogo con numeri = ricalcolo indipendente da dati/rifiuti.json, fonte con link e data,
+    licenza e link al CSV; data.csv valido (intestazione, campi, numeri interi, tassi) e uguale al ricalcolo, riga del totale = riquadro;
+    pagine di controllo senza nessun elemento del trattamento, senza data.csv e con l'impronta del contenuto uguale a quella salvata prima.
 Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
@@ -2553,6 +2559,137 @@ def controlla_sr():
             errori.append("SR: riquadro AXA (prova con URL) senza rel sponsored, etichetta o dicitura")
     return errori, n
 
+# ---------------------------------------------------------------- 25. Esperimento "pagine più facili da citare" (31/10/2026)
+def controlla_esperimento():
+    import csv
+    import hashlib
+    import importlib.util
+    errori = []
+    fj = SITO.parent / "dati" / "esperimento_citazioni.json"
+    if not fj.exists():
+        return ["Esperimento: dati/esperimento_citazioni.json mancante"], 0, 0, 0
+    E = json.loads(fj.read_text(encoding="utf-8"))
+    spec = importlib.util.spec_from_file_location("esp_cit", SITO.parent / "raccolta" / "esperimento_citazioni.py")
+    X = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(X)
+    # 1. gruppi: stesso risultato dal seme e dalla linea di base salvata; coppie = pagine Paese meno le escluse
+    pag = [(s, v["nome"], v["domande"]) for s, v in E["pagine"].items()]
+    lb = {s: [v["visite"], v["visite_assistente"]] for s, v in E["pagine"].items()}
+    if X.coppie_e_gruppi(pag, lb, E["seme"]) != E["coppie"]:
+        errori.append("Esperimento: coppie o pagine trattate diverse da quelle ricalcolate con il seme")
+    slug_p = {G.SLUG_RIF[p]: p for p in G.PAESI_RIF}
+    in_coppia = [s for c in E["coppie"] for s in c["pagine"]]
+    if sorted(in_coppia + list(E["escluse"])) != sorted(slug_p) or len(set(in_coppia)) != len(in_coppia):
+        errori.append("Esperimento: le coppie non coprono esattamente le pagine Paese meno le escluse")
+    tratt = [c["trattata"] for c in E["coppie"]]
+    contr = [s for c in E["coppie"] for s in c["pagine"] if s != c["trattata"]]
+    if sorted(tratt) != E["trattate"] or sorted(contr) != E["controllo"] or set(tratt) != G.TRATTATE:
+        errori.append("Esperimento: elenchi trattate/controllo incoerenti con le coppie o con genera.TRATTATE")
+    R = json.loads((SITO.parent / "dati" / "rifiuti.json").read_text(encoding="utf-8"))
+    anni = sorted(R["schengen"], key=int)
+    a1, a0 = anni[-1], anni[-2]
+    reg = json.loads((SITO.parent / "dati" / "lastmod.json").read_text(encoding="utf-8"))["pagine"]
+
+    def somme(anno, paese):   # ricalcolo indipendente: Stato -> [domande, uniformi, LTV, non rilasciati, MEV]
+        out = {}
+        for r in R["schengen"][anno]:
+            if r[1] == paese:
+                v = out.setdefault(r[0], [0, 0, 0, 0, 0])
+                for i in range(5):
+                    v[i] += r[3 + i]
+        return out
+
+    def pc(n, d):
+        return f"{n / d * 100:.1f}" if d else ""
+
+    n_csv = 0
+    for s in tratt:
+        p = slug_p[s]
+        t = leggi(f"visa-refusal-rates/{s}/index.html")
+        perc = f"visa-refusal-rates/{s}/"
+        d = reg.get(perc, [None])[0]
+        hero = re.search(r'<section class="hero">.*?</section>', t, re.S).group(0)
+        if f'<p class="agg">Updated on <time class="agg-t" datetime="{d}">{G.data_lunga(d)}</time>' not in hero:
+            errori.append(f"Esperimento {s}: data 'Updated on' assente dal titolo o diversa dal lastmod {d}")
+        lds = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S)]
+        tipi = {x["@type"]: x for x in lds}
+        wp, ds = tipi.get("WebPage", {}), tipi.get("Dataset", {})
+        if wp.get("dateModified") != d or ds.get("dateModified") != d:
+            errori.append(f"Esperimento {s}: dateModified del JSON-LD diverso dal lastmod {d}")
+        if any("datePublished" in x for x in lds):
+            errori.append(f"Esperimento {s}: datePublished aggiunto (non c'era prima)")
+        dist = ds.get("distribution") or [{}]
+        if (ds.get("license") != "https://creativecommons.org/licenses/by/4.0/" or dist[0].get("contentUrl") != f"{G.URL_SITO}/{perc}data.csv"
+                or dist[0].get("encodingFormat") != "text/csv" or len(ds.get("description", "")) < 50):
+            errori.append(f"Esperimento {s}: schema Dataset senza licenza, descrizione o link al CSV")
+        kf = re.search(r'<section class="card kf" id="key-figures".*?</section>', t, re.S)
+        if not kf or t.index('id="key-figures"') > t.index('class="card summary"'):
+            errori.append(f"Esperimento {s}: riquadro Key figures mancante o non in cima")
+            continue
+        kf = kf.group(0)
+        st1, st0 = somme(a1, p), somme(a0, p)
+        T1 = [sum(v[i] for v in st1.values()) for i in range(5)]
+        T0 = [sum(v[i] for v in st0.values()) for i in range(5)]
+        dec1, dec0 = T1[1] + T1[2] + T1[3], T0[1] + T0[2] + T0[3]
+        attesi = [f"{T1[0]:,}", pc(T1[3], dec1) + "%", f"{T1[3]:,}", f"{dec1:,}", f"{T1[1]:,}"] + ([pc(T0[3], dec0) + "%"] if dec0 else [])
+        visti = re.findall(r"<b>([^<]+)</b>", kf)
+        if visti != attesi:
+            errori.append(f"Esperimento {s}: numeri del riquadro {visti} diversi dal ricalcolo {attesi}")
+        if len(re.findall(r"<li>", kf)) not in (3, 4, 5) or kf.count(f"In {a1},") < 2:
+            errori.append(f"Esperimento {s}: riquadro senza 3-5 frasi complete con l'anno")
+        f1 = R["fonti"][f"schengen_{a1}"]
+        if (html.escape(f1["url"]) not in kf or "downloaded on " + G.data_lunga(f1["scaricato_il"]) not in kf
+                or "https://commission.europa.eu/legal-notice_en" not in kf or "2011/833/EU" not in kf or 'href="data.csv"' not in kf):
+            errori.append(f"Esperimento {s}: fonte con link e data, licenza o link al CSV mancanti nel riquadro")
+        # data.csv
+        fc = SITO / perc / "data.csv"
+        if not fc.exists():
+            errori.append(f"Esperimento {s}: data.csv mancante")
+            continue
+        righe = list(csv.reader(fc.read_text(encoding="utf-8").splitlines()))
+        n_csv += 1
+        if righe[0] != G.COLONNE_CSV or any(len(r) != len(G.COLONNE_CSV) for r in righe):
+            errori.append(f"Esperimento {s}: data.csv con intestazione o numero di campi sbagliati")
+            continue
+        atteso = []
+        for anno, st in ((a1, st1), (a0, st0)):
+            if not st:
+                continue
+            tot = [sum(v[i] for v in st.values()) for i in range(5)]
+            for nome_s, v in [("All Schengen countries", tot)] + sorted(st.items(), key=lambda x: (-x[1][0], x[0])):
+                dd = v[1] + v[2] + v[3]
+                if v[0] == 0 and dd == 0:
+                    continue
+                atteso.append([anno, G.nome_paese(p), nome_s, str(v[0]), str(v[1]), str(v[4]), str(v[2]), str(v[3]), str(dd), pc(v[3], dd)])
+        if righe[1:] != atteso:
+            errori.append(f"Esperimento {s}: data.csv diverso dal ricalcolo da dati/rifiuti.json")
+        for r in righe[1:]:
+            if not all(x.isdigit() for x in r[3:9]) or (r[9] and not re.fullmatch(r"\d{1,3}\.\d", r[9])):
+                errori.append(f"Esperimento {s}: data.csv con valori non numerici")
+                break
+    # 3. controllo: identico a prima
+    uguali_byte = 0
+    for s in contr:
+        t = leggi(f"visa-refusal-rates/{s}/index.html")
+        segni = [m for m in G.SEGNI_ESPERIMENTO if m in t] + (["Updated on"] if "Updated on" in t else []) + (["Key figures"] if "Key figures" in t else [])
+        if segni:
+            errori.append(f"Esperimento {s} (controllo): elementi del trattamento {segni}")
+        if (SITO / "visa-refusal-rates" / s / "data.csv").exists():
+            errori.append(f"Esperimento {s} (controllo): data.csv presente")
+        imp = E["impronte_controllo"].get(s, {})
+        if G.impronta_contenuto(t) != imp.get("contenuto"):
+            errori.append(f"Esperimento {s} (controllo): contenuto cambiato rispetto all'impronta salvata il {E['creato_il']}")
+        uguali_byte += hashlib.sha256(t.encode("utf-8")).hexdigest() == imp.get("file_sha256")
+    # nessun segno del trattamento fuori dalle pagine trattate, nessun segnaposto rimasto
+    for f in SITO.rglob("index.html"):
+        r = f.relative_to(SITO).as_posix()
+        tt = f.read_text(encoding="utf-8")
+        if G.AGG_ISO in tt or G.AGG_TESTO in tt:
+            errori.append(f"Esperimento: segnaposto della data rimasto in {r}")
+        if ('id="key-figures"' in tt or 'class="agg-t"' in tt) and r not in {f"visa-refusal-rates/{s}/index.html" for s in tratt}:
+            errori.append(f"Esperimento: elementi del trattamento fuori dal gruppo trattato in {r}")
+    return errori, len(tratt), n_csv, uguali_byte
+
 
 def main():
     errori = controlla_esempi()
@@ -2615,7 +2752,10 @@ def main():
         print("    ·", x)
     e24, n24 = controlla_sr()
     print(f"24. Schengen visa from the UK / from Dubai: {n24} pagine, cifre ricalcolate dal file della Commissione, tabelle, consolati, conversioni GBP/AED, importi di riferimento, fornitori, AXA spento, link: {len(e24)} errori")
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24
+    e25, n25, c25, b25 = controlla_esperimento()
+    print(f"25. Esperimento pagine citabili: {n25} trattate (data, dateModified, Key figures = dati, Dataset, {c25} CSV validi), "
+          f"{len(G.ESP.get('controllo', []))} di controllo invariate ({b25} identiche byte per byte all'impronta salvata): {len(e25)} errori")
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25
     for e in tutti:
         print(" -", e)
     if tutti:
