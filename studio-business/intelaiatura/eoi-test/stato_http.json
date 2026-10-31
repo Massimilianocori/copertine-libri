@@ -1,0 +1,236 @@
+{
+ "mad_bocm_2026.pdf": {
+  "comunita": "Madrid",
+  "url": "https://bocm.es/boletin/CM_Orden_BOCM/2026/03/25/BOCM-20260325-12.PDF",
+  "http": "200",
+  "byte": 150450,
+  "tipo": "application/pdf",
+  "formato": "PDF BOCM",
+  "ruolo": "esami+tappe"
+ },
+ "pv_cal_2027.pdf": {
+  "comunita": "País Vasco",
+  "url": "https://www.euskadi.eus/contenidos/informacion/eoi_matricula_libre/es_def/adjuntos/Calendario-Examenes-Anexo-II2026_2027-definitivo-1.pdf",
+  "http": "200",
+  "byte": 265034,
+  "tipo": "application/pdf",
+  "formato": "PDF Departamento",
+  "ruolo": "esami"
+ },
+ "pv_cal_2026.pdf": {
+  "comunita": "País Vasco",
+  "url": "https://www.euskadi.eus/contenidos/informacion/eoi_matricula_libre/es_def/adjuntos/2025-2026/4c-Calendario-examenes-2025_2026.pdf",
+  "http": "200",
+  "byte": 138392,
+  "tipo": "application/pdf",
+  "formato": "PDF Departamento",
+  "ruolo": "esami"
+ },
+ "pv_res_2027.pdf": {
+  "comunita": "País Vasco",
+  "url": "https://www.euskadi.eus/contenidos/informacion/eoi_matricula_libre/es_def/adjuntos/RESOLUCIoN-MATRICULA-LIBRE-EE.OO.II_-2026-2027.pdf",
+  "http": "200",
+  "byte": 469829,
+  "tipo": "application/pdf",
+  "formato": "PDF Departamento",
+  "ruolo": "tappe"
+ },
+ "cat_calendari_2027.html": {
+  "comunita": "Cataluña",
+  "url": "https://educacio.gencat.cat/ca/serveis-tramits/proves/proves-lliures-obtencio-titols/convocat-ordinaria-idiomes/calendari/",
+  "http": "200",
+  "byte": 65817,
+  "tipo": "text/html;charset=UTF-8",
+  "formato": "HTML Departament",
+  "ruolo": "esami+tappe"
+ },
+ "and_boja46_2026.pdf": {
+  "comunita": "Andalucía",
+  "url": "https://www.juntadeandalucia.es/boja/2026/46/BOJA26-046-00026-3164-01_00334384.pdf",
+  "http": "200",
+  "byte": 517148,
+  "tipo": "application/pdf",
+  "formato": "PDF BOJA",
+  "ruolo": "esami+tappe"
+ },
+ "val_dogv_2026.pdf": {
+  "comunita": "Comunitat Valenciana",
+  "url": "https://dogv.gva.es/datos/2026/02/05/pdf/2026_3622_es.pdf",
+  "http": "200",
+  "byte": 678884,
+  "tipo": "application/pdf",
+  "formato": "PDF DOGV",
+  "ruolo": "esami+tappe"
+ },
+ "can_apendice2_2026.pdf": {
+  "comunita": "Canarias",
+  "url": "https://www.gobiernodecanarias.org/cmsgob1/export/sites/educacion/web/_galerias/descargas/otros/apendice-2-pruebas-certificacion-aspirantes-libres-escolarizados-25-26.pdf",
+  "http": "200",
+  "byte": 221697,
+  "tipo": "application/pdf",
+  "formato": "PDF BOC (apéndice)",
+  "ruolo": "esami"
+ },
+ "can_pagina_2026.html": {
+  "comunita": "Canarias",
+  "url": "https://www.gobiernodecanarias.org/educacion/web/idiomas/pruebas/pruebas_certificacion/pruebas_certificacion_idiomas_eoi/",
+  "http": "200",
+  "byte": 92729,
+  "tipo": "text/html;charset=UTF-8",
+  "formato": "HTML Consejería",
+  "ruolo": "tappe"
+ },
+ "mur_borm181_2026.pdf": {
+  "comunita": "Región de Murcia",
+  "url": "https://www.borm.es/services/anuncio/ano/2026/numero/181/pdf?id=840845",
+  "http": "200",
+  "byte": 424341,
+  "tipo": "application/pdf",
+  "formato": "PDF BORM",
+  "ruolo": "esami+tappe"
+ },
+ "bal_boib17_2026.pdf": {
+  "comunita": "Illes Balears",
+  "url": "https://www.caib.es/eboibfront/pdf/ca/2026/17/1211874",
+  "http": "200",
+  "byte": 179131,
+  "tipo": "application/pdf; charset=UTF-8",
+  "formato": "PDF BOIB",
+  "ruolo": "esami"
+ },
+ "bal_boib14_2026.pdf": {
+  "comunita": "Illes Balears",
+  "url": "https://www.caib.es/eboibfront/pdf/ca/2026/14/1211310",
+  "http": "200",
+  "byte": 163386,
+  "tipo": "application/pdf; charset=UTF-8",
+  "formato": "PDF BOIB",
+  "ruolo": "tappe"
+ },
+ "ara_anexo2_2026.pdf": {
+  "comunita": "Aragón",
+  "url": "https://aplicaciones.aragon.es/seda_core/rest/getModelByKey?childServiceId=1189&key=Calendariodepruebasdecertificacinconvocat",
+  "http": "200",
+  "byte": 10329,
+  "tipo": "application/octet-stream",
+  "formato": "PDF Departamento (anexo BOA)",
+  "ruolo": "esami"
+ },
+ "ara_anexo3_2026.pdf": {
+  "comunita": "Aragón",
+  "url": "https://aplicaciones.aragon.es/seda_core/rest/getModelByKey?childServiceId=1189&key=Calendariopruebasdecertificacinconvocatori",
+  "http": "200",
+  "byte": 10201,
+  "tipo": "application/octet-stream",
+  "formato": "PDF Departamento (anexo BOA)",
+  "ruolo": "esami"
+ },
+ "ara_anexo5_2026.pdf": {
+  "comunita": "Aragón",
+  "url": "https://aplicaciones.aragon.es/seda_core/rest/getModelByKey?childServiceId=1189&key=Calendariodelprocesodepruebaslibres",
+  "http": "200",
+  "byte": 7290,
+  "tipo": "application/octet-stream",
+  "formato": "PDF Departamento (anexo BOA)",
+  "ruolo": "tappe"
+ },
+ "cyl_bocyl_2026.pdf": {
+  "comunita": "Castilla y León",
+  "url": "https://bocyl.jcyl.es/boletines/2026/02/24/pdf/BOCYL-D-24022026-37-28.pdf",
+  "http": "200",
+  "byte": 682913,
+  "tipo": "application/pdf",
+  "formato": "PDF BOCYL",
+  "ruolo": "esami"
+ },
+ "clm_docm_2026.pdf": {
+  "comunita": "Castilla-La Mancha",
+  "url": "https://docm.jccm.es/docm/descargarArchivo.do?ruta=2026%2F02%2F11%2Fpdf%2F2026_727.pdf&tipo=rutaDocm",
+  "http": "200",
+  "byte": 741035,
+  "tipo": "application/pdf",
+  "formato": "PDF DOCM",
+  "ruolo": "esami"
+ },
+ "nav_anexo2_2027.pdf": {
+  "comunita": "Navarra",
+  "url": "https://www.educacion.navarra.es/documents/27590/0/ANEXO+2%C2%BA+calendario+ex+escritos+26-27.pdf/3755a7a2-075b-3b76-97d7-917214618cb2",
+  "http": "200",
+  "byte": 122287,
+  "tipo": "application/pdf",
+  "formato": "PDF Departamento",
+  "ruolo": "esami"
+ },
+ "ast_bopa_2026.pdf": {
+  "comunita": "Principado de Asturias",
+  "url": "https://www.asturias.es/bopa/2026/02/11/2026-00845.pdf",
+  "http": "200",
+  "byte": 502474,
+  "tipo": "application/pdf",
+  "formato": "PDF BOPA",
+  "ruolo": "esami+tappe"
+ },
+ "ext_doe21_2026.pdf": {
+  "comunita": "Extremadura",
+  "url": "https://doe.juntaex.es/pdfs/doe/2026/210o/26060238.pdf",
+  "http": "200",
+  "byte": 317462,
+  "tipo": "application/pdf",
+  "formato": "PDF DOE",
+  "ruolo": "controllo"
+ },
+ "ext_tramite.html": {
+  "comunita": "Extremadura",
+  "url": "https://www.juntaex.es/w/0648923",
+  "http": "200",
+  "byte": 226633,
+  "tipo": "text/html;charset=UTF-8",
+  "formato": "HTML Junta",
+  "ruolo": "controllo"
+ },
+ "gal_coruna_ord_2026.pdf": {
+  "comunita": "Galicia",
+  "url": "https://centros.edu.xunta.gal/eoicoruna/sites/centros.edu.xunta.gal.eoicoruna/files/2026-02/CALENDARIO%20PROBAS%20WEB%20ORDINARIA_25-26%20SIN%20AULAS.pdf",
+  "http": "000",
+  "byte": 0,
+  "tipo": "",
+  "formato": "PDF (copia di una EOI)",
+  "ruolo": "esami"
+ },
+ "gal_portal.html": {
+  "comunita": "Galicia",
+  "url": "https://www.edu.xunta.gal/portal/eoi",
+  "http": "000",
+  "byte": 0,
+  "tipo": "",
+  "formato": "HTML Consellería",
+  "ruolo": "controllo"
+ },
+ "cant_boc_2026.html": {
+  "comunita": "Cantabria",
+  "url": "https://boc.cantabria.es/boces/verAnuncioAction.do?idAnuBlob=431682",
+  "http": "000",
+  "byte": 0,
+  "tipo": "",
+  "formato": "HTML BOC",
+  "ruolo": "esami"
+ },
+ "cant_guia.html": {
+  "comunita": "Cantabria",
+  "url": "https://www.educantabria.es/en/guia-informativa",
+  "http": "000",
+  "byte": 0,
+  "tipo": "",
+  "formato": "HTML Consejería",
+  "ruolo": "controllo"
+ },
+ "rio_guia_b2_2026.pdf": {
+  "comunita": "La Rioja",
+  "url": "https://larioja.org/edu-orden-academica/es/ensenanzas-regimen-especial/escuelas-oficiales-idiomas.ficheros/1696030-GU_A_B2_2025_26.pdf",
+  "http": "000",
+  "byte": 0,
+  "tipo": "",
+  "formato": "PDF Consejería",
+  "ruolo": "esami"
+ }
+}
