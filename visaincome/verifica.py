@@ -58,6 +58,13 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     bandi, elenco dei Paesi particolarmente poveri completo, tabella delle valute ricalcolata, esempio ISEE ricalcolato, enti non letti elencati,
     tutte le fonti citate, SafetyWing solo nella pagina dell'assicurazione e dopo le informazioni ufficiali, link dal resto del sito, costanti
     del calcolatore = dati e motore JS = calcolo Python indipendente (casi fissi + 400 a caso); online: 12 frammenti a caso riletti sulle fonti.
+23. Italy 7% flat tax for foreign pensioners (31/10/2026): ricalcolo da dati/flat7.json (impronta), pagine attese (indice + regions) in sitemap
+    e nessuna in più, titoli ≤ 70, prima frase con la fonte (Normattiva) prima della data di lettura, avviso fiscale e frase "decide l'Agenzia",
+    nessuna promessa né elenco di Comuni consigliati, nessun link sponsorizzato, regole (30.000, 20.000 fino al 6/4/2026, 7%, 5 e 10 anni,
+    1° gennaio dell'anno prima, art. 247 dal 1/1/2027), tabella delle regioni e Comuni vicini alla soglia ricalcolati da un calcolo indipendente,
+    elenchi del sisma (Lazio, Marche, Umbria) con le cifre ISTAT, towns.json dello strumento = dati, motore JS dello strumento (preso dalla pagina)
+    = Python su tutti i Comuni per i due anni e ricerca per nome esatto di ogni Comune, tutte le fonti citate, link dal resto del sito;
+    online: 8 frammenti a caso riletti su Normattiva e Agenzia delle Entrate.
 Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
@@ -311,13 +318,16 @@ def controlla_fonti():
 # Parole vietate scritte al contrario, così questo file non le contiene in chiaro.
 _AL_CONTRARIO = ["edualc", "ciporhtna", "ianepo", "tpgtahc", "inimeg", "tolipoc", "amall", "lartsim", "supo", "tennos", "ukiah"]
 VIETATE = re.compile(r"\b(" + "|".join(w[::-1] for w in _AL_CONTRARIO) + r"|gpt-\d)\b", re.I)
+# Nomi di Comuni italiani veri (elenco ISTAT, dati della flat tax del 7% dal 31/10/2026) che contengono una parola della lista:
+# si tolgono prima del controllo, solo come stringa JSON intera tra virgolette ("San ..."), case-sensitive: nel testo delle pagine restano vietati.
+TOPONIMI_AMMESSI = re.compile(r'"San (?:Giovanni )?' + _AL_CONTRARIO[4][::-1].capitalize() + r'"')
 
 
 def controlla_parole():
     errori = []
     for f in list(SITO.rglob("*")) + list((SITO.parent / "dati").glob("*.json")):
         if f.is_file() and f.suffix in (".html", ".xml", ".txt", ".toml", ".json"):
-            m = VIETATE.search(f.read_text(encoding="utf-8"))
+            m = VIETATE.search(TOPONIMI_AMMESSI.sub(" ", f.read_text(encoding="utf-8")))
             if m:
                 errori.append(f"Parola vietata '{m.group(0)}' in {f}")
     return errori
@@ -2144,6 +2154,206 @@ def controlla_it(online=True):
     return errori, len(P), n_js, riletti
 
 
+def controlla_f7(online=True):
+    import hashlib
+    errori = []
+    D = json.loads((SITO.parent / "dati" / "flat7.json").read_text(encoding="utf-8"))
+    cont = {k: D[k] for k in ("letture", "fonti", "sisma2016", "sisma2009", "comuni", "anni_popolazione", "pagina_istat")}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != D["impronta"]:
+        errori.append("7%: impronta di dati/flat7.json diversa dal contenuto")
+    L = {k: v["valore"] for k, v in D["letture"].items()}
+    soglia, regioni = L["soglia"], L["regioni"]
+    if (soglia, L["art247"], L["nove_anni"], L["cinque_anni"], L["circ_dieci"]) != (30000, 30000, 9, 5, 10):
+        errori.append("7%: regole diverse da quelle scritte nei testi (30.000, 9 + 1 anni, 5 anni): rivedere le pagine")
+    letto = G.data_lunga(D["letto_il"])
+    # calcolo indipendente delle aree: 8 regioni, allegati 2016-2017 (fuori dalle 8 regioni), Valfornace a parte
+    sis = {}
+    for x in D["sisma2016"]:
+        sis.setdefault(x["codice"], []).append(x)
+    def area(c):
+        if c[4] in regioni:
+            return 1
+        if c[0] in sis:
+            return 3 if all(x["nota"] for x in sis[c[0]]) and c[1] == "Valfornace" else 2
+        return 0
+    comuni = D["comuni"]
+    # pagine
+    sez = "italy-7-percent-flat-tax/"
+    cart = SITO / sez.rstrip("/")
+    trovate = {f.parent.relative_to(cart).as_posix().replace(".", "") for f in cart.rglob("index.html")}
+    if trovate != {"", "regions"}:
+        errori.append(f"7%: pagine diverse da quelle attese: {sorted(trovate)}")
+    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    P = {}
+    for s_ in ("", "regions"):
+        f = cart / s_ / "index.html" if s_ else cart / "index.html"
+        if not f.exists():
+            continue
+        percorso = sez + (s_ + "/" if s_ else "")
+        t = f.read_text(encoding="utf-8")
+        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        testo = html.unescape(re.sub(r"<[^>]+>", " ", main))
+        testo = re.sub(r"\s+", " ", testo)
+        P[s_] = (t, main, testo)
+        if f"<loc>{G.URL_SITO}/{percorso}</loc>" not in sitemap:
+            errori.append(f"7%: {percorso} non in sitemap")
+        titolo = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(titolo) > 70:
+            errori.append(f"7%: titolo oltre 70 caratteri in {percorso} ({len(titolo)})")
+        for x in ("FAQPage", "BreadcrumbList", 'rel="canonical"', "Not tax or legal advice.", "Check with an Italian tax adviser (commercialista) or the Agenzia delle Entrate",
+                  "the Agenzia delle Entrate decides", "window.F7=C"):
+            if x not in t:
+                errori.append(f"7%: manca {x!r} in {percorso}")
+        lead = html.unescape(re.sub(r"<[^>]+>", "", re.search(r'<p class="lead">(.*?)</p>', main, re.S).group(1)))
+        prima = re.split(r"(?<=[a-z0-9)%])\.\s+(?=[A-Z])", lead)[0]
+        if letto not in prima or "Normattiva" not in prima.split(letto)[0]:
+            errori.append(f"7%: prima frase senza fonte e data di lettura in {percorso}")
+        if re.search(r'rel="[^"]*sponsored', main):
+            errori.append(f"7%: link sponsorizzato in {percorso}")
+        if re.search(r"(?i)\b(you will qualify|guarantee[sd]?|qualifying towns?|recommended towns?|best towns?|towns? we recommend|eligible towns? list)\b", testo):
+            errori.append(f"7%: promessa o elenco di Comuni consigliati in {percorso}")
+        if re.search(r"(?i)\b\w+ (qualifies|is eligible) for the 7", testo):
+            errori.append(f"7%: un Comune presentato come ammesso in {percorso}")
+        for x in ("30,000", "7%", "1 January 2025", "1 January 2026"):
+            if x not in testo:
+                errori.append(f"7%: manca {x!r} in {percorso}")
+        for k_ in ("art24ter", "istat2025", "istat2026"):
+            if html.escape(D["fonti"][k_]["url"]) not in main:
+                errori.append(f"7%: fonte {k_} non citata in {percorso}")
+    if "" in P:
+        t, main, testo = P[""]
+        for x in ("20,000", "7 April 2026", "five tax years", "Ten tax years in all", "article 247", "1 January 2027", "Legislative Decree 117",
+                  "Law 34 of 11 March 2026", "1 January of the year before", "Circular 21/E", "summary page talks of \"nine tax periods\"",
+                  "between 1 January and 6 April 2026"):
+            if x not in testo:
+                errori.append(f"7%: indice senza {x!r}")
+        tutto = main + P.get("regions", ("", "", ""))[1]
+        for k_, f in D["fonti"].items():
+            if html.escape(f["url"]) not in tutto:
+                errori.append(f"7%: fonte non citata nella sezione: {k_}")
+        # tabella delle regioni
+        tab = re.search(r'id="t-regioni-f7".*?<tbody>(.*?)</tbody>', main, re.S)
+        righe = re.findall(r"<tr>(.*?)</tr>", tab.group(1), re.S) if tab else []
+        attese = {}
+        for c in comuni:
+            a = area(c)
+            if a:
+                k = c[4]
+                v = attese.setdefault(k, [0, 0, 0])
+                v[0] += 1
+                v[1] += c[5] <= soglia
+                v[2] += c[6] <= soglia
+        if len(righe) != len(attese) + 1:
+            errori.append(f"7%: righe della tabella delle regioni {len(righe)} invece di {len(attese) + 1}")
+        nomi = {"Sicilia": "Sicily", "Sardegna": "Sardinia", "Puglia": "Puglia (Apulia)"}
+        for r, v in attese.items():
+            riga = next((x for x in righe if f">{nomi.get(r, r)}<" in x), "")
+            celle = [int(n.replace(",", "")) for n in re.findall(r'<td[^>]*class="n"[^>]*>(?:<b>)?([\d,]+)', riga)]
+            if celle != [v[0], v[1], v[2], v[0] - v[1]]:
+                errori.append(f"7%: riga {r} della tabella {celle} invece di {[v[0], v[1], v[2], v[0] - v[1]]}")
+        tot = [sum(v[i] for v in attese.values()) for i in range(3)]
+        if f"{tot[1]:,}" not in testo or tot[1] != 2535:
+            errori.append(f"7%: totale entro la soglia {tot[1]} (1/1/2025) non nella pagina o diverso da 2.535 (verifica del 30/10/2026)")
+        # Comuni vicini alla soglia
+        tab = re.search(r'id="t-vicini-f7".*?<tbody>(.*?)</tbody>', main, re.S)
+        righe = re.findall(r"<tr>(.*?)</tr>", tab.group(1), re.S) if tab else []
+        vicini = [c for c in comuni if area(c) and (abs(c[5] - soglia) <= 1000 or abs(c[6] - soglia) <= 1000)]
+        if len(righe) != len(vicini):
+            errori.append(f"7%: Comuni vicini alla soglia {len(righe)} invece di {len(vicini)}")
+        for c in vicini:
+            riga = next((x for x in righe if f">{html.escape(c[1])}" in x and f"({c[3]})" in x), "")
+            s1 = "Under" if c[5] <= soglia else "Over"
+            s2 = "Under" if c[6] <= soglia else "Over"
+            if not re.search(rf"{c[5]:,} <span[^>]*>{s1}</span>.*{c[6]:,} <span[^>]*>{s2}</span>", riga):
+                errori.append(f"7%: riga dei Comuni vicini sbagliata per {c[1]}")
+        for nome, a25, ok26 in (("Grottaglie", "Over", "Under"), ("Oristano", "Over", "Under"), ("Ostuni", "Under", "Under")):
+            riga = next((x for x in righe if f">{nome} (" in x), "")
+            if re.findall(r">(Under|Over)<", riga) != [a25, ok26]:
+                errori.append(f"7%: {nome} non come nella verifica del 30/10/2026 ({a25} per il 2026, {ok26} per il 2027)")
+    if "regions" in P:
+        t, main, testo = P["regions"]
+        for r in ("Lazio", "Marche", "Umbria"):
+            cc = [c for c in comuni if c[4] == r and area(c) in (2, 3)]
+            tab = re.search(rf'id="t-sisma-{r.lower()}".*?<tbody>(.*?)</tbody>', main, re.S)
+            righe = re.findall(r"<tr>(.*?)</tr>", tab.group(1), re.S) if tab else []
+            if len(righe) != len(cc):
+                errori.append(f"7%: {r}, {len(righe)} Comuni del sisma invece di {len(cc)}")
+            for c in cc:
+                riga = next((x for x in righe if f">{html.escape(c[1])} ({c[3]})" in x), "")
+                if f"{c[5]:,}" not in riga or f"{c[6]:,}" not in riga:
+                    errori.append(f"7%: {r}, cifre ISTAT mancanti per {c[1]}")
+        for r in regioni:
+            n = sum(1 for c in comuni if c[4] == r and c[5] > soglia)
+            if not re.search(rf"{re.escape({'Sicilia': 'Sicily', 'Sardegna': 'Sardinia', 'Puglia': 'Puglia (Apulia)'}.get(r, r))}: {n} towns? over 30,000", testo):
+                errori.append(f"7%: {r}, numero di Comuni sopra la soglia diverso da {n}")
+        for x in ("Valfornace", "Fabriano", "L'Aquila", "Teramo"):
+            if x not in testo:
+                errori.append(f"7%: pagina delle regioni senza {x}")
+    # towns.json = dati
+    tj = cart / "towns.json"
+    if not tj.exists():
+        errori.append("7%: towns.json mancante")
+        return errori, len(P), 0, []
+    T = json.loads(tj.read_text(encoding="utf-8"))
+    if T["soglia"] != soglia or [a[1] for a in T["anni"]] != ["2025", "2026"] or len(T["c"]) != len(comuni):
+        errori.append("7%: towns.json non coerente con i dati (soglia, anni o numero di Comuni)")
+    else:
+        for r, c in zip(T["c"], comuni):
+            if r[:3] != [c[1], c[2], c[3]] or r[4] != area(c) or r[5:] != c[5:7] or T["reg"][r[3]] != {"Sicilia": "Sicily", "Sardegna": "Sardinia", "Puglia": "Puglia (Apulia)", "Toscana": "Tuscany", "Lombardia": "Lombardy", "Piemonte": "Piedmont", "Valle d'Aosta/Vallée d'Aoste": "Aosta Valley", "Trentino-Alto Adige/Südtirol": "Trentino-South Tyrol"}.get(c[4], c[4]):
+                errori.append(f"7%: towns.json diverso dai dati per {c[1]}")
+                break
+    # motore JS dello strumento = Python, su tutti i Comuni e i due anni; ricerca per nome esatto
+    n_js = 0
+    if "" in P:
+        js = next(x for x in re.findall(r"<script>(.*?)</script>", P[""][0], re.S) if "window.F7=C" in x)
+        prog = ("var window={};var document={querySelectorAll:function(){return [];}};\n" + js + "\nvar D=" + json.dumps(T, ensure_ascii=False) +
+                ";var st=[];D.c.forEach(function(r){st.push([window.F7.stato(r,0,D),window.F7.stato(r,1,D)]);});"
+                "var ce=D.c.map(function(r,i){var x=window.F7.cerca(r[0],D,50);return x.indexOf(i)>=0&&x.length&&(D._k[x[0]][0]===D._k[i][0]||D._k[x[0]][1]===D._k[i][0]);});"
+                "var pr=['ostuni','GROTTAGLIE','cefalu','lec','sant','xx'].map(function(q){return window.F7.cerca(q,D,8).map(function(j){return D.c[j][0];});});"
+                "var bo=[window.F7.stato(['x','','XX',0,1,D.soglia,D.soglia+1],0,D),window.F7.stato(['x','','XX',0,1,D.soglia,D.soglia+1],1,D),window.F7.stato(['x','','XX',0,0,1,1],0,D)];"
+                "console.log(JSON.stringify({st:st,ce:ce,pr:pr,bo:bo}));")
+        with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False, encoding="utf-8") as fh:
+            fh.write(prog)
+        r = subprocess.run(["node", fh.name], capture_output=True, text=True, timeout=120)
+        if r.returncode != 0:
+            errori.append(f"7%: JS dello strumento non eseguibile: {r.stderr[-300:]}")
+        else:
+            o = json.loads(r.stdout)
+            for c, s in zip(comuni, o["st"]):
+                attesi = ["area" if not area(c) else ("ok" if c[5 + i] <= soglia else "over") for i in (0, 1)]
+                n_js += 2
+                if s != attesi:
+                    errori.append(f"7%: strumento, {c[1]}: JS {s} ≠ Python {attesi}")
+                    break
+            sbagliati = [c[1] for c, x in zip(comuni, o["ce"]) if not x]
+            if sbagliati:
+                errori.append(f"7%: la ricerca per nome esatto non trova per primi {len(sbagliati)} Comuni (es. {sbagliati[:3]})")
+            if o["bo"] != ["ok", "over", "area"]:
+                errori.append(f"7%: strumento sbagliato sulla soglia esatta (30.000 = sotto, 30.001 = sopra): {o['bo']}")
+            if o["pr"][0][:1] != ["Ostuni"] or o["pr"][1][:1] != ["Grottaglie"] or o["pr"][2][:1] != ["Cefalù"] or o["pr"][5]:
+                errori.append(f"7%: ricerca di prova inattesa: {o['pr']}")
+    for f, link in (("index.html", 'href="italy-7-percent-flat-tax/"'), ("how-it-works/index.html", 'href="../italy-7-percent-flat-tax/"'),
+                    ("italy-digital-nomad-visa/index.html", 'href="../italy-7-percent-flat-tax/"'), ("country/italy/index.html", 'href="../../italy-7-percent-flat-tax/"'),
+                    ("about/index.html", 'href="../italy-7-percent-flat-tax/"')):
+        if link not in (SITO / f).read_text(encoding="utf-8"):
+            errori.append(f"7%: {f} non rimanda alla sezione")
+    riletti = []
+    if online:
+        sys.path.insert(0, str(SITO.parent / "raccolta"))
+        import flat7 as R7
+        voci = [(k, v["fonte"], v["frammento"]) for k, v in D["letture"].items() if v["fonte"] in ("art24ter", "l34", "ade", "art247", "circ21e")]
+        rng = random.Random(20261031)
+        testi = {}
+        for nome, fonte, fr in rng.sample(voci, 8):
+            if fonte not in testi:
+                _m, testi[fonte], _b = R7.leggi(R7.FONTI[fonte])
+            ok = fr in testi[fonte]
+            riletti.append(f"{fonte} {nome}: {'presente' if ok else 'ASSENTE'}")
+            if not ok:
+                errori.append(f"7%: frammento {nome} non più in {fonte}")
+    return errori, len(P), n_js, riletti
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -2199,7 +2409,11 @@ def main():
     print(f"22. Study in Italy: {n22} pagine, cifre nazionali, enti DSU e frammenti dei bandi, Paesi poveri, cambi, esempio ISEE, affiliati, link, calcolatore (JS = Python su {j22} casi); riletti online: {len(r22)}: {len(e22)} errori")
     for x in r22:
         print("    ·", x)
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22
+    e23, n23, j23, r23 = controlla_f7(online="--offline" not in sys.argv)
+    print(f"23. Italy 7% flat tax: {n23} pagine, regole, tabella delle regioni, Comuni vicini alla soglia, elenchi del sisma, towns.json, strumento (JS = Python su {j23} casi, ricerca di ogni Comune); riletti online: {len(r23)}: {len(e23)} errori")
+    for x in r23:
+        print("    ·", x)
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23
     for e in tutti:
         print(" -", e)
     if tutti:

@@ -981,7 +981,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <p>Exchange rates: euro foreign exchange reference rates of the European Central Bank (source: ECB), for information only.</p>
 </div><div>
 <h2>Explore</h2>
-<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}moved-to/">Who moved where (by nationality)</a></li><li><a href="{rel}uk-english-test/">UK visa English tests (SELT)</a></li><li><a href="{rel}thailand-dtv-visa/">Thailand DTV visa by embassy</a></li><li><a href="{rel}us-opt/">US OPT and STEM OPT: fees and deadlines</a></li><li><a href="{rel}uk-graduate-visa/">UK Graduate visa: 2 years or 18 months</a></li><li><a href="{rel}mexico-residency/">Mexico residency: fees and income by consulate</a></li><li><a href="{rel}study-in-italy/">Study in Italy: visa funds and DSU scholarships</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
+<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}moved-to/">Who moved where (by nationality)</a></li><li><a href="{rel}uk-english-test/">UK visa English tests (SELT)</a></li><li><a href="{rel}thailand-dtv-visa/">Thailand DTV visa by embassy</a></li><li><a href="{rel}us-opt/">US OPT and STEM OPT: fees and deadlines</a></li><li><a href="{rel}uk-graduate-visa/">UK Graduate visa: 2 years or 18 months</a></li><li><a href="{rel}mexico-residency/">Mexico residency: fees and income by consulate</a></li><li><a href="{rel}study-in-italy/">Study in Italy: visa funds and DSU scholarships</a></li><li><a href="{rel}italy-7-percent-flat-tax/">Italy 7% flat tax for foreign pensioners</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
 </div></div>
 {blocco_altri(ALTRI_SITI, "Other useful tools for your trip")}
 <p class="f-base">Official sources only · the calculator runs in your browser · links marked "Affiliate" may earn us a commission.</p>
@@ -1243,7 +1243,7 @@ def pagina_programma(P):
 {link_simili}
 <p><a href="{rel}country/{P['paese_slug']}/">All visa income requirements in {escape(P['paese'])}</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements {ANNO}</a> · <a href="{rel}work-visa-salary-thresholds/">Work visa salary thresholds {ANNO}</a></p>
 {link_rifiuti(P['paese'], rel)}
-{link_selt(P, rel)}{link_graduate(P, rel)}{link_studio_it(P, rel)}"""
+{link_selt(P, rel)}{link_graduate(P, rel)}{link_studio_it(P, rel)}{link_flat7_it(P, rel)}"""
     descr = (f"{nome_prog(P)} {ANNO}: minimum {riassunto(P)} for the main applicant, with family members and conversion to USD, GBP, INR and more. "
              f"Official source and check date.")
     pagina(f"{P['slug']}/", titolo_prog(P), descr, corpo, calcolatore=True,
@@ -1274,7 +1274,7 @@ def pagina_paese(slug):
 <div class="griglia" style="margin-top:20px">{''.join(scheda(p, rel) for p in pp)}</div>
 <p><a href="{rel}">All countries</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visas compared</a></p>
 {link_rifiuti(nome, rel)}
-{link_studio_it({"paese": nome}, rel)}
+{link_studio_it({"paese": nome}, rel)}{link_flat7_it({"paese": nome}, rel)}
 {blocco_tr_dest(nome, rel)}"""
     pagina(f"country/{slug}/", f"{nome} visa income requirements {ANNO}: official amounts and calculator",
            f"Official minimum income and salary thresholds for {nome} visas in {ANNO}, with family members, currency conversion and sources.",
@@ -1344,6 +1344,9 @@ def home():
 <h2>Study in Italy: visa funds and DSU scholarships</h2>
 <p class="lead">The Italian student visa for 2026/27 asks for {eur(LIT["mezzi"])} a year (Ministry of University and Research procedures, read on {data_lunga(LETTO_IT)}), and regional DSU scholarships pay an off-campus student at least {eur(LIT["dsu_fs"])} when the family's ISEE stays under the limit, up to {eur(LIT["isee_max"])}.</p>
 <p><a href="{SEZ_IT}">Study in Italy 2026/27</a> · <a href="{SEZ_IT}student-visa-funds/">Visa bank balance</a> · <a href="{SEZ_IT}isee-parificato/">ISEE parificato</a> · <a href="{SEZ_IT}dsu-scholarship-deadlines/">DSU deadlines</a> · {" · ".join(f'<a href="{SEZ_IT}{E["id"]}/">{escape(E["nome"])}</a>' for E in ENTI_IT if E["id"] in ("university-of-milan", "politecnico-di-milano", "disco-lazio", "er-go", "university-of-padua"))}</p>
+<h2>Italy 7% flat tax for foreign pensioners</h2>
+<p class="lead">A person with a foreign pension who moves to a town of up to {intero(SOGLIA_F7)} inhabitants in southern Italy or in the earthquake areas can pay 7% on foreign income for ten years (article 24-ter of the income tax code, read on {data_lunga(LETTO_F7)}). Check any town against ISTAT's population figure for the year that counts.</p>
+<p><a href="{SEZ_F7}">Italy 7% flat tax: rules and town check</a> · <a href="{SEZ_F7}regions/">7% tax regions and earthquake towns</a></p>
 <h2>Why our numbers can differ from other sites</h2>
 <p>Many thresholds are a percentage of an index that changes every year (a minimum wage, an average salary), so pages that still show last year's figure are out of date. With the {ANNO} indices, on {data_lunga('2026-10-10')}: Spain's digital nomad visa is 200% of the {ANNO} minimum wage, €2,442 a month over 14 payments (€34,188 a year, the same as €2,849 a month over 12 payments); Croatia's is 2.5 × the 2025 average net salary, €3,622.50 a month; Portugal's D8 is 4 × €920 = €3,680 a month. We recalculate from the official index and show the source and the date under every figure.</p>
 {box_affiliati()}"""
@@ -1465,6 +1468,8 @@ def pagina_come_funziona():
 <p>The <a href="{rel}{SEZ_MX}">Mexico residency</a> pages use the Ley Federal de Derechos and Annex 4 of the {ANNO} Miscellaneous Tax Resolution (Diario Oficial) for the fees, the visa guidelines of 25 July 2025 for the days of UMA, INEGI for the UMA value, and the official pages of the Mexican consulates for the amounts in their currency. A consulate is listed only if its own page writes the amount and is from {ANNO}. A script reads every source again and checks that each figure is still written there; if a page changes, nothing is updated until we read it again. We re-read the fees and the UMA every January (new Miscellaneous Tax Resolution, new UMA from 1 February).</p>
 <h2>12. Study in Italy</h2>
 <p>The <a href="{rel}{SEZ_IT}">Study in Italy</a> pages use the Ministry of University and Research and Foreign Ministry procedures for international students (published on Universitaly), the Ministry's decrees on scholarship amounts, ISEE limits and particularly poor countries, Poste Italiane and the Polizia di Stato for the residence permit costs, Normattiva for the health service contribution and the ISEE equivalence scale, the Bank of Italy for the annual average exchange rates, and the 2026/27 calls of the regional scholarship agencies and universities. A script reads every source again and checks that each figure is still written there; if a call changes, nothing is updated until we read it again. The ISEE estimate is ours and is labelled as such: the CAF or the agency calculates the official figure. We re-read the calls every summer, when the new ones come out.</p>
+<h2>13. Italy 7% flat tax for foreign pensioners</h2>
+<p>The <a href="{rel}{SEZ_F7}">Italy 7% flat tax</a> pages use the text of article 24-ter of the income tax code and of the laws that changed it (Normattiva), the guidance of the Agenzia delle Entrate, the earthquake lists (Decree-Law 189/2016 on Normattiva and the Abruzzo Region's list for 2009) and ISTAT's resident population of every Italian town on 1 January. A script reads every source again and checks that each rule we quote is still written there. The town check says only whether a town is in one of the areas of the law and whether ISTAT's figure is within the limit: it does not say that anyone qualifies. We load ISTAT's new figures every January.</p>
 </div>
 {AVVISO}
 {AD}"""
@@ -7615,6 +7620,462 @@ def controlli_it():
     return errori
 
 
+# ================================================================ Italy 7% flat tax for foreign pensioners (31/10/2026)
+# Dati: dati/flat7.json (raccolta/flat7.py). Regola: art. 24-ter TUIR fino al 31/12/2026, art. 247 del D.Lgs. 117/2026 dal 1/1/2027.
+# Il sito NON dice che un Comune "qualifica": dice se è in un'area della legge e se la popolazione ISTAT dell'anno giusto è entro la soglia.
+F7 = json.loads((DATI / "flat7.json").read_text(encoding="utf-8"))
+SEZ_F7 = "italy-7-percent-flat-tax/"
+L7 = {k: v["valore"] for k, v in F7["letture"].items()}
+FF7 = F7["fonti"]
+LETTO_F7 = F7["letto_il"]
+SOGLIA_F7 = L7["soglia"]
+REGIONI_F7 = L7["regioni"]
+# anno del trasferimento -> anno della popolazione ISTAT (1° gennaio dell'anno prima) e se il dato è una stima
+ANNI_F7 = [(v["trasferimento"], a, v["stima"]) for a, v in sorted(F7["anni_popolazione"].items())]
+COMUNI_F7 = F7["comuni"]  # [codice, nome, altro nome, sigla, regione, pop 1/1/2025, pop 1/1/2026]
+PER_CODICE_F7 = {c[0]: c for c in COMUNI_F7}
+SISMA_F7 = {}
+for _x in F7["sisma2016"]:
+    SISMA_F7.setdefault(_x["codice"], []).append(_x)
+FUSI_F7 = {k for k, v in SISMA_F7.items() if all(x["nota"].startswith("fuso") for x in v)}  # Comuni nati da fusioni (Valfornace)
+NOMI_REG_F7 = {"Sicilia": "Sicily", "Sardegna": "Sardinia", "Puglia": "Puglia (Apulia)", "Toscana": "Tuscany", "Lombardia": "Lombardy",
+               "Piemonte": "Piedmont", "Valle d'Aosta/Vallée d'Aoste": "Aosta Valley", "Trentino-Alto Adige/Südtirol": "Trentino-South Tyrol"}
+VICINO_F7 = 1000  # "vicino alla soglia": popolazione tra soglia − 1.000 e soglia + 1.000 in uno dei due anni
+
+
+def reg_en(r):
+    return NOMI_REG_F7.get(r, r)
+
+
+def area_f7(c):
+    """0 = fuori dalle aree della legge; 1 = una delle 8 regioni; 2 = allegati del sisma 2016-2017 fuori dalle 8 regioni;
+    3 = Comune nato dalla fusione di Comuni degli allegati (Valfornace): da chiedere all'Agenzia."""
+    if c[4] in REGIONI_F7:
+        return 1
+    if c[0] in FUSI_F7:
+        return 3
+    return 2 if c[0] in SISMA_F7 else 0
+
+
+def pop_f7(c, anno_pop):
+    return c[5] if anno_pop == "2025" else c[6]
+
+
+def stato_f7(c, anno_pop):
+    """'area' (fuori dalle aree), 'ok' (entro la soglia), 'over' (sopra la soglia)."""
+    if not area_f7(c):
+        return "area"
+    return "ok" if pop_f7(c, anno_pop) <= SOGLIA_F7 else "over"
+
+
+def nome_c_f7(c):
+    return f'{c[1]}{" / " + c[2] if c[2] else ""} ({c[3]})'
+
+
+def link_fonte_f7(k, testo=None):
+    f = FF7[k]
+    return f'<a href="{escape(f["url"])}" rel="noopener">{escape(testo or (f["editore"] + ", " + f["titolo"]))}</a>'
+
+
+def fonte_f7_p(chiavi=(), extra=""):
+    voci = [link_fonte_f7(k) for k in chiavi]
+    return (f'<p class="fonte">Source{"s" if len(voci) + bool(extra) > 1 else ""}: {"; ".join(voci)}{("; " if voci and extra else "") + extra}. '
+            f'Read on {data_lunga(LETTO_F7)}.</p>')
+
+
+def anno_pop_testo(anno_pop, breve=False):
+    stima = F7["anni_popolazione"][anno_pop]["stima"]
+    return f"1 January {anno_pop}" + ((" (estimate)" if breve else " (ISTAT estimate)") if stima else "")
+
+
+AVVISO_F7 = ('<p class="avviso"><strong>Not tax or legal advice.</strong> This page summarises the law and the guidance of the Agenzia delle Entrate '
+             '(Italy\'s tax agency) on the date we read them. Whether you can use the 7% regime depends on your pension, the country you move from '
+             'and your own tax position, and the Agenzia delle Entrate decides. Check with an Italian tax adviser (commercialista) or the Agenzia '
+             'delle Entrate before you choose a town or move.</p>')
+
+FRASE_DECIDE_F7 = ("Being under the limit does not mean you qualify: the Agenzia delle Entrate decides, and the conditions on your pension, "
+                   "your previous residence and the country you move from also apply.")
+
+
+# ---------- ricerca del Comune (JS): dati in towns.json, caricati quando si usa la casella
+def dati_tool_f7():
+    return {"soglia": SOGLIA_F7, "vicino": VICINO_F7, "letto": LETTO_F7,
+            "anni": [[t, a, s] for t, a, s in ANNI_F7],
+            "reg": sorted({reg_en(c[4]) for c in COMUNI_F7}),
+            "c": [[c[1], c[2], c[3], 0, area_f7(c), c[5], c[6]] for c in COMUNI_F7]}
+
+
+def scrivi_dati_tool_f7():
+    d = dati_tool_f7()
+    idx = {r: i for i, r in enumerate(d["reg"])}
+    for riga, c in zip(d["c"], COMUNI_F7):
+        riga[3] = idx[reg_en(c[4])]
+    (SITO / SEZ_F7).mkdir(parents=True, exist_ok=True)
+    (SITO / SEZ_F7 / "towns.json").write_text(json.dumps(d, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+
+
+F7_JS = r"""
+(function(){
+function key(s){return (s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z]/g,'');}
+var C={
+ stato:function(r,i,d){if(!r[4])return 'area';return r[5+i]<=d.soglia?'ok':'over';},
+ cerca:function(q,d,n){var k=key(q);if(!k)return [];if(!d._k){d._k=d.c.map(function(r){return [key(r[0]),key(r[1])];});}
+  var a=[],b=[],c=[];for(var j=0;j<d.c.length;j++){var x=d._k[j];
+   if(x[0]===k||x[1]===k)a.push(j);else if(x[0].indexOf(k)===0||(x[1]&&x[1].indexOf(k)===0))b.push(j);else if(k.length>2&&(x[0].indexOf(k)>0||(x[1]&&x[1].indexOf(k)>0)))c.push(j);}
+  function o(p,q){return d.c[q][5]-d.c[p][5];}
+  return a.sort(o).concat(b.sort(o),c.sort(o)).slice(0,n||8);}};
+window.F7=C;
+function num(x){return String(x).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function esc(s){return String(s).replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];});}
+function nome(r){return esc(r[0])+(r[1]?' / '+esc(r[1]):'')+' ('+esc(r[2])+')';}
+function scheda(r,d){var reg=d.reg[r[3]];var h='<p class="r-lab">'+esc(reg)+'</p><p class="f7-nome">'+nome(r)+'</p><ul class="r-righe">';
+ d.anni.forEach(function(a,i){var st=C.stato(r,i,d),p=r[5+i],lab,cl;
+  if(st==='area'){lab='✗ Not in one of the areas in the law';cl='f7-no';}
+  else if(st==='ok'){lab='✓ Under the '+num(d.soglia)+' limit';cl='f7-ok';}else{lab='✗ Over the '+num(d.soglia)+' limit';cl='f7-no';}
+  var nota=[];if(a[2])nota.push('ISTAT estimate: the final figure can differ.');
+  if(st!=='area'&&Math.abs(p-d.soglia)<=d.vicino)nota.push('Close to the limit: check the figure with ISTAT and the Agenzia delle Entrate.');
+  if(a[0]===d.anni[0][0]&&st!=='area')nota.push('The 30,000 limit applies from 7 April 2026 (20,000 before).');
+  h+='<li class="'+cl+'"><span class="r-lab">Move in '+a[0]+' · ISTAT, 1 January '+a[1]+(a[2]?' (estimate)':'')+'</span><b>'+num(p)+' inhabitants</b><span class="small"><strong class="f7-v">'+lab+'</strong>'+(nota.length?' '+nota.join(' '):'')+'</span></li>';});
+ h+='</ul>';
+ if(r[4]===1)h+='<p class="small">'+esc(reg)+' is one of the eight regions named in the law.</p>';
+ else if(r[4]===2)h+='<p class="small">This town is on the 2016-2017 earthquake lists (annexes to Decree-Law 189/2016).</p>';
+ else if(r[4]===3)h+='<p class="it-nota">The earthquake annexes name Fiordimonte and Pievebovigliana, which merged into Valfornace on 1 January 2017. Ask the Agenzia delle Entrate whether the whole town counts.</p>';
+ else h+='<p class="small">The law covers towns in Sicily, Calabria, Sardinia, Campania, Basilicata, Abruzzo, Molise and Puglia, and the towns on the 2009 and 2016-2017 earthquake lists.</p>';
+ h+='<p class="small" style="margin-top:10px">Being under the limit does not mean you qualify: the Agenzia delle Entrate decides, and the conditions on your pension, your previous residence and the country you move from also apply.</p>';
+ return h;}
+document.querySelectorAll('[data-f7]').forEach(function(box){var f=box.querySelector('form'),inp=f.querySelector('input'),lista=box.querySelector('[data-lista]'),out=box.querySelector('[data-out]');
+ var d=null,carica=null;
+ function load(){if(carica)return carica;out.innerHTML='<p class="small">Loading the ISTAT figures for every Italian town…</p>';
+  carica=fetch(box.getAttribute('data-src')).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(x){d=x;out.innerHTML='<p class="small">Type a town and choose it from the list.</p>';return x;})
+  .catch(function(){carica=null;out.innerHTML='<p class="small">The town figures could not be loaded. Try again, or look the town up on ISTAT\'s demo.istat.it.</p>';});return carica;}
+ function mostra(j){out.innerHTML=scheda(d.c[j],d);lista.innerHTML='';inp.value=d.c[j][0];}
+ function suggerisci(){if(!d){load().then(function(){if(d)suggerisci();});return;}var r=C.cerca(inp.value,d,8);
+  if(!inp.value.trim()){lista.innerHTML='';return;}
+  if(!r.length){lista.innerHTML='<li class="small">No Italian town with that name in ISTAT\'s list.</li>';return;}
+  lista.innerHTML=r.map(function(j){var x=d.c[j];return '<li><button type="button" data-j="'+j+'">'+nome(x)+'<span>'+esc(d.reg[x[3]])+'</span></button></li>';}).join('');}
+ inp.addEventListener('focus',load);inp.addEventListener('input',suggerisci);
+ lista.addEventListener('click',function(e){var b=e.target.closest('button');if(b)mostra(+b.getAttribute('data-j'));});
+ f.addEventListener('submit',function(e){e.preventDefault();if(!d){load().then(function(){if(d){var r=C.cerca(inp.value,d,1);if(r.length)mostra(r[0]);}});return;}var r=C.cerca(inp.value,d,1);if(r.length)mostra(r[0]);});
+ box.querySelectorAll('[data-prova]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();inp.value=a.textContent;load().then(function(){if(d){var r=C.cerca(inp.value,d,1);if(r.length)mostra(r[0]);}});});});});
+})();
+"""
+CSS += (".f7-nome{font-family:var(--serif);font-size:1.45rem;line-height:1.2;margin:4px 0 0;color:var(--ink)}"
+        ".r-righe li.f7-ok{border-color:var(--ok)}.r-righe li.f7-ok .f7-v{color:var(--ok)}.r-righe li.f7-no .f7-v{color:var(--no)}.f7-v{display:block}"
+        ".f7-lista{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:6px}"
+        ".f7-lista button{font:inherit;width:100%;text-align:left;background:var(--card);border:1px solid var(--line-2);border-radius:var(--r-s);padding:9px 12px;"
+        "cursor:pointer;color:var(--ink);display:flex;justify-content:space-between;gap:10px;min-height:44px;align-items:center}"
+        ".f7-lista button span{font-size:.82rem;color:var(--ink-3);white-space:nowrap}.f7-lista button:hover,.f7-lista button:focus{border-color:var(--accent)}"
+        ".f7-prove{font-size:.88rem;margin:10px 0 0}.f7-prove a{margin-right:6px}")
+
+
+def strumento_f7(rel_sez):
+    prove = " · ".join(f'<a href="#" data-prova>{x}</a>' for x in ("Ostuni", "Grottaglie", "Fabriano", "Cefalù", "Lecce"))
+    return (f'<section class="card calc" data-f7 data-src="{rel_sez}towns.json" aria-label="Town population check">'
+            f'<div class="calc-grid"><form autocomplete="off" role="search"><h2 style="margin:0 0 14px;font-size:1.2rem">{ico("calc")} Town population check</h2>'
+            f'<div class="campi"><label class="pieno"><span class="lt">{ico("globe")}Italian town (comune)</span>'
+            f'<input type="search" name="comune" placeholder="e.g. Ostuni" autocomplete="off" spellcheck="false" aria-describedby="f7-nota"></label></div>'
+            f'<ul class="f7-lista" data-lista aria-live="polite"></ul><p class="f7-prove small">Try: {prove}</p>'
+            f'<p class="small" id="f7-nota" style="margin:12px 0 0">ISTAT resident population on 1 January {ANNI_F7[0][1]} (for a move in {ANNI_F7[0][0]}) '
+            f'and 1 January {ANNI_F7[1][1]} (ISTAT estimate, for a move in {ANNI_F7[1][0]}), for all {intero(len(COMUNI_F7))} Italian towns, downloaded on '
+            f'{data_lunga(LETTO_F7)}. The check runs in your browser.</p></form>'
+            f'<div class="calc-out"><div class="risultato" data-out aria-live="polite"><noscript>Turn on JavaScript to search a town; the regional figures are in the '
+            f'tables below, and every town\'s population is on <a href="{escape(F7["pagina_istat"])}" rel="noopener">ISTAT\'s demo.istat.it</a>.</noscript></div></div></div></section>')
+
+
+# ---------- tabelle
+def conteggi_f7():
+    """Per regione: [Comuni, entro soglia anno 1, entro soglia anno 2] (8 regioni) e Comuni degli allegati fuori dalle 8 regioni."""
+    a1, a2 = ANNI_F7[0][1], ANNI_F7[1][1]
+    reg = {}
+    for c in COMUNI_F7:
+        ar = area_f7(c)
+        if not ar:
+            continue
+        k = (1 if ar == 1 else 2, c[4])
+        v = reg.setdefault(k, [0, 0, 0])
+        v[0] += 1
+        v[1] += pop_f7(c, a1) <= SOGLIA_F7
+        v[2] += pop_f7(c, a2) <= SOGLIA_F7
+    return reg
+
+
+def tabella_regioni_f7(rel_sez=""):
+    a1, a2 = ANNI_F7[0][1], ANNI_F7[1][1]
+    reg = conteggi_f7()
+    righe, tot = "", [0, 0, 0]
+    ordine = [(1, r) for r in REGIONI_F7] + sorted(k for k in reg if k[0] == 2)
+    for k in ordine:
+        v = reg[k]
+        tot = [x + y for x, y in zip(tot, v)]
+        dove = "" if k[0] == 1 else '<span class="small"> (earthquake lists)</span>'
+        righe += (f'<tr><th scope="row">{escape(reg_en(k[1]))}{dove}</th><td class="n">{intero(v[0])}</td>'
+                  f'<td class="n">{intero(v[1])}</td><td class="n">{intero(v[2])}</td><td class="n">{intero(v[0] - v[1])}</td></tr>')
+    righe += (f'<tr><th scope="row">Total</th><td class="n"><b>{intero(tot[0])}</b></td><td class="n"><b>{intero(tot[1])}</b></td>'
+              f'<td class="n"><b>{intero(tot[2])}</b></td><td class="n"><b>{intero(tot[0] - tot[1])}</b></td></tr>')
+    tab = (f'<div class="tab compatta"><table id="t-regioni-f7"><caption class="sr">Towns under the {intero(SOGLIA_F7)} limit by region</caption><thead><tr>'
+           f'<th scope="col">Region</th><th scope="col" class="n">Towns</th><th scope="col" class="n">Under, move in {ANNI_F7[0][0]}</th>'
+           f'<th scope="col" class="n">Under, move in {ANNI_F7[1][0]}</th><th scope="col" class="n">Over, move in {ANNI_F7[0][0]}</th></tr></thead>'
+           f'<tbody>{righe}</tbody></table></div>'
+           f'<p class="small">"Under": towns with up to {intero(SOGLIA_F7)} inhabitants on 1 January {a1} (for a move in {ANNI_F7[0][0]}) or on 1 January {a2}, ISTAT estimate (for a move in {ANNI_F7[1][0]}). '
+           f'"Towns": all the towns of the region, or for Lazio, Marche and Umbria only those on the 2016-2017 earthquake lists.</p>')
+    return tab, tot
+
+
+def vicini_f7():
+    a1, a2 = ANNI_F7[0][1], ANNI_F7[1][1]
+    return sorted([c for c in COMUNI_F7 if area_f7(c) and (abs(c[5] - SOGLIA_F7) <= VICINO_F7 or abs(c[6] - SOGLIA_F7) <= VICINO_F7)],
+                  key=lambda c: (reg_en(c[4]), c[1]))
+
+
+def cella_stato_f7(c, anno_pop):
+    s = stato_f7(c, anno_pop)
+    return '<span class="stato vigore">Under</span>' if s == "ok" else '<span class="stato sospesa">Over</span>'
+
+
+def tabella_vicini_f7():
+    a1, a2 = ANNI_F7[0][1], ANNI_F7[1][1]
+    righe = "".join(f'<tr><th scope="row">{escape(nome_c_f7(c))}<span class="small"><br>{escape(reg_en(c[4]))}</span></th>'
+                    f'<td class="n">{intero(c[5])} {cella_stato_f7(c, a1)}</td><td class="n">{intero(c[6])} {cella_stato_f7(c, a2)}</td></tr>' for c in vicini_f7())
+    tab = (f'<div class="tab compatta"><table id="t-vicini-f7"><caption class="sr">Towns near the {intero(SOGLIA_F7)} limit</caption><thead><tr>'
+           f'<th scope="col">Town</th><th scope="col" class="n">1 January {a1} (move in {ANNI_F7[0][0]})</th>'
+           f'<th scope="col" class="n">1 January {a2}, estimate (move in {ANNI_F7[1][0]})</th></tr></thead><tbody>{righe}</tbody></table></div>')
+    return pila(tab)
+
+
+def fonti_elenco_f7():
+    voci = []
+    for k in ("art24ter", "l34", "art247", "art377", "art24ter_2027", "all1", "all2", "all2bis", "ade", "circ21e", "bura2009", "istat2025", "istat2026", "elenco", "soppressi"):
+        f = FF7[k]
+        extra = ""
+        if k in ("istat2025", "istat2026") and f.get("last_modified"):
+            extra = f' (file dated {data_lunga(_data_http(f["last_modified"]))})'
+        voci.append(f'<li>{link_fonte_f7(k)}{extra}, read on {data_lunga(f["letto_il"])}</li>')
+    return '<ul class="fonti">' + "".join(voci) + "</ul>"
+
+
+def _data_http(s):
+    from email.utils import parsedate_to_datetime
+    return parsedate_to_datetime(s).date().isoformat()
+
+
+def domande_f7():
+    a1 = ANNI_F7[0]
+    return [
+        ("Who can use Italy's 7% flat tax?",
+         "A person who receives a pension paid from abroad, was not tax resident in Italy in the five tax years before, moves from a country that has an "
+         "administrative cooperation (tax information exchange) agreement with Italy, and moves their tax residence to an eligible town. "
+         "The Agenzia delle Entrate decides whether you meet the conditions."),
+        ("Which towns count for the 7% tax?",
+         f"Towns of up to {intero(SOGLIA_F7)} inhabitants in Sicily, Calabria, Sardinia, Campania, Basilicata, Abruzzo, Molise and Puglia, and towns "
+         f"of up to {intero(SOGLIA_F7)} on the lists of the 2009 (L'Aquila) and 2016-2017 (central Italy) earthquakes, which add towns in Lazio, Marche and Umbria. "
+         f"The limit was 20,000 until 6 April 2026."),
+        ("Which population figure counts?",
+         f"ISTAT's resident population on 1 January of the year before your move, according to the Agenzia delle Entrate: 1 January {a1[1]} for a move "
+         f"in {a1[0]}. The same figure counts for all ten years, unless you move to another town."),
+        ("Is it 9 or 10 years?",
+         "Ten tax years in all: the law covers the year you move and the next nine, and the Agency's Circular 21/E says the maximum is ten years "
+         "(a move in 2019 runs to 2028). The Agency's summary page talks of \"nine tax periods\": that follows the law's wording (\"the first nine "
+         "tax periods after\" the year the option takes effect), and the year of the move comes on top, which is why the circular counts ten."),
+        ("Does the 7% apply only to the pension?",
+         "No. The law applies the 7% to foreign income of any kind (pensions, investment income, rent from property abroad), but you must "
+         "receive a foreign pension to use it. You can leave out the income from one or more countries; that income is then taxed normally."),
+        ("Does the 7% tax change in 2027?",
+         "The rule moves to article 247 of the new income tax code (Legislative Decree 117/2026), which applies from 1 January 2027. "
+         f"The text is the same, with the same {intero(SOGLIA_F7)} limit."),
+    ]
+
+
+def link_f7(rel):
+    return (f'<p><a href="{rel}{SEZ_F7}">Italy 7% flat tax: rules and town check</a> · <a href="{rel}{SEZ_F7}regions/">7% tax regions and earthquake towns</a> · '
+            f'<a href="{rel}italy-digital-nomad-visa/">Italy digital nomad visa income</a> · <a href="{rel}country/italy/">Italy visa income requirements</a></p>')
+
+
+def pagina_f7_indice():
+    percorso = SEZ_F7
+    a1, a2 = ANNI_F7[0], ANNI_F7[1]
+    tab, tot = tabella_regioni_f7()
+    fuori = conteggi_f7()
+    n_sisma = sum(v[1] for k, v in fuori.items() if k[0] == 2)
+    domande = domande_f7() + [
+        ("Is my town eligible?",
+         "Use the town check above: it tells you whether the town is in one of the areas named in the law and whether ISTAT's figure for the right year is "
+         f"within {intero(SOGLIA_F7)}. {FRASE_DECIDE_F7}"),
+        ("Some guides say earthquake towns must have under 3,000 inhabitants. Is that right?",
+         f"Not any more. The text in force says \"in any case\" up to {intero(SOGLIA_F7)} for the eight regions and both earthquake lists, and the Agency's page "
+         f"says the same. The 3,000 cap for earthquake towns applied from December 2019 to March 2022; from 29 March 2022 the limit was 20,000 for all the areas."),
+    ]
+    ld = [ld_faq(domande)]
+    corpo = f"""<section class="hero">{h1_diviso("Italy 7% flat tax for foreign pensioners: the rules and a town population check")}
+<p class="lead">Article 24-ter of Italy's income tax code (Normattiva, read on {data_lunga(LETTO_F7)}) lets a person with a foreign pension pay a flat <strong>7%</strong> on all foreign income for ten years after moving to a town of up to <strong>{intero(SOGLIA_F7)}</strong> inhabitants in eight southern regions or on the earthquake lists. The population that counts is ISTAT's figure on 1 January of the year before the move: <strong>1 January {a1[1]}</strong> for a move in {a1[0]}.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("sun")}<span>Italy 7% flat tax</span><span>read on {data_lunga(LETTO_F7)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Tax on foreign income, each year</span><span class="sr">: </span><strong>7%</strong></p>
+<div class="kpi"><div><b>{intero(SOGLIA_F7)}</b><span>maximum inhabitants (since 7 April 2026; 20,000 before)</span></div><div><b>10 tax years</b><span>the year you move and the next nine</span></div><div><b>5 tax years</b><span>not tax resident in Italy before the move</span></div><div><b>{intero(tot[1])}</b><span>towns under the limit on 1 January {a1[1]}, in the areas of the law</span></div></div>
+{fonte_f7_p(("art24ter", "l34", "ade"))}
+</div></section>
+{AVVISO_F7}
+{AD}
+{strumento_f7("")}
+<h2 id="who">Who can use it</h2>
+<p>The conditions in article 24-ter and in the Agency's guidance:</p>
+<ul class="testo">
+<li><strong>A foreign pension.</strong> You receive pension income paid by a foreign payer (the law says "redditi da pensione … erogati da soggetti esteri").</li>
+<li><strong>Five years out.</strong> You were not tax resident in Italy in the five tax years before the year the option starts.</li>
+<li><strong>The country you come from.</strong> You move from a country with which Italy has an administrative cooperation agreement in force, which the Agency explains as an instrument for exchanging tax information.</li>
+<li><strong>The town.</strong> You move your tax residence to a town of up to {intero(SOGLIA_F7)} inhabitants in Sicily, Calabria, Sardinia, Campania, Basilicata, Abruzzo, Molise or Puglia, or to a town on the 2009 or 2016-2017 earthquake lists, which add towns in Lazio, Marche and Umbria.</li>
+</ul>
+<p>If you meet them, the 7% replaces Italian income tax on <em>all</em> your foreign income, not only the pension, for the year you move and the next nine tax years. You choose it in your Italian tax return for the year you move, and pay the tax in one instalment by the deadline for the income tax balance. You can leave out the income from one or more countries (that income is then taxed normally, with the foreign tax credit). You can revoke the option, but after a revocation, or if the conditions stop being met, you cannot choose it again.</p>
+{fonte_f7_p(("art24ter", "circ21e"))}
+<h2 id="population">Which population year counts</h2>
+<p>The Agenzia delle Entrate looks at ISTAT's resident population on 1 January of the year before the first year of the option. That figure counts for all ten years, even if the town grows later. If you move to another eligible town, the new town's figure on 1 January of the year before that move counts.</p>
+<div class="tab"><table><thead><tr><th scope="col">You move in</th><th scope="col">ISTAT figure that counts</th><th scope="col">Status of the figure</th></tr></thead><tbody>
+<tr><td>{a1[0]}</td><td>1 January {a1[1]}</td><td>ISTAT figure</td></tr>
+<tr><td>{a2[0]}</td><td>1 January {a2[1]}</td><td>ISTAT estimate ("stima"): the final figure can differ</td></tr></tbody></table></div>
+<p class="small">The Agency refers to ISTAT's annual municipal population count; the town check uses ISTAT's resident population on 1 January from demo.istat.it. If ISTAT or the Agency gives a different number for your town, theirs counts.</p>
+{fonte_f7_p(("ade", "circ21e", "istat2025", "istat2026"))}
+<h2 id="regions">Towns under the limit by region</h2>
+<p class="small">Our count from ISTAT's figures. The eight regions count all their towns; Lazio, Marche and Umbria count only the towns on the 2016-2017 earthquake lists ({intero(n_sisma)} under the limit). The earthquake towns in Abruzzo and the 57 towns of the 2009 earthquake list are all in Abruzzo, so they are already in the Abruzzo row.</p>
+{tab}
+{fonte_f7_p(("istat2025", "istat2026", "all1", "all2", "all2bis", "bura2009"))}
+<p><a href="regions/">Region by region: the towns over the limit and the full earthquake lists</a></p>
+<h2 id="near">Towns near the limit</h2>
+<p>Towns in the areas of the law whose population was within {intero(VICINO_F7)} of {intero(SOGLIA_F7)} on either date. For these, the year of your move decides which figure counts, and a small change in the ISTAT figure matters: check it with ISTAT and the Agency.</p>
+{tabella_vicini_f7()}
+{fonte_f7_p(("istat2025", "istat2026"))}
+<h2 id="changes">What changed in 2026 and what changes in 2027</h2>
+<ul class="testo">
+<li><strong>7 April 2026:</strong> Law 34 of 11 March 2026 (article 26) raised the limit from 20,000 to {intero(SOGLIA_F7)} inhabitants. The Agency's page, updated on {data_lunga(L7["ade_aggiornata"])}, says the new limit applies from 7 April 2026. Neither the law nor the Agency's page we read says how a move between 1 January and 6 April 2026 to a town between 20,001 and {intero(SOGLIA_F7)} inhabitants is treated: ask the Agency or a tax adviser.</li>
+<li><strong>Earthquake towns:</strong> the text in force applies the same {intero(SOGLIA_F7)} limit "in any case" to the eight regions and to both earthquake lists. Guides that give a 3,000 cap for earthquake towns are quoting the version in force from December 2019 to March 2022 (Circular 21/E of 2020 still describes it); from 29 March 2022 the limit was 20,000 for all the areas.</li>
+<li><strong>1 January 2027:</strong> the whole income tax code of 1986 is replaced by a new one (Legislative Decree 117 of 19 June 2026). The 7% regime becomes its article 247, with the same wording and the same {intero(SOGLIA_F7)} limit.</li>
+</ul>
+{fonte_f7_p(("l34", "ade", "art247", "art377", "art24ter_2027"))}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>Sources</h2>
+{fonti_elenco_f7()}
+<p class="small">To live in Italy as a pensioner from outside the EU you also need the right visa and residence permit (usually the elective residence visa). We do not show an income amount for that visa because the official rules set no fixed figure.</p>
+<h2>More on Italy</h2>
+{link_f7("../")}"""
+    titolo = "Italy 7% flat tax for foreign pensioners: rules and town check"
+    descr = (f"Italy's 7% flat tax for foreign pensioners: towns up to {intero(SOGLIA_F7)} inhabitants in 8 southern regions and the earthquake areas, "
+             f"10 years, ISTAT population on 1 January of the year before the move. Check any town.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=ld, briciole=[("Italy 7% flat tax", percorso)], script=F7_JS)
+
+
+def pagina_f7_regioni():
+    percorso = f"{SEZ_F7}regions/"
+    a1, a2 = ANNI_F7[0], ANNI_F7[1]
+    tab, tot = tabella_regioni_f7("../")
+    cont = conteggi_f7()
+    n_sisma = sum(v[1] for k, v in cont.items() if k[0] == 2)
+    # Comuni sopra la soglia nelle 8 regioni
+    sopra = ""
+    for r in REGIONI_F7:
+        cc = sorted([c for c in COMUNI_F7 if c[4] == r and c[5] > SOGLIA_F7], key=lambda c: -c[5])
+        voci = ", ".join(f'{escape(c[1])} ({c[3]}) {intero(c[5])}' for c in cc)
+        sopra += f'<details class="f7-det"><summary>{escape(reg_en(r))}: {len(cc)} town{"s" if len(cc) != 1 else ""} over {intero(SOGLIA_F7)}</summary><p class="small">{voci}</p></details>'
+    # Comuni degli allegati fuori dalle 8 regioni
+    sisma = ""
+    for r in sorted({c[4] for c in COMUNI_F7 if area_f7(c) in (2, 3)}):
+        cc = sorted([c for c in COMUNI_F7 if c[4] == r and area_f7(c) in (2, 3)], key=lambda c: c[1])
+        righe = ""
+        for c in cc:
+            ann = ", ".join(sorted({{"all1": "Annex 1", "all2": "Annex 2", "all2bis": "Annex 2-bis"}[x["allegato"]] + (f' (as {x["nome"]})' if x["nota"] else "")
+                                    for x in SISMA_F7[c[0]]}))
+            righe += (f'<tr><th scope="row">{escape(nome_c_f7(c))}</th><td>{escape(ann)}</td><td class="n">{intero(c[5])} {cella_stato_f7(c, a1[1])}</td>'
+                      f'<td class="n">{intero(c[6])} {cella_stato_f7(c, a2[1])}</td></tr>')
+        n_ok = sum(c[5] <= SOGLIA_F7 for c in cc)
+        t = (f'<div class="tab compatta"><table id="t-sisma-{slug_testo(r)}"><caption class="sr">Earthquake-list towns in {escape(reg_en(r))}</caption><thead><tr>'
+             f'<th scope="col">Town</th><th scope="col">Earthquake list</th><th scope="col" class="n">1 January {a1[1]} (move in {a1[0]})</th>'
+             f'<th scope="col" class="n">1 January {a2[1]}, estimate (move in {a2[0]})</th></tr></thead><tbody>{righe}</tbody></table></div>')
+        sisma += f'<h3>{escape(reg_en(r))}: {len(cc)} towns on the lists, {n_ok} under {intero(SOGLIA_F7)}</h3>{pila(t)}'
+    ab = sorted([PER_CODICE_F7[k] for k in SISMA_F7 if PER_CODICE_F7[k][4] == "Abruzzo"], key=lambda c: c[1])
+    ab_sopra = [c for c in ab if c[5] > SOGLIA_F7]
+    s09 = [PER_CODICE_F7[x["codice"]] for x in F7["sisma2009"]]
+    s09_sopra = [c for c in s09 if c[5] > SOGLIA_F7]
+    domande = [domande_f7()[1], domande_f7()[2],
+               ("Which towns in Umbria, Marche and Lazio count?",
+                f"Only the towns on the 2016-2017 earthquake lists, and only up to {intero(SOGLIA_F7)} inhabitants: on 1 January {a1[1]}, "
+                + ", ".join(f"{cont[(2, r)][1]} in {reg_en(r)}" for r in ("Umbria", "Marche", "Lazio") if (2, r) in cont)
+                + ". The tables on this page list them all with ISTAT's figures."),
+               ("Why is Fabriano on the list but not Macerata or Rieti?",
+                f"All three are on the 2016 earthquake lists, but Macerata and Rieti have more than {intero(SOGLIA_F7)} inhabitants; Fabriano had "
+                f"{intero(next(c[5] for c in COMUNI_F7 if c[1] == 'Fabriano'))} on 1 January {a1[1]}.")]
+    ld = [ld_faq(domande)]
+    corpo = f"""<section class="hero">{h1_diviso("Italy 7% tax regions and earthquake towns: population check")}
+<p class="lead">Article 24-ter of Italy's income tax code (Normattiva, read on {data_lunga(LETTO_F7)}) covers towns of up to <strong>{intero(SOGLIA_F7)}</strong> inhabitants in Sicily, Calabria, Sardinia, Campania, Basilicata, Abruzzo, Molise and Puglia, plus the towns on the 2009 and 2016-2017 earthquake lists. With ISTAT's figures on 1 January {a1[1]} (the ones that count for a move in {a1[0]}), that is <strong>{intero(tot[1])}</strong> towns under the limit, {intero(n_sisma)} of them in Lazio, Marche and Umbria.</p></section>
+{AVVISO_F7}
+{AD}
+<h2 id="regions">Region by region</h2>
+{tab}
+{fonte_f7_p(("istat2025", "istat2026", "art24ter"))}
+{strumento_f7("../")}
+<h2 id="over">Towns over the limit in the eight regions</h2>
+<p>These towns are in the eight regions but had more than {intero(SOGLIA_F7)} inhabitants on 1 January {a1[1]} (ISTAT). Every other town in these regions was under the limit on that date.</p>
+{sopra}
+{fonte_f7_p(("istat2025",))}
+<h2 id="earthquake">Earthquake towns in Lazio, Marche and Umbria</h2>
+<p>The law adds the towns in Annexes 1, 2 and 2-bis to Decree-Law 189/2016 (the central Italy earthquakes of August and October 2016 and January 2017), with the same {intero(SOGLIA_F7)} limit. Outside the eight regions, these are the towns on the lists. Three names on the lists no longer exist: Acquacanina merged into Fiastra, and Fiordimonte and Pievebovigliana into Valfornace, on 1 January 2017 (ISTAT). Fiastra is on the list in its own name; for Valfornace, ask the Agenzia delle Entrate.</p>
+{sisma}
+{fonte_f7_p(("all1", "all2", "all2bis", "soppressi", "istat2025", "istat2026"))}
+<h2 id="abruzzo">Earthquake towns in Abruzzo and the 2009 list</h2>
+<p>The 2016-2017 lists also name {len(ab)} towns in Abruzzo, and the Abruzzo Region lists 57 towns in the area of the 6 April 2009 earthquake (L'Aquila), all in Abruzzo. Abruzzo is one of the eight regions, so these lists add no new towns: the same {intero(SOGLIA_F7)} limit applies. Over the limit: {", ".join(f"{escape(c[1])} ({intero(c[5])})" for c in sorted(ab_sopra + s09_sopra, key=lambda c: c[1]))}.</p>
+{fonte_f7_p(("all1", "all2", "all2bis", "bura2009", "istat2025"))}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<p><a href="../">Italy 7% flat tax: who can use it, which population year counts, what changes in 2027</a></p>
+<h2>Sources</h2>
+{fonti_elenco_f7()}
+<h2>More on Italy</h2>
+{link_f7("../../")}"""
+    titolo = "Italy 7% tax regions and earthquake towns: 2026 population check"
+    descr = (f"Italy 7% flat tax: towns under {intero(SOGLIA_F7)} by region, the towns over the limit, and the earthquake towns in Umbria, Marche and Lazio, "
+             f"with ISTAT population on 1 January {a1[1]} and {a2[1]}.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=ld, briciole=[("Italy 7% flat tax", SEZ_F7), ("Regions", percorso)], script=F7_JS)
+
+
+CSS += (".f7-det{border:1px solid var(--line);border-radius:var(--r-s);background:var(--card);padding:4px 14px;margin:8px 0}"
+        ".f7-det summary{cursor:pointer;font-weight:600;padding:8px 0}.f7-det p{margin:4px 0 10px}")
+
+
+def link_flat7_it(P, rel):
+    """Riga dalle pagine Italia del sito alla pagina della flat tax del 7%."""
+    if P.get("paese") != "Italy":
+        return ""
+    return (f'<p class="small">{ico("check")} Moving to southern Italy with a foreign pension? '
+            f'<a href="{rel}{SEZ_F7}">Italy 7% flat tax for foreign pensioners: the rules and a town population check</a>.</p>')
+
+
+def genera_f7():
+    pagina_f7_indice()
+    pagina_f7_regioni()
+    scrivi_dati_tool_f7()
+
+
+def controlli_f7():
+    import hashlib
+    errori = []
+    cont = {k: F7[k] for k in ("letture", "fonti", "sisma2016", "sisma2009", "comuni", "anni_popolazione", "pagina_istat")}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != F7["impronta"]:
+        errori.append("flat7: impronta del JSON diversa dal contenuto (file modificato a mano?)")
+    if any(f.get("http") != 200 for f in FF7.values()):
+        errori.append("flat7: fonte non letta (HTTP diverso da 200)")
+    if SOGLIA_F7 != 30000 or L7["art247"] != 30000:
+        errori.append("flat7: soglia diversa da 30.000 (i testi delle pagine e delle FAQ sono scritti con 30.000 e 20.000): rivedere")
+    if len(REGIONI_F7) != 8 or any(r not in {c[4] for c in COMUNI_F7} for r in REGIONI_F7):
+        errori.append("flat7: regioni della legge non trovate nell'elenco ISTAT")
+    if [a for _, a, _ in ANNI_F7] != ["2025", "2026"]:
+        errori.append("flat7: anni della popolazione diversi da 2025 e 2026: rivedere i testi (prima frase, FAQ, strumento)")
+    if any(x["codice"] not in PER_CODICE_F7 for x in F7["sisma2016"] + F7["sisma2009"]):
+        errori.append("flat7: Comune degli allegati senza codice ISTAT valido")
+    if any(PER_CODICE_F7[x["codice"]][4] != "Abruzzo" for x in F7["sisma2009"]):
+        errori.append("flat7: un Comune del sisma 2009 non è in Abruzzo: rivedere i testi")
+    if FUSI_F7 != {"043058"}:
+        errori.append(f"flat7: Comuni nati da fusione diversi da Valfornace ({sorted(FUSI_F7)}): rivedere il testo dello strumento")
+    return errori
+
+
 def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
@@ -7699,6 +8160,7 @@ def controlli():
     errori += controlli_studio()
     errori += controlli_mx()
     errori += controlli_it()
+    errori += controlli_f7()
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -7729,6 +8191,7 @@ def main():
     genera_studio()
     genera_mx()
     genera_it()
+    genera_f7()
     pagina_come_funziona()
     about()
     contatti()
@@ -7740,7 +8203,8 @@ def main():
           f"trasferimenti: {len(NAZ_TR)} nazionalità, {sum(len(v) for v in COPPIE_TR.values())} pagine nazionalità × Paese ({Y1}); "
           f"test di inglese UK (SELT): {len(CITTA_PAG)} città e {len(PAESI_PAG)} Paesi con pagina (elenco del {DATA_ELENCO}); "
           f"DTV Thailandia: {len(LET_DTV)} sedi lette su {len(SEDI_DTV)}, {len(PAG_DTV)} con pagina; Irlanda (PPS): {len(PPS_OK)} nazionalità, dati a {PPS_ULTIMO}; "
-          f"Messico: {len(CONS_MX)} consolati, UMA {UMA_MX}; Study in Italy: {len(ENTI_IT)} enti DSU, mezzi {LIT['mezzi']} €.")
+          f"Messico: {len(CONS_MX)} consolati, UMA {UMA_MX}; Study in Italy: {len(ENTI_IT)} enti DSU, mezzi {LIT['mezzi']} €; "
+          f"flat tax 7%: {len(COMUNI_F7)} Comuni ISTAT, {sum(1 for c in COMUNI_F7 if stato_f7(c, '2025') == 'ok')} entro {SOGLIA_F7} (1/1/2025).")
 
 
 if __name__ == "__main__":
