@@ -1,6 +1,6 @@
 # Esperimento 1: pagine più facili da citare per gli assistenti (Visa Income, 31/10/2026)
 
-Origine: `fronti-2026-10-31-traffico.md`, sez. 1 (voto 8) e sez. 7, esperimento E1. Costruito il 31/10/2026, **non ancora pubblicato** (esce con la prossima pubblicazione prevista di Visa Income, dopo la revisione).
+Origine: `fronti-2026-10-31-traffico.md`, sez. 1 (voto 8) e sez. 7, esperimento E1. Costruito il 31/10/2026, **pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma)**: il conteggio parte dal 1/11/2026 (`--dal 2026-11-01`).
 
 ## Domanda
 Le pagine con data di aggiornamento visibile, `dateModified`, un riquadro di cifre ufficiali in frasi complete e un CSV con schema `Dataset` ricevono più visite da ChatGPT (provenienza `chatgpt.com`) delle pagine uguali senza queste aggiunte?
