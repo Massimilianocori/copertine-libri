@@ -3,11 +3,543 @@
 "pagine": {
 "": [
 "2026-10-31",
-"088f4f54936da9f1d80e"
+"f4317b852e291e7ccc49"
 ],
 "about/": [
 "2026-10-15",
 "f31d17088e4c9e91a70d"
+],
+"australian-citizenship-ceremony-wait-times/": [
+"2026-10-31",
+"7dbcf4a58d95ddd75ba8"
+],
+"australian-citizenship-ceremony-wait-times/act/": [
+"2026-10-31",
+"92ac19f99cdcddbefe1e"
+],
+"australian-citizenship-ceremony-wait-times/adelaide/": [
+"2026-10-31",
+"c8ca54853d7ad1fa0aea"
+],
+"australian-citizenship-ceremony-wait-times/albany/": [
+"2026-10-31",
+"bfc471a6fcac1fae5e6d"
+],
+"australian-citizenship-ceremony-wait-times/albury/": [
+"2026-10-31",
+"d753f3e6370e671908a2"
+],
+"australian-citizenship-ceremony-wait-times/alice-springs/": [
+"2026-10-31",
+"46fe75aedab00a24f7b3"
+],
+"australian-citizenship-ceremony-wait-times/armadale/": [
+"2026-10-31",
+"4e5e8e057cf2c1e9a0d0"
+],
+"australian-citizenship-ceremony-wait-times/ballarat/": [
+"2026-10-31",
+"a01ceacf0bad23428bc1"
+],
+"australian-citizenship-ceremony-wait-times/banyule/": [
+"2026-10-31",
+"5d3c831c706926a43e36"
+],
+"australian-citizenship-ceremony-wait-times/bayside-nsw/": [
+"2026-10-31",
+"1fd4fec7a26b3b55059d"
+],
+"australian-citizenship-ceremony-wait-times/belmont/": [
+"2026-10-31",
+"a2cd4fa5335f9367d549"
+],
+"australian-citizenship-ceremony-wait-times/bendigo/": [
+"2026-10-31",
+"eba7fc9835379a3b1123"
+],
+"australian-citizenship-ceremony-wait-times/blacktown/": [
+"2026-10-31",
+"f0082ce590e545f887a8"
+],
+"australian-citizenship-ceremony-wait-times/boroondara/": [
+"2026-10-31",
+"73769bf65c8c760d3542"
+],
+"australian-citizenship-ceremony-wait-times/brimbank/": [
+"2026-10-31",
+"2a9a1d1cc937ebcc8430"
+],
+"australian-citizenship-ceremony-wait-times/brisbane/": [
+"2026-10-31",
+"95653beeef4af176909b"
+],
+"australian-citizenship-ceremony-wait-times/bundaberg/": [
+"2026-10-31",
+"e0df5872b27e944ecc17"
+],
+"australian-citizenship-ceremony-wait-times/burnside/": [
+"2026-10-31",
+"e0d3a20c0ba61bb87e16"
+],
+"australian-citizenship-ceremony-wait-times/burwood/": [
+"2026-10-31",
+"1da596c559d2c0abc314"
+],
+"australian-citizenship-ceremony-wait-times/byron/": [
+"2026-10-31",
+"4bc0aea8e7a1a7a125b2"
+],
+"australian-citizenship-ceremony-wait-times/cairns/": [
+"2026-10-31",
+"1d8a365fc0fb8668e31f"
+],
+"australian-citizenship-ceremony-wait-times/cambridge/": [
+"2026-10-31",
+"55decd2e74288d9cc0ae"
+],
+"australian-citizenship-ceremony-wait-times/camden/": [
+"2026-10-31",
+"2ac8ff566b9826cc4200"
+],
+"australian-citizenship-ceremony-wait-times/campbelltown-sa/": [
+"2026-10-31",
+"d09862b530400230c724"
+],
+"australian-citizenship-ceremony-wait-times/canada-bay/": [
+"2026-10-31",
+"00b39261283cd22fbe51"
+],
+"australian-citizenship-ceremony-wait-times/canning/": [
+"2026-10-31",
+"d4c651fbd23d386ce049"
+],
+"australian-citizenship-ceremony-wait-times/canterbury-bankstown/": [
+"2026-10-31",
+"63a69bfb1726f3a8b4da"
+],
+"australian-citizenship-ceremony-wait-times/cardinia/": [
+"2026-10-31",
+"2940bd83b9a928e284e4"
+],
+"australian-citizenship-ceremony-wait-times/casey/": [
+"2026-10-31",
+"16f3ebdbbba344f89910"
+],
+"australian-citizenship-ceremony-wait-times/central-coast-nsw/": [
+"2026-10-31",
+"fd1389a75029c9859773"
+],
+"australian-citizenship-ceremony-wait-times/cessnock/": [
+"2026-10-31",
+"269d54f78950df1a31ae"
+],
+"australian-citizenship-ceremony-wait-times/charles-sturt/": [
+"2026-10-31",
+"77ce0ebbcea5a2e76358"
+],
+"australian-citizenship-ceremony-wait-times/clarence/": [
+"2026-10-31",
+"44fd97ff48a81b257b3e"
+],
+"australian-citizenship-ceremony-wait-times/cockburn/": [
+"2026-10-31",
+"806fa26714f54c07fd56"
+],
+"australian-citizenship-ceremony-wait-times/cumberland/": [
+"2026-10-31",
+"65a8db785152fdd1fbb0"
+],
+"australian-citizenship-ceremony-wait-times/dandenong/": [
+"2026-10-31",
+"3d7528aa6b918ccf01a6"
+],
+"australian-citizenship-ceremony-wait-times/darebin/": [
+"2026-10-31",
+"85c9b1f872b2445938c9"
+],
+"australian-citizenship-ceremony-wait-times/darwin/": [
+"2026-10-31",
+"fc437acf63de8328db92"
+],
+"australian-citizenship-ceremony-wait-times/dubbo/": [
+"2026-10-31",
+"ad8deeb399ad8107a772"
+],
+"australian-citizenship-ceremony-wait-times/fairfield/": [
+"2026-10-31",
+"3b7d116bbee8ce0e171e"
+],
+"australian-citizenship-ceremony-wait-times/frankston/": [
+"2026-10-31",
+"d926ca8db8adb32af4bf"
+],
+"australian-citizenship-ceremony-wait-times/geelong/": [
+"2026-10-31",
+"db5e2dc162f889e27e27"
+],
+"australian-citizenship-ceremony-wait-times/georges-river/": [
+"2026-10-31",
+"a1948e16c8f3c2735d41"
+],
+"australian-citizenship-ceremony-wait-times/gladstone/": [
+"2026-10-31",
+"32abcc70171c1dea0868"
+],
+"australian-citizenship-ceremony-wait-times/glen-eira/": [
+"2026-10-31",
+"2cb4377761e41bb2055c"
+],
+"australian-citizenship-ceremony-wait-times/glenorchy/": [
+"2026-10-31",
+"35bc61b2c86d1c575b82"
+],
+"australian-citizenship-ceremony-wait-times/gold-coast/": [
+"2026-10-31",
+"3542ab980b4d355562f8"
+],
+"australian-citizenship-ceremony-wait-times/gosnells/": [
+"2026-10-31",
+"4a70b80ac2971c7d53e9"
+],
+"australian-citizenship-ceremony-wait-times/griffith/": [
+"2026-10-31",
+"7f65e6f61a9bcbc7090f"
+],
+"australian-citizenship-ceremony-wait-times/hobart/": [
+"2026-10-31",
+"a9d2c13ea5017d5c9c13"
+],
+"australian-citizenship-ceremony-wait-times/hobsons-bay/": [
+"2026-10-31",
+"b7b0b108927fd12854ce"
+],
+"australian-citizenship-ceremony-wait-times/hornsby/": [
+"2026-10-31",
+"f528b78253d6594a64b4"
+],
+"australian-citizenship-ceremony-wait-times/hume/": [
+"2026-10-31",
+"f9055e184935fc089640"
+],
+"australian-citizenship-ceremony-wait-times/inner-west/": [
+"2026-10-31",
+"af50c13a191dce27f678"
+],
+"australian-citizenship-ceremony-wait-times/ipswich/": [
+"2026-10-31",
+"f6135b0d7f40e50889ea"
+],
+"australian-citizenship-ceremony-wait-times/joondalup/": [
+"2026-10-31",
+"71b56fccfd70ec0d2907"
+],
+"australian-citizenship-ceremony-wait-times/kalamunda/": [
+"2026-10-31",
+"d9d2c00e7eac02d87c88"
+],
+"australian-citizenship-ceremony-wait-times/kingston-vic/": [
+"2026-10-31",
+"d8840a690aa81c3cfebe"
+],
+"australian-citizenship-ceremony-wait-times/knox/": [
+"2026-10-31",
+"d7d53d556245df8bb8dc"
+],
+"australian-citizenship-ceremony-wait-times/ku-ring-gai/": [
+"2026-10-31",
+"cc526b828bb228261db5"
+],
+"australian-citizenship-ceremony-wait-times/kwinana/": [
+"2026-10-31",
+"52c46e91b285e63f09df"
+],
+"australian-citizenship-ceremony-wait-times/lake-macquarie/": [
+"2026-10-31",
+"4ddde6314a0c6f6d8ea5"
+],
+"australian-citizenship-ceremony-wait-times/lane-cove/": [
+"2026-10-31",
+"b8c195841b740a6230e7"
+],
+"australian-citizenship-ceremony-wait-times/launceston/": [
+"2026-10-31",
+"5115b1368d206d276f12"
+],
+"australian-citizenship-ceremony-wait-times/liverpool/": [
+"2026-10-31",
+"c383f4195ac395879a11"
+],
+"australian-citizenship-ceremony-wait-times/logan/": [
+"2026-10-31",
+"aa019abb0d22a1ed97f9"
+],
+"australian-citizenship-ceremony-wait-times/mackay/": [
+"2026-10-31",
+"cf8cecbf69c9ddd7aa1d"
+],
+"australian-citizenship-ceremony-wait-times/mandurah/": [
+"2026-10-31",
+"3d07f75409109ab932b0"
+],
+"australian-citizenship-ceremony-wait-times/manningham/": [
+"2026-10-31",
+"ff0e53da5308adff722a"
+],
+"australian-citizenship-ceremony-wait-times/maribyrnong/": [
+"2026-10-31",
+"ad1e1e250bd7a43ce1a6"
+],
+"australian-citizenship-ceremony-wait-times/marion/": [
+"2026-10-31",
+"38e0b182c764ef42858f"
+],
+"australian-citizenship-ceremony-wait-times/maroondah/": [
+"2026-10-31",
+"7963113dc17ab41cee75"
+],
+"australian-citizenship-ceremony-wait-times/melbourne/": [
+"2026-10-31",
+"f4d3c55ac13d5673fce4"
+],
+"australian-citizenship-ceremony-wait-times/melton/": [
+"2026-10-31",
+"615deb53149bc142ad7a"
+],
+"australian-citizenship-ceremony-wait-times/melville/": [
+"2026-10-31",
+"b3f534f4655866c11600"
+],
+"australian-citizenship-ceremony-wait-times/merri-bek/": [
+"2026-10-31",
+"918718f9890447297c98"
+],
+"australian-citizenship-ceremony-wait-times/mildura/": [
+"2026-10-31",
+"31eefe104c9624e6aaec"
+],
+"australian-citizenship-ceremony-wait-times/mitcham/": [
+"2026-10-31",
+"928d4a21c59078d3d369"
+],
+"australian-citizenship-ceremony-wait-times/mitchell/": [
+"2026-10-31",
+"f18c425001cc120c73f7"
+],
+"australian-citizenship-ceremony-wait-times/monash/": [
+"2026-10-31",
+"100b6d33694d9d1de8f5"
+],
+"australian-citizenship-ceremony-wait-times/moonee-valley/": [
+"2026-10-31",
+"2e19c53db996be1170ba"
+],
+"australian-citizenship-ceremony-wait-times/moreton-bay/": [
+"2026-10-31",
+"6def5fba3be38a9465c6"
+],
+"australian-citizenship-ceremony-wait-times/mosman/": [
+"2026-10-31",
+"075ba135045ee856c85f"
+],
+"australian-citizenship-ceremony-wait-times/mount-isa/": [
+"2026-10-31",
+"559533f4c0ae959ec0fd"
+],
+"australian-citizenship-ceremony-wait-times/newcastle/": [
+"2026-10-31",
+"46b62eb32e3bedab9e03"
+],
+"australian-citizenship-ceremony-wait-times/noosa/": [
+"2026-10-31",
+"a1fab429e77d963150c5"
+],
+"australian-citizenship-ceremony-wait-times/north-sydney/": [
+"2026-10-31",
+"b70eb7b9e9cc66ecfc8b"
+],
+"australian-citizenship-ceremony-wait-times/northern-beaches/": [
+"2026-10-31",
+"ae1d4f7007e78ef84cf3"
+],
+"australian-citizenship-ceremony-wait-times/orange/": [
+"2026-10-31",
+"759b52fb3cd176b4f3a3"
+],
+"australian-citizenship-ceremony-wait-times/palmerston/": [
+"2026-10-31",
+"944aae174e223425a00b"
+],
+"australian-citizenship-ceremony-wait-times/parramatta/": [
+"2026-10-31",
+"bb33ac150e1eaa7a5413"
+],
+"australian-citizenship-ceremony-wait-times/penrith/": [
+"2026-10-31",
+"7a5ff6f25f569288fae4"
+],
+"australian-citizenship-ceremony-wait-times/perth/": [
+"2026-10-31",
+"b877c2f61e907bd1fa23"
+],
+"australian-citizenship-ceremony-wait-times/playford/": [
+"2026-10-31",
+"5e0e4b184b3ad513982a"
+],
+"australian-citizenship-ceremony-wait-times/port-adelaide-enfield/": [
+"2026-10-31",
+"d48684721a808ee4a367"
+],
+"australian-citizenship-ceremony-wait-times/port-phillip/": [
+"2026-10-31",
+"732254ad932776014d2e"
+],
+"australian-citizenship-ceremony-wait-times/prospect/": [
+"2026-10-31",
+"6f788450186057d7eab6"
+],
+"australian-citizenship-ceremony-wait-times/randwick/": [
+"2026-10-31",
+"1d0abdfc623c4fbfa9a1"
+],
+"australian-citizenship-ceremony-wait-times/redland/": [
+"2026-10-31",
+"9cb917ed095acaae9d40"
+],
+"australian-citizenship-ceremony-wait-times/rockingham/": [
+"2026-10-31",
+"af10e85e025c379605ee"
+],
+"australian-citizenship-ceremony-wait-times/salisbury/": [
+"2026-10-31",
+"e91440a291e24191c1e5"
+],
+"australian-citizenship-ceremony-wait-times/shepparton/": [
+"2026-10-31",
+"25bc8fc46bddea960a07"
+],
+"australian-citizenship-ceremony-wait-times/shoalhaven/": [
+"2026-10-31",
+"83753f50db739b3d4c4a"
+],
+"australian-citizenship-ceremony-wait-times/south-perth/": [
+"2026-10-31",
+"16d5c9514c4325f1ddf4"
+],
+"australian-citizenship-ceremony-wait-times/stirling/": [
+"2026-10-31",
+"ef12b95de820dbcbbbdf"
+],
+"australian-citizenship-ceremony-wait-times/stonnington/": [
+"2026-10-31",
+"d4ee438311e55f7e37d9"
+],
+"australian-citizenship-ceremony-wait-times/strathfield/": [
+"2026-10-31",
+"cc82ea10f70c36950008"
+],
+"australian-citizenship-ceremony-wait-times/sunshine-coast/": [
+"2026-10-31",
+"e685487a5bc137c98e46"
+],
+"australian-citizenship-ceremony-wait-times/sutherland/": [
+"2026-10-31",
+"5ab9a94b4a3884b4b0f0"
+],
+"australian-citizenship-ceremony-wait-times/swan/": [
+"2026-10-31",
+"a7dbd1944c7a1114a3c1"
+],
+"australian-citizenship-ceremony-wait-times/sydney/": [
+"2026-10-31",
+"cfe146e7332c7307ce27"
+],
+"australian-citizenship-ceremony-wait-times/tamworth/": [
+"2026-10-31",
+"a6335a1640de309db09a"
+],
+"australian-citizenship-ceremony-wait-times/tea-tree-gully/": [
+"2026-10-31",
+"8c33166d55c330111334"
+],
+"australian-citizenship-ceremony-wait-times/the-hills-shire/": [
+"2026-10-31",
+"0c95331ec54169182c1d"
+],
+"australian-citizenship-ceremony-wait-times/toowoomba/": [
+"2026-10-31",
+"178d0a020965ded9619b"
+],
+"australian-citizenship-ceremony-wait-times/townsville/": [
+"2026-10-31",
+"3662c83eaafd9243632a"
+],
+"australian-citizenship-ceremony-wait-times/tweed/": [
+"2026-10-31",
+"30f1b3f1f5efeb2f4c48"
+],
+"australian-citizenship-ceremony-wait-times/unley/": [
+"2026-10-31",
+"cb59e61f7e18924392e2"
+],
+"australian-citizenship-ceremony-wait-times/wanneroo/": [
+"2026-10-31",
+"7c6725fe5ec804eb8f47"
+],
+"australian-citizenship-ceremony-wait-times/warrnambool/": [
+"2026-10-31",
+"e132c1d7d51aa77313da"
+],
+"australian-citizenship-ceremony-wait-times/waverley/": [
+"2026-10-31",
+"f72dfee1dc4ed52126e2"
+],
+"australian-citizenship-ceremony-wait-times/wellington/": [
+"2026-10-31",
+"a6b642b53c60b20020bd"
+],
+"australian-citizenship-ceremony-wait-times/west-torrens/": [
+"2026-10-31",
+"937e43a1fbfac5763e1d"
+],
+"australian-citizenship-ceremony-wait-times/whitehorse/": [
+"2026-10-31",
+"3982e388a189cdd9d965"
+],
+"australian-citizenship-ceremony-wait-times/whittlesea/": [
+"2026-10-31",
+"a1d989652b76782df36a"
+],
+"australian-citizenship-ceremony-wait-times/willoughby/": [
+"2026-10-31",
+"e3028fdd86c042dcf131"
+],
+"australian-citizenship-ceremony-wait-times/wodonga/": [
+"2026-10-31",
+"c924c2490b8deadfb853"
+],
+"australian-citizenship-ceremony-wait-times/wollongong/": [
+"2026-10-31",
+"ba43d7dcb1823733aa6a"
+],
+"australian-citizenship-ceremony-wait-times/woollahra/": [
+"2026-10-31",
+"be69a7f65b5ac7442744"
+],
+"australian-citizenship-ceremony-wait-times/wyndham/": [
+"2026-10-31",
+"0221e6fbfa089df94212"
+],
+"australian-citizenship-ceremony-wait-times/yarra-ranges/": [
+"2026-10-31",
+"70c714f606df5af32530"
+],
+"australian-citizenship-ceremony-wait-times/yarra/": [
+"2026-10-31",
+"664f0d2ad02f6ab83474"
+],
+"australian-citizenship-processing-time/": [
+"2026-10-31",
+"28e82b2dcd0859b1d810"
 ],
 "austria-eu-blue-card/": [
 "2026-10-31",
@@ -91,7 +623,7 @@
 ],
 "how-it-works/": [
 "2026-10-31",
-"b1a0f744f0d8023e1cfd"
+"e0e16d47071fd429dea9"
 ],
 "hungary-white-card/": [
 "2026-10-31",
@@ -1814,8 +2346,8 @@
 "38314504c775194bd0bb"
 ],
 "visa-refusal-rates/australia-visas/": [
-"2026-10-26",
-"6ecc3b2b86a6e737b4bc"
+"2026-10-31",
+"2da04810f052e59a7875"
 ],
 "visa-refusal-rates/australia/": [
 "2026-10-31",

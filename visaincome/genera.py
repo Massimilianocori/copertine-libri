@@ -1351,6 +1351,9 @@ def home():
 <h2>Italy 7% flat tax for foreign pensioners</h2>
 <p class="lead">A person with a foreign pension who moves to a town of up to {intero(SOGLIA_F7)} inhabitants in southern Italy or in the earthquake areas can pay 7% on foreign income for ten years (article 24-ter of the income tax code, read on {data_lunga(LETTO_F7)}). Check any town against ISTAT's population figure for the year that counts.</p>
 <p><a href="{SEZ_F7}">Italy 7% flat tax: rules and town check</a> · <a href="{SEZ_F7}regions/">7% tax regions and earthquake towns</a></p>
+<h2>Australian citizenship ceremony wait times</h2>
+<p class="lead">On {data_lunga(AL_CER)}, {intero(media_cer(RIGHE_CER)[0])} people approved for Australian citizenship were waiting for a ceremony in {len(RIGHE_CER)} council areas (Department of Home Affairs, published {data_lunga(PUB_CER)}). Search your council, and see the official processing times for the whole application.</p>
+<p><a href="{SEZ_CER}">Citizenship ceremony wait times by council</a> · <a href="{SEZ_TEMPI_CER}">Australian citizenship processing time</a> · {" · ".join(f'<a href="{SEZ_CER}{SLUG_CER[r[0]]}/">{escape(nome_cer(r, True))}</a>' for r in PAG_CER[:6])}</p>
 <h2>Why our numbers can differ from other sites</h2>
 <p>Many thresholds are a percentage of an index that changes every year (a minimum wage, an average salary), so pages that still show last year's figure are out of date. With the {ANNO} indices, on {data_lunga('2026-10-10')}: Spain's digital nomad visa is 200% of the {ANNO} minimum wage, €2,442 a month over 14 payments (€34,188 a year, the same as €2,849 a month over 12 payments); Croatia's is 2.5 × the 2025 average net salary, €3,622.50 a month; Portugal's D8 is 4 × €920 = €3,680 a month. We recalculate from the official index and show the source and the date under every figure.</p>
 {box_affiliati()}"""
@@ -1456,11 +1459,14 @@ def pagina_come_funziona():
 <p>The <a href="{rel}visa-refusal-rates/">visa refusal rates</a> pages use the European Commission's yearly Schengen visa statistics (by Schengen country, consulate and country where the application was made) and the Home Office's quarterly UK entry clearance visa datasets (by nationality). A script downloads the official files, recalculates every rate and checks it against the official totals. <a href="{rel}visa-refusal-rates/#method">Full method</a>.</p>
 <h2>8. UK visa English tests</h2>
 <p>The <a href="{rel}uk-english-test/">UK visa English tests (SELT)</a> pages use the Home Office lists of approved test centres and approved tests (ODS files on GOV.UK, updated every few weeks), the GOV.UK guidance for each visa and the Statement of Changes HC 1691 for the B2 level from {data_lunga(DATA_B2)}. A script downloads the lists every week, checks that the sentences we rely on are still in the official pages, and stops if anything changed. We do not show test fees: they are set by each provider.</p>
+<h2>14. Australian citizenship ceremony wait times</h2>
+<p>The <a href="{rel}{SEZ_CER}">citizenship ceremony wait times</a> pages use the Department of Home Affairs ceremony wait times by council and its citizenship processing times. The council table is not in the HTML of the official page: the page loads it from a public data address of the same website, which a script reads in the same way, together with the column names and the notes of the page; the processing times are read from the official page itself. Home Affairs shows only the latest month, so we save every update and show the history. State and national shares are our calculation, weighted by the number of people waiting.</p>
 <h2>Licences and attributions</h2>
 <ul><li>Laws, decrees and official notices (BOE, Gazzetta Ufficiale, Bundesanzeiger, Normattiva) are cited as facts with a link to the official text; we do not reproduce the documents.</li>
 <li>Exchange rates: European Central Bank, euro foreign exchange reference rates (source: ECB).</li>
 <li>UK: contains public sector information licensed under the Open Government Licence v3.0 (GOV.UK and Home Office immigration statistics).</li>
 <li>Schengen visa statistics: European Commission, DG Migration and Home Affairs (reuse authorised with acknowledgement of the source).</li>
+<li>Australia: Australian Government Department of Home Affairs, licensed under Creative Commons Attribution 3.0 Australia (ceremony wait times and citizenship processing times).</li>
 <li>Other ministry and immigration authority pages are cited with links; the amounts are facts taken from them.</li></ul>
 <h2>Not covered yet</h2>
 <p>Greece (digital nomad visa and financially independent person visa), Cyprus, Malta, Estonia, Czechia, Romania, Latvia, Iceland, Costa Rica, Brazil, Panama, Colombia and the United Arab Emirates: the official page could not be read by our checks or gave conflicting figures. Colombia's rule is in Colombian pesos, a currency the ECB does not publish. Thailand's DTV has no income threshold (it asks for savings) and its fee and residence rule change from embassy to embassy: see <a href="{rel}{SEZ_DTV}">Thailand DTV visa by embassy</a>. Mexico's amount depends on the consulate: see <a href="{rel}{SEZ_MX}">Mexico residency by consulate</a>.</p>
@@ -3572,7 +3578,8 @@ def pagina_rif_au():
 <li><a href="{escape(F_AUS["url"])}" rel="noopener">{escape(F_AUS["titolo"])}</a> – Department of Home Affairs on <a href="{escape(F_AUS["pagina"])}" rel="noopener">data.gov.au</a>, XLSX, {intero(F_AUS["byte"])} bytes, downloaded on {data_lunga(F_AUS["scaricato_il"])}. Licence: {lic_link(F_AUS)}. Attribution: Australian Government Department of Home Affairs.</li>
 <li><a href="{escape(F_AUT["url"])}" rel="noopener">{escape(F_AUT["titolo"])}</a> – Department of Home Affairs, PDF, downloaded on {data_lunga(F_AUT["scaricato_il"])}. Licence: {lic_link(F_AUT)} (<a href="{escape(F_AUT["copyright"])}" rel="noopener">copyright and disclaimer</a>).</li>
 <li><a href="{escape(F_AUC["url"])}" rel="noopener">{escape(F_AUC["titolo"])}</a> – Department of Home Affairs on data.gov.au, XLSX, downloaded on {data_lunga(F_AUC["scaricato_il"])}, {lic_link(F_AUC)} (used only to check that each visitor visa rate rests on at least {intero(SOGLIA_ALTRI)} decisions).</li></ul>
-<p><a href="../">Schengen visa refusal rates</a> · <a href="../uk/">UK visa refusal rates by nationality</a> · <a href="../new-zealand-visas/">New Zealand</a> · <a href="../canada-visas/">Canada</a> · <a href="{rel}">Visa income calculator</a></p>"""
+<p><a href="../">Schengen visa refusal rates</a> · <a href="../uk/">UK visa refusal rates by nationality</a> · <a href="../new-zealand-visas/">New Zealand</a> · <a href="../canada-visas/">Canada</a> · <a href="{rel}">Visa income calculator</a></p>
+<p class="small">{ico("check")} Becoming an Australian citizen? See <a href="{rel}{SEZ_CER}">citizenship ceremony wait times by council</a> and the <a href="{rel}{SEZ_TEMPI_CER}">official citizenship processing time</a>.</p>"""
     ld = {"@context": "https://schema.org", "@type": "Dataset", "name": f"Australia student visa refusal rates by nationality {AU_A1}",
           "description": "Australian student visa (subclass 500) refusal rates by citizenship, financial year, month and education sector, and visitor visa grant rates, recalculated from Department of Home Affairs files.",
           "url": f"{URL_SITO}/{SEZ_AU}", "creator": {"@type": "Organization", "name": NOME, "url": URL_SITO + "/"},
@@ -8725,6 +8732,481 @@ def controlli_sr():
     return errori
 
 
+# ---------------------------------------------------------------- Australian citizenship ceremony wait times by council (31/10/2026)
+# Dati: dati/cerimonie.json (raccolta/cerimonie.py): lista ufficiale "citizenshipCeremony" di Home Affairs (539 council: persone approvate
+# in attesa della cerimonia e % in attesa da meno di 3 mesi, 3-6 mesi, oltre 6 mesi, calcolate dall'approvazione al giorno di riferimento),
+# tempi nazionali della cittadinanza (percentili 25/50/75/90, domande in lavorazione e ricevute), storico mese per mese tenuto da noi.
+# Pagine: indice con la tabella filtrabile di tutti i council, una pagina per i council con domanda (autocompletamento gl=au) e la pagina
+# dei tempi complessivi della domanda. Licenza CC BY 3.0 AU, attribuzione "Australian Government Department of Home Affairs".
+CER = json.loads((DATI / "cerimonie.json").read_text(encoding="utf-8"))
+SEZ_CER = "australian-citizenship-ceremony-wait-times/"
+SEZ_TEMPI_CER = "australian-citizenship-processing-time/"
+F_CER = CER["fonti"]
+L_CER = CER["lista"]
+T_CER = CER["tempi"]
+LIC_CER = CER["licenza"]
+RIGHE_CER = L_CER["righe"]          # [council, Stato, persone in attesa (None = "<5"), % < 3 mesi, % 3-6 mesi, % > 6 mesi]
+NOMI_CER = L_CER["nomi"]            # council -> {"breve", "ricerca"} (scritti da raccolta/cerimonie.py)
+AL_CER = L_CER["al"]                # giorno di riferimento (es. 2026-09-30)
+PUB_CER = L_CER["modificata"]       # data di pubblicazione della lista (es. 2026-10-16)
+DOM_CER = CER["domanda"]["council"]
+STATI_CER = {"NSW": "New South Wales", "VIC": "Victoria", "QLD": "Queensland", "WA": "Western Australia", "SA": "South Australia",
+             "TAS": "Tasmania", "ACT": "Australian Capital Territory", "NT": "Northern Territory"}
+MIN_RANK_CER = 100   # persone in attesa minime per entrare nelle classifiche "più attese / meno attese"
+SOGLIA_DOMANDA_CER = 3   # suggerimenti di Google (gl=au) col nome del council per avere una pagina propria (131 council il 31/10/2026)
+_tolto = defaultdict(list)
+for _r in RIGHE_CER:
+    _tolto[re.sub(r"^Greater ", "", NOMI_CER[_r[0]]["breve"])].append(_r[0])
+# nome breve per titoli e link: senza "Greater" (si cerca "geelong", non "greater geelong") se non si confonde con un altro council
+BREVE_CER = {r[0]: (re.sub(r"^Greater ", "", NOMI_CER[r[0]]["breve"]) if len(_tolto[re.sub(r"^Greater ", "", NOMI_CER[r[0]]["breve"])]) == 1
+                    else NOMI_CER[r[0]]["breve"]) for r in RIGHE_CER}
+_brevi = defaultdict(list)
+for _r in RIGHE_CER:
+    _brevi[BREVE_CER[_r[0]]].append(_r[0])
+SLUG_CER = {r[0]: slug_testo(BREVE_CER[r[0]]) + (f"-{r[1].lower()}" if len(_brevi[BREVE_CER[r[0]]]) > 1 else "") for r in RIGHE_CER}
+PAG_CER = [r for r in sorted(RIGHE_CER, key=lambda r: (-(r[2] or 0), r[0])) if len(DOM_CER.get(r[0], [])) >= SOGLIA_DOMANDA_CER and r[2]]
+PAG_CER_NOMI = {r[0] for r in PAG_CER}
+
+
+def mese_cer(iso, breve=False):
+    d = date.fromisoformat(iso)
+    return f"{MESI[d.month - 1][:3] if breve else MESI[d.month - 1]} {d.year}"
+
+
+def nome_cer(r, breve=False):
+    """Nome da mostrare: il nome ufficiale (o quello breve nei titoli); per l'ACT il governo del territorio."""
+    if r[1] == "ACT":
+        return "ACT (Canberra)" if breve else "the ACT Government (Canberra)"
+    return BREVE_CER[r[0]] if breve else r[0]
+
+
+def n_cer(r):
+    return "&lt;5" if r[2] is None else intero(r[2])
+
+
+def media_cer(righe):
+    """Quote ponderate per le persone in attesa (nostro calcolo, solo council con un numero: i '<5' sono esclusi)."""
+    tot = sum(r[2] or 0 for r in righe)
+    if not tot:
+        return tot, [0.0, 0.0, 0.0]
+    return tot, [sum((r[2] or 0) * r[3 + i] for r in righe) / tot for i in range(3)]
+
+
+def pc_cer(x):
+    return f"{x:.0f}%"
+
+
+def stato_cer(r):
+    return [x for x in RIGHE_CER if x[1] == r[1]]
+
+
+def posto_cer(r):
+    """Posizione nel proprio Stato per persone in attesa (1 = più persone)."""
+    st = sorted([x for x in stato_cer(r) if x[2]], key=lambda x: (-x[2], x[0]))
+    return next(i for i, x in enumerate(st, 1) if x[0] == r[0]), len(stato_cer(r))
+
+
+def ordinale(n):
+    return f"{n}{'th' if 10 <= n % 100 <= 20 else {1: 'st', 2: 'nd', 3: 'rd'}.get(n % 10, 'th')}"
+
+
+def fonte_cer_p(extra=""):
+    return (f'<p class="fonte">Source: Australian Government Department of Home Affairs, <a href="{F_CER["attese"]["url"]}" rel="noopener">Ceremony wait times</a> '
+            f'(figures to {data_lunga(AL_CER)}, published {data_lunga(PUB_CER)}; read on {data_lunga(F_CER["lista"]["letto_il"])}). '
+            f'Licensed under <a href="{LIC_CER["url"]}" rel="noopener">CC BY 3.0 AU</a>.{extra}</p>')
+
+
+def fonte_tempi_p():
+    return (f'<p class="fonte">Source: Australian Government Department of Home Affairs, <a href="{F_CER["tempi"]["url"]}" rel="noopener">Citizenship processing times</a> '
+            f'(updated {data_lunga(T_CER["aggiornata"])}; read on {data_lunga(F_CER["tempi"]["letto_il"])}). Licensed under '
+            f'<a href="{LIC_CER["url"]}" rel="noopener">CC BY 3.0 AU</a>.</p>')
+
+
+AVVISO_CER = ('<p class="avviso"><strong>Not legal or immigration advice.</strong> These are the official figures published by the Department of Home Affairs '
+              'for all applicants, not a forecast for your own application or ceremony. Home Affairs and your council decide when you are invited; '
+              'for your own application, check ImmiAccount or contact Home Affairs or your council.</p>')
+
+COSA_CER = ("The figures count people whose citizenship application has been approved and who have not yet attended a ceremony, including people "
+            f"already invited, on {data_lunga(AL_CER)}. The waiting time is counted from the date of approval to {data_lunga(AL_CER)}: it is how long "
+            "they had been waiting so far, not how long their whole wait will be. Home Affairs masks numbers from 1 to 4 as \"&lt;5\", and some "
+            "percentages do not add up to 100% because of rounding.")
+
+
+def regole_cer():
+    fr = L_CER["frasi"]
+    return ("<ul>" + "".join(f"<li>{escape(fr[k])}</li>" for k in ("consigli", "indirizzo", "scelta", "invito", "lettera", "domanda_locale", "famiglia"))
+            + "</ul>")
+
+
+def celle_cer(r):
+    if r[2] == 0:
+        return '<td class="n" data-v="">–</td>' * 3
+    return "".join(f'<td class="n" data-v="{r[3 + i]}">{r[3 + i]}%</td>' for i in range(3))
+
+
+def riga_cer(r, rel_sez, stato=True):
+    nome = f'<a href="{rel_sez}{SLUG_CER[r[0]]}/">{escape(r[0])}</a>' if r[0] in PAG_CER_NOMI else escape(r[0])
+    return (f'<tr data-stato="{r[1]}"><td>{nome}</td>' + (f"<td>{r[1]}</td>" if stato else "") +
+            f'<td class="n" data-v="{1 if r[2] is None else r[2]}">{n_cer(r)}</td>{celle_cer(r)}'
+            f'<td data-v="{AL_CER.replace("-", "")}">{date.fromisoformat(AL_CER).day} {mese_cer(AL_CER, True)}</td></tr>')
+
+
+def intest_cer(stato=True):
+    return ("<thead><tr>" + th_ord("Council", False, "ascending") + (th_ord("State", False, "ascending") if stato else "") +
+            th_ord('Waiting') + th_ord('Under 3 months') + th_ord('3 to 6 months') + th_ord('Over 6 months') +
+            th_ord("Data as at", False) + "</tr></thead>")
+
+
+CER_JS = r"""
+(function(){var t=document.getElementById('t-cer');if(!t)return;var q=document.getElementById('f-cer-q'),s=document.getElementById('f-cer-s'),n=document.getElementById('f-cer-n');
+function f(){var a=q.value.trim().toLowerCase(),b=s.value,c=0;Array.prototype.forEach.call(t.tBodies[0].rows,function(r){
+var ok=(!a||r.cells[0].textContent.toLowerCase().indexOf(a)>=0)&&(!b||r.getAttribute('data-stato')===b);r.hidden=!ok;if(ok)c++;});n.textContent=c;}
+q.addEventListener('input',f);s.addEventListener('change',f);
+try{var p=new URLSearchParams(location.search).get('s');if(p&&s.querySelector('option[value="'+p+'"]')){s.value=p;f();}}catch(e){}})();
+"""
+
+CSS_CER = (".tab.cer td{white-space:nowrap}.tab.cer td:first-child{white-space:normal;min-width:170px}.tab.cer th{white-space:normal;line-height:1.25}"
+           "@media (max-width:640px){.tab.cer{font-size:.86rem}.tab.cer td,.tab.cer th{padding:8px 6px}.tab.cer td:first-child,.tab.cer th:first-child{min-width:112px;padding-left:10px}"
+           ".tab.cer th button.ord{font-size:.72rem;letter-spacing:.02em}}"
+           ".filtri-cer{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;margin:0 0 10px}.filtri-cer label{display:grid;gap:4px;font-size:.85rem;font-weight:700;color:var(--ink-2)}"
+           ".filtri-cer input,.filtri-cer select{font:inherit;padding:9px 11px;border:1px solid var(--line-2);border-radius:var(--r-s);background:var(--card);color:var(--ink);min-width:0}"
+           ".filtri-cer input{width:min(100%,260px)}.filtri-cer .small{margin:0 0 8px}"
+           "@media (max-width:640px){.filtri-cer label{flex:1 1 100%}.filtri-cer input{width:100%}}")
+
+
+def tabella_cer(righe, rel_sez, id_t=None, stato=True):
+    corpo = "".join(riga_cer(r, rel_sez, stato) for r in sorted(righe, key=lambda r: (-(r[2] if r[2] is not None else 1), r[0])))
+    return (f'<div class="tab compatta cer"><table class="ord"{f" id={chr(34)}{id_t}{chr(34)}" if id_t else ""}>{intest_cer(stato)}'
+            f"<tbody>{corpo}</tbody></table></div>")
+
+
+def classifica_cer(righe, i, n=10, inverso=False):
+    """Council con almeno MIN_RANK_CER persone in attesa, per quota nella colonna i (3 = < 3 mesi, 5 = > 6 mesi)."""
+    ok = [r for r in righe if (r[2] or 0) >= MIN_RANK_CER]
+    return sorted(ok, key=lambda r: ((r[i] if inverso else -r[i]), -r[2], r[0]))[:n]
+
+
+def lista_cer(righe, rel_sez, i, testo):
+    return "<ol>" + "".join(
+        f'<li>{(f"<a href={chr(34)}{rel_sez}{SLUG_CER[r[0]]}/{chr(34)}>" + escape(r[0]) + "</a>") if r[0] in PAG_CER_NOMI else escape(r[0])} '
+        f'({r[1]}): {r[i]}% {testo} ({intero(r[2])} waiting)</li>' for r in righe) + "</ol>"
+
+
+def tempi_tabella():
+    P = T_CER["percentili"]
+    righe = [("Citizenship by conferral", "Application to decision", P["conferimento"]["decisione"]),
+             ("Citizenship by conferral", "Approval to ceremony", P["conferimento"]["approvazione_cerimonia"]),
+             ("Citizenship by conferral", "Application to ceremony", P["conferimento"]["domanda_cerimonia"]),
+             ("Citizenship by descent", "Application to decision", P["discendenza"]["decisione"]),
+             ("Evidence of citizenship", "Application to decision", P["prova"]["decisione"])]
+    corpo = "".join(f"<tr><td>{a}</td><td>{b}</td>" + "".join(f'<td class="n">{x}</td>' for x in v) + "</tr>" for a, b, v in righe)
+    return ('<div class="tab compatta cer"><table><thead><tr><th scope="col">Application</th><th scope="col">Period counted</th>'
+            '<th class="n" scope="col">25% within</th><th class="n" scope="col">50% within</th><th class="n" scope="col">75% within</th>'
+            f'<th class="n" scope="col">90% within</th></tr></thead><tbody>{corpo}</tbody></table></div>')
+
+
+def storico_cer(r):
+    righe = []
+    for al, S in sorted(CER["storico"].items(), reverse=True):
+        v = S["righe"].get(r[0])
+        if v is None:
+            continue
+        n = "&lt;5" if v[0] is None else intero(v[0])
+        righe.append(f'<tr><td>{data_lunga(al)}</td><td class="n">{n}</td>' + "".join(f'<td class="n">{x}%</td>' for x in v[1:]) + "</tr>")
+    return ('<div class="tab compatta cer"><table><thead><tr><th scope="col">Figures to</th><th class="n" scope="col">Approved, waiting</th>'
+            '<th class="n" scope="col">Under 3 months</th><th class="n" scope="col">3 to 6 months</th><th class="n" scope="col">Over 6 months</th></tr></thead>'
+            f'<tbody>{"".join(righe)}</tbody></table></div>')
+
+
+def ld_cer(nome, descr, percorso):
+    d = ld_dataset(nome, descr, percorso, [F_CER["attese"]["url"]], f"{AL_CER[:7]}", LIC_CER["url"])
+    d["creator"] = {"@type": "GovernmentOrganization", "name": LIC_CER["attribuzione"]}
+    d["publisher"] = {"@type": "Organization", "name": NOME, "url": URL_SITO + "/"}
+    d["dateModified"] = PUB_CER
+    return d
+
+
+def link_cer_pagine(rel_sez, escludi=None, stato=None):
+    """Link alle pagine dei council: tutti nell'indice, quelli dello stesso Stato nelle pagine dei council."""
+    righe = [r for r in PAG_CER if r[0] != escludi and (stato is None or r[1] == stato)]
+    if not righe:
+        return ""
+    voci = " · ".join(f'<a href="{rel_sez}{SLUG_CER[r[0]]}/">{escape(nome_cer(r, True))}</a>' for r in righe)
+    return f'<h2>{"Council pages" if stato is None else "Other council pages in " + escape(STATI_CER[stato])}</h2><p>{voci}</p>'
+
+
+def pagina_cer_indice():
+    rel = "../"
+    percorso = SEZ_CER
+    tot, (m3, m36, m6) = media_cer(RIGHE_CER)
+    n_mask = sum(1 for r in RIGHE_CER if r[2] is None)
+    per_stato = {s: [r for r in RIGHE_CER if r[1] == s] for s in STATI_CER}
+    righe_s = "".join(
+        f'<tr><td>{escape(STATI_CER[s])}</td><td class="n" data-v="{len(rr)}">{len(rr)}</td><td class="n" data-v="{media_cer(rr)[0]}">{intero(media_cer(rr)[0])}</td>'
+        + "".join(f'<td class="n" data-v="{media_cer(rr)[1][i]:.1f}">{pc_cer(media_cer(rr)[1][i])}</td>' for i in range(3)) + "</tr>"
+        for s, rr in sorted(per_stato.items(), key=lambda x: -media_cer(x[1])[0]))
+    lenti = classifica_cer(RIGHE_CER, 5)
+    veloci = classifica_cer(RIGHE_CER, 3)
+    opzioni = "".join(f'<option value="{s}">{escape(STATI_CER[s])}</option>' for s in STATI_CER)
+    nov = T_CER["novanta"]
+    domande = [
+        ("How long is the wait for a citizenship ceremony in Australia?",
+         f"Home Affairs says 90% of approved applicants have the opportunity to attend a ceremony within {nov['cerimonia_mesi']} months of approval "
+         f"(Citizenship processing times, updated {data_lunga(T_CER['aggiornata'])}). It depends on your council: on {data_lunga(AL_CER)}, "
+         f"{intero(tot)} approved applicants were waiting in {len(RIGHE_CER)} council areas, and about {pc_cer(m6)} of them had been waiting more than 6 months since approval."),
+        ("Can I choose the council or the date of my ceremony?",
+         f"No. Home Affairs says: \"{L_CER['frasi']['indirizzo']} {L_CER['frasi']['scelta']}\""),
+        ("When will I get my ceremony invitation?",
+         f"Home Affairs says: \"{L_CER['frasi']['invito']} {L_CER['frasi']['lettera']}\""),
+        ("Where are the citizenship ceremony dates for my council?",
+         "Home Affairs does not publish ceremony dates. Councils organise most ceremonies and many list their dates on their own website; "
+         "the invitation tells you the date and place of your ceremony."),
+        ("What does \"<5\" mean in the table?",
+         f"Home Affairs masks numbers between 1 and 4 as \"<5\" for privacy. {n_mask} of the {len(RIGHE_CER)} councils show \"<5\"."),
+    ]
+    ld = [ld_faq(domande), ld_cer("Australian citizenship ceremony wait times by council",
+                                  f"Approved citizenship applicants waiting for a ceremony in {len(RIGHE_CER)} Australian council areas, with the share waiting under 3 months, "
+                                  f"3 to 6 months and over 6 months since approval, to {data_lunga(AL_CER)}.", percorso)]
+    corpo = f"""<section class="hero">{h1_diviso("Australian citizenship ceremony wait times by council")}
+<p class="lead">On {data_lunga(AL_CER)}, <strong>{intero(tot)} people approved for Australian citizenship were waiting for a ceremony</strong> in {len(RIGHE_CER)} council areas, according to the Department of Home Affairs (ceremony wait times published on {data_lunga(PUB_CER)}). Nationally, Home Affairs says 90% of approved applicants have the opportunity to attend a ceremony within {nov["cerimonia_mesi"]} months of approval; the table below shows how long people in each council area had been waiting.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{bandiera("Australia")}<span>Citizenship ceremonies</span><span>to {data_lunga(AL_CER)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Approved applicants waiting for a ceremony</span><span class="sr">: </span><strong>{intero(tot)}</strong> in {len(RIGHE_CER)} councils</p>
+<div class="kpi"><div><b>{pc_cer(m3)}</b><span>waiting under 3 months since approval</span></div><div><b>{pc_cer(m36)}</b><span>waiting 3 to 6 months</span></div><div><b>{pc_cer(m6)}</b><span>waiting over 6 months</span></div><div><b>{nov["cerimonia_mesi"]} months</b><span>90% offered a ceremony within this time of approval (Home Affairs)</span></div></div>
+{fonte_cer_p(" Shares for all of Australia and for each state are our calculation from the council figures, weighted by the number of people waiting (councils shown as \"&lt;5\" left out).")}
+</div></section>
+{AVVISO_CER}
+{AD}
+<h2>What the numbers mean</h2>
+<p>{COSA_CER}</p>
+<h2 id="councils">Wait times for all {len(RIGHE_CER)} councils</h2>
+<div class="filtri-cer"><label for="f-cer-q">Council<input type="search" id="f-cer-q" placeholder="e.g. Blacktown, Casey, Brisbane" autocomplete="off"></label>
+<label for="f-cer-s">State or territory<select id="f-cer-s"><option value="">All</option>{opzioni}</select></label></div>
+<p class="small" aria-live="polite">Showing <b id="f-cer-n">{len(RIGHE_CER)}</b> of {len(RIGHE_CER)} councils, by number of people waiting. Tap a column heading to sort. The percentages are the share of each council's approved applicants by time waited since approval.</p>
+{tabella_cer(RIGHE_CER, "", "t-cer")}
+{fonte_cer_p()}
+<h2>By state and territory</h2>
+<div class="tab compatta cer"><table class="ord"><thead><tr>{th_ord("State or territory", False, "ascending")}{th_ord("Councils")}{th_ord("Waiting")}{th_ord("Under 3 months")}{th_ord("3 to 6 months")}{th_ord("Over 6 months")}</tr></thead><tbody>{righe_s}</tbody></table></div>
+<p class="small">Shares weighted by the number of people waiting in each council (our calculation; councils shown as "&lt;5" left out).</p>
+<h2>Longest and shortest waits</h2>
+<p>Councils with at least {MIN_RANK_CER} approved applicants waiting, on {data_lunga(AL_CER)}.</p>
+<h3>Highest share waiting more than 6 months</h3>
+{lista_cer(lenti, "", 5, "waiting over 6 months")}
+<h3>Highest share waiting less than 3 months</h3>
+{lista_cer(veloci, "", 3, "waiting under 3 months")}
+<h2>How councils and Home Affairs organise ceremonies</h2>
+<p>From the Home Affairs ceremony wait times page:</p>
+{regole_cer()}
+<h2>How long the whole application takes</h2>
+<p>Home Affairs says 90% of applications for citizenship by conferral are processed within {nov["conferimento_mesi"]} months, and from application to ceremony 90% took up to {T_CER["percentili"]["conferimento"]["domanda_cerimonia"][3]}. See <a href="{rel}{SEZ_TEMPI_CER}">Australian citizenship processing time</a> for the full table.</p>
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html([(q, escape(a)) for q, a in domande])}</div>
+{link_cer_pagine("")}
+<p class="small">Home Affairs replaces these figures about once a month. We save every update, so each council page keeps the history from {data_lunga(min(CER["storico"]))}.</p>"""
+    titolo = f"Australian citizenship ceremony wait times by council ({mese_cer(AL_CER, True)})"
+    descr = (f"{intero(tot)} approved applicants waiting for a citizenship ceremony in {len(RIGHE_CER)} councils on {data_lunga(AL_CER)} (Home Affairs). "
+             "Search your council: how long people still waiting had waited since approval (under 3, 3 to 6, over 6 months).")
+    pagina(percorso, titolo, descr, corpo, ordina=True, script=CER_JS, css_extra=CSS_CER, jsonld_extra=ld,
+           briciole=[("Citizenship ceremony wait times", percorso)])
+
+
+# council che condividono il nome con luoghi stranieri o con altre località australiane (le ricerche "<nome> citizenship ceremony"
+# possono riguardare anche quei luoghi): nota sotto la prima frase. Valori: (dove si trova, altri luoghi con lo stesso nome, link facoltativo)
+OMONIMI_CER = {
+    "Wellington Shire Council": ("in Gippsland, Victoria (Sale, Maffra, Yarram)",
+                                 "Wellington in New South Wales is part of Dubbo Regional Council. Wellington in New Zealand is not covered",
+                                 "Dubbo Regional Council"),
+    "Town of Cambridge": ("in Perth's western suburbs, Western Australia (Floreat, Wembley, City Beach)",
+                          "Cambridge in the UK and in New Zealand is not covered", None),
+    "City of Kingston": ("in Melbourne's south-east, Victoria (Cheltenham, Mentone, Moorabbin)",
+                         "Kingston in Tasmania is part of Kingborough Council. Kingston upon Thames (UK) is not covered", None),
+    "Newcastle City Council": ("in New South Wales", "Newcastle upon Tyne (UK) is not covered", None),
+    "Liverpool City Council": ("in south-west Sydney, New South Wales", "Liverpool in the UK is not covered", None),
+    "Camden Council": ("in south-west Sydney, New South Wales", "The London Borough of Camden (UK) is not covered", None),
+    "City of Stirling": ("in Perth's northern suburbs, Western Australia", "Stirling in Scotland is not covered", None),
+    "City of Albany": ("in the Great Southern region of Western Australia", "Places called Albany outside Australia are not covered", None),
+}
+
+
+def nota_omonimi_cer(r):
+    if r[0] not in OMONIMI_CER:
+        return ""
+    dove, altri, link = OMONIMI_CER[r[0]]
+    if link and link in PAG_CER_NOMI:
+        altri = altri.replace(link, f'<a href="../{SLUG_CER[link]}/">{escape(link)}</a>')
+    art = "the " if re.match(r"(City|Town|Shire) of ", r[0]) else ""
+    return (f'<p class="small">This page is about {art}{escape(r[0])} {escape(dove)}. {altri}: these are Australian figures from the Department of Home Affairs.</p>')
+
+
+def pagina_cer_council(r):
+    rel = "../../"
+    percorso = f"{SEZ_CER}{SLUG_CER[r[0]]}/"
+    breve = nome_cer(r, True)
+    pieno = nome_cer(r)
+    stato = STATI_CER[r[1]]
+    _, med_st = media_cer(stato_cer(r))
+    _, med_au = media_cer(RIGHE_CER)
+    posto, n_st = posto_cer(r)
+    nov = T_CER["novanta"]
+    vicini = sorted([x for x in stato_cer(r) if x[0] != r[0]], key=lambda x: (-(x[2] if x[2] is not None else 1), x[0]))[:12]   # "<5" conta 1
+    citta = next((c for c, D in CER["domanda"]["citta"].items() if D["council"] == r[0]), None)
+    nota_citta = ""
+    if citta and r[1] != "ACT":
+        nota_citta = (f'<p class="small">{escape(pieno)} covers only part of the {escape(citta.capitalize())} area: your ceremony is with the council where you live. '
+                      f'<a href="../?s={r[1]}#councils">All {escape(stato)} councils</a>.</p>')
+    frase = (f"On {data_lunga(AL_CER)}, <strong>{intero(r[2])} people approved for Australian citizenship were waiting for a ceremony</strong> with {escape(pieno)} ({r[1]}): "
+             f"{r[3]}% had been waiting less than 3 months since approval, {r[4]}% between 3 and 6 months and {r[5]}% more than 6 months "
+             f"(Department of Home Affairs, ceremony wait times published on {data_lunga(PUB_CER)}).")
+    domande = [
+        (f"How long is the citizenship ceremony wait time in {breve}?",
+         f"Home Affairs does not give one waiting time per council. On {data_lunga(AL_CER)}, {intero(r[2])} approved applicants were waiting with {pieno}: "
+         f"{r[3]}% for less than 3 months since approval, {r[4]}% for 3 to 6 months and {r[5]}% for more than 6 months. Nationally, Home Affairs says 90% of approved "
+         f"applicants have the opportunity to attend a ceremony within {nov['cerimonia_mesi']} months of approval."),
+        (f"When are the {breve} citizenship ceremony dates?",
+         f"Home Affairs does not publish ceremony dates. Councils organise most ceremonies and many list their dates on their own website. Home Affairs says: "
+         f"\"{L_CER['frasi']['invito']}\""),
+        (f"Can I go to a ceremony outside {breve}?",
+         f"Home Affairs says: \"{L_CER['frasi']['indirizzo']} {L_CER['frasi']['scelta']}\""),
+        ("Why is my ceremony taking longer than other people's?",
+         f"Home Affairs says: \"{L_CER['frasi']['domanda_locale']} {L_CER['frasi']['famiglia']}\""),
+    ]
+    ld = [ld_faq(domande), ld_cer(f"{pieno}: citizenship ceremony wait times",
+                                  f"Approved citizenship applicants waiting for a ceremony with {pieno} and the share by time waited since approval, to {data_lunga(AL_CER)}.", percorso)]
+    corpo = f"""<section class="hero">{h1_diviso(f"{breve} citizenship ceremony wait time: {intero(r[2])} people waiting")}
+<p class="lead">{frase}</p>{nota_omonimi_cer(r)}</section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{bandiera("Australia")}<span>{escape(breve)} · {r[1]}</span><span>to {data_lunga(AL_CER)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Approved applicants waiting for a ceremony</span><span class="sr">: </span><strong>{intero(r[2])}</strong> ({ordinale(posto)} of {n_st} councils in {escape(stato)})</p>
+<div class="kpi"><div><b>{r[3]}%</b><span>waiting under 3 months since approval</span></div><div><b>{r[4]}%</b><span>waiting 3 to 6 months</span></div><div><b>{r[5]}%</b><span>waiting over 6 months</span></div><div><b>{nov["cerimonia_mesi"]} months</b><span>nationally, 90% offered a ceremony within this time of approval (Home Affairs)</span></div></div>
+{fonte_cer_p()}
+</div></section>
+{AVVISO_CER}
+{AD}
+<h2>Compared with {escape(stato)} and Australia</h2>
+<div class="tab compatta cer"><table><thead><tr><th scope="col">Area</th><th class="n" scope="col">Under 3 months</th><th class="n" scope="col">3 to 6 months</th><th class="n" scope="col">Over 6 months</th></tr></thead><tbody>
+<tr><td>{escape(breve)}</td>{"".join(f'<td class="n">{r[3 + i]}%</td>' for i in range(3))}</tr>
+<tr><td>{escape(stato)}</td>{"".join(f'<td class="n">{pc_cer(med_st[i])}</td>' for i in range(3))}</tr>
+<tr><td>Australia</td>{"".join(f'<td class="n">{pc_cer(med_au[i])}</td>' for i in range(3))}</tr></tbody></table></div>
+<p class="small">State and national shares: our calculation from the council figures, weighted by the number of people waiting (councils shown as "&lt;5" left out).</p>
+{nota_citta}
+<h2>What the numbers mean</h2>
+<p>{COSA_CER}</p>
+<h2>Ceremony dates and invitations</h2>
+<p>Home Affairs does not publish ceremony dates for each council: check {escape(pieno)}'s website for its ceremony calendar. From the Home Affairs ceremony wait times page:</p>
+{regole_cer()}
+<h2>How long the whole application takes</h2>
+<p>Nationally, 90% of applications for citizenship by conferral are processed within {nov["conferimento_mesi"]} months, 90% of approved applicants waited up to {T_CER["percentili"]["conferimento"]["approvazione_cerimonia"][3]} from approval to ceremony, and 90% up to {T_CER["percentili"]["conferimento"]["domanda_cerimonia"][3]} from application to ceremony (Home Affairs, updated {data_lunga(T_CER["aggiornata"])}). <a href="{rel}{SEZ_TEMPI_CER}">Australian citizenship processing time</a></p>
+<h2>History</h2>
+<p>Home Affairs shows only the latest figures. We save every update here.</p>
+{storico_cer(r)}
+<h2>Other councils in {escape(stato)}</h2>
+{tabella_cer(vicini, "../", stato=False)}
+<p class="small"><a href="../">All {len(RIGHE_CER)} councils</a></p>
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html([(q, escape(a)) for q, a in domande])}</div>
+{link_cer_pagine("../", r[0], r[1])}"""
+    titolo = titolo_breve([f"{breve} citizenship ceremony wait time: {intero(r[2])} waiting ({mese_cer(AL_CER, True)})",
+                           f"{breve} citizenship ceremony wait time ({mese_cer(AL_CER, True)})", f"{breve} citizenship ceremony wait time"])
+    descr = (f"{intero(r[2])} approved applicants waiting for a citizenship ceremony with {pieno} on {data_lunga(AL_CER)}: {r[3]}% had waited under 3 months since approval, "
+             f"{r[5]}% over 6 months (Home Affairs). How ceremony dates and invitations work.")
+    pagina(percorso, titolo, descr, corpo, ordina=True, css_extra=CSS_CER, jsonld_extra=ld,
+           briciole=[("Citizenship ceremony wait times", SEZ_CER), (breve, percorso)])
+
+
+def pagina_cer_tempi():
+    rel = "../"
+    percorso = SEZ_TEMPI_CER
+    nov, P, L, R = T_CER["novanta"], T_CER["percentili"], T_CER["in_lavorazione"], T_CER["ricevute"]
+    tot, _ = media_cer(RIGHE_CER)
+    storia = "".join(
+        f'<tr><td>{data_lunga(d)}</td><td class="n">{S["percentili"]["conferimento"]["decisione"][3]}</td><td class="n">{S["percentili"]["conferimento"]["approvazione_cerimonia"][3]}</td>'
+        f'<td class="n">{S["percentili"]["conferimento"]["domanda_cerimonia"][3]}</td><td class="n">{intero(S["in_lavorazione"]["conferimento"])}</td></tr>'
+        for d, S in sorted(CER["storico_tempi"].items(), reverse=True))
+    domande = [
+        ("How long does Australian citizenship take?",
+         f"For citizenship by conferral, Home Affairs says 90% of applications are processed within {nov['conferimento_mesi']} months and 90% of approved applicants "
+         f"have the opportunity to attend a ceremony within {nov['cerimonia_mesi']} months of approval. From application to ceremony, 50% took up to "
+         f"{P['conferimento']['domanda_cerimonia'][1]} and 90% up to {P['conferimento']['domanda_cerimonia'][3]} (updated {data_lunga(T_CER['aggiornata'])})."),
+        ("How long after approval is the citizenship ceremony?",
+         f"From approval to ceremony, 25% waited up to {P['conferimento']['approvazione_cerimonia'][0]}, 50% up to {P['conferimento']['approvazione_cerimonia'][1]} "
+         f"and 90% up to {P['conferimento']['approvazione_cerimonia'][3]}. The wait depends on your council: see the wait times by council."),
+        ("How many citizenship applications are waiting?",
+         f"Home Affairs had {intero(L['conferimento'])} applications for citizenship by conferral on hand on {data_lunga(L['al'])}, and received "
+         f"{intero(R['conferimento'])} between {data_lunga(R['dal'])} and {data_lunga(R['al'])}."),
+        ("My application is taking longer. Can Home Affairs tell me more?",
+         f"Home Affairs says: \"{T_CER['frasi']['nessuna_info'][0].upper() + T_CER['frasi']['nessuna_info'][1:]}\""),
+    ]
+    ld = [ld_faq(domande), ld_dataset("Australian citizenship processing times",
+                                      "Official percentile processing times for Australian citizenship by conferral, by descent and evidence of citizenship, with applications on hand and received.",
+                                      percorso, [F_CER["tempi"]["url"]], T_CER["aggiornata"][:7], LIC_CER["url"])]
+    corpo = f"""<section class="hero">{h1_diviso(f"Australian citizenship processing time: {nov['conferimento_mesi']} months for 90%")}
+<p class="lead">The Department of Home Affairs says <strong>90% of applications for Australian citizenship by conferral are processed within {nov["conferimento_mesi"]} months</strong>, and 90% of approved applicants have the opportunity to attend a ceremony within {nov["cerimonia_mesi"]} months of approval (Citizenship processing times, updated {data_lunga(T_CER["aggiornata"])}). From application to ceremony, half of applicants waited up to {P["conferimento"]["domanda_cerimonia"][1]} and 90% up to {P["conferimento"]["domanda_cerimonia"][3]}.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{bandiera("Australia")}<span>Citizenship processing times</span><span>updated {data_lunga(T_CER["aggiornata"])}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Citizenship by conferral, application to decision</span><span class="sr">: </span><strong>{P["conferimento"]["decisione"][3]}</strong> for 90% ({P["conferimento"]["decisione"][1]} for 50%)</p>
+<div class="kpi"><div><b>{P["conferimento"]["approvazione_cerimonia"][3]}</b><span>approval to ceremony, 90%</span></div><div><b>{P["conferimento"]["domanda_cerimonia"][3]}</b><span>application to ceremony, 90%</span></div><div><b>{intero(L["conferimento"])}</b><span>conferral applications on hand, {data_lunga(L["al"])}</span></div><div><b>{intero(R["conferimento"])}</b><span>received in {mese_cer(R["al"])}</span></div></div>
+{fonte_tempi_p()}
+</div></section>
+{AVVISO_CER}
+{AD}
+<h2>Processing times by percentile</h2>
+<p>How long it took for 25%, 50%, 75% and 90% of the applications counted in the reporting month. Home Affairs counts a "decision" as an application approved, refused, withdrawn or invalid, and says the figures are "intended to provide a guide only".</p>
+{tempi_tabella()}
+{fonte_tempi_p()}
+<h2>Citizenship by descent and evidence of citizenship</h2>
+<p>Home Affairs says 90% of applications for citizenship by descent are processed within {nov["discendenza_mesi"]} months, and 90% of applications for evidence of Australian citizenship within {nov["prova_giorni"]} days.</p>
+<h2>Applications on hand and received</h2>
+<div class="tab compatta cer"><table><thead><tr><th scope="col">Application</th><th class="n" scope="col">On hand, {data_lunga(L["al"])}</th><th class="n" scope="col">Received, {mese_cer(R["al"])}</th></tr></thead><tbody>
+<tr><td>Citizenship by conferral</td><td class="n">{intero(L["conferimento"])}</td><td class="n">{intero(R["conferimento"])}</td></tr>
+<tr><td>Citizenship by descent</td><td class="n">{intero(L["discendenza"])}</td><td class="n">{intero(R["discendenza"])}</td></tr>
+<tr><td>Evidence of Australian citizenship</td><td class="n">{intero(L["prova"])}</td><td class="n">{intero(R["prova"])}</td></tr></tbody></table></div>
+<p class="small">Conferral figures include children aged 15 or younger included in a parent's application (Home Affairs note).</p>
+<h2>After approval: the ceremony</h2>
+<p>On {data_lunga(AL_CER)}, {intero(tot)} approved applicants were waiting for a ceremony in {len(RIGHE_CER)} council areas. The wait depends on the council where you live: <a href="{rel}{SEZ_CER}">citizenship ceremony wait times by council</a>.</p>
+<h2>History</h2>
+<p>Home Affairs shows only the latest figures. We save every update here.</p>
+<div class="tab compatta cer"><table><thead><tr><th scope="col">Updated</th><th class="n" scope="col">Decision, 90%</th><th class="n" scope="col">Approval to ceremony, 90%</th><th class="n" scope="col">Application to ceremony, 90%</th><th class="n" scope="col">Conferral on hand</th></tr></thead><tbody>{storia}</tbody></table></div>
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html([(q, escape(a)) for q, a in domande])}</div>
+<p><a href="{rel}{SEZ_CER}">Citizenship ceremony wait times by council</a> · <a href="{rel}{SEZ}australia-visas/">Australian visa refusal rates</a></p>"""
+    titolo = f"Australian citizenship processing time: official figures ({mese_cer(T_CER['aggiornata'], True)})"
+    descr = (f"90% of Australian citizenship by conferral applications processed within {nov['conferimento_mesi']} months; application to ceremony up to "
+             f"{P['conferimento']['domanda_cerimonia'][3]} for 90% (Home Affairs, updated {data_lunga(T_CER['aggiornata'])}).")
+    pagina(percorso, titolo, descr, corpo, css_extra=CSS_CER, jsonld_extra=ld,
+           briciole=[("Citizenship ceremony wait times", SEZ_CER), ("Citizenship processing time", percorso)])
+
+
+def genera_cer():
+    pagina_cer_indice()
+    for r in PAG_CER:
+        pagina_cer_council(r)
+    pagina_cer_tempi()
+
+
+def controlli_cer():
+    import hashlib
+    errori = []
+    cont = {k: CER[k] for k in ("fonti", "lista", "tempi", "storico", "storico_tempi")}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != CER["impronta"]:
+        errori.append("cerimonie: impronta del JSON diversa dal contenuto (file modificato a mano?)")
+    if any(f.get("http") != 200 for f in F_CER.values()):
+        errori.append("cerimonie: fonte non letta (HTTP diverso da 200)")
+    if len(RIGHE_CER) < 450 or set(r[1] for r in RIGHE_CER) != set(STATI_CER):
+        errori.append(f"cerimonie: {len(RIGHE_CER)} council o Stati diversi da quelli attesi")
+    if len(set(SLUG_CER.values())) != len(SLUG_CER):
+        errori.append("cerimonie: slug dei council ripetuti")
+    if not PAG_CER:
+        errori.append("cerimonie: nessun council con domanda (rilanciare raccolta/cerimonie.py --domanda)")
+    if AL_CER not in CER["storico"] or T_CER["aggiornata"] not in CER["storico_tempi"]:
+        errori.append("cerimonie: ultimo aggiornamento non nello storico")
+    if set(NOMI_CER) != {r[0] for r in RIGHE_CER}:
+        errori.append("cerimonie: nomi brevi mancanti")
+    return errori
+
+
 def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
@@ -8813,6 +9295,7 @@ def controlli():
     errori += controlli_it()
     errori += controlli_f7()
     errori += controlli_sr()
+    errori += controlli_cer()
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -8845,6 +9328,7 @@ def main():
     genera_it()
     genera_f7()
     genera_sr()
+    genera_cer()
     pagina_come_funziona()
     about()
     contatti()
@@ -8857,7 +9341,8 @@ def main():
           f"test di inglese UK (SELT): {len(CITTA_PAG)} città e {len(PAESI_PAG)} Paesi con pagina (elenco del {DATA_ELENCO}); "
           f"DTV Thailandia: {len(LET_DTV)} sedi lette su {len(SEDI_DTV)}, {len(PAG_DTV)} con pagina; Irlanda (PPS): {len(PPS_OK)} nazionalità, dati a {PPS_ULTIMO}; "
           f"Messico: {len(CONS_MX)} consolati, UMA {UMA_MX}; Study in Italy: {len(ENTI_IT)} enti DSU, mezzi {LIT['mezzi']} €; "
-          f"flat tax 7%: {len(COMUNI_F7)} Comuni ISTAT, {sum(1 for c in COMUNI_F7 if stato_f7(c, '2025') == 'ok')} entro {SOGLIA_F7} (1/1/2025).")
+          f"flat tax 7%: {len(COMUNI_F7)} Comuni ISTAT, {sum(1 for c in COMUNI_F7 if stato_f7(c, '2025') == 'ok')} entro {SOGLIA_F7} (1/1/2025); "
+          f"cerimonie di cittadinanza australiane: {len(RIGHE_CER)} council al {AL_CER}, {len(PAG_CER)} con pagina.")
 
 
 if __name__ == "__main__":

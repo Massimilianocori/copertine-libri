@@ -79,6 +79,9 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     (non c'era), riquadro "Key figures" prima del riepilogo con numeri = ricalcolo indipendente da dati/rifiuti.json, fonte con link e data,
     licenza e link al CSV; data.csv valido (intestazione, campi, numeri interi, tassi) e uguale al ricalcolo, riga del totale = riquadro;
     pagine di controllo senza nessun elemento del trattamento, senza data.csv e con l'impronta del contenuto uguale a quella salvata prima.
+26. Australian citizenship ceremony wait times (31/10/2026, dati/cerimonie.json): righe del JSON = risposta grezza di Home Affairs (lista
+    citizenshipCeremony); pagine attese (indice, council con 3+ suggerimenti, tempi) in sitemap con titoli ≤ 70; prima frase con cifra, fonte e
+    data; tabelle e quote ponderate ricalcolate; storico, percentili, avviso, licenza CC BY 3.0 AU, link.
 Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
@@ -2691,6 +2694,176 @@ def controlla_esperimento():
     return errori, len(tratt), n_csv, uguali_byte
 
 
+# ---------------------------------------------------------------- 26. Australian citizenship ceremony wait times (31/10/2026)
+_PCT = re.compile(r"^\d{1,3}%$")
+
+
+def _celle(tr):
+    return [html.unescape(re.sub(r"<[^>]+>", "", c)).strip() for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", tr, re.S)]
+
+
+def _media(righe):
+    tot = sum(r[2] or 0 for r in righe)
+    return tot, [sum((r[2] or 0) * r[3 + i] for r in righe) / tot for i in range(3)] if tot else [0, 0, 0]
+
+
+def controlla_cer():
+    """26. Ricalcolo indipendente da dati/cerimonie.json e dalla risposta grezza di Home Affairs (raccolta/_grezzi/cerimonie/, o riscaricata
+    con lo stesso POST se online): righe del JSON = risposta ufficiale; pagine attese = indice + council con 3+ suggerimenti e persone in attesa
+    + pagina dei tempi, in sitemap, titoli ≤ 70; prima frase con cifra, fonte e data; tabella dell'indice = 539 righe del JSON (nome, Stato,
+    numero, 3 quote, data); tabella degli Stati = ricalcolo ponderato; pagine dei council: cifre, posizione nello Stato, confronto, storico,
+    council vicini; pagina dei tempi: percentili, domande in lavorazione e ricevute; avviso "Home Affairs and your council decide", licenza
+    CC BY 3.0 AU, nessuna data di cerimonia inventata, nessun link sponsorizzato; link da home, pagina Australia, How it works."""
+    import hashlib
+    errori = []
+    D = json.loads((SITO.parent / "dati" / "cerimonie.json").read_text(encoding="utf-8"))
+    cont = {k: D[k] for k in ("fonti", "lista", "tempi", "storico", "storico_tempi")}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != D["impronta"]:
+        errori.append("Cerimonie: impronta di dati/cerimonie.json diversa dal contenuto")
+    L, T = D["lista"], D["tempi"]
+    righe, al, pub = L["righe"], L["al"], L["modificata"]
+    per_nome = {r[0]: r for r in righe}
+    # 1. risposta ufficiale grezza
+    raw = None
+    f = SITO.parent / "raccolta" / "_grezzi" / "cerimonie" / f"lista-{al}.json"
+    if f.exists():
+        raw = f.read_bytes()
+    elif "--offline" not in sys.argv:
+        try:
+            req = urllib.request.Request(D["fonti"]["lista"]["url"], data=json.dumps({"webUrl": "/", "listName": "citizenshipCeremony"}).encode(),
+                                         headers={"Content-Type": "application/json; charset=utf-8", "User-Agent": "Mozilla/5.0"})
+            raw = urllib.request.urlopen(req, timeout=90).read()
+        except Exception:  # noqa: BLE001
+            raw = None
+    n_raw = 0
+    if raw is not None:
+        uff = json.loads(raw.decode("utf-8"))["d"]["data"]
+        if hashlib.sha256(raw).hexdigest() != D["fonti"]["lista"]["sha256"] and {x["Modified"] for x in uff} == {"/".join(reversed(pub.split("-")))}:
+            errori.append("Cerimonie: risposta ufficiale con la stessa data ma contenuto diverso da quello salvato")
+        if {x["Modified"] for x in uff} == {"/".join(reversed(pub.split("-")))}:
+            if len(uff) != len(righe):
+                errori.append(f"Cerimonie: {len(uff)} righe ufficiali, {len(righe)} nel JSON")
+            for x in uff:
+                nome = html.unescape(x["Title"]).replace("​", "").strip()
+                r = per_nome.get(nome)
+                tot = html.unescape(x["TotalApprovedApplicants"]).strip()
+                atteso = [nome, x["State"].strip(), None if tot == "<5" else int(tot.replace(",", "")),
+                          int(x["LessThanThreeMonths"].strip("% ")), int(x["WaitTime3To6Months"].strip("% ")), int(x["Wait_x0020_time_x0020_more_x0020"].strip("% "))]
+                if r != atteso:
+                    errori.append(f"Cerimonie: riga di {nome} diversa dalla risposta ufficiale ({r} invece di {atteso})")
+                n_raw += 1
+    # 2. pagine attese
+    soglia = 3
+    if G.SOGLIA_DOMANDA_CER != soglia:
+        errori.append("Cerimonie: soglia della domanda cambiata in genera.py senza aggiornare il controllo 26")
+    con_pagina = [r for r in righe if len(D["domanda"]["council"].get(r[0], [])) >= soglia and r[2]]
+    slug = G.SLUG_CER
+    if len(set(slug.values())) != len(slug):
+        errori.append("Cerimonie: slug ripetuti")
+    pag = _pagine_sezione(G.SEZ_CER, [""] + [slug[r[0]] for r in con_pagina], errori, "Cerimonie")
+    pag.update({"tempi": x for x in _pagine_sezione(G.SEZ_TEMPI_CER, [""], errori, "Cerimonie tempi").values()})
+    tot, med = _media(righe)
+    dl = G.data_lunga
+    for k, (t, main, testo, lead, perc) in pag.items():
+        if "Home Affairs and your council decide" not in main:
+            errori.append(f"Cerimonie: avviso 'Home Affairs and your council decide' mancante in {perc}")
+        if "https://creativecommons.org/licenses/by/3.0/au/" not in main or "Australian Government Department of Home Affairs" not in main:
+            errori.append(f"Cerimonie: licenza CC BY 3.0 AU o attribuzione mancante in {perc}")
+        if "Department of Home Affairs" not in lead:
+            errori.append(f"Cerimonie: la prima frase di {perc} non nomina la fonte")
+        if re.search(r"ceremon[a-z]* (on|is on|will be on) \d{1,2} (" + "|".join(G.MESI) + ")", testo, re.I):
+            errori.append(f"Cerimonie: data di cerimonia scritta in {perc} (Home Affairs non le pubblica)")
+    # indice
+    if "" in pag:
+        t, main, testo, lead, perc = pag[""]
+        if f"On {dl(al)}, {tot:,} people approved for Australian citizenship were waiting for a ceremony in {len(righe)} council areas" not in lead or dl(pub) not in lead:
+            errori.append("Cerimonie: prima frase dell'indice senza cifra, numero di council o date ricalcolati")
+        tb = re.search(r'<table class="ord" id="t-cer">.*?<tbody>(.*?)</tbody>', main, re.S)
+        trs = re.findall(r'<tr data-stato="(\w+)">(.*?)</tr>', tb.group(1), re.S) if tb else []
+        if len(trs) != len(righe):
+            errori.append(f"Cerimonie: tabella dell'indice con {len(trs)} righe invece di {len(righe)}")
+        corto = f"{int(al[8:])} {G.MESI[int(al[5:7]) - 1][:3]} {al[:4]}"
+        for st, tr in trs:
+            c = _celle("<tr>" + tr + "</tr>")
+            r = per_nome.get(c[0])
+            if not r:
+                errori.append(f"Cerimonie: council {c[0]!r} nella tabella ma non nel JSON")
+                continue
+            q = ["–"] * 3 if r[2] == 0 else [f"{x}%" for x in r[3:]]
+            if c != [r[0], r[1], "<5" if r[2] is None else f"{r[2]:,}", *q, corto] or st != r[1]:
+                errori.append(f"Cerimonie: riga di {r[0]} nell'indice diversa dal JSON ({c})")
+            if ('href="' in tr) != (r in con_pagina):
+                errori.append(f"Cerimonie: link della riga di {r[0]} incoerente con la pagina")
+        for s in G.STATI_CER:
+            rr = [r for r in righe if r[1] == s]
+            n_s, m_s = _media(rr)
+            riga = f"<tr><td>{G.STATI_CER[s]}</td>"
+            i = main.find(riga)
+            c = _celle(main[i:main.find("</tr>", i) + 5]) if i >= 0 else []
+            if c != [G.STATI_CER[s], str(len(rr)), f"{n_s:,}"] + [f"{x:.0f}%" for x in m_s]:
+                errori.append(f"Cerimonie: riga dello Stato {s} diversa dal ricalcolo ({c})")
+        kpi = re.findall(r"<b>([^<]+)</b>", main.split('class="kpi"', 1)[1].split("</div></div>", 1)[0]) if 'class="kpi"' in main else []
+        if kpi[:3] != [f"{x:.0f}%" for x in med] or kpi[3] != f"{T['novanta']['cerimonia_mesi']} months":
+            errori.append(f"Cerimonie: riquadro dell'indice {kpi} diverso dal ricalcolo")
+    # council
+    for r in con_pagina:
+        s = slug[r[0]]
+        if s not in pag:
+            continue
+        t, main, testo, lead, perc = pag[s]
+        nome = "the ACT Government (Canberra)" if r[1] == "ACT" else r[0]
+        frase = (f"On {dl(al)}, {r[2]:,} people approved for Australian citizenship were waiting for a ceremony with {nome} ({r[1]}): {r[3]}% had been waiting "
+                 f"less than 3 months since approval, {r[4]}% between 3 and 6 months and {r[5]}% more than 6 months (Department of Home Affairs, "
+                 f"ceremony wait times published on {dl(pub)}).")
+        if lead.strip() != frase:
+            errori.append(f"Cerimonie {s}: prima frase diversa dal ricalcolo")
+        st = sorted([x for x in righe if x[1] == r[1] and x[2]], key=lambda x: (-x[2], x[0]))
+        posto = [x[0] for x in st].index(r[0]) + 1
+        n_st = sum(1 for x in righe if x[1] == r[1])
+        if not re.search(rf"<strong>{r[2]:,}</strong> \({posto}(st|nd|rd|th) of {n_st} councils in {G.STATI_CER[r[1]]}\)", main):
+            errori.append(f"Cerimonie {s}: numero o posizione nello Stato ({posto} di {n_st}) diversi")
+        cmp_ = re.search(r"<h2>Compared with .*?<tbody>(.*?)</tbody>", main, re.S)
+        rr = [_celle(x) for x in re.findall(r"<tr>.*?</tr>", cmp_.group(1), re.S)] if cmp_ else []
+        m_s = _media([x for x in righe if x[1] == r[1]])[1]
+        attese = [[f"{x}%" for x in r[3:]], [f"{x:.0f}%" for x in m_s], [f"{x:.0f}%" for x in med]]
+        if [x[1:] for x in rr] != attese:
+            errori.append(f"Cerimonie {s}: confronto con Stato e Australia diverso dal ricalcolo ({rr})")
+        sto = re.search(r"<h2>History</h2>.*?<tbody>(.*?)</tbody>", main, re.S)
+        rs = [_celle(x) for x in re.findall(r"<tr>.*?</tr>", sto.group(1), re.S)] if sto else []
+        att = [[dl(d), "<5" if S["righe"][r[0]][0] is None else f"{S['righe'][r[0]][0]:,}"] + [f"{x}%" for x in S["righe"][r[0]][1:]]
+               for d, S in sorted(D["storico"].items(), reverse=True) if r[0] in S["righe"]]
+        if rs != att:
+            errori.append(f"Cerimonie {s}: storico diverso dal JSON")
+        vic = re.search(r"<h2>Other councils in .*?<tbody>(.*?)</tbody>", main, re.S)
+        nv = [_celle(x)[0] for x in re.findall(r"<tr[^>]*>.*?</tr>", vic.group(1), re.S)] if vic else []
+        if nv != [x[0] for x in sorted([x for x in righe if x[1] == r[1] and x[0] != r[0]], key=lambda x: (-(x[2] if x[2] is not None else 1), x[0]))][:12]:
+            errori.append(f"Cerimonie {s}: council vicini diversi dal ricalcolo")
+    # tempi
+    if "tempi" in pag:
+        t, main, testo, lead, perc = pag["tempi"]
+        nov, P = T["novanta"], T["percentili"]
+        if (f"90% of applications for Australian citizenship by conferral are processed within {nov['conferimento_mesi']} months" not in lead
+                or f"within {nov['cerimonia_mesi']} months of approval" not in lead or dl(T["aggiornata"]) not in lead):
+            errori.append("Cerimonie tempi: prima frase diversa dalle frasi ufficiali o senza data")
+        for fr in ("conferimento", "cerimonia"):
+            if T["frasi"][fr].replace(" ", " ") not in json.dumps(T["frasi"]):
+                errori.append("Cerimonie tempi: frase ufficiale mancante nel JSON")
+        tb = re.search(r"<h2>Processing times by percentile</h2>.*?<tbody>(.*?)</tbody>", main, re.S)
+        rr = [_celle(x)[2:] for x in re.findall(r"<tr>.*?</tr>", tb.group(1), re.S)] if tb else []
+        if rr != [P["conferimento"]["decisione"], P["conferimento"]["approvazione_cerimonia"], P["conferimento"]["domanda_cerimonia"],
+                  P["discendenza"]["decisione"], P["prova"]["decisione"]]:
+            errori.append(f"Cerimonie tempi: tabella dei percentili diversa dal JSON ({rr})")
+        tb = re.search(r"<h2>Applications on hand and received</h2>.*?<tbody>(.*?)</tbody>", main, re.S)
+        rr = [_celle(x)[1:] for x in re.findall(r"<tr>.*?</tr>", tb.group(1), re.S)] if tb else []
+        if rr != [[f"{T['in_lavorazione'][k]:,}", f"{T['ricevute'][k]:,}"] for k in ("conferimento", "discendenza", "prova")]:
+            errori.append("Cerimonie tempi: domande in lavorazione o ricevute diverse dal JSON")
+    # collegamenti
+    for f_, cosa in (("index.html", G.SEZ_CER), ("visa-refusal-rates/australia-visas/index.html", G.SEZ_CER), ("how-it-works/index.html", G.SEZ_CER),
+                     ("index.html", G.SEZ_TEMPI_CER)):
+        if f'href="{"" if f_ == "index.html" else "../../" if f_.count("/") == 2 else "../"}{cosa}"' not in leggi(f_):
+            errori.append(f"Cerimonie: manca il link a {cosa} in {f_}")
+    return errori, len(pag), n_raw
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -2755,7 +2928,10 @@ def main():
     e25, n25, c25, b25 = controlla_esperimento()
     print(f"25. Esperimento pagine citabili: {n25} trattate (data, dateModified, Key figures = dati, Dataset, {c25} CSV validi), "
           f"{len(G.ESP.get('controllo', []))} di controllo invariate ({b25} identiche byte per byte all'impronta salvata): {len(e25)} errori")
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25
+    e26, n26, r26 = controlla_cer()
+    print(f"26. Australian citizenship ceremony wait times: {n26} pagine (indice, council con domanda, tempi), {r26} righe ricontrollate sulla risposta ufficiale di Home Affairs, "
+          f"tabelle, quote ponderate, storico, percentili, avviso, licenza, link: {len(e26)} errori")
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26
     for e in tutti:
         print(" -", e)
     if tutti:
