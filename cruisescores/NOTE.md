@@ -157,3 +157,51 @@ Poi commit di `cruisescores/dati` e `cruisescores/sito` (una pubblicazione Netli
 - **Frasi corrette:** About, «Who we are»: la frase fissa «The site may show advertising and contains clearly marked affiliate links» ora viene da `frase_monetizzazione()` ed è vera in ogni combinazione (oggi: «The site shows advertising (Google AdSense) and contains clearly marked affiliate links (travel medical insurance); neither ever changes the data.»). Piè di pagina: «Some links are affiliate links and are marked as such» solo se c'è almeno un link (`ci_sono_affiliati()`). Privacy: riga che nomina SafetyWing quando il link è attivo; la frase su SafetyWing del testo senza pubblicità compare solo con il link attivo (`FRASE_SW`).
 - **`verifica_browser.js`:** con AdSense Playwright segnalava «richiesta fallita: https://pagead2.googlesyndication.com/pagead/ping?e=1» (beacon di Google interrotto al cambio pagina). Ora le richieste ai server degli annunci (costante `PUBBLICITA`) ricevono una risposta vuota e non contano come errori; lo script e il suo indirizzo li controlla `monetizzazione.py`.
 - **Controlli:** `python3 cruisescores/verifica.py --senza-rete --browser` → «Tutti i controlli superati» (108 caricamenti, 375 e 1280 px, chiaro e scuro); `monetizzazione.py verifica cruisescores` → AdSense acceso, 258 link di affiliazione in 258 pagine su 290, 0 errori; Playwright a 375 px su una pagina compagnia e su About con lo script AdSense caricato davvero: nessun errore JS, nessuno scorrimento orizzontale. Nessun commit.
+
+## Rinforzo SEO per le ricerche USA e aggiornamento dati (31/10/2026)
+Search Console (28 giorni al 29/10/2026): 287 impressioni, 4 clic, posizione media 19,8, in crescita; ricerche "cdc cruise ship inspections", "cruise score",
+"cdc cruise ship inspections list", "cruise ship inspections". Autocomplete gl=us: "cdc cruise ship inspection scores", "cruise ship health inspection <compagnia>",
+"<nave> cdc score", "cruise ship norovirus outbreaks 2026", "cleanest cruise lines", "failed cdc inspection cruise ship".
+- **Dati aggiornati** (`scarica.py` + `estrai.py`, 44 richieste, 0 errori): il CDC ha pubblicato ispezioni fino al **17/10/2026** (prima 29/8). 3.706 ispezioni, 615 rapporti,
+  205 navi attive + 12 archiviate (217 pagine nave). Due bocciature nuove: **Le Lyrial 83 (17/10/2026)** ed **Emerald Princess 78 (16/10/2026)**.
+- **Pagine nuove (2)**, nella sitemap e linkate da home, classifiche, elenco compagnie e pagine compagnia:
+  - `/rankings/cleanest-cruise-lines/` «Cleanest Cruise Lines 2026: Ranked by CDC Inspection Scores»: media di tutte le ispezioni CDC degli ultimi 12 mesi
+    (dal giorno dopo lo stesso giorno di un anno prima fino all'ultima ispezione pubblicata: oggi 18/10/2025-17/10/2026, 274 ispezioni), solo compagnie con almeno
+    5 ispezioni (`MIN_ISP_CLASSIFICA`; oggi 14), pari merito con la stessa media a un decimale; compagnie piccole a parte senza posto; navi con 100 a ogni ispezione (almeno 2).
+    Avviso: il CDC non fa classifiche, «cleanest» = media dei voti sanitari, non giudizio di sicurezza. Oggi: Disney 99,0 (11 ispezioni), Oceania 98,8, Regent 98,6 … Princess 95,0.
+  - `/rankings/year-over-year/` «Cruise Ship CDC Scores 2026 vs 2025»: anni dal 2023 (dati CDC completi) con ispezioni, navi, 100 (%), bocciate, epidemie e media;
+    compagnie con almeno 3 ispezioni in tutti e due gli anni (`MIN_ISP_CONFRONTO`); navi che migliorano/peggiorano di più (10 + pari merito). 2026: 96,8 contro 96,0.
+- **Pagine compagnia (41)**: titolo «<Compagnia> CDC Health Inspection Scores 2026: All N Ships» (accorciato sopra 66 caratteri), tabella **anno per anno dal 2010**
+  (ispezioni, 100, voto più basso, bocciate, media; avviso sugli anni prima del 2023) e posto nella classifica degli ultimi 12 mesi nella prima risposta.
+- **Prime risposte e titoli** delle pagine con impressioni: home «CDC Cruise Ship Inspections 2026: Scores of All 205 Ships» con h1 «CDC cruise ship inspection scores»
+  e risposta in alto (ispezioni 2026, data e nave dell'ultima, media, bocciate, 100); `/years/2026/` «CDC Cruise Ship Inspections List 2026: All 209 Scores»
+  (gli anni passati restano «Cruise Ship Sanitation Scores <anno>»); `/rankings/failed-inspections/` «Cruise Ships That Failed a CDC Inspection: All 77 Since 1991»
+  con quante nell'anno e nell'anno prima e la tabella per compagnia; `/outbreaks/` «Cruise Ship Norovirus & GI Outbreaks 2026: CDC List (9 So Far)» con risposta
+  sull'anno, tabella per anno e causa e tabella per compagnia (nome della tabella CDC: «Cunard Line» resta Cunard, non «Carnival UK»). Nessuna promessa nei titoli.
+- Metodologia: nuova sezione «Rankings and comparisons» (finestra, minimi, pari merito, compagnia = quella scritta dal CDC al momento dell'ispezione).
+- `verifica.py`: controlli **11-17** (cifre ricalcolate da `dati/*.json` senza le funzioni di `genera.py`): classifica 12 mesi, anno su anno, tabelle anno per anno delle
+  41 compagnie e loro posto, epidemie per anno/norovirus/compagnia e titolo, bocciature (titolo, anno, somma per compagnia), prima risposta della home e titolo dell'anno,
+  sitemap (lastmod = `scaricato_il` di `fonti.json`, mai nel futuro, pagine nuove presenti), title ≤ 70 e description ≤ 160 caratteri. Provati con errori finti: li trovano.
+  `verifica_browser.js`: le due pagine nuove e Princess nel campione e negli screenshot.
+
+### Revisione indipendente del 31/10/2026
+- Riscaricati dal CDC con script propri: Green Sheet (205/205 navi, ultimo voto e data uguali), storia completa di 17 navi (207 ispezioni, tra cui Le Lyrial 83 del 17/10/2026
+  ed Emerald Princess 78 del 16/10/2026: tutto uguale), tabella delle epidemie 2026 (9, nave, date e causa uguali). Ricalcolati: finestra 18/10/2025-17/10/2026
+  (274 ispezioni), 14 compagnie con almeno 5 ispezioni (Disney 99,0 … Princess 94,96 → 95,0), 77 bocciature dal 1991 (la prima il 4/12/1991), medie 2026 96,82 e 2025 96,01.
+- Corretti: titolo delle epidemie «Cruise Ship Norovirus Outbreaks 2026 … (9 So Far)» → «Norovirus & GI Outbreaks» (delle 9 del 2026 solo 5 sono norovirus,
+  2 E. coli, 2 causa sconosciuta); `/rankings/year-over-year/` dice ora in un riquadro che medie e variazioni sono nostri calcoli dai voti CDC e non un giudizio di sicurezza;
+  tooltip delle medie («Average of the latest scores» anche dove era la media delle ispezioni dell'anno o dei 12 mesi: `chip_media(m, titolo)`); titolo della nave
+  Margaritaville at Sea Paradise di 71 caratteri (sopra 70 il titolo perde il mese); `verifica.py` controlla ora title ≤ 70.
+
+### Monetizzazione: affiliazioni crociere (31/10/2026)
+- Nessun link nuovo: in `monetizzazione.json` ci sono i domini di CruiseDirect/CJ e di Viator, ma **nessun URL di affiliazione ricevuto**; SafetyWing resta l'unico attivo.
+  La voce `crociere` di `dati/affiliati.json` resta vuota (riquadro nascosto).
+- Programmi da proporre a Massimiliano (pagine ufficiali lette il 31/10/2026 con curl):
+  1. **CruiseDirect** (rete CJ), prenotazione crociere: «3% of the commissionable cruise fare», «45-day cookie» (https://www.cruisedirect.com/affiliates).
+     Iscrizione: https://signup.cj.com/member/signup/publisher/?cid=965192#/branded . CJ approva marchio per marchio: con le impressioni in crescita si può chiedere ora,
+     descrivendo il sito (217 navi, 41 compagnie, dati CDC settimanali). Posto naturale: pagine nave e compagnia («Compare prices for this cruise»).
+  2. **Travel Guard** (AIG, rete CJ), assicurazione viaggio USA: paga «for every quote received» (importo non pubblicato; volantino del programma del 2019),
+     iscrizione https://signup.cj.com/member/signup/publisher/?cid=1544502 (pagina https://www.travelguard.com/affiliate-program). **Attenzione:** i termini vietano di
+     «discuss travel insurance coverage or the features of Travel Guard plans» e di raccomandare l'acquisto: andrebbe solo un banner neutro. Da valutare solo dopo CruiseDirect.
+  3. **Viator** (escursioni nei porti, 8%, cookie 30 giorni): account già creato, in analisi (vedi `studio-business/affiliazioni-2026-10-17.md`). Quando arriva il link,
+     va in `dati/affiliati.json` come nuova voce (dominio `viator.com` già ammesso).

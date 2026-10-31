@@ -19,6 +19,14 @@ Uso (dalla radice del repository, dopo python3 cruisescores/genera.py):
 8. Parole vietate (nomi di modelli di intelligenza artificiale, testo segnaposto: elenco al contrario in _AL_CONTRARIO) in tutti i file del progetto (cache esclusa).
 9. Peso totale del sito (stampato; errore oltre 60 MB).
 10. Confronto con la fonte: 15 navi a caso riscaricate dal CDC (storia completa, ultimo voto, punti del rapporto più recente).
+Controlli del 31/10/2026 (pagine nuove e prime risposte: ogni cifra ricalcolata qui da dati/*.json, senza le funzioni di genera.py):
+11. Cleanest cruise lines: finestra di 12 mesi, compagnie in classifica, ispezioni, 100, voto più basso, bocciature, media e ordine.
+12. Anno su anno: per ogni anno ispezioni, 100, bocciature, epidemie e media; per ogni compagnia le due medie e la differenza.
+13. Pagine delle compagnie: tabella anno per anno uguale alle ispezioni CDC della compagnia (dal 2010) e posto in classifica.
+14. Epidemie: conteggi per anno e norovirus, totale per compagnia = elenco CDC, numero dell'anno nel titolo.
+15. Bocciature: numero nel titolo, nell'anno in corso e nell'anno prima; somma per compagnia = totale.
+16. Home e anno in corso: prima risposta (ispezioni dell'anno, data dell'ultima, media, bocciate, 100) e titolo dell'anno.
+17. Sitemap: lastmod = data del controllo dei dati (fonti.json), non nel futuro; pagine nuove presenti; title ≤ 70 e description ≤ 160 caratteri.
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
 domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
@@ -376,12 +384,226 @@ def controlla_monetizzazione():
     print(G.MON.riepilogo(G.SITO_ID, info, errori) + ".")
 
 
+# ---------------------------------------------------------------- controlli 11-17 (31/10/2026)
+def _dati_grezzi():
+    isp = json.loads((G.DATI / "ispezioni.json").read_text(encoding="utf-8"))
+    comp = {k: v for k, v in json.loads((G.DATI / "compagnie.json").read_text(encoding="utf-8")).items() if not k.startswith("_")}
+    ep = json.loads((G.DATI / "epidemie.json").read_text(encoding="utf-8"))
+    fonti = json.loads((G.DATI / "fonti.json").read_text(encoding="utf-8"))
+    return isp, comp, ep, fonti
+
+
+def _slug_c(comp, cdc):
+    return comp[cdc]["slug"] if cdc in comp else G.slug(cdc)
+
+
+def _testo(x):
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", x)).replace("&amp;", "&").strip()
+
+
+def _tabella(t, ident):
+    """Righe con data-k o data-y della tabella <table class="lt" id=ident>: [(chiave, html della riga)]."""
+    m = re.search(r'<table class="lt" id="%s".*?</table>' % re.escape(ident), t, re.S)
+    if not m:
+        return None
+    return [(k, r) for k, r in re.findall(r'<tr data-[ky]="([^"]+)"[^>]*>(.*?)</tr>', m.group(0), re.S)]
+
+
+def _cella(riga, etichetta):
+    m = re.search(r'data-l="%s">(.*?)</td>' % re.escape(etichetta), riga, re.S)
+    return _testo(m.group(1)) if m else None
+
+
+def _f1(x):
+    return f"{x:.1f}"
+
+
+def _stat(voti):
+    return {"n": len(voti), "media": sum(voti) / len(voti), "cento": voti.count(100), "min": min(voti), "boc": sum(1 for v in voti if v <= 85)}
+
+
+def _leggi(rel):
+    f = SITO / rel
+    if not f.exists():
+        errore(f"{rel}: pagina mancante")
+        return ""
+    return f.read_text(encoding="utf-8")
+
+
+def controlla_classifiche():
+    isp, comp, ep, fonti = _dati_grezzi()
+    anno = int(fonti["green_sheet"]["ultima_ispezione"][:4])
+    fine = max(r[0] for r in isp)
+    from datetime import date, timedelta
+    f = date.fromisoformat(fine)
+    try:
+        inizio = (f.replace(year=f.year - 1) + timedelta(days=1)).isoformat()
+    except ValueError:
+        inizio = (f.replace(year=f.year - 1, day=28) + timedelta(days=1)).isoformat()
+    n_contr = 0
+    # 11. cleanest cruise lines
+    t = _leggi("rankings/cleanest-cruise-lines/index.html")
+    per_l = {}
+    for r in isp:
+        if inizio <= r[0] <= fine:
+            per_l.setdefault(_slug_c(comp, r[3]), []).append(r[1])
+    attese = {k: _stat(v) for k, v in per_l.items() if len(v) >= G.MIN_ISP_CLASSIFICA}
+    righe = _tabella(t, "classifica") or []
+    if {k for k, _ in righe} != set(attese):
+        errore(f"cleanest: compagnie in classifica diverse ({len(righe)} pagina, {len(attese)} attese)")
+    medie_pag = []
+    for k, riga in righe:
+        s = attese.get(k)
+        if not s:
+            continue
+        for et, v in (("Inspections", s["n"]), ("Perfect 100s", s["cento"]), ("Lowest", s["min"]), ("Failed", s["boc"])):
+            if _cella(riga, et) != str(v):
+                errore(f"cleanest {k}: {et} {_cella(riga, et)} invece di {v}")
+        if _cella(riga, "Average") != _f1(s["media"]):
+            errore(f"cleanest {k}: media {_cella(riga, 'Average')} invece di {_f1(s['media'])}")
+        medie_pag.append(round(s["media"], 1))
+        n_contr += 1
+    if medie_pag != sorted(medie_pag, reverse=True):
+        errore("cleanest: classifica non ordinata dalla media più alta")
+    if f"from {G.data_lunga(inizio)} to {G.data_lunga(fine)}" not in t:
+        errore("cleanest: finestra di 12 mesi non scritta o sbagliata")
+    if f"<title>Cleanest Cruise Lines {anno}:" not in t:
+        errore("cleanest: titolo senza l'anno")
+    # 12. anno su anno
+    t = _leggi("rankings/year-over-year/index.html")
+    righe = _tabella(t, "anni") or []
+    anni_att = [y for y in range(2023, anno + 1) if any(r[0][:4] == str(y) for r in isp)]
+    if sorted(int(k) for k, _ in righe) != anni_att:
+        errore(f"anno su anno: anni {[k for k, _ in righe]} invece di {anni_att}")
+    for k, riga in righe:
+        v = [r[1] for r in isp if r[0][:4] == k]
+        s = _stat(v)
+        n_ep = sum(1 for e in ep if str(e["anno"]) == k)
+        for et, val in (("Inspections", s["n"]), ("Failed", s["boc"]), ("Outbreaks", n_ep)):
+            if _cella(riga, et) != str(val):
+                errore(f"anno su anno {k}: {et} {_cella(riga, et)} invece di {val}")
+        if not (_cella(riga, "Perfect 100s") or "").startswith(f"{s['cento']} ("):
+            errore(f"anno su anno {k}: 100 sbagliati")
+        if _cella(riga, "Average") != _f1(s["media"]):
+            errore(f"anno su anno {k}: media sbagliata")
+        n_contr += 1
+    for k, riga in _tabella(t, "linee") or []:
+        vy = [r[1] for r in isp if r[0][:4] == str(anno) and _slug_c(comp, r[3]) == k]
+        vp = [r[1] for r in isp if r[0][:4] == str(anno - 1) and _slug_c(comp, r[3]) == k]
+        if len(vy) < G.MIN_ISP_CONFRONTO or len(vp) < G.MIN_ISP_CONFRONTO:
+            errore(f"anno su anno {k}: meno di {G.MIN_ISP_CONFRONTO} ispezioni in un anno")
+            continue
+        my, mp = round(sum(vy) / len(vy), 1), round(sum(vp) / len(vp), 1)
+        if _cella(riga, f"{anno} average") != f"{my:.1f} ({len(vy)})" or _cella(riga, f"{anno - 1} average") != f"{mp:.1f} ({len(vp)})":
+            errore(f"anno su anno {k}: medie della compagnia sbagliate")
+        d = round(my - mp, 1)
+        if _cella(riga, "Change") != (f"+{d:.1f}" if d > 0 else f"−{abs(d):.1f}" if d < 0 else "0.0"):
+            errore(f"anno su anno {k}: differenza sbagliata")
+        n_contr += 1
+    # 13. pagine delle compagnie: anno per anno
+    for d in sorted((SITO / "cruise-lines").iterdir()):
+        if not (d / "index.html").exists():
+            continue
+        t = (d / "index.html").read_text(encoding="utf-8")
+        righe = _tabella(t, "anno-per-anno")
+        per_anno = {}
+        for r in isp:
+            if _slug_c(comp, r[3]) == d.name and int(r[0][:4]) >= 2010:
+                per_anno.setdefault(r[0][:4], []).append(r[1])
+        if righe is None:
+            if per_anno:
+                errore(f"cruise-lines/{d.name}: manca la tabella anno per anno")
+            continue
+        if sorted(k for k, _ in righe) != sorted(per_anno):
+            errore(f"cruise-lines/{d.name}: anni della tabella diversi dai dati")
+        for k, riga in righe:
+            s = _stat(per_anno.get(k, [0]))
+            for et, val in (("Inspections", s["n"]), ("Perfect 100s", s["cento"]), ("Lowest", s["min"]), ("Failed", s["boc"]), ("Average", _f1(s["media"]))):
+                if _cella(riga, et) != str(val):
+                    errore(f"cruise-lines/{d.name} {k}: {et} {_cella(riga, et)} invece di {val}")
+            n_contr += 1
+        pos = re.search(r"#(\d+) of (\d+) cruise lines", t)
+        if pos:
+            medie = sorted((round(s["media"], 1) for s in attese.values()), reverse=True)
+            mia = attese.get(d.name)
+            if not mia or int(pos.group(2)) != len(attese) or int(pos.group(1)) != 1 + sum(1 for m in medie if m > round(mia["media"], 1)):
+                errore(f"cruise-lines/{d.name}: posto in classifica sbagliato")
+    # 14. epidemie
+    t = _leggi("outbreaks/index.html")
+    for k, riga in _tabella(t, "per-anno") or []:
+        lista = [e for e in ep if str(e["anno"]) == k]
+        noro = sum(1 for e in lista if "norovirus" in (e["agente"] or "").lower())
+        if _cella(riga, "Outbreaks") != str(len(lista)) or _cella(riga, "Norovirus") != str(noro):
+            errore(f"epidemie {k}: conteggi sbagliati")
+        n_contr += 1
+    a_ult = max(e["anno"] for e in ep)
+    n_ult = sum(1 for e in ep if e["anno"] == a_ult)
+    if a_ult == anno and f"<title>Cruise Ship Norovirus &amp; GI Outbreaks {a_ult}: CDC List ({n_ult} So Far)</title>" not in t:
+        errore("epidemie: titolo con il numero dell'anno sbagliato")
+    tot_l = sum(int(x) for x in re.findall(r'data-l="Since \d{4}">(\d+)</td>', t))
+    if tot_l != len(ep):
+        errore(f"epidemie: somma per compagnia {tot_l} invece di {len(ep)}")
+    # 15. bocciature
+    t = _leggi("rankings/failed-inspections/index.html")
+    boc = [r for r in isp if r[1] <= 85]
+    y0 = min(int(r[0][:4]) for r in boc)
+    if f"<title>Cruise Ships That Failed a CDC Inspection: All {len(boc)} Since {y0}</title>" not in t:
+        errore("bocciature: titolo con il numero sbagliato")
+    n_a = sum(1 for r in boc if r[0][:4] == str(anno))
+    n_p = sum(1 for r in boc if r[0][:4] == str(anno - 1))
+    if f"{n_a} in {anno} so far and {n_p} in {anno - 1}" not in t:
+        errore("bocciature: conteggi dell'anno nella prima risposta sbagliati")
+    if sum(int(x) for x in re.findall(r'data-l="Failed inspections">(\d+)</td>', t)) != len(boc):
+        errore("bocciature: la somma per compagnia non è il totale")
+    # 16. home e anno in corso
+    t = _leggi("index.html")
+    va = [r[1] for r in isp if r[0][:4] == str(anno)]
+    attesa = (f"the CDC has published {len(va)} inspections for {anno} so far, the most recent on {G.data_lunga(fine)}")
+    if attesa not in t:
+        errore("home: prima risposta con ispezioni dell'anno o data sbagliate")
+    if (f"Average {anno} score: {_f1(sum(va) / len(va))} out of 100; {sum(1 for v in va if v <= 85)} failed (85 or lower) and "
+            f"{va.count(100)} scored a perfect 100") not in t:
+        errore("home: media, bocciate o 100 della prima risposta sbagliati")
+    if f"<title>CDC Cruise Ship Inspections List {anno}: All {len(va)} Scores</title>" not in _leggi(f"years/{anno}/index.html"):
+        errore(f"years/{anno}: titolo con il numero di ispezioni sbagliato")
+    print(f"Classifiche, confronti e prime risposte: {n_contr} righe ricalcolate dai dati CDC.")
+
+
+def controlla_sitemap_lastmod():
+    _, _, _, fonti = _dati_grezzi()
+    from datetime import date
+    sm = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    voci = re.findall(r"<url><loc>([^<]+)</loc>(?:<lastmod>([^<]*)</lastmod>)?</url>", sm)
+    if len(voci) != sm.count("<url>"):
+        errore("sitemap: voci non leggibili")
+    for u, lm in voci:
+        if lm != fonti["scaricato_il"]:
+            errore(f"sitemap: lastmod {lm!r} invece di {fonti['scaricato_il']} per {u}")
+        elif date.fromisoformat(lm) > date.today():
+            errore(f"sitemap: lastmod nel futuro per {u}")
+    for p in ("rankings/cleanest-cruise-lines/", "rankings/year-over-year/"):
+        if f"<loc>{G.URL_SITO}/{p}</loc>" not in sm:
+            errore(f"sitemap: manca {p}")
+    for f in SITO.rglob("*.html"):
+        t = f.read_text(encoding="utf-8")
+        ti = re.search(r"<title>(.*?)</title>", t)
+        de = re.search(r'<meta name="description" content="([^"]*)"', t)
+        import html as _h
+        if ti and len(_h.unescape(ti.group(1))) > 70:
+            errore(f"{f.relative_to(SITO)}: title di {len(_h.unescape(ti.group(1)))} caratteri")
+        if de and len(_h.unescape(de.group(1))) > 160:
+            errore(f"{f.relative_to(SITO)}: description di {len(_h.unescape(de.group(1)))} caratteri")
+    print(f"Sitemap: {len(voci)} URL, lastmod {fonti['scaricato_il']}.")
+
+
 def main():
     pagine = controlla_pagine()
     controlla_server(pagine)
     controlla_dati()
     controlla_parole()
     controlla_peso()
+    controlla_classifiche()
+    controlla_sitemap_lastmod()
     if "--senza-rete" not in sys.argv:
         controlla_fonte()
     controlla_indexnow()

@@ -21,7 +21,7 @@ import re
 import shutil
 import sys
 from collections import Counter, defaultdict
-from datetime import date
+from datetime import date, timedelta
 from html import escape
 from pathlib import Path
 
@@ -196,9 +196,9 @@ def chip(v, grande=False):
     return f'<span class="sc {classe(v)}{" sc-l" if grande else ""}" title="{esito(v)}">{v}</span>'
 
 
-def chip_media(m):
+def chip_media(m, titolo="Average of the latest scores"):
     """Media con un decimale (99.6, non 100: un 100 arrotondato sembrerebbe un voto perfetto di tutte le navi)."""
-    return f'<span class="sc {classe(m)}" title="Average of the latest scores">{num1(m)}</span>'
+    return f'<span class="sc {classe(m)}" title="{titolo}">{num1(m)}</span>'
 
 
 def esito_tag(v):
@@ -981,6 +981,8 @@ def pagina_nave(s):
 {fonte_box(d)}"""
     anno = d[:4]
     titolo = f"{n['nome']} CDC Inspection Score: {v}/100 ({mese_anno(d)[:3]} {anno})"
+    if len(titolo) > 70:  # nomi lunghi (es. Margaritaville at Sea Paradise): senza il mese
+        titolo = f"{n['nome']} CDC Inspection Score: {v}/100 ({anno})"
     if len(titolo) < 52:
         titolo += " and History"
     descr = (f"{n['nome']} scored {v}/100 in its {'latest' if not archiviata else 'last'} CDC sanitation inspection ({data_breve(d)})"
@@ -1030,6 +1032,10 @@ def pagina_linea(ls):
                    f"on {data_lunga(NAVI[att[0]]['ultima'][0])}.")
         if isp_anno:
             txt += f" In {ANNO} so far the CDC inspected its ships {plurale(len(isp_anno), 'time')}, with an average score of {num1(media_anno)}."
+        s12 = next((s for s in CLASSIFICA if s["slug"] == ls), None)
+        if s12:
+            txt += (f" Over the last 12 months ({plurale(s12['n'], 'inspection')}) its average is {num1(s12['media'])}: "
+                    f"<a href=\"/rankings/cleanest-cruise-lines/\">#{posto(s12)} of {len(CLASSIFICA)} cruise lines</a> in our ranking.")
         corpo.append(f"""<section class="card key pull" aria-label="Cruise line summary">
 <div class="key-top">{ico("ship")}<span>{h(L["nome"])}</span><span>{plurale(len(att), "ship")} inspected by the CDC</span></div>
 <div class="key-body"><div class="key-main">{anello(float(media(ult)), "average") if len(att) > 1 else anello(ult[0])}<div><p class="k-lab">{"Average latest CDC score" if len(att) > 1 else "Latest CDC score"}</p>
@@ -1042,6 +1048,12 @@ def pagina_linea(ls):
     else:
         corpo.append(f'<div class="card pull"><p class="lead" style="margin:0">None of the {h(L["nome"])} ships on this site is in the CDC’s current list: '
                      f'they no longer sail from U.S. ports, so their latest CDC scores may be old.</p></div>')
+    storia_l = storia_linea(ls)
+    if storia_l:
+        corpo.append(f"<h2>{h(L['nome'])} CDC scores year by year</h2><p class='lead'>Every CDC inspection of {h(L['nome'])} ships since 2010: "
+                     f"number of inspections, perfect scores, lowest score, failures and average for each year. Years before 2023 undercount, because the CDC tool only "
+                     f"keeps ships still in its list. Compare all lines: <a href=\"/rankings/year-over-year/\">{ANNO} vs {ANNO - 1}</a>.</p>")
+        corpo.append(storia_l)
     if arch:
         corpo.append(f"<h2>Ships no longer in the CDC list</h2><p class='lead'>Last scores of {h(L['nome'])} ships that the CDC inspected since {FONTI['archiviate_dal'][:4]} but that are no longer on the Green Sheet.</p>")
         corpo.append(tabella_navi(arch, colonne=("n",)))
@@ -1064,11 +1076,15 @@ def pagina_linea(ls):
     corpo.append(fonte_box())
     n_att = len(att)
     if n_att > 1:
-        titolo = f"{L['nome']} CDC Inspection Scores ({ANNO}): All {n_att} Ships"
-        if len(titolo) > 65:
+        titolo = f"{L['nome']} CDC Health Inspection Scores {ANNO}: All {n_att} Ships"
+        if len(titolo) > 66:
+            titolo = f"{L['nome']} CDC Health Inspection Scores: All {n_att} Ships"
+        if len(titolo) > 66:
             titolo = f"{L['nome']} CDC Inspection Scores: All {n_att} Ships"
-        descr = (f"CDC sanitation scores of all {n_att} {L['nome']} ships, best to worst (average {num1(media(ult))}), "
-                 f"plus every failed inspection. Official CDC data.")
+        descr = (f"CDC health inspection scores of all {n_att} {L['nome']} ships, best to worst (average {num1(media(ult))}), "
+                 f"year by year, and every failed inspection.")
+        if len(descr) > 160:
+            descr = (f"CDC health inspection scores of all {n_att} {L['nome']} ships, best to worst (average {num1(media(ult))}), and every failed inspection.")
     elif n_att == 1:
         nave1 = NAVI[att[0]]
         titolo = f"{L['nome']} CDC Inspection Score: {nave1['nome']} ({ult[0]}/100)"
@@ -1114,7 +1130,7 @@ def pagina_linee():
     corpo = f"""<div class="card pull"><p class="lead" style="margin:0">{len(LINEE)} cruise lines have ships on this site. “Average” is the average of the latest CDC score of each ship of the line that is on the CDC Green Sheet, to one decimal place; lines with only archived ships show no average.</p></div>
 {AD}
 <h2>Largest cruise lines ranked by average score</h2>
-<p class="lead">Cruise lines with at least five ships in the CDC list, from the highest average latest score to the lowest.</p>
+<p class="lead">Cruise lines with at least five ships in the CDC list, from the highest average latest score to the lowest. For a ranking based on every inspection of the last 12 months, see the <a href="/rankings/cleanest-cruise-lines/">cleanest cruise lines</a>; for the change from {ANNO - 1}, the <a href="/rankings/year-over-year/">year-over-year comparison</a>.</p>
 <ul class="griglia">{li}</ul>
 <h2>All cruise lines</h2>
 {tab}
@@ -1207,16 +1223,32 @@ def pagina_bocciate():
         per_anno[int(r[0][:4])].append(r)
     sezioni = "".join(f'<h2 id="y{y}">{y} <span class="small">({plurale(len(per_anno[y]), "failed inspection")})</span></h2>{tabella_ispezioni(per_anno[y])}' for y in sorted(per_anno, reverse=True))
     ultima = righe[0] if righe else None
-    corpo = f"""<div class="card pull"><p class="lead" style="margin:0">The CDC records list <strong>{plurale(len(righe), "failed inspection")}</strong> (score of 85 or lower) since {min(per_anno)}.{f" The most recent: {h(NAVI[ultima[4]]['nome'] if ultima[4] else ultima[2])}, {ultima[1]} on {data_lunga(ultima[0])}." if ultima else ""} A failed ship must correct the violations and is reinspected “within a reasonable period” (<a href="{CDC_FAQ}" rel="noopener">CDC FAQ</a>).</p></div>
+    n_anno, n_prec = len(per_anno.get(ANNO, [])), len(per_anno.get(ANNO - 1, []))
+    # bocciature per compagnia (nome curato), dalla più recente
+    per_l = defaultdict(list)
+    for r in righe:
+        per_l[comp_info(r[3])["slug"]].append(r)
+    ord_l = sorted(per_l, key=lambda k: per_l[k][0][0], reverse=True)  # a pari numero, la bocciatura più recente prima
+    ord_l.sort(key=lambda k: -len(per_l[k]))
+    righe_l = "".join(f'<tr data-k="{h(k)}"><td class="t1">{nome_linea_link(k, comp_info(per_l[k][0][3])["nome"])}</td>'
+                      f'<td class="x n" data-l="Failed inspections">{len(per_l[k])}</td>'
+                      f'<td class="x" data-l="Most recent">{h(NAVI[per_l[k][0][4]]["nome"] if per_l[k][0][4] else per_l[k][0][2])}, {data_breve(per_l[k][0][0])}</td>'
+                      f'<td class="c sc-c">{chip(per_l[k][0][1])}</td></tr>' for k in ord_l)
+    tab_l = (f'<div class="tab"><table class="lt" id="per-linea"><thead><tr><th>Cruise line</th><th class="n">Failed inspections</th><th>Most recent failure</th>'
+             f'<th class="c">Score</th></tr></thead><tbody>{righe_l}</tbody></table></div>')
+    corpo = f"""<div class="card pull"><p class="lead" style="margin:0">The CDC records list <strong>{plurale(len(righe), "failed inspection")}</strong> (score of 85 or lower) since {min(per_anno)}: {n_anno} in {ANNO} so far and {n_prec} in {ANNO - 1}.{f" The most recent: {h(NAVI[ultima[4]]['nome'] if ultima[4] else ultima[2])}, {ultima[1]} on {data_lunga(ultima[0])}." if ultima else ""} A failed ship must correct the violations and is reinspected “within a reasonable period” (<a href="{CDC_FAQ}" rel="noopener">CDC FAQ</a>).</p></div>
 {AD}
-<p class="small" style="margin-top:18px">Jump to: {" ".join(f'<a href="#y{y}">{y}</a>' for y in sorted(per_anno, reverse=True))}</p>
+<p class="small" style="margin-top:18px">Jump to: {" ".join(f'<a href="#y{y}">{y}</a>' for y in sorted(per_anno, reverse=True))} · <a href="#per-linea">by cruise line</a></p>
 {sezioni}
+<h2>Failed inspections by cruise line</h2>
+<p class="lead">How many inspections of each cruise line scored 85 or lower in the CDC records, with the most recent failure. Lines with more ships are inspected more often.</p>
+{tab_l}
 <p class="small">Older records may be incomplete: the CDC search tool only keeps the history of ships that are still in its list.</p>
 {fonte_box()}"""
     testata = banda("Rankings", "Cruise ships that failed a CDC inspection",
                     "Every cruise ship inspection with a score of 85 or lower in the CDC Vessel Sanitation Program records, most recent first.", trust())
-    pagina("rankings/failed-inspections/", "Cruise Ships That Failed a CDC Health Inspection (Full List)",
-           f"All {len(righe)} failed CDC cruise ship sanitation inspections (85 or lower) since {min(per_anno)}, by year, with ship, cruise line, date and score.",
+    pagina("rankings/failed-inspections/", f"Cruise Ships That Failed a CDC Inspection: All {len(righe)} Since {min(per_anno)}",
+           f"All {len(righe)} failed CDC cruise ship health inspections (85 or lower) since {min(per_anno)}, {n_anno} in {ANNO}: ship, cruise line, date and score, by year and by line.",
            corpo, briciole=[("Rankings", "rankings/"), ("Failed inspections", "rankings/failed-inspections/")], testata=testata)
 
 
@@ -1225,6 +1257,8 @@ def pagina_classifiche():
     for y in ANNI_CLASSIFICHE:
         voci.append((f"rankings/perfect-scores-{y}/", f"Perfect 100 scores in {y}", f"{sum(1 for r in ISPEZIONI if r[0][:4] == str(y) and r[1] == 100)} inspections"))
         voci.append((f"rankings/lowest-scores-{y}/", f"Lowest scores of {y}", f"{len(bassi(y)[1])} lowest, {bassi(y)[1][-1][1]} or below" if bassi(y)[1] else ""))
+    voci.insert(0, ("rankings/cleanest-cruise-lines/", "Cleanest cruise lines", f"{len(CLASSIFICA)} lines ranked, last 12 months"))
+    voci.insert(1, ("rankings/year-over-year/", f"{ANNO} vs {ANNO - 1}", "year-over-year comparison"))
     voci.append(("rankings/failed-inspections/", "All failed inspections", f"{sum(1 for r in ISPEZIONI if r[1] < SOGLIA)} since {min(int(r[0][:4]) for r in ISPEZIONI if r[1] < SOGLIA)}"))
     voci.append(("cruise-lines/", "Cruise lines ranked by average score", f"{len(LINEE)} lines"))
     voci.append(("outbreaks/", "Gastrointestinal illness outbreaks", "posted by the CDC since 2023"))
@@ -1273,7 +1307,8 @@ def pagina_anno(y):
     corpo += f'<p class="small" style="margin-top:18px">Other years: {altri}</p>'
     testata = banda(f"Scores by year · {y}", f"Cruise ship sanitation scores {y}",
                     f"Every CDC Vessel Sanitation Program inspection of {y}{' so far' if y == ANNO else ''}, most recent first.", trust())
-    pagina(f"years/{y}/", f"Cruise Ship Sanitation Scores {y}: All {len(righe)} CDC Inspections",
+    pagina(f"years/{y}/", f"CDC Cruise Ship Inspections List {y}: All {len(righe)} Scores" if y == ANNO else
+           f"Cruise Ship Sanitation Scores {y}: All {len(righe)} CDC Inspections",
            f"All {len(righe)} CDC cruise ship sanitation inspections of {y}{' so far' if y == ANNO else ''}: average score {num1(media(voti))}, {len(boc)} failed, "
            f"{sum(1 for v in voti if v == 100)} perfect scores. Ship, cruise line, date and score.",
            corpo, briciole=[("Scores by year", "years/"), (str(y), f"years/{y}/")], testata=testata)
@@ -1282,7 +1317,7 @@ def pagina_anno(y):
 def pagina_anni():
     righe = "".join(f'<tr><td class="t1"><a href="/years/{y}/">{y}</a></td><td class="x n" data-l="Inspections">{ANNI_ISP[y]}</td>'
                     f'<td class="x n" data-l="Failed">{sum(1 for r in ISPEZIONI if r[0][:4] == str(y) and r[1] < SOGLIA)}</td>'
-                    f'<td class="c sc-c">{chip_media(media([r[1] for r in ISPEZIONI if r[0][:4] == str(y)]))}</td></tr>' for y in ANNI)
+                    f'<td class="c sc-c">{chip_media(media([r[1] for r in ISPEZIONI if r[0][:4] == str(y)]), "Average score of the year's inspections")}</td></tr>' for y in ANNI)
     corpo = f"""<div class="card pull"><p class="lead" style="margin:0">Number of CDC inspections, failed inspections and average score for each year from {ANNI[-1]} to {ANNI[0]}. Older years undercount: the CDC tool only keeps ships still in its list.</p></div>
 <div class="tab" style="margin-top:24px"><table class="lt"><thead><tr><th>Year</th><th class="n">Inspections</th><th class="n">Failed</th><th class="c">Average</th></tr></thead><tbody>{righe}</tbody></table></div>
 {fonte_box()}"""
@@ -1290,6 +1325,235 @@ def pagina_anni():
     pagina("years/", f"Cruise Ship CDC Inspection Scores by Year ({ANNI[-1]}–{ANNI[0]})",
            f"CDC cruise ship sanitation inspections year by year from {ANNI[-1]} to {ANNI[0]}: number of inspections, failures and average score, with every inspection listed.",
            corpo, briciole=[("Scores by year", "years/")], testata=testata)
+
+
+# ---------------------------------------------------------------- compagnie in classifica e confronti anno su anno (31/10/2026)
+# Ricerche viste nell'autocomplete USA: "cleanest cruise lines", "cruise ship health inspection <compagnia>",
+# "cdc cruise ship inspection scores", "failed cdc inspection cruise ship". Solo medie e conteggi delle ispezioni CDC (dati/ispezioni.json).
+FINE_DATI = max(r[0] for r in ISPEZIONI)  # ultima ispezione pubblicata dal CDC (tutte le navi del modulo)
+MIN_ISP_CLASSIFICA = 5  # una compagnia entra nella classifica con almeno 5 ispezioni negli ultimi 12 mesi
+MIN_ISP_CONFRONTO = 3   # confronto anno su anno delle compagnie: almeno 3 ispezioni in tutti e due gli anni
+ANNI_CONFRONTO = [y for y in range(2023, ANNO + 1) if ANNI_ISP.get(y)]  # dal 2023 i dati del CDC sono completi (NOTE.md)
+
+
+def inizio_12_mesi(fine_iso):
+    """Primo giorno della finestra di 12 mesi che finisce con l'ultima ispezione pubblicata (compresa)."""
+    f = date.fromisoformat(fine_iso)
+    try:
+        prima = f.replace(year=f.year - 1)
+    except ValueError:  # 29 febbraio
+        prima = f.replace(year=f.year - 1, day=28)
+    return (prima + timedelta(days=1)).isoformat()
+
+
+INIZIO_12 = inizio_12_mesi(FINE_DATI)
+ISP_12 = [r for r in ISPEZIONI if INIZIO_12 <= r[0] <= FINE_DATI]
+
+
+def riassunto(righe):
+    v = [r[1] for r in righe]
+    return {"n": len(v), "media": media(v), "cento": sum(1 for x in v if x == 100), "min": min(v) if v else None,
+            "boc": sum(1 for x in v if x < SOGLIA), "navi": len({r[4] or r[2] for r in righe})}
+
+
+def per_linea(righe):
+    """{slug: riassunto + nome} delle ispezioni raggruppate per compagnia (nome curato di compagnie.json)."""
+    g = defaultdict(list)
+    for r in righe:
+        g[comp_info(r[3])["slug"]].append(r)
+    out = {}
+    for k, rr in g.items():
+        s = riassunto(rr)
+        s.update(slug=k, nome=comp_info(rr[0][3])["nome"])
+        out[k] = s
+    return out
+
+
+def _ordina_media(lista):
+    return sorted(lista, key=lambda s: (-round(s["media"], 1), -s["n"], s["nome"]))
+
+
+_L12 = per_linea(ISP_12)
+CLASSIFICA = _ordina_media([s for s in _L12.values() if s["n"] >= MIN_ISP_CLASSIFICA])
+CLASSIFICA_PICCOLE = _ordina_media([s for s in _L12.values() if s["n"] < MIN_ISP_CLASSIFICA])
+
+
+def posto(s, lista=None):
+    """Posizione con i pari merito (stessa media a un decimale = stesso posto)."""
+    lista = CLASSIFICA if lista is None else lista
+    return 1 + sum(1 for x in lista if round(x["media"], 1) > round(s["media"], 1))
+
+
+def nome_linea_link(slug_, nome):
+    return f'<a href="/{url_comp(slug_, True)}">{h(nome)}</a>' if slug_ in LINEE else h(nome)
+
+
+def pct(a, b):
+    return f"{100 * a / b:.0f}%" if b else "–"
+
+
+def pagina_pulite():
+    ok, piccole = CLASSIFICA, CLASSIFICA_PICCOLE
+    n_isp = len(ISP_12)
+
+    def riga(s, con_posto=True):
+        pre = f'<span class="small">{posto(s)}.</span> ' if con_posto else ""
+        return (f'<tr data-k="{h(s["slug"])}"{" class=ko" if s["media"] < SOGLIA else ""}><td class="t1">{pre}{nome_linea_link(s["slug"], s["nome"])}</td>'
+                f'<td class="x n" data-l="Inspections">{s["n"]}</td><td class="x n" data-l="Ships">{s["navi"]}</td>'
+                f'<td class="x n" data-l="Perfect 100s">{s["cento"]}</td><td class="x n" data-l="Lowest">{s["min"]}</td>'
+                f'<td class="x n" data-l="Failed">{s["boc"]}</td><td class="c sc-c" data-l="Average">{chip_media(s["media"], "Average score of the inspections")}</td></tr>')
+    th = ('<thead><tr><th>Cruise line</th><th class="n">Inspections</th><th class="n">Ships</th><th class="n">Perfect 100s</th>'
+          '<th class="n">Lowest</th><th class="n">Failed</th><th class="c">Average</th></tr></thead>')
+    tab = f'<div class="tab"><table class="lt" id="classifica">{th}<tbody>{"".join(riga(s) for s in ok)}</tbody></table></div>'
+    tab_p = (f'<div class="tab"><table class="lt" id="piccole">{th}<tbody>{"".join(riga(s, False) for s in piccole)}</tbody></table></div>' if piccole else "")
+    primi = [s for s in ok if posto(s) == 1]
+    seguono = [s for s in ok if posto(s) > 1][:2]
+    ultimo = ok[-1]
+    risposta = (f"Ranked by the average of every CDC inspection score from {data_lunga(INIZIO_12)} to {data_lunga(FINE_DATI)}, "
+                f"the cruise line with the highest score is <strong>{h(elenco_nomi([s['nome'] for s in primi]))}</strong> "
+                f"({num1(primi[0]['media'])} across {plurale(sum(s['n'] for s in primi), 'inspection')})"
+                + (", followed by " + " and ".join(f"{h(s['nome'])} ({num1(s['media'])})" for s in seguono) if seguono else "")
+                + f". Among the {len(ok)} lines with at least {MIN_ISP_CLASSIFICA} inspections, the lowest average belongs to {h(ultimo['nome'])} ({num1(ultimo['media'])}).")
+    # navi con 100 a ogni ispezione degli ultimi 12 mesi (almeno 2 ispezioni), solo navi con pagina
+    per_nave = defaultdict(list)
+    for r in ISP_12:
+        if r[4]:
+            per_nave[r[4]].append(r[1])
+    sempre100 = sorted((s for s, v in per_nave.items() if len(v) >= 2 and min(v) == 100), key=lambda s: NAVI[s]["nome"])
+    li100 = "".join(f'<li><a href="/{url_nave(s)}"><span>{h(NAVI[s]["nome"])}<small>{h(NAVI[s]["linea"]["nome"])} · {len(per_nave[s])} inspections</small></span>{chip(100)}</a></li>' for s in sempre100)
+    corpo = f"""<div class="card pull"><p class="lead" style="margin:0">{risposta}</p></div>
+{AD}
+<div class="nota">{ico("info")}<p><strong>What “cleanest” means here.</strong> The CDC does not rank cruise lines. This ranking is ours: the plain average of every CDC Vessel Sanitation Program inspection score of each line in the last 12 months of published inspections ({plurale(n_isp, "inspection")}). It shows how the line’s ships met sanitation standards on inspection days. It is not a safety rating, and a line with few inspections can move a lot with one result.</p></div>
+<h2>Cruise lines ranked by average CDC score</h2>
+<p class="lead">Lines with at least {MIN_ISP_CLASSIFICA} CDC inspections from {data_lunga(INIZIO_12)} to {data_lunga(FINE_DATI)}, from the highest average score to the lowest. Lines with the same average to one decimal share a place.</p>
+{tab}
+{f'<h2>Smaller cruise lines</h2><p class="lead">Lines with fewer than {MIN_ISP_CLASSIFICA} inspections in the same 12 months: too few for a fair place in the ranking, shown for reference.</p>{tab_p}' if piccole else ""}
+<h2>Ships that scored 100 at every inspection</h2>
+<p class="lead">{plurale(len(sempre100), "ship")} had at least two CDC inspections from {data_lunga(INIZIO_12)} to {data_lunga(FINE_DATI)} and scored a perfect 100 every time.</p>
+{('<ul class="griglia">' + li100 + '</ul>') if sempre100 else ""}
+<h2>Other ways to compare</h2>
+<ul><li><a href="/cruise-lines/">Cruise lines by the latest score of each ship</a> (the CDC Green Sheet view)</li>
+<li><a href="/rankings/year-over-year/">{ANNO} vs {ANNO - 1}: which lines and ships improved</a></li>
+<li><a href="/rankings/lowest-scores-{ANNO}/">Lowest scores of {ANNO}</a> and <a href="/rankings/failed-inspections/">every failed inspection</a></li></ul>
+{fonte_box()}"""
+    testata = banda(f"Rankings · last 12 months", "Cleanest cruise lines by CDC inspection score",
+                    f"Every cruise line ranked by the average of its CDC sanitation inspection scores from {data_breve(INIZIO_12)} to {data_breve(FINE_DATI)}.", trust())
+    descr = (f"{len(ok)} cruise lines ranked by average CDC sanitation score over 12 months ({n_isp} inspections to {data_breve(FINE_DATI)}). "
+             f"Highest: {primi[0]['nome']} ({num1(primi[0]['media'])}).")
+    pagina("rankings/cleanest-cruise-lines/", f"Cleanest Cruise Lines {ANNO}: Ranked by CDC Inspection Scores", descr,
+           corpo, briciole=[("Rankings", "rankings/"), ("Cleanest cruise lines", "rankings/cleanest-cruise-lines/")], testata=testata)
+
+
+def anno_stats(y):
+    righe = [r for r in ISPEZIONI if r[0][:4] == str(y)]
+    s = riassunto(righe)
+    s["epid"] = sum(1 for e in EPIDEMIE if e["anno"] == y)
+    return s
+
+
+def variazione(a, b):
+    """Differenza tra due medie arrotondate a un decimale (così il testo coincide con le cifre mostrate)."""
+    d = round(round(a, 1) - round(b, 1), 1)
+    return d, (f"+{d:.1f}" if d > 0 else f"−{abs(d):.1f}" if d < 0 else "0.0")
+
+
+def pagina_confronto():
+    y, p = ANNO, ANNO - 1
+    sy, sp = anno_stats(y), anno_stats(p)
+    d, dtxt = variazione(sy["media"], sp["media"])
+    righe_anni = "".join(
+        f'<tr data-y="{a}"><td class="t1"><a href="/years/{a}/">{a}</a>{" <span class=small>(to " + data_breve(FINE_DATI) + ")</span>" if a == ANNO else ""}</td>'
+        f'<td class="x n" data-l="Inspections">{st["n"]}</td><td class="x n" data-l="Ships">{st["navi"]}</td>'
+        f'<td class="x n" data-l="Perfect 100s">{st["cento"]} ({pct(st["cento"], st["n"])})</td><td class="x n" data-l="Failed">{st["boc"]}</td>'
+        f'<td class="x n" data-l="Outbreaks">{st["epid"]}</td><td class="c sc-c" data-l="Average">{chip_media(st["media"], "Average score of the year's inspections")}</td></tr>'
+        for a, st in ((a, anno_stats(a)) for a in reversed(ANNI_CONFRONTO)))
+    tab_anni = (f'<div class="tab"><table class="lt" id="anni"><thead><tr><th>Year</th><th class="n">Inspections</th><th class="n">Ships</th>'
+                f'<th class="n">Perfect 100s</th><th class="n">Failed</th><th class="n">Outbreaks</th><th class="c">Average</th></tr></thead><tbody>{righe_anni}</tbody></table></div>')
+    # compagnie
+    ly = per_linea([r for r in ISPEZIONI if r[0][:4] == str(y)])
+    lp = per_linea([r for r in ISPEZIONI if r[0][:4] == str(p)])
+    comuni = [k for k in ly if k in lp and ly[k]["n"] >= MIN_ISP_CONFRONTO and lp[k]["n"] >= MIN_ISP_CONFRONTO]
+    comuni.sort(key=lambda k: (-variazione(ly[k]["media"], lp[k]["media"])[0], ly[k]["nome"]))
+    righe_l = "".join(
+        f'<tr data-k="{h(k)}"><td class="t1">{nome_linea_link(k, ly[k]["nome"])}</td>'
+        f'<td class="x n" data-l="{p} average">{num1(lp[k]["media"])} <span class="small">({lp[k]["n"]})</span></td>'
+        f'<td class="x n" data-l="{y} average">{num1(ly[k]["media"])} <span class="small">({ly[k]["n"]})</span></td>'
+        f'<td class="x n" data-l="Change">{variazione(ly[k]["media"], lp[k]["media"])[1]}</td><td class="c sc-c">{chip_media(ly[k]["media"], f"{y} average score")}</td></tr>' for k in comuni)
+    tab_l = (f'<div class="tab"><table class="lt" id="linee"><thead><tr><th>Cruise line</th><th class="n">{p} average (inspections)</th>'
+             f'<th class="n">{y} average (inspections)</th><th class="n">Change</th><th class="c">{y}</th></tr></thead><tbody>{righe_l}</tbody></table></div>')
+    # navi con pagina, ispezionate in tutti e due gli anni
+    vy, vp = defaultdict(list), defaultdict(list)
+    for r in ISPEZIONI:
+        if r[4] and r[0][:4] == str(y):
+            vy[r[4]].append(r[1])
+        elif r[4] and r[0][:4] == str(p):
+            vp[r[4]].append(r[1])
+    cambi = [(s, variazione(media(vy[s]), media(vp[s]))[0]) for s in vy if s in vp]
+
+    def migliori(segno):
+        c = sorted((x for x in cambi if x[1] * segno > 0), key=lambda x: (-x[1] * segno, NAVI[x[0]]["nome"]))
+        if len(c) > 10:
+            soglia = c[9][1]
+            c = [x for x in c if x[1] * segno >= soglia * segno]
+        return c
+
+    def tab_navi(lista, ident):
+        rr = "".join(f'<tr data-k="{h(s)}"><td class="t1"><a href="/{url_nave(s)}">{h(NAVI[s]["nome"])}</a></td>'
+                     f'<td class="x" data-l="Line">{h(NAVI[s]["linea"]["nome"])}</td>'
+                     f'<td class="x n" data-l="{p}">{num1(media(vp[s]))} <span class="small">({len(vp[s])})</span></td>'
+                     f'<td class="x n" data-l="{y}">{num1(media(vy[s]))} <span class="small">({len(vy[s])})</span></td>'
+                     f'<td class="x n" data-l="Change">{variazione(media(vy[s]), media(vp[s]))[1]}</td><td class="c sc-c">{chip(min(vy[s]))}</td></tr>' for s, _ in lista)
+        return (f'<div class="tab"><table class="lt" id="{ident}"><thead><tr><th>Ship</th><th>Cruise line</th><th class="n">{p} average (inspections)</th>'
+                f'<th class="n">{y} average (inspections)</th><th class="n">Change</th><th class="c">Lowest {y}</th></tr></thead><tbody>{rr}</tbody></table></div>')
+    su, giu = migliori(1), migliori(-1)
+    risposta = (f"In {y} so far (inspections published to {data_lunga(FINE_DATI)}) the average CDC cruise ship score is <strong>{num1(sy['media'])}</strong>, "
+                f"against {num1(sp['media'])} in {p} ({dtxt} points). {pct(sy['cento'], sy['n'])} of {y} inspections scored a perfect 100 "
+                f"({pct(sp['cento'], sp['n'])} in {p}); {plurale(sy['boc'], 'inspection')} failed ({sp['boc']} in {p}). "
+                f"The CDC posted {plurale(sy['epid'], 'outbreak')} of gastrointestinal illness in {y} ({sp['epid']} in {p}).")
+    corpo = f"""<div class="card pull"><p class="lead" style="margin:0">{risposta}</p></div>
+{AD}
+<h2>CDC inspection scores year by year</h2>
+<p class="lead">Every CDC Vessel Sanitation Program inspection from {ANNI_CONFRONTO[0]}, when the CDC records are complete, to {data_lunga(FINE_DATI)}. “Outbreaks” are the gastrointestinal illness outbreaks the CDC posted for that year. {y} is not over yet.</p>
+<div class="nota">{ico("info")}<p>The CDC does not compare years, cruise lines or ships. These averages and changes are our own calculations from the CDC inspection scores. A score shows how a ship met sanitation standards on the inspection day: it is not a safety rating.</p></div>
+{tab_anni}
+<h2>Cruise lines: {y} vs {p}</h2>
+<p class="lead">Average CDC score of each cruise line with at least {MIN_ISP_CONFRONTO} inspections in both years, from the biggest improvement to the biggest drop. The number of inspections is in brackets.</p>
+{tab_l if comuni else '<p class="lead">Not enough inspections yet for a comparison.</p>'}
+<h2>Ships that improved the most</h2>
+<p class="lead">Ships inspected in both {p} and {y}, by how much their average score went up (ties included). The last column is the ship’s lowest score of {y}.</p>
+{tab_navi(su, "su") if su else '<p class="lead">No ship improved its average.</p>'}
+<h2>Ships whose scores dropped the most</h2>
+<p class="lead">Ships inspected in both years, by how much their average score went down (ties included).</p>
+{tab_navi(giu, "giu") if giu else '<p class="lead">No ship lost points on average.</p>'}
+<p class="small">An average over one or two inspections can move a lot with a single result: open the ship’s page for the full history and what the inspectors found. See also the <a href="/rankings/cleanest-cruise-lines/">cleanest cruise lines of the last 12 months</a> and <a href="/years/">every year since {ANNI[-1]}</a>.</p>
+{fonte_box()}"""
+    testata = banda(f"Rankings · {y} vs {p}", f"Cruise ship CDC scores, {y} vs {p}",
+                    "Year-over-year comparison of CDC sanitation inspection scores: averages, perfect scores, failures and outbreaks, by cruise line and by ship.", trust())
+    descr = (f"CDC cruise ship scores {y} vs {p}: average {num1(sy['media'])} vs {num1(sp['media'])}, {sy['boc']} vs {sp['boc']} failed inspections, "
+             f"and which cruise lines and ships improved or slipped.")
+    pagina("rankings/year-over-year/", f"Cruise Ship CDC Scores {y} vs {p}: Year-over-Year Comparison", descr,
+           corpo, briciole=[("Rankings", "rankings/"), (f"{y} vs {p}", "rankings/year-over-year/")], testata=testata)
+
+
+def storia_linea(ls):
+    """Tabella anno per anno di una compagnia (ispezioni del modulo CDC con il suo nome, dal 2010)."""
+    per_anno = defaultdict(list)
+    for r in ISPEZIONI:
+        if comp_info(r[3])["slug"] == ls and int(r[0][:4]) >= 2010:
+            per_anno[int(r[0][:4])].append(r)
+    if not per_anno:
+        return ""
+    righe = []
+    for y in sorted(per_anno, reverse=True):
+        s = riassunto(per_anno[y])
+        anno_txt = f'<a href="/years/{y}/">{y}</a>' if y in ANNI else str(y)
+        righe.append(f'<tr data-y="{y}"{" class=ko" if s["boc"] else ""}><td class="t1">{anno_txt}{" <span class=small>(so far)</span>" if y == ANNO else ""}</td>'
+                     f'<td class="x n" data-l="Inspections">{s["n"]}</td><td class="x n" data-l="Perfect 100s">{s["cento"]}</td>'
+                     f'<td class="x n" data-l="Lowest">{s["min"]}</td><td class="x n" data-l="Failed">{s["boc"]}</td>'
+                     f'<td class="c sc-c" data-l="Average">{chip_media(s["media"], "Average score of the inspections")}</td></tr>')
+    tab = (f'<div class="tab"><table class="lt" id="anno-per-anno"><thead><tr><th>Year</th><th class="n">Inspections</th><th class="n">Perfect 100s</th>'
+           f'<th class="n">Lowest</th><th class="n">Failed</th><th class="c">Average</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>')
+    return tab
 
 
 # ---------------------------------------------------------------- epidemie
@@ -1312,15 +1576,49 @@ def pagina_epidemie():
                        f'<div class="tab"><table class="lt"><thead><tr>{th}</tr></thead><tbody>{"".join(righe)}</tbody></table></div>')
     anni = sorted(per_anno)
     ult = EPIDEMIE[0] if EPIDEMIE else None
-    corpo = f"""<div class="card pull"><p class="lead" style="margin:0">The CDC posts an outbreak when a ship in its jurisdiction has 3% or more of passengers or crew reporting gastrointestinal symptoms to the ship’s medical staff, and “may also post other outbreaks of public health significance”. {plurale(len(EPIDEMIE), "outbreak")} were posted from {anni[0]} to {anni[-1]}{f"; the most recent on {h(ult['nave'])} ({h(ult['date'])})" if ult else ""}.</p></div>
+    a_ult = anni[-1]
+    noro = lambda lista: sum(1 for e in lista if "norovirus" in (e["agente"] or "").lower())  # noqa: E731
+    righe_a = "".join(f'<tr data-y="{y}"><td class="t1"><a href="#y{y}">{y}</a>{" <span class=small>(so far)</span>" if y == ANNO else ""}</td>'
+                      f'<td class="x n" data-l="Outbreaks">{len(per_anno[y])}</td><td class="x n" data-l="Norovirus">{noro(per_anno[y])}</td>'
+                      f'<td class="x n" data-l="Other or unknown cause">{len(per_anno[y]) - noro(per_anno[y])}</td></tr>' for y in reversed(anni))
+    tab_a = (f'<div class="tab"><table class="lt" id="per-anno"><thead><tr><th>Year</th><th class="n">Outbreaks</th><th class="n">Norovirus</th>'
+             f'<th class="n">Other or unknown cause</th></tr></thead><tbody>{righe_a}</tbody></table></div>')
+    # per compagnia: nome curato quando la tabella CDC usa lo stesso nome commerciale, oppure quando la nave ha una pagina e il nome
+    # della sua compagnia comincia con la stessa parola ("Silversea Cruises" -> Silversea). "Cunard Line" resta com'è (la pagina è "Carnival UK").
+    per_l = defaultdict(list)
+    for e in EPIDEMIE:
+        k = comp_info_da_nome(e["compagnia"])
+        if not k and e.get("slug"):
+            ln = NAVI[e["slug"]]["linea"]
+            if C_norm(ln["nome"]).split()[0] == C_norm(e["compagnia"]).split()[0]:
+                k = ln["slug"]
+        per_l[(k, LINEE[k]["nome"] if k in LINEE else e["compagnia"])].append(e)
+    ord_l = sorted(per_l, key=lambda k: (-len(per_l[k]), k[1]))
+    righe_l = "".join(f'<tr><td class="t1">{nome_linea_link(k, n)}</td><td class="x n" data-l="Since {anni[0]}">{len(per_l[(k, n)])}</td>'
+                      f'<td class="x n" data-l="In {a_ult}">{sum(1 for e in per_l[(k, n)] if e["anno"] == a_ult)}</td>'
+                      f'<td class="x" data-l="Most recent">{h(per_l[(k, n)][0]["nave"])}, {h(per_l[(k, n)][0]["date"])}</td></tr>' for k, n in ord_l)
+    tab_l = (f'<div class="tab"><table class="lt" id="per-linea"><thead><tr><th>Cruise line</th><th class="n">Since {anni[0]}</th><th class="n">In {a_ult}</th>'
+             f'<th>Most recent outbreak</th></tr></thead><tbody>{righe_l}</tbody></table></div>')
+    piu_recente = f"; the most recent on {h(ult['nave'])} ({h(ult['date'])})" if ult else ""
+    risposta = (f"<strong>{a_ult}{' so far' if a_ult == ANNO else ''}: {plurale(len(per_anno[a_ult]), 'outbreak')}</strong> posted by the CDC, "
+                f"{noro(per_anno[a_ult])} caused by norovirus{piu_recente}. "
+                f"{plurale(len(EPIDEMIE), 'outbreak')} from {anni[0]} to {a_ult}. ")
+    corpo = f"""<div class="card pull"><p class="lead" style="margin:0">{risposta}The CDC posts an outbreak when a ship in its jurisdiction has 3% or more of passengers or crew reporting gastrointestinal symptoms to the ship’s medical staff, and “may also post other outbreaks of public health significance”.</p></div>
 {AD}
+<h2>Outbreaks by year and cause</h2>
+{tab_a}
+<p class="small">Jump to the full list: {" ".join(f'<a href="#y{y}">{y}</a>' for y in reversed(anni))} · <a href="#per-linea">by cruise line</a></p>
 <div class="nota">{ico("info")}<p>An outbreak is not the same as a failed inspection: the inspection score measures sanitation on the day of the inspection; an outbreak counts people who got sick on one voyage. Illnesses such as norovirus “can spread quickly in closed and semienclosed environments, such as cruise ships” (<a href="{CDC_FAQ}" rel="noopener">CDC FAQ</a>).</p></div>
 {"".join(sezioni)}
+<h2>Outbreaks by cruise line</h2>
+<p class="lead">Outbreaks posted by the CDC since {anni[0]}, grouped by the cruise line named in the CDC tables. Lines with more ships and more sailings from U.S. ports have more chances to report one.</p>
+{tab_l}
 <p class="small">The CDC tables list outbreaks posted on {h(CDC_EPID)} (current year), the earlier-outbreaks pages for 2025–2024 and 2023. Case counts are shown only where the CDC table includes them. Tables checked on {data_lunga(INFO_IL.get("epidemie", CONTROLLATO))}.</p>
 {fonte_box(extra=f'<li><a href="{CDC_EPID}" rel="noopener">CDC: Outbreaks on cruise ships in VSP’s jurisdiction</a>, <a href="{CDC_EPID_PREC}" rel="noopener">2025–2024</a> and <a href="{CDC_EPID_2023}" rel="noopener">2023</a>.</li>')}"""
     testata = banda("Outbreaks", f"Cruise ship norovirus and GI outbreaks, {anni[0]}–{anni[-1]}",
                     "Gastrointestinal illness outbreaks on cruise ships posted by the CDC Vessel Sanitation Program, with cause and sailing dates.", trust())
-    pagina("outbreaks/", f"Cruise Ship Norovirus Outbreaks {anni[-1]} (and Since {anni[0]}): CDC List",
+    pagina("outbreaks/", f"Cruise Ship Norovirus & GI Outbreaks {a_ult}: CDC List ({len(per_anno[a_ult])} So Far)" if a_ult == ANNO else
+           f"Cruise Ship Norovirus & GI Outbreaks {a_ult} (and Since {anni[0]}): CDC List",
            f"All {len(EPIDEMIE)} cruise ship gastrointestinal illness outbreaks posted by the CDC since {anni[0]}: ship, cruise line, sailing dates and cause (norovirus, E. coli and others).",
            corpo, briciole=[("Outbreaks", "outbreaks/")], testata=testata)
 
@@ -1332,13 +1630,13 @@ def home():
     boc_ora = [s for s in ATTIVE if not passata(NAVI[s]["ultima"][1])]
     cento_anno = [r for r in anno_r if r[1] == 100]
     ultime = ISPEZIONI[:12]
+    boc_anno = [r for r in anno_r if r[1] < SOGLIA]
     stats = [(intero(len(ATTIVE)), "ships on the CDC Green Sheet", "/ships/"), (num1(media(att)), "average latest score", "/rankings/"),
              (intero(len(anno_r)), f"inspections in {ANNO} so far", f"/years/{ANNO}/"),
              (intero(len({r[4] or r[2] for r in cento_anno})), f"ships with a perfect 100 in {ANNO}", f"/rankings/perfect-scores-{ANNO}/")]
     stats_html = "".join(f'<div class="stat"><a href="{u}"><b>{a}</b><span>{b}</span></a></div>' for a, b, u in stats)
     li_ult = "".join(f'<li><a href="/{url_nave(r[4])}"><span>{h(NAVI[r[4]]["nome"])}<small>{h(nome_comp(r[3]))} · {data_breve(r[0])}</small></span>{chip(r[1])}</a></li>'
                      if r[4] else f'<li><a href="/years/{r[0][:4]}/"><span>{h(r[2])}<small>{data_breve(r[0])}</small></span>{chip(r[1])}</a></li>' for r in ultime)
-    boc_anno = [r for r in anno_r if r[1] < SOGLIA]
     blocco_boc = (f'<h2>Failed inspections in {ANNO}</h2><p class="lead">{plurale(len(boc_anno), "inspection")} scored 85 or lower in {ANNO} so far.</p>{tabella_ispezioni(boc_anno)}'
                   if boc_anno else f'<h2>Failed inspections in {ANNO}</h2><p class="lead">No ship has failed a CDC inspection in {ANNO} so far.</p>')
     if boc_ora:
@@ -1358,7 +1656,14 @@ def home():
          f"The CDC only covers cruise ships on international voyages with a stop at a U.S. port. Ships that sail outside the United States for an extended period drop out of the CDC database and are added back when they return and are inspected (<a href=\"{CDC_FAQ}\" rel=\"noopener\">CDC FAQ</a>)."),
     ]
     faq_html = "".join(f"<details><summary>{h(q)}</summary><p>{a}</p></details>" for q, a in faq)
+    ult_d = ISPEZIONI[0][0]
+    ult_r = [r for r in ISPEZIONI if r[0] == ult_d]
+    ult_txt = elenco_nomi([f"{NAVI[r[4]]['nome'] if r[4] else r[2]} scored {r[1]}" for r in ult_r])
+    risposta = (f"<strong>Latest CDC cruise ship inspections:</strong> the CDC has published {plurale(len(anno_r), 'inspection')} for {ANNO} so far, "
+                f"the most recent on {data_lunga(ult_d)} ({h(ult_txt)}). Average {ANNO} score: {num1(media([r[1] for r in anno_r]))} out of 100; "
+                f"{len(boc_anno)} failed (85 or lower) and {len(cento_anno)} scored a perfect 100.")
     corpo = f"""<div class="card pull cerca-card">{form_cerca()}</div>
+<p class="lead risposta" style="margin:18px 0 14px">{risposta} <a href="/years/{ANNO}/">Full {ANNO} inspections list</a>.</p>
 <div class="stat-row" style="margin-top:16px">{stats_html}</div>
 {AD}
 <h2>How to read a CDC score</h2>
@@ -1379,15 +1684,17 @@ def home():
 <li><a href="/rankings/failed-inspections/"><span>All failed inspections<small>since {min(int(r[0][:4]) for r in ISPEZIONI if r[1] < SOGLIA)}</small></span>{ico("alert")}</a></li>
 <li><a href="/years/{ANNO}/"><span>Cruise ship sanitation scores {ANNO}<small>every inspection</small></span>{ico("calendar")}</a></li>
 <li><a href="/outbreaks/"><span>Norovirus and GI outbreaks<small>posted by the CDC since 2023</small></span>{ico("virus")}</a></li>
+<li><a href="/rankings/cleanest-cruise-lines/"><span>Cleanest cruise lines<small>ranked by average CDC score, last 12 months</small></span>{ico("trophy")}</a></li>
+<li><a href="/rankings/year-over-year/"><span>{ANNO} vs {ANNO - 1}<small>year-over-year comparison</small></span>{ico("up")}</a></li>
 <li><a href="/how-cdc-cruise-ship-inspections-work/"><span>How CDC inspections work<small>what inspectors check</small></span>{ico("info")}</a></li>
 </ul>
 <h2>Questions</h2>
 <div class="faq">{faq_html}</div>
 {fonte_box()}"""
-    testata = banda("CDC Vessel Sanitation Program data", "Cruise ship health inspection scores",
+    testata = banda("CDC Vessel Sanitation Program data", "CDC cruise ship inspection scores",
                     f"The latest CDC sanitation score of all {len(ATTIVE)} cruise ships that sail from U.S. ports, with every past inspection and the violations inspectors found.", trust())
-    pagina("", f"Cruise Ship CDC Inspection Scores {ANNO}: Health Score of Every Ship",
-           f"Look up the CDC sanitation score of any cruise ship: the latest score of all {len(ATTIVE)} ships, every past inspection, violations, and the {ANNO} fails and 100s.",
+    pagina("", f"CDC Cruise Ship Inspections {ANNO}: Scores of All {len(ATTIVE)} Ships",
+           f"Look up the CDC health inspection score of any cruise ship: latest score of all {len(ATTIVE)} ships, every past inspection, violations, {ANNO} fails and 100s.",
            corpo, testata=testata, aff=True,
            jsonld_extra={"@context": "https://schema.org", "@type": "Dataset", "name": "Cruise ship CDC inspection scores",
                          "description": "Latest and past CDC Vessel Sanitation Program inspection scores of cruise ships that sail from U.S. ports, republished from the CDC Inspection Query Tool.",
@@ -1469,6 +1776,13 @@ def metodologia():
 <ul>
 <li><strong>Every ship on the Green Sheet</strong> ({f["pubblicate"]["attive"]} ships), the CDC’s list of ships in its jurisdiction. A few of them have not been inspected for more than a year (for example because they sailed outside the United States); their pages say so.</li>
 <li><strong>Archived ships</strong> ({f["pubblicate"]["archiviate"]} ships): ships that are still in the CDC search but no longer on the Green Sheet, only if their last inspection was on or after {data_lunga(f["archiviate_dal"])} and they have at least {f["archiviate_min"]} inspections. Older archived ships are left out: their records are years old and a page would say little that is useful. They still count in the yearly totals and in the list of failed inspections.</li>
+</ul>
+<h2>Rankings and comparisons</h2>
+<ul>
+<li><strong>Cleanest cruise lines</strong>: the plain average of every CDC inspection score of each line in the 12 months that end with the most recent published inspection (from {data_lunga(INIZIO_12)} to {data_lunga(FINE_DATI)} at this update). Only lines with at least {MIN_ISP_CLASSIFICA} inspections get a place; lines with the same average to one decimal share it. The CDC itself does not rank cruise lines.</li>
+<li><strong>Cruise line pages</strong> rank ships by their latest score on the Green Sheet and add a year-by-year table of every inspection under the line’s CDC names.</li>
+<li><strong>Year over year</strong>: averages, perfect scores and failures of each calendar year from 2023; the current year is compared as it stands, before it is over. Cruise lines need at least {MIN_ISP_CONFRONTO} inspections in both years.</li>
+<li>Inspections are assigned to the cruise line written in the CDC record at the time of the inspection.</li>
 </ul>
 <h2>Pass and fail</h2>
 <p>The CDC says that “cruise ships fail inspections when they score 85 or below” (<a href="{CDC_FAQ}" rel="noopener">CDC FAQ</a>), and its Green Sheet says that scores of 85 or lower “are NOT satisfactory”. So we show 86 or more as <strong>Passed</strong> and 85 or lower as <strong>Failed</strong>. The color bands (100, 95–99, 90–94, 86–89) are ours, to make lists easier to scan.</p>
@@ -1653,6 +1967,8 @@ def main():
         pagina_perfetti(y)
         pagina_bassi(y)
     pagina_bocciate()
+    pagina_pulite()
+    pagina_confronto()
     pagina_anni()
     for y in ANNI:
         pagina_anno(y)

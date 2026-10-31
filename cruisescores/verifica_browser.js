@@ -36,7 +36,8 @@ function campione() {
   const anno = fs.readdirSync(path.join(SITO, 'years')).filter(d => /^\d{4}$/.test(d)).sort().pop();
   const pagine = ['/', '/ships/', '/cruise-lines/', '/rankings/', '/rankings/failed-inspections/', `/rankings/perfect-scores-${anno}/`,
     `/rankings/lowest-scores-${anno}/`, '/years/', `/years/${anno}/`, '/outbreaks/', '/how-cdc-cruise-ship-inspections-work/',
-    '/methodology/', '/about/', '/contact/', '/privacy.html', '/does-not-exist/'];
+    '/methodology/', '/about/', '/contact/', '/privacy.html', '/does-not-exist/',
+    '/rankings/cleanest-cruise-lines/', '/rankings/year-over-year/', '/cruise-lines/princess-cruises/'];
   for (const s of ['norwegian-dawn', 'adventure-of-the-seas', 'carnival-breeze', 'wonder-of-the-seas', 'villa-vie-odyssey', 'msc-magnifica', 'balmoral'])
     if (esiste('ships/' + s)) pagine.push('/ships/' + s + '/');
   for (const c of ['carnival-cruise-line', 'royal-caribbean-international', 'viking', 'villa-vie-residences'])
@@ -45,7 +46,8 @@ function campione() {
 }
 
 const DA_FOTOGRAFARE = ['/', '/ships/norwegian-dawn/', '/ships/adventure-of-the-seas/', '/cruise-lines/carnival-cruise-line/', '/cruise-lines/', '/rankings/',
-  '/outbreaks/', '/how-cdc-cruise-ship-inspections-work/', '/ships/msc-magnifica/', '/contact/'];
+  '/outbreaks/', '/how-cdc-cruise-ship-inspections-work/', '/ships/msc-magnifica/', '/contact/',
+  '/rankings/cleanest-cruise-lines/', '/rankings/year-over-year/', '/rankings/failed-inspections/'];
 
 (async () => {
   const srv = server();
