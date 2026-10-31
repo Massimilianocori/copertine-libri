@@ -1,0 +1,2015 @@
+{
+ "_nota": "Generato da raccolta/entrar_europa.py: non modificare a mano. Gli importi per Stato sono in dati/schengen_residenti.json.",
+ "letto_il": "2026-10-31",
+ "fonti": {
+  "cfs_es": {
+   "titolo": "Reglamento (UE) 2016/399, Código de fronteras Schengen (texto consolidado del 12/10/2025)",
+   "formato": "html",
+   "celex": "02016R0399-20251012",
+   "lingua": "es",
+   "url": "https://publications.europa.eu/resource/cellar/ccb228a7-aa87-11f0-89c6-01aa75ed71a1.0007.03/DOC_1",
+   "pubblico": "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02016R0399-20251012",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 5964714,
+   "sha256": "38e62b0d66365a132aa05e48cec44fa21c16cafbe4a886a04543e95ec9de4a47"
+  },
+  "cfs_pt": {
+   "titolo": "Regulamento (UE) 2016/399, Código das Fronteiras Schengen (texto consolidado de 12/10/2025)",
+   "formato": "html",
+   "celex": "02016R0399-20251012",
+   "lingua": "pt",
+   "url": "https://publications.europa.eu/resource/cellar/ccb228a7-aa87-11f0-89c6-01aa75ed71a1.0020.03/DOC_1",
+   "pubblico": "https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:02016R0399-20251012",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 6056973,
+   "sha256": "91b572b932f2769e8987b06c6c014a75f0b1d81fb1b487f3d0374c475d98ce4d"
+  },
+  "cfs_en": {
+   "titolo": "Regulation (EU) 2016/399, Schengen Borders Code (consolidated text of 12/10/2025)",
+   "formato": "html",
+   "celex": "02016R0399-20251012",
+   "lingua": "en",
+   "url": "https://publications.europa.eu/resource/cellar/ccb228a7-aa87-11f0-89c6-01aa75ed71a1.0006.03/DOC_1",
+   "pubblico": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02016R0399-20251012",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 5551907,
+   "sha256": "9344f352ed015209070f69591141a8fe415cb942c77a424a6c2bba5ce4e8426b"
+  },
+  "vis_es": {
+   "titolo": "Reglamento (UE) 2018/1806, lista de países sometidos y exentos de visado (texto consolidado del 30/12/2025)",
+   "formato": "html",
+   "celex": "02018R1806-20251230",
+   "lingua": "es",
+   "url": "https://publications.europa.eu/resource/cellar/ece43fab-0ca3-11f1-8870-01aa75ed71a1.0007.02/DOC_1",
+   "pubblico": "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02018R1806-20251230",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 149812,
+   "sha256": "fc81b73cc9d7ea10dfe4c7dc23f3d5256537fe6487fe3d1bfd7cee3386f02660"
+  },
+  "vis_pt": {
+   "titolo": "Regulamento (UE) 2018/1806, lista dos países sujeitos e isentos de visto (texto consolidado de 30/12/2025)",
+   "formato": "html",
+   "celex": "02018R1806-20251230",
+   "lingua": "pt",
+   "url": "https://publications.europa.eu/resource/cellar/ece43fab-0ca3-11f1-8870-01aa75ed71a1.0020.02/DOC_1",
+   "pubblico": "https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:02018R1806-20251230",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 153625,
+   "sha256": "fb4ea4df5f5095e4891991118e9b4fd964c8a8c7c2f663c78a28ccaaeb5264ab"
+  },
+  "vis_en": {
+   "titolo": "Regulation (EU) 2018/1806, visa list (consolidated text of 30/12/2025)",
+   "formato": "html",
+   "celex": "02018R1806-20251230",
+   "lingua": "en",
+   "url": "https://publications.europa.eu/resource/cellar/ece43fab-0ca3-11f1-8870-01aa75ed71a1.0006.02/DOC_1",
+   "pubblico": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02018R1806-20251230",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 138128,
+   "sha256": "d903ae2efaada70c04a70f353a43e5827258d5facf98622627cfeb9e1b87a9ee"
+  },
+  "cv_es": {
+   "titolo": "Reglamento (CE) 810/2009, Código de visados (texto consolidado del 2/2/2020)",
+   "formato": "html",
+   "celex": "02009R0810-20200202",
+   "lingua": "es",
+   "url": "https://publications.europa.eu/resource/cellar/82b7a82d-473e-11ea-b81b-01aa75ed71a1.0007.03/DOC_4",
+   "pubblico": "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02009R0810-20200202",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 412779,
+   "sha256": "029350f2f118bad37956d6a5412f605090bbddb32092d9d5e330fc970cefd2b0"
+  },
+  "cv_pt": {
+   "titolo": "Regulamento (CE) 810/2009, Código de Vistos (texto consolidado de 2/2/2020)",
+   "formato": "html",
+   "celex": "02009R0810-20200202",
+   "lingua": "pt",
+   "url": "https://publications.europa.eu/resource/cellar/82b7a82d-473e-11ea-b81b-01aa75ed71a1.0020.03/DOC_4",
+   "pubblico": "https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:02009R0810-20200202",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 421654,
+   "sha256": "ce3d93d0b89baa671fdb9be836797b67a59296671eb5d069565e4f34e188a260"
+  },
+  "boe_medios": {
+   "titolo": "Orden PRE/1282/2007, de 10 de mayo, sobre medios económicos cuya disposición habrán de acreditar los extranjeros para poder efectuar su entrada en España",
+   "formato": "html",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-9608",
+   "pubblico": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-9608",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 50168,
+   "sha256": "bcaab405f1f79b55680e019ef77fa3bd663a9d16cb0c4dbb97b6e2ab9b2ba792"
+  },
+  "boe_carta": {
+   "titolo": "Orden PRE/1283/2007, de 10 de mayo, por la que se establecen los términos y requisitos para la expedición de la carta de invitación de particulares",
+   "formato": "html",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-9609",
+   "pubblico": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-9609",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 58113,
+   "sha256": "7dfc8056008f89dceb4516dd77189a65eadcabe56741e67c0949154b4fe3ec01"
+  },
+  "etias_es": {
+   "titolo": "Unión Europea, sitio oficial de ETIAS",
+   "formato": "browser",
+   "url": "https://travel-europe.europa.eu/es/etias",
+   "pubblico": "https://travel-europe.europa.eu/es/etias",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 1554,
+   "sha256": "ad7dfd155d81138f70c9830ecbd81a5dd2139b0106998f82dabc3db352f0d0bc"
+  },
+  "etias_pt": {
+   "titolo": "União Europeia, sítio oficial do ETIAS",
+   "formato": "browser",
+   "url": "https://travel-europe.europa.eu/pt/etias",
+   "pubblico": "https://travel-europe.europa.eu/pt/etias",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 1508,
+   "sha256": "2d1fa1f929897d816d1a351597d5cc5b5b7d53d363b92c2888692947027d8cb2"
+  },
+  "etias_en": {
+   "titolo": "European Union, official ETIAS website",
+   "formato": "browser",
+   "url": "https://travel-europe.europa.eu/en/etias",
+   "pubblico": "https://travel-europe.europa.eu/en/etias",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 1275,
+   "sha256": "d9ae1d04d63aff7ac9ba36550d5d5614fd2cebb8b7bbe3bf252c3b6ca5ea7183"
+  },
+  "riferimento": {
+   "titolo": "European Commission, Reference amounts required for the crossing of the external border fixed by national authorities",
+   "formato": "pdf",
+   "url": "https://home-affairs.ec.europa.eu/document/download/9bf9a98f-3bd1-4e14-9b39-c9087a08a32f_en?filename=Reference_amounts_table.pdf",
+   "pagina": "https://home-affairs.ec.europa.eu/policies/schengen/border-crossing_en",
+   "pubblico": "https://home-affairs.ec.europa.eu/document/download/9bf9a98f-3bd1-4e14-9b39-c9087a08a32f_en?filename=Reference_amounts_table.pdf",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 141151,
+   "sha256": "c2a62196932e06dc272ceee821c4ba559e6ce3fb1be09fe741b5f284febbe5c6"
+  }
+ },
+ "letture": {
+  "es_90_180": {
+   "fonte": "cfs_es",
+   "valore": [
+    90,
+    180
+   ],
+   "frammento": "una duración que no exceda de 90 días dentro de cualquier período de 180 días"
+  },
+  "es_pasaporte": {
+   "fonte": "cfs_es",
+   "valore": 3,
+   "frammento": "seguirá siendo válido como mínimo tres meses después de la fecha prevista de partida del territorio de los Estados miembros"
+  },
+  "es_pasaporte_10": {
+   "fonte": "cfs_es",
+   "valore": 10,
+   "frammento": "deberá haberse expedido dentro de los diez años anteriores"
+  },
+  "es_visado": {
+   "fonte": "cfs_es",
+   "frammento": "estar en posesión de un visado válido, cuando así lo exija el Reglamento"
+  },
+  "es_objeto": {
+   "fonte": "cfs_es",
+   "frammento": "estar en posesión de documentos que justifiquen el objeto y las condiciones de la estancia prevista y disponer de medios de subsistencia suficientes, tanto para el período de estancia previsto como para el regreso al país de origen"
+  },
+  "es_sis": {
+   "fonte": "cfs_es",
+   "frammento": "no estar inscrito como no admisible en el SIS"
+  },
+  "es_amenaza": {
+   "fonte": "cfs_es",
+   "frammento": "no suponer una amenaza para el orden público, la seguridad interior, la salud pública o las relaciones internacionales de ninguno de los Estados miembros"
+  },
+  "es_biometria": {
+   "fonte": "cfs_es",
+   "frammento": "facilitar los datos biométricos, de ser necesario"
+  },
+  "es_lista": {
+   "fonte": "cfs_es",
+   "frammento": "En el anexo I figura una lista no exhaustiva de documentos justificativos que la guardia de fronteras podrá pedir"
+  },
+  "es_medios": {
+   "fonte": "cfs_es",
+   "frammento": "La comprobación de los medios de subsistencia suficientes podrá basarse en el dinero efectivo, los cheques de viaje y las tarjetas de crédito que obren en poder del nacional de un tercer país."
+  },
+  "es_medios_precios": {
+   "fonte": "cfs_es",
+   "frammento": "se usarán como referencia los precios medios en el Estado o Estados miembros de que se trate del alojamiento y de la alimentación, en hospedaje económico multiplicado por el número de días de estancia"
+  },
+  "es_invitacion_medios": {
+   "fonte": "cfs_es",
+   "frammento": "también podrán constituir prueba de medios adecuados de subsistencia"
+  },
+  "es_toma_cargo": {
+   "fonte": "cfs_es",
+   "frammento": "Las declaraciones de invitación, cuando las prevea el Derecho interno, y las declaraciones de toma a cargo definidas por el Derecho interno, en caso de que el nacional de un tercer país se aloje en el domicilio de una persona de acogida"
+  },
+  "es_anexo_invitacion": {
+   "fonte": "cfs_es",
+   "frammento": "invitación de un particular si se hospeda en el domicilio de éste"
+  },
+  "es_anexo_hotel": {
+   "fonte": "cfs_es",
+   "frammento": "documento justificativo del establecimiento de hospedaje o cualquier otro documento pertinente que indique el alojamiento que se haya previsto"
+  },
+  "es_anexo_itinerario": {
+   "fonte": "cfs_es",
+   "frammento": "confirmación de la reserva de un viaje organizado o cualquier otro documento que indique los planes de viaje previstos"
+  },
+  "es_anexo_regreso": {
+   "fonte": "cfs_es",
+   "frammento": "billete de vuelta o de circuito turístico"
+  },
+  "es_anexo_negocios": {
+   "fonte": "cfs_es",
+   "frammento": "la invitación de una empresa o de una autoridad para participar en reuniones, conferencias o manifestaciones de carácter comercial, industrial o laboral"
+  },
+  "es_anexo_estudios": {
+   "fonte": "cfs_es",
+   "frammento": "documento de matrícula de un centro de enseñanza"
+  },
+  "es_denegacion": {
+   "fonte": "cfs_es",
+   "frammento": "Se negará la entrada en el territorio de los Estados miembros a los nacionales de terceros países que no cumplan todas las condiciones de entrada"
+  },
+  "es_motivada": {
+   "fonte": "cfs_es",
+   "frammento": "Solo podrá denegarse la entrada mediante una resolución motivada en la que se indiquen los motivos exactos de dicha denegación."
+  },
+  "es_recurso": {
+   "fonte": "cfs_es",
+   "frammento": "Las personas a las que se deniegue la entrada tendrán derecho a recurrir dicha resolución."
+  },
+  "pt_90_180": {
+   "fonte": "cfs_pt",
+   "valore": [
+    90,
+    180
+   ],
+   "frammento": "de duração não superior a 90 dias em qualquer período de 180 dias"
+  },
+  "pt_passaporte": {
+   "fonte": "cfs_pt",
+   "valore": 3,
+   "frammento": "ser válido pelo menos para os três meses seguintes à data prevista de partida do território dos Estados-Membros"
+  },
+  "pt_passaporte_10": {
+   "fonte": "cfs_pt",
+   "valore": 10,
+   "frammento": "ter sido emitido há menos de 10 anos"
+  },
+  "pt_visto": {
+   "fonte": "cfs_pt",
+   "frammento": "Estar na posse de um visto válido, se tal for exigido"
+  },
+  "pt_objeto": {
+   "fonte": "cfs_pt",
+   "frammento": "Justificar o objetivo e as condições da estada prevista e dispor de meios de subsistência suficientes, tanto para a duração dessa estada como para o regresso ao país de origem"
+  },
+  "pt_sis": {
+   "fonte": "cfs_pt",
+   "frammento": "Não estar indicado no SIS para efeitos de não admissão"
+  },
+  "pt_ameaca": {
+   "fonte": "cfs_pt",
+   "frammento": "Não ser considerado suscetível de perturbar a ordem pública, a segurança interna, a saúde pública ou as relações internacionais de qualquer Estado-Membro"
+  },
+  "pt_biometria": {
+   "fonte": "cfs_pt",
+   "frammento": "Fornecer dados biométricos, se for necessário"
+  },
+  "pt_lista": {
+   "fonte": "cfs_pt",
+   "frammento": "Consta do anexo I uma lista não exaustiva dos documentos comprovativos que o guarda de fronteira pode solicitar"
+  },
+  "pt_meios": {
+   "fonte": "cfs_pt",
+   "frammento": "A verificação da suficiência de meios de subsistência pode basear-se no dinheiro líquido, nos cheques de viagem e nos cartões de crédito na posse do nacional de país terceiro."
+  },
+  "pt_meios_precos": {
+   "fonte": "cfs_pt",
+   "frammento": "com referência aos preços médios de alojamento e de alimentação, em condições económicas, no Estado-Membro ou Estados-Membros em causa, multiplicados pelo número de dias de estada"
+  },
+  "pt_convite_meios": {
+   "fonte": "cfs_pt",
+   "frammento": "podem igualmente constituir uma prova de meios de subsistência suficientes"
+  },
+  "pt_termo": {
+   "fonte": "cfs_pt",
+   "frammento": "As declarações de tomada a cargo, quando estejam previstas no direito nacional, e os termos de responsabilidade assinados por anfitriões, tal como definidos pelo direito nacional"
+  },
+  "pt_anexo_convite": {
+   "fonte": "cfs_pt",
+   "frammento": "convite do anfitrião, se for esse o caso"
+  },
+  "pt_anexo_hotel": {
+   "fonte": "cfs_pt",
+   "frammento": "documento comprovativo emitido pelo estabelecimento que fornece o alojamento, ou qualquer outro documento adequado que indique o alojamento previsto"
+  },
+  "pt_anexo_itinerario": {
+   "fonte": "cfs_pt",
+   "frammento": "confirmação da reserva de uma viagem organizada ou qualquer outro documento adequado que indique os planos de viagem"
+  },
+  "pt_anexo_regresso": {
+   "fonte": "cfs_pt",
+   "frammento": "bilhete de ida e volta ou bilhete de circuito turístico"
+  },
+  "pt_anexo_negocios": {
+   "fonte": "cfs_pt",
+   "frammento": "convite de uma empresa ou entidade para participar em encontros, conferências ou manifestações de caráter comercial, industrial ou profissional"
+  },
+  "pt_anexo_estudos": {
+   "fonte": "cfs_pt",
+   "frammento": "boletim de matrícula num estabelecimento de ensino"
+  },
+  "pt_recusa": {
+   "fonte": "cfs_pt",
+   "frammento": "A entrada nos territórios dos Estados-Membros é recusada a qualquer nacional de país terceiro que não preencha todas as condições de entrada"
+  },
+  "pt_fundamentada": {
+   "fonte": "cfs_pt",
+   "frammento": "A entrada só pode ser recusada por decisão fundamentada que indique as razões precisas da recusa"
+  },
+  "pt_recurso": {
+   "fonte": "cfs_pt",
+   "frammento": "As pessoas a quem tenha sido recusada a entrada têm direito de recurso."
+  },
+  "es_seguro_visado": {
+   "fonte": "cv_es",
+   "frammento": "Los solicitantes de un visado uniforme para una o dos entradas deberán demostrar que poseen un seguro médico de viaje adecuado y válido"
+  },
+  "es_seguro_30000": {
+   "fonte": "cv_es",
+   "valore": 30000,
+   "frammento": "La cobertura mínima será de 30 000 EUR."
+  },
+  "es_seguro_territorio": {
+   "fonte": "cv_es",
+   "frammento": "El seguro deberá ser válido en el territorio de los Estados miembros y cubrir todo el período de estancia o tránsito que la persona haya previsto."
+  },
+  "pt_seguro_visto": {
+   "fonte": "cv_pt",
+   "frammento": "Os requerentes de visto uniforme para uma ou duas entradas devem provar que possuem um seguro médico de viagem adequado e válido"
+  },
+  "pt_seguro_30000": {
+   "fonte": "cv_pt",
+   "valore": 30000,
+   "frammento": "A cobertura do seguro deve ser, no mínimo, 30 000 EUR."
+  },
+  "pt_seguro_territorio": {
+   "fonte": "cv_pt",
+   "frammento": "O seguro deve ser válido em todo o território dos Estados-Membros e cobrir a totalidade da duração prevista de estada ou trânsito do interessado."
+  },
+  "boe_requeridos": {
+   "fonte": "boe_medios",
+   "frammento": "si son requeridos para ello por los funcionarios encargados de efectuar el control de entrada de personas en territorio español"
+  },
+  "boe_10": {
+   "fonte": "boe_medios",
+   "valore": 0.1,
+   "frammento": "el 10% del salario mínimo interprofesional bruto o su equivalente legal en moneda extranjera multiplicada por el número de días que pretendan permanecer en España y por el número de personas que viajen a su cargo"
+  },
+  "boe_90": {
+   "fonte": "boe_medios",
+   "valore": 0.9,
+   "frammento": "Dicha cantidad será, en todo caso, de un mínimo que represente el 90% del salario mínimo interprofesional bruto vigente en cada momento o su equivalente legal en moneda extranjera por persona, con independencia del tiempo de estancia previsto."
+  },
+  "boe_dias": {
+   "fonte": "boe_medios",
+   "frammento": "el número de días resultantes desde la fecha de entrada en España hasta la fecha de salida que figure en el billete referido en la letra b) de este apartado, ambas fechas incluidas"
+  },
+  "boe_billete": {
+   "fonte": "boe_medios",
+   "frammento": "se acreditará disponer del billete o billetes nominativos, intransferibles y cerrados, en el medio de transporte que pretendan utilizar"
+  },
+  "boe_efectivo": {
+   "fonte": "boe_medios",
+   "frammento": "mediante exhibición de los mismos, en el caso de que los posean en efectivo, o mediante la presentación de cheques certificados, cheques de viaje, cartas de pago, o tarjetas de crédito, que deberán ir acompañadas del extracto de la cuenta bancaria o una libreta bancaria puesta al día"
+  },
+  "boe_no_cartas": {
+   "fonte": "boe_medios",
+   "frammento": "(no se admitirán cartas de entidades bancarias ni extractos bancarios de Internet)"
+  },
+  "boe_denegara": {
+   "fonte": "boe_medios",
+   "frammento": "se denegará su entrada en territorio español según lo establecido reglamentariamente"
+  },
+  "boe_reducir": {
+   "fonte": "boe_medios",
+   "frammento": "podrán permitir la entrada, reduciendo el tiempo de estancia en proporción a la cuantía de los recursos de que se dispongan"
+  },
+  "carta_alojamiento": {
+   "fonte": "boe_carta",
+   "frammento": "asumiendo el compromiso de costear, durante el período de estancia del beneficiario, todos los gastos relativos a su alojamiento"
+  },
+  "carta_frontera": {
+   "fonte": "boe_carta",
+   "frammento": "que podrá ser exigida en el puesto fronterizo español al extranjero que pretenda entrar en España y podrá ser aportada por éste ante el Consulado español, cuando se trate de nacionales de países sujetos al visado de estancia"
+  },
+  "carta_hospedaje": {
+   "fonte": "boe_carta",
+   "frammento": "En ningún caso, la carta de invitación suplirá la acreditación por el extranjero de los demás requisitos exigidos para la entrada, ya que únicamente justifica el requisito relativo al hospedaje."
+  },
+  "carta_comisaria": {
+   "fonte": "boe_carta",
+   "frammento": "deberá dirigir su solicitud a la Comisaría de Policía de su lugar de residencia, que será la competente para su tramitación y expedición"
+  },
+  "carta_quien": {
+   "fonte": "boe_carta",
+   "frammento": "ya sea ciudadano español, nacional de un Estado miembro de la Unión Europea o beneficiario del régimen comunitario o extranjero residente legal en España"
+  },
+  "carta_vivienda": {
+   "fonte": "boe_carta",
+   "frammento": "El invitante aportará documentación acreditativa de la disponibilidad de la vivienda (título de propiedad, contrato de arrendamiento u otros, de acuerdo con la legislación civil vigente)."
+  },
+  "carta_vinculo": {
+   "fonte": "boe_carta",
+   "frammento": "Relación o vínculo que mantiene con el invitado."
+  },
+  "carta_datos": {
+   "fonte": "boe_carta",
+   "frammento": "Nombre, apellidos, lugar y fecha de nacimiento, nacionalidad, lugar concreto de su residencia o domicilio y número de pasaporte del invitado."
+  },
+  "carta_periodo": {
+   "fonte": "boe_carta",
+   "frammento": "Período durante el cual está prevista la estancia del invitado, especificando, de manera aproximada, el primer y el último día de la misma."
+  },
+  "carta_varias": {
+   "fonte": "boe_carta",
+   "frammento": "la invitación podrá referirse a varias personas"
+  },
+  "carta_brevedad": {
+   "fonte": "boe_carta",
+   "frammento": "de cara a resolver en el sentido que proceda en relación con la misma con la mayor brevedad posible"
+  },
+  "carta_entrevista": {
+   "fonte": "boe_carta",
+   "frammento": "se podrá emplazar al solicitante para mantener una entrevista personal"
+  },
+  "carta_quince": {
+   "fonte": "boe_carta",
+   "valore": 15,
+   "frammento": "que no podrá exceder de quince días"
+  },
+  "carta_tasa": {
+   "fonte": "boe_carta",
+   "frammento": "El abono de la tasa habrá de realizarse en el plazo de un mes desde la referida notificación, y el justificante de dicho abono deberá aportarse para recoger la Carta de invitación."
+  },
+  "carta_denegacion": {
+   "fonte": "boe_carta",
+   "frammento": "La denegación, en su caso, de la solicitud de Carta de invitación habrá de ser motivada"
+  },
+  "carta_modelo": {
+   "fonte": "boe_carta",
+   "frammento": "de acuerdo con el modelo establecido en el anexo de la presente Orden ministerial"
+  },
+  "etias_es_estado": {
+   "fonte": "etias_es",
+   "frammento": "Actualmente, el sistema ETIAS no está en funcionamiento y no se están tramitando solicitudes de autorización de viaje."
+  },
+  "etias_es_fecha": {
+   "fonte": "etias_es",
+   "frammento": "La Unión Europea informará sobre la fecha concreta de inicio del ETIAS varios meses antes de su entrada en funcionamiento."
+  },
+  "etias_es_que": {
+   "fonte": "etias_es",
+   "valore": 30,
+   "frammento": "ETIAS es la nueva autorización de viaje para que viajeros exentos de visa puedan viajar a 30 países europeos."
+  },
+  "etias_es_tasa": {
+   "fonte": "etias_es",
+   "valore": 20,
+   "frammento": "Pague una tasa de solicitud de 20 EUR"
+  },
+  "etias_es_90": {
+   "fonte": "etias_es",
+   "valore": 90,
+   "frammento": "La estancia es de hasta 90 días"
+  },
+  "etias_pt_estado": {
+   "fonte": "etias_pt",
+   "frammento": "O ETIAS não está atualmente em funcionamento e não são aceites pedidos de autorização de viagem neste momento."
+  },
+  "etias_pt_data": {
+   "fonte": "etias_pt",
+   "frammento": "A União Europeia informará sobre a data específica do início do ETIAS vários meses antes do seu lançamento."
+  },
+  "etias_pt_que": {
+   "fonte": "etias_pt",
+   "valore": 30,
+   "frammento": "O ETIAS é a nova autorização de viagem para os viajantes isentos de visto que pretendam entrar em 30 países europeus."
+  },
+  "etias_pt_taxa": {
+   "fonte": "etias_pt",
+   "valore": 20,
+   "frammento": "Pagar uma taxa de pedido de 20 EUR"
+  },
+  "etias_pt_90": {
+   "fonte": "etias_pt",
+   "valore": 90,
+   "frammento": "Permanecer até 90 dias"
+  },
+  "etias_en_estado": {
+   "fonte": "etias_en",
+   "frammento": "ETIAS is currently not in operation and no applications for travel authorisations are collected at this point."
+  },
+  "rif_persona": {
+   "fonte": "riferimento",
+   "frammento": "Minimum amount per day and per person"
+  },
+  "rif_francia": {
+   "fonte": "riferimento",
+   "frammento": "Where there is a hotel reservation for part of the stay, the amount required is € 65.00 for the period covered by the reservation and € 120.00 for the rest of the stay."
+  },
+  "rif_liechtenstein": {
+   "fonte": "riferimento",
+   "frammento": "Liechtenstein around CHF 100 around CHF 30 - students"
+  },
+  "rif_cipro": {
+   "fonte": "riferimento",
+   "frammento": "Cyprus on a case-by-case basis"
+  }
+ },
+ "assenti": {
+  "cfs_en": [
+   "insurance"
+  ],
+  "cfs_es": [
+   "seguro médico",
+   "seguro de viaje",
+   "seguro de enfermedad"
+  ],
+  "cfs_pt": [
+   "seguro médico",
+   "seguro de viagem",
+   "seguro de doença"
+  ]
+ },
+ "paesi": [
+  {
+   "id": "argentina",
+   "es": "Argentina",
+   "pt": "Argentina",
+   "en": "Argentina",
+   "allegato": 2
+  },
+  {
+   "id": "bolivia",
+   "es": "Bolivia",
+   "pt": "Bolívia",
+   "en": "Bolivia",
+   "allegato": 1
+  },
+  {
+   "id": "brasil",
+   "es": "Brasil",
+   "pt": "Brasil",
+   "en": "Brazil",
+   "allegato": 2
+  },
+  {
+   "id": "chile",
+   "es": "Chile",
+   "pt": "Chile",
+   "en": "Chile",
+   "allegato": 2
+  },
+  {
+   "id": "colombia",
+   "es": "Colombia",
+   "pt": "Colômbia",
+   "en": "Colombia",
+   "allegato": 2
+  },
+  {
+   "id": "costa-rica",
+   "es": "Costa Rica",
+   "pt": "Costa Rica",
+   "en": "Costa Rica",
+   "allegato": 2
+  },
+  {
+   "id": "cuba",
+   "es": "Cuba",
+   "pt": "Cuba",
+   "en": "Cuba",
+   "allegato": 1
+  },
+  {
+   "id": "ecuador",
+   "es": "Ecuador",
+   "pt": "Equador",
+   "en": "Ecuador",
+   "allegato": 1
+  },
+  {
+   "id": "el-salvador",
+   "es": "El Salvador",
+   "pt": "Salvador",
+   "en": "El Salvador",
+   "allegato": 2
+  },
+  {
+   "id": "guatemala",
+   "es": "Guatemala",
+   "pt": "Guatemala",
+   "en": "Guatemala",
+   "allegato": 2
+  },
+  {
+   "id": "haiti",
+   "es": "Haití",
+   "pt": "Haiti",
+   "en": "Haiti",
+   "allegato": 1
+  },
+  {
+   "id": "honduras",
+   "es": "Honduras",
+   "pt": "Honduras",
+   "en": "Honduras",
+   "allegato": 2
+  },
+  {
+   "id": "mexico",
+   "es": "México",
+   "pt": "México",
+   "en": "Mexico",
+   "allegato": 2
+  },
+  {
+   "id": "nicaragua",
+   "es": "Nicaragua",
+   "pt": "Nicarágua",
+   "en": "Nicaragua",
+   "allegato": 2
+  },
+  {
+   "id": "panama",
+   "es": "Panamá",
+   "pt": "Panamá",
+   "en": "Panama",
+   "allegato": 2
+  },
+  {
+   "id": "paraguay",
+   "es": "Paraguay",
+   "pt": "Paraguai",
+   "en": "Paraguay",
+   "allegato": 2
+  },
+  {
+   "id": "peru",
+   "es": "Perú",
+   "pt": "Peru",
+   "en": "Peru",
+   "allegato": 2
+  },
+  {
+   "id": "republica-dominicana",
+   "es": "República Dominicana",
+   "pt": "República Dominicana",
+   "en": "Dominican Republic",
+   "allegato": 1
+  },
+  {
+   "id": "uruguay",
+   "es": "Uruguay",
+   "pt": "Uruguai",
+   "en": "Uruguay",
+   "allegato": 2
+  },
+  {
+   "id": "venezuela",
+   "es": "Venezuela",
+   "pt": "Venezuela",
+   "en": "Venezuela",
+   "allegato": 2
+  }
+ ],
+ "domanda": {
+  "data": "2026-10-31",
+  "metodo": "https://suggestqueries.google.com/complete/search?client=firefox&gl=<es|mx|co|ar|pe|ve|br|pt>&hl=<es|pt>&q=…",
+  "query": {
+   "es-es|cuanto dinero necesito para entrar a": [
+    "cuanto dinero necesito para entrar a españa",
+    "cuanto dinero necesito para entrar a europa",
+    "cuanto dinero necesito para entrar a italia",
+    "cuanto dinero necesito para entrar a colombia",
+    "cuanto dinero necesito para entrar a estados unidos",
+    "cuánto dinero necesito para entrar a curazao",
+    "cuánto dinero necesito para entrar a chile como turista",
+    "cuanto dinero necesito para entrar a canada",
+    "cuanto dinero necesito para entrar a mexico",
+    "cuanto dinero necesito para entrar a panama"
+   ],
+   "es-es|cuánto dinero necesito para entrar a españa": [
+    "cuanto dinero necesito para entrar a españa",
+    "cuanto dinero necesito para entrar a españa 2025",
+    "cuanto dinero necesito para entrar a españa 2026",
+    "cuanto dinero necesito para entrar a españa como turista",
+    "cuanto dinero en efectivo necesito para entrar a españa",
+    "cuanto dinero necesito para emigrar a españa",
+    "cuanto dinero necesito para viajar a españa",
+    "cuanto dinero necesito para ir a españa",
+    "cuanto dinero necesito para viajar a españa desde argentina",
+    "cuanto dinero necesito para emigrar a españa desde argentina"
+   ],
+   "es-es|cuanto dinero necesito para entrar a europa": [
+    "cuanto dinero necesito para entrar a europa",
+    "cuanto dinero necesito para ir a europa 15 días",
+    "cuanto dinero necesito para ir a europa 15 días 2025",
+    "cuanto dinero necesito para viajar a europa",
+    "cuanto dinero necesito para ir a europa 15 días desde colombia",
+    "cuanto dinero necesito para ir a europa",
+    "cuanto dinero necesito para ir a europa 10 días",
+    "cuanto dinero necesito para viajar a europa 15 dias",
+    "cuanto dinero necesito para viajar a europa 1 mes",
+    "cuanto dinero necesito para ir a europa 15 días 2026"
+   ],
+   "es-es|cuanto dinero necesito para entrar a italia": [
+    "cuanto dinero necesito para entrar a italia",
+    "cuanto dinero necesito para viajar a italia",
+    "cuanto dinero necesito para ir a italia",
+    "cuanto dinero necesito para ir a italia desde mexico",
+    "cuanto dinero necesito para viajar a italia desde peru",
+    "cuanto dinero necesito para viajar a italia desde colombia",
+    "cuanto dinero necesito para emigrar a italia",
+    "cuanto dinero necesito para viajar a italia desde argentina",
+    "cuanto dinero necesito para viajar a italia desde chile",
+    "cuánto dinero necesito para viajar a italia desde venezuela"
+   ],
+   "es-es|cuanto dinero necesito para entrar a francia": [
+    "cuanto dinero necesito para entrar a francia",
+    "cuanto dinero necesito para viajar a francia desde colombia",
+    "cuanto dinero necesito para ir a francia",
+    "cuanto dinero necesito para ir a francia desde mexico"
+   ],
+   "es-es|cuanto dinero necesito para entrar a alemania": [
+    "cuanto dinero necesito para entrar a alemania",
+    "cuanto dinero necesito para ir a alemania",
+    "cuanto dinero necesito para viajar a alemania desde colombia",
+    "cuanto.dinero necesito para emigrar a alemania",
+    "cuánto dinero necesito para ir a alemania desde méxico"
+   ],
+   "es-es|cuanto dinero necesito para entrar a suiza": [
+    "cuanto dinero necesito.para entrar a suiza",
+    "cuanto dinero necesito para ir a suiza",
+    "cuanto dinero necesito para ir a suiza desde mexico",
+    "cuanto dinero necesito para emigrar a suiza",
+    "cuanto dinero necesito para viajar a suiza desde colombia",
+    "cuanto dinero necesito para irme a suiza"
+   ],
+   "es-es|cuanto dinero necesito para entrar a portugal": [
+    "cuanto dinero necesito para emigrar a portugal",
+    "cuanto dinero necesito para viajar a portugal"
+   ],
+   "es-es|cuanto dinero hay que llevar a europa": [
+    "cuanto dinero hay que llevar a europa",
+    "cuanto dinero hay que llevar para viajar a europa",
+    "cuanto dinero llevar a europa por 20 días",
+    "cuanto dinero llevar a europa por 20 días 2026",
+    "cuánto dinero llevar a europa por 15 días",
+    "cuanto dinero llevar a europa por 20 días 2025",
+    "cuanto dinero llevar a europa por 10 dias",
+    "cuanto dinero llevar a europa por dia",
+    "cuanto dinero llevar a europa por un mes",
+    "cuánto dinero llevar a europa por 20 días 2022"
+   ],
+   "es-es|carta de invitación españa": [
+    "carta de invitacion españa",
+    "carta de invitación españa cita previa",
+    "carta de invitacion españa precio",
+    "carta de invitacion españa modelo",
+    "carta de invitacion españa es obligatoria",
+    "carta de invitacion españa tasas",
+    "carta de invitacion españa para colombianos",
+    "carta de invitacion españa notaria",
+    "carta de invitacion españa cuanto tiempo tarda",
+    "carta de invitacion españa para que sirve"
+   ],
+   "es-es|requisitos para entrar a europa desde": [
+    "requisitos para entrar a europa desde colombia",
+    "requisitos para entrar a europa desde mexico",
+    "requisitos para entrar a europa desde chile",
+    "requisitos para entrar a europa desde argentina",
+    "requisitos para entrar a europa desde costa rica",
+    "requisitos para entrar a europa desde colombia 2026",
+    "requisitos para entrar a europa desde uruguay",
+    "requisitos para entrar a europa desde peru",
+    "requisitos para entrar a europa desde guatemala",
+    "requisitos para entrar a europa desde colombia 2025"
+   ],
+   "es-es|requisitos para entrar a españa": [
+    "requisitos para entrar a españa 2026",
+    "requisitos para entrar a españa como turista",
+    "requisitos para entrar a españa con carta de invitacion",
+    "requisitos para entrar a españa como turista 2026",
+    "requisitos para entrar a españa desde venezuela 2026",
+    "requisitos para entrar a españa 2026 desde colombia",
+    "requisitos para entrar a españa desde venezuela",
+    "requisitos para entrar a españa desde colombia",
+    "requisitos para entrar a españa como turista desde venezuela",
+    "requisitos para entrar a españa como turista colombiano"
+   ],
+   "es-es|requisitos para entrar a europa": [
+    "requisitos para entrar a europa",
+    "requisitos para entrar a europa 2026",
+    "requisitos para entrar a europa desde colombia",
+    "requisitos para entrar a europa desde mexico",
+    "requisitos para entrar a europa desde chile",
+    "requisitos para entrar a europa desde argentina",
+    "requisitos para entrar a europa como mexicano",
+    "requisitos para entrar a europa desde costa rica",
+    "requisitos para entrar a europa desde colombia 2026",
+    "requisitos para entrar a europa como turista"
+   ],
+   "es-es|seguro de viaje obligatorio para europa": [
+    "seguro de viaje obligatorio para europa",
+    "es obligatorio tener seguro de viaje para europa",
+    "el seguro de viaje es obligatorio para entrar a europa",
+    "el seguro de viaje es obligatorio para ir a europa",
+    "es obligatorio tener seguro de viaje para entrar a europa"
+   ],
+   "es-es|seguro de viaje para europa": [
+    "seguro de viaje para europa",
+    "seguro de viaje para europa desde colombia",
+    "seguro de viaje para europa es obligatorio",
+    "seguro de viaje para europa desde uruguay",
+    "seguro de viaje para europa desde argentina",
+    "seguro de viaje para europa desde peru",
+    "seguro de viaje para europa desde méxico",
+    "seguro de viaje para europa requisitos",
+    "seguro de viaje para europa desde chile",
+    "seguro de viaje para europa desde venezuela"
+   ],
+   "es-es|etias": [
+    "etias",
+    "etias españa",
+    "etias cuando entra en vigor",
+    "etias europa",
+    "etias que es",
+    "etias cuando entra en vigencia",
+    "etias españa 2026",
+    "etias (sistema europeo de información y autorización de viajes)",
+    "etias seiav",
+    "etias 2026"
+   ],
+   "es-es|etias para": [
+    "etias para entrar a españa 2026",
+    "etias para viajar a españa",
+    "etias para europa",
+    "etias para mexicanos",
+    "etias para colombianos",
+    "etias para españa",
+    "etias para argentinos",
+    "etias para viajar a europa",
+    "etias para viajar a estados unidos",
+    "etias para peruanos"
+   ],
+   "es-mx|cuanto dinero necesito para entrar a": [
+    "cuanto dinero necesito para entrar a españa",
+    "cuanto dinero necesito para entrar a italia",
+    "cuanto dinero necesito para entrar a europa",
+    "cuanto dinero necesito para entrar a colombia",
+    "cuanto dinero necesito para entrar a estados unidos",
+    "cuánto dinero necesito para entrar a curazao",
+    "cuánto dinero necesito para entrar a chile como turista",
+    "cuanto dinero necesito para entrar a canada",
+    "cuanto dinero necesito para entrar a mexico",
+    "cuanto dinero necesito para entrar a panama"
+   ],
+   "es-mx|cuánto dinero necesito para entrar a españa": [
+    "cuanto dinero necesito para entrar a españa",
+    "cuanto dinero necesito para entrar a españa 2025",
+    "cuanto dinero necesito para entrar a españa 2026",
+    "cuanto dinero necesito para entrar a españa como turista",
+    "cuanto dinero en efectivo necesito para entrar a españa",
+    "cuanto dinero necesito para emigrar a españa",
+    "cuanto dinero necesito para viajar a españa",
+    "cuanto dinero necesito para ir a españa",
+    "cuanto dinero necesito para viajar a españa desde argentina",
+    "cuanto dinero necesito para emigrar a españa desde argentina"
+   ],
+   "es-mx|cuanto dinero necesito para entrar a europa": [
+    "cuanto dinero necesito para entrar a europa",
+    "cuanto dinero necesito para ir a europa 15 días",
+    "cuanto dinero necesito para ir a europa 15 días 2025",
+    "cuanto dinero necesito para viajar a europa",
+    "cuanto dinero necesito para ir a europa 15 días desde colombia",
+    "cuanto dinero necesito para ir a europa",
+    "cuanto dinero necesito para ir a europa 10 días",
+    "cuanto dinero necesito para viajar a europa 15 dias",
+    "cuanto dinero necesito para viajar a europa 1 mes",
+    "cuanto dinero necesito para ir a europa 15 días 2026"
+   ],
+   "es-mx|cuanto dinero necesito para entrar a italia": [
+    "cuanto dinero necesito para entrar a italia",
+    "cuanto dinero necesito para viajar a italia",
+    "cuanto dinero necesito para ir a italia",
+    "cuanto dinero necesito para ir a italia desde mexico",
+    "cuanto dinero necesito para viajar a italia desde peru",
+    "cuanto dinero necesito para viajar a italia desde colombia",
+    "cuanto dinero necesito para emigrar a italia",
+    "cuanto dinero necesito para viajar a italia desde argentina",
+    "cuanto dinero necesito para viajar a italia desde chile",
+    "cuánto dinero necesito para viajar a italia desde venezuela"
+   ],
+   "es-mx|cuanto dinero necesito para entrar a francia": [
+    "cuanto dinero necesito para entrar a francia",
+    "cuanto dinero necesito para viajar a francia desde colombia",
+    "cuanto dinero necesito para ir a francia",
+    "cuanto dinero necesito para ir a francia desde mexico"
+   ],
+   "es-mx|cuanto dinero necesito para entrar a alemania": [
+    "cuanto dinero necesito para entrar a alemania",
+    "cuanto dinero necesito para ir a alemania",
+    "cuanto dinero necesito para viajar a alemania desde colombia",
+    "cuanto.dinero necesito para emigrar a alemania",
+    "cuánto dinero necesito para ir a alemania desde méxico"
+   ],
+   "es-mx|cuanto dinero necesito para entrar a suiza": [
+    "cuanto dinero necesito.para entrar a suiza",
+    "cuanto dinero necesito para ir a suiza",
+    "cuanto dinero necesito para ir a suiza desde mexico",
+    "cuanto dinero necesito para emigrar a suiza",
+    "cuanto dinero necesito para viajar a suiza desde colombia",
+    "cuanto dinero necesito para irme a suiza"
+   ],
+   "es-mx|cuanto dinero necesito para entrar a portugal": [
+    "cuanto dinero necesito para emigrar a portugal",
+    "cuanto dinero necesito para viajar a portugal"
+   ],
+   "es-mx|cuanto dinero hay que llevar a europa": [
+    "cuanto dinero hay que llevar a europa",
+    "cuanto dinero hay que llevar para viajar a europa",
+    "cuanto dinero llevar a europa por 20 días",
+    "cuanto dinero llevar a europa por 20 días 2026",
+    "cuánto dinero llevar a europa por 15 días",
+    "cuanto dinero llevar a europa por 20 días 2025",
+    "cuanto dinero llevar a europa por 10 dias",
+    "cuanto dinero llevar a europa por dia",
+    "cuanto dinero llevar a europa por un mes",
+    "cuánto dinero llevar a europa por 20 días 2022"
+   ],
+   "es-mx|carta de invitación españa": [
+    "carta de invitacion españa",
+    "carta de invitación españa cita previa",
+    "carta de invitacion españa precio",
+    "carta de invitacion españa requisitos",
+    "carta de invitacion españa cuanto tarda",
+    "carta de invitacion españa modelo",
+    "carta de invitacion españa formulario",
+    "carta de invitacion españa es obligatoria",
+    "carta de invitacion españa tasas",
+    "carta de invitacion españa para colombianos"
+   ],
+   "es-mx|requisitos para entrar a europa desde": [
+    "requisitos para entrar a europa desde mexico",
+    "requisitos para entrar a europa desde colombia",
+    "requisitos para entrar a europa desde chile",
+    "requisitos para entrar a europa desde argentina",
+    "requisitos para entrar a europa desde costa rica",
+    "requisitos para entrar a europa desde colombia 2026",
+    "requisitos para entrar a europa desde uruguay",
+    "requisitos para entrar a europa desde peru",
+    "requisitos para entrar a europa desde guatemala",
+    "requisitos para entrar a europa desde colombia 2025"
+   ],
+   "es-mx|requisitos para entrar a españa": [
+    "requisitos para entrar a españa desde mexico",
+    "requisitos para entrar a españa",
+    "requisitos para entrar a españa 2026",
+    "requisitos para entrar a españa como turista mexicano",
+    "requisitos para entrar a españa desde mexico 2026",
+    "requisitos para entrar a españa como turista",
+    "requisitos para entrar a españa siendo venezolano",
+    "requisitos para entrar a españa desde colombia",
+    "requisitos para entrar a españa desde venezuela",
+    "requisitos para entrar a españa desde argentina"
+   ],
+   "es-mx|requisitos para entrar a europa": [
+    "requisitos para entrar a europa",
+    "requisitos para entrar a europa 2026",
+    "requisitos para entrar a europa desde mexico",
+    "requisitos para entrar a europa como mexicano",
+    "requisitos para entrar a europa desde colombia",
+    "requisitos para entrar a europa desde chile",
+    "requisitos para entrar a europa desde argentina",
+    "requisitos para entrar a europa desde costa rica",
+    "requisitos para entrar a europa desde colombia 2026",
+    "requisitos para entrar a europa como turista"
+   ],
+   "es-mx|seguro de viaje obligatorio para europa": [
+    "seguro de viaje obligatorio para europa",
+    "es obligatorio tener seguro de viaje para europa",
+    "el seguro de viaje es obligatorio para entrar a europa",
+    "el seguro de viaje es obligatorio para ir a europa",
+    "es obligatorio tener seguro de viaje para entrar a europa"
+   ],
+   "es-mx|seguro de viaje para europa": [
+    "seguro de viaje para europa",
+    "seguro de viaje para europa es obligatorio",
+    "seguro de viaje para europa desde méxico",
+    "seguro de viaje para europa desde colombia",
+    "seguro de viaje para europa desde uruguay",
+    "seguro de viaje para europa desde argentina",
+    "seguro de viaje para europa desde peru",
+    "seguro de viaje para europa requisitos",
+    "seguro de viaje para europa desde chile",
+    "seguro de viaje para europa desde venezuela"
+   ],
+   "es-mx|etias": [
+    "etias",
+    "etias europa",
+    "etias 2026",
+    "etias para mexicanos",
+    "etias españa",
+    "etias cuando entra en vigencia",
+    "etias europa 2026",
+    "etias para europa",
+    "etias europa para mexicanos",
+    "etias para viajar a europa"
+   ],
+   "es-mx|etias para": [
+    "etias para mexicanos",
+    "etias para europa",
+    "etias para viajar a europa",
+    "etias para usa",
+    "etias para mexicanos 2026",
+    "etias para viajar a españa",
+    "etias para mexicanos cuando entra en vigor",
+    "etias para europa cuando entra en vigor",
+    "etias para francia",
+    "etias para españa"
+   ],
+   "es-co|cuanto dinero necesito para entrar a": [
+    "cuanto dinero necesito para entrar a españa",
+    "cuanto dinero necesito para entrar a europa",
+    "cuanto dinero necesito para entrar a italia",
+    "cuanto dinero necesito para entrar a colombia",
+    "cuanto dinero necesito para entrar a estados unidos",
+    "cuánto dinero necesito para entrar a curazao",
+    "cuánto dinero necesito para entrar a chile como turista",
+    "cuanto dinero necesito para entrar a canada",
+    "cuanto dinero necesito para entrar a mexico",
+    "cuanto dinero necesito para entrar a panama"
+   ],
+   "es-co|cuánto dinero necesito para entrar a españa": [
+    "cuanto dinero necesito para entrar a españa",
+    "cuanto dinero necesito para entrar a españa 2025",
+    "cuanto dinero necesito para entrar a españa 2026",
+    "cuanto dinero necesito para entrar a españa como turista",
+    "cuanto dinero en efectivo necesito para entrar a españa",
+    "cuanto dinero necesito para emigrar a españa",
+    "cuanto dinero necesito para viajar a españa",
+    "cuanto dinero necesito para ir a españa",
+    "cuanto dinero necesito para viajar a españa desde argentina",
+    "cuanto dinero necesito para emigrar a españa desde argentina"
+   ],
+   "es-co|cuanto dinero necesito para entrar a europa": [
+    "cuanto dinero necesito para entrar a europa",
+    "cuanto dinero necesito para ir a europa 15 días",
+    "cuanto dinero necesito para ir a europa 15 días 2025",
+    "cuanto dinero necesito para viajar a europa",
+    "cuanto dinero necesito para ir a europa 15 días desde colombia",
+    "cuanto dinero necesito para ir a europa",
+    "cuanto dinero necesito para ir a europa 10 días",
+    "cuanto dinero necesito para viajar a europa 15 dias",
+    "cuanto dinero necesito para viajar a europa 1 mes",
+    "cuanto dinero necesito para ir a europa 15 días 2026"
+   ],
+   "es-co|cuanto dinero necesito para entrar a italia": [
+    "cuanto dinero necesito para entrar a italia",
+    "cuanto dinero necesito para viajar a italia",
+    "cuanto dinero necesito para ir a italia",
+    "cuanto dinero necesito para ir a italia desde mexico",
+    "cuanto dinero necesito para viajar a italia desde peru",
+    "cuanto dinero necesito para viajar a italia desde colombia",
+    "cuanto dinero necesito para emigrar a italia",
+    "cuanto dinero necesito para viajar a italia desde argentina",
+    "cuanto dinero necesito para viajar a italia desde chile",
+    "cuánto dinero necesito para viajar a italia desde venezuela"
+   ],
+   "es-co|cuanto dinero necesito para entrar a francia": [
+    "cuanto dinero necesito para entrar a francia",
+    "cuanto dinero necesito para viajar a francia desde colombia",
+    "cuanto dinero necesito para ir a francia",
+    "cuanto dinero necesito para ir a francia desde mexico"
+   ],
+   "es-co|cuanto dinero necesito para entrar a alemania": [
+    "cuanto dinero necesito para entrar a alemania",
+    "cuanto dinero necesito para ir a alemania",
+    "cuanto dinero necesito para viajar a alemania desde colombia",
+    "cuanto.dinero necesito para emigrar a alemania",
+    "cuánto dinero necesito para ir a alemania desde méxico"
+   ],
+   "es-co|cuanto dinero necesito para entrar a suiza": [
+    "cuanto dinero necesito.para entrar a suiza",
+    "cuanto dinero necesito para ir a suiza",
+    "cuanto dinero necesito para ir a suiza desde mexico",
+    "cuanto dinero necesito para emigrar a suiza",
+    "cuanto dinero necesito para viajar a suiza desde colombia",
+    "cuanto dinero necesito para irme a suiza"
+   ],
+   "es-co|cuanto dinero necesito para entrar a portugal": [
+    "cuanto dinero necesito para emigrar a portugal",
+    "cuanto dinero necesito para viajar a portugal"
+   ],
+   "es-co|cuanto dinero hay que llevar a europa": [
+    "cuanto dinero hay que llevar a europa",
+    "cuanto dinero hay que llevar para viajar a europa",
+    "cuanto dinero llevar a europa por 20 días",
+    "cuanto dinero llevar a europa por 20 días 2026",
+    "cuánto dinero llevar a europa por 15 días",
+    "cuanto dinero llevar a europa por 20 días 2025",
+    "cuanto dinero llevar a europa por 10 dias",
+    "cuanto dinero llevar a europa por dia",
+    "cuanto dinero llevar a europa por un mes",
+    "cuánto dinero llevar a europa por 20 días 2022"
+   ],
+   "es-co|carta de invitación españa": [
+    "carta de invitacion españa",
+    "carta de invitación españa cita previa",
+    "carta de invitacion españa precio",
+    "carta de invitacion españa requisitos",
+    "carta de invitacion españa cuanto tarda",
+    "carta de invitacion españa modelo",
+    "carta de invitacion españa formulario",
+    "carta de invitacion españa es obligatoria",
+    "carta de invitacion españa tasas",
+    "carta de invitacion españa para colombianos"
+   ],
+   "es-co|requisitos para entrar a europa desde": [
+    "requisitos para entrar a europa desde colombia",
+    "requisitos para entrar a europa desde colombia 2026",
+    "requisitos para entrar a europa desde mexico",
+    "requisitos para entrar a europa desde chile",
+    "requisitos para entrar a europa desde argentina",
+    "requisitos para entrar a europa desde costa rica",
+    "requisitos para entrar a europa desde uruguay",
+    "requisitos para entrar a europa desde peru",
+    "requisitos para entrar a europa desde guatemala",
+    "requisitos para entrar a europa desde colombia 2025"
+   ],
+   "es-co|requisitos para entrar a españa": [
+    "requisitos para entrar a españa desde colombia",
+    "requisitos para entrar a españa",
+    "requisitos para entrar a españa siendo venezolano",
+    "requisitos para entrar a españa desde colombia 2026",
+    "requisitos para entrar a españa como colombiano",
+    "requisitos para entrar a españa como turista",
+    "requisitos para entrar a españa 2026",
+    "requisitos para entrar a españa como turista colombiano",
+    "requisitos para entrar a españa con carta de invitacion",
+    "requisitos para entrar a españa desde venezuela"
+   ],
+   "es-co|requisitos para entrar a europa": [
+    "requisitos para entrar a europa desde colombia",
+    "requisitos para entrar a europa desde colombia 2026",
+    "requisitos para entrar a europa 2026",
+    "requisitos para entrar a europa",
+    "requisitos para entrar a europa como turista",
+    "requisitos para entrar a europa para colombianos",
+    "requisitos para entrar a europa desde mexico",
+    "requisitos para entrar a europa desde chile",
+    "requisitos para entrar a europa desde argentina",
+    "requisitos para entrar a europa como mexicano"
+   ],
+   "es-co|seguro de viaje obligatorio para europa": [
+    "seguro de viaje obligatorio para europa",
+    "es obligatorio tener seguro de viaje para europa",
+    "es obligatorio comprar seguro de viaje para europa",
+    "el seguro de viaje es obligatorio para ir a europa",
+    "es obligatorio tener seguro de viaje para ir a europa",
+    "es obligatorio un seguro de viaje para ingresar a europa",
+    "es obligatorio tener seguro de viaje para entrar a europa",
+    "es obligatorio comprar seguro de viaje para ir a europa"
+   ],
+   "es-co|seguro de viaje para europa": [
+    "seguro de viaje para europa desde colombia",
+    "seguro de viaje para europa",
+    "seguro de viaje para europa requisitos",
+    "seguro de viaje para europa desde argentina",
+    "seguro de viaje para europa desde peru",
+    "seguro de viaje para europa es obligatorio",
+    "seguro de viaje para europa desde méxico",
+    "seguro de viaje para europa desde uruguay",
+    "seguro de viaje para europa desde chile",
+    "seguro de viaje para europa desde venezuela"
+   ],
+   "es-co|etias": [
+    "etias",
+    "etias europa",
+    "etias españa",
+    "etias para colombianos",
+    "etias cuando entra en vigencia",
+    "etias para colombianos cuando entra en vigencia",
+    "etias colombia",
+    "etias para ingresar a estados unidos",
+    "etias (sistema europeo de información y autorización de viajes)",
+    "etias europa cuando entra en vigor"
+   ],
+   "es-co|etias para": [
+    "etias para colombianos",
+    "etias para europa",
+    "etias para ingresar a estados unidos",
+    "etias para colombianos 2026",
+    "etias para viajar a españa",
+    "etias para viajar a europa",
+    "etias para colombianos cuando entra en vigencia",
+    "etias para europa cuando entra en vigencia",
+    "etias para españa",
+    "etias para venezolanos"
+   ],
+   "es-ar|cuanto dinero necesito para entrar a": [
+    "cuanto dinero necesito para entrar a españa",
+    "cuanto dinero necesito para entrar a europa",
+    "cuanto dinero necesito para entrar a italia",
+    "cuanto dinero necesito para entrar a colombia",
+    "cuanto dinero necesito para entrar a estados unidos",
+    "cuánto dinero necesito para entrar a curazao",
+    "cuánto dinero necesito para entrar a chile como turista",
+    "cuanto dinero necesito para entrar a canada",
+    "cuanto dinero necesito para entrar a mexico",
+    "cuanto dinero necesito para entrar a panama"
+   ],
+   "es-ar|cuánto dinero necesito para entrar a españa": [
+    "cuanto dinero necesito para entrar a españa",
+    "cuanto dinero necesito para entrar a españa 2025",
+    "cuanto dinero necesito para entrar a españa 2026",
+    "cuanto dinero necesito para entrar a españa como turista",
+    "cuanto dinero en efectivo necesito para entrar a españa",
+    "cuanto dinero necesito para emigrar a españa",
+    "cuanto dinero necesito para viajar a españa",
+    "cuanto dinero necesito para ir a españa",
+    "cuanto dinero necesito para viajar a españa desde argentina",
+    "cuanto dinero necesito para emigrar a españa desde argentina"
+   ],
+   "es-ar|cuanto dinero necesito para entrar a europa": [
+    "cuanto dinero necesito para entrar a europa",
+    "cuanto dinero necesito para ir a europa 15 días",
+    "cuanto dinero necesito para ir a europa 15 días 2025",
+    "cuanto dinero necesito para viajar a europa",
+    "cuanto dinero necesito para ir a europa 15 días desde colombia",
+    "cuanto dinero necesito para ir a europa",
+    "cuanto dinero necesito para ir a europa 10 días",
+    "cuanto dinero necesito para viajar a europa 15 dias",
+    "cuanto dinero necesito para viajar a europa 1 mes",
+    "cuanto dinero necesito para ir a europa 15 días 2026"
+   ],
+   "es-ar|cuanto dinero necesito para entrar a italia": [
+    "cuanto dinero necesito para entrar a italia",
+    "cuanto dinero necesito para viajar a italia",
+    "cuanto dinero necesito para ir a italia",
+    "cuanto dinero necesito para ir a italia desde mexico",
+    "cuanto dinero necesito para viajar a italia desde peru",
+    "cuanto dinero necesito para viajar a italia desde colombia",
+    "cuanto dinero necesito para emigrar a italia",
+    "cuanto dinero necesito para viajar a italia desde argentina",
+    "cuanto dinero necesito para viajar a italia desde chile",
+    "cuánto dinero necesito para viajar a italia desde venezuela"
+   ],
+   "es-ar|cuanto dinero necesito para entrar a francia": [
+    "cuanto dinero necesito para entrar a francia",
+    "cuanto dinero necesito para viajar a francia desde colombia",
+    "cuanto dinero necesito para ir a francia",
+    "cuanto dinero necesito para ir a francia desde mexico"
+   ],
+   "es-ar|cuanto dinero necesito para entrar a alemania": [
+    "cuanto dinero necesito para entrar a alemania",
+    "cuanto dinero necesito para ir a alemania",
+    "cuanto dinero necesito para viajar a alemania desde colombia",
+    "cuanto.dinero necesito para emigrar a alemania",
+    "cuánto dinero necesito para ir a alemania desde méxico"
+   ],
+   "es-ar|cuanto dinero necesito para entrar a suiza": [
+    "cuanto dinero necesito.para entrar a suiza",
+    "cuanto dinero necesito para ir a suiza",
+    "cuanto dinero necesito para ir a suiza desde mexico",
+    "cuanto dinero necesito para emigrar a suiza",
+    "cuanto dinero necesito para viajar a suiza desde colombia",
+    "cuanto dinero necesito para irme a suiza"
+   ],
+   "es-ar|cuanto dinero necesito para entrar a portugal": [
+    "cuanto dinero necesito para emigrar a portugal",
+    "cuanto dinero necesito para viajar a portugal"
+   ],
+   "es-ar|cuanto dinero hay que llevar a europa": [
+    "cuanto dinero hay que llevar a europa",
+    "cuanto dinero hay que llevar para viajar a europa",
+    "cuanto dinero llevar a europa por 20 días",
+    "cuanto dinero llevar a europa por 20 días 2026",
+    "cuánto dinero llevar a europa por 15 días",
+    "cuanto dinero llevar a europa por 20 días 2025",
+    "cuanto dinero llevar a europa por 10 dias",
+    "cuanto dinero llevar a europa por dia",
+    "cuanto dinero llevar a europa por un mes",
+    "cuánto dinero llevar a europa por 20 días 2022"
+   ],
+   "es-ar|carta de invitación españa": [
+    "carta de invitacion españa",
+    "carta de invitación españa cita previa",
+    "carta de invitacion españa precio",
+    "carta de invitacion españa requisitos",
+    "carta de invitacion españa cuanto tarda",
+    "carta de invitacion españa modelo",
+    "carta de invitacion españa formulario",
+    "carta de invitacion españa es obligatoria",
+    "carta de invitacion españa tasas",
+    "carta de invitacion españa para colombianos"
+   ],
+   "es-ar|requisitos para entrar a europa desde": [
+    "requisitos para entrar a europa desde argentina",
+    "requisitos para entrar a europa desde colombia",
+    "requisitos para entrar a europa desde mexico",
+    "requisitos para entrar a europa desde chile",
+    "requisitos para entrar a europa desde costa rica",
+    "requisitos para entrar a europa desde colombia 2026",
+    "requisitos para entrar a europa desde uruguay",
+    "requisitos para entrar a europa desde peru",
+    "requisitos para entrar a europa desde guatemala",
+    "requisitos para entrar a europa desde colombia 2025"
+   ],
+   "es-ar|requisitos para entrar a españa": [
+    "requisitos para entrar a españa desde argentina",
+    "requisitos para entrar a españa como turista",
+    "requisitos para entrar a españa",
+    "requisitos para entrar a españa 2026",
+    "requisitos para entrar a españa siendo argentino",
+    "requisitos para entrar a españa con pasaporte argentino",
+    "requisitos para entrar a españa desde argentina 2026",
+    "requisitos para entrar a españa como turista desde argentina",
+    "requisitos para entrar a españa con pasaporte italiano",
+    "requisitos para entrar a españa de vacaciones"
+   ],
+   "es-ar|requisitos para entrar a europa": [
+    "requisitos para entrar a europa desde argentina",
+    "requisitos para entrar a europa 2026",
+    "requisitos para entrar a europa con pasaporte argentino",
+    "requisitos para entrar a europa",
+    "requisitos para entrar a europa siendo argentino",
+    "requisitos para entrar a europa como turista",
+    "requisitos para entrar a europa desde colombia",
+    "requisitos para entrar a europa desde mexico",
+    "requisitos para entrar a europa desde chile",
+    "requisitos para entrar a europa como mexicano"
+   ],
+   "es-ar|seguro de viaje obligatorio para europa": [
+    "seguro de viaje obligatorio para europa",
+    "es obligatorio tener seguro de viaje para europa",
+    "el seguro de viaje es obligatorio para entrar a europa",
+    "el seguro de viaje es obligatorio para ir a europa",
+    "es obligatorio tener seguro de viaje para entrar a europa"
+   ],
+   "es-ar|seguro de viaje para europa": [
+    "seguro de viaje para europa",
+    "seguro de viaje para europa desde argentina",
+    "seguro de viaje para europa desde colombia",
+    "seguro de viaje para europa es obligatorio",
+    "seguro de viaje para europa desde uruguay",
+    "seguro de viaje para europa desde peru",
+    "seguro de viaje para europa desde méxico",
+    "seguro de viaje para europa requisitos",
+    "seguro de viaje para europa desde chile",
+    "seguro de viaje para europa desde venezuela"
+   ],
+   "es-ar|etias": [
+    "etias",
+    "etias europa",
+    "etias 2026",
+    "etias europa cuando entra en vigor",
+    "etias españa",
+    "etias cuando entra en vigencia",
+    "etias 2026 cuando entra en vigencia",
+    "etias europa 2026",
+    "etias (sistema europeo de información y autorización de viajes)",
+    "etias para ingresar a europa"
+   ],
+   "es-ar|etias para": [
+    "etias para ingresar a europa",
+    "etias para argentinos",
+    "etias para europa",
+    "etias para europa cuando entra en vigencia",
+    "etias para ingresar a estados unidos",
+    "etias para ingresar a españa",
+    "etias para entrar a españa 2026",
+    "etias para viajar a italia",
+    "etias para españa",
+    "etias para entrar a europa 2026"
+   ],
+   "es-pe|cuanto dinero necesito para entrar a": [
+    "cuanto dinero necesito para entrar a españa",
+    "cuanto dinero necesito para entrar a europa",
+    "cuanto dinero necesito para entrar a italia",
+    "cuanto dinero necesito para entrar a colombia",
+    "cuanto dinero necesito para entrar a estados unidos",
+    "cuánto dinero necesito para entrar a curazao",
+    "cuánto dinero necesito para entrar a chile como turista",
+    "cuanto dinero necesito para entrar a canada",
+    "cuanto dinero necesito para entrar a mexico",
+    "cuanto dinero necesito para entrar a panama"
+   ],
+   "es-pe|cuánto dinero necesito para entrar a españa": [
+    "cuanto dinero necesito para entrar a españa",
+    "cuanto dinero necesito para entrar a españa 2025",
+    "cuanto dinero necesito para entrar a españa 2026",
+    "cuanto dinero necesito para entrar a españa como turista",
+    "cuanto dinero en efectivo necesito para entrar a españa",
+    "cuanto dinero necesito para emigrar a españa",
+    "cuanto dinero necesito para viajar a españa",
+    "cuanto dinero necesito para ir a españa",
+    "cuanto dinero necesito para viajar a españa desde argentina",
+    "cuanto dinero necesito para emigrar a españa desde argentina"
+   ],
+   "es-pe|cuanto dinero necesito para entrar a europa": [
+    "cuanto dinero necesito para entrar a europa",
+    "cuanto dinero necesito para ir a europa 15 días",
+    "cuanto dinero necesito para ir a europa 15 días 2025",
+    "cuanto dinero necesito para viajar a europa",
+    "cuanto dinero necesito para ir a europa 15 días desde colombia",
+    "cuanto dinero necesito para ir a europa",
+    "cuanto dinero necesito para ir a europa 10 días",
+    "cuanto dinero necesito para viajar a europa 15 dias",
+    "cuanto dinero necesito para viajar a europa 1 mes",
+    "cuanto dinero necesito para ir a europa 15 días 2026"
+   ],
+   "es-pe|cuanto dinero necesito para entrar a italia": [
+    "cuanto dinero necesito para entrar a italia",
+    "cuanto dinero necesito para viajar a italia",
+    "cuanto dinero necesito para ir a italia",
+    "cuanto dinero necesito para ir a italia desde mexico",
+    "cuanto dinero necesito para viajar a italia desde peru",
+    "cuanto dinero necesito para viajar a italia desde colombia",
+    "cuanto dinero necesito para emigrar a italia",
+    "cuanto dinero necesito para viajar a italia desde argentina",
+    "cuanto dinero necesito para viajar a italia desde chile",
+    "cuánto dinero necesito para viajar a italia desde venezuela"
+   ],
+   "es-pe|cuanto dinero necesito para entrar a francia": [
+    "cuanto dinero necesito para entrar a francia",
+    "cuanto dinero necesito para viajar a francia desde colombia",
+    "cuanto dinero necesito para ir a francia",
+    "cuanto dinero necesito para ir a francia desde mexico"
+   ],
+   "es-pe|cuanto dinero necesito para entrar a alemania": [
+    "cuanto dinero necesito para entrar a alemania",
+    "cuanto dinero necesito para ir a alemania",
+    "cuanto dinero necesito para viajar a alemania desde colombia",
+    "cuanto.dinero necesito para emigrar a alemania",
+    "cuánto dinero necesito para ir a alemania desde méxico"
+   ],
+   "es-pe|cuanto dinero necesito para entrar a suiza": [
+    "cuanto dinero necesito.para entrar a suiza",
+    "cuanto dinero necesito para ir a suiza",
+    "cuanto dinero necesito para ir a suiza desde mexico",
+    "cuanto dinero necesito para emigrar a suiza",
+    "cuanto dinero necesito para viajar a suiza desde colombia",
+    "cuanto dinero necesito para irme a suiza"
+   ],
+   "es-pe|cuanto dinero necesito para entrar a portugal": [
+    "cuanto dinero necesito para emigrar a portugal",
+    "cuanto dinero necesito para viajar a portugal"
+   ],
+   "es-pe|cuanto dinero hay que llevar a europa": [
+    "cuanto dinero hay que llevar a europa",
+    "cuanto dinero hay que llevar para viajar a europa",
+    "cuanto dinero llevar a europa por 20 días",
+    "cuanto dinero llevar a europa por 20 días 2026",
+    "cuánto dinero llevar a europa por 15 días",
+    "cuanto dinero llevar a europa por 20 días 2025",
+    "cuanto dinero llevar a europa por 10 dias",
+    "cuanto dinero llevar a europa por dia",
+    "cuanto dinero llevar a europa por un mes",
+    "cuánto dinero llevar a europa por 20 días 2022"
+   ],
+   "es-pe|carta de invitación españa": [
+    "carta de invitacion españa",
+    "carta de invitación españa cita previa",
+    "carta de invitacion españa precio",
+    "carta de invitacion españa requisitos",
+    "carta de invitacion españa cuanto tarda",
+    "carta de invitacion españa modelo",
+    "carta de invitacion españa formulario",
+    "carta de invitacion españa es obligatoria",
+    "carta de invitacion españa tasas",
+    "carta de invitacion españa para colombianos"
+   ],
+   "es-pe|requisitos para entrar a europa desde": [
+    "requisitos para entrar a europa desde peru",
+    "requisitos para entrar a europa desde colombia",
+    "requisitos para entrar a europa desde mexico",
+    "requisitos para entrar a europa desde chile",
+    "requisitos para entrar a europa desde argentina",
+    "requisitos para entrar a europa desde costa rica",
+    "requisitos para entrar a europa desde colombia 2026",
+    "requisitos para entrar a europa desde uruguay",
+    "requisitos para entrar a europa desde guatemala",
+    "requisitos para entrar a europa desde colombia 2025"
+   ],
+   "es-pe|requisitos para entrar a españa": [
+    "requisitos para entrar a españa",
+    "requisitos para entrar a españa desde peru",
+    "requisitos para entrar a españa 2026",
+    "requisitos para entrar a españa siendo venezolano",
+    "requisitos para entrar a españa como turista",
+    "requisitos para entrar a españa como turista 2026",
+    "requisitos para entrar a españa desde peru 2026",
+    "requisitos para entrar a españa desde colombia",
+    "requisitos para entrar a españa desde mexico",
+    "requisitos para entrar a españa desde venezuela"
+   ],
+   "es-pe|requisitos para entrar a europa": [
+    "requisitos para entrar a europa 2026",
+    "requisitos para entrar a europa",
+    "requisitos para entrar a europa desde peru",
+    "requisitos para entrar a europa desde colombia",
+    "requisitos para entrar a europa desde mexico",
+    "requisitos para entrar a europa desde chile",
+    "requisitos para entrar a europa desde argentina",
+    "requisitos para entrar a europa como mexicano",
+    "requisitos para entrar a europa desde costa rica",
+    "requisitos para entrar a europa desde colombia 2026"
+   ],
+   "es-pe|seguro de viaje obligatorio para europa": [
+    "seguro de viaje obligatorio para europa",
+    "es obligatorio tener seguro de viaje para europa",
+    "el seguro de viaje es obligatorio para entrar a europa",
+    "el seguro de viaje es obligatorio para ir a europa",
+    "es obligatorio tener seguro de viaje para entrar a europa"
+   ],
+   "es-pe|seguro de viaje para europa": [
+    "seguro de viaje para europa",
+    "seguro de viaje para europa desde peru",
+    "seguro de viaje para europa es obligatorio",
+    "seguro de viaje para europa desde colombia",
+    "seguro de viaje para europa desde uruguay",
+    "seguro de viaje para europa desde argentina",
+    "seguro de viaje para europa desde méxico",
+    "seguro de viaje para europa requisitos",
+    "seguro de viaje para europa desde chile",
+    "seguro de viaje para europa desde venezuela"
+   ],
+   "es-pe|etias": [
+    "etias",
+    "etias europa",
+    "etias para peruanos",
+    "etias cuando entra en vigencia",
+    "etias españa",
+    "etias para europa",
+    "etias para peruanos 2026",
+    "etias para europa cuando entra en vigencia",
+    "etias para viajar a estados unidos",
+    "etias cuando entra en vigencia 2026"
+   ],
+   "es-pe|etias para": [
+    "etias para peruanos",
+    "etias para europa",
+    "etias para peruanos 2026",
+    "etias para europa cuando entra en vigencia",
+    "etias para viajar a estados unidos",
+    "etias para viajar a europa",
+    "etias para viajar a españa",
+    "etias para españa",
+    "etias para venezolanos",
+    "etias para peruanos desde cuando"
+   ],
+   "es-ve|cuanto dinero necesito para entrar a": [
+    "cuanto dinero necesito para entrar a españa",
+    "cuanto dinero necesito para entrar a europa",
+    "cuanto dinero necesito para entrar a italia",
+    "cuanto dinero necesito para entrar a colombia",
+    "cuanto dinero necesito para entrar a estados unidos",
+    "cuánto dinero necesito para entrar a curazao",
+    "cuánto dinero necesito para entrar a chile como turista",
+    "cuanto dinero necesito para entrar a canada",
+    "cuanto dinero necesito para entrar a mexico",
+    "cuanto dinero necesito para entrar a panama"
+   ],
+   "es-ve|cuánto dinero necesito para entrar a españa": [
+    "cuanto dinero necesito para entrar a españa",
+    "cuanto dinero necesito para entrar a españa 2025",
+    "cuanto dinero necesito para entrar a españa 2026",
+    "cuanto dinero necesito para entrar a españa como turista",
+    "cuanto dinero en efectivo necesito para entrar a españa",
+    "cuanto dinero necesito para emigrar a españa",
+    "cuanto dinero necesito para viajar a españa",
+    "cuanto dinero necesito para ir a españa",
+    "cuanto dinero necesito para viajar a españa desde argentina",
+    "cuanto dinero necesito para emigrar a españa desde argentina"
+   ],
+   "es-ve|cuanto dinero necesito para entrar a europa": [
+    "cuanto dinero necesito para entrar a europa",
+    "cuanto dinero necesito para ir a europa 15 días",
+    "cuanto dinero necesito para ir a europa 15 días 2025",
+    "cuanto dinero necesito para viajar a europa",
+    "cuanto dinero necesito para ir a europa 15 días desde colombia",
+    "cuanto dinero necesito para ir a europa",
+    "cuanto dinero necesito para ir a europa 10 días",
+    "cuanto dinero necesito para viajar a europa 15 dias",
+    "cuanto dinero necesito para viajar a europa 1 mes",
+    "cuanto dinero necesito para ir a europa 15 días 2026"
+   ],
+   "es-ve|cuanto dinero necesito para entrar a italia": [
+    "cuanto dinero necesito para entrar a italia",
+    "cuanto dinero necesito para viajar a italia",
+    "cuanto dinero necesito para ir a italia",
+    "cuanto dinero necesito para ir a italia desde mexico",
+    "cuanto dinero necesito para viajar a italia desde peru",
+    "cuanto dinero necesito para viajar a italia desde colombia",
+    "cuanto dinero necesito para emigrar a italia",
+    "cuanto dinero necesito para viajar a italia desde argentina",
+    "cuanto dinero necesito para viajar a italia desde chile",
+    "cuánto dinero necesito para viajar a italia desde venezuela"
+   ],
+   "es-ve|cuanto dinero necesito para entrar a francia": [
+    "cuanto dinero necesito para entrar a francia",
+    "cuanto dinero necesito para viajar a francia desde colombia",
+    "cuanto dinero necesito para ir a francia",
+    "cuanto dinero necesito para ir a francia desde mexico"
+   ],
+   "es-ve|cuanto dinero necesito para entrar a alemania": [
+    "cuanto dinero necesito para entrar a alemania",
+    "cuanto dinero necesito para ir a alemania",
+    "cuanto dinero necesito para viajar a alemania desde colombia",
+    "cuanto.dinero necesito para emigrar a alemania",
+    "cuánto dinero necesito para ir a alemania desde méxico"
+   ],
+   "es-ve|cuanto dinero necesito para entrar a suiza": [
+    "cuanto dinero necesito.para entrar a suiza",
+    "cuanto dinero necesito para ir a suiza",
+    "cuanto dinero necesito para ir a suiza desde mexico",
+    "cuanto dinero necesito para emigrar a suiza",
+    "cuanto dinero necesito para viajar a suiza desde colombia",
+    "cuanto dinero necesito para irme a suiza"
+   ],
+   "es-ve|cuanto dinero necesito para entrar a portugal": [
+    "cuanto dinero necesito para emigrar a portugal",
+    "cuanto dinero necesito para viajar a portugal"
+   ],
+   "es-ve|cuanto dinero hay que llevar a europa": [
+    "cuanto dinero hay que llevar a europa",
+    "cuanto dinero hay que llevar para viajar a europa",
+    "cuanto dinero llevar a europa por 20 días",
+    "cuanto dinero llevar a europa por 20 días 2026",
+    "cuánto dinero llevar a europa por 15 días",
+    "cuanto dinero llevar a europa por 20 días 2025",
+    "cuanto dinero llevar a europa por 10 dias",
+    "cuanto dinero llevar a europa por dia",
+    "cuanto dinero llevar a europa por un mes",
+    "cuánto dinero llevar a europa por 20 días 2022"
+   ],
+   "es-ve|carta de invitación españa": [
+    "carta de invitacion españa",
+    "carta de invitación españa cita previa",
+    "carta de invitacion españa precio",
+    "carta de invitacion españa requisitos",
+    "carta de invitacion españa cuanto tarda",
+    "carta de invitacion españa modelo",
+    "carta de invitacion españa formulario",
+    "carta de invitacion españa es obligatoria",
+    "carta de invitacion españa tasas",
+    "carta de invitacion españa para colombianos"
+   ],
+   "es-ve|requisitos para entrar a europa desde": [
+    "requisitos para entrar a europa desde colombia",
+    "requisitos para entrar a europa desde mexico",
+    "requisitos para entrar a europa desde chile",
+    "requisitos para entrar a europa desde argentina",
+    "requisitos para entrar a europa desde costa rica",
+    "requisitos para entrar a europa desde colombia 2026",
+    "requisitos para entrar a europa desde uruguay",
+    "requisitos para entrar a europa desde peru",
+    "requisitos para entrar a europa desde guatemala",
+    "requisitos para entrar a europa desde colombia 2025"
+   ],
+   "es-ve|requisitos para entrar a españa": [
+    "requisitos para entrar a españa desde venezuela",
+    "requisitos para entrar a españa siendo venezolano",
+    "requisitos para entrar a españa",
+    "requisitos para entrar a españa 2026",
+    "requisitos para entrar a españa como turista",
+    "requisitos para entrar a españa desde venezuela 2026",
+    "requisitos para entrar a españa como turista desde venezuela",
+    "requisitos para entrar a españa para venezolanos",
+    "requisitos para entrar a españa como colombiano",
+    "requisitos para entrar a españa desde colombia"
+   ],
+   "es-ve|requisitos para entrar a europa": [
+    "requisitos para entrar a europa 2026",
+    "requisitos para entrar a europa",
+    "requisitos para entrar a europa desde colombia",
+    "requisitos para entrar a europa desde mexico",
+    "requisitos para entrar a europa desde chile",
+    "requisitos para entrar a europa desde argentina",
+    "requisitos para entrar a europa como mexicano",
+    "requisitos para entrar a europa desde costa rica",
+    "requisitos para entrar a europa desde colombia 2026",
+    "requisitos para entrar a europa como turista"
+   ],
+   "es-ve|seguro de viaje obligatorio para europa": [
+    "seguro de viaje obligatorio para europa",
+    "es obligatorio tener seguro de viaje para europa",
+    "el seguro de viaje es obligatorio para entrar a europa",
+    "el seguro de viaje es obligatorio para ir a europa",
+    "es obligatorio tener seguro de viaje para entrar a europa"
+   ],
+   "es-ve|seguro de viaje para europa": [
+    "seguro de viaje para europa",
+    "seguro de viaje para europa desde colombia",
+    "seguro de viaje para europa es obligatorio",
+    "seguro de viaje para europa desde uruguay",
+    "seguro de viaje para europa desde argentina",
+    "seguro de viaje para europa desde peru",
+    "seguro de viaje para europa desde méxico",
+    "seguro de viaje para europa requisitos",
+    "seguro de viaje para europa desde chile",
+    "seguro de viaje para europa desde venezuela"
+   ],
+   "es-ve|etias": [
+    "etias",
+    "etias españa",
+    "etias europa",
+    "etias cuando entra en vigencia",
+    "etias para venezolanos",
+    "etias que es",
+    "etias cuando entra en vigor",
+    "etias para estados unidos",
+    "etias permiso",
+    "etias para europa"
+   ],
+   "es-ve|etias para": [
+    "etias para viajar a estados unidos",
+    "etias para venezolanos",
+    "etias para europa",
+    "etias para venezolanos 2026",
+    "etias para viajar a europa",
+    "etias para mexicanos",
+    "etias para europa cuando entra en vigencia",
+    "etias para colombianos",
+    "etias para colombianos cuando entra en vigencia",
+    "etias para chilenos"
+   ],
+   "pt-br|quanto dinheiro precisa para entrar na": [
+    "quanto dinheiro precisa para entrar na itália",
+    "quanto dinheiro precisa para entrar na europa",
+    "quanto dinheiro precisa para entrar na espanha",
+    "quanto dinheiro precisa para entrar na frança",
+    "quanto dinheiro precisa para entrar na irlanda",
+    "quanto dinheiro precisa para entrar na turquia",
+    "quanto de dinheiro precisa para entrar na inglaterra",
+    "quanto de dinheiro precisa para entrar na australia",
+    "quanto de dinheiro precisa para entrar na suíça",
+    "quanto dinheiro precisa comprovar para entrar na europa"
+   ],
+   "pt-br|quanto dinheiro precisa para entrar na europa": [
+    "quanto dinheiro precisa para entrar na europa",
+    "quanto dinheiro precisa comprovar para entrar na europa"
+   ],
+   "pt-br|quanto dinheiro precisa para entrar em portugal": [
+    "quanto dinheiro precisa para entrar em portugal",
+    "quanto de dinheiro precisa para entrar em portugal como turista",
+    "quanto de dinheiro precisa comprovar para entrar em portugal",
+    "quanto dinheiro precisa para morar em portugal",
+    "quanto dinheiro precisa para viver em portugal",
+    "quanto dinheiro precisa para ir morar em portugal"
+   ],
+   "pt-br|quanto dinheiro levar para portugal": [
+    "quanto dinheiro levar para portugal",
+    "quanto dinheiro levar para portugal por dia",
+    "quanto dinheiro devo levar para portugal",
+    "quanto dinheiro posso levar para portugal",
+    "quanto dinheiro levar para morar em portugal em reais",
+    "quanto dinheiro levar para morar em portugal",
+    "quanto de dinheiro levar para 10 dias em portugal"
+   ],
+   "pt-br|quanto dinheiro levar para portugal imigração": [],
+   "pt-br|requisitos para entrar em portugal": [
+    "requisitos para entrar em portugal",
+    "requisitos para entrar em portugal como turista",
+    "requisitos para entrar em portugal 2025",
+    "requisitos para entrar em portugal 2026",
+    "requisitos para entrar em portugal hoje",
+    "requisitos para entrar em portugal como turista 2025",
+    "requisitos para brasileiro entrar em portugal",
+    "quais requisitos para entrar em portugal",
+    "pre requisitos para entrar em portugal",
+    "requisitos entrar em portugal"
+   ],
+   "pt-br|requisitos para entrar na europa": [
+    "requisitos para entrar na europa 2026",
+    "requisitos para entrar na europa",
+    "requisitos para entrar na europa 2025",
+    "requisitos para entrar na europa hoje",
+    "requisitos para brasileiro entrar na europa",
+    "novos requisitos para entrar na europa",
+    "pre requisitos para entrar na europa",
+    "requisitos para entrar a europa desde costa rica",
+    "requisitos para entrar a europa siendo argentino",
+    "requisitos para entrar a europa como turista"
+   ],
+   "pt-br|seguro viagem obrigatório europa": [
+    "seguro viagem obrigatório europa",
+    "seguro viagem obrigatorio europa valor"
+   ],
+   "pt-br|seguro viagem obrigatório": [
+    "seguro viagem obrigatório europa",
+    "seguro viagem obrigatório argentina",
+    "seguro viagem obrigatório",
+    "seguro viagem obrigatório para argentina",
+    "seguro viagem obrigatório portugal",
+    "seguro viagem obrigatório chile",
+    "seguro viagem obrigatório schengen",
+    "seguro viagem obrigatório para entrar na argentina",
+    "seguro viagem obrigatório italia",
+    "seguro viagem obrigatório uruguai"
+   ],
+   "pt-br|carta convite espanha": [
+    "carta convite espanha",
+    "carta convite espanha 2026",
+    "carta convite espanha pdf",
+    "carta convite espanha como fazer",
+    "carta convite espanha é obrigatório",
+    "carta convite espanha modelo",
+    "carta convite espanha quanto tempo demora",
+    "carta convite espanha 2025",
+    "carta convite espanha como funciona",
+    "carta convite espanha valor"
+   ],
+   "pt-br|carta convite": [
+    "carta convite",
+    "carta convite portugal",
+    "carta convite para igreja",
+    "carta convite testemunha trabalhista",
+    "carta convite para entrar em portugal",
+    "carta convite espanha",
+    "carta convite igreja para editar",
+    "carta convite para testemunha em audiencia trabalhista",
+    "carta convite estados unidos",
+    "carta convite pdf"
+   ],
+   "pt-br|etias": [
+    "etias já está em vigor",
+    "etias",
+    "etias europa",
+    "etias foi adiado",
+    "etias espanha",
+    "etias valor",
+    "etias alemanha",
+    "etias e ees",
+    "etias ta valendo",
+    "etias vale a partir de quando"
+   ],
+   "pt-br|imigração portugal": [
+    "imigração portugal",
+    "imigração portugal 2026",
+    "imigração portugal turista",
+    "imigração portugal para brasileiros",
+    "imigração portugal site oficial",
+    "imigração portugal noticias",
+    "imigração portugal aeroporto lisboa",
+    "imigração portugal aeroporto",
+    "imigracao portugal o que precisa",
+    "imigração portugal hoje"
+   ],
+   "pt-pt|quanto dinheiro precisa para entrar na": [
+    "quanto dinheiro precisa para entrar na itália",
+    "quanto dinheiro precisa para entrar na europa",
+    "quanto dinheiro precisa para entrar na espanha",
+    "quanto dinheiro precisa para entrar na frança",
+    "quanto dinheiro precisa para entrar na irlanda",
+    "quanto dinheiro precisa para entrar na turquia",
+    "quanto de dinheiro precisa para entrar na inglaterra",
+    "quanto de dinheiro precisa para entrar na australia",
+    "quanto de dinheiro precisa para entrar na suíça",
+    "quanto dinheiro precisa comprovar para entrar na europa"
+   ],
+   "pt-pt|quanto dinheiro precisa para entrar na europa": [
+    "quanto dinheiro precisa para entrar na europa",
+    "quanto dinheiro precisa comprovar para entrar na europa"
+   ],
+   "pt-pt|quanto dinheiro precisa para entrar em portugal": [
+    "quanto dinheiro precisa para entrar em portugal",
+    "quanto de dinheiro precisa para entrar em portugal como turista",
+    "quanto de dinheiro precisa comprovar para entrar em portugal",
+    "quanto dinheiro precisa para morar em portugal",
+    "quanto dinheiro precisa para viver em portugal",
+    "quanto dinheiro precisa para ir morar em portugal"
+   ],
+   "pt-pt|quanto dinheiro levar para portugal": [
+    "quanto dinheiro levar para portugal",
+    "quanto dinheiro levar para portugal por dia",
+    "quanto dinheiro devo levar para portugal",
+    "quanto dinheiro posso levar para portugal",
+    "quanto dinheiro levar para morar em portugal em reais",
+    "quanto dinheiro levar para morar em portugal",
+    "quanto de dinheiro levar para 10 dias em portugal"
+   ],
+   "pt-pt|quanto dinheiro levar para portugal imigração": [],
+   "pt-pt|requisitos para entrar em portugal": [
+    "requisitos para entrar em portugal como turista",
+    "requisitos para entrar em portugal",
+    "requisitos para entrar em portugal 2025",
+    "requisitos para entrar em portugal 2026",
+    "requisitos para entrar em portugal hoje",
+    "requisitos para entrar em portugal como turista 2025",
+    "requisitos para brasileiro entrar em portugal",
+    "requisitos para entrar a portugal siendo venezolano",
+    "requisitos para entrar a portugal siendo venezolano 2025",
+    "requisitos para entrar a portugal venezolanos"
+   ],
+   "pt-pt|requisitos para entrar na europa": [
+    "requisitos para entrar na europa",
+    "requisitos para entrar na europa 2026",
+    "requisitos para entrar na europa 2025",
+    "requisitos para entrar na europa hoje",
+    "requisitos para brasileiro entrar na europa",
+    "novos requisitos para entrar na europa",
+    "pre requisitos para entrar na europa",
+    "requisitos para entrar a europa desde costa rica",
+    "requisitos para entrar a europa siendo argentino",
+    "requisitos para entrar a europa como turista"
+   ],
+   "pt-pt|seguro viagem obrigatório europa": [
+    "seguro viagem obrigatório europa",
+    "seguro viagem obrigatorio europa valor"
+   ],
+   "pt-pt|seguro viagem obrigatório": [
+    "seguro viagem obrigatório europa",
+    "seguro viagem obrigatório argentina",
+    "seguro viagem obrigatório",
+    "seguro viagem obrigatório para argentina",
+    "seguro viagem obrigatório portugal",
+    "seguro viagem obrigatório chile",
+    "seguro viagem obrigatório schengen",
+    "seguro viagem obrigatório para entrar na argentina",
+    "seguro viagem obrigatório italia",
+    "seguro viagem obrigatório uruguai"
+   ],
+   "pt-pt|carta convite espanha": [
+    "carta convite espanha",
+    "carta convite espanha 2026",
+    "carta convite espanha pdf",
+    "carta convite espanha como fazer",
+    "carta convite espanha modelo",
+    "carta convite espanha é obrigatório",
+    "carta convite espanha quanto tempo demora",
+    "carta convite espanha 2025",
+    "carta convite espanha como funciona",
+    "carta convite espanha valor"
+   ],
+   "pt-pt|carta convite": [
+    "carta convite portugal",
+    "carta convite aima",
+    "carta convite para entrar em portugal",
+    "carta convite",
+    "carta convite e termo de responsabilidade é a mesma coisa",
+    "carta convite pdf",
+    "carta convite aima 2026",
+    "carta convite portugal pdf",
+    "carta convite portugal 2026",
+    "carta convite portugal modelo"
+   ],
+   "pt-pt|etias": [
+    "etias portugal",
+    "etias",
+    "etias já está em vigor",
+    "etias quando entra em vigor",
+    "etias portugal quando entra em vigor",
+    "etias europa",
+    "etias formulário online",
+    "etias para brasileiros",
+    "etias site oficial",
+    "etias 2026"
+   ],
+   "pt-pt|imigração portugal": [
+    "imigração portugal",
+    "imigração portugal 2026",
+    "imigração portugal turista",
+    "imigração portugal para brasileiros",
+    "imigração portugal site oficial",
+    "imigração portugal noticias",
+    "imigração portugal aeroporto lisboa",
+    "imigração portugal aeroporto",
+    "imigracao portugal o que precisa",
+    "imigração portugal hoje"
+   ]
+  }
+ },
+ "impronta": "e2aff29dd2df38b9d4f7"
+}

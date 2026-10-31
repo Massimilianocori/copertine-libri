@@ -82,6 +82,12 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
 26. Australian citizenship ceremony wait times (31/10/2026, dati/cerimonie.json): righe del JSON = risposta grezza di Home Affairs (lista
     citizenshipCeremony); pagine attese (indice, council con 3+ suggerimenti, tempi) in sitemap con titoli ≤ 70; prima frase con cifra, fonte e
     data; tabelle e quote ponderate ricalcolate; storico, percentili, avviso, licenza CC BY 3.0 AU, link.
+27. Sezioni in spagnolo (/es/) e portoghese (/pt/) "¿Cuánto dinero necesito para entrar a Europa?" (31/10/2026, dati/entrar_europa.json e
+    dati/schengen_residenti.json): 11 + 11 pagine attese in sitemap, lang, canonical, titoli ≤ 70, FAQPage, "la policía de fronteras decide",
+    prima frase con fonte e data; hreflang es/pt reciproci e selettore di lingua; importi = JSON (formattazione indipendente), esempi = calcolo
+    indipendente, dati del calcolatore = JSON, motore JS = Python; citazioni = frammenti ufficiali; visti = allegati del Reg. 2018/1806; ETIAS
+    senza date inventate; SafetyWing solo sull'assicurazione e onesto; link da home e How it works; piè di pagina comune invariato.
+    Il controllo 9 accetta dal 31/10/2026 il titolo tradotto del blocco "Other useful tools" nelle pagine es/pt (stessi link).
 Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
@@ -91,6 +97,7 @@ Esce con codice 1 se qualcosa non va.
 """
 import html
 import json
+import math
 import random
 import re
 import subprocess
@@ -582,6 +589,9 @@ def controlla_altri_siti():
             continue
         titolo, voci = blocchi[0]
         attesi, titolo_atteso = G.ALTRI_SITI, "Other useful tools for your trip"
+        lingua = re.search(r'<html lang="([a-z]+)"', t).group(1)
+        if lingua in G.TITOLO_ALTRI_EE:  # sezioni in spagnolo e portoghese (31/10/2026): stesso blocco, titolo e descrizioni tradotti
+            titolo_atteso = G.TITOLO_ALTRI_EE[lingua]
         if titolo != titolo_atteso:
             errori.append(f"titolo del blocco altri siti sbagliato in {rel}: {titolo}")
         link = re.findall(r"<a ([^>]*)>", voci)
@@ -2864,6 +2874,314 @@ def controlla_cer():
             errori.append(f"Cerimonie: manca il link a {cosa} in {f_}")
     return errori, len(pag), n_raw
 
+
+# ---------------------------------------------------------------- 27. Sezioni in spagnolo e portoghese: denaro per entrare in Europa (31/10/2026)
+PAGINE_EE = {
+    "es": ["", "requisitos-para-entrar-a-europa", "carta-de-invitacion-espana", "seguro-de-viaje-obligatorio-europa", "etias",
+           "cuanto-dinero-para-entrar-a-espana", "cuanto-dinero-para-entrar-a-italia", "cuanto-dinero-para-entrar-a-francia",
+           "cuanto-dinero-para-entrar-a-alemania", "cuanto-dinero-para-entrar-a-suiza", "cuanto-dinero-para-entrar-a-portugal"],
+    "pt": ["", "requisitos-para-entrar-na-europa", "carta-convite-espanha", "seguro-viagem-obrigatorio-europa", "etias",
+           "quanto-dinheiro-para-entrar-na-espanha", "quanto-dinheiro-para-entrar-na-italia", "quanto-dinheiro-para-entrar-na-franca",
+           "quanto-dinheiro-para-entrar-na-alemanha", "quanto-dinheiro-para-entrar-na-suica", "quanto-dinheiro-para-entrar-em-portugal"],
+}
+STATI_PAG_EE = {"Spain": 5, "Italy": 6, "France": 7, "Germany": 8, "Switzerland": 9, "Portugal": 10}   # indice nella lista sopra
+MESI_V = {"es": ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
+          "pt": ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"]}
+
+
+def _soldi_v(x, val, l):
+    """Formattazione indipendente da genera.py: separatore delle migliaia '.', decimali ',', interi senza ',00'."""
+    from decimal import Decimal, ROUND_HALF_UP
+    d = Decimal(repr(x)).quantize(Decimal("1") if val == "ISK" else Decimal("0.01"), rounding=ROUND_HALF_UP)
+    intero, _, dec = f"{d:f}".partition(".")
+    gruppi = []
+    while len(intero) > 3:
+        gruppi.insert(0, intero[-3:])
+        intero = intero[:-3]
+    t = ".".join([intero] + gruppi) + ("," + dec if dec and dec != "00" else "")
+    if val == "EUR":
+        return f"{t} €" if l == "es" else f"€ {t}"
+    pre = {"USD": "US$ ", "MXN": "MX$ ", "BRL": "R$ "}.get(val)
+    return pre + t if pre else f"{t} {val}"
+
+
+def py_ee(v, dias, personas):
+    """Calcolo indipendente dell'importo minimo (stesse regole lette nella tabella, scritte di nuovo qui)."""
+    def r2(x):
+        return math.floor(x * 100 + 0.5 + 1e-9) / 100
+    def intero_js(x, predefinito):  # parseInt del browser: cifre iniziali, altrimenti il valore predefinito
+        if isinstance(x, (int, float)):
+            return int(x)
+        m = re.match(r"\s*([-+]?\d+)", str(x))
+        return int(m.group(1)) if m else predefinito
+    d = min(90, max(1, intero_js(dias, 15)))
+    p = min(10, max(1, intero_js(personas, 1)))
+    t = v["t"]
+    if t in ("dia", "dia_hasta"):
+        x = v["a"] * d if (t == "dia" or d <= v["n"]) else None
+    elif t == "dia_min":
+        x = max(v["a"] * d, v["m"])
+    elif t == "dia_min_desde":
+        x = max(v["a"] * d, v["m"]) if d > v["n"] else v["a"] * d
+    elif t == "entrada_dia":
+        x = v["e"] + v["a"] * d
+    elif t == "fijo_hasta":
+        x = v["f"] if d <= v["n"] else v["a"] * d
+    elif t == "fijo_hasta_solo":
+        x = v["f"] if d <= v["n"] else None
+    else:
+        x = None
+    if x is None or (v.get("solo1") and p > 1):
+        return None
+    return r2(x * p)
+
+
+def controlla_ee(online=True):
+    """27. Pagine /es/ e /pt/: impronta di dati/entrar_europa.json; pagine attese (11 + 11) in sitemap, lang, canonical, titoli ≤ 70, FAQPage,
+    "la policía de fronteras decide" / "a polícia de fronteiras decide", prima frase con fonte e data; hreflang es/pt reciproci (e autoreferenziali) e
+    selettore di lingua con gli stessi indirizzi; importi della tabella dell'hub = dati/schengen_residenti.json (formattazione indipendente) ed esempi a
+    7/15/30 giorni = calcolo indipendente; dati del calcolatore (data-k) = importi del JSON; motore JS (preso dalla pagina) = calcolo Python su casi
+    fissi e casuali; ogni citazione <q> = frammento ufficiale del JSON; tabella dei visti = allegati del Reg. 2018/1806; ETIAS senza date inventate;
+    SafetyWing solo nelle due pagine sull'assicurazione, con "no puede garantizar"/"não pode garantir", FAQ, riga di trasparenza; link da home e How it works.
+    Online: 10 frammenti a caso riletti sulle fonti (non le pagine ETIAS, lette con il browser)."""
+    import hashlib
+    errori = []
+    E = json.loads((SITO.parent / "dati" / "entrar_europa.json").read_text(encoding="utf-8"))
+    S = json.loads((SITO.parent / "dati" / "schengen_residenti.json").read_text(encoding="utf-8"))
+    C = json.loads((SITO.parent / "dati" / "cambi.json").read_text(encoding="utf-8"))
+    cont = {k: E[k] for k in ("fonti", "letture", "assenti", "paesi")}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != E["impronta"]:
+        errori.append("ES/PT: impronta di dati/entrar_europa.json diversa dal contenuto")
+    RIF = S["riferimento"]
+    frammenti = {html.escape(L["frammento"], quote=False) for L in E["letture"].values()}
+    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    pagine = {}
+    for l, slugs in PAGINE_EE.items():
+        cart = SITO / l
+        trovate = {f.parent.relative_to(cart).as_posix().replace(".", "") for f in cart.rglob("index.html")}
+        if trovate != set(slugs):
+            errori.append(f"ES/PT {l}: pagine diverse da quelle attese (in più {sorted(trovate - set(slugs))}, mancanti {sorted(set(slugs) - trovate)})")
+        for i, sl in enumerate(slugs):
+            perc = f"{l}/{sl + '/' if sl else ''}"
+            f = SITO / perc / "index.html"
+            if not f.exists():
+                continue
+            t = f.read_text(encoding="utf-8")
+            pagine[(l, i)] = (perc, t)
+            main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+            testo = html.unescape(re.sub(r"<[^>]+>", " ", main))
+            if f"<loc>{G.URL_SITO}/{perc}</loc>" not in sitemap:
+                errori.append(f"ES/PT: {perc} non in sitemap")
+            if f'<html lang="{l}">' not in t:
+                errori.append(f"ES/PT: {perc} senza lang=\"{l}\"")
+            if f'<link rel="canonical" href="{G.URL_SITO}/{perc}">' not in t:
+                errori.append(f"ES/PT: canonical sbagliato in {perc}")
+            tit = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+            if len(tit) > 70:
+                errori.append(f"ES/PT: titolo oltre 70 caratteri in {perc} ({len(tit)})")
+            if "FAQPage" not in t or (sl and "BreadcrumbList" not in t):
+                errori.append(f"ES/PT: FAQPage o BreadcrumbList mancanti in {perc}")
+            decide = "la policía de fronteras decide" if l == "es" else "a polícia de fronteiras decide"
+            if decide not in testo:
+                errori.append(f"ES/PT: manca «{decide}» in {perc}")
+            lead = re.search(r'<p class="lead">(.*?)</p>', main, re.S).group(1)
+            lead_t = html.unescape(re.sub(r"<[^>]+>", "", lead))
+            if (not re.search(r"\b\d{1,2} de (" + "|".join(MESI_V[l]) + r") de 20\d\d\b", lead_t) or 'href="http' not in lead
+                    or not re.search(r"Comisión Europea|Comissão Europeia|Código|Orden PRE|ETIAS", lead_t)):
+                errori.append(f"ES/PT: prima frase di {perc} senza fonte, link o data")
+            ammessi = {_soldi_v(x, val, l) for St in RIF.values() for x, val, _ in St["importi"]}
+            for St in RIF.values():
+                for x, val, _ in St["importi"]:
+                    ammessi |= {_soldi_v(round(x * d_, 2), val, l) for d_ in range(1, 91)} | {_soldi_v(round(x * d_ / C["tassi"][val], 2), "EUR", l) for d_ in range(1, 91) if val != "EUR"}
+            ammessi |= {_soldi_v(round(RIF["Portugal"]["importi"][0][0] + RIF["Portugal"]["importi"][1][0] * d_, 2), "EUR", l) for d_ in range(1, 91)}
+            ammessi |= {_soldi_v(E["letture"]["es_seguro_30000"]["valore"], "EUR", l)}
+            for cifra in re.findall(r"(?:€\u00a0[\d.,]*\d|[\d.,]*\d\u00a0(?:€|CHF|CZK|DKK|NOK|PLN|SEK|ISK))", lead_t):
+                if cifra not in ammessi:
+                    errori.append(f"ES/PT: cifra della prima frase di {perc} non nei dati né ricalcolabile: {cifra}")
+            for q in re.findall(r"<q>(.*?)</q>", main, re.S):
+                if q not in frammenti:
+                    errori.append(f"ES/PT: citazione non uguale al frammento ufficiale in {perc}: {q[:70]}")
+            if re.search(r'rel="[^"]*sponsored', main) and "seguro" not in sl:
+                errori.append(f"ES/PT: link sponsorizzato fuori dalle pagine sull'assicurazione ({perc})")
+            for x in ("Some links are affiliate links", "Algunos enlaces" if l == "es" else "Alguns links"):
+                if re.search(r'rel="[^"]*sponsored', main) and x not in testo:
+                    errori.append(f"ES/PT: riga di trasparenza «{x}» mancante in {perc}")
+            # parole vietate in spagnolo (controllo 5): "llama" è anche una parola spagnola; nessuna nelle pagine
+    # hreflang reciproci e selettore di lingua
+    for (l, i), (perc, t) in pagine.items():
+        alt = dict(re.findall(r'<link rel="alternate" hreflang="(es|pt)" href="([^"]+)">', t))
+        altro = "pt" if l == "es" else "es"
+        if alt.get(l) != f"{G.URL_SITO}/{perc}":
+            errori.append(f"ES/PT: hreflang {l} non autoreferenziale in {perc}")
+        cop = pagine.get((altro, i))
+        if not cop or alt.get(altro) != f"{G.URL_SITO}/{cop[0]}":
+            errori.append(f"ES/PT: hreflang {altro} sbagliato in {perc}")
+        elif dict(re.findall(r'<link rel="alternate" hreflang="(es|pt)" href="([^"]+)">', cop[1])).get(l) != f"{G.URL_SITO}/{perc}":
+            errori.append(f"ES/PT: hreflang non reciproco tra {perc} e {cop[0]}")
+        sel = re.search(r'<nav class="lingue".*?</nav>', t, re.S)
+        rel = "../" * perc.count("/")
+        if not sel or (cop and f'href="{rel}{cop[0]}" lang="{altro}"' not in sel.group(0)) or f'href="{rel}" lang="en"' not in sel.group(0):
+            errori.append(f"ES/PT: selettore di lingua mancante o diverso dagli hreflang in {perc}")
+    # tabella dell'hub e dati del calcolatore
+    n_js = 0
+    for l in ("es", "pt"):
+        if (l, 0) not in pagine:
+            continue
+        t = pagine[(l, 0)][1]
+        tab = re.search(r'<table class="pila" id="t-ee">.*?</table>', t, re.S)
+        corpo_t = re.search(r"<tbody>(.*?)</tbody>", tab.group(0), re.S).group(1) if tab else ""
+        righe = re.findall(r"<tr><th[^>]*>(.*?)</th><td[^>]*>(.*?)</td>(.*?)</tr>", corpo_t, re.S)
+        if len(righe) != len(RIF):
+            errori.append(f"ES/PT {l}: {len(righe)} righe nella tabella dell'hub, {len(RIF)} Stati nel JSON")
+        kraw = re.search(r"data-ee data-k='(.*?)'", t)
+        K = json.loads(html.unescape(kraw.group(1))) if kraw else {"stati": {}}
+        if set(K["stati"]) != set(RIF):
+            errori.append(f"ES/PT {l}: Stati del calcolatore diversi dalla tabella della Commissione")
+        nomi = {s: K["stati"][s]["nome"] for s in K["stati"]}
+        per_nome = {v: s for s, v in nomi.items()}
+        for th, td, resto in righe:
+            nome = html.unescape(re.sub(r"<[^>]+>", "", th)).strip()
+            s = per_nome.get(nome)
+            if not s:
+                errori.append(f"ES/PT {l}: Stato sconosciuto nella tabella: {nome}")
+                continue
+            celle = html.unescape(td)
+            for x, val, _ in RIF[s]["importi"]:
+                if _soldi_v(x, val, l) not in celle:
+                    errori.append(f"ES/PT {l}: importo {x} {val} di {s} mancante nella tabella dell'hub")
+            if html.escape(G.rif_testo_sr(s)) not in td:
+                errori.append(f"ES/PT {l}: testo originale della tabella mancante per {s}")
+            celle_g = re.findall(r'<td[^>]*\bdata-g="(\d+)"[^>]*>(.*?)</td>', resto)
+            if len(celle_g) != 3:
+                errori.append(f"ES/PT {l}: esempi a 7/15/30 giorni mancanti per {s}")
+            for g, cel in celle_g:
+                v = K["stati"][s]["var"][0] if K["stati"][s]["var"] else None
+                x = py_ee(v, int(g), 1) if v else None
+                atteso = "—" if x is None else _soldi_v(x, v["val"], l)
+                if atteso not in html.unescape(cel):
+                    errori.append(f"ES/PT {l}: esempio {g} giorni di {s} diverso dal calcolo ({html.unescape(cel)} invece di {atteso})")
+        # numeri del calcolatore = importi del JSON (stessa valuta)
+        for s, St in K["stati"].items():
+            imp = {(x, v) for x, v, _ in RIF[s]["importi"]}
+            for v in St["var"]:
+                for c in ("a", "m", "e", "f"):
+                    if c in v and (v[c], v["val"]) not in imp:
+                        errori.append(f"ES/PT {l}: valore {c}={v[c]} {v['val']} del calcolatore non negli importi di {s}")
+            if not St["var"] and RIF[s]["importi"]:
+                errori.append(f"ES/PT {l}: {s} senza cifra nel calcolatore ma con importi nella tabella")
+        if any(abs(K["tassi"][v] - C["tassi"][v]) > 1e-12 for v in K["tassi"]):
+            errori.append(f"ES/PT {l}: cambi del calcolatore diversi da dati/cambi.json")
+        # motore JS = Python
+        js = next((x for x in re.findall(r"<script>(.*?)</script>", t, re.S) if "window.CALC_EE=C" in x), None)
+        if not js:
+            errori.append(f"ES/PT {l}: motore JS del calcolatore mancante")
+            continue
+        rng = random.Random(27 + (l == "pt"))
+        casi = []
+        for s in sorted(K["stati"]):
+            for i, v in enumerate(K["stati"][s]["var"]):
+                for d in (1, 4, 5, 6, 9, 10, 29, 30, 31, 90, 0, -3, 200, "", "x", "7.9"):
+                    casi.append([s, i, d, rng.choice([1, 2, 3, 0, 11])])
+        stati_v = [(s, i) for s in sorted(K["stati"]) for i in range(len(K["stati"][s]["var"]))]
+        for _ in range(600):
+            s, i = rng.choice(stati_v)
+            casi.append([s, i, rng.randint(-5, 120), rng.randint(-2, 14)])
+        prog = ("var window={};var document={querySelectorAll:function(){return [];}};\n" + js + "\nvar K=" + json.dumps(K) + ";var CASI=" + json.dumps(casi) +
+                ";console.log(JSON.stringify(CASI.map(function(c){var v=K.stati[c[0]].var[c[1]];var x=window.CALC_EE.calc(v,c[2],c[3]);"
+                "if(x===null)return null;var e=window.CALC_EE.eur(x,v.val,K);return [x,e,K.valute.map(function(a){return window.CALC_EE.conv(e,a,K);})];})));")
+        with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as fh:
+            fh.write(prog)
+        r = subprocess.run(["node", fh.name], capture_output=True, text=True, timeout=120)
+        if r.returncode != 0:
+            errori.append(f"ES/PT {l}: JS del calcolatore non eseguibile: {r.stderr[-300:]}")
+            continue
+
+        def r2(x):
+            return math.floor(x * 100 + 0.5 + 1e-9) / 100
+        diff = []
+        for c, j in zip(casi, json.loads(r.stdout)):
+            v = K["stati"][c[0]]["var"][c[1]]
+            x = py_ee(v, c[2], c[3])
+            if x is None:
+                py = None
+            else:
+                e = x if v["val"] == "EUR" else r2(x / C["tassi"][v["val"]])
+                py = [x, e, [e if a == "EUR" else r2(e * C["tassi"][a]) for a in K["valute"]]]
+            if py != j:
+                diff.append((c, j, py))
+        n_js += len(casi)
+        errori += [f"ES/PT {l}: calcolatore {c}: JS {j} ≠ Python {py}" for c, j, py in diff[:5]]
+    # Spagna: 10% e 90% dello SMI 2026 = cifre della tabella
+    smi = G.INDICI["es_smi"]["valore"]
+    sp = RIF["Spain"]["importi"]
+    if round(smi * 0.10, 2) != sp[0][0] or round(smi * 0.90, 2) != sp[1][0]:
+        errori.append("ES/PT: Spagna, 10%/90% dello SMI diversi dalla tabella della Commissione")
+    # tabella dei visti = allegati
+    for l, i in (("es", 1), ("pt", 1)):
+        if (l, i) not in pagine:
+            continue
+        t = pagine[(l, i)][1]
+        for P in E["paesi"]:
+            m = re.search(rf'<th[^>]*\bid="{P["id"]}"[^>]*>([^<]*)</th><td[^>]*\bclass="(si-v|no-v)"[^>]*>\s*(Sí|No|Sim|Não)\b', t)
+            atteso = ("Sí" if l == "es" else "Sim") if P["allegato"] == 1 else ("No" if l == "es" else "Não")
+            if not m or html.unescape(m.group(1)) != G.nome_paese_ee(P, l) or m.group(3) != atteso:
+                errori.append(f"ES/PT {l}: riga del visto di {P[l]} diversa dall'allegato {P['allegato']}")
+    # ETIAS: frase ufficiale e nessuna data di avvio
+    for l, i, k in (("es", 4, "etias_es_estado"), ("pt", 4, "etias_pt_estado")):
+        if (l, i) not in pagine:
+            continue
+        t = pagine[(l, i)][1]
+        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        testo = html.unescape(re.sub(r"<[^>]+>", " ", main))
+        if html.escape(E["letture"][k]["frammento"], quote=False) not in main:
+            errori.append(f"ES/PT {l}: frase ufficiale sullo stato dell'ETIAS mancante")
+        ammessi = [G.data_ee(E["fonti"][f"etias_{l}"]["letto_il"], l), G.data_ee(E["fonti"][f"vis_{l}"]["letto_il"], l), "2018/1806", "30/12/2025",
+                   f"{MESI_V[l][int(E['fonti'][f'etias_{l}']['letto_il'][5:7]) - 1]} de {E['fonti'][f'etias_{l}']['letto_il'][:4]}"]
+        resto = testo
+        for a in ammessi:
+            resto = resto.replace(a, " ")
+        if re.search(r"\b20[2-3]\d\b", resto):
+            errori.append(f"ES/PT {l}: anno nella pagina ETIAS fuori dalle date di lettura (data di avvio inventata?): {re.findall(r'.{30}20[2-3]\d.{10}', resto)[:2]}")
+    # SafetyWing solo nelle pagine sull'assicurazione
+    for l, i in (("es", 3), ("pt", 3)):
+        if (l, i) not in pagine or not G.URL_SW_EE:
+            continue
+        t = pagine[(l, i)][1]
+        box = re.search(r'<section class="card aff-r".*?</section>', t, re.S)
+        b = box.group(0) if box else ""
+        for x in ("no puede garantizar" if l == "es" else "não pode garantir", G.URL_SW_FAQ, G.MON.RIGA_EN, 'rel="sponsored noopener"',
+                  G.data_ee(G.DATA_SW_FAQ, l)):
+            if x not in b:
+                errori.append(f"ES/PT {l}: riquadro SafetyWing senza «{x}»")
+        if b and t.index(b) < t.index("Código de"):
+            errori.append(f"ES/PT {l}: riquadro SafetyWing prima delle regole ufficiali")
+    # collegamenti dal resto del sito (home e How it works; il piè di pagina comune NON cambia)
+    for f_, pre in (("index.html", ""), ("how-it-works/index.html", "../")):
+        for l in ("es", "pt"):
+            if f'href="{pre}{l}/"' not in leggi(f_):
+                errori.append(f"ES/PT: manca il link a /{l}/ in {f_}")
+    if 'href="../es/"' in G.piede_en("../") or "/es/" in G.piede_en(""):
+        errori.append("ES/PT: il piè di pagina comune non deve cambiare (esperimento A/B)")
+    riletti = []
+    if online:
+        sys.path.insert(0, str(SITO.parent / "raccolta"))
+        import entrar_europa as RE_
+        rng = random.Random(20261031)
+        chiavi = rng.sample(sorted(k for k, L in E["letture"].items() if E["fonti"][L["fonte"]]["formato"] != "browser"), 10)
+        testi = {}
+        for k in chiavi:
+            fo = E["letture"][k]["fonte"]
+            if fo not in testi:
+                F = E["fonti"][fo]
+                st, b, _ = RE_.scarica(F["url"], "application/xhtml+xml" if "celex" in F else None, RE_.LINGUE_UE[F["lingua"]][0] if "celex" in F else None)
+                testi[fo] = RE_.testo_di(b, F["formato"]) if st == 200 else ""
+            ok = RE_.norm(E["letture"][k]["frammento"]) in testi[fo]
+            riletti.append(f"{fo} {k}: {'presente' if ok else 'ASSENTE'}")
+            if not ok:
+                errori.append(f"ES/PT: frammento {k} non più in {fo}")
+    return errori, len(pagine), n_js, riletti
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -2931,7 +3249,13 @@ def main():
     e26, n26, r26 = controlla_cer()
     print(f"26. Australian citizenship ceremony wait times: {n26} pagine (indice, council con domanda, tempi), {r26} righe ricontrollate sulla risposta ufficiale di Home Affairs, "
           f"tabelle, quote ponderate, storico, percentili, avviso, licenza, link: {len(e26)} errori")
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26
+    e27, n27, j27, r27 = controlla_ee(online="--offline" not in sys.argv)
+    print(f"27. Sezioni in spagnolo e portoghese (denaro per entrare in Europa): {n27} pagine, importi = tabella della Commissione, esempi ricalcolati, "
+          f"hreflang reciproci e selettore di lingua, citazioni = frammenti ufficiali, visti = Reg. 2018/1806, ETIAS senza date, SafetyWing, link, "
+          f"calcolatore (JS = Python su {j27} casi); riletti online: {len(r27)}: {len(e27)} errori")
+    for x in r27:
+        print("    ·", x)
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27
     for e in tutti:
         print(" -", e)
     if tutti:

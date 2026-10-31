@@ -901,7 +901,25 @@ def blocco_dati():
             json.dumps(d, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>")
 
 
-def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, calcolatore=False, jsonld_extra=None, assoluto=False, testata="", ordina=False, script="", css_extra=""):
+def piede_en(rel):
+    """Piè di pagina comune delle pagine inglesi (testo invariato: le 36 pagine di controllo dell'esperimento restano identiche byte per byte)."""
+    return f"""<footer><div class="wrap">
+<div class="f-grid"><div>
+<a class="logo" href="{rel}">{MARCHIO}<span>Visa Income <b>Checker</b></span></a>
+<p><strong>{NOME}</strong> is an independent site, not affiliated with any government, consulate or immigration authority. Every amount and every statistic comes from an official source (law, official gazette, ministry, immigration authority, European Commission, Home Office or statistics office) linked under the figure with the date we checked or downloaded it.
+<strong>Requirements change, and consulates can ask for more: always check the official page or the consulate.</strong> Nothing on this site is immigration, legal or tax advice.</p>
+<p>Exchange rates: euro foreign exchange reference rates of the European Central Bank (source: ECB), for information only.</p>
+</div><div>
+<h2>Explore</h2>
+<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}schengen-visa-from-uk/">Schengen visa from the UK</a></li><li><a href="{rel}schengen-visa-from-dubai/">Schengen visa from Dubai (UAE)</a></li><li><a href="{rel}moved-to/">Who moved where (by nationality)</a></li><li><a href="{rel}uk-english-test/">UK visa English tests (SELT)</a></li><li><a href="{rel}thailand-dtv-visa/">Thailand DTV visa by embassy</a></li><li><a href="{rel}us-opt/">US OPT and STEM OPT: fees and deadlines</a></li><li><a href="{rel}uk-graduate-visa/">UK Graduate visa: 2 years or 18 months</a></li><li><a href="{rel}mexico-residency/">Mexico residency: fees and income by consulate</a></li><li><a href="{rel}study-in-italy/">Study in Italy: visa funds and DSU scholarships</a></li><li><a href="{rel}italy-7-percent-flat-tax/">Italy 7% flat tax for foreign pensioners</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
+</div></div>
+{blocco_altri(ALTRI_SITI, "Other useful tools for your trip")}
+<p class="f-base">Official sources only · the calculator runs in your browser · links marked "Affiliate" may earn us a commission.</p>
+</div></footer>"""
+
+
+def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, calcolatore=False, jsonld_extra=None, assoluto=False, testata="", ordina=False, script="", css_extra="",
+           lingua="en", alternati=None):
     file = percorso if percorso.endswith(".html") else (percorso + "index.html")
     profondita = file.count("/")
     rel = "/" if assoluto else ("../" * profondita or "./")  # 404: link assoluti, Netlify la serve a qualsiasi profondità
@@ -911,11 +929,12 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
     ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": NOME, "url": URL_SITO + "/"}] if percorso == "" else []
     bc = ""
     if briciole:
-        voci = [{"@type": "ListItem", "position": 1, "name": "Home", "item": URL_SITO + "/"}]
+        casa_n, casa_p = ("Home", "") if lingua == "en" else (LINGUE_EE[lingua]["inizio"], LINGUE_EE[lingua]["sez"])  # sezioni es/pt: la "casa" è l'hub della lingua
+        voci = [{"@type": "ListItem", "position": 1, "name": casa_n, "item": URL_SITO + "/" + casa_p}]
         for i, (n, p) in enumerate(briciole, start=2):
             voci.append({"@type": "ListItem", "position": i, "name": n, "item": URL_SITO + "/" + p})
         ld.append({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": voci})
-        bc = ('<nav class="briciole" aria-label="Breadcrumb"><a href="' + rel + '">Home</a>' +
+        bc = (f'<nav class="briciole" aria-label="{"Breadcrumb" if lingua == "en" else LINGUE_EE[lingua]["briciole"]}"><a href="' + rel + casa_p + f'">{casa_n}</a>' +
               "".join(f' › <a href="{rel}{p}">{escape(n)}</a>' for n, p in briciole[:-1]) + f" › {escape(briciole[-1][0])}</nav>")
     if jsonld_extra:
         ld += jsonld_extra if isinstance(jsonld_extra, list) else [jsonld_extra]
@@ -930,25 +949,30 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
     dati = blocco_dati() if calcolatore else ""
     voci_menu = [("", "Calculator"), ("digital-nomad-visa-income-requirements/", "Digital nomad visas"), ("work-visa-salary-thresholds/", "Work visas"),
                  ("visa-refusal-rates/", "Refusal rates"), ("how-it-works/", "How it works"), ("about/", "About")]
+    if lingua != "en":  # sezioni in spagnolo e portoghese (31/10/2026): menu, testata e piè di pagina tradotti; le pagine inglesi restano identiche
+        voci_menu = LINGUE_EE[lingua]["menu"]
     menu = "".join(f'<a href="{rel}{u}"' + (' aria-current="page"' if u == percorso else "") + f'>{t}</a>' for u, t in voci_menu)
+    T_L = LINGUE_EE.get(lingua, {})
+    alt_html = "".join(f'\n<link rel="alternate" hreflang="{h}" href="{URL_SITO}/{p}">' for h, p in (alternati or {}).items())
+    piede = piede_en(rel) if lingua == "en" else piede_ee(lingua, rel)
     testo = f"""<!DOCTYPE html>
-<html lang="en">
+<html lang="{lingua}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="{GOOGLE_VERIFICA}">{ADSENSE_HEAD}
 <title>{escape(titolo)}</title>
 <meta name="description" content="{escape(descrizione)}">
-{canonico}
+{canonico}{alt_html}
 <meta property="og:title" content="{escape(titolo)}">
 <meta property="og:description" content="{escape(descrizione)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{url_pag}">
-<meta property="og:site_name" content="{NOME}">
+<meta property="og:site_name" content="{NOME}">{T_L.get("og_locale", "")}
 <meta property="og:image" content="{URL_SITO}/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="{NOME}: official minimum income for visas, for you and your family">
+<meta property="og:image:alt" content="{T_L.get("og_alt") or NOME + ": official minimum income for visas, for you and your family"}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#141B33">
 <meta name="color-scheme" content="light dark">
@@ -960,11 +984,11 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 </head>
 <body>
 {SPRITE}
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">{T_L.get("salta", "Skip to content")}</a>
 <header class="top"><div class="wrap">
-<a class="logo" href="{rel}">{MARCHIO}<span>Visa Income <b>Checker</b></span></a>
-<nav class="menu" aria-label="Menu">{menu}</nav>
-<details class="nav-m"><summary aria-label="Open the menu">{ico("menu")}Menu</summary><nav aria-label="Menu">{menu}</nav></details>
+<a class="logo" href="{rel}{T_L.get("sez", "")}">{MARCHIO}<span>Visa Income <b>Checker</b></span></a>
+<nav class="menu" aria-label="{T_L.get("menu_l", "Menu")}">{menu}</nav>
+<details class="nav-m"><summary aria-label="{T_L.get("apri", "Open the menu")}">{ico("menu")}{T_L.get("menu_l", "Menu")}</summary><nav aria-label="{T_L.get("menu_l", "Menu")}">{menu}</nav></details>
 </div></header>
 <main id="main">
 {testata}
@@ -973,19 +997,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 {corpo}{riquadro_trasparenza(corpo)}
 </div>
 </main>
-<footer><div class="wrap">
-<div class="f-grid"><div>
-<a class="logo" href="{rel}">{MARCHIO}<span>Visa Income <b>Checker</b></span></a>
-<p><strong>{NOME}</strong> is an independent site, not affiliated with any government, consulate or immigration authority. Every amount and every statistic comes from an official source (law, official gazette, ministry, immigration authority, European Commission, Home Office or statistics office) linked under the figure with the date we checked or downloaded it.
-<strong>Requirements change, and consulates can ask for more: always check the official page or the consulate.</strong> Nothing on this site is immigration, legal or tax advice.</p>
-<p>Exchange rates: euro foreign exchange reference rates of the European Central Bank (source: ECB), for information only.</p>
-</div><div>
-<h2>Explore</h2>
-<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}schengen-visa-from-uk/">Schengen visa from the UK</a></li><li><a href="{rel}schengen-visa-from-dubai/">Schengen visa from Dubai (UAE)</a></li><li><a href="{rel}moved-to/">Who moved where (by nationality)</a></li><li><a href="{rel}uk-english-test/">UK visa English tests (SELT)</a></li><li><a href="{rel}thailand-dtv-visa/">Thailand DTV visa by embassy</a></li><li><a href="{rel}us-opt/">US OPT and STEM OPT: fees and deadlines</a></li><li><a href="{rel}uk-graduate-visa/">UK Graduate visa: 2 years or 18 months</a></li><li><a href="{rel}mexico-residency/">Mexico residency: fees and income by consulate</a></li><li><a href="{rel}study-in-italy/">Study in Italy: visa funds and DSU scholarships</a></li><li><a href="{rel}italy-7-percent-flat-tax/">Italy 7% flat tax for foreign pensioners</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
-</div></div>
-{blocco_altri(ALTRI_SITI, "Other useful tools for your trip")}
-<p class="f-base">Official sources only · the calculator runs in your browser · links marked "Affiliate" may earn us a commission.</p>
-</div></footer>
+{piede}
 {dati}
 {js}
 {SCRIPT_CONTATORE}
@@ -1354,6 +1366,9 @@ def home():
 <h2>Australian citizenship ceremony wait times</h2>
 <p class="lead">On {data_lunga(AL_CER)}, {intero(media_cer(RIGHE_CER)[0])} people approved for Australian citizenship were waiting for a ceremony in {len(RIGHE_CER)} council areas (Department of Home Affairs, published {data_lunga(PUB_CER)}). Search your council, and see the official processing times for the whole application.</p>
 <p><a href="{SEZ_CER}">Citizenship ceremony wait times by council</a> · <a href="{SEZ_TEMPI_CER}">Australian citizenship processing time</a> · {" · ".join(f'<a href="{SEZ_CER}{SLUG_CER[r[0]]}/">{escape(nome_cer(r, True))}</a>' for r in PAG_CER[:6])}</p>
+<h2>In Spanish and Portuguese: how much money to enter Europe</h2>
+<p class="lead">For travellers from Latin America and Brazil: the minimum money each Schengen country asks at the border (European Commission table of {data_lunga(DATA_RIF_EE)}), with a calculator by days and people, the entry conditions, Spain's invitation letter, travel insurance and ETIAS.</p>
+<p><a href="{perc_ee("es", "hub")}" lang="es" hreflang="es">¿Cuánto dinero necesito para entrar a Europa?</a> · <a href="{perc_ee("es", "Spain")}" lang="es" hreflang="es">Entrar a España</a> · <a href="{perc_ee("es", "carta")}" lang="es" hreflang="es">Carta de invitación</a> · <a href="{perc_ee("pt", "hub")}" lang="pt" hreflang="pt">Quanto dinheiro preciso para entrar na Europa?</a> · <a href="{perc_ee("pt", "Portugal")}" lang="pt" hreflang="pt">Entrar em Portugal</a> · <a href="{perc_ee("pt", "seguro")}" lang="pt" hreflang="pt">Seguro viagem</a></p>
 <h2>Why our numbers can differ from other sites</h2>
 <p>Many thresholds are a percentage of an index that changes every year (a minimum wage, an average salary), so pages that still show last year's figure are out of date. With the {ANNO} indices, on {data_lunga('2026-10-10')}: Spain's digital nomad visa is 200% of the {ANNO} minimum wage, €2,442 a month over 14 payments (€34,188 a year, the same as €2,849 a month over 12 payments); Croatia's is 2.5 × the 2025 average net salary, €3,622.50 a month; Portugal's D8 is 4 × €920 = €3,680 a month. We recalculate from the official index and show the source and the date under every figure.</p>
 {box_affiliati()}"""
@@ -1461,11 +1476,14 @@ def pagina_come_funziona():
 <p>The <a href="{rel}uk-english-test/">UK visa English tests (SELT)</a> pages use the Home Office lists of approved test centres and approved tests (ODS files on GOV.UK, updated every few weeks), the GOV.UK guidance for each visa and the Statement of Changes HC 1691 for the B2 level from {data_lunga(DATA_B2)}. A script downloads the lists every week, checks that the sentences we rely on are still in the official pages, and stops if anything changed. We do not show test fees: they are set by each provider.</p>
 <h2>14. Australian citizenship ceremony wait times</h2>
 <p>The <a href="{rel}{SEZ_CER}">citizenship ceremony wait times</a> pages use the Department of Home Affairs ceremony wait times by council and its citizenship processing times. The council table is not in the HTML of the official page: the page loads it from a public data address of the same website, which a script reads in the same way, together with the column names and the notes of the page; the processing times are read from the official page itself. Home Affairs shows only the latest month, so we save every update and show the history. State and national shares are our calculation, weighted by the number of people waiting.</p>
+<h2>15. In Spanish and Portuguese: money to enter Europe</h2>
+<p>The <a href="{rel}{perc_ee("es", "hub")}" lang="es" hreflang="es">Spanish</a> and <a href="{rel}{perc_ee("pt", "hub")}" lang="pt" hreflang="pt">Portuguese</a> pages take the amounts from the European Commission's table of reference amounts for crossing the external border (the same file as the Schengen pages for UK and UAE residents) and quote the Schengen Borders Code, the EU visa list, the Visa Code and, for Spain, the two ministerial orders in the BOE in the official Spanish and Portuguese texts. A script reads every source again and checks that each sentence we quote is still there; the ETIAS status is read from the official ETIAS website. The calculator only multiplies the official amounts by days and people: where the table does not say how two amounts combine, it does not combine them.</p>
 <h2>Licences and attributions</h2>
 <ul><li>Laws, decrees and official notices (BOE, Gazzetta Ufficiale, Bundesanzeiger, Normattiva) are cited as facts with a link to the official text; we do not reproduce the documents.</li>
 <li>Exchange rates: European Central Bank, euro foreign exchange reference rates (source: ECB).</li>
 <li>UK: contains public sector information licensed under the Open Government Licence v3.0 (GOV.UK and Home Office immigration statistics).</li>
 <li>Schengen visa statistics: European Commission, DG Migration and Home Affairs (reuse authorised with acknowledgement of the source).</li>
+<li>EU law (Schengen Borders Code, visa list, Visa Code): Official Journal of the European Union via EUR-Lex and the Publications Office; only EU legal texts published in the Official Journal are authentic.</li>
 <li>Australia: Australian Government Department of Home Affairs, licensed under Creative Commons Attribution 3.0 Australia (ceremony wait times and citizenship processing times).</li>
 <li>Other ministry and immigration authority pages are cited with links; the amounts are facts taken from them.</li></ul>
 <h2>Not covered yet</h2>
@@ -9207,6 +9225,1258 @@ def controlli_cer():
     return errori
 
 
+# ---------------------------------------------------------------- Sezioni in spagnolo (/es/) e portoghese (/pt/), 31/10/2026:
+# "¿Cuánto dinero necesito para entrar a Europa?" / "Quanto dinheiro preciso para entrar na Europa?"
+# Idea n. 2 di studio-business/intelaiatura/wf-2026-10-31-spagna-portogallo-latam.md. Importi per Stato: SOLO da dati/schengen_residenti.json
+# (tabella della Commissione "Reference amounts", PDF dell'8/6/2026); testi ufficiali nelle due lingue: dati/entrar_europa.json
+# (raccolta/entrar_europa.py: Codice frontiere Schengen, Reg. 2018/1806, Codice dei visti art. 15, BOE, ETIAS). Calcolatore in JS (EE_JS)
+# uguale a calcola_ee() (verifica.py, controllo 27). Le pagine inglesi non cambiano (piè di pagina comune invariato: esperimento A/B).
+EE = json.loads((DATI / "entrar_europa.json").read_text(encoding="utf-8"))
+F_EE = EE["fonti"]
+LE = EE["letture"]
+PAESI_EE = EE["paesi"]
+# Nome mostrato nelle pagine quando differisce da quello scritto nell'allegato del Reg. 2018/1806 (controllato dallo script):
+# il testo portoghese dell'UE scrive "Salvador", ma in Brasile il Paese si chiama El Salvador ("Salvador" da solo è la città della Bahia).
+NOMI_PAESI_EE = {"el-salvador": {"pt": "El Salvador"}}
+LETTO_EE = EE["letto_il"]
+DATA_RIF_EE = L_SR["riferimento_data"]          # 2026-06-08 (data del PDF della Commissione)
+LETTO_RIF_EE = F_SR["riferimento"]["letto_il"]  # 2026-10-31
+URL_RIF_EE = F_SR["riferimento"]["url"]
+_SWE = AFFILIATI.get("_safetywing_entrar", {})
+URL_SW_EE = _SWE.get("url", "")
+STATI_EE = sorted(RIF_SR)
+PAGINE_STATO_EE = ["Spain", "Italy", "France", "Germany", "Switzerland", "Portugal"]
+GIORNI_MAX_EE, PERSONE_MAX_EE = 90, 10
+VALUTE_EE = {"es": ["EUR", "USD", "MXN", "BRL"], "pt": ["BRL", "EUR", "USD"]}
+SIMBOLI_EE = {"USD": "US$ ", "MXN": "MX$ ", "BRL": "R$ "}
+MESI_EE = {"es": ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
+           "pt": ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"]}
+NOMI_EE = {"Austria": ("Austria", "Áustria"), "Belgium": ("Bélgica", "Bélgica"), "Bulgaria": ("Bulgaria", "Bulgária"), "Croatia": ("Croacia", "Croácia"),
+           "Czech Republic": ("Chequia", "Tchéquia"), "Denmark": ("Dinamarca", "Dinamarca"), "Estonia": ("Estonia", "Estônia"), "Finland": ("Finlandia", "Finlândia"),
+           "France": ("Francia", "França"), "Germany": ("Alemania", "Alemanha"), "Greece": ("Grecia", "Grécia"), "Hungary": ("Hungría", "Hungria"),
+           "Iceland": ("Islandia", "Islândia"), "Italy": ("Italia", "Itália"), "Latvia": ("Letonia", "Letônia"), "Lithuania": ("Lituania", "Lituânia"),
+           "Luxembourg": ("Luxemburgo", "Luxemburgo"), "Malta": ("Malta", "Malta"), "Netherlands": ("Países Bajos", "Países Baixos"), "Norway": ("Noruega", "Noruega"),
+           "Poland": ("Polonia", "Polônia"), "Portugal": ("Portugal", "Portugal"), "Romania": ("Rumania", "Romênia"), "Slovakia": ("Eslovaquia", "Eslováquia"),
+           "Slovenia": ("Eslovenia", "Eslovênia"), "Spain": ("España", "Espanha"), "Sweden": ("Suecia", "Suécia"), "Switzerland": ("Suiza", "Suíça")}
+PREP_PT = {"Portugal": "em", "Spain": "na", "Italy": "na", "France": "na", "Germany": "na", "Switzerland": "na"}   # "entrar na Espanha", "entrar em Portugal"
+# Etichette della tabella (terzo elemento di ogni importo in schengen_residenti.json) tradotte: il generatore si ferma se ne manca una
+# e controlla che i numeri della traduzione siano quelli dell'etichetta inglese.
+ETICHETTE_EE = {
+    "a day": ("al día", "por dia"),
+    "a day if you stay with a private person": ("al día si te alojas en casa de un particular", "por dia se você ficar na casa de um particular"),
+    "a day if you stay in a hotel": ("al día si te alojas en un hotel", "por dia se você ficar em hotel"),
+    "per stay": ("por estancia", "por estadia"),
+    "a day with a certified letter of guarantee, a tourist booking or a similar document": (
+        "al día con carta de garantía certificada, reserva turística o documento similar", "por dia com carta de garantia certificada, reserva turística ou documento semelhante"),
+    "a day for stays of up to 30 days (longer stays: a fixed sum plus a monthly amount)": (
+        "al día para estancias de hasta 30 días (más largas: una suma fija más un importe mensual)", "por dia para estadias de até 30 dias (mais longas: um valor fixo mais um valor mensal)"),
+    "a day without proof of accommodation": ("al día sin justificante de alojamiento", "por dia sem comprovante de hospedagem"),
+    "a day for the nights covered by a hotel booking": ("al día por las noches con reserva de hotel", "por dia pelas noites com reserva de hotel"),
+    "a day with proof of accommodation": ("al día con justificante de alojamiento", "por dia com comprovante de hospedagem"),
+    "a day for minors": ("al día para menores", "por dia para menores"),
+    "for a stay of up to 5 days": ("por una estancia de hasta 5 días", "por uma estadia de até 5 dias"),
+    "for each entry": ("por cada entrada", "por cada entrada"),
+    "fixed sum for a stay of 1 to 5 days": ("suma fija por una estancia de 1 a 5 días", "valor fixo para uma estadia de 1 a 5 dias"),
+    "at least, for stays of more than 30 days (the minimum monthly wage)": (
+        "como mínimo, para estancias de más de 30 días (el salario mínimo mensual)", "no mínimo, para estadias de mais de 30 dias (o salário mínimo mensal)"),
+    "a day with hosted or pre-paid accommodation": ("al día con alojamiento en casa de alguien o ya pagado", "por dia com hospedagem na casa de alguém ou já paga"),
+    "at least, per person a day, if more than one traveller": ("como mínimo, por persona y día, si viaja más de una persona", "no mínimo, por pessoa e por dia, se viajar mais de uma pessoa"),
+    "for a stay of up to 4 days": ("por una estancia de hasta 4 días", "por uma estadia de até 4 dias"),
+    "a day for stays of more than 4 days": ("al día para estancias de más de 4 días", "por dia para estadias de mais de 4 dias"),
+    "for each day in Portugal": ("por cada día en Portugal", "por cada dia em Portugal"),
+    "at least, for the whole stay": ("como mínimo, por toda la estancia", "no mínimo, pela estadia inteira"),
+    "a day for minors travelling with their parents": ("al día para menores que viajan con sus padres", "por dia para menores que viajam com os pais"),
+    "a day (10% of the gross minimum wage)": ("al día (10% del salario mínimo bruto)", "por dia (10% do salário mínimo bruto)"),
+    "at least, in total (90% of the gross minimum wage)": ("como mínimo, en total (90% del salario mínimo bruto)", "no mínimo, no total (90% do salário mínimo bruto)"),
+    "a day for students": ("al día para estudiantes", "por dia para estudantes"),
+}
+# Regole del calcolatore per Stato: indici negli "importi" dello Stato in schengen_residenti.json (a = al giorno, m = minimo, e = per ingresso,
+# f = somma fissa), n = soglia di giorni scritta nel frammento ufficiale (controllo: "<n> days" deve comparire nel frammento), aparte = importi
+# mostrati ma non combinati (la tabella non dice come si sommano). Nessuna variante = "on a case-by-case basis": nessuna cifra.
+REGOLE_EE = {
+    "Austria": [], "Finland": [],
+    "Belgium": [{"id": "particular", "t": "dia", "a": 0}, {"id": "hotel", "t": "dia", "a": 1}],
+    "Bulgaria": [{"id": "std", "t": "dia", "a": 0, "aparte": [1]}],
+    "Croatia": [{"id": "std", "t": "dia", "a": 0}, {"id": "garantia", "t": "dia", "a": 1}],
+    "Czech Republic": [{"id": "std", "t": "dia_hasta", "a": 0, "n": 30}],
+    "Denmark": [{"id": "std", "t": "dia", "a": 0}], "Estonia": [{"id": "std", "t": "dia", "a": 0}],
+    "France": [{"id": "sin", "t": "dia", "a": 0}, {"id": "hotel", "t": "dia", "a": 1}, {"id": "alojamiento", "t": "dia", "a": 2}],
+    "Germany": [{"id": "std", "t": "dia", "a": 0}],
+    "Greece": [{"id": "std", "t": "fijo_hasta", "f": 2, "n": 5, "a": 0}, {"id": "menor", "t": "dia", "a": 1}],
+    "Hungary": [{"id": "std", "t": "dia", "a": 0}],
+    "Iceland": [{"id": "std", "t": "dia", "a": 0, "aparte": [1]}],
+    "Italy": [{"id": "std", "t": "fijo_hasta_solo", "f": 0, "n": 5}],
+    "Latvia": [{"id": "std", "t": "dia_min_desde", "a": 0, "m": 1, "n": 30}],
+    "Lithuania": [{"id": "std", "t": "dia", "a": 0}], "Luxembourg": [{"id": "std", "t": "dia", "a": 0}], "Malta": [{"id": "std", "t": "dia", "a": 0}],
+    "Netherlands": [{"id": "std", "t": "dia", "a": 0}],
+    "Norway": [{"id": "alojamiento", "t": "dia", "a": 0, "solo1": True, "aparte": [2]}, {"id": "sin", "t": "dia", "a": 1, "solo1": True, "aparte": [2]}],
+    "Poland": [{"id": "std", "t": "fijo_hasta", "f": 0, "n": 4, "a": 1}],
+    "Portugal": [{"id": "std", "t": "entrada_dia", "e": 0, "a": 1}],
+    "Romania": [{"id": "std", "t": "dia_min", "a": 0, "m": 1}],
+    "Slovakia": [{"id": "std", "t": "dia", "a": 0}],
+    "Slovenia": [{"id": "std", "t": "dia", "a": 0}, {"id": "menor", "t": "dia", "a": 1}],
+    "Spain": [{"id": "std", "t": "dia_min", "a": 0, "m": 1}],
+    "Sweden": [{"id": "std", "t": "dia", "a": 0}],
+    "Switzerland": [{"id": "std", "t": "dia", "a": 0}, {"id": "estudiante", "t": "dia", "a": 1}],
+}
+NOMI_VAR_EE = {  # nome breve della variante nel menu del calcolatore (solo Stati con più di una variante)
+    ("Belgium", "particular"): ("En casa de un particular", "Na casa de um particular"), ("Belgium", "hotel"): ("En un hotel", "Em hotel"),
+    ("Croatia", "std"): ("Sin carta de garantía ni reserva", "Sem carta de garantia nem reserva"),
+    ("Croatia", "garantia"): ("Con carta de garantía o reserva turística", "Com carta de garantia ou reserva turística"),
+    ("France", "sin"): ("Sin justificante de alojamiento", "Sem comprovante de hospedagem"), ("France", "hotel"): ("Con reserva de hotel", "Com reserva de hotel"),
+    ("France", "alojamiento"): ("Con justificante de alojamiento (en casa de alguien)", "Com comprovante de hospedagem (na casa de alguém)"),
+    ("Greece", "std"): ("Adultos", "Adultos"), ("Greece", "menor"): ("Menores", "Menores"),
+    ("Norway", "alojamiento"): ("Con alojamiento en casa de alguien o ya pagado", "Com hospedagem na casa de alguém ou já paga"),
+    ("Norway", "sin"): ("Sin justificante de alojamiento", "Sem comprovante de hospedagem"),
+    ("Slovenia", "std"): ("Adultos", "Adultos"), ("Slovenia", "menor"): ("Menores que viajan con sus padres", "Menores que viajam com os pais"),
+    ("Switzerland", "std"): ("Adultos", "Adultos"), ("Switzerland", "estudiante"): ("Estudiantes", "Estudantes"),
+}
+I_L = {"es": 0, "pt": 1}
+
+
+def data_ee(iso, l):
+    d = date.fromisoformat(iso)
+    return f"{d.day} de {MESI_EE[l][d.month - 1]} de {d.year}"
+
+
+def num_ee(x, dec=2):
+    """1234.5 -> '1.234,50'; gli interi senza ',00' (come nel JS)."""
+    if dec == 0:
+        t = f"{int(math.floor(x + 0.5 + 1e-9)):,}"
+    else:
+        t = f"{r2(x):,.2f}"
+        if t.endswith(".00"):
+            t = t[:-3]
+    return t.replace(",", "\u0001").replace(".", ",").replace("\u0001", ".")
+
+
+def soldi_ee(x, val, l):
+    t = num_ee(x, VALUTE.get(val, ("", 2))[1])
+    if val == "EUR":
+        return f"{t} €" if l == "es" else f"€ {t}"
+    if val in SIMBOLI_EE:
+        return SIMBOLI_EE[val].replace(" ", " ") + t
+    return f"{t} {val}"
+
+
+def nome_ee(s, l):
+    return NOMI_EE[s][I_L[l]]
+
+
+def nome_paese_ee(P, l):
+    """Nome del Paese latinoamericano nella lingua della pagina (NOMI_PAESI_EE quando differisce dall'allegato)."""
+    return NOMI_PAESI_EE.get(P["id"], {}).get(l, P[l])
+
+
+def etichetta_ee(et, l):
+    return ETICHETTE_EE[et][I_L[l]]
+
+
+def regole_ee(s):
+    """Varianti del calcolatore dello Stato con i numeri presi da schengen_residenti.json (nessuna cifra scritta a mano)."""
+    imp = RIF_SR[s]["importi"]
+    out = []
+    for R in REGOLE_EE[s]:
+        v = {"id": R["id"], "t": R["t"], "val": imp[R.get("a", R.get("f", 0))][1]}
+        for k in ("a", "m", "e", "f"):
+            if k in R:
+                v[k] = imp[R[k]][0]
+                if imp[R[k]][1] != v["val"]:
+                    raise SystemExit(f"entrar_europa: valute diverse nella stessa regola ({s})")
+        if "n" in R:
+            v["n"] = R["n"]
+        if R.get("solo1"):
+            v["solo1"] = True
+        v["lab"] = imp[R.get("a", R.get("f", 0))][2]
+        v["aparte"] = [imp[i] for i in R.get("aparte", [])]
+        out.append(v)
+    return out
+
+
+def limita_ee(x, a, b, predefinito):
+    """Come parseInt del JS: le cifre iniziali ('7.9' -> 7); niente cifre -> valore predefinito; poi entro [a, b]."""
+    m = re.match(r"\s*([-+]?\d+)", str(x)) if not isinstance(x, (int, float)) else None
+    if isinstance(x, (int, float)):
+        x = int(x)
+    elif m:
+        x = int(m.group(1))
+    else:
+        return predefinito
+    return min(b, max(a, x))
+
+
+def calcola_ee(v, dias, personas):
+    """Importe mínimo (por persona × personas) en la moneda de la tabla, o None si la tabla no da una cifra para ese caso. Igual que EE_JS."""
+    d = limita_ee(dias, 1, GIORNI_MAX_EE, 15)
+    p = limita_ee(personas, 1, PERSONE_MAX_EE, 1)
+    t = v["t"]
+    x = None
+    if t == "dia":
+        x = v["a"] * d
+    elif t == "dia_min":
+        x = max(v["a"] * d, v["m"])
+    elif t == "dia_min_desde":
+        x = max(v["a"] * d, v["m"]) if d > v["n"] else v["a"] * d
+    elif t == "entrada_dia":
+        x = v["e"] + v["a"] * d
+    elif t == "fijo_hasta":
+        x = v["f"] if d <= v["n"] else v["a"] * d
+    elif t == "fijo_hasta_solo":
+        x = v["f"] if d <= v["n"] else None
+    elif t == "dia_hasta":
+        x = v["a"] * d if d <= v["n"] else None
+    if x is None or (v.get("solo1") and p > 1):
+        return None
+    return r2(x * p)
+
+
+def in_eur_ee(x, val):
+    return x if val == "EUR" else r2(x / CAMBI["tassi"][val])
+
+
+def conv_ee(eur, a):
+    return eur if a == "EUR" else r2(eur * CAMBI["tassi"][a])
+
+
+def importi_testo_ee(s, l, sep=None):
+    """'122,10 € al día (10% del salario mínimo bruto); 1.098,90 € como mínimo, en total (…)' dagli importi del JSON."""
+    voci = [f"{soldi_ee(x, v, l)} {etichetta_ee(et, l)}" for x, v, et in RIF_SR[s]["importi"]]
+    if not voci:
+        return ""
+    return (sep or "; ").join(voci)
+
+
+def eur_nota_ee(s, l):
+    """Per le valute non euro: '(1 € = 0,9327 CHF, BCE del 30 de octubre de 2026)'."""
+    vals = sorted({v for _, v, _ in RIF_SR[s]["importi"] if v != "EUR"})
+    if not vals:
+        return ""
+    v = vals[0]
+    t = f"{CAMBI['tassi'][v]:.4f}".replace(".", ",")
+    return (f"1 € = {t} {v}, tipo de referencia del BCE del {data_ee(CAMBI['data'], l)}" if l == "es"
+            else f"€ 1 = {t} {v}, taxa de referência do BCE de {data_ee(CAMBI['data'], l)}")
+
+
+def nota_stato_ee(s, l):
+    """Nota sotto il risultato del calcolatore e nella scheda dello Stato (cifre dal JSON)."""
+    es = l == "es"
+    regs = regole_ee(s)
+    n = nome_ee(s, l)
+    parti = []
+    if not regs:
+        nota = RIF_SR[s].get("nota")
+        parti.append((f"{n} no fija un importe diario: la tabla de la Comisión dice «on a case-by-case basis» (caso por caso)." if es else
+                      f"A {n} não fixa um valor diário: a tabela da Comissão diz “on a case-by-case basis” (caso a caso).")
+                     + (f" Al lado figura «EUR 50» con la observación de que se suma al dinero o los billetes para salir y al alojamiento." if es and nota else
+                        f" Ao lado aparece “EUR 50”, com a observação de que se soma ao dinheiro ou às passagens para sair e à hospedagem." if nota else ""))
+    for v in regs:
+        if v["t"] == "fijo_hasta_solo":
+            parti.append(f"La tabla solo da la cifra para estancias de 1 a {v['n']} días; para estancias más largas no publica un importe." if es else
+                         f"A tabela só traz o valor para estadias de 1 a {v['n']} dias; para estadias mais longas não publica um valor.")
+        if v["t"] == "dia_hasta":
+            parti.append(f"La cifra diaria vale hasta {v['n']} días; para estancias más largas la tabla indica una suma fija más un importe por cada mes." if es else
+                         f"O valor diário vale até {v['n']} dias; para estadias mais longas a tabela indica um valor fixo mais um valor por mês.")
+        for x, val, et in v["aparte"]:
+            frase = (f"La tabla indica además {soldi_ee(x, val, l)} {etichetta_ee(et, l)} y no dice cómo se combina con la cifra diaria: la calculadora no lo suma." if es else
+                     f"A tabela indica também {soldi_ee(x, val, l)} {etichetta_ee(et, l)} e não diz como isso se combina com o valor diário: a calculadora não soma.")
+            if frase not in parti:
+                parti.append(frase)
+        if v.get("solo1"):
+            frase = ("Si viaja más de una persona, la tabla pide como mínimo esa cifra por persona y día: la calculadora solo calcula para una persona." if es else
+                     "Se viajar mais de uma pessoa, a tabela pede no mínimo esse valor por pessoa e por dia: a calculadora só calcula para uma pessoa.")
+            if frase not in parti:
+                parti.append(frase)
+    if s == "France":  # osservazione della tabella (rif_francia in entrar_europa.json): importi dagli "importi" della Francia
+        imp = RIF_SR[s]["importi"]
+        h, senza = soldi_ee(imp[1][0], imp[1][1], l), soldi_ee(imp[0][0], imp[0][1], l)
+        parti.append(f"Si tienes hotel solo para parte del viaje, la tabla pide {h} por los días con reserva y {senza} por el resto." if es else
+                     f"Se você tiver hotel só para parte da viagem, a tabela pede {h} pelos dias com reserva e {senza} pelo resto.")
+    if s == "Spain":
+        parti.append(f"Es la regla de la Orden PRE/1282/2007: el 10% del salario mínimo por día y por persona, y como mínimo el 90% por persona aunque te quedes menos días." if es else
+                     f"É a regra da Orden PRE/1282/2007 espanhola: 10% do salário mínimo por dia e por pessoa e, no mínimo, 90% por pessoa mesmo que você fique menos dias.")
+    if s == "Portugal":
+        imp = RIF_SR[s]["importi"]
+        e, a = soldi_ee(imp[0][0], imp[0][1], l), soldi_ee(imp[1][0], imp[1][1], l)
+        parti.append(f"Se suman los dos importes: {e} por cada entrada más {a} por cada día." if es else f"Os dois valores se somam: {e} por cada entrada mais {a} por cada dia.")
+    return " ".join(p for p in parti if p)
+
+
+def k_ee(l):
+    """Dati del calcolatore per il browser (numeri da schengen_residenti.json e cambi BCE)."""
+    stati = {}
+    for s in STATI_EE:
+        regs = regole_ee(s)
+        stati[s] = {"nome": nome_ee(s, l), "var": [{**{k: v[k] for k in ("id", "t", "val", "a", "m", "e", "f", "n", "solo1") if k in v},
+                                                    "nv": (NOMI_VAR_EE.get((s, v["id"]), ("", ""))[I_L[l]] if len(regs) > 1 else "")} for v in regs],
+                    "nota": nota_stato_ee(s, l)}
+    return {"stati": stati, "tassi": {**{v: CAMBI["tassi"][v] for v in sorted({x[1] for s in STATI_EE for x in RIF_SR[s]["importi"]} - {"EUR"})},
+                                      **{v: CAMBI["tassi"][v] for v in VALUTE_EE[l] if v != "EUR"}},
+            "valute": VALUTE_EE[l], "l": l, "max": [GIORNI_MAX_EE, PERSONE_MAX_EE], "data_cambi": data_ee(CAMBI["data"], l)}
+
+
+EE_JS = r"""
+(function(){
+function r2(x){return Math.floor(x*100+0.5+1e-9)/100;}
+function lim(x,a,b,d){x=parseInt(x,10);if(isNaN(x))return d;return Math.min(b,Math.max(a,x));}
+var C={calc:function(v,dias,personas){var d=lim(dias,1,90,15),p=lim(personas,1,10,1),t=v.t,x=null;
+ if(t==='dia')x=v.a*d;else if(t==='dia_min')x=Math.max(v.a*d,v.m);else if(t==='dia_min_desde')x=d>v.n?Math.max(v.a*d,v.m):v.a*d;
+ else if(t==='entrada_dia')x=v.e+v.a*d;else if(t==='fijo_hasta')x=d<=v.n?v.f:v.a*d;else if(t==='fijo_hasta_solo')x=d<=v.n?v.f:null;
+ else if(t==='dia_hasta')x=d<=v.n?v.a*d:null;
+ if(x===null||(v.solo1&&p>1))return null;return r2(x*p);},
+ eur:function(x,val,k){return val==='EUR'?x:r2(x/k.tassi[val]);},
+ conv:function(e,a,k){return a==='EUR'?e:r2(e*k.tassi[a]);}};
+window.CALC_EE=C;
+var SIM={USD:'US$ ',MXN:'MX$ ',BRL:'R$ '},DEC0={ISK:1};
+function num(x,dec){var s;if(dec===0)s=String(Math.floor(x+0.5+1e-9));else{s=r2(x).toFixed(2);if(s.slice(-3)==='.00')s=s.slice(0,-3);}
+ var p=s.split('.');p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,'\u0001');return (p[0]+(p.length>1?','+p[1]:'')).replace(/\u0001/g,'.');}
+function fmt(x,v,l){var t=num(x,DEC0[v]?0:2);if(v==='EUR')return l==='es'?t+' €':'€ '+t;if(SIM[v])return SIM[v]+t;return t+' '+v;}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+var TX={es:{dias:' días',dia:' día',pers:' personas',per:' persona',min:'con un mínimo de ',ent:' por entrada + ',fijo:'suma fija de ',hasta:'hasta ',lab:'Mínimo para mostrar',
+ nada:'Sin cifra para este caso',calc:'Cálculo: ',eq:'≈ ',cambio:'Tipos de referencia del BCE del ',fuente:'La policía de fronteras decide: es la cifra mínima de la tabla oficial, no un presupuesto de viaje.'},
+ pt:{dias:' dias',dia:' dia',pers:' pessoas',per:' pessoa',min:'com mínimo de ',ent:' por entrada + ',fijo:'valor fixo de ',hasta:'até ',lab:'Mínimo para mostrar',
+ nada:'Sem valor para este caso',calc:'Cálculo: ',eq:'≈ ',cambio:'Taxas de referência do BCE de ',fuente:'A polícia de fronteiras decide: é o valor mínimo da tabela oficial, não um orçamento de viagem.'}};
+function formula(v,d,p,l){var T=TX[l],A=fmt(v.a,v.val,l),dd=d+(d===1?T.dia:T.dias),s='';var t=v.t;
+ if(t==='dia'||t==='dia_hasta')s=A+' × '+dd;else if(t==='dia_min')s=A+' × '+dd+', '+T.min+fmt(v.m,v.val,l);
+ else if(t==='dia_min_desde')s=A+' × '+dd+(d>v.n?', '+T.min+fmt(v.m,v.val,l):'');else if(t==='entrada_dia')s=fmt(v.e,v.val,l)+T.ent+A+' × '+dd;
+ else if(t==='fijo_hasta')s=d<=v.n?T.fijo+fmt(v.f,v.val,l)+' ('+T.hasta+v.n+T.dias+')':A+' × '+dd;else if(t==='fijo_hasta_solo')s=T.fijo+fmt(v.f,v.val,l)+' (1–'+v.n+T.dias+')';
+ if(p>1)s+=' × '+p+T.pers;return s;}
+document.querySelectorAll('[data-ee]').forEach(function(box){var k=JSON.parse(box.getAttribute('data-k'));var l=k.l,T=TX[l];var f=box.querySelector('form');var out=box.querySelector('[data-out]');
+ var selS=f.stato,selV=f.variante,lv=box.querySelector('[data-campo=variante]');
+ function vars(){var S=k.stati[selS.value];selV.innerHTML='';S.var.forEach(function(v,i){var o=document.createElement('option');o.value=i;o.textContent=v.nv||'';selV.appendChild(o);});
+  lv.hidden=S.var.length<2;}
+ function go(){try{var S=k.stati[selS.value];var d=lim(f.dias.value,1,k.max[0],15),p=lim(f.personas.value,1,k.max[1],1),c=f.valuta.value;
+  var h='<p class="r-lab">'+T.lab+' · '+esc(S.nome)+' · '+d+(d===1?T.dia:T.dias)+' · '+p+(p===1?T.per:T.pers)+'</p>';
+  var v=S.var[+selV.value||0];var x=v?C.calc(v,d,p):null;
+  if(x===null){h+='<p class="tot" style="font-size:1.5rem">'+T.nada+'</p>';}
+  else{h+='<p class="tot">'+fmt(x,v.val,l)+'</p>';var e=C.eur(x,v.val,k);if(v.val!=='EUR')h+='<p class="r-anno">'+T.eq+fmt(e,'EUR',l)+'</p>';
+   if(c!=='EUR'&&c!==v.val)h+='<p class="conv">'+T.eq+fmt(C.conv(e,c,k),c,l)+'</p>';
+   h+='<p class="small" style="margin-top:10px">'+T.calc+formula(v,d,p,l)+'.</p>';}
+  if(S.nota)h+='<p class="small">'+esc(S.nota)+'</p>';
+  h+='<p class="small">'+T.fuente+(v&&(v.val!=='EUR'||c!=='EUR')?' '+T.cambio+k.data_cambi+'.':'')+'</p>';out.innerHTML=h;}catch(err){out.innerHTML='';}}
+ selS.addEventListener('change',function(){vars();go();});f.addEventListener('input',go);f.addEventListener('change',go);f.addEventListener('submit',function(e){e.preventDefault();go();});
+ vars();go();});
+})();
+"""
+
+CSS_EE = (
+    ".lingue{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font-size:.9rem;margin:10px 0 0;color:var(--ink-3)}"
+    ".lingue a,.lingue strong{padding:2px 10px;border:1px solid var(--line-2);border-radius:999px;text-decoration:none;color:var(--ink-2)}"
+    ".lingue strong{background:var(--ink);color:var(--paper);border-color:var(--ink)}"
+    ".cita{border-left:3px solid var(--gold);padding:4px 0 4px 14px;margin:10px 0;color:var(--ink-2);font-size:.95rem}"
+    ".cita q{quotes:'«' '»'}.orig{display:block;font-size:.8rem;color:var(--ink-3);margin-top:2px}"
+    ".tab.ee td{vertical-align:top}.tab.ee td.n{white-space:nowrap}"
+    ".si-v{color:var(--no);font-weight:700}.no-v{color:var(--ok);font-weight:700}")
+
+LINGUE_EE = {
+    "es": {"sez": "es/", "inizio": "Inicio", "briciole": "Ruta de navegación", "salta": "Saltar al contenido", "menu_l": "Menú", "apri": "Abrir el menú",
+           "og_locale": '\n<meta property="og:locale" content="es_ES">', "og_alt": f"{NOME}: cuánto dinero necesitas para entrar a Europa",
+           "menu": [("es/", "Cuánto dinero"), ("es/requisitos-para-entrar-a-europa/", "Requisitos"), ("es/carta-de-invitacion-espana/", "Carta de invitación"),
+                    ("es/seguro-de-viaje-obligatorio-europa/", "Seguro"), ("es/etias/", "ETIAS"), ("", "English")],
+           "nome": "Español"},
+    "pt": {"sez": "pt/", "inizio": "Início", "briciole": "Caminho de navegação", "salta": "Pular para o conteúdo", "menu_l": "Menu", "apri": "Abrir o menu",
+           "og_locale": '\n<meta property="og:locale" content="pt_BR">', "og_alt": f"{NOME}: quanto dinheiro você precisa para entrar na Europa",
+           "menu": [("pt/", "Quanto dinheiro"), ("pt/requisitos-para-entrar-na-europa/", "Requisitos"), ("pt/carta-convite-espanha/", "Carta-convite"),
+                    ("pt/seguro-viagem-obrigatorio-europa/", "Seguro"), ("pt/etias/", "ETIAS"), ("", "English")],
+           "nome": "Português"},
+}
+SLUG_EE = {
+    "es": {"hub": "", "requisitos": "requisitos-para-entrar-a-europa/", "carta": "carta-de-invitacion-espana/", "seguro": "seguro-de-viaje-obligatorio-europa/",
+           "etias": "etias/", "Spain": "cuanto-dinero-para-entrar-a-espana/", "Italy": "cuanto-dinero-para-entrar-a-italia/",
+           "France": "cuanto-dinero-para-entrar-a-francia/", "Germany": "cuanto-dinero-para-entrar-a-alemania/",
+           "Switzerland": "cuanto-dinero-para-entrar-a-suiza/", "Portugal": "cuanto-dinero-para-entrar-a-portugal/"},
+    "pt": {"hub": "", "requisitos": "requisitos-para-entrar-na-europa/", "carta": "carta-convite-espanha/", "seguro": "seguro-viagem-obrigatorio-europa/",
+           "etias": "etias/", "Spain": "quanto-dinheiro-para-entrar-na-espanha/", "Italy": "quanto-dinheiro-para-entrar-na-italia/",
+           "France": "quanto-dinheiro-para-entrar-na-franca/", "Germany": "quanto-dinheiro-para-entrar-na-alemanha/",
+           "Switzerland": "quanto-dinheiro-para-entrar-na-suica/", "Portugal": "quanto-dinheiro-para-entrar-em-portugal/"},
+}
+ALTRI_SITI_EE = {
+    "es": [(u, n, d) for (u, n, _), d in zip(ALTRI_SITI, ["Huelgas de transporte en Italia hoy y mañana, del registro oficial (en inglés)",
+                                                         "Tasa turística por noche en más de 200 destinos europeos (en inglés)",
+                                                         "Validez del pasaporte, líquidos en el aeropuerto, equipaje de mano (en inglés)"])],
+    "pt": [(u, n, d) for (u, n, _), d in zip(ALTRI_SITI, ["Greves de transporte na Itália hoje e amanhã, do registro oficial (em inglês)",
+                                                         "Taxa turística por noite em mais de 200 destinos europeus (em inglês)",
+                                                         "Validade do passaporte, líquidos no aeroporto, bagagem de mão (em inglês)"])],
+}
+TITOLO_ALTRI_EE = {"es": "Otras herramientas útiles para tu viaje", "pt": "Outras ferramentas úteis para a sua viagem"}
+
+
+def perc_ee(l, chiave):
+    return LINGUE_EE[l]["sez"] + SLUG_EE[l][chiave]
+
+
+def altro_ee(l):
+    return "pt" if l == "es" else "es"
+
+
+def alternati_ee(chiave):
+    return {l: perc_ee(l, chiave) for l in ("es", "pt")}
+
+
+def piede_ee(l, rel):
+    es = l == "es"
+    titoli = {"es": [("hub", "Cuánto dinero necesito para entrar a Europa"), ("Spain", "Cuánto dinero para entrar a España"), ("Italy", "… a Italia"),
+                     ("France", "… a Francia"), ("Germany", "… a Alemania"), ("Switzerland", "… a Suiza"), ("Portugal", "… a Portugal"),
+                     ("requisitos", "Requisitos para entrar a Europa"), ("carta", "Carta de invitación para España"),
+                     ("seguro", "¿Es obligatorio el seguro de viaje?"), ("etias", "ETIAS: estado actual")],
+              "pt": [("hub", "Quanto dinheiro preciso para entrar na Europa"), ("Portugal", "Quanto dinheiro para entrar em Portugal"), ("Spain", "… na Espanha"),
+                     ("Italy", "… na Itália"), ("France", "… na França"), ("Germany", "… na Alemanha"), ("Switzerland", "… na Suíça"),
+                     ("requisitos", "Requisitos para entrar na Europa"), ("carta", "Carta-convite para a Espanha"),
+                     ("seguro", "Seguro viagem é obrigatório?"), ("etias", "ETIAS: situação atual")]}[l]
+    voci = "".join(f'<li><a href="{rel}{perc_ee(l, k)}">{escape(t)}</a></li>' for k, t in titoli)
+    voci += (f'<li><a href="{rel}{perc_ee(altro_ee(l), "hub")}" lang="{altro_ee(l)}" hreflang="{altro_ee(l)}">{"Em português" if es else "En español"}</a></li>'
+             f'<li><a href="{rel}" lang="en" hreflang="en">{"English: visa income calculator" if es else "English: visa income calculator"}</a></li>'
+             f'<li><a href="{rel}how-it-works/">{"Cómo trabajamos (en inglés)" if es else "Como trabalhamos (em inglês)"}</a></li>'
+             f'<li><a href="{rel}privacy.html">{"Privacidad (en inglés)" if es else "Privacidade (em inglês)"}</a></li>'
+             f'<li><a href="{rel}contact/">{"Contacto (en inglés)" if es else "Contato (em inglês)"}</a></li>')
+    testo = (f'<p><strong>{NOME}</strong> es un sitio independiente, sin relación con ningún gobierno, consulado ni autoridad de fronteras. Cada cifra viene de una fuente '
+             'oficial (Comisión Europea, Diario Oficial de la Unión Europea, BOE) enlazada junto a la cifra, con la fecha en que la leímos. '
+             '<strong>Las normas cambian y la policía de fronteras decide: consulta siempre la fuente oficial.</strong> Nada de lo que publicamos es asesoramiento legal ni migratorio.</p>'
+             '<p>Tipos de cambio: tipos de referencia del euro del Banco Central Europeo (fuente: BCE), solo a título informativo.</p>') if es else (
+             f'<p><strong>{NOME}</strong> é um site independente, sem ligação com nenhum governo, consulado ou autoridade de fronteira. Cada valor vem de uma fonte '
+             'oficial (Comissão Europeia, Jornal Oficial da União Europeia, BOE espanhol) com link ao lado do valor e a data em que a lemos. '
+             '<strong>As regras mudam e a polícia de fronteiras decide: confira sempre a fonte oficial.</strong> Nada do que publicamos é orientação jurídica ou migratória.</p>'
+             '<p>Câmbio: taxas de referência do euro do Banco Central Europeu (fonte: BCE), apenas para informação.</p>')
+    return f"""<footer><div class="wrap">
+<div class="f-grid"><div>
+<a class="logo" href="{rel}{LINGUE_EE[l]["sez"]}">{MARCHIO}<span>Visa Income <b>Checker</b></span></a>
+{testo}
+</div><div>
+<h2>{"En español" if es else "Em português"}</h2>
+<ul>{voci}</ul>
+</div></div>
+{blocco_altri(ALTRI_SITI_EE[l], TITOLO_ALTRI_EE[l])}
+<p class="f-base">{"Solo fuentes oficiales · la calculadora funciona en tu navegador · los enlaces marcados como «Afiliado» pueden darnos una comisión." if es else "Só fontes oficiais · a calculadora funciona no seu navegador · links marcados como “Afiliado” podem nos render uma comissão."}</p>
+</div></footer>"""
+
+
+def lingue_ee(l, chiave, rel):
+    """Selettore di lingua: la pagina equivalente nell'altra lingua e la home inglese."""
+    o = altro_ee(l)
+    return (f'<nav class="lingue" aria-label="{"Idioma" if l == "es" else "Idioma"}"><span>{"Idioma" if l == "es" else "Idioma"}:</span>'
+            f'<strong lang="{l}" aria-current="true">{LINGUE_EE[l]["nome"]}</strong>'
+            f'<a href="{rel}{perc_ee(o, chiave)}" lang="{o}" hreflang="{o}">{LINGUE_EE[o]["nome"]}</a>'
+            f'<a href="{rel}" lang="en" hreflang="en">English</a></nav>')
+
+
+def avviso_ee(l):
+    if l == "es":
+        return ('<p class="avviso"><strong>No es asesoramiento legal ni migratorio.</strong> Son los importes mínimos que cada país comunicó a la Comisión Europea y las '
+                'normas oficiales en la fecha en que las leímos. Tener ese dinero no garantiza la entrada: <strong>la policía de fronteras decide</strong> y puede '
+                'pedirte otros documentos. Consulta siempre la fuente oficial antes de viajar.</p>')
+    return ('<p class="avviso"><strong>Não é orientação jurídica nem migratória.</strong> São os valores mínimos que cada país comunicou à Comissão Europeia e as '
+            'regras oficiais na data em que as lemos. Ter esse dinheiro não garante a entrada: <strong>a polícia de fronteiras decide</strong> e pode pedir '
+            'outros documentos. Confira sempre a fonte oficial antes de viajar.</p>')
+
+
+def fonte_rif_ee(l, extra=""):
+    t = (f'Fuente: Comisión Europea, <a href="{escape(URL_RIF_EE)}" rel="noopener">tabla de importes de referencia para cruzar la frontera exterior</a> '
+         f'(documento del {data_ee(DATA_RIF_EE, l)}, leído el {data_ee(LETTO_RIF_EE, l)}).') if l == "es" else (
+         f'Fonte: Comissão Europeia, <a href="{escape(URL_RIF_EE)}" rel="noopener">tabela dos montantes de referência para passar a fronteira externa</a> '
+         f'(documento de {data_ee(DATA_RIF_EE, l)}, lido em {data_ee(LETTO_RIF_EE, l)}).')
+    return f'<p class="fonte">{t}{(" " + extra) if extra else ""}</p>'
+
+
+def link_fonte_ee(k, l, testo=None):
+    F = F_EE[k]
+    return f'<a href="{escape(F["pubblico"])}" rel="noopener">{escape(testo or F["titolo"])}</a>'
+
+
+def fonte_ee(chiavi, l, extra=""):
+    parti = [f'{link_fonte_ee(k, l)} ({"leído el" if l == "es" else "lido em"} {data_ee(F_EE[k]["letto_il"], l)})' for k in chiavi]
+    return f'<p class="fonte">{"Fuente" if l == "es" else "Fonte"}: {"; ".join(parti)}.{(" " + extra) if extra else ""}</p>'
+
+
+def cita_ee(k, orig=False):
+    """Citazione letterale di un frammento ufficiale (il controllo 27 verifica che sia uguale al JSON)."""
+    return f'<q>{escape(LE[k]["frammento"])}</q>'
+
+
+def calc_ee(l, stato="Spain", valuta=None, rel=""):
+    es = l == "es"
+    k = k_ee(l)
+    valuta = valuta or ("USD" if es else "BRL")
+    opz_s = "".join(f'<option value="{escape(s)}"{" selected" if s == stato else ""}>{escape(nome_ee(s, l))}</option>'
+                    for s in sorted(STATI_EE, key=lambda s: nome_ee(s, l).replace("Á", "A")))
+    nomi_v = {"EUR": ("euros", "euros"), "USD": ("dólares (US$)", "dólares (US$)"), "MXN": ("pesos mexicanos", "pesos mexicanos"), "BRL": ("reales (R$)", "reais (R$)")}
+    opz_v = "".join(f'<option value="{v}"{" selected" if v == valuta else ""}>{nomi_v[v][I_L[l]]}</option>' for v in VALUTE_EE[l])
+    campi = (f'<label class="pieno"><span class="lt">{ico("globe")}{"País de entrada" if es else "País de entrada"}</span><select name="stato">{opz_s}</select></label>'
+             f'<label class="pieno" data-campo="variante"><span class="lt">{ico("list")}{"Alojamiento o categoría" if es else "Hospedagem ou categoria"}</span><select name="variante"></select></label>'
+             f'<label><span class="lt">{ico("calendar")}{"Días de estancia" if es else "Dias de estadia"}</span><input type="number" name="dias" min="1" max="{GIORNI_MAX_EE}" value="15" inputmode="numeric"></label>'
+             f'<label><span class="lt">{ico("user")}{"Personas" if es else "Pessoas"}</span><input type="number" name="personas" min="1" max="{PERSONE_MAX_EE}" value="1" inputmode="numeric"></label>'
+             f'<label class="pieno"><span class="lt">{ico("exchange")}{"Ver también en" if es else "Ver também em"}</span><select name="valuta">{opz_v}</select></label>')
+    nota = (f'Importes mínimos por persona de la tabla de la Comisión Europea del {data_ee(DATA_RIF_EE, l)}; las conversiones usan los tipos del BCE del '
+            f'{data_ee(CAMBI["data"], l)}. Estancias de hasta {GIORNI_MAX_EE} días. Lo que escribes no sale de tu navegador.') if es else (
+            f'Valores mínimos por pessoa da tabela da Comissão Europeia de {data_ee(DATA_RIF_EE, l)}; as conversões usam as taxas do BCE de '
+            f'{data_ee(CAMBI["data"], l)}. Estadias de até {GIORNI_MAX_EE} dias. O que você digita não sai do seu navegador.')
+    titolo = "Calculadora: ¿cuánto dinero tengo que mostrar?" if es else "Calculadora: quanto dinheiro preciso mostrar?"
+    return (f'<section class="card calc" data-ee data-k=\'{json.dumps(k, ensure_ascii=False, separators=(",", ":")).replace(chr(39), "&#39;")}\' aria-label="{escape(titolo)}">'
+            f'<div class="calc-grid"><form autocomplete="off"><h2 style="margin:0 0 14px;font-size:1.2rem">{ico("calc")} {escape(titolo)}</h2>'
+            f'<div class="campi">{campi}</div><p class="small" style="margin:12px 0 0">{nota}</p></form>'
+            f'<div class="calc-out"><div class="risultato" data-out aria-live="polite"><noscript>{"Activa JavaScript para usar la calculadora; los importes están en la tabla." if es else "Ative o JavaScript para usar a calculadora; os valores estão na tabela."}</noscript></div></div></div></section>')
+
+
+def esempio_ee(s, l, dias, personas=1, var=0):
+    """Cifra d'esempio (stessa funzione del calcolatore): '1.831,50 €' oppure '—'."""
+    regs = regole_ee(s)
+    if not regs:
+        return "—"
+    v = regs[var]
+    x = calcola_ee(v, dias, personas)
+    if x is None:
+        return "—"
+    t = soldi_ee(x, v["val"], l)
+    if v["val"] != "EUR":
+        t += f' (≈ {soldi_ee(in_eur_ee(x, v["val"]), "EUR", l)})'
+    return t
+
+
+GIORNI_TAB_EE = [7, 15, 30]
+
+
+def tabella_stati_ee(l, rel_sez):
+    es = l == "es"
+    righe = []
+    for s in sorted(STATI_EE, key=lambda s: nome_ee(s, l).replace("Á", "A")):
+        n = nome_ee(s, l)
+        cella_n = f'<a href="{rel_sez}{SLUG_EE[l][s]}">{escape(n)}</a>' if s in PAGINE_STATO_EE else escape(n)
+        imp = importi_testo_ee(s, l, "<br>") or ("caso por caso" if es else "caso a caso")
+        orig = f'<span class="orig" lang="en">“{escape(rif_testo_sr(s))}”</span>'
+        regs = regole_ee(s)
+        # Stati con un importo che la tabella non dice come combinare (per soggiorno, per ingresso, minimo per persona): asterisco e nota sotto la tabella
+        marca = ' <abbr title="' + ("véase la nota" if es else "veja a nota") + '">*</abbr>' if regs and (regs[0]["aparte"] or regs[0].get("solo1")) else ""
+        ese = "".join(f'<td class="n" data-g="{g}">{esempio_ee(s, l, g)}{marca if esempio_ee(s, l, g) != "—" else ""}</td>' for g in GIORNI_TAB_EE)
+        righe.append(f'<tr><th scope="row">{cella_n}</th><td>{imp}{orig}</td>{ese}</tr>')
+    cab = "".join(f'<th scope="col">{g} {"días" if es else "dias"}</th>' for g in GIORNI_TAB_EE)
+    nota = ("<p class=\"small\">* Solo la cifra diaria multiplicada por los días: para estos países la tabla indica además un importe por estancia o por entrada, o un mínimo por persona si viaja más de una, y no dice cómo se combinan. La calculadora tampoco los suma: lo avisa debajo del resultado.</p>" if es else
+            "<p class=\"small\">* Só o valor diário multiplicado pelos dias: para esses países a tabela indica também um valor por estadia ou por entrada, ou um mínimo por pessoa se viajar mais de uma, e não diz como se combinam. A calculadora também não soma: ela avisa embaixo do resultado.</p>")
+    return pila(f'<div class="tab compatta ee"><table id="t-ee"><caption class="sr">{"Importe mínimo por país" if es else "Valor mínimo por país"}</caption><thead><tr>'
+                f'<th scope="col">{"País" if es else "País"}</th><th scope="col">{"Importe mínimo por persona (texto oficial debajo)" if es else "Valor mínimo por pessoa (texto oficial embaixo)"}</th>'
+                f'{cab}</tr></thead><tbody>{"".join(righe)}</tbody></table></div>') + nota
+
+
+def tabella_esempi_stato_ee(s, l):
+    es = l == "es"
+    regs = regole_ee(s)
+    giorni = [1, 5, 7, 10, 15, 20, 30, 60, 90]
+    righe = []
+    for g in giorni:
+        celle = "".join(f'<td class="n">{esempio_ee(s, l, g, 1, i)}</td>' for i in range(len(regs)))
+        celle += f'<td class="n">{esempio_ee(s, l, g, 2, 0)}</td>'
+        righe.append(f'<tr><th scope="row">{g} {"día" if g == 1 and es else "dia" if g == 1 else "días" if es else "dias"}</th>{celle}</tr>')
+    cab_v = "".join(f'<th scope="col">{escape(NOMI_VAR_EE.get((s, v["id"]), ("1 persona", "1 pessoa"))[I_L[l]] if len(regs) > 1 else ("1 persona" if es else "1 pessoa"))}'
+                    f'{" (1 persona)" if len(regs) > 1 and es else " (1 pessoa)" if len(regs) > 1 else ""}</th>' for v in regs)
+    cab_v += f'<th scope="col">{escape((NOMI_VAR_EE.get((s, regs[0]["id"]), ("", ""))[I_L[l]] + ", ") if len(regs) > 1 else "")}{"2 personas" if es else "2 pessoas"}</th>'
+    return pila(f'<div class="tab compatta ee"><table id="t-ee-dias"><caption class="sr">{"Ejemplos por días" if es else "Exemplos por dias"}</caption><thead><tr>'
+                f'<th scope="col">{"Estancia" if es else "Estadia"}</th>{cab_v}</tr></thead><tbody>{"".join(righe)}</tbody></table></div>')
+
+
+def condiciones_ee(l):
+    """Le condizioni dell'art. 6 del Codice frontiere Schengen, citate nella lingua della pagina."""
+    p = "es" if l == "es" else "pt"
+    chiavi = [("pasaporte" if p == "es" else "passaporte", "Pasaporte" if p == "es" else "Passaporte"),
+              ("pasaporte_10" if p == "es" else "passaporte_10", "Pasaporte reciente" if p == "es" else "Passaporte recente"),
+              ("visado" if p == "es" else "visto", "Visado, si tu país lo necesita" if p == "es" else "Visto, se o seu país precisar"),
+              ("objeto", "Motivo del viaje y dinero suficiente" if p == "es" else "Motivo da viagem e dinheiro suficiente"),
+              ("sis", "Sin prohibición de entrada en el SIS" if p == "es" else "Sem proibição de entrada no SIS"),
+              ("amenaza" if p == "es" else "ameaca", "No ser una amenaza" if p == "es" else "Não ser uma ameaça"),
+              ("biometria", "Datos biométricos" if p == "es" else "Dados biométricos")]
+    return "<ul class=\"testo\">" + "".join(f'<li><strong>{t}.</strong> {cita_ee(f"{p}_{k}")}.</li>' for k, t in chiavi) + "</ul>"
+
+
+def faq_ee(domande):
+    return f'<div class="testo">{faq_html(domande)}</div>'
+
+
+def pagina_ee(l, chiave, titolo, descr, corpo, domande=None, briciole=None, calcolatore=False, extra_ld=None):
+    percorso = perc_ee(l, chiave)
+    ld = ([ld_faq(domande)] if domande else []) + (extra_ld or [])
+    pagina(percorso, titolo, descr, corpo, briciole=briciole, jsonld_extra=ld, css_extra=CSS_EE, script=EE_JS if calcolatore else "",
+           lingua=l, alternati=alternati_ee(chiave))
+
+
+def titolo_ee(varianti):
+    return next((x for x in varianti if len(x) <= 70), varianti[-1])
+
+
+def griglia_stati_ee(l, rel_sez, escludi=None):
+    es = l == "es"
+    voci = []
+    for s in PAGINE_STATO_EE:
+        if s == escludi:
+            continue
+        n = nome_ee(s, l)
+        dove = f"a {n}" if es else f"{PREP_PT[s]} {n}"
+        voci.append(f'<a href="{rel_sez}{SLUG_EE[l][s]}"><span class="ic">{ico("wallet")}</span><span>{"Cuánto dinero para entrar" if es else "Quanto dinheiro para entrar"} {escape(dove)}'
+                    f'<small>{escape(cifra_titolo_ee(s, l)[0].upper() + cifra_titolo_ee(s, l)[1:])}</small></span></a>')
+    return f'<div class="griglia">{"".join(voci)}</div>'
+
+
+def link_temi_ee(l, rel_sez, escludi=None):
+    es = l == "es"
+    voci = [("hub", "Importe por país y calculadora" if es else "Valor por país e calculadora"), ("requisitos", "Requisitos para entrar a Europa" if es else "Requisitos para entrar na Europa"),
+            ("carta", "Carta de invitación para España" if es else "Carta-convite para a Espanha"), ("seguro", "Seguro de viaje: ¿obligatorio?" if es else "Seguro viagem: é obrigatório?"),
+            ("etias", "ETIAS: estado actual" if es else "ETIAS: situação atual")]
+    return '<p>' + " · ".join(f'<a href="{rel_sez}{SLUG_EE[l][k]}">{t}</a>' for k, t in voci if k != escludi) + '</p>'
+
+
+def paesi_visto_ee(l, rel_sez=""):
+    """Tabella dei Paesi dell'America Latina: visto sì/no dagli allegati del Reg. 2018/1806."""
+    es = l == "es"
+    righe = []
+    for P in sorted(PAESI_EE, key=lambda P: nome_paese_ee(P, l).replace("É", "E").replace("Á", "A")):
+        si = P["allegato"] == 1
+        cosa = (("Visado Schengen en el consulado y seguro médico de viaje (mínimo " + soldi_ee(LE["es_seguro_30000"]["valore"], "EUR", l) + ")") if es else
+                ("Visto Schengen no consulado e seguro médico de viagem (mínimo " + soldi_ee(LE["pt_seguro_30000"]["valore"], "EUR", l) + ")")) if si else (
+                "Pasaporte, justificantes del viaje y dinero suficiente; sin visado hasta 90 días en 180" if es else
+                "Passaporte, comprovantes da viagem e dinheiro suficiente; sem visto por até 90 dias a cada 180")
+        righe.append(f'<tr><th scope="row" id="{P["id"]}">{escape(nome_paese_ee(P, l))}</th><td class="{"si-v" if si else "no-v"}">{("Sí" if es else "Sim") if si else ("No" if es else "Não")}'
+                     f' <span class="small">({"anexo" if es else "anexo"} {"I" if si else "II"})</span></td><td>{cosa}</td></tr>')
+    return pila(f'<div class="tab compatta ee"><table id="t-visado"><caption class="sr">{"¿Necesitas visado?" if es else "Precisa de visto?"}</caption><thead><tr>'
+                f'<th scope="col">{"Pasaporte de" if es else "Passaporte de"}</th><th scope="col">{"¿Visado Schengen?" if es else "Visto Schengen?"}</th>'
+                f'<th scope="col">{"Qué necesitas" if es else "O que você precisa"}</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>')
+
+
+def box_sw_ee(l, rel):
+    """Riquadro SafetyWing SOLO nelle pagine sull'assicurazione. Onesto: per chi non ha bisogno del visto il Codice frontiere Schengen non chiede
+    l'assicurazione; per il visto SafetyWing non garantisce l'accettazione (FAQ letta il 31/10/2026). Riga di trasparenza anche in inglese
+    (monetizzazione.py riconosce solo le righe inglese e italiana)."""
+    if not URL_SW_EE:
+        return ""
+    es = l == "es"
+    if es:
+        testo = (f'<p>Si no necesitas visado, el seguro no figura entre las condiciones de entrada del Código de fronteras Schengen: no es obligatorio por esa norma, '
+                 f'pero sin seguro pagas tú cualquier gasto médico durante el viaje. Si necesitas visado, el consulado comprueba que la póliza cumple el artículo 15 '
+                 f'del Código de visados. La propia FAQ de SafetyWing dice que muchos clientes han usado su seguro Nomad Insurance para solicitudes de visado, también Schengen, '
+                 f'pero que <strong>no puede garantizar</strong> que todas las autoridades lo acepten (<a href="{URL_SW_FAQ}" rel="sponsored noopener">FAQ de SafetyWing</a>, '
+                 f'en inglés, leída el {data_ee(DATA_SW_FAQ, l)}). Nosotros no lo hemos comprobado con ningún consulado: pregunta antes de comprar.</p>')
+        boton, piccolo = "Ver el seguro de viaje de SafetyWing", "SafetyWing vende seguros médicos de viaje en línea."
+        riga = "Algunos enlaces son de afiliado: podemos recibir una comisión sin costo adicional para ti."
+        titolo, tag = "Seguro médico de viaje", "Afiliado"
+        fin = "Comprar un seguro no cambia la decisión del consulado ni la de la policía de fronteras."
+    else:
+        testo = (f'<p>Se você não precisa de visto, o seguro não está entre as condições de entrada do Código das Fronteiras Schengen: não é obrigatório por essa norma, '
+                 f'mas sem seguro você paga qualquer despesa médica durante a viagem. Se você precisa de visto, o consulado verifica se a apólice cumpre o artigo 15 '
+                 f'do Código de Vistos. A própria FAQ da SafetyWing diz que muitos clientes usaram o seguro Nomad Insurance em pedidos de visto, inclusive Schengen, '
+                 f'mas que <strong>não pode garantir</strong> que todas as autoridades o aceitem (<a href="{URL_SW_FAQ}" rel="sponsored noopener">FAQ da SafetyWing</a>, '
+                 f'em inglês, lida em {data_ee(DATA_SW_FAQ, l)}). Nós não verificamos isso com nenhum consulado: pergunte antes de comprar.</p>')
+        boton, piccolo = "Ver o seguro viagem da SafetyWing", "A SafetyWing vende seguros médicos de viagem pela internet."
+        riga = "Alguns links são de afiliado: podemos receber uma comissão sem custo adicional para você."
+        titolo, tag = "Seguro médico de viagem", "Afiliado"
+        fin = "Comprar um seguro não muda a decisão do consulado nem a da polícia de fronteiras."
+    return (f'<section class="card aff-r" aria-labelledby="aff-ee-h"><div class="aff-r-t"><span class="ic">{ico("shield")}</span>'
+            f'<h2 id="aff-ee-h">{titolo}</h2><span class="aff-tag">{tag}</span></div>{testo}'
+            f'<p class="aff-r-cta"><a class="btn" href="{escape(URL_SW_EE)}" rel="sponsored noopener" target="_blank">{boton}{ico("arrow")}'
+            f'<span class="sr"> ({"se abre en una pestaña nueva" if es else "abre em uma nova aba"})</span></a></p>'
+            f'<p class="small">{piccolo} {riga} <span lang="en">({MON.RIGA_EN})</span> {fin}</p></section>')
+
+
+# ---------------------------------------------------------------- pagine
+def estremi_ee(l):
+    """Importi giornalieri in euro più basso e più alto della tabella (adulti), con lo Stato: dai dati, non scritti a mano."""
+    voci = [(x, s, et) for s in STATI_EE for x, v, et in RIF_SR[s]["importi"] if v == "EUR" and et.startswith("a day") and "minor" not in et and "student" not in et]
+    lo, hi = min(voci), max(voci)
+    f = lambda t: f"{soldi_ee(t[0], 'EUR', l)} {etichetta_ee(t[2], l)} ({nome_ee(t[1], l)})"
+    return f(lo), f(hi)
+
+
+# Nazionalità citate nei testi (aggettivi); controlli_ee verifica che l'allegato del Reg. 2018/1806 sia quello detto nel testo.
+CITATI_EE = {"esenti": [("mexico", "mexicanos"), ("colombia", "colombianos"), ("argentina", "argentinos"), ("peru", "peruanos"), ("chile", "chilenos"),
+                        ("venezuela", "venezolanos"), ("brasil", "brasileños")],
+             "obbligo": [("ecuador", "ecuatorianos"), ("bolivia", "bolivianos"), ("cuba", "cubanos"), ("republica-dominicana", "dominicanos")]}
+
+
+def frase_visado_ee():
+    es_ = ", ".join(a for _, a in CITATI_EE["esenti"][:-1]) + " y " + CITATI_EE["esenti"][-1][1]
+    ob = ", ".join(a for _, a in CITATI_EE["obbligo"][:-1]) + " y " + CITATI_EE["obbligo"][-1][1]
+    return es_[0].upper() + es_[1:], ob
+
+
+def pagina_ee_hub(l):
+    es = l == "es"
+    rel = "../"
+    sp, it, de = RIF_SR["Spain"]["importi"], RIF_SR["Italy"]["importi"], RIF_SR["Germany"]["importi"]
+    n_cifra = sum(1 for s in STATI_EE if regole_ee(s))
+    ej15 = {s: esempio_ee(s, l, 15) for s in ("Spain", "France", "Germany", "Portugal", "Switzerland")}
+    if es:
+        h1 = f"¿Cuánto dinero necesito para entrar a Europa? Importe por país ({ANNO})"
+        lead = (f'Para entrar a España como turista tienes que poder mostrar <strong>{soldi_ee(sp[0][0], "EUR", l)} por persona y día</strong>, con un mínimo de '
+                f'{soldi_ee(sp[1][0], "EUR", l)}; Italia pide {soldi_ee(it[0][0], "EUR", l)} para una estancia de 1 a 5 días y Alemania {soldi_ee(de[0][0], "EUR", l)} al día, '
+                f'según la <a href="{escape(URL_RIF_EE)}" rel="noopener">tabla de importes de referencia de la Comisión Europea</a> del {data_ee(DATA_RIF_EE, l)} '
+                f'(leída el {data_ee(LETTO_RIF_EE, l)}). Aquí están los {len(STATI_EE)} países de la tabla y una calculadora por días y personas.')
+    else:
+        h1 = f"Quanto dinheiro preciso para entrar na Europa? Valor por país ({ANNO})"
+        lead = (f'Para entrar em Portugal como turista, a tabela pede <strong>{soldi_ee(RIF_SR["Portugal"]["importi"][0][0], "EUR", l)} por entrada mais '
+                f'{soldi_ee(RIF_SR["Portugal"]["importi"][1][0], "EUR", l)} por dia</strong>; a Espanha pede {soldi_ee(sp[0][0], "EUR", l)} por pessoa e por dia, com mínimo de '
+                f'{soldi_ee(sp[1][0], "EUR", l)}, e a Itália {soldi_ee(it[0][0], "EUR", l)} para uma estadia de 1 a 5 dias, segundo a '
+                f'<a href="{escape(URL_RIF_EE)}" rel="noopener">tabela de montantes de referência da Comissão Europeia</a> de {data_ee(DATA_RIF_EE, l)} '
+                f'(lida em {data_ee(LETTO_RIF_EE, l)}). Aqui estão os {len(STATI_EE)} países da tabela e uma calculadora por dias e pessoas.')
+    rel_sez = ""
+    if es:
+        sezioni = f"""<h2>Importe mínimo por país</h2>
+<p class="lead">Lo que cada país comunicó a la Comisión Europea, por persona, con el ejemplo de {GIORNI_TAB_EE[0]}, {GIORNI_TAB_EE[1]} y {GIORNI_TAB_EE[2]} días para una persona. {n_cifra} de {len(STATI_EE)} países fijan una cifra; Austria y Finlandia deciden caso por caso. Debajo de cada importe, el texto original de la tabla (en inglés).</p>
+{tabella_stati_ee(l, rel_sez)}
+{fonte_rif_ee(l, "Traducción y ejemplos nuestros; los importes en otras monedas se convierten con los tipos del BCE del " + data_ee(CAMBI["data"], l) + ".")}
+<p class="small">La tabla de la Comisión también incluye Liechtenstein («around CHF 100», unos 100 francos suizos al día) y Chipre («on a case-by-case basis», caso por caso).</p>
+<h2>¿Es por persona? ¿Y en efectivo?</h2>
+<p>Sí, es por persona: la tabla se titula <q lang="en">{escape(LE["rif_persona"]["frammento"])}</q> (importe mínimo por día y por persona). El Código de fronteras Schengen dice cómo se comprueba: {cita_ee("es_medios")} También dice cómo se fijan los importes de referencia: {cita_ee("es_medios_precios")}.</p>
+<p>No hace falta llevarlo todo en billetes, pero sí poder demostrarlo en la frontera. Si te alojas en casa de alguien, el mismo artículo dice que las declaraciones de invitación y de toma a cargo previstas por el Derecho interno {cita_ee("es_invitacion_medios")}. En España, en cambio, la carta de invitación solo justifica el alojamiento: <a href="{SLUG_EE[l]["carta"]}">carta de invitación para España</a>.</p>
+{fonte_ee(("cfs_es",), l)}
+<h2>¿Qué pasa si no llevo suficiente dinero?</h2>
+<p>El artículo 14 del Código de fronteras Schengen dice: {cita_ee("es_denegacion")}. {cita_ee("es_motivada")} {cita_ee("es_recurso")} En España, la Orden PRE/1282/2007 añade que, si el dinero no alcanza, los agentes {cita_ee("boe_reducir")}.</p>
+{fonte_ee(("cfs_es", "boe_medios"), l)}
+<h2>Además del dinero</h2>
+<p>Para estancias de hasta 90 días en cualquier período de 180 días, la policía de fronteras comprueba el pasaporte, el visado (la visa) si tu país lo necesita, el motivo del viaje (alojamiento, itinerario, pasaje de vuelta) y el dinero. {frase_visado_ee()[0]} no necesitan visado; {frase_visado_ee()[1]} sí. Todo en <a href="{SLUG_EE[l]["requisitos"]}">requisitos para entrar a Europa</a>.</p>"""
+        domande = [
+            ("¿Cuánto dinero necesito para entrar a Europa por 15 días?",
+             f"Depende del país por el que entres y de dónde te alojes. Para una persona y 15 días: España {ej15['Spain']}, Alemania {ej15['Germany']}, Portugal {ej15['Portugal']}, "
+             f"Francia {ej15['France']} sin justificante de alojamiento y Suiza {ej15['Switzerland']}, según la tabla de la Comisión Europea del {data_ee(DATA_RIF_EE, l)}."),
+            ("¿El dinero que piden es por persona?",
+             "Sí. La tabla de la Comisión da el importe mínimo «por día y por persona». En España la Orden PRE/1282/2007 lo multiplica por el número de días y por el número de personas que viajan a tu cargo."),
+            ("¿Tengo que llevar el dinero en efectivo?",
+             "No necesariamente. El Código de fronteras Schengen dice que la comprobación puede basarse en el dinero efectivo, los cheques de viaje y las tarjetas de crédito. "
+             "España detalla qué documentos acepta con las tarjetas: lo explicamos en la página de España."),
+            ("¿Cuánto dinero llevar a Europa por día?",
+             "Las cifras de esta página son el mínimo que puedes tener que demostrar en la frontera, no un presupuesto de viaje: el viaje real suele costar más. "
+             f"Entre los países que fijan una cifra diaria en euros, van de {estremi_ee(l)[0]} a {estremi_ee(l)[1]}."),
+            ("¿Qué pasa si no tengo el dinero suficiente?",
+             "Pueden negarte la entrada: el Código de fronteras Schengen exige una resolución motivada por escrito y da derecho a recurrir. La policía de fronteras decide en cada caso."),
+        ]
+    else:
+        sezioni = f"""<h2>Valor mínimo por país</h2>
+<p class="lead">O que cada país comunicou à Comissão Europeia, por pessoa, com o exemplo de {GIORNI_TAB_EE[0]}, {GIORNI_TAB_EE[1]} e {GIORNI_TAB_EE[2]} dias para uma pessoa. {n_cifra} de {len(STATI_EE)} países fixam um valor; Áustria e Finlândia decidem caso a caso. Embaixo de cada valor, o texto original da tabela (em inglês).</p>
+{tabella_stati_ee(l, rel_sez)}
+{fonte_rif_ee(l, "Tradução e exemplos nossos; os valores em outras moedas são convertidos com as taxas do BCE de " + data_ee(CAMBI["data"], l) + ".")}
+<p class="small">A tabela da Comissão também inclui Liechtenstein (“around CHF 100”, cerca de 100 francos suíços por dia) e Chipre (“on a case-by-case basis”, caso a caso).</p>
+<h2>É por pessoa? Precisa ser em dinheiro vivo?</h2>
+<p>Sim, é por pessoa: a tabela se chama <q lang="en">{escape(LE["rif_persona"]["frammento"])}</q> (valor mínimo por dia e por pessoa). O Código das Fronteiras Schengen diz como isso é verificado: {cita_ee("pt_meios")} E os valores são calculados {cita_ee("pt_meios_precos")}.</p>
+<p>Não é preciso levar tudo em espécie, mas é preciso conseguir comprovar na fronteira. Se você ficar na casa de alguém, o mesmo artigo diz que as declarações de tomada a cargo e os termos de responsabilidade assinados por anfitriões, quando previstos no direito nacional, {cita_ee("pt_convite_meios")}. Na Espanha, porém, a carta-convite só comprova a hospedagem: <a href="{SLUG_EE[l]["carta"]}">carta-convite para a Espanha</a>.</p>
+{fonte_ee(("cfs_pt",), l, "Texto oficial da UE em português europeu.")}
+<h2>E se eu não levar dinheiro suficiente?</h2>
+<p>O artigo 14 do Código das Fronteiras Schengen diz: {cita_ee("pt_recusa")}. {cita_ee("pt_fundamentada")}. {cita_ee("pt_recurso")}</p>
+{fonte_ee(("cfs_pt",), l)}
+<h2>Além do dinheiro</h2>
+<p>Para estadias de até 90 dias em qualquer período de 180 dias, a polícia de fronteiras confere o passaporte, o visto se o seu país precisar, o motivo da viagem (hospedagem, roteiro, passagem de volta) e o dinheiro. Brasileiros não precisam de visto; quem tem passaporte da Bolívia, de Cuba, do Equador ou da República Dominicana precisa. Tudo em <a href="{SLUG_EE[l]["requisitos"]}">requisitos para entrar na Europa</a>.</p>"""
+        domande = [
+            ("Quanto dinheiro preciso para entrar na Europa por 15 dias?",
+             f"Depende do país por onde você entra e de onde vai ficar. Para uma pessoa e 15 dias: Portugal {ej15['Portugal']}, Espanha {ej15['Spain']}, Alemanha {ej15['Germany']}, "
+             f"França {ej15['France']} sem comprovante de hospedagem e Suíça {ej15['Switzerland']}, segundo a tabela da Comissão Europeia de {data_ee(DATA_RIF_EE, l)}."),
+            ("O valor é por pessoa?",
+             "Sim. A tabela da Comissão dá o valor mínimo “por dia e por pessoa”. Para um casal, multiplique por dois."),
+            ("Preciso levar o dinheiro em espécie?",
+             "Não necessariamente. O Código das Fronteiras Schengen diz que a verificação pode se basear em dinheiro, cheques de viagem e cartões de crédito. "
+             "A Espanha detalha quais documentos aceita junto com os cartões: veja a página da Espanha."),
+            ("Quanto dinheiro levar para a Europa por dia?",
+             "Os valores desta página são o mínimo que você pode ter de comprovar na fronteira, não um orçamento de viagem: a viagem real costuma custar mais. "
+             f"Entre os países que fixam um valor diário em euros, vão de {estremi_ee(l)[0]} a {estremi_ee(l)[1]}."),
+            ("O que acontece se eu não tiver dinheiro suficiente?",
+             "A entrada pode ser recusada: o Código das Fronteiras Schengen exige uma decisão fundamentada por escrito e dá direito de recurso. A polícia de fronteiras decide em cada caso."),
+        ]
+    corpo = f"""<section class="hero">{h1_diviso(h1)}
+<p class="lead">{lead}</p>
+{lingue_ee(l, "hub", rel)}</section>
+{avviso_ee(l)}
+{calc_ee(l, "Spain" if es else "Portugal")}
+{AD}
+{sezioni}
+{griglia_stati_ee(l, rel_sez)}
+<h2>{"Preguntas frecuentes" if es else "Perguntas frequentes"}</h2>
+{faq_ee(domande)}
+{link_temi_ee(l, rel_sez, "hub")}"""
+    titolo = titolo_ee([f"¿Cuánto dinero necesito para entrar a Europa? Por país ({ANNO})", "¿Cuánto dinero necesito para entrar a Europa?"] if es else
+                       [f"Quanto dinheiro preciso para entrar na Europa? Por país ({ANNO})", "Quanto dinheiro preciso para entrar na Europa?"])
+    descr = (f"Importe mínimo para entrar a cada país Schengen según la Comisión Europea: España {soldi_ee(sp[0][0], 'EUR', l)} al día (mínimo {soldi_ee(sp[1][0], 'EUR', l)}), "
+             f"Italia, Francia, Alemania, Suiza, Portugal. Calculadora por días y personas.") if es else (
+             f"Valor mínimo para entrar em cada país Schengen segundo a Comissão Europeia: Portugal, Espanha {soldi_ee(sp[0][0], 'EUR', l)} por dia, Itália, França, "
+             f"Alemanha, Suíça. Calculadora por dias e pessoas, em reais.")
+    pagina_ee(l, "hub", titolo, descr, corpo, domande, calcolatore=True)
+
+
+def cifra_titolo_ee(s, l):
+    """Cifra breve per H1 e titolo: '122,10 € al día (mínimo 1.098,90 €)', '75 € + 40 € al día', 'de 32,50 € a 120 € al día'."""
+    es = l == "es"
+    regs = regole_ee(s)
+    v = regs[0]
+    al = " al día" if es else " por dia"
+    f = lambda x: soldi_ee(x, v["val"], l)
+    if v["t"] == "dia_min":
+        return f"{f(v['a'])}{al} (mínimo {f(v['m'])})"
+    if v["t"] == "entrada_dia":
+        return f"{f(v['e'])} + {f(v['a'])}{al}"
+    if v["t"] == "fijo_hasta_solo":
+        return f"{f(v['f'])} de 1 a {v['n']} {'días' if es else 'dias'}"
+    if s == "France":
+        xs = [x["a"] for x in regs]
+        return f"entre {f(min(xs))} y {f(max(xs))}{al}" if es else f"entre {f(min(xs))} e {f(max(xs))}{al}"
+    return f"{f(v['a'])}{al}"
+
+
+def cifra_corta_ee(s, l):
+    """Versione breve per il titolo (senza il minimo)."""
+    return re.sub(r" \(mínimo [^)]*\)$", "", cifra_titolo_ee(s, l))
+
+
+def pagina_ee_stato(l, s):
+    es = l == "es"
+    rel = "../../"
+    n = nome_ee(s, l)
+    dove = f"a {n}" if es else f"{PREP_PT[s]} {n}"
+    regs = regole_ee(s)
+    imp = RIF_SR[s]["importi"]
+    testo_imp = importi_testo_ee(s, l)
+    v0 = regs[0]
+    x15 = esempio_ee(s, l, 15)
+    g_es = 15 if x15 != "—" else max(g for g in range(1, GIORNI_MAX_EE + 1) if esempio_ee(s, l, g) != "—")
+    x_es = esempio_ee(s, l, g_es)
+    if es:
+        frase_es = (f"Para 15 días y una persona son {x15}." if g_es == 15 else
+                    f"Para {g_es} días y una persona son {x_es}; para estancias más largas la tabla no publica un importe.")
+    else:
+        frase_es = (f"Para 15 dias e uma pessoa são {x15}." if g_es == 15 else
+                    f"Para {g_es} dias e uma pessoa são {x_es}; para estadias mais longas a tabela não publica um valor.")
+    prima = imp[0]
+    if es:
+        lead = (f'{n} pide {testo_imp}, según la <a href="{escape(URL_RIF_EE)}" rel="noopener">tabla de importes de referencia de la Comisión Europea</a> '
+                f'del {data_ee(DATA_RIF_EE, l)} (leída el {data_ee(LETTO_RIF_EE, l)}). {frase_es}')
+    else:
+        lead = (f'{"" if s == "Portugal" else "A "}{n} pede {testo_imp}, segundo a <a href="{escape(URL_RIF_EE)}" rel="noopener">tabela de montantes de referência da Comissão Europeia</a> '
+                f'de {data_ee(DATA_RIF_EE, l)} (lida em {data_ee(LETTO_RIF_EE, l)}). {frase_es}')
+    cifra = cifra_titolo_ee(s, l)
+    h1 = (f"¿Cuánto dinero necesito para entrar a {n} en {ANNO}? {cifra[0].upper() + cifra[1:]}" if es else
+          f"Quanto dinheiro preciso para entrar {dove} em {ANNO}? {cifra[0].upper() + cifra[1:]}")
+    corta = cifra_corta_ee(s, l)
+    nota = nota_stato_ee(s, l)
+    conv = eur_nota_ee(s, l)
+    # blocco specifico per la Spagna: Orden PRE/1282/2007 (BOE) e salario minimo 2026
+    smi = INDICI["es_smi"]
+    if s == "Spain":
+        quanti = math.ceil(round(v0["m"] / v0["a"], 6))
+        if es:
+            specifico = f"""<h2>Cómo se calcula en España</h2>
+<p>La cifra viene de la Orden PRE/1282/2007, que obliga a demostrar, {cita_ee("boe_requeridos")}, {cita_ee("boe_10")}. Y añade: {cita_ee("boe_90")}</p>
+<p>Con el salario mínimo de {ANNO} ({soldi_ee(smi["valore"], "EUR", l)} al mes en 14 pagas, Real Decreto 126/2026), el 10% son {soldi_ee(v0["a"], "EUR", l)} y el 90% son {soldi_ee(v0["m"], "EUR", l)}, las mismas cifras de la tabla de la Comisión. Hasta {quanti} días rige el mínimo; a partir de {quanti + 1} días, {soldi_ee(v0["a"], "EUR", l)} por cada día. Los días se cuentan así: {cita_ee("boe_dias")}.</p>
+<h2>Cómo demostrarlo: efectivo, tarjeta o cheques</h2>
+<p>La Orden dice que los medios se acreditan {cita_ee("boe_efectivo")} {cita_ee("boe_no_cartas")}.</p>
+<h2>Billete de vuelta</h2>
+<p>Además del dinero, {cita_ee("boe_billete")}.</p>
+<h2>Si no llevas suficiente</h2>
+<p>Si en el control se comprueba que no tienes recursos suficientes o billete, {cita_ee("boe_denegara")}. Pero los agentes también {cita_ee("boe_reducir")}.</p>
+{fonte_ee(("boe_medios",), l, "Salario mínimo: Real Decreto 126/2026 (BOE).")}
+<p class="small">La cifra cambia cada vez que se aprueba un nuevo salario mínimo (el de {ANNO + 1} todavía no está publicado): la actualizaremos con el nuevo decreto.</p>"""
+        else:
+            specifico = f"""<h2>Como a Espanha calcula</h2>
+<p>O valor vem da Orden PRE/1282/2007 espanhola. Em tradução livre: quem chega deve demonstrar, se os agentes da fronteira pedirem, 10% do salário mínimo bruto espanhol multiplicado pelo número de dias e pelo número de pessoas, e no mínimo 90% do salário mínimo por pessoa, seja qual for a duração da estadia. No original: <span lang="es">{cita_ee("boe_10")}</span>.</p>
+<p>Com o salário mínimo de {ANNO} ({soldi_ee(smi["valore"], "EUR", l)} por mês em 14 pagamentos, Real Decreto 126/2026), 10% são {soldi_ee(v0["a"], "EUR", l)} e 90% são {soldi_ee(v0["m"], "EUR", l)}, os mesmos valores da tabela da Comissão. Até {quanti} dias vale o mínimo; a partir de {quanti + 1} dias, {soldi_ee(v0["a"], "EUR", l)} por dia. Contam-se os dias da entrada até a data de saída da passagem, as duas incluídas.</p>
+<h2>Como comprovar: dinheiro vivo, cartão ou cheques</h2>
+<p>A Orden aceita dinheiro em espécie ou cheques certificados, cheques de viagem, cartas de pagamento ou cartões de crédito, estes acompanhados do extrato da conta bancária ou de uma caderneta atualizada, e avisa: <span lang="es">{cita_ee("boe_no_cartas")}</span> (não são aceitas cartas de bancos nem extratos impressos da internet).</p>
+<h2>Passagem de volta</h2>
+<p>Além do dinheiro, é preciso ter passagem nominal, intransferível e com data fechada para voltar ou seguir viagem (<span lang="es">{cita_ee("boe_billete")}</span>).</p>
+<h2>Se faltar dinheiro</h2>
+<p>A entrada pode ser negada; mas a Orden também diz que os agentes <span lang="es">{cita_ee("boe_reducir")}</span> (podem permitir a entrada reduzindo a estadia em proporção ao dinheiro que você tem).</p>
+{fonte_ee(("boe_medios",), l, "Salário mínimo: Real Decreto 126/2026 (BOE).")}
+<p class="small">O valor muda sempre que a Espanha aprova um novo salário mínimo (o de {ANNO + 1} ainda não foi publicado): vamos atualizar com o novo decreto.</p>"""
+    elif s == "Portugal" and l == "pt":
+        specifico = f"""<h2>Nota para quem vai a Portugal</h2>
+<p>A tabela soma dois valores: € {num_ee(imp[0][0])} por cada entrada e € {num_ee(imp[1][0])} por cada dia em Portugal. Se você vai ficar na casa de alguém, o Código das Fronteiras Schengen prevê que as declarações de tomada a cargo e os termos de responsabilidade assinados por anfitriões, quando previstos no direito nacional, {cita_ee("pt_convite_meios")} (no texto: {cita_ee("pt_termo")}). Não conseguimos ler as regras portuguesas sobre esse termo (o site da AIMA não respondeu ao nosso servidor): confirme na fonte oficial portuguesa antes de viajar.</p>
+{fonte_ee(("cfs_pt",), l, "Texto oficial da UE em português europeu.")}"""
+    else:
+        specifico = ""
+    calc = calc_ee(l, s)
+    if es:
+        dom = [
+            (f"¿Cuánto dinero necesito para entrar a {n} por 15 días?", f"Para una persona, {x15}. Es el mínimo de la tabla de la Comisión Europea del {data_ee(DATA_RIF_EE, l)}. {nota or 'La policía de fronteras decide.'}"),
+            (f"¿El importe para entrar a {n} es por persona?", "Sí: la tabla da el importe mínimo por día y por persona. Para dos personas, el doble."),
+            (f"¿Tengo que llevarlo en efectivo?", "No necesariamente: el Código de fronteras Schengen admite dinero en efectivo, cheques de viaje y tarjetas de crédito." +
+             (" En España la tarjeta debe ir acompañada del extracto de la cuenta o de una libreta puesta al día; no valen cartas del banco ni extractos de Internet." if s == "Spain" else "")),
+            (f"¿Necesito visado para entrar a {n}?", f"Depende del pasaporte. {frase_visado_ee()[0]} no lo necesitan para estancias de hasta 90 días en 180; {frase_visado_ee()[1]} sí (Reglamento (UE) 2018/1806)."),
+            ("¿Y si en la frontera me piden más?", "La policía de fronteras decide: puede pedirte el alojamiento, el itinerario y el pasaje de vuelta además del dinero. Si te niega la entrada, tiene que darte una resolución motivada y puedes recurrirla."),
+        ]
+    else:
+        dom = [
+            (f"Quanto dinheiro preciso para entrar {dove} por 15 dias?", f"Para uma pessoa, {x15}. É o mínimo da tabela da Comissão Europeia de {data_ee(DATA_RIF_EE, l)}. {nota or 'A polícia de fronteiras decide.'}"),
+            (f"O valor para entrar {dove} é por pessoa?", "Sim: a tabela dá o valor mínimo por dia e por pessoa. Para duas pessoas, o dobro."),
+            ("Preciso levar em dinheiro vivo?", "Não necessariamente: o Código das Fronteiras Schengen aceita dinheiro, cheques de viagem e cartões de crédito." +
+             (" Na Espanha o cartão deve vir com o extrato da conta ou caderneta atualizada; não valem cartas do banco nem extratos da internet." if s == "Spain" else "")),
+            (f"Brasileiro precisa de visto para entrar {dove}?", "Não, para estadias de até 90 dias a cada 180 dias: o Brasil está no anexo II do Regulamento (UE) 2018/1806 (isentos de visto). Quando o ETIAS começar a funcionar, será preciso pedir essa autorização antes de viajar."),
+            ("E se na fronteira pedirem mais?", "A polícia de fronteiras decide: pode pedir hospedagem, roteiro e passagem de volta além do dinheiro. Se recusar a entrada, precisa entregar uma decisão fundamentada, e você pode recorrer."),
+        ]
+    corpo = f"""<section class="hero">{h1_diviso(h1)}
+<p class="lead">{lead}</p>
+{lingue_ee(l, s, rel)}</section>
+<section class="card summary" aria-label="{"Resumen" if es else "Resumo"}">
+<div class="s-top">{ico("wallet")}<span>{escape(n)}</span><span>{data_ee(DATA_RIF_EE, l)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">{"Importe mínimo por persona" if es else "Valor mínimo por pessoa"}</span><span class="sr">: </span><strong>{soldi_ee(prima[0], prima[1], l)}</strong> {escape(etichetta_ee(prima[2], l))}</p>
+<div class="kpi">{"".join(f'<div><b>{esempio_ee(s, l, g)}</b><span>{g} {"días, 1 persona" if es else "dias, 1 pessoa"}</span></div>' for g in (7, 15, 30, 90))}</div>
+<p class="small" style="margin-top:6px">{"Texto de la tabla" if es else "Texto da tabela"}: <span lang="en">“{escape(rif_testo_sr(s))}”</span>{(". " + escape(nota)) if nota else ""}{(" (" + conv + ")") if conv else ""}</p>
+{fonte_rif_ee(l)}
+</div></section>
+{avviso_ee(l)}
+{calc}
+{AD}
+<h2>{"Ejemplos por días" if es else "Exemplos por dias"}</h2>
+<p class="lead">{"Mínimo que puedes tener que mostrar para entrar a " + escape(n) + ", según la estancia." if es else "Mínimo que você pode ter de mostrar para entrar " + escape(dove) + ", conforme a estadia."}</p>
+{tabella_esempi_stato_ee(s, l)}
+{fonte_rif_ee(l, ("Cálculo nuestro con las cifras de la tabla." if es else "Cálculo nosso com os valores da tabela.") + (" " + conv + "." if conv else ""))}
+{specifico}
+<h2>{"Además del dinero" if es else "Além do dinheiro"}</h2>
+<p>{"Para estancias de hasta 90 días en cualquier período de 180 días, el artículo 6 del Código de fronteras Schengen pide:" if es else "Para estadias de até 90 dias em qualquer período de 180 dias, o artigo 6 do Código das Fronteiras Schengen exige:"}</p>
+{condiciones_ee(l)}
+{fonte_ee(("cfs_es",) if es else ("cfs_pt",), l)}
+<p>{"Más detalles y la lista de países que necesitan visado en" if es else "Mais detalhes e a lista dos países que precisam de visto em"} <a href="../{SLUG_EE[l]["requisitos"]}">{"requisitos para entrar a Europa" if es else "requisitos para entrar na Europa"}</a>{(", y la " + '<a href="../' + SLUG_EE[l]["carta"] + '">carta de invitación</a>' if es else ", e a " + '<a href="../' + SLUG_EE[l]["carta"] + '">carta-convite</a>') if s == "Spain" else ""}.</p>
+<h2>{"Preguntas frecuentes" if es else "Perguntas frequentes"}</h2>
+{faq_ee(dom)}
+<h2>{"Otros países" if es else "Outros países"}</h2>
+{griglia_stati_ee(l, "../", s)}
+{link_temi_ee(l, "../")}"""
+    if es:
+        titolo = titolo_ee([f"¿Cuánto dinero necesito para entrar a {n}? {cifra} ({ANNO})", f"Cuánto dinero necesito para entrar a {n} en {ANNO}: {corta}",
+                            f"Cuánto dinero para entrar a {n} en {ANNO}: {corta}", f"Cuánto dinero necesito para entrar a {n} en {ANNO}"])
+        descr = f"Dinero mínimo para entrar a {n} según la Comisión Europea ({data_ee(DATA_RIF_EE, l)}): {testo_imp}. Calculadora por días y personas, en dólares y pesos."
+    else:
+        titolo = titolo_ee([f"Quanto dinheiro preciso para entrar {dove}? {cifra} ({ANNO})", f"Quanto dinheiro preciso para entrar {dove} em {ANNO}: {corta}",
+                            f"Quanto dinheiro para entrar {dove} em {ANNO}: {corta}", f"Quanto dinheiro preciso para entrar {dove} em {ANNO}"])
+        descr = f"Dinheiro mínimo para entrar {dove} segundo a Comissão Europeia ({data_ee(DATA_RIF_EE, l)}): {testo_imp}. Calculadora por dias e pessoas, em reais."
+    pagina_ee(l, s, titolo, descr, corpo, dom, briciole=[(("Entrar a " if es else "Entrar ") + (n if es else dove), perc_ee(l, s))], calcolatore=True)
+
+
+def pagina_ee_requisitos(l):
+    es = l == "es"
+    rel = "../../"
+    p = l
+    esenti = [P for P in PAESI_EE if P["allegato"] == 2]
+    obbligo = [P for P in PAESI_EE if P["allegato"] == 1]
+    nomi = lambda xs: ", ".join(nome_paese_ee(P, l) for P in sorted(xs, key=lambda P: nome_paese_ee(P, l)))
+    if es:
+        h1 = f"Requisitos para entrar a Europa: qué piden en la frontera ({ANNO})"
+        lead = (f'Para estancias de hasta 90 días dentro de cualquier período de 180 días, el {link_fonte_ee("cfs_es", l, "Código de fronteras Schengen")} '
+                f'(texto consolidado del 12 de octubre de 2025, leído el {data_ee(F_EE["cfs_es"]["letto_il"], l)}) pide pasaporte válido, visado si tu país lo necesita, '
+                f'justificar el motivo del viaje y tener dinero suficiente. De los {len(PAESI_EE)} países de América Latina que miramos, {len(esenti)} no necesitan visado.')
+        cuerpo = f"""<h2>Las condiciones de entrada (artículo 6)</h2>
+{condiciones_ee(l)}
+{fonte_ee(("cfs_es",), l)}
+<h2>¿Necesitas visado? País por país</h2>
+<p class="lead">Según el Reglamento (UE) 2018/1806 (texto consolidado del 30 de diciembre de 2025), no necesitan visado para estancias cortas: {escape(nomi(esenti))}. Sí lo necesitan: {escape(nomi(obbligo))}.</p>
+{paesi_visto_ee(l)}
+{fonte_ee(("vis_es",), l, "Si necesitas visado, el seguro médico de viaje es obligatorio (Código de visados, artículo 15).")}
+<h2>Documentos que pueden pedirte (anexo I)</h2>
+<p>{cita_ee("es_lista")}. Para un viaje de turismo o visita:</p>
+<ul class="testo"><li><strong>Alojamiento:</strong> {cita_ee("es_anexo_invitacion")}; {cita_ee("es_anexo_hotel")}.</li>
+<li><strong>Itinerario:</strong> {cita_ee("es_anexo_itinerario")}.</li>
+<li><strong>Regreso:</strong> {cita_ee("es_anexo_regreso")}.</li>
+<li><strong>Negocios:</strong> {cita_ee("es_anexo_negocios")}. <strong>Estudios:</strong> {cita_ee("es_anexo_estudios")}.</li></ul>
+<p>Y el dinero: el mínimo de cada país está en <a href="../">cuánto dinero necesito para entrar a Europa</a>.</p>
+{fonte_ee(("cfs_es",), l)}
+<h2>Si te niegan la entrada</h2>
+<p>{cita_ee("es_denegacion")}. {cita_ee("es_motivada")} {cita_ee("es_recurso")} La policía de fronteras decide.</p>
+<h2>ETIAS y registro biométrico</h2>
+<p>El Código pide además {cita_ee("es_biometria")} (Sistema de Entradas y Salidas). El ETIAS, la autorización que pedirán a quienes no necesitan visado, todavía no funciona: <a href="../{SLUG_EE[l]["etias"]}">estado actual del ETIAS</a>.</p>"""
+        dom = [(f"¿Qué piden para entrar a Europa desde {P['es']}?",
+                (f"Con pasaporte de {P['es']} no necesitas visado para estancias de hasta 90 días en 180: pasaporte válido al menos tres meses después de la salida y emitido en los últimos diez años, "
+                 "justificantes del viaje (alojamiento, itinerario, pasaje de vuelta) y dinero suficiente según el país de entrada.") if P["allegato"] == 2 else
+                (f"Con pasaporte de {P['es']} necesitas un visado Schengen, que se pide en el consulado del país de destino principal, con seguro médico de viaje de al menos "
+                 f"{soldi_ee(LE['es_seguro_30000']['valore'], 'EUR', l)}.")) for P in PAESI_EE if P["id"] in ("colombia", "mexico", "argentina", "peru", "venezuela", "chile", "ecuador")]
+        dom.append(("¿Cuánto tiempo puedo quedarme sin visado?", "Hasta 90 días dentro de cualquier período de 180 días, contando todos los países Schengen juntos."))
+    else:
+        h1 = f"Requisitos para entrar na Europa: o que pedem na fronteira ({ANNO})"
+        lead = (f'Para estadias de até 90 dias em qualquer período de 180 dias, o {link_fonte_ee("cfs_pt", l, "Código das Fronteiras Schengen")} '
+                f'(texto consolidado de 12 de outubro de 2025, lido em {data_ee(F_EE["cfs_pt"]["letto_il"], l)}) exige passaporte válido, visto se o seu país precisar, '
+                f'justificar o motivo da viagem e ter dinheiro suficiente. Brasileiros não precisam de visto.')
+        cuerpo = f"""<h2>As condições de entrada (artigo 6)</h2>
+{condiciones_ee(l)}
+{fonte_ee(("cfs_pt",), l, "Texto oficial da UE em português europeu.")}
+<h2>Precisa de visto? País por país</h2>
+<p class="lead">Segundo o Regulamento (UE) 2018/1806 (texto consolidado de 30 de dezembro de 2025), não precisam de visto para estadias curtas: {escape(nomi(esenti))}. Precisam: {escape(nomi(obbligo))}.</p>
+{paesi_visto_ee(l)}
+{fonte_ee(("vis_pt",), l, "Quem precisa de visto precisa também de seguro médico de viagem (Código de Vistos, artigo 15).")}
+<h2>Documentos que podem pedir (anexo I)</h2>
+<p>{cita_ee("pt_lista")}. Para uma viagem de turismo ou visita:</p>
+<ul class="testo"><li><strong>Hospedagem:</strong> {cita_ee("pt_anexo_convite")}; {cita_ee("pt_anexo_hotel")}.</li>
+<li><strong>Roteiro:</strong> {cita_ee("pt_anexo_itinerario")}.</li>
+<li><strong>Volta:</strong> {cita_ee("pt_anexo_regresso")}.</li>
+<li><strong>Negócios:</strong> {cita_ee("pt_anexo_negocios")}. <strong>Estudos:</strong> {cita_ee("pt_anexo_estudos")}.</li></ul>
+<p>E o dinheiro: o mínimo de cada país está em <a href="../">quanto dinheiro preciso para entrar na Europa</a>.</p>
+{fonte_ee(("cfs_pt",), l)}
+<h2>Se a entrada for recusada</h2>
+<p>{cita_ee("pt_recusa")}. {cita_ee("pt_fundamentada")}. {cita_ee("pt_recurso")} A polícia de fronteiras decide.</p>
+<h2>ETIAS e registro biométrico</h2>
+<p>O Código exige também {cita_ee("pt_biometria")} (Sistema de Entrada/Saída). O ETIAS, a autorização que será pedida a quem não precisa de visto, ainda não funciona: <a href="../{SLUG_EE[l]["etias"]}">situação atual do ETIAS</a>.</p>"""
+        dom = [("Quais são os requisitos para brasileiro entrar na Europa?",
+                "Passaporte válido por pelo menos três meses depois da data prevista de saída e emitido há menos de 10 anos, comprovantes da viagem (hospedagem, roteiro, passagem de volta) "
+                "e dinheiro suficiente conforme o país de entrada. Sem visto, por até 90 dias a cada 180 dias."),
+               ("Quais são os requisitos para entrar em Portugal como turista?",
+                f"Os mesmos do Código das Fronteiras Schengen; em dinheiro, a tabela da Comissão pede {soldi_ee(RIF_SR['Portugal']['importi'][0][0], 'EUR', l)} por entrada mais "
+                f"{soldi_ee(RIF_SR['Portugal']['importi'][1][0], 'EUR', l)} por dia."),
+               ("Seguro viagem é obrigatório para brasileiro?", "O Código das Fronteiras Schengen não menciona seguro entre as condições de entrada. Para quem precisa de visto, é obrigatório. Veja a página do seguro."),
+               ("Quanto tempo posso ficar sem visto?", "Até 90 dias em qualquer período de 180 dias, somando todos os países Schengen.")]
+    corpo = f"""<section class="hero">{h1_diviso(h1)}
+<p class="lead">{lead}</p>
+{lingue_ee(l, "requisitos", rel)}</section>
+{avviso_ee(l)}
+{AD}
+{cuerpo}
+<h2>{"Preguntas frecuentes" if es else "Perguntas frequentes"}</h2>
+{faq_ee(dom)}
+{griglia_stati_ee(l, "../")}
+{link_temi_ee(l, "../", "requisitos")}"""
+    titolo = titolo_ee([f"Requisitos para entrar a Europa desde Latinoamérica ({ANNO})", "Requisitos para entrar a Europa"] if es else
+                       [f"Requisitos para entrar na Europa: brasileiros e latinos ({ANNO})", "Requisitos para entrar na Europa"])
+    descr = ("Qué piden en la frontera Schengen según el Código de fronteras: pasaporte, visado (país por país: Colombia, México, Perú, Argentina, Venezuela…), alojamiento, billete y dinero." if es else
+             "O que pedem na fronteira Schengen segundo o Código das Fronteiras: passaporte, visto (país por país), hospedagem, passagem de volta e dinheiro.")
+    pagina_ee(l, "requisitos", titolo, descr, corpo, dom, briciole=[("Requisitos", perc_ee(l, "requisitos"))])
+
+
+def pagina_ee_carta(l):
+    es = l == "es"
+    rel = "../../"
+    if es:
+        h1 = f"Carta de invitación para España: requisitos y cómo se pide ({ANNO})"
+        lead = (f'La carta de invitación la pide en la comisaría de policía de su lugar de residencia la persona que te invita (española, de la UE o extranjera con residencia legal en España), '
+                f'y solo sirve para justificar el alojamiento, según la {link_fonte_ee("boe_carta", l, "Orden PRE/1283/2007")} (BOE, texto consolidado leído el {data_ee(F_EE["boe_carta"]["letto_il"], l)}).')
+        cuerpo = f"""<h2>Qué es</h2>
+<p>Es un documento con un modelo oficial por el que un particular se compromete a pagar tu alojamiento: el invitante actúa {cita_ee("carta_alojamiento")}. La Orden establece el modelo oficial de carta de invitación, {cita_ee("carta_frontera")}.</p>
+<p class="cita">{cita_ee("carta_hospedaje")}</p>
+<h2>¿Es obligatoria?</h2>
+<p>No es un requisito automático: la Orden dice que <em>podrá</em> ser exigida en la frontera. Si te alojas en casa de alguien, el Código de fronteras Schengen la pone entre los justificantes posibles: {cita_ee("es_anexo_invitacion")}. Si vas a un hotel, sirve la reserva: {cita_ee("es_anexo_hotel")}. La policía de fronteras decide qué te pide.</p>
+<h2>Quién la pide y dónde</h2>
+<p>La pide quien invita, no el invitado: puede ser {cita_ee("carta_quien")}. Según la Orden, {cita_ee("carta_comisaria")}.</p>
+<h2>Qué datos y documentos hacen falta</h2>
+<ul class="testo"><li>Datos del invitante y su domicilio. {cita_ee("carta_vivienda")}</li>
+<li>{cita_ee("carta_vinculo")}</li>
+<li>{cita_ee("carta_datos")}</li>
+<li>{cita_ee("carta_periodo")}</li>
+<li>Excepcionalmente, {cita_ee("carta_varias")}.</li></ul>
+<h2>Cuánto tarda y cuánto cuesta</h2>
+<p>La Orden no fija un plazo: la comisaría tramita la solicitud {cita_ee("carta_brevedad")}. Además, {cita_ee("carta_entrevista")}; si el invitante no acude en el plazo fijado, {cita_ee("carta_quince")}, la solicitud se considera desistida. Sobre el precio, la Orden no fija un importe: remite a la orden de tasas de extranjería y dice: {cita_ee("carta_tasa")} {cita_ee("carta_denegacion")}.</p>
+<p class="small">No publicamos el importe de la tasa porque no lo hemos leído en una fuente oficial: la página de la Policía Nacional sobre la carta de invitación no respondía a nuestro servidor. Pregunta en la comisaría.</p>
+<h2>La carta no sustituye el dinero</h2>
+<p>Aunque tengas carta de invitación, en España sigues teniendo que poder demostrar los medios económicos: {soldi_ee(RIF_SR["Spain"]["importi"][0][0], "EUR", l)} por persona y día, con un mínimo de {soldi_ee(RIF_SR["Spain"]["importi"][1][0], "EUR", l)}. Detalles en <a href="../{SLUG_EE[l]["Spain"]}">cuánto dinero necesito para entrar a España</a>.</p>
+{fonte_ee(("boe_carta", "cfs_es"), l)}"""
+        dom = [("¿La carta de invitación es obligatoria para entrar a España?", "No siempre: la Orden PRE/1283/2007 dice que podrá ser exigida en el puesto fronterizo. Si te alojas en casa de alguien, es el justificante de alojamiento previsto; con hotel basta la reserva. La policía de fronteras decide."),
+               ("¿Dónde se pide la carta de invitación?", "La pide la persona que invita, en la comisaría de policía de su lugar de residencia en España."),
+               ("¿Cuánto tarda la carta de invitación?", "La Orden no fija un plazo: dice que se resuelve con la mayor brevedad posible y que pueden citar al invitante a una entrevista."),
+               ("¿Cuánto cuesta la carta de invitación?", "La Orden no fija el importe: remite a la orden de tasas de extranjería. La tasa se paga en el plazo de un mes desde la notificación y el justificante se presenta para recoger la carta. Pregunta el importe en la comisaría."),
+               ("¿Con carta de invitación necesito llevar dinero?", "Sí. La carta únicamente justifica el alojamiento: no sustituye los demás requisitos de entrada, incluido el dinero."),
+               ("¿Sirve para colombianos, venezolanos o peruanos?", "Las reglas son las mismas para todos. Si tu país no necesita visado, te la pueden pedir en la frontera; si lo necesita (Ecuador, Bolivia, Cuba, República Dominicana…), puedes presentarla en el consulado para apoyar la solicitud.")]
+    else:
+        h1 = f"Carta-convite para a Espanha: como funciona ({ANNO})"
+        lead = (f'A carta de invitación espanhola é pedida pela pessoa que convida (espanhola, da UE ou estrangeira com residência legal na Espanha), na delegacia de polícia da cidade onde ela mora, '
+                f'e só comprova a hospedagem, segundo a {link_fonte_ee("boe_carta", l, "Orden PRE/1283/2007")} (BOE, texto consolidado lido em {data_ee(F_EE["boe_carta"]["letto_il"], l)}).')
+        cuerpo = f"""<h2>O que é</h2>
+<p>É um documento com modelo oficial pelo qual um particular se compromete a pagar a sua hospedagem durante a estadia. A Orden diz que ele pode ser exigido na fronteira espanhola de quem quer entrar na Espanha e apresentado no consulado por quem precisa de visto. A frase-chave, no original:</p>
+<p class="cita" lang="es">{cita_ee("carta_hospedaje")}</p>
+<p>Ou seja: a carta nunca substitui os outros requisitos de entrada, porque só comprova a hospedagem.</p>
+<h2>É obrigatória?</h2>
+<p>Não é automática: a Orden diz que <em>pode</em> ser exigida na fronteira. Se você vai ficar na casa de alguém, o Código das Fronteiras Schengen a inclui entre os comprovantes possíveis ({cita_ee("pt_anexo_convite")}); se vai ficar em hotel, vale a reserva ({cita_ee("pt_anexo_hotel")}). A polícia de fronteiras decide o que pedir.</p>
+<h2>Quem pede e onde</h2>
+<p>Quem pede é quem convida, não o convidado: um cidadão espanhol, de outro país da UE ou um estrangeiro com residência legal na Espanha. O pedido é feito na delegacia de polícia (Comisaría de Policía) do lugar onde a pessoa mora (<span lang="es">{cita_ee("carta_comisaria")}</span>).</p>
+<h2>Que dados e documentos são necessários</h2>
+<ul class="testo"><li>Dados de quem convida e o endereço, com documento que comprove que pode usar a casa (escritura, contrato de aluguel ou outro).</li>
+<li>A relação ou vínculo com o convidado.</li>
+<li>Nome, data e local de nascimento, nacionalidade, endereço e número do passaporte do convidado.</li>
+<li>O período aproximado da estadia, com o primeiro e o último dia.</li>
+<li>Excepcionalmente, a carta pode incluir várias pessoas (<span lang="es">{cita_ee("carta_varias")}</span>).</li></ul>
+<h2>Quanto tempo demora e quanto custa</h2>
+<p>A Orden não fixa um prazo: diz que o pedido é resolvido com a maior brevidade possível (<span lang="es">{cita_ee("carta_brevedad")}</span>) e que quem convida pode ser chamado para uma entrevista. Também não fixa o valor: remete à tabela de taxas de estrangeiros e diz que a taxa é paga em até um mês depois da notificação, e que o comprovante é apresentado para retirar a carta.</p>
+<p class="small">Não publicamos o valor da taxa porque não o lemos em uma fonte oficial: a página da Polícia Nacional espanhola sobre a carta não respondeu ao nosso servidor. Quem convida pode perguntar na delegacia.</p>
+<h2>A carta não substitui o dinheiro</h2>
+<p>Mesmo com carta-convite, na Espanha é preciso comprovar os meios econômicos: {soldi_ee(RIF_SR["Spain"]["importi"][0][0], "EUR", l)} por pessoa e por dia, com mínimo de {soldi_ee(RIF_SR["Spain"]["importi"][1][0], "EUR", l)}. Detalhes em <a href="../{SLUG_EE[l]["Spain"]}">quanto dinheiro preciso para entrar na Espanha</a>.</p>
+<h2>E em Portugal?</h2>
+<p>O Código das Fronteiras Schengen prevê que as declarações de tomada a cargo e os termos de responsabilidade assinados por anfitriões, quando previstos no direito nacional, {cita_ee("pt_convite_meios")}. Não conseguimos ler as regras portuguesas sobre o termo de responsabilidade (o site da AIMA não respondeu ao nosso servidor): confirme na fonte oficial antes de viajar.</p>
+{fonte_ee(("boe_carta", "cfs_pt"), l)}"""
+        dom = [("A carta-convite é obrigatória para entrar na Espanha?", "Nem sempre: a Orden PRE/1283/2007 diz que ela pode ser exigida na fronteira. Se você vai ficar na casa de alguém, é o comprovante de hospedagem previsto; com hotel, basta a reserva. A polícia de fronteiras decide."),
+               ("Quem faz a carta-convite para a Espanha?", "A pessoa que convida, na delegacia de polícia do lugar onde mora na Espanha. O convidado não faz o pedido."),
+               ("Quanto tempo demora a carta-convite?", "A Orden não fixa um prazo: diz que é resolvida com a maior brevidade possível e que quem convida pode ser chamado para uma entrevista."),
+               ("Quanto custa a carta-convite?", "A Orden não fixa o valor: remete à tabela de taxas. A taxa é paga em até um mês depois da notificação. Pergunte o valor na delegacia."),
+               ("Com carta-convite preciso levar dinheiro?", "Sim. A carta só comprova a hospedagem e não substitui os outros requisitos, inclusive o dinheiro.")]
+    corpo = f"""<section class="hero">{h1_diviso(h1)}
+<p class="lead">{lead}</p>
+{lingue_ee(l, "carta", rel)}</section>
+{avviso_ee(l)}
+{AD}
+{cuerpo}
+<h2>{"Preguntas frecuentes" if es else "Perguntas frequentes"}</h2>
+{faq_ee(dom)}
+{link_temi_ee(l, "../", "carta")}"""
+    titolo = titolo_ee([f"Carta de invitación para España: requisitos y trámite ({ANNO})", "Carta de invitación para España: requisitos"] if es else
+                       [f"Carta-convite para a Espanha: como funciona ({ANNO})", "Carta-convite para a Espanha"])
+    descr = ("Carta de invitación para España según la Orden PRE/1283/2007: quién la pide, en qué comisaría, qué datos, si es obligatoria, cuánto tarda y por qué no sustituye el dinero." if es else
+             "Carta-convite (carta de invitación) para a Espanha segundo a Orden PRE/1283/2007: quem pede, onde, se é obrigatória, prazo e por que não substitui o dinheiro.")
+    pagina_ee(l, "carta", titolo, descr, corpo, dom, briciole=[(("Carta de invitación" if es else "Carta-convite"), perc_ee(l, "carta"))])
+
+
+def pagina_ee_seguro(l):
+    es = l == "es"
+    rel = "../../"
+    c30 = soldi_ee(LE["es_seguro_30000" if es else "pt_seguro_30000"]["valore"], "EUR", l)
+    esenti = [P for P in PAESI_EE if P["allegato"] == 2]
+    obbligo = [P for P in PAESI_EE if P["allegato"] == 1]
+    nomi = lambda xs: ", ".join(nome_paese_ee(P, l) for P in sorted(xs, key=lambda P: nome_paese_ee(P, l)))
+    if es:
+        h1 = f"¿Es obligatorio el seguro de viaje para Europa? ({ANNO})"
+        lead = (f'Si necesitas visado, sí: el {link_fonte_ee("cv_es", l, "Código de visados")} (artículo 15, leído el {data_ee(F_EE["cv_es"]["letto_il"], l)}) exige un seguro médico de viaje '
+                f'con una cobertura mínima de {c30}. Si no necesitas visado, el {link_fonte_ee("cfs_es", l, "Código de fronteras Schengen")} no menciona el seguro entre las condiciones de entrada.')
+        cuerpo = f"""<h2>Con visado: obligatorio</h2>
+<p>{cita_ee("es_seguro_visado")} que cubra la repatriación por motivos médicos o por defunción, la asistencia médica de urgencia y la atención hospitalaria de urgencia. {cita_ee("es_seguro_territorio")} {cita_ee("es_seguro_30000")}</p>
+<p>Necesitan visado, entre otros: {escape(nomi(obbligo))}.</p>
+{fonte_ee(("cv_es",), l)}
+<h2>Sin visado: lo que dice la norma</h2>
+<p>Las condiciones de entrada del artículo 6 del Código de fronteras Schengen son pasaporte, visado si hace falta, motivo del viaje y medios de subsistencia, no figurar en el SIS, no ser una amenaza y, cuando corresponda, los datos biométricos. Ni ese artículo ni la lista de justificantes del anexo I mencionan el seguro: lo comprobamos en todo el texto consolidado del 12 de octubre de 2025, donde no aparece la expresión «seguro médico» ni «seguro de viaje».</p>
+<p>No necesitan visado: {escape(nomi(esenti))}. Para ellos, el Código de fronteras no exige seguro. Algún país puede pedirlo por su propia ley: no lo afirmamos porque no lo hemos leído en una fuente oficial (la página del Ministerio del Interior de España no respondía a nuestro servidor). Si quieres estar seguro, consulta la embajada del país al que viajas.</p>
+{fonte_ee(("cfs_es",), l)}
+<h2>¿Y el dinero?</h2>
+<p>El seguro no sustituye los medios económicos: en la frontera pueden pedirte el mínimo del país de entrada. <a href="../">Importe por país y calculadora</a>.</p>"""
+        dom = [("¿Es obligatorio el seguro de viaje para entrar a Europa sin visado?", "El Código de fronteras Schengen no lo pone entre las condiciones de entrada ni entre los justificantes del anexo I. Un país puede tener su propia regla: consulta su embajada. Para quien necesita visado sí es obligatorio."),
+               ("¿Cuánta cobertura debe tener el seguro para el visado Schengen?", f"Como mínimo {c30}, válido en todos los países Schengen y durante toda la estancia (Código de visados, artículo 15)."),
+               ("¿Es obligatorio el seguro de viaje para España?", "Para quien necesita visado, sí. Para quien no lo necesita, el Código de fronteras Schengen no lo exige; no hemos podido leer la página del Ministerio del Interior español, así que no afirmamos nada más."),
+               ("¿El seguro me garantiza la entrada?", "No. La policía de fronteras decide y comprueba los demás requisitos: pasaporte, motivo del viaje, alojamiento, pasaje de vuelta y dinero.")]
+    else:
+        h1 = f"Seguro viagem é obrigatório para a Europa? ({ANNO})"
+        lead = (f'Para quem precisa de visto, sim: o {link_fonte_ee("cv_pt", l, "Código de Vistos")} (artigo 15, lido em {data_ee(F_EE["cv_pt"]["letto_il"], l)}) exige um seguro médico de viagem '
+                f'com cobertura mínima de {c30}. Para quem não precisa de visto, como os brasileiros, o {link_fonte_ee("cfs_pt", l, "Código das Fronteiras Schengen")} não menciona o seguro entre as condições de entrada.')
+        cuerpo = f"""<h2>Com visto: obrigatório</h2>
+<p>{cita_ee("pt_seguro_visto")} para cobrir repatriação por razões médicas, assistência médica urgente, cuidados hospitalares urgentes ou falecimento. {cita_ee("pt_seguro_territorio")} {cita_ee("pt_seguro_30000")}</p>
+<p>Precisam de visto, entre outros: {escape(nomi(obbligo))}.</p>
+{fonte_ee(("cv_pt",), l, "Texto oficial da UE em português europeu.")}
+<h2>Sem visto (brasileiros): o que diz a norma</h2>
+<p>As condições de entrada do artigo 6 do Código das Fronteiras Schengen são passaporte, visto se for o caso, motivo da viagem e meios de subsistência, não estar no SIS, não ser uma ameaça e, quando for o caso, os dados biométricos. Nem esse artigo nem a lista de comprovantes do anexo I falam de seguro: conferimos o texto consolidado de 12 de outubro de 2025 inteiro, e as expressões «seguro médico» e «seguro de viagem» não aparecem.</p>
+<p>Não precisam de visto: {escape(nomi(esenti))}. Para eles, o Código das Fronteiras não exige seguro. Algum país pode exigir por lei própria: não afirmamos isso porque não lemos em fonte oficial. Para ter certeza, consulte a embaixada do país para onde você vai.</p>
+{fonte_ee(("cfs_pt",), l)}
+<h2>E o dinheiro?</h2>
+<p>O seguro não substitui os meios de subsistência: na fronteira podem pedir o mínimo do país de entrada. <a href="../">Valor por país e calculadora</a>.</p>"""
+        dom = [("Seguro viagem é obrigatório para brasileiro entrar na Europa?", "O Código das Fronteiras Schengen não o coloca entre as condições de entrada nem entre os comprovantes do anexo I. Algum país pode ter regra própria: consulte a embaixada. Para quem precisa de visto, é obrigatório."),
+               ("Qual a cobertura mínima do seguro para o visto Schengen?", f"No mínimo {c30}, válido em todos os países Schengen durante toda a estadia (Código de Vistos, artigo 15)."),
+               ("Seguro viagem é obrigatório para Portugal?", "Para quem precisa de visto, sim. Para brasileiros, que não precisam, o Código das Fronteiras Schengen não exige; não lemos regra portuguesa própria em fonte oficial."),
+               ("O seguro garante a entrada?", "Não. A polícia de fronteiras decide e confere os outros requisitos: passaporte, motivo da viagem, hospedagem, passagem de volta e dinheiro.")]
+    corpo = f"""<section class="hero">{h1_diviso(h1)}
+<p class="lead">{lead}</p>
+{lingue_ee(l, "seguro", rel)}</section>
+{avviso_ee(l)}
+{AD}
+{cuerpo}
+{box_sw_ee(l, rel)}
+<h2>{"Preguntas frecuentes" if es else "Perguntas frequentes"}</h2>
+{faq_ee(dom)}
+{link_temi_ee(l, "../", "seguro")}"""
+    titolo = titolo_ee([f"¿Es obligatorio el seguro de viaje para Europa? ({ANNO})", "¿Es obligatorio el seguro de viaje para Europa?"] if es else
+                       [f"Seguro viagem é obrigatório para a Europa? ({ANNO})", "Seguro viagem é obrigatório para a Europa?"])
+    descr = (f"Con visado Schengen el seguro es obligatorio (mínimo {c30}, Código de visados art. 15). Sin visado, el Código de fronteras Schengen no lo exige. Fuentes oficiales." if es else
+             f"Com visto Schengen o seguro é obrigatório (mínimo {c30}, Código de Vistos art. 15). Sem visto, como para brasileiros, o Código das Fronteiras não exige. Fontes oficiais.")
+    pagina_ee(l, "seguro", titolo, descr, corpo, dom, briciole=[("Seguro", perc_ee(l, "seguro"))])
+
+
+def pagina_ee_etias(l):
+    es = l == "es"
+    rel = "../../"
+    esenti = [P for P in PAESI_EE if P["allegato"] == 2]
+    nomi = ", ".join(nome_paese_ee(P, l) for P in sorted(esenti, key=lambda P: nome_paese_ee(P, l)))
+    k = "es" if es else "pt"
+    F = F_EE[f"etias_{k}"]
+    if es:
+        h1 = "ETIAS: ¿ya está en vigor? Estado actual para latinoamericanos"
+        lead = (f'No: el <a href="{escape(F["url"])}" rel="noopener">sitio oficial del ETIAS</a> de la Unión Europea dice, a {data_ee(F["letto_il"], l)}: '
+                f'{cita_ee("etias_es_estado")} {cita_ee("etias_es_fecha")}')
+        cuerpo = f"""<h2>Qué es</h2>
+<p>{cita_ee("etias_es_que")} Según el sitio oficial, los pasos serán: rellenar la solicitud; {cita_ee("etias_es_tasa")}; obtener la autorización; viajar. {cita_ee("etias_es_90")}.</p>
+<h2>¿A quién se pedirá?</h2>
+<p>A los viajeros que no necesitan visado. De América Latina, según el anexo II del Reglamento (UE) 2018/1806: {escape(nomi)}.</p>
+{fonte_ee(("etias_es", "vis_es"), l)}
+<h2>¿Cuándo empieza?</h2>
+<p>No hay fecha oficial: la Unión Europea dice que la anunciará varios meses antes. No publicamos fechas que no estén en la fuente oficial. Mientras tanto, para entrar sin visado valen los requisitos de siempre: <a href="../{SLUG_EE[l]["requisitos"]}">requisitos para entrar a Europa</a> y <a href="../">cuánto dinero necesitas</a>.</p>
+<p>Como hoy no se tramitan solicitudes, no hay nada que pagar todavía. El sitio oficial es travel-europe.europa.eu.</p>"""
+        dom = [("¿El ETIAS ya está en vigor?", "No. El sitio oficial dice que el sistema ETIAS no está en funcionamiento y que no se están tramitando solicitudes."),
+               ("¿Cuándo entra en vigor el ETIAS?", "No hay fecha oficial. La Unión Europea informará de la fecha concreta varios meses antes de que empiece a funcionar."),
+               ("¿Cuánto costará el ETIAS?", "El sitio oficial indica una tasa de solicitud de 20 EUR."),
+               ("¿Los mexicanos y colombianos necesitarán ETIAS?", "Sí, cuando funcione: el ETIAS es para quienes no necesitan visado, y México y Colombia están en la lista de países exentos de visado.")]
+    else:
+        h1 = "ETIAS já está em vigor? Situação atual para brasileiros"
+        lead = (f'Não: o <a href="{escape(F["url"])}" rel="noopener">site oficial do ETIAS</a> da União Europeia diz, em {data_ee(F["letto_il"], l)}: '
+                f'{cita_ee("etias_pt_estado")} {cita_ee("etias_pt_data")}')
+        cuerpo = f"""<h2>O que é</h2>
+<p>{cita_ee("etias_pt_que")} Segundo o site oficial, os passos serão: preencher o pedido; {cita_ee("etias_pt_taxa")}; obter a autorização; viajar. {cita_ee("etias_pt_90")}.</p>
+<h2>Quem vai precisar?</h2>
+<p>Os viajantes que não precisam de visto, como os brasileiros. Da América Latina, segundo o anexo II do Regulamento (UE) 2018/1806: {escape(nomi)}.</p>
+{fonte_ee(("etias_pt", "vis_pt"), l)}
+<h2>Quando começa?</h2>
+<p>Não há data oficial: a União Europeia diz que vai anunciá-la vários meses antes. Não publicamos datas que não estejam na fonte oficial. Enquanto isso, para entrar sem visto valem os requisitos de sempre: <a href="../{SLUG_EE[l]["requisitos"]}">requisitos para entrar na Europa</a> e <a href="../">quanto dinheiro você precisa</a>.</p>
+<p>Como hoje não são aceitos pedidos, ainda não há nada a pagar. O site oficial é travel-europe.europa.eu.</p>"""
+        dom = [("O ETIAS já está valendo?", "Não. O site oficial diz que o ETIAS não está em funcionamento e que não são aceitos pedidos neste momento."),
+               ("Quando o ETIAS entra em vigor?", "Não há data oficial. A União Europeia vai informar a data específica vários meses antes do lançamento."),
+               ("Quanto vai custar o ETIAS?", "O site oficial indica uma taxa de pedido de 20 EUR."),
+               ("Brasileiro vai precisar de ETIAS?", "Sim, quando começar a funcionar: o ETIAS é para quem não precisa de visto, e o Brasil está na lista dos países isentos.")]
+    corpo = f"""<section class="hero">{h1_diviso(h1)}
+<p class="lead">{lead}</p>
+{lingue_ee(l, "etias", rel)}</section>
+{avviso_ee(l)}
+{AD}
+{cuerpo}
+<h2>{"Preguntas frecuentes" if es else "Perguntas frequentes"}</h2>
+{faq_ee(dom)}
+{link_temi_ee(l, "../", "etias")}"""
+    titolo = "ETIAS: ¿ya está en vigor? Estado actual (octubre de 2026)" if es else "ETIAS já está em vigor? Situação atual (outubro de 2026)"
+    mese = MESI_EE[l][date.fromisoformat(F["letto_il"]).month - 1]
+    titolo = titolo.replace("octubre de 2026" if es else "outubro de 2026", f"{mese} de {F['letto_il'][:4]}")
+    descr = ("Estado oficial del ETIAS: todavía no funciona y no hay fecha; la UE la anunciará meses antes. Tasa de 20 EUR, hasta 90 días, quién lo necesitará." if es else
+             "Situação oficial do ETIAS: ainda não funciona e não há data; a UE vai anunciar meses antes. Taxa de 20 EUR, até 90 dias, quem vai precisar.")
+    pagina_ee(l, "etias", titolo, descr, corpo, dom, briciole=[("ETIAS", perc_ee(l, "etias"))])
+
+
+def genera_ee():
+    for l in ("es", "pt"):
+        pagina_ee_hub(l)
+        for s in PAGINE_STATO_EE:
+            pagina_ee_stato(l, s)
+        pagina_ee_requisitos(l)
+        pagina_ee_carta(l)
+        pagina_ee_seguro(l)
+        pagina_ee_etias(l)
+
+
+def controlli_ee():
+    import hashlib
+    errori = []
+    cont = {k: EE[k] for k in ("fonti", "letture", "assenti", "paesi")}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != EE["impronta"]:
+        errori.append("entrar_europa: impronta del JSON diversa dal contenuto (file modificato a mano?)")
+    if any(f.get("http") != 200 for f in F_EE.values()):
+        errori.append("entrar_europa: fonte non letta (HTTP diverso da 200)")
+    if set(REGOLE_EE) != set(RIF_SR):
+        errori.append(f"entrar_europa: regole del calcolatore diverse dagli Stati della tabella ({sorted(set(REGOLE_EE) ^ set(RIF_SR))})")
+    for s in RIF_SR:
+        for x, v, et in RIF_SR[s]["importi"]:
+            if et not in ETICHETTE_EE:
+                errori.append(f"entrar_europa: etichetta senza traduzione ({s}): {et}")
+            elif any(sorted(re.findall(r"\d+", t)) != sorted(re.findall(r"\d+", et)) for t in ETICHETTE_EE[et]):
+                errori.append(f"entrar_europa: numeri diversi nella traduzione dell'etichetta {et!r}")
+            if v != "EUR" and v not in CAMBI["tassi"]:
+                errori.append(f"entrar_europa: valuta {v} senza cambio BCE ({s})")
+        for R in REGOLE_EE.get(s, []):
+            if "n" in R and f"{R['n']} days" not in RIF_SR[s]["frammento"]:
+                errori.append(f"entrar_europa: soglia di {R['n']} giorni non scritta nel frammento di {s}")
+        if s not in NOMI_EE:
+            errori.append(f"entrar_europa: nome dello Stato mancante ({s})")
+    smi = INDICI["es_smi"]["valore"]
+    sp = RIF_SR["Spain"]["importi"]
+    if r2(smi * LE["boe_10"]["valore"]) != sp[0][0] or r2(smi * LE["boe_90"]["valore"]) != sp[1][0]:
+        errori.append(f"entrar_europa: 10%/90% dello SMI ({smi}) diversi dalla tabella della Commissione per la Spagna ({sp[0][0]}, {sp[1][0]})")
+    if LE["es_seguro_30000"]["valore"] != COPERTURA_SR or LE["pt_seguro_30000"]["valore"] != COPERTURA_SR:
+        errori.append("entrar_europa: copertura dell'assicurazione diversa da schengen_residenti.json")
+    for l in ("es", "pt"):
+        for s in PAGINE_STATO_EE:
+            if s not in SLUG_EE[l]:
+                errori.append(f"entrar_europa: slug mancante {l} {s}")
+    allegato = {P["id"]: P["allegato"] for P in PAESI_EE}
+    for gruppo, atteso in (("esenti", 2), ("obbligo", 1)):
+        for pid, _ in CITATI_EE[gruppo]:
+            if allegato.get(pid) != atteso:
+                errori.append(f"entrar_europa: {pid} citato tra gli {gruppo} ma nell'allegato {allegato.get(pid)} del Reg. 2018/1806")
+    for pid in ("brasil",):
+        if allegato.get(pid) != 2:
+            errori.append("entrar_europa: le pagine in portoghese dicono che i brasiliani non hanno bisogno del visto: controllare l'allegato")
+    if URL_SW_EE and not re.match(r"https://safetywing\.com/", URL_SW_EE):
+        errori.append("entrar_europa: link SafetyWing non valido (_safetywing_entrar)")
+    return errori
+
+
 def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
@@ -9296,6 +10566,7 @@ def controlli():
     errori += controlli_f7()
     errori += controlli_sr()
     errori += controlli_cer()
+    errori += controlli_ee()
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -9329,6 +10600,7 @@ def main():
     genera_f7()
     genera_sr()
     genera_cer()
+    genera_ee()
     pagina_come_funziona()
     about()
     contatti()
@@ -9342,7 +10614,8 @@ def main():
           f"DTV Thailandia: {len(LET_DTV)} sedi lette su {len(SEDI_DTV)}, {len(PAG_DTV)} con pagina; Irlanda (PPS): {len(PPS_OK)} nazionalità, dati a {PPS_ULTIMO}; "
           f"Messico: {len(CONS_MX)} consolati, UMA {UMA_MX}; Study in Italy: {len(ENTI_IT)} enti DSU, mezzi {LIT['mezzi']} €; "
           f"flat tax 7%: {len(COMUNI_F7)} Comuni ISTAT, {sum(1 for c in COMUNI_F7 if stato_f7(c, '2025') == 'ok')} entro {SOGLIA_F7} (1/1/2025); "
-          f"cerimonie di cittadinanza australiane: {len(RIGHE_CER)} council al {AL_CER}, {len(PAG_CER)} con pagina.")
+          f"cerimonie di cittadinanza australiane: {len(RIGHE_CER)} council al {AL_CER}, {len(PAG_CER)} con pagina; "
+          f"sezioni es/pt (entrar a Europa): {2 * (5 + len(PAGINE_STATO_EE))} pagine, importi della tabella del {DATA_RIF_EE}.")
 
 
 if __name__ == "__main__":

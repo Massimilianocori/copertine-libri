@@ -61,5 +61,12 @@
     "nota": "SPENTO (31/10/2026): riquadro pronto in box_axa() di genera.py, solo nelle pagine Schengen visa from the UK / from Dubai, dopo le informazioni ufficiali sull'assicurazione (copertura minima 30.000 €, art. 15 del Codice dei visti). Quando arriva il link tracciato AXA Schengen da Tradedoubler (dominio tradedoubler.com o axa-schengen.com, entrambi in monetizzazione.json), incollarlo qui in 'url' e rigenerare: il riquadro AXA prende il posto di quello SafetyWing in quelle pagine. Mai inventare URL.",
     "attivo_dal": "",
     "regole": "rel=\"sponsored noopener\", etichetta Affiliate, riga di trasparenza; nessuna promessa sul visto né sul rimborso in caso di rifiuto; nessuna frase sull'accettazione della polizza da parte del consolato. Per spegnerlo: url vuoto e rigenerare."
+  },
+  "_safetywing_entrar": {
+    "url": "https://safetywing.com/nomad-insurance?referenceID=26614957&campaign=entrar-europa&utm_campaign=entrar-europa&utm_source=26614957&utm_medium=Ambassador",
+    "nome": "SafetyWing",
+    "nota": "Usato SOLO nelle due pagine sull'assicurazione delle sezioni in spagnolo e portoghese (es/seguro-de-viaje-obligatorio-europa/, pt/seguro-viagem-obrigatorio-europa/; box_sw_ee in genera.py), dopo le regole ufficiali. Stesso referenceID 26614957 del link attivo (_safetywing_schengen), campagna entrar-europa per contare i clic a parte (31/10/2026). Il riquadro dice che per chi non ha bisogno del visto il Codice frontiere Schengen non chiede l'assicurazione, e riporta la FAQ di SafetyWing (nessuna garanzia di accettazione per il visto).",
+    "attivo_dal": "2026-10-31",
+    "regole": "rel=\"sponsored noopener\", etichetta Afiliado/Afiliado, riga di trasparenza (anche in inglese, come chiede monetizzazione.py); nessuna promessa sul visto o sull'ingresso. Per spegnerlo: url vuoto e rigenerare."
   }
 }
