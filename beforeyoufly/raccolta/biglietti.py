@@ -3,7 +3,8 @@
 Uso (dalla radice del repository):
     python3 -I beforeyoufly/raccolta/biglietti.py             rilegge le fonti, controlla le frasi citate, scrive dati/biglietti.json
     python3 -I beforeyoufly/raccolta/biglietti.py --cache     come sopra ma senza rete, dalle copie in raccolta/.cache/biglietti/
-    python3 -I beforeyoufly/raccolta/biglietti.py --domanda   rilegge anche l'autocompletamento di Google (dati/biglietti_domanda.json)
+    python3 -I beforeyoufly/raccolta/biglietti.py --domanda   legge anche l'autocompletamento di Google per le ricerche nuove (--tutte: tutte)
+    python3 -I beforeyoufly/raccolta/biglietti.py --domanda --solo-domanda   solo l'autocompletamento
     python3 -I beforeyoufly/raccolta/biglietti.py --testo ID  stampa il testo normalizzato di una fonte (per scrivere le citazioni)
 
 Regole (decise il 30/10/2026):
@@ -24,12 +25,20 @@ Regole (decise il 30/10/2026):
     Torre Eiffel. tickets.museivaticani.va e tickets.alhambra-patronato.es non si leggono (certificato incompleto, controllo anti-robot):
     si linkano soltanto, perché le pagine ufficiali lette li indicano come unica biglietteria online.
   - Pagine grezze in raccolta/.cache/biglietti/ (escluse da git). Ricontrollo ogni mese (NOTE.md).
+  - 31/10/2026: aggiunte le attrazioni a data fissa in Giappone e negli USA (Museo Ghibli, Ghibli Park, Nintendo Museum, tornei di sumo,
+    visita al Palazzo Imperiale, Washington Monument) con tre tipi di regola nuovi: "mensile" (giorno del mese, per il mese N dopo),
+    "date" (date fisse di una tabella ufficiale) e "anticipo" (ogni giorno, N giorni prima della visita: nessuna data nel calendario).
+    Le attrazioni provate e senza una regola scritta (o che non rispondono) stanno in "escluse" con l'indirizzo: lo script le rilegge
+    una volta (HTTP e data) e verifica.py controlla che il motivo scritto sia coerente con l'esito.
+  - Nessun nuovo tentativo su un errore HTTP (403, 404, 503...): l'esito si registra così com'è. Solo gli errori di rete (timeout,
+    connessione interrotta) si ritentano, al massimo 3 volte.
 """
 import hashlib
 import json
 import re
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import date
@@ -63,6 +72,26 @@ FONTI = {
     "sf_faq": {"url": "https://sagradafamilia.org/en/faqs", "ente": "Basílica de la Sagrada Família", "titolo": "Sagrada Família: FAQs"},
     "sf_orari": {"url": "https://sagradafamilia.org/en/schedules-how-to-get", "ente": "Basílica de la Sagrada Família",
                  "titolo": "Sagrada Família: Opening hours and getting here"},
+    # Giappone e USA (31/10/2026)
+    "ghm_tickets": {"url": "https://www.ghibli-museum.jp/en/tickets/", "ente": "Ghibli Museum, Mitaka", "titolo": "Ghibli Museum: Tickets"},
+    "ghm_ore": {"url": "https://www.ghibli-museum.jp/en/hours-and-directions/", "ente": "Ghibli Museum, Mitaka",
+                "titolo": "Ghibli Museum: Hours and Directions"},
+    "ghp_ticket": {"url": "https://ghibli-park.jp/en/ticket/", "ente": "Ghibli Park", "titolo": "Ghibli Park: Tickets (Overseas Purchase)"},
+    "nin_home": {"url": "https://museum.nintendo.com/en/", "ente": "Nintendo Museum (Nintendo Co., Ltd.)", "titolo": "Nintendo Museum: official website"},
+    "nin_guida": {"url": "https://museum.nintendo.com/en/guide/visit-flow/index.html", "ente": "Nintendo Museum (Nintendo Co., Ltd.)",
+                  "titolo": "Nintendo Museum: From Ticket Reservation to Arrival at the Museum"},
+    "nin_biglietti": {"url": "https://museum-tickets.nintendo.com/en/", "ente": "Nintendo Museum (Nintendo Co., Ltd.)",
+                      "titolo": "Nintendo Museum Ticketing Website"},
+    "sumo_home": {"url": "https://www.sumo.or.jp/En/", "ente": "Japan Sumo Association (Nihon Sumo Kyokai)",
+                  "titolo": "Nihon Sumo Kyokai: Official Grand Sumo Home Page"},
+    "sumo_date": {"url": "https://www.sumo.or.jp/EnTicket/year_schedule/", "ente": "Japan Sumo Association (Nihon Sumo Kyokai)",
+                  "titolo": "Nihon Sumo Kyokai: Grand Tournament Schedule"},
+    "kun_palazzo": {"url": "https://sankan.kunaicho.go.jp/english/guide/koukyo.html", "ente": "Imperial Household Agency",
+                    "titolo": "Imperial Household Agency: The Imperial Palace, Facilities and Visit Guidelines"},
+    "wm_rec": {"url": "https://www.recreation.gov/ticket/facility/234635", "ente": "Recreation.gov (National Park Service)",
+               "titolo": "Recreation.gov: Washington Monument, National Mall and Memorial Parks"},
+    "wm_ore": {"url": "https://www.nps.gov/wamo/planyourvisit/hours.htm", "ente": "National Park Service",
+               "titolo": "Washington Monument: Operating Hours & Seasons (NPS)"},
 }
 
 # Ricerche da rileggere con --domanda (autocompletamento, client=firefox, hl=en, gl=us e gl=uk): le FAQ si legano a queste
@@ -77,6 +106,14 @@ DOMANDA = [
     "when do alhambra tickets go on sale", "alhambra tickets", "when are alhambra tickets released", "is the alhambra open on",
     "when do sagrada familia tickets go on sale", "sagrada familia tickets", "how far in advance sagrada familia tickets",
     "is sagrada familia open on",
+    # Giappone e USA (31/10/2026)
+    "when do ghibli museum tickets", "ghibli museum tickets", "ghibli museum tickets release", "ghibli museum tickets for",
+    "ghibli park tickets", "when do ghibli park tickets go on sale", "ghibli park tickets for",
+    "nintendo museum tickets", "nintendo museum lottery", "nintendo museum ticket", "is nintendo museum open on",
+    "sumo tickets", "sumo tickets january", "when do sumo tickets go on sale", "sumo tickets 2027",
+    "imperial palace tour", "imperial palace tour reservation", "imperial palace tokyo tour",
+    "washington monument tickets", "washington monument tickets released", "when are washington monument tickets released",
+    "washington monument tickets day",
 ]
 
 
@@ -117,10 +154,18 @@ def tutte_ricerche(D):
     return {s for g in D["ricerche"].values() for ss in g.values() for s in ss}
 
 
-def domanda():
-    out = {}
+def domanda(tutte=False):
+    """Autocompletamento: legge le ricerche di DOMANDA che mancano nel file (tutte con --tutte) e le aggiunge, con la data di lettura per
+    ricerca; le ricerche già lette restano (le FAQ già scritte si legano a quelle)."""
+    f = DATI / "biglietti_domanda.json"
+    prima = json.loads(f.read_text(encoding="utf-8")) if f.exists() else {"ricerche": {}}
+    out = prima.get("ricerche") or {}
+    date_q = prima.get("letto_il_per_ricerca") or {q: prima.get("letto_il") for q in prima.get("domande", [])}
+    nuove = 0
     for gl in ("us", "uk"):
         for q in DOMANDA:
+            if not tutte and q in out.get(gl, {}):
+                continue
             u = "https://suggestqueries.google.com/complete/search?client=firefox&gl=%s&hl=en&q=%s" % (gl, urllib.parse.quote(q))
             try:
                 sugg = json.loads(leggi(u)[2].decode("utf-8", "replace"))[1]
@@ -128,13 +173,55 @@ def domanda():
                 print(f"  autocompletamento {gl} {q!r}: {e}")
                 continue
             out.setdefault(gl, {})[q] = sugg
+            date_q[q] = date.today().isoformat()
+            nuove += 1
             time.sleep(0.25)
     doc = {"_nota": "Ricerche vere (autocompletamento di Google, client=firefox, hl=en, gl=us e gl=uk) sull'uscita dei biglietti, le chiusure e i "
                     "giorni gratis delle attrazioni della sezione ticket-release-dates/. Ogni domanda delle FAQ è una di queste ricerche (campo 'query' "
-                    "in biglietti_manuali.json). Riscritto da raccolta/biglietti.py --domanda.",
-           "letto_il": date.today().isoformat(), "domande": DOMANDA, "ricerche": out}
-    (DATI / "biglietti_domanda.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
-    print("domanda:", sum(len(v) for g in out.values() for v in g.values()), "suggerimenti")
+                    "in biglietti_manuali.json). Riscritto da raccolta/biglietti.py --domanda (solo le ricerche nuove; --tutte le rilegge tutte).",
+           "letto_il": max(v for v in date_q.values() if v), "letto_il_per_ricerca": date_q, "domande": DOMANDA, "ricerche": out}
+    f.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
+    print("domanda:", nuove, "ricerche lette ora,", sum(len(v) for g in out.values() for v in g.values()), "suggerimenti in tutto")
+
+
+def leggi_una_volta(url):
+    """(stato HTTP o None, url finale, byte o None, errore): nessun nuovo tentativo su un errore HTTP; errori di rete al massimo 3 tentativi."""
+    errore = None
+    for tentativo in range(3):
+        try:
+            stato, finale, raw = leggi(url)
+            return stato, finale, raw, None
+        except urllib.error.HTTPError as e:
+            return e.code, url, None, f"HTTP {e.code}"
+        except Exception as e:
+            errore = e
+            time.sleep(5 + 10 * tentativo)
+    return None, url, None, str(errore)
+
+
+USCITA_RE = re.compile(r"\bgo(?:es)? on sale\b|\bon sale (?:from|on|at)\b|\btickets? (?:are|will be|is) (?:released|available from)\b|\brelease dates?\b|"
+                       r"\breservations? (?:open|opens|will open)\b|\bbooking opens\b", re.I)
+
+
+def rileggi_escluse(M, prima, da_cache):
+    """Attrazioni provate e tenute fuori: rilegge una volta l'indirizzo e registra HTTP e data (verifica.py controlla il motivo)."""
+    oggi = date.today().isoformat()
+    vecchie = {x["nome"]: x for x in prima.get("escluse", [])}
+    out = []
+    for x in M["escluse"]:
+        x = dict(x)
+        if x.get("url"):
+            if da_cache:
+                P = vecchie.get(x["nome"]) or {}
+                x["http"], x["letto_il"], x["frasi_uscita"] = P.get("http"), P.get("letto_il"), P.get("frasi_uscita")
+            else:
+                stato, _, raw, err = leggi_una_volta(x["url"])
+                x["http"], x["letto_il"] = stato, oggi
+                # frasi che annunciano un'uscita: per "nessuna_regola" devono essere 0 (verifica.py lo controlla)
+                x["frasi_uscita"] = len(USCITA_RE.findall(testo_fonte(raw))) if raw else None
+                print(f"  esclusa {x['nome']}: {stato or err}, frasi d'uscita {x['frasi_uscita']}")
+        out.append(x)
+    return out
 
 
 def main():
@@ -160,14 +247,7 @@ def main():
             P0 = prima["fonti"].get(fid) or {}
             raw, stato, finale = f_cache.read_bytes(), P0.get("http"), P0.get("url_finale")
         else:
-            raw, errore = None, None
-            for tentativo in range(4):
-                try:
-                    stato, finale, raw = leggi(F["url"])
-                    break
-                except Exception as e:
-                    errore = e
-                    time.sleep(5 + 10 * tentativo)
+            stato, finale, raw, errore = leggi_una_volta(F["url"])
             if raw is None:
                 problemi.append(f"{fid}: lettura fallita ({errore})")
                 continue
@@ -200,6 +280,7 @@ def main():
         for r in a["uscite"] + ([a["gratis"]] if a.get("gratis") else []) + [a["chiusure"]]:
             if any(i not in ids for i in r.get("cit", [])):
                 problemi.append(f"{a['slug']}: regola {r.get('id', r.get('tipo'))} con citazione sconosciuta")
+    escluse = rileggi_escluse(M, prima, da_cache)
     if problemi:
         print("NON SCRITTO dati/biglietti.json. Da controllare a mano:\n  " + "\n  ".join(problemi))
         sys.exit(1)
@@ -207,7 +288,7 @@ def main():
                     "(citazioni parola per parola), fonti rilette da raccolta/biglietti.py (HTTP, data di lettura, impronta della zona citata). "
                     "Le date le calcola genera.py dalle regole. Non modificare a mano: rilanciare lo script.",
            "controllato_il": max(v["letto_il"] for v in letture.values()), "fonti": letture, "attrazioni": M["attrazioni"],
-           "escluse": M["escluse"]}
+           "escluse": escluse}
     f_dati.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
     if cambi:
         f_c = DATI / "biglietti_cambi.json"
@@ -227,7 +308,7 @@ if __name__ == "__main__":
         print(testo_fonte(f_cache.read_bytes()))
         sys.exit(0)
     if "--domanda" in sys.argv:
-        domanda()
+        domanda(tutte="--tutte" in sys.argv)
         if "--solo-domanda" in sys.argv:
             sys.exit(0)
     main()

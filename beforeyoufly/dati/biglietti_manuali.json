@@ -244,7 +244,8 @@
      ],
      "post": "Other websites may resell tickets or sell tours at a higher price."
     }
-   ]
+   ],
+   "area": "Europe"
   },
   {
    "slug": "vatican-museums",
@@ -434,7 +435,8 @@
      ],
      "post": "Check the official calendar before you plan a visit around Easter."
     }
-   ]
+   ],
+   "area": "Europe"
   },
   {
    "slug": "anne-frank-house",
@@ -648,7 +650,8 @@
      ],
      "post": "Other websites may resell tickets or sell tours at a higher price."
     }
-   ]
+   ],
+   "area": "Europe"
   },
   {
    "slug": "pompeii",
@@ -814,7 +817,8 @@
      ],
      "post": "Other websites may resell tickets or sell tours at a higher price."
     }
-   ]
+   ],
+   "area": "Europe"
   },
   {
    "slug": "alhambra",
@@ -959,7 +963,8 @@
      ],
      "post": "Other websites may resell tickets or sell tours at a higher price."
     }
-   ]
+   ],
+   "area": "Europe"
   },
   {
    "slug": "sagrada-familia",
@@ -1136,6 +1141,958 @@
      ],
      "post": "Other websites may resell tickets or sell tours at a higher price."
     }
+   ],
+   "area": "Europe"
+  },
+  {
+   "slug": "ghibli-museum",
+   "nome": "Ghibli Museum",
+   "nome_lungo": "Ghibli Museum, Mitaka",
+   "citta": "Mitaka (Tokyo)",
+   "paese": "Japan",
+   "fuso": "Asia/Tokyo",
+   "ora_locale": "Japan time",
+   "area": "Japan",
+   "chi": "the official Ghibli Museum website",
+   "sito": "https://www.ghibli-museum.jp/en/",
+   "biglietteria": {
+    "url": "https://l-tike.com/st1/ghibli-en/Tt/Ttg010agreement/index",
+    "nome": "Lawson Ticket (English)",
+    "cit": [
+     "ghm_lawson"
+    ]
+   },
+   "titolo": "When Do Ghibli Museum Tickets Go on Sale? Release Dates 2026-27",
+   "h1": "When do Ghibli Museum tickets go on sale? Release dates (2026-27)",
+   "risposta": "tickets go on sale at 10 a.m. Japan time on the 10th of each month for the following month: the next release is {next:mese}, for {per:mese}.",
+   "uscite": [
+    {
+     "id": "mese",
+     "tipo": "mensile",
+     "giorno": 10,
+     "ora": "10:00",
+     "mesi_dopo": 1,
+     "titolo": "Ghibli Museum tickets go on sale",
+     "breve": "On the 10th of each month at 10 a.m. Japan time, for the following month",
+     "cit": [
+      "ghm_regola",
+      "ghm_esempio"
+     ],
+     "indice": "the 10th of each month at 10 a.m. Japan time",
+     "prova": {
+      "cit": "ghm_esempio",
+      "vendita": "January 10th",
+      "per": "February 1st"
+     }
+    }
+   ],
+   "uscite_testo": [],
+   "gratis": null,
+   "chiusure": {
+    "md": [],
+    "date": [],
+    "settimana": [],
+    "breve": "Marked on the official calendar",
+    "cit": [],
+    "nota": "The museum marks its closing days in the calendar on its ticket page, as coloured days without text, so we do not copy them: check the official calendar before you book."
+   },
+   "orari_speciali": [],
+   "orari": {
+    "breve": "10:00 to 18:00",
+    "cit": [
+     "ghm_ore"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "ghm_prenota",
+     "f": "ghm_tickets",
+     "tema": "biglietti",
+     "x": "All admission to the Ghibli Museum is by advance reservation only. No reservation or ticket purchase can be made at the Museum."
+    },
+    {
+     "id": "ghm_lawson",
+     "f": "ghm_tickets",
+     "tema": "biglietti",
+     "x": "Visitors may purchase tickets from overseas through one of the following methods: (1) Sales Online by LAWSON TICKET"
+    },
+    {
+     "id": "ghm_regola",
+     "f": "ghm_tickets",
+     "tema": "uscita",
+     "x": "Tickets become available for purchase at 10 a.m. (JST) on the 10th of each month for the subsequent month."
+    },
+    {
+     "id": "ghm_esempio",
+     "f": "ghm_tickets",
+     "tema": "uscita",
+     "x": "For example, tickets for February 1st through February 28th go on sale at 10a.m.(JST) on January 10th."
+    },
+    {
+     "id": "ghm_validi",
+     "f": "ghm_tickets",
+     "tema": "biglietti",
+     "x": "Tickets are valid only for the specified date and time of entry, with no set exit times."
+    },
+    {
+     "id": "ghm_ore",
+     "f": "ghm_ore",
+     "tema": "orari",
+     "x": "Hours 10:00-18:00"
+    }
+   ],
+   "faq": [
+    {
+     "q": "When do Ghibli Museum tickets go on sale?",
+     "query": "when do ghibli museum tickets go on sale",
+     "tipo": "uscita",
+     "pre": "On the 10th of each month at 10 a.m. Japan time, for the whole of the following month. The official page says:",
+     "cit": [
+      "ghm_regola",
+      "ghm_esempio"
+     ],
+     "post": "",
+     "regola": "mese"
+    },
+    {
+     "q": "What time do Ghibli Museum tickets go on sale?",
+     "query": "what time do ghibli museum tickets go on sale",
+     "tipo": "testo",
+     "pre": "At 10 a.m. Japan time (JST):",
+     "cit": [
+      "ghm_regola"
+     ],
+     "post": "That is the evening before in New York and the early hours of the same day in London: the section on the official rule above converts the next release."
+    },
+    {
+     "q": "How far in advance can you buy Ghibli Museum tickets?",
+     "query": "ghibli museum tickets how far in advance",
+     "tipo": "uscita",
+     "pre": "Up to about one month and three weeks: a whole month goes on sale on the 10th of the month before. The official example:",
+     "cit": [
+      "ghm_esempio"
+     ],
+     "post": "",
+     "regola": "mese"
+    },
+    {
+     "q": "How can foreigners buy Ghibli Museum tickets?",
+     "query": "ghibli museum tickets for foreigners",
+     "tipo": "testo",
+     "pre": "Online, in advance: the official page names Lawson Ticket's online sales for visitors from overseas, and nothing is sold at the museum.",
+     "cit": [
+      "ghm_lawson",
+      "ghm_prenota"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "slug": "ghibli-park",
+   "nome": "Ghibli Park",
+   "nome_lungo": "Ghibli Park (Aichi)",
+   "citta": "Nagakute (Aichi, near Nagoya)",
+   "paese": "Japan",
+   "fuso": "Asia/Tokyo",
+   "ora_locale": "Japan time",
+   "area": "Japan",
+   "chi": "the official Ghibli Park website",
+   "sito": "https://ghibli-park.jp/en/",
+   "biglietteria": {
+    "url": "https://l-tike.com/st1/ghibli-pk-en4",
+    "nome": "Lawson Ticket (English)",
+    "cit": [
+     "ghp_lawson"
+    ]
+   },
+   "titolo": "When Do Ghibli Park Tickets Go on Sale? Release Dates 2026-27",
+   "h1": "When do Ghibli Park tickets go on sale? Release dates (2026-27)",
+   "risposta": "day passes go on sale two months in advance, on the 10th at 2 p.m. Japan time: the next release is {next:mese}, for {per:mese}.",
+   "uscite": [
+    {
+     "id": "mese",
+     "tipo": "mensile",
+     "giorno": 10,
+     "ora": "14:00",
+     "mesi_dopo": 2,
+     "titolo": "Ghibli Park tickets go on sale",
+     "breve": "On the 10th of each month at 2 p.m. Japan time, two months ahead",
+     "cit": [
+      "ghp_regola",
+      "ghp_cambio"
+     ],
+     "indice": "the 10th of each month at 2 p.m. Japan time"
+    }
+   ],
+   "uscite_testo": [],
+   "gratis": null,
+   "chiusure": {
+    "md": [],
+    "date": [],
+    "settimana": [],
+    "breve": "On the official park calendar",
+    "cit": [
+     "ghp_calendario"
+    ],
+    "nota": "The ticket page sends you to the park calendar for closing days; we do not copy that calendar."
+   },
+   "orari_speciali": [],
+   "orari": {
+    "breve": "Closing time 5:00 p.m.",
+    "cit": [
+     "ghp_chiusura"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "ghp_nonmuseo",
+     "f": "ghp_ticket",
+     "tema": "biglietti",
+     "x": "This is a ticket page for Ghibli PARK in Aichi, not for Ghibli MUSEUM, Mitaka (Tokyo)."
+    },
+    {
+     "id": "ghp_lawson",
+     "f": "ghp_ticket",
+     "tema": "biglietti",
+     "x": "Click here for sales online by LAWSON TICKET"
+    },
+    {
+     "id": "ghp_calendario",
+     "f": "ghp_ticket",
+     "tema": "chiusure",
+     "x": "Please check Park Calendar"
+    },
+    {
+     "id": "ghp_noarea",
+     "f": "ghp_ticket",
+     "tema": "biglietti",
+     "x": "*Please note that park tickets cannot be purchased at any area of Ghibli Park."
+    },
+    {
+     "id": "ghp_regola",
+     "f": "ghp_ticket",
+     "tema": "uscita",
+     "x": "This pass goes on sale two months in advance, on the 10th at 2 p.m. (Japan time)"
+    },
+    {
+     "id": "ghp_chiusura",
+     "f": "ghp_ticket",
+     "tema": "orari",
+     "x": "Especially, Hill of Youth and Dondoko Forest are expected to be very crowded after 4:00 p.m. until closing time (5:00 p.m.)."
+    },
+    {
+     "id": "ghp_cambio",
+     "f": "ghp_ticket",
+     "tema": "uscita",
+     "x": "*The dates tickets go on sale and sale periods are subject to change."
+    },
+    {
+     "id": "ghp_limite",
+     "f": "ghp_ticket",
+     "tema": "biglietti",
+     "x": "*The purchase of each ticket type is limited to once per month, but a maximum of six tickets may be purchased at one time."
+    }
+   ],
+   "faq": [
+    {
+     "q": "When do Ghibli Park tickets go on sale?",
+     "query": "when do ghibli park tickets go on sale",
+     "tipo": "uscita",
+     "pre": "Two months ahead, on the 10th at 2 p.m. Japan time. The official page says, for each day pass:",
+     "cit": [
+      "ghp_regola"
+     ],
+     "post": "",
+     "regola": "mese"
+    },
+    {
+     "q": "What time do Ghibli Park tickets go on sale?",
+     "query": "what time do ghibli park tickets go on sale",
+     "tipo": "testo",
+     "pre": "At 2 p.m. Japan time. The official page also warns that the dates can change:",
+     "cit": [
+      "ghp_regola",
+      "ghp_cambio"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How do you buy Ghibli Park tickets?",
+     "query": "ghibli park tickets how to buy",
+     "tipo": "testo",
+     "pre": "In advance only: the official page for overseas buyers links Lawson Ticket's online sales and says:",
+     "cit": [
+      "ghp_lawson",
+      "ghp_noarea",
+      "ghp_limite"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can foreigners buy Ghibli Park tickets?",
+     "query": "ghibli park tickets for foreigners",
+     "tipo": "testo",
+     "pre": "Yes, the official page has a ticket page for overseas purchase. Note that it is not the Ghibli Museum:",
+     "cit": [
+      "ghp_nonmuseo",
+      "ghp_lawson"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "slug": "nintendo-museum",
+   "nome": "Nintendo Museum",
+   "nome_lungo": "Nintendo Museum",
+   "citta": "Uji (Kyoto)",
+   "paese": "Japan",
+   "fuso": "Asia/Tokyo",
+   "ora_locale": "Japan time",
+   "area": "Japan",
+   "chi": "the official Nintendo Museum website",
+   "sito": "https://museum.nintendo.com/en/",
+   "biglietteria": {
+    "url": "https://museum-tickets.nintendo.com/en/",
+    "nome": "museum-tickets.nintendo.com",
+    "cit": [
+     "nin_solo"
+    ]
+   },
+   "titolo": "Nintendo Museum Ticket Lottery Dates 2026-27: When to Enter",
+   "h1": "Nintendo Museum tickets: when the lottery (drawing) opens (2026-27)",
+   "risposta": "tickets are sold through a drawing that opens three months before the month of your visit: the next drawing opens on {next:sorteggio}, for visits in {per:sorteggio}.",
+   "uscite": [
+    {
+     "id": "sorteggio",
+     "tipo": "mensile",
+     "giorno": 1,
+     "ora": null,
+     "mesi_dopo": 3,
+     "titolo": "Nintendo Museum ticket drawing opens",
+     "etichetta": "Drawing opens",
+     "breve": "Drawing entries open on the 1st of each month, three months ahead",
+     "cit": [
+      "nin_sorteggio",
+      "nin_esempio"
+     ],
+     "indice": "drawing entries open on the 1st of each month",
+     "prova": {
+      "cit": "nin_esempio",
+      "vendita": "April 1st",
+      "per": "July 15th"
+     }
+    }
+   ],
+   "uscite_testo": [],
+   "gratis": null,
+   "chiusure": {
+    "md": [
+     "12-30",
+     "12-31",
+     "01-01",
+     "01-02",
+     "01-03"
+    ],
+    "date": [],
+    "settimana": [
+     1
+    ],
+    "breve": "Tuesdays and 30 December to 3 January",
+    "cit": [
+     "nin_orari"
+    ],
+    "nota": "If a Tuesday is a national holiday, the museum opens and closes on the Wednesday instead: our table does not show these days."
+   },
+   "orari_speciali": [],
+   "orari": {
+    "breve": "10:00 to 20:00",
+    "cit": [
+     "nin_orari"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "nin_sorteggio",
+     "f": "nin_guida",
+     "tema": "uscita",
+     "x": "Tickets are sold via a randomly selected drawing. Entries will be accepted beginning three months prior to your visit."
+    },
+    {
+     "id": "nin_risultati",
+     "f": "nin_guida",
+     "tema": "uscita",
+     "x": "1st day of the month following the application (afternoon) Check Drawing Results"
+    },
+    {
+     "id": "nin_dopo",
+     "f": "nin_guida",
+     "tema": "uscita",
+     "x": "After the drawing is over, if there are any tickets available due to cancellations, etc., tickets may be purchased on a first-come, first-served basis."
+    },
+    {
+     "id": "nin_solo",
+     "f": "nin_biglietti",
+     "tema": "biglietti",
+     "x": "Note: Nintendo Museum tickets can only be purchased through this page."
+    },
+    {
+     "id": "nin_esempio",
+     "f": "nin_biglietti",
+     "tema": "uscita",
+     "x": "Drawing entry example: People who want to visit on July 15th can enter a drawing between April 1st and April 30th."
+    },
+    {
+     "id": "nin_esempio2",
+     "f": "nin_biglietti",
+     "tema": "uscita",
+     "x": "No drawing example: People who want to visit on July 15th may purchase tickets for that date between mid-May and July 14th."
+    },
+    {
+     "id": "nin_nomi",
+     "f": "nin_biglietti",
+     "tema": "biglietti",
+     "x": "1. Tickets are linked to visitors' names. Names on visitor tickets must match identification. Purchasing tickets for resale is strictly prohibited."
+    },
+    {
+     "id": "nin_orari",
+     "f": "nin_home",
+     "tema": "chiusure",
+     "x": "Hours of Operation 10:00-20:00 Closed Tuesdays and through the New Year's holiday season (Dec. 30 – Jan. 3) *If Tuesday is a national holiday, the museum will be open but closed the following day (Wednesday)."
+    }
+   ],
+   "faq": [
+    {
+     "q": "How does the Nintendo Museum ticket lottery work?",
+     "query": "nintendo museum lottery system",
+     "tipo": "uscita",
+     "pre": "You enter a drawing during the month that is three months before your visit; if you are drawn, you pay. The official pages say:",
+     "cit": [
+      "nin_sorteggio",
+      "nin_esempio"
+     ],
+     "post": "",
+     "regola": "sorteggio"
+    },
+    {
+     "q": "When are the Nintendo Museum lottery results announced?",
+     "query": "nintendo museum lottery results",
+     "tipo": "testo",
+     "pre": "On the 1st day of the month after you enter, in the afternoon:",
+     "cit": [
+      "nin_risultati"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you buy Nintendo Museum tickets last minute?",
+     "query": "nintendo museum tickets last minute",
+     "tipo": "testo",
+     "pre": "Sometimes: after the drawing, tickets that are left or cancelled can go on sale first come, first served.",
+     "cit": [
+      "nin_dopo",
+      "nin_esempio2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you resell Nintendo Museum tickets?",
+     "query": "nintendo museum tickets resale",
+     "tipo": "testo",
+     "pre": "No. The official ticket site says:",
+     "cit": [
+      "nin_nomi",
+      "nin_solo"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "slug": "grand-sumo-tournaments",
+   "nome": "Grand Sumo tournaments",
+   "nome_lungo": "Grand Sumo tournaments (Japan Sumo Association)",
+   "citta": "Tokyo, Osaka, Nagoya and Fukuoka",
+   "paese": "Japan",
+   "fuso": "Asia/Tokyo",
+   "ora_locale": "Japan time",
+   "area": "Japan",
+   "chi": "the official Japan Sumo Association website",
+   "sito": "https://www.sumo.or.jp/En/",
+   "biglietteria": {
+    "url": "https://sumo.pia.jp/en/sumo11.jsp",
+    "nome": "Ticket Oosumo (English)",
+    "cit": [
+     "sumo_ufficiale"
+    ]
+   },
+   "titolo": "When Do Sumo Tickets Go on Sale? Grand Sumo Dates 2026-27",
+   "h1": "When do sumo tickets go on sale? Grand Sumo tournaments (2026-27)",
+   "risposta": "advance tickets for each tournament go on sale on a fixed date in the official schedule: the next one is {next:torneo}, for {per:torneo}.",
+   "uscite": [
+    {
+     "id": "torneo",
+     "tipo": "date",
+     "ora": null,
+     "titolo": "Grand Sumo advance tickets go on sale",
+     "breve": "On a fixed date for each tournament (official schedule)",
+     "cit": [
+      "sumo_2027"
+     ],
+     "indice": "a fixed date for each tournament",
+     "date": [
+      {
+       "data": "2026-12-05",
+       "per": "the January 2027 tournament (Tokyo, Kokugikan)"
+      },
+      {
+       "data": "2027-02-06",
+       "per": "the March 2027 tournament (Osaka, EDION Arena Osaka)"
+      },
+      {
+       "data": "2027-04-10",
+       "per": "the May 2027 tournament (Tokyo, Kokugikan)"
+      }
+     ]
+    }
+   ],
+   "uscite_testo": [],
+   "gratis": null,
+   "chiusure": {
+    "md": [],
+    "date": [],
+    "settimana": [],
+    "breve": "Tournaments only",
+    "cit": [
+     "sumo_2027"
+    ],
+    "nota": "Tickets are for the tournament days in the official schedule quoted above; we do not list other sumo events."
+   },
+   "orari_speciali": [],
+   "orari": {
+    "breve": "Tournament days in the official schedule",
+    "cit": [
+     "sumo_2027"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "sumo_ufficiale",
+     "f": "sumo_home",
+     "tema": "biglietti",
+     "x": "OFFICIAL TICKET SERVICE『Ticket Oosumo English』"
+    },
+    {
+     "id": "sumo_2027",
+     "f": "sumo_date",
+     "tema": "uscita",
+     "x": "2027 Grand Tournament Schedule Tournament Venue Advanced Tickets are sold from Sumo Ranking is announced on First Day. Final Day The January Tournament Kokugikan December 5, 2026 December 21, 2026 January 10, 2027. January 24, 2027 The March Tournament EDION Arena Osaka (Osaka Prefectural Gymnasium) February 6, 2027 March 1, 2027 March 14, 2027. March 28, 2027 The May Tournament Kokugikan April 10, 2027 April 26, 2027 May 9, 2027. May 23, 2027"
+    }
+   ],
+   "faq": [
+    {
+     "q": "When do sumo tickets go on sale?",
+     "query": "when do sumo tickets go on sale",
+     "tipo": "uscita",
+     "pre": "On a fixed date for each tournament, published in the official schedule:",
+     "cit": [
+      "sumo_2027"
+     ],
+     "post": "",
+     "regola": "torneo"
+    },
+    {
+     "q": "When do tickets for the January 2027 sumo tournament go on sale?",
+     "query": "sumo tickets january 2027",
+     "tipo": "testo",
+     "pre": "On December 5, 2026, for the tournament at the Kokugikan in Tokyo, according to the official schedule:",
+     "cit": [
+      "sumo_2027"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What time do sumo tickets go on sale?",
+     "query": "what time do sumo tickets go on sale",
+     "tipo": "testo",
+     "pre": "The official schedule gives the day, not the time:",
+     "cit": [
+      "sumo_2027"
+     ],
+     "post": "So our calendar marks the whole day: check the official ticket service the day before."
+    },
+    {
+     "q": "How do you buy sumo tickets?",
+     "query": "how to buy sumo tickets",
+     "tipo": "testo",
+     "pre": "The official sumo website links its official ticket service:",
+     "cit": [
+      "sumo_ufficiale"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "slug": "imperial-palace-tour",
+   "nome": "Imperial Palace tour",
+   "nome_lungo": "Imperial Palace guided tour (Tokyo)",
+   "citta": "Tokyo",
+   "paese": "Japan",
+   "fuso": "Asia/Tokyo",
+   "ora_locale": "Japan time",
+   "area": "Japan",
+   "chi": "the official Imperial Household Agency website",
+   "sito": "https://sankan.kunaicho.go.jp/english/",
+   "biglietteria": {
+    "url": "https://sankan.kunaicho.go.jp/register/month/1001?locale=en",
+    "nome": "sankan.kunaicho.go.jp",
+    "cit": [
+     "kun_modi"
+    ],
+    "verbo": "are booked at"
+   },
+   "titolo": "Imperial Palace Tour Reservation: When Booking Opens (2026-27)",
+   "h1": "Imperial Palace tour (Tokyo): when online reservations open (2026-27)",
+   "risposta": "online applications for the guided tour open at 5:00 a.m. Japan time on the 1st day of the month before your visit: the next opening is {next:online}, for tours in {per:online}.",
+   "uscite": [
+    {
+     "id": "online",
+     "tipo": "mensile",
+     "giorno": 1,
+     "ora": "05:00",
+     "mesi_dopo": 1,
+     "titolo": "Imperial Palace tour: online applications open",
+     "etichetta": "Applications open",
+     "breve": "Online: the 1st day of the month before, from 5:00 a.m. Japan time",
+     "cit": [
+      "kun_online"
+     ],
+     "indice": "the 1st of the month before, 5:00 a.m. Japan time"
+    }
+   ],
+   "uscite_testo": [],
+   "gratis": null,
+   "chiusure": {
+    "md": [
+     "12-28",
+     "12-29",
+     "12-30",
+     "12-31",
+     "01-01",
+     "01-02",
+     "01-03",
+     "01-04"
+    ],
+    "date": [],
+    "settimana": [
+     6,
+     0
+    ],
+    "breve": "Sundays, Mondays, national holidays and 28 December to 4 January",
+    "cit": [
+     "kun_sospese"
+    ],
+    "nota": "No tours on national holidays (unless they fall on a Saturday) or on days of Imperial Court events: these days are not in our table."
+   },
+   "orari_speciali": [],
+   "orari": {
+    "breve": "Two tours a day, morning and afternoon",
+    "cit": [
+     "kun_tour"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "kun_tour",
+     "f": "kun_palazzo",
+     "tema": "orari",
+     "x": "Two daily tours (morning and afternoon), except on dates below."
+    },
+    {
+     "id": "kun_sospese",
+     "f": "kun_palazzo",
+     "tema": "chiusure",
+     "x": "Suspended Dates Sundays Mondays National holidays (except when the holiday falls on a Saturday) Afternoons from July 1 to September 30 December 28 to January 4 Days or tours affected by Imperial Court events"
+    },
+    {
+     "id": "kun_modi",
+     "f": "kun_palazzo",
+     "tema": "biglietti",
+     "x": "Advance applications can be made in two ways: – Online – In person at the Tour Office of the Imperial Household Agency Same-day (walk-in) application: Numbered tickets are distributed at Kikyo-mon Gate (one ticket per person)."
+    },
+    {
+     "id": "kun_online",
+     "f": "kun_palazzo",
+     "tema": "uscita",
+     "x": "Application Period 5.00 a.m. (JST) on the 1st day of the month before your visit - 11:59 p.m.（JST）, 4 days before the visit."
+    },
+    {
+     "id": "kun_operatori",
+     "f": "kun_palazzo",
+     "tema": "biglietti",
+     "x": "Commercial sightseeing operators and related parties are not permitted."
+    }
+   ],
+   "faq": [
+    {
+     "q": "How do you book the Imperial Palace tour?",
+     "query": "imperial palace tour reservation",
+     "tipo": "uscita",
+     "pre": "Online from 5:00 a.m. Japan time on the 1st day of the month before your visit, in person, or on the day at Kikyo-mon Gate. The official page says:",
+     "cit": [
+      "kun_modi",
+      "kun_online"
+     ],
+     "post": "",
+     "regola": "online"
+    },
+    {
+     "q": "When does the Imperial Palace tour run?",
+     "query": "imperial palace tour schedule",
+     "tipo": "testo",
+     "pre": "Twice a day, except on the suspended dates the official page lists:",
+     "cit": [
+      "kun_tour",
+      "kun_sospese"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you get Imperial Palace tour tickets on the day?",
+     "query": "imperial palace tour tickets",
+     "tipo": "testo",
+     "pre": "Yes, there is a same-day application at the gate:",
+     "cit": [
+      "kun_modi"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you book the Imperial Palace tour through a tour company?",
+     "query": "imperial palace tour booking",
+     "tipo": "testo",
+     "pre": "The official page says:",
+     "cit": [
+      "kun_operatori"
+     ],
+     "post": "Book directly on the official website."
+    }
+   ]
+  },
+  {
+   "slug": "washington-monument",
+   "nome": "Washington Monument",
+   "nome_lungo": "Washington Monument",
+   "citta": "Washington, DC",
+   "paese": "United States",
+   "fuso": "America/New_York",
+   "ora_locale": "Eastern Time",
+   "area": "USA",
+   "chi": "Recreation.gov and the National Park Service",
+   "sito": "https://www.nps.gov/wamo/",
+   "biglietteria": {
+    "url": "https://www.recreation.gov/ticket/facility/234635",
+    "nome": "recreation.gov",
+    "cit": [
+     "wm_dove"
+    ],
+    "verbo": "are booked at"
+   },
+   "titolo": "When Are Washington Monument Tickets Released? (2026-27)",
+   "h1": "Washington Monument tickets: when they are released (2026-27)",
+   "risposta": "timed-entry tickets go on sale online every day at 10:00 am Eastern Time for the date 30 days later, with a second release at 3:00 pm the day before: today's 30-day release is for {anticipo:trenta}.",
+   "uscite": [
+    {
+     "id": "trenta",
+     "tipo": "anticipo",
+     "giorni": 30,
+     "ora": "10:00",
+     "titolo": "Washington Monument: 30-day tickets go on sale",
+     "breve": "Every day at 10:00 am Eastern Time, for the date 30 days later",
+     "cit": [
+      "wm_30",
+      "wm_esempio"
+     ],
+     "indice": "every day at 10:00 am Eastern Time, 30 days ahead",
+     "prova": {
+      "cit": "wm_esempio",
+      "vendita": "May 31st",
+      "per": "June 30th"
+     }
+    },
+    {
+     "id": "vigilia",
+     "tipo": "anticipo",
+     "giorni": 1,
+     "ora": "15:00",
+     "titolo": "Washington Monument: day-before tickets go on sale",
+     "breve": "Every day at 3:00 pm Eastern Time, for the next day",
+     "cit": [
+      "wm_vigilia_regola",
+      "wm_vigilia"
+     ],
+     "prova": {
+      "cit": "wm_vigilia",
+      "vendita": "June 29th",
+      "per": "June 30th"
+     }
+    }
+   ],
+   "uscite_testo": [],
+   "gratis": null,
+   "chiusure": {
+    "md": [
+     "07-04",
+     "12-25"
+    ],
+    "date": [
+     "2026-01-08",
+     "2026-02-03",
+     "2026-03-04",
+     "2026-04-06",
+     "2026-05-07",
+     "2026-06-02",
+     "2026-07-08",
+     "2026-08-03",
+     "2026-09-10",
+     "2026-10-05",
+     "2026-11-04",
+     "2026-12-08"
+    ],
+    "settimana": [],
+    "breve": "Independence Day, Christmas Day and one day a month for maintenance",
+    "cit": [
+     "wm_ore",
+     "wm_manutenzione"
+    ],
+    "nota": "The official page lists the maintenance days for 2026 only; those for 2027 are not published yet."
+   },
+   "orari_speciali": [],
+   "orari": {
+    "breve": "Every day, 9:00 a.m. to 5:00 p.m.",
+    "cit": [
+     "wm_ore"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "wm_30",
+     "f": "wm_rec",
+     "tema": "uscita",
+     "x": "The tickets will be available online starting at 10:00am, 30 days before the desired date of the visit."
+    },
+    {
+     "id": "wm_esempio",
+     "f": "wm_rec",
+     "tema": "uscita",
+     "x": "For Example, visitors who would like to reserve tickets for June 30th can do so on May 31st when they become available at 10:00am."
+    },
+    {
+     "id": "wm_vigilia_regola",
+     "f": "wm_rec",
+     "tema": "uscita",
+     "x": "Day Before Advanced Reservations - Visitors who wish to enter the Washington Monument the next day can do so by reserving their tickets at 3:00 pm the day before."
+    },
+    {
+     "id": "wm_vigilia",
+     "f": "wm_rec",
+     "tema": "uscita",
+     "x": "For example, visitors who would like to reserve tickets for June 30th can do so on June 29th at 3:00 pm."
+    },
+    {
+     "id": "wm_dove",
+     "f": "wm_rec",
+     "tema": "biglietti",
+     "x": "Both 30-day advanced tickets and day before tickets can be reserved on recreation.gov or by calling 877-444-6777."
+    },
+    {
+     "id": "wm_tassa",
+     "f": "wm_rec",
+     "tema": "biglietti",
+     "x": "Though the tickets to the Washington Monument are free, there is a non-refundable $1.00 service fee per ticket for processing service costs."
+    },
+    {
+     "id": "wm_finestre",
+     "f": "wm_rec",
+     "tema": "uscita",
+     "x": "Booking Windows 10 AM ET 30 days in advance 3 PM ET day in advance"
+    },
+    {
+     "id": "wm_walkup",
+     "f": "wm_rec",
+     "tema": "biglietti",
+     "x": "Walk Up Tickets (Same Day Only) The Washington Monument Lodge, located along 15th Street between Madison and Jefferson drives, opens at 8:45 a.m. for distribution of free, same day, timed tickets on a first-come, first-serve basis."
+    },
+    {
+     "id": "wm_ore",
+     "f": "wm_ore",
+     "tema": "orari",
+     "x": "The Washington Monument is open daily from 9:00 a.m. - 5:00 p.m. The monument is closed for Independence Day and Christmas Day and one day a month for maintenance."
+    },
+    {
+     "id": "wm_manutenzione",
+     "f": "wm_ore",
+     "tema": "chiusure",
+     "x": "BY MONTH 2026 Maintenance CLOSURE DATES JANUARY 8 (THU) FEBRUARY 3 (TUE) MARCH 4 (WED) APRIL 6 (MON) MAY 7 (THU) JUNE 2 (TUE) JULY 8 (WED) AUGUST 3 (MON) SEPTEMBER 10 (THU) OCTOBER 5 (MON) NOVEMBER 4 (WED) DECEMBER 8 (TUE)"
+    }
+   ],
+   "faq": [
+    {
+     "q": "When are Washington Monument tickets released?",
+     "query": "when are washington monument tickets released",
+     "tipo": "uscita",
+     "pre": "Every day: at 10:00 am Eastern Time for the date 30 days later, and at 3:00 pm for the next day. The official page says:",
+     "cit": [
+      "wm_30",
+      "wm_esempio",
+      "wm_vigilia_regola"
+     ],
+     "post": "",
+     "regola": "trenta"
+    },
+    {
+     "q": "What time are Washington Monument tickets released?",
+     "query": "washington monument tickets release time",
+     "tipo": "testo",
+     "pre": "At 10 AM and 3 PM Eastern Time, as the booking windows on the official page say:",
+     "cit": [
+      "wm_finestre"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you get Washington Monument tickets on the day?",
+     "query": "washington monument tickets day of",
+     "tipo": "testo",
+     "pre": "Yes, free same-day tickets are handed out on site from 8:45 a.m., first come, first served:",
+     "cit": [
+      "wm_walkup"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Are Washington Monument tickets free?",
+     "query": "washington monument tickets free",
+     "tipo": "testo",
+     "pre": "The tickets are free, but booking online has a fee:",
+     "cit": [
+      "wm_tassa"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Why are Washington Monument tickets not released yet?",
+     "query": "washington monument tickets not released",
+     "tipo": "testo",
+     "pre": "Online tickets for a date appear only 30 days before it, at 10:00 am Eastern Time; the monument also closes one day a month for maintenance:",
+     "cit": [
+      "wm_30",
+      "wm_ore"
+     ],
+     "post": ""
+    }
    ]
   }
  ],
@@ -1151,6 +2108,54 @@
   {
    "nome": "Acropolis and other Greek sites (Athens)",
    "motivo": "The official websites of the Greek Ministry of Culture and its ticket site did not answer our server normally on 30 October 2026."
+  },
+  {
+   "nome": "teamLab Planets (Tokyo)",
+   "url": "https://www.teamlab.art/e/planets/",
+   "tipo": "nessuna_regola",
+   "motivo": "The official page answered, but on 31 October 2026 it did not say when tickets go on sale."
+  },
+  {
+   "nome": "Shibuya Sky (Tokyo)",
+   "url": "https://www.shibuya-scramble-square.com/sky/ticket/",
+   "tipo": "nessuna_regola",
+   "motivo": "The official ticket page answered, but on 31 October 2026 its text did not say when tickets go on sale."
+  },
+  {
+   "nome": "Mount Fuji, Yoshida Trail reservations",
+   "url": "https://www.fujisan-climb.jp/en/",
+   "tipo": "nessuna_regola",
+   "motivo": "The official page answered, but on 31 October 2026 it did not say when the reservations open."
+  },
+  {
+   "nome": "Statue of Liberty crown (New York)",
+   "url": "https://www.nps.gov/stli/planyourvisit/fees.htm",
+   "tipo": "nessuna_regola",
+   "motivo": "The National Park Service page answered, but on 31 October 2026 it only said to book well in advance, with no release day."
+  },
+  {
+   "nome": "Alcatraz (San Francisco)",
+   "url": "https://www.nps.gov/alca/planyourvisit/index.htm",
+   "tipo": "nessuna_regola",
+   "motivo": "The National Park Service page answered, but on 31 October 2026 it did not say when tickets go on sale."
+  },
+  {
+   "nome": "Louvre (Paris)",
+   "url": "https://www.louvre.fr/en/visit/hours-admission",
+   "tipo": "nessuna_regola",
+   "motivo": "The official page answered, but on 31 October 2026 it only recommended booking a time slot, with no release day."
+  },
+  {
+   "nome": "Pokémon Café (Tokyo)",
+   "url": "https://www.pokemoncenter-online.com/cafe/",
+   "tipo": "non_risponde",
+   "motivo": "The official address we tried did not answer normally on 31 October 2026."
+  },
+  {
+   "nome": "Tokyo Disney Resort",
+   "url": "https://www.tokyodisneyresort.jp/en/tdr/ticket/",
+   "tipo": "non_risponde",
+   "motivo": "The official website did not answer our server normally on 31 October 2026."
   }
  ]
 }

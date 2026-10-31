@@ -725,6 +725,10 @@ def controlla_meta():
             if len(tit) > G.LIMITE_TITOLO_GOM or G.STAGIONE_GOM not in tit:
                 errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_GOM}) o senza la stagione in {rel}: {tit}")
             continue
+        if rel.startswith(G.SC_BASE + "/"):  # sezione "Scooter rental: which licence?": fino a 70 caratteri con l'anno (il punto 28 controlla il resto)
+            if len(tit) > G.LIMITE_TITOLO_SC or str(G.ANNO) not in tit:
+                errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_SC}) o senza l'anno in {rel}: {tit}")
+            continue
         if rel.startswith(G.BIG_BASE + "/"):  # sezione "When do tickets go on sale?": fino a 70 caratteri con gli anni 2026-27 (il punto 22 controlla il resto)
             if len(tit) > G.LIMITE_TITOLO_BIG or G.STAGIONE_BIG not in tit:
                 errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_BIG}) o senza gli anni in {rel}: {tit}")
@@ -1491,7 +1495,7 @@ srv.listen(0, async () => {
         if (tema === 'light') await p.screenshot({ path: process.argv[3] + '/' + u.split('/').filter(Boolean).join('-') + '-375.png', fullPage: false });
       }
       if (u.startsWith('/tolls-rental-car/') || u.startsWith('/winter-tyres-rental-car/') || u.startsWith('/foreign-licence-canada-australia-nz/') || u.startsWith('/public-transport-rules/') ||
-          u.startsWith('/train-luggage-rules/') || u.startsWith('/eurostar-check-in-times/')) {
+          u.startsWith('/train-luggage-rules/') || u.startsWith('/eurostar-check-in-times/') || u.startsWith('/scooter-rental-licence/') || u.startsWith('/ticket-release-dates/')) {
         const vis = async (sel) => p.$eval(sel, e => { const r = e.getBoundingClientRect(); return r.height > 0 && r.width > 0 && r.width <= window.innerWidth; }).catch(() => false);
         out.prove.push({ caso: 'ped:' + tema + ':' + u, testo: await p.textContent('main'), risposta: await vis('#answer'), btn: await vis('[data-noleggio] a.btn'),
                          citazioni: await p.$$eval('blockquote.cit', e => e.filter(x => x.getBoundingClientRect().height > 0).length) });
@@ -1582,6 +1586,8 @@ PAGINE_GOM_BROWSER = ["/winter-tyres-rental-car/", "/winter-tyres-rental-car/ita
 PAGINE_TR_BROWSER = ["/public-transport-rules/", "/public-transport-rules/prague/", "/public-transport-rules/milan/", "/public-transport-rules/budapest/"]
 PAGINE_TB_BROWSER = ["/train-luggage-rules/", "/train-luggage-rules/eurostar/", "/train-luggage-rules/ouigo-spain/", "/train-luggage-rules/avlo/",
                      "/eurostar-check-in-times/"]
+PAGINE_SC_BROWSER = ["/scooter-rental-licence/", "/scooter-rental-licence/france/", "/scooter-rental-licence/greece/",
+                     "/ticket-release-dates/ghibli-museum/", "/ticket-release-dates/washington-monument/", "/ticket-release-dates/grand-sumo-tournaments/"]
 PAGINE_FL_BROWSER = ["/foreign-licence-canada-australia-nz/", "/foreign-licence-canada-australia-nz/canada/ontario/", "/foreign-licence-canada-australia-nz/australia/new-south-wales/", "/foreign-licence-canada-australia-nz/new-zealand/"]
 PAGINE_BAG_BROWSER = ["/cabin-bags/", "/cabin-bags/ryanair/", "/cabin-bags/does-my-bag-fit/", "/cabin-bags/size/40x30x20/", "/cabin-bags/eu-personal-item-rule/"]
 
@@ -1594,7 +1600,7 @@ def controlla_browser():
         fh.write(BROWSER_JS)
     try:
         r = subprocess.run(["node", fh.name, str(SITO), cartella, json.dumps(PAGINE_ESTERE_BROWSER), json.dumps(CASI_BORSA), json.dumps(PAGINE_BAG_BROWSER),
-                            json.dumps(PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER + PAGINE_FL_BROWSER + PAGINE_TR_BROWSER + PAGINE_TB_BROWSER)],
+                            json.dumps(PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER + PAGINE_FL_BROWSER + PAGINE_TR_BROWSER + PAGINE_TB_BROWSER + PAGINE_SC_BROWSER)],
                            capture_output=True, text=True, timeout=600)
     finally:
         os.unlink(fh.name)
@@ -1703,6 +1709,11 @@ def controlla_browser():
             x = next((y for y in o["prove"] if y["caso"] == f"ped:{tema}:{u}"), None)
             if not x or not x["risposta"] or x["btn"] or (u != "/train-luggage-rules/" and x["citazioni"] < 3):
                 errori.append(f"{u} ({tema}): risposta o citazioni non visibili a 375 px, o riquadro di affiliazione presente")
+    for u in PAGINE_SC_BROWSER:  # scooter e biglietti (31/10/2026): risposta e citazioni visibili a 375 px, nessun riquadro di noleggio
+        for tema in ("light", "dark"):
+            x = next((y for y in o["prove"] if y["caso"] == f"ped:{tema}:{u}"), None)
+            if not x or not x["risposta"] or x["btn"] or (u != "/scooter-rental-licence/" and x["citazioni"] < 2):
+                errori.append(f"{u} ({tema}): risposta o citazioni non visibili a 375 px, o riquadro di noleggio presente")
     if sum(1 for x in o["prove"] if x["caso"].startswith("contrasto-")) != 2:
         errori.append("Prova del contrasto del controllo (tema chiaro e scuro) non eseguita")
     return errori, (o, cartella)
@@ -2799,7 +2810,36 @@ _spec_big.loader.exec_module(RBIG)
 # Domini ufficiali: siti delle attrazioni e biglietterie che le loro pagine ufficiali indicano (nessun rivenditore, nessuna guida)
 DOMINI_UFFICIALI_BIG = {"cenacolovinciano.org", "cenacolovinciano.vivaticket.it", "www.museivaticani.va", "tickets.museivaticani.va",
                         "www.annefrank.org", "pompeiisites.org", "pompeii.vivaticket.it", "www.alhambra-patronato.es", "tickets.alhambra-patronato.es",
-                        "sagradafamilia.org"}
+                        "sagradafamilia.org",
+                        # Giappone e USA (31/10/2026): siti ufficiali e biglietterie che le pagine ufficiali indicano
+                        "www.ghibli-museum.jp", "ghibli-park.jp", "l-tike.com", "museum.nintendo.com", "museum-tickets.nintendo.com",
+                        "www.sumo.or.jp", "sumo.pia.jp", "sankan.kunaicho.go.jp", "www.recreation.gov", "www.nps.gov"}
+# Mesi e numeri ordinali in inglese, scritti qui di nuovo (controllo indipendente da genera.py)
+MESI_EN_BIG = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+
+def _ordinale_big(n):
+    return f"{n}{'th' if 10 <= n % 100 <= 20 else {1: 'st', 2: 'nd', 3: 'rd'}.get(n % 10, 'th')}"
+
+
+def _ore_in_testo_big(x):
+    """Orari scritti nella frase ufficiale ("10 a.m.", "10a.m.", "2 p.m.", "5.00 a.m.", "10:00am", "3:00 pm", "10 AM", "12 noon") -> {"HH:MM"}."""
+    out = set()
+    for h, m, ap in re.findall(r"\b(\d{1,2})(?:[.:](\d{2}))?\s?(a\.m\.|p\.m\.|am|pm|AM|PM|noon)", x):
+        h, m = int(h), int(m or 0)
+        ap = ap.lower().replace(".", "")
+        if ap == "pm" and h != 12:
+            h += 12
+        if ap == "am" and h == 12:
+            h = 0
+        out.add(f"{h:02d}:{m:02d}")
+    return out
+
+
+def _data_md_big(t):
+    """"January 10th" / "June 30th" -> (mese, giorno)."""
+    m = re.fullmatch(r"([A-Z][a-z]+) (\d{1,2})(?:st|nd|rd|th)", t)
+    return (MESI_EN_BIG.index(m.group(1)) + 1, int(m.group(2))) if m and m.group(1) in MESI_EN_BIG else None
 # Rivenditori e venditori di visite: mai nominati né linkati nella sezione (Viator solo nel riquadro, quando VIATOR_TOUR sarà acceso)
 RIVENDITORI_BIG = re.compile(r"lastsupperticket|tiqets|getyourguide|headout|musement|civitatis|klook|ticketbar|tickitto|isango|city ?wonders|"
                              r"walks of italy|take walks|viator|tripadvisor|ticketone|vaticanmuseum\.co|thevaticantickets|lastsupper\.shop", re.I)
@@ -2894,6 +2934,10 @@ def _attesi_big(a, oggi):
                 s = d + timedelta(days=r["giorni_prima"])
                 if s.weekday() == 6 and s.day <= 7:
                     out.add((d.isoformat(), r["ora"], "uscita", r["id"]))
+            if r["tipo"] == "mensile" and d.day == r["giorno"]:
+                out.add((d.isoformat(), r["ora"], "uscita", r["id"]))
+            if r["tipo"] == "date" and d.isoformat() in {x["data"] for x in r["date"]}:
+                out.add((d.isoformat(), r["ora"], "uscita", r["id"]))
         g = a.get("gratis")
         if g and ((g["tipo"] == "prima_domenica" and prima_dom) or (g["tipo"] == "ultima_domenica" and ultima_dom)):
             if d.year not in PASQUA_BIG:
@@ -2939,7 +2983,8 @@ def controlla_biglietti():
     if not G.BIG:
         return ["dati/biglietti.json mancante (rilanciare raccolta/biglietti.py)"], conti
     M = json.loads((SITO.parent / "dati" / "biglietti_manuali.json").read_text(encoding="utf-8"))
-    if M["attrazioni"] != G.BIG["attrazioni"] or M["escluse"] != G.BIG["escluse"]:
+    escl_dati = [{k: v for k, v in x.items() if k not in ("http", "letto_il", "frasi_uscita")} for x in G.BIG["escluse"]]
+    if M["attrazioni"] != G.BIG["attrazioni"] or M["escluse"] != escl_dati:
         errori.append("dati/biglietti.json non è aggiornato rispetto a dati/biglietti_manuali.json (rilanciare raccolta/biglietti.py)")
     D = json.loads((SITO.parent / "dati" / "biglietti_domanda.json").read_text(encoding="utf-8"))
     ricerche = RBIG.tutte_ricerche(D)
@@ -2963,6 +3008,21 @@ def controlla_biglietti():
             if RBIG.impronta_zona(t, frasi) != F["impronta"]:
                 errori.append(f"fonte {fid}: impronta diversa dal testo salvato (rilanciare raccolta/biglietti.py)")
             conti["cache"] = "sì"
+    # a2) attrazioni escluse con un indirizzo provato: il motivo scritto deve essere coerente con l'esito della rilettura
+    for x in G.BIG["escluse"]:
+        if not x.get("url"):
+            continue
+        conti["escluse_provate"] = conti.get("escluse_provate", 0) + 1
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", x.get("letto_il") or "") or x["letto_il"] > G.OGGI.isoformat():
+            errori.append(f"esclusa {x['nome']}: data della rilettura mancante")
+        elif G.data_lunga(x["letto_il"]) not in x["motivo"]:
+            errori.append(f"esclusa {x['nome']}: il motivo non ha la data della rilettura ({x['letto_il']})")
+        if x.get("tipo") == "nessuna_regola" and (x.get("http") != 200 or x.get("frasi_uscita") != 0 or "answered" not in x["motivo"]):
+            errori.append(f"esclusa {x['nome']}: 'nessuna regola' ma HTTP {x.get('http')} o {x.get('frasi_uscita')} frasi d'uscita nella pagina")
+        if x.get("tipo") == "non_risponde" and (x.get("http") == 200 or "did not answer" not in x["motivo"]):
+            errori.append(f"esclusa {x['nome']}: 'non risponde' ma HTTP {x.get('http')}")
+        if x.get("tipo") not in ("nessuna_regola", "non_risponde"):
+            errori.append(f"esclusa {x['nome']}: tipo non valido {x.get('tipo')}")
     # b) pagine: esattamente indice + una per attrazione, in sitemap; nessun'altra pagina nella sezione
     sm = leggi("sitemap.xml")
     attese = {G.url_big(a["slug"]) + "index.html" for a in G.BIG_ATT} | {f"{G.BIG_BASE}/index.html"}
@@ -2991,6 +3051,8 @@ def controlla_biglietti():
         campi += [(f"uscita {r['id']}", r["breve"] + " " + r.get("indice", "")) for r in a["uscite"]]
         campi += [(f"testo {t['titolo']}", t["nota"]) for t in a["uscite_testo"]] + [("escluse", x) for x in a["chiusure"].get("escluse_md", {}).values()]
         campi += [(f"orario {o.get('md') or o.get('data')}", o["testo"]) for o in a["orari_speciali"]]
+        campi += [(f"date {r['id']}", x["per"]) for r in a["uscite"] if r["tipo"] == "date" for x in r["date"]]
+        campi += [(f"etichetta {r['id']}", r.get("etichetta", "")) for r in a["uscite"]] + [("nota chiusure", a["chiusure"].get("nota", ""))]
         campi += [(f"FAQ «{q['q']}»", q["pre"] + " " + q["post"]) for q in a["faq"]]
         for nome, testo in campi:
             extra = _numeri_big(testo) - ammessi
@@ -3021,6 +3083,40 @@ def controlla_biglietti():
                 giorno_cit = G.GIORNI_SETT[d.weekday()]
                 if r["tipo"] == "settimanale" and not any(giorno_cit in G.cit_big(a, i)["x"] for i in r["cit"]):
                     errori.append(f"biglietti {s}: la citazione della regola {r['id']} non nomina {giorno_cit}")
+                if r["tipo"] == "mensile":
+                    mm = d.month - 1 + r["mesi_dopo"]
+                    v = date(d.year + mm // 12, mm % 12 + 1, 1)
+                    if d.day != r["giorno"] or e["visita"] != v.isoformat() or e.get("per") != f"{MESI_EN_BIG[v.month - 1]} {v.year}":
+                        errori.append(f"biglietti {s}: uscita {e['data']} non coerente con la regola mensile ({e.get('per')})")
+                if r["tipo"] == "date":
+                    x = next((x for x in r["date"] if x["data"] == e["data"]), None)
+                    if not x or e.get("per") != x["per"]:
+                        errori.append(f"biglietti {s}: uscita {e['data']} non nella tabella ufficiale")
+        # c2) le regole dicono quello che dice la frase ufficiale: giorno del mese, ora, date della tabella, giorni di anticipo, esempio ufficiale
+        for r in a["uscite"]:
+            testo_cit = " ".join(G.cit_big(a, i)["x"] for i in r["cit"])
+            if r.get("ora") and r["ora"] not in _ore_in_testo_big(testo_cit):
+                errori.append(f"biglietti {s}: l'ora {r['ora']} della regola {r['id']} non è nella frase ufficiale")
+            if r["tipo"] == "mensile" and not re.search(r"\b" + _ordinale_big(r["giorno"]) + r"\b", testo_cit):
+                errori.append(f"biglietti {s}: il giorno {_ordinale_big(r['giorno'])} della regola {r['id']} non è nella frase ufficiale")
+            if r["tipo"] == "date":
+                for x in r["date"]:
+                    dd = date.fromisoformat(x["data"])
+                    if f"{MESI_EN_BIG[dd.month - 1]} {dd.day}, {dd.year}" not in testo_cit:
+                        errori.append(f"biglietti {s}: la data {x['data']} non è nella tabella ufficiale citata")
+            if r["tipo"] == "anticipo" and not re.search(r"\b(?:%d days?|day before)\b" % r["giorni"], testo_cit + " " + r["breve"]):
+                errori.append(f"biglietti {s}: i {r['giorni']} giorni di anticipo della regola {r['id']} non sono nella frase ufficiale")
+            P = r.get("prova")
+            if P:
+                xp = G.cit_big(a, P["cit"])["x"]
+                v, q = _data_md_big(P["vendita"]), _data_md_big(P["per"])
+                if P["vendita"] not in xp or P["per"] not in xp or not v or not q:
+                    errori.append(f"biglietti {s}: l'esempio ufficiale della regola {r['id']} non è nella citazione")
+                elif r["tipo"] == "mensile" and (v[1] != r["giorno"] or (v[0] - 1 + r["mesi_dopo"]) % 12 + 1 != q[0]):
+                    errori.append(f"biglietti {s}: l'esempio ufficiale ({P['vendita']} -> {P['per']}) contraddice la regola {r['id']}")
+                elif r["tipo"] == "anticipo" and (date(2027, *q) - timedelta(days=r["giorni"])) != date(2027, *v):
+                    errori.append(f"biglietti {s}: l'esempio ufficiale ({P['vendita']} -> {P['per']}) contraddice i {r['giorni']} giorni")
+                conti["esempi"] = conti.get("esempi", 0) + 1
         if not (oggi.isoformat() <= min((e["data"] for e in ev), default=oggi.isoformat())
                 and max((e["data"] for e in ev), default=oggi.isoformat()) <= _fine_finestra_big(oggi, G.MESI_BIG).isoformat()):
             errori.append(f"biglietti {s}: date fuori dalla finestra di {G.MESI_BIG} mesi")
@@ -3045,6 +3141,19 @@ def controlla_biglietti():
             e0 = G.prossimo_big(a, "uscita", r["id"])
             if f"{{next:{r['id']}}}" in a["risposta"] and (not e0 or G.giorno_lungo(e0["data"]) not in prima):
                 errori.append(f"{rel}: la prima frase non ha la prossima uscita calcolata ({r['id']})")
+            if f"{{anticipo:{r['id']}}}" in a["risposta"]:
+                d30 = oggi + timedelta(days=r["giorni"])
+                attesa = f"{G.GIORNI_SETT[d30.weekday()]} {d30.day} {MESI_EN_BIG[d30.month - 1]} {d30.year}"
+                if attesa not in prima or f'data-anticipo="{r["giorni"]}"' not in m.group(1):
+                    errori.append(f"{rel}: la prima frase non ha la data di oggi + {r['giorni']} giorni ({attesa}) aggiornata nel browser")
+            # ora della prossima uscita a New York (o Londra), ricalcolata qui
+            if e0 and e0["ora"]:
+                hh, mi = (int(x) for x in e0["ora"].split(":"))
+                d0 = date.fromisoformat(e0["data"])
+                u = datetime(d0.year, d0.month, d0.day, hh, mi, tzinfo=ZoneInfo(a["fuso"]))
+                citta, z = ("London", "Europe/London") if a["fuso"] == "America/New_York" else ("New York", "America/New_York")
+                if f"{u.astimezone(ZoneInfo(z)).strftime('%H:%M')} in {citta}" not in vis:
+                    errori.append(f"{rel}: manca l'ora della prossima uscita ({r['id']}) a {citta}")
         righe = re.findall(r'<tr data-data="(\d{4}-\d{2}-\d{2})" data-tipo="([a-z]+)">', t)
         if sorted(righe) != sorted((e["data"], e["tipo"]) for e in ev):
             errori.append(f"{rel}: righe della tabella diverse dalle date calcolate")
@@ -3056,7 +3165,7 @@ def controlla_biglietti():
             F = G.BIG["fonti"][f]
             if f'href="{escape(F["pagina"])}"' not in t or f"checked on {G.data_lunga(F['letto_il'])}" not in vis:
                 errori.append(f"{rel}: manca il link o la data della fonte {f}")
-        if f"Official tickets for the {a['nome_lungo']} are sold at" not in vis or "resellers may charge more" not in vis \
+        if f"Official tickets for the {a['nome_lungo']} {a['biglietteria'].get('verbo', 'are sold at')}" not in vis or "resellers may charge more" not in vis \
                 or f'href="{escape(a["biglietteria"]["url"])}"' not in t:
             errori.append(f"{rel}: manca il riquadro della biglietteria ufficiale con l'avviso sui rivenditori")
         faq_ld = next((x for x in (json.loads(y) for y in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)) if x.get("@type") == "FAQPage"), None)
@@ -3135,7 +3244,8 @@ def controlla_biglietti():
             errori.append(f"{idx}: righe della tabella diverse dalle attrazioni dei dati")
         for (sl, r), a in zip(righe, G.BIG_ATT):
             e = G.prossimo_big(a, "uscita")
-            if (e and G.giorno_lungo(e["data"]) not in unescape(r)) or (not e and "No exact date published" not in r):
+            ogni_giorno = any(x["tipo"] == "anticipo" for x in a["uscite"])
+            if (e and G.giorno_lungo(e["data"]) not in unescape(r)) or (not e and ("Every day (rolling)" if ogni_giorno else "No exact date published") not in r):
                 errori.append(f"{idx}: riga {sl} con la prossima uscita diversa dal calcolo")
             if f'href="{escape(a["biglietteria"]["url"])}"' not in r:
                 errori.append(f"{idx}: riga {sl} senza la biglietteria ufficiale")
@@ -4487,6 +4597,217 @@ def controlla_indexnow():
     return errori
 
 
+# ---------------------------------------------------------------- 28. Scooter e motorini in vacanza: quale patente? (31/10/2026)
+_spec_sc = importlib.util.spec_from_file_location("raccolta_scooter", Path(__file__).resolve().parent / "raccolta" / "scooter.py")
+RSC = importlib.util.module_from_spec(_spec_sc)
+_spec_sc.loader.exec_module(RSC)
+# Fonti ammesse: portale dell'amministrazione francese, Boletín Oficial del Estado, leggi federali tedesche, API dei consigli di viaggio di GOV.UK
+FONTI_UFFICIALI_SC = re.compile(r"^https://(?:www\.service-public\.gouv\.fr|www\.boe\.es|www\.gesetze-im-internet\.de|www\.gov\.uk/api/content/foreign-travel-advice)/")
+LINK_UFFICIALI_SC = re.compile(r"^https://(?:www\.service-public\.gouv\.fr|www\.boe\.es|www\.gesetze-im-internet\.de|www\.gov\.uk/foreign-travel-advice)/")
+# Indirizzi provati per i Paesi non letti: banche dati delle leggi, dipartimenti dei trasporti, API di GOV.UK
+FONTI_NON_LETTE_SC = re.compile(r"^https://(?:www\.normattiva\.it|www\.ris\.bka\.gv\.at|hidot\.hawaii\.gov)/")
+# Nessun link di affiliazione né nome di noleggiatore nella sezione (DiscoverCars noleggia auto; BikesBooking passa da Travelpayouts, in pausa)
+VIETATI_SC = re.compile(r"discovercars|bikesbooking|travelpayouts|tp\.media|stay22|viator|getyourguide|riderly|safetywing|rentalcars|klook", re.I)
+# Promesse vietate: la sezione non garantisce che il noleggiatore accetti la patente
+PROMESSE_SC = re.compile(r"\bguarantee|\bno problem\b|\byou(?:'ll| will) be fine\b|\balways accepted\b|\bdon't worry\b|\bsure to\b|\bcheapest\b", re.I)
+
+
+def controlla_scooter():
+    """Punto 28: dati = fonti = pagine; citazioni nel testo salvato (cache) con impronta; traduzioni; numeri solo dalle fonti; esiti con
+    citazione; prima frase con fonte e data; FAQ da ricerche vere; Paesi non letti coerenti con la rilettura; nessuna affiliazione né promessa."""
+    from html import unescape
+    errori = []
+    conti = {"paesi": 0, "pagine": 0, "fonti": 0, "citazioni": 0, "traduzioni": 0, "faq": 0, "non_letti": 0, "cache": "no", "link": 0}
+    if not G.SC:
+        return ["dati/scooter.json mancante (rilanciare raccolta/scooter.py)"], conti
+    M = json.loads((SITO.parent / "dati" / "scooter_manuali.json").read_text(encoding="utf-8"))
+    nl_dati = [{k: v for k, v in x.items() if k not in ("http", "letto_il", "frasi_regola", "aggiornata_il")} for x in G.SC["non_letti"]]
+    if M["paesi"] != G.SC["paesi"] or M["generali"] != G.SC["generali"] or M["non_letti"] != nl_dati:
+        errori.append("dati/scooter.json non è aggiornato rispetto a dati/scooter_manuali.json (rilanciare raccolta/scooter.py)")
+    D = json.loads((SITO.parent / "dati" / "scooter_domanda.json").read_text(encoding="utf-8"))
+    ricerche = RSC.tutte_ricerche(D)
+    # a) fonti: HTTP 200, domini ammessi, data; dalla cache frasi e impronte ricalcolate
+    for fid, F in G.SC["fonti"].items():
+        conti["fonti"] += 1
+        if F["http"] != 200 or not FONTI_UFFICIALI_SC.match(F["url"]) or not LINK_UFFICIALI_SC.match(F["pagina"]):
+            errori.append(f"scooter fonte {fid}: HTTP {F['http']} o indirizzo non ufficiale ({F['url']}, {F['pagina']})")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F["letto_il"] or "") or F["letto_il"] > G.OGGI.isoformat():
+            errori.append(f"scooter fonte {fid}: data di lettura non valida {F['letto_il']}")
+        f_c = RSC.file_cache(fid)
+        if f_c.exists():
+            t = RSC.testo_fonte(fid, f_c.read_bytes(), F.get("charset"))
+            frasi = RSC.frasi_fonte(G.SC, fid)
+            for x in frasi:
+                if x not in t:
+                    errori.append(f"scooter fonte {fid}: la frase non è nel testo salvato: {x[:70]}")
+            if RSC.impronta_zona(t, frasi) != F["impronta"]:
+                errori.append(f"scooter fonte {fid}: impronta diversa dal testo salvato (rilanciare raccolta/scooter.py)")
+            conti["cache"] = "sì"
+    # b) Paesi non letti: motivo coerente con la rilettura (non risponde = HTTP diverso da 200; regola assente = HTTP 200 e 0 frasi)
+    for x in G.SC["non_letti"]:
+        conti["non_letti"] += 1
+        u = RSC.FCDO_API + x["fcdo"] if x.get("fcdo") else x.get("url", "")
+        if not (x.get("fcdo") or FONTI_NON_LETTE_SC.match(u)):
+            errori.append(f"scooter non letto {x['nome']}: indirizzo non previsto {u}")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", x.get("letto_il") or "") or G.data_lunga(x["letto_il"]) not in x["motivo"]:
+            errori.append(f"scooter non letto {x['nome']}: data della rilettura mancante nel motivo")
+        if x["tipo"] == "regola_assente" and (x.get("http") != 200 or x.get("frasi_regola") != 0):
+            errori.append(f"scooter non letto {x['nome']}: 'regola assente' ma HTTP {x.get('http')} e {x.get('frasi_regola')} frasi con la regola")
+        if x["tipo"] == "non_risponde" and (x.get("http") == 200 or "did not answer" not in x["motivo"]):
+            errori.append(f"scooter non letto {x['nome']}: 'non risponde' ma HTTP {x.get('http')}")
+        if x["tipo"] not in ("regola_assente", "non_risponde") or x["iso2"] in G.SC_PER:
+            errori.append(f"scooter non letto {x['nome']}: tipo non valido o Paese con una pagina")
+        if x.get("query") and x["query"] not in ricerche:
+            errori.append(f"scooter non letto {x['nome']}: ricerca {x['query']!r} non in dati/scooter_domanda.json")
+    # c) pagine: esattamente indice + una per Paese, in sitemap con lastmod
+    sm = leggi("sitemap.xml")
+    attese = {G.url_sc(p) + "index.html" for p in G.SC_PAESI} | {f"{G.SC_BASE}/index.html"}
+    trovate = {q.relative_to(SITO).as_posix() for q in (SITO / G.SC_BASE).rglob("index.html")} if (SITO / G.SC_BASE).exists() else set()
+    if attese != trovate:
+        errori.append(f"pagine scooter diverse dai dati: mancano {sorted(attese - trovate)}, in più {sorted(trovate - attese)}")
+    for q in sorted(attese):
+        if f"<loc>{G.URL_SITO}/{q[:-len('index.html')]}</loc>" not in sm:
+            errori.append(f"{q}: non in sitemap")
+    host_altri = {urlparse(u).hostname for u, _, _ in G.ALTRI_SITI}
+    for p in G.SC_PAESI:
+        conti["paesi"] += 1
+        ids = {c["id"] for c in p["citazioni"]}
+        # numeri nostri solo dalle citazioni (originale e traduzione) e dall'anno
+        ammessi = set().union(*[_numeri_big(c["x"]) for c in p["citazioni"]], {G.ANNO})
+        campi = [("risposta", p["risposta"]), ("h1", p["h1"]), ("titolo", p["titolo"])]
+        campi += [(f"caso {k}", v["breve"] + " " + v.get("nota", "")) for k, v in p["casi"].items()]
+        campi += [(f"patente {k}", v["breve"] + " " + v.get("nota", "")) for k, v in p["patenti"].items()]
+        campi += [(f"FAQ «{q['q']}»", q["pre"] + " " + q["post"]) for q in p["faq"]]  # la domanda è una ricerca vera: i suoi numeri non sono nostri
+        campi += [(f"traduzione {c['id']}", c["tr"]) for c in p["citazioni"] if c.get("tr")] + [(f"altro {a['titolo']}", a["titolo"]) for a in p["altro"]]
+        for nome, testo in campi:
+            extra = _numeri_big(testo.replace("0.1", "0,1")) - ammessi
+            if extra:
+                errori.append(f"scooter {p['slug']}: numeri non presi dalle fonti in {nome}: {sorted(extra)}")
+        for c in p["citazioni"]:
+            if G.SC["fonti"][c["f"]]["lingua"] != "en" and not c.get("tr"):
+                errori.append(f"scooter {p['slug']}: citazione {c['id']} non in inglese senza traduzione")
+            if G.SC["fonti"][c["f"]]["lingua"] == "en" and c.get("tr"):
+                errori.append(f"scooter {p['slug']}: citazione inglese {c['id']} con traduzione")
+        for k, v in list(p["casi"].items()) + list(p["patenti"].items()):
+            if v["esito"] not in G.ESITI_SC or (v["esito"] != "non_detto" and not v["cit"]) or any(i not in ids for i in v["cit"]):
+                errori.append(f"scooter {p['slug']}: voce {k} senza citazione o con citazione sconosciuta")
+            if v["esito"] == "non_detto" and v["cit"]:
+                errori.append(f"scooter {p['slug']}: voce {k} 'Not stated' con citazioni")
+        if p["query"] not in ricerche:
+            errori.append(f"scooter {p['slug']}: la pagina non ha una ricerca vera ({p['query']!r})")
+        for q in p["faq"]:
+            if q["query"] not in ricerche:
+                errori.append(f"scooter {p['slug']}: FAQ «{q['q']}» senza una ricerca vera ({q['query']!r})")
+        rel = G.url_sc(p) + "index.html"
+        if not (SITO / rel).exists():
+            continue
+        conti["pagine"] += 1
+        t = leggi(rel)
+        main_ = t.split('<main id="main">', 1)[-1].split("</main>", 1)[0]
+        vis = unescape(re.sub(r"<[^>]+>", " ", main_))
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if tit != p["titolo"] or len(tit) > G.LIMITE_TITOLO_SC or str(G.ANNO) not in tit:
+            errori.append(f"{rel}: titolo oltre {G.LIMITE_TITOLO_SC} caratteri, senza l'anno o diverso dai dati: {tit}")
+        m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t)
+        prima = unescape(re.sub(r"<[^>]+>", "", m.group(1))) if m else ""
+        d = G.data_lunga(max(G.SC["fonti"][f]["letto_il"] for f in dict.fromkeys(c["f"] for c in p["citazioni"])))
+        if prima != f"According to {p['chi']}, checked on {d}, {p['risposta']}":
+            errori.append(f"{rel}: prima frase diversa da 'According to <fonte>, checked on <data>, <risposta>'")
+        for c in p["citazioni"] + G.SC["generali"]:
+            conti["citazioni"] += 1
+            if escape(c["x"], quote=False) not in t and escape(c["x"]) not in t:
+                errori.append(f"{rel}: citazione mancante: {c['x'][:60]}")
+            if c.get("tr"):
+                conti["traduzioni"] += 1
+                if f'<em>Our translation:</em> {escape(c["tr"], quote=False)}' not in t and f'<em>Our translation:</em> {escape(c["tr"])}' not in t:
+                    errori.append(f"{rel}: traduzione mancante per {c['id']}")
+        for f in dict.fromkeys(c["f"] for c in p["citazioni"]):
+            F = G.SC["fonti"][f]
+            if f'href="{escape(F["pagina"])}"' not in t or f"checked on {G.data_lunga(F['letto_il'])}" not in vis:
+                errori.append(f"{rel}: manca il link o la data della fonte {f}")
+        # tabella dei casi = dati
+        for k, _ in G.CASI_SC:
+            r_ = re.search(r'<tr data-voce data-caso="' + k + r'">(.*?)</tr>', t)
+            if not r_ or G.ESITI_SC[p["casi"][k]["esito"]][0] not in unescape(r_.group(1)):
+                errori.append(f"{rel}: riga del caso {k} diversa dai dati")
+        for k, _ in G.PATENTI_SC:
+            r_ = re.search(r'<tr data-voce data-patente="' + k + r'">(.*?)</tr>', t)
+            if not r_ or G.ESITI_SC[p["patenti"][k]["esito"]][0] not in unescape(r_.group(1)):
+                errori.append(f"{rel}: riga della patente {k} diversa dai dati")
+        faq_ld = next((x for x in (json.loads(y) for y in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)) if x.get("@type") == "FAQPage"), None)
+        attese_faq = G.faq_sc(p)
+        if not faq_ld or [(e["name"], e["acceptedAnswer"]["text"]) for e in faq_ld["mainEntity"]] != attese_faq:
+            errori.append(f"{rel}: FAQ JSON-LD diversa dalle domande previste")
+        for qd, r_ in attese_faq:
+            conti["faq"] += 1
+            if f"<h3>{escape(qd)}</h3><p>{escape(r_)}</p>" not in t:
+                errori.append(f"{rel}: FAQ visibile diversa dal JSON-LD: {qd}")
+        if "Check with the rental company and the official page before you ride." not in vis:
+            errori.append(f"{rel}: manca l'avviso 'check with the rental company and the official page'")
+        # link: Driving abroad dello stesso Paese (andata e ritorno)
+        for k in G.PATENTI:
+            if p["iso2"] in G.PAGINE_PAT[k]:
+                conti["link"] += 1
+                if f'href="../../{G.url_pat(k, p["iso2"])}"' not in t:
+                    errori.append(f"{rel}: manca il link a Driving abroad ({k})")
+                tp = leggi(G.url_pat(k, p["iso2"]) + "index.html")
+                if f'href="../../../{G.url_sc(p)}"' not in tp:
+                    errori.append(f"{G.url_pat(k, p['iso2'])}: manca il link alla pagina scooter")
+    # d) indice
+    idx = f"{G.SC_BASE}/index.html"
+    if (SITO / idx).exists():
+        t = leggi(idx)
+        m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t)
+        if not m or unescape(m.group(1)) != G.prima_frase_sc() or f"last checked on {G.data_lunga(G.SC['controllato_il'])}" not in unescape(m.group(1)):
+            errori.append(f"{idx}: prima frase diversa dai dati o senza la data")
+        righe = re.findall(r'<tr data-voce id="([a-z-]+)">(.*?)</tr>', t)
+        if [r[0] for r in righe] != [p["slug"] for p in G.SC_PAESI]:
+            errori.append(f"{idx}: righe della tabella diverse dai Paesi dei dati")
+        for (sl, r), p in zip(righe, G.SC_PAESI):
+            if [unescape(x) for x in re.findall(r'<span class="badge [^"]+">([^<]+)</span>', r)] != [G.ESITI_SC[p["casi"][k]["esito"]][0] for k, _ in G.CASI_SC]:
+                errori.append(f"{idx}: riga {sl} con esiti diversi dai dati")
+        for x in G.SC["non_letti"]:
+            if escape(x["motivo"], quote=False) not in t and escape(x["motivo"]) not in t:
+                errori.append(f"{idx}: manca il Paese non letto {x['nome']} con il motivo")
+        if "Check with the rental company and the official page before you ride." not in unescape(t):
+            errori.append(f"{idx}: manca l'avviso 'check with the rental company and the official page'")
+    else:
+        errori.append("indice scooter-rental-licence mancante")
+    # e) in tutta la sezione: link esterni solo ufficiali, nessuna affiliazione, nessuna promessa, nessun nome di assistente
+    for q in sorted(attese):
+        if not (SITO / q).exists():
+            continue
+        t = leggi(q)
+        main_ = t.split('<main id="main">', 1)[-1].split("</main>", 1)[0]
+        for h in re.findall(r'href="(https?://[^"]+)"', main_):
+            hh = unescape(h)
+            if not (LINK_UFFICIALI_SC.match(hh) or urlparse(hh).hostname in host_altri):
+                errori.append(f"{q}: link non ufficiale {hh[:80]}")
+        vis = unescape(re.sub(r"<[^>]+>", " ", main_))
+        for rx, cosa in ((VIETATI_SC, "affiliazione o noleggiatore"), (PROMESSE_SC, "promessa"), (VIETATE_SRV, "nome di un assistente")):
+            mm = rx.search(main_) or rx.search(vis)
+            if mm:
+                errori.append(f"{q}: {cosa} '{mm.group(0)}'")
+        if 'rel="sponsored' in main_ or "data-noleggio" in main_:
+            errori.append(f"{q}: riquadro o link di affiliazione nella sezione scooter")
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(tit) > G.LIMITE_TITOLO_SC:
+            errori.append(f"{q}: titolo oltre {G.LIMITE_TITOLO_SC} caratteri")
+    # f) collegamenti in entrata e dati senza nomi di assistenti
+    if f'href="{G.SC_BASE}/"' not in leggi("index.html"):
+        errori.append("home senza link alla sezione scooter")
+    if 'id="scooter-rental-licence"' not in leggi("about/index.html"):
+        errori.append("About senza la sezione scooter")
+    if f'href="/{G.SC_BASE}/"' not in leggi("404.html"):
+        errori.append("404 senza link alla sezione scooter")
+    if f'href="../{G.SC_BASE}/"' not in leggi(f"{G.PAT_BASE}/index.html"):
+        errori.append("indice Driving abroad senza link alla sezione scooter")
+    for nome in ("scooter.json", "scooter_manuali.json", "scooter_domanda.json"):
+        if VIETATE_SRV.search((SITO.parent / "dati" / nome).read_text(encoding="utf-8")):
+            errori.append(f"dati/{nome}: nome di un assistente di intelligenza artificiale")
+    return errori, conti
+
+
 def main():
     e1 = controlla_casi()
     print(f"1. Casi del passaporto calcolati a mano: {len(CASI)}, {len(e1)} errori")
@@ -4505,7 +4826,7 @@ def main():
         o, cartella = info
         n375 = sum(1 for x in o["pagine"] if x["tema"] in ("light", "dark"))
         print(f"7. Browser 375 px: {len(o['pagine'])} viste ({n375 // 2} pagine × tema chiaro e scuro + {len(o['pagine']) - n375} a 820 px; nuove: "
-              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER + PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER + PAGINE_FL_BROWSER + PAGINE_TR_BROWSER + PAGINE_TB_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
+              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER + PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER + PAGINE_FL_BROWSER + PAGINE_TR_BROWSER + PAGINE_TB_BROWSER + PAGINE_SC_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
               f"{len(o['prove'])} prove, {len(e7)} errori; schermate in {cartella}")
     else:
         print(f"7. Browser 375 px: {e7[0] if e7 else ''}")
@@ -4558,7 +4879,9 @@ def main():
           f"frase sul noleggio, riquadro DiscoverCars (a_aid, dopo le regole) in {c21['noleggio']} pagine, {c21['link']} link andata e ritorno con Driving abroad e Tolls: {len(e21)} errori")
     e22, c22 = controlla_biglietti()
     print(f"22. Ticket release dates: {c22['attrazioni']} attrazioni, {c22['fonti']} fonti ufficiali (HTTP 200, domini ammessi; frasi e impronte ricalcolate dal testo salvato: {c22['cache']}), "
-          f"{c22['citazioni']} citazioni nelle pagine, {c22['date']} date calcolate uguali al ricalcolo indipendente e coerenti con la regola, {c22['eventi_ics']} eventi .ics validi "
+          f"{c22['citazioni']} citazioni nelle pagine, {c22['date']} date calcolate uguali al ricalcolo indipendente e coerenti con la regola (settimanale, mensile, "
+          f"date della tabella, anticipo; ore e giorni presenti nella frase ufficiale, {c22.get('esempi', 0)} esempi ufficiali coerenti con la regola, ora a New York/Londra ricalcolata), "
+          f"{c22.get('escluse_provate', 0)} attrazioni escluse con motivo coerente con la rilettura, {c22['eventi_ics']} eventi .ics validi "
           f"(CRLF, righe <= 75 byte, UID unici, date e ore = tabella), {c22['faq']} risposte FAQ da ricerche vere (JSON-LD = testo visibile), titoli <= {G.LIMITE_TITOLO_BIG} con gli anni {G.STAGIONE_BIG}, "
           f"pagine in sitemap, {c22['link_esterni']} link esterni tutti ufficiali, nessun rivenditore, riquadro Viator {'acceso' if G.VIATOR_TOUR else 'spento'}, "
           f"{c22.get('stay22', 0)} link Stay22 (ognuno solo sulla sua pagina e nell'indice, sponsored, dopo la biglietteria ufficiale): {len(e22)} errori")
@@ -4595,9 +4918,15 @@ def main():
           f"prima frase con fonte e data, avviso sul sito ufficiale in alto, solo link ufficiali o SafetyWing sponsorizzato, nessun rivenditore di visti, "
           f"{c27['citazioni']} citazioni <= {RIN.MAX_PAROLE} parole tutte nei dati, {c27['faq']} risposte FAQ (JSON-LD = testo visibile), titoli <= {G.LIMITE_TITOLO_IN}, "
           f"sitemap con lastmod, {c27['link']} link in entrata; browser: {c27['browser']}: {len(e27)} errori")
+    e28, c28 = controlla_scooter()
+    print(f"28. Scooter rental licence: {c28['paesi']} Paesi con pagina ({c28['pagine']} pagine + indice), {c28['non_letti']} Paesi non letti (motivo "
+          f"coerente con la rilettura: HTTP e frasi con la regola), {c28['fonti']} fonti ufficiali (HTTP 200, domini ammessi; frasi e impronte "
+          f"ricalcolate dal testo salvato: {c28['cache']}), {c28['citazioni']} citazioni e {c28['traduzioni']} traduzioni nelle pagine, numeri solo "
+          f"dalle fonti, esiti con citazione, prima frase con fonte e data, {c28['faq']} risposte FAQ da ricerche vere (JSON-LD = testo visibile), "
+          f"titoli <= {G.LIMITE_TITOLO_SC} con l'anno, {c28['link']} link andata e ritorno con Driving abroad, nessuna affiliazione né promessa: {len(e28)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28
     for e in tutti:
         print(" -", e)
     if tutti:

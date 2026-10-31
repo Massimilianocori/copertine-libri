@@ -3823,7 +3823,7 @@ def pagina_pat(k, c):
 {dove_idp(k)}
 {box_noleggio(k, c)}
 {link_ped(rel, c)}
-{link_gom(rel, c)}{link_fl(rel, c)}{link_tr_paese(rel, c)}{link_pet(rel, c) if k == "uk" else ""}
+{link_gom(rel, c)}{link_fl(rel, c)}{link_tr_paese(rel, c)}{link_sc_pat(rel, c)}{link_pet(rel, c) if k == "uk" else ""}
 {f'<h2>Other licences in {escape(P)}</h2><div class="tab tab-b"><table><caption class="sr">International driving permit in {escape(P)} for other licences, from official advice</caption><thead><tr><th>Licence</th><th>In {escape(nome_srv(c))}</th><th>Checked</th></tr></thead><tbody>{"".join(altri)}</tbody></table></div>' if altri else ""}
 {f'<h2>Before you travel to {escape(P)}</h2><ul>' + "".join(f"<li>{x}</li>" for x in ingresso) + "</ul>" if ingresso else ""}
 {faq_h}
@@ -3938,6 +3938,7 @@ def pagina_hub_pat():
 {f'<p class="altri-pass">{ico("car")}<span>Driving in winter? <a href="{rel}{GOM_BASE}/">Winter tyres and snow chains with a rental car in {len(GOM_PAESI)} European countries</a></span></p>' if GOM else ""}
 {f'<p class="altri-pass">{ico("car")}<span>Staying longer or moving? <a href="{rel}{FL_BASE}/">How long you can drive on a foreign licence in Canada, Australia and New Zealand, by province and state</a></span></p>' if FL else ""}
 {f'<p class="altri-pass">{ico("globe")}<span>Not driving? <a href="{rel}{TR_BASE}/">Public transport fines, validation and contactless payment in {len(TR_CITTA)} cities</a></span></p>' if TR else ""}
+{f'<p class="altri-pass">{ico("car")}<span>Renting a scooter instead? <a href="{rel}{SC_BASE}/">Moped and 125 cc on a car licence: what the official texts say in {len(SC_PAESI)} countries</a></span></p>' if SC else ""}
 <h2>How we check</h2>
 <p>{metodo_pat("uk")} {metodo_pat("ca")} {metodo_pat("au")} We only use official government sources and never fill a gap with our own reading: where the advice is silent, we say so. More on the <a href="{rel}about/#driving-abroad">About page</a>.</p>"""
     pagina(f"{PAT_BASE}/", f"Driving Abroad: Do I Need an IDP? UK, Canada, Australia ({ANNO})",
@@ -4554,6 +4555,10 @@ def about_gom(rel):
 # regola ufficiale, da oggi a MESI_BIG mesi dopo, a ogni generazione (verifica.py, punto 22, le ricalcola in modo indipendente). Per ogni
 # attrazione un file .ics (stesso metodo dei calendari di italystrikes/genera.py: testo con escape, righe piegate a 75 byte, CRLF) con le uscite
 # dei biglietti, i giorni gratis, le chiusure e gli orari speciali. Link solo alle biglietterie ufficiali indicate dalle pagine ufficiali.
+# 31/10/2026: attrazioni a data fissa in Giappone e negli USA, con tre tipi di regola nuovi: "mensile" (il giorno N di ogni mese, per il
+# mese M dopo: Museo Ghibli, Ghibli Park, sorteggio del Nintendo Museum, visita al Palazzo Imperiale), "date" (date fisse della tabella
+# ufficiale: tornei di sumo) e "anticipo" (ogni giorno, N giorni prima della visita: Washington Monument; nessuna data nel calendario, la
+# data di oggi + N la calcola il browser). Accanto alla prossima uscita, l'ora convertita a Londra, New York e Sydney.
 from zoneinfo import ZoneInfo  # noqa: E402
 
 BIG_BASE = "ticket-release-dates"
@@ -4575,6 +4580,9 @@ VIATOR_TOUR = ""
 # ufficiale (e dopo l'eventuale riquadro Viator); nell'indice una riga con tutti i link dopo i calendari. verifica.py, punto 22, controlla tutto.
 STAY22_BIG = {s: v for s, v in ((AFFILIATI.get("_stay22_alloggi") or {}).get("link") or {}).items() if (v.get("url") or "").strip()}
 TIPI_BIG = {"uscita": "Tickets go on sale", "gratis": "Free entry", "chiusura": "Closed", "orario": "Special hours"}
+TIPI_USCITA_BIG = ("settimanale", "prima_domenica", "mensile", "date", "anticipo")
+# Fusi per la conversione dell'ora della prossima uscita (si salta quello dell'attrazione)
+FUSI_ALTRI_BIG = [("London", "Europe/London"), ("New York", "America/New_York"), ("Sydney", "Australia/Sydney")]
 
 
 def url_big(slug=None):
@@ -4670,6 +4678,18 @@ def eventi_big(a):
                 if dentro(d):
                     ev.append({"data": d.isoformat(), "ora": r["ora"], "tipo": "uscita", "regola": r["id"], "titolo": r["titolo"],
                                "visita": s.isoformat()})
+        elif r["tipo"] == "mensile":
+            for d in giorni_f:
+                if d.day == r["giorno"]:
+                    m = d.month - 1 + r["mesi_dopo"]
+                    v = date(d.year + m // 12, m % 12 + 1, 1)
+                    ev.append({"data": d.isoformat(), "ora": r["ora"], "tipo": "uscita", "regola": r["id"], "titolo": r["titolo"],
+                               "visita": v.isoformat(), "per": f"{MESI[v.month - 1]} {v.year}"})
+        elif r["tipo"] == "date":
+            for x in r["date"]:
+                if dentro(date.fromisoformat(x["data"])):
+                    ev.append({"data": x["data"], "ora": r["ora"], "tipo": "uscita", "regola": r["id"], "titolo": r["titolo"],
+                               "visita": None, "per": x["per"]})
     g = a.get("gratis")
     if g:
         saltate = {d for d, _ in gratis_saltate(a)}
@@ -4751,9 +4771,13 @@ def risposta_big(a, html=False):
     """Prima frase: chi lo dice, quando lo abbiamo controllato, la risposta con la prossima data calcolata (html=True: date aggiornabili)."""
     def sost(m):
         k, _, r = m.group(1).partition(":")
-        if k in ("next", "visita"):
+        if k == "anticipo":
+            g = next(x for x in a["uscite"] if x["id"] == r)["giorni"]
+            t = giorno_lungo((OGGI + timedelta(days=g)).isoformat())
+            return f'<span data-anticipo="{g}" data-fuso="{escape(a["fuso"])}">{escape(t)}</span>' if html else t
+        if k in ("next", "visita", "per"):
             ee = [e for e in eventi_big(a) if e["tipo"] == "uscita" and e["regola"] == r]
-            cands, vuoto = [(e["data"], quando_big(e, a) if k == "next" else giorno_lungo(e["visita"])) for e in ee], "not in the next six months"
+            cands, vuoto = [(e["data"], quando_big(e, a) if k == "next" else e["per"] if k == "per" else giorno_lungo(e["visita"])) for e in ee], "not in the next six months"
         else:
             ee = [e for e in eventi_big(a) if e["tipo"] == ("gratis" if k == "next_free" else "chiusura")]
             cands, vuoto = [(e["data"], giorno_lungo(e["data"])) for e in ee], "none in the next six months"
@@ -4780,10 +4804,18 @@ def testo_cit_big(a, id_):
 
 
 def frase_uscite_big(a, regola):
+    r = next(x for x in a["uscite"] if x["id"] == regola)
+    if r["tipo"] == "anticipo":
+        return (f"So today's release ({data_lunga(OGGI.isoformat())}) is for {giorno_lungo((OGGI + timedelta(days=r['giorni'])).isoformat())}: "
+                f"for any visit date, count back {r['giorni']} day{'s' if r['giorni'] != 1 else ''}.")
     ee = [e for e in eventi_big(a) if e["tipo"] == "uscita" and e["regola"] == regola][:3]
     if not ee:
         return "There is no release under this rule in the next six months."
     tz = a["ora_locale"]
+    if r["tipo"] in ("mensile", "date"):
+        voci = [f"{giorno_lungo(e['data'])} (for {e['per']})" for e in ee]
+        elenco = ", ".join(voci[:-1]) + " and " + voci[-1] if len(voci) > 1 else voci[0]
+        return f"The next ones are {elenco}" + (f", at {ee[0]['ora']} {tz}." if ee[0]["ora"] else ".")
     if ee[0].get("visita") and next(r for r in a["uscite"] if r["id"] == regola)["tipo"] == "prima_domenica":
         return f"The next one is {giorno_lungo(ee[0]['data'])} at {ee[0]['ora']} {tz}, for {giorno_lungo(ee[0]['visita'])}."
     elenco = ", ".join(giorno_lungo(e["data"]) for e in ee[:-1]) + " and " + giorno_lungo(ee[-1]["data"]) if len(ee) > 1 else giorno_lungo(ee[0]["data"])
@@ -4903,6 +4935,8 @@ def regola_di_big(a, e):
 
 
 def sommario_ics_big(a, e):
+    if e["tipo"] == "uscita" and e.get("per"):
+        return f"{e['titolo']} (for {e['per']})"
     if e["tipo"] == "uscita" and e.get("visita"):
         r = regola_di_big(a, e)
         return e["titolo"] + (f" (for {giorno_breve(e['visita'])})" if r["tipo"] == "prima_domenica" else f" (visit six weeks later: {giorno_breve(e['visita'])})")
@@ -4951,19 +4985,21 @@ def link_cal_big(a, rel):
 
 
 # ---- pagine
-AVVISO_BIG = ('<p class="avviso"><strong>Museums can change their rules, add closures or release extra tickets at short notice.</strong> We quote their '
+AVVISO_BIG = ('<p class="avviso"><strong>Museums and attractions can change their rules, add closures or release extra tickets at short notice.</strong> We quote their '
               'official pages word for word, with the date we checked them, and calculate the dates from the official rule. Before you book, check the '
               'official page. This site is not affiliated with any museum or ticket seller.</p>')
 BIG_JS = r"""(function(){var d=new Date(),o=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
 document.querySelectorAll('tr[data-data]').forEach(function(r){if(r.getAttribute('data-data')<o)r.hidden=true;});
 document.querySelectorAll('[data-prox]').forEach(function(s){try{var c=JSON.parse(s.getAttribute('data-prox'));for(var i=0;i<c.length;i++){if(c[i][0]>=o){s.textContent=c[i][1];break;}}}catch(e){}});
-document.querySelectorAll('[data-vecchie]').forEach(function(p){if(p.getAttribute('data-vecchie')<o)p.hidden=false;});})();"""
+document.querySelectorAll('[data-vecchie]').forEach(function(p){if(p.getAttribute('data-vecchie')<o)p.hidden=false;});
+var G=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],M=['January','February','March','April','May','June','July','August','September','October','November','December'];
+document.querySelectorAll('[data-anticipo]').forEach(function(s){var n=parseInt(s.getAttribute('data-anticipo'),10),y=d.getFullYear(),m=d.getMonth(),g=d.getDate();try{var q=new Intl.DateTimeFormat('en-CA',{timeZone:s.getAttribute('data-fuso'),year:'numeric',month:'2-digit',day:'2-digit'}).format(d).split('-');if(q.length===3){y=+q[0];m=+q[1]-1;g=+q[2];}}catch(e){}var x=new Date(y,m,g+n);s.textContent=G[x.getDay()]+' '+x.getDate()+' '+M[x.getMonth()]+' '+x.getFullYear();});})();"""
 
 
 def box_ufficiale_big(a):
     B = a["biglietteria"]
     return (f'<section class="card ufficiale" aria-label="Official tickets"><h2 style="margin-top:0" id="official-tickets">Official tickets</h2>'
-            f'<p>Official tickets for the {escape(a["nome_lungo"])} are sold at <a href="{escape(B["url"])}" rel="noopener">{escape(B["nome"])}</a>; '
+            f'<p>Official tickets for the {escape(a["nome_lungo"])} {escape(B.get("verbo", "are sold at"))} <a href="{escape(B["url"])}" rel="noopener">{escape(B["nome"])}</a>; '
             f'resellers may charge more.</p>{blocco_cit_big(a, list(dict.fromkeys(B["cit"] + [c["id"] for c in a["citazioni"] if c["tema"] == "biglietti"])))}</section>')
 
 
@@ -5010,7 +5046,8 @@ def righe_eventi_big(a, ee):
     for e in ee:
         if e["tipo"] == "uscita":
             r = regola_di_big(a, e)
-            cosa = f"{escape(r['breve'])}" + (f" – for {escape(giorno_lungo(e['visita']))}" if r["tipo"] == "prima_domenica" else
+            cosa = f"{escape(r['breve'])}" + (f" – for {escape(e['per'])}" if e.get("per") else
+                                              f" – for {escape(giorno_lungo(e['visita']))}" if r["tipo"] == "prima_domenica" else
                                               f" ({escape(giorno_lungo(e['visita']))})" if e.get("visita") else "")
         elif e["tipo"] == "orario":
             cosa = escape(e["testo"])
@@ -5019,8 +5056,11 @@ def righe_eventi_big(a, ee):
         else:
             cosa = "on the official list of closing days"
         ora = f"{e['ora']} {escape(a['ora_locale'])}" if e["ora"] else ("All day" if e["tipo"] == "chiusura" else "Opening hours")
+        tipo = regola_di_big(a, e).get("etichetta", TIPI_BIG["uscita"]) if e["tipo"] == "uscita" else TIPI_BIG[e["tipo"]]
+        if e["tipo"] == "uscita" and not e["ora"]:
+            ora = "Time not published"
         out.append(f'<tr data-data="{e["data"]}" data-tipo="{e["tipo"]}"><td data-l="Date">{escape(giorno_lungo(e["data"]))}</td>'
-                   f'<td data-l="What"><strong>{TIPI_BIG[e["tipo"]]}</strong> – {cosa}</td><td data-l="Time">{ora}</td></tr>')
+                   f'<td data-l="What"><strong>{escape(tipo)}</strong> – {cosa}</td><td data-l="Time">{ora}</td></tr>')
     return "".join(out)
 
 
@@ -5036,13 +5076,42 @@ def tabella_eventi_big(a):
             f'<caption class="cap">{escape(a["nome"])}: the other dates</caption>{testa}<tbody>{righe_eventi_big(a, ee[12:])}</tbody></table></div></details>')
 
 
+def ora_altrove_big(a, iso, ora):
+    """[(città, "HH:MM", giorno iso)] dell'ora locale dell'attrazione negli altri fusi (Londra, New York, Sydney), senza quello dell'attrazione."""
+    u = _utc_big(a, iso, ora)
+    out = []
+    for nome, z in FUSI_ALTRI_BIG:
+        if z == a["fuso"]:
+            continue
+        x = u.astimezone(ZoneInfo(z))
+        out.append((nome, x.strftime("%H:%M"), x.date().isoformat()))
+    return out
+
+
+def frase_fusi_big(a, e):
+    """Frase con l'ora della prossima uscita negli altri fusi (con il giorno quando cambia)."""
+    pezzi = []
+    for nome, hm, iso in ora_altrove_big(a, e["data"], e["ora"]):
+        pezzi.append(f"{hm} in {nome}" + (f" ({giorno_lungo(iso)})" if iso != e["data"] else ""))
+    elenco = ", ".join(pezzi[:-1]) + " and " + pezzi[-1] if len(pezzi) > 1 else pezzi[0]
+    return f"The next one, {giorno_lungo(e['data'])} at {e['ora']} {a['ora_locale']}, is {elenco}."
+
+
 def sezione_regole_big(a):
     """Come escono i biglietti: regole calcolate (con la citazione) e regole solo citate (con il motivo)."""
     out = []
     for r in a["uscite"]:
         nota = nota_ora_big(a, r)
+        if r["tipo"] == "anticipo":
+            calc = (f"There is no single date to put in a calendar: every day is a release day. For a visit on a given date, the release is "
+                    f"{r['giorni']} day{'s' if r['giorni'] != 1 else ''} before, at {r['ora']} {a['ora_locale']}.")
+            out.append(f'<h3>{escape(r["breve"])}</h3>{blocco_cit_big(a, r["cit"])}<p class="small">{escape(calc)}</p>')
+            continue
+        e = prossimo_big(a, "uscita", r["id"])
+        fusi = f" {escape(frase_fusi_big(a, e))}" if e and e["ora"] else ""
+        senza_ora = " The official text gives the day but not the time, so our calendar marks the whole day." if not r.get("ora") else ""
         out.append(f'<h3>{escape(r["breve"])}</h3>{blocco_cit_big(a, r["cit"])}'
-                   f'<p class="small">We calculate these dates from the official rule.{" " + escape(nota) if nota else ""}</p>')
+                   f'<p class="small">We calculate these dates from the official rule.{" " + escape(nota) if nota else ""}{escape(senza_ora)}{fusi}</p>')
     for t in a["uscite_testo"]:
         out.append(f'<h3>{escape(t["titolo"])}</h3>{blocco_cit_big(a, t["cit"])}<p class="small">{escape(t["nota"])}</p>')
     return "".join(out)
@@ -5060,10 +5129,13 @@ def sezione_giorni_big(a):
     ch = [e for e in eventi_big(a) if e["tipo"] == "chiusura"]
     breve = C["breve"] or ("No closing day on the official list for the next six months" if not ch else "")
     nota_escl = " ".join(C.get("escluse_md", {}).values())
-    sett = (" " + ", ".join(f"every {GIORNI_SETT[i]}" for i in C["settimana"]) + " (weekly closing day, not listed in the table)") if C["settimana"] else ""
+    sett = (" Also closed " + " and ".join(f"every {GIORNI_SETT[i]}" + (" except the last one of the month" if i == 6 and (g or {}).get("tipo") == "ultima_domenica" else "")
+                                          for i in C["settimana"])
+            + f" (weekly closing day{'s' if len(C['settimana']) > 1 else ''}, not listed in the table).") if C["settimana"] else ""
+    prossimi = f'Next six months: {escape(", ".join(giorno_lungo(e["data"]) for e in ch) or "none")}.' if (ch or not C.get("nota")) else ""
     out.append(f'<h3 id="closures">Closing days: {escape(breve)}</h3>{blocco_cit_big(a, C["cit"])}'
-               f'<p class="small">Next six months: {escape(", ".join(giorno_lungo(e["data"]) for e in ch) or "none")}.{escape(sett) if sett else ""}'
-               f'{" " + escape(nota_escl) if nota_escl else ""}</p>')
+               f'<p class="small">{prossimi}{escape(sett) if sett else ""}'
+               f'{" " + escape(nota_escl) if nota_escl else ""}{" " + escape(C["nota"]) if C.get("nota") else ""}</p>')
     if a["orari_speciali"]:
         ids = list(dict.fromkeys(i for o in a["orari_speciali"] for i in o["cit"]))
         out.append(f'<h3>Special opening hours</h3>{blocco_cit_big(a, ids)}')
@@ -5079,7 +5151,7 @@ def descrizione_big(a):
     d = data_lunga(data_big(a))
     e = prossimo_big(a, "uscita")
     if e:
-        cands = [f"{a['nome']}: next ticket release {giorno_breve(e['data'])} at {e['ora']}, closures and free days, from the official website ({d}).",
+        cands = [f"{a['nome']}: next ticket release {giorno_breve(e['data'])}{' at ' + e['ora'] if e['ora'] else ''}, closures and free days, from the official website ({d}).",
                  f"{a['nome']}: next ticket release {giorno_breve(e['data'])}, closures and free days, from the official website."]
     else:
         cands = [f"{a['nome']}: when tickets go on sale, closing days and free days, from the official website, checked on {d}.",
@@ -5094,13 +5166,17 @@ def pagina_big(a):
     e = prossimo_big(a, "uscita")
     tutte = eventi_big(a)
     cand_usc = [(x["data"], quando_big(x, a)) for x in tutte if x["tipo"] == "uscita"]
-    esito = (f'{ico("calendar")}<strong>Next ticket release: {prox_big(cand_usc, "")} ({escape(a["ora_locale"])})</strong>' if e else
+    ant = [r for r in a["uscite"] if r["tipo"] == "anticipo"]
+    r0 = next((r for r in a["uscite"] if e and r["id"] == e["regola"]), {})
+    esito = (f'{ico("calendar")}<strong>{escape("Next " + r0["etichetta"].lower() if r0.get("etichetta") else "Next ticket release")}: '
+             f'{prox_big(cand_usc, "")}{" (" + escape(a["ora_locale"]) + ")" if e["ora"] else ""}</strong>' if e else
+             f'{ico("calendar")}<strong>{escape(ant[0]["breve"])}</strong>' if ant else
              f'{ico("alert")}<strong>No exact release day to calculate: see the official rule below</strong>')
     corpo = f"""<section class="hero">{h1_diviso(a["h1"])}</section>
 <section class="card summary" aria-label="Answer">
 <div class="s-top"><span class="sq">{ico("calendar")}</span><span>Tickets · {escape(a["nome"])}, {escape(a["citta"])}</span><span>{STAGIONE_BIG}</span></div>
 <div class="s-body">
-<div class="esito e-srv {"si" if e else "manuale"}">{esito}</div>
+<div class="esito e-srv {"si" if e or ant else "manuale"}">{esito}</div>
 <p class="lead" id="answer">{risposta_big(a, html=True)}</p>
 <p class="small">Official tickets: <a href="{escape(a["biglietteria"]["url"])}" rel="noopener">{escape(a["biglietteria"]["nome"])}</a>. Dates calculated on {data_lunga(OGGI.isoformat())}.</p>
 </div></section>
@@ -5135,11 +5211,14 @@ def regola_breve_big(a):
 
 def prima_frase_big(html=False):
     calc = [a for a in BIG_ATT if a["uscite"]]
-    prossimi = sorted(((e, a) for a in calc for e in eventi_big(a) if e["tipo"] == "uscita"), key=lambda x: (x[0]["data"], x[0]["ora"]))
-    cands = list(dict.fromkeys((e["data"], f"{'' if "'s " in a['nome'] else 'the '}{a['nome']} on {quando_big(e, a)} ({a['ora_locale']})") for e, a in prossimi))
-    regole = "; ".join(f"{b['nome']}: {b['uscite'][0].get('indice') or b['uscite'][0]['breve']}" for b in calc)
-    testa = (f"Of the {len(BIG_ATT)} major attractions on this page, {len(calc)} publish a fixed weekly rule for releasing tickets ({regole}), and the "
-             f"next release is at ")
+    prossimi = sorted(((e, a) for a in calc for e in eventi_big(a) if e["tipo"] == "uscita"), key=lambda x: (x[0]["data"], x[0]["ora"] or ""))
+    cands = list(dict.fromkeys((e["data"], f"{'' if "'s " in a['nome'] else 'the '}{a['nome']} on {quando_big(e, a)}"
+                                + (f" ({a['ora_locale']})" if e["ora"] else "")) for e, a in prossimi))
+    aree = list(dict.fromkeys(a.get("area", "Europe") for a in BIG_ATT))
+    aree_t = ", ".join(aree[:-1]) + " and " + aree[-1] if len(aree) > 1 else aree[0]
+    aree_t = aree_t.replace("USA", "the USA")
+    testa = (f"Of the {len(BIG_ATT)} major attractions on this page, in {aree_t}, {len(calc)} publish an exact rule for releasing tickets (a day of the "
+             f"week, a day of the month, fixed dates or a set number of days ahead), and the next release we calculated is at ")
     coda = (f"; for each attraction we quote the official website, last checked on {data_lunga(BIG['controllato_il'])}, and calculate the dates "
             f"from its rule.")
     if html:
@@ -5176,7 +5255,7 @@ def pagina_indice_big():
         righe.append(f'<tr data-voce id="{a["slug"]}"><td data-l="Attraction"><a href="{rel}{url_big(a["slug"])}">{escape(a["nome"])}</a> '
                      f'<small>{escape(a["citta"])}</small></td>'
                      f'<td data-l="How tickets go on sale">{escape(regola_breve_big(a))}</td>'
-                     f'<td data-l="Next release">{prox_big([(x["data"], quando_big(x, a)) for x in ee if x["tipo"] == "uscita"], "") if e else "No exact date published"}</td>'
+                     f'<td data-l="Next release">{prox_big([(x["data"], quando_big(x, a)) for x in ee if x["tipo"] == "uscita"], "") if e else "Every day (rolling)" if any(r["tipo"] == "anticipo" for r in a["uscite"]) else "No exact date published"}</td>'
                      f'<td data-l="Next free day">{prox_big([(x["data"], giorno_lungo(x["data"])) for x in ee if x["tipo"] == "gratis"], "") if g else "None"}</td>'
                      f'<td data-l="Next closing day">{prox_big([(x["data"], giorno_lungo(x["data"])) for x in ee if x["tipo"] == "chiusura"], "") if c else "None on the official list"}'
                      f'{f" <small>({escape(chiusura_sett_big(a))})</small>" if chiusura_sett_big(a) else ""}</td>'
@@ -5194,7 +5273,7 @@ def pagina_indice_big():
 {AVVISO_BIG}
 {AD}
 <h2>Every attraction</h2>
-<p>“How tickets go on sale” is our short summary of the official rule; each attraction page quotes it word for word, with the link and the date. We calculate a date only when the official rule is exact (a day of the week and a time, or “the first Sunday of the month”); when the official page says “roughly”, gives no day, or two official texts disagree, we show the text and no date. Dates calculated on {data_lunga(OGGI.isoformat())}.</p>
+<p>“How tickets go on sale” is our short summary of the official rule; each attraction page quotes it word for word, with the link and the date. We calculate a date only when the official rule is exact (a day of the week and a time, “the first Sunday of the month”, a day of the month, or the dates in an official schedule); when tickets are released every day for a set number of days ahead, the page counts the days for you. When the official page says “roughly”, gives no day, or two official texts disagree, we show the text and no date. Times are local to the attraction. Dates calculated on {data_lunga(OGGI.isoformat())}.</p>
 <div class="tab tab-b tab-srv"><table><caption class="cap">Ticket releases, free days and closures at {len(BIG_ATT)} major attractions, from the official websites, checked on {d}</caption><thead><tr><th>Attraction</th><th>How tickets go on sale</th><th>Next release</th><th>Next free day</th><th>Next closing day</th><th>Official tickets</th><th>Checked</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>
 <p class="small">Official tickets are sold at the websites in the table; resellers may charge more.</p>
 <h2 id="calendars">Add the dates to your calendar</h2>
@@ -5204,11 +5283,11 @@ def pagina_indice_big():
 {riga_alloggi_big(rel)}
 {faq_h}
 <h2>Attractions we left out</h2>
-<p>We include an attraction only if its official website answered normally on the day we checked it. For now we left out:</p>
+<p>We include an attraction only if its official website answered normally on the day we checked it and writes down when tickets go on sale. For now we left out:</p>
 <ul>{escl}</ul>
 <h2>How we check</h2>
 <p>We read the official websites of the museums and sites (and nothing else: no blogs, guides or ticket resellers), quote the rules word for word and calculate the dates of the next six months from them. The pages and the calendar files show the date of our last check. More on the <a href="{rel}about/#ticket-release-dates">About page</a>. Spotted a change? <a href="{rel}contact/?ref=ticket-release-dates">Tell us</a>.</p>"""
-    desc = scegli([f"When tickets go on sale at {len(BIG_ATT)} major attractions (Last Supper, Vatican, Anne Frank House, Pompeii, Alhambra, Sagrada Família), from official sites.",
+    desc = scegli([f"When tickets go on sale at {len(BIG_ATT)} major attractions in Europe, Japan and the USA (Last Supper, Ghibli Museum, sumo...), from official sites.",
                    f"When tickets go on sale, closing days and free days at {len(BIG_ATT)} major attractions, from the official websites."], LIMITE_DESCRIZIONE)
     pagina(url_big(), scegli([titolo_indice_big(), f"Ticket Release Dates {STAGIONE_BIG}: Major Attractions"], LIMITE_TITOLO_BIG), desc, corpo,
            briciole=[("Ticket release dates", url_big())], js=BIG_JS, ld_extra=faq_ld)
@@ -5228,7 +5307,7 @@ def about_big(rel):
     enti = list(dict.fromkeys(F["ente"] for F in BIG["fonti"].values()))
     return f"""<h2 id="ticket-release-dates">Ticket release dates, closures and free days</h2>
 <p>Sources: the official websites of {len(BIG_ATT)} major attractions ({escape(", ".join(enti))}), {len(BIG["fonti"])} pages in all, read on {data_lunga(BIG["controllato_il"])}. Each attraction page links every page it quotes.</p>
-<p>Rules: every sentence shown between quotation marks is copied word for word from the official page. We calculate dates only from an exact official rule (a day of the week and a time, “the first Sunday of the month”, “the last Sunday of the month” with the exceptions the page lists, or a fixed date); the dates cover the next six months from the day we build the page, and the calendar files have the same dates. When the official page says “roughly”, gives no day, or two official texts disagree, we show the text and calculate nothing. We link only the ticket websites that the official pages name; other websites may resell tickets at a higher price. An attraction is included only if its official website answered normally on the day we checked it. This is information, not advice: museums decide.</p>"""
+<p>Rules: every sentence shown between quotation marks is copied word for word from the official page. We calculate dates only from an exact official rule (a day of the week and a time, “the first Sunday of the month”, “the last Sunday of the month” with the exceptions the page lists, a day of the month, a fixed date, or a set number of days before the visit); the dates cover the next six months from the day we build the page, and the calendar files have the same dates. When the official page says “roughly”, gives no day, or two official texts disagree, we show the text and calculate nothing. We link only the ticket websites that the official pages name; other websites may resell tickets at a higher price. An attraction is included only if its official website answered normally on the day we checked it. This is information, not advice: museums decide.</p>"""
 
 
 # ---------------------------------------------------------------- home e pagine di servizio
@@ -7741,6 +7820,279 @@ def controlli_in():
     return errori
 
 
+# ---------------------------------------------------------------- Scooter e motorini in vacanza: quale patente? (31/10/2026)
+# Regole per Paese scritte a mano in dati/scooter_manuali.json (citazioni parola per parola nella lingua originale, con la nostra traduzione),
+# fonti rilette da raccolta/scooter.py (HTTP 200, data di lettura, impronta della zona citata) che scrive dati/scooter.json. Una pagina solo per
+# i Paesi con la regola letta da una fonte ufficiale (codice della strada, regolamento delle patenti, portale dell'amministrazione, consigli di
+# viaggio del governo britannico per la patente britannica); gli altri Paesi provati stanno nell'indice come "Not read" con il motivo. Nessun
+# riquadro di affiliazione: DiscoverCars noleggia auto, non scooter, e il noleggio di moto (BikesBooking) passa da Travelpayouts, in pausa.
+# Nessuna promessa: ogni pagina dice di controllare con il noleggiatore e con la pagina ufficiale. Controlli: verifica.py, punto 28.
+SC_BASE = "scooter-rental-licence"
+_f_sc = DATI / "scooter.json"
+SC = json.loads(_f_sc.read_text(encoding="utf-8")) if _f_sc.exists() else None
+SC_PAESI = SC["paesi"] if SC else []
+SC_PER = {p["iso2"]: p for p in SC_PAESI}
+LIMITE_TITOLO_SC = 70
+ESITI_SC = {"si": ("Yes", "b-gratis"), "no": ("No", "b-no"), "condizioni": ("Only with conditions", "b-altre"), "non_detto": ("Not stated", "b-muto")}
+CASI_SC = [("50", "Moped (up to 50 cc)"), ("125", "Scooter or light motorcycle up to 125 cc"), ("oltre", "Bigger than 125 cc")]
+PATENTI_SC = [("uk", "UK licence"), ("ue", "Licence from another EU country"), ("extra", "Licence from outside Europe (US, Canada, Australia...)")]
+AVVISO_SC = ('<p class="avviso"><strong>Licence rules for scooters differ from country to country and can change, and rental companies may ask for '
+             'more than the law.</strong> We quote the official texts word for word, with the date we read them; this is information, not legal '
+             'advice. Check with the rental company and the official page before you ride.</p>')
+
+
+def url_sc(p=None):
+    return f"{SC_BASE}/" + (f"{p['slug']}/" if p else "")
+
+
+def fonti_sc(p):
+    return list(dict.fromkeys(c["f"] for c in p["citazioni"]))
+
+
+def data_sc(p):
+    return max(SC["fonti"][f]["letto_il"] for f in fonti_sc(p))
+
+
+def cit_sc(p, id_):
+    return next(c for c in p["citazioni"] + SC["generali"] if c["id"] == id_)
+
+
+def link_fonte_sc(fid):
+    F = SC["fonti"][fid]
+    return f'<a href="{escape(F["pagina"])}" rel="noopener">{escape(F["titolo"])}</a>'
+
+
+def blocco_cit_sc(cc):
+    """Citazioni raggruppate per fonte: virgolette, traduzione nostra (fonti non inglesi), fonte, ente e data di lettura."""
+    out, gruppi = [], []
+    for x in cc:
+        if gruppi and gruppi[-1][0] == x["f"]:
+            gruppi[-1][1].append(x)
+        else:
+            gruppi.append((x["f"], [x]))
+    for fid, gg in gruppi:
+        F = SC["fonti"][fid]
+        h = "".join(f"<p>{escape(x['x'])}</p>" + (f'<p class="trad" lang="en"><em>Our translation:</em> {escape(x["tr"])}</p>' if x.get("tr") else "")
+                    for x in gg)
+        lingua = f' lang="{F["lingua"]}"' if F["lingua"] != "en" else ""
+        agg = f", page updated on {data_lunga(F['aggiornata_il'])}" if F.get("aggiornata_il") else ""
+        out.append(f'<blockquote class="cit"{lingua}>{h}</blockquote><p class="fonte">Source: {link_fonte_sc(fid)} ({escape(F["ente"])}{agg}), '
+                   f'checked on {data_lunga(F["letto_il"])}. Quoted word for word.</p>')
+    return "".join(out)
+
+
+def risposta_sc(p):
+    return f"According to {p['chi']}, checked on {data_lunga(data_sc(p))}, {p['risposta']}"
+
+
+def badge_sc(e):
+    return f'<span class="badge {ESITI_SC[e][1]}">{escape(ESITI_SC[e][0])}</span>'
+
+
+def faq_sc(p):
+    """Domande da ricerche vere: parole nostre (pre, post) + citazioni; le citazioni non inglesi entrano con la traduzione nostra."""
+    out = []
+    for f in p["faq"]:
+        parti = [f["pre"]] if f["pre"] else []
+        for i in f["cit"]:
+            x = cit_sc(p, i)
+            parti.append(f"“{x.get('tr') or x['x']}”" + (" (our translation)" if x.get("tr") else ""))
+        if f["post"]:
+            parti.append(f["post"])
+        out.append((f["q"], " ".join(parti)))
+    out.append(("Where does this answer come from?", f"From {p['chi']}, read on {data_lunga(data_sc(p))} and quoted word for word on this page "
+                                                     "(with our translation when the text is not in English). Rental companies can ask for more "
+                                                     "than the law: check with the rental company and the official page before you ride."))
+    return out
+
+
+def box_assicurazione_sc():
+    """Riquadro "Travel insurance": la frase generale del governo britannico (consigli per la Thailandia), con la fonte."""
+    if not SC or not SC["generali"]:
+        return ""
+    return (f'<h2 id="insurance">Travel insurance and scooters</h2><section class="card" aria-label="Travel insurance">'
+            f'<p>Riding without the licence category the law asks for can also leave you without insurance cover. The UK government puts it this way '
+            f'in its travel advice for Thailand:</p>{blocco_cit_sc(SC["generali"])}<p class="small">Read your policy before you ride.</p></section>')
+
+
+def link_sc_pat(rel, iso2):
+    """Riga 'Renting a scooter in X?' nelle pagine Driving abroad dei Paesi con una pagina scooter."""
+    p = SC_PER.get(iso2)
+    if not p:
+        return ""
+    return (f'<p class="altri-pass">{ico("car")}<span>Renting a scooter or a moped instead? <a href="{rel}{url_sc(p)}">{escape(p["nome"])}: '
+            f'what a car licence covers (moped, 125 cc)</a></span></p>')
+
+
+def tabella_casi_sc(p):
+    righe = "".join(f'<tr data-voce data-caso="{k}"><td data-l="Vehicle">{escape(nome)}</td><td data-l="With a car licence">{badge_sc(p["casi"][k]["esito"])} '
+                    f'{escape(p["casi"][k]["breve"])}</td></tr>' for k, nome in CASI_SC)
+    return (f'<div class="tab tab-b"><table><caption class="cap">{escape(p["nome"])}: what a car licence covers, from the official text, checked on '
+            f'{data_lunga(data_sc(p))}</caption><thead><tr><th>Vehicle</th><th>With a car licence</th></tr></thead><tbody>{righe}</tbody></table></div>')
+
+
+def sezione_casi_sc(p):
+    """Un sottotitolo per caso con le frasi ufficiali; una frase già mostrata per un caso precedente non si ripete (rimando "above")."""
+    out, viste = [], set()
+    for k, nome in CASI_SC:
+        v = p["casi"][k]
+        cc = [cit_sc(p, i) for i in v["cit"] if i not in viste]
+        gia = [i for i in v["cit"] if i in viste]
+        viste.update(v["cit"])
+        out.append(f'<h3 id="case-{k}">{escape(nome)}: {escape(ESITI_SC[v["esito"]][0])}</h3>{blocco_cit_sc(cc) if cc else ""}'
+                   + (f'<p class="small">Same official text as above{" (and the text below)" if cc else ""}.</p>' if gia and not cc else "")
+                   + (f'<p class="small">{escape(v["nota"])}</p>' if v.get("nota") else ""))
+    return "".join(out)
+
+
+def etichette_fonti_sc(p, rel=""):
+    """Link brevi alle fonti di un Paese (nome prima dei due punti del titolo), senza ripetizioni."""
+    out = {}
+    for f in fonti_sc(p):
+        out.setdefault(SC["fonti"][f]["titolo"].split(":")[0], f)
+    return " · ".join(f'<a href="{escape(SC["fonti"][f]["pagina"])}" rel="noopener">{escape(n)}</a>' for n, f in out.items())
+
+
+def tabella_patenti_sc(p):
+    righe = []
+    for k, nome in PATENTI_SC:
+        v = p["patenti"][k]
+        righe.append(f'<tr data-voce data-patente="{k}"><td data-l="Your licence">{escape(nome)}</td><td data-l="What the official text says">{badge_sc(v["esito"])} '
+                     f'{escape(v["breve"]) if v["esito"] != "non_detto" else ""}{(" " if v["esito"] != "non_detto" else "") + escape(v["nota"]) if v.get("nota") else ""}</td></tr>')
+    return (f'<div class="tab tab-b"><table><caption class="cap">{escape(p["nome"])}: does the rule depend on where your licence is from?</caption>'
+            f'<thead><tr><th>Your licence</th><th>What the official text says</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>')
+
+
+def titolo_sc(p):
+    return p["titolo"]
+
+
+def descrizione_sc(p):
+    e = p["casi"]["125"]["esito"]
+    return scegli([f"{p['nome']}: can you ride a moped or a 125 cc scooter on a car licence? {ESITI_SC[e][0]}, from the official text, checked on {data_lunga(data_sc(p))}.",
+                   f"{p['nome']}: moped and 125 cc scooter on a car licence, from the official text."], LIMITE_DESCRIZIONE)
+
+
+def pagina_sc(p):
+    rel = "../../"
+    faq_h, faq_ld = html_faq_tr(faq_sc(p))
+    e125 = p["casi"]["125"]["esito"]
+    fonti = " · ".join(link_fonte_sc(f) for f in fonti_sc(p))
+    altro = "".join(f'<h3>{escape(a["titolo"])}</h3>{blocco_cit_sc([cit_sc(p, i) for i in a["cit"]])}' for a in p["altro"])
+    altri = "".join(f'<a href="{rel}{url_sc(q)}">{escape(q["nome"])}<small>125 cc: {escape(ESITI_SC[q["casi"]["125"]["esito"]][0])}</small></a>'
+                    for q in SC_PAESI if q is not p)
+    corpo = f"""<section class="hero">{h1_diviso(p["h1"])}</section>
+<section class="card summary" aria-label="Answer">
+<div class="s-top"><span class="sq">{ico("car")}</span><span>Scooter rental · {escape(p["nome"])}</span><span>{ANNO}</span></div>
+<div class="s-body">
+<div class="esito e-srv {({"si": "si", "no": "no"}).get(e125, "manuale")}">{ico("alert" if e125 != "si" else "check")}<strong>125 cc on a car licence: {escape(ESITI_SC[e125][0])}{escape(ambito_griglia_sc(p))}</strong></div>
+<p class="lead" id="answer">{escape(risposta_sc(p))}</p>
+<p class="small">Official source{"s" if len(fonti_sc(p)) > 1 else ""}: {fonti}.</p>
+</div></section>
+{AVVISO_SC}
+<h2 id="cases">Moped, 125 cc or bigger: what a car licence covers</h2>
+{tabella_casi_sc(p)}
+{sezione_casi_sc(p)}
+{AD}
+<h2 id="licence">Does it depend on where your licence is from?</h2>
+{tabella_patenti_sc(p)}
+{blocco_cit_sc([cit_sc(p, i) for k, _ in PATENTI_SC for i in p["patenti"][k]["cit"] if p["patenti"][k]["esito"] != "non_detto" and i not in {j for kk, _ in CASI_SC for j in p["casi"][kk]["cit"]}])}
+{f'<h2 id="also">Also in the official text</h2>{altro}' if altro else ""}
+{box_assicurazione_sc()}
+{link_guida(rel, p["iso2"])}
+{faq_h}
+<h2>Other countries</h2>
+<div class="griglia">{altri}</div>
+<p class="small">Spotted a change? <a href="{rel}contact/?ref=scooter-rental-licence">Tell us</a>. <a href="{rel}{SC_BASE}/">Scooter rental: every country we checked</a>.</p>"""
+    pagina(url_sc(p), scegli([titolo_sc(p)], LIMITE_TITOLO_SC), descrizione_sc(p), corpo,
+           briciole=[("Scooter rental: which licence?", url_sc()), (p["nome"], url_sc(p))], ld_extra=faq_ld)
+    LASTMOD[url_sc(p)] = data_sc(p)
+
+
+def ambito_riga_sc(p):
+    """Paese con fonte limitata (Grecia: consigli britannici per patenti britanniche): avviso nella riga della tabella dell'indice."""
+    return f'<br><small>{escape(p["ambito"])}</small>' if p.get("ambito") else ""
+
+
+def ambito_griglia_sc(p):
+    return f" ({p['ambito_breve']})" if p.get("ambito_breve") else ""
+
+
+def elenco_sc(nomi):
+    return ", ".join(nomi[:-1]) + " and " + nomi[-1] if len(nomi) > 1 else (nomi[0] if nomi else "")
+
+
+def prima_frase_sc():
+    nome = lambda p: p["nome"] + (f" ({p['ambito']})" if p.get("ambito") else "")  # noqa: E731
+    per = {e: [nome(p) for p in SC_PAESI if p["casi"]["125"]["esito"] == e] for e in ESITI_SC}
+    m_si = [p["nome"] for p in SC_PAESI if p["casi"]["50"]["esito"] == "si"]
+    m_no = [nome(p) for p in SC_PAESI if p["casi"]["50"]["esito"] == "no"]
+    pezzi = []
+    if per["condizioni"]:
+        pezzi.append(f"only under conditions in {elenco_sc(per['condizioni'])}")
+    if per["no"]:
+        pezzi.append(f"not at all in {elenco_sc(per['no'])}")
+    if per["si"]:
+        pezzi.append(f"without conditions in {elenco_sc(per['si'])}")
+    moto = (f"; a moped is covered by a car licence in {elenco_sc(m_si)}" if m_si else "") + (f" but not in {elenco_sc(m_no)}" if m_no else "")
+    return (f"Of the {len(SC_PAESI)} countries whose official rule we could read (last checked on {data_lunga(SC['controllato_il'])}), a car licence "
+            f"covers a 125 cc scooter {' and '.join(pezzi)}{moto}; for {len(SC['non_letti'])} more countries we could not read an official rule yet.")
+
+
+def titolo_indice_sc():
+    return [f"Scooter Rental Abroad: 125cc on a Car Licence? By Country ({ANNO})", f"Scooter Rental: 125cc on a Car Licence? ({ANNO})"]
+
+
+def pagina_indice_sc():
+    rel = "../"
+    righe = []
+    for p in SC_PAESI:
+        righe.append(f'<tr data-voce id="{p["slug"]}"><td data-l="Country"><a href="{rel}{url_sc(p)}">{escape(p["nome"])}</a>{ambito_riga_sc(p)}</td>'
+                     + "".join(f'<td data-l="{escape(nome)}">{badge_sc(p["casi"][k]["esito"])}</td>' for k, nome in CASI_SC)
+                     + f'<td data-l="Official source">{etichette_fonti_sc(p)}</td><td data-l="Checked">{data_lunga(data_sc(p))}</td></tr>')
+    nl = "".join(f'<li id="not-read-{x["iso2"].lower()}"><strong>{escape(x["nome"])}</strong>: {escape(x["motivo"])}</li>' for x in SC["non_letti"])
+    griglia = "".join(f'<a href="{rel}{url_sc(p)}">{escape(p["nome"])}<small>125 cc: {escape(ESITI_SC[p["casi"]["125"]["esito"]][0])}{escape(ambito_griglia_sc(p))}</small></a>' for p in SC_PAESI)
+    faq = [faq_sc(p)[0] for p in SC_PAESI]
+    faq_h, faq_ld = html_faq_tr(faq)
+    d = data_lunga(SC["controllato_il"])
+    corpo = f"""<section class="hero">{h1_diviso(f"Scooter and moped rental abroad: can you ride a 125 cc on a car licence? ({ANNO})")}
+<p class="lead" id="answer">{escape(prima_frase_sc())}</p></section>
+<div class="griglia">{griglia}</div>
+{AVVISO_SC}
+<h2>Every country we could read</h2>
+<p>“Yes”, “No” and “Only with conditions” are our short summary of the official text; each country page quotes it word for word, with our translation, the link and the date. “Not stated” means the official text we read says nothing about that case.</p>
+<div class="tab tab-b tab-srv"><table><caption class="cap">What a car licence covers for mopeds and scooters, from the official texts, checked on {d}</caption><thead><tr><th>Country</th>{"".join(f"<th>{escape(n)}</th>" for _, n in CASI_SC)}<th>Official source</th><th>Checked</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>
+{AD}
+{box_assicurazione_sc()}
+{faq_h}
+<h2 id="not-read">Countries we could not read yet</h2>
+<p>We publish a country only when an official text (the highway code, the licence rules, the government's own information site, or the UK government's travel advice for UK licences) says which licence you need. For these countries we tried and could not read the rule:</p>
+<ul>{nl}</ul>
+<h2>How we check</h2>
+<p>We read the official texts (and nothing else: no rental companies, forums or blogs), quote the rule word for word in its own language with our English translation, and give the date we read it. Each page links the official text. Driving a car instead? <a href="{rel}{PAT_BASE}/">Driving abroad: do you need an international driving permit?</a> More on the <a href="{rel}about/#scooter-rental-licence">About page</a>. Spotted a change? <a href="{rel}contact/?ref=scooter-rental-licence">Tell us</a>.</p>"""
+    desc = scegli([f"Can you ride a moped or a 125 cc scooter on a car licence in {elenco_sc([p['nome'] for p in SC_PAESI])}? Official texts, checked on {d}.",
+                   "Moped and 125 cc scooter on a car licence, country by country, from the official texts."], LIMITE_DESCRIZIONE)
+    pagina(url_sc(), scegli(titolo_indice_sc(), LIMITE_TITOLO_SC), desc, corpo, briciole=[("Scooter rental: which licence?", url_sc())], ld_extra=faq_ld)
+    LASTMOD[url_sc()] = SC["controllato_il"]
+
+
+def home_sc():
+    if not SC:
+        return ""
+    voci = "".join(f'<a href="{url_sc(p)}">{escape(p["nome"])}<small>125 cc: {escape(ESITI_SC[p["casi"]["125"]["esito"]][0])}{escape(ambito_griglia_sc(p))}</small></a>' for p in SC_PAESI)
+    return (f'<h2>Renting a scooter: is a car licence enough?</h2><p>What the official texts say about mopeds and 125 cc scooters on a car licence, '
+            f'quoted with the date: <a href="{SC_BASE}/">every country we checked</a>.</p><div class="griglia">{voci}</div>')
+
+
+def about_sc(rel):
+    if not SC:
+        return ""
+    enti = list(dict.fromkeys(F["ente"] for F in SC["fonti"].values()))
+    return f"""<h2 id="scooter-rental-licence">Scooter rental: which licence?</h2>
+<p>Sources: {escape("; ".join(enti))}; {len(SC["fonti"])} official pages in all, read on {data_lunga(SC["controllato_il"])}. Each country page links every text it quotes. UK government travel advice: Open Government Licence v3.0.</p>
+<p>Rules: every sentence between quotation marks is copied word for word from the official text, in its own language, with our English translation. We publish a country only when an official text says which licence you need for a moped or a scooter; the countries we tried and could not read are listed with the reason. “Not stated” means the text says nothing about that case: we never fill a gap with what rental companies or forums say. This is information, not legal advice: check with the rental company and the official page before you ride.</p>"""
+
+
 def home():
     auto = sum(1 for P in PAESI if P["regola"])
     due = [A for A in AER["aeroporti"] if A["regola"] == "2l"]
@@ -7798,6 +8150,7 @@ def home():
 {home_tb()}
 {home_pet()}
 {home_in()}
+{home_sc()}
 {box_affiliati()}
 {dati_json('tutti-dati', [dati_client(P) for P in PAESI])}"""
     pagina("", f"Before You Fly {ANNO}: Passport, Visas, Liquids, Cabin Bags, EES",
@@ -7872,6 +8225,7 @@ def about():
 {about_tb(rel)}
 {about_pet(rel)}
 {about_in(rel)}
+{about_sc(rel)}
 <h2>EES and ETIAS</h2>
 <p>European Commission (DG Migration and Home Affairs) pages and GOV.UK travel advice, last checked on {data_lunga(EES['controllato_il'])}. See the <a href="{rel}ees-etias/">EES and ETIAS page</a>.</p>
 <h2>Corrections</h2>
@@ -7940,7 +8294,7 @@ def extra():
 """)
     pagina("404.html", f"Page not found | {NOME}", "Page not found.",
            '<section class="hero"><h1>Page not found</h1><p class="lead">Go to the <a href="/">home page</a>, the <a href="/passport-validity/">passport validity rules</a> '
-           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> <a href="/driving-abroad/">driving abroad with your licence</a>, <a href="/tolls-rental-car/">tolls with a rental car</a>, <a href="/winter-tyres-rental-car/">winter tyres with a rental car</a>, <a href="/foreign-licence-canada-australia-nz/">driving in Canada, Australia and New Zealand on a foreign licence</a>, <a href="/ticket-release-dates/">when tickets go on sale at major attractions</a>, <a href="/public-transport-rules/">public transport fines and contactless payment by city</a>, <a href="/train-luggage-rules/">luggage rules on European trains</a>, <a href="/eurostar-check-in-times/">Eurostar check-in times</a> or the <a href="/india-e-visa-fee/">India e-Visa fee by nationality</a>.</p></section>', indicizza=False, assoluto=True)
+           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> <a href="/driving-abroad/">driving abroad with your licence</a>, <a href="/tolls-rental-car/">tolls with a rental car</a>, <a href="/winter-tyres-rental-car/">winter tyres with a rental car</a>, <a href="/foreign-licence-canada-australia-nz/">driving in Canada, Australia and New Zealand on a foreign licence</a>, <a href="/ticket-release-dates/">when tickets go on sale at major attractions</a>, <a href="/public-transport-rules/">public transport fines and contactless payment by city</a>, <a href="/train-luggage-rules/">luggage rules on European trains</a>, <a href="/eurostar-check-in-times/">Eurostar check-in times</a>, <a href="/scooter-rental-licence/">which licence you need to rent a scooter</a> or the <a href="/india-e-visa-fee/">India e-Visa fee by nationality</a>.</p></section>', indicizza=False, assoluto=True)
 
 
 def copia_grafica():
@@ -8072,10 +8426,11 @@ def controlli():
                 if f not in BIG["fonti"] or BIG["fonti"][f]["http"] != 200:
                     errori.append(f"biglietti {a['slug']}: fonte {f} non letta con HTTP 200")
             for r in a["uscite"] + a["uscite_testo"] + [a["chiusure"], a["orari"], a["biglietteria"]] + ([a["gratis"]] if a.get("gratis") else []) + a["orari_speciali"]:
-                if not r.get("cit") or any(i not in ids for i in r["cit"]):
+                if (not r.get("cit") and not (r is a["chiusure"] and r.get("nota"))) or any(i not in ids for i in r.get("cit", [])):
                     errori.append(f"biglietti {a['slug']}: regola senza citazione o con citazione sconosciuta")
             for r in a["uscite"]:
-                if r["tipo"] not in ("settimanale", "prima_domenica") or not re.fullmatch(r"\d{2}:\d{2}", r["ora"]):
+                if r["tipo"] not in TIPI_USCITA_BIG or not (re.fullmatch(r"\d{2}:\d{2}", r["ora"] or "")
+                                                            or (r["ora"] is None and r["tipo"] in ("mensile", "date"))):
                     errori.append(f"biglietti {a['slug']}: regola di uscita {r['id']} non valida")
             for q in a["faq"]:
                 if q["tipo"] not in ("testo", "uscita", "gratis", "giorno") or any(i not in ids for i in q["cit"]):
@@ -8091,6 +8446,21 @@ def controlli():
                 errori.append(f"biglietti: link Stay22 non valido per {s}: {v['url']}")
             elif s in BIG_PER:
                 errori += [f"biglietti: {e}" for e in MON.controlla_link_pagina(box_alloggio_big(BIG_PER[s]), "box_alloggio_big", "en")[0]]
+    if SC:  # scooter: fonti lette con HTTP 200, citazioni note, esiti validi, titoli (verifica.py, punto 28, ricontrolla tutto)
+        for p_ in SC_PAESI:
+            ids = [c["id"] for c in p_["citazioni"]]
+            if len(set(ids)) != len(ids):
+                errori.append(f"scooter {p_['slug']}: id di citazione duplicati")
+            for f in fonti_sc(p_):
+                if f not in SC["fonti"] or SC["fonti"][f]["http"] != 200:
+                    errori.append(f"scooter {p_['slug']}: fonte {f} non letta con HTTP 200")
+            for k, v in list(p_["casi"].items()) + list(p_["patenti"].items()):
+                if v["esito"] not in ESITI_SC or (v["esito"] != "non_detto" and not v["cit"]) or any(i not in ids for i in v["cit"]):
+                    errori.append(f"scooter {p_['slug']}: voce {k} non valida")
+            if set(p_["casi"]) != {k for k, _ in CASI_SC} or set(p_["patenti"]) != {k for k, _ in PATENTI_SC}:
+                errori.append(f"scooter {p_['slug']}: casi o patenti mancanti")
+            if len(p_["titolo"]) > LIMITE_TITOLO_SC or str(ANNO) not in p_["titolo"]:
+                errori.append(f"scooter {p_['slug']}: titolo oltre {LIMITE_TITOLO_SC} caratteri o senza l'anno")
     if FL:  # patente straniera in Canada, Australia e NZ: fonti con HTTP 200, citazioni note, titoli (verifica.py, punto 23, ricontrolla tutto)
         ids_tutti = [c["id"] for g in FL_GIUR for c in g["citazioni"]]
         if len(set(ids_tutti)) != len(ids_tutti):
@@ -8287,6 +8657,10 @@ def main():
         pagina_rotte_pet()
         for p in PET_PAGINE:
             pagina_paese_pet(p)
+    if SC:
+        pagina_indice_sc()
+        for p in SC_PAESI:
+            pagina_sc(p)
     if IN:
         pagina_indice_in()
         for g in IN_PAGINE:

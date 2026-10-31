@@ -1,0 +1,382 @@
+{
+ "_nota": "Ricerche vere (autocompletamento di Google, client=firefox, hl=en, gl=us e gl=uk) su scooter, motorini e patente in vacanza. Ogni pagina Paese e ogni domanda delle FAQ si lega a una di queste ricerche (campo 'query' in scooter_manuali.json). Riscritto da raccolta/scooter.py --domanda (solo le ricerche nuove; --tutte le rilegge tutte).",
+ "letto_il": "2026-10-31",
+ "letto_il_per_ricerca": {
+  "can i rent a scooter in": "2026-10-31",
+  "125cc with car licence": "2026-10-31",
+  "can you drive 125cc with car licence in": "2026-10-31",
+  "rent scooter in greece with": "2026-10-31",
+  "can you rent a scooter in greece with": "2026-10-31",
+  "can you rent a moped in greece with": "2026-10-31",
+  "rent a moped in": "2026-10-31",
+  "rent a scooter in spain with": "2026-10-31",
+  "can you ride a 125cc in spain with a car licence": "2026-10-31",
+  "125cc car licence spain": "2026-10-31",
+  "can i ride a 125 in france with a car licence": "2026-10-31",
+  "rent scooter france car licence": "2026-10-31",
+  "125cc car licence france": "2026-10-31",
+  "125cc car licence germany": "2026-10-31",
+  "b196 germany": "2026-10-31",
+  "can you rent a scooter in germany": "2026-10-31",
+  "do you need a motorcycle license to rent a scooter in": "2026-10-31",
+  "rent a scooter in france": "2026-10-31",
+  "can you rent a scooter in france": "2026-10-31",
+  "can you ride a 125cc in france": "2026-10-31",
+  "can you ride a 125 in france": "2026-10-31",
+  "do you need a license for a scooter in": "2026-10-31",
+  "can i ride a moped with a car licence in": "2026-10-31"
+ },
+ "domande": [
+  "can i rent a scooter in",
+  "125cc with car licence",
+  "can you drive 125cc with car licence in",
+  "rent scooter in greece with",
+  "can you rent a scooter in greece with",
+  "can you rent a moped in greece with",
+  "rent a moped in",
+  "rent a scooter in spain with",
+  "can you ride a 125cc in spain with a car licence",
+  "125cc car licence spain",
+  "can i ride a 125 in france with a car licence",
+  "rent scooter france car licence",
+  "125cc car licence france",
+  "125cc car licence germany",
+  "b196 germany",
+  "can you rent a scooter in germany",
+  "do you need a motorcycle license to rent a scooter in",
+  "rent a scooter in france",
+  "can you rent a scooter in france",
+  "can you ride a 125cc in france",
+  "can you ride a 125 in france",
+  "do you need a license for a scooter in",
+  "can i ride a moped with a car licence in"
+ ],
+ "ricerche": {
+  "us": {
+   "can i rent a scooter in": [
+    "can i rent a scooter in rome",
+    "can i rent a scooter in japan",
+    "can i rent a scooter in vietnam",
+    "can i rent a scooter in italy",
+    "can i rent a scooter in thailand",
+    "can i rent a scooter in paris",
+    "can i rent a scooter in bali",
+    "can i rent a scooter in miami",
+    "can i rent a scooter in puerto rico",
+    "can i rent a scooter in taiwan"
+   ],
+   "125cc with car licence": [
+    "125cc with car licence",
+    "125cc bike car licence",
+    "125cc driving licence",
+    "can i drive 125cc with car licence",
+    "can i drive 125cc with car licence uk",
+    "can i drive 125cc with car licence netherlands",
+    "can i ride 125cc with car licence",
+    "can i drive 125cc with car licence in japan",
+    "can you drive 125cc with car licence in germany",
+    "can i drive 125cc with car licence in italy"
+   ],
+   "can you drive 125cc with car licence in": [
+    "can you drive 125cc with car licence in uk",
+    "can you drive 125cc with car licence in greece",
+    "can you drive 125cc with car licence in germany",
+    "can you drive 125cc with car licence in spain",
+    "can you drive 125cc with car licence in italy",
+    "can you drive 125cc with car licence in portugal",
+    "can you drive 125cc with car licence in malta",
+    "can i drive 125cc with car licence in japan",
+    "can i drive 125cc with car licence in spain",
+    "can you drive 125cc on car licence"
+   ],
+   "rent scooter in greece with": [
+    "can you rent a scooter in greece with us license",
+    "can i rent a scooter in greece without a license",
+    "renting a scooter in greece",
+    "are electric scooters legal in greece",
+    "do you need a license to drive a scooter in greece"
+   ],
+   "can you rent a scooter in greece with": [
+    "can you rent a scooter in greece with us license",
+    "can you rent a scooter in greece without a license",
+    "can you rent a moped in greece with a provisional licence",
+    "renting a scooter in greece",
+    "are electric scooters legal in greece",
+    "do you need a license to drive a scooter in greece"
+   ],
+   "can you rent a moped in greece with": [
+    "can you rent a moped in greece with a provisional licence",
+    "can you rent a scooter in greece with us license",
+    "can you rent a scooter in greece without a license",
+    "can you hire a moped with a provisional in greece",
+    "how old do you have to be to rent a moped in greece",
+    "renting a scooter in greece",
+    "riding a moped in greece"
+   ],
+   "rent a moped in": [
+    "rent a moped in rome",
+    "rent a moped in san diego",
+    "rent a moped in hawaii",
+    "rent a moped in amsterdam",
+    "rent a moped in mallorca",
+    "rent a moped in bali",
+    "rent a moped in barcelona",
+    "rent a moped in honolulu",
+    "rent a moped in nice",
+    "rent a moped in thailand"
+   ],
+   "rent a scooter in spain with": [],
+   "can you ride a 125cc in spain with a car licence": [],
+   "125cc car licence spain": [],
+   "can i ride a 125 in france with a car licence": [],
+   "rent scooter france car licence": [],
+   "125cc car licence france": [],
+   "125cc car licence germany": [],
+   "b196 germany": [
+    "b196 germany",
+    "b196 license germany",
+    "b196 driving license germany"
+   ],
+   "can you rent a scooter in germany": [
+    "can you rent a motorcycle in germany",
+    "can you rent scooters in germany",
+    "can you rent a motorcycle or scooter in munich germany",
+    "how to rent a scooter in germany",
+    "do you need a license for a scooter in germany",
+    "are electric scooters legal in germany",
+    "how to rent a scooter in berlin",
+    "can i take my scooter into shops"
+   ],
+   "do you need a motorcycle license to rent a scooter in": [
+    "do you need a motorcycle license to rent a scooter in the philippines",
+    "do you need a motorcycle license to rent a scooter in thailand",
+    "do you need a motorcycle license to rent a scooter in italy",
+    "do you need a motorcycle license to rent a scooter in greece",
+    "do you need a motorcycle license to rent a scooter in aruba",
+    "do you need a motorcycle license to rent a scooter in bali",
+    "do you need a motorcycle license to rent a scooter in hawaii",
+    "do.you need a motorcycle license.to.rent a scooter in vietnam",
+    "do you need a motorcycle license to rent a scooter in mexico",
+    "do you need a motorcycle license to rent a scooter in costa rica"
+   ],
+   "rent a scooter in france": [
+    "rent a scooter in france",
+    "rent a motorcycle in france",
+    "rent a motorbike in france",
+    "rent a vespa in france",
+    "rent a moped in france",
+    "rent a scooter in nice france",
+    "rent a scooter in paris france",
+    "can i rent a scooter in france",
+    "rent a motorcycle in nice france",
+    "rent a motorcycle in paris france"
+   ],
+   "can you rent a scooter in france": [
+    "can you rent a scooter in france",
+    "can you rent a motorcycle in france",
+    "can you rent a vespa in france",
+    "can you rent a moped.in.france",
+    "can you rent a scooter in nice france",
+    "can you rent a vespa in nice france",
+    "can i hire a mobility scooter in france",
+    "how to rent a scooter in france",
+    "can you rent scooters in paris",
+    "are electric scooters legal in france"
+   ],
+   "can you ride a 125cc in france": [
+    "can i ride a 125cc in france",
+    "can you ride a 125cc on the motorway"
+   ],
+   "can you ride a 125 in france": [
+    "can i ride a 125cc in france"
+   ],
+   "do you need a license for a scooter in": [
+    "do you need a license for a scooter in florida",
+    "do you need a license for a scooter in texas",
+    "do you need a license for a scooter in massachusetts",
+    "do you need a license for a scooter in california",
+    "do you need a license for a scooter in illinois",
+    "do you need a license for a scooter in georgia",
+    "do you need a license for a scooter in nc",
+    "do you need a license for a scooter in ny",
+    "do you need a license for a scooter in missouri",
+    "do you need a license for a scooter in pa"
+   ],
+   "can i ride a moped with a car licence in": [
+    "can i drive a motorbike with a car licence in south africa",
+    "can i drive a scooter with a car licence in south africa",
+    "can i drive a scooter with a car license in greece",
+    "can i drive a scooter with a car license in thailand",
+    "can i drive a moped on a car licence in ireland",
+    "can i drive a moped on a car licence in thailand",
+    "can i drive a motorbike on a car licence in ireland",
+    "can i ride a 125cc scooter on a car licence in wa",
+    "can i ride a 125cc scooter on a car licence in qld",
+    "can you drive a moped on a car licence in nz"
+   ]
+  },
+  "uk": {
+   "can i rent a scooter in": [
+    "can i rent a scooter in vietnam",
+    "can i rent a scooter in thailand",
+    "can i rent a scooter in bali",
+    "can i rent a scooter in italy",
+    "can i rent a scooter in taiwan",
+    "can i rent a scooter in sri lanka",
+    "can i rent a scooter in the philippines",
+    "can i rent a scooter in bangkok",
+    "can i rent a scooter in thailand without license",
+    "can i rent a scooter in albania"
+   ],
+   "125cc with car licence": [
+    "125cc with car licence",
+    "125cc bike car licence",
+    "125cc driving licence",
+    "can i drive 125cc with car licence",
+    "can i drive 125cc with car licence uk",
+    "can i drive 125cc with car licence netherlands",
+    "can i ride 125cc with car licence",
+    "can i drive 125cc with car licence in japan",
+    "can you drive 125cc with car licence in germany",
+    "can i drive 125cc with car licence in italy"
+   ],
+   "can you drive 125cc with car licence in": [
+    "can you drive 125cc with car licence in uk",
+    "can you drive 125cc with car licence in greece",
+    "can you drive 125cc with car licence in germany",
+    "can you drive 125cc with car licence in spain",
+    "can you drive 125cc with car licence in italy",
+    "can you drive 125cc with car licence in portugal",
+    "can you drive 125cc with car licence in malta",
+    "can i drive 125cc with car licence in japan",
+    "can i drive 125cc with car licence in spain",
+    "can you drive 125cc on car licence"
+   ],
+   "rent scooter in greece with": [
+    "can you rent a scooter in greece with us license",
+    "can i rent a scooter in greece without a license",
+    "renting a scooter in greece",
+    "are electric scooters legal in greece",
+    "do you need a license to drive a scooter in greece"
+   ],
+   "can you rent a scooter in greece with": [
+    "can you rent a scooter in greece with us license",
+    "can you rent a scooter in greece without a license",
+    "can you rent a moped in greece with a provisional licence",
+    "renting a scooter in greece",
+    "are electric scooters legal in greece",
+    "do you need a license to drive a scooter in greece"
+   ],
+   "can you rent a moped in greece with": [
+    "can you rent a moped in greece with a provisional licence",
+    "can you rent a scooter in greece with us license",
+    "can you rent a scooter in greece without a license",
+    "can you hire a moped with a provisional in greece",
+    "how old do you have to be to rent a moped in greece",
+    "renting a scooter in greece",
+    "riding a moped in greece"
+   ],
+   "rent a moped in": [
+    "rent a moped in rome",
+    "rent a moped in amsterdam",
+    "rent a moped in mallorca",
+    "rent a moped in bali",
+    "rent a moped in barcelona",
+    "rent a moped in honolulu",
+    "rent a moped in nice",
+    "rent a moped in thailand",
+    "rent a moped in san diego",
+    "rent a moped in hawaii"
+   ],
+   "rent a scooter in spain with": [],
+   "can you ride a 125cc in spain with a car licence": [],
+   "125cc car licence spain": [],
+   "can i ride a 125 in france with a car licence": [],
+   "rent scooter france car licence": [],
+   "125cc car licence france": [],
+   "125cc car licence germany": [],
+   "b196 germany": [
+    "b196 germany",
+    "b196 license germany",
+    "b196 driving license germany"
+   ],
+   "can you rent a scooter in germany": [
+    "can you rent a motorcycle in germany",
+    "can you rent scooters in germany",
+    "can you rent a motorcycle or scooter in munich germany",
+    "how to rent a scooter in germany",
+    "do you need a license for a scooter in germany",
+    "are electric scooters legal in germany",
+    "how to rent a scooter in berlin",
+    "can i take my scooter into shops"
+   ],
+   "do you need a motorcycle license to rent a scooter in": [
+    "do you need a motorcycle license to rent a scooter in thailand",
+    "do you need a motorcycle license to rent a scooter in the philippines",
+    "do you need a motorcycle license to rent a scooter in italy",
+    "do you need a motorcycle license to rent a scooter in greece",
+    "do you need a motorcycle license to rent a scooter in aruba",
+    "do you need a motorcycle license to rent a scooter in bali",
+    "do you need a motorcycle license to rent a scooter in hawaii",
+    "do.you need a motorcycle license.to.rent a scooter in vietnam",
+    "do you need a motorcycle license to rent a scooter in mexico",
+    "do you need a motorcycle license to rent a scooter in costa rica"
+   ],
+   "rent a scooter in france": [
+    "rent a scooter in france",
+    "rent a motorcycle in france",
+    "rent a motorbike in france",
+    "rent a vespa in france",
+    "rent a moped in france",
+    "rent a scooter in nice france",
+    "rent a scooter in paris france",
+    "can i rent a scooter in france",
+    "rent a motorcycle in nice france",
+    "rent a motorcycle in paris france"
+   ],
+   "can you rent a scooter in france": [
+    "can you rent a scooter in france",
+    "can you rent a motorcycle in france",
+    "can you rent a vespa in france",
+    "can you rent a moped.in.france",
+    "can you rent a scooter in nice france",
+    "can you rent a vespa in nice france",
+    "can i hire a mobility scooter in france",
+    "how to rent a scooter in france",
+    "can you rent scooters in paris",
+    "are electric scooters legal in france"
+   ],
+   "can you ride a 125cc in france": [
+    "can i ride a 125cc in france",
+    "can you ride a 125cc on the motorway"
+   ],
+   "can you ride a 125 in france": [
+    "can i ride a 125cc in france"
+   ],
+   "do you need a license for a scooter in": [
+    "do you need a license for a scooter in spain",
+    "do you need a license for a scooter in florida",
+    "do you need a license for a scooter in south australia",
+    "do you need a license for a scooter in victoria",
+    "do you need a license for a scooter in thailand",
+    "do you need a license for a scooter in nsw",
+    "do you need a license for a scooter in texas",
+    "do you need a license for a scooter in ontario",
+    "do you need a license for a scooter in massachusetts",
+    "do you need a license for a scooter in bali"
+   ],
+   "can i ride a moped with a car licence in": [
+    "can i drive a motorbike with a car licence in south africa",
+    "can i drive a scooter with a car licence in south africa",
+    "can i drive a scooter with a car license in greece",
+    "can i drive a scooter with a car license in thailand",
+    "can i drive a moped on a car licence in ireland",
+    "can i drive a moped on a car licence in thailand",
+    "can i drive a motorbike on a car licence in ireland",
+    "can i ride a 125cc scooter on a car licence in wa",
+    "can i ride a 125cc scooter on a car licence in qld",
+    "can you drive a moped on a car licence in nz"
+   ]
+  }
+ }
+}

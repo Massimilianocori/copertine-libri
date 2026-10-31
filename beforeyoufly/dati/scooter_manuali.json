@@ -1,0 +1,660 @@
+{
+ "_nota": "Regole scritte a mano il 31/10/2026 dalle fonti ufficiali (raccolta/scooter.py le rilegge e controlla le citazioni). Casi: 50 (motorino), 125 (scooter o moto leggera fino a 125 cc), oltre (oltre 125 cc). Esiti: si, no, condizioni, non_detto. Patenti di provenienza: uk, ue (altro Paese UE), extra (fuori dall'Europa: USA, Canada, Australia...). 'query' = una ricerca vera di scooter_domanda.json. Citazioni non inglesi con 'tr' (traduzione nostra).",
+ "paesi": [
+  {
+   "iso2": "FR",
+   "slug": "france",
+   "nome": "France",
+   "query": "can i ride a 125cc in france",
+   "titolo": "Can I Ride a 125cc Scooter in France on a Car Licence? (2026)",
+   "h1": "Renting a scooter in France: can you ride a moped or a 125 cc on a car licence?",
+   "chi": "Service-Public.fr, the French government's official information site",
+   "risposta": "a car licence (permis B) covers a moped, and a 125 cc light motorcycle or scooter only if you have held it for at least 2 years and taken a 7-hour practical training course; holders of a European licence must take the course too, and the page does not mention licences from outside the EU.",
+   "casi": {
+    "50": {
+     "esito": "si",
+     "breve": "Yes: no moped certificate (BSR) needed if you hold a car licence",
+     "cit": [
+      "fr_bsr"
+     ],
+     "nota": ""
+    },
+    "125": {
+     "esito": "condizioni",
+     "breve": "Only after 2 years with the licence and a 7-hour course",
+     "cit": [
+      "fr_125",
+      "fr_125_cond"
+     ],
+     "nota": ""
+    },
+    "oltre": {
+     "esito": "no",
+     "breve": "No: above the light motorcycle limit you need a motorcycle licence",
+     "cit": [
+      "fr_a1"
+     ],
+     "nota": "The official A1 page sets the light motorcycle limit at 125 cm³ and 11 kW; a car licence covers nothing bigger."
+    }
+   },
+   "patenti": {
+    "uk": {
+     "esito": "non_detto",
+     "breve": "Not stated",
+     "cit": [],
+     "nota": "The official text we read does not mention licences issued in other countries."
+    },
+    "ue": {
+     "esito": "condizioni",
+     "breve": "The 7-hour course is compulsory",
+     "cit": [
+      "fr_europeo"
+     ],
+     "nota": ""
+    },
+    "extra": {
+     "esito": "non_detto",
+     "breve": "Not stated",
+     "cit": [],
+     "nota": "The official text we read does not mention licences issued in other countries."
+    }
+   },
+   "altro": [],
+   "citazioni": [
+    {
+     "id": "fr_125",
+     "f": "fr_f45",
+     "x": "Le permis B permet de conduite une moto légère 125 ou un scooter 3 roues de la catégorie L5e sous conditions.",
+     "tr": "A car licence (permis B) lets you ride a 125 light motorcycle or a category L5e three-wheeled scooter, under conditions."
+    },
+    {
+     "id": "fr_125_cond",
+     "f": "fr_f45",
+     "x": "Vous pouvez conduire une motocyclette légère avec un permis B si vous remplissez les 2 conditions suivantes: Vous avez le permis B depuis au moins 2 ans Vous avez suivi une formation pratique de 7 heures",
+     "tr": "You can ride a light motorcycle with a B licence if you meet the following 2 conditions: you have held the B licence for at least 2 years; you have taken a 7-hour practical training course."
+    },
+    {
+     "id": "fr_europeo",
+     "f": "fr_f45",
+     "x": "Si vous avez un permis B européen, vous devez obligatoirement suivre la formation.",
+     "tr": "If you have a European B licence, you must take the training course."
+    },
+    {
+     "id": "fr_bsr",
+     "f": "fr_f2890",
+     "x": "Par ailleurs, vous n'avez pas besoin du BSR (catégorie AM) si vous avez déjà une autre catégorie de permis (par exemple le permis B) ou un titre européen équivalent.",
+     "tr": "Also, you do not need the BSR (category AM) if you already hold another licence category (for example the B licence) or an equivalent European licence."
+    },
+    {
+     "id": "fr_a1",
+     "f": "fr_f2832",
+     "x": "Le permis A1 permet de conduire les véhicules suivants: Moto légère (avec ou sans side-car) d'une cylindrée maximale de 125 cm³, d'une puissance n'excédant pas 11 kW et dont le rapport puissance/poids ne dépasse pas 0,1 kW/kg",
+     "tr": "The A1 licence lets you ride the following vehicles: light motorcycle (with or without sidecar) with an engine of up to 125 cm³, a power of no more than 11 kW and a power-to-weight ratio of no more than 0.1 kW/kg"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Can I ride a 125cc in France with a car licence?",
+     "query": "can i ride a 125cc in france",
+     "pre": "Only under two conditions. The official page says:",
+     "cit": [
+      "fr_125_cond"
+     ],
+     "post": "The course is taken at a driving school in France. The page does not say anything about licences from outside the EU, so check with the rental company and the official page."
+    },
+    {
+     "q": "Can you rent a moped in France with a car licence?",
+     "query": "rent a moped in france",
+     "pre": "Yes, a car licence covers a moped. The official page says:",
+     "cit": [
+      "fr_bsr"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you rent a scooter in Nice with a car licence?",
+     "query": "can you rent a scooter in nice france",
+     "pre": "Nice follows the French rules: a car licence covers a moped, and a 125 cc only after 2 years with the licence and a 7-hour course:",
+     "cit": [
+      "fr_125_cond"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can I rent a scooter in France with a car licence?",
+     "query": "can i rent a scooter in france",
+     "pre": "A moped, yes. A 125 cc only after 2 years with the licence and a 7-hour course, which holders of a European licence must take too:",
+     "cit": [
+      "fr_125_cond",
+      "fr_europeo"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "iso2": "ES",
+   "slug": "spain",
+   "nome": "Spain",
+   "query": "can you drive 125cc with car licence in spain",
+   "titolo": "Can I Ride a 125cc Scooter in Spain on a Car Licence? (2026)",
+   "h1": "Renting a scooter in Spain: can you ride a moped or a 125 cc on a car licence?",
+   "chi": "Spain's General Drivers Regulation (Reglamento General de Conductores, published in the BOE)",
+   "risposta": "a car licence (permiso B) covers mopeds, and lets you ride motorcycles of the A1 class (up to 125 cm3) in Spain only once you have held it for more than three years; the regulation does not say whether this also applies to a licence issued in another country.",
+   "casi": {
+    "50": {
+     "esito": "si",
+     "breve": "Yes: a car licence covers mopeds (ciclomotores)",
+     "cit": [
+      "es_b"
+     ],
+     "nota": ""
+    },
+    "125": {
+     "esito": "condizioni",
+     "breve": "Only in Spain, with a car licence held for more than three years",
+     "cit": [
+      "es_tres",
+      "es_a1"
+     ],
+     "nota": ""
+    },
+    "oltre": {
+     "esito": "no",
+     "breve": "No: a car licence does not cover bigger motorcycles",
+     "cit": [
+      "es_no_moto"
+     ],
+     "nota": ""
+    }
+   },
+   "patenti": {
+    "uk": {
+     "esito": "non_detto",
+     "breve": "Not stated",
+     "cit": [],
+     "nota": "The official text we read does not mention licences issued in other countries."
+    },
+    "ue": {
+     "esito": "non_detto",
+     "breve": "Not stated",
+     "cit": [],
+     "nota": "The official text we read does not mention licences issued in other countries."
+    },
+    "extra": {
+     "esito": "non_detto",
+     "breve": "Not stated",
+     "cit": [],
+     "nota": "The official text we read does not mention licences issued in other countries."
+    }
+   },
+   "altro": [
+    {
+     "titolo": "Minimum age",
+     "cit": [
+      "es_eta"
+     ]
+    }
+   ],
+   "citazioni": [
+    {
+     "id": "es_b",
+     "f": "es_rgc",
+     "x": "B 1. Automóviles cuya masa máxima autorizada no exceda de 3.500 kg que estén diseñados y construidos para el transporte de no más de ocho pasajeros además del conductor. Dichos automóviles podrán llevar enganchado un remolque cuya masa máxima autorizada no exceda de 750 kg. 2. Conjuntos de vehículos acoplados compuestos por un vehículo tractor de los que autoriza a conducir el permiso de la clase B y un remolque cuya masa máxima autorizada exceda de 750 kg, siempre que la masa máxima autorizada del conjunto no exceda de 4.250 kg, sin perjuicio de las disposiciones que las normas de aprobación de tipo establezcan para estos vehículos. 3. Triciclos y cuatriciclos de motor. 4. Ciclomotores.",
+     "tr": "B: 1. Cars with a maximum authorised mass of no more than 3,500 kg designed and built to carry no more than eight passengers besides the driver; they may tow a trailer of no more than 750 kg. 2. Combinations of a vehicle that the B licence covers and a trailer of more than 750 kg, as long as the combination does not exceed 4,250 kg, subject to the type-approval rules for these vehicles. 3. Motor tricycles and quadricycles. 4. Mopeds."
+    },
+    {
+     "id": "es_tres",
+     "f": "es_rgc",
+     "x": "Se podrán conducir dentro del territorio nacional con el permiso de la clase B, con una antigüedad superior a tres años, las motocicletas cuya conducción autoriza el permiso de la clase A1.",
+     "tr": "Within Spain, with a class B licence held for more than three years, you may ride the motorcycles that the class A1 licence covers."
+    },
+    {
+     "id": "es_a1",
+     "f": "es_rgc",
+     "x": "A1 1. Motocicletas con una cilindrada máxima de 125 cm3, una potencia máxima de 11 kW y una relación potencia/peso máxima de 0,1 kW/kg y triciclos de motor cuya potencia máxima no exceda de 15 kW.",
+     "tr": "A1: 1. Motorcycles with an engine of up to 125 cm3, a power of up to 11 kW and a power-to-weight ratio of up to 0.1 kW/kg, and motor tricycles of up to 15 kW."
+    },
+    {
+     "id": "es_no_moto",
+     "f": "es_rgc",
+     "x": "7. El permiso de las clases B, B+E, C1, C1+E, C, C+E, D1, D1+E, D y D+E no autoriza a conducir motocicletas con o sin sidecar.",
+     "tr": "7. Licences of classes B, B+E, C1, C1+E, C, C+E, D1, D1+E, D and D+E do not cover motorcycles, with or without a sidecar."
+    },
+    {
+     "id": "es_eta",
+     "f": "es_fcdo",
+     "x": "To drive a car or a motorcycle over 125cc in Spain you must be 18 years of age or above, and at least 16 years old to ride a motorcycle up to 125cc."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Can you drive a 125cc with a car licence in Spain?",
+     "query": "can you drive 125cc with car licence in spain",
+     "pre": "Only if you have held your car licence for more than three years, and only in Spain. The regulation says:",
+     "cit": [
+      "es_tres"
+     ],
+     "post": "It does not say whether a licence issued in another country counts: check with the rental company and the official text before you ride."
+    },
+    {
+     "q": "Do you need a licence for a scooter in Spain?",
+     "query": "do you need a license for a scooter in spain",
+     "pre": "Yes. A car licence covers mopeds (ciclomotores); for a 125 cc see the three-year rule above. The regulation lists, for a B licence:",
+     "cit": [
+      "es_b"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can I rent a moped in Mallorca with a car licence?",
+     "query": "rent a moped in mallorca",
+     "pre": "Mallorca follows the Spanish rules: a car licence covers mopeds, and A1 motorcycles (up to 125 cm3) only after more than three years:",
+     "cit": [
+      "es_tres"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can I rent a moped in Barcelona with a car licence?",
+     "query": "rent a moped in barcelona",
+     "pre": "Yes for a moped: Barcelona follows the Spanish rules, and a car licence covers mopeds. On age, the UK government's travel advice says:",
+     "cit": [
+      "es_eta"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "iso2": "DE",
+   "slug": "germany",
+   "nome": "Germany",
+   "query": "can you drive 125cc with car licence in germany",
+   "titolo": "Can I Ride a 125cc in Germany on a Car Licence? B196 Rule (2026)",
+   "h1": "Renting a scooter in Germany: can you ride a moped or a 125 cc on a car licence?",
+   "chi": "Germany's Driving Licence Regulation (Fahrerlaubnis-Verordnung, published by the Federal Ministry of Justice)",
+   "risposta": "a class B car licence covers mopeds (class AM), but a 125 cc motorcycle only with the code 196, which is added to a class B licence after a training course, at least five years after getting the licence, and is valid only in Germany; the regulation does not mention licences from other countries.",
+   "casi": {
+    "50": {
+     "esito": "si",
+     "breve": "Yes: a car licence covers class AM (mopeds)",
+     "cit": [
+      "de_b_am"
+     ],
+     "nota": ""
+    },
+    "125": {
+     "esito": "condizioni",
+     "breve": "Only with the code 196 on the licence (training, valid only in Germany)",
+     "cit": [
+      "de_196",
+      "de_inland",
+      "de_schulung"
+     ],
+     "nota": ""
+    },
+    "oltre": {
+     "esito": "no",
+     "breve": "No: the code 196 stops at the A1 limit",
+     "cit": [
+      "de_196"
+     ],
+     "nota": ""
+    }
+   },
+   "patenti": {
+    "uk": {
+     "esito": "non_detto",
+     "breve": "Not stated",
+     "cit": [],
+     "nota": "The official text we read does not mention licences issued in other countries."
+    },
+    "ue": {
+     "esito": "non_detto",
+     "breve": "Not stated",
+     "cit": [],
+     "nota": "The official text we read does not mention licences issued in other countries."
+    },
+    "extra": {
+     "esito": "non_detto",
+     "breve": "Not stated",
+     "cit": [],
+     "nota": "The official text we read does not mention licences issued in other countries."
+    }
+   },
+   "altro": [
+    {
+     "titolo": "Minimum age for the code 196",
+     "cit": [
+      "de_alter"
+     ]
+    }
+   ],
+   "citazioni": [
+    {
+     "id": "de_b_am",
+     "f": "de_fev6",
+     "x": "(3) Außerdem berechtigt 1. die Fahrerlaubnis der Klasse A zum Führen von Fahrzeugen der Klassen AM, A1 und A2, 2. die Fahrerlaubnis der Klasse A2 zum Führen von Fahrzeugen der Klassen A1 und AM, 3. die Fahrerlaubnis der Klasse A1 zum Führen von Fahrzeugen der Klasse AM 4. die Fahrerlaubnis der Klasse B zum Führen von Fahrzeugen der Klassen AM und L,",
+     "tr": "(3) In addition: 1. a class A licence entitles you to drive vehicles of classes AM, A1 and A2; 2. a class A2 licence, vehicles of classes A1 and AM; 3. a class A1 licence, vehicles of class AM; 4. a class B licence, vehicles of classes AM and L,"
+    },
+    {
+     "id": "de_196",
+     "f": "de_fev6b",
+     "x": "(1) Die Fahrerlaubnis der Klasse B kann mit der Schlüsselzahl 196 erteilt werden für Krafträder(auch mit Beiwagen) mit einem Hubraum von bis zu 125 cm3, einer Motorleistung von nicht mehr als 11 kW, bei denen das Verhältnis der Leistung zum Gewicht 0,1 kW/kg nicht übersteigt. Die Schlüsselzahl 196 darf nur zugeteilt werden, wenn der Teilnehmer bereits seit mindestens fünf Jahren die Fahrerlaubnis der Klasse B besitzt.",
+     "tr": "(1) The class B licence can be issued with the code 196 for motorcycles (also with sidecar) with an engine of up to 125 cm3, a power of no more than 11 kW and a power-to-weight ratio of no more than 0.1 kW/kg. The code 196 may only be given if the person has held the class B licence for at least five years."
+    },
+    {
+     "id": "de_inland",
+     "f": "de_fev6b",
+     "x": "Die Berechtigung nach Satz 1 gilt nur im Inland.",
+     "tr": "The entitlement under sentence 1 is valid only in Germany."
+    },
+    {
+     "id": "de_alter",
+     "f": "de_fev6b",
+     "x": "(2) Das Mindestalter für die Erteilung der Fahrerlaubnis der Klasse B mit der Schlüsselzahl 196 beträgt 25 Jahre.",
+     "tr": "(2) The minimum age for a class B licence with the code 196 is 25."
+    },
+    {
+     "id": "de_schulung",
+     "f": "de_fev6b",
+     "x": "(3) Für die Eintragung der Schlüsselzahl 196 in die Fahrerlaubnis der Klasse B bedarf es einer Fahrerschulung.",
+     "tr": "(3) A training course is needed for the code 196 to be entered in the class B licence."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Can you drive a 125cc with a car licence in Germany?",
+     "query": "can you drive 125cc with car licence in germany",
+     "pre": "Only with the code 196 on your licence. The regulation says:",
+     "cit": [
+      "de_196",
+      "de_inland"
+     ],
+     "post": "The code is entered in a class B licence after a training course, so check with the rental company and the official text before you rent."
+    },
+    {
+     "q": "What is B196 in Germany?",
+     "query": "b196 germany",
+     "pre": "It is the code 196 added to a class B car licence, for motorcycles up to 125 cm3 in Germany:",
+     "cit": [
+      "de_196",
+      "de_alter",
+      "de_schulung"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need a licence for a scooter in Germany?",
+     "query": "do you need a license for a scooter in germany",
+     "pre": "Yes. A car licence covers mopeds (class AM):",
+     "cit": [
+      "de_b_am"
+     ],
+     "post": "Electric kick scooters have their own rules, not covered here."
+    }
+   ]
+  },
+  {
+   "iso2": "GR",
+   "slug": "greece",
+   "nome": "Greece",
+   "query": "can you drive 125cc with car licence in greece",
+   "titolo": "Can I Rent a Scooter in Greece on a Car Licence? (2026)",
+   "h1": "Renting a scooter or moped in Greece: is a car licence enough?",
+   "chi": "the UK government's travel advice for Greece (FCDO)",
+   "ambito": "UK government advice for UK licences",
+   "ambito_breve": "UK licences only",
+   "risposta": "if you hire a moped you need a driving licence with at least category A1 (light motorcycle), so a car licence alone is not enough, and the UK moped category P is not valid in Greece; the advice is written for travellers with a UK licence and does not cover other licences.",
+   "casi": {
+    "50": {
+     "esito": "no",
+     "breve": "No: you need at least category A1, even for a moped",
+     "cit": [
+      "gr_a1",
+      "gr_p"
+     ],
+     "nota": ""
+    },
+    "125": {
+     "esito": "no",
+     "breve": "No: you need at least category A1",
+     "cit": [
+      "gr_a1"
+     ],
+     "nota": ""
+    },
+    "oltre": {
+     "esito": "no",
+     "breve": "No: choose a vehicle that matches the motorcycle category on your licence",
+     "cit": [
+      "gr_a1"
+     ],
+     "nota": ""
+    }
+   },
+   "patenti": {
+    "uk": {
+     "esito": "no",
+     "breve": "Car licence not enough: category A1 needed",
+     "cit": [
+      "gr_a1",
+      "gr_p"
+     ],
+     "nota": ""
+    },
+    "ue": {
+     "esito": "non_detto",
+     "breve": "Not stated",
+     "cit": [],
+     "nota": "The advice is written for UK licences."
+    },
+    "extra": {
+     "esito": "non_detto",
+     "breve": "Not stated",
+     "cit": [],
+     "nota": "The advice is written for UK licences."
+    }
+   },
+   "altro": [
+    {
+     "titolo": "Helmets and provisional licences",
+     "cit": [
+      "gr_casco",
+      "gr_provv"
+     ]
+    }
+   ],
+   "citazioni": [
+    {
+     "id": "gr_corretta",
+     "f": "gr_fcdo",
+     "x": "Check that you hold the correct driving license for the vehicle you are hiring."
+    },
+    {
+     "id": "gr_provv",
+     "f": "gr_fcdo",
+     "x": "Provisional licenses are not valid in Greece for driving or hiring any type of vehicle."
+    },
+    {
+     "id": "gr_a1",
+     "f": "gr_fcdo",
+     "x": "If you hire a moped, you need a valid driving licence with at least category A1 – ‘light motorcycle’. Choose a category in accordance with your driving licence and age."
+    },
+    {
+     "id": "gr_p",
+     "f": "gr_fcdo",
+     "x": "Category P, which is valid in the UK for driving mopeds up to 50cc, is not valid in Greece."
+    },
+    {
+     "id": "gr_casco",
+     "f": "gr_fcdo",
+     "x": "Drivers and passengers must wear helmets before operating quad bikes and mopeds."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Can you drive a 125cc with a car licence in Greece?",
+     "query": "can you drive 125cc with car licence in greece",
+     "pre": "Not according to the UK government's travel advice, which says even a moped needs at least category A1:",
+     "cit": [
+      "gr_a1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you rent a scooter in Greece with a US license?",
+     "query": "can you rent a scooter in greece with us license",
+     "pre": "The official advice we read is the UK government's, written for UK licences. It says:",
+     "cit": [
+      "gr_corretta",
+      "gr_a1"
+     ],
+     "post": "It does not say anything about US licences: check with the rental company and the official page before you ride."
+    },
+    {
+     "q": "Can you rent a moped in Greece with a provisional licence?",
+     "query": "can you rent a moped in greece with a provisional licence",
+     "pre": "No:",
+     "cit": [
+      "gr_provv"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need a license to drive a scooter in Greece?",
+     "query": "do you need a license to drive a scooter in greece",
+     "pre": "Yes, with the right category:",
+     "cit": [
+      "gr_a1",
+      "gr_p"
+     ],
+     "post": ""
+    }
+   ]
+  }
+ ],
+ "generali": [
+  {
+   "id": "assicurazione",
+   "f": "th_fcdo",
+   "x": "Many travel insurance policies expect you to hold the correct UK licence for the type of car, motorbike or scooter you intend to drive abroad. This means that if you wouldn’t be legally permitted to drive it in the UK, your insurer may not cover you for driving it in Thailand."
+  }
+ ],
+ "non_letti": [
+  {
+   "nome": "Italy",
+   "iso2": "IT",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art116",
+   "cerca": "(?:patente|categoria) B\\b[^.;]{0,200}(?:A1|125)|(?:A1|125)[^.;]{0,200}(?:patente|categoria) B\\b",
+   "tipo": "regola_assente",
+   "query": "can i drive 125cc with car licence in italy",
+   "motivo": "Article 116 of the Italian Highway Code (Normattiva), read on 31 October 2026, lists the licence categories but its text does not say whether a car licence covers 125 cc motorcycles, so we do not answer for Italy yet."
+  },
+  {
+   "nome": "Austria",
+   "iso2": "AT",
+   "url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10012723",
+   "cerca": "Code 111|Zahlencode 111|125 cm",
+   "tipo": "non_risponde",
+   "motivo": "The official legal database (RIS) did not answer our server normally on 31 October 2026."
+  },
+  {
+   "nome": "United States (Hawaii)",
+   "iso2": "US",
+   "url": "https://hidot.hawaii.gov/highways/library/motor-vehicle-safety-office/moped/",
+   "cerca": "moped[^.]{0,160}licen[cs]e",
+   "tipo": "non_risponde",
+   "query": "rent a moped in hawaii",
+   "motivo": "The Hawaii Department of Transportation page we tried did not answer normally on 31 October 2026."
+  },
+  {
+   "nome": "Portugal",
+   "iso2": "PT",
+   "fcdo": "portugal",
+   "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
+   "tipo": "regola_assente",
+   "motivo": "The UK government's travel advice for Portugal, read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
+   "query": "can you drive 125cc with car licence in portugal"
+  },
+  {
+   "nome": "Malta",
+   "iso2": "MT",
+   "fcdo": "malta",
+   "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
+   "tipo": "regola_assente",
+   "motivo": "The UK government's travel advice for Malta, read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
+   "query": "can you drive 125cc with car licence in malta"
+  },
+  {
+   "nome": "Croatia",
+   "iso2": "HR",
+   "fcdo": "croatia",
+   "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
+   "tipo": "regola_assente",
+   "motivo": "The UK government's travel advice for Croatia, read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities."
+  },
+  {
+   "nome": "Cyprus",
+   "iso2": "CY",
+   "fcdo": "cyprus",
+   "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
+   "tipo": "regola_assente",
+   "motivo": "The UK government's travel advice for Cyprus, read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities."
+  },
+  {
+   "nome": "Thailand",
+   "iso2": "TH",
+   "fcdo": "thailand",
+   "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
+   "tipo": "regola_assente",
+   "motivo": "The UK government's travel advice for Thailand, read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
+   "query": "can i rent a scooter in thailand"
+  },
+  {
+   "nome": "Indonesia (Bali)",
+   "iso2": "ID",
+   "fcdo": "indonesia",
+   "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
+   "tipo": "regola_assente",
+   "motivo": "The UK government's travel advice for Indonesia (Bali), read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
+   "query": "can i rent a scooter in bali"
+  },
+  {
+   "nome": "Vietnam",
+   "iso2": "VN",
+   "fcdo": "vietnam",
+   "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
+   "tipo": "regola_assente",
+   "motivo": "The UK government's travel advice for Vietnam, read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
+   "query": "can i rent a scooter in vietnam"
+  },
+  {
+   "nome": "Japan",
+   "iso2": "JP",
+   "fcdo": "japan",
+   "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
+   "tipo": "regola_assente",
+   "motivo": "The UK government's travel advice for Japan, read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
+   "query": "can i rent a scooter in japan"
+  },
+  {
+   "nome": "Taiwan",
+   "iso2": "TW",
+   "fcdo": "taiwan",
+   "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
+   "tipo": "regola_assente",
+   "motivo": "The UK government's travel advice for Taiwan, read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
+   "query": "can i rent a scooter in taiwan"
+  },
+  {
+   "nome": "Bermuda",
+   "iso2": "BM",
+   "fcdo": "bermuda",
+   "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
+   "tipo": "regola_assente",
+   "motivo": "The UK government's travel advice for Bermuda, read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities."
+  }
+ ]
+}
