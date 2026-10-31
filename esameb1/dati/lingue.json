@@ -1,0 +1,268 @@
+{
+  "_nota": "Fonti e frasi usate SOLO dalle sezioni in ucraino (/uk/) e rumeno (/ro/) per i fatti che le pagine italiane non scrivono (protezione temporanea, cittadini UE, anni di residenza). Ogni cifra e data di quelle pagine si legge da queste frasi (genera_lingue.py) e i controlli la cercano qui o nelle pagine italiane. Controllo dal vivo: python3 esameb1/raccolta/lingue.py (--salva aggiorna verificato_il). Testi letti il 31/10/2026.",
+  "verificato_il": "2026-10-31",
+  "fonti": {
+    "dlci_residenza": {
+      "nome": "Dipartimento per le libertà civili e l'immigrazione, «Concessione della cittadinanza italiana per residenza (art. 9)»",
+      "url": "https://libertaciviliimmigrazione.dlci.interno.gov.it/temi/concessione-della-cittadinanza-italiana-residenza-sul-territorio-italiano-ai-sensi-dellart-9",
+      "verificato_il": "2026-10-31"
+    },
+    "questura_roma": {
+      "nome": "Questura di Roma (Polizia di Stato), «Rinnovo permessi di soggiorno per protezione temporanea rilasciati a cittadini ucraini»",
+      "url": "https://questure.poliziadistato.it/it/Roma/articolo/199867b85c08de1f5642927550",
+      "aggiornata_il": "2026-03-11",
+      "verificato_il": "2026-10-31"
+    },
+    "questura_udine": {
+      "nome": "Questura di Udine (Polizia di Stato), «Rinnovo dei permessi di soggiorno per protezione temporanea “Ucraina”»",
+      "url": "https://questure.poliziadistato.it/it/Udine/articolo/33996996c5977e133806420427",
+      "aggiornata_il": "2026-02-19",
+      "verificato_il": "2026-10-31"
+    },
+    "questura_arezzo": {
+      "nome": "Questura di Arezzo (Polizia di Stato), «Emergenza Ucraina: rinnovo dei permessi di soggiorno rilasciati per protezione temporanea e possibilità di conversione a lavoro»",
+      "url": "https://questure.poliziadistato.it/it/Arezzo/articolo/110465a116da79b93870503175",
+      "aggiornata_il": "2026-08-27",
+      "verificato_il": "2026-10-31"
+    },
+    "questura_milano": {
+      "nome": "Questura di Milano (Polizia di Stato), «Emergenza Ucraina»",
+      "url": "https://questure.poliziadistato.it/it/Milano/articolo/11886228d88f0374e564999795",
+      "aggiornata_il": "2025-08-11",
+      "verificato_il": "2026-10-31"
+    },
+    "prefettura_spezia": {
+      "nome": "Prefettura della Spezia (Ministero dell'Interno), «Cittadini ucraini – Benvenuti in Italia»",
+      "url": "https://prefettura.interno.gov.it/it/prefetture/spezia/cittadini-ucraini-benvenuti-italia",
+      "verificato_il": "2026-10-31"
+    },
+    "polizia_verifica": {
+      "nome": "Polizia di Stato, «Permesso di soggiorno»: controllo online dello stato della pratica",
+      "url": "https://questure.poliziadistato.it/servizio/stranieri/",
+      "verificato_il": "2026-10-31"
+    },
+    "polizia_ue": {
+      "nome": "Polizia di Stato, «Cittadini della Unione Europea»",
+      "url": "https://www.poliziadistato.it/articolo/10387",
+      "aggiornata_il": "2014-06-24",
+      "verificato_il": "2026-10-31"
+    },
+    "normattiva_dl201": {
+      "nome": "Normattiva, decreto-legge 31 dicembre 2025, n. 201, testo coordinato con la legge di conversione 27 febbraio 2026, n. 27 (art. 1, comma 2: permessi dei cittadini ucraini)",
+      "url": "https://www.normattiva.it/eli/id/2026/02/28/26A00993/ORIGINAL",
+      "verificato_il": "2026-10-31"
+    },
+    "im_2028": {
+      "nome": "Portale Integrazione Migranti (Ministero del Lavoro e delle Politiche Sociali), «Protezione temporanea fino al 2028, ma non per chi si sottrae alla leva»",
+      "url": "https://www.integrazionemigranti.gov.it/it-it/Ricerca-news/Dettaglio-news/id/4846/t/35/Protezione-temporanea-fino-al-2028-ma-non-per-chi-si-sottrae-alla-leva",
+      "aggiornata_il": "2026-07-23",
+      "verificato_il": "2026-10-31"
+    }
+  },
+  "citazioni": [
+    {
+      "fonte": "dlci_residenza",
+      "testo": "d) al cittadino di uno Stato membro delle Comunità europee se risiede legalmente da almeno quattro anni nel territorio della Repubblica"
+    },
+    {
+      "fonte": "dlci_residenza",
+      "testo": "f) allo straniero che risiede legalmente da almeno dieci anni nel territorio della Repubblica"
+    },
+    {
+      "fonte": "questura_roma",
+      "testo": "Il D.L. n. 201/25 ha stabilito che i permessi di soggiorno per protezione temporanea rilasciati ai cittadini ucraini possono essere rinnovati, a richiesta dell’interessato, con scadenza sino al 4 marzo 2027"
+    },
+    {
+      "fonte": "questura_roma",
+      "testo": "modificato il 11/03/2026"
+    },
+    {
+      "fonte": "questura_roma",
+      "testo": "Resta salva la possibilità di convertire i permessi per protezione temporanea in permessi di soggiorno per lavoro recandosi in posta ed utilizzando l'apposito kit"
+    },
+    {
+      "fonte": "questura_udine",
+      "testo": "Il D.L. n. 201/25 ha stabilito che i permessi di soggiorno per protezione temporanea rilasciati ai cittadini ucraini possono essere rinnovati, a richiesta dell’interessato, con scadenza sino al 4 marzo 2027"
+    },
+    {
+      "fonte": "questura_udine",
+      "testo": "19/02/2026"
+    },
+    {
+      "fonte": "questura_udine",
+      "testo": "Marca da bollo da 16 €; Versamento tramite bollettino postale di 30,46 €"
+    },
+    {
+      "fonte": "questura_udine",
+      "testo": "Resta salva la possibilità di richiedere la conversione, sussistendone i requisiti previsti dalla legge, dei permessi di soggiorno per protezione temporanea in permessi di soggiorno per lavoro"
+    },
+    {
+      "fonte": "questura_arezzo",
+      "testo": "possono essere ulteriormente rinnovati, su richiesta degli interessati , fino al 4 marzo 2028"
+    },
+    {
+      "fonte": "questura_arezzo",
+      "testo": "modificato il 27/08/2026"
+    },
+    {
+      "fonte": "questura_arezzo",
+      "testo": "E' possibile presentare domanda di rinnovo prenotando un appuntamento tramite la piattaforma PrenotaFacile"
+    },
+    {
+      "fonte": "questura_arezzo",
+      "testo": "Oltre alla marca da bollo da € 16 (non necessaria per i minori di età inferiore ai 14 anni) , per l'emissione del titolo di soggiorno elettronico è richiesto il pagamento di € 30,46"
+    },
+    {
+      "fonte": "questura_arezzo",
+      "testo": "la domanda per il primo rilascio è gratuita"
+    },
+    {
+      "fonte": "questura_arezzo",
+      "testo": "All'art 1, comma 396, della legge di bilancio nr. 213 del 30 dicembre 2023"
+    },
+    {
+      "fonte": "questura_arezzo",
+      "testo": "è stata prevista la possibilità di convertire, a richiesta dell'interessato, il permesso di soggiorno per protezione temporanea Emergenza Ucraina in un permesso di soggiorno per lavoro, per l'attività effettivamente svolta"
+    },
+    {
+      "fonte": "questura_arezzo",
+      "testo": "La domanda di conversione deve essere presentata tramite apposito kit da compilarsi presso gli uffici di Poste Italiane abilitati al servizio “Sportello Amico”"
+    },
+    {
+      "fonte": "questura_arezzo",
+      "testo": "modulo di domanda con marca da bollo da € 16, copia del passaporto o del certificato di identità, copia del permesso di soggiorno elettronico per protezione temporanea Emergenza Ucraina, copia della documentazione relativa all'alloggio, versamento di € 70,46 con l'apposito bollettino - anche la documentazione relativa all'attività lavorativa in corso di svolgimento"
+    },
+    {
+      "fonte": "questura_milano",
+      "testo": "perdono efficacia e sono revocati, anche prima della scadenza, in conseguenza dell’adozione, da parte del Consiglio dell’Unione europea, della decisione della cessazione della protezione temporanea"
+    },
+    {
+      "fonte": "questura_milano",
+      "testo": "modificato il 11/08/2025"
+    },
+    {
+      "fonte": "prefettura_spezia",
+      "testo": "per i titolari di permessi di soggiorno per protezione temporanea rilasciati dopo il 1° febbraio 2025"
+    },
+    {
+      "fonte": "prefettura_spezia",
+      "testo": "Puoi richiedere il contributo di sostentamento entro il 20 febbraio 2025"
+    },
+    {
+      "fonte": "prefettura_spezia",
+      "testo": "L’art. 20, comma 2, del Decreto Legge 27 dicembre 2024, n. 202 prevede la cessazione del riconoscimento del contributo"
+    },
+    {
+      "fonte": "polizia_verifica",
+      "testo": "Inserisci il numero di pratica (10 caratteri) o il tuo numero di assicurata (12 caratteri) della richiesta del tuo permesso di soggiorno"
+    },
+    {
+      "fonte": "polizia_verifica",
+      "testo": "sarà inviato al cittadino straniero un sms con l’indicazione delle modalità per il ritiro del permesso di soggiorno già pronto: giorno, ora e luogo"
+    },
+    {
+      "fonte": "polizia_ue",
+      "testo": "per un periodo non superiore a tre mesi senza alcuna condizione o formalità, salvo il possesso di un documento d'identità valido per l'espatrio"
+    },
+    {
+      "fonte": "polizia_ue",
+      "testo": "qualora intenda soggiornare per più di tre mesi, ha il solo obbligo di iscriversi all'anagrafe"
+    },
+    {
+      "fonte": "polizia_ue",
+      "testo": "è lavoratore subordinato o autonomo nello Stato"
+    },
+    {
+      "fonte": "polizia_ue",
+      "testo": "la disponibilità di risorse economiche sufficienti al soggiorno, calcolate in base all'importo annuo dell'assegno sociale in relazione al numero dei familiari a carico"
+    },
+    {
+      "fonte": "polizia_ue",
+      "testo": "la titolarità di una polizza di assicurazione sanitaria che copra le spese sanitarie"
+    },
+    {
+      "fonte": "polizia_ue",
+      "testo": "Il cittadino dell'Unione che ha soggiornato legalmente ed in via continuativa per cinque anni nel territorio nazionale acquisisce il diritto di soggiorno permanente"
+    },
+    {
+      "fonte": "polizia_ue",
+      "testo": "A richiesta dell'interessato, il comune di residenza gli rilascia un attestato che certifica tale condizione"
+    },
+    {
+      "fonte": "polizia_ue",
+      "testo": "si perde in ogni caso a seguito di assenze dal territorio nazionale di durata superiore a due anni consecutivi"
+    },
+    {
+      "fonte": "polizia_ue",
+      "testo": "devono richiedere la carta di soggiorno di familiare di un cittadino dell'Unione"
+    },
+    {
+      "fonte": "polizia_ue",
+      "testo": "La carta di soggiorno ha una validità di cinque anni dalla data del rilascio"
+    },
+    {
+      "fonte": "polizia_ue",
+      "testo": "24/06/2014"
+    },
+    {
+      "fonte": "questura_udine",
+      "testo": "Documentazione aggiornata attestante la residenza (Certificato residenza o Cessione Fabbricato o Dichiarazione ospitalità"
+    },
+    {
+      "fonte": "questura_roma",
+      "testo": "gli interessati dovranno presentarsi personalmente presso l’Ufficio Immigrazione"
+    },
+    {
+      "fonte": "questura_arezzo",
+      "testo": "ogni richiedente deve avere il proprio versamento nominativo, incluso i minori indipendentemente dall'età"
+    },
+    {
+      "fonte": "polizia_ue",
+      "testo": "anche tramite un'autocertificazione"
+    },
+    {
+      "fonte": "polizia_ue",
+      "testo": "Il Comune rilascia all'interessato un'attestazione comprovante il deposito della richiesta di iscrizione anagrafica"
+    },
+    {
+      "fonte": "polizia_ue",
+      "testo": "è iscritto presso un istituto pubblico o privato riconosciuto per seguire un corso di studi o di formazione professionale"
+    },
+    {
+      "fonte": "polizia_ue",
+      "testo": "presentando domanda presso la Questura o inoltrandola tramite le Poste"
+    },
+    {
+      "fonte": "polizia_verifica",
+      "testo": "Inserisci il numero di pratica"
+    },
+    {
+      "fonte": "questura_milano",
+      "testo": "con Decisione di esecuzione (UE) 2025/1460 del Consiglio dell’Unione Europea del 15 luglio 2025 la protezione temporanea concessa alle persone sfollate dell’Ucraina, attualmente in scadenza il 4 marzo 2026, è stata prorogata di un ulteriore anno fino al 4 marzo 2027"
+    },
+    {
+      "fonte": "normattiva_dl201",
+      "testo": "coordinato con la legge di conversione 27 febbraio 2026, n. 27"
+    },
+    {
+      "fonte": "normattiva_dl201",
+      "testo": "I permessi di soggiorno per protezione speciale rinnovati ai sensi"
+    },
+    {
+      "fonte": "normattiva_dl201",
+      "testo": "nazionale in data antecedente al 24 febbraio 2022, possono essere ulteriormente rinnovati, a richiesta dell'interessato, fino al 4 marzo 2027, ferma restando la proroga della protezione temporanea concessa, fino alla medesima data, ai loro connazionali sfollati dall'Ucraina secondo quanto previsto dalla Decisione di esecuzione (UE) 2025/1460 del Consiglio dell'Unione Europea del 15 luglio 2025"
+    },
+    {
+      "fonte": "im_2028",
+      "testo": "23 luglio 2026"
+    },
+    {
+      "fonte": "im_2028",
+      "testo": "Lo scorso 15 luglio, il Consiglio dell’Ue ha adottato la proposta della Commissione di prorogare di un ulteriore anno, fino al 4 marzo 2028, la protezione temporanea per le persone in fuga dalla guerra in Ucraina"
+    },
+    {
+      "fonte": "im_2028",
+      "testo": "Questo requisito sarà richiesto solo ai nuovi richiedenti protezione temporanea, mentre non riguarderà coloro che già beneficiano della protezione temporanea nell'UE"
+    }
+  ]
+}

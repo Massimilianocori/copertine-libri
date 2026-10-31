@@ -44,7 +44,8 @@ CHIAVE_INDEXNOW = "b5a26a844a465f58552debee2c8a0114"
 # questo sito fuori elenco non cambia nulla: niente script nel <head>, niente ads.txt, privacy di oggi.
 sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
 import monetizzazione as MON  # noqa: E402
-import genera_en as EN  # noqa: E402  sezione inglese /en/ (dal 31/10/2026): COPPIE e IT_EN per hreflang e link «English»
+import genera_en as EN  # noqa: E402  sezione inglese /en/ (dal 31/10/2026)
+import genera_lingue as LG  # noqa: E402  sezioni /uk/ e /ro/ (dal 31/10/2026); hreflang e menu delle lingue per tutto il sito
 SITO_ID = "esameb1"  # nome del sito in monetizzazione.json ("adsense_siti")
 ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti a capo + script ufficiale, subito dopo il meta di verifica Google
 AFFILIATI = json.loads((DATI / "affiliati.json").read_text(encoding="utf-8")) if (DATI / "affiliati.json").exists() else {}  # link di affiliazione (dal 30/10/2026: italki)
@@ -548,6 +549,7 @@ main a[href^="mailto:"]{overflow-wrap:anywhere;word-break:break-word}
 .piede .dati{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);padding:6px 12px;border-radius:999px;font-weight:600;color:#E8F0ED}
 @media (max-width:760px){.piede-griglia{grid-template-columns:1fr}}
 """
+CSS += LG.CSS_FONT + LG.CSS_MENU  # font per cirillico e ă/ș/ț (solo se la pagina li contiene) e menu delle lingue (31/10/2026)
 
 JS = """
 (function(){
@@ -616,7 +618,7 @@ JS = """
     });
   });
 })();
-"""
+""" + LG.JS_MENU + "\n"
 
 
 def il(iso):
@@ -687,12 +689,10 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
     canonico = URL_SITO + "/" + (percorso[:-10] if percorso.endswith("index.html") else percorso)
     ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else ""
     home_href = rel or "./"
-    # Sezione inglese (31/10/2026): hreflang reciproci solo se la pagina ha l'equivalente in genera_en.COPPIE; il link «English»
-    # del menu porta all'equivalente o, se non c'è, alla home inglese /en/.
-    en = EN.IT_EN.get(percorso)
-    alternati = (f'\n<link rel="alternate" hreflang="it" href="{canonico}">\n<link rel="alternate" hreflang="en" href="{URL_SITO}/{en}">'
-                 f'\n<link rel="alternate" hreflang="x-default" href="{canonico}">') if en else ""
-    inglese = f"{rel or '/'}{en or 'en/'}" if rel else f"/{en or 'en/'}"
+    # Lingue (31/10/2026): hreflang reciproci it/en/uk/ro solo se la pagina ha equivalenti (genera_en.COPPIE e genera_lingue.PAGINE);
+    # il menu delle lingue porta all'equivalente o, se non c'è, alla home di quella lingua (/en/, /uk/, /ro/).
+    alternati = LG.alternati(sys.modules[__name__], "it", percorso)
+    radice = rel or "/"
     enti_link = "".join(f'<li><a href="{rel}ente/{SLUG_ENTE[e]}/">{e}</a></li>' for e in ENTE)
     altri_siti = "".join(f'<li><a href="{u}" rel="noopener">{n}</a>: {escape(d)} Un altro sito gratuito e indipendente dello stesso gestore.</li>'
                          for u, n, d in ALTRI_SITI)
@@ -725,7 +725,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
 <header class="top"><div class="wrap">
 <a class="logo" href="{home_href}" aria-label="{NOME}, pagina iniziale">{MARCHIO}<span class="logo-testo">Esame<b>B1</b></span></a>
 <nav class="menu" aria-label="Menu">
-<a href="{rel}#date">Date</a><a href="{rel}#citta">Città</a><a href="{rel}come-funziona/"><span class="lungo">Come funziona</span><span class="corto">Guida</span></a><a class="lingua" href="{inglese}" hreflang="en" lang="en"><span class="lungo">English</span><span class="corto">EN</span></a><a class="nav-cta" href="{avvisami}" aria-label="Avvisami">{ic("campana")}<span class="lungo">Avvisami</span></a>
+<a href="{rel}#date">Date</a><a href="{rel}#citta">Città</a><a href="{rel}come-funziona/"><span class="lungo">Come funziona</span><span class="corto">Guida</span></a>{LG.menu_lingue(sys.modules[__name__], "it", percorso, radice)}<a class="nav-cta" href="{avvisami}" aria-label="Avvisami">{ic("campana")}<span class="lungo">Avvisami</span></a>
 </nav>
 </div></header>
 <main class="wrap" id="contenuto">
@@ -736,7 +736,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
 <div>
 <a class="logo" href="{home_href}">{MARCHIO}<span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Orale e domande</a></li><li><a href="{rel}esonero-test-italiano/">Chi è esonerato</a></li><li><a href="{rel}esempi/">Prove d'esempio</a></li><li><a href="{rel}esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="{rel}cittadinanza/">Domanda di cittadinanza</a></li><li><a href="{rel}reddito-minimo-cittadinanza/">Reddito minimo</a></li>{enti_link}<li><a href="{inglese}" hreflang="en" lang="en">English</a></li><li><a href="{rel}privacy.html">Privacy</a></li>
+<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Orale e domande</a></li><li><a href="{rel}esonero-test-italiano/">Chi è esonerato</a></li><li><a href="{rel}esempi/">Prove d'esempio</a></li><li><a href="{rel}esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="{rel}cittadinanza/">Domanda di cittadinanza</a></li><li><a href="{rel}reddito-minimo-cittadinanza/">Reddito minimo</a></li>{enti_link}{LG.link_piede_lingue("it", percorso, radice)}<li><a href="{rel}privacy.html">Privacy</a></li>
 </ul>
 </div>
 <div>
@@ -3368,9 +3368,12 @@ def main():
     privacy()
     urls.append("privacy.html")
     urls += EN.genera(sys.modules[__name__], prossime)  # sezione inglese /en/ (genera_en.py)
+    urls += LG.genera(sys.modules[__name__], prossime)  # sezioni /uk/ e /ro/ (genera_lingue.py, pagine in genera_lingue_pagine.py)
     extra(urls)
-    n_en = EN.controlli(sys.modules[__name__])  # cifre /en/ = cifre italiane, hreflang reciproci, calcolatore identico
-    print(f"Sito generato in {SITO}: {len(urls)} pagine ({n_en} in inglese, controllate), {len(prossime)} sessioni future, {len(sedi)} sedi.")
+    n_en = EN.controlli(sys.modules[__name__])  # cifre /en/ = cifre italiane, link tra le lingue
+    n_l = LG.controlli(sys.modules[__name__])  # cifre /uk/ e /ro/, hreflang reciproci su tutto il sito, calcolatore identico in 4 lingue
+    print(f"Sito generato in {SITO}: {len(urls)} pagine ({n_en} in inglese, {n_l['uk']} in ucraino, {n_l['ro']} in rumeno, controllate), "
+          f"{len(prossime)} sessioni future, {len(sedi)} sedi.")
 
 
 if __name__ == "__main__":

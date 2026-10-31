@@ -376,15 +376,11 @@ def pagina_en(G, percorso, titolo, descrizione, corpo, it=None, jsonld=None):
     rel_root = "../" * profondita  # radice del sito
     rel = "../" * (profondita - 1) or "./"  # radice di /en/
     canonico = G.URL_SITO + "/" + percorso
-    alternati = ""
-    it_href = f"{rel_root}{it[:-10] if it.endswith('index.html') else it}" if it else None
-    if it:
-        url_it = G.URL_SITO + "/" + (it[:-10] if it.endswith("index.html") else it)
-        alternati = (f'\n<link rel="alternate" hreflang="it" href="{url_it}">\n<link rel="alternate" hreflang="en" href="{canonico}">'
-                     f'\n<link rel="alternate" hreflang="x-default" href="{url_it}">')
+    import genera_lingue as LG  # qui e non in cima: genera_lingue importa questo modulo (COPPIE)
+    # hreflang (31/10/2026): tutte le lingue con la pagina equivalente (it, en, uk, ro), x-default = italiano (o inglese se manca)
+    alternati = LG.alternati(G, "en", percorso)
     ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else ""
     avvisami = "#avvisami" if 'id="avvisami"' in corpo else f"{rel}#avvisami"
-    lingua = it_href or f"{rel_root}"
     guide_piede = "".join(f'<li><a href="{rel}{h}">{t}</a></li>' for h, _, t, _ in GUIDE)
     verificato = data_en(max([s["verificato_il"] for s in G.sessioni] + [s["verificato_il"] for s in G.sedi]))
     testo = f"""<!DOCTYPE html>
@@ -417,7 +413,7 @@ def pagina_en(G, percorso, titolo, descrizione, corpo, it=None, jsonld=None):
 <header class="top"><div class="wrap">
 <a class="logo" href="{rel}" aria-label="{G.NOME} in English, home page">{G.MARCHIO}<span class="logo-testo">Esame<b>B1</b></span></a>
 <nav class="menu" aria-label="Menu">
-<a href="{rel}b1-exam-dates/">Dates</a><a href="{rel}#guides">Guides</a><a class="lingua" href="{lingua}" hreflang="it" lang="it"><span class="lungo">Italiano</span><span class="corto">IT</span></a><a class="nav-cta" href="{avvisami}" aria-label="Notify me">{G.ic("campana")}<span class="lungo">Notify me</span></a>
+<a href="{rel}b1-exam-dates/">Dates</a><a href="{rel}#guides">Guides</a>{LG.menu_lingue(G, "en", percorso, rel_root)}<a class="nav-cta" href="{avvisami}" aria-label="Notify me">{G.ic("campana")}<span class="lungo">Notify me</span></a>
 </nav>
 </div></header>
 <main class="wrap" id="contenuto">
@@ -428,7 +424,7 @@ def pagina_en(G, percorso, titolo, descrizione, corpo, it=None, jsonld=None):
 <div>
 <a class="logo" href="{rel}">{G.MARCHIO}<span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="{rel}">EsameB1 in English</a></li>{guide_piede}<li><a href="{lingua}" hreflang="it" lang="it">Italiano</a></li><li><a href="{rel}privacy/">Privacy</a></li>
+<li><a href="{rel}">EsameB1 in English</a></li>{guide_piede}{LG.link_piede_lingue("en", percorso, rel_root)}<li><a href="{rel}privacy/">Privacy</a></li>
 </ul>
 </div>
 <div>
@@ -1565,7 +1561,7 @@ def date_it_testo(testo, html):
 
 def controlli(G):
     """Dopo la generazione: (1) cifre e importi di ogni pagina /en/ presenti nelle pagine italiane di riferimento;
-    (2) hreflang reciproci (ogni pagina con alternati li ha uguali a quelli della pagina indicata, sé stessa compresa);
+    (2) hreflang: controllati da genera_lingue.controlli() per tutte le lingue;
     (3) calcolatore dei redditi identico all'italiano; (4) link visibili tra le due lingue; (5) prima frase con fonte e data."""
     errori = []
     sito = G.SITO
@@ -1601,31 +1597,7 @@ def controlli(G):
                 errori.append(f"{p['en']}: la prima frase non dice fonte e data: «{prima[:120]}»")
             if not re.search(r"decides", testo_main(en)):
                 errori.append(f"{p['en']}: manca «… decides» (Prefettura/Questura/Sportello)")
-    # hreflang reciproci su tutto il sito
-    per_url, alternati = {}, {}
-    for f in sito.rglob("*.html"):
-        t = f.read_text(encoding="utf-8")
-        c = RE_CANON.search(t)
-        if not c:
-            continue
-        per_url[c.group(1)] = f
-        alt = RE_ALT.findall(t)
-        if alt:
-            alternati[c.group(1)] = dict(alt)
-    for url, alt in alternati.items():
-        lingua = "en" if "/en/" in url else "it"
-        if alt.get(lingua) != url:
-            errori.append(f"hreflang: {url} non indica sé stessa come «{lingua}»")
-        if set(alt) != {"it", "en", "x-default"} or alt["x-default"] != alt["it"]:
-            errori.append(f"hreflang: {url} deve avere it, en e x-default (= it): {alt}")
-        for lg, dest in alt.items():
-            if dest not in per_url:
-                errori.append(f"hreflang: {url} → {dest} ({lg}) non esiste")
-            elif alternati.get(dest) != alt:
-                errori.append(f"hreflang: {url} → {dest} non reciproco")
-    coppie_attese = {G.URL_SITO + "/" + en for en, it, _ in COPPIE if it}
-    if {u for u in alternati if "/en/" in u} != coppie_attese:
-        errori.append("hreflang: le pagine inglesi con alternati non corrispondono a COPPIE")
+    # hreflang reciproci su tutto il sito (it, en, uk, ro): genera_lingue.controlli(), dal 31/10/2026
     for en, it, _ in COPPIE:
         if it:
             t = leggi(it)
