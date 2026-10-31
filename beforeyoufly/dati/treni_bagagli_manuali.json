@@ -1,0 +1,1449 @@
+{
+ "_nota": "Bagagli sui treni per compagnia e orari di arrivo Eurostar con l'EES: questo file È la fonte dei fatti, scritto a mano nel repository (prima stesura del 31/10/2026 generata da uno script di partenza fuori dal repository, non più necessario; revisione del 31/10/2026). Ogni citazione 'x' è parola per parola nel testo normalizzato della fonte: lo controlla raccolta/treni_bagagli.py (che esce con 1 e non scrive dati/treni_bagagli.json se una frase manca, se un id è doppio, se una FAQ cita un id che non c'è o se un tema non è previsto) e di nuovo verifica.py punto 25. Campi: compagnie lette (riassunti nostri: numero, misure, peso, extra, speciali, risposta, nota; citazioni con tema numero, misure, extra, speciali, cambio, ice (regola ICE su una pagina di altri treni), altro e traduzione 'tr' per lo spagnolo; FAQ legate a una ricerca vera), compagnie non lette ('letta': false, url_provato, motivo_tipo bloccata/senza_regola, motivo), faq_indice, eurostar (righe della tabella per stazione, citazioni con tema arrivo, continente, ees, kiosk; FAQ). Rilanciare raccolta/treni_bagagli.py dopo ogni modifica.",
+ "scritto_il": "2026-10-31",
+ "compagnie": [
+  {
+   "id": "eurostar",
+   "slug": "eurostar",
+   "nome": "Eurostar",
+   "nome_titolo": "Eurostar",
+   "paese": "UK, France, Belgium, Netherlands, Germany",
+   "treni": "All Eurostar trains (routes to and from London, and routes between Belgium, France, the Netherlands and Germany)",
+   "letta": true,
+   "chi": "Eurostar’s luggage page",
+   "numero": "2 bags + 1 item of hand luggage (Eurostar Premier: 3 bags + 1)",
+   "misure": "Bags up to 85 cm long on London routes, 75 cm on other routes",
+   "peso": "No strict weight limit: you must be able to carry your bags yourself",
+   "extra": "London routes: book ahead, from £35 per extra bag (guide price); other routes: €30 per extra item on the day",
+   "speciali": "Pushchairs free if folded; skis and snowboards count as one of your two bags; dismantled bikes from £45 on London routes",
+   "risposta": "you can bring 2 bags and 1 item of hand luggage in Eurostar Standard and Eurostar Plus (3 bags and 1 item of hand luggage in Eurostar Premier); bags can be up to 85 cm long on routes to and from London and 75 cm on other routes, with no strict weight limit as long as you can carry them yourself.",
+   "nota": "The Eurostar Help Centre adds a size for routes between Belgium, France, the Netherlands and Germany (75x53x30 cm); the main luggage page gives only the length.",
+   "citazioni": [
+    {
+     "id": "e1",
+     "f": "es_lug",
+     "tema": "numero",
+     "x": "With a standard ticket, you can bring: 2 x pieces of luggage. 1 x small item of hand luggage (like a handbag or backpack)."
+    },
+    {
+     "id": "e2",
+     "f": "es_lug",
+     "tema": "numero",
+     "x": "You can bring 2 bags and 1 piece of hand luggage in Eurostar Standard and Eurostar Plus, or 3 bags and 1 piece of hand luggage in Eurostar Premier."
+    },
+    {
+     "id": "e3",
+     "f": "es_lug",
+     "tema": "misure",
+     "x": "Size limits depend on your route. On routes to and from London, you can bring a bag up to a maximum length of 85cm, and on all other routes, 75cm."
+    },
+    {
+     "id": "e4",
+     "f": "es_lug",
+     "tema": "misure",
+     "x": "Unlike airlines, there's no strict weight limit per bag. If you can carry it safely yourself, you're good to go."
+    },
+    {
+     "id": "e11",
+     "f": "es_help",
+     "tema": "misure",
+     "x": "Up to two additional items (dimensions: 75x53x30cm max)"
+    },
+    {
+     "id": "e5",
+     "f": "es_lug",
+     "tema": "extra",
+     "x": "On our London routes, excess baggage, bikes and oversized items must be booked in advance through our Registered Luggage Service, which is currently limited to selected trains between London and Paris, as well as London and Brussels, and each item must weigh 30kg or less."
+    },
+    {
+     "id": "e7",
+     "f": "es_lug",
+     "tema": "extra",
+     "x": "Additional bags From £35*, max measurements: L: 85cm x H: 85cm x W: 36cm."
+    },
+    {
+     "id": "e7b",
+     "f": "es_lug",
+     "tema": "extra",
+     "x": "*Guide price based on a one-way journey from London to Paris and requested more than 48 hours before departure."
+    },
+    {
+     "id": "e6",
+     "f": "es_lug",
+     "tema": "extra",
+     "x": "For Eurostar's routes within Belgium, France, the Netherlands and Germany, you don't need to pre-book; simply turn up on the day, pay €30 per extra item, and you're good to go."
+    },
+    {
+     "id": "e12",
+     "f": "es_help",
+     "tema": "extra",
+     "x": "Please note, failure to comply will result in a charge of €30 per item or the item may not be permitted on board the train."
+    },
+    {
+     "id": "e10",
+     "f": "es_lug",
+     "tema": "speciali",
+     "x": "Pushchairs and prams are allowed free of charge – just make sure they're folded before you board and stored in the luggage rack."
+    },
+    {
+     "id": "e8",
+     "f": "es_lug",
+     "tema": "speciali",
+     "x": "Note that skis and snowboards can be counted as one of your two pieces of luggage."
+    },
+    {
+     "id": "e9",
+     "f": "es_lug",
+     "tema": "speciali",
+     "x": "Bikes (disassembled) From £45*, max measurements: L: 165cm x H: 90cm x W: 36cm."
+    }
+   ],
+   "faq": [
+    {
+     "q": "How much luggage can you take on Eurostar?",
+     "query": "how much luggage can you take on eurostar",
+     "pre": "",
+     "cit": [
+      "e2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the Eurostar luggage size limit?",
+     "query": "eurostar luggage size limit",
+     "pre": "",
+     "cit": [
+      "e3"
+     ],
+     "post": "For routes between Belgium, France, the Netherlands and Germany the Help Centre gives a size too: “Up to two additional items (dimensions: 75x53x30cm max)”."
+    },
+    {
+     "q": "Is there a weight limit for Eurostar luggage?",
+     "query": "eurostar luggage allowance weight",
+     "pre": "",
+     "cit": [
+      "e4"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you have to pay for luggage on Eurostar?",
+     "query": "do you have to pay for luggage on eurostar",
+     "pre": "Not for the bags included in your ticket. Extra items cost extra:",
+     "cit": [
+      "e7",
+      "e6"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "tgv-inoui",
+   "slug": "tgv-inoui",
+   "nome": "TGV INOUI (SNCF)",
+   "nome_titolo": "TGV INOUI",
+   "paese": "France",
+   "treni": "TGV INOUI and INTERCITÉS trains in France and to Luxembourg, Spain, Italy, Brussels and Freiburg im Breisgau",
+   "letta": true,
+   "chi": "SNCF Connect, SNCF’s booking site",
+   "numero": "2 suitcases + 1 item of hand luggage, or 1 suitcase + 1 special item + 1 item of hand luggage",
+   "misure": "Suitcase 70 x 90 x 50 cm; hand luggage 40 x 30 x 15 cm; special item 90 x 130 x 50 cm",
+   "peso": "Not stated; you must carry all your luggage in one go alone",
+   "extra": "Excess or non-compliant luggage: €50 for 1 item, €100 for 2, €150 for 3 or more",
+   "speciali": "Bikes, instruments, snowboards and skis in a labelled cover; one pair of skis per person",
+   "risposta": "on TGV INOUI you can take 2 suitcases and 1 item of hand luggage, or 1 suitcase, 1 special item and 1 item of hand luggage; a suitcase can measure up to 70 x 90 x 50 cm and hand luggage up to 40 x 30 x 15 cm, every bag must be labelled, and excess or non-compliant luggage can cost €50, €100 or €150.",
+   "nota": "TGV INOUI trains run with Deutsche Bahn (TGV INOUI and ICE) follow a different rule on the same SNCF page: no fixed number, 130 x 90 cm per item.",
+   "citazioni": [
+    {
+     "id": "s1",
+     "f": "sncf",
+     "tema": "numero",
+     "x": "You must be able to carry all your luggage in one go alone."
+    },
+    {
+     "id": "s2",
+     "f": "sncf",
+     "tema": "numero",
+     "x": "You can take either: 2 suitcases + 1 item of hand luggage 1 suitcase + 1 special item of luggage + 1 item of hand luggage"
+    },
+    {
+     "id": "s3",
+     "f": "sncf",
+     "tema": "misure",
+     "x": "Your hand luggage can measure a maximum of 40 cm x 30 cm x 15 cm Your suitcase can measure a maximum of 70 cm x 90 cm x 50 cm Your special item of luggage (musical instrument, covered bike, folded bike, scooter and folding wheelchair) can measure a maximum of 90 x 130 x 50 cm."
+    },
+    {
+     "id": "s5",
+     "f": "sncf",
+     "tema": "extra",
+     "x": "Failure to comply with the luggage policy on board TGV INOUI and INTERCITÉS trains may result in the payment of €50 for 1 item of excess or non-compliant luggage, €100 for 2 items of excess or non-compliant luggage, and €150 for 3 or more items of excess or non-compliant luggage."
+    },
+    {
+     "id": "s4",
+     "f": "sncf",
+     "tema": "speciali",
+     "x": "Bikes, musical instruments, snowboards and skis must be in a labelled cover."
+    },
+    {
+     "id": "s4b",
+     "f": "sncf",
+     "tema": "speciali",
+     "x": "You can travel with your own pair of skis (no maximum dimensions), up to a maximum of one pair per person."
+    },
+    {
+     "id": "s7",
+     "f": "sncf",
+     "tema": "cambio",
+     "x": "From 13 December 2026, scooters with a seat, those with more than two wheels, those that do not fold or those with a tire width greater than 6 cm will be prohibited on board."
+    },
+    {
+     "id": "s6",
+     "f": "sncf",
+     "tema": "altro",
+     "x": "All your luggage must be labelled and is your responsibility."
+    },
+    {
+     "id": "s8",
+     "f": "sncf",
+     "tema": "altro",
+     "x": "These on-board luggage rules also apply to TGV INOUI trains to and from Luxembourg, Spain, Brussels and Freiburg im Breisgau, to and from Italy."
+    },
+    {
+     "id": "s9",
+     "f": "sncf",
+     "tema": "altro",
+     "x": "For your TGV INOUI and ICE journeys with DB SNCF Voyageurs en coopération You must be able to carry all your luggage yourself without assistance. The maximum dimensions of 130 x 90 cm per item of luggage must be respected."
+    }
+   ],
+   "faq": [
+    {
+     "q": "How many bags can you take on a TGV?",
+     "query": "tgv luggage limit",
+     "pre": "",
+     "cit": [
+      "s2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the TGV INOUI luggage size?",
+     "query": "tgv inoui luggage size",
+     "pre": "",
+     "cit": [
+      "s3"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need a luggage label on SNCF trains?",
+     "query": "sncf luggage label",
+     "pre": "Yes, on TGV INOUI and INTERCITÉS:",
+     "cit": [
+      "s6"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "ouigo-france",
+   "slug": "ouigo-france",
+   "nome": "OUIGO France",
+   "nome_titolo": "OUIGO France",
+   "paese": "France",
+   "treni": "OUIGO trains in France",
+   "letta": true,
+   "chi": "OUIGO’s luggage page",
+   "numero": "One item of hand luggage + one cabin bag included",
+   "misure": "Hand luggage 40 x 30 x 15 cm; cabin bag 55 x 35 x 25 cm; extra bag up to 90 x 130 x 50 cm and 30 kg",
+   "peso": "30 kg for the extra or oversized bag; not stated for the included bags",
+   "extra": "Extra or oversized bag €5 online, €20 at the station; included in OUIGO Plus and OUIGO Full",
+   "speciali": "Skis and boards under the extra bag option; pushchair free with your child; bikes have their own option",
+   "risposta": "every OUIGO ticket includes one item of hand luggage up to 40 × 30 × 15 cm and one cabin bag up to 55 × 35 × 25 cm; an extra or oversized bag (up to 90 × 130 × 50 cm and 30 kg) costs €5 online and €20 at the station.",
+   "citazioni": [
+    {
+     "id": "o1",
+     "f": "ouigo_fr",
+     "tema": "numero",
+     "x": "Every OUIGO ticket includes one hand luggage item and one cabin bag. If you'd like an extra (or oversized) bag, it will cost you €5 online and €20 at the station."
+    },
+    {
+     "id": "o2",
+     "f": "ouigo_fr",
+     "tema": "misure",
+     "x": "One hand luggage item, measuring up to 40 × 30 × 15 cm. One cabin bag, up to 55 × 35 × 25 cm. These bags are stored under your seat."
+    },
+    {
+     "id": "o3",
+     "f": "ouigo_fr",
+     "tema": "extra",
+     "x": "The extra or oversized bag, up to 90 × 130 × 50 cm and 30 kg, costs €5 online."
+    },
+    {
+     "id": "o4",
+     "f": "ouigo_fr",
+     "tema": "extra",
+     "x": "It's also included in the OUIGO Plus and OUIGO Full packs."
+    },
+    {
+     "id": "o5",
+     "f": "ouigo_fr",
+     "tema": "extra",
+     "x": "If you don't book your baggage option online before departure, it will be charged at €20 at the station!"
+    },
+    {
+     "id": "o9",
+     "f": "ouigo_fr",
+     "tema": "extra",
+     "x": "On a connecting journey, the extra or oversized baggage option must be added and paid for separately for each train on the route, on top of the train ticket."
+    },
+    {
+     "id": "o6",
+     "f": "ouigo_fr",
+     "tema": "speciali",
+     "x": "Sports equipment (skis, snowboard, skateboard, other boards): they travel under the extra baggage option. They must be stored in a cover and respect the dimensions 90 × 130 × 50 cm; skis are accepted in a cover up to 2 m."
+    },
+    {
+     "id": "o7",
+     "f": "ouigo_fr",
+     "tema": "speciali",
+     "x": "Pushchair: for families, it's free if you're travelling with your child."
+    },
+    {
+     "id": "o8",
+     "f": "ouigo_fr",
+     "tema": "speciali",
+     "x": "Bikes and scooters have their own dedicated option, separate from extra baggage."
+    },
+    {
+     "id": "o10",
+     "f": "ouigo_fr",
+     "tema": "altro",
+     "x": "A useful habit before you leave: label all your bags with your name."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the OUIGO luggage size?",
+     "query": "ouigo luggage size",
+     "pre": "",
+     "cit": [
+      "o2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How big can the OUIGO extra bag be?",
+     "query": "ouigo extra baggage size",
+     "pre": "",
+     "cit": [
+      "o3"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much is an extra bag on OUIGO?",
+     "query": "ouigo baggage allowance",
+     "pre": "",
+     "cit": [
+      "o1",
+      "o4"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "ouigo-spain",
+   "slug": "ouigo-spain",
+   "nome": "OUIGO Spain",
+   "nome_titolo": "OUIGO Spain",
+   "paese": "Spain",
+   "treni": "OUIGO trains in Spain",
+   "letta": true,
+   "chi": "OUIGO España’s page (in Spanish, our translation)",
+   "numero": "One item of hand luggage + one cabin bag included",
+   "misure": "Hand bag 27 x 36 x 15 cm; cabin bag 55 x 35 x 25 cm; extra bag up to 200 cm and 25 kg",
+   "peso": "25 kg for the extra bag; not stated for the included bags",
+   "extra": "Extra bag: €25 at boarding if not added online before the last 30 minutes; included in OUIGO Plus (from €6)",
+   "speciali": "Not stated on the page we read",
+   "risposta": "your OUIGO ticket in Spain includes a hand bag (27 cm x 36 cm x 15 cm) and a cabin bag (55 cm x 35 cm x 25 cm); an extra bag can measure up to 200 cm and weigh up to 25 kg, and if you have not added it online before the last 30 minutes, the crew charges €25 at boarding.",
+   "nota": "OUIGO’s page for France gives a larger size for the small bag: check the page of the country you travel in.",
+   "citazioni": [
+    {
+     "id": "oe1",
+     "f": "ouigo_es",
+     "tema": "numero",
+     "x": "Lleva gratis tu equipaje de cabina junto con un equipaje de mano.",
+     "tr": "Take your cabin bag free of charge, together with an item of hand luggage."
+    },
+    {
+     "id": "oe2",
+     "f": "ouigo_es",
+     "tema": "misure",
+     "x": "Siempre que compres un billete, en el mismo aparecerá una imagen con las medidas de ancho, largo y alto de la bolsa de mano (27 cm x 36 cm x 15 cm), equipaje de cabina (55 cm x 35 cm x 25 cm) y equipaje adicional (200 cm y 25 kg de peso como máximo) para que no tengas dudas de los objetos que puedes llevar en nuestros trenes.",
+     "tr": "Whenever you buy a ticket, it will show a picture with the width, length and height of the hand bag (27 cm x 36 cm x 15 cm), the cabin bag (55 cm x 35 cm x 25 cm) and the additional bag (200 cm and 25 kg in weight at most), so you know what you can take on our trains."
+    },
+    {
+     "id": "oe5",
+     "f": "ouigo_es",
+     "tema": "extra",
+     "x": "puedes comprar un equipaje adicional o con dimensiones extra de hasta 200 cm y 25 kg.",
+     "tr": "you can buy an additional or oversized bag of up to 200 cm and 25 kg."
+    },
+    {
+     "id": "oe3",
+     "f": "ouigo_es",
+     "tema": "extra",
+     "x": "Si no has contratado tu equipaje adicional en nuestro sitio web o en nuestra aplicación OUIGO antes de los 30 minutos últimos de la salida de tu tren, te recordamos que nuestra Tripulación de Servicio regularizará tu equipaje a la hora del embarque por 25€, que tendrás que abonar de la misma forma en la que realizaste la compra de tu billete o en efectivo.",
+     "tr": "If you have not added your additional bag on our website or in the OUIGO app before the last 30 minutes before your train leaves, our crew will charge for your bag at boarding: €25, paid the same way you bought your ticket or in cash."
+    },
+    {
+     "id": "oe4",
+     "f": "ouigo_es",
+     "tema": "extra",
+     "x": "Contrata OUIGO PLUS por solo desde 6€ más y escoge tu asiento Estándar (o mejóralo para disponer en prioridad un asiento XL, según disponibilidad) y lleva una pieza de equipaje adicional.",
+     "tr": "Add OUIGO PLUS from just €6 more, choose your Standard seat (or upgrade to get priority for an XL seat, subject to availability) and take one additional bag."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the OUIGO Spain luggage allowance?",
+     "query": "ouigo spain luggage allowance",
+     "pre": "In OUIGO España’s words (our translation):",
+     "cit": [
+      "oe1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the OUIGO Spain luggage size?",
+     "query": "ouigo spain luggage size",
+     "pre": "In OUIGO España’s words (our translation):",
+     "cit": [
+      "oe2"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "renfe-ave",
+   "slug": "renfe-ave",
+   "nome": "Renfe AVE and long-distance trains",
+   "nome_titolo": "Renfe AVE",
+   "paese": "Spain",
+   "treni": "Renfe AVE and other Renfe Viajeros trains (Avlo has its own, stricter rules)",
+   "letta": true,
+   "chi": "Renfe’s luggage page",
+   "numero": "Up to 3 pieces of hand luggage",
+   "misure": "Largest 85 x 55 x 35 cm; the three together up to 290 cm",
+   "peso": "The three together up to 25 kg",
+   "extra": "No paid extra bag on the pages we read; one special item (skis, golf clubs, bike in a bag) per person",
+   "speciali": "Folded bikes and scooters in a cover up to 180 cm free; bikes in a bag up to 140 x 90 x 40 cm as special luggage",
+   "risposta": "you can carry up to 3 pieces of hand luggage, as long as the three together do not exceed 25 kg or 290 cm, and the largest piece can measure up to 85x55x35 cm; Avlo trains have stricter rules.",
+   "citazioni": [
+    {
+     "id": "r1",
+     "f": "renfe",
+     "tema": "numero",
+     "x": "You can carry up to 3 pieces of hand luggage onto the train, provided that the sum of the three does not exceed 25 kg or 290 cm."
+    },
+    {
+     "id": "r1b",
+     "f": "renfe",
+     "tema": "misure",
+     "x": "The maximum dimensions allowed are 85x55x35 cm. (height-width-depth)."
+    },
+    {
+     "id": "r6",
+     "f": "renfe",
+     "tema": "numero",
+     "x": "Please bear in mind that the luggage policy is stricter on Avlo trains."
+    },
+    {
+     "id": "r4",
+     "f": "renfe_esp",
+     "tema": "speciali",
+     "x": "Please note that you can only carry one special piece of luggage per person on board, accompanied by another piece of hand luggage, with maximum dimensions 55x35x25."
+    },
+    {
+     "id": "r3",
+     "f": "renfe",
+     "tema": "speciali",
+     "x": "All bicycles and scooters folded in a cover are considered hand luggage as long as their dimensions do not add up to more than 180 cm between the three elements, and therefore will be accepted free of charge on all regular Renfe Viajeros (Renfe Passengers) services."
+    },
+    {
+     "id": "r7",
+     "f": "renfe_esp",
+     "tema": "speciali",
+     "x": "All folded or dismantled kick scooters (non-electric) and bicycles, placed inside a carrying case or bag whose total dimensions (length-height-width) amount to more than 180 cm, up to a maximum of 140x90x40 cm. (length-height-width)."
+    },
+    {
+     "id": "r5",
+     "f": "renfe_esp",
+     "tema": "speciali",
+     "x": "Golf clubs, ski and sports fishing equipment must be carried in their corresponding bags and perfectly closed."
+    },
+    {
+     "id": "r8",
+     "f": "renfe",
+     "tema": "speciali",
+     "x": "Musical instruments, carried in their case, may not be bigger than 30 x 120 x 38 cm."
+    },
+    {
+     "id": "r2",
+     "f": "renfe",
+     "tema": "altro",
+     "x": "If travelling on the AVE (high-speed) International high-speed train between Spain and France, the same terms and conditions apply to hand luggage, except that luggage tagging is mandatory."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the Renfe luggage allowance?",
+     "query": "renfe luggage allowance",
+     "pre": "",
+     "cit": [
+      "r1",
+      "r1b"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is there a weight limit on Renfe trains?",
+     "query": "renfe luggage weight",
+     "pre": "Yes, for the three pieces together:",
+     "cit": [
+      "r1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you take skis or a bike on Renfe?",
+     "query": "renfe ave luggage allowance",
+     "pre": "",
+     "cit": [
+      "r4",
+      "r3"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "avlo",
+   "slug": "avlo",
+   "nome": "Avlo (Renfe)",
+   "nome_titolo": "Avlo",
+   "paese": "Spain",
+   "treni": "Avlo, Renfe’s low-cost high-speed trains",
+   "letta": true,
+   "chi": "Renfe’s Avlo page",
+   "numero": "1 item of hand luggage + 1 suitcase included",
+   "misure": "Hand luggage 36 x 27 x 25 cm; suitcase 55 x 35 x 25 cm; extra bag up to 85 x 60 x 35 cm (180 cm in total)",
+   "peso": "No weight limit for the included bags",
+   "extra": "Extra bag €10 when you buy the ticket, €15 after (also at the station or on board, subject to availability)",
+   "speciali": "Folded bikes and scooters up to 180 cm, or bikes in a bag up to 140 x 90 x 40 cm, count as the extra bag",
+   "risposta": "your Avlo ticket includes 1 piece of hand luggage up to 36 x 27 x 25 cm and 1 suitcase up to 55 x 35 x 25 cm, with no weight limit; one additional bag up to 85 x 60 x 35 cm costs €10 when you buy your ticket and €15 afterwards.",
+   "nota": "Renfe’s pages differ on the deadline for adding the extra bag after purchase: up to the train’s departure (Avlo page) or up to 30 minutes before (luggage policy page). Both quotes are below.",
+   "citazioni": [
+    {
+     "id": "a1",
+     "f": "avlo",
+     "tema": "numero",
+     "x": "When travelling by Avlo, you can travel with the following luggage, included in the price of your ticket: 1 piece of hand luggage (bag, rucksack, etc.) subject to the following size limitations: 36 x 27 x 25 cm, no weight limit 1 suitcase, subject to the following size limitations: 55 x 35 x 25 cm, no weight limit"
+    },
+    {
+     "id": "a3",
+     "f": "avlo",
+     "tema": "misure",
+     "x": "The following are considered additional baggage: Luggage measuring up to 85 x 60 x 35 cm or measuring no more than 180 cm in total when adding the height + length + width."
+    },
+    {
+     "id": "a2",
+     "f": "avlo",
+     "tema": "extra",
+     "x": "You can add one additional piece of luggage when purchasing your ticket for €10 or for €15 after purchase through any of our sales channels or at ticket offices up to the train's departure time. You can also add extra luggage at the station access control or on board for €15. (Subject to availability)."
+    },
+    {
+     "id": "a5",
+     "f": "renfe",
+     "tema": "extra",
+     "x": "If you need to add 1 piece of additional, larger-sized luggage, measuring a maximum of 85x60x35 cm. (or no more than 180 cm in total), you can do so when purchasing your ticket for €10 or after purchase up to 30 minutes before the departure of the train through any of our sales channels for €15."
+    },
+    {
+     "id": "a4",
+     "f": "avlo",
+     "tema": "speciali",
+     "x": "Bicycles with maximum dimensions of 140 x 90 x 40 cm, folded and inside their carrying case."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the Avlo luggage allowance?",
+     "query": "avlo luggage allowance",
+     "pre": "",
+     "cit": [
+      "a1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much does an extra bag cost on Avlo?",
+     "query": "renfe avlo luggage allowance",
+     "pre": "",
+     "cit": [
+      "a2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the Avlo luggage size?",
+     "query": "avlo luggage size",
+     "pre": "",
+     "cit": [
+      "a1",
+      "a3"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "trenitalia",
+   "slug": "trenitalia",
+   "nome": "Trenitalia (Frecciarossa and other trains)",
+   "nome_titolo": "Trenitalia Frecciarossa",
+   "paese": "Italy",
+   "treni": "Trenitalia trains in Italy, including the Frecce",
+   "letta": true,
+   "chi": "Trenitalia’s FAQ",
+   "numero": "No fixed number; free if it fits the luggage spaces",
+   "misure": "No fixed size; larger luggage may be allowed if it does not disturb anyone",
+   "peso": "Not stated",
+   "extra": "No fee for luggage you carry on board",
+   "speciali": "Pushchairs, skis and musical instruments travel free in the luggage spaces",
+   "risposta": "you can take luggage and other easily transportable items on board free of charge, as long as they are stored in the spaces made available for luggage; the FAQ gives no fixed number or size.",
+   "citazioni": [
+    {
+     "id": "t1",
+     "f": "tit_faq",
+     "tema": "numero",
+     "x": "Passengers may take luggage or other easily transportable items (such as strollers, prams, high chairs (if foldable), umbrellas, deckchairs, skis, musical instruments, etc.) on board the coach free of charge, provided they are stored in the spaces made available for luggage."
+    },
+    {
+     "id": "t2",
+     "f": "tit_faq",
+     "tema": "misure",
+     "x": "Luggage may be permitted to exceed this volume limit as long as it does not disturb or cause injury to other passengers, does not obstruct railway staff from carrying out their work, and does not damage the coach."
+    },
+    {
+     "id": "t3",
+     "f": "tit_faq",
+     "tema": "misure",
+     "x": "On some trains, specific spaces have been made available for passengers to store larger luggage items."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Is there a luggage size limit on Trenitalia trains?",
+     "query": "trenitalia luggage size limit",
+     "pre": "The Trenitalia FAQ we read gives no fixed size:",
+     "cit": [
+      "t1",
+      "t2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you pay for luggage on Frecciarossa trains?",
+     "query": "frecciarossa baggage allowance",
+     "pre": "No:",
+     "cit": [
+      "t1"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "italo",
+   "slug": "italo",
+   "nome": "Italo",
+   "nome_titolo": "Italo",
+   "paese": "Italy",
+   "treni": "Italo high-speed trains",
+   "letta": true,
+   "chi": "Italo’s luggage page",
+   "numero": "As many items as needed, free",
+   "misure": "Smart class: up to 75 x 53 x 30; overhead racks 53 cm high and 42 cm deep",
+   "peso": "Not stated",
+   "extra": "No fee for luggage",
+   "speciali": "Folded pushchairs, folding bikes and scooters allowed; traditional bikes and oversized luggage not allowed",
+   "risposta": "luggage travels free and you can carry as many items as you need; in Smart class luggage can measure up to 75 x 53 x 30, while Prima Business and Club Executive take larger luggage too.",
+   "citazioni": [
+    {
+     "id": "i3",
+     "f": "italo",
+     "tema": "numero",
+     "x": "Yes, you can bring luggage on Italo trains for free. Passengers can carry as many items as needed, including large bags and foldable bicycles, thanks to designated storage areas at the end of each coach, overhead racks, and lockers in some coaches."
+    },
+    {
+     "id": "i1",
+     "f": "italo",
+     "tema": "misure",
+     "x": "Luggage with dimensions up to 75 x 53 x 30 is allowed in Smart Class, with no additional costs, making it convenient for travelers with multiple items."
+    },
+    {
+     "id": "i2",
+     "f": "italo",
+     "tema": "misure",
+     "x": "Compared to other means of transport, Italo allows to accommodate even large luggage in Prima Business and Club Executive classes, which is advantageous for those with bulky suitcases."
+    },
+    {
+     "id": "i4",
+     "f": "italo",
+     "tema": "misure",
+     "x": "Please note that these compartments have a maximum height of 53 cm and a depth of 42 cm."
+    },
+    {
+     "id": "i5",
+     "f": "italo",
+     "tema": "speciali",
+     "x": "Traveling on Italo trains with strollers, folding bicycles, and scooters (both electric and manual) is permitted, as long as they are fully folded and stored in the designated areas."
+    },
+    {
+     "id": "i6",
+     "f": "italo",
+     "tema": "speciali",
+     "x": "Transporting oversized luggage, bulky items, or traditional bicycles is not allowed."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the Italo luggage size?",
+     "query": "italo luggage size",
+     "pre": "",
+     "cit": [
+      "i1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the luggage allowance in Italo Prima Business?",
+     "query": "italo prima business luggage allowance",
+     "pre": "",
+     "cit": [
+      "i2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much luggage can you bring on Italo?",
+     "query": "italo luggage allowance",
+     "pre": "",
+     "cit": [
+      "i3"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "db-ice",
+   "slug": "deutsche-bahn-ice",
+   "nome": "Deutsche Bahn (ICE and IC)",
+   "nome_titolo": "Deutsche Bahn ICE",
+   "paese": "Germany",
+   "treni": "Deutsche Bahn long-distance trains (ICE, IC and EC)",
+   "letta": true,
+   "chi": "Deutsche Bahn’s luggage page",
+   "numero": "Hand luggage + one larger item, free",
+   "misure": "No fixed limit; the racks are designed for 700 x 500 x 300 mm",
+   "peso": "You must be able to carry it alone",
+   "extra": "No fee; no reservation needed for luggage",
+   "speciali": "Folding bikes and folded e-scooters allowed; full-size bikes need a bike ticket and a space reservation",
+   "risposta": "in addition to your hand luggage, you can take one larger piece of luggage free of charge, as long as one person can carry it alone; there is no booking and no weighing, and the racks are designed for bags of 700 x 500 x 300 mm.",
+   "citazioni": [
+    {
+     "id": "d1",
+     "f": "db",
+     "tema": "numero",
+     "x": "In addition to your hand luggage, you are allowed to carry one additional larger piece of luggage or item free of charge, provided this load can be carried by one person alone."
+    },
+    {
+     "id": "d2",
+     "f": "db",
+     "tema": "numero",
+     "x": "You do not need to make a reservation for your luggage, and you do not need to weigh or measure your bags before you travel."
+    },
+    {
+     "id": "d3",
+     "f": "db",
+     "tema": "misure",
+     "x": "The following standard dimensions were assumed when dimensioning the luggage racks and almost always fit: 700 x 500 x 300 mm (height x width x depth)."
+    },
+    {
+     "id": "d4",
+     "f": "db",
+     "tema": "speciali",
+     "x": "Folding bicycles, folding pedelecs and small electric vehicles (e.g. electric scooters, tread scooters, kickboards, etc.) may be carried when folded, provided they can be stowed safely (e.g. in the luggage rack) and do not obstruct or injure other passengers, or damage the carriage."
+    },
+    {
+     "id": "d5",
+     "f": "db",
+     "tema": "speciali",
+     "x": "You will need a long-distance transport bicycle ticket and a storage space reservation."
+    },
+    {
+     "id": "d6",
+     "f": "db",
+     "tema": "altro",
+     "x": "The information provided here is applicable to long-distance trains operated by Deutsche Bahn."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Is there a luggage limit on Deutsche Bahn trains?",
+     "query": "deutsche bahn luggage limit",
+     "pre": "",
+     "cit": [
+      "d1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the DB luggage size?",
+     "query": "db luggage size",
+     "pre": "There is no fixed limit; Deutsche Bahn says:",
+     "cit": [
+      "d3"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "obb",
+   "slug": "obb-railjet-nightjet",
+   "nome": "ÖBB (Railjet and Nightjet)",
+   "nome_titolo": "ÖBB Railjet and Nightjet",
+   "paese": "Austria",
+   "treni": "ÖBB trains in Austria, including Railjet, and ÖBB Nightjet night trains",
+   "letta": true,
+   "chi": "ÖBB’s fare rules for travel in Austria",
+   "numero": "No fixed number; free if it fits the racks",
+   "misure": "Each piece up to 90 cm x 60 cm x 40 cm",
+   "peso": "Not stated",
+   "extra": "No fee; luggage that blocks passageways or doors can be removed from the train",
+   "speciali": "Skis, snowboards, instruments, pushchairs and folded bikes free even if larger; folded bikes up to 110 cm x 80 cm x 40 cm on Railjet",
+   "risposta": "you can carry luggage free of charge if it fits in the racks above or below your seat or in the areas for hand luggage, and each piece must not exceed 90 cm x 60 cm x 40 cm; skis, instruments, pushchairs and folded bikes may be larger.",
+   "citazioni": [
+    {
+     "id": "b1",
+     "f": "oebb",
+     "tema": "numero",
+     "x": "You can carry along luggage free of charge on our trains, provided that it is stowed in the luggage racks above or below your seat or in the areas provided for hand luggage. The pieces of luggage must not exceed the maximum dimensions of 90 cm x 60 cm x 40 cm."
+    },
+    {
+     "id": "b4",
+     "f": "oebb",
+     "tema": "misure",
+     "x": "If pieces of luggage are too large or if there are too many pieces of luggage, so that passageways, doors, escape routes or safety installations are blocked, thereby endangering the safety of all passengers, we must have them removed from the train."
+    },
+    {
+     "id": "b2",
+     "f": "oebb",
+     "tema": "speciali",
+     "x": "The following pieces of luggage can also be carried along free of charge if the dimensions specified in Section A.4.1.1.1. are exceeded: Skis & snowboards Ski and hiking poles Wind, string or plucked instruments Wheelchairs Strollers Collapsed folding bicycles Scooters and e-Scooters"
+    },
+    {
+     "id": "b3",
+     "f": "oebb",
+     "tema": "speciali",
+     "x": "We transport collapsed folding bicycles and scooters with a maximum dimension of 110 cm x 80 cm x 40 cm free of charge in the multi-purpose compartments of local trains as well as in the marked luggage racks of ÖBB long-distance trains in the Railjet and Railjet Express train categories."
+    },
+    {
+     "id": "n1",
+     "f": "nightjet",
+     "tema": "altro",
+     "x": "Please stow easy-to-stow luggage using the luggage racks above the seats. As their height is limited, please stow bulky luggage under your seat or in suitable luggage racks, if available."
+    },
+    {
+     "id": "n2",
+     "f": "nightjet",
+     "tema": "speciali",
+     "x": "Bicycles can currently only be taken on Nightjets travelling between Germany and Austria, as well as Switzerland (seasonal). Bicycles require separate tickets and reservations."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the ÖBB luggage allowance?",
+     "query": "obb luggage allowance",
+     "pre": "",
+     "cit": [
+      "b1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where do you put luggage on a Nightjet?",
+     "query": "nightjet luggage allowance",
+     "pre": "",
+     "cit": [
+      "n1"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "ns-international",
+   "slug": "ns-international",
+   "nome": "NS International (Eurocity Direct)",
+   "nome_titolo": "NS International Eurocity Direct",
+   "paese": "Netherlands, Belgium",
+   "treni": "Eurocity Direct and EuroCity trains between the Netherlands and Belgium",
+   "letta": true,
+   "chi": "NS International’s luggage page",
+   "numero": "No fixed number; only what you can easily carry and store",
+   "misure": "No maximum size, but it must fit in the racks, under the seat or in the vestibule",
+   "peso": "Not stated",
+   "extra": "Extra luggage for a fee is not possible",
+   "speciali": "Folding prams, musical instruments; separate rules for bicycles",
+   "risposta": "the Eurocity Direct and EuroCity trains have no maximum size for luggage, but it must fit in the racks above the seats, under the seat, in the larger racks or, for large suitcases, in the vestibule; you cannot pay to bring extra luggage.",
+   "nota": "On the same page NS International gives a different rule for ICE trains (2 pieces of regular luggage + 1 piece of hand luggage, up to 85 × 85 × 85 cm), and it does not match Deutsche Bahn’s own luggage page (see our Deutsche Bahn page). If you take an ICE with a lot of luggage, check with the company that sold your ticket before you travel.",
+   "citazioni": [
+    {
+     "id": "ns3",
+     "f": "nsi",
+     "tema": "numero",
+     "x": "Only bring luggage that you can easily carry and store."
+    },
+    {
+     "id": "ns1",
+     "f": "nsi",
+     "tema": "misure",
+     "x": "The trains do not have maximum size restrictions, but your luggage must always be able to fit in one of the following places: - in the luggage racks above the seats - under the seat - in the larger luggage racks or spaces between the compartments - large suitcases can be placed on the balcony, as long as you do not block any doors or walkways"
+    },
+    {
+     "id": "ns2",
+     "f": "nsi",
+     "tema": "extra",
+     "x": "It is not possible to bring extra luggage for a fee."
+    },
+    {
+     "id": "ns4",
+     "f": "nsi",
+     "tema": "altro",
+     "x": "You can usually take your luggage with you on international trains free of charge."
+    },
+    {
+     "id": "ns5",
+     "f": "nsi",
+     "tema": "ice",
+     "x": "Each passenger is allowed to bring: 2 pieces of regular luggage (such as a suitcase, rucksack, travel bag or trolley) + 1 piece of hand luggage, or 1 piece of bulky luggage + 1 piece of regular luggage + 1 piece of hand luggage Maximum dimensions for luggage: 85 × 85 × 85 cm."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the Eurocity Direct luggage allowance?",
+     "query": "eurocity direct luggage allowance",
+     "pre": "",
+     "cit": [
+      "ns3",
+      "ns1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you pay for extra luggage with NS International?",
+     "query": "ns international luggage allowance",
+     "pre": "Not on Eurocity Direct and EuroCity trains:",
+     "cit": [
+      "ns2"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "tgv-lyria",
+   "slug": "tgv-lyria",
+   "nome": "TGV Lyria",
+   "nome_titolo": "TGV Lyria",
+   "paese": "France, Switzerland",
+   "treni": "TGV Lyria trains between France and Switzerland",
+   "letta": true,
+   "chi": "TGV Lyria’s luggage page",
+   "numero": "No limit on the number of items you can carry and store yourself",
+   "misure": "Each item up to 130 x 90 x 50 cm",
+   "peso": "Not stated",
+   "extra": "No fee stated; labels are mandatory",
+   "speciali": "Skis in a labelled cover (one pair per person); bikes folded or with wheels removed in a cover up to 130 cm x 90 cm",
+   "risposta": "only hand luggage of up to 130 x 90 cm x 50 cm per item is allowed on board, with no limit on the number of items as long as you can carry and store them yourself, and labels are mandatory.",
+   "citazioni": [
+    {
+     "id": "l6",
+     "f": "sncf",
+     "tema": "numero",
+     "x": "For your TGV Lyria journeys Take everything you need with you, with no restrictions on the number of items of luggage, as long as you can carry and store them yourself."
+    },
+    {
+     "id": "l2",
+     "f": "lyria",
+     "tema": "numero",
+     "x": "Please only take luggage with you that you can easily carry and stow in the spaces provided for storage."
+    },
+    {
+     "id": "l1",
+     "f": "lyria",
+     "tema": "misure",
+     "x": "For the comfort and safety of all passengers, only hand luggage (maximum 130 x 90 cm x 50 cm) is allowed on board TGV Lyria services."
+    },
+    {
+     "id": "l3",
+     "f": "lyria",
+     "tema": "speciali",
+     "x": "Skis stored in a labeled cover – maximum one pair per passenger (no size restriction)"
+    },
+    {
+     "id": "l4",
+     "f": "lyria",
+     "tema": "speciali",
+     "x": "Bicycles, as long as they can be folded or their wheels can be removed and they are stored in covers (maximum dimensions of 130 cm x 90 cm)"
+    },
+    {
+     "id": "l5",
+     "f": "lyria",
+     "tema": "altro",
+     "x": "Don’t forget to label your luggage. It’s mandatory and it will make your journey brighter!"
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the TGV Lyria luggage size?",
+     "query": "tgv lyria luggage size",
+     "pre": "",
+     "cit": [
+      "l1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need a luggage label on TGV Lyria?",
+     "query": "tgv lyria luggage label",
+     "pre": "Yes:",
+     "cit": [
+      "l5"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "lumo",
+   "slug": "lumo",
+   "nome": "Lumo",
+   "nome_titolo": "Lumo",
+   "paese": "UK",
+   "treni": "Lumo trains (East Coast, London–Edinburgh)",
+   "letta": true,
+   "chi": "Lumo’s onboard luggage policy",
+   "numero": "One small bag or small holdall + one medium suitcase",
+   "misure": "Medium suitcase up to 63 x 41 x 27 cm",
+   "peso": "Not stated; you must be able to carry it yourself",
+   "extra": "£40 per item over the limit, or travel may be refused",
+   "speciali": "No golf clubs, large instruments, full-size bikes or e-scooters; folding bikes with a 90x68x40 cm frame and 20\" wheels",
+   "risposta": "you can bring one small bag or small holdall and one medium suitcase of up to 63 x 41 x 27 cm; luggage over these limits costs £40 per item, or you may be refused travel if it cannot be stored safely.",
+   "citazioni": [
+    {
+     "id": "lu1",
+     "f": "lumo",
+     "tema": "numero",
+     "x": "All customers can bring on board a maximum of ONE Small bag OR Small Holdall and ONE Medium suitcase (63 x 41 x 27cm)."
+    },
+    {
+     "id": "lu5",
+     "f": "lumo",
+     "tema": "misure",
+     "x": "Luggage including winter sports items, above 63x41x27cm (max. 2ft tall), are not allowed."
+    },
+    {
+     "id": "lu2",
+     "f": "lumo",
+     "tema": "extra",
+     "x": "Please note that luggage that exceeds these limits will result in a charge of £40 per item OR customers may be refused travel if safe storage of additional items is not achievable due to busy services."
+    },
+    {
+     "id": "lu3",
+     "f": "lumo",
+     "tema": "speciali",
+     "x": "Golf clubs and large musical instruments are not allowed onboard, travel will be denied if carrying these items."
+    },
+    {
+     "id": "lu4",
+     "f": "lumo",
+     "tema": "speciali",
+     "x": "Bicycles & e-scooters are not accepted. Only foldable bikes, including foldable e-bikes, with a frame 90x68x40cm and 20\" wheel, can be stored onboard."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the Lumo luggage allowance?",
+     "query": "lumo luggage allowance",
+     "pre": "",
+     "cit": [
+      "lu1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the Lumo suitcase size?",
+     "query": "lumo suitcase size",
+     "pre": "",
+     "cit": [
+      "lu1",
+      "lu2"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "avanti",
+   "slug": "avanti-west-coast",
+   "nome": "Avanti West Coast",
+   "nome_titolo": "Avanti West Coast",
+   "paese": "UK",
+   "treni": "Avanti West Coast trains (West Coast Main Line)",
+   "letta": true,
+   "chi": "Avanti West Coast’s luggage page",
+   "numero": "Up to three items",
+   "misure": "Largest bag up to 30 x 70 x 90 cm",
+   "peso": "Not stated; you must be able to carry it all yourself",
+   "extra": "Not stated",
+   "speciali": "Not stated on the page we read",
+   "risposta": "you can bring a maximum of three items of luggage on board, as long as you can carry them all yourself, and your largest bag should not exceed 30 x 70 x 90 cm.",
+   "citazioni": [
+    {
+     "id": "av1",
+     "f": "avanti",
+     "tema": "numero",
+     "x": "You can bring a maximum of three items of luggage onboard with you, providing you're able to carry it all yourself*. Your largest bag should not exceed 30 x 70 x 90cm in size."
+    },
+    {
+     "id": "av2",
+     "f": "avanti",
+     "tema": "misure",
+     "x": "To make best use of our onboard luggage storage, it may be best to bring two small cases rather than one large one."
+    },
+    {
+     "id": "av3",
+     "f": "avanti",
+     "tema": "altro",
+     "x": "During our busiest times – Friday evenings, weekends and throughout the festive period – there are more passengers travelling with luggage. If possible, we ask that you travel light with just a cabin luggage-sized bag."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the Avanti West Coast luggage allowance?",
+     "query": "avanti west coast luggage allowance",
+     "pre": "",
+     "cit": [
+      "av1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What size luggage can you take on Avanti?",
+     "query": "avanti luggage size",
+     "pre": "",
+     "cit": [
+      "av1",
+      "av2"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "iryo",
+   "slug": "iryo",
+   "nome": "Iryo",
+   "paese": "Spain",
+   "letta": false,
+   "url_provato": "https://iryo.eu/en/home",
+   "ente": "Iryo",
+   "motivo_tipo": "bloccata",
+   "motivo": "The official website answered our check with an error (HTTP 403)."
+  },
+  {
+   "id": "trenitalia-france",
+   "slug": "trenitalia-france",
+   "nome": "Trenitalia France",
+   "paese": "France, Italy",
+   "letta": false,
+   "url_provato": "https://trenitalia.fr/voyager-avec-trenitalia/nos-services/bagages-et-velos/",
+   "ente": "Trenitalia France",
+   "motivo_tipo": "bloccata",
+   "motivo": "The official luggage page answered our check with an error (HTTP 403)."
+  },
+  {
+   "id": "sbb",
+   "slug": "sbb",
+   "nome": "SBB (Swiss Federal Railways)",
+   "paese": "Switzerland",
+   "letta": false,
+   "url_provato": "https://www.sbb.ch/en/travel-information/individual-needs/travelling-with-children/pushchairs-luggage-bikes.html",
+   "ente": "SBB",
+   "motivo_tipo": "senza_regola",
+   "motivo": "The SBB pages we read give no number of bags and no size limit for luggage you carry on board yourself."
+  },
+  {
+   "id": "lner",
+   "slug": "lner",
+   "nome": "LNER",
+   "paese": "UK",
+   "letta": false,
+   "url_provato": "https://www.lner.co.uk/our-trains/luggage/",
+   "ente": "LNER",
+   "motivo_tipo": "bloccata",
+   "motivo": "The official luggage page answered our check with an anti-robot page (HTTP 403)."
+  }
+ ],
+ "faq_indice": [
+  {
+   "q": "What is the luggage allowance on European trains?",
+   "query": "luggage allowance on european trains"
+  },
+  {
+   "q": "What are the luggage restrictions on trains in Europe?",
+   "query": "luggage restrictions on trains in europe"
+  }
+ ],
+ "eurostar": {
+  "fonte_tabella": "es_checkin",
+  "stazioni": [
+   {
+    "id": "london",
+    "nome": "London St Pancras International",
+    "breve": "London St Pancras",
+    "arrivo": {
+     "standard": "75",
+     "premier": "45",
+     "accessibile": "60"
+    },
+    "chiusura": {
+     "standard": "30",
+     "premier": "15",
+     "accessibile": "30"
+    },
+    "chiusura_tipo": "gate"
+   },
+   {
+    "id": "paris",
+    "nome": "Paris Gare du Nord",
+    "breve": "Paris Gare du Nord",
+    "arrivo": {
+     "standard": "75-90",
+     "premier": "45-60",
+     "accessibile": "60"
+    },
+    "chiusura": {
+     "standard": "30",
+     "premier": "15",
+     "accessibile": "30"
+    },
+    "chiusura_tipo": "gate"
+   },
+   {
+    "id": "brussels",
+    "nome": "Brussels Midi/Zuid",
+    "breve": "Brussels Midi",
+    "arrivo": {
+     "standard": "45-60",
+     "premier": "30-45",
+     "accessibile": "60"
+    },
+    "chiusura": {
+     "standard": "30",
+     "premier": "15",
+     "accessibile": "30"
+    },
+    "chiusura_tipo": "gate"
+   },
+   {
+    "id": "amsterdam",
+    "nome": "Amsterdam Centraal",
+    "breve": "Amsterdam Centraal",
+    "arrivo": {
+     "standard": "75-90",
+     "premier": "30",
+     "accessibile": "60"
+    },
+    "chiusura": {
+     "standard": "30",
+     "premier": "15",
+     "accessibile": "30"
+    },
+    "chiusura_tipo": "checks"
+   },
+   {
+    "id": "lille",
+    "nome": "Lille Europe",
+    "breve": "Lille Europe",
+    "arrivo": {
+     "standard": "60",
+     "premier": "30",
+     "accessibile": "60"
+    },
+    "chiusura": {
+     "standard": "30",
+     "premier": "15",
+     "accessibile": "30"
+    },
+    "chiusura_tipo": "gate"
+   },
+   {
+    "id": "rotterdam",
+    "nome": "Rotterdam Centraal",
+    "breve": "Rotterdam Centraal",
+    "arrivo": {
+     "standard": "45-60",
+     "premier": "30",
+     "accessibile": "60"
+    },
+    "chiusura": {
+     "standard": "30",
+     "premier": "15",
+     "accessibile": "30"
+    },
+    "chiusura_tipo": "checks"
+   }
+  ],
+  "citazioni": [
+   {
+    "id": "k1",
+    "f": "es_checkin",
+    "tema": "arrivo",
+    "x": "When travelling to and from London, there are passport and luggage checks before you board the train. The timings below are just for guidance and can sometimes change. Download your ticket to check the most up-to-date recommended arrival time."
+   },
+   {
+    "id": "k2",
+    "f": "es_checkin",
+    "tema": "arrivo",
+    "x": "Please arrive at the recommended time and not just before the ticket gates close."
+   },
+   {
+    "id": "k5",
+    "f": "es_checkin",
+    "tema": "arrivo",
+    "x": "There may be times when you experience queues at the station. This can particularly happen on peak days or when checks take a bit longer."
+   },
+   {
+    "id": "k3",
+    "f": "es_checkin",
+    "tema": "continente",
+    "x": "When travelling on our trains (except to and from London), just look for your train on the departure board and head straight to the platform. For stress-free boarding, we’d recommend arriving at the station 20 minutes before your scheduled departure time. Be ready to board at least 5 minutes before departure (10 minutes when travelling from Paris Gare du Nord)."
+   },
+   {
+    "id": "k4",
+    "f": "es_checkin",
+    "tema": "continente",
+    "x": "To access the platforms at Amsterdam Centraal or Rotterdam Centraal, you’ll need to scan your ticket’s QR code at the station’s ticket gates."
+   },
+   {
+    "id": "x7",
+    "f": "es_stp",
+    "tema": "ees",
+    "x": "From 12 October 2025, we're gradually introducing the EU's new Entry/Exit System (EES) border procedures."
+   },
+   {
+    "id": "x1",
+    "f": "es_ees",
+    "tema": "ees",
+    "x": "The EU’s Entry/Exit System (EES) is a new border requirement for non-EU nationals (including British nationals). It impacts Eurostar journeys to/from London."
+   },
+   {
+    "id": "x2",
+    "f": "es_ees",
+    "tema": "ees",
+    "x": "It’s being gradually rolled out from 12 October 2025."
+   },
+   {
+    "id": "x3",
+    "f": "es_ees",
+    "tema": "ees",
+    "x": "EES isn’t like a travel authorisation or visa – it's completely free and you don’t need to apply for anything ahead of your journey. It all happens at border control at your departure station on the day of travel."
+   },
+   {
+    "id": "x4",
+    "f": "es_ees",
+    "tema": "ees",
+    "x": "Just arrive at the station at the recommended time stated on your ticket. This timing takes into account how much time you’ll need for all pre-departure checks (ticket, security and border checks). We’ve also allowed for any EES steps you may have to complete at border control, which may include registering your biometrics (face image and fingerprints)."
+   },
+   {
+    "id": "x5",
+    "f": "es_ees",
+    "tema": "kiosk",
+    "x": "Travelling in Eurostar Premier or as a Carte Blanche or Étoile Club Eurostar member from London St Pancras International? When you get to Eurostar Departures to start your journey, you may be invited by our station team to register with EES using a pre-registration kiosk. These are located opposite the Eurostar Premier priority ticket gates."
+   },
+   {
+    "id": "x8",
+    "f": "es_ees",
+    "tema": "kiosk",
+    "x": "Eurostar Premier priority ticket gates close 15 minutes before departure, but please make sure you arrive at departures with plenty of time to spare."
+   },
+   {
+    "id": "x6",
+    "f": "es_ees",
+    "tema": "ees",
+    "x": "In time, all non-EU nationals required to register for EES (including British nationals) will need to do so every time they enter or leave the EU - so, every time they travel to or from London with Eurostar."
+   }
+  ],
+  "nota_ees": "Eurostar’s help page on EES still describes the first months of the roll-out; the European Commission says EES became fully operational on 10 April 2026 (quoted below).",
+  "faq": [
+   {
+    "q": "How early should you arrive for Eurostar at St Pancras?",
+    "query": "how early to arrive for eurostar st pancras",
+    "stazione": "london"
+   },
+   {
+    "q": "What is the Eurostar check-in time at Gare du Nord?",
+    "query": "eurostar check in time gare du nord",
+    "stazione": "paris"
+   },
+   {
+    "q": "What is the Eurostar check-in time in Brussels?",
+    "query": "eurostar check in time brussels",
+    "stazione": "brussels"
+   },
+   {
+    "q": "How early should you arrive for Eurostar in Amsterdam?",
+    "query": "how early to arrive for eurostar amsterdam",
+    "stazione": "amsterdam"
+   },
+   {
+    "q": "What does EES mean for Eurostar passengers?",
+    "query": "eurostar ees",
+    "pre": "",
+    "cit": [
+     "x1",
+     "x3"
+    ],
+    "post": ""
+   },
+   {
+    "q": "Where are the Eurostar EES kiosks?",
+    "query": "eurostar ees kiosks",
+    "pre": "",
+    "cit": [
+     "x5"
+    ],
+    "post": ""
+   }
+  ]
+ }
+}

@@ -2429,11 +2429,12 @@ def pagina_ees():
 <h2>What UK travellers need to do now (GOV.UK)</h2>
 {cit_html(gov)}
 <p class="fonte">Official source: <a href="{escape(G['url'])}" rel="noopener">{escape(G['titolo'])}</a> · page updated {data_lunga(G['aggiornata'])} · checked on {data_lunga(EES['controllato_il'])} · <a href="{OGL}" rel="noopener">Open Government Licence v3.0</a>. The same text appears in the FCDO advice for other Schengen countries.</p>
+{link_es_tb(rel)}
 <h2>Official EU website for EES and ETIAS</h2>
 <p>The EU's official site for travellers is travel-europe.europa.eu: <a href="{escape(EES['sito_ufficiale']['ees'])}" rel="noopener">EES page</a> and <a href="{escape(EES['sito_ufficiale']['etias'])}" rel="noopener">ETIAS page</a>. Our server could not read it on {data_lunga(EES['controllato_il'])} (its security certificate chain was incomplete for automated tools), so we quote the European Commission pages above instead.</p>
 <p class="avviso">This page is information, not legal advice. Border guards apply the rules at the border. Before you travel, check the official pages linked above and your airline, ferry or train operator.</p>
 {box_affiliati()}
-<p><a href="{rel}passport-validity/">Passport validity rules</a> · <a href="{rel}liquids/">Liquids rules by airport</a></p>"""
+<p><a href="{rel}passport-validity/">Passport validity rules</a> · <a href="{rel}liquids/">Liquids rules by airport</a>{f' · <a href="{rel}{TB_ES}/">Eurostar check-in times by station, with EES</a>' if TB_EUR else ""}</p>"""
     pagina("ees-etias/", f"EES and ETIAS status {ANNO}: official EU statements",
            "Is ETIAS in operation? Is EES live? The European Commission's own statements, and what UK travellers must do now according to GOV.UK, with dates.",
            corpo, briciole=[("EES and ETIAS", "ees-etias/")])
@@ -2899,6 +2900,7 @@ def indice_bagagli():
 <p>We only publish an airline when we can read its official page and the sizes on it. Not included on {data_lunga(BAG['controllato_il'])}:</p>
 <ul>{esclusi}</ul>
 <p class="small">Last checked: {data_lunga(BAG['controllato_il'])}. Spotted a change? <a href="{rel}contact/?ref=cabin-bags">Tell us</a>.</p>
+{f'<p class="altri-pass">{ico("bag")}<span>Taking the train instead? <a href="{rel}{TB_BASE}/">Luggage rules on European trains</a>: Eurostar, TGV INOUI, OUIGO, Avlo, Italo, Deutsche Bahn and more</span></p>' if TB else ""}
 {box_bagagli()}"""
     pagina(f"{BAG_BASE}/", f"Cabin Bag Size by Airline {ANNO}: Free & Paid ({len(COMPAGNIE)} Airlines)",
            f"Hand luggage size limits of {len(COMPAGNIE)} airlines (Ryanair, easyJet, Wizz Air, BA, United…): the free under-seat bag and the cabin bag, from official pages.",
@@ -5754,6 +5756,362 @@ def home_tr():
             f'<a href="{TR_BASE}/">every city in one table</a>.</p><div class="griglia">{voci}</div>')
 
 
+# ---------------------------------------------------------------- Bagagli sui treni per compagnia + orari di arrivo Eurostar con l'EES (31/10/2026)
+# Quanti bagagli, quanto grandi, supplementi, bici e sci, dalle pagine ufficiali delle compagnie ferroviarie (citazioni parola per parola).
+# Fatti scritti a mano in dati/treni_bagagli_manuali.json, fonti rilette da raccolta/treni_bagagli.py (HTTP 200, data, impronta) che scrive
+# dati/treni_bagagli.json. Una pagina solo per le compagnie con la regola letta da una pagina ufficiale attuale; le altre restano
+# nell'indice come "Not read" con il motivo, senza dati. Pagina a parte: orari di arrivo Eurostar per stazione (tabella ufficiale) con l'EES.
+# Nessun riquadro di affiliazione (nessun programma attivo pertinente in affiliati.json al 31/10/2026); AdSense sì (spazio {AD}).
+TB_BASE = "train-luggage-rules"
+TB_ES = "eurostar-check-in-times"
+_f_tb = DATI / "treni_bagagli.json"
+TB = json.loads(_f_tb.read_text(encoding="utf-8")) if _f_tb.exists() else None
+TB_COMP = TB["compagnie"] if TB else []
+TB_LETTE = [c for c in TB_COMP if c["letta"]]
+TB_PER = {c["id"]: c for c in TB_COMP}
+TB_EUR = (TB or {}).get("eurostar")
+LIMITE_TITOLO_TB = 70
+TEMI_TB = [("numero", "How many bags"), ("misure", "Size and weight"), ("extra", "Extra bags and fees"),
+           ("speciali", "Bikes, skis, pushchairs and instruments"), ("cambio", "Changes announced"),
+           ("ice", "ICE trains, on the same page"), ("altro", "Also on the official pages")]
+LINGUE_TB = {"es": "Spanish"}
+CLASSI_ES = [("standard", "Eurostar Standard and Plus"), ("premier", "Eurostar Premier"), ("accessibile", "Accessible travel")]
+
+
+PRIME_PAROLE_MINUSCOLE_TB = {"One", "Up", "Hand", "Not", "No", "As", "Largest", "Bags", "Suitcase", "Each", "Medium", "Extra", "Excess"}
+
+
+def minuscola_tb(s):
+    """Riassunto dentro una frase (descrizione, FAQ dell'indice): prima parola comune in minuscolo ("Up to three items" -> "up to ...")."""
+    return s[0].lower() + s[1:] if s.split(" ", 1)[0] in PRIME_PAROLE_MINUSCOLE_TB else s
+
+
+def url_tb(c=None):
+    return f"{TB_BASE}/" if c is None else f"{TB_BASE}/{c['slug']}/"
+
+
+def fonti_tb(cc):
+    out = []
+    for x in cc:
+        if x["f"] not in out:
+            out.append(x["f"])
+    return out
+
+
+def data_tb(c):
+    return max(TB["fonti"][f]["letto_il"] for f in fonti_tb(c["citazioni"]))
+
+
+def cit_tb(cc, id_):
+    return next(x for x in cc if x["id"] == id_)
+
+
+def link_fonte_tb(fid):
+    F = TB["fonti"][fid]
+    return f'<a href="{escape(F["url"])}" rel="noopener">{escape(F["titolo"])}</a>'
+
+
+def blocco_cit_tb(cc):
+    """Citazioni raggruppate per fonte: virgolette, traduzione nostra (fonti non inglesi), fonte, ente e data."""
+    out, gruppi = [], []
+    for x in cc:
+        if gruppi and gruppi[-1][0] == x["f"]:
+            gruppi[-1][1].append(x)
+        else:
+            gruppi.append((x["f"], [x]))
+    for fid, gg in gruppi:
+        F = TB["fonti"][fid]
+        h = "".join(f"<p>{escape(x['x'])}</p>" + (f'<p class="trad" lang="en"><em>Our translation:</em> {escape(x["tr"])}</p>' if x.get("tr") else "")
+                    for x in gg)
+        lingua = f' lang="{F["lingua"]}"' if F["lingua"] != "en" else ""
+        out.append(f'<blockquote class="cit"{lingua}>{h}</blockquote><p class="fonte">Source: {link_fonte_tb(fid)} ({escape(F["ente"])}), '
+                   f'checked on {data_lunga(F["letto_il"])}. Quoted word for word.</p>')
+    return "".join(out)
+
+
+def risposta_tb(c):
+    return f"According to {c['chi']}, checked on {data_lunga(data_tb(c))}, {c['risposta']}"
+
+
+def faq_cit_tb(ff, cc):
+    """Domande da ricerche vere: parole nostre (pre, post) + citazioni; le citazioni non inglesi entrano con la traduzione nostra."""
+    out = []
+    for f in ff:
+        parti = [f["pre"]] if f.get("pre") else []
+        for i in f["cit"]:
+            x = cit_tb(cc, i)
+            parti.append(f"“{x.get('tr') or x['x']}”")
+        if f.get("post"):
+            parti.append(f["post"])
+        out.append((f["q"], " ".join(parti)))
+    return out
+
+
+def faq_tb(c):
+    return faq_cit_tb(c["faq"], c["citazioni"])
+
+
+AVVISO_TB = ('<p class="avviso"><strong>Train companies change their luggage rules, and staff on board decide when a train is full.</strong> We quote '
+             'each company’s own pages word for word, with the date we checked them; the short summaries are ours. Your ticket and the '
+             'company’s current page decide.</p>')
+
+
+def h1_tb(c):
+    return f"{c['nome_titolo']} luggage allowance: how many bags, what size and extra bags ({ANNO})"
+
+
+def titoli_tb(c):
+    n = c["nome_titolo"]
+    return [f"{n} Luggage Allowance: Bags, Size and Extra Fees ({ANNO})", f"{n} Luggage Allowance and Size Limits ({ANNO})",
+            f"{n} Luggage Rules ({ANNO})"]
+
+
+def descrizione_tb(c):
+    d = data_lunga(data_tb(c))
+    n, m = minuscola_tb(c["numero"]), minuscola_tb(c["misure"])
+    return scegli([f"{c['nome_titolo']} luggage: {n}; {m}. Official rules quoted word for word, checked on {d}.",
+                   f"{c['nome_titolo']} luggage: {n}. Official rules quoted word for word, checked on {d}.",
+                   f"{c['nome_titolo']} luggage allowance, size limits and extra bag fees from the official page, checked on {d}."], LIMITE_DESCRIZIONE)
+
+
+def link_es_tb(rel):
+    if not TB_EUR:
+        return ""
+    return (f'<p class="altri-pass">{ico("scan")}<span>Travelling to or from London? <a href="{rel}{TB_ES}/">Eurostar check-in times by station, '
+            f'with the EES border checks</a></span></p>')
+
+
+def pagina_tb(c):
+    rel = "../../"
+    temi = "".join(f'<h3>{escape(t)}</h3>{blocco_cit_tb([x for x in c["citazioni"] if x["tema"] == k])}'
+                   for k, t in TEMI_TB if any(x["tema"] == k for x in c["citazioni"]))
+    sguardo = (f'<tr><th scope="row">Trains</th><td>{escape(c["treni"])}</td></tr>'
+               f'<tr><th scope="row">Bags you can bring</th><td>{escape(c["numero"])}</td></tr>'
+               f'<tr><th scope="row">Size limit</th><td>{escape(c["misure"])}</td></tr>'
+               f'<tr><th scope="row">Weight</th><td>{escape(c["peso"])}</td></tr>'
+               f'<tr><th scope="row">Extra bags and fees</th><td>{escape(c["extra"])}</td></tr>'
+               f'<tr><th scope="row">Bikes, skis, pushchairs</th><td>{escape(c["speciali"])}</td></tr>'
+               f'<tr><th scope="row">Checked</th><td>{data_lunga(data_tb(c))}</td></tr>')
+    altri = "".join(f'<a href="{rel}{url_tb(x)}">{escape(x["nome_titolo"])}<small>{escape(x["paese"])}</small></a>'
+                    for x in TB_LETTE if x["id"] != c["id"])
+    faq_h, faq_ld = html_faq_tr(faq_tb(c))
+    corpo = f"""<section class="hero">{h1_diviso(h1_tb(c))}</section>
+<section class="card summary" aria-label="Answer">
+<div class="s-top"><span class="sq">{ico("bag")}</span><span>Train luggage · {escape(c["nome"])}</span><span>{ANNO}</span></div>
+<div class="s-body">
+<p class="lead" id="answer">{escape(risposta_tb(c))}</p>
+{f'<p class="small" data-nota>{escape(c["nota"])}</p>' if c.get("nota") else ""}
+</div></section>
+{AVVISO_TB}
+<h2>At a glance</h2>
+<div class="tab tab-g"><table><caption class="cap">{escape(c["nome"])} luggage: our summary of the official pages, checked on {data_lunga(data_tb(c))}</caption><tbody>{sguardo}</tbody></table></div>
+<h2 id="official">What the official pages say</h2>
+{temi}
+{AD}
+{link_es_tb(rel) if c["id"] == "eurostar" else ""}
+<p class="altri-pass">{ico("bag")}<span>Flying instead? <a href="{rel}{BAG_BASE}/">Cabin bag size by airline</a> · <a href="{rel}liquids/">liquids rules by airport</a></span></p>
+<h2>Other train companies</h2>
+<div class="griglia">{altri}</div>
+<p><a href="{rel}{TB_BASE}/">Luggage rules of {len(TB_COMP)} train companies in one table</a></p>
+{faq_h}
+<p class="small">Spotted a change? <a href="{rel}contact/?ref={TB_BASE}">Tell us</a>.</p>"""
+    pagina(url_tb(c), scegli(titoli_tb(c), LIMITE_TITOLO_TB), descrizione_tb(c), corpo,
+           briciole=[("Train luggage rules", f"{TB_BASE}/"), (c["nome_titolo"], url_tb(c))], ld_extra=faq_ld)
+    LASTMOD[url_tb(c)] = data_tb(c)
+
+
+def enti_tb(c):
+    out = {}
+    for f in fonti_tb(c["citazioni"]):
+        out.setdefault(TB["fonti"][f]["ente"], f)
+    return list(out.items())
+
+
+def non_letta_tb(c):
+    """Riga "Not read": il motivo e la pagina ufficiale provata (nessun aggiramento, nessun dato)."""
+    P = (TB.get("non_lette") or {}).get(c["id"]) or {}
+    quando = f" (checked on {data_lunga(P['provato_il'])})" if P.get("provato_il") else ""
+    return f'Not read{quando}. {escape(c["motivo"])} Official page: <a href="{escape(c["url_provato"])}" rel="noopener">{escape(c["ente"])}</a>.'
+
+
+def riga_tb(c, rel):
+    if not c["letta"]:
+        return (f'<tr data-voce id="{c["id"]}"><td data-l="Train company">{escape(c["nome"])}<br><small>{escape(c["paese"])}</small></td>'
+                f'<td data-l="Rules" colspan="4">{non_letta_tb(c)}</td></tr>')
+    fonti = " · ".join(f'<a href="{escape(TB["fonti"][f]["url"])}" rel="noopener">{escape(e)}</a>' for e, f in enti_tb(c))
+    return (f'<tr data-voce id="{c["id"]}"><td data-l="Train company"><a href="{rel}{url_tb(c)}">{escape(c["nome"])}</a><br><small>{escape(c["paese"])}</small></td>'
+            f'<td data-l="Bags you can bring">{escape(c["numero"])}</td>'
+            f'<td data-l="Size limit">{escape(c["misure"])}</td>'
+            f'<td data-l="Extra bags and fees">{escape(c["extra"])}</td>'
+            f'<td data-l="Source, checked">{fonti}, {data_lunga(data_tb(c))}</td></tr>')
+
+
+def prima_frase_tb():
+    lette, tot = len(TB_LETTE), len(TB_COMP)
+    return (f"According to the official pages of {lette} of the {tot} train companies we checked, read on {data_lunga(TB['controllato_il'])}, "
+            "the table below gives how many bags you can bring, the size limits and the fees for extra bags, with the source of each rule; "
+            f"for the other {tot - lette} the official page did not open for our check or did not state a rule, so we give no rules for them.")
+
+
+def titolo_indice_tb():
+    return [f"Luggage Rules on European Trains: {len(TB_LETTE)} Companies Compared ({ANNO})", f"Luggage Rules on European Trains ({ANNO})"]
+
+
+def faq_indice_tb():
+    """Risposte costruite dai riassunti delle compagnie lette (i numeri vengono dalle citazioni, controllati da verifica.py)."""
+    risposte = {
+        "luggage allowance on european trains": "It depends on the company. On the official pages we read: "
+                                                + "; ".join(f"{c['nome_titolo']}: {minuscola_tb(c['numero'])}" for c in TB_LETTE) + ".",
+        "luggage restrictions on trains in europe": "Each company sets its own limits (see the table above). On the official pages we read, "
+                                                    "these companies charge for extra, oversized or non-compliant bags: "
+                                                    + "; ".join(f"{c['nome_titolo']} ({minuscola_tb(c['extra'])})" for c in TB_LETTE
+                                                                if re.search(r"[€£]\d", c["extra"])) + ".",
+    }
+    return [(f["q"], risposte[f["query"]]) for f in TB["faq_indice"] if risposte.get(f["query"])]
+
+
+def pagina_indice_tb():
+    rel = "../"
+    d = data_lunga(TB["controllato_il"])
+    righe = "".join(riga_tb(c, rel) for c in TB_COMP)
+    faq_h, faq_ld = html_faq_tr(faq_indice_tb())
+    corpo = f"""<section class="hero">{h1_diviso(f"Luggage rules on European trains: how many bags, what size and extra bag fees ({ANNO})")}
+<p class="lead" id="answer">{escape(prima_frase_tb())}</p></section>
+{AVVISO_TB}
+<p>“Bags you can bring” and “Size limit” are our short summaries of each company’s official page; the company page quotes the rule word for word. “Not stated” means the pages we read do not say. Sizes are in the order the company writes them.</p>
+<div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a company or country, e.g. Eurostar, Spain" data-filtro-multi aria-label="Search train companies"></div>
+<div class="tab tab-b tab-srv"><table><caption class="cap">Luggage rules of {len(TB_COMP)} train companies: {len(TB_LETTE)} read from the official pages, checked on {d}</caption><thead><tr><th>Train company</th><th>Bags you can bring</th><th>Size limit</th><th>Extra bags and fees</th><th>Source, checked</th></tr></thead><tbody>{righe}</tbody></table></div>
+{AD}
+{link_es_tb(rel)}
+<p class="altri-pass">{ico("bag")}<span>Flying instead? <a href="{rel}{BAG_BASE}/">Cabin bag size by airline</a> · <a href="{rel}liquids/">liquids rules by airport</a></span></p>
+{faq_h}
+<h2>How we check</h2>
+<p>We read each train company’s own luggage pages (for TGV INOUI, SNCF’s booking site SNCF Connect) and quote them word for word with the date; Spanish quotes come with our translation. A company gets a page only if its official page states how many bags or how large they can be. Some official websites answer automated checks with an error or an anti-robot page: we do not try to pass those checks and we do not copy their rules from other websites, so those rows say “Not read”. We check every source again every three months. More on the <a href="{rel}about/#{TB_BASE}">About page</a>. Spotted a change? <a href="{rel}contact/?ref={TB_BASE}">Tell us</a>.</p>"""
+    desc = scegli([f"How many bags, what size and extra bag fees on {len(TB_LETTE)} European train companies (Eurostar, TGV INOUI, OUIGO, Avlo, Italo, DB), from official pages, checked on {d}.",
+                   f"Luggage rules of {len(TB_LETTE)} European train companies from their official pages, checked on {d}."], LIMITE_DESCRIZIONE)
+    pagina(f"{TB_BASE}/", scegli(titolo_indice_tb(), LIMITE_TITOLO_TB), desc, corpo,
+           briciole=[("Train luggage rules", f"{TB_BASE}/")], js=APP_JS_FILTRO, ld_extra=faq_ld)
+    LASTMOD[f"{TB_BASE}/"] = TB["controllato_il"]
+
+
+# ---- Eurostar: orari di arrivo per stazione con l'EES
+def stazione_es(sid):
+    return next(s for s in TB_EUR["stazioni"] if s["id"] == sid)
+
+
+def data_es():
+    return max(TB["fonti"][f]["letto_il"] for f in fonti_tb(TB_EUR["citazioni"]) + [TB_EUR["fonte_tabella"]])
+
+
+def frasi_ees_es():
+    """Dalla pagina EES già controllata (dati/ees_etias.json, raccolta/eesetias.py): data del pieno funzionamento e frase GOV.UK su St Pancras."""
+    com = [f for f in frasi_ees("ees") if "fully operational" in f["frase"]]
+    gov = [g["frase"] for g in EES["govuk"]["frasi"] if g["trovata"] and "St Pancras" in g["frase"]]
+    return com, gov
+
+
+def risposta_staz_es(s):
+    a, c = s["arrivo"], s["chiusura"]
+    chiude = "the gates close" if s["chiusura_tipo"] == "gate" else "ticket checks close"
+    return (f"Eurostar’s table for {s['nome']} says to arrive {a['standard']} minutes before departure in Eurostar Standard and Eurostar Plus, "
+            f"{a['premier']} minutes in Eurostar Premier and {a['accessibile']} minutes for accessible travel; {chiude} {c['standard']} minutes before "
+            f"departure ({c['premier']} minutes in Premier).")
+
+
+def faq_es():
+    out = []
+    for f in TB_EUR["faq"]:
+        if f.get("stazione"):
+            out.append((f["q"], risposta_staz_es(stazione_es(f["stazione"]))))
+        else:
+            out += faq_cit_tb([f], TB_EUR["citazioni"])
+    return out
+
+
+def prima_frase_es():
+    L, P = stazione_es("london"), stazione_es("paris")
+    return (f"According to Eurostar’s “When to arrive at the station” page, checked on {data_lunga(data_es())}, you should arrive at "
+            f"{L['nome']} {L['arrivo']['standard']} minutes before departure in Eurostar Standard and Plus ({L['arrivo']['premier']} in Premier) "
+            f"and at {P['nome']} {P['arrivo']['standard']} minutes before; Eurostar says the arrival time shown on your ticket already allows for "
+            "any checks under the EU’s Entry/Exit System (EES), introduced from 12 October 2025.")
+
+
+def titolo_es():
+    return [f"Eurostar Check-in Times by Station, with EES Border Checks ({ANNO})", f"Eurostar Check-in Times by Station and EES ({ANNO})"]
+
+
+def pagina_es():
+    rel = "../"
+    cc = TB_EUR["citazioni"]
+    d = data_lunga(data_es())
+    righe = "".join(
+        f'<tr data-voce id="{s["id"]}"><td data-l="Station"><strong>{escape(s["nome"])}</strong></td>'
+        + "".join(f'<td data-l="Arrive: {escape(n)}">{escape(s["arrivo"][k])} min</td>' for k, n in CLASSI_ES)
+        + f'<td data-l="{"Gates close" if s["chiusura_tipo"] == "gate" else "Ticket checks close"}">'
+          f'{escape(s["chiusura"]["standard"])} min <small>(Premier {escape(s["chiusura"]["premier"])} min; accessible travel {escape(s["chiusura"]["accessibile"])} min)</small></td></tr>'
+        for s in TB_EUR["stazioni"])
+    com, gov = frasi_ees_es()
+    ees_ue = ""
+    if com:
+        ees_ue += f"{cit_html([f['frase'] for f in com])}{fonti_ees(com)}"
+    if gov:
+        G = EES["govuk"]
+        ees_ue += (f"{cit_html(gov)}<p class=\"fonte\">Official source: <a href=\"{escape(G['url'])}\" rel=\"noopener\">{escape(G['titolo'])}</a> · "
+                   f"page updated {data_lunga(G['aggiornata'])} · checked on {data_lunga(EES['controllato_il'])} · "
+                   f"<a href=\"{OGL}\" rel=\"noopener\">Open Government Licence v3.0</a></p>")
+    eur = TB_PER.get("eurostar")
+    faq_h, faq_ld = html_faq_tr(faq_es())
+    corpo = f"""<section class="hero">{h1_diviso(f"Eurostar check-in times by station, with the EES border checks ({ANNO})")}</section>
+<section class="card summary" aria-label="Answer">
+<div class="s-top"><span class="sq">{ico("scan")}</span><span>Eurostar · when to arrive</span><span>{ANNO}</span></div>
+<div class="s-body">
+<p class="lead" id="answer">{escape(prima_frase_es())}</p>
+<p class="small" data-nota>{escape(TB_EUR["nota_ees"])}</p>
+</div></section>
+<p class="avviso"><strong>The time on your ticket comes first.</strong> Eurostar says its timings are for guidance and can change, and that your downloaded ticket shows the most up-to-date recommended arrival time. We quote Eurostar’s own pages word for word, with the date we checked them.</p>
+<h2>Trains to and from London: recommended arrival time</h2>
+<div class="tab tab-b tab-srv"><table><caption class="cap">Minutes before departure, from Eurostar’s table “Recommended arrival times when travelling to and from London”, checked on {d}</caption><thead><tr><th>Station</th>{"".join(f"<th>Arrive: {escape(n)}</th>" for _, n in CLASSI_ES)}<th>Gates or ticket checks close</th></tr></thead><tbody>{righe}</tbody></table></div>
+<p class="fonte">Source: {link_fonte_tb(TB_EUR["fonte_tabella"])} (Eurostar), checked on {data_lunga(TB["fonti"][TB_EUR["fonte_tabella"]]["letto_il"])}. Numbers copied from the official table; at Amsterdam Centraal and Rotterdam Centraal the table says “ticket checks close” instead of “gate close”.</p>
+{blocco_cit_tb([x for x in cc if x["tema"] == "arrivo"])}
+{AD}
+<h2>Trains between Belgium, France, the Netherlands and Germany</h2>
+{blocco_cit_tb([x for x in cc if x["tema"] == "continente"])}
+<h2>EES: what Eurostar says</h2>
+{blocco_cit_tb([x for x in cc if x["tema"] == "ees"])}
+<h3>EES kiosks at St Pancras</h3>
+{blocco_cit_tb([x for x in cc if x["tema"] == "kiosk"])}
+<h2>EES: what the European Commission and GOV.UK say</h2>
+{ees_ue}
+<p><a href="{rel}ees-etias/">EES and ETIAS: the official status today</a></p>
+{f'<p class="altri-pass">{ico("bag")}<span>Packing? <a href="{rel}{url_tb(eur)}">Eurostar luggage allowance: {escape(eur["numero"])}</a> · <a href="{rel}{TB_BASE}/">luggage rules on European trains</a></span></p>' if eur and eur["letta"] else ""}
+{faq_h}
+<p class="small">This page is information, not legal advice. Border officers apply the rules at the border. Spotted a change? <a href="{rel}contact/?ref={TB_ES}">Tell us</a>.</p>"""
+    desc = scegli([f"When to arrive for Eurostar at St Pancras, Paris Gare du Nord, Brussels, Amsterdam, Lille and Rotterdam, with the EES border checks. Official, checked on {d}.",
+                   f"Eurostar recommended arrival times by station and the EES border checks, from Eurostar's own pages, checked on {d}."], LIMITE_DESCRIZIONE)
+    pagina(f"{TB_ES}/", scegli(titolo_es(), LIMITE_TITOLO_TB), desc, corpo, briciole=[("Eurostar check-in times", f"{TB_ES}/")], ld_extra=faq_ld)
+    LASTMOD[f"{TB_ES}/"] = data_es()
+
+
+def home_tb():
+    if not TB:
+        return ""
+    voci = "".join(f'<a href="{url_tb(c)}">{escape(c["nome_titolo"])}<small>{escape(c["numero"])}</small></a>' for c in TB_LETTE)
+    es = (f' Taking the Eurostar? <a href="{TB_ES}/">Check-in times by station, with the EES border checks</a>.' if TB_EUR else "")
+    return (f'<h2>Luggage rules on European trains</h2><p>How many bags you can bring, the size limits and the fees for extra bags on '
+            f'{len(TB_LETTE)} train companies, from their own pages: <a href="{TB_BASE}/">every company in one table</a>.{es}</p>'
+            f'<div class="griglia">{voci}</div>')
+
+
+def about_tb(rel):
+    if not TB:
+        return ""
+    enti = list(dict.fromkeys(F["ente"] for F in TB["fonti"].values()))
+    non = [c["nome"] for c in TB_COMP if not c["letta"]]
+    return f"""<h2 id="{TB_BASE}">Luggage rules on trains and Eurostar check-in times</h2>
+<p>Sources: the official pages of the train companies ({escape(", ".join(enti))}), {len(TB["fonti"])} pages in all, read on {data_lunga(TB["controllato_il"])}. Each company page links every page it quotes. The <a href="{rel}{TB_ES}/">Eurostar check-in page</a> copies the numbers of Eurostar’s own table of recommended arrival times, and quotes Eurostar, the European Commission and GOV.UK on EES.</p>
+<p>Rules: every sentence shown between quotation marks is copied word for word from the official page (Spanish with our translation); the short summaries in the tables are ours. A company gets a page only when its official page states how many bags or how large they can be. Some official websites answer automated checks with an error or an anti-robot page, or do not state a rule; we do not try to pass those checks and we do not take rules from other websites, so these companies have no page and the table says why: {escape(", ".join(non))}.</p>"""
+
+
 def about_tr(rel):
     if not TR:
         return ""
@@ -5818,6 +6176,7 @@ def home():
 {home_big()}
 {home_fl()}
 {home_tr()}
+{home_tb()}
 {box_affiliati()}
 {dati_json('tutti-dati', [dati_client(P) for P in PAESI])}"""
     pagina("", f"Before You Fly {ANNO}: Passport, Visas, Liquids, Cabin Bags, EES",
@@ -5889,6 +6248,7 @@ def about():
 {about_big(rel)}
 {about_fl(rel)}
 {about_tr(rel)}
+{about_tb(rel)}
 <h2>EES and ETIAS</h2>
 <p>European Commission (DG Migration and Home Affairs) pages and GOV.UK travel advice, last checked on {data_lunga(EES['controllato_il'])}. See the <a href="{rel}ees-etias/">EES and ETIAS page</a>.</p>
 <h2>Corrections</h2>
@@ -5957,7 +6317,7 @@ def extra():
 """)
     pagina("404.html", f"Page not found | {NOME}", "Page not found.",
            '<section class="hero"><h1>Page not found</h1><p class="lead">Go to the <a href="/">home page</a>, the <a href="/passport-validity/">passport validity rules</a> '
-           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> <a href="/driving-abroad/">driving abroad with your licence</a>, <a href="/tolls-rental-car/">tolls with a rental car</a>, <a href="/winter-tyres-rental-car/">winter tyres with a rental car</a>, <a href="/foreign-licence-canada-australia-nz/">driving in Canada, Australia and New Zealand on a foreign licence</a>, <a href="/ticket-release-dates/">when tickets go on sale at major attractions</a> or <a href="/public-transport-rules/">public transport fines and contactless payment by city</a>.</p></section>', indicizza=False, assoluto=True)
+           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> <a href="/driving-abroad/">driving abroad with your licence</a>, <a href="/tolls-rental-car/">tolls with a rental car</a>, <a href="/winter-tyres-rental-car/">winter tyres with a rental car</a>, <a href="/foreign-licence-canada-australia-nz/">driving in Canada, Australia and New Zealand on a foreign licence</a>, <a href="/ticket-release-dates/">when tickets go on sale at major attractions</a>, <a href="/public-transport-rules/">public transport fines and contactless payment by city</a>, <a href="/train-luggage-rules/">luggage rules on European trains</a> or <a href="/eurostar-check-in-times/">Eurostar check-in times</a>.</p></section>', indicizza=False, assoluto=True)
 
 
 def copia_grafica():
@@ -6165,6 +6525,48 @@ def controlli():
                     errori.append(f"trasporti {c['id']}: FAQ «{q['q']}» senza citazioni o con citazione sconosciuta")
             if len(scegli(titoli_tr(c), LIMITE_TITOLO_TR)) > LIMITE_TITOLO_TR:
                 errori.append(f"trasporti {c['id']}: titolo oltre {LIMITE_TITOLO_TR} caratteri")
+    if TB:  # bagagli sui treni e orari Eurostar: fonti con HTTP 200, citazioni e FAQ coerenti, titoli (verifica.py, punto 25, ricontrolla tutto)
+        tutte = [x for c in TB_COMP for x in c.get("citazioni", [])] + (TB_EUR["citazioni"] if TB_EUR else [])
+        if len({x["id"] for x in tutte}) != len(tutte):
+            errori.append("bagagli treni: id di citazione duplicati")
+        if len({c["slug"] for c in TB_COMP}) != len(TB_COMP) or len({c["id"] for c in TB_COMP}) != len(TB_COMP):
+            errori.append("bagagli treni: slug o id duplicati")
+        for x in tutte:
+            F = TB["fonti"].get(x["f"])
+            if not F or F["http"] != 200:
+                errori.append(f"bagagli treni: citazione {x['id']} da una fonte non letta con HTTP 200")
+            elif F["lingua"] != "en" and not x.get("tr"):
+                errori.append(f"bagagli treni: citazione {x['id']} senza traduzione")
+            if x["tema"] not in {k for k, _ in TEMI_TB} | {"arrivo", "continente", "ees", "kiosk"}:
+                errori.append(f"bagagli treni: citazione {x['id']} con tema sconosciuto")
+        for c in TB_COMP:
+            if not c["letta"]:
+                if c.get("citazioni") or c.get("numero") or not c.get("motivo") or not c.get("url_provato") or c["id"] not in (TB.get("non_lette") or {}):
+                    errori.append(f"bagagli treni {c['id']}: non letta con dati, senza motivo o senza la prova registrata")
+                continue
+            ids = {x["id"] for x in c["citazioni"]}
+            for k in ("chi", "nome_titolo", "treni", "numero", "misure", "peso", "extra", "speciali", "risposta"):
+                if not c.get(k):
+                    errori.append(f"bagagli treni {c['id']}: manca {k}")
+            if not any(x["tema"] == "numero" for x in c["citazioni"]) or not any(x["tema"] == "misure" for x in c["citazioni"]):
+                errori.append(f"bagagli treni {c['id']}: mancano citazioni sul numero o sulle misure")
+            for q in c["faq"]:
+                if not q["cit"] or any(i not in ids for i in q["cit"]):
+                    errori.append(f"bagagli treni {c['id']}: FAQ «{q['q']}» senza citazioni o con citazione sconosciuta")
+            if len(scegli(titoli_tb(c), LIMITE_TITOLO_TB)) > LIMITE_TITOLO_TB:
+                errori.append(f"bagagli treni {c['id']}: titolo oltre {LIMITE_TITOLO_TB} caratteri")
+        if TB_EUR:
+            if TB_EUR["fonte_tabella"] not in TB["fonti"] or TB["fonti"][TB_EUR["fonte_tabella"]]["http"] != 200:
+                errori.append("Eurostar: tabella degli orari non letta con HTTP 200")
+            for s in TB_EUR["stazioni"]:
+                if s["chiusura_tipo"] not in ("gate", "checks") or any(not re.fullmatch(r"\d+(?:-\d+)?", v) for v in [*s["arrivo"].values(), *s["chiusura"].values()]):
+                    errori.append(f"Eurostar {s['id']}: orari o tipo di chiusura non validi")
+            ids_es = {x["id"] for x in TB_EUR["citazioni"]}
+            for f in TB_EUR["faq"]:
+                if not (f.get("stazione") in {s["id"] for s in TB_EUR["stazioni"]} or (f.get("cit") and all(i in ids_es for i in f["cit"]))):
+                    errori.append(f"Eurostar: FAQ «{f['q']}» senza stazione o citazioni note")
+            if len(scegli(titolo_es(), LIMITE_TITOLO_TB)) > LIMITE_TITOLO_TB:
+                errori.append("Eurostar: titolo oltre il limite")
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -6243,6 +6645,12 @@ def main():
         pagina_indice_tr()
         for c in TR_LETTE:
             pagina_tr(c)
+    if TB:
+        pagina_indice_tb()
+        for c in TB_LETTE:
+            pagina_tb(c)
+        if TB_EUR:
+            pagina_es()
     about()
     contatti()
     privacy()
@@ -6260,7 +6668,9 @@ def main():
           + (f"; winter tyres with a rental car: indice + {len(GOM_PAGINE & set(GOM_PER))} pagine Paese ({len(GOM['fonti'])} fonti)" if GOM else "")
           + (f"; ticket release dates: indice + {len(BIG_ATT)} pagine attrazione + {len(BIG_ATT)} calendari .ics ({len(BIG['fonti'])} fonti)" if BIG else "")
           + (f"; foreign licence Canada/Australia/NZ: indice + {len(FL_LETTE)} pagine ({len(FL_GIUR) - len(FL_LETTE)} giurisdizioni non lette, {len(FL['fonti'])} fonti)" if FL else "")
-          + (f"; public transport rules: indice + {len(TR_LETTE)} pagine città ({len(TR_CITTA) - len(TR_LETTE)} città non lette, {len(TR['fonti'])} fonti)" if TR else ""))
+          + (f"; public transport rules: indice + {len(TR_LETTE)} pagine città ({len(TR_CITTA) - len(TR_LETTE)} città non lette, {len(TR['fonti'])} fonti)" if TR else "")
+          + (f"; train luggage rules: indice + {len(TB_LETTE)} pagine compagnia ({len(TB_COMP) - len(TB_LETTE)} non lette, {len(TB['fonti'])} fonti)"
+             + (f" + Eurostar check-in ({len(TB_EUR['stazioni'])} stazioni)" if TB_EUR else "") if TB else ""))
 
 
 if __name__ == "__main__":

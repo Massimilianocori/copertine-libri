@@ -119,6 +119,17 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     sitemap con lastmod della lettura; nessun link di affiliazione (nessun link Wise attivo nei dati); link da home, About, 404, indice Driving
     abroad, pagine Driving abroad dei Paesi con una città letta (mai Canada, Australia, Nuova Zelanda: pagine già revisionate) e pagine
     "When do tickets go on sale?" di Milano, Amsterdam e Barcellona. Nel browser (punto 7) indice e 3 città a 375 px chiaro/scuro, indice a 820 px.
+25. "Luggage rules on European trains" e "Eurostar check-in times" (dati/treni_bagagli.json da raccolta/treni_bagagli.py, 31/10/2026): fonti solo
+    dei domini delle compagnie ferroviarie, lette con HTTP 200 e con data; dalla copia salvata (raccolta/.cache/treni_bagagli/) ogni citazione
+    è nel testo parola per parola, ogni riga della tabella Eurostar (minuti per stazione) è nel testo della tabella ufficiale ricomposta e
+    l'impronta della zona citata è uguale al file; dati = dati/treni_bagagli_manuali.json; compagnie non lette senza dati né pagina, con la
+    prova registrata nei domini previsti; pagine = compagnie lette + indice + pagina Eurostar; prima frase = fonte, data e risposta;
+    citazioni, traduzioni, link e date nella pagina; nessun numero nelle frasi nostre (riassunti, risposta, nota, FAQ, traduzioni) che non
+    stia in una citazione della stessa compagnia; tabella Eurostar nella pagina = dati; FAQ da ricerche vere (JSON-LD = testo visibile,
+    traduzione dichiarata); titoli <= 70 con l'anno; sitemap con lastmod della lettura; nessun link di affiliazione né nomi di rivenditori
+    o depositi bagagli; link da home, About, 404, pagina EES, indice del bagaglio a mano, e nessun link nelle pagine già revisionate
+    (trasporto pubblico, patente straniera). Nel browser (punto 7) indice, 3 compagnie e la pagina Eurostar a 375 px chiaro/scuro, indice
+    e pagina Eurostar a 820 px.
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
 domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
@@ -696,6 +707,10 @@ def controlla_meta():
         if rel.startswith(G.TR_BASE + "/"):  # sezione "Public transport rules": fino a 70 caratteri con l'anno (il punto 24 controlla il resto)
             if len(tit) > G.LIMITE_TITOLO_TR or str(G.ANNO) not in tit:
                 errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_TR}) o senza l'anno in {rel}: {tit}")
+            continue
+        if rel.startswith(G.TB_BASE + "/") or rel.startswith(G.TB_ES + "/"):  # bagagli sui treni e orari Eurostar: fino a 70 con l'anno (punto 25)
+            if len(tit) > G.LIMITE_TITOLO_TB or str(G.ANNO) not in tit:
+                errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_TB}) o senza l'anno in {rel}: {tit}")
             continue
         if rel.startswith(G.FL_BASE + "/"):  # sezione "Foreign licence in Canada, Australia and NZ": fino a 70 caratteri con l'anno (il punto 23 controlla il resto)
             if len(tit) > G.LIMITE_TITOLO_FL or str(G.ANNO) not in tit:
@@ -1442,7 +1457,8 @@ srv.listen(0, async () => {
                          citazioni: await p.$$eval('blockquote.cit', e => e.filter(x => x.getBoundingClientRect().height > 0).length) });
         if (tema === 'light') await p.screenshot({ path: process.argv[3] + '/' + u.split('/').filter(Boolean).join('-') + '-375.png', fullPage: false });
       }
-      if (u.startsWith('/tolls-rental-car/') || u.startsWith('/winter-tyres-rental-car/') || u.startsWith('/foreign-licence-canada-australia-nz/') || u.startsWith('/public-transport-rules/')) {
+      if (u.startsWith('/tolls-rental-car/') || u.startsWith('/winter-tyres-rental-car/') || u.startsWith('/foreign-licence-canada-australia-nz/') || u.startsWith('/public-transport-rules/') ||
+          u.startsWith('/train-luggage-rules/') || u.startsWith('/eurostar-check-in-times/')) {
         const vis = async (sel) => p.$eval(sel, e => { const r = e.getBoundingClientRect(); return r.height > 0 && r.width > 0 && r.width <= window.innerWidth; }).catch(() => false);
         out.prove.push({ caso: 'ped:' + tema + ':' + u, testo: await p.textContent('main'), risposta: await vis('#answer'), btn: await vis('[data-noleggio] a.btn'),
                          citazioni: await p.$$eval('blockquote.cit', e => e.filter(x => x.getBoundingClientRect().height > 0).length) });
@@ -1503,7 +1519,7 @@ srv.listen(0, async () => {
       await p.close(); }
     await ctx.close(); }
   const largo = await b.newContext({ viewport: { width: 820, height: 900 } });
-  for (const u of ['/', '/cabin-bags/', '/cabin-bags/ryanair/', '/available-in/', '/available-in/apple-pay/', '/driving-abroad/', '/driving-abroad/canadian-licence/', '/tolls-rental-car/', '/winter-tyres-rental-car/', '/foreign-licence-canada-australia-nz/', '/public-transport-rules/']) { const p = await largo.newPage(); await p.goto(base + u, { waitUntil: 'load' });
+  for (const u of ['/', '/cabin-bags/', '/cabin-bags/ryanair/', '/available-in/', '/available-in/apple-pay/', '/driving-abroad/', '/driving-abroad/canadian-licence/', '/tolls-rental-car/', '/winter-tyres-rental-car/', '/foreign-licence-canada-australia-nz/', '/public-transport-rules/', '/train-luggage-rules/', '/eurostar-check-in-times/']) { const p = await largo.newPage(); await p.goto(base + u, { waitUntil: 'load' });
     const w = await p.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]); out.pagine.push({ url: u, tema: '820px', scroll: w[0], larghezza: w[1], errori: [] }); await p.close(); }
   await largo.close();
   await b.close(); srv.close(); console.log(JSON.stringify(out)); });
@@ -1531,6 +1547,8 @@ PAGINE_PAT_BROWSER = ["/driving-abroad/", "/driving-abroad/uk-licence/", "/drivi
 PAGINE_PED_BROWSER = ["/tolls-rental-car/", "/tolls-rental-car/portugal/", "/tolls-rental-car/austria/", "/tolls-rental-car/france/"]
 PAGINE_GOM_BROWSER = ["/winter-tyres-rental-car/", "/winter-tyres-rental-car/italy/", "/winter-tyres-rental-car/austria/", "/winter-tyres-rental-car/france/"]
 PAGINE_TR_BROWSER = ["/public-transport-rules/", "/public-transport-rules/prague/", "/public-transport-rules/milan/", "/public-transport-rules/budapest/"]
+PAGINE_TB_BROWSER = ["/train-luggage-rules/", "/train-luggage-rules/eurostar/", "/train-luggage-rules/ouigo-spain/", "/train-luggage-rules/avlo/",
+                     "/eurostar-check-in-times/"]
 PAGINE_FL_BROWSER = ["/foreign-licence-canada-australia-nz/", "/foreign-licence-canada-australia-nz/canada/ontario/", "/foreign-licence-canada-australia-nz/australia/new-south-wales/", "/foreign-licence-canada-australia-nz/new-zealand/"]
 PAGINE_BAG_BROWSER = ["/cabin-bags/", "/cabin-bags/ryanair/", "/cabin-bags/does-my-bag-fit/", "/cabin-bags/size/40x30x20/", "/cabin-bags/eu-personal-item-rule/"]
 
@@ -1543,7 +1561,7 @@ def controlla_browser():
         fh.write(BROWSER_JS)
     try:
         r = subprocess.run(["node", fh.name, str(SITO), cartella, json.dumps(PAGINE_ESTERE_BROWSER), json.dumps(CASI_BORSA), json.dumps(PAGINE_BAG_BROWSER),
-                            json.dumps(PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER + PAGINE_FL_BROWSER + PAGINE_TR_BROWSER)],
+                            json.dumps(PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER + PAGINE_FL_BROWSER + PAGINE_TR_BROWSER + PAGINE_TB_BROWSER)],
                            capture_output=True, text=True, timeout=600)
     finally:
         os.unlink(fh.name)
@@ -1646,6 +1664,11 @@ def controlla_browser():
         for tema in ("light", "dark"):
             x = next((y for y in o["prove"] if y["caso"] == f"ped:{tema}:{u}"), None)
             if not x or not x["risposta"] or x["btn"] or (u != "/public-transport-rules/" and x["citazioni"] < 3):
+                errori.append(f"{u} ({tema}): risposta o citazioni non visibili a 375 px, o riquadro di affiliazione presente")
+    for u in PAGINE_TB_BROWSER:
+        for tema in ("light", "dark"):
+            x = next((y for y in o["prove"] if y["caso"] == f"ped:{tema}:{u}"), None)
+            if not x or not x["risposta"] or x["btn"] or (u != "/train-luggage-rules/" and x["citazioni"] < 3):
                 errori.append(f"{u} ({tema}): risposta o citazioni non visibili a 375 px, o riquadro di affiliazione presente")
     if sum(1 for x in o["prove"] if x["caso"].startswith("contrasto-")) != 2:
         errori.append("Prova del contrasto del controllo (tema chiaro e scuro) non eseguita")
@@ -3221,6 +3244,251 @@ def controlla_trasporti():
     return errori, conti
 
 
+# ---------------------------------------------------------------- 25. Bagagli sui treni per compagnia + orari Eurostar con l'EES (31/10/2026)
+_spec_tb = importlib.util.spec_from_file_location("raccolta_treni_bagagli", Path(__file__).resolve().parent / "raccolta" / "treni_bagagli.py")
+RTB = importlib.util.module_from_spec(_spec_tb)
+_spec_tb.loader.exec_module(RTB)
+# Fonti ammesse: siti delle compagnie ferroviarie (e SNCF Connect, il sito di vendita di SNCF); niente blog, guide, rivenditori, depositi bagagli
+FONTI_UFFICIALI_TB = re.compile(r"^https://(?:www\.eurostar\.com|help\.eurostar\.com|www\.sncf-connect\.com|www\.ouigo\.com|www\.renfe\.com|"
+                                r"www\.trenitalia\.com|www\.italotreno\.com|int\.bahn\.de|www\.oebb\.at|www\.nightjet\.com|www\.nsinternational\.com|"
+                                r"www\.tgv-lyria\.com|www\.lumo\.co\.uk|www\.avantiwestcoast\.co\.uk)/")
+# Pagine provate per le compagnie non lette
+FONTI_NON_LETTE_TB = re.compile(r"^https://(?:iryo\.eu|trenitalia\.fr|www\.sbb\.ch|www\.lner\.co\.uk)/")
+# Nessun link di affiliazione nella sezione (nessun programma attivo pertinente): nemmeno nomi di rivenditori di biglietti o servizi bagagli
+VIETATI_TB = re.compile(r"\bwise\b|prf\.hn|partnerize|trainline|omio|rail ?europe|getyourguide|tiqets|klook|viator|discovercars|"
+                        r"radical ?storage|stasher|luggage ?buddy|sherpr|send ?my ?bag|zyppy|bagaglio facile", re.I)
+
+
+def controlla_treni_bagagli():
+    """Punto 25: fonti = dati = pagine; compagnie non lette senza dati; prima frase; citazioni e righe della tabella Eurostar parola per parola
+    contro la copia della fonte; numeri delle frasi nostre solo dalle citazioni; FAQ da ricerche vere (JSON-LD = testo visibile); titoli;
+    sitemap; nessuna affiliazione; link in entrata (e nessun link nelle pagine già revisionate)."""
+    from html import unescape
+    errori = []
+    conti = {"compagnie": 0, "lette": 0, "non_lette": 0, "pagine": 0, "fonti": 0, "citazioni": 0, "faq": 0, "stazioni": 0, "cache": "no", "link": 0}
+    if not G.TB:
+        return ["dati/treni_bagagli.json mancante (rilanciare raccolta/treni_bagagli.py)"], conti
+    M = json.loads((SITO.parent / "dati" / "treni_bagagli_manuali.json").read_text(encoding="utf-8"))
+    if M["compagnie"] != G.TB["compagnie"] or M.get("faq_indice", []) != G.TB.get("faq_indice", []) or M.get("eurostar") != G.TB.get("eurostar"):
+        errori.append("dati/treni_bagagli.json non è aggiornato rispetto a dati/treni_bagagli_manuali.json (rilanciare la raccolta)")
+    D = json.loads((SITO.parent / "dati" / "treni_bagagli_domanda.json").read_text(encoding="utf-8"))
+    ricerche = RTB.tutte_ricerche(D)
+    E = G.TB_EUR
+    # a) fonti: HTTP 200, domini ufficiali, data; dalla copia salvata ogni citazione e ogni riga della tabella Eurostar, impronta
+    cache = RTB.CACHE.exists()
+    for fid, F in G.TB["fonti"].items():
+        conti["fonti"] += 1
+        if F["http"] != 200:
+            errori.append(f"fonte {fid}: HTTP {F['http']}")
+        if not FONTI_UFFICIALI_TB.match(F["url"]):
+            errori.append(f"fonte {fid}: dominio non ufficiale o non previsto: {F['url']}")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F["letto_il"] or "") or F["letto_il"] > G.OGGI.isoformat():
+            errori.append(f"fonte {fid}: data di lettura non valida {F['letto_il']}")
+        f_c = RTB.file_cache(fid)
+        if cache and f_c.exists():
+            t = RTB.testo_fonte(f_c.read_bytes())
+            frasi = RTB.frasi_fonte(G.TB, fid)
+            for x in frasi:
+                if x not in t:
+                    errori.append(f"fonte {fid}: testo non parola per parola nella copia della fonte: {x[:70]}")
+            if E and fid == E["fonte_tabella"]:
+                conti["stazioni"] = sum(1 for s in E["stazioni"] if RTB.riga_stazione(s) in t)
+            if RTB.impronta_zona(t, frasi) != F["impronta"]:
+                errori.append(f"fonte {fid}: impronta diversa dalla copia salvata (rilanciare la raccolta)")
+            conti["cache"] = "sì"
+        elif cache:
+            errori.append(f"fonte {fid}: copia salvata mancante")
+    # b) pagine = compagnie lette + indice + pagina Eurostar
+    sm = leggi("sitemap.xml")
+    attese = {G.url_tb(c) + "index.html" for c in G.TB_LETTE} | {f"{G.TB_BASE}/index.html"}
+    trovate = {q.relative_to(SITO).as_posix() for q in (SITO / G.TB_BASE).rglob("*.html")} if (SITO / G.TB_BASE).exists() else set()
+    if attese != trovate:
+        errori.append(f"pagine {G.TB_BASE} diverse dai dati: mancano {sorted(attese - trovate)}, in più {sorted(trovate - attese)}")
+    if bool(E) != (SITO / G.TB_ES / "index.html").exists():
+        errori.append("pagina Eurostar presente senza dati o dati senza pagina")
+    tutti_numeri = set().union(*[_numeri_gom(x["x"]) for c in G.TB_LETTE for x in c["citazioni"]])
+
+    def controlla_pagina(rel, t, cc, faq_attese, prima_attesa, titolo_atteso, lastmod):
+        vis = unescape(re.sub(r"<[^>]+>", " ", t))
+        if f"<loc>{G.URL_SITO}/{rel[:-len('index.html')]}</loc><lastmod>{lastmod}</lastmod>" not in sm:
+            errori.append(f"{rel}: non in sitemap o lastmod diverso dalla data di lettura {lastmod}")
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(tit) > G.LIMITE_TITOLO_TB or str(G.ANNO) not in tit or tit != titolo_atteso:
+            errori.append(f"{rel}: titolo oltre {G.LIMITE_TITOLO_TB} caratteri, senza l'anno o non tra le forme previste: {tit}")
+        m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t)
+        if not m or unescape(m.group(1)) != prima_attesa or not unescape(m.group(1)).startswith("According to ") or ", checked on " not in m.group(1):
+            errori.append(f"{rel}: prima frase diversa da 'According to <fonte>, checked on <data>, ...'")
+        for x in cc:
+            conti["citazioni"] += 1
+            if escape(x["x"], quote=False) not in t and escape(x["x"]) not in t:
+                errori.append(f"{rel}: citazione mancante: {x['x'][:60]}")
+            if x.get("tr") and escape(x["tr"], quote=False) not in t and escape(x["tr"]) not in t:
+                errori.append(f"{rel}: traduzione mancante: {x['tr'][:60]}")
+        for f in G.fonti_tb(cc):
+            F = G.TB["fonti"][f]
+            if f'href="{escape(F["url"])}"' not in t or f"checked on {G.data_lunga(F['letto_il'])}" not in vis:
+                errori.append(f"{rel}: manca il link o la data della fonte {f}")
+        faq_ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)]
+        faq_ld = next((x for x in faq_ld if x.get("@type") == "FAQPage"), None)
+        if not faq_ld or [(e["name"], e["acceptedAnswer"]["text"]) for e in faq_ld["mainEntity"]] != faq_attese:
+            errori.append(f"{rel}: FAQ JSON-LD diversa dalle domande previste")
+        for qd, a in faq_attese:
+            conti["faq"] += 1
+            if f"<h3>{escape(qd)}</h3><p>{escape(a)}</p>" not in t:
+                errori.append(f"{rel}: FAQ visibile diversa dal JSON-LD: {qd}")
+        if G.MON.link_affiliati(t) or 'rel="sponsored' in t:
+            errori.append(f"{rel}: link di affiliazione nella sezione")
+        mm = VIETATI_TB.search(vis) or VIETATE_SRV.search(vis) or AGGIRARE.search(vis)
+        if mm:
+            errori.append(f"{rel}: parola vietata (affiliazione, rivenditore, servizio bagagli, assistente o aggiramento) '{mm.group(0)}'")
+        return vis
+
+    for c in G.TB_COMP:
+        conti["compagnie"] += 1
+        # c) compagnie non lette: nessun dato, nessuna pagina, prova registrata su una pagina ufficiale
+        if not c["letta"]:
+            conti["non_lette"] += 1
+            P = (G.TB.get("non_lette") or {}).get(c["id"])
+            if c.get("citazioni") or c.get("numero") or (SITO / G.url_tb(c)).exists() or not P:
+                errori.append(f"{c['id']}: compagnia non letta con dati, con una pagina propria o senza la prova registrata")
+            if not FONTI_NON_LETTE_TB.match(c["url_provato"]):
+                errori.append(f"{c['id']}: pagina provata fuori dai domini previsti: {c['url_provato']}")
+            continue
+        conti["lette"] += 1
+        # d) numeri delle parole nostre solo dalle citazioni della compagnia (e dal titolo delle sue fonti)
+        ammessi = set().union(*[_numeri_gom(x["x"]) for x in c["citazioni"]], *[_numeri_gom(G.TB["fonti"][f]["titolo"]) for f in G.fonti_tb(c["citazioni"])],
+                              {str(G.ANNO)})
+        nostre = [c.get(k) or "" for k in ("chi", "treni", "numero", "misure", "peso", "extra", "speciali", "risposta", "nota")]
+        nostre += [x.get("tr", "") for x in c["citazioni"]]
+        for s in nostre:
+            extra = _numeri_gom(s) - ammessi
+            if extra:
+                errori.append(f"{c['id']}: numeri non presi dalle fonti: {sorted(extra)} in «{s[:60]}»")
+        ids = {x["id"] for x in c["citazioni"]}
+        for q in c["faq"]:
+            extra = _numeri_gom(q["pre"] + " " + q["post"] + " " + q["q"]) - ammessi
+            if extra:
+                errori.append(f"{c['id']}: numeri non presi dalle fonti nella FAQ «{q['q']}»: {sorted(extra)}")
+            if q["query"] not in ricerche:
+                errori.append(f"{c['id']}: FAQ «{q['q']}» senza una ricerca vera ({q['query']!r})")
+            if any(i not in ids for i in q["cit"]):
+                errori.append(f"{c['id']}: FAQ «{q['q']}» con una citazione sconosciuta")
+            elif any(G.TB["fonti"][G.cit_tb(c["citazioni"], i)["f"]]["lingua"] != "en" for i in q["cit"]) and "our translation" not in q["pre"]:
+                errori.append(f"{c['id']}: FAQ «{q['q']}» con citazione tradotta senza dirlo")
+        for x in c["citazioni"]:
+            if G.TB["fonti"][x["f"]]["lingua"] != "en" and not x.get("tr"):
+                errori.append(f"{c['id']}: citazione {x['id']} non in inglese senza traduzione")
+        rel = G.url_tb(c) + "index.html"
+        if not (SITO / rel).exists():
+            continue
+        conti["pagine"] += 1
+        t = leggi(rel)
+        vis = controlla_pagina(rel, t, c["citazioni"], G.faq_tb(c), G.risposta_tb(c), G.scegli(G.titoli_tb(c), G.LIMITE_TITOLO_TB), G.data_tb(c))
+        if c.get("nota") and "data-nota" not in t:
+            errori.append(f"{rel}: manca la nota")
+        for k in ("numero", "misure", "peso", "extra", "speciali"):
+            if f"<td>{escape(c[k])}</td>" not in t:
+                errori.append(f"{rel}: riga «At a glance» mancante o diversa dai dati ({k})")
+        if f'href="../../{G.TB_BASE}/"' not in t:
+            errori.append(f"{rel}: manca il link all'indice della sezione")
+        if c["id"] == "eurostar" and E and f'href="../../{G.TB_ES}/"' not in t:
+            errori.append(f"{rel}: manca il link alla pagina degli orari Eurostar")
+    # e) indice: sitemap, titolo, prima frase, righe = dati, righe "Not read", FAQ
+    idx = f"{G.TB_BASE}/index.html"
+    if (SITO / idx).exists():
+        t = leggi(idx)
+        vis = unescape(re.sub(r"<[^>]+>", " ", t))
+        conti["pagine"] += 1
+        if f"<loc>{G.URL_SITO}/{G.TB_BASE}/</loc><lastmod>{G.TB['controllato_il']}</lastmod>" not in sm:
+            errori.append(f"indice {G.TB_BASE} non in sitemap o lastmod diverso")
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(tit) > G.LIMITE_TITOLO_TB or str(G.ANNO) not in tit:
+            errori.append(f"{idx}: titolo oltre {G.LIMITE_TITOLO_TB} caratteri o senza l'anno: {tit}")
+        m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t)
+        if not m or unescape(m.group(1)) != G.prima_frase_tb() or f"read on {G.data_lunga(G.TB['controllato_il'])}" not in unescape(m.group(1)):
+            errori.append(f"{idx}: prima frase diversa dai conteggi o senza la data")
+        righe = re.findall(r'<tr data-voce id="([a-z-]+)">(.*?)</tr>', t)
+        if [r[0] for r in righe] != [c["id"] for c in G.TB_COMP]:
+            errori.append(f"{idx}: righe della tabella diverse dalle compagnie dei dati")
+        for (cod, r), c in zip(righe, G.TB_COMP):
+            celle = [unescape(re.sub(r"<[^>]+>", "", x)) for x in re.findall(r"<td[^>]*>(.*?)</td>", r)]
+            if not c["letta"]:
+                resto = re.sub(r"\(checked on \d{1,2} \w+ \d{4}\)", "", celle[1] if len(celle) == 2 else "").replace(c["motivo"], "")
+                if len(celle) != 2 or not celle[1].startswith("Not read") or c["motivo"] not in celle[1] or re.search(r"\d", resto):
+                    errori.append(f"{idx}: riga {cod} non letta senza 'Not read' e il motivo, o con dati")
+                continue
+            if celle[1:4] != [c["numero"], c["misure"], c["extra"]]:
+                errori.append(f"{idx}: riga {cod} diversa dai dati: {celle[1:4]}")
+            if f'href="../{G.url_tb(c)}"' not in r:
+                errori.append(f"{idx}: riga {cod} senza il link alla pagina")
+        for f in M.get("faq_indice", []):
+            if f["query"] not in ricerche:
+                errori.append(f"{idx}: FAQ «{f['q']}» senza una ricerca vera")
+        for q, a in G.faq_indice_tb():
+            conti["faq"] += 1
+            if f"<h3>{escape(q)}</h3><p>{escape(a)}</p>" not in t:
+                errori.append(f"{idx}: FAQ mancante: {q}")
+            extra = _numeri_gom(a) - tutti_numeri - {str(G.ANNO)}
+            if extra:
+                errori.append(f"{idx}: numeri non presi dalle fonti nella FAQ «{q}»: {sorted(extra)}")
+        if G.MON.link_affiliati(t) or 'rel="sponsored' in t:
+            errori.append(f"{idx}: link di affiliazione nella sezione")
+        mm = VIETATI_TB.search(vis) or VIETATE_SRV.search(vis) or AGGIRARE.search(vis)
+        if mm:
+            errori.append(f"{idx}: parola vietata '{mm.group(0)}'")
+    else:
+        errori.append(f"indice {G.TB_BASE} mancante")
+    # f) pagina Eurostar: tabella = dati, numeri delle frasi nostre dalle righe ufficiali e dalle citazioni, FAQ, EES della Commissione
+    if E and (SITO / G.TB_ES / "index.html").exists():
+        rel = f"{G.TB_ES}/index.html"
+        t = leggi(rel)
+        conti["pagine"] += 1
+        vis = controlla_pagina(rel, t, E["citazioni"], G.faq_es(), G.prima_frase_es(), G.scegli(G.titolo_es(), G.LIMITE_TITOLO_TB), G.data_es())
+        righe = re.findall(r'<tr data-voce id="([a-z]+)">(.*?)</tr>', t)
+        if [r[0] for r in righe] != [s["id"] for s in E["stazioni"]]:
+            errori.append(f"{rel}: righe della tabella diverse dalle stazioni dei dati")
+        for (sid, r), s in zip(righe, E["stazioni"]):
+            celle = [unescape(re.sub(r"<[^>]+>", "", x)) for x in re.findall(r"<td[^>]*>(.*?)</td>", r)]
+            att = [s["nome"]] + [f"{s['arrivo'][k]} min" for k, _ in G.CLASSI_ES] + [
+                f"{s['chiusura']['standard']} min (Premier {s['chiusura']['premier']} min; accessible travel {s['chiusura']['accessibile']} min)"]
+            if celle != att:
+                errori.append(f"{rel}: riga {sid} diversa dai dati: {celle}")
+        num_righe = set().union(*[_numeri_gom(RTB.riga_stazione(s)) for s in E["stazioni"]])
+        num_ees = set().union(*[_numeri_gom(f["frase"]) for f in G.frasi_ees_es()[0]], set())
+        ammessi = num_righe | num_ees | set().union(*[_numeri_gom(x["x"]) for x in E["citazioni"]]) | {str(G.ANNO)}
+        for s in [G.prima_frase_es(), E["nota_ees"]] + [a for _, a in G.faq_es()] + [f["q"] for f in E["faq"]]:
+            extra = _numeri_gom(s) - ammessi
+            if extra:
+                errori.append(f"{rel}: numeri non presi dalle fonti: {sorted(extra)} in «{s[:60]}»")
+        for f in E["faq"]:
+            if f["query"] not in ricerche:
+                errori.append(f"{rel}: FAQ «{f['q']}» senza una ricerca vera ({f['query']!r})")
+        com, gov = G.frasi_ees_es()
+        if not com or any(escape(x["frase"], quote=False) not in t for x in com) or any(escape(x, quote=False) not in t for x in gov):
+            errori.append(f"{rel}: manca la frase della Commissione sul pieno funzionamento dell'EES o la frase GOV.UK su St Pancras")
+        if "not legal advice" not in vis:
+            errori.append(f"{rel}: manca 'not legal advice'")
+        if f'href="../{G.url_tb(G.TB_PER["eurostar"])}"' not in t or f'href="../{G.TB_BASE}/"' not in t:
+            errori.append(f"{rel}: mancano i link alla pagina bagagli Eurostar o all'indice")
+    # g) collegamenti in entrata; nessun link nelle pagine già revisionate (trasporto pubblico, patente straniera)
+    entrata = [("index.html", f'href="{G.TB_BASE}/"'), ("index.html", f'href="{G.TB_ES}/"'), ("about/index.html", f'id="{G.TB_BASE}"'),
+               ("404.html", f'href="/{G.TB_BASE}/"'), ("404.html", f'href="/{G.TB_ES}/"'), ("ees-etias/index.html", f'href="../{G.TB_ES}/"'),
+               (f"{G.BAG_BASE}/index.html", f'href="../{G.TB_BASE}/"')]
+    for f, h in entrata:
+        conti["link"] += 1
+        if h not in leggi(f):
+            errori.append(f"{f}: manca il link {h}")
+    for base in (G.TR_BASE, G.FL_BASE):
+        for q in (SITO / base).rglob("*.html"):
+            tq = q.read_text(encoding="utf-8")
+            if G.TB_BASE in tq or G.TB_ES in tq:
+                errori.append(f"{q.relative_to(SITO)}: link aggiunto a una pagina già revisionata")
+    for nome in ("treni_bagagli.json", "treni_bagagli_manuali.json", "treni_bagagli_domanda.json"):
+        if VIETATE_SRV.search((SITO.parent / "dati" / nome).read_text(encoding="utf-8")):
+            errori.append(f"dati/{nome}: nome di un assistente di intelligenza artificiale")
+    return errori, conti
+
+
 def controlla_indexnow():
     """File chiave IndexNow in sito/: presente, con dentro solo la chiave, fuori dalla sitemap (scritto da genera.py accanto a robots.txt)."""
     errori = []
@@ -3252,7 +3520,7 @@ def main():
         o, cartella = info
         n375 = sum(1 for x in o["pagine"] if x["tema"] in ("light", "dark"))
         print(f"7. Browser 375 px: {len(o['pagine'])} viste ({n375 // 2} pagine × tema chiaro e scuro + {len(o['pagine']) - n375} a 820 px; nuove: "
-              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER + PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER + PAGINE_FL_BROWSER + PAGINE_TR_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
+              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER + PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER + PAGINE_FL_BROWSER + PAGINE_TR_BROWSER + PAGINE_TB_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
               f"{len(o['prove'])} prove, {len(e7)} errori; schermate in {cartella}")
     else:
         print(f"7. Browser 375 px: {e7[0] if e7 else ''}")
@@ -3318,9 +3586,15 @@ def main():
           f"{c24['citazioni']} citazioni nelle pagine, numeri solo dalle fonti, {c24['faq']} risposte FAQ da ricerche vere (JSON-LD = testo visibile), "
           f"titoli <= {G.LIMITE_TITOLO_TR} con l'anno, sitemap con lastmod della lettura, nessun link di affiliazione, {c24['link']} link da Driving abroad "
           f"e ticket-release-dates: {len(e24)} errori")
+    e25, c25 = controlla_treni_bagagli()
+    print(f"25. Train luggage rules + Eurostar check-in: {c25['compagnie']} compagnie ({c25['lette']} lette, {c25['non_lette']} non lette senza dati né pagina), "
+          f"{c25['pagine']} pagine, {c25['fonti']} fonti ufficiali (HTTP 200, domini ammessi; citazioni parola per parola, {c25['stazioni']} righe "
+          f"della tabella Eurostar e impronte ricalcolate dalla copia salvata: {c25['cache']}), {c25['citazioni']} citazioni nelle pagine, numeri "
+          f"solo dalle fonti, {c25['faq']} risposte FAQ da ricerche vere (JSON-LD = testo visibile), titoli <= {G.LIMITE_TITOLO_TB} con l'anno, "
+          f"sitemap con lastmod della lettura, nessun link di affiliazione, {c25['link']} link in entrata: {len(e25)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25
     for e in tutti:
         print(" -", e)
     if tutti:
