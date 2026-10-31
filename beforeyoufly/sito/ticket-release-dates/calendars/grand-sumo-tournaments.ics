@@ -1,0 +1,85 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Before You Fly//Ticket release dates//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Grand Sumo tournaments: ticket releases and closures
+X-WR-TIMEZONE:Asia/Tokyo
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:grand-sumo-tournaments-uscita-torneo-2026-12-05@before-you-fly.netlify.
+ app
+DTSTAMP:20261031T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Grand Sumo advance tickets go on sale (for the January 2027 tournam
+ ent (Tokyo\, Kokugikan))
+DESCRIPTION:Official rule: “2027 Grand Tournament Schedule Tournament Ven
+ ue Advanced Tickets are sold from Sumo Ranking is announced on First Day. 
+ Final Day The January Tournament Kokugikan December 5\, 2026 December 21\,
+  2026 January 10\, 2027. January 24\, 2027 The March Tournament EDION Aren
+ a Osaka (Osaka Prefectural Gymnasium) February 6\, 2027 March 1\, 2027 Mar
+ ch 14\, 2027. March 28\, 2027 The May Tournament Kokugikan April 10\, 2027
+  April 26\, 2027 May 9\, 2027. May 23\, 2027”\nSource: https://www.sumo.
+ or.jp/EnTicket/year_schedule/ (checked on 31 October 2026)\nDate calculate
+ d by Before You Fly from the official rule. Rules can change: check the of
+ ficial page before you book.\nOfficial tickets: https://sumo.pia.jp/en/sum
+ o11.jsp\nhttps://before-you-fly.netlify.app/ticket-release-dates/grand-sum
+ o-tournaments/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/grand-sumo-tour
+ naments/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:grand-sumo-tournaments-uscita-torneo-2027-02-06@before-you-fly.netlify.
+ app
+DTSTAMP:20261031T000000Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:Grand Sumo advance tickets go on sale (for the March 2027 tournamen
+ t (Osaka\, EDION Arena Osaka))
+DESCRIPTION:Official rule: “2027 Grand Tournament Schedule Tournament Ven
+ ue Advanced Tickets are sold from Sumo Ranking is announced on First Day. 
+ Final Day The January Tournament Kokugikan December 5\, 2026 December 21\,
+  2026 January 10\, 2027. January 24\, 2027 The March Tournament EDION Aren
+ a Osaka (Osaka Prefectural Gymnasium) February 6\, 2027 March 1\, 2027 Mar
+ ch 14\, 2027. March 28\, 2027 The May Tournament Kokugikan April 10\, 2027
+  April 26\, 2027 May 9\, 2027. May 23\, 2027”\nSource: https://www.sumo.
+ or.jp/EnTicket/year_schedule/ (checked on 31 October 2026)\nDate calculate
+ d by Before You Fly from the official rule. Rules can change: check the of
+ ficial page before you book.\nOfficial tickets: https://sumo.pia.jp/en/sum
+ o11.jsp\nhttps://before-you-fly.netlify.app/ticket-release-dates/grand-sum
+ o-tournaments/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/grand-sumo-tour
+ naments/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:grand-sumo-tournaments-uscita-torneo-2027-04-10@before-you-fly.netlify.
+ app
+DTSTAMP:20261031T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Grand Sumo advance tickets go on sale (for the May 2027 tournament 
+ (Tokyo\, Kokugikan))
+DESCRIPTION:Official rule: “2027 Grand Tournament Schedule Tournament Ven
+ ue Advanced Tickets are sold from Sumo Ranking is announced on First Day. 
+ Final Day The January Tournament Kokugikan December 5\, 2026 December 21\,
+  2026 January 10\, 2027. January 24\, 2027 The March Tournament EDION Aren
+ a Osaka (Osaka Prefectural Gymnasium) February 6\, 2027 March 1\, 2027 Mar
+ ch 14\, 2027. March 28\, 2027 The May Tournament Kokugikan April 10\, 2027
+  April 26\, 2027 May 9\, 2027. May 23\, 2027”\nSource: https://www.sumo.
+ or.jp/EnTicket/year_schedule/ (checked on 31 October 2026)\nDate calculate
+ d by Before You Fly from the official rule. Rules can change: check the of
+ ficial page before you book.\nOfficial tickets: https://sumo.pia.jp/en/sum
+ o11.jsp\nhttps://before-you-fly.netlify.app/ticket-release-dates/grand-sum
+ o-tournaments/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/grand-sumo-tour
+ naments/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

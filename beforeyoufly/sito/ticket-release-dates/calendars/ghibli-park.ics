@@ -1,0 +1,112 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Before You Fly//Ticket release dates//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Ghibli Park: ticket releases and closures
+X-WR-TIMEZONE:Asia/Tokyo
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:ghibli-park-uscita-mese-2026-11-10@before-you-fly.netlify.app
+DTSTAMP:20261031T000000Z
+DTSTART:20261110T050000Z
+DTEND:20261110T053000Z
+SUMMARY:Ghibli Park tickets go on sale (for January 2027)
+DESCRIPTION:Official rule: “This pass goes on sale two months in advance\
+ , on the 10th at 2 p.m. (Japan time) The dates tickets go on sale and sale
+  periods are subject to change.”\nSource: https://ghibli-park.jp/en/tick
+ et/ (checked on 31 October 2026)\nDate calculated by Before You Fly from t
+ he official rule. Rules can change: check the official page before you boo
+ k.\nOfficial tickets: https://l-tike.com/st1/ghibli-pk-en4\nhttps://before
+ -you-fly.netlify.app/ticket-release-dates/ghibli-park/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/ghibli-park/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:ghibli-park-uscita-mese-2026-12-10@before-you-fly.netlify.app
+DTSTAMP:20261031T000000Z
+DTSTART:20261210T050000Z
+DTEND:20261210T053000Z
+SUMMARY:Ghibli Park tickets go on sale (for February 2027)
+DESCRIPTION:Official rule: “This pass goes on sale two months in advance\
+ , on the 10th at 2 p.m. (Japan time) The dates tickets go on sale and sale
+  periods are subject to change.”\nSource: https://ghibli-park.jp/en/tick
+ et/ (checked on 31 October 2026)\nDate calculated by Before You Fly from t
+ he official rule. Rules can change: check the official page before you boo
+ k.\nOfficial tickets: https://l-tike.com/st1/ghibli-pk-en4\nhttps://before
+ -you-fly.netlify.app/ticket-release-dates/ghibli-park/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/ghibli-park/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:ghibli-park-uscita-mese-2027-01-10@before-you-fly.netlify.app
+DTSTAMP:20261031T000000Z
+DTSTART:20270110T050000Z
+DTEND:20270110T053000Z
+SUMMARY:Ghibli Park tickets go on sale (for March 2027)
+DESCRIPTION:Official rule: “This pass goes on sale two months in advance\
+ , on the 10th at 2 p.m. (Japan time) The dates tickets go on sale and sale
+  periods are subject to change.”\nSource: https://ghibli-park.jp/en/tick
+ et/ (checked on 31 October 2026)\nDate calculated by Before You Fly from t
+ he official rule. Rules can change: check the official page before you boo
+ k.\nOfficial tickets: https://l-tike.com/st1/ghibli-pk-en4\nhttps://before
+ -you-fly.netlify.app/ticket-release-dates/ghibli-park/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/ghibli-park/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:ghibli-park-uscita-mese-2027-02-10@before-you-fly.netlify.app
+DTSTAMP:20261031T000000Z
+DTSTART:20270210T050000Z
+DTEND:20270210T053000Z
+SUMMARY:Ghibli Park tickets go on sale (for April 2027)
+DESCRIPTION:Official rule: “This pass goes on sale two months in advance\
+ , on the 10th at 2 p.m. (Japan time) The dates tickets go on sale and sale
+  periods are subject to change.”\nSource: https://ghibli-park.jp/en/tick
+ et/ (checked on 31 October 2026)\nDate calculated by Before You Fly from t
+ he official rule. Rules can change: check the official page before you boo
+ k.\nOfficial tickets: https://l-tike.com/st1/ghibli-pk-en4\nhttps://before
+ -you-fly.netlify.app/ticket-release-dates/ghibli-park/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/ghibli-park/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:ghibli-park-uscita-mese-2027-03-10@before-you-fly.netlify.app
+DTSTAMP:20261031T000000Z
+DTSTART:20270310T050000Z
+DTEND:20270310T053000Z
+SUMMARY:Ghibli Park tickets go on sale (for May 2027)
+DESCRIPTION:Official rule: “This pass goes on sale two months in advance\
+ , on the 10th at 2 p.m. (Japan time) The dates tickets go on sale and sale
+  periods are subject to change.”\nSource: https://ghibli-park.jp/en/tick
+ et/ (checked on 31 October 2026)\nDate calculated by Before You Fly from t
+ he official rule. Rules can change: check the official page before you boo
+ k.\nOfficial tickets: https://l-tike.com/st1/ghibli-pk-en4\nhttps://before
+ -you-fly.netlify.app/ticket-release-dates/ghibli-park/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/ghibli-park/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:ghibli-park-uscita-mese-2027-04-10@before-you-fly.netlify.app
+DTSTAMP:20261031T000000Z
+DTSTART:20270410T050000Z
+DTEND:20270410T053000Z
+SUMMARY:Ghibli Park tickets go on sale (for June 2027)
+DESCRIPTION:Official rule: “This pass goes on sale two months in advance\
+ , on the 10th at 2 p.m. (Japan time) The dates tickets go on sale and sale
+  periods are subject to change.”\nSource: https://ghibli-park.jp/en/tick
+ et/ (checked on 31 October 2026)\nDate calculated by Before You Fly from t
+ he official rule. Rules can change: check the official page before you boo
+ k.\nOfficial tickets: https://l-tike.com/st1/ghibli-pk-en4\nhttps://before
+ -you-fly.netlify.app/ticket-release-dates/ghibli-park/
+URL:https://before-you-fly.netlify.app/ticket-release-dates/ghibli-park/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
