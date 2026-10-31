@@ -1,0 +1,1518 @@
+{
+ "_nota": "Generato da raccolta/schengen_residenti.py: non modificare a mano. Cifre sui visti in dati/rifiuti.json.",
+ "letto_il": "2026-10-31",
+ "fonti": {
+  "commissione": {
+   "titolo": "European Commission, Applying for a Schengen visa",
+   "formato": "html",
+   "url": "https://home-affairs.ec.europa.eu/policies/schengen/visa-policy/applying-schengen-visa_en",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 324236,
+   "sha256": "88ffa2884c9a3ba59f098562bb27ee62f5083fba7f39c0ef807d372e6680edb5"
+  },
+  "codice": {
+   "titolo": "Regulation (EC) No 810/2009 (Visa Code), consolidated text of 2 February 2020",
+   "formato": "html",
+   "url": "https://publications.europa.eu/resource/cellar/82b7a82d-473e-11ea-b81b-01aa75ed71a1.0006.03/DOC_4",
+   "pubblico": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02009R0810-20200202",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 577676,
+   "sha256": "f2560b317e0dc982cf8209b2e59928207d768f62906a8e165d3c9c29f4b90949"
+  },
+  "riferimento": {
+   "titolo": "European Commission, Reference amounts required for the crossing of the external border fixed by national authorities",
+   "formato": "pdf",
+   "url": "https://home-affairs.ec.europa.eu/document/download/9bf9a98f-3bd1-4e14-9b39-c9087a08a32f_en?filename=Reference_amounts_table.pdf",
+   "pagina": "https://home-affairs.ec.europa.eu/policies/schengen/border-crossing_en",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 141151,
+   "sha256": "c2a62196932e06dc272ceee821c4ba559e6ce3fb1be09fe741b5f284febbe5c6"
+  },
+  "cbuae_ago": {
+   "titolo": "Central Bank of the UAE, Exchange Rates against UAE Dirham, August 2026",
+   "formato": "pdf",
+   "url": "https://centralbank.ae/media/jqkdbidg/fx_aug26_en.pdf",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 423329,
+   "sha256": "791aee5485abecb5d61de220949f7647d07d5b76b6750d34216fcbd2d02dbfca"
+  },
+  "cbuae_set": {
+   "titolo": "Central Bank of the UAE, Exchange Rates against UAE Dirham, September 2026",
+   "formato": "pdf",
+   "url": "https://centralbank.ae/media/s1hdr5ms/fx_sep26_en.pdf",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 438491,
+   "sha256": "cbf65d28c2e0125bac12b469525fce7385ee0d953df589ec6cab9a0615d4d50d"
+  },
+  "nl_uk": {
+   "titolo": "NetherlandsWorldwide, Applying for a Schengen visa for the Netherlands in the United Kingdom",
+   "formato": "html",
+   "url": "https://www.netherlandsworldwide.nl/visa-the-netherlands/schengen-visa/apply-united-kingdom",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 117964,
+   "sha256": "952b96cea4da8517af3a40a17a5994ff6a0f47c0162096e5fcd764ae266d438e"
+  },
+  "nl_ae": {
+   "titolo": "NetherlandsWorldwide, Applying for a Schengen visa for the Netherlands in the United Arab Emirates",
+   "formato": "html",
+   "url": "https://www.netherlandsworldwide.nl/visa-the-netherlands/schengen-visa/apply-united-arab-emirates",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 113823,
+   "sha256": "1e3e7f972a6602635639b378807786aede947b4f3904c933bfbdd3ca48b1f9fa"
+  },
+  "de_uk": {
+   "titolo": "German Missions in the United Kingdom, Where can I apply for my visa?",
+   "formato": "html",
+   "url": "https://uk.diplo.de/uk-en/-/2448180",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 45802,
+   "sha256": "759f5f8f542e587a5e35849ff82d651e6621b22dbec16fe075f79454ee0c566e"
+  },
+  "de_ae": {
+   "titolo": "German Missions in the United Arab Emirates, Schengen visa",
+   "formato": "html",
+   "url": "https://uae.diplo.de/ae-en/service/05-VisaEinreise/-/1358934",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 70012,
+   "sha256": "3c3572bafad7c16504fd1f60120e2c6a99c89cdb335a5b1d2a3f2505f0ae57dd"
+  },
+  "it_uk": {
+   "titolo": "Consulate General of Italy in London, Visas",
+   "formato": "html",
+   "url": "https://conslondra.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 65487,
+   "sha256": "6f43046a9dba31fe8e4c7dd8587f16c90d1691094ff5e1a46bb08206ed2e4516"
+  },
+  "it_ad": {
+   "titolo": "Embassy of Italy in Abu Dhabi, Visas",
+   "formato": "html",
+   "url": "https://ambabudhabi.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 56558,
+   "sha256": "566e55a03cd0b7f789e0e9a63cbbdf4275104951bf336e4f8f6049cf37a19e10"
+  },
+  "be_uk": {
+   "titolo": "Embassy of Belgium in the United Kingdom, Visa for Belgium",
+   "formato": "html",
+   "url": "https://unitedkingdom.diplomatie.belgium.be/en/travel-belgium/visa-belgium",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 156119,
+   "sha256": "be303da76c2ede9c2b67df8a8caf7b0cdbdf22c17f683906a7e31c2c7284e781"
+  },
+  "pt_uk": {
+   "titolo": "Consulate General of Portugal in London",
+   "formato": "html",
+   "url": "https://londres.consuladoportugal.mne.gov.pt/en/",
+   "http": 200,
+   "letto_il": "2026-10-31",
+   "byte": 48714,
+   "sha256": "5e18aa37e93880147b39aa80f24fb66b2d5d1e938039280d66292d74f0436640"
+  }
+ },
+ "letture": {
+  "tassa_adulti": {
+   "valore": 90,
+   "fonte": "commissione",
+   "frammento": "€90 for adults"
+  },
+  "tassa_bambini": {
+   "valore": 45,
+   "fonte": "commissione",
+   "frammento": "€45 for children aged 6-12"
+  },
+  "centri": {
+   "fonte": "commissione",
+   "frammento": "An additional fee may apply if you go through visa service centres, which collect applications on behalf of consulates in some cases."
+  },
+  "tempi": {
+   "valore": [
+    15,
+    45
+   ],
+   "fonte": "commissione",
+   "frammento": "The normal processing time for a visa application is 15 days. This period may be extended to up to 45 days"
+  },
+  "residenza": {
+   "fonte": "commissione",
+   "frammento": "you must apply for a Schengen visa at the consulate with territorial responsibility for the country where you are legally resident"
+  },
+  "assicurazione": {
+   "fonte": "commissione",
+   "frammento": "Medical insurance covering emergency medical care, hospitalisation and repatriation (including in the event of death)."
+  },
+  "copertura": {
+   "valore": 30000,
+   "fonte": "codice",
+   "frammento": "The minimum coverage shall be EUR 30 000."
+  },
+  "assicurazione_residenza": {
+   "fonte": "codice",
+   "frammento": "Applicants shall, in principle, take out insurance in their country of residence."
+  },
+  "assicurazione_mev": {
+   "fonte": "codice",
+   "frammento": "shall prove that they are in possession of adequate and valid travel medical insurance covering the period of their first intended visit"
+  },
+  "art6": {
+   "fonte": "codice",
+   "frammento": "An application shall be examined and decided on by the consulate of the competent Member State in whose jurisdiction the applicant legally resides."
+  },
+  "art6_2": {
+   "fonte": "codice",
+   "frammento": "shall examine and decide on an application lodged by a third-country national legally present but not residing in its jurisdiction, if the applicant has provided justification for lodging the application at that consulate"
+  },
+  "art21_5": {
+   "fonte": "codice",
+   "frammento": "on the basis of the reference amounts set by the Member States in accordance with Article 34(1)(c) of the Schengen Borders Code. Proof of sponsorship and/or private accommodation may also constitute evidence of sufficient means of subsistence."
+  },
+  "riferimento_data": {
+   "valore": "2026-06-08",
+   "fonte": "riferimento",
+   "frammento": "08/06/2026 REFERENCE AMOUNTS REQUIRED FOR THE CROSSING OF THE EXTERNAL BORDER FIXED BY NATIONAL AUTHORITIES"
+  },
+  "ancoraggio": {
+   "valore": 3.6725,
+   "fonte": "cbuae_set",
+   "frammento": "30-Sep-2026 US Dollar 3.6725"
+  }
+ },
+ "riferimento": {
+  "Austria": {
+   "frammento": "Austria* on a case-by-case basis",
+   "importi": []
+  },
+  "Belgium": {
+   "frammento": "Belgium* EUR 45 - aliens staying with a private individual EUR 95 - aliens staying at a hotel",
+   "importi": [
+    [
+     45,
+     "EUR",
+     "a day if you stay with a private person"
+    ],
+    [
+     95,
+     "EUR",
+     "a day if you stay in a hotel"
+    ]
+   ]
+  },
+  "Bulgaria": {
+   "frammento": "Bulgaria* EUR 50 EUR 500 - per stay",
+   "importi": [
+    [
+     50,
+     "EUR",
+     "a day"
+    ],
+    [
+     500,
+     "EUR",
+     "per stay"
+    ]
+   ]
+  },
+  "Croatia": {
+   "frammento": "Croatia EUR 70 EUR 30 – third-country national possessing a certified letter of guarantee by a natural or legal person from the Republic of Croatia, proof of a tourist booking or a similar document",
+   "importi": [
+    [
+     70,
+     "EUR",
+     "a day"
+    ],
+    [
+     30,
+     "EUR",
+     "a day with a certified letter of guarantee, a tourist booking or a similar document"
+    ]
+   ]
+  },
+  "Czech Republic": {
+   "frammento": "Czech Republic* • For stays not exceeding 30 days – 1.565 CZK per day",
+   "importi": [
+    [
+     1565,
+     "CZK",
+     "a day for stays of up to 30 days (longer stays: a fixed sum plus a monthly amount)"
+    ]
+   ]
+  },
+  "Denmark": {
+   "frammento": "Denmark* DKK 350",
+   "importi": [
+    [
+     350,
+     "DKK",
+     "a day"
+    ]
+   ]
+  },
+  "Estonia": {
+   "frammento": "Estonia* EUR 70",
+   "importi": [
+    [
+     70,
+     "EUR",
+     "a day"
+    ]
+   ]
+  },
+  "Finland": {
+   "frammento": "Finland* on a case-by-case basis EUR 50 In addition to the funds, or tickets, required for the departure and accommodation during the stay",
+   "importi": [],
+   "nota": "The table puts “on a case-by-case basis” and “EUR 50” side by side, with the remark that the amount comes on top of the money or tickets for departure and accommodation."
+  },
+  "France": {
+   "frammento": "France* EUR 65 EUR 32.50 - persons holding proof of accommodation EUR 120 – persons holding no proof of accommodation",
+   "importi": [
+    [
+     120,
+     "EUR",
+     "a day without proof of accommodation"
+    ],
+    [
+     65,
+     "EUR",
+     "a day for the nights covered by a hotel booking"
+    ],
+    [
+     32.5,
+     "EUR",
+     "a day with proof of accommodation"
+    ]
+   ]
+  },
+  "Germany": {
+   "frammento": "Germany* EUR 45",
+   "importi": [
+    [
+     45,
+     "EUR",
+     "a day"
+    ]
+   ]
+  },
+  "Greece": {
+   "frammento": "Greece* EUR 50 EUR 25 – for minors EUR 300 - for a stay of up to 5 days",
+   "importi": [
+    [
+     50,
+     "EUR",
+     "a day"
+    ],
+    [
+     25,
+     "EUR",
+     "a day for minors"
+    ],
+    [
+     300,
+     "EUR",
+     "for a stay of up to 5 days"
+    ]
+   ]
+  },
+  "Hungary": {
+   "frammento": "Hungary* EUR 40",
+   "importi": [
+    [
+     40,
+     "EUR",
+     "a day"
+    ]
+   ]
+  },
+  "Iceland": {
+   "frammento": "Iceland* ISK 8000 ISK 40 000 - for each entry",
+   "importi": [
+    [
+     8000,
+     "ISK",
+     "a day"
+    ],
+    [
+     40000,
+     "ISK",
+     "for each entry"
+    ]
+   ]
+  },
+  "Italy": {
+   "frammento": "Italy* EUR 269.60 1 to 5 days overall fixed sum",
+   "importi": [
+    [
+     269.6,
+     "EUR",
+     "fixed sum for a stay of 1 to 5 days"
+    ]
+   ]
+  },
+  "Latvia": {
+   "frammento": "Latvia* EUR 14 No less than the minimum monthly wage (EUR 700), where the scheduled stay exceeds 30 days",
+   "importi": [
+    [
+     14,
+     "EUR",
+     "a day"
+    ],
+    [
+     700,
+     "EUR",
+     "at least, for stays of more than 30 days (the minimum monthly wage)"
+    ]
+   ]
+  },
+  "Lithuania": {
+   "frammento": "Lithuania* EUR 50",
+   "importi": [
+    [
+     50,
+     "EUR",
+     "a day"
+    ]
+   ]
+  },
+  "Luxembourg": {
+   "frammento": "Luxembourg EUR 67",
+   "importi": [
+    [
+     67,
+     "EUR",
+     "a day"
+    ]
+   ]
+  },
+  "Malta": {
+   "frammento": "Malta EUR 48",
+   "importi": [
+    [
+     48,
+     "EUR",
+     "a day"
+    ]
+   ]
+  },
+  "Netherlands": {
+   "frammento": "Netherlands* EUR 55",
+   "importi": [
+    [
+     55,
+     "EUR",
+     "a day"
+    ]
+   ]
+  },
+  "Norway": {
+   "frammento": "Norway* on a case-by-case basis NOK 300/day (hosted/pre-paid accommodation); NOK 1,300/day (no proof of accommodation). If >1 traveller: ≥ NOK 1,000 per person/day.",
+   "importi": [
+    [
+     300,
+     "NOK",
+     "a day with hosted or pre-paid accommodation"
+    ],
+    [
+     1300,
+     "NOK",
+     "a day without proof of accommodation"
+    ],
+    [
+     1000,
+     "NOK",
+     "at least, per person a day, if more than one traveller"
+    ]
+   ]
+  },
+  "Poland": {
+   "frammento": "Poland* PLN 300 for stay not exceeding 4 days PLN 75 per day by stay exceeding 4 days",
+   "importi": [
+    [
+     300,
+     "PLN",
+     "for a stay of up to 4 days"
+    ],
+    [
+     75,
+     "PLN",
+     "a day for stays of more than 4 days"
+    ]
+   ]
+  },
+  "Portugal": {
+   "frammento": "Portugal* EUR 75 - for each entry EUR 40 - for each day spent on the territory",
+   "importi": [
+    [
+     75,
+     "EUR",
+     "for each entry"
+    ],
+    [
+     40,
+     "EUR",
+     "for each day in Portugal"
+    ]
+   ]
+  },
+  "Romania": {
+   "frammento": "Romania* EUR 50, but no less then € 500 for the entire period, or equivalent",
+   "importi": [
+    [
+     50,
+     "EUR",
+     "a day"
+    ],
+    [
+     500,
+     "EUR",
+     "at least, for the whole stay"
+    ]
+   ]
+  },
+  "Slovakia": {
+   "frammento": "Slovakia* EUR 56",
+   "importi": [
+    [
+     56,
+     "EUR",
+     "a day"
+    ]
+   ]
+  },
+  "Slovenia": {
+   "frammento": "Slovenia* EUR 70 EUR 35 - for minors accompanied by their parents",
+   "importi": [
+    [
+     70,
+     "EUR",
+     "a day"
+    ],
+    [
+     35,
+     "EUR",
+     "a day for minors travelling with their parents"
+    ]
+   ]
+  },
+  "Spain": {
+   "frammento": "Spain* 10% of the gross national minimum wage (EUR 122.10); 90% of the gross national minimum wage (EUR 1 098.90) - minimum amount at the disposal",
+   "importi": [
+    [
+     122.1,
+     "EUR",
+     "a day (10% of the gross minimum wage)"
+    ],
+    [
+     1098.9,
+     "EUR",
+     "at least, in total (90% of the gross minimum wage)"
+    ]
+   ]
+  },
+  "Sweden": {
+   "frammento": "Sweden SEK 700",
+   "importi": [
+    [
+     700,
+     "SEK",
+     "a day"
+    ]
+   ]
+  },
+  "Switzerland": {
+   "frammento": "Switzerland* CHF 100 CHF 30 - students",
+   "importi": [
+    [
+     100,
+     "CHF",
+     "a day"
+    ],
+    [
+     30,
+     "CHF",
+     "a day for students"
+    ]
+   ]
+  }
+ },
+ "fornitori": [
+  {
+   "paese": "UNITED KINGDOM",
+   "stato": "Netherlands",
+   "fonte": "nl_uk",
+   "fornitore": "VFS Global",
+   "frammento": "To apply for a Schengen visa in the United Kingdom go to the VFS Global application centre in Birmingham, Edinburgh, London or Manchester.",
+   "testo": "The Dutch government's page says to apply at the VFS Global application centre in Birmingham, Edinburgh, London or Manchester."
+  },
+  {
+   "paese": "UNITED KINGDOM",
+   "stato": "Germany",
+   "fonte": "de_uk",
+   "fornitore": "TLScontact",
+   "frammento": "operated by our service provider, TLScontact, serve visa applicants residing in England (with exceptions, see below), Northern Ireland and Wales",
+   "testo": "The German missions' page says the visa application centres in London and Manchester (for England, with exceptions, Northern Ireland and Wales) and Edinburgh (for Scotland) are operated by TLScontact."
+  },
+  {
+   "paese": "UNITED KINGDOM",
+   "stato": "Italy",
+   "fonte": "it_uk",
+   "fornitore": "VFS Global",
+   "frammento": "Appointments are exclusively managed through our service partner, VFS Global.",
+   "testo": "The Italian Consulate General in London says appointments are managed only through its service partner, VFS Global, which charges an extra service fee."
+  },
+  {
+   "paese": "UNITED KINGDOM",
+   "stato": "Belgium",
+   "fonte": "be_uk",
+   "fornitore": "TLScontact",
+   "frammento": "For all general visa enquiries (application process, processing times, appointments, documentation required) please contact TLScontact",
+   "testo": "The Belgian embassy's page sends questions about the application process, appointments and documents to TLScontact."
+  },
+  {
+   "paese": "UNITED KINGDOM",
+   "stato": "Portugal",
+   "fonte": "pt_uk",
+   "fornitore": "VFS Global",
+   "frammento": "visa application center in London, operated by VFS Global",
+   "testo": "The Portuguese Consulate General in London says its visa application centre in London is operated by VFS Global."
+  },
+  {
+   "paese": "UNITED ARAB EMIRATES",
+   "stato": "Netherlands",
+   "fonte": "nl_ae",
+   "fornitore": "VFS Global",
+   "frammento": "To apply for a Schengen visa in the United Arab Emirates go to the VFS Global application centre in Abu Dhabi or Dubai.",
+   "testo": "The Dutch government's page says to apply at the VFS Global application centre in Abu Dhabi or Dubai."
+  },
+  {
+   "paese": "UNITED ARAB EMIRATES",
+   "stato": "Germany",
+   "fonte": "de_ae",
+   "fornitore": "VFS Global",
+   "frammento": "The Consulate works exclusively with the external service provider VFS Global. Visa applications can be submitted by appointment only at the VFS Global Germany Visa Application Centres in Abu Dhabi or Dubai.",
+   "testo": "The German Consulate General in Dubai works only with VFS Global: applications by appointment at the VFS Global centres in Abu Dhabi or Dubai."
+  },
+  {
+   "paese": "UNITED ARAB EMIRATES",
+   "stato": "Italy",
+   "fonte": "it_ad",
+   "fornitore": "BLS International (Abu Dhabi), VFS Global (Dubai)",
+   "frammento": "may apply to BLS International. Residents of the Emirate of Dubai and Northern Emirates are instead advised to contact the Dubai Consulate General which operates through the VFS Global Dubai office",
+   "testo": "The Italian embassy in Abu Dhabi takes applications from holders of an Abu Dhabi residence visa through BLS International; residents of Dubai and the Northern Emirates go to the Consulate General in Dubai, which works through VFS Global."
+  }
+ ],
+ "ancoraggio_righe": {
+  "giorni": 43,
+  "dal": "03-Aug-2026",
+  "al": "30-Sep-2026"
+ },
+ "domanda": {
+  "data": "2026-10-31",
+  "metodo": "https://suggestqueries.google.com/complete/search?client=firefox&gl=<gb|ae>&hl=en&q=…",
+  "query": {
+   "gb|schengen visa from uk": [
+    "schengen visa from uk",
+    "schengen visa from uk for indian passport",
+    "schengen visa from uk price",
+    "schengen visa from uk to france",
+    "schengen visa from uk to spain",
+    "schengen visa from uk for pakistani passport",
+    "schengen visa from uk to italy",
+    "schengen visa from uk for indian passport cost",
+    "schengen visa from uk as an international student",
+    "schengen visa from uk to germany"
+   ],
+   "gb|schengen visa from uk for": [
+    "schengen visa from uk for indian passport",
+    "schengen visa from uk for pakistani passport",
+    "schengen visa from uk for indian passport cost",
+    "schengen visa from uk for bangladeshi passport",
+    "schengen visa from uk for international students",
+    "schengen visa from uk for indian passport to italy",
+    "schengen visa from uk for nepali passport",
+    "schengen visa from uk for italy",
+    "schengen visa from uk for spain",
+    "schengen visa from uk for indian passport holders"
+   ],
+   "gb|easiest schengen visa from uk": [
+    "easiest schengen visa from uk",
+    "easiest schengen visa from uk for indian passport holders",
+    "easiest schengen visa from uk reddit",
+    "fastest schengen visa from uk",
+    "easy schengen visa from uk",
+    "fastest schengen visa from uk reddit",
+    "easiest schengen visa from london",
+    "easiest schengen visa appointment from uk",
+    "easiest schengen visa country from uk",
+    "fastest schengen visa from london"
+   ],
+   "gb|schengen visa uk residents": [
+    "schengen visa for british residents",
+    "schengen visa uk resident",
+    "schengen visa uk citizens",
+    "schengen visa uk nationals",
+    "schengen visa for uk residents with indian passport",
+    "schengen visa for british citizens",
+    "europe visa uk citizen",
+    "schengen visa for british citizen spouse",
+    "schengen visa for british nationals",
+    "schengen visa requirements for uk residents"
+   ],
+   "gb|schengen visa from uk cost": [
+    "schengen visa from uk cost",
+    "europe visa from uk cost",
+    "schengen visa application from uk cost",
+    "spain schengen visa from uk cost",
+    "schengen visa france from uk cost",
+    "schengen tourist visa from uk cost",
+    "schengen visa for indians from uk cost",
+    "paris schengen visa from uk price",
+    "schengen visa from uk for indian passport cost",
+    "schengen visa from uk for pakistani passport cost"
+   ],
+   "gb|schengen visa from uk for indian passport": [
+    "schengen visa from uk for indian passport",
+    "schengen visa from uk for indian passport cost",
+    "schengen visa from uk for indian passport to italy",
+    "schengen visa from uk for indian passport holders",
+    "schengen visa from uk for indian passport documents required",
+    "schengen visa from uk for indian passport to france",
+    "schengen visa from uk for indian passport to germany",
+    "schengen visa from uk for indian passport processing time",
+    "schengen visa from uk for indian passport student",
+    "schengen visa from uk for indian passport validity"
+   ],
+   "gb|schengen visa from london": [
+    "schengen visa from london",
+    "schengen visa from london to italy",
+    "schengen visa from london to france",
+    "schengen visa from london to spain",
+    "schengen visa from london to germany",
+    "schengen visa from london to netherlands",
+    "schengen visa from london to portugal",
+    "schengen visa from london reddit",
+    "schengen visa from london to greece",
+    "schengen visa from london to paris"
+   ],
+   "gb|schengen visa insurance uk": [
+    "schengen visa insurance uk",
+    "schengen visa insurance uk reddit",
+    "schengen travel insurance uk",
+    "schengen travel insurance uk reddit",
+    "schengen travel insurance for uk resident",
+    "schengen travel insurance uk coverwise",
+    "schengen visa travel insurance uk",
+    "schengen visa insurance for uk residents",
+    "axa schengen visa insurance uk",
+    "schengen visa health insurance uk"
+   ],
+   "gb|schengen visa from uk processing time": [
+    "schengen visa from uk processing time",
+    "schengen visa france from uk processing time",
+    "italy schengen visa from uk processing time",
+    "schengen visa application from uk processing time",
+    "schengen visa from uk for indian passport processing time",
+    "portugal schengen visa uk processing time",
+    "greece schengen visa uk processing time",
+    "netherlands schengen visa uk processing time",
+    "denmark schengen visa uk processing time",
+    "spanish schengen visa uk processing time"
+   ],
+   "gb|schengen visa from uk requirements": [
+    "schengen visa from uk requirements",
+    "schengen visa from uk apply",
+    "schengen visa from uk application form",
+    "schengen visa from uk photo requirements",
+    "schengen visa to spain from uk requirements",
+    "spain schengen visa from uk application form",
+    "italy schengen visa uk requirements",
+    "france schengen visa uk requirements",
+    "europe visa requirements uk",
+    "schengen visa application requirements from uk"
+   ],
+   "gb|france visa from uk": [
+    "france visa from uk",
+    "france visa from uk for indian passport",
+    "france visa from uk for pakistani passport",
+    "france visa from uk appointment",
+    "france visa from uk reddit",
+    "france visa from uk for indian passport holders",
+    "france visa from uk login",
+    "france visa from uk tls",
+    "france visa from uk fees",
+    "france visa from uk processing time"
+   ],
+   "gb|spain visa from uk": [
+    "spain visa from uk",
+    "spain visa from uk for indian passport",
+    "spain visa from uk processing time",
+    "spain visa from uk appointment",
+    "spain visa from uk cost",
+    "spain visa from uk manchester",
+    "spain visa from uk reddit",
+    "spain visa from uk for pakistani passport",
+    "spain visa from uk how long does it take",
+    "spain visa from uk for bangladeshi passport"
+   ],
+   "gb|italy visa from uk": [
+    "italy visa from uk",
+    "italy visa from uk for indian passport",
+    "italy visa from uk for pakistani passport",
+    "italy visa from uk reddit",
+    "italy visa from uk for nepali passport",
+    "italy visa from uk for bangladeshi passport",
+    "italy visa from uk appointment",
+    "italy visa from uk price",
+    "italy visa from uk for indians",
+    "italy visa from uk checklist"
+   ],
+   "gb|germany visa from uk": [
+    "germany visa from uk",
+    "germany visa from uk for indian passport holder",
+    "germany visa from uk for indians",
+    "germany visa from uk appointment",
+    "germany visa from uk manchester",
+    "germany visa from uk for pakistani passport holder",
+    "germany visa from uk for pakistani",
+    "germany visa from uk reddit",
+    "germany visa from uk for non eu citizens",
+    "germany visa from uk tls"
+   ],
+   "gb|netherlands visa from uk": [
+    "netherlands visa from uk",
+    "netherlands visa from uk for indian passport",
+    "netherlands visa from uk for pakistani passport",
+    "netherlands visa from uk appointment",
+    "netherlands visa from uk book appointment",
+    "netherlands visa from uk application form",
+    "netherlands visa from uk vfs",
+    "netherlands visa from uk reddit",
+    "netherlands visa from uk login",
+    "netherlands visa from uk cost"
+   ],
+   "gb|greece visa from uk": [
+    "greece visa from uk",
+    "greece visa from uk for indian passport",
+    "greece visa from uk appointment",
+    "greece visa from uk for pakistani passport",
+    "greece visa from uk reddit",
+    "greece visa from uk vfs",
+    "greece visa from uk checklist",
+    "greece visa from uk fee",
+    "greece visa from uk schengen",
+    "greece visa from uk processing time"
+   ],
+   "gb|portugal visa from uk": [
+    "portugal visa from uk",
+    "portugal visa from uk for indian passport",
+    "portugal visa from uk appointment",
+    "portugal visa from uk to live",
+    "portugal visa from uk vfs",
+    "portugal visa from uk for bangladeshi passport",
+    "portugal visa from uk pakistani passport",
+    "portugal visa from uk cost",
+    "portugal visa from uk reddit",
+    "portugal visa from uk for nepali passport"
+   ],
+   "gb|switzerland visa from uk": [
+    "switzerland visa from uk",
+    "switzerland visa from uk on indian passport",
+    "switzerland visa from uk on pakistani passport",
+    "switzerland visa from uk cost",
+    "switzerland visa from uk for indians",
+    "switzerland visa from uk appointment",
+    "switzerland visa from uk vfs",
+    "switzerland visa from uk on sri lankan passport",
+    "switzerland visa from uk reddit",
+    "switzerland visa from uk brp"
+   ],
+   "gb|denmark visa from uk": [
+    "denmark visa from uk",
+    "denmark visa from uk for pakistani passport",
+    "denmark visa from uk reddit",
+    "denmark visa from uk for indians",
+    "denmark visa from uk vfs",
+    "denmark visa from uk appointment",
+    "denmark visa application from uk",
+    "denmark schengen visa from uk",
+    "denmark tourist visa from uk",
+    "denmark visa fee from uk"
+   ],
+   "gb|iceland visa from uk": [
+    "iceland visa from uk",
+    "iceland visa from uk for indians",
+    "iceland visa from uk reddit",
+    "iceland visa from uk for pakistani passport",
+    "iceland visa from uk for indian passport",
+    "iceland visa from uk book appointment",
+    "iceland visa from uk vfs",
+    "iceland visit visa from uk",
+    "apply iceland visa from uk",
+    "iceland schengen visa from uk"
+   ],
+   "gb|belgium visa from uk": [
+    "belgium visa from uk",
+    "belgium visa from uk for pakistani passport",
+    "belgium visa from uk for indian passport",
+    "belgium visa from uk appointment",
+    "belgium visa from uk tls",
+    "belgium visa from uk reddit",
+    "belgium visa from uk manchester",
+    "belgium visa from uk vfs",
+    "belgium visa from uk checklist",
+    "belgium visa from uk fees"
+   ],
+   "gb|norway visa from uk": [
+    "norway visa from uk",
+    "norway visa from uk indian passport",
+    "norway visa from uk for indian",
+    "norway visa from uk for pakistani passport",
+    "norway visa from uk vfs",
+    "norway visa from uk processing time",
+    "norway visa from uk reddit",
+    "norway schengen visa from uk",
+    "apply norway visa from uk",
+    "norway visit visa from uk"
+   ],
+   "gb|malta visa from uk": [
+    "malta visa from uk",
+    "malta visa from uk for indians",
+    "malta visa from uk for pakistani passport",
+    "malta visa from uk vfs",
+    "malta visa from uk book appointment",
+    "malta visa from uk reddit",
+    "malta visit visa from uk",
+    "apply malta visa from uk",
+    "malta visa appointment from uk",
+    "malta schengen visa from uk"
+   ],
+   "gb|finland visa from uk": [
+    "finland visa from uk",
+    "finland visa from uk for indian",
+    "finland visa from uk vfs",
+    "finland visa from uk for pakistani",
+    "finland visa from uk reddit",
+    "finland visa application from uk",
+    "finland visit visa from uk",
+    "finland schengen visa from uk",
+    "finland visa appointment from uk",
+    "finland visa fee from uk"
+   ],
+   "gb|austria visa from uk": [
+    "austria visa from uk",
+    "austria visa from uk for indian passport",
+    "austria visa from uk vfs",
+    "austria visa from uk for indians",
+    "austria schengen visa from uk",
+    "apply austria visa from uk",
+    "austria visit visa from uk",
+    "austria visa application from uk",
+    "austria visa appointment from uk",
+    "austria visa fee from uk"
+   ],
+   "gb|lithuania visa from uk": [
+    "lithuania visa from uk",
+    "lithuania schengen visa from uk",
+    "lithuania visit visa from uk",
+    "lithuania visa application from uk",
+    "lithuania tourist visa from uk",
+    "lithuania visa appointment from uk",
+    "lithuania visa fee from uk",
+    "lithuania visa ratio from uk",
+    "lithuania visa requirements from uk",
+    "lithuania visa from london"
+   ],
+   "gb|poland visa from uk": [
+    "poland visa from uk",
+    "poland visa from uk for indian citizens",
+    "poland visa from uk vfs",
+    "poland visa from uk for pakistani passport",
+    "poland visa from ukraine",
+    "poland schengen visa from uk",
+    "poland visa application from uk",
+    "poland visit visa from uk",
+    "apply poland visa from uk",
+    "poland tourist visa from uk"
+   ],
+   "gb|hungary visa from uk": [
+    "hungary visa from uk",
+    "hungary visa from uk for indian",
+    "hungary visa from uk appointment",
+    "hungary visa from uk reddit",
+    "hungary visa from uk vfs",
+    "hungary visa from ukraine",
+    "hungary visa application from uk",
+    "hungary schengen visa from uk",
+    "hungary tourist visa from uk",
+    "hungary visa fees from uk"
+   ],
+   "gb|czech visa from uk": [
+    "czech visa from uk",
+    "czech republic visa from uk indian passport",
+    "czech visa application from uk",
+    "czech visa appointment from uk",
+    "czech schengen visa from uk",
+    "vfs czech visa from uk",
+    "czech visa from london",
+    "czech republic visit visa from uk",
+    "czech visa for uk citizens",
+    "czech embassy uk"
+   ],
+   "gb|bulgaria visa from uk": [
+    "bulgaria visa from uk",
+    "bulgaria visa from uk indian passport",
+    "bulgarian visa from uk",
+    "bulgaria visit visa from uk",
+    "bulgaria schengen visa from uk",
+    "apply bulgaria visa from uk",
+    "bulgaria visa application from uk",
+    "vfs bulgaria visa from uk",
+    "bulgaria visa appointment from uk",
+    "bulgaria tourist visa from uk"
+   ],
+   "gb|romania visa from uk": [
+    "romania visa from uk",
+    "romania visa from uk for indians",
+    "romania visa from uk brp",
+    "romania schengen visa from uk",
+    "romania visit visa from uk",
+    "apply romania visa from uk",
+    "romania visit visa from uk for pakistani",
+    "romania visa appointment from uk",
+    "romania visa fee from uk",
+    "romania transit visa from ukraine"
+   ],
+   "gb|latvia visa from uk": [
+    "latvia visa from uk",
+    "latvia visa from uk for indian passport",
+    "latvia visit visa from uk",
+    "apply latvia visa from uk",
+    "latvia visa appointment from uk",
+    "latvia schengen visa from uk",
+    "latvia visa fee from uk",
+    "latvia visa from london",
+    "latvia visa uk citizen",
+    "latvia visa for indians from uk"
+   ],
+   "gb|luxembourg visa from uk": [
+    "luxembourg visa from uk for indian passport holders",
+    "luxembourg visa from uk",
+    "luxembourg visa from uk for pakistani passport",
+    "luxembourg visa from uk vfs",
+    "luxembourg schengen visa from uk",
+    "luxembourg visit visa from uk",
+    "luxembourg work visa from uk",
+    "luxembourg visa application from uk",
+    "luxembourg visa appointment from uk",
+    "luxembourg visa from london"
+   ],
+   "gb|estonia visa from uk": [
+    "estonia visa from uk",
+    "estonia visa application from uk",
+    "estonia schengen visa from uk",
+    "estonia visa appointment from uk",
+    "estonia visit visa from uk",
+    "vfs estonia visa from uk",
+    "estonia visa from london",
+    "estonia visa for indians from uk",
+    "estonia visa for uk brp holders",
+    "estonia visa requirements uk"
+   ],
+   "gb|croatia visa from uk": [
+    "croatia visa from uk",
+    "croatia visa from uk for indians",
+    "croatia visa from uk vfs",
+    "croatia visa from uk book appointment",
+    "croatia visa from uk for pakistani passport",
+    "croatia schengen visa from uk",
+    "apply croatia visa from uk",
+    "croatia visa appointment from uk",
+    "croatia tourist visa from uk",
+    "croatia visa from london"
+   ],
+   "gb|sweden visa from uk": [
+    "sweden visa from uk",
+    "sweden visa from uk reddit",
+    "sweden visa from uk vfs",
+    "sweden visa from uk appointment",
+    "swedish visa from uk",
+    "sweden visit visa from uk",
+    "sweden tourist visa from uk",
+    "sweden visa requirements from uk",
+    "sweden visa fee from uk",
+    "sweden work visa from uk"
+   ],
+   "gb|slovakia visa from uk": [
+    "slovakia visa from uk",
+    "slovakia schengen visa from uk",
+    "slovakia tourist visa from uk",
+    "slovakia visa application from uk",
+    "slovakia visa appointment from uk",
+    "apply slovakia visa from uk",
+    "slovakia visa from london",
+    "slovakia visa for indians from uk",
+    "slovakia visa for uk citizens",
+    "slovakia embassy uk"
+   ],
+   "gb|slovenia visa from uk": [
+    "slovenia visa from uk",
+    "slovenia schengen visa from uk",
+    "slovenia visa appointment from uk",
+    "slovenia visa application from uk",
+    "slovenia visit visa from uk",
+    "apply slovenia visa from uk",
+    "slovenia visa from london",
+    "slovenia visa for indians from uk",
+    "slovenia visa for uk brp holders",
+    "slovenia visa for uk citizens"
+   ],
+   "ae|schengen visa from dubai": [
+    "schengen visa from dubai",
+    "schengen visa from dubai cost",
+    "schengen visa from dubai to france",
+    "schengen visa from dubai to switzerland",
+    "schengen visa from dubai for indian passport",
+    "schengen visa from dubai to italy",
+    "schengen visa from dubai to greece",
+    "schengen visa from dubai to netherlands",
+    "schengen visa from dubai to germany",
+    "schengen visa from dubai for pakistani passport"
+   ],
+   "ae|schengen visa from uae": [
+    "schengen visa from uae",
+    "schengen visa from uae for indian passport",
+    "schengen visa from uae to spain",
+    "schengen visa from uae reddit",
+    "schengen visa from uae price",
+    "schengen visa from uae requirements",
+    "schengen visa from uae to italy",
+    "schengen visa from uae to france",
+    "schengen visa from uae for indians",
+    "schengen visa from uae to greece"
+   ],
+   "ae|easiest schengen visa from dubai": [
+    "easiest schengen visa from dubai",
+    "easiest schengen visa from dubai reddit",
+    "fastest schengen visa from dubai",
+    "easy schengen visa from dubai",
+    "fastest schengen visa from dubai price",
+    "easiest schengen visa appointment from dubai",
+    "easy schengen visa countries from dubai",
+    "easiest country to get schengen visa from dubai",
+    "easiest way to get schengen visa from dubai",
+    "easiest schengen visa from uae"
+   ],
+   "ae|schengen visa from dubai cost": [
+    "schengen visa from dubai cost",
+    "europe visa from dubai price",
+    "fastest schengen visa from dubai price",
+    "schengen visa from dubai for indian passport cost",
+    "schengen visit visa cost from dubai",
+    "how much schengen visa cost in uae",
+    "which is the easiest country to get schengen visa from dubai",
+    "documents required for schengen visa from dubai"
+   ],
+   "ae|schengen visa from dubai for indian passport": [
+    "schengen visa from dubai for indian passport",
+    "schengen visa from dubai for indian passport cost",
+    "how to apply schengen visa from dubai for indian passport",
+    "which countries can i visit with schengen visa on indian passport",
+    "how to apply schengen visa from uk for indian passport",
+    "can indian passport holder apply for schengen visa from usa",
+    "can indian passport holder apply for schengen visa from uk"
+   ],
+   "ae|schengen visa from abu dhabi": [
+    "schengen visa from abu dhabi",
+    "europe visa from abu dhabi",
+    "schengen visa application from abu dhabi",
+    "easiest schengen visa from abu dhabi",
+    "fastest schengen visa from abu dhabi",
+    "italy schengen visa from abu dhabi",
+    "schengen visa cost from abu dhabi",
+    "schengen visa austria from abu dhabi",
+    "schengen visa france from abu dhabi",
+    "schengen visa germany from abu dhabi"
+   ],
+   "ae|schengen visa uae residents": [
+    "schengen visa uae residents",
+    "schengen visa uae residents 2025 requirements",
+    "schengen visa for uae residents indian passport",
+    "schengen visa for uae residents pakistani passport",
+    "schengen visa for uae residents cost",
+    "schengen visa requirements uae residents",
+    "schengen visa for uae residents validity period",
+    "germany schengen visa uae residents",
+    "schengen visa for uae residents online",
+    "schengen visa application uae residents 2025"
+   ],
+   "ae|schengen visa from dubai processing time": [
+    "schengen visa from dubai processing time",
+    "schengen visa dubai waiting time",
+    "how many days to process schengen visa",
+    "how long does a schengen visa application take to process",
+    "how many days to get schengen visa",
+    "how long does it take to get a schengen visa",
+    "can i get schengen visa in 5 days"
+   ],
+   "ae|schengen visa from dubai requirements": [
+    "schengen visa from dubai requirements",
+    "europe visit visa from dubai requirements",
+    "schengen visa requirements dubai residents",
+    "schengen visa requirements from dubai for indian",
+    "schengen visa requirements from dubai for pakistani",
+    "greece schengen visa dubai requirements",
+    "schengen visit visa requirements from dubai",
+    "requirements to apply schengen visa from dubai",
+    "spain schengen visa requirements from dubai",
+    "schengen visa requirements for filipino from.dubai"
+   ],
+   "ae|france visa from dubai": [
+    "france visa from dubai",
+    "france visa from dubai appointment",
+    "france visa from dubai vfs",
+    "france visa from dubai reddit",
+    "france visa from dubai price",
+    "france visa from dubai for indian",
+    "french visa from dubai",
+    "schengen visa from dubai",
+    "schengen visa from dubai for indian passport",
+    "schengen visa from dubai cost"
+   ],
+   "ae|spain visa from dubai": [
+    "spain visa from dubai",
+    "spain visa from dubai for pakistani passport",
+    "spain visa from dubai for indian passport",
+    "spain visa from dubai requirements",
+    "spain visa from dubai cost",
+    "spain visa from dubai vfs",
+    "spain visa from dubai reddit",
+    "spain visit visa from dubai",
+    "spain work visa from dubai",
+    "spain tourist visa from dubai"
+   ],
+   "ae|italy visa from dubai": [
+    "italy visa from dubai",
+    "italy visa from dubai vfs",
+    "italy visa from dubai appointment",
+    "italy visa from dubai price",
+    "italy visa from dubai reddit",
+    "italy visa from dubai checklist",
+    "italy vfs from dubai",
+    "italy visit visa from dubai price",
+    "italy visit visa from dubai",
+    "italy work visa from dubai"
+   ],
+   "ae|germany visa from dubai": [
+    "germany visa from dubai",
+    "germany visa from dubai price",
+    "germany visa from dubai checklist",
+    "germany visa from dubai vfs",
+    "germany visa from dubai appointment",
+    "germany visa from dubai reddit",
+    "german visa from dubai",
+    "germany work visa from dubai",
+    "germany visit visa from dubai price",
+    "germany visit visa from dubai"
+   ],
+   "ae|netherlands visa from dubai": [
+    "netherlands visa from dubai",
+    "netherlands visa from dubai vfs",
+    "netherlands visa from dubai reddit",
+    "netherlands visit visa from dubai",
+    "netherlands visa fees from dubai",
+    "netherlands visa requirements from dubai",
+    "apply netherlands visa from dubai",
+    "netherlands work visa from dubai",
+    "netherlands visa ratio from dubai",
+    "netherlands visa appointment from dubai"
+   ],
+   "ae|greece visa from dubai": [
+    "greece visa from dubai",
+    "greece visa from dubai cost",
+    "greece visa from dubai for indian",
+    "greece visa from dubai vfs",
+    "greece visa from dubai reddit",
+    "greece visit visa from dubai",
+    "greece visit visa from dubai price",
+    "greece tourist visa from dubai",
+    "apply greece visa from dubai",
+    "greece visa appointment from dubai"
+   ],
+   "ae|portugal visa from dubai": [
+    "portugal visa from dubai",
+    "portugal visa from dubai documents required",
+    "portugal visa from dubai for pakistani",
+    "portugal visa from dubai for indian",
+    "portugal visa from dubai price",
+    "portugal visa dubai reddit",
+    "portugal visit visa from dubai",
+    "portugal visit visa from dubai price",
+    "portugal work visa from dubai price",
+    "portugal work visa from dubai"
+   ],
+   "ae|switzerland visa from dubai": [
+    "switzerland visa from dubai",
+    "switzerland visa from dubai cost",
+    "switzerland visa from dubai processing time",
+    "switzerland visa from dubai for pakistani passport",
+    "switzerland visa from dubai requirements",
+    "switzerland visa from dubai vfs",
+    "switzerland visa from dubai reddit",
+    "switzerland visit visa from dubai",
+    "switzerland visit visa from dubai price",
+    "switzerland work visa from dubai"
+   ],
+   "ae|denmark visa from dubai": [
+    "denmark visa from dubai",
+    "denmark visa from dubai processing time",
+    "denmark visa from dubai reddit",
+    "denmark visa from dubai vfs",
+    "denmark work visa from dubai",
+    "denmark visit visa from dubai",
+    "denmark visa application from dubai",
+    "denmark visa requirements from dubai",
+    "denmark visa appointment from dubai",
+    "denmark schengen visa from dubai"
+   ],
+   "ae|iceland visa from dubai": [
+    "iceland visa from dubai",
+    "iceland visa from dubai reddit",
+    "iceland visit visa from dubai",
+    "iceland visa ratio from dubai",
+    "iceland visa requirements from dubai",
+    "iceland visa appointment from dubai",
+    "iceland visa application from dubai",
+    "iceland schengen visa from dubai",
+    "iceland work visa from dubai",
+    "iceland visa fee from dubai"
+   ],
+   "ae|belgium visa from dubai": [
+    "belgium visa from dubai",
+    "belgium tourist visa from dubai",
+    "vfs belgium visa from dubai",
+    "belgium visa application from dubai",
+    "belgium schengen visa from dubai",
+    "belgium visa ratio from dubai",
+    "belgium visa requirements from dubai",
+    "belgium visa fee from dubai",
+    "belgium visa dubai checklist",
+    "belgium visa dubai reddit"
+   ],
+   "ae|norway visa from dubai": [
+    "norway visa from dubai",
+    "norway visa from dubai vfs",
+    "norway visa from dubai reddit",
+    "norway visit visa from dubai",
+    "norway work visa from dubai",
+    "norway visa requirements from dubai",
+    "norway visa cost from dubai",
+    "norway visa application from dubai",
+    "norway visa appointment from dubai",
+    "norway schengen visa from dubai"
+   ],
+   "ae|malta visa from dubai": [
+    "malta visa from dubai",
+    "malta visa from dubai for pakistani",
+    "malta visa from dubai vfs",
+    "malta visa from dubai price",
+    "malta visa from dubai for indian",
+    "malta work visa from dubai price",
+    "malta visit visa from dubai",
+    "malta work visa from dubai",
+    "malta visit visa from dubai price",
+    "malta visa ratio from dubai"
+   ],
+   "ae|finland visa from dubai": [
+    "finland visa from dubai",
+    "finland visa from dubai for indian passport",
+    "finland work visa from dubai",
+    "finland visit visa from dubai",
+    "finland visa cost from dubai",
+    "finland visa requirements from dubai",
+    "finland student visa from dubai",
+    "finland visa appointment from dubai",
+    "apply finland visa from dubai",
+    "vfs finland visa from dubai"
+   ],
+   "ae|austria visa from dubai": [
+    "austria visa from dubai",
+    "austria visa from dubai vfs",
+    "austria visa from dubai reddit",
+    "austria visa from dubai cost",
+    "austria visa from dubai appointment",
+    "austria visit visa from dubai",
+    "austria tourist visa from dubai",
+    "austria work visa from dubai",
+    "austria schengen visa from dubai",
+    "austria visa application from dubai"
+   ],
+   "ae|lithuania visa from dubai": [
+    "lithuania visa from dubai",
+    "lithuania visit visa from dubai",
+    "lithuania work visa from dubai",
+    "lithuania visa requirements from dubai",
+    "apply lithuania visa from dubai",
+    "lithuania schengen visa from dubai",
+    "lithuania e visa from dubai",
+    "lithuania visa appointment dubai",
+    "lithuania visa vfs dubai",
+    "lithuania visit visa requirements from dubai"
+   ],
+   "ae|poland visa from dubai": [
+    "poland visa from dubai",
+    "poland visa from dubai vfs",
+    "poland visa from dubai price",
+    "poland work visa from dubai price",
+    "poland work visa from dubai",
+    "poland visit visa from dubai",
+    "poland visit visa from dubai price",
+    "poland visa appointment from dubai",
+    "poland visa application from dubai",
+    "poland schengen visa from dubai"
+   ],
+   "ae|hungary visa from dubai": [
+    "hungary visa from dubai",
+    "hungary visa from dubai vfs",
+    "hungary visa from dubai reddit",
+    "hungary visit visa from dubai",
+    "hungary visa fees from dubai",
+    "hungary visa appointment from dubai",
+    "apply hungary visa from dubai",
+    "hungary visa application from dubai",
+    "hungary visa ratio from dubai",
+    "hungary schengen visa from dubai"
+   ],
+   "ae|czech visa from dubai": [
+    "czech visa from dubai",
+    "czech republic visa from dubai vfs",
+    "czech visit visa from dubai",
+    "czech republic work visa from dubai",
+    "czech republic schengen visa from dubai",
+    "czech visa appointment dubai",
+    "czech visa vfs dubai",
+    "czech visa application dubai",
+    "czech embassy dubai",
+    "czech consulate dubai"
+   ],
+   "ae|bulgaria visa from dubai": [
+    "bulgaria visa from dubai",
+    "bulgaria visa from dubai for pakistani",
+    "bulgaria visa from dubai for indian citizens",
+    "bulgaria visit visa from dubai",
+    "bulgaria work visa from dubai",
+    "bulgaria visa ratio from dubai",
+    "bulgaria visa cost from dubai",
+    "bulgaria visa requirements from dubai",
+    "bulgaria visa appointment from dubai",
+    "bulgarian visa dubai"
+   ],
+   "ae|romania visa from dubai": [
+    "romania visa from dubai",
+    "romania visa from dubai vfs",
+    "romania visa from dubai for pakistani",
+    "romania visa from dubai cost",
+    "romania visa from dubai for indian",
+    "romania visa from dubai reddit",
+    "romania work visa from dubai",
+    "romania visit visa from dubai",
+    "romania visit visa from dubai price",
+    "romania visit visa from dubai processing time"
+   ],
+   "ae|latvia visa from dubai": [
+    "latvia visa from dubai",
+    "latvia visa from dubai price",
+    "latvia visa from dubai for pakistani passport",
+    "latvia visit visa from dubai",
+    "latvia visa requirements from dubai",
+    "latvia work visa from dubai",
+    "latvia visa application from dubai",
+    "latvia visa appointment from dubai",
+    "latvia visa ratio from dubai",
+    "latvia visa for indians from dubai"
+   ],
+   "ae|luxembourg visa from dubai": [
+    "luxembourg visa from dubai",
+    "luxembourg visa from dubai price",
+    "luxembourg visa from dubai vfs",
+    "luxembourg work visa from dubai price",
+    "luxembourg work visa from dubai",
+    "luxembourg visit visa from dubai",
+    "luxembourg tourist visa from dubai",
+    "luxembourg visa requirements from dubai",
+    "luxembourg visit visa from dubai price",
+    "luxembourg work visa from dubai online apply"
+   ],
+   "ae|estonia visa from dubai": [
+    "estonia visa from dubai",
+    "estonia work visa from dubai",
+    "estonia visit visa from dubai",
+    "estonia visa requirements from dubai",
+    "estonia work permit visa from dubai",
+    "estonia visa appointment dubai",
+    "estonia visit visa requirements from dubai",
+    "estonia visit visa ratio from dubai",
+    "how to apply for estonia visa from dubai",
+    "is it easy to get estonia visa"
+   ],
+   "ae|croatia visa from dubai": [
+    "croatia visa from dubai",
+    "croatia visa from dubai for indian passport holders",
+    "croatia visa from dubai book appointment",
+    "croatia visa from dubai for pakistani",
+    "croatia work visa from dubai",
+    "croatia visit visa from dubai",
+    "croatia schengen visa from dubai",
+    "croatia visa application from dubai",
+    "croatia visa appointment from dubai",
+    "croatia visa cost from dubai"
+   ],
+   "ae|sweden visa from dubai": [
+    "sweden visa from dubai",
+    "sweden visa from dubai documents required",
+    "sweden visa from dubai vfs",
+    "sweden visa from dubai processing time",
+    "sweden visit visa from dubai",
+    "sweden work visa from dubai",
+    "sweden visa requirements from dubai",
+    "sweden visa appointment from dubai",
+    "apply sweden visa from dubai",
+    "sweden visa cost from dubai"
+   ],
+   "ae|slovakia visa from dubai": [
+    "slovakia visa from dubai",
+    "slovakia visit visa from dubai",
+    "slovakia work visa from dubai",
+    "slovakia visa appointment from dubai",
+    "slovakia visa ratio from dubai",
+    "slovakia schengen visa from dubai",
+    "slovakia work permit visa from dubai",
+    "slovakia visa vfs dubai",
+    "slovakia embassy dubai",
+    "how to get slovakia visa"
+   ],
+   "ae|slovenia visa from dubai": [
+    "slovenia visa from dubai",
+    "slovenia visa from dubai vfs",
+    "slovenia work visa from dubai",
+    "slovenia visit visa from dubai",
+    "slovenia schengen visa from dubai",
+    "slovenia visa requirements from dubai",
+    "slovenia visa appointment from dubai",
+    "slovenia visa application from dubai",
+    "slovenia embassy dubai",
+    "how to get slovenia visa from dubai"
+   ]
+  }
+ },
+ "impronta": "4e45265972789d56457e"
+}

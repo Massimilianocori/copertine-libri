@@ -65,6 +65,14 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     elenchi del sisma (Lazio, Marche, Umbria) con le cifre ISTAT, towns.json dello strumento = dati, motore JS dello strumento (preso dalla pagina)
     = Python su tutti i Comuni per i due anni e ricerca per nome esatto di ogni Comune, tutte le fonti citate, link dal resto del sito;
     online: 8 frammenti a caso riletti su Normattiva e Agenzia delle Entrate.
+24. Schengen visa from the UK / from Dubai (31/10/2026): ricalcolo indipendente da dati/rifiuti.json (file della Commissione), dati/cambi.json
+    e dati/schengen_residenti.json (impronta): pagine attese (2 hub + Stati con almeno 1.000 domande nel Paese) in sitemap e nessuna in più,
+    titoli ≤ 70, prima frase con cifra ricalcolata, fonte (Commissione) e data; tabella dell'hub = tutti gli Stati del file nel Paese
+    (tasso, anno prima, domande, non rilasciati, quota MEV) nell'ordine giusto; in ogni pagina di Stato cifre della prima frase, riquadro e righe
+    dei consolati = ricalcolo; tassa e copertura in sterline (BCE) e dirham (BCE EUR/USD × 3,6725) ricalcolate; importi di riferimento dello
+    Stato convertiti; fornitori dei servizi visti solo dove letti; riquadro AXA spento (e acceso con un URL di prova: rel sponsored e dicitura);
+    link da home, piè di pagina, pagine dei rifiuti (Regno Unito, Emirati, easiest, Stati Schengen) e panoramica; titoli delle pagine dei rifiuti
+    di Regno Unito ed Emirati con "Schengen visa from".
 Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
@@ -2354,6 +2362,198 @@ def controlla_f7(online=True):
     return errori, len(P), n_js, riletti
 
 
+# ---------------------------------------------------------------- 24. Schengen visa from the UK / from Dubai (31/10/2026)
+def controlla_sr():
+    """24. Ricalcolo indipendente (vedi in cima al file). Restituisce (errori, pagine controllate)."""
+    import hashlib
+    from decimal import Decimal, ROUND_HALF_UP
+    errori = []
+    R = json.loads((SITO.parent / "dati" / "rifiuti.json").read_text(encoding="utf-8"))
+    C = json.loads((SITO.parent / "dati" / "cambi.json").read_text(encoding="utf-8"))
+    S = json.loads((SITO.parent / "dati" / "schengen_residenti.json").read_text(encoding="utf-8"))
+    cont = {k: S[k] for k in ("fonti", "letture", "riferimento", "fornitori", "ancoraggio_righe")}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != S["impronta"]:
+        errori.append("SR: impronta di dati/schengen_residenti.json diversa dal contenuto")
+    anni = sorted(R["schengen"], key=int)
+    a1, a0 = anni[-1], anni[-2]
+    peg = S["letture"]["ancoraggio"]["valore"]
+    tassa, bimbi, cop = (S["letture"][k]["valore"] for k in ("tassa_adulti", "tassa_bambini", "copertura"))
+    if (tassa, bimbi, cop, peg) != (90, 45, 30000, 3.6725):
+        errori.append(f"SR: valori ufficiali cambiati ({tassa}, {bimbi}, {cop}, {peg}): ricontrollare i testi delle pagine")
+
+    def r2(x):
+        return Decimal(repr(x)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+
+    def fmt(x, val):
+        d = r2(x)
+        t = f"{d:,.2f}"
+        t = t[:-3] if t.endswith(".00") else t
+        return {"GBP": "£", "EUR": "€"}.get(val, f"{val} ") + t
+
+    def locale(eur, val):
+        return eur * C["tassi"]["GBP"] if val == "GBP" else eur * C["tassi"]["USD"] * peg
+
+    def somma(righe):
+        v = [0, 0, 0, 0, 0]
+        for r in righe:
+            for i in range(5):
+                v[i] += r[3 + i]
+        return v
+
+    def pc(v):
+        d = v[1] + v[2] + v[3]
+        return v[3] / d if d else None
+
+    def slug(s):
+        return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
+
+    def art(s):
+        return ("the " + s) if s in ("Netherlands", "Czech Republic") else s
+
+    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    n = 0
+    paesi = {"UNITED KINGDOM": ("schengen-visa-from-uk/", "GBP", "gb", "from the UK"), "UNITED ARAB EMIRATES": ("schengen-visa-from-dubai/", "AED", "ae", "from Dubai")}
+    forn = {(F["paese"], F["stato"]) for F in S["fornitori"]}
+    for P, (sez, val, gl, da) in paesi.items():
+        righe1 = [r for r in R["schengen"][a1] if r[1] == P]
+        righe0 = [r for r in R["schengen"][a0] if r[1] == P]
+        stati = {}
+        for r in righe1:
+            stati.setdefault(r[0], []).append(r)
+        st1 = {s: somma(rr) for s, rr in stati.items()}
+        st0 = {}
+        for r in righe0:
+            st0.setdefault(r[0], []).append(r)
+        st0 = {s: somma(rr) for s, rr in st0.items()}
+        ok = sorted([s for s, v in st1.items() if v[0] >= 1000], key=lambda s: (pc(st1[s]), s))
+        sotto = sorted([s for s, v in st1.items() if v[0] < 1000 and (v[0] or v[1] + v[2] + v[3])], key=lambda s: -st1[s][0])
+        attese = [""] + [slug(s) for s in ok]
+        pag = _pagine_sezione(sez, attese, errori, f"SR {gl}", affiliati=True)
+        n += len(pag)
+        if "" not in pag:
+            continue
+        t, main, testo, lead, _ = pag[""]
+        tot = somma(righe1)
+        if (f"did not issue <strong>{pc(tot) * 100:.1f}%</strong> of the {tot[1] + tot[2] + tot[3]:,} visa applications they decided" not in main
+                or "European Commission" not in lead or not RE_DATA.search(lead) or "home-affairs.ec.europa.eu" not in main.split("</p>", 1)[0]):
+            errori.append(f"SR {gl}: prima frase dell'hub senza cifra ricalcolata, fonte o data")
+        if f"<strong>{html.escape(art(ok[0]))}</strong> had the lowest rate ({pc(st1[ok[0]]) * 100:.1f}%)" not in main or f"<strong>{art(ok[-1])}</strong> the highest" not in main:
+            errori.append(f"SR {gl}: Stato più basso o più alto dell'hub diverso dal ricalcolo ({ok[0]}, {ok[-1]})")
+        tab = re.search(rf'<table class="ord" id="t-sr-{gl}">.*?</table>', main, re.S)
+        lette = []
+        for tr in re.findall(r"<tr[^>]*><td>(.*?)</tr>", tab.group(0) if tab else "", re.S):
+            nome = html.unescape(re.sub(r"<[^>]+>", "", tr.split("</td>", 1)[0]))
+            lette.append((nome, re.findall(r'data-v="([^"]*)"', tr)))
+        if [x[0] for x in lette] != ok + sotto:
+            errori.append(f"SR {gl}: Stati o ordine della tabella dell'hub diversi dal ricalcolo")
+        for nome, dv in lette:
+            v, v0 = st1.get(nome), st0.get(nome)
+            mev = sum(r[7] for r in stati.get(nome, [])), v[1] if v else 0
+            atteso = [f"{pc(v):.6f}", (f"{pc(v0):.6f}" if v0 and v0[1] + v0[2] + v0[3] else ""), str(v[0]), str(v[3]),
+                      (f"{mev[0] / mev[1]:.6f}" if mev[1] else "")]
+            if dv != atteso:
+                errori.append(f"SR {gl}: riga {nome} della tabella dell'hub {dv} diversa dal ricalcolo {atteso}")
+        def righe_costi(main):
+            return [f'<td class="n">€{a:,}</td><td class="n">{fmt(locale(a, val), val)}</td>' for a in (tassa, bimbi, cop)]
+        for x in righe_costi(main):
+            if x not in main:
+                errori.append(f"SR {gl}: riga dei costi {x} assente o diversa dal ricalcolo nell'hub")
+        if 'rel="sponsored noopener"' in main and "safetywing.com" not in main and "tradedoubler.com" not in main and "axa-schengen.com" not in main:
+            errori.append(f"SR {gl}: link sponsorizzato non previsto nell'hub")
+
+        def riquadro_sw(main, dove):
+            # revisione 31/10/2026: SafetyWing non garantisce l'accettazione per il visto Schengen; il riquadro deve dirlo con le sue parole
+            # e non presentare la polizza come adatta alla domanda ("for your application")
+            if "safetywing.com" in main:
+                box = re.search(r'<section class="card aff-r"[^>]*>.*?</section>', main, re.S)
+                b = box.group(0) if box else ""
+                if "cannot guarantee" not in b or "safetywing.com/nomad-insurance/faq" not in b or not RE_DATA.search(html.unescape(re.sub(r"<[^>]+>", "", b))):
+                    errori.append(f"SR {gl}: riquadro SafetyWing senza la frase 'cannot guarantee', la FAQ o la data in {dove}")
+                if re.search(r"for your application|meets? the (visa )?requirements?|accepted by (the )?consulates|valid for (a|the|your) (Schengen )?visa", b, re.I):
+                    errori.append(f"SR {gl}: riquadro SafetyWing presenta la polizza come adatta al visto in {dove}")
+        riquadro_sw(main, "hub")
+        # pagine degli Stati
+        for s in ok:
+            k = slug(s)
+            if k not in pag:
+                continue
+            t, main, testo, lead, perc = pag[k]
+            v = st1[s]
+            dec = v[1] + v[2] + v[3]
+            if (f"received {v[0]:,} Schengen visa applications made" not in lead or f"did not issue {pc(v) * 100:.1f}% of the {dec:,}" not in lead
+                    or "European Commission" not in lead or not RE_DATA.search(lead)):
+                errori.append(f"SR {gl}: prima frase di {k} diversa dal ricalcolo o senza fonte e data")
+            if f"<strong>{pc(v) * 100:.1f}%</strong> not issued ({v[3]:,} of {dec:,} decisions)" not in main:
+                errori.append(f"SR {gl}: riquadro di {k} diverso dal ricalcolo")
+            if f"<b>{ok.index(s) + 1} of {len(ok)}</b>" not in main:
+                errori.append(f"SR {gl}: posizione di {k} diversa dal ricalcolo")
+            tc = re.search(r'<table class="ord" id="t-cons-sr">.*?</table>', main, re.S)
+            righe_c = re.findall(r"<tr><td>(.*?)</td>(.*?)</tr>", tc.group(0) if tc else "", re.S)
+            attese_c = sorted((r for r in stati[s] if r[3] > 0), key=lambda r: -r[3])
+            if len(righe_c) != len(attese_c):
+                errori.append(f"SR {gl}: righe dei consolati di {k} ({len(righe_c)}) diverse dal file ({len(attese_c)})")
+            for (citta, celle), r in zip(righe_c, attese_c):
+                dv = re.findall(r'data-v="([^"]*)"', celle)
+                if citta.upper() != r[2] or dv[:4] != [f"{pc(r[3:7]):.6f}", str(r[3]), str(r[4]), str(r[6])]:
+                    errori.append(f"SR {gl}: consolato {citta} di {k} diverso dal file")
+            for x in righe_costi(main):
+                if x not in main:
+                    errori.append(f"SR {gl}: riga dei costi {x} assente o diversa dal ricalcolo in {k}")
+            for imp, v_, _ in S["riferimento"][s]["importi"]:
+                eur = imp if v_ == "EUR" else imp / C["tassi"][v_]
+                if f"≈ <strong>{fmt(locale(eur, val), val)}</strong>" not in main:
+                    errori.append(f"SR {gl}: importo di riferimento {v_} {imp} di {k} non convertito come atteso ({fmt(locale(eur, val), val)})")
+            if html.escape(S["riferimento"][s]["frammento"][len(s):].lstrip("* "), quote=True) not in main:
+                errori.append(f"SR {gl}: parole della tabella degli importi di riferimento mancanti in {k}")
+            nomi_forn = re.search(r"VFS|TLScontact|BLS International", testo)
+            if (P, s) in forn and not nomi_forn:
+                errori.append(f"SR {gl}: fornitore letto ma non scritto in {k}")
+            if (P, s) not in forn and nomi_forn:
+                errori.append(f"SR {gl}: fornitore nominato senza lettura della pagina ufficiale in {k}")
+            if re.search(r"you will (get|be granted)|guarantee[ds]? (a|your) visa|easy to get", testo, re.I):
+                errori.append(f"SR {gl}: promessa sul visto in {k}")
+            if "the consulate decides" not in testo.lower():
+                errori.append(f"SR {gl}: manca 'the consulate decides' in {k}")
+            riquadro_sw(main, k)
+        # link dalle pagine dei rifiuti
+        slug_p = "united-kingdom" if P == "UNITED KINGDOM" else "united-arab-emirates"
+        rp = (SITO / "visa-refusal-rates" / slug_p / "index.html").read_text(encoding="utf-8")
+        titolo = html.unescape(re.search(r"<title>(.*?)</title>", rp).group(1))
+        if not titolo.startswith(f"Schengen visa {da}") or len(titolo) > 70:
+            errori.append(f"SR {gl}: titolo della pagina dei rifiuti {slug_p}: {titolo!r}")
+        primo = re.search(r'<p class="lead">(.*?)</p>', rp.split('<main id="main">', 1)[1], re.S).group(1)
+        if f'href="../../{sez}"' not in primo or f"{pc(tot) * 100:.1f}%" not in primo:
+            errori.append(f"SR {gl}: la prima risposta della pagina dei rifiuti {slug_p} non porta all'hub o ha un'altra cifra")
+        fp = (SITO / "visa-refusal-rates" / slug_p / "easiest-schengen-visa" / "index.html").read_text(encoding="utf-8")
+        if f'href="../../../{sez}"' not in fp:
+            errori.append(f"SR {gl}: la pagina easiest di {slug_p} non porta all'hub")
+        for s in ok:
+            ps = (SITO / "visa-refusal-rates" / "schengen" / slug(s) / "index.html").read_text(encoding="utf-8")
+            if f'href="../../../{sez}{slug(s)}/"' not in ps:
+                errori.append(f"SR {gl}: la pagina Schengen di {s} non porta a {sez}{slug(s)}/")
+    home = (SITO / "index.html").read_text(encoding="utf-8")
+    pano = (SITO / "visa-refusal-rates" / "index.html").read_text(encoding="utf-8")
+    pie = (SITO / "about" / "index.html").read_text(encoding="utf-8").split("<footer>", 1)[1]
+    for sez in ("schengen-visa-from-uk/", "schengen-visa-from-dubai/"):
+        if f'href="{sez}"' not in home or f'href="../{sez}"' not in pano or f'href="../{sez}"' not in pie:
+            errori.append(f"SR: link a {sez} mancante dalla home, dalla panoramica dei rifiuti o dal piè di pagina")
+    # riquadro AXA: spento finché l'URL è vuoto; acceso con un URL di prova ha rel sponsored, etichetta e dicitura
+    aff = json.loads((SITO.parent / "dati" / "affiliati.json").read_text(encoding="utf-8"))
+    if "_axa_schengen" not in aff:
+        errori.append("SR: voce _axa_schengen mancante in dati/affiliati.json")
+    elif not aff["_axa_schengen"]["url"]:
+        if G.box_axa("../") != "" or any("axa-schengen" in f.read_text(encoding="utf-8").split('<main id="main">', 1)[1].lower()
+                                          for f in (SITO / "schengen-visa-from-uk").rglob("index.html")):
+            errori.append("SR: riquadro AXA visibile con l'URL vuoto")
+        vecchio = G.URL_AXA
+        G.URL_AXA = "https://clk.tradedoubler.com/click?p=0&a=0&url=https%3A%2F%2Fwww.axa-schengen.com%2F"
+        prova = G.box_axa("../")
+        G.URL_AXA = vecchio
+        if 'rel="sponsored noopener"' not in prova or "Affiliate" not in prova or G.MON.RIGA_EN not in prova or "does not change the decision" not in prova:
+            errori.append("SR: riquadro AXA (prova con URL) senza rel sponsored, etichetta o dicitura")
+    return errori, n
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -2413,7 +2613,9 @@ def main():
     print(f"23. Italy 7% flat tax: {n23} pagine, regole, tabella delle regioni, Comuni vicini alla soglia, elenchi del sisma, towns.json, strumento (JS = Python su {j23} casi, ricerca di ogni Comune); riletti online: {len(r23)}: {len(e23)} errori")
     for x in r23:
         print("    ·", x)
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23
+    e24, n24 = controlla_sr()
+    print(f"24. Schengen visa from the UK / from Dubai: {n24} pagine, cifre ricalcolate dal file della Commissione, tabelle, consolati, conversioni GBP/AED, importi di riferimento, fornitori, AXA spento, link: {len(e24)} errori")
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24
     for e in tutti:
         print(" -", e)
     if tutti:

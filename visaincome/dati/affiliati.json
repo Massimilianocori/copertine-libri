@@ -21,7 +21,7 @@
   "_safetywing_schengen": {
     "url": "https://safetywing.com/nomad-insurance?referenceID=26614957&campaign=visa-refusal-rates&utm_campaign=visa-refusal-rates&utm_source=26614957&utm_medium=Ambassador",
     "nome": "SafetyWing",
-    "nota": "Usato SOLO nella sezione Visa refusal rates (box_assicurazione in genera.py), non nel riquadro generico. Stesso referenceID del link attivo di Italy Strikes, campagna visa-refusal-rates per distinguere i clic (15/10/2026).",
+    "nota": "Usato nella sezione Visa refusal rates (box_assicurazione in genera.py), non nel riquadro generico; dal 31/10/2026 anche nelle 51 pagine Schengen visa from the UK / from Dubai (box_sw_sr), dove il riquadro riporta le parole della FAQ SafetyWing (usata da molti per il visto Schengen, ma nessuna garanzia di accettazione) e non presenta la polizza come adatta alla domanda. Stesso referenceID del link attivo di Italy Strikes, campagna visa-refusal-rates per distinguere i clic (15/10/2026).",
     "attivo_dal": "2026-10-30",
     "nota_riattivazione": "Sospeso dal 17/10 al 30/10/2026 (siti solo informativi in attesa del codice ATECO 58.19.00); riattivato il 30/10/2026 dopo il sì alla monetizzazione del 28/10 e il codice ATECO aggiunto dal CAF. Per spegnerlo: url vuoto e rigenerare."
   },
@@ -54,5 +54,12 @@
     "attivo_dal": "",
     "regole": "rel=\"sponsored noopener\", etichetta Affiliate, riga di trasparenza; nessuna promessa su visto o permesso. Per spegnerlo: url vuoto e rigenerare.",
     "url_spento": "https://safetywing.com/nomad-insurance?referenceID=26614957&campaign=study-in-italy&utm_campaign=study-in-italy&utm_source=26614957&utm_medium=Ambassador"
+  },
+  "_axa_schengen": {
+    "url": "",
+    "nome": "AXA Schengen",
+    "nota": "SPENTO (31/10/2026): riquadro pronto in box_axa() di genera.py, solo nelle pagine Schengen visa from the UK / from Dubai, dopo le informazioni ufficiali sull'assicurazione (copertura minima 30.000 €, art. 15 del Codice dei visti). Quando arriva il link tracciato AXA Schengen da Tradedoubler (dominio tradedoubler.com o axa-schengen.com, entrambi in monetizzazione.json), incollarlo qui in 'url' e rigenerare: il riquadro AXA prende il posto di quello SafetyWing in quelle pagine. Mai inventare URL.",
+    "attivo_dal": "",
+    "regole": "rel=\"sponsored noopener\", etichetta Affiliate, riga di trasparenza; nessuna promessa sul visto né sul rimborso in caso di rifiuto; nessuna frase sull'accettazione della polizza da parte del consolato. Per spegnerlo: url vuoto e rigenerare."
   }
 }

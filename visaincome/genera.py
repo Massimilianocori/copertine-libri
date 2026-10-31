@@ -981,7 +981,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <p>Exchange rates: euro foreign exchange reference rates of the European Central Bank (source: ECB), for information only.</p>
 </div><div>
 <h2>Explore</h2>
-<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}moved-to/">Who moved where (by nationality)</a></li><li><a href="{rel}uk-english-test/">UK visa English tests (SELT)</a></li><li><a href="{rel}thailand-dtv-visa/">Thailand DTV visa by embassy</a></li><li><a href="{rel}us-opt/">US OPT and STEM OPT: fees and deadlines</a></li><li><a href="{rel}uk-graduate-visa/">UK Graduate visa: 2 years or 18 months</a></li><li><a href="{rel}mexico-residency/">Mexico residency: fees and income by consulate</a></li><li><a href="{rel}study-in-italy/">Study in Italy: visa funds and DSU scholarships</a></li><li><a href="{rel}italy-7-percent-flat-tax/">Italy 7% flat tax for foreign pensioners</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
+<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}schengen-visa-from-uk/">Schengen visa from the UK</a></li><li><a href="{rel}schengen-visa-from-dubai/">Schengen visa from Dubai (UAE)</a></li><li><a href="{rel}moved-to/">Who moved where (by nationality)</a></li><li><a href="{rel}uk-english-test/">UK visa English tests (SELT)</a></li><li><a href="{rel}thailand-dtv-visa/">Thailand DTV visa by embassy</a></li><li><a href="{rel}us-opt/">US OPT and STEM OPT: fees and deadlines</a></li><li><a href="{rel}uk-graduate-visa/">UK Graduate visa: 2 years or 18 months</a></li><li><a href="{rel}mexico-residency/">Mexico residency: fees and income by consulate</a></li><li><a href="{rel}study-in-italy/">Study in Italy: visa funds and DSU scholarships</a></li><li><a href="{rel}italy-7-percent-flat-tax/">Italy 7% flat tax for foreign pensioners</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
 </div></div>
 {blocco_altri(ALTRI_SITI, "Other useful tools for your trip")}
 <p class="f-base">Official sources only · the calculator runs in your browser · links marked "Affiliate" may earn us a commission.</p>
@@ -1325,6 +1325,9 @@ def home():
 <p class="lead">How many visa applications are refused? Official {A1} Schengen figures by destination, by consulate and by the country where you apply, and UK refusal rates by nationality to {trimestre_testo(TRIM[-1])}.</p>
 <div class="griglia">{''.join(f'<a href="{SEZ}{SLUG_RIF[p]}/"><span class="ic">{ico("passport")}</span><span>{escape(nome_paese(p))}<small>Schengen: {pct(tasso(PER_PAESE[A1][p]))} not issued in {A1}</small></span></a>' for p in ("INDIA", "NIGERIA", "PAKISTAN", "MOROCCO", "TÜRKIYE", "PHILIPPINES", "GHANA", "BANGLADESH"))}</div>
 <p><a href="{SEZ}">Schengen visa rejection rates by country</a> · <a href="{SEZ}uk/">UK visa refusal rates by nationality</a></p>
+<h2>Schengen visa from the UK or Dubai</h2>
+<p class="lead">Living in the UK or the UAE on a passport that needs a visa? In {A1}, Schengen consulates in the United Kingdom did not issue {pct(tasso(tot_sr("UNITED KINGDOM")))} of the applications they decided, and those in the United Arab Emirates {pct(tasso(tot_sr("UNITED ARAB EMIRATES")))} (European Commission). Country by country: refusal rate at the consulates where you live, the €{TASSA_SR} fee in pounds or dirhams, the €{COPERTURA_SR:,} insurance and the money to show.</p>
+<p><a href="{RES["UNITED KINGDOM"]["sez"]}">Schengen visa from the UK</a> · {" · ".join(f'<a href="{RES["UNITED KINGDOM"]["sez"]}{SLUG_STATO[s]}/">{escape(s)}</a>' for s in ("France", "Spain", "Italy", "Germany", "Netherlands") if s in SR_PAG["UNITED KINGDOM"])} · <a href="{RES["UNITED ARAB EMIRATES"]["sez"]}">Schengen visa from Dubai</a> · {" · ".join(f'<a href="{RES["UNITED ARAB EMIRATES"]["sez"]}{SLUG_STATO[s]}/">{escape(s)}</a>' for s in ("Germany", "France", "Italy", "Switzerland", "Netherlands") if s in SR_PAG["UNITED ARAB EMIRATES"])}</p>
 <h2>Who moved where in {Y1}</h2>
 <p class="lead">How many Americans, British people, Indians and others moved to Europe, Canada and the UK in {Y1}: official first residence permits by country and reason (Eurostat, updated {data_lunga(F_ES["aggiornato_il"])}), new permanent residents of Canada and UK visas granted.</p>
 <div class="griglia">{''.join(f'<a href="{SEZ_TR}{NAZ_TR[c][0]}/"><span class="ic">{ico("globe")}</span><span>How many {escape(NAZ_TR[c][1])} moved to Europe<small>{intero(riga_eu(c, "EU27_2020", Y1)[0])} first permits in the EU in {Y1}</small></span></a>' for c in ("US", "UK", "CA", "AU", "IN", "PK", "NG", "PH"))}</div>
@@ -1856,8 +1859,10 @@ def box_assicurazione(rel):
     if not URL_SAFETYWING:
         return f'<section class="card aff-r"><h2>Travel medical insurance</h2><p>{req}</p></section>'
     return (f'<section class="card aff-r" aria-labelledby="aff-r-h"><div class="aff-r-t"><span class="ic">{ico("shield")}</span>'
-            f'<h2 id="aff-r-h">Travel medical insurance for your application</h2><span class="aff-tag">Affiliate</span></div>'
-            f'<p>{req} Check the minimum cover, the countries and the dates the consulate asks for, and the certificate you need, before you buy any policy.</p>'
+            f'<h2 id="aff-r-h">Travel medical insurance</h2><span class="aff-tag">Affiliate</span></div>'
+            f'<p>{req} SafetyWing\'s own FAQ says many members have used its Nomad Insurance for visa applications, Schengen included, but that it '
+            f'<strong>cannot guarantee</strong> every authority will accept it (<a href="{URL_SW_FAQ}" rel="sponsored noopener">SafetyWing FAQ</a>, '
+            f'read on {data_lunga(DATA_SW_FAQ)}). Check the minimum cover, the countries and the dates the consulate asks for, and the certificate you need, before you buy any policy.</p>'
             f'<p class="aff-r-cta"><a class="btn" href="{escape(URL_SAFETYWING)}" rel="sponsored noopener" target="_blank">See SafetyWing travel medical insurance{ico("arrow")}'
             f'<span class="sr"> (opens in a new tab)</span></a></p>'
             f'<p class="small">SafetyWing sells travel medical insurance for travellers and nomads online. {MON.RIGA_EN} '
@@ -2063,8 +2068,17 @@ def pagina_rif_paese(p):
     if con_uk:
         nomi_g = [NOMI_BREVI_UK[g] for g in uk_r]
         tipi_uk = nomi_g[0] if len(nomi_g) == 1 else ", ".join(nomi_g[:-1]) + " and " + nomi_g[-1]
+    lead_sr = ""
+    if p in RES:  # 31/10/2026: la gente cerca "schengen visa from uk / from dubai", non "rejection rate United Kingdom"
+        R_ = RES[p]
+        titolo_h1 = (f"Schengen visa {R_['da']}: refusal rates by country and consulate ({A1})"
+                     + ((", and " + altre[0]) if len(altre) == 1 else (", " + ", ".join(altre[:-1]) + " and " + altre[-1]) if altre else ""))
+        lead_sr = (f'<p class="lead"><strong>Applying for a Schengen visa {R_["da"]}?</strong> In {A1}, Schengen consulates {R_["in"]} did not issue {pct(t1)} of the '
+                   f'{intero(decisioni(v1))} applications they decided (European Commission); among the countries with at least {intero(SOGLIA_SR)} applications, the lowest rate was {escape(art(SR_PAG[p][0]))} ({pct(tasso(sr_stati(p)[SR_PAG[p][0]]))}). '
+                   f'Fees in {"pounds" if R_["valuta"] == "GBP" else "dirhams"}, insurance and money to show for each country: '
+                   f'<a href="{rel}{R_["sez"]}">Schengen visa {R_["da"]}, country by country</a>.</p>')
     corpo = f"""<section class="hero">{h1_diviso(titolo_h1)}
-<p class="lead">How many Schengen visa applications made in {escape(art(nome))} were not issued in {A1}, country by country and consulate by consulate, with the easiest and hardest countries for {escape(demonimo(p))}{', and how many UK ' + tipi_uk + ' visa applications by nationals of ' + escape(art(nome)) + ' were refused' if con_uk else ''}{(', with the latest figures for ' + ', '.join(dest[:-1]) + (' and ' if len(dest) > 1 else '') + dest[-1]) if dest else ''}. Official figures only.</p></section>
+{lead_sr}<p class="lead">How many Schengen visa applications made in {escape(art(nome))} were not issued in {A1}, country by country and consulate by consulate, with the easiest and hardest countries for {escape(demonimo(p))}{', and how many UK ' + tipi_uk + ' visa applications by nationals of ' + escape(art(nome)) + ' were refused' if con_uk else ''}{(', with the latest figures for ' + ', '.join(dest[:-1]) + (' and ' if len(dest) > 1 else '') + dest[-1]) if dest else ''}. Official figures only.</p></section>
 {nota_dest}
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{ico("passport")}<span>Visa refusal rates</span><span>{escape(nome)}</span></div>
@@ -2102,7 +2116,7 @@ def pagina_rif_paese(p):
 <li>Full method: <a href="../#method">how we calculate the rates</a>.</li></ul>
 <h2>Other countries where people apply</h2>
 <div class="griglia">{griglia_altri}</div>
-<p><a href="../">Schengen visa refusal rates by country, {A1}</a> · <a href="../multiple-entry-schengen-visa/">Multiple-entry Schengen visas by country</a> · <a href="../uk/">UK visa refusal rates by nationality</a> · <a href="../australia-visas/">Australia</a> · <a href="../new-zealand-visas/">New Zealand</a> · <a href="../canada-visas/">Canada</a> · <a href="{rel}">Visa income calculator</a></p>
+{link_sr_rif(p, rel)}<p><a href="../">Schengen visa refusal rates by country, {A1}</a> · <a href="../multiple-entry-schengen-visa/">Multiple-entry Schengen visas by country</a> · <a href="../uk/">UK visa refusal rates by nationality</a> · <a href="../australia-visas/">Australia</a> · <a href="../new-zealand-visas/">New Zealand</a> · <a href="../canada-visas/">Canada</a> · <a href="{rel}">Visa income calculator</a></p>
 {link_tr_naz(p, rel)}"""
     plus = (["UK"] if con_uk else []) + (["Australia"] if au_r else [])
     coda = (", plus " + " and ".join(plus)) if plus else ""
@@ -2112,6 +2126,8 @@ def pagina_rif_paese(p):
                 f"Schengen visa rejection rate {nome} {A1} by country{coda}",
                 f"Schengen visa rejection rate {nome} {A1}{coda}"]
     titolo = next((v for v in varianti if len(v) <= 75), varianti[-1])
+    if p in RES:
+        titolo = f"Schengen visa {RES[p]['da']} {A1}: refusal rate by country and consulate"
     descr = (f"Official {A1} figures: {pct(t1)} of Schengen visa applications made in {art(nome)} were not issued."
              + (f" Easiest Schengen visa for {demonimo(p)}: {basso[0][0]} ({pct(tasso(basso[0][1]))}); hardest: {alto[0][0]} ({pct(tasso(alto[0][1]))})." if basso and alto else "")
              + " Every Schengen country and consulate"
@@ -2222,7 +2238,7 @@ def pagina_rif_facile(p):
 <li><strong>If you are refused</strong>, the consulate must tell you why and how to appeal (<a href="{URL_COMMISSIONE_DOMANDA}" rel="noopener">European Commission</a>). Full method: <a href="../../#method">how we calculate the rates</a>.</li></ul>
 <h2>Easiest Schengen visa from other countries</h2>
 <div class="griglia">{griglia_altri}</div>
-<p><a href="../">Schengen visa rejection rate {escape(nome)} {A1}: every country, consulate and the UK</a> · <a href="../../">Visa refusal rates by country</a> · <a href="{rel}">Visa income calculator</a></p>"""
+{link_sr_rif(p, rel)}<p><a href="../">Schengen visa rejection rate {escape(nome)} {A1}: every country, consulate and the UK</a> · <a href="../../">Visa refusal rates by country</a> · <a href="{rel}">Visa income calculator</a></p>"""
     titolo = f"Easiest Schengen visa from {art(nome)} {A1}: lowest refusal rate by country (official)"
     descr = (f"Easiest Schengen visa for {dem}: in {A1} {sb} had the lowest not-issued rate ({pct(tasso(vb))}) and {sa} the highest ({pct(tasso(va))}) "
              f"among {n_ok} Schengen countries with {intero(SOGLIA_CLASSIFICA)}+ decisions in {art(nome)}. Official ranking by country and consulate.")
@@ -2275,7 +2291,7 @@ def pagina_rif_stato(s):
 <div class="tab compatta"><table class="ord"><thead><tr>{th_ord("Consulate", False, "ascending")}{th_ord("Country", False, "ascending")}{th_ord("Rate", primo="ascending")}{th_ord("Applications")}</tr></thead><tbody>{righe_c}</tbody></table></div>
 {fonte_ue_p(A1)}
 {box_assicurazione(rel)}
-<h2>Other Schengen countries</h2>
+{link_sr_stato(s, rel)}<h2>Other Schengen countries</h2>
 <div class="griglia">{''.join(scheda_stato(x, "../") for x in STATI_UE if x != s)}</div>
 <p><a href="../../">All Schengen countries compared</a> · <a href="../../#method">How we calculate the rates</a> · <a href="{rel}">Visa income calculator</a></p>"""
     titolo = f"{s} visa rejection rate {A1} by country (Schengen, official figures)"
@@ -2529,6 +2545,8 @@ def pagina_rif_panoramica():
 <p class="small">The other {len(PAESI_FACILE) - 12} rankings are linked from each country page.</p>
 <h2 id="multiple-entry">Multiple-entry Schengen visas ({A1})</h2>
 <p class="lead">In {A1}, {pct(quota_mev(MEV_TOT[A1]))} of the {intero(MEV_TOT[A1][0])} uniform visas issued were multiple-entry visas ({pct(quota_mev(MEV_TOT[A0]))} in {A0}). Which Schengen countries issue them most often, and the share in each country where people apply: <a href="multiple-entry-schengen-visa/">multiple-entry Schengen visas by country ({A1})</a>. The file does not say how long the visas were valid for.</p>
+<h2 id="residents">Living in the UK or the UAE?</h2>
+<p class="lead">Rates at the Schengen consulates where you live, with the fee in pounds or dirhams, the insurance and the money to show for each country: <a href="{rel}{RES["UNITED KINGDOM"]["sez"]}">Schengen visa from the UK</a> ({pct(tasso(tot_sr("UNITED KINGDOM")))} not issued in {A1}) · <a href="{rel}{RES["UNITED ARAB EMIRATES"]["sez"]}">Schengen visa from Dubai and the UAE</a> ({pct(tasso(tot_sr("UNITED ARAB EMIRATES")))}).</p>
 {fonte_ue_p(A1, A0)}
 <h2>UK visitor visa refusal rate by nationality</h2>
 <p class="lead">The 12 nationalities with the most UK visitor visa decisions from {periodo_uk(T1)}. <a href="uk/">All nationalities, with student and work visa refusal rates</a>.</p>
@@ -8076,6 +8094,504 @@ def controlli_f7():
     return errori
 
 
+# ---------------------------------------------------------------- Schengen visa from the UK / from Dubai: chi VIVE nel Regno Unito o negli Emirati (31/10/2026)
+# Idea 7 di studio-business/intelaiatura/idee-2026-10-31-vincenti.md. Cifre sui visti: dati/rifiuti.json (file della Commissione "Visa statistics
+# for consulates", righe con Paese di domanda = UNITED KINGDOM o UNITED ARAB EMIRATES). Tassa, assicurazione, importi di riferimento, ancoraggio
+# del dirham e fornitori: dati/schengen_residenti.json (raccolta/schengen_residenti.py, ogni valore con il frammento della fonte ufficiale).
+# Pagine: hub /schengen-visa-from-uk/ e /schengen-visa-from-dubai/ + una pagina per Stato con almeno SOGLIA_SR domande nel Paese (anno più recente).
+SR = json.loads((DATI / "schengen_residenti.json").read_text(encoding="utf-8"))
+F_SR = SR["fonti"]
+L_SR = {k: v.get("valore") for k, v in SR["letture"].items()}
+RIF_SR = SR["riferimento"]
+FORN_SR = SR["fornitori"]
+LETTO_SR = SR["letto_il"]
+PEG_AED = L_SR["ancoraggio"]            # AED per 1 USD (CBUAE)
+TASSA_SR, TASSA_BIMBI_SR, COPERTURA_SR = L_SR["tassa_adulti"], L_SR["tassa_bambini"], L_SR["copertura"]
+GIORNI_SR = L_SR["tempi"]               # [15, 45]
+SOGLIA_SR = 1000                        # domande minime (Stato × Paese, anno più recente) per una pagina dello Stato
+_AXA = AFFILIATI.get("_axa_schengen", {})
+URL_AXA = _AXA.get("url", "")           # SPENTO finché vuoto (link AXA Schengen via Tradedoubler non ancora arrivato)
+RES = {
+    "UNITED KINGDOM": {"sez": "schengen-visa-from-uk/", "da": "from the UK", "in": "in the United Kingdom", "il": "the UK", "nome": "United Kingdom",
+                       "valuta": "GBP", "gl": "gb", "chi": "people who live in the UK", "dove_q": "uk"},
+    "UNITED ARAB EMIRATES": {"sez": "schengen-visa-from-dubai/", "da": "from Dubai", "in": "in the United Arab Emirates", "il": "the UAE",
+                             "nome": "United Arab Emirates", "valuta": "AED", "gl": "ae", "chi": "people who live in Dubai, Abu Dhabi and the rest of the UAE",
+                             "dove_q": "dubai"},
+}
+AVVISO_SR = ('<p class="avviso"><strong>Statistics, not advice.</strong> The rates are official figures for all applications made in a past year, whatever the '
+             'applicant\'s nationality: they cannot predict the decision on your application, and a lower rate does not make a country easier for you. '
+             'You must apply to the Schengen country of your main destination. <strong>Not legal or immigration advice.</strong> The consulate decides, '
+             'and its official page lists the documents it wants.</p>')
+
+
+def sr_stati(P, anno=None):
+    """{Stato: [domande, visti uniformi, LTV, non rilasciati]} per le domande fatte nel Paese P."""
+    return raggruppa(anno or A1, 0, lambda r: r[1] == P)
+
+
+def sr_pagine(P):
+    """Stati con almeno SOGLIA_SR domande nel Paese P, dal tasso più basso."""
+    return sorted([s for s, v in sr_stati(P).items() if v[0] >= SOGLIA_SR], key=lambda s: (tasso(sr_stati(P)[s]), s))
+
+
+SR_PAG = {P: sr_pagine(P) for P in RES}
+
+
+def sr_cons(P, s):
+    return sorted((r for r in UE[A1] if r[1] == P and r[0] == s), key=lambda r: -r[3])
+
+
+def citta_sr(P, s):
+    c = [nome_consolato(r[2]) for r in sr_cons(P, s) if r[3] > 0]
+    return c[0] if len(c) == 1 else ", ".join(c[:-1]) + " and " + c[-1]
+
+
+def eur_in(x, val):
+    """Importo in val -> euro (cambi BCE di dati/cambi.json)."""
+    return x if val == "EUR" else x / CAMBI["tassi"][val]
+
+
+def da_eur(x, val):
+    """Euro -> GBP (BCE) o AED (BCE EUR/USD × ancoraggio CBUAE)."""
+    if val == "GBP":
+        return x * CAMBI["tassi"]["GBP"]
+    if val == "AED":
+        return x * CAMBI["tassi"]["USD"] * PEG_AED
+    raise ValueError(val)
+
+
+def loc_sr(x_eur, val):
+    return soldi(da_eur(x_eur, val), val)
+
+
+def orig_sr(x, val):
+    """Importo nella valuta della tabella ufficiale: '€45', 'DKK 350', 'ISK 8,000'."""
+    return soldi(x, val)
+
+
+def tasso_eur_sr(val):
+    return CAMBI["tassi"]["GBP"] if val == "GBP" else CAMBI["tassi"]["USD"] * PEG_AED
+
+
+def nota_cambio_sr(val):
+    if val == "GBP":
+        return (f'Pounds at the European Central Bank reference rate of {data_lunga(CAMBI["data"])} (€1 = £{CAMBI["tassi"]["GBP"]}): '
+                'our conversion; the consulate or its visa centre sets the amount you pay in pounds.')
+    return (f'Dirhams: €1 = US${CAMBI["tassi"]["USD"]} (European Central Bank reference rate of {data_lunga(CAMBI["data"])}) × AED {PEG_AED} per US dollar, the rate '
+            f'in the <a href="{escape(F_SR["cbuae_set"]["url"])}" rel="noopener">Central Bank of the UAE\'s daily tables</a> on every day of August and September 2026 '
+            f'(€1 ≈ AED {tasso_eur_sr("AED"):.4f}). Our conversion; the consulate or its visa centre sets the amount you pay in dirhams.')
+
+
+def fonte_sr_p(chiavi, extra=""):
+    nomi = {"commissione": "European Commission, Applying for a Schengen visa", "codice": "Visa Code, Regulation (EC) No 810/2009 (consolidated text)",
+            "riferimento": "European Commission, reference amounts fixed by national authorities (table of 8 June 2026)",
+            "cbuae_set": "Central Bank of the UAE, exchange rates against the dirham, September 2026"}
+    parti = []
+    for k in chiavi:
+        f = F_SR[k]
+        parti.append(f'<a href="{escape(f.get("pubblico") or f["url"])}" rel="noopener">{escape(nomi.get(k, f["titolo"]))}</a> (read on {data_lunga(f["letto_il"])})')
+    return f'<p class="fonte">Source: {"; ".join(parti)}.{(" " + extra) if extra else ""}</p>'
+
+
+def forn_sr(P, s):
+    return next((F for F in FORN_SR if F["paese"] == P and F["stato"] == s), None)
+
+
+def rif_testo_sr(s):
+    """Parole della tabella ufficiale dopo il nome dello Stato (e l'asterisco)."""
+    R = RIF_SR.get(s)
+    return R["frammento"][len(s):].lstrip("* ") if R and R["frammento"].startswith(s) else ""
+
+
+def poss_sr(s, maiuscola=False):
+    """Genitivo sassone con l'articolo: "France's", "the Netherlands'", "the Czech Republic's"."""
+    n = art(s, maiuscola)
+    return n + ("'" if n.endswith("s") else "'s")
+
+
+def rif_righe_sr(s, val):
+    """[(importo originale, in euro, in valuta locale, etichetta)] dagli importi di riferimento dello Stato."""
+    R = RIF_SR.get(s, {"importi": []})
+    out = []
+    for imp, v, et in R["importi"]:
+        e = eur_in(imp, v)
+        out.append((orig_sr(imp, v), soldi(e, "EUR") if v != "EUR" else "", loc_sr(e, val), et))
+    return out
+
+
+def rif_html_sr(s, val, breve=False):
+    righe = rif_righe_sr(s, val)
+    nome_s = s
+    if not righe:
+        nota = RIF_SR.get(s, {}).get("nota", "")
+        return (f'{escape(nome_s)} has not notified a fixed daily amount: the table says “{escape(rif_testo_sr(s))}”. ' + escape(nota)).strip()
+    voci = [f'<strong>{o}</strong>{(" (≈ " + e + ")") if e and not breve else ""} {escape(et)} ≈ <strong>{l}</strong>' for o, e, l, et in righe]
+    return "; ".join(voci) + "."
+
+
+def tabella_rif_sr(P, rel_sez):
+    V = RES[P]["valuta"]
+    righe = []
+    for s in sorted(SR_PAG[P]):
+        conv = "<br>".join(f"{o} {escape(et)} ≈ {l}" for o, _, l, et in rif_righe_sr(s, V)) or "case by case"
+        righe.append(f'<tr><th scope="row"><a href="{rel_sez}{SLUG_STATO[s]}/">{escape(s)}</a></th><td class="small">“{escape(rif_testo_sr(s))}”</td><td>{conv}</td></tr>')
+    return pila(f'<div class="tab compatta"><table id="t-rif-{RES[P]["gl"]}"><caption class="sr">Money to show per day, by Schengen country</caption><thead><tr>'
+                f'<th scope="col">Schengen country</th><th scope="col">What the country notified (as written)</th><th scope="col">In {"pounds" if V == "GBP" else "dirhams"}</th>'
+                f'</tr></thead><tbody>{"".join(righe)}</tbody></table></div>')
+
+
+def box_axa(rel):
+    """Riquadro AXA Schengen (Tradedoubler). SPENTO: compare solo quando `_axa_schengen.url` in dati/affiliati.json è compilato
+    (stesso modello degli altri riquadri spenti: url vuoto = nessun riquadro). Quando è acceso prende il posto del riquadro SafetyWing."""
+    if not URL_AXA:
+        return ""
+    return (f'<section class="card aff-r" aria-labelledby="aff-axa-h"><div class="aff-r-t"><span class="ic">{ico("shield")}</span>'
+            f'<h2 id="aff-axa-h">Schengen visa insurance</h2><span class="aff-tag">Affiliate</span></div>'
+            f'<p>The Visa Code asks for travel medical insurance of at least €{COPERTURA_SR:,}, valid in all Schengen countries for your whole stay. '
+            f'Check the cover, the dates and the certificate the consulate asks for before you buy any policy.</p>'
+            f'<p class="aff-r-cta"><a class="btn" href="{escape(URL_AXA)}" rel="sponsored noopener" target="_blank">See AXA Schengen travel insurance{ico("arrow")}'
+            f'<span class="sr"> (opens in a new tab)</span></a></p>'
+            f'<p class="small">AXA sells travel insurance for Schengen visa applications online. {MON.RIGA_EN} '
+            f'Buying insurance does not change the decision on your visa, and we do not know whether a given consulate accepts a given policy: check before you pay.</p></section>')
+
+
+URL_SW_FAQ = "https://safetywing.com/nomad-insurance/faq"
+DATA_SW_FAQ = "2026-10-31"  # letta il 31/10/2026 (HTTP 200): "Many members have successfully used Nomad Insurance for visa applications, for example
+#                             Schengen. However, we cannot guarantee that Nomad Insurance Essential or Complete will be accepted by all authorities"
+
+
+def box_sw_sr(rel):
+    """Riquadro SafetyWing di questa sezione (revisione del 31/10/2026). SafetyWing NON dichiara la polizza adatta al visto Schengen: la sua FAQ
+    dice che molti l'hanno usata, ma che non garantisce l'accettazione. Quindi: prima il requisito ufficiale (art. 15), poi le parole di SafetyWing
+    con fonte e data, nessun "for your application" nel titolo e nessuna frase che faccia credere che la polizza soddisfi il requisito."""
+    if not URL_SAFETYWING:
+        return ""
+    # il link alla FAQ punta al dominio del partner: rel="sponsored noopener" come per ogni link verso un dominio di affiliazione (monetizzazione.py)
+    return (f'<section class="card aff-r" aria-labelledby="aff-sr-h"><div class="aff-r-t"><span class="ic">{ico("shield")}</span>'
+            f'<h2 id="aff-sr-h">Travel medical insurance</h2><span class="aff-tag">Affiliate</span></div>'
+            f'<p>The consulate checks that your policy meets Article 15 of the Visa Code: at least €{COPERTURA_SR:,} of cover, valid in all Schengen countries '
+            f'for the whole stay, including repatriation. SafetyWing\'s own FAQ says that many members have used its Nomad Insurance for visa applications, '
+            f'Schengen included, but that it <strong>cannot guarantee</strong> the policy will be accepted by every authority '
+            f'(<a href="{URL_SW_FAQ}" rel="sponsored noopener">SafetyWing FAQ</a>, read on {data_lunga(DATA_SW_FAQ)}). We have not checked it against any consulate\'s '
+            f'requirements: ask the consulate or its visa centre which policies and certificates it accepts before you buy any insurance.</p>'
+            f'<p class="aff-r-cta"><a class="btn" href="{escape(URL_SAFETYWING)}" rel="sponsored noopener" target="_blank">See SafetyWing travel medical insurance{ico("arrow")}'
+            f'<span class="sr"> (opens in a new tab)</span></a></p>'
+            f'<p class="small">SafetyWing sells travel medical insurance for travellers and nomads online. {MON.RIGA_EN} '
+            f'Buying insurance does not change the decision on your visa: the consulate decides.</p></section>')
+
+
+def box_ass_sr(rel):
+    return box_axa(rel) or box_sw_sr(rel)
+
+
+def costi_sr(P):
+    V = RES[P]["valuta"]
+    righe = (f'<tr><th scope="row">Visa fee, adults</th><td class="n">€{TASSA_SR}</td><td class="n">{loc_sr(TASSA_SR, V)}</td></tr>'
+             f'<tr><th scope="row">Visa fee, children aged 6 to 12</th><td class="n">€{TASSA_BIMBI_SR}</td><td class="n">{loc_sr(TASSA_BIMBI_SR, V)}</td></tr>'
+             f'<tr><th scope="row">Travel medical insurance: minimum cover</th><td class="n">€{COPERTURA_SR:,}</td><td class="n">{loc_sr(COPERTURA_SR, V)}</td></tr>')
+    return (f'<div class="tab compatta"><table id="t-costi-{RES[P]["gl"]}"><caption class="sr">Visa fee and minimum insurance cover</caption><thead><tr><th scope="col">What</th>'
+            f'<th scope="col" class="n">Official amount</th><th scope="col" class="n">In {"pounds" if V == "GBP" else "dirhams"}</th></tr></thead><tbody>{righe}</tbody></table></div>'
+            + fonte_sr_p(("commissione", "codice"), nota_cambio_sr(V)))
+
+
+def forn_html_sr(P, s, rel_ext=True):
+    F = forn_sr(P, s)
+    if F:
+        f = F_SR[F["fonte"]]
+        return (f'{escape(F["testo"].rstrip("."))} (<a href="{escape(f["url"])}" rel="noopener">official page</a>, read on {data_lunga(f["letto_il"])}). '
+                f'Visa centres charge a service fee on top of the visa fee.')
+    return ("We have not read the embassy's own page on where to hand in the application, so we do not name a visa centre here: "
+            f"the official website of {escape(poss_sr(s))} embassy or consulate {RES[P]['in']} says where and how to apply, and whether a visa centre takes the "
+            "application for a service fee on top of the visa fee.")
+
+
+def tabella_hub_sr(P, rel_sez):
+    s1, s0 = sr_stati(P), sr_stati(P, A0)
+    mev = mev_raggruppa(A1, 0, lambda r: r[1] == P)
+    ok = SR_PAG[P]
+    sotto = sorted([s for s, v in s1.items() if v[0] < SOGLIA_SR and (v[0] or decisioni(v))], key=lambda s: -s1[s][0])
+    righe = []
+    for s in ok + sotto:
+        v = s1[s]
+        poco = s not in ok
+        nome = f'<a href="{rel_sez}{SLUG_STATO[s]}/">{escape(s)}</a>' if not poco else escape(s)
+        m = mev.get(s, [0, 0])
+        righe.append(f'<tr{" class=\"poco\"" if poco else ""}><td>{nome}</td>{cella_tasso(tasso(v), poco)}{cella_tasso(tasso(s0[s]) if s in s0 and decisioni(s0[s]) else None)}'
+                     f'<td class="n" data-v="{v[0]}">{intero(v[0])}</td><td class="n" data-v="{v[3]}">{intero(v[3])}</td>'
+                     f'{cella_mev(quota_mev(m), m[0] < SOGLIA_MEV)}<td>{escape(citta_sr(P, s))}</td></tr>')
+    return ('<div class="tab compatta"><table class="ord" id="t-sr-' + RES[P]["gl"] + '"><thead><tr>' + th_ord("Schengen country", False, "ascending") +
+            th_ord(f"Not issued {A1}", primo="ascending") + th_ord(f"{A0}", primo="ascending") + th_ord("Applications") + th_ord("Not issued") +
+            th_ord("Multiple-entry share") + th_ord("Consulates", False, "ascending") + f'</tr></thead><tbody>{"".join(righe)}</tbody></table></div>'), sotto
+
+
+def tot_sr(P):
+    return somma([r for r in UE[A1] if r[1] == P])
+
+
+def n_cons_sr(P):
+    return sum(1 for r in UE[A1] if r[1] == P)
+
+
+def link_altro_sr(P, rel):
+    altro = next(x for x in RES if x != P)
+    return f'<a href="{rel}{RES[altro]["sez"]}">Schengen visa {RES[altro]["da"]}</a>'
+
+
+def domande_hub_sr(P, basso, alto, tot):
+    R = RES[P]
+    V = R["valuta"]
+    s_b, s_a = basso[0], alto[0]
+    stati = sr_stati(P)
+    francia = next((s for s in ("France", "Germany", "Spain") if s in SR_PAG[P]), SR_PAG[P][0])
+    d = [
+        (f"Which is the easiest Schengen visa {R['da']}?",
+         f"No country is easy for everyone, but in {A1} the Schengen country with the lowest not-issued rate {R['in']} (among those with at least {intero(SOGLIA_SR)} applications) "
+         f"was {art(s_b)} ({pct(tasso(stati[s_b]))}), and the highest was {art(s_a)} ({pct(tasso(stati[s_a]))}). You cannot pick a country for its rate: you apply to your main destination."),
+        (f"How much does a Schengen visa cost {R['da']}?",
+         f"The visa fee is €{TASSA_SR} for adults (about {loc_sr(TASSA_SR, V)}) and €{TASSA_BIMBI_SR} for children aged 6 to 12 (about {loc_sr(TASSA_BIMBI_SR, V)}), "
+         f"according to the European Commission. If you go through a visa centre, its service fee comes on top."),
+        (f"Can I apply for a Schengen visa {R['da']} with an Indian or Pakistani passport?",
+         f"Yes, if you legally live {R['in']}: the Visa Code says the consulate responsible for the place where you legally reside examines your application. "
+         f"The figures on this page count every application made {R['in']}, whatever the passport: the Commission's file does not split them by nationality."),
+        (f"Can I apply {R['da']} if I am only visiting or studying there?",
+         "The rule is the place where you legally reside. A consulate may also accept an application from someone legally present but not resident in its area, "
+         "if the applicant gives a reason for applying there (Visa Code, Article 6(2)). Ask the consulate before you book."),
+        ("How much travel insurance do I need for a Schengen visa?",
+         f"At least €{COPERTURA_SR:,} (about {loc_sr(COPERTURA_SR, V)}), valid in all Schengen countries for the whole stay, covering emergency medical care, hospital "
+         "treatment and repatriation (Visa Code, Article 15). You should, in principle, buy it in the country where you live."),
+        ("How long does a Schengen visa take?",
+         f"The normal processing time is {GIORNI_SR[0]} days, and it can be extended up to {GIORNI_SR[1]} days when the consulate needs to look at the application in more detail "
+         "(European Commission). Visa centres and consulates also have their own waiting times for appointments."),
+        (f"How much money do I need to show for a {francia} visa?",
+         f"{art(francia, True)} has notified the Commission of {re.sub(r'<[^>]+>', '', rif_html_sr(francia, V, breve=True))} Each Schengen country sets its own reference amount: see the table on this page."),
+    ]
+    return d
+
+
+def pagina_sr_hub(P):
+    R = RES[P]
+    V = R["valuta"]
+    rel = "../"
+    tot = tot_sr(P)
+    tot0 = somma([r for r in UE[A0] if r[1] == P])
+    stati = sr_stati(P)
+    ok = SR_PAG[P]
+    basso, alto = ok, list(reversed(ok))
+    tab, sotto = tabella_hub_sr(P, "")
+    mev_tot = MEV_PAESE[A1][P]
+    domande = domande_hub_sr(P, basso, alto, tot)
+    nome_in = "the UK" if P == "UNITED KINGDOM" else "the UAE"
+    titolo_h1 = (f"Schengen visa from the UK: which country refuses least ({A1})" if P == "UNITED KINGDOM"
+                 else f"Schengen visa from Dubai and the UAE: which country refuses least ({A1})")
+    forn = [F for F in FORN_SR if F["paese"] == P]
+    forn_li = "".join(f'<li><strong>{escape(F["stato"])}</strong> ({escape(F["fornitore"])}): {escape(F["testo"].rstrip("."))} '
+                      f'(<a href="{escape(F_SR[F["fonte"]]["url"])}" rel="noopener">official page</a>, read on {data_lunga(F_SR[F["fonte"]]["letto_il"])}).</li>' for F in forn)
+    griglia = "".join(f'<a href="{SLUG_STATO[s]}/"><span class="ic">{ico("passport")}</span><span>{escape(s)} visa {R["da"]}<small>{pct(tasso(stati[s]))} not issued · '
+                      f'{intero(stati[s][0])} applications</small></span></a>' for s in ok)
+    corpo = f"""<section class="hero">{h1_diviso(titolo_h1)}
+<p class="lead">In {A1}, Schengen consulates {R["in"]} did not issue <strong>{pct(tasso(tot))}</strong> of the {intero(decisioni(tot))} visa applications they decided, according to the European Commission's <a href="{escape(F_UE[A1]["url"])}" rel="noopener">Visa statistics for consulates {A1}</a> (downloaded on {data_lunga(F_UE[A1]["scaricato_il"])}). Among the {len(ok)} countries with at least {intero(SOGLIA_SR)} applications, <strong>{escape(art(basso[0]))}</strong> had the lowest rate ({pct(tasso(stati[basso[0]]))}) and <strong>{escape(art(alto[0]))}</strong> the highest ({pct(tasso(stati[alto[0]]))}).</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("passport")}<span>Schengen visa {R["da"]}</span><span>{A1}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Schengen visas · applications made {R["in"]} · {A1}</span><span class="sr">: </span><strong>{pct(tasso(tot))}</strong> not issued ({intero(tot[3])} of {intero(decisioni(tot))} decisions)</p>
+<div class="kpi"><div><b>{intero(tot[0])}</b><span>applications</span></div><div><b>{n_cons_sr(P)}</b><span>consulates in the file</span></div><div><b>{pct(quota_mev(mev_tot))}</b><span>of visas issued were multiple-entry</span></div><div><b>{punti(tasso(tot), tasso(tot0))}</b><span>change on {A0} ({pct(tasso(tot0))})</span></div></div>
+<p class="lead" style="margin-top:6px">Visa fee €{TASSA_SR} (about {loc_sr(TASSA_SR, V)}); travel medical insurance of at least €{COPERTURA_SR:,}; the money to show depends on the country. Lowest rate: {escape(art(basso[0]))} ({pct(tasso(stati[basso[0]]))}); highest: {escape(art(alto[0]))} ({pct(tasso(stati[alto[0]]))}).</p>
+{fonte_ue_p(A1, A0)}
+</div></section>
+{AVVISO_SR}
+{AD}
+<h2 id="by-country">Which Schengen country refuses least {R["da"]}?</h2>
+<p class="lead">Every Schengen country that decided applications made {R["in"]} in {A1}, from the lowest not-issued rate. Tap a column heading to sort. "Not issued" means refused or examination discontinued. Countries marked * had fewer than {intero(SOGLIA_SR)} applications and have no page of their own.</p>
+{tab}
+{fonte_ue_p(A1, A0)}
+<p class="small">The multiple-entry share is multiple-entry visas ÷ uniform visas issued, as in the Commission's file (* fewer than {intero(SOGLIA_MEV)} visas issued). The file does not say how long the visas were valid for. More on <a href="{rel}{SEZ}multiple-entry-schengen-visa/">multiple-entry Schengen visas by country</a>.</p>
+<h2 id="cost">What a Schengen visa costs {R["da"]}</h2>
+<p>The fee is the same at every Schengen consulate: €{TASSA_SR} for adults and €{TASSA_BIMBI_SR} for children aged 6 to 12. An additional fee may apply if you go through a visa service centre, which collects applications on behalf of a consulate. The insurance and the money you must show are on top of the fee.</p>
+{costi_sr(P)}
+<h2 id="insurance">Travel medical insurance: at least €{COPERTURA_SR:,}</h2>
+<p>The Visa Code asks for travel medical insurance covering repatriation for medical reasons, urgent medical care, emergency hospital treatment and death, valid in all Schengen countries and for the whole stay, with <strong>minimum cover of €{COPERTURA_SR:,}</strong> (about {loc_sr(COPERTURA_SR, V)}). For a multiple-entry visa the policy must cover the first trip. Applicants should, in principle, take out the insurance in their country of residence (Article 15).</p>
+{fonte_sr_p(("codice",))}
+{box_ass_sr(rel)}
+<h2 id="money">Money to show, country by country</h2>
+<p>The consulate assesses your means of subsistence by the length and purpose of your stay, on the basis of the reference amounts each Schengen country has set (Visa Code, Article 21(5)); proof of sponsorship or private accommodation can also count. These are the amounts the countries notified to the European Commission, per person and per day unless the table says otherwise, converted at the rates below.</p>
+{tabella_rif_sr(P, "")}
+{fonte_sr_p(("riferimento", "codice"), nota_cambio_sr(V))}
+<h2 id="where">Who can apply {R["in"]}, and where</h2>
+<ul class="testo">
+<li><strong>You apply where you legally live.</strong> "You must apply for a Schengen visa at the consulate with territorial responsibility for the country where you are legally resident" (European Commission). A consulate may accept an application from someone legally present but not resident, if there is a reason to apply there (Visa Code, Article 6).</li>
+<li><strong>You apply to your main destination</strong>: the Schengen country where you will spend the most time or, for stays of equal length, the first one you visit.</li>
+<li><strong>Processing time</strong>: normally {GIORNI_SR[0]} days, up to {GIORNI_SR[1]} days in some cases.</li>
+<li><strong>Visa centres.</strong> Many consulates take applications through a private visa centre. Where we read it on the embassy's own page:<ul>{forn_li}</ul> For the other countries, check the embassy's official website: we only name a visa centre when we have read it there.</li></ul>
+{fonte_sr_p(("commissione", "codice"))}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>Each Schengen country {R["da"]}</h2>
+<div class="griglia">{griglia}</div>
+<p><a href="{rel}{SEZ}{SLUG_RIF[P]}/">Schengen visa refusal rates in {nome_in}, consulate by consulate</a> · <a href="{rel}{SEZ}{SLUG_RIF[P]}/easiest-schengen-visa/">Easiest Schengen visa from {art(nome_paese(P))}: full ranking</a> · {link_altro_sr(P, rel)} · <a href="{rel}{SEZ}">Visa refusal rates by country</a></p>
+<h2>Sources</h2>
+<ul class="testo small">
+<li><a href="{escape(F_UE[A1]["url"])}" rel="noopener">European Commission, Visa statistics for consulates {A1}</a> and <a href="{escape(F_UE[A0]["url"])}" rel="noopener">{A0}</a> (XLSX, downloaded on {data_lunga(F_UE[A1]["scaricato_il"])}); reuse under CC BY 4.0. "Not issued" = visas refused + applications whose examination was discontinued; not-issued rate = not issued ÷ (uniform visas issued + visas with limited territorial validity + not issued).</li>
+<li><a href="{escape(F_SR["commissione"]["url"])}" rel="noopener">European Commission, Applying for a Schengen visa</a> (fee, processing time, where to apply), read on {data_lunga(F_SR["commissione"]["letto_il"])}.</li>
+<li><a href="{escape(F_SR["codice"]["pubblico"])}" rel="noopener">Visa Code, Regulation (EC) No 810/2009</a>, consolidated text of 2 February 2020, Articles 6, 15 and 21, read on {data_lunga(F_SR["codice"]["letto_il"])}.</li>
+<li><a href="{escape(F_SR["riferimento"]["url"])}" rel="noopener">European Commission, reference amounts required for the crossing of the external border</a> (PDF of 8 June 2026), read on {data_lunga(F_SR["riferimento"]["letto_il"])}.</li>
+<li>Exchange rates: European Central Bank reference rates of {data_lunga(CAMBI["data"])}{"; " + f'<a href="{escape(F_SR["cbuae_ago"]["url"])}" rel="noopener">Central Bank of the UAE, August 2026</a> and <a href="{escape(F_SR["cbuae_set"]["url"])}" rel="noopener">September 2026</a> tables (AED {PEG_AED} per US dollar on all {SR["ancoraggio_righe"]["giorni"]} days)' if V == "AED" else ""}.</li></ul>"""
+    if P == "UNITED KINGDOM":
+        titolo = f"Schengen visa from the UK: which country refuses least ({A1})"
+        descr = (f"Schengen consulates in the UK did not issue {pct(tasso(tot))} of applications in {A1}: lowest {art(basso[0])} ({pct(tasso(stati[basso[0]]))}), "
+                 f"highest {art(alto[0])} ({pct(tasso(stati[alto[0]]))}). Fee €{TASSA_SR} (≈ {loc_sr(TASSA_SR, V)}), €{COPERTURA_SR:,} insurance, money to show by country.")
+    else:
+        titolo = f"Schengen visa from Dubai (UAE): which country refuses least, {A1}"
+        descr = (f"Schengen consulates in the UAE did not issue {pct(tasso(tot))} of applications in {A1}: lowest {art(basso[0])} ({pct(tasso(stati[basso[0]]))}), "
+                 f"highest {art(alto[0])} ({pct(tasso(stati[alto[0]]))}). Fee €{TASSA_SR} (≈ {loc_sr(TASSA_SR, V)}), €{COPERTURA_SR:,} insurance, money to show by country.")
+    ld = [ld_faq(domande), ld_dataset(f"Schengen visa applications made in the {R['nome']} by Schengen country ({A1})",
+                                       f"Applications, visas issued and not issued at Schengen consulates in the {R['nome']}, {A1} and {A0}, from the European Commission.",
+                                       R["sez"], [F_UE[A1]["url"], F_UE[A0]["url"]], f"{A0}/{A1}", "https://creativecommons.org/licenses/by/4.0/")]
+    pagina(R["sez"], titolo, descr, corpo, ordina=True, jsonld_extra=ld, briciole=[(f"Schengen visa {R['da']}", R["sez"])])
+
+
+def pagina_sr_stato(P, s):
+    R = RES[P]
+    V = R["valuta"]
+    rel = "../../"
+    stati = sr_stati(P)
+    v1 = stati[s]
+    v0 = sr_stati(P, A0).get(s)
+    t1, t0 = tasso(v1), (tasso(v0) if v0 and decisioni(v0) else None)
+    ok = SR_PAG[P]
+    pos = ok.index(s) + 1
+    tot = tot_sr(P)
+    mev = mev_raggruppa(A1, 0, lambda r: r[1] == P).get(s, [0, 0])
+    citta = citta_sr(P, s)
+    cons = [r for r in sr_cons(P, s) if r[3] > 0]
+    plur = len(cons) > 1
+    chi = f"{poss_sr(s)} consulate{'s' if plur else ''} in {citta}"
+    righe_c = "".join(f'<tr><td>{escape(nome_consolato(r[2]))}</td>{cella_tasso(tasso(r[3:7]), decisioni(r[3:7]) < SOGLIA_POCO)}'
+                      f'<td class="n" data-v="{r[3]}">{intero(r[3])}</td><td class="n" data-v="{r[4]}">{intero(r[4])}</td><td class="n" data-v="{r[6]}">{intero(r[6])}</td>'
+                      f'{cella_mev(quota_mev([r[4], r[7]]), r[4] < SOGLIA_MEV)}</tr>' for r in cons)
+    tab_c = ('<div class="tab compatta"><table class="ord" id="t-cons-sr"><thead><tr>' + th_ord("Consulate", False, "ascending") + th_ord(f"Not issued {A1}", primo="ascending") +
+             th_ord("Applications") + th_ord("Uniform visas issued") + th_ord("Not issued") + th_ord("Multiple-entry share") + f'</tr></thead><tbody>{righe_c}</tbody></table></div>')
+    cambio = f"{A0}: {pct(t0)}" if t0 is not None else f"no {A0} figure"
+    rif = rif_html_sr(s, V)
+    vicini = [x for x in ok if x != s]
+    vicini = sorted(vicini, key=lambda x: abs(stati[x][0] - v1[0]))[:8]
+    griglia = "".join(f'<a href="../{SLUG_STATO[x]}/"><span class="ic">{ico("passport")}</span><span>{escape(x)} visa {R["da"]}<small>{pct(tasso(stati[x]))} not issued in {A1}</small></span></a>' for x in vicini)
+    domande = [
+        (f"Is it hard to get a {s} visa {R['da']}?",
+         f"In {A1}, {chi} did not issue {pct(t1)} of the {intero(decisioni(v1))} applications made {R['in']} that {'they' if plur else 'it'} decided "
+         f"({'rank ' + str(pos) + ' of ' + str(len(ok))} among Schengen countries with at least {intero(SOGLIA_SR)} applications, 1 = lowest). "
+         f"The average for all Schengen consulates {R['in']} was {pct(tasso(tot))}. Past rates do not predict your decision: the consulate decides."),
+        (f"How much is the {s} visa fee {R['da']}?",
+         f"€{TASSA_SR} for adults (about {loc_sr(TASSA_SR, V)}) and €{TASSA_BIMBI_SR} for children aged 6 to 12 (about {loc_sr(TASSA_BIMBI_SR, V)}), the Schengen fee set by the EU. "
+         "A visa centre, if the consulate uses one, charges its own service fee on top."),
+        (f"Can I apply for a {s} visa {R['da']} with an Indian or Pakistani passport?",
+         f"Yes, if you legally live {R['in']} and {art(s)} is your main destination. The figures on this page count all applications made {R['in']}, "
+         "whatever the passport: the Commission's file does not give nationalities."),
+        (f"How much money do I need for a {s} Schengen visa?",
+         f"{art(s, True)} has notified the European Commission of these reference amounts: {re.sub(r'<[^>]+>', '', rif)} "
+         "The consulate assesses your means by the length and purpose of the stay; sponsorship or private accommodation can also count."),
+        (f"Where do I apply for a {s} visa {R['da']}?",
+         f"The Commission's file lists {poss_sr(s)} consulate{'s' if plur else ''} in {citta}. " + re.sub(r"<[^>]+>", "", forn_html_sr(P, s))),
+        ("How long does it take?",
+         f"Normally {GIORNI_SR[0]} days; up to {GIORNI_SR[1]} days if the consulate needs to look at the application in more detail (European Commission). Appointment waiting times are extra."),
+    ]
+    titolo_h1 = f"{s} visa {R['da']}: refusal rate, fee and money to show ({A1})"
+    corpo = f"""<section class="hero">{h1_diviso(titolo_h1)}
+<p class="lead">In {A1}, {escape(chi)} received {intero(v1[0])} Schengen visa applications made {R["in"]} and did not issue <strong>{pct(t1)}</strong> of the {intero(decisioni(v1))} {"they" if plur else "it"} decided ({intero(v1[3])}), according to the European Commission's <a href="{escape(F_UE[A1]["url"])}" rel="noopener">Visa statistics for consulates {A1}</a> (downloaded on {data_lunga(F_UE[A1]["scaricato_il"])}). The visa fee is €{TASSA_SR} (about {loc_sr(TASSA_SR, V)}).</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("passport")}<span>{escape(s)} visa {R["da"]}</span><span>{A1}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">{escape(s)} · applications made {R["in"]} · {A1}</span><span class="sr">: </span><strong>{pct(t1)}</strong> not issued ({intero(v1[3])} of {intero(decisioni(v1))} decisions)</p>
+<div class="kpi"><div><b>{intero(v1[0])}</b><span>applications</span></div><div><b>{intero(v1[1])}</b><span>uniform visas issued</span></div><div><b>{pos} of {len(ok)}</b><span>rank {R["in"]} (1 = lowest rate)</span></div><div><b>{punti(t1, t0) if t0 is not None else "–"}</b><span>change on {A0}{f" ({pct(t0)})" if t0 is not None else ""}</span></div></div>
+<p class="lead" style="margin-top:6px">Average for all Schengen consulates {R["in"]}: {pct(tasso(tot))}. Multiple-entry visas: {pct(quota_mev(mev))} of the uniform visas {escape(art(s))} issued here{"*" if mev[0] < SOGLIA_MEV else ""}. <a href="../">All Schengen countries {R["da"]} compared</a>.</p>
+{fonte_ue_p(A1, A0)}
+</div></section>
+{AVVISO_SR}
+{AD}
+<h2>{escape(poss_sr(s, True))} consulate{"s" if plur else ""} {R["in"]}</h2>
+<p class="lead">Applications made {R["in"]} and decided by {escape(art(s))} in {A1}{", by consulate" if plur else ""}. "Not issued" means refused or examination discontinued.</p>
+{tab_c}
+{fonte_ue_p(A1)}
+<h2>What it costs</h2>
+{costi_sr(P)}
+<h2>Money to show for {escape(art(s))}</h2>
+<p>{rif}</p>
+<p>The consulate assesses your means by the length and purpose of the stay, on the basis of these reference amounts (Visa Code, Article 21(5)); proof of sponsorship or private accommodation can also count. The table quotes what {escape(art(s))} notified: “{escape(rif_testo_sr(s))}”.</p>
+{fonte_sr_p(("riferimento", "codice"), nota_cambio_sr(V))}
+<h2>Where and how to apply {R["in"]}</h2>
+<ul class="testo">
+<li><strong>Where.</strong> {forn_html_sr(P, s)}</li>
+<li><strong>Who.</strong> You apply {R["in"]} if you legally live there, and to {escape(art(s))} if it is your main destination (where you will spend the most time) or, for equal stays, the first Schengen country you enter.</li>
+<li><strong>Insurance.</strong> Travel medical insurance valid in all Schengen countries for the whole stay, minimum cover €{COPERTURA_SR:,} (about {loc_sr(COPERTURA_SR, V)}).</li>
+<li><strong>Time.</strong> Normally {GIORNI_SR[0]} days, up to {GIORNI_SR[1]} days in some cases. If the visa is refused, the consulate must give the reasons and say how to appeal.</li></ul>
+{fonte_sr_p(("commissione", "codice"))}
+{box_ass_sr(rel)}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>Other Schengen countries {R["da"]}</h2>
+<div class="griglia">{griglia}</div>
+<p><a href="../">Schengen visa {R["da"]}: all countries</a> · <a href="{rel}{SEZ}schengen/{SLUG_STATO[s]}/">{escape(s)} visa rejection rate worldwide</a> · <a href="{rel}{SEZ}{SLUG_RIF[P]}/">Refusal rates {R["in"]}, consulate by consulate</a> · {link_altro_sr(P, rel)}</p>"""
+    varianti = [f"{s} visa {R['da']}: refusal rate, fee and money to show ({A1})", f"{s} visa {R['da']}: refusal rate, fee and money to show",
+                f"{s} visa {R['da']}: refusal rate and fee ({A1})"]
+    titolo = next((x for x in varianti if len(x) <= 70), varianti[-1])
+    descr = (f"{s} Schengen visa {R['da']}: {pct(t1)} of applications made {R['in']} not issued in {A1} ({cambio}). "
+             f"Fee €{TASSA_SR} (≈ {loc_sr(TASSA_SR, V)}), €{COPERTURA_SR:,} insurance, money to show, consulates.")
+    pagina(f"{R['sez']}{SLUG_STATO[s]}/", titolo, descr, corpo, ordina=True, jsonld_extra=[ld_faq(domande)],
+           briciole=[(f"Schengen visa {R['da']}", R["sez"]), (s, f"{R['sez']}{SLUG_STATO[s]}/")])
+
+
+def link_sr_rif(p, rel):
+    """Riga che dalle pagine dei rifiuti (Regno Unito, Emirati, easiest) porta all'hub dei residenti."""
+    if p not in RES:
+        return ""
+    R = RES[p]
+    return (f'<p class="lead">{ico("passport")} Living {R["in"]}? <a href="{rel}{R["sez"]}">Schengen visa {R["da"]}: which country refuses least, '
+            f'the €{TASSA_SR} fee in {"pounds" if R["valuta"] == "GBP" else "dirhams"}, insurance and money to show, country by country</a>.</p>')
+
+
+def link_sr_stato(s, rel):
+    """Riga nelle pagine /visa-refusal-rates/schengen/<stato>/ verso le pagine dei residenti di quello Stato."""
+    qui = [P for P in RES if s in SR_PAG[P]]
+    if not qui:
+        return ""
+    dove = " or ".join(f"in {RES[P]['il']}" for P in qui)
+    voci = " · ".join(f'<a href="{rel}{RES[P]["sez"]}{SLUG_STATO[s]}/">{escape(s)} visa {RES[P]["da"]}</a>' for P in qui)
+    return f'<p class="small">{ico("passport")} Living {dove}? {voci}: refusal rate at the consulates there, fee, insurance and money to show.</p>'
+
+
+def genera_sr():
+    for P in RES:
+        pagina_sr_hub(P)
+        for s in SR_PAG[P]:
+            pagina_sr_stato(P, s)
+
+
+def controlli_sr():
+    import hashlib
+    errori = []
+    cont = {k: SR[k] for k in ("fonti", "letture", "riferimento", "fornitori", "ancoraggio_righe")}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != SR["impronta"]:
+        errori.append("schengen residenti: impronta del JSON diversa dal contenuto (file modificato a mano?)")
+    if any(f.get("http") != 200 for f in F_SR.values()):
+        errori.append("schengen residenti: fonte non letta (HTTP diverso da 200)")
+    for P in RES:
+        if len(SR_PAG[P]) < 10:
+            errori.append(f"schengen residenti: solo {len(SR_PAG[P])} Stati con pagina per {P}")
+        senza = [s for s in SR_PAG[P] if s not in RIF_SR]
+        if senza:
+            errori.append(f"schengen residenti: importi di riferimento mancanti per {senza}")
+        for s in SR_PAG[P]:
+            for _, v, _ in RIF_SR[s]["importi"]:
+                if v != "EUR" and v not in CAMBI["tassi"]:
+                    errori.append(f"schengen residenti: valuta {v} senza cambio BCE ({s})")
+    if "GBP" not in CAMBI["tassi"] or "USD" not in CAMBI["tassi"]:
+        errori.append("schengen residenti: cambi BCE GBP o USD mancanti")
+    if URL_AXA and not re.match(r"https://([a-z0-9-]+\.)*(tradedoubler\.com|axa-schengen\.com)/", URL_AXA):
+        errori.append("schengen residenti: link AXA non valido in dati/affiliati.json (_axa_schengen)")
+    if set(SLUG_STATO[s] for P in RES for s in SR_PAG[P]) & {"uk", "dubai"}:
+        errori.append("schengen residenti: slug riservato")
+    return errori
+
+
 def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
@@ -8161,6 +8677,7 @@ def controlli():
     errori += controlli_mx()
     errori += controlli_it()
     errori += controlli_f7()
+    errori += controlli_sr()
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -8192,6 +8709,7 @@ def main():
     genera_mx()
     genera_it()
     genera_f7()
+    genera_sr()
     pagina_come_funziona()
     about()
     contatti()
