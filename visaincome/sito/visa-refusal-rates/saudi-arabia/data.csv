@@ -1,0 +1,43 @@
+year,place_of_application,schengen_country,applications,uniform_visas_issued,multiple_entry_visas_issued,ltv_visas_issued,not_issued,decisions,not_issued_rate_percent
+2025,Saudi Arabia,All Schengen countries,553967,521087,482242,909,28467,550463,5.2
+2025,Saudi Arabia,France,234331,224205,209273,42,8854,233101,3.8
+2025,Saudi Arabia,Italy,83189,81210,78188,64,1979,83253,2.4
+2025,Saudi Arabia,Spain,58670,55954,47654,320,1601,57875,2.8
+2025,Saudi Arabia,Germany,50921,46639,46599,153,4049,50841,8.0
+2025,Saudi Arabia,Switzerland,31146,29593,26449,102,1451,31146,4.7
+2025,Saudi Arabia,Austria,18942,18224,18131,15,303,18542,1.6
+2025,Saudi Arabia,Netherlands,18930,15911,13801,47,2819,18777,15.0
+2025,Saudi Arabia,Czech Republic,17706,17106,15445,37,563,17706,3.2
+2025,Saudi Arabia,Portugal,16501,14408,12174,0,2093,16501,12.7
+2025,Saudi Arabia,Greece,12159,9187,8400,50,2154,11391,18.9
+2025,Saudi Arabia,Denmark,2304,1988,1319,3,262,2253,11.6
+2025,Saudi Arabia,Sweden,2265,1435,908,9,779,2223,35.0
+2025,Saudi Arabia,Hungary,1724,1416,1053,0,302,1718,17.6
+2025,Saudi Arabia,Belgium,1673,1265,927,4,370,1639,22.6
+2025,Saudi Arabia,Poland,1209,1051,761,28,157,1236,12.7
+2025,Saudi Arabia,Bulgaria,1058,459,237,0,570,1029,55.4
+2025,Saudi Arabia,Malta,621,508,454,2,106,616,17.2
+2025,Saudi Arabia,Slovakia,376,354,314,2,18,374,4.8
+2025,Saudi Arabia,Romania,185,148,133,7,37,192,19.3
+2025,Saudi Arabia,Finland,57,26,22,24,0,50,0.0
+2024,Saudi Arabia,All Schengen countries,505455,470886,436049,977,29517,501380,5.9
+2024,Saudi Arabia,France,191388,179965,167365,68,10061,190094,5.3
+2024,Saudi Arabia,Spain,62955,59951,52083,285,1713,61949,2.8
+2024,Saudi Arabia,Italy,50410,48230,46059,90,2090,50410,4.1
+2024,Saudi Arabia,Germany,43883,39803,39712,134,3872,43809,8.8
+2024,Saudi Arabia,Switzerland,37225,35127,32655,61,2037,37225,5.5
+2024,Saudi Arabia,Greece,25975,23254,21890,101,2417,25772,9.4
+2024,Saudi Arabia,Austria,24782,23705,23626,15,1062,24782,4.3
+2024,Saudi Arabia,Netherlands,22324,20224,17701,61,1686,21971,7.7
+2024,Saudi Arabia,Portugal,17103,15233,13014,0,969,16202,6.0
+2024,Saudi Arabia,Czech Republic,14672,13947,12831,11,714,14672,4.9
+2024,Saudi Arabia,Sweden,4263,2905,2209,2,1312,4219,31.1
+2024,Saudi Arabia,Belgium,2778,2209,1778,51,434,2694,16.1
+2024,Saudi Arabia,Denmark,2644,2317,1817,2,260,2579,10.1
+2024,Saudi Arabia,Poland,1448,1214,1041,23,226,1463,15.4
+2024,Saudi Arabia,Hungary,1413,1223,889,2,190,1415,13.4
+2024,Saudi Arabia,Bulgaria,751,405,298,35,287,727,39.5
+2024,Saudi Arabia,Malta,682,538,494,2,116,656,17.7
+2024,Saudi Arabia,Slovakia,515,451,433,2,44,497,8.9
+2024,Saudi Arabia,Romania,191,158,137,6,27,191,14.1
+2024,Saudi Arabia,Finland,53,27,17,26,0,53,0.0
