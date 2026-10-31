@@ -1,0 +1,1077 @@
+{
+"_nota": "Generato da raccolta/mexico.py: non modificare a mano (i valori letti a mano stanno in LETTURE e CONSOLATI dentro lo script). Fonti: DOF, Cámara de Diputados, INEGI, pagine ufficiali dei consolati del Messico (SRE), lette il giorno indicato.",
+"generato_il": "2026-10-31",
+"letto_il": "2026-10-31",
+"pagina_inegi": "https://www.inegi.org.mx/temas/uma/",
+"impronta": "980ffbb37fecbf0a9bf9",
+"domanda": {
+"data": "2026-10-31",
+"metodo": "https://suggestqueries.google.com/complete/search?client=firefox&gl=us&hl=en&q=…",
+"query": {
+"us|mexico temporary residency income requirements 2026": [],
+"us|mexico temporary residency income requirements": [
+"mexico temporary residency income requirements",
+"mexico temporary residency financial requirements",
+"mexico temporary resident visa income requirements",
+"mexico temporary resident visa financial requirements",
+"mexico residency income requirements",
+"how to get temporary residency in mexico",
+"how to apply for temporary residency in mexico",
+"how do you get temporary residency in mexico"
+],
+"us|mexico residency fees": [
+"mexico residency fees 2026",
+"mexico residency fees",
+"mexico residency application",
+"mexico permanent residency fees",
+"how much does it cost to get residency in mexico",
+"how long does it take to get residency in mexico",
+"how can i get residency in mexico",
+"is it hard to get residency in mexico"
+],
+"us|mexico residency fees 2026": [
+"mexico residency fees 2026",
+"mexico permanent residency fees 2026",
+"mexican temporary residency fee 2026",
+"how much does it cost to get residency in mexico"
+],
+"us|mexico temporary residency": [
+"mexico temporary residency requirements",
+"mexico temporary residency requirements 2026",
+"mexico temporary residency income requirements",
+"mexico temporary residency card",
+"mexico temporary residency process",
+"mexico temporary residency application",
+"mexico temporary residency visa requirements",
+"mexico temporary residency to permanent",
+"mexico temporary residency renewal",
+"mexico temporary residency requirements canada"
+],
+"us|mexico permanent residency": [
+"mexico permanent residency",
+"mexico permanent residency requirements",
+"mexico permanent residency requirements 2026",
+"mexico permanent residency card",
+"mexico permanent residency requirements for us citizens",
+"mexico permanent residency by investment",
+"mexico permanent residency economic solvency",
+"mexico permanent residency to citizenship",
+"mexico permanent residency fees",
+"mexico permanent residency application"
+],
+"us|mexico residency income requirements": [
+"mexico residency income requirements",
+"mexico residency financial requirements",
+"mexico temporary residency income requirements",
+"mexico permanent residency income requirements",
+"mexico permanent residency financial requirements",
+"mexico temporary residency financial requirements",
+"how to become a legal resident of mexico",
+"is it hard to get residency in mexico"
+],
+"us|mexico temporary resident visa": [
+"mexico temporary resident visa",
+"mexico temporary resident visa requirements",
+"mexico temporary resident visa income requirements",
+"mexico temporary resident visa application form",
+"mexico temporary resident visa economic solvency",
+"mexico temporary resident visa for us citizens",
+"mexico temporary resident visa reddit",
+"mexico temporary resident visa fee",
+"mexico temporary resident visa appointment",
+"mexico temporary resident visa financial solvency"
+],
+"us|mexico residency requirements": [
+"mexico residency requirements",
+"mexico residency requirements for us citizens",
+"mexico residency requirements 2026",
+"mexico residency requirements for retirees",
+"mexico residency requirements 2025",
+"mexican residency requirements",
+"mexican residency requirements for canadian citizens",
+"mexico residence permit requirements",
+"mexico temporary residency requirements",
+"mexico permanent residency requirements"
+],
+"us|mexico residency consulate": [
+"mexican consulate residency requirements",
+"mexican consulate residency",
+"mexican consulate residency appointment",
+"is there a us consulate in mexico",
+"can i go to any mexican consulate",
+"how long does it take to get residency in mexico",
+"how do i contact the mexican consulate",
+"how much does it cost to get residency in mexico"
+],
+"us|mexican consulate temporary residency": [
+"mexican consulate temporary residency",
+"mexican consulate temporary resident visa",
+"phoenix mexican consulate temporary residency",
+"mexican consulate atlanta temporary residency",
+"houston mexican consulate temporary residency",
+"chicago mexican consulate temporary residency",
+"denver mexican consulate temporary residency",
+"seattle mexican consulate temporary residency",
+"chicago mexican consulate temporary residency requirements",
+"las vegas mexican consulate temporary residency"
+],
+"us|mexico temporary residency fees": [
+"mexico temporary residency fee",
+"mexico temporary residency application",
+"mexico temporary residency cost",
+"mexico temporary resident visa fees",
+"mexico temporary resident visa cost",
+"how do you get temporary residency in mexico",
+"how much does it cost to get residency in mexico",
+"how to get temporary residency in mexico",
+"how long does it take to get residency in mexico",
+"what is temporary residency in mexico"
+],
+"us|mexico permanent residency income requirements": [
+"mexico permanent residency income requirements",
+"mexico permanent residency financial requirements",
+"what are the requirements for permanent residency in mexico",
+"mexico residency income requirements",
+"how do you become a permanent resident of mexico"
+],
+"us|mexico retirement visa income": [
+"mexico retirement visa income requirements",
+"mexico retirement visa financial requirements",
+"mexico retirement visa requirements",
+"does mexico have retirement income",
+"income requirements to retire in mexico"
+],
+"us|mexico temporary residency cost": [
+"mexico temporary residency cost",
+"mexico temporary residency fee",
+"mexico temporary resident visa cost",
+"how do you get temporary residency in mexico",
+"how to get temporary residency in mexico",
+"how much does it cost to get residency in mexico",
+"what is temporary residency in mexico",
+"how long does it take to get residency in mexico"
+],
+"us|mexico temporary residency financial requirements": [
+"mexico temporary residency financial requirements",
+"mexico temporary residency income requirements",
+"mexico temporary resident visa financial requirements",
+"mexico temporary resident visa income requirements",
+"financial requirements for permanent residency in mexico",
+"mexican temporary residency requirements"
+],
+"us|mexico residency calculator": [],
+"us|mexico residency uma": []
+}
+},
+"letture": {
+"nota_2026": {
+"valore": "2025-12-28",
+"fonte": "lfd",
+"frammento": "Cantidades actualizadas por Resolución Miscelánea Fiscal DOF 28-12-2025"
+},
+"rt_1": {
+"valore": 11140.74,
+"fonte": "lfd",
+"frammento": "a). Hasta un año $11,140.74"
+},
+"rt_2": {
+"valore": 16693.36,
+"fonte": "lfd",
+"frammento": "b). Dos años $16,693.36"
+},
+"rt_3": {
+"valore": 21142.58,
+"fonte": "lfd",
+"frammento": "c). Tres años $21,142.58"
+},
+"rt_4": {
+"valore": 25057.82,
+"fonte": "lfd",
+"frammento": "d). Cuatro años $25,057.82"
+},
+"rp": {
+"valore": 13578.96,
+"fonte": "lfd",
+"frammento": "VII. Residente Permanente $13,578.96"
+},
+"reposicion": {
+"valore": 1779.93,
+"fonte": "lfd",
+"frammento": "Respecto a las fracciones II, V, VI y VII la cuota aplicable será de $1,779.93"
+},
+"renovacion": {
+"valore": true,
+"fonte": "lfd",
+"frammento": "Por la renovación de los documentos a que se refieren las fracciones II a VII de este artículo, se pagará la misma cuota del derecho según corresponda."
+},
+"cambio": {
+"valore": 1847.13,
+"fonte": "lfd",
+"frammento": "la autorización del cambio de condición de estancia se pagará el derecho conforme a la cuota de $1,847.13"
+},
+"mitad": {
+"valore": true,
+"fonte": "lfd",
+"frammento": "pagarán el 50% de las cuotas que les correspondan conforme a las citadas disposiciones, siempre que acrediten ante el Instituto Nacional de Migración que su estancia en el país obedece a la preservación de la unidad familiar, oferta de empleo"
+},
+"visa": {
+"valore": 990.79,
+"fonte": "lfd",
+"frammento": "expedición de las visas ordinarias en pasaportes extranjeros $990.79"
+},
+"dec_rt_1": {
+"valore": 11140.74,
+"fonte": "decreto",
+"frammento": "a). Hasta un año $11,140.74"
+},
+"dec_rt_4": {
+"valore": 25057.82,
+"fonte": "decreto",
+"frammento": "d). Cuatro años $25,057.82"
+},
+"dec_rp": {
+"valore": 13578.96,
+"fonte": "decreto",
+"frammento": "VII. Residente Permanente $13,578.96"
+},
+"dec_vigore": {
+"valore": "2026-01-01",
+"fonte": "decreto",
+"frammento": "El presente Decreto entrará en vigor a partir del 1 de enero de 2026"
+},
+"a4_titolo": {
+"valore": true,
+"fonte": "anexo4",
+"frammento": "Cantidades actualizadas establecidas en la LFD para 2026"
+},
+"a4_rt": {
+"valore": {
+"1": [
+11140.74,
+11141
+],
+"2": [
+16693.36,
+16693
+],
+"3": [
+21142.58,
+21143
+],
+"4": [
+25057.82,
+25058
+]
+},
+"fonte": "anexo4",
+"frammento": "VI a) $11,140.74 $11,141 VI b) $16,693.36 $16,693 VI c) $21,142.58 $21,143 VI d) $25,057.82 $25,058"
+},
+"a4_rp": {
+"valore": [
+13578.96,
+13579
+],
+"fonte": "anexo4",
+"frammento": "VII $13,578.96 $13,579"
+},
+"a4_repos": {
+"valore": [
+1779.93,
+1780
+],
+"fonte": "anexo4",
+"frammento": "Respecto a las fracciones II, V, VI y VII... $1,779.93 $1,780"
+},
+"a4_cambio": {
+"valore": [
+1847.13,
+1847
+],
+"fonte": "anexo4",
+"frammento": "Artículo 9 $1,847.13 $1,847"
+},
+"a4_visa": {
+"valore": [
+990.79,
+990
+],
+"fonte": "anexo4",
+"frammento": "III d) $990.79 $990"
+},
+"uma_diaria": {
+"valore": 117.31,
+"fonte": "uma",
+"frammento": "Diario 117.31 pesos mexicanos"
+},
+"uma_mensile": {
+"valore": 3566.22,
+"fonte": "uma",
+"frammento": "Mensual 3 566.22 pesos mexicanos"
+},
+"uma_annua": {
+"valore": 42794.64,
+"fonte": "uma",
+"frammento": "Anual 42 794.64 pesos mexicanos"
+},
+"uma_dal": {
+"valore": "2026-02-01",
+"fonte": "uma",
+"frammento": "Los valores de la UMA que entrarán en vigor a partir del 1 de febrero de 2026 son"
+},
+"rt_saldo_giorni": {
+"valore": 11460,
+"fonte": "lineamientos",
+"frammento": "cuentas bancarias con saldo promedio mensual equivalente a once mil cuatrocientos sesenta días en UMA, durante los últimos doce meses; o 2. Original de los documentos que demuestren que cuenta con empleo o pensión con ingresos mensuales libres de gravámenes mayores al equivalente de seiscientos ochenta días en UMA durante los últimos seis meses."
+},
+"rt_reddito_giorni": {
+"valore": 680,
+"fonte": "lineamientos",
+"frammento": "mayores al equivalente de seiscientos ochenta días en UMA durante los últimos seis meses"
+},
+"rt_tramite": {
+"valore": true,
+"fonte": "lineamientos",
+"frammento": "Trámite 5 Visa de Residencia Temporal"
+},
+"rp_saldo_giorni": {
+"valore": 45850,
+"fonte": "lineamientos",
+"frammento": "a. Jubilados o pensionados: 1. Original o documento electrónico con certificado digital de comprobante de inversiones o cuentas bancarias con saldo promedio mensual equivalente a cuarenta y cinco mil ochocientos cincuenta días en UMA, durante los últimos doce meses"
+},
+"rp_reddito_giorni": {
+"valore": 1140,
+"fonte": "lineamientos",
+"frammento": "cuenta con pensión con ingresos mensuales libres de gravámenes mayores al equivalente de mil ciento cuarenta días en UMA, durante los últimos seis meses"
+},
+"rp_tramite": {
+"valore": true,
+"fonte": "lineamientos",
+"frammento": "Trámite 7 Visa de Residencia Permanente"
+},
+"familiare_giorni": {
+"valore": 220,
+"fonte": "lineamientos",
+"frammento": "Acreditar solvencia económica para la manutención de cada uno de sus familiares durante su estancia en el país, con: – Original o documento electrónico con certificado digital de comprobante de inversiones o cuentas bancarias con saldo promedio mensual equivalente a doscientos veinte días en UMA"
+},
+"lin_vigore": {
+"valore": 15,
+"fonte": "lineamientos",
+"frammento": "Los presentes Lineamientos entrarán en vigor a los quince días naturales siguientes al de su publicación en el Diario Oficial de la Federación."
+},
+"lin_abroga": {
+"valore": true,
+"fonte": "lineamientos",
+"frammento": "Se abrogan los Lineamientos Generales para la expedición de visas que emiten las secretarías de Gobernación y de Relaciones Exteriores , publicados en el Diario Oficial de la Federación el 10 de octubre de 2014"
+}
+},
+"fonti": {
+"lfd": {
+"url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFD.pdf",
+"http": 200,
+"formato": "pdf",
+"data_pagina": "2026-03-13",
+"sha256": "3731b0628d82af018129eb78e80e040476f53284a5c953cf501600808e60297b",
+"editore": "Cámara de Diputados",
+"titolo": "Ley Federal de Derechos (current text)",
+"data": "2026-03-13",
+"letto_il": "2026-10-31"
+},
+"decreto": {
+"url": "https://dof.gob.mx/nota_detalle.php?codigo=5772360&fecha=07/11/2025",
+"http": 200,
+"formato": "html",
+"data_pagina": "",
+"sha256": "a361b260ad3e20b1f7f0535fb7042b681d3dc06863070e36646bcfa9fc2920ff",
+"editore": "Diario Oficial de la Federación",
+"titolo": "Decree amending the Ley Federal de Derechos (DOF, 7 November 2025)",
+"data": "2025-11-07",
+"letto_il": "2026-10-31"
+},
+"anexo4": {
+"url": "https://dof.gob.mx/nota_detalle.php?codigo=5777219&fecha=28/12/2025",
+"http": 200,
+"formato": "html",
+"data_pagina": "",
+"sha256": "dedd474c8c88a0fab31010fb6e13e3c9c2df1f7ec38447a1fb776eee80b9f6d6",
+"editore": "Diario Oficial de la Federación",
+"titolo": "Annex 4 of the 2026 Miscellaneous Tax Resolution: updated amounts of the Ley Federal de Derechos (DOF, 28 December 2025)",
+"data": "2025-12-28",
+"letto_il": "2026-10-31"
+},
+"uma": {
+"url": "https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/uma/uma2026.pdf",
+"http": 200,
+"formato": "pdf",
+"data_pagina": "2026-01-07",
+"sha256": "a4a797de9590f14c8f3eeb5aac31f8842da5d91fdef3fceaad46dd00a20d3288",
+"editore": "INEGI",
+"titolo": "UMA 2026, press release 1/26 (8 January 2026)",
+"data": "2026-01-08",
+"letto_il": "2026-10-31"
+},
+"lineamientos": {
+"url": "https://dof.gob.mx/nota_detalle.php?codigo=5763837&fecha=25/07/2025",
+"http": 200,
+"formato": "html",
+"data_pagina": "",
+"sha256": "61667063df68ea42c345f21fa029533997dc383ade450fa233f9692c5f2e0f3e",
+"editore": "Diario Oficial de la Federación",
+"titolo": "Lineamientos generales para la expedición de visas (SEGOB and SRE, DOF, 25 July 2025)",
+"data": "2025-07-25",
+"letto_il": "2026-10-31"
+}
+},
+"consolati": [
+{
+"id": "new-york",
+"sede": "New York",
+"paese": "United States",
+"tipo": "Consulate-General",
+"valuta": "USD",
+"tr": {
+"reddito": {
+"importo": 4200,
+"frammento": "recibos de sueldo con un ingreso mínimo de $4,200.00 USD",
+"p": 0
+},
+"saldo": {
+"importo": 71500,
+"frammento": "cuentas bancarias personales con un balance mínimo de $71,500.00 dólares, durante los últimos 12 meses",
+"p": 0
+}
+},
+"pr": {
+"reddito": {
+"importo": 7100,
+"frammento": "Carta de pensión con ingresos mensuales equivalentes a $7,100.00 dólares, durante los últimos 6 meses",
+"p": 1
+},
+"saldo": {
+"importo": 286100,
+"frammento": "saldo promedio mensual equivalentes a $286,100.00 dólares, durante los últimos 12 meses",
+"p": 1
+}
+},
+"tassa": {
+"importo": 56,
+"valuta": "USD",
+"frammento": "Costo por aplicación $56.00 USD en efectivo",
+"p": 0
+},
+"chiavi": [
+"new york",
+"nyc"
+],
+"pagine": [
+{
+"url": "https://consulmex.sre.gob.mx/nuevayork/images/2026_4_VisaResidenteTemporal.pdf",
+"http": 200,
+"formato": "pdf",
+"data_pagina": "2026-01-05",
+"sha256": "0634f67208bbdce4d5d460faaa0d25d06b6ce24387cd02b3e9e779de2b7be527",
+"letto_il": "2026-10-31"
+},
+{
+"url": "https://consulmex.sre.gob.mx/nuevayork/images/2026_6_VisaResidentePermanente.pdf",
+"http": 200,
+"formato": "pdf",
+"data_pagina": "2026-01-05",
+"sha256": "e34d746f96c3470e558c3d310a9c52fc5ad31ff8f6e3523a9226d42123324e4f",
+"letto_il": "2026-10-31"
+}
+],
+"data_pagina": "2026-01-05"
+},
+{
+"id": "new-brunswick",
+"sede": "New Brunswick, NJ",
+"paese": "United States",
+"tipo": "Consulate",
+"valuta": "USD",
+"tr": {
+"reddito": {
+"importo": 4500,
+"frammento": "a job or pension that yields a monthly income of $4,500.00 USD after taxes during the previous 6 months",
+"p": 0
+},
+"saldo": {
+"importo": 75500,
+"frammento": "with a monthly balance of at least $75,500.00 USD during the previous 12 months",
+"p": 0
+}
+},
+"pr": {
+"reddito": {
+"importo": 7500,
+"frammento": "a job or pension that yields a monthly income of $7,500.00 USD after taxes during the previous 6 months",
+"p": 1
+},
+"saldo": {
+"importo": 301500,
+"frammento": "with a monthly balance of at least $301,500.00 USD during the previous 12 months",
+"p": 1
+}
+},
+"tassa": {
+"importo": 56,
+"valuta": "USD",
+"frammento": "Application processing fee $56.00 USD",
+"p": 0
+},
+"chiavi": [
+"new jersey",
+"new brunswick"
+],
+"pagine": [
+{
+"url": "https://consulmex.sre.gob.mx/new-brunswick/images/visas-es-2026/TEMPORARY_RESIDENT.pdf",
+"http": 200,
+"formato": "pdf",
+"data_pagina": "2026-01-13",
+"sha256": "b5bdd65d1277aca9534ed48ece46b9581f1e50a9d58e6984a4b2bf25d310dc69",
+"letto_il": "2026-10-31"
+},
+{
+"url": "https://consulmex.sre.gob.mx/new-brunswick/images/visas-es-2026/PERMANENT_RESIDENT_VISA.pdf",
+"http": 200,
+"formato": "pdf",
+"data_pagina": "2026-01-13",
+"sha256": "3464ef24da5b14506136406f6f99536a051a5e6ffb5b449c4ccd1eec78bdf5e5",
+"letto_il": "2026-10-31"
+}
+],
+"data_pagina": "2026-01-13"
+},
+{
+"id": "washington-dc",
+"sede": "Washington, DC",
+"paese": "United States",
+"tipo": "Embassy (consular section)",
+"valuta": "MXN",
+"tr": {
+"reddito": {
+"importo": 83640,
+"frammento": "a job or pension that yields a monthly income of $83,640.00 MXN after taxes during the previous 6 months",
+"p": 0
+},
+"saldo": {
+"importo": 1394000,
+"frammento": "with a monthly balance of at least $1,394,000.00 MXN during the previous 12 months",
+"p": 0
+}
+},
+"pr": {
+"reddito": {
+"importo": 139400,
+"frammento": "a pension that yields a monthly income of $139,400.00 MXN after taxes during the previous 6 months",
+"p": 1
+},
+"saldo": {
+"importo": 5576000,
+"frammento": "balance of at least $5,576,000.00 MXN during the previous 12 months",
+"p": 1
+}
+},
+"tassa": {
+"importo": 56,
+"valuta": "USD",
+"frammento": "Application processing fee $56.00 dollars",
+"p": 0
+},
+"altre": [
+{
+"frammento": "All amounts are calculated in Mexican pesos. You can consult the official exchange rate on the day of your appointment",
+"p": 0
+}
+],
+"chiavi": [
+"washington",
+"dc"
+],
+"pagine": [
+{
+"url": "https://consulmex.sre.gob.mx/washington/images/2026/visas/eng/Temporary_resident.pdf",
+"http": 200,
+"formato": "pdf",
+"data_pagina": "2026-07-24",
+"sha256": "1b31b45093c0279667374ba2291e35f005bc9b5e5766573a7aed0887f80cb588",
+"letto_il": "2026-10-31"
+},
+{
+"url": "https://consulmex.sre.gob.mx/washington/images/2026/visas/eng/Permanent_resident_visa_retiree.pdf",
+"http": 200,
+"formato": "pdf",
+"data_pagina": "2026-07-24",
+"sha256": "bedde724440dfafd25b2ed48493f6e1dd9d5c1ae5e7b4ec9d5ef19ed98d1ae0c",
+"letto_il": "2026-10-31"
+}
+],
+"data_pagina": "2026-07-24"
+},
+{
+"id": "indianapolis",
+"sede": "Indianapolis",
+"paese": "United States",
+"tipo": "Consulate",
+"valuta": "USD",
+"tr": {
+"reddito": {
+"importo": 4431,
+"frammento": "a job or pension that yields a monthly income of $4,431.00 US Dollars after taxes during the previous 6 months",
+"p": 0
+},
+"saldo": {
+"importo": 74687,
+"frammento": "with a balance of at least $74,687.00 US Dollars during the previous 12 months",
+"p": 0
+}
+},
+"pr": {
+"reddito": {
+"importo": 7429,
+"frammento": "a pension that yields a monthly income of $7,429.00 US Dollars, after taxes, during the last previous 6 months",
+"p": 1
+},
+"saldo": {
+"importo": 298814,
+"frammento": "with a balance of at least $298,814.00 US Dollars during the previous 12 months",
+"p": 1
+}
+},
+"tassa": {
+"importo": 56,
+"valuta": "USD",
+"frammento": "Application processing fee $56.00 Dollars",
+"p": 0
+},
+"chiavi": [
+"indianapolis",
+"indiana"
+],
+"pagine": [
+{
+"url": "https://consulmex.sre.gob.mx/indianapolis/images/Visas/6_TEMPORARY_RESIDENT.pdf",
+"http": 200,
+"formato": "pdf",
+"data_pagina": "2026-02-27",
+"sha256": "25bdd8afa9f7463dddd4c7d8e9094a3e140ffe715537ad41fa97575a96e2f5d3",
+"letto_il": "2026-10-31"
+},
+{
+"url": "https://consulmex.sre.gob.mx/indianapolis/images/Visas/2_PERMANENT_RESIDENT.pdf",
+"http": 200,
+"formato": "pdf",
+"data_pagina": "2026-02-27",
+"sha256": "2f71413bcb9ea357648ab03ed0e4e90dc6be4ff2e2666604358b53922d671f3c",
+"letto_il": "2026-10-31"
+}
+],
+"data_pagina": "2026-02-27"
+},
+{
+"id": "san-diego",
+"sede": "San Diego",
+"paese": "United States",
+"tipo": "Consulate-General",
+"valuta": "USD",
+"tr": {
+"reddito": {
+"importo": 4510,
+"frammento": "prove an income of at least $4,510.00 USD per month through employment or pension for the previous six months",
+"p": 0
+},
+"saldo": {
+"importo": 75950,
+"frammento": "proving a minimum monthly balance of at least $75,950.00 USD for the previous twelve months",
+"p": 0
+}
+},
+"pr": {
+"reddito": {
+"importo": 7560,
+"frammento": "prove an income of at least $7,560.00 USD per month through a pension for the previous six months",
+"p": 1
+},
+"saldo": {
+"importo": 303880,
+"frammento": "proving a minimum monthly balance of at least $303,880.00 USD for the previous twelve months",
+"p": 1
+}
+},
+"tassa": {
+"importo": 56,
+"valuta": "USD",
+"frammento": "Non-refundable processing fee: $56.00 USD (cash only)",
+"p": 0
+},
+"chiavi": [
+"san diego"
+],
+"pagine": [
+{
+"url": "https://consulmex.sre.gob.mx/sandiego/images/visasingles2026/5a_Temporary_Resident_Visa_-_Economic_Solvency.pdf",
+"http": 200,
+"formato": "pdf",
+"data_pagina": "2026-04-08",
+"sha256": "e6f27bae323389c191a9dc5beffbccfc899ae64eb29dbb488994fd18026629d0",
+"letto_il": "2026-10-31"
+},
+{
+"url": "https://consulmex.sre.gob.mx/sandiego/images/visasingles2026/7a_Permanent_Resident_Visa_Retirement",
+"http": 200,
+"formato": "pdf",
+"data_pagina": "2026-04-08",
+"sha256": "29184970d3c1ef4816fb460c93665011a71b64da8378765c1b94aed31a7b6063",
+"copia_salvata": "2026-10-31",
+"letto_il": "2026-10-31"
+}
+],
+"data_pagina": "2026-04-08"
+},
+{
+"id": "las-vegas",
+"sede": "Las Vegas",
+"paese": "United States",
+"tipo": "Consulate",
+"valuta": "USD",
+"tr": {
+"reddito": {
+"importo": 4630,
+"frammento": "Bank statements for the last 6 months with a monthly income of at least $ 4,630 USD per person",
+"p": 0
+},
+"saldo": {
+"importo": 78025,
+"frammento": "bank statements for the last 12 months with a monthly minimum balance of at least $78,025 USD per person",
+"p": 0
+}
+},
+"tassa": {
+"importo": 56,
+"valuta": "USD",
+"frammento": "Visa fee: $56 USD",
+"p": 0
+},
+"altre": [
+{
+"frammento": "average monthly balance equivalent to $ 1,498 USD for the last twelve months",
+"p": 0,
+"nota": "per family member"
+}
+],
+"chiavi": [
+"las vegas",
+"vegas"
+],
+"pagine": [
+{
+"url": "https://consulmex.sre.gob.mx/lasvegas/images/2026/VISAS2026/TemporaryResidenceVisa2026",
+"http": 200,
+"formato": "pdf",
+"data_pagina": "2026-05-28",
+"sha256": "fe80438ce73ce3f306f9b657d40b5cc8fe81341bf2a2b3db33cbd668d97c323d",
+"copia_salvata": "2026-10-31",
+"letto_il": "2026-10-31"
+}
+],
+"data_pagina": "2026-05-28"
+},
+{
+"id": "portland",
+"sede": "Portland",
+"paese": "United States",
+"tipo": "Consulate",
+"valuta": "USD",
+"tr": {
+"reddito": {
+"importo": 4500,
+"frammento": "a monthly income of at least 680 days in UMA* funds (approx. $4,500 USD) after taxes",
+"p": 0
+},
+"saldo": {
+"importo": 75000,
+"frammento": "monthly ending balance of at least 11,460 days in UMA* funds (approx. $75,000 USD)",
+"p": 0
+}
+},
+"tassa": {
+"importo": 56,
+"valuta": "USD",
+"frammento": "authorization and printing of visa - $56.00 USD",
+"p": 0
+},
+"altre": [
+{
+"frammento": "within the following 30 calendar days from their entry into the national territory, the residence card",
+"p": 0
+}
+],
+"approssimato": true,
+"chiavi": [
+"portland",
+"oregon"
+],
+"pagine": [
+{
+"url": "https://consulmex.sre.gob.mx/portland/index.php/tramites/7-servicios/63-temporary-residents-without-authorization-for-lucrative-activities-visa",
+"http": 200,
+"formato": "html",
+"data_pagina": "2026-07-30",
+"sha256": "9c35d07ea98c46ef3723e421825cbe804a148b01a143f753aa4712c2bb9d6f5b",
+"copia_salvata": "2026-10-31",
+"letto_il": "2026-10-31"
+}
+],
+"data_pagina": "2026-07-30"
+},
+{
+"id": "london",
+"sede": "London",
+"paese": "United Kingdom",
+"tipo": "Embassy (consular section)",
+"valuta": "GBP",
+"tr": {
+"reddito": {
+"importo": 3425.91,
+"frammento": "680 $79,770.80 £3,425.91",
+"p": 0
+},
+"saldo": {
+"importo": 57736.77,
+"frammento": "11460 $1,344,372.60 £57,736.77",
+"p": 0
+}
+},
+"pr": {
+"reddito": {
+"importo": 5743.44,
+"frammento": "1140 $133,733.40 £5,743.44",
+"p": 0
+},
+"saldo": {
+"importo": 230997.46,
+"frammento": "45850 $5,378,663.50 £230,997.46",
+"p": 0
+}
+},
+"altre": [
+{
+"frammento": "Exchange rate for Mexican peso to British pound sterling: .042947 Source: HSBC 30th January 2026",
+"p": 0
+},
+{
+"frammento": "from the 1st February 2026 the daily wage in UMA is $117.31",
+"p": 0
+},
+{
+"frammento": "monthly income free of taxes greater than the equivalent of 680 UMA days",
+"p": 1
+},
+{
+"frammento": "average monthly balance equivalent to 11460 UMA days",
+"p": 1
+},
+{
+"frammento": "monthly income free of taxes greater than the equivalent of 1140 UMA days",
+"p": 2
+},
+{
+"frammento": "average monthly balance equivalent to 45850 UMA days",
+"p": 2
+}
+],
+"chiavi": [
+"london",
+"uk",
+"united kingdom"
+],
+"pagine": [
+{
+"url": "https://consulmex.sre.gob.mx/reinounido/images/2022/Equivalencechart.pdf",
+"http": 200,
+"formato": "pdf",
+"data_pagina": "2026-02-02",
+"sha256": "ae936ae291066636881baa2a1f79407b1fdf3514b5626c3923563a159a646689",
+"letto_il": "2026-10-31"
+},
+{
+"url": "https://consulmex.sre.gob.mx/reinounido/index.php/es/contenido/96-rentista-visitor-carnet-visa",
+"http": 200,
+"formato": "html",
+"data_pagina": "",
+"sha256": "6168f3145c7184c8590d319aaaeeac2107c5d9c01225aafe9f6453799b35cddd",
+"copia_salvata": "2026-10-31",
+"letto_il": "2026-10-31"
+},
+{
+"url": "https://consulmex.sre.gob.mx/reinounido/index.php/es/contenido/265-Permanent-Residence-Visa-by-economic-solvency",
+"http": 200,
+"formato": "html",
+"data_pagina": "",
+"sha256": "0ce207393025faf48f8c4b12760d94628fbf106615f43e52417dd6e0fb1207e4",
+"copia_salvata": "2026-10-31",
+"letto_il": "2026-10-31"
+}
+],
+"data_pagina": "2026-02-02"
+},
+{
+"id": "vancouver",
+"sede": "Vancouver",
+"paese": "Canada",
+"tipo": "Consulate-General",
+"valuta": "CAD",
+"tr": {
+"reddito": {
+"importo": 6461,
+"frammento": "a monthly tax-free income of over $6,461.00 Canadian dollars during the past six months",
+"p": 0
+},
+"saldo": {
+"importo": 108894,
+"frammento": "an average monthly balance of $108,894.00 Canadian dollars during the past twelve months",
+"p": 0
+}
+},
+"altre": [
+{
+"frammento": "average monthly balance of $2,090.00 Canadian dollars during the past twelve months",
+"p": 0,
+"nota": "per family member"
+}
+],
+"chiavi": [
+"vancouver",
+"canada",
+"canadian",
+"canadians"
+],
+"pagine": [
+{
+"url": "https://consulmex.sre.gob.mx/vancouver/index.php/es/temporary-resident-visa",
+"http": 200,
+"formato": "html",
+"data_pagina": "2026-10-15",
+"sha256": "cba9d594278d46d072b033be0e62fce699089707cc357d6a62914275eae16c4c",
+"copia_salvata": "2026-10-31",
+"letto_il": "2026-10-31"
+}
+],
+"data_pagina": "2026-10-15"
+},
+{
+"id": "montreal",
+"sede": "Montreal",
+"paese": "Canada",
+"tipo": "Consulate-General",
+"valuta": "CAD",
+"tr": {
+"reddito": {
+"importo": 6460,
+"frammento": "ingresos mensuales libres de impuestos por un monto superior a 6460 $ CAD durante los últimos seis meses",
+"p": 0
+},
+"saldo": {
+"importo": 108856,
+"frammento": "saldo promedio mensual superior a 108 856 $ CAD durante los últimos doce meses",
+"p": 0
+}
+},
+"pr": {
+"reddito": {
+"importo": 10829,
+"frammento": "ingresos mensuales provenientes de pensiones por 10 829 $CAD durante los últimos seis meses",
+"p": 1
+},
+"saldo": {
+"importo": 435520,
+"frammento": "saldo promedio mensual equivalente a 435 520 $ CAD durante los últimos doce meses",
+"p": 1
+}
+},
+"altre": [
+{
+"frammento": "superior a $25 808 MXP o el equivalente a 2, 090 $ CAD",
+"p": 0,
+"nota": "25,808 pesos = 220 × UMA 2026 (117.31)"
+}
+],
+"chiavi": [
+"montreal",
+"quebec",
+"canada",
+"canadian",
+"canadians"
+],
+"pagine": [
+{
+"url": "https://consulmex.sre.gob.mx/montreal/index.php/es/extranjeros/visas/345-visas-7",
+"http": 200,
+"formato": "html",
+"data_pagina": "",
+"sha256": "d3a2cb51d6bdb686c1a4217186af15160bdee83359c816b031fe812a3edaf68e",
+"copia_salvata": "2026-10-31",
+"letto_il": "2026-10-31"
+},
+{
+"url": "https://consulmex.sre.gob.mx/montreal/index.php/es/extranjeros/visas/346-visas-8",
+"http": 200,
+"formato": "html",
+"data_pagina": "",
+"sha256": "dd6e9034a17fb9c65b6cdcbb794ce5e38da3180d9fffe23e41f63c373a5777cb",
+"copia_salvata": "2026-10-31",
+"letto_il": "2026-10-31"
+}
+],
+"data_pagina": ""
+}
+],
+"esclusi": [
+{
+"sede": "Chicago",
+"url": "https://consulmex.sre.gob.mx/chicago/index.php/component/content/article?id=88",
+"motivo": "vecchia",
+"data": "2017-03-13",
+"nota": "page last updated on 13 March 2017"
+},
+{
+"sede": "Detroit",
+"url": "https://consulmex.sre.gob.mx/detroit/index.php/visas-and-other-information-for-foreigners/visas-en-espanol",
+"motivo": "vecchia",
+"data": "2025-01-13",
+"nota": "page last updated on 13 January 2025"
+},
+{
+"sede": "Orlando",
+"url": "https://consulmex.sre.gob.mx/orlando/images/pdfs/Temporary_Resident_Visa_Economic_Solvency24.pdf",
+"motivo": "vecchia",
+"data": "2024-01-21",
+"nota": "PDF dated 21 January 2024"
+},
+{
+"sede": "El Paso",
+"url": "https://consulmex.sre.gob.mx/elpaso/images/2025/Julio/visasingles/TEMPORARY_RESIDENT_MORE_THAN_180_DAYS.pdf",
+"motivo": "vecchia",
+"data": "2025-07-25",
+"nota": "PDF dated 25 July 2025"
+},
+{
+"sede": "Saint Paul",
+"url": "https://consulmex.sre.gob.mx/saintpaul/index.php/se/visesp/5-seccion/235-residente-temporal",
+"motivo": "bloccata",
+"nota": "the website's bot check did not let our reader through"
+},
+{
+"sede": "Madrid (embassy in Spain)",
+"url": "https://embamex.sre.gob.mx/espana/index.php/visas/5-secconsular/catavisos/540-residente-temporal-por-solvencia-economica",
+"motivo": "bloccata",
+"nota": "the website's bot check did not let our reader through"
+},
+{
+"sede": "Ottawa (embassy in Canada)",
+"url": "https://embamex.sre.gob.mx/canada/index.php/en/sconeng/11354-temporary-resident-visa",
+"motivo": "bloccata",
+"nota": "the website's bot check did not let our reader through"
+}
+]
+}

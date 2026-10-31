@@ -39,5 +39,12 @@
     "nota": "Usato SOLO nella sezione Thailand DTV visa (box_assicurazione_dtv in genera.py), dopo le informazioni ufficiali. Stesso referenceID 26614957 del link attivo (_safetywing_schengen), campagna thailand-dtv-visa per contare i clic a parte (30/10/2026). Nessuna delle pagine DTV lette il 30/10/2026 chiede un'assicurazione sanitaria: il riquadro lo dice e non presenta la polizza come requisito.",
     "attivo_dal": "2026-10-30",
     "regole": "rel=\"sponsored noopener\", etichetta Affiliate, riga di trasparenza; nessuna promessa sul visto. Per spegnerlo: url vuoto e rigenerare."
+  },
+  "_safetywing_mexico": {
+    "url": "https://safetywing.com/nomad-insurance?referenceID=26614957&campaign=mexico-residency&utm_campaign=mexico-residency&utm_source=26614957&utm_medium=Ambassador",
+    "nome": "SafetyWing",
+    "nota": "Usato SOLO nella sezione Mexico residency (box_assicurazione_mx in genera.py), dopo le informazioni ufficiali. Stesso referenceID 26614957 del link attivo (_safetywing_schengen), campagna mexico-residency per contare i clic a parte (31/10/2026). Nessuna delle pagine dei consolati lette il 31/10/2026 chiede un'assicurazione sanitaria per il visto di residente: il riquadro lo dice e non presenta la polizza come requisito.",
+    "attivo_dal": "2026-10-31",
+    "regole": "rel=\"sponsored noopener\", etichetta Affiliate, riga di trasparenza; nessuna promessa sul visto. Per spegnerlo: url vuoto e rigenerare."
   }
 }

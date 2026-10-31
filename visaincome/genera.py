@@ -981,7 +981,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <p>Exchange rates: euro foreign exchange reference rates of the European Central Bank (source: ECB), for information only.</p>
 </div><div>
 <h2>Explore</h2>
-<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}moved-to/">Who moved where (by nationality)</a></li><li><a href="{rel}uk-english-test/">UK visa English tests (SELT)</a></li><li><a href="{rel}thailand-dtv-visa/">Thailand DTV visa by embassy</a></li><li><a href="{rel}us-opt/">US OPT and STEM OPT: fees and deadlines</a></li><li><a href="{rel}uk-graduate-visa/">UK Graduate visa: 2 years or 18 months</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
+<ul><li><a href="{rel}visa-refusal-rates/">Visa refusal rates</a></li><li><a href="{rel}moved-to/">Who moved where (by nationality)</a></li><li><a href="{rel}uk-english-test/">UK visa English tests (SELT)</a></li><li><a href="{rel}thailand-dtv-visa/">Thailand DTV visa by embassy</a></li><li><a href="{rel}us-opt/">US OPT and STEM OPT: fees and deadlines</a></li><li><a href="{rel}uk-graduate-visa/">UK Graduate visa: 2 years or 18 months</a></li><li><a href="{rel}mexico-residency/">Mexico residency: fees and income by consulate</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}how-it-works/">How it works and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
 </div></div>
 {blocco_altri(ALTRI_SITI, "Other useful tools for your trip")}
 <p class="f-base">Official sources only · the calculator runs in your browser · links marked "Affiliate" may earn us a commission.</p>
@@ -1337,6 +1337,9 @@ def home():
 <h2>Students: US OPT and the UK Graduate visa</h2>
 <p class="lead">OPT and the STEM OPT extension cost {usd(vo("tassa_online"))} online or {usd(vo("tassa_carta"))} on paper (Form I-765), and you file from {vo("finestra")["prima"]} days before to {vo("finestra")["dopo"]} days after your program end date (USCIS, read on {data_lunga(LETTO_OPT)}). The UK Graduate visa lasts 2 years if you apply by 31 December 2026 and 18 months from 1 January 2027 (GOV.UK, read on {data_lunga(LETTO_GRAD)}).</p>
 <p><a href="{SEZ_OPT}">US OPT and STEM OPT: fees and deadlines</a> · <a href="{SEZ_OPT}opt-application-deadline-calculator/">OPT deadline calculator</a> · <a href="{SEZ_OPT}opt-unemployment-days/">OPT unemployment days</a> · <a href="{SEZ_GRAD}">UK Graduate visa</a> · <a href="{SEZ_GRAD}18-months/">Graduate visa 18 months</a> · <a href="{SEZ_GRAD}cost/">Graduate visa cost</a></p>
+<h2>Mexico residency by consulate</h2>
+<p class="lead">A Mexican temporary resident card costs {mxn(TASSE_MX["1"][1])} for up to one year in {ANNO} (Diario Oficial, read on {data_lunga(LETTO_MX)}), and the visa asks for a net income above {mxn(pesos_uma(GIORNI_MX["tr"][0]))} a month, which each consulate publishes in its own currency.</p>
+<p><a href="{SEZ_MX}">Mexico residency: fees and income by consulate</a> · <a href="{SEZ_MX}income-requirements/">Income requirements</a> · <a href="{SEZ_MX}fees/">Fees {ANNO}</a> · {" · ".join(f'<a href="{SEZ_MX}{C["id"]}/">{escape(C["sede"])}</a>' for C in CONS_MX if C["id"] in ("new-york", "las-vegas", "san-diego", "london", "vancouver"))}</p>
 <h2>Why our numbers can differ from other sites</h2>
 <p>Many thresholds are a percentage of an index that changes every year (a minimum wage, an average salary), so pages that still show last year's figure are out of date. With the {ANNO} indices, on {data_lunga('2026-10-10')}: Spain's digital nomad visa is 200% of the {ANNO} minimum wage, €2,442 a month over 14 payments (€34,188 a year, the same as €2,849 a month over 12 payments); Croatia's is 2.5 × the 2025 average net salary, €3,622.50 a month; Portugal's D8 is 4 × €920 = €3,680 a month. We recalculate from the official index and show the source and the date under every figure.</p>
 {box_affiliati()}"""
@@ -1379,7 +1382,8 @@ def pagina_confronto_nomadi():
 <h2>Calculator</h2>
 {modulo_calcolatore(rel=rel, paese='Portugal')}
 <h2>Not covered yet</h2>
-<p>We publish a visa only when we can read the complete rule on an official page or in the official gazette. Not covered on the date we checked, because the official source was not readable or was incomplete: Greece (digital nomad visa, financially independent person), Cyprus, Malta (Nomad Residence Permit), Estonia, Czechia, Romania, Latvia, Iceland, Costa Rica, Brazil, Panama, Colombia, the United Arab Emirates and Mexico (amounts vary by consulate). See <a href="{rel}how-it-works/">How it works</a>.</p>
+<p>We publish a visa only when we can read the complete rule on an official page or in the official gazette. Not covered on the date we checked, because the official source was not readable or was incomplete: Greece (digital nomad visa, financially independent person), Cyprus, Malta (Nomad Residence Permit), Estonia, Czechia, Romania, Latvia, Iceland, Costa Rica, Brazil, Panama, Colombia and the United Arab Emirates. See <a href="{rel}how-it-works/">How it works</a>.</p>
+<p>{ico("passport")} <strong>Mexico:</strong> the temporary resident visa asks for a net income above {intero(GIORNI_MX["tr"][0])} days of UMA ({mxn(pesos_uma(GIORNI_MX["tr"][0]))} a month in {ANNO}), and each consulate publishes it in its own currency. See <a href="{rel}{SEZ_MX}">Mexico residency: fees and income requirements by consulate</a>.</p>
 <p>{ico("passport")} <strong>Thailand (DTV):</strong> the Destination Thailand Visa asks for savings (usually 500,000 baht in the bank), not a monthly income, and each Thai embassy sets its own fee and residence rule. See <a href="{rel}{SEZ_DTV}">Thailand DTV visa by embassy: fees and who can apply where</a>.</p>"""
     pagina("digital-nomad-visa-income-requirements/", f"Digital nomad visa income requirements {ANNO}: official amounts by country (table)",
            f"Digital nomad visa income requirements {ANNO} compared: Spain, Portugal, Croatia, Hungary and Italy, for singles, couples and families of 4, in euros and US dollars, with official sources.",
@@ -1448,11 +1452,13 @@ def pagina_come_funziona():
 <li>Schengen visa statistics: European Commission, DG Migration and Home Affairs (reuse authorised with acknowledgement of the source).</li>
 <li>Other ministry and immigration authority pages are cited with links; the amounts are facts taken from them.</li></ul>
 <h2>Not covered yet</h2>
-<p>Greece (digital nomad visa and financially independent person visa), Cyprus, Malta, Estonia, Czechia, Romania, Latvia, Iceland, Costa Rica, Brazil, Panama, Colombia, the United Arab Emirates and Mexico: the official page could not be read by our checks, gave conflicting figures, or (Mexico) the amount depends on the consulate. Colombia's rule is in Colombian pesos, a currency the ECB does not publish. Thailand's DTV has no income threshold (it asks for savings) and its fee and residence rule change from embassy to embassy: see <a href="{rel}{SEZ_DTV}">Thailand DTV visa by embassy</a>.</p>
+<p>Greece (digital nomad visa and financially independent person visa), Cyprus, Malta, Estonia, Czechia, Romania, Latvia, Iceland, Costa Rica, Brazil, Panama, Colombia and the United Arab Emirates: the official page could not be read by our checks or gave conflicting figures. Colombia's rule is in Colombian pesos, a currency the ECB does not publish. Thailand's DTV has no income threshold (it asks for savings) and its fee and residence rule change from embassy to embassy: see <a href="{rel}{SEZ_DTV}">Thailand DTV visa by embassy</a>. Mexico's amount depends on the consulate: see <a href="{rel}{SEZ_MX}">Mexico residency by consulate</a>.</p>
 <h2>9. Thailand DTV visa and Ireland's PPS numbers</h2>
 <p>The <a href="{rel}{SEZ_DTV}">Thailand DTV visa</a> pages quote the official DTV pages of the Thai embassies and consulates. A script reads each page again and checks that every fee and rule we show is still written there; if a page changes, nothing is updated until we read it again. The Ireland pages in <a href="{rel}{SEZ_TR}">Who moved where</a> use the monthly PPS number files of Ireland's Department of Social Protection (CC BY 4.0); a script checks that the months add up to the yearly totals.</p>
 <h2>10. US OPT and the UK Graduate visa</h2>
 <p>The <a href="{rel}{SEZ_OPT}">US OPT and STEM OPT</a> pages use the USCIS fee schedule (Form G-1055), the USCIS pages on Form I-765, OPT and STEM OPT, the SEVP help pages and the Federal Register; the <a href="{rel}{SEZ_GRAD}">UK Graduate visa</a> pages use GOV.UK, the Immigration Rules (Appendix Graduate), the Statement of Changes HC 1333 and the Home Office fees table. A script reads every page again and checks that each figure we show is still written there; if a page changes, nothing is updated until we read it again. Proposals and rules on hold are labelled as such. The date calculators run in your browser.</p>
+<h2>11. Mexico residency</h2>
+<p>The <a href="{rel}{SEZ_MX}">Mexico residency</a> pages use the Ley Federal de Derechos and Annex 4 of the {ANNO} Miscellaneous Tax Resolution (Diario Oficial) for the fees, the visa guidelines of 25 July 2025 for the days of UMA, INEGI for the UMA value, and the official pages of the Mexican consulates for the amounts in their currency. A consulate is listed only if its own page writes the amount and is from {ANNO}. A script reads every source again and checks that each figure is still written there; if a page changes, nothing is updated until we read it again. We re-read the fees and the UMA every January (new Miscellaneous Tax Resolution, new UMA from 1 February).</p>
 </div>
 {AVVISO}
 {AD}"""
@@ -1508,7 +1514,7 @@ def privacy():
     cookie = MON.privacy_cookie("en", SITO_ID, ci_sono_affiliati())
     if cookie and URL_SAFETYWING:
         cookie += ("\n<p>Affiliate links to SafetyWing (travel medical insurance) appear in the box marked “Affiliate” on the visa refusal "
-                   "rate pages" + (" and on the Thailand DTV visa pages" if URL_SW_DTV else "") + ". Buying a policy does not change the decision on your visa.</p>")
+                   "rate pages" + (" and on the Thailand DTV visa pages" if URL_SW_DTV else "") + (" and on the Mexico residency pages" if URL_SW_MX else "") + ". Buying a policy does not change the decision on your visa.</p>")
     if cookie and URL_ITALKI:
         cookie += ("\n<p>Affiliate links to italki (online English teachers) appear in the box marked “Affiliate” on the UK visa English test pages. "
                    "Lessons do not change your test result or the decision on your visa.</p>")
@@ -6279,6 +6285,562 @@ def controlli_studio():
 CSS += CSS_STUDIO  # stili dei calcolatori e delle etichette di stato (tutte le pagine hanno lo stesso CSS)
 
 
+# ---------------------------------------------------------------- Mexico residency: costi ufficiali e requisiti di reddito per consolato (31/10/2026)
+# Dati: dati/mexico.json, scritto da raccolta/mexico.py (LFD e Anexo 4 RMF 2026, decreto DOF 7/11/2025, UMA INEGI, Lineamientos DOF 25/7/2025,
+# pagine ufficiali dei consolati). Ogni cifra viene da "letture" o da "consolati" (valore + frammento del testo ufficiale).
+# Il calcolatore (MX_JS) gira nel browser; verifica.py (controllo 21) lo confronta con un calcolo Python indipendente.
+MX = json.loads((DATI / "mexico.json").read_text(encoding="utf-8"))
+SEZ_MX = "mexico-residency/"
+LMX = {k: v["valore"] for k, v in MX["letture"].items()}
+FMX = MX["fonti"]
+CONS_MX = MX["consolati"]
+ESCL_MX = MX["esclusi"]
+LETTO_MX = MX["letto_il"]
+UMA_MX = LMX["uma_diaria"]
+GIORNI_MX = {"tr": (LMX["rt_reddito_giorni"], LMX["rt_saldo_giorni"]), "pr": (LMX["rp_reddito_giorni"], LMX["rp_saldo_giorni"]), "fam": LMX["familiare_giorni"]}
+TASSE_MX = {"1": LMX["a4_rt"]["1"], "2": LMX["a4_rt"]["2"], "3": LMX["a4_rt"]["3"], "4": LMX["a4_rt"]["4"], "pr": LMX["a4_rp"],
+            "cambio": LMX["a4_cambio"], "repos": LMX["a4_repos"], "visa": LMX["a4_visa"]}
+_SWM = AFFILIATI.get("_safetywing_mexico", {})
+URL_SW_MX = _SWM.get("url", "")
+SIMBOLI_MX = {"USD": ("US$", ""), "CAD": ("C$", ""), "GBP": ("£", ""), "EUR": ("€", ""), "MXN": ("MXN ", "")}
+
+
+def pesos_uma(giorni):
+    return round(giorni * UMA_MX, 2)
+
+
+def mxn(x):
+    """MXN 11,141 / MXN 79,770.80."""
+    return "MXN " + (f"{x:,.0f}" if float(x).is_integer() else f"{x:,.2f}")
+
+
+def importo_mx(x, valuta):
+    s, d = SIMBOLI_MX[valuta]
+    return s + (f"{x:,.0f}" if float(x).is_integer() else f"{x:,.2f}") + d
+
+
+def conv_mx(x, da, a):
+    """Conversione con i cambi BCE di riserva (EUR = 1); stessi passaggi di conv() in MX_JS."""
+    t = dict(CAMBI["tassi"], EUR=1)
+    return x / t[da] * t[a]
+
+
+def circa_mx(x, da, a):
+    v = conv_mx(x, da, a)
+    return importo_mx(round(v) if v >= 100 else round(v, 2), a)
+
+
+def ufficio_mx(C):
+    return "embassy" if C["tipo"].startswith("Embassy") else "consulate"
+
+
+def data_cons_mx(C, breve=False):
+    p = C["pagine"][0]
+    d = C["data_pagina"]
+    if not d:
+        return "no date on the page" if breve else "undated page; its peso amounts match the 2026 UMA"
+    return (f"PDF dated {data_lunga(d)}" if p.get("formato") == "pdf" else f"page updated {data_lunga(d)}")
+
+
+def prima_uma_mx(C):
+    """La pagina del consolato ha una data anteriore al comunicato INEGI sull'UMA dell'anno (8/1/2026): non può usare l'UMA 2026."""
+    return bool(C["data_pagina"]) and C["data_pagina"] < FMX["uma"]["data"]
+
+
+def link_cons_mx(C, i=0, testo=None):
+    p = C["pagine"][i]
+    return f'<a href="{escape(p["url"])}" rel="noopener">{escape(testo or ("official page" if p.get("formato") != "pdf" else "official PDF"))}</a>'
+
+
+def fonte_mx_link(k):
+    f = FMX[k]
+    return f'<a href="{escape(f["url"])}" rel="noopener">{escape(f["editore"])}, {escape(f["titolo"])}</a>'
+
+
+def fonte_mx_p(chiavi=(), extra=""):
+    voci = [fonte_mx_link(k) for k in chiavi]
+    return f'<p class="fonte">Source{"s" if len(voci) + bool(extra) > 1 else ""}: {"; ".join(voci)}{("; " if voci and extra else "") + extra}. Read on {data_lunga(LETTO_MX)}.</p>'
+
+
+def fonte_cons_p(C):
+    pag = "; ".join(link_cons_mx(C, i, f'{"PDF" if p.get("formato") == "pdf" else "page"} {i + 1}') for i, p in enumerate(C["pagine"])) if len(C["pagine"]) > 1 else link_cons_mx(C)
+    return (f'<p class="fonte">Source: Mexican {ufficio_mx(C)} in {escape(C["sede"])}, {pag} ({data_cons_mx(C, True)}), read on {data_lunga(LETTO_MX)}.</p>')
+
+
+AVVISO_MX = ('<p class="avviso"><strong>Not legal or immigration advice.</strong> This page reports what Mexican law, the visa guidelines and the official pages of the '
+             'consulates said on the date we read them. The consulate decides on your visa and can ask for more documents; amounts in dollars, pounds or '
+             'Canadian dollars change when the consulate updates its exchange rate. Check your consulate\'s page before you apply.</p>')
+
+
+def tabella_uma_mx():
+    righe = [("Temporary residence: monthly income (last 6 months, net)", GIORNI_MX["tr"][0], "more than"),
+             ("Temporary residence: average monthly balance (last 12 months)", GIORNI_MX["tr"][1], "equivalent to"),
+             ("Permanent residence (retirees and pensioners): monthly pension (last 6 months)", GIORNI_MX["pr"][0], "more than"),
+             ("Permanent residence (retirees and pensioners): average monthly balance (last 12 months)", GIORNI_MX["pr"][1], "equivalent to"),
+             ("Each family member joining a resident: income or balance", GIORNI_MX["fam"], "more than / equivalent to")]
+    corpo = "".join(f'<tr><th scope="row">{a}</th><td class="n">{intero(g)}</td><td class="n">{mxn(pesos_uma(g))}</td><td class="small">{w}</td></tr>' for a, g, w in righe)
+    return (f'<div class="tab compatta"><table id="t-uma-mx"><caption class="sr">Mexican residence visa solvency in UMA days and pesos</caption><thead><tr>'
+            f'<th scope="col">Requirement</th><th scope="col" class="n">Days of UMA</th><th scope="col" class="n">In pesos (2026 UMA: MXN {UMA_MX})</th>'
+            f'<th scope="col">Wording</th></tr></thead><tbody>{corpo}</tbody></table></div>')
+
+
+def tabella_tasse_mx(dettaglio=False):
+    righe = [(f"Temporary resident card, up to 1 year", "Art. 8, VI a)", TASSE_MX["1"]),
+             ("Temporary resident card, 2 years", "Art. 8, VI b)", TASSE_MX["2"]),
+             ("Temporary resident card, 3 years", "Art. 8, VI c)", TASSE_MX["3"]),
+             ("Temporary resident card, 4 years", "Art. 8, VI d)", TASSE_MX["4"]),
+             ("Permanent resident card", "Art. 8, VII", TASSE_MX["pr"]),
+             ("Change of immigration status (paid on top of the new card)", "Art. 9", TASSE_MX["cambio"]),
+             ("Replacement of a resident card", "Art. 8", TASSE_MX["repos"]),
+             ("Visa at a Mexican consulate (ordinary visa in a foreign passport)", "Art. 22, III d)", TASSE_MX["visa"])]
+    corpo = ""
+    for a, art, (legge, paga) in righe:
+        corpo += (f'<tr><th scope="row">{a}</th><td class="n"><strong>{mxn(paga)}</strong></td><td class="n small">{mxn(legge)}</td>'
+                  f'<td class="n">≈ {circa_mx(paga, "MXN", "USD")}</td><td class="n">≈ {circa_mx(paga, "MXN", "EUR")}</td>'
+                  + (f'<td class="n">≈ {circa_mx(paga, "MXN", "GBP")}</td><td class="n">≈ {circa_mx(paga, "MXN", "CAD")}</td>' if dettaglio else "")
+                  + f'<td class="small">{art} LFD</td></tr>')
+    extra_th = '<th scope="col" class="n">≈ GBP</th><th scope="col" class="n">≈ CAD</th>' if dettaglio else ""
+    return (f'<div class="tab compatta"><table id="t-tasse-mx"><caption class="sr">Mexico immigration fees 2026</caption><thead><tr><th scope="col">What you pay for</th>'
+            f'<th scope="col" class="n">You pay ({ANNO})</th><th scope="col" class="n">Amount in the law</th><th scope="col" class="n">≈ USD</th><th scope="col" class="n">≈ EUR</th>{extra_th}'
+            f'<th scope="col">Legal basis</th></tr></thead><tbody>{corpo}</tbody></table></div>')
+
+
+def cella_mx(C, tipo, cosa):
+    v = C.get(tipo, {}).get(cosa)
+    if not v:
+        return '<td class="n small" data-v="">not on the pages we read</td>'
+    usd = conv_mx(v["importo"], C["valuta"], "USD")
+    pre = "approx. " if C.get("approssimato") else ""
+    return f'<td class="n" data-v="{usd:.2f}">{pre}{importo_mx(v["importo"], C["valuta"])}</td>'
+
+
+def riga_cons_mx(C, rel_sez):
+    t = C.get("tassa")
+    return (f'<tr><td><a href="{rel_sez}{C["id"]}/">{escape(C["sede"])}</a><br><span class="small">{escape(C["paese"])} · {ufficio_mx(C)}</span></td>'
+            f'{cella_mx(C, "tr", "reddito")}{cella_mx(C, "tr", "saldo")}{cella_mx(C, "pr", "reddito")}{cella_mx(C, "pr", "saldo")}'
+            f'<td class="n" data-v="{conv_mx(t["importo"], t["valuta"], "USD") if t else 0:.2f}">{importo_mx(t["importo"], t["valuta"]) if t else "–"}</td>'
+            f'<td data-v="{(C["data_pagina"] or "0").replace("-", "")}">{data_lunga(C["data_pagina"]) if C["data_pagina"] else "no date"}</td>'
+            f'<td>{link_cons_mx(C)}</td></tr>')
+
+
+def tabella_cons_mx(rel_sez, id_t="t-cons-mx"):
+    ordinati = sorted(CONS_MX, key=lambda C: (C["paese"] != "United States", C["paese"], C["sede"]))
+    righe = "".join(riga_cons_mx(C, rel_sez) for C in ordinati)
+    return (f'<p class="filtro"><label><span class="sr">Filter by city or country</span><input type="search" placeholder="Filter: e.g. Canada" data-filtro="{id_t}" autocomplete="off"></label></p>'
+            f'<div class="tab compatta"><table class="ord larga" id="{id_t}"><caption class="sr">Income and savings asked by Mexican consulates for residence visas</caption><thead><tr>'
+            f'{th_ord("Consulate", False, "ascending")}{th_ord("Temporary: income a month", True, "ascending")}{th_ord("Temporary: savings", True, "ascending")}'
+            f'{th_ord("Permanent: pension a month", True, "ascending")}{th_ord("Permanent: savings", True, "ascending")}{th_ord("Visa fee", True, "ascending")}'
+            f'{th_ord("Page date")}<th scope="col">Official page</th></tr></thead><tbody>{righe}</tbody></table></div>'
+            f'<p class="fonte">Source: the official page linked in each row (Mexican consulates and embassy consular sections, consulmex.sre.gob.mx), read on {data_lunga(LETTO_MX)}. '
+            f'Amounts are in the currency the page uses. "Income" means net monthly income from a job or pension over the last 6 months; "savings" means the average monthly '
+            f'balance over the last 12 months. Sorting by amount uses ECB reference rates of {data_lunga(CAMBI["data"])}.</p>')
+
+
+# ---------- calcolatore: reddito o risparmi -> raggiunge la cifra di ogni consolato letto?
+K_MX = {"cons": [{"id": C["id"], "sede": C["sede"], "val": C["valuta"],
+                  "tr": [C["tr"]["reddito"]["importo"], C["tr"]["saldo"]["importo"]],
+                  "pr": ([C["pr"]["reddito"]["importo"], C["pr"]["saldo"]["importo"]] if "pr" in C else None),
+                  "appr": bool(C.get("approssimato"))} for C in sorted(CONS_MX, key=lambda C: C["sede"])],
+        "uma": {"tr": [pesos_uma(GIORNI_MX["tr"][0]), pesos_uma(GIORNI_MX["tr"][1])], "pr": [pesos_uma(GIORNI_MX["pr"][0]), pesos_uma(GIORNI_MX["pr"][1])]},
+        "tassi": {k: (1 if k == "EUR" else CAMBI["tassi"][k]) for k in ("EUR", "USD", "GBP", "CAD", "MXN")}, "data_cambi": data_lunga(CAMBI["data"])}
+
+MX_JS = r"""
+(function(){
+var S={USD:'US$',CAD:'C$',GBP:'£',EUR:'€',MXN:'MXN '};
+function r2(x){return Math.round(x*100)/100;}
+function conv(x,da,a,t){return x/t[da]*t[a];}
+function fmt(x,v){var d=Math.abs(x-Math.round(x))<1e-9?0:2;var s=x.toFixed(d).replace(/\B(?=(\d{3})+(?!\d))/g,',');return S[v]+s;}
+var C={mx:function(importo,val,cosa,tipo,k){var x=+importo;if(!(x>=0)||importo===''||importo===null)return null;var i=cosa==='saldo'?1:0;var out=[],nok=0,n=0;
+ k.cons.forEach(function(c){var s=c[tipo];if(!s){out.push({id:c.id,assente:true});return;}var soglia=s[i];var tuo=c.val===val?x:r2(conv(x,val,c.val,k.tassi));
+  var ok=tuo>=soglia;n++;if(ok)nok++;out.push({id:c.id,soglia:soglia,val:c.val,tuo:tuo,stessa:c.val===val,ok:ok,appr:c.appr});});
+ var su=k.uma[tipo][i];var tu=val==='MXN'?x:r2(conv(x,val,'MXN',k.tassi));
+ return {righe:out,uma:{soglia:su,tuo:tu,ok:i===1?tu>=su:tu>su},nok:nok,n:n};}};
+window.CALC_MX=C;
+function nome(k,id){for(var j=0;j<k.cons.length;j++)if(k.cons[j].id===id)return k.cons[j].sede;return id;}
+document.querySelectorAll('[data-mx]').forEach(function(box){var k=JSON.parse(box.getAttribute('data-k'));var f=box.querySelector('form');var out=box.querySelector('[data-out]');var rel=box.getAttribute('data-rel')||'';
+ function go(){try{var cosa=f.cosa.value,tipo=f.tipo.value,val=f.valuta.value;var r=C.mx(f.importo.value,val,cosa,tipo,k);
+  if(!r){out.innerHTML='<p class="small">Type your '+(cosa==='saldo'?'average monthly bank balance':'net monthly income')+' to compare it with the figure each consulate publishes.</p>';return;}
+  var h='<p class="r-lab">'+(tipo==='pr'?'Permanent residence':'Temporary residence')+' · '+(cosa==='saldo'?'savings':'income')+'</p><p class="tot">'+r.nok+' <span>of '+r.n+' consulates</span></p>'+
+   '<p class="r-anno">Your '+(cosa==='saldo'?'balance':'income')+' reaches the published figure at '+r.nok+' of the '+r.n+' consulates we read.</p><ul class="r-righe">';
+  r.righe.forEach(function(x){if(x.assente)return;h+='<li class="'+(x.ok?'mx-ok':'mx-no')+'"><span class="r-lab">'+(x.ok?'✓ Reaches':'✗ Below')+' · <a href="'+rel+x.id+'/">'+nome(k,x.id)+'</a></span><b>'+(x.appr?'approx. ':'')+fmt(x.soglia,x.val)+'</b><span class="small">'+(x.stessa?'':'yours ≈ '+fmt(x.tuo,x.val)+' at ECB rates of '+k.data_cambi)+'</span></li>';});
+  h+='</ul><p class="small" style="margin-top:10px">Guidelines (UMA): '+(cosa==='saldo'?'balance equivalent to ':'more than ')+fmt(r.uma.soglia,'MXN')+' a month; yours '+(val==='MXN'?'is ':'≈ ')+fmt(r.uma.tuo,'MXN')+' → '+(r.uma.ok?(cosa==='saldo'?'reaches it':'above'):(cosa==='saldo'?'below':'not above'))+'. Consulates convert with their own rate and date; an income exactly equal to a figure may not be enough where the page says "more than".</p>';
+  out.innerHTML=h;}catch(e){out.innerHTML='';}}
+ f.addEventListener('input',go);f.addEventListener('change',go);f.addEventListener('submit',function(e){e.preventDefault();go();});go();});
+})();
+"""
+CSS += (".r-righe li.mx-ok{border-color:var(--ok)}.r-righe li.mx-ok .r-lab{color:var(--ok)}.r-righe li.mx-no .r-lab{color:var(--no)}"
+        ".r-righe li .r-lab a{color:inherit}")
+
+
+def calc_mx(rel_sez, valuta="USD", tipo="tr"):
+    opz_v = "".join(f'<option value="{v}"{" selected" if v == valuta else ""}>{v}</option>' for v in ("USD", "CAD", "GBP", "EUR", "MXN"))
+    campi = (f'<label><span class="lt">{ico("wallet")}Amount</span><input type="number" name="importo" min="0" step="any" placeholder="e.g. 4500" inputmode="decimal"></label>'
+             f'<label><span class="lt">{ico("exchange")}Currency</span><select name="valuta">{opz_v}</select></label>'
+             f'<label class="pieno"><span class="lt">{ico("list")}The amount is</span><select name="cosa"><option value="reddito">Net monthly income (job or pension)</option>'
+             f'<option value="saldo">Average monthly bank balance (savings)</option></select></label>'
+             f'<label class="pieno"><span class="lt">{ico("passport")}Residence</span><select name="tipo"><option value="tr"{" selected" if tipo == "tr" else ""}>Temporary (1 to 4 years)</option>'
+             f'<option value="pr"{" selected" if tipo == "pr" else ""}>Permanent (retirees and pensioners)</option></select></label>')
+    nota = (f'Compared with the figure each consulate publishes, in its currency; other currencies are converted with ECB reference rates of {data_lunga(CAMBI["data"])}. '
+            f'For one applicant: family members add their own amount. Nothing you type leaves your browser.')
+    return (f'<section class="card calc" data-mx data-rel="{rel_sez}" data-k=\'{json.dumps(K_MX, separators=(",", ":"))}\' aria-label="Mexico residency income checker">'
+            f'<div class="calc-grid"><form autocomplete="off"><h2 style="margin:0 0 14px;font-size:1.2rem">{ico("calc")} Do you reach the consulates\' figures?</h2>'
+            f'<div class="campi">{campi}</div><p class="small" style="margin:12px 0 0">{nota}</p></form>'
+            f'<div class="calc-out"><div class="risultato" data-out aria-live="polite"><noscript>Turn on JavaScript to use the checker; the figures are in the table below.</noscript></div></div></div></section>')
+
+
+def box_assicurazione_mx(rel):
+    """Riquadro SafetyWing dopo le informazioni ufficiali: le pagine dei consolati lette non chiedono un'assicurazione."""
+    if not URL_SW_MX:
+        return ""
+    return (f'<section class="card aff-r" aria-labelledby="aff-m-h"><div class="aff-r-t"><span class="ic">{ico("shield")}</span>'
+            f'<h2 id="aff-m-h">Health cover while you move</h2><span class="aff-tag">Affiliate</span></div>'
+            f'<p>None of the consulate pages we read asks for health insurance for a temporary or permanent resident visa: they ask for a passport, a photo, '
+            f'proof of income or savings and the fee. If you want health cover for the months you travel and settle in, compare policies before you go.</p>'
+            f'<p class="aff-r-cta"><a class="btn" href="{escape(URL_SW_MX)}" rel="sponsored noopener" target="_blank">See SafetyWing nomad insurance{ico("arrow")}'
+            f'<span class="sr"> (opens in a new tab)</span></a></p>'
+            f'<p class="small">SafetyWing sells travel medical insurance for travellers and nomads online. {MON.RIGA_EN} Insurance is not a requirement on the '
+            f'consulate pages we read and does not change the consulate\'s decision.</p></section>')
+
+
+def griglia_cons_mx(rel_sez, escludi=None):
+    return ('<div class="griglia">' + "".join(
+        f'<a href="{rel_sez}{C["id"]}/"><span class="ic">{ico("passport")}</span><span>{escape(C["sede"])}<small>temporary: {"approx. " if C.get("approssimato") else ""}'
+        f'{importo_mx(C["tr"]["reddito"]["importo"], C["valuta"])} a month · {escape(C["paese"])}</small></span></a>'
+        for C in sorted(CONS_MX, key=lambda C: C["sede"]) if C["id"] != escludi) + "</div>")
+
+
+def esclusi_mx():
+    righe = "".join(f'<li><a href="{escape(e["url"])}" rel="noopener">{escape(e["sede"])}</a>: {escape(e["nota"])}'
+                    + (" (figures from before 2026, not used)" if e["motivo"] == "vecchia" else "") + "</li>" for e in ESCL_MX)
+    return (f'<h2 id="not-included">Consulates not in the table</h2><p class="small">We only list a consulate when its own page writes the amount and the page is from {ANNO} '
+            f'(or uses the {ANNO} UMA). Pages we opened on {data_lunga(LETTO_MX)} but did not use:</p><ul class="testo small">{righe}</ul>'
+            '<p class="small">Many other consulates publish their requirements too: if yours is not here, its page is the reference.</p>')
+
+
+def link_mx(rel_sez, escludi=""):
+    voci = [("", "Mexico residency: fees and income by consulate", "passport"), ("income-requirements/", "Income requirements by consulate", "wallet"),
+            ("fees/", f"Mexico residency fees {ANNO}", "coins")]
+    return ('<div class="griglia">' + "".join(f'<a href="{rel_sez}{p}"><span class="ic">{ico(i)}</span><span>{t}</span></a>' for p, t, i in voci if p != escludi) + "</div>")
+
+
+def domande_comuni_mx():
+    tr1, tr4, pr = TASSE_MX["1"][1], TASSE_MX["4"][1], TASSE_MX["pr"][1]
+    return [
+        ("How much does it cost to get residency in Mexico?",
+         f"Two payments. The visa at a Mexican consulate (US$56 at the US consulates we read; {mxn(TASSE_MX['visa'][1])} in the law), then the resident card from the "
+         f"National Migration Institute (INM) in Mexico: {mxn(tr1)} for a temporary resident card of up to one year, {mxn(tr4)} for four years, {mxn(pr)} for a permanent "
+         f"resident card ({ANNO} amounts, Annex 4 of the Miscellaneous Tax Resolution)."),
+        ("What is the income requirement for Mexican temporary residency?",
+         f"The visa guidelines ask for a net monthly income of more than {intero(GIORNI_MX['tr'][0])} days of UMA over the last six months: {mxn(pesos_uma(GIORNI_MX['tr'][0]))} "
+         f"with the {ANNO} UMA of MXN {UMA_MX}. Or an average balance of {intero(GIORNI_MX['tr'][1])} days of UMA ({mxn(pesos_uma(GIORNI_MX['tr'][1]))}) over the last 12 months. "
+         "Each consulate publishes the amount in its own currency."),
+        ("What is the income requirement for Mexican permanent residency?",
+         f"For retirees and pensioners: a monthly pension of more than {intero(GIORNI_MX['pr'][0])} days of UMA ({mxn(pesos_uma(GIORNI_MX['pr'][0]))}) over the last six months, "
+         f"or an average balance of {intero(GIORNI_MX['pr'][1])} days of UMA ({mxn(pesos_uma(GIORNI_MX['pr'][1]))}) over the last 12 months."),
+        ("Why do Mexican consulates ask for different amounts?",
+         "The rule is in pesos and the consulates convert it with their own exchange rate on the day they update their page. A page updated in January can show a "
+         "lower dollar figure than one updated in May. Washington still writes its amounts in pesos, a little above the UMA calculation."),
+    ]
+
+
+# ---------- pagine
+def pagina_mx_indice():
+    rel = "../"
+    percorso = SEZ_MX
+    sd = next(C for C in CONS_MX if C["id"] == "san-diego")
+    lon = next(C for C in CONS_MX if C["id"] == "london")
+    van = next(C for C in CONS_MX if C["id"] == "vancouver")
+    tr_r = pesos_uma(GIORNI_MX["tr"][0])
+    usd_tr = sorted(conv_mx(C["tr"]["reddito"]["importo"], C["valuta"], "USD") for C in CONS_MX)
+    domande = domande_comuni_mx() + [
+        ("Do I pay again when I renew my temporary resident card?",
+         "Yes. The Ley Federal de Derechos says that renewing a resident document costs the same fee as issuing it."),
+        ("Is there a discount on the resident card fee?",
+         "Since 2026 the law gives a 50% reduction to temporary and permanent residents who show the INM that they are in Mexico for family unity, for a job offer "
+         "from a registered employer, or invited by an organisation for unpaid activities."),
+    ]
+    ld = [ld_faq(domande), ld_dataset("Mexico residence visa income and savings requirements by consulate",
+                                      f"Income and savings amounts published by {len(CONS_MX)} Mexican consulates for temporary and permanent resident visas, with Mexico's {ANNO} immigration fees.",
+                                      percorso, [FMX["lineamientos"]["url"], FMX["anexo4"]["url"], FMX["uma"]["url"]], LETTO_MX, "https://creativecommons.org/licenses/by/4.0/")]
+    corpo = f"""<section class="hero">{h1_diviso(f"Mexico residency {ANNO}: official fees and income requirements by consulate")}
+<p class="lead">A Mexican temporary resident card for up to one year costs <strong>{mxn(TASSE_MX["1"][1])}</strong> and a permanent resident card <strong>{mxn(TASSE_MX["pr"][1])}</strong> in {ANNO}, according to Annex 4 of Mexico's {ANNO} Miscellaneous Tax Resolution (Diario Oficial, 28 December 2025) read on {data_lunga(LETTO_MX)}. For the visa you first need a net monthly income above {intero(GIORNI_MX["tr"][0])} days of UMA, {mxn(tr_r)} with the {ANNO} UMA of MXN {UMA_MX} (INEGI), which each consulate turns into its own currency: {importo_mx(sd["tr"]["reddito"]["importo"], "USD")} in San Diego, {importo_mx(lon["tr"]["reddito"]["importo"], "GBP")} in London, {importo_mx(van["tr"]["reddito"]["importo"], "CAD")} in Vancouver.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("passport")}<span>Mexico residency</span><span>read on {data_lunga(LETTO_MX)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Temporary resident visa: net income a month (last 6 months)</span><span class="sr">: </span><strong>{mxn(tr_r)}</strong> ({intero(GIORNI_MX["tr"][0])} × UMA)</p>
+<div class="kpi"><div><b>{mxn(TASSE_MX["1"][1])}</b><span>temporary resident card, up to 1 year</span></div><div><b>{mxn(TASSE_MX["pr"][1])}</b><span>permanent resident card</span></div><div><b>MXN {UMA_MX}</b><span>UMA a day, from {data_lunga(LMX["uma_dal"])}</span></div><div><b>{importo_mx(round(usd_tr[0]), "USD")}–{importo_mx(round(usd_tr[-1]), "USD")}</b><span>income figure at the {len(CONS_MX)} consulates we read, ≈ in US dollars</span></div></div>
+{fonte_mx_p(("anexo4", "lineamientos", "uma"))}
+</div></section>
+{AVVISO_MX}
+{AD}
+{calc_mx("")}
+<h2 id="consulates">What each consulate asks for</h2>
+<p class="small">One row per consulate whose official page writes the amount, read on {data_lunga(LETTO_MX)}. Type to filter, or tap a column heading to sort. You need income <em>or</em> savings, not both.</p>
+{tabella_cons_mx("")}
+<h2 id="uma">How the amounts are set: days of UMA</h2>
+<p>The visa guidelines of the Interior and Foreign ministries (in force since August 2025) count solvency in days of UMA, the reference unit Mexico uses in place of the minimum wage. INEGI set the {ANNO} UMA at MXN {UMA_MX} a day from {data_lunga(LMX["uma_dal"])}. Multiply and you get the peso amounts; the consulates then convert them.</p>
+{tabella_uma_mx()}
+{fonte_mx_p(("lineamientos", "uma"))}
+<p class="small">The London embassy publishes exactly these peso amounts with a pound conversion (HSBC rate of 30 January 2026). Washington writes its own peso figures, {mxn(next(C for C in CONS_MX if C["id"] == "washington-dc")["tr"]["reddito"]["importo"])} of income and {mxn(next(C for C in CONS_MX if C["id"] == "washington-dc")["tr"]["saldo"]["importo"])} of savings, {(lambda W: f"{(W['tr']['reddito']['importo'] / tr_r - 1) * 100:.1f}% and {(W['tr']['saldo']['importo'] / pesos_uma(GIORNI_MX['tr'][1]) - 1) * 100:.1f}%")(next(C for C in CONS_MX if C["id"] == "washington-dc"))} above the UMA calculation; the page does not say how they are calculated. US consulates that updated their page at different times show different dollar figures for the same rule, and New York's PDF (5 January 2026) is older than INEGI's announcement of the {ANNO} UMA (8 January 2026).</p>
+<h2 id="fees">Fees in {ANNO}</h2>
+<p>After the consulate issues the visa you have 30 days from arrival to apply for the resident card at the National Migration Institute (INM), as the consulate pages say (for example <a href="{escape(next(C for C in CONS_MX if C["id"] == "portland")["pagine"][0]["url"])}" rel="noopener">Portland</a>); the INM charges the fees of the Ley Federal de Derechos. The amounts below are the {ANNO} figures of Annex 4 of the Miscellaneous Tax Resolution: "you pay" is the rounded amount ("con ajuste"). Renewing a card costs the same as issuing it.</p>
+{tabella_tasse_mx()}
+{fonte_mx_p(("anexo4", "lfd", "decreto"), f"conversions at ECB reference rates of {data_lunga(CAMBI['data'])}")}
+<p><a href="fees/">All {ANNO} fees, the 50% reduction and examples</a> · <a href="income-requirements/">Income requirements in detail</a></p>
+{box_assicurazione_mx(rel)}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>Consulate pages on this site</h2>
+{griglia_cons_mx("")}
+{esclusi_mx()}
+<p><a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements in Europe</a> · <a href="{rel}{SEZ_DTV}">Thailand DTV visa by embassy</a> · <a href="{rel}">Visa income calculator</a></p>"""
+    titolo = f"Mexico residency {ANNO}: fees and income requirements by consulate"
+    descr = (f"Mexico {ANNO}: temporary resident card {mxn(TASSE_MX['1'][1])}, permanent {mxn(TASSE_MX['pr'][1])} (DOF). Income needed: {mxn(tr_r)} a month "
+             f"({intero(GIORNI_MX['tr'][0])} UMA) and what {len(CONS_MX)} consulates ask in USD, CAD and GBP, with a checker.")
+    pagina(percorso, titolo, descr, corpo, ordina=True, jsonld_extra=ld, briciole=[("Mexico residency", percorso)], script=MX_JS)
+
+
+def pagina_mx_reddito():
+    rel = "../../"
+    percorso = f"{SEZ_MX}income-requirements/"
+    tr_r, tr_s = pesos_uma(GIORNI_MX["tr"][0]), pesos_uma(GIORNI_MX["tr"][1])
+    pr_r, pr_s = pesos_uma(GIORNI_MX["pr"][0]), pesos_uma(GIORNI_MX["pr"][1])
+    fam = pesos_uma(GIORNI_MX["fam"])
+    righe = ""
+    for C in sorted(CONS_MX, key=lambda C: conv_mx(C["tr"]["reddito"]["importo"], C["valuta"], "USD")):
+        r = C["tr"]["reddito"]["importo"]
+        implicito = tr_r / conv_mx(r, C["valuta"], "MXN") if C["valuta"] != "MXN" else 1
+        righe += (f'<tr><td><a href="../{C["id"]}/">{escape(C["sede"])}</a></td><td class="n">{"approx. " if C.get("approssimato") else ""}{importo_mx(r, C["valuta"])}</td>'
+                  f'<td class="n">{importo_mx(C["tr"]["saldo"]["importo"], C["valuta"])}</td>'
+                  f'<td class="n">{"–" if C["valuta"] == "USD" else "≈ " + circa_mx(r, C["valuta"], "USD")}</td><td class="small">{data_cons_mx(C, True)}</td></tr>')
+    usa = sorted((C for C in CONS_MX if C["valuta"] == "USD" and not C.get("approssimato")), key=lambda C: C["tr"]["reddito"]["importo"])
+    basso, alto = usa[0], usa[-1]
+    tab = (f'<div class="tab compatta"><table id="t-reddito-mx"><caption class="sr">Temporary residence income by consulate</caption><thead><tr><th scope="col">Consulate</th>'
+           f'<th scope="col" class="n">Income a month</th><th scope="col" class="n">or savings</th><th scope="col" class="n">≈ in USD</th><th scope="col">Page date</th></tr></thead>'
+           f'<tbody>{righe}</tbody></table></div>')
+    righe_pr = "".join(f'<tr><td><a href="../{C["id"]}/">{escape(C["sede"])}</a></td><td class="n">{importo_mx(C["pr"]["reddito"]["importo"], C["valuta"])}</td>'
+                       f'<td class="n">{importo_mx(C["pr"]["saldo"]["importo"], C["valuta"])}</td><td class="small">{data_cons_mx(C, True)}</td></tr>'
+                       for C in sorted(CONS_MX, key=lambda C: C["sede"]) if "pr" in C)
+    tab_pr = (f'<div class="tab compatta"><table id="t-pensione-mx"><caption class="sr">Permanent residence pension and savings by consulate</caption><thead><tr><th scope="col">Consulate</th>'
+              f'<th scope="col" class="n">Pension a month</th><th scope="col" class="n">or savings</th><th scope="col">Page date</th></tr></thead><tbody>{righe_pr}</tbody></table></div>')
+    domande = [
+        ("Is the income requirement before or after tax?",
+         "After tax. The guidelines speak of monthly income \"libres de gravámenes\" (free of taxes), and the consulates write \"after taxes\" or \"net\"."),
+        ("Can I use savings instead of income?",
+         f"Yes, one or the other. For temporary residence: an average monthly balance of {intero(GIORNI_MX['tr'][1])} days of UMA ({mxn(tr_s)}) over the last 12 months."),
+        ("How much more do I need for my spouse or children?",
+         f"The guidelines ask for {intero(GIORNI_MX['fam'])} days of UMA ({mxn(fam)}) for each family member, as income or balance. Las Vegas writes US$1,498 per family member, Vancouver and Montreal C$2,090."),
+        ("Which UMA do the consulates use?",
+         f"The UMA of the year: MXN {UMA_MX} a day from {data_lunga(LMX['uma_dal'])} to 31 January 2027 (INEGI). A page dated before 8 January {ANNO}, when INEGI announced the {ANNO} UMA, cannot be based on it: New York's PDF is dated 5 January {ANNO} and does not say which UMA it uses."),
+    ] + domande_comuni_mx()[3:]
+    corpo = f"""<section class="hero">{h1_diviso(f"Mexico residency income requirements {ANNO}: by consulate")}
+<p class="lead">For a Mexican temporary resident visa the guidelines ask for a net monthly income of more than <strong>{intero(GIORNI_MX["tr"][0])} days of UMA, {mxn(tr_r)}</strong> over the last six months, or savings of {mxn(tr_s)}, with the {ANNO} UMA of MXN {UMA_MX} (visa guidelines, Diario Oficial of 25 July 2025, and INEGI) read on {data_lunga(LETTO_MX)}. In the consulates' own currencies that is between {importo_mx(min(C["tr"]["reddito"]["importo"] for C in CONS_MX if C["valuta"] == "USD"), "USD")} and {importo_mx(max(C["tr"]["reddito"]["importo"] for C in CONS_MX if C["valuta"] == "USD"), "USD")} at the US consulates we read.</p></section>
+{AVVISO_MX}
+{calc_mx("../")}
+{AD}
+<h2>The rule in pesos</h2>
+{tabella_uma_mx()}
+{fonte_mx_p(("lineamientos", "uma"))}
+<ul class="testo"><li><strong>Income</strong>: from a job or a pension, net of tax, in each of the last six months, with the bank statements that show it.</li>
+<li><strong>Savings</strong>: the average monthly balance of your bank or investment accounts over the last twelve months.</li>
+<li><strong>Permanent residence</strong> on this route is for retirees and pensioners: a pension of more than {mxn(pr_r)} a month, or savings of {mxn(pr_s)} (the guidelines list both under "jubilados o pensionados").</li></ul>
+<h2 id="temporary">Temporary residence: what each consulate asks</h2>
+{tab}
+<p class="fonte">Source: the official page of each consulate (linked on its page here), read on {data_lunga(LETTO_MX)}. "≈ in USD" converts the published figure with ECB reference rates of {data_lunga(CAMBI["data"])}.</p>
+<p class="small">The same rule gives different dollar figures because each consulate converts the pesos on the day it updates its page: {basso["sede"]} ({data_cons_mx(basso, True)}) is lowest, {alto["sede"]} ({data_cons_mx(alto, True)}) highest among the US consulates.{"".join(f" The {X['sede']} PDF ({data_lunga(X['data_pagina'])}) is older than INEGI's announcement of the {ANNO} UMA (8 January {ANNO}) and does not say which UMA it uses." for X in CONS_MX if prima_uma_mx(X))} Portland gives the UMA days and an "approx." dollar figure.</p>
+<h2 id="permanent">Permanent residence (retirees): pension or savings</h2>
+<p>The guidelines ask for a monthly pension of more than {intero(GIORNI_MX["pr"][0])} days of UMA ({mxn(pr_r)}) over the last six months, or an average balance of {mxn(pr_s)} over the last 12 months.</p>
+{tab_pr}
+<p class="fonte">Source: the official page of each consulate, read on {data_lunga(LETTO_MX)}. Consulates without a permanent-residence figure in this table did not publish one on the pages we read.</p>
+{box_assicurazione_mx(rel)}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>More on Mexico residency</h2>
+{link_mx("../", "income-requirements/")}
+{griglia_cons_mx("../")}"""
+    titolo = f"Mexico residency income requirements {ANNO}: every consulate we read"
+    descr = (f"Mexico temporary residency income {ANNO}: more than {intero(GIORNI_MX['tr'][0])} days of UMA ({mxn(tr_r)} a month) or {mxn(tr_s)} in savings; "
+             f"permanent {mxn(pr_r)}. What {len(CONS_MX)} consulates ask in USD, CAD and GBP.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)], briciole=[("Mexico residency", SEZ_MX), ("Income requirements", percorso)], script=MX_JS)
+
+
+def pagina_mx_tasse():
+    rel = "../../"
+    percorso = f"{SEZ_MX}fees/"
+    t1, t2, t3, t4, tp = (TASSE_MX[k][1] for k in ("1", "2", "3", "4", "pr"))
+    visa_us = 56
+    esempi = [("One person, temporary residence for 1 year", 1, t1), ("Couple, temporary residence for 1 year", 2, t1),
+              ("One person, permanent residence", 1, tp), ("Couple, permanent residence", 2, tp)]
+    righe_es = "".join(f'<tr><th scope="row">{a}</th><td class="n">{importo_mx(n * visa_us, "USD")}</td><td class="n">{mxn(n * c)}</td>'
+                       f'<td class="n">≈ {circa_mx(n * c, "MXN", "USD")}</td></tr>' for a, n, c in esempi)
+    tab_es = (f'<div class="tab compatta"><table id="t-esempi-mx"><caption class="sr">Examples of the total cost</caption><thead><tr><th scope="col">Example</th>'
+              f'<th scope="col" class="n">Visa at a US consulate</th><th scope="col" class="n">Card at the INM</th><th scope="col" class="n">Card ≈ USD</th></tr></thead>'
+              f'<tbody>{righe_es}</tbody></table></div>')
+    domande = [
+        ("How much is a Mexican temporary resident card in 2026?",
+         f"{mxn(t1)} for up to one year, {mxn(t2)} for two years, {mxn(t3)} for three years and {mxn(t4)} for four years (Annex 4 of the {ANNO} Miscellaneous Tax Resolution)."),
+        ("How much is a Mexican permanent resident card in 2026?", f"{mxn(tp)} (Annex 4 of the {ANNO} Miscellaneous Tax Resolution); amount in the law {mxn(TASSE_MX['pr'][0])}."),
+        ("Why are the 2026 fees different from older guides?",
+         f"A decree published in the Diario Oficial on 7 November 2025 set new amounts for the resident cards from 1 January {ANNO}, and Annex 4 of the {ANNO} Miscellaneous Tax Resolution lists them. Guides written before {ANNO} show the earlier amounts."),
+        ("Can I pay less?",
+         "The law gives 50% off the card to residents who show the INM that they are in Mexico for family unity, for a job offer from a registered employer, or invited by an organisation for unpaid activities."),
+        ("How much is the visa at the consulate?",
+         f"The law sets {mxn(TASSE_MX['visa'][1])} for an ordinary visa; consulates charge it in their currency: US$56 at each of the US consulates we read."),
+    ]
+    corpo = f"""<section class="hero">{h1_diviso(f"Mexico residency fees {ANNO}: temporary and permanent resident cards")}
+<p class="lead">In {ANNO} a Mexican temporary resident card costs <strong>{mxn(t1)}</strong> for up to one year, {mxn(t2)} for two, {mxn(t3)} for three and {mxn(t4)} for four years, and a permanent resident card <strong>{mxn(tp)}</strong>, according to Annex 4 of the {ANNO} Miscellaneous Tax Resolution (Diario Oficial, 28 December 2025) read on {data_lunga(LETTO_MX)}. The visa at the consulate is a separate fee.</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("coins")}<span>Mexico immigration fees {ANNO}</span><span>read on {data_lunga(LETTO_MX)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Temporary resident card, up to 1 year</span><span class="sr">: </span><strong>{mxn(t1)}</strong> ≈ {circa_mx(t1, "MXN", "USD")}</p>
+<div class="kpi"><div><b>{mxn(t4)}</b><span>temporary, 4 years</span></div><div><b>{mxn(tp)}</b><span>permanent resident card</span></div><div><b>{mxn(TASSE_MX["cambio"][1])}</b><span>change of status, on top of the new card</span></div><div><b>50%</b><span>off for family unity, job offer or invitation</span></div></div>
+{fonte_mx_p(("anexo4", "lfd"), f"≈ at ECB reference rates of {data_lunga(CAMBI['data'])}")}
+</div></section>
+{AVVISO_MX}
+{AD}
+<h2>All fees</h2>
+<p>"You pay" is the rounded amount that Annex 4 lists for {ANNO} ("cuota con ajuste"); "amount in the law" is the figure written in the Ley Federal de Derechos. You pay in pesos in Mexico; the other currencies are only a guide.</p>
+{pila(tabella_tasse_mx(dettaglio=True))}
+{fonte_mx_p(("anexo4", "lfd", "decreto"), f"conversions at ECB reference rates of {data_lunga(CAMBI['data'])}")}
+<h2>What a move costs in fees: examples</h2>
+<p>The visa at a US consulate (US$56 per application on the pages we read) plus the card at the INM. The card fee is per card; the examples use the full fee (if a partner comes through family unity, the 50% reduction below may apply to that card).</p>
+{tab_es}
+<p class="fonte">Sources: Annex 4 of the {ANNO} Miscellaneous Tax Resolution and the pages of the US consulates in the <a href="../">consulate table</a>, read on {data_lunga(LETTO_MX)}.</p>
+<h2>Renewals, changes and the 50% reduction</h2>
+<ul class="testo"><li><strong>Renewal</strong>: renewing a temporary resident card costs the same fee as issuing it (Ley Federal de Derechos, art. 8).</li>
+<li><strong>Change of status</strong> (for example from temporary to permanent): {mxn(TASSE_MX["cambio"][1])}, plus the fee of the new card (art. 9).</li>
+<li><strong>Replacement</strong> of a lost or damaged card: {mxn(TASSE_MX["repos"][1])}.</li>
+<li><strong>50% reduction</strong> (new from {ANNO}): temporary and permanent residents who show the INM that they are in Mexico for family unity, for a job offer from a registered employer, or invited by an organisation to take part in unpaid activities pay half.</li></ul>
+{fonte_mx_p(("lfd", "decreto"))}
+{box_assicurazione_mx(rel)}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>More on Mexico residency</h2>
+{link_mx("../", "fees/")}"""
+    titolo = f"Mexico residency fees {ANNO}: temporary and permanent card costs"
+    descr = (f"Mexico residency fees {ANNO} (DOF): temporary resident card {mxn(t1)} (1 year) to {mxn(t4)} (4 years), permanent {mxn(tp)}, change of status "
+             f"{mxn(TASSE_MX['cambio'][1])}, 50% reduction, visa fee.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)], briciole=[("Mexico residency", SEZ_MX), (f"Fees {ANNO}", percorso)])
+
+
+def pagina_mx_cons(C):
+    rel = "../../"
+    percorso = f"{SEZ_MX}{C['id']}/"
+    v = C["valuta"]
+    uff = ufficio_mx(C)
+    tr_r, tr_s = C["tr"]["reddito"]["importo"], C["tr"]["saldo"]["importo"]
+    appr = "approximately " if C.get("approssimato") else ""
+    pr = C.get("pr")
+    tassa = C.get("tassa")
+    nome_uff = f"Mexican {uff} in {C['sede']}"
+    fonte_tipo = "official PDF" if C["pagine"][0].get("formato") == "pdf" else "official visa page"
+    citazioni = []
+    for tipo, etich in (("tr", "Temporary residence"), ("pr", "Permanent residence")):
+        for cosa, e2 in (("reddito", "income"), ("saldo", "savings")):
+            x = C.get(tipo, {}).get(cosa)
+            if x:
+                citazioni.append((f"{etich}: {e2}", importo_mx(x["importo"], v), x["frammento"], x["p"]))
+    if tassa:
+        citazioni.append(("Visa fee", importo_mx(tassa["importo"], tassa["valuta"]), tassa["frammento"], tassa["p"]))
+    for a in C.get("altre", []):
+        citazioni.append(("Also on the page", "–", a["frammento"], a["p"]))
+    righe_c = "".join(f'<tr><th scope="row">{a}</th><td class="n">{b}</td><td class="small">“{escape(c)}”</td><td>{link_cons_mx(C, p)}</td></tr>' for a, b, c, p in citazioni)
+    tab_c = pila(f'<div class="tab compatta"><table id="t-cit-mx"><caption class="sr">What the official page says</caption><thead><tr><th scope="col">What</th>'
+                 f'<th scope="col" class="n">Amount</th><th scope="col">Words on the official page</th><th scope="col">Page</th></tr></thead><tbody>{righe_c}</tbody></table></div>')
+    pesos_r = pesos_uma(GIORNI_MX["tr"][0])
+    if v == "MXN":
+        confronto = (f"The {nome_uff} writes the amounts in pesos: {mxn(tr_r)} against {mxn(pesos_r)} from the guidelines ({intero(GIORNI_MX['tr'][0])} × MXN {UMA_MX}), "
+                     f"{(tr_r / pesos_r - 1) * 100:.1f}% more; savings {mxn(tr_s)} against {mxn(pesos_uma(GIORNI_MX['tr'][1]))}, {(tr_s / pesos_uma(GIORNI_MX['tr'][1]) - 1) * 100:.1f}% more. "
+                     "The page does not say how these amounts were calculated; it says that all amounts are calculated in Mexican pesos and that you can check the official exchange rate on the day of your appointment.")
+    elif prima_uma_mx(C):
+        confronto = (f"The {C['sede']} {uff}'s {'PDF' if fonte_tipo == 'official PDF' else 'page'} is dated {data_lunga(C['data_pagina'])}, before INEGI announced the {ANNO} UMA ({data_lunga(FMX['uma']['data'])}), "
+                     f"and it does not say which UMA or exchange rate it uses. With the {ANNO} UMA the guidelines' amount is {mxn(pesos_r)} ({intero(GIORNI_MX['tr'][0])} × MXN {UMA_MX}), "
+                     f"≈ {circa_mx(pesos_r, 'MXN', v)} at ECB rates of {data_lunga(CAMBI['data'])}, {'more' if conv_mx(pesos_r, 'MXN', v) > tr_r else 'less'} than the {importo_mx(tr_r, v)} on the page. "
+                     f"Ask the {uff} which figure applies on the day of your appointment.")
+    else:
+        tasso = pesos_r / tr_r
+        confronto = (f"The guidelines' {mxn(pesos_r)} ({intero(GIORNI_MX['tr'][0])} × MXN {UMA_MX}) divided by {importo_mx(tr_r, v)} gives a rate of about "
+                     f"{tasso:.2f} pesos per {'pound' if v == 'GBP' else ('Canadian dollar' if v == 'CAD' else 'dollar')}: the {uff} converted the peso amount with its own rate when it updated the page "
+                     f"({data_cons_mx(C)}). At ECB rates of {data_lunga(CAMBI['data'])} the peso amount is ≈ {circa_mx(pesos_r, 'MXN', v)}.")
+    stessi = [X for X in CONS_MX if X["paese"] == C["paese"] and X["id"] != C["id"]]
+    lead_pr = (f" For permanent residence it asks for a monthly pension of {importo_mx(pr['reddito']['importo'], v)} or savings of {importo_mx(pr['saldo']['importo'], v)}." if pr else "")
+    domande = [
+        (f"How much income do I need for Mexican temporary residency in {C['sede']}?",
+         f"{appr.capitalize()}{importo_mx(tr_r, v)} a month after tax over the last six months, or an average balance of {appr}{importo_mx(tr_s, v)} over the last 12 months, "
+         f"according to the {nome_uff} ({data_cons_mx(C)})."),
+    ]
+    if pr:
+        domande.append((f"How much do I need for Mexican permanent residency in {C['sede']}?",
+                        f"A monthly pension of {importo_mx(pr['reddito']['importo'], v)} over the last six months, or an average balance of {importo_mx(pr['saldo']['importo'], v)} over the last 12 months."))
+    if tassa:
+        domande.append((f"How much is the visa fee at the {uff} in {C['sede']}?",
+                        f"{importo_mx(tassa['importo'], tassa['valuta'])} per application, as the {uff}'s page says. The resident card in Mexico is a separate fee: {mxn(TASSE_MX['1'][1])} for up to one year ({ANNO})."))
+    domande.append(("Why is the figure different from other consulates?",
+                    "The rule is in pesos (days of UMA). Each consulate converts it with its own exchange rate on the day it updates its page, so the same rule gives slightly different amounts."))
+    corpo = f"""<section class="hero"><h1>Mexico residency at the {escape(uff)} in {escape(C["sede"])}: income and savings ({ANNO})</h1>
+<p class="lead">The {escape(nome_uff)} asks for a net monthly income of {appr}<strong>{importo_mx(tr_r, v)}</strong> or savings of {appr}<strong>{importo_mx(tr_s, v)}</strong> for a temporary resident visa, according to its {fonte_tipo} ({data_cons_mx(C)}) read on {data_lunga(LETTO_MX)}.{lead_pr}{f" The visa application costs {importo_mx(tassa['importo'], tassa['valuta'])}." if tassa else ""}</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("passport")}<span>{escape(nome_uff)}</span><span>read on {data_lunga(LETTO_MX)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Temporary resident visa: income a month (last 6 months, after tax)</span><span class="sr">: </span><strong>{appr}{importo_mx(tr_r, v)}</strong></p>
+<div class="kpi"><div><b>{appr}{importo_mx(tr_s, v)}</b><span>or savings (average balance, 12 months)</span></div><div><b>{importo_mx(pr["reddito"]["importo"], v) if pr else "–"}</b><span>{"permanent: pension a month" if pr else "permanent: not on the pages we read"}</span></div><div><b>{importo_mx(tassa["importo"], tassa["valuta"]) if tassa else "–"}</b><span>{"visa application fee" if tassa else "visa fee: not on the pages we read"}</span></div><div><b>{mxn(TASSE_MX["1"][1])}</b><span>resident card in Mexico, up to 1 year</span></div></div>
+{fonte_cons_p(C)}
+</div></section>
+{AVVISO_MX}
+{AD}
+<h2>What the official page says</h2>
+{tab_c}
+{fonte_cons_p(C)}
+<h2>How the figure compares with the rule in pesos</h2>
+<p>{confronto}</p>
+{fonte_mx_p(("lineamientos", "uma"))}
+<h2>Check your income</h2>
+{calc_mx("../", "MXN" if v == "MXN" else v)}
+<h2>After the visa: the resident card</h2>
+<p>The visa lets you enter Mexico once; within 30 days you apply for the resident card at the National Migration Institute (INM) and pay its fee in pesos: {mxn(TASSE_MX["1"][1])} for up to one year, {mxn(TASSE_MX["4"][1])} for four years, {mxn(TASSE_MX["pr"][1])} for a permanent card ({ANNO}). <a href="../fees/">All fees</a>.</p>
+{fonte_mx_p(("anexo4",))}
+{box_assicurazione_mx(rel)}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>{"Other Mexican consulates in " + escape(art(C["paese"])) if stessi else "Other Mexican consulates"}</h2>
+{griglia_cons_mx("../", C["id"])}
+<p><a href="../">All consulates and the {ANNO} fees</a> · <a href="../income-requirements/">Income requirements by consulate</a></p>"""
+    t = f"Mexican {uff} in {C['sede']}: residency income requirements {ANNO}"
+    if len(t) > 70:
+        t = f"Mexican {uff} in {C['sede']}: residency income {ANNO}"
+    descr = (f"Mexico temporary residency at the {uff} in {C['sede']}: {appr}{importo_mx(tr_r, v)} a month or {appr}{importo_mx(tr_s, v)} in savings"
+             + (f"; permanent {importo_mx(pr['reddito']['importo'], v)} a month" if pr else "") + f" (official page, read {data_lunga(LETTO_MX)}).")
+    pagina(percorso, t, descr, corpo, jsonld_extra=[ld_faq(domande)], briciole=[("Mexico residency", SEZ_MX), (C["sede"], percorso)], script=MX_JS)
+
+
+def genera_mx():
+    pagina_mx_indice()
+    pagina_mx_reddito()
+    pagina_mx_tasse()
+    for C in CONS_MX:
+        pagina_mx_cons(C)
+
+
+def controlli_mx():
+    import hashlib
+    errori = []
+    cont = {k: MX[k] for k in ("letture", "fonti", "consolati", "esclusi")}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != MX["impronta"]:
+        errori.append("mexico: impronta del JSON diversa dal contenuto (file modificato a mano?)")
+    if any(f.get("http") != 200 for f in FMX.values()):
+        errori.append("mexico: fonte non letta (HTTP diverso da 200)")
+    if not (8 <= len(CONS_MX) <= 15):
+        errori.append(f"mexico: {len(CONS_MX)} consolati (attesi 8-15)")
+    for C in CONS_MX:
+        if C["valuta"] not in SIMBOLI_MX or (C["valuta"] != "EUR" and C["valuta"] not in CAMBI["tassi"]):
+            errori.append(f"mexico: valuta {C['valuta']} senza cambio BCE ({C['id']})")
+        if C["data_pagina"] and C["data_pagina"] < "2026-01-01":
+            errori.append(f"mexico: pagina di {C['id']} prima del 2026")
+    if URL_SW_MX and not URL_SW_MX.startswith("https://safetywing.com/"):
+        errori.append("mexico: link SafetyWing non valido in dati/affiliati.json (_safetywing_mexico)")
+    return errori
+
+
 def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
@@ -6361,6 +6923,7 @@ def controlli():
     errori += controlli_selt()
     errori += controlli_dtv()
     errori += controlli_studio()
+    errori += controlli_mx()
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -6389,6 +6952,7 @@ def main():
     genera_selt()
     genera_dtv()
     genera_studio()
+    genera_mx()
     pagina_come_funziona()
     about()
     contatti()
@@ -6399,7 +6963,8 @@ def main():
           f"Australia {len(AU_OK)} nazionalità ({AU_A1}), Nuova Zelanda {len(NZ_OK)} ({NZ_A1}), Canada {len(CA_OK)} ({CA_A1}); "
           f"trasferimenti: {len(NAZ_TR)} nazionalità, {sum(len(v) for v in COPPIE_TR.values())} pagine nazionalità × Paese ({Y1}); "
           f"test di inglese UK (SELT): {len(CITTA_PAG)} città e {len(PAESI_PAG)} Paesi con pagina (elenco del {DATA_ELENCO}); "
-          f"DTV Thailandia: {len(LET_DTV)} sedi lette su {len(SEDI_DTV)}, {len(PAG_DTV)} con pagina; Irlanda (PPS): {len(PPS_OK)} nazionalità, dati a {PPS_ULTIMO}.")
+          f"DTV Thailandia: {len(LET_DTV)} sedi lette su {len(SEDI_DTV)}, {len(PAG_DTV)} con pagina; Irlanda (PPS): {len(PPS_OK)} nazionalità, dati a {PPS_ULTIMO}; "
+          f"Messico: {len(CONS_MX)} consolati, UMA {UMA_MX}.")
 
 
 if __name__ == "__main__":

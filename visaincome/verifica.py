@@ -46,6 +46,12 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
 20. UK Graduate visa (30/10/2026): ricalcolo da dati/graduate.json (impronta), pagine attese (indice + 3), titoli ≤ 70, prima frase con fonte
     e data, durate (2 anni fino al 31/12/2026, 18 mesi dal 1/1/2027, 3 anni PhD), tariffa e IHS, tabelle dei costi ricalcolate, calcolatore,
     stesso confronto JS/Python, OGL; online: guida GOV.UK e Appendix Graduate rilette e frammenti ricontrollati.
+21. Mexico residency (31/10/2026): ricalcolo da dati/mexico.json (impronta), pagine attese (indice + reddito + costi + una per consolato) tutte in
+    sitemap e nessuna in più, titoli ≤ 70, prima frase con fonte e data di lettura, costi 2026 (Anexo 4 = LFD), calcolo UMA (giorni × UMA),
+    tabella dei consolati e pagine per consolato con le cifre e i frammenti ufficiali, data della pagina del consolato, consolati esclusi,
+    SafetyWing solo dopo le informazioni ufficiali e con la frase che non è un requisito, nessuna promessa, link dal resto del sito,
+    costanti del calcolatore = dati e motore JS = calcolo Python indipendente (casi fissi + 400 a caso); online: 10 frammenti a caso
+    riletti su LFD, Anexo 4, INEGI e Lineamientos (le pagine dei consolati non si rileggono qui: il sito SRE ha una verifica anti-bot).
 Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
@@ -1490,7 +1496,7 @@ def confronta_js_studio(file_pagina, k_tutti):
     return errori[:10], len(casi)
 
 
-def _pagine_sezione(sez, attese, errori, nome):
+def _pagine_sezione(sez, attese, errori, nome, affiliati=False):
     cart = SITO / sez.rstrip("/")
     trovate = {f.parent.relative_to(cart).as_posix().replace(".", "") for f in cart.rglob("index.html")}
     if trovate != set(attese):
@@ -1512,7 +1518,7 @@ def _pagine_sezione(sez, attese, errori, nome):
         for x in ("FAQPage", "BreadcrumbList", "Not legal or immigration advice.", 'rel="canonical"'):
             if x not in t:
                 errori.append(f"{nome}: manca {x!r} in {percorso}")
-        if re.search(r'rel="[^"]*sponsored', main):
+        if not affiliati and re.search(r'rel="[^"]*sponsored', main):
             errori.append(f"{nome}: link sponsorizzato in {percorso} (nessuna affiliazione prevista in questa sezione)")
         lead = html.unescape(re.sub(r"<[^>]+>", "", re.search(r'<p class="lead">(.*?)</p>', main, re.S).group(1)))
         out[s] = (t, main, html.unescape(re.sub(r"<[^>]+>", " ", main)), lead, percorso)
@@ -1688,6 +1694,214 @@ def controlla_graduate(online=True):
     return errori, len(P), n_js, riletti
 
 
+# ---------------------------------------------------------------- 21. Mexico residency (31/10/2026)
+import math as _math
+
+
+def _r2(x):
+    return _math.floor(x * 100 + 0.5) / 100
+
+
+def py_mx(importo, val, cosa, tipo, k):
+    """Stesso risultato di CALC_MX.mx (MX_JS), scritto qui senza le funzioni di genera.py."""
+    if importo in ("", None):
+        return None
+    x = float(importo)
+    if not x >= 0:
+        return None
+    i = 1 if cosa == "saldo" else 0
+    t = k["tassi"]
+    righe, nok, n = [], 0, 0
+    for c in k["cons"]:
+        s = c[tipo]
+        if not s:
+            righe.append({"id": c["id"], "assente": True})
+            continue
+        soglia = s[i]
+        tuo = x if c["val"] == val else _r2(x / t[val] * t[c["val"]])
+        ok = tuo >= soglia
+        n += 1
+        nok += ok
+        righe.append({"id": c["id"], "soglia": soglia, "val": c["val"], "tuo": tuo, "stessa": c["val"] == val, "ok": ok, "appr": c["appr"]})
+    su = k["uma"][tipo][i]
+    tu = x if val == "MXN" else _r2(x / t[val] * t["MXN"])
+    return {"righe": righe, "uma": {"soglia": su, "tuo": tu, "ok": (tu >= su) if i == 1 else (tu > su)}, "nok": nok, "n": n}   # saldo "equivalente a", reddito "mayores al"
+
+
+def casi_mx(k, seme=31, n=400):
+    rng = random.Random(seme)
+    casi = [[None, "USD", "reddito", "tr"], ["", "USD", "saldo", "pr"], [0, "MXN", "reddito", "tr"]]
+    for c in k["cons"]:   # esattamente sulla soglia, un centesimo sotto, nella valuta del consolato
+        casi += [[c["tr"][0], c["val"], "reddito", "tr"], [round(c["tr"][0] - 0.01, 2), c["val"], "reddito", "tr"], [c["tr"][1], c["val"], "saldo", "tr"]]
+        if c["pr"]:
+            casi += [[c["pr"][0], c["val"], "reddito", "pr"], [c["pr"][1], c["val"], "saldo", "pr"]]
+    casi += [[k["uma"]["tr"][0], "MXN", "reddito", "tr"], [k["uma"]["pr"][1], "MXN", "saldo", "pr"], [k["uma"]["tr"][1], "MXN", "saldo", "tr"]]
+    for _ in range(n):
+        val = rng.choice(["USD", "CAD", "GBP", "EUR", "MXN"])
+        cosa, tipo = rng.choice(["reddito", "saldo"]), rng.choice(["tr", "pr"])
+        base = {"USD": 1, "CAD": 1.4, "GBP": 0.75, "EUR": 0.86, "MXN": 18}[val] * (4500 if cosa == "reddito" else 75000) * (1.7 if tipo == "pr" else 1) * (4 if cosa == "saldo" and tipo == "pr" else 1)
+        casi.append([round(rng.uniform(0.5, 1.5) * base, rng.choice([0, 2])), val, cosa, tipo])
+    return casi
+
+
+def controlla_mx(online=True):
+    import hashlib
+    errori = []
+    D = json.loads((SITO.parent / "dati" / "mexico.json").read_text(encoding="utf-8"))
+    cont = {k: D[k] for k in ("letture", "fonti", "consolati", "esclusi")}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != D["impronta"]:
+        errori.append("Messico: impronta di dati/mexico.json diversa dal contenuto")
+    L = {k: v["valore"] for k, v in D["letture"].items()}
+    letto = G.data_lunga(D["letto_il"])
+    cons = D["consolati"]
+    uma = L["uma_diaria"]
+
+    def mx(x):
+        return "MXN " + (f"{x:,.0f}" if float(x).is_integer() else f"{x:,.2f}")
+
+    def imp(x, v):
+        return {"USD": "US$", "CAD": "C$", "GBP": "£", "EUR": "€", "MXN": "MXN "}[v] + (f"{x:,.0f}" if float(x).is_integer() else f"{x:,.2f}")
+    # costi: Anexo 4 = LFD, importo da pagare = arrotondamento
+    for n_ in "1234":
+        if L["a4_rt"][n_][0] != L[f"rt_{n_}"] or L["a4_rt"][n_][1] != round(L[f"rt_{n_}"]):
+            errori.append(f"Messico: costo della residenza temporanea di {n_} anni diverso tra Anexo 4 e LFD")
+    if L["a4_rp"] != [L["rp"], round(L["rp"])] or L["a4_visa"][0] != L["visa"] or L["a4_cambio"][0] != L["cambio"]:
+        errori.append("Messico: costi della residenza permanente, del cambio o del visto diversi tra Anexo 4 e LFD")
+    giorni = {"tr": (L["rt_reddito_giorni"], L["rt_saldo_giorni"]), "pr": (L["rp_reddito_giorni"], L["rp_saldo_giorni"])}
+    if giorni != {"tr": (680, 11460), "pr": (1140, 45850)} or L["familiare_giorni"] != 220:
+        errori.append("Messico: giorni di UMA diversi da quelli scritti nei testi (680/11.460, 1.140/45.850, 220): rivedere i testi")
+    pesos = {t: [round(g * uma, 2) for g in giorni[t]] for t in giorni}
+    attese = ["", "income-requirements", "fees"] + [c["id"] for c in cons]
+    P = _pagine_sezione("mexico-residency/", attese, errori, "Messico", affiliati=True)
+    for s, (t, main, testo, lead, percorso) in P.items():
+        prima = re.split(r"(?<=[a-z0-9)])\.\s+(?=[A-Z])", lead)[0]
+        if letto not in prima:
+            errori.append(f"Messico: data di lettura non nella prima frase in {percorso}")
+        elif not re.search(r"Annex 4|guidelines|Diario Oficial|official", prima.split(letto)[0]):
+            errori.append(f"Messico: prima frase senza la fonte prima della data in {percorso}")
+        if re.search(r"(?i)you will get (the|a|your) visa|guarantee[sd]? (the|a|your) visa|will be approved", testo):
+            errori.append(f"Messico: promessa sul visto in {percorso}")
+        m = main.find('class="card aff-r"')
+        if m >= 0:
+            pezzo = main[m:main.find("</section>", m)]
+            if 'rel="sponsored noopener"' not in pezzo or "safetywing.com" not in pezzo or "Insurance is not a requirement" not in html.unescape(pezzo):
+                errori.append(f"Messico: riquadro SafetyWing senza sponsored noopener o senza la frase sul requisito in {percorso}")
+            if m < main.find("Not legal or immigration advice."):
+                errori.append(f"Messico: riquadro SafetyWing prima delle informazioni ufficiali in {percorso}")
+        for a in re.findall(r'<a [^>]*rel="[^"]*sponsored[^"]*"[^>]*>', main):
+            if "safetywing.com" not in a:
+                errori.append(f"Messico: link sponsorizzato non previsto in {percorso}")
+        # calcolatore: costanti = dati
+        km = re.search(r"data-mx data-rel=\"[^\"]*\" data-k='(.*?)'", main)
+        if s in ("", "income-requirements") or s in [c["id"] for c in cons]:
+            if not km:
+                errori.append(f"Messico: calcolatore assente in {percorso}")
+            else:
+                k = json.loads(km.group(1))
+                attesi = {"cons": [{"id": c["id"], "sede": c["sede"], "val": c["valuta"], "tr": [c["tr"]["reddito"]["importo"], c["tr"]["saldo"]["importo"]],
+                                    "pr": ([c["pr"]["reddito"]["importo"], c["pr"]["saldo"]["importo"]] if "pr" in c else None), "appr": bool(c.get("approssimato"))}
+                                   for c in sorted(cons, key=lambda c: c["sede"])],
+                          "uma": pesos, "tassi": {v: (1 if v == "EUR" else G.CAMBI["tassi"][v]) for v in ("EUR", "USD", "GBP", "CAD", "MXN")}, "data_cambi": G.data_lunga(G.CAMBI["data"])}
+                if k != attesi:
+                    errori.append(f"Messico: costanti del calcolatore diverse dai dati in {percorso}")
+            if "window.CALC_MX=C" not in t:
+                errori.append(f"Messico: script del calcolatore mancante in {percorso}")
+    if "" in P:
+        t, main, testo, lead, _ = P[""]
+        for x in (mx(L["a4_rt"]["1"][1]), mx(L["a4_rp"][1]), mx(pesos["tr"][0]), mx(pesos["tr"][1]), mx(pesos["pr"][0]), mx(pesos["pr"][1]), f"MXN {uma}"):
+            if x not in testo:
+                errori.append(f"Messico: indice senza {x!r}")
+        tab = re.search(r'id="t-cons-mx".*?<tbody>(.*?)</tbody>', main, re.S)
+        righe = re.findall(r"<tr>(.*?)</tr>", tab.group(1), re.S) if tab else []
+        if len(righe) != len(cons):
+            errori.append(f"Messico: righe della tabella dei consolati {len(righe)} invece di {len(cons)}")
+        for c in cons:
+            riga = next((r for r in righe if f'href="{c["id"]}/"' in r), "")
+            for tipo in ("tr", "pr"):
+                for cosa in ("reddito", "saldo"):
+                    if tipo in c and imp(c[tipo][cosa]["importo"], c["valuta"]) not in riga:
+                        errori.append(f"Messico: tabella, {c['id']} {tipo} {cosa}: manca {imp(c[tipo][cosa]['importo'], c['valuta'])}")
+            if html.escape(c["pagine"][0]["url"]) not in riga:
+                errori.append(f"Messico: tabella senza il link ufficiale di {c['id']}")
+        for e in D["esclusi"]:
+            if html.escape(e["url"]) not in main:
+                errori.append(f"Messico: consolato escluso non elencato: {e['sede']}")
+        for u in [f["url"] for f in D["fonti"].values()]:
+            if html.escape(u) not in main:
+                errori.append(f"Messico: fonte non citata nell'indice: {u}")
+    if "fees" in P:
+        testo = P["fees"][2]
+        for x in [mx(L["a4_rt"][n_][1]) for n_ in "1234"] + [mx(L["a4_rp"][1]), mx(L["a4_cambio"][1]), mx(L["a4_repos"][1]), mx(L["a4_visa"][1]), "50%"]:
+            if x not in testo:
+                errori.append(f"Messico: pagina dei costi senza {x!r}")
+        tab = re.search(r'id="t-esempi-mx".*?<tbody>(.*?)</tbody>', P["fees"][1], re.S).group(1)
+        for (n_, c), riga in zip(((1, L["a4_rt"]["1"][1]), (2, L["a4_rt"]["1"][1]), (1, L["a4_rp"][1]), (2, L["a4_rp"][1])), re.findall(r"<tr>(.*?)</tr>", tab, re.S)):
+            if mx(n_ * c) not in riga or imp(n_ * 56, "USD") not in riga:
+                errori.append(f"Messico: esempio dei costi sbagliato: {n_} × {c}")
+    if "income-requirements" in P:
+        testo = P["income-requirements"][2]
+        for x in (mx(pesos["tr"][0]), mx(pesos["tr"][1]), mx(pesos["pr"][0]), mx(pesos["pr"][1]), mx(round(220 * uma, 2))):
+            if x not in testo:
+                errori.append(f"Messico: pagina del reddito senza {x!r}")
+    for c in cons:
+        if c["id"] not in P:
+            continue
+        t, main, testo, lead, percorso = P[c["id"]]
+        for x in (imp(c["tr"]["reddito"]["importo"], c["valuta"]), imp(c["tr"]["saldo"]["importo"], c["valuta"])):
+            if x not in lead:
+                errori.append(f"Messico: prima frase di {c['id']} senza {x}")
+        d = c["data_pagina"]
+        if d and G.data_lunga(d) not in lead:
+            errori.append(f"Messico: data della pagina del consolato non nella prima frase di {c['id']}")
+        if d and d < "2026-01-01":
+            errori.append(f"Messico: pagina di {c['id']} prima del 2026")
+        voci = [c[tp][cs] for tp in ("tr", "pr") if tp in c for cs in ("reddito", "saldo")] + ([c["tassa"]] if "tassa" in c else []) + c.get("altre", [])
+        for v in voci:
+            if html.escape(v["frammento"], quote=False) not in main and html.escape(v["frammento"]) not in main:
+                errori.append(f"Messico: frammento ufficiale non citato nella pagina di {c['id']}: {v['frammento'][:60]}")
+        for p in c["pagine"]:
+            if html.escape(p["url"]) not in main:
+                errori.append(f"Messico: link ufficiale mancante nella pagina di {c['id']}")
+    for f, link in (("index.html", 'href="mexico-residency/"'), ("how-it-works/index.html", 'href="../mexico-residency/"'),
+                    ("digital-nomad-visa-income-requirements/index.html", 'href="../mexico-residency/"'), ("about/index.html", 'href="../mexico-residency/"')):
+        if link not in (SITO / f).read_text(encoding="utf-8"):
+            errori.append(f"Messico: {f} non rimanda alla sezione")
+    # motore JS del calcolatore (preso dalla pagina pubblicata) = calcolo Python
+    n_js = 0
+    if "" in P:
+        t = P[""][0]
+        js = next(x for x in re.findall(r"<script>(.*?)</script>", t, re.S) if "window.CALC_MX=C" in x)
+        k = json.loads(re.search(r"data-mx data-rel=\"[^\"]*\" data-k='(.*?)'", P[""][1]).group(1))
+        casi = casi_mx(k)
+        prog = ("var window={};var document={querySelectorAll:function(){return [];}};\n" + js + "\nvar K=" + json.dumps(k) + ";var CASI=" + json.dumps(casi)
+                + ";console.log(JSON.stringify(CASI.map(function(c){return window.CALC_MX.mx(c[0],c[1],c[2],c[3],K);})));")
+        with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as fh:
+            fh.write(prog)
+        r = subprocess.run(["node", fh.name], capture_output=True, text=True, timeout=120)
+        if r.returncode != 0:
+            errori.append(f"Messico: JS del calcolatore non eseguibile: {r.stderr[-300:]}")
+        else:
+            diff = [(c_, j) for c_, j in zip(casi, json.loads(r.stdout)) if py_mx(*c_, k) != j]
+            n_js = len(casi)
+            errori += [f"Messico: calcolatore {c_}: JS {str(j)[:120]} ≠ Python {str(py_mx(*c_, k))[:120]}" for c_, j in diff[:5]]
+    riletti = []
+    if online:
+        sys.path.insert(0, str(SITO.parent / "raccolta"))
+        import mexico as RM
+        testi = {}
+        for k_, f in RM.FONTI.items():
+            meta, tx = RM.leggi(f["url"], oggi=_date.today().isoformat())
+            testi[k_] = tx if meta else ""
+        rng = random.Random(20261031)
+        for key in rng.sample(sorted(D["letture"]), 10):
+            v = D["letture"][key]
+            ok = v["frammento"] in testi.get(v["fonte"], "")
+            riletti.append(f"{v['fonte']} {key}: {'presente' if ok else 'ASSENTE'}")
+            if not ok:
+                errori.append(f"Messico: frammento {key} non più in {v['fonte']}")
+    return errori, len(P), n_js, riletti
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -1735,7 +1949,11 @@ def main():
         print("    ·", x)
     e20, n20, j20, r20 = controlla_graduate(online="--offline" not in sys.argv)
     print(f"20. UK Graduate visa: {n20} pagine, durate, tariffa e IHS, tabelle ricalcolate, calcolatore (JS = Python su {j20} casi); frammenti riletti online: {len(r20)}: {len(e20)} errori")
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20
+    e21, n21, j21, r21 = controlla_mx(online="--offline" not in sys.argv)
+    print(f"21. Mexico residency: {n21} pagine, costi 2026, calcolo UMA, consolati e frammenti, affiliati, link, calcolatore (JS = Python su {j21} casi); riletti online: {len(r21)}: {len(e21)} errori")
+    for x in r21:
+        print("    ·", x)
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21
     for e in tutti:
         print(" -", e)
     if tutti:

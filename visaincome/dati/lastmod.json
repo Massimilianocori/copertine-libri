@@ -2,16 +2,16 @@
 "_nota": "Scritto da genera.py: percorso -> [data dell'ultima modifica del contenuto, impronta]. Non modificare a mano.",
 "pagine": {
 "": [
-"2026-10-30",
-"e4e3cb4866fd4cab94e1"
+"2026-10-31",
+"36ccafd6bb41750757c3"
 ],
 "about/": [
 "2026-10-15",
 "f31d17088e4c9e91a70d"
 ],
 "austria-eu-blue-card/": [
-"2026-10-30",
-"f1d2fcc6cacf3c4353d7"
+"2026-10-31",
+"9606fc3a57bbc88275f3"
 ],
 "contact/": [
 "2026-10-11",
@@ -70,40 +70,92 @@
 "8b07538a574f7068387b"
 ],
 "croatia-digital-nomad-visa/": [
-"2026-10-30",
-"585334440b76d84e33d1"
+"2026-10-31",
+"050678821fafc24b0277"
 ],
 "denmark-pay-limit-scheme/": [
-"2026-10-30",
-"f53911db398c7b90845e"
+"2026-10-31",
+"6b3115294a410789dae9"
 ],
 "digital-nomad-visa-income-requirements/": [
-"2026-10-30",
-"14f9fbc4daaf9968501f"
+"2026-10-31",
+"239d823f0791c443fabb"
 ],
 "france-eu-blue-card/": [
-"2026-10-30",
-"8446055904edb90acba8"
+"2026-10-31",
+"a108f2635fa3bc92a022"
 ],
 "germany-eu-blue-card/": [
-"2026-10-30",
-"3c0246351455699b86e6"
+"2026-10-31",
+"246d2dbd2f2b48746972"
 ],
 "how-it-works/": [
-"2026-10-30",
-"510d2e7818c8c1a5bcf2"
+"2026-10-31",
+"d4605e14ef024055dd1d"
 ],
 "hungary-white-card/": [
-"2026-10-30",
-"3ef19e2f437a52106bf8"
+"2026-10-31",
+"a5bd0006b741a65d4eb9"
 ],
 "ireland-critical-skills-employment-permit/": [
-"2026-10-30",
-"e467af22378794db108c"
+"2026-10-31",
+"2b3b6ac509ad9545d77d"
 ],
 "italy-digital-nomad-visa/": [
-"2026-10-30",
-"87d12f76c1ad00194258"
+"2026-10-31",
+"272946387463ae27360e"
+],
+"mexico-residency/": [
+"2026-10-31",
+"7efe0ff3949b8538389f"
+],
+"mexico-residency/fees/": [
+"2026-10-31",
+"cf0763c97feb0e807c98"
+],
+"mexico-residency/income-requirements/": [
+"2026-10-31",
+"99102dd40ca4ad820b1f"
+],
+"mexico-residency/indianapolis/": [
+"2026-10-31",
+"0babad76689f298d8813"
+],
+"mexico-residency/las-vegas/": [
+"2026-10-31",
+"bc3d728b1facba5dca09"
+],
+"mexico-residency/london/": [
+"2026-10-31",
+"4ea0b6418e2287bc7e1c"
+],
+"mexico-residency/montreal/": [
+"2026-10-31",
+"0093f79cc76c0871aa75"
+],
+"mexico-residency/new-brunswick/": [
+"2026-10-31",
+"449fb1d813098617fd45"
+],
+"mexico-residency/new-york/": [
+"2026-10-31",
+"581c7153a122b63817f7"
+],
+"mexico-residency/portland/": [
+"2026-10-31",
+"50ce243e81aef9ccfff4"
+],
+"mexico-residency/san-diego/": [
+"2026-10-31",
+"32af5d7ffe4d852ab205"
+],
+"mexico-residency/vancouver/": [
+"2026-10-31",
+"0416cee15ac0b6907bac"
+],
+"mexico-residency/washington-dc/": [
+"2026-10-31",
+"c4675aa232a70f5d2b90"
 ],
 "moved-to/": [
 "2026-10-30",
@@ -990,104 +1042,104 @@
 "8ecf121fe176030407ca"
 ],
 "netherlands-eu-blue-card/": [
-"2026-10-30",
-"1c16b2f9d4b592532a14"
+"2026-10-31",
+"0b7e9f427787a7a52e70"
 ],
 "netherlands-highly-skilled-migrant/": [
-"2026-10-30",
-"0a6375059d7f2ea8ac03"
+"2026-10-31",
+"012e03fcb60dcd1c64bb"
 ],
 "portugal-d7-visa/": [
-"2026-10-30",
-"b1992f1db135868a83c0"
+"2026-10-31",
+"67e8180a07ebbb81f58d"
 ],
 "portugal-d8-digital-nomad-visa/": [
-"2026-10-30",
-"ed4a434adeda6d30b44b"
+"2026-10-31",
+"9ac63510e952cb8ec75c"
 ],
 "privacy.html": [
-"2026-10-30",
-"15b2aad8ede7fee9be06"
+"2026-10-31",
+"f5aebc3bec94fa53b24d"
 ],
 "spain-digital-nomad-visa/": [
-"2026-10-30",
-"0e339cfcc2e256bdbd59"
+"2026-10-31",
+"04fc8ec3c9dfdda63c7a"
 ],
 "spain-non-lucrative-visa/": [
-"2026-10-30",
-"af6f37d33473ff710e58"
+"2026-10-31",
+"5250c618129cf1da17a2"
 ],
 "sweden-eu-blue-card/": [
-"2026-10-30",
-"6204265f82853671b8df"
+"2026-10-31",
+"52b77c89ad3b03e99cf3"
 ],
 "thailand-dtv-visa/": [
-"2026-10-30",
-"014a59227d1bbd4babb8"
+"2026-10-31",
+"178acf2418974e30c862"
 ],
 "thailand-dtv-visa/bucharest/": [
-"2026-10-30",
-"2aa642e705c7b93f5e59"
+"2026-10-31",
+"3421d3a57b65b64ab2f7"
 ],
 "thailand-dtv-visa/chicago/": [
-"2026-10-30",
-"7c590681b43fba766904"
+"2026-10-31",
+"545ba05823026ea1e716"
 ],
 "thailand-dtv-visa/ho-chi-minh-city/": [
-"2026-10-30",
-"193116f7a040aa56deac"
+"2026-10-31",
+"49aee73668d4dd5ff25b"
 ],
 "thailand-dtv-visa/hong-kong/": [
-"2026-10-30",
-"f1f26989e5d48284d728"
+"2026-10-31",
+"a2245992d072926edaf7"
 ],
 "thailand-dtv-visa/kuala-lumpur/": [
-"2026-10-30",
-"f54b8bc3de11e8c30b08"
+"2026-10-31",
+"e66a9ea7ea400f874f5f"
 ],
 "thailand-dtv-visa/london/": [
-"2026-10-30",
-"39369374ed452d9ab854"
+"2026-10-31",
+"790e98743895d8fd183c"
 ],
 "thailand-dtv-visa/los-angeles/": [
-"2026-10-30",
-"dcffdc73d0ee0e530825"
+"2026-10-31",
+"a0218f67b73447293fa4"
 ],
 "thailand-dtv-visa/madrid/": [
-"2026-10-30",
-"c9f8f6c18d5de693eea6"
+"2026-10-31",
+"c57e3e780ac89149ef92"
 ],
 "thailand-dtv-visa/moscow/": [
-"2026-10-30",
-"ce3fb780e98e13074837"
+"2026-10-31",
+"a10d93a37e1a4ce3721c"
 ],
 "thailand-dtv-visa/new-delhi/": [
-"2026-10-30",
-"2a178d88e61f80c732d1"
+"2026-10-31",
+"c6a6985540707ab3f2ff"
 ],
 "thailand-dtv-visa/rome/": [
-"2026-10-30",
-"962486ed7f0a86395f4b"
+"2026-10-31",
+"00ad0bcf6674a38ee6f2"
 ],
 "thailand-dtv-visa/singapore/": [
-"2026-10-30",
-"e25bdc3be12e676f09f8"
+"2026-10-31",
+"a35438bb726819ef928f"
 ],
 "thailand-dtv-visa/vientiane/": [
-"2026-10-30",
-"2a61c6f22fc98beeae97"
+"2026-10-31",
+"30222382d2e367ae33c0"
 ],
 "thailand-dtv-visa/warsaw/": [
-"2026-10-30",
-"724de56b9df88db8ad1c"
+"2026-10-31",
+"ebb4981ee6831eab90b6"
 ],
 "thailand-dtv-visa/washington-dc/": [
-"2026-10-30",
-"f82e664d13cde3bed01b"
+"2026-10-31",
+"7547a476d7c3ad716685"
 ],
 "thailand-dtv-visa/yangon/": [
-"2026-10-30",
-"e412d5f27bbc3c302e03"
+"2026-10-31",
+"f93958850e03f49446e7"
 ],
 "uk-english-test/": [
 "2026-10-30",
@@ -1430,12 +1482,12 @@
 "5f1a23a5f96ba5a154df"
 ],
 "uk-skilled-worker-visa/": [
-"2026-10-30",
-"3ddb7b3ac32b3c5d0998"
+"2026-10-31",
+"2d4bc7830c96ddca4ac0"
 ],
 "uk-spouse-visa/": [
-"2026-10-30",
-"d1f5743a3f3ee7e0642d"
+"2026-10-31",
+"6b5de4684666e496f23d"
 ],
 "us-opt/": [
 "2026-10-30",
@@ -2078,8 +2130,8 @@
 "b0fcb97a7a208381b65e"
 ],
 "work-visa-salary-thresholds/": [
-"2026-10-14",
-"9248b050cb9f81f1a8d4"
+"2026-10-31",
+"b4e5139cbdfe0951205a"
 ]
 }
 }
