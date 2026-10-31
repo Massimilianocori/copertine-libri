@@ -1,0 +1,1116 @@
+{
+ "_nota": "Regole sulla patente straniera in Canada, Australia e Nuova Zelanda, scritte a mano il 31/10/2026 dalle pagine ufficiali (citazioni parola per parola, campo 'f' = fonte in raccolta/patente_straniera.py). 'visitatori', 'residenti', 'idp', 'uk_breve', 'us_breve' e 'risposta' sono parole nostre (verifica.py, punto 23: nessun numero che non stia in una citazione). 'letta': false = pagina ufficiale che non si è aperta dal server (campo 'bloccata'): nessuna regola, nessuna pagina propria.",
+ "scritto_il": "2026-10-31",
+ "giurisdizioni": [
+  {
+   "id": "on",
+   "paese": "CA",
+   "nome": "Ontario",
+   "slug": "ontario",
+   "tipo": "province",
+   "letta": true,
+   "chi": "the Ontario Ministry of Transportation",
+   "visitatori": "No time limit stated; an IDP is needed if you visit for more than 3 months",
+   "residenti": "60 days, then an Ontario licence",
+   "idp": "IDP needed for visits of more than 3 months; certified translation to exchange a licence not in English or French",
+   "uk": "si",
+   "uk_breve": "Yes (Great Britain and Northern Ireland are on the list)",
+   "uk_cit": "on5",
+   "us": "si",
+   "us_breve": "Yes (U.S. states, not U.S. territories)",
+   "us_cit": "on5",
+   "risposta": "visitors need a valid licence from home and an international driver’s permit if they visit Ontario for more than 3 months, and new residents can use their licence for 60 days before they need an Ontario licence.",
+   "citazioni": [
+    {
+     "id": "on1",
+     "f": "on_hb",
+     "tema": "visitatori",
+     "x": "Visitors to Ontario: must be at least 16 years old must have a valid driver’s licence from your home province, state or country must have an international driver’s permit from your own country if visiting Ontario for more than 3 months are not eligible for an Ontario driver’s licence"
+    },
+    {
+     "id": "on2",
+     "f": "on_hb",
+     "tema": "residenti",
+     "x": "If you have just become an Ontario resident, you have 60 days to continue to use your existing driver’s licence and apply for an Ontario driver’s licence."
+    },
+    {
+     "id": "on3",
+     "f": "on_x",
+     "tema": "residenti",
+     "x": "When you move to Ontario, you can use a valid licence from another province, state or country for 60 days. After 60 days, you need to switch to an Ontario driver’s licence."
+    },
+    {
+     "id": "on4",
+     "f": "on_x",
+     "tema": "idp",
+     "x": "An out-of-province or foreign driver’s licence needs to: be valid display a visible expiry date be written in either English or French. If it is not, you need to get it translated by a certified translator."
+    },
+    {
+     "id": "on5",
+     "f": "on_x",
+     "tema": "scambio",
+     "x": "You can exchange an out-of-province licence for an Ontario licence, if you are re-locating from: any Canadian province or territory Canadian Armed Forces U.S. States (does not include U.S. protectorates or U.S. territories) Australia, Austria, Belgium, Croatia, France, Germany, Great Britain, Hungary, Denmark, the Isle of Man, Japan, South Korea, Kosovo, New Zealand, Northern Ireland, Republic of Ireland, Switzerland, Taiwan or Ukraine"
+    },
+    {
+     "id": "on6",
+     "f": "on_x",
+     "tema": "scambio",
+     "x": "If your existing licence is from a jurisdiction that does not have a driver’s licence exchange agreement with Ontario you will need to: successfully complete the vision test, knowledge test and G2 road test wait at least 12 months before attempting the G road test successfully complete the G road test"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Can I drive in Ontario with a UK licence?",
+     "query": "can i drive in ontario with a uk licence",
+     "pre": "As a visitor, yes, with a valid licence. The Ontario Driver’s Handbook lists what visitors need:",
+     "cit": [
+      "on1"
+     ],
+     "post": "If you move to Ontario, Great Britain and Northern Ireland are on Ontario’s licence exchange list."
+    },
+    {
+     "q": "Can I drive in Ontario with a foreign licence after I move there?",
+     "query": "can i drive in ontario with a foreign license",
+     "pre": "",
+     "cit": [
+      "on3"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do I need an international driving permit in Ontario?",
+     "query": "international driving permit canada ontario",
+     "pre": "Only for longer visits, according to the Ontario Driver’s Handbook:",
+     "cit": [
+      "on1"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "bc",
+   "paese": "CA",
+   "nome": "British Columbia",
+   "slug": "british-columbia",
+   "tipo": "province",
+   "letta": true,
+   "chi": "ICBC, the Insurance Corporation of British Columbia",
+   "visitatori": "Up to six months as a tourist",
+   "residenti": "90 days, then a B.C. licence",
+   "idp": "Translation by an ICBC-approved translator when ICBC asks for one (licence exchange)",
+   "uk": "si",
+   "uk_breve": "Yes, no knowledge test (United Kingdom is on the list)",
+   "uk_cit": "bc5",
+   "us": "si",
+   "us_breve": "Yes, for most US states",
+   "us_cit": "bc4",
+   "risposta": "you can keep driving on your current licence while you are visiting as a tourist for up to six months, and new residents have 90 days to switch to a B.C. licence.",
+   "citazioni": [
+    {
+     "id": "bc1",
+     "f": "bc_icbc",
+     "tema": "residenti",
+     "x": "After moving here, you have 90 days to switch your valid licence to a B.C. driver’s licence."
+    },
+    {
+     "id": "bc2",
+     "f": "bc_icbc",
+     "tema": "visitatori",
+     "x": "The 90-day rule does not apply and you may continue to drive on your current licence if you: Are visiting as a tourist for up to six months"
+    },
+    {
+     "id": "bc3",
+     "f": "bc_icbc",
+     "tema": "idp",
+     "x": "Translations are requested at ICBC’s discretion and must be done by an ICBC-approved translator."
+    },
+    {
+     "id": "bc4",
+     "f": "bc_icbc",
+     "tema": "scambio",
+     "x": "B.C. waives knowledge and road testing with every Canadian province and territory as well as waiving testing for passenger and motorcycle licences with most US states. B.C. will also waive knowledge testing for those exchanging passenger driver's licences and most motorcycle driver's licences from the following jurisdictions:"
+    },
+    {
+     "id": "bc5",
+     "f": "bc_icbc",
+     "tema": "scambio",
+     "x": "United Kingdom (includes England, Wales, Scotland and Northern Ireland)"
+    },
+    {
+     "id": "bc6",
+     "f": "bc_icbc",
+     "tema": "scambio",
+     "x": "United States (includes Washington DC and Puerto Rico)"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Can I drive in B.C. with a foreign licence?",
+     "query": "can i drive in bc with a foreign license",
+     "pre": "As a tourist, yes. ICBC says:",
+     "cit": [
+      "bc2"
+     ],
+     "post": "If you move to British Columbia, the 90-day rule applies instead."
+    },
+    {
+     "q": "Can I drive in B.C. with a UK licence?",
+     "query": "can i drive in bc with a uk license",
+     "pre": "As a tourist, yes:",
+     "cit": [
+      "bc2",
+      "bc5"
+     ],
+     "post": "is on ICBC’s list of licences that can be exchanged without a knowledge test if you move there."
+    }
+   ]
+  },
+  {
+   "id": "qc",
+   "paese": "CA",
+   "nome": "Québec",
+   "slug": "quebec",
+   "tipo": "province",
+   "letta": true,
+   "chi": "Québec’s Highway Safety Code, as published on LegisQuébec",
+   "visitatori": "Up to six consecutive months (with conditions)",
+   "residenti": "Six months after settling in Québec",
+   "idp": "An IDP holder may drive while the IDP is valid (section 88); the SAAQ page on translations did not open",
+   "uk": "non_detto",
+   "uk_breve": "Not listed in the law we read (exchange depends on an agreement or on checking the licence)",
+   "uk_cit": "qc4",
+   "us": "non_detto",
+   "us_breve": "Not listed in the law we read",
+   "us_cit": "qc4",
+   "fonte_non_letta": "qc_saaq",
+   "risposta": "a non-resident may drive for a period of not over six consecutive months with a valid licence that meets the Code’s conditions, and a person who settles in Québec may drive a passenger vehicle during the six months after settling.",
+   "nota": "The SAAQ pages (saaq.gouv.qc.ca) did not open for our check: the site answered with an anti-robot page. We quote the law itself instead; the SAAQ applies it and may add practical conditions.",
+   "citazioni": [
+    {
+     "id": "qc1",
+     "f": "qc_csr",
+     "tema": "visitatori",
+     "x": "85. A non-resident may drive a road vehicle for a period of not over six consecutive months without holding a licence issued by the Société if he meets the following requirements: (1) he holds a valid driver’s licence issued by another administrative authority which grants the same right to residents of Québec; (2) the driver’s licence issued by that other administrative authority authorizes him to drive a vehicle of the class of vehicles he drives in Québec; (3) he respects the conditions attached to the driver’s licence he holds; (4) his right to obtain a licence or a class of licence issued by the Société has not been suspended."
+    },
+    {
+     "id": "qc2",
+     "f": "qc_csr",
+     "tema": "idp",
+     "x": "88. Notwithstanding sections 85 and 86, a non-resident holding an International Driver’s Permit may, while it is valid, drive the road vehicles he is authorized to drive by the licence on the basis of which the International Driver’s Permit was issued to him."
+    },
+    {
+     "id": "qc3",
+     "f": "qc_csr",
+     "tema": "residenti",
+     "x": "89. A person holding a valid driver’s licence issued by another administrative authority may, during the six months after settling in Québec, drive a passenger vehicle in Québec without obtaining a licence from the Société."
+    },
+    {
+     "id": "qc4",
+     "f": "qc_csr",
+     "tema": "scambio",
+     "x": "Any person holding a valid driver’s licence for the operation of a passenger vehicle issued outside Canada who settles in Québec may on request, if the administrative authority concerned has entered into a licence exchange agreement pursuant to section 629, exchange that licence, without undergoing a proficiency examination, for an equivalent driver’s licence issued by the Société."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Can I drive in Québec with an international licence?",
+     "query": "can i drive in quebec with international license",
+     "pre": "Section 88 of the Highway Safety Code covers holders of an International Driver’s Permit:",
+     "cit": [
+      "qc2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can I drive in Québec with a US licence?",
+     "query": "can i drive in quebec with a us license",
+     "pre": "As a visitor, the Highway Safety Code allows it under conditions:",
+     "cit": [
+      "qc1"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "ab",
+   "paese": "CA",
+   "nome": "Alberta",
+   "slug": "alberta",
+   "tipo": "province",
+   "letta": true,
+   "chi": "the Government of Alberta",
+   "visitatori": "Up to one year",
+   "residenti": "90 days, then an Alberta licence",
+   "idp": "IDP strongly recommended if your licence is not in English; carry it with your licence",
+   "uk": "si",
+   "uk_breve": "Yes (England, Scotland and Wales: Class 5; Northern Ireland: Class 5 and 6)",
+   "uk_cit": "ab5",
+   "us": "si",
+   "us_breve": "Yes (class 5, 6 or 7)",
+   "us_cit": "ab6",
+   "risposta": "visitors can drive on a valid licence from home for up to one year, and people who move to Alberta must exchange their licence within 90 days.",
+   "citazioni": [
+    {
+     "id": "ab1",
+     "f": "ab_x",
+     "tema": "visitatori",
+     "x": "Visitors from another jurisdiction can drive the same type or Class (1, 2, 3, 4, 5, 6 or 7) of motor vehicle in Alberta on a valid driver’s licence from their home jurisdiction for up to one year."
+    },
+    {
+     "id": "ab2",
+     "f": "ab_x",
+     "tema": "idp",
+     "x": "If your licence is not in English, it is strongly recommended that you carry an International Driver’s Permit (IDP) from your home jurisdiction, as it translates what your home jurisdiction driver’s licence allows you to drive. You must carry both the IDP and your valid licence from your home jurisdiction when driving in Alberta."
+    },
+    {
+     "id": "ab3",
+     "f": "ab_x",
+     "tema": "residenti",
+     "x": "If you are living in Alberta permanently, you must exchange your current driver’s licence within 90 days of becoming a resident."
+    },
+    {
+     "id": "ab4",
+     "f": "ab_x",
+     "tema": "residenti",
+     "x": "This applies even if you travel outside Alberta during those 90 days."
+    },
+    {
+     "id": "ab5",
+     "f": "ab_x",
+     "tema": "scambio",
+     "x": "United Kingdom (Northern Ireland – Class 5 and 6) United Kingdom (England, Scotland and Wales – Class 5)"
+    },
+    {
+     "id": "ab6",
+     "f": "ab_x",
+     "tema": "scambio",
+     "x": "Licence holders from the United States, can exchange their class 5, 6 or 7 without additional testing requirements."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Can I drive in Alberta with a foreign licence?",
+     "query": "can i drive in alberta with a foreign license",
+     "pre": "As a visitor, yes:",
+     "cit": [
+      "ab1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can I drive in Alberta with a UK licence?",
+     "query": "can i drive in alberta with a uk license",
+     "pre": "As a visitor, yes:",
+     "cit": [
+      "ab1",
+      "ab5"
+     ],
+     "post": "If you move there, these UK licences are on Alberta’s exchange list."
+    }
+   ]
+  },
+  {
+   "id": "mb",
+   "paese": "CA",
+   "nome": "Manitoba",
+   "slug": "manitoba",
+   "tipo": "province",
+   "letta": true,
+   "chi": "Manitoba Public Insurance (MPI)",
+   "visitatori": "Not stated on the page we read (it covers people moving to Manitoba)",
+   "residenti": "Up to three months, then a Manitoba licence",
+   "idp": "Translation needed to exchange a licence not in English or French",
+   "uk": "non_detto",
+   "uk_breve": "Not stated on the page we read (MPI keeps the list on a separate page)",
+   "uk_cit": "mb3",
+   "us": "non_detto",
+   "us_breve": "Not stated on the page we read",
+   "us_cit": "mb3",
+   "risposta": "people who are new to Manitoba can use their current licence for up to three months, and after three months most people need a Manitoba licence; the page does not give a separate rule for tourists.",
+   "citazioni": [
+    {
+     "id": "mb1",
+     "f": "mb_new",
+     "tema": "residenti",
+     "x": "You can use your current driver’s licence for up to three months, as long as it’s valid and similar to a Class 5 or 6 licence. After three months, most people need to get a Manitoba driver’s licence."
+    },
+    {
+     "id": "mb2",
+     "f": "mb_new",
+     "tema": "residenti",
+     "x": "Section D: Valid driver’s licence from another country Most people must get a Manitoba driver’s licence within three months."
+    },
+    {
+     "id": "mb3",
+     "f": "mb_new",
+     "tema": "scambio",
+     "x": "Some countries have reciprocal or other recognized licence exchange arrangements with Manitoba. It means you are eligible for a simplified driver’s licence exchange where you can get an equivalent Manitoba licence without taking a knowledge or road test."
+    },
+    {
+     "id": "mb4",
+     "f": "mb_new",
+     "tema": "idp",
+     "x": "Your licence will need to be translated if it is not in English or French."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Can I drive in Manitoba with an Indian licence?",
+     "query": "can we drive in manitoba with indian license",
+     "pre": "The MPI page we read is for people moving to Manitoba and does not name countries. For a licence from another country it says:",
+     "cit": [
+      "mb2"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "sk",
+   "paese": "CA",
+   "nome": "Saskatchewan",
+   "slug": "saskatchewan",
+   "tipo": "province",
+   "letta": true,
+   "chi": "SGI, Saskatchewan Government Insurance",
+   "visitatori": "Allowed, with the same privileges as at home (no time limit stated)",
+   "residenti": "90 days after moving",
+   "idp": "A licence not in English or French needs a translation document acceptable to SGI, such as an IDP (licence exchange)",
+   "uk": "si",
+   "uk_breve": "Yes (the United Kingdom is on the list)",
+   "uk_cit": "sk3",
+   "us": "si",
+   "us_breve": "Yes (the United States is on the list)",
+   "us_cit": "sk3",
+   "risposta": "a visitor’s existing licence gives the same privileges it does at home, except Class 1 (semis), and new residents may drive on their licence for 90 days after moving.",
+   "citazioni": [
+    {
+     "id": "sk1",
+     "f": "sk_dl",
+     "tema": "visitatori",
+     "x": "If you're a visitor or temporary foreign worker, your existing licence gives you all of the same privileges it does in your home province, territory or state exluding Class 1 vehicles (semis)."
+    },
+    {
+     "id": "sk2",
+     "f": "sk_prog",
+     "tema": "residenti",
+     "x": "New residents may drive with their valid out-of-province driver's licence for 90 days after moving to Saskatchewan."
+    },
+    {
+     "id": "sk3",
+     "f": "sk_prog",
+     "tema": "scambio",
+     "x": "Licences may be honoured from Australia, Austria, Belgium, Bulgaria, Croatia, Cyprus, Czechia (Czech Republic), Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Isle of Man, Italy, Japan, Jersey, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, New Zealand, Norway, Poland, Portugal, Republic of Ireland, Romania, Slovakia, Slovenia, South Korea (including the provinces of Gangwon-do, Gyeonggi-do, Seoul Chungcheongbuk-do, Chungcheongnam-do, Gyeonsangbuk-do, Jeollabuk-do, and Jeollanam-do), Spain, Sweden, Switzerland, Taiwan, Ukraine, the United Kingdom, and the United States"
+    },
+    {
+     "id": "sk4",
+     "f": "sk_prog",
+     "tema": "idp",
+     "x": "a valid licence in another language accompanied by a translation document acceptable to SGI (i.e. International Driving Permit)."
+    }
+   ],
+   "faq": []
+  },
+  {
+   "id": "ns",
+   "paese": "CA",
+   "nome": "Nova Scotia",
+   "slug": "nova-scotia",
+   "tipo": "province",
+   "letta": true,
+   "chi": "the Government of Nova Scotia",
+   "visitatori": "90 or 180 days: two government pages disagree, so plan on 90",
+   "residenti": "180 days to exchange on one government page, 90 days on another, so plan on 90",
+   "idp": "Certified translation to exchange a licence not in English or French; an IDP does not count as that translation",
+   "uk": "si",
+   "uk_breve": "Yes (United Kingdom of Great Britain and Northern Ireland is listed)",
+   "uk_cit": "ns5",
+   "us": "si",
+   "us_breve": "Yes, usually with no testing",
+   "us_cit": "ns4",
+   "risposta": "two government pages disagree: the licence exchange page says a temporary visitor can drive for up to 180 days and new residents have 180 days to exchange their licence, but the Service Nova Scotia driver’s licence page says 90 days for visitors and for new residents in one paragraph (and 180 days in another), so plan on 90 days unless the Registry of Motor Vehicles confirms the longer period.",
+   "citazioni": [
+    {
+     "id": "ns1",
+     "f": "ns_x",
+     "tema": "visitatori",
+     "x": "If you are a temporary visitor to Nova Scotia, you can drive in the province for a period of up to 180 days* without exchanging your driver's licence if: you are at least 16 years old, and you have a valid (not suspended or expired) driver's licence"
+    },
+    {
+     "id": "ns2",
+     "f": "ns_x",
+     "tema": "residenti",
+     "x": "You can exchange your out-of-province driver's licence when you become a resident of Nova Scotia. You will have 180 days from the day you become a resident to exchange your licence."
+    },
+    {
+     "id": "ns3",
+     "f": "ns_x",
+     "tema": "idp",
+     "x": "If your driver's licence is printed in a language other than English or French, you need to provide a certified translation when applying for an exchange."
+    },
+    {
+     "id": "ns3b",
+     "f": "ns_x",
+     "tema": "idp",
+     "x": "An International Driving Permit cannot be used as a translation for driver's licence exchange."
+    },
+    {
+     "id": "ns4",
+     "f": "ns_x",
+     "tema": "scambio",
+     "x": "If you are moving from another Canadian province or territory or US state to Nova Scotia, you can exchange your current valid driver's licence for a Nova Scotia driver's licence of the same class, usually with no testing required."
+    },
+    {
+     "id": "ns5",
+     "f": "ns_x",
+     "tema": "scambio",
+     "x": "United Kingdom of Great Britain and Northern Ireland Class B (or Group A issues before 1 April 1990)"
+    },
+    {
+     "id": "ns6",
+     "f": "ns_paal",
+     "tema": "visitatori",
+     "x": "Visitors: If you are a visitor to Nova Scotia and (a) you are at least 16, and (b) you already have a valid driver's licence from another part of Canada (or from another country), you can drive in Nova Scotia for up to 90 days without getting a Nova Scotia Driver's Licence."
+    },
+    {
+     "id": "ns7",
+     "f": "ns_paal",
+     "tema": "visitatori",
+     "x": "Visitors or Newcomers who have a valid driver's licence from another part of Canada, or from another country, can drive in Nova Scotia for up to 180 days without getting a Nova Scotia Driver's Licence."
+    },
+    {
+     "id": "ns8",
+     "f": "ns_paal",
+     "tema": "residenti",
+     "x": "New residents: You need to get a Nova Scotia driver's licence within 90 days of becoming a resident."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Can I drive in Nova Scotia with a US licence?",
+     "query": "can i drive in nova scotia with us license",
+     "pre": "As a temporary visitor, yes, but two Government of Nova Scotia pages give different limits:",
+     "cit": [
+      "ns1",
+      "ns6"
+     ],
+     "post": "Plan on 90 days unless the Registry of Motor Vehicles confirms the longer period. If you move there, a licence from a US state can usually be exchanged with no testing."
+    },
+    {
+     "q": "Can I drive in Nova Scotia with an Indian licence?",
+     "query": "can i drive in nova scotia with indian license",
+     "pre": "The visitor rule does not name countries, but two Government of Nova Scotia pages give different limits:",
+     "cit": [
+      "ns1",
+      "ns6"
+     ],
+     "post": "Plan on 90 days unless the Registry of Motor Vehicles confirms the longer period."
+    }
+   ]
+  },
+  {
+   "id": "nb",
+   "paese": "CA",
+   "nome": "New Brunswick",
+   "slug": "new-brunswick",
+   "tipo": "province",
+   "letta": true,
+   "chi": "the Government of New Brunswick",
+   "visitatori": "Not stated for tourists; work or study permit holders may drive on their home licence for up to 6 months",
+   "residenti": "A New Brunswick licence as soon as you take up residence",
+   "idp": "Official translation (agency or international driver’s licence) for a licence not in English or French (exchange)",
+   "uk": "si",
+   "uk_breve": "Yes for England, Scotland and Wales (Northern Ireland is not named)",
+   "uk_cit": "nb4",
+   "us": "si",
+   "us_breve": "Yes, class for class, without a driver’s test",
+   "us_cit": "nb3",
+   "risposta": "a person licensed elsewhere who takes up residence in New Brunswick must get a New Brunswick licence as soon as they take up residence, and temporary residents with a work or study permit may drive on their home licence for up to 6 months from the day they land in Canada; the page does not give a rule for tourists.",
+   "citazioni": [
+    {
+     "id": "nb1",
+     "f": "nb_new",
+     "tema": "residenti",
+     "x": "An individual licensed in another jurisdiction and taking up residence in New Brunswick must obtain a New Brunswick driver's licence as soon as they take up residence."
+    },
+    {
+     "id": "nb2",
+     "f": "nb_new",
+     "tema": "visitatori",
+     "x": "Temporary residents, defined as foreign nationals who possess a work or study permit valid for more than 6 months, can apply for a NB drivers' licence as long as they are able to present the documentation above. However, they may choose to drive on their valid home country licence for up to 6 months from the day they land in Canada."
+    },
+    {
+     "id": "nb3",
+     "f": "nb_new",
+     "tema": "scambio",
+     "x": "Drivers from Canadian provinces or the United States may exchange their licence class for class, including Class 7, without taking any driver’s test or submitting a medical, provided:"
+    },
+    {
+     "id": "nb4",
+     "f": "nb_new",
+     "tema": "scambio",
+     "x": "Austria, Australia, Belgium, Denmark, England, France, Germany, Isle of Man, Ireland, Italy, Japan, Netherlands (Holland), New Zealand, Norway, Portugal, Scotland, Republic of Korea (South Korea), Spain, Sweden, Switzerland, Taiwan*, Ukraine* and Wales."
+    },
+    {
+     "id": "nb5",
+     "f": "nb_new",
+     "tema": "idp",
+     "x": "an official translation of the driver’s licence (from a translation agency or an international driver’s licence), if not already in English or French"
+    }
+   ],
+   "faq": [
+    {
+     "q": "How long can I drive in New Brunswick with a foreign licence?",
+     "query": "how long can i drive in new brunswick with a foreign license",
+     "pre": "It depends on why you are there. The Government of New Brunswick says:",
+     "cit": [
+      "nb1",
+      "nb2"
+     ],
+     "post": "The page does not give a time limit for tourists."
+    }
+   ]
+  },
+  {
+   "id": "nl",
+   "paese": "CA",
+   "nome": "Newfoundland and Labrador",
+   "slug": "newfoundland-and-labrador",
+   "tipo": "province",
+   "letta": true,
+   "chi": "the Motor Registration Division of the Government of Newfoundland and Labrador",
+   "visitatori": "Not stated on the pages we read",
+   "residenti": "Exchange within three months of becoming a resident",
+   "idp": "English translation required for a licence not in English or French",
+   "uk": "si",
+   "uk_breve": "Yes (United Kingdom and Northern Ireland are on the list)",
+   "uk_cit": "nl3",
+   "us": "si",
+   "us_breve": "Yes, without a written, vision or road test",
+   "us_cit": "nl4",
+   "risposta": "new residents must exchange their licence for a Newfoundland and Labrador licence within three months of becoming a resident; the pages we read do not give a rule for tourists.",
+   "citazioni": [
+    {
+     "id": "nl1",
+     "f": "nl_app",
+     "tema": "residenti",
+     "x": "New Residents You must exchange your existing driver’s licence to a Newfoundland and Labrador driver’s licence within three months of becoming a resident."
+    },
+    {
+     "id": "nl2",
+     "f": "nl_tr",
+     "tema": "idp",
+     "x": "If your driver’s licence is in any language other than English or French, an English translation of the licence is required."
+    },
+    {
+     "id": "nl3",
+     "f": "nl_app",
+     "tema": "scambio",
+     "x": "Countries with Reciprocity Agreements The Province of Newfoundland and Labrador allow for exchange of the class of licence as indicated: Class 5 (Passenger Vehicle /Light Trucks) Only Class 5 (Passenger Vehicle /Light Trucks) & Class 6 (Motorcycle) Germany Austria Switzerland United Kingdom Republic of Korea Ukraine Denmark France Isle of Man Northern Ireland Ireland Japan Taiwan Belgium"
+    },
+    {
+     "id": "nl4",
+     "f": "nl_app",
+     "tema": "scambio",
+     "x": "United States People taking up residence from the United States can exchange their existing licence for a Newfoundland and Labrador driver’s licence without taking a written, vision or road test."
+    }
+   ],
+   "faq": []
+  },
+  {
+   "id": "nt",
+   "paese": "CA",
+   "nome": "Northwest Territories",
+   "slug": "northwest-territories",
+   "tipo": "territory",
+   "letta": true,
+   "chi": "the Government of the Northwest Territories",
+   "visitatori": "Not stated for tourists; foreign nationals living there need their licence and an IDP",
+   "residenti": "No time limit stated on the page we read",
+   "idp": "IDP needed together with the foreign licence (IDPs are valid for 12 months)",
+   "uk": "non_detto",
+   "uk_breve": "Not stated on the page we read (it says only “if your country is eligible”)",
+   "uk_cit": "nt2",
+   "us": "non_detto",
+   "us_breve": "Not stated on the page we read",
+   "us_cit": "nt2",
+   "risposta": "a foreign national living in the NWT can drive legally with a valid licence from another country and an International Driving Permit, and IDPs are valid for 12 months; the page does not give a separate rule for tourists.",
+   "citazioni": [
+    {
+     "id": "nt1",
+     "f": "nt_fn",
+     "tema": "idp",
+     "x": "If you are a foreign national living in the NWT, you can drive legally if you have: a valid driver’s licence from a different country; and, an International Driving Permit (IDP). IDPs are valid for 12 months and are equal to an NWT Class 5 driver’s licence."
+    },
+    {
+     "id": "nt2",
+     "f": "nt_fn",
+     "tema": "scambio",
+     "x": "If you are applying for a driver’s licence in Canada for the first time, you may be able to transfer your international driver’s licence to an NWT driver’s licence if your country is eligible."
+    }
+   ],
+   "faq": []
+  },
+  {
+   "id": "pe",
+   "paese": "CA",
+   "nome": "Prince Edward Island",
+   "slug": "prince-edward-island",
+   "tipo": "province",
+   "letta": false,
+   "bloccata": "pe",
+   "citazioni": [],
+   "faq": []
+  },
+  {
+   "id": "yt",
+   "paese": "CA",
+   "nome": "Yukon",
+   "slug": "yukon",
+   "tipo": "territory",
+   "letta": false,
+   "bloccata": "yt",
+   "citazioni": [],
+   "faq": []
+  },
+  {
+   "id": "nu",
+   "paese": "CA",
+   "nome": "Nunavut",
+   "slug": "nunavut",
+   "tipo": "territory",
+   "letta": false,
+   "bloccata": "nu",
+   "citazioni": [],
+   "faq": []
+  },
+  {
+   "id": "nsw",
+   "paese": "AU",
+   "nome": "New South Wales",
+   "slug": "new-south-wales",
+   "tipo": "state",
+   "letta": true,
+   "chi": "the NSW Government",
+   "visitatori": "Up to six months as a tourist or temporary overseas visitor",
+   "residenti": "Permanent residents: up to three months from arrival in Australia",
+   "idp": "Licence not in English: carry an English translation or an IDP",
+   "uk": "si",
+   "uk_breve": "Yes, no knowledge or driving test (United Kingdom is listed)",
+   "uk_cit": "nsw5",
+   "us": "si",
+   "us_breve": "Yes, any state (United States of America is listed)",
+   "us_cit": "nsw5",
+   "risposta": "tourists and temporary overseas visitors can drive on their overseas licence for up to six months, and permanent residents for up to three months from the date they arrive in Australia.",
+   "citazioni": [
+    {
+     "id": "nsw1",
+     "f": "nsw_v",
+     "tema": "visitatori",
+     "x": "If you're a tourist or temporary overseas visitor, you can drive in NSW using your overseas licence for up to six months as long as you: remain a temporary overseas visitor have a current overseas licence have not been disqualified from driving in NSW or anywhere else have not had your licence suspended or cancelled, or your visiting driving privileges withdrawn carry your overseas driver or rider licence with you."
+    },
+    {
+     "id": "nsw2",
+     "f": "nsw_v",
+     "tema": "idp",
+     "x": "If your licence is not written in English, you must also carry an English translation, or an International Driving Permit. This is issued by the motoring association or embassy of the country that you are licensed to drive in."
+    },
+    {
+     "id": "nsw3",
+     "f": "nsw_v",
+     "tema": "visitatori",
+     "x": "If you’re a temporary overseas visitor who arrived in NSW on or after 1 July 2023 and intend to reside in NSW for longer than six months, you will need to obtain a NSW driver’s licence within six months if you wish to continue to drive."
+    },
+    {
+     "id": "nsw4",
+     "f": "nsw_v",
+     "tema": "residenti",
+     "x": "If you’re a permanent resident of Australia under the Commonwealth Migration Act 1958, you can drive or ride on NSW roads using a current overseas licence. You're allowed to do this for up to three months from the date you arrive in Australia. If you plan to continue driving on NSW roads, you must get a NSW licence within this three month period."
+    },
+    {
+     "id": "nsw5",
+     "f": "nsw_x",
+     "tema": "scambio",
+     "x": "You do not have to pass knowledge or driving tests for a NSW car (class C) or rider (class R) licence if your current licence comes from a licensing authority in one of the following places: Austria Belgium Bosnia and Herzegovina Canada (any state) Croatia Denmark Finland France Germany Greece Guernsey Ireland Isle of Man (licences issued since 1 April 1991) Italy Japan Jersey Luxembourg Malta (licences issued or renewed since 2 January 2004) Netherlands New Zealand (except for paper licences) Norway Portugal Singapore Spain Sweden Switzerland United Kingdom United States of America (any state)."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Can I drive in NSW with an overseas licence?",
+     "query": "can i drive in nsw with overseas licence",
+     "pre": "",
+     "cit": [
+      "nsw1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can I drive in NSW with a UK licence?",
+     "query": "can i drive in nsw with a uk licence",
+     "pre": "As a tourist, yes, for a limited time:",
+     "cit": [
+      "nsw1"
+     ],
+     "post": "If you become a permanent resident, the United Kingdom is on the NSW list of recognised countries."
+    },
+    {
+     "q": "How long can you drive on an overseas licence in NSW?",
+     "query": "how long can you drive on an overseas licence in australia nsw",
+     "pre": "",
+     "cit": [
+      "nsw1",
+      "nsw4"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "qld",
+   "paese": "AU",
+   "nome": "Queensland",
+   "slug": "queensland",
+   "tipo": "state",
+   "letta": true,
+   "chi": "the Queensland Government",
+   "visitatori": "Allowed on a valid overseas licence (no time limit stated)",
+   "residenti": "Resident visa holders: a Queensland licence after 3 months living in Queensland",
+   "idp": "Licence not in English: carry a recognised English translation (NAATI)",
+   "uk": "si",
+   "uk_breve": "Recognised country (the page names the United Kingdom as an example)",
+   "uk_cit": "qld4",
+   "us": "non_detto",
+   "us_breve": "Not stated on the pages we read",
+   "us_cit": "qld4",
+   "risposta": "visitors can drive with a valid overseas licence, while people with a resident visa must get a Queensland licence once they have been living in Queensland for 3 months; temporary visas do not count as resident visas.",
+   "citazioni": [
+    {
+     "id": "qld1",
+     "f": "qld_v",
+     "tema": "visitatori",
+     "x": "If you're visiting Queensland, you can drive if you have a valid interstate or overseas licence. If you move to Queensland, you will have to transfer your licence to a Queensland licence."
+    },
+    {
+     "id": "qld2",
+     "f": "qld_v",
+     "tema": "residenti",
+     "x": "are not an Australian citizen, but you were given a resident visa before you moved to Queensland and you've been living in Queensland for 3 months"
+    },
+    {
+     "id": "qld3",
+     "f": "qld_v",
+     "tema": "residenti",
+     "x": "A resident visa is a permanent visa or special category visa under the Migration Act 1958 (Commonwealth). These visas allow a person to stay indefinitely in Australia. These don't include temporary, business or guardian visas."
+    },
+    {
+     "id": "qld5",
+     "f": "qld_v",
+     "tema": "idp",
+     "x": "If your licence isn't in English, you should carry a recognised English translation of it when you're driving. Show this translation to police when you have to show your driver licence."
+    },
+    {
+     "id": "qld4",
+     "f": "qld_t",
+     "tema": "scambio",
+     "x": "The requirements to transfer your overseas licence vary depending on whether your licence is from: New Zealand A recognised country or jurisdiction (such as Canada, the United Kingdom, Singapore) A non-recognised country (such as China, India, South Korea, Taiwan)"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Can I drive in Queensland with an overseas licence?",
+     "query": "can i drive in queensland with an overseas license",
+     "pre": "",
+     "cit": [
+      "qld1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How long can you drive on an overseas licence in Queensland?",
+     "query": "how long can you drive on an overseas licence in queensland",
+     "pre": "The page gives no limit for visitors. Among the cases in which you can’t drive in Queensland on an overseas licence, it lists when you",
+     "cit": [
+      "qld2",
+      "qld3"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "wa",
+   "paese": "AU",
+   "nome": "Western Australia",
+   "slug": "western-australia",
+   "tipo": "state",
+   "letta": true,
+   "chi": "the Western Australia Department of Transport and Major Infrastructure",
+   "visitatori": "Allowed on a current licence (no time limit stated)",
+   "residenti": "Citizens and permanent residents: up to 3 months",
+   "idp": "Not stated for visitors on the pages we read; a licence submitted for transfer must be in English or translated",
+   "uk": "non_detto",
+   "uk_breve": "Not stated in text (the page uses an interactive checker we could not read)",
+   "uk_cit": "wa4",
+   "us": "non_detto",
+   "us_breve": "Not stated in text (interactive checker)",
+   "us_cit": "wa4",
+   "risposta": "visitors such as tourists, business travellers and people studying or working temporarily can use their current licence, and Australian citizens or permanent residents can drive on an overseas licence for up to 3 months.",
+   "citazioni": [
+    {
+     "id": "wa1",
+     "f": "wa_v",
+     "tema": "visitatori",
+     "x": "If you are visiting Western Australia from overseas or another Australian state or territory, you can use your current driver’s licence. You are considered to be a visitor to WA if you are a tourist, on a business trip, studying or working temporarily in WA."
+    },
+    {
+     "id": "wa2",
+     "f": "wa_m",
+     "tema": "residenti",
+     "x": "If you are an Australian citizen or permanent resident and have a current and valid overseas driver’s licence, you can drive in Western Australia for up to 3 months using your overseas licence. Within this 3-month period, you will need to apply to transfer your overseas driver’s licence to a WA driver’s licence. After this 3-month period you cannot legally drive on your overseas licence, even if it is current and valid."
+    },
+    {
+     "id": "wa3",
+     "f": "wa_m",
+     "tema": "idp",
+     "x": "An overseas driver’s licence document submitted to DTMI must be written entirely in English. If it is not, the driver's licence may have to be accompanied by an English translation from an approved translator."
+    },
+    {
+     "id": "wa4",
+     "f": "wa_m",
+     "tema": "scambio",
+     "x": "The steps you need to follow to transfer your overseas licence depend on whether your driver’s licence is from: a recognised jurisdiction a non-recognised jurisdiction."
+    },
+    {
+     "id": "wa5",
+     "f": "wa_m",
+     "tema": "visitatori",
+     "x": "If you are a visitor to WA, such as a tourist or someone studying or working temporarily in WA, you do not need to transfer your overseas licence to a WA driver's licence. You can drive on your current overseas driver's licence if it is current and not expired."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Can I drive in Western Australia with a foreign licence?",
+     "query": "can i drive in western australia with a foreign license",
+     "pre": "",
+     "cit": [
+      "wa1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How long can you drive on an overseas licence in Western Australia?",
+     "query": "how long can you drive on an overseas licence in western australia",
+     "pre": "",
+     "cit": [
+      "wa5",
+      "wa2"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "vic",
+   "paese": "AU",
+   "nome": "Victoria",
+   "slug": "victoria",
+   "tipo": "state",
+   "letta": false,
+   "bloccata": "vic",
+   "citazioni": [],
+   "faq": []
+  },
+  {
+   "id": "sa",
+   "paese": "AU",
+   "nome": "South Australia",
+   "slug": "south-australia",
+   "tipo": "state",
+   "letta": false,
+   "bloccata": "sa",
+   "citazioni": [],
+   "faq": []
+  },
+  {
+   "id": "tas",
+   "paese": "AU",
+   "nome": "Tasmania",
+   "slug": "tasmania",
+   "tipo": "state",
+   "letta": false,
+   "bloccata": "tas",
+   "citazioni": [],
+   "faq": []
+  },
+  {
+   "id": "act",
+   "paese": "AU",
+   "nome": "Australian Capital Territory",
+   "slug": "australian-capital-territory",
+   "tipo": "territory",
+   "letta": false,
+   "bloccata": "act",
+   "citazioni": [],
+   "faq": []
+  },
+  {
+   "id": "nt_au",
+   "paese": "AU",
+   "nome": "Northern Territory",
+   "slug": "northern-territory",
+   "tipo": "territory",
+   "letta": false,
+   "bloccata": "nt_au",
+   "citazioni": [],
+   "faq": []
+  },
+  {
+   "id": "nz",
+   "paese": "NZ",
+   "nome": "New Zealand",
+   "slug": "new-zealand",
+   "tipo": "country",
+   "letta": true,
+   "chi": "NZ Transport Agency Waka Kotahi (Factsheet 56, October 2026)",
+   "visitatori": "12 months if you last arrived on or after 1 November 2026 (car licence: 18 months if you arrived before)",
+   "residenti": "Same limit; then a New Zealand licence",
+   "idp": "Licence not in English: carry an accurate English translation from an approved source, or an IDP",
+   "uk": "non_detto",
+   "uk_breve": "Not stated on the factsheet we read (conversion rules are in Factsheet 72, which did not open)",
+   "uk_cit": "nz5",
+   "us": "non_detto",
+   "us_breve": "Not stated on the factsheet we read",
+   "us_cit": "nz5",
+   "fonte_non_letta": "nz_web",
+   "risposta": "if you last arrived in New Zealand on or after 1 November 2026 you can drive on your overseas car, truck or motorcycle licence for 12 months; if you arrived before that date, a car licence counts for 18 months.",
+   "citazioni": [
+    {
+     "id": "nz1",
+     "f": "nz_56",
+     "tema": "visitatori",
+     "x": "If you last arrived in New Zealand on or after 1 November 2026, you can drive on your overseas car, truck or motorcycle licence for 12 months."
+    },
+    {
+     "id": "nz2",
+     "f": "nz_56",
+     "tema": "visitatori",
+     "x": "If you last arrived in New Zealand before 1 November 2026, you can drive on your overseas: • car licence for 18 months. • motorcycle or truck licence for 12 months."
+    },
+    {
+     "id": "nz3",
+     "f": "nz_56",
+     "tema": "residenti",
+     "x": "If you'll be in New Zealand longer, you’ll need to get a New Zealand driver licence."
+    },
+    {
+     "id": "nz4",
+     "f": "nz_56",
+     "tema": "idp",
+     "x": "If your overseas licence or driver permit isn’t in English, you must also carry an accurate English translation issued by: • a translation service approved by NZ Transport Agency Waka Kotahi (go to nzta.govt.nz/translators for a list) • a diplomatic representative at a high commission, embassy or consulate, or • the authority that issued your overseas licence."
+    },
+    {
+     "id": "nz4b",
+     "f": "nz_56",
+     "tema": "idp",
+     "x": "These documents may also be acceptable as a translation: • an international driving permit (IDP) – issued in accordance with a United Nations Convention on road traffic"
+    },
+    {
+     "id": "nz6",
+     "f": "nz_56",
+     "tema": "idp",
+     "x": "You can’t drive in New Zealand or convert to a New Zealand licence if you only have an IDP on its own. You must have a current and valid overseas driver licence to drive in New Zealand."
+    },
+    {
+     "id": "nz5",
+     "f": "nz_56",
+     "tema": "scambio",
+     "x": "If you want to convert to a New Zealand licence, your overseas licence must be current or have expired within the last 12 months."
+    },
+    {
+     "id": "nz8",
+     "f": "nz_56",
+     "tema": "scambio",
+     "x": "You can convert your overseas licence to a New Zealand licence Read Overseas driver licences converting to a New Zealand licence (Factsheet 72) to find out how."
+    },
+    {
+     "id": "nz7",
+     "f": "nz_56",
+     "tema": "altro",
+     "x": "If you keep driving, you could be charged by the Police and any insurance claims may be declined."
+    }
+   ],
+   "faq": [
+    {
+     "q": "How long can you drive on an overseas licence in NZ?",
+     "query": "how long can you drive on an overseas licence in nz",
+     "pre": "",
+     "cit": [
+      "nz1",
+      "nz2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can I drive in New Zealand with a US licence?",
+     "query": "can i drive in new zealand with a us license",
+     "pre": "Yes, with a current and valid licence, for a limited time:",
+     "cit": [
+      "nz1"
+     ],
+     "post": "If your licence is not in English, you also need an accepted translation."
+    },
+    {
+     "q": "Can I drive in New Zealand with a UK licence?",
+     "query": "can i drive in new zealand with a uk license",
+     "pre": "Yes, with a current and valid licence, for a limited time:",
+     "cit": [
+      "nz1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How do I convert an overseas licence to a NZ licence?",
+     "query": "how to convert overseas license to nz license",
+     "pre": "Factsheet 56 gives the first condition and points to Factsheet 72:",
+     "cit": [
+      "nz5",
+      "nz8"
+     ],
+     "post": "The detailed steps are in NZ Transport Agency’s Factsheet 72, which did not open for our check."
+    }
+   ]
+  }
+ ],
+ "faq_indice": [
+  {
+   "q": "Can I drive in Canada with a UK licence?",
+   "query": "can i drive in canada with a uk license",
+   "pre": "",
+   "cit": [],
+   "post": ""
+  },
+  {
+   "q": "Can I drive in Canada with a US licence?",
+   "query": "can i drive in canada with a us license",
+   "pre": "",
+   "cit": [],
+   "post": ""
+  },
+  {
+   "q": "How long can I drive in Australia with a UK licence?",
+   "query": "how long can i drive in australia with uk license",
+   "pre": "",
+   "cit": [],
+   "post": ""
+  },
+  {
+   "q": "Can I drive in New Zealand with a foreign licence?",
+   "query": "can i drive in new zealand with a foreign license",
+   "pre": "",
+   "cit": [],
+   "post": ""
+  }
+ ]
+}

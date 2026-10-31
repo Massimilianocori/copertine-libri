@@ -3812,7 +3812,7 @@ def pagina_pat(k, c):
 {dove_idp(k)}
 {box_noleggio(k, c)}
 {link_ped(rel, c)}
-{link_gom(rel, c)}
+{link_gom(rel, c)}{link_fl(rel, c)}
 {f'<h2>Other licences in {escape(P)}</h2><div class="tab tab-b"><table><caption class="sr">International driving permit in {escape(P)} for other licences, from official advice</caption><thead><tr><th>Licence</th><th>In {escape(nome_srv(c))}</th><th>Checked</th></tr></thead><tbody>{"".join(altri)}</tbody></table></div>' if altri else ""}
 {f'<h2>Before you travel to {escape(P)}</h2><ul>' + "".join(f"<li>{x}</li>" for x in ingresso) + "</ul>" if ingresso else ""}
 {faq_h}
@@ -3925,6 +3925,7 @@ def pagina_hub_pat():
 {box_noleggio()}
 {f'<p class="altri-pass">{ico("car")}<span>Hiring a car? <a href="{rel}{PED_BASE}/">How to pay tolls and vignettes with a rental car in {len(PED_PAESI)} European countries</a></span></p>' if PED else ""}
 {f'<p class="altri-pass">{ico("car")}<span>Driving in winter? <a href="{rel}{GOM_BASE}/">Winter tyres and snow chains with a rental car in {len(GOM_PAESI)} European countries</a></span></p>' if GOM else ""}
+{f'<p class="altri-pass">{ico("car")}<span>Staying longer or moving? <a href="{rel}{FL_BASE}/">How long you can drive on a foreign licence in Canada, Australia and New Zealand, by province and state</a></span></p>' if FL else ""}
 <h2>How we check</h2>
 <p>{metodo_pat("uk")} {metodo_pat("ca")} {metodo_pat("au")} We only use official government sources and never fill a gap with our own reading: where the advice is silent, we say so. More on the <a href="{rel}about/#driving-abroad">About page</a>.</p>"""
     pagina(f"{PAT_BASE}/", f"Driving Abroad: Do I Need an IDP? UK, Canada, Australia ({ANNO})",
@@ -5167,6 +5168,323 @@ def about_big(rel):
 
 
 # ---------------------------------------------------------------- home e pagine di servizio
+# ---------------------------------------------------------------- Patente straniera in Canada, Australia e Nuova Zelanda (31/10/2026)
+# Regole per provincia, stato e territorio scritte a mano in dati/patente_straniera_manuali.json (citazioni parola per parola dalle pagine
+# ufficiali), fonti rilette da raccolta/patente_straniera.py (HTTP 200, data di lettura, impronta della zona citata) che scrive
+# dati/patente_straniera.json. Le pagine ufficiali che dal server non si aprono (403, pagina anti-robot) NON si aggirano: la riga della tabella
+# lo dice e non c'è una pagina propria. Una pagina per ogni giurisdizione letta; nessuna pagina "Paese della patente × destinazione" (le
+# ricerche esistono, ma il contenuto sarebbe la stessa regola ripetuta: la differenza vera, lo scambio senza esame per patenti del Regno Unito e
+# degli Stati Uniti, sta in due colonne della tabella e in ogni pagina). Riquadro DiscoverCars (stesso NOLEGGIO_AUTO) dopo le regole.
+FL_BASE = "foreign-licence-canada-australia-nz"
+_f_fl = DATI / "patente_straniera.json"
+FL = json.loads(_f_fl.read_text(encoding="utf-8")) if _f_fl.exists() else None
+FL_GIUR = FL["giurisdizioni"] if FL else []
+FL_LETTE = [g for g in FL_GIUR if g["letta"]]
+FL_PER = {g["id"]: g for g in FL_GIUR}
+LIMITE_TITOLO_FL = 70
+FL_PAESI = {"CA": ("Canada", "canada", "provinces and territories"), "AU": ("Australia", "australia", "states and territories"),
+            "NZ": ("New Zealand", "new-zealand", "")}
+FL_TIPO = {"province": "province", "territory": "territory", "state": "state", "country": "country"}
+TEMI_FL = [("visitatori", "Visitors and tourists"), ("residenti", "If you move there"), ("idp", "International driving permit and translation"),
+           ("scambio", "Exchanging your licence"), ("altro", "Also on the official page")]
+SCAMBIO_FL = {"si": "Yes", "non_detto": "Not stated"}
+# Il Paese della pagina "Driving abroad" (ISO) -> paese della sezione
+FL_ISO = {"CA": "CA", "AU": "AU", "NZ": "NZ"}
+
+
+FL_CON_THE = {"nt", "act", "nt_au"}  # "the Northwest Territories", "the Australian Capital Territory", "the Northern Territory"
+
+
+def frase_fl(g):
+    return ("the " if g["id"] in FL_CON_THE else "") + g["nome"]
+
+
+def url_fl(g=None):
+    if g is None:
+        return f"{FL_BASE}/"
+    if g["paese"] == "NZ":
+        return f"{FL_BASE}/new-zealand/"
+    return f"{FL_BASE}/{FL_PAESI[g['paese']][1]}/{g['slug']}/"
+
+
+def fonti_fl(g):
+    out = []
+    for c in g["citazioni"]:
+        if c["f"] not in out:
+            out.append(c["f"])
+    return out
+
+
+def data_fl(g):
+    return max(FL["fonti"][f]["letto_il"] for f in fonti_fl(g))
+
+
+def cit_fl(g, id_):
+    return next(c for c in g["citazioni"] if c["id"] == id_)
+
+
+def link_fonte_fl(fid):
+    F = FL["fonti"][fid]
+    return f'<a href="{escape(F["url"])}" rel="noopener">{escape(F["titolo"])}</a>'
+
+
+def blocco_cit_fl(cc):
+    """Citazioni raggruppate per fonte: virgolette, fonte, ente e data."""
+    out, gruppi = [], []
+    for c in cc:
+        if gruppi and gruppi[-1][0] == c["f"]:
+            gruppi[-1][1].append(c)
+        else:
+            gruppi.append((c["f"], [c]))
+    for fid, gg in gruppi:
+        F = FL["fonti"][fid]
+        cc_h = "".join(f"<p>{escape(c['x'])}</p>" for c in gg)
+        out.append(f'<blockquote class="cit">{cc_h}</blockquote>'
+                   f'<p class="fonte">Source: {link_fonte_fl(fid)} ({escape(F["ente"])}), checked on {data_lunga(F["letto_il"])}. Quoted word for word.</p>')
+    return "".join(out)
+
+
+def risposta_fl(g):
+    return f"According to {g['chi']}, checked on {data_lunga(data_fl(g))}, {g['risposta']}"
+
+
+def bloccata_fl(bid, in_pagina=False):
+    """Riga "non letta": la pagina ufficiale e cosa ha risposto al nostro controllo (nessun aggiramento)."""
+    B = FL["bloccate"][bid]
+    stato = (f"HTTP {B['http']}" if B["http"] and B["http"] != 200 else "a page that checks for robots") + (
+        ", an anti-robot check" if B["antirobot"] and B["http"] and B["http"] != 200 else "")
+    quando = f" on {data_lunga(B['provato_il'])}" if B.get("provato_il") else ""
+    return (f'The official page (<a href="{escape(B["url"])}" rel="noopener">{escape(B["ente"])}</a>) did not open for our check{quando} '
+            f'(it answered with {stato}), so ' + ('this page quotes only the official sources above.' if in_pagina else 'we do not state its rule here.'))
+
+
+def faq_fl(g):
+    out = []
+    for f in g["faq"]:
+        parti = ([f["pre"]] if f["pre"] else []) + [f"“{cit_fl(g, i)['x']}”" for i in f["cit"]] + ([f["post"]] if f["post"] else [])
+        out.append((f["q"], " ".join(parti)))
+    out.append((f"Is this legal advice for driving in {frase_fl(g)}?",
+                f"No. We quote {g['chi']} word for word, as read on {data_lunga(data_fl(g))}. Rules change, and car rental companies and insurers "
+                "can ask for more than the law: check with them and with the official page before you drive."))
+    return out
+
+
+def html_faq_fl(faq):
+    h = "".join(f"<h3>{escape(q)}</h3><p>{escape(a)}</p>" for q, a in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
+    return f'<section class="faq"><h2>Questions</h2>{h}</section>', [ld]
+
+
+AVVISO_FL = ('<p class="avviso"><strong>These rules differ from place to place, and they change.</strong> We quote the official pages '
+             'word for word, with the date we checked them; this is information, not legal advice. Car rental companies and insurers can ask for '
+             'more than the law, for example an international driving permit or a translation: ask them before you book.</p>')
+FRASE_NOLEGGIO_FL = "Check the licence rules above before you book: the rental company can ask for more than the law, such as an IDP or a translation."
+
+
+def box_noleggio_fl(g=None):
+    """Riquadro "Hire a car" (DiscoverCars): '' con NOLEGGIO_AUTO vuoto. Sempre dopo la risposta e le regole ufficiali."""
+    if not NOLEGGIO_AUTO:
+        return ""
+    P = frase_fl(g) if g else ""
+    dove = f" in {P}" if P else " in Canada, Australia or New Zealand"
+    return (f'<h2 id="hire-a-car">Hire a car{escape(dove)}</h2>'
+            f'<section class="card noleggio" aria-label="Car hire, affiliate link" data-noleggio>'
+            f'<p>Hiring a car{escape(dove)}? Compare rental companies and prices on DiscoverCars. {escape(FRASE_NOLEGGIO_FL)}</p>'
+            f'<p class="noleggio-btn"><a class="btn" href="{escape(NOLEGGIO_AUTO)}" rel="sponsored noopener" target="_blank">'
+            f'{ico("car")}Compare car hire{escape(" in " + P) if P else ""}</a></p>'
+            f'{MON.nota_trasparenza("en")}</section>')
+
+
+def link_fl(rel, c):
+    """Riga 'Driving in X on a foreign licence' nelle pagine Driving abroad di Canada, Australia e Nuova Zelanda."""
+    if not FL or c not in FL_ISO:
+        return ""
+    if c == "NZ":
+        g = FL_PER.get("nz")
+        return (f'<p class="altri-pass">{ico("car")}<span>Staying longer or moving there? New Zealand’s rules change for arrivals from 1 November 2026: <a href="{rel}{url_fl(g)}">how long you can drive in '
+                f'New Zealand on an overseas licence</a></span></p>') if g else ""
+    nome, slug, parti = FL_PAESI[c]
+    return (f'<p class="altri-pass">{ico("car")}<span>Staying longer or moving there? <a href="{rel}{FL_BASE}/#{slug}">How long you can drive in '
+            f'{escape(nome)} on a foreign licence, {escape(parti)}</a></span></p>')
+
+
+def h1_fl(g):
+    if g["paese"] == "NZ":
+        return f"Driving in New Zealand on an overseas licence: how long, translation and IDP ({ANNO})"
+    return f"Driving in {frase_fl(g)} on a foreign licence: visitors and new residents ({ANNO})"
+
+
+def titoli_fl(g):
+    n = frase_fl(g)
+    if g["paese"] == "NZ":
+        return [f"Driving in New Zealand on an Overseas Licence ({ANNO}): How Long?", f"Driving in NZ on an Overseas Licence ({ANNO})"]
+    return [f"Driving in {n} on a Foreign Licence ({ANNO}): How Long?", f"Driving in {n} on a Foreign Licence ({ANNO})",
+            f"{g['nome']}: Driving on a Foreign Licence ({ANNO})"]
+
+
+def descrizione_fl(g):
+    d = data_lunga(data_fl(g))
+    v = g["visitatori"][:1].lower() + g["visitatori"][1:]
+    r = g["residenti"][:1].lower() + g["residenti"][1:]
+    return scegli([f"Foreign licence in {frase_fl(g)}: visitors, {v}; new residents, {r}. Official source, checked on {d}.",
+                   f"Foreign licence in {frase_fl(g)}: visitors, {v}. Official source, checked on {d}.",
+                   f"Driving in {frase_fl(g)} on a foreign licence: the official rules for visitors and new residents, checked on {d}.",
+                   f"Driving in {frase_fl(g)} on a foreign licence: official rules, checked on {d}."], LIMITE_DESCRIZIONE)
+
+
+def stesso_paese_fl(g):
+    return [x for x in FL_GIUR if x["paese"] == g["paese"]]
+
+
+def pagina_fl(g):
+    rel = "../" * url_fl(g).count("/")
+    temi = "".join(f'<h3>{escape(t)}</h3>{blocco_cit_fl([x for x in g["citazioni"] if x["tema"] == k])}'
+                   for k, t in TEMI_FL if any(x["tema"] == k for x in g["citazioni"]))
+    sguardo = (f'<tr><th scope="row">Visitors</th><td>{escape(g["visitatori"])}</td></tr>'
+               f'<tr><th scope="row">New residents</th><td>{escape(g["residenti"])}</td></tr>'
+               f'<tr><th scope="row">IDP and translation</th><td>{escape(g["idp"])}</td></tr>'
+               f'<tr><th scope="row">UK licence, exchange without tests</th><td>{escape(g["uk_breve"])}</td></tr>'
+               f'<tr><th scope="row">US licence, exchange without tests</th><td>{escape(g["us_breve"])}</td></tr>'
+               f'<tr><th scope="row">Checked</th><td>{data_lunga(data_fl(g))}</td></tr>')
+    non_letta = f'<p class="small" data-non-letta>{bloccata_fl(g["fonte_non_letta"], True)}</p>' if g.get("fonte_non_letta") else ""
+    altri = "".join(f'<a href="{rel}{url_fl(x)}">{escape(x["nome"])}<small>{escape(x["visitatori"])}</small></a>'
+                    for x in stesso_paese_fl(g) if x["id"] != g["id"] and x["letta"])
+    guida = link_guida(rel, g["paese"])
+    faq_h, faq_ld = html_faq_fl(faq_fl(g))
+    paese = FL_PAESI[g["paese"]][0]
+    corpo = f"""<section class="hero">{h1_diviso(h1_fl(g))}</section>
+<section class="card summary" aria-label="Answer">
+<div class="s-top"><span class="sq">{ico("car")}</span><span>Foreign licence · {escape(g["nome"])}</span><span>{ANNO}</span></div>
+<div class="s-body">
+<p class="lead" id="answer">{escape(risposta_fl(g))}</p>
+{f'<p class="small">{escape(g["nota"])}</p>' if g.get("nota") else ""}
+</div></section>
+{AVVISO_FL}
+<h2>At a glance</h2>
+<div class="tab tab-g"><table><caption class="cap">Driving in {escape(frase_fl(g))} on a foreign licence: our summary of the official sources, checked on {data_lunga(data_fl(g))}</caption><tbody>{sguardo}</tbody></table></div>
+<h2 id="official">What the official sources say</h2>
+{temi}
+{non_letta}
+{AD}
+{box_noleggio_fl(g)}
+{f'<h2>Visiting {escape(paese)}?</h2>{guida}' if guida else ""}
+{f'<h2>Other {escape(FL_PAESI[g["paese"]][2])} in {escape(paese)}</h2><div class="griglia">{altri}</div>' if altri else ""}
+<p><a href="{rel}{FL_BASE}/">Canada, Australia and New Zealand: every province, state and territory in one table</a></p>
+{faq_h}
+<p class="small">Spotted a change? <a href="{rel}contact/?ref={FL_BASE}">Tell us</a>.</p>"""
+    bc = [("Foreign licence: Canada, Australia, NZ", f"{FL_BASE}/")] + ([(paese, f"{FL_BASE}/#{FL_PAESI[g['paese']][1]}")] if g["paese"] != "NZ" else []) + [(g["nome"], url_fl(g))]
+    pagina(url_fl(g), scegli(titoli_fl(g), LIMITE_TITOLO_FL), descrizione_fl(g), corpo, briciole=bc, ld_extra=faq_ld)
+    LASTMOD[url_fl(g)] = data_fl(g)
+
+
+def enti_fl(g):
+    """(ente, prima fonte di quell'ente): un link per ente nella colonna delle fonti."""
+    out = {}
+    for f in fonti_fl(g):
+        out.setdefault(FL["fonti"][f]["ente"], f)
+    return list(out.items())
+
+
+def riga_fl(g, rel):
+    nome = f'<a href="{rel}{url_fl(g)}">{escape(g["nome"])}</a>' if g["letta"] else escape(g["nome"])
+    if not g["letta"]:
+        return (f'<tr data-voce id="{g["id"]}"><td data-l="Where">{nome}</td><td data-l="Rules" colspan="6">Not read. '
+                f'{bloccata_fl(g["bloccata"])}</td></tr>')
+    fonti = " · ".join(f'<a href="{escape(FL["fonti"][f]["url"])}" rel="noopener">{escape(e)}</a>' for e, f in enti_fl(g))
+    return (f'<tr data-voce id="{g["id"]}"><td data-l="Where">{nome}</td><td data-l="Visitors">{escape(g["visitatori"])}</td>'
+            f'<td data-l="New residents">{escape(g["residenti"])}</td><td data-l="IDP and translation">{escape(g["idp"])}</td>'
+            f'<td data-l="UK licence exchange">{SCAMBIO_FL[g["uk"]]}</td><td data-l="US licence exchange">{SCAMBIO_FL[g["us"]]}</td>'
+            f'<td data-l="Source, checked">{fonti}, {data_lunga(data_fl(g))}</td></tr>')
+
+
+def tabella_fl(cod, rel):
+    gg = [g for g in FL_GIUR if g["paese"] == cod]
+    nome = FL_PAESI[cod][0]
+    lette = sum(1 for g in gg if g["letta"])
+    return (f'<div class="tab tab-b tab-srv"><table><caption class="cap">Driving in {escape(nome)} on a foreign licence: '
+            f'{lette} of {len(gg)} official pages read, checked on {data_lunga(FL["controllato_il"])}</caption>'
+            f'<thead><tr><th>Where</th><th>Visitors</th><th>New residents</th><th>IDP and translation</th><th>UK licence exchange</th>'
+            f'<th>US licence exchange</th><th>Source, checked</th></tr></thead><tbody>{"".join(riga_fl(g, rel) for g in gg)}</tbody></table></div>')
+
+
+def prima_frase_fl():
+    lette = len(FL_LETTE)
+    non = len(FL_GIUR) - lette
+    return (f"According to the official pages of {lette} of the {len(FL_GIUR)} Canadian provinces and territories, Australian states and territories "
+            f"and New Zealand, checked on {data_lunga(FL['controllato_il'])}, how long you can drive on a foreign licence depends on where you are and "
+            f"on whether you are visiting or moving there; the tables below give each rule with its source, and the other {non} official pages "
+            "did not open for our check, so we do not state their rules.")
+
+
+def titolo_indice_fl():
+    return [f"Driving in Canada, Australia and NZ on a Foreign Licence ({ANNO})", f"Foreign Licence in Canada, Australia and NZ ({ANNO})"]
+
+
+def faq_indice_fl():
+    """Risposte alle ricerche più frequenti, costruite dai riassunti delle giurisdizioni lette (numeri solo dalle citazioni)."""
+    def elenco(cod, campo):
+        return "; ".join(f"{g['nome']}: {g[campo][:1].lower() + g[campo][1:]}" for g in FL_LETTE if g["paese"] == cod)
+    nz = FL_PER.get("nz")
+    risposte = {
+        "can i drive in canada with a uk license": "As a visitor, usually yes, but each province and territory sets the time limit. On the official pages "
+                                                   f"we read: {elenco('CA', 'visitatori')}.",
+        "can i drive in canada with a us license": "As a visitor, usually yes, and the same provincial limits apply as for other foreign licences. "
+                                                   f"If you move, these provinces list US licences for exchange, in most cases without tests (see each page for the conditions): "
+                                                   f"{', '.join(g['nome'] for g in FL_LETTE if g['paese'] == 'CA' and g['us'] == 'si')}.",
+        "how long can i drive in australia with uk license": "It depends on the state and on your visa. On the official pages we read: "
+                                                            f"{elenco('AU', 'visitatori')}. For permanent residents: {elenco('AU', 'residenti')}.",
+        "can i drive in new zealand with a foreign license": (f"Yes, for a limited time: {nz['visitatori'][:1].lower() + nz['visitatori'][1:]}. "
+                                                              "If your licence is not in English, you also need an accepted translation or an IDP.") if nz else "",
+    }
+    return [(f["q"], risposte[f["query"]]) for f in FL["faq_indice"] if risposte.get(f["query"])]
+
+
+def pagina_indice_fl():
+    rel = "../"
+    sezioni = "".join(f'<h2 id="{FL_PAESI[cod][1]}">{escape(FL_PAESI[cod][0])}</h2>{tabella_fl(cod, rel)}{link_guida(rel, cod)}'
+                      for cod in FL_PAESI)
+    d = data_lunga(FL["controllato_il"])
+    faq_h, faq_ld = html_faq_fl(faq_indice_fl())
+    corpo = f"""<section class="hero">{h1_diviso(f"Driving in Canada, Australia and New Zealand on a foreign licence ({ANNO})")}
+<p class="lead" id="answer">{escape(prima_frase_fl())}</p></section>
+{AVVISO_FL}
+<p>“Visitors”, “New residents” and “IDP and translation” are our short summaries; each page quotes the official sentences with the link and the date. “UK licence exchange” and “US licence exchange” say whether the official page lists that licence for exchange without a knowledge or road test when you move there (some pages waive only the knowledge test, or cover only most US states: see each page); “Not stated” means the page we read does not say.</p>
+<div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a province or state, e.g. Ontario" data-filtro-multi aria-label="Search provinces and states"></div>
+{sezioni}
+{AD}
+{box_noleggio_fl()}
+{faq_h}
+<h2>How we check</h2>
+<p>We read the pages of the provincial, state and territorial licensing authorities and governments (for example the Ontario Ministry of Transportation, ICBC, the Government of Alberta, the NSW Government, the Queensland Government and NZ Transport Agency Waka Kotahi), and for Québec the Highway Safety Code on LegisQuébec, because the SAAQ website did not open for our check. We quote them word for word and give the date. Some official websites answer automated checks with an anti-robot page or an error: we do not try to pass those checks and we do not copy their rules from other websites, so those rows say “Not read”. We check every source again each month. More on the <a href="{rel}about/#{FL_BASE}">About page</a>. Spotted a change? <a href="{rel}contact/?ref={FL_BASE}">Tell us</a>.</p>
+<p><a href="{rel}{PAT_BASE}/">Driving abroad: do you need an international driving permit?</a></p>"""
+    desc = scegli([f"How long you can drive on a foreign licence in each Canadian province, Australian state and New Zealand, from official pages, checked on {d}.",
+                   f"Foreign licence rules in Canada, Australia and New Zealand, from official pages, checked on {d}."], LIMITE_DESCRIZIONE)
+    pagina(f"{FL_BASE}/", scegli(titolo_indice_fl(), LIMITE_TITOLO_FL), desc, corpo,
+           briciole=[("Foreign licence: Canada, Australia, NZ", f"{FL_BASE}/")], js=APP_JS_FILTRO, ld_extra=faq_ld)
+    LASTMOD[f"{FL_BASE}/"] = FL["controllato_il"]
+
+
+def home_fl():
+    if not FL:
+        return ""
+    voci = "".join(f'<a href="{url_fl(g)}">{escape(g["nome"])}<small>{escape(FL_PAESI[g["paese"]][0])}</small></a>'
+                   for g in FL_LETTE if g["id"] in ("on", "bc", "ab", "qc", "nsw", "qld", "wa", "nz"))
+    return (f'<h2>Driving in Canada, Australia and New Zealand on a foreign licence</h2><p>How long visitors and new residents can drive on a '
+            f'foreign licence in each province, state and territory, from the official pages: <a href="{FL_BASE}/">every rule in one table</a>.</p>'
+            f'<div class="griglia">{voci}</div>')
+
+
+def about_fl(rel):
+    if not FL:
+        return ""
+    enti = list(dict.fromkeys(F["ente"] for F in FL["fonti"].values()))
+    non = [g["nome"] for g in FL_GIUR if not g["letta"]]
+    return f"""<h2 id="{FL_BASE}">Driving in Canada, Australia and New Zealand on a foreign licence</h2>
+<p>Sources: the official pages of the licensing authorities and governments ({escape(", ".join(enti))}), {len(FL["fonti"])} pages in all, read on {data_lunga(FL["controllato_il"])}. Each page links every page it quotes.</p>
+<p>Rules: every sentence shown between quotation marks is copied word for word from the official page; the short summaries in the tables are ours. Some official websites answer automated checks with an error or an anti-robot page; we do not try to pass those checks and we do not take their rules from other websites, so we say that the page did not open and give no rule ({escape(", ".join(non))}). For Québec we quote the Highway Safety Code on LegisQuébec because the SAAQ website did not open. This is information, not legal advice.</p>"""
+
+
 def home():
     auto = sum(1 for P in PAESI if P["regola"])
     due = [A for A in AER["aeroporti"] if A["regola"] == "2l"]
@@ -5219,6 +5537,7 @@ def home():
 {home_ped()}
 {home_gom()}
 {home_big()}
+{home_fl()}
 {box_affiliati()}
 {dati_json('tutti-dati', [dati_client(P) for P in PAESI])}"""
     pagina("", f"Before You Fly {ANNO}: Passport, Visas, Liquids, Cabin Bags, EES",
@@ -5288,6 +5607,7 @@ def about():
 {about_ped(rel)}
 {about_gom(rel)}
 {about_big(rel)}
+{about_fl(rel)}
 <h2>EES and ETIAS</h2>
 <p>European Commission (DG Migration and Home Affairs) pages and GOV.UK travel advice, last checked on {data_lunga(EES['controllato_il'])}. See the <a href="{rel}ees-etias/">EES and ETIAS page</a>.</p>
 <h2>Corrections</h2>
@@ -5356,7 +5676,7 @@ def extra():
 """)
     pagina("404.html", f"Page not found | {NOME}", "Page not found.",
            '<section class="hero"><h1>Page not found</h1><p class="lead">Go to the <a href="/">home page</a>, the <a href="/passport-validity/">passport validity rules</a> '
-           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> <a href="/driving-abroad/">driving abroad with your licence</a>, <a href="/tolls-rental-car/">tolls with a rental car</a>, <a href="/winter-tyres-rental-car/">winter tyres with a rental car</a> or <a href="/ticket-release-dates/">when tickets go on sale at major attractions</a>.</p></section>', indicizza=False, assoluto=True)
+           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> <a href="/driving-abroad/">driving abroad with your licence</a>, <a href="/tolls-rental-car/">tolls with a rental car</a>, <a href="/winter-tyres-rental-car/">winter tyres with a rental car</a>, <a href="/foreign-licence-canada-australia-nz/">driving in Canada, Australia and New Zealand on a foreign licence</a> or <a href="/ticket-release-dates/">when tickets go on sale at major attractions</a>.</p></section>', indicizza=False, assoluto=True)
 
 
 def copia_grafica():
@@ -5502,6 +5822,35 @@ def controlli():
             if not MON.dominio_ammesso(VIATOR_TOUR) or not MON.dominio_in(urlparse(VIATOR_TOUR).hostname, ["viator.com"]):
                 errori.append(f"biglietti: VIATOR_TOUR non punta a viator.com: {VIATOR_TOUR}")
             errori += [f"biglietti: {e}" for e in MON.controlla_link_pagina(box_tour_big(), "box_tour_big", "en")[0]]
+    if FL:  # patente straniera in Canada, Australia e NZ: fonti con HTTP 200, citazioni note, titoli (verifica.py, punto 23, ricontrolla tutto)
+        ids_tutti = [c["id"] for g in FL_GIUR for c in g["citazioni"]]
+        if len(set(ids_tutti)) != len(ids_tutti):
+            errori.append("patente straniera: id di citazione duplicati")
+        for g in FL_GIUR:
+            if g["paese"] not in FL_PAESI or g["tipo"] not in FL_TIPO:
+                errori.append(f"patente straniera {g['id']}: paese o tipo non validi")
+            if not g["letta"]:
+                if g.get("bloccata") not in FL["bloccate"] or g["citazioni"]:
+                    errori.append(f"patente straniera {g['id']}: non letta senza pagina bloccata registrata, o con citazioni")
+                continue
+            ids = {c["id"] for c in g["citazioni"]}
+            for f in fonti_fl(g):
+                if f not in FL["fonti"] or FL["fonti"][f]["http"] != 200:
+                    errori.append(f"patente straniera {g['id']}: fonte {f} non letta con HTTP 200")
+            for k in ("visitatori", "residenti", "idp", "uk_breve", "us_breve", "risposta", "chi"):
+                if not g.get(k):
+                    errori.append(f"patente straniera {g['id']}: manca {k}")
+            if g["uk"] not in SCAMBIO_FL or g["us"] not in SCAMBIO_FL or g["uk_cit"] not in ids or g["us_cit"] not in ids:
+                errori.append(f"patente straniera {g['id']}: scambio UK/US non valido o senza citazione")
+            for q in g["faq"]:
+                if any(i not in ids for i in q["cit"]):
+                    errori.append(f"patente straniera {g['id']}: FAQ «{q['q']}» con citazione sconosciuta")
+            if g.get("fonte_non_letta") and g["fonte_non_letta"] not in FL["bloccate"]:
+                errori.append(f"patente straniera {g['id']}: fonte non letta non registrata")
+            if len(scegli(titoli_fl(g), LIMITE_TITOLO_FL)) > LIMITE_TITOLO_FL:
+                errori.append(f"patente straniera {g['id']}: titolo oltre {LIMITE_TITOLO_FL} caratteri")
+        if NOLEGGIO_AUTO:
+            errori += [f"patente straniera: {e}" for e in MON.controlla_link_pagina(box_noleggio_fl(), "box_noleggio_fl", "en")[0]]
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -5572,6 +5921,10 @@ def main():
         for a in BIG_ATT:
             pagina_big(a)
         scrivi_ics_big()
+    if FL:
+        pagina_indice_fl()
+        for g in FL_LETTE:
+            pagina_fl(g)
     about()
     contatti()
     privacy()
@@ -5587,7 +5940,8 @@ def main():
              f"({', '.join(f'{k} {len(PAGINE_PAT[k])}' for k in PATENTI)})" if PAT else "")
           + (f"; tolls with a rental car: indice + {len(PED_PAESI)} pagine Paese ({len(PED['fonti'])} fonti)" if PED else "")
           + (f"; winter tyres with a rental car: indice + {len(GOM_PAGINE & set(GOM_PER))} pagine Paese ({len(GOM['fonti'])} fonti)" if GOM else "")
-          + (f"; ticket release dates: indice + {len(BIG_ATT)} pagine attrazione + {len(BIG_ATT)} calendari .ics ({len(BIG['fonti'])} fonti)" if BIG else ""))
+          + (f"; ticket release dates: indice + {len(BIG_ATT)} pagine attrazione + {len(BIG_ATT)} calendari .ics ({len(BIG['fonti'])} fonti)" if BIG else "")
+          + (f"; foreign licence Canada/Australia/NZ: indice + {len(FL_LETTE)} pagine ({len(FL_GIUR) - len(FL_LETTE)} giurisdizioni non lette, {len(FL['fonti'])} fonti)" if FL else ""))
 
 
 if __name__ == "__main__":
