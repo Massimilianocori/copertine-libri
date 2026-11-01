@@ -919,8 +919,12 @@ def offerta_ufficiale(s):
     if not e.get("prezzo_eur") or e.get("prezzo_esame") not in s["esami"]:
         return None
     o = {"@type": "Offer", "name": e["prezzo_esame"], "price": e["prezzo_eur"], "priceCurrency": "EUR", "url": e["prezzo_url"]}
-    if s.get("scadenza") and d(s["scadenza"]) >= OGGI:
-        o["availability"] = "https://schema.org/InStock"
+    # availability e validFrom chiesti da Search Console (1/11/2026). validFrom = giorno in cui abbiamo letto la tassa
+    # sulla fonte ufficiale (non conosciamo l'apertura vera delle iscrizioni); iscrizioni chiuse = SoldOut.
+    aperte = not s.get("scadenza") or d(s["scadenza"]) >= OGGI
+    o["availability"] = "https://schema.org/InStock" if aperte else "https://schema.org/SoldOut"
+    if s.get("verificato_il"):
+        o["validFrom"] = s["verificato_il"]
     return o
 
 
