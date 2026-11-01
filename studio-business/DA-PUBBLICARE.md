@@ -4,7 +4,6 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
-| esameb1 | Dati strutturati Eventi: `availability` e `validFrom` nelle offerte (avviso Search Console del 1/11, non critico) | 1/11/2026, controlli di genera.py ok | pubblicare insieme alla prossima modifica di EsameB1 (non vale 15 crediti da sola); poi in Search Console "Convalida correzione" |
 | beforeyoufly (prossimo giro) | Amsterdam: la pagina GVB ora si apre (multa 70 € + tariffa), da aggiungere ai mezzi pubblici | da fare | segnalato dal revisore del 31/10 |
 
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
