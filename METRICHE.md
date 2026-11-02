@@ -93,6 +93,10 @@ Inviate 40 email: 5 agenzie "segnale" (Story Co, Informal, Mass FX Media, Social
 
 Nel weekend: 1 richiesta di cancellazione (SproutUp Digital) → esclusa; 2 risposte automatiche fuori ufficio. 0 risposte vere, 0 rimbalzi. Il container della sessione è stato ricreato: file di lavoro delle code (scratchpad) persi, da ricostruire da Gmail e dal registro della sessione.
 
+## 2/11
+
+50 invii: 12 follow-up 2 (invii del 20/10) + 38 follow-up 1 pilota (invii del 27/10); 9 follow-up 1 rinviati al 3/11 per il tetto. 0 rimbalzi, 0 risposte vere. Code ricostruite da Gmail; i circa 70 contatti nuovi mai scritti sono persi (ERRORI 30). Bozza post LinkedIn pronta.
+
 ## Crediti
 
 | Data | Higgsfield (piano Ultra) | Apollo lead credit (ciclo 3/10-3/11) |
