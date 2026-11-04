@@ -22,6 +22,9 @@ Uso (dalla radice del repository, dopo python3 touristtax/genera.py):
    pagine (titolo ≤ 70, prima frase con cifra, fonte e data, fonti linkate, calcolatore, sitemap), pagina riassuntiva e pagina 2027.
 12. Belgio (31/10/2026): Bruxelles, Gand, Bruges con fonti ufficiali datate, esempi a mano, titoli e prima frase, Anversa non coperta,
    nessun importo non ufficiale per la tassa di Bruges su crocieristi e pullman, tabella Europa, cambi 2028-2029.
+13. Santiago de Compostela e Napoli (4/11/2026): fonti ufficiali con impronta sha256 e data, tariffe uguali alle fonti lette, esempi a mano,
+   Napoli senza tariffe oltre il 31/12/2026, titolo ≤ 70 con anno e cifra, prima frase con cifra, fonte e data, riquadro Anno Santo 2027 /
+   America's Cup 2027 con fonte ufficiale (catedraldesantiago.es, comune.napoli.it), sitemap, pagina paese, tabella Europa, pagina 2027.
 10. Giappone, rimborso dell'imposta sui consumi dal 1/11/2026 (pagina japan-tax-free-refund/): dati uguali alle fonti lette, fonti
    ufficiali (JTA, NTA, Dogane) con HTTP 200 e data, sitemap, link da home e pagine giapponesi, titolo ≤ 70 con l'anno, prima frase
    con risposta, fonti e data, calcolo ricontrollato (esempi a mano, frazioni esatte, JS = Python), FAQPage visibile, nessun affiliato.
@@ -905,6 +908,108 @@ def controlla_belgio():
     return errori
 
 
+# 13. Santiago de Compostela e Napoli (4/11/2026), dalle fonti ufficiali con impronta (sha256) e data. Esempi calcolati a mano:
+# (descrizione, slug, categoria, check-in, notti, paganti, esenti, totale atteso, notti senza tariffa attese)
+ESEMPI_SN = [
+    ("Santiago hotel 4* superior, 2 adults + 1 child of 10, 3 nights: €2.50 × 2 × 3", "santiago-de-compostela", "h4s", "2026-11-10", 3, 2, 1, 15.00, 0),
+    ("Santiago hotel 3*, 2 adults, 7 nights: only 5 days taxed, €2 × 2 × 5", "santiago-de-compostela", "h3", "2027-07-20", 7, 2, 0, 20.00, 0),
+    ("Santiago albergue, 1 pilgrim, 2 nights: €1 × 1 × 2", "santiago-de-compostela", "alb", "2027-07-24", 2, 1, 0, 2.00, 0),
+    ("Santiago holiday rental (VUT), 2 adults, 4 nights: €2 × 2 × 4", "santiago-de-compostela", "vut", "2026-12-30", 4, 2, 0, 16.00, 0),
+    ("Santiago guest house, 29 Sep 2025, 4 nights, 2 adults: 2 nights before 1 Oct 2025, then €1.50 × 2 × 2", "santiago-de-compostela", "pen", "2025-09-29", 4, 2, 0, 6.00, 0),
+    ("Naples 4* hotel, 2 adults + 1 child, 3 nights: €6 × 2 × 3", "naples", "h4", "2026-11-10", 3, 2, 1, 36.00, 0),
+    ("Naples B&B (non-hotel), 2 adults, 16 nights: 14 nights × €5.50 × 2", "naples", "extra", "2026-06-01", 16, 2, 0, 154.00, 0),
+    ("Naples 3* hotel, 29 Apr 2026, 3 nights, 2 adults: 2 × (€4.50 × 2) + 1 × (€5.50 × 2)", "naples", "h3", "2026-04-29", 3, 2, 0, 29.00, 0),
+    ("Naples short-term rental, 30 Dec 2026, 3 nights, 2 adults: 2 × (€6 × 2); 2027 rate not published", "naples", "str", "2026-12-30", 3, 2, 0, 24.00, 1),
+    ("Naples 1* hotel, 1 adult, 2 nights in February 2026: €3 × 2", "naples", "h1", "2026-02-10", 2, 1, 0, 6.00, 0),
+]
+SN_DOMINI = {"santiago-de-compostela": ("https://bop.dacoruna.gal/", "https://www.santiagoturismo.com/", "https://www.boe.es/"),
+             "naples": ("https://www.comune.napoli.it/", "https://static-www.comune.napoli.it/")}
+SN_EVENTO = {"santiago-de-compostela": ("https://catedraldesantiago.es/", ("Holy Year", "25 July")),
+             "naples": ("https://www.comune.napoli.it/", ("22 May to 4 July 2027", "10 to 19 July 2027"))}
+
+
+def _fonte_ok(f, domini):
+    return (f["http"] == 200 and f.get("controllato_il", "") >= "2026-11-04" and f["url"].startswith(domini)
+            and re.fullmatch(r"sha256:[0-9a-f]{64}", f.get("impronta", "")) and f.get("impronta_di") in ("file", "testo"))
+
+
+def controlla_santiago_napoli():
+    """13. Santiago de Compostela e Napoli (4/11/2026): fonti ufficiali (domini attesi, HTTP 200, data, impronta sha256); tariffe uguali alle fonti
+    lette (ordinanza 1.32 + legge galiziana 5/2024 art. 16; delibera di Giunta di Napoli 89/2026); esempi a mano; Napoli senza tariffe 2027;
+    titolo ≤ 70 con l'anno e la cifra; prima frase con cifra, fonte e data; riquadro dell'evento con fonte ufficiale; sitemap, pagina paese, tabella Europa."""
+    errori = []
+    attese = {
+        "santiago-de-compostela": {"h5s": 2.5, "h5": 2.5, "h4s": 2.5, "h4": 2, "h3s": 2, "h3": 2, "h2s": 2, "h2": 1.5, "h1s": 1.5, "h1": 1.5,
+                                   "pen": 1.5, "alb": 1, "camp": 1, "rural": 1, "apt": 1, "vt": 1, "vut": 2},
+        "naples": {("h5", "2026-01-01"): 5, ("h4", "2026-01-01"): 5, ("h3", "2026-01-01"): 4.5, ("h2", "2026-01-01"): 3.5, ("h1", "2026-01-01"): 3,
+                   ("extra", "2026-01-01"): 4.5, ("str", "2026-01-01"): 5, ("h5", "2026-05-01"): 6, ("h4", "2026-05-01"): 6, ("h3", "2026-05-01"): 5.5,
+                   ("h2", "2026-05-01"): 4.5, ("h1", "2026-05-01"): 4, ("extra", "2026-05-01"): 5.5, ("str", "2026-05-01"): 6},
+    }
+    sm = _sitemap()
+    europa = (SITO / "tourist-taxes-europe-2026" / "index.html").read_text(encoding="utf-8")
+    for slug, domini in SN_DOMINI.items():
+        if slug not in D:
+            errori.append(f"{slug}: mancante nei dati")
+            continue
+        R = D[slug]
+        for f in R["fonti"]:
+            if not _fonte_ok(f, domini):
+                errori.append(f"{slug}: fonte non ufficiale, non letta, senza data (dal 4/11/2026) o senza impronta: {f['url']}")
+        if slug == "santiago-de-compostela":
+            got = {t["cat"]: t["valore"] for t in R["tariffe"]}
+            if got != attese[slug] or any(t.get("dal") != "2025-10-01" or t.get("al") for t in R["tariffe"]):
+                errori.append("Santiago: tariffe diverse dall'ordinanza 1.32 / legge 5/2024 art. 16 o con date sbagliate")
+            if R.get("max_notti") != 5 or R.get("esenti_sotto_eta") != 18 or R.get("in_vigore_dal") != "2025-10-01":
+                errori.append("Santiago: massimo 5 giorni, esenzione sotto i 18 anni o partenza 1/10/2025 non coerenti con le fonti")
+        else:
+            got = {(t["cat"], t["dal"]): t["valore"] for t in R["tariffe"]}
+            if got != attese[slug] or any(t.get("al") not in ("2026-04-30", "2026-12-31") for t in R["tariffe"]):
+                errori.append("Napoli: tariffe diverse dalla delibera di Giunta 89/2026 o con date sbagliate")
+            if any((t.get("al") or "9999") > "2026-12-31" for t in R["tariffe"]):
+                errori.append("Napoli: tariffa oltre il 31/12/2026 senza delibera")
+            if R.get("max_notti") != 14 or R.get("esenti_sotto_eta") != 15:
+                errori.append("Napoli: massimo 14 notti o esenzione fino a 14 anni non coerenti con il regolamento e la pagina del Comune")
+        ev = R.get("evento")
+        dom_ev, frasi = SN_EVENTO[slug]
+        if not ev or not ev["fonti"] or any(not _fonte_ok(f, (dom_ev,)) for f in ev["fonti"]) or any(x not in ev["testo"] for x in frasi):
+            errori.append(f"{slug}: riquadro dell'evento senza fonte ufficiale ({dom_ev}) datata con impronta, o senza le date ufficiali")
+        f = SITO / slug / "index.html"
+        if not f.exists():
+            errori.append(f"{slug}: pagina mancante")
+            continue
+        t = f.read_text(encoding="utf-8")
+        titolo = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(titolo) > 70 or "2026" not in titolo or "tourist tax" not in titolo or "€" not in titolo:
+            errori.append(f"{slug}: titolo oltre 70 caratteri o senza anno, 'tourist tax' o cifra: {titolo}")
+        r = re.search(r'<p class="risposta">(.*?)</p>', t, re.S)
+        prima = unescape(r.group(1)).split(". ")[0] if r else ""
+        if not re.search(r"checked on \d{1,2} [A-Z][a-z]+ 20\d\d", prima) or "€" not in prima or not re.search(r"ordinance 1\.32|Giunta resolution 89", prima):
+            errori.append(f"{slug}: la prima frase non ha cifra, fonte e data")
+        for fo in R["fonti"] + (ev["fonti"] if ev else []):
+            if G.escape(fo["url"]) not in t:
+                errori.append(f"{slug}: fonte non linkata nella pagina: {fo['url']}")
+        if 'class="card callout evento-box"' not in t:
+            errori.append(f"{slug}: manca il riquadro dell'evento")
+        if f"{G.URL_SITO}/{slug}/" not in sm:
+            errori.append(f"{slug}: non nella sitemap")
+        paese = (SITO / "country" / R["country_slug"] / "index.html").read_text(encoding="utf-8")
+        if f'href="../../{slug}/"' not in paese:
+            errori.append(f"{slug}: non nella pagina del paese")
+        if f'href="../{slug}/"' not in europa:
+            errori.append(f"{slug}: non nella tabella Europa")
+    for descr, slug, cat, ci, n, p, es, att, sconosciute in ESEMPI_SN:
+        o = G.calcola(D[slug], cat, ci, n, p, es)
+        if abs(o["totale"] - att) > 0.005 or o["sconosciute"] != sconosciute:
+            errori.append(f"Santiago/Napoli: esempio sbagliato: {descr}: atteso {att} ({sconosciute} notti senza tariffa), "
+                          f"calcolato {o['totale']} ({o['sconosciute']})")
+    na = G.MON.testo_visibile((SITO / "naples" / "index.html").read_text(encoding="utf-8"))
+    if re.search(r"1[0-8] July 2027|July 10-18|10-18", na) and "10 to 19 July 2027" not in na:
+        errori.append("Napoli: date dell'America's Cup diverse da quelle del Comune (10-19 luglio 2027)")
+    if "2027" in G.CAMBI["non_elencati"] and "Naples" not in G.CAMBI["non_elencati"]:
+        errori.append("Napoli: la pagina 2027 non dice che le tariffe 2027 non sono pubblicate")
+    return errori
+
+
 def voce_futura_nel_titolo(titolo, attese, oggi):
     fut = [x for x in attese if x[0] > oggi]
     return bool(fut) and G.soldi(fut[0][1], "MXN") in titolo
@@ -939,9 +1044,12 @@ def main():
           f"5 pagine esistenti, {sum(1 for e in G.JT['enti'] if e['pagina'].startswith(G.JT_HUB))} pagine, riassunto, 2027): {len(ejt)} errori")
     ebe = controlla_belgio()
     print(f"Belgio (Bruxelles, Gand, Bruges: fonti, {len(ESEMPI_BE)} esempi a mano, titoli, prima frase, Anversa, Europa, cambi 2028-2029): {len(ebe)} errori")
+    esn = controlla_santiago_napoli()
+    print(f"Santiago de Compostela e Napoli (fonti con impronta e data, tariffe = fonti, {len(ESEMPI_SN)} esempi a mano, titoli, prima frase, "
+          f"Anno Santo 2027 e America's Cup 2027, sitemap, paese, Europa): {len(esn)} errori")
     em, im = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print(G.MON.riepilogo(G.SITO_ID, im, em))
-    tutti = errori + ej + el + ef + ea + ei + e7 + en + et + ex + ejp + ejt + ebe + em
+    tutti = errori + ej + el + ef + ea + ei + e7 + en + et + ex + ejp + ejt + ebe + esn + em
     for e in tutti[:40]:
         print("  -", e)
     if tutti:

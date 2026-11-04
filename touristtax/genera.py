@@ -1457,6 +1457,17 @@ def box_cambi(R, rel):
             f'<p class="small"><a href="{rel}tourist-tax-changes-2027/">All tourist tax changes in 2027, with official sources</a></p></div></section>')
 
 
+def box_evento(R):
+    """Riquadro di un grande evento (4/11/2026: Anno Santo 2027 a Santiago, America's Cup 2027 a Napoli), solo con fatti e fonti ufficiali dei dati."""
+    ev = R.get("evento")
+    if not ev:
+        return ""
+    fonti = "; ".join(f'<a href="{escape(f["url"])}" rel="noopener">{escape(f["titolo"])}</a>, checked {data_lunga(f["controllato_il"])}' for f in ev["fonti"])
+    return (f'<section class="card callout evento-box" aria-label="{escape(ev["titolo"])}"><span class="ic">{ico("calendar")}</span>'
+            f'<div><p><strong>{escape(ev["titolo"])}</strong></p><p>{escape(ev["testo"])}</p>'
+            f'<p class="small">Official source: {fonti}</p></div></section>')
+
+
 def regole_testo(R):
     tipo = R["tipo"]
     parti = {"per_person": ["a fixed amount per person per night" + (" by accommodation type" if len(R["categorie"]) > 1 else "")],
@@ -1536,6 +1547,7 @@ def pagina_destinazione(R):
 {fonte_breve(R)}</div>
 </section>
 {box_cambi(R, rel)}
+{box_evento(R)}
 {(jt_callout(rel) + jp_callout(rel)) if R["country_slug"] == "japan" else ""}
 {modulo_calcolatore(id_dati, rel=rel, cat_default=cat_def)}
 {f'<p class="avviso">{escape(R["avviso_verifica"])}</p>' if R.get("avviso_verifica") else ""}
@@ -2990,7 +3002,7 @@ def pagina_paese(slug):
                     f'<td>{d.get("max_notti") or "–"}</td><td>{("under " + str(d["esenti_sotto_eta"])) if d.get("esenti_sotto_eta") else "–"}</td></tr>' for d in dd)
     testo_extra = {
         "greece": "Greece has one national fee, the climate crisis resilience fee, charged per room per night with a high-season and a low-season rate. The amount is the same on every island and in Athens.",
-        "spain": "Spain has no national tourist tax. Catalonia (with a Barcelona city surcharge) and the Balearic Islands levy their own regional taxes, covered here.",
+        "spain": "Spain has no national tourist tax. Catalonia (with a Barcelona city surcharge) and the Balearic Islands levy their own regional taxes, and Santiago de Compostela a municipal surcharge on the Galician tax, covered here.",
         "turkey": "Turkey's accommodation tax is national: a percentage of the accommodation price excluding VAT, the same everywhere.",
         "japan": "In Japan accommodation taxes are set by prefectures and cities. Some places have both (for example Hokkaido and Sapporo, Nagano and Hakuba). The Ministry of Internal Affairs and Communications publishes the official list of all of them.",
         "italy": "In Italy each city sets its own imposta (or contributo) di soggiorno per person per night, with its own maximum nights and age exemptions.",
@@ -3028,7 +3040,9 @@ def paese_seo(slug, dd):
                 f"per person per night, in the rest of Catalonia {fascia_breve(c, _vigenti(c, oggi)).replace('–', ' to ')}"
                 + (f" ({fascia_breve(c, _vigenti(c, cd)).replace('–', ' to ')} from {data_lunga(cd)})" if cd else "")
                 + f", and in Mallorca, Ibiza, Menorca and Formentera {fascia_breve(m, _vigenti(m, oggi)).replace('–', ' to ')} (the ecotasa, 75% lower from November to April). "
-                f"Under-{b['esenti_sotto_eta']}s pay nothing in Catalonia and under-{m['esenti_sotto_eta']}s in the Balearic Islands.")
+                f"Under-{b['esenti_sotto_eta']}s pay nothing in Catalonia and under-{m['esenti_sotto_eta']}s in the Balearic Islands."
+                + (f" In Santiago de Compostela (Galicia) you pay {fascia_breve(by['santiago-de-compostela'], _vigenti(by['santiago-de-compostela'], oggi)).replace('–', ' to ')}"
+                   " per person per night, for at most 5 nights." if "santiago-de-compostela" in by else ""))
         return (f"How much is the tourist tax in Spain? {ANNO} and {ANNO + 1} rates and calculator",
                 f"Tourist tax in Spain {ANNO} and {ANNO + 1}: how much you pay in Barcelona, Catalonia and the Balearic Islands", risp)
     if slug == "greece":
