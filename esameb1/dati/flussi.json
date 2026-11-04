@@ -1,0 +1,519 @@
+{
+  "_nota": "Pagina /decreto-flussi-click-day/ (dal 4/11/2026). Solo fonti ufficiali: DPCM 2 ottobre 2025 in Gazzetta Ufficiale, circolari congiunte Interno/Lavoro/Agricoltura/Turismo, lavoro.gov.it, interno.gov.it, integrazionemigranti.gov.it. 'impronta' = primi 16 caratteri dello SHA-256 del testo normalizzato della fonte (HTML senza tag, PDF con pdftotext), come in raccolta/esempi.py; si ricalcola con python3 esameb1/raccolta/flussi.py --salva. Ogni dato della pagina ha almeno una frase in 'citazioni', cercata parola per parola nella fonte. Da aggiornare per il 2028 quando esce la circolare con la precompilazione 2028 (di solito a ottobre).",
+  "anno": 2027,
+  "fonti": {
+    "dpcm": {
+      "nome": "DPCM 2 ottobre 2025 «Programmazione dei flussi di ingresso legale in Italia dei lavoratori stranieri per il triennio 2026-2028», Gazzetta Ufficiale, Serie generale n. 240 del 15 ottobre 2025",
+      "breve": "DPCM 2 ottobre 2025 (Gazzetta Ufficiale n. 240 del 15/10/2025)",
+      "url": "https://www.gazzettaufficiale.it/eli/gu/2025/10/15/240/sg/pdf",
+      "url_pagina": "https://www.gazzettaufficiale.it/eli/id/2025/10/15/25A05656/sg",
+      "letta_il": "2026-11-04",
+      "impronta": "9b7eaad7403f9352"
+    },
+    "circolare_2027": {
+      "nome": "Circolare congiunta Ministero dell'Interno, Ministero del Lavoro, Ministero dell'Agricoltura e Ministero del Turismo, prot. n. 7185 del 1° ottobre 2026 «Annualità 2027 – Quote di ingresso, fase di precompilazione delle domande e termini di presentazione» (PDF su lavoro.gov.it)",
+      "breve": "circolare congiunta n. 7185 del 1° ottobre 2026",
+      "url": "https://www.lavoro.gov.it/documenti-e-norme/normativa/CC-7185-del-01102026",
+      "letta_il": "2026-11-04",
+      "impronta": "02e2e23b726d05c3"
+    },
+    "circolare_2025": {
+      "nome": "Circolare interministeriale prot. n. 8047 del 16 ottobre 2025 sul DPCM 2 ottobre 2025 (requisiti, documenti, procedura; per il 2027 resta valida dove la circolare n. 7185 non dice altro)",
+      "breve": "circolare interministeriale n. 8047 del 16 ottobre 2025",
+      "url": "https://www.lavoro.gov.it/documenti-e-norme/normativa/Circolare-8047-del-16102025",
+      "letta_il": "2026-11-04",
+      "impronta": "ea64b69d66428701"
+    },
+    "lavoro_notizia": {
+      "nome": "Ministero del Lavoro, «Decreto Flussi 2027, pubblicata la Circolare con le indicazioni operative» (1° ottobre 2026)",
+      "breve": "Ministero del Lavoro, notizia del 1° ottobre 2026",
+      "url": "https://www.lavoro.gov.it/notizie/pagine/decreto-flussi-2027-pubblicata-la-circolare-con-le-indicazioni-operative",
+      "letta_il": "2026-11-04",
+      "impronta": "65e36985492eb53a"
+    },
+    "im_flussi2027": {
+      "nome": "Portale Integrazione Migranti, approfondimento «Flussi 2027»",
+      "breve": "Portale Integrazione Migranti, «Flussi 2027»",
+      "url": "https://www.integrazionemigranti.gov.it/it-it/Dettaglio-approfondimento/id/71/Flussi-2027",
+      "letta_il": "2026-11-04",
+      "impronta": "c28c306997f33a1f"
+    },
+    "im_precompilazione": {
+      "nome": "Portale Integrazione Migranti, «Flussi 2027, così la precompilazione delle domande» (12 ottobre 2026)",
+      "breve": "Portale Integrazione Migranti, notizia del 12 ottobre 2026",
+      "url": "https://www.integrazionemigranti.gov.it/it-it/Ricerca-news/Dettaglio-news/id/4957/Flussi-2027-cosi-la-precompilazione-delle-domande",
+      "letta_il": "2026-11-04",
+      "impronta": "aa00d467d7a9e5c9"
+    },
+    "interno_procedure": {
+      "nome": "Ministero dell'Interno, «Procedure flussi»",
+      "breve": "Ministero dell'Interno, «Procedure flussi»",
+      "url": "https://www.interno.gov.it/it/servizi/servizi-line/procedure-flussi",
+      "letta_il": "2026-11-04",
+      "impronta": "2e501a613fa9da7f"
+    }
+  },
+  "portale": {
+    "nome": "Portale Servizi ALI del Ministero dell'Interno (Sportello Unico Immigrazione)",
+    "url": "https://portaleservizi.dlci.interno.it/AliSportello/ali/home.htm",
+    "letta_il": "2026-11-04"
+  },
+  "precompilazione": {
+    "dal": "2026-10-23",
+    "ora_dal": "9:00",
+    "al": "2026-12-07",
+    "ora_al": "20:00",
+    "fonti": [
+      "circolare_2027",
+      "lavoro_notizia",
+      "im_precompilazione"
+    ]
+  },
+  "riapertura": {
+    "dal": "2026-12-09",
+    "ora_dal": "9:00",
+    "al": "2026-12-13",
+    "ora_al": "20:00",
+    "fonti": [
+      "circolare_2027",
+      "im_precompilazione"
+    ]
+  },
+  "termine": {
+    "data": "2027-12-31",
+    "fonti": [
+      "circolare_2027",
+      "dpcm"
+    ]
+  },
+  "click_day": [
+    {
+      "data": "2027-01-12",
+      "ora": "9:00",
+      "chi": "Lavoro stagionale nel settore agricolo",
+      "breve": "stagionali agricoli",
+      "modello": "C-Stag agricolo",
+      "quote": "fa parte delle 89.000 quote per il lavoro stagionale (agricolo e turistico insieme); 47.000 sono riservate alle domande presentate dalle organizzazioni agricole elencate nel DPCM",
+      "fonti": [
+        "circolare_2027",
+        "dpcm"
+      ]
+    },
+    {
+      "data": "2027-02-09",
+      "ora": "9:00",
+      "chi": "Lavoro stagionale nel settore turistico",
+      "breve": "stagionali del turismo",
+      "modello": "C-Stag turistico",
+      "quote": "fa parte delle stesse 89.000 quote per il lavoro stagionale; 14.000 sono riservate alle domande presentate dalle organizzazioni dei datori di lavoro del turismo",
+      "fonti": [
+        "circolare_2027",
+        "dpcm"
+      ]
+    },
+    {
+      "data": "2027-02-16",
+      "ora": "9:00",
+      "chi": "Lavoro subordinato non stagionale (tutti i settori del DPCM, tranne l'assistenza familiare)",
+      "breve": "non stagionali",
+      "modello": "B2020",
+      "quote": "fa parte delle 76.200 quote per il lavoro non stagionale; di queste, 14.000 sono per l'assistenza familiare (click day del 18 febbraio)",
+      "fonti": [
+        "circolare_2027",
+        "dpcm"
+      ]
+    },
+    {
+      "data": "2027-02-18",
+      "ora": "9:00",
+      "chi": "Lavoro subordinato non stagionale nell'assistenza familiare (lavoro domestico)",
+      "breve": "assistenza familiare",
+      "modello": "A-bis in quota",
+      "quote": "14.000 quote",
+      "fonti": [
+        "circolare_2027",
+        "dpcm"
+      ]
+    }
+  ],
+  "quote": {
+    "totale": 165850,
+    "non_stagionale": {
+      "totale": 76200,
+      "voci": [
+        [
+          "cittadini dei 38 Paesi elencati nel DPCM (accordi in materia migratoria)",
+          25000
+        ],
+        [
+          "cittadini di Paesi con nuovi accordi che entrano in vigore nel triennio",
+          26000
+        ],
+        [
+          "apolidi e rifugiati riconosciuti",
+          300
+        ],
+        [
+          "assistenza familiare",
+          14000
+        ],
+        [
+          "quote non riservate",
+          10900
+        ]
+      ]
+    },
+    "stagionale": {
+      "totale": 89000,
+      "voci": [
+        [
+          "domande delle organizzazioni agricole elencate nel DPCM",
+          47000
+        ],
+        [
+          "domande delle organizzazioni dei datori di lavoro del turismo",
+          14000
+        ],
+        [
+          "lavoratori già venuti per lavoro stagionale nei 5 anni prima, con nulla osta pluriennale",
+          6000
+        ],
+        [
+          "cittadini di Paesi con nuovi accordi che entrano in vigore nel triennio",
+          12750
+        ],
+        [
+          "quote non riservate",
+          9250
+        ]
+      ]
+    },
+    "autonomo": {
+      "totale": 650,
+      "voci": [
+        [
+          "lavoratori di origine italiana residenti in Venezuela (10) o negli altri Paesi indicati dal Ministero degli Esteri (40)",
+          50
+        ],
+        [
+          "apolidi e rifugiati riconosciuti",
+          20
+        ],
+        [
+          "imprenditori, liberi professionisti, cariche societarie, artisti, start-up innovative",
+          500
+        ],
+        [
+          "quote non riservate",
+          80
+        ]
+      ]
+    },
+    "fonti": [
+      "circolare_2027",
+      "dpcm",
+      "circolare_2025"
+    ]
+  },
+  "paesi": [
+    "Albania",
+    "Algeria",
+    "Bangladesh",
+    "Bosnia-Herzegovina",
+    "Corea (Repubblica di Corea)",
+    "Costa d'Avorio",
+    "Ecuador",
+    "Egitto",
+    "El Salvador",
+    "Etiopia",
+    "Filippine",
+    "Gambia",
+    "Georgia",
+    "Ghana",
+    "Giappone",
+    "Giordania",
+    "Guatemala",
+    "India",
+    "Kirghizistan",
+    "Kosovo",
+    "Mali",
+    "Marocco",
+    "Mauritius",
+    "Moldova",
+    "Montenegro",
+    "Niger",
+    "Nigeria",
+    "Pakistan",
+    "Perù",
+    "Repubblica di Macedonia del Nord",
+    "Senegal",
+    "Serbia",
+    "Sri Lanka",
+    "Sudan",
+    "Thailandia",
+    "Tunisia",
+    "Ucraina",
+    "Uzbekistan"
+  ],
+  "paesi_nuovi_2027": [
+    "Kenya"
+  ],
+  "citazioni": [
+    {
+      "fonte": "circolare_2027",
+      "testo": "complessivamente n. 165.850 cittadini non comunitari"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "n. 76.200 ingressi per lavoro subordinato non stagionale, di cui n. 14.000 destinati al settore dell'assistenza familiare"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "n. 89.000 ingressi per lavoro subordinato stagionale nei settori agricolo e turistico"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "n. 650 ingressi per lavoro autonomo"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "dall'anno 2027 viene ricompreso anche il Kenya"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "La fase di precompilazione sarà aperta dalle ore 9:00 del 23 ottobre 2026 alle ore 20:00 del 7 dicembre 2026"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "dalle ore 9:00 del giorno 9 alle ore 20:00 del giorno 13 dicembre 2026"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "Durante tale periodo non sarà possibile inserire nuove domande."
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "potranno essere presentate, a decorrere dalle ore 9:00, nei seguenti giorni"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "12 gennaio 2027, per gli ingressi per lavoro subordinato stagionale nel settore agricolo"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "9 febbraio 2027, per gli ingressi per lavoro subordinato stagionale nel settore turistico"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "16 febbraio 2027, per gli ingressi per lavoro subordinato non stagionale"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "18 febbraio 2027, per gli ingressi per lavoro subordinato non stagionale nel settore dell'assistenza familiare"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "Tutte le domande potranno essere presentate fino al 31 dicembre 2027"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "a quindici giorni, dalla comunicazione della conclusione degli accertamenti sulla domanda di visto"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "che passa da otto a quindici giorni dalla data di ingresso del lavoratore straniero nel territorio nazionale"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "allo Sportello unico per gli adempimenti concernenti la richiesta di rilascio del permesso di soggiorno"
+    },
+    {
+      "fonte": "dpcm",
+      "testo": "b) 165.850 unità per l'anno 2027"
+    },
+    {
+      "fonte": "dpcm",
+      "testo": "b) 89.000 unità per l'anno 2027"
+    },
+    {
+      "fonte": "dpcm",
+      "testo": "2. per il 2027, 14.000 unità"
+    },
+    {
+      "fonte": "dpcm",
+      "testo": "una quota di 47.000 unità di lavoratori stranieri"
+    },
+    {
+      "fonte": "dpcm",
+      "testo": "14.000 unità nel 2027"
+    },
+    {
+      "fonte": "dpcm",
+      "testo": "dalle ore 9,00 del 12 gennaio dell'anno di riferimento"
+    },
+    {
+      "fonte": "dpcm",
+      "testo": "dalle ore 9,00 del 9 febbraio"
+    },
+    {
+      "fonte": "dpcm",
+      "testo": "dalle ore 9,00 del 16 febbraio"
+    },
+    {
+      "fonte": "dpcm",
+      "testo": "dalle ore 9,00 del 18 febbraio"
+    },
+    {
+      "fonte": "dpcm",
+      "testo": "Le domande non entrate in quota decorsi sei mesi"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "Quote non riservate"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "10.900"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "9.250"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "è necessario il possesso di un'identità SPID o della CIE"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "è necessario disporre di un indirizzo PEC registrato nelle seguenti banche dati"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "deve essere effettuata, da parte del datore di lavoro, la preventiva verifica presso il centro per l'impiego competente della indisponibilità di un lavoratore presente nel territorio nazionale"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "entro otto giorni dalla richiesta del datore di lavoro"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "è necessario acquisire l'asseverazione"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "non può essere inferiore a € 30.000,00 annui"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "non può essere inferiore a € 20.000,00 annui, limite che sale a € 27.000,00"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "fino ad un massimo di tre richieste di nulla osta di lavoro subordinato per ciascuna delle annualità 2026-2028"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "la dimensione massima consentita di ciascun documento da allegare è pari a 2MB"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "ordinata secondo la cronologia di invio delle domande registrata nel click day"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "le quote vengono assegnate, in modalità informatica, per ambito provinciale"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "La pratica risulta al momento non in quota"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "nel complessivo termine massimo di sessanta giorni dalla data di imputazione"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "non oltre venti giorni dalla data di imputazione"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "dal Bangladesh, dal Pakistan, dallo Sri Lanka e dal Marocco"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "può svolgere immediatamente attività lavorativa"
+    },
+    {
+      "fonte": "lavoro_notizia",
+      "testo": "Dal 23 ottobre 2026 al 7 dicembre 2026 sarà possibile precompilare le domande di nulla osta sul Portale Servizi ALI del Ministero dell'Interno"
+    },
+    {
+      "fonte": "im_flussi2027",
+      "testo": "La precompilazione dei moduli è indispensabile per poter inviare le domande nei giorni dei click days."
+    },
+    {
+      "fonte": "im_flussi2027",
+      "testo": "La compilazione di nuove domande riparte dal giorno dopo il"
+    },
+    {
+      "fonte": "im_flussi2027",
+      "testo": "anche per il tramite delle associazioni di categoria e dei professionisti abilitati"
+    },
+    {
+      "fonte": "im_precompilazione",
+      "testo": "Effettua l'autenticazione tramite SPID o CIE"
+    },
+    {
+      "fonte": "im_precompilazione",
+      "testo": "Compila domande Decreto Flussi 2026-2028/Click Day"
+    },
+    {
+      "fonte": "interno_procedure",
+      "testo": "oppure avvalersi del supporto dei numerosi enti o patronati abilitati"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "la quota di ingresso per l'assistenza familiare è riservata ai rapporti di lavoro domestico"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "Il requisito reddituale non è richiesto per il datore di lavoro affetto da patologie o disabilità che ne limitano l'autosufficienza"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "In caso di conferma l'ufficio consolare presso il Paese di residenza o di origine dello straniero rilascia il visto di ingresso."
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "l'idonea documentazione relativa alle modalità di sistemazione alloggiativa e il documento di asseverazione devono essere firmati digitalmente"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "Scrivi all'Help Desk"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "un codice di attivazione domanda"
+    },
+    {
+      "fonte": "dpcm",
+      "testo": "cittadini stranieri residenti all'estero"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "è necessario fornire una certificazione che attesti la patologia/disabilità fornita dal medico di base"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "si intende esperita con esito negativo se il medesimo centro non comunica la disponibilità di lavoratori presenti sul territorio entro otto giorni"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "il lavoratore che ha fatto ingresso in Italia dopo il rilascio del nulla osta al lavoro subordinato"
+    },
+    {
+      "fonte": "interno_procedure",
+      "testo": "sarà sufficiente collegarsi dal proprio computer"
+    }
+  ]
+}

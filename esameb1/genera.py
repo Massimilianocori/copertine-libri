@@ -736,7 +736,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
 <div>
 <a class="logo" href="{home_href}">{MARCHIO}<span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Orale e domande</a></li><li><a href="{rel}esonero-test-italiano/">Chi è esonerato</a></li><li><a href="{rel}esempi/">Prove d'esempio</a></li><li><a href="{rel}esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="{rel}cittadinanza/">Domanda di cittadinanza</a></li><li><a href="{rel}reddito-minimo-cittadinanza/">Reddito minimo</a></li>{enti_link}{LG.link_piede_lingue("it", percorso, radice)}<li><a href="{rel}privacy.html">Privacy</a></li>
+<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Orale e domande</a></li><li><a href="{rel}esonero-test-italiano/">Chi è esonerato</a></li><li><a href="{rel}esempi/">Prove d'esempio</a></li><li><a href="{rel}esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="{rel}cittadinanza/">Domanda di cittadinanza</a></li><li><a href="{rel}reddito-minimo-cittadinanza/">Reddito minimo</a></li><li><a href="{rel}decreto-flussi-click-day/">Decreto flussi: click day</a></li>{enti_link}{LG.link_piede_lingue("it", percorso, radice)}<li><a href="{rel}privacy.html">Privacy</a></li>
 </ul>
 </div>
 <div>
@@ -2658,6 +2658,315 @@ almeno B1 (con alcune esenzioni): <a href="../esonero-test-italiano/">chi è eso
                               "per ogni familiare. Tabella da 1 a 5, fonti INPS."), corpo, jsonld)
 
 
+# ---------------------------------------------------------------- decreto flussi: click day (dal 4/11/2026)
+FLUSSI = json.loads((DATI / "flussi.json").read_text(encoding="utf-8"))  # date, quote e fonti ufficiali; controllo dal vivo: raccolta/flussi.py
+GIORNI_CLICK = [(1, 12), (2, 9), (2, 16), (2, 18)]  # DPCM 2/10/2025, art. 8 c. 2: stessi giorni per il 2026, il 2027 e il 2028
+
+
+def punti(n):
+    """165850 → «165.850»."""
+    return f"{n:,}".replace(",", ".")
+
+
+def controlli_flussi():
+    """Dati del decreto flussi: ogni fonte con url, data di lettura e impronta; ogni dato con fonti note; date nei giorni
+    del DPCM e nell'ordine giusto; quote che tornano con i totali. Avviso quando l'anno è finito (serve il 2028)."""
+    F, errori = FLUSSI, []
+    anno = F["anno"]
+    for k, f in F["fonti"].items():
+        if not f.get("url") or not f.get("letta_il") or len(f.get("impronta", "")) != 16 or not f.get("breve"):
+            errori.append(f"flussi.json: fonte {k} senza url, letta_il, impronta o nome breve")
+    citate = {c["fonte"] for c in F["citazioni"]}
+    for k in F["fonti"]:
+        if k not in citate:
+            errori.append(f"flussi.json: nessuna frase citata dalla fonte {k}")
+    for c in F["citazioni"]:
+        if c["fonte"] not in F["fonti"] or not c["testo"].strip():
+            errori.append(f"flussi.json: citazione senza fonte nota: {c}")
+    voci = F["click_day"] + [F["precompilazione"], F["riapertura"], F["termine"], F["quote"]]
+    for v in voci:
+        if not v.get("fonti") or any(k not in F["fonti"] for k in v["fonti"]):
+            errori.append(f"flussi.json: dato senza fonti note: {v.get('chi') or v.get('dal') or v.get('data') or 'quote'}")
+    giorni = [(d(c["data"]).month, d(c["data"]).day) for c in F["click_day"]]
+    if giorni != GIORNI_CLICK or any(d(c["data"]).year != anno for c in F["click_day"]):
+        errori.append(f"flussi.json: click day diversi dai giorni del DPCM (12/1, 9/2, 16/2, 18/2 del {anno}): {giorni}")
+    pre, ria = F["precompilazione"], F["riapertura"]
+    if not (d(pre["dal"]) < d(pre["al"]) < d(ria["dal"]) <= d(ria["al"]) < d(F["click_day"][0]["data"])):
+        errori.append("flussi.json: precompilazione e riapertura devono finire prima del primo click day")
+    if F["termine"]["data"] != f"{anno}-12-31":
+        errori.append("flussi.json: il termine delle domande è il 31 dicembre dell'anno")
+    q = F["quote"]
+    for parte in ("non_stagionale", "stagionale", "autonomo"):
+        if sum(n for _, n in q[parte]["voci"]) != q[parte]["totale"]:
+            errori.append(f"flussi.json: le quote {parte} non fanno {q[parte]['totale']}")
+    if q["non_stagionale"]["totale"] + q["stagionale"]["totale"] + q["autonomo"]["totale"] != q["totale"]:
+        errori.append("flussi.json: le tre quote non fanno il totale")
+    testi = " ".join(c["testo"] for c in F["citazioni"])
+    for n in (q["totale"], q["non_stagionale"]["totale"], q["stagionale"]["totale"], q["autonomo"]["totale"], 14000, 47000):
+        if punti(n) not in testi:
+            errori.append(f"flussi.json: il numero {punti(n)} non è in nessuna frase citata")
+    for c in F["click_day"]:
+        x = d(c["data"])
+        if f"{x.day} {MESI[x.month - 1]} {x.year}" not in testi:
+            errori.append(f"flussi.json: la data {c['data']} non è in nessuna frase citata")
+    if len(F["paesi"]) != 38:
+        errori.append(f"flussi.json: i Paesi del DPCM (art. 6 c. 2 lett. a) sono 38, non {len(F['paesi'])}")
+    if errori:
+        raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
+    if OGGI > d(F["termine"]["data"]):
+        print(f"AVVISO: dati/flussi.json è del {anno}: aggiornarlo con la circolare congiunta per il {anno + 1} (vedi NOTE.md, «Decreto flussi»).",
+              file=sys.stderr)
+    vecchie = [k for k, f in F["fonti"].items() if (OGGI - d(f["letta_il"])).days > 45]
+    if vecchie:
+        print(f"AVVISO: dati/flussi.json: fonti lette più di 45 giorni fa ({', '.join(vecchie)}): python3 esameb1/raccolta/flussi.py --salva",
+              file=sys.stderr)
+
+
+def pagina_flussi():
+    """Date dei click day del decreto flussi, quote, precompilazione, chi fa la domanda, documenti, cosa succede dopo.
+    Solo fonti ufficiali; nessun consiglio sul caso personale; niente riquadro «Preparati» né link di affiliazione."""
+    F = FLUSSI
+    anno = F["anno"]
+    fo, q = F["fonti"], F["quote"]
+    pre, ria, ter = F["precompilazione"], F["riapertura"], F["termine"]
+    cd = F["click_day"]
+    portale = f'<a href="{escape(F["portale"]["url"])}" rel="noopener">Portale Servizi ALI</a>'
+
+    def a(k):
+        return f'<a href="{escape(fo[k]["url"])}" rel="noopener">{escape(fo[k]["breve"])}</a>'
+
+    def fonte(*chiavi):
+        lette = sorted({fo[k]["letta_il"] for k in chiavi})
+        return (f'<div class="fonte">{ic("doc")}<span>{"Fonti" if len(chiavi) > 1 else "Fonte"}: {" · ".join(a(k) for k in chiavi)}'
+                f' · letta il {data_breve(lette[-1])}</span></div>')
+
+    def gm(iso):
+        x = d(iso)
+        return f"{x.day} {MESI[x.month - 1]}"
+
+    letta = data_breve(max(f["letta_il"] for f in fo.values()))
+    circ = "circolare congiunta n. 7185 del 1° ottobre 2026"
+    elenco_date = "; ".join(f"{gm(c['data'])} ({c['breve']})" for c in cd)
+    risposta_breve = (f"I click day del decreto flussi {anno} sono il {gm(cd[0]['data'])} (lavoro stagionale agricolo), il {gm(cd[1]['data'])} "
+                      f"(stagionale turistico), il {gm(cd[2]['data'])} (non stagionale) e il {gm(cd[3]['data'])} {anno} (assistenza familiare), "
+                      f"sempre dalle ore 9:00: lo dice la {circ} dei Ministeri dell'Interno, del Lavoro, dell'Agricoltura e del Turismo. "
+                      f"Le quote {anno} sono {punti(q['totale'])}. Fonti lette il {letta}.")
+
+    # scheda in cima: precompilazione e prossimo click day (il JS nasconde le voci passate)
+    def voci_slot(voci):
+        out, vista = [], False
+        for fino, html_v in voci:
+            vis = not vista and d(fino) >= OGGI
+            vista = vista or vis
+            out.append(f'<div data-fino="{fino}"{"" if vis else " hidden"}>{html_v}</div>')
+        return "".join(out), vista
+
+    def conta(iso, modo):
+        g = (d(iso) - OGGI).days
+        testo = testo_conta(iso, modo) if g >= 0 else ""
+        return f'<p style="margin:12px 0 0"><span class="conta {classe_conta(iso, modo) if g >= 0 else ""}" data-conta="{iso}" data-modo="{modo}">{testo}</span></p>'
+
+    s1, v1 = voci_slot([
+        (pre["al"], f'<div class="r-data"><small>fino al</small> {data_breve(pre["al"])}</div>'
+                    f'<div class="r-cosa">precompilazione delle domande sul Portale ALI, fino alle ore {pre["ora_al"]}</div>{conta(pre["al"], "scad")}'),
+        (ria["al"], f'<div class="r-data">{d(ria["dal"]).day}-{data_breve(ria["al"])}</div>'
+                    f'<div class="r-cosa">riapertura solo per completare e salvare le domande già precompilate (niente domande nuove)</div>{conta(ria["al"], "scad")}'),
+    ])
+    s2, v2 = voci_slot([(c["data"], f'<div class="r-data">{gm(c["data"])} <small>{d(c["data"]).year}, ore {c["ora"]}</small></div>'
+                                    f'<div class="r-cosa">{escape(c["chi"])} · modello {escape(c["modello"])}</div>{conta(c["data"], "esame")}')
+                        for c in cd]
+                       + [(ter["data"], f'<div class="r-data"><small>fino al</small> {data_breve(ter["data"])}</div>'
+                                        '<div class="r-cosa">i click day sono passati: le domande si possono inviare fino a questa data, se ci sono ancora quote</div>')])
+    riserva1 = (f'<p data-riserva class="r-nota"{" hidden" if v1 else ""}>La precompilazione {anno} è chiusa: nei click day si inviano solo le domande '
+                'già precompilate. Le domande nuove si compilano dal giorno dopo il click day.</p>')
+    riserva2 = (f'<p data-riserva class="r-nota"{" hidden" if v2 else ""}>Il decreto flussi {anno} è chiuso. Le date {anno + 1} le scriveremo qui '
+                'quando i Ministeri pubblicheranno la circolare.</p>')
+
+    def scheda_cd(c):
+        passato = d(c["data"]) < OGGI
+        tag = f'<span class="tag">{ic("ok")}passato</span>' if passato else ""
+        return (f'<div class="fatto"><div class="f-et">{ic("cal")}<span>{escape(c["chi"])}</span>{tag}</div>'
+                f'<p class="f-breve"><time datetime="{c["data"]}T09:00">{data_lunga(c["data"])}</time></p>'
+                f'<p>Dalle ore {c["ora"]}. Modello di domanda: <strong>{escape(c["modello"])}</strong>.</p>'
+                f'<p>Quote: {escape(c["quote"])}.</p>{fonte(*c["fonti"])}</div>')
+
+    def tab_quote(parte, titolo):
+        p = q[parte]
+        righe = "".join(f'<tr><td>{escape(t)}</td><td data-l="Quote {anno}"><strong>{punti(n)}</strong></td></tr>' for t, n in p["voci"])
+        return (f'<div class="tab-wrap rc-tab"><table class="conf"><caption class="small">{titolo}: {punti(p["totale"])} quote nel {anno}</caption>'
+                f'<thead><tr><th scope="col">Per chi</th><th scope="col">Quote {anno}</th></tr></thead>'
+                f'<tbody>{righe}<tr><td><strong>Totale</strong></td><td data-l="Totale"><strong>{punti(p["totale"])}</strong></td></tr></tbody></table></div>')
+
+    paesi = ", ".join(F["paesi"])
+    faq = [
+        (f"Quali sono le date dei click day {anno}?",
+         f"Dalle ore 9:00 del {gm(cd[0]['data'])} {anno} per il lavoro stagionale agricolo (modello C-Stag agricolo), del {gm(cd[1]['data'])} per lo stagionale "
+         f"turistico (C-Stag turistico), del {gm(cd[2]['data'])} per il lavoro non stagionale (B2020) e del {gm(cd[3]['data'])} per l'assistenza familiare (A-bis). "
+         f"Le domande si possono inviare fino al 31 dicembre {anno}, se ci sono ancora quote. Fonte: {circ}."),
+        (f"Quando si fa la precompilazione del decreto flussi {anno}?",
+         f"Dalle ore 9:00 del {data_breve(pre['dal'])} alle ore 20:00 del {data_breve(pre['al'])}, sul Portale Servizi ALI del Ministero dell'Interno, anche nei giorni "
+         f"festivi. Dal {gm(ria['dal'])} al {data_breve(ria['al'])} il portale riapre solo per completare e salvare le domande già iniziate. "
+         "Senza precompilazione non si può inviare la domanda nel click day."),
+        (f"Quando è il click day {anno} per colf e badanti?",
+         f"Per il lavoro domestico nel settore dell'assistenza familiare il click day è il {gm(cd[3]['data'])} {anno}, dalle ore 9:00, con il modello A-bis. "
+         f"Le quote sono {punti(14000)}. Per il 2026-2028 questa quota è riservata ai rapporti di lavoro domestico; le altre assunzioni nella sanità e "
+         f"nell'assistenza sociale usano il modello B2020 (click day del {gm(cd[2]['data'])})."),
+        (f"Quante sono le quote del decreto flussi {anno}?",
+         f"{punti(q['totale'])} in tutto: {punti(q['non_stagionale']['totale'])} per lavoro subordinato non stagionale (di cui {punti(14000)} per l'assistenza "
+         f"familiare), {punti(q['stagionale']['totale'])} per lavoro stagionale nell'agricoltura e nel turismo e {punti(q['autonomo']['totale'])} per lavoro autonomo. "
+         "Le stabilisce il DPCM 2 ottobre 2025 per il triennio 2026-2028."),
+        ("Chi presenta la domanda nel click day?",
+         "Il datore di lavoro in Italia, da solo oppure tramite un'associazione di categoria o un professionista abilitato (per esempio un consulente del lavoro). "
+         "Il lavoratore straniero, che deve vivere all'estero, non fa la domanda di nulla osta: dopo il nulla osta chiede il visto al consolato italiano. "
+         "Chi fa la domanda come privato può presentarne al massimo 3 per ogni anno."),
+        (f"Quali documenti servono per il decreto flussi {anno}?",
+         "Il datore di lavoro deve avere SPID o CIE per entrare nel Portale ALI e una PEC registrata in INI-PEC (imprese) o INAD (persone e altri enti). "
+         "Per il lavoro non stagionale, anche domestico, serve prima la verifica al Centro per l'impiego. Per tutti i settori serve l'asseverazione, "
+         "salvo alcune eccezioni. La documentazione sull'alloggio e l'asseverazione vanno firmate digitalmente; ogni file al massimo 2 MB."),
+        (f"Quali sono i requisiti di reddito del datore di lavoro?",
+         "Per i settori diversi dall'assistenza familiare: reddito imponibile o fatturato di almeno 30.000 € l'anno. Per il lavoro domestico: almeno 20.000 € "
+         "se il datore vive da solo, 27.000 € se in famiglia ci sono più persone conviventi. Il requisito non si chiede al datore con patologie o disabilità "
+         "che ne limitano l'autosufficienza, che assume chi lo assiste. Sono le regole della circolare n. 8047 del 16 ottobre 2025."),
+        (f"Quali Paesi sono ammessi nel decreto flussi {anno}?",
+         f"Il DPCM riserva quote ai cittadini di 38 Paesi: {paesi}. Dal {anno} la circolare aggiunge il Kenya. Altre quote sono per i Paesi con accordi "
+         "che entrano in vigore nel triennio: l'elenco è sui siti dei Ministeri. Per il lavoro stagionale valgono solo questi Paesi."),
+        ("Come funziona il click day?",
+         "Dalle 9:00 del giorno fissato si inviano, dal Portale ALI, solo le domande già precompilate. Le quote si assegnano per provincia, nell'ordine di invio "
+         "delle domande. Se la domanda non rientra nelle quote, nell'area riservata compare la scritta «La pratica risulta al momento non in quota». "
+         "Inviare la domanda non basta: il nulla osta arriva solo se la domanda entra nelle quote e supera i controlli."),
+        ("Quando esce il nulla osta?",
+         "Lo Sportello unico per l'immigrazione lo rilascia entro 60 giorni per il lavoro non stagionale ed entro 20 giorni per lo stagionale, dalla data in cui "
+         "la domanda è stata messa nelle quote. Per i lavoratori del Bangladesh, del Pakistan, dello Sri Lanka e del Marocco serve sempre il parere della Questura "
+         "e il nulla osta non esce in automatico."),
+    ]
+    jsonld = faq_jsonld(faq)
+    jsonld["@context"] = "https://schema.org"
+    faq_html = "".join(domanda(escape(qq), escape(t)) for qq, t in faq)
+
+    righe_fonti = "".join(
+        f'<tr><td><a href="{escape(f["url"])}" rel="noopener">{escape(f["nome"])}</a></td>'
+        f'<td data-l="Letta il">{data_breve(f["letta_il"])}</td><td data-l="Impronta"><code>{escape(f["impronta"])}</code></td></tr>'
+        for f in fo.values())
+    nota = ("Questa pagina riporta le date e le regole scritte nei documenti ufficiali. <strong>Non è una consulenza legale</strong> e non sostituisce "
+            "il Portale ALI. Per il tuo caso chiedi allo Sportello unico per l'immigrazione della Prefettura, a un'associazione di categoria o a un patronato.")
+    corpo = f"""<section class="hero">
+{briciole(("EsameB1", "../"), (f"Decreto flussi {anno}: click day", None))}
+<span class="occhiello">{ic("cal")}Con le fonti ufficiali · lette il {letta}</span>
+<h1>Decreto flussi {anno}: le date dei click day</h1>
+<p class="lead">{escape(risposta_breve)}</p>
+<div class="risposta">
+<div class="slot" data-slot><div class="r-et">{ic("orologio")}Precompilazione</div>{s1}{riserva1}</div>
+<div class="slot" data-slot><div class="r-et">{ic("cal")}Prossimo click day</div>{s2}{riserva2}</div>
+<div class="r-piede"><a href="#date">Tutte le date {ic("freccia")}</a><span>{ic("doc")}Fonte: circolare congiunta del 1° ottobre 2026</span></div>
+</div>
+</section>
+{avviso(nota)}
+<section>
+<h2 id="date">{ic("cal")}Le 4 date dei click day {anno}</h2>
+<p>Ogni data vale per un tipo di lavoro e un modello di domanda. Le domande si inviano dalle <strong>ore 9:00</strong> e si possono inviare fino al
+<strong>{data_breve(ter["data"])}</strong>, finché ci sono quote.</p>
+<div class="fatti">{"".join(scheda_cd(c) for c in cd)}</div>
+<p class="small">I giorni (12 gennaio, 9, 16 e 18 febbraio) sono fissati dal DPCM per tutti e tre gli anni 2026, 2027 e 2028. La circolare del 1° ottobre 2026
+non fissa un click day per le {punti(q["autonomo"]["totale"])} quote di lavoro autonomo. Le domande che non entrano nelle quote entro sei mesi dopo il
+31 dicembre {anno} vengono archiviate.</p>
+{fonte("circolare_2027", "dpcm", "im_flussi2027")}
+</section>
+<section>
+<h2 id="precompilazione">{ic("orologio")}Prima del click day: la precompilazione</h2>
+<p>Nel click day <strong>si inviano solo le domande già precompilate</strong>. In quei giorni non si possono cambiare né compilare domande nuove;
+le domande nuove si compilano dal giorno dopo il click day.</p>
+<ul>
+<li><strong>Precompilazione:</strong> dalle ore {pre["ora_dal"]} del {data_breve(pre["dal"])} alle ore {pre["ora_al"]} del {data_breve(pre["al"])}, anche nei giorni festivi.</li>
+<li><strong>Riapertura:</strong> dalle ore {ria["ora_dal"]} del {gm(ria["dal"])} alle ore {ria["ora_al"]} del {data_breve(ria["al"])}, solo per vedere i dati arrivati dopo,
+completare e <strong>salvare</strong> le domande già inserite (la domanda deve passare da «da completare» a «da inviare»). Niente domande nuove.</li>
+</ul>
+{fonte("circolare_2027", "im_flussi2027", "lavoro_notizia")}
+</section>
+<section>
+<h2 id="chi">{ic("edificio")}Chi presenta la domanda</h2>
+<p>La domanda di <strong>nulla osta al lavoro</strong> la presenta il <strong>datore di lavoro</strong> in Italia, da solo oppure tramite un'associazione di categoria
+o un professionista abilitato (per esempio un consulente del lavoro). Le quote sono per <strong>cittadini stranieri che vivono all'estero</strong>:
+il lavoratore non fa la domanda di nulla osta, ma dopo chiede il visto al consolato italiano.</p>
+<ul>
+<li>Chi presenta la domanda come <strong>privato</strong> può farne al massimo <strong>3</strong> per ogni anno (2026, 2027, 2028). Il limite non vale per le associazioni di categoria, i professionisti abilitati e le agenzie per il lavoro.</li>
+<li>Il Ministero dell'Interno ricorda che si può fare tutto online da soli, oppure con l'aiuto degli enti o dei patronati abilitati.</li>
+</ul>
+{fonte("circolare_2025", "im_flussi2027", "interno_procedure")}
+</section>
+<section>
+<h2 id="documenti">{ic("lista")}Cosa serve al datore di lavoro</h2>
+<ol class="passi">
+<li><div><strong>SPID o CIE</strong> per entrare nel {portale} («Area riservata» → «Sportello Unico Immigrazione» → «Compila domande Decreto Flussi 2026-2028/Click Day»).</div></li>
+<li><div><strong>Una PEC registrata</strong> in INI-PEC (imprese iscritte al Registro delle imprese) o in INAD (persone fisiche e altri enti): lì arriva il codice di
+attivazione della domanda e poi tutte le comunicazioni dello Sportello unico.</div></li>
+<li><div><strong>Verifica al Centro per l'impiego</strong> (solo lavoro non stagionale, anche domestico): prima della domanda il datore chiede al Centro per l'impiego
+se c'è un lavoratore già in Italia, con il modulo del Ministero del Lavoro. Se entro 8 giorni il Centro non segnala lavoratori disponibili, la verifica si considera fatta (con esito negativo).</div></li>
+<li><div><strong>Asseverazione</strong>: un professionista abilitato o un'organizzazione dei datori di lavoro certifica che il contratto rispetta le regole.
+Non serve se la domanda la manda un'organizzazione che ha firmato il protocollo con il Ministero del Lavoro, né per il datore non autosufficiente che assume chi lo assiste (al suo posto serve il certificato del medico di base o di una struttura pubblica).</div></li>
+<li><div><strong>Reddito</strong>: almeno 30.000 € l'anno (reddito imponibile o fatturato) per i settori diversi dall'assistenza familiare; per il lavoro domestico
+almeno 20.000 € se il datore vive da solo, 27.000 € con più familiari conviventi.</div></li>
+<li><div><strong>Alloggio</strong>: la documentazione sull'alloggio del lavoratore e l'asseverazione vanno <strong>firmate digitalmente</strong>; ogni file al massimo 2 MB.</div></li>
+</ol>
+<p class="small">Sono le regole della circolare del 16 ottobre 2025, che per il {anno} restano valide dove la circolare del 1° ottobre 2026 non dice altro.
+Il manuale con tutti i passaggi è nel {portale}, alla voce «Manuale»; per i problemi tecnici c'è il link «Scrivi all'Help Desk».</p>
+{fonte("circolare_2025", "im_precompilazione", "circolare_2027")}
+</section>
+<section>
+<h2 id="quote">{ic("lista")}Le quote {anno}: {punti(q["totale"])} ingressi</h2>
+<p>Il DPCM 2 ottobre 2025 fissa le quote per tre anni. Per il {anno}: <strong>{punti(q["non_stagionale"]["totale"])}</strong> per lavoro subordinato non stagionale
+(di cui <strong>{punti(14000)}</strong> per l'assistenza familiare), <strong>{punti(q["stagionale"]["totale"])}</strong> per lavoro stagionale nell'agricoltura e nel turismo,
+<strong>{punti(q["autonomo"]["totale"])}</strong> per lavoro autonomo.</p>
+{tab_quote("non_stagionale", "Lavoro subordinato non stagionale")}
+{tab_quote("stagionale", "Lavoro stagionale (agricoltura e turismo)")}
+{tab_quote("autonomo", "Lavoro autonomo")}
+<h3 id="paesi">Quali Paesi</h3>
+<p>Le quote riservate sono per i cittadini di 38 Paesi: {escape(paesi)}. <strong>Dal {anno} c'è anche il Kenya</strong>. Altre quote sono per i Paesi con accordi che entrano in vigore
+nel triennio (l'elenco è sui siti dei Ministeri). Per il lavoro stagionale valgono solo questi Paesi.</p>
+{fonte("dpcm", "circolare_2025", "circolare_2027")}
+</section>
+<section>
+<h2 id="dopo">{ic("ok")}Dopo il click day: nulla osta, visto, permesso di soggiorno</h2>
+<ol class="passi">
+<li><div><strong>Le quote si assegnano per provincia, nell'ordine di invio.</strong> Nell'area riservata del portale il datore vede lo stato della domanda;
+se non è rientrata compare «La pratica risulta al momento non in quota». Inviare la domanda nel click day quindi non basta per avere il nulla osta.</div></li>
+<li><div><strong>Nulla osta</strong> dello Sportello unico per l'immigrazione: entro 60 giorni (lavoro non stagionale) o 20 giorni (stagionale) da quando la domanda entra nelle quote.
+Per i lavoratori del Bangladesh, del Pakistan, dello Sri Lanka e del Marocco serve sempre il parere della Questura: il nulla osta non esce in automatico.</div></li>
+<li><div><strong>Conferma e visto.</strong> Quando il consolato ha finito i controlli sulla domanda di visto, il datore ha <strong>15 giorni</strong> per confermare
+(novità: prima erano 7); senza conferma la richiesta si considera rifiutata. Poi il consolato rilascia il visto.</div></li>
+<li><div><strong>In Italia: contratto di soggiorno e permesso.</strong> Entro <strong>15 giorni</strong> dall'arrivo (prima erano 8) datore e lavoratore firmano il contratto di soggiorno;
+il datore lo manda online allo Sportello unico, che avvia la richiesta del <strong>permesso di soggiorno</strong>. Il lavoratore può iniziare a lavorare subito.</div></li>
+</ol>
+{fonte("circolare_2025", "circolare_2027")}
+</section>
+<section>
+<h2>{ic("info")}Domande frequenti</h2>
+{faq_html}
+</section>
+<section>
+<h2 id="fonti">{ic("doc")}Fonti ufficiali usate</h2>
+<p class="small">Ogni fonte è stata scaricata e letta il giorno indicato. L'impronta è un codice calcolato dal testo della fonte: se il documento cambia, cambia
+anche l'impronta e noi ricontrolliamo la pagina.</p>
+<div class="tab-wrap rc-tab"><table class="conf"><thead><tr><th scope="col">Fonte</th><th scope="col">Letta il</th><th scope="col">Impronta</th></tr></thead>
+<tbody>{righe_fonti}</tbody></table></div>
+</section>
+<div class="due">
+<section>
+<h2 id="poi">{ic("scudo")}E poi?</h2>
+<p>Il decreto flussi riguarda l'ingresso per lavoro. Una volta in Italia con il permesso di soggiorno, negli anni possono servirti altre pratiche:
+il <a href="../reddito-ricongiungimento-familiare/">ricongiungimento familiare</a> (con il reddito minimo), la carta di soggiorno (permesso UE di lungo periodo),
+che chiede un test di italiano A2 (<a href="../esonero-test-italiano/">chi è esonerato</a>), e più avanti la <a href="../cittadinanza/">cittadinanza italiana</a>,
+che chiede un certificato di italiano almeno B1: <a href="../#date">tutte le date d'esame</a> e <a href="../#citta">sedi per città</a>.</p>
+</section>
+<aside>{modulo()}</aside>
+</div>"""
+    titolo = titolo_pagina(f"Decreto flussi {anno}: date dei click day e quote", f"Click day {anno}: date del decreto flussi")
+    desc = descrizione_pagina(
+        f"Click day decreto flussi {anno}: {gm(cd[0]['data'])} (agricoli), {gm(cd[1]['data'])} (turismo), {gm(cd[2]['data'])} (non stagionali), "
+        f"{gm(cd[3]['data'])} (assistenza familiare). Quote, fonti.",
+        f"Click day {anno}: {elenco_date}.")
+    pagina("decreto-flussi-click-day/index.html", titolo, desc, corpo, jsonld)
+
+
 # ---------------------------------------------------------------- redditi minimi (dal 31/10/2026)
 REDDITI = json.loads((DATI / "redditi.json").read_text(encoding="utf-8"))  # soglie della cittadinanza e regola della carta di soggiorno, con fonti
 
@@ -3321,6 +3630,7 @@ def main():
     prossime = sorted(future(sessioni), key=lambda s: (s["data"], s["ente"]))
     controlli(prossime)
     controlli_ricongiungimento()
+    controlli_flussi()
     if SITO.exists():
         conserva = {p.name: p.read_bytes() for p in SITO.glob("google*.html")}  # verifica Search Console
         shutil.rmtree(SITO)
@@ -3361,6 +3671,8 @@ def main():
     urls.append("esonero-test-italiano/")
     pagina_ricongiungimento()
     urls.append("reddito-ricongiungimento-familiare/")
+    pagina_flussi()
+    urls.append("decreto-flussi-click-day/")
     pagina_redditi()
     urls.append("reddito-minimo-cittadinanza/")
     pagina_cittadinanza(prossime)
