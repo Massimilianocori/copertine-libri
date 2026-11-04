@@ -4,6 +4,7 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
+| touristtax | Santiago de Compostela (`/santiago-de-compostela/`) e Napoli (`/naples/`), 9 correzioni del revisore applicate (commit 9ee192b) | 4/11/2026, pubblicabile | Tourist Tax già pubblicato il 4/11: pubblicare il 5/11 |
 | beforeyoufly (prossimo giro) | Amsterdam: la pagina GVB ora si apre (multa 70 € + tariffa), da aggiungere ai mezzi pubblici | da fare | segnalato dal revisore del 31/10 |
 
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
@@ -26,7 +27,6 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 | Sito | Sezione | Voto | Quando | Fonte (file di ricerca) |
 |---|---|---|---|---|
 | visaincome | Visti lunghi es/pt per nazionalità (Spagna, Portogallo, Italia) | 7 | in costruzione 4/11, revisione e pubblicazione 5/11 | idee-2026-11-04-america-latina.md |
-| touristtax | Santiago de Compostela (Anno Santo 2027) e Napoli (se c'è la delibera) | 5,5-6 | in costruzione 4/11, entro il 31/12 | fronti-2026-11-04-grandi-eventi.md |
 | visaincome | Liste università per visti da laureati (HPI UK, TTPS Hong Kong, J-Find Giappone) | 6,5 | dopo i visti es/pt | idee-2026-11-04-asia-pacifico.md |
 | touristtax | Licenza per affitti turistici in Spagna per Comune (prima leggere la sentenza 620/2026 sul BOE) | 6 | dopo Santiago | idee-2026-11-04-europa.md |
 | touristtax | Versioni es/pt (con la francese già in coda) | 6,5 | dopo | idee-2026-11-04-america-latina.md |
