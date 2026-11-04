@@ -54,6 +54,8 @@ CORREZIONI = {
     "ENAIP Borgomanero": {"citta": "Borgomanero", "provincia": "Novara"},
     "ENAIP Novara": {"citta": "Novara", "provincia": "Novara"},
     "Enaip Grugliasco": {"citta": "Grugliasco", "provincia": "Torino"},
+    # 4/11/2026: la fonte scrive "ede associata CPIA Trieste…" (manca la S iniziale).
+    "ede associata CPIA Trieste": {"nome": "Sede associata CPIA Trieste c/o I.C. Bergamas"},
 }
 
 

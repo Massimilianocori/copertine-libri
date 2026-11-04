@@ -185,7 +185,9 @@ def sedi_cils():
                 sede["citta"] = ""
             for chiave, correzione in CORREZIONI_CILS.items():
                 if sede["nome"].startswith(chiave):
-                    sede["citta"] = correzione["citta"]
+                    for campo in ("citta", "nome"):
+                        if campo in correzione:
+                            sede[campo] = correzione[campo]
             if sede["nome"] and sede["citta"]:
                 sedi.append(sede)
     return sedi
