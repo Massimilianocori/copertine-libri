@@ -20,3 +20,17 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 | 15/12/2026 (45 giorni) | EsameB1 /en/, /uk/, /ro/: almeno 100 impressioni al mese per lingua in Search Console, altrimenti si congela |
 | 30/11/2026 e 28/12/2026 | Visa Income, esperimento citazioni: `python3 visaincome/raccolta/esperimento_citazioni.py misura` (prima lettura e verdetto) |
 | dopo il 30/11/2026 | Visa Income, Study in Italy: riscrivere le frasi sulla scadenza del visto del 30/11/2026 |
+
+## Coda di costruzione (dalla ricerca del 4/11/2026)
+
+| Sito | Sezione | Voto | Quando | Fonte (file di ricerca) |
+|---|---|---|---|---|
+| visaincome | Visti lunghi es/pt per nazionalità (Spagna, Portogallo, Italia) | 7 | in costruzione 4/11, revisione e pubblicazione 5/11 | idee-2026-11-04-america-latina.md |
+| touristtax | Santiago de Compostela (Anno Santo 2027) e Napoli (se c'è la delibera) | 5,5-6 | in costruzione 4/11, entro il 31/12 | fronti-2026-11-04-grandi-eventi.md |
+| visaincome | Liste università per visti da laureati (HPI UK, TTPS Hong Kong, J-Find Giappone) | 6,5 | dopo i visti es/pt | idee-2026-11-04-asia-pacifico.md |
+| touristtax | Licenza per affitti turistici in Spagna per Comune (prima leggere la sentenza 620/2026 sul BOE) | 6 | dopo Santiago | idee-2026-11-04-europa.md |
+| touristtax | Versioni es/pt (con la francese già in coda) | 6,5 | dopo | idee-2026-11-04-america-latina.md |
+| beforeyoufly | Ryder Cup 2027: alloggi per distanza da Adare Manor (CSV Fáilte Ireland) | 6 | entro gennaio 2027 | fronti-2026-11-04-grandi-eventi.md |
+| beforeyoufly | Blue Badge all'estero Paese per Paese | 5,5 | quando la cartella è libera | idee-2026-11-04-europa.md |
+| beforeyoufly | Cina senza visto nel 2027 | 5,5 | il giorno dell'annuncio ufficiale (cs.mfa.gov.cn) | idee-2026-11-04-asia-pacifico.md |
+| beforeyoufly | Los Angeles 2028 sede per sede | 6 | febbraio-aprile 2027 | fronti-2026-11-04-grandi-eventi.md |
