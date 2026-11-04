@@ -1,8 +1,8 @@
 {
 "_nota": "Generato da raccolta/disastri.py. Date ISO. aree[fips].d = [dichiarazione, IH, IA, PA, HM] (1 = programma dichiarato per quella contea).",
-"letto_il": "2026-10-30",
-"letto_alle_utc": "21:33",
-"finestra_da": "2024-10-30",
+"letto_il": "2026-11-04",
+"letto_alle_utc": "20:08",
+"finestra_da": "2024-11-04",
 "fonti": {
 "fema": {
 "titolo": "Disaster Declarations Summaries",
@@ -10,54 +10,18 @@
 "endpoint": "https://www.fema.gov/api/open/v2/DisasterDeclarationsSummaries",
 "dizionario": "https://www.fema.gov/openfema-data-page/Disaster-Declarations-Summaries-v2",
 "lastRefresh": "2025-09-25T13:40:12.615Z",
-"righe_totali_dataset": 70596,
-"righe_lette": 3346,
-"filtro": "declarationDate ge '2024-10-30'",
-"ultima_riga_aggiornata": "2026-10-30T19:06:28.314Z"
+"righe_totali_dataset": 70599,
+"righe_lette": 3344,
+"filtro": "declarationDate ge '2024-11-04'",
+"ultima_riga_aggiornata": "2026-11-02T18:07:54.940Z"
 },
 "irs": {
 "indice": "https://www.irs.gov/newsroom/tax-relief-in-disaster-situations",
-"peso_indice": 211006,
+"peso_indice": 211500,
 "comunicati_letti": 57
 }
 },
 "dichiarazioni": {
-"DR-4842-SD": {
-"n": 4842,
-"tipo": "DR",
-"st": "SD",
-"titolo": "SEVERE STORM, STRAIGHT-LINE WINDS, AND FLOODING",
-"incidente": "Severe Storm",
-"data": "2024-11-01",
-"inizio": "2024-07-13",
-"fine": "2024-07-14",
-"ultimo_ia": "2025-02-28",
-"chiuso": null,
-"ih": true,
-"ia": false,
-"pa": true,
-"hm": true,
-"aree": 1,
-"aree_ih": 1
-},
-"DR-4843-NM": {
-"n": 4843,
-"tipo": "DR",
-"st": "NM",
-"titolo": "SEVERE STORM AND FLOODING",
-"incidente": "Flood",
-"data": "2024-11-01",
-"inizio": "2024-10-19",
-"fine": "2024-10-20",
-"ultimo_ia": "2025-01-02",
-"chiuso": null,
-"ih": true,
-"ia": false,
-"pa": true,
-"hm": true,
-"aree": 1,
-"aree_ih": 1
-},
 "DR-4844-FL": {
 "n": 4844,
 "tipo": "DR",
@@ -1707,12 +1671,12 @@
 "fine": "2026-08-04",
 "ultimo_ia": "2026-12-29",
 "chiuso": null,
-"ih": false,
+"ih": true,
 "ia": false,
 "pa": true,
 "hm": false,
-"aree": 23,
-"aree_ih": 0
+"aree": 26,
+"aree_ih": 20
 },
 "DR-4936-HI": {
 "n": 4936,
@@ -2065,7 +2029,7 @@
 "data": "2026-10-27",
 "inizio": "2026-10-06",
 "fine": "2026-10-12",
-"ultimo_ia": "2026-12-28",
+"ultimo_ia": "2026-12-26",
 "chiuso": null,
 "ih": true,
 "ia": false,
@@ -2738,42 +2702,6 @@
 "pa": true,
 "hm": false,
 "aree": 9,
-"aree_ih": 0
-},
-"FM-5543-OK": {
-"n": 5543,
-"tipo": "FM",
-"st": "OK",
-"titolo": "EUCHEE CREEK FIRE",
-"incidente": "Fire",
-"data": "2024-10-30",
-"inizio": "2024-10-29",
-"fine": null,
-"ultimo_ia": null,
-"chiuso": null,
-"ih": false,
-"ia": false,
-"pa": true,
-"hm": true,
-"aree": 2,
-"aree_ih": 0
-},
-"FM-5544-OK": {
-"n": 5544,
-"tipo": "FM",
-"st": "OK",
-"titolo": "NORTH ROAD FIRE",
-"incidente": "Fire",
-"data": "2024-10-30",
-"inizio": "2024-10-29",
-"fine": null,
-"ultimo_ia": null,
-"chiuso": null,
-"ih": false,
-"ia": false,
-"pa": true,
-"hm": true,
-"aree": 1,
 "aree_ih": 0
 },
 "FM-5545-CA": {
@@ -23194,8 +23122,8 @@
 ]
 ],
 "pagina": [
-"irs-stato",
-"irs disaster relief mississippi"
+"fema-ia-stato",
+"fema disaster declarations mississippi"
 ]
 },
 "28039": {
@@ -23694,8 +23622,8 @@
 ]
 ],
 "pagina": [
-"irs-stato",
-"irs disaster relief mississippi"
+"fema-ia-stato",
+"fema disaster declarations mississippi"
 ]
 },
 "28075": {
@@ -23747,8 +23675,8 @@
 ]
 ],
 "pagina": [
-"irs-stato",
-"irs disaster relief mississippi"
+"fema-ia-stato",
+"fema disaster declarations mississippi"
 ]
 },
 "28079": {
@@ -23864,8 +23792,8 @@
 ]
 ],
 "pagina": [
-"irs-stato",
-"irs disaster relief mississippi"
+"fema-ia-stato",
+"fema disaster declarations mississippi"
 ]
 },
 "28087": {
@@ -24807,8 +24735,8 @@
 ]
 ],
 "pagina": [
-"irs-stato",
-"irs disaster relief mississippi"
+"fema-ia-stato",
+"fema disaster declarations mississippi"
 ]
 },
 "28159": {
@@ -27783,18 +27711,7 @@
 0,
 1,
 0
-],
-[
-"DR-4843-NM",
-1,
-0,
-1,
-1
 ]
-],
-"pagina": [
-"fema-ia-stato",
-"fema disaster declarations new mexico"
 ]
 },
 "35006": {
@@ -30158,13 +30075,6 @@
 0,
 1,
 1
-],
-[
-"FM-5543-OK",
-0,
-0,
-1,
-1
 ]
 ],
 "pagina": [
@@ -30447,13 +30357,6 @@
 0,
 1,
 0
-],
-[
-"FM-5544-OK",
-0,
-0,
-1,
-1
 ]
 ]
 },
@@ -30517,13 +30420,6 @@
 ],
 [
 "FM-5558-OK",
-0,
-0,
-1,
-1
-],
-[
-"FM-5543-OK",
 0,
 0,
 1,
@@ -35016,7 +34912,7 @@
 "d": [
 [
 "DR-4935-TX",
-0,
+1,
 0,
 1,
 0
@@ -35049,6 +34945,13 @@
 "nome": "Bexar County",
 "fema": "Bexar (County)",
 "d": [
+[
+"DR-4935-TX",
+1,
+0,
+0,
+0
+],
 [
 "EM-3649-TX",
 0,
@@ -35205,6 +35108,13 @@
 "fema": "Comal (County)",
 "d": [
 [
+"DR-4935-TX",
+1,
+0,
+0,
+0
+],
+[
 "EM-3649-TX",
 0,
 0,
@@ -35238,7 +35148,7 @@
 "d": [
 [
 "DR-4935-TX",
-0,
+1,
 0,
 1,
 0
@@ -35273,7 +35183,7 @@
 "d": [
 [
 "DR-4935-TX",
-0,
+1,
 0,
 1,
 0
@@ -35392,7 +35302,7 @@
 "d": [
 [
 "DR-4935-TX",
-0,
+1,
 0,
 1,
 0
@@ -35427,7 +35337,7 @@
 "d": [
 [
 "DR-4935-TX",
-0,
+1,
 0,
 1,
 0
@@ -35643,7 +35553,7 @@
 "d": [
 [
 "DR-4935-TX",
-0,
+1,
 0,
 1,
 0
@@ -35675,7 +35585,7 @@
 "d": [
 [
 "DR-4935-TX",
-0,
+1,
 0,
 1,
 0
@@ -35707,7 +35617,7 @@
 "d": [
 [
 "DR-4935-TX",
-0,
+1,
 0,
 1,
 0
@@ -35739,7 +35649,7 @@
 "d": [
 [
 "DR-4935-TX",
-0,
+1,
 0,
 1,
 0
@@ -35778,7 +35688,7 @@
 "d": [
 [
 "DR-4935-TX",
-0,
+1,
 0,
 1,
 0
@@ -35944,7 +35854,7 @@
 "d": [
 [
 "DR-4935-TX",
-0,
+1,
 0,
 1,
 0
@@ -35967,6 +35877,13 @@
 "nome": "Medina County",
 "fema": "Medina (County)",
 "d": [
+[
+"DR-4935-TX",
+1,
+0,
+0,
+0
+],
 [
 "EM-3649-TX",
 0,
@@ -36103,7 +36020,7 @@
 "d": [
 [
 "DR-4935-TX",
-0,
+1,
 0,
 1,
 0
@@ -36195,7 +36112,7 @@
 "d": [
 [
 "DR-4935-TX",
-0,
+1,
 0,
 1,
 0
@@ -36245,7 +36162,7 @@
 "d": [
 [
 "DR-4935-TX",
-0,
+1,
 0,
 1,
 0
@@ -36331,7 +36248,7 @@
 "d": [
 [
 "DR-4935-TX",
-0,
+1,
 0,
 1,
 0
@@ -36363,7 +36280,7 @@
 "d": [
 [
 "DR-4935-TX",
-0,
+1,
 0,
 1,
 0
@@ -36510,7 +36427,7 @@
 "d": [
 [
 "DR-4935-TX",
-0,
+1,
 0,
 1,
 0
@@ -40512,8 +40429,8 @@
 ]
 ],
 "pagina": [
-"irs-stato",
-"irs disaster relief wisconsin"
+"fema-ia-stato",
+"fema disaster declaration wisconsin"
 ]
 },
 "55009": {
@@ -40530,8 +40447,8 @@
 ]
 ],
 "pagina": [
-"irs-stato",
-"irs disaster relief wisconsin"
+"fema-ia-stato",
+"fema disaster declaration wisconsin"
 ]
 },
 "55011": {
@@ -40548,8 +40465,8 @@
 ]
 ],
 "pagina": [
-"irs-stato",
-"irs disaster relief wisconsin"
+"fema-ia-stato",
+"fema disaster declaration wisconsin"
 ]
 },
 "55041": {
@@ -40582,10 +40499,6 @@
 1,
 0
 ]
-],
-"pagina": [
-"irs-stato",
-"irs disaster relief wisconsin"
 ]
 },
 "55053": {
@@ -40602,8 +40515,8 @@
 ]
 ],
 "pagina": [
-"irs-stato",
-"irs disaster relief wisconsin"
+"fema-ia-stato",
+"fema disaster declaration wisconsin"
 ]
 },
 "55055": {
@@ -40620,8 +40533,8 @@
 ]
 ],
 "pagina": [
-"irs-stato",
-"irs disaster relief wisconsin"
+"fema-ia-stato",
+"fema disaster declaration wisconsin"
 ]
 },
 "55057": {
@@ -40638,8 +40551,8 @@
 ]
 ],
 "pagina": [
-"irs-stato",
-"irs disaster relief wisconsin"
+"fema-ia-stato",
+"fema disaster declaration wisconsin"
 ]
 },
 "55059": {
@@ -40656,8 +40569,8 @@
 ]
 ],
 "pagina": [
-"irs-stato",
-"irs disaster relief wisconsin"
+"fema-ia-stato",
+"fema disaster declaration wisconsin"
 ]
 },
 "55061": {
@@ -40672,10 +40585,6 @@
 1,
 0
 ]
-],
-"pagina": [
-"irs-stato",
-"irs disaster relief wisconsin"
 ]
 },
 "55071": {
@@ -40692,8 +40601,8 @@
 ]
 ],
 "pagina": [
-"irs-stato",
-"irs disaster relief wisconsin"
+"fema-ia-stato",
+"fema disaster declaration wisconsin"
 ]
 },
 "55073": {
@@ -40710,8 +40619,8 @@
 ]
 ],
 "pagina": [
-"irs-stato",
-"irs disaster relief wisconsin"
+"fema-ia-stato",
+"fema disaster declaration wisconsin"
 ]
 },
 "55079": {
@@ -40778,8 +40687,8 @@
 ]
 ],
 "pagina": [
-"irs-stato",
-"irs disaster relief wisconsin"
+"fema-ia-stato",
+"fema disaster declaration wisconsin"
 ]
 },
 "55105": {
@@ -40814,8 +40723,8 @@
 ]
 ],
 "pagina": [
-"irs-stato",
-"irs disaster relief wisconsin"
+"fema-ia-stato",
+"fema disaster declaration wisconsin"
 ]
 },
 "55123": {
@@ -40832,8 +40741,8 @@
 ]
 ],
 "pagina": [
-"irs-stato",
-"irs disaster relief wisconsin"
+"fema-ia-stato",
+"fema disaster declaration wisconsin"
 ]
 },
 "55125": {
@@ -40918,8 +40827,8 @@
 ]
 ],
 "pagina": [
-"irs-stato",
-"irs disaster relief wisconsin"
+"fema-ia-stato",
+"fema disaster declaration wisconsin"
 ]
 },
 "55139": {
@@ -42139,15 +42048,6 @@
 0
 ]
 ],
-"Cheyenne River Indian Reservation": [
-[
-"DR-4842-SD",
-1,
-0,
-1,
-1
-]
-],
 "Oglala Sioux Tribe of the Pine Ridge Reservation": [
 [
 "DR-4941-SD",
@@ -42561,7 +42461,7 @@
 "motivo_senza_contee": null,
 "nomi_non_trovati": [],
 "dichiarato_da": "State of Texas",
-"contee_con_ih_fema": 7
+"contee_con_ih_fema": 25
 },
 {
 "codice": "WV-2026-02",
@@ -43549,7 +43449,7 @@
 "motivo_senza_contee": null,
 "nomi_non_trovati": [],
 "dichiarato_da": "FEMA",
-"contee_con_ih_fema": 3
+"contee_con_ih_fema": 2
 },
 {
 "codice": "TX-2025-04",
@@ -43589,7 +43489,7 @@
 "motivo_senza_contee": null,
 "nomi_non_trovati": [],
 "dichiarato_da": "FEMA",
-"contee_con_ih_fema": 9
+"contee_con_ih_fema": 14
 },
 {
 "codice": "MO-2025-01",
@@ -43977,5 +43877,5 @@
 "dichiarato_da": "State of Louisiana"
 }
 ],
-"impronta": "b9d5b056052347a959814dcdc0c9db2d1a1db044f23fd13d7319894edd87e5ac"
+"impronta": "61fa91c828d22522322f8c099935a8e7538a87f572a21b7293d0f726819f60f2"
 }
