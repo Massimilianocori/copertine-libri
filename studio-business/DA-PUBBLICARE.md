@@ -30,6 +30,10 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 | visaincome | Liste università per visti da laureati (HPI UK, TTPS Hong Kong, J-Find Giappone) | 6,5 | dopo i visti es/pt | idee-2026-11-04-asia-pacifico.md |
 | touristtax | Licenza per affitti turistici in Spagna per Comune (prima leggere la sentenza 620/2026 sul BOE) | 6 | dopo Santiago | idee-2026-11-04-europa.md |
 | touristtax | Versioni es/pt (con la francese già in coda) | 6,5 | dopo | idee-2026-11-04-america-latina.md |
+| visaincome | Infermieri all'estero per Paese di formazione + pagina lista rossa OMS 2026 (prima dell'uscita della lista; costi NMC da ricontrollare) | 6,5-7 | dopo i visti es/pt | idee-2026-11-04-africa-medio-oriente.md |
+| visaincome | UK Ancestry visa per nazionalità (dati già in casa) | 6 | piccola, 4-6 ore | idee-2026-11-04-africa-medio-oriente.md |
+| visaincome | Pensione statale britannica congelata o no, Paese per Paese | 6,5 | con la sezione pensioni HMRC già in coda | idee-2026-11-04-africa-medio-oriente.md |
+| visaincome | Israele nelle pagine moved-to (API data.gov.il) | 5,5 | coda bassa | idee-2026-11-04-africa-medio-oriente.md |
 | beforeyoufly | Ryder Cup 2027: alloggi per distanza da Adare Manor (CSV Fáilte Ireland) | 6 | entro gennaio 2027 | fronti-2026-11-04-grandi-eventi.md |
 | beforeyoufly | Blue Badge all'estero Paese per Paese | 5,5 | quando la cartella è libera | idee-2026-11-04-europa.md |
 | beforeyoufly | Cina senza visto nel 2027 | 5,5 | il giorno dell'annuncio ufficiale (cs.mfa.gov.cn) | idee-2026-11-04-asia-pacifico.md |
