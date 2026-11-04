@@ -787,3 +787,23 @@ Settori: casa e affitti, soldi e tasse, cittadinanza per discendenza (IT, ES, PT
 | Apostila per Stato brasiliano, apostille per Stato messicano, Argentina TAD | NO (4): 27-32 fonti, pubblico a pubblicità bassa, nessun pagatore | idee-2026-11-04-america-latina |
 | Cittadinanza italiana per discendenza in es/pt; ley de nietos; cittadinanza portoghese per i nipoti (LO 1/2026) | NO (3,5-4); per il Portogallo resta la RISERVA con evento del 31/10 (da controllare il decreto regolamentare, forse approvato il 29/10/2026) | idee-2026-11-04-america-latina |
 | Doppie imposizioni, pensioni tra Paesi, DSDP brasiliana, voto degli spagnoli all'estero del 29/11/2026, affitto in Portogallo dal Brasile, visto lavoro per discendenti di italiani | NO (3-4) | idee-2026-11-04-america-latina |
+
+## Fronte nuovo: grandi eventi e scadenze 2027-2028 (4/11/2026)
+
+Angolo: eventi del 2027-2028 che creano ricerche datate pagabili con alloggi, auto, escursioni, assicurazioni (Stay22, DiscoverCars, Viator, SafetyWing). Nessuna idea arriva a 7: biglietti e pacchetti restano ai canali ufficiali, la prima pagina si riempie di giornali e di siti automatici nuovi (su vercel.app e pages.dev per Los Angeles 2028), le pagine muoiono con l'evento. Rendono di più le pagine che restano utili dopo (tasse di soggiorno delle città sede) e i registri ufficiali mai messi in tabella. Prove in `fronti-2026-11-04-grandi-eventi.md`.
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **Los Angeles 2028: guida sede per sede** (calendario ufficiale per sessione v4.1 in PDF 200, 45 sedi e 18 zone + OKC e 6 città del calcio; "la28 venues" 10, "la olympics hotels" 10, "la28 ticket drop" 10) | **SEZIONE da costruire** in Before You Fly tra febbraio e aprile 2027 (voto 6; 300 / 2.500 / 8.000 € in tutto fino ad agosto 2028; 20-28 ore); travel.state.gov 403 | fronti-2026-11-04-grandi-eventi |
+| **Ryder Cup 2027: dove dormire per distanza da Adare Manor** (registro Fáilte Ireland CSV 200, CC BY, 2.305 strutture: entro 30 km 51 strutture e 2.341 unità; "ryder cup 2027 accommodation" 10 in ie con le contee, "hotel shortage" in us) | **SEZIONE da costruire** in Before You Fly entro gennaio 2027 (voto 6; 100 / 700 / 2.500 € in tutto; 10-14 ore) | fronti-2026-11-04-grandi-eventi |
+| **Napoli: tassa di soggiorno** con l'America's Cup (10-18/7/2027): "naples tourist tax" 10 (us), terzi in contrasto sulle tariffe 2026 | **PAGINA da costruire** in Tourist Tax (voto 6; 100 / 450 / 1.200 €/anno; 4-6 ore), solo dopo aver trovato la delibera ufficiale (pagine del Comune 404) | fronti-2026-11-04-grandi-eventi |
+| **Santiago de Compostela: tassa turistica** con l'Anno Santo 2027 (PDF ufficiale santiagoturismo.com 200: 1-2,5 € a notte, albergues 1 €) | **PAGINA da costruire** in Tourist Tax prima del 31/12/2026 (voto 5,5; 60 / 300 / 900 €/anno; 3-5 ore). Sito sul Cammino: NO (4), muro di gronze, Wise Pilgrim, CaminoWays; statistiche dei pellegrini solo in Power BI | fronti-2026-11-04-grandi-eventi |
+| Euro 2028 (UK e Irlanda): città sede, alloggi, ETA britannica per i tifosi europei ("eta england" 10 de, fr, it, nl) | RISERVA (5): si riapre quando la UEFA pubblica le date del sorteggio dei biglietti | fronti-2026-11-04-grandi-eventi |
+| Rugby World Cup 2027 (Australia): visto per i tifosi delle 24 squadre, città sede | NO come sezione per ora (4,5): il visto si cerca per nazionalità, non per evento ("australia visa for rugby world cup" 0) | fronti-2026-11-04-grandi-eventi |
+| Tour de France 2027 da Edimburgo (2/7/2027) | riquadro nella pagina Edinburgh di Tourist Tax (4,5; 1 ora) | fronti-2026-11-04-grandi-eventi |
+| Eclissi 2/8/2027 come viaggi e tour (Wikipedia 657.360 visite in 12 mesi; "eclipse 2027 tours" 10) | NO confermato (4): vendono operatori specializzati e crociere | fronti-2026-11-04-grandi-eventi, idee-2026-10-17 |
+| Coppa del Mondo femminile 2027 (Brasile) | una riga nella riserva "cambi di regole" (visto elettronico per USA, CA, AU) (4,5) | fronti-2026-11-04-grandi-eventi |
+| Coppa d'Africa 2027 (Kenya, Uganda, Tanzania); Mondiali di cricket 2027 (Sudafrica, Zimbabwe, Namibia) | NO (4): pubblico che paga poco; dha.gov.za 000 | fronti-2026-11-04-grandi-eventi |
+| Expo 2027 Belgrado; GREEN×EXPO 2027 Yokohama | NO (4 / 3,5): pubblico regionale o giapponese | fronti-2026-11-04-grandi-eventi |
+| GMG Seul 2027; Kumbh Mela Nashik 2027; Panamericani Lima 2027 | NO (3,5 / 3 / 3): viaggi di gruppo o domanda interna | fronti-2026-11-04-grandi-eventi |
+| Capitali europee della cultura 2027-2028 (Évora, Liepāja, Bourges, České Budějovice, Skopje) | NO (2,5): domanda minima | fronti-2026-11-04-grandi-eventi |
+| Giochi del Mediterraneo | fuori finestra (Taranto chiusa il 3/9/2026, prossima edizione 2030) | fronti-2026-11-04-grandi-eventi |
