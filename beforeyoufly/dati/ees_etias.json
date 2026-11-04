@@ -1,5 +1,5 @@
 {
- "controllato_il": "2026-10-17",
+ "controllato_il": "2026-11-04",
  "pagine": {
   "smart_borders": {
    "url": "https://home-affairs.ec.europa.eu/policies/schengen/smart-borders_en",
@@ -74,7 +74,7 @@
   "url": "https://www.gov.uk/foreign-travel-advice/spain/entry-requirements",
   "api": "https://www.gov.uk/api/content/foreign-travel-advice/spain",
   "titolo": "GOV.UK (FCDO) – Spain travel advice, Entry requirements: 'New Schengen entry requirements'",
-  "aggiornata": "2026-08-12",
+  "aggiornata": "2026-10-28",
   "frasi": [
    {
     "frase": "This means that when you travel into the Schengen area for short stays, you may need to register your biometric details, such as fingerprints and a photo. There is no cost for EES registration.",

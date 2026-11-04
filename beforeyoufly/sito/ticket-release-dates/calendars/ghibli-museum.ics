@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:P1D
 X-PUBLISHED-TTL:P1D
 BEGIN:VEVENT
 UID:ghibli-museum-uscita-mese-2026-11-10@before-you-fly.netlify.app
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART:20261110T010000Z
 DTEND:20261110T013000Z
 SUMMARY:Ghibli Museum tickets go on sale (for December 2026)
@@ -17,7 +17,7 @@ DESCRIPTION:Official rule: “Tickets become available for purchase at 10 a
  .m. (JST) on the 10th of each month for the subsequent month. For example\
  , tickets for February 1st through February 28th go on sale at 10a.m.(JST)
   on January 10th.”\nSource: https://www.ghibli-museum.jp/en/tickets/ (ch
- ecked on 31 October 2026)\nDate calculated by Before You Fly from the offi
+ ecked on 4 November 2026)\nDate calculated by Before You Fly from the offi
  cial rule. Rules can change: check the official page before you book.\nOff
  icial tickets: https://l-tike.com/st1/ghibli-en/Tt/Ttg010agreement/index\n
  https://before-you-fly.netlify.app/ticket-release-dates/ghibli-museum/
@@ -27,7 +27,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:ghibli-museum-uscita-mese-2026-12-10@before-you-fly.netlify.app
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART:20261210T010000Z
 DTEND:20261210T013000Z
 SUMMARY:Ghibli Museum tickets go on sale (for January 2027)
@@ -35,7 +35,7 @@ DESCRIPTION:Official rule: “Tickets become available for purchase at 10 a
  .m. (JST) on the 10th of each month for the subsequent month. For example\
  , tickets for February 1st through February 28th go on sale at 10a.m.(JST)
   on January 10th.”\nSource: https://www.ghibli-museum.jp/en/tickets/ (ch
- ecked on 31 October 2026)\nDate calculated by Before You Fly from the offi
+ ecked on 4 November 2026)\nDate calculated by Before You Fly from the offi
  cial rule. Rules can change: check the official page before you book.\nOff
  icial tickets: https://l-tike.com/st1/ghibli-en/Tt/Ttg010agreement/index\n
  https://before-you-fly.netlify.app/ticket-release-dates/ghibli-museum/
@@ -45,7 +45,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:ghibli-museum-uscita-mese-2027-01-10@before-you-fly.netlify.app
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART:20270110T010000Z
 DTEND:20270110T013000Z
 SUMMARY:Ghibli Museum tickets go on sale (for February 2027)
@@ -53,7 +53,7 @@ DESCRIPTION:Official rule: “Tickets become available for purchase at 10 a
  .m. (JST) on the 10th of each month for the subsequent month. For example\
  , tickets for February 1st through February 28th go on sale at 10a.m.(JST)
   on January 10th.”\nSource: https://www.ghibli-museum.jp/en/tickets/ (ch
- ecked on 31 October 2026)\nDate calculated by Before You Fly from the offi
+ ecked on 4 November 2026)\nDate calculated by Before You Fly from the offi
  cial rule. Rules can change: check the official page before you book.\nOff
  icial tickets: https://l-tike.com/st1/ghibli-en/Tt/Ttg010agreement/index\n
  https://before-you-fly.netlify.app/ticket-release-dates/ghibli-museum/
@@ -63,7 +63,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:ghibli-museum-uscita-mese-2027-02-10@before-you-fly.netlify.app
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART:20270210T010000Z
 DTEND:20270210T013000Z
 SUMMARY:Ghibli Museum tickets go on sale (for March 2027)
@@ -71,7 +71,7 @@ DESCRIPTION:Official rule: “Tickets become available for purchase at 10 a
  .m. (JST) on the 10th of each month for the subsequent month. For example\
  , tickets for February 1st through February 28th go on sale at 10a.m.(JST)
   on January 10th.”\nSource: https://www.ghibli-museum.jp/en/tickets/ (ch
- ecked on 31 October 2026)\nDate calculated by Before You Fly from the offi
+ ecked on 4 November 2026)\nDate calculated by Before You Fly from the offi
  cial rule. Rules can change: check the official page before you book.\nOff
  icial tickets: https://l-tike.com/st1/ghibli-en/Tt/Ttg010agreement/index\n
  https://before-you-fly.netlify.app/ticket-release-dates/ghibli-museum/
@@ -81,7 +81,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:ghibli-museum-uscita-mese-2027-03-10@before-you-fly.netlify.app
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART:20270310T010000Z
 DTEND:20270310T013000Z
 SUMMARY:Ghibli Museum tickets go on sale (for April 2027)
@@ -89,7 +89,7 @@ DESCRIPTION:Official rule: “Tickets become available for purchase at 10 a
  .m. (JST) on the 10th of each month for the subsequent month. For example\
  , tickets for February 1st through February 28th go on sale at 10a.m.(JST)
   on January 10th.”\nSource: https://www.ghibli-museum.jp/en/tickets/ (ch
- ecked on 31 October 2026)\nDate calculated by Before You Fly from the offi
+ ecked on 4 November 2026)\nDate calculated by Before You Fly from the offi
  cial rule. Rules can change: check the official page before you book.\nOff
  icial tickets: https://l-tike.com/st1/ghibli-en/Tt/Ttg010agreement/index\n
  https://before-you-fly.netlify.app/ticket-release-dates/ghibli-museum/
@@ -99,7 +99,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:ghibli-museum-uscita-mese-2027-04-10@before-you-fly.netlify.app
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART:20270410T010000Z
 DTEND:20270410T013000Z
 SUMMARY:Ghibli Museum tickets go on sale (for May 2027)
@@ -107,7 +107,7 @@ DESCRIPTION:Official rule: “Tickets become available for purchase at 10 a
  .m. (JST) on the 10th of each month for the subsequent month. For example\
  , tickets for February 1st through February 28th go on sale at 10a.m.(JST)
   on January 10th.”\nSource: https://www.ghibli-museum.jp/en/tickets/ (ch
- ecked on 31 October 2026)\nDate calculated by Before You Fly from the offi
+ ecked on 4 November 2026)\nDate calculated by Before You Fly from the offi
  cial rule. Rules can change: check the official page before you book.\nOff
  icial tickets: https://l-tike.com/st1/ghibli-en/Tt/Ttg010agreement/index\n
  https://before-you-fly.netlify.app/ticket-release-dates/ghibli-museum/

@@ -369,30 +369,25 @@
    "letta": true,
    "chi": "BKK, the Centre for Budapest Transport",
    "rete": "metro, trams, trolleybuses, buses and suburban railway",
-   "multa": "30,000 HUF from 2 November 2026 (15,000 HUF if paid on the spot or within two working days); before that 25,000 HUF (12,000 HUF on the spot)",
+   "multa": "30 000 HUF (15 000 HUF if paid on the spot or within two working days)",
    "contactless": "parziale",
    "contactless_breve": "Partly: since 22 April 2026, a bank card tap buys and validates a single ticket on all metro lines and the 100E airport bus",
    "convalida": "si",
    "convalida_breve": "Yes: stamp paper tickets before you enter the metro, or right after boarding other vehicles",
    "pagamento": "Paper tickets and travelcards, the BudapestGO app, or a bank card tap (Pay&GO) on the metro and the 100E airport bus",
-   "cambio": {
-    "testo": "Penalty fares rise from 2 November 2026: 25,000 HUF becomes 30,000 HUF, and 12,000 HUF (on the spot or within two working days) becomes 15,000 HUF",
-    "data": "2026-11-02",
-    "cit": "bud8"
-   },
-   "risposta": "the basic penalty fare is 25,000 HUF, reduced to 12,000 HUF if you pay on the spot, and from 2 November 2026 these amounts rise to 30,000 HUF and 15,000 HUF; paper tickets must be validated before you start a metro trip or immediately after boarding other vehicles, and since 22 April 2026 a bank card tap buys and validates a single ticket on all metro lines.",
+   "risposta": "the basic penalty fare is 30 000 HUF, reduced to 15 000 HUF if you pay on the spot or within two working days; paper tickets must be validated before you start a metro trip or immediately after boarding other vehicles, and since 22 April 2026 a bank card tap buys and validates a single ticket on all metro lines.",
    "citazioni": [
     {
      "id": "bud1",
      "f": "bud_pen",
      "tema": "multa",
-     "x": "The basic penalty fare of 25,000 HUF is reduced to 12,000 HUF if you pay it on the spot."
+     "x": "The basic penalty fare of 30 000 HUF is reduced to 15 000 HUF if you pay it on the spot. You can pay the penalty fare on the spot either by bankcard to the ticket inspector or afterwards within two working days."
     },
     {
      "id": "bud2",
      "f": "bud_pen",
      "tema": "multa",
-     "x": "If you do not pay your debt within 30 days, you will have to pay 50,000 HUF."
+     "x": "If you do not pay your debt within 30 days, you will have to pay 50 000 HUF."
     },
     {
      "id": "bud3",
@@ -425,12 +420,6 @@
      "x": "According to plans, the bankcard-based payment system will be gradually rolled out across the entire Budapest and metropolitan area public transport network starting in 2028."
     },
     {
-     "id": "bud8",
-     "f": "bud_nov",
-     "tema": "cambio",
-     "x": "From 2 November 2026, in parallel with the development to facilitate ticket validation, certain penalty fares will also change. The amount of the penalty fare paid on the spot or within two working days will rise from 12,000 HUF to 15,000 HUF, whilst the penalty fare paid within 30 days will rise from 25,000 HUF to 30,000 HUF."
-    },
-    {
      "id": "bud9",
      "f": "bud_nov",
      "tema": "convalida",
@@ -444,8 +433,7 @@
      "pre": "BKK says:",
      "cit": [
       "bud1",
-      "bud2",
-      "bud8"
+      "bud2"
      ],
      "post": ""
     },
@@ -700,7 +688,7 @@
    "iso2": "DE",
    "slug": "hamburg",
    "letta": true,
-   "chi": "hvv, the Hamburg transport association (tariff valid from 1 October 2026)",
+   "chi": "hvv, the Hamburg transport association (tariff valid from 3 November 2026)",
    "rete": "hvv U-Bahn, S-Bahn, buses and ferries",
    "multa": "€60 (€7 if you later show a valid personal season ticket)",
    "contactless": "parziale",

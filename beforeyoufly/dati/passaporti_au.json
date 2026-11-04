@@ -5,7 +5,7 @@
  "licenza_url": "https://creativecommons.org/licenses/by/4.0/",
  "copyright_url": "https://www.smartraveller.gov.au/copyright",
  "attribuzione": "the Department of Foreign Affairs and Trade's Smartraveller website - www.smartraveller.gov.au",
- "controllato_il": "2026-10-17",
+ "controllato_il": "2026-11-04",
  "pagine_indice": 179,
  "paesi": [
   {
@@ -14,7 +14,7 @@
    "nome": "Afghanistan",
    "url": "https://www.smartraveller.gov.au/destinations/asia/afghanistan",
    "aggiornata": "2026-06-29",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -133,7 +133,7 @@
    "nome": "Albania",
    "url": "https://www.smartraveller.gov.au/destinations/europe/albania",
    "aggiornata": "2026-10-16",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -252,7 +252,7 @@
    "nome": "Algeria",
    "url": "https://www.smartraveller.gov.au/destinations/africa/algeria",
    "aggiornata": "2026-06-04",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -443,7 +443,7 @@
    "nome": "Angola",
    "url": "https://www.smartraveller.gov.au/destinations/africa/angola",
    "aggiornata": "2026-06-02",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -640,7 +640,7 @@
    "nome": "Argentina",
    "url": "https://www.smartraveller.gov.au/destinations/americas/argentina",
    "aggiornata": "2026-07-21",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -1031,7 +1031,7 @@
    "nome": "Armenia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/armenia",
    "aggiornata": "2026-06-17",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -1310,7 +1310,7 @@
    "nome": "Austria",
    "url": "https://www.smartraveller.gov.au/destinations/europe/austria",
    "aggiornata": "2026-09-02",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -1670,7 +1670,7 @@
    "nome": "Azerbaijan",
    "url": "https://www.smartraveller.gov.au/destinations/europe/azerbaijan",
    "aggiornata": "2026-06-17",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -1926,8 +1926,8 @@
    "regione": "middle-east",
    "nome": "Bahrain",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/bahrain",
-   "aggiornata": "2026-10-01",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-23",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -1965,6 +1965,22 @@
      {
       "t": "p",
       "x": "Airlines may not allow holders of Australian travel-related documents issued to non-Australian citizens to board flights to Australia. Check your eligibility to re-enter Australia with the Department of Home Affairs and confirm with your airlines before your departure."
+     },
+     {
+      "t": "h4",
+      "x": "Online passport application temporary service"
+     },
+     {
+      "t": "p",
+      "x": "Online applications for passport renewals are currently open for Australians in Bahrain. There's no need to attend the Embassy as part of the application process. This is a temporary service."
+     },
+     {
+      "t": "p",
+      "x": "For more information visit the Australian Embassy in Riyadh's 'Passports' webpage."
+     },
+     {
+      "t": "p",
+      "x": "If you're eligible, go to passports.gov.au to apply."
      },
      {
       "t": "h4",
@@ -2031,6 +2047,18 @@
      {
       "t": "p",
       "x": "Airlines may not allow holders of Australian travel-related documents issued to non-Australian citizens to board flights to Australia. Check your eligibility to re-enter Australia with the Department of Home Affairs and confirm with your airlines before your departure."
+     },
+     {
+      "t": "p",
+      "x": "Online applications for passport renewals are currently open for Australians in Bahrain. There's no need to attend the Embassy as part of the application process. This is a temporary service."
+     },
+     {
+      "t": "p",
+      "x": "For more information visit the Australian Embassy in Riyadh's 'Passports' webpage."
+     },
+     {
+      "t": "p",
+      "x": "If you're eligible, go to passports.gov.au to apply."
      }
     ],
     "frase": null,
@@ -2245,7 +2273,7 @@
    "nome": "Bangladesh",
    "url": "https://www.smartraveller.gov.au/destinations/asia/bangladesh",
    "aggiornata": "2026-09-17",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -2418,7 +2446,7 @@
    "nome": "Belarus",
    "url": "https://www.smartraveller.gov.au/destinations/europe/belarus",
    "aggiornata": "2026-07-09",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -2800,7 +2828,7 @@
    "nome": "Belgium",
    "url": "https://www.smartraveller.gov.au/destinations/europe/belgium",
    "aggiornata": "2026-04-29",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -3185,7 +3213,7 @@
    "nome": "Belize",
    "url": "https://www.smartraveller.gov.au/destinations/americas/belize",
    "aggiornata": "2026-06-15",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -3480,7 +3508,7 @@
    "nome": "Benin",
    "url": "https://www.smartraveller.gov.au/destinations/africa/benin",
    "aggiornata": "2025-12-23",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -3641,7 +3669,7 @@
    "nome": "Bhutan",
    "url": "https://www.smartraveller.gov.au/destinations/asia/bhutan",
    "aggiornata": "2026-01-28",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -3888,7 +3916,7 @@
    "nome": "Bolivia",
    "url": "https://www.smartraveller.gov.au/destinations/americas/bolivia",
    "aggiornata": "2026-09-18",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -4087,7 +4115,7 @@
    "nome": "Bosnia and Herzegovina",
    "url": "https://www.smartraveller.gov.au/destinations/europe/bosnia-and-herzegovina",
    "aggiornata": "2026-07-31",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -4318,7 +4346,7 @@
    "nome": "Botswana",
    "url": "https://www.smartraveller.gov.au/destinations/africa/botswana",
    "aggiornata": "2026-10-09",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -4558,8 +4586,8 @@
    "regione": "americas",
    "nome": "Brazil",
    "url": "https://www.smartraveller.gov.au/destinations/americas/brazil",
-   "aggiornata": "2026-10-05",
-   "ancora_valida_il": "2026-10-17",
+   "aggiornata": "2026-10-27",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -4788,7 +4816,7 @@
    "nome": "Brunei Darussalam",
    "url": "https://www.smartraveller.gov.au/destinations/asia/brunei-darussalam",
    "aggiornata": "2026-09-14",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -5061,7 +5089,7 @@
    "nome": "Bulgaria",
    "url": "https://www.smartraveller.gov.au/destinations/europe/bulgaria",
    "aggiornata": "2026-10-07",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -5409,8 +5437,8 @@
    "regione": "africa",
    "nome": "Burkina Faso",
    "url": "https://www.smartraveller.gov.au/destinations/africa/burkina-faso",
-   "aggiornata": "2026-01-20",
-   "ancora_valida_il": "2026-10-17",
+   "aggiornata": "2026-10-28",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -5579,7 +5607,7 @@
    "nome": "Burundi",
    "url": "https://www.smartraveller.gov.au/destinations/africa/burundi",
    "aggiornata": "2026-05-28",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -5810,7 +5838,7 @@
    "nome": "Cambodia",
    "url": "https://www.smartraveller.gov.au/destinations/asia/cambodia",
    "aggiornata": "2026-09-22",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -6088,7 +6116,7 @@
    "nome": "Cameroon",
    "url": "https://www.smartraveller.gov.au/destinations/africa/cameroon",
    "aggiornata": "2026-03-18",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -6348,8 +6376,8 @@
    "regione": "americas",
    "nome": "Canada",
    "url": "https://www.smartraveller.gov.au/destinations/americas/canada",
-   "aggiornata": "2026-09-24",
-   "ancora_valida_il": "2026-10-17",
+   "aggiornata": "2026-10-26",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -6724,7 +6752,7 @@
    "nome": "Central African Republic",
    "url": "https://www.smartraveller.gov.au/destinations/africa/central-african-republic",
    "aggiornata": "2026-06-03",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -6885,7 +6913,7 @@
    "nome": "Chad",
    "url": "https://www.smartraveller.gov.au/destinations/africa/chad",
    "aggiornata": "2025-11-10",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -7051,8 +7079,8 @@
    "regione": "americas",
    "nome": "Chile",
    "url": "https://www.smartraveller.gov.au/destinations/americas/chile",
-   "aggiornata": "2026-05-25",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-22",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -7358,7 +7386,7 @@
    "nome": "China",
    "url": "https://www.smartraveller.gov.au/destinations/asia/china",
    "aggiornata": "2026-09-28",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -7765,7 +7793,7 @@
    "nome": "Colombia",
    "url": "https://www.smartraveller.gov.au/destinations/americas/colombia",
    "aggiornata": "2026-10-06",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -8122,7 +8150,7 @@
    "nome": "Cook Islands",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/cook-islands",
    "aggiornata": "2026-07-22",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -8305,7 +8333,7 @@
    "nome": "Costa Rica",
    "url": "https://www.smartraveller.gov.au/destinations/americas/costa-rica",
    "aggiornata": "2026-03-12",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -8608,7 +8636,7 @@
    "nome": "Croatia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/croatia",
    "aggiornata": "2026-10-16",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -8896,7 +8924,7 @@
    "nome": "Cuba",
    "url": "https://www.smartraveller.gov.au/destinations/americas/cuba",
    "aggiornata": "2026-06-05",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -9223,7 +9251,7 @@
    "nome": "Cyprus",
    "url": "https://www.smartraveller.gov.au/destinations/europe/cyprus",
    "aggiornata": "2026-07-23",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -9583,7 +9611,7 @@
    "nome": "Czech Republic",
    "url": "https://www.smartraveller.gov.au/destinations/europe/czech-republic",
    "aggiornata": "2026-04-14",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -9960,7 +9988,7 @@
    "nome": "Côte d'Ivoire (Ivory Coast)",
    "url": "https://www.smartraveller.gov.au/destinations/africa/cote-divoire-ivory-coast",
    "aggiornata": "2026-09-07",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -10169,7 +10197,7 @@
    "nome": "Democratic Republic of the Congo",
    "url": "https://www.smartraveller.gov.au/destinations/africa/democratic-republic-congo",
    "aggiornata": "2026-07-06",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -10424,7 +10452,7 @@
    "nome": "Denmark",
    "url": "https://www.smartraveller.gov.au/destinations/europe/denmark",
    "aggiornata": "2026-04-14",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -10834,7 +10862,7 @@
    "nome": "Djibouti",
    "url": "https://www.smartraveller.gov.au/destinations/africa/djibouti",
    "aggiornata": "2026-02-06",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -10993,7 +11021,7 @@
    "nome": "Dominican Republic",
    "url": "https://www.smartraveller.gov.au/destinations/americas/dominican-republic",
    "aggiornata": "2026-02-25",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -11262,7 +11290,7 @@
    "nome": "Ecuador",
    "url": "https://www.smartraveller.gov.au/destinations/americas/ecuador",
    "aggiornata": "2026-06-23",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -11567,7 +11595,7 @@
    "nome": "Egypt",
    "url": "https://www.smartraveller.gov.au/destinations/africa/egypt",
    "aggiornata": "2026-09-14",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -11937,7 +11965,7 @@
    "nome": "El Salvador",
    "url": "https://www.smartraveller.gov.au/destinations/americas/el-salvador",
    "aggiornata": "2026-01-12",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -12262,7 +12290,7 @@
    "nome": "Eritrea",
    "url": "https://www.smartraveller.gov.au/destinations/africa/eritrea",
    "aggiornata": "2026-06-05",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -12494,8 +12522,8 @@
    "regione": "europe",
    "nome": "Estonia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/estonia",
-   "aggiornata": "2026-04-14",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-29",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -12612,7 +12640,11 @@
      },
      {
       "t": "p",
-      "x": "Border crossings between Estonia and Russia can close at short notice. Check with Estonia's 'Go Swift' website before crossing. There may be lengthy delays and private cars bearing Russian number plates are banned from entering Estonia. We continue to advise do not travel to Russia."
+      "x": "We continue to advise do not travel to Russia."
+     },
+     {
+      "t": "p",
+      "x": "Border crossings between Estonia and Russia can close at short notice. Check with Estonia's 'Go Swift' website before crossing. There may be lengthy delays and private cars bearing Russian number plates are banned from entering Estonia."
      },
      {
       "t": "p",
@@ -12621,6 +12653,10 @@
      {
       "t": "p",
       "x": "Be particularly careful in border areas with Russia when travelling in Eastern Estonia. Always be fully aware of where you are, and don't, under any circumstances, approach the border zone."
+     },
+     {
+      "t": "p",
+      "x": "The Russian invasion of Ukraine is ongoing. The security situation continues to be volatile. Stay alert when travelling in the regions bordering Russia."
      },
      {
       "t": "p",
@@ -12641,6 +12677,10 @@
      {
       "t": "li",
       "x": "Travel advice for Russia"
+     },
+     {
+      "t": "li",
+      "x": "Stray Drone Instructions"
      }
     ],
     "testo_paese": [
@@ -12674,7 +12714,11 @@
      },
      {
       "t": "p",
-      "x": "Border crossings between Estonia and Russia can close at short notice. Check with Estonia's 'Go Swift' website before crossing. There may be lengthy delays and private cars bearing Russian number plates are banned from entering Estonia. We continue to advise do not travel to Russia."
+      "x": "We continue to advise do not travel to Russia."
+     },
+     {
+      "t": "p",
+      "x": "Border crossings between Estonia and Russia can close at short notice. Check with Estonia's 'Go Swift' website before crossing. There may be lengthy delays and private cars bearing Russian number plates are banned from entering Estonia."
      },
      {
       "t": "p",
@@ -12683,6 +12727,10 @@
      {
       "t": "p",
       "x": "Be particularly careful in border areas with Russia when travelling in Eastern Estonia. Always be fully aware of where you are, and don't, under any circumstances, approach the border zone."
+     },
+     {
+      "t": "p",
+      "x": "The Russian invasion of Ukraine is ongoing. The security situation continues to be volatile. Stay alert when travelling in the regions bordering Russia."
      },
      {
       "t": "p",
@@ -12703,6 +12751,10 @@
      {
       "t": "li",
       "x": "Travel advice for Russia"
+     },
+     {
+      "t": "li",
+      "x": "Stray Drone Instructions"
      }
     ],
     "frase": "Estonia is part of the Schengen Area, meaning you can enter Estonia without a visa in some cases.",
@@ -12879,7 +12931,7 @@
    "nome": "Eswatini",
    "url": "https://www.smartraveller.gov.au/destinations/africa/eswatini",
    "aggiornata": "2026-02-13",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -13128,7 +13180,7 @@
    "nome": "Ethiopia",
    "url": "https://www.smartraveller.gov.au/destinations/africa/ethiopia",
    "aggiornata": "2026-10-01",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -13301,7 +13353,7 @@
    "nome": "Federated States of Micronesia",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/federated-states-micronesia",
    "aggiornata": "2026-07-22",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -13691,8 +13743,8 @@
    "regione": "pacific",
    "nome": "Fiji",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/fiji",
-   "aggiornata": "2026-07-22",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-19",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -13785,7 +13837,7 @@
      },
      {
       "t": "p",
-      "x": "If you’re travelling from certain countries, including Australia, you don't need a tourist visa for Fiji. If your stay is less than 4 months, authorities will issue a visa when you arrive."
+      "x": "If you’re travelling from certain countries, including Australia, you don't need a tourist visa for Fiji. If your stay is less than 4 months, you may be eligible for a visa on arrival."
      },
      {
       "t": "p",
@@ -13855,7 +13907,7 @@
      },
      {
       "t": "p",
-      "x": "If you’re travelling from certain countries, including Australia, you don't need a tourist visa for Fiji. If your stay is less than 4 months, authorities will issue a visa when you arrive."
+      "x": "If you’re travelling from certain countries, including Australia, you don't need a tourist visa for Fiji. If your stay is less than 4 months, you may be eligible for a visa on arrival."
      },
      {
       "t": "p",
@@ -13931,7 +13983,7 @@
    "nome": "Finland",
    "url": "https://www.smartraveller.gov.au/destinations/europe/finland",
    "aggiornata": "2026-08-03",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -14298,8 +14350,8 @@
    "regione": "europe",
    "nome": "France",
    "url": "https://www.smartraveller.gov.au/destinations/europe/france",
-   "aggiornata": "2026-10-07",
-   "ancora_valida_il": "2026-10-17",
+   "aggiornata": "2026-10-30",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -14692,7 +14744,7 @@
    "nome": "French Polynesia",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/french-polynesia",
    "aggiornata": "2026-07-22",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -15165,7 +15217,7 @@
    "nome": "Gabon",
    "url": "https://www.smartraveller.gov.au/destinations/africa/gabon",
    "aggiornata": "2026-01-09",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -15334,7 +15386,7 @@
    "nome": "Georgia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/georgia",
    "aggiornata": "2026-08-05",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -15549,8 +15601,8 @@
    "regione": "europe",
    "nome": "Germany",
    "url": "https://www.smartraveller.gov.au/destinations/europe/germany",
-   "aggiornata": "2026-08-05",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-30",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -15959,7 +16011,7 @@
    "nome": "Ghana",
    "url": "https://www.smartraveller.gov.au/destinations/africa/ghana",
    "aggiornata": "2026-07-30",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -16156,7 +16208,7 @@
    "nome": "Greece",
    "url": "https://www.smartraveller.gov.au/destinations/europe/greece",
    "aggiornata": "2026-09-30",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -16489,8 +16541,8 @@
    "regione": "pacific",
    "nome": "Guam",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/guam",
-   "aggiornata": "2026-10-16",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-20",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -16788,7 +16840,7 @@
    "nome": "Guatemala",
    "url": "https://www.smartraveller.gov.au/destinations/americas/guatemala",
    "aggiornata": "2026-10-06",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -17157,7 +17209,7 @@
    "nome": "Guinea",
    "url": "https://www.smartraveller.gov.au/destinations/africa/guinea",
    "aggiornata": "2026-06-15",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -17338,7 +17390,7 @@
    "nome": "Guyana",
    "url": "https://www.smartraveller.gov.au/destinations/americas/guyana",
    "aggiornata": "2026-04-29",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -17577,7 +17629,7 @@
    "nome": "Haiti",
    "url": "https://www.smartraveller.gov.au/destinations/americas/haiti",
    "aggiornata": "2026-07-06",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -17848,7 +17900,7 @@
    "nome": "Honduras",
    "url": "https://www.smartraveller.gov.au/destinations/americas/honduras",
    "aggiornata": "2026-09-01",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -18161,7 +18213,7 @@
    "nome": "Hong Kong",
    "url": "https://www.smartraveller.gov.au/destinations/asia/hong-kong",
    "aggiornata": "2026-07-30",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -18400,7 +18452,7 @@
    "nome": "Hungary",
    "url": "https://www.smartraveller.gov.au/destinations/europe/hungary",
    "aggiornata": "2026-09-30",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -18740,8 +18792,8 @@
    "regione": "europe",
    "nome": "Iceland",
    "url": "https://www.smartraveller.gov.au/destinations/europe/iceland",
-   "aggiornata": "2026-04-14",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-29",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -19028,8 +19080,8 @@
    "regione": "asia",
    "nome": "India",
    "url": "https://www.smartraveller.gov.au/destinations/asia/india",
-   "aggiornata": "2026-08-27",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-29",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -19102,7 +19154,7 @@
      }
     ],
     "testo_paese": [],
-    "frase": "You can be deported if you don't have a valid passport or visa.",
+    "frase": "India has introduced an electronic OCI (e-OCI) card, which can be used with a valid passport at immigration checkpoints in India.",
     "schema": null,
     "sintesi": null,
     "breve": null,
@@ -19126,11 +19178,11 @@
      },
      {
       "t": "p",
-      "x": "For information and advice on Indian visas and immigration regulations while in India, see the FRRO/FRO and the Bureau of Immigration websites."
+      "x": "For information and advice on Indian visas and immigration regulations while in India, see the Foreigners Regional Registration Office (FRRO) and the Bureau of Immigration websites."
      },
      {
       "t": "p",
-      "x": "If your visa has expired or you have overstayed your visa, speak to the Foreigners Registration Office (FRRO/FRO) before you attempt to travel. Immigration authorities may prevent you from leaving India on an expired visa."
+      "x": "If your visa has expired or you have overstayed your visa, speak to the FRRO before you attempt to travel. Immigration authorities may prevent you from leaving India on an expired visa."
      },
      {
       "t": "p",
@@ -19186,7 +19238,7 @@
      },
      {
       "t": "p",
-      "x": "Indian Tourist e-Visas can be granted for 30 days, one year or five years. There may be additional visa conditions on the maximum length of stay depending on your nationality. Detailed information regarding visa validity and the maximum length of stay for each visa category can be found on the Indian Visa Online and Ministry of Home Affairs websites."
+      "x": "Indian tourist e-Visas can be granted for 30 days, one year or five years. There may be additional visa conditions on the maximum length of stay depending on your nationality. Detailed information regarding visa validity and the maximum length of stay for each visa category can be found on the Indian Visa Online and Ministry of Home Affairs websites."
      },
      {
       "t": "p",
@@ -19214,6 +19266,18 @@
      },
      {
       "t": "h4",
+      "x": "Applicants of Pakistani origin"
+     },
+     {
+      "t": "p",
+      "x": "If you are of Pakistani origin, you should familiarise yourself with the visa requirements of Indian authorities as this could affect your visa application."
+     },
+     {
+      "t": "p",
+      "x": "For more information, contact your nearest Indian embassy or consulate."
+     },
+     {
+      "t": "h4",
       "x": "Other visas"
      },
      {
@@ -19223,6 +19287,14 @@
      {
       "t": "p",
       "x": "Overseas Citizen of India (OCI) cards are multiple entry, multi-purpose lifelong visas to visit India. OCI holders are entitled to live and work in India."
+     },
+     {
+      "t": "p",
+      "x": "India has introduced an electronic OCI (e-OCI) card, which can be used with a valid passport at immigration checkpoints in India. OCI can download their e-OCI card through the OCI Services portal or the Indian Visa Su-Swagatam mobile app."
+     },
+     {
+      "t": "p",
+      "x": "Existing physical OCI booklets remain valid and will continue to be accepted for travel and other services."
      },
      {
       "t": "p",
@@ -19269,6 +19341,18 @@
       "x": "We can't help you to stay if you don't have the correct documents."
      },
      {
+      "t": "h4",
+      "x": "Exit requirements"
+     },
+     {
+      "t": "p",
+      "x": "When you depart India, officials will check where and when you entered the country. If you are exiting on a different passport to the one you entered on, you must apply for a special exit permit before you travel. This includes emergency passports."
+     },
+     {
+      "t": "p",
+      "x": "If you need to apply for an exit permit, apply on the Foreigner's Regional Registration Office (FRRO). It may take 2 weeks or more for the exit permit to be issued, so factor this into your travel plans when you are booking flights"
+     },
+     {
       "t": "p",
       "x": "Entry and exit conditions can change at short notice. Contact the Indian High Commission in Canberra for details about visas, currency, customs and quarantine rules."
      },
@@ -19306,15 +19390,7 @@
      },
      {
       "t": "p",
-      "x": "Volunteer responsibly. Make sure you're contributing in an ethical and meaningful way."
-     },
-     {
-      "t": "h4",
-      "x": "Exit visas"
-     },
-     {
-      "t": "p",
-      "x": "If your passport is lost or stolen, report it to the police and contact the nearest Australian High Commission or Consulate to get a replacement travel document. You'll then need to get an exit visa through the online portal Foreigner's Regional Registration Office (FRRO) before you leave."
+      "x": "Volunteer responsibly: make sure you're contributing in an ethical and meaningful way."
      }
     ],
     "testo_paese": [
@@ -19328,11 +19404,11 @@
      },
      {
       "t": "p",
-      "x": "For information and advice on Indian visas and immigration regulations while in India, see the FRRO/FRO and the Bureau of Immigration websites."
+      "x": "For information and advice on Indian visas and immigration regulations while in India, see the Foreigners Regional Registration Office (FRRO) and the Bureau of Immigration websites."
      },
      {
       "t": "p",
-      "x": "If your visa has expired or you have overstayed your visa, speak to the Foreigners Registration Office (FRRO/FRO) before you attempt to travel. Immigration authorities may prevent you from leaving India on an expired visa."
+      "x": "If your visa has expired or you have overstayed your visa, speak to the FRRO before you attempt to travel. Immigration authorities may prevent you from leaving India on an expired visa."
      },
      {
       "t": "p",
@@ -19388,7 +19464,7 @@
      },
      {
       "t": "p",
-      "x": "Indian Tourist e-Visas can be granted for 30 days, one year or five years. There may be additional visa conditions on the maximum length of stay depending on your nationality. Detailed information regarding visa validity and the maximum length of stay for each visa category can be found on the Indian Visa Online and Ministry of Home Affairs websites."
+      "x": "Indian tourist e-Visas can be granted for 30 days, one year or five years. There may be additional visa conditions on the maximum length of stay depending on your nationality. Detailed information regarding visa validity and the maximum length of stay for each visa category can be found on the Indian Visa Online and Ministry of Home Affairs websites."
      },
      {
       "t": "p",
@@ -19416,6 +19492,18 @@
      },
      {
       "t": "h4",
+      "x": "Applicants of Pakistani origin"
+     },
+     {
+      "t": "p",
+      "x": "If you are of Pakistani origin, you should familiarise yourself with the visa requirements of Indian authorities as this could affect your visa application."
+     },
+     {
+      "t": "p",
+      "x": "For more information, contact your nearest Indian embassy or consulate."
+     },
+     {
+      "t": "h4",
       "x": "Other visas"
      },
      {
@@ -19425,6 +19513,14 @@
      {
       "t": "p",
       "x": "Overseas Citizen of India (OCI) cards are multiple entry, multi-purpose lifelong visas to visit India. OCI holders are entitled to live and work in India."
+     },
+     {
+      "t": "p",
+      "x": "India has introduced an electronic OCI (e-OCI) card, which can be used with a valid passport at immigration checkpoints in India. OCI can download their e-OCI card through the OCI Services portal or the Indian Visa Su-Swagatam mobile app."
+     },
+     {
+      "t": "p",
+      "x": "Existing physical OCI booklets remain valid and will continue to be accepted for travel and other services."
      },
      {
       "t": "p",
@@ -19471,6 +19567,18 @@
       "x": "We can't help you to stay if you don't have the correct documents."
      },
      {
+      "t": "h4",
+      "x": "Exit requirements"
+     },
+     {
+      "t": "p",
+      "x": "When you depart India, officials will check where and when you entered the country. If you are exiting on a different passport to the one you entered on, you must apply for a special exit permit before you travel. This includes emergency passports."
+     },
+     {
+      "t": "p",
+      "x": "If you need to apply for an exit permit, apply on the Foreigner's Regional Registration Office (FRRO). It may take 2 weeks or more for the exit permit to be issued, so factor this into your travel plans when you are booking flights"
+     },
+     {
       "t": "p",
       "x": "Entry and exit conditions can change at short notice. Contact the Indian High Commission in Canberra for details about visas, currency, customs and quarantine rules."
      },
@@ -19508,15 +19616,7 @@
      },
      {
       "t": "p",
-      "x": "Volunteer responsibly. Make sure you're contributing in an ethical and meaningful way."
-     },
-     {
-      "t": "h4",
-      "x": "Exit visas"
-     },
-     {
-      "t": "p",
-      "x": "If your passport is lost or stolen, report it to the police and contact the nearest Australian High Commission or Consulate to get a replacement travel document. You'll then need to get an exit visa through the online portal Foreigner's Regional Registration Office (FRRO) before you leave."
+      "x": "Volunteer responsibly: make sure you're contributing in an ethical and meaningful way."
      }
     ],
     "frase": "You must apply for a visa before arrival.",
@@ -19542,11 +19642,11 @@
       },
       {
        "t": "h4",
-       "x": "Yellow fever vaccination"
+       "x": "Yellow fever and Polio vaccinations"
       },
       {
        "t": "p",
-       "x": "To enter India, you may also be required to show proof of:"
+       "x": "To enter India, you may be required to show proof of:"
       },
       {
        "t": "li",
@@ -19622,7 +19722,7 @@
       },
       {
        "t": "p",
-       "x": "If you or someone you're travelling with has a short-term Tourist Visa and is hospitalised, you may be able to extend or 'convert' to a Medical Visa. Check with the Bureau of Immigration and Foreigner Regional Registration Office (FRRO)."
+       "x": "If you or someone you're travelling with has a short-term Tourist Visa and is hospitalised, you may be able to extend or 'convert' to a Medical Visa. Check with the Bureau of Immigration and the FRRO."
       }
      ]
     }
@@ -19633,8 +19733,8 @@
    "regione": "asia",
    "nome": "Indonesia",
    "url": "https://www.smartraveller.gov.au/destinations/asia/indonesia",
-   "aggiornata": "2026-10-16",
-   "ancora_valida_il": "2026-10-17",
+   "aggiornata": "2026-10-21",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -20135,8 +20235,8 @@
    "regione": "middle-east",
    "nome": "Iran",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/iran",
-   "aggiornata": "2026-09-02",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-29",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -20481,7 +20581,7 @@
    "nome": "Iraq",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/iraq",
    "aggiornata": "2026-09-02",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -20748,7 +20848,7 @@
    "nome": "Ireland",
    "url": "https://www.smartraveller.gov.au/destinations/europe/ireland",
    "aggiornata": "2026-02-19",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -21067,7 +21167,7 @@
    "nome": "Israel",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/israel",
    "aggiornata": "2026-10-15",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -21453,8 +21553,8 @@
    "regione": "europe",
    "nome": "Italy",
    "url": "https://www.smartraveller.gov.au/destinations/europe/italy",
-   "aggiornata": "2026-10-12",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-29",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -21572,14 +21672,6 @@
      {
       "t": "p",
       "x": "Temporary border checks have been introduced at Italy's borders with Slovenia. Allow extra time when crossing the land border between Italy and Slovenia and be ready to show your passport or residency card if you're asked to do so by the border police. Checks may also involve vehicle inspections."
-     },
-     {
-      "t": "h4",
-      "x": "Travel from Spain"
-     },
-     {
-      "t": "p",
-      "x": "Temporary border checks are in place for arrivals from Spain at airports and seaports. Be ready to show your passport or residency card if you're asked by border police. Allow extra time for travel."
      }
     ],
     "testo_paese": [
@@ -21614,14 +21706,6 @@
      {
       "t": "p",
       "x": "Temporary border checks have been introduced at Italy's borders with Slovenia. Allow extra time when crossing the land border between Italy and Slovenia and be ready to show your passport or residency card if you're asked to do so by the border police. Checks may also involve vehicle inspections."
-     },
-     {
-      "t": "h4",
-      "x": "Travel from Spain"
-     },
-     {
-      "t": "p",
-      "x": "Temporary border checks are in place for arrivals from Spain at airports and seaports. Be ready to show your passport or residency card if you're asked by border police. Allow extra time for travel."
      }
     ],
     "frase": "Italy is part of the Schengen area, along with many other European countries, which means you can enter Italy without a visa in some cases.",
@@ -21797,8 +21881,8 @@
    "regione": "americas",
    "nome": "Jamaica",
    "url": "https://www.smartraveller.gov.au/destinations/americas/jamaica",
-   "aggiornata": "2026-06-15",
-   "ancora_valida_il": "2026-10-17",
+   "aggiornata": "2026-11-04",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -22037,7 +22121,7 @@
    "nome": "Japan",
    "url": "https://www.smartraveller.gov.au/destinations/asia/japan",
    "aggiornata": "2026-08-25",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -22294,7 +22378,7 @@
    "nome": "Jordan",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/jordan",
    "aggiornata": "2026-09-02",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -22581,7 +22665,7 @@
    "nome": "Kazakhstan",
    "url": "https://www.smartraveller.gov.au/destinations/asia/kazakhstan",
    "aggiornata": "2026-09-11",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -22894,8 +22978,8 @@
    "regione": "africa",
    "nome": "Kenya",
    "url": "https://www.smartraveller.gov.au/destinations/africa/kenya",
-   "aggiornata": "2026-10-17",
-   "ancora_valida_il": "2026-10-17",
+   "aggiornata": "2026-11-04",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -23009,6 +23093,42 @@
      {
       "t": "p",
       "x": "Entry and exit requirements can change at short notice. Contact the Kenyan High Commission in Australia for details about ETAs, currency, customs and quarantine rules."
+     },
+     {
+      "t": "h4",
+      "x": "Border measures"
+     },
+     {
+      "t": "p",
+      "x": "If you're travelling to Kenya, you may be required to complete a health declaration form and undergo health screening on arrival due to the ongoing Ebola outbreak centred in the Democratic Republic of Congo. These measures may apply even if you have not travelled to countries affected by Ebola."
+     },
+     {
+      "t": "p",
+      "x": "Additional health screening and entry restrictions for travellers who have recently visited Ebola-affected countries may be introduced with little notice and can change quickly, including for transit passengers."
+     },
+     {
+      "t": "p",
+      "x": "Check the latest requirements with your airline or travel provider before departure."
+     },
+     {
+      "t": "h4",
+      "x": "Yellow fever vaccination"
+     },
+     {
+      "t": "p",
+      "x": "Yellow Fever is widespread. If you're coming from a yellow fever-endemic country, you'll need a yellow fever vaccination certificate to enter Kenya, or transit through Kenya for 12 hours or longer. Some airlines may want to see the certificate when you leave."
+     },
+     {
+      "t": "p",
+      "x": "Find out about returning to Australia after exposure to yellow fever."
+     },
+     {
+      "t": "p",
+      "x": "More information:"
+     },
+     {
+      "t": "li",
+      "x": "Yellow fever"
      }
     ],
     "testo_paese": [
@@ -23039,6 +23159,42 @@
      {
       "t": "p",
       "x": "Entry and exit requirements can change at short notice. Contact the Kenyan High Commission in Australia for details about ETAs, currency, customs and quarantine rules."
+     },
+     {
+      "t": "h4",
+      "x": "Border measures"
+     },
+     {
+      "t": "p",
+      "x": "If you're travelling to Kenya, you may be required to complete a health declaration form and undergo health screening on arrival due to the ongoing Ebola outbreak centred in the Democratic Republic of Congo. These measures may apply even if you have not travelled to countries affected by Ebola."
+     },
+     {
+      "t": "p",
+      "x": "Additional health screening and entry restrictions for travellers who have recently visited Ebola-affected countries may be introduced with little notice and can change quickly, including for transit passengers."
+     },
+     {
+      "t": "p",
+      "x": "Check the latest requirements with your airline or travel provider before departure."
+     },
+     {
+      "t": "h4",
+      "x": "Yellow fever vaccination"
+     },
+     {
+      "t": "p",
+      "x": "Yellow Fever is widespread. If you're coming from a yellow fever-endemic country, you'll need a yellow fever vaccination certificate to enter Kenya, or transit through Kenya for 12 hours or longer. Some airlines may want to see the certificate when you leave."
+     },
+     {
+      "t": "p",
+      "x": "Find out about returning to Australia after exposure to yellow fever."
+     },
+     {
+      "t": "p",
+      "x": "More information:"
+     },
+     {
+      "t": "li",
+      "x": "Yellow fever"
      }
     ],
     "frase": "To enter Kenya, you must apply online for an Electronic Travel Authorisation (ETA) and pay the relevant fee before your departure.",
@@ -23050,26 +23206,6 @@
     {
      "titolo": "Other formalities",
      "testo": [
-      {
-       "t": "h4",
-       "x": "Yellow fever vaccination"
-      },
-      {
-       "t": "p",
-       "x": "Yellow Fever is widespread. If you're coming from a yellow fever-endemic country, you'll need a yellow fever vaccination certificate to enter Kenya, or transit through Kenya for 12 hours or longer. Some airlines may want to see the certificate when you leave."
-      },
-      {
-       "t": "p",
-       "x": "Find out about returning to Australia after exposure to yellow fever."
-      },
-      {
-       "t": "p",
-       "x": "More information:"
-      },
-      {
-       "t": "li",
-       "x": "Yellow fever"
-      },
       {
        "t": "h4",
        "x": "Import and export restrictions"
@@ -23156,7 +23292,7 @@
    "nome": "Kosovo",
    "url": "https://www.smartraveller.gov.au/destinations/europe/kosovo",
    "aggiornata": "2026-09-26",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -23378,8 +23514,8 @@
    "regione": "middle-east",
    "nome": "Kuwait",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/kuwait",
-   "aggiornata": "2026-10-01",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-30",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -23738,7 +23874,7 @@
    "nome": "Kyrgyz Republic",
    "url": "https://www.smartraveller.gov.au/destinations/asia/kyrgyz-republic",
    "aggiornata": "2026-09-03",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -24036,7 +24172,7 @@
    "nome": "Laos",
    "url": "https://www.smartraveller.gov.au/destinations/asia/laos",
    "aggiornata": "2026-08-18",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -24298,7 +24434,7 @@
    "nome": "Latvia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/latvia",
    "aggiornata": "2026-06-02",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -24683,7 +24819,7 @@
    "nome": "Lebanon",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/lebanon",
    "aggiornata": "2026-09-24",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -24928,7 +25064,7 @@
    "nome": "Lesotho",
    "url": "https://www.smartraveller.gov.au/destinations/africa/lesotho",
    "aggiornata": "2026-03-26",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -25138,7 +25274,7 @@
    "nome": "Liberia",
    "url": "https://www.smartraveller.gov.au/destinations/africa/liberia",
    "aggiornata": "2026-01-28",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -25281,7 +25417,7 @@
    "nome": "Libya",
    "url": "https://www.smartraveller.gov.au/destinations/africa/libya",
    "aggiornata": "2026-08-13",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -25491,7 +25627,7 @@
    "nome": "Lithuania",
    "url": "https://www.smartraveller.gov.au/destinations/europe/lithuania",
    "aggiornata": "2026-04-14",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -25888,7 +26024,7 @@
    "nome": "Macau",
    "url": "https://www.smartraveller.gov.au/destinations/asia/macau",
    "aggiornata": "2026-07-30",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -26111,7 +26247,7 @@
    "nome": "Madagascar",
    "url": "https://www.smartraveller.gov.au/destinations/africa/madagascar",
    "aggiornata": "2026-08-25",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -26416,7 +26552,7 @@
    "nome": "Malawi",
    "url": "https://www.smartraveller.gov.au/destinations/africa/malawi",
    "aggiornata": "2026-07-10",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -26612,7 +26748,7 @@
    "nome": "Malaysia",
    "url": "https://www.smartraveller.gov.au/destinations/asia/malaysia",
    "aggiornata": "2026-10-02",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -26906,7 +27042,7 @@
    "nome": "Maldives",
    "url": "https://www.smartraveller.gov.au/destinations/asia/maldives",
    "aggiornata": "2026-06-11",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -27095,7 +27231,7 @@
    "nome": "Mali",
    "url": "https://www.smartraveller.gov.au/destinations/africa/mali",
    "aggiornata": "2026-06-11",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -27252,7 +27388,7 @@
    "nome": "Malta",
    "url": "https://www.smartraveller.gov.au/destinations/europe/malta",
    "aggiornata": "2026-10-07",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -27588,7 +27724,7 @@
    "nome": "Marshall Islands",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/marshall-islands",
    "aggiornata": "2026-09-18",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -27857,7 +27993,7 @@
    "nome": "Mauritania",
    "url": "https://www.smartraveller.gov.au/destinations/africa/mauritania",
    "aggiornata": "2026-05-14",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -28009,8 +28145,8 @@
    "regione": "africa",
    "nome": "Mauritius",
    "url": "https://www.smartraveller.gov.au/destinations/africa/mauritius",
-   "aggiornata": "2026-10-17",
-   "ancora_valida_il": "2026-10-17",
+   "aggiornata": "2026-10-20",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -28273,7 +28409,7 @@
    "nome": "Mexico",
    "url": "https://www.smartraveller.gov.au/destinations/americas/mexico",
    "aggiornata": "2026-10-15",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -28746,7 +28882,7 @@
    "nome": "Moldova",
    "url": "https://www.smartraveller.gov.au/destinations/europe/moldova",
    "aggiornata": "2026-07-31",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -28953,7 +29089,7 @@
    "nome": "Mongolia",
    "url": "https://www.smartraveller.gov.au/destinations/asia/mongolia",
    "aggiornata": "2026-10-12",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -29240,7 +29376,7 @@
    "nome": "Montenegro",
    "url": "https://www.smartraveller.gov.au/destinations/europe/montenegro",
    "aggiornata": "2026-07-31",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -29401,7 +29537,7 @@
    "nome": "Morocco",
    "url": "https://www.smartraveller.gov.au/destinations/africa/morocco",
    "aggiornata": "2026-07-29",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -29624,7 +29760,7 @@
    "nome": "Mozambique",
    "url": "https://www.smartraveller.gov.au/destinations/africa/mozambique",
    "aggiornata": "2026-09-24",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -29929,7 +30065,7 @@
    "nome": "Myanmar",
    "url": "https://www.smartraveller.gov.au/destinations/asia/myanmar",
    "aggiornata": "2026-04-07",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -30283,7 +30419,7 @@
    "nome": "Namibia",
    "url": "https://www.smartraveller.gov.au/destinations/africa/namibia",
    "aggiornata": "2026-03-11",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -30573,7 +30709,7 @@
    "nome": "Nepal",
    "url": "https://www.smartraveller.gov.au/destinations/asia/nepal",
    "aggiornata": "2026-10-13",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -30789,7 +30925,7 @@
    "nome": "Netherlands",
    "url": "https://www.smartraveller.gov.au/destinations/europe/netherlands",
    "aggiornata": "2026-09-29",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -31157,7 +31293,7 @@
    "nome": "New Caledonia",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/new-caledonia",
    "aggiornata": "2026-08-27",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -31442,7 +31578,7 @@
    "nome": "New Zealand",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/new-zealand",
    "aggiornata": "2026-07-22",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -31746,7 +31882,7 @@
    "nome": "Nicaragua",
    "url": "https://www.smartraveller.gov.au/destinations/americas/nicaragua",
    "aggiornata": "2026-06-22",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -32143,7 +32279,7 @@
    "nome": "Niger",
    "url": "https://www.smartraveller.gov.au/destinations/africa/niger",
    "aggiornata": "2026-06-24",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -32311,8 +32447,8 @@
    "regione": "africa",
    "nome": "Nigeria",
    "url": "https://www.smartraveller.gov.au/destinations/africa/nigeria",
-   "aggiornata": "2026-09-21",
-   "ancora_valida_il": "2026-10-17",
+   "aggiornata": "2026-10-23",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -32425,7 +32561,7 @@
      },
      {
       "t": "p",
-      "x": "Nigerian authorities have introduced enhanced public health measures at international entry points in response to the current Ebola disease outbreak in the Democratic Republic of the Congo and Uganda."
+      "x": "Nigerian authorities have introduced enhanced public health measures at international entry points in response to the current Ebola disease outbreak in parts of Africa."
      },
      {
       "t": "p",
@@ -32471,7 +32607,7 @@
      },
      {
       "t": "p",
-      "x": "Nigerian authorities have introduced enhanced public health measures at international entry points in response to the current Ebola disease outbreak in the Democratic Republic of the Congo and Uganda."
+      "x": "Nigerian authorities have introduced enhanced public health measures at international entry points in response to the current Ebola disease outbreak in parts of Africa."
      },
      {
       "t": "p",
@@ -32529,7 +32665,7 @@
    "nome": "Niue",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/niue",
    "aggiornata": "2026-07-22",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -32718,7 +32854,7 @@
    "nome": "North Korea (Democratic People's Republic of Korea)",
    "url": "https://www.smartraveller.gov.au/destinations/asia/north-korea-democratic-peoples-republic-korea",
    "aggiornata": "2026-03-31",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -33039,7 +33175,7 @@
    "nome": "North Macedonia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/north-macedonia",
    "aggiornata": "2026-09-02",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -33246,7 +33382,7 @@
    "nome": "Norway",
    "url": "https://www.smartraveller.gov.au/destinations/europe/norway",
    "aggiornata": "2026-06-09",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -33642,8 +33778,8 @@
    "regione": "middle-east",
    "nome": "Oman",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/oman",
-   "aggiornata": "2026-09-02",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-23",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -33673,6 +33809,22 @@
      {
       "t": "p",
       "x": "Authorities may not allow you to exit or enter Oman if you're travelling on an emergency passport. Contact the nearest Embassy or Consulate of the Sultanate of Oman for advice."
+     },
+     {
+      "t": "h4",
+      "x": "Online passport application temporary service"
+     },
+     {
+      "t": "p",
+      "x": "Online applications for passport renewals are currently open for Australians in Oman. There's no need to attend the Embassy in Riyadh as part of the application process. This is a temporary service."
+     },
+     {
+      "t": "p",
+      "x": "For more information visit the Australian Embassy in Riyadh's 'Passports' webpage."
+     },
+     {
+      "t": "p",
+      "x": "If you're eligible, go to passports.gov.au to apply."
      },
      {
       "t": "h4",
@@ -33743,6 +33895,18 @@
      {
       "t": "p",
       "x": "Authorities may not allow you to exit or enter Oman if you're travelling on an emergency passport. Contact the nearest Embassy or Consulate of the Sultanate of Oman for advice."
+     },
+     {
+      "t": "p",
+      "x": "Online applications for passport renewals are currently open for Australians in Oman. There's no need to attend the Embassy in Riyadh as part of the application process. This is a temporary service."
+     },
+     {
+      "t": "p",
+      "x": "For more information visit the Australian Embassy in Riyadh's 'Passports' webpage."
+     },
+     {
+      "t": "p",
+      "x": "If you're eligible, go to passports.gov.au to apply."
      },
      {
       "t": "p",
@@ -33970,7 +34134,7 @@
    "nome": "Pakistan",
    "url": "https://www.smartraveller.gov.au/destinations/asia/pakistan",
    "aggiornata": "2026-10-14",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -34344,7 +34508,7 @@
    "nome": "Palau",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/palau",
    "aggiornata": "2026-07-22",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -34601,7 +34765,7 @@
    "nome": "Palestine",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/palestine",
    "aggiornata": "2026-09-14",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -34918,7 +35082,7 @@
    "nome": "Panama",
    "url": "https://www.smartraveller.gov.au/destinations/americas/panama",
    "aggiornata": "2026-09-17",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -35277,7 +35441,7 @@
    "nome": "Papua New Guinea",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/papua-new-guinea",
    "aggiornata": "2026-09-07",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -35491,8 +35655,8 @@
    "regione": "americas",
    "nome": "Paraguay",
    "url": "https://www.smartraveller.gov.au/destinations/americas/paraguay",
-   "aggiornata": "2026-05-18",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-20",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -35585,7 +35749,11 @@
      },
      {
       "t": "p",
-      "x": "Australian passport holders don't require visitor visas to enter Paraguay when they travel on a regular passport for up to 90 days."
+      "x": "Australian passport holders, who travel for tourism purposes, don't require visitor visas to enter Paraguay when they travel on a regular passport for up to 90 days."
+     },
+     {
+      "t": "p",
+      "x": "If you are travelling on a different type of passport, or for a different reason other than tourism, check entry requirements with the nearest embassy or consulate of Paraguay for details about visas and other travel requirements."
      },
      {
       "t": "p",
@@ -35593,7 +35761,7 @@
      },
      {
       "t": "p",
-      "x": "Entry and exit conditions can change. Contact the nearest embassy or consulate of Paraguay for details about visas, currency, customs and other travel requirements."
+      "x": "Entry and exit conditions can change."
      },
      {
       "t": "p",
@@ -35629,7 +35797,7 @@
      },
      {
       "t": "p",
-      "x": "If you're travelling to or from Paraguay through the US, you must meet US entry or transit requirements."
+      "x": "If you're travelling to or from Paraguay through the United States, you must meet US entry or transit requirements."
      },
      {
       "t": "p",
@@ -35659,7 +35827,11 @@
      },
      {
       "t": "p",
-      "x": "Australian passport holders don't require visitor visas to enter Paraguay when they travel on a regular passport for up to 90 days."
+      "x": "Australian passport holders, who travel for tourism purposes, don't require visitor visas to enter Paraguay when they travel on a regular passport for up to 90 days."
+     },
+     {
+      "t": "p",
+      "x": "If you are travelling on a different type of passport, or for a different reason other than tourism, check entry requirements with the nearest embassy or consulate of Paraguay for details about visas and other travel requirements."
      },
      {
       "t": "p",
@@ -35667,7 +35839,7 @@
      },
      {
       "t": "p",
-      "x": "Entry and exit conditions can change. Contact the nearest embassy or consulate of Paraguay for details about visas, currency, customs and other travel requirements."
+      "x": "Entry and exit conditions can change."
      },
      {
       "t": "p",
@@ -35703,7 +35875,7 @@
      },
      {
       "t": "p",
-      "x": "If you're travelling to or from Paraguay through the US, you must meet US entry or transit requirements."
+      "x": "If you're travelling to or from Paraguay through the United States, you must meet US entry or transit requirements."
      },
      {
       "t": "p",
@@ -35726,7 +35898,7 @@
       "x": "Read our travel advice for Brazil. Australians need a visa to enter Brazil. For more information, contact the embassy or consulate of Brazil."
      }
     ],
-    "frase": "Australian passport holders don't require visitor visas to enter Paraguay when they travel on a regular passport for up to 90 days.",
+    "frase": "Australian passport holders, who travel for tourism purposes, don't require visitor visas to enter Paraguay when they travel on a regular passport for up to 90 days.",
     "schema": null,
     "sintesi": null,
     "motivo": "The first official sentence does not match a wording we summarise."
@@ -35741,7 +35913,7 @@
       },
       {
        "t": "p",
-       "x": "Children under the age of 18, with a birthplace or residency in Paraguay, must leave Paraguay with a legalised travel authorisation from any non-accompanying parent(s). A birth certificate may be required to verify the parents. If one of the parents is deceased, a death certificate will need to accompany the birth certificate."
+       "x": "Children under the age of 18, with a birthplace or residency in Paraguay, must leave Paraguay with a legalised travel authorisation from any non-accompanying parent(s). A birth certificate may be required to verify the parents. If one of the parents is deceased, a death certificate may be required to accompany the birth certificate."
       },
       {
        "t": "p",
@@ -35765,7 +35937,7 @@
    "nome": "Peru",
    "url": "https://www.smartraveller.gov.au/destinations/americas/peru",
    "aggiornata": "2026-10-02",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -36083,7 +36255,7 @@
    "nome": "Philippines",
    "url": "https://www.smartraveller.gov.au/destinations/asia/philippines",
    "aggiornata": "2026-09-24",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -36563,7 +36735,7 @@
    "nome": "Poland",
    "url": "https://www.smartraveller.gov.au/destinations/europe/poland",
    "aggiornata": "2026-10-16",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -36992,7 +37164,7 @@
    "nome": "Portugal",
    "url": "https://www.smartraveller.gov.au/destinations/europe/portugal",
    "aggiornata": "2026-10-16",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -37464,7 +37636,7 @@
    "nome": "Qatar",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/qatar",
    "aggiornata": "2026-10-08",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -37758,7 +37930,7 @@
    "nome": "Romania",
    "url": "https://www.smartraveller.gov.au/destinations/europe/romania",
    "aggiornata": "2026-06-17",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -38102,8 +38274,8 @@
    "regione": "europe",
    "nome": "Russia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/russia",
-   "aggiornata": "2026-07-13",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-30",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -38265,7 +38437,7 @@
      },
      {
       "t": "p",
-      "x": "If you arrive without a valid visa, authorities will fine, detain and deport you at your own expense. They may bar you from re-entering."
+      "x": "If you arrive without a valid visa, authorities will fine, detain and deport you at your own expense. They may ban you from re-entering."
      },
      {
       "t": "p",
@@ -38341,7 +38513,7 @@
      },
      {
       "t": "p",
-      "x": "Entry and exit conditions can change at short notice. Contact the nearest embassy or consulate for details about visas, currency, customs and quarantine rules."
+      "x": "Entry and exit conditions can change at short notice. Contact the nearest embassy or consulate of Russia for details about visas, currency, customs and quarantine rules."
      },
      {
       "t": "p",
@@ -38361,7 +38533,7 @@
      },
      {
       "t": "p",
-      "x": "Russia has temporarily relaxed fuel requirements, allowing production and circulation of Euro 3 fuel up until 31 December 2026."
+      "x": "Russia has temporarily relaxed fuel requirements, allowing production and circulation of Euro 3 fuel until 31 December 2026."
      },
      {
       "t": "p",
@@ -38395,7 +38567,7 @@
      },
      {
       "t": "p",
-      "x": "If you arrive without a valid visa, authorities will fine, detain and deport you at your own expense. They may bar you from re-entering."
+      "x": "If you arrive without a valid visa, authorities will fine, detain and deport you at your own expense. They may ban you from re-entering."
      },
      {
       "t": "p",
@@ -38471,7 +38643,7 @@
      },
      {
       "t": "p",
-      "x": "Entry and exit conditions can change at short notice. Contact the nearest embassy or consulate for details about visas, currency, customs and quarantine rules."
+      "x": "Entry and exit conditions can change at short notice. Contact the nearest embassy or consulate of Russia for details about visas, currency, customs and quarantine rules."
      },
      {
       "t": "p",
@@ -38491,7 +38663,7 @@
      },
      {
       "t": "p",
-      "x": "Russia has temporarily relaxed fuel requirements, allowing production and circulation of Euro 3 fuel up until 31 December 2026."
+      "x": "Russia has temporarily relaxed fuel requirements, allowing production and circulation of Euro 3 fuel until 31 December 2026."
      },
      {
       "t": "p",
@@ -38515,6 +38687,14 @@
     {
      "titolo": "Australians sanctioned by Russia",
      "testo": [
+      {
+       "t": "p",
+       "x": "Australia and other countries have placed sanctions on Russia. Russia's response to these sanctions may disrupt travel and affect travellers. Confirm entry requirements for your destination before arrival, as additional restrictions or entry requirements could be imposed or changed suddenly."
+      },
+      {
+       "t": "p",
+       "x": "If, despite our advice, you decide to travel to Russia, note that some areas across the country are considered 'closed' to foreigners. Foreigners need government permission to enter these 'closed' areas. If you need government permission or are unsure if you need it, contact the Russian Ministry of Internal Affairs."
+      },
       {
        "t": "p",
        "x": "The Russian Foreign Ministry issued statements on its website advising that, in response to Australian sanctions, the Russian Government has added several Australians to a so called 'stop list', denying them entry into Russia on an indefinite basis."
@@ -38598,14 +38778,6 @@
       },
       {
        "t": "h4",
-       "x": "Travel with Children"
-      },
-      {
-       "t": "p",
-       "x": "If you're travelling with a child, you may need to show evidence of parental, custodial or permission rights. This is particularly the case for dual nationals. See 'Local laws'."
-      },
-      {
-       "t": "h4",
        "x": "Electronics"
       },
       {
@@ -38651,6 +38823,18 @@
       {
        "t": "p",
        "x": "Contact the Embassy of Russia and the Ministry of Foreign Affairs of Belarus for details."
+      },
+      {
+       "t": "h4",
+       "x": "Travel to Latvia or Estonia"
+      },
+      {
+       "t": "p",
+       "x": "Latvia bans the entry of vehicles registered in Russia. More information can be found on the State Revenue Service website. Vehicles are also banned from crossing into/from Estonia at the Ivangorod-Narva crossing. Train services are suspended. Entry and exit on foot are allowed. Additional restrictions or entry requirements could be imposed or changed suddenly. Be aware that some borders may close without notice."
+      },
+      {
+       "t": "p",
+       "x": "If you're travelling through an overland border crossing into Estonia or Latvia, confirm the entry requirements for your destination before arrival."
       },
       {
        "t": "h4",
@@ -38710,7 +38894,7 @@
       },
       {
        "t": "p",
-       "x": "Foreign nationals who did not regulate their legal status in Russia before 10 September 2025 will be included in the registry of ‘controlled persons’, and may be deported from Russia and banned from re-entering."
+       "x": "Foreign nationals who didn't regulate their legal status in Russia before 10 September 2025 will be included in the registry of ‘controlled persons’, and may be deported from Russia and banned from re-entering."
       },
       {
        "t": "p",
@@ -38730,27 +38914,19 @@
       },
       {
        "t": "p",
-       "x": "You must declare cash amounts exceeding the equivalent of 10,000 USD as well as certain types of goods, including jewellery and antiques."
+       "x": "You must declare cash amounts exceeding the equivalent of USD10,000 as well as certain types of goods, including jewellery and antiques. You must carry proof that your funds were imported and declared or legally obtained in Russia. Declarations must be stamped by a customs official to be valid."
       },
       {
        "t": "p",
-       "x": "Items imported by air for personal use that are worth more than 10,000 EUR or weighing more than 50 kg must be declared."
+       "x": "Items imported by air for personal use that are worth more than EUR10,000 or weighing more than 50kg must be declared."
       },
       {
        "t": "p",
-       "x": "For cash amounts exceeding the equivalent of 100,000 USD, documents confirming the origin of the money, in addition to customs declaration, must be provided."
+       "x": "For cash amounts exceeding the equivalent of USD100,000, documents confirming the origin of the money, in addition to customs declaration, must be provided."
       },
       {
        "t": "p",
-       "x": "If you fail to declare items exceeding the value or weight standards, these may be confiscated, and you may be detained and charged with an administrative or criminal offence."
-      },
-      {
-       "t": "p",
-       "x": "If you fail to declare amounts of cash exceeding the threshold, your money may be confiscated, and you may be detained and charged with an administrative or criminal offence."
-      },
-      {
-       "t": "p",
-       "x": "Make sure a customs official stamps your declaration. Only stamped declarations are valid."
+       "x": "If you fail to declare items exceeding the value or weight standards, or amounts of cash exceeding the threshold, these may be confiscated, and you may be detained and charged with an administrative or criminal offence."
       },
       {
        "t": "p",
@@ -38758,11 +38934,7 @@
       },
       {
        "t": "p",
-       "x": "Russia has strict and broadly-interpreted regulations on the export of antiques, artworks and items of historical significance. These are items purchased or imported to Russia from overseas. They also include modern art and posters if they are particularly rare or valuable."
-      },
-      {
-       "t": "p",
-       "x": "Authorities may not allow the export of items more than 100 years old."
+       "x": "Russia has strict and broadly-interpreted regulations on the export of antiques, artworks and items of historical significance. These are items purchased or imported from overseas. They also include modern art and posters if they are particularly rare or valuable. Authorities may not allow the export of items more than 100 years old."
       },
       {
        "t": "p",
@@ -38806,7 +38978,7 @@
    "nome": "Rwanda",
    "url": "https://www.smartraveller.gov.au/destinations/africa/rwanda",
    "aggiornata": "2026-10-02",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -39035,7 +39207,7 @@
    "nome": "Samoa",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/samoa",
    "aggiornata": "2026-08-05",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -39273,8 +39445,8 @@
    "regione": "middle-east",
    "nome": "Saudi Arabia",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/saudi-arabia",
-   "aggiornata": "2026-10-16",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-11-04",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -39296,6 +39468,22 @@
       "t": "p",
       "x": "The Australian Government doesn’t make these rules. Check your passport’s expiry date before you go. If you’re not sure, it’s a good idea to get a new passport.",
       "generico": true
+     },
+     {
+      "t": "h4",
+      "x": "Online passport application temporary service"
+     },
+     {
+      "t": "p",
+      "x": "Online applications for passport renewals are currently open for Australians in Saudi Arabia. There's no need to attend the Embassy as part of the application process. This is a temporary service and is also available for eligible Australians in Oman, Bahrain and Yemen."
+     },
+     {
+      "t": "p",
+      "x": "For more information visit the Australian Embassy in Riyadh's 'Passports' webpage."
+     },
+     {
+      "t": "p",
+      "x": "If you're eligible, go to passports.gov.au to apply."
      },
      {
       "t": "h4",
@@ -39363,6 +39551,18 @@
      }
     ],
     "testo_paese": [
+     {
+      "t": "p",
+      "x": "Online applications for passport renewals are currently open for Australians in Saudi Arabia. There's no need to attend the Embassy as part of the application process. This is a temporary service and is also available for eligible Australians in Oman, Bahrain and Yemen."
+     },
+     {
+      "t": "p",
+      "x": "For more information visit the Australian Embassy in Riyadh's 'Passports' webpage."
+     },
+     {
+      "t": "p",
+      "x": "If you're eligible, go to passports.gov.au to apply."
+     },
      {
       "t": "p",
       "x": "Saudi authorities will not allow you to enter Saudi Arabia on an Australian emergency passport. You can only use an Australian emergency passport to exit and you may be required to provide a police report and/or letter from the Embassy to explain why your passport is different to the passport on which you entered the country."
@@ -39957,7 +40157,7 @@
    "nome": "Senegal",
    "url": "https://www.smartraveller.gov.au/destinations/africa/senegal",
    "aggiornata": "2026-05-06",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -40145,8 +40345,8 @@
    "regione": "europe",
    "nome": "Serbia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/serbia",
-   "aggiornata": "2026-07-29",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-27",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -40376,8 +40576,8 @@
    "regione": "africa",
    "nome": "Seychelles",
    "url": "https://www.smartraveller.gov.au/destinations/africa/seychelles",
-   "aggiornata": "2026-08-13",
-   "ancora_valida_il": "2026-10-17",
+   "aggiornata": "2026-10-28",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -40518,19 +40718,27 @@
      "testo": [
       {
        "t": "h4",
-       "x": "Ebola"
+       "x": "Ebola disease"
       },
       {
        "t": "p",
-       "x": "Seychelles public health authorities have introduced Ebola enhanced health checks and entry restrictions for some travellers."
+       "x": "Seychelles has introduced entry restrictions and public health measures for travellers who have recently been in the Democratic Republic of the Congo (DRC) due to the Ebola outbreak."
       },
       {
        "t": "p",
-       "x": "If you've travelled to an Ebola-affected country within the past 21 days, you may receive an automatic email from the Seychelles health authorities requesting your details and asking you to complete a health monitoring form."
+       "x": "Foreign nationals travelling from the DRC must spend at least 21 days in another country or place outside the DRC before entering Seychelles. You may need to comply with health monitoring requirements during this period and provide supporting documentation."
       },
       {
        "t": "p",
-       "x": "Local health authorities may also contact you and ask you to check your health. Check the latest requirements with your airline or travel provider before you depart for the Seychelles."
+       "x": "Seychellois citizens and residents arriving from the DRC, or who have been there during the previous 21 days, may also be subject to mandatory public health measures. These may include quarantine at a designated facility or approved location for the remainder of the 21-day period. Requirements will depend on an individual risk assessment by the Seychelles public health authorities."
+      },
+      {
+       "t": "p",
+       "x": "The measures apply based on recent travel history, not nationality. Airlines may check that you have permission to travel before allowing you to board."
+      },
+      {
+       "t": "p",
+       "x": "Check the latest entry and health requirements through the Seychelles Electronic Border System and with your airline or travel provider before you travel."
       },
       {
        "t": "h4",
@@ -40602,7 +40810,7 @@
    "nome": "Sierra Leone",
    "url": "https://www.smartraveller.gov.au/destinations/africa/sierra-leone",
    "aggiornata": "2026-10-14",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -40864,8 +41072,8 @@
    "regione": "asia",
    "nome": "Singapore",
    "url": "https://www.smartraveller.gov.au/destinations/asia/singapore",
-   "aggiornata": "2026-10-16",
-   "ancora_valida_il": "2026-10-17",
+   "aggiornata": "2026-11-03",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -40887,6 +41095,10 @@
       "t": "p",
       "x": "The Australian Government doesn’t make these rules. Check your passport’s expiry date before you go. If you’re not sure, it’s a good idea to get a new passport.",
       "generico": true
+     },
+     {
+      "t": "p",
+      "x": "Singapore requires foreign passports to have at least 6 months validity from date of entry to Singapore. For fully entry requirements see Immigration & Checkpoints Authority (ICA)."
      },
      {
       "t": "h4",
@@ -40937,7 +41149,12 @@
       "generico": true
      }
     ],
-    "testo_paese": [],
+    "testo_paese": [
+     {
+      "t": "p",
+      "x": "Singapore requires foreign passports to have at least 6 months validity from date of entry to Singapore. For fully entry requirements see Immigration & Checkpoints Authority (ICA)."
+     }
+    ],
     "frase": "a passport with at least 6 months validity",
     "schema": null,
     "sintesi": null,
@@ -40953,16 +41170,16 @@
       "generico": true
      },
      {
-      "t": "h4",
-      "x": "Visas"
-     },
-     {
       "t": "p",
-      "x": "In most circumstances, such as tourism, travel for business meetings or conferences, Australian passport holders do not require a visa for stays up to 90 days. Other passport holders should check with the Singapore Immigration and Checkpoint Authority if they need a visa to enter Singapore. ICA | Check if You Need an Entry Visa"
+      "x": "Australian passport holders do not require a visa for stays up to 90 days if travelling for tourism, business meetings or conferences. Other passport holders should check with the Singapore Immigration and Checkpoint Authority if they need a visa to enter Singapore."
      },
      {
       "t": "p",
       "x": "At immigration, you may have to show:"
+     },
+     {
+      "t": "li",
+      "x": "a completed Singapore Arrival Card (SGAC) (there's no charge for the SGAC). This can be completed within three days of your arrival. There are scam websites that ask for payment. Make sure you use the official ICA website."
      },
      {
       "t": "li",
@@ -40982,7 +41199,15 @@
      },
      {
       "t": "li",
-      "x": "yellow fever vaccination certificate, if required ICA | Yellow Fever Vaccination Certificate"
+      "x": "yellow fever vaccination certificate, if required"
+     },
+     {
+      "t": "p",
+      "x": "You may need to scan your fingerprints, facial image and/or iris biometric each time you arrive and depart Singapore. Children aged under 6 years may not need to do so."
+     },
+     {
+      "t": "p",
+      "x": "All visitors who clear immigration and enter Singapore will receive an electronic Visit Pass (e-Pass) by email, showing their permitted length of stay and last day of stay. Visitors can retrieve their e-Pass from the ePass Enquiry Portal."
      },
      {
       "t": "p",
@@ -40994,7 +41219,7 @@
      },
      {
       "t": "h4",
-      "x": "Employment Visa"
+      "x": "Employment/Study Visa"
      },
      {
       "t": "p",
@@ -41002,39 +41227,11 @@
      },
      {
       "t": "h4",
-      "x": "Border measures"
-     },
-     {
-      "t": "p",
-      "x": "On arrival, you'll need to show:"
-     },
-     {
-      "t": "li",
-      "x": "your completed Singapore Arrival Card (SGAC) (there is no charge for the SGAC). This can be completed within three days of your arrival. There are scam websites that ask for payment. Make sure you use the official ICA website."
-     },
-     {
-      "t": "li",
-      "x": "a yellow fever vaccination certificate, if needed"
-     },
-     {
-      "t": "p",
-      "x": "More information is available on the ICA | Entering, Transiting and Departing website."
-     },
-     {
-      "t": "p",
-      "x": "Be careful of scam websites imitating official Singapore Arrival Card website."
-     },
-     {
-      "t": "h4",
       "x": "Transit through Singapore"
      },
      {
       "t": "p",
-      "x": "See Changi Airport website for more information on transiting."
-     },
-     {
-      "t": "p",
-      "x": "Do not bring medicinal cannabis to Singapore, even during transit. If you take prescribed medicinal cannabis, you should contact the Singapore Health Science Authority to review your situation."
+      "x": "Expect to be screened during your transit. You may be security screened when disembarking your flight in Singapore and before boarding your connecting flight."
      },
      {
       "t": "p",
@@ -41042,41 +41239,33 @@
      },
      {
       "t": "p",
-      "x": "Expect to be screened during your transit. You may be security screened when boarding your flight to Singapore and before boarding your connecting flight. See Changi Airport website for further information on transit requirements."
+      "x": "Do not bring medicinal cannabis to Singapore, even during transit (see 'Local laws')."
      },
      {
       "t": "p",
-      "x": "Check the Immigration & Checkpoints Authority website or Changi Airport for the latest advice."
-     },
-     {
-      "t": "h4",
-      "x": "Misuse of boarding pass"
-     },
-     {
-      "t": "p",
-      "x": "It's illegal to enter the transit area of Singapore’s Changi Airport for any purpose other than departing Singapore on a flight."
+      "x": "More Information:"
      },
      {
       "t": "li",
-      "x": "entering the transit area with a valid boarding pass but without planning to travel, such as for shopping, meeting people or seeing off loved ones, is an offence. Individuals who do so may be arrested upon re-entry into Singapore."
+      "x": "ICA - Entering, Transiting and Departing website"
      },
      {
       "t": "li",
-      "x": "offenders may be fined up to SGD 20,000 and/or jailed for up to two years."
+      "x": "Changi Airport"
      }
     ],
     "testo_paese": [
      {
-      "t": "h4",
-      "x": "Visas"
-     },
-     {
       "t": "p",
-      "x": "In most circumstances, such as tourism, travel for business meetings or conferences, Australian passport holders do not require a visa for stays up to 90 days. Other passport holders should check with the Singapore Immigration and Checkpoint Authority if they need a visa to enter Singapore. ICA | Check if You Need an Entry Visa"
+      "x": "Australian passport holders do not require a visa for stays up to 90 days if travelling for tourism, business meetings or conferences. Other passport holders should check with the Singapore Immigration and Checkpoint Authority if they need a visa to enter Singapore."
      },
      {
       "t": "p",
       "x": "At immigration, you may have to show:"
+     },
+     {
+      "t": "li",
+      "x": "a completed Singapore Arrival Card (SGAC) (there's no charge for the SGAC). This can be completed within three days of your arrival. There are scam websites that ask for payment. Make sure you use the official ICA website."
      },
      {
       "t": "li",
@@ -41096,7 +41285,15 @@
      },
      {
       "t": "li",
-      "x": "yellow fever vaccination certificate, if required ICA | Yellow Fever Vaccination Certificate"
+      "x": "yellow fever vaccination certificate, if required"
+     },
+     {
+      "t": "p",
+      "x": "You may need to scan your fingerprints, facial image and/or iris biometric each time you arrive and depart Singapore. Children aged under 6 years may not need to do so."
+     },
+     {
+      "t": "p",
+      "x": "All visitors who clear immigration and enter Singapore will receive an electronic Visit Pass (e-Pass) by email, showing their permitted length of stay and last day of stay. Visitors can retrieve their e-Pass from the ePass Enquiry Portal."
      },
      {
       "t": "p",
@@ -41108,7 +41305,7 @@
      },
      {
       "t": "h4",
-      "x": "Employment Visa"
+      "x": "Employment/Study Visa"
      },
      {
       "t": "p",
@@ -41116,39 +41313,11 @@
      },
      {
       "t": "h4",
-      "x": "Border measures"
-     },
-     {
-      "t": "p",
-      "x": "On arrival, you'll need to show:"
-     },
-     {
-      "t": "li",
-      "x": "your completed Singapore Arrival Card (SGAC) (there is no charge for the SGAC). This can be completed within three days of your arrival. There are scam websites that ask for payment. Make sure you use the official ICA website."
-     },
-     {
-      "t": "li",
-      "x": "a yellow fever vaccination certificate, if needed"
-     },
-     {
-      "t": "p",
-      "x": "More information is available on the ICA | Entering, Transiting and Departing website."
-     },
-     {
-      "t": "p",
-      "x": "Be careful of scam websites imitating official Singapore Arrival Card website."
-     },
-     {
-      "t": "h4",
       "x": "Transit through Singapore"
      },
      {
       "t": "p",
-      "x": "See Changi Airport website for more information on transiting."
-     },
-     {
-      "t": "p",
-      "x": "Do not bring medicinal cannabis to Singapore, even during transit. If you take prescribed medicinal cannabis, you should contact the Singapore Health Science Authority to review your situation."
+      "x": "Expect to be screened during your transit. You may be security screened when disembarking your flight in Singapore and before boarding your connecting flight."
      },
      {
       "t": "p",
@@ -41156,45 +41325,27 @@
      },
      {
       "t": "p",
-      "x": "Expect to be screened during your transit. You may be security screened when boarding your flight to Singapore and before boarding your connecting flight. See Changi Airport website for further information on transit requirements."
+      "x": "Do not bring medicinal cannabis to Singapore, even during transit (see 'Local laws')."
      },
      {
       "t": "p",
-      "x": "Check the Immigration & Checkpoints Authority website or Changi Airport for the latest advice."
-     },
-     {
-      "t": "h4",
-      "x": "Misuse of boarding pass"
-     },
-     {
-      "t": "p",
-      "x": "It's illegal to enter the transit area of Singapore’s Changi Airport for any purpose other than departing Singapore on a flight."
+      "x": "More Information:"
      },
      {
       "t": "li",
-      "x": "entering the transit area with a valid boarding pass but without planning to travel, such as for shopping, meeting people or seeing off loved ones, is an offence. Individuals who do so may be arrested upon re-entry into Singapore."
+      "x": "ICA - Entering, Transiting and Departing website"
      },
      {
       "t": "li",
-      "x": "offenders may be fined up to SGD 20,000 and/or jailed for up to two years."
+      "x": "Changi Airport"
      }
     ],
-    "frase": "In most circumstances, such as tourism, travel for business meetings or conferences, Australian passport holders do not require a visa for stays up to 90 days.",
+    "frase": "Australian passport holders do not require a visa for stays up to 90 days if travelling for tourism, business meetings or conferences.",
     "schema": null,
     "sintesi": null,
     "motivo": "The first official sentence does not match a wording we summarise."
    },
-   "altre_sezioni": [
-    {
-     "titolo": "Other formalities",
-     "testo": [
-      {
-       "t": "p",
-       "x": "You may need to scan your thumbprints each time you arrive and depart Singapore. Children aged under 6 years don't need to."
-      }
-     ]
-    }
-   ]
+   "altre_sezioni": []
   },
   {
    "slug_fonte": "slovakia",
@@ -41202,7 +41353,7 @@
    "nome": "Slovakia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/slovakia",
    "aggiornata": "2026-04-14",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -41578,7 +41729,7 @@
    "nome": "Slovenia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/slovenia",
    "aggiornata": "2026-04-14",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -41962,7 +42113,7 @@
    "nome": "Solomon Islands",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/solomon-islands",
    "aggiornata": "2026-09-28",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -42129,7 +42280,7 @@
    "nome": "Somalia",
    "url": "https://www.smartraveller.gov.au/destinations/africa/somalia",
    "aggiornata": "2026-06-18",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -42440,7 +42591,7 @@
    "nome": "South Africa",
    "url": "https://www.smartraveller.gov.au/destinations/africa/south-africa",
    "aggiornata": "2026-09-08",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -42759,7 +42910,7 @@
    "nome": "South Korea (Republic of Korea)",
    "url": "https://www.smartraveller.gov.au/destinations/asia/south-korea-republic-korea",
    "aggiornata": "2026-10-12",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -43025,7 +43176,7 @@
    "nome": "South Sudan",
    "url": "https://www.smartraveller.gov.au/destinations/africa/south-sudan",
    "aggiornata": "2026-05-22",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -43264,8 +43415,8 @@
    "regione": "europe",
    "nome": "Spain",
    "url": "https://www.smartraveller.gov.au/destinations/europe/spain",
-   "aggiornata": "2026-09-11",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-29",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -43404,14 +43555,6 @@
      {
       "t": "p",
       "x": "Entry and exit conditions can change at short notice. Contact the nearest embassy or consulate of Spain for the latest details on entry requirements before you travel."
-     },
-     {
-      "t": "h4",
-      "x": "Travel from Italy"
-     },
-     {
-      "t": "p",
-      "x": "Temporary border checks are in place for arrivals from Italy at airports and seaports. Be ready to show your passport or residency card if you're asked by border police. Allow extra time for travel."
      }
     ],
     "testo_paese": [
@@ -43446,14 +43589,6 @@
      {
       "t": "p",
       "x": "Entry and exit conditions can change at short notice. Contact the nearest embassy or consulate of Spain for the latest details on entry requirements before you travel."
-     },
-     {
-      "t": "h4",
-      "x": "Travel from Italy"
-     },
-     {
-      "t": "p",
-      "x": "Temporary border checks are in place for arrivals from Italy at airports and seaports. Be ready to show your passport or residency card if you're asked by border police. Allow extra time for travel."
      }
     ],
     "frase": "Entry and exit conditions can change at short notice.",
@@ -43630,7 +43765,7 @@
    "nome": "Sri Lanka",
    "url": "https://www.smartraveller.gov.au/destinations/asia/sri-lanka",
    "aggiornata": "2026-08-14",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -43853,7 +43988,7 @@
    "nome": "Sudan",
    "url": "https://www.smartraveller.gov.au/destinations/africa/sudan",
    "aggiornata": "2026-05-01",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -44084,7 +44219,7 @@
    "nome": "Sweden",
    "url": "https://www.smartraveller.gov.au/destinations/europe/sweden",
    "aggiornata": "2026-10-07",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -44465,7 +44600,7 @@
    "nome": "Switzerland",
    "url": "https://www.smartraveller.gov.au/destinations/europe/switzerland",
    "aggiornata": "2026-09-07",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -44830,7 +44965,7 @@
    "nome": "Syria",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/syria",
    "aggiornata": "2026-09-02",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -45242,8 +45377,8 @@
    "regione": "asia",
    "nome": "Taiwan",
    "url": "https://www.smartraveller.gov.au/destinations/asia/taiwan",
-   "aggiornata": "2026-07-13",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-27",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -45528,7 +45663,7 @@
    "nome": "Tajikistan",
    "url": "https://www.smartraveller.gov.au/destinations/asia/tajikistan",
    "aggiornata": "2026-07-30",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -45773,8 +45908,8 @@
    "regione": "africa",
    "nome": "Tanzania",
    "url": "https://www.smartraveller.gov.au/destinations/africa/tanzania",
-   "aggiornata": "2026-10-02",
-   "ancora_valida_il": "2026-10-17",
+   "aggiornata": "2026-10-23",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -45907,11 +46042,11 @@
      },
      {
       "t": "p",
-      "x": "You must undertake Ebola disease health screening and body temperature checks on arrival in Tanzania."
+      "x": "Travellers from high-risk regions and countries where Ebola is present are required to undertake health screening and body temperature checks on arrival in Tanzania."
      },
      {
       "t": "p",
-      "x": "If you’re coming from the DRC or Uganda, you also need to complete a Traveller’s Surveillance Form before departure or on arrival."
+      "x": "All travellers are required to complete a Traveller’s Health Surveillance Form before departing for Tanzania or on arrival."
      },
      {
       "t": "p",
@@ -46009,11 +46144,11 @@
      },
      {
       "t": "p",
-      "x": "You must undertake Ebola disease health screening and body temperature checks on arrival in Tanzania."
+      "x": "Travellers from high-risk regions and countries where Ebola is present are required to undertake health screening and body temperature checks on arrival in Tanzania."
      },
      {
       "t": "p",
-      "x": "If you’re coming from the DRC or Uganda, you also need to complete a Traveller’s Surveillance Form before departure or on arrival."
+      "x": "All travellers are required to complete a Traveller’s Health Surveillance Form before departing for Tanzania or on arrival."
      },
      {
       "t": "p",
@@ -46076,14 +46211,18 @@
    "regione": "asia",
    "nome": "Thailand",
    "url": "https://www.smartraveller.gov.au/destinations/asia/thailand",
-   "aggiornata": "2026-10-15",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-26",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
      {
       "t": "h4",
       "x": "Validity"
+     },
+     {
+      "t": "p",
+      "x": "Your passport must be valid for more than 6 months before entering Thailand. Entry and exit requirements can change at short notice. Check with the Royal Thai Embassy, Canberra before you travel."
      },
      {
       "t": "p",
@@ -46131,7 +46270,7 @@
      },
      {
       "t": "p",
-      "x": "Don't give your passport to third parties - like a jet ski or motorcycle rental businesses - as a guarantee. Companies may hold on to the passport and ask for payment for damages."
+      "x": "Don't give your passport to third parties - like a jet ski or motorcycle rental business - as a guarantee. Companies may hold on to the passport and ask for payment for damages."
      },
      {
       "t": "h4",
@@ -46160,14 +46299,18 @@
     "testo_paese": [
      {
       "t": "p",
-      "x": "Don't give your passport to third parties - like a jet ski or motorcycle rental businesses - as a guarantee. Companies may hold on to the passport and ask for payment for damages."
+      "x": "Your passport must be valid for more than 6 months before entering Thailand. Entry and exit requirements can change at short notice. Check with the Royal Thai Embassy, Canberra before you travel."
+     },
+     {
+      "t": "p",
+      "x": "Don't give your passport to third parties - like a jet ski or motorcycle rental business - as a guarantee. Companies may hold on to the passport and ask for payment for damages."
      },
      {
       "t": "p",
       "x": "Thailand may accept a passport with an ‘X’ in the gender field. Check with the Royal Thai Embassy, Canberra before you travel."
      }
     ],
-    "frase": "Your passport must be valid for more than 6 months before entering.",
+    "frase": "Your passport must be valid for more than 6 months before entering Thailand.",
     "schema": null,
     "sintesi": null,
     "breve": null,
@@ -46187,7 +46330,7 @@
      },
      {
       "t": "p",
-      "x": "If you're visiting Thailand for tourism or short-term travel, you may be able to get a visa exemption (visa-free travel). You may only be allowed to enter Thailand on 2 visa-free entries each calendar year if you don't have a justifiable reason."
+      "x": "If you're visiting Thailand for tourism or short-term travel, you may be able to get a 30-day visa exemption (visa-free travel). You may only be allowed to enter Thailand on 2 visa-free entries each calendar year if you don't have a justifiable reason."
      },
      {
       "t": "p",
@@ -46195,7 +46338,7 @@
      },
      {
       "t": "p",
-      "x": "You must complete a Thailand Digital Arrival Card (TDAC) within 3 days before arriving in Thailand. The TDAC is free of charge and must be submitted online through the Thailand Immigration Bureau website. Beware of fake websites charging you a fee for the TDAC."
+      "x": "You must complete a Thailand Digital Arrival Card (TDAC) within 3 days before arriving in Thailand. The TDAC is free of charge and must be submitted online through the Thailand Immigration Bureau website. You can also complete your TDAC through Thailand's official entry app THIM. Beware of fake websites charging you a fee for the TDAC."
      },
      {
       "t": "p",
@@ -46211,11 +46354,11 @@
      },
      {
       "t": "p",
-      "x": "Entry and exit conditions can change at short notice. Contact the nearest Embassy or consulate of Thailand, the Royal Thai Embassy Canberra or Royal Thai Consulate-General Sydney. See the official website of the Tourism Authority of Thailand for the latest details about visas, currency, customs and quarantine rules."
+      "x": "Before entering Thailand, understand your visa conditions, entry and exit requirements, including if you travel by private sea vessel. The Australian Government can't intervene in immigration, customs or quarantine matters in other countries. Thailand immigration and visa decisions are final. The Australian Government can't help you."
      },
      {
       "t": "p",
-      "x": "Before entering Thailand, understand your visa conditions, entry and exit requirements, including if you travel by private sea vessel. The Australian Government can't intervene in immigration, customs or quarantine matters in other countries. Thailand immigration and visa decisions are final. The Australian Government can't help you."
+      "x": "Entry and exit conditions can change at short notice. Contact the nearest Embassy or consulate of Thailand, the Royal Thai Embassy Canberra or Royal Thai Consulate-General Sydney. See the official website of the Tourism Authority of Thailand for the latest details about visas, currency, customs and quarantine rules."
      },
      {
       "t": "h4",
@@ -46267,7 +46410,7 @@
      },
      {
       "t": "p",
-      "x": "You may be subject to biometric screening at points of entry. Clarify entry requirements with your airline, International Air Transport Association (IATA) or your nearest Thai Embassy."
+      "x": "You may be subject to biometric screening at points of entry. Confirm entry requirements with your airline, International Air Transport Association (IATA) or your nearest Thai Embassy."
      },
      {
       "t": "p",
@@ -46313,7 +46456,7 @@
      },
      {
       "t": "p",
-      "x": "If you're visiting Thailand for tourism or short-term travel, you may be able to get a visa exemption (visa-free travel). You may only be allowed to enter Thailand on 2 visa-free entries each calendar year if you don't have a justifiable reason."
+      "x": "If you're visiting Thailand for tourism or short-term travel, you may be able to get a 30-day visa exemption (visa-free travel). You may only be allowed to enter Thailand on 2 visa-free entries each calendar year if you don't have a justifiable reason."
      },
      {
       "t": "p",
@@ -46321,7 +46464,7 @@
      },
      {
       "t": "p",
-      "x": "You must complete a Thailand Digital Arrival Card (TDAC) within 3 days before arriving in Thailand. The TDAC is free of charge and must be submitted online through the Thailand Immigration Bureau website. Beware of fake websites charging you a fee for the TDAC."
+      "x": "You must complete a Thailand Digital Arrival Card (TDAC) within 3 days before arriving in Thailand. The TDAC is free of charge and must be submitted online through the Thailand Immigration Bureau website. You can also complete your TDAC through Thailand's official entry app THIM. Beware of fake websites charging you a fee for the TDAC."
      },
      {
       "t": "p",
@@ -46337,11 +46480,11 @@
      },
      {
       "t": "p",
-      "x": "Entry and exit conditions can change at short notice. Contact the nearest Embassy or consulate of Thailand, the Royal Thai Embassy Canberra or Royal Thai Consulate-General Sydney. See the official website of the Tourism Authority of Thailand for the latest details about visas, currency, customs and quarantine rules."
+      "x": "Before entering Thailand, understand your visa conditions, entry and exit requirements, including if you travel by private sea vessel. The Australian Government can't intervene in immigration, customs or quarantine matters in other countries. Thailand immigration and visa decisions are final. The Australian Government can't help you."
      },
      {
       "t": "p",
-      "x": "Before entering Thailand, understand your visa conditions, entry and exit requirements, including if you travel by private sea vessel. The Australian Government can't intervene in immigration, customs or quarantine matters in other countries. Thailand immigration and visa decisions are final. The Australian Government can't help you."
+      "x": "Entry and exit conditions can change at short notice. Contact the nearest Embassy or consulate of Thailand, the Royal Thai Embassy Canberra or Royal Thai Consulate-General Sydney. See the official website of the Tourism Authority of Thailand for the latest details about visas, currency, customs and quarantine rules."
      },
      {
       "t": "h4",
@@ -46393,7 +46536,7 @@
      },
      {
       "t": "p",
-      "x": "You may be subject to biometric screening at points of entry. Clarify entry requirements with your airline, International Air Transport Association (IATA) or your nearest Thai Embassy."
+      "x": "You may be subject to biometric screening at points of entry. Confirm entry requirements with your airline, International Air Transport Association (IATA) or your nearest Thai Embassy."
      },
      {
       "t": "p",
@@ -46432,7 +46575,7 @@
       "x": "IATA"
      }
     ],
-    "frase": "If you're visiting Thailand for tourism or short-term travel, you may be able to get a visa exemption (visa-free travel).",
+    "frase": "If you're visiting Thailand for tourism or short-term travel, you may be able to get a 30-day visa exemption (visa-free travel).",
     "schema": null,
     "sintesi": null,
     "motivo": "The first official sentence does not match a wording we summarise."
@@ -46445,7 +46588,7 @@
    "nome": "The Bahamas",
    "url": "https://www.smartraveller.gov.au/destinations/americas/bahamas",
    "aggiornata": "2026-06-02",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -46740,7 +46883,7 @@
    "nome": "The Gambia",
    "url": "https://www.smartraveller.gov.au/destinations/africa/gambia",
    "aggiornata": "2026-08-07",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -46955,7 +47098,7 @@
    "nome": "Timor-Leste",
    "url": "https://www.smartraveller.gov.au/destinations/asia/timor-leste",
    "aggiornata": "2026-07-23",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -47130,7 +47273,7 @@
    "nome": "Tonga",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/tonga",
    "aggiornata": "2026-09-11",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -47257,7 +47400,7 @@
    "nome": "Trinidad and Tobago",
    "url": "https://www.smartraveller.gov.au/destinations/americas/trinidad-and-tobago",
    "aggiornata": "2026-09-21",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -47503,8 +47646,8 @@
    "regione": "africa",
    "nome": "Tunisia",
    "url": "https://www.smartraveller.gov.au/destinations/africa/tunisia",
-   "aggiornata": "2026-09-10",
-   "ancora_valida_il": "2026-10-17",
+   "aggiornata": "2026-10-30",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -47639,7 +47782,7 @@
    "nome": "Turkmenistan",
    "url": "https://www.smartraveller.gov.au/destinations/asia/turkmenistan",
    "aggiornata": "2026-06-17",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -48101,8 +48244,8 @@
    "regione": "europe",
    "nome": "Türkiye",
    "url": "https://www.smartraveller.gov.au/destinations/europe/turkiye",
-   "aggiornata": "2026-10-02",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-30",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -48228,6 +48371,66 @@
      {
       "t": "li",
       "x": "Republic of Türkiye Ministry of Interior Presidency of Migration Management - Residence Permit Types"
+     },
+     {
+      "t": "h4",
+      "x": "Border crossings"
+     },
+     {
+      "t": "p",
+      "x": "This information will be reviewed regularly. Borders can open and close and entry and exit requirements can change without notice, especially during a conflict. Confirm requirements with local authorities."
+     },
+     {
+      "t": "p",
+      "x": "Check the latest information from local authorities on entry requirements and border arrangements. Plan for possible delays at border crossings. Make sure you have all documentation, and enough food, water and medication."
+     },
+     {
+      "t": "h4",
+      "x": "Iran"
+     },
+     {
+      "t": "p",
+      "x": "Border crossings at Gurbulak (Bazargan) in Agri province and Kapikoy (Razi) in Van province remain open. You should reconsider your need to travel to the border crossing at Esendere in Hakkari due to the unpredictable security situation there."
+     },
+     {
+      "t": "p",
+      "x": "More information:"
+     },
+     {
+      "t": "li",
+      "x": "Read our travel advice for Iran."
+     },
+     {
+      "t": "h4",
+      "x": "Iraq"
+     },
+     {
+      "t": "p",
+      "x": "We continue to advise you reconsider your need to travel to the provinces of Hakkari and Sirnak on the Türkiye-Iraq border due to the unpredictable security situation. Crossing the border to or from Iraq is difficult. Military activity in the region is ongoing. The Turkish Government tightly controls entry and exit. We continue to advise Do Not Travel to Iraq."
+     },
+     {
+      "t": "p",
+      "x": "More information:"
+     },
+     {
+      "t": "li",
+      "x": "Read our travel advice for Iraq."
+     },
+     {
+      "t": "h4",
+      "x": "Syria"
+     },
+     {
+      "t": "p",
+      "x": "We continue to advise do not travel to within 10km of the border with Syria due to the serious threat of terrorism, violence and acts of war in this area. Land border crossings between Türkiye and Syria may be restricted. Border crossings are generally open only to Turkish and Syrian nationals. Third-country nationals should check the latest entry and exit requirements with the relevant authorities before travelling."
+     },
+     {
+      "t": "p",
+      "x": "More information:"
+     },
+     {
+      "t": "li",
+      "x": "Read our travel advice for Syria."
      }
     ],
     "testo_paese": [
@@ -48270,6 +48473,66 @@
      {
       "t": "li",
       "x": "Republic of Türkiye Ministry of Interior Presidency of Migration Management - Residence Permit Types"
+     },
+     {
+      "t": "h4",
+      "x": "Border crossings"
+     },
+     {
+      "t": "p",
+      "x": "This information will be reviewed regularly. Borders can open and close and entry and exit requirements can change without notice, especially during a conflict. Confirm requirements with local authorities."
+     },
+     {
+      "t": "p",
+      "x": "Check the latest information from local authorities on entry requirements and border arrangements. Plan for possible delays at border crossings. Make sure you have all documentation, and enough food, water and medication."
+     },
+     {
+      "t": "h4",
+      "x": "Iran"
+     },
+     {
+      "t": "p",
+      "x": "Border crossings at Gurbulak (Bazargan) in Agri province and Kapikoy (Razi) in Van province remain open. You should reconsider your need to travel to the border crossing at Esendere in Hakkari due to the unpredictable security situation there."
+     },
+     {
+      "t": "p",
+      "x": "More information:"
+     },
+     {
+      "t": "li",
+      "x": "Read our travel advice for Iran."
+     },
+     {
+      "t": "h4",
+      "x": "Iraq"
+     },
+     {
+      "t": "p",
+      "x": "We continue to advise you reconsider your need to travel to the provinces of Hakkari and Sirnak on the Türkiye-Iraq border due to the unpredictable security situation. Crossing the border to or from Iraq is difficult. Military activity in the region is ongoing. The Turkish Government tightly controls entry and exit. We continue to advise Do Not Travel to Iraq."
+     },
+     {
+      "t": "p",
+      "x": "More information:"
+     },
+     {
+      "t": "li",
+      "x": "Read our travel advice for Iraq."
+     },
+     {
+      "t": "h4",
+      "x": "Syria"
+     },
+     {
+      "t": "p",
+      "x": "We continue to advise do not travel to within 10km of the border with Syria due to the serious threat of terrorism, violence and acts of war in this area. Land border crossings between Türkiye and Syria may be restricted. Border crossings are generally open only to Turkish and Syrian nationals. Third-country nationals should check the latest entry and exit requirements with the relevant authorities before travelling."
+     },
+     {
+      "t": "p",
+      "x": "More information:"
+     },
+     {
+      "t": "li",
+      "x": "Read our travel advice for Syria."
      }
     ],
     "frase": "Each country or territory decides its own entry and exit rules, including health screening measures at the border.",
@@ -48278,67 +48541,6 @@
     "motivo": "The first official sentence does not match a wording we summarise."
    },
    "altre_sezioni": [
-    {
-     "titolo": "Border crossings",
-     "testo": [
-      {
-       "t": "p",
-       "x": "This information will be reviewed regularly. Borders can open and close and entry and exit requirements can change without notice, especially during a conflict. Confirm requirements with local authorities."
-      },
-      {
-       "t": "p",
-       "x": "Check the latest information from local authorities on entry requirements and border arrangements. Plan for possible delays at border crossings. Make sure you have all documentation, and enough food, water and medication."
-      },
-      {
-       "t": "h4",
-       "x": "Iran"
-      },
-      {
-       "t": "p",
-       "x": "Border crossings at Gurbulak (Bazargan) in Agri province and Kapikoy (Razi) in Van province remain open. You should reconsider your need to travel to the border crossing at Esendere in Hakkari due to the unpredictable security situation there."
-      },
-      {
-       "t": "p",
-       "x": "More information:"
-      },
-      {
-       "t": "li",
-       "x": "Read our travel advice for Iran."
-      },
-      {
-       "t": "h4",
-       "x": "Iraq"
-      },
-      {
-       "t": "p",
-       "x": "We continue to advise you reconsider your need to travel to the provinces of Hakkari and Sirnak on the Türkiye-Iraq border due to the unpredictable security situation. Crossing the border to or from Iraq is difficult. Military activity in the region is ongoing. The Turkish Government tightly controls entry and exit. We continue to advise Do Not Travel to Iraq."
-      },
-      {
-       "t": "p",
-       "x": "More information:"
-      },
-      {
-       "t": "li",
-       "x": "Read our travel advice for Iraq."
-      },
-      {
-       "t": "h4",
-       "x": "Syria"
-      },
-      {
-       "t": "p",
-       "x": "We continue to advise do not travel to within 10km of the border with Syria due to the serious threat of terrorism, violence and acts of war in this area. Land border crossings between Türkiye and Syria may be restricted. Border crossings are generally open only to Turkish and Syrian nationals. Third-country nationals should check the latest entry and exit requirements with the relevant authorities before travelling."
-      },
-      {
-       "t": "p",
-       "x": "More information:"
-      },
-      {
-       "t": "li",
-       "x": "Read our travel advice for Syria."
-      }
-     ]
-    },
     {
      "titolo": "Other formalities",
      "testo": [
@@ -48383,8 +48585,8 @@
    "regione": "africa",
    "nome": "Uganda",
    "url": "https://www.smartraveller.gov.au/destinations/africa/uganda",
-   "aggiornata": "2026-10-07",
-   "ancora_valida_il": "2026-10-17",
+   "aggiornata": "2026-11-03",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -48489,7 +48691,11 @@
      },
      {
       "t": "p",
-      "x": "If you're travelling from Uganda, you may be subject to entry restrictions, health screening or quarantine in other countries. Contact your airline directly for the latest updates and check the entry requirements of the destinations you're travelling to or transiting."
+      "x": "All travellers must complete an online Passenger Locator Form before you arrive in or when you depart from Uganda. You may also be required to undergo health screening due to the ongoing Ebola outbreak in parts of Africa, centred in the Democratic Republic of Congo."
+     },
+     {
+      "t": "p",
+      "x": "If you're travelling from Uganda, you may also be subject to entry restrictions, health screening or quarantine in other countries. Contact your airline directly for the latest updates and check the entry requirements of the destinations you're travelling to or transiting."
      },
      {
       "t": "p",
@@ -48543,7 +48749,11 @@
      },
      {
       "t": "p",
-      "x": "If you're travelling from Uganda, you may be subject to entry restrictions, health screening or quarantine in other countries. Contact your airline directly for the latest updates and check the entry requirements of the destinations you're travelling to or transiting."
+      "x": "All travellers must complete an online Passenger Locator Form before you arrive in or when you depart from Uganda. You may also be required to undergo health screening due to the ongoing Ebola outbreak in parts of Africa, centred in the Democratic Republic of Congo."
+     },
+     {
+      "t": "p",
+      "x": "If you're travelling from Uganda, you may also be subject to entry restrictions, health screening or quarantine in other countries. Contact your airline directly for the latest updates and check the entry requirements of the destinations you're travelling to or transiting."
      },
      {
       "t": "p",
@@ -48590,8 +48800,8 @@
    "regione": "europe",
    "nome": "Ukraine",
    "url": "https://www.smartraveller.gov.au/destinations/europe/ukraine",
-   "aggiornata": "2026-07-31",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-11-02",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -48885,7 +49095,7 @@
    "nome": "United Arab Emirates",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/united-arab-emirates",
    "aggiornata": "2026-10-08",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -49187,7 +49397,7 @@
    "nome": "United Kingdom",
    "url": "https://www.smartraveller.gov.au/destinations/europe/united-kingdom",
    "aggiornata": "2026-09-11",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -49604,7 +49814,7 @@
    "nome": "United States of America",
    "url": "https://www.smartraveller.gov.au/destinations/americas/united-states-america",
    "aggiornata": "2026-09-26",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -50538,7 +50748,7 @@
    "nome": "Uruguay",
    "url": "https://www.smartraveller.gov.au/destinations/americas/uruguay",
    "aggiornata": "2026-05-18",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -50759,7 +50969,7 @@
    "nome": "Uzbekistan",
    "url": "https://www.smartraveller.gov.au/destinations/asia/uzbekistan",
    "aggiornata": "2026-01-23",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -51065,8 +51275,8 @@
    "regione": "pacific",
    "nome": "Vanuatu",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/vanuatu",
-   "aggiornata": "2026-07-22",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-26",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -51315,7 +51525,7 @@
    "nome": "Venezuela",
    "url": "https://www.smartraveller.gov.au/destinations/americas/venezuela",
    "aggiornata": "2026-09-02",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -51572,7 +51782,7 @@
    "nome": "Vietnam",
    "url": "https://www.smartraveller.gov.au/destinations/asia/vietnam",
    "aggiornata": "2026-09-24",
-   "ancora_valida_il": "2026-10-18",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -51968,8 +52178,8 @@
    "regione": "middle-east",
    "nome": "Yemen",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/yemen",
-   "aggiornata": "2026-09-02",
-   "ancora_valida_il": "2026-10-18",
+   "aggiornata": "2026-10-23",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -52003,6 +52213,22 @@
      {
       "t": "li",
       "x": "the name and/or photo in your passport are different from how you present"
+     },
+     {
+      "t": "h4",
+      "x": "Online passport application temporary service"
+     },
+     {
+      "t": "p",
+      "x": "Online applications for passport renewals are currently open for Australians in Yemen. There's no need to attend the Embassy in Riyadh as part of the application process. This is a temporary service."
+     },
+     {
+      "t": "p",
+      "x": "For more information visit the Australian Embassy in Riyadh's 'Passports' webpage."
+     },
+     {
+      "t": "p",
+      "x": "If you're eligible, go to passports.gov.au to apply."
      },
      {
       "t": "h4",
@@ -52065,6 +52291,18 @@
      {
       "t": "li",
       "x": "the name and/or photo in your passport are different from how you present"
+     },
+     {
+      "t": "p",
+      "x": "Online applications for passport renewals are currently open for Australians in Yemen. There's no need to attend the Embassy in Riyadh as part of the application process. This is a temporary service."
+     },
+     {
+      "t": "p",
+      "x": "For more information visit the Australian Embassy in Riyadh's 'Passports' webpage."
+     },
+     {
+      "t": "p",
+      "x": "If you're eligible, go to passports.gov.au to apply."
      }
     ],
     "frase": null,
@@ -52251,7 +52489,7 @@
    "nome": "Zambia",
    "url": "https://www.smartraveller.gov.au/destinations/africa/zambia",
    "aggiornata": "2026-08-21",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -52589,7 +52827,7 @@
    "nome": "Zimbabwe",
    "url": "https://www.smartraveller.gov.au/destinations/africa/zimbabwe",
    "aggiornata": "2026-06-05",
-   "ancora_valida_il": "2026-10-17",
+   "ancora_valida_il": "2026-11-05",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [

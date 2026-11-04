@@ -1,0 +1,25 @@
+{
+ "cambi": [
+  {
+   "data": "2026-11-04",
+   "fonte": "bud_nov",
+   "url": "https://bkk.hu/en/news/2026/10/ticket-validation-has-become-simpler-on-bkks-lines-in-street-level-transport.17477/",
+   "prima": "f66e0b389c27d532",
+   "dopo": "690d0b9bd1589893"
+  },
+  {
+   "data": "2026-11-04",
+   "fonte": "bud_pen",
+   "url": "https://bkk.hu/en/tickets-and-passes/information-about-penalty-fares/general-information/",
+   "prima": "19fa3d1a4138bf37",
+   "dopo": "7af1594de55bf600"
+  },
+  {
+   "data": "2026-11-04",
+   "fonte": "ham_tarif",
+   "url": "https://www.hvv.de/resource/blob/2384/80b8c14227b0bea5dbfbf7c9e44d2b94/hvv_tarif_gemeinschaftstarif_befoerderungsbedingungen.pdf",
+   "prima": "2eb4a2fc699e7674",
+   "dopo": "eb37138696a2c65c"
+  }
+ ]
+}

@@ -175,16 +175,14 @@
    "regola": "100ml",
    "sintesi": "Containers up to 100 ml",
    "citazioni": [
-    "Passengers are required to ensure that all liquids carried in cabin baggage do not exceed 100ml to help get you through the security checkpoint at Aberdeen International Airport."
+    "Passengers are requested to ensure that all liquids carried in cabin baggage do not exceed 100ml to help get you through the security checkpoint."
    ],
-   "eccezioni": [
-    "Please note: Rules on liquids in your cabin/hand baggage may differ between airports."
-   ],
+   "eccezioni": [],
    "url": "https://www.aberdeenairport.com/aberdeen-airport-guide/airport-security/security-faqs/",
    "titolo_fonte": "Aberdeen Airport – Security FAQs",
    "lettura": "diretta",
-   "controllato_il": "2026-10-10",
-   "nota": "The same page still shows an older notice about the Department for Transport reintroducing the 100ml limit 'from midnight on Saturday 8 June'. Both texts say 100ml."
+   "controllato_il": "2026-11-04",
+   "nota": "The sentence is part of an older notice on the same page about the Department for Transport reintroducing the 100ml limit 'from midnight on Saturday 8 June'."
   },
   {
    "slug": "dublin",
@@ -962,15 +960,15 @@
    "paese": "United Arab Emirates",
    "area": "Middle East and Asia",
    "regola": "100ml",
-   "sintesi": "Containers up to 100 ml, at most 10 (one litre in total)",
+   "sintesi": "Containers up to 100 ml, at most 10 in hand luggage",
    "citazioni": [
-    "Avoid carrying liquids in hand luggage unless necessary. The container should not exceed 100 ml, and a maximum of 10 containers, equivalent to one litre, are permitted."
+    "Containers must not exceed 100ml, with a maximum of ten containers allowed in hand luggage."
    ],
    "eccezioni": [],
-   "url": "https://dubaiairports.ae/information/security-customs",
-   "titolo_fonte": "Dubai Airports – Security & customs (DXB)",
+   "url": "https://dubaiairports.ae/information/security-tips",
+   "titolo_fonte": "Dubai Airports – Security tips (DXB)",
    "lettura": "diretta",
-   "controllato_il": "2026-10-17"
+   "controllato_il": "2026-11-04"
   },
   {
    "slug": "budapest",

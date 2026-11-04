@@ -2,7 +2,7 @@
  "fonte": "Viaggiare Sicuri – Ministero degli Affari Esteri e della Cooperazione Internazionale (Unità di Crisi)",
  "fonte_url": "https://www.viaggiaresicuri.it/",
  "elenco_url": "https://www.viaggiaresicuri.it/schede_paese/lista_nazioni.json",
- "controllato_il": "2026-10-18",
+ "controllato_il": "2026-11-04",
  "schede_elenco": 223,
  "max_parole_citazione": 20,
  "licenza": "Nessuna licenza indicata su viaggiaresicuri.it: il sito riporta solo fatti con parole proprie, citazioni brevi, data e link alla scheda.",
@@ -1095,8 +1095,12 @@
    "nome_fonte": "Barbados",
    "url": "https://www.viaggiaresicuri.it/find-country/country/BRB",
    "api": "https://www.viaggiaresicuri.it/schede_paese/BRB.json",
-   "aggiornata": "2026-01-28",
+   "aggiornata": "2026-11-03",
    "cronologia": [
+    {
+     "data": "2026-11-03",
+     "nota": "Revisione generale"
+    },
     {
      "data": "2026-01-28",
      "nota": "Informazioni generali"
@@ -1116,10 +1120,6 @@
     {
      "data": "2024-10-24",
      "nota": "Requisiti di Ingresso"
-    },
-    {
-     "data": "2024-08-28",
-     "nota": "Informazioni Generali"
     }
    ],
    "impronte": {
@@ -2353,8 +2353,12 @@
    "nome_fonte": "Cile",
    "url": "https://www.viaggiaresicuri.it/find-country/country/CHL",
    "api": "https://www.viaggiaresicuri.it/schede_paese/CHL.json",
-   "aggiornata": "2026-08-20",
+   "aggiornata": "2026-10-19",
    "cronologia": [
+    {
+     "data": "2026-10-19",
+     "nota": "Requisiti di Ingresso > Passaporto"
+    },
     {
      "data": "2026-08-20",
      "nota": "Situazione Sanitaria > Malattie Presenti"
@@ -2374,31 +2378,22 @@
     {
      "data": "2026-04-13",
      "nota": "Sicurezza > Normative locali"
-    },
-    {
-     "data": "2026-01-30",
-     "nota": "Requisiti di Ingresso e Situazione Sanitaria"
     }
    ],
    "impronte": {
-    "passaporto": "53cb1e2bf6cb4b6749867b559414734f6b530c9c962481ad320014ef393114e3",
+    "passaporto": "25d16929aa0a8cc4b77fabcef94a64e201b87779cd87a4791119043121223ad0",
     "visto": "2efa490ae8f44eee17abf3f7a0674b0e2f41f9772b91aec263443e1f545d343f",
-    "primo_piano": "a6c8049e3cab99005563619592013ea9738a2d569ba10898d242065506b748ec"
+    "primo_piano": "04df83338b7132576947bffeb4593163e7add872e0be703d35bc20b6b85da792"
    },
    "documento": {
     "esito": "passaporto",
-    "citazione": "E' necessario il passaporto",
+    "citazione": "È necessario il passaporto",
     "campo": "passaporto"
    },
    "validita": {
-    "esito": "numero",
-    "n": 6,
-    "unita": "mesi",
-    "citazione": "E' necessario il passaporto, con validità residua di almeno 6 (sei) mesi, al momento dell’arrivo nel Paese.",
-    "campo": "passaporto",
-    "dall_ingresso": true,
-    "dall_uscita": false,
-    "oltre_soggiorno": false
+    "esito": "soggiorno",
+    "citazione": "È necessario il passaporto, valido per tutta la durata del viaggio, al momento dell’arrivo nel Paese.",
+    "campo": "passaporto"
    },
    "visto": {
     "campo": "visto",
@@ -3428,8 +3423,12 @@
    "nome_fonte": "Eritrea",
    "url": "https://www.viaggiaresicuri.it/find-country/country/ERI",
    "api": "https://www.viaggiaresicuri.it/schede_paese/ERI.json",
-   "aggiornata": "2026-10-12",
+   "aggiornata": "2026-11-02",
    "cronologia": [
+    {
+     "data": "2026-11-02",
+     "nota": "Requisiti di Ingresso > Formalità doganali e valutarie"
+    },
     {
      "data": "2026-10-12",
      "nota": "Sicurezza > Aree di Particolare Cautela"
@@ -3449,10 +3448,6 @@
     {
      "data": "2024-09-05",
      "nota": "Mobilità"
-    },
-    {
-     "data": "2024-07-03",
-     "nota": "Sicurezza e Mobilità"
     }
    ],
    "impronte": {
@@ -3886,8 +3881,12 @@
    "nome_fonte": "Francia",
    "url": "https://www.viaggiaresicuri.it/find-country/country/FRA",
    "api": "https://www.viaggiaresicuri.it/schede_paese/FRA.json",
-   "aggiornata": "2026-07-31",
+   "aggiornata": "2026-10-20",
    "cronologia": [
+    {
+     "data": "2026-10-20",
+     "nota": "Rischi Ambientali e Calamità naturali"
+    },
     {
      "data": "2026-07-31",
      "nota": "Requisiti di Ingresso"
@@ -3907,10 +3906,6 @@
     {
      "data": "2025-11-03",
      "nota": "Requisiti di Ingresso > Altre informazioni (Animali domestici) e Mobilità"
-    },
-    {
-     "data": "2025-08-08",
-     "nota": "Mobilità"
     }
    ],
    "impronte": {
@@ -4620,8 +4615,12 @@
    "nome_fonte": "Grecia",
    "url": "https://www.viaggiaresicuri.it/find-country/country/GRC",
    "api": "https://www.viaggiaresicuri.it/schede_paese/GRC.json",
-   "aggiornata": "2026-08-10",
+   "aggiornata": "2026-10-21",
    "cronologia": [
+    {
+     "data": "2026-10-21",
+     "nota": "Sicurezza > Avvertenze e Mobilità"
+    },
     {
      "data": "2026-08-10",
      "nota": "Requisiti di Ingresso"
@@ -4640,10 +4639,6 @@
     },
     {
      "data": "2026-04-30",
-     "nota": "Informazioni generali"
-    },
-    {
-     "data": "2026-04-29",
      "nota": "Informazioni generali"
     }
    ],
@@ -4737,8 +4732,12 @@
    "nome_fonte": "Guadalupa",
    "url": "https://www.viaggiaresicuri.it/find-country/country/GLP",
    "api": "https://www.viaggiaresicuri.it/schede_paese/GLP.json",
-   "aggiornata": "2026-08-14",
+   "aggiornata": "2026-10-23",
    "cronologia": [
+    {
+     "data": "2026-10-23",
+     "nota": "Mobilità"
+    },
     {
      "data": "2026-08-14",
      "nota": "Revisione generale"
@@ -4758,10 +4757,6 @@
     {
      "data": "2024-11-15",
      "nota": "Situazione Sanitaria (Malattie Presenti)"
-    },
-    {
-     "data": "2024-08-19",
-     "nota": "Informazioni Generali"
     }
    ],
    "impronte": {
@@ -5599,8 +5594,12 @@
    "nome_fonte": "Iran",
    "url": "https://www.viaggiaresicuri.it/find-country/country/IRN",
    "api": "https://www.viaggiaresicuri.it/schede_paese/IRN.json",
-   "aggiornata": "2026-03-06",
+   "aggiornata": "2026-11-03",
    "cronologia": [
+    {
+     "data": "2026-11-03",
+     "nota": "Info Generali e Sicurezza>Normative locali rilevanti"
+    },
     {
      "data": "2026-03-06",
      "nota": "Informazioni Generali (temporanea ricollocazione Ambasciata d'Italia a Baku, Azerbaijan)"
@@ -5620,10 +5619,6 @@
     {
      "data": "2024-01-30",
      "nota": "Minime modifiche a \"Sicurezza\" e \"Mobilità\" (collegamenti aerei)"
-    },
-    {
-     "data": "2024-01-11",
-     "nota": "Minime modifiche editoriali a \"Sicurezza\" (Indicazioni Generali)"
     }
    ],
    "impronte": {
@@ -7641,8 +7636,12 @@
    "nome_fonte": "Malaysia",
    "url": "https://www.viaggiaresicuri.it/find-country/country/MYS",
    "api": "https://www.viaggiaresicuri.it/schede_paese/MYS.json",
-   "aggiornata": "2026-01-16",
+   "aggiornata": "2026-10-23",
    "cronologia": [
+    {
+     "data": "2026-10-23",
+     "nota": "Sicurezza > Aree di particolare cautela"
+    },
     {
      "data": "2026-01-16",
      "nota": "Revisione generale"
@@ -7662,10 +7661,6 @@
     {
      "data": "2024-06-05",
      "nota": "Revisione generale"
-    },
-    {
-     "data": "2023-12-28",
-     "nota": "Situazione Sanitaria (Malattie presenti)"
     }
    ],
    "impronte": {
@@ -8108,8 +8103,12 @@
    "nome_fonte": "Mauritius",
    "url": "https://www.viaggiaresicuri.it/find-country/country/MUS",
    "api": "https://www.viaggiaresicuri.it/schede_paese/MUS.json",
-   "aggiornata": "2026-10-15",
+   "aggiornata": "2026-10-20",
    "cronologia": [
+    {
+     "data": "2026-10-20",
+     "nota": "Mobilità"
+    },
     {
      "data": "2026-10-15",
      "nota": "Mobilità"
@@ -8129,10 +8128,6 @@
     {
      "data": "2025-12-03",
      "nota": "Revisione generale"
-    },
-    {
-     "data": "2025-04-24",
-     "nota": "Informazioni Generali e Situazione Sanitaria"
     }
    ],
    "impronte": {
@@ -8832,8 +8827,12 @@
    "nome_fonte": "Nepal",
    "url": "https://www.viaggiaresicuri.it/find-country/country/NPL",
    "api": "https://www.viaggiaresicuri.it/schede_paese/NPL.json",
-   "aggiornata": "2025-01-07",
+   "aggiornata": "2026-11-04",
    "cronologia": [
+    {
+     "data": "2026-11-04",
+     "nota": "Revisione generale"
+    },
     {
      "data": "2025-01-07",
      "nota": "Sicurezza (Rischi ambientali e calamità naturali)"
@@ -8853,10 +8852,6 @@
     {
      "data": "2023-11-14",
      "nota": "Situazione sanitaria (malattie presenti)"
-    },
-    {
-     "data": "2023-06-28",
-     "nota": "Aggiornamento Info Generali (modifica numeri telefonici Consolato Generale a Kathmandu)"
     }
    ],
    "impronte": {
@@ -9488,8 +9483,12 @@
    "nome_fonte": "Pakistan",
    "url": "https://www.viaggiaresicuri.it/find-country/country/PAK",
    "api": "https://www.viaggiaresicuri.it/schede_paese/PAK.json",
-   "aggiornata": "2026-10-08",
+   "aggiornata": "2026-11-03",
    "cronologia": [
+    {
+     "data": "2026-11-03",
+     "nota": "Informazioni Generali"
+    },
     {
      "data": "2026-10-08",
      "nota": "Sicurezza > Aree Particolare Cautela"
@@ -9500,7 +9499,7 @@
     },
     {
      "data": "2021-12-30",
-     "nota": "Aggiornamento situazione Sanitaria (Dengue)."
+     "nota": "Aggiornamento situazione Sanitaria (Dengue)"
     }
    ],
    "impronte": {
@@ -10148,8 +10147,12 @@
    "nome_fonte": "Regno Unito",
    "url": "https://www.viaggiaresicuri.it/find-country/country/GBR",
    "api": "https://www.viaggiaresicuri.it/schede_paese/GBR.json",
-   "aggiornata": "2026-08-10",
+   "aggiornata": "2026-10-20",
    "cronologia": [
+    {
+     "data": "2026-10-20",
+     "nota": "Requisiti di ingresso > Altre Informazioni (Sistema Contactless)"
+    },
     {
      "data": "2026-08-10",
      "nota": "Informazioni Generali > Recapiti Ambasciata e Consolati"
@@ -10169,16 +10172,12 @@
     {
      "data": "2026-04-29",
      "nota": "Situazione sanitaria > Malattie Presenti"
-    },
-    {
-     "data": "2026-04-07",
-     "nota": "Situazione sanitaria"
     }
    ],
    "impronte": {
     "passaporto": "1decf7d946892be9a1b4979a397f6002c4c1f4bb055be614d727dbb8afe26515",
     "visto": "a9995cc2f4b2d8ceeb4ab5508e609fd3ae44c1e70295195ccec6637c69f0e280",
-    "primo_piano": "86f61f1bfca2a313d581569a9e219533e522fea074d0de35e890f9cf5a006a32"
+    "primo_piano": "9608ac0628bfc375d5d1c2784d6e8eff74f3a882061b734e29450be13df4f2ec"
    },
    "documento": {
     "campo": "passaporto",
@@ -11039,8 +11038,12 @@
    "nome_fonte": "Reunion",
    "url": "https://www.viaggiaresicuri.it/find-country/country/REU",
    "api": "https://www.viaggiaresicuri.it/schede_paese/REU.json",
-   "aggiornata": "2026-08-19",
+   "aggiornata": "2026-10-23",
    "cronologia": [
+    {
+     "data": "2026-10-23",
+     "nota": "Mobilità"
+    },
     {
      "data": "2026-08-19",
      "nota": "Requisiti di Ingresso"
@@ -11060,10 +11063,6 @@
     {
      "data": "2025-03-11",
      "nota": "Informazioni Generali"
-    },
-    {
-     "data": "2025-01-03",
-     "nota": "Sicurezza > Rischi Ambientali e Calamità Naturali"
     }
    ],
    "impronte": {
@@ -11798,8 +11797,12 @@
    "nome_fonte": "Seychelles",
    "url": "https://www.viaggiaresicuri.it/find-country/country/SYC",
    "api": "https://www.viaggiaresicuri.it/schede_paese/SYC.json",
-   "aggiornata": "2026-10-16",
+   "aggiornata": "2026-10-21",
    "cronologia": [
+    {
+     "data": "2026-10-21",
+     "nota": "Sicurezza > Rischi ambientali e Calamità Naturali"
+    },
     {
      "data": "2026-10-16",
      "nota": "Revisione generale"
@@ -11819,10 +11822,6 @@
     {
      "data": "2023-05-25",
      "nota": "Requisiti di ingresso (visto di ingresso)"
-    },
-    {
-     "data": "2023-05-15",
-     "nota": "Requisiti di ingresso (validità del passaporto)"
     }
    ],
    "impronte": {
@@ -12295,8 +12294,12 @@
    "nome_fonte": "Spagna",
    "url": "https://www.viaggiaresicuri.it/find-country/country/ESP",
    "api": "https://www.viaggiaresicuri.it/schede_paese/ESP.json",
-   "aggiornata": "2026-08-04",
+   "aggiornata": "2026-10-20",
    "cronologia": [
+    {
+     "data": "2026-10-20",
+     "nota": "Sicurezza > Rischi Ambientali e Calamità Naturali"
+    },
     {
      "data": "2026-05-27",
      "nota": "Informazioni Generali"
@@ -12316,10 +12319,6 @@
     {
      "data": "2025-03-21",
      "nota": "Informazioni Generali"
-    },
-    {
-     "data": "2025-03-13",
-     "nota": "Sezione Sicurezza (Rischi ambientali)"
     }
    ],
    "impronte": {
@@ -12503,6 +12502,10 @@
    "aggiornata": "2026-05-27",
    "cronologia": [
     {
+     "data": "2026-10-30",
+     "nota": "requisiti di ingresso”, “altre informazioni”, ebola 03.11.2026"
+    },
+    {
      "data": "2026-05-27",
      "nota": "Revisione generale"
     },
@@ -12521,10 +12524,6 @@
     {
      "data": "2025-04-22",
      "nota": "Informazioni Generali"
-    },
-    {
-     "data": "2024-11-01",
-     "nota": "Sicurezza (Avvertenze)"
     }
    ],
    "impronte": {
@@ -13030,8 +13029,12 @@
    "nome_fonte": "Taiwan",
    "url": "https://www.viaggiaresicuri.it/find-country/country/TWN",
    "api": "https://www.viaggiaresicuri.it/schede_paese/TWN.json",
-   "aggiornata": "2026-02-24",
+   "aggiornata": "2026-11-04",
    "cronologia": [
+    {
+     "data": "2026-11-04",
+     "nota": "Informazioni Generali e Sicurezza > Normative locali"
+    },
     {
      "data": "2026-02-24",
      "nota": "Situazione Sanitaria > Malattie presenti"
@@ -13050,10 +13053,6 @@
     },
     {
      "data": "2024-07-23",
-     "nota": "Revisione generale Scheda"
-    },
-    {
-     "data": "2023-12-14",
      "nota": "Revisione generale Scheda"
     }
    ],
@@ -13566,8 +13565,12 @@
    "nome_fonte": "Turchia",
    "url": "https://www.viaggiaresicuri.it/find-country/country/TUR",
    "api": "https://www.viaggiaresicuri.it/schede_paese/TUR.json",
-   "aggiornata": "2026-07-16",
+   "aggiornata": "2026-10-21",
    "cronologia": [
+    {
+     "data": "2026-10-21",
+     "nota": "Requisiti di ingresso"
+    },
     {
      "data": "2026-07-16",
      "nota": "Requisiti di ingresso"
@@ -13587,15 +13590,11 @@
     {
      "data": "2024-11-05",
      "nota": "Sicurezza (revisione Aree di Particolare Cautela)"
-    },
-    {
-     "data": "2024-03-18",
-     "nota": "Situazione Sanitaria (Avvertenze)"
     }
    ],
    "impronte": {
     "passaporto": "257ea8920371b4c2ad710987370f736024d8555008a51206dee4cc5a76834664",
-    "visto": "b34595de4ba4ef7b9aea289adf45e490a660b9c22a27439b17309593da3d68c0",
+    "visto": "f3c3c0d4bdf3c722532c2672f88fa4f2558e410aea337ad1038fd6f1b6292049",
     "primo_piano": "3dd400b7569c4d7b9a3b04bd56b78b88e32b769290551cef98a2fda5814102ae"
    },
    "documento": {
@@ -13653,8 +13652,12 @@
    "nome_fonte": "Turkmenistan",
    "url": "https://www.viaggiaresicuri.it/find-country/country/TKM",
    "api": "https://www.viaggiaresicuri.it/schede_paese/TKM.json",
-   "aggiornata": "2026-06-05",
+   "aggiornata": "2026-10-22",
    "cronologia": [
+    {
+     "data": "2026-10-22",
+     "nota": "Mobilità e Requisiti di ingresso > Altre informazioni"
+    },
     {
      "data": "2026-06-05",
      "nota": "Situazione Sanitaria"
@@ -13674,15 +13677,11 @@
     {
      "data": "2025-07-03",
      "nota": "Requisiti di ingresso > Visto di Ingresso"
-    },
-    {
-     "data": "2024-12-04",
-     "nota": "Revisione generale Scheda"
     }
    ],
    "impronte": {
     "passaporto": "2af0ed0e5d3e33f02cff5054749f7ad67f1a17a17b29b98a913cf3264ff559e8",
-    "visto": "8a5538cd2512ea958e645a47d5a1c9f98674b9379d012f363cbae2465f4cb7a8",
+    "visto": "094b0e8484756945f7e5ccdbdfc3ccf4d1a2d044331c2c954d64ebaa39c946b1",
     "primo_piano": "afcb9e3026bb88efc8ded9ad0e282722edc0a32fd8466030360e200cc43f6f23"
    },
    "documento": {

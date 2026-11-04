@@ -1003,7 +1003,7 @@
     "You may also need an International Driving Permit (IDP) to hire a vehicle."
    ],
    "motivo": "IDP forse per il noleggio",
-   "impronta": "3be86bba4605a28f",
+   "impronta": "4c398103e2c042a0",
    "auto": "da_leggere"
   },
   "ET": {
@@ -1323,6 +1323,16 @@
    "motivo": "frase esplicita",
    "impronta": "178c716c177a863f",
    "auto": "da_leggere"
+  },
+  "TH": {
+   "esito": "dipende",
+   "frasi": [
+    "You can use an international driving permit (IDP) and your Australian driver's licence for the type of vehicle you're using.",
+    "If you're living in Thailand for an extended period, you must get a Thai driver’s licence from the Department of Land Transport."
+   ],
+   "motivo": "dal 4/11/2026 il testo non dice più «you'll need» l'IDP: dice che si può usare IDP + patente australiana; chi vive a lungo in Thailandia deve avere la patente thailandese",
+   "impronta": "4fc1a093a97a464b",
+   "auto": "non_detto"
   },
   "US": {
    "esito": "dipende",

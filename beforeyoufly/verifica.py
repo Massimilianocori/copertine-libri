@@ -3280,6 +3280,16 @@ def controlla_biglietti():
             errori += [f"{p}: {e}" for e in G.MON.controlla_link_pagina(t, p, "en")[0]]
             if p != idx and t.find("data-tour") < t.find('id="official-tickets"'):
                 errori.append(f"{p}: riquadro Viator prima della biglietteria ufficiale")
+            # link Viator della pagina: quello dell'attrazione (VIATOR_PER_ATTRAZIONE) o il generale; https, viator.com, stesso pid
+            slug_p = p[len(G.BIG_BASE) + 1:-len("/index.html")] if p != idx else None
+            atteso = G.VIATOR_PER_ATTRAZIONE.get(slug_p, G.VIATOR_TOUR) if slug_p else G.VIATOR_TOUR
+            from html import unescape as _unesc
+            trovati = {_unesc(u) for u in re.findall(r'href="([^"]*viator\.com[^"]*)"', t)}
+            if trovati != {atteso} or not G.viator_link_valido(atteso):
+                errori.append(f"{p}: link Viator {sorted(trovati)} diverso da quello atteso {atteso} o non valido (https, viator.com, pid)")
+    for s_ in G.VIATOR_PER_ATTRAZIONE:
+        if s_ not in G.BIG_PER:
+            errori.append(f"VIATOR_PER_ATTRAZIONE: attrazione sconosciuta {s_}")
     # h2) Stay22 ("Where to stay"): ogni link dei dati SOLO sulla pagina della sua attrazione (e nell'indice, che li ha tutti), con
     # rel="sponsored noopener", target="_blank", riga di trasparenza ed etichetta "Affiliate" nel riquadro, dopo la biglietteria ufficiale
     errori += controlla_stay22_big(attese, idx, conti)
@@ -4434,7 +4444,8 @@ def controlla_india():
                 errori.append(f"{rel}: riga {k} «{letto}» diversa dal PDF «{att}»")
         lead = unescape(re.search(r'<p class="lead" id="answer">(.*?)</p>', t).group(1))
         val = {str(int(v)) for r in (pdf["fee_tv"].get(iso, {}), pdf["fee_altri"].get(iso, {})) for v in r.values() if v != "-"}
-        extra = {n for n in _numeri_in(lead) if n not in val and n not in {"8", "15", "31", "2026", "3", "30"}}
+        giorno_controllo = str(int(G.IN["controllato_il"][8:10]))  # «checked on 4 November 2026»: il giorno cambia a ogni rilettura
+        extra = {n for n in _numeri_in(lead) if n not in val and n not in {"8", "15", "31", "2026", "3", "30", giorno_controllo}}
         if extra:
             errori.append(f"{rel}: numeri della prima frase non presi dalla riga del PDF: {sorted(extra)}")
         for f in g["faq"]:

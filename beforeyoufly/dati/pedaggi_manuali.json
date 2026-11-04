@@ -767,9 +767,9 @@
     },
     {
      "id": "annuale2027",
-     "f": "at_prezzi",
+     "f": "at_help",
      "tema": "prezzo",
-     "x": "Sales of the digital vignette for 2027 will start in early November 2026."
+     "x": "Special note for the Digital Vignette 2027: If your subscription is active on 31/12/2026, you will still receive the Digital Vignette 2027 at the lower 2026 price."
     },
     {
      "id": "prima",
@@ -801,25 +801,25 @@
      "voce": "1-day digital vignette, car",
      "importo": "€9.60",
      "f": "at_prezzi",
-     "prova": "1-day vignette Immediate validity possible! for car € 9.60"
+     "prova": "1-Day Vignette for car € 9.60"
     },
     {
      "voce": "10-day digital vignette, car",
      "importo": "€12.80",
      "f": "at_prezzi",
-     "prova": "10-day vignette Immediate validity possible! for car € 12.80"
+     "prova": "10-Day Vignette for car € 12.80"
     },
     {
      "voce": "2-month digital vignette, car",
      "importo": "€32.00",
      "f": "at_prezzi",
-     "prova": "2-month vignette for car € 32.00"
+     "prova": "2-Month Vignette for car € 32.00"
     },
     {
      "voce": "Annual vignette 2026, car",
      "importo": "€106.80",
      "f": "at_prezzi",
-     "prova": "Annual vignette 2026 for car € 106.80"
+     "prova": "Annual Vignette for car € 106.80"
     }
    ],
    "faq": [
@@ -836,8 +836,10 @@
     {
      "query": "austria vignette price",
      "q": "How much is the Austrian vignette in 2026?",
-     "cit": [],
-     "pre": "For a car, the official ASFINAG toll shop lists the digital vignette at €9.60 for 1 day, €12.80 for 10 days, €32.00 for 2 months and €106.80 for the 2026 annual vignette.",
+     "cit": [
+      "annuale2027"
+     ],
+     "pre": "For a car, the official ASFINAG toll shop lists the digital vignette at €9.60 for 1 day, €12.80 for 10 days, €32.00 for 2 months and €106.80 for the 2026 annual vignette. About 2027, ASFINAG says:",
      "post": ""
     },
     {
@@ -973,22 +975,10 @@
      "x": "The toll roads subject to tolls for a fixed period of use are all motorways and express roads in Slovenia operated and maintained by DARS."
     },
     {
-     "id": "partner",
-     "f": "si_asfinag",
+     "id": "metodo",
+     "f": "si_gov",
      "tema": "come",
-     "x": "ASFINAG is an authorised online sales partner of DARS and sells the e-vignette without any additional fees."
-    },
-    {
-     "id": "tipi",
-     "f": "si_asfinag",
-     "tema": "altro",
-     "x": "The date of purchase counts as the first day, which means you can set the start of validity of weekly, monthly and annual vignettes to begin within the next 29 days."
-    },
-    {
-     "id": "subito",
-     "f": "si_asfinag",
-     "tema": "scadenza",
-     "x": "All Slovenian e-vignettes can be purchased with immediate validity."
+     "x": "Electronic tolling (e-vignette) is a modern toll payment method for motor vehicles with a maximum permissible weight of up to 3500 kg."
     }
    ],
    "prezzi": [],
@@ -1016,12 +1006,11 @@
      "query": "how to pay tolls in slovenia",
      "q": "How do I pay tolls in Slovenia?",
      "cit": [
-      "partner",
-      "subito",
-      "tipi"
+      "metodo",
+      "strade"
      ],
-     "pre": "With an e-vignette. The Austrian motorway company ASFINAG, which also sells it, says:",
-     "post": ""
+     "pre": "With an e-vignette. The Government of Slovenia says:",
+     "post": "We could not check where to buy it or what it costs: the DARS website did not respond to us."
     }
    ],
    "chi": "the Government of Slovenia"
@@ -1062,25 +1051,25 @@
      "voce": "1-day vignette, standard fuel",
      "importo": "CZK 230",
      "f": "cz_prezzi",
-     "prova": "1-day Buy Standard fuel CZK 230"
+     "prova": "1 day Buy Standard fuel CZK 230"
     },
     {
      "voce": "10-day vignette, standard fuel",
      "importo": "CZK 300",
      "f": "cz_prezzi",
-     "prova": "10-day Buy Standard fuel CZK 300"
+     "prova": "10 days Buy Standard fuel CZK 300"
     },
     {
      "voce": "30-day vignette, standard fuel",
      "importo": "CZK 480",
      "f": "cz_prezzi",
-     "prova": "30-day Buy Standard fuel CZK 480"
+     "prova": "30 days Buy Standard fuel CZK 480"
     },
     {
      "voce": "Annual vignette, standard fuel (price list valid from 1/1/2026)",
      "importo": "CZK 2,570",
      "f": "cz_prezzi",
-     "prova": "Price list valid: from 1/1/2026 Annual Buy Standard fuel CZK 2,570"
+     "prova": "Price list valid: from 1/1/2026 1 year Buy Standard fuel CZK 2,570"
     }
    ],
    "faq": [

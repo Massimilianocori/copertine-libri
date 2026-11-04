@@ -1,6 +1,6 @@
 {
  "_nota": "Liste ufficiali dei Paesi dei servizi digitali, lette da raccolta/servizi.py. stato: si = nella lista con il servizio; no = la fonte nomina il Paese ma senza il servizio (motivo in 'nota'); in_arrivo = Starlink 'Coming soon'; per_regione = Starlink a livello di regione ('exclude'). Paesi assenti = non nominati dalla fonte (mai 'vietato'). Codici ISO 3166-1 alfa-2 (dati/paesi_iso.json).",
- "letto_il": "2026-10-28",
+ "letto_il": "2026-11-04",
  "letture": {
   "starlink": {
    "url": "https://api.starlink.com/public-files/availability.json",
@@ -13,8 +13,8 @@
    "url": "https://support.apple.com/en-us/118205",
    "url_finale": "https://support.apple.com/en-us/118205",
    "http": 200,
-   "byte": 439347,
-   "data_fonte": "2026-09-30"
+   "byte": 439434,
+   "data_fonte": "2026-10-30"
   },
   "apple_pay": {
    "url": "https://support.apple.com/en-us/102775",
@@ -27,7 +27,7 @@
    "url": "https://support.google.com/youtube/answer/6307365?hl=en",
    "url_finale": "https://support.google.com/youtube/answer/6307365?hl=en",
    "http": 200,
-   "byte": 1614121,
+   "byte": 1615676,
    "data_fonte": null
   },
   "spotify": {
@@ -132,7 +132,7 @@
    "titolo_fonte": "Starlink availability map",
    "cosa": "Starlink internet service",
    "url_fonte": "https://api.starlink.com/public-files/availability.json",
-   "letto_il": "2026-10-28",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-28",
    "data_fonte": null,
    "http": 200,
@@ -1249,7 +1249,7 @@
    "titolo_fonte": "Apple Support: Countries and regions that support Apple Pay",
    "cosa": "adding cards from local banks to Apple Pay",
    "url_fonte": "https://support.apple.com/en-us/102775",
-   "letto_il": "2026-10-28",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-28",
    "data_fonte": "2026-10-27",
    "http": 200,
@@ -1884,9 +1884,9 @@
    "titolo_fonte": "Apple Support: Availability of Apple Media Services",
    "cosa": "Apple Music",
    "url_fonte": "https://support.apple.com/en-us/118205",
-   "letto_il": "2026-10-28",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-28",
-   "data_fonte": "2026-09-30",
+   "data_fonte": "2026-10-30",
    "http": 200,
    "impronta": "1e9f9d61e699b23faa22dca850dd318dbe07043b28f124ae25ed8ffb5c57ddfe",
    "conteggi": {
@@ -2613,7 +2613,7 @@
     "NR": {
      "stato": "no",
      "nomi_fonte": [
-      "Nauru"
+      "Naoero"
      ]
     },
     "NZ": {
@@ -2957,9 +2957,9 @@
    "titolo_fonte": "Apple Support: Availability of Apple Media Services",
    "cosa": "the Apple TV subscription",
    "url_fonte": "https://support.apple.com/en-us/118205",
-   "letto_il": "2026-10-28",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-28",
-   "data_fonte": "2026-09-30",
+   "data_fonte": "2026-10-30",
    "http": 200,
    "impronta": "e018bff116c8d8509e10b995ae2acee6bbe9a8e7fedaf3d5597df02d2c1b0eda",
    "conteggi": {
@@ -3693,7 +3693,7 @@
     "NR": {
      "stato": "no",
      "nomi_fonte": [
-      "Nauru"
+      "Naoero"
      ],
      "nota": "Synced videos only",
      "app_tv": true
@@ -4043,7 +4043,7 @@
    "titolo_fonte": "YouTube Help: Premium memberships available locations & travel policies",
    "cosa": "YouTube Premium and YouTube Music Premium memberships",
    "url_fonte": "https://support.google.com/youtube/answer/6307365?hl=en",
-   "letto_il": "2026-10-28",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-28",
    "data_fonte": null,
    "http": 200,
@@ -4788,7 +4788,7 @@
    "titolo_fonte": "Spotify Support: Where is Spotify available?",
    "cosa": "signing up for Spotify",
    "url_fonte": "https://support.spotify.com/us/article/where-spotify-is-available/",
-   "letto_il": "2026-10-28",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-28",
    "data_fonte": null,
    "http": 200,

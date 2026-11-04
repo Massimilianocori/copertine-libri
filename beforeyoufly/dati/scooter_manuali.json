@@ -550,7 +550,7 @@
    "cerca": "(?:patente|categoria) B\\b[^.;]{0,200}(?:A1|125)|(?:A1|125)[^.;]{0,200}(?:patente|categoria) B\\b",
    "tipo": "regola_assente",
    "query": "can i drive 125cc with car licence in italy",
-   "motivo": "Article 116 of the Italian Highway Code (Normattiva), read on 31 October 2026, lists the licence categories but its text does not say whether a car licence covers 125 cc motorcycles, so we do not answer for Italy yet."
+   "motivo": "Article 116 of the Italian Highway Code (Normattiva), read on 4 November 2026, lists the licence categories but its text does not say whether a car licence covers 125 cc motorcycles, so we do not answer for Italy yet."
   },
   {
    "nome": "Austria",
@@ -558,7 +558,7 @@
    "url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10012723",
    "cerca": "Code 111|Zahlencode 111|125 cm",
    "tipo": "non_risponde",
-   "motivo": "The official legal database (RIS) did not answer our server normally on 31 October 2026."
+   "motivo": "The official legal database (RIS) did not answer our server normally on 4 November 2026."
   },
   {
    "nome": "United States (Hawaii)",
@@ -567,7 +567,7 @@
    "cerca": "moped[^.]{0,160}licen[cs]e",
    "tipo": "non_risponde",
    "query": "rent a moped in hawaii",
-   "motivo": "The Hawaii Department of Transportation page we tried did not answer normally on 31 October 2026."
+   "motivo": "The Hawaii Department of Transportation page we tried did not answer normally on 4 November 2026."
   },
   {
    "nome": "Portugal",
@@ -575,7 +575,7 @@
    "fcdo": "portugal",
    "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
    "tipo": "regola_assente",
-   "motivo": "The UK government's travel advice for Portugal, read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
+   "motivo": "The UK government's travel advice for Portugal, read on 4 November 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
    "query": "can you drive 125cc with car licence in portugal"
   },
   {
@@ -584,7 +584,7 @@
    "fcdo": "malta",
    "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
    "tipo": "regola_assente",
-   "motivo": "The UK government's travel advice for Malta, read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
+   "motivo": "The UK government's travel advice for Malta, read on 4 November 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
    "query": "can you drive 125cc with car licence in malta"
   },
   {
@@ -593,7 +593,7 @@
    "fcdo": "croatia",
    "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
    "tipo": "regola_assente",
-   "motivo": "The UK government's travel advice for Croatia, read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities."
+   "motivo": "The UK government's travel advice for Croatia, read on 4 November 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities."
   },
   {
    "nome": "Cyprus",
@@ -601,7 +601,7 @@
    "fcdo": "cyprus",
    "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
    "tipo": "regola_assente",
-   "motivo": "The UK government's travel advice for Cyprus, read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities."
+   "motivo": "The UK government's travel advice for Cyprus, read on 4 November 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities."
   },
   {
    "nome": "Thailand",
@@ -609,7 +609,7 @@
    "fcdo": "thailand",
    "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
    "tipo": "regola_assente",
-   "motivo": "The UK government's travel advice for Thailand, read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
+   "motivo": "The UK government's travel advice for Thailand, read on 4 November 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
    "query": "can i rent a scooter in thailand"
   },
   {
@@ -618,7 +618,7 @@
    "fcdo": "indonesia",
    "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
    "tipo": "regola_assente",
-   "motivo": "The UK government's travel advice for Indonesia (Bali), read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
+   "motivo": "The UK government's travel advice for Indonesia (Bali), read on 4 November 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
    "query": "can i rent a scooter in bali"
   },
   {
@@ -627,7 +627,7 @@
    "fcdo": "vietnam",
    "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
    "tipo": "regola_assente",
-   "motivo": "The UK government's travel advice for Vietnam, read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
+   "motivo": "The UK government's travel advice for Vietnam, read on 4 November 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
    "query": "can i rent a scooter in vietnam"
   },
   {
@@ -636,7 +636,7 @@
    "fcdo": "japan",
    "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
    "tipo": "regola_assente",
-   "motivo": "The UK government's travel advice for Japan, read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
+   "motivo": "The UK government's travel advice for Japan, read on 4 November 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
    "query": "can i rent a scooter in japan"
   },
   {
@@ -645,7 +645,7 @@
    "fcdo": "taiwan",
    "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
    "tipo": "regola_assente",
-   "motivo": "The UK government's travel advice for Taiwan, read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
+   "motivo": "The UK government's travel advice for Taiwan, read on 4 November 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities.",
    "query": "can i rent a scooter in taiwan"
   },
   {
@@ -654,7 +654,7 @@
    "fcdo": "bermuda",
    "cerca": "(?:moped|scooter)[^.]{0,160}\\b(?:category|categories|A1|AM)\\b|\\b(?:category|A1|AM)\\b[^.]{0,160}(?:moped|scooter)",
    "tipo": "regola_assente",
-   "motivo": "The UK government's travel advice for Bermuda, read on 31 October 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities."
+   "motivo": "The UK government's travel advice for Bermuda, read on 4 November 2026, does not say which licence you need for a moped or a scooter, and we have not yet read a rule from the country's own authorities."
   }
  ]
 }

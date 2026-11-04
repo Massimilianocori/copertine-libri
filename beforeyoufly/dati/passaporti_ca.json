@@ -6,8 +6,8 @@
  "licenza": "Open Government Licence – Canada",
  "licenza_url": "https://open.canada.ca/en/open-government-licence-canada",
  "attribuzione": "Contains information licensed under the Open Government Licence – Canada.",
- "indice_generato": "2026-10-16 17:00:17",
- "controllato_il": "2026-10-17",
+ "indice_generato": "2026-11-04 11:20:39",
+ "controllato_il": "2026-11-04",
  "pagine_indice": 230,
  "paesi": [
   {
@@ -2663,7 +2663,7 @@
    "slug_fonte": "australia",
    "url": "https://travel.gc.ca/destinations/australia",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-AU.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -2859,7 +2859,7 @@
    "slug_fonte": "austria",
    "url": "https://travel.gc.ca/destinations/austria",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-AT.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-11-04",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -4265,7 +4265,7 @@
    "slug_fonte": "bahrain",
    "url": "https://travel.gc.ca/destinations/bahrain",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-BH.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-10-30",
    "livello": "Avoid non-essential travel",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -4472,7 +4472,7 @@
    "slug_fonte": "bangladesh",
    "url": "https://travel.gc.ca/destinations/bangladesh",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-BD.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-10-26",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -4777,7 +4777,7 @@
    "slug_fonte": "barbados",
    "url": "https://travel.gc.ca/destinations/barbados",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-BB.json",
-   "aggiornata": "2026-09-24",
+   "aggiornata": "2026-10-20",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -5048,7 +5048,7 @@
    "slug_fonte": "belarus",
    "url": "https://travel.gc.ca/destinations/belarus",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-BY.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-10-26",
    "livello": "Avoid all travel",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -5559,7 +5559,7 @@
    "slug_fonte": "belgium",
    "url": "https://travel.gc.ca/destinations/belgium",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-BE.json",
-   "aggiornata": "2026-10-09",
+   "aggiornata": "2026-10-26",
    "livello": "Exercise a high degree of caution",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -6002,7 +6002,7 @@
    "slug_fonte": "belize",
    "url": "https://travel.gc.ca/destinations/belize",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-BZ.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-11-04",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -6255,7 +6255,7 @@
    "slug_fonte": "benin",
    "url": "https://travel.gc.ca/destinations/benin",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-BJ.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -6451,7 +6451,7 @@
    "slug_fonte": "bermuda",
    "url": "https://travel.gc.ca/destinations/bermuda",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-BM.json",
-   "aggiornata": "2026-09-24",
+   "aggiornata": "2026-11-04",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -7515,7 +7515,7 @@
    "slug_fonte": "bosnia-and-herzegovina",
    "url": "https://travel.gc.ca/destinations/bosnia-and-herzegovina",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-BA.json",
-   "aggiornata": "2026-09-24",
+   "aggiornata": "2026-10-26",
    "livello": "Exercise a high degree of caution",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -7926,7 +7926,7 @@
    "slug_fonte": "brazil",
    "url": "https://travel.gc.ca/destinations/brazil",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-BR.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-10-26",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -8239,7 +8239,7 @@
    "slug_fonte": "british-virgin-islands",
    "url": "https://travel.gc.ca/destinations/british-virgin-islands",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-VG.json",
-   "aggiornata": "2026-09-24",
+   "aggiornata": "2026-10-30",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -8817,7 +8817,7 @@
    "slug_fonte": "bulgaria",
    "url": "https://travel.gc.ca/destinations/bulgaria",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-BG.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -11001,7 +11001,7 @@
    "slug_fonte": "chad",
    "url": "https://travel.gc.ca/destinations/chad",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-TD.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-11-02",
    "livello": "Avoid non-essential travel (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -11202,7 +11202,7 @@
    "slug_fonte": "chile",
    "url": "https://travel.gc.ca/destinations/chile",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-CL.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-10-19",
    "livello": "Exercise a high degree of caution",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -11673,7 +11673,7 @@
    "slug_fonte": "china",
    "url": "https://travel.gc.ca/destinations/china",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-CN.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-11-03",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -12082,7 +12082,7 @@
    "slug_fonte": "colombia",
    "url": "https://travel.gc.ca/destinations/colombia",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-CO.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -14532,20 +14532,20 @@
    "slug_fonte": "curacao",
    "url": "https://travel.gc.ca/destinations/curacao",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-CW.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-11-03",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
     "testo": [
      {
       "t": "p",
-      "x": "Your passport must be valid for at least 6 months after the date you expect to leave Curaçao."
+      "x": "Your passport must be valid for the duration of your stay in Curaçao."
      }
     ],
-    "frase": "Your passport must be valid for at least 6 months after the date you expect to leave Curaçao.",
-    "schema": "dopo_partenza",
-    "sintesi": "Valid for at least 6 months beyond the date you expect to leave Curaçao",
-    "breve": "6 months after departure",
+    "frase": "Your passport must be valid for the duration of your stay in Curaçao.",
+    "schema": "soggiorno",
+    "sintesi": "Valid for the duration of your stay in Curaçao",
+    "breve": "Valid for the whole stay",
     "motivo": null
    },
    "schengen": false,
@@ -14659,7 +14659,7 @@
     },
     {
      "t": "p",
-     "x": "Your passport must be valid for at least 6 months after the date you expect to leave Curaçao."
+     "x": "Your passport must be valid for the duration of your stay in Curaçao."
     },
     {
      "t": "h4",
@@ -15727,7 +15727,7 @@
    "slug_fonte": "cote-d-ivoire-ivory-coast",
    "url": "https://travel.gc.ca/destinations/cote-d-ivoire-ivory-coast",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-CI.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -15915,7 +15915,7 @@
    "slug_fonte": "congo-kinshasa",
    "url": "https://travel.gc.ca/destinations/congo-kinshasa",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-CD.json",
-   "aggiornata": "2026-09-28",
+   "aggiornata": "2026-11-02",
    "livello": "Avoid all travel",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -17285,7 +17285,7 @@
    "slug_fonte": "ecuador",
    "url": "https://travel.gc.ca/destinations/ecuador",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-EC.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -18145,7 +18145,7 @@
    "slug_fonte": "el-salvador",
    "url": "https://travel.gc.ca/destinations/el-salvador",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-SV.json",
-   "aggiornata": "2026-10-16",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise a high degree of caution",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -18751,7 +18751,7 @@
    "slug_fonte": "eritrea",
    "url": "https://travel.gc.ca/destinations/eritrea",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-ER.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-10-21",
    "livello": "Avoid non-essential travel (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -19647,7 +19647,7 @@
    "slug_fonte": "ethiopia",
    "url": "https://travel.gc.ca/destinations/ethiopia",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-ET.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-10-29",
    "livello": "Avoid non-essential travel (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -20329,7 +20329,7 @@
    "slug_fonte": "fiji",
    "url": "https://travel.gc.ca/destinations/fiji",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-FJ.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-10-27",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -20983,7 +20983,7 @@
    "slug_fonte": "france",
    "url": "https://travel.gc.ca/destinations/france",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-FR.json",
-   "aggiornata": "2026-10-13",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise a high degree of caution",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -23114,7 +23114,7 @@
    "slug_fonte": "ghana",
    "url": "https://travel.gc.ca/destinations/ghana",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-GH.json",
-   "aggiornata": "2026-09-24",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise a high degree of caution",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -24361,7 +24361,7 @@
    "slug_fonte": "guadeloupe",
    "url": "https://travel.gc.ca/destinations/guadeloupe",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-GP.json",
-   "aggiornata": "2026-09-24",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -24604,7 +24604,7 @@
    "slug_fonte": "guam",
    "url": "https://travel.gc.ca/destinations/guam",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-GU.json",
-   "aggiornata": "2026-10-16",
+   "aggiornata": "2026-10-18",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -25781,7 +25781,7 @@
    "slug_fonte": "haiti",
    "url": "https://travel.gc.ca/destinations/haiti",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-HT.json",
-   "aggiornata": "2026-09-24",
+   "aggiornata": "2026-10-30",
    "livello": "Avoid all travel",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -26012,7 +26012,7 @@
    "slug_fonte": "honduras",
    "url": "https://travel.gc.ca/destinations/honduras",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-HN.json",
-   "aggiornata": "2026-10-13",
+   "aggiornata": "2026-10-23",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -27582,7 +27582,7 @@
    "slug_fonte": "india",
    "url": "https://travel.gc.ca/destinations/india",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-IN.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -28181,7 +28181,7 @@
    "slug_fonte": "indonesia",
    "url": "https://travel.gc.ca/destinations/indonesia",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-ID.json",
-   "aggiornata": "2026-10-13",
+   "aggiornata": "2026-10-27",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -30081,7 +30081,7 @@
    "slug_fonte": "italy",
    "url": "https://travel.gc.ca/destinations/italy",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-IT.json",
-   "aggiornata": "2026-09-29",
+   "aggiornata": "2026-10-27",
    "livello": "Exercise a high degree of caution",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -30789,7 +30789,7 @@
    "slug_fonte": "japan",
    "url": "https://travel.gc.ca/destinations/japan",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-JP.json",
-   "aggiornata": "2026-10-13",
+   "aggiornata": "2026-10-26",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -31056,7 +31056,7 @@
    "slug_fonte": "jordan",
    "url": "https://travel.gc.ca/destinations/jordan",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-JO.json",
-   "aggiornata": "2026-10-16",
+   "aggiornata": "2026-10-28",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -31940,7 +31940,7 @@
    "slug_fonte": "kenya",
    "url": "https://travel.gc.ca/destinations/kenya",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-KE.json",
-   "aggiornata": "2026-10-15",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -32673,7 +32673,7 @@
    "slug_fonte": "kuwait",
    "url": "https://travel.gc.ca/destinations/kuwait",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-KW.json",
-   "aggiornata": "2026-09-24",
+   "aggiornata": "2026-10-26",
    "livello": "Avoid non-essential travel (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -34027,7 +34027,7 @@
    "slug_fonte": "lebanon",
    "url": "https://travel.gc.ca/destinations/lebanon",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-LB.json",
-   "aggiornata": "2026-10-15",
+   "aggiornata": "2026-10-30",
    "livello": "Avoid all travel",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -38473,7 +38473,7 @@
    "slug_fonte": "mauritania",
    "url": "https://travel.gc.ca/destinations/mauritania",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-MR.json",
-   "aggiornata": "2026-10-09",
+   "aggiornata": "2026-10-20",
    "livello": "Avoid non-essential travel (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -38653,7 +38653,7 @@
    "slug_fonte": "mauritius",
    "url": "https://travel.gc.ca/destinations/mauritius",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-MU.json",
-   "aggiornata": "2026-10-16",
+   "aggiornata": "2026-11-03",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -39081,7 +39081,7 @@
    "slug_fonte": "mexico",
    "url": "https://travel.gc.ca/destinations/mexico",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-MX.json",
-   "aggiornata": "2026-10-16",
+   "aggiornata": "2026-10-23",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -40116,7 +40116,7 @@
    "slug_fonte": "monaco",
    "url": "https://travel.gc.ca/destinations/monaco",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-MC.json",
-   "aggiornata": "2026-10-09",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -42632,7 +42632,7 @@
    "slug_fonte": "nepal",
    "url": "https://travel.gc.ca/destinations/nepal",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-NP.json",
-   "aggiornata": "2026-10-15",
+   "aggiornata": "2026-11-03",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -43818,7 +43818,7 @@
    "slug_fonte": "nicaragua",
    "url": "https://travel.gc.ca/destinations/nicaragua",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-NI.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise a high degree of caution",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -44506,7 +44506,7 @@
    "slug_fonte": "nigeria",
    "url": "https://travel.gc.ca/destinations/nigeria",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-NG.json",
-   "aggiornata": "2026-10-15",
+   "aggiornata": "2026-10-21",
    "livello": "Avoid non-essential travel (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -45719,7 +45719,7 @@
    "slug_fonte": "norway",
    "url": "https://travel.gc.ca/destinations/norway",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-NO.json",
-   "aggiornata": "2026-10-09",
+   "aggiornata": "2026-10-19",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -46407,7 +46407,7 @@
    "slug_fonte": "pakistan",
    "url": "https://travel.gc.ca/destinations/pakistan",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-PK.json",
-   "aggiornata": "2026-10-15",
+   "aggiornata": "2026-10-19",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -47489,7 +47489,7 @@
    "slug_fonte": "paraguay",
    "url": "https://travel.gc.ca/destinations/paraguay",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-PY.json",
-   "aggiornata": "2026-10-15",
+   "aggiornata": "2026-10-20",
    "livello": "Exercise a high degree of caution",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -47511,7 +47511,7 @@
     "testo": [
      {
       "t": "p",
-      "x": "Tourist visa: not required"
+      "x": "Tourist visa: not required for stays of up to 90 days"
      },
      {
       "t": "p",
@@ -47519,12 +47519,16 @@
      },
      {
       "t": "p",
+      "x": "Work permit: required"
+     },
+     {
+      "t": "p",
       "x": "Student visa: required"
      }
     ],
-    "frase": "Tourist visa: not required",
-    "schema": "senza_visto",
-    "sintesi": "Tourist visa not required (read the official text for how long you can stay)",
+    "frase": "Tourist visa: not required for stays of up to 90 days",
+    "schema": "senza_visto_durata",
+    "sintesi": "Tourist visa not required for stays of up to 90 days",
     "motivo": null
    },
    "altre_sezioni": [
@@ -47630,11 +47634,15 @@
     },
     {
      "t": "p",
-     "x": "Tourist visa: not required"
+     "x": "Tourist visa: not required for stays of up to 90 days"
     },
     {
      "t": "p",
      "x": "Business visa: required"
+    },
+    {
+     "t": "p",
+     "x": "Work permit: required"
     },
     {
      "t": "p",
@@ -48073,7 +48081,7 @@
    "slug_fonte": "philippines",
    "url": "https://travel.gc.ca/destinations/philippines",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-PH.json",
-   "aggiornata": "2026-10-15",
+   "aggiornata": "2026-10-29",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -50301,7 +50309,7 @@
    "slug_fonte": "romania",
    "url": "https://travel.gc.ca/destinations/romania",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-RO.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-10-26",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -50714,7 +50722,7 @@
    "slug_fonte": "russia",
    "url": "https://travel.gc.ca/destinations/russia",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-RU.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-11-02",
    "livello": "Avoid all travel",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -51365,7 +51373,7 @@
    "slug_fonte": "rwanda",
    "url": "https://travel.gc.ca/destinations/rwanda",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-RW.json",
-   "aggiornata": "2026-10-09",
+   "aggiornata": "2026-10-30",
    "livello": "Exercise normal security precautions (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -52958,7 +52966,7 @@
    "slug_fonte": "saint-pierre-et-miquelon",
    "url": "https://travel.gc.ca/destinations/saint-pierre-et-miquelon",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-PM.json",
-   "aggiornata": "2026-09-24",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -53158,7 +53166,7 @@
    "slug_fonte": "samoa",
    "url": "https://travel.gc.ca/destinations/samoa",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-WS.json",
-   "aggiornata": "2026-09-24",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -53791,7 +53799,7 @@
    "slug_fonte": "saudi-arabia",
    "url": "https://travel.gc.ca/destinations/saudi-arabia",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-SA.json",
-   "aggiornata": "2026-10-11",
+   "aggiornata": "2026-10-29",
    "livello": "Avoid non-essential travel (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -54383,7 +54391,7 @@
    "slug_fonte": "serbia",
    "url": "https://travel.gc.ca/destinations/serbia",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-RS.json",
-   "aggiornata": "2026-10-09",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise normal security precautions (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -57004,7 +57012,7 @@
    "slug_fonte": "south-africa",
    "url": "https://travel.gc.ca/destinations/south-africa",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-ZA.json",
-   "aggiornata": "2026-10-15",
+   "aggiornata": "2026-10-28",
    "livello": "Exercise a high degree of caution",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -57924,7 +57932,7 @@
    "slug_fonte": "spain",
    "url": "https://travel.gc.ca/destinations/spain",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-ES.json",
-   "aggiornata": "2026-10-09",
+   "aggiornata": "2026-11-03",
    "livello": "Exercise a high degree of caution",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -58303,7 +58311,7 @@
    "slug_fonte": "sri-lanka",
    "url": "https://travel.gc.ca/destinations/sri-lanka",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-LK.json",
-   "aggiornata": "2026-10-13",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise a high degree of caution",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -60228,7 +60236,7 @@
    "slug_fonte": "taiwan",
    "url": "https://travel.gc.ca/destinations/taiwan",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-TW.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-10-26",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -60736,7 +60744,7 @@
    "slug_fonte": "tanzania",
    "url": "https://travel.gc.ca/destinations/tanzania",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-TZ.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-10-30",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -60881,7 +60889,7 @@
     },
     {
      "t": "p",
-     "x": "Due to outbreaks of Ebola disease in the Democratic Republic of the Congo (DRC) and Uganda, all travellers arriving from or transiting through these countries are subject to health screening measures at points of entry. These include the completion of a health declaration form and temperature checks."
+     "x": "Due to outbreaks of Ebola disease in the Democratic Republic of the Congo (DRC) and Uganda, all travellers arriving in Tanzania are subject to health screening measures at points of entry. These include the completion of a health declaration form and temperature checks."
     },
     {
      "t": "p",
@@ -63060,20 +63068,20 @@
    "slug_fonte": "turks-and-caicos-islands",
    "url": "https://travel.gc.ca/destinations/turks-and-caicos-islands",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-TC.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-11-03",
    "livello": "Exercise a high degree of caution",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
     "testo": [
      {
       "t": "p",
-      "x": "Your passport must be valid for at least 6 months beyond the date you expect to leave the Turks and Caicos Islands."
+      "x": "Your passport must be valid for the duration of your stay in the Turks and Caicos Islands."
      }
     ],
-    "frase": "Your passport must be valid for at least 6 months beyond the date you expect to leave the Turks and Caicos Islands.",
-    "schema": "dopo_partenza",
-    "sintesi": "Valid for at least 6 months beyond the date you expect to leave the Turks and Caicos Islands",
-    "breve": "6 months after departure",
+    "frase": "Your passport must be valid for the duration of your stay in the Turks and Caicos Islands.",
+    "schema": "soggiorno",
+    "sintesi": "Valid for the duration of your stay in the Turks and Caicos Islands",
+    "breve": "Valid for the whole stay",
     "motivo": null
    },
    "schengen": false,
@@ -63163,7 +63171,7 @@
     },
     {
      "t": "p",
-     "x": "Your passport must be valid for at least 6 months beyond the date you expect to leave the Turks and Caicos Islands."
+     "x": "Your passport must be valid for the duration of your stay in the Turks and Caicos Islands."
     },
     {
      "t": "h4",
@@ -63468,7 +63476,7 @@
    "slug_fonte": "turkiye",
    "url": "https://travel.gc.ca/destinations/turkiye",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-TR.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-10-28",
    "livello": "Exercise a high degree of caution (with regional advisories)",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -64004,7 +64012,7 @@
    "slug_fonte": "ukraine",
    "url": "https://travel.gc.ca/destinations/ukraine",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-UA.json",
-   "aggiornata": "2026-10-14",
+   "aggiornata": "2026-10-26",
    "livello": "Avoid all travel",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
@@ -65225,7 +65233,7 @@
    "slug_fonte": "united-states",
    "url": "https://travel.gc.ca/destinations/united-states",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-US.json",
-   "aggiornata": "2026-10-15",
+   "aggiornata": "2026-11-02",
    "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Passport",
@@ -67549,8 +67557,8 @@
    "slug_fonte": "vietnam",
    "url": "https://travel.gc.ca/destinations/vietnam",
    "api": "https://data.international.gc.ca/travel-voyage/cta-cap-VN.json",
-   "aggiornata": "2026-10-13",
-   "livello": "Exercise a high degree of caution",
+   "aggiornata": "2026-10-28",
+   "livello": "Exercise normal security precautions",
    "passaporto": {
     "titolo_sezione": "Regular Canadian passport",
     "testo": [
@@ -67586,56 +67594,32 @@
       "x": "Work visa: required"
      },
      {
-      "t": "h4",
-      "x": "Visa verification"
+      "t": "p",
+      "x": "Canadian passport holders must have a visa to enter Vietnam."
      },
      {
       "t": "p",
-      "x": "Make sure your application details match your passport exactly—this includes your full name, date of birth, and the order in which they appear."
+      "x": "Vietnamese visas in expired Canadian passports are not valid. The visa needs to be transferred to the new passport."
      },
      {
       "t": "p",
-      "x": "Once your visa is issued, check it carefully to confirm that everything is accurate and exactly matches your passport information before you travel."
+      "x": "Overstaying your Vietnamese visa or having the wrong type of visa is a serious matter. Authorities may delay you from onward travel until a fine is paid. You may not be allowed to check into or book accommodation without a valid visa."
      },
      {
       "t": "p",
-      "x": "Errors or missing information can result in:"
-     },
-     {
-      "t": "li",
-      "x": "additional fees"
-     },
-     {
-      "t": "li",
-      "x": "denied boarding"
-     },
-     {
-      "t": "li",
-      "x": "refused entry upon arrival"
+      "x": "Check the visa validity and conditions carefully."
      },
      {
       "t": "h4",
-      "x": "Digital Arrival Card"
+      "x": "E-visa"
      },
      {
       "t": "p",
-      "x": "If you plan to enter Vietnam at Tan Son Nhat Airport (SGN) in Ho Chi Minh City, the Vietnamese government encourages you to complete a Digital Pre-arrival Form online within 3 days of your arrival."
+      "x": "If you have a valid regular Canadian passport, you may be eligible to apply online for an e-visa. This can be a single-entry or multiple-entry electronic tourist visa, valid for up to 90 days. It allows you to enter Vietnam via the port of entry indicated in the visa approval notice only. Some restrictions apply."
      },
      {
       "t": "p",
-      "x": "Completing a digital arrival form is not a mandatory requirement for entry. However, this could change and could expand to other airports in Vietnam on short notice."
-     },
-     {
-      "t": "p",
-      "x": "Pre-arrival information submission for visitors – Immigration Department of Vietnam"
-     },
-     {
-      "t": "h4",
-      "x": "E-visa authorization"
-     },
-     {
-      "t": "p",
-      "x": "If you have a valid Canadian passport, you may be eligible to apply online for an e-visa. This can be a single-entry or multiple-entry electronic tourist visa, valid for a maximum of 90 days. It allows you to enter Vietnam via the port of entry indicated in the visa approval notice only. Some restrictions apply."
+      "x": "Vietnam does not issue e-visas to Canadians travelling on temporary passports or emergency travel documents."
      },
      {
       "t": "p",
@@ -67659,35 +67643,51 @@
      },
      {
       "t": "h4",
-      "x": "Visa extension"
+      "x": "Applying for a visa or eVisa"
      },
      {
       "t": "p",
-      "x": "You must have a visa to enter Vietnam."
+      "x": "Make sure your application details match your passport exactly, this includes your full name, date of birth, and the order in which they appear."
      },
      {
       "t": "p",
-      "x": "If required, you can request a visa extension at:"
+      "x": "An eVisa application cannot be corrected or edited once submitted and fees are non-refundable."
+     },
+     {
+      "t": "p",
+      "x": "Once your visa is issued, check it carefully to confirm that everything is accurate and matches your passport information exactly before you travel."
+     },
+     {
+      "t": "p",
+      "x": "Errors or missing information can result in:"
      },
      {
       "t": "li",
-      "x": "the Vietnam Immigration Department in Hanoi or Ho Chi Minh City"
+      "x": "denied boarding"
      },
      {
       "t": "li",
-      "x": "certain local travel agencies and tour companies"
+      "x": "additional fees upon arrival"
+     },
+     {
+      "t": "li",
+      "x": "refused entry upon arrival"
+     },
+     {
+      "t": "h4",
+      "x": "Digital Arrival Card"
      },
      {
       "t": "p",
-      "x": "Vietnamese visas in expired Canadian passports are not valid. The visa needs to be transferred to the new passport."
+      "x": "If you plan to enter Vietnam at Tan Son Nhat Airport (SGN) in Ho Chi Minh City, the Vietnamese government encourages you to complete a Digital Pre-arrival Form online within 3 days of your arrival."
      },
      {
       "t": "p",
-      "x": "Overstaying your Vietnamese visa or having the wrong type of visa is a serious matter. You may be delayed from onward travel until a fine is paid."
+      "x": "Completing a digital arrival form is not a mandatory requirement for entry. However, this could change and could expand to other airports in Vietnam on short notice."
      },
      {
       "t": "p",
-      "x": "Check the visa validity and conditions carefully."
+      "x": "Pre-arrival information submission for visitors – Immigration Department of Vietnam"
      }
     ],
     "frase": "Tourist visa: required",
@@ -67705,15 +67705,15 @@
       },
       {
        "t": "p",
-       "x": "Commercial accommodations will generally file the declaration on your behalf. If you're staying in a non-commercial accommodation, you must do so with the nearest police station."
+       "x": "Commercial accommodations will generally file the declaration on your behalf. If you're staying in a non-commercial accommodation or a private residence, ensure that either your host notifies local authorities of your stay or you do so with the nearest police station. Notifications to local authorities can be submitted directly by the host, landlord, or accommodation provider, including through government-approved applications. Failure to comply with stay-notification requirements may result in fines for both the host and the guest."
       },
       {
        "t": "p",
-       "x": "Make sure you request the return of your passport once it has been registered by hotel staff."
+       "x": "The hotel staff may ask to see your passport at check-in and may make copies of it."
       },
       {
        "t": "p",
-       "x": "The hotel staff may ask to see your passport at check-in. They may make copies of it. They may also insist on holding your passport until you leave. There is no legal reason for this."
+       "x": "They may also insist on holding your passport until you leave, however there is no known local legal requirement for the retention of your passport. Make sure you request the return of your passport once it has been registered by hotel staff."
       },
       {
        "t": "li",
@@ -67907,56 +67907,32 @@
      "x": "Work visa: required"
     },
     {
-     "t": "h4",
-     "x": "Visa verification"
+     "t": "p",
+     "x": "Canadian passport holders must have a visa to enter Vietnam."
     },
     {
      "t": "p",
-     "x": "Make sure your application details match your passport exactly—this includes your full name, date of birth, and the order in which they appear."
+     "x": "Vietnamese visas in expired Canadian passports are not valid. The visa needs to be transferred to the new passport."
     },
     {
      "t": "p",
-     "x": "Once your visa is issued, check it carefully to confirm that everything is accurate and exactly matches your passport information before you travel."
+     "x": "Overstaying your Vietnamese visa or having the wrong type of visa is a serious matter. Authorities may delay you from onward travel until a fine is paid. You may not be allowed to check into or book accommodation without a valid visa."
     },
     {
      "t": "p",
-     "x": "Errors or missing information can result in:"
-    },
-    {
-     "t": "li",
-     "x": "additional fees"
-    },
-    {
-     "t": "li",
-     "x": "denied boarding"
-    },
-    {
-     "t": "li",
-     "x": "refused entry upon arrival"
+     "x": "Check the visa validity and conditions carefully."
     },
     {
      "t": "h4",
-     "x": "Digital Arrival Card"
+     "x": "E-visa"
     },
     {
      "t": "p",
-     "x": "If you plan to enter Vietnam at Tan Son Nhat Airport (SGN) in Ho Chi Minh City, the Vietnamese government encourages you to complete a Digital Pre-arrival Form online within 3 days of your arrival."
+     "x": "If you have a valid regular Canadian passport, you may be eligible to apply online for an e-visa. This can be a single-entry or multiple-entry electronic tourist visa, valid for up to 90 days. It allows you to enter Vietnam via the port of entry indicated in the visa approval notice only. Some restrictions apply."
     },
     {
      "t": "p",
-     "x": "Completing a digital arrival form is not a mandatory requirement for entry. However, this could change and could expand to other airports in Vietnam on short notice."
-    },
-    {
-     "t": "p",
-     "x": "Pre-arrival information submission for visitors – Immigration Department of Vietnam"
-    },
-    {
-     "t": "h4",
-     "x": "E-visa authorization"
-    },
-    {
-     "t": "p",
-     "x": "If you have a valid Canadian passport, you may be eligible to apply online for an e-visa. This can be a single-entry or multiple-entry electronic tourist visa, valid for a maximum of 90 days. It allows you to enter Vietnam via the port of entry indicated in the visa approval notice only. Some restrictions apply."
+     "x": "Vietnam does not issue e-visas to Canadians travelling on temporary passports or emergency travel documents."
     },
     {
      "t": "p",
@@ -67980,35 +67956,51 @@
     },
     {
      "t": "h4",
-     "x": "Visa extension"
+     "x": "Applying for a visa or eVisa"
     },
     {
      "t": "p",
-     "x": "You must have a visa to enter Vietnam."
+     "x": "Make sure your application details match your passport exactly, this includes your full name, date of birth, and the order in which they appear."
     },
     {
      "t": "p",
-     "x": "If required, you can request a visa extension at:"
+     "x": "An eVisa application cannot be corrected or edited once submitted and fees are non-refundable."
+    },
+    {
+     "t": "p",
+     "x": "Once your visa is issued, check it carefully to confirm that everything is accurate and matches your passport information exactly before you travel."
+    },
+    {
+     "t": "p",
+     "x": "Errors or missing information can result in:"
     },
     {
      "t": "li",
-     "x": "the Vietnam Immigration Department in Hanoi or Ho Chi Minh City"
+     "x": "denied boarding"
     },
     {
      "t": "li",
-     "x": "certain local travel agencies and tour companies"
+     "x": "additional fees upon arrival"
+    },
+    {
+     "t": "li",
+     "x": "refused entry upon arrival"
+    },
+    {
+     "t": "h4",
+     "x": "Digital Arrival Card"
     },
     {
      "t": "p",
-     "x": "Vietnamese visas in expired Canadian passports are not valid. The visa needs to be transferred to the new passport."
+     "x": "If you plan to enter Vietnam at Tan Son Nhat Airport (SGN) in Ho Chi Minh City, the Vietnamese government encourages you to complete a Digital Pre-arrival Form online within 3 days of your arrival."
     },
     {
      "t": "p",
-     "x": "Overstaying your Vietnamese visa or having the wrong type of visa is a serious matter. You may be delayed from onward travel until a fine is paid."
+     "x": "Completing a digital arrival form is not a mandatory requirement for entry. However, this could change and could expand to other airports in Vietnam on short notice."
     },
     {
      "t": "p",
-     "x": "Check the visa validity and conditions carefully."
+     "x": "Pre-arrival information submission for visitors – Immigration Department of Vietnam"
     },
     {
      "t": "h3",
@@ -68020,15 +68012,15 @@
     },
     {
      "t": "p",
-     "x": "Commercial accommodations will generally file the declaration on your behalf. If you're staying in a non-commercial accommodation, you must do so with the nearest police station."
+     "x": "Commercial accommodations will generally file the declaration on your behalf. If you're staying in a non-commercial accommodation or a private residence, ensure that either your host notifies local authorities of your stay or you do so with the nearest police station. Notifications to local authorities can be submitted directly by the host, landlord, or accommodation provider, including through government-approved applications. Failure to comply with stay-notification requirements may result in fines for both the host and the guest."
     },
     {
      "t": "p",
-     "x": "Make sure you request the return of your passport once it has been registered by hotel staff."
+     "x": "The hotel staff may ask to see your passport at check-in and may make copies of it."
     },
     {
      "t": "p",
-     "x": "The hotel staff may ask to see your passport at check-in. They may make copies of it. They may also insist on holding your passport until you leave. There is no legal reason for this."
+     "x": "They may also insist on holding your passport until you leave, however there is no known local legal requirement for the retention of your passport. Make sure you request the return of your passport once it has been registered by hotel staff."
     },
     {
      "t": "li",

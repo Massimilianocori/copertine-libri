@@ -3552,6 +3552,7 @@ DIPENDE_A_MANO = {
     ("uk", "OM"): "on how long you stay (the first 6 weeks, in a rental car)",
     ("ca", "AE"): "on the emirate: Dubai or the rest of the UAE",
     ("au", "FJ"): "on how long you stay",
+    ("au", "TH"): "on how long you stay (people living in Thailand for an extended period need a Thai licence)",
     ("ca", "RO"): "on how long you stay",
     ("au", "AZ"): "on your travel and car insurance (Smartraveller says to check with your insurer and car provider)",
 }
@@ -4573,7 +4574,29 @@ GIORNI_SETT = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday
 # Riquadro "Guided tours with skip-the-line" (Viator, 8 %): SPENTO. Il programma non è ancora approvato (30/10/2026). Quando arriva il link
 # generale con il nostro ID, scriverlo qui (https, dominio viator.com): il riquadro compare sotto la biglietteria ufficiale, con
 # rel="sponsored noopener" e la riga di trasparenza (verifica.py, punto 22, e monetizzazione.py lo controllano). Vuoto = nessun riquadro.
-VIATOR_TOUR = ""
+VIATOR_TOUR = "https://www.viator.com/?pid=P00329132&mcid=42383&medium=link&campaign=byf-biglietti"
+# Link di ricerca Viator per attrazione (acceso il 4/11/2026, verificati da Massimiliano); le altre attrazioni e l'indice usano VIATOR_TOUR.
+VIATOR_PER_ATTRAZIONE = {
+    "vatican-museums": "https://www.viator.com/searchResults/all?text=Vatican+Museums&pid=P00329132&mcid=42383&medium=link&campaign=byf-vaticano",
+    "sagrada-familia": "https://www.viator.com/searchResults/all?text=Sagrada+Familia&pid=P00329132&mcid=42383&medium=link&campaign=byf-sagrada",
+    "alhambra": "https://www.viator.com/searchResults/all?text=Alhambra&pid=P00329132&mcid=42383&medium=link&campaign=byf-alhambra",
+    "pompeii": "https://www.viator.com/searchResults/all?text=Pompeii&pid=P00329132&mcid=42383&medium=link&campaign=byf-pompei",
+    "last-supper-milan": "https://www.viator.com/searchResults/all?text=Last+Supper+Milan&pid=P00329132&mcid=42383&medium=link&campaign=byf-cenacolo",
+    "anne-frank-house": "https://www.viator.com/searchResults/all?text=Anne+Frank+House&pid=P00329132&mcid=42383&medium=link&campaign=byf-annefrank",
+}
+
+
+def viator_link(a=None):
+    """Link Viator del riquadro: quello dell'attrazione se c'è, altrimenti il link generale (anche nell'indice)."""
+    return VIATOR_PER_ATTRAZIONE.get(a["slug"], VIATOR_TOUR) if a else VIATOR_TOUR
+
+
+def viator_link_valido(u):
+    """https, dominio viator.com tra quelli ammessi, pid uguale a quello del link generale."""
+    from urllib.parse import parse_qs
+    pid = parse_qs(urlparse(VIATOR_TOUR).query).get("pid", [""])[0]
+    return (u.startswith("https://") and MON.dominio_ammesso(u) and MON.dominio_in(urlparse(u).hostname, ["viator.com"])
+            and bool(pid) and parse_qs(urlparse(u).query).get("pid") == [pid])
 # Riquadro "Where to stay" (Stay22 → Booking.com, AID massimilianocori): ACCESO dal 31/10/2026. Link in dati/affiliati.json, voce
 # "_stay22_alloggi" → "link" (uno per attrazione, per slug; url vuoto = niente riquadro su quella pagina). Ogni link apre la pagina Booking.com
 # degli hotel della CITTÀ (Napoli per Pompei), quindi il testo lo dice e non promette prezzi né disponibilità. Posizione: dopo la biglietteria
@@ -5010,7 +5033,7 @@ def box_tour_big(a=None):
     dove = f" at the {a['nome_lungo']}" if a else ""
     return (f'<h2 id="guided-tours">Guided tours with skip-the-line</h2><section class="card noleggio" aria-label="Guided tours, affiliate link" data-tour>'
             f'<p>Official tickets sold out? A guided tour that includes the entry ticket{escape(dove)} can still be available, usually at a higher price than '
-            f'the official ticket.</p><p class="noleggio-btn"><a class="btn" href="{escape(VIATOR_TOUR)}" rel="sponsored noopener" target="_blank">'
+            f'the official ticket.</p><p class="noleggio-btn"><a class="btn" href="{escape(viator_link(a))}" rel="sponsored noopener" target="_blank">'
             f'{ico("calendar")}See guided tours on Viator</a></p>{MON.nota_trasparenza("en")}</section>')
 
 
@@ -8441,6 +8464,13 @@ def controlli():
             if not MON.dominio_ammesso(VIATOR_TOUR) or not MON.dominio_in(urlparse(VIATOR_TOUR).hostname, ["viator.com"]):
                 errori.append(f"biglietti: VIATOR_TOUR non punta a viator.com: {VIATOR_TOUR}")
             errori += [f"biglietti: {e}" for e in MON.controlla_link_pagina(box_tour_big(), "box_tour_big", "en")[0]]
+            for s_, u_ in VIATOR_PER_ATTRAZIONE.items():  # link per attrazione: attrazione esistente, https, viator.com, stesso pid
+                if s_ not in BIG_PER or not viator_link_valido(u_):
+                    errori.append(f"biglietti: link Viator non valido per {s_}: {u_}")
+                else:
+                    errori += [f"biglietti: {e}" for e in MON.controlla_link_pagina(box_tour_big(BIG_PER[s_]), f"box_tour_big {s_}", "en")[0]]
+        elif VIATOR_PER_ATTRAZIONE:
+            errori.append("biglietti: VIATOR_PER_ATTRAZIONE pieno con VIATOR_TOUR vuoto")
         for s, v in STAY22_BIG.items():  # Stay22: solo booking.stay22.com/massimilianocori/, solo attrazioni esistenti
             if s not in BIG_PER or not MON.dominio_ammesso(v["url"]) or not v["url"].startswith("https://booking.stay22.com/massimilianocori/"):
                 errori.append(f"biglietti: link Stay22 non valido per {s}: {v['url']}")

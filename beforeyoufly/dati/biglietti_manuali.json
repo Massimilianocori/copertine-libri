@@ -2113,49 +2113,49 @@
    "nome": "teamLab Planets (Tokyo)",
    "url": "https://www.teamlab.art/e/planets/",
    "tipo": "nessuna_regola",
-   "motivo": "The official page answered, but on 31 October 2026 it did not say when tickets go on sale."
+   "motivo": "The official page answered, but on 4 November 2026 it did not say when tickets go on sale."
   },
   {
    "nome": "Shibuya Sky (Tokyo)",
    "url": "https://www.shibuya-scramble-square.com/sky/ticket/",
    "tipo": "nessuna_regola",
-   "motivo": "The official ticket page answered, but on 31 October 2026 its text did not say when tickets go on sale."
+   "motivo": "The official ticket page answered, but on 4 November 2026 its text did not say when tickets go on sale."
   },
   {
    "nome": "Mount Fuji, Yoshida Trail reservations",
    "url": "https://www.fujisan-climb.jp/en/",
    "tipo": "nessuna_regola",
-   "motivo": "The official page answered, but on 31 October 2026 it did not say when the reservations open."
+   "motivo": "The official page answered, but on 4 November 2026 it did not say when the reservations open."
   },
   {
    "nome": "Statue of Liberty crown (New York)",
    "url": "https://www.nps.gov/stli/planyourvisit/fees.htm",
    "tipo": "nessuna_regola",
-   "motivo": "The National Park Service page answered, but on 31 October 2026 it only said to book well in advance, with no release day."
+   "motivo": "The National Park Service page answered, but on 4 November 2026 it only said to book well in advance, with no release day."
   },
   {
    "nome": "Alcatraz (San Francisco)",
    "url": "https://www.nps.gov/alca/planyourvisit/index.htm",
    "tipo": "nessuna_regola",
-   "motivo": "The National Park Service page answered, but on 31 October 2026 it did not say when tickets go on sale."
+   "motivo": "The National Park Service page answered, but on 4 November 2026 it did not say when tickets go on sale."
   },
   {
    "nome": "Louvre (Paris)",
    "url": "https://www.louvre.fr/en/visit/hours-admission",
    "tipo": "nessuna_regola",
-   "motivo": "The official page answered, but on 31 October 2026 it only recommended booking a time slot, with no release day."
+   "motivo": "The official page answered, but on 4 November 2026 it only recommended booking a time slot, with no release day."
   },
   {
    "nome": "Pokémon Café (Tokyo)",
    "url": "https://www.pokemoncenter-online.com/cafe/",
    "tipo": "non_risponde",
-   "motivo": "The official address we tried did not answer normally on 31 October 2026."
+   "motivo": "The official address we tried did not answer normally on 4 November 2026."
   },
   {
    "nome": "Tokyo Disney Resort",
    "url": "https://www.tokyodisneyresort.jp/en/tdr/ticket/",
    "tipo": "non_risponde",
-   "motivo": "The official website did not answer our server normally on 31 October 2026."
+   "motivo": "The official website did not answer our server normally on 4 November 2026."
   }
  ]
 }

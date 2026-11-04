@@ -1,6 +1,6 @@
 {
  "_nota": "Uscita dei biglietti, chiusure e giorni gratis delle grandi attrazioni: regole scritte a mano in dati/biglietti_manuali.json (citazioni parola per parola), fonti rilette da raccolta/biglietti.py (HTTP, data di lettura, impronta della zona citata). Le date le calcola genera.py dalle regole. Non modificare a mano: rilanciare lo script.",
- "controllato_il": "2026-10-31",
+ "controllato_il": "2026-11-04",
  "fonti": {
   "af_faq": {
    "url": "https://www.annefrank.org/en/museum/frequently-asked-questions/",
@@ -10,7 +10,7 @@
    "byte": 49406,
    "ente": "Anne Frank House",
    "titolo": "Anne Frank House: Frequently Asked Questions",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "d53c19964ee27d7a",
    "frasi": 1
@@ -20,10 +20,10 @@
    "pagina": "https://www.annefrank.org/en/museum/tickets/",
    "url_finale": "https://www.annefrank.org/en/museum/tickets/",
    "http": 200,
-   "byte": 52826,
+   "byte": 52810,
    "ente": "Anne Frank House",
    "titolo": "Anne Frank House: Tickets",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "e416af9a2d7bbd4c",
    "frasi": 5
@@ -33,10 +33,10 @@
    "pagina": "https://www.alhambra-patronato.es/en/notas-prensa/new-system-for-the-reservation-and-sale-of-tickets-to-the-alhambra",
    "url_finale": "https://www.alhambra-patronato.es/en/notas-prensa/new-system-for-the-reservation-and-sale-of-tickets-to-the-alhambra",
    "http": 200,
-   "byte": 103299,
+   "byte": 226425,
    "ente": "Patronato de la Alhambra y Generalife",
    "titolo": "Alhambra: New system for the reservation and sale of tickets (press release, 8 January 2018)",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "a866e8f9a6f7c998",
    "frasi": 1
@@ -49,7 +49,7 @@
    "byte": 229040,
    "ente": "Patronato de la Alhambra y Generalife",
    "titolo": "Alhambra: Visit F.A.Q.",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "c168eaa59503445a",
    "frasi": 1
@@ -62,7 +62,7 @@
    "byte": 218407,
    "ente": "Patronato de la Alhambra y Generalife",
    "titolo": "Alhambra: Opening hours and prices",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "389f56c39a461372",
    "frasi": 4
@@ -72,10 +72,10 @@
    "pagina": "https://cenacolovinciano.org/en/info/",
    "url_finale": "https://cenacolovinciano.org/en/info/",
    "http": 200,
-   "byte": 140461,
+   "byte": 140613,
    "ente": "Last Supper Museum (Museo del Cenacolo Vinciano)",
    "titolo": "Cenacolo Vinciano: Info (tickets, hours)",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "1c07d893b410cf35",
    "frasi": 14
@@ -88,7 +88,7 @@
    "byte": 15316,
    "ente": "Ghibli Museum, Mitaka",
    "titolo": "Ghibli Museum: Hours and Directions",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "94dd83ba381adcc3",
    "frasi": 1
@@ -101,7 +101,7 @@
    "byte": 43732,
    "ente": "Ghibli Museum, Mitaka",
    "titolo": "Ghibli Museum: Tickets",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "d1185a64ea159213",
    "frasi": 5
@@ -114,7 +114,7 @@
    "byte": 36818,
    "ente": "Ghibli Park",
    "titolo": "Ghibli Park: Tickets (Overseas Purchase)",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "52b356e1f59d181c",
    "frasi": 8
@@ -127,7 +127,7 @@
    "byte": 60346,
    "ente": "Imperial Household Agency",
    "titolo": "Imperial Household Agency: The Imperial Palace, Facilities and Visit Guidelines",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "8ea37d35195ecf46",
    "frasi": 5
@@ -137,12 +137,12 @@
    "pagina": "https://museum-tickets.nintendo.com/en/",
    "url_finale": "https://museum-tickets.nintendo.com/en/",
    "http": 200,
-   "byte": 31017,
+   "byte": 30026,
    "ente": "Nintendo Museum (Nintendo Co., Ltd.)",
    "titolo": "Nintendo Museum Ticketing Website",
-   "letto_il": "2026-10-31",
-   "cambiato_il": "2026-10-31",
-   "impronta": "93c0994cad64b30f",
+   "letto_il": "2026-11-04",
+   "cambiato_il": "2026-11-04",
+   "impronta": "04b9bc0e1020dfcc",
    "frasi": 4
   },
   "nin_guida": {
@@ -153,7 +153,7 @@
    "byte": 40875,
    "ente": "Nintendo Museum (Nintendo Co., Ltd.)",
    "titolo": "Nintendo Museum: From Ticket Reservation to Arrival at the Museum",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "98624eaab7cdefed",
    "frasi": 3
@@ -163,10 +163,10 @@
    "pagina": "https://museum.nintendo.com/en/",
    "url_finale": "https://museum.nintendo.com/en/index.html",
    "http": 200,
-   "byte": 48289,
+   "byte": 48290,
    "ente": "Nintendo Museum (Nintendo Co., Ltd.)",
    "titolo": "Nintendo Museum: official website",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "f19a9bb2d3e6683f",
    "frasi": 1
@@ -176,10 +176,10 @@
    "pagina": "https://pompeiisites.org/en/",
    "url_finale": "https://pompeiisites.org/en/",
    "http": 200,
-   "byte": 131296,
+   "byte": 131254,
    "ente": "Archaeological Park of Pompeii",
    "titolo": "Pompeii Sites: official website",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "d69ff40dcf190256",
    "frasi": 1
@@ -192,7 +192,7 @@
    "byte": 106328,
    "ente": "Archaeological Park of Pompeii",
    "titolo": "Pompeii Sites: Timetables and tickets",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "38f15a95bb052589",
    "frasi": 6
@@ -202,10 +202,10 @@
    "pagina": "https://sagradafamilia.org/en/faqs",
    "url_finale": "https://sagradafamilia.org/en/faqs",
    "http": 200,
-   "byte": 120789,
+   "byte": 120802,
    "ente": "Basílica de la Sagrada Família",
    "titolo": "Sagrada Família: FAQs",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "ac53478d07bba869",
    "frasi": 3
@@ -215,10 +215,10 @@
    "pagina": "https://sagradafamilia.org/en/schedules-how-to-get",
    "url_finale": "https://sagradafamilia.org/en/schedules-how-to-get",
    "http": 200,
-   "byte": 138401,
+   "byte": 138404,
    "ente": "Basílica de la Sagrada Família",
    "titolo": "Sagrada Família: Opening hours and getting here",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "82cbcf022cc8e6eb",
    "frasi": 4
@@ -231,7 +231,7 @@
    "byte": 20738,
    "ente": "Japan Sumo Association (Nihon Sumo Kyokai)",
    "titolo": "Nihon Sumo Kyokai: Grand Tournament Schedule",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "e8c8193c94747c29",
    "frasi": 1
@@ -241,10 +241,10 @@
    "pagina": "https://www.sumo.or.jp/En/",
    "url_finale": "https://www.sumo.or.jp/En/",
    "http": 200,
-   "byte": 104718,
+   "byte": 104631,
    "ente": "Japan Sumo Association (Nihon Sumo Kyokai)",
    "titolo": "Nihon Sumo Kyokai: Official Grand Sumo Home Page",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "c554e24591301e17",
    "frasi": 1
@@ -257,7 +257,7 @@
    "byte": 37175,
    "ente": "Vatican Museums",
    "titolo": "Vatican Museums: Days & Hours of closure",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "9c4de9837b60823d",
    "frasi": 5
@@ -270,7 +270,7 @@
    "byte": 45922,
    "ente": "Vatican Museums",
    "titolo": "Vatican Museums: Prices and Tickets",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "d38bd8f1597eb953",
    "frasi": 1
@@ -283,7 +283,7 @@
    "byte": 35160,
    "ente": "National Park Service",
    "titolo": "Washington Monument: Operating Hours & Seasons (NPS)",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "c5813c2c109b5696",
    "frasi": 2
@@ -296,7 +296,7 @@
    "byte": 32809,
    "ente": "Recreation.gov (National Park Service)",
    "titolo": "Recreation.gov: Washington Monument, National Mall and Memorial Parks",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "db3ed67c0cbc797a",
    "frasi": 8
@@ -2415,72 +2415,72 @@
    "nome": "teamLab Planets (Tokyo)",
    "url": "https://www.teamlab.art/e/planets/",
    "tipo": "nessuna_regola",
-   "motivo": "The official page answered, but on 31 October 2026 it did not say when tickets go on sale.",
+   "motivo": "The official page answered, but on 4 November 2026 it did not say when tickets go on sale.",
    "http": 200,
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "frasi_uscita": 0
   },
   {
    "nome": "Shibuya Sky (Tokyo)",
    "url": "https://www.shibuya-scramble-square.com/sky/ticket/",
    "tipo": "nessuna_regola",
-   "motivo": "The official ticket page answered, but on 31 October 2026 its text did not say when tickets go on sale.",
+   "motivo": "The official ticket page answered, but on 4 November 2026 its text did not say when tickets go on sale.",
    "http": 200,
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "frasi_uscita": 0
   },
   {
    "nome": "Mount Fuji, Yoshida Trail reservations",
    "url": "https://www.fujisan-climb.jp/en/",
    "tipo": "nessuna_regola",
-   "motivo": "The official page answered, but on 31 October 2026 it did not say when the reservations open.",
+   "motivo": "The official page answered, but on 4 November 2026 it did not say when the reservations open.",
    "http": 200,
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "frasi_uscita": 0
   },
   {
    "nome": "Statue of Liberty crown (New York)",
    "url": "https://www.nps.gov/stli/planyourvisit/fees.htm",
    "tipo": "nessuna_regola",
-   "motivo": "The National Park Service page answered, but on 31 October 2026 it only said to book well in advance, with no release day.",
+   "motivo": "The National Park Service page answered, but on 4 November 2026 it only said to book well in advance, with no release day.",
    "http": 200,
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "frasi_uscita": 0
   },
   {
    "nome": "Alcatraz (San Francisco)",
    "url": "https://www.nps.gov/alca/planyourvisit/index.htm",
    "tipo": "nessuna_regola",
-   "motivo": "The National Park Service page answered, but on 31 October 2026 it did not say when tickets go on sale.",
+   "motivo": "The National Park Service page answered, but on 4 November 2026 it did not say when tickets go on sale.",
    "http": 200,
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "frasi_uscita": 0
   },
   {
    "nome": "Louvre (Paris)",
    "url": "https://www.louvre.fr/en/visit/hours-admission",
    "tipo": "nessuna_regola",
-   "motivo": "The official page answered, but on 31 October 2026 it only recommended booking a time slot, with no release day.",
+   "motivo": "The official page answered, but on 4 November 2026 it only recommended booking a time slot, with no release day.",
    "http": 200,
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "frasi_uscita": 0
   },
   {
    "nome": "Pokémon Café (Tokyo)",
    "url": "https://www.pokemoncenter-online.com/cafe/",
    "tipo": "non_risponde",
-   "motivo": "The official address we tried did not answer normally on 31 October 2026.",
+   "motivo": "The official address we tried did not answer normally on 4 November 2026.",
    "http": 404,
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "frasi_uscita": null
   },
   {
    "nome": "Tokyo Disney Resort",
    "url": "https://www.tokyodisneyresort.jp/en/tdr/ticket/",
    "tipo": "non_risponde",
-   "motivo": "The official website did not answer our server normally on 31 October 2026.",
+   "motivo": "The official website did not answer our server normally on 4 November 2026.",
    "http": null,
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "frasi_uscita": null
   }
  ]

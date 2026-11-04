@@ -3,7 +3,7 @@
  "fonte_url": "https://www.gov.uk/api/content/foreign-travel-advice",
  "licenza": "Open Government Licence v3.0",
  "licenza_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
- "controllato_il": "2026-10-17",
+ "controllato_il": "2026-11-04",
  "pagine_indice": 226,
  "paesi": [
   {
@@ -1181,12 +1181,16 @@
    "url": "https://www.gov.uk/foreign-travel-advice/azerbaijan",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/azerbaijan/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/azerbaijan",
-   "aggiornata": "2026-10-08",
+   "aggiornata": "2026-10-23",
    "ultimo_cambio": {
-    "data": "2026-10-08",
-    "nota": "Removal of information about visa procedures for visitors travelling to Azerbaijan in connection with the Formula 1 Azerbaijan Grand Prix (‘Entry requirements’ page)."
+    "data": "2026-10-23",
+    "nota": "New information about entry requirements for the upcoming FIFA U-15 World Cup and Festival 2026 and travelling on a UK Emergency Travel Document to Azerbaijan. Updated information about visa requirements and entering Azerbaijan across the land border from Iran ('Entry requirements' page)."
    },
    "cambi_ingresso": [
+    {
+     "data": "2026-10-23",
+     "nota": "New information about entry requirements for the upcoming FIFA U-15 World Cup and Festival 2026 and travelling on a UK Emergency Travel Document to Azerbaijan. Updated information about visa requirements and entering Azerbaijan across the land border from Iran ('Entry requirements' page)."
+    },
     {
      "data": "2026-10-08",
      "nota": "Removal of information about visa procedures for visitors travelling to Azerbaijan in connection with the Formula 1 Azerbaijan Grand Prix (‘Entry requirements’ page)."
@@ -1202,10 +1206,6 @@
     {
      "data": "2026-03-01",
      "nota": "New information about entering Azerbaijan across the land border from Iran (Entry requirements page)"
-    },
-    {
-     "data": "2025-12-10",
-     "nota": "New information about dual nationals returning to the UK (‘Entry requirements’ page)."
     }
    ],
    "titolo_sezione": "Passport validity requirements",
@@ -1217,6 +1217,10 @@
     {
      "t": "p",
      "x": "To enter Azerbaijan as a resident, your passport must have an ‘expiry date’ at least 3 months after the expiry date of your temporary or permanent residence permit."
+    },
+    {
+     "t": "p",
+     "x": "If you need to travel on a UK Emergency Travel Document, check the visa requirements below before making your travel arrangements."
     }
    ],
    "regola": null,
@@ -1249,6 +1253,22 @@
      {
       "t": "p",
       "x": "For other types of visas, such as a business visa or a work permit, contact the Azerbaijani Embassy in the UK at least one month before your travel date."
+     },
+     {
+      "t": "h3",
+      "x": "FIFA U-15 World Cup and Festival 2026"
+     },
+     {
+      "t": "p",
+      "x": "If you are travelling to Azerbaijan for the FIFA U-15 World Cup and Festival 2026, simplified visa arrangements are in place from 22 September to 5 November 2026. Eligible travellers can obtain a visa on arrival at Azerbaijan’s international airports. You must have either an official invitation letter from the Association of Football Federations of Azerbaijan (AFFA) or confirmation of accreditation through FIFA’s electronic registration system."
+     },
+     {
+      "t": "h3",
+      "x": "Travelling on a UK Emergency Travel Document"
+     },
+     {
+      "t": "p",
+      "x": "Azerbaijan accepts UK Emergency Travel Documents (ETDs) for entry and must be accompanied by a visa to enter Azerbaijan. You cannot use a UK ETD to apply for an Azerbaijani e-visa, as the e-visa system does not recognise ETDs as eligible travel documents. If you are travelling on a UK ETD, you must apply for a visa directly through an Azerbaijani embassy before you travel. Contact the Azerbaijani Embassy in the country where you are applying for advice on the application process and processing times."
      },
      {
       "t": "h3",
@@ -1366,10 +1386,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/bahrain",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/bahrain/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/bahrain",
-   "aggiornata": "2026-10-08",
+   "aggiornata": "2026-10-27",
    "ultimo_cambio": {
-    "data": "2026-10-08",
-    "nota": "Updated information about Bahraini-UK dual nationality, laws and cultural differences, and air quality in Bahrain ('Entry requirements’, ‘Safety and security’ and 'Health' pages)."
+    "data": "2026-10-27",
+    "nota": "Updated information about regional tensions (‘Warnings and insurance’ page) ."
    },
    "cambi_ingresso": [
     {
@@ -1493,10 +1513,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/bangladesh",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/bangladesh/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/bangladesh",
-   "aggiornata": "2026-10-09",
+   "aggiornata": "2026-10-22",
    "ultimo_cambio": {
-    "data": "2026-10-09",
-    "nota": "Addition of information about Hindu festival of Durga Puja, taking place in Bangladesh 16 to 21 October (‘Warnings and insurance’ page)."
+    "data": "2026-10-22",
+    "nota": "Removal of information about Hindu festival of Durga Puja (‘Warnings and insurance’ page)."
    },
    "cambi_ingresso": [
     {
@@ -1827,10 +1847,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/belgium",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/belgium/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/belgium",
-   "aggiornata": "2026-10-13",
+   "aggiornata": "2026-10-17",
    "ultimo_cambio": {
-    "data": "2026-10-13",
-    "nota": "Updated information about national strike action (‘Warnings and insurance’ page)."
+    "data": "2026-10-17",
+    "nota": "Additional information on demonstrations and strikes (Safety and security)."
    },
    "cambi_ingresso": [
     {
@@ -2047,12 +2067,16 @@
    "url": "https://www.gov.uk/foreign-travel-advice/benin",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/benin/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/benin",
-   "aggiornata": "2025-12-15",
+   "aggiornata": "2026-11-04",
    "ultimo_cambio": {
-    "data": "2025-12-15",
-    "nota": "FCDO now advises against all but essential travel to the remaining areas of the Alibori and Atacora departments. FCDO continues to advise against all but essential travel and all travel to other areas in Benin (‘Warnings and insurance’ page)."
+    "data": "2026-11-04",
+    "nota": "Updated information about applying for a visa (see 'Visa requirements' on the 'Entry requirements' page)."
    },
    "cambi_ingresso": [
+    {
+     "data": "2026-11-04",
+     "nota": "Updated information about applying for a visa (see 'Visa requirements' on the 'Entry requirements' page)."
+    },
     {
      "data": "2025-12-10",
      "nota": "New information about dual nationals returning to the UK (‘Entry requirements’ page)."
@@ -2068,10 +2092,6 @@
     {
      "data": "2022-05-19",
      "nota": "Factual update about the re-opening of the land border with Togo to fully vaccinated travellers (‘Entry requirements’ page ‘If you are transiting Benin’ section)"
-    },
-    {
-     "data": "2022-01-25",
-     "nota": "New information on COVID-19 testing/screening requirements for travellers arriving and departing from Benin ('Entry requirements' page)"
     }
    ],
    "titolo_sezione": "Passport validity requirements",
@@ -2119,7 +2139,7 @@
      },
      {
       "t": "p",
-      "x": "Apply for a Benin visa online at least 7 days before your arrival date. You will get your visa when you arrive at Cotonou airport."
+      "x": "Apply for a Benin visa online at least 4 working days before your arrival date. You will receive your e-visa by email."
      },
      {
       "t": "h3",
@@ -2764,10 +2784,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/brazil",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/brazil/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/brazil",
-   "aggiornata": "2026-09-29",
+   "aggiornata": "2026-10-28",
    "ultimo_cambio": {
-    "data": "2026-09-29",
-    "nota": "New information about elections taking place on 4 October, and political events ('Warnings and insurance' and 'Safety and security' pages)."
+    "data": "2026-10-28",
+    "nota": "Removal of information about elections ('Warnings and insurance' and 'Safety and security' pages)."
    },
    "cambi_ingresso": [
     {
@@ -3284,10 +3304,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/burkina-faso",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/burkina-faso/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/burkina-faso",
-   "aggiornata": "2025-12-10",
+   "aggiornata": "2026-10-26",
    "ultimo_cambio": {
-    "data": "2025-12-10",
-    "nota": "New information about dual nationals returning to the UK (‘Entry requirements’ page)."
+    "data": "2026-10-26",
+    "nota": "New information about the death penalty in Burkina Faso (‘Safety and security’ page)."
    },
    "cambi_ingresso": [
     {
@@ -4096,12 +4116,16 @@
    "url": "https://www.gov.uk/foreign-travel-advice/chad",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/chad/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/chad",
-   "aggiornata": "2026-08-06",
+   "aggiornata": "2026-11-04",
    "ultimo_cambio": {
-    "data": "2026-08-06",
-    "nota": "Updated information about health risks you’ll face in Chad (‘Health’ page)."
+    "data": "2026-11-04",
+    "nota": "This travel advice has been reviewed for accuracy with changes made throughout, including updated information about applying for a visa, terrorism in Chad, terrorist kidnapping, political situation, robbery, protecting yourself and your belongings, Ramadan, driving standards and security, travelling outside N'Djamena, regional risks, health risks you may face in Chad, including Dengue and emergency numbers if your require police, ambulance or fire services ('Entry requirements', 'Safety and security', 'Regional risks', 'Health' and 'Getting help' pages)."
    },
    "cambi_ingresso": [
+    {
+     "data": "2026-11-04",
+     "nota": "This travel advice has been reviewed for accuracy with changes made throughout, including updated information about applying for a visa, terrorism in Chad, terrorist kidnapping, political situation, robbery, protecting yourself and your belongings, Ramadan, driving standards and security, travelling outside N'Djamena, regional risks, health risks you may face in Chad, including Dengue and emergency numbers if your require police, ambulance or fire services ('Entry requirements', 'Safety and security', 'Regional risks', 'Health' and 'Getting help' pages)."
+    },
     {
      "data": "2025-12-10",
      "nota": "New information about dual nationals returning to the UK (‘Entry requirements’ page)."
@@ -4117,10 +4141,6 @@
     {
      "data": "2022-03-04",
      "nota": "Updated information on the political and security situation (‘Summary’ and ‘Safety and security’ pages). Full review ‘Coronavirus’ and 'Entry requirements' pages"
-    },
-    {
-     "data": "2021-11-02",
-     "nota": "Updated information testing requirements for entry to Chad ('Coronavirus' and 'Entry requirements' page)"
     }
    ],
    "titolo_sezione": "Passport validity requirements",
@@ -4164,15 +4184,11 @@
      },
      {
       "t": "p",
-      "x": "To apply for a visa contact the Chadian Embassy in Belgium."
+      "x": "Since May 2026, visa applications for Chad can be submitted online through the official e-Visa platform. Applicants can complete the application, upload supporting documents, pay the visa fee, and track the status of their application online. The Chadian authorities recommend applying at least seven days before travel."
      },
      {
       "t": "p",
-      "x": "Or contact the Chadian Embassy in France, which does not have a website:"
-     },
-     {
-      "t": "p",
-      "x": "65 Rue des Belles Feuilles, 75116, ParisEmail: ambatchad-paris@libertysurf.frTelephone: +33 (0)1 45 53 36 75Fax: +33 (0)1 45 53 16 09"
+      "x": "Alternatively, you can contact a Chadian Embassy for assistance with visa applications. To apply for a visa contact the Chadian Embassy in Belgium, or the Chadian Embassy in France."
      }
     ],
     "frase": "You must have a visa to visit Chad.",
@@ -4409,10 +4425,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/colombia",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/colombia/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/colombia",
-   "aggiornata": "2026-10-15",
+   "aggiornata": "2026-10-30",
    "ultimo_cambio": {
-    "data": "2026-10-15",
-    "nota": "New information about the 2026-2027 El Niño weather event (‘Safety and security’ page)."
+    "data": "2026-10-30",
+    "nota": "New information about the the temporary deployment of security forces in the city of Cucuta (‘Warnings and Insurance’ page)."
    },
    "cambi_ingresso": [
     {
@@ -4570,12 +4586,16 @@
    "url": "https://www.gov.uk/foreign-travel-advice/congo",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/congo/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/congo",
-   "aggiornata": "2026-06-02",
+   "aggiornata": "2026-10-27",
    "ultimo_cambio": {
-    "data": "2026-06-02",
-    "nota": "New information about Ebola screening when arriving in country (‘Entry requirements’ page)."
+    "data": "2026-10-27",
+    "nota": "Updated information about vaccine requirements for border control (‘Entry requirements’ page)."
    },
    "cambi_ingresso": [
+    {
+     "data": "2026-10-27",
+     "nota": "Updated information about vaccine requirements for border control (‘Entry requirements’ page)."
+    },
     {
      "data": "2026-06-02",
      "nota": "New information about Ebola screening when arriving in country (‘Entry requirements’ page)."
@@ -4591,10 +4611,6 @@
     {
      "data": "2022-04-08",
      "nota": "Updated information on COVID-19 measures and entry requirements (‘Coronavirus’ and ‘Entry requirements’ pages)"
-    },
-    {
-     "data": "2021-03-31",
-     "nota": "New information on emergency travel documents (‘Entry requirements’ page)"
     }
    ],
    "titolo_sezione": "Passport validity requirements",
@@ -6180,10 +6196,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/ecuador",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/ecuador/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/ecuador",
-   "aggiornata": "2026-10-02",
+   "aggiornata": "2026-11-01",
    "ultimo_cambio": {
-    "data": "2026-10-02",
-    "nota": "New information about the 2026–2027 El Niño weather event ('Safety and security' page)."
+    "data": "2026-11-01",
+    "nota": "Updated information about heavy rain and flooding on Santa Cruz Island, Galapagos. (Warnings and insurance)"
    },
    "cambi_ingresso": [
     {
@@ -6283,10 +6299,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/egypt",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/egypt/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/egypt",
-   "aggiornata": "2026-08-04",
+   "aggiornata": "2026-10-27",
    "ultimo_cambio": {
-    "data": "2026-08-04",
-    "nota": "Updated information about entry requirements and regional tensions ('Warnings and insurance' and 'Entry requirements' pages)."
+    "data": "2026-10-27",
+    "nota": "Updated information about Regional tensions (see ‘Warnings and insurance’ page)"
    },
    "cambi_ingresso": [
     {
@@ -6478,12 +6494,16 @@
    "url": "https://www.gov.uk/foreign-travel-advice/el-salvador",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/el-salvador/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/el-salvador",
-   "aggiornata": "2026-06-17",
+   "aggiornata": "2026-10-27",
    "ultimo_cambio": {
-    "data": "2026-06-17",
-    "nota": "Removal of information about Tropical Storm Cristina."
+    "data": "2026-10-27",
+    "nota": "New information about Ebola-related health measures and quarantine requirements for some travellers (‘Entry requirements’ page)."
    },
    "cambi_ingresso": [
+    {
+     "data": "2026-10-27",
+     "nota": "New information about Ebola-related health measures and quarantine requirements for some travellers (‘Entry requirements’ page)."
+    },
     {
      "data": "2025-12-10",
      "nota": "New information about dual nationals returning to the UK (‘Entry requirements’ page)."
@@ -6499,10 +6519,6 @@
     {
      "data": "2023-01-17",
      "nota": "Updated information on State of Exception, Seismic Activity, Entry Requirements and Political Situation (‘Summary’, 'Safety and security’, ‘Entry requirements’, and ‘Natural disasters’ pages)."
-    },
-    {
-     "data": "2022-11-30",
-     "nota": "Updated information on Volcanic Activity ('Summary', 'Entry Requirements' and 'Natural disasters' pages)."
     }
    ],
    "titolo_sezione": "Passport validity requirements",
@@ -7001,10 +7017,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/ethiopia",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/ethiopia/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/ethiopia",
-   "aggiornata": "2026-10-16",
+   "aggiornata": "2026-10-30",
    "ultimo_cambio": {
-    "data": "2026-10-16",
-    "nota": "New information about fighting in the Tigray region and updated information about travel from the airport and around Addis Ababa (‘Warnings and insurance’, ‘Safety and security’ and ‘Regional risks’ pages)."
+    "data": "2026-10-30",
+    "nota": "Update on areas that the FCDO advise against all travel to within 10km of the border with Kenya (Warnings and Insurance page)"
    },
    "cambi_ingresso": [
     {
@@ -7512,10 +7528,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/france",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/france/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/france",
-   "aggiornata": "2026-08-11",
+   "aggiornata": "2026-10-22",
    "ultimo_cambio": {
-    "data": "2026-08-11",
-    "nota": "Updated information on European Entry-Exit System (EES) (‘Entry requirements’ page)."
+    "data": "2026-10-22",
+    "nota": "Updated information about demonstrations (‘Warnings and insurance’ page)."
    },
    "cambi_ingresso": [
     {
@@ -8188,12 +8204,16 @@
    "url": "https://www.gov.uk/foreign-travel-advice/ghana",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/ghana/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/ghana",
-   "aggiornata": "2026-07-02",
+   "aggiornata": "2026-11-04",
    "ultimo_cambio": {
-    "data": "2026-07-02",
-    "nota": "Removal of information about flooding in parts of Ghana, including Accra and surrounding areas (‘Warnings and insurance’ page)."
+    "data": "2026-11-04",
+    "nota": "Updated information about Ebola screening in Ghana (‘Entry requirements’ page)."
    },
    "cambi_ingresso": [
+    {
+     "data": "2026-11-04",
+     "nota": "Updated information about Ebola screening in Ghana (‘Entry requirements’ page)."
+    },
     {
      "data": "2025-12-10",
      "nota": "New information about dual nationals returning to the UK (‘Entry requirements’ page)."
@@ -8209,10 +8229,6 @@
     {
      "data": "2022-12-16",
      "nota": "Addition of information that children aged 17 or under are exempt from mandatory vaccination, pre-departure PCR testing and testing on arrival in Ghana. (‘Entry requirements’ page)."
-    },
-    {
-     "data": "2022-06-06",
-     "nota": "Addition of information about mandatory quarantine for unvaccinated residents travelling to Ghana (‘Entry requirements’ page); new information about an outbreak of the Hanz virus (‘Health’ page); and updates to ‘Coronavirus’ page."
     }
    ],
    "titolo_sezione": "Passport validity requirements",
@@ -8366,10 +8382,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/greece",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/greece/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/greece",
-   "aggiornata": "2026-08-11",
+   "aggiornata": "2026-11-03",
    "ultimo_cambio": {
-    "data": "2026-08-11",
-    "nota": "Updated information on European Entry-Exit System (EES) (‘Entry requirements’ page)."
+    "data": "2026-11-03",
+    "nota": "New information about winter weather in Greece, including flash flooding ('Warnings and insurance' page)."
    },
    "cambi_ingresso": [
     {
@@ -8596,10 +8612,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/guadeloupe",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/guadeloupe/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/guadeloupe",
-   "aggiornata": "2025-12-10",
+   "aggiornata": "2026-10-22",
    "ultimo_cambio": {
-    "data": "2025-12-10",
-    "nota": "New information about dual nationals returning to the UK (‘Entry requirements’ page)."
+    "data": "2026-10-22",
+    "nota": "Updated information about demonstrations (‘Warnings and insurance’ page)."
    },
    "cambi_ingresso": [
     {
@@ -9948,10 +9964,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/iran",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/iran/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/iran",
-   "aggiornata": "2026-08-13",
+   "aggiornata": "2026-10-27",
    "ultimo_cambio": {
-    "data": "2026-08-13",
-    "nota": "Removal of information on temporary withdrawal of UK staff from Iran and the embassy operating remotely (‘Warnings and insurance’ page)."
+    "data": "2026-10-27",
+    "nota": "Updated information about Regional tensions (‘Warnings and insurance’ page)"
    },
    "cambi_ingresso": [
     {
@@ -10079,10 +10095,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/iraq",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/iraq/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/iraq",
-   "aggiornata": "2026-07-22",
+   "aggiornata": "2026-10-27",
    "ultimo_cambio": {
-    "data": "2026-07-22",
-    "nota": "Updated information about regional tensions following recent strikes and retaliatory attacks by Iran ('Warnings and insurance' page)."
+    "data": "2026-10-27",
+    "nota": "Updated information about regional tensions (‘Warnings and insurance’ page)."
    },
    "cambi_ingresso": [
     {
@@ -10242,10 +10258,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/israel",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/israel/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/israel",
-   "aggiornata": "2026-07-22",
+   "aggiornata": "2026-10-27",
    "ultimo_cambio": {
-    "data": "2026-07-22",
-    "nota": "Updated information about regional tensions, including information about recent strikes and retaliatory attacks by Iran ('Warnings insurance') page."
+    "data": "2026-10-27",
+    "nota": "Updated information about Regional tensions (‘Warnings and insurance’ page)"
    },
    "cambi_ingresso": [
     {
@@ -10321,10 +10337,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/italy",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/italy/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/italy",
-   "aggiornata": "2026-10-02",
+   "aggiornata": "2026-11-03",
    "ultimo_cambio": {
-    "data": "2026-10-02",
-    "nota": "Removal of information about Mount Etna volcanic activity (‘Warnings and insurance’ page)."
+    "data": "2026-11-03",
+    "nota": "Removal of information about national strike."
    },
    "cambi_ingresso": [
     {
@@ -10642,10 +10658,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/jordan",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/jordan/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/jordan",
-   "aggiornata": "2026-09-10",
+   "aggiornata": "2026-10-27",
    "ultimo_cambio": {
-    "data": "2026-09-10",
-    "nota": "Addition of information about Iranian missile strikes on Jordan (‘Warnings and insurance’ page)"
+    "data": "2026-10-27",
+    "nota": "Updated information about regional tensions (‘Warnings and insurance’ page)."
    },
    "cambi_ingresso": [
     {
@@ -10757,12 +10773,16 @@
    "url": "https://www.gov.uk/foreign-travel-advice/kazakhstan",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/kazakhstan/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/kazakhstan",
-   "aggiornata": "2026-10-13",
+   "aggiornata": "2026-10-30",
    "ultimo_cambio": {
-    "data": "2026-10-13",
-    "nota": "Addition of information about Electronic Travel Authorisation (ETA) (‘Entry requirements’ page)."
+    "data": "2026-10-30",
+    "nota": "Updated information about Electronic Travel Authorisation (ETA) ('Entry requirements' page)."
    },
    "cambi_ingresso": [
+    {
+     "data": "2026-10-30",
+     "nota": "Updated information about Electronic Travel Authorisation (ETA) ('Entry requirements' page)."
+    },
     {
      "data": "2026-10-13",
      "nota": "Addition of information about Electronic Travel Authorisation (ETA) (‘Entry requirements’ page)."
@@ -10778,10 +10798,6 @@
     {
      "data": "2025-10-07",
      "nota": "This travel advice has been reviewed for accuracy with edits made throughout, including updated information about demonstrations, alcohol laws, money, trekking and mountaineering and transport risks ('Entry requirements' and 'Safety and security' pages)."
-    },
-    {
-     "data": "2024-01-18",
-     "nota": "Updated information on visa requirements for British nationals ('Entry requirements' page)."
     }
    ],
    "titolo_sezione": "Passport validity requirements",
@@ -10842,12 +10858,16 @@
    "url": "https://www.gov.uk/foreign-travel-advice/kenya",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/kenya/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/kenya",
-   "aggiornata": "2026-10-16",
+   "aggiornata": "2026-10-30",
    "ultimo_cambio": {
-    "data": "2026-10-16",
-    "nota": "New information about Ebola screening (‘Entry requirements’ page)."
+    "data": "2026-10-30",
+    "nota": "Updated information about the Kenya-Ethiopia border (‘Regional risks’ page)."
    },
    "cambi_ingresso": [
+    {
+     "data": "2026-10-28",
+     "nota": "Updated information about Ebola screening, with details of how to access automated health information and guidance from the Kenyan authorities (‘Entry requirements’ page)."
+    },
     {
      "data": "2026-10-16",
      "nota": "New information about Ebola screening (‘Entry requirements’ page)."
@@ -10863,10 +10883,6 @@
     {
      "data": "2026-05-22",
      "nota": "New information about Ebola screening when arriving in country (‘Entry requirements’ page)."
-    },
-    {
-     "data": "2025-12-10",
-     "nota": "New information about dual nationals returning to the UK (‘Entry requirements’ page)."
     }
    ],
    "titolo_sezione": "Passport validity requirements",
@@ -11087,10 +11103,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/kuwait",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/kuwait/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/kuwait",
-   "aggiornata": "2026-08-20",
+   "aggiornata": "2026-10-27",
    "ultimo_cambio": {
-    "data": "2026-08-20",
-    "nota": "FCDO no longer advises against all but essential travel to Kuwait (‘Warnings and insurance’ page)."
+    "data": "2026-10-27",
+    "nota": "Updated information about regional tensions (‘Warnings and insurance’ page)."
    },
    "cambi_ingresso": [
     {
@@ -12481,12 +12497,16 @@
    "url": "https://www.gov.uk/foreign-travel-advice/madagascar",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/madagascar/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/madagascar",
-   "aggiornata": "2026-09-09",
+   "aggiornata": "2026-11-03",
    "ultimo_cambio": {
-    "data": "2026-09-09",
-    "nota": "Addition of information on Ebola entry requirements (‘Entry requirements’ page)"
+    "data": "2026-11-03",
+    "nota": "Updated information about Ebola including entry requirements and health screening (‘Entry requirements’ page)."
    },
    "cambi_ingresso": [
+    {
+     "data": "2026-11-03",
+     "nota": "Updated information about Ebola including entry requirements and health screening (‘Entry requirements’ page)."
+    },
     {
      "data": "2026-09-09",
      "nota": "Addition of information on Ebola entry requirements (‘Entry requirements’ page)"
@@ -12502,10 +12522,6 @@
     {
      "data": "2022-10-19",
      "nota": "Updated to reflect visa waivers for international travellers staying less than 15 days ('Entry requirements' page)."
-    },
-    {
-     "data": "2022-08-12",
-     "nota": "Updated information on COVID-19 entry requirements ('Entry Requirements' page)"
     }
    ],
    "titolo_sezione": "Passport validity requirements",
@@ -12584,12 +12600,16 @@
    "url": "https://www.gov.uk/foreign-travel-advice/malawi",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/malawi/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/malawi",
-   "aggiornata": "2026-07-03",
+   "aggiornata": "2026-10-20",
    "ultimo_cambio": {
-    "data": "2026-07-03",
-    "nota": "New information about Traveller Health Check form ('Entry requirements' page)."
+    "data": "2026-10-20",
+    "nota": "New information about foreign currency rules (‘Entry requirements’ page)."
    },
    "cambi_ingresso": [
+    {
+     "data": "2026-10-20",
+     "nota": "New information about foreign currency rules (‘Entry requirements’ page)."
+    },
     {
      "data": "2026-07-03",
      "nota": "New information about Traveller Health Check form ('Entry requirements' page)."
@@ -12605,10 +12625,6 @@
     {
      "data": "2025-12-04",
      "nota": "Addition of information that the Malawian government has announced a stop to visa-free entry. You might need a visa when you arrive. It is not clear when this will start ('Entry requirements' page)."
-    },
-    {
-     "data": "2025-11-28",
-     "nota": "Updated information about change to visa requirements for UK nationals entering Malawi ('Entry requirements' page)."
     }
    ],
    "titolo_sezione": "Passport validity requirements",
@@ -13202,10 +13218,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/martinique",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/martinique/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/martinique",
-   "aggiornata": "2025-12-10",
+   "aggiornata": "2026-10-23",
    "ultimo_cambio": {
-    "data": "2025-12-10",
-    "nota": "New information about dual nationals returning to the UK (‘Entry requirements’ page)."
+    "data": "2026-10-23",
+    "nota": "Updated information about demonstrations (‘Safety and security’ page)."
    },
    "cambi_ingresso": [
     {
@@ -13289,10 +13305,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/mauritania",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/mauritania/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/mauritania",
-   "aggiornata": "2026-03-24",
+   "aggiornata": "2026-10-19",
    "ultimo_cambio": {
-    "data": "2026-03-24",
-    "nota": "New information about protests (‘Warnings and insurance’ page)."
+    "data": "2026-10-19",
+    "nota": "New information on risks of travelling on the iron ore train (‘Safety and security’ page)."
    },
    "cambi_ingresso": [
     {
@@ -13376,10 +13392,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/mauritius",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/mauritius/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/mauritius",
-   "aggiornata": "2026-10-16",
+   "aggiornata": "2026-10-19",
    "ultimo_cambio": {
-    "data": "2026-10-16",
-    "nota": "Updated information about local demonstrations and community unrest (‘Warnings and insurance’ page)."
+    "data": "2026-10-19",
+    "nota": "Updated information about local demonstrations and community unrest ('Safety and security' page)."
    },
    "cambi_ingresso": [
     {
@@ -13554,10 +13570,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/mexico",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/mexico/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/mexico",
-   "aggiornata": "2026-10-16",
+   "aggiornata": "2026-10-20",
    "ultimo_cambio": {
-    "data": "2026-10-16",
-    "nota": "New information about Hurricane Trudy, which is affecting Mexico’s pacific coast ('Warnings and insurance' page)."
+    "data": "2026-10-20",
+    "nota": "Removal of information about Hurricane Trudy ('Warnings and insurance' page)."
    },
    "cambi_ingresso": [
     {
@@ -13656,12 +13672,16 @@
    "url": "https://www.gov.uk/foreign-travel-advice/moldova",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/moldova/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/moldova",
-   "aggiornata": "2025-12-10",
+   "aggiornata": "2026-11-04",
    "ultimo_cambio": {
-    "data": "2025-12-10",
-    "nota": "New information about dual nationals returning to the UK (‘Entry requirements’ page)."
+    "data": "2026-11-04",
+    "nota": "This travel advice has been reviewed for accuracy with changes made throughout, including updated information about visa requirements, land border crossings, entering Moldova from Ukraine, political situation, humanitarian support workers, crime, using cameras, money and taxi's ('Entry requirements' and 'Safety and security' pages)."
    },
    "cambi_ingresso": [
+    {
+     "data": "2026-11-04",
+     "nota": "This travel advice has been reviewed for accuracy with changes made throughout, including updated information about visa requirements, land border crossings, entering Moldova from Ukraine, political situation, humanitarian support workers, crime, using cameras, money and taxi's ('Entry requirements' and 'Safety and security' pages)."
+    },
     {
      "data": "2025-12-10",
      "nota": "New information about dual nationals returning to the UK (‘Entry requirements’ page)."
@@ -13677,10 +13697,6 @@
     {
      "data": "2022-03-22",
      "nota": "Updated with information about the easing of restrictions of flights into Moldova ('Summary', 'Coronavirus' and 'Entry requirements' pages)"
-    },
-    {
-     "data": "2022-03-04",
-     "nota": "Updated information on the closure of Moldova airspace and entry from Ukraine ('Summary'  and ‘Entry requirements’ pages)"
     }
    ],
    "titolo_sezione": "Passport validity requirements",
@@ -13716,7 +13732,7 @@
     "testo": [
      {
       "t": "p",
-      "x": "You can visit Moldova for tourism or business without a visa for up to 90 days in a 6-month period. You must be able to show a return or onward flight ticket."
+      "x": "You can visit Moldova for tourism or business without a visa for up to 90 days in a 6-month period. You must be able to show proof of return or onward travel to another country, such as an onward flight ticket."
      },
      {
       "t": "p",
@@ -15239,10 +15255,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/niger",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/niger/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/niger",
-   "aggiornata": "2026-08-29",
+   "aggiornata": "2026-10-23",
    "ultimo_cambio": {
-    "data": "2026-08-29",
-    "nota": "Information on reports of gunfire early morning on 29 August near Presidential Palace and Diori Hamani International airport (‘Warnings and insurance’ page)"
+    "data": "2026-10-23",
+    "nota": "Updated information about attacks near the Presidential Palace and Niamey’s Diori International Airport ('Safety and security' page.)"
    },
    "cambi_ingresso": [
     {
@@ -15318,12 +15334,16 @@
    "url": "https://www.gov.uk/foreign-travel-advice/nigeria",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/nigeria/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/nigeria",
-   "aggiornata": "2026-10-16",
+   "aggiornata": "2026-10-28",
    "ultimo_cambio": {
-    "data": "2026-10-16",
-    "nota": "FCDO now advises against all travel to Sokoto State. FCDO continues to advise against all travel and all but essential travel to other parts of Nigeria (‘Warnings and insurance’ page)."
+    "data": "2026-10-28",
+    "nota": "Updated information about Ebola screening and Healthcare in Nigeria (‘Entry requirements’ and ‘Health’ pages)."
    },
    "cambi_ingresso": [
+    {
+     "data": "2026-10-28",
+     "nota": "Updated information about Ebola screening and Healthcare in Nigeria (‘Entry requirements’ and ‘Health’ pages)."
+    },
     {
      "data": "2026-09-28",
      "nota": "Updated information about Ebola screening ('Entry requirements' page)."
@@ -15339,10 +15359,6 @@
     {
      "data": "2025-12-10",
      "nota": "New information about dual nationals returning to the UK (‘Entry requirements’ page)."
-    },
-    {
-     "data": "2025-08-28",
-     "nota": "New information on exemptions for yellow fever vaccine requirements when entering Nigeria (See ‘Vaccine requirements’ on the ‘Entry requirements’ page)"
     }
    ],
    "titolo_sezione": "Passport validity requirements",
@@ -15758,10 +15774,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/oman",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/oman/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/oman",
-   "aggiornata": "2026-07-22",
+   "aggiornata": "2026-10-27",
    "ultimo_cambio": {
-    "data": "2026-07-22",
-    "nota": "Updated information about regional tensions following recent strikes and retaliatory attacks by Iran ('Warnings and insurance' page)."
+    "data": "2026-10-27",
+    "nota": "Updated information about regional tensions (‘Warnings and insurance’ page)."
    },
    "cambi_ingresso": [
     {
@@ -15849,10 +15865,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/pakistan",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/pakistan/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/pakistan",
-   "aggiornata": "2026-10-13",
+   "aggiornata": "2026-10-27",
    "ultimo_cambio": {
-    "data": "2026-10-13",
-    "nota": "Addition of information about emergency measures in Khyber Pakhtunkhwa (‘Warnings and insurance’ page)."
+    "data": "2026-10-27",
+    "nota": "Updated information about regional tensions (‘Warnings and insurance’ page)"
    },
    "cambi_ingresso": [
     {
@@ -16044,10 +16060,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/palestine",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/palestine/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/palestine",
-   "aggiornata": "2026-07-22",
+   "aggiornata": "2026-10-27",
    "ultimo_cambio": {
-    "data": "2026-07-22",
-    "nota": "Updated information about regional tensions, including information about recent strikes and retaliatory attacks by Iran ('Warnings insurance') page."
+    "data": "2026-10-27",
+    "nota": "Updated information about Regional tensions (‘Warnings and insurance’ page)"
    },
    "cambi_ingresso": [
     {
@@ -16327,10 +16343,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/paraguay",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/paraguay/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/paraguay",
-   "aggiornata": "2026-01-21",
+   "aggiornata": "2026-11-03",
    "ultimo_cambio": {
-    "data": "2026-01-21",
-    "nota": "Updated information on travelling with children ('Entry requirements' page)."
+    "data": "2026-11-03",
+    "nota": "Update on possible demonstrations and protests in Paraguay ('Safety and security' page)."
    },
    "cambi_ingresso": [
     {
@@ -16965,10 +16981,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/qatar",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/qatar/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/qatar",
-   "aggiornata": "2026-08-19",
+   "aggiornata": "2026-10-27",
    "ultimo_cambio": {
-    "data": "2026-08-19",
-    "nota": "Updated information about bringing prescription and controlled medication into Qatar, including the Ministry of Public Health's online permit application system ('Health' page)."
+    "data": "2026-10-27",
+    "nota": "Updated information about regional tensions (‘Warnings and insurance’ page) ."
    },
    "cambi_ingresso": [
     {
@@ -17432,10 +17448,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/reunion",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/reunion/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/reunion",
-   "aggiornata": "2025-12-10",
+   "aggiornata": "2026-10-22",
    "ultimo_cambio": {
-    "data": "2025-12-10",
-    "nota": "New information about dual nationals returning to the UK (‘Entry requirements’ page)."
+    "data": "2026-10-22",
+    "nota": "Updated information about demonstrations (‘Warnings and insurance’ page)."
    },
    "cambi_ingresso": [
     {
@@ -17721,10 +17737,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/saudi-arabia",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/saudi-arabia/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/saudi-arabia",
-   "aggiornata": "2026-10-16",
+   "aggiornata": "2026-10-27",
    "ultimo_cambio": {
-    "data": "2026-10-16",
-    "nota": "FCDO now advises against all but essential travel to Saudi Arabia. FCDO continues to advise against all travel to within 10km of the border with Yemen (‘Warnings and insurance’ page and ‘Regional risks’ page)."
+    "data": "2026-10-27",
+    "nota": "Updated information about Regional tensions (‘Warnings and insurance’ page)"
    },
    "cambi_ingresso": [
     {
@@ -18039,10 +18055,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/serbia",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/serbia/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/serbia",
-   "aggiornata": "2026-08-13",
+   "aggiornata": "2026-10-22",
    "ultimo_cambio": {
-    "data": "2026-08-13",
-    "nota": "New information on wait times if travelling to and from the Schengen area from Serbia ('Warnings and insurance' page)."
+    "data": "2026-10-22",
+    "nota": "New information about Serbian parliamentary elections taking place on 25 October (‘Warnings and insurance’ and ‘Safety and security’ pages)."
    },
    "cambi_ingresso": [
     {
@@ -18130,12 +18146,16 @@
    "url": "https://www.gov.uk/foreign-travel-advice/seychelles",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/seychelles/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/seychelles",
-   "aggiornata": "2026-01-21",
+   "aggiornata": "2026-10-23",
    "ultimo_cambio": {
-    "data": "2026-01-21",
-    "nota": "New information on illegal drugs and prison sentences ('Safety and security' page)."
+    "data": "2026-10-23",
+    "nota": "New information about Ebola health measures for entry into Seychelles (‘Entry requirements’ page)."
    },
    "cambi_ingresso": [
+    {
+     "data": "2026-10-23",
+     "nota": "New information about Ebola health measures for entry into Seychelles (‘Entry requirements’ page)."
+    },
     {
      "data": "2025-12-10",
      "nota": "New information about dual nationals returning to the UK (‘Entry requirements’ page)."
@@ -18151,10 +18171,6 @@
     {
      "data": "2022-03-25",
      "nota": "Updated information on entry requirements for children ('Entry requirements' page)"
-    },
-    {
-     "data": "2022-03-24",
-     "nota": "Updated information on the requirement to provide proof of vaccination status for entry to Seychelles ('Entry requirements' page)"
     }
    ],
    "titolo_sezione": "Passport validity requirements",
@@ -18918,10 +18934,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/south-africa",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/south-africa/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/south-africa",
-   "aggiornata": "2026-07-08",
+   "aggiornata": "2026-11-04",
    "ultimo_cambio": {
-    "data": "2026-07-08",
-    "nota": "New information about submitting an online traveller declaration before travelling and information about taking money into South Africa ('Entry requirements' page)."
+    "data": "2026-11-04",
+    "nota": "New information about local government elections taking place in South Africa ('Warnings and insurance' page)."
    },
    "cambi_ingresso": [
     {
@@ -19284,10 +19300,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/spain",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/spain/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/spain",
-   "aggiornata": "2026-08-12",
+   "aggiornata": "2026-10-28",
    "ultimo_cambio": {
-    "data": "2026-08-12",
-    "nota": "Addition of information about fines for the sale or consumption of nitrous oxide (laughing gas) in some areas of Spain and updated information about travelling between Spain and Gibraltar ('Safety and security' and 'Entry requirements' pages)."
+    "data": "2026-10-28",
+    "nota": "New information following a high speed rail collision in Toledo ('Warnings and insurance' page)."
    },
    "cambi_ingresso": [
     {
@@ -20716,10 +20732,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/syria",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/syria/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/syria",
-   "aggiornata": "2026-09-02",
+   "aggiornata": "2026-10-27",
    "ultimo_cambio": {
-    "data": "2026-09-02",
-    "nota": "This travel advice has been reviewed for accuracy with changes made throughout, including terrorism in Syria, security situation, journalists in Syria and crime ('Safety and security' page)."
+    "data": "2026-10-27",
+    "nota": "Updated information about regional tensions (‘Warnings and insurance’ page)."
    },
    "cambi_ingresso": [
     {
@@ -21132,12 +21148,16 @@
    "url": "https://www.gov.uk/foreign-travel-advice/tanzania",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/tanzania/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/tanzania",
-   "aggiornata": "2026-10-09",
+   "aggiornata": "2026-10-30",
    "ultimo_cambio": {
-    "data": "2026-10-09",
-    "nota": "Updated information about mandatory travel insurance and wildfires ('Entry requirements' and 'Safety and security' pages)."
+    "data": "2026-10-30",
+    "nota": "Additional information about use of security measures to reduce the risk of burglary in hotels and other accommodation (‘Safety and security’ page)."
    },
    "cambi_ingresso": [
+    {
+     "data": "2026-10-20",
+     "nota": "Updated information about Ebola screening measures for all travellers arriving into Tanzania, addition of information about the risk of protests on 29 October and new information about the risks of bringing cannabidiol (CBD) products into Tanzania (‘Entry requirements’ and ‘Safety and security’ pages)."
+    },
     {
      "data": "2026-10-09",
      "nota": "Updated information about mandatory travel insurance and wildfires ('Entry requirements' and 'Safety and security' pages)."
@@ -21153,10 +21173,6 @@
     {
      "data": "2026-05-19",
      "nota": "Addition of  information about heightened health screening measures for those entering Tanzania from Uganda and the Democratic Republic of Congo ('Entry requirements' page)."
-    },
-    {
-     "data": "2025-12-10",
-     "nota": "Updated information on the political situation following the October 29 elections (‘Safety and security’ page). New information about dual nationals returning to the UK (‘Entry requirements’ page)."
     }
    ],
    "titolo_sezione": "Passport validity requirements",
@@ -21236,11 +21252,11 @@
      },
      {
       "t": "p",
-      "x": "On 18 May, the Tanzania Ministry of Health issued a Travel Advisory note announcing heightened health screening measures for travellers arriving into Tanzania from Uganda and the Democratic Republic of Congo. The World Health Organisation (WHO) has declared this a Public Health Emergency of International Concern."
+      "x": "On 17 October, the Tanzania Ministry of Health announced heightened health screening measure for travellers from high-risk regions and affected countries, at all points of entry. Further information on countries affected can be found here."
      },
      {
       "t": "p",
-      "x": "On 27 August, WHO declared the Uganda Ebola outbreak over. Heightened health screening measures are no longer in place for travellers arriving into Tanzania from Uganda, but remain for those arriving from the Democratic Republic of Congo."
+      "x": "All travellers are required to fill out the Travellers Health Surveillance Form before departing or on arrival."
      },
      {
       "t": "h3",
@@ -21580,12 +21596,16 @@
    "url": "https://www.gov.uk/foreign-travel-advice/togo",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/togo/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/togo",
-   "aggiornata": "2025-12-15",
+   "aggiornata": "2026-11-04",
    "ultimo_cambio": {
-    "data": "2025-12-15",
-    "nota": "FCDO now advises against all travel to within 30km of the border with Burkina Faso except for the city of Dapaong and the N1 highway leading to it from the south and FCDO now advises against all but essential travel to the rest of the Savanes Region (‘Warnings and insurance’ page)."
+    "data": "2026-11-04",
+    "nota": "Updated information about applying for a visa (see 'Visa requirements' on the 'Entry requirements' page)."
    },
    "cambi_ingresso": [
+    {
+     "data": "2026-11-04",
+     "nota": "Updated information about applying for a visa (see 'Visa requirements' on the 'Entry requirements' page)."
+    },
     {
      "data": "2025-12-10",
      "nota": "New information about dual nationals returning to the UK (‘Entry requirements’ page)."
@@ -21601,10 +21621,6 @@
     {
      "data": "2023-07-20",
      "nota": "Removal of COVID 19 travel restrictions ('Coronavirus' and 'Entry requirements' pages)."
-    },
-    {
-     "data": "2023-03-10",
-     "nota": "Updated information on the introduction of e-visas (‘Entry requirements’ page) and a factual update about demonstrations (‘Safety and security’ page)."
     }
    ],
    "titolo_sezione": "Passport validity requirements",
@@ -21646,7 +21662,7 @@
     "testo": [
      {
       "t": "p",
-      "x": "You must have a visa to visit Togo. A single-entry tourist visa is valid for 15 days. You must apply for a visa at least 6 days before you plan to arrive in the country. You cannot get a visa on arrival."
+      "x": "You must have a visa to visit Togo. A single-entry tourist visa is valid for 15 days. You must apply for a visa at least 5 working days before you plan to arrive in the country. You cannot get a visa on arrival."
      },
      {
       "t": "p",
@@ -22010,10 +22026,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/turkey",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/turkey/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/turkey",
-   "aggiornata": "2026-10-15",
+   "aggiornata": "2026-10-27",
    "ultimo_cambio": {
-    "data": "2026-10-15",
-    "nota": "Addition of information about heavy rain and flooding in Istanbul ('Warnings and insurance' page)."
+    "data": "2026-10-27",
+    "nota": "Updated information about regional tensions (‘Warnings and insurance’ page)."
    },
    "cambi_ingresso": [
     {
@@ -22107,12 +22123,16 @@
    "url": "https://www.gov.uk/foreign-travel-advice/turkmenistan",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/turkmenistan/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/turkmenistan",
-   "aggiornata": "2026-06-04",
+   "aggiornata": "2026-10-21",
    "ultimo_cambio": {
-    "data": "2026-06-04",
-    "nota": "Updated information about COVID-19 testing when arriving in Turkmenistan ('Entry requirements' page)."
+    "data": "2026-10-21",
+    "nota": "Updated information about COVID-19 rules, applying for visas, transit visas and taking cash into Turkmenistan (‘Entry requirements’ page)."
    },
    "cambi_ingresso": [
+    {
+     "data": "2026-10-21",
+     "nota": "Updated information about COVID-19 rules, applying for visas, transit visas and taking cash into Turkmenistan (‘Entry requirements’ page)."
+    },
     {
      "data": "2026-06-04",
      "nota": "Updated information about COVID-19 testing when arriving in Turkmenistan ('Entry requirements' page)."
@@ -22128,10 +22148,6 @@
     {
      "data": "2026-03-01",
      "nota": "New information about entering Turkmenistan across the land border from Iran (‘Entry requirements’ page)"
-    },
-    {
-     "data": "2025-12-10",
-     "nota": "New information about dual nationals returning to the UK (‘Entry requirements’ page)."
     }
    ],
    "titolo_sezione": "Passport validity requirements",
@@ -22179,19 +22195,27 @@
      },
      {
       "t": "p",
-      "x": "You need a letter of invitation to support your visa application. For tourist visits, authorised travel agents can provide these letters. If you are travelling on business, you will need letters from the relevant government ministries or companies you want to do business with. If you want to attend an exhibition or event, the organiser normally provides visa support."
+      "x": "On 1 October 2026 Turkmenistan introduced an electronic (e-visa) system for tourists and people visiting to participate in international conferences and exhibitions backed by the Government of Turkmenistan."
      },
      {
       "t": "p",
-      "x": "Once you have your letter of invitation you can either apply for a visa at your nearest Embassy of Turkmenistan or purchase a visa on arrival. The visa on arrival option is available at Ashgabat International Airport and some land borders. Check with your sponsoring tour agency for latest details on land border crossings."
+      "x": "You cannot apply for one of these visas directly. Your tour agency or event organiser will continue to act as a sponsor. However, when the visa is approved and paid for through your sponsor, you will receive an e-visa that can be printed off or presented electronically on arrival. The e-visa replaces the former two-part process of a letter of invitation followed by a visa vignette in your passport."
      },
      {
       "t": "p",
-      "x": "Visas applications to an Embassy of Turkmenistan are referred to Ashgabat for a decision, which can take up to a month."
+      "x": "If you plan to visit Turkmenistan for any purpose other than tourism or conference participation, you continue to need a letter of invitation applied for on your behalf by a sponsoring organisation. Once you have the letter of invitation you can apply for your visa either at your nearest Embassy of Turkmenistan or on arrival."
      },
      {
       "t": "p",
-      "x": "The cost of a visa is dependent on the length of stay in Turkmenistan, whether you are applying for a single or multiple entry visa and whether or not you are opting for the “Express Service” from the Embassy or visa on arrival option at Ashgabat airport. For a full list of prices for visas visit the website of the Embassy of Turkmenistan in London where a PDF document called “Visa Fees” outlines the range of prices for visas."
+      "x": "The cost of any visa is dependent on your length of stay in Turkmenistan and whether you are applying for a single or multiple entry visa. The website of Turkmenistan’s State Migration Service has more information about visas and border requirements."
+     },
+     {
+      "t": "p",
+      "x": "For visas needing to follow the letter of invitation process, Visas applications through an Embassy of Turkmenistan are referred to Ashgabat for a decision, which can take up to a month unless a paid-for express service is available. Visas on arrival attract an additional fee of 50 US dollars."
+     },
+     {
+      "t": "p",
+      "x": "The website of the Embassy of Turkmenistan in London includes a Visa Fees table for applications submitted to the Embassy."
      },
      {
       "t": "h3",
@@ -22199,11 +22223,11 @@
      },
      {
       "t": "p",
-      "x": "If you will be in Turkmenistan for fewer than 5 days you may also be able to use a transit visa. These are most commonly used for entry to Turkmenistan through a land border, for example if travelling overland from Uzbekistan. Apply for a letter of invitation through your nearest Embassy of Turkmenistan."
+      "x": "If you will be travelling overland through Turkmenistan territory for fewer than 5 days, and the purpose of your stay is the transit rather than tourism, you may be eligible for a transit visa."
      },
      {
       "t": "p",
-      "x": "When you apply for a transit visa, the sponsor will be the Turkmen State Migration Service, rather than a tour agency. Check the website of the Embassy of Turkmenistan in London for further information."
+      "x": "The Turkmen State Migration Service is the sole sponsor of transit visas."
      },
      {
       "t": "p",
@@ -22211,11 +22235,11 @@
      },
      {
       "t": "p",
-      "x": "The website of the Embassy of Turkmenistan in London sets out the eligibility criteria for a transit visa. You cannot change your transit visa to a tourist visa, and you must enter and leave Turkmenistan using the border crossings you included on the letter of invitation."
+      "x": "The website of the Embassy of Turkmenistan in London sets out the eligibility criteria for a transit visa. You cannot change your transit visa to a tourist visa, and you must enter and leave Turkmenistan using the border crossings specified in the letter of invitation."
      },
      {
       "t": "p",
-      "x": "You cannot buy a transit visa for Turkmenistan at Baku seaport. You must secure it ahead of time. If you want to travel from Turkmenistan to Azerbaijan by sea, you need to have visas for both Turkmenistan and Azerbaijan."
+      "x": "You cannot buy a transit visa for Turkmenistan at Baku seaport. You must secure it ahead of time."
      },
      {
       "t": "p",
@@ -22223,7 +22247,7 @@
      },
      {
       "t": "p",
-      "x": "A transit visa is not usually required for layover flights where you will remain airside. You should contact the Embassy of Turkmenistan in London or your airline with further questions."
+      "x": "A transit visa is not needed for layover flights where you will remain airside. You should contact the Embassy of Turkmenistan in London or your airline with further questions."
      },
      {
       "t": "p",
@@ -22392,12 +22416,16 @@
    "url": "https://www.gov.uk/foreign-travel-advice/uganda",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/uganda/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/uganda",
-   "aggiornata": "2026-10-08",
+   "aggiornata": "2026-10-28",
    "ultimo_cambio": {
-    "data": "2026-10-08",
-    "nota": "Removal of information about a yellow fever vaccination certificate requirement, as this is no longer mandatory for entry to Uganda ('Entry requirements' page)."
+    "data": "2026-10-28",
+    "nota": "Updated information about precautionary measures around the Ebola outbreak in the region (‘Entry requirements’ and ‘Health’ pages)."
    },
    "cambi_ingresso": [
+    {
+     "data": "2026-10-28",
+     "nota": "Updated information about precautionary measures around the Ebola outbreak in the region (‘Entry requirements’ and ‘Health’ pages)."
+    },
     {
      "data": "2026-10-08",
      "nota": "Removal of information about a yellow fever vaccination certificate requirement, as this is no longer mandatory for entry to Uganda ('Entry requirements' page)."
@@ -22413,10 +22441,6 @@
     {
      "data": "2026-05-28",
      "nota": "Updated information on Ebola (‘Entry requirements’ and ‘Health’ pages)."
-    },
-    {
-     "data": "2026-05-22",
-     "nota": "New information about Ebola ('Entry requirements' page)."
     }
    ],
    "titolo_sezione": "Passport validity requirements",
@@ -22640,10 +22664,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/united-arab-emirates",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/united-arab-emirates/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/united-arab-emirates",
-   "aggiornata": "2026-07-24",
+   "aggiornata": "2026-10-27",
    "ultimo_cambio": {
-    "data": "2026-07-24",
-    "nota": "Updated information about regional tensions, including information about recent strikes and retaliatory attacks by Iran ('Warnings insurance') page."
+    "data": "2026-10-27",
+    "nota": "Updated information about regional tensions (‘Warnings and insurance’ page)"
    },
    "cambi_ingresso": [
     {
@@ -22893,12 +22917,20 @@
    "url": "https://www.gov.uk/foreign-travel-advice/usa",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/usa/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/usa",
-   "aggiornata": "2026-08-18",
+   "aggiornata": "2026-10-30",
    "ultimo_cambio": {
-    "data": "2026-08-18",
-    "nota": "Updated information about US Hurricane season predictions (‘Safety and security’ page)."
+    "data": "2026-10-30",
+    "nota": "Updated information about Ebola (‘Entry requirements’ page)."
    },
    "cambi_ingresso": [
+    {
+     "data": "2026-10-30",
+     "nota": "Updated information about Ebola (‘Entry requirements’ page)."
+    },
+    {
+     "data": "2026-10-30",
+     "nota": "Updated information about Ebola (‘Entry requirements’ page)."
+    },
     {
      "data": "2026-06-02",
      "nota": "Addition of  information about entry requirements for those entering from Ebola-affected regions ('Entry requirements' page)."
@@ -22910,14 +22942,6 @@
     {
      "data": "2025-12-10",
      "nota": "New information about dual nationals returning to the UK (‘Entry requirements’ page)."
-    },
-    {
-     "data": "2025-07-25",
-     "nota": "This travel advice has been reviewed for accuracy, with edits throughout including on entry requirements and the risks associated with outdoor activities, terrorism and extreme weather (See 'Warnings and insurance', 'Entry requirements' and 'Safety and security' pages)."
-    },
-    {
-     "data": "2025-06-04",
-     "nota": "Updated information on the risks of being involved with illegal drugs, including cannabis. This includes risk of arrest if you are found carrying drugs when transiting through airports. Addition of information about entering the US, including inspections of electronic devices ('Safety and security' and ‘Entry requirements’ pages)."
     }
    ],
    "titolo_sezione": "Passport validity requirements",
@@ -23710,10 +23734,10 @@
    "url": "https://www.gov.uk/foreign-travel-advice/yemen",
    "url_ingresso": "https://www.gov.uk/foreign-travel-advice/yemen/entry-requirements",
    "api": "https://www.gov.uk/api/content/foreign-travel-advice/yemen",
-   "aggiornata": "2026-07-31",
+   "aggiornata": "2026-10-27",
    "ultimo_cambio": {
-    "data": "2026-07-31",
-    "nota": "Latest information about regional risks including the Yemen-Saudi border and threats from the Houthis (see 'Regional tensions' on ‘Warnings and insurance’ page)."
+    "data": "2026-10-27",
+    "nota": "Updated information about regional tensions (‘Warnings and insurance’ page)"
    },
    "cambi_ingresso": [
     {

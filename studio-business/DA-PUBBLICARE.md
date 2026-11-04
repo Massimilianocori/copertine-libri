@@ -15,7 +15,6 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 
 | Quando | Cosa |
 |---|---|
-| dopo il 2/11/2026 | Before You Fly, Budapest: le multe BKK nuove (30.000/15.000 HUF) sono in vigore? togliere "from 2 November" |
 | dopo il 9/11/2026 | Visa Income, OPT: chiusi i commenti sulla proposta da $70.000; controllare Federal Register e la causa sulla regola dei 30 giorni |
 | quando esce un atto nazionale sulla proroga al 4/3/2028 | EsameB1 /uk/ protezione temporanea: aggiungerlo a `esameb1/dati/lingue.json` e aggiornare la pagina |
 | 15/12/2026 (45 giorni) | EsameB1 /en/, /uk/, /ro/: almeno 100 impressioni al mese per lingua in Search Console, altrimenti si congela |

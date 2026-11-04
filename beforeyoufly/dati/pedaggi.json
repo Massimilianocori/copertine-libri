@@ -1,45 +1,45 @@
 {
  "_nota": "Pedaggi con l'auto a noleggio: fatti scritti a mano in dati/pedaggi_manuali.json (citazioni parola per parola e prove dei prezzi), fonti rilette da raccolta/pedaggi.py (HTTP, data di lettura, impronta della zona citata). Non modificare a mano: rilanciare lo script.",
- "controllato_il": "2026-10-31",
+ "controllato_il": "2026-11-04",
  "fonti": {
   "at_help": {
    "url": "https://help.asfinag.at/en/vignette-and-section-tolls/",
    "pagina": "https://help.asfinag.at/en/vignette-and-section-tolls/",
    "url_finale": "https://help.asfinag.at/en/vignette-and-section-tolls/",
    "http": 200,
-   "byte": 188409,
+   "byte": 199390,
    "ente": "ASFINAG",
    "titolo": "ASFINAG help: Vignette and section tolls",
    "lingua": "en",
-   "letto_il": "2026-10-31",
-   "cambiato_il": "2026-10-30",
-   "impronta": "46e7b8ca06e8a027",
-   "frasi": 5
+   "letto_il": "2026-11-04",
+   "cambiato_il": "2026-11-04",
+   "impronta": "9e289c389a2a5db5",
+   "frasi": 6
   },
   "at_prezzi": {
    "url": "https://shop.asfinag.at/en/toll-products/digital-vignette/?type=Car",
    "pagina": "https://shop.asfinag.at/en/toll-products/digital-vignette/?type=Car",
    "url_finale": "https://shop.asfinag.at/en/toll-products/digital-vignette/?type=Car",
    "http": 200,
-   "byte": 40719,
+   "byte": 36615,
    "ente": "ASFINAG",
    "titolo": "ASFINAG toll shop: Digital Vignette for cars",
    "lingua": "en",
-   "letto_il": "2026-10-31",
-   "cambiato_il": "2026-10-30",
-   "impronta": "2fa5f87402953d20",
-   "frasi": 5
+   "letto_il": "2026-11-04",
+   "cambiato_il": "2026-11-04",
+   "impronta": "aa2f497d9617f59b",
+   "frasi": 4
   },
   "at_vignette": {
    "url": "https://shop.asfinag.at/en/products/digital-vignette/",
    "pagina": "https://shop.asfinag.at/en/products/digital-vignette/",
    "url_finale": "https://shop.asfinag.at/en/products/digital-vignette/",
    "http": 200,
-   "byte": 40493,
+   "byte": 36192,
    "ente": "ASFINAG",
    "titolo": "ASFINAG toll shop: Digital vignette",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "9f6bbba0faef816e",
    "frasi": 2
@@ -49,11 +49,11 @@
    "pagina": "https://www.bazg.admin.ch/en/electronic-vignette-via-portal-purchase",
    "url_finale": "https://www.bazg.admin.ch/en/electronic-vignette-via-portal-purchase",
    "http": 200,
-   "byte": 431871,
+   "byte": 431874,
    "ente": "Federal Office for Customs and Border Security (FOCBS)",
    "titolo": "FOCBS: Electronic vignette (Via portal)",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "a713e61b512e6714",
    "frasi": 1
@@ -67,7 +67,7 @@
    "ente": "Federal Office for Customs and Border Security (FOCBS)",
    "titolo": "FOCBS: FAQ vignette and e-vignette purchase",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "0403807a16119596",
    "frasi": 3
@@ -77,11 +77,11 @@
    "pagina": "https://www.bazg.admin.ch/en/motorway-charge-vignette",
    "url_finale": "https://www.bazg.admin.ch/en/motorway-charge-vignette",
    "http": 200,
-   "byte": 381287,
+   "byte": 381289,
    "ente": "Federal Office for Customs and Border Security (FOCBS)",
    "titolo": "FOCBS: Motorway charge (vignette)",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "e9a716cef92d0dc6",
    "frasi": 2
@@ -91,11 +91,11 @@
    "pagina": "https://edalnice.gov.cz/en",
    "url_finale": "https://edalnice.gov.cz/en",
    "http": 200,
-   "byte": 547258,
+   "byte": 542896,
    "ente": "State Fund for Transport Infrastructure (eDalnice.gov.cz)",
    "titolo": "eDalnice.gov.cz: Electronic Vignette – official state e-shop",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "798d3dde3c4036e3",
    "frasi": 2
@@ -105,11 +105,11 @@
    "pagina": "https://edalnice.gov.cz/en/inspection-and-fines",
    "url_finale": "https://edalnice.gov.cz/en/inspection-and-fines",
    "http": 200,
-   "byte": 518970,
+   "byte": 516465,
    "ente": "State Fund for Transport Infrastructure (eDalnice.gov.cz)",
    "titolo": "eDalnice.gov.cz: Inspection and fines",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "c13b47a66f1bbfba",
    "frasi": 1
@@ -119,13 +119,13 @@
    "pagina": "https://edalnice.gov.cz/en/price-list",
    "url_finale": "https://edalnice.gov.cz/en/price-list",
    "http": 200,
-   "byte": 539506,
+   "byte": 536215,
    "ente": "State Fund for Transport Infrastructure (eDalnice.gov.cz)",
    "titolo": "eDalnice.gov.cz: Price list",
    "lingua": "en",
-   "letto_il": "2026-10-31",
-   "cambiato_il": "2026-10-30",
-   "impronta": "8e6a44147ef974ed",
+   "letto_il": "2026-11-04",
+   "cambiato_il": "2026-11-04",
+   "impronta": "1cfc58e559ab2a1b",
    "frasi": 4
   },
   "es_tarifas": {
@@ -133,11 +133,11 @@
    "pagina": "https://www.autopistas.com/es/beneficios/tarifas-y-descuentos",
    "url_finale": "https://www.autopistas.com/es/beneficios/tarifas-y-descuentos",
    "http": 200,
-   "byte": 163772,
+   "byte": 163529,
    "ente": "Autopistas (Abertis)",
    "titolo": "Autopistas (Abertis): Tarifas y descuentos",
    "lingua": "es",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "73ee54c6ed7731c8",
    "frasi": 2
@@ -147,11 +147,11 @@
    "pagina": "https://www.autopistas.com/es/beneficios/servicios/via-t",
    "url_finale": "https://www.autopistas.com/es/beneficios/servicios/via-t",
    "http": 200,
-   "byte": 82875,
+   "byte": 83237,
    "ente": "Autopistas (Abertis)",
    "titolo": "Autopistas (Abertis): Vía T",
    "lingua": "es",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "3f68ad198fe8528f",
    "frasi": 2
@@ -161,11 +161,11 @@
    "pagina": "https://www.aliae.com/en",
    "url_finale": "https://www.aliae.com/en",
    "http": 200,
-   "byte": 49701,
+   "byte": 49702,
    "ente": "ALIAE (A79 motorway concession, APRR group)",
    "titolo": "ALIAE: the A79 motorway",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "f38870dfdeafd732",
    "frasi": 2
@@ -179,7 +179,7 @@
    "ente": "APRR",
    "titolo": "APRR: Flux libre sur ALIAE et entrées sans tickets sur AREA",
    "lingua": "fr",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "9cbdf472f433054a",
    "frasi": 6
@@ -193,7 +193,7 @@
    "ente": "APRR",
    "titolo": "APRR: Péage en flux libre : que faire si j’oublie de payer ?",
    "lingua": "fr",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "e0f3376c3578013f",
    "frasi": 4
@@ -207,7 +207,7 @@
    "ente": "Attiki Odos",
    "titolo": "Attiki Odos (Attica Tollway): Tolls",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "483612da05466563",
    "frasi": 7
@@ -221,7 +221,7 @@
    "ente": "Hrvatske autoceste (HAC), Crolibertas project site",
    "titolo": "Crolibertas: About the system",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "6135b0d14b601ee2",
    "frasi": 2
@@ -235,7 +235,7 @@
    "ente": "Hrvatske autoceste (HAC), Crolibertas project site",
    "titolo": "Crolibertas: Notice – Testing and Implementation of the Crolibertas Toll Collection System (5 October 2026)",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "a09380af06738087",
    "frasi": 1
@@ -249,7 +249,7 @@
    "ente": "Hrvatske autoceste (HAC), Crolibertas project site",
    "titolo": "Crolibertas: Toll Collection Act Adopted (24 December 2025)",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "18d52d41663f9c74",
    "frasi": 1
@@ -263,7 +263,7 @@
    "ente": "Hrvatske autoceste (HAC)",
    "titolo": "Hrvatske autoceste: Toll FAQ",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "0f33b71152cd270b",
    "frasi": 5
@@ -277,7 +277,7 @@
    "ente": "Hrvatske autoceste (HAC)",
    "titolo": "Hrvatske autoceste: Toll",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "c77e7a894742d5dc",
    "frasi": 3
@@ -287,11 +287,11 @@
    "pagina": "https://narodne-novine.nn.hr/clanci/sluzbeni/2025_12_156_2346.html",
    "url_finale": "https://narodne-novine.nn.hr/clanci/sluzbeni/2025_12_156_2346.html",
    "http": 200,
-   "byte": 189232,
+   "byte": 189230,
    "ente": "Narodne novine, Official Gazette of the Republic of Croatia",
    "titolo": "Zakon o naplati cestarine (Toll Collection Act), NN 156/2025",
    "lingua": "hr",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "dd021d4f9a06d12a",
    "frasi": 10
@@ -305,7 +305,7 @@
    "ente": "National Toll Payment Services (Nemzeti Útdíjfizetési Szolgáltató)",
    "titolo": "Nemzeti Útdíjfizetési Szolgáltató: Surcharge, differential surcharge",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "a564448e7f71c3b5",
    "frasi": 3
@@ -319,7 +319,7 @@
    "ente": "National Toll Payment Services (Nemzeti Útdíjfizetési Szolgáltató)",
    "titolo": "Nemzeti Útdíjfizetési Szolgáltató: E-vignette rates",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "1f76df1e1ff1870a",
    "frasi": 8
@@ -333,7 +333,7 @@
    "ente": "eFlow (Transport Infrastructure Ireland)",
    "titolo": "eFlow: About the M50 Toll Road",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "1d04d18b2473d75a",
    "frasi": 5
@@ -347,7 +347,7 @@
    "ente": "Transport Infrastructure Ireland",
    "titolo": "TII: M50 Barrier Free Tolling (toll locations and charges)",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "a0bafadb6186a7ed",
    "frasi": 13
@@ -361,7 +361,7 @@
    "ente": "Autostrade per l'Italia",
    "titolo": "Autostrade per l'Italia: Payment methods – Credit card",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "02381401753fd11c",
    "frasi": 2
@@ -371,11 +371,11 @@
    "pagina": "https://www.autostrade.it/en/servizi-al-cliente/pedaggio/metodi-di-pagamento/contanti",
    "url_finale": "https://www.autostrade.it/en/servizi-al-cliente/pedaggio/metodi-di-pagamento/contanti",
    "http": 200,
-   "byte": 176338,
+   "byte": 176339,
    "ente": "Autostrade per l'Italia",
    "titolo": "Autostrade per l'Italia: Payment methods – Cash",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "4e6e48c92ba03ef3",
    "frasi": 4
@@ -385,11 +385,11 @@
    "pagina": "https://www.autostrade.it/en/servizi-al-cliente/pedaggio/mancato-pagamento/paga-online",
    "url_finale": "https://www.autostrade.it/en/servizi-al-cliente/pedaggio/mancato-pagamento/paga-online",
    "http": 200,
-   "byte": 182466,
+   "byte": 182465,
    "ente": "Autostrade per l'Italia",
    "titolo": "Autostrade per l'Italia: Unpaid toll – Pay online",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "297a3c7e8a8aa737",
    "frasi": 4
@@ -399,11 +399,11 @@
    "pagina": "https://www.autopass.no/en/user/payment/",
    "url_finale": "https://www.autopass.no/en/user/payment/",
    "http": 200,
-   "byte": 19639,
+   "byte": 19609,
    "ente": "AutoPASS (Norwegian Public Roads Administration)",
    "titolo": "AutoPASS: Payment",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "b451be5ae0031879",
    "frasi": 1
@@ -417,7 +417,7 @@
    "ente": "AutoPASS (Norwegian Public Roads Administration)",
    "titolo": "AutoPASS: Rates and discounts",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "e18e5a8c1d4ccbb9",
    "frasi": 2
@@ -427,11 +427,11 @@
    "pagina": "https://www.autopass.no/en/user/the-road-toll-system/",
    "url_finale": "https://www.autopass.no/en/user/the-road-toll-system/",
    "http": 200,
-   "byte": 23623,
+   "byte": 23593,
    "ente": "AutoPASS (Norwegian Public Roads Administration)",
    "titolo": "AutoPASS: The road toll system",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "1ec454c59ba98edd",
    "frasi": 2
@@ -445,7 +445,7 @@
    "ente": "Infraestruturas de Portugal",
    "titolo": "PT Tolls: FAQ – Frequently Asked Questions – Tolls",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "3dab5bd64783878d",
    "frasi": 9
@@ -455,42 +455,28 @@
    "pagina": "https://www.pttolls.com/en/",
    "url_finale": "https://www.pttolls.com/en/",
    "http": 200,
-   "byte": 78554,
+   "byte": 78598,
    "ente": "Infraestruturas de Portugal",
    "titolo": "PT Tolls (Infraestruturas de Portugal): toll systems and how to pay",
    "lingua": "en",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-30",
    "impronta": "7f5418596c3ad80e",
    "frasi": 7
-  },
-  "si_asfinag": {
-   "url": "https://shop.asfinag.at/en/products/slovenian-e-vignette/",
-   "pagina": "https://shop.asfinag.at/en/products/slovenian-e-vignette/",
-   "url_finale": "https://shop.asfinag.at/en/products/slovenian-e-vignette/",
-   "http": 200,
-   "byte": 39902,
-   "ente": "ASFINAG",
-   "titolo": "ASFINAG toll shop: Slovenian e-vignette",
-   "lingua": "en",
-   "letto_il": "2026-10-31",
-   "cambiato_il": "2026-10-30",
-   "impronta": "50e7af0ed3f2988f",
-   "frasi": 3
   },
   "si_gov": {
    "url": "https://www.gov.si/en/topics/tolls/",
    "pagina": "https://www.gov.si/en/topics/tolls/",
    "url_finale": "https://www.gov.si/en/topics/tolls/",
    "http": 200,
-   "byte": 32666,
+   "byte": 32682,
    "ente": "Government of Slovenia (Ministry of Infrastructure and Energy)",
    "titolo": "GOV.SI: Tolls",
    "lingua": "en",
-   "letto_il": "2026-10-31",
-   "cambiato_il": "2026-10-30",
-   "impronta": "ca66b611c7b9a3f2",
-   "frasi": 2
+   "letto_il": "2026-11-04",
+   "cambiato_il": "2026-11-04",
+   "impronta": "6f1234c2d37670dc",
+   "frasi": 3
   }
  },
  "paesi": [
@@ -1259,9 +1245,9 @@
     },
     {
      "id": "annuale2027",
-     "f": "at_prezzi",
+     "f": "at_help",
      "tema": "prezzo",
-     "x": "Sales of the digital vignette for 2027 will start in early November 2026."
+     "x": "Special note for the Digital Vignette 2027: If your subscription is active on 31/12/2026, you will still receive the Digital Vignette 2027 at the lower 2026 price."
     },
     {
      "id": "prima",
@@ -1293,25 +1279,25 @@
      "voce": "1-day digital vignette, car",
      "importo": "€9.60",
      "f": "at_prezzi",
-     "prova": "1-day vignette Immediate validity possible! for car € 9.60"
+     "prova": "1-Day Vignette for car € 9.60"
     },
     {
      "voce": "10-day digital vignette, car",
      "importo": "€12.80",
      "f": "at_prezzi",
-     "prova": "10-day vignette Immediate validity possible! for car € 12.80"
+     "prova": "10-Day Vignette for car € 12.80"
     },
     {
      "voce": "2-month digital vignette, car",
      "importo": "€32.00",
      "f": "at_prezzi",
-     "prova": "2-month vignette for car € 32.00"
+     "prova": "2-Month Vignette for car € 32.00"
     },
     {
      "voce": "Annual vignette 2026, car",
      "importo": "€106.80",
      "f": "at_prezzi",
-     "prova": "Annual vignette 2026 for car € 106.80"
+     "prova": "Annual Vignette for car € 106.80"
     }
    ],
    "faq": [
@@ -1328,8 +1314,10 @@
     {
      "query": "austria vignette price",
      "q": "How much is the Austrian vignette in 2026?",
-     "cit": [],
-     "pre": "For a car, the official ASFINAG toll shop lists the digital vignette at €9.60 for 1 day, €12.80 for 10 days, €32.00 for 2 months and €106.80 for the 2026 annual vignette.",
+     "cit": [
+      "annuale2027"
+     ],
+     "pre": "For a car, the official ASFINAG toll shop lists the digital vignette at €9.60 for 1 day, €12.80 for 10 days, €32.00 for 2 months and €106.80 for the 2026 annual vignette. About 2027, ASFINAG says:",
      "post": ""
     },
     {
@@ -1465,22 +1453,10 @@
      "x": "The toll roads subject to tolls for a fixed period of use are all motorways and express roads in Slovenia operated and maintained by DARS."
     },
     {
-     "id": "partner",
-     "f": "si_asfinag",
+     "id": "metodo",
+     "f": "si_gov",
      "tema": "come",
-     "x": "ASFINAG is an authorised online sales partner of DARS and sells the e-vignette without any additional fees."
-    },
-    {
-     "id": "tipi",
-     "f": "si_asfinag",
-     "tema": "altro",
-     "x": "The date of purchase counts as the first day, which means you can set the start of validity of weekly, monthly and annual vignettes to begin within the next 29 days."
-    },
-    {
-     "id": "subito",
-     "f": "si_asfinag",
-     "tema": "scadenza",
-     "x": "All Slovenian e-vignettes can be purchased with immediate validity."
+     "x": "Electronic tolling (e-vignette) is a modern toll payment method for motor vehicles with a maximum permissible weight of up to 3500 kg."
     }
    ],
    "prezzi": [],
@@ -1508,12 +1484,11 @@
      "query": "how to pay tolls in slovenia",
      "q": "How do I pay tolls in Slovenia?",
      "cit": [
-      "partner",
-      "subito",
-      "tipi"
+      "metodo",
+      "strade"
      ],
-     "pre": "With an e-vignette. The Austrian motorway company ASFINAG, which also sells it, says:",
-     "post": ""
+     "pre": "With an e-vignette. The Government of Slovenia says:",
+     "post": "We could not check where to buy it or what it costs: the DARS website did not respond to us."
     }
    ],
    "chi": "the Government of Slovenia"
@@ -1554,25 +1529,25 @@
      "voce": "1-day vignette, standard fuel",
      "importo": "CZK 230",
      "f": "cz_prezzi",
-     "prova": "1-day Buy Standard fuel CZK 230"
+     "prova": "1 day Buy Standard fuel CZK 230"
     },
     {
      "voce": "10-day vignette, standard fuel",
      "importo": "CZK 300",
      "f": "cz_prezzi",
-     "prova": "10-day Buy Standard fuel CZK 300"
+     "prova": "10 days Buy Standard fuel CZK 300"
     },
     {
      "voce": "30-day vignette, standard fuel",
      "importo": "CZK 480",
      "f": "cz_prezzi",
-     "prova": "30-day Buy Standard fuel CZK 480"
+     "prova": "30 days Buy Standard fuel CZK 480"
     },
     {
      "voce": "Annual vignette, standard fuel (price list valid from 1/1/2026)",
      "importo": "CZK 2,570",
      "f": "cz_prezzi",
-     "prova": "Price list valid: from 1/1/2026 Annual Buy Standard fuel CZK 2,570"
+     "prova": "Price list valid: from 1/1/2026 1 year Buy Standard fuel CZK 2,570"
     }
    ],
    "faq": [

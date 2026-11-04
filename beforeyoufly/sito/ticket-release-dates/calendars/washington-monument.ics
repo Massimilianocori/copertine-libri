@@ -10,7 +10,7 @@ X-PUBLISHED-TTL:P1D
 BEGIN:VEVENT
 UID:washington-monument-chiusura-chiusure-2026-11-04@before-you-fly.netlify
  .app
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:Washington Monument: closed
@@ -20,7 +20,7 @@ DESCRIPTION:Official rule: “The Washington Monument is open daily from 9:
  SURE DATES JANUARY 8 (THU) FEBRUARY 3 (TUE) MARCH 4 (WED) APRIL 6 (MON) MA
  Y 7 (THU) JUNE 2 (TUE) JULY 8 (WED) AUGUST 3 (MON) SEPTEMBER 10 (THU) OCTO
  BER 5 (MON) NOVEMBER 4 (WED) DECEMBER 8 (TUE)”\nSource: https://www.nps.
- gov/wamo/planyourvisit/hours.htm (checked on 31 October 2026)\nDate calcul
+ gov/wamo/planyourvisit/hours.htm (checked on 4 November 2026)\nDate calcul
  ated by Before You Fly from the official rule. Rules can change: check the
   official page before you book.\nOfficial tickets: https://www.recreation.
  gov/ticket/facility/234635\nhttps://before-you-fly.netlify.app/ticket-rele
@@ -33,7 +33,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:washington-monument-chiusura-chiusure-2026-12-08@before-you-fly.netlify
  .app
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261208
 DTEND;VALUE=DATE:20261209
 SUMMARY:Washington Monument: closed
@@ -43,7 +43,7 @@ DESCRIPTION:Official rule: “The Washington Monument is open daily from 9:
  SURE DATES JANUARY 8 (THU) FEBRUARY 3 (TUE) MARCH 4 (WED) APRIL 6 (MON) MA
  Y 7 (THU) JUNE 2 (TUE) JULY 8 (WED) AUGUST 3 (MON) SEPTEMBER 10 (THU) OCTO
  BER 5 (MON) NOVEMBER 4 (WED) DECEMBER 8 (TUE)”\nSource: https://www.nps.
- gov/wamo/planyourvisit/hours.htm (checked on 31 October 2026)\nDate calcul
+ gov/wamo/planyourvisit/hours.htm (checked on 4 November 2026)\nDate calcul
  ated by Before You Fly from the official rule. Rules can change: check the
   official page before you book.\nOfficial tickets: https://www.recreation.
  gov/ticket/facility/234635\nhttps://before-you-fly.netlify.app/ticket-rele
@@ -56,7 +56,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:washington-monument-chiusura-chiusure-2026-12-25@before-you-fly.netlify
  .app
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261225
 DTEND;VALUE=DATE:20261226
 SUMMARY:Washington Monument: closed
@@ -66,7 +66,7 @@ DESCRIPTION:Official rule: “The Washington Monument is open daily from 9:
  SURE DATES JANUARY 8 (THU) FEBRUARY 3 (TUE) MARCH 4 (WED) APRIL 6 (MON) MA
  Y 7 (THU) JUNE 2 (TUE) JULY 8 (WED) AUGUST 3 (MON) SEPTEMBER 10 (THU) OCTO
  BER 5 (MON) NOVEMBER 4 (WED) DECEMBER 8 (TUE)”\nSource: https://www.nps.
- gov/wamo/planyourvisit/hours.htm (checked on 31 October 2026)\nDate calcul
+ gov/wamo/planyourvisit/hours.htm (checked on 4 November 2026)\nDate calcul
  ated by Before You Fly from the official rule. Rules can change: check the
   official page before you book.\nOfficial tickets: https://www.recreation.
  gov/ticket/facility/234635\nhttps://before-you-fly.netlify.app/ticket-rele

@@ -1,0 +1,34 @@
+{
+ "cambi": [
+  {
+   "rilevato_il": "2026-11-04",
+   "iso3": "TKM",
+   "nome": "Turkmenistan",
+   "campi": [
+    "visto"
+   ],
+   "scheda_prima": "2026-06-05",
+   "scheda_dopo": "2026-10-22"
+  },
+  {
+   "rilevato_il": "2026-11-04",
+   "iso3": "TUR",
+   "nome": "Turchia",
+   "campi": [
+    "visto"
+   ],
+   "scheda_prima": "2026-07-16",
+   "scheda_dopo": "2026-10-21"
+  },
+  {
+   "rilevato_il": "2026-11-04",
+   "iso3": "CHL",
+   "nome": "Cile",
+   "campi": [
+    "passaporto"
+   ],
+   "scheda_prima": "2026-08-20",
+   "scheda_dopo": "2026-10-19"
+  }
+ ]
+}

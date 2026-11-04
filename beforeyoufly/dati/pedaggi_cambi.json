@@ -1,0 +1,32 @@
+{
+ "cambi": [
+  {
+   "data": "2026-11-04",
+   "fonte": "at_help",
+   "url": "https://help.asfinag.at/en/vignette-and-section-tolls/",
+   "prima": "46e7b8ca06e8a027",
+   "dopo": "9e289c389a2a5db5"
+  },
+  {
+   "data": "2026-11-04",
+   "fonte": "at_prezzi",
+   "url": "https://shop.asfinag.at/en/toll-products/digital-vignette/?type=Car",
+   "prima": "2fa5f87402953d20",
+   "dopo": "aa2f497d9617f59b"
+  },
+  {
+   "data": "2026-11-04",
+   "fonte": "cz_prezzi",
+   "url": "https://edalnice.gov.cz/en/price-list",
+   "prima": "8e6a44147ef974ed",
+   "dopo": "1cfc58e559ab2a1b"
+  },
+  {
+   "data": "2026-11-04",
+   "fonte": "si_gov",
+   "url": "https://www.gov.si/en/topics/tolls/",
+   "prima": "ca66b611c7b9a3f2",
+   "dopo": "6f1234c2d37670dc"
+  }
+ ]
+}

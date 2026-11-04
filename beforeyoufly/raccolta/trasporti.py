@@ -82,7 +82,7 @@ FONTI = {
                  "titolo": "Edinburgh Trams: Contactless payment cards – conditions of use", "lingua": "en"},
     "gva_good": {"url": "https://www.tpg.ch/en/travel-good-standing", "ente": "tpg (Transports publics genevois)", "titolo": "tpg: Travel in good standing", "lingua": "en"},
     "ham_tarif": {"url": "https://www.hvv.de/resource/blob/2384/80b8c14227b0bea5dbfbf7c9e44d2b94/hvv_tarif_gemeinschaftstarif_befoerderungsbedingungen.pdf",
-                  "ente": "hvv (Hamburger Verkehrsverbund)", "titolo": "hvv Gemeinschaftstarif, valid from 1 October 2026 (PDF)", "lingua": "de", "tipo": "pdf"},
+                  "ente": "hvv (Hamburger Verkehrsverbund)", "titolo": "hvv Gemeinschaftstarif, valid from 3 November 2026 (PDF)", "lingua": "de", "tipo": "pdf"},
     "lis_legal": {"url": "https://www.metrolisboa.pt/en/travel/legal-information/", "ente": "Metropolitano de Lisboa", "titolo": "Metro Lisboa: Legal information", "lingua": "en"},
     "lis_bank": {"url": "https://www.metrolisboa.pt/en/metro-bank-card/", "ente": "Metropolitano de Lisboa", "titolo": "Metro Lisboa: Metro + bank card", "lingua": "en"},
     "mad_sur": {"url": "https://www.metromadrid.es/en/surcharge", "ente": "Metro de Madrid", "titolo": "Metro de Madrid: Extraordinary travel card top-up", "lingua": "en"},
