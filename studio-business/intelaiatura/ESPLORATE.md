@@ -807,3 +807,17 @@ Angolo: eventi del 2027-2028 che creano ricerche datate pagabili con alloggi, au
 | GMG Seul 2027; Kumbh Mela Nashik 2027; Panamericani Lima 2027 | NO (3,5 / 3 / 3): viaggi di gruppo o domanda interna | fronti-2026-11-04-grandi-eventi |
 | Capitali europee della cultura 2027-2028 (Évora, Liepāja, Bourges, České Budějovice, Skopje) | NO (2,5): domanda minima | fronti-2026-11-04-grandi-eventi |
 | Giochi del Mediterraneo | fuori finestra (Taranto chiusa il 3/9/2026, prossima edizione 2030) | fronti-2026-11-04-grandi-eventi |
+
+## Ricerca zona Africa e Medio Oriente: salute, lavoro e visti in uscita, studio, soldi (4/11/2026)
+
+Nessuna idea arriva a 8 né passa l'asticella dei siti nuovi; quattro sezioni o pagine a costo zero in Visa Income (180 / 1.070 / 4.900 €/anno in tutto, 33-48 ore). Lezione: il pubblico che vive in Africa e nel Golfo paga poco; reggono le idee il cui lettore vive in Regno Unito, Irlanda, USA, Australia. Il file Home Office già in casa ha i sottotipi di visto (Health and Care, UK Ancestry) mai usati.
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **Infermieri all'estero per Paese di formazione** (NMC marzo 2026 xlsx 200: Nigeria 17.092, India 73.026, nuovi iscritti in calo; Irlanda JQ06 CC BY 2025: India 20.568, Nigeria 676; visti Health and Care 2025 in casa: Nigeria 7.712, Zimbabwe 4.153; lista rossa GOV.UK da SSL 2023, **SSL OMS 2026 in arrivo**, provvisoria 36 Paesi; "how many indian/filipino nurses in" 10) | **SEZIONE** (voto 6,5, 7 la pagina "red list 2026"; 50 / 350 / 1.800 €/anno; 14-20 ore) in Visa Income | idee-2026-11-04-africa-medio-oriente |
+| **Pensione statale britannica congelata o no per Paese + calcolatore + contributi volontari dal 6/4/2026** (GOV.UK OGL; "is uk pension frozen in" 10, en/za "uk pension in south africa" 10; nessun calcolatore nei risultati) | **AGGIUNTA** alla sezione pensioni HMRC in coda (voto 6,5; 80 / 400 / 1.800 €/anno; 10-14 ore) | idee-2026-11-04-africa-medio-oriente |
+| **UK Ancestry visa per nazionalità** (file Home Office in casa: Sudafrica 645 rilasciati / 7 rifiutati, India 40 / 22) | **PAGINA** (voto 6; 30 / 200 / 700 €/anno; 4-6 ore) | idee-2026-11-04-africa-medio-oriente |
+| Israele come destinazione in `moved-to` (data.gov.il API 200, 22.423 immigrati 2025: USA 3.733, Francia 3.353, UK 892, Sudafrica 256, con città) | PAGINE in coda (voto 5,5; 20 / 120 / 600 €/anno; 5-8 ore); "sal klita" NO (gov.il 403, Nefesh B'Nefesh) | idee-2026-11-04-africa-medio-oriente |
+| Strutture autorizzate al turismo sanitario in Turchia per città (PDF del Ministero 200, 27/10/2026) | RISERVA (5): tema sanitario, ambulatori con nomi di medici, domanda di verifica debole | idee-2026-11-04-africa-medio-oriente |
+| TCF Canada / Québec in Marocco e Tunisia per città (if-maroc.org 200, prezzi 2.900 Dhs; date in PDF immagine) | RISERVA (5) | idee-2026-11-04-africa-medio-oriente |
+| Infermieri formati all'estero in Germania (Destatis 21231) | RISERVA: API ospite 401, serve account gratuito Destatis di Massimiliano | idee-2026-11-04-africa-medio-oriente |
+| Tasse del permesso di soggiorno turco per nazionalità; sponsor britannici revocati (Tarve, Morgan Smith); banche non accettate per il visto studenti UK (Appendix P abolita); evidence level australiano (reCAPTCHA); Goethe A1 Turchia/Egitto (goethe.de 403); proof of funds Canada (canada.ca 000); emigrazione fiscale sudafricana (FinGlobal) | NO (3-4) | idee-2026-11-04-africa-medio-oriente |
