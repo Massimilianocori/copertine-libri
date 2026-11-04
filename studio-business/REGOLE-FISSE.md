@@ -107,3 +107,7 @@ Massimiliano, 31/10/2026: "va benissimo ottimizzare quello che abbiamo fatto ma 
 - Le idee ≥ 8 passano dal verificatore indipendente, come sempre; le migliori si costruiscono subito.
 - Massimiliano, 31/10/2026: "può essere qualsiasi cosa, non ci sono limiti, solo il fatturato". La ricerca di fronti nuovi non si limita a siti e libri: ogni attività legale e corretta che possa fare fatturato è in gioco (servizi, prodotti, la sua professione di fotografo, piattaforme, dati, nuovi mercati). I vincoli operativi restano come **proposte da approvare**, non come divieti di ricerca: spese, account a suo nome, social, contatti diretti con persone o aziende si propongono con i numeri e si fanno solo con il suo sì.
 - Massimiliano, 31/10/2026: no a lavori pagati a ore con il suo tempo (servizi fotografici per turisti, ore da esperto di immagini per l'IA): "queste cose sono perdita di tempo". I fronti nuovi devono essere cose che crescono senza le sue ore (siti, libri, prodotti, canali), dove il suo contributo è di pochi passaggi brevi.
+
+
+## Sì del 4/11/2026: affiliazioni che portano guadagno
+Massimiliano (4/11/2026, sulle pagine liquidi di Before You Fly): "si a tutto quello che porta guadagno". Approvati: iscrizione a Holiday Extras su Awin (deposito Awin di 5 £ rimborsabile, se richiesto) e iscrizione gratuita ad Amazon Associates UK e USA. Le iscrizioni le fa lui con la guida passo passo; restano valide le altre regole (nessuna altra spesa senza il suo sì, niente email a freddo, niente social, nessun dato personale nel repository).
