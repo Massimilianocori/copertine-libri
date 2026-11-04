@@ -1624,12 +1624,12 @@
     "People with a recognised disability of 65% or more",
     "Stays in the public pilgrim hostels (albergues) run by the Xunta de Galicia through the S.A. de Xestión do Plan Xacobeo",
     "Stays in youth hostels (albergues xuvenís)",
-    "Stays paid by social programmes of a public administration of an EU member state",
+    "Stays subsidised by social programmes of a public administration of an EU member state",
     "Not subject: stays for health care within the Galician public health system (and companions), federated athletes at official competitions, force majeure. Each case needs proof (a signed declaration or a certificate)"
    ],
    "evento": {
     "titolo": "Compostela Holy Year 2027",
-    "testo": "2027 is a Compostela Holy Year (Año Santo Compostelano). The Cathedral of Santiago explains that it is a Holy Year when 25 July, the feast of Saint James, falls on a Sunday, as it does in 2027. The ordinance has no special rate for the Holy Year: the amounts on this page apply. Stays in the public pilgrim hostels run by the Xunta de Galicia are exempt; other hostels (albergues) charge €1 per guest aged 18 or over per night.",
+    "testo": "2027 is a Compostela Holy Year (Año Santo Compostelano). The Cathedral of Santiago explains that it is a Holy Year when 25 July, the feast of Saint James, falls on a Sunday, as it does in 2027. The ordinance has no special rate for the Holy Year (as of 4 November 2026): the amounts on this page apply. Stays in the public pilgrim hostels run by the Xunta de Galicia and in youth hostels are exempt; other hostels (albergues) charge €1 per guest aged 18 or over per night. The hoteliers' association has challenged the ordinance in court; the High Court of Galicia refused to suspend it (30 September 2025) and will rule on the merits later.",
     "fonti": [
      {
       "titolo": "Cathedral of Santiago - Pilgrimage page: Holy Year section ('2027 – Año Santo Compostelano': a Holy Year when 25 July falls on a Sunday)",
@@ -1648,10 +1648,19 @@
       "controllato_il": "2026-11-04",
       "impronta": "sha256:88ef0819382c6980cd3c6f222937a2109f499eaa748f576eeb56a1de1d372cf5",
       "impronta_di": "file"
+     },
+     {
+      "titolo": "Poder Judicial (CGPJ) - 'El TSXG deniega a los hoteleros la suspensión cautelar de la tasa turística en Santiago de Compostela' (30 September 2025): the court refused the interim suspension requested by the Asociación Unión Hotelera Compostela and will rule on the merits in its judgment",
+      "url": "https://www.poderjudicial.es/cgpj/es/Poder-Judicial/Tribunales-Superiores-de-Justicia/TSJ-Galicia/Noticias-Judiciales-TSJ-Galicia/El-TSXG-deniega-a-los-hoteleros-la-suspension-cautelar-de-la-tasa-turistica-en-Santiago-de-Compostela-",
+      "http": 200,
+      "formato": "HTML (Spanish)",
+      "controllato_il": "2026-11-04",
+      "impronta": "sha256:2ada28ee11a5d741ba3336707e2684c035f1922861cbc7de7d6c9e796b3e24cb",
+      "impronta_di": "testo"
      }
     ]
    },
-   "risposta": "In Santiago de Compostela the tourist tax is €1 to €2.50 per person aged 18 or over per night, depending on the type of accommodation, for at most 5 nights per stay (City of Santiago ordinance 1.32 and Galician Law 5/2024, checked on 4 November 2026). Hotels with 4 stars superior or 5 stars charge €2.50; hotels from 2 stars superior to 4 stars and holiday rentals (viviendas de uso turístico) €2; 1- and 2-star hotels and guest houses €1.50; hostels (albergues), campsites, rural tourism, tourist apartments and tourist houses €1. Stays in the public Xunta pilgrim hostels and in youth hostels are exempt.",
+   "risposta": "In Santiago de Compostela the tourist tax is €1 to €2.50 per person aged 18 or over per night, depending on the type of accommodation, for at most 5 nights per stay (City of Santiago ordinance 1.32 and Galician Law 5/2024, checked on 4 November 2026). Hotels with 4 stars superior or 5 stars charge €2.50; hotels from 2 stars superior to 4 stars and holiday rentals (viviendas de uso turístico) €2; 2-star, 1-star superior and 1-star hotels and guest houses €1.50; hostels (albergues), campsites, rural tourism, tourist apartments and tourist houses €1. Stays in the public Xunta pilgrim hostels and in youth hostels are exempt.",
    "prezzo_esempio": 150,
    "controllato_il": "2026-11-04"
   },
@@ -6061,7 +6070,7 @@
    "max_notti": 14,
    "esenti_sotto_eta": 15,
    "valid_from": "2026-01-01",
-   "chi_riscuote": "You pay it to the accommodation at the end of your stay, and it gives you a receipt (regulation, art. 5). For short-term rentals, the person or platform that collects the rent is responsible for it; platforms with an agreement with the City collect it at booking.",
+   "chi_riscuote": "You pay it to the accommodation at the end of your stay, and it gives you a receipt (regulation, art. 5). For short-term rentals, the person or platform that collects the rent is responsible for it; platforms with an agreement with the City collect and pay it themselves (regulation, art. 3).",
    "fonti": [
     {
      "titolo": "Comune di Napoli - Imposta di Soggiorno 2026: who pays (non-residents older than 14), maximum 14 consecutive nights, rates from 1 January 2026 and from 1 May 2026 (Giunta resolution 89 of 12 March 2026)",
@@ -6106,12 +6115,12 @@
     "Political refugees",
     "People with a disability of at least 80% (Italian certificate or the equivalent from their country), plus one companion",
     "Coach drivers and tour leaders of organised groups (one leader per 25 participants)",
-    "Police, civil protection and Red Cross volunteers on emergency duty; staff of the accommodation working there",
+    "Police officers housed under public-authority measures for social or emergency situations or humanitarian relief; civil protection and Red Cross volunteers on duty during disasters; staff of the accommodation working there",
     "Guests hosted free of charge at the request of the City or another public body"
    ],
    "evento": {
     "titolo": "America's Cup in Naples, 2027",
-    "testo": "Naples hosts the Louis Vuitton 38th America's Cup in the Gulf of Naples: the Louis Vuitton Cup races run from 22 May to 4 July 2027 and the America's Cup match from 10 to 19 July 2027 (City of Naples). The tourist tax rates for 2027 are not published yet: we will add them when the City publishes them.",
+    "testo": "Naples hosts the Louis Vuitton 38th America's Cup in the Gulf of Naples: the Louis Vuitton Cup races run from 22 May to 4 July 2027 and the America's Cup match from 10 to 19 July 2027 (City of Naples). The tourist tax rates for 2027 had not been published when we checked (4 November 2026); the calculator stops at 31 December 2026.",
     "fonti": [
      {
       "titolo": "Comune di Napoli - 'Napoli Città Ospitante della 38ª edizione della Louis Vuitton America's Cup' (page updated 30 September 2026): Louis Vuitton Cup 22 May - 4 July 2027, America's Cup match 10-19 July 2027",
@@ -6124,9 +6133,10 @@
      }
     ]
    },
-   "risposta": "Since 1 May 2026 the Naples tourist tax (imposta di soggiorno) is €4 to €6 per person per night, depending on the type of accommodation, for at most 14 consecutive nights (City of Naples, Giunta resolution 89 of 12 March 2026, checked on 4 November 2026). 4- and 5-star hotels and short-term rentals charge €6, 3-star hotels and non-hotel accommodation such as B&Bs €5.50, 2-star hotels €4.50 and 1-star hotels €4; children aged 14 or under and Naples residents pay nothing.",
+   "risposta": "Since 1 May 2026 the Naples tourist tax (imposta di soggiorno) is €4 to €6 per person per night for stays until 31 December 2026 (the 2027 rates are not published yet), depending on the type of accommodation, for at most 14 consecutive nights (City of Naples, Giunta resolution 89 of 12 March 2026, checked on 4 November 2026). 4- and 5-star hotels and short-term rentals charge €6, 3-star hotels and non-hotel accommodation such as B&Bs €5.50, 2-star hotels €4.50 and 1-star hotels €4; children aged 14 or under and Naples residents pay nothing.",
    "prezzo_esempio": 150,
-   "controllato_il": "2026-11-04"
+   "controllato_il": "2026-11-04",
+   "breve_seo": "€4–€6 a night until 31 Dec 2026"
   },
   {
    "slug": "kyoto",

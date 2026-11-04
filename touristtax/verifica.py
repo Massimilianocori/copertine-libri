@@ -924,8 +924,8 @@ ESEMPI_SN = [
 ]
 SN_DOMINI = {"santiago-de-compostela": ("https://bop.dacoruna.gal/", "https://www.santiagoturismo.com/", "https://www.boe.es/"),
              "naples": ("https://www.comune.napoli.it/", "https://static-www.comune.napoli.it/")}
-SN_EVENTO = {"santiago-de-compostela": ("https://catedraldesantiago.es/", ("Holy Year", "25 July")),
-             "naples": ("https://www.comune.napoli.it/", ("22 May to 4 July 2027", "10 to 19 July 2027"))}
+SN_EVENTO = {"santiago-de-compostela": (("https://catedraldesantiago.es/", "https://www.poderjudicial.es/"), ("Holy Year", "25 July", "as of 4 November 2026")),
+             "naples": (("https://www.comune.napoli.it/",), ("22 May to 4 July 2027", "10 to 19 July 2027", "calculator stops at 31 December 2026"))}
 
 
 def _fonte_ok(f, domini):
@@ -971,7 +971,7 @@ def controlla_santiago_napoli():
                 errori.append("Napoli: massimo 14 notti o esenzione fino a 14 anni non coerenti con il regolamento e la pagina del Comune")
         ev = R.get("evento")
         dom_ev, frasi = SN_EVENTO[slug]
-        if not ev or not ev["fonti"] or any(not _fonte_ok(f, (dom_ev,)) for f in ev["fonti"]) or any(x not in ev["testo"] for x in frasi):
+        if not ev or not ev["fonti"] or any(not _fonte_ok(f, dom_ev) for f in ev["fonti"]) or any(x not in ev["testo"] for x in frasi):
             errori.append(f"{slug}: riquadro dell'evento senza fonte ufficiale ({dom_ev}) datata con impronta, o senza le date ufficiali")
         f = SITO / slug / "index.html"
         if not f.exists():
@@ -979,6 +979,8 @@ def controlla_santiago_napoli():
             continue
         t = f.read_text(encoding="utf-8")
         titolo = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if slug == "naples" and ("we will add" in t or "until 31 Dec" not in titolo or "until 31 December 2026" not in (r := re.search(r'<p class="risposta">(.*?)</p>', t, re.S)).group(1).split(". ")[0]):
+            errori.append("Napoli: titolo o prima frase senza il limite del 31/12/2026, o promessa sulle tariffe 2027")
         if len(titolo) > 70 or "2026" not in titolo or "tourist tax" not in titolo or "€" not in titolo:
             errori.append(f"{slug}: titolo oltre 70 caratteri o senza anno, 'tourist tax' o cifra: {titolo}")
         r = re.search(r'<p class="risposta">(.*?)</p>', t, re.S)
