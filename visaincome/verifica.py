@@ -88,6 +88,14 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     indipendente, dati del calcolatore = JSON, motore JS = Python; citazioni = frammenti ufficiali; visti = allegati del Reg. 2018/1806; ETIAS
     senza date inventate; SafetyWing solo sull'assicurazione e onesto; link da home e How it works; piè di pagina comune invariato.
     Il controllo 9 accetta dal 31/10/2026 il titolo tradotto del blocco "Other useful tools" nelle pagine es/pt (stessi link).
+28. Visti di lunga durata per nazionalità in spagnolo (/es/visados/) e portoghese (/pt/vistos/) (4/11/2026, dati/visados.json): impronta del JSON,
+    fonti lette (HTTP 200) e PDF-immagine di San Paolo con lo SHA-256 atteso; pagine attese (2 indici + visto × nazionalità) in sitemap e nessuna in
+    più, lang, canonical, titoli ≤ 70, FAQPage, BreadcrumbList, "el consulado decide"/"o consulado decide"; hreflang: indici es/pt reciproci,
+    pagine di dettaglio autoreferenziali, ogni alternato esiste e rimanda indietro; ogni importo della prima frase e delle tabelle = ricalcolo
+    indipendente (IPREM, SMI, RMMG di programmi.json, percentuali e tasse dei frammenti, cambi EUR/USD BCE × valuta/USD della fonte del Paese);
+    ogni tassa = numero scritto nel frammento ufficiale; data del listino in pagina; ogni <q> = frammento ufficiale; link esterni solo verso
+    le fonti del JSON; nessun link sponsorizzato; FAQ da ricerche vere dell'autocompletamento; link da home, How it works, menu es/pt;
+    piè di pagina comune invariato. Online: 8 frammenti a caso riletti sulle fonti.
 Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
@@ -258,7 +266,9 @@ def controlla_contenuti():
     deve("€1,221 a month × 14 payments" in es, "ES: SMI non indicato come 1.221 × 14")
     # dal 30/10/2026 le pagine dei centri SELT (uk-english-test/chile/) nominano Santiago come città dell'elenco ufficiale: esclusa
     # dal 30/10/2026 anche l'elenco delle sedi thailandesi (thailand-dtv-visa/) nomina l'ambasciata a Santiago del Cile: esclusa
-    senza_selt = "\n".join(f.read_text(encoding="utf-8") for f in SITO.rglob("*.html") if "uk-english-test" not in f.parts and "thailand-dtv-visa" not in f.parts)
+    # dal 4/11/2026 anche i visti di lunga durata per nazionalità (es/visados/, pt/vistos/) citano il listino del Consolato di Spagna a Santiago del Cile: esclusi
+    senza_selt = "\n".join(f.read_text(encoding="utf-8") for f in SITO.rglob("*.html")
+                            if "uk-english-test" not in f.parts and "thailand-dtv-visa" not in f.parts and "visados" not in f.parts and "vistos" not in f.parts)
     deve("Santiago" not in senza_selt, "Attribuzione a Santiago del Cile ancora presente")
     deve("not €2,762" not in tutto and "not €3,295" not in tutto, "Frase 'not €…' ancora in home")
     it = leggi("italy-digital-nomad-visa/index.html")
@@ -2958,7 +2968,9 @@ def controlla_ee(online=True):
     pagine = {}
     for l, slugs in PAGINE_EE.items():
         cart = SITO / l
-        trovate = {f.parent.relative_to(cart).as_posix().replace(".", "") for f in cart.rglob("index.html")}
+        # dal 4/11/2026 le cartelle es/visados/ e pt/vistos/ (visti di lunga durata per nazionalità) hanno il loro controllo (28)
+        trovate = {f.parent.relative_to(cart).as_posix().replace(".", "") for f in cart.rglob("index.html")
+                   if f.relative_to(cart).parts[0] not in ("visados", "vistos")}
         if trovate != set(slugs):
             errori.append(f"ES/PT {l}: pagine diverse da quelle attese (in più {sorted(trovate - set(slugs))}, mancanti {sorted(set(slugs) - trovate)})")
         for i, sl in enumerate(slugs):
@@ -3182,6 +3194,257 @@ def controlla_ee(online=True):
     return errori, len(pagine), n_js, riletti
 
 
+# ---------------------------------------------------------------- 28. Visti di lunga durata per nazionalità, es/pt (4/11/2026)
+def _fmt_vl(x, val, l, dec):
+    """Formattazione indipendente: migliaia '.', decimali ',', interi senza ',00'; EUR '2.400 €' (es) / '€ 2.400' (pt), BRL 'R$ x', altre 'x COD'."""
+    from decimal import Decimal, ROUND_HALF_UP
+    d = Decimal(repr(float(x))).quantize(Decimal("1") if dec == 0 else Decimal("0.01"), rounding=ROUND_HALF_UP)
+    intero, _, dc = f"{d:f}".partition(".")
+    gruppi = []
+    while len(intero) > 3:
+        gruppi.insert(0, intero[-3:])
+        intero = intero[:-3]
+    t = ".".join([intero] + gruppi) + ("," + dc if dc and dc != "00" else "")
+    if val == "EUR":
+        return f"{t} €" if l == "es" else f"€ {t}"
+    if val == "BRL":
+        return f"R$ {t}"
+    return f"{t} {val}"
+
+
+def _numeri_fr(fr):
+    """Numeri scritti in un frammento ufficiale, letti in tutti i formati usati dalle fonti (152.000 / 352,10 / 1,902 / $47,400 / 1.902,00)."""
+    out = set()
+    for t in re.findall(r"\d[\d.,]*\d|\d", fr):
+        cand = {t.replace(".", "").replace(",", "."), t.replace(",", ""), t.replace(".", "").replace(",", "")}
+        for c in cand:
+            try:
+                out.add(round(float(c), 4))
+            except ValueError:
+                pass
+    return out
+
+
+def controlla_vl(online=True):
+    errori = []
+    import hashlib
+    V = json.loads((SITO.parent / "dati" / "visados.json").read_text(encoding="utf-8"))
+    F, L, C = V["fonti"], V["letture"], V["cambi"]
+    cont = {k: V[k] for k in ("fonti", "letture", "valute", "cambi")}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != V["impronta"]:
+        errori.append("VL: impronta di dati/visados.json diversa dal contenuto")
+    for k, f in F.items():
+        if f.get("http") != 200:
+            errori.append(f"VL: fonte {k} non letta")
+        if f["formato"] == "immagine" and f["sha256"] != f.get("sha256_atteso"):
+            errori.append(f"VL: il PDF-immagine {k} è cambiato rispetto alla lettura a vista")
+    # ogni tassa o valore numerico delle letture è scritto nel frammento ufficiale
+    for k, x in L.items():
+        vals = x.get("valore")
+        if isinstance(vals, bool) or vals is None:
+            continue
+        vals = vals if isinstance(vals, list) else [vals]
+        nums = _numeri_fr(x["frammento"])
+        for v in vals:
+            if v == 0 and "Gratuit" in x["frammento"]:
+                continue
+            ok = round(float(v), 4) in nums or (v <= 10 and round(v * 100, 4) in nums)   # percentuali (4.0 = 400 %, 0.75 = 75 %)
+            if not ok and k == "pt_d8_4" and "quatro" in x["frammento"]:
+                ok = v == 4
+            if not ok and k in ("nl_un_ano",) and "un año" in x["frammento"]:
+                ok = v == 1
+            if not ok and k == "pt_escala":
+                ok = round(v * 100, 4) in nums
+            if not ok:
+                errori.append(f"VL: valore {v} di {k} non scritto nel frammento ufficiale")
+    # indici
+    iprem, smi, rmmg = G.INDICI["es_iprem"]["valore"], G.INDICI["es_smi"]["valore"], G.INDICI["pt_rmmg"]["valore"]
+    if L["nl_ba_2400"]["valore"] != [4 * iprem, 48 * iprem, iprem] or L["pt_rmmg"]["valore"] != rmmg:
+        errori.append("VL: IPREM o RMMG di programmi.json diversi dalle fonti della sezione")
+    # cambi ricalcolati
+    tassi = {"MXN": C["bce"]["MXN"], "BRL": C["bce"]["BRL"]}
+    for v, x in C["per_usd"].items():
+        tassi[v] = round(C["bce"]["USD"] * x, 4)
+    for v, x in tassi.items():
+        if abs(C["tassi"][v] - x) > 1e-9:
+            errori.append(f"VL: cambio {v} diverso dal ricalcolo")
+    domanda = {s_ for v in V["domanda"]["query"].values() for s_ in (v or [])}
+    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    attese = {"es/visados/": "es", "pt/vistos/": "pt"}
+    for v, n, l, p in G.pagine_vl():
+        attese[p] = l
+    for l, cart in (("es", "visados"), ("pt", "vistos")):
+        trovate = {f"{l}/{f.parent.relative_to(SITO / l).as_posix()}/" for f in (SITO / l / cart).rglob("index.html")}
+        previste = {p for p, ll in attese.items() if ll == l}
+        if trovate != previste:
+            errori.append(f"VL {l}: pagine diverse da quelle attese (in più {sorted(trovate - previste)}, mancanti {sorted(previste - trovate)})")
+    if len(attese) < 40:
+        errori.append(f"VL: solo {len(attese)} pagine")
+    url_ok = {f["url"] for f in F.values()} | {x["url"] for x in C["fonti"].values()} | {G.F_CIRC_VL["url"]}
+    frammenti = {html.escape(x["frammento"], quote=q) for x in L.values() for q in (False, True)} | {
+        html.escape(G.SI["letture"]["mezzi"]["frammento"], quote=q) for q in (False, True)}
+    # le FAQ registrate da genera.py: si rigenerano in memoria senza scrivere file (pagina() sostituita per un momento)
+    orig = G.pagina
+    G.pagina = lambda *a, **k: None
+    try:
+        G.genera_vl()
+    finally:
+        G.pagina = orig
+    alt_di = {}
+    pagine = {}
+    for p, l in attese.items():
+        f = SITO / p / "index.html"
+        if not f.exists():
+            continue
+        t = f.read_text(encoding="utf-8")
+        pagine[p] = t
+        if f"<loc>{G.URL_SITO}/{p}</loc>" not in sitemap:
+            errori.append(f"VL: {p} non in sitemap")
+        if f'<html lang="{l}">' not in t:
+            errori.append(f"VL: {p} senza lang={l}")
+        if f'<link rel="canonical" href="{G.URL_SITO}/{p}">' not in t:
+            errori.append(f"VL: {p} canonical errato")
+        tit = html.unescape(re.search(r"<title>(.*?)</title>", t, re.S).group(1))
+        if len(tit) > 70:
+            errori.append(f"VL: titolo oltre 70 caratteri ({len(tit)}) in {p}")
+        for x in ('"@type": "FAQPage"', '"@type": "BreadcrumbList"', "el consulado decide" if l == "es" else "o consulado decide"):
+            if x not in t:
+                errori.append(f"VL: {p} senza {x}")
+        if re.search(r'rel="[^"]*sponsored', t.split('<main id="main">')[1].split("</main>")[0]):
+            errori.append(f"VL: link sponsorizzato in {p} (nessun affiliato in questa sezione)")
+        alt_di[p] = dict(re.findall(r'<link rel="alternate" hreflang="(\w+)" href="' + re.escape(G.URL_SITO) + r'/([^"]*)">', t))
+        main = t.split('<main id="main">')[1].split("</main>")[0]
+        for q in re.findall(r"<q(?: [^>]*)?>(.*?)</q>", main, re.S):
+            if q not in frammenti:
+                errori.append(f"VL: citazione non uguale al frammento ufficiale in {p}: {q[:60]!r}")
+        for u in re.findall(r'href="(https?://[^"]+)"', main):
+            if html.unescape(u) not in url_ok and not u.startswith(G.URL_SITO):
+                errori.append(f"VL: link esterno non tra le fonti in {p}: {u[:80]}")
+        # FAQ da ricerche vere
+        for r_, q_, _a in G.FAQ_VL.get(p, []):
+            if r_ not in domanda:
+                errori.append(f"VL: FAQ senza ricerca vera in {p}: {r_!r}")
+            if f"<h3>{html.escape(q_)}</h3>" not in main:
+                errori.append(f"VL: FAQ non in pagina {p}: {q_!r}")
+        if not G.FAQ_VL.get(p):
+            errori.append(f"VL: {p} senza FAQ registrate")
+    # hreflang: indici reciproci, dettaglio autoreferenziale, ogni alternato rimanda indietro
+    for p, alts in alt_di.items():
+        if p in ("es/visados/", "pt/vistos/"):
+            if alts != {"es": "es/visados/", "pt": "pt/vistos/"}:
+                errori.append(f"VL: hreflang dell'indice {p} non reciproci: {alts}")
+        elif alts != {attese[p]: p}:
+            errori.append(f"VL: hreflang di {p} non autoreferenziale: {alts}")
+        for h, q in alts.items():
+            if q not in alt_di or alt_di[q].get(attese[p]) != p:
+                errori.append(f"VL: hreflang {p} -> {q} senza ritorno")
+    # importi ricalcolati: ogni importo della prima frase deve essere tra quelli attesi per la pagina
+    rx = re.compile(r"(?:€ |R\$ )\d{1,3}(?:\.\d{3})*(?:,\d+)?|\d{1,3}(?:\.\d{3})*(?:,\d+)? (?:€|COP|MXN|ARS|CLP|PEN)")
+    def conv(x, val):
+        return x * tassi[val]
+    for v, n, l, p in G.pagine_vl():
+        t = pagine.get(p)
+        if not t:
+            continue
+        val = G.NAZ_VL[n]["val"] if n else None
+        lead = re.search(r'<p class="lead">(.*?)</p>', t, re.S).group(1)
+        att = set()
+        def add(x, dec_eur=2):
+            att.add(_fmt_vl(x, "EUR", l, dec_eur))
+            if val:
+                att.add(_fmt_vl(conv(x, val), val, l, 0))
+        if v == "es_nl":
+            m = L["nl_400"]["valore"] * iprem
+            add(m); add(12 * m)
+        elif v == "es_nd":
+            add(L["nd_200"]["valore"] * smi)
+        elif v == "es_est":
+            add(L["est_100"]["valore"] * iprem)
+        elif v == "pt_d7":
+            add(rmmg)
+        elif v == "pt_d8":
+            add(L["pt_d8_4"]["valore"] * rmmg); att.add(_fmt_vl(rmmg, "EUR", l, 2))
+        elif v == "pt_est":
+            add(12 * rmmg)
+        elif v == "pt_cplp":
+            pass
+        elif v == "it_est":
+            add(G.SI["letture"]["mezzi"]["valore"])
+        if v.startswith("pt_"):
+            att.add(_fmt_vl(L["pt_110"]["valore"], "EUR", l, 2))
+            att.add(_fmt_vl(rmmg, "EUR", l, 2))
+        if v.startswith("es_"):
+            T = G.TASAS_ES_VL[n]
+            x = L[T["v"]]
+            if x["valore"]:
+                att.add(_fmt_vl(x["valore"], x["valuta"], l, 0 if x["valuta"] in ("ARS", "CLP", "COP") else 2))
+            if F[T["f"]]["data_listino"] and G.data_ee(F[T["f"]]["data_listino"], l) not in t:
+                errori.append(f"VL: data del listino mancante in {p}")
+            if not x["valore"] and "gratuit" not in lead:
+                errori.append(f"VL: {p}: visto gratuito non detto nella prima frase")
+        if v == "it_est":
+            if n in G.TASAS_IT_VL:
+                x = L[G.TASAS_IT_VL[n][0]]
+                att.add(_fmt_vl(x["valore"], x["valuta"], l, 0 if x["valuta"] in ("ARS", "CLP", "COP") else 2))
+            else:
+                att.add(_fmt_vl(50, "EUR", l, 2))
+        trovati = set(rx.findall(html.unescape(re.sub(r"<[^>]+>", "", lead))))
+        if not trovati and v != "pt_proc":
+            errori.append(f"VL: nessun importo nella prima frase di {p}")
+        for x in trovati - att:
+            errori.append(f"VL: importo non ricalcolabile nella prima frase di {p}: {x!r}")
+        if v != "pt_proc" and not re.search(r"(leíd[oa] el|lid[oa] em|listado del|tabela de) \d", html.unescape(lead)):
+            errori.append(f"VL: prima frase senza data di lettura o del listino in {p}")
+        if v != "pt_proc" and "href=" not in lead and v not in ("es_nl", "es_nd", "es_est", "pt_d7", "pt_d8", "pt_est", "pt_cplp"):
+            errori.append(f"VL: prima frase senza link alla fonte in {p}")
+        # tabella della famiglia ricalcolata
+        tab = re.search(r'<table[^>]*\bid="t-vl-fam"[^>]*>(.*?)</table>', t, re.S)
+        if v in ("es_nl", "es_nd", "es_est") and tab:
+            p1, a1 = (L["nd_familia"]["valore"] if v == "es_nd" else L["est_familia"]["valore"] if v == "es_est" else (L["nl_100"]["valore"],) * 2)
+            base = (L["nd_200"]["valore"] * smi if v == "es_nd" else L["est_100"]["valore"] * iprem if v == "es_est" else L["nl_400"]["valore"] * iprem)
+            ind = smi if v == "es_nd" else iprem
+            righe = re.findall(r'<tr><th[^>]*scope="row"[^>]*>.*?</tr>', tab.group(1), re.S)
+            for i, r_ in enumerate(righe, start=1):
+                m = base + (p1 * ind if i >= 2 else 0) + max(0, i - 2) * a1 * ind
+                celle = [html.unescape(c) for c in re.findall(r'<td[^>]*class="n"[^>]*>(.*?)</td>', r_)]
+                exp = [_fmt_vl(m, "EUR", l, 2), "≈ " + _fmt_vl(conv(m, val), val, l, 0)]
+                if v != "es_nd":
+                    exp += [_fmt_vl(12 * m, "EUR", l, 2), "≈ " + _fmt_vl(conv(12 * m, val), val, l, 0)]
+                if celle != exp:
+                    errori.append(f"VL: tabella della famiglia di {p}, riga {i}: {celle} ≠ {exp}")
+        if v in ("es_nl", "es_nd", "es_est", "pt_d7") and not tab:
+            errori.append(f"VL: tabella della famiglia mancante in {p}")
+        if val and v != "pt_proc" and G.data_ee(C["data"], l) not in t:
+            errori.append(f"VL: data del cambio mancante in {p}")
+    # collegamenti dal resto del sito; il piè di pagina comune (inglese) non cambia
+    for f_, pre in (("index.html", ""), ("how-it-works/index.html", "../")):
+        for x in ("es/visados/", "pt/vistos/"):
+            if f'href="{pre}{x}"' not in leggi(f_):
+                errori.append(f"VL: manca il link a /{x} in {f_}")
+    for x in ("es/index.html", "pt/index.html"):
+        if "visados/" not in leggi(x) and "vistos/" not in leggi(x):
+            errori.append(f"VL: manca il link alla sezione nel menu o nel piè di pagina di {x}")
+    if "visados" in G.piede_en("") or "vistos" in G.piede_en(""):
+        errori.append("VL: il piè di pagina comune non deve cambiare (esperimento A/B)")
+    riletti = []
+    if online:
+        sys.path.insert(0, str(SITO.parent / "raccolta"))
+        import visados as RV
+        rng = random.Random(20261104)
+        chiavi = rng.sample(sorted(k for k, x in L.items() if not x.get("visiva")), 8)
+        testi = {}
+        for k in chiavi:
+            fo = L[k]["fonte"]
+            if fo not in testi:
+                st, b = RV.scarica(F[fo]["url"])
+                testi[fo] = RV.testo_di(b, F[fo]["formato"]) if st == 200 else ""
+            ok = RV.norm(L[k]["frammento"]) in testi[fo]
+            riletti.append(f"{fo} {k}: {'presente' if ok else 'ASSENTE'}")
+            if not ok:
+                errori.append(f"VL: frammento {k} non più in {fo}")
+    return errori, len(pagine), riletti
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -3255,7 +3518,12 @@ def main():
           f"calcolatore (JS = Python su {j27} casi); riletti online: {len(r27)}: {len(e27)} errori")
     for x in r27:
         print("    ·", x)
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27
+    e28, n28, r28 = controlla_vl(online="--offline" not in sys.argv)
+    print(f"28. Visti di lunga durata per nazionalità (es/pt): {n28} pagine, fonti e impronte, importi e tabelle ricalcolati, tasse = frammenti, date dei listini, "
+          f"hreflang, citazioni, link alle fonti, FAQ da ricerche vere, nessun affiliato, link; riletti online: {len(r28)}: {len(e28)} errori")
+    for x in r28:
+        print("    ·", x)
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28
     for e in tutti:
         print(" -", e)
     if tutti:

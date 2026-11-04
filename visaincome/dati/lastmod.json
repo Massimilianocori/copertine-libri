@@ -3,7 +3,7 @@
 "pagine": {
 "": [
 "2026-11-04",
-"166361054576b8fca8b8"
+"e69901c6d71412b8d762"
 ],
 "about/": [
 "2026-10-15",
@@ -657,6 +657,126 @@
 "2026-10-31",
 "e52b221d40205dd0f3d6"
 ],
+"es/visados/": [
+"2026-11-04",
+"ee548ac6664435987702"
+],
+"es/visados/visa-d7-portugal-para-argentinos/": [
+"2026-11-04",
+"94ab8d34c6b5ddf3d579"
+],
+"es/visados/visa-d7-portugal-para-chilenos/": [
+"2026-11-04",
+"af02802e7857e6312efa"
+],
+"es/visados/visa-d7-portugal-para-colombianos/": [
+"2026-11-04",
+"d18c4b20bef0ee020411"
+],
+"es/visados/visa-d7-portugal-para-mexicanos/": [
+"2026-11-04",
+"d844c7c0dc4b471789f9"
+],
+"es/visados/visa-d8-nomada-digital-portugal/": [
+"2026-11-04",
+"882874499e95f71a2cff"
+],
+"es/visados/visa-de-estudiante-espana-para-argentinos/": [
+"2026-11-04",
+"6947ddb26dfea755d276"
+],
+"es/visados/visa-de-estudiante-espana-para-chilenos/": [
+"2026-11-04",
+"ca52a58a718c85e7403b"
+],
+"es/visados/visa-de-estudiante-espana-para-colombianos/": [
+"2026-11-04",
+"b10e0dee4f8c74418f17"
+],
+"es/visados/visa-de-estudiante-espana-para-mexicanos/": [
+"2026-11-04",
+"24c34aa01ffff1ec6afb"
+],
+"es/visados/visa-de-estudiante-espana-para-peruanos/": [
+"2026-11-04",
+"259c64db95b007e64310"
+],
+"es/visados/visa-de-estudiante-italia-para-argentinos/": [
+"2026-11-04",
+"30bccdfb42b756ce8399"
+],
+"es/visados/visa-de-estudiante-italia-para-chilenos/": [
+"2026-11-04",
+"503b4224bd1f15809b8b"
+],
+"es/visados/visa-de-estudiante-italia-para-colombianos/": [
+"2026-11-04",
+"f96f28808b9396e45fc6"
+],
+"es/visados/visa-de-estudiante-italia-para-mexicanos/": [
+"2026-11-04",
+"7fdcedae469506843050"
+],
+"es/visados/visa-de-estudiante-italia-para-peruanos/": [
+"2026-11-04",
+"72c53d5d1128994a3f5c"
+],
+"es/visados/visa-de-estudiante-portugal-para-chilenos/": [
+"2026-11-04",
+"bf676844f932bfd45484"
+],
+"es/visados/visa-de-estudiante-portugal-para-colombianos/": [
+"2026-11-04",
+"d2a1a5440fde616c3b2d"
+],
+"es/visados/visa-de-estudiante-portugal-para-mexicanos/": [
+"2026-11-04",
+"9b378320c06b82e608eb"
+],
+"es/visados/visa-de-estudiante-portugal-para-peruanos/": [
+"2026-11-04",
+"b3b1f687985c77d0f7c3"
+],
+"es/visados/visa-no-lucrativa-espana-para-argentinos/": [
+"2026-11-04",
+"84a4ae647fa849751600"
+],
+"es/visados/visa-no-lucrativa-espana-para-chilenos/": [
+"2026-11-04",
+"9708940dce3555df6701"
+],
+"es/visados/visa-no-lucrativa-espana-para-colombianos/": [
+"2026-11-04",
+"9ba8a28d85f1531562b3"
+],
+"es/visados/visa-no-lucrativa-espana-para-mexicanos/": [
+"2026-11-04",
+"b0ac84ee64d30d8e7d2d"
+],
+"es/visados/visa-no-lucrativa-espana-para-peruanos/": [
+"2026-11-04",
+"b51d4b4f082bc6bfc7c6"
+],
+"es/visados/visa-nomada-digital-espana-para-argentinos/": [
+"2026-11-04",
+"89d1b3c4168234ef2acd"
+],
+"es/visados/visa-nomada-digital-espana-para-chilenos/": [
+"2026-11-04",
+"c51ed0b8a87a682b3bc5"
+],
+"es/visados/visa-nomada-digital-espana-para-colombianos/": [
+"2026-11-04",
+"c8e6fac3f6d14dea0567"
+],
+"es/visados/visa-nomada-digital-espana-para-mexicanos/": [
+"2026-11-04",
+"d2c0bea0c676804de77a"
+],
+"es/visados/visa-nomada-digital-espana-para-peruanos/": [
+"2026-11-04",
+"077cc2271dab17350493"
+],
 "france-eu-blue-card/": [
 "2026-10-31",
 "a108f2635fa3bc92a022"
@@ -666,8 +786,8 @@
 "246d2dbd2f2b48746972"
 ],
 "how-it-works/": [
-"2026-10-31",
-"9fcbcd028c64390f0aaa"
+"2026-11-04",
+"c43dfa8ab3bb2d64ac47"
 ],
 "hungary-white-card/": [
 "2026-10-31",
@@ -1688,6 +1808,46 @@
 "pt/seguro-viagem-obrigatorio-europa/": [
 "2026-10-31",
 "2fd56dbed69148f54f4a"
+],
+"pt/vistos/": [
+"2026-11-04",
+"cad08594452c32497df7"
+],
+"pt/vistos/visto-cplp-portugal/": [
+"2026-11-04",
+"608942006170540047ee"
+],
+"pt/vistos/visto-d7-portugal-para-brasileiros/": [
+"2026-11-04",
+"6a5406cc0928f917b6e4"
+],
+"pt/vistos/visto-d8-nomade-digital-portugal-para-brasileiros/": [
+"2026-11-04",
+"0759dd65809c2af4e6ed"
+],
+"pt/vistos/visto-de-estudante-espanha-para-brasileiros/": [
+"2026-11-04",
+"c36368e11a0f36936b94"
+],
+"pt/vistos/visto-de-estudante-italia-para-brasileiros/": [
+"2026-11-04",
+"992a389f571768751c1f"
+],
+"pt/vistos/visto-de-estudante-portugal-para-brasileiros/": [
+"2026-11-04",
+"a936900a78131df881cb"
+],
+"pt/vistos/visto-nao-lucrativo-espanha-para-brasileiros/": [
+"2026-11-04",
+"ffd4cc92f63815279b72"
+],
+"pt/vistos/visto-nomade-digital-espanha-para-brasileiros/": [
+"2026-11-04",
+"5e6a18e8aca05c878824"
+],
+"pt/vistos/visto-procura-de-trabalho-portugal/": [
+"2026-11-04",
+"e5c34d0e0a3de6d27dc1"
 ],
 "schengen-visa-from-dubai/": [
 "2026-10-31",

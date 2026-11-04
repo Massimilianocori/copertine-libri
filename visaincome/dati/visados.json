@@ -1,0 +1,1675 @@
+{
+ "_nota": "Generato da raccolta/visados.py: non modificare a mano.",
+ "letto_il": "2026-11-04",
+ "fonti": {
+  "es_tasas_co": {
+   "titolo": "Consulado General de España en Bogotá, Listado de tasas consulares – Sección de visados",
+   "formato": "pdf",
+   "paese": "colombia",
+   "url": "https://www.exteriores.gob.es/DocumentosAuxiliaresSC/Colombia/BOGOT%C3%81%20(C)/TASAS%20DE%20VISADOS%20A%C3%91O%202024%20junio.pdf",
+   "data_listino": "2024-06-05",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 313393,
+   "sha256": "2845d7fb9558233035257d4c084ed54cc86be33005a82a46bd0875b4d3453f1c"
+  },
+  "es_tasas_co_aviso": {
+   "titolo": "Consulado General de España en Bogotá, «Actualización tasas a partir de 1 de octubre 2026» (15/9/2026)",
+   "formato": "html",
+   "paese": "colombia",
+   "url": "https://www.exteriores.gob.es/Consulados/bogota/es/Comunicacion/Noticias/Paginas/Articulos/ACTUALIZACI%c3%93N-TASAS-A-PARTIR-DE-1-DE-OCTUBRE-2026.aspx",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 39950,
+   "sha256": "dfb2e366afc33b003519ddf7cbc672502a6ae7605adfdd33eff85c2f4a87974b"
+  },
+  "es_tasas_cl": {
+   "titolo": "Consulado General de España en Santiago de Chile, Listado de tasas consulares (a partir del 1 de enero de 2026)",
+   "formato": "pdf",
+   "paese": "chile",
+   "url": "https://www.exteriores.gob.es/DocumentosAuxiliaresSC/Chile/SANTIAGO%20DE%20CHILE%20(C)/TASAS%20CONSULARES.pdf",
+   "data_listino": "2026-01-01",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 29404,
+   "sha256": "902febddc5f316cb4ba8b38ac76b57e39c777d6c58de9ad4040641405561823c"
+  },
+  "es_tasas_ar": {
+   "titolo": "Consulado General de España en Buenos Aires, Tasas consulares a partir del 01-01-2026",
+   "formato": "pdf",
+   "paese": "argentina",
+   "url": "https://www.exteriores.gob.es/Consulados/buenosaires/es/ServiciosConsulares/PublishingImages/Paginas/Tasas-consulares/Hoja%20informativa%20tasas%20consulares%20a%201%20de%20enero%20de%202026.pdf",
+   "data_listino": "2026-01-01",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 196949,
+   "sha256": "8f5f504ec286b2c7e26c4937db40731ac959857a83b3cf2609388be9768dd34d"
+  },
+  "es_tasas_pe": {
+   "titolo": "Consulado General de España en Lima, Tasas consulares 2026 (publicado el 12/6/2026)",
+   "formato": "pdf",
+   "paese": "peru",
+   "url": "https://www.exteriores.gob.es/DocumentosAuxiliaresSC/Per%c3%ba/LIMA%20%28C%29/Tasas%20consulares%202024.pdf",
+   "data_listino": "2026-06-12",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 30357,
+   "sha256": "241dd073fd077798def1d9b0e6f5c6e14a1a80f4f1b7548f6a9bdee123107a5b"
+  },
+  "es_tasas_mx": {
+   "titolo": "Consulado General de España en México, Tasas para visados (en vigor a partir del 1 de enero de 2026)",
+   "formato": "html",
+   "paese": "mexico",
+   "url": "https://www.exteriores.gob.es/Consulados/mexico/es/ServiciosConsulares/Paginas/TasasVisados.aspx",
+   "data_listino": "2026-01-01",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 44818,
+   "sha256": "cd81582dc1af7456feec47bd567fbb920e743eecc5decdfceb9207a4ed3d3915"
+  },
+  "es_tasas_mx_pdf": {
+   "titolo": "Consulado General de España en México, Precios recaudación consular 2026 (impreso el 16/12/2025)",
+   "formato": "pdf",
+   "paese": "mexico",
+   "url": "https://www.exteriores.gob.es/Consulados/mexico/es/ServiciosConsulares/Documents/TASAS%202026%20(DEFINITIVAS).pdf",
+   "data_listino": "2025-12-16",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 32378,
+   "sha256": "8e8f4e05c5babfd7222595b05b19f85b67646b136318606f54806a4e94d40b87"
+  },
+  "es_tasas_br": {
+   "titolo": "Consulado General de España en São Paulo, Precios recaudación consular (impreso el 16/12/2025)",
+   "formato": "pdf",
+   "paese": "brasil",
+   "url": "https://www.exteriores.gob.es/Consulados/SAOPAULO/es/ServiciosConsulares/Documents/Tasas%20Consulares.pdf",
+   "data_listino": "2025-12-16",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 162718,
+   "sha256": "9d5a62944a2ee1d9bec3d6d47ef071e476d99d0c8524c3e577509e1b386f63dc"
+  },
+  "es_tasas_br_bsb": {
+   "titolo": "Embajada de España en Brasilia, Sección consular, Tasas consulares / Taxas consulares (01/01/2026)",
+   "formato": "pdf",
+   "paese": "brasil",
+   "url": "https://www.exteriores.gob.es/DocumentosAuxiliaresSC/Brasil/BRASILIA%20(E)/tasasconsulares.pdf",
+   "data_listino": "2026-01-01",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 402509,
+   "sha256": "14f2f13560cc01543e25f22d096612e4da55d7ea8076774e0738c9b4cf197a9d"
+  },
+  "es_ba_nl": {
+   "titolo": "Consulado General de España en Buenos Aires, Visado de residencia no lucrativa",
+   "formato": "html",
+   "url": "https://www.exteriores.gob.es/Consulados/buenosaires/es/ServiciosConsulares/Paginas/index.aspx?scca=Visados&scco=Argentina&scd=40&scs=Visados+Nacionales+-+Visado+de+residencia+no+lucrativa",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 145141,
+   "sha256": "861b0b7382032a4a147cf167fd1d9dd302656e1c3e3c8b943e884ef6b6372447"
+  },
+  "es_ba_nd": {
+   "titolo": "Consulado General de España en Buenos Aires, Visado de residencia para teletrabajo (nómada digital)",
+   "formato": "html",
+   "url": "https://www.exteriores.gob.es/Consulados/buenosaires/es/ServiciosConsulares/Paginas/index.aspx?scca=Visados&scco=Argentina&scd=40&scs=Visados+Nacionales+-+Visado+de+residencia+para+teletrabajo+(n%C3%B3mada+digital)",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 146930,
+   "sha256": "8d4094cb866a8eee9923c7c52b400b4b036b7da246c63926606843ad93b1e640"
+  },
+  "es_ba_es": {
+   "titolo": "Consulado General de España en Buenos Aires, Visado de estudios",
+   "formato": "html",
+   "url": "https://www.exteriores.gob.es/Consulados/buenosaires/es/ServiciosConsulares/Paginas/index.aspx?scca=Visados&scco=Argentina&scd=40&scs=Visados+Nacionales+-+Visado+de+estudios",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 179694,
+   "sha256": "5bce0c19dc2b6c84533446c7c564097fe6e43398bf4f0cebbbdfb5abb89a27a4"
+  },
+  "es_rd1155": {
+   "titolo": "Real Decreto 1155/2024, Reglamento de la Ley Orgánica 4/2000 (BOE, texto consolidado)",
+   "formato": "html",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2024-24099",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 1040895,
+   "sha256": "9b0b5ec4bda5bf4e9510d416c8c78aaca901e2e736f5cbbb5567a987225ea935"
+  },
+  "pt_emol": {
+   "titolo": "Ministério dos Negócios Estrangeiros, Vistos nacionais – Emolumentos",
+   "formato": "html",
+   "url": "https://vistos.mne.gov.pt/pt/vistos-nacionais/informacao-geral/emolumentos",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 44917,
+   "sha256": "52a77725931a694cbf332db993a6937acb589729f38f7d59eea7f751860f1577"
+  },
+  "pt_meios": {
+   "titolo": "Ministério dos Negócios Estrangeiros, Vistos nacionais – Meios de subsistência",
+   "formato": "html",
+   "url": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/meios-de-subsistencia",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 59866,
+   "sha256": "8f68fd06a634d786e4ed4ce221fc9a0767920fc3955ac8dcd3ce4bd92cf85854"
+  },
+  "pt_res": {
+   "titolo": "Ministério dos Negócios Estrangeiros, Vistos nacionais – Documentação instrutória – Residência",
+   "formato": "html",
+   "url": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/residencia",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 71488,
+   "sha256": "aabba60079d1db4ef422408fabb7b3a87b88521793c13291b2de8349ac5b7bca"
+  },
+  "pt_cplp": {
+   "titolo": "Ministério dos Negócios Estrangeiros, Vistos nacionais – Documentação instrutória – CPLP",
+   "formato": "html",
+   "url": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/cplp",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 44644,
+   "sha256": "8fb3f9999135201ded9be36aff8bc91c96ff81af940a3d49c36b9d51cbe84c38"
+  },
+  "pt_proc": {
+   "titolo": "Ministério dos Negócios Estrangeiros, Vistos nacionais – Procura de Trabalho Qualificado",
+   "formato": "html",
+   "url": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/procura-de-trabalho",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 42002,
+   "sha256": "1c61fceffdf8829a145b34a1cdb7fde41644feec016b4327847cb7f19c8df71f"
+  },
+  "pt_tipo": {
+   "titolo": "Ministério dos Negócios Estrangeiros, Vistos nacionais – Tipo de visto",
+   "formato": "html",
+   "url": "https://vistos.mne.gov.pt/pt/vistos-nacionais/informacao-geral/tipo-de-visto",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 68347,
+   "sha256": "af9cc32ed760ac1561d876efaef917256e7071ddb51ca678487e26c94d090d49"
+  },
+  "br_cplp": {
+   "titolo": "Decreto nº 11.156, de 29 de julho de 2022 (promulga o Acordo sobre a Mobilidade CPLP), Câmara dos Deputados, Legislação Informatizada",
+   "formato": "html",
+   "url": "https://www2.camara.leg.br/legin/fed/decret/2022/decreto-11156-29-julho-2022-793054-publicacaooriginal-165820-pe.html",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 81162,
+   "sha256": "31bc2b1032bd77ee3e28880bf398b98e633077604ba2176b80af72c6b1eb65c7"
+  },
+  "it_tab_ar": {
+   "titolo": "Consolato Generale d'Italia a Buenos Aires, Tabella diritti consolari IV trimestre 2026",
+   "formato": "pdf",
+   "paese": "argentina",
+   "url": "https://consbuenosaires.esteri.it/wp-content/uploads/2026/09/IV-TRIM-2026-TABELLA-DIRITTI-CONSOLARI.pdf",
+   "data_listino": "2026-10-01",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 129403,
+   "sha256": "e97627bf29bcd47e85a6b5d5edd056f5507f22c04ba2735ed4293407cd2d4985"
+  },
+  "it_tab_cl": {
+   "titolo": "Ambasciata d'Italia a Santiago del Cile, Tabella delle principali percezioni consolari, IV trimestre 2026",
+   "formato": "pdf",
+   "paese": "chile",
+   "url": "https://ambsantiago.esteri.it/wp-content/uploads/2026/10/Tabella-Percezioni-IV-Trim-2026.pdf",
+   "data_listino": "2026-10-01",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 108054,
+   "sha256": "194cadcea97277a37ffd6e04f108b043ad54b3c18cc8be54a71ca2694205296d"
+  },
+  "it_tab_mx": {
+   "titolo": "Ambasciata d'Italia a Città del Messico, Tabella diritti consolari IV trimestre 2026",
+   "formato": "pdf",
+   "paese": "mexico",
+   "url": "https://ambcittadelmessico.esteri.it/wp-content/uploads/2026/10/TABELLA-DIRITTI-CONSOLARI-IV-TRIM-2026.pdf",
+   "data_listino": "2026-10-01",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 263813,
+   "sha256": "b1a01f580c3415259d381179a3f30bc5642b5620384204cc5db10a00808adf4a"
+  },
+  "it_tab_br": {
+   "titolo": "Consolato Generale d'Italia a San Paolo, Principali tariffe consolari in vigore dal 01 ottobre 2026 (firmata il 25/09/2026)",
+   "formato": "immagine",
+   "paese": "brasil",
+   "url": "https://conssanpaolo.esteri.it/wp-content/uploads/2026/10/Tabella-diritti-Consolari-IV-TRIM-2026.pdf",
+   "data_listino": "2026-10-01",
+   "sha256_atteso": "91887e0acd1826aa6d59ee5f536a860c1553a6ff8eae36fd71ad3ba6333a787d",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 365945,
+   "sha256": "91887e0acd1826aa6d59ee5f536a860c1553a6ff8eae36fd71ad3ba6333a787d"
+  }
+ },
+ "letture": {
+  "co_gratis_lista": {
+   "fonte": "es_tasas_co",
+   "frammento": "Visados Nacionales para ciudadanos de: Andorra, Chile, Colombia, Corea del Sur, Costa Rica, Croacia,"
+  },
+  "co_gratis": {
+   "fonte": "es_tasas_co",
+   "valore": 0,
+   "valuta": "COP",
+   "frammento": "Gratuito El Salvador, Honduras, Japón, Nicaragua, Panamá, Paraguay, San Marino. (Según acuerdos y convenios firmados)."
+  },
+  "co_fecha": {
+   "fonte": "es_tasas_co",
+   "frammento": "A partir de la fecha (05/06/2024)"
+  },
+  "co_aut": {
+   "fonte": "es_tasas_co",
+   "valore": 47400,
+   "valuta": "COP",
+   "frammento": "Autorización inicial de residencia temporal $47,400"
+  },
+  "co_aviso": {
+   "fonte": "es_tasas_co_aviso",
+   "frammento": "a partir del 1 de octubre de 2026, entrará en vigor una actualización de las tasas aplicables a los servicios consulares"
+  },
+  "cl_gratis": {
+   "fonte": "es_tasas_cl",
+   "valore": 0,
+   "valuta": "CLP",
+   "frammento": "Visados Nacionales para ciudadanos de los siguientes países: Andorra, CHILE, Colombia, Corea del Sur, Costa Rica, Croacia, El Salvador, Honduras, Japón, Nicaragua, Panamá, Gratuitos"
+  },
+  "cl_fecha": {
+   "fonte": "es_tasas_cl",
+   "frammento": "(A partir del 1º de Enero de 2026)"
+  },
+  "cl_aut": {
+   "fonte": "es_tasas_cl",
+   "valore": 11680,
+   "valuta": "CLP",
+   "frammento": "Autorización Inicial de Residencia Temporal $11.680.-"
+  },
+  "ar_visado": {
+   "fonte": "es_tasas_ar",
+   "valore": 152000,
+   "valuta": "ARS",
+   "frammento": "Visados Nacional 152.000 pesos"
+  },
+  "ar_fecha": {
+   "fonte": "es_tasas_ar",
+   "frammento": "TASAS CONSULARES a partir del 01-01-2026"
+  },
+  "ar_reciprocidad": {
+   "fonte": "es_tasas_ar",
+   "frammento": "Si el solicitante de visado es nacional de Australia, Canadá, Estados Unidos, Etiopía, Irlanda o Reino Unido"
+  },
+  "ar_bls": {
+   "fonte": "es_tasas_ar",
+   "frammento": "Las solicitudes de visado se presentan en el Centro de Solicitud"
+  },
+  "pe_visado": {
+   "fonte": "es_tasas_pe",
+   "valore": 352.1,
+   "valuta": "PEN",
+   "frammento": "Visado Nacional - Tasa general 352,10 soles"
+  },
+  "pe_fecha": {
+   "fonte": "es_tasas_pe",
+   "frammento": "Publicado el 12.06.2026"
+  },
+  "pe_titulo": {
+   "fonte": "es_tasas_pe",
+   "frammento": "TASAS CONSULARES 2026"
+  },
+  "pe_aut": {
+   "fonte": "es_tasas_pe",
+   "valore": 42.8,
+   "valuta": "PEN",
+   "frammento": "Residencia no lucrativa 42,80 soles"
+  },
+  "pe_bls": {
+   "fonte": "es_tasas_pe",
+   "valore": 66.1,
+   "valuta": "PEN",
+   "frammento": "La empresa BLS cobra una tarifa básica obligatoria de 66,10 soles"
+  },
+  "mx_visado": {
+   "fonte": "es_tasas_mx",
+   "valore": 1902,
+   "valuta": "MXN",
+   "frammento": "La tasa para solicitar todos los visados es de 1,902 MXN"
+  },
+  "mx_fecha": {
+   "fonte": "es_tasas_mx",
+   "frammento": "Tasas actualizadas en vigor a partir del 1 de enero de 2026."
+  },
+  "mx_nl": {
+   "fonte": "es_tasas_mx",
+   "valore": 231,
+   "valuta": "MXN",
+   "frammento": "residencia no lucrativa: 1,902 MXN + 231 MXN por la autorización inicial de residencia"
+  },
+  "mx_visado_pdf": {
+   "fonte": "es_tasas_mx_pdf",
+   "valore": 1902,
+   "valuta": "MXN",
+   "frammento": "14-Visado 1.902,00"
+  },
+  "br_visado": {
+   "fonte": "es_tasas_br",
+   "valore": 570,
+   "valuta": "BRL",
+   "frammento": "14-Visado 570,00"
+  },
+  "br_fecha": {
+   "fonte": "es_tasas_br",
+   "frammento": "Fecha de impresión: 16/12/2025"
+  },
+  "br_aut": {
+   "fonte": "es_tasas_br",
+   "valore": 69,
+   "valuta": "BRL",
+   "frammento": "Aut. Inicial residencia temporal 69,00"
+  },
+  "br_visado_bsb": {
+   "fonte": "es_tasas_br_bsb",
+   "valore": 570,
+   "valuta": "BRL",
+   "frammento": "Visados nacionales / Vistos: 570,00 R$"
+  },
+  "br_bsb_aut": {
+   "fonte": "es_tasas_br_bsb",
+   "valore": 69,
+   "valuta": "BRL",
+   "frammento": "Tasas de extranjería (MOD 790), residencia temporal / Taxas de Extranjería (MOD 790), residência temporária: 69,00 R$"
+  },
+  "br_bsb_orientativo": {
+   "fonte": "es_tasas_br_bsb",
+   "frammento": "La información ofrecida sólo tiene carácter orientativo y no es vinculante"
+  },
+  "nl_400": {
+   "fonte": "es_rd1155",
+   "valore": 4.0,
+   "frammento": "Para su sostenimiento, durante su residencia en España, una cantidad que represente mensualmente en euros el 400 % del IPREM, o su equivalente legal en moneda extranjera."
+  },
+  "nl_100": {
+   "fonte": "es_rd1155",
+   "valore": 1.0,
+   "frammento": "Para el sostenimiento de cada uno de los familiares a su cargo, durante su residencia en España, una cantidad que represente mensualmente en euros el 100 % del IPREM"
+  },
+  "nl_un_ano": {
+   "fonte": "es_rd1155",
+   "valore": 1,
+   "frammento": "La autorización inicial de residencia temporal no lucrativa tendrá la duración de un año."
+  },
+  "nl_ba_2400": {
+   "fonte": "es_ba_nl",
+   "valore": [
+    2400,
+    28800,
+    600
+   ],
+   "frammento": "Se deberá acreditar que el interesado cuenta con un mínimo de 2.400 euros por mes (12 meses) o un total de 28.800 euros. Por cada familiar a cargo se deberá acreditar un importe adicional de 600 euros por mes (12 meses)."
+  },
+  "nl_ba_trabajo": {
+   "fonte": "es_ba_nl",
+   "frammento": "deberá acreditar no ejercer actividades laborales, ni de manera presencial ni remota, ni por cuenta ajena o por cuenta propia"
+  },
+  "nl_ba_seguro": {
+   "fonte": "es_ba_nl",
+   "frammento": "Se deberá contratar una cobertura médica durante el primer año de residencia que cubra el 100% de los gastos médicos, sin copagos y sin carencias."
+  },
+  "nl_ba_penales": {
+   "fonte": "es_ba_nl",
+   "frammento": "certificado de antecedentes penales expedido por el país o países de residencia en los últimos 5 años"
+  },
+  "nl_ba_medico": {
+   "fonte": "es_ba_nl",
+   "frammento": "certificado médico que acredite que el solicitante no padece enfermedades que puedan tener repercusiones graves para la salud pública"
+  },
+  "nl_ba_pasaporte": {
+   "fonte": "es_ba_nl",
+   "frammento": "El pasaporte deberá tener una validez mínima de 1 año y dos páginas en blanco."
+  },
+  "nl_ba_ex01": {
+   "fonte": "es_ba_nl",
+   "frammento": "Impreso de solicitud de autorización de residencia no lucrativa."
+  },
+  "nl_ba_apostilla": {
+   "fonte": "es_ba_nl",
+   "frammento": "Todos los documentos extranjeros deben presentarse legalizados o apostillados"
+  },
+  "nl_ba_790": {
+   "fonte": "es_ba_nl",
+   "frammento": "modelo 790 código 052, epígrafe 2.1 ( autorización inicial de residencia temporal )"
+  },
+  "nd_200": {
+   "fonte": "es_ba_nd",
+   "valore": 2.0,
+   "frammento": "Teletrabajador: cantidad que represente mensualmente el 200% del salario mínimo interprofesional (SMI)."
+  },
+  "nd_familia": {
+   "fonte": "es_ba_nd",
+   "valore": [
+    0.75,
+    0.25
+   ],
+   "frammento": "Familiares del teletrabajador: al menos el 75% del SMI por la primera persona reagrupada y, al menos, un 25% del SMI por cada miembro adicional."
+  },
+  "nd_titulo": {
+   "fonte": "es_ba_nd",
+   "frammento": "o bien probar una experiencia profesional mínima de tres años"
+  },
+  "nd_empresa": {
+   "fonte": "es_ba_nd",
+   "frammento": "la fecha de constitución de la empresa (no debe ser inferior a un año)"
+  },
+  "nd_antiguedad": {
+   "fonte": "es_ba_nd",
+   "frammento": "la antigüedad del trabajador en la empresa (no debe ser inferior a tres meses)"
+  },
+  "nd_20": {
+   "fonte": "es_ba_nd",
+   "frammento": "siempre que el porcentaje de dicho trabajo no sea superior al 20 % del total de su actividad"
+  },
+  "nd_seguro": {
+   "fonte": "es_ba_nd",
+   "frammento": "El seguro debe cubrir todos los riesgos asegurados por el sistema público de salud en España."
+  },
+  "nd_penales": {
+   "fonte": "es_ba_nd",
+   "frammento": "certificado de antecedentes penales expedido por el país o países de residencia en los últimos 2 años"
+  },
+  "est_100": {
+   "fonte": "es_rd1155",
+   "valore": 1.0,
+   "frammento": "Para su sostenimiento, una cantidad que represente mensualmente el 100 % del IPREM, salvo que se acredite debidamente tener abonado de antemano el alojamiento por todo el tiempo de duración de la estancia."
+  },
+  "est_familia": {
+   "fonte": "es_rd1155",
+   "valore": [
+    0.75,
+    0.5
+   ],
+   "frammento": "una cantidad que represente mensualmente el 75 % del IPREM, para el primer familiar, y el 50 % del IPREM para cada una de las restantes personas"
+  },
+  "est_pasaporte": {
+   "fonte": "es_rd1155",
+   "frammento": "pasaporte o título de viaje en vigor, reconocido como válido en España, con una vigencia mínima de un año"
+  },
+  "est_ba_admision": {
+   "fonte": "es_ba_es",
+   "frammento": "documentos que acrediten la admisión y el pago de la matrícula"
+  },
+  "est_ba_90": {
+   "fonte": "es_ba_es",
+   "frammento": "La estancia por estudios de hasta 90 días no requiere visado de estudios."
+  },
+  "pt_110": {
+   "fonte": "pt_emol",
+   "valore": 110,
+   "valuta": "EUR",
+   "frammento": "As taxas a pagar pelo tratamento administrativo de um pedido de visto nacional é de 110€."
+  },
+  "pt_isencao_bolsa": {
+   "fonte": "pt_emol",
+   "frammento": "A cidadãos estrangeiros que beneficiem de bolsas de estudo atribuídas pelo Estado Português"
+  },
+  "pt_rmmg": {
+   "fonte": "pt_meios",
+   "valore": 920,
+   "valuta": "EUR",
+   "frammento": "retribuição mínima mensal garantida que, em 2026, é de 920€"
+  },
+  "pt_escala": {
+   "fonte": "pt_meios",
+   "valore": [
+    1.0,
+    0.5,
+    0.3
+   ],
+   "frammento": "Primeiro adulto 100%; Segundo ou mais adultos 50%; Crianças e jovens com idade inferior a 18 anos e filhos maiores a cargo 30%."
+  },
+  "pt_estudo_12": {
+   "fonte": "pt_meios",
+   "valore": 12,
+   "frammento": "assegurados por um período de 12 meses ou pelo número de meses de permanência do requerente, quando participe em programa de intercâmbio, podendo os rendimentos ser reduzidos a metade quando comprove ter assegurados, por qualquer forma, o alojamento ou até 90 % quando comprove ter também assegurada a alimentação"
+  },
+  "pt_d7_reformado": {
+   "fonte": "pt_meios",
+   "frammento": "No caso de cidadão estrangeiro reformado, através de documento comprovativo do respectivo rendimento, bem como da garantia do seu recebimento ou disponibilidade de outros rendimentos em território nacional"
+  },
+  "pt_d7_rendimentos": {
+   "fonte": "pt_meios",
+   "frammento": "No caso de cidadão estrangeiro que viva de rendimentos de bens móveis ou imóveis, da propriedade intelectual ou de aplicações financeiras, através de documento comprovativo da existência e montante de tais rendimentos, bem como da sua disponibilidade em Portugal."
+  },
+  "pt_d8_4": {
+   "fonte": "pt_res",
+   "valore": 4,
+   "frammento": "Comprovativo de rendimentos médios mensais auferidos no exercício de atividade profissional subordinada ou independente nos últimos três meses de valor mínimo equivalente a quatro remunerações mínimas mensais garantidas"
+  },
+  "pt_d8_fiscal": {
+   "fonte": "pt_res",
+   "frammento": "Documento que ateste a sua residência fiscal."
+  },
+  "pt_seguro_pb4": {
+   "fonte": "pt_res",
+   "frammento": "como por exemplo no caso do Brasil (PB4) e Reino Unido (S1)"
+  },
+  "pt_seguro": {
+   "fonte": "pt_res",
+   "frammento": "Seguro de viagem válido, que permita cobrir as despesas necessárias por razões médicas, incluindo assistência médica urgente e eventual repatriamento"
+  },
+  "pt_registo": {
+   "fonte": "pt_res",
+   "frammento": "Certificado de registo criminal do país de origem ou do país onde o requerente resida há mais de um ano (os menores de 16 anos estão isentos da apresentação dos documentos relativos ao registo criminal), com Apostila de Haia (se aplicável) ou legalizado"
+  },
+  "pt_passaporte": {
+   "fonte": "pt_res",
+   "frammento": "Passaporte ou outro documento de viagem válido por mais 3 meses para além da duração da estada prevista"
+  },
+  "pt_est_admissao": {
+   "fonte": "pt_res",
+   "frammento": "Comprovativo em como preenche as condições de admissão ou foi aceite em instituição do ensino superior para frequência de um programa de estudos e que possui os recursos suficientes para a respetiva frequência."
+  },
+  "pt_est_lusofono": {
+   "fonte": "pt_res",
+   "frammento": "É dispensado da prova de meios de subsistência o requerente de visto de residência, nacional de Estado terceiro de língua oficial portuguesa , quando admitido em instituição de ensino superior."
+  },
+  "pt_est_91b": {
+   "fonte": "pt_res",
+   "frammento": "Os estudantes de ensino superior admitidos em instituição de ensino superior oficialmente reconhecido nos termos da legislação em vigor (Artigo 91º-B da LE) estão dispensados de apresentar seguro de saúde ou equivalente, de comprovar condições de admissão ou em como foi aceite em instituição de ensino superior, seguro de viagem ou meios de subsistência."
+  },
+  "pt_d7_reformados_doc": {
+   "fonte": "pt_res",
+   "frammento": "Documento comprovativo de montante da reforma."
+  },
+  "pt_familia_1563": {
+   "fonte": "pt_res",
+   "frammento": "determinado nos termos do n.º 2 do artigo 2.º da Portaria n.º 1563/2007, de 11 de dezembro"
+  },
+  "pt_cplp_regime": {
+   "fonte": "pt_cplp",
+   "frammento": "Regime de pedidos de visto aplicável aos nacionais de um Estado em que esteja em vigor o Acordo sobre a Mobilidade entre os Estados membros da Comunidade dos Países de Língua Portuguesa celebrado em Luanda a 17 de julho de 2021 (Acordo CPLP)"
+  },
+  "pt_cplp_dispensa": {
+   "fonte": "pt_cplp",
+   "frammento": "Os cidadãos da CPLP são dispensados da apresentação de meios de subsistência desde que apresentem:"
+  },
+  "pt_cplp_termo": {
+   "fonte": "pt_cplp",
+   "frammento": "Termo de responsabilidade com assinatura reconhecida, subscrito por cidadão português ou cidadão estrangeiro habilitado, com documento de residência em Portugal, que garanta a alimentação e alojamento ao requerente do visto"
+  },
+  "pt_cplp_irs": {
+   "fonte": "pt_cplp",
+   "frammento": "Declaração de IRS do subscritor (último ano); e Extrato bancário do subscritor (últimos 3 meses)."
+  },
+  "pt_cplp_ensino": {
+   "fonte": "pt_cplp",
+   "frammento": "Aos requerentes admitidos em instituição de ensino superior é dispensada a apresentação de meios de subsistência."
+  },
+  "pt_proc_suspenso": {
+   "fonte": "pt_proc",
+   "frammento": "PROCURA DE TRABALHO QUALIFICADO AINDA NÃO DISPONÍVEL NOS POSTOS CONSULARES PORTUGUESES A aguardar a necessária regulamentação do artigo 57.º-A da Lei de Estrangeiros."
+  },
+  "pt_tipo_suspenso": {
+   "fonte": "pt_tipo",
+   "frammento": "O Visto para Procura de Trabalho Qualificado (SUSPENSO)"
+  },
+  "pt_tipo_residencia": {
+   "fonte": "pt_tipo",
+   "frammento": "O visto de residência que permite a obtenção de autorização de residência é válido para duas entradas e por quatro meses"
+  },
+  "br_cplp_vigor": {
+   "fonte": "br_cplp",
+   "frammento": "Considerando que o Acordo entrou em vigor para a República Federativa do Brasil, no plano jurídico externo, em 1º de abril de 2022"
+  },
+  "it_ar": {
+   "fonte": "it_tab_ar",
+   "valore": 86100,
+   "valuta": "ARS",
+   "frammento": "Visto Nazionale per motivi di studio art. 29 50,00 86.100,00"
+  },
+  "it_ar_cambio": {
+   "fonte": "it_tab_ar",
+   "valore": 1720.2176,
+   "frammento": "TASSO DI RAGGUAGLIO IV TRIMESTRE 2026 1 EURO PARI A: 1720,2176 ARS"
+  },
+  "it_ar_periodo": {
+   "fonte": "it_tab_ar",
+   "frammento": "IN VIGORE DAL 01/10 /2026 AL 31/12/2026"
+  },
+  "it_cl": {
+   "fonte": "it_tab_cl",
+   "valore": 54000,
+   "valuta": "CLP",
+   "frammento": "29d Visto di studio 54.000"
+  },
+  "it_cl_periodo": {
+   "fonte": "it_tab_cl",
+   "valore": 1067.96,
+   "frammento": "IV trimestre 2026 dal 1° ottobre al 31 dicembre 2026 (1 Euro = 1.067,96 Pesos Cileni)"
+  },
+  "it_mx": {
+   "fonte": "it_tab_mx",
+   "valore": 1000,
+   "valuta": "MXN",
+   "frammento": "VISTO NAZIONALE PER MOTIVI DI STUDIO 50 1,000"
+  },
+  "it_mx_cambio": {
+   "fonte": "it_tab_mx",
+   "valore": 19.8501,
+   "frammento": "TASSO DI RAGGUAGLIO: 19.8501"
+  },
+  "it_mx_periodo": {
+   "fonte": "it_tab_mx",
+   "frammento": "TABELLA DIRITTI CONSOLARI IV TRIMESTRE 2026"
+  },
+  "it_br": {
+   "fonte": "it_tab_br",
+   "valore": 296.0,
+   "valuta": "BRL",
+   "visiva": true,
+   "frammento": "Visto nazionale per motivi di studio - tipo D | 29 | 50,00 | 296,00 | 299,64 | 300,44"
+  },
+  "it_br_cambio": {
+   "fonte": "it_tab_br",
+   "valore": 5.9093,
+   "visiva": true,
+   "frammento": "Tasso di cambio 1 Euro = R$ 5,90930000"
+  }
+ },
+ "valute": {
+  "colombia": "COP",
+  "mexico": "MXN",
+  "argentina": "ARS",
+  "chile": "CLP",
+  "peru": "PEN",
+  "brasil": "BRL"
+ },
+ "cambi": {
+  "data": "2026-10-27",
+  "eur_usd": 1.115,
+  "per_usd": {
+   "COP": 3157.94,
+   "ARS": 1538.0,
+   "PEN": 3.452,
+   "CLP": 994.29
+  },
+  "bce": {
+   "USD": 1.115,
+   "MXN": 20.78,
+   "BRL": 5.9624
+  },
+  "tassi": {
+   "USD": 1.115,
+   "MXN": 20.78,
+   "BRL": 5.9624,
+   "COP": 3521.1031,
+   "ARS": 1714.87,
+   "PEN": 3.849,
+   "CLP": 1108.6334
+  },
+  "fonti": {
+   "ECB": {
+    "nome": "Banco Central Europeo, tipos de cambio de referencia del euro",
+    "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml"
+   },
+   "COP": {
+    "nome": "Superintendencia Financiera de Colombia, Tasa Representativa del Mercado (TRM), en datos.gov.co",
+    "url": "https://www.datos.gov.co/resource/32sa-8pi3.json"
+   },
+   "ARS": {
+    "nome": "Banco Central de la República Argentina, cotización del dólar (API de estadísticas cambiarias)",
+    "url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones/USD"
+   },
+   "PEN": {
+    "nome": "Banco Central de Reserva del Perú, tipo de cambio del sistema bancario SBS, venta (serie PD04640PD)",
+    "url": "https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PD04640PD"
+   },
+   "CLP": {
+    "nome": "Servicio de Impuestos Internos de Chile, dólar observado",
+    "url": "https://www.sii.cl/valores_y_fechas/dolar/dolar2026.htm"
+   }
+  },
+  "nota": "EUR -> COP/ARS/PEN/CLP = (dollari per euro della BCE) × (valuta per dollaro della fonte ufficiale del Paese), stesso giorno."
+ },
+ "domanda": {
+  "data": "2026-11-04",
+  "metodo": "https://suggestqueries.google.com/complete/search?client=firefox&gl=<co|mx|ar|cl|pe|br>&hl=<es|pt>&q=…",
+  "query": {
+   "es-co|visa no lucrativa españa para": [
+    "visa no lucrativa españa para colombianos",
+    "visa no lucrativa españa para mexicanos",
+    "visa no lucrativa españa para argentinos",
+    "visa no lucrativa españa para chilenos",
+    "visa no lucrativa españa para peruanos",
+    "visa no lucrativa españa para venezolanos",
+    "visa no lucrativa españa para cubanos",
+    "visa no lucrativa para españa",
+    "visa no lucrativa para españa requisitos",
+    "visa de residencia no lucrativa para españa"
+   ],
+   "es-co|visa no lucrativa españa": [
+    "visa no lucrativa españa para colombianos",
+    "visa no lucrativa españa",
+    "visa no lucrativa españa 2026",
+    "visa no lucrativa españa requisitos",
+    "visa no lucrativa españa para argentinos",
+    "visa no lucrativa españa para chilenos",
+    "visa no lucrativa españa para mexicanos",
+    "visa no lucrativa españa 2026 requisitos",
+    "visa no lucrativa españa ecuador",
+    "visa no lucrativa españa para peruanos"
+   ],
+   "es-co|visa nomada digital españa para": [
+    "visa nomada digital españa para mexicanos",
+    "visa nómada digital españa para colombianos",
+    "visa nómada digital españa para venezolanos",
+    "visa nomada digital españa para argentinos",
+    "visa nomada digital españa para chilenos",
+    "visa nómada digital españa para peruanos",
+    "visa nómada digital españa para ecuatorianos",
+    "visa nomada digital para españa",
+    "requisitos para visa nomada digital españa",
+    "ingresos para visa nomada digital españa"
+   ],
+   "es-co|visa nomada digital españa": [
+    "visa nomada digital españa",
+    "visa nomada digital españa para mexicanos",
+    "visa nómada digital españa requisitos",
+    "visa nomada digital españa 2026",
+    "visa nomada digital españa salario minimo",
+    "visa nómada digital españa argentina",
+    "visa nómada digital españa para colombianos",
+    "visa nómada digital españa familia",
+    "visa nómada digital españa para venezolanos",
+    "visa nomada digital españa impuestos"
+   ],
+   "es-co|visa de estudiante españa para": [
+    "visa de estudiante españa para colombianos 2026",
+    "visa de estudiante españa para mexicanos",
+    "visa de estudiante españa para venezolanos",
+    "visa de estudiante españa para mexicanos precio",
+    "visa de estudiante españa para peruanos",
+    "visa de estudiante españa para ecuatorianos",
+    "visa de estudiante españa para hondureños",
+    "visa de estudiante españa para argentinos",
+    "visa de estudiante españa para chilenos",
+    "visa de estudiante españa paraguay"
+   ],
+   "es-co|visa de estudiante españa": [
+    "visa de estudiante españa",
+    "visa de estudiante españa para colombianos",
+    "visa de estudiante españa para colombianos 2026",
+    "visa de estudiante españa permite trabajar",
+    "visa de estudiante españa requisitos",
+    "visa de estudiante españa costo",
+    "visa de estudiante españa para mexicanos",
+    "visa de estudiante españa para venezolanos",
+    "visa de estudiante españa para mexicanos precio",
+    "visa de estudiante españa para peruanos"
+   ],
+   "es-co|cuanto cuesta la visa de estudiante para españa": [
+    "cuanto cuesta la visa de estudiante para españa desde colombia",
+    "cuanto cuesta la visa de estudiante para españa",
+    "cuanto tarda la visa de estudiante para españa",
+    "cuanto se demora la visa de estudiante para españa en colombia"
+   ],
+   "es-co|visa d7 portugal para": [
+    "visa d7 portugal para colombianos",
+    "visa d7 portugal para mexicanos",
+    "visa d7 portugal para argentinos",
+    "visa d7 portugal para chilenos",
+    "visa d7 para portugal",
+    "requisitos para visa d7 portugal"
+   ],
+   "es-co|visa d7 portugal": [
+    "visa d7 portugal",
+    "visa d7 portugal requisitos",
+    "visa d7 portugal para colombianos",
+    "visa d7 portugal para mexicanos",
+    "visa d7 portugal para argentinos",
+    "visa d7 portugal para chilenos",
+    "visa d7 portugal 2025",
+    "visa d7 portugal colombia",
+    "visa d7 portugal en español",
+    "visa d7 portugal chile"
+   ],
+   "es-co|visa d8 portugal": [
+    "visa d8 portugal",
+    "visa d8 portugal requisitos",
+    "visa d8 portugal 2025",
+    "d8 visa portugal requirements",
+    "d8 visa portugal income requirements",
+    "d8 visa portugal taxes",
+    "d8 visa portugal application",
+    "d8 visa portugal 2026",
+    "d7 d8 visa portugal",
+    "d7 vs d8 visa portugal"
+   ],
+   "es-co|visa nomada digital portugal": [
+    "visa nomada digital portugal",
+    "visa nómada digital portugal requisitos",
+    "visa nomada digital portugal 2025",
+    "visa nomada digital portugal impuestos",
+    "visa nomada digital portugal 2026"
+   ],
+   "es-co|visa de estudiante portugal para": [
+    "visa de estudiante portugal para colombianos",
+    "visa de estudiante portugal para mexicanos",
+    "visa de estudiante portugal para venezolanos",
+    "visa de estudiante portugal para peruanos",
+    "visa de estudiante para portugal",
+    "requisitos para visa de estudiante portugal"
+   ],
+   "es-co|visa de estudiante portugal": [
+    "visa de estudiante portugal para colombianos",
+    "visa de estudiante portugal para mexicanos",
+    "visa de estudiante portugal",
+    "visa de estudiante portugal para venezolanos",
+    "visa de estudiante portugal para peruanos",
+    "visa de estudiante portugal requisitos",
+    "visa estudiante portugal chile",
+    "visa estudiante portugal mexico",
+    "embajada de portugal visa de estudiante",
+    "puedo trabajar con visa de estudiante en portugal"
+   ],
+   "es-co|visa de estudiante italia para": [
+    "visa de estudiante italia para mexicanos",
+    "visa de estudiante italia para argentinos",
+    "visa de estudiante italia para chilenos",
+    "visa de estudiante italia para peruanos",
+    "visa de estudiante para italia",
+    "visa de estudiante para italia en ecuador",
+    "visa de estudiante en italia para colombianos",
+    "como sacar visa de estudiante para italia",
+    "costo de visa de estudiante para italia",
+    "requisitos para visa de estudiante para italia"
+   ],
+   "es-co|visa de estudiante italia": [
+    "visa de estudiante italia",
+    "visa de estudiante italia para mexicanos",
+    "visa de estudiante italia para argentinos",
+    "visa de estudiante italia requisitos",
+    "visa de estudiante italia perú",
+    "visa de estudiante italia colombia",
+    "visa de estudiante italia para chilenos",
+    "visa de estudiante para italia en ecuador",
+    "visa estudiante italia mexico",
+    "visa estudiante italia costo"
+   ],
+   "es-mx|visa no lucrativa españa para": [
+    "visa no lucrativa españa para mexicanos",
+    "visa no lucrativa españa para colombianos",
+    "visa no lucrativa españa para argentinos",
+    "visa no lucrativa españa para chilenos",
+    "visa no lucrativa españa para peruanos",
+    "visa no lucrativa españa para venezolanos",
+    "visa no lucrativa españa para cubanos",
+    "visa no lucrativa para españa",
+    "visa no lucrativa para españa requisitos",
+    "visa de residencia no lucrativa para españa"
+   ],
+   "es-mx|visa no lucrativa españa": [
+    "visa no lucrativa españa",
+    "visa no lucrativa españa para mexicanos",
+    "visa no lucrativa españa requisitos",
+    "visa no lucrativa españa cuánto dinero necesito",
+    "visa no lucrativa españa para colombianos",
+    "visa no lucrativa españa para argentinos",
+    "visa no lucrativa españa para chilenos",
+    "visa no lucrativa españa 2026",
+    "visa no lucrativa españa 2026 requisitos",
+    "visa no lucrativa españa ecuador"
+   ],
+   "es-mx|visa nomada digital españa para": [
+    "visa nomada digital españa para mexicanos",
+    "visa nómada digital españa para colombianos",
+    "visa nómada digital españa para venezolanos",
+    "visa nomada digital españa para argentinos",
+    "visa nomada digital españa para chilenos",
+    "visa nómada digital españa para peruanos",
+    "visa nómada digital españa para ecuatorianos",
+    "visa nomada digital para españa",
+    "requisitos para visa nomada digital españa",
+    "ingresos para visa nomada digital españa"
+   ],
+   "es-mx|visa nomada digital españa": [
+    "visa nomada digital españa",
+    "visa nomada digital españa para mexicanos",
+    "visa nómada digital españa requisitos",
+    "visa nomada digital españa 2026",
+    "visa nomada digital españa salario minimo",
+    "visa nómada digital españa argentina",
+    "visa nómada digital españa para colombianos",
+    "visa nómada digital españa familia",
+    "visa nómada digital españa para venezolanos",
+    "visa nomada digital españa impuestos"
+   ],
+   "es-mx|visa de estudiante españa para": [
+    "visa de estudiante españa para mexicanos",
+    "visa de estudiante españa para mexicanos precio",
+    "visa de estudiante españa para venezolanos",
+    "visa de estudiante españa para peruanos",
+    "visa de estudiante españa para colombianos",
+    "visa de estudiante españa para ecuatorianos",
+    "visa de estudiante españa para colombianos 2026",
+    "visa de estudiante españa para hondureños",
+    "visa de estudiante españa para argentinos",
+    "visa de estudiante españa para chilenos"
+   ],
+   "es-mx|visa de estudiante españa": [
+    "visa de estudiante españa para mexicanos",
+    "visa de estudiante españa",
+    "visa de estudiante españa para mexicanos precio",
+    "visa de estudiante españa requisitos",
+    "visa de estudiante españa mexico",
+    "visa de estudiante españa precio",
+    "visa de estudiante españa para venezolanos",
+    "visa de estudiante españa para peruanos",
+    "visa de estudiante españa permite trabajar",
+    "visa de estudiante españa para colombianos"
+   ],
+   "es-mx|cuanto cuesta la visa de estudiante para españa": [
+    "cuanto cuesta la visa de estudiante para españa",
+    "cuanto cuesta la visa de estudiante para españa desde colombia",
+    "cuanto tarda la visa de estudiante para españa",
+    "cuanto se demora la visa de estudiante para españa en colombia"
+   ],
+   "es-mx|visa d7 portugal para": [
+    "visa d7 portugal para mexicanos",
+    "visa d7 portugal para argentinos",
+    "visa d7 portugal para chilenos",
+    "visa d7 portugal para colombianos",
+    "visa d7 para portugal",
+    "requisitos para visa d7 portugal"
+   ],
+   "es-mx|visa d7 portugal": [
+    "visa d7 portugal para mexicanos",
+    "visa d7 portugal",
+    "visa d7 portugal requisitos",
+    "visa d7 portugal para argentinos",
+    "visa d7 portugal para chilenos",
+    "visa d7 portugal para colombianos",
+    "visa d7 portugal 2025",
+    "visa d7 portugal colombia",
+    "visa d7 portugal en español",
+    "visa d7 portugal chile"
+   ],
+   "es-mx|visa d8 portugal": [
+    "visa d8 portugal",
+    "visa d8 portugal requisitos",
+    "visa d8 portugal 2025",
+    "d8 visa portugal requirements",
+    "d8 visa portugal income requirements",
+    "d8 visa portugal taxes",
+    "d8 visa portugal application",
+    "d8 visa portugal 2026",
+    "d7 d8 visa portugal",
+    "d7 vs d8 visa portugal"
+   ],
+   "es-mx|visa nomada digital portugal": [
+    "visa nomada digital portugal",
+    "visa nómada digital portugal requisitos",
+    "visa nomada digital portugal 2025",
+    "visa nomada digital portugal impuestos",
+    "visa nomada digital portugal 2026",
+    "visa para nomada digital portugal",
+    "requisitos para visa nomada digital portugal"
+   ],
+   "es-mx|visa de estudiante portugal para": [
+    "visa de estudiante portugal para mexicanos",
+    "visa de estudiante portugal para colombianos",
+    "visa de estudiante portugal para venezolanos",
+    "visa de estudiante portugal para peruanos",
+    "visa de estudiante para portugal",
+    "requisitos para visa de estudiante portugal"
+   ],
+   "es-mx|visa de estudiante portugal": [
+    "visa de estudiante portugal para mexicanos",
+    "visa de estudiante portugal",
+    "visa de estudiante portugal para colombianos",
+    "visa de estudiante portugal para venezolanos",
+    "visa de estudiante portugal para peruanos",
+    "visa de estudiante portugal requisitos",
+    "visa estudiante portugal chile",
+    "visa estudiante portugal mexico",
+    "embajada de portugal visa de estudiante",
+    "puedo trabajar con visa de estudiante en portugal"
+   ],
+   "es-mx|visa de estudiante italia para": [
+    "visa de estudiante italia para mexicanos",
+    "visa de estudiante italia para argentinos",
+    "visa de estudiante italia para chilenos",
+    "visa de estudiante italia para peruanos",
+    "visa de estudiante para italia",
+    "visa de estudiante para italia en ecuador",
+    "visa de estudiante en italia para colombianos",
+    "como sacar visa de estudiante para italia",
+    "costo de visa de estudiante para italia",
+    "requisitos para visa de estudiante para italia"
+   ],
+   "es-mx|visa de estudiante italia": [
+    "visa de estudiante italia para mexicanos",
+    "visa de estudiante italia",
+    "visa de estudiante italia requisitos",
+    "visa de estudiante italia para argentinos",
+    "visa de estudiante italia perú",
+    "visa de estudiante italia colombia",
+    "visa de estudiante italia para chilenos",
+    "visa de estudiante para italia en ecuador",
+    "visa estudiante italia mexico",
+    "visa estudiante italia costo"
+   ],
+   "es-ar|visa no lucrativa españa para": [
+    "visa no lucrativa españa para argentinos",
+    "visa no lucrativa españa para colombianos",
+    "visa no lucrativa españa para chilenos",
+    "visa no lucrativa españa para mexicanos",
+    "visa no lucrativa españa para peruanos",
+    "visa no lucrativa españa para venezolanos",
+    "visa no lucrativa españa para cubanos",
+    "visa no lucrativa para españa",
+    "visa no lucrativa para españa requisitos",
+    "visa de residencia no lucrativa para españa"
+   ],
+   "es-ar|visa no lucrativa españa": [
+    "visa no lucrativa españa",
+    "visa no lucrativa españa para argentinos",
+    "visa no lucrativa españa requisitos",
+    "visa no lucrativa españa 2026",
+    "visa no lucrativa españa para colombianos",
+    "visa no lucrativa españa para mexicanos",
+    "visa no lucrativa españa para chilenos",
+    "visa no lucrativa españa ecuador",
+    "visa no lucrativa españa para peruanos",
+    "visa no lucrativa españa 2026 requisitos"
+   ],
+   "es-ar|visa nomada digital españa para": [
+    "visa nomada digital españa para mexicanos",
+    "visa nómada digital españa para colombianos",
+    "visa nómada digital españa para venezolanos",
+    "visa nomada digital españa para argentinos",
+    "visa nomada digital españa para chilenos",
+    "visa nómada digital españa para peruanos",
+    "visa nómada digital españa para ecuatorianos",
+    "visa nomada digital para españa",
+    "requisitos para visa nomada digital españa",
+    "ingresos para visa nomada digital españa"
+   ],
+   "es-ar|visa nomada digital españa": [
+    "visa nomada digital españa",
+    "visa nomada digital españa para mexicanos",
+    "visa nómada digital españa requisitos",
+    "visa nomada digital españa 2026",
+    "visa nomada digital españa salario minimo",
+    "visa nómada digital españa argentina",
+    "visa nómada digital españa para colombianos",
+    "visa nómada digital españa familia",
+    "visa nómada digital españa para venezolanos",
+    "visa nomada digital españa impuestos"
+   ],
+   "es-ar|visa de estudiante españa para": [
+    "visa de estudiante españa para argentinos",
+    "visa de estudiante españa para mexicanos",
+    "visa de estudiante españa para venezolanos",
+    "visa de estudiante españa para mexicanos precio",
+    "visa de estudiante españa para peruanos",
+    "visa de estudiante españa para colombianos",
+    "visa de estudiante españa para ecuatorianos",
+    "visa de estudiante españa para colombianos 2026",
+    "visa de estudiante españa para hondureños",
+    "visa de estudiante españa para chilenos"
+   ],
+   "es-ar|visa de estudiante españa": [
+    "visa de estudiante españa",
+    "visa de estudiante españa para argentinos",
+    "visa de estudiante españa para mexicanos",
+    "visa de estudiante españa para venezolanos",
+    "visa de estudiante españa para peruanos",
+    "visa de estudiante españa requisitos",
+    "visa de estudiante españa para colombianos",
+    "visa de estudiante españa para colombianos 2026",
+    "visa de estudiante españa para hondureños",
+    "visa de estudiante españa permite trabajar"
+   ],
+   "es-ar|cuanto cuesta la visa de estudiante para españa": [
+    "cuanto cuesta la visa de estudiante para españa",
+    "cuanto cuesta la visa de estudiante para españa desde colombia",
+    "cuanto tarda la visa de estudiante para españa",
+    "cuanto se demora la visa de estudiante para españa en colombia"
+   ],
+   "es-ar|visa d7 portugal para": [
+    "visa d7 portugal para argentinos",
+    "visa d7 portugal para mexicanos",
+    "visa d7 portugal para chilenos",
+    "visa d7 portugal para colombianos",
+    "visa d7 para portugal",
+    "requisitos para visa d7 portugal"
+   ],
+   "es-ar|visa d7 portugal": [
+    "visa d7 portugal para argentinos",
+    "visa d7 portugal",
+    "visa d7 portugal requisitos",
+    "visa d7 portugal para mexicanos",
+    "visa d7 portugal para chilenos",
+    "visa d7 portugal para colombianos",
+    "visa d7 portugal 2025",
+    "visa d7 portugal colombia",
+    "visa d7 portugal en español",
+    "visa d7 portugal chile"
+   ],
+   "es-ar|visa d8 portugal": [
+    "visa d8 portugal",
+    "visa d8 portugal requisitos",
+    "visa d8 portugal 2025",
+    "d8 visa portugal requirements",
+    "d8 visa portugal income requirements",
+    "d8 visa portugal taxes",
+    "d8 visa portugal application",
+    "d8 visa portugal 2026",
+    "d7 d8 visa portugal",
+    "d7 vs d8 visa portugal"
+   ],
+   "es-ar|visa nomada digital portugal": [
+    "visa nomada digital portugal",
+    "visa nómada digital portugal requisitos",
+    "visa nomada digital portugal 2025",
+    "visa nomada digital portugal impuestos",
+    "visa nomada digital portugal 2026"
+   ],
+   "es-ar|visa de estudiante portugal para": [
+    "visa de estudiante portugal para mexicanos",
+    "visa de estudiante portugal para colombianos",
+    "visa de estudiante portugal para venezolanos",
+    "visa de estudiante portugal para peruanos",
+    "visa de estudiante para portugal",
+    "requisitos para visa de estudiante portugal"
+   ],
+   "es-ar|visa de estudiante portugal": [
+    "visa de estudiante portugal",
+    "visa de estudiante portugal para mexicanos",
+    "visa de estudiante portugal para colombianos",
+    "visa de estudiante portugal para venezolanos",
+    "visa de estudiante portugal para peruanos",
+    "visa de estudiante portugal requisitos",
+    "visa estudiante portugal chile",
+    "visa estudiante portugal mexico",
+    "embajada de portugal visa de estudiante",
+    "puedo trabajar con visa de estudiante en portugal"
+   ],
+   "es-ar|visa de estudiante italia para": [
+    "visa de estudiante italia para argentinos",
+    "visa de estudiante italia para mexicanos",
+    "visa de estudiante italia para chilenos",
+    "visa de estudiante italia para peruanos",
+    "visa de estudiante para italia",
+    "visa de estudiante para italia en ecuador",
+    "visa de estudiante en italia para colombianos",
+    "como sacar visa de estudiante para italia",
+    "costo de visa de estudiante para italia",
+    "requisitos para visa de estudiante para italia"
+   ],
+   "es-ar|visa de estudiante italia": [
+    "visa de estudiante italia",
+    "visa de estudiante italia para argentinos",
+    "visa de estudiante italia para mexicanos",
+    "visa de estudiante italia requisitos",
+    "visa de estudiante italia perú",
+    "visa de estudiante italia colombia",
+    "visa de estudiante italia para chilenos",
+    "visa de estudiante para italia en ecuador",
+    "visa estudiante italia mexico",
+    "visa estudiante italia costo"
+   ],
+   "es-cl|visa no lucrativa españa para": [
+    "visa no lucrativa españa para chilenos",
+    "visa no lucrativa españa para colombianos",
+    "visa no lucrativa españa para argentinos",
+    "visa no lucrativa españa para mexicanos",
+    "visa no lucrativa españa para peruanos",
+    "visa no lucrativa españa para venezolanos",
+    "visa no lucrativa españa para cubanos",
+    "visa no lucrativa para españa",
+    "visa no lucrativa para españa requisitos",
+    "visa de residencia no lucrativa para españa"
+   ],
+   "es-cl|visa no lucrativa españa": [
+    "visa no lucrativa españa para chilenos",
+    "visa no lucrativa españa",
+    "visa no lucrativa españa requisitos",
+    "visa no lucrativa españa chile",
+    "visa no lucrativa españa para colombianos",
+    "visa no lucrativa españa para argentinos",
+    "visa no lucrativa españa 2026",
+    "visa no lucrativa españa para mexicanos",
+    "visa no lucrativa españa 2026 requisitos",
+    "visa no lucrativa españa ecuador"
+   ],
+   "es-cl|visa nomada digital españa para": [
+    "visa nomada digital españa para mexicanos",
+    "visa nómada digital españa para colombianos",
+    "visa nómada digital españa para venezolanos",
+    "visa nomada digital españa para argentinos",
+    "visa nomada digital españa para chilenos",
+    "visa nómada digital españa para peruanos",
+    "visa nómada digital españa para ecuatorianos",
+    "visa nomada digital para españa",
+    "requisitos para visa nomada digital españa",
+    "ingresos para visa nomada digital españa"
+   ],
+   "es-cl|visa nomada digital españa": [
+    "visa nomada digital españa",
+    "visa nomada digital españa para mexicanos",
+    "visa nómada digital españa requisitos",
+    "visa nomada digital españa 2026",
+    "visa nomada digital españa salario minimo",
+    "visa nómada digital españa argentina",
+    "visa nómada digital españa para colombianos",
+    "visa nómada digital españa familia",
+    "visa nómada digital españa para venezolanos",
+    "visa nomada digital españa impuestos"
+   ],
+   "es-cl|visa de estudiante españa para": [
+    "visa de estudiante españa para chilenos",
+    "visa de estudiante españa para mexicanos",
+    "visa de estudiante españa para venezolanos",
+    "visa de estudiante españa para mexicanos precio",
+    "visa de estudiante españa para peruanos",
+    "visa de estudiante españa para colombianos",
+    "visa de estudiante españa para ecuatorianos",
+    "visa de estudiante españa para colombianos 2026",
+    "visa de estudiante españa para hondureños",
+    "visa de estudiante españa para argentinos"
+   ],
+   "es-cl|visa de estudiante españa": [
+    "visa de estudiante españa",
+    "visa de estudiante españa para chilenos",
+    "visa de estudiante españa para mexicanos",
+    "visa de estudiante españa para venezolanos",
+    "visa de estudiante españa para peruanos",
+    "visa de estudiante españa requisitos",
+    "visa de estudiante españa para colombianos",
+    "visa de estudiante españa para colombianos 2026",
+    "visa de estudiante españa para hondureños",
+    "visa de estudiante españa permite trabajar"
+   ],
+   "es-cl|cuanto cuesta la visa de estudiante para españa": [
+    "cuanto cuesta la visa de estudiante para españa",
+    "cuanto cuesta la visa de estudiante para españa desde colombia",
+    "cuanto tarda la visa de estudiante para españa",
+    "cuanto se demora la visa de estudiante para españa en colombia"
+   ],
+   "es-cl|visa d7 portugal para": [
+    "visa d7 portugal para chilenos",
+    "visa d7 portugal para mexicanos",
+    "visa d7 portugal para argentinos",
+    "visa d7 portugal para colombianos",
+    "visa d7 para portugal",
+    "requisitos para visa d7 portugal"
+   ],
+   "es-cl|visa d7 portugal": [
+    "visa d7 portugal para chilenos",
+    "visa d7 portugal",
+    "visa d7 portugal requisitos",
+    "visa d7 portugal para mexicanos",
+    "visa d7 portugal para argentinos",
+    "visa d7 portugal para colombianos",
+    "visa d7 portugal 2025",
+    "visa d7 portugal colombia",
+    "visa d7 portugal en español",
+    "visa d7 portugal chile"
+   ],
+   "es-cl|visa d8 portugal": [
+    "visa d8 portugal",
+    "visa d8 portugal requisitos",
+    "visa d8 portugal 2025",
+    "d8 visa portugal requirements",
+    "d8 visa portugal income requirements",
+    "d8 visa portugal taxes",
+    "d8 visa portugal application",
+    "d8 visa portugal 2026",
+    "d7 d8 visa portugal",
+    "d7 vs d8 visa portugal"
+   ],
+   "es-cl|visa nomada digital portugal": [
+    "visa nomada digital portugal",
+    "visa nómada digital portugal requisitos",
+    "visa nomada digital portugal 2025",
+    "visa nomada digital portugal impuestos",
+    "visa nomada digital portugal 2026"
+   ],
+   "es-cl|visa de estudiante portugal para": [
+    "visa de estudiante portugal para mexicanos",
+    "visa de estudiante portugal para colombianos",
+    "visa de estudiante portugal para venezolanos",
+    "visa de estudiante portugal para peruanos",
+    "visa de estudiante para portugal",
+    "requisitos para visa de estudiante portugal"
+   ],
+   "es-cl|visa de estudiante portugal": [
+    "visa de estudiante portugal",
+    "visa de estudiante portugal para mexicanos",
+    "visa de estudiante portugal para colombianos",
+    "visa de estudiante portugal para venezolanos",
+    "visa de estudiante portugal para peruanos",
+    "visa de estudiante portugal requisitos",
+    "visa estudiante portugal chile",
+    "visa estudiante portugal mexico",
+    "embajada de portugal visa de estudiante",
+    "puedo trabajar con visa de estudiante en portugal"
+   ],
+   "es-cl|visa de estudiante italia para": [
+    "visa de estudiante italia para mexicanos",
+    "visa de estudiante italia para argentinos",
+    "visa de estudiante italia para chilenos",
+    "visa de estudiante italia para peruanos",
+    "visa de estudiante para italia",
+    "visa de estudiante para italia en ecuador",
+    "visa de estudiante en italia para colombianos",
+    "como sacar visa de estudiante para italia",
+    "costo de visa de estudiante para italia",
+    "requisitos para visa de estudiante para italia"
+   ],
+   "es-cl|visa de estudiante italia": [
+    "visa de estudiante italia",
+    "visa de estudiante italia para mexicanos",
+    "visa de estudiante italia para argentinos",
+    "visa de estudiante italia requisitos",
+    "visa de estudiante italia perú",
+    "visa de estudiante italia colombia",
+    "visa de estudiante italia para chilenos",
+    "visa de estudiante para italia en ecuador",
+    "visa estudiante italia mexico",
+    "visa estudiante italia costo"
+   ],
+   "es-pe|visa no lucrativa españa para": [
+    "visa no lucrativa españa para colombianos",
+    "visa no lucrativa españa para mexicanos",
+    "visa no lucrativa españa para argentinos",
+    "visa no lucrativa españa para chilenos",
+    "visa no lucrativa españa para peruanos",
+    "visa no lucrativa españa para venezolanos",
+    "visa no lucrativa españa para cubanos",
+    "visa no lucrativa para españa",
+    "visa no lucrativa para españa requisitos",
+    "visa de residencia no lucrativa para españa"
+   ],
+   "es-pe|visa no lucrativa españa": [
+    "visa no lucrativa españa",
+    "visa no lucrativa españa 2026",
+    "visa no lucrativa españa requisitos",
+    "visa no lucrativa españa para colombianos",
+    "visa no lucrativa españa para mexicanos",
+    "visa no lucrativa españa para argentinos",
+    "visa no lucrativa españa para chilenos",
+    "visa no lucrativa españa ecuador",
+    "visa no lucrativa españa para peruanos",
+    "visa no lucrativa españa 2026 requisitos"
+   ],
+   "es-pe|visa nomada digital españa para": [
+    "visa nomada digital españa para mexicanos",
+    "visa nómada digital españa para colombianos",
+    "visa nómada digital españa para venezolanos",
+    "visa nomada digital españa para argentinos",
+    "visa nomada digital españa para chilenos",
+    "visa nómada digital españa para peruanos",
+    "visa nómada digital españa para ecuatorianos",
+    "visa nomada digital para españa",
+    "requisitos para visa nomada digital españa",
+    "ingresos para visa nomada digital españa"
+   ],
+   "es-pe|visa nomada digital españa": [
+    "visa nomada digital españa",
+    "visa nomada digital españa para mexicanos",
+    "visa nómada digital españa requisitos",
+    "visa nomada digital españa 2026",
+    "visa nomada digital españa salario minimo",
+    "visa nómada digital españa argentina",
+    "visa nómada digital españa para colombianos",
+    "visa nómada digital españa familia",
+    "visa nómada digital españa para venezolanos",
+    "visa nomada digital españa impuestos"
+   ],
+   "es-pe|visa de estudiante españa para": [
+    "visa de estudiante españa para peruanos",
+    "visa de estudiante españa para mexicanos",
+    "visa de estudiante españa para venezolanos",
+    "visa de estudiante españa para mexicanos precio",
+    "visa de estudiante españa para colombianos",
+    "visa de estudiante españa para ecuatorianos",
+    "visa de estudiante españa para colombianos 2026",
+    "visa de estudiante españa para hondureños",
+    "visa de estudiante españa para argentinos",
+    "visa de estudiante españa para chilenos"
+   ],
+   "es-pe|visa de estudiante españa": [
+    "visa de estudiante españa",
+    "visa de estudiante españa para peruanos",
+    "visa de estudiante españa requisitos",
+    "visa de estudiante españa para mexicanos",
+    "visa de estudiante españa para venezolanos",
+    "visa de estudiante españa para mexicanos precio",
+    "visa de estudiante españa permite trabajar",
+    "visa de estudiante españa para colombianos",
+    "visa de estudiante españa para ecuatorianos",
+    "visa de estudiante españa para colombianos 2026"
+   ],
+   "es-pe|cuanto cuesta la visa de estudiante para españa": [
+    "cuanto cuesta la visa de estudiante para españa",
+    "cuanto cuesta la visa de estudiante para españa desde colombia",
+    "cuanto tarda la visa de estudiante para españa",
+    "cuanto se demora la visa de estudiante para españa en colombia"
+   ],
+   "es-pe|visa d7 portugal para": [
+    "visa d7 portugal para mexicanos",
+    "visa d7 portugal para argentinos",
+    "visa d7 portugal para chilenos",
+    "visa d7 portugal para colombianos",
+    "visa d7 para portugal",
+    "requisitos para visa d7 portugal"
+   ],
+   "es-pe|visa d7 portugal": [
+    "visa d7 portugal",
+    "visa d7 portugal requisitos",
+    "visa d7 portugal para mexicanos",
+    "visa d7 portugal para chilenos",
+    "visa d7 portugal para colombianos",
+    "visa d7 portugal 2025",
+    "visa d7 portugal colombia",
+    "visa d7 portugal en español",
+    "visa d7 portugal chile",
+    "visa d7 portugal 2026"
+   ],
+   "es-pe|visa d8 portugal": [
+    "visa d8 portugal",
+    "visa d8 portugal requisitos",
+    "visa d8 portugal 2025",
+    "d8 visa portugal requirements",
+    "d8 visa portugal income requirements",
+    "d8 visa portugal taxes",
+    "d8 visa portugal application",
+    "d8 visa portugal 2026",
+    "d7 d8 visa portugal",
+    "d7 vs d8 visa portugal"
+   ],
+   "es-pe|visa nomada digital portugal": [
+    "visa nomada digital portugal",
+    "visa nómada digital portugal requisitos",
+    "visa nomada digital portugal 2025",
+    "visa nomada digital portugal impuestos",
+    "visa nomada digital portugal 2026"
+   ],
+   "es-pe|visa de estudiante portugal para": [
+    "visa de estudiante portugal para mexicanos",
+    "visa de estudiante portugal para colombianos",
+    "visa de estudiante portugal para venezolanos",
+    "visa de estudiante portugal para peruanos",
+    "visa de estudiante para portugal",
+    "requisitos para visa de estudiante portugal"
+   ],
+   "es-pe|visa de estudiante portugal": [
+    "visa de estudiante portugal",
+    "visa de estudiante portugal para mexicanos",
+    "visa de estudiante portugal para colombianos",
+    "visa de estudiante portugal para venezolanos",
+    "visa de estudiante portugal para peruanos",
+    "visa de estudiante portugal requisitos",
+    "visa estudiante portugal chile",
+    "visa estudiante portugal mexico",
+    "embajada de portugal visa de estudiante",
+    "puedo trabajar con visa de estudiante en portugal"
+   ],
+   "es-pe|visa de estudiante italia para": [
+    "visa de estudiante italia para mexicanos",
+    "visa de estudiante italia para argentinos",
+    "visa de estudiante italia para chilenos",
+    "visa de estudiante italia para peruanos",
+    "visa de estudiante para italia",
+    "visa de estudiante para italia en ecuador",
+    "visa de estudiante en italia para colombianos",
+    "como sacar visa de estudiante para italia",
+    "costo de visa de estudiante para italia",
+    "requisitos para visa de estudiante para italia"
+   ],
+   "es-pe|visa de estudiante italia": [
+    "visa de estudiante italia",
+    "visa de estudiante italia perú",
+    "visa de estudiante italia para mexicanos",
+    "visa de estudiante italia para argentinos",
+    "visa de estudiante italia requisitos",
+    "visa de estudiante italia colombia",
+    "visa de estudiante italia para chilenos",
+    "visa de estudiante para italia en ecuador",
+    "visa estudiante italia mexico",
+    "visa estudiante italia costo"
+   ],
+   "pt-br|visto d7 portugal": [
+    "visto d7 portugal",
+    "visto d7 portugal 2026",
+    "visto d7 portugal quanto tempo demora",
+    "visto d7 portugal requisitos",
+    "visto d7 portugal pode trabalhar",
+    "visto d7 portugal valor",
+    "visto d7 portugal para brasileiros",
+    "visto d7 portugal validade",
+    "visto d7 portugal vfs global"
+   ],
+   "pt-br|visto d8 portugal": [
+    "visto d8 portugal",
+    "visto d8 portugal requisitos",
+    "visto d8 portugal 2026",
+    "visto d7 e d8 portugal"
+   ],
+   "pt-br|visto nomade digital portugal": [
+    "visto nomade digital portugal",
+    "visto nomade digital portugal 2026",
+    "visto nômade digital portugal requisitos",
+    "visto nômade digital portugal valor",
+    "visto nomade digital portugal pode trabalhar",
+    "visto nomade digital portugal para brasileiros",
+    "visto nomade digital portugal quanto tempo",
+    "visto nomade digital portugal renda",
+    "visto nômade digital portugal 2025",
+    "visto nomade digital portugal como funciona"
+   ],
+   "pt-br|visto de estudante portugal": [
+    "visto de estudante portugal",
+    "visto de estudante portugal preço",
+    "visto de estudante portugal pode trabalhar",
+    "visto de estudante portugal pode levar família",
+    "visto de estudante portugal demora quanto tempo",
+    "visto de estudante portugal 2026",
+    "visto de estudante portugal comprovação financeira",
+    "visto de estudante portugal precisa comprovar renda",
+    "visto de estudante portugal requisitos"
+   ],
+   "pt-br|visto cplp portugal": [
+    "visto cplp portugal",
+    "visto cplp portugal como tirar",
+    "visto cplp portugal 2025",
+    "visto cplp portugal requisitos",
+    "visto cplp portugal como solicitar",
+    "visto cplp portugal brasil",
+    "visto cplp portugal valor",
+    "visto cplp portugal ainda existe",
+    "visto residencia cplp portugal",
+    "visto cplp para portugal 2026"
+   ],
+   "pt-br|visto de procura de trabalho portugal": [
+    "visto de procura de trabalho portugal",
+    "visto de procura de trabalho portugal 2026",
+    "visto de procura de trabalho portugal voltou",
+    "visto de procura de trabalho portugal ainda existe",
+    "visto de procura de trabalho portugal valor",
+    "visto de procura de trabalho portugal esta suspenso",
+    "visto de procura de trabalho portugal 2026 valor",
+    "visto de procura de trabalho portugal para brasileiros",
+    "visto de procura de trabalho portugal qualificado",
+    "visto de procura de trabalho portugal vai voltar"
+   ],
+   "pt-br|visto nao lucrativo espanha": [
+    "visto nao lucrativo espanha",
+    "visto de residencia nao lucrativo espanha"
+   ],
+   "pt-br|visto nomade digital espanha": [
+    "visto nomade digital espanha",
+    "visto nomade digital espanha como funciona",
+    "visto nomade digital espanha valor",
+    "visto nômade digital espanha requisitos",
+    "visto nômade digital espanha pode trabalhar",
+    "visto nomade digital espanha dependente",
+    "visto nomade digital espanha conjuge",
+    "visto nomade digital espanha para brasileiros",
+    "visto nomade digital espanha cidadania"
+   ],
+   "pt-br|visto espanha estudante": [
+    "visto espanha estudante",
+    "visto estudante espanha valor",
+    "visto estudante espanha negado",
+    "visto estudante espanha pode trabalhar",
+    "visto estudante espanha requisitos",
+    "visto estudante espanha reddit",
+    "visto estudante espanha rio de janeiro",
+    "visto estudante espanha porto alegre",
+    "visto estudante espanha documentos",
+    "visto estudante espanha brasilia"
+   ],
+   "pt-br|visto de estudante espanha": [
+    "visto de estudante espanha",
+    "visto de estudante espanha para brasileiros",
+    "visto de estudante espanha pode trabalhar",
+    "visto de estudante espanha pode levar familia",
+    "visto de estudante espanha valor",
+    "visto de estudante espanha quanto tempo",
+    "visto de estudante espanha comprovação financeira",
+    "visto de estudante espanha quanto tempo demora",
+    "visto de estudante espanha 2026",
+    "visto de estudante espanha requisitos"
+   ],
+   "pt-br|visto de estudante italia": [
+    "visto de estudante italia",
+    "visto de estudante itália valor",
+    "visto de estudante itália pode trabalhar",
+    "visto de estudante italia sao paulo",
+    "visto de estudante italiano pode trabalhar",
+    "visto de estudante italia requisitos",
+    "visto de estudante para italia",
+    "visto de estudante consulado italiano",
+    "documentos visto de estudante italia",
+    "visto estudante italia consulado"
+   ],
+   "pt-br|visto estudante italia": [
+    "visto estudante italia",
+    "visto estudante italia consulado sao paulo",
+    "visto estudante italia curitiba",
+    "visto estudante italiano pode trabalhar",
+    "visto para estudante italia",
+    "visto estudante consulado italiano",
+    "formulario visto estudante italia",
+    "visto de estudante italia requisitos",
+    "comprovação financeira visto estudante italia",
+    "como tirar visto estudante italia"
+   ]
+  }
+ },
+ "impronta": "f5c15ace0d875006a49e"
+}
