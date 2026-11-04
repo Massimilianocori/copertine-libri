@@ -97,6 +97,10 @@ Nel weekend: 1 richiesta di cancellazione (SproutUp Digital) → esclusa; 2 risp
 
 50 invii: 12 follow-up 2 (invii del 20/10) + 38 follow-up 1 pilota (invii del 27/10); 9 follow-up 1 rinviati al 3/11 per il tetto. 0 rimbalzi, 0 risposte vere. Code ricostruite da Gmail; i circa 70 contatti nuovi mai scritti sono persi (ERRORI 30). Bozza post LinkedIn pronta.
 
+## 3/11-4/11
+
+Routine del 3/11 e del 4/11 non partite (sessione riavviata). Il 4/11 sera: 11 follow-up 1 pilota (9 rinviati dal 2/11 + 2 invii del 28/10). 0 rimbalzi, 0 risposte vere. Prossimi: 6/11 26 FU2, 9/11 47 FU2, 10/11 2 FU2; poi l'outreach a freddo si esaurisce (nessun contatto nuovo in coda).
+
 ## Crediti
 
 | Data | Higgsfield (piano Ultra) | Apollo lead credit (ciclo 3/10-3/11) |
