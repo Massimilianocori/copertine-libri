@@ -772,3 +772,18 @@ Angolo: Germania, Francia, Spagna, Portogallo, Paesi Bassi, Austria, Svizzera, P
 | Fine del salderingsregeling (1/1/2027) e terugleverkosten per fornitore (NL) | NO (4): tariffe dei fornitori, non dati ufficiali; Consumentenbond e comparatori | idee-2026-11-04-europa |
 | Cambio obbligatorio della patente tedesca (2002-2004 entro il 19/1/2027) | NO (3): tabella nazionale unica ripetuta dai giornali | idee-2026-11-04-europa |
 | Prezzo della CO2 2027 (DE, AT) | NO (3): una cifra l'anno, comparatori e giornali | idee-2026-11-04-europa |
+
+## America Latina e i suoi emigrati: casa, soldi e tasse, discendenza, documenti, pagine es/pt (4/11/2026)
+
+Settori: casa e affitti, soldi e tasse, cittadinanza per discendenza (IT, ES, PT), documenti e apostille, più le pagine in spagnolo e portoghese dei siti esistenti. Nessuna idea arriva a 8, nessun sito nuovo. Prove in `idee-2026-11-04-america-latina.md`.
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **Visti di lunga durata per nazionalità in es/pt** (Spagna non lucrativa/nomadi/studio, Portogallo D7/D8/studio/CPLP/ricerca lavoro, Italia studio): tassa del consolato in valuta locale (listini 200: Bogotá gratis per colombiani e cileni, Buenos Aires 152.000 ARS, Santiago 96.080 CLP, Messico 1.905-9.101 MXN per voce), soglie in COP/ARS/PEN/CLP/BRL/MXN (cambi ufficiali 200), visto nazionale portoghese 110 €, "procura de trabalho qualificado ainda não disponível" | **SEZIONE da costruire** in Visa Income `/es/` `/pt/` (voto 7; 70 / 420 / 2.000 €/anno; 18-26 ore; IATI 10 %) | idee-2026-11-04-america-latina |
+| Tourist Tax in spagnolo e portoghese (Roma, Venezia, Barcellona, Parigi, Lisbona: 7-10 suggerimenti con categoria d'albergo) | **SEZIONE in coda** insieme alla versione francese (voto 6,5; 100 / 500 / 2.000 €; 12-18 ore) | idee-2026-11-04-america-latina |
+| Acquisti di cittadinanza per cittadinanza precedente (Eurostat migr_acq) | righe in "Who moved where" (5; 2-4 ore; domanda 0-3) | idee-2026-11-04-america-latina |
+| Affitti in Spagna: zone tensionate, indice di riferimento, cauzione per comunità | RISERVA (5,5): domanda per Comune e comunità, `mivau.gob.es` 403, pubblico spagnolo, sito nuovo sotto l'asticella | idee-2026-11-04-america-latina |
+| Portogallo IFICI (NHR 2.0) | RISERVA (5): fonte non provata, studi legali in pagina | idee-2026-11-04-america-latina |
+| Apostille per Stato USA (en/es) | NO (4,5): recordinglaw, apostilleguideusa.pages.dev, notarygeek già per Stato; nessun pagatore | idee-2026-11-04-america-latina |
+| Apostila per Stato brasiliano, apostille per Stato messicano, Argentina TAD | NO (4): 27-32 fonti, pubblico a pubblicità bassa, nessun pagatore | idee-2026-11-04-america-latina |
+| Cittadinanza italiana per discendenza in es/pt; ley de nietos; cittadinanza portoghese per i nipoti (LO 1/2026) | NO (3,5-4); per il Portogallo resta la RISERVA con evento del 31/10 (da controllare il decreto regolamentare, forse approvato il 29/10/2026) | idee-2026-11-04-america-latina |
+| Doppie imposizioni, pensioni tra Paesi, DSDP brasiliana, voto degli spagnoli all'estero del 29/11/2026, affitto in Portogallo dal Brasile, visto lavoro per discendenti di italiani | NO (3-4) | idee-2026-11-04-america-latina |
