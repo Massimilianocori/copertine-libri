@@ -185,7 +185,7 @@ LETTURE = [
      "pagine": ["https://newdelhi.thaiembassy.org/en/page/visa"],
      "costo": {"importo": 30000, "valuta": "INR", "frammento": "DTV | Multiple | 5 years | 180 days | 30,000 INR |", "p": 0,
                "nota": "fee table of the embassy"},
-     "altre": [{"frammento": "The 30-day visa exemption for Indian ordinary passport holders for tourism and short-term business engagements purposes remains effective from 15 September 2026 until further announcement.", "p": 0}],
+     "altre": [{"frammento": "The 30-day visa exemption for Indian ordinary passport holders for tourism purposes remains effective from 15 September 2026 until further announcement.", "p": 0}],
      "chiavi": ["new delhi", "delhi", "india", "indians", "indian"]},
     {"id": "hong-kong", "sede": "Hong Kong", "paese": "China", "tipo": "Consulate-General",
      "pagine": ["https://hongkong.thaiembassy.org/en/page/visa-info"],

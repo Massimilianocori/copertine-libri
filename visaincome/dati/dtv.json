@@ -1,20 +1,20 @@
 {
 "_nota": "Generato da raccolta/dtv.py: non modificare a mano (i valori letti a mano stanno in LETTURE dentro lo script). Fonte: siti delle ambasciate e dei consolati generali thailandesi (Ministero degli Esteri thailandese), letti il giorno indicato.",
-"generato_il": "2026-10-30",
-"letto_il": "2026-10-30",
-"impronta": "04fbf6615758c089ad8f",
+"generato_il": "2026-11-04",
+"letto_il": "2026-11-04",
+"impronta": "4b72ce3c3fbee8e85f51",
 "fonti": {
 "elenco": {
 "url": "https://www.thaiembassy.org/",
 "titolo": "Thai Embassy and Consulates (Ministry of Foreign Affairs of Thailand)",
-"letto_il": "2026-10-30"
+"letto_il": "2026-11-04"
 },
 "annuncio_mfa": {
 "url": "https://consular.mfa.go.th/th/content/28-8-69-00?cate=5ddbe42115e39c4768007e1d",
 "titolo": "ประกาศแจ้งเตือน การปรับเพิ่มเอกสารประกอบคำร้องการตรวจลงตรา ประเภท ‘Destination Thailand Visa (DTV)",
 "data": "2026-08-28",
 "editore": "Department of Consular Affairs, Ministry of Foreign Affairs of Thailand",
-"letto_il": "2026-10-30"
+"letto_il": "2026-11-04"
 },
 "evisa": {
 "url": "https://www.thaievisa.go.th/",
@@ -2275,9 +2275,9 @@
 "ok": true,
 "titolo": "Visa General Information",
 "inserita": "2023-07-25",
-"modificata": "2026-09-08",
-"caratteri": 12293,
-"sha256": "ae40a0bdeaedd9d3ccb611c18a67e4a5b973202f35f27a7bbdca307efd4f923c"
+"modificata": "2026-11-04",
+"caratteri": 12400,
+"sha256": "37a5eca7f404d6017eaa3e9c0fe4e389033ce28920dd51612ba0da7838b356d5"
 }
 ],
 "costo": {
@@ -3153,9 +3153,9 @@
 "ok": true,
 "titolo": "Visa",
 "inserita": "2023-10-25",
-"modificata": "2026-09-16",
-"caratteri": 7555,
-"sha256": "63e49d11e8baa14891e7f89c353079cbc08e655b4b3cc7643a395df142661894"
+"modificata": "2026-11-02",
+"caratteri": 7519,
+"sha256": "11410fcc568c270b0f6dc9a7e411882c22b7cb0656db9232405bcdfa8b2cc559"
 }
 ],
 "costo": {
@@ -3167,7 +3167,7 @@
 },
 "altre": [
 {
-"frammento": "The 30-day visa exemption for Indian ordinary passport holders for tourism and short-term business engagements purposes remains effective from 15 September 2026 until further announcement.",
+"frammento": "The 30-day visa exemption for Indian ordinary passport holders for tourism purposes remains effective from 15 September 2026 until further announcement.",
 "p": 0
 }
 ],
@@ -3559,8 +3559,8 @@
 "proof of sufficient funds of 20,000 THB per person",
 "they may request an extension of stay for up to 30 days"
 ],
-"modificata": "2026-09-08",
-"sha256": "1af14288fefdfa6378b43790051241cae5015401f90c4507f88011c971901763"
+"modificata": "2026-11-04",
+"sha256": "c01895b23c384f9e0f4be0ddf3f61fe81ea2055a99ca086103211b7318a04ac3"
 },
 "esenzione_washington": {
 "url": "https://washingtondc.thaiembassy.org/en/page/visaexempt-voajul2024",
