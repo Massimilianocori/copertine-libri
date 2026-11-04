@@ -742,3 +742,18 @@ Zona: India, Filippine, Vietnam, Indonesia, Giappone, Corea, Cina, Singapore, Ho
 | Visto coreano Top-Tier per università | NO oggi (3): `immigration.go.kr`, `visa.go.kr` 000 | idee-2026-11-04-asia-pacifico |
 | Vietnam: esenzioni dal visto per nazionalità con scadenza 2028 | NO (3,5): `evisa.gov.vn` 000, vietnam.travel risponde già | idee-2026-11-04-asia-pacifico |
 | JLPT all'estero (in lista dal 9/10) | Fatto nuovo: sedi aggiornate all'11/9/2026 (200); domanda anche in italiano ("jlpt italia 2026/2027", "jlpt roma", "jlpt milano") e per il 2027: da riprendere dalla coda | idee-2026-11-04-asia-pacifico |
+
+## Fronte "assistenti AI come canale di visite e di guadagno" (4/11/2026)
+
+Numeri veri 17/10-3/11 (GoatCounter): 230 visite da chatgpt.com su 1.111 (21 % del totale, 27 % di quelle da fuori; Visa Income 58 %, Aste 69 %, Tourist Tax 0 %); Perplexity, Copilot e Claude 0, Gemini 2, Bing 3. Nessuna idea da 8. Lezione: **la forma da citare aiuta ma decide il buco** (Tourist Tax ha risposta in cima e tabelle ma 0 visite da ChatGPT); lo schema JSON-LD da solo non sposta le citazioni (prova con gruppo di controllo); **farsi pagare per i dati oggi non è possibile** per siti come i nostri. Prove in `fronti-2026-11-04-assistenti-ai.md`.
+
+| Idea | Esito | Studio |
+|---|---|---|
+| Bing Webmaster Tools + rapporto AI Performance (citazioni in Copilot), proposto il 31/10 e non ancora fatto | **PASSA** (voto 7; 10 minuti di Massimiliano) | fronti-2026-11-04-assistenti-ai |
+| Regola per la coda: sezioni nuove dove l'assistente non sa rispondere a memoria, misurata con la quota ChatGPT per sezione | **PASSA come criterio** (voto 7; 0 ore) | fronti-2026-11-04-assistenti-ai |
+| Offerta adatta sulle pagine citate (assicurazione per il visto Schengen invece di SafetyWing sulle pagine rifiuti) | PASSA sotto l'asticella (voto 6; 20 / 120 / 500 €/anno; **solo dopo il verdetto del 28/12**) | fronti-2026-11-04-assistenti-ai |
+| Rapporto settimanale "quota assistenti" e "pagine citate per la prima volta" | PASSA sotto l'asticella (voto 6; 1-2 ore) | fronti-2026-11-04-assistenti-ai |
+| "Is [assistente] available in [Paese]?" in Before You Fly `available-in/` | RISERVA debole (voto 4; lista dell'app ChatGPT 403, niente affiliazione) | fronti-2026-11-04-assistenti-ai |
+| App dentro ChatGPT (Apps SDK) o server MCP; GPT personalizzato | NO (3 e 2): niente vendite digitali, server e account necessari, abbonamento a pagamento | fronti-2026-11-04-assistenti-ai |
+| Perplexity Publishers Program / Comet Plus; Microsoft Publisher Content Marketplace; RSL Collective; ProRata/Gist; Dappier; vendita dei dataset | NO (2): grandi testate o nessun compratore che paga; Perplexity ci manda 0 visite; si ricontrolla a febbraio 2027 | fronti-2026-11-04-assistenti-ai |
+| TollBit; Cloudflare pay per crawl | NO (1): bloccano chi non paga (cioè ChatGPT); Cloudflare vuole un dominio proprio | fronti-2026-11-04-assistenti-ai |
