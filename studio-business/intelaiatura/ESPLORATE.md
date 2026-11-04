@@ -757,3 +757,18 @@ Numeri veri 17/10-3/11 (GoatCounter): 230 visite da chatgpt.com su 1.111 (21 % d
 | App dentro ChatGPT (Apps SDK) o server MCP; GPT personalizzato | NO (3 e 2): niente vendite digitali, server e account necessari, abbonamento a pagamento | fronti-2026-11-04-assistenti-ai |
 | Perplexity Publishers Program / Comet Plus; Microsoft Publisher Content Marketplace; RSL Collective; ProRata/Gist; Dappier; vendita dei dataset | NO (2): grandi testate o nessun compratore che paga; Perplexity ci manda 0 visite; si ricontrolla a febbraio 2027 | fronti-2026-11-04-assistenti-ai |
 | TollBit; Cloudflare pay per crawl | NO (1): bloccano chi non paga (cioè ChatGPT); Cloudflare vuole un dominio proprio | fronti-2026-11-04-assistenti-ai |
+
+## Ricerca Europa continentale: energia, auto, casa, regole UE 2027 (4/11/2026)
+
+Angolo: Germania, Francia, Spagna, Portogallo, Paesi Bassi, Austria, Svizzera, Polonia, Grecia, Italia; settori energia e bollette, auto (zone, bollini, pedaggi digitali), casa (affitti brevi, registrazioni), regole UE del 2027. Nessuna idea arriva a 7; energia e auto già occupate da comparatori e associazioni. Fatto nuovo: il Tribunal Supremo ha annullato il Registro Único de Arrendamientos (Sentencia 620/2026, BOE-A-2026-12300 dell'8/6/2026). Prove in `idee-2026-11-04-europa.md`.
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **Licenza turistica in Spagna Comune per Comune** (INE API 200, case turistiche per Comune a maggio 2026, 341.001 in Spagna; registro GVA CSV 200 con 90.015 case, aggiornato il 4/11, iscrizioni 12.848 nel 2024 → 5.080 nel 2026; Andalucía openrta 145.440 righe con nomi, solo conteggi; "tourist licence" 10 gb, "licencia turistica malaga/alicante" 10, "comprobar licencia turistica" 10) | **SEZIONE da costruire** in Tourist Tax, EN + ES (voto 6; 80 / 420 / 2.000 €/anno; 20-30 ore); pagatore debole (AdSense, Hostaway, Stay22) | idee-2026-11-04-europa |
+| Blue Badge all'estero Paese per Paese + carta europea di parcheggio e della disabilità (leggi entro il 5/6/2027, carte dal 5/6/2028); FCDO vago per FR/DE/PT, assente per ES/GR | **SEZIONE da costruire** in Before You Fly (voto 5,5; 60 / 300 / 1.200 €/anno; 12-18 ore) | idee-2026-11-04-europa |
+| Tetti ai pagamenti in contanti con il tetto UE di 10.000 € dal 10/7/2027 (riapre in parte lo studio 17) | pagina in coda bassa in Before You Fly (voto 4,5; 10 / 60 / 300 €; 3-4 ore); in tedesco domina evz.de | idee-2026-11-04-europa |
+| Affitti brevi in Portogallo per concelho (AL) | RISERVA (4,5): nessun file aperto del RNAL per concelho (dados.gov.pt solo frammenti, RNAL a moduli) | idee-2026-11-04-europa |
+| Recepimento della direttiva UE sulla trasparenza salariale per Paese | RISERVA (4,5): domanda forte (gb, de, nl), ma tracker di studi legali e software ovunque, nessun pagatore letto | idee-2026-11-04-europa |
+| Uchwały antysmogowe / "wymiana pieca do kiedy" per voivodato (PL) | NO (4,5): domanda 10 per voivodato, ma muratordom e kb.pl con le tabelle, pubblicità polacca 1-2 € | idee-2026-11-04-europa |
+| Fine del salderingsregeling (1/1/2027) e terugleverkosten per fornitore (NL) | NO (4): tariffe dei fornitori, non dati ufficiali; Consumentenbond e comparatori | idee-2026-11-04-europa |
+| Cambio obbligatorio della patente tedesca (2002-2004 entro il 19/1/2027) | NO (3): tabella nazionale unica ripetuta dai giornali | idee-2026-11-04-europa |
+| Prezzo della CO2 2027 (DE, AT) | NO (3): una cifra l'anno, comparatori e giornali | idee-2026-11-04-europa |
