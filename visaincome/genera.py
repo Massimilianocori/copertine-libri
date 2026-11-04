@@ -10517,8 +10517,11 @@ TASAS_IT_VL = {
     "argentina": ("it_ar", "it_tab_ar", "del Consulado General de Italia en Buenos Aires"),
     "chile": ("it_cl", "it_tab_cl", "de la Embajada de Italia en Santiago de Chile"),
     "mexico": ("it_mx", "it_tab_mx", "de la Embajada de Italia en México"),
+    "colombia": ("it_co", "it_tab_co", "de la Embajada de Italia en Bogotá"),
+    "peru": ("it_pe", "it_tab_pe", "de la Embajada de Italia en Lima"),
     "brasil": ("it_br", "it_tab_br", "Consulado-Geral da Itália em São Paulo"),
 }
+AUT_AR_VL = ", más la tasa de la autorización inicial de residencia (modelo 790-052), que el listado de Buenos Aires no cuantifica"
 PIX_QR_VL, DEBITO_VL = L_VL["it_br"]["frammento"].split(" | ")[4:6]   # 299,64 e 300,44, letti a vista (stessa riga della tabella)
 TARIFFA_IT_VL = 50.0   # euro, art. 29 della tabella dei diritti consolari (colonna in euro di it_ar e it_mx: controllato in controlli_vl)
 # Pagine: (lingua, visto, nazionalità o None) -> slug
@@ -10710,6 +10713,9 @@ def tasa_es_vl(naz, l, con_aut=False):
             fr += (f" A tabela da Embaixada da Espanha em Brasília (01/01/2026) traz o mesmo valor, {soldi_vl(L_VL['br_visado_bsb']['valore'], 'BRL', l)}, "
                    f"e avisa que é só orientativa.")
             fonti.append("es_tasas_br_bsb")
+    if con_aut and naz == "argentina":
+        fr += (" Para la residencia no lucrativa se paga además la tasa de la autorización inicial de residencia (modelo 790-052; la ficha del consulado "
+               "pide abonarla), pero el listado de Buenos Aires no la cuantifica: pregunta el importe al consulado.")
     if con_aut and T.get("aut"):
         A = L_VL[T["aut"]]
         if es:
@@ -10729,6 +10735,16 @@ def tasa_es_breve_vl(naz, l):
     return soldi_vl(L["valore"], L["valuta"], l)
 
 
+def tasa_frase_vl(naz, cons, maiuscola=False):
+    """Frase spagnola sulla tassa: 'el visado es gratuito (sin tasa)' o 'la tasa del visado … es X'."""
+    L = L_VL[TASAS_ES_VL[naz]["v"]]
+    if L["valore"] == 0:
+        t = f"en el Consulado General de España en {cons} el visado nacional es gratuito (sin tasa)"
+    else:
+        t = f"la tasa del visado en el Consulado General de España en {cons} es {soldi_vl(L['valore'], L['valuta'], 'es')}"
+    return t[0].upper() + t[1:] if maiuscola else t
+
+
 def tasa_it_vl(naz, l):
     es = l == "es"
     N = NAZ_VL[naz]
@@ -10743,11 +10759,12 @@ def tasa_it_vl(naz, l):
         else:
             fr = (f"En la tabla de derechos consulares {uff} en vigor del 1 de octubre al 31 de diciembre de 2026, el visado nacional "
                   f"por estudios cuesta <strong>{soldi_vl(x, val, l)}</strong> (tarifa de {soldi_vl(TARIFFA_IT_VL, 'EUR', l)} al cambio consular del trimestre).")
+            if naz == "colombia":
+                fr += f" La tabla fija el cambio en 1 € = {tasso_vl(L_VL['it_co_cambio']['valore'])} pesos colombianos."
+            if naz == "peru":
+                fr += " La tabla no escribe la moneda: son los importes que la Embajada cobra en Perú, en soles."
         return fr, x, val, [f]
-    fr = (f"La tarifa del visado nacional por estudios en la tabla de derechos consulares italiana es de <strong>{soldi_vl(TARIFFA_IT_VL, 'EUR', l)}</strong> "
-          f"(artículo 29; ≈ {soldi_vl(conv_vl(TARIFFA_IT_VL, N['val']), N['val'], l, 0)} a nuestro cambio). La Embajada de Italia en {N['paese']} la cobra en "
-          f"{N['nval']} con un cambio que fija cada trimestre; en su web no encontramos la tabla del cuarto trimestre de 2026, así que no damos el importe exacto.")
-    return fr, TARIFFA_IT_VL, "EUR", ["it_tab_ar", "it_tab_mx"]   # tariffa in euro uguale in tutte le tabelle (art. 29)
+    raise SystemExit(f"visados: tabella consolare italiana mancante per {naz}")
 
 
 def tasa_pt_vl(naz, l):
@@ -10891,6 +10908,7 @@ def link_naz_vl(naz, escludi, l):
 
 def pagina_vl(percorso, l, titolo, descr, h1, lead, corpo, faq, breve):
     es = l == "es"
+    lead = lead.replace("(sin tasa) (listado del", "(sin tasa; listado del")
     corpo_tot = f"""<section class="hero">{h1_diviso(h1)}
 <p class="lead">{lead}</p></section>
 {avviso_vl(l)}
@@ -10929,13 +10947,13 @@ def pagina_vl_es(visto, naz):
             h1 = f"Visa no lucrativa España para {N['pl']} ({ANNO}): dinero y costo"
             lead = (f"Para la visa de residencia no lucrativa de España un {N['sg']} tiene que demostrar al menos <strong>{soldi_vl(m1, 'EUR', l)} al mes</strong> "
                     f"({soldi_vl(anno, 'EUR', l)} el primer año, {approx_vl(anno, val, l)}), el 400 % del IPREM del artículo 62 del Real Decreto 1155/2024 "
-                    f"(BOE, leído el {data_lv('es_rd1155', l)}); la tasa del visado en el Consulado General de España en {cons} es {tasa_b} "
+                    f"(BOE, leído el {data_lv('es_rd1155', l)}); {tasa_frase_vl(naz, cons)}{AUT_AR_VL if naz == 'argentina' else ''} "
                     f"(listado del {data_ee(F_VL[TASAS_ES_VL[naz]['f']]['data_listino'], l)}).")
             titolo = titolo_vl([f"Visa no lucrativa España para {N['pl']} {ANNO}: dinero y costo", f"Visa no lucrativa España para {N['pl']}: dinero y costo"])
             descr = (f"Visa no lucrativa de España para {N['pl']}: {soldi_vl(m1, 'EUR', l)} al mes (400 % IPREM), {soldi_vl(anno, 'EUR', l)} el primer año en {N['nval']}, "
                      f"tasa del consulado en {cons} y documentos. Fuentes oficiales.")
             sez = f"""<h2>Cuánto dinero necesitas</h2>
-<p>El Reglamento de extranjería pide: {cita_vl("nl_400")} Y para la familia: {cita_vl("nl_100")}, además de la cantidad del solicitante. Con el IPREM de {ANNO} ({soldi_vl(IPREM_VL, 'EUR', l)} al mes) son {soldi_vl(m1, 'EUR', l)} al mes para ti y {soldi_vl(mensile_nl_vl(2) - m1, 'EUR', l)} más por cada familiar a cargo. La autorización inicial dura un año, y el consulado lo traduce así: {cita_vl("nl_ba_2400")}</p>
+<p>El Reglamento de extranjería pide: {cita_vl("nl_400")} Y para la familia: {cita_vl("nl_100")}, además de la cantidad del solicitante. Con el IPREM de {ANNO} ({soldi_vl(IPREM_VL, 'EUR', l)} al mes) son {soldi_vl(m1, 'EUR', l)} al mes para ti y {soldi_vl(mensile_nl_vl(2) - m1, 'EUR', l)} más por cada familiar a cargo. La autorización inicial dura un año, y el consulado lo concreta así: {cita_vl("nl_ba_2400")}</p>
 {tabella_famiglia_vl(mensile_nl_vl, val, l)}
 {fonte_vl(["es_rd1155", "es_ba_nl"], l, f"IPREM de {ANNO}: {soldi_vl(IPREM_VL, 'EUR', l)} al mes (Ley 31/2022, en vigor en {ANNO}).")}
 {nota_cambio_vl(val, l)}
@@ -10946,7 +10964,7 @@ def pagina_vl_es(visto, naz):
 {documenti_es_vl(visto, naz, l)}"""
             faq = faq_vl(p, [
                 (f"visa no lucrativa españa para {N['pl']}", f"¿Cuánto cuesta la visa no lucrativa de España para {N['pl']}?",
-                 f"La tasa del visado nacional en el Consulado General de España en {cons} es {tasa_b}" + (f", más la tasa de la autorización de residencia del mismo listado" if TASAS_ES_VL[naz]['aut'] else "") +
+                 f"{tasa_frase_vl(naz, cons, True)}" + (f", más la tasa de la autorización de residencia del mismo listado" if TASAS_ES_VL[naz]['aut'] else AUT_AR_VL if naz == "argentina" else "") +
                  f". El dinero que hay que demostrar es otra cosa: {soldi_vl(anno, 'EUR', l)} para el primer año ({approx_vl(anno, val, l)})."),
                 ("visa no lucrativa españa cuánto dinero necesito", "¿Cuánto dinero necesito para la visa no lucrativa?",
                  f"{soldi_vl(m1, 'EUR', l)} al mes para el solicitante (400 % del IPREM) y {soldi_vl(mensile_nl_vl(2) - m1, 'EUR', l)} al mes por cada familiar a cargo; para un año, {soldi_vl(anno, 'EUR', l)} para una persona."),
@@ -10988,7 +11006,7 @@ def pagina_vl_es(visto, naz):
             h1 = f"Visa de nómada digital España para {N['pl']} ({ANNO}): ingresos y costo"
             lead = (f"La visa de nómada digital de España pide ingresos de al menos <strong>{soldi_vl(m1, 'EUR', l)} al mes</strong> ({approx_vl(m1, val, l)}), "
                     f"el 200 % del salario mínimo de {ANNO}, según la ficha del Consulado General de España en Buenos Aires (leída el {data_lv('es_ba_nd', l)}); "
-                    f"para {N['pl']} la tasa del visado en el Consulado General de España en {cons} es {tasa_b} "
+                    f"para {N['pl']} {tasa_frase_vl(naz, cons)} "
                     f"(listado del {data_ee(F_VL[TASAS_ES_VL[naz]['f']]['data_listino'], l)}).")
             titolo = titolo_vl([f"Visa nómada digital España para {N['pl']} {ANNO}: ingresos y costo", f"Visa nómada digital España para {N['pl']}: ingresos y costo"])
             descr = (f"Visa de nómada digital de España para {N['pl']}: {soldi_vl(m1, 'EUR', l)} al mes (200 % del SMI) en {N['nval']}, familia, tasa del consulado en {cons} y requisitos.")
@@ -11005,7 +11023,7 @@ def pagina_vl_es(visto, naz):
             faq = faq_vl(p, [
                 (f"visa nomada digital españa para {N['pl']}" if f"visa nomada digital españa para {N['pl']}" in ricerche_vl() else f"visa nómada digital españa para {N['pl']}",
                  f"¿Cuánto cuesta la visa de nómada digital de España para {N['pl']}?",
-                 f"La tasa del visado nacional en el Consulado General de España en {cons} es {tasa_b}. Los ingresos que hay que demostrar son {soldi_vl(m1, 'EUR', l)} al mes ({approx_vl(m1, val, l)})."),
+                 f"{tasa_frase_vl(naz, cons, True)}. Los ingresos que hay que demostrar son {soldi_vl(m1, 'EUR', l)} al mes ({approx_vl(m1, val, l)})."),
                 ("visa nomada digital españa salario minimo", "¿Qué salario mínimo pide la visa de nómada digital?",
                  f"El 200 % del salario mínimo interprofesional: con el SMI de {ANNO} ({soldi_vl(SMI_VL, 'EUR', l)}), {soldi_vl(m1, 'EUR', l)} al mes."),
                 ("visa nómada digital españa familia", "¿Cuánto más necesito si voy con mi familia?",
@@ -11044,7 +11062,7 @@ def pagina_vl_es(visto, naz):
             h1 = f"Visa de estudiante España para {N['pl']} ({ANNO}): costo y dinero"
             lead = (f"Para la visa de estudiante de España un {N['sg']} tiene que demostrar <strong>{soldi_vl(m1, 'EUR', l)} al mes</strong> ({approx_vl(m1, val, l)}), "
                     f"el 100 % del IPREM del artículo 35 del Real Decreto 1155/2024 (BOE, leído el {data_lv('es_rd1155', l)}), salvo que tenga el alojamiento pagado "
-                    f"de antemano; la tasa del visado en el Consulado General de España en {cons} es {tasa_b} "
+                    f"de antemano; {tasa_frase_vl(naz, cons)} "
                     f"(listado del {data_ee(F_VL[TASAS_ES_VL[naz]['f']]['data_listino'], l)}).")
             titolo = titolo_vl([f"Visa de estudiante España para {N['pl']} {ANNO}: costo y dinero", f"Visa de estudiante España para {N['pl']}: costo y dinero"])
             descr = (f"Visa de estudiante de España para {N['pl']}: tasa del consulado en {cons} ({tasa_b}), {soldi_vl(m1, 'EUR', l)} al mes (100 % IPREM) en {N['nval']}, familia y documentos.")
@@ -11060,8 +11078,8 @@ def pagina_vl_es(visto, naz):
 {documenti_es_vl(visto, naz, l)}"""
             prezzo = f"visa de estudiante españa para {N['pl']} precio" if f"visa de estudiante españa para {N['pl']} precio" in ricerche_vl() else "visa de estudiante españa precio"
             faq = faq_vl(p, [
-                (prezzo, f"¿Cuánto cuesta la visa de estudiante para España para {N['pl']}?",
-                 f"La tasa del visado nacional en el Consulado General de España en {cons} es {tasa_b}" + (f", más la tarifa básica obligatoria de BLS ({soldi_vl(L_VL['pe_bls']['valore'], 'PEN', l)})" if naz == "peru" else "") + "."),
+                (prezzo, f"¿Cuánto cuesta la visa de estudiante de España para {N['pl']}?",
+                 f"{tasa_frase_vl(naz, cons, True)}" + (f", más la tarifa básica obligatoria de BLS ({soldi_vl(L_VL['pe_bls']['valore'], 'PEN', l)})" if naz == "peru" else "") + "."),
                 ("visa de estudiante españa requisitos", "¿Qué requisitos y cuánto dinero pide la visa de estudiante?",
                  f"Admisión y pago de la matrícula, pasaporte con al menos un año de validez, la tasa y {soldi_vl(m1, 'EUR', l)} al mes (100 % del IPREM), salvo que tengas el alojamiento pagado de antemano para toda la estancia; más {soldi_vl(mensile_est_vl(2) - m1, 'EUR', l)} al mes por el primer familiar."),
                 (f"visa de estudiante españa para {N['pl']}", f"¿Necesita visa de estudiante un {N['sg']} para un curso corto?",
@@ -11119,7 +11137,7 @@ def pagina_vl_pt(visto, naz):
         if es:
             h1 = f"Visa D7 Portugal para {N['pl']} ({ANNO}): ingresos y costo"
             lead = (f"Para la visa D7 de Portugal (jubilados y rentas) un {N['sg']} tiene que demostrar ingresos de al menos <strong>{rm} al mes</strong> ({approx_vl(m1, val, l)}), "
-                    f"el salario mínimo portugués de {ANNO}, más el 50 % por cada adulto y el 30 % por cada hijo, según el Ministerio de Negocios Extranjeros de Portugal "
+                    f"el salario mínimo portugués de {ANNO}, más el 50 % por cada adulto adicional y el 30 % por cada hijo, según el Ministerio de Negocios Extranjeros de Portugal "
                     f"(leído el {data_lv('pt_meios', l)}); la tasa del visado es de {t110}.")
             titolo = titolo_vl([f"Visa D7 Portugal para {N['pl']} {ANNO}: ingresos y costo", f"Visa D7 Portugal para {N['pl']}: ingresos y costo"])
             descr = f"Visa D7 de Portugal para {N['pl']}: {rm} al mes (salario mínimo de {ANNO}) en {N['nval']}, escala familiar, tasa de {t110} y documentos. Fuentes oficiales."
@@ -11144,7 +11162,7 @@ def pagina_vl_pt(visto, naz):
         else:
             h1 = f"Visto D7 Portugal para brasileiros ({ANNO}): renda e valor"
             lead = (f"Para o visto D7 de Portugal (aposentados e renda passiva), o brasileiro precisa comprovar renda de pelo menos <strong>{rm} por mês</strong> ({approx_vl(m1, val, l)}), "
-                    f"o salário mínimo português de {ANNO}, mais 50% por adulto e 30% por filho, segundo o Ministério dos Negócios Estrangeiros (lido em {data_lv('pt_meios', l)}); "
+                    f"o salário mínimo português de {ANNO}, mais 50% por cada adulto a mais e 30% por filho, segundo o Ministério dos Negócios Estrangeiros (lido em {data_lv('pt_meios', l)}); "
                     f"a taxa do visto é de {t110}.")
             titolo = titolo_vl([f"Visto D7 Portugal para brasileiros {ANNO}: renda e valor", "Visto D7 Portugal para brasileiros: renda e valor"])
             descr = f"Visto D7 de Portugal para brasileiros: {rm} por mês (salário mínimo de {ANNO}) em reais, escala da família, taxa de {t110}, seguro PB4 e documentos."
@@ -11228,9 +11246,10 @@ def pagina_vl_pt(visto, naz):
         anno = 12 * RMMG_VL
         if es:
             h1 = f"Visa de estudiante Portugal para {N['pl']} ({ANNO}): dinero y costo"
-            lead = (f"Para la visa de estudiante de Portugal un {N['sg']} tiene que demostrar medios por 12 meses: con el salario mínimo portugués de {ANNO} ({rm} al mes) "
-                    f"son <strong>{soldi_vl(anno, 'EUR', l)}</strong> ({approx_vl(anno, val, l)}), la mitad si tiene el alojamiento asegurado, según el Ministerio de Negocios "
-                    f"Extranjeros de Portugal (leído el {data_lv('pt_meios', l)}); la tasa del visado es de {t110}.")
+            lead = (f"Para la visa de estudiante de Portugal no tienes que demostrar medios si estás admitido en una institución de enseñanza superior "
+                    f"oficialmente reconocida (artículo 91.º-B de la Ley de Extranjería, según el Ministerio de Negocios Extranjeros de Portugal, leído el "
+                    f"{data_lv('pt_res', l)}); en los demás casos, <strong>{soldi_vl(anno, 'EUR', l)}</strong> por 12 meses ({approx_vl(anno, val, l)}), "
+                    f"la mitad con el alojamiento asegurado; la tasa del visado es de {t110}.")
             titolo = titolo_vl([f"Visa de estudiante Portugal para {N['pl']} {ANNO}: dinero y costo", f"Visa de estudiante Portugal para {N['pl']}: dinero y costo"])
             descr = f"Visa de estudiante de Portugal para {N['pl']}: medios por 12 meses ({soldi_vl(anno, 'EUR', l)}) en {N['nval']}, mitad con alojamiento, exenciones, tasa de {t110}."
             sez = f"""<h2>Cuánto dinero necesitas</h2>
@@ -11313,7 +11332,7 @@ def pagina_vl_pt(visto, naz):
         descr = "Visto de procura de trabalho qualificado de Portugal: ainda não disponível nos consulados, à espera da regulamentação do artigo 57.º-A. Fonte oficial e data."
         sez = f"""<h2>O que diz o Ministério</h2>
 <p>Na lista dos tipos de visto: {cita_vl("pt_tipo_suspenso")} habilita o titular de competências técnicas especializadas a procurar trabalho em Portugal. Na página do visto: {cita_vl("pt_proc_suspenso")}</p>
-<p>Não há data oficial de retorno, por isso não publicamos nenhuma. Vamos reler a página todo mês.</p>
+<p>Não há data oficial de retorno, por isso não publicamos nenhuma.</p>
 {fonte_vl(["pt_proc", "pt_tipo"], l)}
 <h2>Outros vistos para brasileiros</h2>
 <p>Os vistos que estão disponíveis hoje, com valores oficiais: <a href="../{VISTI_VL['pt_cplp']['pt']}/">visto CPLP</a>, <a href="../{VISTI_VL['pt_d7']['pt'].format(pl='brasileiros')}/">D7</a>, <a href="../{VISTI_VL['pt_d8']['pt'].format(pl='brasileiros')}/">D8</a> e <a href="../{VISTI_VL['pt_est']['pt'].format(pl='brasileiros')}/">estudante</a>.</p>"""
@@ -11347,20 +11366,20 @@ def pagina_vl_it(naz):
         h1 = f"Visa de estudiante Italia para {N['pl']} ({ANNO}): costo y dinero"
         lead = (f"Para la visa de estudiante de Italia un {N['sg']} tiene que demostrar <strong>{soldi_vl(m, 'EUR', l)} al año</strong> ({approx_vl(m, val, l)}), según la "
                 f"{circ} (leída el {data_ee(F_CIRC_VL['letto_il'], l)}); el visado cuesta {breve_tasa}"
-                + (" en la tabla consular del cuarto trimestre de 2026." if naz in TASAS_IT_VL else " (tarifa en euros de la tabla consular italiana)."))
+                + " en la tabla consular del cuarto trimestre de 2026.")
         titolo = titolo_vl([f"Visa de estudiante Italia para {N['pl']} {ANNO}: costo y dinero", f"Visa de estudiante Italia para {N['pl']}: costo y dinero"])
         descr = f"Visa de estudiante de Italia para {N['pl']}: costo del visado ({breve_tasa}), {soldi_vl(m, 'EUR', l)} al año de medios en {N['nval']}, fuentes y fechas."
         sez = f"""<h2>Cuánto cuesta la visa</h2>
 <p>{fr_tasa}</p>
-{fonte_vl(f_tasa, l, "" if naz in TASAS_IT_VL else "La tarifa en euros (artículo 29) es la misma en todas las tablas consulares italianas: citamos dos del cuarto trimestre de 2026.")}
+{fonte_vl(f_tasa, l)}
 <h2>Cuánto dinero necesitas</h2>
-<p>La circular de los ministerios italianos de Universidad y de Exteriores para 2026/27 dice (en italiano): <q lang="it">{escape(fr_mezzi)}</q>, es decir {soldi_vl(m, 'EUR', l)} al año, {approx_vl(m, val, l)}. Los mismos ministerios piden un seguro médico para curas y hospitalización y el alojamiento: detalles en inglés en <a href="../../../study-in-italy/student-visa-funds/" lang="en" hreflang="en">Study in Italy: student visa funds</a>.</p>
+<p>La circular de los ministerios italianos de Universidad y de Exteriores para 2026/27 dice (en italiano): <q lang="it">{escape(fr_mezzi)}</q>, es decir {soldi_vl(m, 'EUR', l)} al año, {approx_vl(m, val, l)}. Los mismos ministerios piden un seguro médico para asistencia médica y hospitalización y el alojamiento: detalles en inglés en <a href="../../../study-in-italy/student-visa-funds/" lang="en" hreflang="en">Study in Italy: student visa funds</a>.</p>
 <p class="fonte">Fuente: {circ} (leída el {data_ee(F_CIRC_VL['letto_il'], l)}).</p>
 {nota_cambio_vl(val, l)}"""
         q1 = f"visa de estudiante italia para {N['pl']}" if f"visa de estudiante italia para {N['pl']}" in ricerche_vl() else ("visa de estudiante en italia para colombianos" if naz == "colombia" else "visa de estudiante italia perú")
         faq = faq_vl(p, [
             (q1, f"¿Cuánto cuesta la visa de estudiante de Italia para {N['pl']}?",
-             f"El visado nacional por estudios tiene una tarifa de {soldi_vl(TARIFFA_IT_VL, 'EUR', l)}" + (f": {breve_tasa} en la tabla del cuarto trimestre de 2026." if naz in TASAS_IT_VL else ", que la Embajada cobra en moneda local al cambio del trimestre.")),
+             f"El visado nacional por estudios tiene una tarifa de {soldi_vl(TARIFFA_IT_VL, 'EUR', l)}: {breve_tasa} en la tabla {TASAS_IT_VL[naz][2]} del cuarto trimestre de 2026."),
             ("visa estudiante italia costo" if "visa estudiante italia costo" in ricerche_vl() else "costo de visa de estudiante para italia", "¿Cuánto dinero piden para estudiar en Italia?",
              f"{soldi_vl(m, 'EUR', l)} al año para el curso 2026/27 ({approx_vl(m, val, l)}), según la circular MUR/MAECI."),
         ])
@@ -11394,7 +11413,7 @@ def riga_indice_vl(v, n, l):
     es = l == "es"
     if v == "es_nl":
         red = f"{soldi_vl(mensile_nl_vl(1), 'EUR', l)}/{'mes' if es else 'mês'}"
-        tasa = tasa_es_breve_vl(n, l)
+        tasa = tasa_es_breve_vl(n, l) + (" + tasa 790-052 (sin importe en el listado)" if n == "argentina" else "")
     elif v == "es_nd":
         red = f"{soldi_vl(mensile_nd_vl(1), 'EUR', l)}/{'mes' if es else 'mês'}"
         tasa = tasa_es_breve_vl(n, l)
@@ -11408,7 +11427,7 @@ def riga_indice_vl(v, n, l):
         red = f"{soldi_vl(mensile_d8_vl(), 'EUR', l)}/{'mes' if es else 'mês'}"
         tasa = soldi_vl(L_VL["pt_110"]["valore"], "EUR", l)
     elif v == "pt_est":
-        red = (f"{soldi_vl(12 * RMMG_VL, 'EUR', l)} (12 {'meses' if es else 'meses'})" if n != "brasil" else "dispensa (ensino superior)")
+        red = (f"dispensa (enseñanza superior, art. 91.º-B); si no, {soldi_vl(12 * RMMG_VL, 'EUR', l)} (12 meses)" if n != "brasil" else "dispensa (ensino superior)")
         tasa = soldi_vl(L_VL["pt_110"]["valore"], "EUR", l)
     elif v == "pt_cplp":
         red = f"{soldi_vl(RMMG_VL, 'EUR', l)}/mês ou dispensa"
@@ -11442,7 +11461,7 @@ def pagina_vl_indice(l):
         h1 = f"Visados de larga duración por nacionalidad ({ANNO}): España, Portugal, Italia"
         lead = (f"La tasa del visado nacional de España es gratuita para colombianos y chilenos, de {tasa_es_breve_vl('argentina', l)} en Buenos Aires, "
                 f"{tasa_es_breve_vl('mexico', l)} en México y {tasa_es_breve_vl('peru', l)} en Lima, según los listados oficiales de cada consulado (leídos el "
-                f"{data_lv('es_tasas_ar', l)}); Portugal cobra {soldi_vl(L_VL['pt_110']['valore'], 'EUR', l)} e Italia {soldi_vl(TARIFFA_IT_VL, 'EUR', l)} por el visado de estudios. "
+                f"{data_lv('es_tasas_ar', l)}); Portugal cobra {soldi_vl(L_VL['pt_110']['valore'], 'EUR', l)} por cualquier visado nacional e Italia {soldi_vl(TARIFFA_IT_VL, 'EUR', l)} por el visado de estudios. "
                 f"Aquí, {n_pag} visados con el dinero mínimo convertido a tu moneda.")
         titolo = titolo_vl([f"Visados de larga duración por nacionalidad {ANNO}: España y Portugal", "Visados de larga duración por nacionalidad"])
         descr = "Visa no lucrativa, nómada digital y de estudiante de España, D7, D8 y estudiante de Portugal, estudiante de Italia: tasa del consulado e ingresos en tu moneda."
@@ -11459,7 +11478,7 @@ def pagina_vl_indice(l):
             ("visa no lucrativa españa cuánto dinero necesito", "¿Cuánto dinero necesito para la visa no lucrativa de España?",
              f"{soldi_vl(mensile_nl_vl(1), 'EUR', l)} al mes, {soldi_vl(12 * mensile_nl_vl(1), 'EUR', l)} el primer año, más {soldi_vl(mensile_nl_vl(2) - mensile_nl_vl(1), 'EUR', l)} al mes por familiar."),
             ("visa d7 portugal requisitos", "¿Cuánto pide la visa D7 de Portugal?",
-             f"{soldi_vl(RMMG_VL, 'EUR', l)} al mes para el primer adulto (salario mínimo portugués de {ANNO}), más el 50 % por adulto y el 30 % por hijo."),
+             f"{soldi_vl(RMMG_VL, 'EUR', l)} al mes para el primer adulto (salario mínimo portugués de {ANNO}), más el 50 % por cada adulto adicional y el 30 % por hijo."),
         ])
     else:
         h1 = f"Vistos de longa duração para brasileiros ({ANNO}): Espanha, Portugal, Itália"

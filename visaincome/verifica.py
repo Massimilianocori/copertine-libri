@@ -3216,7 +3216,7 @@ def _numeri_fr(fr):
     """Numeri scritti in un frammento ufficiale, letti in tutti i formati usati dalle fonti (152.000 / 352,10 / 1,902 / $47,400 / 1.902,00)."""
     out = set()
     for t in re.findall(r"\d[\d.,]*\d|\d", fr):
-        cand = {t.replace(".", "").replace(",", "."), t.replace(",", ""), t.replace(".", "").replace(",", "")}
+        cand = {t.replace(".", "").replace(",", "."), t.replace(",", ""), t.replace(".", "").replace(",", "")} | set(t.split(","))   # celle CSV (Bogotá)
         for c in cand:
             try:
                 out.add(round(float(c), 4))

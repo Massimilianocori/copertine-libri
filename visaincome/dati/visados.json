@@ -20,8 +20,8 @@
    "url": "https://www.exteriores.gob.es/Consulados/bogota/es/Comunicacion/Noticias/Paginas/Articulos/ACTUALIZACI%c3%93N-TASAS-A-PARTIR-DE-1-DE-OCTUBRE-2026.aspx",
    "http": 200,
    "letto_il": "2026-11-04",
-   "byte": 39950,
-   "sha256": "dfb2e366afc33b003519ddf7cbc672502a6ae7605adfdd33eff85c2f4a87974b"
+   "byte": 39841,
+   "sha256": "325d45ce131bbbade1b1492d63e65569cf6c2e06794334d3455593b5b5f33a6f"
   },
   "es_tasas_cl": {
    "titolo": "Consulado General de España en Santiago de Chile, Listado de tasas consulares (a partir del 1 de enero de 2026)",
@@ -65,7 +65,7 @@
    "http": 200,
    "letto_il": "2026-11-04",
    "byte": 44818,
-   "sha256": "cd81582dc1af7456feec47bd567fbb920e743eecc5decdfceb9207a4ed3d3915"
+   "sha256": "3ded6d821f14c241693c2a7ac11c772d215cea47334fea2af8aaaa867846fc61"
   },
   "es_tasas_mx_pdf": {
    "titolo": "Consulado General de España en México, Precios recaudación consular 2026 (impreso el 16/12/2025)",
@@ -107,7 +107,7 @@
    "http": 200,
    "letto_il": "2026-11-04",
    "byte": 145141,
-   "sha256": "861b0b7382032a4a147cf167fd1d9dd302656e1c3e3c8b943e884ef6b6372447"
+   "sha256": "6609e0e464656e0ae643ab01ff5c368f656adc5e711edf368b1aee1ff7ad8fbd"
   },
   "es_ba_nd": {
    "titolo": "Consulado General de España en Buenos Aires, Visado de residencia para teletrabajo (nómada digital)",
@@ -115,8 +115,8 @@
    "url": "https://www.exteriores.gob.es/Consulados/buenosaires/es/ServiciosConsulares/Paginas/index.aspx?scca=Visados&scco=Argentina&scd=40&scs=Visados+Nacionales+-+Visado+de+residencia+para+teletrabajo+(n%C3%B3mada+digital)",
    "http": 200,
    "letto_il": "2026-11-04",
-   "byte": 146930,
-   "sha256": "8d4094cb866a8eee9923c7c52b400b4b036b7da246c63926606843ad93b1e640"
+   "byte": 146945,
+   "sha256": "f1cb2300469fade07368b5927e6c971d7201a1d89e7562864ebeff8c3da9f1eb"
   },
   "es_ba_es": {
    "titolo": "Consulado General de España en Buenos Aires, Visado de estudios",
@@ -124,8 +124,8 @@
    "url": "https://www.exteriores.gob.es/Consulados/buenosaires/es/ServiciosConsulares/Paginas/index.aspx?scca=Visados&scco=Argentina&scd=40&scs=Visados+Nacionales+-+Visado+de+estudios",
    "http": 200,
    "letto_il": "2026-11-04",
-   "byte": 179694,
-   "sha256": "5bce0c19dc2b6c84533446c7c564097fe6e43398bf4f0cebbbdfb5abb89a27a4"
+   "byte": 179711,
+   "sha256": "1b94f38a3ce5c64f24e5a4f2bc78218166361c7e950a7ef6d3689dacee9292d1"
   },
   "es_rd1155": {
    "titolo": "Real Decreto 1155/2024, Reglamento de la Ley Orgánica 4/2000 (BOE, texto consolidado)",
@@ -231,6 +231,28 @@
    "letto_il": "2026-11-04",
    "byte": 263813,
    "sha256": "b1a01f580c3415259d381179a3f30bc5642b5620384204cc5db10a00808adf4a"
+  },
+  "it_tab_co": {
+   "titolo": "Ambasciata d'Italia a Bogotá, Tariffa consolare in vigenza IV trimestre 2026 (dal 01/10/2026 al 31/12/2026)",
+   "formato": "xls",
+   "paese": "colombia",
+   "url": "https://ambbogota.esteri.it/wp-content/uploads/2026/09/Tariffa-consolare-IV-trimestre-2026.xls",
+   "data_listino": "2026-10-01",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 48640,
+   "sha256": "8601cde04570cbec3c728dcaa9c5c757750880c6b47444af81450838778eb02e"
+  },
+  "it_tab_pe": {
+   "titolo": "Ambasciata d'Italia a Lima, Diritti consolari IV trimestre 2026 (dal 01.10.2026 al 31.12.2026)",
+   "formato": "pdf",
+   "paese": "peru",
+   "url": "https://amblima.esteri.it/wp-content/uploads/2026/10/TARIFFARIO-SERVIZI-CONSOLARI-2026-IV-TRIMESTRE.pdf",
+   "data_listino": "2026-10-01",
+   "http": 200,
+   "letto_il": "2026-11-04",
+   "byte": 188930,
+   "sha256": "2134158c35e30886d787edac71e7970d66d652fd4543f8de7ba3c398ab8b5537"
   },
   "it_tab_br": {
    "titolo": "Consolato Generale d'Italia a San Paolo, Principali tariffe consolari in vigore dal 01 ottobre 2026 (firmata il 25/09/2026)",
@@ -661,6 +683,36 @@
   "it_mx_periodo": {
    "fonte": "it_tab_mx",
    "frammento": "TABELLA DIRITTI CONSOLARI IV TRIMESTRE 2026"
+  },
+  "it_co": {
+   "fonte": "it_tab_co",
+   "valore": 188100,
+   "valuta": "COP",
+   "frammento": "Visto nazionale per motivi di studio di lunga durata (91-365 gg.) (Tipo D),,50,188100"
+  },
+  "it_co_cambio": {
+   "fonte": "it_tab_co",
+   "valore": 3761.85,
+   "frammento": "1 Euro = Pesos Colombiani,3761.85"
+  },
+  "it_co_periodo": {
+   "fonte": "it_tab_co",
+   "frammento": "IMPORTO DA PAGARE IN PESOS COLOMBIANI,DAL 01/10/2026 AL 31/12/2026"
+  },
+  "it_pe": {
+   "fonte": "it_tab_pe",
+   "valore": 195,
+   "valuta": "PEN",
+   "frammento": "VISTO TIPO “D” PER MOTIVI DI STUDIO 195"
+  },
+  "it_pe_altri": {
+   "fonte": "it_tab_pe",
+   "valore": 452,
+   "frammento": "VISTO TIPO “D” PER ALTRI TIPI DI VISTO ESCLUSO STUDIO 452"
+  },
+  "it_pe_periodo": {
+   "fonte": "it_tab_pe",
+   "frammento": "DIRITTI CONSOLARI IV TRIMESTRE 2026 Dal 01.10.2026 al 31.12.2026"
   },
   "it_br": {
    "fonte": "it_tab_br",
@@ -1671,5 +1723,5 @@
    ]
   }
  },
- "impronta": "f5c15ace0d875006a49e"
+ "impronta": "d00a2034aef56438c098"
 }

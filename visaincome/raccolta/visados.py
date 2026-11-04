@@ -14,15 +14,16 @@ Cosa c'è (solo fonti ufficiali; ogni cifra ha un frammento del testo ufficiale 
 - Ministério dos Negócios Estrangeiros di Portogallo (vistos.mne.gov.pt): emolumenti (110 €), meios de subsistência (RMMG 920 €), residência (D7, D8,
   studenti, PB4 per il Brasile), CPLP, procura de trabalho (sospeso), tipo de visto;
 - Decreto brasiliano 11.156/2022 (portale della Camera dei deputati): Accordo di mobilità CPLP in vigore per il Brasile dall'1/4/2022;
-- tabelle dei diritti consolari italiani del IV trimestre 2026: Buenos Aires, Santiago del Cile, Città del Messico (testo) e San Paolo (PDF fatto
-  di un'immagine: letto a vista il 4/11/2026, si controlla solo l'impronta SHA-256 del file: se cambia, lo script si ferma);
+- tabelle dei diritti consolari italiani del IV trimestre 2026: Buenos Aires, Santiago del Cile, Città del Messico, Lima (PDF di testo), Bogotá
+  (foglio .xls, letto convertendolo in CSV con LibreOffice) e San Paolo (PDF fatto di un'immagine: letto a vista il 4/11/2026, si controlla solo
+  l'impronta SHA-256 del file: se cambia, lo script si ferma);
 - cambi ufficiali dello stesso giorno: BCE (EUR/USD, EUR/MXN, EUR/BRL, file storico a 90 giorni), Colombia TRM (datos.gov.co), Argentina BCRA
   (api.bcra.gob.ar), Perù BCRP (serie PD04640PD), Cile SII (dólar observado). Le valute senza cambio BCE si convertono passando dal dollaro.
 I mezzi per lo studio in Italia (10.179,85 € l'anno) restano in dati/studio_italia.json; SMI, IPREM e RMMG restano in dati/programmi.json
 (il generatore controlla che coincidano con le cifre scritte qui nei frammenti).
 Se un frammento manca o un'impronta cambia, il JSON NON viene scritto (esce con codice 1) finché qualcuno non rilegge la fonte.
-Non letti (4/11/2026): listino 2026 del consolato di Bogotá (annunciato dal 1/10/2026, non pubblicato), tabelle italiane del IV trimestre 2026 di
-Bogotá e Lima (ultime: II trimestre 2024 e IV trimestre 2025), planalto.gov.br (risponde "Acesso Negado").
+Non letti (4/11/2026): listino 2026 del consolato di Spagna a Bogotá (annunciato dal 1/10/2026, non pubblicato), planalto.gov.br ("Acesso Negado").
+La tabella di Lima non scrive la valuta: gli importi sono quelli riscossi in Perù (195 per la tariffa di 50 €, 452 per 116 €: soles).
 """
 import hashlib
 import html as H
@@ -88,6 +89,10 @@ FONTI = {
                   "url": "https://ambsantiago.esteri.it/wp-content/uploads/2026/10/Tabella-Percezioni-IV-Trim-2026.pdf", "data_listino": "2026-10-01"},
     "it_tab_mx": {"titolo": "Ambasciata d'Italia a Città del Messico, Tabella diritti consolari IV trimestre 2026", "formato": "pdf", "paese": "mexico",
                   "url": "https://ambcittadelmessico.esteri.it/wp-content/uploads/2026/10/TABELLA-DIRITTI-CONSOLARI-IV-TRIM-2026.pdf", "data_listino": "2026-10-01"},
+    "it_tab_co": {"titolo": "Ambasciata d'Italia a Bogotá, Tariffa consolare in vigenza IV trimestre 2026 (dal 01/10/2026 al 31/12/2026)", "formato": "xls", "paese": "colombia",
+                  "url": "https://ambbogota.esteri.it/wp-content/uploads/2026/09/Tariffa-consolare-IV-trimestre-2026.xls", "data_listino": "2026-10-01"},
+    "it_tab_pe": {"titolo": "Ambasciata d'Italia a Lima, Diritti consolari IV trimestre 2026 (dal 01.10.2026 al 31.12.2026)", "formato": "pdf", "paese": "peru",
+                  "url": "https://amblima.esteri.it/wp-content/uploads/2026/10/TARIFFARIO-SERVIZI-CONSOLARI-2026-IV-TRIMESTRE.pdf", "data_listino": "2026-10-01"},
     "it_tab_br": {"titolo": "Consolato Generale d'Italia a San Paolo, Principali tariffe consolari in vigore dal 01 ottobre 2026 (firmata il 25/09/2026)", "formato": "immagine", "paese": "brasil",
                   "url": "https://conssanpaolo.esteri.it/wp-content/uploads/2026/10/Tabella-diritti-Consolari-IV-TRIM-2026.pdf", "data_listino": "2026-10-01",
                   "sha256_atteso": "91887e0acd1826aa6d59ee5f536a860c1553a6ff8eae36fd71ad3ba6333a787d"},
@@ -186,6 +191,12 @@ LETTURE = {
     "it_mx": {"fonte": "it_tab_mx", "valore": 1000, "valuta": "MXN", "frammento": "VISTO NAZIONALE PER MOTIVI DI STUDIO 50 1,000"},
     "it_mx_cambio": {"fonte": "it_tab_mx", "valore": 19.8501, "frammento": "TASSO DI RAGGUAGLIO: 19.8501"},
     "it_mx_periodo": {"fonte": "it_tab_mx", "frammento": "TABELLA DIRITTI CONSOLARI IV TRIMESTRE 2026"},
+    "it_co": {"fonte": "it_tab_co", "valore": 188100, "valuta": "COP", "frammento": "Visto nazionale per motivi di studio di lunga durata (91-365 gg.) (Tipo D),,50,188100"},
+    "it_co_cambio": {"fonte": "it_tab_co", "valore": 3761.85, "frammento": "1 Euro = Pesos Colombiani,3761.85"},
+    "it_co_periodo": {"fonte": "it_tab_co", "frammento": "IMPORTO DA PAGARE IN PESOS COLOMBIANI,DAL 01/10/2026 AL 31/12/2026"},
+    "it_pe": {"fonte": "it_tab_pe", "valore": 195, "valuta": "PEN", "frammento": "VISTO TIPO “D” PER MOTIVI DI STUDIO 195"},
+    "it_pe_altri": {"fonte": "it_tab_pe", "valore": 452, "frammento": "VISTO TIPO “D” PER ALTRI TIPI DI VISTO ESCLUSO STUDIO 452"},
+    "it_pe_periodo": {"fonte": "it_tab_pe", "frammento": "DIRITTI CONSOLARI IV TRIMESTRE 2026 Dal 01.10.2026 al 31.12.2026"},
     # PDF di sola immagine: letto a vista il 4/11/2026 (riga "Visto nazionale per motivi di studio - tipo D", art. 29, tariffa 50,00 €;
     # contanti o PIX bancario 296,00; PIX con QR o POS 299,64; carta di debito 300,44; tasso di cambio 1 euro = R$ 5,90930000; San Paolo, 25/09/2026)
     "it_br": {"fonte": "it_tab_br", "valore": 296.00, "valuta": "BRL", "visiva": True,
@@ -245,6 +256,13 @@ def testo_di(b, formato):
     """Testo normalizzato: PDF con pdftotext -layout (righe della tabella su una riga), HTML senza script e stili."""
     if formato == "pdf":
         return norm(subprocess.run(["pdftotext", "-layout", "-", "-"], input=b, capture_output=True).stdout.decode("utf-8", "replace"))
+    if formato == "xls":   # foglio Excel: CSV con LibreOffice (celle separate da virgole)
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "t.xls").write_bytes(b)
+            subprocess.run(["soffice", "--headless", "--convert-to", "csv", "--outdir", d, str(Path(d) / "t.xls")], capture_output=True, timeout=180)
+            c = Path(d) / "t.csv"
+            return norm(c.read_bytes().decode("utf-8", "replace")) if c.exists() else ""
     t = b.decode("utf-8", "replace")
     t = re.sub(r"<script.*?</script>|<style.*?</style>", " ", t, flags=re.S | re.I)
     return norm(H.unescape(re.sub(r"<[^>]+>", " ", t)))
