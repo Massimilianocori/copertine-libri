@@ -33,9 +33,9 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 | touristtax | Versioni es/pt (con la francese già in coda) | 6,5 | dopo | idee-2026-11-04-america-latina.md |
 | visaincome | Pensione statale britannica congelata o no, Paese per Paese | 6,5 | con la sezione pensioni HMRC già in coda | idee-2026-11-04-africa-medio-oriente.md |
 | visaincome | Israele nelle pagine moved-to (API data.gov.il) | 5,5 | coda bassa | idee-2026-11-04-africa-medio-oriente.md |
+| beforeyoufly | **Riquadro eSIM acceso con Roamable** (Awin, approvato il 5/11; link https://www.awin1.com/cread.php?awinmid=118127&awinaffid=3145171 con `ued=` verso la pagina giusta, da verificare in un browser): il riquadro `esim` di affiliati.json è già pronto e spento; dominio awin1.com già in whitelist | 7 | dopo la pubblicazione serale del 5/11 (Before You Fly) | email Awin del 5/11 |
 | beforeyoufly | Liquidi, pagine a 2 litri (Fiumicino, Vienna, Bologna, Bergamo, Knock e altre UE): la FAQ sul 2026 cita Your Europe (100 ml) sotto una risposta "2 litres"; aggiungere la frase ponte come nella FAQ sulla busta | piccola | prossimo giro di Before You Fly | revisione del 5/11 |
 | beforeyoufly | **Available in: +8 servizi** con lista ufficiale dei Paesi (Google Wallet, PayPal, Revolut, Wise, Disney+, Netflix, Uber, Prime Video; solo quelli con lista ufficiale leggibile). Motivo: sezione passata da 0 a 49 visite in una settimana (Starlink in testa) | 7 | PRIMA in coda per Before You Fly, dopo Amsterdam/Blue Badge | GoatCounter 28/10-4/11 |
 | beforeyoufly | Ryder Cup 2027: alloggi per distanza da Adare Manor (CSV Fáilte Ireland) | 6 | entro gennaio 2027 | fronti-2026-11-04-grandi-eventi.md |
-| beforeyoufly | Blue Badge all'estero Paese per Paese | 5,5 | quando la cartella è libera | idee-2026-11-04-europa.md |
 | beforeyoufly | Cina senza visto nel 2027 | 5,5 | il giorno dell'annuncio ufficiale (cs.mfa.gov.cn) | idee-2026-11-04-asia-pacifico.md |
 | beforeyoufly | Los Angeles 2028 sede per sede | 6 | febbraio-aprile 2027 | fronti-2026-11-04-grandi-eventi.md |
