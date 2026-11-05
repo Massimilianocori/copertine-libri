@@ -111,3 +111,6 @@ Massimiliano, 31/10/2026: "va benissimo ottimizzare quello che abbiamo fatto ma 
 
 ## Sì del 4/11/2026: affiliazioni che portano guadagno
 Massimiliano (4/11/2026, sulle pagine liquidi di Before You Fly): "si a tutto quello che porta guadagno". Approvati: iscrizione a Holiday Extras su Awin (deposito Awin di 5 £ rimborsabile, se richiesto) e iscrizione gratuita ad Amazon Associates UK e USA. Le iscrizioni le fa lui con la guida passo passo; restano valide le altre regole (nessuna altra spesa senza il suo sì, niente email a freddo, niente social, nessun dato personale nel repository).
+
+## Regola del 5/11/2026: budget settimanale di utilizzo
+Massimiliano (5/11/2026, giovedì 13:00): "abbiamo consumato già il 30% del settimanale". Il limite settimanale del piano (si azzera il mercoledì alle 21:00) va distribuito sui 7 giorni: circa 10-12 % al giorno. Quindi: turno di costruzione di metà giornata con al massimo 1 costruttore + 1 revisore; routine serale con la pubblicazione e al massimo 2 ricercatori (1 di zona + 1 su un fronte nuovo) finché il settimanale è sopra il 60 % prima del reset; la ricerca grande del mercoledì mattina (prima del reset) con 3 ricercatori invece di 6, il resto dopo il reset. Mai 9 agenti insieme come la sera del 4/11.
