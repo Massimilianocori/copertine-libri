@@ -11643,6 +11643,11 @@ def selezione_inf():
 PAG_INF = selezione_inf()
 
 
+def date_pub_nmc():
+    from datetime import datetime
+    return datetime.strptime(FI["nmc_xlsx"]["last_modified"][5:16], "%d %b %Y").date().isoformat()
+
+
 def mese_anno(iso):
     d = date.fromisoformat(iso)
     return f"{MESI[d.month - 1]} {d.year}"
@@ -11692,24 +11697,33 @@ def oms_2023(nome_codice):
 
 def frase_grado(p, X):
     g = grado_inf(p)
+    Xm = X[0].upper() + X[1:]
     w = "is" if oms_2023(p) else "is not"
+    oms = f"{Xm} {w} on the WHO health workforce support and safeguards list 2023."
     if g == "red":
-        return (f"{X} is on the <strong>red list</strong> of the UK code of practice for international recruitment: no active recruitment of health and care staff "
-                f"from {X} is allowed, but UK employers may consider a direct application to a specific advertised vacancy. {X} {w} on the WHO health workforce support and safeguards list 2023.")
+        return (f"{Xm} is on the <strong>red list</strong> of the code of practice for international recruitment in England: no active recruitment of health and care staff "
+                f"from {X} is allowed, but employers may consider a direct application to a specific advertised vacancy. {oms}")
     if g == "amber":
-        return (f"{X} is on the <strong>amber list</strong> of the UK code of practice: recruitment can happen only on the terms of the government-to-government agreement with the UK. "
-                f"{X} {w} on the WHO health workforce support and safeguards list 2023.")
+        return (f"{Xm} is on the <strong>amber list</strong> of the code of practice for England: recruitment can happen only on the terms of the government-to-government agreement with the UK. {oms}")
     if g == "green (agreement)":
-        return (f"{X} is <strong>not on the red list</strong>: the UK code of practice lists it among the green countries with a government-to-government agreement on health and care workforce recruitment. "
-                f"{X} {w} on the WHO health workforce support and safeguards list 2023.")
-    return (f"{X} is <strong>not on the red or amber list</strong> of the UK code of practice (green: active recruitment permitted). {X} {w} on the WHO health workforce support and safeguards list 2023.")
+        return (f"{Xm} is <strong>not on the red list</strong>: the code of practice for England lists it among the green countries with a government-to-government agreement on health and care workforce recruitment. {oms}")
+    return f"{Xm} is <strong>not on the red or amber list</strong> of the code of practice for England (green: active recruitment permitted). {oms}"
+
+
+def nota_codice():
+    return (f"(Code of practice for England updated {data_lunga(FI['codice']['aggiornata'])}, read on {data_lunga(FI['codice']['letto_il'])}; "
+            "the final WHO 2026 list is not published yet.)")
+
+
+def residenza_inf():
+    return f"The code says: “{escape(INF['letture']['codice_residenza']['frammento'])}”"
 
 
 def fonte_nmc_p(extra=""):
     f = FI["nmc_xlsx"]
     return (f'<p class="fonte">Source: <a href="{escape(f["url"])}" rel="noopener">NMC, register data tables, March {NMC_D[-1][:4]} (UK)</a> '
             f'(XLSX, file dated {data_rfc(f["last_modified"])}, downloaded on {data_lunga(f["scaricato_il"])}), sheets "Training Country ALL" and "Training Country Joiners"{extra}. '
-            f'The register includes nurses, midwives and nursing associates. Figures © Nursing and Midwifery Council, quoted as facts.</p>')
+            f'The register includes nurses, midwives and nursing associates. Data: NMC register data tables (© NMC), reproduced as factual information with a link to the original file; this is not an NMC publication.</p>')
 
 
 def fonte_ie_p(extra=""):
@@ -11761,6 +11775,7 @@ def cosa_inf(X=None):
             f'<li><strong>Ireland:</strong> nurses (and midwives) registered with the NMBI who said they practise in Ireland, by the country of their first nursing qualification, at the end of each year.</li>'
             f'<li><strong>Health and Care Worker visas:</strong> visas applied for from outside the UK, counted by <strong>nationality</strong>, for every job on this route, plus family members. '
             f'The Home Office file does not say how many went to nurses, and it leaves out people who switched visa inside the UK.</li>'
+            f'<li><strong>Red list:</strong> it applies to employers in England (code of practice for England). {residenza_inf()}</li>'
             '<li>The three counts measure different things and <strong>do not add up</strong>.</li></ul></section>')
 
 
@@ -11848,22 +11863,21 @@ def pagina_inf_paese(p):
     domande = []
     for tipo, k, sug in QUERY_INF[p]:
         if tipo == "uk":
-            domande.append(((k, sug), f"How many nurses trained in {X} are in the UK?",
+            domande.append(((k, sug), f"How many nurses who trained in {X} are in the UK?",
                             f"{intero(r1)} people on the NMC register trained in {X} on {d_reg} (nurses, midwives and nursing associates), compared with {intero(r0)} a year earlier and "
                             f"{intero(r3)} three years earlier. This counts training country, not nationality."))
         elif tipo == "ie":
-            domande.append(((k, sug), f"How many nurses from {X} are in Ireland?",
+            domande.append(((k, sug), f"How many nurses who trained in {X} are in Ireland?",
                             (f"{intero(ie1)} nurses practising in Ireland at the end of {IE_A1} had their first nursing qualification from {X}"
-                             + (f" ({intero(ie0)} a year earlier)" if ie0 is not None else "") + f", out of {intero(IE_I['estero'][IE_A1])} trained abroad (Department of Health, JQ06).")
+                             + (f" ({intero(ie0)} a year earlier)" if ie0 is not None else "") + f", out of {intero(IE_I['estero'][IE_A1])} trained abroad (Department of Health, JQ06). This counts training, not nationality.")
                             if ie1 is not None else f"Ireland's Department of Health does not publish it: the number was under 25 at the end of {IE_A1}."))
         elif tipo == "red":
-            domande.append(((k, sug), f"Is {X} still on the red list?", re.sub(r"<[^>]+>", "", frase_grado(p, X)) +
-                            f" (UK code updated {data_lunga(FI['codice']['aggiornata'])}, read on {data_lunga(FI['codice']['letto_il'])}; the final WHO 2026 list is not published yet.)"))
+            domande.append(((k, sug), f"Is {X} {'still ' if 'still' in sug else ''}on the red list?", re.sub(r"<[^>]+>", "", frase_grado(p, X)) + " " + nota_codice()))
         elif tipo == "work":
             domande.append(((k, sug), f"Can a nurse trained in {X} work in the UK?",
-                            f"To work as a registered nurse or midwife in the UK you must be on the NMC register: applicants trained outside the UK go through a qualification evaluation and the "
-                            f"Test of Competence (CBT and OSCE), £{LI['costo_totale']:,} in fees and tests. You also need the right to work in the UK, for example a visa"
-                            + (f": in {HCW_A1} the Home Office issued {intero(h1[2])} Health and Care Worker visas to {cit}." if h1 else ".")))
+                            f"To work as a registered nurse or midwife in the UK you must be on the NMC register: applicants trained outside the UK go through a qualification evaluation and "
+                            f"may need to take the Test of Competence (CBT and OSCE); fees and tests cost £{LI['costo_totale']:,} in total. You also need the right to work in the UK, for example a visa"
+                            + (f": in {HCW_A1} the Home Office issued {intero(h1[2])} Health and Care Worker visas to {cit} (any job on the route, by nationality)." if h1 else ".")))
     domande.append(faq_inf_costo())
     faq = registra_faq(percorso, domande)
     corpo = f"""<section class="hero"><h1>How many nurses trained in {escape(X)} are in the UK and Ireland?</h1>
@@ -11891,7 +11905,7 @@ def pagina_inf_paese(p):
 {tabella_hcw_inf(naz, cit)}
 {fonte_hcw_p()}
 <h2 id="red-list">Is {escape(X)} on the red list?</h2>
-<p>{frase_grado(p, X)}</p>
+<p>{frase_grado(p, X)} {nota_codice()}</p>
 {fonte_codice_p()}
 <p><a href="../red-list/">Red list countries for nurses: the WHO 2023 list, the UK code and the 2026 update</a></p>
 <h2 id="cost">What NMC registration costs</h2>
@@ -11902,7 +11916,9 @@ def pagina_inf_paese(p):
 <h2>Other countries of training</h2>
 {link_inf("../", f"{slug}/")}
 <p><a href="../">Nurses trained abroad: all countries</a> · <a href="{rel}{SEZ}uk/">UK visa refusal rates by nationality</a> · <a href="{rel}uk-skilled-worker-visa/">UK Skilled Worker salary threshold</a></p>"""
-    titolo = f"{agg} nurses in the UK and Ireland: how many in {NMC_D[-1][:4]}"
+    titolo = f"Nurses trained in {X} in the UK and Ireland: how many in {NMC_D[-1][:4]}"
+    if len(titolo) > 70:
+        titolo = f"Nurses trained in {X} in the UK and Ireland ({NMC_D[-1][:4]})"
     descr = (f"{intero(r1)} people on the UK NMC register trained in {X} ({mese_anno(NMC_D[-1])}); {ie_testo(ie1)} in Ireland ({IE_A1}); "
              f"Health and Care Worker visas, red list status and NMC fees. Official figures.")
     pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(faq)], briciole=[("Nurses trained abroad", SEZ_INF), (f"Trained in {Xm}", percorso)])
@@ -11925,7 +11941,7 @@ def pagina_inf_indice():
          f"{intero(ie_est)} of the {intero(ie_tot)} nurses practising in Ireland at the end of {IE_A1} ({ie_est / ie_tot * 100:.1f}%) had their first nursing qualification from another country (Department of Health, JQ06)."),
         (("gb|foreign nurses in uk", "how many foreign nurses in uk"), "How many foreign-trained nurses are in the UK?",
          f"{intero(intl)} of the {intero(tot)} people on the NMC register on {data_lunga(NMC_D[-1])} ({intl / tot * 100:.1f}%) trained outside the UK, "
-         f"{intero(NMC_I['subtotali']['Rest of the World sub-total'][-1])} of them outside the EU and EEA."),
+         f"{intero(NMC_I['subtotali']['Rest of the World sub-total'][-1])} of them outside the EU and EEA (including {intero(reg_inf('Unknown'))} with unknown training country)."),
         (("gb|international nurses in uk", "international nurses uk drop"), "Are fewer international nurses joining the UK register?",
          f"Yes, by these figures: {intero(NMC_I['subtotali_nuovi']['International sub-total'][-1])} people trained outside the UK joined the register for the first time in the six months to "
          f"{data_lunga(NMC_D[-1])}, against {intero(NMC_I['subtotali_nuovi']['International sub-total'][-3])} a year earlier and "
@@ -11966,41 +11982,46 @@ def pagina_inf_uk():
     percorso = f"{SEZ_INF}uk/"
     tot = NMC_I["totale"][-1]
     sub = NMC_I["subtotali"]
-    top = sorted(((v["registro"][-1], k) for k, v in NMC_I["paesi"].items() if v["area"] != "UK" and k != "Unknown"), reverse=True)[:20]
+    top = sorted(((v["registro"][-1], k) for k, v in NMC_I["paesi"].items() if v["area"] != "UK" and k != "Unknown"), reverse=True)[:10]
     righe = "".join(f'<tr><td>{f"<a href=\"../{PAESI_INF[k][0]}/\">{escape(k)}</a>" if k in PAG_INF else escape(k)}</td><td>{escape(NMC_I["paesi"][k]["area"])}</td>'
                     f'{cella_n(v)}{cella_n(reg_inf(k, -3))}{cella_n(nuovi_inf(k))}</tr>' for v, k in top)
     sn = NMC_I["subtotali_nuovi"]
     righe_a = "".join(f'<tr><td>{n}</td>{cella_n(sub[k][-1])}<td class="n">{sub[k][-1] / tot * 100:.1f}%</td>{cella_n(sn[k][-1])}</tr>'
-                      for n, k in (("Trained in the UK", "UK sub-total"), ("Trained in the EU or EEA", "EU/EEA sub-total"), ("Trained elsewhere", "Rest of the World sub-total")))
+                      for n, k in (("Trained in the UK", "UK sub-total"), ("Trained in the EU or EEA", "EU/EEA sub-total"), (f"Trained elsewhere (including {intero(reg_inf('Unknown'))} with unknown training country)", "Rest of the World sub-total")))
     righe_a += f'<tr class="tot-r"><td>All</td>{cella_n(tot)}<td class="n">100%</td>{cella_n(NMC_I["totale_nuovi"][-1])}</tr>'
-    righe_s = "".join(f'<tr><td>6 months to {data_lunga(d)}</td>{cella_n(sn["International sub-total"][i])}{cella_n(NMC_I["totale_nuovi"][i])}</tr>' for i, d in enumerate(NMC_D))
+    righe_s = "".join(f'<tr><td>6 months to {data_lunga(NMC_D[i])}</td>{cella_n(sn["International sub-total"][i])}{cella_n(NMC_I["totale_nuovi"][i])}</tr>' for i in range(len(NMC_D) - 4, len(NMC_D)))
+    serie_i = sn["International sub-total"]
+    i_picco = max(range(len(serie_i)), key=lambda i: serie_i[i])
+    frase_picco = (f"The highest figure in the NMC series was {intero(serie_i[i_picco])}, in the six months to {data_lunga(NMC_D[i_picco])}; "
+                   f"a year before the latest figure, in the six months to {data_lunga(NMC_D[-3])}, it was {intero(serie_i[-3])}.")
     domande = [(("gb|foreign nurses in uk", "how many foreign nurses in uk"), "How many foreign nurses are in the UK?",
                 f"{intero(sub['International sub-total'][-1])} people on the NMC register trained outside the UK on {data_lunga(NMC_D[-1])}, {sub['International sub-total'][-1] / tot * 100:.1f}% of {intero(tot)}. "
                 "The NMC counts the country of training, not nationality."),
                (("gb|international nurses in uk", "international nurses in uk"), "Where do international nurses in the UK come from?",
                 f"By country of training: {', '.join(f'{k} {intero(v)}' for v, k in top[:5])} (NMC, {mese_anno(NMC_D[-1])})."),
-               (("ph|how many filipino nurses in uk", "how many filipino nurses in uk"), "How many Filipino nurses are in the UK?",
-                f"{intero(reg_inf('Philippines'))} people on the NMC register trained in the Philippines on {data_lunga(NMC_D[-1])}.")]
+               (("ph|how many filipino nurses in uk", "how many filipino nurses in uk"), "How many nurses who trained in the Philippines are in the UK?",
+                f"{intero(reg_inf('Philippines'))} people on the NMC register trained in the Philippines on {data_lunga(NMC_D[-1])}. This counts training, not nationality.")]
     faq = registra_faq(percorso, domande)
-    corpo = f"""<section class="hero"><h1>Nurses trained abroad in the UK: the top 20 countries ({NMC_D[-1][:4]})</h1>
-<p class="lead">On {data_lunga(NMC_D[-1])}, <strong>{intero(sub["International sub-total"][-1])}</strong> of the {intero(tot)} people on the UK's NMC register trained outside the UK, {intero(sub["Rest of the World sub-total"][-1])} of them outside the EU and EEA (NMC register data, file dated {data_rfc(FI["nmc_xlsx"]["last_modified"])}). In the six months to {data_lunga(NMC_D[-1])}, {intero(sn["International sub-total"][-1])} people trained abroad joined the register for the first time, against {intero(sn["International sub-total"][-3])} a year earlier.</p></section>
+    corpo = f"""<section class="hero"><h1>Nurses trained abroad in the UK: the top 10 countries ({NMC_D[-1][:4]})</h1>
+<p class="lead">On {data_lunga(NMC_D[-1])}, <strong>{intero(sub["International sub-total"][-1])}</strong> of the {intero(tot)} people on the UK's NMC register trained outside the UK, {intero(sub["Rest of the World sub-total"][-1])} of them outside the EU and EEA, including {intero(reg_inf("Unknown"))} with unknown training country (NMC register data, published {mese_anno(date_pub_nmc())}). In the six months to {data_lunga(NMC_D[-1])}, {intero(sn["International sub-total"][-1])} people trained abroad joined the register for the first time, against {intero(sn["International sub-total"][-3])} a year earlier.</p></section>
 {AVVISO_INF}
 {AD}
 <h2>Where people on the register trained</h2>
 <div class="tab compatta"><table id="t-aree-inf"><caption class="sr">NMC register by area of training</caption><thead><tr><th scope="col">Area of training</th><th class="n" scope="col">On the register</th><th class="n" scope="col">Share</th><th class="n" scope="col">Joined in the last 6 months</th></tr></thead><tbody>{righe_a}</tbody></table></div>
 {fonte_nmc_p()}
-<h2>The 20 countries of training with the most people on the register</h2>
+<h2>The 10 countries of training with the most people on the register</h2>
 <div class="tab compatta"><table class="ord" id="t-top-inf"><thead><tr>{th_ord("Country of training", False, "ascending")}<th scope="col">Area</th>{th_ord(mese_anno(NMC_D[-1]))}{th_ord(mese_anno(NMC_D[-3]))}{th_ord(f"Joined, 6 months to {mese_anno(NMC_D[-1])}")}</tr></thead><tbody>{righe}</tbody></table></div>
 {fonte_nmc_p(f'; "Unknown" training country ({intero(reg_inf("Unknown"))}) left out')}
 <h2>People trained abroad joining the register, every six months</h2>
+<p>{frase_picco}</p>
 <div class="tab compatta"><table id="t-serie-inf"><caption class="sr">People joining the NMC register for the first time</caption><thead><tr><th scope="col">Period</th><th class="n" scope="col">Trained outside the UK</th><th class="n" scope="col">All joiners</th></tr></thead><tbody>{righe_s}</tbody></table></div>
 {fonte_nmc_p()}
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(faq)}</div>
 <h2>More in this section</h2>
 {link_inf("../", "uk/")}"""
-    titolo = f"Nurses trained abroad in the UK: top 20 countries ({NMC_D[-1][:4]})"
-    descr = (f"{intero(sub['International sub-total'][-1])} people on the UK NMC register trained abroad on {data_lunga(NMC_D[-1])}: top 20 countries of training and new joiners every 6 months.")
+    titolo = f"Nurses trained abroad in the UK: top 10 countries ({NMC_D[-1][:4]})"
+    descr = (f"{intero(sub['International sub-total'][-1])} people on the UK NMC register trained abroad on {data_lunga(NMC_D[-1])}: top 10 countries of training and new joiners every 6 months.")
     pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(faq)], briciole=[("Nurses trained abroad", SEZ_INF), ("United Kingdom", percorso)], ordina=True)
 
 
@@ -12008,22 +12029,29 @@ def pagina_inf_ie():
     rel = "../../"
     percorso = f"{SEZ_INF}ireland/"
     tot, est = IE_I["totale"][IE_A1], IE_I["estero"][IE_A1]
-    pubb = sorted(((v["v"].get(IE_A1), c) for c, v in IE_I["paesi"].items() if v["v"].get(IE_A1) is not None), reverse=True)
+    pubb = sorted(((v["v"].get(IE_A1), c) for c, v in IE_I["paesi"].items() if v["v"].get(IE_A1)), reverse=True)
     nomi = {c: v["nome"] for c, v in IE_I["paesi"].items()}
+    soppressi = sorted((c for c, v in IE_I["paesi"].items() if v["v"].get(IE_A1) is None), key=lambda c: nomi[c])
+    zeri = sum(1 for v in IE_I["paesi"].values() if v["v"].get(IE_A1) == 0)
     link_c = {PAESI_INF[p][3]: PAESI_INF[p][0] for p in PAG_INF}
-    righe = "".join(f'<tr><td>{f"<a href=\"../{link_c[c]}/\">{escape(nomi[c])}</a>" if c in link_c else escape(nomi[c])}</td>{cella_n(v)}'
-                    f'{cella_n(ie_inf(c, IE_A0))}{cella_var(v, ie_inf(c, IE_A0))}</tr>' for v, c in pubb)
+
+    def cella_ie(v):
+        return cella_n(v) if v is not None else '<td class="n" data-v="">under 25</td>'
+
+    def var_ie(a, b):
+        return cella_var(a, b) if a is not None and b is not None else '<td class="n" data-v="">–</td>'
+    righe = "".join(f'<tr><td>{f"<a href=\"../{link_c[c]}/\">{escape(nomi[c])}</a>" if c in link_c else escape(nomi[c])}</td>{cella_ie(ie_inf(c))}'
+                    f'{cella_ie(ie_inf(c, IE_A0))}{var_ie(ie_inf(c), ie_inf(c, IE_A0))}</tr>' for c in [c for _, c in pubb] + soppressi)
     righe_s = "".join(f'<tr><td>End of {a}</td>{cella_n(IE_I["totale"][a])}{cella_n(IE_I["irlanda"][a])}{cella_n(IE_I["estero"][a])}<td class="n">{IE_I["estero"][a] / IE_I["totale"][a] * 100:.1f}%</td></tr>'
                       for a in IE_I["anni"])
-    sopp = sum(1 for v in IE_I["paesi"].values() if v["v"].get(IE_A1) is None)
     domande = [(("ie|how many nurses in ireland", "how many nurses in ireland"), "How many nurses are there in Ireland?",
                 f"{intero(tot)} nurses and midwives registered with the NMBI said they practised in Ireland at the end of {IE_A1}; {intero(est)} ({est / tot * 100:.1f}%) first qualified abroad."),
-               (("in|indian nurses in ireland", "how many indian nurses in ireland"), "How many Indian nurses are in Ireland?",
+               (("in|indian nurses in ireland", "how many indian nurses in ireland"), "How many nurses who trained in India are in Ireland?",
                 f"{intero(ie_inf('IND'))} nurses practising in Ireland at the end of {IE_A1} had their first nursing qualification from India ({intero(ie_inf('IND', IE_A0))} a year earlier). This counts training, not nationality."),
-               (("ph|filipino nurses in ireland", "how many filipino nurses in ireland"), "How many Filipino nurses are in Ireland?",
-                f"{intero(ie_inf('PHL'))} nurses practising in Ireland at the end of {IE_A1} first qualified in the Philippines ({intero(ie_inf('PHL', IE_A0))} a year earlier)."),
-               (("ng|nigerian nurses in ireland", "nigerian nurses in ireland"), "How many Nigerian nurses are in Ireland?",
-                f"{intero(ie_inf('NGA'))} nurses practising in Ireland at the end of {IE_A1} first qualified in Nigeria ({intero(ie_inf('NGA', IE_A0))} a year earlier).")]
+               (("ph|filipino nurses in ireland", "how many filipino nurses in ireland"), "How many nurses who trained in the Philippines are in Ireland?",
+                f"{intero(ie_inf('PHL'))} nurses practising in Ireland at the end of {IE_A1} first qualified in the Philippines ({intero(ie_inf('PHL', IE_A0))} a year earlier). This counts training, not nationality."),
+               (("ng|nigerian nurses in ireland", "nigerian nurses in ireland"), "How many nurses who trained in Nigeria are in Ireland?",
+                f"{intero(ie_inf('NGA'))} nurses practising in Ireland at the end of {IE_A1} first qualified in Nigeria ({intero(ie_inf('NGA', IE_A0))} a year earlier). This counts training, not nationality.")]
     faq = registra_faq(percorso, domande)
     ld = ld_dataset(f"Nurses practising in Ireland by country of first qualification, {IE_I['anni'][0]}-{IE_A1}",
                     "Department of Health (Ireland), JQ06: stock of nurses by country of first qualification at the end of each year, from NMBI registrations.",
@@ -12036,13 +12064,13 @@ def pagina_inf_ie():
 <div class="tab compatta"><table id="t-ie-serie"><caption class="sr">Nurses practising in Ireland by type of training</caption><thead><tr><th scope="col">Year</th><th class="n" scope="col">All</th><th class="n" scope="col">First qualified in Ireland</th><th class="n" scope="col">First qualified abroad</th><th class="n" scope="col">Share abroad</th></tr></thead><tbody>{righe_s}</tbody></table></div>
 {fonte_ie_p()}
 <h2>Country of first qualification ({IE_A1})</h2>
-<p class="small">{len(pubb)} countries with a published figure; {sopp} more had fewer than 25 nurses and are not published. Tap a column heading to sort.</p>
+<p class="small">{len(pubb)} countries with a published figure, then {len(soppressi)} countries marked "under 25": Ireland does not publish numbers under 25. The other {zeri} countries in the file have a published 0 at the end of {IE_A1} and are not listed. "–" = no change can be worked out. Tap a column heading to sort.</p>
 <div class="tab compatta"><table class="ord" id="t-ie-paesi"><thead><tr>{th_ord("Country of first qualification", False, "ascending")}{th_ord(f"End of {IE_A1}")}{th_ord(f"End of {IE_A0}")}{th_ord("Change")}</tr></thead><tbody>{righe}</tbody></table></div>
 {fonte_ie_p()}
 <section class="card cosa" aria-labelledby="cosa-h"><h2 id="cosa-h">What these numbers are, and what they are not</h2><ul class="testo">
 <li><strong>They are</strong> nurses (and midwives) on the NMBI register who said they were practising in Ireland at the end of the year, by the country where they obtained their first nursing qualification.</li>
 <li><strong>They are not</strong> nationalities: an Indian national who first qualified in the UK counts under the United Kingdom.</li>
-<li>Ireland publishes no figure under 25 for a country, so small countries are missing from the table.</li></ul></section>
+<li>Ireland publishes no figure under 25 for a country: those countries are shown as "under 25".</li></ul></section>
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(faq)}</div>
 <h2>More in this section</h2>
@@ -12067,25 +12095,25 @@ def pagina_inf_rossa():
     verdi = ", ".join(COD_I["verde"][:-1]) + " and " + COD_I["verde"][-1]
     f_c = FI["codice"]
     domande = [
-        (("ng|is nigeria on the red list", "is nigeria on the red list"), "Is Nigeria on the red list?", re.sub(r"<[^>]+>", "", frase_grado("Nigeria", "Nigeria"))),
-        (("gh|is ghana on the red list", "is ghana still on the who red list"), "Is Ghana still on the red list?", re.sub(r"<[^>]+>", "", frase_grado("Ghana", "Ghana")) + f" (UK code updated {data_lunga(f_c['aggiornata'])}, read on {data_lunga(f_c['letto_il'])})."),
-        (("zw|is zimbabwe on the red list", "is zimbabwe on the red list"), "Is Zimbabwe on the red list?", re.sub(r"<[^>]+>", "", frase_grado("Zimbabwe", "Zimbabwe"))),
-        (("zm|is zambia on the red list", "is zambia on the red list"), "Is Zambia on the red list?", re.sub(r"<[^>]+>", "", frase_grado("Zambia", "Zambia"))),
-        (("ke|is kenya on the red list", "kenya red list"), "Is Kenya on the red list?", re.sub(r"<[^>]+>", "", frase_grado("Kenya", "Kenya"))),
+        (("ng|is nigeria on the red list", "is nigeria on the red list"), "Is Nigeria on the red list?", re.sub(r"<[^>]+>", "", frase_grado("Nigeria", "Nigeria")) + " " + nota_codice()),
+        (("gh|is ghana on the red list", "is ghana still on the who red list"), "Is Ghana still on the red list?", re.sub(r"<[^>]+>", "", frase_grado("Ghana", "Ghana")) + " " + nota_codice()),
+        (("zw|is zimbabwe on the red list", "is zimbabwe on the red list"), "Is Zimbabwe on the red list?", re.sub(r"<[^>]+>", "", frase_grado("Zimbabwe", "Zimbabwe")) + " " + nota_codice()),
+        (("zm|is zambia on the red list", "is zambia on the red list"), "Is Zambia on the red list?", re.sub(r"<[^>]+>", "", frase_grado("Zambia", "Zambia")) + " " + nota_codice()),
+        (("ke|is kenya on the red list", "kenya red list"), "Is Kenya on the red list?", re.sub(r"<[^>]+>", "", frase_grado("Kenya", "Kenya")) + " " + nota_codice()),
         (("gb|who red list", "who red list countries 2026"), "Is there a WHO red list for 2026?",
          f"Not a final one yet. WHO describes the 2026 update on its questions and answers page (dated {data_lunga(LI['oms_data_qa'])}) and says it publishes the final list after Member States' responses; "
          f"on {data_lunga(LETTO_INF)} the list in force was still the 2023 one, with {LI['oms_2023_55']} countries, and the UK code still used it."),
         (("gb|nhs red list countries", "nhs red list countries for nurses"), "Which countries are on the NHS red list for nurses?",
-         f"The UK code of practice for England lists {len(COD_I['rosso'])} red countries (from the WHO 2023 list) and {len(COD_I['ambra'])} amber ones ({' and '.join(COD_I['ambra'])}). The full list is in the table on this page."),
+         f"The code of practice for England lists {len(COD_I['rosso'])} red countries (from the WHO 2023 list) and {len(COD_I['ambra'])} amber ones ({' and '.join(COD_I['ambra'])}). The full list is in the table on this page."),
         (("ng|is nigeria on the red list", "is nigeria on red list for sponsorship visa"), "Can I still apply for a job in the UK from a red list country?",
          "The code says employers may consider direct applications from people resident in red and amber countries, made in response to a specific advertised vacancy hosted by the same sponsoring organisation. "
          "What is not allowed is active recruitment (for example agencies or employers targeting candidates there)."),
     ]
     faq = registra_faq(percorso, domande)
     corpo = f"""<section class="hero">{h1_diviso("Red list countries for nurses: the WHO 2023 list, the UK code and the 2026 update")}
-<p class="lead">The red list that UK health and care employers follow is still drawn from the <strong>WHO health workforce support and safeguards list 2023</strong> ({LI["oms_2023_55"]} countries): the UK code of practice (updated {data_lunga(f_c["aggiornata"])}, read on {data_lunga(f_c["letto_il"])}) grades {len(COD_I["rosso"])} of them red and Nepal amber, and adds Kenya as amber. WHO has described a 2026 update (questions and answers dated {data_lunga(LI["oms_data_qa"])}), but on {data_lunga(LETTO_INF)} it had <strong>not published the final 2026 list</strong>.</p></section>
+<p class="lead">The red list that health and care employers in England follow (code of practice for England) is still drawn from the <strong>WHO health workforce support and safeguards list 2023</strong> ({LI["oms_2023_55"]} countries): the code (updated {data_lunga(f_c["aggiornata"])}, read on {data_lunga(f_c["letto_il"])}) grades {len(COD_I["rosso"])} of them red and Nepal amber, and adds Kenya as amber. WHO has described a 2026 update (questions and answers dated {data_lunga(LI["oms_data_qa"])}), but on {data_lunga(LETTO_INF)} it had <strong>not published the final 2026 list</strong>.</p></section>
 <section class="card summary" aria-label="Summary">
-<div class="s-top">{ico("alert")}<span>UK code of practice</span><span>read on {data_lunga(f_c["letto_il"])}</span></div>
+<div class="s-top">{ico("alert")}<span>Employers in England (code of practice for England)</span><span>read on {data_lunga(f_c["letto_il"])}</span></div>
 <div class="s-body">
 <p class="cifra"><span class="c-lab">Red countries · no active recruitment</span><span class="sr">: </span><strong>{len(COD_I["rosso"])}</strong></p>
 <div class="kpi"><div><b>{len(COD_I["ambra"])}</b><span>amber: {" and ".join(COD_I["ambra"])}</span></div><div><b>{len(COD_I["verde"])}</b><span>green with an agreement: {escape(verdi)}</span></div><div><b>{LI["oms_2023_55"]}</b><span>countries on the WHO 2023 list</span></div><div><b>not yet</b><span>final WHO 2026 list published</span></div></div>
@@ -12106,6 +12134,7 @@ def pagina_inf_rossa():
 <li>WHO also says the Code and the list “{escape(INF["letture"]["oms_volontario"]["frammento"])}”; in England, the red list applies through the code of practice.</li></ul>
 {fonte_oms_p()}
 <h2>All red and amber countries</h2>
+<p>{residenza_inf()}</p>
 <p class="small">UK grade from Annex A of the code; "WHO 2023" = on the WHO health workforce support and safeguards list 2023; visas = Health and Care Worker visas issued to nationals of the country in {HCW_A1} (main applicants and family members), Home Office. "–" = no decisions in the file. Tap a column heading to sort.</p>
 <div class="tab compatta"><table class="ord" id="t-rossa"><thead><tr>{th_ord("Country", False, "ascending")}<th scope="col">UK grade</th><th scope="col">WHO 2023</th>{th_ord(f"Health and Care Worker visas issued, {HCW_A1}")}{th_ord(f"Refused, {HCW_A1}")}</tr></thead><tbody>{righe}</tbody></table></div>
 {fonte_codice_p()}
@@ -12240,6 +12269,26 @@ def anc(naz, anno):
     return [x["M"][0], x["D"][0], x["M"][0] + x["D"][0], x["M"][1] + x["D"][1], x["M"][2] + x["D"][2], x["M"][3] + x["D"][3]]
 
 
+ANC_FAM = ANC["primo_trimestre_familiari"]   # "2020 Q3": prima il foglio D02 ha solo richiedenti principali
+ANC_FAM_A = ANC_FAM[:4]
+NOTA_FAM_ANC = (f'<p class="small">Family members (partners and children) appear in the Home Office file only from {ANC_FAM} (July–September {ANC_FAM_A}); '
+                f'before that the file has main applicants only, so the long series count <strong>main applicants</strong>.</p>')
+
+
+def anc_m(naz, anno):
+    """Solo richiedenti principali: [concessi, rifiutati, ritirati, decaduti]."""
+    x = ANC["naz"].get(naz, {}).get(anno)
+    return list(x["M"]) if x else [0, 0, 0, 0]
+
+
+def anc_tot_m(anno):
+    return [sum(anc_m(n, anno)[i] for n in ANC["naz"]) for i in range(4)]
+
+
+def tasso_m(v):
+    return v[1] / (v[0] + v[1]) if v[0] + v[1] else None
+
+
 def anc_tot(anno):
     v = [0] * 6
     for n in ANC["naz"]:
@@ -12255,7 +12304,7 @@ def fonte_anc_p():
     f = FA["ho"]
     return (f'<p class="fonte">Source: <a href="{escape(f["url"])}" rel="noopener">Home Office, {escape(f["titolo"])}</a> (XLSX, published {escape(f["pubblicato"])}, '
             f'downloaded on {data_lunga(f["scaricato_il"])}; next update {escape(f["prossimo"])}), sheet Data_Vis_D02, visa type "UK Ancestry", by nationality and year of decision; '
-            f'main applicants and family members. {ANC_YTD} figures are provisional. Contains public sector information licensed under the '
+            f'main applicants, and family members from {ANC_FAM} only. {ANC_YTD} figures are provisional. Contains public sector information licensed under the '
             f'<a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license noopener">Open Government Licence v3.0</a>.</p>')
 
 
@@ -12274,24 +12323,26 @@ def pagina_anc():
     righe = ""
     for n in naz1:
         v, v0 = anc(n, ANC_A1), anc(n, ANC_A0)
-        storico = sum(anc(n, a)[2] for a in ANC_PIENI)
+        storico = sum(anc_m(n, a)[0] for a in ANC_PIENI)
         righe += (f'<tr><td>{escape(n)}</td>{cella_n(v[0])}{cella_n(v[1])}{cella_n(v[2])}{cella_n(v[3])}{cella_n(v[4])}'
                   f'<td class="n" data-v="{"" if tasso_anc(v) is None else f"{tasso_anc(v):.6f}"}">{pct(tasso_anc(v))}</td>{cella_n(v0[2])}{cella_n(storico)}</tr>')
     righe += (f'<tr class="tot-r"><td>All nationalities</td>{cella_n(t1[0])}{cella_n(t1[1])}{cella_n(t1[2])}{cella_n(t1[3])}{cella_n(t1[4])}<td class="n">{pct(tasso_anc(t1))}</td>'
-              f'{cella_n(t0[2])}{cella_n(sum(anc_tot(a)[2] for a in ANC_PIENI))}</tr>')
+              f'{cella_n(t0[2])}{cella_n(sum(anc_tot_m(a)[0] for a in ANC_PIENI))}</tr>')
     righe_a = ""
     for a in ANC_ANNI:
-        v = anc_tot(a)
+        v = anc_tot_m(a)
+        fam = anc_tot(a)[1]
         et = a if a != ANC_YTD else f"{a} ({ANC_TRIM[-1][-2:].replace('Q2', 'January–June')}, provisional)"
-        righe_a += f'<tr><td>{et}</td>{cella_n(v[2])}{cella_n(v[3])}{cella_n(v[4])}{cella_n(v[5])}<td class="n">{pct(tasso_anc(v))}</td></tr>'
-    principali = sorted(ANC["naz"], key=lambda n: -sum(anc(n, a)[2] for a in ANC_PIENI[-10:]))[:6]
+        c_fam = cella_n(fam) if a >= ANC_FAM_A else '<td class="n" data-v="">–</td>'
+        righe_a += f'<tr><td>{et}</td>{cella_n(v[0])}{cella_n(v[1])}{cella_n(v[2])}{cella_n(v[3])}<td class="n">{pct(tasso_m(v))}</td>{c_fam}</tr>'
+    principali = sorted(ANC["naz"], key=lambda n: -sum(anc_m(n, a)[0] for a in ANC_PIENI[-10:]))[:6]
     anni_s = ANC_PIENI[-11:]
-    righe_n = "".join(f'<tr><td>{a}</td>' + "".join(cella_n(anc(n, a)[2]) for n in principali) + '</tr>' for a in anni_s)
+    righe_n = "".join(f'<tr><td>{a}</td>' + "".join(cella_n(anc_m(n, a)[0]) for n in principali) + '</tr>' for a in anni_s)
     sa = anc("South Africa", ANC_A1)
     ind = anc("India", ANC_A1)
     domande = [
         (("za|uk ancestry visa great grandparent", "uk ancestry visa great grandparent"), "Can I get a UK Ancestry visa through a great-grandparent?",
-         "The GOV.UK guide asks you to prove that one of your grandparents was born in the UK, the Channel Islands or the Isle of Man (or before 31 March 1922 in what is now Ireland); it does not mention great-grandparents. You cannot claim through step-parents."),
+         "The GOV.UK guide asks you to prove that one of your grandparents was born in the UK, the Channel Islands or the Isle of Man, before 31 March 1922 in what is now Ireland, or on a ship or aircraft registered in the UK or belonging to the UK government; it does not mention great-grandparents. You cannot claim through step-parents."),
         (("za|uk ancestry visa cost", "uk ancestry visa cost"), "How much does a UK Ancestry visa cost?",
          f"£{LA['tassa']} from outside the UK, according to GOV.UK, and you may also have to pay the healthcare surcharge. Extending it from inside the UK costs £{LA['proroga_tassa']:,} per person."),
         (("za|uk ancestry visa requirements", "uk ancestry visa requirements"), "What are the UK Ancestry visa requirements?",
@@ -12314,7 +12365,7 @@ def pagina_anc():
     ld = ld_dataset(f"UK Ancestry visa decisions by nationality, {ANC_ANNI[0]}-{ANC_ANNI[-1]}", "Home Office entry clearance decisions for the UK Ancestry visa by nationality, year and outcome.",
                     percorso, [FA["ho"]["url"]], f"{ANC_ANNI[0]}/{ANC_TRIM[-1].replace(' ', '-')}", "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/")
     corpo = f"""<section class="hero">{h1_diviso(f"UK Ancestry visa by nationality: how many are issued and refused ({ANC_ANNI[0]}–{ANC_A1})")}
-<p class="lead">In {ANC_A1} the Home Office issued <strong>{intero(t1[2])}</strong> UK Ancestry visas and refused <strong>{intero(t1[3])}</strong> ({pct(tasso_anc(t1))} of decisions); the largest numbers went to nationals of {escape(top3[0])} ({intero(anc(top3[0], ANC_A1)[2])} issued, {intero(anc(top3[0], ANC_A1)[3])} refused), {elenco_top} (Home Office entry clearance visa dataset, published {escape(FA["ho"]["pubblicato"])}). The counts include family members.</p></section>
+<p class="lead">In {ANC_A1} the Home Office issued <strong>{intero(t1[2])}</strong> UK Ancestry visas and refused <strong>{intero(t1[3])}</strong> ({pct(tasso_anc(t1))} of decisions); the largest numbers went to nationals of {escape(top3[0])} ({intero(anc(top3[0], ANC_A1)[2])} issued, {intero(anc(top3[0], ANC_A1)[3])} refused), {elenco_top} (Home Office entry clearance visa dataset, published {escape(FA["ho"]["pubblicato"])}). The {ANC_A1} figures include family members, whom the file counts only from {ANC_FAM}: the series back to {ANC_ANNI[0]} count main applicants.</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{bandiera("United Kingdom")}<span>UK Ancestry visa</span><span>{ANC_A1}</span></div>
 <div class="s-body">
@@ -12327,24 +12378,27 @@ def pagina_anc():
 <h2>By nationality ({ANC_A1})</h2>
 <p class="small">Every nationality with at least one decision in {ANC_A1}. The refusal rate is refused ÷ (issued + refused), as in the Home Office grant rate; withdrawn and lapsed applications are left out. Small numbers swing a lot from year to year. Tap a column heading to sort, or type to filter.</p>
 <p class="filtro"><label><span class="sr">Filter nationalities</span><input type="search" placeholder="Filter: e.g. Canada" data-filtro="t-anc" autocomplete="off"></label></p>
-<div class="tab compatta"><table class="ord" id="t-anc"><thead><tr>{th_ord("Nationality", False, "ascending")}{th_ord("Issued: main applicants")}{th_ord("Issued: family members")}{th_ord(f"Issued, {ANC_A1}")}{th_ord("Refused", primo="descending")}{th_ord("Withdrawn")}{th_ord("Refusal rate")}{th_ord(f"Issued, {ANC_A0}")}{th_ord(f"Issued, {ANC_PIENI[0]}–{ANC_A1}")}</tr></thead><tbody>{righe}</tbody></table></div>
+<div class="tab compatta"><table class="ord" id="t-anc"><thead><tr>{th_ord("Nationality", False, "ascending")}{th_ord("Issued: main applicants")}{th_ord("Issued: family members")}{th_ord(f"Issued, {ANC_A1}")}{th_ord("Refused", primo="descending")}{th_ord("Withdrawn")}{th_ord("Refusal rate")}{th_ord(f"Issued, {ANC_A0}")}{th_ord(f"Main applicants issued, {ANC_PIENI[0]}–{ANC_A1}")}</tr></thead><tbody>{righe}</tbody></table></div>
+{NOTA_FAM_ANC}
 {fonte_anc_p()}
-<h2>All nationalities, year by year</h2>
-<div class="tab compatta"><table id="t-anc-anni"><caption class="sr">UK Ancestry visa decisions by year</caption><thead><tr><th scope="col">Year of decision</th><th class="n" scope="col">Issued</th><th class="n" scope="col">Refused</th><th class="n" scope="col">Withdrawn</th><th class="n" scope="col">Lapsed</th><th class="n" scope="col">Refusal rate</th></tr></thead><tbody>{righe_a}</tbody></table></div>
+<h2>All nationalities, year by year (main applicants)</h2>
+<div class="tab compatta"><table id="t-anc-anni"><caption class="sr">UK Ancestry visa decisions by year, main applicants</caption><thead><tr><th scope="col">Year of decision</th><th class="n" scope="col">Main applicants: issued</th><th class="n" scope="col">Refused</th><th class="n" scope="col">Withdrawn</th><th class="n" scope="col">Lapsed</th><th class="n" scope="col">Refusal rate</th><th class="n" scope="col">Family members issued (from {ANC_FAM})</th></tr></thead><tbody>{righe_a}</tbody></table></div>
+{NOTA_FAM_ANC}
 {fonte_anc_p()}
-<h2>The six nationalities with the most visas, {anni_s[0]}–{anni_s[-1]}</h2>
-<div class="tab compatta"><table id="t-anc-naz"><caption class="sr">UK Ancestry visas issued by year, main nationalities</caption><thead><tr><th scope="col">Year</th>{"".join(f'<th class="n" scope="col">{escape(n)}</th>' for n in principali)}</tr></thead><tbody>{righe_n}</tbody></table></div>
+<h2>The six nationalities with the most visas, {anni_s[0]}–{anni_s[-1]} (main applicants)</h2>
+<div class="tab compatta"><table id="t-anc-naz"><caption class="sr">UK Ancestry visas issued to main applicants by year, main nationalities</caption><thead><tr><th scope="col">Year</th>{"".join(f'<th class="n" scope="col">{escape(n)}</th>' for n in principali)}</tr></thead><tbody>{righe_n}</tbody></table></div>
+{NOTA_FAM_ANC}
 {fonte_anc_p()}
 <h2>Who can apply</h2>
 <ul class="testo"><li>“{escape(ANC["letture"]["chi"]["frammento"])}”.</li>
-<li>You must “{escape(ANC["letture"]["nonno"]["frammento"])}”, or a grandparent born “{escape(ANC["letture"]["irlanda"]["frammento"].split("Isle of Man ", 1)[1])}”. “{escape(ANC["letture"]["patrigno"]["frammento"])}”</li>
+<li>You must “{escape(ANC["letture"]["nonno"]["frammento"])}”, or a grandparent born “{escape(ANC["letture"]["irlanda"]["frammento"].split("Isle of Man ", 1)[1])}” or “{escape(ANC["letture"]["nave"]["frammento"])}”. “{escape(ANC["letture"]["patrigno"]["frammento"])}”</li>
 <li>You must be {LA["eta"]} or over, “{escape(ANC["letture"]["soldi"]["frammento"])}” and you must show you “{escape(ANC["letture"]["lavoro"]["frammento"])}”.</li>
 <li>“{escape(ANC["letture"]["tassa"]["frammento"])}” “{escape(ANC["letture"]["ihs"]["frammento"])}” “{escape(ANC["letture"]["durata"]["frammento"])}”</li></ul>
 {fonte_guida_anc_p()}
 <section class="card cosa" aria-labelledby="cosa-h"><h2 id="cosa-h">What these numbers are, and what they are not</h2><ul class="testo">
-<li><strong>They are</strong> decisions on UK Ancestry visa applications made from outside the UK (entry clearance), by nationality and by the year of the decision, including partners and children applying as family members.</li>
+<li><strong>They are</strong> decisions on UK Ancestry visa applications made from outside the UK (entry clearance), by nationality and by the year of the decision. Partners and children applying as family members appear in the file only from {ANC_FAM}; before that the file has main applicants only.</li>
 <li><strong>They do not include</strong> extensions or settlement applications made inside the UK.</li>
-<li>{ANC_YTD} figures cover {ANC_TRIM[-1][-2:].replace("Q2", "January to June")} only and can be revised ({escape(FA["ho"]["prossimo"])}).</li></ul></section>
+<li>{ANC_YTD} figures cover {ANC_TRIM[-1][-2:].replace("Q2", "January to June")} only and can be revised; the Home Office publishes the next update on {escape(FA["ho"]["prossimo"])}.</li></ul></section>
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(faq)}</div>
 <p><a href="{rel}{SEZ}uk/">UK visa refusal rates by nationality</a> · <a href="{rel}{SEZ_TR}">Who moved where</a> · <a href="{rel}uk-english-test/">UK visa English tests</a> · <a href="{rel}{SEZ_INF}">Nurses trained abroad in the UK and Ireland</a></p>"""
@@ -12357,11 +12411,13 @@ def pagina_anc():
 def controlli_anc():
     import hashlib
     errori = []
-    cont = {k: ANC[k] for k in ("letture", "fonti", "trimestri", "controlli_work", "naz")}
+    cont = {k: ANC[k] for k in ("letture", "fonti", "trimestri", "primo_trimestre_familiari", "controlli_work", "naz")}
     if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != ANC["impronta"]:
         errori.append("ancestry: impronta del JSON diversa dal contenuto (file modificato a mano?)")
     if FA["ho"]["sha256"] != F_UK["sha256"]:
         errori.append("ancestry: file del Home Office diverso da quello di dati/rifiuti.json")
+    if ANC["primo_trimestre_familiari"] != "2020 Q3" or any(sum(x["D"]) for v in ANC["naz"].values() for a, x in v.items() if a < "2020"):
+        errori.append("ancestry: familiari presenti prima del 2020 Q3 o primo trimestre cambiato: rivedere le note sulle serie lunghe")
     if FA["guida"].get("http") != 200:
         errori.append("ancestry: guida GOV.UK non letta")
     return errori

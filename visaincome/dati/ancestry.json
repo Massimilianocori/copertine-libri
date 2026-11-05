@@ -2,7 +2,7 @@
 "_nota": "Generato da raccolta/ancestry.py: non modificare a mano. naz: nazionalità -> anno della decisione -> M (richiedenti principali) / D (familiari) = [concessi, rifiutati, ritirati, decaduti], trimestri dell'anno presenti nel file. Home Office e GOV.UK: OGL v3.0.",
 "generato_il": "2026-11-05",
 "letto_il": "2026-11-05",
-"impronta": "a13a24e1ab49bab9e821",
+"impronta": "c48766fe1d07e63ac0c2",
 "domanda": {
 "data": "2026-11-05",
 "metodo": "https://suggestqueries.google.com/complete/search?client=firefox&gl=<Paese>&hl=en&q=…",
@@ -180,6 +180,11 @@
 "fonte": "guida",
 "frammento": "in the UK, the Channel Islands or the Isle of Man before 31 March 1922 in what is now Ireland"
 },
+"nave": {
+"valore": true,
+"fonte": "guida",
+"frammento": "on a ship or aircraft that was either registered in the UK or belonged to the UK government"
+},
 "patrigno": {
 "valore": true,
 "fonte": "guida",
@@ -350,6 +355,7 @@
 "2026 Q1",
 "2026 Q2"
 ],
+"primo_trimestre_familiari": "2020 Q3",
 "controlli_work": 236,
 "naz": {
 "Australia": {

@@ -3489,7 +3489,7 @@ def controlla_infermieri():
     A = json.loads((SITO.parent / "dati" / "ancestry.json").read_text(encoding="utf-8"))
     R = json.loads((SITO.parent / "dati" / "rifiuti.json").read_text(encoding="utf-8"))
     for nome, D, chiavi in (("infermieri", I, ("letture", "fonti", "nmc", "irlanda", "codice", "oms", "hcw", "scartati")),
-                            ("ancestry", A, ("letture", "fonti", "trimestri", "controlli_work", "naz"))):
+                            ("ancestry", A, ("letture", "fonti", "trimestri", "primo_trimestre_familiari", "controlli_work", "naz"))):
         cont = {k: D[k] for k in chiavi}
         if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != D["impronta"]:
             errori.append(f"29 {nome}: impronta del JSON diversa dal contenuto")
@@ -3611,8 +3611,12 @@ def controlla_infermieri():
         if frase not in _testo29(main):
             errori.append(f"29 {slug}: grado del codice ({grado}) non scritto")
         oms = (cod["nomi_oms"].get(p, p) in I["oms"]["lista_2023"])
-        if (f"{X} is on the WHO health workforce support and safeguards list 2023" in _testo29(main)) != oms:
+        if (f"{X} is on the WHO health workforce support and safeguards list 2023".lower() in _testo29(main).lower()) != oms:
             errori.append(f"29 {slug}: appartenenza alla lista OMS 2023 sbagliata")
+        if not re.search(r"<title>Nurses trained in ", t):
+            errori.append(f"29 {slug}: il titolo non dice 'Nurses trained in' (i dati sono per Paese di formazione)")
+        if I["letture"]["codice_residenza"]["frammento"] not in html.unescape(main):
+            errori.append(f"29 {slug}: manca la frase del codice sul Paese di residenza")
         if "Kenya" == p and oms:
             errori.append("29: il Kenya risulta nella lista OMS 2023")
     # 4. indice, Regno Unito, Irlanda
@@ -3637,20 +3641,27 @@ def controlla_infermieri():
                     errori.append(f"29 indice: riga {p} {r[1:7]} diversa dal ricalcolo {att}")
     if "uk" in pagine:
         _, main, lead, _ = pagine["uk"]
-        top = sorted(((v["registro"][-1], k) for k, v in nmc["paesi"].items() if v["area"] != "UK" and k != "Unknown"), reverse=True)[:20]
+        top = sorted(((v["registro"][-1], k) for k, v in nmc["paesi"].items() if v["area"] != "UK" and k != "Unknown"), reverse=True)[:10]
         righe = _righe29(main, "t-top-inf")
         if not righe or [[r[0], r[2], r[3], r[4]] for r in righe] != [[k, _n29(x), _n29(nmc["paesi"][k]["registro"][-3]), _n29(nmc["paesi"][k]["nuovi"][-1])] for x, k in top]:
-            errori.append("29 uk: tabella dei 20 Paesi diversa dal ricalcolo")
+            errori.append("29 uk: tabella dei 10 Paesi diversa dal ricalcolo")
         serie = _righe29(main, "t-serie-inf")
-        if serie != [[f"6 months to {G.data_lunga(d)}", _n29(nmc["subtotali_nuovi"]["International sub-total"][i]), _n29(nmc["totale_nuovi"][i])] for i, d in enumerate(date_)]:
-            errori.append("29 uk: serie dei nuovi iscritti diversa dal ricalcolo")
+        if serie != [[f"6 months to {G.data_lunga(date_[i])}", _n29(nmc["subtotali_nuovi"]["International sub-total"][i]), _n29(nmc["totale_nuovi"][i])] for i in range(len(date_) - 4, len(date_))]:
+            errori.append("29 uk: serie dei nuovi iscritti (ultimi 4 semestri) diversa dal ricalcolo")
+        si = nmc["subtotali_nuovi"]["International sub-total"]
+        if f"The highest figure in the NMC series was {_n29(max(si))}" not in _testo29(main) or f"including {_n29(nmc['paesi']['Unknown']['registro'][-1])} with unknown training country" not in lead:
+            errori.append("29 uk: picco della serie o nota sugli 'Unknown' mancanti")
     if "ireland" in pagine:
         _, main, lead, _ = pagine["ireland"]
         a1, a0 = ie["anni"][-1], ie["anni"][-2]
-        pubb = sorted(((v["v"][a1], c) for c, v in ie["paesi"].items() if v["v"].get(a1) is not None), reverse=True)
+        pubb = [c for _, c in sorted(((v["v"][a1], c) for c, v in ie["paesi"].items() if v["v"].get(a1)), reverse=True)]
+        sopp = sorted((c for c, v in ie["paesi"].items() if v["v"].get(a1) is None), key=lambda c: ie["paesi"][c]["nome"])
         righe = _righe29(main, "t-ie-paesi")
-        if not righe or [r[:3] for r in righe] != [[ie["paesi"][c]["nome"], _n29(x), _n29(ie["paesi"][c]["v"][a0]) if ie["paesi"][c]["v"].get(a0) is not None else "–"] for x, c in pubb]:
-            errori.append("29 ireland: tabella dei Paesi diversa dal ricalcolo")
+        cel = lambda x: _n29(x) if x is not None else "under 25"  # noqa: E731
+        if not righe or [r[:3] for r in righe] != [[ie["paesi"][c]["nome"], cel(ie["paesi"][c]["v"].get(a1)), cel(ie["paesi"][c]["v"].get(a0))] for c in pubb + sopp]:
+            errori.append("29 ireland: tabella dei Paesi diversa dal ricalcolo (valori > 0, poi 'under 25', nessuno zero)")
+        if any(r[1] == "0" for r in righe or []):
+            errori.append("29 ireland: Paesi con 0 in tabella")
         if "CC BY 4.0" not in main or "creativecommons.org/licenses/by/4.0" not in main:
             errori.append("29 ireland: licenza CC BY 4.0 non citata")
     # 5. lista rossa
@@ -3663,6 +3674,8 @@ def controlla_infermieri():
             att.append([p, "red" if p in cod["rosso"] else "amber", "yes" if cod["nomi_oms"].get(p, p) in I["oms"]["lista_2023"] else "no"] + ([_n29(h[2]), _n29(h[3])] if h else ["–", "–"]))
         if righe != att:
             errori.append("29 red-list: tabella dei Paesi rossi e ambra diversa dal ricalcolo")
+        if I["letture"]["codice_residenza"]["frammento"] not in html.unescape(main) or "employers in England" not in lead:
+            errori.append("29 red-list: frase sul Paese di residenza o 'employers in England' mancanti")
         if len(cod["rosso"]) != 54 or cod["ambra"] != ["Kenya", "Nepal"] or len(I["oms"]["lista_2023"]) != 55 or "Nepal" not in I["oms"]["lista_2023"]:
             errori.append("29 red-list: liste del codice o dell'OMS cambiate")
         for x in ("not published the final 2026 list", "WHO health workforce support and safeguards list 2023", f"{L['oms_2023_55']} countries",
@@ -3711,8 +3724,17 @@ def controlla_infermieri():
             errori.append("29 ancestry: tabella per nazionalità diversa dal ricalcolo")
         anni = _righe29(main, "t-anc-anni")
         anni_att = sorted({a for v in A["naz"].values() for a in v})
-        if not anni or [[r[1], r[2]] for r in anni] != [[_n29(sum(tot(n, a)[0] for n in A["naz"])), _n29(sum(tot(n, a)[1] for n in A["naz"]))] for a in anni_att]:
-            errori.append("29 ancestry: tabella anno per anno diversa dal ricalcolo")
+        mp = lambda n, a: A["naz"].get(n, {}).get(a, {"M": [0] * 4})["M"]  # noqa: E731
+        att_a = [[_n29(sum(mp(n, a)[0] for n in A["naz"])), _n29(sum(mp(n, a)[1] for n in A["naz"])),
+                  _n29(sum(A["naz"][n][a]["D"][0] for n in A["naz"] if a in A["naz"][n])) if a >= "2020" else "–"] for a in anni_att]
+        if not anni or [[r[1], r[2], r[6]] for r in anni] != att_a:
+            errori.append("29 ancestry: tabella anno per anno (principali, familiari dal 2020) diversa dal ricalcolo")
+        if A["primo_trimestre_familiari"] != "2020 Q3" or any(sum(x["D"]) for v in A["naz"].values() for a, x in v.items() if a < "2020"):
+            errori.append("29 ancestry: familiari prima del 2020 Q3 (le serie lunghe devono usare i soli principali)")
+        if "The counts include family members" in lead or "family members, whom the file counts only from 2020 Q3" not in lead:
+            errori.append("29 ancestry: prima frase senza la nota sui familiari dal 2020 Q3")
+        if main.count("appear in the Home Office file only from 2020 Q3") < 3:
+            errori.append("29 ancestry: nota sui familiari mancante sotto le tre tabelle")
         if anni_att[0] != "2005" or len(anni_att) < 20:
             errori.append("29 ancestry: anni disponibili inattesi")
         if f"£{LA['tassa']}" not in main or "grandparents" not in main:

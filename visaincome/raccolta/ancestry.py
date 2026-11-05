@@ -8,7 +8,7 @@ Uso (dalla radice del repository):
 Fonti:
 1. Home Office, "Entry clearance visa applications and outcomes detailed datasets" (lo stesso file di dati/rifiuti.json, controllato
    con lo SHA-256), foglio Data_Vis_D02, sottotipo "UK Ancestry" (colonna "Visa type subgroup", gruppo Work): tutti i trimestri dal 2005,
-   per nazionalità, tipo di richiedente (principale o familiare) ed esito. Controllo: negli ultimi 8 trimestri, nazionalità per nazionalità,
+   per nazionalità, tipo di richiedente (principale o familiare; i familiari compaiono nel foglio solo dal 2020 Q3, controllato) ed esito. Controllo: negli ultimi 8 trimestri, nazionalità per nazionalità,
    i concessi e i rifiutati non superano il gruppo Work di dati/rifiuti.json. OGL v3.0.
 2. GOV.UK, guida "UK Ancestry visa" (Content API, /ancestry-visa): chi può fare domanda, nonno nato nel Regno Unito, 17 anni,
    5 anni, tariffa, tempi. Ogni frase usata ha il FRAMMENTO in LETTURE; se un frammento manca il JSON NON viene aggiornato.
@@ -32,6 +32,7 @@ LETTURE = {
             "frammento": "You can apply for a UK Ancestry visa if you’re one of the following: a Commonwealth citizen a British overseas citizen a British overseas territories citizen a British national (overseas) a citizen of Zimbabwe"},
     "nonno": {"valore": True, "frammento": "prove one of your grandparents was born in the UK, the Channel Islands or the Isle of Man"},
     "irlanda": {"valore": "1922-03-31", "frammento": "in the UK, the Channel Islands or the Isle of Man before 31 March 1922 in what is now Ireland"},
+    "nave": {"valore": True, "frammento": "on a ship or aircraft that was either registered in the UK or belonged to the UK government"},
     "patrigno": {"valore": True, "frammento": "You cannot claim UK ancestry through step-parents."},
     "eta": {"valore": 17, "frammento": "are 17 or over"},
     "lavoro": {"valore": True, "frammento": "can and plan to work in the UK"},
@@ -44,6 +45,7 @@ LETTURE = {
     "ilr": {"valore": True, "frammento": "You may be able to apply for indefinite leave to remain if you’ve spent 5 years in the UK on a UK Ancestry visa."},
     "ilr_cittadinanza": {"valore": True, "frammento": "You can use it to apply for British citizenship."},
 }
+PRIMO_FAMILIARI = "2020 Q3"   # primo trimestre con richiedenti "Dependant" nel foglio D02 (controllato a ogni lancio)
 QUERY = ["za|uk ancestry visa", "au|uk ancestry visa", "ca|uk ancestry visa", "nz|uk ancestry visa", "za|ancestry visa uk",
          "za|uk ancestry visa refused", "za|uk ancestry visa success rate", "za|uk ancestry visa requirements", "za|uk ancestry visa cost",
          "za|uk ancestry visa great grandparent", "za|uk ancestry visa statistics", "in|uk ancestry visa", "us|uk ancestry visa", "gb|ancestry visa",
@@ -74,6 +76,11 @@ def main():
     e, n_ho = controllo_ho(rif, sott[SOTTOTIPO], SOTTOTIPO)
     errori += e
     naz = {n: per_anno(q) for n, q in sott[SOTTOTIPO].items()}
+    # nel foglio D02 i familiari ("Dependant") compaiono solo dal 2020 Q3: prima ci sono solo i richiedenti principali
+    con_fam = sorted({q for v in sott[SOTTOTIPO].values() for q, x in v.items() if any(x["D"])})
+    primo_fam = con_fam[0] if con_fam else None
+    if primo_fam != PRIMO_FAMILIARI:
+        errori.append(f"Home Office: primo trimestre con familiari {primo_fam}, atteso {PRIMO_FAMILIARI}: rivedere le note della pagina")
     trimestri = sorted({q for v in sott[SOTTOTIPO].values() for q in v})
     vecchio = json.loads(USCITA.read_text(encoding="utf-8")) if USCITA.exists() else {}
     dom = nuova_domanda(QUERY) if "--domanda" in sys.argv else vecchio.get("domanda")
@@ -85,7 +92,7 @@ def main():
             print(" -", x)
         sys.exit(1)
     letture = {k: {"valore": v["valore"], "fonte": "guida", "frammento": v["frammento"]} for k, v in LETTURE.items()}
-    contenuto = {"letture": letture, "fonti": fonti, "trimestri": trimestri, "controlli_work": n_ho, "naz": naz}
+    contenuto = {"letture": letture, "fonti": fonti, "trimestri": trimestri, "primo_trimestre_familiari": primo_fam, "controlli_work": n_ho, "naz": naz}
     uscita = {"_nota": "Generato da raccolta/ancestry.py: non modificare a mano. naz: nazionalità -> anno della decisione -> M (richiedenti principali) / "
                        "D (familiari) = [concessi, rifiutati, ritirati, decaduti], trimestri dell'anno presenti nel file. Home Office e GOV.UK: OGL v3.0.",
               "generato_il": oggi, "letto_il": oggi,

@@ -93,6 +93,7 @@ LETTURE = {
     "codice_verde": {"valore": True, "fonte": "codice", "frammento": "Active recruitment is permitted from green graded countries."},
     "codice_diretta": {"valore": True, "fonte": "codice", "frammento": "Individual health and social care employers may consider direct applications from individuals who are resident in countries on the code red and amber list"},
     "codice_diretta_def": {"valore": True, "fonte": "codice", "frammento": "A direct application can only be made in response to a specific advertised vacancy that is hosted by, and recruited to, the same sponsoring organisation."},
+    "codice_residenza": {"valore": True, "fonte": "codice", "frammento": "The rules on active recruitment and direct applications are based on the country where an individual is residing when they apply for a health or social care job, rather than the nationality of the individual or their original country of training."},
     "codice_3anni": {"valore": 3, "fonte": "codice", "frammento": "The WHO health workforce support and safeguards list is updated by WHO every 3 years, or more frequently if required."},
     # OMS
     "oms_data_qa": {"valore": "2026-08-05", "fonte": "oms_qa", "frammento": "5 August 2026 | Questions and answers"},

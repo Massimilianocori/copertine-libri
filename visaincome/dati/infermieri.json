@@ -2,7 +2,7 @@
 "_nota": "Generato da raccolta/infermieri.py: non modificare a mano (i valori letti a mano stanno in LETTURE dentro lo script). NMC: registro e nuovi iscritti per Paese di formazione (citati come fatti); Irlanda: JQ06, CC BY 4.0; GOV.UK e Home Office: OGL v3.0; OMS: lista 2023 (la 2026 non è pubblicata). hcw.naz: nazionalità -> anno -> M (richiedenti principali) / D (familiari) = [concessi, rifiutati, ritirati, decaduti].",
 "generato_il": "2026-11-05",
 "letto_il": "2026-11-05",
-"impronta": "b176e1ca12a7ccc89d47",
+"impronta": "60774227b2e2753d9ca2",
 "domanda": {
 "data": "2026-11-05",
 "metodo": "https://suggestqueries.google.com/complete/search?client=firefox&gl=<Paese>&hl=en&q=…",
@@ -416,6 +416,11 @@
 "valore": true,
 "fonte": "codice",
 "frammento": "A direct application can only be made in response to a specific advertised vacancy that is hosted by, and recruited to, the same sponsoring organisation."
+},
+"codice_residenza": {
+"valore": true,
+"fonte": "codice",
+"frammento": "The rules on active recruitment and direct applications are based on the country where an individual is residing when they apply for a health or social care job, rather than the nationality of the individual or their original country of training."
 },
 "codice_3anni": {
 "valore": 3,
