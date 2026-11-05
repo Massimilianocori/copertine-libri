@@ -2169,6 +2169,16 @@ def frasi_ufficiali_liq(A):
     return ff
 
 
+def frasi_fonte2_liq(A):
+    """Dal 5/11/2026 (revisione) anche le citazioni della seconda pagina ufficiale entrano nelle FAQ, con il loro prefisso
+    "Quoted from <titolo della seconda fonte>": così una FAQ non dice che le frasi citate non parlano di un tema che la seconda fonte tratta."""
+    return list((A.get("fonte2") or {}).get("citazioni") or [])
+
+
+def prefisso_fonte2(A):
+    return f"Quoted from {A['fonte2']['titolo']} (checked on {data_lunga(A['controllato_il'])}): "
+
+
 def prefisso_faq(A):
     return f"Quoted from {A['titolo_fonte']} (checked on {data_lunga(A['controllato_il'])}): "
 
@@ -2199,7 +2209,8 @@ FAQ_LIQ = [  # (chiave, domanda, filtro sulle frasi ufficiali): la frase deve pa
                 r"|stay in|remain in|remain within|leave (?:your )?liquids|inside hand|in their hand|in your (?:hand|cabin) (?:luggage|bag)|take them out|remov"
                 r"|separately|separate from|tray|kept in your", re.I)),
     ("busta", "Do liquids have to go in a plastic bag at {d}, and how big can it be?",
-     re.compile(r"plastic bags?|re-?sealable|clear bag|transparent bag|lit(?:re|er) bag|liquid bag|quart-sized bag|20 ?cm ?x ?20|20 x 20|1L in capacity", re.I)),
+     re.compile(r"plastic bags?|re-?sealable|clear bag|transparent bag|lit(?:re|er) bag|liquid bag|quart-sized bag|zipper bag|zip-?lock bag|20 ?cm ?x ?20|20 x 20"
+                r"|1L in capacity", re.I)),
     ("baby", "Can I take baby food and medicines over 100ml through security at {d}?",
      re.compile(r"\bbaby\b|infant|breast milk|formula|medicin|medication|prescription|dietary|inhaler", re.I)),
     ("dutyfree", "Can I carry duty-free liquids over 100ml through {d}?",
@@ -2215,6 +2226,8 @@ MANCA_LIQ = {
     "baby": "The passages we quote from the official page do not list exemptions for baby food or medicines.",
     "dutyfree": "The passages we quote from the official page do not cover duty-free liquids bought at another airport.",
 }
+# frase nostra fissa (senza numeri) quando una FAQ cita anche la seconda fonte e la scheda lo chiede ("faq_nota_fonte2": Dubrovnik)
+NOTA_FONTE2_LIQ = "The second source quoted below does not mention any change to the liquids limit on the official page quoted first."
 RINVIO_LIQ = {  # coda del rimando alla regola standard, per contesto (uk, eu, nessuno)
     "uk": "GOV.UK sets out the standard rule and exemptions for UK airports on its hand luggage restrictions page; check with the airport and your airline before you pack.",
     "eu": "Your Europe sets out the standard EU rule and exemptions; check with the airport and your airline before you pack.",
@@ -2245,6 +2258,7 @@ def faq_liquidi(A, nazionale=False):
     Ritorna [(domanda, testo nostro o '', [(prefisso fonte, [citazioni])])]; verifica.py ricontrolla tutto."""
     pool = frasi_ufficiali_liq(A)
     gruppi = gruppi_liq(A, list(A["citazioni"])) + gruppi_liq(A, [f for f in pool if f not in A["citazioni"]])
+    gruppi2 = gruppi_liq(A, frasi_fonte2_liq(A))
     d, C, pre = dove_liq(A, nazionale), contesto_di(A), prefisso_faq(A)
     ctx = C["id"] if C else None
     voci = {}
@@ -2262,19 +2276,28 @@ def faq_liquidi(A, nazionale=False):
                       ([(prefisso_contesto(C), list(C["citazioni"]))] if C else [])
             voci[chiave] = (q, testo, blocchi)
         else:
-            ff = [f for g in gruppi if any(rx.search(x) and not RX_FUORI_TEMA.search(x) and not (chiave != "dutyfree" and re.search(r"tamper|duty", x, re.I)) for x in g) for f in g]
-            if ff:
-                voci[chiave] = (q, "", [(pre, ff)])
+            def tema(gg, fuori=None):
+                return [f for g in gg if any(rx.search(x) and not RX_FUORI_TEMA.search(x) and not (chiave != "dutyfree" and re.search(r"tamper|duty", x, re.I))
+                                             and not (fuori and fuori.search(x)) for x in g) for f in g]
+            # seconda fonte: le frasi su medicine e neonati solo nella domanda sui neonati (Antalya: pagina delle eccezioni)
+            ff, ff2 = tema(gruppi), tema(gruppi2, None if chiave in ("baby", "dutyfree") else dict((c, r) for c, _, r in FAQ_LIQ)["baby"])
+            if ff or ff2:
+                blocchi = ([(pre, ff)] if ff else []) + ([(prefisso_fonte2(A), ff2)] if ff2 else [])
+                intro = NOTA_FONTE2_LIQ if (ff and ff2 and chiave in A.get("faq_nota_fonte2", [])) else ""
+                voci[chiave] = (q, intro, blocchi)
             elif chiave in MANCA_LIQ:
                 testo = MANCA_LIQ[chiave].format(n=A["nome"]) + ("" if chiave == "scanner" else " " + RINVIO_LIQ[ctx])
-                blocchi = [(prefisso_contesto(C), list(C["citazioni"]))] if (C and chiave == "busta") else []
+                # Your Europe (100 ml) non si cita sulla busta quando la pagina dell'aeroporto permette 2 litri (revisione del 5/11/2026)
+                blocchi = [(prefisso_contesto(C), list(C["citazioni"]))] if (C and chiave == "busta" and A["regola"] != "2l") else []
                 voci[chiave] = (q, testo, blocchi)
     # ordine: limite, terminal (solo con citazioni), i temi con citazioni, poi quelli senza, borraccia (solo con citazioni), 2026; al massimo 6
     centro = [k for k in ("scanner", "busta", "baby", "dutyfree") if k in voci]
-    centro = [k for k in centro if voci[k][2] and not voci[k][1]] + [k for k in centro if not (voci[k][2] and not voci[k][1])]
+    def citata(k):  # risposta fatta di citazioni dell'aeroporto (anche con la nota fissa sulla seconda fonte), non la frase "la pagina non lo dice"
+        return bool(voci[k][2]) and (not voci[k][1] or voci[k][1] == NOTA_FONTE2_LIQ)
+    centro = [k for k in centro if citata(k)] + [k for k in centro if not citata(k)]
     ordine = ["limite"] + (["terminal"] if "terminal" in voci else []) + centro + (["borraccia"] if "borraccia" in voci else []) + ["2026"]
     while len(ordine) > 6:
-        senza = [k for k in ordine if k in MANCA_LIQ and voci[k][1]]
+        senza = [k for k in ordine if k in MANCA_LIQ and not citata(k)]
         ordine.remove(senza[-1] if senza else ordine[-2])
     return [voci[k] for k in ordine]
 
@@ -8825,6 +8848,8 @@ def controlli():
     for A in AER["aeroporti"]:
         if A["slug"] not in LIQ_DOMANDA["aeroporti"] and "impronta" not in A:  # aeroporti di prima del 5/11/2026: niente impronta né ricerche salvate
             continue
+        if A.get("gestore") == "aena" and (A["controllato_il"] != "2026-11-05" or not A.get("pagina_gestore") or A["pagina_gestore"].split("/")[-1] not in A.get("nota", "")):
+            errori.append(f"aeroporto {A['slug']}: pagina Aena senza la data, la pagina del gestore o la nota comune alle altre")
         if A.get("lettura") != "diretta" or A.get("http") != 200 or not re.fullmatch(r"[0-9a-f]{16}", A.get("impronta") or "") \
                 or not A["url"].startswith("https://"):
             errori.append(f"aeroporto {A['slug']}: aggiunto dal 5/11/2026 senza lettura diretta, HTTP 200, impronta o URL https")
@@ -8832,6 +8857,8 @@ def controlli():
             errori.append(f"aeroporto {A['slug']}: seconda fonte senza impronta")
         R = LIQ_DOMANDA["aeroporti"].get(A["slug"])
         sugg = (R or {}).get("uk", []) + (R or {}).get("us", [])
+        if A["controllato_il"] == "2026-11-05" and A.get("gestore") == "aena" and not R:  # gli 11 Aena di ottobre: riletti il 5/11, già in pagina prima
+            continue
         if not R or not any(x.startswith(R["ricerca"]) for x in sugg) or not R["ricerca"].startswith(nome_titolo(A).lower() + " airport liquid"):
             errori.append(f"aeroporto {A['slug']}: nessuna ricerca vera '<nome del titolo> airport liquid…' in dati/liquidi_domanda.json")
     for s_ in LIQ_DOMANDA["aeroporti"]:

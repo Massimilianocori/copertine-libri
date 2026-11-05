@@ -529,7 +529,9 @@ MODELLI_FAQ_LIQ = [re.compile(x) for x in [
     r"^The passages we quote from the official page do not say whether .+ uses CT scanners or whether liquids can stay in your bag: follow the signs and the staff at the checkpoint\.$",
     r"^The passages we quote from the official page do not (?:mention a plastic bag or a limit on the number of bags|list exemptions for baby food or medicines"
     r"|cover duty-free liquids bought at another airport)\. (?:GOV\.UK sets out the standard rule and exemptions for UK airports on its hand luggage "
-    r"restrictions page; |Your Europe sets out the standard EU rule and exemptions; )?[Cc]heck with the airport and your airline before you pack\.$"]]
+    r"restrictions page; |Your Europe sets out the standard EU rule and exemptions; )?[Cc]heck with the airport and your airline before you pack\.$",
+    # 5/11/2026: nota fissa quando la risposta cita anche la seconda fonte ufficiale (Dubrovnik, notizia sugli scanner)
+    r"^The second source quoted below does not mention any change to the liquids limit on the official page quoted first\.$"]]
 
 
 def controlla_liquidi_nuovi():
@@ -600,6 +602,10 @@ def controlla_liquidi_nuovi():
             for fonte, data, cit in blocchi:
                 if fonte == a["titolo_fonte"] and data == data_a:
                     pool = ammesse
+                elif a.get("fonte2") and fonte == a["fonte2"]["titolo"] and data == data_a:  # seconda pagina ufficiale (dal 5/11/2026)
+                    pool = a["fonte2"]["citazioni"]
+                    if escape(f"Quoted from {fonte} (checked on {data}).") not in seg:
+                        errori.append(f"liquidi {a['slug']}: seconda fonte non indicata sotto la citazione: {q}")
                 elif fonte in contesto and data == G.data_lunga(contesto[fonte]["controllato_il"]):
                     C = contesto[fonte]
                     pool = C["citazioni"]
@@ -782,6 +788,18 @@ def controlla_liquidi_0511():
             errori.append(f"liquidi nuovo {s_}: la nota non dice che il testo ufficiale si apre con un clic")
         if a.get("fonte2") and (escape(a["fonte2"]["url"]) not in t or not re.fullmatch(r"[0-9a-f]{16}", a["fonte2"].get("impronta", ""))):
             errori.append(f"liquidi nuovo {s_}: seconda fonte senza link nella pagina o senza impronta")
+    # esclusi: un nome una volta sola, mai il nome di un aeroporto incluso (revisione del 5/11/2026: Bologna, Napoli)
+    nomi_e = [n for e in G.AER["esclusi"] for n in e["nome"].split(", ")]
+    if len(nomi_e) != len(set(nomi_e)):
+        errori.append(f"liquidi: nomi ripetuti tra gli esclusi: {sorted({n for n in nomi_e if nomi_e.count(n) > 1})}")
+    for a in G.AER["aeroporti"]:
+        if G.nome_titolo(a) in nomi_e or a["nome"] in nomi_e:
+            errori.append(f"liquidi: {a['nome']} è incluso ma il suo nome è tra gli esclusi")
+    # le 23 pagine Aena: stessa pagina, stessa data, lettura diretta, stessa impronta, stessa nota (con la pagina dell'aeroporto su aena.es)
+    aena = [a for a in G.AER["aeroporti"] if a.get("gestore") == "aena"]
+    if len(aena) != 23 or len({(a["url"], a["controllato_il"], a.get("lettura"), a.get("impronta")) for a in aena}) != 1 or \
+            any(a.get("pagina_gestore", "").split("/")[-1] not in a.get("nota", "") or "is one of the airports Aena lists" not in a.get("nota", "") for a in aena):
+        errori.append("liquidi: le pagine Aena non hanno tutte la stessa fonte, data, lettura, impronta e nota")
     for n in ESCLUSI_LIQ_0511:
         if not any(n in e["nome"].split(", ") for e in G.AER["esclusi"]) or escape(n) not in idx:
             errori.append(f"liquidi: {n} (non letto il 5/11/2026) deve stare tra gli esclusi con il motivo, anche nell'indice")

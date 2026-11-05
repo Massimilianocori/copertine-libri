@@ -142,3 +142,4 @@ Esito complessivo di `python3 beforeyoufly/verifica.py`: TUTTO OK (14 punti, 0 e
 | Prove a mano di `controlli()` | Heathrow nell'elenco del noleggio, Stay22 su Madrid con il link di Granada, aeroporto nuovo senza impronta: tutti errori |
 | `python3 studio-business/strumenti/monetizzazione.py verifica beforeyoufly` | 0 errori |
 | Browser (Playwright, 375 px, chiaro e scuro) | Barcellona, Corfù, Inverness: nessuno scorrimento orizzontale, 0 errori JavaScript |
+| Correzioni della revisione del 5/11/2026 | 8 su 8 (NOTE.md); `genera.py`, `verifica.py --offline` TUTTO OK e `monetizzazione.py` 0 errori rifatti dopo le correzioni |
