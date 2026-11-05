@@ -25,6 +25,10 @@ Uso (dalla radice del repository, dopo python3 touristtax/genera.py):
 13. Santiago de Compostela e Napoli (4/11/2026): fonti ufficiali con impronta sha256 e data, tariffe uguali alle fonti lette, esempi a mano,
    Napoli senza tariffe oltre il 31/12/2026, titolo ≤ 70 con anno e cifra, prima frase con cifra, fonte e data, riquadro Anno Santo 2027 /
    America's Cup 2027 con fonte ufficiale (catedraldesantiago.es, comune.napoli.it), sitemap, pagina paese, tabella Europa, pagina 2027.
+14. Spagna, licenza per affitti turistici (5/11/2026, sezione spain-holiday-let-licence/): sentenze del Tribunal Supremo lette sul BOE (date e numeri
+   BOE), fonti ufficiali con HTTP 200, data e impronta sha256, conteggi INE e dei registri uguali agli esempi letti a mano, nessun dato personale
+   (dati/spagna_numeri.json e pagine), 27 pagine in sitemap con titolo ≤ 70 e l'anno, prima frase con cifra, fonte e data, FAQPage visibile,
+   frasi delle regole regionali, avviso "Not legal advice", nessun affiliato, link dalla pagina Spagna e da /about/.
 10. Giappone, rimborso dell'imposta sui consumi dal 1/11/2026 (pagina japan-tax-free-refund/): dati uguali alle fonti lette, fonti
    ufficiali (JTA, NTA, Dogane) con HTTP 200 e data, sitemap, link da home e pagine giapponesi, titolo ≤ 70 con l'anno, prima frase
    con risposta, fonti e data, calcolo ricontrollato (esempi a mano, frazioni esatte, JS = Python), FAQPage visibile, nessun affiliato.
@@ -1012,6 +1016,152 @@ def controlla_santiago_napoli():
     return errori
 
 
+# 14. Spagna, licenza per affitti turistici (5/11/2026). Conteggi letti a mano il 5/11/2026 (mattina) con un codice diverso da
+# raccolta/spagna.py (csv.DictReader sul CSV della Generalitat; JSON OPEN RTA con i nomi dei Comuni; aggregazione SoQL catalana; API INE):
+# il registro valenciano si aggiorna ogni giorno, quindi la tolleranza è dell'1 %; INE (maggio 2026) deve essere identico.
+# Barcellona: 8.231 è il Comune (codice 08019); 15.905, il numero della ricerca del 4/11, è la provincia (codice 08): letto per codice.
+ESEMPI_ES_INE = {"": 341001, "03133": 3887, "29069": None, "08019": 8231}  # Spagna, Torrevieja, (Marbella: solo la %), Barcellona
+ESEMPI_ES_PCT = {"": 1.28, "03133": 3.17, "29069": 6.97}
+ESEMPI_ES_REG = [("gva", "03133", 10256), ("gva", "46250", 5691), ("gva", "03031", 5667), ("gva", "03047", 5554), ("gva", "03063", 5222),
+                 ("gva", "03099", 4616), ("gva", "03082", 4301), ("rta", "29069", 15764), ("rta", "29067", 12609), ("rta", "41091", 9542),
+                 ("rta", "29070", 10595), ("cat", "08019", 10651), ("cat", "43905", 7126)]
+ESEMPI_ES_TOT = {"gva": 90015, "rta": 153476, "cat": 104502}
+ESEMPI_ES_MESI = [("gva", None, "2026-08", 263), ("gva", None, "2026-09", 382), ("gva", None, "2026-10", 350), ("rta", None, "2026-10", 567),
+                  ("rta", None, "2026-03", 984)]
+ES_DOMINI = ("https://www.boe.es/", "https://www.ine.es/", "https://servicios.ine.es/", "https://dadesobertes.gva.es/", "https://www.juntadeandalucia.es/",
+             "https://analisi.transparenciacatalunya.cat/", "https://www.bocm.es/")
+ES_REGOLE = {  # frasi che devono comparire nelle pagine delle Comunità, lette nei testi ufficiali il 5/11/2026
+    "comunitat-valenciana": ("art. 19.1 b", "up to 10 days", "valid for 5 years", "informe municipal de compatibilidad urbanística"),
+    "andalusia": ("art. 7.1", "do not set a separate rule on adverts", "art. 2.2", "expressly authorised"),
+    "catalonia": ("art. 73.5", "262 municipalities", "9 November 2023", "five years"),
+    "balearic-islands": ("art. 28.3", "art. 120 j", "zonas aptas", "art. 23.7"),
+    "canary-islands": ("art. 8.6", "art. 75.16", "13 December 2025"),
+    "madrid-region": ("1741/2018", "CIVUT", "voluntary"),
+}
+
+
+def controlla_spagna():
+    """14. Spagna, licenza per affitti turistici (5/11/2026): sentenze del Tribunal Supremo lette sul BOE; fonti ufficiali con HTTP 200, data e impronta;
+    conteggi = esempi letti a mano; nessun dato personale in dati/spagna_numeri.json né nelle pagine; pagine (indice, 6 Comunità, 20 Comuni) in sitemap,
+    titolo ≤ 70 con l'anno, prima frase con risposta, fonte e data, FAQPage = testo visibile, regole regionali, nessun affiliato, link in entrata."""
+    errori = []
+    ES, N = G.ES, G.ESN
+    # dati personali: il file dei numeri contiene solo codici, mesi, conteggi e metadati delle fonti
+    testo_n = (G.DATI / "spagna_numeri.json").read_text(encoding="utf-8")
+    if "@" in testo_n or re.search(r"\b[6789]\d{8}\b", testo_n):
+        errori.append("Spagna: spagna_numeri.json contiene un'email o un numero di telefono")
+    for reg in ("gva", "rta", "cat"):
+        d = N[reg]
+        if any(not re.fullmatch(r"\d{5}", k) or not isinstance(v, int) for k, v in d["per_comune"].items()):
+            errori.append(f"Spagna: {reg}: per_comune con chiavi diverse da codici INE o valori non interi")
+        if reg != "cat" and sum(d["per_comune"].values()) + d.get("non_abbinate", 0) != d["totale"]:
+            errori.append(f"Spagna: {reg}: somma per Comune diversa dal totale")
+        for k, serie in d.get("per_mese", {}).items():
+            if not re.fullmatch(r"\d{5}", k) or set(serie) != set(N["mesi"]) or any(not isinstance(v, int) for v in serie.values()):
+                errori.append(f"Spagna: {reg}: serie mensile malformata per {k}")
+        if abs(d["totale"] - ESEMPI_ES_TOT[reg]) > ESEMPI_ES_TOT[reg] * 0.01:
+            errori.append(f"Spagna: {reg}: totale {d['totale']} lontano da quello letto a mano ({ESEMPI_ES_TOT[reg]})")
+    if N["rta"].get("non_abbinate", 0) > N["rta"]["totale"] * 0.01:
+        errori.append(f"Spagna: troppe case andaluse senza codice INE ({N['rta']['non_abbinate']})")
+    for reg, cod, att in ESEMPI_ES_REG:
+        got = N[reg]["per_comune"].get(cod, 0)
+        if abs(got - att) > max(5, att * 0.01):
+            errori.append(f"Spagna: {reg} {cod}: {got} case, a mano {att}")
+    for reg, cod, mese, att in ESEMPI_ES_MESI:
+        got = (N[reg]["per_mese_totale"] if cod is None else N[reg]["per_mese"][cod]).get(mese)
+        if got is None or abs(got - att) > max(3, att * 0.02):
+            errori.append(f"Spagna: {reg} {mese}: {got} iscrizioni, a mano {att}")
+    if N["ine"]["periodo"] != "2026-05":
+        errori.append(f"Spagna: periodo INE {N['ine']['periodo']} invece di 2026-05 (se è uscito novembre 2026, rileggere e aggiornare gli esempi)")
+    for cod, att in ESEMPI_ES_INE.items():
+        if att is not None and G.es_ine(cod).get("case") != att:
+            errori.append(f"Spagna: INE {cod or 'Spagna'}: {G.es_ine(cod).get('case')} case, a mano {att}")
+    for cod, att in ESEMPI_ES_PCT.items():
+        if G.es_ine(cod).get("pct") != att:
+            errori.append(f"Spagna: INE {cod or 'Spagna'}: {G.es_ine(cod).get('pct')} %, a mano {att}")
+    # fonti
+    for k, f in ES["fonti"].items():
+        if (f["http"] != 200 or f["controllato_il"] < "2026-11-05" or not f["url"].startswith(ES_DOMINI)
+                or not f.get("url_impronta", f["url"]).startswith(ES_DOMINI)
+                or not re.fullmatch(r"sha256:[0-9a-f]{64}", f.get("impronta", "")) or f.get("impronta_di") not in ("file", "testo")):
+            errori.append(f"Spagna: fonte {k} non ufficiale, non letta, senza data (dal 5/11/2026) o senza impronta")
+    s = ES["sentenze"]
+    attese = {"ts_valencia": ("BOE-A-2026-12300", "2026-05-19", "2026-06-08"), "ts_apartur": ("BOE-A-2026-13893", "2026-05-21", "2026-06-26"),
+              "ts_murcia": ("BOE-A-2026-15677", "2026-06-01", "2026-07-18")}
+    for i, (k, (boe, giorno, bol)) in enumerate(attese.items()):
+        if s["fonti"][i] != k or boe not in ES["fonti"][k]["url"] or s["date"][i] != giorno or s["bollettini"][i] != bol:
+            errori.append(f"Spagna: sentenza {k} diversa dal BOE ({boe}, {giorno}, pubblicata {bol})")
+    # pagine
+    sm = _sitemap()
+    pagine = [G.ES_SLUG] + [f"{G.ES_SLUG}{R['slug']}/" for R in ES["regioni"]] + [f"{G.ES_SLUG}{c['slug']}/" for c in ES["comuni"]]
+    if len(pagine) != 27 or len(set(pagine)) != 27:
+        errori.append(f"Spagna: attese 27 pagine distinte (indice, 6 Comunità, 20 Comuni), trovate {len(set(pagine))}")
+    for pag in pagine:
+        f = SITO / pag / "index.html"
+        if not f.exists():
+            errori.append(f"Spagna: pagina mancante {pag}")
+            continue
+        t = f.read_text(encoding="utf-8")
+        vis = G.MON.testo_visibile(t)
+        titolo = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(titolo) > 70 or "2026" not in titolo:
+            errori.append(f"Spagna: titolo oltre 70 caratteri o senza anno in {pag}: {titolo}")
+        r = re.search(r'<p class="risposta">(.*?)</p>', t, re.S)
+        prima = re.split(r"(?<=\.)\s+(?=[A-Z])", unescape(r.group(1)))[0] if r else ""
+        if not re.search(r"(checked|downloaded) on \d{1,2} [A-Z][a-z]+ 20\d\d", prima) or not re.search(r"\d", prima):
+            errori.append(f"Spagna: la prima frase non ha risposta con cifra, fonte e data in {pag}")
+        if not re.search(r'<p class="fonte">Official sources?: <a href="https://', t):
+            errori.append(f"Spagna: manca la riga della fonte ufficiale in {pag}")
+        if f"{G.URL_SITO}/{pag}" not in sm:
+            errori.append(f"Spagna: {pag} non nella sitemap")
+        ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S)]
+        faq = [x for x in ld if x.get("@type") == "FAQPage"]
+        if len(faq) != 1 or len(faq[0]["mainEntity"]) < 3:
+            errori.append(f"Spagna: FAQPage mancante o con meno di 3 domande in {pag}")
+        else:
+            for q in faq[0]["mainEntity"]:
+                if G.escape(q["name"]) not in t or G.escape(q["acceptedAnswer"]["text"]) not in t:
+                    errori.append(f"Spagna: domanda FAQ non visibile in {pag}: {q['name']}")
+        if G.MON.link_affiliati(t) or "sponsored" in t:
+            errori.append(f"Spagna: link di affiliazione in {pag}")
+        if "@" in vis or re.search(r"\b[6789]\d{8}\b", vis):
+            errori.append(f"Spagna: email o telefono nel testo di {pag}")
+        if "620/2026" in vis:
+            errori.append(f"Spagna: numero di sentenza 620/2026 non presente sul BOE, in {pag}")
+        if "Not legal advice." not in vis:
+            errori.append(f"Spagna: manca l'avviso 'Not legal advice' in {pag}")
+        if re.search(r"\b(guarantee|guaranteed|we will get|100% legal)\b", vis, re.I):
+            errori.append(f"Spagna: promessa nel testo di {pag}")
+    indice = (SITO / G.ES_SLUG / "index.html").read_text(encoding="utf-8")
+    for k, fo in ES["fonti"].items():
+        if G.escape(fo["url"]) not in indice:
+            errori.append(f"Spagna: fonte non linkata nell'indice: {k}")
+    for R in ES["regioni"]:
+        vis = G.MON.testo_visibile((SITO / G.ES_SLUG / R["slug"] / "index.html").read_text(encoding="utf-8"))
+        for frase in ES_REGOLE[R["slug"]]:
+            if frase not in vis:
+                errori.append(f"Spagna: '{frase}' manca nella pagina {R['slug']}")
+    for c in ES["comuni"]:
+        t = (SITO / G.ES_SLUG / c["slug"] / "index.html").read_text(encoding="utf-8")
+        titolo = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        atteso = N[c["registro"]]["per_comune"][c["ine"]] if c["registro"] else G.es_ine(c["ine"])["case"]
+        if f"{atteso:,}" not in titolo:
+            errori.append(f"Spagna: {c['slug']}: il titolo non ha il conteggio dei dati ({atteso:,})")
+        if f"{G.es_ine(c['ine'])['case']:,}" not in t:
+            errori.append(f"Spagna: {c['slug']}: manca il numero INE")
+        if c["registro"] in ("gva", "rta"):
+            ult = N["mesi"][-1]
+            if f"<tr><td>{G.es_mese(ult)}</td><td>{N[c['registro']]['per_mese'][c['ine']][ult]:,}</td></tr>" not in t:
+                errori.append(f"Spagna: {c['slug']}: manca la riga di {ult} nella tabella mensile")
+        if c["regione"] == "cat" and "262 municipalities" not in t:
+            errori.append(f"Spagna: {c['slug']}: manca il riferimento al Decreto-ley 3/2023")
+    if f'href="../../{G.ES_SLUG}"' not in (SITO / "country" / "spain" / "index.html").read_text(encoding="utf-8"):
+        errori.append("Spagna: la pagina country/spain non linka la sezione")
+    if f'href="../{G.ES_SLUG}"' not in (SITO / "about" / "index.html").read_text(encoding="utf-8"):
+        errori.append("Spagna: la pagina about non cita la sezione")
+    return errori
+
+
 def voce_futura_nel_titolo(titolo, attese, oggi):
     fut = [x for x in attese if x[0] > oggi]
     return bool(fut) and G.soldi(fut[0][1], "MXN") in titolo
@@ -1049,9 +1199,12 @@ def main():
     esn = controlla_santiago_napoli()
     print(f"Santiago de Compostela e Napoli (fonti con impronta e data, tariffe = fonti, {len(ESEMPI_SN)} esempi a mano, titoli, prima frase, "
           f"Anno Santo 2027 e America's Cup 2027, sitemap, paese, Europa): {len(esn)} errori")
+    ees = controlla_spagna()
+    print(f"Spagna, licenza per affitti turistici (sentenze BOE, {len(G.ES['fonti'])} fonti con impronta e data, conteggi = esempi a mano, nessun dato personale, "
+          f"{2 + len(G.ES['regioni']) + len(G.ES['comuni']) - 1} pagine, titoli, prima frase, FAQ, regole regionali): {len(ees)} errori")
     em, im = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print(G.MON.riepilogo(G.SITO_ID, im, em))
-    tutti = errori + ej + el + ef + ea + ei + e7 + en + et + ex + ejp + ejt + ebe + esn + em
+    tutti = errori + ej + el + ef + ea + ei + e7 + en + et + ex + ejp + ejt + ebe + esn + ees + em
     for e in tutti[:40]:
         print("  -", e)
     if tutti:

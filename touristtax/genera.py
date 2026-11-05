@@ -2901,6 +2901,477 @@ def pagine_jt():
     pagina_jt_2027()
 
 
+# ---------------------------------------------------------------- Spagna: licenza per affitti turistici (5/11/2026)
+# Sezione /spain-holiday-let-licence/: indice, 6 pagine di Comunità autonoma e 20 pagine di Comune. Fatti e fonti (con impronta e data)
+# in dati/spagna_licenze.json, scritto a mano leggendo i testi ufficiali; numeri in dati/spagna_numeri.json, scritto da
+# raccolta/spagna.py (solo conteggi per Comune e mese: il registro andaluso contiene dati personali, che non vengono salvati).
+# Nessuna consulenza legale, nessuna promessa, nessun link di affiliazione. verifica.py, punto 14.
+ES = json.loads((DATI / "spagna_licenze.json").read_text(encoding="utf-8"))
+ESN = json.loads((DATI / "spagna_numeri.json").read_text(encoding="utf-8"))
+ES_SLUG = ES["slug"]
+ES_F = ES["fonti"]
+ES_REG = {r["id"]: r for r in ES["regioni"]}
+ES_COMUNI = ES["comuni"]
+ES_CHECK = data_lunga(ES["controllato_il"])
+ES_SCARICATO = data_lunga(ESN["scaricato_il"])
+ES_MESI = ESN["mesi"][-12:]          # ultimi 12 mesi completi
+ES_MESI_PRIMA = ESN["mesi"][-24:-12]  # i 12 mesi prima
+ES_INE_MESE = f"{MESI[int(ESN['ine']['periodo'][5:]) - 1]} {ESN['ine']['periodo'][:4]}"
+ES_REGISTRI = {  # chiave in spagna_numeri.json -> (ente, nome del registro, fonte dei dati)
+    "gva": ("Generalitat Valenciana", "Registro de Turismo de la Comunitat Valenciana", "cv_dati"),
+    "rta": ("Junta de Andalucía", "Registro de Turismo de Andalucía", "and_dati"),
+    "cat": ("Generalitat de Catalunya", "Registre de Turisme de Catalunya", "cat_dati"),
+}
+ES_TITOLI_REG = {
+    "cv": "Valencia region tourist licence 2026: CV-VUT number and rules",
+    "and": "Andalusia tourist licence 2026: VUT number, RTA and the rules",
+    "cat": "Catalonia tourist licence 2026: HUT number and the 2028 deadline",
+    "bal": "Balearic Islands tourist licence 2026: the number in every advert",
+    "can": "Canary Islands holiday let licence 2026: Ley 6/2025 rules",
+    "mad": "Madrid holiday let licence 2026: CIVUT and the regional register",
+}
+AVVISO_ES = ('<p class="avviso"><strong>Not legal advice.</strong> This page summarises official texts and open data; it does not tell you whether a '
+             'particular home can be let or keep its registration. Town halls set their own planning rules and communities of owners can restrict tourist use: '
+             'before you buy, let or advertise, check with the regional tourism department and the Ayuntamiento, or ask a professional.</p>')
+
+
+ES_ARTICOLO = {"cv": "the ", "bal": "the ", "can": "the ", "mad": "the "}
+ES_PREFISSI = {"04": "VUT/AL", "11": "VUT/CA", "14": "VUT/CO", "18": "VUT/GR", "21": "VUT/HU", "23": "VUT/JA", "29": "VUT/MA", "41": "VUT/SE",
+               "08": "HUTB", "17": "HUTG", "25": "HUTL", "43": "HUTT", "03": "CV-VUT", "12": "CV-VUT", "46": "CV-VUT"}
+
+
+def es_in(R):
+    """Nome della Comunità con l'articolo quando serve: 'the Valencian Community', 'Andalusia'."""
+    return ES_ARTICOLO.get(R["id"], "") + R["nome"]
+
+
+def es_n(v):
+    return f"{int(v):,}"
+
+
+def es_mese(m, breve=False):
+    a, mm = m.split("-")
+    return f"{(MESI_BREVI if breve else MESI)[int(mm) - 1]} {a}"
+
+
+def es_link(k, testo=None):
+    f = ES_F[k]
+    return f'<a href="{escape(f["url"])}" rel="noopener">{escape(testo or f["titolo"])}</a>'
+
+
+def es_fonte(chiavi, etichetta="Official source"):
+    """Riga fonte come nel resto del sito: 'Official source: <link> · checked on <data>'."""
+    chiavi = list(dict.fromkeys(chiavi))
+    data = data_lunga(max(ES_F[k]["controllato_il"] for k in chiavi))
+    eti = etichetta + ("s" if len(chiavi) > 1 and not etichetta.endswith("s") else "")
+    return f'<p class="fonte">{eti}: ' + " · ".join(es_link(k) for k in chiavi) + f" · checked on {data}</p>"
+
+
+def es_fonti_elenco(chiavi):
+    out = []
+    for k in dict.fromkeys(chiavi):
+        f = ES_F[k]
+        out.append(f'<li><a href="{escape(f["url"])}" rel="noopener">{escape(f["titolo"])}</a> – {escape(f["ente"])}, {escape(f["formato"])}, checked '
+                   f'{data_lunga(f["controllato_il"])}' + (f'<br><span class="small">{escape(f["nota"])}</span>' if f.get("nota") else "") + "</li>")
+    return "<ul>" + "".join(out) + "</ul>"
+
+
+def es_ine(cod):
+    """Dati INE di maggio 2026 per un Comune (5 cifre), una Comunità (2 cifre) o la Spagna ('')."""
+    I = ESN["ine"]
+    return I["spagna"] if cod == "" else (I["comunita"] if len(cod) == 2 else I["comuni"]).get(cod, {})
+
+
+def es_pct(v):
+    return f"{v:.2f}".rstrip("0").rstrip(".") + "%"
+
+
+def es_serie(reg, cod=None):
+    """Serie mensile (ultimi 24 mesi) delle case ancora iscritte, per data di iscrizione: Comune o totale della Comunità."""
+    d = ESN[reg]
+    return d["per_mese_totale"] if cod is None else d["per_mese"].get(cod, {})
+
+
+def es_ultimo_mese_con(serie):
+    m = [k for k in ESN["mesi"] if serie.get(k)]
+    return m[-1] if m else None
+
+
+def es_tabella_mesi(serie):
+    righe = "".join(f"<tr><td>{es_mese(m)}</td><td>{es_n(serie.get(m, 0))}</td></tr>" for m in ES_MESI)
+    a, b = sum(serie.get(m, 0) for m in ES_MESI), sum(serie.get(m, 0) for m in ES_MESI_PRIMA)
+    righe += (f"<tr><td><strong>{es_mese(ES_MESI[0], True)} – {es_mese(ES_MESI[-1], True)}</strong></td><td><strong>{es_n(a)}</strong></td></tr>"
+              f"<tr><td>{es_mese(ES_MESI_PRIMA[0], True)} – {es_mese(ES_MESI_PRIMA[-1], True)}</td><td>{es_n(b)}</td></tr>")
+    return f'<div class="tab sintesi"><table><thead><tr><th>Month of registration</th><th>Homes</th></tr></thead><tbody>{righe}</tbody></table></div>'
+
+
+ES_NOTA_SERIE = ("The register lists the homes that are registered today, with their registration date. A home registered in a month and removed later "
+                 "is not counted, so these figures show homes added in each month that are still on the register.")
+ES_NOTA_INE = ("INE (Spain's national statistics institute) counts tourist homes listed on the three most used accommodation platforms in Spain, by web scraping "
+               "and removing duplicates; it publishes the count twice a year (May and November). It is a different measure from the regional register, "
+               "which also includes homes that are not advertised.")
+
+
+def es_ine_frase(cod, nome):
+    d = es_ine(cod)
+    if not d:
+        return ""
+    return (f"INE counted {es_n(d['case'])} tourist homes with {es_n(d['posti'])} bed places in {nome} in {ES_INE_MESE}"
+            + (f", {es_pct(d['pct'])} of all dwellings" if d.get("pct") is not None else "") + ".")
+
+
+def es_reg_totale(R):
+    return ESN[R["dati"]]["totale"] if R.get("dati") else None
+
+
+def es_numero_riga(R):
+    return {"si": "Required in every advert", "contratto": "On the document given to guests (no advert rule found in the texts we read)",
+            "annullato": "Advert rule annulled (Supreme Court, 2018)"}[R["annunci"]]
+
+
+def es_verifica_html(R):
+    if R["verifica"]:
+        testo, k = R["verifica"]
+        return es_link(k, testo)
+    return "No official public search read by us"
+
+
+def es_risposta():
+    s = ES["sentenze"]
+    con = [es_in(ES_REG[k]) for k in ("cv", "cat", "bal", "can")]
+    return (f"In Spain the registration number for a holiday let comes from the regional tourism register: the Supreme Court annulled the national "
+            f"Registro Único de Arrendamientos procedure in judgments of {data_lunga(s['date'][0])}, {data_lunga(s['date'][1])} and {data_lunga(s['date'][2])} "
+            f"(BOE, {data_lunga(s['bollettini'][0])}), and the laws of {', '.join(con[:-1])} and {con[-1]} require the regional number in every advert "
+            f"(official texts on BOE, checked on {ES_CHECK}). "
+            "Andalusia requires the registration code on the document given to guests; in the Madrid region the advert rule was annulled in 2018.")
+
+
+def es_faq_indice():
+    s = ES["sentenze"]
+    reg_dati = [ES_REG[k] for k in ("cv", "and", "cat")]
+    return [
+        ("Do I need a tourist licence to rent out my property in Spain?",
+         "Yes, for holiday lets to tourists. Each region regulates them: the owner or host files a declaration (declaración responsable) and the home is entered "
+         "on the regional tourism register. Most regions also require a municipal urban-planning report or licence, and some limit new registrations to certain "
+         "zones or municipalities. The regional pages below list the rules we read in the official texts."),
+        ("Which registration number must appear in a Spanish holiday let advert?",
+         "The regional tourism registration number. Valencian (Ley 15/2018, art. 19), Catalan (Ley 13/2002, art. 73.5), Balearic (Ley 8/2012, art. 28.3) and Canary "
+         "(Ley 6/2025, art. 8.6) law require it in every advert. The national number from the Registro Único de Arrendamientos lost its legal basis when the "
+         f"Supreme Court annulled that procedure in {s['date'][0][:4]}."),
+        ("Is the Registro Único de Arrendamientos still in force?",
+         f"No. Three Supreme Court judgments ({data_lunga(s['date'][0])}, {data_lunga(s['date'][1])} and {data_lunga(s['date'][2])}) annulled the single registration "
+         "procedure of Royal Decree 1312/2024 and the obligation to register with the Property Register to obtain a number. The Ventanilla Única Digital de "
+         "Arrendamientos, the national gateway through which platforms send data to the authorities, was not annulled."),
+        ("How can I check a Spanish tourist licence number online?",
+         "Three regions publish their register as open data or a public search: " +
+         "; ".join(f"{R['nome']} ({ES_F[R['verifica'][1]]['ente']})" for R in reg_dati) +
+         ". The links are in the table above. For the Balearic Islands, the Canary Islands and the Madrid region we did not find an official public search we could read."),
+        ("How much does a tourist licence cost in Spain?",
+         "The official texts we read set no single price. Registering with the region is done by a declaration; the costs come from the documents and reports each "
+         "region and town hall asks for (for example the municipal urban-planning report in the Valencian Community or the CIVUT certificate in Madrid) and from "
+         "municipal fees, which vary. Ask the Ayuntamiento before you start."),
+        ("Can I still get a new tourist licence in Spain?",
+         "It depends on the region and the town. In the Balearic Islands new declarations are only possible in zones declared suitable; in 262 Catalan municipalities "
+         "tourist use needs a prior urban-planning licence; Andalusian town halls can limit the number of tourist homes by building or area; in the Valencian Community "
+         "a favourable municipal compatibility report is required. The monthly figures on each town page show how many homes are still being added to the "
+         "Valencian and Andalusian registers."),
+    ]
+
+
+def es_faq_html(faq):
+    html_ = "".join(f'<details class="faq"><summary>{escape(q)}</summary><p>{escape(r)}</p></details>' for q, r in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage",
+          "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": r}} for q, r in faq]}
+    return f'<div class="faq-box">{html_}</div>', ld
+
+
+def es_titolo_nome(c):
+    return c["nome"].split(" (")[0]
+
+
+def es_titolo_comune(c):
+    nome = es_titolo_nome(c)
+    if c["registro"]:
+        return f"{nome} tourist licence 2026: {es_n(ESN[c['registro']]['per_comune'].get(c['ine'], 0))} registered holiday lets"
+    return f"{nome} tourist licence 2026: {es_n(es_ine(c['ine']).get('case', 0))} tourist homes (INE)"
+
+
+def es_comune_numero(c):
+    if c["registro"]:
+        return ESN[c["registro"]]["per_comune"].get(c["ine"], 0)
+    return es_ine(c["ine"]).get("case", 0)
+
+
+def es_griglia_comuni(rel, regione=None, salta=""):
+    out = []
+    for c in ES_COMUNI:
+        if (regione and c["regione"] != regione) or c["slug"] == salta:
+            continue
+        if c["registro"]:
+            sub = f"{es_n(es_comune_numero(c))} on the {ES_REG[c['regione']]['nome_breve']} register"
+        else:
+            sub = f"{es_n(es_comune_numero(c))} tourist homes (INE)"
+        out.append(f'<a href="{rel}{ES_SLUG}{c["slug"]}/">{escape(c["nome"])}<small>{escape(sub)}</small></a>')
+    return '<div class="griglia">' + "".join(out) + "</div>"
+
+
+def es_callout(rel):
+    """Riquadro di collegamento all'indice (pagina Spagna)."""
+    return (f'<section class="card callout es-box" aria-label="Spain holiday let licence"><span class="ic">{ico("door")}</span>'
+            f'<p><strong>Letting a home in Spain?</strong> The national register was annulled in 2026: the number you need now comes from your region. '
+            f'<a href="{rel}{ES_SLUG}">Spain holiday let licence: region by region</a></p></section>')
+
+
+def pagina_es_indice():
+    rel = "../"
+    s = ES["sentenze"]
+    righe = []
+    for R in ES["regioni"]:
+        d = es_ine(R["ine"])
+        righe.append(f'<tr><td><a href="{rel}{ES_SLUG}{R["slug"]}/">{escape(R["nome"])}</a></td><td>{escape(R["registro"])}<br><span class="small">{escape(R["numero"])}</span></td>'
+                     f'<td>{escape(es_numero_riga(R))}</td><td>{es_verifica_html(R)}</td><td>{es_n(d["case"])}</td></tr>')
+    tot = es_ine("")
+    serie_cv, serie_and = es_serie("gva"), es_serie("rta")
+    righe_m = "".join(f"<tr><td>{es_mese(m)}</td><td>{es_n(serie_cv.get(m, 0))}</td><td>{es_n(serie_and.get(m, 0))}</td></tr>" for m in ES_MESI)
+    faq_html, ld = es_faq_html(es_faq_indice())
+    tutte = (s["fonti"] + ["rd1312", "ine_metodo", "ine_39363", "ine_39366"] + [k for R in ES["regioni"] for k in R["fonti"]])
+    corpo = f"""<section class="hero">{h1_diviso("Spain holiday let licence 2026: the registration number you need")}
+<p class="risposta">{escape(es_risposta())}</p>
+{es_fonte(s["fonti"] + ["rd1312"])}</section>
+<h2>Region by region</h2>
+<div class="tab"><table><thead><tr><th>Region</th><th>Register and number</th><th>Number in adverts</th><th>Check a number</th><th>Tourist homes (INE, {ES_INE_MESE})</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>
+<p class="small">Spain in total: {es_n(tot["case"])} tourist homes and {es_n(tot["posti"])} bed places in {ES_INE_MESE}, {es_pct(tot["pct"])} of all dwellings (INE). {escape(ES_NOTA_INE)}</p>
+{es_fonte(["ine_39363", "ine_39366", "ine_metodo"])}
+{AVVISO_ES}
+{AD}
+<h2>What the Supreme Court annulled, and what remains</h2>
+<p>Royal Decree 1312/2024 created two things: a single national registration procedure (Registro Único de Arrendamientos), run through the Property Register, that gave each short-term rental a number to show on platforms, and the Ventanilla Única Digital de Arrendamientos, a national gateway for data between platforms and authorities. It took effect on 1 July 2025.</p>
+<ul><li><strong>Annulled:</strong> the single registration procedure and the obligation to register with the Property Register (or the Movable Property Register) to obtain a number for short-term rentals offered on online platforms: {escape(s["articoli_annullati"])}. Judgments of {data_lunga(s["date"][0])} (appeal of the Generalitat Valenciana, BOE {data_lunga(s["bollettini"][0])}), {data_lunga(s["date"][1])} (Apartur and ATA, BOE {data_lunga(s["bollettini"][1])}) and {data_lunga(s["date"][2])} (Region of Murcia, BOE {data_lunga(s["bollettini"][2])}).</li>
+<li><strong>Still in force:</strong> the Ventanilla Única Digital de Arrendamientos of the Ministry of Housing (art. 7), the monthly transmission of activity data by platforms through it (art. 6, except the references to the single registration procedure and number), official statistics (art. 11) and the powers of regional and local authorities over tourist lets (art. 12 d).</li>
+<li><strong>What this means for hosts:</strong> the number that the regional laws require is the regional tourism registration number, set out region by region in the table above.</li></ul>
+{es_fonte(s["fonti"] + ["rd1312"])}
+<p class="small">{escape(s["nota_numero"])}</p>
+<h2>Town by town</h2>
+<p>Registered holiday homes from the official registers (Valencian Community, Andalusia, Catalonia) and INE counts, with the monthly number of new registrations where the register gives the date.</p>
+{es_griglia_comuni(rel)}
+<h2>New registrations per month</h2>
+<p>Holiday homes on the Valencian and Andalusian registers by month of registration ({ES_REGISTRI["gva"][0]} and {ES_REGISTRI["rta"][0]} open data, downloaded on {ES_SCARICATO}).</p>
+<div class="tab sintesi"><table><thead><tr><th>Month</th><th>Valencian Community</th><th>Andalusia</th></tr></thead><tbody>{righe_m}</tbody></table></div>
+<p class="small">{escape(ES_NOTA_SERIE)}</p>
+{es_fonte(["cv_dati", "and_dati"], "Official open data")}
+<h2>Questions</h2>
+{faq_html}
+<h2>Official sources</h2>
+{es_fonti_elenco(tutte)}
+<p class="small">Spotted a change in the official rules? <a href="{rel}contact/?ref=spain-holiday-let-licence">Tell us</a>.</p>
+<p><a href="{rel}country/spain/">Tourist taxes in Spain</a> · <a href="{rel}">Tourist tax calculator</a></p>"""
+    pagina(ES_SLUG, "Spain holiday let licence 2026: the registration number you need",
+           "After the Supreme Court annulled Spain's national rental register in 2026, the number you need comes from your region. Rules, official sources and counts.",
+           corpo, briciole=[("Spain", "country/spain/"), ("Holiday let licence", ES_SLUG)], jsonld_extra=ld)
+
+
+def es_risposta_regione(R):
+    tot = es_reg_totale(R)
+    reg = (f" {es_n(tot)} homes are on the register today ({ES_REGISTRI[R['dati']][0]} open data, downloaded on {ES_SCARICATO})." if tot else "")
+    return (f"{R['risposta']}, checked on {data_lunga(ES_F[R['annunci_fonte']]['controllato_il'])}). {R['annunci_testo']}{reg}")
+
+
+def es_faq_regione(R):
+    faq = []
+    tot = es_reg_totale(R)
+    d = es_ine(R["ine"])
+    faq.append((f"How many tourist homes are there in {es_in(R)}?",
+                (f"{es_n(tot)} homes are on the {R['registro']} ({ES_REGISTRI[R['dati']][0]} open data, downloaded on {ES_SCARICATO}). " if tot else "") +
+                f"INE counted {es_n(d['case'])} tourist homes listed on the main platforms in {ES_INE_MESE}."))
+    faq.append((f"Does the registration number have to appear in adverts in {es_in(R)}?", R["annunci_testo"]))
+    if R["verifica"]:
+        faq.append((f"How do I check a tourist licence in {es_in(R)}?",
+                    f"Search by town or registration number in the official source: {R['verifica'][0]}."))
+    else:
+        faq.append((f"How do I check a tourist licence in {es_in(R)}?",
+                    "We did not find an official public search of the register that we could read. Ask the host for the registration number and check it with "
+                    "the regional or island tourism administration."))
+    faq.append(("Do I still need the national Registro Único de Arrendamientos number?",
+                "No. The Supreme Court annulled the national single registration procedure in judgments of May and June 2026 (BOE). The rules that apply "
+                "are the regional ones described on this page."))
+    return faq
+
+
+def pagina_es_regione(R):
+    rel = "../../"
+    slug = f"{ES_SLUG}{R['slug']}/"
+    d = es_ine(R["ine"])
+    tot = es_reg_totale(R)
+    punti = "".join(f"<li>{escape(t)} <span class=\"small\">({es_link(k, ES_F[k]['ente'])})</span></li>" for t, k in R["punti"])
+    serie = ""
+    if R.get("dati") in ("gva", "rta"):
+        sr = es_serie(R["dati"])
+        serie = (f"<h2>New registrations per month in {escape(es_in(R))}</h2>{es_tabella_mesi(sr)}<p class=\"small\">{escape(ES_NOTA_SERIE)}</p>"
+                 f"{es_fonte([ES_REGISTRI[R['dati']][2]], 'Official open data')}")
+    cifra_reg = (f'<p class="cifra"><span class="lab">{ico("door")}On the {escape(R["registro"])}</span><span class="sr">: </span><strong>{es_n(tot)} homes</strong></p>' if tot else "")
+    verifica = (f'<p>{es_link(R["verifica"][1], R["verifica"][0])}.</p>' if R["verifica"] else
+                "<p>We did not find an official public search of this register that we could read. Ask the host for the registration number and check it with the "
+                "regional or island tourism administration.</p>")
+    faq_html, ld = es_faq_html(es_faq_regione(R))
+    comuni = [c for c in ES_COMUNI if c["regione"] == R["id"]]
+    corpo = f"""<section class="hero">{h1_diviso(ES_TITOLI_REG[R["id"]])}
+<p class="risposta">{escape(es_risposta_regione(R))}</p>
+{es_fonte([R["annunci_fonte"]] + ([ES_REGISTRI[R["dati"]][2]] if tot else []))}</section>
+<section class="card summary" aria-label="Summary"><div>
+{cifra_reg}
+<p class="cifra"><span class="lab">{ico("city")}Tourist homes listed online (INE, {ES_INE_MESE})</span><span class="sr">: </span><strong>{es_n(d["case"])}</strong></p>
+</div><div><p class="lead">Register: {escape(R["registro"])}. Number: {escape(R["numero"])}.</p>
+{es_fonte(["ine_39363", "ine_39366"])}</div></section>
+{AVVISO_ES}
+{AD}
+<h2>What the regional rules say</h2>
+<ul>{punti}</ul>
+<h2>Check a registration number</h2>
+{verifica}
+{serie}
+{f'<h2>Towns</h2>{es_griglia_comuni(rel, R["id"])}' if comuni else ""}
+<h2>The national register</h2>
+<p>The national single registration procedure (Registro Único de Arrendamientos) was annulled by the Supreme Court in 2026. See <a href="{rel}{ES_SLUG}">Spain holiday let licence: what was annulled and what remains</a>.</p>
+<h2>Questions</h2>
+{faq_html}
+<h2>Official sources</h2>
+{es_fonti_elenco(R["fonti"] + ["ine_39363", "ine_39366", "ine_metodo"])}
+<p class="small">Spotted a change in the official rules? <a href="{rel}contact/?ref=spain-holiday-let-licence">Tell us</a>.</p>
+<p><a href="{rel}{ES_SLUG}">Spain holiday let licence</a> · <a href="{rel}country/spain/">Tourist taxes in Spain</a></p>"""
+    pagina(slug, ES_TITOLI_REG[R["id"]],
+           (f"{R['nome']}: register, number and rules for holiday lets from the official texts, "
+            f"{es_n(d['case'])} tourist homes (INE {ES_INE_MESE})" + (f", {es_n(tot)} on the register." if tot else ".")),
+           corpo, briciole=[("Spain", "country/spain/"), ("Holiday let licence", ES_SLUG), (R["nome"], slug)], jsonld_extra=ld)
+
+
+def es_risposta_comune(c):
+    R = ES_REG[c["regione"]]
+    nome = c["nome"]
+    if c["registro"]:
+        n = es_comune_numero(c)
+        sr = es_serie(c["registro"], c["ine"]) if c["registro"] in ("gva", "rta") else {}
+        ult = ES_MESI[-1]
+        extra = (" and an urban-planning licence, since it is one of the 262 municipalities listed in Catalan Decreto-ley 3/2023" if c["regione"] == "cat" else "")
+        mese = ""
+        if c["registro"] in ("gva", "rta"):
+            if sum(sr.get(m, 0) for m in ES_MESI):
+                mese = f" and {es_n(sr.get(ult, 0))} were added in {es_mese(ult)}"
+            else:
+                ultimo = es_ultimo_mese_con(sr)
+                mese = (f", none added between {es_mese(ES_MESI[0])} and {es_mese(ult)}"
+                        + (f", the latest in {es_mese(ultimo)}" if ultimo else ""))
+        agg = f", updated on {data_lunga(ESN['cat']['aggiornato'])}" if c["registro"] == "cat" else ""
+        return (f"To let a home to tourists in {nome} you need a {ES_PREFISSI[c['ine'][:2]]} number from the {R['registro']}{extra}; "
+                f"{es_n(n)} homes in {es_titolo_nome(c)} are on the register{mese} ({ES_REGISTRI[c['registro']][0]} open data{agg}, downloaded on {ES_SCARICATO}).")
+    d = es_ine(c["ine"])
+    if c["regione"] == "mad":
+        prima = (f"To let a home to tourists in {nome} you file a declaración responsable with a CIVUT certificate to the Community of Madrid "
+                 f"(Decreto 79/2014 as amended in 2019, checked on {ES_CHECK})")
+    else:
+        prima = (f"To let a home to tourists in {nome} you file a DRIAT and need the tourist registration number, which must appear in every advert "
+                 f"(Ley 8/2012, art. 28.3, checked on {ES_CHECK})")
+    return f"{prima}; INE counted {es_n(d['case'])} tourist homes in {es_titolo_nome(c)} in {ES_INE_MESE}."
+
+
+def es_faq_comune(c):
+    R = ES_REG[c["regione"]]
+    nome = es_titolo_nome(c)
+    d = es_ine(c["ine"])
+    faq = []
+    if c["registro"]:
+        faq.append((f"How many tourist flats are there in {nome}?",
+                    f"{es_n(es_comune_numero(c))} homes are on the {R['registro']} ({ES_REGISTRI[c['registro']][0]} open data, downloaded on {ES_SCARICATO}). "
+                    f"INE counted {es_n(d['case'])} tourist homes listed on the main platforms in {ES_INE_MESE}: the register also includes homes that are not advertised."))
+    else:
+        faq.append((f"How many tourist flats are there in {nome}?",
+                    f"INE counted {es_n(d['case'])} tourist homes with {es_n(d['posti'])} bed places in {ES_INE_MESE}, listed on the main platforms."))
+    if c["registro"] in ("gva", "rta"):
+        sr = es_serie(c["registro"], c["ine"])
+        a = sum(sr.get(m, 0) for m in ES_MESI)
+        ult = es_ultimo_mese_con(sr)
+        risposta_ = (f"{es_n(a)} homes registered between {es_mese(ES_MESI[0])} and {es_mese(ES_MESI[-1])} are on the register today"
+                     + (f"; the most recent registration month is {es_mese(ult)}." if ult else "; none in the last 24 months.")
+                     + " The register does not say whether a town hall has stopped new tourist homes: ask the Ayuntamiento.")
+        faq.append((f"Are new tourist licences still being registered in {nome}?", risposta_))
+    if R["verifica"]:
+        faq.append((f"How do I check a tourist licence in {nome}?", f"Search for {nome} in the official source: {R['verifica'][0]}."))
+    else:
+        faq.append((f"How do I check a tourist licence in {nome}?",
+                    "We did not find an official public search of the register that we could read. Ask the host for the registration number and check it with the "
+                    "regional or island tourism administration."))
+    faq.append((f"What are the rules for a holiday let in {nome}?",
+                f"The rules of {es_in(R)} apply (see the regional page), plus the town hall's planning rules and, in a building, the community of owners."))
+    return faq
+
+
+def pagina_es_comune(c):
+    rel = "../../"
+    R = ES_REG[c["regione"]]
+    slug = f"{ES_SLUG}{c['slug']}/"
+    d = es_ine(c["ine"])
+    nome = es_titolo_nome(c)
+    blocco_reg = ""
+    chiavi = ["ine_39363", "ine_39366"]
+    if c["registro"]:
+        n = es_comune_numero(c)
+        k = ES_REGISTRI[c["registro"]][2]
+        blocco_reg = f'<p class="cifra"><span class="lab">{ico("door")}On the {escape(R["registro"])}</span><span class="sr">: </span><strong>{es_n(n)} homes</strong></p>'
+        chiavi = [k] + chiavi
+    serie = ""
+    if c["registro"] in ("gva", "rta"):
+        sr = es_serie(c["registro"], c["ine"])
+        serie = (f"<h2>New registrations per month in {escape(nome)}</h2>{es_tabella_mesi(sr)}<p class=\"small\">{escape(ES_NOTA_SERIE)}</p>"
+                 f"{es_fonte([ES_REGISTRI[c['registro']][2]], 'Official open data')}")
+    confronto = ""
+    if c["registro"]:
+        confronto = (f"<p>{es_n(es_comune_numero(c))} homes on the register against {es_n(d['case'])} counted by INE on the platforms: {escape(ES_NOTA_INE)}</p>")
+    punti = "".join(f"<li>{escape(t)} <span class=\"small\">({es_link(k, ES_F[k]['ente'])})</span></li>" for t, k in R["punti"])
+    if c["regione"] == "cat":
+        punti = (f"<li>{escape(nome)} is in the list of 262 municipalities of Decreto-ley 3/2023 where tourist use of a home needs a prior urban-planning licence. "
+                 f"<span class=\"small\">({es_link('cat_dl', ES_F['cat_dl']['ente'])})</span></li>") + punti
+    verifica = (f'<p>{es_link(R["verifica"][1], R["verifica"][0])}: search for {escape(nome)}.</p>' if R["verifica"] else
+                "<p>We did not find an official public search of this register that we could read.</p>")
+    faq_html, ld = es_faq_comune(c), None
+    faq_html, ld = es_faq_html(faq_html)
+    corpo = f"""<section class="hero">{h1_diviso(es_titolo_comune(c))}
+<p class="risposta">{escape(es_risposta_comune(c))}</p>
+{es_fonte(chiavi[:1] + [R["annunci_fonte"]])}</section>
+<section class="card summary" aria-label="Summary"><div>
+{blocco_reg}
+<p class="cifra"><span class="lab">{ico("city")}Tourist homes listed online (INE, {ES_INE_MESE})</span><span class="sr">: </span><strong>{es_n(d["case"])}</strong></p>
+</div><div><p class="lead">{escape(es_ine_frase(c["ine"], nome))}</p>
+{es_fonte(["ine_39363", "ine_39366"])}</div></section>
+{AVVISO_ES}
+{AD}
+{serie}
+{confronto}
+<h2>The rules in {escape(es_in(R))}</h2>
+<p><strong>Registration number:</strong> {escape(R["annunci_testo"])}</p>
+<ul>{punti}</ul>
+<p>The town hall of {escape(nome)} sets its own planning rules for tourist use: ask the Ayuntamiento (urbanismo) before you buy or start letting. Full details: <a href="{rel}{ES_SLUG}{R["slug"]}/">{escape(R["nome"])} holiday let licence</a>.</p>
+<h2>Check a registration number</h2>
+{verifica}
+<h2>Questions</h2>
+{faq_html}
+<h2>Official sources</h2>
+{es_fonti_elenco(chiavi + R["fonti"] + ["ine_metodo"])}
+<p class="small">Spotted a change? <a href="{rel}contact/?ref=spain-holiday-let-licence">Tell us</a>.</p>
+<h2>Other towns</h2>
+{es_griglia_comuni(rel, salta=c["slug"])}
+<p><a href="{rel}{ES_SLUG}">Spain holiday let licence</a> · <a href="{rel}{ES_SLUG}{R["slug"]}/">{escape(R["nome"])}</a></p>"""
+    desc = re.split(r"(?<=\.) ", es_risposta_comune(c))[0]
+    pagina(slug, es_titolo_comune(c), desc if len(desc) <= 300 else desc[:297] + "...",
+           corpo, briciole=[("Spain", "country/spain/"), ("Holiday let licence", ES_SLUG), (R["nome"], f"{ES_SLUG}{R['slug']}/"), (nome, slug)], jsonld_extra=ld)
+
+
+def pagine_es():
+    pagina_es_indice()
+    for R in ES["regioni"]:
+        pagina_es_regione(R)
+    for c in ES_COMUNI:
+        pagina_es_comune(c)
+
+
 def fr_slug_map():
     m, usati = {}, set()
     for code, nome, dep, _ in FR_TOP["comuni"]:
@@ -3017,6 +3488,7 @@ def pagina_paese(slug):
 {"" if risp else f'<p class="lead">{escape(testo_extra) if testo_extra else f"Official tourist tax rates in {escape(nome)}, with a calculator for each destination."}</p>'}</section>
 {f'<p class="small">What changes next: <a href="{rel}tourist-tax-changes-2027/">tourist tax changes in 2027</a>.</p>' if any(cambi_di(d["slug"]) for d in dd) else ""}
 {(jt_callout(rel) + jp_callout(rel)) if slug == "japan" else ""}
+{es_callout(rel) if slug == "spain" else ""}
 <div class="tab"><table><thead><tr><th>Destination</th><th>Rate {ANNO}</th><th>Max taxable nights</th><th>Exempt</th></tr></thead><tbody>{righe}</tbody></table></div>
 {AVVISO}
 {AD}
@@ -3270,6 +3742,7 @@ def about():
 <li>Mexico: laws of the State of Quintana Roo (Congress of Quintana Roo), the Ley Federal de Derechos (Chamber of Deputies), the decree of 30 June 2025 (SIDOF) and the UMA values of INEGI are cited as facts with a link to the official text; the Visitax amounts are calculated by us from the formula in the law (2.50 UMA). See the <a href="{rel}mexico/">Mexico page</a> for all sources.</li>
 <li>Japan accommodation tax: the list of taxes in force and approved comes from the Ministry of Internal Affairs and Communications (法定外税の状況); rates from the Minister's consents published by the Ministry and from prefecture and city pages, cited as facts with a link; see the <a href="{rel}{JT_HUB}">Japan accommodation tax page</a> and each place's page for all sources.</li>
 <li>Japan tax-free refund: rules from the Japan Tourism Agency, the National Tax Agency and Japan Customs (Ministry of Finance), cited as facts with a link to each official page; see the <a href="{rel}japan-tax-free-refund/">Japan tax-free refund page</a> for all sources.</li>
+<li>Spain, holiday let licences: counts from INE (experimental statistics on tourist homes, source: INE), the Generalitat Valenciana open data (CC BY 4.0), the Junta de Andalucía OPEN RTA (CC BY 4.0) and the Generalitat de Catalunya open data (Registre de Turisme de Catalunya); we publish only counts by municipality and month, never names, addresses or contact details. Laws on BOE, BOCM and the Junta de Andalucía site are cited as facts with a link. See the <a href="{rel}{ES_SLUG}">Spain holiday let licence page</a> for all sources.</li>
 <li>Laws, ordinances and official decisions are cited as facts with a link to the official text; we do not reproduce the documents.</li></ul>
 <h2>Destinations not published (official source not readable or incomplete)</h2>
 <p>Venice, Lisbon, the Algarve, Budapest, Croatia (Dubrovnik, Split), Cyprus, Naples, Bologna, Glasgow, Antwerp, Egypt, Morocco and the Canary Islands. We will add them when we can verify a complete official source.</p>
@@ -3407,6 +3880,7 @@ def main():
     pagina_messico()
     pagina_giappone_rimborso()
     pagine_jt()
+    pagine_es()
     pagina_francia()
     for c in FR_TOP["comuni"]:
         pagina_francia_comune(c[0])

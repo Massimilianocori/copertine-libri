@@ -1,4 +1,4 @@
-"""Ricontrollo delle impronte delle fonti (campo "impronta" in dati/destinazioni.json, anche dentro "evento").
+"""Ricontrollo delle impronte delle fonti (campo "impronta" in dati/destinazioni.json, anche dentro "evento", e in dati/spagna_licenze.json).
 
 Uso (dalla radice del repository):
     python3 -I touristtax/raccolta/impronte.py            # riscarica le fonti con impronta e dice quali sono cambiate
@@ -57,6 +57,15 @@ def main():
             ok = codice == 200 and tipo == f["impronta_di"] and imp == f["impronta"]
             cambiate += not ok
             print(f"{'ok      ' if ok else 'CAMBIATA'} {d['slug']}: HTTP {codice} {f['url']}")
+    # Spagna, licenza per affitti turistici (5/11/2026): fonti in dati/spagna_licenze.json. "url_impronta" = indirizzo letto per
+    # l'impronta quando la pagina per le persone è un'applicazione JavaScript (tabelle INE, catalogo dati della Catalogna).
+    spagna = json.loads((DATI.parent / "spagna_licenze.json").read_text(encoding="utf-8"))["fonti"]
+    for k, f in spagna.items():
+        codice, corpo = scarica(f.get("url_impronta", f["url"]))
+        tipo, imp = impronta(corpo)
+        ok = codice == 200 and tipo == f["impronta_di"] and imp == f["impronta"]
+        cambiate += not ok
+        print(f"{'ok      ' if ok else 'CAMBIATA'} spagna/{k}: HTTP {codice} {f.get('url_impronta', f['url'])}")
     print(f"Fonti con impronta cambiata o non leggibile: {cambiate}")
 
 

@@ -1,0 +1,992 @@
+{
+ "_nota": "Sezione /spain-holiday-let-licence/ (5/11/2026). Fatti e fonti lette a mano il 5/11/2026 (impronta = ricetta di raccolta/impronte.py; url_impronta = indirizzo usato per l'impronta quando la pagina per le persone è un'applicazione JavaScript). I numeri sono in spagna_numeri.json (raccolta/spagna.py).",
+ "controllato_il": "2026-11-05",
+ "slug": "spain-holiday-let-licence/",
+ "sentenze": {
+  "date": [
+   "2026-05-19",
+   "2026-05-21",
+   "2026-06-01"
+  ],
+  "bollettini": [
+   "2026-06-08",
+   "2026-06-26",
+   "2026-07-18"
+  ],
+  "fonti": [
+   "ts_valencia",
+   "ts_apartur",
+   "ts_murcia"
+  ],
+  "articoli_annullati": "arts. 5, 8, 9, 10 and 12 b) and c), additional provision 2, and the parts of arts. 1, 2, 6 and final provision 1 that refer to the single registration procedure",
+  "nota_numero": "The BOE publishes the ruling part of the 19 May 2026 judgment without its number; the 21 May judgment is no. 629/2026."
+ },
+ "fonti": {
+  "ts_valencia": {
+   "titolo": "Supreme Court judgment of 19 May 2026 (appeal of the Generalitat Valenciana), BOE-A-2026-12300",
+   "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-12300",
+   "ente": "Boletín Oficial del Estado",
+   "formato": "BOE, 8 June 2026",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:ddbaf19c36a910af369ae91af71937cc81f628ecfc9cc979a080474874bc9097",
+   "impronta_di": "testo"
+  },
+  "ts_apartur": {
+   "titolo": "Supreme Court judgment 629/2026 of 21 May 2026 (appeal of Apartur and ATA) and correction order of 11 June 2026, BOE-A-2026-13893",
+   "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-13893",
+   "ente": "Boletín Oficial del Estado",
+   "formato": "BOE, 26 June 2026",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:af1e8c6b93f07a24007b8bba329fdfdf2929ddc0549668522c3e16967c133300",
+   "impronta_di": "testo"
+  },
+  "ts_murcia": {
+   "titolo": "Supreme Court judgment of 1 June 2026 (appeal of the Region of Murcia), BOE-A-2026-15677",
+   "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-15677",
+   "ente": "Boletín Oficial del Estado",
+   "formato": "BOE, 18 July 2026",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:3f2ed15f2e9c733cf827b8b16063bc235341e0be9f9ffd9df3f7ada0058c4797",
+   "impronta_di": "testo"
+  },
+  "rd1312": {
+   "titolo": "Royal Decree 1312/2024 (Registro Único de Arrendamientos and Ventanilla Única Digital de Arrendamientos), consolidated text",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2024-26931",
+   "ente": "Boletín Oficial del Estado",
+   "formato": "BOE consolidated text, last update 18 July 2026",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:0a6718a3349ae7a958f655609a368ca84de061edc0bbe280cc8cf7a1aaef6642",
+   "impronta_di": "testo"
+  },
+  "ine_metodo": {
+   "titolo": "INE, experimental statistics: number of tourist homes in Spain and their capacity (method)",
+   "url": "https://www.ine.es/experimental/viv_turistica/experimental_viv_turistica.htm",
+   "ente": "Instituto Nacional de Estadística",
+   "formato": "web page",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:4ed4e46748b9aa57d3b5006d0130aeb8b70ce1630b266a50d997682242ac5363",
+   "impronta_di": "testo"
+  },
+  "ine_39363": {
+   "titolo": "INE table 39363: tourist homes and bed places by municipality, May 2026",
+   "url": "https://www.ine.es/jaxiT3/Tabla.htm?t=39363",
+   "ente": "Instituto Nacional de Estadística",
+   "formato": "open data (JSON API)",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:57ef2f99e0e066d86d66827d188da36ab4e6a270189dee3a0424c4a6af8a3c21",
+   "impronta_di": "testo",
+   "url_impronta": "https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/39363?nult=1"
+  },
+  "ine_39366": {
+   "titolo": "INE table 39366: tourist homes as a percentage of all dwellings, by municipality, May 2026",
+   "url": "https://www.ine.es/jaxiT3/Tabla.htm?t=39366",
+   "ente": "Instituto Nacional de Estadística",
+   "formato": "open data (JSON API)",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:b89aed7f2fdee0d7f851a23949f86fe7d7665d28ae5ccc9025f796ae39eb6663",
+   "impronta_di": "testo",
+   "url_impronta": "https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/39366?nult=1"
+  },
+  "cv_ley": {
+   "titolo": "Ley 15/2018 de turismo, ocio y hospitalidad de la Comunitat Valenciana, consolidated text (arts. 19 and 65, amended by Decreto-ley 9/2024)",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2018-8950",
+   "ente": "Boletín Oficial del Estado",
+   "formato": "BOE consolidated text, last update 2 July 2026",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:4931dd7e96a1c00f629eb251b9d636d628eaf08680741e5cdf10dbd993b1e9f6",
+   "impronta_di": "testo"
+  },
+  "cv_dati": {
+   "titolo": "Generalitat Valenciana open data: tourist homes on the Registro de Turismo de la Comunitat Valenciana (tur-gestur-vt, CC BY 4.0, updated daily)",
+   "url": "https://dadesobertes.gva.es/es/dataset/tur-gestur-vt",
+   "ente": "Generalitat Valenciana",
+   "formato": "open data (CSV)",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:71b13ca3f29db9dc2d83db7c0b0acce3166a1a759fb442a9d25598ab6198a034",
+   "impronta_di": "testo"
+  },
+  "and_ley": {
+   "titolo": "Ley 13/2011 del Turismo de Andalucía, consolidated text (arts. 26 and 38)",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2012-876",
+   "ente": "Boletín Oficial del Estado",
+   "formato": "BOE consolidated text, last update 3 March 2025",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:3dc6e930efab843b8753c50eb5ff6dd33d711b4db17c7fdbe4356034234867aa",
+   "impronta_di": "testo"
+  },
+  "and_decreto": {
+   "titolo": "Decreto 28/2016 de las viviendas de uso turístico, consolidated text published by the Junta de Andalucía (amended by Decreto 31/2024, Decreto-ley 7/2024 and Decreto-ley 1/2025)",
+   "url": "https://www.juntadeandalucia.es/sites/default/files/inline-files/2025/04/Decreto%2028-2016%20de%202%20de%20febrero%20de%20las%20viviendas%20de%20uso%20turistico.pdf",
+   "ente": "Junta de Andalucía",
+   "formato": "PDF",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:0a6538a01525e8a8226905e6c5f30f45c4829571f8105b067c7e71651c2083f7",
+   "impronta_di": "file"
+  },
+  "and_pagina": {
+   "titolo": "Junta de Andalucía: Viviendas de uso turístico (forms and procedures)",
+   "url": "https://www.juntadeandalucia.es/organismos/turismojusticiadesregulacionyadministracionlocal/areas/turismo/registro-turismo/establecimientos-servicios/paginas/viviendas-turisticas.html",
+   "ente": "Junta de Andalucía",
+   "formato": "web page",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:60acff0090e2669b10fbe651cd937b0ecae005f9ed119af19ec9cb3c2f735af7",
+   "impronta_di": "testo"
+  },
+  "and_buscador": {
+   "titolo": "Junta de Andalucía: OPEN RTA search of registered tourist establishments and homes",
+   "url": "https://www.juntadeandalucia.es/organismos/turismojusticiadesregulacionyadministracionlocal/areas/turismo/registro-turismo/open-rta.html",
+   "ente": "Junta de Andalucía",
+   "formato": "web page",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:13ed0426a12b0780a9c4802eadebb100e4b05f8fbd085a16a99b2e447a09b225",
+   "impronta_di": "testo"
+  },
+  "and_dati": {
+   "titolo": "Junta de Andalucía open data: OPEN RTA, Registro de Turismo de Andalucía (CC BY 4.0)",
+   "url": "https://www.juntadeandalucia.es/datosabiertos/portal/dataset/openrta",
+   "ente": "Junta de Andalucía",
+   "formato": "open data (JSON)",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:c650856a5c9351a23ee5de47a493fa457f91ef93701037baa9f40db71ba33d4f",
+   "impronta_di": "testo",
+   "nota": "The file also contains holders' names, emails and phone numbers: we use only counts by municipality and month."
+  },
+  "cat_ley": {
+   "titolo": "Ley 13/2002 de turismo de Cataluña, consolidated text (arts. 50 bis and 73)",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2002-14081",
+   "ente": "Boletín Oficial del Estado",
+   "formato": "BOE consolidated text, last update 17 March 2023",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:8e3289433e2885eb364b2b686e29d2e1c00e4fc3ac47f31ac742c1683ffa140d",
+   "impronta_di": "testo"
+  },
+  "cat_dl": {
+   "titolo": "Decreto-ley 3/2023 de medidas urgentes sobre el régimen urbanístico de las viviendas de uso turístico (Catalonia), consolidated text with the list of 262 municipalities",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2024-281",
+   "ente": "Boletín Oficial del Estado",
+   "formato": "BOE consolidated text",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:1c94455b0c515a55f41e4d502bcc0b5c32f0acaca62e72cd42d09b2a8e8e0f34",
+   "impronta_di": "testo"
+  },
+  "cat_dati": {
+   "titolo": "Generalitat de Catalunya open data: tourist accommodation on the Registre de Turisme de Catalunya",
+   "url": "https://analisi.transparenciacatalunya.cat/d/t2h3-cgys",
+   "ente": "Generalitat de Catalunya",
+   "formato": "open data",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:5eae1db642498f54878adc471403e7eb25003ba91f2428fb61074c3f5cf6acfd",
+   "impronta_di": "testo",
+   "url_impronta": "https://analisi.transparenciacatalunya.cat/api/views/t2h3-cgys.json",
+   "nota": "The register also lists holders' names: we use only counts by municipality."
+  },
+  "bal_ley": {
+   "titolo": "Ley 8/2012 del Turismo de las Illes Balears, consolidated text (arts. 23, 28, 50 and 120)",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2012-10610",
+   "ente": "Boletín Oficial del Estado",
+   "formato": "BOE consolidated text, last update 13 June 2026",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:00ff5873910ae22268d741148777756d3dbb84adda780d7b3428efbaa22aa867",
+   "impronta_di": "testo"
+  },
+  "can_ley": {
+   "titolo": "Ley 6/2025 de Ordenación Sostenible del Uso Turístico de Viviendas (Canary Islands), consolidated text (art. 8)",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2025-26358",
+   "ente": "Boletín Oficial del Estado",
+   "formato": "BOE consolidated text",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:aa4742741d432d6c132f727815a39e0dee1aedc1a5089fc77abd626d21799e76",
+   "impronta_di": "testo"
+  },
+  "can_ley1995": {
+   "titolo": "Ley 7/1995 de Ordenación del Turismo de Canarias, consolidated text (art. 75)",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1995-12102",
+   "ente": "Boletín Oficial del Estado",
+   "formato": "BOE consolidated text, last update 12 May 2026",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:de4f97e9f4719ab07c740d2a4976e59986037a735feb023ed912384f00ee0b93",
+   "impronta_di": "testo"
+  },
+  "mad_decreto": {
+   "titolo": "Decreto 79/2014 (apartamentos turísticos y viviendas de uso turístico de la Comunidad de Madrid), BOCM 31 July 2014",
+   "url": "https://www.bocm.es/boletin/CM_Orden_BOCM/2014/07/31/BOCM-20140731-1.PDF",
+   "ente": "Boletín Oficial de la Comunidad de Madrid",
+   "formato": "PDF",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:7e6122b674cd9142214ae8088f4c7aa64a669cba4f42b638e8e83e5041c50934",
+   "impronta_di": "file"
+  },
+  "mad_decreto2019": {
+   "titolo": "Decreto 29/2019 amending Decreto 79/2014 (new art. 17 and 17 bis, CIVUT), BOCM 12 April 2019",
+   "url": "https://www.bocm.es/boletin/CM_Orden_BOCM/2019/04/12/BOCM-20190412-1.PDF",
+   "ente": "Boletín Oficial de la Comunidad de Madrid",
+   "formato": "PDF",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:7fbda432f300b1af605018241ca7ed530260526b266a1f16764dabbbee7cc2ee",
+   "impronta_di": "file"
+  },
+  "mad_ley": {
+   "titolo": "Ley 1/1999 de Ordenación del Turismo de la Comunidad de Madrid, consolidated text (art. 23)",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1999-12089",
+   "ente": "Boletín Oficial del Estado",
+   "formato": "BOE consolidated text, last update 15 June 2026",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "sha256:9bb1d82309cd487abd8b6a17de642d46ab659d7521d54ce257081c14cb6f5552",
+   "impronta_di": "testo"
+  }
+ },
+ "regioni": [
+  {
+   "id": "cv",
+   "slug": "comunitat-valenciana",
+   "nome": "Valencian Community",
+   "nome_breve": "Valencia region",
+   "nome_locale": "Comunitat Valenciana",
+   "ine": "10",
+   "registro": "Registro de Turismo de la Comunitat Valenciana",
+   "numero": "CV-VUT…",
+   "numero_esempio": "CV-VUT0000000-A",
+   "dati": "gva",
+   "annunci": "si",
+   "annunci_testo": "Valencian law requires holiday homes to show their exact location and their Registro de Turismo number in all advertising (Ley 15/2018, art. 19.1 b).",
+   "annunci_fonte": "cv_ley",
+   "punti": [
+    [
+     "Only whole homes can be let as viviendas de uso turístico, for stays of up to 10 days in a row with the same guest; letting rooms to tourists is prohibited (art. 65.1 and 65.3).",
+     "cv_ley"
+    ],
+    [
+     "The home needs a favourable municipal report on urban-planning compatibility for tourist use (informe municipal de compatibilidad urbanística) and, where required, the municipal permits for that use (art. 65.1).",
+     "cv_ley"
+    ],
+    [
+     "The cadastral reference of the home must appear in the declaration to the register and in the letting contracts (art. 65.1).",
+     "cv_ley"
+    ],
+    [
+     "Registration of a tourist home on the Registro de Turismo is valid for 5 years, with the exceptions set in the law and its implementing decree (art. 65.4).",
+     "cv_ley"
+    ],
+    [
+     "Article 65 was amended by Decreto-ley 9/2024 of 2 August (note in the consolidated text on BOE).",
+     "cv_ley"
+    ]
+   ],
+   "verifica": [
+    "Generalitat Valenciana open data: the list of registered tourist homes, updated daily, with each CV-VUT number",
+    "cv_dati"
+   ],
+   "fonti": [
+    "cv_ley",
+    "cv_dati"
+   ],
+   "risposta": "To let a home to tourists in the Valencian Community you must declare it to the regional tourism administration and have it on the Registro de Turismo de la Comunitat Valenciana, with a favourable municipal planning report (Ley 15/2018, arts. 19 and 65"
+  },
+  {
+   "id": "and",
+   "slug": "andalusia",
+   "nome": "Andalusia",
+   "nome_breve": "Andalusia",
+   "nome_locale": "Andalucía",
+   "ine": "01",
+   "registro": "Registro de Turismo de Andalucía (RTA)",
+   "numero": "VUT/MA/…, VUT/SE/… (province letters)",
+   "numero_esempio": "VUT/MA/00000",
+   "dati": "rta",
+   "annunci": "contratto",
+   "annunci_testo": "Andalusian rules require the home's alphanumeric RTA code on the document given to every guest on arrival (Decreto 28/2016, art. 7.1), and tourism businesses must make their RTA registration details available to guests (Ley 13/2011, art. 26.1 b). The texts we read do not set a separate rule on adverts.",
+   "annunci_fonte": "and_decreto",
+   "punti": [
+    [
+     "Before starting, the host files an electronic declaración responsable with the regional tourism department; from that moment the home may be advertised as a vivienda de uso turístico (Decreto 28/2016, art. 9.1).",
+     "and_decreto"
+    ],
+    [
+     "The declaration states that the home is compatible with local urban planning and has, where required, the licence or declaration for change of use (art. 9.1 e).",
+     "and_decreto"
+    ],
+    [
+     "It also states that the community of owners does not prohibit tourist use and has expressly authorised it in the terms required by state law (art. 9.1 g).",
+     "and_decreto"
+    ],
+    [
+     "Town halls may set limits on the maximum number of tourist homes per building, sector, area or zone, for an overriding reason of general interest (art. 2.2).",
+     "and_decreto"
+    ],
+    [
+     "Only one home per cadastral reference can be registered, except where several homes legally share one (art. 9.1 a).",
+     "and_decreto"
+    ],
+    [
+     "Registration on the RTA is done on the basis of the declaration, and filing it is enough to start the activity (Ley 13/2011, art. 38.2).",
+     "and_ley"
+    ]
+   ],
+   "verifica": [
+    "Junta de Andalucía: OPEN RTA search (filter by activity 'viviendas de uso turístico')",
+    "and_buscador"
+   ],
+   "fonti": [
+    "and_decreto",
+    "and_ley",
+    "and_pagina",
+    "and_buscador",
+    "and_dati"
+   ],
+   "risposta": "To let a home to tourists in Andalusia you must file an electronic declaración responsable, which puts the home on the Registro de Turismo de Andalucía (Decreto 28/2016, art. 9, and Ley 13/2011, art. 38"
+  },
+  {
+   "id": "cat",
+   "slug": "catalonia",
+   "nome": "Catalonia",
+   "nome_breve": "Catalonia",
+   "nome_locale": "Catalunya",
+   "ine": "09",
+   "registro": "Registre de Turisme de Catalunya",
+   "numero": "HUTB-…, HUTG-…, HUTT-…, HUTL-… (Barcelona, Girona, Tarragona, Lleida)",
+   "numero_esempio": "HUTB-000000",
+   "dati": "cat",
+   "annunci": "si",
+   "annunci_testo": "Catalan law requires the Registre de Turisme number of tourist accommodation in all advertising, promotion and marketing (Ley 13/2002, art. 73.5).",
+   "annunci_fonte": "cat_ley",
+   "punti": [
+    [
+     "Tourist homes (habitatges d'ús turístic, HUT) are let whole, never by the room, and need the enabling title required by law before they are offered, marketed or advertised (Ley 13/2002, art. 50 bis).",
+     "cat_ley"
+    ],
+    [
+     "In the 262 municipalities listed in Decreto-ley 3/2023 (among them Barcelona, Salou, Sitges, Lloret de Mar, Cambrils, Girona and Tarragona), tourist use of a home needs a prior urban-planning licence, valid for five years (art. 1 and annex).",
+     "cat_dl"
+    ],
+    [
+     "Tourist homes already authorised in those municipalities on 9 November 2023 must obtain that licence within five years or stop the activity; the holder can ask the town hall once for an extension of up to five more years (transitional provision 2).",
+     "cat_dl"
+    ]
+   ],
+   "verifica": [
+    "Generalitat de Catalunya open data: the Registre de Turisme de Catalunya list, with each HUT number",
+    "cat_dati"
+   ],
+   "fonti": [
+    "cat_ley",
+    "cat_dl",
+    "cat_dati"
+   ],
+   "risposta": "To let a home to tourists in Catalonia you need the enabling title and a number on the Registre de Turisme de Catalunya, plus an urban-planning licence in 262 municipalities (Ley 13/2002, arts. 50 bis and 73, and Decreto-ley 3/2023"
+  },
+  {
+   "id": "bal",
+   "slug": "balearic-islands",
+   "nome": "Balearic Islands",
+   "nome_breve": "Balearic Islands",
+   "nome_locale": "Illes Balears",
+   "ine": "04",
+   "registro": "insular tourism registers (Mallorca, Menorca, Ibiza, Formentera)",
+   "numero": "número de inscripción turística",
+   "numero_esempio": "",
+   "dati": null,
+   "annunci": "si",
+   "annunci_testo": "All advertising of holiday homes must include the home's tourist registration number (Ley 8/2012, art. 28.3); advertising or marketing stays without it is a very serious offence for the channels that publish it (art. 120 j).",
+   "annunci_fonte": "bal_ley",
+   "punti": [
+    [
+     "The host files a declaración responsable de inicio de actividad turística (DRIAT); filing it leads to immediate registration in the island's register (Ley 8/2012, art. 23.6).",
+     "bal_ley"
+    ],
+    [
+     "Until the number is issued, the entry number of the DRIAT in a public register may be used in adverts (art. 23.7).",
+     "bal_ley"
+    ],
+    [
+     "New DRIATs for tourist stays in homes can only be filed for homes in zones expressly declared suitable (zonas aptas) (art. 50.3).",
+     "bal_ley"
+    ],
+    [
+     "For homes in buildings under horizontal property, the DRIAT is valid for the period set by regulation, five years by default, renewable while the requirements are still met (art. 50.3).",
+     "bal_ley"
+    ]
+   ],
+   "verifica": null,
+   "fonti": [
+    "bal_ley"
+   ],
+   "risposta": "To let a home to tourists in the Balearic Islands you must file a DRIAT, which puts the home on the island's tourism register, and new homes are only allowed in zones declared suitable (Ley 8/2012, arts. 23 and 50"
+  },
+  {
+   "id": "can",
+   "slug": "canary-islands",
+   "nome": "Canary Islands",
+   "nome_breve": "Canary Islands",
+   "nome_locale": "Canarias",
+   "ine": "05",
+   "registro": "Registro General Turístico de Canarias (through the island Cabildo)",
+   "numero": "registration number on the Registro General Turístico",
+   "numero_esempio": "",
+   "dati": null,
+   "annunci": "si",
+   "annunci_testo": "The registration on the Registro General Turístico contains a registration number that must be included in any advert or listing of the home, on platforms or elsewhere (Ley 6/2025, art. 8.6); advertising without it is a very serious offence (Ley 7/1995, art. 75.16).",
+   "annunci_fonte": "can_ley",
+   "punti": [
+    [
+     "Ley 6/2025 on the sustainable tourist use of homes came into force on 13 December 2025 (BOE consolidated text).",
+     "can_ley"
+    ],
+    [
+     "The host files a declaración responsable with all required documents; the activity may start on the day of filing, and the island Cabildo registers it on the Registro General Turístico (art. 8.1).",
+     "can_ley"
+    ],
+    [
+     "Registration does not validate the activity: the Cabildo and the Government of the Canary Islands keep their powers to check, inspect and sanction (art. 8.2).",
+     "can_ley"
+    ]
+   ],
+   "verifica": null,
+   "fonti": [
+    "can_ley",
+    "can_ley1995"
+   ],
+   "risposta": "To let a home to tourists in the Canary Islands you must file a declaración responsable with the island Cabildo, which registers the home on the Registro General Turístico with a registration number (Ley 6/2025, art. 8"
+  },
+  {
+   "id": "mad",
+   "slug": "madrid-region",
+   "nome": "Community of Madrid",
+   "nome_breve": "Madrid region",
+   "nome_locale": "Comunidad de Madrid",
+   "ine": "13",
+   "registro": "Registro de Empresas Turísticas de la Comunidad de Madrid",
+   "numero": "Registro de Empresas Turísticas reference",
+   "numero_esempio": "",
+   "dati": null,
+   "annunci": "annullato",
+   "annunci_testo": "The 2014 rule that required the register number in every advert (Decreto 79/2014, art. 17.5) was annulled by the Supreme Court in judgment 1741/2018, as the preamble of Decreto 29/2019 states; the new art. 17 does not contain it.",
+   "annunci_fonte": "mad_decreto2019",
+   "punti": [
+    [
+     "Owners of tourist homes (or their representatives) must file a declaración responsable with the regional tourism department, together with the CIVUT, the certificate of suitability for tourist use (Decreto 79/2014, art. 17.1 as amended in 2019).",
+     "mad_decreto2019"
+    ],
+    [
+     "After the declaration, registration on the Registro de Empresas Turísticas follows art. 23 of Ley 1/1999 (art. 17.3); that article describes the register as public and registration as voluntary (Ley 1/1999, art. 23.2).",
+     "mad_ley"
+    ],
+    [
+     "In buildings under horizontal property, tourist use can be limited or conditioned under the Ley de Propiedad Horizontal (art. 17.5 as amended in 2019).",
+     "mad_decreto2019"
+    ],
+    [
+     "The 2016 regional court judgment 302/2016 annulled the 5-night minimum of the original decree (preamble of Decreto 29/2019).",
+     "mad_decreto2019"
+    ]
+   ],
+   "verifica": null,
+   "fonti": [
+    "mad_decreto2019",
+    "mad_decreto",
+    "mad_ley"
+   ],
+   "risposta": "To let a home to tourists in the Community of Madrid you must file a declaración responsable, together with the CIVUT certificate of suitability, with the regional tourism department (Decreto 79/2014, art. 17, as amended by Decreto 29/2019"
+  }
+ ],
+ "comuni": [
+  {
+   "slug": "torrevieja",
+   "nome": "Torrevieja",
+   "ine": "03133",
+   "regione": "cv",
+   "registro": "gva",
+   "domanda": {
+    "es/es licencia turistica torrevieja": [
+     "licencia turistica torrevieja",
+     "solicitar licencia turistica torrevieja",
+     "pisos con licencia turistica torrevieja"
+    ],
+    "gb/en tourist licence": [
+     "tourist licence spain",
+     "tourist licence spain requirements",
+     "tourist licence cyprus",
+     "tourist licence",
+     "tourist licence andalucia",
+     "tourist licence alicante",
+     "tourist licence murcia 2025",
+     "tourist licence torrevieja",
+     "tourist licence murcia",
+     "tourist licence menorca"
+    ]
+   }
+  },
+  {
+   "slug": "benidorm",
+   "nome": "Benidorm",
+   "ine": "03031",
+   "regione": "cv",
+   "registro": "gva",
+   "domanda": {
+    "es/es licencia turistica benidorm": [
+     "licencia turistica benidorm",
+     "licencia turística benidorm 2025",
+     "piso licencia turística benidorm",
+     "coste licencia turística benidorm"
+    ]
+   }
+  },
+  {
+   "slug": "alicante",
+   "nome": "Alicante",
+   "ine": "03014",
+   "regione": "cv",
+   "registro": "gva",
+   "domanda": {
+    "es/es licencia turistica alicante": [
+     "licencia turistica alicante",
+     "licencia turística alicante precio",
+     "pisos licencia turistica alicante",
+     "idealista licencia turistica alicante",
+     "comprobar licencia turistica alicante",
+     "solicitar licencia turistica alicante",
+     "licencia vivienda turistica alicante",
+     "venta piso licencia turistica alicante",
+     "apartamentos con licencia turistica alicante",
+     "casas con licencia turistica alicante"
+    ],
+    "gb/en tourist licence spain": [
+     "tourist licence spain",
+     "tourist licence spain requirements",
+     "tourist licence spain check",
+     "tourist licence spain alicante",
+     "tourist licence spain cost",
+     "tourist laws in spain",
+     "new tourist licence spain",
+     "tourist rental licence spain",
+     "apply for tourist licence spain",
+     "how much is a tourist licence in spain"
+    ]
+   }
+  },
+  {
+   "slug": "valencia",
+   "nome": "Valencia",
+   "ine": "46250",
+   "regione": "cv",
+   "registro": "gva",
+   "domanda": {
+    "es/es licencia turistica valencia": [
+     "licencia turistica valencia",
+     "licencia turistica valencia idealista",
+     "licencia turística comunidad valenciana",
+     "pisos licencia turistica valencia",
+     "licencia turistica generalitat valenciana",
+     "precio licencia turística valencia",
+     "comprobar licencia turistica valencia",
+     "pedir licencia turistica valencia",
+     "licencia vivienda turistica valencia",
+     "obtener licencia turistica valencia"
+    ]
+   }
+  },
+  {
+   "slug": "calpe",
+   "nome": "Calpe (Calp)",
+   "ine": "03047",
+   "regione": "cv",
+   "registro": "gva",
+   "domanda": {
+    "es/es licencia turistica calpe": [
+     "licencia turistica calpe",
+     "pisos con licencia turistica calpe"
+    ]
+   }
+  },
+  {
+   "slug": "denia",
+   "nome": "Dénia",
+   "ine": "03063",
+   "regione": "cv",
+   "registro": "gva",
+   "domanda": {
+    "es/es licencia turistica denia": [
+     "licencia turistica denia",
+     "solicitar licencia turistica denia",
+     "pisos con licencia turistica denia"
+    ]
+   }
+  },
+  {
+   "slug": "javea",
+   "nome": "Jávea (Xàbia)",
+   "ine": "03082",
+   "regione": "cv",
+   "registro": "gva",
+   "domanda": {
+    "es/es licencia turistica javea": [
+     "licencia turistica javea"
+    ]
+   }
+  },
+  {
+   "slug": "orihuela",
+   "nome": "Orihuela (Orihuela Costa)",
+   "ine": "03099",
+   "regione": "cv",
+   "registro": "gva",
+   "domanda": {
+    "es/es licencia turistica orihuela costa": [
+     "licencia turistica orihuela costa"
+    ],
+    "gb/en tourist licence costa": [
+     "tourist licence orihuela costa",
+     "tourist license costa del sol",
+     "costa permit review",
+     "how much does it cost to get a drivers license in spain",
+     "does a tour guide need a license"
+    ]
+   }
+  },
+  {
+   "slug": "malaga",
+   "nome": "Málaga",
+   "ine": "29067",
+   "regione": "and",
+   "registro": "rta",
+   "domanda": {
+    "es/es licencia turistica malaga": [
+     "licencia turistica malaga",
+     "licencia turistica malaga idealista",
+     "pisos licencia turistica malaga",
+     "solicitar licencia turistica malaga",
+     "licencia vivienda turistica malaga",
+     "requisitos licencia turistica.malaga",
+     "solicitud licencia turistica malaga",
+     "comprobar licencia turistica malaga",
+     "casas con licencia turistica malaga",
+     "venta piso licencia turistica malaga"
+    ]
+   }
+  },
+  {
+   "slug": "marbella",
+   "nome": "Marbella",
+   "ine": "29069",
+   "regione": "and",
+   "registro": "rta",
+   "domanda": {
+    "es/es licencia turistica marbella": [
+     "licencia turistica marbella",
+     "solicitar licencia turistica marbella",
+     "pisos con licencia turistica marbella"
+    ]
+   }
+  },
+  {
+   "slug": "seville",
+   "nome": "Seville",
+   "ine": "41091",
+   "regione": "and",
+   "registro": "rta",
+   "domanda": {
+    "es/es licencia turistica sevilla": [
+     "licencia turistica sevilla",
+     "licencia turistica sevilla idealista",
+     "pisos licencia turistica sevilla",
+     "licencia vivienda turistica sevilla",
+     "requisitos licencia turistica sevilla",
+     "solicitar licencia turistica sevilla",
+     "comprar piso licencia turistica sevilla",
+     "apartamento con licencia turistica sevilla",
+     "idealista pisos con licencia turistica sevilla",
+     "comprar vivienda con licencia turistica sevilla"
+    ]
+   }
+  },
+  {
+   "slug": "mijas",
+   "nome": "Mijas",
+   "ine": "29070",
+   "regione": "and",
+   "registro": "rta",
+   "domanda": {
+    "es/es licencia turistica mijas": [
+     "licencia turistica mijas"
+    ]
+   }
+  },
+  {
+   "slug": "benalmadena",
+   "nome": "Benalmádena",
+   "ine": "29025",
+   "regione": "and",
+   "registro": "rta",
+   "domanda": {
+    "es/es licencia turistica benalmadena": [
+     "licencia turistica benalmadena",
+     "pisos licencia turistica benalmadena"
+    ]
+   }
+  },
+  {
+   "slug": "estepona",
+   "nome": "Estepona",
+   "ine": "29051",
+   "regione": "and",
+   "registro": "rta",
+   "domanda": {
+    "es/es licencia turistica estepona": [
+     "licencia turistica estepona",
+     "piso con licencia turistica estepona"
+    ]
+   }
+  },
+  {
+   "slug": "nerja",
+   "nome": "Nerja",
+   "ine": "29075",
+   "regione": "and",
+   "registro": "rta",
+   "domanda": {
+    "es/es licencia turistica nerja": [
+     "licencia turistica nerja"
+    ]
+   }
+  },
+  {
+   "slug": "granada",
+   "nome": "Granada",
+   "ine": "18087",
+   "regione": "and",
+   "registro": "rta",
+   "domanda": {
+    "es/es licencia turistica granada": [
+     "licencia turistica granada",
+     "pisos licencia turistica granada",
+     "comprar piso licencia turistica granada"
+    ]
+   }
+  },
+  {
+   "slug": "barcelona",
+   "nome": "Barcelona",
+   "ine": "08019",
+   "regione": "cat",
+   "registro": "cat",
+   "domanda": {
+    "es/es licencia turistica barcelona": [
+     "licencia turistica barcelona",
+     "licencia turistica barcelona 2028",
+     "traspaso licencia turística barcelona",
+     "piso licencia turistica barcelona",
+     "caducidad licencia turística barcelona",
+     "comprobar licencia turistica barcelona",
+     "idealista licencia turistica barcelona",
+     "conseguir licencia turistica barcelona",
+     "venta licencia turistica barcelona",
+     "precio licencia turistica barcelona"
+    ]
+   }
+  },
+  {
+   "slug": "salou",
+   "nome": "Salou",
+   "ine": "43905",
+   "regione": "cat",
+   "registro": "cat",
+   "domanda": {
+    "es/es licencia turistica": [
+     "licencia turistica junta de andalucia",
+     "licencia turistica andalucia",
+     "licencia turistica cataluña",
+     "licencia turistica gva",
+     "licencia turistica valencia",
+     "licencia turistica menorca",
+     "licencia turistica malaga",
+     "licencia turistica salou",
+     "licencia turistica madrid",
+     "licencia turistica barcelona"
+    ]
+   }
+  },
+  {
+   "slug": "madrid",
+   "nome": "Madrid",
+   "ine": "28079",
+   "regione": "mad",
+   "registro": null,
+   "domanda": {
+    "es/es licencia turistica madrid": [
+     "licencia turistica madrid",
+     "licencia turistica madrid requisitos",
+     "licencia turistica madrid idealista",
+     "pisos licencia turistica madrid",
+     "licencia vivienda turistica madrid",
+     "solicitar licencia turistica madrid",
+     "comprobar licencia turistica madrid",
+     "obtener licencia turistica madrid",
+     "airbnb sin licencia turística madrid",
+     "licencia turística ayuntamiento de madrid"
+    ]
+   }
+  },
+  {
+   "slug": "palma",
+   "nome": "Palma (Mallorca)",
+   "ine": "07040",
+   "regione": "bal",
+   "registro": null,
+   "domanda": {
+    "es/es licencia turistica mallorca": [
+     "licencia turistica mallorca",
+     "licencia turistica mallorca idealista",
+     "casa licencia turistica mallorca",
+     "comprobar licencia turistica mallorca",
+     "piso licencia turistica mallorca",
+     "venta licencia turistica mallorca",
+     "renovacion licencia turistica mallorca",
+     "casa licencia turistica mallorca idealista",
+     "venta casa licencia turistica mallorca",
+     "licencia turistica palma de mallorca"
+    ],
+    "es/es licencia turistica palma": [
+     "licencia turistica palma de mallorca"
+    ]
+   }
+  }
+ ],
+ "domanda": {
+  "_nota": "Autocomplete Google del 5/11/2026 (suggestqueries.google.com, client=firefox; gl=es hl=es e gl=gb hl=en). Elenco completo con i suggerimenti.",
+  "query": {
+   "gb/en holiday let licence spain": [
+    "holiday rental licence spain",
+    "how to get a tourist licence in spain"
+   ],
+   "gb/en tourist licence spain": [
+    "tourist licence spain",
+    "tourist licence spain requirements",
+    "tourist licence spain check",
+    "tourist licence spain alicante",
+    "tourist licence spain cost",
+    "tourist laws in spain",
+    "new tourist licence spain",
+    "tourist rental licence spain",
+    "apply for tourist licence spain",
+    "how much is a tourist licence in spain"
+   ],
+   "gb/en tourist licence": [
+    "tourist licence spain",
+    "tourist licence spain requirements",
+    "tourist licence cyprus",
+    "tourist licence",
+    "tourist licence andalucia",
+    "tourist licence alicante",
+    "tourist licence murcia 2025",
+    "tourist licence torrevieja",
+    "tourist licence murcia",
+    "tourist licence menorca"
+   ],
+   "gb/en spain tourist licence": [
+    "spain tourist licence",
+    "spanish tourist licence andalucia",
+    "spanish tourist licence murcia",
+    "check spanish tourist licence",
+    "check spanish tourist licence online free",
+    "check spanish tourist licence online",
+    "check spanish tourist licence valencia online free",
+    "spanish tourist rental licence",
+    "tourist licence spain requirements",
+    "tourist licence spain alicante"
+   ],
+   "gb/en airbnb registration number spain": [
+    "airbnb registration number spain",
+    "airbnb national registration number spain",
+    "airbnb registration number",
+    "airbnb contact number spain",
+    "airbnb support number spain",
+    "airbnb registration requirements"
+   ],
+   "gb/en spain rental licence": [
+    "spanish rental licence",
+    "spanish property rental licence",
+    "spanish holiday rental licence",
+    "spanish tourist rental licence",
+    "can you rent a car in spain without an international driver's license",
+    "how to get a tourist licence in spain"
+   ],
+   "es/es licencia turistica": [
+    "licencia turistica junta de andalucia",
+    "licencia turistica andalucia",
+    "licencia turistica cataluña",
+    "licencia turistica gva",
+    "licencia turistica valencia",
+    "licencia turistica menorca",
+    "licencia turistica malaga",
+    "licencia turistica salou",
+    "licencia turistica madrid",
+    "licencia turistica barcelona"
+   ],
+   "es/es licencia vivienda turistica": [
+    "licencia vivienda turistica comunidad valenciana",
+    "licencia vivienda turistica andalucia",
+    "licencia vivienda turistica",
+    "licencia vivienda turistica junta de andalucia",
+    "licencia vivienda turistica madrid",
+    "licencia vivienda turistica galicia",
+    "licencia vivienda turistica cantabria",
+    "licencia vivienda turistica asturias",
+    "licencia vivienda turística bilbao",
+    "licencia vivienda turistica sevilla"
+   ],
+   "es/es comprobar licencia turistica": [
+    "comprobar licencia turistica",
+    "comprobar licencia turistica andalucia",
+    "comprobar licencia turistica gva",
+    "comprobar licencia turistica junta de andalucia",
+    "comprobar licencia turistica catalunya",
+    "comprobar licencia turistica menorca",
+    "comprobar licencia turistica valencia",
+    "comprobar licencia turistica barcelona",
+    "comprobar licencia turistica murcia",
+    "comprobar licencia turistica alicante"
+   ],
+   "es/es registro unico arrendamientos": [
+    "registro unico arrendamientos",
+    "registro unico arrendamientos corta duracion",
+    "registro unico arrendamientos turisticos",
+    "registro único de arrendamientos rua",
+    "registro único de arrendamientos turísticos y temporales",
+    "registro único de arrendamientos (mrua)",
+    "registro único de arrendamientos y ventanilla única digital",
+    "registro unico de arrendamientos junta de andalucia",
+    "registro único de arrendamientos rau",
+    "rd registro unico arrendamientos"
+   ],
+   "es/es numero registro unico alquiler turistico": [
+    "numero registro unico alquiler turistico",
+    "como obtener el numero de registro unico de alquiler turistico"
+   ],
+   "es/es sentencia supremo registro unico": [
+    "sentencia supremo registro unico"
+   ]
+  }
+ }
+}
