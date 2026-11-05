@@ -1033,10 +1033,10 @@ ES_DOMINI = ("https://www.boe.es/", "https://www.ine.es/", "https://servicios.in
 ES_REGOLE = {  # frasi che devono comparire nelle pagine delle Comunità, lette nei testi ufficiali il 5/11/2026
     "comunitat-valenciana": ("art. 19.1 b", "up to 10 days", "valid for 5 years", "informe municipal de compatibilidad urbanística"),
     "andalusia": ("art. 7.1", "do not set a separate rule on adverts", "art. 2.2", "expressly authorised"),
-    "catalonia": ("art. 73.5", "262 municipalities", "9 November 2023", "five years"),
-    "balearic-islands": ("art. 28.3", "art. 120 j", "zonas aptas", "art. 23.7"),
+    "catalonia": ("art. 73.5", "262 municipalities", "9 November 2023", "by 9 November 2028", "between November 2027", "updated on 5 October 2026"),
+    "balearic-islands": ("art. 28.3", "art. 120 j", "zonas aptas", "provisionally delimited", "art. 23.7", "island Consell"),
     "canary-islands": ("art. 8.6", "art. 75.16", "13 December 2025"),
-    "madrid-region": ("1741/2018", "CIVUT", "voluntary"),
+    "madrid-region": ("1741/2018", "CIVUT", "voluntary", "5-day minimum stay", "regional tourism administration"),
 }
 
 
@@ -1128,6 +1128,8 @@ def controlla_spagna():
             errori.append(f"Spagna: email o telefono nel testo di {pag}")
         if "620/2026" in vis:
             errori.append(f"Spagna: numero di sentenza 620/2026 non presente sul BOE, in {pag}")
+        if "datas" in vis or "regional or island" in vis or ("madrid" in pag and "island" in vis):
+            errori.append(f"Spagna: testo da correggere ('datas', 'regional or island' o isole nelle pagine di Madrid) in {pag}")
         if "Not legal advice." not in vis:
             errori.append(f"Spagna: manca l'avviso 'Not legal advice' in {pag}")
         if re.search(r"\b(guarantee|guaranteed|we will get|100% legal)\b", vis, re.I):
@@ -1141,6 +1143,11 @@ def controlla_spagna():
         for frase in ES_REGOLE[R["slug"]]:
             if frase not in vis:
                 errori.append(f"Spagna: '{frase}' manca nella pagina {R['slug']}")
+    vis = G.MON.testo_visibile(indice)
+    for frase in ("published in the BOE on 8 June, 26 June and 18 July 2026", "with reference dates in May and November",
+                  "Where the regional law requires it", "competent authorities for the sectoral rules on tourist lets (art. 12 d)"):
+        if frase not in vis:
+            errori.append(f"Spagna: '{frase}' manca nell'indice")
     for c in ES["comuni"]:
         t = (SITO / G.ES_SLUG / c["slug"] / "index.html").read_text(encoding="utf-8")
         titolo = unescape(re.search(r"<title>(.*?)</title>", t).group(1))

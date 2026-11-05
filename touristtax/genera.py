@@ -2963,7 +2963,7 @@ def es_fonte(chiavi, etichetta="Official source"):
     """Riga fonte come nel resto del sito: 'Official source: <link> · checked on <data>'."""
     chiavi = list(dict.fromkeys(chiavi))
     data = data_lunga(max(ES_F[k]["controllato_il"] for k in chiavi))
-    eti = etichetta + ("s" if len(chiavi) > 1 and not etichetta.endswith("s") else "")
+    eti = etichetta + ("s" if len(chiavi) > 1 and etichetta.endswith("source") else "")
     return f'<p class="fonte">{eti}: ' + " · ".join(es_link(k) for k in chiavi) + f" · checked on {data}</p>"
 
 
@@ -3008,7 +3008,7 @@ def es_tabella_mesi(serie):
 ES_NOTA_SERIE = ("The register lists the homes that are registered today, with their registration date. A home registered in a month and removed later "
                  "is not counted, so these figures show homes added in each month that are still on the register.")
 ES_NOTA_INE = ("INE (Spain's national statistics institute) counts tourist homes listed on the three most used accommodation platforms in Spain, by web scraping "
-               "and removing duplicates; it publishes the count twice a year (May and November). It is a different measure from the regional register, "
+               "and removing duplicates; it publishes the count twice a year, with reference dates in May and November. It is a different measure from the regional register, "
                "which also includes homes that are not advertised.")
 
 
@@ -3018,6 +3018,19 @@ def es_ine_frase(cod, nome):
         return ""
     return (f"INE counted {es_n(d['case'])} tourist homes with {es_n(d['posti'])} bed places in {nome} in {ES_INE_MESE}"
             + (f", {es_pct(d['pct'])} of all dwellings" if d.get("pct") is not None else "") + ".")
+
+
+ES_CHI_VERIFICA = {"bal": "the island Consell (the tourism administration of each island)", "can": "the island Cabildo"}
+
+
+def es_chi(R):
+    """A chi chiedere di controllare un numero quando non c'è una ricerca pubblica: isola solo dove vale (Baleari, Canarie)."""
+    return ES_CHI_VERIFICA.get(R["id"], "the regional tourism administration")
+
+
+def es_agg(reg):
+    """', updated on …' per il registro catalano (data del dataset), vuoto per gli altri (aggiornati ogni giorno)."""
+    return f", updated on {data_lunga(ESN['cat']['aggiornato'])}" if reg == "cat" else ""
 
 
 def es_reg_totale(R):
@@ -3041,7 +3054,7 @@ def es_risposta():
     con = [es_in(ES_REG[k]) for k in ("cv", "cat", "bal", "can")]
     return (f"In Spain the registration number for a holiday let comes from the regional tourism register: the Supreme Court annulled the national "
             f"Registro Único de Arrendamientos procedure in judgments of {data_lunga(s['date'][0])}, {data_lunga(s['date'][1])} and {data_lunga(s['date'][2])} "
-            f"(BOE, {data_lunga(s['bollettini'][0])}), and the laws of {', '.join(con[:-1])} and {con[-1]} require the regional number in every advert "
+            f"(published in the BOE on {data_lunga(s['bollettini'][0])[:-5]}, {data_lunga(s['bollettini'][1])[:-5]} and {data_lunga(s['bollettini'][2])}), and the laws of {', '.join(con[:-1])} and {con[-1]} require the regional number in every advert "
             f"(official texts on BOE, checked on {ES_CHECK}). "
             "Andalusia requires the registration code on the document given to guests; in the Madrid region the advert rule was annulled in 2018.")
 
@@ -3055,8 +3068,9 @@ def es_faq_indice():
          "on the regional tourism register. Most regions also require a municipal urban-planning report or licence, and some limit new registrations to certain "
          "zones or municipalities. The regional pages below list the rules we read in the official texts."),
         ("Which registration number must appear in a Spanish holiday let advert?",
-         "The regional tourism registration number. Valencian (Ley 15/2018, art. 19), Catalan (Ley 13/2002, art. 73.5), Balearic (Ley 8/2012, art. 28.3) and Canary "
-         "(Ley 6/2025, art. 8.6) law require it in every advert. The national number from the Registro Único de Arrendamientos lost its legal basis when the "
+         "Where the regional law requires it, the regional tourism registration number: Valencian (Ley 15/2018, art. 19), Catalan (Ley 13/2002, art. 73.5), "
+         "Balearic (Ley 8/2012, art. 28.3) and Canary (Ley 6/2025, art. 8.6) law require it in every advert; Andalusia requires the RTA code on the document "
+         "given to guests and the Madrid rule was annulled in 2018. The national number from the Registro Único de Arrendamientos lost its legal basis when the "
          f"Supreme Court annulled that procedure in {s['date'][0][:4]}."),
         ("Is the Registro Único de Arrendamientos still in force?",
          f"No. Three Supreme Court judgments ({data_lunga(s['date'][0])}, {data_lunga(s['date'][1])} and {data_lunga(s['date'][2])}) annulled the single registration "
@@ -3147,7 +3161,7 @@ def pagina_es_indice():
 <h2>What the Supreme Court annulled, and what remains</h2>
 <p>Royal Decree 1312/2024 created two things: a single national registration procedure (Registro Único de Arrendamientos), run through the Property Register, that gave each short-term rental a number to show on platforms, and the Ventanilla Única Digital de Arrendamientos, a national gateway for data between platforms and authorities. It took effect on 1 July 2025.</p>
 <ul><li><strong>Annulled:</strong> the single registration procedure and the obligation to register with the Property Register (or the Movable Property Register) to obtain a number for short-term rentals offered on online platforms: {escape(s["articoli_annullati"])}. Judgments of {data_lunga(s["date"][0])} (appeal of the Generalitat Valenciana, BOE {data_lunga(s["bollettini"][0])}), {data_lunga(s["date"][1])} (Apartur and ATA, BOE {data_lunga(s["bollettini"][1])}) and {data_lunga(s["date"][2])} (Region of Murcia, BOE {data_lunga(s["bollettini"][2])}).</li>
-<li><strong>Still in force:</strong> the Ventanilla Única Digital de Arrendamientos of the Ministry of Housing (art. 7), the monthly transmission of activity data by platforms through it (art. 6, except the references to the single registration procedure and number), official statistics (art. 11) and the powers of regional and local authorities over tourist lets (art. 12 d).</li>
+<li><strong>Still in force:</strong> the Ventanilla Única Digital de Arrendamientos of the Ministry of Housing (art. 7), the monthly transmission of activity data by platforms through it (art. 6, except the references to the single registration procedure and number), official statistics (art. 11) and the designation of regional and local administrations as competent authorities for the sectoral rules on tourist lets (art. 12 d).</li>
 <li><strong>What this means for hosts:</strong> the number that the regional laws require is the regional tourism registration number, set out region by region in the table above.</li></ul>
 {es_fonte(s["fonti"] + ["rd1312"])}
 <p class="small">{escape(s["nota_numero"])}</p>
@@ -3172,7 +3186,7 @@ def pagina_es_indice():
 
 def es_risposta_regione(R):
     tot = es_reg_totale(R)
-    reg = (f" {es_n(tot)} homes are on the register today ({ES_REGISTRI[R['dati']][0]} open data, downloaded on {ES_SCARICATO})." if tot else "")
+    reg = (f" {es_n(tot)} homes are on the register today ({ES_REGISTRI[R['dati']][0]} open data{es_agg(R['dati'])}, downloaded on {ES_SCARICATO})." if tot else "")
     return (f"{R['risposta']}, checked on {data_lunga(ES_F[R['annunci_fonte']]['controllato_il'])}). {R['annunci_testo']}{reg}")
 
 
@@ -3181,7 +3195,7 @@ def es_faq_regione(R):
     tot = es_reg_totale(R)
     d = es_ine(R["ine"])
     faq.append((f"How many tourist homes are there in {es_in(R)}?",
-                (f"{es_n(tot)} homes are on the {R['registro']} ({ES_REGISTRI[R['dati']][0]} open data, downloaded on {ES_SCARICATO}). " if tot else "") +
+                (f"{es_n(tot)} homes are on the {R['registro']} ({ES_REGISTRI[R['dati']][0]} open data{es_agg(R['dati'])}, downloaded on {ES_SCARICATO}). " if tot else "") +
                 f"INE counted {es_n(d['case'])} tourist homes listed on the main platforms in {ES_INE_MESE}."))
     faq.append((f"Does the registration number have to appear in adverts in {es_in(R)}?", R["annunci_testo"]))
     if R["verifica"]:
@@ -3190,7 +3204,7 @@ def es_faq_regione(R):
     else:
         faq.append((f"How do I check a tourist licence in {es_in(R)}?",
                     "We did not find an official public search of the register that we could read. Ask the host for the registration number and check it with "
-                    "the regional or island tourism administration."))
+                    f"{es_chi(R)}."))
     faq.append(("Do I still need the national Registro Único de Arrendamientos number?",
                 "No. The Supreme Court annulled the national single registration procedure in judgments of May and June 2026 (BOE). The rules that apply "
                 "are the regional ones described on this page."))
@@ -3210,8 +3224,8 @@ def pagina_es_regione(R):
                  f"{es_fonte([ES_REGISTRI[R['dati']][2]], 'Official open data')}")
     cifra_reg = (f'<p class="cifra"><span class="lab">{ico("door")}On the {escape(R["registro"])}</span><span class="sr">: </span><strong>{es_n(tot)} homes</strong></p>' if tot else "")
     verifica = (f'<p>{es_link(R["verifica"][1], R["verifica"][0])}.</p>' if R["verifica"] else
-                "<p>We did not find an official public search of this register that we could read. Ask the host for the registration number and check it with the "
-                "regional or island tourism administration.</p>")
+                "<p>We did not find an official public search of this register that we could read. Ask the host for the registration number and check it with "
+                f"{escape(es_chi(R))}.</p>")
     faq_html, ld = es_faq_html(es_faq_regione(R))
     comuni = [c for c in ES_COMUNI if c["regione"] == R["id"]]
     corpo = f"""<section class="hero">{h1_diviso(ES_TITOLI_REG[R["id"]])}
@@ -3280,7 +3294,7 @@ def es_faq_comune(c):
     faq = []
     if c["registro"]:
         faq.append((f"How many tourist flats are there in {nome}?",
-                    f"{es_n(es_comune_numero(c))} homes are on the {R['registro']} ({ES_REGISTRI[c['registro']][0]} open data, downloaded on {ES_SCARICATO}). "
+                    f"{es_n(es_comune_numero(c))} homes are on the {R['registro']} ({ES_REGISTRI[c['registro']][0]} open data{es_agg(c['registro'])}, downloaded on {ES_SCARICATO}). "
                     f"INE counted {es_n(d['case'])} tourist homes listed on the main platforms in {ES_INE_MESE}: the register also includes homes that are not advertised."))
     else:
         faq.append((f"How many tourist flats are there in {nome}?",
@@ -3297,8 +3311,8 @@ def es_faq_comune(c):
         faq.append((f"How do I check a tourist licence in {nome}?", f"Search for {nome} in the official source: {R['verifica'][0]}."))
     else:
         faq.append((f"How do I check a tourist licence in {nome}?",
-                    "We did not find an official public search of the register that we could read. Ask the host for the registration number and check it with the "
-                    "regional or island tourism administration."))
+                    "We did not find an official public search of the register that we could read. Ask the host for the registration number and check it with "
+                    f"{es_chi(R)}."))
     faq.append((f"What are the rules for a holiday let in {nome}?",
                 f"The rules of {es_in(R)} apply (see the regional page), plus the town hall's planning rules and, in a building, the community of owners."))
     return faq
