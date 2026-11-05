@@ -42,7 +42,10 @@
      "id": "ams5",
      "f": "ams_miss",
      "tema": "convalida",
-     "x": "Did you forget to check in when you boarded? If so, you do not have valid proof of transport. As a result, you must check in as quickly as possible using your OV-chipkaart, debit card, barcode ticket or paper card. Buses and trams are equipped with card readers where you can do this at any thime."
+     "x": "Did you forget to check in when you boarded? If so, you do not have valid proof of transport. As a result, you must check in as quickly as possible using your OV-chipkaart, debit card, barcode ticket or paper card. Buses and trams are equipped with card readers where you can do this at any thime.",
+     "sic": [
+      "thime"
+     ]
     },
     {
      "id": "ams6",

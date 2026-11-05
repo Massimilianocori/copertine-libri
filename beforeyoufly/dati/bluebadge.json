@@ -15,7 +15,7 @@
    "letto_il": "2026-11-04",
    "aggiornato_il": "2026-10-28",
    "impronta": "146c368700b9bf4f",
-   "frasi": 8,
+   "frasi": 9,
    "impronta_testo": "88f49d82e86f8ec1",
    "impronta_tabella": "b6a6269d08c33a5b"
   },
@@ -159,8 +159,8 @@
    "tipo": "html",
    "letto_il": "2026-11-04",
    "aggiornato_il": "2026-04-28",
-   "impronta": "2f6a7a00567d3c19",
-   "frasi": 2,
+   "impronta": "179073cc0762bb78",
+   "frasi": 3,
    "impronta_testo": "bc6306e8ce24fef2"
   },
   "fcdo_AT": {
@@ -768,7 +768,7 @@
    "letto_il": "2026-11-04",
    "aggiornato_il": "2026-10-21",
    "impronta": "ce21ea9ff410fe52",
-   "frasi": 1,
+   "frasi": 3,
    "impronta_testo": "98ee69c531bcee0b"
   },
   "fcdo_MT": {
@@ -800,7 +800,7 @@
    "letto_il": "2026-11-04",
    "aggiornato_il": "2026-10-21",
    "impronta": "832e09b07ec05214",
-   "frasi": 1,
+   "frasi": 3,
    "impronta_testo": "5a5468bc30081f3d"
   },
   "fcdo_NL": {
@@ -1637,7 +1637,7 @@
    "info": "",
    "esito": "si",
    "risposta": "the UK Blue Badge is recognised in France, but parking rules vary from place to place, so check the local rules before you park.",
-   "nota": "Two official pages differ on paid street parking: Your Europe says you must pay where payment is required (free in Paris and some other cities), while the French government page says that the French card gives free parking with no time limit. Check the signs and the parking meter before you leave the car.",
+   "nota": "Two official pages differ on paid street parking: Your Europe says you must pay where payment is required (free in Paris and some other cities), while the French government page says that the French card (CMI) parks free of charge; a town may set a time limit, never under 12 hours; barrier car parks may charge. Check the signs and the parking meter before you leave the car.",
    "faq": [
     {
      "q": "Can I use my UK Blue Badge in France?",
@@ -1662,9 +1662,10 @@
      "query": "blue badge equivalent in france",
      "pre": "The French card is the carte mobilité inclusion (CMI) with the “Stationnement” mention. Service-Public.gouv.fr says (our translation):",
      "cit": [
-      "fr_cmi1"
+      "fr_cmi1",
+      "fr_cmi2"
      ],
-     "post": "That page describes the French card; GOV.UK does not say whether a UK Blue Badge gets exactly the same."
+     "post": "In short: free of charge; a town may set a time limit, never under 12 hours; barrier car parks may charge. That page describes the French card; GOV.UK does not say whether a UK Blue Badge gets exactly the same."
     }
    ],
    "nome_gov": "France",
@@ -1788,13 +1789,13 @@
    "riconosciuto": "Accepts non-EU parking cards.",
    "info": "",
    "esito": "non_ue",
-   "risposta": "Greece accepts non-EU parking cards such as the UK Blue Badge (GOV.UK’s table says “Accepts non-EU parking cards.”), but check the local rules before you park.",
+   "risposta": "Greece accepts non-EU parking cards such as the UK Blue Badge (our reading of GOV.UK’s table, which says “Accepts non-EU parking cards.”), but check the local rules before you park.",
    "nota": "",
    "faq": [
     {
      "q": "Can I use my UK Blue Badge in Greece?",
      "query": "can i use my uk blue badge in greece",
-     "pre": "Yes: GOV.UK’s table says that Greece “Accepts non-EU parking cards.” It also says:",
+     "pre": "GOV.UK does not answer “Yes” for Greece: its table says “Accepts non-EU parking cards.” (the column is “UK Blue Badge recognised”). It also says:",
      "cit": [
       "g_check"
      ],
@@ -1858,13 +1859,13 @@
    "riconosciuto": "Accepts non-EU parking cards.",
    "info": "",
    "esito": "non_ue",
-   "risposta": "Iceland accepts non-EU parking cards such as the UK Blue Badge (GOV.UK’s table says “Accepts non-EU parking cards.”), but check the local rules before you park.",
+   "risposta": "Iceland accepts non-EU parking cards such as the UK Blue Badge (our reading of GOV.UK’s table, which says “Accepts non-EU parking cards.”), but check the local rules before you park.",
    "nota": "",
    "faq": [
     {
      "q": "Can I use my UK Blue Badge in Iceland?",
      "query": "can i use my uk blue badge in iceland",
-     "pre": "Yes: GOV.UK’s table says that Iceland “Accepts non-EU parking cards.” It also says:",
+     "pre": "GOV.UK does not answer “Yes” for Iceland: its table says “Accepts non-EU parking cards.” (the column is “UK Blue Badge recognised”). It also says:",
      "cit": [
       "g_check"
      ],
@@ -1973,7 +1974,7 @@
    "info": "",
    "esito": "si",
    "risposta": "the UK Blue Badge is recognised in Italy, and the FCDO travel advice adds that it gives the same parking and mobility concessions as the Italian disabled parking card (CUDE), including access to Limited Traffic Zones (ZTL) where local rules allow it.",
-   "nota": "The Italian rules below are written for holders of the Italian card and of EU parking cards; Italy’s government says that UK Blue Badge holders have the same rights. Entering a ZTL can need the town’s permission first: ask the town (Comune) before you drive in.",
+   "nota": "The Italian rules below are written for holders of the Italian card and of EU parking cards; Italy’s government says that UK Blue Badge holders have the same rights. Limited Traffic Zones (ZTL): The Italian pages describe permission or reporting through the town, before or after driving through depending on the town, and do not say how this works with a UK Blue Badge (our reading): ask the town (Comune) you are visiting.",
    "faq": [
     {
      "q": "Can I use my UK Blue Badge in Italy?",
@@ -2010,7 +2011,7 @@
       "it_c3",
       "it_bordo"
      ],
-     "post": "To drive into a Limited Traffic Zone (ZTL), ask the town first: see the ZTL rules on this page."
+     "post": "For Limited Traffic Zones (ZTL), see the rules on this page. The Italian pages describe permission or reporting through the town, before or after driving through depending on the town, and do not say how this works with a UK Blue Badge (our reading): ask the town (Comune) you are visiting."
     },
     {
      "q": "Is there an EU disability card in Italy?",
@@ -2111,15 +2112,15 @@
    "riconosciuto": "Accepts non-EU parking cards.",
    "info": "",
    "esito": "non_ue",
-   "risposta": "Luxembourg accepts non-EU parking cards such as the UK Blue Badge (GOV.UK’s table says “Accepts non-EU parking cards.”), but check the local rules before you park.",
-   "nota": "",
+   "risposta": "Luxembourg accepts non-EU parking cards such as the UK Blue Badge (our reading of GOV.UK’s table, which says “Accepts non-EU parking cards.”), but check the local rules before you park.",
+   "nota": "Your Europe’s page for Luxembourg says “No concessions are offered to vehicles displaying the parking card” both on the street and in car parks (quoted below).",
    "faq": [
     {
      "q": "Where can you park with a Blue Badge in Luxembourg?",
      "query": "disabled parking luxembourg",
      "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in Luxembourg:",
      "cit": [
-      "ye_lu_generale"
+      "ye_lu_strada"
      ],
      "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
     }
@@ -2414,13 +2415,13 @@
    "riconosciuto": "Accepts non-EU parking cards.",
    "info": "",
    "esito": "non_ue",
-   "risposta": "Romania accepts non-EU parking cards such as the UK Blue Badge (GOV.UK’s table says “Accepts non-EU parking cards.”), but check the local rules before you park.",
+   "risposta": "Romania accepts non-EU parking cards such as the UK Blue Badge (our reading of GOV.UK’s table, which says “Accepts non-EU parking cards.”), but check the local rules before you park.",
    "nota": "",
    "faq": [
     {
      "q": "Can I use my UK Blue Badge in Romania?",
      "query": "can i use my blue badge in romania",
-     "pre": "Yes: GOV.UK’s table says that Romania “Accepts non-EU parking cards.” It also says:",
+     "pre": "GOV.UK does not answer “Yes” for Romania: its table says “Accepts non-EU parking cards.” (the column is “UK Blue Badge recognised”). It also says:",
      "cit": [
       "g_check"
      ],
@@ -2757,6 +2758,12 @@
    "x": "For up-to-date information always check the local parking rules of the place you want to use your Blue Badge before parking."
   },
   {
+   "id": "g_disc",
+   "f": "gov_eu",
+   "tema": "govuk",
+   "x": "make sure that your Blue Badge is displayed correctly and that you comply with any additional requirements, such as displaying a parking disc in countries such as Denmark"
+  },
+  {
    "id": "g_docs",
    "f": "gov_eu",
    "tema": "govuk",
@@ -2959,7 +2966,7 @@
    "f": "it_uso",
    "tema": "parcheggio",
    "x": "La sosta sulle strisce blu è completamente gratuita, senza limiti di orario, su tutto il territorio nazionale.",
-   "tr": "Parking in blue-line (paid) bays is completely free, with no time limit, throughout the country."
+   "tr": "Parking in blue-line bays is completely free, with no time limit, throughout the country."
   },
   {
    "id": "it_ztl",
@@ -2995,6 +3002,13 @@
    "tema": "nazionale",
    "x": "La carte vous permet, vous et la personne qui vous accompagne, d'utiliser gratuitement et sans limitation de durée toutes les places de stationnement ouvertes au public en France et dans l'ensemble des pays de l'Union européenne",
    "tr": "The card lets you, and the person travelling with you, use free of charge and with no time limit all parking spaces open to the public in France and in every European Union country"
+  },
+  {
+   "id": "fr_cmi2",
+   "f": "fr_cmi",
+   "tema": "nazionale",
+   "x": "La commune peut toutefois décider de limiter la durée de stationnement, sans pouvoir la fixer à moins de 12 heures. Par ailleurs, une redevance peut être exigée pour l’accès aux parcs de stationnement équipés de bornes d’entrée et de sortie utilisables depuis votre véhicule.",
+   "tr": "However, the town (commune) can decide to limit how long you can park, but it cannot set the limit at less than 12 hours. Also, a fee can be charged to enter car parks with entry and exit barriers that you use from your vehicle."
   },
   {
    "id": "fcdo_at1",
@@ -3438,13 +3452,37 @@
    "id": "ye_lu_generale",
    "f": "ye_LU",
    "tema": "ye_generale",
-   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol. Parking on roads No concessions are offered to vehicles displaying the parking card. Parking in car parks No concessions are offered to vehicles displaying the parking card."
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol."
+  },
+  {
+   "id": "ye_lu_strada",
+   "f": "ye_LU",
+   "tema": "ye_strada",
+   "x": "Parking on roads No concessions are offered to vehicles displaying the parking card."
+  },
+  {
+   "id": "ye_lu_parcheggi",
+   "f": "ye_LU",
+   "tema": "ye_parcheggi",
+   "x": "Parking in car parks No concessions are offered to vehicles displaying the parking card."
   },
   {
    "id": "ye_mt_generale",
    "f": "ye_MT",
    "tema": "ye_generale",
-   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol. Details of parking concessions available to disabled people can be obtained from Maltese authorities at the following address: Aġenzija Sapport Head Office Patri Ġwann Azzopardi Street Santa Venera SVR 1614 Malta E-mail: bluebadge.sapport@gov.mt Parking on roads Check locally Parking in car parks Check locally"
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol. Details of parking concessions available to disabled people can be obtained from Maltese authorities at the following address: Aġenzija Sapport Head Office Patri Ġwann Azzopardi Street Santa Venera SVR 1614 Malta E-mail: bluebadge.sapport@gov.mt"
+  },
+  {
+   "id": "ye_mt_strada",
+   "f": "ye_MT",
+   "tema": "ye_strada",
+   "x": "Parking on roads Check locally"
+  },
+  {
+   "id": "ye_mt_parcheggi",
+   "f": "ye_MT",
+   "tema": "ye_parcheggi",
+   "x": "Parking in car parks Check locally"
   },
   {
    "id": "ye_nl_generale",
@@ -3622,7 +3660,8 @@
   ],
   "francia": [
    "fr_mention",
-   "fr_cmi1"
+   "fr_cmi1",
+   "fr_cmi2"
   ],
   "carte_cosa": [
    "ec_dir",
@@ -3802,10 +3841,14 @@
     "parcheggi": "ye_lt_parcheggi"
    },
    "LU": {
-    "generale": "ye_lu_generale"
+    "generale": "ye_lu_generale",
+    "strada": "ye_lu_strada",
+    "parcheggi": "ye_lu_parcheggi"
    },
    "MT": {
-    "generale": "ye_mt_generale"
+    "generale": "ye_mt_generale",
+    "strada": "ye_mt_strada",
+    "parcheggi": "ye_mt_parcheggi"
    },
    "NL": {
     "generale": "ye_nl_generale",
@@ -3845,7 +3888,10 @@
     "strada": "ye_se_strada",
     "parcheggi": "ye_se_parcheggi"
    }
-  }
+  },
+  "disco": [
+   "g_disc"
+  ]
  },
  "faq_indice": [
   {

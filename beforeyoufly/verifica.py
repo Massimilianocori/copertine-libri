@@ -3431,10 +3431,14 @@ def controlla_trasporti():
         attesa = f"According to {c['chi']}, checked on {G.data_lunga(G.data_tr(c))}, {c['risposta']}"
         if not m or unescape(m.group(1)) != attesa:
             errori.append(f"{rel}: prima frase diversa da 'According to <fonte>, checked on <data>, <risposta>'")
+        t_sic = t.replace(" [sic]", "")  # «[sic]» dopo una parola sbagliata nella fonte (campo 'sic'): la citazione resta parola per parola
         for x in c["citazioni"]:
             conti["citazioni"] += 1
-            if escape(x["x"], quote=False) not in t and escape(x["x"]) not in t:
+            if escape(x["x"], quote=False) not in t_sic and escape(x["x"]) not in t_sic:
                 errori.append(f"{rel}: citazione mancante: {x['x'][:60]}")
+            for w in x.get("sic", []):
+                if w not in x["x"] or f"{escape(w)} [sic]" not in t:
+                    errori.append(f"{rel}: [sic] mancante o parola non nella citazione: {w}")
             if x.get("tr") and escape(x["tr"], quote=False) not in t and escape(x["tr"]) not in t:
                 errori.append(f"{rel}: traduzione mancante: {x['tr'][:60]}")
         for f in G.fonti_tr(c):
@@ -4946,6 +4950,9 @@ def controlla_bluebadge():
                 errori.append(f"{rel}: FAQ «{qd}» senza una ricerca vera ({q['query']!r})")
             if any(G.BB["fonti"][G.BB_CIT[i]["f"]]["lingua"] != "en" for i in q["cit"]) and "our translation" not in q["pre"]:
                 errori.append(f"{rel}: FAQ «{qd}» con citazione tradotta senza dirlo")
+            for i in q["cit"]:
+                if G.BB_CIT[i].get("tr") and (G.BB_CIT[i]["tr"] not in a or G.BB_CIT[i]["x"] in a):
+                    errori.append(f"{rel}: FAQ «{qd}» senza la traduzione nostra della citazione {i}")
             extra = _numeri_gom(q["pre"] + " " + q["post"] + " " + q["q"]) - numeri
             if extra:
                 errori.append(f"{rel}: numeri non presi dalle fonti nella FAQ «{qd}»: {sorted(extra)}")

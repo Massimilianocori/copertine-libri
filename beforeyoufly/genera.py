@@ -5696,6 +5696,14 @@ def cit_tr(c, id_):
     return next(x for x in c["citazioni"] if x["id"] == id_)
 
 
+def sic_tr(x):
+    """Testo della citazione con «[sic]» dopo le parole sbagliate nella fonte (campo 'sic'; la citazione resta parola per parola)."""
+    t = x["x"]
+    for w in x.get("sic", []):
+        t = t.replace(w, w + " [sic]")
+    return t
+
+
 def link_fonte_tr(fid):
     F = TR["fonti"][fid]
     return f'<a href="{escape(F["url"])}" rel="noopener">{escape(F["titolo"])}</a>'
@@ -5711,7 +5719,7 @@ def blocco_cit_tr(cc):
             gruppi.append((x["f"], [x]))
     for fid, gg in gruppi:
         F = TR["fonti"][fid]
-        h = "".join(f"<p>{escape(x['x'])}</p>" + (f'<p class="trad" lang="en"><em>Our translation:</em> {escape(x["tr"])}</p>' if x.get("tr") else "")
+        h = "".join(f"<p>{escape(sic_tr(x))}</p>" + (f'<p class="trad" lang="en"><em>Our translation:</em> {escape(x["tr"])}</p>' if x.get("tr") else "")
                     for x in gg)
         lingua = f' lang="{F["lingua"]}"' if F["lingua"] != "en" else ""
         out.append(f'<blockquote class="cit"{lingua}>{h}</blockquote><p class="fonte">Source: {link_fonte_tr(fid)} ({escape(F["ente"])}), '
@@ -5730,7 +5738,7 @@ def faq_tr(c):
         parti = [f["pre"]] if f["pre"] else []
         for i in f["cit"]:
             x = cit_tr(c, i)
-            parti.append(f"“{x.get('tr') or x['x']}”")
+            parti.append(f"“{x.get('tr') or sic_tr(x)}”")
         if f["post"]:
             parti.append(f["post"])
         out.append((f["q"], " ".join(parti)))
@@ -5751,8 +5759,8 @@ AVVISO_TR = ('<p class="avviso"><strong>Fines and payment rules change, often at
 
 def mezzo_tr(c):
     # Edimburgo: letta solo la pagina dei tram, il titolo non promette tutta la rete. Amsterdam: lette solo le pagine GVB (tram, bus e metro
-    # della città, non i treni): il titolo dice tram e metro, come le ricerche («amsterdam metro fine», «how to pay for tram in amsterdam»)
-    return {"edinburgh": "Trams", "amsterdam": "Trams and Metro"}.get(c["id"], "Public Transport")
+    # della città, non i treni): il titolo dice tram, bus e metro come la rete delle fonti ("GVB trams, buses and metro"), entro 70 caratteri
+    return {"edinburgh": "Trams", "amsterdam": "Trams, Buses and Metro"}.get(c["id"], "Public Transport")
 
 
 def h1_tr(c):
@@ -7005,7 +7013,7 @@ def fonti_pagina_bb(p):
 
 def ids_pagina_bb(p):
     G, c = BB["generali"], p["iso2"]
-    ids = list(G["govuk"]) + list(G["fcdo"].get(c, []))
+    ids = list(G["govuk"]) + (G["disco"] if p["info"] else []) + list(G["fcdo"].get(c, []))
     if c == "ES":
         ids += G["spagna"]
     if c == "IT":
@@ -7031,10 +7039,11 @@ def risposta_bb(p):
 
 
 def faq_bb(voci):
-    """FAQ: pre + citazioni intere + post (JSON-LD = testo visibile)."""
+    """FAQ: pre + citazioni intere (la traduzione nostra per le fonti non in inglese, annunciata nel pre) + post (JSON-LD = testo visibile)."""
     out = []
     for f in voci:
-        parti = ([f["pre"]] if f.get("pre") else []) + [f"“{BB_CIT[i]['x']}”" for i in f.get("cit", [])] + ([f["post"]] if f.get("post") else [])
+        parti = (([f["pre"]] if f.get("pre") else []) + [f"“{BB_CIT[i].get('tr') or BB_CIT[i]['x']}”" for i in f.get("cit", [])]
+                 + ([f["post"]] if f.get("post") else []))
         out.append((f["q"], " ".join(parti)))
     return out
 
@@ -7080,7 +7089,7 @@ def link_bb(rel, c):
     if not BB or not p or not p["pagina"]:
         return ""
     return (f'<p class="altri-pass">{ico("car")}<span>Blue Badge holder? <a href="{rel}{url_bb(p)}">Using a UK Blue Badge in {escape(nf_bb(p))}: '
-            f'{escape(ESITI_BB[p["esito"]].lower())} (GOV.UK) and where you can park</a></span></p>')
+            f'{escape(esito_min_bb(p))} (GOV.UK) and where you can park</a></span></p>')
 
 
 def nf_bb(p):
@@ -7101,9 +7110,18 @@ def titoli_bb(p):
 def descrizione_bb(p):
     d = data_lunga(data_pagina_bb(p))
     n = nf_bb(p)
-    return scegli([f"UK Blue Badge in {n}: GOV.UK says “{p['riconosciuto']}”. Local parking rules and what to carry, from official sources checked on {d}.",
-                   f"UK Blue Badge in {n}: {ESITI_BB[p['esito']].lower()} (GOV.UK). Local parking rules from official sources, checked on {d}.",
+    fine = "" if p["riconosciuto"].endswith(".") else "."
+    cosa = "Local parking rules and what to carry" if p["ye"] else "What GOV.UK says and what to carry"
+    cosa2 = "Local parking rules" if p["ye"] else "GOV.UK guidance"
+    return scegli([f"UK Blue Badge in {n}: GOV.UK says “{p['riconosciuto']}”{fine} {cosa}, from official sources checked on {d}.",
+                   f"UK Blue Badge in {n}: {esito_min_bb(p)} (GOV.UK). {cosa2} from official sources, checked on {d}.",
                    f"Using a UK Blue Badge in {n}: official sources, checked on {d}."], LIMITE_DESCRIZIONE)
+
+
+def esito_min_bb(p):
+    """Etichetta dell'esito con la prima lettera minuscola (le sigle, come EU, restano maiuscole)."""
+    e = ESITI_BB[p["esito"]]
+    return e[0].lower() + e[1:]
 
 
 def sguardo_bb(p):
@@ -7119,6 +7137,15 @@ def sguardo_bb(p):
             f'<tr><th scope="row">Checked</th><td>{data_lunga(data_pagina_bb(p))}</td></tr>')
 
 
+def govuk_bb(p):
+    """Frasi generali della guida GOV.UK con i titoli della guida («Check before you travel», «Local rules», «Supporting documents»);
+    la frase sul disco orario solo nei Paesi con l'obbligo nella tabella (Danimarca, Svizzera)."""
+    G = BB["generali"]
+    locali = ["g_local", "g_research"] + (G["disco"] if p["info"] else []) + ["g_always"]
+    return (f'<h3>Check before you travel</h3>{blocco_cit_bb(["g_check"])}<h3>Local rules</h3>{blocco_cit_bb(locali)}'
+            f'<h3>Supporting documents</h3>{blocco_cit_bb(["g_docs"])}')
+
+
 def pagina_paese_bb(p):
     rel = "../../"
     G, c, n = BB["generali"], p["iso2"], nf_bb(p)
@@ -7130,21 +7157,25 @@ def pagina_paese_bb(p):
         nazionale = (f'<h2 id="italy">What the Italian government says</h2><p>A circular of 28 September 2026 from the Ministry of Infrastructure and Transport and '
                      f'the Department for policies for persons with disabilities tells the police and the towns how to treat UK Blue Badges:</p>'
                      f'{blocco_cit_bb(["it_c1", "it_c2", "it_c3"])}<p>The Department’s page on the Italian card adds:</p>{blocco_cit_bb(["it_uk", "it_bordo"])}'
-                     f'<h3>Where you can park in Italy</h3>{blocco_cit_bb(["it_gialle", "it_blu"])}'
+                     f'<h3>Where you can park in Italy</h3><p>Yellow lines mark the reserved bays; blue lines mark paid parking bays.</p>'
+                     f'{blocco_cit_bb(["it_gialle", "it_blu"])}'
                      f'<h3 id="ztl">Limited Traffic Zones (ZTL)</h3>{blocco_cit_bb(["it_ztl", "it_adesione", "it_altri"])}'
-                     f'<p>The national number-plate platform is joined through the town that issued the card. With a UK Blue Badge, ask each town (Comune) '
-                     f'how to tell it about your car before you drive into its ZTL.</p>')
+                     f'<p>The Italian pages describe permission or reporting through the town, before or after driving through depending on the town, and do not '
+                     f'say how this works with a UK Blue Badge (our reading): ask the town (Comune) you are visiting.</p>')
     elif c == "ES":
         nazionale = (f'<h2 id="spain">Spain: recognition decided locally</h2><p>GOV.UK’s table marks Spain with a note:</p>{blocco_cit_bb(["g_spain"])}'
                      f'<p>In September 2025 the UK government said, after a meeting with the Spanish government:</p>{blocco_cit_bb(["es_accordo"])}'
                      f'<p>GOV.UK’s change history for Spain: {"; ".join(escape(data_lunga(s["data"]) + ": " + s["nota"].rstrip(".")) for s in storico_paese_bb(p))}.</p>')
     elif c == "FR":
         nazionale = (f'<h2 id="france">The French card (CMI)</h2><p>The French government describes the French card, the carte mobilité inclusion (CMI), like this:</p>'
-                     f'{blocco_cit_bb(["fr_mention", "fr_cmi1"])}<p>This is the rule for the French card. GOV.UK does not say whether a UK Blue Badge gets exactly '
-                     f'the same in France, and Your Europe (below) says that you must pay where street parking is paid, except in Paris and some other cities.</p>')
+                     f'{blocco_cit_bb(["fr_mention", "fr_cmi1", "fr_cmi2"])}<p>In short, for the French card: free of charge; a town may set a time limit, never '
+                     f'under 12 hours; barrier car parks may charge. GOV.UK does not say whether a UK Blue Badge gets exactly the same in France, and Your Europe '
+                     f'(below) says that you must pay where street parking is paid, except in Paris and some other cities.</p>')
     ye = G["ye"].get(c, {})
     if ye:
-        locali = (f'<p>GOV.UK says what a recognised Blue Badge gives you:</p>{blocco_cit_bb(["p_same"])}'
+        intro = ("GOV.UK says what a recognised Blue Badge gives you (GOV.UK page from 2014):" if p["esito"] == "si" else
+                 "If the Blue Badge is recognised where you park, GOV.UK says (GOV.UK page from 2014):")
+        locali = (f'<p>{intro}</p>{blocco_cit_bb(["p_same"])}'
                   f'<p>Your Europe, the European Commission’s guide, gives these local rules for holders of the EU parking card in {escape(n)}:</p>'
                   + "".join(f'<h3>{t}</h3>{blocco_cit_bb([ye[k]])}' for k, t in TEMI_YE_BB if k in ye)
                   + f'<p>On using a parking card in another EU country, Your Europe says:</p>{blocco_cit_bb(["ye_warn", "ye_display"])}')
@@ -7166,7 +7197,7 @@ def pagina_paese_bb(p):
 <div class="tab tab-g"><table><caption class="cap">UK Blue Badge in {escape(n)}: our summary of the official sources, checked on {d}</caption><tbody>{sguardo_bb(p)}</tbody></table></div>
 <h2 id="official">What GOV.UK says</h2>
 {riga_govuk_bb(p)}
-{blocco_cit_bb(G["govuk"])}
+{govuk_bb(p)}
 <h3>FCDO travel advice for {escape(n)}</h3>
 {fcdo}
 {nazionale}
@@ -7205,7 +7236,7 @@ def prima_frase_bb():
 
 def riga_bb(p, rel):
     G = BB["generali"]
-    nome = f'<a href="{rel}{url_bb(p)}">{escape(p["nome"])}</a>' if p["pagina"] else escape(p["nome"])
+    nome = f'<a href="{rel}{url_bb(p)}">{escape(p["nome_gov"])}</a>' if p["pagina"] else escape(p["nome_gov"])  # nome come lo scrive GOV.UK
     fcdo = "Mentions it" if G["fcdo"].get(p["iso2"]) else "Does not mention it"
     return (f'<tr data-voce id="{p["iso2"].lower()}"><td data-l="Country">{nome}</td><td data-l="UK Blue Badge recognised (GOV.UK)">{escape(p["riconosciuto"])}</td>'
             f'<td data-l="More information (GOV.UK)">{escape(p["info"]) or "–"}</td><td data-l="FCDO travel advice">{fcdo}</td></tr>')
@@ -7224,7 +7255,7 @@ def pagina_indice_bb():
 <div class="griglia">{voci}</div>
 {AD}
 <h2>Every country in the GOV.UK table</h2>
-<p>The two GOV.UK columns are copied word for word from “Using a Blue Badge in Europe” ({data_fonte_bb("gov_eu")}). The last column says whether the FCDO travel advice for the country mentions the Blue Badge.</p>
+<p>The country names and the two GOV.UK columns are copied word for word from “Using a Blue Badge in Europe” ({data_fonte_bb("gov_eu")}). The last column says whether the FCDO travel advice for the country mentions the Blue Badge.</p>
 <div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a country, e.g. Spain" data-filtro-multi aria-label="Search countries"></div>
 <div class="tab tab-b tab-srv"><table><caption class="sr">Where the UK Blue Badge is recognised in Europe, from GOV.UK, checked on {d}</caption><thead><tr><th>Country</th><th>UK Blue Badge recognised (GOV.UK)</th><th>More information (GOV.UK)</th><th>FCDO travel advice</th></tr></thead><tbody>{righe}</tbody></table></div>
 <h2 id="official">What GOV.UK says</h2>
@@ -7239,7 +7270,7 @@ def pagina_indice_bb():
 {NOTA_LIC_BB}"""
     desc = scegli([f"Where the UK Blue Badge is recognised in Europe, country by country, from GOV.UK, with local parking rules and the EU cards. Checked on {d}.",
                    f"UK Blue Badge abroad: GOV.UK’s answer for {len(BB_PAESI)} European countries, checked on {d}."], LIMITE_DESCRIZIONE)
-    pagina(f"{BB_BASE}/", scegli([f"Blue Badge Abroad ({ANNO}): Where Your UK Badge Works in Europe", f"Blue Badge Abroad ({ANNO})"], LIMITE_TITOLO_BB), desc, corpo,
+    pagina(f"{BB_BASE}/", scegli([f"Blue Badge Abroad ({ANNO}): Where Your UK Badge Is Recognised in Europe", f"Blue Badge Abroad ({ANNO})"], LIMITE_TITOLO_BB), desc, corpo,
            briciole=[("Blue Badge abroad", f"{BB_BASE}/")], js=APP_JS_FILTRO, ld_extra=faq_ld)
     LASTMOD[f"{BB_BASE}/"] = BB["controllato_il"]
 
@@ -9004,6 +9035,10 @@ def controlli():
                     errori.append(f"blue badge {p['iso2']}: FAQ «{q['q']}» senza citazioni note o senza ricerca")
                 if any(BB["fonti"][BB_CIT[i]["f"]]["lingua"] != "en" for i in q["cit"]) and "our translation" not in q["pre"]:
                     errori.append(f"blue badge {p['iso2']}: FAQ «{q['q']}» con citazione tradotta senza dirlo")
+                testo_faq = faq_bb([q])[0][1]
+                for i in q["cit"]:
+                    if BB_CIT[i].get("tr") and (BB_CIT[i]["tr"] not in testo_faq or BB_CIT[i]["x"] in testo_faq):
+                        errori.append(f"blue badge {p['iso2']}: FAQ «{q['q']}» senza la traduzione di {i} (o con il testo originale)")
             if len(scegli(titoli_bb(p), LIMITE_TITOLO_BB)) > LIMITE_TITOLO_BB or str(ANNO) not in scegli(titoli_bb(p), LIMITE_TITOLO_BB):
                 errori.append(f"blue badge {p['iso2']}: titolo oltre {LIMITE_TITOLO_BB} caratteri o senza l'anno")
             if any(i not in BB_CIT for i in ids_pagina_bb(p)):
