@@ -161,6 +161,14 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     numeri nostri solo dalle citazioni; FAQ da ricerche vere (JSON-LD = testo visibile); titoli <= 70 con l'anno; sitemap; nessun link FIA né
     di affiliazione, solo link esterni ufficiali; link andata e ritorno con Driving abroad (solo patente britannica); home, About, 404.
     Nel browser (punto 7) indice, Italia, Spagna, carte europee e Amsterdam (trasporto pubblico) a 375 px chiaro/scuro.
+30. Liquidi del 5/11/2026: i 37 aeroporti nuovi (elenco scritto qui) nei dati con lettura diretta, HTTP 200, data, impronta e URL https,
+    con pagina, riga e fonte nell'indice e nella sitemap; nome del titolo da una ricerca vera (dati/liquidi_domanda.json); titolo <= 70 con
+    l'anno; fonte nel riquadro in alto con la risposta; fonte di gruppo (Aena, HIAL) detta nella frase diretta; esclusi del 5/11 con il motivo.
+    Riquadri di guadagno: "Hire a car at <aeroporto>" (solo DiscoverCars, link generale con il nostro a_aid, rel="sponsored noopener",
+    target _blank, trasparenza nel riquadro, dopo la risposta, la regola e le eccezioni ufficiali, prima delle FAQ) esattamente sulle pagine
+    degli aeroporti di vacanza ricalcolate qui (Spagna, Portogallo, Italia, Grecia, Malta, Croazia, Islanda e Antalya), mai su Regno Unito,
+    Irlanda, isole della Manica, USA, Canada e scali di transito; "Where to stay in <città>" (Stay22) solo su Barcellona, Fiumicino, Linate,
+    Malpensa e Granada con il link della stessa città scritto qui, dopo il riquadro noleggio, con etichetta, trasparenza e senza promesse.
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
 domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
@@ -702,6 +710,156 @@ def controlla_liquidi_2110():
             errori.append(f"bagagli {C['slug']}: numero di FAQPage diverso da 1")
         else:
             conti["compagnie"] += 1
+    return errori, conti
+
+
+# ---------------------------------------------------------------- 30. liquidi del 5/11/2026: 37 aeroporti nuovi e riquadri di guadagno
+NUOVI_LIQ_0511 = {  # slug: (sigla, regola), scritti qui a mano dalla lettura del 5/11/2026
+    "valencia": ("VLC", "100ml"), "seville": ("SVQ", "100ml"), "reus": ("REU", "100ml"), "murcia": ("RMU", "100ml"), "almeria": ("LEI", "100ml"),
+    "la-palma": ("SPC", "100ml"), "bilbao": ("BIO", "100ml"), "girona": ("GRO", "100ml"), "tenerife-north": ("TFN", "100ml"),
+    "santiago-de-compostela": ("SCQ", "100ml"), "jerez": ("XRY", "100ml"), "granada": ("GRX", "100ml"),
+    "thessaloniki": ("SKG", "100ml"), "corfu": ("CFU", "100ml"), "chania": ("CHQ", "100ml"), "kefalonia": ("EFL", "100ml"), "zakynthos": ("ZTH", "100ml"),
+    "rhodes": ("RHO", "100ml"), "kos": ("KGS", "100ml"), "mykonos": ("JMK", "100ml"), "santorini": ("JTR", "100ml"), "preveza-aktion": ("PVK", "100ml"),
+    "kavala": ("KVA", "100ml"), "mytilene": ("MJT", "100ml"), "samos": ("SMI", "100ml"), "skiathos": ("JSI", "100ml"),
+    "milan-bergamo": ("BGY", "2l"), "bologna": ("BLQ", "2l"), "dubrovnik": ("DBV", "100ml"), "zadar": ("ZAD", "100ml"), "antalya": ("AYT", "100ml"),
+    "keflavik": ("KEF", "100ml"), "inverness": ("INV", "100ml"), "glasgow-prestwick": ("PIK", "100ml"), "teesside": ("MME", "100ml"),
+    "guernsey": ("GCI", "100ml"), "knock": ("NOC", "2l")}
+ESCLUSI_LIQ_0511 = ["Larnaca", "Paphos", "Naples", "Venice", "Palermo", "Catania", "Pisa", "Ponta Delgada (Azores)", "Cagliari", "Olbia", "Turin",
+                    "Rotterdam The Hague", "Norwich", "Heraklion", "Split", "Dalaman", "Bodrum"]
+# Paesi dove chi legge arriva in vacanza (riquadri di guadagno); in Türkiye solo Antalya (Istanbul è uno scalo di transito)
+PAESI_VACANZA_LIQ = {"Spain", "Portugal", "Italy", "Greece", "Malta", "Croatia", "Iceland", "Cyprus"}
+SOLO_AEROPORTI_VACANZA_LIQ = {"antalya"}
+PARTENZA_LIQ = {"United Kingdom", "Ireland", "Jersey", "Guernsey", "United States", "Canada"}
+
+
+def LIQ_VACANZA_PAGINE():
+    """Pagine liquidi che devono avere il riquadro "Hire a car": ricalcolate qui dal Paese, non dall'elenco di affiliati.json."""
+    if not G.NOLEGGIO_AUTO:
+        return set()
+    return {f"liquids/{a['slug']}/index.html" for a in G.AER["aeroporti"]
+            if (a["paese"] in PAESI_VACANZA_LIQ or a["slug"] in SOLO_AEROPORTI_VACANZA_LIQ) and a["area"] != "UK and Ireland"}
+
+
+def controlla_liquidi_0511():
+    from html import unescape
+    errori, conti = [], {"nuovi": 0, "noleggio": 0, "stay22": 0, "senza": 0}
+    per_slug = {a["slug"]: a for a in G.AER["aeroporti"]}
+    dom = json.loads((SITO.parent / "dati" / "liquidi_domanda.json").read_text(encoding="utf-8"))["aeroporti"]
+    idx, sm = leggi("liquids/index.html"), leggi("sitemap.xml")
+    # a) aeroporti nuovi: dati, pagina, indice, sitemap, titolo da una ricerca vera, fonte in alto con la risposta
+    if set(dom) != set(NUOVI_LIQ_0511):
+        errori.append(f"liquidi_domanda.json: aeroporti diversi dai 37 attesi: {sorted(set(dom) ^ set(NUOVI_LIQ_0511))}")
+    for s_, (iata, regola) in NUOVI_LIQ_0511.items():
+        a = per_slug.get(s_)
+        if not a or a["iata"] != iata or a["regola"] != regola:
+            errori.append(f"liquidi nuovo {s_}: manca nei dati o sigla/regola diversa da {iata}/{regola}")
+            continue
+        if a["controllato_il"] != "2026-11-05" or a.get("lettura") != "diretta" or a.get("http") != 200 or not re.fullmatch(r"[0-9a-f]{16}", a.get("impronta", "")) \
+                or not a["url"].startswith("https://") or not a["citazioni"]:
+            errori.append(f"liquidi nuovo {s_}: data, lettura diretta, HTTP 200, impronta, URL https o citazioni mancanti")
+        rel = f"liquids/{s_}/index.html"
+        if not (SITO / rel).exists():
+            errori.append(f"liquidi nuovo {s_}: pagina mancante")
+            continue
+        conti["nuovi"] += 1
+        t = leggi(rel)
+        if f'href="../liquids/{s_}/"' not in idx or f'href="{escape(a["url"])}"' not in idx or f"<loc>{G.URL_SITO}/liquids/{s_}/</loc>" not in sm:
+            errori.append(f"liquidi nuovo {s_}: manca nell'indice (riga o fonte) o nella sitemap")
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        nome_t = tit.split(" Airport (")[0].split(f" ({iata})")[0]
+        sugg = dom.get(s_, {}).get("uk", []) + dom.get(s_, {}).get("us", [])
+        if len(tit) > 70 or str(G.ANNO) not in tit or f"({iata})" not in tit:
+            errori.append(f"liquidi nuovo {s_}: titolo oltre 70 caratteri, senza l'anno o senza la sigla: {tit}")
+        if not any(x.startswith(nome_t.lower() + " airport liquid") for x in sugg):
+            errori.append(f"liquidi nuovo {s_}: il nome del titolo «{nome_t}» non viene da una ricerca vera «… airport liquid…»")
+        som = t.split('<section class="card summary"', 1)[-1].split("</section>", 1)[0]
+        if "Can I take liquids over 100 ml through security at" not in som or f'Official source: <a href="{escape(a["url"])}"' not in som:
+            errori.append(f"liquidi nuovo {s_}: la risposta in alto non ha accanto la fonte ufficiale")
+        gruppo = {"aena": "Aena's general hand-luggage page", "hial": "the security page of HIAL"}.get(a.get("gestore"))
+        if gruppo and escape(gruppo) not in som:
+            errori.append(f"liquidi nuovo {s_}: la frase in alto non dice che la fonte è una pagina di gruppo ({a.get('gestore')})")
+        if a.get("gestore") == "fraport-greece" and "open with a click" not in a.get("nota", ""):
+            errori.append(f"liquidi nuovo {s_}: la nota non dice che il testo ufficiale si apre con un clic")
+        if a.get("fonte2") and (escape(a["fonte2"]["url"]) not in t or not re.fullmatch(r"[0-9a-f]{16}", a["fonte2"].get("impronta", ""))):
+            errori.append(f"liquidi nuovo {s_}: seconda fonte senza link nella pagina o senza impronta")
+    for n in ESCLUSI_LIQ_0511:
+        if not any(n in e["nome"].split(", ") for e in G.AER["esclusi"]) or escape(n) not in idx:
+            errori.append(f"liquidi: {n} (non letto il 5/11/2026) deve stare tra gli esclusi con il motivo, anche nell'indice")
+    # b) riquadri di guadagno: noleggio esattamente sugli aeroporti di vacanza, Stay22 solo dove previsto, mai su partenza/transito
+    vac = LIQ_VACANZA_PAGINE()
+    attesi_s22 = {f"liquids/{x}/index.html": STAY22_ATTESI[k] for x, k in STAY22_LIQ.items()} if G.STAY22_BIG and G.NOLEGGIO_AUTO else {}
+    for a in G.AER["aeroporti"] + G.AER["nazionali"]:
+        rel = f"liquids/{a['slug']}/index.html"
+        t = leggi(rel)
+        voci = G.MON.link_affiliati(t)
+        dc = [(h, r) for h, host, r in voci if G.MON.dominio_in(host, ["discovercars.com"])]
+        s22 = [(h, r) for h, host, r in voci if G.MON.dominio_in(host, ["stay22.com"])]
+        if rel not in vac:
+            if dc or s22 or "data-noleggio" in t or "data-alloggio" in t:
+                errori.append(f"{rel}: riquadro di guadagno su un aeroporto che non è di vacanza ({a.get('paese')})")
+            if a.get("area") == "UK and Ireland" or a.get("paese") in PARTENZA_LIQ or a in G.AER["nazionali"]:
+                conti["senza"] += 1
+            continue
+        if a.get("area") == "UK and Ireland" or a.get("paese") in PARTENZA_LIQ:
+            errori.append(f"{rel}: aeroporto di partenza tra quelli di vacanza")
+        # noleggio
+        if len(dc) != 1:
+            errori.append(f"{rel}: attesi 1 link DiscoverCars, trovati {len(dc)}")
+            continue
+        href, r = dc[0]
+        if not link_noleggio_ok(href) or href != G.NOLEGGIO_AUTO:
+            errori.append(f"{rel}: link di noleggio diverso dal link generale DiscoverCars con a_aid={NOLEGGIO_AID}: {href}")
+        if not {"sponsored", "noopener"} <= r:
+            errori.append(f"{rel}: link DiscoverCars senza rel=\"sponsored noopener\"")
+        tag = re.search(r'<a\b[^>]*href="' + re.escape(escape(href)) + r'"[^>]*>', t)
+        if not tag or 'target="_blank"' not in tag.group(0):
+            errori.append(f"{rel}: link DiscoverCars senza target=\"_blank\"")
+        i = t.find("data-noleggio")
+        blocco = t[i:t.find("</section>", i)] if i >= 0 else ""
+        if i < 0 or escape(href) not in blocco or G.MON.RIGA_EN not in blocco:
+            errori.append(f"{rel}: link DiscoverCars fuori dal riquadro o riga di trasparenza mancante nel riquadro")
+        if f'<h2 id="hire-a-car">Hire a car at {escape(a["nome"])} Airport</h2>' not in t:
+            errori.append(f"{rel}: titolo del riquadro diverso da 'Hire a car at {a['nome']} Airport'")
+        prima = ['<p class="cifra">Can I take liquids over 100 ml', "<h2>100ml rule at "] + [escape(q) for q in a["citazioni"] + a.get("eccezioni", [])]
+        prima += [escape(a["contrasto"]["citazione"])] if a.get("contrasto") else []
+        prima += [escape(q) for q in (a.get("fonte2") or {}).get("citazioni", [])]
+        for x in prima:
+            j = t.find(x)
+            if j < 0 or j > i:
+                errori.append(f"{rel}: riquadro noleggio non dopo «{unescape(x)[:50]}»")
+        if 0 <= t.find('<section class="faq"') < i:
+            errori.append(f"{rel}: riquadro noleggio dopo le FAQ (deve stare subito dopo la regola ufficiale)")
+        if re.search(r"cheapest|best price|lowest price|guaranteed|book now", unescape(blocco), re.I):
+            errori.append(f"{rel}: promessa di prezzo nel riquadro noleggio")
+        conti["noleggio"] += 1
+        # Stay22
+        att = attesi_s22.get(rel)
+        if not att:
+            if s22 or "data-alloggio" in t:
+                errori.append(f"{rel}: riquadro Stay22 dove non c'è un link della stessa città")
+            continue
+        if [h for h, _ in s22] != [att]:
+            errori.append(f"{rel}: link Stay22 {[h for h, _ in s22]} invece di {att}")
+            continue
+        h, r = s22[0]
+        k = t.find("data-alloggio")
+        b2 = t[k:t.find("</section>", k)] if k >= 0 else ""
+        tag = re.search(r'<a\b[^>]*href="' + re.escape(escape(h)) + r'"[^>]*>', t)
+        citta = next(v["citta"] for x, v in G.STAY22_BIG.items() if v["url"] == att)
+        if not {"sponsored", "noopener"} <= r or not tag or 'target="_blank"' not in tag.group(0):
+            errori.append(f"{rel}: link Stay22 senza rel=\"sponsored noopener\" o target=\"_blank\"")
+        if k < i or escape(h) not in b2 or G.MON.RIGA_EN not in b2 or '<span class="aff-tag">Affiliate</span>' not in t[t.rfind("<h2", 0, k):k]:
+            errori.append(f"{rel}: riquadro Stay22 prima del noleggio, senza trasparenza o senza l'etichetta Affiliate")
+        if citta != a["citta"] or f"hotels across {escape(citta)}" not in b2:
+            errori.append(f"{rel}: il riquadro Stay22 non è della città dell'aeroporto ({citta} / {a['citta']})")
+        if re.search(r"cheapest|best price|lowest price|guaranteed|available now|book now", unescape(b2), re.I):
+            errori.append(f"{rel}: promessa di prezzo o disponibilità nel riquadro Stay22")
+        conti["stay22"] += 1
+    if G.NOLEGGIO_AUTO and set(f"liquids/{x}/index.html" for x in G.NOLEGGIO_LIQ) != vac:
+        errori.append(f"affiliati.json, _discovercars_noleggio.liquidi diverso dagli aeroporti di vacanza ricalcolati: "
+                      f"{sorted(set(f'liquids/{x}/index.html' for x in G.NOLEGGIO_LIQ) ^ vac)}")
+    if G.STAY22_BIG and G.ALLOGGI_LIQ != STAY22_LIQ:
+        errori.append(f"affiliati.json, _stay22_alloggi.liquidi diverso da quello atteso: {G.ALLOGGI_LIQ}")
     return errori, conti
 
 
@@ -2162,8 +2320,11 @@ def controlla_patenti():
         nome = q.relative_to(SITO).as_posix()
         if nome.startswith((G.PAT_BASE + "/", G.PED_BASE + "/", G.GOM_BASE + "/", G.FL_BASE + "/")) or nome == "index.html":
             continue
+        if nome in LIQ_VACANZA_PAGINE():  # dal 5/11/2026 pagine liquidi degli aeroporti di vacanza: le controlla il punto 30
+            continue
         if "discovercars" in q.read_text(encoding="utf-8").lower():
-            errori.append(f"{nome}: link DiscoverCars fuori dalle sezioni Driving abroad, Tolls e Winter tyres with a rental car e dalla home")
+            errori.append(f"{nome}: link DiscoverCars fuori dalle sezioni Driving abroad, Tolls e Winter tyres with a rental car, dalle pagine "
+                          f"liquidi degli aeroporti di vacanza e dalla home")
     for nome in ("patenti.json", "patenti_manuali.json", "patenti_domanda.json"):
         if VIETATE_SRV.search((SITO.parent / "dati" / nome).read_text(encoding="utf-8")):
             errori.append(f"dati/{nome}: nome di un assistente di intelligenza artificiale")
@@ -2926,9 +3087,14 @@ def controlla_stay22_big(attese, idx, conti):
     # stay22 in nessun'altra pagina del sito
     for q in SITO.rglob("*.html"):
         nome = q.relative_to(SITO).as_posix()
-        if nome not in attese and "stay22" in q.read_text(encoding="utf-8").lower():
-            errori.append(f"{nome}: link Stay22 fuori dalla sezione Ticket release dates")
+        if nome not in attese and nome not in {f"liquids/{x}/index.html" for x in STAY22_LIQ} and "stay22" in q.read_text(encoding="utf-8").lower():
+            errori.append(f"{nome}: link Stay22 fuori dalla sezione Ticket release dates e dalle pagine liquidi previste (punto 30)")
     return errori
+
+
+# Stay22 nelle pagine liquidi (5/11/2026): aeroporto -> attrazione della stessa città (link in STAY22_ATTESI), scritto qui a mano
+STAY22_LIQ = {"barcelona": "sagrada-familia", "rome-fiumicino": "vatican-museums", "milan-linate": "last-supper-milan",
+              "milan-malpensa": "last-supper-milan", "granada": "alhambra"}
 
 
 def _fine_finestra_big(oggi, mesi):
@@ -5218,9 +5384,14 @@ def main():
           f"{c29['cache']}), {c29['citazioni']} citazioni e {c29['traduzioni']} traduzioni nelle pagine, numeri solo dalle fonti, prima frase con fonte e data, "
           f"{c29['faq']} risposte FAQ da ricerche vere (JSON-LD = testo visibile), titoli <= {G.LIMITE_TITOLO_BB} con l'anno, nessun link FIA né affiliazione, "
           f"{c29['link']} link andata e ritorno con Driving abroad: {len(e29)} errori")
+    e30, c30 = controlla_liquidi_0511()
+    print(f"30. Liquidi 5/11: {c30['nuovi']} aeroporti nuovi su {len(NUOVI_LIQ_0511)} (lettura diretta, HTTP 200, impronta, indice, sitemap, titolo da "
+          f"ricerche vere, fonte accanto alla risposta), esclusi del 5/11 con il motivo; riquadro 'Hire a car at' (DiscoverCars) su {c30['noleggio']} "
+          f"pagine di vacanza, 'Where to stay' (Stay22) su {c30['stay22']}, nessun riquadro su {c30['senza']} pagine di partenza (UK, Irlanda, "
+          f"isole della Manica, USA, Canada): {len(e30)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30
     for e in tutti:
         print(" -", e)
     if tutti:

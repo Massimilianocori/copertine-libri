@@ -4,11 +4,13 @@ Uso (dalla radice del repository):
     python3 -I beforeyoufly/raccolta/liquidi.py
     BYF_BROWSER=1 python3 -I beforeyoufly/raccolta/liquidi.py   # usa anche un browser automatico (Playwright) per i siti che bloccano
 
-Per ogni aeroporto scarica la pagina ufficiale e controlla che ogni frase citata sia ancora presente, parola per parola.
+Per ogni aeroporto scarica la pagina ufficiale e controlla che ogni frase citata sia ancora presente, parola per parola; per gli aeroporti
+aggiunti dal 5/11/2026 (campo "impronta") controlla anche che il testo tra la prima e l'ultima frase citata non sia cambiato.
 NON modifica i dati: stampa un rapporto. Se una frase manca, la regola può essere cambiata: aprire la pagina, leggerla,
 aggiornare a mano dati/aeroporti.json (frasi, regola, data del controllo) e rigenerare il sito.
 I siti che bloccano le richieste semplici (lettura "browser") vanno controllati con BYF_BROWSER=1 o a mano.
 """
+import hashlib
 import json
 import os
 import re
@@ -27,12 +29,24 @@ CHROMIUM = "/opt/pw-browsers/chromium"
 
 
 def norm(s):
-    return re.sub(r"\s+", " ", s.replace("\xa0", " ")).strip()
+    """Spazi uniti; dal 5/11/2026 anche senza lo spazio prima della punteggiatura che lasciano i tag (Aena: "100 ml , placed"),
+    sia nel testo della pagina sia nelle frasi citate, così una frase copiata dalla pagina si ritrova uguale."""
+    return re.sub(r" ([,.;:!?])", r"\1", re.sub(r"\s+", " ", s.replace("\xa0", " "))).strip()
 
 
 def testo_html(h):
     h = re.sub(r"(?s)<script.*?</script>|<style.*?</style>", " ", h)
     return norm(unescape(re.sub(r"<[^>]+>", " ", h)))
+
+
+def impronta_zona(testo, frasi):
+    """sha256 (16 caratteri) del testo normalizzato della pagina dalla prima all'ultima frase citata; None se una frase manca.
+    Salvata in dati/aeroporti.json ("impronta") per gli aeroporti aggiunti dal 5/11/2026: se cambia, il testo attorno alle frasi è cambiato."""
+    pos = [(testo.find(norm(x)), len(norm(x))) for x in frasi]
+    if not pos or any(i < 0 for i, _ in pos):
+        return None
+    a, b = min(i for i, _ in pos), max(i + n for i, n in pos)
+    return hashlib.sha256(testo[a:b].encode("utf-8")).hexdigest()[:16]
 
 
 def diretta(url):
@@ -74,8 +88,9 @@ def main():
     for a in d["aeroporti"] + d["nazionali"]:
         voci.append(a)
         if a.get("fonte2"):  # seconda pagina ufficiale citata (es. FAQ del gestore)
-            voci.append({"iata": a.get("iata", "") + " (2)", "slug": a["slug"], "nome": a["nome"], "url": a["fonte2"]["url"], "lettura": "browser",
-                         "citazioni": a["fonte2"].get("citazioni", [])})
+            voci.append({"iata": a.get("iata", "") + " (2)", "slug": a["slug"], "nome": a["nome"], "url": a["fonte2"]["url"],
+                         "lettura": "diretta" if a.get("lettura") == "diretta" and a["fonte2"].get("impronta") else "browser",
+                         "citazioni": a["fonte2"].get("citazioni", []), "impronta": a["fonte2"].get("impronta")})
     risultati, da_browser = {}, []
     for a in voci:
         try:
@@ -101,6 +116,10 @@ def main():
             print(f"[CAMBIATA?] {a.get('iata', a['slug'])} {a['nome']}: {len(mancano)} frasi non trovate – {a['url']}")
             for q in mancano:
                 print("     -", q[:120])
+            problemi += 1
+        elif a.get("impronta") and impronta_zona(t, a["citazioni"] + a.get("eccezioni", [])) != a["impronta"]:
+            print(f"[ZONA CAMBIATA] {a.get('iata', a['slug'])} {a['nome']}: frasi presenti, ma il testo tra la prima e l'ultima è cambiato "
+                  f"(impronta {impronta_zona(t, a['citazioni'] + a.get('eccezioni', []))} invece di {a['impronta']}): rileggere la pagina – {a['url']}")
             problemi += 1
         else:
             print(f"[OK] {a.get('iata', a['slug'])} {a['nome']}")

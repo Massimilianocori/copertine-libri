@@ -86,6 +86,7 @@ OGGI = date.today()
 
 PASS = json.loads((DATI / "passaporti.json").read_text(encoding="utf-8"))
 AER = json.loads((DATI / "aeroporti.json").read_text(encoding="utf-8"))
+LIQ_DOMANDA = json.loads((DATI / "liquidi_domanda.json").read_text(encoding="utf-8"))  # ricerche vere degli aeroporti aggiunti il 5/11/2026
 EES = json.loads((DATI / "ees_etias.json").read_text(encoding="utf-8"))
 AFFILIATI = json.loads((DATI / "affiliati.json").read_text(encoding="utf-8")) if (DATI / "affiliati.json").exists() else {}
 CAMBI_PASS = json.loads((DATI / "passaporti_cambi.json").read_text(encoding="utf-8")) if (DATI / "passaporti_cambi.json").exists() else {"cambi": []}
@@ -2056,11 +2057,20 @@ NOMI_TITOLO = {"madeira": "Madeira Funchal", "barcelona": "Barcelona", "alicante
                "athens": "Athens", "dubai": "Dubai", "malta": "Malta", "heathrow": "Heathrow", "gatwick": "Gatwick", "stansted": "Stansted", "luton": "Luton",
                "rome-fiumicino": "Rome Fiumicino", "milan-malpensa": "Milan Malpensa", "milan-linate": "Milan Linate", "gothenburg-landvetter": "Gothenburg",
                "stockholm-arlanda": "Stockholm Arlanda", "madrid": "Madrid", "palma-de-mallorca": "Palma", "amsterdam-schiphol": "Amsterdam Schiphol",
-               "liverpool": "Liverpool", "berlin": "Berlin"}
+               "liverpool": "Liverpool", "berlin": "Berlin",
+               # 5/11/2026: il nome come lo cercano (dati/liquidi_domanda.json, "<nome> airport liquid…")
+               "thessaloniki": "Thessaloniki", "preveza-aktion": "Preveza", "milan-bergamo": "Bergamo", "bologna": "Bologna", "keflavik": "Keflavik",
+               "glasgow-prestwick": "Prestwick", "teesside": "Teesside", "knock": "Knock", "almeria": "Almeria", "murcia": "Murcia", "girona": "Girona",
+               "granada": "Granada", "santiago-de-compostela": "Santiago de Compostela"}
 SIGLA_PAESE = {"United States": "US", "Canada": "Canadian"}
 # contesto (GOV.UK / Your Europe) da citare nelle FAQ quando la pagina dell'aeroporto non dice il dettaglio: per Paese
 PAESI_UE = {"Ireland", "Germany", "Austria", "Italy", "Finland", "Sweden", "Denmark", "Netherlands", "Czechia", "Poland", "Portugal", "Spain", "Greece", "Malta",
             "Belgium", "Hungary", "France", "Croatia", "Cyprus", "Luxembourg", "Slovakia", "Slovenia", "Romania", "Bulgaria", "Estonia", "Latvia", "Lithuania"}
+
+
+# fonte di gruppo (una pagina del gestore per più aeroporti): lo dice la frase diretta in alto (verifica.py, punti 9 e 30)
+FONTE_GRUPPO = {"aena": " The source is Aena's general hand-luggage page, not a page for this airport.",
+                "hial": " The source is the security page of HIAL, the company that runs the airport, not a page for this airport alone."}
 
 
 def nome_titolo(A):
@@ -2291,6 +2301,47 @@ def html_faq(A, faq):
             f'and summary shown at the top of this page. Where the passages we quote do not say, we say so.</p>{h}{fonte_liq(A)}</section>'), [ld]
 
 
+# Riquadri di guadagno sulle pagine liquidi degli aeroporti di vacanza (5/11/2026), sempre DOPO la regola ufficiale e le eccezioni:
+# "Hire a car at <aeroporto>" (DiscoverCars, stesso link generale NOLEGGIO_AUTO: DiscoverCars non documenta un parametro pubblico di
+# destinazione) e, dove esiste già un link Stay22 per la stessa città, "Where to stay in <città>" (stesso link della sezione Ticket release dates).
+# Elenchi in dati/affiliati.json ("liquidi" sotto _discovercars_noleggio e _stay22_alloggi). Mai sugli aeroporti di partenza tipici di chi legge
+# (Regno Unito, Irlanda, isole della Manica, USA, Canada) né sugli scali di transito: controlli() qui sotto e verifica.py, punto 30.
+NOLEGGIO_LIQ = list((AFFILIATI.get("_discovercars_noleggio") or {}).get("liquidi") or [])
+ALLOGGI_LIQ = dict((AFFILIATI.get("_stay22_alloggi") or {}).get("liquidi") or {})
+PAESI_PARTENZA_LIQ = {"United Kingdom", "Ireland", "Jersey", "Guernsey", "United States", "Canada"}
+SCALI_TRANSITO_LIQ = {"istanbul", "dubai", "doha", "hong-kong"}
+
+
+def box_noleggio_liq(A):
+    """Riquadro "Hire a car at <aeroporto>" (DiscoverCars): '' se il noleggio è spento o l'aeroporto non è tra quelli di vacanza."""
+    if not NOLEGGIO_AUTO or A["slug"] not in NOLEGGIO_LIQ:
+        return ""
+    n = f'{A["nome"]} Airport'
+    return (f'<h2 id="hire-a-car">Hire a car at {escape(n)}</h2>'
+            f'<section class="card noleggio" aria-label="Car hire, affiliate link" data-noleggio>'
+            f'<p>Arriving at {escape(dove_liq(A))}? Compare rental companies and prices on DiscoverCars. The link opens the DiscoverCars search page: '
+            f'choose {escape(n)} as your pick-up location.</p>'
+            f'<p class="noleggio-btn"><a class="btn" href="{escape(NOLEGGIO_AUTO)}" rel="sponsored noopener" target="_blank">'
+            f'{ico("car")}Compare car hire</a></p>'
+            f'{MON.nota_trasparenza("en")}</section>')
+
+
+def box_alloggio_liq(A):
+    """Riquadro "Where to stay in <città>" (Stay22 → Booking.com): solo dove c'è già un link Stay22 della stessa città; '' altrimenti."""
+    v = STAY22_BIG.get(ALLOGGI_LIQ.get(A["slug"], ""))
+    if not v or A["slug"] not in NOLEGGIO_LIQ:
+        return ""
+    c = v["citta"]
+    return (f'<h2 id="where-to-stay">Where to stay in {escape(c)} <span class="aff-tag">Affiliate</span></h2>'
+            f'<section class="card noleggio" aria-label="Where to stay, affiliate link" data-alloggio>'
+            f'<p>Staying in {escape(c)}? This link opens the Booking.com page of hotels across {escape(c)}: check the distance from '
+            f'{escape(A["nome"])} Airport on the map before you book.</p>'
+            f'<p class="noleggio-btn"><a class="btn" href="{escape(v["url"])}" rel="sponsored noopener" target="_blank">'
+            f'{ico("bed")}See hotels in {escape(c)} on Booking.com</a></p>'
+            f'<p class="small">Link through our partner Stay22. Prices and availability are only those shown on Booking.com.</p>'
+            f'{MON.nota_trasparenza("en")}</section>')
+
+
 def pagina_aeroporto(A, nazionale=False):
     rel = "../../"
     titolo_breve = A["nome"]
@@ -2324,7 +2375,7 @@ def pagina_aeroporto(A, nazionale=False):
 <div class="s-top"><span class="sq">{ico("bottle")}</span><span>Liquids · hand luggage</span><span>{escape(A.get("iata") or A.get("paese") or "")}</span></div>
 <div class="s-body">
 <p class="cifra">Can I take liquids over 100 ml through security at {escape(dove_liq(A, nazionale))}? <strong>{escape(frase_risposta(A))} {badge(A['regola'], A)}</strong></p>
-<p class="lead">{escape(frase_diretta(A, nazionale))}{escape(" The source is Aena's general hand-luggage page, not a page for this airport.") if A.get('gestore') == 'aena' else ''}</p>
+<p class="lead">{escape(frase_diretta(A, nazionale))}{escape(FONTE_GRUPPO.get(A.get('gestore'), ''))}</p>
 {fonte_liq(A)}
 </div>
 </section>
@@ -2336,6 +2387,7 @@ def pagina_aeroporto(A, nazionale=False):
 {nota}
 {eccezioni}
 {contrasto}
+{"" if nazionale else box_noleggio_liq(A) + box_alloggio_liq(A)}
 {AD}
 {faq_html}
 {link_simili}
@@ -8766,6 +8818,38 @@ def controlli():
     slug = [A["slug"] for A in AER["aeroporti"] + AER["nazionali"]]
     if len(set(slug)) != len(slug):
         errori.append("slug aeroporti duplicati")
+    if len({A["iata"] for A in AER["aeroporti"]}) != len(AER["aeroporti"]):
+        errori.append("sigle IATA degli aeroporti duplicate")
+    # aeroporti aggiunti dal 5/11/2026: lettura diretta (HTTP 200), impronta della zona citata, ricerca vera con il nome del titolo
+    per_slug = {A["slug"]: A for A in AER["aeroporti"]}
+    for A in AER["aeroporti"]:
+        if A["slug"] not in LIQ_DOMANDA["aeroporti"] and "impronta" not in A:  # aeroporti di prima del 5/11/2026: niente impronta né ricerche salvate
+            continue
+        if A.get("lettura") != "diretta" or A.get("http") != 200 or not re.fullmatch(r"[0-9a-f]{16}", A.get("impronta") or "") \
+                or not A["url"].startswith("https://"):
+            errori.append(f"aeroporto {A['slug']}: aggiunto dal 5/11/2026 senza lettura diretta, HTTP 200, impronta o URL https")
+        if A.get("fonte2") and not re.fullmatch(r"[0-9a-f]{16}", A["fonte2"].get("impronta") or ""):
+            errori.append(f"aeroporto {A['slug']}: seconda fonte senza impronta")
+        R = LIQ_DOMANDA["aeroporti"].get(A["slug"])
+        sugg = (R or {}).get("uk", []) + (R or {}).get("us", [])
+        if not R or not any(x.startswith(R["ricerca"]) for x in sugg) or not R["ricerca"].startswith(nome_titolo(A).lower() + " airport liquid"):
+            errori.append(f"aeroporto {A['slug']}: nessuna ricerca vera '<nome del titolo> airport liquid…' in dati/liquidi_domanda.json")
+    for s_ in LIQ_DOMANDA["aeroporti"]:
+        if s_ not in per_slug:
+            errori.append(f"liquidi_domanda.json: {s_} non è tra gli aeroporti")
+    # riquadri di guadagno: solo aeroporti di vacanza esistenti, mai di partenza o di transito; Stay22 solo con un link della stessa città
+    if len(set(NOLEGGIO_LIQ)) != len(NOLEGGIO_LIQ):
+        errori.append("affiliati.json: aeroporti duplicati nel riquadro noleggio dei liquidi")
+    for s_ in NOLEGGIO_LIQ:
+        A = per_slug.get(s_)
+        if not A or A["area"] == "UK and Ireland" or A["paese"] in PAESI_PARTENZA_LIQ or s_ in SCALI_TRANSITO_LIQ:
+            errori.append(f"affiliati.json: riquadro noleggio dei liquidi su {s_} (aeroporto inesistente, di partenza o di transito)")
+    if NOLEGGIO_LIQ and NOLEGGIO_AUTO and (not MON.dominio_ammesso(NOLEGGIO_AUTO) or not MON.dominio_in(urlparse(NOLEGGIO_AUTO).hostname, ["discovercars.com"])):
+        errori.append(f"liquidi: NOLEGGIO_AUTO non punta a discovercars.com: {NOLEGGIO_AUTO}")
+    for s_, k in ALLOGGI_LIQ.items():
+        A, v = per_slug.get(s_), STAY22_BIG.get(k)
+        if not A or s_ not in NOLEGGIO_LIQ or not v or v["citta"] != A["citta"] or not v["url"].startswith("https://booking.stay22.com/massimilianocori/"):
+            errori.append(f"affiliati.json: riquadro Stay22 dei liquidi su {s_} senza aeroporto di vacanza o senza link Stay22 della stessa città ({k})")
     for C in COMPAGNIE:
         for k in ("slug", "nome", "area", "fonti", "borse", "tariffe", "controllato_il"):
             if not C.get(k):

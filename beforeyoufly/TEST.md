@@ -129,3 +129,16 @@ Pagine per misura (stessa funzione): 40x30x20 21/7/0 · 40x30x15 26/2/0 · 40x20
 | Esclusi riprovati | Birmingham 403 (anche nel browser, anche senza www); Glasgow controllo anti-robot sulla pagina sicurezza; Belfast City senza frase sui liquidi (sottopagine 404) |
 
 Esito complessivo di `python3 beforeyoufly/verifica.py`: TUTTO OK (14 punti, 0 errori; browser compreso).
+
+## Controlli del 5 novembre 2026 (liquidi: 37 aeroporti nuovi, riquadri di guadagno)
+
+| Controllo | Esito |
+|---|---|
+| Lettura delle pagine ufficiali | 37 aeroporti + 2 seconde fonti, tutte HTTP 200 a una richiesta normale (nessun browser), frasi presenti parola per parola, impronta della zona citata salvata |
+| `python3 -I beforeyoufly/raccolta/liquidi.py` (senza browser) | i 37 nuovi e le 2 seconde fonti [OK] con l'impronta ricalcolata; gli 11 Aena di prima [OK] anche con la lettura diretta; 18 pagine lette col browser in ottobre: «[SERVE IL BROWSER]» (da rilanciare con BYF_BROWSER=1 al ricontrollo mensile) |
+| `python3 beforeyoufly/genera.py` | 1474 pagine indicizzabili + 404, 100 aeroporti + 2 regole nazionali |
+| `python3 beforeyoufly/verifica.py --offline` | TUTTO OK; punto 30: 37/37 aeroporti nuovi, riquadro «Hire a car at» su 52 pagine di vacanza, «Where to stay» su 5, nessun riquadro sulle 28 pagine di partenza |
+| Prove a mano del punto 30 | rel senza sponsored, senza target, senza riga di trasparenza, link DiscoverCars profondo, riquadro sopra la regola, DiscoverCars su Heathrow, link Stay22 scambiato, riquadro Stay22 senza etichetta: tutti errori |
+| Prove a mano di `controlli()` | Heathrow nell'elenco del noleggio, Stay22 su Madrid con il link di Granada, aeroporto nuovo senza impronta: tutti errori |
+| `python3 studio-business/strumenti/monetizzazione.py verifica beforeyoufly` | 0 errori |
+| Browser (Playwright, 375 px, chiaro e scuro) | Barcellona, Corfù, Inverness: nessuno scorrimento orizzontale, 0 errori JavaScript |

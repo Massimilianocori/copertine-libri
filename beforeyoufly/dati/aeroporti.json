@@ -1,6 +1,6 @@
 {
- "_nota": "Regole sui liquidi lette A MANO sulla pagina ufficiale di ogni aeroporto (o del gestore/autorità indicati) il 10/10/2026 (38 aeroporti) il 17/10/2026 (14 aggiunti: AMS, ATH, MLA, ZRH, DUS, BRU, DXB, BUD e 6 aeroporti Aena; riletti nella revisione del 17/10 anche Praga e la pagina Aena) e il 21/10/2026 (11 aggiunti nel Regno Unito, Irlanda e Jersey: LCY, LPL, NCL, LBA, BFS, CWL, SOU, EXT, BOH, ORK, JER). 'intestazioni' = frasi che aprono un gruppo (titolo o frase da cui dipendono le seguenti): nelle FAQ restano unite; 'faq_salta' = domande che non si adattano alla pagina; 'etichetta' = etichetta breve diversa da quella della regola. Le frasi in 'citazioni' e 'eccezioni' sono copiate parola per parola. regola: '2l' = fino a 2 litri per contenitore ai controlli indicati; '100ml' = contenitori fino a 100 ml; 'dipende' = cambia per terminal/varco; 'contraddice' = due pagine ufficiali dicono cose diverse (mostrate entrambe). lettura: 'diretta' = pagina scaricata con richiesta HTTP normale (200); 'browser' = pagina letta con un browser automatico perché il sito blocca le richieste semplici o carica il testo con JavaScript. Ricontrollo: mensile (raccolta/liquidi.py + lettura a mano).",
- "controllato_il": "2026-10-21",
+ "_nota": "Regole sui liquidi lette A MANO sulla pagina ufficiale di ogni aeroporto (o del gestore/autorità indicati) il 10/10/2026 (38 aeroporti) il 17/10/2026 (14 aggiunti: AMS, ATH, MLA, ZRH, DUS, BRU, DXB, BUD e 6 aeroporti Aena; riletti nella revisione del 17/10 anche Praga e la pagina Aena) e il 21/10/2026 (11 aggiunti nel Regno Unito, Irlanda e Jersey: LCY, LPL, NCL, LBA, BFS, CWL, SOU, EXT, BOH, ORK, JER). 'intestazioni' = frasi che aprono un gruppo (titolo o frase da cui dipendono le seguenti): nelle FAQ restano unite; 'faq_salta' = domande che non si adattano alla pagina; 'etichetta' = etichetta breve diversa da quella della regola. Le frasi in 'citazioni' e 'eccezioni' sono copiate parola per parola. regola: '2l' = fino a 2 litri per contenitore ai controlli indicati; '100ml' = contenitori fino a 100 ml; 'dipende' = cambia per terminal/varco; 'contraddice' = due pagine ufficiali dicono cose diverse (mostrate entrambe). lettura: 'diretta' = pagina scaricata con richiesta HTTP normale (200); 'browser' = pagina letta con un browser automatico perché il sito blocca le richieste semplici o carica il testo con JavaScript. Il 5/11/2026 aggiunti 37 aeroporti (12 Aena, 14 Fraport Greece, BGY, BLQ, DBV, ZAD, AYT, KEF, INV, PIK, MME, GCI, NOC), tutti con lettura 'diretta' (HTTP 200 a una richiesta normale, nessun browser), 'http' 200, 'impronta' = sha256 (16 caratteri) del testo normalizzato della pagina dalla prima all'ultima frase citata (raccolta/liquidi.py la ricalcola), 'pagina_gestore' = pagina dell'aeroporto sul sito Aena; ricerche vere in dati/liquidi_domanda.json. Ricontrollo: mensile (raccolta/liquidi.py + lettura a mano).",
+ "controllato_il": "2026-11-05",
  "aeroporti": [
   {
    "slug": "heathrow",
@@ -1385,6 +1385,996 @@
    "lettura": "diretta",
    "controllato_il": "2026-10-21",
    "nota": "Jersey is a Crown Dependency, not part of the United Kingdom; its airport is listed with the UK and Ireland airports."
+  },
+  {
+   "slug": "valencia",
+   "iata": "VLC",
+   "nome": "Valencia",
+   "citta": "Valencia",
+   "paese": "Spain",
+   "area": "Europe",
+   "gestore": "aena",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag",
+   "citazioni": [
+    "Liquids, perfumes, creams, aerosols, foams, gels, shampoo and toothpaste: in individual containers not exceeding 100 ml, placed in individual containers with a capacity of less than 100 ml. These containers must be carried in a transparent plastic bag that can be resealed, with a capacity of not more than 1 litre (a bag approximately 20 x 20 cm in size)."
+   ],
+   "eccezioni": [
+    "Each passenger may carry only one such bag (including children).",
+    "Bags must be placed in security checkpoint trays, separate from luggage."
+   ],
+   "nota": "Source: Aena's general hand-luggage page (Aena runs Spain's public airports). It does not list airport- or lane-specific exceptions; we found no airport-specific liquids page. Valencia is one of the airports Aena lists on its own website (aena.es/en/valencia.html); the hand-luggage page quoted here is Aena's general page, not a page for this airport.",
+   "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
+   "titolo_fonte": "Aena – What am I allowed to travel with on an aircraft?",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "42fab2661f44bd97",
+   "risposta": "No, according to Aena's general hand-luggage page",
+   "pagina_gestore": "https://www.aena.es/en/valencia.html"
+  },
+  {
+   "slug": "seville",
+   "iata": "SVQ",
+   "nome": "Seville",
+   "citta": "Seville",
+   "paese": "Spain",
+   "area": "Europe",
+   "gestore": "aena",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag",
+   "citazioni": [
+    "Liquids, perfumes, creams, aerosols, foams, gels, shampoo and toothpaste: in individual containers not exceeding 100 ml, placed in individual containers with a capacity of less than 100 ml. These containers must be carried in a transparent plastic bag that can be resealed, with a capacity of not more than 1 litre (a bag approximately 20 x 20 cm in size)."
+   ],
+   "eccezioni": [
+    "Each passenger may carry only one such bag (including children).",
+    "Bags must be placed in security checkpoint trays, separate from luggage."
+   ],
+   "nota": "Source: Aena's general hand-luggage page (Aena runs Spain's public airports). It does not list airport- or lane-specific exceptions; we found no airport-specific liquids page. Seville is one of the airports Aena lists on its own website (aena.es/en/sevilla.html); the hand-luggage page quoted here is Aena's general page, not a page for this airport.",
+   "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
+   "titolo_fonte": "Aena – What am I allowed to travel with on an aircraft?",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "42fab2661f44bd97",
+   "risposta": "No, according to Aena's general hand-luggage page",
+   "pagina_gestore": "https://www.aena.es/en/sevilla.html"
+  },
+  {
+   "slug": "reus",
+   "iata": "REU",
+   "nome": "Reus",
+   "citta": "Reus (Costa Daurada)",
+   "paese": "Spain",
+   "area": "Europe",
+   "gestore": "aena",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag",
+   "citazioni": [
+    "Liquids, perfumes, creams, aerosols, foams, gels, shampoo and toothpaste: in individual containers not exceeding 100 ml, placed in individual containers with a capacity of less than 100 ml. These containers must be carried in a transparent plastic bag that can be resealed, with a capacity of not more than 1 litre (a bag approximately 20 x 20 cm in size)."
+   ],
+   "eccezioni": [
+    "Each passenger may carry only one such bag (including children).",
+    "Bags must be placed in security checkpoint trays, separate from luggage."
+   ],
+   "nota": "Source: Aena's general hand-luggage page (Aena runs Spain's public airports). It does not list airport- or lane-specific exceptions; we found no airport-specific liquids page. Reus is one of the airports Aena lists on its own website (aena.es/en/reus.html); the hand-luggage page quoted here is Aena's general page, not a page for this airport.",
+   "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
+   "titolo_fonte": "Aena – What am I allowed to travel with on an aircraft?",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "42fab2661f44bd97",
+   "risposta": "No, according to Aena's general hand-luggage page",
+   "pagina_gestore": "https://www.aena.es/en/reus.html"
+  },
+  {
+   "slug": "murcia",
+   "iata": "RMU",
+   "nome": "Región de Murcia International",
+   "citta": "Murcia (Corvera)",
+   "paese": "Spain",
+   "area": "Europe",
+   "gestore": "aena",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag",
+   "citazioni": [
+    "Liquids, perfumes, creams, aerosols, foams, gels, shampoo and toothpaste: in individual containers not exceeding 100 ml, placed in individual containers with a capacity of less than 100 ml. These containers must be carried in a transparent plastic bag that can be resealed, with a capacity of not more than 1 litre (a bag approximately 20 x 20 cm in size)."
+   ],
+   "eccezioni": [
+    "Each passenger may carry only one such bag (including children).",
+    "Bags must be placed in security checkpoint trays, separate from luggage."
+   ],
+   "nota": "Source: Aena's general hand-luggage page (Aena runs Spain's public airports). It does not list airport- or lane-specific exceptions; we found no airport-specific liquids page. Región de Murcia International is one of the airports Aena lists on its own website (aena.es/en/internacional-region-de-murcia.html); the hand-luggage page quoted here is Aena's general page, not a page for this airport.",
+   "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
+   "titolo_fonte": "Aena – What am I allowed to travel with on an aircraft?",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "42fab2661f44bd97",
+   "risposta": "No, according to Aena's general hand-luggage page",
+   "pagina_gestore": "https://www.aena.es/en/internacional-region-de-murcia.html"
+  },
+  {
+   "slug": "almeria",
+   "iata": "LEI",
+   "nome": "Almería",
+   "citta": "Almería",
+   "paese": "Spain",
+   "area": "Europe",
+   "gestore": "aena",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag",
+   "citazioni": [
+    "Liquids, perfumes, creams, aerosols, foams, gels, shampoo and toothpaste: in individual containers not exceeding 100 ml, placed in individual containers with a capacity of less than 100 ml. These containers must be carried in a transparent plastic bag that can be resealed, with a capacity of not more than 1 litre (a bag approximately 20 x 20 cm in size)."
+   ],
+   "eccezioni": [
+    "Each passenger may carry only one such bag (including children).",
+    "Bags must be placed in security checkpoint trays, separate from luggage."
+   ],
+   "nota": "Source: Aena's general hand-luggage page (Aena runs Spain's public airports). It does not list airport- or lane-specific exceptions; we found no airport-specific liquids page. Almería is one of the airports Aena lists on its own website (aena.es/en/almeria.html); the hand-luggage page quoted here is Aena's general page, not a page for this airport.",
+   "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
+   "titolo_fonte": "Aena – What am I allowed to travel with on an aircraft?",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "42fab2661f44bd97",
+   "risposta": "No, according to Aena's general hand-luggage page",
+   "pagina_gestore": "https://www.aena.es/en/almeria.html"
+  },
+  {
+   "slug": "la-palma",
+   "iata": "SPC",
+   "nome": "La Palma",
+   "citta": "La Palma",
+   "paese": "Spain",
+   "area": "Europe",
+   "gestore": "aena",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag",
+   "citazioni": [
+    "Liquids, perfumes, creams, aerosols, foams, gels, shampoo and toothpaste: in individual containers not exceeding 100 ml, placed in individual containers with a capacity of less than 100 ml. These containers must be carried in a transparent plastic bag that can be resealed, with a capacity of not more than 1 litre (a bag approximately 20 x 20 cm in size)."
+   ],
+   "eccezioni": [
+    "Each passenger may carry only one such bag (including children).",
+    "Bags must be placed in security checkpoint trays, separate from luggage."
+   ],
+   "nota": "Source: Aena's general hand-luggage page (Aena runs Spain's public airports). It does not list airport- or lane-specific exceptions; we found no airport-specific liquids page. La Palma is one of the airports Aena lists on its own website (aena.es/en/la-palma.html); the hand-luggage page quoted here is Aena's general page, not a page for this airport.",
+   "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
+   "titolo_fonte": "Aena – What am I allowed to travel with on an aircraft?",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "42fab2661f44bd97",
+   "risposta": "No, according to Aena's general hand-luggage page",
+   "pagina_gestore": "https://www.aena.es/en/la-palma.html"
+  },
+  {
+   "slug": "bilbao",
+   "iata": "BIO",
+   "nome": "Bilbao",
+   "citta": "Bilbao",
+   "paese": "Spain",
+   "area": "Europe",
+   "gestore": "aena",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag",
+   "citazioni": [
+    "Liquids, perfumes, creams, aerosols, foams, gels, shampoo and toothpaste: in individual containers not exceeding 100 ml, placed in individual containers with a capacity of less than 100 ml. These containers must be carried in a transparent plastic bag that can be resealed, with a capacity of not more than 1 litre (a bag approximately 20 x 20 cm in size)."
+   ],
+   "eccezioni": [
+    "Each passenger may carry only one such bag (including children).",
+    "Bags must be placed in security checkpoint trays, separate from luggage."
+   ],
+   "nota": "Source: Aena's general hand-luggage page (Aena runs Spain's public airports). It does not list airport- or lane-specific exceptions; we found no airport-specific liquids page. Bilbao is one of the airports Aena lists on its own website (aena.es/en/bilbao.html); the hand-luggage page quoted here is Aena's general page, not a page for this airport.",
+   "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
+   "titolo_fonte": "Aena – What am I allowed to travel with on an aircraft?",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "42fab2661f44bd97",
+   "risposta": "No, according to Aena's general hand-luggage page",
+   "pagina_gestore": "https://www.aena.es/en/bilbao.html"
+  },
+  {
+   "slug": "girona",
+   "iata": "GRO",
+   "nome": "Girona-Costa Brava",
+   "citta": "Girona",
+   "paese": "Spain",
+   "area": "Europe",
+   "gestore": "aena",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag",
+   "citazioni": [
+    "Liquids, perfumes, creams, aerosols, foams, gels, shampoo and toothpaste: in individual containers not exceeding 100 ml, placed in individual containers with a capacity of less than 100 ml. These containers must be carried in a transparent plastic bag that can be resealed, with a capacity of not more than 1 litre (a bag approximately 20 x 20 cm in size)."
+   ],
+   "eccezioni": [
+    "Each passenger may carry only one such bag (including children).",
+    "Bags must be placed in security checkpoint trays, separate from luggage."
+   ],
+   "nota": "Source: Aena's general hand-luggage page (Aena runs Spain's public airports). It does not list airport- or lane-specific exceptions; we found no airport-specific liquids page. Girona-Costa Brava is one of the airports Aena lists on its own website (aena.es/en/girona-costa-brava.html); the hand-luggage page quoted here is Aena's general page, not a page for this airport.",
+   "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
+   "titolo_fonte": "Aena – What am I allowed to travel with on an aircraft?",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "42fab2661f44bd97",
+   "risposta": "No, according to Aena's general hand-luggage page",
+   "pagina_gestore": "https://www.aena.es/en/girona-costa-brava.html"
+  },
+  {
+   "slug": "tenerife-north",
+   "iata": "TFN",
+   "nome": "Tenerife North",
+   "citta": "Tenerife",
+   "paese": "Spain",
+   "area": "Europe",
+   "gestore": "aena",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag",
+   "citazioni": [
+    "Liquids, perfumes, creams, aerosols, foams, gels, shampoo and toothpaste: in individual containers not exceeding 100 ml, placed in individual containers with a capacity of less than 100 ml. These containers must be carried in a transparent plastic bag that can be resealed, with a capacity of not more than 1 litre (a bag approximately 20 x 20 cm in size)."
+   ],
+   "eccezioni": [
+    "Each passenger may carry only one such bag (including children).",
+    "Bags must be placed in security checkpoint trays, separate from luggage."
+   ],
+   "nota": "Source: Aena's general hand-luggage page (Aena runs Spain's public airports). It does not list airport- or lane-specific exceptions; we found no airport-specific liquids page. Tenerife North is one of the airports Aena lists on its own website (aena.es/en/tenerife-norte-ciudad-de-la-laguna.html); the hand-luggage page quoted here is Aena's general page, not a page for this airport.",
+   "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
+   "titolo_fonte": "Aena – What am I allowed to travel with on an aircraft?",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "42fab2661f44bd97",
+   "risposta": "No, according to Aena's general hand-luggage page",
+   "pagina_gestore": "https://www.aena.es/en/tenerife-norte-ciudad-de-la-laguna.html"
+  },
+  {
+   "slug": "santiago-de-compostela",
+   "iata": "SCQ",
+   "nome": "Santiago-Rosalía de Castro",
+   "citta": "Santiago de Compostela",
+   "paese": "Spain",
+   "area": "Europe",
+   "gestore": "aena",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag",
+   "citazioni": [
+    "Liquids, perfumes, creams, aerosols, foams, gels, shampoo and toothpaste: in individual containers not exceeding 100 ml, placed in individual containers with a capacity of less than 100 ml. These containers must be carried in a transparent plastic bag that can be resealed, with a capacity of not more than 1 litre (a bag approximately 20 x 20 cm in size)."
+   ],
+   "eccezioni": [
+    "Each passenger may carry only one such bag (including children).",
+    "Bags must be placed in security checkpoint trays, separate from luggage."
+   ],
+   "nota": "Source: Aena's general hand-luggage page (Aena runs Spain's public airports). It does not list airport- or lane-specific exceptions; we found no airport-specific liquids page. Santiago-Rosalía de Castro is one of the airports Aena lists on its own website (aena.es/en/santiago-rosalia-de-castro.html); the hand-luggage page quoted here is Aena's general page, not a page for this airport.",
+   "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
+   "titolo_fonte": "Aena – What am I allowed to travel with on an aircraft?",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "42fab2661f44bd97",
+   "risposta": "No, according to Aena's general hand-luggage page",
+   "pagina_gestore": "https://www.aena.es/en/santiago-rosalia-de-castro.html"
+  },
+  {
+   "slug": "jerez",
+   "iata": "XRY",
+   "nome": "Jerez",
+   "citta": "Jerez de la Frontera",
+   "paese": "Spain",
+   "area": "Europe",
+   "gestore": "aena",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag",
+   "citazioni": [
+    "Liquids, perfumes, creams, aerosols, foams, gels, shampoo and toothpaste: in individual containers not exceeding 100 ml, placed in individual containers with a capacity of less than 100 ml. These containers must be carried in a transparent plastic bag that can be resealed, with a capacity of not more than 1 litre (a bag approximately 20 x 20 cm in size)."
+   ],
+   "eccezioni": [
+    "Each passenger may carry only one such bag (including children).",
+    "Bags must be placed in security checkpoint trays, separate from luggage."
+   ],
+   "nota": "Source: Aena's general hand-luggage page (Aena runs Spain's public airports). It does not list airport- or lane-specific exceptions; we found no airport-specific liquids page. Jerez is one of the airports Aena lists on its own website (aena.es/en/jerez.html); the hand-luggage page quoted here is Aena's general page, not a page for this airport.",
+   "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
+   "titolo_fonte": "Aena – What am I allowed to travel with on an aircraft?",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "42fab2661f44bd97",
+   "risposta": "No, according to Aena's general hand-luggage page",
+   "pagina_gestore": "https://www.aena.es/en/jerez.html"
+  },
+  {
+   "slug": "granada",
+   "iata": "GRX",
+   "nome": "F.G.L. Granada-Jaén",
+   "citta": "Granada",
+   "paese": "Spain",
+   "area": "Europe",
+   "gestore": "aena",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag",
+   "citazioni": [
+    "Liquids, perfumes, creams, aerosols, foams, gels, shampoo and toothpaste: in individual containers not exceeding 100 ml, placed in individual containers with a capacity of less than 100 ml. These containers must be carried in a transparent plastic bag that can be resealed, with a capacity of not more than 1 litre (a bag approximately 20 x 20 cm in size)."
+   ],
+   "eccezioni": [
+    "Each passenger may carry only one such bag (including children).",
+    "Bags must be placed in security checkpoint trays, separate from luggage."
+   ],
+   "nota": "Source: Aena's general hand-luggage page (Aena runs Spain's public airports). It does not list airport- or lane-specific exceptions; we found no airport-specific liquids page. F.G.L. Granada-Jaén is one of the airports Aena lists on its own website (aena.es/en/f.g.l.-granada-jaen.html); the hand-luggage page quoted here is Aena's general page, not a page for this airport.",
+   "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
+   "titolo_fonte": "Aena – What am I allowed to travel with on an aircraft?",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "42fab2661f44bd97",
+   "risposta": "No, according to Aena's general hand-luggage page",
+   "pagina_gestore": "https://www.aena.es/en/f.g.l.-granada-jaen.html"
+  },
+  {
+   "slug": "thessaloniki",
+   "iata": "SKG",
+   "nome": "Thessaloniki Makedonia",
+   "citta": "Thessaloniki",
+   "paese": "Greece",
+   "area": "Europe",
+   "gestore": "fraport-greece",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag per passenger, taken out for screening",
+   "citazioni": [
+    "You are only allowed to carry limited quantities of liquids, aerosols and gels (LAGs) in your hand luggage. The LAGs must be in individual containers with a maximum capacity of 100 milliliters each. You must pack these containers in one transparent, re-sealable plastic bag of not more than one-liter capacity per passenger.",
+    "Liquids, Aerosols and Gels (LAGs) must be removed from your hand luggage and placed in the tray separately for security screening."
+   ],
+   "eccezioni": [
+    "Plastic bags are offered free of charge at the screening control.",
+    "You may carry LAGs over 100 milliliters, purchased from duty-free airport shops or on board provided that: - These items have been purchased and packaged in a Security Tamper Evident Bag - STEB. - The original receipt is enclosed and visible within the STEB. - The STEB is intact, sealed and has not been tampered with.",
+    "Medicines, as well as babyfood and milk are permitted in quantities larger than 100 ml."
+   ],
+   "nota": "Thessaloniki Makedonia Airport is run by Fraport Greece. On the official page the passages quoted here sit under the headings “Before travelling” and “At the airport”, which open with a click.",
+   "url": "https://www.skg-airport.gr/en/category-detailed/ctg_id-40/nd_id-298",
+   "titolo_fonte": "Thessaloniki Airport (Fraport Greece) – Security Control",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "b3b5d986f1bba261"
+  },
+  {
+   "slug": "corfu",
+   "iata": "CFU",
+   "nome": "Corfu",
+   "citta": "Corfu",
+   "paese": "Greece",
+   "area": "Europe",
+   "gestore": "fraport-greece",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag per passenger, taken out for screening",
+   "citazioni": [
+    "You are only allowed to carry limited quantities of liquids, aerosols and gels (LAGs) in your hand luggage. The LAGs must be in individual containers with a maximum capacity of 100 milliliters each. You must pack these containers in one transparent, re-sealable plastic bag of not more than one-liter capacity per passenger.",
+    "Liquids, Aerosols and Gels (LAGs) must be removed from your hand luggage and placed in the tray separately for security screening."
+   ],
+   "eccezioni": [
+    "Plastic bags are offered free of charge at the screening control.",
+    "You may carry LAGs over 100 milliliters, purchased from duty-free airport shops or on board provided that: - These items have been purchased and packaged in a Security Tamper Evident Bag - STEB. - The original receipt is enclosed and visible within the STEB. - The STEB is intact, sealed and has not been tampered with.",
+    "Medicines, as well as babyfood and milk are permitted in quantities larger than 100 ml."
+   ],
+   "nota": "Corfu Airport is run by Fraport Greece. On the official page the passages quoted here sit under the headings “Before travelling” and “At the airport”, which open with a click.",
+   "url": "https://www.cfu-airport.gr/en/category-detailed/ctg_id-533/nd_id-1559",
+   "titolo_fonte": "Corfu Airport (Fraport Greece) – Security Control",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "fe291562eac817b9"
+  },
+  {
+   "slug": "chania",
+   "iata": "CHQ",
+   "nome": "Chania",
+   "citta": "Chania (Crete)",
+   "paese": "Greece",
+   "area": "Europe",
+   "gestore": "fraport-greece",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag per passenger, taken out for screening",
+   "citazioni": [
+    "You are only allowed to carry limited quantities of liquids, aerosols and gels (LAGs) in your hand luggage. The LAGs must be in individual containers with a maximum capacity of 100 milliliters each. You must pack these containers in one transparent, re-sealable plastic bag of not more than one-liter capacity per passenger.",
+    "Liquids, Aerosols and Gels (LAGs) must be removed from your hand luggage and placed in the tray separately for security screening."
+   ],
+   "eccezioni": [
+    "Plastic bags are offered free of charge at the screening control.",
+    "You may carry LAGs over 100 milliliters, purchased from duty-free airport shops or on board provided that: - These items have been purchased and packaged in a Security Tamper Evident Bag - STEB. - The original receipt is enclosed and visible within the STEB. - The STEB is intact, sealed and has not been tampered with.",
+    "Medicines, as well as babyfood and milk are permitted in quantities larger than 100 ml."
+   ],
+   "nota": "Chania Airport is run by Fraport Greece. On the official page the passages quoted here sit under the headings “Before travelling” and “At the airport”, which open with a click.",
+   "url": "https://www.chq-airport.gr/en/category-detailed/ctg_id-72/nd_id-453",
+   "titolo_fonte": "Chania Airport (Fraport Greece) – Security Control",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "b3b5d986f1bba261"
+  },
+  {
+   "slug": "kefalonia",
+   "iata": "EFL",
+   "nome": "Kefalonia",
+   "citta": "Kefalonia",
+   "paese": "Greece",
+   "area": "Europe",
+   "gestore": "fraport-greece",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag per passenger, taken out for screening",
+   "citazioni": [
+    "You are only allowed to carry limited quantities of liquids, aerosols and gels (LAGs) in your hand luggage. The LAGs must be in individual containers with a maximum capacity of 100 milliliters each. You must pack these containers in one transparent, re-sealable plastic bag of not more than one-liter capacity per passenger.",
+    "Liquids, Aerosols and Gels (LAGs) must be removed from your hand luggage and placed in the tray separately for security screening."
+   ],
+   "eccezioni": [
+    "Plastic bags are offered free of charge at the screening control.",
+    "You may carry LAGs over 100 milliliters, purchased from duty-free airport shops or on board provided that: - These items have been purchased and packaged in a Security Tamper Evident Bag - STEB. - The original receipt is enclosed and visible within the STEB. - The STEB is intact, sealed and has not been tampered with.",
+    "Medicines, as well as babyfood and milk are permitted in quantities larger than 100 ml."
+   ],
+   "nota": "Kefalonia Airport is run by Fraport Greece. On the official page the passages quoted here sit under the headings “Before travelling” and “At the airport”, which open with a click.",
+   "url": "https://www.efl-airport.gr/en/category-detailed/ctg_id-136/nd_id-635",
+   "titolo_fonte": "Kefalonia Airport (Fraport Greece) – Security Control",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "b3b5d986f1bba261"
+  },
+  {
+   "slug": "zakynthos",
+   "iata": "ZTH",
+   "nome": "Zakynthos",
+   "citta": "Zakynthos (Zante)",
+   "paese": "Greece",
+   "area": "Europe",
+   "gestore": "fraport-greece",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag per passenger, taken out for screening",
+   "citazioni": [
+    "You are only allowed to carry limited quantities of liquids, aerosols and gels (LAGs) in your hand luggage. The LAGs must be in individual containers with a maximum capacity of 100 milliliters each. You must pack these containers in one transparent, re-sealable plastic bag of not more than one-liter capacity per passenger.",
+    "Liquids, Aerosols and Gels (LAGs) must be removed from your hand luggage and placed in the tray separately for security screening."
+   ],
+   "eccezioni": [
+    "Plastic bags are offered free of charge at the screening control.",
+    "You may carry LAGs over 100 milliliters, purchased from duty-free airport shops or on board provided that: - These items have been purchased and packaged in a Security Tamper Evident Bag - STEB. - The original receipt is enclosed and visible within the STEB. - The STEB is intact, sealed and has not been tampered with.",
+    "Medicines, as well as babyfood and milk are permitted in quantities larger than 100 ml."
+   ],
+   "nota": "Zakynthos Airport is run by Fraport Greece. On the official page the passages quoted here sit under the headings “Before travelling” and “At the airport”, which open with a click.",
+   "url": "https://www.zth-airport.gr/en/category-detailed/ctg_id-169/nd_id-712",
+   "titolo_fonte": "Zakynthos Airport (Fraport Greece) – Security Control",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "2ff51d23d6bc9e00"
+  },
+  {
+   "slug": "rhodes",
+   "iata": "RHO",
+   "nome": "Rhodes",
+   "citta": "Rhodes",
+   "paese": "Greece",
+   "area": "Europe",
+   "gestore": "fraport-greece",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag per passenger, taken out for screening",
+   "citazioni": [
+    "You are only allowed to carry limited quantities of liquids, aerosols and gels (LAGs) in your hand luggage. The LAGs must be in individual containers with a maximum capacity of 100 milliliters each. You must pack these containers in one transparent, re-sealable plastic bag of not more than one-liter capacity per passenger.",
+    "Liquids, Aerosols and Gels (LAGs) must be removed from your hand luggage and placed in the tray separately for security screening."
+   ],
+   "eccezioni": [
+    "Plastic bags are offered free of charge at the screening control.",
+    "You may carry LAGs over 100 milliliters, purchased from duty-free airport shops or on board provided that: - These items have been purchased and packaged in a Security Tamper Evident Bag - STEB. - The original receipt is enclosed and visible within the STEB. - The STEB is intact, sealed and has not been tampered with.",
+    "Medicines, as well as babyfood and milk are permitted in quantities larger than 100 ml."
+   ],
+   "nota": "Rhodes Airport is run by Fraport Greece. On the official page the passages quoted here sit under the headings “Before travelling” and “At the airport”, which open with a click.",
+   "url": "https://www.rho-airport.gr/en/category-detailed/ctg_id-268/nd_id-943",
+   "titolo_fonte": "Rhodes Airport (Fraport Greece) – Security Control",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "fe291562eac817b9"
+  },
+  {
+   "slug": "kos",
+   "iata": "KGS",
+   "nome": "Kos",
+   "citta": "Kos",
+   "paese": "Greece",
+   "area": "Europe",
+   "gestore": "fraport-greece",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag per passenger, taken out for screening",
+   "citazioni": [
+    "You are only allowed to carry limited quantities of liquids, aerosols and gels (LAGs) in your hand luggage. The LAGs must be in individual containers with a maximum capacity of 100 milliliters each. You must pack these containers in one transparent, re-sealable plastic bag of not more than one-liter capacity per passenger.",
+    "Liquids, Aerosols and Gels (LAGs) must be removed from your hand luggage and placed in the tray separately for security screening."
+   ],
+   "eccezioni": [
+    "Plastic bags are offered free of charge at the screening control.",
+    "You may carry LAGs over 100 milliliters, purchased from duty-free airport shops or on board provided that: - These items have been purchased and packaged in a Security Tamper Evident Bag - STEB. - The original receipt is enclosed and visible within the STEB. - The STEB is intact, sealed and has not been tampered with.",
+    "Medicines, as well as babyfood and milk are permitted in quantities larger than 100 ml."
+   ],
+   "nota": "Kos Airport is run by Fraport Greece. On the official page the passages quoted here sit under the headings “Before travelling” and “At the airport”, which open with a click.",
+   "url": "https://www.kgs-airport.gr/en/category-detailed/ctg_id-301/nd_id-1020",
+   "titolo_fonte": "Kos Airport (Fraport Greece) – Security Control",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "b3b5d986f1bba261"
+  },
+  {
+   "slug": "mykonos",
+   "iata": "JMK",
+   "nome": "Mykonos",
+   "citta": "Mykonos",
+   "paese": "Greece",
+   "area": "Europe",
+   "gestore": "fraport-greece",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag per passenger, taken out for screening",
+   "citazioni": [
+    "You are only allowed to carry limited quantities of liquids, aerosols and gels (LAGs) in your hand luggage. The LAGs must be in individual containers with a maximum capacity of 100 milliliters each. You must pack these containers in one transparent, re-sealable plastic bag of not more than one-liter capacity per passenger.",
+    "Liquids, Aerosols and Gels (LAGs) must be removed from your hand luggage and placed in the tray separately for security screening."
+   ],
+   "eccezioni": [
+    "Plastic bags are offered free of charge at the screening control.",
+    "You may carry LAGs over 100 milliliters, purchased from duty-free airport shops or on board provided that: - These items have been purchased and packaged in a Security Tamper Evident Bag - STEB. - The original receipt is enclosed and visible within the STEB. - The STEB is intact, sealed and has not been tampered with.",
+    "Medicines, as well as babyfood and milk are permitted in quantities larger than 100 ml."
+   ],
+   "nota": "Mykonos Airport is run by Fraport Greece. On the official page the passages quoted here sit under the headings “Before travelling” and “At the airport”, which open with a click.",
+   "url": "https://www.jmk-airport.gr/en/category-detailed/ctg_id-400/nd_id-1251",
+   "titolo_fonte": "Mykonos Airport (Fraport Greece) – Security Control",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "1e7241a5d6a6ccf0"
+  },
+  {
+   "slug": "santorini",
+   "iata": "JTR",
+   "nome": "Santorini",
+   "citta": "Santorini (Thira)",
+   "paese": "Greece",
+   "area": "Europe",
+   "gestore": "fraport-greece",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag per passenger, taken out for screening",
+   "citazioni": [
+    "You are only allowed to carry limited quantities of liquids, aerosols and gels (LAGs) in your hand luggage. The LAGs must be in individual containers with a maximum capacity of 100 milliliters each. You must pack these containers in one transparent, re-sealable plastic bag of not more than one-liter capacity per passenger.",
+    "Liquids, Aerosols and Gels (LAGs) must be removed from your hand luggage and placed in the tray separately for security screening."
+   ],
+   "eccezioni": [
+    "Plastic bags are offered free of charge at the screening control.",
+    "You may carry LAGs over 100 milliliters, purchased from duty-free airport shops or on board provided that: - These items have been purchased and packaged in a Security Tamper Evident Bag - STEB. - The original receipt is enclosed and visible within the STEB. - The STEB is intact, sealed and has not been tampered with.",
+    "Medicines, as well as babyfood and milk are permitted in quantities larger than 100 ml."
+   ],
+   "nota": "Santorini Airport is run by Fraport Greece. On the official page the passages quoted here sit under the headings “Before travelling” and “At the airport”, which open with a click.",
+   "url": "https://www.jtr-airport.gr/en/category-detailed/ctg_id-433/nd_id-1328",
+   "titolo_fonte": "Santorini Airport (Fraport Greece) – Security Control",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "fe291562eac817b9"
+  },
+  {
+   "slug": "preveza-aktion",
+   "iata": "PVK",
+   "nome": "Aktion",
+   "citta": "Preveza (Lefkada)",
+   "paese": "Greece",
+   "area": "Europe",
+   "gestore": "fraport-greece",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag per passenger, taken out for screening",
+   "citazioni": [
+    "You are only allowed to carry limited quantities of liquids, aerosols and gels (LAGs) in your hand luggage. The LAGs must be in individual containers with a maximum capacity of 100 milliliters each. You must pack these containers in one transparent, re-sealable plastic bag of not more than one-liter capacity per passenger.",
+    "Liquids, Aerosols and Gels (LAGs) must be removed from your hand luggage and placed in the tray separately for security screening."
+   ],
+   "eccezioni": [
+    "Plastic bags are offered free of charge at the screening control.",
+    "You may carry LAGs over 100 milliliters, purchased from duty-free airport shops or on board provided that: - These items have been purchased and packaged in a Security Tamper Evident Bag - STEB. - The original receipt is enclosed and visible within the STEB. - The STEB is intact, sealed and has not been tampered with.",
+    "Medicines, as well as babyfood and milk are permitted in quantities larger than 100 ml."
+   ],
+   "nota": "Aktion Airport is run by Fraport Greece. On the official page the passages quoted here sit under the headings “Before travelling” and “At the airport”, which open with a click.",
+   "url": "https://www.pvk-airport.gr/en/category-detailed/ctg_id-202/nd_id-789",
+   "titolo_fonte": "Aktion Airport (Fraport Greece) – Security Control",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "fe291562eac817b9"
+  },
+  {
+   "slug": "kavala",
+   "iata": "KVA",
+   "nome": "Kavala",
+   "citta": "Kavala",
+   "paese": "Greece",
+   "area": "Europe",
+   "gestore": "fraport-greece",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag per passenger, taken out for screening",
+   "citazioni": [
+    "You are only allowed to carry limited quantities of liquids, aerosols and gels (LAGs) in your hand luggage. The LAGs must be in individual containers with a maximum capacity of 100 milliliters each. You must pack these containers in one transparent, re-sealable plastic bag of not more than one-liter capacity per passenger.",
+    "Liquids, Aerosols and Gels (LAGs) must be removed from your hand luggage and placed in the tray separately for security screening."
+   ],
+   "eccezioni": [
+    "Plastic bags are offered free of charge at the screening control.",
+    "You may carry LAGs over 100 milliliters, purchased from duty-free airport shops or on board provided that: - These items have been purchased and packaged in a Security Tamper Evident Bag - STEB. - The original receipt is enclosed and visible within the STEB. - The STEB is intact, sealed and has not been tampered with.",
+    "Medicines, as well as babyfood and milk are permitted in quantities larger than 100 ml."
+   ],
+   "nota": "Kavala Airport is run by Fraport Greece. On the official page the passages quoted here sit under the headings “Before travelling” and “At the airport”, which open with a click.",
+   "url": "https://www.kva-airport.gr/en/category-detailed/ctg_id-235/nd_id-866",
+   "titolo_fonte": "Kavala Airport (Fraport Greece) – Security Control",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "b3b5d986f1bba261"
+  },
+  {
+   "slug": "mytilene",
+   "iata": "MJT",
+   "nome": "Mytilene",
+   "citta": "Mytilene (Lesbos)",
+   "paese": "Greece",
+   "area": "Europe",
+   "gestore": "fraport-greece",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag per passenger, taken out for screening",
+   "citazioni": [
+    "You are only allowed to carry limited quantities of liquids, aerosols and gels (LAGs) in your hand luggage. The LAGs must be in individual containers with a maximum capacity of 100 milliliters each. You must pack these containers in one transparent, re-sealable plastic bag of not more than one-liter capacity per passenger.",
+    "Liquids, Aerosols and Gels (LAGs) must be removed from your hand luggage and placed in the tray separately for security screening."
+   ],
+   "eccezioni": [
+    "Plastic bags are offered free of charge at the screening control.",
+    "You may carry LAGs over 100 milliliters, purchased from duty-free airport shops or on board provided that: - These items have been purchased and packaged in a Security Tamper Evident Bag - STEB. - The original receipt is enclosed and visible within the STEB. - The STEB is intact, sealed and has not been tampered with.",
+    "Medicines, as well as babyfood and milk are permitted in quantities larger than 100 ml."
+   ],
+   "nota": "Mytilene Airport is run by Fraport Greece. On the official page the passages quoted here sit under the headings “Before travelling” and “At the airport”, which open with a click.",
+   "url": "https://www.mjt-airport.gr/en/category-detailed/ctg_id-367/nd_id-1174",
+   "titolo_fonte": "Mitilini Airport (Fraport Greece) – Security Control",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "b3b5d986f1bba261"
+  },
+  {
+   "slug": "samos",
+   "iata": "SMI",
+   "nome": "Samos",
+   "citta": "Samos",
+   "paese": "Greece",
+   "area": "Europe",
+   "gestore": "fraport-greece",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag per passenger, taken out for screening",
+   "citazioni": [
+    "You are only allowed to carry limited quantities of liquids, aerosols and gels (LAGs) in your hand luggage. The LAGs must be in individual containers with a maximum capacity of 100 milliliters each. You must pack these containers in one transparent, re-sealable plastic bag of not more than one-liter capacity per passenger.",
+    "Liquids, Aerosols and Gels (LAGs) must be removed from your hand luggage and placed in the tray separately for security screening."
+   ],
+   "eccezioni": [
+    "Plastic bags are offered free of charge at the screening control.",
+    "You may carry LAGs over 100 milliliters, purchased from duty-free airport shops or on board provided that: - These items have been purchased and packaged in a Security Tamper Evident Bag - STEB. - The original receipt is enclosed and visible within the STEB. - The STEB is intact, sealed and has not been tampered with.",
+    "Medicines, as well as babyfood and milk are permitted in quantities larger than 100 ml."
+   ],
+   "nota": "Samos Airport is run by Fraport Greece. On the official page the passages quoted here sit under the headings “Before travelling” and “At the airport”, which open with a click.",
+   "url": "https://www.smi-airport.gr/en/category-detailed/ctg_id-334/nd_id-1097",
+   "titolo_fonte": "Samos Airport (Fraport Greece) – Security Control",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "fe291562eac817b9"
+  },
+  {
+   "slug": "skiathos",
+   "iata": "JSI",
+   "nome": "Skiathos",
+   "citta": "Skiathos",
+   "paese": "Greece",
+   "area": "Europe",
+   "gestore": "fraport-greece",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag per passenger, taken out for screening",
+   "citazioni": [
+    "You are only allowed to carry limited quantities of liquids, aerosols and gels (LAGs) in your hand luggage. The LAGs must be in individual containers with a maximum capacity of 100 milliliters each. You must pack these containers in one transparent, re-sealable plastic bag of not more than one-liter capacity per passenger.",
+    "Liquids, Aerosols and Gels (LAGs) must be removed from your hand luggage and placed in the tray separately for security screening."
+   ],
+   "eccezioni": [
+    "Plastic bags are offered free of charge at the screening control.",
+    "You may carry LAGs over 100 milliliters, purchased from duty-free airport shops or on board provided that: - These items have been purchased and packaged in a Security Tamper Evident Bag - STEB. - The original receipt is enclosed and visible within the STEB. - The STEB is intact, sealed and has not been tampered with.",
+    "Medicines, as well as babyfood and milk are permitted in quantities larger than 100 ml."
+   ],
+   "nota": "Skiathos Airport is run by Fraport Greece. On the official page the passages quoted here sit under the headings “Before travelling” and “At the airport”, which open with a click.",
+   "url": "https://www.jsi-airport.gr/en/category-detailed/ctg_id-500/nd_id-1482",
+   "titolo_fonte": "Skiathos Airport (Fraport Greece) – Security Control",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "b3b5d986f1bba261"
+  },
+  {
+   "slug": "milan-bergamo",
+   "iata": "BGY",
+   "nome": "Milan Bergamo",
+   "citta": "Bergamo",
+   "paese": "Italy",
+   "area": "Europe",
+   "regola": "2l",
+   "sintesi": "Containers up to 2 litres each in hand luggage",
+   "citazioni": [
+    "Passengers are allowed to carry liquids in their hand luggage in containers with a maximum capacity of 2 litres each."
+   ],
+   "eccezioni": [
+    "In hand luggage, apart from liquids, passengers may carry medicines and dietary products, such as baby food, if necessary for the journey. Proof of the actual need for these items may be required.",
+    "Products purchased at Duty Free shops and on board will be provided in sealed bags by the seller, which should not be opened until reaching the final destination. If connecting through other airports, liquids purchased may be confiscated at security checks.",
+    "Electronic devices can be carried in hand luggage without the need to separate them during security checks."
+   ],
+   "url": "https://www.milanbergamoairport.it/en/security-checks/",
+   "titolo_fonte": "Milan Bergamo Airport – Security checks",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "61b8ec2d914551e5"
+  },
+  {
+   "slug": "bologna",
+   "iata": "BLQ",
+   "nome": "Bologna Guglielmo Marconi",
+   "citta": "Bologna",
+   "paese": "Italy",
+   "area": "Europe",
+   "regola": "2l",
+   "sintesi": "Containers up to 2 litres each in hand luggage",
+   "citazioni": [
+    "Passengers are allowed to carry liquids, aerosols, and gels in their hand luggage, with a maximum of 2 liters per individual container."
+   ],
+   "eccezioni": [],
+   "url": "https://www.bologna-airport.it/en/flights/get-ready-for-your-trip/baggage/?idC=62291",
+   "titolo_fonte": "Bologna Airport – Baggage",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "855b127f12055bbf"
+  },
+  {
+   "slug": "dubrovnik",
+   "iata": "DBV",
+   "nome": "Dubrovnik",
+   "citta": "Dubrovnik",
+   "paese": "Croatia",
+   "area": "Europe",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in a 1-litre clear bag",
+   "citazioni": [
+    "IT IS ALLOWED TO CARRY: Liquids in packaging up to 100 ml or less packed in a 1-liter clear plastic bag.",
+    "Only certain liquids can be carried in hand luggage and must be separately screened."
+   ],
+   "eccezioni": [
+    "Medical and special food products (e.g., baby food) to be consumed during the journey. Authentication may be requested.",
+    "Following European Union regulations, as of January 31, 2014, EU airports will allow liquids purchased from duty-free shops at any airport or aircraft and packed in sealed security bags available at sales points to pass security."
+   ],
+   "nota": "A news item of 27 August 2026 on the airport's website (quoted above) says new scanners will let passengers keep liquids and electronic devices in their cabin bags; it does not mention any change to the 100 ml limit on the traveller guide page.",
+   "url": "https://www.dbv.hr/en/traveller-guide/52",
+   "titolo_fonte": "Dubrovnik Airport – Traveller guide",
+   "fonte2": {
+    "url": "https://www.dbv.hr/en/dubrovnik-airport-deploys-next-generation-scanners-allowing-liquids-and-electronics-to-remain-in-cabin-bags/2045",
+    "titolo": "Dubrovnik Airport – news of 27 August 2026 on the new security scanners",
+    "citazioni": [
+     "Dubrovnik Airport is set to introduce new scanners that allow passengers to keep liquids and electronic devices inside their cabin bags during security checks.",
+     "The upgrade includes six carry‑on baggage scanners and six passenger screening units. One scanner is already operational, while the remaining five will be installed by early December."
+    ],
+    "impronta": "2aac241442782053"
+   },
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "0e3a9618a8860eef"
+  },
+  {
+   "slug": "zadar",
+   "iata": "ZAD",
+   "nome": "Zadar",
+   "citta": "Zadar",
+   "paese": "Croatia",
+   "area": "Europe",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one sealed 1-litre bag",
+   "citazioni": [
+    "Liquids may be carried in containers of up to 100 ml, placed in one sealed, transparent plastic bag with a maximum capacity of 1 litre. This includes gels, pastes, lotions, pressurised containers, perfumes, shaving foam, deodorants, etc."
+   ],
+   "eccezioni": [
+    "Larger quantities are permitted for medical purposes, baby food, or liquids purchased in the duty-free area (with proof)."
+   ],
+   "url": "https://www.zadar-airport.hr/en/security-measures/",
+   "titolo_fonte": "Zadar Airport – Security measures",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "ecc7d6af3a46b9ee"
+  },
+  {
+   "slug": "antalya",
+   "iata": "AYT",
+   "nome": "Antalya",
+   "citta": "Antalya",
+   "paese": "Türkiye",
+   "area": "Middle East and Asia",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag (20 x 20 cm), screened separately",
+   "citazioni": [
+    "Liquids must be in individual containers with a maximum capacity of 100 milliliters each. You have to pack these containers in one transparent, re-sealable plastic bag of not more than 1 litre in capacity (20cm x 20cm). Each passenger may only carry one such transparent bag. The bag must be presented for examination at the check point and screened separately from your cabin bag."
+   ],
+   "eccezioni": [],
+   "nota": "Antalya Airport is run by Fraport TAV. The exemptions for medicines, baby food and duty-free are on a second page of the airport's website, quoted above.",
+   "url": "https://www.antalya-airport.aero/passengers-visitors/passenger-guide/departing-from-ayt/luggage-security-information/how-to-pack-allowed-quantities-of-liquids",
+   "titolo_fonte": "Antalya Airport (Fraport TAV) – How to pack allowed quantities of liquids?",
+   "fonte2": {
+    "url": "https://www.antalya-airport.aero/passengers-visitors/passenger-guide/departing-from-ayt/luggage-security-information/exceptions-to-liquid-restrictions",
+    "titolo": "Antalya Airport (Fraport TAV) – Exceptions to liquid restrictions",
+    "citazioni": [
+     "You may still carry medicines and special dietary requirements, including baby foods, for use during the trip in your hand luggage. You may be asked for proof that they are needed and/or required to taste the contents of each jar or bottle.",
+     "All tax-free liquids purchased at the airport duty-free shops located beyond the passport control or on board of the airline are permitted. Liquids purchased at duty-free are sold in a special sealed bag. Do not open it before you are screened - otherwise the contents will be confiscated at the checkpoint."
+    ],
+    "impronta": "e34d54ef65795ab8"
+   },
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "9a2c76765754988d"
+  },
+  {
+   "slug": "keflavik",
+   "iata": "KEF",
+   "nome": "Keflavík International",
+   "citta": "Reykjavík (Keflavík)",
+   "paese": "Iceland",
+   "area": "Europe",
+   "regola": "100ml",
+   "sintesi": "100 ml containers, 1 litre in total, in a transparent bag placed in a tray",
+   "citazioni": [
+    "Liquids: Maximum 100ml per container. Total liquid volume shouldn't exceed 1 litre. Place all liquids in a transparent zipper bag. Remove this bag from your hand luggage and place it in a tray."
+   ],
+   "eccezioni": [
+    "Medication in liquid form that you require during your flight is permitted but may need to go through a liquid screening machine if the packaging is larger than 100ml.",
+    "Infant formula is permitted provided the infant is travelling with you."
+   ],
+   "url": "https://www.kefairport.com/security-check",
+   "titolo_fonte": "Keflavík Airport (Isavia) – Security check",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "1d24bb62a83a2b08"
+  },
+  {
+   "slug": "inverness",
+   "iata": "INV",
+   "nome": "Inverness",
+   "citta": "Inverness",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "gestore": "hial",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag (about 20 x 20 cm), one bag per passenger",
+   "citazioni": [
+    "If you are carrying any liquids, gels or pastes in your hand luggage, the following restrictions apply:",
+    "The liquid must be in a container with a maximum volume of 100ml",
+    "Containers must be carried in a single, transparent, re-sealable plastic bag, which holds no more than a litre and measures approximately 20cm x 20cm",
+    "The bag must not be knotted or tied at the top",
+    "Each passenger can carry only one of these bags"
+   ],
+   "eccezioni": [
+    "Liquid medicines, baby milk and liquids for special dietary requirements in containers greater than 100ml, but considered necessary for the trip, can be placed in hand luggage but will be subject to a separate verification process",
+    "Re-sealable bag of liquids – it will be screened separately from your hand baggage"
+   ],
+   "nota": "Source: the security page of Highlands and Islands Airports Ltd (HIAL), the company that runs Inverness Airport and other airports in Scotland. It is a page for the HIAL group, not a page for Inverness alone; we found no Inverness-only liquids page.",
+   "url": "https://www.hial.co.uk/hial-group/security/1",
+   "titolo_fonte": "Highlands and Islands Airports (HIAL) – Security",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "d99d288aa57e3691",
+   "risposta": "No, according to HIAL's group security page"
+  },
+  {
+   "slug": "glasgow-prestwick",
+   "iata": "PIK",
+   "nome": "Glasgow Prestwick",
+   "citta": "Prestwick",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "100ml",
+   "sintesi": "Containers under 100 ml in one clear re-sealable bag of no more than 20 x 20 cm",
+   "citazioni": [
+    "Liquids, aerosols, gels and lighters under 100mls can be carried on, limited to one clear re-sealable plastic bag of no more than 20x20cm.",
+    "Please note that liquid restrictions will remain in place at Glasgow Prestwick Airport."
+   ],
+   "eccezioni": [
+    "Remember, you can purchase any liquid, aerosol or gel item – including Duty-Free – after security and carry these on board (but check your airline for flights with stopovers).",
+    "Baby products required for the duration of the flight are exempt. These include baby milk, sterilised water (that’s in a baby bottle), baby food and wet wipes. Any baby products over 100ml will be screened using enhanced technology.",
+    "Essential medication over 100ml will be screened using enhanced technology."
+   ],
+   "url": "https://www.glasgowprestwick.com/security/",
+   "titolo_fonte": "Glasgow Prestwick Airport – Security",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "5005e7ce88ea2db7"
+  },
+  {
+   "slug": "teesside",
+   "iata": "MME",
+   "nome": "Teesside International",
+   "citta": "Darlington (Teesside)",
+   "paese": "United Kingdom",
+   "area": "UK and Ireland",
+   "regola": "100ml",
+   "sintesi": "Containers up to 100 ml, no plastic bag, liquids stay in your bag, no limit on the number",
+   "citazioni": [
+    "All liquids, gels and creams in hand luggage must be in containers of up to 100ml. Liquids in your hand luggage do not need to be placed in a plastic bag and do not need to be taken out of your bags prior to screening. There is no specified limit to the number of 100ml liquid containers that may be carried."
+   ],
+   "eccezioni": [
+    "Passengers flying from Teesside are advised to carry all non-essential liquids in hold luggage."
+   ],
+   "url": "https://www.teessideinternational.com/at-the-airport/preparing-for-security/",
+   "titolo_fonte": "Teesside International Airport – Preparing for security",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "34c95129af13519b"
+  },
+  {
+   "slug": "guernsey",
+   "iata": "GCI",
+   "nome": "Guernsey",
+   "citta": "Guernsey",
+   "paese": "Guernsey",
+   "area": "UK and Ireland",
+   "regola": "100ml",
+   "sintesi": "100 ml containers in one 1-litre bag (about 20 x 20 cm), shown at security",
+   "citazioni": [
+    "If you do take liquids in your hand luggage:",
+    "Containers must hold no more than 100ml",
+    "Containers must be in a single, transparent, resealable plastic bag, which holds no more than a litre and measures approximately 20cm x 20cm",
+    "Contents must fit comfortably inside the bag so it can be sealed",
+    "The bag must not be knotted or tied at the top",
+    "You’re limited to 1 plastic bag per person",
+    "You must show the bag at the airport security search area"
+   ],
+   "eccezioni": [
+    "Liquids in containers larger than 100ml generally cannot go through security even if the container is only part full. There are some exemptions.",
+    "You can take liquid containers larger than 100ml through security if they:",
+    "Are for essential medical purposes",
+    "Are for special dietary requirements",
+    "Contain baby food or baby milk",
+    "You can also take liquids bought at an airport or on a plane (such as duty free) through security if:",
+    "The items are sealed inside a security bag when you buy them",
+    "the receipt for the items is sealed in the security bag and visible"
+   ],
+   "nota": "Guernsey is a Crown Dependency, not part of the United Kingdom; its airport is listed with the UK and Ireland airports.",
+   "url": "https://www.airport.gg/passenger-information/liquids",
+   "titolo_fonte": "Guernsey Airport – Liquids",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "9269d2055e6e34f4"
+  },
+  {
+   "slug": "knock",
+   "iata": "NOC",
+   "nome": "Ireland West Knock",
+   "citta": "Knock (County Mayo)",
+   "paese": "Ireland",
+   "area": "UK and Ireland",
+   "regola": "2l",
+   "sintesi": "Containers up to 2 litres, no plastic bag, liquids stay in your bag, no limit on the number",
+   "citazioni": [
+    "The previous 100ml maximum limit on liquids and gels no longer applies, and items in containers of up to 2 litres can be brought through security. Liquids, aerosols and gels no longer need to be packed inside clear plastic bags and can stay in your carry-on baggage when going through security. There is no limit on the number of liquids and gels you can carry in your carry-on baggage."
+   ],
+   "eccezioni": [
+    "Electrical items do not need to be removed from cabin baggage."
+   ],
+   "url": "https://www.irelandwestairport.com/at-the-airport/security-customs/",
+   "titolo_fonte": "Ireland West Airport Knock – Security & customs",
+   "lettura": "diretta",
+   "http": 200,
+   "controllato_il": "2026-11-05",
+   "impronta": "02cee56d207d3513"
   }
  ],
  "nazionali": [
@@ -1456,24 +2446,20 @@
  ],
  "esclusi": [
   {
+   "nome": "Birmingham",
+   "motivo": "Retried on 5 November 2026: the official site still blocks automated reading (HTTP 403)."
+  },
+  {
+   "nome": "Glasgow",
+   "motivo": "Retried on 5 November 2026: the official site blocks automated reading (HTTP 403). Glasgow Prestwick, a different airport, is included."
+  },
+  {
    "nome": "Paris CDG and Orly (Paris Aéroport)",
    "motivo": "Retried on 17 October 2026: the official pages loaded but showed no text to our browser."
   },
   {
-   "nome": "Birmingham",
-   "motivo": "Retried on 21 October 2026: the official site still blocks automated reading (HTTP 403), also in a browser."
-  },
-  {
-   "nome": "Glasgow",
-   "motivo": "Retried on 21 October 2026: the official security page shows an anti-robot check to our browser, so we could not read the rule."
-  },
-  {
    "nome": "Belfast City",
    "motivo": "Retried on 21 October 2026: the official Airport Security page has no liquids sentence and its Liquids page returns 404."
-  },
-  {
-   "nome": "Venice",
-   "motivo": "Retried on 17 October 2026: security page read, but no liquids sentence on it."
   },
   {
    "nome": "Southend",
@@ -1502,6 +2488,54 @@
   {
    "nome": "Auckland, Sydney, Melbourne, Toronto (own page)",
    "motivo": "Official page not found or blocked (10 October 2026). Toronto Pearson sends travellers to CATSA, covered as the Canada national rule."
+  },
+  {
+   "nome": "Larnaca, Paphos",
+   "motivo": "Read on 5 November 2026: the Hermes Airports liquids page asks for one 1-litre bag but gives no limit per container."
+  },
+  {
+   "nome": "Naples",
+   "motivo": "Tried on 5 November 2026: the official site shows an anti-robot check, so we could not read it."
+  },
+  {
+   "nome": "Venice, Verona, Treviso, Palermo, Vilnius, Sofia",
+   "motivo": "Tried on 5 November 2026: the official site blocks automated reading (HTTP 403)."
+  },
+  {
+   "nome": "Catania, Pisa, Florence, Shannon",
+   "motivo": "Tried on 5 November 2026: the official site sends its text only through JavaScript, and we only quote pages that give the rule to a normal request."
+  },
+  {
+   "nome": "Ponta Delgada (Azores)",
+   "motivo": "Tried on 5 November 2026: the ANA website shows an anti-robot check to a normal request."
+  },
+  {
+   "nome": "Cagliari, Olbia, Pula, Zagreb",
+   "motivo": "Read on 5 November 2026: we found no liquids limit on the English pages of the official site (Pula's security page asks you to report liquids but gives no limit)."
+  },
+  {
+   "nome": "Turin",
+   "motivo": "Read on 5 November 2026: the page mentions liquids over 100 ml only for the Fast Track lane and sends travellers to the ENAC website for the rule."
+  },
+  {
+   "nome": "Rotterdam The Hague",
+   "motivo": "Read on 5 November 2026: the page gives the 100 ml rule but also an older sentence allowing containers over 100 ml if the scanner approves them, so the rule is not clear."
+  },
+  {
+   "nome": "Norwich",
+   "motivo": "Read on 5 November 2026: the rule is only in a pop-up notice, not on a security page."
+  },
+  {
+   "nome": "Riga",
+   "motivo": "Read on 5 November 2026: the baggage rules page links to the EU rules but gives no limit itself."
+  },
+  {
+   "nome": "Heraklion",
+   "motivo": "Tried on 5 November 2026: the official site shows only an 'Under Maintenance' page."
+  },
+  {
+   "nome": "Split, Dalaman, Bodrum, Izmir, Kerry, Tallinn, Ljubljana",
+   "motivo": "Tried on 5 November 2026: the official site did not respond to us."
   }
  ]
 }

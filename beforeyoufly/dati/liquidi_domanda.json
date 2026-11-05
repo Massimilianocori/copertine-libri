@@ -1,0 +1,723 @@
+{
+ "_nota": "Ricerche vere (autocompletamento di Google, client=firefox, hl=en, gl=uk e gl=us, ricerca '<nome> airport liquid') per gli aeroporti aggiunti alla sezione liquidi il 5/11/2026: un aeroporto entra solo se ha almeno una ricerca vera '<nome> airport liquid…'; il nome nel titolo (NOMI_TITOLO in genera.py) è quello cercato. Solo i suggerimenti che contengono 'liquid'. Le domande delle FAQ sono quelle fisse della sezione (FAQ_LIQ), scritte il 21/10/2026 sulle ricerche vere: limite oltre 100 ml, regole/restrizioni, busta, scanner, neonati e medicine, duty-free.",
+ "letto_il": "2026-11-05",
+ "aeroporti": {
+  "valencia": {
+   "ricerca": "valencia airport liquid",
+   "uk": [
+    "valencia airport liquid rules",
+    "valencia airport liquids",
+    "valencia airport liquid rules 2026",
+    "valencia airport liquid restrictions",
+    "valencia airport liquid limit",
+    "valencia airport liquid allowance",
+    "valencia airport liquids in hand luggage",
+    "valencia airport liquids carry on",
+    "valencia airport liquid policy"
+   ],
+   "us": [
+    "valencia airport liquid rules",
+    "valencia airport liquids",
+    "valencia airport liquid rules 2026",
+    "valencia airport liquid restrictions",
+    "valencia airport liquid limit",
+    "valencia airport liquid allowance",
+    "valencia airport liquids in hand luggage",
+    "valencia airport liquids carry on",
+    "valencia airport liquid policy"
+   ]
+  },
+  "seville": {
+   "ricerca": "seville airport liquid",
+   "uk": [
+    "seville airport liquid rules",
+    "seville airport liquids",
+    "seville airport liquid rules 2026",
+    "seville airport liquid allowance",
+    "seville airport liquids 2026",
+    "seville airport liquids in hand luggage"
+   ],
+   "us": [
+    "seville airport liquid rules",
+    "seville airport liquids",
+    "seville airport liquid rules 2026",
+    "seville airport liquid allowance",
+    "seville airport liquids 2026",
+    "seville airport liquids in hand luggage"
+   ]
+  },
+  "reus": {
+   "ricerca": "reus airport liquid",
+   "uk": [
+    "reus airport liquid rules",
+    "reus airport liquids",
+    "reus airport liquid rules 2026",
+    "reus airport liquid limit",
+    "reus airport liquid restrictions",
+    "reus airport liquid rules 2025",
+    "reus airport liquid restrictions today",
+    "reus airport liquids policy",
+    "reus airport security liquids",
+    "barcelona reus airport liquids"
+   ],
+   "us": [
+    "reus airport liquid rules",
+    "reus airport liquids",
+    "reus airport liquid rules 2026",
+    "reus airport liquid limit",
+    "reus airport liquid restrictions",
+    "reus airport liquid rules 2025",
+    "reus airport liquid restrictions today",
+    "reus airport liquids policy",
+    "reus airport security liquids",
+    "barcelona reus airport liquids"
+   ]
+  },
+  "murcia": {
+   "ricerca": "murcia airport liquid",
+   "uk": [
+    "murcia airport liquid rules",
+    "murcia airport liquid rules 2026",
+    "murcia airport liquids",
+    "murcia airport liquid limit",
+    "murcia airport liquid rules 2025",
+    "murcia airport liquids policy",
+    "murcia airport security liquids",
+    "murcia international airport liquid rules",
+    "does murcia airport have liquid restrictions"
+   ],
+   "us": [
+    "murcia airport liquid rules",
+    "murcia airport liquid rules 2026",
+    "murcia airport liquids",
+    "murcia airport liquid limit",
+    "murcia airport liquid rules 2025",
+    "murcia airport liquids policy",
+    "murcia airport security liquids",
+    "murcia international airport liquid rules",
+    "does murcia airport have liquid restrictions"
+   ]
+  },
+  "almeria": {
+   "ricerca": "almeria airport liquid",
+   "uk": [
+    "almeria airport liquid rules",
+    "almeria airport liquid rules 2026",
+    "almeria airport liquids",
+    "almeria airport liquid restrictions",
+    "almeria airport liquid allowance",
+    "almeria airport security liquids"
+   ],
+   "us": [
+    "almeria airport liquid rules",
+    "almeria airport liquid rules 2026",
+    "almeria airport liquids",
+    "almeria airport liquid restrictions",
+    "almeria airport liquid allowance",
+    "almeria airport security liquids"
+   ]
+  },
+  "la-palma": {
+   "ricerca": "la palma airport liquid",
+   "uk": [
+    "la palma airport liquid rules",
+    "la palma airport liquids",
+    "palma de mallorca airport liquid rules",
+    "palma de mallorca airport liquids",
+    "palma de mallorca airport liquid limit"
+   ],
+   "us": [
+    "la palma airport liquid rules",
+    "la palma airport liquids",
+    "palma de mallorca airport liquid rules",
+    "palma de mallorca airport liquids",
+    "palma de mallorca airport liquid limit"
+   ]
+  },
+  "bilbao": {
+   "ricerca": "bilbao airport liquid",
+   "uk": [
+    "bilbao airport liquid rules",
+    "bilbao airport liquids",
+    "bilbao airport liquid allowance",
+    "bilbao airport liquid rules 2026",
+    "bilbao airport liquid restrictions",
+    "how much liquid through airport security",
+    "how much liquid bring on plane"
+   ],
+   "us": [
+    "bilbao airport liquid rules",
+    "bilbao airport liquids",
+    "bilbao airport liquid allowance",
+    "bilbao airport liquid rules 2026",
+    "bilbao airport liquid restrictions",
+    "how much liquid through airport security",
+    "how much liquid bring on plane"
+   ]
+  },
+  "girona": {
+   "ricerca": "girona airport liquid",
+   "uk": [
+    "girona airport liquid rules",
+    "girona airport liquid rules 2026",
+    "girona airport liquids",
+    "girona airport liquids 2026",
+    "girona airport liquid limit"
+   ],
+   "us": [
+    "girona airport liquid rules",
+    "girona airport liquid rules 2026",
+    "girona airport liquids",
+    "girona airport liquids 2026",
+    "girona airport liquid limit"
+   ]
+  },
+  "tenerife-north": {
+   "ricerca": "tenerife north airport liquid",
+   "uk": [
+    "tenerife north airport liquid rules"
+   ],
+   "us": [
+    "tenerife north airport liquid rules"
+   ]
+  },
+  "santiago-de-compostela": {
+   "ricerca": "santiago de compostela airport liquid",
+   "uk": [
+    "santiago de compostela airport liquid rules",
+    "santiago de compostela airport liquids",
+    "santiago de compostela airport liquid restrictions",
+    "santiago de compostela airport security liquids"
+   ],
+   "us": [
+    "santiago de compostela airport liquid rules",
+    "santiago de compostela airport liquids",
+    "santiago de compostela airport liquid restrictions",
+    "santiago de compostela airport security liquids"
+   ]
+  },
+  "jerez": {
+   "ricerca": "jerez airport liquid",
+   "uk": [
+    "jerez airport liquid rules",
+    "jerez airport liquids"
+   ],
+   "us": [
+    "jerez airport liquid rules",
+    "jerez airport liquids"
+   ]
+  },
+  "granada": {
+   "ricerca": "granada airport liquid",
+   "uk": [
+    "granada airport liquid rules",
+    "granada airport liquids"
+   ],
+   "us": [
+    "granada airport liquid rules",
+    "granada airport liquids"
+   ]
+  },
+  "thessaloniki": {
+   "ricerca": "thessaloniki airport liquid",
+   "uk": [
+    "thessaloniki airport liquid rules",
+    "thessaloniki airport liquids",
+    "thessaloniki airport liquid allowance",
+    "thessaloniki airport liquid restrictions",
+    "thessaloniki airport liquid policy",
+    "thessaloniki airport liquids hand luggage",
+    "thessaloniki airport security liquids",
+    "does thessaloniki airport have liquid restrictions"
+   ],
+   "us": [
+    "thessaloniki airport liquid rules",
+    "thessaloniki airport liquids",
+    "thessaloniki airport liquid allowance",
+    "thessaloniki airport liquid restrictions",
+    "thessaloniki airport liquid policy",
+    "thessaloniki airport liquids hand luggage",
+    "thessaloniki airport security liquids",
+    "does thessaloniki airport have liquid restrictions"
+   ]
+  },
+  "corfu": {
+   "ricerca": "corfu airport liquid",
+   "uk": [
+    "corfu airport liquid rules",
+    "corfu airport liquids",
+    "corfu airport liquid rules 2026",
+    "corfu airport liquids in hand luggage",
+    "corfu airport liquid limits"
+   ],
+   "us": [
+    "corfu airport liquid rules",
+    "corfu airport liquids",
+    "corfu airport liquid rules 2026",
+    "corfu airport liquids in hand luggage",
+    "corfu airport liquid limits"
+   ]
+  },
+  "chania": {
+   "ricerca": "chania airport liquid",
+   "uk": [
+    "chania airport liquids",
+    "chania airport liquid restrictions",
+    "chania airport liquid limit",
+    "chania airport liquid rules 2026",
+    "chania airport liquid allowance",
+    "chania airport liquids rules"
+   ],
+   "us": [
+    "chania airport liquids",
+    "chania airport liquid restrictions",
+    "chania airport liquid limit",
+    "chania airport liquid rules 2026",
+    "chania airport liquid allowance",
+    "chania airport liquids rules"
+   ]
+  },
+  "kefalonia": {
+   "ricerca": "kefalonia airport liquid",
+   "uk": [
+    "kefalonia airport liquid rules",
+    "kefalonia airport liquids",
+    "kefalonia airport liquid allowance",
+    "kefalonia airport liquid restrictions",
+    "kefalonia airport liquid rules 2026",
+    "kefalonia airport security liquids"
+   ],
+   "us": [
+    "kefalonia airport liquid rules",
+    "kefalonia airport liquids",
+    "kefalonia airport liquid allowance",
+    "kefalonia airport liquid restrictions",
+    "kefalonia airport liquid rules 2026",
+    "kefalonia airport security liquids"
+   ]
+  },
+  "zakynthos": {
+   "ricerca": "zakynthos airport liquid",
+   "uk": [
+    "zakynthos airport liquid rules",
+    "zakynthos airport liquids",
+    "zakynthos airport liquid limit",
+    "zakynthos airport liquid restrictions",
+    "zante airport liquid rules",
+    "zante airport liquids",
+    "zante airport liquid restrictions",
+    "zante airport liquid allowance",
+    "zakynthos airport security liquids"
+   ],
+   "us": [
+    "zakynthos airport liquid rules",
+    "zakynthos airport liquids",
+    "zakynthos airport liquid limit",
+    "zakynthos airport liquid restrictions",
+    "zante airport liquid rules",
+    "zante airport liquids",
+    "zante airport liquid restrictions",
+    "zante airport liquid allowance",
+    "zakynthos airport security liquids"
+   ]
+  },
+  "rhodes": {
+   "ricerca": "rhodes airport liquid",
+   "uk": [
+    "rhodes airport liquid rules",
+    "rhodes airport liquids",
+    "rhodes airport liquid rules 2026",
+    "rhodes airport liquid limit",
+    "rhodes airport liquid allowance",
+    "rhodes airport liquids in hand luggage",
+    "rhodes airport liquid restrictions",
+    "rhodes airport liquid policy"
+   ],
+   "us": [
+    "rhodes airport liquid rules",
+    "rhodes airport liquids",
+    "rhodes airport liquid rules 2026",
+    "rhodes airport liquid limit",
+    "rhodes airport liquid allowance",
+    "rhodes airport liquids in hand luggage",
+    "rhodes airport liquid restrictions",
+    "rhodes airport liquid policy"
+   ]
+  },
+  "kos": {
+   "ricerca": "kos airport liquid",
+   "uk": [
+    "kos airport liquid rules",
+    "kos airport liquids",
+    "kos airport liquid allowance",
+    "kos airport liquid restrictions",
+    "kos airport liquid rules 2026"
+   ],
+   "us": [
+    "kos airport liquid rules",
+    "kos airport liquids",
+    "kos airport liquid allowance",
+    "kos airport liquid restrictions",
+    "kos airport liquid rules 2026"
+   ]
+  },
+  "mykonos": {
+   "ricerca": "mykonos airport liquid",
+   "uk": [
+    "mykonos airport liquid rules",
+    "mykonos airport liquids",
+    "mykonos airport liquid limit",
+    "mykonos airport liquid restrictions",
+    "mykonos airport liquid policy",
+    "mykonos airport security liquids",
+    "does mykonos airport have. liquid restrictions"
+   ],
+   "us": [
+    "mykonos airport liquid rules",
+    "mykonos airport liquids",
+    "mykonos airport liquid limit",
+    "mykonos airport liquid restrictions",
+    "mykonos airport liquid policy",
+    "mykonos airport security liquids",
+    "does mykonos airport have. liquid restrictions"
+   ]
+  },
+  "santorini": {
+   "ricerca": "santorini airport liquid",
+   "uk": [
+    "santorini airport liquid rules",
+    "santorini airport liquids",
+    "santorini airport liquid allowance",
+    "santorini airport liquid restrictions",
+    "santorini airport liquid limit",
+    "santorini airport liquids policy",
+    "santorini airport security liquids",
+    "does santorini airport have liquid restrictions"
+   ],
+   "us": [
+    "santorini airport liquid rules",
+    "santorini airport liquids",
+    "santorini airport liquid allowance",
+    "santorini airport liquid restrictions",
+    "santorini airport liquid limit",
+    "santorini airport liquids policy",
+    "santorini airport security liquids",
+    "does santorini airport have liquid restrictions"
+   ]
+  },
+  "preveza-aktion": {
+   "ricerca": "preveza airport liquid",
+   "uk": [
+    "preveza airport liquid rules",
+    "preveza airport liquids",
+    "preveza airport liquid limit",
+    "aktion airport liquids",
+    "preveza airport security liquids"
+   ],
+   "us": [
+    "preveza airport liquid rules",
+    "preveza airport liquids",
+    "preveza airport liquid limit",
+    "aktion airport liquids",
+    "preveza airport security liquids"
+   ]
+  },
+  "kavala": {
+   "ricerca": "kavala airport liquid",
+   "uk": [
+    "kavala airport liquid rules",
+    "kavala airport liquids",
+    "can you buy liquids after airport security",
+    "can you take liquid on domestic flights",
+    "liquid more than 100ml on domestic flights"
+   ],
+   "us": [
+    "kavala airport liquid rules",
+    "kavala airport liquids",
+    "can you buy liquids after airport security",
+    "can you take liquid on domestic flights",
+    "liquid more than 100ml on domestic flights"
+   ]
+  },
+  "mytilene": {
+   "ricerca": "mytilene airport liquid",
+   "uk": [
+    "mytilene airport liquids",
+    "airport liquid guidelines",
+    "bwi airport liquid restrictions",
+    "airport liquid restrictions",
+    "what is considered a liquid at the airport"
+   ],
+   "us": [
+    "mytilene airport liquids",
+    "airport liquid guidelines",
+    "bwi airport liquid restrictions",
+    "airport liquid restrictions",
+    "what is considered a liquid at the airport"
+   ]
+  },
+  "samos": {
+   "ricerca": "samos airport liquid",
+   "uk": [
+    "samos airport liquid rules",
+    "samos airport liquids",
+    "do you still have to separate liquids at the airport"
+   ],
+   "us": [
+    "samos airport liquid rules",
+    "samos airport liquids",
+    "do you still have to separate liquids at the airport"
+   ]
+  },
+  "skiathos": {
+   "ricerca": "skiathos airport liquid",
+   "uk": [
+    "skiathos airport liquid rules",
+    "skiathos airport liquids",
+    "skiathos airport liquid restrictions",
+    "skiathos airport liquid allowance",
+    "skiathos airport security liquids"
+   ],
+   "us": [
+    "skiathos airport liquid rules",
+    "skiathos airport liquids",
+    "skiathos airport liquid restrictions",
+    "skiathos airport liquid allowance",
+    "skiathos airport security liquids"
+   ]
+  },
+  "milan-bergamo": {
+   "ricerca": "bergamo airport liquid",
+   "uk": [
+    "bergamo airport liquid rules",
+    "bergamo airport liquids",
+    "bergamo airport liquid rules 2026",
+    "bergamo airport liquid restrictions",
+    "bergamo airport liquids in hand luggage",
+    "bergamo airport liquidi",
+    "bergamo airport liquid rules alcohol"
+   ],
+   "us": [
+    "bergamo airport liquid rules",
+    "bergamo airport liquids",
+    "bergamo airport liquid rules 2026",
+    "bergamo airport liquid restrictions",
+    "bergamo airport liquids in hand luggage",
+    "bergamo airport liquidi",
+    "bergamo airport liquid rules alcohol"
+   ]
+  },
+  "bologna": {
+   "ricerca": "bologna airport liquid",
+   "uk": [
+    "bologna airport liquid rules",
+    "bologna airport liquids",
+    "bologna airport liquid limit",
+    "bologna airport liquids policy",
+    "bologna airport liquid restrictions",
+    "bologna airport liquid rules 2026",
+    "bologna airport liquids in hand luggage"
+   ],
+   "us": [
+    "bologna airport liquid rules",
+    "bologna airport liquids",
+    "bologna airport liquid limit",
+    "bologna airport liquids policy",
+    "bologna airport liquid restrictions",
+    "bologna airport liquid rules 2026",
+    "bologna airport liquids in hand luggage"
+   ]
+  },
+  "dubrovnik": {
+   "ricerca": "dubrovnik airport liquid",
+   "uk": [
+    "dubrovnik airport liquid rules",
+    "dubrovnik airport liquids",
+    "dubrovnik airport liquid rules 2026",
+    "dubrovnik airport liquid restrictions",
+    "dubrovnik airport liquid allowance",
+    "dubrovnik airport liquid limit"
+   ],
+   "us": [
+    "dubrovnik airport liquid rules",
+    "dubrovnik airport liquid rules 2026",
+    "dubrovnik airport liquids",
+    "dubrovnik airport liquid restrictions",
+    "dubrovnik airport liquid allowance",
+    "dubrovnik airport liquid limit"
+   ]
+  },
+  "zadar": {
+   "ricerca": "zadar airport liquid",
+   "uk": [
+    "zadar airport liquids",
+    "zadar airport liquids rules",
+    "zadar airport liquid restrictions",
+    "zadar airport liquids policy",
+    "zadar airport security liquids",
+    "does zadar airport have liquid restrictions"
+   ],
+   "us": [
+    "zadar airport liquids",
+    "zadar airport liquids rules",
+    "zadar airport liquid restrictions",
+    "zadar airport liquids policy",
+    "zadar airport security liquids",
+    "does zadar airport have liquid restrictions"
+   ]
+  },
+  "antalya": {
+   "ricerca": "antalya airport liquid",
+   "uk": [
+    "antalya airport liquid rules",
+    "antalya airport liquid rules 2026",
+    "antalya airport liquids",
+    "antalya airport liquid limit",
+    "antalya airport liquid restrictions"
+   ],
+   "us": [
+    "antalya airport liquid rules 2026",
+    "antalya airport liquid rules",
+    "antalya airport liquids",
+    "antalya airport liquid limit",
+    "antalya airport liquid restrictions"
+   ]
+  },
+  "keflavik": {
+   "ricerca": "keflavik airport liquid",
+   "uk": [
+    "keflavik airport liquid rules",
+    "keflavik airport liquids",
+    "keflavik airport liquid limit",
+    "keflavik airport liquid restrictions",
+    "kef airport liquids",
+    "kef airport liquid rules",
+    "keflavik airport security liquids",
+    "iceland keflavik airport liquid rules"
+   ],
+   "us": [
+    "keflavik airport liquid rules",
+    "keflavik airport liquids",
+    "keflavik airport liquid limit",
+    "keflavik airport liquid restrictions",
+    "kef airport liquids",
+    "kef airport liquid rules",
+    "keflavik airport security liquids",
+    "iceland keflavik airport liquid rules"
+   ]
+  },
+  "inverness": {
+   "ricerca": "inverness airport liquid",
+   "uk": [
+    "inverness airport liquid rules",
+    "inverness airport liquid",
+    "inverness airport liquid allowance",
+    "inverness airport liquid limit",
+    "inverness airport liquid policy",
+    "inverness airport security liquids",
+    "inverness airport carry on liquids",
+    "inverness airport hand luggage liquids",
+    "does inverness airport have liquid restrictions"
+   ],
+   "us": [
+    "inverness airport liquid rules",
+    "inverness airport liquid",
+    "inverness airport liquid allowance",
+    "inverness airport liquid limit",
+    "inverness airport liquid policy",
+    "inverness airport security liquids",
+    "inverness airport carry on liquids",
+    "inverness airport hand luggage liquids",
+    "does inverness airport have liquid restrictions"
+   ]
+  },
+  "glasgow-prestwick": {
+   "ricerca": "prestwick airport liquid",
+   "uk": [
+    "prestwick airport liquid rules",
+    "prestwick airport liquid",
+    "prestwick airport liquid policy",
+    "prestwick airport liquid rules 2026",
+    "why do liquids leak on airplanes",
+    "why do you have to put liquids in a plastic bag at airports"
+   ],
+   "us": [
+    "prestwick airport liquid rules",
+    "prestwick airport liquid",
+    "prestwick airport liquid policy",
+    "prestwick airport liquid rules 2026",
+    "why do liquids leak on airplanes",
+    "why do you have to put liquids in a plastic bag at airports"
+   ]
+  },
+  "teesside": {
+   "ricerca": "teesside airport liquid",
+   "uk": [
+    "teesside airport liquid rules",
+    "teesside airport liquids",
+    "teesside airport liquid restrictions",
+    "teesside airport liquid limit",
+    "teesside airport security liquids",
+    "teesside airport hand luggage liquids",
+    "what is considered a liquid at the airport",
+    "what does tsa consider a liquid or gel"
+   ],
+   "us": [
+    "teesside airport liquid rules",
+    "teesside airport liquids",
+    "teesside airport liquid restrictions",
+    "teesside airport liquid limit",
+    "teesside airport security liquids",
+    "teesside airport hand luggage liquids",
+    "what is considered a liquid at the airport",
+    "what does tsa consider a liquid or gel"
+   ]
+  },
+  "guernsey": {
+   "ricerca": "guernsey airport liquid",
+   "uk": [
+    "guernsey airport liquid rules",
+    "guernsey airport liquids",
+    "guernsey airport liquids in hand luggage",
+    "guernsey airport liquid allowance",
+    "guernsey airport liquid restrictions",
+    "guernsey airport liquid rules 2026",
+    "guernsey airport security liquids",
+    "can you have liquids in your carry on",
+    "airport liquid carry on rules"
+   ],
+   "us": [
+    "guernsey airport liquid rules",
+    "guernsey airport liquids",
+    "guernsey airport liquids in hand luggage",
+    "guernsey airport liquid allowance",
+    "guernsey airport liquid restrictions",
+    "guernsey airport liquid rules 2026",
+    "guernsey airport security liquids",
+    "can you have liquids in your carry on",
+    "airport liquid carry on rules"
+   ]
+  },
+  "knock": {
+   "ricerca": "knock airport liquid",
+   "uk": [
+    "knock airport liquid rules",
+    "knock airport liquid rules 2026",
+    "knock airport liquids",
+    "knock airport liquid limit",
+    "knock airport liquids policy",
+    "airport liquid bags where to buy",
+    "liquid restrictions uk airports"
+   ],
+   "us": [
+    "knock airport liquid rules",
+    "knock airport liquid rules 2026",
+    "knock airport liquids",
+    "knock airport liquid limit",
+    "knock airport liquids policy",
+    "airport liquid bags where to buy",
+    "liquid restrictions uk airports"
+   ]
+  }
+ }
+}
